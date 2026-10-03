@@ -1,25 +1,33 @@
 import { X } from "lucide-react";
 import { useEffect, useRef } from "react";
+import { ReadingChart, type ChartBook } from "@/components/ReadingChart";
 import { useCatalog } from "@/lib/catalog";
-import { SECTIONS, sectionColor } from "@/lib/sections";
+import { useProgress } from "@/lib/progress";
 import type { Translation } from "@/lib/types";
-import { cn } from "@/lib/utils";
 
 interface Props {
   translation: Translation;
-  current: string;
-  onPick: (code: string) => void;
+  current: { code: string; chapter: string };
+  onPick: (code: string, chapter: string) => void;
   onClose: () => void;
 }
 
-/** Every book of the current version as coloured tiles grouped by section. */
+/** The reading chart as a chapter picker: every book of this version, every chapter one click away. */
 export function BookPicker({ translation, current, onPick, onClose }: Props) {
   const catalog = useCatalog();
+  const progress = useProgress();
   const dialog = useRef<HTMLDivElement>(null);
+  // This version's own chapter labels (some are "12a"-style); read marks only where it numbers like the KJV.
+  const books: ChartBook[] = catalog.books
+    .filter((b) => translation.books[b.code])
+    .map((b) => ({ code: b.code, name: b.name, section: b.section, chapters: translation.books[b.code], href: `/read/${translation.slug}/${b.code}/${translation.books[b.code][0]}` }));
+  const isRead = translation.numbering === "english" ? progress.isRead : undefined;
 
   useEffect(() => {
     const previous = document.activeElement as HTMLElement | null;
-    dialog.current?.querySelector<HTMLElement>("[data-current='true'], button")?.focus();
+    const here = dialog.current?.querySelector<HTMLElement>("[aria-current='page']");
+    here?.focus();
+    here?.scrollIntoView({ block: "center" });
     // Escape closes only this dialog (not the verse panel underneath); Tab stays inside it.
     const onKey = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
@@ -27,7 +35,7 @@ export function BookPicker({ translation, current, onPick, onClose }: Props) {
         onClose();
       }
       if (event.key === "Tab" && dialog.current) {
-        const items = [...dialog.current.querySelectorAll<HTMLElement>("button")];
+        const items = [...dialog.current.querySelectorAll<HTMLElement>("a[href], button:not([tabindex='-1'])")];
         const first = items[0];
         const last = items[items.length - 1];
         if (event.shiftKey && document.activeElement === first) {
@@ -52,43 +60,18 @@ export function BookPicker({ translation, current, onPick, onClose }: Props) {
         ref={dialog}
         role="dialog"
         aria-modal="true"
-        aria-label={`Choose a book in the ${translation.name}`}
+        aria-label={`Choose a chapter in the ${translation.name}`}
         className="w-full max-w-4xl rounded-2xl border border-line bg-surface p-4 shadow-2xl sm:p-6"
         onClick={(event) => event.stopPropagation()}
       >
         <div className="mb-4 flex items-center justify-between">
-          <h2 className="font-serif text-xl font-semibold">Books in the {translation.abbr}</h2>
+          <h2 className="font-serif text-xl font-semibold">Choose a chapter · {translation.abbr}</h2>
           <button type="button" onClick={onClose} className="rounded-full p-2 hover:bg-surface-2" aria-label="Close">
             <X className="h-5 w-5" />
           </button>
         </div>
-        <div className="space-y-4">
-          {SECTIONS.map((section) => {
-            const books = catalog.books.filter((b) => b.section === section.id && translation.books[b.code]);
-            if (!books.length) return null;
-            return (
-              <div key={section.id}>
-                <h3 className="mb-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-muted">{section.name}</h3>
-                <div className="grid grid-cols-3 gap-1.5 xs:grid-cols-4 sm:grid-cols-6">
-                  {books.map((book) => (
-                    <button
-                      type="button"
-                      key={book.code}
-                      data-current={book.code === current}
-                      onClick={() => onPick(book.code)}
-                      className={cn(
-                        "min-h-[44px] truncate rounded-md px-2 py-2 text-left text-[13px] font-semibold text-white transition hover:brightness-110",
-                        book.code === current && "ring-2 ring-ink ring-offset-2 ring-offset-surface",
-                      )}
-                      style={{ background: sectionColor(section.id) }}
-                    >
-                      {book.name}
-                    </button>
-                  ))}
-                </div>
-              </div>
-            );
-          })}
+        <div className="[--box:2rem] sm:[--box:1.5rem]">
+          <ReadingChart books={books} isRead={isRead} onChapter={onPick} mode="open" current={current} compact />
         </div>
       </div>
     </div>

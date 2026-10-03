@@ -135,3 +135,72 @@ test("search results keep their own version after the picker changes", async ({ 
   await expect(page.getByText(/in the King James Version/)).toBeVisible();
   await expect(page.getByRole("link", { name: /John 11:35/ })).toHaveAttribute("href", /\/read\/kjv\/JHN\/11/);
 });
+
+// --- the reading chart (owner's reference: reference/reading-chart.png) ---
+
+test("reading chart: a chapter box opens that chapter", async ({ page }) => {
+  await page.goto("/");
+  await page.getByRole("group", { name: "Romans chapters" }).getByRole("button", { name: "Romans 8", exact: true }).click();
+  await expect(page).toHaveURL(/\/read\/kjv\/ROM\/8/);
+});
+
+test("reading chart: mark-as-read mode ticks a chapter and the reader agrees", async ({ page }) => {
+  await page.goto("/");
+  await page.evaluate(() => localStorage.removeItem("bp-read"));
+  await page.reload();
+  await page.getByRole("radio", { name: "Mark as read" }).click();
+  const box = page.getByRole("group", { name: "John chapters" }).getByRole("button", { name: /^John 3,/ });
+  await box.click();
+  await expect(box).toHaveAttribute("aria-pressed", "true");
+  await expect(box).toHaveText("✓");
+  await page.goto("/read/kjv/JHN/3");
+  await expect(page.getByRole("button", { name: "Read", exact: true })).toHaveAttribute("aria-pressed", "true");
+  await page.getByRole("button", { name: "Read", exact: true }).click();
+  await page.goto("/");
+  await page.getByRole("radio", { name: "Mark as read" }).click();
+  await expect(page.getByRole("group", { name: "John chapters" }).getByRole("button", { name: /^John 3,/ })).toHaveAttribute("aria-pressed", "false");
+});
+
+test("reading chart: one tab stop per book, arrows move between chapters", async ({ page }) => {
+  await page.goto("/");
+  const first = page.getByRole("group", { name: "Genesis chapters" }).getByRole("button", { name: "Genesis 1", exact: true });
+  await first.focus();
+  await page.keyboard.press("ArrowRight");
+  await expect(page.getByRole("group", { name: "Genesis chapters" }).getByRole("button", { name: "Genesis 2", exact: true })).toBeFocused();
+  const tabStops = await page.getByRole("group", { name: "Genesis chapters" }).locator('button[tabindex="0"]').count();
+  expect(tabStops).toBe(1);
+});
+
+test("the reader's picker jumps straight to a chapter", async ({ page }) => {
+  await page.goto("/read/kjv/GEN/1");
+  await page.getByRole("button", { name: /Genesis/ }).first().click();
+  const dialog = page.getByRole("dialog");
+  await dialog.getByRole("button", { name: "Isaiah 53", exact: true }).click();
+  await expect(page).toHaveURL(/\/read\/kjv\/ISA\/53/);
+});
+
+// --- the reader's header bar (2026-10-03 redesign: no dropdowns) ---
+
+test("header: previous and next name where they go", async ({ page }) => {
+  await page.goto("/read/kjv/HOS/2");
+  await page.getByRole("button", { name: "Next chapter: Hosea 3" }).first().click();
+  await expect(page).toHaveURL(/\/read\/kjv\/HOS\/3$/);
+  await page.getByRole("button", { name: "Previous chapter: Hosea 2" }).first().click();
+  await expect(page).toHaveURL(/\/read\/kjv\/HOS\/2$/);
+});
+
+test("header: the title opens the chapter chart", async ({ page }) => {
+  await page.goto("/read/kjv/HOS/2");
+  await page.getByRole("button", { name: /Hosea 2 — choose a book and chapter/ }).click();
+  await expect(page.getByRole("dialog")).toBeVisible();
+});
+
+test("header: the version panel switches version and adds one side by side", async ({ page }) => {
+  await page.goto("/read/kjv/PSA/23");
+  await page.getByRole("button", { name: /^Version:/ }).click();
+  await page.getByRole("button", { name: "Read WEB side by side" }).click();
+  await expect(page).toHaveURL(/with=web/);
+  await page.getByRole("button", { name: /^Version:/ }).click();
+  await page.getByRole("region", { name: "Versions" }).getByRole("button", { name: /^BSB/ }).click();
+  await expect(page).toHaveURL(/\/read\/bsb\/PSA\/23\?with=web/);
+});

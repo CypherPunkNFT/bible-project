@@ -22,14 +22,15 @@
   --accent: #8a5a12;
   --red-letter: #b3261e;
 
-  /* The reading-chart sections. Placeholders until the owner shares his chart — change only here. */
-  --history: #3e7cb1;
-  --poetry: #8e5bb5;
-  --prophets: #c8553d;
-  --gospels: #c79a1e;
-  --epistles: #3a9d6e;
-  --revelation: #b23a6b;
-  --apocrypha: #7d8590;
+  /* The owner's reading chart (reference/reading-chart.png): --x = general accent, -tab / -box / -tab-ink for the chart. */
+  --history: #4b5d23; --history-tab: #4b5d23; --history-box: #bac772; --history-tab-ink: #ffffff;
+  --poetry: #201d70; --poetry-tab: #201d70; --poetry-box: #a2b9e0; --poetry-tab-ink: #ffffff;
+  --prophets: #6e005f; --prophets-tab: #6e005f; --prophets-box: #c898c5; --prophets-tab-ink: #ffffff;
+  --gospels: #d8161e; --gospels-tab: #d8161e; --gospels-box: #f37b8a; --gospels-tab-ink: #ffffff;
+  --acts: #f05922; --acts-tab: #f05922; --acts-box: #f58c61; --acts-tab-ink: #1f1b16;
+  --epistles: #f7941c; --epistles-tab: #f7941c; --epistles-box: #fdc364; --epistles-tab-ink: #1f1b16;
+  --revelation: #8c7424; --revelation-tab: #8c7424; --revelation-box: #c5aa68; --revelation-tab-ink: #ffffff;
+  --apocrypha: #5f6670; --apocrypha-tab: #5f6670; --apocrypha-box: #c3c8ce; --apocrypha-tab-ink: #ffffff;
 
   /* Atlas: land in earth tones (north grey-green → olive → desert sand), sea clearly blue. */
   --land-north: #aebb98;
@@ -50,13 +51,14 @@
     --line: #36322c;
     --accent: #e0b25c;
     --red-letter: #ff7a6e;
-    --history: #5d9bd1;
-    --poetry: #ad7fd6;
-    --prophets: #e3765f;
-    --gospels: #e3b740;
-    --epistles: #52b987;
-    --revelation: #d65a8c;
-    --apocrypha: #9aa3ad;
+    --history: #bac772; --history-tab: #4b5d23; --history-box: color-mix(in srgb, #bac772 62%, #12110f); --history-tab-ink: #ffffff;
+    --poetry: #a2b9e0; --poetry-tab: #201d70; --poetry-box: color-mix(in srgb, #a2b9e0 62%, #12110f); --poetry-tab-ink: #ffffff;
+    --prophets: #c898c5; --prophets-tab: #6e005f; --prophets-box: color-mix(in srgb, #c898c5 62%, #12110f); --prophets-tab-ink: #ffffff;
+    --gospels: #f37b8a; --gospels-tab: #d8161e; --gospels-box: color-mix(in srgb, #f37b8a 62%, #12110f); --gospels-tab-ink: #ffffff;
+    --acts: #f58c61; --acts-tab: #f05922; --acts-box: color-mix(in srgb, #f58c61 62%, #12110f); --acts-tab-ink: #1f1b16;
+    --epistles: #fdc364; --epistles-tab: #f7941c; --epistles-box: color-mix(in srgb, #fdc364 62%, #12110f); --epistles-tab-ink: #1f1b16;
+    --revelation: #c5aa68; --revelation-tab: #8c7424; --revelation-box: color-mix(in srgb, #c5aa68 62%, #12110f); --revelation-tab-ink: #ffffff;
+    --apocrypha: #c3c8ce; --apocrypha-tab: #5f6670; --apocrypha-box: color-mix(in srgb, #c3c8ce 62%, #12110f); --apocrypha-tab-ink: #ffffff;
     --land-north: #4f5a44;
     --land-mid: #5d5a42;
     --land-south: #6e6040;
@@ -75,13 +77,14 @@
   --line: #36322c;
   --accent: #e0b25c;
   --red-letter: #ff7a6e;
-  --history: #5d9bd1;
-  --poetry: #ad7fd6;
-  --prophets: #e3765f;
-  --gospels: #e3b740;
-  --epistles: #52b987;
-  --revelation: #d65a8c;
-  --apocrypha: #9aa3ad;
+  --history: #bac772; --history-tab: #4b5d23; --history-box: color-mix(in srgb, #bac772 62%, #12110f); --history-tab-ink: #ffffff;
+  --poetry: #a2b9e0; --poetry-tab: #201d70; --poetry-box: color-mix(in srgb, #a2b9e0 62%, #12110f); --poetry-tab-ink: #ffffff;
+  --prophets: #c898c5; --prophets-tab: #6e005f; --prophets-box: color-mix(in srgb, #c898c5 62%, #12110f); --prophets-tab-ink: #ffffff;
+  --gospels: #f37b8a; --gospels-tab: #d8161e; --gospels-box: color-mix(in srgb, #f37b8a 62%, #12110f); --gospels-tab-ink: #ffffff;
+  --acts: #f58c61; --acts-tab: #f05922; --acts-box: color-mix(in srgb, #f58c61 62%, #12110f); --acts-tab-ink: #1f1b16;
+  --epistles: #fdc364; --epistles-tab: #f7941c; --epistles-box: color-mix(in srgb, #fdc364 62%, #12110f); --epistles-tab-ink: #1f1b16;
+  --revelation: #c5aa68; --revelation-tab: #8c7424; --revelation-box: color-mix(in srgb, #c5aa68 62%, #12110f); --revelation-tab-ink: #ffffff;
+  --apocrypha: #c3c8ce; --apocrypha-tab: #5f6670; --apocrypha-box: color-mix(in srgb, #c3c8ce 62%, #12110f); --apocrypha-tab-ink: #ffffff;
   --land-north: #4f5a44;
   --land-mid: #5d5a42;
   --land-south: #6e6040;

@@ -1,13 +1,13 @@
 import { motion } from "framer-motion";
 import { ArrowRight, BarChart3, Layers, Map, Search } from "lucide-react";
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 import { Link } from "react-router-dom";
 import { ChapterSpectrum } from "@/components/ChapterSpectrum";
-import { SectionDot } from "@/components/SectionStrip";
+import { LibraryChart } from "@/components/LibraryChart";
 import { useCatalog } from "@/lib/catalog";
 import { loadStats } from "@/lib/data";
 import { lastReadPath } from "@/lib/last-read";
-import { SECTIONS, sectionColor } from "@/lib/sections";
+import { SECTIONS } from "@/lib/sections";
 import type { SectionId, Stats } from "@/lib/types";
 import { useAsync } from "@/lib/useAsync";
 import { formatNumber } from "@/lib/utils";
@@ -26,7 +26,6 @@ function preferredSlug(): string {
 export default function LibraryPage() {
   const catalog = useCatalog();
   const stats = useAsync(loadStats, "stats");
-  const [apocrypha, setApocrypha] = useState(false);
   const slug = preferredSlug();
   // The spectrum's bars are KJV chapters; a version that numbers chapters differently would open the wrong one.
   const spectrumSlug = catalog.translations.find((t) => t.slug === slug)?.numbering === "english" ? slug : "kjv";
@@ -56,28 +55,13 @@ export default function LibraryPage() {
         </dl>
       </section>
 
-      <section aria-labelledby="spectrum" className="rounded-2xl border border-line bg-surface p-4 sm:p-6">
+      <LibraryChart slug={slug} />
+
+      <section aria-labelledby="spectrum" className="my-10 rounded-2xl border border-line bg-surface p-4 sm:p-6">
         <h2 id="spectrum" className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-muted">
           The Bible, chapter by chapter
         </h2>
         {stats.status === "ready" ? <ChapterSpectrum stats={stats.value} slug={spectrumSlug} /> : <div className="h-36 animate-pulse rounded bg-surface-2" />}
-      </section>
-
-      <section aria-labelledby="library" className="py-10">
-        <div className="mb-5 flex flex-wrap items-end justify-between gap-3">
-          <h2 id="library" className="font-serif text-2xl font-semibold sm:text-3xl">
-            The library
-          </h2>
-          <label className="flex cursor-pointer items-center gap-2 text-sm text-muted">
-            <input type="checkbox" checked={apocrypha} onChange={(e) => setApocrypha(e.target.checked)} className="h-4 w-4 accent-[var(--apocrypha)]" />
-            Show the Apocrypha
-          </label>
-        </div>
-        <div className="space-y-6">
-          {SECTIONS.filter((s) => apocrypha || s.id !== "apocrypha").map((section) => (
-            <SectionShelf key={section.id} id={section.id} slug={slug} stats={stats.status === "ready" ? stats.value : null} share={totals?.share[section.id]} />
-          ))}
-        </div>
       </section>
 
       <section aria-label="Explore" className="grid gap-4 pb-16 sm:grid-cols-2 lg:grid-cols-4">
@@ -119,43 +103,3 @@ function summarize(stats: Stats | null) {
   return { verses: canon.reduce((sum, b) => sum + b.verses, 0), share };
 }
 
-function SectionShelf({ id, slug, stats, share }: { id: SectionId; slug: string; stats: Stats | null; share?: number }) {
-  const catalog = useCatalog();
-  const section = SECTIONS.find((s) => s.id === id)!;
-  const books = catalog.books.filter((b) => b.section === id);
-  const kjvBooks = catalog.translations.find((t) => t.slug === "kjv")?.books ?? {};
-  const chaptersOf = (code: string) => stats?.books.find((b) => b.code === code)?.chapters.length ?? kjvBooks[code]?.length ?? 1;
-  const linkSlug = (code: string) =>
-    catalog.translations.find((t) => t.slug === slug)?.books[code] ? slug : catalog.translations.find((t) => t.books[code])?.slug ?? "kjv";
-
-  return (
-    <div>
-      <div className="mb-2 flex flex-wrap items-baseline gap-x-3 gap-y-1">
-        <SectionDot id={id} className="h-3 w-3 self-center" />
-        <h3 className="font-semibold">{section.name}</h3>
-        <span className="text-sm text-muted">{section.span}</span>
-        {share !== undefined && share > 0 && id !== "apocrypha" && (
-          <span className="text-xs text-muted">· {(share * 100).toFixed(1)}% of the words</span>
-        )}
-      </div>
-      <ul className="flex flex-wrap gap-1.5">
-        {books
-          .filter((b) => catalog.translations.some((t) => t.books[b.code]))
-          .map((book) => (
-            <li key={book.code} style={{ width: `clamp(48px, ${chaptersOf(book.code) * 0.55}%, 100%)` }} className="min-w-[48px]">
-              <Link
-                to={`/read/${linkSlug(book.code)}/${book.code}/${catalog.translations.find((t) => t.slug === linkSlug(book.code))?.books[book.code]?.[0] ?? 1}`}
-                title={`${book.name} — ${chaptersOf(book.code)} chapters`}
-                className="group relative flex h-16 flex-col justify-end overflow-hidden rounded-lg px-2 py-1.5 text-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
-                style={{ background: sectionColor(id) }}
-              >
-                <span className="absolute inset-0 bg-gradient-to-t from-black/35 to-transparent" aria-hidden />
-                <span className="relative truncate text-[13px] font-semibold leading-tight drop-shadow">{book.name}</span>
-                <span className="relative text-[11px] opacity-90">{chaptersOf(book.code)}</span>
-              </Link>
-            </li>
-          ))}
-      </ul>
-    </div>
-  );
-}

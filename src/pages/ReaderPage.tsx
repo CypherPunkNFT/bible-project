@@ -1,16 +1,17 @@
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, CheckSquare, ChevronLeft, ChevronRight, Square } from "lucide-react";
 import { useCallback, useEffect, useMemo, useState, type ReactNode } from "react";
 import { Link, Navigate, useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { BookPicker } from "@/components/reader/BookPicker";
 import { ChapterPlaces } from "@/components/reader/ChapterPlaces";
 import { ChapterText } from "@/components/reader/ChapterText";
 import { ParallelText, type Column } from "@/components/reader/ParallelText";
-import { ReaderToolbar } from "@/components/reader/ReaderToolbar";
+import { ReaderToolbar, type ChapterLink } from "@/components/reader/ReaderToolbar";
 import { useReaderSettings } from "@/components/reader/settings";
 import { VersePanel } from "@/components/reader/VersePanel";
 import { useCatalog } from "@/lib/catalog";
 import { loadBook } from "@/lib/data";
 import { rememberRead, lastReadPath } from "@/lib/last-read";
+import { useProgress } from "@/lib/progress";
 import { bookByCode } from "@/lib/refs";
 import { SECTION_BY_ID, sectionColor } from "@/lib/sections";
 import type { BookText, Catalog, Translation } from "@/lib/types";
@@ -65,6 +66,10 @@ function ReaderBody({ translation, code, chapter }: { translation: Translation; 
   const { prev, next } = neighbours(catalog, translation, code, chapter);
   const query = parallel.length ? `?with=${parallel.map((p) => p.slug).join(",")}` : "";
   const goTo = useCallback((target: readonly [string, string] | null) => target && navigate(`/read/${translation.slug}/${target[0]}/${target[1]}${query}`), [navigate, translation.slug, query]);
+  const linkTo = (target: readonly [string, string] | null): ChapterLink | null =>
+    target && { label: `${bookByCode(catalog, target[0])?.name ?? target[0]} ${target[1]}`, go: () => goTo(target) };
+  const prevLink = linkTo(prev);
+  const nextLink = linkTo(next);
 
   useEffect(() => rememberRead(`/read/${translation.slug}/${code}/${chapter}`), [translation.slug, code, chapter]);
 
@@ -120,15 +125,15 @@ function ReaderBody({ translation, code, chapter }: { translation: Translation; 
           const rest = parallel.filter((p) => p.slug !== slug).map((p) => p.slug);
           navigate(`/read/${slug}/${code}/${chapter}${rest.length ? `?with=${rest.join(",")}` : ""}`);
         }}
-        onChapter={(label) => navigate(`/read/${translation.slug}/${code}/${label}${query}`)}
         onOpenBooks={() => setPicking(true)}
-        onPrev={prev ? () => goTo(prev) : null}
-        onNext={next ? () => goTo(next) : null}
+        prev={prevLink}
+        next={nextLink}
         onParallel={(list) => navigate(`/read/${translation.slug}/${code}/${chapter}${list.length ? `?with=${list.join(",")}` : ""}`)}
         onSettings={setSettings}
       />
-      <div className={cn("grid gap-8 py-8", selected && "lg:grid-cols-[minmax(0,1fr)_23rem]")}>
-        <article className={cn("mx-auto w-full", parallel.length ? "max-w-none" : "max-w-[44rem]")} style={{ fontSize: `${settings.scale}rem` }}>
+      <div className={cn("grid grid-cols-[minmax(0,1fr)] gap-8 py-8", selected && "lg:grid-cols-[minmax(0,1fr)_23rem]")}>
+        <article className={cn("relative mx-auto w-full", parallel.length ? "max-w-none" : "max-w-[44rem]")} style={{ fontSize: `${settings.scale}rem` }}>
+          {!parallel.length && <SideArrows prev={prevLink} next={nextLink} />}
           <header className="mb-6 font-sans" style={{ fontSize: "1rem" }}>
             <p className="text-xs font-semibold uppercase tracking-[0.2em]" style={{ color: sectionColor(book.section) }}>
               {SECTION_BY_ID[book.section].name} · {translation.name}
@@ -147,12 +152,13 @@ function ReaderBody({ translation, code, chapter }: { translation: Translation; 
             ) : (
               <p className="text-muted">This chapter is not in this version.</p>
             ))}
-          <nav aria-label="Chapters" className="mt-12 flex items-center justify-between gap-3 border-t border-line pt-6 font-sans" style={{ fontSize: "1rem" }}>
+          <nav aria-label="Chapters" className="mt-12 flex flex-wrap items-center justify-between gap-3 border-t border-line pt-6 font-sans" style={{ fontSize: "1rem" }}>
             {prev ? (
               <button type="button" onClick={() => goTo(prev)} className="flex items-center gap-2 rounded-lg px-3 py-2 hover:bg-surface-2">
                 <ArrowLeft className="h-4 w-4" /> {bookByCode(catalog, prev[0])?.name} {prev[1]}
               </button>
             ) : <span />}
+            {translation.numbering === "english" && <MarkRead code={code} chapter={chapter} />}
             {next && (
               <button type="button" onClick={() => goTo(next)} className="flex items-center gap-2 rounded-lg px-3 py-2 hover:bg-surface-2">
                 {bookByCode(catalog, next[0])?.name} {next[1]} <ArrowRight className="h-4 w-4" />
@@ -168,15 +174,57 @@ function ReaderBody({ translation, code, chapter }: { translation: Translation; 
       {picking && (
         <BookPicker
           translation={translation}
-          current={code}
+          current={{ code, chapter }}
           onClose={closePicker}
-          onPick={(pick) => {
+          onPick={(pick, pickChapter) => {
             setPicking(false);
-            navigate(`/read/${translation.slug}/${pick}/${translation.books[pick][0]}${query}`);
+            navigate(`/read/${translation.slug}/${pick}/${pickChapter}${query}`);
           }}
         />
       )}
     </div>
+  );
+}
+
+/** Tick this chapter on the reading chart (KJV chapter numbering only, so it can never mark the wrong one). */
+function MarkRead({ code, chapter }: { code: string; chapter: string }) {
+  const progress = useProgress();
+  const read = progress.isRead(code, chapter);
+  return (
+    <button
+      type="button"
+      aria-pressed={read}
+      onClick={() => progress.toggle(code, chapter)}
+      className={cn("flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-sm transition", read ? "border-transparent bg-ink text-page" : "border-line hover:bg-surface-2")}
+    >
+      {read ? <CheckSquare className="h-4 w-4" aria-hidden /> : <Square className="h-4 w-4" aria-hidden />}
+      {read ? "Read" : "Mark read"}
+    </button>
+  );
+}
+
+/** Big round arrows either side of the text, riding at mid-screen as you scroll (wide screens only). */
+function SideArrows({ prev, next }: { prev: ChapterLink | null; next: ChapterLink | null }) {
+  const arrow = (link: ChapterLink | null, side: "left" | "right") => (
+    <div className={cn("pointer-events-none absolute inset-y-0 hidden xl:block", side === "left" ? "-left-24" : "-right-24")}>
+      {link && (
+        <button
+          type="button"
+          onClick={link.go}
+          aria-label={`${side === "left" ? "Previous" : "Next"} chapter: ${link.label}`}
+          title={link.label}
+          className="pointer-events-auto sticky top-[calc(50vh-1.75rem)] grid h-14 w-14 place-items-center rounded-full border border-line bg-surface text-muted shadow-sm transition hover:scale-105 hover:text-ink hover:shadow-md"
+        >
+          {side === "left" ? <ChevronLeft className="h-7 w-7" /> : <ChevronRight className="h-7 w-7" />}
+        </button>
+      )}
+    </div>
+  );
+  return (
+    <>
+      {arrow(prev, "left")}
+      {arrow(next, "right")}
+    </>
   );
 }
 

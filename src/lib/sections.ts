@@ -25,4 +25,14 @@ export function resolvedSectionColors(): Record<SectionId, string> {
   >;
 }
 
+/** A book's tone on the reading chart: its section's, except Acts, which the chart gives its own red-orange. */
+export type Tone = SectionId | "acts";
+export const toneOf = (code: string, section: SectionId): Tone => (code === "ACT" ? "acts" : section);
+
+export const tone = (id: Tone) => ({
+  tab: `var(--${id}-tab)`,
+  box: `var(--${id}-box)`,
+  tabInk: `var(--${id}-tab-ink)`,
+});
+
 export const isNewTestament = (id: SectionId) => id === "gospels" || id === "epistles" || id === "revelation";
