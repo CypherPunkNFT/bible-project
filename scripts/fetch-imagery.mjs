@@ -53,6 +53,24 @@ function requestUrl({ bounds, width }) {
   );
 }
 
+/** NASA's service occasionally drops a connection; try each picture three times before giving up. */
+async function fetchWithRetry(url, name, attempts = 3) {
+  for (let attempt = 1; ; attempt++) {
+    try {
+      const response = await fetch(url);
+      const type = response.headers.get("content-type") ?? "";
+      if (!response.ok || !type.startsWith("image/jpeg")) {
+        throw new Error(`GIBS answered ${response.status} ${type}: ${(await response.text()).slice(0, 300)}`);
+      }
+      return Buffer.from(await response.arrayBuffer());
+    } catch (error) {
+      if (attempt >= attempts) throw new Error(`fetch-imagery: ${name} failed after ${attempts} tries: ${error.message}`);
+      console.warn(`fetch-imagery: ${name} try ${attempt} failed (${error.message}); retrying`);
+      await new Promise((resolve) => setTimeout(resolve, 2000 * attempt));
+    }
+  }
+}
+
 // Same rule as scripts/bible/paths.py: BIBLE_SOURCES, else sources/ inside the repository, else ../sources.
 const site = new URL("../", import.meta.url);
 const sourcesRoot = process.env.BIBLE_SOURCES
@@ -68,12 +86,7 @@ const manifest = [];
 const requests = [];
 for (const layer of LAYERS) {
   const url = requestUrl(layer);
-  const response = await fetch(url);
-  const type = response.headers.get("content-type") ?? "";
-  if (!response.ok || !type.startsWith("image/jpeg")) {
-    throw new Error(`fetch-imagery: GIBS answered ${response.status} ${type} for ${layer.file}: ${(await response.text()).slice(0, 300)}`);
-  }
-  const image = Buffer.from(await response.arrayBuffer());
+  const image = await fetchWithRetry(url, layer.file);
   writeFileSync(new URL(layer.file, sourceDir), image);
   writeFileSync(new URL(layer.file, publicDir), image);
   // Where the picture sits in map units, so the page can place it.
