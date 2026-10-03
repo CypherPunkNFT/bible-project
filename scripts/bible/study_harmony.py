@@ -26,7 +26,7 @@ ALWAYS_CAPITAL = {
     "sermon", "mount", "olivet", "transfiguration", "gethsemane", "golgotha", "emmaus", "decapolis", "tyre",
     "sidon", "caesarea", "philippi", "bethany", "bethlehem", "nazareth", "capernaum", "jerusalem", "galilee",
     "judea", "perea", "samaria", "jordan", "jericho", "egypt", "sychar", "cana", "nain", "chorazin", "bethsaida",
-    "tiberias", "machaerus", "zacchaeus", "lazarus", "martha", "mary", "joseph", "peter", "simon", "andrew", "james",
+    "tiberias", "machaerus", "machærus", "zacchaeus", "lazarus", "martha", "mary", "joseph", "peter", "simon", "andrew", "james",
     "john", "philip", "nathanael", "matthew", "levi", "thomas", "judas", "iscariot", "pilate", "herod", "antipas",
     "caiaphas", "annas", "nicodemus", "barabbas", "magdalene", "zacharias", "elisabeth", "elizabeth", "anna",
     "simeon", "gabriel", "elijah", "moses", "abraham", "jonah", "solomon", "luke", "mark", "gospel", "gospels",
