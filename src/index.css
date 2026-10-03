@@ -30,6 +30,13 @@
   --epistles: #3a9d6e;
   --revelation: #b23a6b;
   --apocrypha: #7d8590;
+
+  /* Atlas: land in earth tones (north grey-green → olive → desert sand), sea clearly blue. */
+  --land-north: #aebb98;
+  --land-mid: #cfc99c;
+  --land-south: #e6d29a;
+  --sea: #8fb8d6;
+  --coast: #6f6a4c;
   color-scheme: light;
 }
 
@@ -50,6 +57,11 @@
     --epistles: #52b987;
     --revelation: #d65a8c;
     --apocrypha: #9aa3ad;
+    --land-north: #4f5a44;
+    --land-mid: #5d5a42;
+    --land-south: #6e6040;
+    --sea: #1d3447;
+    --coast: #a39a72;
     color-scheme: dark;
   }
 }
@@ -70,6 +82,11 @@
   --epistles: #52b987;
   --revelation: #d65a8c;
   --apocrypha: #9aa3ad;
+  --land-north: #4f5a44;
+  --land-mid: #5d5a42;
+  --land-south: #6e6040;
+  --sea: #1d3447;
+  --coast: #a39a72;
   color-scheme: dark;
 }
 

@@ -76,10 +76,19 @@ export function AtlasMap({ places, selected, onSelect }: Props) {
   const labelled = useMemo(() => placeLabels(ranked, k, selected?.id), [ranked, k, selected?.id]);
 
   return (
-    <div className="relative overflow-hidden rounded-xl border border-line bg-[color-mix(in_srgb,var(--history)_30%,var(--surface))]">
+    <div className="relative overflow-hidden rounded-xl border border-line bg-[var(--sea)]">
       <svg ref={svg} viewBox={`0 0 ${map.width} ${map.height}`} className="block h-auto w-full touch-none" role="img" aria-label="Map of places named in the Bible">
+        <defs>
+          {/* Earth tones by latitude: grey-green Anatolia and Greece, olive Levant, sand-yellow Egypt and Arabia.
+              In map units so the bands stay put while zooming. */}
+          <linearGradient id="land-tone" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2={map.height}>
+            <stop offset="0.15" stopColor="var(--land-north)" />
+            <stop offset="0.55" stopColor="var(--land-mid)" />
+            <stop offset="0.9" stopColor="var(--land-south)" />
+          </linearGradient>
+        </defs>
         <g transform={`translate(${transform.x},${transform.y}) scale(${k})`}>
-          <path d={map.land} fill="var(--surface)" stroke="var(--line)" strokeWidth={0.6 / k} />
+          <path d={map.land} fill="url(#land-tone)" stroke="var(--coast)" strokeWidth={0.7 / k} strokeLinejoin="round" />
           {ranked
             .slice()
             .reverse()
