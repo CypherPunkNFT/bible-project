@@ -17,6 +17,7 @@ const KINDS: { id: Prophet["kind"] | "all"; label: string }[] = [
 ];
 const KIND_TONE: Record<Prophet["kind"], Tone> = { writing: "prophets", prophet: "history", nt: "gospels", false: "apocrypha" };
 const ERA_LABEL: Record<string, string> = { Judges: "The Judges" };
+const slug = (text: string) => text.toLowerCase().replace(/[^a-z0-9]+/g, "-");
 
 export default function ProphetsPage() {
   const prophets = useAsync(loadProphets, "prophets");
@@ -58,8 +59,8 @@ export default function ProphetsPage() {
           </div>
           <div className="mt-6 space-y-8">
             {eras.map((era) => (
-              <section key={era} aria-labelledby={`era-${era}`}>
-                <h2 id={`era-${era}`} className="mb-3 font-serif text-2xl font-semibold">
+              <section key={era} aria-labelledby={`era-${slug(era)}`}>
+                <h2 id={`era-${slug(era)}`} className="mb-3 font-serif text-2xl font-semibold">
                   {ERA_LABEL[era] ?? era}
                 </h2>
                 <ol className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -78,7 +79,8 @@ export default function ProphetsPage() {
             <a className="underline" href="https://www.stepbible.org" rel="noreferrer">
               STEPBible.org
             </a>
-            , CC BY 4.0). Each "in the days of" comes from the verse given beside it; Joel, Obadiah, Nahum, Habakkuk and Malachi are not dated by any king in
+            , CC BY 4.0; STEP notes its summaries were adapted from AI output, 2024; shown here without markup, era names
+            shortened). Each "in the days of" comes from the verse given beside it; Joel, Obadiah, Nahum, Habakkuk and Malachi are not dated by any king in
             Scripture and are placed by era only.
           </StudyCredits>
         </>

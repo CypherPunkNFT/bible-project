@@ -1,5 +1,5 @@
 import { ChevronDown } from "lucide-react";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { PassageText, RefLink, StudyCredits, StudyHeader, StudySearch } from "@/components/study/StudyParts";
 import { loadHarmony, shortRange, type HarmonySection, type Span } from "@/lib/study";
 import { tone } from "@/lib/sections";
@@ -39,6 +39,15 @@ export default function HarmonyPage() {
       return !words || row.title.toLowerCase().includes(words) || row.items.some((i) => i.title.toLowerCase().includes(words));
     });
   }, [rows, query, only, exactly]);
+
+  // A link such as /study/harmony#event-72 (from the Miracles page) opens that event.
+  useEffect(() => {
+    const n = /^#event-(\w+)$/.exec(window.location.hash)?.[1];
+    if (!n || harmony.status !== "ready") return;
+    setOpen(n);
+    const timer = window.setTimeout(() => document.getElementById(`event-${n}`)?.scrollIntoView({ block: "start" }), 80);
+    return () => window.clearTimeout(timer);
+  }, [harmony.status]);
 
   const toggle = (key: GospelKey) => setOnly((list) => (list.includes(key) ? list.filter((g) => g !== key) : [...list, key]));
 
@@ -101,7 +110,8 @@ function Coverage({ rows, shown, onPick }: { rows: Row[]; shown: Row[]; onPick: 
   const colors = tone("gospels");
   return (
     <figure className="rounded-2xl border border-line bg-surface p-4">
-      <div className="space-y-1" role="img" aria-label="Which Gospels tell each event, from the first event to the last">
+      <div className="overflow-x-auto pb-1">
+      <div className="min-w-[36rem] space-y-1" role="img" aria-label="Which Gospels tell each event, from the first event to the last">
         {GOSPELS.map((g) => (
           <div key={g.key} className="flex items-center gap-2">
             <span className="w-14 shrink-0 text-right text-xs font-semibold text-muted">{g.name}</span>
@@ -121,6 +131,7 @@ function Coverage({ rows, shown, onPick }: { rows: Row[]; shown: Row[]; onPick: 
             </div>
           </div>
         ))}
+      </div>
       </div>
       <figcaption className="mt-2 min-h-[1.25rem] ps-16 text-xs text-muted">
         {hover ? (

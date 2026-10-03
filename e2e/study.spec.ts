@@ -75,3 +75,10 @@ test("names: three groups with the owner's counts, and a name opens its verses",
   await page.getByRole("button", { name: /^Abba, Father/ }).click();
   await expect(page.getByRole("region", { name: "Abba, Father" })).toContainText("Abba, Father, all things are possible");
 });
+
+test("harmony: a long passage across chapters ends with 'read on' (the Sermon on the Mount)", async ({ page }) => {
+  await page.goto("/study/harmony#event-54");
+  const panel = page.locator("#event-54-panel");
+  await expect(panel).toBeVisible();
+  await expect(panel.getByRole("link", { name: /read on/ }).first()).toBeVisible();
+});

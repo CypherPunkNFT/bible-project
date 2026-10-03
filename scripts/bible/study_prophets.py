@@ -106,7 +106,7 @@ def _king_era(king: str) -> str:
 def build_prophets(people: list[dict], verses: Verses) -> list[dict]:
     by_id = {p["id"]: p for p in people}
     seen, out = set(), []
-    for pid, kind, book, king, anchor in PROPHETS:
+    for position, (pid, kind, book, king, anchor) in enumerate(PROPHETS):
         if pid in seen:
             raise ValueError(f"prophets: {pid} listed twice")
         seen.add(pid)
@@ -129,8 +129,9 @@ def build_prophets(people: list[dict], verses: Verses) -> list[dict]:
             "brief": person["brief"],
             "first": person["refs"][0] if person["refs"] else None,
             "count": len(person["refs"]),
+            "position": position,
         })
     out.sort(key=lambda p: (ERAS.index(p["era"]) if p["era"] in ERAS else len(ERAS),
                             KINGS.index(p["king"]) if p["king"] else len(KINGS),
-                            p["first"] or 0))
+                            p["position"] if p["king"] else (p["first"] or 0)))
     return out

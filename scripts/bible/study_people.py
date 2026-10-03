@@ -157,6 +157,10 @@ def _link(records: list[dict]) -> tuple[list[dict], dict]:
                     unresolved["ambiguous" if matches else "not a person"] += 1
             record[field] = ids
         record["names"] = sorted({n for n in record.pop("names_raw") if n and n != record["name"]})
+    ids = Counter(r["id"] for r in records)
+    clashes = [i for i, n in ids.items() if n > 1]
+    if clashes:
+        raise ValueError(f"TIPNR: {len(clashes)} person ids are shared by two people, e.g. {clashes[:3]}")
     report = {"persons": len(records), "duplicate_keys": len(duplicates), "family_links_dropped": dict(unresolved),
               "refs_skipped": sum(r["skipped_refs"] for r in records)}
     return records, report

@@ -203,7 +203,7 @@ def build_study_into_new_data() -> str:
         report = module.build(OUT, OUT / "study")
         print("study:", report["harmony"], "·", report["letters"], "·", report["prophets"])
         return ""
-    except (SystemExit, ValueError, OSError) as error:
+    except (SystemExit, Exception) as error:  # any study failure keeps the Bible rebuild (reported, non-zero exit)
         print(f"STUDY BUILD FAILED: {error}", file=sys.stderr)
         if (OUT_FINAL / "study").exists():
             shutil.copytree(OUT_FINAL / "study", OUT / "study", dirs_exist_ok=True)

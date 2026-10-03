@@ -33,6 +33,7 @@ def build_names(folder: Path, verses: Verses) -> dict:
                     refs.extend(parse_refs(passage["reference"], verses))
                 except RefError as error:
                     raise ValueError(f"names: {name_id}: {error}") from error
+            refs = [list(r) for r in dict.fromkeys(tuple(r) for r in refs)]  # e.g. "Zion" lists Zechariah 9:9 twice
             names.append({"id": name_id, "name": display.get(name_id, entry["name"]), "note": entry.get("note", ""),
                           "refs": refs})
         groups.append({"key": key, "label": label, "names": names})

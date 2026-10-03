@@ -28,6 +28,7 @@ interface Group {
 }
 
 const OLD_TESTAMENT_LAST_BOOK = 39;
+const slug = (text: string) => text.toLowerCase().replace(/[^a-z0-9]+/g, "-");
 
 export default function MiraclesPage() {
   const miracles = useAsync(loadMiracles, "miracles");
@@ -80,8 +81,8 @@ export default function MiraclesPage() {
           </div>
           <div className="mt-6 space-y-8">
             {filtered.map((group) => (
-              <section key={group.who} aria-labelledby={`who-${group.who}`}>
-                <h2 id={`who-${group.who}`} className="mb-2 flex items-baseline gap-2 font-serif text-2xl font-semibold">
+              <section key={group.who} aria-labelledby={`who-${slug(group.who)}`}>
+                <h2 id={`who-${slug(group.who)}`} className="mb-2 flex items-baseline gap-2 font-serif text-2xl font-semibold">
                   <span className="h-3 w-3 self-center rounded-full" style={{ background: tone(groupTone(group)).tab }} aria-hidden />
                   {group.who === "Jesus" ? "The miracles of Jesus" : group.who}
                   <span className="font-sans text-sm font-normal text-muted">{group.items.length}</span>
@@ -150,7 +151,7 @@ function WhoChart({ groups }: { groups: Group[] }) {
       <ol className="space-y-1">
         {sorted.map((g) => (
           <li key={g.who} className="grid grid-cols-[8.5rem_1fr_2rem] items-center gap-2 text-sm">
-            <a href={`#who-${g.who}`} className="truncate text-right hover:text-accent">
+            <a href={`#who-${slug(g.who)}`} className="truncate text-right hover:text-accent">
               {g.who}
             </a>
             <span className="h-3.5 rounded-sm" style={{ width: `${Math.max(2, (g.items.length / max) * 100)}%`, background: tone(groupTone(g)).tab }} />
@@ -198,7 +199,7 @@ function MiracleRow({ item, open, onToggle }: { item: Item; open: boolean; onTog
       </div>
       {open && (
         <div id={panel} role="region" aria-label={item.title} className="space-y-3 px-3 pb-4 ps-9">
-          {item.refs.slice(0, item.gospels ? 4 : 3).map((span) => (
+          {(item.gospels ? GOSPELS.flatMap(([g]) => item.gospels?.[g]?.slice(0, 1) ?? []) : item.refs.slice(0, 3)).map((span) => (
             <div key={span.join("-")}>
               <p className="mb-0.5 text-xs font-semibold text-muted">
                 <RefLink span={span} />
@@ -208,7 +209,11 @@ function MiracleRow({ item, open, onToggle }: { item: Item; open: boolean; onTog
           ))}
           {item.section && (
             <p className="text-xs text-muted">
-              Event §{item.section} in the <Link className="underline" to="/study/harmony">Harmony of the Gospels</Link>.
+              Event §{item.section} in the{" "}
+              <Link className="underline" to={`/study/harmony#event-${item.section}`}>
+                Harmony of the Gospels
+              </Link>
+              .
             </p>
           )}
         </div>

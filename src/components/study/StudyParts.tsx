@@ -51,7 +51,7 @@ export function StudyCredits({ children }: { children: ReactNode }) {
 export function RefLink({ span, label, className }: { span: Span; label?: string; className?: string }) {
   const catalog = useCatalog();
   return (
-    <Link to={studyRefLink(catalog, span)} className={className ?? "underline decoration-line underline-offset-2 hover:text-accent hover:decoration-current"}>
+    <Link to={studyRefLink(catalog, span)} aria-label={label ? `${label} (${formatRange(catalog, span[0], span[1])})` : undefined} className={className ?? "underline decoration-line underline-offset-2 hover:text-accent hover:decoration-current"}>
       {label ?? formatRange(catalog, span[0], span[1])}
     </Link>
   );
@@ -67,10 +67,15 @@ export function PassageText({ span, max = 40 }: { span: Span; max?: number }) {
   if (plain.status === "loading") return <p className="animate-pulse text-sm text-muted">Loading…</p>;
   if (plain.status === "error") return <p className="text-sm text-muted">The text could not be loaded.</p>;
   const lines: { label: string; text: string }[] = [];
-  for (let chapter = a.chapter; chapter <= b.chapter && lines.length < max; chapter++) {
+  let truncated = false;
+  for (let chapter = a.chapter; chapter <= b.chapter && !truncated; chapter++) {
     const from = chapter === a.chapter ? a.verse : 1;
     const to = chapter === b.chapter ? b.verse : 200;
-    for (let verse = from; verse <= to && lines.length < max; verse++) {
+    for (let verse = from; verse <= to; verse++) {
+      if (lines.length >= max) {
+        truncated = true;
+        break;
+      }
       const text = plainLookup(plain.value, chapter, verse);
       if (text === undefined) {
         if (chapter !== b.chapter) break;
@@ -79,7 +84,6 @@ export function PassageText({ span, max = 40 }: { span: Span; max?: number }) {
       lines.push({ label: chapter === a.chapter && a.chapter === b.chapter ? String(verse) : `${chapter}:${verse}`, text: text.replace(/^¶\s*/, "") });
     }
   }
-  const total = a.chapter === b.chapter ? b.verse - a.verse + 1 : null;
   return (
     <div className="font-serif text-[0.95rem] leading-relaxed">
       {lines.map((line) => (
@@ -88,7 +92,7 @@ export function PassageText({ span, max = 40 }: { span: Span; max?: number }) {
           {line.text}{" "}
         </span>
       ))}
-      {total !== null && total > lines.length && (
+      {truncated && (
         <span className="font-sans text-xs text-muted">
           … <RefLink span={span} label="read on" />
         </span>

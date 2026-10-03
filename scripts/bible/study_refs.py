@@ -110,8 +110,14 @@ def parse_refs(text: str, verses: Verses, book: str | None = None, overrides: di
         has_verse = ":" in part
         for piece in [p.strip() for p in part.split(",") if p.strip()]:
             piece = piece.rstrip(". ")
-            piece = re.sub(r"\s*f{1,2}$", "", piece)  # "4:23 f." -> 4:23
-            ranges.append(_piece(piece, book, chapter if has_verse else None, verses))
+            following = re.search(r"\s*(f{1,2})$", piece)
+            if following and following.group(1) == "ff":
+                raise RefError(f"reference {text!r}: 'ff.' (and following) has no end verse")
+            piece = piece[: following.start()] if following else piece
+            span = _piece(piece, book, chapter if has_verse else None, verses)
+            if following:  # "4:23 f." = 4:23-24
+                span = [span[0], verses.check(book, span[1] // 1000 % 1000, span[1] % 1000 + 1)]
+            ranges.append(span)
             if ":" in piece:
                 chapter = int(piece.split(":")[0])
                 if "-" in piece and ":" in piece.split("-")[1]:

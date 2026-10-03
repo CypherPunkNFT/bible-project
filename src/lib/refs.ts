@@ -41,8 +41,11 @@ export function parseHighlight(value: string | null): [number, number] | null {
 /** Is a verse label ("12", "12a", "15-16") inside a highlighted passage? */
 export function inHighlight(label: string, range: [number, number] | null): boolean {
   if (!range) return false;
-  const first = /^(\d+)/.exec(label);
-  return first ? Number(first[1]) >= range[0] && Number(first[1]) <= range[1] : false;
+  const match = /^(\d+)[a-z]?(?:-(\d+))?/.exec(label);
+  if (!match) return false;
+  const start = Number(match[1]);
+  const end = Number(match[2] ?? match[1]);
+  return start <= range[1] && end >= range[0];
 }
 
 /** Does a verse label like "12", "12a" or "15-16" cover verse number n? */

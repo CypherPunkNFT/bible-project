@@ -37,6 +37,7 @@ def people(verses):
     ("Isaiah 1:1", ["Isaiah 1:1"]),
     ("I John 1:1", ["1 John 1:1"]),
     ("Matthew 6:26,32", ["Matthew 6:26", "Matthew 6:32"]),
+    ("Matt. 4:23 f.", ["Matthew 4:23-24"]),
 ])
 def test_reference_styles(verses, text, expected):
     assert [format_range(*r) for r in parse_refs(text, verses)] == expected
