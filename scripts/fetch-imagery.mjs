@@ -1,48 +1,64 @@
-// Downloads the Atlas's satellite picture ONCE: NASA Blue Marble Next Generation (public domain, ~500 m per
-// pixel), cut by NASA's GIBS image service to exactly the map's square, already in the site's web-Mercator
-// projection. The raw response is kept, never edited, in ../sources/nasa-bluemarble/; the page uses copies
-// in public/atlas/. No runtime dependency: the site never calls NASA.
-//   node scripts/fetch-imagery.mjs [width]        (default 10000 px; a 2000 px preview is always made too)
+// Downloads the Atlas's satellite pictures ONCE: NASA Blue Marble Next Generation (public domain, ~500 m per
+// pixel), cut by NASA's GIBS image service and already in the site's web-Mercator projection.
+//   - region: the whole map area (every place + margin), as a light preview and an overview
+//   - core:   Italy to Persia, Yemen to the Black Sea, at close to native detail (loaded only when zoomed in)
+// Raw responses are kept, never edited, in ../sources/nasa-bluemarble/; the page uses copies in public/atlas/
+// and src/data/atlas-imagery.json says where each one sits. The site never calls NASA at run time.
+//   node scripts/fetch-imagery.mjs        (run scripts/build-map.mjs first: it defines the map area)
 import { geoMercator } from "d3-geo";
 import { createHash } from "node:crypto";
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 
 const map = JSON.parse(readFileSync(new URL("../src/data/atlas-map.json", import.meta.url), "utf8"));
 const projection = geoMercator().scale(map.scale).translate(map.translate);
-const [west, north] = projection.invert([0, 0]);
-const [east, south] = projection.invert([map.width, map.height]);
+const [regionWest, regionNorth] = projection.invert([0, 0]);
+const [regionEast, regionSouth] = projection.invert([map.width, map.height]);
+const region = { west: regionWest, east: regionEast, south: regionSouth, north: regionNorth };
+const core = { west: 8, east: 58, south: 13, north: 46 };
 
-// EPSG:3857 metres for the corners of the map's square (the same spherical Mercator d3 draws).
+const LAYERS = [
+  { file: "bluemarble-region-preview.jpg", bounds: region, width: 1600, role: "preview" },
+  { file: "bluemarble-region.jpg", bounds: region, width: 8000, role: "overview" },
+  { file: "bluemarble-core.jpg", bounds: core, width: 10000, role: "detail" },
+];
+
+// EPSG:3857 metres (the same spherical Mercator d3 draws).
 const R = 6378137;
 const toX = (lon) => (R * lon * Math.PI) / 180;
 const toY = (lat) => R * Math.log(Math.tan(Math.PI / 4 + (lat * Math.PI) / 360));
-const bbox = [toX(west), toY(south), toX(east), toY(north)].map((v) => v.toFixed(2)).join(",");
 
-const LAYER = "BlueMarble_NextGeneration";
-const url = (width) =>
-  "https://gibs.earthdata.nasa.gov/wms/epsg3857/best/wms.cgi?SERVICE=WMS&REQUEST=GetMap&VERSION=1.3.0" +
-  `&LAYERS=${LAYER}&STYLES=&CRS=EPSG:3857&BBOX=${bbox}&WIDTH=${width}&HEIGHT=${Math.round((width * map.height) / map.width)}` +
-  "&FORMAT=image/jpeg";
-
-async function fetchImage(width) {
-  const response = await fetch(url(width));
-  const type = response.headers.get("content-type") ?? "";
-  if (!response.ok || !type.startsWith("image/jpeg")) {
-    throw new Error(`fetch-imagery: GIBS answered ${response.status} ${type} for width ${width}: ${(await response.text()).slice(0, 300)}`);
-  }
-  return Buffer.from(await response.arrayBuffer());
+function requestUrl({ bounds, width }) {
+  const height = Math.round((width * (toY(bounds.north) - toY(bounds.south))) / (toX(bounds.east) - toX(bounds.west)));
+  const bbox = [toX(bounds.west), toY(bounds.south), toX(bounds.east), toY(bounds.north)].map((v) => v.toFixed(2)).join(",");
+  return (
+    "https://gibs.earthdata.nasa.gov/wms/epsg3857/best/wms.cgi?SERVICE=WMS&REQUEST=GetMap&VERSION=1.3.0" +
+    `&LAYERS=BlueMarble_NextGeneration&STYLES=&CRS=EPSG:3857&BBOX=${bbox}&WIDTH=${width}&HEIGHT=${height}&FORMAT=image/jpeg`
+  );
 }
 
-const width = Number(process.argv[2] ?? 10000);
 const sourceDir = new URL("../../sources/nasa-bluemarble/", import.meta.url);
 const publicDir = new URL("../public/atlas/", import.meta.url);
 mkdirSync(sourceDir, { recursive: true });
 mkdirSync(publicDir, { recursive: true });
-console.log(`square: lon ${west.toFixed(3)}..${east.toFixed(3)}, lat ${south.toFixed(3)}..${north.toFixed(3)}`);
-for (const [name, size] of [["bluemarble-preview.jpg", 2000], ["bluemarble.jpg", width]]) {
-  const image = await fetchImage(size);
-  writeFileSync(new URL(name, sourceDir), image);
-  writeFileSync(new URL(name, publicDir), image);
-  console.log(`${name}: ${size} px wide, ${(image.length / 1e6).toFixed(1)} MB, sha256 ${createHash("sha256").update(image).digest("hex").slice(0, 16)}`);
+const manifest = [];
+const requests = [];
+for (const layer of LAYERS) {
+  const url = requestUrl(layer);
+  const response = await fetch(url);
+  const type = response.headers.get("content-type") ?? "";
+  if (!response.ok || !type.startsWith("image/jpeg")) {
+    throw new Error(`fetch-imagery: GIBS answered ${response.status} ${type} for ${layer.file}: ${(await response.text()).slice(0, 300)}`);
+  }
+  const image = Buffer.from(await response.arrayBuffer());
+  writeFileSync(new URL(layer.file, sourceDir), image);
+  writeFileSync(new URL(layer.file, publicDir), image);
+  // Where the picture sits in map units, so the page can place it.
+  const [x0, y0] = projection([layer.bounds.west, layer.bounds.north]);
+  const [x1, y1] = projection([layer.bounds.east, layer.bounds.south]);
+  manifest.push({ file: `/atlas/${layer.file}`, role: layer.role, x: x0, y: y0, width: x1 - x0, height: y1 - y0 });
+  requests.push(`${layer.file}\n${url}`);
+  const hash = createHash("sha256").update(image).digest("hex").slice(0, 16);
+  console.log(`${layer.file}: ${layer.width} px, ${(image.length / 1e6).toFixed(1)} MB, sha256 ${hash}`);
 }
-writeFileSync(new URL("REQUEST.txt", sourceDir), `${url(width)}\nlayer ${LAYER}, fetched ${new Date().toISOString()}\n`);
+writeFileSync(new URL("../src/data/atlas-imagery.json", import.meta.url), JSON.stringify(manifest, null, 1));
+writeFileSync(new URL("REQUEST.txt", sourceDir), `fetched ${new Date().toISOString()}\n\n${requests.join("\n\n")}\n`);

@@ -1,18 +1,25 @@
-// Pre-draws the Atlas's land outline once: the detailed (1:10m) world land clipped to the biblical world,
-// projected and written as one SVG path in src/data/atlas-map.json. The page then ships ~250 KB.
+// Pre-draws the Atlas's land outline once: the detailed (1:10m) world land clipped to the area holding every
+// place on the map (data/places.json, so run scripts/build-data.py first) plus a margin for the edge fade,
+// projected and written as one SVG path in src/data/atlas-map.json.
 //   node scripts/build-map.mjs
 import { geoArea, geoBounds, geoMercator, geoPath } from "d3-geo";
 import { readFileSync, writeFileSync } from "node:fs";
 import { feature } from "topojson-client";
 
 const WIDTH = 1000;
-const HEIGHT = 760;
-// Rome to Persia, Ethiopia to the Black Sea. Clockwise ring: d3-geo treats an anticlockwise one as
-// "the whole globe except this box" and would fit the entire world.
-const WEST = 9;
-const EAST = 58;
-const SOUTH = 12;
-const NORTH = 45;
+// Degrees added around the outermost places (Tarshish, India, Sheba, Ashkenaz) so they sit inside the fade.
+const MARGIN = 3;
+const places = JSON.parse(readFileSync(new URL("../data/places.json", import.meta.url), "utf8"));
+if (!Array.isArray(places) || places.length === 0) throw new Error("build-map: data/places.json is empty; run scripts/build-data.py first");
+const WEST = Math.floor(Math.min(...places.map((p) => p.lon)) - MARGIN);
+const EAST = Math.ceil(Math.max(...places.map((p) => p.lon)) + MARGIN);
+const SOUTH = Math.floor(Math.min(...places.map((p) => p.lat)) - MARGIN);
+const NORTH = Math.ceil(Math.max(...places.map((p) => p.lat)) + MARGIN);
+// The map is exactly the area: its height follows the area's Mercator proportions.
+const unit = geoMercator();
+const [x0, y0] = unit([WEST, NORTH]);
+const [x1, y1] = unit([EAST, SOUTH]);
+const HEIGHT = Math.round((WIDTH * (y1 - y0)) / (x1 - x0));
 
 const topology = JSON.parse(readFileSync(new URL("../node_modules/world-atlas/land-10m.json", import.meta.url), "utf8"));
 const world = feature(topology, topology.objects.land);
@@ -34,6 +41,7 @@ const frame = {
   type: "Feature",
   geometry: { type: "Polygon", coordinates: [[[WEST, SOUTH], [WEST, NORTH], [EAST, NORTH], [EAST, SOUTH], [WEST, SOUTH]]] },
 };
+// Clockwise ring: d3-geo treats an anticlockwise one as "the whole globe except this box".
 const projection = geoMercator().fitSize([WIDTH, HEIGHT], frame).clipExtent([[-20, -20], [WIDTH + 20, HEIGHT + 20]]);
 // Drop coastline points closer than MIN_STEP px to the last kept one (rings still close properly:
 // lineEnd/ring closure is handled by the path context). Zoomed-in the map stays crisp enough.
@@ -63,6 +71,6 @@ const writer = {
 };
 geoPath(projection, decimating(writer))(land);
 if (!d) throw new Error("build-map: land path came out empty; check the world-atlas file and the frame");
-const out = { width: WIDTH, height: HEIGHT, scale: projection.scale(), translate: projection.translate(), land: d };
+const out = { width: WIDTH, height: HEIGHT, bounds: { west: WEST, east: EAST, south: SOUTH, north: NORTH }, scale: projection.scale(), translate: projection.translate(), land: d };
 writeFileSync(new URL("../src/data/atlas-map.json", import.meta.url), JSON.stringify(out));
-console.log(`atlas-map.json: ${(d.length / 1024).toFixed(0)} KB of path, scale ${projection.scale().toFixed(1)}`);
+console.log(`atlas-map.json: lon ${WEST}..${EAST}, lat ${SOUTH}..${NORTH}, ${WIDTH}x${HEIGHT}, ${(d.length / 1024).toFixed(0)} KB of path`);
