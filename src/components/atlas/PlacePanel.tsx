@@ -1,5 +1,6 @@
 import { MapPin, X } from "lucide-react";
-import { useState, type CSSProperties } from "react";
+import { useState } from "react";
+import { cn } from "@/lib/utils";
 import { Link } from "react-router-dom";
 import { useCatalog } from "@/lib/catalog";
 import { loadPlain } from "@/lib/data";
@@ -9,7 +10,7 @@ import { useAsync } from "@/lib/useAsync";
 import type { MapPlace } from "./projection";
 
 /** One place: where it is named, as a small chart by book, then the verses themselves. */
-export function PlacePanel({ place, onClose, height }: { place: MapPlace; onClose: () => void; height: number }) {
+export function PlacePanel({ place, onClose, overlay }: { place: MapPlace; onClose: () => void; overlay: boolean }) {
   const catalog = useCatalog();
   const [shown, setShown] = useState(15);
   const byBook = new Map<number, number>();
@@ -18,12 +19,14 @@ export function PlacePanel({ place, onClose, height }: { place: MapPlace; onClos
   const max = Math.max(...books.map(([, n]) => n));
 
   return (
-    // Exactly as tall as the map beside it (a fixed scroll area on phones), scrolling inside itself —
+    // Over the map: exactly the map's height; on phones: a fixed scroll area. Either way it scrolls itself —
     // a place named in hundreds of verses never stretches the page. The name and close button stay put.
     <aside
       aria-labelledby="place-title"
-      className="max-h-[70vh] overflow-y-auto overscroll-contain rounded-2xl border border-line bg-surface px-4 pb-4 lg:max-h-[var(--panel-height)]"
-      style={{ "--panel-height": `${height || 600}px` } as CSSProperties}
+      className={cn(
+        "overflow-y-auto overscroll-contain rounded-2xl border border-line bg-surface px-4 pb-4",
+        overlay ? "h-full shadow-2xl" : "max-h-[70vh]",
+      )}
     >
       <div className="sticky top-0 z-10 -mx-4 flex items-start justify-between gap-2 border-b border-line/60 bg-surface px-4 pb-3 pt-4">
         <div>

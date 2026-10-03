@@ -1,7 +1,8 @@
 // Downloads the Atlas's satellite pictures ONCE: NASA Blue Marble Next Generation (public domain, ~500 m per
 // pixel), cut by NASA's GIBS image service and already in the site's web-Mercator projection.
 //   - region: the whole map area (every place + margin), as a light preview and an overview
-//   - core:   Italy to Persia, Yemen to the Black Sea, at close to native detail (loaded only when zoomed in)
+//   - tiles:  Italy to Persia, Yemen to the Black Sea, at close to native detail, in 12 tiles the page loads
+//             only when zoomed in and only where the view is
 // Raw responses are kept, never edited, in ../sources/nasa-bluemarble/; the page uses copies in public/atlas/
 // and src/data/atlas-imagery.json says where each one sits. The site never calls NASA at run time.
 //   node scripts/fetch-imagery.mjs        (run scripts/build-map.mjs first: it defines the map area)
@@ -16,10 +17,25 @@ const [regionEast, regionSouth] = projection.invert([map.width, map.height]);
 const region = { west: regionWest, east: regionEast, south: regionSouth, north: regionNorth };
 const core = { west: 8, east: 58, south: 13, north: 46 };
 
+// The close-up is a 4 x 3 grid of tiles (2,500 px each, ~10,000 px across the core) so the page loads and
+// draws only the tiles on screen, instead of one 10,000 px picture (~310 MB once decoded).
+const COLUMNS = 4;
+const ROWS = 3;
+const tiles = [];
+for (let row = 0; row < ROWS; row++) {
+  for (let column = 0; column < COLUMNS; column++) {
+    const west = core.west + ((core.east - core.west) * column) / COLUMNS;
+    const east = core.west + ((core.east - core.west) * (column + 1)) / COLUMNS;
+    const north = core.north - ((core.north - core.south) * row) / ROWS;
+    const south = core.north - ((core.north - core.south) * (row + 1)) / ROWS;
+    tiles.push({ file: `bluemarble-tile-${row}-${column}.jpg`, bounds: { west, east, south, north }, width: 2500, role: "tile" });
+  }
+}
+
 const LAYERS = [
-  { file: "bluemarble-region-preview.jpg", bounds: region, width: 1600, role: "preview" },
-  { file: "bluemarble-region.jpg", bounds: region, width: 8000, role: "overview" },
-  { file: "bluemarble-core.jpg", bounds: core, width: 10000, role: "detail" },
+  { file: "bluemarble-region-preview.jpg", bounds: region, width: 1500, role: "preview" },
+  { file: "bluemarble-region.jpg", bounds: region, width: 5000, role: "overview" },
+  ...tiles,
 ];
 
 // EPSG:3857 metres (the same spherical Mercator d3 draws).

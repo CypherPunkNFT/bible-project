@@ -150,3 +150,31 @@ body {
     scroll-behavior: auto !important;
   }
 }
+
+/* Atlas: a chosen place's ring ripples out twice from its dot; its name eases in beside it. */
+.atlas-pulse {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: atlas-pulse 0.9s cubic-bezier(0.16, 1, 0.3, 1) 2 both;
+}
+@keyframes atlas-pulse {
+  from {
+    transform: scale(0.6);
+    opacity: 0.95;
+  }
+  to {
+    transform: scale(3.2);
+    opacity: 0;
+  }
+}
+.atlas-name-in {
+  animation: atlas-name-in 0.35s ease-out both;
+}
+@keyframes atlas-name-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

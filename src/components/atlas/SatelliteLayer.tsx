@@ -1,41 +1,39 @@
 import { useState } from "react";
-import imagery from "@/data/atlas-imagery.json";
 import map from "@/data/atlas-map.json";
+import { DETAIL_FROM, overlaps, overview, preview, tiles, type Layer, type View } from "./imagery";
 
-/** Zoom level at which the close-up core picture is worth fetching (it is ~6 MB). */
-const DETAIL_FROM = 1.6;
 /** Width of the soft edge, in map units (the map is 1000 wide). */
 const FADE = 26;
 
-type Layer = (typeof imagery)[number];
-const byRole = (role: string): Layer | undefined => imagery.find((layer) => layer.role === role);
-
 /**
  * NASA Blue Marble under the places: a light preview at once, the whole-area overview over it when loaded,
- * and the sharp core (Italy to Persia) only once someone zooms in. The edges fade into the dark surround
- * instead of ending in a hard box. If no picture loads, the drawn land outline stands in.
+ * and — once zoomed in — only the close-up tiles the view touches (a tile once shown stays, so panning back
+ * costs nothing). The edges fade into the dark surround instead of ending in a hard box. If no picture
+ * loads, the drawn land outline stands in.
  */
-export function SatelliteLayer({ k }: { k: number }) {
+export function SatelliteLayer({ view }: { view: View }) {
   const [loaded, setLoaded] = useState<Record<string, boolean>>({});
   const [failed, setFailed] = useState(false);
-  const [wantDetail, setWantDetail] = useState(false);
-  if (k >= DETAIL_FROM && !wantDetail) setWantDetail(true);
-  const preview = byRole("preview");
-  const overview = byRole("overview");
-  const detail = byRole("detail");
+  const [wanted, setWanted] = useState<Set<string>>(new Set());
+  if (view.k >= DETAIL_FROM) {
+    const visible = tiles.filter((tile) => overlaps(tile, view) && !wanted.has(tile.file));
+    if (visible.length) setWanted(new Set([...wanted, ...visible.map((tile) => tile.file)]));
+  }
 
-  const picture = (layer: Layer | undefined, visible: boolean) =>
+  // Tiles get half a map unit of overlap so no hairline seam shows between neighbours.
+  const picture = (layer: Layer | undefined, visible: boolean, bleed = 0) =>
     layer && (
       <image
+        key={layer.file}
         href={layer.file}
-        x={layer.x}
-        y={layer.y}
-        width={layer.width}
-        height={layer.height}
+        x={layer.x - bleed}
+        y={layer.y - bleed}
+        width={layer.width + 2 * bleed}
+        height={layer.height + 2 * bleed}
         preserveAspectRatio="none"
         opacity={visible ? 1 : 0}
         style={{ transition: "opacity 400ms ease" }}
-        onLoad={() => setLoaded((state) => ({ ...state, [layer.role]: true }))}
+        onLoad={() => setLoaded((state) => ({ ...state, [layer.file]: true }))}
         onError={() => layer.role === "preview" && setFailed(true)}
       />
     );
@@ -58,12 +56,12 @@ export function SatelliteLayer({ k }: { k: number }) {
       <g mask="url(#edge-fade)">
         <rect width={map.width} height={map.height} fill="var(--sea)" />
         {failed ? (
-          <path d={map.land} fill="url(#land-tone)" stroke="var(--coast)" strokeWidth={0.7 / k} strokeLinejoin="round" />
+          <path d={map.land} fill="url(#land-tone)" stroke="var(--coast)" strokeWidth={0.7} vectorEffect="non-scaling-stroke" strokeLinejoin="round" />
         ) : (
           <>
             {picture(preview, true)}
-            {picture(overview, !!loaded.overview)}
-            {wantDetail && picture(detail, !!loaded.detail)}
+            {overview && picture(overview, !!loaded[overview.file])}
+            {tiles.filter((tile) => wanted.has(tile.file)).map((tile) => picture(tile, !!loaded[tile.file], 0.5))}
           </>
         )}
       </g>

@@ -8,13 +8,15 @@ import { feature } from "topojson-client";
 
 const WIDTH = 1000;
 // Degrees added around the outermost places (Tarshish, India, Sheba, Ashkenaz) so they sit inside the fade.
-const MARGIN = 3;
+// Extra Atlantic on the west so Tarshish (Spain) can be flown to the middle of the view; a little more
+// room on the other sides for the same reason (India, Sheba, Ashkenaz).
+const MARGIN = { west: 11, east: 6, south: 4, north: 4 };
 const places = JSON.parse(readFileSync(new URL("../data/places.json", import.meta.url), "utf8"));
 if (!Array.isArray(places) || places.length === 0) throw new Error("build-map: data/places.json is empty; run scripts/build-data.py first");
-const WEST = Math.floor(Math.min(...places.map((p) => p.lon)) - MARGIN);
-const EAST = Math.ceil(Math.max(...places.map((p) => p.lon)) + MARGIN);
-const SOUTH = Math.floor(Math.min(...places.map((p) => p.lat)) - MARGIN);
-const NORTH = Math.ceil(Math.max(...places.map((p) => p.lat)) + MARGIN);
+const WEST = Math.floor(Math.min(...places.map((p) => p.lon)) - MARGIN.west);
+const EAST = Math.ceil(Math.max(...places.map((p) => p.lon)) + MARGIN.east);
+const SOUTH = Math.floor(Math.min(...places.map((p) => p.lat)) - MARGIN.south);
+const NORTH = Math.ceil(Math.max(...places.map((p) => p.lat)) + MARGIN.north);
 // The map is exactly the area: its height follows the area's Mercator proportions.
 const unit = geoMercator();
 const [x0, y0] = unit([WEST, NORTH]);
