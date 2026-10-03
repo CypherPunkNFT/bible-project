@@ -9,14 +9,17 @@ import { sectionColor } from "@/lib/sections";
 import { useAsync } from "@/lib/useAsync";
 import type { MapPlace } from "./projection";
 
-/** One place: where it is named, as a small chart by book, then the verses themselves. */
+/** One place: where it is named, as a reference list by book, then the verses themselves. */
 export function PlacePanel({ place, onClose, overlay }: { place: MapPlace; onClose: () => void; overlay: boolean }) {
   const catalog = useCatalog();
   const [shown, setShown] = useState(15);
-  const byBook = new Map<number, number>();
-  for (const id of place.verses) byBook.set(splitId(id).num, (byBook.get(splitId(id).num) ?? 0) + 1);
+  // Verse ids grouped by book, in canon order.
+  const byBook = new Map<number, number[]>();
+  for (const id of [...place.verses].sort((a, b) => a - b)) {
+    const num = splitId(id).num;
+    byBook.set(num, [...(byBook.get(num) ?? []), id]);
+  }
   const books = [...byBook.entries()].sort((a, b) => a[0] - b[0]);
-  const max = Math.max(...books.map(([, n]) => n));
 
   return (
     // Over the map: exactly the map's height; on phones: at most 70% of the screen. The name and close button
@@ -42,22 +45,34 @@ export function PlacePanel({ place, onClose, overlay }: { place: MapPlace; onClo
 
       <div className="slim-scroll min-h-0 flex-1 overflow-y-auto overscroll-contain px-4 pb-4">
       <h3 className="mb-1.5 mt-4 text-xs font-semibold uppercase tracking-[0.16em] text-muted">Where it is named</h3>
-      <div className="flex h-16 items-end gap-[2px]" role="img" aria-label={`Mentions by book: ${books.map(([n, c]) => `${bookByNum(catalog, n)?.name} ${c}`).join(", ")}`}>
-        {books.map(([num, count]) => {
+      <ul className="space-y-1.5 text-sm leading-relaxed">
+        {books.map(([num, ids]) => {
           const book = bookByNum(catalog, num);
+          const slug = book && catalog.translations.find((t) => t.slug === "kjv")?.books[book.code] ? "kjv" : null;
           return (
-            <span
-              key={num}
-              title={`${book?.name}: ${count}`}
-              className="min-w-[4px] flex-1 rounded-t-sm"
-              style={{ height: `${Math.max(6, (count / max) * 100)}%`, background: sectionColor(book?.section ?? "apocrypha") }}
-            />
+            <li key={num}>
+              <span className="font-semibold">{book?.name ?? `Book ${num}`}</span>{" "}
+              {ids.map((id, i) => {
+                const { chapter, verse } = splitId(id);
+                return (
+                  <span key={id}>
+                    {i > 0 && ", "}
+                    {slug && book ? (
+                      <Link className="text-muted underline-offset-2 hover:text-ink hover:underline" to={`/read/${slug}/${book.code}/${chapter}?v=${verse}`}>
+                        {chapter}:{verse}
+                      </Link>
+                    ) : (
+                      <span className="text-muted">
+                        {chapter}:{verse}
+                      </span>
+                    )}
+                  </span>
+                );
+              })}
+            </li>
           );
         })}
-      </div>
-      <p className="mt-1 text-[11px] text-muted">
-        {books.length} {books.length === 1 ? "book" : "books"}, from {bookByNum(catalog, books[0][0])?.name} to {bookByNum(catalog, books[books.length - 1][0])?.name}
-      </p>
+      </ul>
 
       <h3 className="mb-2 mt-4 text-xs font-semibold uppercase tracking-[0.16em] text-muted">The verses (KJV)</h3>
       <ol className="space-y-2">
