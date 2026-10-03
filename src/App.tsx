@@ -3,8 +3,9 @@ import { MotionConfig } from "framer-motion";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Layout } from "@/components/Layout";
 import { CatalogProvider } from "@/lib/catalog-context";
-import LibraryPage from "@/pages/LibraryPage";
+import HomePage from "@/pages/HomePage";
 
+const LibraryPage = lazy(() => import("@/pages/LibraryPage"));
 const ReaderPage = lazy(() => import("@/pages/ReaderPage"));
 const ChartsPage = lazy(() => import("@/pages/ChartsPage"));
 const AtlasPage = lazy(() => import("@/pages/AtlasPage"));
@@ -36,7 +37,8 @@ export default function App() {
         <Layout>
           <Suspense fallback={<PageFallback />}>
             <Routes>
-              <Route path="/" element={<LibraryPage />} />
+              <Route path="/" element={<HomePage />} />
+              <Route path="/library" element={<LibraryPage />} />
               <Route path="/read" element={<ReaderPage />} />
               <Route path="/read/:slug/:book/:chapter" element={<ReaderPage />} />
               <Route path="/charts" element={<ChartsPage />} />

@@ -2,7 +2,7 @@ import { expect, test, type Page } from "@playwright/test";
 
 // Runs at desktop (1440), tablet (768) and phone (390) — see playwright.config.ts.
 
-const PAGES = ["/", "/read/kjv/GEN/1", "/read/kjv/PSA/23?with=wlc,web", "/read/kjv/DAN/2?v=34", "/charts", "/atlas", "/search?q=jerusalem", "/versions", "/no-such-page"];
+const PAGES = ["/", "/library", "/read/kjv/GEN/1", "/read/kjv/PSA/23?with=wlc,web", "/read/kjv/DAN/2?v=34", "/charts", "/atlas", "/search?q=jerusalem", "/versions", "/no-such-page"];
 
 async function settle(page: Page) {
   await page.waitForLoadState("networkidle");
@@ -23,7 +23,7 @@ for (const path of PAGES) {
 }
 
 test("library opens a book in the reader", async ({ page }) => {
-  await page.goto("/");
+  await page.goto("/library");
   await page.getByRole("link", { name: /^Genesis/ }).first().click();
   await expect(page).toHaveURL(/\/read\/kjv\/GEN\/1/);
   await expect(page.getByRole("heading", { level: 1 })).toContainText("Genesis");
@@ -139,13 +139,13 @@ test("search results keep their own version after the picker changes", async ({ 
 // --- the reading chart (owner's reference: reference/reading-chart.png) ---
 
 test("reading chart: a chapter box opens that chapter", async ({ page }) => {
-  await page.goto("/");
+  await page.goto("/library");
   await page.getByRole("group", { name: "Romans chapters" }).getByRole("button", { name: "Romans 8", exact: true }).click();
   await expect(page).toHaveURL(/\/read\/kjv\/ROM\/8/);
 });
 
 test("reading chart: mark-as-read mode ticks a chapter and the reader agrees", async ({ page }) => {
-  await page.goto("/");
+  await page.goto("/library");
   await page.evaluate(() => localStorage.removeItem("bp-read"));
   await page.reload();
   await page.getByRole("radio", { name: "Mark as read" }).click();
@@ -156,13 +156,13 @@ test("reading chart: mark-as-read mode ticks a chapter and the reader agrees", a
   await page.goto("/read/kjv/JHN/3");
   await expect(page.getByRole("button", { name: "Read", exact: true })).toHaveAttribute("aria-pressed", "true");
   await page.getByRole("button", { name: "Read", exact: true }).click();
-  await page.goto("/");
+  await page.goto("/library");
   await page.getByRole("radio", { name: "Mark as read" }).click();
   await expect(page.getByRole("group", { name: "John chapters" }).getByRole("button", { name: /^John 3,/ })).toHaveAttribute("aria-pressed", "false");
 });
 
 test("reading chart: one tab stop per book, arrows move between chapters", async ({ page }) => {
-  await page.goto("/");
+  await page.goto("/library");
   const first = page.getByRole("group", { name: "Genesis chapters" }).getByRole("button", { name: "Genesis 1", exact: true });
   await first.focus();
   await page.keyboard.press("ArrowRight");
@@ -227,4 +227,23 @@ test("reading options: the text-size buttons really change the scripture size", 
   await page.getByRole("button", { name: "Smaller text" }).click();
   await page.getByRole("button", { name: "Smaller text" }).click();
   await expect.poll(size).toBeLessThan(before);
+});
+
+test("library: the versions list shows seven at a time and scrolls the rest", async ({ page }) => {
+  await page.goto("/library");
+  const list = page.getByRole("list").filter({ hasText: "King James Version" }).last();
+  const box = await list.evaluate((ul) => {
+    const scroller = ul.parentElement as HTMLElement;
+    return { rows: ul.children.length, visible: Math.round(scroller.clientHeight / (ul.children[0] as HTMLElement).offsetHeight), scrolls: scroller.scrollHeight > scroller.clientHeight };
+  });
+  expect(box.rows).toBe(24);
+  expect(box.visible).toBe(7);
+  expect(box.scrolls).toBe(true);
+});
+
+test("home is the landing page; the menu has Library and no Versions", async ({ page }) => {
+  await page.goto("/");
+  const nav = page.getByRole("navigation", { name: "Main" });
+  await expect(nav.getByRole("link", { name: "Library" })).toHaveAttribute("href", "/library");
+  await expect(nav.getByRole("link", { name: "Versions" })).toHaveCount(0);
 });

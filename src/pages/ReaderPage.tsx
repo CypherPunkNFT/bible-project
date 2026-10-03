@@ -268,7 +268,7 @@ function Missing({ title, children }: { title: string; children?: ReactNode }) {
       <h1 className="font-serif text-3xl font-semibold">{title}</h1>
       {children ?? (
         <p className="mt-4">
-          <Link className="underline" to="/">
+          <Link className="underline" to="/library">
             Back to the library
           </Link>
         </p>
