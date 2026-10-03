@@ -111,13 +111,12 @@ function BookRow({ book, isRead, onChapter, mode, current, compact }: { book: Ch
               aria-label={`${book.name} ${chapter}${mode === "track" ? (read ? ", read" : ", not read") : read ? ", read" : ""}`}
               title={`${book.name} ${chapter}${read ? " — read" : ""}`}
               className={cn(
-                "flex aspect-square w-[var(--box)] scroll-mt-28 scroll-mb-8 items-center justify-center border font-sans leading-none transition-transform hover:z-10 hover:scale-125 focus-visible:z-10",
+                "flex aspect-square w-[var(--box)] scroll-mt-28 scroll-mb-8 items-center justify-center rounded-[2px] font-sans leading-none transition-transform hover:z-10 hover:scale-125 focus-visible:z-10",
                 compact ? "text-[9px]" : "text-[10px] lg:text-[9px]",
                 here && "outline outline-2 outline-offset-1 outline-[var(--ink)]",
               )}
               style={{
                 background: read ? colors.tab : colors.box,
-                borderColor: `color-mix(in srgb, ${colors.box} 55%, ${colors.tab})`,
                 color: read ? colors.tabInk : "color-mix(in srgb, var(--ink) 80%, transparent)",
               }}
             >
