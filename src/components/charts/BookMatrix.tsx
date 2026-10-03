@@ -18,7 +18,7 @@ export function BookMatrix({ pairs }: { pairs: [string, string, number][] }) {
   const pad = 2;
 
   return (
-    <div className="grid gap-4 lg:grid-cols-[minmax(0,560px)_1fr] lg:items-start">
+    <div className="grid gap-4 lg:grid-cols-[minmax(0,560px)_1fr]">
       <svg viewBox={`-${pad} -${pad} ${size + pad} ${size + pad}`} className="w-full max-w-[560px]" role="img" aria-label="Heatmap of cross-references between every pair of books" onMouseLeave={() => setHover(null)}>
         {books.map((b, i) => (
           <g key={b.code}>
@@ -40,7 +40,8 @@ export function BookMatrix({ pairs }: { pairs: [string, string, number][] }) {
         ))}
         {hover && <rect x={hover[1]} y={hover[0]} width={1} height={1} fill="none" stroke="currentColor" strokeWidth={0.25} />}
       </svg>
-      <div className="text-sm">
+      <div className="text-sm lg:relative">
+        <div className="flex flex-col lg:absolute lg:inset-0">
         {hover ? (
           <p className="rounded-lg bg-surface-2 p-3">
             <strong>{books[hover[0]].name}</strong> → <strong>{books[hover[1]].name}</strong>
@@ -51,17 +52,18 @@ export function BookMatrix({ pairs }: { pairs: [string, string, number][] }) {
           <p className="text-muted">Rows are the book a cross-reference starts in, columns the book it points to (Genesis top-left, Revelation bottom-right). Darker = more. Point at a square.</p>
         )}
         <TopPairs pairs={cells} names={books.map((b) => b.name)} />
+        </div>
       </div>
     </div>
   );
 }
 
 function TopPairs({ pairs, names }: { pairs: [number, number, number][]; names: string[] }) {
-  const top = [...pairs].filter(([a, b]) => a !== b).sort((x, y) => y[2] - x[2]).slice(0, 8);
+  const top = [...pairs].filter(([a, b]) => a !== b).sort((x, y) => y[2] - x[2]).slice(0, 100);
   return (
-    <div className="mt-4">
+    <div className="mt-4 flex min-h-0 flex-1 flex-col">
       <h3 className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-muted">Most cross-referenced pairs of different books</h3>
-      <ol className="space-y-1">
+      <ol className="slim-scroll max-h-80 min-h-0 flex-1 space-y-1 overflow-y-auto overscroll-contain pe-2 lg:max-h-none">
         {top.map(([a, b, n]) => (
           <li key={`${a}-${b}`} className="flex justify-between gap-3 border-b border-line/60 py-1">
             <span>
