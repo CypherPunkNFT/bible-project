@@ -16,7 +16,7 @@ export interface Translation {
   year: number;
   lang: string;
   dir: "ltr" | "rtl";
-  numbering: "english" | "hebrew" | "greek" | "vulgate";
+  numbering: "english" | "hebrew" | "greek" | "vulgate" | "mixed";
   /** book code -> chapter labels in source order */
   books: Record<string, string[]>;
   verses: number;

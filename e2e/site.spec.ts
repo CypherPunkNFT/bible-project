@@ -238,7 +238,7 @@ test("library: the versions list shows seven at a time and scrolls the rest", as
     const heading = (el.querySelector("h3") as HTMLElement).offsetHeight;
     return { rows: rows.length, visible: Math.round((el.clientHeight - heading) / (rows[0] as HTMLElement).offsetHeight), scrolls: el.scrollHeight > el.clientHeight };
   });
-  expect(box.rows).toBe(24);
+  expect(box.rows).toBe(29); // 24 + Spanish, Arabic, Chinese, French, German (2026-10-03)
   expect(box.visible).toBe(7);
   expect(box.scrolls).toBe(true);
 });

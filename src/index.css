@@ -132,6 +132,18 @@ body {
   line-height: 2;
 }
 
+/* Arabic (Van Dyck, fully vowel-marked) needs room like the Hebrew; Chinese gets a Chinese face, never a Japanese
+   fallback. System fonts only: nothing extra is downloaded. */
+.scripture [lang="ar"],
+.scripture:lang(ar) {
+  font-family: "Noto Naskh Arabic", "Amiri", "Traditional Arabic", "Arabic Typesetting", "Segoe UI", "Geeza Pro", serif;
+  font-size: 1.3em;
+  line-height: 2;
+}
+[lang="zh-Hans"] {
+  font-family: "Noto Serif SC", "Songti SC", "SimSun", "Microsoft YaHei", "PingFang SC", "Noto Sans SC", serif;
+}
+
 .divine-name {
   font-variant: small-caps;
   letter-spacing: 0.04em;

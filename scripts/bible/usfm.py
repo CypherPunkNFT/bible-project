@@ -28,11 +28,14 @@ BREAKS = {
 HEADINGS = {"s1": "s", "s": "s", "s2": "s2", "ms1": "ms", "ms": "ms", "ms2": "ms", "mr": "r", "sp": "sp",
             "r": "r", "qa": "qa"}
 IGNORED_TEXT = {"id", "ide", "h", "toc1", "toc2", "toc3", "mt1", "mt2", "mt3", "mt4", "mt", "imt1", "ip", "im",
-                "ib", "is1", "is2", "ili", "ili1", "cl", "cp", "rem", "sts", "usfm"}
+                "ib", "is1", "is2", "ili", "ili1", "cl", "cp", "rem", "sts", "usfm",
+                # Book introductions (e.g. Louis Segond 1910): titles, indented paragraphs, outline lines, end.
+                "imt2", "imt3", "ipi", "io1", "io2", "io3", "ie"}
 CELLS = {"tc1", "tc2", "tc3", "tc4", "th1", "th2", "th3"}
 CHAR_FLAGS = {"wj": "j", "add": "a", "nd": "n", "qs": "s", "it": "i", "bdit": "i", "tl": "i", "bk": "i",
               "em": "i", "sls": "i", "bd": "b", "sc": "c", "sup": "u"}
-PLAIN_CHARS = {"w", "k", "pn", "qt", "ord", "no", "wh", "png", "addpn", "wg", "wa", "dc", "fig", "jmp", "rb"}
+PLAIN_CHARS = {"w", "k", "pn", "qt", "ord", "no", "wh", "png", "addpn", "wg", "wa", "dc", "fig", "jmp", "rb",
+               "ior"}  # "ior" = an outline's reference, only ever inside a skipped introduction
 NOTE_PARTS = {"fr", "fk", "fq", "fqa", "fl", "ft", "fv", "fp", "fw", "fdc", "fm", "xo", "xt", "xq", "xta", "xk", "xdc"}
 
 

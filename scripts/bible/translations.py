@@ -2,7 +2,7 @@
 
 numbering: the verse-numbering tradition. "english" = KJV numbering; "hebrew" = Masoretic (Psalm titles are
 verse 1, Malachi has 3 chapters); "greek" = Septuagint (Psalms 10-147 one behind); "vulgate" = Latin Vulgate
-numbering (same Psalm offset as the Greek). Checked by build-data.py's numbering report, not just asserted.
+numbering (same Psalm offset as the Greek); "mixed" = partly Hebrew, partly KJV (Louis Segond). Checked by build-data.py's numbering report, not just asserted.
 strongs: keep Strong's numbers from this source (only where they are reliable and licence-clean).
 """
 
@@ -32,6 +32,13 @@ TRANSLATIONS = [
     ("grcbyz",      "PAT",   "Patriarchal Text 1904 (Greek)",               1904, "grc", "ltr", "english", True),
     ("grc-tisch",   "TIS",   "Tischendorf 8th Edition (Greek)",             1872, "grc", "ltr", "english", True),
     ("latVUC",      "VUL",   "Clementine Vulgate (Latin)",                  1598, "la",  "ltr", "vulgate", False),
+    # Translations into other languages (owner, 2026-10-03), in the owner's order. "mixed": follows the Hebrew
+    # numbering in some books and the KJV in others (Louis Segond), so KJV-numbered links are not trusted.
+    ("spaRV1909",   "RVR",   "Reina-Valera 1909 (Spanish)",                 1909, "es",  "ltr", "english", False),
+    ("arb-vd",      "SVD",   "Van Dyck Bible (Arabic)",                     1865, "ar",  "rtl", "english", False),
+    ("cmn-cu89s",   "CUV",   "Chinese Union Version (Chinese, simplified)", 1919, "zh-Hans", "ltr", "english", False),
+    ("fraLSG",      "LSG",   "Louis Segond 1910 (French)",                  1910, "fr",  "ltr", "mixed",   False),
+    ("deu1912",     "LUT",   "Lutherbibel 1912 (German)",                   1912, "de",  "ltr", "english", False),
 ]
 
 FIELDS = ("id", "abbr", "name", "year", "lang", "dir", "numbering", "strongs")

@@ -20,6 +20,21 @@ describe("search", () => {
     expect(makeMatcher(" a ", false)).toBeNull();
   });
 
+  it("Chinese: one character is enough, whole-word mode is ignored, and the space before 神 is skipped", () => {
+    const verse = "「 神爱世人，甚至将他的独生子赐给他们";
+    expect(makeMatcher("神爱", true)!.test(verse)).toBe(true);
+    expect(makeMatcher("神", true)!.test("我的 神")).toBe(true);
+    expect(makeMatcher("的神", true)!.test("我的 神")).toBe(true);
+  });
+
+  it("Arabic: vowel marks are ignored and any alif matches", () => {
+    const verse = "لِأَنَّهُ هَكَذَا أَحَبَّ ٱللهُ ٱلْعَالَمَ";
+    expect(makeMatcher("الله", true)!.test(verse)).toBe(true);
+    expect(makeMatcher("احب الله", true)!.test(verse)).toBe(true);
+    const parts = highlightParts(verse, makeMatcher("الله", true)!);
+    expect(parts.find((p) => p.match)?.text).toBe("ٱللهُ");
+  });
+
   it("treats regex characters literally", () => {
     expect(makeMatcher("a.b", false)!.test("axb")).toBe(false);
   });

@@ -2,7 +2,7 @@ import { BookOpen } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useCatalog } from "@/lib/catalog";
-import { languageName, languagesOf } from "@/lib/languages";
+import { groupVersions, VERSION_GROUPS, type VersionGroup } from "@/lib/languages";
 import { SECTIONS, sectionColor } from "@/lib/sections";
 import type { Catalog, Translation } from "@/lib/types";
 import { cn, formatNumber } from "@/lib/utils";
@@ -13,6 +13,7 @@ const NUMBERING: Record<Translation["numbering"], string> = {
   hebrew: "Hebrew",
   greek: "Greek (Septuagint)",
   vulgate: "Latin (Vulgate)",
+  mixed: "Mixed (partly Hebrew)",
 };
 
 function counts(catalog: Catalog, t: Translation) {
@@ -25,9 +26,9 @@ function counts(catalog: Catalog, t: Translation) {
 
 export default function VersionsPage() {
   const catalog = useCatalog();
-  const [language, setLanguage] = useState<string>("all");
-  const languages = languagesOf(catalog.translations);
-  const shownLanguages = language === "all" ? languages : [language];
+  const [filter, setFilter] = useState<VersionGroup["id"] | "all">("all");
+  const grouped = groupVersions(catalog.translations);
+  const shown = grouped.filter((g) => filter === "all" || g.group.id === filter);
   return (
     <div className="mx-auto max-w-6xl px-4 pb-16 sm:px-6">
       <header className="pb-6 pt-10">
@@ -39,18 +40,18 @@ export default function VersionsPage() {
         </p>
       </header>
 
-      <div role="group" aria-label="Show versions in" className="mb-4 flex flex-wrap gap-1.5">
-        {["all", ...languages].map((code) => {
-          const count = code === "all" ? catalog.translations.length : catalog.translations.filter((t) => t.lang === code).length;
+      <div role="group" aria-label="Show" className="mb-4 flex flex-wrap gap-1.5">
+        {(["all", ...VERSION_GROUPS.map((g) => g.id)] as const).map((id) => {
+          const count = id === "all" ? catalog.translations.length : grouped.find((g) => g.group.id === id)?.count ?? 0;
           return (
             <button
-              key={code}
+              key={id}
               type="button"
-              aria-pressed={language === code}
-              onClick={() => setLanguage(code)}
-              className={cn("rounded-full border px-3 py-1 text-sm", language === code ? "border-ink bg-ink font-semibold text-page" : "border-line hover:bg-surface-2")}
+              aria-pressed={filter === id}
+              onClick={() => setFilter(id)}
+              className={cn("rounded-full border px-3 py-1 text-sm", filter === id ? "border-ink bg-ink font-semibold text-page" : "border-line hover:bg-surface-2")}
             >
-              {code === "all" ? "All languages" : languageName(code)}
+              {id === "all" ? "All" : VERSION_GROUPS.find((g) => g.id === id)!.title}
               <span className="ms-1 text-xs opacity-70">{count}</span>
             </button>
           );
@@ -63,7 +64,6 @@ export default function VersionsPage() {
           <thead className="border-b border-line text-xs uppercase tracking-[0.12em] text-muted">
             <tr>
               <th scope="col" className="px-4 py-3">Abbreviation</th>
-              <th scope="col" className="px-3 py-3">Language</th>
               <th scope="col" className="px-3 py-3">Name</th>
               <th scope="col" className="px-3 py-3">Year</th>
               <th scope="col" className="px-3 py-3">Books (OT · NT · Apocrypha)</th>
@@ -72,36 +72,46 @@ export default function VersionsPage() {
               <th scope="col" className="px-3 py-3"><span className="sr-only">Read</span></th>
             </tr>
           </thead>
-          {shownLanguages.map((code) => (
-          <tbody key={code} className="divide-y divide-line border-t border-line first-of-type:border-t-0">
-            <tr className="bg-surface-2/70">
-              <th scope="rowgroup" colSpan={8} className="px-4 py-2 text-left text-xs font-semibold uppercase tracking-[0.14em] text-muted">
-                {languageName(code)} <span className="font-normal normal-case tracking-normal">· {catalog.translations.filter((t) => t.lang === code).length}</span>
-              </th>
-            </tr>
-            {catalog.translations.filter((t) => t.lang === code).map((t) => {
-              const c = counts(catalog, t);
-              const first = Object.keys(t.books)[0];
-              return (
-                <tr key={t.slug} className="hover:bg-surface-2/60">
-                  <th scope="row" className="px-4 py-3 font-semibold">{t.abbr}</th>
-                  <td className="px-3 py-3">{languageName(t.lang)}</td>
-                  <td className="px-3 py-3 text-muted">{t.name}</td>
-                  <td className="px-3 py-3 tabular-nums">{t.year}</td>
-                  <td className="px-3 py-3 tabular-nums">
-                    {c.ot} · {c.nt} · {c.apocrypha}
-                  </td>
-                  <td className="px-3 py-3 text-right tabular-nums">{formatNumber(t.verses)}</td>
-                  <td className="px-3 py-3 text-muted">{NUMBERING[t.numbering]}</td>
-                  <td className="px-3 py-3">
-                    <Link to={`/read/${t.slug}/${first}/${t.books[first][0]}`} className="inline-flex items-center gap-1 rounded-full border border-line px-2.5 py-1 hover:bg-surface-2">
-                      <BookOpen className="h-3.5 w-3.5" aria-hidden /> Read
-                    </Link>
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
+          {shown.map(({ group, count, sections }) => (
+            <tbody key={group.id} className="divide-y divide-line border-t border-line first-of-type:border-t-0">
+              <tr className="bg-surface-2/70">
+                <th scope="rowgroup" colSpan={7} className="px-4 py-2 text-left text-xs font-semibold uppercase tracking-[0.14em] text-muted">
+                  {group.title} <span className="font-normal normal-case tracking-normal">· {count}</span>
+                </th>
+              </tr>
+              {sections.flatMap((section) => [
+                ...(section.label
+                  ? [
+                      <tr key={`${section.lang}-label`}>
+                        <th scope="rowgroup" colSpan={7} className="px-4 pb-1 pt-3 text-left text-[11px] font-semibold uppercase tracking-[0.12em] text-accent">
+                          {section.label}
+                        </th>
+                      </tr>,
+                    ]
+                  : []),
+                ...section.versions.map((t) => {
+                  const c = counts(catalog, t);
+                  const first = Object.keys(t.books)[0];
+                  return (
+                    <tr key={t.slug} className="hover:bg-surface-2/60">
+                      <th scope="row" className="px-4 py-3 font-semibold">{t.abbr}</th>
+                      <td className="px-3 py-3 text-muted">{t.name}</td>
+                      <td className="px-3 py-3 tabular-nums">{t.year}</td>
+                      <td className="px-3 py-3 tabular-nums">
+                        {c.ot} · {c.nt} · {c.apocrypha}
+                      </td>
+                      <td className="px-3 py-3 text-right tabular-nums">{formatNumber(t.verses)}</td>
+                      <td className="px-3 py-3 text-muted">{NUMBERING[t.numbering]}</td>
+                      <td className="px-3 py-3">
+                        <Link to={`/read/${t.slug}/${first}/${t.books[first][0]}`} className="inline-flex items-center gap-1 rounded-full border border-line px-2.5 py-1 hover:bg-surface-2">
+                          <BookOpen className="h-3.5 w-3.5" aria-hidden /> Read
+                        </Link>
+                      </td>
+                    </tr>
+                  );
+                }),
+              ])}
+            </tbody>
           ))}
         </table>
       </div>

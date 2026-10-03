@@ -1,13 +1,14 @@
 import { Link } from "react-router-dom";
 import { useCatalog } from "@/lib/catalog";
+import { groupOf, VERSION_GROUPS } from "@/lib/languages";
 import type { Translation } from "@/lib/types";
 
-const LANG_COLOR: Record<string, string> = { en: "var(--history)", enm: "var(--poetry)", he: "var(--prophets)", grc: "var(--gospels)", la: "var(--epistles)" };
-const LANG_NAME: Record<string, string> = { en: "English", enm: "Middle English", he: "Hebrew", grc: "Greek", la: "Latin" };
+// One colour per group (English, original and ancient languages, translations), shared with the versions lists.
+const GROUP_COLOR: Record<string, string> = { english: "var(--history)", original: "var(--prophets)", translations: "var(--gospels)" };
 const START = 1350;
 const END = 2030;
 
-/** The 24 texts placed on a time axis by the year of the text they carry. */
+/** Every version placed on a time axis by the year of the text it carries. */
 export function VersionsTimeline() {
   const catalog = useCatalog();
   const sorted = [...catalog.translations].sort((a, b) => a.year - b.year);
@@ -40,7 +41,7 @@ export function VersionsTimeline() {
                 className="absolute flex -translate-x-1/2 items-center gap-1 whitespace-nowrap rounded-full border border-line bg-surface px-2 py-0.5 text-xs shadow-sm transition hover:z-10 hover:scale-110"
                 style={{ left: left(t.year), top: r * 34 + 4 }}
               >
-                <span className="h-2 w-2 rounded-full" style={{ background: LANG_COLOR[t.lang] }} />
+                <span className="h-2 w-2 rounded-full" style={{ background: GROUP_COLOR[groupOf(t.lang).id] }} />
                 <strong>{t.abbr}</strong> <span className="text-muted">{t.year}</span>
               </Link>
             )),
@@ -48,9 +49,9 @@ export function VersionsTimeline() {
         </div>
       </div>
       <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-xs text-muted">
-        {Object.entries(LANG_NAME).map(([code, name]) => (
-          <span key={code} className="flex items-center gap-1.5">
-            <span className="h-2 w-2 rounded-full" style={{ background: LANG_COLOR[code] }} /> {name}
+        {VERSION_GROUPS.map((g) => (
+          <span key={g.id} className="flex items-center gap-1.5">
+            <span className="h-2 w-2 rounded-full" style={{ background: GROUP_COLOR[g.id] }} /> {g.title}
           </span>
         ))}
         {early.map((t) => (

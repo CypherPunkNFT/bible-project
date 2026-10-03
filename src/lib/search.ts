@@ -7,13 +7,34 @@ export interface Hit {
 
 const escapeRegExp = (value: string) => value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
-/** A case-insensitive matcher for the phrase; whole-word mode respects letters in any script. */
+const ARABIC = /\p{Script=Arabic}/u;
+const HAN = /\p{Script=Han}/u;
+/** Every form of alif the Van Dyck text uses (plain, wasla, hamza above/below, madda). */
+const ALIF = "[\u0627\u0671\u0623\u0625\u0622]";
+
+/**
+ * A case-insensitive matcher for the phrase; whole-word mode respects letters in any script.
+ * Arabic: vowel marks are ignored (the Van Dyck text is fully pointed) and any alif matches any alif.
+ * Chinese: no word spaces, so never "whole words", and the respectful space the Union Version puts before 神 is
+ * skipped.
+ */
 export function makeMatcher(query: string, wholeWords: boolean): RegExp | null {
   // The Bible data is NFC; a query typed in decomposed form (NFD) must match it too.
   const phrase = query.normalize("NFC").trim().replace(/\s+/g, " ");
-  if (phrase.length < 2) return null;
-  const body = escapeRegExp(phrase).replace(/ /g, "\\s+");
-  return new RegExp(wholeWords ? `(?<![\\p{L}\\p{M}])${body}(?![\\p{L}\\p{M}])` : body, "giu");
+  const han = HAN.test(phrase);
+  if (phrase.length < (han ? 1 : 2)) return null;
+  let body: string;
+  if (ARABIC.test(phrase)) {
+    body = [...phrase.replace(/\p{M}/gu, "")]
+      .map((ch) => (ch === " " ? "\\s+" : `${/[\u0627\u0671\u0623\u0625\u0622]/u.test(ch) ? ALIF : escapeRegExp(ch)}\\p{M}*`))
+      .join("");
+  } else if (han) {
+    body = [...phrase.replace(/\s+/g, "")].map(escapeRegExp).join("\\s*");
+  } else {
+    body = escapeRegExp(phrase).replace(/ /g, "\\s+");
+  }
+  const whole = wholeWords && !han;
+  return new RegExp(whole ? `(?<![\\p{L}\\p{M}])${body}(?![\\p{L}\\p{M}])` : body, "giu");
 }
 
 /** Every verse whose plain text matches, in the order the books are given. */

@@ -42,6 +42,11 @@ Books column = Old Testament / New Testament / Apocrypha-Deuterocanon, from eBib
 | [grcbyz](sources/ebible/grcbyz/) | 1904 Patriarchal Greek New Testament (Greek Orthodox) | Greek | 0/27/0 | 2026-08-08 | a39e54cf1cd228c4 |
 | [grc-tisch](sources/ebible/grc-tisch/) | Tischendorf's 8th edition Greek New Testament | Greek | 0/27/0 | 2014-01-11 | 4bb15ed25a23d73e |
 | [latVUC](sources/ebible/latVUC/) | Clementine Latin Vulgate (1598) | Latin | 39/27/7 | 2014-08-23 | f31ec8c0e1c38e07 |
+| [spaRV1909](sources/ebible/spaRV1909/) | Reina-Valera 1909 — the classic Spanish Protestant Bible | Spanish | 39/27/0 | 2013-12-13 | 932c23472b2a919c |
+| [fraLSG](sources/ebible/fraLSG/) | Louis Segond 1910 — the classic French Protestant Bible (numbers Psalm titles as verse 1) | French | 39/27/0 | 2026-10-03 | 3fc18c37af692d95 |
+| [deu1912](sources/ebible/deu1912/) | Lutherbibel 1912 — Luther's German Bible, 1912 revision | German | 39/27/0 | 2025-12-29 | 8f6675ea399c3202 |
+| [arb-vd](sources/ebible/arb-vd/) | Van Dyck (Smith–Van Dyck, 1865) — the standard Arabic Protestant Bible, right to left | Arabic | 39/27/0 | 2020-08-03 | 952c7e9725aeafdc |
+| [cmn-cu89s](sources/ebible/cmn-cu89s/) | Chinese Union Version 和合本, simplified script, with the 1989 new punctuation. ⚠ eBible marks it Public Domain; the punctuation edition may carry a Hong Kong Bible Society copyright — settle before publishing | Chinese | 39/27/0 | 2021-10-15 | 9ddb4d15a4b85d3f |
 
 Download URL pattern: `https://ebible.org/Scriptures/<folder>_usfm.zip`.
 

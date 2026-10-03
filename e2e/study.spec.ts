@@ -81,7 +81,7 @@ test("names: the Faith page's three words unfold and a name opens its Scripture"
 
 test("home page shows the Names of God", async ({ page }) => {
   await page.goto("/");
-  await expect(page.getByRole("heading", { name: "His names." })).toBeVisible({ timeout: 10_000 });
+  await expect(page.getByRole("heading", { name: /^His names.?$/ })).toBeVisible({ timeout: 10_000 });
   await expect(page.getByRole("button", { name: "Expand JESUS CHRIST names" })).toBeVisible();
 });
 
@@ -108,26 +108,39 @@ test("home: the glow stops for readers who reduce motion", async ({ browser }) =
   await context.close();
 });
 
-test("versions: filter by language, grouped, with a language column between abbreviation and name", async ({ page }) => {
+test("versions page: English, original languages and translations; no language column", async ({ page }) => {
   await page.goto("/versions");
   const headers = page.locator("thead th");
   await expect(headers.nth(0)).toHaveText(/Abbreviation/i);
-  await expect(headers.nth(1)).toHaveText(/Language/i);
-  await expect(headers.nth(2)).toHaveText(/Name/i);
-  await page.getByRole("button", { name: /^Greek/ }).click();
+  await expect(headers.nth(1)).toHaveText(/Name/i);
+  await expect(page.locator("thead")).not.toContainText(/Language/i);
+  await page.getByRole("button", { name: /^Translations/ }).click();
   const rows = page.locator("tbody tr:has(td)");
   await expect(rows).toHaveCount(5);
-  for (const row of await rows.all()) await expect(row.locator("td").first()).toHaveText("Greek");
-  await page.getByRole("button", { name: /^All languages/ }).click();
-  await expect(page.locator("tbody th[scope=rowgroup]")).toHaveCount(5);
+  for (const language of ["Spanish", "Arabic", "Chinese", "French", "German"]) await expect(page.locator("tbody")).toContainText(language);
+  await page.getByRole("button", { name: /^All/ }).click();
+  await expect(page.locator("tbody > tr > th[colspan]").first()).toHaveText(/English/);
 });
 
-test("library versions list: language filter, groups, and the language between abbreviation and name", async ({ page }) => {
+test("library versions list: the three groups, with the translations under their languages", async ({ page }) => {
   await page.goto("/library");
   const list = page.locator("section[aria-labelledby=versions-title]");
-  await expect(list.locator("h3")).toHaveCount(5);
-  await list.getByRole("button", { name: /^Hebrew/ }).click();
+  await expect(list.locator("h3")).toHaveCount(3);
+  await list.getByRole("button", { name: /^Translations/ }).click();
   await expect(list.locator("h3")).toHaveCount(1);
-  await expect(list.locator("h3")).toContainText("Hebrew");
-  await expect(list.getByRole("link", { name: /WLC.*Westminster Leningrad Codex/ })).toBeVisible();
+  await expect(list.locator("h4")).toHaveText(["Spanish", "Arabic", "Chinese", "French", "German"]);
+  await expect(list.getByRole("link", { name: /LSG.*Louis Segond 1910/ })).toBeVisible();
+});
+
+test("translations: Arabic reads right to left, Chinese search finds 神 across the respectful space", async ({ page }) => {
+  await page.goto("/read/svd/JHN/3");
+  await expect(page.locator('.scripture[dir="rtl"]')).toBeVisible();
+  await page.goto("/search?q=%E7%9A%84%E7%A5%9E&in=cuv");
+  await expect(page.getByText(/verses? contains?/)).toBeVisible({ timeout: 20_000 });
+  await expect(page.locator("mark").first()).toBeVisible();
+});
+
+test("side by side: the Chinese joined verse Genesis 24:29-30 lines up with the KJV's 29 and 30", async ({ page }) => {
+  await page.goto("/read/kjv/GEN/24?with=cuv");
+  await expect(page.getByText("joined with verse 29-30 above")).toBeVisible();
 });
