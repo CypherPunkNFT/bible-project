@@ -16,10 +16,20 @@ export interface Translation {
   year: number;
   lang: string;
   dir: "ltr" | "rtl";
-  numbering: "english" | "hebrew" | "greek" | "vulgate" | "mixed";
+  numbering: "english" | "hebrew" | "greek" | "vulgate" | "mixed" | "synodal";
   /** book code -> chapter labels in source order */
   books: Record<string, string[]>;
   verses: number;
+  /** Only on a version that is not public domain: the credit its licence asks for, shown wherever it is read. */
+  credit?: Credit;
+}
+
+export interface Credit {
+  text: string;
+  url: string;
+  licence: string;
+  licenceUrl: string;
+  changes: string;
 }
 
 export interface Catalog {

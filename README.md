@@ -1,6 +1,6 @@
 # Bible Project
 
-Read the whole Bible in every free, public-domain version, side by side, with charts, a satellite atlas of
+Read the whole Bible in every free version we can find, in sixteen languages, side by side, with charts, a satellite atlas of
 its places, study pages and every open cross-reference. Free for everyone, with no account, no ads and no
 paywall. The code, the data pipeline and the sources list are all here, to use, change, take apart and
 build on.
@@ -17,10 +17,13 @@ build on.
 
 ## The texts and data, and their licences
 
-Every Bible text is in the public domain. They come from eBible.org: the King James Version, Geneva,
+Every Bible text but one is in the public domain. They come from eBible.org: the King James Version, Geneva,
 Tyndale, Wycliffe, Douay-Rheims, Webster, Young's Literal, Darby, Revised Version, American Standard, JPS 1917,
 Brenton's Septuagint, Basic English, World English Bible, Berean Standard, Majority Standard, the Westminster
-Leningrad Codex (Hebrew), five Greek texts and the Clementine Vulgate. Cross-references and places come from
+Leningrad Codex (Hebrew), five Greek texts, the Clementine Vulgate, and translations in Spanish, Arabic, Chinese,
+French, German, Hindi, Portuguese, Russian, Japanese, Vietnamese, Persian and Italian. The one exception is the
+Hindi Indian Revised Version, © Bridge Connectivity Solutions, under CC BY-SA 4.0 (credit in
+[NOTICE.md](NOTICE.md)). Cross-references and places come from
 OpenBible.info (CC-BY), proper names from STEP Bible (CC BY 4.0), and the map imagery is NASA's Blue Marble
 (public domain). Every file, its source and its checksum are listed in [SOURCES.md](SOURCES.md); what you
 must credit if you reuse them is in [NOTICE.md](NOTICE.md).
@@ -33,8 +36,8 @@ You need [Python 3.12+](https://www.python.org/), [Node.js 20+](https://nodejs.o
 ```bash
 git clone https://github.com/CYPKNFT/bible-project.git
 cd bible-project
-python scripts/fetch-sources.py          # downloads every source from its publisher (~135 MB) into sources/
-python scripts/build-data.py             # builds the Bible data into data/ (~250 MB, about 90 seconds)
+python scripts/fetch-sources.py          # downloads every source from its publisher (~160 MB) into sources/
+python scripts/build-data.py             # builds the Bible data into data/ (~400 MB, about 2 minutes)
 python scripts/build-study.py            # builds the study pages' data
 node scripts/fetch-imagery.mjs           # downloads the atlas's NASA imagery into public/atlas/
 bun install
@@ -43,7 +46,9 @@ bun run build && bun run preview         # http://127.0.0.1:8931
 
 The sources list records exactly which copy of each source this site was built from. Publishers sometimes
 update their files in place. If a fresh download differs, the build stops and says which file changed. To build
-from the newer copy anyway, set `BIBLE_ACCEPT_SOURCE_CHANGES=1`.
+from the newer copy anyway, set `BIBLE_ACCEPT_SOURCE_CHANGES=1`. Expect this for the newer translations that eBible
+still calls drafts (the World Chinese Bible, the Bíblia Portuguesa Mundial and the Japanese Freedom Bible): they
+are revised often.
 
 Checks: `bun run typecheck`, `bun run lint`, `bun run test`, `python -m pytest scripts/tests -q`,
 `bunx playwright test` (browser checks at phone, tablet and desktop widths).
@@ -58,4 +63,5 @@ area by NASA's image service once, at build time. Nothing calls an outside servi
 ## Licence
 
 The code is under the [MIT licence](LICENSE): use it, change it, share it, sell it, take it apart. The Bible
-texts are public domain; the other data keeps its own licence (see [NOTICE.md](NOTICE.md)).
+texts are public domain except the Hindi IRV (CC BY-SA 4.0); the other data keeps its own licence (see
+[NOTICE.md](NOTICE.md)).

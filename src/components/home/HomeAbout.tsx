@@ -8,7 +8,7 @@ const POINTS = [
   {
     icon: BookOpen,
     title: "What it is",
-    text: "The whole Bible in every free, public-domain version: the King James, Geneva, Tyndale, Douay-Rheims, the Hebrew and Greek originals, the Latin Vulgate and more. You can read them side by side, with charts, a satellite atlas of its places, and study pages.",
+    text: "The whole Bible in every free version we can find: the King James, Geneva, Tyndale, Douay-Rheims, the Hebrew and Greek originals, the Latin Vulgate, and translations in twelve more languages, from Spanish and Chinese to Hindi and Russian. You can read them side by side, with charts, a satellite atlas of its places, and study pages.",
   },
   {
     icon: Gift,
@@ -18,7 +18,7 @@ const POINTS = [
   {
     icon: Download,
     title: "Free for everyone",
-    text: "Use it, share it, download it, take it apart. The code is MIT-licensed, the Bible texts are public domain, and every source is listed with its licence. Build your own copy, or something new from it.",
+    text: "Use it, share it, download it, take it apart. The code is MIT-licensed, the Bible texts are public domain (one Hindi text is openly licensed and credited), and every source is listed with its licence. Build your own copy, or something new from it.",
   },
 ];
 

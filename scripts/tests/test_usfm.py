@@ -83,6 +83,41 @@ def test_scribal_letter_tags_stripped_letters_kept():
     assert '="' not in text and "'" not in text
 
 
+@pytest.mark.parametrize("reference", ["(इब्रा. 1:10, इब्रा. 11:3)", "(लूका 2: 41)"])
+def test_bracketed_reference_in_bold_italic_becomes_a_footnote(reference):
+    runs = verse(f"\\v 1 आदि में परमेश्वर ने आकाश और पृथ्वी की सृष्टि की। \\bdit {reference} \\bdit* \n")["r"]
+    assert plain_text(runs) == "आदि में परमेश्वर ने आकाश और पृथ्वी की सृष्टि की।"
+    assert {"f": reference} in runs
+
+
+def test_bold_italic_quotation_stays_text():
+    runs = verse("\\v 4 γέγραπται· \\bdit οὐκ ἐπ᾽ ἄρτῳ μόνῳ ζήσεται ἄνθρωπος\\bdit*")["r"]
+    assert plain_text(runs) == "γέγραπται· οὐκ ἐπ᾽ ἄρτῳ μόνῳ ζήσεται ἄνθρωπος"
+
+
+def test_keyword_alone_in_a_paragraph_is_a_speaker_heading():
+    data = parse("\\v 1 सुलैमान का श्रेष्ठगीत\n\\p \\k वधू\\k* \n\\q1\n\\v 2 वह मुझ को")
+    first, second = data["chapters"][0]["v"]
+    assert plain_text(first["r"]) == "सुलैमान का श्रेष्ठगीत"
+    assert second["h"] == [["sp", "वधू"]]
+
+
+def test_book_introduction_outline_title_ignored():
+    # As in the Hindi IRV: the introduction comes after the book title and before chapter 1.
+    body = "\\id TST test\n\\mt1 उत्पत्ति\n\\is1 लेखक\n\\ip परिचय (प्रेरि. 7:22)\n\\iot रूपरेखा\n\\io1 1. सृष्टि \\ior 1:1\\ior*\n"
+    data = parse_book(body + "\\c 1\n\\p\n\\v 1 आदि में", "t.usfm", False, [])
+    assert plain_text(data["chapters"][0]["v"][0]["r"]) == "आदि में"
+    assert "t" not in data["chapters"][0]
+
+
+def test_plain_italic_only_when_asked():
+    body = "\\id TST test\n\\c 1\n\\v 1 \\it “उजियाला हो,”\\it* तो उजियाला हो गया।"
+    plain = parse_book(body, "t.usfm", False, [], plain_italic=True)["chapters"][0]["v"][0]["r"]
+    styled = parse_book(body, "t.usfm", False, [])["chapters"][0]["v"][0]["r"]
+    assert plain == ["“उजियाला हो,” तो उजियाला हो गया।"]
+    assert ["“उजियाला हो,”", "i"] in styled
+
+
 def test_heading_after_last_verse_kept_as_chapter_end():
     data = parse("\\v 27 To God only wise, be glory.\n\\s1 Written to the Romans from Corinthus.\n")
     assert data["chapters"][0]["e"] == [["s", "Written to the Romans from Corinthus."]]

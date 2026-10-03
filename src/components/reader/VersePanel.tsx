@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { SectionDot } from "@/components/SectionStrip";
 import { useCatalog } from "@/lib/catalog";
 import { loadCrossRefs, loadPlain } from "@/lib/data";
+import { NUMBERING_LABEL } from "@/lib/numbering";
 import { bookByNum, formatRange, plainLookup, sectionOfNum, splitId } from "@/lib/refs";
 import type { CrossRefBook, Translation } from "@/lib/types";
 import { useAsync } from "@/lib/useAsync";
@@ -83,7 +84,7 @@ export function VersePanel({ translation, bookCode, chapter, label, onClose }: P
       {!inCanon && <p className="text-sm text-muted">The open cross-reference set covers the 66 books only, not the Apocrypha.</p>}
       {inCanon && !kjvNumbering && (
         <p className="text-sm text-muted">
-          The {translation.abbr} numbers verses the {translation.numbering} way, but the cross-references are numbered like the KJV, so they are not shown
+          The {translation.abbr} numbers verses differently ({NUMBERING_LABEL[translation.numbering]}), but the cross-references are numbered like the KJV, so they are not shown
           here.{" "}
           <Link className="underline hover:text-ink" to={`/read/kjv/${bookCode}/${chapter}`}>
             Open this chapter in the KJV
@@ -131,7 +132,7 @@ function CrossRef({ start, end, votes, translation }: { start: number; end: numb
             {votes} {votes === 1 ? "vote" : "votes"}
           </span>
         </span>
-        <span className="mt-1 line-clamp-3 block font-serif text-[0.92rem] leading-snug text-ink/85" lang={slug === translation.slug ? translation.lang : "en"}>
+        <span className="mt-1 line-clamp-3 block font-serif text-[0.92rem] leading-snug text-ink/85" lang={slug === translation.slug ? translation.lang : "en"} dir={slug === translation.slug ? translation.dir : "ltr"}>
           {plain.status === "loading" ? "…" : text ?? "(not in this version)"}
           {slug !== translation.slug && <span className="ms-1 font-sans text-[10px] text-muted">KJV</span>}
         </span>
@@ -167,6 +168,11 @@ function VersionLine({ translation, bookCode, chapter, verse }: { translation: T
       <span lang={translation.lang} dir={translation.dir} className={translation.lang === "he" ? "font-hebrew text-base" : "font-serif"}>
         {plain.status === "loading" ? "…" : text ?? "—"}
       </span>
+      {translation.numbering !== "english" && (
+        <span className="ms-1.5 text-[10px] text-muted" title="This version numbers verses differently, so this may be a neighbouring verse">
+          {NUMBERING_LABEL[translation.numbering]} numbering
+        </span>
+      )}
     </li>
   );
 }

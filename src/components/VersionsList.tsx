@@ -38,7 +38,7 @@ export function VersionsList() {
           The versions
         </h2>
         <p className="text-sm text-muted">
-          {catalog.translations.length} public-domain texts ·{" "}
+          {catalog.translations.length} free texts ·{" "}
           <Link to="/versions" className="underline underline-offset-2 hover:text-ink">
             sources and licences
           </Link>

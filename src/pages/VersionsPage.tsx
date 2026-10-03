@@ -1,20 +1,14 @@
 import { BookOpen } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { CreditLine } from "@/components/CreditLine";
 import { useCatalog } from "@/lib/catalog";
 import { groupVersions, VERSION_GROUPS, type VersionGroup } from "@/lib/languages";
+import { NUMBERING_LABEL } from "@/lib/numbering";
 import { SECTIONS, sectionColor } from "@/lib/sections";
 import type { Catalog, Translation } from "@/lib/types";
 import { cn, formatNumber } from "@/lib/utils";
 
-
-const NUMBERING: Record<Translation["numbering"], string> = {
-  english: "English (KJV)",
-  hebrew: "Hebrew",
-  greek: "Greek (Septuagint)",
-  vulgate: "Latin (Vulgate)",
-  mixed: "Mixed (partly Hebrew)",
-};
 
 function counts(catalog: Catalog, t: Translation) {
   const section = (code: string) => catalog.books.find((b) => b.code === code)?.section;
@@ -35,8 +29,8 @@ export default function VersionsPage() {
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">Versions & sources</p>
         <h1 className="mt-1 font-serif text-4xl font-semibold tracking-tight sm:text-5xl">{catalog.translations.length} texts, all free to read.</h1>
         <p className="mt-3 max-w-2xl text-muted">
-          Every text below is in the public domain. Modern copyrighted translations are not included. Each was downloaded from eBible.org and is shown exactly as
-          published there.
+          Every text below is in the public domain except one: the Hindi Indian Revised Version, which its publisher shares under an open licence (CC BY-SA 4.0).
+          Each was downloaded from eBible.org and is shown as published there, without the book introductions some of them carry.
         </p>
       </header>
 
@@ -101,7 +95,7 @@ export default function VersionsPage() {
                         {c.ot} · {c.nt} · {c.apocrypha}
                       </td>
                       <td className="px-3 py-3 text-right tabular-nums">{formatNumber(t.verses)}</td>
-                      <td className="px-3 py-3 text-muted">{NUMBERING[t.numbering]}</td>
+                      <td className="px-3 py-3 text-muted">{NUMBERING_LABEL[t.numbering]}</td>
                       <td className="px-3 py-3">
                         <Link to={`/read/${t.slug}/${first}/${t.books[first][0]}`} className="inline-flex items-center gap-1 rounded-full border border-line px-2.5 py-1 hover:bg-surface-2">
                           <BookOpen className="h-3.5 w-3.5" aria-hidden /> Read
@@ -133,8 +127,16 @@ export default function VersionsPage() {
           <h2 className="font-serif text-2xl font-semibold">Sources and credits</h2>
           <ul className="mt-4 space-y-3">
             <li>
-              <strong>Bible texts</strong> — <a className="underline" href="https://ebible.org/" rel="noreferrer">eBible.org</a>, each marked public domain on its own copyright page.
+              <strong>Bible texts</strong> — <a className="underline" href="https://ebible.org/" rel="noreferrer">eBible.org</a>, each marked public domain on its own copyright page, except
+              the Hindi text below.
             </li>
+            {catalog.translations
+              .filter((t) => t.credit)
+              .map((t) => (
+                <li key={t.slug}>
+                  <strong>{t.name}</strong> — <CreditLine credit={t.credit!} />
+                </li>
+              ))}
             <li>
               <strong>Cross references</strong> — <a className="underline" href="https://www.openbible.info/labs/cross-references/" rel="noreferrer">OpenBible.info</a>, licensed CC-BY. About 344,000 reader-voted links, seeded from the public-domain Treasury of Scripture Knowledge.
             </li>

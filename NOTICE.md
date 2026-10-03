@@ -5,7 +5,8 @@ the project's own, and keeps its publisher's terms. Full list, with checksums: [
 
 | Data | Licence | What you must do if you reuse it |
 |---|---|---|
-| All 24 Bible texts (eBible.org) | Public domain | Nothing. Note that the King James Version is under a perpetual Crown patent in the United Kingdom. |
+| Every Bible text except the Hindi IRV (eBible.org) | Public domain | Nothing. Note that the King James Version is under a perpetual Crown patent in the United Kingdom. |
+| Hindi: Indian Revised Version (IRV) Hindi 2019, © 2017, 2018, 2019 Bridge Connectivity Solutions, via eBible.org | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) | Credit it as written here, link the licence and the source (https://ebible.org/details.php?id=hin2017), and share any adaptation under CC BY-SA 4.0. Changes made here: converted from USFM to this site's JSON, book introductions omitted; the Bible text is otherwise unchanged. The generated files `data/text/irv/` and `data/plain/irv/` are under CC BY-SA 4.0, not MIT. |
 | Cross-references and Bible places (OpenBible.info) | CC-BY / CC BY 4.0 | Credit "OpenBible.info" |
 | Proper names (STEP Bible, TIPNR) | CC BY 4.0 | Credit "STEP Bible" with a link to www.STEPBible.org |
 | Robertson, *A Harmony of the Gospels* (1922; Project Gutenberg) | Public domain in the US | Nothing (Project Gutenberg's licence covers its file, not the facts used here) |

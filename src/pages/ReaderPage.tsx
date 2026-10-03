@@ -1,6 +1,7 @@
 import { ArrowLeft, ArrowRight, CheckSquare, ChevronLeft, ChevronRight, Link2, Square } from "lucide-react";
 import { useCallback, useEffect, useMemo, useState, type ReactNode } from "react";
 import { Link, Navigate, useNavigate, useParams, useSearchParams } from "react-router-dom";
+import { CreditLine } from "@/components/CreditLine";
 import { BookPicker } from "@/components/reader/BookPicker";
 import { ChapterPlaces } from "@/components/reader/ChapterPlaces";
 import { ChapterText } from "@/components/reader/ChapterText";
@@ -180,6 +181,13 @@ function ReaderBody({ translation, code, chapter }: { translation: Translation; 
               <ChapterText chapter={columns[0].chapter} options={options} selected={selected} highlight={highlight} onSelect={select} lang={translation.lang} dir={translation.dir} />
             ) : (
               <p className="text-muted">This chapter is not in this version.</p>
+            ))}
+          {columns
+            .filter((column) => column.translation.credit)
+            .map((column) => (
+              <p key={column.translation.slug} className="mt-8 font-sans text-muted" style={{ fontSize: "0.75rem" }} data-testid="text-credit">
+                <CreditLine credit={column.translation.credit!} />
+              </p>
             ))}
           <nav aria-label="Chapters" className="mt-12 flex flex-wrap items-center justify-between gap-3 border-t border-line pt-6 font-sans" style={{ fontSize: "1rem" }}>
             {prev ? (

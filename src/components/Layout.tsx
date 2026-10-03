@@ -73,7 +73,7 @@ export function Layout({ children }: { children: ReactNode }) {
       </main>
       <footer className="border-t border-line bg-surface/60" style={{ paddingBottom: "env(safe-area-inset-bottom, 0px)" }}>
         <div className="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-6 text-xs text-muted sm:flex-row sm:items-center sm:justify-between sm:px-6">
-          <p>Every Bible text here is in the public domain. Texts from eBible.org.</p>
+          <p>Every Bible text here is free: all public domain but one openly licensed Hindi text (CC BY-SA). Texts from eBible.org.</p>
           <p>
             Cross references and places from{" "}
             <a className="underline hover:text-ink" href="https://www.openbible.info/" rel="noreferrer">

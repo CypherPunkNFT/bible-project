@@ -4,6 +4,8 @@ import { expect, test, type Page } from "@playwright/test";
 // The Study pages (TODO section G). Runs at desktop, tablet and phone like site.spec.ts.
 test.skip(!existsSync("data/study/index.json"), "study data not built — run scripts/build-study.py first");
 
+const TRANSLATION_LANGUAGES = ["Spanish", "Arabic", "Chinese", "French", "German", "Hindi", "Portuguese", "Russian", "Japanese", "Vietnamese", "Persian", "Italian"];
+
 const PAGES = ["/study", "/study/harmony", "/study/miracles", "/study/letters", "/study/people", "/study/people/elijah-1ki-17-1", "/study/prophets", "/study/names"];
 
 async function settle(page: Page) {
@@ -116,8 +118,8 @@ test("versions page: English, original languages and translations; no language c
   await expect(page.locator("thead")).not.toContainText(/Language/i);
   await page.getByRole("button", { name: /^Translations/ }).click();
   const rows = page.locator("tbody tr:has(td)");
-  await expect(rows).toHaveCount(6); // Chinese has two: the Union Version and the World Chinese Bible
-  for (const language of ["Spanish", "Arabic", "Chinese", "French", "German"]) await expect(page.locator("tbody")).toContainText(language);
+  await expect(rows).toHaveCount(13); // twelve languages; Chinese has two (the Union Version and the World Chinese Bible)
+  for (const language of TRANSLATION_LANGUAGES) await expect(page.locator("tbody")).toContainText(language);
   await page.getByRole("button", { name: /^All/ }).click();
   await expect(page.locator("tbody > tr > th[colspan]").first()).toHaveText(/English/);
 });
@@ -128,7 +130,7 @@ test("library versions list: the three groups, with the translations under their
   await expect(list.locator("h3")).toHaveCount(3);
   await list.getByRole("button", { name: /^Translations/ }).click();
   await expect(list.locator("h3")).toHaveCount(1);
-  await expect(list.locator("h4")).toHaveText(["Spanish", "Arabic", "Chinese", "French", "German"]);
+  await expect(list.locator("h4")).toHaveText(TRANSLATION_LANGUAGES);
   await expect(list.getByRole("link", { name: /LSG.*Louis Segond 1910/ })).toBeVisible();
 });
 
@@ -143,4 +145,24 @@ test("translations: Arabic reads right to left, Chinese search finds 神 across 
 test("side by side: the Chinese joined verse Genesis 24:29-30 lines up with the KJV's 29 and 30", async ({ page }) => {
   await page.goto("/read/kjv/GEN/24?with=cuv");
   await expect(page.getByText("joined with verse 29-30 above")).toBeVisible();
+});
+
+test("more languages: Persian reads right to left; Hindi carries its licence credit and no typed-in references", async ({ page }) => {
+  await page.goto("/read/opv/JHN/3");
+  await expect(page.locator(".scripture")).toHaveAttribute("dir", "rtl");
+  await expect(page.locator(".scripture")).toContainText("زیرا خدا جهان را اینقدر محبت نمود");
+  await expect(page.getByTestId("text-credit")).toHaveCount(0); // public domain: no credit line
+  await page.goto("/read/irv/GEN/1");
+  await expect(page.locator(".scripture")).toContainText("आदि में परमेश्वर ने आकाश और पृथ्वी की सृष्टि की");
+  await expect(page.locator(".scripture")).not.toContainText("इब्रा. 1:10"); // the study edition's reference is a footnote now
+  const credit = page.getByTestId("text-credit");
+  await expect(credit).toContainText("Bridge Connectivity Solutions");
+  await expect(credit.getByRole("link", { name: "CC BY-SA 4.0" })).toHaveAttribute("href", "https://creativecommons.org/licenses/by-sa/4.0/");
+});
+
+test("more languages: the Russian Synodal numbers verses its own way, so cross-references point to the KJV", async ({ page }) => {
+  await page.goto("/read/syn/PSA/23");
+  await expect(page.locator(".scripture")).toContainText("Господь");
+  await page.locator(".scripture [data-verse]").first().click();
+  await expect(page.getByText(/numbers verses differently \(Russian Synodal\)/)).toBeVisible();
 });

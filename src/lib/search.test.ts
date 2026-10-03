@@ -35,6 +35,31 @@ describe("search", () => {
     expect(parts.find((p) => p.match)?.text).toBe("ٱللهُ");
   });
 
+  it("Persian: the zero-width non-joiner, a space or nothing between word parts all match, and both yehs match", () => {
+    const verse = "تا هر‌که بر او ایمان آورد هلاک نگردد"; // "هر‌که" has a zero-width non-joiner, as in the OPV
+    expect(makeMatcher("هرکه", true)!.test(verse)).toBe(true);
+    expect(makeMatcher("هر که", true)!.test(verse)).toBe(true);
+    expect(makeMatcher("ايمان", true)!.test(verse)).toBe(true); // typed with the Arabic yeh
+    expect(makeMatcher("هر", true)!.test(verse)).toBe(false); // whole words: the non-joiner is inside the word
+  });
+
+  it("Arabic: alef maksura is not merged with yeh", () => {
+    expect(makeMatcher("علي", true)!.test("عَلَى ٱلْأَرْضِ")).toBe(false);
+  });
+
+  it("Japanese: one kana is enough, whole-word mode is ignored, the long-vowel mark counts", () => {
+    const verse = "神は世をこれほどまでに愛し、そのひとり子をお与えになりました。";
+    expect(makeMatcher("ひとり子", true)!.test(verse)).toBe(true);
+    expect(makeMatcher("を", true)!.test(verse)).toBe(true);
+    expect(makeMatcher("ー", false)).not.toBeNull();
+  });
+
+  it("Hindi: a zero-width joiner inside a word is optional", () => {
+    const verse = "परमेश्‍वर ने जगत से ऐसा प्रेम रखा"; // the source writes परमेश्‍वर with a zero-width joiner
+    expect(makeMatcher("परमेश्वर", true)!.test(verse)).toBe(true);
+    expect(makeMatcher("परमेश्‍वर ने", true)!.test(verse)).toBe(true);
+  });
+
   it("treats regex characters literally", () => {
     expect(makeMatcher("a.b", false)!.test("axb")).toBe(false);
   });

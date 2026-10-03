@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Download every raw source the site is built from, from its original publisher, into sources/.
 
-    python scripts/fetch-sources.py            # everything (~135 MB), skips files already present
+    python scripts/fetch-sources.py            # everything (~160 MB), skips files already present
     python scripts/fetch-sources.py --force    # download again
 
 Then: python scripts/build-data.py && python scripts/build-study.py (see README.md).

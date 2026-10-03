@@ -25,7 +25,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from bible.books import BOOK_NUMBER, BOOKS, EQUIVALENT, SKIPPED_CODES  # noqa: E402
 from bible.opendata import read_cross_references, read_places  # noqa: E402
 from bible.paths import SOURCES  # noqa: E402
-from bible.translations import as_dicts  # noqa: E402
+from bible.translations import CREDITS, PLAIN_ITALIC, as_dicts  # noqa: E402
 from bible.usfm import parse_book, plain_text  # noqa: E402
 
 SITE = Path(__file__).resolve().parents[1]
@@ -73,7 +73,8 @@ def build_translation(meta: dict, recorded: dict[str, str], warnings: list[str])
             continue
         if code not in BOOK_NUMBER:
             raise SystemExit(f"{path}: unknown book code {code!r}; add it to scripts/bible/books.py or SKIPPED_CODES")
-        book = parse_book(path.read_text(encoding="utf-8"), f"{meta['id']}/{path.name}", meta["strongs"], warnings)
+        book = parse_book(path.read_text(encoding="utf-8"), f"{meta['id']}/{path.name}", meta["strongs"], warnings,
+                          plain_italic=meta["id"] in PLAIN_ITALIC)
         write_json(OUT / "text" / slug / f"{code}.json", book)
         plain = {f"{ch['c']}:{v['n']}": plain_text(v["r"]) for ch in book["chapters"] for v in ch["v"]}
         write_json(OUT / "plain" / slug / f"{code}.json", plain)
@@ -158,7 +159,8 @@ def catalog(entries: list[dict], stamp: str) -> dict:
         "equivalent": EQUIVALENT,
         "translations": [{k: e[k] for k in ("slug", "abbr", "name", "year", "lang", "dir", "numbering")}
                          | {"books": {code: b["chapters"] for code, b in e["books"].items()},
-                            "verses": sum(b["verses"] for b in e["books"].values())} for e in entries],
+                            "verses": sum(b["verses"] for b in e["books"].values())}
+                         | ({"credit": CREDITS[e["id"]]} if e["id"] in CREDITS else {}) for e in entries],
     }
 
 

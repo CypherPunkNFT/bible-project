@@ -2,7 +2,10 @@
 
 numbering: the verse-numbering tradition. "english" = KJV numbering; "hebrew" = Masoretic (Psalm titles are
 verse 1, Malachi has 3 chapters); "greek" = Septuagint (Psalms 10-147 one behind); "vulgate" = Latin Vulgate
-numbering (same Psalm offset as the Greek); "mixed" = partly Hebrew, partly KJV (Louis Segond). Checked by build-data.py's numbering report, not just asserted.
+numbering (same Psalm offset as the Greek); "mixed" = partly Hebrew, partly KJV (Louis Segond); "synodal" = Russian
+Synodal (Psalm titles are verse 1 and the Psalms follow the Greek order, but Malachi has 4 chapters). Reported by
+build-data.py's numbering report; nothing enforces it. Anything but "english" hides the KJV-numbered
+cross-references and reading progress for that version.
 strongs: keep Strong's numbers from this source (only where they are reliable and licence-clean).
 """
 
@@ -41,7 +44,30 @@ TRANSLATIONS = [
     ("cmnswcb",     "WCB",   "World Chinese Bible (Chinese, simplified)",   2026, "zh-Hans", "ltr", "english", False),
     ("fraLSG",      "LSG",   "Louis Segond 1910 (French)",                  1910, "fr",  "ltr", "mixed",   False),
     ("deu1912",     "LUT",   "Lutherbibel 1912 (German)",                   1912, "de",  "ltr", "english", False),
+    # More languages (owner, 2026-10-03), by number of speakers. Hindi is the one text that is not public domain
+    # (CC BY-SA 4.0, credited below). Korean is left out: eBible's 1910 text is missing verses throughout.
+    ("hin2017",     "IRV",   "Indian Revised Version (Hindi)",              2019, "hi",  "ltr", "english", False),
+    ("porbrbsl",    "BPM",   "Bíblia Portuguesa Mundial (Portuguese)",      2026, "pt",  "ltr", "english", False),
+    ("russyn",      "SYN",   "Russian Synodal Bible (Russian)",             1876, "ru",  "ltr", "synodal", False),
+    ("jpnm",        "JFB",   "Japanese Freedom Bible (Japanese)",           2026, "ja",  "ltr", "english", False),
+    ("vie1934",     "BTT",   "Vietnamese Bible 1923 (Vietnamese)",          1923, "vi",  "ltr", "english", False),
+    ("pesOPV",      "OPV",   "Old Persian Version (Persian)",               1895, "fa",  "rtl", "english", False),
+    ("ita1927",     "RIV",   "Riveduta 1927 (Italian)",                     1927, "it",  "ltr", "english", False),
 ]
+
+# Versions whose \it marks the phrase a study note comments on, not emphasis: shown as ordinary text.
+PLAIN_ITALIC = {"hin2017"}
+
+# Versions that are not public domain: the credit their licence asks for, shown wherever the text is read.
+CREDITS = {
+    "hin2017": {
+        "text": "Indian Revised Version (IRV) Hindi, © 2017, 2018, 2019 Bridge Connectivity Solutions",
+        "url": "https://ebible.org/details.php?id=hin2017",
+        "licence": "CC BY-SA 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "changes": "Converted to this site's format; book introductions omitted; the Bible text is otherwise unchanged.",
+    },
+}
 
 FIELDS = ("id", "abbr", "name", "year", "lang", "dir", "numbering", "strongs")
 

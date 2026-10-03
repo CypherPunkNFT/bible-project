@@ -1,6 +1,7 @@
 import { AlertTriangle } from "lucide-react";
 import { useMemo, type CSSProperties } from "react";
 import type { Chapter, Translation, Verse } from "@/lib/types";
+import { NUMBERING_LABEL } from "@/lib/numbering";
 import { inHighlight } from "@/lib/refs";
 import { cn } from "@/lib/utils";
 import { inlineRuns } from "./blocks";
@@ -89,7 +90,7 @@ export function ParallelText({ columns, options, selected, highlight = null, onS
             <span className="text-muted">{column.translation.name}</span>
             {column.translation.numbering !== primary.translation.numbering && (
               <p className="mt-0.5 flex items-center gap-1 text-xs text-accent">
-                <AlertTriangle className="h-3 w-3 shrink-0" aria-hidden /> Numbers verses the {column.translation.numbering} way — rows may not match.
+                <AlertTriangle className="h-3 w-3 shrink-0" aria-hidden /> Numbers verses differently ({NUMBERING_LABEL[column.translation.numbering]}) — rows may not match.
               </p>
             )}
             {!column.chapter && <p className="text-xs text-muted">Not in this version.</p>}

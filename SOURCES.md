@@ -10,7 +10,7 @@ zip (`<id>_usfm.zip`), the unpacked USFM book files, and the publisher's own cop
 eBible.org updates files in place, so a fresh download can differ. The checksum below (first 16 hex
 characters of the zip's SHA-256) identifies the exact copy this project was built from.
 
-## Bible texts — all from eBible.org, all marked "Public Domain" in their own copr.htm
+## Bible texts — all from eBible.org, all marked "Public Domain" in their own copr.htm except the Hindi IRV (CC BY-SA 4.0)
 
 Books column = Old Testament / New Testament / Apocrypha-Deuterocanon, from eBible's
 [catalogue](sources/ebible/translations.csv).
@@ -48,6 +48,16 @@ Books column = Old Testament / New Testament / Apocrypha-Deuterocanon, from eBib
 | [arb-vd](sources/ebible/arb-vd/) | Van Dyck (Smith–Van Dyck, 1865) — the standard Arabic Protestant Bible, right to left | Arabic | 39/27/0 | 2020-08-03 | 952c7e9725aeafdc |
 | [cmn-cu89s](sources/ebible/cmn-cu89s/) | Chinese Union Version 和合本, simplified script, with the 1989 new punctuation. ⚠ eBible marks it Public Domain; the punctuation edition may carry a Hong Kong Bible Society copyright — settle before publishing | Chinese | 39/27/0 | 2021-10-15 | 9ddb4d15a4b85d3f |
 | [cmnswcb](sources/ebible/cmnswcb/) | World Chinese Bible 世界中文圣经, simplified script — a new modern translation that follows the World English Bible closely; public domain beyond doubt. eBible calls it a draft (译本草稿) and has not yet certified it | Chinese | 39/27/0 | 2026-09-07 | dbdd2aa8b2896980 |
+| [hin2017](sources/ebible/hin2017/) | Indian Revised Version (IRV) Hindi, 2019 — a revision of the long-standing Hindi Bible. ⚠ **Not public domain: CC BY-SA 4.0, © 2017, 2018, 2019 Bridge Connectivity Solutions** (the one openly licensed text; see NOTICE.md) | Hindi | 39/27/0 | 2023-04-11 | b32eac3abdda77d3 |
+| [porbrbsl](sources/ebible/porbrbsl/) | Bíblia Portuguesa Mundial — Brazilian Portuguese, a translation of the World English Bible with the Deuterocanon; eBible calls it a draft still under review | Portuguese | 39/27/15 | 2026-08-19 | 9ba723320cc6eee3 |
+| [russyn](sources/ebible/russyn/) | Russian Synodal Bible (1876) — the standard Russian Bible; Psalms numbered the Greek way, Psalm titles as verse 1 | Russian | 39/27/0 | 2022-11-25 | 9a61f073951b236b |
+| [jpnm](sources/ebible/jpnm/) | Japanese Freedom Bible (フリーダム・バイブル) — a new modern translation; eBible calls it a draft | Japanese | 39/27/0 | 2026-08-19 | 4d48d03495728163 |
+| [vie1934](sources/ebible/vie1934/) | Vietnamese Bible 1923 (Kinh Thánh) — the standard Vietnamese Protestant Bible | Vietnamese | 39/27/0 | 2022-06-09 | adf7ec3a944a822c |
+| [pesOPV](sources/ebible/pesOPV/) | Old Persian Version (ترجمه قدیم, 1895) — the classic Persian Bible, right to left | Persian | 39/27/0 | 2015-04-21 | fe33d897e1eaaf48 |
+| [ita1927](sources/ebible/ita1927/) | Riveduta 1927 — Giovanni Luzzi's revision of the Italian Diodati Bible | Italian | 39/27/0 | 2019-12-17 | e95a11617ef36d0c |
+
+Not used: the Korean Bible 1910 (`kor`) — eBible's copy is missing verses throughout (1 Peter 5, most of Psalm 118,
+half of Colossians 4, and about 40 chapters short), so it is left out until a complete public-domain Korean text is found.
 
 Download URL pattern: `https://ebible.org/Scriptures/<folder>_usfm.zip`.
 

@@ -19,6 +19,13 @@ TOKEN = re.compile(r"\\(\+?[a-z]+[0-9]*)(\*?)")
 # 'l s="H8085"'...'seg type="x-large"'ע'seg''/l'. Keep the letters, drop the tags (and their Strong's numbers).
 SCRIBAL_TAGS = re.compile(r"'(?:l s=\"[^\"]*\"|seg type=\"[^\"]*\"|seg|/l)'")
 STRONG_OK = re.compile(r"^[HG]\d{1,5}[a-z]?$")
+# Study editions (the Hindi IRV) type cross-references into the verse as bold italic: '\bdit (इब्रा. 1:10)\bdit*'.
+# Only a span that is nothing but a bracketed chapter:verse reference is moved into a footnote; the Greek
+# Patriarchal text's bold-italic quotations never match.
+BRACKETED_REFERENCE = re.compile(r"\\bdit\s*(\([^\\()]*\d+:\s*\d+[^\\()]*\))\s*\\bdit\*")
+# A paragraph that is only a keyword is a speaker label (the Hindi Song of Songs: '\p \k वधू\k*').
+SPEAKER_PARAGRAPH = re.compile(r"\\p\s+\\k\s+([^\\\n]+?)\s*\\k\*[ \t]*(?=\r?\n)")
+ITALIC_MARKERS = re.compile(r"\\\+?it(?:\*| )")
 
 BREAKS = {
     "p": "p", "m": "p", "nb": "p", "pmo": "p", "mi": "p", "pc": "p", "pi1": "p", "pi": "p", "tr": "p",
@@ -30,7 +37,7 @@ HEADINGS = {"s1": "s", "s": "s", "s2": "s2", "ms1": "ms", "ms": "ms", "ms2": "ms
 IGNORED_TEXT = {"id", "ide", "h", "toc1", "toc2", "toc3", "mt1", "mt2", "mt3", "mt4", "mt", "imt1", "ip", "im",
                 "ib", "is1", "is2", "ili", "ili1", "cl", "cp", "rem", "sts", "usfm",
                 # Book introductions (e.g. Louis Segond 1910): titles, indented paragraphs, outline lines, end.
-                "imt2", "imt3", "ipi", "io1", "io2", "io3", "ie"}
+                "imt2", "imt3", "ipi", "io1", "io2", "io3", "ie", "iot"}
 CELLS = {"tc1", "tc2", "tc3", "tc4", "th1", "th2", "th3"}
 CHAR_FLAGS = {"wj": "j", "add": "a", "nd": "n", "qs": "s", "it": "i", "bdit": "i", "tl": "i", "bk": "i",
               "em": "i", "sls": "i", "bd": "b", "sc": "c", "sup": "u"}
@@ -328,10 +335,19 @@ def _finish_runs(runs: list) -> list:
     return out
 
 
-def parse_book(text: str, source_name: str, keep_strongs: bool, warnings: list[str]) -> dict:
-    """Parse one USFM book file into the site's JSON shape. Raises UsfmError on anything unknown."""
+def parse_book(text: str, source_name: str, keep_strongs: bool, warnings: list[str],
+               plain_italic: bool = False) -> dict:
+    """Parse one USFM book file into the site's JSON shape. Raises UsfmError on anything unknown.
+
+    plain_italic: the source's \\it only marks the phrase a study note comments on (the Hindi IRV), so it is
+    shown as ordinary text rather than italic, which in English Bibles means words added by the translators.
+    """
     text = unicodedata.normalize("NFC", text.lstrip("\ufeff"))
     text = SCRIBAL_TAGS.sub("", text)
+    text = BRACKETED_REFERENCE.sub(r"\\f + \\ft \1\\f*", text)
+    text = SPEAKER_PARAGRAPH.sub(r"\\sp \1", text)
+    if plain_italic:
+        text = ITALIC_MARKERS.sub("", text)
     book = _Book(source_name, keep_strongs, warnings)
     position, pending_text = 0, ""
     for match in TOKEN.finditer(text):

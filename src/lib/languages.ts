@@ -16,6 +16,13 @@ const LANGUAGE: Record<string, string> = {
   "zh-Hans": "Chinese",
   fr: "French",
   de: "German",
+  hi: "Hindi",
+  pt: "Portuguese",
+  ru: "Russian",
+  ja: "Japanese",
+  vi: "Vietnamese",
+  fa: "Persian",
+  it: "Italian",
 };
 
 export interface VersionGroup {
@@ -29,7 +36,8 @@ export interface VersionGroup {
 export const VERSION_GROUPS: VersionGroup[] = [
   { id: "english", title: "English", langs: ["en", "enm"], byLanguage: false },
   { id: "original", title: "Original and ancient languages", langs: ["he", "grc", "la"], byLanguage: true },
-  { id: "translations", title: "Translations", langs: ["es", "ar", "zh-Hans", "fr", "de"], byLanguage: true },
+  // The owner's first five, then the languages added later by number of speakers.
+  { id: "translations", title: "Translations", langs: ["es", "ar", "zh-Hans", "fr", "de", "hi", "pt", "ru", "ja", "vi", "fa", "it"], byLanguage: true },
 ];
 
 export const languageName = (code: string): string => LANGUAGE[code] ?? code;

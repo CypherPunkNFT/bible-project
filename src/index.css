@@ -135,13 +135,34 @@ body {
 /* Arabic (Van Dyck, fully vowel-marked) needs room like the Hebrew; Chinese gets a Chinese face, never a Japanese
    fallback. System fonts only: nothing extra is downloaded. */
 .scripture [lang="ar"],
-.scripture:lang(ar) {
-  font-family: "Noto Naskh Arabic", "Amiri", "Traditional Arabic", "Arabic Typesetting", "Segoe UI", "Geeza Pro", serif;
+.scripture:lang(ar),
+.scripture [lang="fa"],
+.scripture:lang(fa) {
   font-size: 1.3em;
   line-height: 2;
 }
+/* Typefaces apply everywhere a verse is shown (reader, side by side, search results, verse panel). Persian is
+   written in the Arabic script, and Naskh faces carry its extra letters. */
+[lang="ar"],
+[lang="fa"] {
+  font-family: "Noto Naskh Arabic", "Amiri", "Traditional Arabic", "Arabic Typesetting", "Segoe UI", "Geeza Pro", serif;
+}
 [lang="zh-Hans"] {
   font-family: "Noto Serif SC", "Songti SC", "SimSun", "Microsoft YaHei", "PingFang SC", "Noto Sans SC", serif;
+}
+[lang="ja"] {
+  font-family: "Noto Serif JP", "Yu Mincho", "YuMincho", "Hiragino Mincho ProN", "MS Mincho", serif;
+}
+[lang="hi"] {
+  font-family: "Noto Serif Devanagari", "Nirmala UI", "Kohinoor Devanagari", "Mangal", serif;
+}
+.scripture [lang="hi"],
+.scripture:lang(hi) {
+  line-height: 2;
+}
+/* These scripts have no true italic; a browser would only slant them. Psalm titles and styled words stay upright. */
+.italic:is(:lang(ar), :lang(fa), :lang(hi), :lang(ja), :lang(zh)) {
+  font-style: normal;
 }
 
 .divine-name {
