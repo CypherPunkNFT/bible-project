@@ -92,14 +92,11 @@ test("harmony: a long passage across chapters ends with 'read on' (the Sermon on
   await expect(panel.getByRole("link", { name: /read on/ }).first()).toBeVisible();
 });
 
-test("home: the landing opens with John 1:1 and the story has ten movements with their KJV verses", async ({ page }) => {
+test("home: the landing opens with John 1:1", async ({ page }) => {
+  // The "One story" section was replaced by "About this site" (78bdbfd); the landing itself is unchanged.
   await page.goto("/");
   await expect(page.getByRole("heading", { level: 1 })).toContainText("In the beginning");
   await expect(page.locator("#home-title").locator("..")).toContainText("and the Word was with God");
-  const movements = page.locator("#one-story ol > li");
-  await expect(movements).toHaveCount(10);
-  await expect(movements.nth(7)).toContainText("He is not here, but is risen");
-  await expect(page.getByRole("link", { name: "Creation — read Genesis 1:1" })).toHaveAttribute("href", /\/GEN\/1\?hl=1-1/);
 });
 
 test("home: the glow stops for readers who reduce motion", async ({ browser }) => {

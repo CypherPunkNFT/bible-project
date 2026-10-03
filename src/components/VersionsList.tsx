@@ -9,6 +9,8 @@ import { cn, formatNumber } from "@/lib/utils";
 /** Seven versions in view; the rest scroll. */
 const ROW_REM = 3.75;
 const VISIBLE = 7;
+/** The sticky language heading (py-1.5 + text-xs + border) sits on top of the rows, so the box grows by its height. */
+const HEADING_REM = 1.95;
 
 function testaments(catalog: Catalog, t: Translation): string {
   const section = (code: string) => catalog.books.find((b) => b.code === code)?.section;
@@ -55,7 +57,7 @@ export function VersionsList() {
           </button>
         ))}
       </div>
-      <div className="slim-scroll -me-3 overflow-y-auto overscroll-contain pe-3" style={{ maxHeight: `${ROW_REM * VISIBLE + 0.15}rem` }}>
+      <div className="slim-scroll -me-3 overflow-y-auto overscroll-contain pe-3" style={{ maxHeight: `${ROW_REM * VISIBLE + HEADING_REM + 0.15}rem` }}>
         <div className="overflow-hidden rounded-2xl border border-line bg-surface">
         {shown.map((code) => (
         <section key={code} aria-label={`${languageName(code)} versions`}>

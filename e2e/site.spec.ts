@@ -231,10 +231,12 @@ test("reading options: the text-size buttons really change the scripture size", 
 
 test("library: the versions list shows seven at a time and scrolls the rest", async ({ page }) => {
   await page.goto("/library");
-  const list = page.getByRole("list").filter({ hasText: "King James Version" }).last();
-  const box = await list.evaluate((ul) => {
-    const scroller = ul.parentElement as HTMLElement;
-    return { rows: ul.children.length, visible: Math.round(scroller.clientHeight / (ul.children[0] as HTMLElement).offsetHeight), scrolls: scroller.scrollHeight > scroller.clientHeight };
+  // Grouped by language since 2026-10-03: rows sit in one list per language under a sticky heading.
+  const scroller = page.locator("section[aria-labelledby=versions-title] .slim-scroll");
+  const box = await scroller.evaluate((el) => {
+    const rows = el.querySelectorAll("li");
+    const heading = (el.querySelector("h3") as HTMLElement).offsetHeight;
+    return { rows: rows.length, visible: Math.round((el.clientHeight - heading) / (rows[0] as HTMLElement).offsetHeight), scrolls: el.scrollHeight > el.clientHeight };
   });
   expect(box.rows).toBe(24);
   expect(box.visible).toBe(7);
