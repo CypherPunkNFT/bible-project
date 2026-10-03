@@ -5,9 +5,11 @@ export interface ReaderSettings {
   footnotes: boolean;
   versePerLine: boolean;
   scale: number;
+  /** the cross-reference panel opens with each chapter (wide screens) */
+  crossRefs: boolean;
 }
 
-const DEFAULTS: ReaderSettings = { redLetters: true, footnotes: true, versePerLine: false, scale: 1 };
+const DEFAULTS: ReaderSettings = { redLetters: true, footnotes: true, versePerLine: false, scale: 1, crossRefs: true };
 const KEY = "bp-reader-settings";
 
 function load(): ReaderSettings {

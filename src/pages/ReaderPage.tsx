@@ -1,4 +1,4 @@
-import { ArrowLeft, ArrowRight, CheckSquare, ChevronLeft, ChevronRight, Square } from "lucide-react";
+import { ArrowLeft, ArrowRight, CheckSquare, ChevronLeft, ChevronRight, Link2, Square } from "lucide-react";
 import { useCallback, useEffect, useMemo, useState, type ReactNode } from "react";
 import { Link, Navigate, useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { BookPicker } from "@/components/reader/BookPicker";
@@ -8,6 +8,9 @@ import { ParallelText, type Column } from "@/components/reader/ParallelText";
 import { ReaderToolbar, type ChapterLink } from "@/components/reader/ReaderToolbar";
 import { useReaderSettings } from "@/components/reader/settings";
 import { VersePanel } from "@/components/reader/VersePanel";
+import { ChapterCrossRefs } from "@/components/reader/ChapterCrossRefs";
+import { useChapterCrossRefs } from "@/components/reader/useChapterCrossRefs";
+import { useMediaQuery } from "@/lib/useMediaQuery";
 import { useCatalog } from "@/lib/catalog";
 import { loadBook } from "@/lib/data";
 import { rememberRead, lastReadPath } from "@/lib/last-read";
@@ -16,7 +19,7 @@ import { bookByCode, parseHighlight } from "@/lib/refs";
 import { SECTION_BY_ID, sectionColor } from "@/lib/sections";
 import type { BookText, Catalog, Translation } from "@/lib/types";
 import { useAsync } from "@/lib/useAsync";
-import { cn, isTyping } from "@/lib/utils";
+import { cn, formatNumber, isTyping } from "@/lib/utils";
 
 /** Previous/next chapter across books, in canonical order, within the books this version has. */
 function neighbours(catalog: Catalog, translation: Translation, code: string, chapter: string) {
@@ -71,6 +74,13 @@ function ReaderBody({ translation, code, chapter }: { translation: Translation; 
     target && { label: `${bookByCode(catalog, target[0])?.name ?? target[0]} ${target[1]}`, go: () => goTo(target) };
   const prevLink = linkTo(prev);
   const nextLink = linkTo(next);
+  // The cross-reference panel: open with every chapter on wide screens (unless the reader closed it, or
+  // versions are side by side), or whenever a verse is chosen or the bubble is clicked.
+  const wide = useMediaQuery("(min-width: 1024px)");
+  const [bubbleOpened, setBubbleOpened] = useState(false);
+  useEffect(() => setBubbleOpened(false), [parallel.length]);
+  const showPanel = !!selected || bubbleOpened || (settings.crossRefs && wide && !parallel.length);
+  const chapterRefs = useChapterCrossRefs(translation, code, chapter);
 
   useEffect(() => rememberRead(`/read/${translation.slug}/${code}/${chapter}`), [translation.slug, code, chapter]);
 
@@ -135,12 +145,27 @@ function ReaderBody({ translation, code, chapter }: { translation: Translation; 
         onParallel={(list) => navigate(`/read/${translation.slug}/${code}/${chapter}${list.length ? `?with=${list.join(",")}` : ""}`)}
         onSettings={setSettings}
       />
-      <div className={cn("grid grid-cols-[minmax(0,1fr)] gap-8 py-8", selected && "lg:grid-cols-[minmax(0,1fr)_23rem]")}>
+      <div className={cn("relative grid grid-cols-[minmax(0,1fr)] gap-8 py-8", showPanel && "lg:grid-cols-[minmax(0,1fr)_23rem]")}>
         <article className={cn("relative mx-auto w-full", parallel.length ? "max-w-none" : "max-w-[44rem]")} style={{ fontSize: `${settings.scale}rem` }}>
-          {!parallel.length && <SideArrows prev={prevLink} next={nextLink} />}
+          {!parallel.length && <SideArrows prev={prevLink} next={nextLink} nextInside={showPanel} />}
           <header className="mb-6 font-sans" style={{ fontSize: "1rem" }}>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em]" style={{ color: sectionColor(book.section) }}>
-              {SECTION_BY_ID[book.section].name} · {translation.name}
+            <p className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-semibold uppercase tracking-[0.2em]" style={{ color: sectionColor(book.section) }}>
+              <span>
+                {SECTION_BY_ID[book.section].name} · {translation.name}
+              </span>
+              {!showPanel && chapterRefs.usable && chapterRefs.total > 0 && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    setBubbleOpened(true);
+                    if (!settings.crossRefs) setSettings({ ...settings, crossRefs: true });
+                  }}
+                  className="inline-flex items-center gap-1 rounded-full border border-line bg-surface px-2.5 py-0.5 font-sans text-[11px] normal-case tracking-normal text-muted shadow-sm transition hover:text-ink hover:shadow"
+                  aria-label={`Show this chapter's ${chapterRefs.total} cross-references`}
+                >
+                  <Link2 className="h-3 w-3" aria-hidden /> Cross-references {formatNumber(chapterRefs.total)}
+                </button>
+              )}
             </p>
             <h1 className="mt-1 font-serif text-4xl font-semibold tracking-tight sm:text-5xl">
               {book.name} <span className="text-muted">{chapter}</span>
@@ -173,7 +198,23 @@ function ReaderBody({ translation, code, chapter }: { translation: Translation; 
             {translation.numbering === "english" && <ChapterPlaces bookNum={book.num} chapter={Number(chapter)} />}
           </div>
         </article>
-        {selected && <VersePanel translation={translation} bookCode={code} chapter={chapter} label={selected} onClose={closePanel} />}
+        {selected ? (
+          <VersePanel translation={translation} bookCode={code} chapter={chapter} label={selected} onClose={closePanel} />
+        ) : (
+          showPanel && (
+            <ChapterCrossRefs
+              translation={translation}
+              bookCode={code}
+              chapter={chapter}
+              onPick={(verse) => select(verse)}
+              onClose={() => {
+                setBubbleOpened(false);
+                setSettings({ ...settings, crossRefs: false });
+              }}
+            />
+          )
+        )}
+        {showPanel && !parallel.length && <OuterNextArrow link={nextLink} />}
       </div>
       {picking && (
         <BookPicker
@@ -208,9 +249,11 @@ function MarkRead({ code, chapter }: { code: string; chapter: string }) {
 }
 
 /** Big round arrows either side of the text, riding at mid-screen as you scroll (wide screens only). */
-function SideArrows({ prev, next }: { prev: ChapterLink | null; next: ChapterLink | null }) {
+function SideArrows({ prev, next, nextInside = false }: { prev: ChapterLink | null; next: ChapterLink | null; nextInside?: boolean }) {
+  // With the cross-reference panel open, the next arrow sits to the right of the panel (OuterNextArrow) where
+  // there is room for it (1440px+); on narrower wide screens it stays here, between the text and the panel.
   const arrow = (link: ChapterLink | null, side: "left" | "right") => (
-    <div className={cn("pointer-events-none absolute inset-y-0 hidden xl:block", side === "left" ? "-left-24" : "-right-24")}>
+    <div className={cn("pointer-events-none absolute inset-y-0 hidden xl:block", side === "left" ? "-left-24" : "-right-24", side === "right" && nextInside && "min-[1440px]:hidden")}>
       {link && (
         <button
           type="button"
@@ -229,6 +272,24 @@ function SideArrows({ prev, next }: { prev: ChapterLink | null; next: ChapterLin
       {arrow(prev, "left")}
       {arrow(next, "right")}
     </>
+  );
+}
+
+/** The next-chapter arrow to the right of the open cross-reference panel (screens 1440px and wider). */
+function OuterNextArrow({ link }: { link: ChapterLink | null }) {
+  if (!link) return null;
+  return (
+    <div className="pointer-events-none absolute inset-y-0 -right-[5.5rem] hidden min-[1440px]:block">
+      <button
+        type="button"
+        onClick={link.go}
+        aria-label={`Next chapter: ${link.label}`}
+        title={link.label}
+        className="pointer-events-auto sticky top-[calc(50vh-1.75rem)] grid h-14 w-14 place-items-center rounded-full border border-line bg-surface text-muted shadow-sm transition hover:scale-105 hover:text-ink hover:shadow-md"
+      >
+        <ChevronRight className="h-7 w-7" />
+      </button>
+    </div>
   );
 }
 
