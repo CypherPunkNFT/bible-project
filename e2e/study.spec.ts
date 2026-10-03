@@ -110,3 +110,17 @@ test("home: the glow stops for readers who reduce motion", async ({ browser }) =
   expect(animation).toBe("none");
   await context.close();
 });
+
+test("versions: filter by language, grouped, with a language column between abbreviation and name", async ({ page }) => {
+  await page.goto("/versions");
+  const headers = page.locator("thead th");
+  await expect(headers.nth(0)).toHaveText(/Abbreviation/i);
+  await expect(headers.nth(1)).toHaveText(/Language/i);
+  await expect(headers.nth(2)).toHaveText(/Name/i);
+  await page.getByRole("button", { name: /^Greek/ }).click();
+  const rows = page.locator("tbody tr:has(td)");
+  await expect(rows).toHaveCount(5);
+  for (const row of await rows.all()) await expect(row.locator("td").first()).toHaveText("Greek");
+  await page.getByRole("button", { name: /^All languages/ }).click();
+  await expect(page.locator("tbody th[scope=rowgroup]")).toHaveCount(5);
+});

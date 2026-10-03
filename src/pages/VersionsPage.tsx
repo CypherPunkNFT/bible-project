@@ -1,11 +1,15 @@
 import { BookOpen } from "lucide-react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useCatalog } from "@/lib/catalog";
 import { SECTIONS, sectionColor } from "@/lib/sections";
 import type { Catalog, Translation } from "@/lib/types";
-import { formatNumber } from "@/lib/utils";
+import { cn, formatNumber } from "@/lib/utils";
 
 const LANGUAGE: Record<string, string> = { en: "English", enm: "Middle English", he: "Hebrew", grc: "Greek", la: "Latin" };
+// The order the language groups appear in: English first, then the original languages, then Latin and Middle English.
+const LANGUAGE_ORDER = ["en", "he", "grc", "la", "enm"];
+const languageName = (code: string) => LANGUAGE[code] ?? code;
 const NUMBERING: Record<Translation["numbering"], string> = {
   english: "English (KJV)",
   hebrew: "Hebrew",
@@ -23,6 +27,11 @@ function counts(catalog: Catalog, t: Translation) {
 
 export default function VersionsPage() {
   const catalog = useCatalog();
+  const [language, setLanguage] = useState<string>("all");
+  const languages = [...new Set(catalog.translations.map((t) => t.lang))].sort(
+    (a, b) => (LANGUAGE_ORDER.indexOf(a) + 1 || 99) - (LANGUAGE_ORDER.indexOf(b) + 1 || 99),
+  );
+  const shownLanguages = language === "all" ? languages : [language];
   return (
     <div className="mx-auto max-w-6xl px-4 pb-16 sm:px-6">
       <header className="pb-6 pt-10">
@@ -34,31 +43,55 @@ export default function VersionsPage() {
         </p>
       </header>
 
+      <div role="group" aria-label="Show versions in" className="mb-4 flex flex-wrap gap-1.5">
+        {["all", ...languages].map((code) => {
+          const count = code === "all" ? catalog.translations.length : catalog.translations.filter((t) => t.lang === code).length;
+          return (
+            <button
+              key={code}
+              type="button"
+              aria-pressed={language === code}
+              onClick={() => setLanguage(code)}
+              className={cn("rounded-full border px-3 py-1 text-sm", language === code ? "border-ink bg-ink font-semibold text-page" : "border-line hover:bg-surface-2")}
+            >
+              {code === "all" ? "All languages" : languageName(code)}
+              <span className="ms-1 text-xs opacity-70">{count}</span>
+            </button>
+          );
+        })}
+      </div>
+
       <div className="relative overflow-x-auto rounded-2xl border border-line bg-surface">
         <table className="w-full min-w-[760px] text-left text-sm">
           <caption className="sr-only">Every version on this site</caption>
           <thead className="border-b border-line text-xs uppercase tracking-[0.12em] text-muted">
             <tr>
-              <th scope="col" className="px-4 py-3">Version</th>
-              <th scope="col" className="px-3 py-3">Year</th>
+              <th scope="col" className="px-4 py-3">Abbreviation</th>
               <th scope="col" className="px-3 py-3">Language</th>
+              <th scope="col" className="px-3 py-3">Name</th>
+              <th scope="col" className="px-3 py-3">Year</th>
               <th scope="col" className="px-3 py-3">Books (OT · NT · Apocrypha)</th>
               <th scope="col" className="px-3 py-3 text-right">Verses</th>
               <th scope="col" className="px-3 py-3">Numbering</th>
               <th scope="col" className="px-3 py-3"><span className="sr-only">Read</span></th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-line">
-            {catalog.translations.map((t) => {
+          {shownLanguages.map((code) => (
+          <tbody key={code} className="divide-y divide-line border-t border-line first-of-type:border-t-0">
+            <tr className="bg-surface-2/70">
+              <th scope="rowgroup" colSpan={8} className="px-4 py-2 text-left text-xs font-semibold uppercase tracking-[0.14em] text-muted">
+                {languageName(code)} <span className="font-normal normal-case tracking-normal">· {catalog.translations.filter((t) => t.lang === code).length}</span>
+              </th>
+            </tr>
+            {catalog.translations.filter((t) => t.lang === code).map((t) => {
               const c = counts(catalog, t);
               const first = Object.keys(t.books)[0];
               return (
                 <tr key={t.slug} className="hover:bg-surface-2/60">
-                  <th scope="row" className="px-4 py-3 font-normal">
-                    <span className="font-semibold">{t.abbr}</span> <span className="text-muted">{t.name}</span>
-                  </th>
+                  <th scope="row" className="px-4 py-3 font-semibold">{t.abbr}</th>
+                  <td className="px-3 py-3">{languageName(t.lang)}</td>
+                  <td className="px-3 py-3 text-muted">{t.name}</td>
                   <td className="px-3 py-3 tabular-nums">{t.year}</td>
-                  <td className="px-3 py-3">{LANGUAGE[t.lang] ?? t.lang}</td>
                   <td className="px-3 py-3 tabular-nums">
                     {c.ot} · {c.nt} · {c.apocrypha}
                   </td>
@@ -73,6 +106,7 @@ export default function VersionsPage() {
               );
             })}
           </tbody>
+          ))}
         </table>
       </div>
 
