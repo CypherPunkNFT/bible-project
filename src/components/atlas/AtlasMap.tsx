@@ -27,6 +27,9 @@ function placeLabels(ranked: MapPlace[], k: number, selectedId: string | undefin
   return chosen;
 }
 
+/** Opening view: the whole square, slightly inset so the grey beyond it shows it is a bounded area. */
+const HOME = zoomIdentity.translate((map.width * 0.08) / 2, (map.height * 0.08) / 2).scale(0.92);
+
 interface Props {
   places: MapPlace[];
   selected: MapPlace | null;
@@ -39,13 +42,16 @@ export function AtlasMap({ places, selected, onSelect }: Props) {
   const behaviour = useRef<ZoomBehavior<SVGSVGElement, unknown> | null>(null);
   const [transform, setTransform] = useState({ k: 1, x: 0, y: 0 });
   const [hover, setHover] = useState<MapPlace | null>(null);
+  // Satellite picture: a light preview first, the full-detail one on top once it has loaded; if neither
+  // loads, the vector land drawing stands in.
+  const [imagery, setImagery] = useState<"loading" | "preview" | "full" | "failed">("loading");
   const ranked = useMemo(() => [...places].sort((a, b) => b.verses.length - a.verses.length), [places]);
 
   useEffect(() => {
     const element = svg.current;
     if (!element) return;
     const zoomer = zoom<SVGSVGElement, unknown>()
-      .scaleExtent([1, 40])
+      .scaleExtent([0.6, 16])
       // A margin beyond the drawn frame so places at its edge (Tarshish, Spain, India) can be centred.
       .translateExtent([
         [-map.width * 0.6, -map.height * 0.6],
@@ -53,7 +59,7 @@ export function AtlasMap({ places, selected, onSelect }: Props) {
       ])
       .on("zoom", (event) => setTransform({ k: event.transform.k, x: event.transform.x, y: event.transform.y }));
     behaviour.current = zoomer;
-    select(element).call(zoomer);
+    select(element).call(zoomer).call(zoomer.transform, HOME);
     return () => {
       select(element).on(".zoom", null);
     };
@@ -70,13 +76,14 @@ export function AtlasMap({ places, selected, onSelect }: Props) {
   }, [selected?.id]);
 
   const zoomBy = (factor: number) => svg.current && behaviour.current && select(svg.current).transition().duration(300).call(behaviour.current.scaleBy, factor);
-  const reset = () => svg.current && behaviour.current && select(svg.current).transition().duration(500).call(behaviour.current.transform, zoomIdentity);
+  const reset = () => svg.current && behaviour.current && select(svg.current).transition().duration(500).call(behaviour.current.transform, HOME);
 
   const { k } = transform;
   const labelled = useMemo(() => placeLabels(ranked, k, selected?.id), [ranked, k, selected?.id]);
 
   return (
-    <div className="relative overflow-hidden rounded-xl border border-line bg-[var(--sea)]">
+    <figure>
+    <div className="relative overflow-hidden rounded-xl border border-line bg-[#2c2e31]">
       <svg ref={svg} viewBox={`0 0 ${map.width} ${map.height}`} className="block h-auto w-full touch-none" role="img" aria-label="Map of places named in the Bible">
         <defs>
           {/* Earth tones by latitude: grey-green Anatolia and Greece, olive Levant, sand-yellow Egypt and Arabia.
@@ -88,7 +95,31 @@ export function AtlasMap({ places, selected, onSelect }: Props) {
           </linearGradient>
         </defs>
         <g transform={`translate(${transform.x},${transform.y}) scale(${k})`}>
-          <path d={map.land} fill="url(#land-tone)" stroke="var(--coast)" strokeWidth={0.7 / k} strokeLinejoin="round" />
+          {/* The covered square: NASA Blue Marble inside; everything outside stays dark grey. */}
+          <rect width={map.width} height={map.height} fill="var(--sea)" />
+          {imagery === "failed" ? (
+            <path d={map.land} fill="url(#land-tone)" stroke="var(--coast)" strokeWidth={0.7 / k} strokeLinejoin="round" />
+          ) : (
+            <>
+              <image
+                href="/atlas/bluemarble-preview.jpg"
+                width={map.width}
+                height={map.height}
+                preserveAspectRatio="none"
+                onLoad={() => setImagery((state) => (state === "full" ? state : "preview"))}
+                onError={() => setImagery((state) => (state === "loading" ? "failed" : state))}
+              />
+              <image
+                href="/atlas/bluemarble.jpg"
+                width={map.width}
+                height={map.height}
+                preserveAspectRatio="none"
+                opacity={imagery === "full" ? 1 : 0}
+                onLoad={() => setImagery("full")}
+              />
+            </>
+          )}
+          <rect width={map.width} height={map.height} fill="none" stroke="rgba(255,255,255,0.85)" strokeWidth={1.5 / k} />
           {ranked
             .slice()
             .reverse()
@@ -101,10 +132,12 @@ export function AtlasMap({ places, selected, onSelect }: Props) {
                   cx={place.x}
                   cy={place.y}
                   r={isSelected ? radius * 1.6 : radius}
-                  fill={place.confidence >= 0.5 ? sectionColor(place.section) : "var(--surface)"}
-                  stroke={place.confidence >= 0.5 ? "var(--surface)" : sectionColor(place.section)}
-                  strokeWidth={(isSelected ? 2 : 0.6) / k}
-                  fillOpacity={0.88}
+                  // On satellite imagery a white ring keeps every dot visible over sea, sand or green land;
+                  // uncertain locations are hollow (white ring, see-through middle).
+                  fill={place.confidence >= 0.5 ? sectionColor(place.section) : "rgba(255,255,255,0.18)"}
+                  stroke="#fff"
+                  strokeWidth={(isSelected ? 2.4 : 1.1) / k}
+                  fillOpacity={0.95}
                   className="cursor-pointer"
                   onMouseEnter={() => setHover(place)}
                   onMouseLeave={() => setHover(null)}
@@ -122,8 +155,8 @@ export function AtlasMap({ places, selected, onSelect }: Props) {
                 x={place.x + 5 / k}
                 y={place.y + 3 / k}
                 fontSize={11 / k}
-                className="pointer-events-none select-none fill-ink font-sans"
-                style={{ paintOrder: "stroke", stroke: "var(--surface)", strokeWidth: 3 / k, fontWeight: place.id === selected?.id ? 700 : 500 }}
+                className="pointer-events-none select-none font-sans"
+                style={{ fill: "#fff", paintOrder: "stroke", stroke: "rgba(0,0,0,0.78)", strokeWidth: 3 / k, fontWeight: place.id === selected?.id ? 700 : 500 }}
               >
                 {place.name}
               </text>
@@ -141,7 +174,10 @@ export function AtlasMap({ places, selected, onSelect }: Props) {
           <RotateCcw className="h-4 w-4" />
         </button>
       </div>
-      <p className="pointer-events-none absolute bottom-2 left-3 text-[11px] text-muted">Scroll or pinch to zoom · drag to move · hollow dots = uncertain location</p>
     </div>
+    <figcaption className="mt-2 text-xs text-muted">
+      Scroll or pinch to zoom · drag to move · hollow dots = uncertain location. Satellite imagery: NASA Blue Marble (public domain).
+    </figcaption>
+    </figure>
   );
 }

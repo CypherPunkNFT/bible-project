@@ -11,6 +11,7 @@
     "data": "py -3.12 scripts/build-data.py",
     "test:data": "py -3.12 -m pytest scripts/tests -q",
     "map": "node scripts/build-map.mjs",
+    "imagery": "node scripts/fetch-imagery.mjs",
     "typecheck": "tsc -p tsconfig.app.json --noEmit && tsc -p tsconfig.node.json --noEmit",
     "lint": "eslint . --max-warnings 0",
     "test": "vitest run",
