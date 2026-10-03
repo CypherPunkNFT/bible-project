@@ -112,6 +112,25 @@ function Coverage({ rows, shown, onPick }: { rows: Row[]; shown: Row[]; onPick: 
     <figure className="rounded-2xl border border-line bg-surface p-4">
       <div className="overflow-x-auto pb-1">
       <div className="min-w-[36rem] space-y-1" role="img" aria-label="Which Gospels tell each event, from the first event to the last">
+        <div className="flex items-center gap-2">
+          <span className="w-14 shrink-0 text-right text-xs font-semibold text-muted">Agree</span>
+          <div className="flex h-3 flex-1 gap-px">
+            {rows.map((row) => {
+              const told = GOSPELS.filter((g) => row.refs[g.key]).length;
+              return (
+                <span
+                  key={row.n}
+                  onMouseEnter={() => setHover(row)}
+                  onClick={() => {
+                    onPick(row.n);
+                    document.getElementById(`event-${row.n}`)?.scrollIntoView({ block: "center" });
+                  }}
+                  className={cn("flex-1 cursor-pointer rounded-[1px]", told === 4 ? "harmony-all-solid" : told === 3 ? "harmony-three-solid" : "", !visible.has(row.n) && "opacity-25")}
+                />
+              );
+            })}
+          </div>
+        </div>
         {GOSPELS.map((g) => (
           <div key={g.key} className="flex items-center gap-2">
             <span className="w-14 shrink-0 text-right text-xs font-semibold text-muted">{g.name}</span>
@@ -139,7 +158,7 @@ function Coverage({ rows, shown, onPick }: { rows: Row[]; shown: Row[]; onPick: 
             §{hover.n} {hover.title} — {GOSPELS.filter((g) => hover.refs[g.key]).map((g) => g.name).join(", ") || "no Gospel"}
           </>
         ) : (
-          "Each column is one event, first to last. Filled = that Gospel tells it. Point at one; click to go to it."
+          "Each column is one event, first to last. Filled = that Gospel tells it; the top strip is green where all four tell it, light green where three do. Point at one; click to go to it."
         )}
       </figcaption>
     </figure>

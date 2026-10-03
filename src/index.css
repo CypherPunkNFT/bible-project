@@ -236,3 +236,11 @@ body {
 .harmony-three {
   background: color-mix(in srgb, #2e9e5b 11%, var(--page));
 }
+
+/* The Harmony chart's agreement strip: full-strength versions of the row tints, so thin cells stay visible. */
+.harmony-all-solid {
+  background: #2e9e5b;
+}
+.harmony-three-solid {
+  background: #9bd3b0;
+}
