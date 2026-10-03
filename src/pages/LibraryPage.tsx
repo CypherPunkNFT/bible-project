@@ -140,7 +140,7 @@ function SectionShelf({ id, slug, stats, share }: { id: SectionId; slug: string;
         {books
           .filter((b) => catalog.translations.some((t) => t.books[b.code]))
           .map((book) => (
-            <li key={book.code} style={{ flexGrow: chaptersOf(book.code), flexBasis: `${Math.max(44, chaptersOf(book.code) * 3)}px` }} className="min-w-[44px]">
+            <li key={book.code} style={{ width: `clamp(48px, ${chaptersOf(book.code) * 0.55}%, 100%)` }} className="min-w-[48px]">
               <Link
                 to={`/read/${linkSlug(book.code)}/${book.code}/${catalog.translations.find((t) => t.slug === linkSlug(book.code))?.books[book.code]?.[0] ?? 1}`}
                 title={`${book.name} — ${chaptersOf(book.code)} chapters`}

@@ -79,7 +79,10 @@ function ReaderBody({ translation, code, chapter }: { translation: Translation; 
   }, [goTo, prev, next, picking]);
 
   useEffect(() => {
-    if (texts.status === "ready" && selected) document.getElementById(`v${selected}`)?.scrollIntoView({ block: "center" });
+    if (texts.status !== "ready" || !selected) return;
+    // After the layout's own scroll-to-top for a new page has run.
+    const timer = window.setTimeout(() => document.getElementById(`v${selected}`)?.scrollIntoView({ block: "center" }), 60);
+    return () => window.clearTimeout(timer);
     // Scroll only when a chapter finishes loading, not on every selection click.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [texts.status, code, chapter]);
