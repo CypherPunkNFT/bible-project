@@ -53,7 +53,7 @@ export default defineConfig({
         manualChunks: {
           react: ["react", "react-dom", "react-router-dom"],
           motion: ["framer-motion"],
-          d3: ["d3-geo", "d3-zoom", "d3-selection", "d3-scale", "d3-shape", "d3-hierarchy", "topojson-client"],
+          d3: ["d3-geo", "d3-zoom", "d3-selection", "d3-transition", "d3-scale", "d3-shape", "d3-hierarchy", "topojson-client"],
         },
       },
     },

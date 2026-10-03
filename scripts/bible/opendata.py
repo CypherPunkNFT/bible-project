@@ -84,7 +84,7 @@ def read_places(path: Path) -> list[dict]:
             score = (best.get("score") or {}).get("vote_total", 0)
             places.append({
                 "id": row["id"],
-                "name": row["friendly_id"],
+                "name": re.sub(r" d+$", "", row["friendly_id"]),  # "Syria 1" -> "Syria" (the id keeps them apart)
                 "type": types[0] if types else "place",
                 "lon": round(lon, 4),
                 "lat": round(lat, 4),
