@@ -200,7 +200,7 @@ test("header: the version panel switches version and adds one side by side", asy
   await page.getByRole("button", { name: /^Version:/ }).click();
   await page.getByRole("button", { name: "Read WEB side by side" }).click();
   await expect(page).toHaveURL(/with=web/);
-  await page.getByRole("button", { name: /^Version:/ }).click();
+  // The panel stays open after adding a side-by-side version, so the next choice is one tap away.
   await page.getByRole("region", { name: "Versions" }).getByRole("button", { name: /^BSB/ }).click();
   await expect(page).toHaveURL(/\/read\/bsb\/PSA\/23\?with=web/);
 });
