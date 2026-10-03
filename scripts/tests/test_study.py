@@ -6,6 +6,7 @@ from pathlib import Path
 import pytest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from bible.paths import SOURCES  # noqa: E402
 from bible.study_harmony import parse_harmony, parse_miracles, sentence_case  # noqa: E402
 from bible.study_people import parse_people  # noqa: E402
 from bible.study_prophets import build_prophets  # noqa: E402
@@ -13,7 +14,6 @@ from bible.study_refs import TORREY_OVERRIDES, RefError, Verses, format_range, p
 from bible.study_torrey import parse_evil_agents, parse_servants  # noqa: E402
 
 SITE = Path(__file__).resolve().parents[2]
-SOURCES = SITE.parent / "sources"
 DATA = SITE / "data"
 pytestmark = pytest.mark.skipif(not (DATA / "plain" / "kjv" / "GEN.json").exists(), reason="Bible data not built")
 

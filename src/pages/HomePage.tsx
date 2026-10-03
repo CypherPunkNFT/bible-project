@@ -2,7 +2,7 @@ import { ArrowRight, BarChart3, Library, Map, Search } from "lucide-react";
 import { lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
 import { HomeLanding } from "@/components/home/HomeLanding";
-import { HomeStory } from "@/components/home/HomeStory";
+import { HomeAbout } from "@/components/home/HomeAbout";
 import { loadHome } from "@/lib/study";
 import { useAsync } from "@/lib/useAsync";
 
@@ -16,7 +16,7 @@ const TILES = [
   { to: "/search", title: "Search", text: "Find any word or phrase in any version, and see where in the Bible it falls.", icon: Search },
 ];
 
-/** The Bible Project's landing page: the opening screen, the one story, His names, and the ways in. */
+/** The Bible Project's landing page: the opening screen, what the site is and that it is free and open, His names, and the ways in. */
 export default function HomePage() {
   const home = useAsync(loadHome, "home");
   const homeData = home.status === "ready" ? home.value : null;
@@ -25,7 +25,7 @@ export default function HomePage() {
     <>
       <HomeLanding home={homeData} />
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <HomeStory home={homeData} />
+        <HomeAbout />
 
         <section aria-labelledby="home-names" className="border-t border-line py-12">
           <div className="mb-5 flex flex-wrap items-end justify-between gap-x-6 gap-y-2">

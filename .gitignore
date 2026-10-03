@@ -24,3 +24,6 @@ node_modules/
 .vscode/*
 __pycache__/
 .pytest_cache/
+
+# --- raw sources (scripts/fetch-sources.py downloads them here) ---
+/sources/

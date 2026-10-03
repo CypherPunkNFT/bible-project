@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Build the site's data from ../../sources into data/ (generated, not committed).
+"""Build the site's data from the raw sources (see scripts/bible/paths.py) into data/ (generated, not committed).
 
     python scripts/build-data.py            # everything
     python scripts/build-data.py --only kjv # one version (abbreviation, lower case) + shared files
 
-Stops on: a source zip whose checksum differs from sources/SOURCES.md, an unknown book code, an unknown
+Stops on: a source zip whose checksum differs from SOURCES.md, an unknown book code, an unknown
 paragraph marker. Writes into data.new/ and swaps it in only when everything succeeded.
 """
 
@@ -12,6 +12,7 @@ import argparse
 import hashlib
 import importlib.machinery
 import json
+import os
 import re
 import shutil
 import sys
@@ -23,11 +24,11 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from bible.books import BOOK_NUMBER, BOOKS, EQUIVALENT, SKIPPED_CODES  # noqa: E402
 from bible.opendata import read_cross_references, read_places  # noqa: E402
+from bible.paths import SOURCES  # noqa: E402
 from bible.translations import as_dicts  # noqa: E402
 from bible.usfm import parse_book, plain_text  # noqa: E402
 
 SITE = Path(__file__).resolve().parents[1]
-SOURCES = SITE.parent / "sources"
 OUT_FINAL = SITE / "data"
 OUT = SITE / "data.new"
 SECTIONS = ["history", "poetry", "prophets", "gospels", "epistles", "revelation", "apocrypha"]
@@ -39,16 +40,24 @@ def write_json(path: Path, value) -> None:
 
 
 def recorded_checksums() -> dict[str, str]:
-    table = (SOURCES / "SOURCES.md").read_text(encoding="utf-8")
+    table = (SITE / "SOURCES.md").read_text(encoding="utf-8")
     return {m.group(1): m.group(2) for m in re.finditer(r"^\| \[([\w-]+)\]\([^)]*\) \|.*\| ([0-9a-f]{16}) \|$", table, re.M)}
+
+
+def source_changed(message: str) -> None:
+    """A source differs from the recorded copy: stop, unless BIBLE_ACCEPT_SOURCE_CHANGES=1 (fresh public clones)."""
+    if os.environ.get("BIBLE_ACCEPT_SOURCE_CHANGES") == "1":
+        print(f"warning: {message}")
+        return
+    raise SystemExit(f"{message} (set BIBLE_ACCEPT_SOURCE_CHANGES=1 to build from it anyway)")
 
 
 def check_source(folder: str, zip_path: Path, recorded: dict[str, str]) -> None:
     if folder not in recorded:
-        raise SystemExit(f"checksum: {folder} is not listed in sources/SOURCES.md; add it before building")
+        raise SystemExit(f"checksum: {folder} is not listed in SOURCES.md; add it before building")
     actual = hashlib.sha256(zip_path.read_bytes()).hexdigest()[:16]
     if actual != recorded[folder]:
-        raise SystemExit(f"checksum: {zip_path} is {actual}, SOURCES.md records {recorded[folder]} — the source changed")
+        source_changed(f"checksum: {zip_path} is {actual}, SOURCES.md records {recorded[folder]} — the source changed")
 
 
 def build_translation(meta: dict, recorded: dict[str, str], warnings: list[str]) -> dict:

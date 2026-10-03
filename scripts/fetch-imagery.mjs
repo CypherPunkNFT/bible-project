@@ -3,12 +3,13 @@
 //   - region: the whole map area (every place + margin), as a light preview and an overview
 //   - tiles:  Italy to Persia, Yemen to the Black Sea, at close to native detail, in 12 tiles the page loads
 //             only when zoomed in and only where the view is
-// Raw responses are kept, never edited, in ../sources/nasa-bluemarble/; the page uses copies in public/atlas/
+// Raw responses are kept, never edited, in <sources>/nasa-bluemarble/ (see scripts/bible/paths.py); the page uses copies in public/atlas/
 // and src/data/atlas-imagery.json says where each one sits. The site never calls NASA at run time.
 //   node scripts/fetch-imagery.mjs        (run scripts/build-map.mjs first: it defines the map area)
 import { geoMercator } from "d3-geo";
 import { createHash } from "node:crypto";
-import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { pathToFileURL } from "node:url";
 
 const map = JSON.parse(readFileSync(new URL("../src/data/atlas-map.json", import.meta.url), "utf8"));
 const projection = geoMercator().scale(map.scale).translate(map.translate);
@@ -52,7 +53,14 @@ function requestUrl({ bounds, width }) {
   );
 }
 
-const sourceDir = new URL("../../sources/nasa-bluemarble/", import.meta.url);
+// Same rule as scripts/bible/paths.py: BIBLE_SOURCES, else sources/ inside the repository, else ../sources.
+const site = new URL("../", import.meta.url);
+const sourcesRoot = process.env.BIBLE_SOURCES
+  ? pathToFileURL(`${process.env.BIBLE_SOURCES.replace(/[\\/]$/, "")}/`)
+  : existsSync(new URL("sources/", site))
+    ? new URL("sources/", site)
+    : new URL("../sources/", site);
+const sourceDir = new URL("nasa-bluemarble/", sourcesRoot);
 const publicDir = new URL("../public/atlas/", import.meta.url);
 mkdirSync(sourceDir, { recursive: true });
 mkdirSync(publicDir, { recursive: true });

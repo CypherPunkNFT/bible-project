@@ -4,7 +4,7 @@
     python scripts/build-study.py                      # read the KJV/BSB from data/, write data/study/
     python scripts/build-study.py --data-root data.new # what build-data.py does before its swap
 
-Checks every study source's checksum against sources/SOURCES.md first. Each output file is written to a temp file
+Checks every study source's checksum against SOURCES.md first. Each output file is written to a temp file
 and moved into place (retried if Windows has it open), then index.json gets a new stamp the site fetches with.
 """
 
@@ -19,6 +19,7 @@ from collections import Counter
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from bible.paths import SOURCES  # noqa: E402
 from bible.study_harmony import describe, parse_harmony, parse_miracles  # noqa: E402
 from bible.study_home import build_home  # noqa: E402
 from bible.study_letters import build_letters  # noqa: E402
@@ -29,7 +30,6 @@ from bible.study_refs import Verses  # noqa: E402
 from bible.study_torrey import parse_evil_agents, parse_servants  # noqa: E402
 
 SITE = Path(__file__).resolve().parents[1]
-SOURCES = SITE.parent / "sources"
 FILES = {
     "robertson-harmony": SOURCES / "gutenberg" / "robertson-harmony-36264-h.htm",
     "tipnr": SOURCES / "stepbible" / "TIPNR.txt",
@@ -40,18 +40,26 @@ FILES = {
 
 
 def recorded_checksums() -> dict[str, str]:
-    table = (SOURCES / "SOURCES.md").read_text(encoding="utf-8")
+    table = (SITE / "SOURCES.md").read_text(encoding="utf-8")
     return {m.group(1): m.group(2) for m in re.finditer(r"^\| \[([\w-]+)\]\([^)]*\) \|.*\| ([0-9a-f]{16}) \|$", table, re.M)}
+
+
+def source_changed(message: str) -> None:
+    """A source differs from the recorded copy: stop, unless BIBLE_ACCEPT_SOURCE_CHANGES=1 (fresh public clones)."""
+    if os.environ.get("BIBLE_ACCEPT_SOURCE_CHANGES") == "1":
+        print(f"warning: {message}")
+        return
+    raise SystemExit(f"{message} (set BIBLE_ACCEPT_SOURCE_CHANGES=1 to build from it anyway)")
 
 
 def check_sources() -> None:
     recorded = recorded_checksums()
     for key, path in FILES.items():
         if key not in recorded:
-            raise SystemExit(f"checksum: {key} ({path.name}) is not listed in sources/SOURCES.md")
+            raise SystemExit(f"checksum: {key} ({path.name}) is not listed in SOURCES.md")
         actual = hashlib.sha256(path.read_bytes()).hexdigest()[:16]
         if actual != recorded[key]:
-            raise SystemExit(f"checksum: {path} is {actual}, SOURCES.md records {recorded[key]} — the source changed")
+            source_changed(f"checksum: {path} is {actual}, SOURCES.md records {recorded[key]} — the source changed")
 
 
 def write_json(path: Path, value) -> int:
