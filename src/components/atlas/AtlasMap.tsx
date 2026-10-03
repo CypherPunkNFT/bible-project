@@ -64,8 +64,8 @@ export function AtlasMap({ places, selected, onSelect, height }: Props) {
       // Fully zoomed out = the whole area (every place) exactly fills the map; no dragging past its edges.
       .scaleExtent([1, 16])
       .translateExtent([
-        [0, -slackRef.current],
-        [map.width, map.height + slackRef.current],
+        [0, 0],
+        [map.width, map.height],
       ])
       .on("zoom", (event) => setTransform({ k: event.transform.k, x: event.transform.x, y: event.transform.y }));
     behaviour.current = zoomer;
@@ -74,6 +74,16 @@ export function AtlasMap({ places, selected, onSelect, height }: Props) {
       select(element).on(".zoom", null);
     };
   }, []);
+
+  // Dragging may reach the dark space above and below the area only as far as the view extends into it.
+  // Only the limit is updated here (d3 applies it on the next move) — nudging the view now would cut short
+  // the fly-to animation that starts as the place panel opens.
+  useEffect(() => {
+    behaviour.current?.translateExtent([
+      [0, -slack],
+      [map.width, map.height + slack],
+    ]);
+  }, [slack]);
 
   // Fly to a place chosen from the list or a link.
   useEffect(() => {
