@@ -116,7 +116,7 @@ test("versions page: English, original languages and translations; no language c
   await expect(page.locator("thead")).not.toContainText(/Language/i);
   await page.getByRole("button", { name: /^Translations/ }).click();
   const rows = page.locator("tbody tr:has(td)");
-  await expect(rows).toHaveCount(5);
+  await expect(rows).toHaveCount(6); // Chinese has two: the Union Version and the World Chinese Bible
   for (const language of ["Spanish", "Arabic", "Chinese", "French", "German"]) await expect(page.locator("tbody")).toContainText(language);
   await page.getByRole("button", { name: /^All/ }).click();
   await expect(page.locator("tbody > tr > th[colspan]").first()).toHaveText(/English/);

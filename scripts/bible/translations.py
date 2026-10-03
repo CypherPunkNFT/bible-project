@@ -37,6 +37,8 @@ TRANSLATIONS = [
     ("spaRV1909",   "RVR",   "Reina-Valera 1909 (Spanish)",                 1909, "es",  "ltr", "english", False),
     ("arb-vd",      "SVD",   "Van Dyck Bible (Arabic)",                     1865, "ar",  "rtl", "english", False),
     ("cmn-cu89s",   "CUV",   "Chinese Union Version (Chinese, simplified)", 1919, "zh-Hans", "ltr", "english", False),
+    # Public domain beyond doubt (the CUV's 1989 punctuation may not be); eBible calls it a draft.
+    ("cmnswcb",     "WCB",   "World Chinese Bible (Chinese, simplified)",   2026, "zh-Hans", "ltr", "english", False),
     ("fraLSG",      "LSG",   "Louis Segond 1910 (French)",                  1910, "fr",  "ltr", "mixed",   False),
     ("deu1912",     "LUT",   "Lutherbibel 1912 (German)",                   1912, "de",  "ltr", "english", False),
 ]

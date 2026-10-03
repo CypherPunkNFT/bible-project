@@ -7,6 +7,7 @@ export default defineConfig({
   ...base,
   testDir: ".",
   testMatch: "study.spec.ts",
+  testIgnore: [], // the base config ignores study.spec.ts so the main run skips it; this run must not
   outputDir: ".output/study",
   use: { ...base.use, baseURL: "http://127.0.0.1:8933" },
   webServer: { ...(Array.isArray(base.webServer) ? base.webServer[0] : base.webServer!), command: "bunx vite preview --port 8933 --strictPort", url: "http://127.0.0.1:8933", cwd: ".." },
