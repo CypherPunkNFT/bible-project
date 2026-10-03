@@ -26,11 +26,11 @@ interface Props {
   onSettings: (settings: ReaderSettings) => void;
 }
 
-type Open = "versions" | "options" | null;
+type Open = "version" | "side" | "options" | null;
 
 /**
- * The reader's one bar: previous chapter · [book & chapter — opens the reading chart] [version] · next chapter.
- * Versions and reading options open as panels under the bar, never as dropdowns.
+ * The reader's one bar: previous chapter · [version ▾] [book & chapter — opens the reading chart] [side by side ▾] · next.
+ * Each control's panel opens right under that control, never as a native dropdown.
  */
 export function ReaderToolbar(props: Props) {
   const { translation, book, chapter, parallel, prev, next } = props;
@@ -54,7 +54,6 @@ export function ReaderToolbar(props: Props) {
     };
   }, [open]);
 
-  const versionLabel = [translation, ...parallel].map((t) => t.abbr).join(" + ");
   const catalog = useCatalog();
   // One click = the KJV beside what you are reading (or, when reading the KJV, the next version that has this book).
   const companion =
@@ -66,6 +65,18 @@ export function ReaderToolbar(props: Props) {
     if (sideBySide) props.onParallel([]);
     else if (companion) props.onParallel([companion.slug]);
   };
+  const versionMenu = (
+    <VersionMenu
+      bookCode={book.code}
+      current={translation}
+      parallel={parallel}
+      onRead={(slug) => {
+        setOpen(null);
+        props.onTranslation(slug);
+      }}
+      onParallel={props.onParallel}
+    />
+  );
 
   return (
     <div ref={bar} className="sticky top-[3.6rem] z-30 -mx-4 border-b border-line bg-page/90 px-2 backdrop-blur-md sm:-mx-6 sm:px-4">
@@ -75,6 +86,29 @@ export function ReaderToolbar(props: Props) {
         </div>
 
         <div className="flex min-w-0 items-center justify-center gap-1.5 sm:gap-2">
+          <div className="shrink-0 sm:relative">
+            <button
+              type="button"
+              onClick={() => toggle("version")}
+              aria-expanded={open === "version"}
+              aria-haspopup="true"
+              aria-label={`Version: ${translation.name} — change`}
+              title={translation.name}
+              className={cn(
+                "flex max-w-[6rem] items-center gap-1 rounded-full border border-line px-2.5 py-1.5 text-sm font-semibold hover:bg-surface-2 sm:max-w-[10rem]",
+                open === "version" && "bg-surface-2",
+              )}
+            >
+              <span className="truncate">{translation.abbr}</span>
+              <ChevronDown className="h-3.5 w-3.5 shrink-0 text-muted" aria-hidden />
+            </button>
+            {open === "version" && (
+              <Panel label="Versions" align="left">
+                {versionMenu}
+              </Panel>
+            )}
+          </div>
+
           <button
             type="button"
             onClick={props.onOpenBooks}
@@ -88,78 +122,63 @@ export function ReaderToolbar(props: Props) {
             </span>
             <ChevronDown className="hidden h-4 w-4 shrink-0 text-muted transition group-hover:text-ink sm:block" aria-hidden />
           </button>
-          <button
-            type="button"
-            onClick={() => toggle("versions")}
-            aria-expanded={open === "versions"}
-            aria-haspopup="true"
-            aria-label={`Version: ${[translation, ...parallel].map((t) => t.name).join(", ")} — change`}
-            className={cn(
-              "flex max-w-[7rem] shrink-0 items-center gap-1 rounded-full border border-line px-2.5 py-1.5 text-sm font-semibold hover:bg-surface-2 sm:max-w-[14rem]",
-              open === "versions" && "bg-surface-2",
+
+          <div className="shrink-0 sm:relative">
+            <div className={cn("flex items-center rounded-full border border-line", sideBySide && "border-accent/60 bg-accent/10")}>
+              <button
+                type="button"
+                onClick={toggleSideBySide}
+                aria-pressed={sideBySide}
+                aria-label={sideBySide ? "Turn side by side off" : `Read side by side with the ${companion?.abbr ?? "KJV"}`}
+                title={sideBySide ? "Side by side: on (click to turn off)" : `Side by side with the ${companion?.abbr ?? "KJV"}`}
+                className={cn(
+                  "flex h-9 min-w-9 items-center justify-center gap-1.5 rounded-s-full px-2 text-sm font-semibold text-muted hover:bg-surface-2 hover:text-ink",
+                  sideBySide && "text-accent",
+                )}
+              >
+                <Columns2 className="h-[18px] w-[18px] shrink-0" />
+                {sideBySide && <span className="hidden max-w-[7rem] truncate sm:inline">{parallel.map((p) => p.abbr).join(" + ")}</span>}
+              </button>
+              <button
+                type="button"
+                onClick={() => toggle("side")}
+                aria-expanded={open === "side"}
+                aria-label="Choose which versions to read side by side"
+                title="Choose versions to read side by side"
+                className="grid h-9 w-6 place-items-center rounded-e-full border-s border-line text-muted hover:bg-surface-2 hover:text-ink"
+              >
+                <ChevronDown className="h-3.5 w-3.5" />
+              </button>
+            </div>
+            {open === "side" && (
+              <Panel label="Versions" align="right">
+                {versionMenu}
+              </Panel>
             )}
-          >
-            <span className="truncate">{versionLabel}</span>
-            <ChevronDown className="h-3.5 w-3.5 shrink-0 text-muted" aria-hidden />
-          </button>
-          <div className={cn("flex shrink-0 items-center rounded-full border border-line", sideBySide && "border-accent/60 bg-accent/10")}>
-            <button
-              type="button"
-              onClick={toggleSideBySide}
-              aria-pressed={sideBySide}
-              aria-label={sideBySide ? "Turn side by side off" : `Read side by side with the ${companion?.abbr ?? "KJV"}`}
-              title={sideBySide ? "Side by side: on (click to turn off)" : `Side by side with the ${companion?.abbr ?? "KJV"}`}
-              className={cn("grid h-9 w-9 place-items-center rounded-s-full text-muted hover:bg-surface-2 hover:text-ink", sideBySide && "text-accent")}
-            >
-              <Columns2 className="h-[18px] w-[18px]" />
-            </button>
-            <button
-              type="button"
-              onClick={() => toggle("versions")}
-              aria-expanded={open === "versions"}
-              aria-label="Choose which versions to read side by side"
-              title="Choose versions to read side by side"
-              className="grid h-9 w-6 place-items-center rounded-e-full border-s border-line text-muted hover:bg-surface-2 hover:text-ink"
-            >
-              <ChevronDown className="h-3.5 w-3.5" />
-            </button>
           </div>
         </div>
 
         <div className="flex items-center justify-end gap-1">
           <StepButton link={next} direction="next" />
-          <button
-            type="button"
-            onClick={() => toggle("options")}
-            aria-expanded={open === "options"}
-            aria-label="Reading options"
-            title="Reading options"
-            className={cn("grid h-10 w-10 place-items-center rounded-full text-muted hover:bg-surface-2 hover:text-ink", open === "options" && "bg-surface-2 text-ink")}
-          >
-            <Type className="h-5 w-5" />
-          </button>
+          <div className="sm:relative">
+            <button
+              type="button"
+              onClick={() => toggle("options")}
+              aria-expanded={open === "options"}
+              aria-label="Reading options"
+              title="Reading options"
+              className={cn("grid h-10 w-10 place-items-center rounded-full text-muted hover:bg-surface-2 hover:text-ink", open === "options" && "bg-surface-2 text-ink")}
+            >
+              <Type className="h-5 w-5" />
+            </button>
+            {open === "options" && (
+              <Panel label="Reading options" align="right">
+                <Options settings={props.settings} onSettings={props.onSettings} />
+              </Panel>
+            )}
+          </div>
         </div>
       </div>
-
-      {open === "versions" && (
-        <Panel label="Versions">
-          <VersionMenu
-            bookCode={book.code}
-            current={translation}
-            parallel={parallel}
-            onRead={(slug) => {
-              setOpen(null);
-              props.onTranslation(slug);
-            }}
-            onParallel={props.onParallel}
-          />
-        </Panel>
-      )}
-      {open === "options" && (
-        <Panel label="Reading options">
-          <Options settings={props.settings} onSettings={props.onSettings} />
-        </Panel>
-      )}
     </div>
   );
 }
@@ -180,12 +199,19 @@ function StepButton({ link, direction }: { link: ChapterLink | null; direction: 
   );
 }
 
-function Panel({ label, children }: { label: string; children: ReactNode }) {
+/**
+ * A panel under the control that opened it: aligned to that control's left or right edge on wider screens,
+ * full width under the bar on phones (the control's wrapper is only `relative` from `sm` up).
+ */
+function Panel({ label, align, children }: { label: string; align: "left" | "right"; children: ReactNode }) {
   return (
     <div
       role="region"
       aria-label={label}
-      className="absolute left-1/2 top-full z-40 mt-2 w-[min(30rem,calc(100vw-1.5rem))] -translate-x-1/2 overflow-hidden rounded-2xl border border-line bg-surface shadow-2xl"
+      className={cn(
+        "absolute inset-x-2 top-full z-40 mt-2 overflow-hidden rounded-2xl border border-line bg-surface shadow-2xl sm:inset-x-auto sm:w-[30rem]",
+        align === "left" ? "sm:left-0" : "sm:right-0",
+      )}
     >
       {children}
     </div>

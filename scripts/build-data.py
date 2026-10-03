@@ -10,11 +10,13 @@ paragraph marker. Writes into data.new/ and swaps it in only when everything suc
 
 import argparse
 import hashlib
+import importlib.machinery
 import json
 import re
 import shutil
 import sys
 import time
+import types
 from collections import Counter, defaultdict
 from pathlib import Path
 
@@ -179,11 +181,32 @@ def main() -> None:
     if args.only:
         result["translations"] = carry_over_other_versions(result["translations"])
     write_json(OUT / "catalog.json", result)
+    study_failed = build_study_into_new_data()
     files = [p for p in OUT.rglob("*") if p.is_file()]
     size_mb = sum(p.stat().st_size for p in files) / 1e6
     print(f"warnings: {len(warnings)}", *warnings[:20], sep="\n  ")
     swap_into_place()
     print(f"wrote {len(files)} files, {size_mb:.1f} MB in {time.time() - started:.0f}s")
+    if study_failed:
+        raise SystemExit(f"the Bible data was rebuilt, but the Study data failed and the previous Study files were "
+                         f"kept: {study_failed}")
+
+
+def build_study_into_new_data() -> str:
+    """Run scripts/build-study.py against the NEW KJV/BSB text. On failure keep the live study files instead of
+    losing the whole Bible rebuild; returns the error text ("" = success)."""
+    loader = importlib.machinery.SourceFileLoader("build_study", str(Path(__file__).with_name("build-study.py")))
+    module = types.ModuleType(loader.name)
+    loader.exec_module(module)
+    try:
+        report = module.build(OUT, OUT / "study")
+        print("study:", report["harmony"], "·", report["letters"], "·", report["prophets"])
+        return ""
+    except (SystemExit, ValueError, OSError) as error:
+        print(f"STUDY BUILD FAILED: {error}", file=sys.stderr)
+        if (OUT_FINAL / "study").exists():
+            shutil.copytree(OUT_FINAL / "study", OUT / "study", dirs_exist_ok=True)
+        return str(error)
 
 
 def carry_over_other_versions(built: list[dict]) -> list[dict]:
