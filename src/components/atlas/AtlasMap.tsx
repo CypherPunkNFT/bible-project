@@ -29,17 +29,32 @@ function placeLabels(ranked: MapPlace[], k: number, selectedId: string | undefin
 }
 
 interface Props {
+  /** pixel height to keep (the map's height at full row width); 0 = follow the width */
+  height: number;
   places: MapPlace[];
   selected: MapPlace | null;
   onSelect: (place: MapPlace) => void;
 }
 
 /** The biblical world: land pre-drawn at build time, places as dots sized by how often they are named. */
-export function AtlasMap({ places, selected, onSelect }: Props) {
+export function AtlasMap({ places, selected, onSelect, height }: Props) {
   const svg = useRef<SVGSVGElement>(null);
   const behaviour = useRef<ZoomBehavior<SVGSVGElement, unknown> | null>(null);
   const [transform, setTransform] = useState({ k: 1, x: 0, y: 0 });
   const [hover, setHover] = useState<MapPlace | null>(null);
+  // When the box is taller than the area's own proportions (a narrower column), the view extends above and
+  // below the area — into the dark surround — instead of the map shrinking. d3-zoom reads its extent from
+  // the viewBox, so zoom and drag limits follow automatically.
+  const [boxWidth, setBoxWidth] = useState(0);
+  useEffect(() => {
+    const element = svg.current?.parentElement;
+    if (!element) return;
+    const observer = new ResizeObserver(([entry]) => setBoxWidth(entry.contentRect.width));
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, []);
+  const viewHeight = height && boxWidth ? Math.max(map.height, (map.width * height) / boxWidth) : map.height;
+  const slack = (viewHeight - map.height) / 2;
   const ranked = useMemo(() => [...places].sort((a, b) => b.verses.length - a.verses.length), [places]);
 
   useEffect(() => {
@@ -49,8 +64,8 @@ export function AtlasMap({ places, selected, onSelect }: Props) {
       // Fully zoomed out = the whole area (every place) exactly fills the map; no dragging past its edges.
       .scaleExtent([1, 16])
       .translateExtent([
-        [0, 0],
-        [map.width, map.height],
+        [0, -slackRef.current],
+        [map.width, map.height + slackRef.current],
       ])
       .on("zoom", (event) => setTransform({ k: event.transform.k, x: event.transform.x, y: event.transform.y }));
     behaviour.current = zoomer;
@@ -79,7 +94,11 @@ export function AtlasMap({ places, selected, onSelect }: Props) {
   return (
     <figure>
     <div className="relative overflow-hidden rounded-xl border border-line bg-[#1c1e21]">
-      <svg ref={svg} viewBox={`0 0 ${map.width} ${map.height}`} className="block h-auto w-full touch-none" role="img" aria-label="Map of places named in the Bible">
+      <svg
+        ref={svg}
+        viewBox={`0 ${-slack} ${map.width} ${viewHeight}`}
+        className="block w-full touch-none"
+        style={{ height: height || "auto" }} role="img" aria-label="Map of places named in the Bible">
         <g transform={`translate(${transform.x},${transform.y}) scale(${k})`}>
           <SatelliteLayer k={k} />
           {ranked

@@ -1,6 +1,7 @@
 import { AlertTriangle } from "lucide-react";
 import { useMemo, type CSSProperties } from "react";
 import type { Chapter, Translation, Verse } from "@/lib/types";
+import { inHighlight } from "@/lib/refs";
 import { cn } from "@/lib/utils";
 import { inlineRuns } from "./blocks";
 import { Runs, type DisplayOptions } from "./RunView";
@@ -15,6 +16,7 @@ interface Props {
   columns: Column[];
   options: DisplayOptions;
   selected: string | null;
+  highlight?: [number, number] | null;
   onSelect: (label: string) => void;
 }
 
@@ -22,7 +24,7 @@ interface Props {
  * Versions side by side, aligned by verse label. On phones the columns become an interleaved list:
  * each verse shows every version in turn.
  */
-export function ParallelText({ columns, options, selected, onSelect }: Props) {
+export function ParallelText({ columns, options, selected, highlight = null, onSelect }: Props) {
   const primary = columns[0];
   const rows = useMemo(() => {
     const labels: string[] = [];
@@ -65,6 +67,7 @@ export function ParallelText({ columns, options, selected, onSelect }: Props) {
           className={cn(
             "grid cursor-pointer grid-cols-1 gap-x-4 gap-y-1 border-b border-line/60 py-3 transition-colors hover:bg-accent/5 sm:[grid-template-columns:var(--cols)]",
             selected === label && "bg-accent/15 hover:bg-accent/20",
+            selected !== label && inHighlight(label, highlight) && "bg-accent/[0.07]",
           )}
           style={{ "--cols": gridColumns.gridTemplateColumns } as CSSProperties}
         >

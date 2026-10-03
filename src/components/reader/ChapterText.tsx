@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import type { Chapter } from "@/lib/types";
+import { inHighlight } from "@/lib/refs";
 import { cn } from "@/lib/utils";
 import { toBlocks } from "./blocks";
 import { Runs, type DisplayOptions } from "./RunView";
@@ -29,13 +30,14 @@ interface Props {
   chapter: Chapter;
   options: DisplayOptions & { versePerLine: boolean };
   selected: string | null;
+  highlight?: [number, number] | null;
   onSelect: (label: string) => void;
   lang: string;
   dir: "ltr" | "rtl";
 }
 
 /** One version's chapter, laid out as the source paragraphs and poetry lines. */
-export function ChapterText({ chapter, options, selected, onSelect, lang, dir }: Props) {
+export function ChapterText({ chapter, options, selected, highlight = null, onSelect, lang, dir }: Props) {
   const blocks = useMemo(() => toBlocks(chapter, options.versePerLine), [chapter, options.versePerLine]);
   return (
     <div className="scripture" lang={lang} dir={dir}>
@@ -59,6 +61,7 @@ export function ChapterText({ chapter, options, selected, onSelect, lang, dir }:
                 className={cn(
                   "cursor-pointer rounded-sm transition-colors hover:bg-accent/10",
                   selected === piece.verse.n && "bg-accent/20 hover:bg-accent/25",
+                  selected !== piece.verse.n && inHighlight(piece.verse.n, highlight) && "bg-accent/10",
                 )}
               >
                 {piece.first && (

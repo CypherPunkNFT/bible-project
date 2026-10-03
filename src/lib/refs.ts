@@ -29,6 +29,22 @@ export function sectionOfNum(catalog: Catalog, num: number): SectionId {
   return bookByNum(catalog, num)?.section ?? "apocrypha";
 }
 
+/** "?hl=4-12" -> [4, 12]: a passage to shade in the reader (study links). Anything else -> null. */
+export function parseHighlight(value: string | null): [number, number] | null {
+  const match = /^(\d{1,3})(?:-(\d{1,3}))?$/.exec(value ?? "");
+  if (!match) return null;
+  const start = Number(match[1]);
+  const end = Number(match[2] ?? match[1]);
+  return start >= 1 && end >= start ? [start, end] : null;
+}
+
+/** Is a verse label ("12", "12a", "15-16") inside a highlighted passage? */
+export function inHighlight(label: string, range: [number, number] | null): boolean {
+  if (!range) return false;
+  const first = /^(\d+)/.exec(label);
+  return first ? Number(first[1]) >= range[0] && Number(first[1]) <= range[1] : false;
+}
+
 /** Does a verse label like "12", "12a" or "15-16" cover verse number n? */
 export function labelCovers(label: string, n: number): boolean {
   const range = /^(\d+)[a-z]?-(\d+)[a-z]?$/.exec(label);

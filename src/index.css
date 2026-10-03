@@ -118,7 +118,7 @@ body {
 .scripture {
   font-family: var(--font-serif);
   font-optical-sizing: auto;
-  font-size: 1.1875rem;
+  font-size: 1.1875em; /* em, so the reader's text-size setting scales it */
   line-height: 1.8;
 }
 

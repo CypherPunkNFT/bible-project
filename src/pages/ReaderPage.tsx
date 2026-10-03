@@ -12,7 +12,7 @@ import { useCatalog } from "@/lib/catalog";
 import { loadBook } from "@/lib/data";
 import { rememberRead, lastReadPath } from "@/lib/last-read";
 import { useProgress } from "@/lib/progress";
-import { bookByCode } from "@/lib/refs";
+import { bookByCode, parseHighlight } from "@/lib/refs";
 import { SECTION_BY_ID, sectionColor } from "@/lib/sections";
 import type { BookText, Catalog, Translation } from "@/lib/types";
 import { useAsync } from "@/lib/useAsync";
@@ -49,6 +49,7 @@ function ReaderBody({ translation, code, chapter }: { translation: Translation; 
   const [picking, setPicking] = useState(false);
   const book = bookByCode(catalog, code)!;
   const selected = search.get("v");
+  const highlight = parseHighlight(search.get("hl"));
   const parallel = useMemo(
     () =>
       (search.get("with") ?? "")
@@ -84,15 +85,18 @@ function ReaderBody({ translation, code, chapter }: { translation: Translation; 
   }, [goTo, prev, next, picking]);
 
   useEffect(() => {
-    if (texts.status !== "ready" || !selected) return;
+    const target = selected ?? (highlight ? String(highlight[0]) : null);
+    if (texts.status !== "ready" || !target) return;
     // After the layout's own scroll-to-top for a new page has run. Only scroll when the verse is off screen,
     // so clicking a visible verse never jumps the page, but a link to a verse in this same chapter still lands.
     const timer = window.setTimeout(() => {
-      const element = document.getElementById(`v${selected}`);
+      const element = document.getElementById(`v${target}`);
       const box = element?.getBoundingClientRect();
       if (element && box && (box.top < 140 || box.bottom > window.innerHeight)) element.scrollIntoView({ block: "center" });
     }, 60);
     return () => window.clearTimeout(timer);
+    // A highlight only matters on arrival; selection changes are covered by `selected`.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [texts.status, code, chapter, selected]);
 
   const select = (label: string | null) => {
@@ -146,9 +150,9 @@ function ReaderBody({ translation, code, chapter }: { translation: Translation; 
           {texts.status === "error" && <p className="text-muted">This chapter could not be loaded. Try another version.</p>}
           {texts.status === "ready" &&
             (parallel.length ? (
-              <ParallelText columns={columns} options={options} selected={selected} onSelect={select} />
+              <ParallelText columns={columns} options={options} selected={selected} highlight={highlight} onSelect={select} />
             ) : columns[0].chapter ? (
-              <ChapterText chapter={columns[0].chapter} options={options} selected={selected} onSelect={select} lang={translation.lang} dir={translation.dir} />
+              <ChapterText chapter={columns[0].chapter} options={options} selected={selected} highlight={highlight} onSelect={select} lang={translation.lang} dir={translation.dir} />
             ) : (
               <p className="text-muted">This chapter is not in this version.</p>
             ))}

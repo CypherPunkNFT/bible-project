@@ -10,6 +10,13 @@ const AtlasPage = lazy(() => import("@/pages/AtlasPage"));
 const SearchPage = lazy(() => import("@/pages/SearchPage"));
 const VersionsPage = lazy(() => import("@/pages/VersionsPage"));
 const NotFoundPage = lazy(() => import("@/pages/NotFoundPage"));
+const StudyPage = lazy(() => import("@/pages/study/StudyPage"));
+const HarmonyPage = lazy(() => import("@/pages/study/HarmonyPage"));
+const MiraclesPage = lazy(() => import("@/pages/study/MiraclesPage"));
+const LettersPage = lazy(() => import("@/pages/study/LettersPage"));
+const PeoplePage = lazy(() => import("@/pages/study/PeoplePage"));
+const ProphetsPage = lazy(() => import("@/pages/study/ProphetsPage"));
+const NamesPage = lazy(() => import("@/pages/study/NamesPage"));
 
 function PageFallback() {
   return (
@@ -33,6 +40,14 @@ export default function App() {
               <Route path="/atlas" element={<AtlasPage />} />
               <Route path="/search" element={<SearchPage />} />
               <Route path="/versions" element={<VersionsPage />} />
+              <Route path="/study" element={<StudyPage />} />
+              <Route path="/study/harmony" element={<HarmonyPage />} />
+              <Route path="/study/miracles" element={<MiraclesPage />} />
+              <Route path="/study/letters" element={<LettersPage />} />
+              <Route path="/study/people" element={<PeoplePage />} />
+              <Route path="/study/people/:id" element={<PeoplePage />} />
+              <Route path="/study/prophets" element={<ProphetsPage />} />
+              <Route path="/study/names" element={<NamesPage />} />
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </Suspense>

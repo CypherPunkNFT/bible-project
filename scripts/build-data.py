@@ -197,6 +197,7 @@ def build_study_into_new_data() -> str:
     losing the whole Bible rebuild; returns the error text ("" = success)."""
     loader = importlib.machinery.SourceFileLoader("build_study", str(Path(__file__).with_name("build-study.py")))
     module = types.ModuleType(loader.name)
+    module.__file__ = loader.path
     loader.exec_module(module)
     try:
         report = module.build(OUT, OUT / "study")

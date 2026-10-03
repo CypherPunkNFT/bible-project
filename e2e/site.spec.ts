@@ -214,3 +214,17 @@ test("header: the side-by-side button adds the KJV in one click and turns it off
   await page.getByRole("button", { name: "Choose which versions to read side by side" }).click();
   await expect(page.getByRole("region", { name: "Versions" })).toBeVisible();
 });
+
+test("reading options: the text-size buttons really change the scripture size", async ({ page }) => {
+  await page.goto("/read/kjv/JHN/1");
+  const size = () => page.locator(".scripture").first().evaluate((el) => parseFloat(getComputedStyle(el).fontSize));
+  const before = await size();
+  await page.getByRole("button", { name: "Reading options" }).click();
+  await page.getByRole("button", { name: "Larger text" }).click();
+  await page.getByRole("button", { name: "Larger text" }).click();
+  await expect.poll(size).toBeGreaterThan(before * 1.15);
+  await page.getByRole("button", { name: "Smaller text" }).click();
+  await page.getByRole("button", { name: "Smaller text" }).click();
+  await page.getByRole("button", { name: "Smaller text" }).click();
+  await expect.poll(size).toBeLessThan(before);
+});

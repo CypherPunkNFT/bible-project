@@ -1,8 +1,9 @@
 import { Search } from "lucide-react";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { AtlasMap } from "@/components/atlas/AtlasMap";
 import { projectPlace, type MapPlace } from "@/components/atlas/projection";
+import map from "@/data/atlas-map.json";
 import { PlacePanel } from "@/components/atlas/PlacePanel";
 import { Loading } from "@/components/charts/ChartCard";
 import { useCatalog } from "@/lib/catalog";
@@ -30,6 +31,17 @@ export default function AtlasPage() {
   const [sections, setSections] = useState<Set<SectionId>>(new Set());
   const [book, setBook] = useState("");
   const [query, setQuery] = useState("");
+  // The map is as tall as it would be at the row's full width, whether or not the place panel takes a
+  // column beside it, so opening a place never makes the map jump shorter.
+  const row = useRef<HTMLDivElement>(null);
+  const [mapHeight, setMapHeight] = useState(0);
+  useEffect(() => {
+    const element = row.current;
+    if (!element) return;
+    const observer = new ResizeObserver(([entry]) => setMapHeight(Math.round((entry.contentRect.width * map.height) / map.width)));
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, []);
 
   const all = useMemo<MapPlace[]>(() => {
     if (raw.status !== "ready") return [];
@@ -106,8 +118,8 @@ export default function AtlasPage() {
         </span>
       </div>
 
-      <div className={cn("grid gap-5", selected && "lg:grid-cols-[minmax(0,1fr)_24rem]")}>
-        <div>{raw.status === "ready" ? <AtlasMap places={shown} selected={selected} onSelect={choose} /> : <Loading height={560} />}</div>
+      <div ref={row} className={cn("grid gap-5", selected && "lg:grid-cols-[minmax(0,1fr)_24rem]")}>
+        <div>{raw.status === "ready" ? <AtlasMap places={shown} selected={selected} onSelect={choose} height={mapHeight} /> : <Loading height={mapHeight || 560} />}</div>
         {selected && <PlacePanel key={selected.id} place={selected} onClose={() => choose(null)} />}
       </div>
 
