@@ -204,3 +204,13 @@ test("header: the version panel switches version and adds one side by side", asy
   await page.getByRole("region", { name: "Versions" }).getByRole("button", { name: /^BSB/ }).click();
   await expect(page).toHaveURL(/\/read\/bsb\/PSA\/23\?with=web/);
 });
+
+test("header: the side-by-side button adds the KJV in one click and turns it off again", async ({ page }) => {
+  await page.goto("/read/wlc/HOS/2");
+  await page.getByRole("button", { name: "Read side by side with the KJV" }).click();
+  await expect(page).toHaveURL(/\/read\/wlc\/HOS\/2\?with=kjv$/);
+  await page.getByRole("button", { name: "Turn side by side off" }).click();
+  await expect(page).toHaveURL(/\/read\/wlc\/HOS\/2$/);
+  await page.getByRole("button", { name: "Choose which versions to read side by side" }).click();
+  await expect(page.getByRole("region", { name: "Versions" })).toBeVisible();
+});

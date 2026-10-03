@@ -1,5 +1,6 @@
-import { ChevronDown, ChevronLeft, ChevronRight, Type } from "lucide-react";
+import { ChevronDown, ChevronLeft, ChevronRight, Columns2, Type } from "lucide-react";
 import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useCatalog } from "@/lib/catalog";
 import { sectionColor } from "@/lib/sections";
 import type { BookInfo, Translation } from "@/lib/types";
 import { cn } from "@/lib/utils";
@@ -54,6 +55,17 @@ export function ReaderToolbar(props: Props) {
   }, [open]);
 
   const versionLabel = [translation, ...parallel].map((t) => t.abbr).join(" + ");
+  const catalog = useCatalog();
+  // One click = the KJV beside what you are reading (or, when reading the KJV, the next version that has this book).
+  const companion =
+    (translation.slug !== "kjv" && catalog.translations.find((t) => t.slug === "kjv" && t.books[book.code])) ||
+    catalog.translations.find((t) => t.slug !== translation.slug && t.books[book.code]);
+  const sideBySide = parallel.length > 0;
+  const toggleSideBySide = () => {
+    setOpen(null);
+    if (sideBySide) props.onParallel([]);
+    else if (companion) props.onParallel([companion.slug]);
+  };
 
   return (
     <div ref={bar} className="sticky top-[3.6rem] z-30 -mx-4 border-b border-line bg-page/90 px-2 backdrop-blur-md sm:-mx-6 sm:px-4">
@@ -90,6 +102,28 @@ export function ReaderToolbar(props: Props) {
             <span className="truncate">{versionLabel}</span>
             <ChevronDown className="h-3.5 w-3.5 shrink-0 text-muted" aria-hidden />
           </button>
+          <div className={cn("flex shrink-0 items-center rounded-full border border-line", sideBySide && "border-accent/60 bg-accent/10")}>
+            <button
+              type="button"
+              onClick={toggleSideBySide}
+              aria-pressed={sideBySide}
+              aria-label={sideBySide ? "Turn side by side off" : `Read side by side with the ${companion?.abbr ?? "KJV"}`}
+              title={sideBySide ? "Side by side: on (click to turn off)" : `Side by side with the ${companion?.abbr ?? "KJV"}`}
+              className={cn("grid h-9 w-9 place-items-center rounded-s-full text-muted hover:bg-surface-2 hover:text-ink", sideBySide && "text-accent")}
+            >
+              <Columns2 className="h-[18px] w-[18px]" />
+            </button>
+            <button
+              type="button"
+              onClick={() => toggle("versions")}
+              aria-expanded={open === "versions"}
+              aria-label="Choose which versions to read side by side"
+              title="Choose versions to read side by side"
+              className="grid h-9 w-6 place-items-center rounded-e-full border-s border-line text-muted hover:bg-surface-2 hover:text-ink"
+            >
+              <ChevronDown className="h-3.5 w-3.5" />
+            </button>
+          </div>
         </div>
 
         <div className="flex items-center justify-end gap-1">
