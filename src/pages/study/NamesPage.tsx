@@ -1,6 +1,8 @@
-import { ChevronDown } from "lucide-react";
+import { ArrowLeft, ChevronDown } from "lucide-react";
+import { Link } from "react-router-dom";
+import { NamesOfGod as NamesSection } from "@/components/names/NamesOfGod";
 import { useMemo, useState } from "react";
-import { PassageText, RefLink, StudyCredits, StudyHeader, StudySearch } from "@/components/study/StudyParts";
+import { PassageText, RefLink, StudyCredits, StudySearch } from "@/components/study/StudyParts";
 import { tone, type Tone } from "@/lib/sections";
 import { loadNames, type NamesOfGod } from "@/lib/study";
 import { useAsync } from "@/lib/useAsync";
@@ -9,7 +11,49 @@ import { cn } from "@/lib/utils";
 type Name = NamesOfGod["groups"][number]["names"][number];
 const GROUP_TONE: Record<string, Tone> = { father: "poetry", son: "gospels", spirit: "epistles" };
 
+/** Names of God: exactly the CypherPunk Faith page's section, then every name as a searchable list. */
 export default function NamesPage() {
+  const [listOpen, setListOpen] = useState(false);
+  return (
+    <>
+      <div className="mx-auto max-w-7xl px-4 pt-6 sm:px-6">
+        <Link to="/study" className="inline-flex items-center gap-1 text-sm text-muted hover:text-accent">
+          <ArrowLeft className="h-4 w-4" aria-hidden /> Study
+        </Link>
+      </div>
+      <div className="mt-4">
+        <NamesSection headingLevel="h1" />
+      </div>
+      <div className="mx-auto max-w-7xl px-4 pt-8 sm:px-6">
+        <button
+          type="button"
+          aria-expanded={listOpen}
+          aria-controls="names-list"
+          onClick={() => setListOpen(!listOpen)}
+          className="inline-flex items-center gap-1.5 rounded-full border border-line px-4 py-2 text-sm hover:bg-surface-2"
+        >
+          <ChevronDown className={cn("h-4 w-4 transition-transform", listOpen && "rotate-180")} aria-hidden />
+          Search all 302 names as a list
+        </button>
+      </div>
+      {listOpen && (
+        <div id="names-list">
+          <NamesList />
+        </div>
+      )}
+      {!listOpen && (
+        <div className="mx-auto max-w-7xl px-4 pb-16 sm:px-6">
+          <StudyCredits>
+            The names, their three groups and their order are the ones chosen for the Faith page of the CypherPunk NFT site, shown here the same way; compiled
+            from R. A. Torrey's <cite>New Topical Text Book</cite> (1897, public domain) and other references. Verses in the King James Version.
+          </StudyCredits>
+        </div>
+      )}
+    </>
+  );
+}
+
+function NamesList() {
   const names = useAsync(loadNames, "names");
   const [query, setQuery] = useState("");
   const [view, setView] = useState<"groups" | "az">("groups");
@@ -31,12 +75,7 @@ export default function NamesPage() {
   );
 
   return (
-    <div className="mx-auto max-w-7xl px-4 pb-16 sm:px-6">
-      <StudyHeader
-        eyebrow="Study · Names of God"
-        title="The names of God."
-        lead={<p>Names and titles of the Father, the Son and the Holy Spirit as revealed in Scripture. Open a name to read its verses.</p>}
-      />
+    <div className="mx-auto max-w-7xl px-4 pb-16 pt-4 sm:px-6">
       {names.status === "loading" && <div className="h-64 animate-pulse rounded-2xl bg-surface-2" />}
       {names.status === "error" && <p className="text-muted">The names could not be loaded.</p>}
       {names.status === "ready" && (

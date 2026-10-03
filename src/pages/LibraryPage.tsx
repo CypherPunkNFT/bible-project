@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight, BarChart3, Layers, Map, Search } from "lucide-react";
-import { useMemo } from "react";
+import { lazy, Suspense, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { ChapterSpectrum } from "@/components/ChapterSpectrum";
 import { LibraryChart } from "@/components/LibraryChart";
@@ -11,6 +11,9 @@ import { SECTIONS } from "@/lib/sections";
 import type { SectionId, Stats } from "@/lib/types";
 import { useAsync } from "@/lib/useAsync";
 import { formatNumber } from "@/lib/utils";
+
+// The Faith page's Names of God (with its fonts and 220 KB of names) loads in its own chunk.
+const NamesOfGod = lazy(() => import("@/components/names/NamesOfGod").then((m) => ({ default: m.NamesOfGod })));
 
 const TILES = [
   { to: "/charts", title: "Charts", text: "Every cross-reference as an arc, book sizes, the words of Jesus, the versions through time.", icon: BarChart3 },
@@ -32,6 +35,7 @@ export default function LibraryPage() {
   const totals = useMemo(() => summarize(stats.status === "ready" ? stats.value : null), [stats]);
 
   return (
+    <>
     <div className="mx-auto max-w-7xl px-4 sm:px-6">
       <section className="pb-8 pt-10 sm:pt-16">
         <motion.h1
@@ -64,6 +68,13 @@ export default function LibraryPage() {
         {stats.status === "ready" ? <ChapterSpectrum stats={stats.value} slug={spectrumSlug} /> : <div className="h-36 animate-pulse rounded bg-surface-2" />}
       </section>
 
+    </div>
+
+      <Suspense fallback={<div className="h-[60vh] bg-[#0b0a0d]" />}>
+        <NamesOfGod />
+      </Suspense>
+
+    <div className="mx-auto max-w-7xl px-4 pt-10 sm:px-6">
       <section aria-label="Explore" className="grid gap-4 pb-16 sm:grid-cols-2 lg:grid-cols-4">
         {TILES.map(({ to, title, text, icon: Icon }) => (
           <Link key={to} to={to} className="group rounded-2xl border border-line bg-surface p-5 transition hover:-translate-y-0.5 hover:shadow-lg">
@@ -76,6 +87,7 @@ export default function LibraryPage() {
         ))}
       </section>
     </div>
+    </>
   );
 }
 

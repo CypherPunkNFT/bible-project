@@ -1,0 +1,104 @@
+/* Copied unchanged from the CypherPunk NFT site (src/pages/faith-names-mockup.css) so the Names of God look exactly
+   like its Faith page. Only this first block is added: the two fonts and the page variables that site sets
+   globally, and its Faith-page dark background behind the section (this site is light by default). */
+@import "@fontsource-variable/archivo/wdth.css";
+@import "@fontsource-variable/jetbrains-mono/index.css";
+.names-of-god-panel {
+  --font-sans: "Archivo Variable", "Archivo", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono Variable", "JetBrains Mono", ui-monospace, "Cascadia Code", monospace;
+  --header-h: 3.5rem;
+  --safe-top: env(safe-area-inset-top, 0px);
+  background: linear-gradient(180deg, #050608 0px, #160f14 950px);
+  color: #f3f1ec;
+}
+
+.faith-names-mockup { --paper: #101114; --ink: #f3f1ec; min-height: 100vh; background: radial-gradient(circle at 50% 0%, #25272d 0, #101114 42rem), #101114; color: var(--ink); padding: clamp(24px, 4vw, 64px) clamp(20px, 5vw, 90px) 40px; overflow: hidden; }
+.names-mockup-header { display: flex; align-items: end; justify-content: space-between; gap: 32px; max-width: 1500px; margin: 0 auto; padding-bottom: clamp(30px, 5vw, 70px); }
+.names-mockup-label, .names-mockup-footer { font: 600 .62rem/1.3 var(--font-mono); letter-spacing: .14em; text-transform: uppercase; color: #969aa5; }
+.names-mockup-header h1 { margin: 16px 0 0; font: 800 clamp(3.6rem, 9vw, 10.5rem)/.78 var(--font-sans); font-stretch: 125%; letter-spacing: -.08em; text-transform: uppercase; }
+.names-mockup-header h1 em { color: #d5b679; font-style: normal; }
+.names-mockup-intro { max-width: 310px; margin: 0 0 3px; color: #aeb1b7; font: 400 .84rem/1.55 var(--font-sans); }
+.names-mockup-instruction { margin-top: 16px; color: #d2d4d8; }
+.names-mockup-switcher { display: flex; gap: 8px; margin-top: 20px; }
+.names-mockup-switcher { flex-wrap: wrap; }
+.names-section-study { padding-top: clamp(24px, 2.5vw, 40px); }
+.names-section-preamble { display: flex; align-items: end; justify-content: space-between; gap: 24px; padding: 0 0 22px; border-bottom: 1px solid #34363d; }
+.names-section-preamble .names-mockup-label { color: #c7ad79; }
+.names-section-preamble :is(h1, h2) { margin: 8px 0 0; color: #f3f1ec; font: 700 clamp(1.8rem, 3vw, 3rem)/1.05 var(--font-sans); letter-spacing: -.045em; }
+.names-section-preamble > p { margin: 0; max-width: 470px; color: #d1d1d4; font: 400 clamp(.8rem, 1vw, .95rem)/1.6 var(--font-sans); }
+.names-section-preamble > p span { color: #8f939d; }
+.names-section-embedded { min-height: 0; background: transparent; scroll-margin-top: calc(var(--header-h) + var(--safe-top)); }
+@media (max-width: 600px) { .names-section-preamble { align-items: start; flex-direction: column; gap: 14px; padding-bottom: 16px; } }
+.names-mockup-switcher a { padding: 9px 12px; border: 1px solid #44474e; border-radius: 999px; color: #aeb1b7; font: 500 .6rem/1 var(--font-mono); text-decoration: none; white-space: nowrap; }
+.names-mockup-switcher a[aria-current="page"], .names-mockup-switcher a:hover { border-color: #d5b679; color: #f1d9aa; }
+.names-mockup-index { display: flex; gap: 0; max-width: 1500px; margin: 0 auto 24px; border-top: 1px solid #34363d; border-bottom: 1px solid #34363d; }
+.names-mockup-index a { display: flex; align-items: center; gap: 14px; flex: 1; padding: 16px 8px; color: #aeb1b7; font: 700 .7rem/1 var(--font-mono); letter-spacing: .1em; text-decoration: none; transition: color .2s, background .2s; }
+.names-mockup-index a + a { border-left: 1px solid #34363d; padding-left: 20px; }
+.names-mockup-index a:hover { background: #ffffff0b; color: #fff; }
+.names-mockup-index span { color: #6e727c; }
+.names-pillar-stack { width: 100%; margin: 0 auto; }
+.names-pillar { position: relative; padding: clamp(14px, 1.3vw, 24px) 0 8px; border-bottom: 1px solid #34363d; scroll-margin-top: calc(var(--header-h) + 16px); }
+.names-word { display: block; width: 100%; min-width: 0; padding: 0; border: 0; background: transparent; cursor: pointer; -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
+.names-word:focus { outline: none; }
+.names-word:focus-visible { outline: 1px solid #d5b679; outline-offset: 8px; }
+.names-word[data-expanded="true"] { cursor: default; }
+.word-name-link { pointer-events: none; transition: opacity .5s ease, fill .15s; }
+.word-name-separator { transition: opacity .5s ease; }
+.word-name-link:focus { outline: none; }
+.names-word[data-edge-state="expanded"] .word-name-link { pointer-events: auto; cursor: pointer; }
+.word-name-link:hover, .word-name-link:focus-visible { fill: #fff; text-decoration: underline; text-decoration-thickness: 1px; outline: none; }
+.names-word[data-reading="true"] .word-name-link, .names-word[data-reading="true"] .word-name-separator { opacity: .055; }
+.names-word[data-reading="true"] .word-name-link[data-selected="true"], .names-word[data-reading="true"] .word-name-link:hover, .names-word[data-reading="true"] .word-name-link:focus-visible { opacity: 1; }
+.word-field-controls { display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 30px; padding-top: 10px; visibility: hidden; color: #aeb1b7; font: 500 .65rem/1.4 var(--font-mono); }
+.word-interaction[data-open="true"] .word-field-controls { visibility: visible; }
+.word-field-controls button { border: 0; background: transparent; color: #d5b679; padding: 8px; cursor: pointer; }
+.word-field-controls button:focus-visible { outline: 1px solid currentColor; }
+.word-canvas { position: relative; }
+.word-scripture { opacity: 0; visibility: hidden; transition: opacity .35s ease; }
+.word-scripture[data-visible="true"] { opacity: 1; visibility: visible; transition-delay: .12s; }
+.word-scripture-inside { position: absolute; left: var(--reading-left); width: var(--reading-width); top: 50%; transform: translateY(-50%); max-height: calc(100% - 40px); overflow-y: auto; color: #17170f; scrollbar-width: thin; }
+.word-scripture-content { padding: 4px; }
+.word-scripture-content:focus { outline: none; }
+.word-scripture-content header { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.word-scripture-content header p { margin: 0; font: 600 clamp(.55rem, .64vw, .72rem)/1.5 var(--font-mono); letter-spacing: .07em; text-transform: uppercase; }
+.word-scripture-content button { display: inline-flex; justify-content: center; align-items: center; width: 32px; height: 32px; flex-shrink: 0; border: 0; border-radius: 50%; background: transparent; color: inherit; cursor: pointer; }
+.word-scripture-content button:hover { background: #ffffff18; }
+.word-scripture-content button:disabled { opacity: .25; cursor: default; }
+.word-scripture-content :is(button, a):focus-visible { outline: 1px solid currentColor; outline-offset: 3px; }
+.word-scripture-content h3 { margin: 10px 0 14px; font: 700 clamp(1.1rem, 1.75vw, 2rem)/1.1 var(--font-sans); letter-spacing: -.035em; }
+.word-scripture-verse { animation: scripture-arrive .45s ease both; }
+.word-scripture-content blockquote { margin: 0; font: 400 clamp(1rem, 1.6vw, 1.9rem)/1.4 Georgia, serif; text-wrap: pretty; }
+.word-scripture-content sup { font: 500 .55em/1 var(--font-mono); opacity: .65; }
+.word-scripture-content footer { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-top: 20px; }
+.word-scripture-content footer a { display: inline-flex; gap: 6px; align-items: center; color: inherit; font: 500 .65rem/1.4 var(--font-mono); text-decoration: none; }
+.word-scripture-content footer a:hover { text-decoration: underline; }
+.word-scripture-content nav { display: flex; align-items: center; gap: 8px; font: 500 .6rem/1 var(--font-mono); }
+.word-interaction-jesus .word-scripture-inside { color: #070f22; }
+.word-interaction-spirit .word-scripture-inside { color: #081b18; }
+@keyframes scripture-arrive { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+@media (min-width: 761px) { .word-interaction[data-open="false"] .word-scripture-inside { opacity: 0; visibility: hidden; pointer-events: none; transition-delay: 0s; } }
+@media (max-width: 760px) {
+  .word-scripture-inside { position: relative; left: auto; top: auto; width: auto; transform: none; max-height: none; color: #e6d4af; }
+  .word-scripture-inside:not([data-visible="true"]) { display: none; }
+  .word-scripture-inside[data-visible="true"] { padding: 24px 8px 8px; }
+  .word-interaction-spirit .word-scripture-inside { color: #b0dcd1; }
+  .word-interaction-jesus .word-scripture-inside { color: #dce5ff; }
+  .word-scripture-content header p { font-size: .6rem; }
+  .word-scripture-content blockquote { font-size: 1.1rem; }
+}
+@media (prefers-reduced-motion: reduce) { .word-name-link, .word-name-separator, .word-scripture { transition: none; } .word-scripture-verse { animation: none; } }
+.names-word svg { display: block; width: 100%; height: auto; overflow: hidden; }
+.word-edge-mask { mask-type: alpha; }
+.word-mask-text { font-family: var(--font-sans); font-size: 410px; font-weight: 900; font-stretch: 125%; letter-spacing: -.045em; }
+.word-fill { fill: #a88e54; }
+.word-name-row { fill: #fff5dc; font: 700 11px/1 var(--font-mono); }
+.names-word-jesus .word-fill { fill: #4e68b3; }
+.names-word-spirit .word-fill { fill: #407e77; }
+.names-word-jesus .word-name-row { fill: #edf2ff; }
+.names-word-spirit .word-name-row { fill: #dffbf0; }
+.names-pillar-father { background: linear-gradient(90deg, #d5b67908, transparent 75%); }
+.names-pillar-jesus { background: linear-gradient(90deg, #648bff09, transparent 75%); }
+.names-pillar-spirit { background: linear-gradient(90deg, #66bcb108, transparent 75%); }
+.names-mockup-footer { display: flex; justify-content: space-between; max-width: 1500px; margin: 0 auto; padding-top: 28px; color: #777b85; }
+.names-mockup-footer a { display: inline-flex; align-items: center; gap: 8px; color: #c6c8cd; text-decoration: none; }
+@media (max-width: 760px) { .names-mockup-header { display: block; } .names-mockup-intro { margin-top: 28px; } .names-mockup-index a { gap: 7px; padding-inline: 4px; font-size: .55rem; } .names-mockup-index a + a { padding-left: 8px; } .names-pillar { padding-block: 14px 6px; } .names-mockup-footer { gap: 16px; flex-direction: column; } }

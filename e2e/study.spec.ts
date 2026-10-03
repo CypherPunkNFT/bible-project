@@ -67,13 +67,22 @@ test("prophets: Amos, Moses and Deborah the judge are there; Rebekah's nurse is 
   await expect(page.locator("#prophet-deborah-gen-35-8")).toHaveCount(0);
 });
 
-test("names: three groups with the owner's counts, and a name opens its verses", async ({ page }) => {
+test("names: the Faith page's three words unfold and a name opens its Scripture", async ({ page }) => {
   await page.goto("/study/names");
-  await expect(page.getByRole("heading", { name: /The Father\s*106/ })).toBeVisible();
-  await expect(page.getByRole("heading", { name: /The Son\s*124/ })).toBeVisible();
-  await expect(page.getByRole("heading", { name: /The Holy Spirit\s*72/ })).toBeVisible();
-  await page.getByRole("button", { name: /^Abba, Father/ }).click();
-  await expect(page.getByRole("region", { name: "Abba, Father" })).toContainText("Abba, Father, all things are possible");
+  for (const words of ["ABBA FATHER", "JESUS CHRIST", "HOLY SPIRIT"]) await expect(page.getByRole("button", { name: `Expand ${words} names` })).toBeVisible();
+  await page.getByRole("button", { name: "Expand ABBA FATHER names" }).click();
+  const field = page.getByRole("group", { name: "Explore ABBA FATHER names" });
+  await expect(field).toHaveAttribute("data-edge-state", "expanded", { timeout: 5000 });
+  await field.getByRole("button", { name: "Abba, Father" }).first().click();
+  const reading = page.getByRole("article", { name: "Abba, Father Scripture" });
+  await expect(reading).toContainText("Abba, Father, all things are possible");
+  await expect(reading.getByRole("link", { name: /Read in context/ })).toHaveAttribute("href", "/read/kjv/MRK/14?hl=36-36");
+});
+
+test("home page shows the Names of God", async ({ page }) => {
+  await page.goto("/");
+  await expect(page.getByRole("heading", { name: "His names." })).toBeVisible({ timeout: 10_000 });
+  await expect(page.getByRole("button", { name: "Expand JESUS CHRIST names" })).toBeVisible();
 });
 
 test("harmony: a long passage across chapters ends with 'read on' (the Sermon on the Mount)", async ({ page }) => {
