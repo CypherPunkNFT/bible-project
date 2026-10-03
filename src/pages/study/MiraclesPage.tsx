@@ -1,7 +1,7 @@
 import { ChevronDown } from "lucide-react";
 import { useLayoutEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { MIRACLE_CATEGORIES, MIRACLE_CATEGORY, type MiracleCategory } from "@/data/miracle-categories";
+import { MIRACLE_CATEGORIES, MIRACLE_CATEGORY, MOSES_CATEGORIES, MOSES_CATEGORY } from "@/data/miracle-categories";
 import { PassageText, RefLink, StudyCredits, StudyHeader, StudySearch } from "@/components/study/StudyParts";
 import { loadStudyIndex, loadHarmony, loadMiracles, shortRange, type HarmonySection, type Span } from "@/lib/study";
 import { tone, type Tone } from "@/lib/sections";
@@ -88,8 +88,8 @@ export default function MiraclesPage() {
                   {group.who === "Jesus" ? "The miracles of Jesus" : group.who}
                   <span className="font-sans text-sm font-normal text-muted">{group.items.length}</span>
                 </h2>
-                {group.who === "Jesus" ? (
-                  <JesusMiracles items={group.items} open={open} setOpen={setOpen} />
+                {group.who === "Jesus" || group.who === "Moses and Aaron" ? (
+                  <MiracleWindow items={group.items} kinds={group.who === "Jesus" ? JESUS_KINDS : MOSES_KINDS} open={open} setOpen={setOpen} />
                 ) : (
                   <ul className="divide-y divide-line rounded-2xl border border-line bg-surface">
                     {group.items.map((item) => (
@@ -175,19 +175,27 @@ function WhoChart({ groups }: { groups: Group[] }) {
 
 const VISIBLE_ROWS = 10;
 
+interface Kinds {
+  categories: readonly { id: string; name: string }[];
+  of: (item: Item) => string | undefined;
+}
+const JESUS_KINDS: Kinds = { categories: MIRACLE_CATEGORIES, of: (item) => MIRACLE_CATEGORY[item.title] };
+const MOSES_KINDS: Kinds = { categories: MOSES_CATEGORIES, of: (item) => MOSES_CATEGORY[item.title] };
+
 /**
- * The miracles of Jesus: category chips (with counts) above a window ten rows tall that scrolls the rest, its
- * slim scrollbar just outside the list's right edge.
+ * A miracle list as a fixed rounded box ten rows tall. The box never moves: only the rows scroll inside it
+ * and slide out behind its edge, with a slim scrollbar just inside the right edge. Category buttons above it
+ * filter the rows.
  */
-function JesusMiracles({ items, open, setOpen }: { items: Item[]; open: string | null; setOpen: (key: string | null) => void }) {
-  const [category, setCategory] = useState<MiracleCategory | "all">("all");
+function MiracleWindow({ items, kinds, open, setOpen }: { items: Item[]; kinds: Kinds; open: string | null; setOpen: (key: string | null) => void }) {
+  const [category, setCategory] = useState("all");
   const list = useRef<HTMLUListElement>(null);
   const [windowHeight, setWindowHeight] = useState<number | undefined>(undefined);
-  const shown = category === "all" ? items : items.filter((item) => MIRACLE_CATEGORY[item.title] === category);
-  const counts = (id: MiracleCategory) => items.filter((item) => MIRACLE_CATEGORY[item.title] === id).length;
+  const shown = category === "all" ? items : items.filter((item) => kinds.of(item) === category);
+  const counts = (id: string) => items.filter((item) => kinds.of(item) === id).length;
 
-  // The window's height is the first ten rows as they sit closed; it is measured again only when the rows or
-  // the width change, so opening a miracle scrolls inside the window instead of resizing it.
+  // The box is as tall as its first ten rows as they sit closed. It is measured again only when the rows or
+  // the width change, so opening a miracle scrolls inside the box instead of resizing it.
   useLayoutEffect(() => {
     const element = list.current;
     if (!element) return;
@@ -196,17 +204,17 @@ function JesusMiracles({ items, open, setOpen }: { items: Item[]; open: string |
       const rows = [...element.children] as HTMLElement[];
       if (rows.length <= VISIBLE_ROWS) return setWindowHeight(undefined);
       const tenth = rows[VISIBLE_ROWS - 1];
-      setWindowHeight(tenth.offsetTop + tenth.offsetHeight + 2);
+      setWindowHeight(tenth.offsetTop + tenth.offsetHeight);
     };
     measure();
     const observer = new ResizeObserver(measure);
     observer.observe(element);
     return () => observer.disconnect();
-    // Not on `open`: opening a row must not resize the window.
+    // Not on `open`: opening a row must not resize the box.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [shown.length, category]);
 
-  const chip = (id: MiracleCategory | "all", label: string, count: number) => (
+  const chip = (id: string, label: string, count: number) => (
     <button
       key={id}
       type="button"
@@ -225,14 +233,16 @@ function JesusMiracles({ items, open, setOpen }: { items: Item[]; open: string |
     <div>
       <div className="mb-3 flex flex-wrap gap-1.5" role="group" aria-label="Kind of miracle">
         {chip("all", "All", items.length)}
-        {MIRACLE_CATEGORIES.map((c) => counts(c.id) > 0 && chip(c.id, c.name, counts(c.id)))}
+        {kinds.categories.map((c) => counts(c.id) > 0 && chip(c.id, c.name, counts(c.id)))}
       </div>
-      <div className="slim-scroll -me-3 overflow-y-auto overscroll-contain pe-3" style={{ maxHeight: windowHeight }}>
-        <ul ref={list} className="relative divide-y divide-line rounded-2xl border border-line bg-surface">
-          {shown.map((item) => (
-            <MiracleRow key={item.key} item={item} open={open === item.key} onToggle={() => setOpen(open === item.key ? null : item.key)} />
-          ))}
-        </ul>
+      <div className="overflow-hidden rounded-2xl border border-line bg-surface">
+        <div className="slim-scroll overflow-y-auto overscroll-contain" style={{ maxHeight: windowHeight }}>
+          <ul ref={list} className="relative divide-y divide-line">
+            {shown.map((item) => (
+              <MiracleRow key={item.key} item={item} open={open === item.key} onToggle={() => setOpen(open === item.key ? null : item.key)} />
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
   );
