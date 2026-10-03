@@ -27,13 +27,14 @@ export default function HomePage() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <HomeAbout />
 
-        <section aria-labelledby="home-names" className="border-t border-line py-12">
-          <div className="mb-5 flex flex-wrap items-end justify-between gap-x-6 gap-y-2">
-            <h2 id="home-names" className="font-serif text-2xl font-semibold sm:text-3xl">
-              His names.
+        <section aria-labelledby="home-names" className="home-names pb-12 pt-6">
+          {/* In the big words' own lettering (Archivo, extra-wide, capitals), centred; no rules above or below. */}
+          <div className="mb-6 text-center">
+            <h2 id="home-names" className="home-names-title">
+              His names
             </h2>
-            <p className="max-w-xl text-sm text-muted">
-              Names and titles of God as revealed in Scripture. Click a word to unfold its names, then a name to read its passages.{" "}
+            <p className="home-names-hint">
+              Click a word to unfold its names, then a name to read its passages.{" "}
               <Link to="/study/names" className="whitespace-nowrap text-accent underline underline-offset-2">
                 Every name
               </Link>

@@ -94,9 +94,10 @@
 .names-word-spirit .word-fill { fill: #407e77; }
 .names-word-jesus .word-name-row { fill: #edf2ff; }
 .names-word-spirit .word-name-row { fill: #dffbf0; }
-.names-pillar-father { background: linear-gradient(90deg, #d5b67908, transparent 75%); }
-.names-pillar-jesus { background: linear-gradient(90deg, #648bff09, transparent 75%); }
-.names-pillar-spirit { background: linear-gradient(90deg, #66bcb108, transparent 75%); }
+/* Each band glows up from its bottom line (owner, 2026-10-03), in its own colour. */
+.names-pillar-father { background: linear-gradient(to top, #d5b6792b, #d5b67908 28%, transparent 72%); }
+.names-pillar-jesus { background: linear-gradient(to top, #648bff2b, #648bff08 28%, transparent 72%); }
+.names-pillar-spirit { background: linear-gradient(to top, #66bcb12b, #66bcb108 28%, transparent 72%); }
 .names-mockup-footer { display: flex; justify-content: space-between; max-width: 1500px; margin: 0 auto; padding-top: 28px; color: #777b85; }
 .names-mockup-footer a { display: inline-flex; align-items: center; gap: 8px; color: #c6c8cd; text-decoration: none; }
 @media (max-width: 760px) { .names-mockup-header { display: block; } .names-mockup-intro { margin-top: 28px; } .names-mockup-index a { gap: 7px; padding-inline: 4px; font-size: .55rem; } .names-mockup-index a + a { padding-left: 8px; } .names-pillar { padding-block: 14px 6px; } .names-mockup-footer { gap: 16px; flex-direction: column; } }
