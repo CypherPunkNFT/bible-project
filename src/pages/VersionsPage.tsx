@@ -2,14 +2,12 @@ import { BookOpen } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useCatalog } from "@/lib/catalog";
+import { languageName, languagesOf } from "@/lib/languages";
 import { SECTIONS, sectionColor } from "@/lib/sections";
 import type { Catalog, Translation } from "@/lib/types";
 import { cn, formatNumber } from "@/lib/utils";
 
-const LANGUAGE: Record<string, string> = { en: "English", enm: "Middle English", he: "Hebrew", grc: "Greek", la: "Latin" };
-// The order the language groups appear in: English first, then the original languages, then Latin and Middle English.
-const LANGUAGE_ORDER = ["en", "he", "grc", "la", "enm"];
-const languageName = (code: string) => LANGUAGE[code] ?? code;
+
 const NUMBERING: Record<Translation["numbering"], string> = {
   english: "English (KJV)",
   hebrew: "Hebrew",
@@ -28,9 +26,7 @@ function counts(catalog: Catalog, t: Translation) {
 export default function VersionsPage() {
   const catalog = useCatalog();
   const [language, setLanguage] = useState<string>("all");
-  const languages = [...new Set(catalog.translations.map((t) => t.lang))].sort(
-    (a, b) => (LANGUAGE_ORDER.indexOf(a) + 1 || 99) - (LANGUAGE_ORDER.indexOf(b) + 1 || 99),
-  );
+  const languages = languagesOf(catalog.translations);
   const shownLanguages = language === "all" ? languages : [language];
   return (
     <div className="mx-auto max-w-6xl px-4 pb-16 sm:px-6">

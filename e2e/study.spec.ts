@@ -124,3 +124,13 @@ test("versions: filter by language, grouped, with a language column between abbr
   await page.getByRole("button", { name: /^All languages/ }).click();
   await expect(page.locator("tbody th[scope=rowgroup]")).toHaveCount(5);
 });
+
+test("library versions list: language filter, groups, and the language between abbreviation and name", async ({ page }) => {
+  await page.goto("/library");
+  const list = page.locator("section[aria-labelledby=versions-title]");
+  await expect(list.locator("h3")).toHaveCount(5);
+  await list.getByRole("button", { name: /^Hebrew/ }).click();
+  await expect(list.locator("h3")).toHaveCount(1);
+  await expect(list.locator("h3")).toContainText("Hebrew");
+  await expect(list.getByRole("link", { name: /WLC.*Westminster Leningrad Codex/ })).toBeVisible();
+});
