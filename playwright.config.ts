@@ -4,6 +4,8 @@ import { defineConfig, devices } from "@playwright/test";
 // Uses the installed Edge (the CypherPunk NFT site found Playwright's own Chromium absent on this PC).
 export default defineConfig({
   testDir: "e2e",
+  // The study pages have their own config and server (e2e/study.config.ts, port 8933).
+  testIgnore: "study.spec.ts",
   outputDir: "e2e/.output/results",
   reporter: [["list"]],
   fullyParallel: false,
