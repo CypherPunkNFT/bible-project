@@ -24,7 +24,7 @@ export function VersionsTimeline() {
 
   return (
     <div>
-      <div className="overflow-x-auto pb-2">
+      <div className="relative overflow-x-auto pb-2">
         <div className="relative min-w-[720px]" style={{ height: rows.length * 34 + 40 }}>
           {[1400, 1500, 1600, 1700, 1800, 1900, 2000].map((year) => (
             <div key={year} className="absolute bottom-0 top-0 border-l border-dashed border-line" style={{ left: left(year) }}>

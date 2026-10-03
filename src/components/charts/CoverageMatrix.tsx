@@ -14,7 +14,7 @@ export function CoverageMatrix() {
       <p className="mb-3 min-h-[1.25rem] text-sm text-muted" aria-live="polite">
         {hover || "Filled = the version has that book. The last block is the Apocrypha. Point at a square."}
       </p>
-      <div className="overflow-x-auto pb-2">
+      <div className="relative overflow-x-auto pb-2">
         <table className="border-separate border-spacing-[2px] text-xs">
           <tbody>
             {catalog.translations.map((t) => (

@@ -117,7 +117,7 @@ export function ReaderToolbar(props: Props) {
             <select
               value=""
               onChange={(e) => e.target.value && props.onParallel([...parallel.map((p) => p.slug), e.target.value])}
-              className="h-8 rounded-lg border border-dashed border-line bg-transparent px-2 text-sm"
+              className="h-8 w-40 min-w-0 rounded-lg border border-dashed border-line bg-transparent px-2 text-sm sm:w-auto sm:max-w-xs"
             >
               <option value="">add a version…</option>
               <VersionOptions bookCode={book.code} exclude={[translation.slug, ...parallel.map((p) => p.slug)]} />

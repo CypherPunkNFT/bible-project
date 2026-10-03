@@ -1,0 +1,108 @@
+import { expect, test, type Page } from "@playwright/test";
+
+// Runs at desktop (1440), tablet (768) and phone (390) — see playwright.config.ts.
+
+const PAGES = ["/", "/read/kjv/GEN/1", "/read/kjv/PSA/23?with=wlc,web", "/read/kjv/DAN/2?v=34", "/charts", "/atlas", "/search?q=jerusalem", "/versions", "/no-such-page"];
+
+async function settle(page: Page) {
+  await page.waitForLoadState("networkidle");
+  await page.waitForTimeout(400);
+}
+
+for (const path of PAGES) {
+  test(`no sideways scroll and no console errors: ${path}`, async ({ page }) => {
+    const errors: string[] = [];
+    page.on("console", (message) => message.type() === "error" && errors.push(message.text()));
+    page.on("pageerror", (error) => errors.push(error.message));
+    await page.goto(path);
+    await settle(page);
+    const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
+    expect(overflow, `page is ${overflow}px wider than the screen`).toBeLessThanOrEqual(1);
+    expect(errors).toEqual([]);
+  });
+}
+
+test("library opens a book in the reader", async ({ page }) => {
+  await page.goto("/");
+  await page.getByRole("link", { name: /^Genesis/ }).first().click();
+  await expect(page).toHaveURL(/\/read\/kjv\/GEN\/1/);
+  await expect(page.getByRole("heading", { level: 1 })).toContainText("Genesis");
+  await expect(page.locator(".scripture")).toContainText("In the beginning God created the heaven and the earth.");
+});
+
+test("Daniel 2:34 shows the KJV text, red-letter free, and its cross-references", async ({ page }) => {
+  await page.goto("/read/kjv/DAN/2?v=34");
+  await expect(page.locator(".scripture")).toContainText("a stone was cut out without hands");
+  const panel = page.getByRole("complementary", { name: "Daniel 2:34" });
+  await expect(panel).toBeVisible();
+  await expect(panel.getByRole("link").first()).toBeVisible();
+  await expect(panel).toContainText("Daniel 2:44");
+});
+
+test("words of Jesus are red in the KJV", async ({ page }) => {
+  await page.goto("/read/kjv/JHN/3");
+  const red = page.locator(".scripture .text-red").first();
+  await expect(red).toBeVisible();
+  const color = await red.evaluate((el) => getComputedStyle(el).color);
+  expect(color).not.toBe(await page.locator(".scripture").evaluate((el) => getComputedStyle(el).color));
+});
+
+test("switching to a version without the book offers the versions that have it", async ({ page }) => {
+  await page.goto("/read/tnt/GEN/1");
+  await expect(page.getByRole("heading", { level: 1 })).toContainText("Genesis is not in the Tyndale New Testament");
+  await expect(page.getByRole("link", { name: "KJV" })).toBeVisible();
+});
+
+test("a missing data file is a real 404, never the app page", async ({ request }) => {
+  const response = await request.get("/data/text/kjv/NOPE.json");
+  expect(response.status()).toBe(404);
+  const traversal = await request.get("/data/..%2F..%2Fpackage.json");
+  expect(traversal.status()).toBe(404);
+});
+
+test("arrow keys move between chapters", async ({ page }) => {
+  await page.goto("/read/kjv/RUT/1");
+  await settle(page);
+  await page.keyboard.press("ArrowRight");
+  await expect(page).toHaveURL(/\/read\/kjv\/RUT\/2/);
+  await page.keyboard.press("ArrowLeft");
+  await expect(page).toHaveURL(/\/read\/kjv\/RUT\/1/);
+});
+
+test("Hebrew side by side is right-to-left", async ({ page }) => {
+  await page.goto("/read/kjv/GEN/1?with=wlc");
+  await expect(page.locator('[lang="he"][dir="rtl"]').first()).toContainText("בְּרֵאשִׁ");
+});
+
+test("search finds the stone the builders rejected", async ({ page }) => {
+  await page.goto("/search?q=the%20stone%20which%20the%20builders&in=kjv");
+  await expect(page.getByText(/5 verses contain/)).toBeVisible({ timeout: 20_000 });
+  await expect(page.getByRole("link", { name: /Matthew 21:42/ })).toBeVisible();
+});
+
+test("atlas opens a place from a link and lists its verses", async ({ page }) => {
+  await page.goto("/atlas?place=a15257a");
+  await expect(page.getByRole("heading", { name: "Jerusalem" })).toBeVisible();
+  await expect(page.getByText(/Named in \d+ verses/)).toBeVisible();
+});
+
+test("charts draw the arc canvas", async ({ page }) => {
+  await page.goto("/charts");
+  await settle(page);
+  const painted = await page.locator("#arcs canvas").evaluate((canvas: HTMLCanvasElement) => {
+    const context = canvas.getContext("2d");
+    if (!context) return 0;
+    const { data } = context.getImageData(0, 0, canvas.width, canvas.height);
+    let count = 0;
+    for (let i = 3; i < data.length; i += 4 * 97) if (data[i] > 0) count++;
+    return count;
+  });
+  expect(painted).toBeGreaterThan(100);
+});
+
+test("no raw HTML injection paths in the built page", async ({ page }) => {
+  await page.goto("/read/kjv/GEN/1");
+  // Footnotes and headings render as text: an angle bracket in data could never become an element.
+  const scripts = await page.locator(".scripture script, .scripture iframe").count();
+  expect(scripts).toBe(0);
+});

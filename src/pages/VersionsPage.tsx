@@ -34,7 +34,7 @@ export default function VersionsPage() {
         </p>
       </header>
 
-      <div className="overflow-x-auto rounded-2xl border border-line bg-surface">
+      <div className="relative overflow-x-auto rounded-2xl border border-line bg-surface">
         <table className="w-full min-w-[760px] text-left text-sm">
           <caption className="sr-only">Every version on this site</caption>
           <thead className="border-b border-line text-xs uppercase tracking-[0.12em] text-muted">

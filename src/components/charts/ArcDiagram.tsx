@@ -35,7 +35,7 @@ export function ArcDiagram({ data }: { data: ArcData }) {
   const catalog = useCatalog();
   const canvas = useRef<HTMLCanvasElement>(null);
   const wrap = useRef<HTMLDivElement>(null);
-  const [width, setWidth] = useState(1000);
+  const [width, setWidth] = useState(320);
   const [focus, setFocus] = useState<string>("");
   const [hover, setHover] = useState<Prepared["bookStarts"][number] | null>(null);
   const themeVersion = useThemeVersion();
