@@ -1,6 +1,7 @@
 import { ChevronDown } from "lucide-react";
-import { useMemo, useState } from "react";
+import { useLayoutEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import { MIRACLE_CATEGORIES, MIRACLE_CATEGORY, type MiracleCategory } from "@/data/miracle-categories";
 import { PassageText, RefLink, StudyCredits, StudyHeader, StudySearch } from "@/components/study/StudyParts";
 import { loadStudyIndex, loadHarmony, loadMiracles, shortRange, type HarmonySection, type Span } from "@/lib/study";
 import { tone, type Tone } from "@/lib/sections";
@@ -87,11 +88,15 @@ export default function MiraclesPage() {
                   {group.who === "Jesus" ? "The miracles of Jesus" : group.who}
                   <span className="font-sans text-sm font-normal text-muted">{group.items.length}</span>
                 </h2>
-                <ul className="divide-y divide-line rounded-2xl border border-line bg-surface">
-                  {group.items.map((item) => (
-                    <MiracleRow key={item.key} item={item} open={open === item.key} onToggle={() => setOpen(open === item.key ? null : item.key)} />
-                  ))}
-                </ul>
+                {group.who === "Jesus" ? (
+                  <JesusMiracles items={group.items} open={open} setOpen={setOpen} />
+                ) : (
+                  <ul className="divide-y divide-line rounded-2xl border border-line bg-surface">
+                    {group.items.map((item) => (
+                      <MiracleRow key={item.key} item={item} open={open === item.key} onToggle={() => setOpen(open === item.key ? null : item.key)} />
+                    ))}
+                  </ul>
+                )}
               </section>
             ))}
             {!filtered.length && <p className="py-10 text-center text-muted">No miracle matches.</p>}
@@ -116,7 +121,7 @@ export default function MiraclesPage() {
             </section>
           )}
           <StudyCredits>
-            The miracles of Jesus: A. T. Robertson's list in <cite>A Harmony of the Gospels</cite> (1922), each tied to its event in his harmony —{" "}
+            The miracles of Jesus: A. T. Robertson's list in <cite>A Harmony of the Gospels</cite> (1922), each tied to its event in his harmony; the categories are this site's own grouping —{" "}
             <Link className="underline" to="/study/harmony">
               see the Harmony
             </Link>
@@ -165,6 +170,71 @@ function WhoChart({ groups }: { groups: Group[] }) {
         <span className="flex items-center gap-1.5"><span className="h-2.5 w-2.5 rounded-full" style={{ background: tone("acts").tab }} />The apostles and the church</span>
       </p>
     </figure>
+  );
+}
+
+const VISIBLE_ROWS = 10;
+
+/**
+ * The miracles of Jesus: category chips (with counts) above a window ten rows tall that scrolls the rest, its
+ * slim scrollbar just outside the list's right edge.
+ */
+function JesusMiracles({ items, open, setOpen }: { items: Item[]; open: string | null; setOpen: (key: string | null) => void }) {
+  const [category, setCategory] = useState<MiracleCategory | "all">("all");
+  const list = useRef<HTMLUListElement>(null);
+  const [windowHeight, setWindowHeight] = useState<number | undefined>(undefined);
+  const shown = category === "all" ? items : items.filter((item) => MIRACLE_CATEGORY[item.title] === category);
+  const counts = (id: MiracleCategory) => items.filter((item) => MIRACLE_CATEGORY[item.title] === id).length;
+
+  // The window's height is the first ten rows as they sit closed; it is measured again only when the rows or
+  // the width change, so opening a miracle scrolls inside the window instead of resizing it.
+  useLayoutEffect(() => {
+    const element = list.current;
+    if (!element) return;
+    const measure = () => {
+      if (open) return;
+      const rows = [...element.children] as HTMLElement[];
+      if (rows.length <= VISIBLE_ROWS) return setWindowHeight(undefined);
+      const tenth = rows[VISIBLE_ROWS - 1];
+      setWindowHeight(tenth.offsetTop + tenth.offsetHeight + 2);
+    };
+    measure();
+    const observer = new ResizeObserver(measure);
+    observer.observe(element);
+    return () => observer.disconnect();
+    // Not on `open`: opening a row must not resize the window.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [shown.length, category]);
+
+  const chip = (id: MiracleCategory | "all", label: string, count: number) => (
+    <button
+      key={id}
+      type="button"
+      aria-pressed={category === id}
+      onClick={() => setCategory(id)}
+      className={cn(
+        "rounded-full border px-3 py-1 text-sm transition-colors",
+        category === id ? "border-transparent bg-ink text-page" : "border-line text-muted hover:bg-surface-2 hover:text-ink",
+      )}
+    >
+      {label} <span className="tabular-nums opacity-70">{count}</span>
+    </button>
+  );
+
+  return (
+    <div>
+      <div className="mb-3 flex flex-wrap gap-1.5" role="group" aria-label="Kind of miracle">
+        {chip("all", "All", items.length)}
+        {MIRACLE_CATEGORIES.map((c) => counts(c.id) > 0 && chip(c.id, c.name, counts(c.id)))}
+      </div>
+      <div className="slim-scroll -me-3 overflow-y-auto overscroll-contain pe-3" style={{ maxHeight: windowHeight }}>
+        <ul ref={list} className="relative divide-y divide-line rounded-2xl border border-line bg-surface">
+          {shown.map((item) => (
+            <MiracleRow key={item.key} item={item} open={open === item.key} onToggle={() => setOpen(open === item.key ? null : item.key)} />
+          ))}
+        </ul>
+      </div>
+    </div>
   );
 }
 
