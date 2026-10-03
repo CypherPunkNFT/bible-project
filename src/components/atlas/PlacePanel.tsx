@@ -19,16 +19,13 @@ export function PlacePanel({ place, onClose, overlay }: { place: MapPlace; onClo
   const max = Math.max(...books.map(([, n]) => n));
 
   return (
-    // Over the map: exactly the map's height; on phones: a fixed scroll area. Either way it scrolls itself —
-    // a place named in hundreds of verses never stretches the page. The name and close button stay put.
+    // Over the map: exactly the map's height; on phones: at most 70% of the screen. The name and close button
+    // are fixed at the top; only the part from "Where it is named" down scrolls, with a slim pill scrollbar.
     <aside
       aria-labelledby="place-title"
-      className={cn(
-        "overflow-y-auto overscroll-contain rounded-2xl border border-line bg-surface px-4 pb-4",
-        overlay ? "h-full shadow-2xl" : "max-h-[70vh]",
-      )}
+      className={cn("flex flex-col overflow-hidden rounded-2xl border border-line bg-surface", overlay ? "h-full shadow-2xl" : "max-h-[70vh]")}
     >
-      <div className="sticky top-0 z-10 -mx-4 flex items-start justify-between gap-2 border-b border-line/60 bg-surface px-4 pb-3 pt-4">
+      <div className="flex shrink-0 items-start justify-between gap-2 border-b border-line/60 px-4 pb-3 pt-4">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.16em] text-muted">{place.type}</p>
           <h2 id="place-title" className="flex items-center gap-2 font-serif text-2xl font-semibold">
@@ -43,6 +40,7 @@ export function PlacePanel({ place, onClose, overlay }: { place: MapPlace; onClo
         </button>
       </div>
 
+      <div className="slim-scroll min-h-0 flex-1 overflow-y-auto overscroll-contain px-4 pb-4">
       <h3 className="mb-1.5 mt-4 text-xs font-semibold uppercase tracking-[0.16em] text-muted">Where it is named</h3>
       <div className="flex h-16 items-end gap-[2px]" role="img" aria-label={`Mentions by book: ${books.map(([n, c]) => `${bookByNum(catalog, n)?.name} ${c}`).join(", ")}`}>
         {books.map(([num, count]) => {
@@ -73,6 +71,7 @@ export function PlacePanel({ place, onClose, overlay }: { place: MapPlace; onClo
         </button>
       )}
       <p className="mt-4 text-[11px] text-muted">Place data from OpenBible.info's Bible geocoding (CC-BY 4.0).</p>
+      </div>
     </aside>
   );
 }
