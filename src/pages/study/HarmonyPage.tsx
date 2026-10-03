@@ -161,7 +161,11 @@ function HarmonyTable({ rows, open, setOpen }: { rows: Row[]; open: string | nul
   let lastPart = 0;
   return (
     <>
-    <div aria-hidden className="mt-4 hidden grid-cols-[2.5rem_minmax(0,1fr)_repeat(4,6.5rem)] gap-x-3 text-xs font-semibold uppercase tracking-[0.14em] text-muted md:grid">
+    <p className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-1 text-xs text-muted">
+      <span className="flex items-center gap-1.5"><span className="harmony-all h-3 w-6 rounded-sm border border-line" aria-hidden />All four Gospels tell it</span>
+      <span className="flex items-center gap-1.5"><span className="harmony-three h-3 w-6 rounded-sm border border-line" aria-hidden />Three tell it</span>
+    </p>
+    <div aria-hidden className="mt-3 hidden grid-cols-[2.5rem_minmax(0,1fr)_repeat(4,6.5rem)] gap-x-3 text-xs font-semibold uppercase tracking-[0.14em] text-muted md:grid">
       <span />
       <span>Event</span>
       {GOSPELS.map((g) => (
@@ -173,6 +177,7 @@ function HarmonyTable({ rows, open, setOpen }: { rows: Row[]; open: string | nul
         const partHeading = row.part !== lastPart;
         lastPart = row.part;
         const isOpen = open === row.n;
+        const told = GOSPELS.filter((g) => row.refs[g.key]).length;
         return (
           <li key={row.n} id={`event-${row.n}`} className="scroll-mt-48">
             {partHeading && (
@@ -180,7 +185,12 @@ function HarmonyTable({ rows, open, setOpen }: { rows: Row[]; open: string | nul
                 Part {row.part} · {row.partTitle}
               </h2>
             )}
-            <div className={cn("grid grid-cols-[2.5rem_1fr] gap-x-3 border-b border-line py-2.5 md:grid-cols-[2.5rem_minmax(0,1fr)_repeat(4,6.5rem)]", isOpen && "bg-surface")}>
+            <div
+              className={cn(
+                "grid grid-cols-[2.5rem_1fr] gap-x-3 border-b border-line py-2.5 md:grid-cols-[2.5rem_minmax(0,1fr)_repeat(4,6.5rem)]",
+                isOpen ? "bg-surface" : told === 4 ? "harmony-all" : told === 3 ? "harmony-three" : "",
+              )}
+            >
               <span className="pt-0.5 text-right text-xs tabular-nums text-muted">§{row.n}</span>
               <button
                 type="button"

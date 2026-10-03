@@ -228,3 +228,11 @@ body {
 .home-names .names-pillar-stack {
   border-top: 0 !important;
 }
+
+/* Harmony of the Gospels: a green row where all four Gospels tell an event, a light green one where three do. */
+.harmony-all {
+  background: color-mix(in srgb, #2e9e5b 26%, var(--page));
+}
+.harmony-three {
+  background: color-mix(in srgb, #2e9e5b 11%, var(--page));
+}
