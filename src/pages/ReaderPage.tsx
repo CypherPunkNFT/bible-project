@@ -80,12 +80,15 @@ function ReaderBody({ translation, code, chapter }: { translation: Translation; 
 
   useEffect(() => {
     if (texts.status !== "ready" || !selected) return;
-    // After the layout's own scroll-to-top for a new page has run.
-    const timer = window.setTimeout(() => document.getElementById(`v${selected}`)?.scrollIntoView({ block: "center" }), 60);
+    // After the layout's own scroll-to-top for a new page has run. Only scroll when the verse is off screen,
+    // so clicking a visible verse never jumps the page, but a link to a verse in this same chapter still lands.
+    const timer = window.setTimeout(() => {
+      const element = document.getElementById(`v${selected}`);
+      const box = element?.getBoundingClientRect();
+      if (element && box && (box.top < 140 || box.bottom > window.innerHeight)) element.scrollIntoView({ block: "center" });
+    }, 60);
     return () => window.clearTimeout(timer);
-    // Scroll only when a chapter finishes loading, not on every selection click.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [texts.status, code, chapter]);
+  }, [texts.status, code, chapter, selected]);
 
   const select = (label: string | null) => {
     const nextSearch = new URLSearchParams(search);
@@ -93,6 +96,7 @@ function ReaderBody({ translation, code, chapter }: { translation: Translation; 
     else nextSearch.delete("v");
     setSearch(nextSearch, { replace: true });
   };
+  const closePicker = useCallback(() => setPicking(false), []);
   const closePanel = useCallback(() => {
     const nextSearch = new URLSearchParams(search);
     nextSearch.delete("v");
@@ -156,7 +160,7 @@ function ReaderBody({ translation, code, chapter }: { translation: Translation; 
             )}
           </nav>
           <div style={{ fontSize: "1rem" }}>
-            <ChapterPlaces bookNum={book.num} chapter={Number(chapter)} />
+            {translation.numbering === "english" && <ChapterPlaces bookNum={book.num} chapter={Number(chapter)} />}
           </div>
         </article>
         {selected && <VersePanel translation={translation} bookCode={code} chapter={chapter} label={selected} onClose={closePanel} />}
@@ -165,7 +169,7 @@ function ReaderBody({ translation, code, chapter }: { translation: Translation; 
         <BookPicker
           translation={translation}
           current={code}
-          onClose={() => setPicking(false)}
+          onClose={closePicker}
           onPick={(pick) => {
             setPicking(false);
             navigate(`/read/${translation.slug}/${pick}/${translation.books[pick][0]}${query}`);

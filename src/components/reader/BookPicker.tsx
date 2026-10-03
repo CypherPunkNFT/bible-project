@@ -20,10 +20,28 @@ export function BookPicker({ translation, current, onPick, onClose }: Props) {
   useEffect(() => {
     const previous = document.activeElement as HTMLElement | null;
     dialog.current?.querySelector<HTMLElement>("[data-current='true'], button")?.focus();
-    const onKey = (event: KeyboardEvent) => event.key === "Escape" && onClose();
-    window.addEventListener("keydown", onKey);
+    // Escape closes only this dialog (not the verse panel underneath); Tab stays inside it.
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        event.stopImmediatePropagation();
+        onClose();
+      }
+      if (event.key === "Tab" && dialog.current) {
+        const items = [...dialog.current.querySelectorAll<HTMLElement>("button")];
+        const first = items[0];
+        const last = items[items.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first.focus();
+        }
+      }
+    };
+    window.addEventListener("keydown", onKey, true);
     return () => {
-      window.removeEventListener("keydown", onKey);
+      window.removeEventListener("keydown", onKey, true);
       previous?.focus();
     };
   }, [onClose]);

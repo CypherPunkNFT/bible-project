@@ -106,3 +106,32 @@ test("no raw HTML injection paths in the built page", async ({ page }) => {
   const scripts = await page.locator(".scripture script, .scripture iframe").count();
   expect(scripts).toBe(0);
 });
+
+// --- regressions from the independent review (2026-10-03) ---
+
+test("Hebrew text carries no leftover source markup (the Shema)", async ({ page }) => {
+  await page.goto("/read/wlc/DEU/6");
+  const text = await page.locator(".scripture").innerText();
+  expect(text).toContain("שְׁמַ֖ע יִשְׂרָאֵ֑ל");
+  expect(text).not.toContain('="');
+});
+
+test("the KJV epistle subscriptions are kept after the last verse", async ({ page }) => {
+  await page.goto("/read/kjv/ROM/16");
+  await expect(page.locator(".scripture")).toContainText("Written to the Romans from Corinthus");
+});
+
+test("versions numbered differently do not show KJV-numbered cross-references", async ({ page }) => {
+  await page.goto("/read/wlc/PSA/51?v=3");
+  const panel = page.getByRole("complementary");
+  await expect(panel).toContainText("numbered like the KJV");
+  await expect(panel.getByRole("link", { name: "Open this chapter in the KJV" })).toBeVisible();
+});
+
+test("search results keep their own version after the picker changes", async ({ page }) => {
+  await page.goto("/search?q=Jesus%20wept&in=kjv");
+  await expect(page.getByText(/1 verse contains/)).toBeVisible({ timeout: 20_000 });
+  await page.getByLabel("Version").selectOption("wlc");
+  await expect(page.getByText(/in the King James Version/)).toBeVisible();
+  await expect(page.getByRole("link", { name: /John 11:35/ })).toHaveAttribute("href", /\/read\/kjv\/JHN\/11/);
+});

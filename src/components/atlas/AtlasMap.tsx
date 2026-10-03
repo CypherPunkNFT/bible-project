@@ -46,9 +46,10 @@ export function AtlasMap({ places, selected, onSelect }: Props) {
     if (!element) return;
     const zoomer = zoom<SVGSVGElement, unknown>()
       .scaleExtent([1, 40])
+      // A margin beyond the drawn frame so places at its edge (Tarshish, Spain, India) can be centred.
       .translateExtent([
-        [0, 0],
-        [map.width, map.height],
+        [-map.width * 0.6, -map.height * 0.6],
+        [map.width * 1.6, map.height * 1.6],
       ])
       .on("zoom", (event) => setTransform({ k: event.transform.k, x: event.transform.x, y: event.transform.y }));
     behaviour.current = zoomer;

@@ -15,6 +15,9 @@ import re
 import unicodedata
 
 TOKEN = re.compile(r"\\(\+?[a-z]+[0-9]*)(\*?)")
+# The eBible Leningrad Codex wraps its scribal large/suspended letters in leftover tags such as
+# 'l s="H8085"'...'seg type="x-large"'ע'seg''/l'. Keep the letters, drop the tags (and their Strong's numbers).
+SCRIBAL_TAGS = re.compile(r"'(?:l s=\"[^\"]*\"|seg type=\"[^\"]*\"|seg|/l)'")
 STRONG_OK = re.compile(r"^[HG]\d{1,5}[a-z]?$")
 
 BREAKS = {
@@ -233,8 +236,15 @@ class _Book:
             if isinstance(run, list) and run[0].strip():
                 run[2] = number
 
-    def start_chapter(self, rest: str) -> str:
+    def keep_trailing_headings(self) -> None:
+        """Headings left over at a chapter's end (e.g. the KJV epistle subscriptions) stay with that chapter."""
         self.close_heading()
+        if self.pending_headings and self.chapters:
+            self.chapters[-1].setdefault("e", []).extend(self.pending_headings)
+        self.pending_headings = []
+
+    def start_chapter(self, rest: str) -> str:
+        self.keep_trailing_headings()
         label, remainder = _take_label(rest)
         if not label:
             raise UsfmError(f"{self.source_name}: \\c without a chapter number")
@@ -318,6 +328,7 @@ def _finish_runs(runs: list) -> list:
 def parse_book(text: str, source_name: str, keep_strongs: bool, warnings: list[str]) -> dict:
     """Parse one USFM book file into the site's JSON shape. Raises UsfmError on anything unknown."""
     text = unicodedata.normalize("NFC", text.lstrip("\ufeff"))
+    text = SCRIBAL_TAGS.sub("", text)
     book = _Book(source_name, keep_strongs, warnings)
     position, pending_text = 0, ""
     for match in TOKEN.finditer(text):
@@ -326,7 +337,7 @@ def parse_book(text: str, source_name: str, keep_strongs: bool, warnings: list[s
         rest = book.marker(match.group(1), match.group(2) == "*", text[match.end():rest_end])
         pending_text, position = rest, rest_end
     book.text(pending_text + text[position:])
-    book.close_heading()
+    book.keep_trailing_headings()
     if not book.code:
         raise UsfmError(f"{source_name}: no \\id line")
     for chapter in book.chapters:

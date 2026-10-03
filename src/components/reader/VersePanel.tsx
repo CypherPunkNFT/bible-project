@@ -1,5 +1,5 @@
 import { Link2, Layers, X } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { SectionDot } from "@/components/SectionStrip";
 import { useCatalog } from "@/lib/catalog";
@@ -26,9 +26,18 @@ export function VersePanel({ translation, bookCode, chapter, label, onClose }: P
   const [shown, setShown] = useState(FIRST_PAGE);
   const [compare, setCompare] = useState(false);
   const verse = Number(/^\d+/.exec(label)?.[0] ?? NaN);
+  const lastVerse = Number(/-(\d+)/.exec(label)?.[1] ?? verse);
   const inCanon = (catalog.books.find((b) => b.code === bookCode)?.num ?? 99) <= 66;
-  const refs = useAsync<CrossRefBook>(() => (inCanon ? loadCrossRefs(bookCode) : Promise.resolve({})), `xref:${bookCode}`);
-  const list = refs.status === "ready" ? refs.value[`${chapter}:${verse}`] ?? [] : [];
+  // The open cross-references are numbered the KJV way; in other numbering systems a lookup by this
+  // version's chapter:verse would show some other verse's links.
+  const kjvNumbering = translation.numbering === "english";
+  const refs = useAsync<CrossRefBook>(() => (inCanon && kjvNumbering ? loadCrossRefs(bookCode) : Promise.resolve({})), `xref:${bookCode}:${kjvNumbering}`);
+  const list = useMemo(() => {
+    if (refs.status !== "ready") return [];
+    const all: [number, number, number][] = [];
+    for (let v = verse; v <= lastVerse; v++) all.push(...(refs.value[`${chapter}:${v}`] ?? []));
+    return all.sort((a, b) => b[2] - a[2]);
+  }, [refs, chapter, verse, lastVerse]);
   const bookName = catalog.books.find((b) => b.code === bookCode)?.name ?? bookCode;
 
   useEffect(() => {
@@ -72,8 +81,18 @@ export function VersePanel({ translation, bookCode, chapter, label, onClose }: P
         <Link2 className="h-3.5 w-3.5" aria-hidden /> Cross-references {list.length > 0 && `· ${formatNumber(list.length)}`}
       </h3>
       {!inCanon && <p className="text-sm text-muted">The open cross-reference set covers the 66 books only, not the Apocrypha.</p>}
+      {inCanon && !kjvNumbering && (
+        <p className="text-sm text-muted">
+          The {translation.abbr} numbers verses the {translation.numbering} way, but the cross-references are numbered like the KJV, so they are not shown
+          here.{" "}
+          <Link className="underline hover:text-ink" to={`/read/kjv/${bookCode}/${chapter}`}>
+            Open this chapter in the KJV
+          </Link>{" "}
+          to see them.
+        </p>
+      )}
       {inCanon && refs.status === "loading" && <p className="animate-pulse text-sm text-muted">Loading…</p>}
-      {inCanon && refs.status === "ready" && list.length === 0 && <p className="text-sm text-muted">No cross-references recorded for this verse.</p>}
+      {inCanon && kjvNumbering && refs.status === "ready" && list.length === 0 && <p className="text-sm text-muted">No cross-references recorded for this verse.</p>}
       <ol className="space-y-2">
         {list.slice(0, shown).map(([start, end, votes]) => (
           <CrossRef key={`${start}-${end}`} start={start} end={end} votes={votes} translation={translation} />
@@ -123,11 +142,15 @@ function CrossRef({ start, end, votes, translation }: { start: number; end: numb
 
 function EveryVersion({ bookCode, chapter, verse }: { bookCode: string; chapter: number; verse: number }) {
   const catalog = useCatalog();
-  const versions = catalog.translations.filter((t) => t.books[bookCode]);
+  // A version without this book may carry its Greek twin (Brenton's DAG for Daniel, ESG for Esther).
+  const twin = catalog.equivalent[bookCode];
+  const versions = catalog.translations
+    .map((t) => ({ t, code: t.books[bookCode] ? bookCode : twin && t.books[twin] ? twin : null }))
+    .filter((v): v is { t: Translation; code: string } => v.code !== null);
   return (
     <ul className="mb-5 space-y-2 border-s-2 border-accent/40 ps-3">
-      {versions.map((t) => (
-        <VersionLine key={t.slug} translation={t} bookCode={bookCode} chapter={chapter} verse={verse} />
+      {versions.map(({ t, code }) => (
+        <VersionLine key={t.slug} translation={t} bookCode={code} chapter={chapter} verse={verse} />
       ))}
     </ul>
   );

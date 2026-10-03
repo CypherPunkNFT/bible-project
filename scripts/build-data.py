@@ -175,14 +175,43 @@ def main() -> None:
     write_json(OUT / "places.json", places)
     print(f"places: {len(places)}")
     stamp = hashlib.sha256(str(time.time()).encode()).hexdigest()[:10]
-    write_json(OUT / "catalog.json", catalog(entries, stamp))
+    result = catalog(entries, stamp)
+    if args.only:
+        result["translations"] = carry_over_other_versions(result["translations"])
+    write_json(OUT / "catalog.json", result)
     files = [p for p in OUT.rglob("*") if p.is_file()]
     size_mb = sum(p.stat().st_size for p in files) / 1e6
     print(f"warnings: {len(warnings)}", *warnings[:20], sep="\n  ")
-    if OUT_FINAL.exists():
-        shutil.rmtree(OUT_FINAL)
-    OUT.rename(OUT_FINAL)
+    swap_into_place()
     print(f"wrote {len(files)} files, {size_mb:.1f} MB in {time.time() - started:.0f}s")
+
+
+def carry_over_other_versions(built: list[dict]) -> list[dict]:
+    """--only: copy every version not rebuilt this run from the live data, and keep its catalogue entry."""
+    live = OUT_FINAL / "catalog.json"
+    if not live.exists():
+        return built
+    previous = json.loads(live.read_text(encoding="utf-8"))["translations"]
+    built_slugs = {t["slug"] for t in built}
+    for entry in previous:
+        if entry["slug"] in built_slugs:
+            continue
+        for kind in ("text", "plain"):
+            shutil.copytree(OUT_FINAL / kind / entry["slug"], OUT / kind / entry["slug"])
+    by_slug = {t["slug"]: t for t in previous} | {t["slug"]: t for t in built}
+    return [by_slug[m["abbr"].lower()] for m in as_dicts() if m["abbr"].lower() in by_slug]
+
+
+def swap_into_place() -> None:
+    """data.new -> data without ever leaving data/ half-deleted: rename the old one aside first."""
+    old = SITE / "data.old"
+    if old.exists():
+        shutil.rmtree(old)
+    if OUT_FINAL.exists():
+        OUT_FINAL.rename(old)
+    OUT.rename(OUT_FINAL)
+    if old.exists():
+        shutil.rmtree(old, ignore_errors=False)
 
 
 if __name__ == "__main__":

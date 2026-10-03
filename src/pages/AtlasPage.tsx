@@ -108,7 +108,7 @@ export default function AtlasPage() {
 
       <div className={cn("grid gap-5", selected && "lg:grid-cols-[minmax(0,1fr)_24rem]")}>
         <div>{raw.status === "ready" ? <AtlasMap places={shown} selected={selected} onSelect={choose} /> : <Loading height={560} />}</div>
-        {selected && <PlacePanel place={selected} onClose={() => choose(null)} />}
+        {selected && <PlacePanel key={selected.id} place={selected} onClose={() => choose(null)} />}
       </div>
 
       {all.length > 0 && <TopPlaces places={shown.length ? shown : all} onSelect={choose} />}

@@ -82,6 +82,11 @@ export function ChapterText({ chapter, options, selected, onSelect, lang, dir }:
           </p>
         ),
       )}
+      {chapter.e?.map(([, text], index) => (
+        <p key={`end-${index}`} className="mt-6 border-t border-line pt-3 text-center font-serif text-[0.85em] italic text-muted">
+          {text}
+        </p>
+      ))}
     </div>
   );
 }

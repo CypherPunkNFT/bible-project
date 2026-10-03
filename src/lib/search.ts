@@ -9,7 +9,8 @@ const escapeRegExp = (value: string) => value.replace(/[.*+?^${}()|[\]\\]/g, "\\
 
 /** A case-insensitive matcher for the phrase; whole-word mode respects letters in any script. */
 export function makeMatcher(query: string, wholeWords: boolean): RegExp | null {
-  const phrase = query.trim().replace(/\s+/g, " ");
+  // The Bible data is NFC; a query typed in decomposed form (NFD) must match it too.
+  const phrase = query.normalize("NFC").trim().replace(/\s+/g, " ");
   if (phrase.length < 2) return null;
   const body = escapeRegExp(phrase).replace(/ /g, "\\s+");
   return new RegExp(wholeWords ? `(?<![\\p{L}\\p{M}])${body}(?![\\p{L}\\p{M}])` : body, "giu");

@@ -28,6 +28,8 @@ export default function LibraryPage() {
   const stats = useAsync(loadStats, "stats");
   const [apocrypha, setApocrypha] = useState(false);
   const slug = preferredSlug();
+  // The spectrum's bars are KJV chapters; a version that numbers chapters differently would open the wrong one.
+  const spectrumSlug = catalog.translations.find((t) => t.slug === slug)?.numbering === "english" ? slug : "kjv";
   const totals = useMemo(() => summarize(stats.status === "ready" ? stats.value : null), [stats]);
 
   return (
@@ -58,7 +60,7 @@ export default function LibraryPage() {
         <h2 id="spectrum" className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-muted">
           The Bible, chapter by chapter
         </h2>
-        {stats.status === "ready" ? <ChapterSpectrum stats={stats.value} slug={slug} /> : <div className="h-36 animate-pulse rounded bg-surface-2" />}
+        {stats.status === "ready" ? <ChapterSpectrum stats={stats.value} slug={spectrumSlug} /> : <div className="h-36 animate-pulse rounded bg-surface-2" />}
       </section>
 
       <section aria-labelledby="library" className="py-10">

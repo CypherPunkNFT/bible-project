@@ -1,5 +1,5 @@
 import { Search } from "lucide-react";
-import { useEffect, useMemo, useState, type FormEvent } from "react";
+import { useEffect, useMemo, useRef, useState, type FormEvent } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { useCatalog } from "@/lib/catalog";
 import { loadPlain } from "@/lib/data";
@@ -18,7 +18,16 @@ export default function SearchPage() {
   const translation = catalog.translations.find((t) => t.slug === slug) ?? catalog.translations[0];
   const [draft, setDraft] = useState(params.get("q") ?? "");
   const [wholeWords, setWholeWords] = useState(params.get("whole") !== "0");
-  const [state, setState] = useState<{ status: "idle" | "loading" | "done"; loaded: number; hits: Hit[]; query: string }>({ status: "idle", loaded: 0, hits: [], query: "" });
+  // Results carry the version and settings they were made with, so changing the form never relabels them.
+  const [state, setState] = useState<{ status: "idle" | "loading" | "done"; loaded: number; hits: Hit[]; query: string; slug: string; wholeWords: boolean }>({
+    status: "idle",
+    loaded: 0,
+    hits: [],
+    query: "",
+    slug,
+    wholeWords,
+  });
+  const latestRun = useRef(0);
   const [shown, setShown] = useState(PAGE);
   const books = catalog.books.filter((b) => translation.books[b.code]);
 
@@ -27,7 +36,9 @@ export default function SearchPage() {
     const matcher = makeMatcher(draft, wholeWords);
     if (!matcher) return;
     setParams({ q: draft, in: translation.slug, whole: wholeWords ? "1" : "0" }, { replace: true });
-    setState({ status: "loading", loaded: 0, hits: [], query: draft });
+    const runId = ++latestRun.current;
+    const searched = { query: draft, slug: translation.slug, wholeWords };
+    setState({ status: "loading", loaded: 0, hits: [], ...searched });
     setShown(PAGE);
     let loaded = 0;
     const plains = await Promise.all(
@@ -35,7 +46,7 @@ export default function SearchPage() {
         loadPlain(translation.slug, b.code)
           .then((plain) => {
             loaded += 1;
-            setState((s) => ({ ...s, loaded }));
+            if (runId === latestRun.current) setState((s) => ({ ...s, loaded }));
             return { code: b.code, plain };
           })
           .catch((error: unknown) => {
@@ -44,7 +55,8 @@ export default function SearchPage() {
           }),
       ),
     );
-    setState({ status: "done", loaded, hits: searchBooks(plains, matcher), query: draft });
+    if (runId !== latestRun.current) return; // a newer search started while this one was loading
+    setState({ status: "done", loaded, hits: searchBooks(plains, matcher), ...searched });
   };
 
   // A shared search link (?q=…) runs on arrival.
@@ -54,7 +66,9 @@ export default function SearchPage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const matcher = useMemo(() => makeMatcher(state.query, wholeWords), [state.query, wholeWords]);
+  const matcher = useMemo(() => makeMatcher(state.query, state.wholeWords), [state.query, state.wholeWords]);
+  const resultTranslation = catalog.translations.find((t) => t.slug === state.slug) ?? translation;
+  const resultBooks = catalog.books.filter((b) => resultTranslation.books[b.code]);
   const perBook = useMemo(() => {
     const counts = new Map<string, number>();
     for (const hit of state.hits) counts.set(hit.code, (counts.get(hit.code) ?? 0) + 1);
@@ -99,20 +113,20 @@ export default function SearchPage() {
       {state.status === "done" && (
         <section aria-live="polite" className="mt-8">
           <p className="text-lg">
-            <strong>{formatNumber(state.hits.length)}</strong> verses contain “{state.query}” in the {translation.name}.
+            <strong>{formatNumber(state.hits.length)}</strong> {state.hits.length === 1 ? "verse contains" : "verses contain"} “{state.query}” in the {resultTranslation.name}.
           </p>
-          {state.hits.length > 0 && <Distribution books={books} counts={perBook} />}
+          {state.hits.length > 0 && <Distribution books={resultBooks} counts={perBook} />}
           <ol className="mt-6 divide-y divide-line">
             {state.hits.slice(0, shown).map((hit) => {
               const book = catalog.books.find((b) => b.code === hit.code)!;
               return (
                 <li key={`${hit.code}${hit.chapter}:${hit.verse}`} className="py-3">
-                  <Link to={`/read/${translation.slug}/${hit.code}/${hit.chapter}?v=${hit.verse}`} className="group block">
+                  <Link to={`/read/${resultTranslation.slug}/${hit.code}/${hit.chapter}?v=${hit.verse}`} className="group block">
                     <span className="flex items-center gap-2 text-sm font-semibold group-hover:text-accent">
                       <span className="h-2.5 w-2.5 rounded-full" style={{ background: sectionColor(book.section) }} aria-hidden />
                       {book.name} {hit.chapter}:{hit.verse}
                     </span>
-                    <span className="mt-1 block font-serif" lang={translation.lang} dir={translation.dir}>
+                    <span className="mt-1 block font-serif" lang={resultTranslation.lang} dir={resultTranslation.dir}>
                       {matcher ? highlightParts(hit.text, matcher).map((part, i) => (part.match ? <mark key={i} className="rounded bg-accent/25 px-0.5 text-ink">{part.text}</mark> : <span key={i}>{part.text}</span>)) : hit.text}
                     </span>
                   </Link>

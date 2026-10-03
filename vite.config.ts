@@ -26,7 +26,14 @@ function serveData(): Connect.NextHandleFunction {
     }
     response.setHeader("Content-Type", TYPES[path.extname(file)]);
     response.setHeader("Cache-Control", "public, max-age=3600");
-    fs.createReadStream(file).pipe(response);
+    // A file locked or removed mid-rebuild must fail this one request, never the always-on server.
+    fs.createReadStream(file)
+      .on("error", (error) => {
+        console.error(`data: could not read ${file}`, error);
+        if (!response.headersSent) response.statusCode = 503;
+        response.end();
+      })
+      .pipe(response);
   };
 }
 

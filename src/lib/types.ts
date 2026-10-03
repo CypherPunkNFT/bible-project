@@ -43,6 +43,8 @@ export interface Chapter {
   c: string;
   t?: Run[];
   v: Verse[];
+  /** headings after the last verse, e.g. the KJV's "Written to the Romans from Corinthus" */
+  e?: [string, string][];
 }
 
 export interface BookText {

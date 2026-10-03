@@ -76,6 +76,18 @@ def test_unknown_paragraph_marker_stops():
         parse("\\v 1 a\n\\zzz b")
 
 
+def test_scribal_letter_tags_stripped_letters_kept():
+    body = "\\v 4  'l s=\"H8085\"'שְׁמַ֖'seg type=\"x-large\"'ע'seg''/l' \\w יִשְׂרָאֵ֑ל|strong=\"H3478\"\\w*"
+    text = plain_text(verse(body, strongs=False)["r"])
+    assert text.startswith("שְׁמַ֖ע")
+    assert '="' not in text and "'" not in text
+
+
+def test_heading_after_last_verse_kept_as_chapter_end():
+    data = parse("\\v 27 To God only wise, be glory.\n\\s1 Written to the Romans from Corinthus.\n")
+    assert data["chapters"][0]["e"] == [["s", "Written to the Romans from Corinthus."]]
+
+
 def test_verse_id_and_osis_ranges():
     assert verse_id("DAN", 2, 34) == 27002034
     assert osis_range("Prov.8.22-Prov.8.30") == (20008022, 20008030)
