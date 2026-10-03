@@ -1,0 +1,24 @@
+# --- build, dependencies, generated data ---
+node_modules/
+/dist/
+/coverage/
+*.tsbuildinfo
+/data/
+/data.new/
+
+# --- test output ---
+/test-results/
+/playwright-report/
+/e2e/.output/
+/front-end capture/*/
+
+# --- logs, env, editor litter ---
+/.logs/
+*.log
+.env
+.env.*
+.DS_Store
+.idea/
+.vscode/*
+__pycache__/
+.pytest_cache/
