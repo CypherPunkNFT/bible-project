@@ -124,3 +124,8 @@
   .names-of-god-panel .word-interaction-jesus .word-scripture-inside,
   .names-of-god-panel .word-interaction-spirit .word-scripture-inside { color: var(--ink); }
 }
+
+/* The line each band glows up from is the colour of its lettering. */
+.names-of-god-panel .names-pillar-father { border-bottom-color: var(--name-father); }
+.names-of-god-panel .names-pillar-jesus { border-bottom-color: var(--name-son); }
+.names-of-god-panel .names-pillar-spirit { border-bottom-color: var(--name-spirit); }
