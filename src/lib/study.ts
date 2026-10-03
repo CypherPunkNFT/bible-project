@@ -137,3 +137,16 @@ export function shortRange([start, end]: Span): string {
   if (a.chapter === b.chapter) return `${a.chapter}:${a.verse}–${b.verse}`;
   return `${a.chapter}:${a.verse}–${b.chapter}:${b.verse}`;
 }
+
+export interface HomeVerse {
+  ref: string;
+  span: Span;
+  text: string;
+}
+export interface HomeData {
+  hero: { word: HomeVerse; light: HomeVerse };
+  thesis: HomeVerse;
+  movements: (HomeVerse & { key: string; title: string; line: string })[];
+}
+/** The home page's verses (scripts/bible/study_home.py): ~4 KB, built from our KJV text. */
+export const loadHome = () => loadStudy<HomeData>("home.json");

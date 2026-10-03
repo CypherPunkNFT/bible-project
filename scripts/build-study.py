@@ -20,6 +20,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from bible.study_harmony import describe, parse_harmony, parse_miracles  # noqa: E402
+from bible.study_home import build_home  # noqa: E402
 from bible.study_letters import build_letters  # noqa: E402
 from bible.study_names import build_names  # noqa: E402
 from bible.study_people import parse_people  # noqa: E402
@@ -105,6 +106,7 @@ def build(data_root: Path, out: Path) -> dict:
     letters = build_letters(data_root, verses)
     prophets = build_prophets(people, verses)
     names = build_names(FILES["faith-names"].parent, verses)
+    home = build_home(data_root, verses)
     rows, detail = people_files(people)
 
     sizes = {
@@ -114,6 +116,7 @@ def build(data_root: Path, out: Path) -> dict:
         "people.json": write_json(out / "people.json", rows),
         "prophets.json": write_json(out / "prophets.json", prophets),
         "names.json": write_json(out / "names.json", names),
+        "home.json": write_json(out / "home.json", home),
     }
     for letter, records in detail.items():
         sizes[f"people/{letter}.json"] = write_json(out / "people" / f"{letter}.json", records)

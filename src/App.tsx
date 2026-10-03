@@ -1,4 +1,5 @@
 import { lazy, Suspense } from "react";
+import { MotionConfig } from "framer-motion";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Layout } from "@/components/Layout";
 import { CatalogProvider } from "@/lib/catalog-context";
@@ -28,6 +29,8 @@ function PageFallback() {
 
 export default function App() {
   return (
+    // Framer Motion animations follow the reader's "reduce motion" setting, like the CSS ones.
+    <MotionConfig reducedMotion="user">
     <BrowserRouter>
       <CatalogProvider>
         <Layout>
@@ -54,5 +57,6 @@ export default function App() {
         </Layout>
       </CatalogProvider>
     </BrowserRouter>
+    </MotionConfig>
   );
 }

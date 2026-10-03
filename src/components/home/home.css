@@ -1,0 +1,60 @@
+/* The home page's landing screen: "the light shineth in darkness" (John 1:5) — a slow glow behind the title — and
+   the first words of the Hebrew and Greek Bibles as a faint watermark. */
+
+.home-landing {
+  /* One screen under the sticky header (≈ 3.6rem), on phones too (svh ignores the address bar). */
+  min-height: calc(100svh - 3.6rem - env(safe-area-inset-top, 0px));
+  overflow: clip;
+}
+
+.home-glow {
+  position: absolute;
+  inset: -20% -10% auto auto;
+  width: min(70rem, 120vw);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, color-mix(in srgb, var(--accent) 34%, transparent) 0%, color-mix(in srgb, var(--accent) 12%, transparent) 32%, transparent 66%);
+  filter: blur(8px);
+  animation: home-breathe 9s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes home-breathe {
+  0%, 100% { opacity: 0.75; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.06); }
+}
+
+.home-watermark {
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+  line-height: 0.9;
+  color: var(--ink);
+  opacity: 0.055;
+}
+.home-watermark--hebrew {
+  top: 4%;
+  right: -2%;
+  font-family: var(--font-hebrew);
+  font-size: clamp(5.5rem, 21vw, 21rem);
+}
+.home-watermark--greek {
+  bottom: 9%;
+  left: -2%;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(5rem, 19vw, 19rem);
+}
+
+.home-horizon {
+  display: flex;
+  height: 6px;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* The site's global rule shortens animations rather than removing them; an endless loop must stop outright. */
+  .home-glow { animation: none; }
+}
