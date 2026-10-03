@@ -35,7 +35,6 @@ export default function LibraryPage() {
   const totals = useMemo(() => summarize(stats.status === "ready" ? stats.value : null), [stats]);
 
   return (
-    <>
     <div className="mx-auto max-w-7xl px-4 sm:px-6">
       <section className="pb-8 pt-10 sm:pt-16">
         <motion.h1
@@ -68,13 +67,23 @@ export default function LibraryPage() {
         {stats.status === "ready" ? <ChapterSpectrum stats={stats.value} slug={spectrumSlug} /> : <div className="h-36 animate-pulse rounded bg-surface-2" />}
       </section>
 
-    </div>
+      <section aria-labelledby="home-names" className="pb-12">
+        <div className="mb-5 flex flex-wrap items-end justify-between gap-x-6 gap-y-2">
+          <h2 id="home-names" className="font-serif text-2xl font-semibold sm:text-3xl">
+            His names.
+          </h2>
+          <p className="max-w-xl text-sm text-muted">
+            Names and titles of God as revealed in Scripture. Click a word to unfold its names, then a name to read its passages.{" "}
+            <Link to="/study/names" className="whitespace-nowrap text-accent underline underline-offset-2">
+              Every name
+            </Link>
+          </p>
+        </div>
+        <Suspense fallback={<div className="h-[60vh] animate-pulse rounded-2xl bg-surface-2" />}>
+          <NamesOfGod labelledBy="home-names" />
+        </Suspense>
+      </section>
 
-      <Suspense fallback={<div className="h-[60vh] bg-[#0b0a0d]" />}>
-        <NamesOfGod />
-      </Suspense>
-
-    <div className="mx-auto max-w-7xl px-4 pt-10 sm:px-6">
       <section aria-label="Explore" className="grid gap-4 pb-16 sm:grid-cols-2 lg:grid-cols-4">
         {TILES.map(({ to, title, text, icon: Icon }) => (
           <Link key={to} to={to} className="group rounded-2xl border border-line bg-surface p-5 transition hover:-translate-y-0.5 hover:shadow-lg">
@@ -87,7 +96,6 @@ export default function LibraryPage() {
         ))}
       </section>
     </div>
-    </>
   );
 }
 

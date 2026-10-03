@@ -330,23 +330,11 @@ function NameWord({ words, names, tone }: { words: string[]; names: NameEntry[];
   );
 }
 
-/** The Faith page's "His names." section, on its own dark panel so it looks the same on this light site. */
-export function NamesOfGod({ headingLevel = "h2" }: { headingLevel?: "h1" | "h2" }) {
-  const Heading = headingLevel;
+/** The Faith page's three word fields. The page around them supplies its own heading (in this site's style). */
+export function NamesOfGod({ labelledBy }: { labelledBy: string }) {
   return (
     <div className="names-of-god-panel">
-      <section id="names-of-god" aria-labelledby="names-heading" className="faith-names-mockup names-section-study names-section-embedded">
-        <header className="names-section-preamble">
-          <div>
-            <p className="names-mockup-label">Faith in Christ</p>
-            <Heading id="names-heading">His names.</Heading>
-          </div>
-          <p>
-            Names and titles of God as revealed in Scripture.
-            <br />
-            <span>Click on the names to expand the list and read its passages.</span>
-          </p>
-        </header>
+      <section id="names-of-god" aria-labelledby={labelledBy} className="faith-names-mockup names-section-embedded">
         <div className="names-pillar-stack">
           {pillars.map((pillar, index) => {
             const group = nameGroups[index] ?? [];
