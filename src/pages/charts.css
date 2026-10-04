@@ -242,7 +242,7 @@
 .charts-page-nav a:last-child { margin-left: auto; color: var(--accent); font-size: .65rem; }
 .chart-area { scroll-margin-top: 8.5rem; margin-top: 3rem; }
 .chart-area-heading { display: flex; justify-content: space-between; align-items: flex-start; gap: 2rem; margin-bottom: 1.5rem; }
-.chart-area-heading h2 { font-family: var(--font-serif); font-size: clamp(1.8rem, 3vw, 2.7rem); font-weight: 400; line-height: 1.25; letter-spacing: -.035em; margin: .6rem 0; }
+.chart-area-heading :is(h1, h2) { font-family: var(--font-serif); font-size: clamp(1.8rem, 3vw, 2.7rem); font-weight: 400; line-height: 1.25; letter-spacing: -.035em; margin: .6rem 0; }
 .chart-area-heading p:last-child { max-width: 47rem; font-size: .85rem; line-height: 1.8; color: var(--muted); }
 .chart-area-heading > svg { flex-shrink: 0; color: var(--chart-color); width: 32px; height: 32px; stroke-width: 1; margin-top: 1.5rem; }
 .charts-open .chart-panel { margin-bottom: 1.25rem; scroll-margin-top: 8.5rem; animation: none; }
@@ -252,6 +252,27 @@
 .chart-awaiting { display: grid; place-items: center; border-radius: .5rem; background: linear-gradient(135deg, color-mix(in srgb, var(--chart-color) 3%, var(--page)), var(--surface)); }
 .chart-awaiting span { width: 3rem; height: 1px; background: var(--line); }
 .chart-back-map { display: block; text-align: center; color: var(--accent); font-size: .8rem; padding: 1rem; }
+.chart-area[hidden] { display: none; }
+.chart-map-card[data-selected="true"] { border-color: var(--chart-color); box-shadow: inset 0 -2px var(--chart-color); }
+.chart-map-card { position: relative; }
+.chart-map-primary::after { content: ""; position: absolute; inset: 0; border-radius: .7rem; }
+.chart-map-card nav, .chart-map-label > a { position: relative; z-index: 1; }
+.chart-map-selection { display: flex; flex-wrap: wrap; align-items: center; gap: .45rem; padding: 1rem 0; font-size: .75rem; color: var(--muted); }
+.chart-map-selection > span:first-child { width: .45rem; height: .45rem; border-radius: 50%; }
+.chart-map-selection strong { color: var(--ink); font-weight: 500; }
+.chart-map-selection > span:last-child { margin-left: auto; font-size: .7rem; }
+.chart-collection-breadcrumb { display: flex; align-items: center; gap: .6rem; padding: 2rem 0 1rem; font-size: .75rem; color: var(--muted); }
+.chart-collection-breadcrumb a { color: var(--accent); }
+.chart-collection-breadcrumb strong { font-weight: 500; color: var(--ink); }
+.chart-sibling-links { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; margin-bottom: 1rem; }
+.chart-sibling-links a { display: inline-flex; align-items: center; gap: .4rem; font-size: .75rem; color: var(--muted); padding: .5rem 0; }
+.chart-sibling-links a[aria-current="page"] { color: var(--ink); text-decoration: underline; text-underline-offset: 6px; }
+.chart-discovery-guide { display: flex; align-items: center; gap: 1.5rem; padding: 1rem 0; border-bottom: 1px solid var(--line); }
+.chart-discovery-guide > span { flex-shrink: 0; font-size: .65rem; letter-spacing: .08em; text-transform: uppercase; color: var(--chart-color); }
+.chart-discovery-guide ul { display: flex; flex-wrap: wrap; gap: .65rem 1.5rem; }
+.chart-discovery-guide li { display: inline-flex; align-items: center; gap: .4rem; font-size: .72rem; color: var(--muted); }
+.chart-discovery-guide li svg { flex-shrink: 0; color: var(--chart-color); }
+@media (max-width: 767px) { .chart-discovery-guide { display: block; } .chart-discovery-guide ul { margin-top: .75rem; flex-direction: column; } .chart-map-selection > span:last-child { flex-basis: 100%; margin-left: 0; } }
 .jesus-reading-heading { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .5rem 1.5rem; margin-bottom: 1.25rem; }
 .jesus-reading-heading h4 { font-family: var(--font-serif); font-size: 1.25rem; font-weight: 400; }
 .jesus-reading-heading a { color: var(--revelation); font-size: .7rem; }
@@ -260,3 +281,5 @@
 @media (max-width: 1100px) { .chart-map-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .chart-map-beyond { flex-wrap: wrap; gap: .6rem 1.5rem; } .chart-map-beyond > div { flex-basis: 100%; } .charts-map-heading { align-items: flex-start; flex-direction: column; gap: .7rem; } }
 @media (max-width: 767px) { .chart-map-card { padding: 1rem; } .chart-map-card h3 { font-size: 1.1rem; } .chart-map-label > a { font-size: .7rem; } .chart-map-label > span { font-size: .55rem; letter-spacing: .04em; } .chart-map-card > p { font-size: .72rem; } .charts-page-nav { gap: .1rem; flex-wrap: wrap; } .charts-page-nav a { font-size: .67rem; padding: .45rem; } .charts-page-nav a:last-child { margin-left: 0; } .chart-panel-intro { padding: 1.2rem 1.25rem .8rem; } .chart-area-heading > svg { display: none; } .chart-area, .charts-open .chart-panel, .jesus-speech-section { scroll-margin-top: 10rem; } .chart-area { margin-top: 2rem; } }
 @media (max-width: 420px) { .chart-map-grid { grid-template-columns: minmax(0, 1fr); } .chart-map-card { display: grid; grid-template-columns: minmax(0, 1fr) 80px; gap: 0 .7rem; } .chart-map-label { grid-column: 1; } .chart-map-preview { grid-column: 2; grid-row: 1; height: 48px; margin: 0; align-self: center; } .chart-map-card h3, .chart-map-card > p, .chart-map-card nav { grid-column: 1 / -1; } .chart-map-card h3 { margin-top: .85rem; } .chart-map-card nav { display: flex; flex-wrap: wrap; gap: .2rem .9rem; } .chart-map-card nav a { font-size: .65rem; gap: .35rem; } .chart-map-beyond > a { font-size: .68rem; } }
+
+.chart-area > .chart-discovery-guide { margin-bottom: 1.5rem; }

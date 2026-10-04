@@ -44,6 +44,10 @@ export default function App() {
               <Route path="/read" element={<ReaderPage />} />
               <Route path="/read/:slug/:book/:chapter" element={<ReaderPage />} />
               <Route path="/charts" element={<ChartsPage />} />
+              <Route path="/charts/references" element={<ChartsPage />} />
+              <Route path="/charts/structure" element={<ChartsPage />} />
+              <Route path="/charts/words-of-jesus" element={<ChartsPage />} />
+              <Route path="/charts/versions" element={<ChartsPage />} />
               <Route path="/testimonies/design" element={<TestimoniesDesignPage />} />
               <Route path="/atlas" element={<AtlasPage />} />
               <Route path="/search" element={<SearchPage />} />
