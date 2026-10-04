@@ -70,7 +70,7 @@ function ReaderBody({ translation, code, chapter }: { translation: Translation; 
     () =>
       Promise.all(
         [translation, ...parallel].map((t) =>
-          t.books[code]?.includes(chapter) ? loadChapter(t.slug, code, chapter).catch(() => null) : Promise.resolve(null),
+          t.books[code]?.includes(chapter) ? loadChapter(t.slug, code, t.books[code], chapter).catch(() => null) : Promise.resolve(null),
         ),
       ),
     `${slugs.join(",")}:${code}:${chapter}`,

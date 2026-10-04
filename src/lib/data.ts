@@ -1,4 +1,4 @@
-import type { ArcData, BookPlace, Catalog, Chapter, CrossRefBook, PlainBook, Place, Stats } from "./types";
+import type { ArcData, BookPlace, Catalog, Chapter, CrossRefBook, PlainBook, Place, Run, Stats } from "./types";
 
 /** A data file that is missing or malformed. The reader turns this into "not in this version". */
 export class DataUnavailable extends Error {
@@ -54,12 +54,31 @@ export const loadCatalog = () =>
 // The reader's pieces are one small file per chapter (data layout 2, scripts/build-data.py), so a page downloads only
 // the chapter it shows.
 
-export const loadChapter = (slug: string, code: string, chapter: string) =>
-  load<Chapter>(`text/${slug}/${code}/${chapter}.json`, (v) => isObject(v) && Array.isArray(v.v));
+/** Chapters are stored five to a file; `labels` is the version's chapter list for the book (from the catalogue). */
+export const CHUNK = 5;
 
-/** One chapter's verses as plain words ("chapter:verse" -> text), for previews and single-verse lookups. */
-export const loadChapterPlain = (slug: string, code: string, chapter: string) =>
-  load<PlainBook>(`plain/${slug}/${code}/${chapter}.json`, isObject);
+async function loadChunk(slug: string, code: string, labels: string[], chapter: string): Promise<Chapter> {
+  const index = labels.indexOf(chapter);
+  if (index < 0) throw new DataUnavailable(`text/${slug}/${code}`, `no chapter ${chapter}`);
+  const chunk = await load<Record<string, Chapter>>(`text/${slug}/${code}/${Math.floor(index / CHUNK)}.json`, isObject);
+  const found = chunk[chapter];
+  if (!found) throw new DataUnavailable(`text/${slug}/${code}`, `chapter ${chapter} missing from its file`);
+  return found;
+}
+
+export const loadChapter = loadChunk;
+
+/** One chapter's verses as plain words ("chapter:verse" -> text), made from the chapter text: for previews. */
+export async function loadChapterPlain(slug: string, code: string, labels: string[], chapter: string): Promise<PlainBook> {
+  const found = await loadChunk(slug, code, labels, chapter);
+  return Object.fromEntries(found.v.map((verse) => [`${found.c}:${verse.n}`, plainWords(verse.r)]));
+}
+
+/** The words of a verse's runs: text only, no notes or breaks, whitespace collapsed (same rule as scripts/bible/usfm.py). */
+export function plainWords(runs: Run[]): string {
+  const parts = runs.map((run) => (typeof run === "string" ? run : Array.isArray(run) ? run[0] : ""));
+  return parts.join("").replace(/\s+/g, " ").trim();
+}
 
 /** A whole book's plain words: only for search, which has to read a whole version. */
 export const loadPlain = (slug: string, code: string) => load<PlainBook>(`plain/${slug}/${code}.json`, isObject);

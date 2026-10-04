@@ -37,11 +37,13 @@ OPENINGS = {
 def build_letters(data_root: Path, verses: Verses) -> list[dict]:
     letters = []
     for code, (author, recipients, opening) in OPENINGS.items():
-        folder = data_root / "text" / "bsb" / code  # one file per chapter, named by its (numeric) label
-        files = sorted(folder.glob("*.json"), key=lambda p: int(p.stem)) if folder.is_dir() else []
-        if not files:
+        folder = data_root / "text" / "bsb" / code  # files of five chapters each, {label: chapter}
+        found = {}
+        for path in folder.glob("*.json") if folder.is_dir() else []:
+            found.update(json.loads(path.read_text(encoding="utf-8")))
+        if not found:
             raise ValueError(f"letters: {folder} has no chapter files; build the Bible data first")
-        book = {"chapters": [json.loads(p.read_text(encoding="utf-8")) for p in files]}
+        book = {"chapters": [found[label] for label in sorted(found, key=int)]}
         sections: list[dict] = []
         total = 0
         for chapter in book["chapters"]:

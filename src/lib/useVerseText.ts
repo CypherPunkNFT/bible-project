@@ -15,7 +15,7 @@ export function useVerseText(
 ): { loading: boolean; text: string | undefined } {
   const has = !!version && !!version.books[code]?.includes(String(chapter));
   const plain = useAsync<PlainBook>(
-    () => (has ? loadChapterPlain(version!.slug, code, String(chapter)) : Promise.resolve({})),
+    () => (has ? loadChapterPlain(version!.slug, code, version!.books[code], String(chapter)) : Promise.resolve({})),
     `chapter-plain:${version?.slug}:${code}:${chapter}:${has}`,
   );
   return { loading: plain.status === "loading", text: plain.status === "ready" ? plainLookup(plain.value, chapter, verse) : undefined };

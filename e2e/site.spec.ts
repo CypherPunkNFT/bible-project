@@ -71,7 +71,7 @@ test("a chapter downloads only small, compressed pieces: its own text, cross-ref
   await settle(page);
   await expect(page.locator(".scripture")).toContainText("Blessed are the undefiled");
   const paths = data.map((d) => new URL(d.url).pathname);
-  expect(paths).toContain("/data/text/kjv/PSA/119.json");
+  expect(paths).toContain("/data/text/kjv/PSA/23.json"); // chapters 116-120 share one file
   expect(paths.some((p) => /\/data\/(text\/kjv\/PSA|xref\/PSA)\.json$/.test(p))).toBe(false); // never a whole book
   expect(paths).not.toContain("/data/places.json"); // the reader uses its book's list, not every place
   const big = data.filter((d) => d.bytes > 2048);

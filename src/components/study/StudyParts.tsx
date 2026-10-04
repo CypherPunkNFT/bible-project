@@ -70,7 +70,7 @@ async function loadPassage(chapters: string[], code: string, span: Span, max: nu
   let truncated = false;
   for (let chapter = a.chapter; chapter <= b.chapter && !truncated; chapter++) {
     if (!chapters.includes(String(chapter))) break;
-    const plain = await loadChapterPlain("kjv", code, String(chapter));
+    const plain = await loadChapterPlain("kjv", code, chapters, String(chapter));
     const from = chapter === a.chapter ? a.verse : 1;
     const to = chapter === b.chapter ? b.verse : 200;
     for (let verse = from; verse <= to; verse++) {

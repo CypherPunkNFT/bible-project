@@ -33,9 +33,10 @@ OUT_FINAL = SITE / "data"
 OUT = SITE / "data.new"
 SECTIONS = ["history", "poetry", "prophets", "gospels", "epistles", "revelation", "apocrypha"]
 # The data layout. 2 (2026-10-03): the reader's text, plain text and cross-references are one small file per chapter
-# (text/<v>/<BOOK>/<ch>.json, plain/<v>/<BOOK>/<ch>.json, xref/<BOOK>/<ch>.json), so a page downloads only the chapter
+# (text/<v>/<BOOK>/<k>.json = 5 chapters, xref/<BOOK>/<ch>.json), so a page downloads only the chapter
 # it shows; plain/<v>/<BOOK>.json stays whole for search. --only refuses to mix layouts.
-DATA_FORMAT = 2
+DATA_FORMAT = 3
+CHUNK = 5  # chapters per text file, so the whole site stays under Cloudflare's 20,000-file limit
 
 
 def write_json(path: Path, value) -> None:
@@ -81,10 +82,10 @@ def build_translation(meta: dict, recorded: dict[str, str], warnings: list[str])
                           plain_italic=meta["id"] in PLAIN_ITALIC)
         plain: dict[str, str] = {}
         for chapter in book["chapters"]:
-            chapter_plain = {f"{chapter['c']}:{v['n']}": plain_text(v["r"]) for v in chapter["v"]}
-            write_json(OUT / "text" / slug / code / f"{chapter['c']}.json", chapter)
-            write_json(OUT / "plain" / slug / code / f"{chapter['c']}.json", chapter_plain)
-            plain |= chapter_plain
+            plain |= {f"{chapter['c']}:{v['n']}": plain_text(v["r"]) for v in chapter["v"]}
+        for start in range(0, len(book["chapters"]), CHUNK):
+            group = book["chapters"][start:start + CHUNK]
+            write_json(OUT / "text" / slug / code / f"{start // CHUNK}.json", {c["c"]: c for c in group})
         write_json(OUT / "plain" / slug / f"{code}.json", plain)  # the whole book, for search
         books[code] = {"chapters": [ch["c"] for ch in book["chapters"]],
                        "verses": sum(len(ch["v"]) for ch in book["chapters"]), "_book": book}

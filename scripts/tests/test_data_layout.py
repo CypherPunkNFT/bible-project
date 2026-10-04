@@ -13,29 +13,32 @@ def read(relative: str):
     return json.loads((DATA / relative).read_text(encoding="utf-8"))
 
 
-def test_catalog_is_layout_2():
-    assert read("catalog.json")["format"] == 2
+def test_catalog_is_layout_3():
+    assert read("catalog.json")["format"] == 3
 
 
-def test_every_catalogued_chapter_has_its_own_text_and_plain_file():
+def test_every_catalogued_chapter_is_in_its_five_chapter_text_file():
     catalog = read("catalog.json")
-    missing = [f"{t['slug']}/{code}/{c}" for t in catalog["translations"] for code, chapters in t["books"].items()
-               for c in chapters if not (DATA / "text" / t["slug"] / code / f"{c}.json").exists()
-               or not (DATA / "plain" / t["slug"] / code / f"{c}.json").exists()]
+    missing = []
+    for t in catalog["translations"]:
+        for code, chapters in t["books"].items():
+            files = {}
+            for k in range((len(chapters) + 4) // 5):
+                files.update(read(f"text/{t['slug']}/{code}/{k}.json"))
+            missing += [f"{t['slug']}/{code}/{c}" for c in chapters if c not in files]
     assert missing == []
 
 
-def test_chapter_file_is_one_chapter_and_whole_book_text_is_gone():
-    chapter = read("text/kjv/PSA/119.json")
-    assert chapter["c"] == "119" and len(chapter["v"]) == 176
+def test_text_is_chunked_and_whole_book_text_is_gone():
+    chunk = read("text/kjv/PSA/23.json")  # chapters 116-120
+    assert list(chunk) == ["116", "117", "118", "119", "120"] and len(chunk["119"]["v"]) == 176
     assert not (DATA / "text" / "kjv" / "PSA.json").exists()
     assert (DATA / "plain" / "kjv" / "PSA.json").exists()  # search still reads whole books
 
 
-def test_chapter_plain_matches_the_whole_book_plain():
-    book = read("plain/kjv/JHN.json")
-    chapter = read("plain/kjv/JHN/3.json")
-    assert chapter == {k: v for k, v in book.items() if k.startswith("3:")}
+def test_the_whole_site_stays_under_cloudflares_20000_files():
+    count = sum(1 for p in DATA.rglob("*") if p.is_file())
+    assert count < 17000, count
 
 
 def test_cross_references_one_file_per_kjv_chapter_with_only_its_verses():
