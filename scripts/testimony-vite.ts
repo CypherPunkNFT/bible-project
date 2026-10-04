@@ -1,3 +1,4 @@
+import { MAX_TESTIMONY_REQUEST_BYTES } from "../src/lib/testimonies";
 import type { Plugin, Connect } from "vite";
 import { createTestimonyRuntime } from "./testimony-runtime";
 
@@ -9,7 +10,7 @@ export function testimonyApiPlugin(): Plugin {
       if (!req.url?.startsWith("/api/testimonies/")) return next();
       try {
         const chunks: Buffer[] = []; let size = 0;
-        for await (const chunk of req) { const bytes = Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk); size += bytes.length; if (size > 65536) { res.writeHead(413, { "Content-Type": "application/json" }); res.end(JSON.stringify({ error: "The form is too large." })); return; } chunks.push(bytes); }
+        for await (const chunk of req) { const bytes = Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk); size += bytes.length; if (size > MAX_TESTIMONY_REQUEST_BYTES) { res.writeHead(413, { "Content-Type": "application/json" }); res.end(JSON.stringify({ error: "The form is too large." })); return; } chunks.push(bytes); }
         runtime ??= createTestimonyRuntime();
         const headers: Record<string, string> = {}; for (const [name, value] of Object.entries(req.headers)) if (value) headers[name] = Array.isArray(value) ? value.join(", ") : value;
         const response = await (await runtime).dispatchFetch(`http://${req.headers.host}${req.url}`, { method: req.method, headers, ...(size ? { body: Buffer.concat(chunks) } : {}) });

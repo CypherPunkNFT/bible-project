@@ -266,7 +266,7 @@ test("library: the versions list shows seven at a time and scrolls the rest", as
   const outside = page.locator(".versions-outside-scroll");
   const outsideBounds = await outside.boundingBox();
   expect(outsideBounds!.x).toBeGreaterThan(initial!.x + initial!.width);
-  expect(await scroller.evaluate(el => el.offsetWidth - el.clientWidth)).toBe(0);
+  expect(await scroller.evaluate(el => (el as HTMLElement).offsetWidth - el.clientWidth)).toBe(0);
   for (const name of ["English", "Original and ancient languages", "Translations"]) {
     const group = scroller.getByRole("region", { name, exact: true });
     await group.evaluate(el => {

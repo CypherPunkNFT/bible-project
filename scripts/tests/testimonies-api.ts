@@ -4,12 +4,13 @@ import { mkdir, mkdtemp } from "node:fs/promises";
 import path from "node:path";
 import { createTestimonyRuntime } from "../testimony-runtime.ts";
 import type { TestimonyAccount, TestimonyBranch, TestimonyInvite, TestimonyReport } from "../../src/lib/testimony-contract.ts";
+import "./testimonies-migration.ts";
 
 await mkdir("e2e/.output", { recursive: true });
 const directory = await mkdtemp(path.resolve("e2e/.output/api-test-"));
 let runtime = await createTestimonyRuntime(directory);
 const origin = "http://127.0.0.1:8934", token = () => randomBytes(32).toString("base64url");
-const value = (name: string) => ({ name, title: "A testimony for runtime verification", body: "This is an automated test story stored only in an isolated local test database. It verifies that a person's testimony is published and connected through an actual accepted invitation.", theme: "Hope", happenedWhen: "Spring 2022", publicConsent: true });
+const value = (name: string) => ({ name, title: "A testimony for runtime verification", blurb: "A short introduction to this automated test testimony.", body: "This is an automated test story stored only in an isolated local test database. It verifies that a person's testimony is published and connected through an actual accepted invitation.", theme: "Hope", happenedWhen: "Spring 2022", publicConsent: true });
 async function call<T = Record<string, unknown>>(route: string, method = "GET", data?: unknown, cookie?: string, requestOrigin: string | null = origin) {
   const response = await runtime.dispatchFetch(origin + "/api/testimonies/" + route, { method, headers: { ...(requestOrigin ? { Origin: requestOrigin } : {}), ...(cookie ? { Cookie: cookie } : {}), ...(data !== undefined ? { "Content-Type": "application/json" } : {}) }, ...(data !== undefined ? { body: JSON.stringify(data) } : {}) });
   return { status: response.status, data: await response.json() as T, cookie: response.headers.get("Set-Cookie")?.split(";")[0], headers: response.headers };
@@ -68,12 +69,23 @@ try {
 
   assert.equal((await call("invitations", "POST", {}, root.cookie, "https://untrusted.example")).status, 403);
   assert.equal((await call("invitations", "POST", {}, root.cookie, null)).status, 403);
-  assert.equal((await call("submissions", "POST", { body: "x".repeat(66000) })).status, 413);
+  assert.equal((await call("submissions", "POST", { body: "x".repeat(1048577) })).status, 413);
   assert.equal((await call("submissions", "POST", [])).status, 400);
   passed("cross-site writes, missing origins, oversized requests and malformed forms are rejected");
 
   const grandInvite = await newInvite(child.cookie);
-  const grand = await call<{ personId: string }>("submissions", "POST", payload(grandInvite.token, "Runtime grandchild")); assert.equal(grand.status, 201);
+  const longBody = "transformation ".repeat(5000) + "\n\nA final paragraph with Unicode: 🙏 χάρις 恩典.";
+  const grandSubmission = { ...payload(grandInvite.token, "Runtime grandchild"), body: longBody };
+  const grand = await call<{ personId: string }>("submissions", "POST", grandSubmission); assert.equal(grand.status, 201);
+  assert.equal((await call<{ body: string }>("stories/" + grand.data.personId)).data.body, longBody);
+  assert.equal((await call<TestimonyAccount>("me", "GET", undefined, grand.cookie)).data.person.blurb, grandSubmission.blurb);
+  assert.equal((await call("my-story", "POST", { ...value("Runtime grandchild"), body: "x".repeat(100001), version: 1 }, grand.cookie)).status, 400);
+  assert.equal((await call("my-story", "POST", { ...grandSubmission, blurb: "An updated short introduction, separate from the full testimony.", version: 1 }, grand.cookie)).status, 200);
+  assert.equal((await call<{ body: string }>("stories/" + grand.data.personId)).data.body, longBody);
+  const shortInvite = await newInvite(grand.cookie!);
+  const short = await call<{ personId: string }>("submissions", "POST", { ...payload(shortInvite.token, "Short story"), body: "" }); assert.equal(short.status, 201);
+  assert.equal((await call<{ hasFullTestimony: boolean }>("stories/" + short.data.personId)).data.hasFullTestimony, false);
+  passed("5,000-word stories publish and edit intact; a blurb alone is valid and oversized stories are rejected");
   const current = (await call<TestimonyAccount>("me", "GET", undefined, child.cookie)).data;
   assert.equal((await call("my-story", "POST", { ...value("Updated child"), version: 99 }, child.cookie)).status, 409);
   assert.equal((await call("my-story", "POST", { ...value("Updated child"), version: current.version, personId: root.data.personId }, child.cookie)).status, 200);
@@ -120,6 +132,7 @@ try {
 
   await runtime.dispose(); runtime = await createTestimonyRuntime(directory);
   const persisted = await call<TestimonyBranch>("branches"); assert.equal(persisted.status, 200); assert.ok(persisted.data.nodes.some((n) => n.id === grand.data.personId));
+  assert.equal((await call<{ body: string }>("stories/" + grand.data.personId)).data.body, longBody);
   passed("stories and invitation ancestry survive a complete runtime restart");
   console.log(`${checks} runtime integration checks passed. Isolated database: ${directory}`);
 } finally { await runtime.dispose(); }

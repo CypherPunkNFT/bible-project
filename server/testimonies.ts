@@ -1,4 +1,4 @@
-import { immediatePublication, validateTestimony, type TestimonyNode, type TestimonySubmission } from "../src/lib/testimonies";
+import { immediatePublication, MAX_TESTIMONY_BLURB, MAX_TESTIMONY_CHARACTERS, MAX_TESTIMONY_REQUEST_BYTES, validateTestimony, type TestimonyNode, type TestimonySubmission } from "../src/lib/testimonies";
 import type { TestimonyAccount } from "../src/lib/testimony-contract";
 
 const COOKIE = "bp_testimony_session";
@@ -9,12 +9,12 @@ const iso = (seconds: number | null) => seconds ? new Date(seconds * 1000).toISO
 class HttpError extends Error { constructor(public status: number, message: string) { super(message); } }
 interface Account { id: string; person_id: string; role: string }
 interface Invite { id: string; inviter_id: string | null; kind: string; expires_at: number; revoked_at: number | null; redeemed_by: string | null }
-interface StoryRow { id: string; parent_id: string | null; name: string | null; title: string | null; body?: string | null; theme: string | null; happened_when: string | null; first_published_at: number | null; child_count?: number; version?: number }
-const SUMMARY = `p.id,c.parent_id,v.name,v.title,v.theme,v.happened_when,v.first_published_at,
+interface StoryRow { id: string; parent_id: string | null; name: string | null; title: string | null; blurb: string | null; body?: string | null; has_full_testimony?: number; theme: string | null; happened_when: string | null; first_published_at: number | null; child_count?: number; version?: number }
+const SUMMARY = `p.id,c.parent_id,v.name,v.title,v.blurb,(length(trim(v.body))>0) AS has_full_testimony,v.theme,v.happened_when,v.first_published_at,
  (SELECT count(*) FROM testimony_connections children WHERE children.parent_id=p.id) AS child_count`;
 const JOINS = `JOIN testimony_people p ON p.id=b.id LEFT JOIN testimony_connections c ON c.child_id=p.id LEFT JOIN testimony_public_stories v ON v.id=p.id`;
 function node(row: StoryRow): TestimonyNode {
-  return { id: row.id, parentId: row.parent_id, name: row.name ?? "Story unavailable", title: row.title ?? "This story is no longer public.", body: row.body ?? "", theme: row.theme ?? "", happenedWhen: row.happened_when ?? "", publishedAt: iso(row.first_published_at), available: row.name !== null, childCount: row.child_count ?? 0 };
+  return { id: row.id, parentId: row.parent_id, name: row.name ?? "Story unavailable", title: row.title ?? "This story is no longer public.", blurb: row.blurb ?? "", body: row.body ?? "", hasFullTestimony: Boolean(row.has_full_testimony ?? row.body?.trim()), theme: row.theme ?? "", happenedWhen: row.happened_when ?? "", publishedAt: iso(row.first_published_at), available: row.name !== null, childCount: row.child_count ?? 0 };
 }
 export async function digest(value: string): Promise<string> {
   return [...new Uint8Array(await crypto.subtle.digest("SHA-256", new TextEncoder().encode(value)))].map((b) => b.toString(16).padStart(2, "0")).join("");
@@ -41,17 +41,17 @@ async function body(request: Request): Promise<Record<string, unknown>> {
   if (!request.headers.get("Content-Type")?.startsWith("application/json")) throw new HttpError(415, "Please send the form as JSON.");
   const reader = request.body?.getReader(); if (!reader) throw new HttpError(400, "The form is empty.");
   const chunks: Uint8Array[] = []; let size = 0;
-  try { while (true) { const part = await reader.read(); if (part.done) break; size += part.value.length; if (size > 65536) { await reader.cancel(); throw new HttpError(413, "The form is too large."); } chunks.push(part.value); } }
+  try { while (true) { const part = await reader.read(); if (part.done) break; size += part.value.length; if (size > MAX_TESTIMONY_REQUEST_BYTES) { await reader.cancel(); throw new HttpError(413, "The form is too large."); } chunks.push(part.value); } }
   finally { reader.releaseLock(); }
   const bytes = new Uint8Array(size); let offset = 0; for (const chunk of chunks) { bytes.set(chunk, offset); offset += chunk.length; }
   try { const parsed: unknown = JSON.parse(new TextDecoder().decode(bytes)); if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) throw new Error(); return parsed as Record<string, unknown>; }
   catch { throw new HttpError(400, "The form could not be read."); }
 }
-function text(input: Record<string, unknown>, key: string, max = 12000): string {
+function text(input: Record<string, unknown>, key: string, max = MAX_TESTIMONY_CHARACTERS): string {
   const value = input[key]; if (typeof value !== "string" || value.length > max) throw new HttpError(400, `Check the ${key} field.`); return value.trim();
 }
 function fields(input: Record<string, unknown>): TestimonySubmission {
-  const value = { name: text(input, "name", 60), title: text(input, "title", 120), body: text(input, "body"), theme: text(input, "theme", 40), happenedWhen: text(input, "happenedWhen", 80), publicConsent: input.publicConsent === true };
+  const value = { name: text(input, "name", 60), title: text(input, "title", 120), blurb: text(input, "blurb", MAX_TESTIMONY_BLURB), body: text(input, "body"), theme: text(input, "theme", 40), happenedWhen: text(input, "happenedWhen", 80), publicConsent: input.publicConsent === true };
   const error = validateTestimony(value); if (error) throw new HttpError(400, error); return value;
 }
 async function limited(env: Env, request: Request, action: string, count: number, subject?: string) {
@@ -77,7 +77,7 @@ async function newSession(env: Env, request: Request, accountId: string) {
   ]); return cookie(request, token);
 }
 async function ownStory(env: Env, owner: Account): Promise<TestimonyAccount> {
-  const row = await env.DB.prepare(`SELECT p.id,c.parent_id,p.name,r.title,r.body,r.theme,r.happened_when,s.first_published_at,s.state,s.moderation_blocked,r.version
+  const row = await env.DB.prepare(`SELECT p.id,c.parent_id,p.name,r.title,r.blurb,r.body,r.theme,r.happened_when,s.first_published_at,s.state,s.moderation_blocked,r.version
     FROM testimony_people p JOIN testimony_stories s ON s.person_id=p.id JOIN testimony_revisions r ON r.story_id=s.id
     LEFT JOIN testimony_connections c ON c.child_id=p.id WHERE p.id=? ORDER BY r.version DESC LIMIT 1`).bind(owner.person_id).first<StoryRow & { state: TestimonyAccount["state"]; version: number; moderation_blocked: number }>();
   if (!row) throw new HttpError(404, "Your story could not be found.");
@@ -91,11 +91,11 @@ async function invitation(env: Env, token: string) {
   return invite;
 }
 async function revisionStatements(env: Env, storyId: string, authorId: string, revisionId: string, version: number, value: TestimonySubmission) {
-  const contentHash = await digest(JSON.stringify([value.name, value.title, value.body, value.theme, value.happenedWhen]));
+  const contentHash = await digest(JSON.stringify([value.name, value.title, value.blurb, value.body, value.theme, value.happenedWhen]));
   const decision = await immediatePublication.evaluate({ ...value, authorId, revisionId, contentHash });
   if (decision.action !== "publish") throw new HttpError(422, "This story cannot be published yet. Your text has been kept in the form.");
   return [
-    env.DB.prepare("INSERT INTO testimony_revisions(id,story_id,version,title,body,theme,happened_when,content_digest,consent_version) VALUES (?,?,?,?,?,?,?,?,'public-sharing-v2')").bind(revisionId, storyId, version, value.title, value.body, value.theme, value.happenedWhen, contentHash),
+    env.DB.prepare("INSERT INTO testimony_revisions(id,story_id,version,title,blurb,body,theme,happened_when,content_digest,consent_version) VALUES (?,?,?,?,?,?,?,?,?,'public-sharing-v2')").bind(revisionId, storyId, version, value.title, value.blurb, value.body, value.theme, value.happenedWhen, contentHash),
     env.DB.prepare("INSERT INTO testimony_decisions(revision_id,content_digest,action,provider,policy_version) VALUES (?,?,'publish',?,?)").bind(revisionId, contentHash, decision.provider, decision.policyVersion),
     env.DB.prepare("UPDATE testimony_stories SET state='public',published_revision_id=? WHERE id=?").bind(revisionId, storyId),
   ];

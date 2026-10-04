@@ -1,7 +1,7 @@
 import { select } from "d3-selection";
 import { zoom, zoomIdentity, zoomTransform, type ZoomBehavior, type ZoomTransform } from "d3-zoom";
 import { ArrowRight, Maximize, Minus, Plus } from "lucide-react";
-import { useEffect, useRef, type CSSProperties, type KeyboardEvent } from "react";
+import { Fragment, useEffect, useRef, type CSSProperties, type KeyboardEvent } from "react";
 import { formatTestimonyDate, type TestimonyNode } from "@/lib/testimonies";
 
 const TONES = ["poetry", "epistles", "gospels", "history"];
@@ -12,15 +12,19 @@ interface Props {
   height: number;
   selectedId: string;
   onSelect: (id: string) => void;
+  onExpand: (id: string) => void;
 }
 
 /** Gestures update one transform directly, without rendering the tree on every movement. */
-export function TestimonyTree({ positions, width, height, selectedId, onSelect }: Props) {
+export function TestimonyTree({ positions, width, height, selectedId, onSelect, onExpand }: Props) {
   const viewport = useRef<HTMLDivElement>(null);
   const surface = useRef<HTMLDivElement>(null);
   const percentage = useRef<HTMLOutputElement>(null);
   const behaviour = useRef<ZoomBehavior<HTMLDivElement, unknown> | null>(null);
   const fit = useRef(() => {});
+  const byId = new Map(positions.map((position) => [position.node.id, position]));
+  const shownChildren = new Map<string, number>();
+  for (const position of positions) if (position.node.parentId) shownChildren.set(position.node.parentId, (shownChildren.get(position.node.parentId) ?? 0) + 1);
 
   useEffect(() => {
     const element = viewport.current;
@@ -89,16 +93,16 @@ export function TestimonyTree({ positions, width, height, selectedId, onSelect }
     <div ref={viewport} className="testimony-map-viewport" tabIndex={0} role="region" aria-label="Interactive testimony tree" aria-describedby="testimony-tree-help" onKeyDown={keyboard}>
       <div ref={surface} className="testimony-map-surface" style={{ width, height }}>
         <svg width={width} height={height} aria-hidden="true">{positions.map((p) => {
-          const parent = positions.find((a) => a.node.id === p.node.parentId);
+          const parent = p.node.parentId ? byId.get(p.node.parentId) : undefined;
           if (!parent) return null;
           const fromX = parent.left + 194, fromY = parent.top + 43, toX = p.left, toY = p.top + 43;
           return <path key={p.node.id} d={`M${fromX},${fromY} C${fromX + 24},${fromY} ${toX - 24},${toY} ${toX},${toY}`} />;
         })}</svg>
-        {positions.map((p) => <button key={p.node.id} type="button" className="testimony-tree-node" aria-pressed={selectedId === p.node.id}
+        {positions.map((p) => <Fragment key={p.node.id}><button type="button" className="testimony-tree-node" aria-pressed={selectedId === p.node.id}
           onClick={() => onSelect(p.node.id)} onFocus={(event) => { if (event.currentTarget.matches(":focus-visible")) reveal(p); }}
           style={{ left: p.left, top: p.top, "--node-tone": "var(--" + TONES[p.depth % TONES.length] + ")" } as CSSProperties}>
           <span className="testimony-avatar">{p.node.available === false ? "·" : p.node.name.slice(0, 1)}</span><span><strong>{p.node.name}</strong><small title={p.node.theme ? "Story theme: " + p.node.theme : "No story theme chosen"}>{p.node.available === false ? "The branch continues" : p.node.theme || "Personal testimony"}</small>{p.node.publishedAt && <time dateTime={p.node.publishedAt}>Shared {formatTestimonyDate(p.node.publishedAt)}</time>}</span><ArrowRight size={13} />
-        </button>)}
+        </button>{(p.node.childCount ?? 0) > (shownChildren.get(p.node.id) ?? 0) && <button type="button" className="testimony-more-invitations" style={{ left: p.left + 70, top: p.top + 88 }} onClick={() => onExpand(p.node.id)} onFocus={(event) => { if (event.currentTarget.matches(":focus-visible")) reveal(p); }} aria-label={"Show invitations from " + p.node.name}><Plus size={10} />More invitations</button>}</Fragment>)}
       </div>
     </div>
     <div className="testimony-zoom-controls" role="group" aria-label="Tree zoom">

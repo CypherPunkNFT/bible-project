@@ -64,11 +64,10 @@ publishers' files (USFM Bible text, CSV, JSON, XML) into static JSON, so Bible r
 area by NASA's image service once, at build time. Nothing calls an outside service while you read.
 
 Testimonies use Cloudflare Pages Functions and D1. The same handler runs locally in Miniflare, with persistent
-storage in ignored `.local/testimonies/`. The database contains no sample stories. The browser offers three
-clearly labeled fictional example trees (22 stories) from `src/data/testimony-examples.ts`, automatically
-shown when the collection is empty. They can be viewed together or separately, with working ancestry and
-branch navigation. Example stories never create accounts, invitations, reports or database records.
-Automated publication tests use separate disposable databases.
+storage in ignored `.local/testimonies/`. This is one invitation tree rooted in founder Lucas. Until he
+publishes, the empty view shows only a Lucas anchor with no invented testimony; it creates no database
+record. The old fictional forest and tree picker are removed. Automated tests use separate disposable
+databases, never the real collection.
 
 ## Working with testimonies
 
@@ -87,6 +86,11 @@ submission, and the inviter comes from the single-use token. The two main destin
 branches and Invite someone. The invitation's guest preview uses the same form with a faded, disabled
 publication button; it creates no story, invitation or saved draft. Invitations always originate from the
 signed-in contributor, regardless of which story is selected. Valid submissions publish immediately.
+Authors provide a required 20–600 character blurb and can add an optional full testimony, up to 100,000
+characters (5,000 words and more). The side panel shows the blurb; Read the full testimony opens a scrollable
+reader with larger text, reading time and preserved paragraphs. Full bodies load only when opened. The tree
+remains a bounded, paged view with controls on nodes to follow more invitations; there is no global forest.
+Migration 0004 preserves existing full text and derives an editable blurb from its first 600 characters.
 `PublicationCheck` in `src/lib/testimonies.ts`
 is called on the server for each revision; its current adapter is disabled and publishes immediately. No AI
 service has been built or enabled. Anonymous reports and owner hide/resolve controls work independently.
