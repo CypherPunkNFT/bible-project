@@ -177,3 +177,5 @@ WHERE s.state = 'public' AND p.state = 'active';
 
 -- Connection reads must additionally project withdrawn/removed people to anonymous placeholders.
 -- Private emails, unused invitations, drafts, reports and internal moderation decisions are never public.
+-- HISTORICAL DESIGN ONLY: superseded by ../migrations/ and server/testimonies.ts.
+-- Do not apply this candidate to the local or production collection.

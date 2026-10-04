@@ -10,6 +10,8 @@ export interface TestimonyNode {
   theme: string;
   publishedAt: string;
   happenedWhen: string;
+  available?: boolean;
+  childCount?: number;
 }
 
 export interface TestimonySubmission {
@@ -19,7 +21,6 @@ export interface TestimonySubmission {
   theme: string;
   happenedWhen: string;
   publicConsent: boolean;
-  connectionConsent: boolean;
 }
 
 export function validateTestimony(input: TestimonySubmission): string | null {
@@ -29,11 +30,11 @@ export function validateTestimony(input: TestimonySubmission): string | null {
   if (input.theme && !TESTIMONY_THEMES.includes(input.theme)) return "Choose one of the story themes, or leave it open.";
   if (input.happenedWhen.trim().length > 80) return "Keep when it happened to 80 characters or fewer.";
   if (!input.publicConsent) return "Confirm that you want your story to be publicly readable.";
-  if (!input.connectionConsent) return "Confirm the invitation connection shown above.";
   return null;
 }
 
 export function formatTestimonyDate(iso: string): string {
+  if (!iso) return "Not shared";
   return new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric", year: "numeric" }).format(new Date(iso));
 }
 
@@ -67,7 +68,7 @@ export function testimonyBranch(nodes: TestimonyNode[], id: string): TestimonyNo
   return result;
 }
 
-/** Contract only. A production handler must call this before committing a public revision. */
+/** Called by the server before committing every public revision. */
 export interface PublicationInput {
   authorId: string;
   revisionId: string;

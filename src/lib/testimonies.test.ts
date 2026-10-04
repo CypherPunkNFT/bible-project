@@ -13,11 +13,10 @@ describe("testimony design contract", () => {
     expect(testimonyPath(nodes, "noah")).toHaveLength(4);
     expect(testimonyBranch(nodes, "daniel")).toHaveLength(9);
   });
-  it("requires separate publication and connection consent", () => {
-    const input = { name: "A guest", title: "A sample story", body: "This is fictional sample text for testing the invitation flow. It is long enough to meet the written story minimum.", theme: "", happenedWhen: "", publicConsent: true, connectionConsent: true };
+  it("requires publication consent while the connection comes from the invitation", () => {
+    const input = { name: "A guest", title: "A sample story", body: "This is fictional sample text for testing the invitation flow. It is long enough to meet the written story minimum.", theme: "", happenedWhen: "", publicConsent: true };
     expect(validateTestimony(input)).toBeNull();
     expect(validateTestimony({ ...input, publicConsent: false })).toMatch(/publicly/);
-    expect(validateTestimony({ ...input, connectionConsent: false })).toMatch(/connection/);
     expect(validateTestimony({ ...input, body: "brief" })).toMatch(/80/);
     expect(validateTestimony({ ...input, body: "x".repeat(12001) })).toMatch(/12,000/);
     expect(validateTestimony({ ...input, theme: "Hope", happenedWhen: "Around 2020" })).toBeNull();

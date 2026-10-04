@@ -1,6 +1,6 @@
 import { lazy, Suspense } from "react";
 import { MotionConfig } from "framer-motion";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { Layout } from "@/components/Layout";
 import { CatalogProvider } from "@/lib/catalog-context";
 import HomePage from "@/pages/HomePage";
@@ -9,7 +9,7 @@ const LibraryPage = lazy(() => import("@/pages/LibraryPage"));
 const BiblePage = lazy(() => import("@/pages/BiblePage"));
 const ReaderPage = lazy(() => import("@/pages/ReaderPage"));
 const ChartsPage = lazy(() => import("@/pages/ChartsPage"));
-const TestimoniesDesignPage = lazy(() => import("@/pages/TestimoniesDesignPage"));
+const TestimoniesPage = lazy(() => import("@/pages/TestimoniesPage"));
 const AtlasPage = lazy(() => import("@/pages/AtlasPage"));
 const SearchPage = lazy(() => import("@/pages/SearchPage"));
 const VersionsPage = lazy(() => import("@/pages/VersionsPage"));
@@ -50,7 +50,10 @@ export default function App() {
               <Route path="/charts/structure" element={<ChartsPage />} />
               <Route path="/charts/words-of-jesus" element={<ChartsPage />} />
               <Route path="/charts/versions" element={<ChartsPage />} />
-              <Route path="/testimonies/design" element={<TestimoniesDesignPage />} />
+              <Route path="/testimonies" element={<TestimoniesPage />} />
+              <Route path="/testimonies/join" element={<TestimoniesPage />} />
+              <Route path="/testimonies/access" element={<TestimoniesPage />} />
+              <Route path="/testimonies/design" element={<Navigate to="/testimonies" replace />} />
               <Route path="/atlas" element={<AtlasPage />} />
               <Route path="/search" element={<SearchPage />} />
               <Route path="/versions" element={<VersionsPage />} />

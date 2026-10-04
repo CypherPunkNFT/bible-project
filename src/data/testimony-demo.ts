@@ -1,4 +1,4 @@
-import type { TestimonyNode } from "@/lib/testimonies";
+import type { TestimonyNode } from "../lib/testimonies";
 
 const SAMPLE_DETAILS: Record<string, { publishedAt: string; happenedWhen: string }> = {
   daniel: { publishedAt: "2026-09-20T16:00:00Z", happenedWhen: "Spring 2022" },

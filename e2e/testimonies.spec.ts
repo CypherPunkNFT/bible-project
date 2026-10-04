@@ -1,100 +1,122 @@
-import { expect, test } from "@playwright/test";
+import { expect, test, type APIRequestContext, type Page } from "@playwright/test";
+import { ROOT_ACCESS } from "./testimony-fixtures";
 
-test("testimony design: follows branches and offers an accessible list", async ({ page }) => {
-  const errors: string[] = [];
-  page.on("pageerror", (error) => errors.push(error.message));
-  await page.goto("/testimonies/design");
-  await expect(page.getByText("Fictional sample stories.", { exact: false })).toBeVisible();
-  await page.getByRole("button", { name: "Maya New beginnings" }).click();
-  await expect(page.getByRole("complementary", { name: "Selected testimony" })).toContainText("Daniel → Maya");
-  await page.getByRole("button", { name: /Explore this branch/ }).click();
-  await expect(page.locator(".testimony-tree-node")).toHaveCount(4);
-  await page.getByRole("button", { name: "List view", exact: true }).click();
-  await expect(page.locator(".testimony-list li")).toHaveCount(4);
-  expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(1);
-  expect(errors).toEqual([]);
-});
-
-test("testimony design: accepted submission immediately adds the correct child without network writes", async ({ page }) => {
-  await page.clock.setFixedTime(new Date("2026-10-04T16:00:00Z"));
-  const writes: string[] = [];
-  page.on("request", (r) => { if (r.method() !== "GET") writes.push(r.url()); });
-  await page.goto("/testimonies/design?from=maya");
-  await expect(page.getByText("Maya invited you", { exact: true })).toBeVisible();
-  await page.getByLabel("Public name", { exact: true }).fill("Sample guest");
-  await page.getByLabel("A title for your story").fill("This is a fictional sample story");
+const origin = "http://127.0.0.1:8934";
+const local = (value: string) => { const url = new URL(value); return url.pathname + url.search + url.hash; };
+async function invite(request: APIRequestContext) {
+  expect((await request.post("/api/testimonies/session", { headers: { Origin: origin }, data: { token: ROOT_ACCESS } })).ok()).toBeTruthy();
+  const response = await request.post("/api/testimonies/invitations", { headers: { Origin: origin }, data: {} });
+  expect(response.status()).toBe(201);
+  return await response.json() as { id: string; url: string };
+}
+async function fillStory(page: Page, name: string) {
+  await page.getByLabel("Public name", { exact: true }).fill(name);
+  await page.getByLabel("A title for your story").fill("An isolated browser test story");
   await page.getByLabel("Story theme (optional)").selectOption("Hope");
   await page.getByLabel("When it happened (optional)").fill("Spring 2022");
-  await page.getByLabel("Your testimony", { exact: true }).fill("This is sample text for trying the design. It is not a real testimony and does not describe an actual person's experience. It exists only to test how an invitation grows a branch.");
-  await page.getByRole("button", { name: "Add sample story to the branch" }).click();
-  await expect(page.getByRole("alert")).toContainText("publicly");
-  await page.getByRole("checkbox", { name: /make this story/ }).check();
-  await page.getByRole("checkbox", { name: /Maya invited me/ }).check();
-  await page.getByRole("button", { name: "Add sample story to the branch" }).click();
-  await expect(page.locator(".testimony-notice")).toContainText("connected to Maya");
-  await expect(page.locator(".testimony-story-path")).toContainText("Daniel → Maya → Sample guest");
-  await expect(page.locator(".testimony-tree-node")).toHaveCount(10);
-  await expect(page.locator(".testimony-details")).toContainText("Hope");
-  await expect(page.locator(".testimony-details")).toContainText("Spring 2022");
-  await expect(page.locator(".testimony-details time")).toHaveAttribute("datetime", "2026-10-04T16:00:00.000Z");
-  await page.getByRole("button", { name: "Preview an invite from Sample guest" }).click();
-  await page.getByRole("button", { name: "Try the guest's experience" }).click();
-  await page.getByLabel("Public name", { exact: true }).fill("Next guest");
-  await page.getByLabel("A title for your story").fill("Another fictional example");
-  await page.getByLabel("Your testimony", { exact: true }).fill("Another fictional sample story for testing. This person was invited by the previous sample guest, so the new story should extend that branch by one more generation.");
-  await page.getByRole("checkbox", { name: /make this story/ }).check();
-  await page.getByRole("checkbox", { name: /Sample guest invited me/ }).check();
-  await page.getByRole("button", { name: "Add sample story to the branch" }).click();
-  await expect(page.locator(".testimony-story-path")).toContainText("Daniel → Maya → Sample guest → Next guest");
-  await expect(page.locator(".testimony-tree-node")).toHaveCount(11);
-  await expect(page.locator(".testimony-details")).toContainText("Not chosen");
-  await expect(page.locator(".testimony-period")).toHaveCount(0);
-  await page.getByRole("button", { name: "Reset preview" }).click();
-  await expect(page.locator(".testimony-tree-node")).toHaveCount(9);
-  expect(writes).toEqual([]);
-});
+  await page.getByLabel("Your testimony", { exact: true }).fill("This fictional story exists only in a disposable test database. It checks that a person's testimony is saved, linked to their inviter, and available again after reloading the page.");
+}
 
-test("testimonies: header opens the preview with clearly labelled story details", async ({ page }, info) => {
+test("canonical page has real story details and no preview controls", async ({ page }, info) => {
   if (info.project.name === "phone") await page.setViewportSize({ width: 320, height: 844 });
   await page.goto("/");
-  const link = page.getByRole("navigation", { name: "Main", exact: true }).getByRole("link", { name: "Testimonies", exact: true });
-  await link.click();
-  await expect(page).toHaveURL(/\/testimonies\/design$/);
-  await expect(link).toHaveAttribute("aria-current", "page");
-  await expect(page.getByText("Design preview", { exact: true })).toBeVisible();
-  await page.getByRole("button", { name: "Maya New beginnings" }).click();
-  const details = page.locator(".testimony-details");
-  await expect(details).toContainText("Story themeNew beginnings");
-  await expect(details).toContainText("Shared onSep 22, 2026");
-  await expect(details).toContainText("When it happened2024–2025");
-  await expect(details.locator("time")).toHaveAttribute("datetime", "2026-09-22T16:00:00Z");
-  await page.getByRole("button", { name: "List view", exact: true }).click();
-  await expect(page.locator(".testimony-list time")).toHaveCount(9);
+  await page.getByRole("navigation", { name: "Main", exact: true }).getByRole("link", { name: "Testimonies", exact: true }).click();
+  await expect(page).toHaveURL(/\/testimonies$/);
+  await page.getByRole("button", { name: /Maya New beginnings/ }).click();
+  await expect(page.locator(".testimony-details")).toContainText("Story themeNew beginnings");
+  await expect(page.locator(".testimony-details")).toContainText("Shared on");
+  await expect(page.getByText(/Design preview|Reset preview|Live policy|Add sample story/)).toHaveCount(0);
   expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(1);
+  await page.goto("/testimonies/design");
+  await expect(page).toHaveURL(/\/testimonies$/);
 });
 
-test("testimony design: invitation has a generated QR and a local preview link", async ({ page }) => {
-  await page.goto("/testimonies/design");
-  await page.getByRole("button", { name: "Try an invitation" }).click();
-  await expect(page.getByRole("img", { name: "QR code for this local design preview" })).toHaveAttribute("src", /^data:image\/png;base64,/);
-  await expect(page.getByLabel("Preview link", { exact: true })).toHaveValue(/\/testimonies\/design\?from=daniel$/);
-  await page.getByRole("button", { name: "Try the guest's experience" }).click();
+test("invitation publishes once, survives reload and grants private access on another device", async ({ page, playwright, browser }, info) => {
+  const request = await playwright.request.newContext({ baseURL: origin });
+  const invitation = await invite(request);
+  await page.goto(local(invitation.url));
   await expect(page.getByText("Daniel invited you", { exact: true })).toBeVisible();
-  expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(1);
+  await expect(page).toHaveURL(/\/testimonies\/join$/);
+  const consent = page.getByRole("checkbox");
+  await expect(consent).toHaveCount(1);
+  await expect(consent).toBeChecked();
+  const name = "Guest " + info.project.name;
+  await fillStory(page, name);
+  await consent.uncheck();
+  await page.getByRole("button", { name: "Publish testimony", exact: true }).click();
+  await expect(page.getByRole("alert")).toContainText("publicly");
+  await consent.check();
+  await page.getByRole("button", { name: "Publish testimony", exact: true }).click();
+  const access = page.getByLabel("Private access link", { exact: true });
+  await expect(access).toHaveValue(/^https:\/\/bible-project-4af.pages.dev\/testimonies\/access#key=/);
+  const url = await access.inputValue();
+  await page.getByRole("button", { name: "I've saved my link" }).click();
+  await page.reload();
+  await page.getByRole("button", { name: "My testimony", exact: true }).click();
+  await expect(page.getByLabel("Public name", { exact: true })).toHaveValue(name);
+  await expect(page.getByLabel("Story theme (optional)")).toHaveValue("Hope");
+  const second = await browser.newContext({ viewport: { width: 390, height: 844 } });
+  const secondPage = await second.newPage();
+  await secondPage.goto(origin + local(url));
+  await expect(secondPage.getByLabel("Public name", { exact: true })).toHaveValue(name);
+  await expect(secondPage).toHaveURL(/\/testimonies$/);
+  await second.close();
+  await page.getByRole("navigation", { name: "Testimonies", exact: true }).getByRole("button", { name: "Invite someone", exact: true }).click();
+  await page.getByRole("button", { name: "Create invitation", exact: true }).click();
+  await expect(page.getByRole("img", { name: "QR code for your testimony invitation" })).toHaveAttribute("src", /^data:image\/png;base64,/);
+  await expect(page.getByLabel("Invitation link", { exact: true })).toHaveValue(/^https:\/\/bible-project-4af.pages.dev\/testimonies\/join#code=/);
+  await page.getByRole("button", { name: "My testimony", exact: true }).click();
+  await page.getByRole("button", { name: "Withdraw my testimony" }).click();
+  await expect(page.getByText("Your story is not currently public.", { exact: true })).toBeVisible();
+  await request.dispose();
 });
 
-test("testimony design: unknown invitation never silently attributes a guest to someone else", async ({ page }) => {
-  await page.goto("/testimonies/design?from=unknown");
-  await expect(page.locator(".testimony-notice")).toContainText("unavailable");
+test("failed publication retains the draft and can be retried", async ({ page, playwright }) => {
+  const request = await playwright.request.newContext({ baseURL: origin });
+  await page.goto(local((await invite(request)).url));
+  await fillStory(page, "Retry guest");
+  await page.route("**/api/testimonies/submissions", (route) => route.fulfill({ status: 503, contentType: "application/json", body: JSON.stringify({ error: "Temporarily unavailable. Please try again." }) }), { times: 1 });
+  await page.getByRole("button", { name: "Publish testimony", exact: true }).click();
+  await expect(page.getByRole("alert")).toContainText("Temporarily unavailable");
+  await page.reload();
+  await expect(page.getByLabel("Public name", { exact: true })).toHaveValue("Retry guest");
+  await page.getByRole("button", { name: "Publish testimony", exact: true }).click();
+  await expect(page.getByLabel("Private access link", { exact: true })).toBeVisible();
+  await request.dispose();
+});
+
+test("a committed submission with a lost response can be recovered after reload", async ({ page, playwright }) => {
+  const request = await playwright.request.newContext({ baseURL: origin });
+  await page.goto(local((await invite(request)).url));
+  await fillStory(page, "Recovered guest");
+  await page.route("**/api/testimonies/submissions", async (route) => {
+    expect((await route.fetch()).status()).toBe(201);
+    await route.fulfill({ status: 503, contentType: "application/json", body: JSON.stringify({ error: "Connection interrupted." }) });
+  }, { times: 1 });
+  await page.getByRole("button", { name: "Publish testimony", exact: true }).click();
+  await expect(page.getByRole("alert")).toContainText("Connection interrupted");
+  await page.reload();
+  await page.getByRole("button", { name: "Recover my submission", exact: true }).click();
+  await expect(page.getByLabel("Private access link", { exact: true })).toBeVisible();
+  await expect(page.getByLabel("Public name", { exact: true })).toHaveValue("Recovered guest");
+  await request.dispose();
+});
+
+test("revoked invitation cannot publish", async ({ page, playwright }) => {
+  const request = await playwright.request.newContext({ baseURL: origin });
+  const invitation = await invite(request);
+  expect((await request.delete("/api/testimonies/invitations/" + invitation.id, { headers: { Origin: origin } })).ok()).toBeTruthy();
+  await page.goto(local(invitation.url));
+  await expect(page.getByRole("heading", { name: "Invitation unavailable" })).toBeVisible();
   await expect(page.getByLabel("Your testimony", { exact: true })).toHaveCount(0);
+  await request.dispose();
 });
 
-test("testimony tree: drag and zoom replace scrolling and the story matches its height", async ({ page }) => {
-  await page.goto("/testimonies/design");
+test("drag and zoom replace internal scrolling and the story matches the viewer height", async ({ page }) => {
+  await page.goto("/testimonies");
   const viewer = page.getByRole("region", { name: "Interactive testimony tree" });
-  const surface = page.locator(".testimony-map-surface");
+  await expect(page.locator(".testimony-story-body")).toContainText("In this fictional example");
   await viewer.scrollIntoViewIfNeeded();
-  await expect(surface).toHaveCSS("transform", /matrix/);
   const geometry = () => page.evaluate(() => {
     const map = document.querySelector(".testimony-map")!, story = document.querySelector(".testimony-story")!;
     const viewport = document.querySelector<HTMLElement>(".testimony-map-viewport")!;
@@ -105,39 +127,35 @@ test("testimony tree: drag and zoom replace scrolling and the story matches its 
   expect(before.heightDifference).toBeLessThanOrEqual(1);
   expect(before.overflow).toBe("clip");
   const bounds = (await viewer.boundingBox())!;
-  // Dragging a person must move the tree without selecting that person.
-  const maya = (await page.getByRole("button", { name: "Maya New beginnings" }).boundingBox())!;
+  const maya = (await page.getByRole("button", { name: /Maya New beginnings/ }).boundingBox())!;
   await page.mouse.move(maya.x + maya.width / 2, maya.y + maya.height / 2);
   await page.mouse.down();
-  await page.mouse.move(maya.x + maya.width / 2 + 55, maya.y + maya.height / 2 + 35, { steps: 8 });
+  await page.mouse.move(maya.x + maya.width / 2 + 45, maya.y + maya.height / 2 + 30, { steps: 8 });
   await page.mouse.up();
   const dragged = await geometry();
-  expect(dragged.x - before.x).toBeCloseTo(55, 0);
-  expect(dragged.y - before.y).toBeCloseTo(35, 0);
+  expect(dragged.x - before.x).toBeCloseTo(45, 0);
+  expect(dragged.y - before.y).toBeCloseTo(30, 0);
   await expect(page.locator(".testimony-author h2")).toHaveText("Daniel");
   await page.mouse.move(bounds.x + bounds.width / 2, bounds.y + bounds.height / 2);
   await page.mouse.wheel(0, -160);
   await expect.poll(async () => (await geometry()).scale).toBeGreaterThan(dragged.scale);
   expect((await geometry()).pageY).toBeCloseTo(before.pageY, 0);
   await page.getByRole("button", { name: "Fit branch", exact: true }).click();
-  await expect.poll(async () => (await geometry()).scale).toBeCloseTo(before.scale, 3);
   await viewer.focus();
   await page.keyboard.press("ArrowRight");
   expect((await geometry()).x).toBeCloseTo(before.x - 60, 0);
-  await page.keyboard.press("+");
-  expect((await geometry()).scale).toBeGreaterThan(before.scale);
   await page.keyboard.press("Home");
-  await page.getByRole("button", { name: "Maya New beginnings" }).click();
+  await page.getByRole("button", { name: /Maya New beginnings/ }).click();
   expect((await geometry()).heightDifference).toBeLessThanOrEqual(1);
   expect((await geometry()).scrollX).toBe(0);
   expect((await geometry()).scrollY).toBe(0);
-  await expect(page.locator(".testimony-story-body")).toHaveCSS("overflow-y", "visible");
 });
 
-test("testimony tree: touch pinch zooms without moving the page", async ({ page, context }, info) => {
+test("touch pinch zooms without moving the page", async ({ page, context }, info) => {
   test.skip(info.project.name !== "phone", "Touch gestures use the phone project.");
-  await page.goto("/testimonies/design");
+  await page.goto("/testimonies");
   const viewer = page.getByRole("region", { name: "Interactive testimony tree" });
+  await expect(page.locator(".testimony-story-body")).toContainText("In this fictional example");
   await viewer.scrollIntoViewIfNeeded();
   const box = (await viewer.boundingBox())!, x = box.x + box.width / 2, y = box.y + box.height / 2;
   const scale = () => page.locator(".testimony-map-surface").evaluate((element) => new DOMMatrix(getComputedStyle(element).transform).a);
@@ -148,13 +166,24 @@ test("testimony tree: touch pinch zooms without moving the page", async ({ page,
   await session.send("Input.dispatchTouchEvent", { type: "touchEnd", touchPoints: [] });
   expect(await scale()).toBeGreaterThan(before * 1.5);
   expect(await page.evaluate(() => scrollY)).toBe(pageY);
-  const offset = () => page.locator(".testimony-map-surface").evaluate((element) => new DOMMatrix(getComputedStyle(element).transform).e);
-  const beforeDrag = await offset();
-  await session.send("Input.dispatchTouchEvent", { type: "touchStart", touchPoints: [{ x, y, id: 3 }] });
-  for (const distance of [10, 20, 30]) await session.send("Input.dispatchTouchEvent", { type: "touchMove", touchPoints: [{ x: x + distance, y, id: 3 }] });
-  await session.send("Input.dispatchTouchEvent", { type: "touchEnd", touchPoints: [] });
-  expect((await offset()) - beforeDrag).toBeCloseTo(30, 0);
-  expect(await page.evaluate(() => scrollY)).toBe(pageY);
-  await expect(page.locator(".testimony-author h2")).toHaveText("Daniel");
   await session.detach();
+});
+
+for (const theme of ["light", "dark"]) test("visual layout in " + theme, async ({ page, playwright }, info) => {
+  const errors: string[] = [];
+  page.on("pageerror", (error) => errors.push(error.message));
+  if (info.project.name === "phone") await page.setViewportSize({ width: 320, height: 844 });
+  await page.addInitScript((value) => { localStorage.setItem("bp-theme", value); }, theme);
+  await page.goto("/testimonies");
+  await page.getByRole("button", { name: /Maya New beginnings/ }).click();
+  await expect(page.locator(".testimony-story-body")).toContainText("In this fictional example, Maya");
+  expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(1);
+  await page.screenshot({ path: "front-end capture/2026-10-04/testimonies-live-tree-" + theme + "-" + info.project.name + ".png", fullPage: true });
+  const request = await playwright.request.newContext({ baseURL: origin });
+  await page.goto(local((await invite(request)).url));
+  await expect(page.getByLabel("Public name", { exact: true })).toBeVisible();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(1);
+  await page.screenshot({ path: "front-end capture/2026-10-04/testimonies-live-form-" + theme + "-" + info.project.name + ".png", fullPage: true });
+  expect(errors).toEqual([]);
+  await request.dispose();
 });

@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "target": "ES2022", "lib": ["ES2023"], "module": "ESNext", "moduleResolution": "bundler",
+    "strict": true, "noEmit": true, "skipLibCheck": true, "types": [],
+    "noUnusedLocals": true, "noUnusedParameters": true
+  },
+  "include": ["server", "functions", "worker-configuration.d.ts", "src/lib/testimonies.ts"]
+}

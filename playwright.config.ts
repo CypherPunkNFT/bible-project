@@ -5,7 +5,7 @@ import { defineConfig, devices } from "@playwright/test";
 export default defineConfig({
   testDir: "e2e",
   // The study pages have their own config and server (e2e/study.config.ts, port 8933).
-  testIgnore: "study.spec.ts",
+  testIgnore: ["study.spec.ts", "testimonies.spec.ts"],
   outputDir: "e2e/.output/results",
   reporter: [["list"]],
   fullyParallel: false,

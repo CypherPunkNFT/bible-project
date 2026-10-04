@@ -24,6 +24,11 @@ node_modules/
 .vscode/*
 __pycache__/
 .pytest_cache/
+/.wrangler/
+/.local/
+/.release/
+/.dev.vars*
+/worker-configuration.d.ts
 
 # --- raw sources (scripts/fetch-sources.py downloads them here) ---
 /sources/

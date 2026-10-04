@@ -1,0 +1,9 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "bible-project",
+  "compatibility_date": "2026-10-04",
+  "compatibility_flags": ["nodejs_compat"],
+  // Local binding only. The release command requires a real, explicitly supplied D1 ID.
+  "d1_databases": [{ "binding": "DB", "database_name": "bible-testimonies", "database_id": "00000000-0000-0000-0000-000000000001", "migrations_dir": "migrations" }],
+  "vars": { "PUBLIC_SITE_URL": "https://bible-project-4af.pages.dev" }
+}

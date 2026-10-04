@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 const NAV = [
   { to: "/bible", label: "Bible", icon: BookOpen, end: false },
   { to: "/study", label: "Study", icon: GraduationCap, end: false },
-  { to: "/testimonies/design", label: "Testimonies", icon: GitBranch, end: false },
+  { to: "/testimonies", label: "Testimonies", icon: GitBranch, end: false },
   { to: "/apologetics", label: "Apologetics", icon: ShieldCheck, end: false },
   { to: "/charts", label: "Charts", icon: BarChart3, end: false },
   { to: "/atlas", label: "Atlas", icon: Map, end: false },

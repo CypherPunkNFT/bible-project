@@ -1,6 +1,4 @@
 .testimony-design { padding-bottom: 3rem; --testimony-tone: var(--poetry); }
-.testimony-preview-banner { margin-top: 1rem; padding: .6rem .9rem; border: 1px solid var(--line); border-radius: .4rem; font-size: .7rem; line-height: 1.6; color: var(--muted); }
-.testimony-preview-banner > span { color: var(--accent); font-weight: 600; margin-right: .6rem; }
 .testimony-intro { display: flex; justify-content: space-between; align-items: flex-end; gap: 3rem; padding: 2.5rem 0 2.25rem; }
 .testimony-kicker { display: flex; align-items: center; gap: .6rem; font-size: .62rem; text-transform: uppercase; letter-spacing: .17em; color: var(--testimony-tone); }
 .testimony-intro h1 { font-family: var(--font-serif); font-size: clamp(2.8rem, 5.5vw, 4.7rem); letter-spacing: -.055em; line-height: 1.08; margin: 1rem 0 1.25rem; font-weight: 400; }
@@ -104,6 +102,40 @@
 .testimony-form-error { color: var(--revelation); font-size: .75rem; }
 .testimony-notice { display: flex; gap: .6rem; align-items: flex-start; font-size: .75rem; line-height: 1.8; margin-bottom: 1.25rem; padding: .8rem 1rem; color: var(--testimony-tone); border: 1px solid var(--line); border-radius: .5rem; }
 .testimony-notice svg { margin-top: .25rem; flex-shrink: 0; }
+.testimony-empty, .testimony-access { padding: 3rem 1.5rem; border: 1px solid var(--line); border-radius: .85rem; background: var(--surface); }
+.testimony-empty { display: grid; justify-items: start; gap: 1rem; color: var(--muted); }
+.testimony-empty h2, .testimony-access h2, .testimony-private-link h2, .testimony-management h2 { font: 400 1.6rem/1.4 var(--font-serif); color: var(--ink); }
+.testimony-empty p, .testimony-access p, .testimony-private-link p { font-size: .8rem; line-height: 1.8; }
+.testimony-access { max-width: 42rem; margin: 0 auto; }
+.testimony-access form { display: grid; gap: 1rem; margin: 1.5rem 0; }
+.testimony-access label, .testimony-copy-link label, .testimony-report label { display: grid; gap: .6rem; font-size: .7rem; min-width: 0; }
+.testimony-access input, .testimony-copy-link input, .testimony-report textarea { width: 100%; min-width: 0; border: 1px solid var(--line); border-radius: .4rem; background: var(--page); padding: .8rem; color: var(--ink); }
+.testimony-copy-link { display: grid; gap: .8rem; margin: 1rem 0; }
+.testimony-copy-link input { font-size: .65rem; }
+.testimony-private-link { padding: 1.5rem; border: 1px solid var(--testimony-tone); border-radius: .85rem; background: var(--surface); margin-bottom: 1.5rem; }
+.testimony-private-link > p { margin-top: .75rem; color: var(--muted); max-width: 50rem; }
+.testimony-private-link .testimony-copy-link { max-width: 50rem; }
+.testimony-management > header { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 1rem 0; }
+.testimony-management > header p:not(.testimony-kicker) { font-size: .75rem; color: var(--muted); margin-top: .5rem; }
+.testimony-account-actions { display: flex; flex-wrap: wrap; gap: .7rem; margin: 1rem 0 1.5rem; }
+.testimony-withdraw { display: flex; align-items: center; flex-wrap: wrap; gap: 1.5rem; margin-top: 1.5rem; padding: 1.25rem; border: 1px solid var(--line); border-radius: .65rem; }
+.testimony-withdraw p { flex: 1 1 16rem; font-size: .75rem; line-height: 1.8; color: var(--muted); }
+.testimony-invitation-history { margin-top: 2rem; }
+.testimony-invitation-history h2 { margin-bottom: 1rem; }
+.testimony-invitation-history li { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid var(--line); font-size: .75rem; }
+.testimony-invitation-history small { display: block; color: var(--muted); margin-top: .35rem; }
+.testimony-invitation-history article { border: 1px solid var(--line); border-radius: .6rem; padding: 1.25rem; margin: 1rem 0; }
+.testimony-invitation-history article p { white-space: pre-wrap; overflow-wrap: anywhere; font-size: .8rem; line-height: 1.8; }
+.testimony-report { margin-top: 1rem; font-size: .65rem; color: var(--muted); }
+.testimony-report summary { cursor: pointer; }
+.testimony-report form { display: grid; gap: .7rem; margin-top: 1rem; }
+.testimony-report textarea { min-height: 6rem; }
+.testimony-error { color: var(--revelation); }
+.testimony-error button { margin-left: auto; text-decoration: underline; }
+.testimony-share-placeholder { padding: 4rem 0; }
+.testimony-pagination { display: flex; align-items: center; gap: .75rem; }
+.testimony-pagination button { text-decoration: underline; }
+.testimony-pagination button:disabled { opacity: .4; text-decoration: none; }
 @media (max-width: 1000px) { .testimony-workspace { grid-template-columns: minmax(0, 1fr); } .testimony-intro-note { display: none; } .testimony-write, .testimony-invite-panel { gap: 1.5rem; padding: 1.5rem; } }
 @media (max-width: 640px) { .testimony-intro { padding: 1.8rem 0; } .testimony-navigation { gap: .5rem 1rem; } .testimony-navigation button { font-size: .68rem; } .testimony-navigation button:last-child { margin-left: 0; } .testimony-map { min-height: 620px; } .testimony-map > header { padding: 1rem; } .testimony-map h2 { font-size: 1.15rem; } .testimony-map h2 > span { display: block; margin: .4rem 0 0; } .testimony-map > footer { padding: .8rem 1rem; } .testimony-steps { grid-template-columns: 1fr; gap: 1.3rem; } .testimony-steps p { max-width: none; } .testimony-invite-panel, .testimony-write { grid-template-columns: minmax(0, 1fr); padding: 1.1rem; } .testimony-list button { gap: .8rem; padding: 1rem; } .testimony-list button > span:nth-child(2) { display: none; } }
 @media (prefers-reduced-motion: reduce) { .testimony-design * { transition: none !important; } }
