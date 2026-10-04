@@ -64,8 +64,11 @@ publishers' files (USFM Bible text, CSV, JSON, XML) into static JSON, so Bible r
 area by NASA's image service once, at build time. Nothing calls an outside service while you read.
 
 Testimonies use Cloudflare Pages Functions and D1. The same handler runs locally in Miniflare, with persistent
-storage in ignored `.local/testimonies/`. The public collection contains no sample stories. Test fixtures
-are used only by tests in separate disposable databases.
+storage in ignored `.local/testimonies/`. The database contains no sample stories. The browser offers three
+clearly labeled fictional example trees (22 stories) from `src/data/testimony-examples.ts`, automatically
+shown when the collection is empty. They can be viewed together or separately, with working ancestry and
+branch navigation. Example stories never create accounts, invitations, reports or database records.
+Automated publication tests use separate disposable databases.
 
 ## Working with testimonies
 

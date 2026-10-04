@@ -102,6 +102,53 @@ test("two main destinations and a guest preview that never publishes or changes 
   await page.screenshot({ path: "front-end capture/2026-10-04/testimonies-guest-preview-" + info.project.name + ".png", fullPage: true });
 });
 
+test("example forest has three separate trees, correct ancestry and no publication actions", async ({ page }, info) => {
+  const writes: string[] = [], exampleRequests: string[] = [];
+  page.on("request", (request) => {
+    if (request.method() !== "GET") writes.push(request.url());
+    if (/\/api\/testimonies\/stories\/example-/.test(request.url())) exampleRequests.push(request.url());
+  });
+  if (info.project.name === "phone") await page.setViewportSize({ width: 320, height: 844 });
+  await page.goto("/testimonies");
+  await page.getByRole("button", { name: "Explore example trees", exact: true }).click();
+  await expect(page.getByRole("region", { name: "Example trees", exact: true })).toContainText("Fictional people and stories");
+  await expect(page.locator(".testimony-tree-node")).toHaveCount(22);
+  await expect(page.locator(".testimony-map-surface > svg > path")).toHaveCount(19);
+  const choices = page.getByRole("group", { name: "Choose an example tree" });
+  await expect(choices.getByRole("button")).toHaveCount(3);
+  await expect(page.getByRole("button", { name: "View all trees", exact: true })).toHaveAttribute("aria-pressed", "true");
+  await page.screenshot({ path: "front-end capture/2026-10-04/testimonies-example-forest-" + info.project.name + ".png", fullPage: true });
+  await choices.getByRole("button", { name: /Esther's tree/ }).click();
+  await expect(page.locator(".testimony-tree-node")).toHaveCount(7);
+  await page.getByRole("button", { name: /Grace Hope Shared/ }).click();
+  await expect(page.locator(".testimony-story-path")).toContainText("Esther → Amara → Sofia → Grace");
+  await expect(page.getByRole("complementary", { name: "Selected testimony" }).getByRole("button")).toHaveText(["Explore this branch"]);
+  await expect(page.getByText("Report a concern", { exact: true })).toHaveCount(0);
+  await page.getByRole("button", { name: "Explore this branch", exact: true }).click();
+  await expect(page.locator(".testimony-tree-node")).toHaveCount(1);
+  await page.reload();
+  await expect(page.locator(".testimony-author h2")).toHaveText("Grace");
+  await choices.getByRole("button", { name: /Marcus's tree/ }).click();
+  await expect(page.locator(".testimony-tree-node")).toHaveCount(6);
+  await page.getByRole("button", { name: /Ben Community Shared/ }).click();
+  await expect(page.locator(".testimony-story-path")).toContainText("Marcus → Naomi → Ben");
+  await page.getByRole("button", { name: "View all trees", exact: true }).click();
+  await page.getByRole("button", { name: "List view", exact: true }).click();
+  await expect(page.locator(".testimony-list li")).toHaveCount(22);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(1);
+  expect(writes).toEqual([]);
+  expect(exampleRequests).toEqual([]);
+});
+
+test("an empty live collection opens the example forest without seeding the database", async ({ page, request }) => {
+  const before = (await (await request.get("/api/testimonies/branches")).json()).total;
+  await page.route("**/api/testimonies/branches?*", (route) => route.fulfill({ contentType: "application/json", body: JSON.stringify({ nodes: [], ancestors: [], rootId: null, hasMore: false, total: 0 }) }));
+  await page.goto("/testimonies");
+  await expect(page.locator(".testimony-tree-node")).toHaveCount(22);
+  await expect(page.getByRole("heading", { name: /All three trees/ })).toBeVisible();
+  expect((await (await request.get("/api/testimonies/branches")).json()).total).toBe(before);
+});
+
 test("failed publication retains the draft and can be retried", async ({ page, playwright }) => {
   const request = await playwright.request.newContext({ baseURL: origin });
   await page.goto(local((await invite(request)).url));

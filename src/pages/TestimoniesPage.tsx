@@ -1,10 +1,11 @@
 import { ArrowLeft, ArrowRight, Check, Copy, GitBranch, List, Plus, Share2 } from "lucide-react";
 import { hierarchy, tree } from "d3-hierarchy";
 import QRCode from "qrcode";
-import { useCallback, useEffect, useMemo, useRef, useState, type FormEvent } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties, type FormEvent } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { TestimonyTree } from "@/components/TestimonyTree";
 import { formatTestimonyDate, TESTIMONY_THEMES, testimonyPath, validateTestimony, type TestimonyNode, type TestimonySubmission } from "@/lib/testimonies";
+import { EXAMPLE_TREES, exampleTestimonyBranch } from "@/data/testimony-examples";
 import { saveTestimonyValue, savedTestimonyValue, testimonyAccessToken, testimonyApi } from "@/lib/testimony-api";
 import type { InvitationStatus, InvitationWelcome, TestimonyAccount, TestimonyBranch, TestimonyInvite, TestimonyReport } from "@/lib/testimony-contract";
 import "./testimonies-design.css";
@@ -27,6 +28,8 @@ export default function TestimoniesPage() {
   const location = useLocation(), navigate = useNavigate();
   const [mode, setMode] = useState<Mode>("explore");
   const [branch, setBranch] = useState<TestimonyBranch>(emptyBranch);
+  const [examples, setExamples] = useState(false), [hasPublishedStories, setHasPublishedStories] = useState(false);
+  const branchRequest = useRef(0);
   const [page, setPage] = useState(0), [selectedId, setSelected] = useState("");
   const [story, setStory] = useState<TestimonyNode | null>(null), [storyError, setStoryError] = useState("");
   const [display, setDisplay] = useState("tree"), [loading, setLoading] = useState(true);
@@ -38,20 +41,35 @@ export default function TestimoniesPage() {
   const [revision, setRevision] = useState(0);
   const meRequest = useRef(0);
   const refreshMe = useCallback(async () => { const request = ++meRequest.current; const current = await testimonyApi<TestimonyAccount | null>("me"); if (request === meRequest.current) setMe(current); return current; }, []);
+  const loadExamples = useCallback((root?: string | null) => {
+    ++branchRequest.current;
+    const result = exampleTestimonyBranch(root);
+    setExamples(true); setBranch(result); setPage(0); setSelected(result.nodes[0].id); setLoading(false); setError("");
+  }, []);
   const loadBranch = useCallback(async (root?: string | null, nextPage = 0) => {
+    const request = ++branchRequest.current;
     setLoading(true); setError("");
     try {
       const result = await testimonyApi<TestimonyBranch>("branches?" + new URLSearchParams({ ...(root ? { root } : {}), page: String(nextPage) }));
+      if (request !== branchRequest.current) return;
+      setHasPublishedStories(result.total > 0);
+      if (!root && result.nodes.length === 0 && result.total === 0) { loadExamples(); return; }
+      setExamples(false);
       setBranch(result); setPage(nextPage); setSelected(result.rootId ?? ""); setRevision((v) => v + 1);
-    } catch (cause) { setError(message(cause)); }
-    finally { setLoading(false); }
-  }, []);
+    } catch (cause) { if (request === branchRequest.current) setError(message(cause)); }
+    finally { if (request === branchRequest.current) setLoading(false); }
+  }, [loadExamples]);
 
   useEffect(() => {
     void refreshMe().catch((cause) => setError(message(cause)));
     void testimonyApi<{ siteUrl: string }>("settings").then((value) => setSiteUrl(value.siteUrl)).catch((cause) => setError(message(cause)));
-    void loadBranch(new URLSearchParams(window.location.search).get("branch"));
-  }, [loadBranch, refreshMe]);
+  }, [refreshMe]);
+
+  useEffect(() => {
+    const query = new URLSearchParams(location.search);
+    if (query.has("example")) loadExamples(query.get("example"));
+    else void loadBranch(query.get("branch"));
+  }, [loadBranch, loadExamples, location.search]);
 
   useEffect(() => {
     let active = true;
@@ -71,22 +89,31 @@ export default function TestimoniesPage() {
   const selected = branch.nodes.find((n) => n.id === selectedId);
   useEffect(() => {
     setStory(null); setStoryError("");
-    if (!selectedId || selected?.available === false) return;
+    if (examples || !selectedId || selected?.available === false) return;
     const controller = new AbortController();
     void testimonyApi<TestimonyNode>("stories/" + encodeURIComponent(selectedId), "GET", undefined, controller.signal).then(setStory).catch((cause) => { if (!controller.signal.aborted) setStoryError(message(cause)); });
     return () => controller.abort();
-  }, [selectedId, selected?.available, revision]);
+  }, [selectedId, selected?.available, revision, examples]);
 
   const positions = useMemo(() => {
     if (!branch.nodes.length) return [];
-    const root = hierarchy(branch.nodes[0], (person) => branch.nodes.filter((n) => n.parentId === person.id));
-    const points = tree<TestimonyNode>().nodeSize([118, 240]).separation(() => 1)(root).descendants();
-    const min = Math.min(...points.map((p) => p.x));
-    return points.map((p) => ({ node: p.data, left: p.y + 24, top: p.x - min + 36, depth: p.depth }));
+    const ids = new Set(branch.nodes.map((person) => person.id));
+    const roots = branch.nodes.filter((person) => !person.parentId || !ids.has(person.parentId));
+    const layouts = roots.map((person) => {
+      const root = hierarchy(person, (parent) => branch.nodes.filter((n) => n.parentId === parent.id));
+      const points = tree<TestimonyNode>().nodeSize([118, 240]).separation(() => 1)(root).descendants();
+      const min = Math.min(...points.map((p) => p.x));
+      return points.map((p) => ({ node: p.data, left: p.y + 24, top: p.x - min + 36, depth: p.depth }));
+    });
+    const columnWidth = Math.max(...layouts.flat().map((p) => p.left)) + 290;
+    const rowHeight = Math.max(...layouts.flat().map((p) => p.top)) + 190;
+    return layouts.flatMap((points, index) => points.map((point) => ({ ...point,
+      left: point.left + (index % 2) * columnWidth, top: point.top + Math.floor(index / 2) * rowHeight })));
   }, [branch.nodes]);
   const pathNodes = [...branch.ancestors, ...branch.nodes];
   const path = testimonyPath(pathNodes, selectedId);
-  const details = story ?? selected;
+  const details = examples ? selected : story ?? selected;
+  const exampleTreeId = examples ? path[0]?.id : null;
   const pendingSubmission = savedTestimonyValue<{ invitationToken: string; fields: string }>("testimony-submission");
   const canRecover = pendingSubmission?.invitationToken === invitationToken;
   async function publish(value: TestimonySubmission) {
@@ -105,7 +132,8 @@ export default function TestimoniesPage() {
     try { await testimonyApi("session", "DELETE"); ++meRequest.current; setMe(null); setAccessUrl(""); saveTestimonyValue("testimony-private-url", null); }
     catch (cause) { setError(message(cause)); }
   }
-  function openExplore(root?: string) { setMode("explore"); navigate("/testimonies" + (root ? "?branch=" + encodeURIComponent(root) : "")); void loadBranch(root); }
+  function openExamples(root?: string) { setMode("explore"); loadExamples(root); navigate("/testimonies?example=" + encodeURIComponent(root ?? "all")); }
+  function openExplore(root?: string) { if (examples && (!root || root.startsWith("example-"))) { openExamples(root); return; } setMode("explore"); navigate("/testimonies" + (root ? "?branch=" + encodeURIComponent(root) : "")); void loadBranch(root); }
 
   return <div className="testimony-design mx-auto max-w-7xl px-4 sm:px-6">
     <div className="testimony-account-access"><button type="button" onClick={() => { navigate("/testimonies"); setMode(me ? "manage" : "access"); }}>{me ? "My testimony" : "Private access"}</button></div>
@@ -117,9 +145,18 @@ export default function TestimoniesPage() {
     {notice && <p className="testimony-notice" role="status"><Check size={16} />{notice}</p>}
     {error && <div className="testimony-notice testimony-error" role="alert">{error}<button type="button" onClick={() => { void loadBranch(branch.rootId); void refreshMe().catch((cause) => setError(message(cause))); }}>Try again</button></div>}
     {accessUrl && <PrivateAccessLink url={accessUrl} onSaved={() => { setAccessUrl(""); saveTestimonyValue("testimony-private-url", null); }} />}
+    {mode === "explore" && !loading && (examples ? <section className="testimony-example-trees" aria-label="Example trees">
+      <header><div><p className="testimony-kicker">Three trees. Many beginnings.</p><p>Fictional people and stories to explore how invitations grow.</p></div><div>
+        <button type="button" className="testimony-secondary" aria-pressed={!branch.rootId} onClick={() => openExamples()}>View all trees</button>
+        {hasPublishedStories && <button type="button" className="testimony-example-link" onClick={() => { navigate("/testimonies"); void loadBranch(); }}>Return to published stories</button>}
+      </div></header>
+      <div className="testimony-tree-choices" role="group" aria-label="Choose an example tree">{EXAMPLE_TREES.map((item) => <button type="button" key={item.rootId} aria-pressed={Boolean(branch.rootId && exampleTreeId === item.rootId)} onClick={() => openExamples(item.rootId)} style={{ "--tree-tone": "var(--" + item.tone + ")" } as CSSProperties}>
+        <GitBranch size={22} /><span><strong>{item.name}'s tree</strong><small>{item.description}</small></span><span className="testimony-tree-count">{item.count}<small>stories</small></span>
+      </button>)}</div>
+    </section> : <button type="button" className="testimony-example-link" onClick={() => openExamples()}>Explore example trees <ArrowRight size={14} /></button>)}
     {mode === "explore" && (loading ? <p className="testimony-empty" role="status">Loading the branches…</p> : branch.nodes.length === 0 ? <section className="testimony-empty"><GitBranch size={32} /><h2>Every branch begins with a story.</h2><p>No testimonies have been shared yet. If you have an invitation, open its link to begin.</p></section> : <div className="testimony-workspace">
       <section className="testimony-map" aria-label="Invitation branches">
-        <header><div><p className="testimony-kicker">Follow the invitations</p><h2>{branch.nodes[0].available ? branch.nodes[0].name + "'s branch" : "A continuing branch"}<span>{branch.nodes.filter((n) => n.available).length} stories shown</span></h2></div><div className="testimony-view-toggle" role="group" aria-label="Branch display"><button type="button" aria-pressed={display === "tree"} onClick={() => setDisplay("tree")} aria-label="Tree view"><GitBranch size={17} /></button><button type="button" aria-pressed={display === "list"} onClick={() => setDisplay("list")} aria-label="List view"><List size={17} /></button></div></header>
+        <header><div><p className="testimony-kicker">Follow the invitations</p><h2>{examples && !branch.rootId ? "All three trees" : branch.nodes[0].available ? branch.nodes[0].name + "'s branch" : "A continuing branch"}<span>{branch.nodes.filter((n) => n.available).length} stories shown</span></h2></div><div className="testimony-view-toggle" role="group" aria-label="Branch display"><button type="button" aria-pressed={display === "tree"} onClick={() => setDisplay("tree")} aria-label="Tree view"><GitBranch size={17} /></button><button type="button" aria-pressed={display === "list"} onClick={() => setDisplay("list")} aria-label="List view"><List size={17} /></button></div></header>
         <nav className="testimony-breadcrumb" aria-label="Branch path">{branch.ancestors.map((n, index) => <span key={n.id}>{index > 0 && <ArrowRight size={11} />}<button type="button" onClick={() => openExplore(n.id)}>{n.name}</button></span>)}</nav>
         {display === "tree" ? <TestimonyTree key={branch.rootId + ":" + page} positions={positions} width={Math.max(...positions.map((p) => p.left)) + 224} height={Math.max(...positions.map((p) => p.top)) + 132} selectedId={selectedId} onSelect={setSelected} /> : <ol className="testimony-list">{branch.nodes.map((n) => <li key={n.id}><button type="button" aria-pressed={selectedId === n.id} onClick={() => setSelected(n.id)}><span><strong>{n.name}</strong>{n.publishedAt && <small><time dateTime={n.publishedAt}>Shared {formatTestimonyDate(n.publishedAt)}</time></small>}</span><span>{n.title}</span><ArrowRight size={16} /></button></li>)}</ol>}
         <footer><span>Drag to move · Pinch or wheel to zoom<br />Open a person's branch to follow more connections.</span>{(page > 0 || branch.hasMore) && <div className="testimony-pagination"><button disabled={page === 0} onClick={() => void loadBranch(branch.rootId, page - 1)}>Previous</button><span>Page {page + 1}</span><button disabled={!branch.hasMore} onClick={() => void loadBranch(branch.rootId, page + 1)}>Next</button></div>}</footer>
@@ -128,10 +165,10 @@ export default function TestimoniesPage() {
         <p className="testimony-kicker">A story in this branch</p>
         {details && <><div className="testimony-author"><span className="testimony-avatar">{details.available === false ? "·" : details.name.slice(0, 1)}</span><div><h2>{details.name}</h2><p>{details.parentId ? "Invited by " + (path.at(-2)?.name ?? "a contributor") : "This branch begins here"}</p></div></div>
           {details.available !== false && <dl className="testimony-details" aria-label="Story details"><div><dt>Story theme</dt><dd>{details.theme || "Not chosen"}</dd></div><div><dt>Shared on</dt><dd><time dateTime={details.publishedAt}>{formatTestimonyDate(details.publishedAt)}</time></dd></div>{details.happenedWhen && <div className="testimony-period"><dt>When it happened</dt><dd>{details.happenedWhen}</dd></div>}</dl>}
-          <h3>{details.title}</h3><p className="testimony-story-body">{details.available === false ? "The stories connected to this person can still be explored." : storyError || (story ? story.body : "Loading the story…")}</p>
+          <h3>{details.title}</h3><p className="testimony-story-body">{details.available === false ? "The stories connected to this person can still be explored." : storyError || (examples ? details.body : story ? story.body : "Loading the story…")}</p>
           <div className="testimony-story-path"><span>The invitation path</span><p>{path.map((n) => n.name).join(" → ")}</p></div>
           <button type="button" className="testimony-primary" onClick={() => openExplore(details.id)}>Explore this branch <ArrowRight size={15} /></button>
-          {details.available !== false && <ReportStory personId={details.id} />}
+          {!examples && details.available !== false && <ReportStory personId={details.id} />}
         </>}
       </aside>
     </div>)}

@@ -14,6 +14,22 @@
 .testimony-account-access button { text-decoration: underline; text-underline-offset: 3px; padding: .4rem 0; }
 .testimony-guest-preview > p { margin-bottom: 1rem; }
 .testimony-invite-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.5rem; }
+.testimony-example-trees { margin-bottom: 1.5rem; }
+.testimony-example-trees > header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem; }
+.testimony-example-trees > header p + p { color: var(--muted); font-size: .7rem; line-height: 1.7; margin-top: .4rem; }
+.testimony-example-trees > header > div:last-child { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; }
+.testimony-example-trees button[aria-pressed="true"] { border-color: var(--tree-tone, var(--testimony-tone)); background: var(--surface-2); }
+.testimony-tree-choices { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .8rem; }
+.testimony-tree-choices > button { display: flex; align-items: center; gap: .8rem; padding: 1.15rem; border: 1px solid var(--line); border-left: 3px solid var(--tree-tone); border-radius: .65rem; background: var(--surface); text-align: left; }
+.testimony-tree-choices > button:hover { background: var(--surface-2); }
+.testimony-tree-choices svg { flex-shrink: 0; color: var(--tree-tone); }
+.testimony-tree-choices strong { display: block; font: 400 1.1rem/1.4 var(--font-serif); }
+.testimony-tree-choices small { display: block; font-size: .65rem; color: var(--muted); line-height: 1.7; margin-top: .25rem; }
+.testimony-tree-count { margin-left: auto; color: var(--tree-tone); text-align: center; font: 400 1.5rem/1 var(--font-serif); }
+.testimony-tree-count small { font-family: var(--font-sans); }
+.testimony-example-link { display: inline-flex; align-items: center; gap: .4rem; font-size: .7rem; text-decoration: underline; text-underline-offset: 3px; margin-bottom: 1rem; color: var(--muted); }
+.testimony-example-trees .testimony-example-link { margin-bottom: 0; }
+@media (max-width: 760px) { .testimony-tree-choices { grid-template-columns: 1fr; gap: .5rem; } .testimony-tree-choices > button { padding: .8rem 1rem; } .testimony-tree-choices strong { font-size: 1rem; } }
 .testimony-workspace { display: grid; grid-template-columns: minmax(0, 1fr) 330px; grid-auto-rows: 1fr; gap: 1rem; align-items: stretch; }
 .testimony-map { display: grid; grid-template-rows: auto auto minmax(380px, 1fr) auto; min-height: 680px; min-width: 0; border: 1px solid var(--line); background: var(--surface); border-radius: .85rem; overflow: clip; }
 .testimony-map > header { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.4rem; }
