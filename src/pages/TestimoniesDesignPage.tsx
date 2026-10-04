@@ -1,12 +1,11 @@
 import { ArrowLeft, ArrowRight, Check, Copy, GitBranch, List, Mail, Plus, RotateCcw, Share2 } from "lucide-react";
 import { hierarchy, tree } from "d3-hierarchy";
 import QRCode from "qrcode";
-import { useEffect, useMemo, useState, type CSSProperties, type FormEvent } from "react";
+import { useEffect, useMemo, useState, type FormEvent } from "react";
+import { TestimonyTree } from "@/components/TestimonyTree";
 import { TESTIMONY_DEMO } from "@/data/testimony-demo";
 import { immediatePublication, testimonyBranch, testimonyPath, validateTestimony, type TestimonyNode } from "@/lib/testimonies";
 import "./testimonies-design.css";
-
-const TONES = ["poetry", "epistles", "gospels", "history"];
 
 export default function TestimoniesDesignPage() {
   const requested = new URLSearchParams(window.location.search).get("from");
@@ -25,7 +24,7 @@ export default function TestimoniesDesignPage() {
   const childCount = nodes.filter((n) => n.parentId === selectedId).length;
   const positions = useMemo(() => {
     const root = hierarchy(branch[0], (node) => branch.filter((n) => n.parentId === node.id));
-    const layout = tree<TestimonyNode>().nodeSize([118, 240])(root);
+    const layout = tree<TestimonyNode>().nodeSize([118, 240]).separation(() => 1)(root);
     const points = layout.descendants();
     const min = Math.min(...points.map((p) => p.x));
     return points.map((p) => ({ node: p.data, left: p.y + 24, top: p.x - min + 36, depth: p.depth }));
@@ -48,11 +47,8 @@ export default function TestimoniesDesignPage() {
     {mode === "explore" ? <div className="testimony-workspace"><section className="testimony-map" aria-label="Invitation branches">
       <header><div><p className="testimony-kicker">Follow the invitations</p><h2>{branch[0].name}'s branch <span>{branch.length} stories</span></h2></div><div className="testimony-view-toggle" role="group" aria-label="Branch display"><button type="button" aria-pressed={display === "tree"} onClick={() => setDisplay("tree")} aria-label="Tree view"><GitBranch size={17} /></button><button type="button" aria-pressed={display === "list"} onClick={() => setDisplay("list")} aria-label="List view"><List size={17} /></button></div></header>
       <nav className="testimony-breadcrumb" aria-label="Branch path">{rootPath.map((n, i) => <span key={n.id}>{i > 0 && <ArrowRight size={11} />}<button type="button" onClick={() => setRoot(n.id)}>{n.name}</button></span>)}</nav>
-      {display === "tree" ? <div className="testimony-map-scroll" tabIndex={0} role="region" aria-label="Scrollable testimony tree"><div className="testimony-map-surface" style={{ width, height }}>
-        <svg width={width} height={height} aria-hidden="true">{positions.map((p) => { const parent = positions.find((a) => a.node.id === p.node.parentId); if (!parent) return null; const fromX = parent.left + 194, fromY = parent.top + 43, toX = p.left, toY = p.top + 43; return <path key={p.node.id} d={"M" + fromX + "," + fromY + " C" + (fromX + 24) + "," + fromY + " " + (toX - 24) + "," + toY + " " + toX + "," + toY} />; })}</svg>
-        {positions.map((p) => <button key={p.node.id} type="button" className="testimony-tree-node" aria-pressed={selectedId === p.node.id} onClick={() => setSelected(p.node.id)} style={{ left: p.left, top: p.top, "--node-tone": "var(--" + TONES[p.depth % TONES.length] + ")" } as CSSProperties}><span className="testimony-avatar">{p.node.name.slice(0, 1)}</span><span><strong>{p.node.name}</strong><small>{p.node.theme}</small></span><ArrowRight size={13} /></button>)}
-      </div></div> : <ol className="testimony-list">{branch.map((n) => <li key={n.id}><button type="button" aria-pressed={selectedId === n.id} onClick={() => setSelected(n.id)}><span><strong>{n.name}</strong><small>{n.parentId ? "Invited by " + nodes.find((a) => a.id === n.parentId)?.name : "This branch begins here"}</small></span><span>{n.title}</span><ArrowRight size={16} /></button></li>)}</ol>}
-      <footer>Each line is an accepted invitation. <span>Scroll to explore · Select a person to read</span></footer>
+      {display === "tree" ? <TestimonyTree key={rootId} positions={positions} width={width} height={height} selectedId={selectedId} onSelect={setSelected} /> : <ol className="testimony-list">{branch.map((n) => <li key={n.id}><button type="button" aria-pressed={selectedId === n.id} onClick={() => setSelected(n.id)}><span><strong>{n.name}</strong><small>{n.parentId ? "Invited by " + nodes.find((a) => a.id === n.parentId)?.name : "This branch begins here"}</small></span><span>{n.title}</span><ArrowRight size={16} /></button></li>)}</ol>}
+      <footer>Each line is an accepted invitation. <span>{display === "tree" ? "Drag to move · Pinch or wheel to zoom" : "Select a person to read"}</span></footer>
     </section><aside className="testimony-story" aria-label="Selected testimony"><p className="testimony-kicker">A story in this branch</p><div className="testimony-author"><span className="testimony-avatar">{selected.name.slice(0, 1)}</span><div><h2>{selected.name}</h2><p>{selected.parentId ? "Invited by " + nodes.find((n) => n.id === selected.parentId)?.name : "This branch begins here"}</p></div></div><h3>{selected.title}</h3><p className="testimony-story-body">{selected.body}</p><div className="testimony-story-path"><span>The invitation path</span><p>{path.map((n) => n.name).join(" → ")}</p></div><button type="button" className="testimony-primary" onClick={() => { setRoot(selectedId); setNotice(""); }}>Explore this branch <span>{testimonyBranch(nodes, selectedId).length} stories</span></button><button type="button" className="testimony-secondary" onClick={() => { setMode("invite"); setNotice(""); }}>Preview an invite from {selected.name} <Plus size={15} /></button><p className="testimony-small">{childCount ? selected.name + " has invited " + childCount + " " + (childCount === 1 ? "person" : "people") + " in this example." : "The next conversation can begin a new branch."}</p></aside></div>
       : mode === "invite" ? <InvitePreview person={selected} onOpen={() => setMode("write")} />
       : <WritePreview key={selectedId} person={selected} onBack={() => setMode("invite")} onSubmit={submit} />}
