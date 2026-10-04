@@ -211,3 +211,52 @@
 .speech-ranking h4 { font-size: .65rem; text-transform: uppercase; letter-spacing: .08em; margin-top: 1.5rem; color: var(--revelation); }
 @media (max-width: 1000px) { .section-guide { grid-template-columns: 1fr; gap: 1rem; } .teaching-paths { grid-template-columns: repeat(2, minmax(0, 1fr)); } .speech-layout { grid-template-columns: minmax(0, 1fr); } }
 @media (max-width: 767px) { .charts-modes { margin: 0 1.25rem 1.25rem; gap: 1rem; } .charts-modes button { font-size: .72rem; } .charts-panel-footer { flex-wrap: wrap; gap: .4rem; } .charts-panel-footer > span:last-child { display: block; } .measure-insight { align-items: flex-start; flex-direction: column; gap: .6rem; } .measure-insight strong { font-size: 2.1rem; } .teaching-focus > header, .teaching-passages > section, .teaching-notice { padding: 1.1rem; } .teaching-paths button { padding: .75rem; } .chapter-atlas-row { grid-template-columns: 1fr; gap: .5rem; } .chapter-atlas-row > span { text-align: left; padding-top: 0; color: var(--ink); font-size: .8rem; } .chapter-atlas-squares { gap: 4px; } .chapter-atlas-squares button { width: 36px; height: 36px; } }
+
+/* An open collection: the map explains the questions; every chart lives below it. */
+.charts-open .charts-intro { padding-bottom: 1.75rem; }
+.charts-map { border-top: 1px solid var(--line); scroll-margin-top: 5rem; }
+.charts-map-heading { display: flex; align-items: center; justify-content: space-between; gap: 2rem; padding: 1.5rem 0; }
+.charts-map-heading h2 { font-family: var(--font-serif); font-size: 1.4rem; letter-spacing: -.02em; font-weight: 400; }
+.charts-map-heading p { max-width: 48rem; font-size: .8rem; line-height: 1.75; color: var(--muted); margin-top: .6rem; }
+.chart-map-start { flex-shrink: 0; display: flex; align-items: center; gap: .5rem; font-size: .72rem; color: var(--accent); }
+.chart-map-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .75rem; }
+.chart-map-card { border: 1px solid var(--line); border-top: 2px solid var(--chart-color); border-radius: .7rem; padding: 1.15rem; background: linear-gradient(165deg, color-mix(in srgb, var(--chart-color) 7%, var(--surface)), var(--surface) 45%); display: flex; flex-direction: column; }
+.chart-map-label { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; color: var(--chart-color); }
+.chart-map-label > a { font-size: .75rem; font-weight: 600; color: var(--ink); }
+.chart-map-label > span { display: block; width: 100%; margin-top: .2rem; font-size: .6rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.chart-map-preview { display: block; width: 100%; height: 64px; margin: .8rem 0; color: var(--chart-color); }
+.chart-map-card h3 { font-family: var(--font-serif); font-size: 1.22rem; font-weight: 400; line-height: 1.4; letter-spacing: -.02em; }
+.chart-map-card > p { font-size: .74rem; line-height: 1.8; color: var(--muted); margin: .65rem 0 1rem; }
+.chart-map-card nav { margin-top: auto; padding-top: .55rem; border-top: 1px solid var(--line); }
+.chart-map-card nav a { display: flex; align-items: center; justify-content: space-between; gap: .5rem; padding: .4rem 0; font-size: .72rem; }
+.chart-map-card a:hover, .chart-map-card a:focus-visible { color: var(--chart-color); }
+.chart-map-card nav svg { color: var(--chart-color); }
+.chart-map-beyond { display: flex; align-items: center; gap: 1.5rem; padding: 1.25rem 0; }
+.chart-map-beyond > div { margin-right: auto; }
+.chart-map-beyond strong { display: block; font-family: var(--font-serif); font-size: 1rem; font-weight: 400; }
+.chart-map-beyond span { display: block; font-size: .7rem; line-height: 1.7; color: var(--muted); margin-top: .3rem; }
+.chart-map-beyond > a { display: flex; align-items: center; gap: .4rem; flex-shrink: 0; color: var(--accent); font-size: .72rem; }
+.charts-page-nav { position: sticky; top: 3.55rem; z-index: 20; display: flex; align-items: center; gap: .4rem; padding: .55rem 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--page); }
+.charts-page-nav a { display: inline-flex; align-items: center; gap: .45rem; padding: .6rem .85rem; border-radius: .3rem; color: var(--muted); font-size: .75rem; }
+.charts-page-nav a:hover { background: var(--surface); color: var(--ink); }
+.charts-page-nav a:last-child { margin-left: auto; color: var(--accent); font-size: .65rem; }
+.chart-area { scroll-margin-top: 8.5rem; margin-top: 3rem; }
+.chart-area-heading { display: flex; justify-content: space-between; align-items: flex-start; gap: 2rem; margin-bottom: 1.5rem; }
+.chart-area-heading h2 { font-family: var(--font-serif); font-size: clamp(1.8rem, 3vw, 2.7rem); font-weight: 400; line-height: 1.25; letter-spacing: -.035em; margin: .6rem 0; }
+.chart-area-heading p:last-child { max-width: 47rem; font-size: .85rem; line-height: 1.8; color: var(--muted); }
+.chart-area-heading > svg { flex-shrink: 0; color: var(--chart-color); width: 32px; height: 32px; stroke-width: 1; margin-top: 1.5rem; }
+.charts-open .chart-panel { margin-bottom: 1.25rem; scroll-margin-top: 8.5rem; animation: none; }
+.chart-panel-intro { padding: 1.5rem 2rem 1rem; }
+.chart-panel-intro h3 { font-family: var(--font-serif); font-size: 1.5rem; font-weight: 400; letter-spacing: -.02em; }
+.chart-panel-intro p { max-width: 48rem; font-size: .8rem; line-height: 1.75; color: var(--muted); margin-top: .45rem; }
+.chart-awaiting { display: grid; place-items: center; border-radius: .5rem; background: linear-gradient(135deg, color-mix(in srgb, var(--chart-color) 3%, var(--page)), var(--surface)); }
+.chart-awaiting span { width: 3rem; height: 1px; background: var(--line); }
+.chart-back-map { display: block; text-align: center; color: var(--accent); font-size: .8rem; padding: 1rem; }
+.jesus-reading-heading { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .5rem 1.5rem; margin-bottom: 1.25rem; }
+.jesus-reading-heading h4 { font-family: var(--font-serif); font-size: 1.25rem; font-weight: 400; }
+.jesus-reading-heading a { color: var(--revelation); font-size: .7rem; }
+.jesus-reading-heading p { margin-top: .5rem; font-size: .8rem; color: var(--muted); line-height: 1.8; }
+.jesus-speech-section { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--line); scroll-margin-top: 8.5rem; }
+@media (max-width: 1100px) { .chart-map-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .chart-map-beyond { flex-wrap: wrap; gap: .6rem 1.5rem; } .chart-map-beyond > div { flex-basis: 100%; } .charts-map-heading { align-items: flex-start; flex-direction: column; gap: .7rem; } }
+@media (max-width: 767px) { .chart-map-card { padding: 1rem; } .chart-map-card h3 { font-size: 1.1rem; } .chart-map-label > a { font-size: .7rem; } .chart-map-label > span { font-size: .55rem; letter-spacing: .04em; } .chart-map-card > p { font-size: .72rem; } .charts-page-nav { gap: .1rem; flex-wrap: wrap; } .charts-page-nav a { font-size: .67rem; padding: .45rem; } .charts-page-nav a:last-child { margin-left: 0; } .chart-panel-intro { padding: 1.2rem 1.25rem .8rem; } .chart-area-heading > svg { display: none; } .chart-area, .charts-open .chart-panel, .jesus-speech-section { scroll-margin-top: 10rem; } .chart-area { margin-top: 2rem; } }
+@media (max-width: 420px) { .chart-map-grid { grid-template-columns: minmax(0, 1fr); } .chart-map-card { display: grid; grid-template-columns: minmax(0, 1fr) 80px; gap: 0 .7rem; } .chart-map-label { grid-column: 1; } .chart-map-preview { grid-column: 2; grid-row: 1; height: 48px; margin: 0; align-self: center; } .chart-map-card h3, .chart-map-card > p, .chart-map-card nav { grid-column: 1 / -1; } .chart-map-card h3 { margin-top: .85rem; } .chart-map-card nav { display: flex; flex-wrap: wrap; gap: .2rem .9rem; } .chart-map-card nav a { font-size: .65rem; gap: .35rem; } .chart-map-beyond > a { font-size: .68rem; } }
