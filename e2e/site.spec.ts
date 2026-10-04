@@ -252,7 +252,7 @@ test("reading options: the text-size buttons really change the scripture size", 
 test("library: the versions list shows seven at a time and scrolls the rest", async ({ page }) => {
   await page.goto("/library");
   // Grouped by language since 2026-10-03: rows sit in one list per language under a sticky heading.
-  const scroller = page.locator("section[aria-labelledby=versions-title] .slim-scroll");
+  const scroller = page.locator("section[aria-labelledby=versions-title] .versions-list-scroll");
   const box = await scroller.evaluate((el) => {
     const rows = el.querySelectorAll("li");
     const heading = (el.querySelector("h3") as HTMLElement).offsetHeight;
@@ -263,6 +263,10 @@ test("library: the versions list shows seven at a time and scrolls the rest", as
   expect(box.scrolls).toBe(true);
   const frame = page.locator(".versions-list-frame");
   const initial = await frame.boundingBox();
+  const outside = page.locator(".versions-outside-scroll");
+  const outsideBounds = await outside.boundingBox();
+  expect(outsideBounds!.x).toBeGreaterThan(initial!.x + initial!.width);
+  expect(await scroller.evaluate(el => el.offsetWidth - el.clientWidth)).toBe(0);
   for (const name of ["English", "Original and ancient languages", "Translations"]) {
     const group = scroller.getByRole("region", { name, exact: true });
     await group.evaluate(el => {
@@ -273,8 +277,12 @@ test("library: the versions list shows seven at a time and scrolls the rest", as
     const headingTop = await heading.evaluate(el => el.getBoundingClientRect().top);
     const scrollTop = await scroller.evaluate(el => el.getBoundingClientRect().top);
     expect(Math.abs(headingTop - scrollTop)).toBeLessThanOrEqual(1);
+    const headingRight = await heading.evaluate(el => el.getBoundingClientRect().right);
+    expect(Math.abs(headingRight - (initial!.x + initial!.width - 1))).toBeLessThanOrEqual(1);
     expect(await frame.boundingBox()).toEqual(initial);
   }
+  await outside.evaluate(el => { el.scrollTop = 100; });
+  await expect.poll(() => scroller.evaluate(el => el.scrollTop)).toBe(100);
 });
 
 test("home is the landing page; the menu combines Library and Read under Bible", async ({ page }) => {

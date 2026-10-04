@@ -1,5 +1,5 @@
 import { BookOpen } from "lucide-react";
-import { useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useCatalog } from "@/lib/catalog";
 import { groupVersions, VERSION_GROUPS, type VersionGroup } from "@/lib/languages";
@@ -29,8 +29,36 @@ function testaments(catalog: Catalog, t: Translation): string {
 export function VersionsList() {
   const catalog = useCatalog();
   const [filter, setFilter] = useState<VersionGroup["id"] | "all">("all");
+  const viewport = useRef<HTMLDivElement>(null);
+  const content = useRef<HTMLDivElement>(null);
+  const outsideScroll = useRef<HTMLDivElement>(null);
+  const outsideSize = useRef<HTMLDivElement>(null);
+  const mirrored = useRef(new WeakMap<HTMLDivElement, number>());
   const grouped = groupVersions(catalog.translations);
   const shown = grouped.filter((g) => filter === "all" || g.group.id === filter);
+  useLayoutEffect(() => {
+    const syncSize = () => {
+      if (viewport.current && outsideSize.current && outsideScroll.current) {
+        outsideSize.current.style.height = `${viewport.current.scrollHeight}px`;
+        mirrored.current.set(outsideScroll.current, viewport.current.scrollTop);
+        outsideScroll.current.scrollTop = viewport.current.scrollTop;
+      }
+    };
+    syncSize();
+    const observer = new ResizeObserver(syncSize);
+    if (content.current) observer.observe(content.current);
+    if (viewport.current) observer.observe(viewport.current);
+    return () => observer.disconnect();
+  }, [filter]);
+  const syncScroll = (from: HTMLDivElement, to: HTMLDivElement | null) => {
+    const expected = mirrored.current.get(from);
+    mirrored.current.delete(from);
+    if (expected !== undefined && Math.abs(expected - from.scrollTop) <= .5) return;
+    if (to && Math.abs(to.scrollTop - from.scrollTop) > .5) {
+      mirrored.current.set(to, from.scrollTop);
+      to.scrollTop = from.scrollTop;
+    }
+  };
   return (
     <section aria-labelledby="versions-title" className="py-10">
       <div className="mb-4 flex flex-wrap items-end justify-between gap-2">
@@ -62,8 +90,10 @@ export function VersionsList() {
           );
         })}
       </div>
+      <div className="relative">
       <div className="versions-list-frame overflow-hidden rounded-2xl border border-line bg-surface">
-        <div className="versions-list-scroll slim-scroll overflow-y-auto overscroll-contain" style={{ height: `${ROW_REM * VISIBLE + HEADING_REM + 0.15}rem` }}>
+        <div ref={viewport} onScroll={event => syncScroll(event.currentTarget, outsideScroll.current)} role="region" aria-label="Bible versions" tabIndex={0} className="versions-list-scroll no-scrollbar overflow-y-auto overscroll-contain" style={{ height: `${ROW_REM * VISIBLE + HEADING_REM + 0.15}rem` }}>
+          <div ref={content}>
           {shown.map(({ group, count, sections }) => (
             <section key={group.id} aria-label={group.title}>
               <h3 className="sticky top-0 z-10 border-b border-line bg-surface-2 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-muted">
@@ -99,7 +129,10 @@ export function VersionsList() {
               ))}
             </section>
           ))}
+          </div>
         </div>
+      </div>
+      <div ref={outsideScroll} onScroll={event => syncScroll(event.currentTarget, viewport.current)} aria-hidden="true" tabIndex={-1} className="versions-outside-scroll slim-scroll absolute inset-y-px -right-4 w-[12px] overflow-y-scroll overscroll-contain"><div ref={outsideSize} className="w-px" /></div>
       </div>
     </section>
   );
