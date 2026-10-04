@@ -8,6 +8,7 @@ import HomePage from "@/pages/HomePage";
 const LibraryPage = lazy(() => import("@/pages/LibraryPage"));
 const ReaderPage = lazy(() => import("@/pages/ReaderPage"));
 const ChartsPage = lazy(() => import("@/pages/ChartsPage"));
+const TestimoniesDesignPage = lazy(() => import("@/pages/TestimoniesDesignPage"));
 const AtlasPage = lazy(() => import("@/pages/AtlasPage"));
 const SearchPage = lazy(() => import("@/pages/SearchPage"));
 const VersionsPage = lazy(() => import("@/pages/VersionsPage"));
@@ -43,6 +44,7 @@ export default function App() {
               <Route path="/read" element={<ReaderPage />} />
               <Route path="/read/:slug/:book/:chapter" element={<ReaderPage />} />
               <Route path="/charts" element={<ChartsPage />} />
+              <Route path="/testimonies/design" element={<TestimoniesDesignPage />} />
               <Route path="/atlas" element={<AtlasPage />} />
               <Route path="/search" element={<SearchPage />} />
               <Route path="/versions" element={<VersionsPage />} />
