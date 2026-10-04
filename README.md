@@ -79,8 +79,12 @@ Invitation and access links use `PUBLIC_SITE_URL`, currently `https://bible-proj
 story exists only in the local database. To test a generated link locally, keep its path and fragment and
 replace the origin with `http://127.0.0.1:8931`; it will work on the public domain after the production release.
 
-The form defaults the public-sharing choice to checked, requires it at publication, and infers the inviter
-from the single-use token. Valid submissions publish immediately. `PublicationCheck` in `src/lib/testimonies.ts`
+The form has no consent or inviter-confirmation checkboxes. Clicking Publish testimony confirms the public
+submission, and the inviter comes from the single-use token. The two main destinations are Explore the
+branches and Invite someone. The invitation's guest preview uses the same form with a faded, disabled
+publication button; it creates no story, invitation or saved draft. Invitations always originate from the
+signed-in contributor, regardless of which story is selected. Valid submissions publish immediately.
+`PublicationCheck` in `src/lib/testimonies.ts`
 is called on the server for each revision; its current adapter is disabled and publishes immediately. No AI
 service has been built or enabled. Anonymous reports and owner hide/resolve controls work independently.
 

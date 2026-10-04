@@ -13,7 +13,7 @@ describe("testimony design contract", () => {
     expect(testimonyPath(nodes, "noah")).toHaveLength(4);
     expect(testimonyBranch(nodes, "daniel")).toHaveLength(9);
   });
-  it("requires publication consent while the connection comes from the invitation", () => {
+  it("requires a confirmed publish action while the connection comes from the invitation", () => {
     const input = { name: "A guest", title: "A sample story", body: "This is fictional sample text for testing the invitation flow. It is long enough to meet the written story minimum.", theme: "", happenedWhen: "", publicConsent: true };
     expect(validateTestimony(input)).toBeNull();
     expect(validateTestimony({ ...input, publicConsent: false })).toMatch(/publicly/);

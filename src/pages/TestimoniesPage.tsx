@@ -108,11 +108,11 @@ export default function TestimoniesPage() {
   function openExplore(root?: string) { setMode("explore"); navigate("/testimonies" + (root ? "?branch=" + encodeURIComponent(root) : "")); void loadBranch(root); }
 
   return <div className="testimony-design mx-auto max-w-7xl px-4 sm:px-6">
+    <div className="testimony-account-access"><button type="button" onClick={() => { navigate("/testimonies"); setMode(me ? "manage" : "access"); }}>{me ? "My testimony" : "Private access"}</button></div>
     <header className="testimony-intro"><div><p className="testimony-kicker"><GitBranch size={16} /> A living collection of testimonies</p><h1>One story can<br /><em>open another.</em></h1><p>Listen to a life. Follow a connection. Invite someone to add their story of faith.</p></div><div className="testimony-intro-note"><span>Every branch begins<br />with a conversation.</span><p>The lines show who invited whom.<br />Each person speaks in their own words.</p></div></header>
     <nav className="testimony-navigation" aria-label="Testimonies">
       <button type="button" aria-current={mode === "explore" ? "page" : undefined} onClick={() => openExplore()}><GitBranch size={16} />Explore the branches</button>
-      {me && <button type="button" aria-current={mode === "invite" ? "page" : undefined} onClick={() => { setMode("invite"); setNotice(""); }}><Plus size={16} />Invite someone</button>}
-      <button type="button" aria-current={mode === "manage" || mode === "access" ? "page" : undefined} onClick={() => { navigate("/testimonies"); setMode(me ? "manage" : "access"); }}>{me ? "My testimony" : "Private access"}</button>
+      <button type="button" aria-current={mode === "invite" ? "page" : undefined} onClick={() => { navigate("/testimonies"); setMode("invite"); setNotice(""); }}><Plus size={16} />Invite someone</button>
     </nav>
     {notice && <p className="testimony-notice" role="status"><Check size={16} />{notice}</p>}
     {error && <div className="testimony-notice testimony-error" role="alert">{error}<button type="button" onClick={() => { void loadBranch(branch.rootId); void refreshMe().catch((cause) => setError(message(cause))); }}>Try again</button></div>}
@@ -131,13 +131,12 @@ export default function TestimoniesPage() {
           <h3>{details.title}</h3><p className="testimony-story-body">{details.available === false ? "The stories connected to this person can still be explored." : storyError || (story ? story.body : "Loading the story…")}</p>
           <div className="testimony-story-path"><span>The invitation path</span><p>{path.map((n) => n.name).join(" → ")}</p></div>
           <button type="button" className="testimony-primary" onClick={() => openExplore(details.id)}>Explore this branch <ArrowRight size={15} /></button>
-          {me?.person.id === details.id && <button type="button" className="testimony-secondary" onClick={() => setMode("invite")}>Invite someone <Plus size={15} /></button>}
           {details.available !== false && <ReportStory personId={details.id} />}
         </>}
       </aside>
     </div>)}
     {mode === "write" && (inviteError ? <section className="testimony-empty" role="alert"><h2>Invitation unavailable</h2><p>{inviteError}</p>{canRecover && <><p>If your connection was interrupted after submitting, you can recover your saved submission.</p><button className="testimony-primary" onClick={async () => { try { await publish(JSON.parse(pendingSubmission!.fields) as TestimonySubmission); setInviteError(""); } catch (cause) { setInviteError(message(cause)); } }}>Recover my submission</button></>}</section> : !welcome ? <p className="testimony-empty" role="status">Opening your invitation…</p> : me ? <section className="testimony-empty"><h2>You're signed in as {me.person.name}.</h2><p>You already have a testimony. If this invitation is for another person, sign out so they can tell their story.</p><button className="testimony-secondary" onClick={() => void signOut()}>Sign out and continue</button></section> : <TestimonyForm key={invitationToken} welcome={welcome} draftKey={invitationToken} onBack={() => openExplore()} onSubmit={publish} />)}
-    {mode === "invite" && (me?.state === "public" ? <InvitationPanel name={me.person.name} /> : <section className="testimony-empty"><h2>Share your story first.</h2><p>Once your testimony is public, you can invite the next person into your branch.</p><button className="testimony-secondary" onClick={() => setMode(me ? "manage" : "access")}>{me ? "My testimony" : "Open private access"}</button></section>)}
+    {mode === "invite" && <InvitationPanel name={me?.person.name} canInvite={me?.state === "public"} onAccess={() => setMode(me ? "manage" : "access")} />}
     {mode === "access" && <AccessForm onSignIn={async (token) => { await testimonyApi("session", "POST", { token }); await refreshMe(); setError(""); navigate("/testimonies", { replace: true }); setMode("manage"); }} />}
     {mode === "manage" && me && <section className="testimony-management">
       <header><div><p className="testimony-kicker">Your testimony</p><h2>{me.person.name}</h2><p>{me.state === "public" ? "Your story is public." : "Your story is not currently public."}</p></div><button className="testimony-secondary" onClick={async () => { await signOut(); setMode("explore"); }}>Sign out</button></header>
@@ -158,14 +157,36 @@ function CopyableLink({ url, label }: { url: string; label: string }) {
   const [status, setStatus] = useState("");
   return <div className="testimony-copy-link"><label>{label}<input value={url} readOnly onFocus={(event) => event.currentTarget.select()} /></label><button type="button" className="testimony-secondary" onClick={async () => { try { await navigator.clipboard.writeText(url); setStatus("Link copied."); } catch { setStatus("Select and copy the link above."); } }}><Copy size={15} />Copy link</button><span className="testimony-small" role="status">{status}</span></div>;
 }
-function InvitationPanel({ name }: { name: string }) {
+function InvitationPanel({ name, canInvite, onAccess }: { name?: string; canInvite: boolean; onAccess: () => void }) {
   const [invite, setInvite] = useState<TestimonyInvite | null>(null), [qr, setQr] = useState("");
   const [busy, setBusy] = useState(false), [error, setError] = useState("");
+  const [preview, setPreview] = useState(false);
   useEffect(() => { let active = true; if (invite) void QRCode.toDataURL(invite.url, { width: 256, margin: 4, errorCorrectionLevel: "M", color: { dark: "#1f1b16", light: "#ffffff" } }).then((value) => { if (active) setQr(value); }).catch(() => { if (active) setError("The QR code could not be drawn. You can still use the invitation link."); }); return () => { active = false; }; }, [invite]);
   async function create() { setBusy(true); setError(""); try { setInvite(await testimonyApi<TestimonyInvite>("invitations", "POST", {})); } catch (cause) { setError(message(cause)); } finally { setBusy(false); } }
-  return <section className="testimony-invite-panel"><div><p className="testimony-kicker">An invitation from {name}</p><h2>Your story could<br /><em>make room for another.</em></h2><p>“I'd love to hear what God has done in your life. Would you share your testimony and become part of this growing collection of stories?”</p><div className="testimony-invite-connection"><span className="testimony-avatar">{name.slice(0, 1)}</span><strong>{name}</strong><ArrowRight size={21} /><span className="testimony-avatar testimony-avatar-empty">?</span><span>Your guest</span></div><p className="testimony-small">When your guest publishes their testimony, it joins your branch. Each invitation is for one person.</p><button type="button" className="testimony-primary" onClick={() => void create()} disabled={busy}>{busy ? "Creating invitation…" : invite ? "Create another invitation" : "Create invitation"}<Plus size={16} /></button>{error && <p role="alert" className="testimony-form-error">{error}</p>}</div><div className="testimony-share-card"><p className="testimony-kicker">One invitation · Two ways in</p>{invite ? <>{qr && <img src={qr} width={256} height={256} alt="QR code for your testimony invitation" />}<CopyableLink url={invite.url} label="Invitation link" /><div><a className="testimony-secondary" href={"sms:?body=" + encodeURIComponent("I'd love to hear your testimony. " + invite.url)}><Share2 size={15} />Text invitation</a></div><p className="testimony-small">Available until {formatTestimonyDate(invite.expiresAt)}, or until someone uses it. You can revoke an unused invitation in My testimony.</p></> : <p className="testimony-small testimony-share-placeholder">Create an invitation to get its link and QR code.</p>}</div></section>;
+  if (preview) return <section className="testimony-guest-preview" aria-label="Guest experience preview">
+    <p className="testimony-small">This is what your guest will see.</p>
+    <TestimonyForm preview welcome={name ? { name, personId: null, root: false } : undefined} onBack={() => setPreview(false)} />
+  </section>;
+  return <section className="testimony-invite-panel"><div>
+    <p className="testimony-kicker">An invitation from {name ?? "you"}</p>
+    <h2>Your story could<br /><em>make room for another.</em></h2>
+    <p>“I'd love to hear what God has done in your life. Would you share your testimony and become part of this growing collection of stories?”</p>
+    <div className="testimony-invite-connection"><span className="testimony-avatar">{name?.slice(0, 1) ?? "Y"}</span><strong>{name ?? "You"}</strong><ArrowRight size={21} /><span className="testimony-avatar testimony-avatar-empty">?</span><span>Your guest</span></div>
+    <p className="testimony-small">When your guest publishes their testimony, it joins your branch. Each invitation is for one person.</p>
+    <div className="testimony-invite-actions">
+      {canInvite ? <button type="button" className="testimony-primary" onClick={() => void create()} disabled={busy}>{busy ? "Creating invitation…" : invite ? "Create another invitation" : "Create invitation"}<Plus size={16} /></button> : <button type="button" className="testimony-primary" onClick={onAccess}>{name ? "Open my testimony" : "Open private access"}<ArrowRight size={16} /></button>}
+      <button type="button" className="testimony-secondary" onClick={() => setPreview(true)}>See the guest experience <ArrowRight size={15} /></button>
+    </div>
+    {!canInvite && <p className="testimony-small">{name ? "Publish your story to start inviting others." : "Already shared your story? Open your private access link to invite someone into your own branch."}</p>}
+    {error && <p role="alert" className="testimony-form-error">{error}</p>}
+  </div><div className="testimony-share-card"><p className="testimony-kicker">One invitation · Two ways in</p>{invite ? <>
+    {qr && <img src={qr} width={256} height={256} alt="QR code for your testimony invitation" />}
+    <CopyableLink url={invite.url} label="Invitation link" />
+    <div><a className="testimony-secondary" href={"sms:?body=" + encodeURIComponent("I'd love to hear your testimony. " + invite.url)}><Share2 size={15} />Text invitation</a></div>
+    <p className="testimony-small">Available until {formatTestimonyDate(invite.expiresAt)}, or until someone uses it. You can revoke an unused invitation in My testimony.</p>
+  </> : <p className="testimony-small testimony-share-placeholder">Your invitation link and QR code will appear here.</p>}</div></section>;
 }
-function TestimonyForm({ welcome, existing, draftKey, onBack, onSubmit }: { welcome?: InvitationWelcome; existing?: TestimonyAccount; draftKey?: string; onBack: () => void; onSubmit: (value: TestimonySubmission) => Promise<void> }) {
+function TestimonyForm({ welcome, existing, draftKey, preview = false, onBack, onSubmit }: { welcome?: InvitationWelcome; existing?: TestimonyAccount; draftKey?: string; preview?: boolean; onBack: () => void; onSubmit?: (value: TestimonySubmission) => Promise<void> }) {
   const [value, setValue] = useState<TestimonySubmission>(() => {
     const draft = savedTestimonyValue<{ key: string; value: TestimonySubmission }>("testimony-draft");
     if (draftKey && draft?.key === draftKey) return draft.value;
@@ -174,8 +195,8 @@ function TestimonyForm({ welcome, existing, draftKey, onBack, onSubmit }: { welc
   const [error, setError] = useState(""), [busy, setBusy] = useState(false);
   useEffect(() => { if (draftKey) saveTestimonyValue("testimony-draft", { key: draftKey, value }); }, [value, draftKey]);
   const change = (key: keyof TestimonySubmission, next: string | boolean) => setValue((current) => ({ ...current, [key]: next }));
-  async function submit(event: FormEvent) { event.preventDefault(); const issue = validateTestimony(value); if (issue) { setError(issue); return; } setError(""); setBusy(true); try { await onSubmit(value); } catch (cause) { setError(message(cause)); } finally { setBusy(false); } }
-  return <section className="testimony-write"><div className="testimony-write-intro"><button type="button" className="testimony-back" onClick={onBack}><ArrowLeft size={14} />Back to the branches</button><p className="testimony-kicker">{existing ? "Your story, in your words" : welcome?.root ? "Begin the first branch" : welcome?.name + " invited you"}</p><h2>Tell it in<br /><em>your own words.</em></h2><p>A testimony does not need a dramatic ending. Share where you began, how you encountered faith in Christ, and what is changing in your life.</p><ul><li>What was life like before?</li><li>What brought you toward Christ?</li><li>What has changed—and what are you still learning?</li></ul>{welcome && !welcome.root && <p className="testimony-small">Your testimony will join {welcome.name}'s branch.</p>}</div><form onSubmit={submit} className="testimony-form">
+  async function submit(event: FormEvent) { event.preventDefault(); if (preview || !onSubmit) return; const submission = { ...value, publicConsent: true }; const issue = validateTestimony(submission); if (issue) { setError(issue); return; } setError(""); setBusy(true); try { await onSubmit(submission); } catch (cause) { setError(message(cause)); } finally { setBusy(false); } }
+  return <section className="testimony-write"><div className="testimony-write-intro"><button type="button" className="testimony-back" onClick={onBack}><ArrowLeft size={14} />{preview ? "Back to your invitation" : "Back to the branches"}</button><p className="testimony-kicker">{existing ? "Your story, in your words" : welcome?.root ? "Begin the first branch" : welcome?.name ? welcome.name + " invited you" : "You’re invited"}</p><h2>Tell it in<br /><em>your own words.</em></h2><p>A testimony does not need a dramatic ending. Share where you began, how you encountered faith in Christ, and what is changing in your life.</p><ul><li>What was life like before?</li><li>What brought you toward Christ?</li><li>What has changed—and what are you still learning?</li></ul>{welcome && !welcome.root && <p className="testimony-small">Your testimony will join {welcome.name}'s branch.</p>}</div><form onSubmit={submit} className="testimony-form">
     <label>Public name<input value={value.name} onChange={(e) => change("name", e.target.value)} maxLength={60} autoComplete="nickname" placeholder="First name or chosen name" required /></label>
     <label>A title for your story<input value={value.title} onChange={(e) => change("title", e.target.value)} maxLength={120} placeholder="What would you like someone to remember?" required /></label>
     <label>Story theme (optional)<select value={value.theme} onChange={(e) => change("theme", e.target.value)} aria-describedby="testimony-theme-help"><option value="">Leave it open</option>{TESTIMONY_THEMES.map((item) => <option key={item}>{item}</option>)}</select></label>
@@ -183,8 +204,8 @@ function TestimonyForm({ welcome, existing, draftKey, onBack, onSubmit }: { welc
     <label>When it happened (optional)<input value={value.happenedWhen} onChange={(e) => change("happenedWhen", e.target.value)} maxLength={80} placeholder="e.g. Spring 2022, 2019–2024, or an ongoing journey" aria-describedby="testimony-date-help" /></label>
     <p id="testimony-date-help" className="testimony-field-help">A date, year or season is enough. The separate “Shared on” date is recorded automatically.</p>
     <label>Your testimony<textarea value={value.body} onChange={(e) => change("body", e.target.value)} maxLength={12000} rows={9} placeholder="Tell your story here…" required /></label><span className="testimony-small">{value.body.length.toLocaleString()} / 12,000 characters</span>
-    <label className="testimony-consent"><input type="checkbox" checked={value.publicConsent} onChange={(e) => change("publicConsent", e.target.checked)} />I choose to make this story, its details and my public name visible to visitors.</label>
-    {error && <p role="alert" className="testimony-form-error">{error}</p>}<button type="submit" className="testimony-primary" disabled={busy}>{busy ? "Publishing…" : existing?.state === "public" ? "Publish changes" : "Publish testimony"}<ArrowRight size={16} /></button>
+    <p className="testimony-small">Publishing makes your story, its details and your public name visible to visitors.</p>
+    {error && <p role="alert" className="testimony-form-error">{error}</p>}<button type="submit" className="testimony-primary" disabled={busy || preview}>{busy ? "Publishing…" : existing?.state === "public" ? "Publish changes" : "Publish testimony"}<ArrowRight size={16} /></button>
   </form></section>;
 }
 function AccessForm({ onSignIn }: { onSignIn: (token: string) => Promise<void> }) {

@@ -10,7 +10,10 @@
 .testimony-navigation { display: flex; flex-wrap: wrap; gap: 1.75rem; border-bottom: 1px solid var(--line); margin-bottom: 1.5rem; }
 .testimony-navigation button { display: flex; align-items: center; gap: .5rem; padding: .8rem .1rem; font-size: .78rem; color: var(--muted); border-bottom: 2px solid transparent; }
 .testimony-navigation button[aria-current="page"] { color: var(--ink); border-color: var(--testimony-tone); }
-.testimony-navigation button:last-child { margin-left: auto; font-size: .68rem; }
+.testimony-account-access { display: flex; justify-content: flex-end; padding-top: 1rem; color: var(--muted); font-size: .7rem; }
+.testimony-account-access button { text-decoration: underline; text-underline-offset: 3px; padding: .4rem 0; }
+.testimony-guest-preview > p { margin-bottom: 1rem; }
+.testimony-invite-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.5rem; }
 .testimony-workspace { display: grid; grid-template-columns: minmax(0, 1fr) 330px; grid-auto-rows: 1fr; gap: 1rem; align-items: stretch; }
 .testimony-map { display: grid; grid-template-rows: auto auto minmax(380px, 1fr) auto; min-height: 680px; min-width: 0; border: 1px solid var(--line); background: var(--surface); border-radius: .85rem; overflow: clip; }
 .testimony-map > header { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.4rem; }
@@ -60,7 +63,7 @@
 .testimony-primary, .testimony-secondary { display: flex; align-items: center; justify-content: space-between; gap: .75rem; padding: .8rem 1rem; border: 1px solid var(--line); border-radius: .4rem; font-size: .73rem; line-height: 1.6; text-align: left; }
 .testimony-primary { background: var(--testimony-tone); border-color: var(--testimony-tone); color: var(--page); }
 .testimony-primary > span { font-size: .6rem; }
-.testimony-primary:disabled { opacity: .6; }
+.testimony-primary:disabled { opacity: .6; cursor: not-allowed; }
 .testimony-secondary { background: var(--page); }
 .testimony-story > button { width: 100%; margin-bottom: .6rem; }
 .testimony-small { font-size: .67rem; line-height: 1.8; color: var(--muted); }
@@ -97,8 +100,6 @@
 .testimony-form input:not([type="checkbox"]), .testimony-form textarea, .testimony-form select { width: 100%; min-width: 0; border: 1px solid var(--line); border-radius: .4rem; padding: .8rem; color: var(--ink); background: var(--page); }
 .testimony-field-help { font-size: .67rem; line-height: 1.75; color: var(--muted); margin-top: -.5rem; }
 .testimony-form textarea { resize: vertical; line-height: 1.8; min-height: 12rem; }
-.testimony-form .testimony-consent { flex-direction: row; align-items: flex-start; color: var(--muted); font-size: .7rem; line-height: 1.8; }
-.testimony-consent input { margin-top: .3rem; accent-color: var(--testimony-tone); }
 .testimony-form-error { color: var(--revelation); font-size: .75rem; }
 .testimony-notice { display: flex; gap: .6rem; align-items: flex-start; font-size: .75rem; line-height: 1.8; margin-bottom: 1.25rem; padding: .8rem 1rem; color: var(--testimony-tone); border: 1px solid var(--line); border-radius: .5rem; }
 .testimony-notice svg { margin-top: .25rem; flex-shrink: 0; }

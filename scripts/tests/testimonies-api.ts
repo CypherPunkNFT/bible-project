@@ -32,7 +32,7 @@ try {
   const root = await call<{ personId: string; accessUrl: string }>("submissions", "POST", rootSubmission);
   assert.equal(root.status, 201); assert.ok(root.cookie); assert.match(root.headers.get("Set-Cookie")!, /HttpOnly; SameSite=Lax/);
   assert.equal((await call<TestimonyAccount>("me", "GET", undefined, root.cookie)).data.owner, true);
-  passed("publication requires the checked sharing choice and creates an owned root atomically");
+  passed("publication requires a confirmed publish action and creates an owned root atomically");
 
   assert.equal((await call("invitations", "POST", { inviterId: root.data.personId })).status, 401);
   const invitation = await newInvite(root.cookie);

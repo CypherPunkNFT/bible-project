@@ -37,15 +37,9 @@ test("invitation publishes once, survives reload and grants private access on an
   await page.goto(local(invitation.url));
   await expect(page.getByText("Daniel invited you", { exact: true })).toBeVisible();
   await expect(page).toHaveURL(/\/testimonies\/join$/);
-  const consent = page.getByRole("checkbox");
-  await expect(consent).toHaveCount(1);
-  await expect(consent).toBeChecked();
+  await expect(page.getByRole("checkbox")).toHaveCount(0);
   const name = "Guest " + info.project.name;
   await fillStory(page, name);
-  await consent.uncheck();
-  await page.getByRole("button", { name: "Publish testimony", exact: true }).click();
-  await expect(page.getByRole("alert")).toContainText("publicly");
-  await consent.check();
   await page.getByRole("button", { name: "Publish testimony", exact: true }).click();
   const access = page.getByLabel("Private access link", { exact: true });
   await expect(access).toHaveValue(/^https:\/\/bible-project-4af.pages.dev\/testimonies\/access#key=/);
@@ -69,6 +63,43 @@ test("invitation publishes once, survives reload and grants private access on an
   await page.getByRole("button", { name: "Withdraw my testimony" }).click();
   await expect(page.getByText("Your story is not currently public.", { exact: true })).toBeVisible();
   await request.dispose();
+});
+
+test("two main destinations and a guest preview that never publishes or changes the inviter", async ({ page }, info) => {
+  const writes: string[] = [];
+  page.on("request", (request) => { if (request.method() === "POST" && /\/api\/testimonies\/(submissions|invitations)$/.test(request.url())) writes.push(request.url()); });
+  if (info.project.name === "phone") await page.setViewportSize({ width: 320, height: 844 });
+  await page.goto("/testimonies");
+  const navigation = page.getByRole("navigation", { name: "Testimonies", exact: true });
+  await expect(navigation.getByRole("button")).toHaveText(["Explore the branches", "Invite someone"]);
+  await navigation.getByRole("button", { name: "Invite someone", exact: true }).click();
+  await page.getByRole("button", { name: "See the guest experience" }).click();
+  await expect(page.getByRole("checkbox")).toHaveCount(0);
+  const publish = page.getByRole("button", { name: "Publish testimony", exact: true });
+  await expect(publish).toBeDisabled();
+  await expect(publish).toHaveCSS("opacity", "0.6");
+  await fillStory(page, "Preview only");
+  await page.getByLabel("A title for your story").press("Enter");
+  await expect(page.getByRole("region", { name: "Guest experience preview" })).toBeVisible();
+  await page.getByRole("button", { name: "Back to your invitation" }).click();
+  await page.getByRole("button", { name: "See the guest experience" }).click();
+  await expect(page.getByLabel("Public name", { exact: true })).toHaveValue("");
+  expect(writes).toEqual([]);
+
+  // Only the signed-in contributor can originate invitations, regardless of the selected story.
+  expect((await page.request.post("/api/testimonies/session", { headers: { Origin: origin }, data: { token: ROOT_ACCESS } })).ok()).toBeTruthy();
+  await page.reload();
+  await expect(page.getByRole("button", { name: "My testimony", exact: true })).toBeVisible();
+  await page.getByRole("button", { name: /Ruth Grace/ }).click();
+  await expect(page.getByRole("complementary", { name: "Selected testimony" }).getByRole("button")).toHaveText(["Explore this branch"]);
+  await navigation.getByRole("button", { name: "Invite someone", exact: true }).click();
+  await expect(page.getByText("An invitation from Daniel", { exact: true })).toBeVisible();
+  await page.getByRole("button", { name: "See the guest experience" }).click();
+  await expect(page.getByText("Daniel invited you", { exact: true })).toBeVisible();
+  await expect(publish).toBeDisabled();
+  expect(writes).toEqual([]);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(1);
+  await page.screenshot({ path: "front-end capture/2026-10-04/testimonies-guest-preview-" + info.project.name + ".png", fullPage: true });
 });
 
 test("failed publication retains the draft and can be retried", async ({ page, playwright }) => {
