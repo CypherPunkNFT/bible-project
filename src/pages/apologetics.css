@@ -1,0 +1,121 @@
+.ap-page { padding-bottom: 3rem; }
+.ap-intro { padding: 2.5rem 0 2rem; }
+.ap-eyebrow { display: flex; align-items: center; gap: .6rem; color: var(--accent); font-size: .63rem; font-weight: 600; text-transform: uppercase; letter-spacing: .18em; }
+.ap-intro .ap-eyebrow > span { width: 1.75rem; height: 1px; background: currentColor; }
+.ap-intro h1 { font-family: var(--font-serif); font-size: clamp(2.25rem, 4vw, 3.4rem); font-weight: 500; letter-spacing: -.045em; line-height: 1.2; margin: 1rem 0 .75rem; }
+.ap-intro h1 em, .ap-commission h2 em { color: var(--accent); font-weight: 400; }
+.ap-intro > p:last-child { color: var(--muted); font-size: .9rem; line-height: 1.8; }
+.ap-commission { display: grid; grid-template-columns: 1.2fr 1fr; border: 1px solid color-mix(in srgb, var(--accent) 25%, var(--line)); border-radius: 1rem; background: var(--surface); overflow: hidden; }
+.ap-commission-copy { padding: 2.5rem; background: radial-gradient(ellipse at top left, color-mix(in srgb, var(--accent) 9%, transparent), transparent 75%); }
+.ap-commission h2 { font-family: var(--font-serif); font-size: clamp(1.85rem, 3vw, 2.65rem); line-height: 1.3; letter-spacing: -.035em; margin: 1.2rem 0; font-weight: 400; }
+.ap-commission-copy > p:not(.ap-eyebrow) { color: var(--muted); font-size: .85rem; line-height: 1.85; max-width: 32rem; }
+.ap-primary-link { display: inline-flex; align-items: center; gap: .75rem; padding: .8rem 1.1rem; margin-top: 1.5rem; background: var(--ink); color: var(--page); border-radius: .4rem; font-size: .75rem; }
+.ap-primary-link:hover { background: var(--accent); }
+.ap-commission-art { display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 1rem 2.5rem 1.5rem; border-left: 1px solid var(--line); }
+.ap-doorway { display: block; width: 100%; max-width: 355px; margin-top: -.5rem; }
+.ap-anchor { max-width: 23rem; text-align: center; }
+.ap-anchor > a { font-size: .7rem; color: var(--accent); }
+.ap-anchor p { color: var(--muted); font-family: var(--font-serif); font-size: .85rem; line-height: 1.7; margin-top: .7rem; }
+.ap-jump { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; border-bottom: 1px solid var(--line); padding: 1.2rem 0; }
+.ap-jump a { font-size: .7rem; color: var(--muted); padding: .25rem 0; }
+.ap-jump a:hover { color: var(--accent); }
+.ap-section { padding-top: 3.5rem; scroll-margin-top: 4.5rem; }
+.ap-section-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 2rem; margin-bottom: 1.5rem; }
+.ap-section-heading h2 { font-family: var(--font-serif); font-size: clamp(1.55rem, 2.4vw, 2rem); font-weight: 400; line-height: 1.35; letter-spacing: -.025em; margin-top: .65rem; }
+.ap-section-heading > p { max-width: 22rem; font-size: .78rem; line-height: 1.8; color: var(--muted); }
+.ap-foundation-tabs { display: flex; flex-wrap: wrap; gap: .4rem; padding: .45rem; border: 1px solid var(--line); border-bottom: 0; border-radius: .75rem .75rem 0 0; background: var(--page); }
+.ap-foundation-tabs button { flex: 1; white-space: nowrap; font-size: .75rem; padding: .85rem .7rem; color: var(--muted); border-radius: .35rem; }
+.ap-foundation-tabs button[aria-selected="true"] { background: var(--ink); color: var(--page); }
+.ap-foundation-tabs button:hover:not([aria-selected="true"]) { background: var(--surface-2); color: var(--ink); }
+.ap-foundation-panel { display: grid; grid-template-columns: 1.25fr 1fr; border: 1px solid var(--line); border-radius: 0 0 .75rem .75rem; background: var(--surface); }
+.ap-claim { padding: 2rem; }
+.ap-claim > svg { color: var(--accent); margin-bottom: .8rem; }
+.ap-claim h3 { font-family: var(--font-serif); font-size: 1.6rem; line-height: 1.4; letter-spacing: -.025em; }
+.ap-claim p { color: var(--muted); font-size: .82rem; line-height: 1.85; margin-top: .9rem; }
+.ap-question { padding-top: 1.4rem; margin-top: 1.5rem; border-top: 1px solid var(--line); }
+.ap-question > span, .ap-ask span { font-size: .6rem; text-transform: uppercase; letter-spacing: .12em; color: var(--accent); }
+.ap-question h4 { font-size: .95rem; font-weight: 500; margin-top: .7rem; }
+.ap-passages { border-left: 1px solid var(--line); padding: 2rem; background: color-mix(in srgb, var(--accent) 3%, var(--surface)); }
+.ap-passages ol { margin: .7rem 0 1.25rem; }
+.ap-passages li { display: flex; flex-direction: column; gap: .4rem; padding: .8rem 0; border-bottom: 1px solid var(--line); }
+.ap-passages li > a { font-family: var(--font-serif); font-size: 1rem; }
+.ap-passages li > span { font-size: .7rem; color: var(--muted); line-height: 1.6; }
+.ap-read-preview { margin-bottom: 1.5rem; }
+.ap-read-preview summary { font-size: .72rem; color: var(--accent); cursor: pointer; }
+.ap-read-preview > div { padding-top: 1rem; }
+.ap-ask { display: flex; align-items: flex-start; gap: .8rem; padding: 1rem; background: var(--page); border: 1px solid var(--line); border-radius: .5rem; }
+.ap-ask > svg { flex-shrink: 0; color: var(--accent); margin-top: .2rem; }
+.ap-ask p { font-family: var(--font-serif); font-size: .9rem; line-height: 1.65; margin-top: .5rem; }
+.ap-source-note { font-size: .65rem; color: var(--muted); line-height: 1.85; margin-top: 1rem; max-width: 61rem; }
+.ap-source-note a { display: inline-flex; align-items: center; gap: .2rem; color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+.ap-conversation { display: grid; grid-template-columns: minmax(220px, .6fr) minmax(0, 1.4fr); border: 1px solid var(--line); border-radius: .75rem; overflow: hidden; background: var(--surface); }
+.ap-steps { padding: .7rem; border-right: 1px solid var(--line); display: flex; flex-direction: column; gap: .4rem; }
+.ap-steps button { display: flex; align-items: center; gap: 1rem; text-align: left; padding: 1.2rem 1rem; border: 1px solid transparent; border-radius: .4rem; }
+.ap-steps button > span { font-family: var(--font-serif); font-size: 1.15rem; color: var(--muted); }
+.ap-steps strong { font-size: .85rem; font-weight: 500; }
+.ap-steps button > svg { margin-left: auto; color: var(--poetry); }
+.ap-steps button[aria-pressed="true"] { background: color-mix(in srgb, var(--poetry) 8%, var(--page)); border-color: color-mix(in srgb, var(--poetry) 35%, var(--line)); }
+.ap-steps button[aria-pressed="true"] > span { color: var(--poetry); }
+.ap-step-detail { padding: 2rem; }
+.ap-step-detail > svg { color: var(--poetry); margin-bottom: .8rem; }
+.ap-step-detail h3 { font-family: var(--font-serif); font-size: 1.5rem; font-weight: 400; line-height: 1.5; }
+.ap-step-detail > p { color: var(--muted); font-size: .82rem; line-height: 1.8; margin: .8rem 0 1.2rem; max-width: 40rem; }
+.ap-step-detail blockquote { border-left: 2px solid var(--poetry); padding: .6rem 1rem; margin-bottom: 1rem; font-family: var(--font-serif); font-size: 1.05rem; line-height: 1.65; }
+.ap-step-detail > a { font-size: .7rem; color: var(--poetry); }
+.ap-islam-feature { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid color-mix(in srgb, var(--poetry) 40%, var(--line)); border-radius: .9rem; overflow: hidden; background: var(--surface); }
+.ap-islam-intro { padding: 2rem; background: radial-gradient(ellipse at 0 100%, color-mix(in srgb, var(--poetry) 13%, transparent), transparent 75%); }
+.ap-status { display: inline-flex; font-size: .58rem; letter-spacing: .11em; text-transform: uppercase; padding: .4rem .6rem; color: var(--muted); border: 1px solid var(--line); border-radius: .3rem; }
+.ap-islam-intro h3 { font-family: var(--font-serif); font-size: clamp(2rem, 3.5vw, 3rem); line-height: 1.2; letter-spacing: -.04em; margin: 1.2rem 0; font-weight: 400; }
+.ap-islam-intro h3 em { color: var(--poetry); }
+.ap-islam-intro p { color: var(--muted); font-size: .85rem; line-height: 1.85; max-width: 28rem; }
+.ap-islam-intro > a { display: inline-flex; align-items: center; gap: .75rem; color: var(--poetry); font-size: .75rem; margin-top: 1.4rem; }
+.ap-islam-questions { padding: 2rem; border-left: 1px solid var(--line); }
+.ap-islam-questions .ap-eyebrow { color: var(--poetry); }
+.ap-islam-questions ol { margin-top: .7rem; }
+.ap-islam-questions li { display: flex; align-items: center; gap: 1rem; font-size: .8rem; padding: .85rem 0; border-bottom: 1px solid var(--line); }
+.ap-islam-questions li > span { font-family: var(--font-serif); color: var(--poetry); font-size: .85rem; }
+.ap-islam-questions > p:last-child { font-size: .68rem; line-height: 1.8; color: var(--muted); margin-top: 1rem; }
+.ap-future-paths { display: flex; align-items: center; flex-wrap: wrap; gap: .6rem .8rem; font-size: .7rem; color: var(--muted); padding: 1.2rem 0; }
+.ap-future-paths > span { color: var(--ink); margin-right: .6rem; }
+.ap-future-paths > i { width: 3px; height: 3px; border-radius: 50%; background: var(--line); }
+.ap-debate-library { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; padding: 2rem; border: 1px solid var(--line); border-radius: .75rem; background: var(--surface); }
+.ap-debate-empty { display: flex; gap: 1.2rem; align-items: flex-start; padding-right: 1.5rem; }
+.ap-film-mark { display: grid; place-items: center; flex-shrink: 0; width: 4rem; height: 4rem; border: 1px solid var(--line); border-radius: 50%; color: var(--accent); background: var(--page); }
+.ap-debate-empty h3 { font-family: var(--font-serif); font-size: 1.5rem; line-height: 1.5; margin: .9rem 0 .75rem; }
+.ap-debate-empty p { color: var(--muted); font-size: .8rem; line-height: 1.85; }
+.ap-debate-method > h3 { font-size: .65rem; text-transform: uppercase; letter-spacing: .12em; color: var(--accent); margin-bottom: 1.2rem; }
+.ap-debate-method li { display: flex; align-items: flex-start; gap: .9rem; padding-bottom: 1.2rem; }
+.ap-debate-method li:last-child { padding-bottom: 0; }
+.ap-debate-method li > span { font-family: var(--font-serif); font-size: 1rem; color: var(--accent); }
+.ap-debate-method strong { font-weight: 500; font-size: .82rem; }
+.ap-debate-method p { font-size: .72rem; line-height: 1.75; color: var(--muted); margin-top: .35rem; }
+.ap-closing { display: flex; align-items: center; gap: 1.2rem; border-top: 1px solid var(--line); margin-top: 3rem; padding-top: 1.6rem; }
+.ap-closing > svg { color: var(--accent); flex-shrink: 0; }
+.ap-closing h2 { font-family: var(--font-serif); font-size: 1rem; }
+.ap-closing p { font-size: .7rem; color: var(--muted); line-height: 1.7; margin-top: .4rem; }
+.ap-closing a { display: inline-flex; align-items: center; gap: .7rem; margin-left: auto; font-size: .75rem; color: var(--accent); }
+@media (max-width: 1000px) { .ap-section-heading { display: block; } .ap-section-heading > p { max-width: 42rem; margin-top: .75rem; } .ap-commission-copy { padding: 1.75rem; } .ap-commission-art { padding: 1rem 1.5rem; } .ap-debate-empty { display: block; padding-right: 0; } .ap-film-mark { margin-bottom: 1rem; } }
+@media (max-width: 767px) {
+  .ap-intro { padding-top: 1.75rem; }
+  .ap-commission, .ap-foundation-panel, .ap-conversation, .ap-islam-feature, .ap-debate-library { grid-template-columns: minmax(0, 1fr); }
+  .ap-commission-copy, .ap-claim, .ap-passages, .ap-step-detail, .ap-islam-intro, .ap-islam-questions, .ap-debate-library { padding: 1.25rem; }
+  .ap-commission-art { border-left: 0; border-top: 1px solid var(--line); flex-direction: row; gap: 1rem; padding: 1rem; }
+  .ap-doorway { width: 38%; flex-shrink: 0; }
+  .ap-anchor { text-align: left; }
+  .ap-anchor p { font-size: .75rem; }
+  .ap-jump { display: grid; grid-template-columns: 1fr 1fr; gap: .65rem 1rem; }
+  .ap-jump a { line-height: 1.6; }
+  .ap-section { padding-top: 2.5rem; }
+  .ap-foundation-tabs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .2rem; }
+  .ap-foundation-tabs button { white-space: normal; font-size: .7rem; padding: .8rem .3rem; }
+  .ap-passages, .ap-islam-questions { border-left: 0; border-top: 1px solid var(--line); }
+  .ap-steps { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-right: 0; border-bottom: 1px solid var(--line); }
+  .ap-steps button { padding: .8rem .6rem; gap: .6rem; }
+  .ap-steps button > svg { display: none; }
+  .ap-steps strong { font-size: .75rem; }
+  .ap-step-detail h3 { font-size: 1.3rem; }
+  .ap-closing { flex-wrap: wrap; }
+  .ap-closing > div { flex: 1; min-width: 12rem; }
+  .ap-closing a { margin-left: 2.7rem; }
+}
+@media (prefers-reduced-motion: no-preference) { .ap-primary-link, .ap-foundation-tabs button, .ap-steps button { transition: background .2s, color .2s, border-color .2s; } }

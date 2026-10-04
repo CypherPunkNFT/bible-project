@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { readFileSync } from "node:fs";
 import { PROPHECY_PASSAGES, SECTION_INSIGHTS, TEACHINGS } from "@/data/chart-insights";
+import { APOLOGETICS_ANCHOR, CONVERSATION_STEPS, FOUNDATIONS } from "@/data/apologetics";
 import { buildStudyMeasures, entriesBySection } from "./chart-measures";
 import type { BookInfo, Catalog, Chapter } from "./types";
 import type { Harmony, Miracles, NamesOfGod, Span } from "./study";
@@ -32,7 +33,7 @@ describe("section study measures", () => {
   it("every editorial passage has valid KJV endpoints and an ordered same-book range", () => {
     const catalog = read<Catalog>("catalog.json");
     const kjv = catalog.translations.find((t) => t.slug === "kjv")!;
-    const spans = [...PROPHECY_PASSAGES.flatMap((p) => p.refs), ...TEACHINGS.flatMap((p) => p.refs), ...Object.values(SECTION_INSIGHTS).map((s) => s.ref)];
+    const spans = [...PROPHECY_PASSAGES.flatMap((p) => p.refs), ...TEACHINGS.flatMap((p) => p.refs), ...Object.values(SECTION_INSIGHTS).map((s) => s.ref), APOLOGETICS_ANCHOR, ...CONVERSATION_STEPS.map((s) => s.span), ...FOUNDATIONS.flatMap((f) => f.refs.map((r) => r.span))];
     for (const span of spans) {
       expect(span[1], String(span)).toBeGreaterThanOrEqual(span[0]);
       expect(Math.floor(span[1] / 1e6), String(span)).toBe(Math.floor(span[0] / 1e6));

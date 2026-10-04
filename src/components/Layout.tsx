@@ -1,4 +1,4 @@
-import { BarChart3, BookOpen, GraduationCap, Library, Map, Moon, Search, Sun } from "lucide-react";
+import { BarChart3, BookOpen, GraduationCap, Library, Map, Moon, Search, ShieldCheck, Sun } from "lucide-react";
 import { useEffect, useState, type ReactNode } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { SectionStrip } from "@/components/SectionStrip";
@@ -10,6 +10,7 @@ const NAV = [
   { to: "/library", label: "Library", icon: Library, end: false },
   { to: "/read", label: "Read", icon: BookOpen, end: false },
   { to: "/study", label: "Study", icon: GraduationCap, end: false },
+  { to: "/apologetics", label: "Apologetics", icon: ShieldCheck, end: false },
   { to: "/charts", label: "Charts", icon: BarChart3, end: false },
   { to: "/atlas", label: "Atlas", icon: Map, end: false },
   { to: "/search", label: "Search", icon: Search, end: false },
@@ -45,7 +46,7 @@ export function Layout({ children }: { children: ReactNode }) {
                 end={end}
                 className={({ isActive }) =>
                   cn(
-                    "flex shrink-0 items-center gap-1.5 rounded-full px-3 py-1.5 text-sm transition-colors",
+                    "relative flex shrink-0 items-center gap-1.5 rounded-full px-3 py-1.5 text-sm transition-colors",
                     isActive || (to === "/read" && location.pathname.startsWith("/read"))
                       ? "bg-ink text-page"
                       : "text-muted hover:bg-surface-2 hover:text-ink",

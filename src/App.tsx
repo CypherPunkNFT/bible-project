@@ -13,6 +13,7 @@ const SearchPage = lazy(() => import("@/pages/SearchPage"));
 const VersionsPage = lazy(() => import("@/pages/VersionsPage"));
 const NotFoundPage = lazy(() => import("@/pages/NotFoundPage"));
 const StudyPage = lazy(() => import("@/pages/study/StudyPage"));
+const ApologeticsPage = lazy(() => import("@/pages/ApologeticsPage"));
 const HarmonyPage = lazy(() => import("@/pages/study/HarmonyPage"));
 const MiraclesPage = lazy(() => import("@/pages/study/MiraclesPage"));
 const LettersPage = lazy(() => import("@/pages/study/LettersPage"));
@@ -46,6 +47,7 @@ export default function App() {
               <Route path="/search" element={<SearchPage />} />
               <Route path="/versions" element={<VersionsPage />} />
               <Route path="/study" element={<StudyPage />} />
+              <Route path="/apologetics" element={<ApologeticsPage />} />
               <Route path="/study/harmony" element={<HarmonyPage />} />
               <Route path="/study/miracles" element={<MiraclesPage />} />
               <Route path="/study/letters" element={<LettersPage />} />
