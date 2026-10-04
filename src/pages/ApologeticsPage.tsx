@@ -1,9 +1,25 @@
-import { ArrowDown, ArrowRight, ArrowUpRight, BookOpen, HeartHandshake, MessageCircle, Play, ShieldCheck } from "lucide-react";
-import { useState } from "react";
+import { ArrowDown, ArrowRight, ArrowUpRight, BookOpen, Compass, HeartHandshake, MessageCircle, Play, ShieldCheck } from "lucide-react";
+import { useState, type CSSProperties } from "react";
 import { Link } from "react-router-dom";
 import { PassageText, RefLink } from "@/components/study/StudyParts";
 import { APOLOGETICS_ANCHOR, CONVERSATION_STEPS, FOUNDATIONS, ISLAM_STUDY_QUESTIONS } from "@/data/apologetics";
 import "./apologetics.css";
+
+const DESTINATIONS = [
+  { id: "foundations", title: "Foundations", lens: "Belief & Scripture", icon: BookOpen, color: "accent" },
+  { id: "conversation", title: "Conversations", lens: "Witness & practice", icon: HeartHandshake, color: "poetry" },
+  { id: "across-beliefs", title: "Across beliefs", lens: "Religions & worldviews", icon: Compass, color: "prophets" },
+  { id: "debates", title: "Debate library", lens: "Arguments & sources", icon: Play, color: "gospels" },
+] as const;
+
+function NavigationSketch({ kind }: { kind: string }) {
+  return <svg className="ap-nav-sketch" viewBox="0 0 180 44" fill="none" aria-hidden="true" focusable="false">
+    {kind === "foundations" && <><path d="M20 8q30-10 60 3v29q-30-13-60-3Zm60 3q30-13 60-3v29q-30-10-60 3Z" fill="currentColor" fillOpacity=".07" stroke="currentColor" /><path d="M31 15q20-5 38 3m-38 4q20-5 38 3m-38 4q20-5 38 3m22-14q19-8 38-3m-38 10q19-8 38-3m-38 10q19-8 38-3" stroke="currentColor" opacity=".45" /></>}
+    {kind === "conversation" && <><path d="M19 5h75a5 5 0 0 1 5 5v14a5 5 0 0 1-5 5H45L30 39V29H19a5 5 0 0 1-5-5V10a5 5 0 0 1 5-5Z" fill="currentColor" fillOpacity=".07" stroke="currentColor" /><path d="M106 14h32a5 5 0 0 1 5 5v12a5 5 0 0 1-5 5h-2v7l-12-7H68" stroke="currentColor" opacity=".45" />{[38, 56, 74].map((x) => <circle key={x} cx={x} cy="17" r="2" fill="currentColor" opacity=".6" />)}</>}
+    {kind === "across-beliefs" && <><circle cx="80" cy="22" r="18" stroke="currentColor" /><ellipse cx="80" cy="22" rx="8" ry="18" stroke="currentColor" opacity=".45" /><path d="M62 22h36m-33-10h30m-30 20h30M19 22h34m54 0h34" stroke="currentColor" opacity=".45" /><circle cx="15" cy="22" r="3" fill="currentColor" /><circle cx="145" cy="22" r="3" fill="currentColor" /><path d="M32 9q14-8 27 0m42 26q14 8 27 0" stroke="currentColor" strokeDasharray="2 3" /></>}
+    {kind === "debates" && <><path d="M17 37h128" stroke="currentColor" opacity=".3" />{[11, 18, 29, 20, 13, 25, 32, 16].map((height, i) => <rect key={i} x={21 + i * 16} y={35 - height} width="7" height={height} rx="2" fill="currentColor" opacity={i % 2 ? .3 : .65} />)}</>}
+  </svg>;
+}
 
 /** Decorative open doorway: a conversation begins with an invitation. */
 function Doorway() {
@@ -28,7 +44,11 @@ export default function ApologeticsPage() {
       <div className="ap-commission-copy"><p className="ap-eyebrow">Conviction & compassion</p><h2 id="ap-commission-title">Be ready to answer.<br /><em>Be faithful in love.</em></h2><p>Apologetics gives reasons for Christian belief and responds to objections. Ministry brings those reasons into real relationships—with attention to the person, the question and the call of Christ.</p><a className="ap-primary-link" href="#foundations">Begin with the foundations <ArrowDown size={15} aria-hidden="true" /></a></div>
       <div className="ap-commission-art"><Doorway /><div className="ap-anchor"><RefLink span={APOLOGETICS_ANCHOR} label="Our starting point · 1 Peter 3:15–16" /><p>Readiness to give an answer belongs with gentleness, reverence and a good conscience.</p></div></div>
     </section>
-    <nav className="ap-jump" aria-label="On this page"><a href="#foundations">The faith we explain</a><a href="#conversation">The conversation we practise</a><a href="#across-beliefs">Across beliefs</a><a href="#debates">The debates we study</a></nav>
+    <nav className="ap-jump" aria-label="On this page">{DESTINATIONS.map((destination) => <a key={destination.id} href={"#" + destination.id} className="ap-nav-card" style={{ "--nav-color": "var(--" + destination.color + ")" } as CSSProperties}>
+      <span className="ap-nav-title"><destination.icon size={18} strokeWidth={1.4} aria-hidden="true" /><strong>{destination.title}</strong></span>
+      <span className="ap-nav-lens">{destination.lens}</span>
+      <span className="ap-nav-bottom"><NavigationSketch kind={destination.id} /><ArrowDown size={15} strokeWidth={1.5} aria-hidden="true" /></span>
+    </a>)}</nav>
 
     <section id="foundations" className="ap-section" aria-labelledby="ap-foundations-title">
       <div className="ap-section-heading"><div><p className="ap-eyebrow">Understand the claim</p><h2 id="ap-foundations-title">Start with what Christians believe.</h2></div><p>Choose a foundation. Consider the question. Open the passages and follow the reasoning.</p></div>
