@@ -90,7 +90,6 @@ function ReaderBody({ translation, code, chapter }: { translation: Translation; 
   const showPanel = !!selected || bubbleOpened || (settings.crossRefs && wide && !parallel.length);
   const chapterRefs = useChapterCrossRefs(translation, code, chapter);
   const showReferenceCard = !showPanel && chapterRefs.usable && chapterRefs.total > 0;
-  const hasReferenceColumn = showPanel || showReferenceCard;
 
   useEffect(() => rememberRead(`/read/${translation.slug}/${code}/${chapter}`), [translation.slug, code, chapter]);
 
@@ -155,10 +154,11 @@ function ReaderBody({ translation, code, chapter }: { translation: Translation; 
         onParallel={(list) => navigate(`/read/${translation.slug}/${code}/${chapter}${list.length ? `?with=${list.join(",")}` : ""}`)}
         onSettings={setSettings}
       />
-      <div className={cn("relative grid grid-cols-[minmax(0,1fr)] gap-8 py-8", hasReferenceColumn && "lg:grid-cols-[minmax(0,1fr)_23rem]")}>
+      <div className={cn("relative grid grid-cols-[minmax(0,1fr)] gap-8 py-8", showPanel && "lg:grid-cols-[minmax(0,1fr)_23rem]")}>
         <article className={cn("relative mx-auto w-full", parallel.length ? "max-w-none" : "max-w-[44rem]")} style={{ fontSize: `${settings.scale}rem` }}>
-          {!parallel.length && <SideArrows prev={prevLink} next={nextLink} nextInside={hasReferenceColumn} />}
-          <header className="mb-6 font-sans" style={{ fontSize: "1rem" }}>
+          {!parallel.length && <SideArrows prev={prevLink} next={nextLink} nextInside={showPanel} />}
+          <header className="mb-6 flex flex-wrap items-center justify-between gap-3 font-sans" style={{ fontSize: "1rem" }}>
+            <div>
             <p className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-semibold uppercase tracking-[0.2em]" style={{ color: sectionColor(book.section) }}>
               <span>
                 {SECTION_BY_ID[book.section].name} · {translation.name}
@@ -167,6 +167,26 @@ function ReaderBody({ translation, code, chapter }: { translation: Translation; 
             <h1 className="mt-1 font-serif text-4xl font-semibold tracking-tight sm:text-5xl">
               {book.name} <span className="text-muted">{chapter}</span>
             </h1>
+            </div>
+            {showReferenceCard && (
+              <button
+                type="button"
+                onClick={() => {
+                  setBubbleOpened(true);
+                  if (!settings.crossRefs) setSettings({ ...settings, crossRefs: true });
+                }}
+                aria-label={`Show this chapter's ${chapterRefs.total} cross-references`}
+                className="flex shrink-0 items-center gap-2.5 rounded-xl border border-line bg-surface px-3 py-2 text-left transition hover:border-accent/60 hover:bg-surface-2 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+              >
+                <span className="grid h-8 w-8 place-items-center rounded-full bg-accent/10 text-accent">
+                  <Link2 className="h-4 w-4" aria-hidden />
+                </span>
+                <span>
+                  <span className="block text-xs font-semibold">Cross-references</span>
+                  <span className="block text-sm font-semibold text-accent">{formatNumber(chapterRefs.total)}</span>
+                </span>
+              </button>
+            )}
           </header>
           {texts.status === "loading" && <div className="space-y-3">{[...Array(8)].map((_, i) => <div key={i} className="h-5 animate-pulse rounded bg-surface-2" />)}</div>}
           {texts.status === "error" && <p className="text-muted">This chapter could not be loaded. Try another version.</p>}
@@ -202,26 +222,6 @@ function ReaderBody({ translation, code, chapter }: { translation: Translation; 
             {translation.numbering === "english" && <ChapterPlaces bookCode={code} bookNum={book.num} chapter={Number(chapter)} />}
           </div>
         </article>
-        {showReferenceCard && (
-          <button
-            type="button"
-            onClick={() => {
-              setBubbleOpened(true);
-              if (!settings.crossRefs) setSettings({ ...settings, crossRefs: true });
-            }}
-            aria-label={`Show this chapter's ${chapterRefs.total} cross-references`}
-            className="group order-first flex items-center gap-4 self-start rounded-2xl border border-line bg-surface p-5 text-left transition hover:border-accent/60 hover:bg-surface-2 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent lg:order-none lg:sticky lg:top-[8.5rem] lg:flex-col lg:items-center lg:gap-3 lg:p-8 lg:text-center"
-          >
-            <span className="grid h-14 w-14 shrink-0 place-items-center rounded-full border border-accent/30 bg-accent/10 text-accent transition group-hover:scale-105">
-              <Link2 className="h-6 w-6" aria-hidden />
-            </span>
-            <span>
-              <span className="block font-serif text-xl font-semibold">Cross-references</span>
-              <span className="mt-1 block font-serif text-3xl text-accent lg:text-4xl">{formatNumber(chapterRefs.total)}</span>
-              <span className="mt-2 block text-xs text-muted">Explore this chapter’s connections <span aria-hidden>→</span></span>
-            </span>
-          </button>
-        )}
         {selected ? (
           <VersePanel translation={translation} bookCode={code} chapter={chapter} label={selected} onClose={closePanel} />
         ) : (
@@ -238,7 +238,7 @@ function ReaderBody({ translation, code, chapter }: { translation: Translation; 
             />
           )
         )}
-        {hasReferenceColumn && !parallel.length && <OuterNextArrow link={nextLink} />}
+        {showPanel && !parallel.length && <OuterNextArrow link={nextLink} />}
       </div>
       {picking && (
         <BookPicker
