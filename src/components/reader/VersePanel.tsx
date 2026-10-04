@@ -10,6 +10,7 @@ import type { CrossRefBook, Translation } from "@/lib/types";
 import { useAsync } from "@/lib/useAsync";
 import { useVerseText } from "@/lib/useVerseText";
 import { formatNumber } from "@/lib/utils";
+import { ReferencePanel } from "./ReferencePanel";
 
 interface Props {
   translation: Translation;
@@ -58,11 +59,7 @@ export function VersePanel({ translation, bookCode, chapter, label, onClose }: P
   }, [onClose]);
 
   return (
-    <aside
-      aria-labelledby="verse-panel-title"
-      className="fixed inset-x-0 bottom-0 z-40 max-h-[72dvh] overflow-y-auto rounded-t-2xl border-t border-line bg-surface p-4 shadow-[0_-12px_40px_rgba(0,0,0,0.18)] lg:sticky lg:top-[8.5rem] lg:z-0 lg:max-h-[calc(100dvh-10rem)] lg:rounded-2xl lg:border lg:shadow-none"
-      style={{ paddingBottom: "calc(1rem + env(safe-area-inset-bottom, 0px))" }}
-    >
+    <ReferencePanel labelledBy="verse-panel-title">
       <div className="mb-3 flex items-start justify-between gap-2">
         <h2 id="verse-panel-title" ref={heading} tabIndex={-1} className="font-serif text-xl font-semibold outline-none">
           {bookName} {chapter}:{label}
@@ -111,7 +108,7 @@ export function VersePanel({ translation, bookCode, chapter, label, onClose }: P
       <p className="mt-4 text-[11px] text-muted">
         Ordered by OpenBible.info readers' votes ({list.length ? "strongest first" : "none here"}). Cross references from OpenBible.info, CC-BY.
       </p>
-    </aside>
+    </ReferencePanel>
   );
 }
 

@@ -4,6 +4,7 @@ import { useCatalog } from "@/lib/catalog";
 import type { Translation } from "@/lib/types";
 import { formatNumber } from "@/lib/utils";
 import { useChapterCrossRefs } from "./useChapterCrossRefs";
+import { ReferencePanel } from "./ReferencePanel";
 
 interface Props {
   translation: Translation;
@@ -30,11 +31,7 @@ export function ChapterCrossRefs({ translation, bookCode, chapter, onPick, onClo
   }, [onClose]);
 
   return (
-    <aside
-      aria-labelledby="chapter-xref-title"
-      className="slim-scroll fixed inset-x-0 bottom-0 z-40 max-h-[72dvh] overflow-y-auto rounded-t-2xl border-t border-line bg-surface p-4 shadow-[0_-12px_40px_rgba(0,0,0,0.18)] lg:sticky lg:top-[8.5rem] lg:z-0 lg:max-h-[calc(100dvh-10rem)] lg:rounded-2xl lg:border lg:shadow-none"
-      style={{ paddingBottom: "calc(1rem + env(safe-area-inset-bottom, 0px))" }}
-    >
+    <ReferencePanel labelledBy="chapter-xref-title">
       <div className="mb-3 flex items-start justify-between gap-2">
         <h2 id="chapter-xref-title" className="font-serif text-xl font-semibold">
           {bookName} {chapter}
@@ -65,6 +62,6 @@ export function ChapterCrossRefs({ translation, bookCode, chapter, onPick, onClo
         </>
       )}
       <p className="mt-4 text-[11px] text-muted">Cross references from OpenBible.info, CC-BY.</p>
-    </aside>
+    </ReferencePanel>
   );
 }
