@@ -1,4 +1,4 @@
-import { BarChart3, BookOpen, GraduationCap, Library, Map, Moon, Search, ShieldCheck, Sun } from "lucide-react";
+import { BarChart3, BookOpen, GitBranch, GraduationCap, Library, Map, Moon, Search, ShieldCheck, Sun } from "lucide-react";
 import { useEffect, useState, type ReactNode } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { SectionStrip } from "@/components/SectionStrip";
@@ -10,6 +10,7 @@ const NAV = [
   { to: "/library", label: "Library", icon: Library, end: false },
   { to: "/read", label: "Read", icon: BookOpen, end: false },
   { to: "/study", label: "Study", icon: GraduationCap, end: false },
+  { to: "/testimonies/design", label: "Testimonies", icon: GitBranch, end: false },
   { to: "/apologetics", label: "Apologetics", icon: ShieldCheck, end: false },
   { to: "/charts", label: "Charts", icon: BarChart3, end: false },
   { to: "/atlas", label: "Atlas", icon: Map, end: false },

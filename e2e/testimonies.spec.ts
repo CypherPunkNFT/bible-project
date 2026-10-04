@@ -16,12 +16,15 @@ test("testimony design: follows branches and offers an accessible list", async (
 });
 
 test("testimony design: accepted submission immediately adds the correct child without network writes", async ({ page }) => {
+  await page.clock.setFixedTime(new Date("2026-10-04T16:00:00Z"));
   const writes: string[] = [];
   page.on("request", (r) => { if (r.method() !== "GET") writes.push(r.url()); });
   await page.goto("/testimonies/design?from=maya");
   await expect(page.getByText("Maya invited you", { exact: true })).toBeVisible();
   await page.getByLabel("Public name", { exact: true }).fill("Sample guest");
   await page.getByLabel("A title for your story").fill("This is a fictional sample story");
+  await page.getByLabel("Story theme (optional)").selectOption("Hope");
+  await page.getByLabel("When it happened (optional)").fill("Spring 2022");
   await page.getByLabel("Your testimony", { exact: true }).fill("This is sample text for trying the design. It is not a real testimony and does not describe an actual person's experience. It exists only to test how an invitation grows a branch.");
   await page.getByRole("button", { name: "Add sample story to the branch" }).click();
   await expect(page.getByRole("alert")).toContainText("publicly");
@@ -31,6 +34,9 @@ test("testimony design: accepted submission immediately adds the correct child w
   await expect(page.locator(".testimony-notice")).toContainText("connected to Maya");
   await expect(page.locator(".testimony-story-path")).toContainText("Daniel → Maya → Sample guest");
   await expect(page.locator(".testimony-tree-node")).toHaveCount(10);
+  await expect(page.locator(".testimony-details")).toContainText("Hope");
+  await expect(page.locator(".testimony-details")).toContainText("Spring 2022");
+  await expect(page.locator(".testimony-details time")).toHaveAttribute("datetime", "2026-10-04T16:00:00.000Z");
   await page.getByRole("button", { name: "Preview an invite from Sample guest" }).click();
   await page.getByRole("button", { name: "Try the guest's experience" }).click();
   await page.getByLabel("Public name", { exact: true }).fill("Next guest");
@@ -41,9 +47,30 @@ test("testimony design: accepted submission immediately adds the correct child w
   await page.getByRole("button", { name: "Add sample story to the branch" }).click();
   await expect(page.locator(".testimony-story-path")).toContainText("Daniel → Maya → Sample guest → Next guest");
   await expect(page.locator(".testimony-tree-node")).toHaveCount(11);
+  await expect(page.locator(".testimony-details")).toContainText("Not chosen");
+  await expect(page.locator(".testimony-period")).toHaveCount(0);
   await page.getByRole("button", { name: "Reset preview" }).click();
   await expect(page.locator(".testimony-tree-node")).toHaveCount(9);
   expect(writes).toEqual([]);
+});
+
+test("testimonies: header opens the preview with clearly labelled story details", async ({ page }, info) => {
+  if (info.project.name === "phone") await page.setViewportSize({ width: 320, height: 844 });
+  await page.goto("/");
+  const link = page.getByRole("navigation", { name: "Main", exact: true }).getByRole("link", { name: "Testimonies", exact: true });
+  await link.click();
+  await expect(page).toHaveURL(/\/testimonies\/design$/);
+  await expect(link).toHaveAttribute("aria-current", "page");
+  await expect(page.getByText("Design preview", { exact: true })).toBeVisible();
+  await page.getByRole("button", { name: "Maya New beginnings" }).click();
+  const details = page.locator(".testimony-details");
+  await expect(details).toContainText("Story themeNew beginnings");
+  await expect(details).toContainText("Shared onSep 22, 2026");
+  await expect(details).toContainText("When it happened2024–2025");
+  await expect(details.locator("time")).toHaveAttribute("datetime", "2026-09-22T16:00:00Z");
+  await page.getByRole("button", { name: "List view", exact: true }).click();
+  await expect(page.locator(".testimony-list time")).toHaveCount(9);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(1);
 });
 
 test("testimony design: invitation has a generated QR and a local preview link", async ({ page }) => {

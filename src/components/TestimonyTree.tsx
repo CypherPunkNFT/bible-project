@@ -2,7 +2,7 @@ import { select } from "d3-selection";
 import { zoom, zoomIdentity, zoomTransform, type ZoomBehavior, type ZoomTransform } from "d3-zoom";
 import { ArrowRight, Maximize, Minus, Plus } from "lucide-react";
 import { useEffect, useRef, type CSSProperties, type KeyboardEvent } from "react";
-import type { TestimonyNode } from "@/lib/testimonies";
+import { formatTestimonyDate, type TestimonyNode } from "@/lib/testimonies";
 
 const TONES = ["poetry", "epistles", "gospels", "history"];
 interface Position { node: TestimonyNode; left: number; top: number; depth: number }
@@ -97,7 +97,7 @@ export function TestimonyTree({ positions, width, height, selectedId, onSelect }
         {positions.map((p) => <button key={p.node.id} type="button" className="testimony-tree-node" aria-pressed={selectedId === p.node.id}
           onClick={() => onSelect(p.node.id)} onFocus={(event) => { if (event.currentTarget.matches(":focus-visible")) reveal(p); }}
           style={{ left: p.left, top: p.top, "--node-tone": "var(--" + TONES[p.depth % TONES.length] + ")" } as CSSProperties}>
-          <span className="testimony-avatar">{p.node.name.slice(0, 1)}</span><span><strong>{p.node.name}</strong><small>{p.node.theme}</small></span><ArrowRight size={13} />
+          <span className="testimony-avatar">{p.node.name.slice(0, 1)}</span><span><strong>{p.node.name}</strong><small title={p.node.theme ? "Story theme: " + p.node.theme : "No story theme chosen"}>{p.node.theme || "Personal testimony"}</small><time dateTime={p.node.publishedAt}>Shared {formatTestimonyDate(p.node.publishedAt)}</time></span><ArrowRight size={13} />
         </button>)}
       </div>
     </div>

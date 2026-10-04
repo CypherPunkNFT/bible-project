@@ -64,7 +64,7 @@ def test_cycle_rejected_and_failed_acceptance_rolls_back(db):
 
 def test_publication_requires_matching_decision_and_withdrawal_hides_story(db):
     db.execute("INSERT INTO testimony_stories(id,person_id) VALUES ('story','root')")
-    db.execute("INSERT INTO testimony_revisions VALUES ('revision','story',1,'A sample story',?,?,1,'v1',1)", ("A sample testimony. " * 10, "a" * 64))
+    db.execute("INSERT INTO testimony_revisions(id,story_id,version,title,body,content_digest,publication_consent_at,consent_version,submitted_at,theme,happened_when) VALUES ('revision','story',1,'A sample story',?,?,1,'v1',1,'Hope','Spring 2022')", ("A sample testimony. " * 10, "a" * 64))
     assert db.execute("SELECT count(*) FROM public_testimony_stories").fetchone()[0] == 0
     with pytest.raises(sqlite3.IntegrityError, match="matching_decision"):
         db.execute("UPDATE testimony_stories SET published_revision_id='revision',state='public' WHERE id='story'")
@@ -74,13 +74,20 @@ def test_publication_requires_matching_decision_and_withdrawal_hides_story(db):
     db.execute("UPDATE testimony_publication_decisions SET content_digest=? WHERE revision_id='revision'", ("a" * 64,))
     db.execute("UPDATE testimony_stories SET published_revision_id='revision',state='public' WHERE id='story'")
     assert db.execute("SELECT count(*) FROM public_testimony_stories").fetchone()[0] == 1
+    theme, period, shared = db.execute("SELECT theme,happened_when,first_published_at FROM public_testimony_stories").fetchone()
+    assert (theme, period) == ("Hope", "Spring 2022")
+    assert shared > 1  # The old submission time must not become the publication date.
+    with pytest.raises(sqlite3.IntegrityError, match="publication_time_is_immutable"):
+        db.execute("UPDATE testimony_stories SET first_published_at=1 WHERE id='story'")
     db.execute("UPDATE testimony_stories SET state='withdrawn' WHERE id='story'")
     assert db.execute("SELECT count(*) FROM public_testimony_stories").fetchone()[0] == 0
+    db.execute("UPDATE testimony_stories SET state='public' WHERE id='story'")
+    assert db.execute("SELECT first_published_at FROM public_testimony_stories").fetchone()[0] == shared
 
 
 def test_hold_and_revision_edit_cannot_bypass_publication(db):
     db.execute("INSERT INTO testimony_stories(id,person_id) VALUES ('story','root')")
-    db.execute("INSERT INTO testimony_revisions VALUES ('revision','story',1,'A sample story',?,?,1,'v1',1)", ("Sample words. " * 10, "a" * 64))
+    db.execute("INSERT INTO testimony_revisions(id,story_id,version,title,body,content_digest,publication_consent_at,consent_version,submitted_at) VALUES ('revision','story',1,'A sample story',?,?,1,'v1',1)", ("Sample words. " * 10, "a" * 64))
     db.execute("INSERT INTO testimony_publication_decisions(revision_id,content_digest,provider,policy_version,decision) VALUES ('revision',?,'external','future-v1','hold')", ("a" * 64,))
     with pytest.raises(sqlite3.IntegrityError, match="matching_decision"):
         db.execute("UPDATE testimony_stories SET published_revision_id='revision',state='public' WHERE id='story'")

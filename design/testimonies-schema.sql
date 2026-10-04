@@ -88,6 +88,7 @@ CREATE TABLE testimony_stories (
   person_id TEXT NOT NULL UNIQUE REFERENCES testimony_people(id),
   state TEXT NOT NULL DEFAULT 'draft' CHECK (state IN ('draft', 'public', 'withdrawn')),
   published_revision_id TEXT REFERENCES testimony_revisions(id),
+  first_published_at INTEGER,
   created_at INTEGER NOT NULL DEFAULT (unixepoch()),
   CHECK (state <> 'public' OR published_revision_id IS NOT NULL)
 );
@@ -98,6 +99,8 @@ CREATE TABLE testimony_revisions (
   version INTEGER NOT NULL CHECK (version > 0),
   title TEXT NOT NULL CHECK (length(trim(title)) BETWEEN 5 AND 120),
   body TEXT NOT NULL CHECK (length(trim(body)) BETWEEN 80 AND 12000),
+  theme TEXT NOT NULL DEFAULT '' CHECK (length(theme) <= 40),
+  happened_when TEXT NOT NULL DEFAULT '' CHECK (length(trim(happened_when)) <= 80),
   content_digest TEXT NOT NULL CHECK (length(content_digest) = 64),
   publication_consent_at INTEGER NOT NULL,
   consent_version TEXT NOT NULL,
@@ -126,8 +129,15 @@ BEGIN
   ) THEN RAISE(ABORT, 'publication_requires_matching_decision') END;
 END;
 CREATE TRIGGER testimony_initial_story_is_draft BEFORE INSERT ON testimony_stories
-WHEN NEW.state <> 'draft' OR NEW.published_revision_id IS NOT NULL
+WHEN NEW.state <> 'draft' OR NEW.published_revision_id IS NOT NULL OR NEW.first_published_at IS NOT NULL
 BEGIN SELECT RAISE(ABORT, 'create_draft_before_publication'); END;
+-- Shared-on time is the first publication, not when a draft or later revision was submitted.
+CREATE TRIGGER testimony_first_publication_time AFTER UPDATE OF state ON testimony_stories
+WHEN NEW.state = 'public' AND NEW.first_published_at IS NULL
+BEGIN UPDATE testimony_stories SET first_published_at = unixepoch() WHERE id = NEW.id; END;
+CREATE TRIGGER testimony_publication_time_immutable BEFORE UPDATE OF first_published_at ON testimony_stories
+WHEN NEW.first_published_at IS NOT OLD.first_published_at AND (OLD.first_published_at IS NOT NULL OR NEW.state <> 'public')
+BEGIN SELECT RAISE(ABORT, 'first_publication_time_is_immutable'); END;
 CREATE TRIGGER testimony_revision_immutable BEFORE UPDATE ON testimony_revisions
 BEGIN SELECT RAISE(ABORT, 'create_a_new_revision'); END;
 
@@ -159,7 +169,8 @@ CREATE TABLE testimony_reports (
 
 -- Public API uses this projection, never SELECT * from account, invite or session tables.
 CREATE VIEW public_testimony_stories AS
-SELECT s.id, p.id AS person_id, p.display_name, r.title, r.body, r.version, r.submitted_at
+SELECT s.id, p.id AS person_id, p.display_name, r.title, r.body, r.theme, r.happened_when,
+  s.first_published_at, r.version, r.submitted_at
 FROM testimony_stories s JOIN testimony_people p ON p.id = s.person_id
 JOIN testimony_revisions r ON r.id = s.published_revision_id
 WHERE s.state = 'public' AND p.state = 'active';

@@ -14,15 +14,18 @@ describe("testimony design contract", () => {
     expect(testimonyBranch(nodes, "daniel")).toHaveLength(9);
   });
   it("requires separate publication and connection consent", () => {
-    const input = { name: "A guest", title: "A sample story", body: "This is fictional sample text for testing the invitation flow. It is long enough to meet the written story minimum.", publicConsent: true, connectionConsent: true };
+    const input = { name: "A guest", title: "A sample story", body: "This is fictional sample text for testing the invitation flow. It is long enough to meet the written story minimum.", theme: "", happenedWhen: "", publicConsent: true, connectionConsent: true };
     expect(validateTestimony(input)).toBeNull();
     expect(validateTestimony({ ...input, publicConsent: false })).toMatch(/publicly/);
     expect(validateTestimony({ ...input, connectionConsent: false })).toMatch(/connection/);
     expect(validateTestimony({ ...input, body: "brief" })).toMatch(/80/);
     expect(validateTestimony({ ...input, body: "x".repeat(12001) })).toMatch(/12,000/);
+    expect(validateTestimony({ ...input, theme: "Hope", happenedWhen: "Around 2020" })).toBeNull();
+    expect(validateTestimony({ ...input, theme: "Unknown label" })).toMatch(/story themes/);
+    expect(validateTestimony({ ...input, happenedWhen: "x".repeat(81) })).toMatch(/80/);
   });
   it("publishes by the owner's chosen policy without claiming an AI review occurred", async () => {
-    const decision = await immediatePublication.evaluate({ authorId: "a", revisionId: "r", title: "A sample", body: "Sample", contentHash: "digest" });
+    const decision = await immediatePublication.evaluate({ authorId: "a", revisionId: "r", title: "A sample", body: "Sample", theme: "", happenedWhen: "", contentHash: "digest" });
     expect(decision).toEqual({ action: "publish", provider: "disabled", policyVersion: "immediate-v1" });
   });
 });
