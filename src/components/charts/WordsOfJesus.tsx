@@ -15,8 +15,8 @@ export function WordsOfJesus({ stats }: { stats: Stats }) {
   return (
     <div className="grid gap-8 lg:grid-cols-[1fr_18rem]">
       <div>
-        <p className="mb-3 min-h-[1.25rem] text-sm text-muted" aria-live="polite">
-          {hover || "Each bar is one chapter; red is the share spoken by Jesus. Point at a bar."}
+        <p className="chart-live-detail" aria-live="polite">
+          {hover || "Each bar is one chapter. Hover or focus to inspect; open it to read."}
         </p>
         <div className="space-y-4">
           {gospels.map((b) => (
@@ -32,7 +32,10 @@ export function WordsOfJesus({ stats }: { stats: Stats }) {
                     to={`/read/kjv/${b.code}/${i + 1}`}
                     aria-label={`${b.name} ${i + 1}: ${Math.round((red / words) * 100)} percent words of Jesus`}
                     onMouseEnter={() => setHover(`${b.name} ${i + 1}: ${formatNumber(red)} of ${formatNumber(words)} words (${Math.round((red / words) * 100)}%)`)}
-                    className="relative flex h-full flex-1 flex-col justify-end overflow-hidden rounded-t-sm bg-surface-2"
+                    onFocus={() => setHover(`${b.name} ${i + 1}: ${formatNumber(red)} of ${formatNumber(words)} words (${Math.round((red / words) * 100)}%)`)}
+                    onMouseLeave={() => setHover("")}
+                    onBlur={() => setHover("")}
+                    className="relative flex h-full flex-1 flex-col justify-end rounded-t-sm bg-surface-2 transition-opacity hover:opacity-75 focus-visible:z-10"
                   >
                     <span className="block w-full bg-red transition-all" style={{ height: `${(red / words) * 100}%` }} />
                   </Link>

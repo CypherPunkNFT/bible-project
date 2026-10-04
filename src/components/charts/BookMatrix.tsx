@@ -1,78 +1,90 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useCatalog } from "@/lib/catalog";
-import { sectionColor } from "@/lib/sections";
+import { resolvedSectionColors } from "@/lib/sections";
+import { useThemeVersion } from "@/lib/theme";
 import { formatNumber } from "@/lib/utils";
 
-/** 66 x 66 grid: how many cross-references run from each book (row) to each book (column). */
+/** Paint the heatmap once; pointer movement updates only its selection and detail panel. */
 export function BookMatrix({ pairs }: { pairs: [string, string, number][] }) {
   const catalog = useCatalog();
-  const books = catalog.books.filter((b) => b.num <= 66);
-  const index = useMemo(() => new Map(books.map((b, i) => [b.code, i])), [books]);
-  const [hover, setHover] = useState<[number, number, number] | null>(null);
-  const cells = useMemo(
-    () => pairs.map(([a, b, n]) => [index.get(a) ?? -1, index.get(b) ?? -1, n] as [number, number, number]).filter(([a, b]) => a >= 0 && b >= 0),
-    [pairs, index],
-  );
-  const max = Math.max(...cells.map((c) => c[2]));
-  const size = 66;
-  const pad = 2;
+  const books = useMemo(() => catalog.books.filter((b) => b.num <= 66), [catalog.books]);
+  const model = useMemo(() => {
+    const index = new Map(books.map((b, i) => [b.code, i]));
+    const cells = pairs.map(([a, b, n]) => [index.get(a) ?? -1, index.get(b) ?? -1, n] as const).filter(([a, b]) => a >= 0 && b >= 0);
+    return { cells, values: new Map(cells.map(([a, b, n]) => [a * 66 + b, n])), max: Math.max(1, ...cells.map((c) => c[2])), top: [...cells].filter(([a, b]) => a !== b).sort((a, b) => b[2] - a[2]).slice(0, 100) };
+  }, [books, pairs]);
+  const [hover, setHover] = useState<[number, number] | null>(null);
+  const [pinned, setPinned] = useState<[number, number] | null>(null);
+  const active = pinned ?? hover;
+  const canvas = useRef<HTMLCanvasElement>(null);
+  const wrap = useRef<HTMLDivElement>(null);
+  const [width, setWidth] = useState(0);
+  const themeVersion = useThemeVersion();
+
+  useEffect(() => {
+    if (!wrap.current) return;
+    const observer = new ResizeObserver(([entry]) => setWidth(Math.max(1, Math.floor(entry.contentRect.width))));
+    observer.observe(wrap.current);
+    return () => observer.disconnect();
+  }, []);
+  useEffect(() => {
+    const element = canvas.current;
+    const context = element?.getContext("2d");
+    if (!element || !context || !width) return;
+    const ratio = Math.min(window.devicePixelRatio || 1, 2);
+    element.width = element.height = Math.round(width * ratio);
+    context.setTransform(ratio, 0, 0, ratio, 0, 0);
+    const colors = resolvedSectionColors();
+    const cell = width / 68;
+    for (const [i, book] of books.entries()) {
+      context.fillStyle = colors[book.section];
+      context.fillRect(0, (i + 2) * cell, cell * 1.3, cell);
+      context.fillRect((i + 2) * cell, 0, cell, cell * 1.3);
+    }
+    for (const [a, b, n] of model.cells) {
+      context.fillStyle = colors[books[a].section];
+      context.globalAlpha = .12 + .88 * Math.sqrt(n / model.max);
+      context.fillRect((b + 2) * cell, (a + 2) * cell, cell, cell);
+    }
+  }, [books, model, width, themeVersion]);
+
+  const pick = (x: number, y: number): [number, number] | null => {
+    const rect = canvas.current?.getBoundingClientRect();
+    if (!rect?.width) return null;
+    const a = Math.floor((y - rect.top) / rect.height * 68) - 2;
+    const b = Math.floor((x - rect.left) / rect.width * 68) - 2;
+    return a >= 0 && b >= 0 && a < 66 && b < 66 ? [a, b] : null;
+  };
+  const same = (a: readonly number[] | null, b: readonly number[] | null) => a?.[0] === b?.[0] && a?.[1] === b?.[1];
+  const pin = (pair: [number, number]) => { setPinned((current) => same(current, pair) ? null : pair); setHover(null); };
 
   return (
-    <div className="grid gap-4 lg:grid-cols-[minmax(0,560px)_1fr]">
-      <svg viewBox={`-${pad} -${pad} ${size + pad} ${size + pad}`} className="w-full max-w-[560px]" role="img" aria-label="Heatmap of cross-references between every pair of books" onMouseLeave={() => setHover(null)}>
-        {books.map((b, i) => (
-          <g key={b.code}>
-            <rect x={-pad} y={i} width={1.4} height={1} fill={sectionColor(b.section)} />
-            <rect x={i} y={-pad} width={1} height={1.4} fill={sectionColor(b.section)} />
-          </g>
-        ))}
-        {cells.map(([a, b, n]) => (
-          <rect
-            key={`${a}-${b}`}
-            x={b}
-            y={a}
-            width={1}
-            height={1}
-            fill={sectionColor(books[a].section)}
-            opacity={0.12 + 0.88 * Math.sqrt(n / max)}
-            onMouseEnter={() => setHover([a, b, n])}
-          />
-        ))}
-        {hover && <rect x={hover[1]} y={hover[0]} width={1} height={1} fill="none" stroke="currentColor" strokeWidth={0.25} />}
-      </svg>
-      <div className="text-sm lg:relative">
-        <div className="flex flex-col lg:absolute lg:inset-0">
-        {hover ? (
-          <p className="rounded-lg bg-surface-2 p-3">
-            <strong>{books[hover[0]].name}</strong> → <strong>{books[hover[1]].name}</strong>
-            <br />
-            {formatNumber(hover[2])} cross-references
-          </p>
-        ) : (
-          <p className="text-muted">Rows are the book a cross-reference starts in, columns the book it points to (Genesis top-left, Revelation bottom-right). Darker = more. Point at a square.</p>
-        )}
-        <TopPairs pairs={cells} names={books.map((b) => b.name)} />
-        </div>
+    <div>
+      <div className="chart-controls">
+        <label>From book<select aria-label="From book" value={active?.[0] ?? ""} onChange={(event) => setPinned([Number(event.target.value), active?.[1] ?? 0])}><option value="" disabled>Choose a book</option>{books.map((b, i) => <option key={b.code} value={i}>{b.name}</option>)}</select></label>
+        <label>To book<select aria-label="To book" value={active?.[1] ?? ""} onChange={(event) => setPinned([active?.[0] ?? 0, Number(event.target.value)])}><option value="" disabled>Choose a book</option>{books.map((b, i) => <option key={b.code} value={i}>{b.name}</option>)}</select></label>
+        {pinned && <button type="button" className="chart-control-reset" onClick={() => { setPinned(null); setHover(null); }}>Clear selection</button>}
       </div>
-    </div>
-  );
-}
-
-function TopPairs({ pairs, names }: { pairs: [number, number, number][]; names: string[] }) {
-  const top = [...pairs].filter(([a, b]) => a !== b).sort((x, y) => y[2] - x[2]).slice(0, 100);
-  return (
-    <div className="mt-4 flex min-h-0 flex-1 flex-col">
-      <h3 className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-muted">Most cross-referenced pairs of different books</h3>
-      <ol className="slim-scroll max-h-80 min-h-0 flex-1 space-y-1 overflow-y-auto overscroll-contain pe-2 lg:max-h-none">
-        {top.map(([a, b, n]) => (
-          <li key={`${a}-${b}`} className="flex justify-between gap-3 border-b border-line/60 py-1">
-            <span>
-              {names[a]} → {names[b]}
-            </span>
-            <span className="tabular-nums text-muted">{formatNumber(n)}</span>
-          </li>
-        ))}
-      </ol>
+      <div className="matrix-layout">
+        <div>
+          <div ref={wrap} className="relative">
+            <canvas ref={canvas} className="matrix-surface" role="img" aria-label="Heatmap of cross-references between every pair of books. Use the From book and To book selectors to inspect a pair."
+              onPointerMove={(event) => { if (event.pointerType !== "touch" && !pinned) { const pair = pick(event.clientX, event.clientY); setHover((current) => same(current, pair) ? current : pair); } }}
+              onPointerLeave={() => setHover(null)} onClick={(event) => { const pair = pick(event.clientX, event.clientY); if (pair) pin(pair); }} />
+            {active && <div className="pointer-events-none absolute border-2 border-ink" style={{ left: (active[1] + 2) / 68 * 100 + "%", top: (active[0] + 2) / 68 * 100 + "%", width: 100 / 68 + "%", height: 100 / 68 + "%" }} />}
+          </div>
+          <p className="chart-hint mt-3">Rows: from · Columns: to · Stronger colour: more references.<br />Genesis begins at the top left; Revelation ends at the bottom right.</p>
+        </div>
+        <div className="matrix-sidebar"><div className="matrix-sidebar-inner">
+          <div className="matrix-detail" aria-live="polite">
+            <h3>{active ? books[active[0]].name + " → " + books[active[1]].name : "Discover a connection"}</h3>
+            {active ? <p><strong>{formatNumber(model.values.get(active[0] * 66 + active[1]) ?? 0)}</strong> cross-references{pinned && <span className="block mt-1">Selected · choose another pair to compare</span>}</p> : <p>Hover over the grid, tap a square, or select a pair below. The book selectors also work with a keyboard.</p>}
+          </div>
+          <div className="matrix-pairs"><h3>Most cross-referenced book pairs</h3>
+            <ol className="slim-scroll">{model.top.map(([a, b, n]) => <li key={a + "-" + b}><button type="button" aria-pressed={same(pinned, [a, b])} onClick={() => pin([a, b])}><span>{books[a].name} → {books[b].name}</span><span>{formatNumber(n)}</span></button></li>)}</ol>
+          </div>
+        </div></div>
+      </div>
     </div>
   );
 }

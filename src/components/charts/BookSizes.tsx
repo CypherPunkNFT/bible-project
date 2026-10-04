@@ -7,46 +7,35 @@ import { cn, formatNumber } from "@/lib/utils";
 type Metric = "words" | "verses" | "chapters";
 const METRICS: Metric[] = ["words", "verses", "chapters"];
 
-/** Every book as a bar, in canonical order, coloured by section. */
+/** Every book, with comparable scales and a choice of canonical or size order. */
 export function BookSizes({ stats }: { stats: Stats }) {
   const [metric, setMetric] = useState<Metric>("words");
   const [apocrypha, setApocrypha] = useState(false);
+  const [order, setOrder] = useState("canon");
+  const value = (b: Stats["books"][number]) => metric === "chapters" ? b.chapters.length : b[metric];
   const books = stats.books.filter((b) => apocrypha || b.section !== "apocrypha");
-  const value = (b: Stats["books"][number]) => (metric === "chapters" ? b.chapters.length : b[metric]);
-  const max = Math.max(...books.map(value));
+  if (order === "longest") books.sort((a, b) => value(b) - value(a));
+  const max = Math.max(1, ...books.map(value));
+  const longest = books.reduce((a, b) => value(a) > value(b) ? a : b);
 
   return (
     <div>
-      <div className="mb-3 flex flex-wrap items-center gap-2 text-sm">
-        <div role="radiogroup" aria-label="Measure" className="inline-flex rounded-full bg-surface-2 p-0.5">
-          {METRICS.map((m) => (
-            <button
-              key={m}
-              type="button"
-              role="radio"
-              aria-checked={metric === m}
-              onClick={() => setMetric(m)}
-              className={cn("rounded-full px-3 py-1 capitalize", metric === m ? "bg-ink text-page" : "text-muted hover:text-ink")}
-            >
-              {m}
-            </button>
-          ))}
+      <div className="chart-controls">
+        <div role="group" aria-label="Measure" className="inline-flex rounded-full bg-surface-2 p-0.5">
+          {METRICS.map((m) => <button key={m} type="button" aria-pressed={metric === m} onClick={() => setMetric(m)}
+            className={cn("rounded-full px-3 py-1.5 capitalize", metric === m ? "bg-ink text-page" : "text-muted hover:text-ink")}>{m}</button>)}
         </div>
-        <label className="ms-2 flex items-center gap-2 text-muted">
-          <input type="checkbox" checked={apocrypha} onChange={(e) => setApocrypha(e.target.checked)} className="accent-[var(--apocrypha)]" /> Apocrypha
-        </label>
+        <label>Order<select aria-label="Order" value={order} onChange={(event) => setOrder(event.target.value)}><option value="canon">Bible order</option><option value="longest">Longest first</option></select></label>
+        <label><input type="checkbox" checked={apocrypha} onChange={(event) => setApocrypha(event.target.checked)} className="accent-[var(--apocrypha)]" />Include Apocrypha</label>
       </div>
-      <ol className="gap-x-8 sm:columns-2 [&>li]:mb-[3px] [&>li]:break-inside-avoid">
-        {books.map((b) => (
-          <li key={b.code}>
-            <Link to={`/read/kjv/${b.code}/1`} className="group grid grid-cols-[7.5rem_1fr_4.5rem] items-center gap-2 text-xs">
-              <span className="truncate text-right group-hover:text-accent">{b.name}</span>
-              <span className="h-3.5 rounded-sm transition-all duration-500" style={{ width: `${Math.max(0.5, (value(b) / max) * 100)}%`, background: sectionColor(b.section) }} />
-              <span className="tabular-nums text-muted">{formatNumber(value(b))}</span>
-            </Link>
-          </li>
-        ))}
-      </ol>
+      <div className="chart-live-detail"><strong>{longest.name}</strong><span>Longest by {metric} · {formatNumber(value(longest))} {metric}</span></div>
+      <ol className="size-bars">{books.map((b) => <li key={b.code}>
+        <Link to={"/read/kjv/" + b.code + "/1"} aria-label={b.name + ": " + formatNumber(value(b)) + " " + metric + ". Read this book."}>
+          <span className="truncate text-right">{b.name}</span>
+          <span className="size-bar-track"><span style={{ width: Math.max(.5, value(b) / max * 100) + "%", background: sectionColor(b.section) }} /></span>
+          <span className="text-right tabular-nums text-muted">{formatNumber(value(b))}</span>
+        </Link>
+      </li>)}</ol>
     </div>
   );
 }

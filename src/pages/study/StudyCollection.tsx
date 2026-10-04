@@ -114,7 +114,7 @@ export default function StudyCollection() {
       <header className="study-intro">
         <div>
           <p className="study-eyebrow"><span /> The study collection</p>
-          <h1>Go deeper into<br /><em>the Word.</em></h1>
+          <h1>Go deeper into <em>the Word.</em></h1>
           <p className="study-intro-copy">Follow a life. Compare the accounts. Discover the people and places behind the passages. There is more to see with every reading.</p>
         </div>
         <div className="study-intro-aside">

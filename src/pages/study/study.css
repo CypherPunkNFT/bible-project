@@ -1,15 +1,15 @@
 .study-hub { padding-bottom: 4rem; }
-.study-intro { display: flex; justify-content: space-between; align-items: flex-end; gap: 3rem; padding: 4.25rem 0 3.5rem; }
+.study-intro { display: flex; justify-content: space-between; align-items: flex-end; gap: 2rem; padding: 2.5rem 0 2rem; }
 .study-eyebrow { display: flex; align-items: center; gap: .65rem; color: var(--accent); font-size: .7rem; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; }
 .study-eyebrow > span { width: 1.75rem; height: 1px; background: currentColor; }
-.study-intro h1 { margin-top: 1.25rem; font-family: var(--font-serif); font-size: clamp(3.25rem, 6vw, 5.5rem); line-height: 1.08; letter-spacing: -.055em; font-weight: 500; }
+.study-intro h1 { margin-top: 1rem; font-family: var(--font-serif); font-size: clamp(2.5rem, 3.6vw, 3.25rem); line-height: 1.15; letter-spacing: -.045em; font-weight: 500; }
 .study-intro h1 em { color: var(--accent); font-weight: 400; }
-.study-intro-copy { max-width: 34rem; margin-top: 1.5rem; color: var(--muted); font-size: 1rem; line-height: 1.75; }
+.study-intro-copy { max-width: 44rem; margin-top: 1rem; color: var(--muted); font-size: .9rem; line-height: 1.7; }
 .study-intro-aside { flex: 0 0 17rem; padding: 0 0 .25rem 1.75rem; border-left: 1px solid var(--line); }
-.study-intro-aside > svg { color: var(--accent); margin-bottom: 1.25rem; }
+.study-intro-aside > svg { display: none; }
 .study-intro-aside p { font-family: var(--font-serif); font-size: 1.1rem; line-height: 1.8; }
 .study-intro-aside p span { color: var(--muted); font-size: .95rem; }
-.study-intro-aside a { display: inline-flex; align-items: center; gap: 1.25rem; margin-top: 1.5rem; font-size: .75rem; }
+.study-intro-aside a { display: inline-flex; align-items: center; gap: 1.25rem; margin-top: .75rem; font-size: .75rem; }
 .study-intro-aside a:hover { color: var(--accent); }
 .study-collection-heading { display: flex; justify-content: space-between; gap: 1rem; border-top: 1px solid var(--line); padding: 1.25rem 0; scroll-margin-top: 5rem; font-size: .65rem; text-transform: uppercase; letter-spacing: .16em; }
 .study-collection-heading > span:last-child { color: var(--muted); letter-spacing: .04em; text-transform: none; font-size: .75rem; }
@@ -98,8 +98,8 @@
 .study-source-note a:hover { text-decoration: underline; text-underline-offset: 4px; }
 @media (min-width: 1024px) { .study-feature .study-card-copy { padding-top: 1.75rem; } }
 @media (max-width: 1023px) {
-  .study-intro { gap: 2rem; padding-top: 3rem; }
-  .study-intro-aside { flex-basis: 14rem; padding-left: 1rem; }
+  .study-intro { gap: 2rem; padding-top: 2rem; }
+  .study-intro-aside { display: none; }
   .study-resource-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .study-resource, .study-wide { grid-column: span 1; }
   .study-feature { grid-column: span 2; }
@@ -108,9 +108,9 @@
   .study-resource:last-child .study-art { height: 240px; }
 }
 @media (max-width: 639px) {
-  .study-intro { display: block; padding: 2.5rem 0 2rem; }
-  .study-intro h1 { font-size: clamp(3rem, 13vw, 4rem); }
-  .study-intro-copy { font-size: .9rem; margin-top: 1.25rem; }
+  .study-intro { display: block; padding: 1.75rem 0 1.5rem; }
+  .study-intro h1 { font-size: clamp(2.25rem, 9vw, 3rem); }
+  .study-intro-copy { font-size: .85rem; margin-top: .85rem; }
   .study-intro-aside { display: none; }
   .study-collection-heading > span:last-child { display: none; }
   .study-resource-grid { grid-template-columns: minmax(0, 1fr); gap: 1rem; }

@@ -1,152 +1,139 @@
+import { RotateCcw } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useCatalog } from "@/lib/catalog";
 import { resolvedSectionColors, SECTIONS } from "@/lib/sections";
 import { useThemeVersion } from "@/lib/theme";
-import type { ArcData, SectionId } from "@/lib/types";
+import type { ArcData } from "@/lib/types";
 import { formatNumber } from "@/lib/utils";
 
-interface Prepared {
-  /** chapter index -> book code */
-  bookOf: string[];
-  sectionOf: SectionId[];
-  /** first chapter index of each book, in order */
-  bookStarts: { code: string; name: string; start: number; end: number; section: SectionId }[];
-}
-
-function prepare(data: ArcData, books: { code: string; name: string; section: SectionId }[]): Prepared {
-  const byCode = new Map(books.map((b) => [b.code, b]));
-  const bookOf = data.chapters.map((label) => label.split(" ")[0]);
-  const sectionOf = bookOf.map((code) => byCode.get(code)?.section ?? "apocrypha");
-  const bookStarts: Prepared["bookStarts"] = [];
-  bookOf.forEach((code, index) => {
-    const last = bookStarts[bookStarts.length - 1];
-    if (last?.code === code) last.end = index;
-    else bookStarts.push({ code, name: byCode.get(code)?.name ?? code, start: index, end: index, section: byCode.get(code)?.section ?? "apocrypha" });
-  });
-  return { bookOf, sectionOf, bookStarts };
-}
-
-/**
- * Every cross-reference between two different chapters, drawn as an arc above a bar of all 1,189
- * chapters (after Chris Harrison's 2007 picture). Arc colour = the section of the earlier chapter.
- * Pick a book to light up only its arcs.
- */
+/** Indexed book views and a small canvas cache keep exploration off the full 140,000-arc drawing path. */
 export function ArcDiagram({ data }: { data: ArcData }) {
   const catalog = useCatalog();
   const canvas = useRef<HTMLCanvasElement>(null);
   const wrap = useRef<HTMLDivElement>(null);
-  const [width, setWidth] = useState(320);
-  const [focus, setFocus] = useState<string>("");
-  const [hover, setHover] = useState<Prepared["bookStarts"][number] | null>(null);
+  const cache = useRef(new Map<string, HTMLCanvasElement>());
+  const [width, setWidth] = useState(0);
+  const [focus, setFocus] = useState("");
+  const [hover, setHover] = useState("");
   const themeVersion = useThemeVersion();
-  const prepared = useMemo(() => prepare(data, catalog.books), [data, catalog.books]);
-  const height = Math.round(width * 0.5) + 28;
+  const prepared = useMemo(() => {
+    const byCode = new Map(catalog.books.map((b) => [b.code, b]));
+    const bookOf = data.chapters.map((label) => label.split(" ")[0]);
+    const books = catalog.books.filter((b) => bookOf.includes(b.code));
+    const arcs = [...data.arcs].sort((a, b) => a[2] - b[2]);
+    const byBook = new Map<string, ArcData["arcs"]>();
+    const counts = new Map<string, number>();
+    let total = 0;
+    for (const edge of arcs) {
+      total += edge[2];
+      for (const code of new Set([bookOf[edge[0]], bookOf[edge[1]]])) {
+        if (!byBook.has(code)) byBook.set(code, []);
+        byBook.get(code)!.push(edge);
+        counts.set(code, (counts.get(code) ?? 0) + edge[2]);
+      }
+    }
+    return { bookOf, books, arcs, byBook, counts, total, sections: bookOf.map((code) => byCode.get(code)?.section ?? "apocrypha") };
+  }, [data, catalog.books]);
+  const active = focus || hover;
+  const height = Math.round(Math.min(430, width * .45)) + 26;
 
   useEffect(() => {
     const element = wrap.current;
     if (!element) return;
-    const observer = new ResizeObserver(([entry]) => setWidth(Math.max(320, Math.floor(entry.contentRect.width))));
+    const observer = new ResizeObserver(([entry]) => setWidth(Math.max(1, Math.floor(entry.contentRect.width))));
     observer.observe(element);
     return () => observer.disconnect();
   }, []);
 
-  useEffect(() => {
-    const element = canvas.current;
-    const context = element?.getContext("2d");
-    if (!element || !context) return;
-    const ratio = window.devicePixelRatio || 1;
-    element.width = width * ratio;
-    element.height = height * ratio;
-    context.setTransform(ratio, 0, 0, ratio, 0, 0);
-    context.clearRect(0, 0, width, height);
-    const colors = resolvedSectionColors();
-    const n = data.chapters.length;
-    const x = (i: number) => ((i + 0.5) / n) * width;
-    const base = height - 22;
+  // A resize, theme change or new dataset invalidates every cached image.
+  useEffect(() => { cache.current.clear(); }, [prepared, width, height, themeVersion]);
 
-    // One stroke per arc: overlapping arcs must add up (a single path would paint its overlaps once,
-    // turning the lace into a flat wash). Weak links first so the strong ones sit on top.
-    const focused = focus || hover?.code || "";
-    const perCount = focused ? 0.12 : 0.018;
-    const ceiling = focused ? 0.9 : 0.35;
-    context.lineWidth = focused ? 0.8 : 0.55;
-    for (const [a, b, count] of data.arcs) {
-      if (focused && prepared.bookOf[a] !== focused && prepared.bookOf[b] !== focused) continue;
-      const x1 = x(a);
-      const radius = (x(b) - x1) / 2;
-      context.beginPath();
-      context.arc(x1 + radius, base, radius, Math.PI, 0);
-      // Lit-up book: colour each arc by the section at its OTHER end, so you see where its links go.
-      const other = focused && prepared.bookOf[a] === focused ? b : a;
-      context.strokeStyle = colors[prepared.sectionOf[other]];
-      context.globalAlpha = Math.min(ceiling, perCount * (1 + Math.log2(count)));
-      context.stroke();
-    }
-    context.globalAlpha = 1;
-    // The chapter bar.
-    for (let i = 0; i < n; i++) {
-      context.fillStyle = colors[prepared.sectionOf[i]];
-      context.globalAlpha = focused && prepared.bookOf[i] !== focused ? 0.35 : 1;
-      context.fillRect((i / n) * width, base + 3, width / n + 0.4, 12);
-    }
-    context.globalAlpha = 1;
-  }, [data, prepared, width, height, focus, hover, themeVersion]);
+  useEffect(() => {
+    if (width < 8) return; // a disappearing panel can briefly report a zero-width content box
+    const frame = requestAnimationFrame(() => {
+      const element = canvas.current;
+      const context = element?.getContext("2d");
+      if (!element || !context) return;
+      const ratio = Math.min(window.devicePixelRatio || 1, 2);
+      let surface = cache.current.get(active);
+      if (!surface) {
+        surface = document.createElement("canvas");
+        surface.width = Math.round(width * ratio);
+        surface.height = Math.round(height * ratio);
+        const paint = surface.getContext("2d");
+        if (!paint) return;
+        paint.setTransform(ratio, 0, 0, ratio, 0, 0);
+        const colors = resolvedSectionColors();
+        const n = data.chapters.length;
+        const base = height - 22;
+        const x = (i: number) => ((i + .5) / n) * width;
+        const verticalScale = (height - 28) / (width / 2);
+        paint.lineWidth = active ? .8 : .55;
+        for (const [a, b, count] of active ? prepared.byBook.get(active) ?? [] : prepared.arcs) {
+          const x1 = x(a);
+          const radius = Math.abs(x(b) - x1) / 2;
+          if (radius === 0) continue;
+          paint.beginPath();
+          paint.ellipse(x1 + radius, base, radius, radius * verticalScale, 0, Math.PI, 0);
+          const other = active && prepared.bookOf[a] === active ? b : a;
+          paint.strokeStyle = colors[prepared.sections[other]];
+          paint.globalAlpha = Math.min(active ? .9 : .35, (active ? .12 : .018) * (1 + Math.log2(count)));
+          paint.stroke();
+        }
+        for (let i = 0; i < n; i++) {
+          paint.fillStyle = colors[prepared.sections[i]];
+          paint.globalAlpha = active && prepared.bookOf[i] !== active ? .25 : 1;
+          paint.fillRect((i / n) * width, base + 3, width / n + .4, 12);
+        }
+        // Keep the overview plus the three most recent book views (bounded memory).
+        if (cache.current.size >= 4) {
+          const oldest = [...cache.current.keys()].find((key) => key !== "");
+          if (oldest !== undefined) cache.current.delete(oldest);
+        }
+        cache.current.set(active, surface);
+      } else if (active) {
+        cache.current.delete(active);
+        cache.current.set(active, surface);
+      }
+      element.width = surface.width;
+      element.height = surface.height;
+      context.drawImage(surface, 0, 0);
+    });
+    return () => cancelAnimationFrame(frame);
+  }, [active, data, prepared, width, height, themeVersion]);
 
   const pickAt = (clientX: number) => {
     const rect = canvas.current?.getBoundingClientRect();
-    if (!rect) return null;
-    const index = Math.floor(((clientX - rect.left) / rect.width) * data.chapters.length);
-    return prepared.bookStarts.find((b) => index >= b.start && index <= b.end) ?? null;
+    if (!rect?.width) return "";
+    const index = Math.min(data.chapters.length - 1, Math.max(0, Math.floor(((clientX - rect.left) / rect.width) * data.chapters.length)));
+    return prepared.bookOf[index] ?? "";
   };
-
-  const focusedBook = prepared.bookStarts.find((b) => b.code === (focus || hover?.code));
-  const focusedCount = useMemo(() => {
-    if (!focusedBook) return 0;
-    return data.arcs.reduce((sum, [a, b, count]) => sum + (prepared.bookOf[a] === focusedBook.code || prepared.bookOf[b] === focusedBook.code ? count : 0), 0);
-  }, [focusedBook, data.arcs, prepared.bookOf]);
+  const book = prepared.books.find((b) => b.code === active);
 
   return (
     <div>
-      <div className="mb-3 flex flex-wrap items-center gap-3 text-sm">
-        <label className="flex items-center gap-2">
-          <span className="text-muted">Light up one book:</span>
-          <select value={focus} onChange={(e) => setFocus(e.target.value)} className="h-9 rounded-lg border border-line bg-surface px-2">
-            <option value="">All books</option>
-            {prepared.bookStarts.map((b) => (
-              <option key={b.code} value={b.code}>
-                {b.name}
-              </option>
-            ))}
-          </select>
-        </label>
-        <span className="text-muted" aria-live="polite">
-          {focusedBook
-            ? `${focusedBook.name}: ${formatNumber(focusedCount)} cross-references to or from other chapters`
-            : `${formatNumber(data.arcs.reduce((s, a) => s + a[2], 0))} cross-references between ${formatNumber(data.arcs.length)} pairs of chapters`}
-        </span>
+      <div className="chart-controls">
+        <label><span>Light up one book:</span><select value={focus} onChange={(event) => { setFocus(event.target.value); setHover(""); }}>
+          <option value="">All books</option>
+          {prepared.books.map((b) => <option key={b.code} value={b.code}>{b.name}</option>)}
+        </select></label>
+        {focus && <button type="button" className="chart-control-reset" onClick={() => { setFocus(""); setHover(""); }}><RotateCcw size={13} aria-hidden="true" /> Reset view</button>}
+        <span className="chart-hint">{focus ? "Book pinned. Reset to explore the whole Bible." : "Hover to explore · Click or tap to pin a book"}</span>
+      </div>
+      <div className="chart-live-detail" aria-live="polite">
+        <strong>{book?.name ?? "The whole Bible"}</strong>
+        <span>{formatNumber(book ? prepared.counts.get(book.code) ?? 0 : prepared.total)} cross-references between chapters</span>
       </div>
       <div ref={wrap} className="relative w-full">
-        <canvas
-          ref={canvas}
-          style={{ width, height }}
-          className="block cursor-crosshair"
-          role="img"
+        <canvas ref={canvas} style={{ width: width || "100%", height }} className="block cursor-crosshair" role="img"
           aria-label="Arc diagram: every cross-reference between two chapters of the Bible drawn as an arc above a bar of all chapters, coloured by section"
-          onMouseMove={(e) => setHover(pickAt(e.clientX))}
-          onMouseLeave={() => setHover(null)}
-          onClick={(e) => {
-            const book = pickAt(e.clientX);
-            setFocus((current) => (book && book.code !== current ? book.code : ""));
-          }}
-        />
+          onPointerMove={(event) => { if (event.pointerType !== "touch" && !focus) setHover(pickAt(event.clientX)); }}
+          onPointerLeave={() => setHover("")}
+          onClick={(event) => { const code = pickAt(event.clientX); setFocus((current) => code === current ? "" : code); setHover(""); }} />
       </div>
-      <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-xs text-muted">
-        {SECTIONS.filter((s) => s.id !== "apocrypha").map((s) => (
-          <span key={s.id} className="flex items-center gap-1.5">
-            <span className="h-2.5 w-2.5 rounded-full" style={{ background: `var(--${s.id})` }} /> {s.name}
-          </span>
-        ))}
-        <span>· Point at the bar to light up a book; click to keep it.</span>
+      <div className="arc-bookmark"><span>Genesis</span><span>Revelation</span></div>
+      <div className="chart-legend">
+        {SECTIONS.filter((s) => s.id !== "apocrypha").map((s) => <span key={s.id}><i style={{ background: "var(--" + s.id + ")" }} />{s.name}</span>)}
       </div>
     </div>
   );
