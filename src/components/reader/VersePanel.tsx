@@ -150,7 +150,7 @@ function EveryVersion({ bookCode, chapter, verse }: { bookCode: string; chapter:
     .map((t) => ({ t, code: t.books[bookCode] ? bookCode : twin && t.books[twin] ? twin : null }))
     .filter((v): v is { t: Translation; code: string } => v.code !== null);
   return (
-    <ul className="mb-5 space-y-2 border-s-2 border-accent/40 ps-3">
+    <ul className="mb-5 divide-y divide-line">
       {versions.map(({ t, code }) => (
         <VersionLine key={t.slug} translation={t} bookCode={code} chapter={chapter} verse={verse} />
       ))}
@@ -161,8 +161,8 @@ function EveryVersion({ bookCode, chapter, verse }: { bookCode: string; chapter:
 function VersionLine({ translation, bookCode, chapter, verse }: { translation: Translation; bookCode: string; chapter: number; verse: number }) {
   const { loading, text } = useVerseText(translation, bookCode, chapter, verse);
   return (
-    <li className="text-sm">
-      <span className="me-1.5 font-semibold" title={`${translation.name} (${translation.year})`}>
+    <li className="py-3 text-sm first:pt-0">
+      <span className="me-1.5 font-semibold text-accent" title={`${translation.name} (${translation.year})`}>
         {translation.abbr}
       </span>
       <span lang={translation.lang} dir={translation.dir} className={translation.lang === "he" ? "font-hebrew text-base" : "font-serif"}>
