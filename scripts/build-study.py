@@ -79,19 +79,25 @@ def write_json(path: Path, value) -> int:
     return 0
 
 
+SAFE_PERSON_ID = re.compile(r"^[a-z0-9][a-z0-9_-]*$")
+
+
 def people_files(people: list[dict]) -> tuple[list[dict], dict[str, dict]]:
-    """A light list for searching (~1.5 MB) + per-first-letter detail files loaded when a person is opened."""
+    """A slim list for the People index and search (name, other names, one line, mention count) + one small file per
+    person with everything else, loaded only when that person is opened."""
     rows, detail = [], {}
     for p in people:
+        if not SAFE_PERSON_ID.match(p["id"]):
+            raise SystemExit(f"people: id {p['id']!r} cannot be a file name")
         books = Counter(ref // 1_000_000 for ref in p["refs"])
-        rows.append({
-            "id": p["id"], "n": p["name"], "o": p["names"], "s": p["sex"][:1], "d": p["description"], "e": p["era"],
-            "t": p["tribe"], "b": p["brief"], "pa": p["parents"], "si": p["siblings"], "sp": p["partners"],
-            "ch": p["children"], "k": {str(num): count for num, count in sorted(books.items())},
-            "f": p["refs"][0] if p["refs"] else 0, "c": len(p["refs"]),
-        })
-        letter = (p["id"][:1] or "_").lower()
-        detail.setdefault(letter, {})[p["id"]] = {"short": p["short"], "article": p["article"], "refs": p["refs"]}
+        rows.append({"id": p["id"], "n": p["name"], "o": p["names"], "b": p["brief"] or p["description"],
+                     "c": len(p["refs"])})
+        detail[p["id"]] = {
+            "s": p["sex"][:1], "d": p["description"], "e": p["era"], "t": p["tribe"], "b": p["brief"],
+            "pa": p["parents"], "si": p["siblings"], "sp": p["partners"], "ch": p["children"],
+            "k": {str(num): count for num, count in sorted(books.items())}, "f": p["refs"][0] if p["refs"] else 0,
+            "short": p["short"], "article": p["article"], "refs": p["refs"],
+        }
     return rows, detail
 
 
@@ -126,8 +132,8 @@ def build(data_root: Path, out: Path) -> dict:
         "names.json": write_json(out / "names.json", names),
         "home.json": write_json(out / "home.json", home),
     }
-    for letter, records in detail.items():
-        sizes[f"people/{letter}.json"] = write_json(out / "people" / f"{letter}.json", records)
+    for person_id, record in detail.items():
+        sizes[f"people/{person_id}.json"] = write_json(out / "people" / f"{person_id}.json", record)
     stamp = hashlib.sha256(str(time.time()).encode()).hexdigest()[:10]
     report = {
         "harmony": describe(harmony),

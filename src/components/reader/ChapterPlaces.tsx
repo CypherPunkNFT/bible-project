@@ -1,12 +1,13 @@
 import { MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
-import { loadPlaces } from "@/lib/data";
+import { loadBookPlaces } from "@/lib/data";
 import { useAsync } from "@/lib/useAsync";
 
-/** Places named in this chapter (OpenBible.info geocoding), each a link to the atlas. */
-export function ChapterPlaces({ bookNum, chapter }: { bookNum: number; chapter: number }) {
-  const places = useAsync(loadPlaces, "places");
-  if (places.status !== "ready" || bookNum > 66 || !Number.isFinite(chapter)) return null;
+/** Places named in this chapter (OpenBible.info geocoding), each a link to the atlas. Loads only this book's list. */
+export function ChapterPlaces({ bookCode, bookNum, chapter }: { bookCode: string; bookNum: number; chapter: number }) {
+  const inCanon = bookNum <= 66;
+  const places = useAsync(() => (inCanon ? loadBookPlaces(bookCode) : Promise.resolve([])), `places:${bookCode}`);
+  if (places.status !== "ready" || !inCanon || !Number.isFinite(chapter)) return null;
   const low = bookNum * 1_000_000 + chapter * 1000;
   const found = places.value
     .map((place) => ({ place, count: place.verses.filter((id) => id > low && id < low + 1000).length }))

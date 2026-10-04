@@ -9,7 +9,10 @@ export function useChapterCrossRefs(translation: Translation, bookCode: string, 
   const catalog = useCatalog();
   const inCanon = (catalog.books.find((b) => b.code === bookCode)?.num ?? 99) <= 66;
   const usable = inCanon && translation.numbering === "english";
-  const refs = useAsync<CrossRefBook>(() => (usable ? loadCrossRefs(bookCode) : Promise.resolve({})), `xref:${bookCode}:${usable}`);
+  const refs = useAsync<CrossRefBook>(
+    () => (usable ? loadCrossRefs(bookCode, chapter).catch(() => ({})) : Promise.resolve({})),
+    `xref:${bookCode}:${chapter}:${usable}`,
+  );
   return useMemo(() => {
     if (refs.status !== "ready") return { usable, verses: [] as [number, number][], total: 0 };
     const prefix = `${chapter}:`;

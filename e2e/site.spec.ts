@@ -54,10 +54,30 @@ test("switching to a version without the book offers the versions that have it",
 });
 
 test("a missing data file is a real 404, never the app page", async ({ request }) => {
-  const response = await request.get("/data/text/kjv/NOPE.json");
+  const response = await request.get("/data/text/kjv/PSA/151.json");
   expect(response.status()).toBe(404);
   const traversal = await request.get("/data/..%2F..%2Fpackage.json");
   expect(traversal.status()).toBe(404);
+});
+
+test("a chapter downloads only small, compressed pieces: its own text, cross-references and places", async ({ page }) => {
+  const data: { url: string; bytes: number; encoding: string }[] = [];
+  page.on("requestfinished", async (request) => {
+    if (!request.url().includes("/data/")) return;
+    const sizes = await request.sizes();
+    data.push({ url: request.url(), bytes: sizes.responseBodySize, encoding: (await request.response())?.headers()["content-encoding"] ?? "" });
+  });
+  await page.goto("/read/kjv/PSA/119");
+  await settle(page);
+  await expect(page.locator(".scripture")).toContainText("Blessed are the undefiled");
+  const paths = data.map((d) => new URL(d.url).pathname);
+  expect(paths).toContain("/data/text/kjv/PSA/119.json");
+  expect(paths.some((p) => /\/data\/(text\/kjv\/PSA|xref\/PSA)\.json$/.test(p))).toBe(false); // never a whole book
+  expect(paths).not.toContain("/data/places.json"); // the reader uses its book's list, not every place
+  const big = data.filter((d) => d.bytes > 2048);
+  expect(big.length).toBeGreaterThan(0);
+  expect(big.every((d) => d.encoding === "gzip")).toBe(true);
+  expect(data.reduce((sum, d) => sum + d.bytes, 0)).toBeLessThan(100_000); // was 1.6 MB before chapter files
 });
 
 test("arrow keys move between chapters", async ({ page }) => {

@@ -86,6 +86,13 @@ export interface ArcData {
   arcs: [number, number, number][];
 }
 
+/** places-by-book/<BOOK>.json: a place named in the book, with only that book's verse ids. */
+export interface BookPlace {
+  id: string;
+  name: string;
+  verses: number[];
+}
+
 export interface Place {
   id: string;
   name: string;

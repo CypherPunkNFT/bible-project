@@ -1,4 +1,4 @@
-import type { ArcData, BookText, Catalog, CrossRefBook, PlainBook, Place, Stats } from "./types";
+import type { ArcData, BookPlace, Catalog, Chapter, CrossRefBook, PlainBook, Place, Stats } from "./types";
 
 /** A data file that is missing or malformed. The reader turns this into "not in this version". */
 export class DataUnavailable extends Error {
@@ -51,12 +51,23 @@ const isObject = (value: unknown): value is Record<string, unknown> =>
 export const loadCatalog = () =>
   load<Catalog>("catalog.json", (v) => isObject(v) && Array.isArray(v.translations) && Array.isArray(v.books));
 
-export const loadBook = (slug: string, code: string) =>
-  load<BookText>(`text/${slug}/${code}.json`, (v) => isObject(v) && Array.isArray(v.chapters));
+// The reader's pieces are one small file per chapter (data layout 2, scripts/build-data.py), so a page downloads only
+// the chapter it shows.
 
+export const loadChapter = (slug: string, code: string, chapter: string) =>
+  load<Chapter>(`text/${slug}/${code}/${chapter}.json`, (v) => isObject(v) && Array.isArray(v.v));
+
+/** One chapter's verses as plain words ("chapter:verse" -> text), for previews and single-verse lookups. */
+export const loadChapterPlain = (slug: string, code: string, chapter: string) =>
+  load<PlainBook>(`plain/${slug}/${code}/${chapter}.json`, isObject);
+
+/** A whole book's plain words: only for search, which has to read a whole version. */
 export const loadPlain = (slug: string, code: string) => load<PlainBook>(`plain/${slug}/${code}.json`, isObject);
 
-export const loadCrossRefs = (code: string) => load<CrossRefBook>(`xref/${code}.json`, isObject);
+export const loadCrossRefs = (code: string, chapter: string) => load<CrossRefBook>(`xref/${code}/${chapter}.json`, isObject);
+
+/** The places named in one book, with that book's verse ids only (the reader's "places in this chapter"). */
+export const loadBookPlaces = (code: string) => load<BookPlace[]>(`places-by-book/${code}.json`, Array.isArray);
 
 export const loadStats = () => load<Stats>("stats.json", (v) => isObject(v) && Array.isArray(v.books));
 

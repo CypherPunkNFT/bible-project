@@ -3,11 +3,12 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { SectionDot } from "@/components/SectionStrip";
 import { useCatalog } from "@/lib/catalog";
-import { loadCrossRefs, loadPlain } from "@/lib/data";
+import { loadCrossRefs } from "@/lib/data";
 import { NUMBERING_LABEL } from "@/lib/numbering";
-import { bookByNum, formatRange, plainLookup, sectionOfNum, splitId } from "@/lib/refs";
+import { bookByNum, formatRange, sectionOfNum, splitId } from "@/lib/refs";
 import type { CrossRefBook, Translation } from "@/lib/types";
 import { useAsync } from "@/lib/useAsync";
+import { useVerseText } from "@/lib/useVerseText";
 import { formatNumber } from "@/lib/utils";
 
 interface Props {
@@ -32,7 +33,10 @@ export function VersePanel({ translation, bookCode, chapter, label, onClose }: P
   // The open cross-references are numbered the KJV way; in other numbering systems a lookup by this
   // version's chapter:verse would show some other verse's links.
   const kjvNumbering = translation.numbering === "english";
-  const refs = useAsync<CrossRefBook>(() => (inCanon && kjvNumbering ? loadCrossRefs(bookCode) : Promise.resolve({})), `xref:${bookCode}:${kjvNumbering}`);
+  const refs = useAsync<CrossRefBook>(
+    () => (inCanon && kjvNumbering ? loadCrossRefs(bookCode, chapter).catch(() => ({})) : Promise.resolve({})),
+    `xref:${bookCode}:${chapter}:${kjvNumbering}`,
+  );
   const list = useMemo(() => {
     if (refs.status !== "ready") return [];
     const all: [number, number, number][] = [];
@@ -116,9 +120,9 @@ function CrossRef({ start, end, votes, translation }: { start: number; end: numb
   const { num, chapter, verse } = splitId(start);
   const book = bookByNum(catalog, num);
   const code = book?.code ?? "GEN";
-  const slug = translation.books[code] ? translation.slug : "kjv";
-  const plain = useAsync(() => loadPlain(slug, code), `plain:${slug}:${code}`);
-  const text = plain.status === "ready" ? plainLookup(plain.value, chapter, verse) : undefined;
+  const version = translation.books[code] ? translation : catalog.translations.find((t) => t.slug === "kjv");
+  const slug = version?.slug ?? "kjv";
+  const { loading, text } = useVerseText(version, code, chapter, verse);
   return (
     <li>
       <Link
@@ -133,7 +137,7 @@ function CrossRef({ start, end, votes, translation }: { start: number; end: numb
           </span>
         </span>
         <span className="mt-1 line-clamp-3 block font-serif text-[0.92rem] leading-snug text-ink/85" lang={slug === translation.slug ? translation.lang : "en"} dir={slug === translation.slug ? translation.dir : "ltr"}>
-          {plain.status === "loading" ? "…" : text ?? "(not in this version)"}
+          {loading ? "…" : text ?? "(not in this version)"}
           {slug !== translation.slug && <span className="ms-1 font-sans text-[10px] text-muted">KJV</span>}
         </span>
       </Link>
@@ -158,15 +162,14 @@ function EveryVersion({ bookCode, chapter, verse }: { bookCode: string; chapter:
 }
 
 function VersionLine({ translation, bookCode, chapter, verse }: { translation: Translation; bookCode: string; chapter: number; verse: number }) {
-  const plain = useAsync(() => loadPlain(translation.slug, bookCode), `plain:${translation.slug}:${bookCode}`);
-  const text = plain.status === "ready" ? plainLookup(plain.value, chapter, verse) : undefined;
+  const { loading, text } = useVerseText(translation, bookCode, chapter, verse);
   return (
     <li className="text-sm">
       <span className="me-1.5 font-semibold" title={`${translation.name} (${translation.year})`}>
         {translation.abbr}
       </span>
       <span lang={translation.lang} dir={translation.dir} className={translation.lang === "he" ? "font-hebrew text-base" : "font-serif"}>
-        {plain.status === "loading" ? "…" : text ?? "—"}
+        {loading ? "…" : text ?? "—"}
       </span>
       {translation.numbering !== "english" && (
         <span className="ms-1.5 text-[10px] text-muted" title="This version numbers verses differently, so this may be a neighbouring verse">

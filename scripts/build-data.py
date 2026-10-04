@@ -32,6 +32,10 @@ SITE = Path(__file__).resolve().parents[1]
 OUT_FINAL = SITE / "data"
 OUT = SITE / "data.new"
 SECTIONS = ["history", "poetry", "prophets", "gospels", "epistles", "revelation", "apocrypha"]
+# The data layout. 2 (2026-10-03): the reader's text, plain text and cross-references are one small file per chapter
+# (text/<v>/<BOOK>/<ch>.json, plain/<v>/<BOOK>/<ch>.json, xref/<BOOK>/<ch>.json), so a page downloads only the chapter
+# it shows; plain/<v>/<BOOK>.json stays whole for search. --only refuses to mix layouts.
+DATA_FORMAT = 2
 
 
 def write_json(path: Path, value) -> None:
@@ -75,9 +79,13 @@ def build_translation(meta: dict, recorded: dict[str, str], warnings: list[str])
             raise SystemExit(f"{path}: unknown book code {code!r}; add it to scripts/bible/books.py or SKIPPED_CODES")
         book = parse_book(path.read_text(encoding="utf-8"), f"{meta['id']}/{path.name}", meta["strongs"], warnings,
                           plain_italic=meta["id"] in PLAIN_ITALIC)
-        write_json(OUT / "text" / slug / f"{code}.json", book)
-        plain = {f"{ch['c']}:{v['n']}": plain_text(v["r"]) for ch in book["chapters"] for v in ch["v"]}
-        write_json(OUT / "plain" / slug / f"{code}.json", plain)
+        plain: dict[str, str] = {}
+        for chapter in book["chapters"]:
+            chapter_plain = {f"{chapter['c']}:{v['n']}": plain_text(v["r"]) for v in chapter["v"]}
+            write_json(OUT / "text" / slug / code / f"{chapter['c']}.json", chapter)
+            write_json(OUT / "plain" / slug / code / f"{chapter['c']}.json", chapter_plain)
+            plain |= chapter_plain
+        write_json(OUT / "plain" / slug / f"{code}.json", plain)  # the whole book, for search
         books[code] = {"chapters": [ch["c"] for ch in book["chapters"]],
                        "verses": sum(len(ch["v"]) for ch in book["chapters"]), "_book": book}
     return {**meta, "slug": slug, "books": books}
@@ -143,16 +151,35 @@ def build_cross_references(chapter_order: list[tuple[str, str]]) -> dict:
             arcs[(min(a, b), max(a, b))] += 1
     (OUT / "connections").mkdir(parents=True, exist_ok=True)
     (OUT / "connections" / "edges.tsv").write_text("\n".join(lines) + "\n", encoding="utf-8")
-    for book, verses in per_book.items():
-        write_json(OUT / "xref" / f"{book}.json", {k: sorted(v, key=lambda r: -r[2]) for k, v in verses.items()})
+    # One file per KJV chapter, written even when empty, so the reader never asks for a file that is not there.
+    for book, chapter in chapter_order:
+        verses = per_book.get(book, {})
+        prefix = f"{chapter}:"
+        write_json(OUT / "xref" / book / f"{chapter}.json",
+                   {k: sorted(v, key=lambda r: -r[2]) for k, v in verses.items() if k.startswith(prefix)})
     write_json(OUT / "xref-books.json", [[a, b, n] for (a, b), n in sorted(book_pairs.items())])
     write_json(OUT / "xref-arcs.json", {"chapters": [f"{code} {c}" for code, c in chapter_order],
                                          "arcs": [[a, b, n] for (a, b), n in sorted(arcs.items())]})
     return {"edges": len(edges), "bookPairs": len(book_pairs), "arcs": len(arcs)}
 
 
+def write_places_by_book(places: list[dict]) -> None:
+    """places-by-book/<BOOK>.json: each place named in the book, with only that book's verse ids (one per canon book)."""
+    by_book: dict[str, list[dict]] = {code: [] for code, num in BOOK_NUMBER.items() if num <= 66}
+    code_of = {number: code for code, number in BOOK_NUMBER.items()}
+    for place in places:
+        grouped: dict[str, list[int]] = defaultdict(list)
+        for verse in place["verses"]:
+            grouped[code_of[verse // 1_000_000]].append(verse)
+        for code, verses in grouped.items():
+            by_book.setdefault(code, []).append({"id": place["id"], "name": place["name"], "verses": verses})
+    for code, rows in by_book.items():
+        write_json(OUT / "places-by-book" / f"{code}.json", rows)
+
+
 def catalog(entries: list[dict], stamp: str) -> dict:
     return {
+        "format": DATA_FORMAT,
         "stamp": stamp,
         "sections": SECTIONS,
         "books": [{"code": c, "num": BOOK_NUMBER[c], "name": n, "section": s} for c, n, s, _o in BOOKS],
@@ -185,7 +212,8 @@ def main() -> None:
     print("cross-references:", build_cross_references(chapter_order))
     check_source("openbible-geo", SOURCES / "openbible-geo" / "Bible-Geocoding-Data.zip", recorded)
     places = read_places(SOURCES / "openbible-geo" / "Bible-Geocoding-Data-main" / "data" / "ancient.jsonl")
-    write_json(OUT / "places.json", places)
+    write_json(OUT / "places.json", places)  # the Atlas
+    write_places_by_book(places)  # the reader's "places in this chapter"
     print(f"places: {len(places)}")
     stamp = hashlib.sha256(str(time.time()).encode()).hexdigest()[:10]
     result = catalog(entries, stamp)
@@ -226,7 +254,11 @@ def carry_over_other_versions(built: list[dict]) -> list[dict]:
     live = OUT_FINAL / "catalog.json"
     if not live.exists():
         return built
-    previous = json.loads(live.read_text(encoding="utf-8"))["translations"]
+    live_catalog = json.loads(live.read_text(encoding="utf-8"))
+    if live_catalog.get("format") != DATA_FORMAT:
+        raise SystemExit(f"--only: the live data is in layout {live_catalog.get('format', 1)}, this build writes layout "
+                         f"{DATA_FORMAT}; run one full build (without --only) first so the versions are not mixed")
+    previous = live_catalog["translations"]
     built_slugs = {t["slug"] for t in built}
     for entry in previous:
         if entry["slug"] in built_slugs:
@@ -243,10 +275,25 @@ def swap_into_place() -> None:
     if old.exists():
         shutil.rmtree(old)
     if OUT_FINAL.exists():
-        OUT_FINAL.rename(old)
-    OUT.rename(OUT_FINAL)
+        rename_retrying(OUT_FINAL, old)
+    rename_retrying(OUT, OUT_FINAL)
     if old.exists():
-        shutil.rmtree(old, ignore_errors=False)
+        try:
+            shutil.rmtree(old)
+        except OSError as error:  # the new data is live; a leftover old copy is only untidy
+            print(f"warning: could not remove {old} ({error}); delete it by hand", file=sys.stderr)
+
+
+def rename_retrying(source: Path, target: Path) -> None:
+    """The always-on server may hold a file open for a moment (Windows then refuses to rename the folder)."""
+    for attempt in range(10):
+        try:
+            source.rename(target)
+            return
+        except PermissionError:
+            if attempt == 9:
+                raise SystemExit(f"could not rename {source} to {target}: still in use after 10 tries")
+            time.sleep(0.5)
 
 
 if __name__ == "__main__":

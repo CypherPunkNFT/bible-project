@@ -4,7 +4,7 @@ import { RefLink, StudyCredits, StudyHeader, StudySearch } from "@/components/st
 import { useCatalog } from "@/lib/catalog";
 import { bookByNum, formatRange } from "@/lib/refs";
 import { sectionColor } from "@/lib/sections";
-import { loadPeople, loadPersonDetail, type PersonRow } from "@/lib/study";
+import { loadPeople, loadPersonDetail, type Person, type PersonRow } from "@/lib/study";
 import { useAsync } from "@/lib/useAsync";
 import { cn, formatNumber } from "@/lib/utils";
 
@@ -63,7 +63,7 @@ export default function PeoplePage() {
                   <Link to={`/study/people/${p.id}`} aria-current={p.id === id ? "page" : undefined} className={cn("block px-3 py-2 hover:bg-surface-2", p.id === id && "bg-accent/15")}>
                     <span className="font-semibold">{p.n}</span>
                     {(sameName.get(p.n) ?? 1) > 1 && <span className="ms-1.5 text-xs text-muted">one of {sameName.get(p.n)}</span>}
-                    <span className="block truncate text-sm text-muted">{p.b || p.d}</span>
+                    <span className="block truncate text-sm text-muted">{p.b}</span>
                   </Link>
                 </li>
               ))}
@@ -120,18 +120,39 @@ function MostNamed({ people }: { people: PersonRow[] }) {
   );
 }
 
-function PersonCard({ person, byId, sameName, onBack }: { person: PersonRow; byId: Map<string, PersonRow>; sameName: number; onBack: () => void }) {
-  const catalog = useCatalog();
-  const detail = useAsync(() => loadPersonDetail(person.id), `person:${person.id}`);
-  const [refsShown, setRefsShown] = useState(40);
-  const [full, setFull] = useState(false);
-  const facts = [SEX[person.s], person.e && `lived in the time of ${person.e === "Judges" ? "the Judges" : person.e}`, person.t].filter(Boolean).join(" · ");
-
+function PersonCard({ person: row, byId, sameName, onBack }: { person: PersonRow; byId: Map<string, PersonRow>; sameName: number; onBack: () => void }) {
+  const detail = useAsync(() => loadPersonDetail(row.id), `person:${row.id}`);
   return (
     <article aria-labelledby="person-name" className="rounded-2xl border border-line bg-surface p-4 sm:p-6">
       <button type="button" onClick={onBack} className="mb-3 text-sm text-muted hover:text-accent lg:hidden">
         ← All people
       </button>
+      {detail.status === "ready" ? (
+        <PersonBody person={{ ...row, ...detail.value }} byId={byId} sameName={sameName} />
+      ) : (
+        <>
+          <h2 id="person-name" className="font-serif text-3xl font-semibold">
+            {row.n}
+          </h2>
+          {detail.status === "loading" ? (
+            <div className="mt-3 h-40 animate-pulse rounded-xl bg-surface-2" />
+          ) : (
+            <p className="mt-3 text-muted">This person's details could not be loaded.</p>
+          )}
+        </>
+      )}
+    </article>
+  );
+}
+
+function PersonBody({ person, byId, sameName }: { person: Person; byId: Map<string, PersonRow>; sameName: number }) {
+  const catalog = useCatalog();
+  const [refsShown, setRefsShown] = useState(40);
+  const [full, setFull] = useState(false);
+  const facts = [SEX[person.s], person.e && `lived in the time of ${person.e === "Judges" ? "the Judges" : person.e}`, person.t].filter(Boolean).join(" · ");
+
+  return (
+    <>
       <h2 id="person-name" className="font-serif text-3xl font-semibold">
         {person.n}
       </h2>
@@ -145,37 +166,33 @@ function PersonCard({ person, byId, sameName, onBack }: { person: PersonRow; byI
       <FamilyTree person={person} byId={byId} />
       <MentionsByBook person={person} />
 
-      {detail.status === "ready" && detail.value && (
-        <>
-          {(detail.value.short || detail.value.article) && (
+      {(person.short || person.article) && (
             <div className="mt-5 space-y-2 text-[0.95rem] leading-relaxed">
-              {(full ? detail.value.article || detail.value.short : detail.value.short || detail.value.article)
+              {(full ? person.article || person.short : person.short || person.article)
                 .split("\n")
                 .filter(Boolean)
                 .map((para, i) => (
                   <p key={i}>{para}</p>
                 ))}
-              {detail.value.article && detail.value.short && (
+              {person.article && person.short && (
                 <button type="button" onClick={() => setFull(!full)} className="text-sm text-accent underline">
                   {full ? "Shorter" : "Read more"}
                 </button>
               )}
             </div>
           )}
-          <h3 className="mb-1.5 mt-6 text-xs font-semibold uppercase tracking-[0.16em] text-muted">Every verse that names {person.n} · {detail.value.refs.length}</h3>
+          <h3 className="mb-1.5 mt-6 text-xs font-semibold uppercase tracking-[0.16em] text-muted">Every verse that names {person.n} · {person.refs.length}</h3>
           <p className="flex flex-wrap gap-x-3 gap-y-1 text-sm">
-            {detail.value.refs.slice(0, refsShown).map((ref) => (
+            {person.refs.slice(0, refsShown).map((ref) => (
               <RefLink key={ref} span={[ref, ref]} label={formatRange(catalog, ref, ref)} />
             ))}
           </p>
-          {detail.value.refs.length > refsShown && (
+          {person.refs.length > refsShown && (
             <button type="button" onClick={() => setRefsShown((n) => n + 200)} className="mt-2 text-sm text-accent underline">
-              Show more ({detail.value.refs.length - refsShown} left)
+              Show more ({person.refs.length - refsShown} left)
             </button>
           )}
-        </>
-      )}
-    </article>
+    </>
   );
 }
 
@@ -190,7 +207,7 @@ function PersonLink({ id, byId }: { id: string; byId: Map<string, PersonRow> }) 
 }
 
 /** Parents above; the person with brothers, sisters and spouses; children below. */
-function FamilyTree({ person, byId }: { person: PersonRow; byId: Map<string, PersonRow> }) {
+function FamilyTree({ person, byId }: { person: Person; byId: Map<string, PersonRow> }) {
   if (!person.pa.length && !person.si.length && !person.sp.length && !person.ch.length) return null;
   const Row = ({ label, ids }: { label: string; ids: string[] }) =>
     ids.length ? (
@@ -221,7 +238,7 @@ function FamilyTree({ person, byId }: { person: PersonRow; byId: Map<string, Per
 }
 
 /** One bar per book of the Bible, Genesis to Revelation: where this person is named. */
-function MentionsByBook({ person }: { person: PersonRow }) {
+function MentionsByBook({ person }: { person: Person }) {
   const catalog = useCatalog();
   const [hover, setHover] = useState("");
   const counts = Object.entries(person.k).map(([num, n]) => [Number(num), n] as const);

@@ -13,12 +13,12 @@ import { ChapterCrossRefs } from "@/components/reader/ChapterCrossRefs";
 import { useChapterCrossRefs } from "@/components/reader/useChapterCrossRefs";
 import { useMediaQuery } from "@/lib/useMediaQuery";
 import { useCatalog } from "@/lib/catalog";
-import { loadBook } from "@/lib/data";
+import { loadChapter } from "@/lib/data";
 import { rememberRead, lastReadPath } from "@/lib/last-read";
 import { useProgress } from "@/lib/progress";
 import { bookByCode, parseHighlight } from "@/lib/refs";
 import { SECTION_BY_ID, sectionColor } from "@/lib/sections";
-import type { BookText, Catalog, Translation } from "@/lib/types";
+import type { Catalog, Translation } from "@/lib/types";
 import { useAsync } from "@/lib/useAsync";
 import { cn, formatNumber, isTyping } from "@/lib/utils";
 
@@ -64,9 +64,16 @@ function ReaderBody({ translation, code, chapter }: { translation: Translation; 
     [search, catalog, translation.slug],
   );
   const slugs = [translation, ...parallel].map((t) => t.slug);
+  // Only the chapter shown, per column. A column whose version lacks this chapter (or whose file fails) is empty on
+  // its own; it never blanks the other columns.
   const texts = useAsync(
-    () => Promise.all([translation, ...parallel].map((t) => (t.books[code] ? loadBook(t.slug, code) : Promise.resolve(null)))),
-    `${slugs.join(",")}:${code}`,
+    () =>
+      Promise.all(
+        [translation, ...parallel].map((t) =>
+          t.books[code]?.includes(chapter) ? loadChapter(t.slug, code, chapter).catch(() => null) : Promise.resolve(null),
+        ),
+      ),
+    `${slugs.join(",")}:${code}:${chapter}`,
   );
   const { prev, next } = neighbours(catalog, translation, code, chapter);
   const query = parallel.length ? `?with=${parallel.map((p) => p.slug).join(",")}` : "";
@@ -124,7 +131,7 @@ function ReaderBody({ translation, code, chapter }: { translation: Translation; 
     if (selected) document.getElementById(`v${selected}`)?.focus();
   }, [search, setSearch, selected]);
 
-  const chapters = texts.status === "ready" ? texts.value.map((b: BookText | null) => b?.chapters.find((c) => c.c === chapter) ?? null) : [];
+  const chapters = texts.status === "ready" ? texts.value : [];
   const columns: Column[] = [translation, ...parallel].map((t, i) => ({ translation: t, chapter: chapters[i] ?? null }));
   const options = { redLetters: settings.redLetters, footnotes: settings.footnotes, versePerLine: settings.versePerLine };
 
@@ -203,7 +210,7 @@ function ReaderBody({ translation, code, chapter }: { translation: Translation; 
             )}
           </nav>
           <div style={{ fontSize: "1rem" }}>
-            {translation.numbering === "english" && <ChapterPlaces bookNum={book.num} chapter={Number(chapter)} />}
+            {translation.numbering === "english" && <ChapterPlaces bookCode={code} bookNum={book.num} chapter={Number(chapter)} />}
           </div>
         </article>
         {selected ? (

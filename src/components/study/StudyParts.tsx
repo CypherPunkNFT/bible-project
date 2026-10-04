@@ -2,7 +2,7 @@ import { ArrowLeft, Search } from "lucide-react";
 import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { useCatalog } from "@/lib/catalog";
-import { loadPlain } from "@/lib/data";
+import { loadChapterPlain } from "@/lib/data";
 import { bookByNum, formatRange, plainLookup, splitId } from "@/lib/refs";
 import { studyRefLink, type Span } from "@/lib/study";
 import { useAsync } from "@/lib/useAsync";
@@ -57,18 +57,20 @@ export function RefLink({ span, label, className }: { span: Span; label?: string
   );
 }
 
-/** The KJV words of a passage, verse by verse (capped), for opened rows. */
-export function PassageText({ span, max = 40 }: { span: Span; max?: number }) {
-  const catalog = useCatalog();
+interface Passage {
+  lines: { label: string; text: string }[];
+  truncated: boolean;
+}
+
+/** A passage's KJV verses, one chapter file at a time, stopping as soon as `max` verses are collected. */
+async function loadPassage(chapters: string[], code: string, span: Span, max: number): Promise<Passage> {
   const a = splitId(span[0]);
   const b = splitId(span[1]);
-  const code = bookByNum(catalog, a.num)?.code ?? "GEN";
-  const plain = useAsync(() => loadPlain("kjv", code), `plain:kjv:${code}`);
-  if (plain.status === "loading") return <p className="animate-pulse text-sm text-muted">Loading…</p>;
-  if (plain.status === "error") return <p className="text-sm text-muted">The text could not be loaded.</p>;
-  const lines: { label: string; text: string }[] = [];
+  const lines: Passage["lines"] = [];
   let truncated = false;
   for (let chapter = a.chapter; chapter <= b.chapter && !truncated; chapter++) {
+    if (!chapters.includes(String(chapter))) break;
+    const plain = await loadChapterPlain("kjv", code, String(chapter));
     const from = chapter === a.chapter ? a.verse : 1;
     const to = chapter === b.chapter ? b.verse : 200;
     for (let verse = from; verse <= to; verse++) {
@@ -76,7 +78,7 @@ export function PassageText({ span, max = 40 }: { span: Span; max?: number }) {
         truncated = true;
         break;
       }
-      const text = plainLookup(plain.value, chapter, verse);
+      const text = plainLookup(plain, chapter, verse);
       if (text === undefined) {
         if (chapter !== b.chapter) break;
         continue;
@@ -84,6 +86,18 @@ export function PassageText({ span, max = 40 }: { span: Span; max?: number }) {
       lines.push({ label: chapter === a.chapter && a.chapter === b.chapter ? String(verse) : `${chapter}:${verse}`, text: text.replace(/^¶\s*/, "") });
     }
   }
+  return { lines, truncated };
+}
+
+/** The KJV words of a passage, verse by verse (capped), for opened rows. */
+export function PassageText({ span, max = 40 }: { span: Span; max?: number }) {
+  const catalog = useCatalog();
+  const code = bookByNum(catalog, splitId(span[0]).num)?.code ?? "GEN";
+  const chapters = catalog.translations.find((t) => t.slug === "kjv")?.books[code] ?? [];
+  const passage = useAsync(() => loadPassage(chapters, code, span, max), `passage:kjv:${span[0]}:${span[1]}:${max}`);
+  if (passage.status === "loading") return <p className="animate-pulse text-sm text-muted">Loading…</p>;
+  if (passage.status === "error") return <p className="text-sm text-muted">The text could not be loaded.</p>;
+  const { lines, truncated } = passage.value;
   return (
     <div className="font-serif text-[0.95rem] leading-relaxed">
       {lines.map((line) => (

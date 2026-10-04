@@ -28,11 +28,17 @@ export interface Letter {
   verses: number;
   sections: { title: string; start: number; end: number; verses: number }[];
 }
-/** Compact people list row (scripts/build-study.py people_files). */
+/** One row of the slim People list (scripts/build-study.py people_files): enough to search and list. */
 export interface PersonRow {
   id: string;
   n: string;
   o: string[];
+  /** one line: the brief, else the description */
+  b: string;
+  c: number;
+}
+/** Everything else about one person, in its own small file, loaded when the person is opened. */
+export interface PersonDetail {
   s: "M" | "F" | "G" | "";
   d: string;
   e: string;
@@ -45,13 +51,11 @@ export interface PersonRow {
   /** book number -> verses naming them */
   k: Record<string, number>;
   f: number;
-  c: number;
-}
-export interface PersonDetail {
   short: string;
   article: string;
   refs: number[];
 }
+export type Person = Omit<PersonRow, "b"> & PersonDetail;
 export interface Prophet {
   id: string;
   name: string;
@@ -109,8 +113,7 @@ export const loadHarmony = () => loadStudy<Harmony>("harmony.json");
 export const loadMiracles = () => loadStudy<Miracles>("miracles.json");
 export const loadLetters = () => loadStudy<Letter[]>("letters.json");
 export const loadPeople = () => loadStudy<PersonRow[]>("people.json");
-export const loadPersonDetail = (id: string) =>
-  loadStudy<Record<string, PersonDetail>>(`people/${(id[0] ?? "_").toLowerCase()}.json`).then((all) => all[id] ?? null);
+export const loadPersonDetail = (id: string) => loadStudy<PersonDetail>(`people/${id}.json`);
 export const loadProphets = () => loadStudy<Prophet[]>("prophets.json");
 export const loadNames = () => loadStudy<NamesOfGod>("names.json");
 

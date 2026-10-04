@@ -3,10 +3,9 @@ import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { Link } from "react-router-dom";
 import { useCatalog } from "@/lib/catalog";
-import { loadPlain } from "@/lib/data";
-import { bookByNum, formatRange, plainLookup, splitId } from "@/lib/refs";
+import { bookByNum, formatRange, splitId } from "@/lib/refs";
 import { sectionColor } from "@/lib/sections";
-import { useAsync } from "@/lib/useAsync";
+import { useVerseText } from "@/lib/useVerseText";
 import type { MapPlace } from "./projection";
 
 /** One place: where it is named, as a reference list by book, then the verses themselves. */
@@ -96,13 +95,13 @@ function PlaceVerse({ id }: { id: number }) {
   const { num, chapter, verse } = splitId(id);
   const book = bookByNum(catalog, num);
   const code = book?.code ?? "GEN";
-  const plain = useAsync(() => loadPlain("kjv", code), `plain:kjv:${code}`);
+  const { loading, text } = useVerseText(catalog.translations.find((t) => t.slug === "kjv"), code, chapter, verse);
   return (
     <li>
       <Link to={`/read/kjv/${code}/${chapter}?v=${verse}`} className="block rounded-lg p-2 hover:bg-surface-2">
         <span className="text-sm font-semibold">{formatRange(catalog, id, id)}</span>
         <span className="mt-0.5 line-clamp-2 block font-serif text-sm text-ink/85">
-          {plain.status === "ready" ? plainLookup(plain.value, chapter, verse) ?? "" : "…"}
+          {loading ? "…" : text ?? ""}
         </span>
       </Link>
     </li>
