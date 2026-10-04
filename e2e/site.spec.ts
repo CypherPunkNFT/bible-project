@@ -261,6 +261,20 @@ test("library: the versions list shows seven at a time and scrolls the rest", as
   expect(box.rows).toBe(37); // 24 + Spanish, Arabic, Chinese ×2, French, German + Hindi, Portuguese, Russian, Japanese, Vietnamese, Persian, Italian
   expect(box.visible).toBe(7);
   expect(box.scrolls).toBe(true);
+  const frame = page.locator(".versions-list-frame");
+  const initial = await frame.boundingBox();
+  for (const name of ["English", "Original and ancient languages", "Translations"]) {
+    const group = scroller.getByRole("region", { name, exact: true });
+    await group.evaluate(el => {
+      const scroll = el.closest(".versions-list-scroll")!;
+      scroll.scrollTop += el.getBoundingClientRect().top - scroll.getBoundingClientRect().top + 50;
+    });
+    const heading = group.locator("h3");
+    const headingTop = await heading.evaluate(el => el.getBoundingClientRect().top);
+    const scrollTop = await scroller.evaluate(el => el.getBoundingClientRect().top);
+    expect(Math.abs(headingTop - scrollTop)).toBeLessThanOrEqual(1);
+    expect(await frame.boundingBox()).toEqual(initial);
+  }
 });
 
 test("home is the landing page; the menu combines Library and Read under Bible", async ({ page }) => {

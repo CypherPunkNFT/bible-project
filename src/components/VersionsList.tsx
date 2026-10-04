@@ -23,8 +23,8 @@ function testaments(catalog: Catalog, t: Translation): string {
 
 /**
  * Every version in a list seven rows tall: English by name, then the original and ancient languages, then
- * translations into other languages (each language a sub-heading). Filter buttons above; the scrollbar sits just
- * outside the list's right edge.
+ * translations into other languages (each language a sub-heading). The frame stays fixed while its contents
+ * scroll, with the current group heading pinned inside the frame.
  */
 export function VersionsList() {
   const catalog = useCatalog();
@@ -62,8 +62,8 @@ export function VersionsList() {
           );
         })}
       </div>
-      <div className="slim-scroll -me-3 overflow-y-auto overscroll-contain pe-3" style={{ maxHeight: `${ROW_REM * VISIBLE + HEADING_REM + 0.15}rem` }}>
-        <div className="overflow-hidden rounded-2xl border border-line bg-surface">
+      <div className="versions-list-frame overflow-hidden rounded-2xl border border-line bg-surface">
+        <div className="versions-list-scroll slim-scroll overflow-y-auto overscroll-contain" style={{ height: `${ROW_REM * VISIBLE + HEADING_REM + 0.15}rem` }}>
           {shown.map(({ group, count, sections }) => (
             <section key={group.id} aria-label={group.title}>
               <h3 className="sticky top-0 z-10 border-b border-line bg-surface-2 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-muted">
