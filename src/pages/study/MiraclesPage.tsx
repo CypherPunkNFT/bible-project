@@ -122,7 +122,7 @@ export default function MiraclesPage() {
           )}
           <StudyCredits>
             The miracles of Jesus: A. T. Robertson's list in <cite>A Harmony of the Gospels</cite> (1922), each tied to its event in his harmony; the categories are this site's own grouping —{" "}
-            <Link className="underline" to="/study/harmony">
+            <Link className="underline" to="/study/gospels#harmony">
               see the Harmony
             </Link>
             . Other miracles: R. A. Torrey, <cite>The New Topical Text Book</cite> (1897), "Miracles Wrought Through Servants of God" and the examples under
@@ -290,7 +290,7 @@ function MiracleRow({ item, open, onToggle }: { item: Item; open: boolean; onTog
           {item.section && (
             <p className="text-xs text-muted">
               Event §{item.section} in the{" "}
-              <Link className="underline" to={`/study/harmony#event-${item.section}`}>
+              <Link className="underline" to={`/study/gospels#event-${item.section}`}>
                 Harmony of the Gospels
               </Link>
               .

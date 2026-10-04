@@ -19,7 +19,7 @@ interface Row extends HarmonySection {
   partTitle: string;
 }
 
-export default function HarmonyPage() {
+export default function HarmonyPage({ embedded = false }: { embedded?: boolean }) {
   const harmony = useAsync(loadHarmony, "harmony");
   const [query, setQuery] = useState("");
   const [only, setOnly] = useState<GospelKey[]>([]);
@@ -52,8 +52,8 @@ export default function HarmonyPage() {
   const toggle = (key: GospelKey) => setOnly((list) => (list.includes(key) ? list.filter((g) => g !== key) : [...list, key]));
 
   return (
-    <div className="mx-auto max-w-7xl px-4 pb-16 sm:px-6">
-      <StudyHeader
+    <div className={embedded ? "gospel-harmony" : "mx-auto max-w-7xl px-4 pb-16 sm:px-6"}>
+      {!embedded && <StudyHeader
         eyebrow="Study · Harmony of the Gospels"
         title="The four Gospels, side by side."
         lead={
@@ -62,13 +62,13 @@ export default function HarmonyPage() {
             fourteen parts. Open an event to read the Gospels next to one another.
           </p>
         }
-      />
+      />}
       {harmony.status === "loading" && <div className="h-64 animate-pulse rounded-2xl bg-surface-2" />}
       {harmony.status === "error" && <p className="text-muted">The harmony could not be loaded.</p>}
       {harmony.status === "ready" && (
         <>
           <Coverage rows={rows} shown={shown} onPick={(n) => setOpen(n)} />
-          <div className="sticky top-[calc(env(safe-area-inset-top,0px)+3.5rem)] z-10 -mx-4 mt-6 space-y-3 border-b border-line bg-page/95 px-4 py-3 backdrop-blur sm:-mx-6 sm:px-6">
+          <div className="sticky top-[calc(env(safe-area-inset-top,0px)+3.5rem)] z-10 mt-6 space-y-3 border-b border-line bg-page/95 py-3 backdrop-blur">
             <StudySearch value={query} onChange={setQuery} label="Find an event, e.g. lepers" count={shown.length} total={rows.length} />
             <fieldset className="flex flex-wrap items-center gap-2 text-sm">
               <legend className="sr-only">Show only events told in</legend>

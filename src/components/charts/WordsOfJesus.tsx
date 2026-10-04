@@ -25,7 +25,7 @@ export function WordsOfJesus({ stats }: { stats: Stats }) {
         <div className="teaching-notice"><h4>Look closer</h4><p>{teaching.notice}</p></div>
       </article>
       <p className="chart-measure-note">A selection of teaching passages, read in their Gospel settings. Previews use the KJV; passages include the narrator's words as well as Jesus' speech.</p>
-      <Link to="/study/harmony" className="teaching-harmony-link">Follow the whole life of Jesus in the Gospel harmony →</Link>
+      <Link to="/study/gospels#harmony" className="teaching-harmony-link">Follow the whole life of Jesus in the Gospel harmony →</Link>
     <section id="speech" aria-labelledby="speech-title" className="jesus-speech-section"><header className="jesus-reading-heading"><div><h4 id="speech-title">Where he speaks</h4><p>See the shape of Jesus' speech across the Gospel chapters, then open a chapter to read it in context.</p></div></header><SpeechAtlas stats={stats} /></section>
   </div>;
 }

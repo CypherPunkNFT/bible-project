@@ -16,7 +16,7 @@ const VersionsPage = lazy(() => import("@/pages/VersionsPage"));
 const NotFoundPage = lazy(() => import("@/pages/NotFoundPage"));
 const StudyPage = lazy(() => import("@/pages/study/StudyPage"));
 const ApologeticsPage = lazy(() => import("@/pages/ApologeticsPage"));
-const HarmonyPage = lazy(() => import("@/pages/study/HarmonyPage"));
+const StudyRedirect = lazy(() => import("@/pages/study/StudyRedirect"));
 const MiraclesPage = lazy(() => import("@/pages/study/MiraclesPage"));
 const LettersPage = lazy(() => import("@/pages/study/LettersPage"));
 const PeoplePage = lazy(() => import("@/pages/study/PeoplePage"));
@@ -45,21 +45,26 @@ export default function App() {
               <Route path="/bible" element={<BiblePage />} />
               <Route path="/read" element={<ReaderPage />} />
               <Route path="/read/:slug/:book/:chapter" element={<ReaderPage />} />
-              <Route path="/charts" element={<ChartsPage />} />
-              <Route path="/charts/references" element={<ChartsPage />} />
-              <Route path="/charts/structure" element={<ChartsPage />} />
-              <Route path="/charts/words-of-jesus" element={<ChartsPage />} />
-              <Route path="/charts/versions" element={<ChartsPage />} />
+              <Route path="/charts" element={<StudyRedirect />} />
+              <Route path="/charts/references" element={<StudyRedirect />} />
+              <Route path="/charts/structure" element={<StudyRedirect />} />
+              <Route path="/charts/words-of-jesus" element={<StudyRedirect />} />
+              <Route path="/charts/versions" element={<StudyRedirect />} />
               <Route path="/testimonies" element={<TestimoniesPage />} />
               <Route path="/testimonies/join" element={<TestimoniesPage />} />
               <Route path="/testimonies/access" element={<TestimoniesPage />} />
               <Route path="/testimonies/design" element={<Navigate to="/testimonies" replace />} />
-              <Route path="/atlas" element={<AtlasPage />} />
+              <Route path="/atlas" element={<StudyRedirect />} />
               <Route path="/search" element={<SearchPage />} />
               <Route path="/versions" element={<VersionsPage />} />
               <Route path="/study" element={<StudyPage />} />
+              <Route path="/study/references" element={<ChartsPage />} />
+              <Route path="/study/structure" element={<ChartsPage />} />
+              <Route path="/study/gospels" element={<ChartsPage />} />
+              <Route path="/study/versions" element={<ChartsPage />} />
+              <Route path="/study/places" element={<AtlasPage />} />
               <Route path="/apologetics" element={<ApologeticsPage />} />
-              <Route path="/study/harmony" element={<HarmonyPage />} />
+              <Route path="/study/harmony" element={<StudyRedirect />} />
               <Route path="/study/miracles" element={<MiraclesPage />} />
               <Route path="/study/letters" element={<LettersPage />} />
               <Route path="/study/people" element={<PeoplePage />} />

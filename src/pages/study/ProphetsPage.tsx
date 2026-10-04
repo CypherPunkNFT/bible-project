@@ -38,6 +38,7 @@ export default function ProphetsPage() {
           </p>
         }
       />
+      <aside className="study-related-guide"><p>The prophets belong to the wider story of people and their relationships. Open a person's profile to follow their family and passages.</p><Link to="/study/people">Explore People & relationships →</Link></aside>
       {prophets.status === "loading" && <div className="h-64 animate-pulse rounded-2xl bg-surface-2" />}
       {prophets.status === "error" && <p className="text-muted">The prophets could not be loaded.</p>}
       {prophets.status === "ready" && (

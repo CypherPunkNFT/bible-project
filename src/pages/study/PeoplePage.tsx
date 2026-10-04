@@ -42,11 +42,12 @@ export default function PeoplePage() {
         title="Everyone in the Bible."
         lead={<p>3,130 people — who they were, their families, when they lived, and every verse that names them. Search by name, another name, or what they did.</p>}
       />
+      <aside className="study-related-guide"><p>Explore their families here, or follow the prophets through the eras and kings named in Scripture.</p><Link to="/study/prophets">Open the prophets guide →</Link></aside>
       {people.status === "loading" && <div className="h-96 animate-pulse rounded-2xl bg-surface-2" />}
       {people.status === "error" && <p className="text-muted">The people list could not be loaded.</p>}
       {people.status === "ready" && (
-        <div className="grid gap-6 lg:grid-cols-[22rem_minmax(0,1fr)]">
-          <div className={cn(person && "hidden lg:block")}>
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-[22rem_minmax(0,1fr)]">
+          <div className={cn("min-w-0", person && "hidden lg:block")}>
             <StudySearch
               value={query}
               onChange={(value) => {

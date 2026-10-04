@@ -1,4 +1,4 @@
-import { BarChart3, BookOpen, GitBranch, GraduationCap, Map, Moon, Search, ShieldCheck, Sun } from "lucide-react";
+import { BookOpen, GitBranch, GraduationCap, Map, Moon, Search, ShieldCheck, Sun } from "lucide-react";
 import { useEffect, type ReactNode } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { SectionStrip } from "@/components/SectionStrip";
@@ -10,8 +10,7 @@ const NAV = [
   { to: "/study", label: "Study", icon: GraduationCap, end: false },
   { to: "/testimonies", label: "Testimonies", icon: GitBranch, end: false },
   { to: "/apologetics", label: "Apologetics", icon: ShieldCheck, end: false },
-  { to: "/charts", label: "Charts", icon: BarChart3, end: false },
-  { to: "/atlas", label: "Atlas", icon: Map, end: false },
+  { to: "/study/places", label: "Atlas", icon: Map, end: false },
   { to: "/search", label: "Search", icon: Search, end: false },
 ];
 
@@ -44,7 +43,7 @@ export function Layout({ children }: { children: ReactNode }) {
                 className={({ isActive }) =>
                   cn(
                     "relative flex shrink-0 items-center gap-1.5 rounded-full px-3 py-1.5 text-sm transition-colors",
-                    isActive || (to === "/bible" && (location.pathname.startsWith("/read") || location.pathname === "/library"))
+                    (isActive && !(to === "/study" && location.pathname.startsWith("/study/places"))) || (to === "/bible" && (location.pathname.startsWith("/read") || location.pathname === "/library"))
                       ? "bg-ink text-page"
                       : "text-muted hover:bg-surface-2 hover:text-ink",
                   )

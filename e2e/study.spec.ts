@@ -6,7 +6,37 @@ test.skip(!existsSync("data/study/index.json"), "study data not built — run sc
 
 const TRANSLATION_LANGUAGES = ["Spanish", "Arabic", "Chinese", "French", "German", "Hindi", "Portuguese", "Russian", "Japanese", "Vietnamese", "Persian", "Italian"];
 
-const PAGES = ["/study", "/study/harmony", "/study/miracles", "/study/letters", "/study/people", "/study/people/elijah-1ki-17-1", "/study/prophets", "/study/names"];
+const PAGES = ["/study", "/study/gospels", "/study/references", "/study/structure", "/study/versions", "/study/places", "/study/harmony", "/study/miracles", "/study/letters", "/study/people", "/study/people/elijah-1ki-17-1", "/study/prophets", "/study/names"];
+
+test("study: teaching, speech and harmony work together without hiding one another", async ({ page }) => {
+  await page.goto("/study/gospels");
+  await page.getByRole("button", { name: "Prayer Teach us to pray." }).click();
+  await expect(page.locator(".teaching-scripture").first()).toContainText("Our Father");
+  await page.locator("#harmony").scrollIntoViewIfNeeded();
+  const harmony = page.locator("#harmony");
+  await harmony.getByRole("button", { name: "John", exact: true }).click();
+  await harmony.getByLabel("and no other Gospel").check();
+  await expect(harmony.getByRole("button", { name: /Jesus works his first miracle/ }).first()).toBeVisible();
+  await expect(harmony.getByRole("button", { name: /Feeding of the five thousand/ })).toHaveCount(0);
+  await page.locator("#speech").scrollIntoViewIfNeeded();
+  await page.locator("#speech").getByRole("group", { name: "Choose a Gospel" }).getByRole("button", { name: "John", exact: true }).click();
+  await expect(page.locator(".speech-bars a")).toHaveCount(21);
+  await expect(page.locator(".teaching-paths").getByRole("button", { name: "Prayer Teach us to pray." })).toHaveAttribute("aria-pressed", "true");
+  await expect(harmony.getByLabel("and no other Gospel")).toBeChecked();
+  await expect(page.getByRole("heading", { level: 1 })).toHaveCount(1);
+});
+
+test("study: prophets remain discoverable within People and Atlas bookmarks retain their place", async ({ page }) => {
+  await page.goto("/study/people");
+  await page.getByRole("link", { name: "Open the prophets guide" }).click();
+  await expect(page).toHaveURL(/\/study\/prophets$/);
+  await expect(page.locator("#prophet-amos-amo-1-1")).toBeVisible();
+  await page.getByRole("link", { name: "Explore People & relationships" }).click();
+  await expect(page).toHaveURL(/\/study\/people$/);
+  await page.goto("/atlas?place=a15257a");
+  await expect(page).toHaveURL(/\/study\/places\?place=a15257a$/);
+  await expect(page.getByRole("heading", { name: "Jerusalem", level: 2 })).toBeVisible();
+});
 
 async function settle(page: Page) {
   await page.waitForLoadState("networkidle");
@@ -40,7 +70,7 @@ test("harmony: a row opens with the keyboard and shows all four Gospels", async 
 
 test("harmony: 'only John' shows the events no other Gospel tells", async ({ page }) => {
   await page.goto("/study/harmony");
-  await page.getByRole("button", { name: "John", exact: true }).click();
+  await page.locator("#harmony").getByRole("button", { name: "John", exact: true }).click();
   await page.getByLabel("and no other Gospel").check();
   await expect(page.getByRole("button", { name: /Jesus works his first miracle/ }).first()).toBeVisible();
   await expect(page.getByRole("button", { name: /Feeding of the five thousand/ })).toHaveCount(0);

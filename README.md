@@ -10,8 +10,9 @@ build on.
 - **Library**: the reading chart (every chapter, mark what you have read) and all 24 versions.
 - **Reader**: up to three versions side by side, including the Hebrew (right to left), Greek and Latin;
   red letters, footnotes, and each verse's cross-references.
-- **Study**: a harmony of the Gospels, the miracles, the letters, people, prophets and the names of God.
-- **Charts**: every cross-reference as an arc, book-to-book links, book sizes and the words of Jesus.
+- **Study**: nine illustrated collections covering Jesus and the Gospels, connected passages, Bible structure,
+  people and prophets, places, miracles, letters, names of God, and versions. Each collection brings its guides,
+  charts and maps together; former Charts links redirect here.
 - **Atlas**: 1,252 places of the Bible on NASA satellite imagery, each with the verses that name it.
 - **Search**: any word or phrase in any version, with a chart of where it falls.
 - **Testimonies**: written stories connected by personal invitations, with QR links, private author access,

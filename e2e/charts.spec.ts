@@ -1,55 +1,51 @@
 import { expect, test } from "@playwright/test";
 
-test("charts: landing restores four complete explanatory cards with no charts below", async ({ page }) => {
-  const errors: string[] = [];
-  page.on("pageerror", error => errors.push(error.message));
+test("study: one illustrated landing contains nine collections and Charts redirects here", async ({ page }) => {
   await page.goto("/charts");
-  await expect(page.locator(".chart-map-card")).toHaveCount(4);
-  await expect(page.locator(".chart-collection-card")).toHaveCount(0);
-  await expect(page.locator(".chart-area, .charts-page-nav, .chart-discovery-guide")).toHaveCount(0);
-  await expect(page.getByText("How does one passage lead to another?")).toBeVisible();
-  for (const [slug, label] of [["references", "References"], ["structure", "Bible structure"], ["words-of-jesus", "Words of Jesus"], ["versions", "Versions"]]) {
-    await page.locator(".chart-map-label").getByRole("link", { name: label, exact: true }).click();
-    await expect(page).toHaveURL(new RegExp("/charts/" + slug + "$"));
-    await expect(page.locator("h1")).toBeInViewport();
+  await expect(page).toHaveURL(new RegExp("/study$"));
+  await expect(page.locator(".study-resource")).toHaveCount(9);
+  await expect(page.locator(".chart-area")).toHaveCount(0);
+  const titles = ["Jesus & the Gospels", "Miracles & encounters", "Connections in Scripture", "The shape of the Bible", "People & relationships", "Letters & their message", "Places & journeys", "Names & descriptions of God", "Versions & languages"];
+  await expect(page.locator(".study-card-copy h2")).toHaveText(titles);
+  await expect(page.getByRole("navigation", { name: "Main" }).getByRole("link", { name: "Charts", exact: true })).toHaveCount(0);
+  for (const [path, label] of [["references", "Connections in Scripture"], ["structure", "The shape of the Bible"], ["gospels", "Jesus & the Gospels"], ["versions", "Versions & languages"]]) {
+    await page.locator(".study-resource-link").filter({ hasText: label }).click();
+    await expect(page).toHaveURL(new RegExp("/study/" + path + "$"));
     await expect(page.locator(".chart-area")).toHaveCount(1);
-    await expect(page.locator(".chart-collection-card[aria-current='page']")).toContainText(label);
+    await expect(page.locator(".study-collection-cover[aria-current='page']")).toContainText(label);
     await expect(page.locator(".charts-page-nav")).toHaveCount(0);
     await page.goBack();
-    await expect(page).toHaveURL(new RegExp("/charts$"));
-    await expect(page.locator(".chart-area")).toHaveCount(0);
+    await expect(page).toHaveURL(new RegExp("/study$"));
   }
-  expect(errors).toEqual([]);
 });
 
-test("charts: collections keep their complete charts and legacy links resolve to dedicated pages", async ({ page }) => {
-  for (const [slug, area, ids] of [["references", "references", ["arcs", "matrix"]], ["structure", "structure", ["sections", "sizes", "chapters"]], ["words-of-jesus", "words", ["jesus"]], ["versions", "versions", ["timeline", "coverage"]]] as const) {
-    await page.goto("/charts/" + slug);
-    await expect(page.locator(".charts-map")).toHaveCount(0);
-    await expect(page.locator(".chart-collection-card svg.chart-map-preview")).toHaveCount(4);
+test("study: complete collections and old links resolve to their canonical Study pages", async ({ page }) => {
+  for (const [old, slug, area, ids] of [["references", "references", "references", ["arcs", "matrix"]], ["structure", "structure", "structure", ["sections", "sizes", "chapters"]], ["words-of-jesus", "gospels", "words", ["jesus", "harmony"]], ["versions", "versions", "versions", ["timeline", "coverage"]]] as const) {
+    await page.goto("/charts/" + old);
+    await expect(page).toHaveURL(new RegExp("/study/" + slug + "$"));
+    await expect(page.locator(".study-collection-cover .study-miniature")).toHaveCount(4);
     await expect(page.locator("#" + area)).toBeVisible();
     for (const id of ids) await expect(page.locator("#" + id + " > header")).toBeAttached();
     await expect(page.locator(".chart-discovery-guide li")).toHaveCount(3);
   }
   await page.goto("/charts#coverage");
-  await expect(page).toHaveURL(new RegExp("/charts/versions#coverage$"));
+  await expect(page).toHaveURL(new RegExp("/study/versions#coverage$"));
   await expect(page.getByLabel("Inspect a book")).toBeVisible();
   await page.goto("/charts?collection=structure#chapters");
-  await expect(page).toHaveURL(new RegExp("/charts/structure#chapters$"));
+  await expect(page).toHaveURL(new RegExp("/study/structure#chapters$"));
   await expect(page.locator(".chapter-atlas")).toBeVisible();
 });
 
-test("charts: landing and Versions do not fetch connection datasets", async ({ page }) => {
+test("study: landing and Versions avoid reference datasets, and all collections return to Study", async ({ page }) => {
   const requests: string[] = [];
   page.on("request", request => requests.push(request.url()));
-  await page.goto("/charts");
-  await expect(page.locator(".chart-map-card")).toHaveCount(4);
-  await expect(page.locator(".chart-collection-card")).toHaveCount(0);
-  await page.goto("/charts/versions#coverage");
+  await page.goto("/study");
+  await expect(page.locator(".study-resource")).toHaveCount(9);
+  await page.goto("/study/versions#coverage");
   await expect(page.getByLabel("Inspect a book")).toBeVisible();
   expect(requests.some(url => /xref-(arcs|books)\.json/.test(url))).toBe(false);
-  await page.getByRole("link", { name: "Charts", exact: true }).last().click();
-  await expect(page).toHaveURL(new RegExp("/charts$"));
+  await page.getByRole("link", { name: "Study", exact: true }).last().click();
+  await expect(page).toHaveURL(new RegExp("/study$"));
   await expect(page.locator(".chart-area")).toHaveCount(0);
 });
 
@@ -188,5 +184,5 @@ test("charts: coverage remains directly usable and links to the standalone colle
   const coverage = page.locator("#coverage");
   await coverage.getByLabel("Inspect a book").selectOption("GEN");
   await expect(coverage.locator(".chart-live-detail")).toContainText("Genesis is included in");
-  await expect(page.getByRole("link", { name: "Return to all chart collections ↑" })).toHaveAttribute("href", "/charts");
+  await expect(page.getByRole("link", { name: "Return to the Study collection ↑" })).toHaveAttribute("href", "/study");
 });

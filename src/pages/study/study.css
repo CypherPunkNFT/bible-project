@@ -134,3 +134,21 @@
   .study-resource-link, .study-open, .study-ripple, .study-letter-front, .study-places-art img { transition: none; }
   .study-resource-link:hover, .study-resource-link:hover .study-places-art img { transform: none; }
 }
+
+.study-chart-art { display: grid; align-items: center; padding: 1.25rem 1rem 2rem; }
+.study-chart-art .study-miniature { height: 145px; }
+.study-map-feature { grid-column: span 4; }
+.study-map-feature .study-places-art { height: 230px; }
+.study-collection-nav { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .75rem; margin: 1.2rem 0 1.5rem; }
+.study-collection-cover { min-width: 0; border: 1px solid color-mix(in srgb, var(--resource-color) 22%, var(--line)); border-top: 2px solid var(--resource-color); border-radius: .75rem; padding: .85rem 1rem .5rem; background: linear-gradient(155deg, color-mix(in srgb, var(--resource-color) 8%, var(--surface)), var(--surface)); }
+.study-collection-cover > span { display: flex; align-items: center; gap: .45rem; font-size: .72rem; color: var(--ink); font-weight: 500; }
+.study-collection-cover > span svg { color: var(--resource-color); flex-shrink: 0; }
+.study-miniature { width: 100%; height: 55px; color: var(--resource-color); margin-top: .5rem; }
+.study-collection-cover:hover, .study-collection-cover[aria-current='page'] { border-color: var(--resource-color); }
+.study-collection-cover:focus-visible { outline: 2px solid var(--resource-color); outline-offset: 4px; }
+.study-related-guide { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 1.5rem; border: 1px solid var(--line); border-radius: .75rem; background: var(--surface); padding: 1rem 1.25rem; margin-bottom: 1.5rem; }
+.study-related-guide p { flex: 1 1 16rem; color: var(--muted); font-size: .8rem; line-height: 1.7; }
+.study-related-guide a { color: var(--accent); font-size: .8rem; }
+@media (max-width: 1023px) { .study-map-feature { grid-column: span 2; } .study-resource:last-child { grid-column: span 1; } }
+@media (max-width: 767px) { .study-collection-nav { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .6rem; } .study-collection-cover { padding: .75rem .7rem .4rem; } .study-collection-cover > span { align-items: flex-start; font-size: .68rem; } .study-miniature { height: 45px; } }
+@media (max-width: 639px) { .study-map-feature { grid-column: span 1; } }

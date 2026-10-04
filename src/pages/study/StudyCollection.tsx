@@ -1,6 +1,8 @@
 import { ArrowDown, ArrowUpRight, BookOpen, Sparkles } from "lucide-react";
 import type { CSSProperties, ReactNode } from "react";
 import { Link } from "react-router-dom";
+import { StudyMiniature } from "@/components/study/StudyCollectionNav";
+import type { StudyCollectionId } from "@/data/study-collections";
 import "./study.css";
 
 type ResourceProps = {
@@ -12,7 +14,7 @@ function Resource({ to, title, description, source, number, category, color, cla
   return (
     <li className={`study-resource ${className}`} style={{ "--resource-color": `var(--${color})` } as CSSProperties}>
       <Link to={to} className="study-resource-link" aria-labelledby={`study-title-${number}`}>
-        <div className="study-card-top"><span>{category}</span><span className="study-card-number">{number} / 07</span></div>
+        <div className="study-card-top"><span>{category}</span><span className="study-card-number">{number} / 09</span></div>
         {children}
         <div className="study-card-copy">
           <h2 id={`study-title-${number}`}>{title}</h2>
@@ -82,16 +84,8 @@ function LettersPreview() {
   </div>;
 }
 
-function ProphetsPreview() {
-  return <div className="study-art study-prophets-art" aria-hidden="true">
-    <svg viewBox="0 0 360 175" fill="none">
-      <path d="M26 137L334 39M26 137V35M103 112V35M180 88V35M257 63V35M334 39V35" stroke="currentColor" strokeOpacity=".13" />
-      <path d="M26 137C80 137 100 104 148 104S218 61 260 61S304 39 334 39" stroke="currentColor" strokeWidth="1.5" />
-      <circle cx="45" cy="135" r="5" fill="currentColor" /><circle cx="180" cy="96" r="5" fill="currentColor" /><circle cx="313" cy="45" r="5" fill="currentColor" />
-      <text x="45" y="114">Moses</text><text x="180" y="74">Isaiah</text><text x="294" y="24">Agabus</text>
-    </svg>
-    <span className="study-art-note">Across the ages of Scripture</span>
-  </div>;
+function ChartPreview({ kind, note }: { kind: StudyCollectionId; note: string }) {
+  return <div className="study-art study-chart-art"><StudyMiniature kind={kind} /><span className="study-art-note">{note}</span></div>;
 }
 
 function NamesPreview() {
@@ -115,23 +109,25 @@ export default function StudyCollection() {
         <div>
           <p className="study-eyebrow"><span /> The study collection</p>
           <h1>Go deeper into <em>the Word.</em></h1>
-          <p className="study-intro-copy">Follow a life. Compare the accounts. Discover the people and places behind the passages. There is more to see with every reading.</p>
+          <p className="study-intro-copy">Follow a life. Compare the accounts. Discover the shape, connections and setting of Scripture. Guides, charts and maps bring different questions to the same open Bible.</p>
         </div>
         <div className="study-intro-aside">
           <BookOpen size={28} strokeWidth={1.1} aria-hidden="true" />
-          <p>Seven ways to explore.<br /><span>Every path leads to Scripture.</span></p>
+          <p>Nine ways to explore.<br /><span>Every path leads to Scripture.</span></p>
           <a href="#study-collection">Find your starting point <ArrowDown size={16} aria-hidden="true" /></a>
         </div>
       </header>
       <div id="study-collection" className="study-collection-heading"><span>Explore the collection</span><span>Open a guide. Begin anywhere.</span></div>
       <ul className="study-resource-grid" aria-label="Study resources">
-        <Resource to="/study/harmony" title="Harmony of the Gospels" description="Walk through 185 events in the life of Christ. Read Matthew, Mark, Luke and John side by side, and see where their accounts meet." source="A. T. Robertson · 1922" number="01" category="The life of Christ" color="gospels" className="study-feature"><GospelPreview /></Resource>
-        <Resource to="/study/miracles" title="Miracles in the Bible" description="The 35 miracles of Jesus, and wonders worked through Moses, Elijah, the apostles and others." source="Robertson & Torrey" number="02" category="Signs & wonders" color="acts"><MiraclePreview /></Resource>
-        <Resource to="/study/people" title="People in the Bible" description="Meet 3,130 people. Follow their families, discover their stories, and read the verses that name them." source="STEP Bible · CC BY 4.0" number="03" category="Lives & lineages" color="history"><PeoplePreview /></Resource>
-        <Resource to="/study/letters" title="New Testament letters" description="Explore all 21 letters: who wrote them, who received them, and how each message unfolds." source="Berean Standard Bible headings" number="04" category="Letters to the church" color="epistles"><LettersPreview /></Resource>
-        <Resource to="/study/prophets" title="Prophets in the Bible" description="From Moses to Agabus, meet the prophets in the eras they lived, with the writing prophets marked." source="STEP Bible · Dated by Scripture" number="05" category="Voices through time" color="prophets"><ProphetsPreview /></Resource>
-        <Resource to="/study/names" title="Names of God" description="302 names and titles of the Father, the Son and the Holy Spirit. Unfold each name to discover its passages." source="The Faith-page collection" number="06" category="His character, revealed" color="revelation" className="study-wide"><NamesPreview /></Resource>
-        <Resource to="/atlas" title="Places in the Bible" description="Travel across 1,252 biblical places on a satellite atlas. Discover where the story happened and read it in context." source="OpenBible.info · CC BY" number="07" category="The world of the Bible" color="poetry" className="study-wide"><PlacesPreview /></Resource>
+        <Resource to="/study/gospels" title="Jesus & the Gospels" description="Read his teaching in its setting, see where he speaks, and compare 185 events across Matthew, Mark, Luke and John. Four accounts open onto one life." source="Gospel harmony · Teaching journeys · Speech atlas" number="01" category="The life of Christ" color="gospels" className="study-feature"><GospelPreview /></Resource>
+        <Resource to="/study/miracles" title="Miracles & encounters" description="Explore the 35 miracles of Jesus, and wonders worked through Moses, Elijah, the apostles and others. Open each event to its passages." source="Robertson & Torrey" number="02" category="Signs & wonders" color="acts"><MiraclePreview /></Resource>
+        <Resource to="/study/references" title="Connections in Scripture" description="How does one passage lead to another? Follow the cross-reference arcs and compare whole books, then read the linked passages in context." source="Cross-reference arcs · Book-to-book matrix" number="03" category="Passages in conversation" color="poetry"><ChartPreview kind="references" note="Across chapters. Between books." /></Resource>
+        <Resource to="/study/structure" title="The shape of the Bible" description="How does the whole fit together? Explore literary forms, compare nine measures, and find your place among the books and numbered chapters." source="Sections & measures · Book lengths · Chapter atlas" number="04" category="Books & literary forms" color="history"><ChartPreview kind="structure" note="The whole. The books. The chapters." /></Resource>
+        <Resource to="/study/people" title="People & relationships" description="Meet 3,130 people, follow their families and read their stories. The prophets guide places named prophets in the eras Scripture gives them." source="People · Families · Prophets through time" number="05" category="Lives & lineages" color="history"><PeoplePreview /></Resource>
+        <Resource to="/study/letters" title="Letters & their message" description="Explore all 21 New Testament letters: who wrote them, who received them, and how each message unfolds, section by section." source="Berean Standard Bible headings" number="06" category="Letters to the church" color="epistles"><LettersPreview /></Resource>
+        <Resource to="/study/places" title="Places & journeys" description="Find 1,252 biblical places on a satellite atlas. Explore the settings of the story, compare places by book, and open their passages." source="OpenBible.info · NASA Blue Marble" number="07" category="The world of the Bible" color="poetry" className="study-map-feature"><PlacesPreview /></Resource>
+        <Resource to="/study/names" title="Names & descriptions of God" description="302 names and titles of the Father, the Son and the Holy Spirit. Unfold each name to discover the passages behind it." source="The Faith-page collection" number="08" category="His character, revealed" color="revelation" className="study-wide"><NamesPreview /></Resource>
+        <Resource to="/study/versions" title="Versions & languages" description="Which edition are you reading? Place the library's versions in time, compare their actual book collections, and choose one to read." source="Edition timeline · Book coverage · Library" number="09" category="Editions & contents" color="acts" className="study-wide"><ChartPreview kind="versions" note="The texts in your hands" /></Resource>
       </ul>
       <div className="study-source-note"><BookOpen size={20} strokeWidth={1.4} aria-hidden="true" /><p>Made for an open Bible.<span>Built from public-domain reference books and openly licensed data. Every passage links to the reader.</span></p><Link to="/versions">Meet the sources <ArrowUpRight size={16} aria-hidden="true" /></Link></div>
     </div>
