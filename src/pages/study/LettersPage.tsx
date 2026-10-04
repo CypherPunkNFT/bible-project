@@ -36,11 +36,11 @@ export default function LettersPage() {
             {hover || <span className="text-muted">Point at a section.</span>}
           </p>
           <div className="mt-4 space-y-2">
-            <h2 className="mt-2 text-xs font-semibold uppercase tracking-[0.16em] text-muted">Paul's letters</h2>
+            <h2 id="paul-letters" className="study-section-anchor mt-2 text-xs font-semibold uppercase tracking-[0.16em] text-muted">Paul's letters</h2>
             {letters.value.filter((l) => PAUL.has(l.code)).map((letter) => (
               <LetterRow key={letter.code} letter={letter} max={maxVerses(letters.value)} open={open === letter.code} onToggle={() => setOpen(open === letter.code ? null : letter.code)} onHover={setHover} />
             ))}
-            <h2 className="pt-6 text-xs font-semibold uppercase tracking-[0.16em] text-muted">Hebrews and the general letters</h2>
+            <h2 id="general-letters" className="study-section-anchor pt-6 text-xs font-semibold uppercase tracking-[0.16em] text-muted">Hebrews and the general letters</h2>
             {letters.value.filter((l) => !PAUL.has(l.code)).map((letter) => (
               <LetterRow key={letter.code} letter={letter} max={maxVerses(letters.value)} open={open === letter.code} onToggle={() => setOpen(open === letter.code ? null : letter.code)} onHover={setHover} />
             ))}

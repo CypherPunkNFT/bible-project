@@ -12,7 +12,8 @@ test("study: one illustrated landing contains nine collections and Charts redire
     await page.locator(".study-resource-link").filter({ hasText: label }).click();
     await expect(page).toHaveURL(new RegExp("/study/" + path + "$"));
     await expect(page.locator(".chart-area")).toHaveCount(1);
-    await expect(page.locator(".study-collection-cover[aria-current='page']")).toContainText(label);
+    await expect(page.locator(".chart-collection-breadcrumb")).toContainText(label);
+    await expect(page.getByRole("navigation", { name: "Collection contents" })).toBeVisible();
     await expect(page.locator(".charts-page-nav")).toHaveCount(0);
     await page.goBack();
     await expect(page).toHaveURL(new RegExp("/study$"));
@@ -20,10 +21,10 @@ test("study: one illustrated landing contains nine collections and Charts redire
 });
 
 test("study: complete collections and old links resolve to their canonical Study pages", async ({ page }) => {
-  for (const [old, slug, area, ids] of [["references", "references", "references", ["arcs", "matrix"]], ["structure", "structure", "structure", ["sections", "sizes", "chapters"]], ["words-of-jesus", "gospels", "words", ["jesus", "harmony"]], ["versions", "versions", "versions", ["timeline", "coverage"]]] as const) {
+  for (const [old, slug, area, ids] of [["references", "references", "references", ["arcs", "matrix"]], ["structure", "structure", "structure", ["sections", "sizes", "chapters"]], ["words-of-jesus", "gospels", "words", ["jesus", "speech", "harmony"]], ["versions", "versions", "versions", ["timeline", "coverage"]]] as const) {
     await page.goto("/charts/" + old);
     await expect(page).toHaveURL(new RegExp("/study/" + slug + "$"));
-    await expect(page.locator(".study-collection-cover .study-miniature")).toHaveCount(4);
+    await expect(page.locator(".study-content-card")).toHaveCount(slug === "references" ? 2 : 3);
     await expect(page.locator("#" + area)).toBeVisible();
     for (const id of ids) await expect(page.locator("#" + id + " > header")).toBeAttached();
     await expect(page.locator(".chart-discovery-guide li")).toHaveCount(3);
@@ -34,6 +35,31 @@ test("study: complete collections and old links resolve to their canonical Study
   await page.goto("/charts?collection=structure#chapters");
   await expect(page).toHaveURL(new RegExp("/study/structure#chapters$"));
   await expect(page.locator(".chapter-atlas")).toBeVisible();
+});
+
+test("study: contents cards navigate within each collection and chart controls survive the return", async ({ page }) => {
+  for (const [slug, cards] of [
+    ["references", [["Cross-reference arcs", "arcs"], ["Book to book", "matrix"]]],
+    ["structure", [["Sections & measures", "sections"], ["Book lengths", "sizes"], ["Chapter atlas", "chapters"]]],
+    ["gospels", [["Teaching journeys", "jesus"], ["Where he speaks", "speech"], ["Gospel harmony", "harmony"]]],
+    ["versions", [["Versions through time", "timeline"], ["Version coverage", "coverage"]]],
+  ] as const) {
+    await page.goto("/study/" + slug);
+    const contents = page.getByRole("navigation", { name: "Collection contents" });
+    for (const [label, id] of cards) {
+      await contents.getByRole("link", { name: label, exact: true }).click();
+      await expect(page).toHaveURL(new RegExp("/study/" + slug + "#" + id + "$"));
+      await expect(page.locator("#" + id + "-title")).toBeInViewport();
+      await page.locator("#" + id).getByRole("link", { name: "Back to contents" }).click();
+      await expect(page.locator("#collection-contents-title")).toBeInViewport();
+    }
+  }
+  await page.goto("/study/references");
+  await page.getByLabel("Light up one book:").selectOption("DAN");
+  await page.getByRole("navigation", { name: "Collection contents" }).getByRole("link", { name: "Book to book", exact: true }).click();
+  await page.locator("#matrix").getByRole("link", { name: "Back to contents" }).click();
+  await page.getByRole("navigation", { name: "Collection contents" }).getByRole("link", { name: "Cross-reference arcs", exact: true }).click();
+  await expect(page.getByLabel("Light up one book:")).toHaveValue("DAN");
 });
 
 test("study: landing and Versions avoid reference datasets, and all collections return to Study", async ({ page }) => {
@@ -161,7 +187,7 @@ test("charts: reference list is flush with the matrix and its legend is in the f
 
 test("charts: teaching and speech are both available, including a direct speech link", async ({ page }) => {
   await page.goto("/charts#speech");
-  await expect(page.getByRole("heading", { name: "Where he speaks", exact: true })).toBeInViewport();
+  await expect(page.getByRole("heading", { name: "Where he speaks", exact: true, level: 2 })).toBeInViewport();
   await expect(page.locator(".teaching-paths")).toBeAttached();
   const speech = page.locator("#speech");
   await expect(speech.locator(".speech-books > section")).toHaveCount(4);

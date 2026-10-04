@@ -1,7 +1,7 @@
 import { ArrowDown, ArrowUpRight, BookOpen, Sparkles } from "lucide-react";
 import type { CSSProperties, ReactNode } from "react";
 import { Link } from "react-router-dom";
-import { StudyMiniature } from "@/components/study/StudyCollectionNav";
+import { StudyMiniature } from "@/components/study/StudyArtwork";
 import type { StudyCollectionId } from "@/data/study-collections";
 import "./study.css";
 

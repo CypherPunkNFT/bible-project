@@ -1,7 +1,7 @@
 import { ArrowLeft, Search } from "lucide-react";
 import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
-import { StudyCollectionNav } from "./StudyCollectionNav";
+import { StudyContents } from "./StudyContents";
 import { useCatalog } from "@/lib/catalog";
 import { loadChapterPlain } from "@/lib/data";
 import { bookByNum, formatRange, plainLookup, splitId } from "@/lib/refs";
@@ -10,16 +10,15 @@ import { useAsync } from "@/lib/useAsync";
 
 export function StudyHeader({ eyebrow, title, lead, children, titleId }: { eyebrow: string; title: string; lead: ReactNode; children?: ReactNode; titleId?: string }) {
   return (
-    <header className="pb-6 pt-8">
+    <><header className="pb-6 pt-8">
       <Link to="/study" className="inline-flex items-center gap-1 text-sm text-muted hover:text-accent">
         <ArrowLeft className="h-4 w-4" aria-hidden /> Study
       </Link>
-      <StudyCollectionNav />
       <p className="mt-4 text-xs font-semibold uppercase tracking-[0.2em] text-accent">{eyebrow}</p>
       <h1 id={titleId} className="mt-1 max-w-3xl font-serif text-4xl font-semibold tracking-tight sm:text-5xl">{title}</h1>
       <div className="mt-3 max-w-2xl text-muted">{lead}</div>
       {children}
-    </header>
+    </header><StudyContents /></>
   );
 }
 

@@ -247,7 +247,7 @@
 .chart-area-heading > svg { flex-shrink: 0; color: var(--chart-color); width: 32px; height: 32px; stroke-width: 1; margin-top: 1.5rem; }
 .charts-open .chart-panel { margin-bottom: 1.25rem; scroll-margin-top: 8.5rem; animation: none; }
 .chart-panel-intro { padding: 1.5rem 2rem 1rem; }
-.chart-panel-intro h3 { font-family: var(--font-serif); font-size: 1.5rem; font-weight: 400; letter-spacing: -.02em; }
+.chart-panel-intro > h2 { font-family: var(--font-serif); font-size: 1.75rem; font-weight: 400; letter-spacing: -.025em; }
 .chart-panel-intro p { max-width: 48rem; font-size: .8rem; line-height: 1.75; color: var(--muted); margin-top: .45rem; }
 .chart-awaiting { display: grid; place-items: center; border-radius: .5rem; background: linear-gradient(135deg, color-mix(in srgb, var(--chart-color) 3%, var(--page)), var(--surface)); }
 .chart-awaiting span { width: 3rem; height: 1px; background: var(--line); }

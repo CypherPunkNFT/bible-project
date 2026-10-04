@@ -2,7 +2,7 @@ import { Search } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useMemo, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
-import { StudyCollectionNav } from "@/components/study/StudyCollectionNav";
+import { StudyContents } from "@/components/study/StudyContents";
 import { AtlasMap } from "@/components/atlas/AtlasMap";
 import { projectPlace, type MapPlace } from "@/components/atlas/projection";
 import { PlacePanel } from "@/components/atlas/PlacePanel";
@@ -72,7 +72,6 @@ export default function AtlasPage() {
     <div className="mx-auto max-w-7xl px-4 pb-16 sm:px-6">
       <header className="pb-5 pt-10">
         <Link to="/study" className="text-sm text-muted hover:text-accent">← Study</Link>
-        <StudyCollectionNav />
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">Study · Places & journeys</p>
         <h1 className="mt-1 font-serif text-4xl font-semibold tracking-tight sm:text-5xl">The places of the Bible.</h1>
         <p className="mt-3 max-w-2xl text-muted">
@@ -80,8 +79,8 @@ export default function AtlasPage() {
           it. Click one to read where it appears.
         </p>
       </header>
-
-      <div className="mb-4 flex flex-wrap items-center gap-2">
+      <StudyContents />
+      <div id="places-map" className="study-section-anchor mb-4 flex flex-wrap items-center gap-2">
         {SECTIONS.filter((s) => s.id !== "apocrypha").map((s) => (
           <button
             key={s.id}
@@ -161,14 +160,14 @@ function TopPlaces({ places, onSelect }: { places: MapPlace[]; onSelect: (place:
   const max = top[0]?.verses.length ?? 1;
   return (
     <section aria-labelledby="top-places" className="mt-8 rounded-2xl border border-line bg-surface p-4 sm:p-6">
-      <h2 id="top-places" className="font-serif text-2xl font-semibold">
+      <h2 id="top-places" className="study-section-anchor font-serif text-2xl font-semibold">
         Most-named places
       </h2>
       <p className="mb-4 text-sm text-muted">The places named in the most verses (of those shown on the map above).</p>
       <ol className="gap-x-8 sm:columns-2">
         {top.map((p) => (
           <li key={p.id} className="mb-1 break-inside-avoid">
-            <button type="button" onClick={() => { onSelect(p); window.scrollTo({ top: 0, behavior: "smooth" }); }} className="grid w-full grid-cols-[7rem_1fr_3rem] items-center gap-2 text-left text-sm hover:text-accent">
+            <button type="button" onClick={() => { onSelect(p); document.getElementById("places-map")?.scrollIntoView({ block: "start", behavior: "smooth" }); }} className="grid w-full grid-cols-[7rem_1fr_3rem] items-center gap-2 text-left text-sm hover:text-accent">
               <span className="truncate">{p.name}</span>
               <span className="h-3 rounded-sm" style={{ width: `${(p.verses.length / max) * 100}%`, background: sectionColor(p.section) }} />
               <span className="text-right tabular-nums text-muted">{formatNumber(p.verses.length)}</span>

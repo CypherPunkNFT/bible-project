@@ -1,4 +1,4 @@
-import { useLayoutEffect, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { PassageText, RefLink } from "@/components/study/StudyParts";
 import { TEACHINGS } from "@/data/chart-insights";
@@ -7,15 +7,11 @@ import { formatRange } from "@/lib/refs";
 import type { Stats } from "@/lib/types";
 import { formatNumber } from "@/lib/utils";
 
-export function WordsOfJesus({ stats }: { stats: Stats }) {
+export function TeachingJourneys() {
   const [selected, setSelected] = useState(0);
   const teaching = TEACHINGS[selected];
   const catalog = useCatalog();
-  useLayoutEffect(() => {
-    if (window.location.hash === "#speech") document.getElementById("speech")?.scrollIntoView({ block: "start", behavior: "instant" });
-  }, []);
   return <div className="jesus-explorer">
-    <div className="jesus-reading-heading"><h4>Teaching journeys</h4><a href="#speech">Continue to the speech atlas ↓</a></div>
       <div className="teaching-paths" role="group" aria-label="Choose a teaching">
         {TEACHINGS.map((t, i) => <button key={t.theme} type="button" aria-pressed={selected === i} onClick={() => setSelected(i)}><span>{t.theme}</span><strong>{t.title}</strong></button>)}
       </div>
@@ -26,11 +22,10 @@ export function WordsOfJesus({ stats }: { stats: Stats }) {
       </article>
       <p className="chart-measure-note">A selection of teaching passages, read in their Gospel settings. Previews use the KJV; passages include the narrator's words as well as Jesus' speech.</p>
       <Link to="/study/gospels#harmony" className="teaching-harmony-link">Follow the whole life of Jesus in the Gospel harmony →</Link>
-    <section id="speech" aria-labelledby="speech-title" className="jesus-speech-section"><header className="jesus-reading-heading"><div><h4 id="speech-title">Where he speaks</h4><p>See the shape of Jesus' speech across the Gospel chapters, then open a chapter to read it in context.</p></div></header><SpeechAtlas stats={stats} /></section>
   </div>;
 }
 
-function SpeechAtlas({ stats }: { stats: Stats }) {
+export function SpeechAtlas({ stats }: { stats: Stats }) {
   const [gospel, setGospel] = useState("");
   const [metric, setMetric] = useState("share");
   const [hover, setHover] = useState("");

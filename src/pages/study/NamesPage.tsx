@@ -22,7 +22,7 @@ export default function NamesPage() {
         titleId="names-title"
         lead={<p>Names and titles of God as revealed in Scripture. Click a word to unfold its names, then click a name to read its passages.</p>}
       />
-      <NamesSection labelledBy="names-title" />
+      <div id="names-explorer" className="study-section-anchor"><NamesSection labelledBy="names-title" /></div>
       <NamesList />
       <StudyCredits>
         The names, their three groups and their order are the ones chosen for the Faith page of the CypherPunk NFT site, shown here the same way; compiled from
@@ -54,7 +54,7 @@ function NamesList() {
   );
 
   return (
-    <section aria-labelledby="names-list-title" className="pt-10">
+    <section id="names-list" aria-labelledby="names-list-title" className="study-section-anchor pt-10">
       <h2 id="names-list-title" className="mb-4 font-serif text-2xl font-semibold sm:text-3xl">
         Every name
       </h2>

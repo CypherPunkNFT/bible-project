@@ -64,6 +64,7 @@ export default function MiraclesPage() {
     .filter((g) => g.items.length);
   const total = groups.reduce((sum, g) => sum + g.items.length, 0);
   const shownCount = filtered.reduce((sum, g) => sum + g.items.length, 0);
+  const firstOther = filtered.find((group) => group.who !== "Jesus" && group.who !== "Moses and Aaron")?.who;
 
   return (
     <div className="mx-auto max-w-6xl px-4 pb-16 sm:px-6">
@@ -82,8 +83,8 @@ export default function MiraclesPage() {
           </div>
           <div className="mt-6 space-y-8">
             {filtered.map((group) => (
-              <section key={group.who} aria-labelledby={`who-${slug(group.who)}`}>
-                <h2 id={`who-${slug(group.who)}`} className="mb-2 flex items-baseline gap-2 font-serif text-2xl font-semibold">
+              <section key={group.who} id={group.who === firstOther ? "other-miracles" : undefined} className="study-section-anchor" aria-labelledby={`who-${slug(group.who)}`}>
+                <h2 id={`who-${slug(group.who)}`} className="study-section-anchor mb-2 flex items-baseline gap-2 font-serif text-2xl font-semibold">
                   <span className="h-3 w-3 self-center rounded-full" style={{ background: tone(groupTone(group)).tab }} aria-hidden />
                   {group.who === "Jesus" ? "The miracles of Jesus" : group.who}
                   <span className="font-sans text-sm font-normal text-muted">{group.items.length}</span>

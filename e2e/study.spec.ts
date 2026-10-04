@@ -28,14 +28,40 @@ test("study: teaching, speech and harmony work together without hiding one anoth
 
 test("study: prophets remain discoverable within People and Atlas bookmarks retain their place", async ({ page }) => {
   await page.goto("/study/people");
-  await page.getByRole("link", { name: "Open the prophets guide" }).click();
+  await page.getByRole("navigation", { name: "Collection contents" }).getByRole("link", { name: "Prophets through time" }).click();
   await expect(page).toHaveURL(/\/study\/prophets$/);
   await expect(page.locator("#prophet-amos-amo-1-1")).toBeVisible();
-  await page.getByRole("link", { name: "Explore People & relationships" }).click();
-  await expect(page).toHaveURL(/\/study\/people$/);
+  await page.getByRole("navigation", { name: "Collection contents" }).getByRole("link", { name: "People & families" }).click();
+  await expect(page).toHaveURL(/\/study\/people#people-directory$/);
   await page.goto("/atlas?place=a15257a");
   await expect(page).toHaveURL(/\/study\/places\?place=a15257a$/);
   await expect(page.getByRole("heading", { name: "Jerusalem", level: 2 })).toBeVisible();
+});
+
+test("study: guide contents reach their own sections instead of unrelated collections", async ({ page }) => {
+  for (const [path, label, id] of [
+    ["/study/miracles", "The miracles of Jesus", "who-jesus"],
+    ["/study/miracles", "Moses & Aaron", "who-moses-and-aaron"],
+    ["/study/miracles", "Prophets & apostles", "other-miracles"],
+    ["/study/letters", "Paul's letters", "paul-letters"],
+    ["/study/letters", "Hebrews & the general letters", "general-letters"],
+    ["/study/names", "Explore the names", "names-explorer"],
+    ["/study/names", "Find a name", "names-list"],
+    ["/study/places", "Explore the atlas", "places-map"],
+    ["/study/places", "The most-named places", "top-places"],
+  ]) {
+    await page.goto(path);
+    await page.getByRole("navigation", { name: "Collection contents" }).getByRole("link", { name: label, exact: true }).click();
+    await expect(page).toHaveURL(new RegExp(path + "#" + id + "$"));
+    await expect(page.locator("#" + id)).toBeInViewport();
+  }
+  await page.goto("/study/places#top-places");
+  await page.locator("section[aria-labelledby='top-places']").getByRole("button", { name: /^Jerusalem/ }).click();
+  await expect(page.locator("#places-map")).toBeInViewport();
+  await expect(page.getByRole("heading", { name: "Jerusalem", level: 2 })).toBeVisible();
+  await page.goto("/study/prophets");
+  await page.getByRole("navigation", { name: "Collection contents" }).getByRole("link", { name: "Prophets through time" }).click();
+  await expect(page.locator("#prophets-directory")).toBeInViewport();
 });
 
 async function settle(page: Page) {
