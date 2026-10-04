@@ -1,14 +1,12 @@
-import { BarChart3, BookOpen, GitBranch, GraduationCap, Library, Map, Moon, Search, ShieldCheck, Sun } from "lucide-react";
-import { useEffect, useState, type ReactNode } from "react";
+import { BarChart3, BookOpen, GitBranch, GraduationCap, Map, Moon, Search, ShieldCheck, Sun } from "lucide-react";
+import { useEffect, type ReactNode } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { SectionStrip } from "@/components/SectionStrip";
-import { lastReadPath } from "@/lib/last-read";
 import { useTheme } from "@/lib/theme";
 import { cn } from "@/lib/utils";
 
 const NAV = [
-  { to: "/library", label: "Library", icon: Library, end: false },
-  { to: "/read", label: "Read", icon: BookOpen, end: false },
+  { to: "/bible", label: "Bible", icon: BookOpen, end: false },
   { to: "/study", label: "Study", icon: GraduationCap, end: false },
   { to: "/testimonies/design", label: "Testimonies", icon: GitBranch, end: false },
   { to: "/apologetics", label: "Apologetics", icon: ShieldCheck, end: false },
@@ -20,10 +18,8 @@ const NAV = [
 export function Layout({ children }: { children: ReactNode }) {
   const [theme, toggleTheme] = useTheme();
   const location = useLocation();
-  const [readTarget, setReadTarget] = useState("/read");
 
   useEffect(() => {
-    setReadTarget(lastReadPath() ?? "/read");
     window.scrollTo({ top: 0 });
   }, [location.pathname]);
 
@@ -43,12 +39,12 @@ export function Layout({ children }: { children: ReactNode }) {
             {NAV.map(({ to, label, icon: Icon, end }) => (
               <NavLink
                 key={to}
-                to={to === "/read" ? readTarget : to}
+                to={to}
                 end={end}
                 className={({ isActive }) =>
                   cn(
                     "relative flex shrink-0 items-center gap-1.5 rounded-full px-3 py-1.5 text-sm transition-colors",
-                    isActive || (to === "/read" && location.pathname.startsWith("/read"))
+                    isActive || (to === "/bible" && (location.pathname.startsWith("/read") || location.pathname === "/library"))
                       ? "bg-ink text-page"
                       : "text-muted hover:bg-surface-2 hover:text-ink",
                   )

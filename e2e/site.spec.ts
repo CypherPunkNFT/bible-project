@@ -2,7 +2,7 @@ import { expect, test, type Page } from "@playwright/test";
 
 // Runs at desktop (1440), tablet (768) and phone (390) — see playwright.config.ts.
 
-const PAGES = ["/", "/library", "/read/kjv/GEN/1", "/read/kjv/PSA/23?with=wlc,web", "/read/kjv/DAN/2?v=34", "/charts", "/atlas", "/search?q=jerusalem", "/versions", "/no-such-page"];
+const PAGES = ["/", "/bible", "/library", "/read/kjv/GEN/1", "/read/kjv/PSA/23?with=wlc,web", "/read/kjv/DAN/2?v=34", "/charts", "/atlas", "/search?q=jerusalem", "/versions", "/no-such-page"];
 
 async function settle(page: Page) {
   await page.waitForLoadState("networkidle");
@@ -263,9 +263,9 @@ test("library: the versions list shows seven at a time and scrolls the rest", as
   expect(box.scrolls).toBe(true);
 });
 
-test("home is the landing page; the menu has Library and no Versions", async ({ page }) => {
+test("home is the landing page; the menu combines Library and Read under Bible", async ({ page }) => {
   await page.goto("/");
   const nav = page.getByRole("navigation", { name: "Main" });
-  await expect(nav.getByRole("link", { name: "Library" })).toHaveAttribute("href", "/library");
+  await expect(nav.getByRole("link", { name: "Bible", exact: true })).toHaveAttribute("href", "/bible");
   await expect(nav.getByRole("link", { name: "Versions" })).toHaveCount(0);
 });

@@ -6,6 +6,7 @@ import { CatalogProvider } from "@/lib/catalog-context";
 import HomePage from "@/pages/HomePage";
 
 const LibraryPage = lazy(() => import("@/pages/LibraryPage"));
+const BiblePage = lazy(() => import("@/pages/BiblePage"));
 const ReaderPage = lazy(() => import("@/pages/ReaderPage"));
 const ChartsPage = lazy(() => import("@/pages/ChartsPage"));
 const TestimoniesDesignPage = lazy(() => import("@/pages/TestimoniesDesignPage"));
@@ -41,6 +42,7 @@ export default function App() {
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/library" element={<LibraryPage />} />
+              <Route path="/bible" element={<BiblePage />} />
               <Route path="/read" element={<ReaderPage />} />
               <Route path="/read/:slug/:book/:chapter" element={<ReaderPage />} />
               <Route path="/charts" element={<ChartsPage />} />
