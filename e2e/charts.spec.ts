@@ -1,14 +1,15 @@
 import { expect, test } from "@playwright/test";
 
-test("charts: landing has four compact covers that open collection pages, with no charts below", async ({ page }) => {
+test("charts: landing restores four complete explanatory cards with no charts below", async ({ page }) => {
   const errors: string[] = [];
   page.on("pageerror", error => errors.push(error.message));
   await page.goto("/charts");
-  await expect(page.locator(".chart-collection-card")).toHaveCount(4);
+  await expect(page.locator(".chart-map-card")).toHaveCount(4);
+  await expect(page.locator(".chart-collection-card")).toHaveCount(0);
   await expect(page.locator(".chart-area, .charts-page-nav, .chart-discovery-guide")).toHaveCount(0);
-  await expect(page.getByText("How does one passage lead to another?")).toHaveCount(0);
+  await expect(page.getByText("How does one passage lead to another?")).toBeVisible();
   for (const [slug, label] of [["references", "References"], ["structure", "Bible structure"], ["words-of-jesus", "Words of Jesus"], ["versions", "Versions"]]) {
-    await page.getByRole("navigation", { name: "Chart collections", exact: true }).getByRole("link", { name: label, exact: false }).click();
+    await page.locator(".chart-map-label").getByRole("link", { name: label, exact: true }).click();
     await expect(page).toHaveURL(new RegExp("/charts/" + slug + "$"));
     await expect(page.locator("h1")).toBeInViewport();
     await expect(page.locator(".chart-area")).toHaveCount(1);
@@ -42,7 +43,8 @@ test("charts: landing and Versions do not fetch connection datasets", async ({ p
   const requests: string[] = [];
   page.on("request", request => requests.push(request.url()));
   await page.goto("/charts");
-  await expect(page.locator(".chart-collection-card")).toHaveCount(4);
+  await expect(page.locator(".chart-map-card")).toHaveCount(4);
+  await expect(page.locator(".chart-collection-card")).toHaveCount(0);
   await page.goto("/charts/versions#coverage");
   await expect(page.getByLabel("Inspect a book")).toBeVisible();
   expect(requests.some(url => /xref-(arcs|books)\.json/.test(url))).toBe(false);

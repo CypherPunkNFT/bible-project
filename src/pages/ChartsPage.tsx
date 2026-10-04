@@ -90,8 +90,13 @@ export default function ChartsPage() {
       <dl className="charts-numbers"><div><dt>books · KJV canon</dt><dd>{canon ? canon.length : "—"}</dd></div><div><dt>chapters</dt><dd>{canon ? formatNumber(canon.reduce((n, b) => n + b.chapters.length, 0)) : "—"}</dd></div><div><dt>versions</dt><dd>{catalog.translations.length}</dd></div></dl>
     </header>
     <section className="charts-map" aria-labelledby="charts-map-title" id="chart-map">
-      <div className="charts-map-heading"><div><h2 id="charts-map-title">Four perspectives. One library.</h2><p>Explore the connections between passages, the shape of the books, the words of Jesus, and the editions that carry the text. Choose a collection to begin.</p></div></div>
-      {collectionCards}
+      <div className="charts-map-heading"><div><h2 id="charts-map-title">Four questions open up the collection.</h2><p>Begin with the relationships between passages. Zoom into books and chapters. Focus on Jesus' teaching. Then examine the editions that carry the text. Together, these perspectives connect the whole library with the passage you are reading.</p></div><Link to={standaloneLink(AREAS[0])} className="chart-map-start">Start with the connections <ArrowRight size={15} aria-hidden="true" /></Link></div>
+      <div className="chart-map-grid">{AREAS.map((area) => <article key={area.id} className="chart-map-card" style={{ "--chart-color": "var(--" + area.color + ")" } as CSSProperties}>
+        <div className="chart-map-label"><area.icon size={17} aria-hidden="true" /><Link to={standaloneLink(area)}>{area.label}</Link><span>{area.lens}</span></div>
+        <MapPreview kind={area.id} />
+        <h3><Link className="chart-map-primary" to={standaloneLink(area)}>{area.question}</Link></h3><p>{area.why}</p>
+        <nav aria-label={area.label + " charts"}>{area.charts.map((chart) => <Link key={chart.id} to={standaloneLink(area) + "#" + chart.id}>{chart.label}<ArrowRight size={13} aria-hidden="true" /></Link>)}</nav>
+      </article>)}</div>
     </section></>}
     {standalone && <div className="chart-collection-breadcrumb"><Link to="/charts">Charts</Link><span>/</span><strong>{active.label}</strong></div>}
     {standalone && collectionCards}
