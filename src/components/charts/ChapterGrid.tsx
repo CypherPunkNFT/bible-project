@@ -1,8 +1,9 @@
 import { memo, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { SECTIONS, sectionColor } from "@/lib/sections";
+import { sectionColor } from "@/lib/sections";
 import type { Stats } from "@/lib/types";
 import { formatNumber } from "@/lib/utils";
+import type { SectionFilter } from "./SectionGuide";
 
 const ChapterRow = memo(function ChapterRow({ book, max, onInspect }: { book: Stats["books"][number]; max: number; onInspect: (text: string) => void }) {
   const navigate = useNavigate();
@@ -19,27 +20,20 @@ const ChapterRow = memo(function ChapterRow({ book, max, onInspect }: { book: St
         (event.currentTarget.parentElement?.children[next] as HTMLButtonElement | undefined)?.focus();
       }}
       onClick={() => navigate("/read/kjv/" + book.code + "/" + (i + 1))}
-      style={{ background: sectionColor(book.section), opacity: .2 + .8 * Math.sqrt(words / max) }} />)}
+      style={{ background: `color-mix(in srgb, ${sectionColor(book.section)} ${Math.round(12 + 55 * Math.sqrt(words / max))}%, var(--page))`, borderColor: `color-mix(in srgb, ${sectionColor(book.section)} 45%, var(--line))` }}>{i + 1}</button>)}
   </div></div>;
 });
 
 /** Memoized rows keep pointer inspection from rerendering every chapter button. */
-export function ChapterGrid({ stats }: { stats: Stats }) {
+export function ChapterGrid({ stats, section = "" }: { stats: Stats; section?: SectionFilter }) {
   const [hover, setHover] = useState("");
-  const [section, setSection] = useState("");
-  const [query, setQuery] = useState("");
   const canon = useMemo(() => stats.books.filter((b) => b.section !== "apocrypha"), [stats.books]);
   const max = useMemo(() => Math.max(1, ...canon.flatMap((b) => b.chapters.map((c) => c[1]))), [canon]);
-  const books = canon.filter((b) => (!section || b.section === section) && b.name.toLowerCase().includes(query.trim().toLowerCase()));
+  const books = canon.filter((b) => !section || b.section === section);
   return <div>
-    <div className="chart-controls">
-      <label>Section<select value={section} onChange={(event) => { setSection(event.target.value); setHover(""); }}><option value="">All sections</option>{SECTIONS.filter((s) => s.id !== "apocrypha").map((s) => <option key={s.id} value={s.id}>{s.name}</option>)}</select></label>
-      <label><span className="sr-only">Find a book</span><input type="search" value={query} onChange={(event) => { setQuery(event.target.value); setHover(""); }} placeholder="Find a book…" /></label>
-      <span className="chart-hint">{books.length} books · {formatNumber(books.reduce((n, b) => n + b.chapters.length, 0))} chapters</span>
-    </div>
+    <div className="chapter-atlas-key"><strong>{books.length} books · {formatNumber(books.reduce((n, b) => n + b.chapters.length, 0))} chapters</strong><span>One numbered tile = one chapter. Deeper colour = more words.</span></div>
     <p className="chart-live-detail" aria-live="polite">{hover || "Explore a square, then open it to read. Use arrow keys to move within a book."}</p>
     <div className="chapter-atlas">{books.map((book) => <ChapterRow key={book.code} book={book} max={max} onInspect={setHover} />)}</div>
-    {!books.length && <p className="chapter-empty">No books match this search.</p>}
     <div className="chart-legend"><span>Fewer words</span>{[.2, .4, .6, .8, 1].map((opacity) => <i key={opacity} style={{ background: "var(--prophets)", opacity, borderRadius: 2 }} />)}<span>More words · Longest chapter: Psalm 119</span></div>
   </div>;
 }

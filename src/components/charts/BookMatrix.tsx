@@ -73,7 +73,6 @@ export function BookMatrix({ pairs }: { pairs: [string, string, number][] }) {
               onPointerLeave={() => setHover(null)} onClick={(event) => { const pair = pick(event.clientX, event.clientY); if (pair) pin(pair); }} />
             {active && <div className="pointer-events-none absolute border-2 border-ink" style={{ left: (active[1] + 2) / 68 * 100 + "%", top: (active[0] + 2) / 68 * 100 + "%", width: 100 / 68 + "%", height: 100 / 68 + "%" }} />}
           </div>
-          <p className="chart-hint mt-3">Rows: from · Columns: to · Stronger colour: more references.<br />Genesis begins at the top left; Revelation ends at the bottom right.</p>
         </div>
         <div className="matrix-sidebar"><div className="matrix-sidebar-inner">
           <div className="matrix-detail" aria-live="polite">

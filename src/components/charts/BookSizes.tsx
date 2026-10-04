@@ -3,17 +3,18 @@ import { Link } from "react-router-dom";
 import { sectionColor } from "@/lib/sections";
 import type { Stats } from "@/lib/types";
 import { cn, formatNumber } from "@/lib/utils";
+import type { SectionFilter } from "./SectionGuide";
 
 type Metric = "words" | "verses" | "chapters";
 const METRICS: Metric[] = ["words", "verses", "chapters"];
 
 /** Every book, with comparable scales and a choice of canonical or size order. */
-export function BookSizes({ stats }: { stats: Stats }) {
+export function BookSizes({ stats, section = "" }: { stats: Stats; section?: SectionFilter }) {
   const [metric, setMetric] = useState<Metric>("words");
   const [apocrypha, setApocrypha] = useState(false);
   const [order, setOrder] = useState("canon");
   const value = (b: Stats["books"][number]) => metric === "chapters" ? b.chapters.length : b[metric];
-  const books = stats.books.filter((b) => apocrypha || b.section !== "apocrypha");
+  const books = stats.books.filter((b) => (!section || b.section === section) && (apocrypha || b.section !== "apocrypha"));
   if (order === "longest") books.sort((a, b) => value(b) - value(a));
   const max = Math.max(1, ...books.map(value));
   const longest = books.reduce((a, b) => value(a) > value(b) ? a : b);
@@ -26,7 +27,7 @@ export function BookSizes({ stats }: { stats: Stats }) {
             className={cn("rounded-full px-3 py-1.5 capitalize", metric === m ? "bg-ink text-page" : "text-muted hover:text-ink")}>{m}</button>)}
         </div>
         <label>Order<select aria-label="Order" value={order} onChange={(event) => setOrder(event.target.value)}><option value="canon">Bible order</option><option value="longest">Longest first</option></select></label>
-        <label><input type="checkbox" checked={apocrypha} onChange={(event) => setApocrypha(event.target.checked)} className="accent-[var(--apocrypha)]" />Include Apocrypha</label>
+        {!section && <label><input type="checkbox" checked={apocrypha} onChange={(event) => setApocrypha(event.target.checked)} className="accent-[var(--apocrypha)]" />Include Apocrypha</label>}
       </div>
       <div className="chart-live-detail"><strong>{longest.name}</strong><span>Longest by {metric} · {formatNumber(value(longest))} {metric}</span></div>
       <ol className="size-bars">{books.map((b) => <li key={b.code}>
