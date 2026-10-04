@@ -1,57 +1,56 @@
 import { expect, test } from "@playwright/test";
 
-test("charts: overview selects one complete collection with References as the default", async ({ page }) => {
+test("charts: landing has four compact covers that open collection pages, with no charts below", async ({ page }) => {
   const errors: string[] = [];
-  page.on("pageerror", (error) => errors.push(error.message));
+  page.on("pageerror", error => errors.push(error.message));
   await page.goto("/charts");
-  await expect(page.getByRole("tab")).toHaveCount(0);
-  await expect(page.locator(".chart-map-card")).toHaveCount(4);
-  await expect(page.getByText("The map keeps going.")).toHaveCount(0);
-  await expect(page.locator("#references")).toBeVisible();
-  await expect(page.locator("#arcs > header")).toBeAttached();
-  await expect(page.locator("#matrix > header")).toBeAttached();
-  await expect(page.locator("#structure")).toHaveCount(0);
-  for (const [area, charts] of [["structure", ["sections", "sizes", "chapters"]], ["words", ["jesus"]], ["versions", ["timeline", "coverage"]], ["references", ["arcs", "matrix"]]] as const) {
-    await page.locator(".chart-map-label a").filter({ hasText: area === "structure" ? "Bible structure" : area === "words" ? "Words of Jesus" : area === "versions" ? "Versions" : "References" }).click();
-    await expect(page).toHaveURL(new RegExp("collection=" + area));
-    await expect(page.locator("#" + area)).toBeVisible();
-    await expect(page.locator(".chart-area:visible")).toHaveCount(1);
-    for (const chart of charts) await expect(page.locator("#" + chart + " > header")).toBeVisible();
-    await expect(page.locator(".chart-discovery-guide li")).toHaveCount(3);
-    expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(1);
-    await page.locator(".charts-page-nav a[href$='#chart-map']").click();
+  await expect(page.locator(".chart-collection-card")).toHaveCount(4);
+  await expect(page.locator(".chart-area, .charts-page-nav, .chart-discovery-guide")).toHaveCount(0);
+  await expect(page.getByText("How does one passage lead to another?")).toHaveCount(0);
+  for (const [slug, label] of [["references", "References"], ["structure", "Bible structure"], ["words-of-jesus", "Words of Jesus"], ["versions", "Versions"]]) {
+    await page.getByRole("navigation", { name: "Chart collections", exact: true }).getByRole("link", { name: label, exact: false }).click();
+    await expect(page).toHaveURL(new RegExp("/charts/" + slug + "$"));
+    await expect(page.locator("h1")).toBeInViewport();
+    await expect(page.locator(".chart-area")).toHaveCount(1);
+    await expect(page.locator(".chart-collection-card[aria-current='page']")).toContainText(label);
+    await expect(page.locator(".charts-page-nav")).toHaveCount(0);
+    await page.goBack();
+    await expect(page).toHaveURL(new RegExp("/charts$"));
+    await expect(page.locator(".chart-area")).toHaveCount(0);
   }
   expect(errors).toEqual([]);
 });
 
-test("charts: each collection has its own explained page and the map preserves direct links", async ({ page }) => {
+test("charts: collections keep their complete charts and legacy links resolve to dedicated pages", async ({ page }) => {
   for (const [slug, area, ids] of [["references", "references", ["arcs", "matrix"]], ["structure", "structure", ["sections", "sizes", "chapters"]], ["words-of-jesus", "words", ["jesus"]], ["versions", "versions", ["timeline", "coverage"]]] as const) {
     await page.goto("/charts/" + slug);
     await expect(page.locator(".charts-map")).toHaveCount(0);
-    await expect(page.locator(".chart-collection-breadcrumb")).toBeVisible();
+    await expect(page.locator(".chart-collection-card svg.chart-map-preview")).toHaveCount(4);
     await expect(page.locator("#" + area)).toBeVisible();
-    await expect(page.locator(".chart-area:visible")).toHaveCount(1);
     for (const id of ids) await expect(page.locator("#" + id + " > header")).toBeAttached();
     await expect(page.locator(".chart-discovery-guide li")).toHaveCount(3);
   }
   await page.goto("/charts#coverage");
+  await expect(page).toHaveURL(new RegExp("/charts/versions#coverage$"));
   await expect(page.getByLabel("Inspect a book")).toBeVisible();
-  await page.locator(".charts-page-nav a[href$='#chart-map']").click();
-  await page.locator(".chart-map-label a").filter({ hasText: "References" }).click();
-  await page.goBack();
-  await expect(page.locator("#versions")).toBeVisible();
+  await page.goto("/charts?collection=structure#chapters");
+  await expect(page).toHaveURL(new RegExp("/charts/structure#chapters$"));
+  await expect(page.locator(".chapter-atlas")).toBeVisible();
 });
 
-test("charts: a direct Versions collection does not fetch connection datasets", async ({ page }) => {
+test("charts: landing and Versions do not fetch connection datasets", async ({ page }) => {
   const requests: string[] = [];
-  page.on("request", (request) => requests.push(request.url()));
+  page.on("request", request => requests.push(request.url()));
+  await page.goto("/charts");
+  await expect(page.locator(".chart-collection-card")).toHaveCount(4);
   await page.goto("/charts/versions#coverage");
   await expect(page.getByLabel("Inspect a book")).toBeVisible();
-  expect(requests.some((url) => /xref-(arcs|books)\.json/.test(url))).toBe(false);
-  await page.getByRole("link", { name: "All chart collections ↑", exact: true }).click();
+  expect(requests.some(url => /xref-(arcs|books)\.json/.test(url))).toBe(false);
+  await page.getByRole("link", { name: "Charts", exact: true }).last().click();
   await expect(page).toHaveURL(new RegExp("/charts$"));
-  await expect(page.locator("#references")).toBeVisible();
+  await expect(page.locator(".chart-area")).toHaveCount(0);
 });
+
 
 test("charts: references are both open and a pinned arc view survives a jump to the matrix", async ({ page }) => {
   await page.goto("/charts#arcs");
@@ -187,5 +186,5 @@ test("charts: coverage remains directly usable and links to the standalone colle
   const coverage = page.locator("#coverage");
   await coverage.getByLabel("Inspect a book").selectOption("GEN");
   await expect(coverage.locator(".chart-live-detail")).toContainText("Genesis is included in");
-  await expect(page.getByRole("link", { name: "Open this collection ↗" })).toHaveAttribute("href", "/charts/versions");
+  await expect(page.getByRole("link", { name: "Return to all chart collections ↑" })).toHaveAttribute("href", "/charts");
 });

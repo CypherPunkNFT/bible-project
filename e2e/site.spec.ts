@@ -107,7 +107,7 @@ test("atlas opens a place from a link and lists its verses", async ({ page }) =>
 });
 
 test("charts draw the arc canvas", async ({ page }) => {
-  await page.goto("/charts");
+  await page.goto("/charts/references");
   await settle(page);
   const painted = await page.locator("#arcs canvas").evaluate((canvas: HTMLCanvasElement) => {
     const context = canvas.getContext("2d");

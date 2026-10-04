@@ -1,6 +1,6 @@
-import { ArrowDown, ArrowRight, BookOpen, Layers, Network, Quote } from "lucide-react";
+import { ArrowRight, BookOpen, Layers, Network, Quote } from "lucide-react";
 import { useEffect, useLayoutEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, Navigate, useLocation } from "react-router-dom";
 import { ArcDiagram } from "@/components/charts/ArcDiagram";
 import { BookMatrix } from "@/components/charts/BookMatrix";
 import { BookSizes } from "@/components/charts/BookSizes";
@@ -69,10 +69,7 @@ export default function ChartsPage() {
   const standalone = !!routeSlug;
   const requested = new URLSearchParams(location.search).get("collection") ?? location.hash.slice(1);
   const active = AREAS.find((area) => standalone ? area.slug === routeSlug : area.id === requested || area.charts.some((chart) => chart.id === requested)) ?? AREAS[0];
-  const [visited, setVisited] = useState<string[]>([]);
-  useEffect(() => { setVisited((current) => current.includes(active.id) ? current : [...current, active.id]); }, [active.id]);
-  const shown = (id: string) => active.id === id || visited.includes(id);
-  const collectionLink = (area: (typeof AREAS)[number], anchor: string = area.id) => "/charts?collection=" + area.id + "#" + anchor;
+  const shown = (id: string) => standalone && active.id === id;
   const standaloneLink = (area: (typeof AREAS)[number]) => "/charts/" + area.slug;
   const canon = stats.status === "ready" ? stats.value.books.filter((b) => b.section !== "apocrypha") : null;
   useLayoutEffect(() => {
@@ -81,26 +78,23 @@ export default function ChartsPage() {
   }, [location.hash, stats.status, active.id]);
   const structureFilters = <SectionFilters value={section} onChange={setSection} />;
   const source = <a href="https://www.openbible.info/labs/cross-references/" target="_blank" rel="noreferrer">OpenBible.info ↗</a>;
-  const Heading = standalone ? "h1" : "h2";
-  const collectionTools = <><nav className="charts-page-nav" aria-label={active.label + " contents"}>{active.charts.map((chart) => <a key={chart.id} href={"#" + chart.id}>{chart.label}</a>)}{standalone ? <Link to="/charts">All chart collections ↑</Link> : <><Link to={standaloneLink(active)}>Open this collection ↗</Link><Link to={collectionLink(active, "chart-map")}>Back to the map ↑</Link></>}</nav>
-    <aside className="chart-discovery-guide" style={{ "--chart-color": "var(--" + active.color + ")" } as CSSProperties}><span>What you can discover</span><ul>{active.discover.map((item) => <li key={item}><ArrowRight size={13} aria-hidden="true" />{item}</li>)}</ul></aside></>;
+  const Heading = "h1";
+  const collectionCards = <nav className="chart-collection-cards" aria-label="Chart collections">{AREAS.map((area) => <Link key={area.id} to={standaloneLink(area)} className="chart-collection-card" aria-current={standalone && active.id === area.id ? "page" : undefined} style={{ "--chart-color": "var(--" + area.color + ")" } as CSSProperties}>
+    <span className="chart-collection-name"><area.icon size={17} aria-hidden="true" />{area.label}</span><span className="chart-collection-lens">{area.lens}</span><MapPreview kind={area.id} />
+  </Link>)}</nav>;
+  const collectionTools = <aside className="chart-discovery-guide" style={{ "--chart-color": "var(--" + active.color + ")" } as CSSProperties}><span>What you can discover</span><ul>{active.discover.map((item) => <li key={item}><ArrowRight size={13} aria-hidden="true" />{item}</li>)}</ul></aside>;
+  if (!standalone && requested && requested !== "chart-map") return <Navigate replace to={standaloneLink(active) + (active.charts.some((chart) => chart.id === location.hash.slice(1)) ? location.hash : "")} />;
   return <div className="charts-hub charts-open mx-auto max-w-7xl px-4 sm:px-6">
     {!standalone && <><header className="charts-intro">
       <div><p className="charts-eyebrow"><span /> A map for reading</p><h1>See Scripture <em>differently.</em></h1><p className="charts-intro-copy">Follow a connection. Understand a book. Hear a teaching. Know the edition in your hands.</p></div>
       <dl className="charts-numbers"><div><dt>books · KJV canon</dt><dd>{canon ? canon.length : "—"}</dd></div><div><dt>chapters</dt><dd>{canon ? formatNumber(canon.reduce((n, b) => n + b.chapters.length, 0)) : "—"}</dd></div><div><dt>versions</dt><dd>{catalog.translations.length}</dd></div></dl>
     </header>
     <section className="charts-map" aria-labelledby="charts-map-title" id="chart-map">
-      <div className="charts-map-heading"><div><h2 id="charts-map-title">Four questions open up the collection.</h2><p>Begin with the relationships between passages. Zoom into books and chapters. Focus on Jesus' teaching. Then examine the editions that carry the text. Together, these perspectives connect the whole library with the passage you are reading.</p></div><Link to={collectionLink(AREAS[0])} className="chart-map-start">Start with the connections <ArrowDown size={15} aria-hidden="true" /></Link></div>
-      <div className="chart-map-grid">{AREAS.map((area) => <article key={area.id} className="chart-map-card" data-selected={active.id === area.id} style={{ "--chart-color": "var(--" + area.color + ")" } as CSSProperties}>
-        <div className="chart-map-label"><area.icon size={17} aria-hidden="true" /><Link to={collectionLink(area)}>{area.label}</Link><span>{area.lens}</span></div>
-        <MapPreview kind={area.id} />
-        <h3><Link className="chart-map-primary" to={collectionLink(area)}>{area.question}</Link></h3><p>{area.why}</p>
-        <nav aria-label={area.label + " charts"}>{area.charts.map((chart) => <Link key={chart.id} to={collectionLink(area, chart.id)}>{chart.label}<ArrowRight size={13} aria-hidden="true" /></Link>)}</nav>
-      </article>)}</div>
-      <p className="chart-map-selection"><span style={{ background: "var(--" + active.color + ")" }} />Viewing below: <strong>{active.label}</strong><span>Choose a question to explore its collection.</span></p>
+      <div className="charts-map-heading"><div><h2 id="charts-map-title">Four perspectives. One library.</h2><p>Explore the connections between passages, the shape of the books, the words of Jesus, and the editions that carry the text. Choose a collection to begin.</p></div></div>
+      {collectionCards}
     </section></>}
     {standalone && <div className="chart-collection-breadcrumb"><Link to="/charts">Charts</Link><span>/</span><strong>{active.label}</strong></div>}
-    {standalone && <nav className="chart-sibling-links" aria-label="Chart collections">{AREAS.map((area) => <Link key={area.id} to={standaloneLink(area)} aria-current={active.id === area.id ? "page" : undefined}><area.icon size={15} aria-hidden="true" />{area.label}</Link>)}</nav>}
+    {standalone && collectionCards}
     {shown("references") && <section hidden={active.id !== "references"} id="references" aria-labelledby="references-title" className="chart-area" style={{ "--chart-color": "var(--poetry)" } as CSSProperties}>
       <header className="chart-area-heading"><div><p className="charts-panel-kicker">Connections · References</p><Heading id="references-title">Scripture in conversation.</Heading><p>The arc view gives you the sweep across chapters; the book matrix reveals which books point to one another. Read both as invitations to examine the linked passages in context.</p></div><Network aria-hidden="true" /></header>
       {active.id === "references" && collectionTools}
@@ -131,6 +125,6 @@ export default function ChartsPage() {
       <ChartPanel id="timeline" title="Versions through time" lead="Find an edition by its recorded year. The dates belong to these editions, rather than the ancient composition of the biblical books." source={<span>Edition years from the version catalogue.</span>}><VersionsTimeline /></ChartPanel>
       <ChartPanel id="coverage" title="Version coverage" lead="See the Old Testament, New Testament and Apocrypha included in each edition. Inspect a book or filter the version groups." source={<span>Coverage from each version's actual book list.</span>} height={1100}><CoverageMatrix /></ChartPanel>
     </section>}
-    {standalone ? <Link to="/charts" className="chart-back-map">Return to all chart collections ↑</Link> : <Link to={collectionLink(active, "chart-map")} className="chart-back-map">Choose another collection ↑</Link>}
+    {standalone && <Link to="/charts" className="chart-back-map">Return to all chart collections ↑</Link>}
   </div>;
 }
