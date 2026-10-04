@@ -48,7 +48,6 @@ export function VersePanel({ translation, bookCode, chapter, label, onClose }: P
 
   useEffect(() => {
     setShown(FIRST_PAGE);
-    setCompare(false);
     heading.current?.focus();
   }, [bookCode, chapter, label]);
 
