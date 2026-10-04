@@ -1,4 +1,4 @@
-import { ArrowRight, ArrowUp, BookOpen, Layers, Network, Quote } from "lucide-react";
+import { ArrowUp, BookOpen, Layers, Network, Quote } from "lucide-react";
 import { useEffect, useLayoutEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { ArcDiagram } from "@/components/charts/ArcDiagram";
@@ -17,14 +17,8 @@ import { loadArcs, loadBookPairs, loadStats } from "@/lib/data";
 import { useAsync, type AsyncState } from "@/lib/useAsync";
 import "./charts.css";
 import { StudyContents } from "@/components/study/StudyContents";
+import { StudyBackLink } from "@/components/study/StudyBackLink";
 import HarmonyPage from "@/pages/study/HarmonyPage";
-
-const AREAS = [
-  { id: "references", slug: "references", discover: ["Follow a book's links across the canon","Compare the strongest book-to-book connections","Find passages to read together in context"], label: "References", lens: "Connections", icon: Network, color: "poetry", question: "How does one passage lead to another?", why: "A verse belongs to a wider conversation. Follow the links across chapters, then compare the connections between whole books.", charts: [{ id: "arcs", label: "Cross-reference arcs" }, { id: "matrix", label: "Book to book" }] },
-  { id: "structure", slug: "structure", discover: ["Compare the Bible by nine different measures","See how literary forms shape your reading","Move from a section to a numbered chapter"], label: "Bible structure", lens: "Composition", icon: BookOpen, color: "history", question: "How does the whole fit together?", why: "The Bible is a collection of different books and literary forms. See its proportions, compare its books, and find your place among the chapters.", charts: [{ id: "sections", label: "Sections & measures" }, { id: "sizes", label: "Book lengths" }, { id: "chapters", label: "Chapter atlas" }] },
-  { id: "words", slug: "words-of-jesus", discover: ["Read teaching within each Gospel's setting","Compare 185 events across the Gospel accounts","Locate longer discourses and shorter encounters"], label: "Words of Jesus", lens: "Voice & teaching", icon: Quote, color: "revelation", question: "What does Jesus say—and in what setting?", why: "Focus on his teaching within the Gospel stories. Read parallel accounts alongside one another, then see where his speech fills a chapter.", charts: [{ id: "jesus", label: "Teaching journeys" }, { id: "speech", label: "Where he speaks" }] },
-  { id: "versions", slug: "versions", discover: ["Place the library's editions in time","Compare their actual book collections","Choose an edition and begin reading"], label: "Versions", lens: "Editions & contents", icon: Layers, color: "acts", question: "Which edition am I reading?", why: "The editions in this library come from different times and include different collections of books. Place them in time and compare what each contains.", charts: [{ id: "timeline", label: "Versions through time" }, { id: "coverage", label: "Version coverage" }] },
-] as const;
 
 function Result<T>({ state, children }: { state: AsyncState<T>; children: (value: T) => ReactNode }) {
   if (state.status === "loading") return <Loading height={380} />;
@@ -65,28 +59,27 @@ export default function ChartsPage() {
   const location = useLocation();
   const [section, setSection] = useState<SectionFilter>("");
   const routeSlug = location.pathname.split("/")[2];
-  const active = AREAS.find((area) => area.slug === (routeSlug === "gospels" ? "words-of-jesus" : routeSlug)) ?? AREAS[0];
-  const shown = (id: string) => active.id === id;
+  const activeId = routeSlug === "gospels" ? "words" : routeSlug;
+  const shown = (id: string) => activeId === id;
   useLayoutEffect(() => {
     const target = location.hash.slice(1);
     if (target) (document.getElementById(target) ?? (target === "speech" ? document.getElementById("jesus") : target.startsWith("event-") ? document.getElementById("harmony") : null))?.scrollIntoView({ block: "start", behavior: "instant" });
-  }, [location.hash, stats.status, active.id]);
+  }, [location.hash, stats.status, activeId]);
   const structureFilters = <SectionFilters value={section} onChange={setSection} />;
   const source = <a href="https://www.openbible.info/labs/cross-references/" target="_blank" rel="noreferrer">OpenBible.info ↗</a>;
   const Heading = "h1";
   const collection = STUDY_COLLECTIONS.find((item) => item.id === routeSlug)!;
-  const collectionTools = <><aside className="chart-discovery-guide" style={{ "--chart-color": "var(--" + active.color + ")" } as CSSProperties}><span>What you can discover</span><ul>{active.discover.map((item) => <li key={item}><ArrowRight size={13} aria-hidden="true" />{item}</li>)}</ul></aside><StudyContents /></>;
   return <div className="charts-hub charts-open study-explorers mx-auto max-w-7xl px-4 sm:px-6">
-    <div className="chart-collection-breadcrumb"><Link to="/study">Study</Link><span>/</span><strong>{collection.label}</strong></div>
-    {shown("references") && <section hidden={active.id !== "references"} id="references" aria-labelledby="references-title" className="chart-area" style={{ "--chart-color": "var(--poetry)" } as CSSProperties}>
+    <div className="chart-collection-breadcrumb"><StudyBackLink /><strong>{collection.label}</strong></div>
+    {shown("references") && <section hidden={activeId !== "references"} id="references" aria-labelledby="references-title" className="chart-area" style={{ "--chart-color": "var(--poetry)" } as CSSProperties}>
       <header className="chart-area-heading"><div><p className="charts-panel-kicker">Connections · References</p><Heading id="references-title">Scripture in conversation.</Heading><p>The arc view gives you the sweep across chapters; the book matrix reveals which books point to one another. Read both as invitations to examine the linked passages in context.</p></div><Network aria-hidden="true" /></header>
-      {active.id === "references" && collectionTools}
+      <StudyContents />
       <ChartPanel id="arcs" title="Cross-reference arcs" lead="Every arc joins two chapters in the existing cross-reference set. Light up a book to follow its part in the wider web." source={<><span>Cross-references between different chapters</span>{source}</>}><ArcsView /></ChartPanel>
       <ChartPanel id="matrix" title="Book to book" lead="Move from the sweep of the arcs to individual pairs. Inspect the grid or choose from the ranked list; a direction means one book points to the other." source={<><span>Rows: from · Columns: to · Stronger colour: more references · Genesis → Revelation</span>{source}</>}><MatrixView /></ChartPanel>
     </section>}
-    {shown("structure") && <section hidden={active.id !== "structure"} id="structure" aria-labelledby="structure-title" className="chart-area" style={{ "--chart-color": "var(--history)" } as CSSProperties}>
+    {shown("structure") && <section hidden={activeId !== "structure"} id="structure" aria-labelledby="structure-title" className="chart-area" style={{ "--chart-color": "var(--history)" } as CSSProperties}>
       <header className="chart-area-heading"><div><p className="charts-panel-kicker">Composition · Bible structure</p><Heading id="structure-title">The whole, the books, the chapters.</Heading><p>Begin with the sections and literary forms, compare the lengths of their books, then find a numbered chapter. Section selections carry through all three charts.</p></div><BookOpen aria-hidden="true" /></header>
-      {active.id === "structure" && collectionTools}
+      <StudyContents />
       <ChartPanel id="sections" title="Sections & measures" lead="How does the balance change when you count books, chapters, words or entries in the study collection? Choose a measure, then follow its evidence." source={<span>KJV text measures · Study selections explain their sources and counting rules.</span>} height={850}>
         {structureFilters}<SectionGuide section={section} /><Result state={stats}>{(data) => <SectionDonut stats={data} section={section} onSection={setSection} />}</Result>
       </ChartPanel>
@@ -97,16 +90,16 @@ export default function ChartsPage() {
         {structureFilters}<SectionGuide section={section} /><Result state={stats}>{(data) => <ChapterGrid key={section} stats={data} section={section} />}</Result>
       </ChartPanel>
     </section>}
-    {shown("words") && <section hidden={active.id !== "words"} id="words" aria-labelledby="words-title" className="chart-area" style={{ "--chart-color": "var(--revelation)" } as CSSProperties}>
+    {shown("words") && <section hidden={activeId !== "words"} id="words" aria-labelledby="words-title" className="chart-area" style={{ "--chart-color": "var(--revelation)" } as CSSProperties}>
       <header className="chart-area-heading"><div><p className="charts-panel-kicker">Life & teaching · Jesus & the Gospels</p><Heading id="words-title">Four accounts. One life.</Heading><p>Meet Jesus through the accounts of his life and the words of his teaching. Begin with a teaching in its Gospel setting, explore where he speaks, then compare events across Matthew, Mark, Luke and John.</p></div><Quote aria-hidden="true" /></header>
-      {active.id === "words" && collectionTools}
+      <StudyContents />
       <ChartPanel id="jesus" title="Teaching journeys" lead="Read eight selected teachings in their Gospel setting, compare parallel accounts, and follow the passages into the reader." source={<span>KJV previews · Teaching passages include their narrative setting.</span>} height={850}><TeachingJourneys /></ChartPanel>
       <ChartPanel id="speech" title="Where he speaks" lead="See the shape of Jesus' speech across the Gospel chapters. Compare the share of a chapter with its red-letter word count, then read the surrounding story." source={<span>KJV red-letter markup · Chapter bars open their passages in the reader.</span>} height={850}><Result state={stats}>{(data) => <SpeechAtlas stats={data} />}</Result></ChartPanel>
       <ChartPanel id="harmony" title="Gospel harmony" lead="Follow 185 events through A. T. Robertson's fourteen parts. Open an event to read its accounts together; each Gospel retains its own voice and setting." source={<span>A. T. Robertson · 1922 · Gospel order follows this harmony, rather than an independently established chronology.</span>} height={700}><HarmonyPage embedded /></ChartPanel>
     </section>}
-    {shown("versions") && <section hidden={active.id !== "versions"} id="versions" aria-labelledby="versions-title" className="chart-area" style={{ "--chart-color": "var(--acts)" } as CSSProperties}>
+    {shown("versions") && <section hidden={activeId !== "versions"} id="versions" aria-labelledby="versions-title" className="chart-area" style={{ "--chart-color": "var(--acts)" } as CSSProperties}>
       <header className="chart-area-heading"><div><p className="charts-panel-kicker">Editions & contents · Versions</p><Heading id="versions-title">Know the edition you are reading.</Heading><p>Know the texts in your hands. Edition dates place the library in time; coverage shows which books each edition actually includes. The Library brings these editions together by language.</p></div><Layers aria-hidden="true" /></header>
-      {active.id === "versions" && collectionTools}
+      <StudyContents />
       <ChartPanel id="timeline" title="Versions through time" lead="Find an edition by its recorded year. The dates belong to these editions, rather than the ancient composition of the biblical books." source={<span>Edition years from the version catalogue.</span>}><VersionsTimeline /></ChartPanel>
       <ChartPanel id="coverage" title="Version coverage" lead="See the Old Testament, New Testament and Apocrypha included in each edition. Inspect a book or filter the version groups." source={<span>Coverage from each version's actual book list.</span>} height={1100}><CoverageMatrix /></ChartPanel>
     </section>}

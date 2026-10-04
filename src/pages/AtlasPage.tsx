@@ -1,7 +1,8 @@
 import { Search } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useMemo, useState } from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
+import { StudyBackLink } from "@/components/study/StudyBackLink";
 import { StudyContents } from "@/components/study/StudyContents";
 import { AtlasMap } from "@/components/atlas/AtlasMap";
 import { projectPlace, type MapPlace } from "@/components/atlas/projection";
@@ -71,8 +72,8 @@ export default function AtlasPage() {
   return (
     <div className="mx-auto max-w-7xl px-4 pb-16 sm:px-6">
       <header className="pb-5 pt-10">
-        <Link to="/study" className="text-sm text-muted hover:text-accent">← Study</Link>
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">Study · Places & journeys</p>
+        <StudyBackLink />
+        <p className="mt-4 text-xs font-semibold uppercase tracking-[0.2em] text-accent">Study · Places & journeys</p>
         <h1 className="mt-1 font-serif text-4xl font-semibold tracking-tight sm:text-5xl">The places of the Bible.</h1>
         <p className="mt-3 max-w-2xl text-muted">
           {formatNumber(all.length || 1252)} places with a known or likely location. Each dot is coloured by the section that names it most, and sized by how many verses name

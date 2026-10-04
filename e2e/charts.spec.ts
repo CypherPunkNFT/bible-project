@@ -15,7 +15,7 @@ test("study: one illustrated landing contains nine collections and Charts redire
     await expect(page.locator(".chart-collection-breadcrumb")).toContainText(label);
     await expect(page.getByRole("navigation", { name: "Collection contents" })).toBeVisible();
     await expect(page.locator(".charts-page-nav")).toHaveCount(0);
-    await page.goBack();
+    await page.getByRole("link", { name: "Back to Study", exact: true }).click();
     await expect(page).toHaveURL(new RegExp("/study$"));
   }
 });
@@ -27,7 +27,6 @@ test("study: complete collections and old links resolve to their canonical Study
     await expect(page.locator(".study-content-card")).toHaveCount(slug === "references" ? 2 : 3);
     await expect(page.locator("#" + area)).toBeVisible();
     for (const id of ids) await expect(page.locator("#" + id + " > header")).toBeAttached();
-    await expect(page.locator(".chart-discovery-guide li")).toHaveCount(3);
   }
   await page.goto("/charts#coverage");
   await expect(page).toHaveURL(new RegExp("/study/versions#coverage$"));

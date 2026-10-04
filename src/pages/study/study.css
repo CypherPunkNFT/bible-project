@@ -1,4 +1,7 @@
 .study-hub { padding-bottom: 4rem; }
+.study-back-button { display: inline-flex; align-items: center; justify-content: center; gap: .55rem; min-height: 44px; padding: .65rem 1rem; border: 1px solid var(--line); border-radius: .65rem; background: var(--surface); color: var(--ink); font-size: .85rem; font-weight: 500; white-space: nowrap; }
+.study-back-button:hover { border-color: var(--accent); color: var(--accent); background: var(--surface-2); }
+.study-back-button:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
 .study-intro { display: flex; justify-content: space-between; align-items: flex-end; gap: 2rem; padding: 2.5rem 0 2rem; }
 .study-eyebrow { display: flex; align-items: center; gap: .65rem; color: var(--accent); font-size: .7rem; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; }
 .study-eyebrow > span { width: 1.75rem; height: 1px; background: currentColor; }
