@@ -1,0 +1,31 @@
+{
+  "checkedOn": "2026-10-05",
+  "policies": [
+    {
+      "id": "prdl",
+      "url": "https://www.prdl.org/about.php",
+      "locator": "Purpose",
+      "decision": "Discovery catalog; follow the actual holding to its host. No hosted corpus inferred."
+    },
+    {
+      "id": "monergism",
+      "url": "https://www.monergism.com/monergism-copyright-permissions",
+      "locator": "Copyright and Permissions",
+      "decision": "Use source links and annotations. Do not redistribute curated files to the app, repository or corpus."
+    },
+    {
+      "id": "desiring-god",
+      "url": "https://www.desiringgod.org/permissions",
+      "locator": "Resources by John Piper and Exceptions",
+      "decision": "Link to official messages. No wholesale text copying, media reupload or assumption that a book license covers reuse elsewhere."
+    },
+    {
+      "id": "mlj-trust",
+      "url": "https://www.mljtrust.org/terms-use/",
+      "locator": "Terms of Use, Intellectual Property",
+      "decision": "Systematic collection/database retrieval prohibited. No MLJ retrieval, transcription or inclusion was performed for these paths."
+    }
+  ],
+  "acquiredFiles": 0,
+  "embeddedMedia": 0
+}

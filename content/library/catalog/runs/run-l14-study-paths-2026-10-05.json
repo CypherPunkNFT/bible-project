@@ -1,0 +1,38 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "run",
+  "id": "run-l14-study-paths-2026-10-05",
+  "missionId": "L14",
+  "status": "complete",
+  "startedOn": "2026-10-05",
+  "completedOn": "2026-10-05",
+  "boundary": "Five annotated local study paths; selected-source review and editorial sequencing, not public integration or whole-work certification.",
+  "sourceIds": [
+    "source-banner-of-truth",
+    "source-ccel",
+    "source-desiring-god",
+    "source-gutenberg",
+    "source-internet-archive",
+    "source-monergism",
+    "source-spurgeon-gems"
+  ],
+  "inventory": "content/library/reports/study-paths/paths.json",
+  "checkpoint": "content/library/reports/study-paths/checkpoint.json",
+  "counts": {
+    "works": 0,
+    "editions": 0,
+    "assets": 0,
+    "series": 0,
+    "reviewedWorks": 0,
+    "publishedWorks": 0
+  },
+  "gaps": [
+    "Human pastoral/theological review before public integration; these guides currently live at the collection desk.",
+    "Expand apologetics beyond inspiration, miracles and resurrection when further catalog arguments are body-reviewed. No completed Islam curriculum is claimed.",
+    "Broaden sermon authors as more suitable selections receive scoped review; do not add an unverified recommendation merely for diversity.",
+    "Further family, grief and ministry paths may draw on later completed missions; unfinished concurrent acquisitions were not used.",
+    "If input hashes change, recheck recommendations before regenerating; no source permissions are broadened by this path builder."
+  ],
+  "reportPath": "content/library/reports/study-paths/REPORT.md"
+}
