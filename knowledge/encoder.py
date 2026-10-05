@@ -11,6 +11,10 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from urllib.parse import urlparse
 
 
+class GPUUnavailable(RuntimeError):
+    """Temporary hardware contention, distinct from invalid data/model failures."""
+
+
 def request_vectors(config, texts, kind="document"):
     cfg = config["embedding"]
     payload = json.dumps({"texts": texts, "kind": kind}, ensure_ascii=False).encode("utf-8")
@@ -23,7 +27,14 @@ def request_vectors(config, texts, kind="document"):
         with urllib.request.urlopen(request, timeout=180) as response:
             result = json.load(response)
     except urllib.error.HTTPError as exc:
-        raise RuntimeError(exc.read().decode("utf-8")) from exc
+        message = exc.read().decode("utf-8")
+        try:
+            problem = json.loads(message)
+        except ValueError:
+            problem = {}
+        if problem.get("code") == "gpu_busy" or problem.get("error", "").startswith("Local GPU has less than 10,500 MB free"):
+            raise GPUUnavailable(problem.get("error", message)) from exc
+        raise RuntimeError(message) from exc
     if (result.get("model"), result.get("revision"), result.get("dimensions")) != (cfg["model"], cfg["revision"], cfg["dimensions"]):
         raise ValueError("Embedding model identity mismatch")
     vectors = result.get("vectors", [])
@@ -54,16 +65,19 @@ class Encoder:
             lock_path = self.config["state_dir"] / "gpu.lock"
         handle = open(lock_path, "a+b")
         try:
-            if os.name == "nt":
-                import msvcrt
-                handle.seek(0)
-                msvcrt.locking(handle.fileno(), msvcrt.LK_NBLCK, 1)
-            else:
-                import fcntl
-                fcntl.flock(handle, fcntl.LOCK_EX | fcntl.LOCK_NB)
+            try:
+                if os.name == "nt":
+                    import msvcrt
+                    handle.seek(0)
+                    msvcrt.locking(handle.fileno(), msvcrt.LK_NBLCK, 1)
+                else:
+                    import fcntl
+                    fcntl.flock(handle, fcntl.LOCK_EX | fcntl.LOCK_NB)
+            except OSError as exc:
+                raise GPUUnavailable("GPU coordination lock is held by another encoder") from exc
             free = subprocess.check_output(["nvidia-smi", "--query-gpu=memory.free", "--format=csv,noheader,nounits"], text=True, timeout=10)
             if int(free.strip().splitlines()[0]) < 10500:
-                raise RuntimeError("Local GPU has less than 10,500 MB free; retry when available")
+                raise GPUUnavailable("Local GPU has less than 10,500 MB free; retry when available")
             os.environ["HF_HUB_OFFLINE"] = "1"
             os.environ["TRANSFORMERS_OFFLINE"] = "1"
             import torch
@@ -154,7 +168,7 @@ def serve_encoder(config):
                 cfg = config["embedding"]
                 self.reply(200, {"vectors": vectors, "model": cfg["model"], "revision": cfg["revision"], "dimensions": cfg["dimensions"]})
             except Exception as exc:
-                self.reply(503, {"error": str(exc)})
+                self.reply(503, {"error": str(exc), "code": "gpu_busy" if isinstance(exc, GPUUnavailable) else "embedding_failed"})
 
         def log_message(self, *_):
             pass

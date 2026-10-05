@@ -1,4 +1,4 @@
-param([int]$ExistingLauncherPid = 0)
+param([int]$ExistingLauncherPid = 0, [switch]$Resume)
 $ErrorActionPreference = 'Stop'
 $siteRoot = Split-Path $PSScriptRoot -Parent
 $bibleState = [IO.Path]::GetFullPath((Join-Path $siteRoot '../KnowledgeBase'))
@@ -29,6 +29,9 @@ try {
             $process.WaitForExit()
             if ($process.ExitCode) { throw 'Attached intake launcher failed; inspect intake-build-error.log.' }
         }
+    } elseif ($Resume) {
+        & powershell.exe -NoProfile -ExecutionPolicy Bypass -File (Join-Path $PSScriptRoot 'start.ps1')
+        if ($LASTEXITCODE) { throw 'Could not resume the Bible instance.' }
     } else { Refresh-Corpus }
     while ($true) {
         # Wait for this Bible instance only; never stop or query another corpus.

@@ -21,6 +21,9 @@ powershell -ExecutionPolicy Bypass -File knowledge/start.ps1 -Refresh
 # Runs until the held-text snapshot is current, then exits without starting enrichment.
 powershell -ExecutionPolicy Bypass -File knowledge/finish-intake.ps1
 
+# Resume an interrupted completion job against the published snapshot.
+powershell -ExecutionPolicy Bypass -File knowledge/finish-intake.ps1 -Resume
+
 # Stop only this instance's services. The database and vectors remain on disk.
 powershell -ExecutionPolicy Bypass -File knowledge/start.ps1 -Stop
 ```
@@ -102,9 +105,11 @@ The first semantic pass is a substantial GPU job. No arbitrary source/sample lim
 
 GPU batches remain 16 passages; vector writes group up to 64 to reduce file/index overhead on the larger corpus. Oversized multilingual requests are split within the encoder's byte limit without dropping text or changing model identity. Book chunking uses offsets instead of repeatedly copying the entire remaining book, while preserving prior chunk boundaries and reusable vector IDs.
 
+Hardware contention produces `waiting_for_gpu`: the worker retries every 30 seconds and updates its heartbeat without unloading other applications or switching models. Full-text search remains available. Invalid input, model mismatches and other failures still stop the pass for investigation. The completion worker waits for the active embedding process; it cannot mark a waiting pass complete.
+
 ### Coverage audit — 2026-10-05
 
-The original snapshot was built at `2026-10-05T05:04:57Z`. It passed complete vector parity verification on 2026-10-05: 198,656 passages/vectors and 1,027,939 original verse records. A subsequent expanded-library build is in progress; consult the live coverage report rather than treating this historic count as the new corpus total.
+The original snapshot was built at `2026-10-05T05:04:57Z` and passed parity verification with 198,656 passages/vectors. The expanded snapshot published at `2026-10-05T15:50:59Z` contains **1,225,567 passages, 26,786 documents and 1,027,939 original verse records** across the same 37 editions. It accounts for 19,860 library files, including 9,958 text-bearing files; two scan-only sources retain existing transcription deferrals. SQLite/FTS5 integrity and a browser check of library search, source context and mobile layout passed. Embeddings are incomplete: 198,527 current vectors were reused, and the worker is waiting for GPU memory occupied by other local models. Consult live reports for subsequent progress and late-acquisition refreshes.
 
 Remaining work:
 

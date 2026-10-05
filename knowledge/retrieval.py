@@ -163,7 +163,7 @@ def status(config):
         built_at = db.execute("SELECT value FROM meta WHERE key='built_at'").fetchone()[0]
         if current.get("corpus_build") != built_at and current["state"] != "not_started":
             current = current | {"state": "needs_refresh"}
-        elif current["state"] == "running" and (datetime.now(timezone.utc)-datetime.fromisoformat(current["updated_at"])).total_seconds() > 180:
+        elif current["state"] in ("running", "waiting_for_gpu") and (datetime.now(timezone.utc)-datetime.fromisoformat(current["updated_at"])).total_seconds() > 180:
             current = current | {"state": "stalled"}
         coverage = json.loads((config["state_dir"] / "coverage.json").read_text("utf-8"))
         return {"state": "ready", "corpus": coverage, "embeddings": current,

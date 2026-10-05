@@ -140,3 +140,42 @@ def test_large_multilingual_vector_write_batches_respect_encoder_payload_limit(m
     texts = [str(i) + "恩" * 1500 for i in range(64)]
     assert len(request_vectors(config, texts)) == 64
     assert seen == texts
+
+
+def test_gpu_wait_retries_same_passages_but_data_errors_fail(monkeypatch):
+    from knowledge.encoder import GPUUnavailable
+    from knowledge.vectors import encode_when_available
+    attempts, waits, sleeps = [], [], []
+    def encode(config, texts):
+        attempts.append(list(texts))
+        if len(attempts) == 1:
+            raise GPUUnavailable("GPU occupied")
+        return [[1, 0]]
+    monkeypatch.setattr("knowledge.vectors.request_vectors", encode)
+    monkeypatch.setattr("knowledge.vectors.time.sleep", sleeps.append)
+    assert encode_when_available({}, ["complete source passage"], waits.append) == [[1, 0]]
+    assert attempts == [["complete source passage"], ["complete source passage"]]
+    assert waits == ["GPU occupied"] and sleeps == [30]
+    def invalid(config, texts):
+        raise ValueError("Embedding model identity mismatch")
+    monkeypatch.setattr("knowledge.vectors.request_vectors", invalid)
+    with pytest.raises(ValueError, match="identity"):
+        encode_when_available({}, ["source"], waits.append)
+
+
+def test_encoder_resource_errors_are_distinct_from_bad_input(monkeypatch):
+    import io
+    import urllib.error
+    from knowledge.encoder import GPUUnavailable, request_vectors
+    config = {"embedding": {"daemon_url": "http://127.0.0.1:8936"}}
+    def busy(request, timeout):
+        raise urllib.error.HTTPError(request.full_url, 503, "busy", {}, io.BytesIO(b'{"code":"gpu_busy","error":"GPU occupied"}'))
+    monkeypatch.setattr("knowledge.encoder.urllib.request.urlopen", busy)
+    with pytest.raises(GPUUnavailable):
+        request_vectors(config, ["source"])
+    def invalid(request, timeout):
+        raise urllib.error.HTTPError(request.full_url, 503, "bad", {}, io.BytesIO(b'{"code":"embedding_failed","error":"Invalid model"}'))
+    monkeypatch.setattr("knowledge.encoder.urllib.request.urlopen", invalid)
+    with pytest.raises(RuntimeError) as error:
+        request_vectors(config, ["source"])
+    assert not isinstance(error.value, GPUUnavailable)

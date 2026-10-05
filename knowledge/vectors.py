@@ -4,7 +4,7 @@ import math
 import os
 import time
 from datetime import datetime, timezone
-from .encoder import request_vectors
+from .encoder import request_vectors, GPUUnavailable
 from .settings import write_json
 from .store import connect
 
@@ -27,6 +27,15 @@ def table(config, create=False):
 
 def vector_ids(vectors):
     return set(vectors.to_lance().to_table(columns=["id"]).column("id").to_pylist()) if vectors is not None else set()
+
+
+def encode_when_available(config, texts, waiting):
+    while True:
+        try:
+            return request_vectors(config, texts)
+        except GPUUnavailable as exc:
+            waiting(str(exc))
+            time.sleep(30)
 
 
 def validate_identity(config):
@@ -80,7 +89,17 @@ def _embed_all(config, limit, batch_size):
         nonlocal completed, buffer
         if not buffer:
             return
-        embeddings = request_vectors(config, [row["embed_text"] for row in buffer])
+        waits = 0
+        def waiting(reason):
+            nonlocal waits
+            write_json(config["state_dir"] / "embedding-progress.json", {
+                "state": "waiting_for_gpu", "updated_at": datetime.now(timezone.utc).isoformat(), "pid": os.getpid(),
+                "total": total, "indexed": initial+completed, "remaining": total-initial-completed,
+                "corpus_build": corpus_build, "reason": reason})
+            if waits % 10 == 0:
+                print(f"Waiting for GPU availability: {reason}", flush=True)
+            waits += 1
+        embeddings = encode_when_available(config, [row["embed_text"] for row in buffer], waiting)
         values = [{key: row[key] for key in ("id", "kind", "edition", "language", "book")} | {"vector": vector} for row, vector in zip(buffer, embeddings)]
         vectors.add(values)
         completed += len(buffer)
