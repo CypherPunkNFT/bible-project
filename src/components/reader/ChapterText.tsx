@@ -59,9 +59,8 @@ export function ChapterText({ chapter, options, selected, highlight = null, onSe
                 data-verse={piece.verse.n}
                 onClick={() => onSelect(piece.verse.n)}
                 className={cn(
-                  "cursor-pointer rounded-sm transition-colors hover:bg-accent/10",
-                  selected === piece.verse.n && "bg-accent/20 hover:bg-accent/25",
-                  selected !== piece.verse.n && inHighlight(piece.verse.n, highlight) && "bg-accent/10",
+                  "cursor-pointer rounded-sm transition-colors",
+                  selected === piece.verse.n || inHighlight(piece.verse.n, highlight) ? "verse-highlight" : "hover:bg-accent/10",
                 )}
               >
                 {piece.first && (

@@ -125,6 +125,19 @@ body {
   line-height: 1.8;
 }
 
+/* Clicked verses and linked passages use the epistles' gold as an opaque marker in both themes.
+   Local tokens keep verse numbers, red letters and opened footnotes readable on that gold. */
+.verse-highlight {
+  --accent: #4b3918;
+  --muted: #4b3918;
+  --red-letter: #8c2520;
+  --surface-2: #fff4d6;
+  background-color: #ebc55e;
+  color: #1f1b16;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
 .scripture [lang="he"],
 .scripture:lang(he) {
   font-family: var(--font-hebrew);

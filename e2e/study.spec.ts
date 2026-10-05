@@ -188,7 +188,7 @@ test("harmony references open the reader on the whole passage", async ({ page })
   await page.goto("/study/harmony");
   await page.getByRole("link", { name: "6:30–44" }).first().click();
   await expect(page).toHaveURL(/\/read\/[a-z]+\/MRK\/6\?hl=30-44/);
-  await expect(page.locator('[data-verse="30"]').first()).toHaveClass(/bg-accent/);
+  await expect(page.locator('[data-verse="30"]').first()).toHaveCSS("background-color", "rgb(235, 197, 94)");
 });
 
 test("people: Zechariah is one of 29, and family links land on the right person", async ({ page }) => {

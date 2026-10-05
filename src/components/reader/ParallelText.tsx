@@ -102,9 +102,8 @@ export function ParallelText({ columns, options, selected, highlight = null, onS
           key={label}
           onClick={() => onSelect(label)}
           className={cn(
-            "grid cursor-pointer grid-cols-1 gap-x-4 gap-y-1 border-b border-line/60 py-3 transition-colors hover:bg-accent/5 sm:[grid-template-columns:var(--cols)]",
-            selected === label && "bg-accent/15 hover:bg-accent/20",
-            selected !== label && inHighlight(label, highlight) && "bg-accent/[0.07]",
+            "grid cursor-pointer grid-cols-1 gap-x-4 gap-y-1 border-b border-line/60 py-3 transition-colors sm:[grid-template-columns:var(--cols)]",
+            selected === label || inHighlight(label, highlight) ? "verse-highlight" : "hover:bg-accent/5",
           )}
           style={{ "--cols": gridColumns.gridTemplateColumns } as CSSProperties}
         >
