@@ -103,12 +103,20 @@ moderation, private access rotation, public projections and persistence across r
 ## Releasing testimonies on the existing Pages site
 
 The repository's `wrangler.jsonc` has a **local-only placeholder database ID**. Never use it for deployment.
-The production D1 database has not been created or bound. Preparing a release does not deploy anything.
+The production D1 database is now created and bound (2026-10-04): `bible-testimonies`, ID
+`e80eb6c8-2d9b-4da9-86f7-3ffaf94f18c5`. All four migrations are applied. The public API health check returns
+`{"ready":true}`. Preparing a release does not deploy anything. For subsequent releases, reuse this ID;
+do not create another database or replace the existing root invitation.
+
+The first owner's private invitation is saved locally in
+`.local/production-owner-39bd783c-5b21-4c62-9ddf-d0eeff55cc9f/private-link.txt`.
+Its adjacent SQL has already been applied. No story was published during deployment.
 
 1. Build and run the checks above. Run `bun run testimonies:prepare` to verify the complete package locally.
    It creates a fresh `.release/testimonies-*/site/` containing the frontend, Bible data, compiled Pages
    Worker, API-only routing and cache/security headers. It refuses more than 20,000 files.
-2. At launch, create the free-plan D1 database with `bunx wrangler d1 create bible-testimonies`.
+2. Set `TESTIMONY_D1_ID` to the existing production database ID above. For a new installation only,
+   create the free-plan D1 database with `bunx wrangler d1 create bible-testimonies`.
    Set the returned UUID as `TESTIMONY_D1_ID` (PowerShell: `$env:TESTIMONY_D1_ID = '<uuid>'`).
    If using a custom domain, also set `PUBLIC_SITE_URL` to its HTTPS origin.
 3. Run `bun run testimonies:prepare` again. The new directory includes a production `wrangler.jsonc` and
