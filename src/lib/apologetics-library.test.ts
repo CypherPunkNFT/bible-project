@@ -2,6 +2,22 @@ import { describe, expect, it } from "vitest";
 import { readFileSync } from "node:fs";
 import { DEBATES, PATHS, PRACTICE, SOURCES, STUDIES, TOPICS, WORLDVIEWS } from "@/data/apologetics-library";
 import type { Catalog, Chapter } from "./types";
+import type { ApCitation } from "@/data/apologetics-types";
+
+const studyBlocks = STUDIES.flatMap((study) => [
+  { owner: study.id + "/answer", citations: study.support.answer },
+  ...study.support.reasoning.map((citations, i) => ({ owner: study.id + "/reasoning/" + i, citations })),
+  { owner: study.id + "/conclusion", citations: study.support.conclusion },
+  ...study.support.sections.map((citations, i) => ({ owner: study.id + "/section/" + i, citations })),
+  ...(["reply", "limit", "prompt"] as const).map((key) => ({ owner: study.id + "/" + key, citations: study.support[key] })),
+]);
+const supportedBlocks: { owner: string; citations: ApCitation[] }[] = [...studyBlocks,
+  ...WORLDVIEWS.flatMap((item) => item.rows.flatMap((row) => [
+    { owner: item.id + "/" + row.study + "/christian", citations: row.christianBasis },
+    { owner: item.id + "/" + row.study + "/other", citations: row.otherBasis },
+  ])),
+  ...PRACTICE.map((item) => ({ owner: "practice/" + item.id, citations: item.basis })),
+];
 
 describe("the connected apologetics library", () => {
   it("has unique destinations and resolves every collection, related study and source", () => {
@@ -37,19 +53,43 @@ describe("the connected apologetics library", () => {
     for (const topic of TOPICS) expect(STUDIES.some((study) => study.topic === topic.id)).toBe(true);
   });
 
-  it("every Scripture span opens real KJV verses with ordered same-book endpoints", () => {
+  it("requires traceable support for every substantive block and distinguishes authority from records", () => {
+    for (const { owner, citations } of supportedBlocks) {
+      expect(citations.length, owner).toBeGreaterThan(0);
+      for (const citation of citations) if (citation.kind === "source") {
+        expect(SOURCES.some((item) => item.id === citation.source), owner + ": " + citation.source).toBe(true);
+        expect(citation.locator.trim().length, owner).toBeGreaterThan(0);
+      }
+    }
+    for (const study of STUDIES) {
+      expect(study.support.reasoning.length, study.id).toBe(study.reasoning.length);
+      expect(study.support.sections.length, study.id).toBe(study.sections.length);
+      expect(study.sources.some((id) => SOURCES.find((source) => source.id === id)?.role.startsWith("Reformed")), study.id).toBe(true);
+      const sources = studyBlocks.filter((item) => item.owner.startsWith(study.id + "/")).flatMap((item) => item.citations).flatMap((item) => item.kind === "source" ? [item.source] : []);
+      expect(new Set(sources), study.id).toEqual(new Set(study.sources));
+    }
+    for (const source of SOURCES) {
+      expect(source.note.length, source.id).toBeGreaterThan(30);
+      expect(source.role, source.id).toBeTruthy();
+      if (source.id.startsWith("q") || source.id.startsWith("craig-") || source.id === "humanism") expect(source.role).toBe("Primary record · not a teaching authority");
+    }
+    expect(SOURCES.find((item) => item.id === "aquinas")?.role).toBe("Catholic contribution · limited scope");
+  });
+
+  it("every Scripture citation opens real KJV verses with ordered same-book endpoints", () => {
     const catalog: Catalog = JSON.parse(readFileSync("data/catalog.json", "utf8"));
     const kjv = catalog.translations.find((item) => item.slug === "kjv")!;
-    for (const study of STUDIES) for (const { span } of study.refs) {
-      expect(span[1], study.id).toBeGreaterThanOrEqual(span[0]);
-      expect(Math.floor(span[1] / 1e6), study.id).toBe(Math.floor(span[0] / 1e6));
+    const passages = [...STUDIES.flatMap((study) => study.refs.map(({ span }) => ({ owner: study.id, span }))), ...supportedBlocks.flatMap(({ owner, citations }) => citations.flatMap((citation) => citation.kind === "scripture" ? [{ owner, span: citation.span }] : []))];
+    for (const { owner, span } of passages) {
+      expect(span[1], owner).toBeGreaterThanOrEqual(span[0]);
+      expect(Math.floor(span[1] / 1e6), owner).toBe(Math.floor(span[0] / 1e6));
       for (const id of span) {
         const book = catalog.books.find((item) => item.num === Math.floor(id / 1e6))!;
         const chapter = String(Math.floor(id / 1000) % 1000);
         const index = kjv.books[book.code].indexOf(chapter);
-        expect(index, study.id + ": " + id).toBeGreaterThanOrEqual(0);
+        expect(index, owner + ": " + id).toBeGreaterThanOrEqual(0);
         const chunk: Record<string, Chapter> = JSON.parse(readFileSync(`data/text/kjv/${book.code}/${Math.floor(index / 5)}.json`, "utf8"));
-        expect(chunk[chapter].v.some((verse) => Number(verse.n) === id % 1000), study.id + ": " + id).toBe(true);
+        expect(chunk[chapter].v.some((verse) => Number(verse.n) === id % 1000), owner + ": " + id).toBe(true);
       }
     }
   });

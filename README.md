@@ -17,6 +17,8 @@ build on.
 - **Search**: any word or phrase in any version, with a chart of where it falls.
 - **Testimonies**: written stories connected by personal invitations, with QR links, private author access,
   editing, withdrawal and an invitation tree at `/testimonies`.
+- **Apologetics**: 21 connected guides, learning paths, worldview comparisons, debate records and conversation
+  practice, with Scripture and source citations beside substantive explanations.
 
 ## The texts and data, and their licences
 
@@ -30,6 +32,35 @@ Hindi Indian Revised Version, © Bridge Connectivity Solutions, under CC BY-SA 4
 OpenBible.info (CC-BY), proper names from STEP Bible (CC BY 4.0), and the map imagery is NASA's Blue Marble
 (public domain). Every file, its source and its checksum are listed in [SOURCES.md](SOURCES.md); what you
 must credit if you reuse them is in [NOTICE.md](NOTICE.md).
+
+## Apologetics: doctrinal and editorial basis
+
+Scripture is the final authority. These guides use the Westminster Confession of Faith as a subordinate
+Reformed standard, with exposition from Calvin, Sproul, Ferguson, Kruger and Ligonier. The public source
+room at `/apologetics/sources` explains each source's role and limits. These are original editorial notes;
+citations do not claim that an author or a theological reviewer approved the website.
+
+- Every answer, reasoning step, conclusion, explanatory section, reply, limitation and conversation
+  application must carry support in `src/data/apologetics-studies.ts`. The `paragraph` constructor requires
+  a citation; use precise biblical spans and source locators, not an unrelated bibliography.
+- Keep human sin, the continuing image of God and common grace distinct. Outwardly beneficial conduct
+  does not justify a sinner. State justification through faith alone, Christ's substitutionary atonement,
+  Scripture's authority and God's sovereign providence clearly wherever those doctrines are discussed.
+- Catholic or patristic contributions require a specific scope compatible with the stated Reformed
+  position. Aquinas is used on causation and dependence, Augustine on the gift of faith, and Athanasius
+  as a historical witness to the New Testament list. None is a blanket endorsement of an author's theology.
+- Qur'anic texts, humanist statements, manuscripts and debate transcripts serve as documentary evidence,
+  not doctrinal authorities. Craig's debate participation is not a Reformed endorsement. Represent other
+  positions accurately from their own texts. Mark invented scenarios and practical applications as editorial.
+- Keep comparisons and legacy summaries consistent with the full guides. Preserve stable guide IDs for
+  saved notes. Source roles and scope notes live in the apologetics source catalogues; the legacy foundations
+  now derive from the same guides instead of maintaining duplicate answers.
+
+The library tests check citation coverage, source relationships and every Scripture endpoint against the
+local Bible data. `npx playwright test --config e2e/apologetics.config.ts` verifies desktop, tablet and phone
+reading, source links, comparisons and saved notes. These automated checks catch structural failures;
+they do not establish theological correctness. Reopen the cited section and assess the actual claim when
+editing doctrine. Last comprehensive editorial source pass: **2026-10-05**.
 
 ## Run it yourself
 

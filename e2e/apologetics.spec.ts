@@ -132,6 +132,11 @@ test("apologetics: deep links cover the complete library and preserve legacy ent
     for (const item of collection) {
       await page.goto(`/apologetics/${type}/${item.id}`);
       await expect(page.getByRole("heading", { level: 1 })).toHaveText(item.title);
+      if (type === "study") {
+        const study = STUDIES.find((entry) => entry.id === item.id)!;
+        await expect(page.locator(".ap-article .ap-citations")).toHaveCount(5 + study.reasoning.length + study.sections.length);
+        await expect(page.locator(".ap-study-sources .ap-source-role").filter({ hasText: "Reformed" }).first()).toBeVisible();
+      }
     }
   }
   await page.goto("/apologetics#foundations");
@@ -140,4 +145,26 @@ test("apologetics: deep links cover the complete library and preserve legacy ent
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("This study could not be found.");
   await page.getByRole("link", { name: "Back to Apologetics", exact: true }).click();
   await expect(page).toHaveURL(/\/apologetics$/);
+});
+
+test("apologetics: moral goodness is qualified and its sources are inspectable", async ({ page }, testInfo) => {
+  if (testInfo.project.name === "phone") await page.setViewportSize({ width: 320, height: 844 });
+  await page.goto("/apologetics/study/morality");
+  await expect(page.locator(".ap-answer")).toContainText("Not if ‘good’ means righteous before God.");
+  await expect(page.locator(".ap-answer")).toContainText("still bear God's image");
+  await expect(page.locator(".ap-answer")).toContainText("do not earn salvation");
+  await expect(page.locator('.ap-answer a[href="https://opc.org/wcf.html"]')).toContainText("16.7");
+  expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(1);
+  await page.screenshot({ path: testInfo.outputPath("morality.png"), fullPage: true });
+  await page.locator(".ap-answer").getByRole("link", { name: "Romans 3:10–12", exact: true }).click();
+  await expect(page).toHaveURL(/\/read\/kjv\/ROM\/3\?hl=10-12$/);
+  await page.goto("/apologetics/worldviews/secular");
+  await expect(page.locator(".ap-comparison-row").first()).toContainText("No fallen person is righteous by nature");
+  await expect(page.locator(".ap-comparison-row .ap-citations")).toHaveCount(6);
+  await page.goto("/apologetics/sources");
+  await expect(page.getByRole("region", { name: "Our doctrinal basis" })).toContainText("final authority");
+  await expect(page.locator(".ap-source-room")).toContainText("Catholic contribution · limited scope");
+  await expect(page.locator(".ap-source-room")).toContainText("Primary record · not a teaching authority");
+  expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(1);
+  await page.locator(".ap-source-policy").screenshot({ path: testInfo.outputPath("source-policy.png") });
 });

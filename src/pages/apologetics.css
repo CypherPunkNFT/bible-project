@@ -148,9 +148,9 @@
 .ap-conclusion p { font-size: .84rem; line-height: 1.85; }
 .ap-objection { padding: 1.6rem 1.8rem; background: var(--surface); border: 1px solid var(--line); border-radius: .5rem; }
 .ap-objection h2 { font-style: italic; }
-.ap-objection > div { padding-top: 1rem; border-top: 1px solid var(--line); margin-top: 1.2rem; }
-.ap-objection > div strong { font-size: .7rem; font-weight: 600; }
-.ap-objection > div p { color: var(--muted); font-size: .78rem; line-height: 1.8; margin-top: .5rem; }
+.ap-objection > .ap-answer-limit { padding-top: 1rem; border-top: 1px solid var(--line); margin-top: 1.2rem; }
+.ap-answer-limit strong { font-size: .7rem; font-weight: 600; }
+.ap-answer-limit p { color: var(--muted); font-size: .78rem; line-height: 1.8; margin-top: .5rem; }
 .ap-conversation-prompt { display: flex; gap: 1rem; }
 .ap-conversation-prompt > svg { color: var(--ap-tone); margin-top: .3rem; }
 .ap-conversation-prompt blockquote { font-family: var(--font-serif); font-style: italic; font-size: 1.1rem; line-height: 1.7; }
@@ -390,3 +390,23 @@
   .ap-page-heading h1 { font-size: 2.35rem; }
 }
 @media (prefers-reduced-motion: reduce) { .ap-page * { transition: none !important; scroll-behavior: auto !important; } .ap-topic-card:hover { transform: none; } }
+
+.ap-citations { margin-top: .8rem; font-size: .69rem; line-height: 1.65; color: var(--muted); min-width: 0; }
+.ap-citation-label { display: block; font-size: .55rem; letter-spacing: .1em; text-transform: uppercase; margin-bottom: .3rem; }
+.ap-citations ul { display: flex; flex-wrap: wrap; gap: .35rem .8rem; margin: 0; padding: 0; list-style: none; }
+.ap-citations li { display: block; max-width: 100%; padding: 0; border: 0; min-width: 0; }
+.ap-citations a { display: inline; color: var(--accent); font-size: inherit; line-height: inherit; white-space: normal; overflow-wrap: anywhere; text-decoration: underline; text-decoration-color: color-mix(in srgb,var(--accent) 30%,transparent); text-underline-offset: 3px; }
+.ap-citations a:hover { text-decoration-color: currentColor; }
+.ap-citations a > svg { display: inline; margin: 0 0 0 .2rem; vertical-align: middle; }
+.ap-citation-locator { color: var(--muted); margin-left: .3rem; }
+.ap-citations a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 2px; }
+.ap-argument li > div,.ap-conclusion > div,.ap-conversation-prompt > div { min-width: 0; }
+.ap-source-link .ap-source-role { margin-top: .4rem; color: var(--accent); font-size: .59rem; line-height: 1.65; }
+.ap-source-policy { margin: 1.75rem 0 2.5rem; padding: clamp(1.2rem,3vw,2rem); border: 1px solid var(--line); border-left: 2px solid var(--accent); border-radius: .5rem; background: var(--surface); }
+.ap-source-policy h2 { font-family: var(--font-serif); font-size: clamp(1.3rem,2.2vw,1.8rem); margin: .65rem 0; }
+.ap-source-policy > p:not(.ap-eyebrow) { max-width: 78ch; color: var(--muted); font-size: .82rem; line-height: 1.85; }
+.ap-source-policy > a { display: inline-flex; align-items: center; gap: .6rem; margin-top: .8rem; color: var(--accent); font-size: .75rem; }
+.ap-policy-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 1.5rem; border-top: 1px solid var(--line); padding-top: 1.4rem; margin-top: 1.4rem; }
+.ap-policy-grid h3 { font-family: var(--font-serif); font-size: 1rem; margin-bottom: .5rem; }
+.ap-policy-grid p { font-size: .75rem; line-height: 1.85; color: var(--muted); }
+@media (max-width: 700px) { .ap-policy-grid { grid-template-columns: 1fr; gap: 1rem; } }
