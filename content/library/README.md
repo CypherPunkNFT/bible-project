@@ -67,6 +67,8 @@ The [historic preaching report](reports/historic-preaching/REPORT.md) covers 17 
 
 ## Modern preaching sources
 
+The later [modern text acquisition](reports/modern-texts/REPORT.md) downloads actual private reading copies and records hashes, extracted text and source gaps. The owner has narrowed its active scope to existing full HTML sermon texts; PDF collection and broad discovery are stopped. See the [PDF inventory](reports/modern-texts/PDF-INVENTORY.md), [source queue](reports/modern-texts/SOURCE-QUEUE.md), and [live job state](reports/modern-texts/job-state.json). These staged holdings are separate from the older L04 link inventory and are not published in the app.
+
 The [L04 source report](reports/modern-preaching/REPORT.md) maps five ministries for six eligible authors. Piper’s Ruth (1984) and Sproul’s 2 Peter (2008) supply two complete bounded inventories: 16 sermons with passages, dates, order, recording durations and official links; 20 format-specific link records. Source policies, permission-dependent collections, eligibility holds and exact resumption steps accompany the catalog. No media/text corpus was downloaded or added to public publication by this batch.
 
 ## Sermon coverage
@@ -84,6 +86,10 @@ The [L07 report](reports/doctrinal-studies/REPORT.md) indexes 129 chapters, lect
 ## Historical confessions and catechisms
 
 The [L08 report](reports/confessional-standards/REPORT.md) preserves Westminster, Second London, the 1695 Baptist Catechism and Flavel's explanation in nine acquired files, with five additional standards linked. Its 2,438 witness units preserve exact answer/content pointers, numbering, nested questions and proof attachments; 4,616 structured references are indexed as citations. Eight comparisons distinguish doctrinal disagreement, shared claims and edition changes. Use `scripts/read-confessional-unit.py` to retrieve hash-checked original answers. Missing WSC proofs, Baptist heading errors, Flavel modernization/numbering, and continental/Savoy acquisition gaps remain explicit. No public publication changed.
+
+## Pastoral care: text first
+
+The [L11 reading index](reports/pastoral-care/REPORT.md) provides seven acquired transcribed books, 23 substantial sections, ten concern routes and 19 catalog-based sermon connections. Original XML identifiers and Scripture citations remain attached to each section; editorial companions are labeled separately. Dedicated bereavement transcription is still a gap. The [deferred PDF list](reports/pastoral-care/deferred-pdfs.json) retains the already-acquired Flavel scan/OCR without further processing. Per the owner's instruction, prioritize ready-made readable transcriptions and list scan-only candidates for later. Rebuild offline with `python -X utf8 scripts/catalog-pastoral-care.py`.
 
 ## Preaching, church ministry and missions
 

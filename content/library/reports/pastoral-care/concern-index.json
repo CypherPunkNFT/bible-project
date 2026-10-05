@@ -1,0 +1,715 @@
+{
+  "connectionsAre": "Editorial study companions; source citations remain separately attached to sections. No claim that all sermon bodies expound every topic.",
+  "concerns": [
+    {
+      "concern": "prayer",
+      "subjectId": "prayer",
+      "sectionIds": [
+        "section-l11-watson-prayer-iii",
+        "section-l11-watson-prayer-viii",
+        "section-l11-watson-prayer-ix",
+        "section-l11-boston-crook-iii",
+        "section-l11-gill-practical-iv-vi"
+      ],
+      "scriptureCompanion": {
+        "reference": "Matthew 6:9-13",
+        "numberingSystem": "english",
+        "role": "main-text",
+        "start": 40006009,
+        "end": 40006013,
+        "verification": "verified",
+        "locator": "Editorial companion selected for the concern, not asserted as every author's main text."
+      },
+      "sermons": [
+        {
+          "workId": "work-l03-whitefield-works-5-19",
+          "title": "Christ the Support of the Tempted",
+          "authorIds": [
+            "author-george-whitefield"
+          ],
+          "sourceReferences": [
+            {
+              "url": "https://archive.org/details/worksofreverendg05whit",
+              "locator": "Works, volume V: sermons I–XXXI; published contents/start reference p.287; actual sermon/body heading PDF p.297 (one-based). Contents pagination may refer to preceding title matter; PDF locator is checked independently.",
+              "note": "Printed component identity and opening main text; not incidental citations.",
+              "checkedOn": "2026-10-05"
+            }
+          ],
+          "connectionBasis": "Verified catalog main-text overlap with editorial companion; sermon body comparison not performed."
+        },
+        {
+          "workId": "work-spurgeon-sermon-0213",
+          "title": "The Fatherhood of God",
+          "authorIds": [
+            "author-charles-spurgeon"
+          ],
+          "sourceReferences": [
+            {
+              "url": "https://www.spurgeongems.org/spurgeon-sermons/",
+              "locator": "63-volume numbered index",
+              "note": "Snapshot retained with checksum; entry count includes guest addresses, historical documents, combined numbers, and suffixes.",
+              "checkedOn": "2026-10-05"
+            },
+            {
+              "url": "https://www.spurgeongems.org/sermon/chs213.pdf",
+              "locator": "PDF opening matter",
+              "note": "Title, main texts, and dates transcribed as catalog facts; source distinctions preserved.",
+              "checkedOn": "2026-10-05"
+            },
+            {
+              "url": "https://www.spurgeongems.org/chstix.pdf",
+              "locator": "Page 35; original number 213",
+              "note": "Alphabetical title variant; reconciled by title and numbering context.",
+              "checkedOn": "2026-10-05"
+            }
+          ],
+          "connectionBasis": "Verified catalog main-text overlap with editorial companion; sermon body comparison not performed."
+        },
+        {
+          "workId": "work-spurgeon-sermon-0509",
+          "title": "Lead Us Not Into Temptation",
+          "authorIds": [
+            "author-charles-spurgeon"
+          ],
+          "sourceReferences": [
+            {
+              "url": "https://www.spurgeongems.org/spurgeon-sermons/",
+              "locator": "63-volume numbered index",
+              "note": "Snapshot retained with checksum; entry count includes guest addresses, historical documents, combined numbers, and suffixes.",
+              "checkedOn": "2026-10-05"
+            },
+            {
+              "url": "https://www.spurgeongems.org/sermon/chs509.pdf",
+              "locator": "PDF opening matter",
+              "note": "Title, main texts, and dates transcribed as catalog facts; source distinctions preserved.",
+              "checkedOn": "2026-10-05"
+            },
+            {
+              "url": "https://www.spurgeongems.org/chstix.pdf",
+              "locator": "Page 65; original number 509",
+              "note": "Alphabetical title variant; reconciled by title and numbering context.",
+              "checkedOn": "2026-10-05"
+            }
+          ],
+          "connectionBasis": "Verified catalog main-text overlap with editorial companion; sermon body comparison not performed."
+        }
+      ],
+      "limitation": null
+    },
+    {
+      "concern": "assurance",
+      "subjectId": "assurance",
+      "sectionIds": [
+        "section-l11-ryle-holiness-iii-vi",
+        "section-l11-flavel-heart-v-iii-x"
+      ],
+      "scriptureCompanion": {
+        "reference": "1 John 5:13",
+        "numberingSystem": "english",
+        "role": "main-text",
+        "start": 62005013,
+        "end": 62005013,
+        "verification": "verified",
+        "locator": "Editorial companion selected for the concern, not asserted as every author's main text."
+      },
+      "sermons": [
+        {
+          "workId": "work-spurgeon-sermon-0596",
+          "title": "Praying and Waiting",
+          "authorIds": [
+            "author-charles-spurgeon"
+          ],
+          "sourceReferences": [
+            {
+              "url": "https://www.spurgeongems.org/spurgeon-sermons/",
+              "locator": "63-volume numbered index",
+              "note": "Snapshot retained with checksum; entry count includes guest addresses, historical documents, combined numbers, and suffixes.",
+              "checkedOn": "2026-10-05"
+            },
+            {
+              "url": "https://www.spurgeongems.org/sermon/chs596.pdf",
+              "locator": "PDF opening matter",
+              "note": "Title, main texts, and dates transcribed as catalog facts; source distinctions preserved.",
+              "checkedOn": "2026-10-05"
+            },
+            {
+              "url": "https://www.spurgeongems.org/chstix.pdf",
+              "locator": "Page 91; original number 596",
+              "note": "Alphabetical title variant; reconciled by title and numbering context.",
+              "checkedOn": "2026-10-05"
+            }
+          ],
+          "connectionBasis": "Verified catalog main-text overlap with editorial companion; sermon body comparison not performed."
+        },
+        {
+          "workId": "work-spurgeon-sermon-1791",
+          "title": "Helps to Full Assurance",
+          "authorIds": [
+            "author-charles-spurgeon"
+          ],
+          "sourceReferences": [
+            {
+              "url": "https://www.spurgeongems.org/spurgeon-sermons/",
+              "locator": "63-volume numbered index",
+              "note": "Snapshot retained with checksum; entry count includes guest addresses, historical documents, combined numbers, and suffixes.",
+              "checkedOn": "2026-10-05"
+            },
+            {
+              "url": "https://www.spurgeongems.org/sermon/chs1791.pdf",
+              "locator": "PDF opening matter",
+              "note": "Title, main texts, and dates transcribed as catalog facts; source distinctions preserved.",
+              "checkedOn": "2026-10-05"
+            },
+            {
+              "url": "https://www.spurgeongems.org/chstix.pdf",
+              "locator": "Page 52; original number 1791",
+              "note": "Alphabetical title variant; reconciled by title and numbering context.",
+              "checkedOn": "2026-10-05"
+            }
+          ],
+          "connectionBasis": "Verified catalog main-text overlap with editorial companion; sermon body comparison not performed."
+        },
+        {
+          "workId": "work-spurgeon-sermon-2023",
+          "title": "The Blessing of Full Assurance",
+          "authorIds": [
+            "author-charles-spurgeon"
+          ],
+          "sourceReferences": [
+            {
+              "url": "https://www.spurgeongems.org/spurgeon-sermons/",
+              "locator": "63-volume numbered index",
+              "note": "Snapshot retained with checksum; entry count includes guest addresses, historical documents, combined numbers, and suffixes.",
+              "checkedOn": "2026-10-05"
+            },
+            {
+              "url": "https://www.spurgeongems.org/sermon/chs2023.pdf",
+              "locator": "PDF opening matter",
+              "note": "Title, main texts, and dates transcribed as catalog facts; source distinctions preserved.",
+              "checkedOn": "2026-10-05"
+            },
+            {
+              "url": "https://www.spurgeongems.org/chstix.pdf",
+              "locator": "Page 9; original number 2023",
+              "note": "Alphabetical title variant; reconciled by title and numbering context.",
+              "checkedOn": "2026-10-05"
+            }
+          ],
+          "connectionBasis": "Verified catalog main-text overlap with editorial companion; sermon body comparison not performed."
+        }
+      ],
+      "limitation": null
+    },
+    {
+      "concern": "sanctification",
+      "subjectId": "sanctification",
+      "sectionIds": [
+        "section-l11-owen-mortification-i-vi",
+        "section-l11-owen-mortification-i-xvii",
+        "section-l11-ryle-holiness-iii-ii",
+        "section-l11-ryle-holiness-iii-v_1"
+      ],
+      "scriptureCompanion": {
+        "reference": "Romans 8:13",
+        "numberingSystem": "english",
+        "role": "main-text",
+        "start": 45008013,
+        "end": 45008013,
+        "verification": "verified",
+        "locator": "Editorial companion selected for the concern, not asserted as every author's main text."
+      },
+      "sermons": [],
+      "limitation": "No verified main-text match in current catalog."
+    },
+    {
+      "concern": "temptation",
+      "subjectId": "temptation",
+      "sectionIds": [
+        "section-l11-owen-mortification-i-vi",
+        "section-l11-owen-temptation-i-iv",
+        "section-l11-owen-temptation-i-xi",
+        "section-l11-ryle-holiness-iii-iv",
+        "section-l11-watson-prayer-ix",
+        "section-l11-flavel-heart-v-iii-ix"
+      ],
+      "scriptureCompanion": {
+        "reference": "Matthew 26:41",
+        "numberingSystem": "english",
+        "role": "main-text",
+        "start": 40026041,
+        "end": 40026041,
+        "verification": "verified",
+        "locator": "Editorial companion selected for the concern, not asserted as every author's main text."
+      },
+      "sermons": [],
+      "limitation": "No verified main-text match in current catalog."
+    },
+    {
+      "concern": "repentance",
+      "subjectId": "repentance",
+      "sectionIds": [
+        "section-l11-watson-prayer-viii",
+        "section-l11-gill-practical-ii-iv"
+      ],
+      "scriptureCompanion": {
+        "reference": "Acts 20:21",
+        "numberingSystem": "english",
+        "role": "main-text",
+        "start": 44020021,
+        "end": 44020021,
+        "verification": "verified",
+        "locator": "Editorial companion selected for the concern, not asserted as every author's main text."
+      },
+      "sermons": [
+        {
+          "workId": "work-spurgeon-sermon-2073",
+          "title": "Two Essential Things",
+          "authorIds": [
+            "author-charles-spurgeon"
+          ],
+          "sourceReferences": [
+            {
+              "url": "https://www.spurgeongems.org/spurgeon-sermons/",
+              "locator": "63-volume numbered index",
+              "note": "Snapshot retained with checksum; entry count includes guest addresses, historical documents, combined numbers, and suffixes.",
+              "checkedOn": "2026-10-05"
+            },
+            {
+              "url": "https://www.spurgeongems.org/sermon/chs2073.pdf",
+              "locator": "PDF opening matter",
+              "note": "Title, main texts, and dates transcribed as catalog facts; source distinctions preserved.",
+              "checkedOn": "2026-10-05"
+            },
+            {
+              "url": "https://www.spurgeongems.org/chstix.pdf",
+              "locator": "Page 122; original number 2073",
+              "note": "Alphabetical title variant; reconciled by title and numbering context.",
+              "checkedOn": "2026-10-05"
+            }
+          ],
+          "connectionBasis": "Verified catalog main-text overlap with editorial companion; sermon body comparison not performed."
+        }
+      ],
+      "limitation": null
+    },
+    {
+      "concern": "grief",
+      "subjectId": "grief",
+      "sectionIds": [
+        "section-l11-boston-crook-ii",
+        "section-l11-flavel-heart-v-iii-ii"
+      ],
+      "scriptureCompanion": {
+        "reference": "2 Corinthians 5:8",
+        "numberingSystem": "english",
+        "role": "main-text",
+        "start": 47005008,
+        "end": 47005008,
+        "verification": "verified",
+        "locator": "Editorial companion selected for the concern, not asserted as every author's main text."
+      },
+      "sermons": [
+        {
+          "workId": "work-l03-edwards-brainerd-01",
+          "title": "True Saints, When Absent from the Body, Are Present with the Lord",
+          "authorIds": [
+            "author-jonathan-edwards"
+          ],
+          "sourceReferences": [
+            {
+              "url": "https://archive.org/details/worksofpresident10edwa",
+              "locator": "Funeral Sermon on David Brainerd; published contents/start reference p.453; actual sermon/body heading PDF p.465 (one-based). Contents pagination may refer to preceding title matter; PDF locator is checked independently.",
+              "note": "Printed component identity and opening main text; not incidental citations.",
+              "checkedOn": "2026-10-05"
+            }
+          ],
+          "connectionBasis": "Verified catalog main-text overlap with editorial companion; sermon body comparison not performed."
+        },
+        {
+          "workId": "work-spurgeon-sermon-0413",
+          "title": "To Die or Not to Die!",
+          "authorIds": [
+            "author-charles-spurgeon"
+          ],
+          "sourceReferences": [
+            {
+              "url": "https://www.spurgeongems.org/spurgeon-sermons/",
+              "locator": "63-volume numbered index",
+              "note": "Snapshot retained with checksum; entry count includes guest addresses, historical documents, combined numbers, and suffixes.",
+              "checkedOn": "2026-10-05"
+            },
+            {
+              "url": "https://www.spurgeongems.org/sermon/chs413.pdf",
+              "locator": "PDF opening matter",
+              "note": "Title, main texts, and dates transcribed as catalog facts; source distinctions preserved.",
+              "checkedOn": "2026-10-05"
+            },
+            {
+              "url": "https://www.spurgeongems.org/chstix.pdf",
+              "locator": "Page 120; original number 413",
+              "note": "Alphabetical title variant; reconciled by title and numbering context.",
+              "checkedOn": "2026-10-05"
+            }
+          ],
+          "connectionBasis": "Verified catalog main-text overlap with editorial companion; sermon body comparison not performed."
+        },
+        {
+          "workId": "work-spurgeon-sermon-1303",
+          "title": "The Believer in the Body and Out of the Body",
+          "authorIds": [
+            "author-charles-spurgeon"
+          ],
+          "sourceReferences": [
+            {
+              "url": "https://www.spurgeongems.org/spurgeon-sermons/",
+              "locator": "63-volume numbered index",
+              "note": "Snapshot retained with checksum; entry count includes guest addresses, historical documents, combined numbers, and suffixes.",
+              "checkedOn": "2026-10-05"
+            },
+            {
+              "url": "https://www.spurgeongems.org/sermon/chs1303.pdf",
+              "locator": "PDF opening matter",
+              "note": "Title, main texts, and dates transcribed as catalog facts; source distinctions preserved.",
+              "checkedOn": "2026-10-05"
+            },
+            {
+              "url": "https://www.spurgeongems.org/chstix.pdf",
+              "locator": "Page 7; original number 1303",
+              "note": "Alphabetical title variant; reconciled by title and numbering context.",
+              "checkedOn": "2026-10-05"
+            }
+          ],
+          "connectionBasis": "Verified catalog main-text overlap with editorial companion; sermon body comparison not performed."
+        }
+      ],
+      "limitation": "Broader affliction support only; dedicated bereavement transcription still needed."
+    },
+    {
+      "concern": "suffering",
+      "subjectId": "suffering",
+      "sectionIds": [
+        "section-l11-boston-crook-ii",
+        "section-l11-boston-crook-iii",
+        "section-l11-boston-crook-iv",
+        "section-l11-flavel-heart-v-iii-ii",
+        "section-l11-flavel-heart-v-iii-xii",
+        "section-l11-gill-practical-ii-xvii"
+      ],
+      "scriptureCompanion": {
+        "reference": "1 Peter 5:6-7",
+        "numberingSystem": "english",
+        "role": "main-text",
+        "start": 60005006,
+        "end": 60005007,
+        "verification": "verified",
+        "locator": "Editorial companion selected for the concern, not asserted as every author's main text."
+      },
+      "sermons": [
+        {
+          "workId": "work-spurgeon-sermon-0428",
+          "title": "A Cure for Care",
+          "authorIds": [
+            "author-charles-spurgeon"
+          ],
+          "sourceReferences": [
+            {
+              "url": "https://www.spurgeongems.org/spurgeon-sermons/",
+              "locator": "63-volume numbered index",
+              "note": "Snapshot retained with checksum; entry count includes guest addresses, historical documents, combined numbers, and suffixes.",
+              "checkedOn": "2026-10-05"
+            },
+            {
+              "url": "https://www.spurgeongems.org/sermon/chs428.pdf",
+              "locator": "PDF opening matter",
+              "note": "Title, main texts, and dates transcribed as catalog facts; source distinctions preserved.",
+              "checkedOn": "2026-10-05"
+            },
+            {
+              "url": "https://www.spurgeongems.org/chstix.pdf",
+              "locator": "Page 23; original number 428",
+              "note": "Alphabetical title variant; reconciled by title and numbering context.",
+              "checkedOn": "2026-10-05"
+            }
+          ],
+          "connectionBasis": "Verified catalog main-text overlap with editorial companion; sermon body comparison not performed."
+        },
+        {
+          "workId": "work-spurgeon-sermon-1733",
+          "title": "On Humbling Ourselves before God",
+          "authorIds": [
+            "author-charles-spurgeon"
+          ],
+          "sourceReferences": [
+            {
+              "url": "https://www.spurgeongems.org/spurgeon-sermons/",
+              "locator": "63-volume numbered index",
+              "note": "Snapshot retained with checksum; entry count includes guest addresses, historical documents, combined numbers, and suffixes.",
+              "checkedOn": "2026-10-05"
+            },
+            {
+              "url": "https://www.spurgeongems.org/sermon/chs1733.pdf",
+              "locator": "PDF opening matter",
+              "note": "Title, main texts, and dates transcribed as catalog facts; source distinctions preserved.",
+              "checkedOn": "2026-10-05"
+            },
+            {
+              "url": "https://www.spurgeongems.org/chstix.pdf",
+              "locator": "Page 81; original number 1733",
+              "note": "Alphabetical title variant; reconciled by title and numbering context.",
+              "checkedOn": "2026-10-05"
+            }
+          ],
+          "connectionBasis": "Verified catalog main-text overlap with editorial companion; sermon body comparison not performed."
+        },
+        {
+          "workId": "work-spurgeon-sermon-3273",
+          "title": "A Sermon to Ministers and Other Tried Believers",
+          "authorIds": [
+            "author-charles-spurgeon"
+          ],
+          "sourceReferences": [
+            {
+              "url": "https://www.spurgeongems.org/spurgeon-sermons/",
+              "locator": "63-volume numbered index",
+              "note": "Snapshot retained with checksum; entry count includes guest addresses, historical documents, combined numbers, and suffixes.",
+              "checkedOn": "2026-10-05"
+            },
+            {
+              "url": "https://www.spurgeongems.org/sermon/chs3273.pdf",
+              "locator": "PDF opening matter",
+              "note": "Title, main texts, and dates transcribed as catalog facts; source distinctions preserved.",
+              "checkedOn": "2026-10-05"
+            },
+            {
+              "url": "https://www.spurgeongems.org/chstix.pdf",
+              "locator": "Page 106; original number 3273",
+              "note": "Alphabetical title variant; reconciled by title and numbering context.",
+              "checkedOn": "2026-10-05"
+            }
+          ],
+          "connectionBasis": "Verified catalog main-text overlap with editorial companion; sermon body comparison not performed."
+        }
+      ],
+      "limitation": null
+    },
+    {
+      "concern": "marriage",
+      "subjectId": "marriage-family",
+      "sectionIds": [
+        "section-l11-gill-practical-v-i"
+      ],
+      "scriptureCompanion": {
+        "reference": "Ephesians 5:25-33",
+        "numberingSystem": "english",
+        "role": "main-text",
+        "start": 49005025,
+        "end": 49005033,
+        "verification": "verified",
+        "locator": "Editorial companion selected for the concern, not asserted as every author's main text."
+      },
+      "sermons": [
+        {
+          "workId": "work-spurgeon-sermon-0628",
+          "title": "A Glorious Church",
+          "authorIds": [
+            "author-charles-spurgeon"
+          ],
+          "sourceReferences": [
+            {
+              "url": "https://www.spurgeongems.org/spurgeon-sermons/",
+              "locator": "63-volume numbered index",
+              "note": "Snapshot retained with checksum; entry count includes guest addresses, historical documents, combined numbers, and suffixes.",
+              "checkedOn": "2026-10-05"
+            },
+            {
+              "url": "https://www.spurgeongems.org/sermon/chs628.pdf",
+              "locator": "PDF opening matter",
+              "note": "Title, main texts, and dates transcribed as catalog facts; source distinctions preserved.",
+              "checkedOn": "2026-10-05"
+            },
+            {
+              "url": "https://www.spurgeongems.org/chstix.pdf",
+              "locator": "Page 40; original number 628",
+              "note": "Alphabetical title variant; reconciled by title and numbering context.",
+              "checkedOn": "2026-10-05"
+            }
+          ],
+          "connectionBasis": "Verified catalog main-text overlap with editorial companion; sermon body comparison not performed."
+        },
+        {
+          "workId": "work-spurgeon-sermon-1153",
+          "title": "The Matchless Mystery",
+          "authorIds": [
+            "author-charles-spurgeon"
+          ],
+          "sourceReferences": [
+            {
+              "url": "https://www.spurgeongems.org/spurgeon-sermons/",
+              "locator": "63-volume numbered index",
+              "note": "Snapshot retained with checksum; entry count includes guest addresses, historical documents, combined numbers, and suffixes.",
+              "checkedOn": "2026-10-05"
+            },
+            {
+              "url": "https://www.spurgeongems.org/sermon/chs1153.pdf",
+              "locator": "PDF opening matter",
+              "note": "Title, main texts, and dates transcribed as catalog facts; source distinctions preserved.",
+              "checkedOn": "2026-10-05"
+            },
+            {
+              "url": "https://www.spurgeongems.org/chstix.pdf",
+              "locator": "Page 73; original number 1153",
+              "note": "Alphabetical title variant; reconciled by title and numbering context.",
+              "checkedOn": "2026-10-05"
+            }
+          ],
+          "connectionBasis": "Verified catalog main-text overlap with editorial companion; sermon body comparison not performed."
+        },
+        {
+          "workId": "work-spurgeon-sermon-2244",
+          "title": "Members of Christ",
+          "authorIds": [
+            "author-charles-spurgeon"
+          ],
+          "sourceReferences": [
+            {
+              "url": "https://www.spurgeongems.org/spurgeon-sermons/",
+              "locator": "63-volume numbered index",
+              "note": "Snapshot retained with checksum; entry count includes guest addresses, historical documents, combined numbers, and suffixes.",
+              "checkedOn": "2026-10-05"
+            },
+            {
+              "url": "https://www.spurgeongems.org/sermon/chs2244.pdf",
+              "locator": "PDF opening matter",
+              "note": "Title, main texts, and dates transcribed as catalog facts; source distinctions preserved.",
+              "checkedOn": "2026-10-05"
+            },
+            {
+              "url": "https://www.spurgeongems.org/chstix.pdf",
+              "locator": "Page 73; original number 2244",
+              "note": "Alphabetical title variant; reconciled by title and numbering context.",
+              "checkedOn": "2026-10-05"
+            }
+          ],
+          "connectionBasis": "Verified catalog main-text overlap with editorial companion; sermon body comparison not performed."
+        }
+      ],
+      "limitation": null
+    },
+    {
+      "concern": "parenting",
+      "subjectId": "parenting",
+      "sectionIds": [
+        "section-l11-gill-practical-v-ii"
+      ],
+      "scriptureCompanion": {
+        "reference": "Ephesians 6:1-4",
+        "numberingSystem": "english",
+        "role": "main-text",
+        "start": 49006001,
+        "end": 49006004,
+        "verification": "verified",
+        "locator": "Editorial companion selected for the concern, not asserted as every author's main text."
+      },
+      "sermons": [],
+      "limitation": "No verified main-text match in current catalog."
+    },
+    {
+      "concern": "perseverance",
+      "subjectId": "perseverance",
+      "sectionIds": [
+        "section-l11-owen-mortification-i-xvii",
+        "section-l11-owen-temptation-i-xi",
+        "section-l11-ryle-holiness-iii-iv",
+        "section-l11-ryle-holiness-iii-v_1",
+        "section-l11-boston-crook-iii",
+        "section-l11-boston-crook-iv",
+        "section-l11-flavel-heart-v-iii-xii",
+        "section-l11-gill-practical-ii-xvii"
+      ],
+      "scriptureCompanion": {
+        "reference": "Hebrews 12:1-3",
+        "numberingSystem": "english",
+        "role": "main-text",
+        "start": 58012001,
+        "end": 58012003,
+        "verification": "verified",
+        "locator": "Editorial companion selected for the concern, not asserted as every author's main text."
+      },
+      "sermons": [
+        {
+          "workId": "work-l03-ryle-race-12",
+          "title": "The Christian Race",
+          "authorIds": [
+            "author-j-c-ryle"
+          ],
+          "sourceReferences": [
+            {
+              "url": "https://archive.org/details/thechristianrace00ryleuoft",
+              "locator": "The Christian Race and Other Sermons; published contents/start reference p.154; actual sermon/body heading PDF p.172 (one-based). Contents pagination may refer to preceding title matter; PDF locator is checked independently.",
+              "note": "Printed component identity and opening main text; not incidental citations.",
+              "checkedOn": "2026-10-05"
+            }
+          ],
+          "connectionBasis": "Verified catalog main-text overlap with editorial companion; sermon body comparison not performed."
+        },
+        {
+          "workId": "work-spurgeon-sermon-0236",
+          "title": "The Shameful Sufferer",
+          "authorIds": [
+            "author-charles-spurgeon"
+          ],
+          "sourceReferences": [
+            {
+              "url": "https://www.spurgeongems.org/spurgeon-sermons/",
+              "locator": "63-volume numbered index",
+              "note": "Snapshot retained with checksum; entry count includes guest addresses, historical documents, combined numbers, and suffixes.",
+              "checkedOn": "2026-10-05"
+            },
+            {
+              "url": "https://www.spurgeongems.org/sermon/chs236.pdf",
+              "locator": "PDF opening matter",
+              "note": "Title, main texts, and dates transcribed as catalog facts; source distinctions preserved.",
+              "checkedOn": "2026-10-05"
+            },
+            {
+              "url": "https://www.spurgeongems.org/chstix.pdf",
+              "locator": "Page 106; original number 236",
+              "note": "Alphabetical title variant; reconciled by title and numbering context.",
+              "checkedOn": "2026-10-05"
+            }
+          ],
+          "connectionBasis": "Verified catalog main-text overlap with editorial companion; sermon body comparison not performed."
+        },
+        {
+          "workId": "work-spurgeon-sermon-1073",
+          "title": "A Honeycomb",
+          "authorIds": [
+            "author-charles-spurgeon"
+          ],
+          "sourceReferences": [
+            {
+              "url": "https://www.spurgeongems.org/spurgeon-sermons/",
+              "locator": "63-volume numbered index",
+              "note": "Snapshot retained with checksum; entry count includes guest addresses, historical documents, combined numbers, and suffixes.",
+              "checkedOn": "2026-10-05"
+            },
+            {
+              "url": "https://www.spurgeongems.org/sermon/chs1073.pdf",
+              "locator": "PDF opening matter",
+              "note": "Title, main texts, and dates transcribed as catalog facts; source distinctions preserved.",
+              "checkedOn": "2026-10-05"
+            },
+            {
+              "url": "https://www.spurgeongems.org/chstix.pdf",
+              "locator": "Page 54; original number 1073",
+              "note": "Alphabetical title variant; reconciled by title and numbering context.",
+              "checkedOn": "2026-10-05"
+            }
+          ],
+          "connectionBasis": "Verified catalog main-text overlap with editorial companion; sermon body comparison not performed."
+        }
+      ],
+      "limitation": null
+    }
+  ]
+}

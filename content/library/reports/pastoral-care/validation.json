@@ -1,0 +1,11 @@
+{
+  "date": "2026-10-05",
+  "checks": [
+    "All 10 acquired content/evidence file hashes verified",
+    "23 unique section pointers; all parent works, editions and assets resolve",
+    "All ten concerns have sections; all sermon targets resolve",
+    "Seven XML files parsed and selected element hashes rebuilt by catalog-pastoral-care.py",
+    "Full-library structural validator passed: 13,082 records"
+  ],
+  "limits": "Selected sections and metadata connections; no full-text collation or sermon-body comparison."
+}

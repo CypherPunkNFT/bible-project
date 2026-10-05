@@ -1,0 +1,159 @@
+{
+  "date": "2026-10-05",
+  "scope": "Eight named works covering the ten requested pastoral concerns; six existing work/edition identities reused.",
+  "works": [
+    {
+      "key": "owen-mortification",
+      "title": "Of the Mortification of Sin in Believers",
+      "authorId": "author-john-owen",
+      "workId": "work-owen-mortification",
+      "editionId": "edition-owen-mortification",
+      "concerns": [
+        "sanctification",
+        "temptation"
+      ],
+      "sourceId": "source-ccel",
+      "format": "xml",
+      "url": "https://www.ccel.org/ccel/o/owen/mort.xml",
+      "infoUrl": "https://www.ccel.org/ccel/owen/mort.html",
+      "readerBase": "https://ccel.org/ccel/owen/mort/mort",
+      "editionNote": "Identified CCEL electronic witness; underlying print impression and editorial additions require separate review."
+    },
+    {
+      "key": "owen-temptation",
+      "title": "Of Temptation",
+      "authorId": "author-john-owen",
+      "workId": "work-l11-owen-temptation",
+      "editionId": "edition-l11-owen-temptation",
+      "concerns": [
+        "temptation",
+        "perseverance"
+      ],
+      "sourceId": "source-ccel",
+      "format": "xml",
+      "url": "https://www.ccel.org/ccel/o/owen/temptation.xml",
+      "infoUrl": "https://www.ccel.org/ccel/owen/temptation.html",
+      "readerBase": "https://ccel.org/ccel/owen/temptation/temptation",
+      "editionNote": "Identified CCEL electronic witness; underlying print impression and editorial additions require separate review."
+    },
+    {
+      "key": "ryle-holiness",
+      "title": "Holiness",
+      "authorId": "author-j-c-ryle",
+      "workId": "work-ryle-holiness",
+      "editionId": "edition-ryle-holiness",
+      "concerns": [
+        "assurance",
+        "sanctification",
+        "perseverance"
+      ],
+      "sourceId": "source-ccel",
+      "format": "xml",
+      "url": "https://www.ccel.org/ccel/r/ryle/holiness.xml",
+      "infoUrl": "https://www.ccel.org/ccel/ryle/holiness.html",
+      "readerBase": "https://ccel.org/ccel/ryle/holiness/holiness",
+      "editionNote": "Identified CCEL electronic witness; underlying print impression and editorial additions require separate review."
+    },
+    {
+      "key": "watson-prayer",
+      "title": "The Lord’s Prayer",
+      "authorId": "author-thomas-watson",
+      "workId": "work-watson-prayer",
+      "editionId": "edition-watson-prayer",
+      "concerns": [
+        "prayer",
+        "repentance",
+        "temptation"
+      ],
+      "sourceId": "source-ccel",
+      "format": "xml",
+      "url": "https://www.ccel.org/ccel/w/watson/prayer.xml",
+      "infoUrl": "https://www.ccel.org/ccel/watson/prayer.html",
+      "readerBase": "https://ccel.org/ccel/watson/prayer/prayer",
+      "editionNote": "Identified CCEL electronic witness; underlying print impression and editorial additions require separate review."
+    },
+    {
+      "key": "boston-crook",
+      "title": "The Crook in the Lot",
+      "authorId": "author-thomas-boston",
+      "workId": "work-boston-crook",
+      "editionId": "edition-boston-crook",
+      "concerns": [
+        "suffering",
+        "perseverance"
+      ],
+      "sourceId": "source-ccel",
+      "format": "xml",
+      "url": "https://www.ccel.org/ccel/b/boston/crook.xml",
+      "infoUrl": "https://www.ccel.org/ccel/boston/crook.html",
+      "readerBase": "https://ccel.org/ccel/boston/crook/crook",
+      "editionNote": "Identified CCEL electronic witness; underlying print impression and editorial additions require separate review."
+    },
+    {
+      "key": "flavel-heart",
+      "title": "Keeping the Heart (A Saint Indeed)",
+      "authorId": "author-john-flavel",
+      "workId": "work-flavel-heart",
+      "editionId": "edition-flavel-heart",
+      "concerns": [
+        "sanctification",
+        "assurance",
+        "temptation",
+        "suffering"
+      ],
+      "sourceId": "source-ccel",
+      "format": "xml",
+      "url": "https://www.ccel.org/ccel/f/flavel/saintindeed.xml",
+      "infoUrl": "https://www.ccel.org/ccel/flavel/saintindeed.html",
+      "readerBase": "https://ccel.org/ccel/flavel/saintindeed/saintindeed",
+      "editionNote": "Identified CCEL electronic witness; underlying print impression and editorial additions require separate review."
+    },
+    {
+      "key": "gill-practical",
+      "title": "A Body of Practical Divinity",
+      "authorId": "author-john-gill",
+      "workId": "work-gill-practical",
+      "editionId": "edition-gill-practical",
+      "concerns": [
+        "prayer",
+        "repentance",
+        "marriage",
+        "parenting",
+        "perseverance"
+      ],
+      "sourceId": "source-ccel",
+      "format": "xml",
+      "url": "https://www.ccel.org/ccel/g/gill/practical.xml",
+      "infoUrl": "https://www.ccel.org/ccel/gill/practical.html",
+      "readerBase": "https://ccel.org/ccel/gill/practical/practical",
+      "editionNote": "Identified CCEL electronic witness; underlying print impression and editorial additions require separate review."
+    },
+    {
+      "key": "flavel-mourners",
+      "title": "A Token for Mourners",
+      "authorId": "author-john-flavel",
+      "workId": "work-l11-flavel-mourners",
+      "editionId": "edition-l11-flavel-mourners-1813",
+      "concerns": [
+        "grief",
+        "suffering"
+      ],
+      "sourceId": "source-internet-archive",
+      "format": "scan",
+      "itemId": "tokenformourners00flav",
+      "infoUrl": "https://archive.org/details/tokenformourners00flav",
+      "editionNote": "1813 William Fessenden, Brattleborough edition identified by Open Library OL25352651M; verify title and contents after acquisition."
+    }
+  ],
+  "access": [
+    {
+      "source": "source-ccel",
+      "policy": "https://www.ccel.org/about/copyright.html",
+      "decision": "Named download formats offered by work pages; personal/educational research permitted. No commercial use, republication, or site crawl."
+    },
+    {
+      "source": "source-internet-archive",
+      "decision": "Only named unrestricted historical item; inspect metadata, retain original PDF/OCR and verify host hashes."
+    }
+  ]
+}

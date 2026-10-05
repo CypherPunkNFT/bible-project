@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-l11-owen-temptation",
+  "editorialState": "catalogued",
+  "notes": [
+    "Metadata refers to Goold 1850–1853 and later 1965/1967 print transmission. These are not the original publication date; precise print collation remains open."
+  ],
+  "reviews": [],
+  "workId": "work-l11-owen-temptation",
+  "label": "CCEL ThML electronic witness",
+  "languages": [
+    "en"
+  ],
+  "contributors": [],
+  "publisher": "Christian Classics Ethereal Library",
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://www.ccel.org/ccel/owen/temptation.html",
+      "locator": "CCEL work and ThML publication history",
+      "note": "Historic work published 1658; acquired electronic witness incorporates later editorial transmission.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

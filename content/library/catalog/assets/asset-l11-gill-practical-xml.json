@@ -1,0 +1,82 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "asset",
+  "id": "asset-l11-gill-practical-xml",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "editionId": "edition-gill-practical",
+  "sourceId": "source-ccel",
+  "canonicalUrl": "https://www.ccel.org/ccel/gill/practical.html",
+  "finalUrl": "https://www.ccel.org/ccel/g/gill/practical.xml",
+  "format": "other",
+  "mediaKind": "text",
+  "acquisitionStatus": "downloaded",
+  "storage": "raw",
+  "relativePath": "library/source-ccel/asset-l11-gill-practical-xml/practical.xml",
+  "sha256": "9024138dbcf02d292b1313211b0197f8ba686823bd06bff04d6f91fcb9f36b10",
+  "byteCount": 2488322,
+  "mimeType": "application/xml",
+  "retrievedAt": "2026-10-05T12:14:48.061081Z",
+  "rights": {
+    "category": "restricted-license",
+    "jurisdiction": null,
+    "licenseId": "CCEL-personal-educational-permission",
+    "licenseUrl": "https://www.ccel.org/about/copyright.html",
+    "attribution": "Author and source credited in the catalog.",
+    "conditions": [
+      "Personal/educational use; retain notices. Republication and commercial use require separate clearance."
+    ],
+    "conditionsMet": true,
+    "actions": {
+      "download": "allowed",
+      "host": "unknown",
+      "redistribute": "unknown",
+      "adapt": "unknown",
+      "transcribe": "unknown",
+      "embed": "unknown",
+      "indexMetadata": "allowed",
+      "indexFullText": "unknown"
+    },
+    "evidence": [
+      {
+        "url": "https://www.ccel.org/ccel/gill/practical.html",
+        "locator": "Offered ThML download",
+        "note": "Complete named XML file acquired; not fully proofread or collated.",
+        "checkedOn": "2026-10-05"
+      },
+      {
+        "url": "https://www.ccel.org/about/copyright.html",
+        "locator": "CCEL copyright and permissions",
+        "note": "Permission-aware named download; not a blanket redistribution license.",
+        "checkedOn": "2026-10-05"
+      }
+    ],
+    "unresolved": [
+      "Historic text and modern electronic additions have different rights; public hosting and full-text indexing remain uncleared."
+    ],
+    "review": {
+      "date": "2026-10-05",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Bibliographic links and source boundaries; not a whole-text clearance."
+    }
+  },
+  "fullTextIndexed": false,
+  "processing": {
+    "parentAssetId": null,
+    "method": "none",
+    "tool": null,
+    "toolVersion": null,
+    "parameters": null,
+    "date": null,
+    "note": "Unmodified ThML XML transcription. No OCR or public full-text indexing performed."
+  },
+  "quality": {
+    "state": "issues",
+    "reviewedBy": "Codex",
+    "reviewedOn": "2026-10-05",
+    "note": "XML parses and hashes match. Selected headings/passages reviewed; modern editorial material and transcription errors may remain."
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-l11-owen-temptation",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "title": "Of Temptation",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-john-owen",
+      "role": "author"
+    }
+  ],
+  "genre": "treatise",
+  "role": "core-teaching",
+  "collections": [
+    "christian-life"
+  ],
+  "subjects": [
+    "temptation",
+    "perseverance"
+  ],
+  "occasions": [],
+  "audiences": [
+    "students",
+    "pastors",
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "post-reformation",
+  "dates": [],
+  "passages": [],
+  "related": [],
+  "externalIds": {},
+  "evidence": [
+    {
+      "url": "https://www.ccel.org/ccel/owen/temptation.html",
+      "locator": "CCEL work and ThML publication history",
+      "note": "Historic work published 1658; acquired electronic witness incorporates later editorial transmission.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}
