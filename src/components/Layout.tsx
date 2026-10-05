@@ -58,10 +58,13 @@ export function Layout({ children }: { children: ReactNode }) {
           <button
             type="button"
             onClick={toggleTheme}
-            className="rounded-full p-2 text-muted hover:bg-surface-2 hover:text-ink"
-            aria-label={theme === "dark" ? "Switch to light theme" : "Switch to dark theme"}
+            className="theme-switch"
+            role="switch"
+            aria-checked={theme === "dark"}
+            aria-label="Dark mode"
+            title={theme === "dark" ? "Switch to light theme" : "Switch to dark theme"}
           >
-            {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+            <span>{theme === "dark" ? <Moon className="h-3.5 w-3.5" aria-hidden /> : <Sun className="h-3.5 w-3.5" aria-hidden />}</span>
           </button>
         </div>
       </header>

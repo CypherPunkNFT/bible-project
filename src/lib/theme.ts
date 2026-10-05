@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, type MouseEvent } from "react";
+import { revealTheme } from "./theme-transition";
 
 export type Theme = "light" | "dark";
 
@@ -17,21 +18,22 @@ function savedTheme(): Theme | null {
 }
 
 /** Current theme plus a toggle; the choice is remembered on this browser only. */
-export function useTheme(): [Theme, () => void] {
+export function useTheme(): [Theme, (event?: MouseEvent<HTMLButtonElement>) => void] {
   const [theme, setTheme] = useState<Theme>(() => savedTheme() ?? systemTheme());
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
     window.dispatchEvent(new Event("bp-theme"));
   }, [theme]);
-  const toggle = () =>
-    setTheme((current) => {
-      const next = current === "dark" ? "light" : "dark";
+  const toggle = (event?: MouseEvent<HTMLButtonElement>) =>
+    revealTheme(event?.currentTarget, () => {
+      const next = theme === "dark" ? "light" : "dark";
       try {
         localStorage.setItem("bp-theme", next);
       } catch (error) {
         console.warn("theme: could not save", error);
       }
-      return next;
+      document.documentElement.dataset.theme = next;
+      setTheme(next);
     });
   return [theme, toggle];
 }

@@ -89,6 +89,13 @@
       "scope": "Reviewed the 46 selected works and 48 reading editions for bibliographic identity, historic text rights scope, partial-volume warnings, study links and source provenance. No full-text acquisition or complete transcription audit.",
       "date": "2026-10-05",
       "contentHash": "1450443a600dd9aae7f5175628aae6ff6a4ab168163ac564a63885f17f324fbe"
+    },
+    {
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Build-unblock review for theme transition: compared current publication with last built reformed-reading.json and generated reading-library.ts. Selected records, manifest, authors, sources and rendered library match exactly apart from fingerprint. Restoring vocabulary before commit 99895b3 reproduces the prior published hash. Only shared vocabulary additions changed the fingerprint; no new reading works, links, rights claims or body texts are published by this review.",
+      "date": "2026-10-05",
+      "contentHash": "6b2e1059ca262e5dd34efc0c94d203a8a99b01ed96ed855184303e18f9394044"
     }
   ],
   "editionIds": [
