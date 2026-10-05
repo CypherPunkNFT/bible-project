@@ -1,15 +1,18 @@
-/* One screen from the four-Gospel map to the start of the source footer. Only events scroll. */
+/* Size against the real site footer, so reaching the page end preserves the map and full filter strip. */
 .harmony-workbench {
   --harmony-inset: 2rem;
   display: flex;
   flex-direction: column;
-  height: calc(100dvh - 6rem - env(safe-area-inset-top, 0px));
+  height: calc(100dvh - var(--harmony-page-top, 4.5rem) - var(--harmony-page-tail, 8rem));
   min-height: 34rem;
-  scroll-margin-top: calc(4.5rem + env(safe-area-inset-top, 0px));
+  scroll-margin-top: var(--harmony-page-top, 4.5rem);
 }
 .harmony-coverage { flex-shrink: 0; margin-bottom: 1.5rem; }
 .harmony-coverage figcaption { height: 2rem; overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
 .harmony-filters {
+  position: sticky;
+  top: calc(var(--harmony-page-top, 4.5rem) - 1rem);
+  z-index: 10;
   flex-shrink: 0;
   margin-inline: calc(-1 * var(--harmony-inset));
   padding-inline: var(--harmony-inset);
@@ -31,6 +34,10 @@
 }
 /* The enclosing card supplies the stationary border; the scrollbar lives beyond it. */
 #harmony > .charts-stage { padding-bottom: 0; }
+.harmony-source { max-width: 65rem; margin-top: .75rem; font-size: .65rem; line-height: 1.7; color: var(--muted); }
+.charts-hub:has(#harmony) { padding-bottom: 0; }
+.charts-open #harmony { margin-bottom: .5rem; }
+.charts-hub:has(#harmony) > .chart-back-map { padding-block: .5rem; }
 @media (min-width: 768px) and (max-width: 1023px) {
   .harmony-column-labels { font-size: .625rem; letter-spacing: .08em; }
 }

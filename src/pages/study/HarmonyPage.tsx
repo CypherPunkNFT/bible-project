@@ -51,6 +51,25 @@ export default function HarmonyPage({ embedded = false }: { embedded?: boolean }
     });
   }, [rows, query, only, exactly]);
 
+  // Include everything after this table, through the actual site footer, in the viewport budget.
+  // The page's natural end then keeps the map and the entire filter strip above the event rows.
+  useLayoutEffect(() => {
+    const element = workbench.current;
+    const main = document.getElementById("main");
+    const pageFooter = main?.nextElementSibling;
+    const pageHeader = main?.previousElementSibling;
+    if (!embedded || !element || !main || !pageFooter || !pageHeader) return;
+    const measure = () => {
+      element.style.setProperty("--harmony-page-top", `${pageHeader.getBoundingClientRect().height + 16}px`);
+      const tail = pageFooter.getBoundingClientRect().bottom - element.getBoundingClientRect().bottom;
+      element.style.setProperty("--harmony-page-tail", `${Math.max(0, tail)}px`);
+    };
+    measure();
+    const observer = new ResizeObserver(measure);
+    for (const part of [main, pageHeader, pageFooter]) observer.observe(part);
+    return () => observer.disconnect();
+  }, [embedded, harmony.status]);
+
   // A link such as /study/harmony#event-72 (from the Miracles page) opens that event.
   useEffect(() => {
     const n = /^#event-(\w+)$/.exec(location.hash)?.[1];

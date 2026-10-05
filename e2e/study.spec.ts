@@ -109,23 +109,29 @@ test("harmony: rows and the outside scrollbar scroll together while the chart st
   const chart = page.locator(".harmony-coverage");
   await expect(chart).toBeInViewport({ ratio: 1 });
   await expect(rows).toBeInViewport({ ratio: 1 });
+  // Check the actual page end, not only the anchor landing: the old layout clipped the search strip here.
+  await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight));
+  await expect(chart).toBeInViewport({ ratio: 1 });
+  // Document scrolling rounds to whole pixels; the footer edge can land a fraction of a pixel below it.
+  await expect(page.locator("#main + footer")).toBeInViewport({ ratio: .99 });
   const before = await page.evaluate(() => {
     const card = document.getElementById("harmony")!.getBoundingClientRect();
     const band = document.querySelector(".harmony-filters")!.getBoundingClientRect();
     const outside = document.querySelector(".harmony-outside-scroll")!.getBoundingClientRect();
-    const footer = document.querySelector("#harmony > footer")!.getBoundingClientRect();
+    const footer = document.querySelector("#main + footer")!.getBoundingClientRect();
+    const header = document.querySelector("#main")!.previousElementSibling!.getBoundingClientRect();
     const rows = document.querySelector(".harmony-rows")!;
     return { pageY: scrollY, chartY: document.querySelector(".harmony-coverage")!.getBoundingClientRect().top,
       leftInset: band.left - card.left, rightInset: card.right - band.right,
       scrollbarGap: outside.right - 6 - card.right, gutter: rows.getBoundingClientRect().width - rows.clientWidth,
-      footerPeek: innerHeight - footer.top };
+      footerVisible: innerHeight - footer.top, footerHeight: footer.height, bandClearance: band.top - header.bottom };
   });
   expect(before.leftInset).toBeCloseTo(1);
   expect(before.rightInset).toBeCloseTo(1);
   expect(before.scrollbarGap).toBeGreaterThan(0);
   expect(before.gutter).toBeLessThanOrEqual(1);
-  expect(before.footerPeek).toBeGreaterThan(15);
-  expect(before.footerPeek).toBeLessThan(40);
+  expect(before.footerVisible).toBeGreaterThanOrEqual(before.footerHeight - 1);
+  expect(before.bandClearance).toBeGreaterThanOrEqual(0);
 
   await rows.hover();
   await page.mouse.wheel(0, 550);
@@ -141,6 +147,15 @@ test("harmony: rows and the outside scrollbar scroll together while the chart st
   await page.keyboard.press("End");
   await expect(page.locator(".harmony-rows > ol > li").last()).toBeInViewport();
   expect(await page.evaluate(() => scrollY)).toBeCloseTo(before.pageY, 0);
+
+  if (page.viewportSize()!.width > 1000) {
+    await page.setViewportSize({ width: 320, height: 640 });
+    await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight));
+    await expect(page.locator(".harmony-filters")).toBeInViewport({ ratio: 1 });
+    await expect(page.locator("#main + footer")).toBeInViewport({ ratio: .99 });
+    const clearance = await page.evaluate(() => document.querySelector(".harmony-filters")!.getBoundingClientRect().top - document.querySelector("#main")!.previousElementSibling!.getBoundingClientRect().bottom);
+    expect(clearance).toBeGreaterThanOrEqual(0);
+  }
 });
 
 test("harmony: map selections and filters preserve the chart and keep the scroll range accurate", async ({ page }) => {

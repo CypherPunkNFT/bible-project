@@ -49,9 +49,9 @@ function ChartPanel({ id, title, lead, source, height = 480, children }: { id: s
     if (location.hash === "#" + id || (id === "harmony" && location.hash.startsWith("#event-"))) setReady(true);
   }, [id, location.hash]);
   return <section ref={element} id={id} aria-labelledby={id + "-title"} className="charts-explorer chart-panel">
-    <header className="chart-panel-intro"><div className="study-section-position"><span>{String(position + 1).padStart(2, "0")} / {String(sections.length).padStart(2, "0")} · {sections[position].kind}</span><Link to="#collection-contents">Back to contents <ArrowUp size={14} aria-hidden="true" /></Link></div><h2 id={id + "-title"}>{title}</h2><p>{lead}</p></header>
+    <header className="chart-panel-intro"><div className="study-section-position"><span>{String(position + 1).padStart(2, "0")} / {String(sections.length).padStart(2, "0")} · {sections[position].kind}</span><Link to="#collection-contents">Back to contents <ArrowUp size={14} aria-hidden="true" /></Link></div><h2 id={id + "-title"}>{title}</h2><p>{lead}</p>{id === "harmony" && <div className="harmony-source">{source}</div>}</header>
     <div className="charts-stage">{ready ? children : <div className="chart-awaiting" style={{ minHeight: height }} aria-hidden="true"><span /></div>}</div>
-    <footer className="charts-panel-footer">{source}</footer>
+    {id !== "harmony" && <footer className="charts-panel-footer">{source}</footer>}
   </section>;
 }
 
