@@ -1,0 +1,27 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-l08-lbc",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "workId": "work-l08-lbc",
+  "label": "Creeds.json digital witness; upstream historic year 1677; pinned 2ae21a4c5387",
+  "languages": [
+    "en"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/NonlinearFruit/Creeds.json/2ae21a4c5387ecc91f474c9d3d67c826d2a6b9d5/creeds/london_baptist_1689.json",
+      "locator": "Metadata and Data",
+      "note": "Pinned digital witness; source edition claim retained without treating it as a diplomatic transcription.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

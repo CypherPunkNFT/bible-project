@@ -1,0 +1,33 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "run",
+  "id": "run-l08-confessional-standards-2026-10-05",
+  "missionId": "L08",
+  "status": "complete",
+  "startedOn": "2026-10-05",
+  "completedOn": "2026-10-05",
+  "boundary": "Bounded historic standards batch; completeness only against named supplied witnesses.",
+  "sourceIds": [
+    "source-creeds-json",
+    "source-lwalen-lbcf",
+    "source-internet-archive",
+    "source-ccel"
+  ],
+  "inventory": "content/library/reports/confessional-standards/inventory.json",
+  "checkpoint": "content/library/reports/confessional-standards/checkpoint.json",
+  "counts": {
+    "works": 493,
+    "editions": 14,
+    "assets": 14,
+    "series": 5,
+    "reviewedWorks": 0,
+    "publishedWorks": 0
+  },
+  "gaps": [
+    "Five additional standards are source links only.",
+    "WSC proofs missing in acquired witness; Flavel numbering/modernization unresolved.",
+    "No full print collation or public publication."
+  ],
+  "reportPath": "content/library/reports/confessional-standards/REPORT.md"
+}

@@ -1,0 +1,58 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-l08-lbc-chapter-009",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "title": "Of Free Will",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-l08-particular-baptist-assembly",
+      "role": "institution"
+    }
+  ],
+  "genre": "confession",
+  "role": "confessional-standard",
+  "collections": [
+    "standards"
+  ],
+  "subjects": [
+    "moral-responsibility"
+  ],
+  "occasions": [],
+  "audiences": [
+    "students",
+    "pastors",
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "post-reformation",
+  "dates": [],
+  "passages": [],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-l08-lbc",
+      "locator": "Chapter 9"
+    }
+  ],
+  "externalIds": {
+    "l08-witness": [
+      "edition-l08-lbc"
+    ],
+    "l08-pointer": [
+      "/Data/8"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/NonlinearFruit/Creeds.json/2ae21a4c5387ecc91f474c9d3d67c826d2a6b9d5/creeds/london_baptist_1689.json",
+      "locator": "/Data/8; original label 9",
+      "note": "Title/question and source order preserved; subject mapping is editorial navigation.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

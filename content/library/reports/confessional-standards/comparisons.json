@@ -1,0 +1,102 @@
+{
+  "date": "2026-10-05",
+  "method": "Editorial comparisons of specified loci, not a harmonized confession or a claim that every tradition agrees. Exact original wording is retrieved through inventory unit pointers. Subject overlap never means doctrinal equivalence.",
+  "comparisons": [
+    {
+      "id": "comparison-l08-baptism-subjects",
+      "subjects": ["baptism", "covenant-of-grace"],
+      "question": "Who should receive baptism?",
+      "relationship": "doctrinal-disagreement",
+      "sides": [
+        {"editionId": "edition-l08-wcf", "unitIds": ["unit-l08-wcf-c28-p04"], "position": "Includes professing believers and the infants of one or both believing parents."},
+        {"editionId": "edition-l08-lbc", "unitIds": ["unit-l08-lbc-c29-p02"], "position": "Restricts proper recipients to those actually professing repentance, faith and obedience."},
+        {"editionId": "edition-l08-wsc", "unitIds": ["unit-l08-wsc-q095"], "position": "Connects infant baptism to membership in the visible church."},
+        {"editionId": "edition-l08-baptist", "unitIds": ["unit-l08-baptist-q098", "unit-l08-baptist-q099"], "position": "Requires personal profession and expressly rejects infant baptism on its account of scriptural warrant."}
+      ],
+      "caution": "These positions are incompatible concerning infants. Shared Trinitarian language does not remove the disagreement. Compare each document's own proof apparatus; the acquired WSC witness has none."
+    },
+    {
+      "id": "comparison-l08-baptism-mode",
+      "subjects": ["baptism"],
+      "question": "Is immersion necessary?",
+      "relationship": "doctrinal-disagreement",
+      "sides": [
+        {"editionId": "edition-l08-wcf", "unitIds": ["unit-l08-wcf-c28-p03"], "position": "Immersion is unnecessary; pouring or sprinkling is a proper administration."},
+        {"editionId": "edition-l08-lbc", "unitIds": ["unit-l08-lbc-c29-p04"], "position": "Immersion is necessary to proper administration."},
+        {"editionId": "edition-l08-baptist", "unitIds": ["unit-l08-baptist-q100"], "position": "Its instruction on baptism specifies immersion."}
+      ],
+      "caution": "Do not substitute a generic shared baptism summary for these opposing assertions."
+    },
+    {
+      "id": "comparison-l08-covenant",
+      "subjects": ["covenant-of-grace", "promise-fulfillment"],
+      "question": "How is the covenant of grace related to the Old and New Testaments?",
+      "relationship": "different-formulation-with-shared-claims",
+      "sides": [
+        {"editionId": "edition-l08-wcf", "unitIds": ["unit-l08-wcf-c07-p03", "unit-l08-wcf-c07-p05", "unit-l08-wcf-c07-p06"], "position": "Explicitly teaches one covenant of grace under differing administrations, including the Old Testament ordinances."},
+        {"editionId": "edition-l08-lbc", "unitIds": ["unit-l08-lbc-c07-p02", "unit-l08-lbc-c07-p03"], "position": "Describes progressive revelation from the promise to Adam to the New Testament and grounds salvation in the eternal transaction between Father and Son; it does not repeat Westminster's administration formula."}
+      ],
+      "caution": "Both affirm salvation by the grace of this covenant. The textual difference is real; these paragraphs alone do not settle every later debate among Baptist federal theologians."
+    },
+    {
+      "id": "comparison-l08-church-councils",
+      "subjects": ["church-government", "church-discipline"],
+      "question": "What authority belongs to councils beyond an individual congregation?",
+      "relationship": "doctrinal-disagreement",
+      "sides": [
+        {"editionId": "edition-l08-wcf", "unitIds": ["unit-l08-wcf-c31-p03", "unit-l08-wcf-c31-p04"], "position": "Synods have ministerial authority in controversies and appeals; scriptural decisions warrant submission, though councils can err."},
+        {"editionId": "edition-l08-lbc", "unitIds": ["unit-l08-lbc-c26-p07", "unit-l08-lbc-c26-p15"], "position": "Christ grants needed governing power to gathered churches; interchurch messengers advise without jurisdiction or authority to impose decisions."}
+      ],
+      "caution": "Baptist congregational government here includes interchurch consultation; it is not a denial of all cooperation or counsel."
+    },
+    {
+      "id": "comparison-l08-justification",
+      "subjects": ["justification", "faith", "imputation"],
+      "question": "On what basis are sinners justified?",
+      "relationship": "substantial-agreement-with-distinct-wording",
+      "sides": [
+        {"editionId": "edition-l08-wcf", "unitIds": ["unit-l08-wcf-c11-p01", "unit-l08-wcf-c11-p02"], "position": "Justification is God's free act of pardon and acceptance, grounded in Christ and received through faith; faith is not itself imputed as righteousness."},
+        {"editionId": "edition-l08-lbc", "unitIds": ["unit-l08-lbc-c11-p01", "unit-l08-lbc-c11-p02"], "position": "Affirms free justification through faith and explicitly names Christ's active obedience to the law and passive obedience in death."}
+      ],
+      "caution": "A wording expansion does not by itself establish that Westminster denies the expanded claim. Preserve both formulations."
+    },
+    {
+      "id": "comparison-l08-magistrate-versions",
+      "subjects": ["ethics", "church-government"],
+      "question": "Does the historic Westminster text match the current OPC form?",
+      "relationship": "edition-revision-with-doctrinal-effect",
+      "sides": [
+        {"editionId": "edition-l08-wcf", "unitIds": ["unit-l08-wcf-c23-p03", "unit-l08-wcf-c31-p02"], "position": "The historic witness gives the magistrate duties concerning religious purity and suppression of heresy, and authority to call synods."},
+        {"editionId": null, "unitIds": [], "url": "https://www.opc.org/wcf.html", "locator": "Chapter 23, paragraph 3; current OPC web witness, consulted 2026-10-05", "position": "The OPC form prohibits interference in matters of faith and requires protection of churches without denominational preference."}
+      ],
+      "caution": "The consulted OPC form is a comparison link, not an acquired edition. Do not label the acquired original-form text as the current OPC standard."
+    },
+    {
+      "id": "comparison-l08-heidelberg-versions",
+      "subjects": ["lords-supper", "historical-theology"],
+      "question": "Is Heidelberg question 80 present in every 1563 edition?",
+      "relationship": "edition-addition",
+      "sides": [
+        {"editionId": null, "unitIds": [], "position": "The first 1563 edition lacked question 80, according to the source's edition note."},
+        {"editionId": "edition-l08-heidelberg", "unitIds": [], "url": "https://ccel.org/ccel/schaff/creeds3/creeds3.iv.vi.html", "locator": "Question 80 and editorial note after question 129", "position": "The later received text includes question 80's contrast between the Supper and the Mass."}
+      ],
+      "caution": "This is a source-reported edition distinction. No first-edition scan was acquired or collated; do not back-project later wording into it."
+    },
+    {
+      "id": "comparison-l08-anglican-versions",
+      "subjects": ["church-government", "historical-theology"],
+      "question": "What happens when the English and American Articles are merged?",
+      "relationship": "edition-revision-with-doctrinal-effect",
+      "sides": [
+        {"editionId": "edition-l08-articles", "unitIds": [], "url": "https://ccel.org/ccel/schaff/creeds3/creeds3.iv.xi.html", "locator": "1571 English column; Articles VIII, XXI and XXXVII", "position": "Retains the English statements concerning creeds, councils and royal authority."},
+        {"editionId": "edition-l08-articles", "unitIds": [], "url": "https://ccel.org/ccel/schaff/creeds3/creeds3.iv.xi.html", "locator": "1801 American column; introductory note 4", "position": "Changes include omission of the Athanasian Creed in VIII, omission of XXI, and reconstruction of XXXVII."}
+      ],
+      "caution": "The catalog edition identifies a parallel-column compilation. Column labels are indispensable; this is not one interchangeable English text."
+    }
+  ],
+  "relatedSubjectLocators": [
+    {"subjectId": "trinity", "locators": [{"editionId": "edition-l08-wcf", "locator": "2.3"}, {"editionId": "edition-l08-lbc", "locator": "2.3"}, {"editionId": "edition-l08-wsc", "locator": "Q6"}, {"editionId": "edition-l08-wlc", "locator": "Q9–11"}, {"editionId": "edition-l08-baptist", "locator": "Q9"}, {"editionId": "edition-l08-belgic", "locator": "Articles VIII–IX (linked text)"}]},
+    {"subjectId": "prayer", "locators": [{"editionId": "edition-l08-wsc", "locator": "Q98–107"}, {"editionId": "edition-l08-wlc", "locator": "Q178–196"}, {"editionId": "edition-l08-baptist", "locator": "Q105–114"}, {"editionId": "edition-l08-heidelberg", "locator": "Q116–129 (linked text)"}]},
+    {"subjectId": "election", "locators": [{"editionId": "edition-l08-wcf", "locator": "Chapter 3"}, {"editionId": "edition-l08-lbc", "locator": "Chapter 3"}, {"editionId": "edition-l08-dort", "locator": "First head, positive articles; English abridgment (linked text)"}]}
+  ]
+}

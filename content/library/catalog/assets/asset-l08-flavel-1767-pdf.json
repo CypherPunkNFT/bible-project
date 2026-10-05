@@ -1,0 +1,74 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "asset",
+  "id": "asset-l08-flavel-1767-pdf",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "editionId": "edition-l08-flavel-1767",
+  "sourceId": "source-internet-archive",
+  "canonicalUrl": "https://archive.org/download/anexpositionass00flavgoog/anexpositionass00flavgoog.pdf",
+  "finalUrl": "https://dn760109.eu.archive.org/0/items/anexpositionass00flavgoog/anexpositionass00flavgoog.pdf",
+  "format": "pdf",
+  "mediaKind": "scan",
+  "acquisitionStatus": "downloaded",
+  "storage": "raw",
+  "relativePath": "library/source-internet-archive/asset-l08-flavel-1767-pdf/anexpositionass00flavgoog.pdf",
+  "sha256": "09296b2b179c4fd5c3dec63310c5171ccb7cf549543dff7c9cb8522093ac1f9c",
+  "byteCount": 10674240,
+  "mimeType": "application/pdf",
+  "retrievedAt": "2026-10-05T11:11:44.394940Z",
+  "rights": {
+    "category": "public-domain",
+    "jurisdiction": "United States",
+    "licenseId": null,
+    "licenseUrl": null,
+    "attribution": "Author and source credited in the catalog.",
+    "conditions": [],
+    "conditionsMet": false,
+    "actions": {
+      "download": "allowed",
+      "host": "unknown",
+      "redistribute": "unknown",
+      "adapt": "unknown",
+      "transcribe": "unknown",
+      "embed": "unknown",
+      "indexMetadata": "allowed",
+      "indexFullText": "unknown"
+    },
+    "evidence": [
+      {
+        "url": "https://archive.org/download/anexpositionass00flavgoog/anexpositionass00flavgoog.pdf",
+        "locator": "Pinned original",
+        "note": "SHA-256 and byte count retained; all original bytes preserved.",
+        "checkedOn": "2026-10-05"
+      }
+    ],
+    "unresolved": [
+      "Historic 1767 text; Google/Oxford scan packaging retained for private research, not cleared for public hosting."
+    ],
+    "review": {
+      "date": "2026-10-05",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Named-file license and private acquisition reviewed; not a theological or transcription certification."
+    }
+  },
+  "fullTextIndexed": false,
+  "processing": {
+    "parentAssetId": null,
+    "method": "none",
+    "tool": null,
+    "toolVersion": null,
+    "parameters": null,
+    "date": null,
+    "note": "Unmodified source bytes; JSON stored as format other, exact MIME and extension retained. No public search ingestion."
+  },
+  "quality": {
+    "state": "sampled",
+    "reviewedBy": "Codex",
+    "reviewedOn": "2026-10-05",
+    "note": "Structure and selected loci checked. See L08 issues; no complete print collation."
+  }
+}

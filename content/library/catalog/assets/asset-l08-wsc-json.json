@@ -1,0 +1,80 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "asset",
+  "id": "asset-l08-wsc-json",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "editionId": "edition-l08-wsc",
+  "sourceId": "source-creeds-json",
+  "canonicalUrl": "https://raw.githubusercontent.com/NonlinearFruit/Creeds.json/2ae21a4c5387ecc91f474c9d3d67c826d2a6b9d5/creeds/westminster_shorter_catechism.json",
+  "finalUrl": "https://raw.githubusercontent.com/NonlinearFruit/Creeds.json/2ae21a4c5387ecc91f474c9d3d67c826d2a6b9d5/creeds/westminster_shorter_catechism.json",
+  "format": "other",
+  "mediaKind": "text",
+  "acquisitionStatus": "downloaded",
+  "storage": "raw",
+  "relativePath": "library/source-creeds-json/asset-l08-wsc-json/westminster_shorter_catechism.json",
+  "sha256": "c73c894d4896c63b44dedd4a91ebc7261682850b088ccf0d33f21d9073ce880c",
+  "byteCount": 31887,
+  "mimeType": "text/plain",
+  "retrievedAt": "2026-10-05T11:08:33.298372Z",
+  "rights": {
+    "category": "open-license",
+    "jurisdiction": null,
+    "licenseId": "Unlicense",
+    "licenseUrl": "https://github.com/NonlinearFruit/Creeds.json/blob/2ae21a4c5387ecc91f474c9d3d67c826d2a6b9d5/README.md",
+    "attribution": "Historical corporate/individual author; digital witness supplied by source-creeds-json",
+    "conditions": [],
+    "conditionsMet": false,
+    "actions": {
+      "download": "allowed",
+      "host": "allowed",
+      "redistribute": "allowed",
+      "adapt": "allowed",
+      "transcribe": "unknown",
+      "embed": "unknown",
+      "indexMetadata": "allowed",
+      "indexFullText": "allowed"
+    },
+    "evidence": [
+      {
+        "url": "https://raw.githubusercontent.com/NonlinearFruit/Creeds.json/2ae21a4c5387ecc91f474c9d3d67c826d2a6b9d5/creeds/westminster_shorter_catechism.json",
+        "locator": "Pinned original",
+        "note": "SHA-256 and byte count retained; all original bytes preserved.",
+        "checkedOn": "2026-10-05"
+      },
+      {
+        "url": "https://github.com/NonlinearFruit/Creeds.json/blob/2ae21a4c5387ecc91f474c9d3d67c826d2a6b9d5/README.md",
+        "locator": "License statement",
+        "note": "Selected file is covered; excluded files were not acquired.",
+        "checkedOn": "2026-10-05"
+      }
+    ],
+    "unresolved": [
+      "License applies only to named witness; textual accuracy, historic edition matching and public selection remain separate."
+    ],
+    "review": {
+      "date": "2026-10-05",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Named-file license and private acquisition reviewed; not a theological or transcription certification."
+    }
+  },
+  "fullTextIndexed": false,
+  "processing": {
+    "parentAssetId": null,
+    "method": "none",
+    "tool": null,
+    "toolVersion": null,
+    "parameters": null,
+    "date": null,
+    "note": "Unmodified source bytes; JSON stored as format other, exact MIME and extension retained. No public search ingestion."
+  },
+  "quality": {
+    "state": "sampled",
+    "reviewedBy": "Codex",
+    "reviewedOn": "2026-10-05",
+    "note": "Structure and selected loci checked. See L08 issues; no complete print collation."
+  }
+}

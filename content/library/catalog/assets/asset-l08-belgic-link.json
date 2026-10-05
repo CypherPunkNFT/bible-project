@@ -1,0 +1,74 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "asset",
+  "id": "asset-l08-belgic-link",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "editionId": "edition-l08-belgic",
+  "sourceId": "source-ccel",
+  "canonicalUrl": "https://ccel.org/ccel/schaff/creeds3/creeds3.iv.viii.html",
+  "finalUrl": null,
+  "format": "html",
+  "mediaKind": "text",
+  "acquisitionStatus": "link-only",
+  "storage": "none",
+  "relativePath": null,
+  "sha256": null,
+  "byteCount": null,
+  "mimeType": null,
+  "retrievedAt": null,
+  "rights": {
+    "category": "link-only",
+    "jurisdiction": null,
+    "licenseId": null,
+    "licenseUrl": null,
+    "attribution": "Author and source credited in the catalog.",
+    "conditions": [],
+    "conditionsMet": false,
+    "actions": {
+      "download": "unknown",
+      "host": "unknown",
+      "redistribute": "unknown",
+      "adapt": "unknown",
+      "transcribe": "unknown",
+      "embed": "unknown",
+      "indexMetadata": "allowed",
+      "indexFullText": "unknown"
+    },
+    "evidence": [
+      {
+        "url": "https://ccel.org/ccel/schaff/creeds3/creeds3.iv.viii.html",
+        "locator": "Articles I–XXXVII; revised 1619 text, French/English presentation",
+        "note": "1619 received form must not be described as an unchanged 1561 first edition. Retain article 36 magistrate wording and later revision history separately.",
+        "checkedOn": "2026-10-05"
+      }
+    ],
+    "unresolved": [
+      "No source-file republication, bulk retrieval or full-text indexing grant established."
+    ],
+    "review": {
+      "date": "2026-10-05",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Bibliographic links and source boundaries; not a whole-text clearance."
+    }
+  },
+  "fullTextIndexed": false,
+  "processing": {
+    "parentAssetId": null,
+    "method": "none",
+    "tool": null,
+    "toolVersion": null,
+    "parameters": null,
+    "date": null,
+    "note": "Source link only; no content copied."
+  },
+  "quality": {
+    "state": "unreviewed",
+    "reviewedBy": null,
+    "reviewedOn": null,
+    "note": "Bibliographic inventory and selected passages checked; full text not collated."
+  }
+}

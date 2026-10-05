@@ -1,0 +1,27 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-l08-lbc-cc0-md",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "workId": "work-l08-lbc",
+  "label": "lwalen pinned 235da776742a md witness; paragraph proof references",
+  "languages": [
+    "en"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/lwalen/lbcf/235da776742a7956ebb678ec236382813dbe2c33/lbcf_with_scripture_refs.md",
+      "locator": "Entire named file",
+      "note": "Separate manifestation: do not merge punctuation, spelling or proof apparatus.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-l08-heidelberg",
+  "editorialState": "catalogued",
+  "notes": [
+    "Q80 absent in first 1563 edition; later wording and modern translations must remain distinct."
+  ],
+  "reviews": [],
+  "title": "Heidelberg Catechism",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-l08-palatinate-church",
+      "role": "institution"
+    }
+  ],
+  "genre": "catechism",
+  "role": "confessional-standard",
+  "collections": [
+    "standards"
+  ],
+  "subjects": [
+    "historical-theology"
+  ],
+  "occasions": [],
+  "audiences": [
+    "students",
+    "pastors",
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "reformation",
+  "dates": [
+    {
+      "event": "original-publication",
+      "value": "1563",
+      "precision": "year",
+      "label": "Historic document date; CCEL manifestation date unknown",
+      "evidence": [
+        {
+          "url": "https://ccel.org/ccel/schaff/creeds3/creeds3.iv.vi.html",
+          "locator": "Questions 1–129; German/English columns; pp. 307–355",
+          "note": "Q80 absent in first 1563 edition; later wording and modern translations must remain distinct.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    }
+  ],
+  "passages": [],
+  "related": [],
+  "externalIds": {},
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/schaff/creeds3/creeds3.iv.vi.html",
+      "locator": "Questions 1–129; German/English columns; pp. 307–355",
+      "note": "Q80 absent in first 1563 edition; later wording and modern translations must remain distinct.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

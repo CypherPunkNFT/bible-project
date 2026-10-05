@@ -1,0 +1,49 @@
+{
+  "holdings": [
+    {
+      "workId": "work-l08-heidelberg",
+      "editionId": "edition-l08-heidelberg",
+      "url": "https://ccel.org/ccel/schaff/creeds3/creeds3.iv.vi.html",
+      "locator": "Questions 1–129; German/English columns; pp. 307–355",
+      "access": "link-only",
+      "note": "Q80 absent in first 1563 edition; later wording and modern translations must remain distinct."
+    },
+    {
+      "workId": "work-l08-belgic",
+      "editionId": "edition-l08-belgic",
+      "url": "https://ccel.org/ccel/schaff/creeds3/creeds3.iv.viii.html",
+      "locator": "Articles I–XXXVII; revised 1619 text, French/English presentation",
+      "access": "link-only",
+      "note": "1619 received form must not be described as an unchanged 1561 first edition. Retain article 36 magistrate wording and later revision history separately."
+    },
+    {
+      "workId": "work-l08-dort",
+      "editionId": "edition-l08-dort",
+      "url": "https://ccel.org/ccel/schaff/creeds3/creeds3.iv.xvi.html",
+      "locator": "Latin canons and English received text; heads I, II, III/IV, V",
+      "access": "link-only",
+      "note": "Source describes its English text as abridged, omitting rejection-of-errors sections; Latin and English holdings must not be counted as equivalent complete corpora."
+    },
+    {
+      "workId": "work-l08-savoy",
+      "editionId": "edition-l08-savoy",
+      "url": "https://ccel.org/ccel/schaff/creeds3/creeds3.v.i.i.html",
+      "locator": "TOC-listed Savoy section; body retrieval unsuccessful",
+      "access": "link-only",
+      "note": "Exact section coverage not verified. Reformed Standards modern digital text is excluded from Creeds.json Unlicense and was not acquired."
+    },
+    {
+      "workId": "work-l08-articles",
+      "editionId": "edition-l08-articles",
+      "url": "https://ccel.org/ccel/schaff/creeds3/creeds3.iv.xi.html",
+      "locator": "1571 English column, parallel 1563 Latin and 1801 American revision",
+      "access": "link-only",
+      "note": "Keep three columns separate. American changes at VIII, XXI and XXXVII are explicit; do not assign 1801 wording to 1571."
+    }
+  ],
+  "existingExplanation": {
+    "workId": "work-ursinus-catechism",
+    "url": "https://ccel.org/ccel/ursinus/catechism/catechism.i.html",
+    "scope": "Existing prolegomena excerpt only; not full Heidelberg commentary."
+  }
+}

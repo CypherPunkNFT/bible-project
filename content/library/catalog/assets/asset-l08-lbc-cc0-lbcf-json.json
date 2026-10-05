@@ -1,0 +1,80 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "asset",
+  "id": "asset-l08-lbc-cc0-lbcf-json",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "editionId": "edition-l08-lbc-cc0-json",
+  "sourceId": "source-lwalen-lbcf",
+  "canonicalUrl": "https://raw.githubusercontent.com/lwalen/lbcf/235da776742a7956ebb678ec236382813dbe2c33/lbcf.json",
+  "finalUrl": "https://raw.githubusercontent.com/lwalen/lbcf/235da776742a7956ebb678ec236382813dbe2c33/lbcf.json",
+  "format": "other",
+  "mediaKind": "text",
+  "acquisitionStatus": "downloaded",
+  "storage": "raw",
+  "relativePath": "library/source-lwalen-lbcf/asset-l08-lbc-cc0-lbcf-json/lbcf.json",
+  "sha256": "7898f1dff259ee22d5e29cbcd19dd8374d26e6d138ea73db79c9a337ad071cef",
+  "byteCount": 73068,
+  "mimeType": "text/plain",
+  "retrievedAt": "2026-10-05T11:10:04.633401Z",
+  "rights": {
+    "category": "open-license",
+    "jurisdiction": null,
+    "licenseId": "CC0-1.0",
+    "licenseUrl": "https://github.com/lwalen/lbcf/blob/235da776742a7956ebb678ec236382813dbe2c33/LICENSE",
+    "attribution": "Historical corporate/individual author; digital witness supplied by source-lwalen-lbcf",
+    "conditions": [],
+    "conditionsMet": false,
+    "actions": {
+      "download": "allowed",
+      "host": "allowed",
+      "redistribute": "allowed",
+      "adapt": "allowed",
+      "transcribe": "unknown",
+      "embed": "unknown",
+      "indexMetadata": "allowed",
+      "indexFullText": "allowed"
+    },
+    "evidence": [
+      {
+        "url": "https://raw.githubusercontent.com/lwalen/lbcf/235da776742a7956ebb678ec236382813dbe2c33/lbcf.json",
+        "locator": "Pinned original",
+        "note": "SHA-256 and byte count retained; all original bytes preserved.",
+        "checkedOn": "2026-10-05"
+      },
+      {
+        "url": "https://github.com/lwalen/lbcf/blob/235da776742a7956ebb678ec236382813dbe2c33/LICENSE",
+        "locator": "License statement",
+        "note": "Selected file is covered; excluded files were not acquired.",
+        "checkedOn": "2026-10-05"
+      }
+    ],
+    "unresolved": [
+      "License applies only to named witness; textual accuracy, historic edition matching and public selection remain separate."
+    ],
+    "review": {
+      "date": "2026-10-05",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Named-file license and private acquisition reviewed; not a theological or transcription certification."
+    }
+  },
+  "fullTextIndexed": false,
+  "processing": {
+    "parentAssetId": null,
+    "method": "none",
+    "tool": null,
+    "toolVersion": null,
+    "parameters": null,
+    "date": null,
+    "note": "Unmodified source bytes; JSON stored as format other, exact MIME and extension retained. No public search ingestion."
+  },
+  "quality": {
+    "state": "sampled",
+    "reviewedBy": "Codex",
+    "reviewedOn": "2026-10-05",
+    "note": "Structure and selected loci checked. See L08 issues; no complete print collation."
+  }
+}

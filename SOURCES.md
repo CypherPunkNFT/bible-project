@@ -159,6 +159,10 @@ The [L06 report](content/library/reports/scripture-studies/REPORT.md) documents 
 
 The [L07 report](content/library/reports/doctrinal-studies/REPORT.md) records complete selected chapter inventories for Charles Hodge's three-volume Systematic Theology, A. A. Hodge's 1877 Outlines, Owen's Justification, and Warfield's five lectures. Two historical books were acquired as four unchanged PDF/OCR files, 35,047,686 bytes; [the manifest](content/library/reports/doctrinal-studies/acquisition-manifest.json) retains hashes and provenance. CCEL full texts remain source links. Shared doctrine terms organize 129 sections; Scripture attribution, editorial companions and sermon-match evidence stay separate. No new public downloads or full-text search ingestion.
 
+## Historical standards (L08, 2026-10-05)
+
+The [L08 report](content/library/reports/confessional-standards/REPORT.md) identifies nine acquired files: six named Creeds.json witnesses, two lwalen Second London witnesses and a 1767 Flavel scan from Oxford/Google via Internet Archive. [Pinned URLs and hashes](content/library/reports/confessional-standards/acquisition-manifest.json) preserve original bytes. Creeds.json's Unlicense excludes listed texts, including its Savoy file; only selected eligible files were fetched. The lwalen files carry CC0. Flavel's modernized text needs further provenance review before republication; the 1767 scan is separately identified. Continental/Anglican/Savoy CCEL witnesses remain links. Original proofs are citations, not exposition coverage, and no public publication or full-text ingestion changed.
+
 ## Considered and left out
 
 - **KJV in the UK:** public domain everywhere except Britain (perpetual Crown patent). Only relevant if the

@@ -1,0 +1,27 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-l08-dort",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "workId": "work-l08-dort",
+  "label": "CCEL Schaff compilation witness: Latin canons and English received text; heads I, II, III/IV, V",
+  "languages": [
+    "en"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "abridged",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/schaff/creeds3/creeds3.iv.xvi.html",
+      "locator": "Latin canons and English received text; heads I, II, III/IV, V",
+      "note": "Source describes its English text as abridged, omitting rejection-of-errors sections; Latin and English holdings must not be counted as equivalent complete corpora.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

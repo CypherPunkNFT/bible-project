@@ -1,0 +1,74 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "asset",
+  "id": "asset-l08-dort-link",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "editionId": "edition-l08-dort",
+  "sourceId": "source-ccel",
+  "canonicalUrl": "https://ccel.org/ccel/schaff/creeds3/creeds3.iv.xvi.html",
+  "finalUrl": null,
+  "format": "html",
+  "mediaKind": "text",
+  "acquisitionStatus": "link-only",
+  "storage": "none",
+  "relativePath": null,
+  "sha256": null,
+  "byteCount": null,
+  "mimeType": null,
+  "retrievedAt": null,
+  "rights": {
+    "category": "link-only",
+    "jurisdiction": null,
+    "licenseId": null,
+    "licenseUrl": null,
+    "attribution": "Author and source credited in the catalog.",
+    "conditions": [],
+    "conditionsMet": false,
+    "actions": {
+      "download": "unknown",
+      "host": "unknown",
+      "redistribute": "unknown",
+      "adapt": "unknown",
+      "transcribe": "unknown",
+      "embed": "unknown",
+      "indexMetadata": "allowed",
+      "indexFullText": "unknown"
+    },
+    "evidence": [
+      {
+        "url": "https://ccel.org/ccel/schaff/creeds3/creeds3.iv.xvi.html",
+        "locator": "Latin canons and English received text; heads I, II, III/IV, V",
+        "note": "Source describes its English text as abridged, omitting rejection-of-errors sections; Latin and English holdings must not be counted as equivalent complete corpora.",
+        "checkedOn": "2026-10-05"
+      }
+    ],
+    "unresolved": [
+      "No source-file republication, bulk retrieval or full-text indexing grant established."
+    ],
+    "review": {
+      "date": "2026-10-05",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Bibliographic links and source boundaries; not a whole-text clearance."
+    }
+  },
+  "fullTextIndexed": false,
+  "processing": {
+    "parentAssetId": null,
+    "method": "none",
+    "tool": null,
+    "toolVersion": null,
+    "parameters": null,
+    "date": null,
+    "note": "Source link only; no content copied."
+  },
+  "quality": {
+    "state": "unreviewed",
+    "reviewedBy": null,
+    "reviewedOn": null,
+    "note": "Bibliographic inventory and selected passages checked; full text not collated."
+  }
+}

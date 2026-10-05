@@ -1,0 +1,229 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "author-registry",
+  "updated": "2026-10-05",
+  "authors": [
+    {
+      "id": "author-l08-westminster-assembly",
+      "entityType": "institution",
+      "name": "Westminster Assembly",
+      "aliases": [],
+      "cohort": "historic-confessional-institutions",
+      "traditions": [
+        "presbyterian",
+        "reformed"
+      ],
+      "eligibility": "eligible",
+      "rationale": "Corporate author of the Westminster standards; 1647 historic form distinguished from later American revisions.",
+      "receptionBasis": "Historic ecclesial standard named and reproduced by the cited source; admission is scoped to this document.",
+      "evidence": [
+        {
+          "url": "https://raw.githubusercontent.com/NonlinearFruit/Creeds.json/2ae21a4c5387ecc91f474c9d3d67c826d2a6b9d5/creeds/westminster_confession_of_faith.json",
+          "locator": "Document heading, attribution and text",
+          "note": "Corporate author of the Westminster standards; 1647 historic form distinguished from later American revisions.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "distinctives": [],
+      "unresolved": [
+        "No blanket eligibility judgment concerning later members, revisions or affiliated institutions."
+      ],
+      "review": {
+        "date": "2026-10-05",
+        "reviewer": "Codex",
+        "kind": "ai-assisted",
+        "scope": "Corporate documentary identity and theological scope, not personal authorship."
+      }
+    },
+    {
+      "id": "author-l08-particular-baptist-assembly",
+      "entityType": "institution",
+      "name": "Particular Baptist churches and messengers",
+      "aliases": [],
+      "cohort": "historic-confessional-institutions",
+      "traditions": [
+        "baptist",
+        "reformed"
+      ],
+      "eligibility": "eligible",
+      "rationale": "Corporate confession and catechism tradition; 1695 catechism attribution to William Collins is retained as source metadata, not an independently verified personal authorship decision.",
+      "receptionBasis": "Historic ecclesial standard named and reproduced by the cited source; admission is scoped to this document.",
+      "evidence": [
+        {
+          "url": "https://raw.githubusercontent.com/NonlinearFruit/Creeds.json/2ae21a4c5387ecc91f474c9d3d67c826d2a6b9d5/creeds/london_baptist_1689.json",
+          "locator": "Document heading, attribution and text",
+          "note": "Corporate confession and catechism tradition; 1695 catechism attribution to William Collins is retained as source metadata, not an independently verified personal authorship decision.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "distinctives": [],
+      "unresolved": [
+        "No blanket eligibility judgment concerning later members, revisions or affiliated institutions."
+      ],
+      "review": {
+        "date": "2026-10-05",
+        "reviewer": "Codex",
+        "kind": "ai-assisted",
+        "scope": "Corporate documentary identity and theological scope, not personal authorship."
+      }
+    },
+    {
+      "id": "author-l08-palatinate-church",
+      "entityType": "institution",
+      "name": "Reformed church of the Electoral Palatinate",
+      "aliases": [],
+      "cohort": "historic-confessional-institutions",
+      "traditions": [
+        "continental-reformed"
+      ],
+      "eligibility": "eligible",
+      "rationale": "Heidelberg Catechism as a corporate standard; not sole authorship assigned to Ursinus.",
+      "receptionBasis": "Historic ecclesial standard named and reproduced by the cited source; admission is scoped to this document.",
+      "evidence": [
+        {
+          "url": "https://ccel.org/ccel/schaff/creeds3/creeds3.iv.vi.html",
+          "locator": "Document heading, attribution and text",
+          "note": "Heidelberg Catechism as a corporate standard; not sole authorship assigned to Ursinus.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "distinctives": [],
+      "unresolved": [
+        "No blanket eligibility judgment concerning later members, revisions or affiliated institutions."
+      ],
+      "review": {
+        "date": "2026-10-05",
+        "reviewer": "Codex",
+        "kind": "ai-assisted",
+        "scope": "Corporate documentary identity and theological scope, not personal authorship."
+      }
+    },
+    {
+      "id": "author-l08-netherlands-reformed-churches",
+      "entityType": "institution",
+      "name": "Reformed churches of the Netherlands",
+      "aliases": [],
+      "cohort": "historic-confessional-institutions",
+      "traditions": [
+        "continental-reformed"
+      ],
+      "eligibility": "eligible",
+      "rationale": "Belgic Confession in the revised 1619 received form; original composition associated with Guido de Bres.",
+      "receptionBasis": "Historic ecclesial standard named and reproduced by the cited source; admission is scoped to this document.",
+      "evidence": [
+        {
+          "url": "https://ccel.org/ccel/schaff/creeds3/creeds3.iv.viii.html",
+          "locator": "Document heading, attribution and text",
+          "note": "Belgic Confession in the revised 1619 received form; original composition associated with Guido de Bres.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "distinctives": [],
+      "unresolved": [
+        "No blanket eligibility judgment concerning later members, revisions or affiliated institutions."
+      ],
+      "review": {
+        "date": "2026-10-05",
+        "reviewer": "Codex",
+        "kind": "ai-assisted",
+        "scope": "Corporate documentary identity and theological scope, not personal authorship."
+      }
+    },
+    {
+      "id": "author-l08-synod-dort",
+      "entityType": "institution",
+      "name": "Synod of Dort",
+      "aliases": [],
+      "cohort": "historic-confessional-institutions",
+      "traditions": [
+        "continental-reformed"
+      ],
+      "eligibility": "eligible",
+      "rationale": "1618–1619 synod; doctrinal heads and rejection of errors must remain distinct.",
+      "receptionBasis": "Historic ecclesial standard named and reproduced by the cited source; admission is scoped to this document.",
+      "evidence": [
+        {
+          "url": "https://ccel.org/ccel/schaff/creeds3/creeds3.iv.xvi.html",
+          "locator": "Document heading, attribution and text",
+          "note": "1618–1619 synod; doctrinal heads and rejection of errors must remain distinct.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "distinctives": [],
+      "unresolved": [
+        "No blanket eligibility judgment concerning later members, revisions or affiliated institutions."
+      ],
+      "review": {
+        "date": "2026-10-05",
+        "reviewer": "Codex",
+        "kind": "ai-assisted",
+        "scope": "Corporate documentary identity and theological scope, not personal authorship."
+      }
+    },
+    {
+      "id": "author-l08-savoy-assembly",
+      "entityType": "institution",
+      "name": "Savoy Assembly",
+      "aliases": [],
+      "cohort": "historic-confessional-institutions",
+      "traditions": [
+        "congregational",
+        "reformed"
+      ],
+      "eligibility": "eligible",
+      "rationale": "1658 Congregational standard; selected host text not acquired.",
+      "receptionBasis": "Historic ecclesial standard named and reproduced by the cited source; admission is scoped to this document.",
+      "evidence": [
+        {
+          "url": "https://ccel.org/ccel/schaff/creeds3/creeds3.toc.html",
+          "locator": "Document heading, attribution and text",
+          "note": "1658 Congregational standard; selected host text not acquired.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "distinctives": [],
+      "unresolved": [
+        "No blanket eligibility judgment concerning later members, revisions or affiliated institutions."
+      ],
+      "review": {
+        "date": "2026-10-05",
+        "reviewer": "Codex",
+        "kind": "ai-assisted",
+        "scope": "Corporate documentary identity and theological scope, not personal authorship."
+      }
+    },
+    {
+      "id": "author-l08-english-convocation",
+      "entityType": "institution",
+      "name": "Convocation of the Church of England",
+      "aliases": [],
+      "cohort": "historic-confessional-institutions",
+      "traditions": [
+        "anglican",
+        "reformed"
+      ],
+      "eligibility": "eligible",
+      "rationale": "1571 English Articles as a historic Protestant standard within broad scope; does not endorse every later Anglican interpretation.",
+      "receptionBasis": "Historic ecclesial standard named and reproduced by the cited source; admission is scoped to this document.",
+      "evidence": [
+        {
+          "url": "https://ccel.org/ccel/schaff/creeds3/creeds3.iv.xi.html",
+          "locator": "Document heading, attribution and text",
+          "note": "1571 English Articles as a historic Protestant standard within broad scope; does not endorse every later Anglican interpretation.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "distinctives": [],
+      "unresolved": [
+        "No blanket eligibility judgment concerning later members, revisions or affiliated institutions."
+      ],
+      "review": {
+        "date": "2026-10-05",
+        "reviewer": "Codex",
+        "kind": "ai-assisted",
+        "scope": "Corporate documentary identity and theological scope, not personal authorship."
+      }
+    }
+  ]
+}

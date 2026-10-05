@@ -1,0 +1,15 @@
+{
+  "date": "2026-10-05",
+  "scope": "Six named historic English texts; digital witnesses must be inspected for edition variants.",
+  "repository": "https://github.com/NonlinearFruit/Creeds.json",
+  "selectedFiles": {
+    "wcf": "westminster_confession_of_faith.json",
+    "wsc": "westminster_shorter_catechism.json",
+    "wlc": "westminster_larger_catechism.json",
+    "lbc": "london_baptist_1689.json",
+    "baptist": "1695_baptist_catechism.json",
+    "flavel": "exposition_of_the_assemblies_catechism.json"
+  },
+  "excluded": "Savoy Declaration is explicitly excluded from repository Unlicense; continental translations await edition and rights review.",
+  "method": "Pin repository commit; retain unmodified JSON and README rights statement; inspect all numbering, questions, answers and proof attachments before cataloging."
+}

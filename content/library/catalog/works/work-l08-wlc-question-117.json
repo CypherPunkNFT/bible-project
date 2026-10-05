@@ -1,0 +1,58 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-l08-wlc-question-117",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "title": "How is the sabbath or the Lord's day to be sanctified?",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-l08-westminster-assembly",
+      "role": "institution"
+    }
+  ],
+  "genre": "catechism",
+  "role": "confessional-standard",
+  "collections": [
+    "standards"
+  ],
+  "subjects": [
+    "worship"
+  ],
+  "occasions": [],
+  "audiences": [
+    "students",
+    "pastors",
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "post-reformation",
+  "dates": [],
+  "passages": [],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-l08-wlc",
+      "locator": "Question 117"
+    }
+  ],
+  "externalIds": {
+    "l08-witness": [
+      "edition-l08-wlc"
+    ],
+    "l08-pointer": [
+      "/Data/116"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/NonlinearFruit/Creeds.json/2ae21a4c5387ecc91f474c9d3d67c826d2a6b9d5/creeds/westminster_larger_catechism.json",
+      "locator": "/Data/116; original label 117",
+      "note": "Title/question and source order preserved; subject mapping is editorial navigation.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

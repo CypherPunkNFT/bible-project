@@ -1,0 +1,42 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-l08-flavel-1767",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "workId": "work-l08-flavel",
+  "label": "Salisbury: Edward Easton, 1767; Oxford/Google scan",
+  "languages": [
+    "en"
+  ],
+  "contributors": [],
+  "publisher": "Edward Easton, Salisbury",
+  "dates": [
+    {
+      "event": "edition-publication",
+      "value": "1767",
+      "precision": "year",
+      "label": "1767",
+      "evidence": [
+        {
+          "url": "https://archive.org/details/anexpositionass00flavgoog",
+          "locator": "PDF p. 6 title leaf (visually inspected)",
+          "note": "Imprint MDCCLXVII; 1688 in title describes Dartmouth exercises.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    }
+  ],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/details/anexpositionass00flavgoog",
+      "locator": "PDF p. 6 title leaf (visually inspected)",
+      "note": "Imprint MDCCLXVII; 1688 in title describes Dartmouth exercises.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

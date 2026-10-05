@@ -367,6 +367,52 @@
         }
       ],
       "reviewedOn": "2026-10-05"
+    },
+    {
+      "id": "source-creeds-json",
+      "name": "Creeds.json historical-document repository",
+      "url": "https://github.com/NonlinearFruit/Creeds.json",
+      "role": "content-host",
+      "automation": "approved-endpoint",
+      "acquisitionNote": "Explicit named-file acquisition at pinned commit via public GitHub endpoints. Unlicense excludes listed texts, notably Savoy; modern translations require independent review.",
+      "evidence": [
+        {
+          "url": "https://github.com/NonlinearFruit/Creeds.json/blob/2ae21a4c5387ecc91f474c9d3d67c826d2a6b9d5/README.md",
+          "locator": "License/README",
+          "note": "Explicit named-file acquisition at pinned commit via public GitHub endpoints. Unlicense excludes listed texts, notably Savoy; modern translations require independent review.",
+          "checkedOn": "2026-10-05"
+        },
+        {
+          "url": "https://docs.github.com/en/rest/repos/contents",
+          "locator": "Public repository contents endpoints",
+          "note": "Unauthenticated named public content retrieval; no website crawling.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "reviewedOn": "2026-10-05"
+    },
+    {
+      "id": "source-lwalen-lbcf",
+      "name": "lwalen Second London Baptist Confession repository",
+      "url": "https://github.com/lwalen/lbcf",
+      "role": "content-host",
+      "automation": "approved-endpoint",
+      "acquisitionNote": "Named JSON and Markdown witnesses at pinned commit; CC0 dedication. JSON and Markdown are distinct manifestations; proof apparatus is not silently grafted across them.",
+      "evidence": [
+        {
+          "url": "https://github.com/lwalen/lbcf/blob/235da776742a7956ebb678ec236382813dbe2c33/LICENSE",
+          "locator": "License/README",
+          "note": "Named JSON and Markdown witnesses at pinned commit; CC0 dedication. JSON and Markdown are distinct manifestations; proof apparatus is not silently grafted across them.",
+          "checkedOn": "2026-10-05"
+        },
+        {
+          "url": "https://docs.github.com/en/rest/repos/contents",
+          "locator": "Public repository contents endpoints",
+          "note": "Unauthenticated named public content retrieval; no website crawling.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "reviewedOn": "2026-10-05"
     }
   ]
 }

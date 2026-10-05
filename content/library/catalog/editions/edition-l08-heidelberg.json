@@ -1,0 +1,27 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-l08-heidelberg",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "workId": "work-l08-heidelberg",
+  "label": "CCEL Schaff compilation witness: Questions 1–129; German/English columns; pp. 307–355",
+  "languages": [
+    "en"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/schaff/creeds3/creeds3.iv.vi.html",
+      "locator": "Questions 1–129; German/English columns; pp. 307–355",
+      "note": "Q80 absent in first 1563 edition; later wording and modern translations must remain distinct.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

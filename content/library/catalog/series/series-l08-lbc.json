@@ -1,0 +1,188 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "series",
+  "id": "series-l08-lbc",
+  "editorialState": "catalogued",
+  "notes": [
+    "Completeness refers to supplied numbered inventory, not every historic edition or proof apparatus."
+  ],
+  "reviews": [],
+  "title": "1689 London Baptist Confession — supplied ordered inventory",
+  "authorIds": [
+    "author-l08-particular-baptist-assembly"
+  ],
+  "members": [
+    {
+      "workId": "work-l08-lbc-chapter-001",
+      "position": 1,
+      "originalLabel": "1"
+    },
+    {
+      "workId": "work-l08-lbc-chapter-002",
+      "position": 2,
+      "originalLabel": "2"
+    },
+    {
+      "workId": "work-l08-lbc-chapter-003",
+      "position": 3,
+      "originalLabel": "3"
+    },
+    {
+      "workId": "work-l08-lbc-chapter-004",
+      "position": 4,
+      "originalLabel": "4"
+    },
+    {
+      "workId": "work-l08-lbc-chapter-005",
+      "position": 5,
+      "originalLabel": "5"
+    },
+    {
+      "workId": "work-l08-lbc-chapter-006",
+      "position": 6,
+      "originalLabel": "6"
+    },
+    {
+      "workId": "work-l08-lbc-chapter-007",
+      "position": 7,
+      "originalLabel": "7"
+    },
+    {
+      "workId": "work-l08-lbc-chapter-008",
+      "position": 8,
+      "originalLabel": "8"
+    },
+    {
+      "workId": "work-l08-lbc-chapter-009",
+      "position": 9,
+      "originalLabel": "9"
+    },
+    {
+      "workId": "work-l08-lbc-chapter-010",
+      "position": 10,
+      "originalLabel": "10"
+    },
+    {
+      "workId": "work-l08-lbc-chapter-011",
+      "position": 11,
+      "originalLabel": "11"
+    },
+    {
+      "workId": "work-l08-lbc-chapter-012",
+      "position": 12,
+      "originalLabel": "12"
+    },
+    {
+      "workId": "work-l08-lbc-chapter-013",
+      "position": 13,
+      "originalLabel": "13"
+    },
+    {
+      "workId": "work-l08-lbc-chapter-014",
+      "position": 14,
+      "originalLabel": "14"
+    },
+    {
+      "workId": "work-l08-lbc-chapter-015",
+      "position": 15,
+      "originalLabel": "15"
+    },
+    {
+      "workId": "work-l08-lbc-chapter-016",
+      "position": 16,
+      "originalLabel": "16"
+    },
+    {
+      "workId": "work-l08-lbc-chapter-017",
+      "position": 17,
+      "originalLabel": "17"
+    },
+    {
+      "workId": "work-l08-lbc-chapter-018",
+      "position": 18,
+      "originalLabel": "18"
+    },
+    {
+      "workId": "work-l08-lbc-chapter-019",
+      "position": 19,
+      "originalLabel": "19"
+    },
+    {
+      "workId": "work-l08-lbc-chapter-020",
+      "position": 20,
+      "originalLabel": "20"
+    },
+    {
+      "workId": "work-l08-lbc-chapter-021",
+      "position": 21,
+      "originalLabel": "21"
+    },
+    {
+      "workId": "work-l08-lbc-chapter-022",
+      "position": 22,
+      "originalLabel": "22"
+    },
+    {
+      "workId": "work-l08-lbc-chapter-023",
+      "position": 23,
+      "originalLabel": "23"
+    },
+    {
+      "workId": "work-l08-lbc-chapter-024",
+      "position": 24,
+      "originalLabel": "24"
+    },
+    {
+      "workId": "work-l08-lbc-chapter-025",
+      "position": 25,
+      "originalLabel": "25"
+    },
+    {
+      "workId": "work-l08-lbc-chapter-026",
+      "position": 26,
+      "originalLabel": "26"
+    },
+    {
+      "workId": "work-l08-lbc-chapter-027",
+      "position": 27,
+      "originalLabel": "27"
+    },
+    {
+      "workId": "work-l08-lbc-chapter-028",
+      "position": 28,
+      "originalLabel": "28"
+    },
+    {
+      "workId": "work-l08-lbc-chapter-029",
+      "position": 29,
+      "originalLabel": "29"
+    },
+    {
+      "workId": "work-l08-lbc-chapter-030",
+      "position": 30,
+      "originalLabel": "30"
+    },
+    {
+      "workId": "work-l08-lbc-chapter-031",
+      "position": 31,
+      "originalLabel": "31"
+    },
+    {
+      "workId": "work-l08-lbc-chapter-032",
+      "position": 32,
+      "originalLabel": "32"
+    }
+  ],
+  "expectedCount": 32,
+  "completeness": "complete",
+  "inventoryEvidence": [
+    {
+      "url": "https://raw.githubusercontent.com/NonlinearFruit/Creeds.json/2ae21a4c5387ecc91f474c9d3d67c826d2a6b9d5/creeds/london_baptist_1689.json",
+      "locator": "Metadata and Data",
+      "note": "Pinned digital witness; source edition claim retained without treating it as a diplomatic transcription.",
+      "checkedOn": "2026-10-05"
+    }
+  ],
+  "missing": []
+}

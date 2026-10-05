@@ -1,0 +1,58 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-l08-baptist-question-105",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "title": "What is Prayer?",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-l08-particular-baptist-assembly",
+      "role": "institution"
+    }
+  ],
+  "genre": "catechism",
+  "role": "confessional-standard",
+  "collections": [
+    "standards"
+  ],
+  "subjects": [
+    "prayer"
+  ],
+  "occasions": [],
+  "audiences": [
+    "students",
+    "pastors",
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "post-reformation",
+  "dates": [],
+  "passages": [],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-l08-baptist",
+      "locator": "Question 105"
+    }
+  ],
+  "externalIds": {
+    "l08-witness": [
+      "edition-l08-baptist"
+    ],
+    "l08-pointer": [
+      "/Data/104"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/NonlinearFruit/Creeds.json/2ae21a4c5387ecc91f474c9d3d67c826d2a6b9d5/creeds/1695_baptist_catechism.json",
+      "locator": "/Data/104; original label 105",
+      "note": "Title/question and source order preserved; subject mapping is editorial navigation.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-l08-flavel",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "title": "An Exposition of the Assemblies Catechism",
+  "alternateTitles": [
+    "An Exposition of the Assemblies Catechism, with practical inferences from each question"
+  ],
+  "creators": [
+    {
+      "authorId": "author-john-flavel",
+      "role": "author"
+    }
+  ],
+  "genre": "treatise",
+  "role": "core-teaching",
+  "collections": [
+    "standards",
+    "theology"
+  ],
+  "subjects": [
+    "catechesis"
+  ],
+  "occasions": [],
+  "audiences": [
+    "students",
+    "pastors",
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "post-reformation",
+  "dates": [
+    {
+      "event": "delivery",
+      "value": "1688",
+      "precision": "year",
+      "label": "Dartmouth Lord’s Day exercises (scan title)",
+      "evidence": [
+        {
+          "url": "https://archive.org/details/anexpositionass00flavgoog",
+          "locator": "PDF p. 6 title leaf",
+          "note": "1688 describes exercises; imprint is 1767.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    },
+    {
+      "event": "original-publication",
+      "value": "1692",
+      "precision": "year",
+      "label": "Published edition recorded by National Diet Library",
+      "evidence": [
+        {
+          "url": "https://ndlsearch.ndl.go.jp/books/R100000097-I4920000005077205",
+          "locator": "Publication year",
+          "note": "1692 bibliographic record; not the acquired impression.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    }
+  ],
+  "passages": [],
+  "related": [
+    {
+      "relation": "comments-on",
+      "targetId": "work-l08-wsc",
+      "locator": "Westminster Shorter Catechism, with practical inferences"
+    }
+  ],
+  "externalIds": {},
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/NonlinearFruit/Creeds.json/2ae21a4c5387ecc91f474c9d3d67c826d2a6b9d5/creeds/exposition_of_the_assemblies_catechism.json",
+      "locator": "Metadata and Data",
+      "note": "Pinned digital witness; source edition claim retained without treating it as a diplomatic transcription.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

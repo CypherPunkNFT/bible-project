@@ -1,0 +1,63 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-l08-wsc",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "title": "Westminster Shorter Catechism",
+  "alternateTitles": [
+    "The humble Advise of the Assembly of Divines setting at Westminster, Concerning A shorter Catechisme"
+  ],
+  "creators": [
+    {
+      "authorId": "author-l08-westminster-assembly",
+      "role": "institution"
+    }
+  ],
+  "genre": "catechism",
+  "role": "confessional-standard",
+  "collections": [
+    "standards",
+    "theology"
+  ],
+  "subjects": [
+    "catechesis"
+  ],
+  "occasions": [],
+  "audiences": [
+    "students",
+    "pastors",
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "post-reformation",
+  "dates": [
+    {
+      "event": "original-publication",
+      "value": "1647",
+      "precision": "year",
+      "label": "Upstream historic date; digital manifestation date is separate",
+      "evidence": [
+        {
+          "url": "https://raw.githubusercontent.com/NonlinearFruit/Creeds.json/2ae21a4c5387ecc91f474c9d3d67c826d2a6b9d5/creeds/westminster_shorter_catechism.json",
+          "locator": "Metadata and Data",
+          "note": "Pinned digital witness; source edition claim retained without treating it as a diplomatic transcription.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    }
+  ],
+  "passages": [],
+  "related": [],
+  "externalIds": {},
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/NonlinearFruit/Creeds.json/2ae21a4c5387ecc91f474c9d3d67c826d2a6b9d5/creeds/westminster_shorter_catechism.json",
+      "locator": "Metadata and Data",
+      "note": "Pinned digital witness; source edition claim retained without treating it as a diplomatic transcription.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

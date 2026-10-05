@@ -1,0 +1,62 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-l08-articles",
+  "editorialState": "catalogued",
+  "notes": [
+    "Keep three columns separate. American changes at VIII, XXI and XXXVII are explicit; do not assign 1801 wording to 1571."
+  ],
+  "reviews": [],
+  "title": "Thirty-Nine Articles",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-l08-english-convocation",
+      "role": "institution"
+    }
+  ],
+  "genre": "confession",
+  "role": "confessional-standard",
+  "collections": [
+    "standards"
+  ],
+  "subjects": [
+    "historical-theology"
+  ],
+  "occasions": [],
+  "audiences": [
+    "students",
+    "pastors",
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "reformation",
+  "dates": [
+    {
+      "event": "original-publication",
+      "value": "1571",
+      "precision": "year",
+      "label": "Historic document date; CCEL manifestation date unknown",
+      "evidence": [
+        {
+          "url": "https://ccel.org/ccel/schaff/creeds3/creeds3.iv.xi.html",
+          "locator": "1571 English column, parallel 1563 Latin and 1801 American revision",
+          "note": "Keep three columns separate. American changes at VIII, XXI and XXXVII are explicit; do not assign 1801 wording to 1571.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    }
+  ],
+  "passages": [],
+  "related": [],
+  "externalIds": {},
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/schaff/creeds3/creeds3.iv.xi.html",
+      "locator": "1571 English column, parallel 1563 Latin and 1801 American revision",
+      "note": "Keep three columns separate. American changes at VIII, XXI and XXXVII are explicit; do not assign 1801 wording to 1571.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-l08-dort",
+  "editorialState": "catalogued",
+  "notes": [
+    "Source describes its English text as abridged, omitting rejection-of-errors sections; Latin and English holdings must not be counted as equivalent complete corpora."
+  ],
+  "reviews": [],
+  "title": "Canons of Dort",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-l08-synod-dort",
+      "role": "institution"
+    }
+  ],
+  "genre": "confession",
+  "role": "confessional-standard",
+  "collections": [
+    "standards"
+  ],
+  "subjects": [
+    "historical-theology"
+  ],
+  "occasions": [],
+  "audiences": [
+    "students",
+    "pastors",
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "post-reformation",
+  "dates": [
+    {
+      "event": "original-publication",
+      "value": "1619",
+      "precision": "year",
+      "label": "Historic document date; CCEL manifestation date unknown",
+      "evidence": [
+        {
+          "url": "https://ccel.org/ccel/schaff/creeds3/creeds3.iv.xvi.html",
+          "locator": "Latin canons and English received text; heads I, II, III/IV, V",
+          "note": "Source describes its English text as abridged, omitting rejection-of-errors sections; Latin and English holdings must not be counted as equivalent complete corpora.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    }
+  ],
+  "passages": [],
+  "related": [],
+  "externalIds": {},
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/schaff/creeds3/creeds3.iv.xvi.html",
+      "locator": "Latin canons and English received text; heads I, II, III/IV, V",
+      "note": "Source describes its English text as abridged, omitting rejection-of-errors sections; Latin and English holdings must not be counted as equivalent complete corpora.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

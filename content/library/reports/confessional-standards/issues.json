@@ -1,0 +1,208 @@
+{
+  "date": "2026-10-05",
+  "issues": [
+    {
+      "documentKey": "wcf",
+      "kind": "edition-distinction",
+      "locator": "23.3 and 31.2",
+      "detail": "Acquired text retains historic magistrate/synod powers. It is not the current OPC American-revised form."
+    },
+    {
+      "documentKey": "wsc",
+      "kind": "missing-apparatus",
+      "locator": "Questions 1–107",
+      "detail": "No Proofs or AnswerWithProofs fields. Do not synthesize proofs from WLC, Baptist or current OPC editions."
+    },
+    {
+      "documentKey": "lbc",
+      "kind": "wrong-headings",
+      "locator": "Chapters 20, 21, 25",
+      "detail": "20 is wrongly titled Christian Liberty instead of Gospel; 21 has Consciencey typo; 25 repeats Civil Magistrate instead of Marriage. Parallel CC0 witnesses retain distinct titles. Originals not altered."
+    },
+    {
+      "documentKey": "flavel",
+      "kind": "date-and-modernization",
+      "locator": "Metadata.Year; title leaf of 1767 scan",
+      "detail": "1688 is date of exercises, not scanned edition date. Digital wording is modernized (you/your); source/editor not established; do not identify it as a faithful 1767 transcription."
+    },
+    {
+      "documentKey": "lbc",
+      "kind": "edition-scope",
+      "locator": "Entire supplied JSON",
+      "detail": "1677 composition/publication label and 1689 reception name retained; preface, signatories and baptism appendix are not separate acquired text units."
+    },
+    {
+      "documentKey": "baptist",
+      "kind": "attribution",
+      "locator": "Metadata.Authors",
+      "detail": "Source attributes 1695 witness to William Collins. Do not silently retitle it Keach 1693 or merge with 1794 witnesses."
+    },
+    {
+      "documentKey": "lbc-cc0-md",
+      "kind": "unnumbered-paragraph",
+      "locator": "Chapter 12",
+      "detail": "The single adoption paragraph has no printed numeral in Markdown. Preserve unnumbered label; parallel JSON calls it paragraph 1."
+    },
+    {
+      "documentKey": "flavel",
+      "kind": "unnumbered-source-block",
+      "locator": "/Data/4",
+      "detail": "Literal ? retained; no fabricated catechism number.",
+      "unitId": "unit-l08-flavel-block-005"
+    },
+    {
+      "documentKey": "flavel",
+      "kind": "unnumbered-source-block",
+      "locator": "/Data/5",
+      "detail": "Literal ? retained; no fabricated catechism number.",
+      "unitId": "unit-l08-flavel-block-006"
+    },
+    {
+      "documentKey": "flavel",
+      "kind": "unnumbered-source-block",
+      "locator": "/Data/6",
+      "detail": "Literal ? retained; no fabricated catechism number.",
+      "unitId": "unit-l08-flavel-block-007"
+    },
+    {
+      "documentKey": "flavel",
+      "kind": "unnumbered-source-block",
+      "locator": "/Data/7",
+      "detail": "Literal ? retained; no fabricated catechism number.",
+      "unitId": "unit-l08-flavel-block-008"
+    },
+    {
+      "documentKey": "flavel",
+      "kind": "unnumbered-source-block",
+      "locator": "/Data/8",
+      "detail": "Literal ? retained; no fabricated catechism number.",
+      "unitId": "unit-l08-flavel-block-009"
+    },
+    {
+      "documentKey": "flavel",
+      "kind": "unnumbered-source-block",
+      "locator": "/Data/9",
+      "detail": "Literal ? retained; no fabricated catechism number.",
+      "unitId": "unit-l08-flavel-block-010"
+    },
+    {
+      "documentKey": "flavel",
+      "kind": "unnumbered-source-block",
+      "locator": "/Data/10",
+      "detail": "Literal ? retained; no fabricated catechism number.",
+      "unitId": "unit-l08-flavel-block-011"
+    },
+    {
+      "documentKey": "flavel",
+      "kind": "unnumbered-source-block",
+      "locator": "/Data/11",
+      "detail": "Literal ? retained; no fabricated catechism number.",
+      "unitId": "unit-l08-flavel-block-012"
+    },
+    {
+      "documentKey": "flavel",
+      "kind": "unnumbered-source-block",
+      "locator": "/Data/12",
+      "detail": "Literal ? retained; no fabricated catechism number.",
+      "unitId": "unit-l08-flavel-block-013"
+    },
+    {
+      "documentKey": "flavel",
+      "kind": "unnumbered-source-block",
+      "locator": "/Data/29",
+      "detail": "Literal ? retained; no fabricated catechism number.",
+      "unitId": "unit-l08-flavel-block-030"
+    },
+    {
+      "documentKey": "flavel",
+      "kind": "unnumbered-source-block",
+      "locator": "/Data/32",
+      "detail": "Literal ? retained; no fabricated catechism number.",
+      "unitId": "unit-l08-flavel-block-033"
+    },
+    {
+      "documentKey": "flavel",
+      "kind": "unnumbered-source-block",
+      "locator": "/Data/39",
+      "detail": "Literal ? retained; no fabricated catechism number.",
+      "unitId": "unit-l08-flavel-block-040"
+    },
+    {
+      "documentKey": "flavel",
+      "kind": "unnumbered-source-block",
+      "locator": "/Data/48",
+      "detail": "Literal ? retained; no fabricated catechism number.",
+      "unitId": "unit-l08-flavel-block-049"
+    },
+    {
+      "documentKey": "flavel",
+      "kind": "unnumbered-source-block",
+      "locator": "/Data/49",
+      "detail": "Literal ? retained; no fabricated catechism number.",
+      "unitId": "unit-l08-flavel-block-050"
+    },
+    {
+      "documentKey": "flavel",
+      "kind": "unnumbered-source-block",
+      "locator": "/Data/50",
+      "detail": "Literal ? retained; no fabricated catechism number.",
+      "unitId": "unit-l08-flavel-block-051"
+    },
+    {
+      "documentKey": "flavel",
+      "kind": "unnumbered-source-block",
+      "locator": "/Data/51",
+      "detail": "Literal ? retained; no fabricated catechism number.",
+      "unitId": "unit-l08-flavel-block-052"
+    },
+    {
+      "documentKey": "flavel",
+      "kind": "unnumbered-source-block",
+      "locator": "/Data/53",
+      "detail": "Literal ? retained; no fabricated catechism number.",
+      "unitId": "unit-l08-flavel-block-054"
+    },
+    {
+      "documentKey": "flavel",
+      "kind": "unnumbered-source-block",
+      "locator": "/Data/54",
+      "detail": "Literal ? retained; no fabricated catechism number.",
+      "unitId": "unit-l08-flavel-block-055"
+    },
+    {
+      "documentKey": "flavel",
+      "kind": "unnumbered-source-block",
+      "locator": "/Data/55",
+      "detail": "Literal ? retained; no fabricated catechism number.",
+      "unitId": "unit-l08-flavel-block-056"
+    },
+    {
+      "documentKey": "flavel",
+      "kind": "unnumbered-source-block",
+      "locator": "/Data/57",
+      "detail": "Literal ? retained; no fabricated catechism number.",
+      "unitId": "unit-l08-flavel-block-058"
+    },
+    {
+      "documentKey": "flavel",
+      "kind": "unnumbered-source-block",
+      "locator": "/Data/58",
+      "detail": "Literal ? retained; no fabricated catechism number.",
+      "unitId": "unit-l08-flavel-block-059"
+    },
+    {
+      "documentKey": "flavel",
+      "kind": "unnumbered-source-block",
+      "locator": "/Data/102",
+      "detail": "Literal ? retained; no fabricated catechism number.",
+      "unitId": "unit-l08-flavel-block-103"
+    },
+    {
+      "documentKey": "flavel",
+      "kind": "unnumbered-source-block",
+      "locator": "/Data/113",
+      "detail": "Literal ? retained; no fabricated catechism number.",
+      "unitId": "unit-l08-flavel-block-114"
+    }
+  ]
+}
