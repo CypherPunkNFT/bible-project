@@ -24,9 +24,9 @@ export function useTheme(): [Theme, (event?: MouseEvent<HTMLButtonElement>) => v
     document.documentElement.dataset.theme = theme;
     window.dispatchEvent(new Event("bp-theme"));
   }, [theme]);
-  const toggle = (event?: MouseEvent<HTMLButtonElement>) =>
-    revealTheme(event?.currentTarget, () => {
-      const next = theme === "dark" ? "light" : "dark";
+  const toggle = (event?: MouseEvent<HTMLButtonElement>) => {
+    const next = theme === "dark" ? "light" : "dark";
+    revealTheme(event?.currentTarget, next, () => {
       try {
         localStorage.setItem("bp-theme", next);
       } catch (error) {
@@ -35,6 +35,7 @@ export function useTheme(): [Theme, (event?: MouseEvent<HTMLButtonElement>) => v
       document.documentElement.dataset.theme = next;
       setTheme(next);
     });
+  };
   return [theme, toggle];
 }
 

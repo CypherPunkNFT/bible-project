@@ -6,6 +6,8 @@ html[data-theme-transition]::view-transition-new(root) {
 }
 html[data-theme-transition]::view-transition-old(root) { z-index: 1; }
 html[data-theme-transition]::view-transition-new(root) { z-index: 2; }
+/* Keep the old light page above the new dark page while its circle shrinks. */
+html[data-theme-transition="retract"]::view-transition-old(root) { z-index: 3; }
 /* Capture the finished palette rather than intermediate transition-colors frames. */
 html[data-theme-transition] *,
 html[data-theme-transition] *::before,
@@ -36,7 +38,11 @@ html[data-theme-transition] *::after { transition: none !important; }
   box-shadow: 0 1px 3px rgb(0 0 0 / 20%);
   transition: transform 450ms cubic-bezier(0.16, 1, 0.3, 1);
 }
-.theme-switch[aria-checked="true"] > span { transform: translateX(28px); }
+.theme-switch[aria-checked="true"] > span {
+  transform: translateX(28px);
+  background: var(--accent);
+  color: var(--page);
+}
 .theme-switch:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
 @media (prefers-reduced-motion: reduce) {
   .theme-switch > span { transition: none; }

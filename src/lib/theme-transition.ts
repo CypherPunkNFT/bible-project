@@ -7,8 +7,8 @@ type TransitionDocument = Document & {
 
 let changing = false;
 
-/** Reveal the new palette from the switch, matching Dealwright's circular sweep. */
-export function revealTheme(origin: HTMLElement | undefined, update: () => void): void {
+/** Light grows from the switch, then retracts into it to reveal the dark palette. */
+export function revealTheme(origin: HTMLElement | undefined, next: "light" | "dark", update: () => void): void {
   if (changing) return;
   const doc = document as TransitionDocument;
   if (!origin || !doc.startViewTransition || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
@@ -22,7 +22,8 @@ export function revealTheme(origin: HTMLElement | undefined, update: () => void)
   const radius = Math.hypot(Math.max(x, window.innerWidth - x), Math.max(y, window.innerHeight - y));
   const root = document.documentElement;
   changing = true;
-  root.dataset.themeTransition = "";
+  const retract = next === "dark";
+  root.dataset.themeTransition = retract ? "retract" : "expand";
   let applied = false;
   const apply = () => {
     if (applied) return;
@@ -34,9 +35,15 @@ export function revealTheme(origin: HTMLElement | undefined, update: () => void)
     try {
       const transition = doc.startViewTransition!(apply);
       await transition.ready;
+      const circle = [`circle(0px at ${x}px ${y}px)`, `circle(${radius}px at ${x}px ${y}px)`];
       await root.animate(
-        { clipPath: [`circle(0px at ${x}px ${y}px)`, `circle(${radius}px at ${x}px ${y}px)`] },
-        { duration: 750, easing: "cubic-bezier(0.16, 1, 0.3, 1)", pseudoElement: "::view-transition-new(root)" },
+        { clipPath: retract ? circle.reverse() : circle },
+        {
+          duration: 850,
+          easing: "cubic-bezier(0.22, 0.8, 0.3, 1)",
+          pseudoElement: retract ? "::view-transition-old(root)" : "::view-transition-new(root)",
+          fill: "forwards",
+        },
       ).finished;
       await transition.finished;
     } catch {
