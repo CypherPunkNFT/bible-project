@@ -39,8 +39,9 @@ export function revealTheme(origin: HTMLElement | undefined, next: "light" | "da
       await root.animate(
         { clipPath: retract ? circle.reverse() : circle },
         {
-          duration: 850,
-          easing: "cubic-bezier(0.22, 0.8, 0.3, 1)",
+          duration: retract ? 650 : 850,
+          // Retraction keeps moving into the switch instead of lingering as a tiny disc.
+          easing: retract ? "cubic-bezier(0.25, 0.1, 0.75, 0.9)" : "cubic-bezier(0.22, 0.8, 0.3, 1)",
           pseudoElement: retract ? "::view-transition-old(root)" : "::view-transition-new(root)",
           fill: "forwards",
         },
