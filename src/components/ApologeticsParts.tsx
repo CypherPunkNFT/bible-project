@@ -18,10 +18,11 @@ export function TopicArt({ index }: { index: number }) {
     {index === 3 && <><path d="M25 86q25-40 51 0t51 0 51 0M25 101q25-40 51 0t51 0 51 0" /><circle cx="110" cy="40" r="17" /><path d="M110 10V1m-26 14-7-7m59 7 7-7M76 40H64m80 0h12m-77 24-8 8m70-8 8 8" /></>}
     {index === 4 && <><circle cx="110" cy="65" r="46" /><ellipse cx="110" cy="65" rx="22" ry="46" /><path d="M64 65h92M70 43h80M70 87h80M20 65h34m112 0h34" /><circle cx="18" cy="65" r="4" fill="currentColor" /><circle cx="202" cy="65" r="4" fill="currentColor" /></>}
     {index === 5 && <><path d="M30 25h105v50H70L48 96V75H30ZM147 46h43v51h-18v17l-22-17h-48V85" /><path d="M48 43h69M48 57h49" /><circle cx="146" cy="72" r="3" fill="currentColor" /><circle cx="159" cy="72" r="3" fill="currentColor" /><circle cx="172" cy="72" r="3" fill="currentColor" /></>}
+    {index >= 6 && <><path d="M110 111V59M110 88 68 64M110 88l42-24M110 67 88 41M110 67l22-26M47 22q25-10 41 8v27q-23-15-41-7ZM173 22q-25-10-41 8v27q23-15 41-7ZM81 109q15-7 29 0 14-7 29 0v12q-15-7-29 0-14-7-29 0Z" /><circle cx="68" cy="64" r="5" /><circle cx="152" cy="64" r="5" /><path d="M110 9v34M100 21h20" /></>}
   </svg>;
 }
 export function Constellation() {
-  const points = [[50, 10], [81, 29], [81, 74], [50, 94], [19, 74], [19, 29]];
+  const points = TOPICS.length === 7 ? [[50, 7], [81, 28], [81, 67], [70, 93], [30, 93], [19, 67], [19, 28]] : TOPICS.map((_, index) => [50 + 31 * Math.sin(index * 2 * Math.PI / TOPICS.length), 52 - 42 * Math.cos(index * 2 * Math.PI / TOPICS.length)]);
   return <nav className="ap-constellation" aria-label="Explore connected topics"><svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><ellipse cx="50" cy="52" rx="35" ry="40" /><ellipse cx="50" cy="52" rx="26" ry="30" />{points.map(([x, y], index) => <path key={index} d={`M50 52 Q${x} 52 ${x} ${y}`} />)}{Array.from({ length: 35 }, (_, i) => <circle key={i} cx={(i * 37 + 3) % 100} cy={(i * 19 + 7) % 100} r={i % 5 ? .14 : .35} />)}</svg><div className="ap-constellation-center"><span>✦</span><strong>Faith seeking<br />understanding.</strong><small>Follow a question</small></div>{TOPICS.map((topic, i) => <Link key={topic.id} to={AP_BASE + "/topics/" + topic.id} className="ap-orbit-node" style={{ ...apColor(topic.color), left: points[i][0] + "%", top: points[i][1] + "%" }}><i /><span>{topic.short}</span><ArrowUpRight size={12} /></Link>)}</nav>;
 }
 export function StudyCard({ study, book }: { study: ApStudy; book: ApNotebook }) {

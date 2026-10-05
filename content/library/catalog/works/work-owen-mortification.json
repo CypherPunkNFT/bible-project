@@ -1,0 +1,60 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-owen-mortification",
+  "editorialState": "published",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-10-05",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Bibliographic identity, reading purpose, source access and historic-text/file-rights distinction checked; not a full-text theological or transcription audit."
+    }
+  ],
+  "title": "Of the Mortification of Sin in Believers",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-john-owen",
+      "role": "author"
+    }
+  ],
+  "genre": "treatise",
+  "role": "core-teaching",
+  "collections": [
+    "theology"
+  ],
+  "subjects": [
+    "sanctification",
+    "holiness"
+  ],
+  "occasions": [],
+  "audiences": [
+    "general",
+    "students"
+  ],
+  "depth": "intermediate",
+  "era": "post-reformation",
+  "dates": [],
+  "passages": [],
+  "related": [],
+  "externalIds": {},
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/owen/mort",
+      "locator": "Historic English text at CCEL",
+      "note": "Source identifies this work and the selected reading edition or historic text.",
+      "checkedOn": "2026-10-05"
+    }
+  ],
+  "reading": {
+    "summary": "Owen examines the believer’s fight against sin through the Spirit.",
+    "startingPoint": "Begin with the opening exposition of Romans 8:13.",
+    "cautions": [],
+    "studyIds": [
+      "grace"
+    ]
+  }
+}

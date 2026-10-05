@@ -1,0 +1,61 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sibbes-bruised-reed",
+  "editorialState": "published",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-10-05",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Bibliographic identity, reading purpose, source access and historic-text/file-rights distinction checked; not a full-text theological or transcription audit."
+    }
+  ],
+  "title": "The Bruised Reed",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-richard-sibbes",
+      "role": "author"
+    }
+  ],
+  "genre": "treatise",
+  "role": "core-teaching",
+  "collections": [
+    "theology"
+  ],
+  "subjects": [
+    "assurance",
+    "pastoral-care",
+    "christ"
+  ],
+  "occasions": [],
+  "audiences": [
+    "general",
+    "students"
+  ],
+  "depth": "introductory",
+  "era": "post-reformation",
+  "dates": [],
+  "passages": [],
+  "related": [],
+  "externalIds": {},
+  "evidence": [
+    {
+      "url": "https://archive.org/details/bwb_C0-AVW-616",
+      "locator": "William Pickering English edition, 1838",
+      "note": "Source identifies this work and the selected reading edition or historic text.",
+      "checkedOn": "2026-10-05"
+    }
+  ],
+  "reading": {
+    "summary": "A pastoral treatment of Christ’s care for bruised and struggling believers.",
+    "startingPoint": "Start with the opening exposition of the bruised reed and smoking flax.",
+    "cautions": [],
+    "studyIds": [
+      "assurance"
+    ]
+  }
+}

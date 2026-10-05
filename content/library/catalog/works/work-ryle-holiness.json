@@ -1,0 +1,61 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-ryle-holiness",
+  "editorialState": "published",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-10-05",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Bibliographic identity, reading purpose, source access and historic-text/file-rights distinction checked; not a full-text theological or transcription audit."
+    }
+  ],
+  "title": "Holiness",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-j-c-ryle",
+      "role": "author"
+    }
+  ],
+  "genre": "treatise",
+  "role": "core-teaching",
+  "collections": [
+    "theology"
+  ],
+  "subjects": [
+    "sanctification",
+    "assurance"
+  ],
+  "occasions": [],
+  "audiences": [
+    "general",
+    "students"
+  ],
+  "depth": "introductory",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [],
+  "related": [],
+  "externalIds": {},
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/ryle/holiness/holiness",
+      "locator": "Historic English text at CCEL",
+      "note": "Source identifies this work and the selected reading edition or historic text.",
+      "checkedOn": "2026-10-05"
+    }
+  ],
+  "reading": {
+    "summary": "An evangelical Anglican treatment of sin, sanctification and the pursuit of holiness.",
+    "startingPoint": "Begin with the chapters on sin and sanctification before the practical applications.",
+    "cautions": [],
+    "studyIds": [
+      "grace",
+      "assurance"
+    ]
+  }
+}

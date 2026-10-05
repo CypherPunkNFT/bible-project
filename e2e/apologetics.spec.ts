@@ -10,13 +10,13 @@ for (const theme of ["light", "dark"] as const) {
     page.on("pageerror", (error) => errors.push(error.message));
     await page.goto("/apologetics");
     await expect(page.getByRole("heading", { level: 1 })).toHaveText("A reason for the hope.");
-    await expect(page.getByRole("navigation", { name: "Explore connected topics" }).getByRole("link")).toHaveCount(6);
+    await expect(page.getByRole("navigation", { name: "Explore connected topics" }).getByRole("link")).toHaveCount(TOPICS.length);
     await expect(page.getByRole("navigation", { name: "Main", exact: true }).getByRole("link", { name: "Apologetics", exact: true })).toHaveAttribute("aria-current", "page");
     await page.evaluate(() => document.fonts.ready);
     await mkdir("front-end capture/2026-10-04", { recursive: true });
     await page.screenshot({ path: `front-end capture/2026-10-04/apologetics-universe-${testInfo.project.name}-${theme}.png` });
     await page.locator(".ap-topic-grid").screenshot({ path: `front-end capture/2026-10-04/apologetics-fields-${testInfo.project.name}-${theme}.png` });
-    for (const route of ["", "/questions", "/study/suffering", "/paths/begin", "/worldviews/islam", "/debates", "/debates/craig-hitchens", "/practice", "/sources", "/saved"]) {
+    for (const route of ["", "/questions", "/study/suffering", "/paths/begin", "/worldviews/islam", "/debates", "/debates/craig-hitchens", "/practice", "/sources", "/saved", "/topics/reformed", "/texts", "/texts?view=authors", "/study/election"]) {
       await page.goto("/apologetics" + route);
       await expect(page.locator(".ap-page h1")).toBeVisible();
       expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth), route).toBeLessThanOrEqual(1);

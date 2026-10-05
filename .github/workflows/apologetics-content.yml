@@ -3,9 +3,9 @@ name: Apologetics documents
 on:
   push:
     branches: [main]
-    paths: ['content/apologetics/**', 'scripts/content/**', 'scripts/content.ts', 'package.json', 'bun.lock', '.github/workflows/apologetics-content.yml']
+    paths: ['content/apologetics/**', 'content/library/**', 'scripts/content/**', 'scripts/content.ts', 'scripts/validate-library.*', 'src/data/reading-library-types.ts', 'package.json', 'bun.lock', '.github/workflows/apologetics-content.yml']
   pull_request:
-    paths: ['content/apologetics/**', 'scripts/content/**', 'scripts/content.ts', 'package.json', 'bun.lock', '.github/workflows/apologetics-content.yml']
+    paths: ['content/apologetics/**', 'content/library/**', 'scripts/content/**', 'scripts/content.ts', 'scripts/validate-library.*', 'src/data/reading-library-types.ts', 'package.json', 'bun.lock', '.github/workflows/apologetics-content.yml']
   workflow_dispatch:
 
 permissions:
@@ -28,6 +28,7 @@ jobs:
           bun-version: '1.4.0'
       - run: bun install --frozen-lockfile
       - run: npm run content -- validate
+      - run: npm run content -- library-check
       - run: npm run test:content
       - run: npm run content:build
       - run: npm run content:check

@@ -1,0 +1,61 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-flavel-heart",
+  "editorialState": "published",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-10-05",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Bibliographic identity, reading purpose, source access and historic-text/file-rights distinction checked; not a full-text theological or transcription audit."
+    }
+  ],
+  "title": "Keeping the Heart (A Saint Indeed)",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-john-flavel",
+      "role": "author"
+    }
+  ],
+  "genre": "treatise",
+  "role": "core-teaching",
+  "collections": [
+    "theology"
+  ],
+  "subjects": [
+    "holiness",
+    "pastoral-care"
+  ],
+  "occasions": [],
+  "audiences": [
+    "general",
+    "students"
+  ],
+  "depth": "intermediate",
+  "era": "post-reformation",
+  "dates": [],
+  "passages": [],
+  "related": [],
+  "externalIds": {},
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/flavel/saintindeed/saintindeed",
+      "locator": "Historic English text at CCEL",
+      "note": "Source identifies this work and the selected reading edition or historic text.",
+      "checkedOn": "2026-10-05"
+    }
+  ],
+  "reading": {
+    "summary": "A treatment of Proverbs 4:23 across the changing circumstances of life.",
+    "startingPoint": "Read the explanation of keeping the heart, then the circumstances that meet your concern.",
+    "cautions": [],
+    "studyIds": [
+      "grace",
+      "assurance"
+    ]
+  }
+}

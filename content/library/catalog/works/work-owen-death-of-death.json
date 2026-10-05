@@ -1,0 +1,61 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-owen-death-of-death",
+  "editorialState": "published",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-10-05",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Bibliographic identity, reading purpose, source access and historic-text/file-rights distinction checked; not a full-text theological or transcription audit."
+    }
+  ],
+  "title": "The Death of Death in the Death of Christ",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-john-owen",
+      "role": "author"
+    }
+  ],
+  "genre": "treatise",
+  "role": "core-teaching",
+  "collections": [
+    "theology"
+  ],
+  "subjects": [
+    "atonement",
+    "election"
+  ],
+  "occasions": [],
+  "audiences": [
+    "general",
+    "students"
+  ],
+  "depth": "advanced",
+  "era": "post-reformation",
+  "dates": [],
+  "passages": [],
+  "related": [],
+  "externalIds": {},
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/owen/deathofdeath/deathofdeath",
+      "locator": "Historic English text at CCEL",
+      "note": "Source identifies this work and the selected reading edition or historic text.",
+      "checkedOn": "2026-10-05"
+    }
+  ],
+  "reading": {
+    "summary": "A sustained argument about the purpose and accomplishment of Christ’s death.",
+    "startingPoint": "Read Book I on the aim of the atonement before testing the objections.",
+    "cautions": [],
+    "studyIds": [
+      "cross",
+      "election"
+    ]
+  }
+}

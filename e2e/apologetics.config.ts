@@ -4,7 +4,7 @@ import base from "../playwright.config";
 export default defineConfig({
   ...base,
   testDir: ".",
-  testMatch: "apologetics.spec.ts",
+  testMatch: ["apologetics.spec.ts", "reformed-library.spec.ts"],
   testIgnore: [],
   outputDir: ".output/apologetics",
   use: { ...base.use, baseURL: "http://127.0.0.1:8937" },

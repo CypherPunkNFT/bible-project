@@ -1,0 +1,62 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-berkhof-introduction",
+  "editorialState": "published",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-10-05",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Bibliographic identity, reading purpose, source access and historic-text/file-rights distinction checked; not a full-text theological or transcription audit."
+    }
+  ],
+  "title": "New Testament Introduction",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-louis-berkhof",
+      "role": "author"
+    }
+  ],
+  "genre": "treatise",
+  "role": "core-teaching",
+  "collections": [
+    "theology"
+  ],
+  "subjects": [
+    "canon",
+    "hermeneutics"
+  ],
+  "occasions": [],
+  "audiences": [
+    "general",
+    "students"
+  ],
+  "depth": "intermediate",
+  "era": "twentieth-century",
+  "dates": [],
+  "passages": [],
+  "related": [],
+  "externalIds": {},
+  "evidence": [
+    {
+      "url": "https://archive.org/details/newtestamentintr00berk",
+      "locator": "Eerdmans-Sevensma edition, 1915",
+      "note": "Source identifies this work and the selected reading edition or historic text.",
+      "checkedOn": "2026-10-05"
+    }
+  ],
+  "reading": {
+    "summary": "An early study of the authorship, setting and purpose of New Testament books.",
+    "startingPoint": "Begin with the general introduction, then a book you are currently reading.",
+    "cautions": [
+      "This early work qualifies in the United States; Berkhof’s later Systematic Theology is not included under the pre-1931 rule."
+    ],
+    "studyIds": [
+      "scripture"
+    ]
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-ryle-matthew",
+  "editorialState": "published",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-10-05",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Bibliographic identity, reading purpose, source access and historic-text/file-rights distinction checked; not a full-text theological or transcription audit."
+    }
+  ],
+  "title": "Expository Thoughts on Matthew",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-j-c-ryle",
+      "role": "author"
+    }
+  ],
+  "genre": "commentary",
+  "role": "core-teaching",
+  "collections": [
+    "theology"
+  ],
+  "subjects": [
+    "christ",
+    "hermeneutics"
+  ],
+  "occasions": [],
+  "audiences": [
+    "general",
+    "students"
+  ],
+  "depth": "intermediate",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [],
+  "related": [],
+  "externalIds": {},
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/ryle/matthew/matthew",
+      "locator": "Historic English text at CCEL",
+      "note": "Source identifies this work and the selected reading edition or historic text.",
+      "checkedOn": "2026-10-05"
+    }
+  ],
+  "reading": {
+    "summary": "Passage-by-passage pastoral exposition of Matthew’s Gospel.",
+    "startingPoint": "Open the biblical passage first, then read the corresponding exposition.",
+    "cautions": [],
+    "studyIds": [
+      "jesus",
+      "resurrection"
+    ]
+  }
+}

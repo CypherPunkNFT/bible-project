@@ -1,0 +1,63 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-alexander-canon",
+  "editorialState": "published",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-10-05",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Bibliographic identity, reading purpose, source access and historic-text/file-rights distinction checked; not a full-text theological or transcription audit."
+    }
+  ],
+  "title": "The Canon of the Old and New Testaments Ascertained",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-archibald-alexander",
+      "role": "author"
+    }
+  ],
+  "genre": "treatise",
+  "role": "core-teaching",
+  "collections": [
+    "theology",
+    "apologetics"
+  ],
+  "subjects": [
+    "canon",
+    "apologetics"
+  ],
+  "occasions": [],
+  "audiences": [
+    "general",
+    "students"
+  ],
+  "depth": "intermediate",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [],
+  "related": [],
+  "externalIds": {},
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/alexander_a/canon.html",
+      "locator": "Historic English text at CCEL",
+      "note": "Source identifies this work and the selected reading edition or historic text.",
+      "checkedOn": "2026-10-05"
+    }
+  ],
+  "reading": {
+    "summary": "A historical defense of the reception and extent of the biblical canon.",
+    "startingPoint": "Read the criteria for canonicity before the book-specific discussions.",
+    "cautions": [
+      "Later manuscript discoveries and current scholarship require separate evaluation."
+    ],
+    "studyIds": [
+      "scripture"
+    ]
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-newton-cardiphonia",
+  "editorialState": "published",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-10-05",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Bibliographic identity, reading purpose, source access and historic-text/file-rights distinction checked; not a full-text theological or transcription audit."
+    }
+  ],
+  "title": "Cardiphonia",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-john-newton",
+      "role": "author"
+    }
+  ],
+  "genre": "letter",
+  "role": "core-teaching",
+  "collections": [
+    "theology"
+  ],
+  "subjects": [
+    "pastoral-care",
+    "christian-life"
+  ],
+  "occasions": [],
+  "audiences": [
+    "general",
+    "students"
+  ],
+  "depth": "intermediate",
+  "era": "eighteenth-century",
+  "dates": [],
+  "passages": [],
+  "related": [],
+  "externalIds": {},
+  "evidence": [
+    {
+      "url": "https://archive.org/details/cardiphoniaorut00russgoog",
+      "locator": "J. Johnson edition, 1807 · volume scan",
+      "note": "Source identifies this work and the selected reading edition or historic text.",
+      "checkedOn": "2026-10-05"
+    }
+  ],
+  "reading": {
+    "summary": "Pastoral counsel in letters about faith and the life of the heart.",
+    "startingPoint": "Choose a complete letter and read the surrounding correspondence for context.",
+    "cautions": [
+      "The host describes a two-volume edition; this link is one digitized holding, not a verified complete set."
+    ],
+    "studyIds": [
+      "assurance",
+      "conversation"
+    ]
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-spurgeon-morning-evening",
+  "editorialState": "published",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-10-05",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Bibliographic identity, reading purpose, source access and historic-text/file-rights distinction checked; not a full-text theological or transcription audit."
+    }
+  ],
+  "title": "Morning and Evening",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-charles-spurgeon",
+      "role": "author"
+    }
+  ],
+  "genre": "devotional",
+  "role": "core-teaching",
+  "collections": [
+    "theology"
+  ],
+  "subjects": [
+    "christian-life",
+    "holiness"
+  ],
+  "occasions": [],
+  "audiences": [
+    "general",
+    "students"
+  ],
+  "depth": "introductory",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [],
+  "related": [],
+  "externalIds": {},
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/spurgeon/morneve/morneve",
+      "locator": "Historic English text at CCEL",
+      "note": "Source identifies this work and the selected reading edition or historic text.",
+      "checkedOn": "2026-10-05"
+    }
+  ],
+  "reading": {
+    "summary": "Daily meditations built around passages of Scripture.",
+    "startingPoint": "Read a meditation with its cited passage open in context.",
+    "cautions": [],
+    "studyIds": [
+      "grace"
+    ]
+  }
+}

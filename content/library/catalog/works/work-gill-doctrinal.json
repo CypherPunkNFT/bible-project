@@ -1,0 +1,64 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-gill-doctrinal",
+  "editorialState": "published",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-10-05",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Bibliographic identity, reading purpose, source access and historic-text/file-rights distinction checked; not a full-text theological or transcription audit."
+    }
+  ],
+  "title": "A Body of Doctrinal Divinity",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-john-gill",
+      "role": "author"
+    }
+  ],
+  "genre": "systematic-theology",
+  "role": "core-teaching",
+  "collections": [
+    "theology"
+  ],
+  "subjects": [
+    "god",
+    "salvation",
+    "covenant"
+  ],
+  "occasions": [],
+  "audiences": [
+    "general",
+    "students"
+  ],
+  "depth": "advanced",
+  "era": "eighteenth-century",
+  "dates": [],
+  "passages": [],
+  "related": [],
+  "externalIds": {},
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/gill/doctrinal/doctrinal",
+      "locator": "Historic English text at CCEL",
+      "note": "Source identifies this work and the selected reading edition or historic text.",
+      "checkedOn": "2026-10-05"
+    }
+  ],
+  "reading": {
+    "summary": "A Calvinistic Baptist system of doctrine from the knowledge of God to salvation and final things.",
+    "startingPoint": "Begin with the divine authority of Scripture and the doctrine of God.",
+    "cautions": [
+      "Baptist covenant and church conclusions should be compared explicitly with the site’s Westminster basis."
+    ],
+    "studyIds": [
+      "reformed",
+      "election"
+    ]
+  }
+}

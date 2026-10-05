@@ -1,0 +1,223 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "study",
+  "id": "covenant",
+  "order": 23,
+  "publication": "published",
+  "content": {
+    "title": "How does covenant theology connect the whole Bible?",
+    "topic": "reformed",
+    "summary": "Follow God’s promises to their fulfillment in Christ without flattening the differences between the covenants.",
+    "answer": {
+      "id": "answer",
+      "text": "Covenant theology reads the Bible through God’s binding dealings with humanity and the unity of his saving promise in Christ. Westminster describes a covenant of works with Adam and a covenant of grace after the fall. The Old and New Testaments reveal the same saving Mediator through different administrations; the new covenant brings the fulfillment accomplished by his blood.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Romans 5:12-19"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Galatians 3:16-29"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Hebrews 9:15"
+        },
+        {
+          "kind": "source",
+          "source": "wcf",
+          "locator": "7.1–6; 8.6"
+        }
+      ]
+    },
+    "reasoning": [
+      {
+        "id": "reason-1",
+        "text": "Paul places Adam and Christ alongside one another as representative heads: condemnation comes through the first man’s disobedience, righteousness and life through the obedience of Christ.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Romans 5:12-19"
+          }
+        ]
+      },
+      {
+        "id": "reason-2",
+        "text": "The promise to Abraham is directed to Christ and received through faith. The later law does not cancel the promise; it serves within the history leading to Christ.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Galatians 3:16-24"
+          }
+        ]
+      },
+      {
+        "id": "reason-3",
+        "text": "Hebrews announces the superiority of the new covenant and Christ’s once-for-all sacrifice. Continuity of salvation does not mean that every earlier ordinance continues unchanged.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Hebrews 8:6-13"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Hebrews 10:1-14"
+          },
+          {
+            "kind": "source",
+            "source": "wcf",
+            "locator": "7.5–6"
+          }
+        ]
+      }
+    ],
+    "conclusion": {
+      "id": "conclusion",
+      "text": "Read each passage in its historical covenant setting and in relation to Christ. The unity is God’s saving purpose; the movement is from promise and anticipation to fulfillment.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Luke 24:25-27"
+        },
+        {
+          "kind": "scripture",
+          "reference": "2 Corinthians 1:20"
+        },
+        {
+          "kind": "source",
+          "source": "wcf",
+          "locator": "8.6"
+        }
+      ]
+    },
+    "sections": [
+      {
+        "id": "works-grace",
+        "text": "Covenant of works names the confessional synthesis of Adam’s obligation and representative role; Genesis does not use that precise phrase in its creation narrative. Covenant of grace names salvation offered through Christ to fallen sinners. These categories should be argued from the texts rather than assumed because a system uses them.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Genesis 2:16-17"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Romans 5:18-19"
+          },
+          {
+            "kind": "source",
+            "source": "wcf",
+            "locator": "7.2–3"
+          }
+        ],
+        "title": "Distinguish the biblical words and the theological summary"
+      },
+      {
+        "id": "law",
+        "text": "The law exposes sin and guides the redeemed life. It does not give fallen sinners a separate route to justification by personal achievement. Westminster distinguishes moral, ceremonial and judicial law; those distinctions require attention to the passage and its fulfillment, not simply attaching the label Old Testament.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Romans 3:20-22"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Galatians 3:21-25"
+          },
+          {
+            "kind": "source",
+            "source": "wcf",
+            "locator": "19.2–6"
+          }
+        ],
+        "title": "What happens to the law?"
+      }
+    ],
+    "objection": "Does covenant theology force every passage into a predetermined system?",
+    "reply": {
+      "id": "reply",
+      "text": "It can be misused that way. A sound account must let the biblical passages correct its categories, preserve the historical differences and explain the new covenant’s superiority. Compare the whole argument of Hebrews and Galatians, rather than selecting isolated proof texts. A confession is useful precisely when its reasoning can be examined.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Hebrews 8:6-13"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Galatians 3:17-29"
+        },
+        {
+          "kind": "source",
+          "source": "wcf",
+          "locator": "1.9–10"
+        }
+      ]
+    },
+    "limit": {
+      "id": "limit",
+      "text": "This guide explains the Westminster account. It does not settle every disagreement about baptism or the membership and administration of the covenants. Use the library’s tradition and edition notes when comparing authors, and distinguish an agreed doctrine of grace from a disputed covenant inference.",
+      "citations": [
+        {
+          "kind": "source",
+          "source": "wcf",
+          "locator": "7.5–6; 28.4; 1.10"
+        }
+      ]
+    },
+    "prompt": {
+      "id": "conversation",
+      "text": "What is promised in this passage, to whom, and how does the New Testament describe its fulfillment in Christ?",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Luke 24:44-47"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Galatians 3:16"
+        }
+      ]
+    },
+    "passages": [
+      {
+        "reference": "Romans 5:12-19",
+        "note": "Adam and Christ"
+      },
+      {
+        "reference": "Galatians 3:16-29",
+        "note": "Promise, law and faith"
+      },
+      {
+        "reference": "Hebrews 8:6-13",
+        "note": "The better covenant"
+      }
+    ],
+    "related": [
+      "reformed",
+      "scripture",
+      "grace",
+      "cross"
+    ],
+    "keywords": [
+      "covenant theology",
+      "covenant of works",
+      "covenant of grace",
+      "Adam",
+      "Abraham",
+      "law and gospel",
+      "biblical theology"
+    ]
+  },
+  "reviews": [
+    {
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "New Reformed branch: checked biblical references, Westminster chapter/paragraph locators, catechetical source scope and relationship to existing guides.",
+      "note": "AI-assisted editorial review against the cited primary texts; not independent human theological approval. Confessional synthesis, biblical wording and open doctrinal questions are distinguished.",
+      "date": "2026-10-05",
+      "contentHash": "440be081d13a9cf4b87d42c1050cc9a8481aa833e416d9ae61f5a32596909c00",
+      "basisHash": "aa6ef2ee72a927b9de9b88f4d2c752386d9716f0ef1e2bfe541bf64fc02dc331"
+    }
+  ]
+}

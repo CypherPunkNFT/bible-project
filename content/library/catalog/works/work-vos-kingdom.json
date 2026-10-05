@@ -1,0 +1,62 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-vos-kingdom",
+  "editorialState": "published",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-10-05",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Bibliographic identity, reading purpose, source access and historic-text/file-rights distinction checked; not a full-text theological or transcription audit."
+    }
+  ],
+  "title": "The Teaching of Jesus Concerning the Kingdom of God and the Church",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-geerhardus-vos",
+      "role": "author"
+    }
+  ],
+  "genre": "treatise",
+  "role": "core-teaching",
+  "collections": [
+    "theology"
+  ],
+  "subjects": [
+    "kingdom",
+    "church",
+    "biblical-theology"
+  ],
+  "occasions": [],
+  "audiences": [
+    "general",
+    "students"
+  ],
+  "depth": "intermediate",
+  "era": "twentieth-century",
+  "dates": [],
+  "passages": [],
+  "related": [],
+  "externalIds": {},
+  "evidence": [
+    {
+      "url": "https://archive.org/details/theteachingofjes00vosuoft",
+      "locator": "American Tract Society edition, 1903",
+      "note": "Source identifies this work and the selected reading edition or historic text.",
+      "checkedOn": "2026-10-05"
+    }
+  ],
+  "reading": {
+    "summary": "An early biblical-theological study of Jesus’ teaching about the kingdom and the church.",
+    "startingPoint": "Follow the opening account of Jesus’ ministry into the kingdom chapters.",
+    "cautions": [],
+    "studyIds": [
+      "covenant",
+      "jesus"
+    ]
+  }
+}

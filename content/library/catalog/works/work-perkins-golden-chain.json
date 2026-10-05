@@ -1,0 +1,63 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-perkins-golden-chain",
+  "editorialState": "published",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-10-05",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Bibliographic identity, reading purpose, source access and historic-text/file-rights distinction checked; not a full-text theological or transcription audit."
+    }
+  ],
+  "title": "A Golden Chain",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-william-perkins",
+      "role": "author"
+    }
+  ],
+  "genre": "treatise",
+  "role": "core-teaching",
+  "collections": [
+    "theology"
+  ],
+  "subjects": [
+    "divine-decrees",
+    "salvation",
+    "election"
+  ],
+  "occasions": [],
+  "audiences": [
+    "general",
+    "students"
+  ],
+  "depth": "intermediate",
+  "era": "reformation",
+  "dates": [],
+  "passages": [],
+  "related": [],
+  "externalIds": {},
+  "evidence": [
+    {
+      "url": "https://archive.org/details/bim_early-english-books-1475-1640_a-golden-chaine-_perkins-william_1591",
+      "locator": "1591 English edition · microfilm scan",
+      "note": "Source identifies this work and the selected reading edition or historic text.",
+      "checkedOn": "2026-10-05"
+    }
+  ],
+  "reading": {
+    "summary": "A compact, interconnected presentation of theology and the order of salvation.",
+    "startingPoint": "Read the outline alongside the study on election and responsibility.",
+    "cautions": [
+      "Early spelling and microfilm quality make this a slower read."
+    ],
+    "studyIds": [
+      "election"
+    ]
+  }
+}

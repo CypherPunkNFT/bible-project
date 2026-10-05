@@ -1,0 +1,64 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-ames-marrow",
+  "editorialState": "published",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-10-05",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Bibliographic identity, reading purpose, source access and historic-text/file-rights distinction checked; not a full-text theological or transcription audit."
+    }
+  ],
+  "title": "The Marrow of Sacred Divinity",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-william-ames",
+      "role": "author"
+    }
+  ],
+  "genre": "systematic-theology",
+  "role": "core-teaching",
+  "collections": [
+    "theology"
+  ],
+  "subjects": [
+    "historical-theology",
+    "faith",
+    "christian-life"
+  ],
+  "occasions": [],
+  "audiences": [
+    "general",
+    "students"
+  ],
+  "depth": "advanced",
+  "era": "post-reformation",
+  "dates": [],
+  "passages": [],
+  "related": [],
+  "externalIds": {},
+  "evidence": [
+    {
+      "url": "https://archive.org/details/marrowsacdi00ames",
+      "locator": "Early English edition · Princeton scan, catalogued 1639",
+      "note": "Source identifies this work and the selected reading edition or historic text.",
+      "checkedOn": "2026-10-05"
+    }
+  ],
+  "reading": {
+    "summary": "A concise Puritan arrangement of theology around faith and obedience.",
+    "startingPoint": "Begin with the definition of theology, then follow the division into faith and observance.",
+    "cautions": [
+      "The catalogue notes a handwritten imprint date. This is the early English translation, not the modern Eusden translation."
+    ],
+    "studyIds": [
+      "reformed",
+      "grace"
+    ]
+  }
+}

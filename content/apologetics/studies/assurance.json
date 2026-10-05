@@ -1,0 +1,232 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "study",
+  "id": "assurance",
+  "order": 24,
+  "publication": "published",
+  "content": {
+    "title": "Can a struggling Christian have assurance of salvation?",
+    "topic": "reformed",
+    "summary": "Distinguish Christ’s preserving promise, the reality of living faith and the believer’s changing sense of assurance.",
+    "answer": {
+      "id": "answer",
+      "text": "Yes. The ground of salvation is Christ’s work and promise, not the strength of our feelings. God preserves those truly united to Christ, yet their assurance can be weakened by sin, temptation or suffering. Scripture directs us to Christ, calls us to examine the fruit of faith and teaches us to seek the Spirit’s help through ordinary Christian life.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "John 10:27-29"
+        },
+        {
+          "kind": "scripture",
+          "reference": "1 John 5:11-13"
+        },
+        {
+          "kind": "source",
+          "source": "wcf",
+          "locator": "17.1–3; 18.2–4"
+        }
+      ]
+    },
+    "reasoning": [
+      {
+        "id": "reason-1",
+        "text": "Jesus gives his sheep eternal life and promises that no one will snatch them from his hand. Their safety rests in his power rather than their independence.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "John 10:27-30"
+          }
+        ]
+      },
+      {
+        "id": "reason-2",
+        "text": "Living faith bears fruit, including repentance and love. A bare claim to know Christ while embracing darkness must be tested rather than automatically reassured.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "1 John 1:6-9"
+          },
+          {
+            "kind": "scripture",
+            "reference": "1 John 2:3-6"
+          },
+          {
+            "kind": "source",
+            "source": "wcf",
+            "locator": "18.1"
+          }
+        ]
+      },
+      {
+        "id": "reason-3",
+        "text": "Genuine believers can wait and struggle before attaining settled assurance. Its absence is not itself proof that Christ has rejected them.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Psalms 42:5-11"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Mark 9:24"
+          },
+          {
+            "kind": "source",
+            "source": "wcf",
+            "locator": "18.3–4"
+          }
+        ]
+      }
+    ],
+    "conclusion": {
+      "id": "conclusion",
+      "text": "Look to Christ, confess sin and continue in the means he gives: his Word, prayer and the fellowship of the church. Assurance should strengthen grateful obedience and patient hope.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Hebrews 10:19-25"
+        },
+        {
+          "kind": "source",
+          "source": "wcf",
+          "locator": "18.3"
+        }
+      ]
+    },
+    "sections": [
+      {
+        "id": "distinctions",
+        "text": "Perseverance concerns God’s preservation of his people in faith. Assurance concerns the believer’s knowledge of that grace. Presumption treats a profession, past experience or church connection as permission to ignore Christ. Keeping these distinct protects both the tender conscience and the seriousness of repentance.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Matthew 7:21-23"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Philippians 1:6"
+          },
+          {
+            "kind": "source",
+            "source": "wcf",
+            "locator": "17.1–2; 18.1–4"
+          }
+        ],
+        "title": "Perseverance, assurance and presumption"
+      },
+      {
+        "id": "fruit",
+        "text": "The evidence of grace is real but imperfect. A believer’s battle against sin is not the same thing as sinless perfection. Examine yourself in the light of Scripture without turning inward examination into a replacement for Christ’s righteousness. The question is where you are resting and whether you are turning to him in repentance.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "1 John 1:8-9"
+          },
+          {
+            "kind": "scripture",
+            "reference": "2 Corinthians 13:5"
+          },
+          {
+            "kind": "source",
+            "source": "wcf",
+            "locator": "11.1; 13.2–3; 18.2"
+          }
+        ],
+        "title": "Fruit without perfectionism"
+      }
+    ],
+    "objection": "Does perseverance mean the warning passages can be ignored?",
+    "reply": {
+      "id": "reply",
+      "text": "No. Scripture commands Christians to exhort one another and warns against an unbelieving heart. The warnings call us to persevere; they are not permission to assume that every professing believer is secure. The Reformed confession joins God’s preserving grace with real dangers, serious falls and the need for repentance.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Hebrews 3:12-14"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Hebrews 10:23-31"
+        },
+        {
+          "kind": "source",
+          "source": "wcf",
+          "locator": "17.3; 18.1"
+        }
+      ]
+    },
+    "limit": {
+      "id": "limit",
+      "text": "A short guide cannot pronounce on an individual’s spiritual state. Persistent distress or concealed harm deserves patient care, honest confession and help from trustworthy church leaders. Neither a reassuring phrase nor an intense experience replaces the gospel’s call to faith and repentance.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "James 5:14-16"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Galatians 6:1-2"
+        },
+        {
+          "kind": "source",
+          "source": "wcf",
+          "locator": "18.1–4"
+        }
+      ]
+    },
+    "prompt": {
+      "id": "conversation",
+      "text": "What is troubling your confidence: Christ’s promise, a particular sin, suffering, or the fear that your faith must feel stronger before he will receive you?",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Hebrews 4:14-16"
+        },
+        {
+          "kind": "scripture",
+          "reference": "1 John 1:9"
+        }
+      ]
+    },
+    "passages": [
+      {
+        "reference": "John 10:27-30",
+        "note": "The Shepherd’s preserving promise"
+      },
+      {
+        "reference": "1 John 5:11-13",
+        "note": "Life in the Son and knowing that life"
+      },
+      {
+        "reference": "Hebrews 3:12-14",
+        "note": "Warnings and mutual encouragement"
+      }
+    ],
+    "related": [
+      "reformed",
+      "election",
+      "grace",
+      "suffering"
+    ],
+    "keywords": [
+      "assurance",
+      "perseverance",
+      "doubt",
+      "salvation",
+      "eternal security",
+      "presumption",
+      "repentance"
+    ]
+  },
+  "reviews": [
+    {
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "New Reformed branch: checked biblical references, Westminster chapter/paragraph locators, catechetical source scope and relationship to existing guides.",
+      "note": "AI-assisted editorial review against the cited primary texts; not independent human theological approval. Confessional synthesis, biblical wording and open doctrinal questions are distinguished.",
+      "date": "2026-10-05",
+      "contentHash": "25d9d5359f81b63bc5177e1c586a48fa7828cf3396c83cbb2f758bf2e121a6f5",
+      "basisHash": "aa6ef2ee72a927b9de9b88f4d2c752386d9716f0ef1e2bfe541bf64fc02dc331"
+    }
+  ]
+}

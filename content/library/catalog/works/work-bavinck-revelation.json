@@ -1,0 +1,64 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-bavinck-revelation",
+  "editorialState": "published",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-10-05",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Bibliographic identity, reading purpose, source access and historic-text/file-rights distinction checked; not a full-text theological or transcription audit."
+    }
+  ],
+  "title": "The Philosophy of Revelation",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-herman-bavinck",
+      "role": "author"
+    }
+  ],
+  "genre": "lecture",
+  "role": "core-teaching",
+  "collections": [
+    "theology",
+    "apologetics"
+  ],
+  "subjects": [
+    "revelation-prophethood",
+    "apologetics",
+    "science-faith"
+  ],
+  "occasions": [],
+  "audiences": [
+    "general",
+    "students"
+  ],
+  "depth": "advanced",
+  "era": "twentieth-century",
+  "dates": [],
+  "passages": [],
+  "related": [],
+  "externalIds": {},
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/bavinck/revelation.html",
+      "locator": "Historic English Stone Lectures, 1908–1909",
+      "note": "Source identifies this work and the selected reading edition or historic text.",
+      "checkedOn": "2026-10-05"
+    }
+  ],
+  "reading": {
+    "summary": "Stone Lectures relating revelation to philosophy, nature, history, religion and Christianity.",
+    "startingPoint": "Start with the first lecture on philosophy and revelation.",
+    "cautions": [],
+    "studyIds": [
+      "scripture",
+      "god",
+      "science"
+    ]
+  }
+}

@@ -9,6 +9,7 @@ import { exportRecord, renderDocument } from "./export.ts";
 import { parseReference, formatReference, scriptureText } from "./scripture.ts";
 import type { ContentDocument } from "./model.ts";
 import { assertOrdinaryPath } from "./files.ts";
+import { prepareReadingLibrary, recordReadingReview } from "./reading-library.ts";
 
 const baseline = loadRepository(PROJECT_ROOT);
 const documents = baseline.entries.map((e) => e.document);
@@ -19,9 +20,14 @@ function fixture(t: TestContext, withScripts = false) {
   const parent = path.join(PROJECT_ROOT, ".local"); mkdirSync(parent, { recursive: true });
   const root = mkdtempSync(path.join(parent, "content-test-"));
   cpSync(path.join(PROJECT_ROOT, "content/apologetics"), path.join(root, "content/apologetics"), { recursive: true });
+  const catalogRoot = "content/library";
+  for (const file of ["schema.json", "authors.json", "sources.json", "vocabulary.json", "publication.json"]) cpSync(path.join(PROJECT_ROOT, catalogRoot, file), path.join(root, catalogRoot, file));
+  const manifest = JSON.parse(readFileSync(path.join(root, catalogRoot, "publication.json"), "utf8"));
+  for (const kind of ["work", "edition", "asset"]) for (const id of manifest[kind + "Ids"]) cpSync(path.join(PROJECT_ROOT, catalogRoot, "catalog", kind + "s", id + ".json"), path.join(root, catalogRoot, "catalog", kind + "s", id + ".json"));
   if (withScripts) {
     cpSync(path.join(PROJECT_ROOT, "scripts/content"), path.join(root, "scripts/content"), { recursive: true });
     cpSync(path.join(PROJECT_ROOT, "scripts/content.ts"), path.join(root, "scripts/content.ts"));
+    cpSync(path.join(PROJECT_ROOT, "scripts/validate-library.mjs"), path.join(root, "scripts/validate-library.mjs"));
     writeFileSync(path.join(root, "package.json"), '{"type":"module"}\n');
   }
   t.after(() => { assert.ok(path.resolve(root).startsWith(path.resolve(parent) + path.sep + "content-test-")); rmSync(root, { recursive: true, force: true }); });
@@ -120,7 +126,7 @@ test("ordering does not change editorial fingerprints; source changes have usefu
 test("build works without Bible downloads, is deterministic and catches edited generated files", (t) => {
   const root = fixture(t); assert.equal(existsSync(path.join(root, "data")), false);
   const first = buildContent(root), file = path.join(root, GENERATED_FILE), before = statSync(file).mtimeMs;
-  assert.equal(first.artifacts.size, documents.filter((d) => d.publication === "published").length + 4); buildContent(root); assert.equal(statSync(file).mtimeMs, before);
+  assert.equal(first.artifacts.size, documents.filter((d) => d.publication === "published").length + 7); buildContent(root); assert.equal(statSync(file).mtimeMs, before);
   buildContent(root, true);
   writeFileSync(file, "manually changed output"); assert.throws(() => buildContent(root, true), /missing or stale/);
   buildContent(root); assert.equal(readFileSync(file, "utf8"), first.artifacts.get(GENERATED_FILE));
@@ -188,6 +194,50 @@ test("release preparation rejects a stale or incomplete built collection", (t) =
   assert.match(verifyBuiltContent(root), /^[a-f0-9]{64}$/);
   writeFileSync(path.join(root, "dist/content/apologetics/study-morality.md"), "stale release copy");
   assert.throws(() => verifyBuiltContent(root), /study-morality/);
+});
+
+test("reading publication requires current evidence review and preserves text/file rights separately", (t) => {
+  const root = fixture(t), result = prepareReadingLibrary(root, documents);
+  assert.equal(result.library.works.length, 46); assert.equal(result.library.authors.length, 30);
+  const work = result.library.works.find((w) => w.id === "work-calvin-institutes")!;
+  assert.equal(work.editions[0].textRights.status, "public-domain");
+  assert.equal(work.editions[0].links[0].rights, "link-only");
+  const file = path.join(root, "content/library/catalog/editions/edition-calvin-institutes.json");
+  const edition = JSON.parse(readFileSync(file, "utf8")); edition.textRights.scope = "Changed edition scope";
+  writeFileSync(file, JSON.stringify(edition));
+  assert.throws(() => prepareReadingLibrary(root, documents), /changed since/);
+  recordReadingReview(root, documents, { reviewer: "Test fixture", kind: "ai-assisted", scope: "Exercise explicit review persistence" });
+  assert.equal(prepareReadingLibrary(root, documents).library.works[0].editions[0].textRights.scope, "Changed edition scope");
+});
+
+test("the explicit reading manifest excludes unrelated collection work", (t) => {
+  const root = fixture(t), before = prepareReadingLibrary(root, documents);
+  writeFileSync(path.join(root, "content/library/catalog/works/work-future-draft.json"), "incomplete acquisition file");
+  assert.equal(prepareReadingLibrary(root, documents).contentHash, before.contentHash);
+  assert.ok(!prepareReadingLibrary(root, documents).library.works.some((w) => w.id === "work-future-draft"));
+  const selectedFile = path.join(root, "content/library/catalog/works/work-calvin-institutes.json");
+  const selected = JSON.parse(readFileSync(selectedFile, "utf8")); selected.reading.studyIds = ["missing-study"];
+  writeFileSync(selectedFile, JSON.stringify(selected));
+  assert.throws(() => prepareReadingLibrary(root, documents, true), /resolve to published studies/);
+  assert.throws(() => recordReadingReview(root, documents, { reviewer: "Test", kind: "human", scope: "Cannot approve an invalid relationship" }), /resolve to published studies/);
+});
+
+test("reading publication rejects missing records, missing metadata permission and unsafe IDs", (t) => {
+  const root = fixture(t), file = path.join(root, "content/library/publication.json"), original = readFileSync(file, "utf8");
+  const manifest = JSON.parse(original); manifest.assetIds.push("asset-missing"); writeFileSync(file, JSON.stringify(manifest));
+  assert.throws(() => prepareReadingLibrary(root, documents), /asset-missing/);
+  manifest.assetIds.pop(); manifest.workIds.push("../../outside"); writeFileSync(file, JSON.stringify(manifest));
+  assert.throws(() => prepareReadingLibrary(root, documents), /Invalid publication record ID/);
+  writeFileSync(file, original);
+  const assetFile = path.join(root, "content/library/catalog/assets/asset-calvin-institutes.json");
+  const asset = JSON.parse(readFileSync(assetFile, "utf8")); asset.rights.actions.indexMetadata = "denied"; writeFileSync(assetFile, JSON.stringify(asset));
+  assert.throws(() => prepareReadingLibrary(root, documents), /metadata permission/);
+});
+
+test("release preparation verifies the reading catalogue as well as study documents", (t) => {
+  const root = fixture(t); buildContent(root); cpSync(path.join(root, "public"), path.join(root, "dist"), { recursive: true });
+  writeFileSync(path.join(root, "dist/content/apologetics/reformed-reading.json"), "old catalogue");
+  assert.throws(() => verifyBuiltContent(root), /reformed-reading/);
 });
 
 test("optional Scripture export uses actual local KJV text", { skip: !existsSync(path.join(PROJECT_ROOT, "data/text/kjv/ROM/0.json")) }, () => {

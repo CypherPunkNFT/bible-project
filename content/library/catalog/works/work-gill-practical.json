@@ -1,0 +1,64 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-gill-practical",
+  "editorialState": "published",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-10-05",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Bibliographic identity, reading purpose, source access and historic-text/file-rights distinction checked; not a full-text theological or transcription audit."
+    }
+  ],
+  "title": "A Body of Practical Divinity",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-john-gill",
+      "role": "author"
+    }
+  ],
+  "genre": "systematic-theology",
+  "role": "core-teaching",
+  "collections": [
+    "theology"
+  ],
+  "subjects": [
+    "worship",
+    "church",
+    "christian-life"
+  ],
+  "occasions": [],
+  "audiences": [
+    "general",
+    "students"
+  ],
+  "depth": "advanced",
+  "era": "eighteenth-century",
+  "dates": [],
+  "passages": [],
+  "related": [],
+  "externalIds": {},
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/gill/practical/practical",
+      "locator": "Historic English text at CCEL",
+      "note": "Source identifies this work and the selected reading edition or historic text.",
+      "checkedOn": "2026-10-05"
+    }
+  ],
+  "reading": {
+    "summary": "A Calvinistic Baptist account of inward, public and private worship.",
+    "startingPoint": "Begin with the nature of worship; compare the sacramental sections with the historic confessions.",
+    "cautions": [
+      "Its Baptist account of baptism differs from Westminster’s infant-baptism teaching."
+    ],
+    "studyIds": [
+      "reformed",
+      "grace"
+    ]
+  }
+}

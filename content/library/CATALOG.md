@@ -38,6 +38,12 @@ Preserve page/volume/chapter/paragraph/sermon-number locators. Audio timestamps 
 
 ## Rights are recorded per asset
 
+The public Reformed reading selection additionally records `edition.textRights`: status, jurisdiction,
+component scope, reasoning and evidence for the historical text. This does not replace `asset.rights`.
+A historic English text can be public domain while the host's downloadable PDF remains link-only for
+our purposes. `work.reading` supplies a short sourced description, a starting point, cautions and study
+IDs. [REFORMED-READING.md](REFORMED-READING.md) describes the explicit publication manifest and review gate.
+
 `rights.category` describes the basis, while `rights.actions` states what the evidence supports. A historical author's death date does not license a modern translation, recording, transcription, introduction or typeset edition.
 
 | Category | Meaning |

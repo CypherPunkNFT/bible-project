@@ -8,11 +8,11 @@ export function studyContentPlugin(): Plugin {
     name: "study-documents",
     buildStart() { buildContent(PROJECT_ROOT); },
     configureServer(server) {
-      const directory = path.resolve(PROJECT_ROOT, "content/apologetics");
-      server.watcher.add(directory);
+      const directories = ["content/apologetics", "content/library"].map((directory) => path.resolve(PROJECT_ROOT, directory));
+      server.watcher.add(directories);
       let timer: ReturnType<typeof setTimeout> | undefined;
       const changed = (_event: string, file: string) => {
-        if (!path.resolve(file).startsWith(directory + path.sep)) return;
+        if (!directories.some((directory) => path.resolve(file).startsWith(directory + path.sep))) return;
         clearTimeout(timer);
         timer = setTimeout(() => {
           try { buildContent(PROJECT_ROOT); server.ws.send({ type: "full-reload" }); }

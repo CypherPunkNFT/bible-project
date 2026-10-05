@@ -864,6 +864,423 @@
         "kind": "ai-assisted",
         "scope": "Initial bibliographic and theological-fit screening; work/edition review remains required."
       }
+    },
+    {
+      "id": "author-zacharias-ursinus",
+      "entityType": "person",
+      "name": "Zacharias Ursinus",
+      "aliases": [],
+      "cohort": "reformation",
+      "traditions": [
+        "reformed",
+        "continental-reformed"
+      ],
+      "eligibility": "eligible",
+      "rationale": "Heidelberg catechism expositor; his own catechetical prolegomena explicitly teaches the law/gospel and misery/deliverance/gratitude structure.",
+      "receptionBasis": "Historic theological text and/or institutional bibliographic account identified in the evidence.",
+      "evidence": [
+        {
+          "url": "https://ccel.org/ccel/ursinus/catechism/catechism.i.html",
+          "locator": "Author identity and theological placement",
+          "note": "Heidelberg catechism expositor; his own catechetical prolegomena explicitly teaches the law/gospel and misery/deliverance/gratitude structure.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "distinctives": [],
+      "unresolved": [
+        "Eligibility is work-specific; modern translations and editions need separate rights review."
+      ],
+      "review": {
+        "date": "2026-10-05",
+        "reviewer": "Codex",
+        "kind": "ai-assisted",
+        "scope": "Bibliographic identity, reading purpose, source access and historic-text/file-rights distinction checked; not a full-text theological or transcription audit."
+      }
+    },
+    {
+      "id": "author-heinrich-bullinger",
+      "entityType": "person",
+      "name": "Heinrich Bullinger",
+      "aliases": [],
+      "cohort": "reformation",
+      "traditions": [
+        "reformed",
+        "continental-reformed"
+      ],
+      "eligibility": "eligible",
+      "rationale": "Zurich Reformer and author of the Decades; the Parker Society historical edition documents his sermon collection.",
+      "receptionBasis": "Historic theological text and/or institutional bibliographic account identified in the evidence.",
+      "evidence": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/File:The_Decades_of_Henry_Bullinger_(IA_decadeshenrybul06britgoog).pdf",
+          "locator": "Author identity and theological placement",
+          "note": "Zurich Reformer and author of the Decades; the Parker Society historical edition documents his sermon collection.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "distinctives": [],
+      "unresolved": [
+        "Eligibility is work-specific; modern translations and editions need separate rights review."
+      ],
+      "review": {
+        "date": "2026-10-05",
+        "reviewer": "Codex",
+        "kind": "ai-assisted",
+        "scope": "Bibliographic identity, reading purpose, source access and historic-text/file-rights distinction checked; not a full-text theological or transcription audit."
+      }
+    },
+    {
+      "id": "author-john-knox",
+      "entityType": "person",
+      "name": "John Knox",
+      "aliases": [],
+      "cohort": "reformation",
+      "traditions": [
+        "reformed",
+        "presbyterian"
+      ],
+      "eligibility": "eligible",
+      "rationale": "Scottish Reformer; his historic treatise teaches prayer through Christ and trust in God.",
+      "receptionBasis": "Historic theological text and/or institutional bibliographic account identified in the evidence.",
+      "evidence": [
+        {
+          "url": "https://ccel.org/ccel/knox/prayer/prayer.ii.html",
+          "locator": "Author identity and theological placement",
+          "note": "Scottish Reformer; his historic treatise teaches prayer through Christ and trust in God.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "distinctives": [],
+      "unresolved": [
+        "Eligibility is work-specific; modern translations and editions need separate rights review."
+      ],
+      "review": {
+        "date": "2026-10-05",
+        "reviewer": "Codex",
+        "kind": "ai-assisted",
+        "scope": "Bibliographic identity, reading purpose, source access and historic-text/file-rights distinction checked; not a full-text theological or transcription audit."
+      }
+    },
+    {
+      "id": "author-francis-turretin",
+      "entityType": "person",
+      "name": "Francis Turretin",
+      "aliases": [],
+      "cohort": "post-reformation",
+      "traditions": [
+        "reformed",
+        "continental-reformed"
+      ],
+      "eligibility": "eligible",
+      "rationale": "Geneva Reformed theologian; PRDL identifies his professorship and Reformed classification.",
+      "receptionBasis": "Historic theological text and/or institutional bibliographic account identified in the evidence.",
+      "evidence": [
+        {
+          "url": "https://www.prdl.org/author_view.php?a_id=50",
+          "locator": "Author identity and theological placement",
+          "note": "Geneva Reformed theologian; PRDL identifies his professorship and Reformed classification.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "distinctives": [],
+      "unresolved": [
+        "Eligibility is work-specific; modern translations and editions need separate rights review."
+      ],
+      "review": {
+        "date": "2026-10-05",
+        "reviewer": "Codex",
+        "kind": "ai-assisted",
+        "scope": "Bibliographic identity, reading purpose, source access and historic-text/file-rights distinction checked; not a full-text theological or transcription audit."
+      }
+    },
+    {
+      "id": "author-herman-witsius",
+      "entityType": "person",
+      "name": "Herman Witsius",
+      "aliases": [],
+      "cohort": "post-reformation",
+      "traditions": [
+        "reformed",
+        "continental-reformed"
+      ],
+      "eligibility": "eligible",
+      "rationale": "Dutch covenant theologian; Economy of the Covenants expounds the covenants of works and grace in the historic Reformed tradition.",
+      "receptionBasis": "Historic theological text and/or institutional bibliographic account identified in the evidence.",
+      "evidence": [
+        {
+          "url": "https://seeking4truth.com/witsius/economy_covenants.htm",
+          "locator": "Author identity and theological placement",
+          "note": "Dutch covenant theologian; Economy of the Covenants expounds the covenants of works and grace in the historic Reformed tradition.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "distinctives": [],
+      "unresolved": [
+        "Eligibility is work-specific; modern translations and editions need separate rights review."
+      ],
+      "review": {
+        "date": "2026-10-05",
+        "reviewer": "Codex",
+        "kind": "ai-assisted",
+        "scope": "Bibliographic identity, reading purpose, source access and historic-text/file-rights distinction checked; not a full-text theological or transcription audit."
+      }
+    },
+    {
+      "id": "author-william-ames",
+      "entityType": "person",
+      "name": "William Ames",
+      "aliases": [],
+      "cohort": "post-reformation",
+      "traditions": [
+        "reformed",
+        "puritan"
+      ],
+      "eligibility": "eligible",
+      "rationale": "Puritan theologian at Franeker; the historical Schaff-Herzog entry documents his Calvinism, Dort work and Marrow.",
+      "receptionBasis": "Historic theological text and/or institutional bibliographic account identified in the evidence.",
+      "evidence": [
+        {
+          "url": "https://www.ccel.org/ccel/schaff/encyc01.html?term=Ames%2C+William",
+          "locator": "Author identity and theological placement",
+          "note": "Puritan theologian at Franeker; the historical Schaff-Herzog entry documents his Calvinism, Dort work and Marrow.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "distinctives": [],
+      "unresolved": [
+        "Eligibility is work-specific; modern translations and editions need separate rights review."
+      ],
+      "review": {
+        "date": "2026-10-05",
+        "reviewer": "Codex",
+        "kind": "ai-assisted",
+        "scope": "Bibliographic identity, reading purpose, source access and historic-text/file-rights distinction checked; not a full-text theological or transcription audit."
+      }
+    },
+    {
+      "id": "author-stephen-charnock",
+      "entityType": "person",
+      "name": "Stephen Charnock",
+      "aliases": [],
+      "cohort": "post-reformation",
+      "traditions": [
+        "reformed",
+        "puritan",
+        "presbyterian"
+      ],
+      "eligibility": "eligible",
+      "rationale": "Puritan theologian of the divine attributes and regeneration; ministered with Thomas Watson.",
+      "receptionBasis": "Historic theological text and/or institutional bibliographic account identified in the evidence.",
+      "evidence": [
+        {
+          "url": "https://www.ccel.org/ccel/charnock",
+          "locator": "Author identity and theological placement",
+          "note": "Puritan theologian of the divine attributes and regeneration; ministered with Thomas Watson.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "distinctives": [],
+      "unresolved": [
+        "Eligibility is work-specific; modern translations and editions need separate rights review."
+      ],
+      "review": {
+        "date": "2026-10-05",
+        "reviewer": "Codex",
+        "kind": "ai-assisted",
+        "scope": "Bibliographic identity, reading purpose, source access and historic-text/file-rights distinction checked; not a full-text theological or transcription audit."
+      }
+    },
+    {
+      "id": "author-john-gill",
+      "entityType": "person",
+      "name": "John Gill",
+      "aliases": [],
+      "cohort": "eighteenth-century",
+      "traditions": [
+        "baptist",
+        "calvinist-evangelical"
+      ],
+      "eligibility": "eligible",
+      "rationale": "Particular Baptist theologian and biblical expositor; CCEL identifies his explicitly Calvinistic theology.",
+      "receptionBasis": "Historic theological text and/or institutional bibliographic account identified in the evidence.",
+      "evidence": [
+        {
+          "url": "https://ccel.org/ccel/gill",
+          "locator": "Author identity and theological placement",
+          "note": "Particular Baptist theologian and biblical expositor; CCEL identifies his explicitly Calvinistic theology.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "distinctives": [],
+      "unresolved": [
+        "Eligibility is work-specific; modern translations and editions need separate rights review."
+      ],
+      "review": {
+        "date": "2026-10-05",
+        "reviewer": "Codex",
+        "kind": "ai-assisted",
+        "scope": "Bibliographic identity, reading purpose, source access and historic-text/file-rights distinction checked; not a full-text theological or transcription audit."
+      }
+    },
+    {
+      "id": "author-abraham-kuyper",
+      "entityType": "person",
+      "name": "Abraham Kuyper",
+      "aliases": [],
+      "cohort": "nineteenth-century",
+      "traditions": [
+        "reformed",
+        "continental-reformed"
+      ],
+      "eligibility": "eligible",
+      "rationale": "Dutch Reformed theologian; his Stone Lectures set out Calvinism in relation to religion and public life.",
+      "receptionBasis": "Historic theological text and/or institutional bibliographic account identified in the evidence.",
+      "evidence": [
+        {
+          "url": "https://www.ccel.org/ccel/kuyper/lecture.html",
+          "locator": "Author identity and theological placement",
+          "note": "Dutch Reformed theologian; his Stone Lectures set out Calvinism in relation to religion and public life.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "distinctives": [],
+      "unresolved": [
+        "Eligibility is work-specific; modern translations and editions need separate rights review."
+      ],
+      "review": {
+        "date": "2026-10-05",
+        "reviewer": "Codex",
+        "kind": "ai-assisted",
+        "scope": "Bibliographic identity, reading purpose, source access and historic-text/file-rights distinction checked; not a full-text theological or transcription audit."
+      }
+    },
+    {
+      "id": "author-j-gresham-machen",
+      "entityType": "person",
+      "name": "J. Gresham Machen",
+      "aliases": [],
+      "cohort": "twentieth-century",
+      "traditions": [
+        "reformed",
+        "presbyterian"
+      ],
+      "eligibility": "eligible",
+      "rationale": "Princeton Presbyterian theologian; Christianity and Liberalism defends historic doctrine, the cross and salvation by grace.",
+      "receptionBasis": "Historic theological text and/or institutional bibliographic account identified in the evidence.",
+      "evidence": [
+        {
+          "url": "https://www.ccel.org/m/machen/liberalism/home.html",
+          "locator": "Author identity and theological placement",
+          "note": "Princeton Presbyterian theologian; Christianity and Liberalism defends historic doctrine, the cross and salvation by grace.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "distinctives": [],
+      "unresolved": [
+        "Eligibility is work-specific; modern translations and editions need separate rights review."
+      ],
+      "review": {
+        "date": "2026-10-05",
+        "reviewer": "Codex",
+        "kind": "ai-assisted",
+        "scope": "Bibliographic identity, reading purpose, source access and historic-text/file-rights distinction checked; not a full-text theological or transcription audit."
+      }
+    },
+    {
+      "id": "author-a-a-hodge",
+      "entityType": "person",
+      "name": "A. A. Hodge",
+      "aliases": [],
+      "cohort": "nineteenth-century",
+      "traditions": [
+        "reformed",
+        "presbyterian"
+      ],
+      "eligibility": "eligible",
+      "rationale": "Princeton theologian; CCEL documents his Calvinistic theological formation and Outlines of Theology.",
+      "receptionBasis": "Historic theological text and/or institutional bibliographic account identified in the evidence.",
+      "evidence": [
+        {
+          "url": "https://ccel.org/ccel/hodge_aa",
+          "locator": "Author identity and theological placement",
+          "note": "Princeton theologian; CCEL documents his Calvinistic theological formation and Outlines of Theology.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "distinctives": [],
+      "unresolved": [
+        "Eligibility is work-specific; modern translations and editions need separate rights review."
+      ],
+      "review": {
+        "date": "2026-10-05",
+        "reviewer": "Codex",
+        "kind": "ai-assisted",
+        "scope": "Bibliographic identity, reading purpose, source access and historic-text/file-rights distinction checked; not a full-text theological or transcription audit."
+      }
+    },
+    {
+      "id": "author-archibald-alexander",
+      "entityType": "person",
+      "name": "Archibald Alexander",
+      "aliases": [],
+      "cohort": "nineteenth-century",
+      "traditions": [
+        "reformed",
+        "presbyterian"
+      ],
+      "eligibility": "eligible",
+      "rationale": "Founding Princeton Seminary professor and Presbyterian minister, teaching pastoral and polemical theology.",
+      "receptionBasis": "Historic theological text and/or institutional bibliographic account identified in the evidence.",
+      "evidence": [
+        {
+          "url": "https://www.ccel.org/ccel/alexander_a",
+          "locator": "Author identity and theological placement",
+          "note": "Founding Princeton Seminary professor and Presbyterian minister, teaching pastoral and polemical theology.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "distinctives": [],
+      "unresolved": [
+        "Eligibility is work-specific; modern translations and editions need separate rights review."
+      ],
+      "review": {
+        "date": "2026-10-05",
+        "reviewer": "Codex",
+        "kind": "ai-assisted",
+        "scope": "Bibliographic identity, reading purpose, source access and historic-text/file-rights distinction checked; not a full-text theological or transcription audit."
+      }
+    },
+    {
+      "id": "author-louis-berkhof",
+      "entityType": "person",
+      "name": "Louis Berkhof",
+      "aliases": [],
+      "cohort": "twentieth-century",
+      "traditions": [
+        "reformed",
+        "continental-reformed"
+      ],
+      "eligibility": "eligible",
+      "rationale": "Calvin Seminary theologian in the Calvin, Kuyper and Bavinck tradition; only individually verified early editions enter the historic shelf.",
+      "receptionBasis": "Historic theological text and/or institutional bibliographic account identified in the evidence.",
+      "evidence": [
+        {
+          "url": "https://www.ccel.org/ccel/berkhof",
+          "locator": "Author identity and theological placement",
+          "note": "Calvin Seminary theologian in the Calvin, Kuyper and Bavinck tradition; only individually verified early editions enter the historic shelf.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "distinctives": [],
+      "unresolved": [
+        "Eligibility is work-specific; modern translations and editions need separate rights review."
+      ],
+      "review": {
+        "date": "2026-10-05",
+        "reviewer": "Codex",
+        "kind": "ai-assisted",
+        "scope": "Bibliographic identity, reading purpose, source access and historic-text/file-rights distinction checked; not a full-text theological or transcription audit."
+      }
     }
   ]
 }

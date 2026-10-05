@@ -7,6 +7,7 @@ import { assertValid, hash, inspectRepository } from "./repository.ts";
 import { parseReference } from "./scripture.ts";
 import { renderDocument } from "./export.ts";
 import { assertOrdinaryPath } from "./files.ts";
+import { readingArtifacts } from "./reading-library.ts";
 
 export const PROJECT_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 export const GENERATED_FILE = "src/generated/apologetics.ts";
@@ -61,6 +62,7 @@ export function prepareArtifacts(root: string) {
   for (const { doc, text } of markdown) artifacts.set(`${publicRoot}/${doc.kind}-${doc.id}.md`, text);
   artifacts.set(`${publicRoot}/library.md`, "# Apologetics library\n\nPublished study documents and their sources. Scripture is the final authority; see the editorial document for the Reformed basis and limits on source use.\n\n" + markdown.map(({ text }) => text).join("\n---\n\n"));
   artifacts.set(`${publicRoot}/index.json`, JSON.stringify({ schemaVersion: 1, hash: hash(publicCorpus), documents: published.map((doc) => ({ key: documentKey(doc), title: doc.content.title, markdown: `${doc.kind}-${doc.id}.md` })) }, null, 2) + "\n");
+  for (const [file, text] of readingArtifacts(root, documents)) artifacts.set(file, text);
   return { artifacts, repository, runtime };
 }
 

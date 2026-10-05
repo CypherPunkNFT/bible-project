@@ -1,0 +1,64 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-machen-liberalism",
+  "editorialState": "published",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-10-05",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Bibliographic identity, reading purpose, source access and historic-text/file-rights distinction checked; not a full-text theological or transcription audit."
+    }
+  ],
+  "title": "Christianity and Liberalism",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-j-gresham-machen",
+      "role": "author"
+    }
+  ],
+  "genre": "treatise",
+  "role": "core-teaching",
+  "collections": [
+    "theology",
+    "apologetics"
+  ],
+  "subjects": [
+    "apologetics",
+    "salvation",
+    "authority-of-scripture"
+  ],
+  "occasions": [],
+  "audiences": [
+    "general",
+    "students"
+  ],
+  "depth": "introductory",
+  "era": "twentieth-century",
+  "dates": [],
+  "passages": [],
+  "related": [],
+  "externalIds": {},
+  "evidence": [
+    {
+      "url": "https://www.ccel.org/m/machen/liberalism/home.html",
+      "locator": "Macmillan text, 1923 · electronic edition",
+      "note": "Source identifies this work and the selected reading edition or historic text.",
+      "checkedOn": "2026-10-05"
+    }
+  ],
+  "reading": {
+    "summary": "An argument that the gospel’s historical and doctrinal claims cannot be replaced by religious sentiment.",
+    "startingPoint": "Start with Doctrine, then read the chapters on Christ and salvation.",
+    "cautions": [],
+    "studyIds": [
+      "reformed",
+      "jesus",
+      "grace"
+    ]
+  }
+}

@@ -1,10 +1,10 @@
-// Read-only by default. This collection desk is independent of the app content build.
+// Shared read-only catalogue validation for the collection desk and publication build.
 import { readFileSync, readdirSync, existsSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import Ajv from "ajv";
 
-const site = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+export function validateLibrary(site = path.resolve(path.dirname(fileURLToPath(import.meta.url)), ".."), writeAuthorView = false, publicationOnly = false) {
 const root = path.join(site, "content/library");
 const read = (file) => JSON.parse(readFileSync(file, "utf8"));
 const issues = [];
@@ -23,7 +23,13 @@ function jsonFiles(folder) {
     return entry.isDirectory() ? jsonFiles(file) : entry.name.endsWith(".json") ? [file] : [];
   }).sort();
 }
-const files = ["authors.json", "sources.json", "vocabulary.json"].map((f) => path.join(root, f)).concat(jsonFiles(path.join(root, "registry-extensions")), jsonFiles(path.join(root, "catalog")));
+const manifest = read(path.join(root, "publication.json"));
+if (!validate(manifest)) throw new Error("Invalid publication manifest: " + ajv.errorsText(validate.errors));
+const selectedFiles = ["work", "edition", "asset"].flatMap((kind) => manifest[kind + "Ids"].map((id) => {
+  if (!new RegExp("^" + kind + "-[a-z0-9]+(?:-[a-z0-9]+)*$").test(id)) throw new Error("Invalid publication record ID: " + id);
+  return path.join(root, "catalog", kind + "s", id + ".json");
+}));
+const files = ["authors.json", "sources.json", "vocabulary.json", "publication.json"].map((f) => path.join(root, f)).concat(publicationOnly ? selectedFiles : [...jsonFiles(path.join(root, "registry-extensions")), ...jsonFiles(path.join(root, "catalog"))]);
 const documents = [];
 for (const file of files) {
   try {
@@ -32,11 +38,11 @@ for (const file of files) {
     else documents.push({ file, doc });
   } catch (error) { fail(file, error.message); }
 }
-if (issues.length) { console.error(issues.join("\n")); process.exit(1); }
+if (issues.length) throw new Error(issues.join("\n"));
 const authors = documents.filter(({ doc }) => doc.kind === "author-registry").flatMap(({ doc }) => doc.authors);
 const sources = documents.find(({ doc }) => doc.kind === "source-registry").doc.sources;
 const vocabulary = documents.find(({ doc }) => doc.kind === "vocabulary").doc;
-const records = documents.filter(({ doc }) => doc.id);
+const records = documents.filter(({ doc }) => doc.id && doc.kind !== "reading-collection");
 const byId = new Map();
 for (const { file, doc } of records) {
   if (byId.has(doc.id)) fail(file, `Duplicate catalog ID ${doc.id}`);
@@ -153,13 +159,22 @@ for (const { file, doc } of records) {
     if (doc.counts.publishedWorks > doc.counts.reviewedWorks || doc.counts.reviewedWorks > doc.counts.works) fail(file, "Run counts must keep published <= reviewed <= works.");
   }
 }
-if (issues.length) { console.error(issues.join("\n")); process.exit(1); }
-if (process.argv.includes("--write-author-view")) {
+if (issues.length) throw new Error(issues.join("\n"));
+if (writeAuthorView) {
   const cell = (s) => s.replaceAll("|", "\\|").replaceAll("\n", " ");
-  const lines = ["# Initial author registry", "", "Generated from [authors.json](authors.json). Edit the JSON, then run `node scripts/validate-library.mjs --write-author-view` from Website/.", "", "Established 2026-10-05. All decisions are AI-assisted initial screening, not independent human theological approval. Eligible authors still require work-level and edition/rights checks. Provisional status identifies incomplete evidence, not a finding against an author.", "", `**${authors.length} people: ${authors.filter((a) => a.eligibility === "eligible").length} initially eligible; ${authors.filter((a) => a.eligibility === "provisional").length} provisional.**`, "", "| Author | Placement | Decision | Evidence | Next check |", "|---|---|---|---|---|"];
+  const lines = ["# Author registry", "", "Generated from [authors.json](authors.json). Edit the JSON, then run `node scripts/validate-library.mjs --write-author-view` from Website/.", "", "Established 2026-10-05. All decisions are AI-assisted initial screening, not independent human theological approval. Eligible authors still require work-level and edition/rights checks. Provisional status identifies incomplete evidence, not a finding against an author.", "", `**${authors.length} people: ${authors.filter((a) => a.eligibility === "eligible").length} initially eligible; ${authors.filter((a) => a.eligibility === "provisional").length} provisional.**`, "", "| Author | Placement | Decision | Evidence | Next check |", "|---|---|---|---|---|"];
   for (const a of authors) lines.push(`| ${cell(a.name)} | ${cell(a.traditions.join(", "))} | ${a.eligibility} | [Basis](${a.evidence[0].url}) | ${cell(a.unresolved.join(" "))} |`);
-  lines.push("", "The registry records fuller rationales and source locators. Tradition tags are broad placement labels. The initial `distinctives` arrays are empty because specific positions must be supported individually; membership does not imply uniform baptism, covenant, gifts or eschatological views.", "");
+  lines.push("", "The registry records fuller rationales and source locators. Tradition tags are broad placement labels. Specific positions require their own evidence; membership does not imply uniform baptism, covenant, gifts or eschatological views.", "");
   writeFileSync(path.join(root, "AUTHORS.md"), lines.join("\n"));
 }
-console.log(`Library valid: ${authors.length} authors, ${sources.length} sources, ${vocabulary.collections.length} collections, ${vocabulary.subjects.length} subjects, ${records.length} catalog record(s).`);
-console.log("Structural validation only; no content acquisition, publication or external theological approval.");
+const summary = `Library valid: ${authors.length} authors, ${sources.length} sources, ${vocabulary.collections.length} collections, ${vocabulary.subjects.length} subjects, ${records.length} catalog record(s).`;
+return { documents, summary };
+}
+
+if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  try {
+    const result = validateLibrary(undefined, process.argv.includes("--write-author-view"), process.argv.includes("--published"));
+    console.log(result.summary);
+    console.log("Structural validation only; no content acquisition or external theological approval.");
+  } catch (error) { console.error(error.message); process.exitCode = 1; }
+}

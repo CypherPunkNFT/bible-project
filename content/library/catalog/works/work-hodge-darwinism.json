@@ -1,0 +1,64 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-hodge-darwinism",
+  "editorialState": "published",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-10-05",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Bibliographic identity, reading purpose, source access and historic-text/file-rights distinction checked; not a full-text theological or transcription audit."
+    }
+  ],
+  "title": "What Is Darwinism?",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-charles-hodge",
+      "role": "author"
+    }
+  ],
+  "genre": "treatise",
+  "role": "historical-context",
+  "collections": [
+    "theology",
+    "apologetics"
+  ],
+  "subjects": [
+    "science-faith",
+    "creation",
+    "apologetics"
+  ],
+  "occasions": [],
+  "audiences": [
+    "general",
+    "students"
+  ],
+  "depth": "intermediate",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [],
+  "related": [],
+  "externalIds": {},
+  "evidence": [
+    {
+      "url": "https://www.gutenberg.org/ebooks/19192",
+      "locator": "Historic English text · Project Gutenberg 19192",
+      "note": "Source identifies this work and the selected reading edition or historic text.",
+      "checkedOn": "2026-10-05"
+    }
+  ],
+  "reading": {
+    "summary": "A primary record of Hodge’s nineteenth-century argument about Darwinism and design.",
+    "startingPoint": "Read for the definition of the view Hodge is criticizing.",
+    "cautions": [
+      "Historical apologetics, not an up-to-date account of biology or a verdict on every form of evolutionary theory."
+    ],
+    "studyIds": [
+      "science"
+    ]
+  }
+}

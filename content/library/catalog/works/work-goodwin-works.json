@@ -1,0 +1,63 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-goodwin-works",
+  "editorialState": "published",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-10-05",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Bibliographic identity, reading purpose, source access and historic-text/file-rights distinction checked; not a full-text theological or transcription audit."
+    }
+  ],
+  "title": "The Works of Thomas Goodwin",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-thomas-goodwin",
+      "role": "author"
+    }
+  ],
+  "genre": "collected-works",
+  "role": "core-teaching",
+  "collections": [
+    "theology"
+  ],
+  "subjects": [
+    "christ",
+    "salvation"
+  ],
+  "occasions": [],
+  "audiences": [
+    "general",
+    "students"
+  ],
+  "depth": "advanced",
+  "era": "post-reformation",
+  "dates": [],
+  "passages": [],
+  "related": [],
+  "externalIds": {},
+  "evidence": [
+    {
+      "url": "https://archive.org/details/theworksofthomas01gooduoft",
+      "locator": "Volume 1 · James Nichol edition, 1861",
+      "note": "Source identifies this work and the selected reading edition or historic text.",
+      "checkedOn": "2026-10-05"
+    }
+  ],
+  "reading": {
+    "summary": "Collected Puritan exposition and theology; this holding opens the first volume.",
+    "startingPoint": "Use the volume’s contents to choose a complete exposition.",
+    "cautions": [
+      "One volume is linked here; this is not a complete twelve-volume collection."
+    ],
+    "studyIds": [
+      "reformed",
+      "grace"
+    ]
+  }
+}

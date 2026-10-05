@@ -1,0 +1,65 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-charnock-attributes",
+  "editorialState": "published",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-10-05",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Bibliographic identity, reading purpose, source access and historic-text/file-rights distinction checked; not a full-text theological or transcription audit."
+    }
+  ],
+  "title": "Discourses upon the Existence and Attributes of God",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-stephen-charnock",
+      "role": "author"
+    }
+  ],
+  "genre": "treatise",
+  "role": "core-teaching",
+  "collections": [
+    "theology",
+    "apologetics"
+  ],
+  "subjects": [
+    "attributes-of-god",
+    "existence-of-god",
+    "apologetics"
+  ],
+  "occasions": [],
+  "audiences": [
+    "general",
+    "students"
+  ],
+  "depth": "advanced",
+  "era": "post-reformation",
+  "dates": [],
+  "passages": [],
+  "related": [],
+  "externalIds": {},
+  "evidence": [
+    {
+      "url": "https://archive.org/details/discoursesupone00publgoog",
+      "locator": "Presbyterian Board edition, 1840 · volume scan",
+      "note": "Source identifies this work and the selected reading edition or historic text.",
+      "checkedOn": "2026-10-05"
+    }
+  ],
+  "reading": {
+    "summary": "Doctrinal sermons developing the knowledge of God and the implications of his attributes.",
+    "startingPoint": "Use the table of contents to choose a complete discourse.",
+    "cautions": [
+      "The catalogue describes two volumes; this particular holding has not been verified as the complete set."
+    ],
+    "studyIds": [
+      "god",
+      "reformed"
+    ]
+  }
+}

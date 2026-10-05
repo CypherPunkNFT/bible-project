@@ -1,0 +1,65 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-turretin-institutes",
+  "editorialState": "published",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-10-05",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Bibliographic identity, reading purpose, source access and historic-text/file-rights distinction checked; not a full-text theological or transcription audit."
+    }
+  ],
+  "title": "Institutes of Elenctic Theology",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-francis-turretin",
+      "role": "author"
+    }
+  ],
+  "genre": "systematic-theology",
+  "role": "core-teaching",
+  "collections": [
+    "theology",
+    "apologetics"
+  ],
+  "subjects": [
+    "historical-theology",
+    "apologetics",
+    "salvation"
+  ],
+  "occasions": [],
+  "audiences": [
+    "general",
+    "students"
+  ],
+  "depth": "advanced",
+  "era": "post-reformation",
+  "dates": [],
+  "passages": [],
+  "related": [],
+  "externalIds": {},
+  "evidence": [
+    {
+      "url": "https://archive.org/details/institutiotheol00turrgoog",
+      "locator": "Institutio theologiae elencticae · Latin volume, 1847",
+      "note": "Source identifies this work and the selected reading edition or historic text.",
+      "checkedOn": "2026-10-05"
+    }
+  ],
+  "reading": {
+    "summary": "A scholastic treatment of doctrinal questions, objections and distinctions in the Reformed tradition.",
+    "startingPoint": "For readers of Latin: begin with the questions on theology and Scripture.",
+    "cautions": [
+      "Latin, not the modern Giger/Dennison English translation. One volume scan, not a complete three-volume set."
+    ],
+    "studyIds": [
+      "reformed",
+      "scripture"
+    ]
+  }
+}

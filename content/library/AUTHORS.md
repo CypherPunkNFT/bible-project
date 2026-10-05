@@ -1,10 +1,10 @@
-# Initial author registry
+# Author registry
 
 Generated from [authors.json](authors.json). Edit the JSON, then run `node scripts/validate-library.mjs --write-author-view` from Website/.
 
 Established 2026-10-05. All decisions are AI-assisted initial screening, not independent human theological approval. Eligible authors still require work-level and edition/rights checks. Provisional status identifies incomplete evidence, not a finding against an author.
 
-**26 people: 23 initially eligible; 3 provisional.**
+**51 people: 36 initially eligible; 3 provisional.**
 
 | Author | Placement | Decision | Evidence | Next check |
 |---|---|---|---|---|
@@ -34,5 +34,30 @@ Established 2026-10-05. All decisions are AI-assisted initial screening, not ind
 | John Piper | baptist, calvinist-evangelical | eligible | [Basis](https://www.desiringgod.org/articles/what-we-believe-about-the-five-points-of-calvinism) | Document further distinctives from their own sources; Desiring God permissions differ for text, media and third-party authors. |
 | D. A. Carson | calvinist-evangelical | provisional | [Basis](https://www.thegospelcoalition.org/article/prophetic-center-carson-vision/) | Locate primary statements supporting the collection's core scope; assess covenant distinctions and publisher-by-publisher rights. |
 | Alistair Begg | calvinist-evangelical | provisional | [Basis](https://www.truthforlife.org/resources/sermon/we-stand-in-grace/) | Locate an authoritative doctrinal statement and supporting reception evidence; inspect Truth For Life's current indexing/reuse policy. |
+| Zacharias Ursinus | reformed, continental-reformed | eligible | [Basis](https://ccel.org/ccel/ursinus/catechism/catechism.i.html) | Eligibility is work-specific; modern translations and editions need separate rights review. |
+| Heinrich Bullinger | reformed, continental-reformed | eligible | [Basis](https://commons.wikimedia.org/wiki/File:The_Decades_of_Henry_Bullinger_(IA_decadeshenrybul06britgoog).pdf) | Eligibility is work-specific; modern translations and editions need separate rights review. |
+| John Knox | reformed, presbyterian | eligible | [Basis](https://ccel.org/ccel/knox/prayer/prayer.ii.html) | Eligibility is work-specific; modern translations and editions need separate rights review. |
+| Francis Turretin | reformed, continental-reformed | eligible | [Basis](https://www.prdl.org/author_view.php?a_id=50) | Eligibility is work-specific; modern translations and editions need separate rights review. |
+| Herman Witsius | reformed, continental-reformed | eligible | [Basis](https://seeking4truth.com/witsius/economy_covenants.htm) | Eligibility is work-specific; modern translations and editions need separate rights review. |
+| William Ames | reformed, puritan | eligible | [Basis](https://www.ccel.org/ccel/schaff/encyc01.html?term=Ames%2C+William) | Eligibility is work-specific; modern translations and editions need separate rights review. |
+| Stephen Charnock | reformed, puritan, presbyterian | eligible | [Basis](https://www.ccel.org/ccel/charnock) | Eligibility is work-specific; modern translations and editions need separate rights review. |
+| John Gill | baptist, calvinist-evangelical | eligible | [Basis](https://ccel.org/ccel/gill) | Eligibility is work-specific; modern translations and editions need separate rights review. |
+| Abraham Kuyper | reformed, continental-reformed | eligible | [Basis](https://www.ccel.org/ccel/kuyper/lecture.html) | Eligibility is work-specific; modern translations and editions need separate rights review. |
+| J. Gresham Machen | reformed, presbyterian | eligible | [Basis](https://www.ccel.org/m/machen/liberalism/home.html) | Eligibility is work-specific; modern translations and editions need separate rights review. |
+| A. A. Hodge | reformed, presbyterian | eligible | [Basis](https://ccel.org/ccel/hodge_aa) | Eligibility is work-specific; modern translations and editions need separate rights review. |
+| Archibald Alexander | reformed, presbyterian | eligible | [Basis](https://www.ccel.org/ccel/alexander_a) | Eligibility is work-specific; modern translations and editions need separate rights review. |
+| Louis Berkhof | reformed, continental-reformed | eligible | [Basis](https://www.ccel.org/ccel/berkhof) | Eligibility is work-specific; modern translations and editions need separate rights review. |
+| W. Brock |  | context-only | [Basis](https://www.spurgeongems.org/sermon/chs370.pdf) | Independent biographical identity, theological eligibility and reception review are outside this Spurgeon inventory mission. |
+| Octavius Winslow |  | context-only | [Basis](https://www.spurgeongems.org/sermon/chs378.pdf) | Independent biographical identity, theological eligibility and reception review are outside this Spurgeon inventory mission. |
+| Hugh Stowell Brown |  | context-only | [Basis](https://www.spurgeongems.org/sermon/chs381.pdf) | Independent biographical identity, theological eligibility and reception review are outside this Spurgeon inventory mission. |
+| John Bloomfield |  | context-only | [Basis](https://www.spurgeongems.org/sermon/chs386.pdf) | Independent biographical identity, theological eligibility and reception review are outside this Spurgeon inventory mission. |
+| Evan Probert |  | context-only | [Basis](https://www.spurgeongems.org/sermon/chs387.pdf) | Independent biographical identity, theological eligibility and reception review are outside this Spurgeon inventory mission. |
+| J. A. Spurgeon |  | context-only | [Basis](https://www.spurgeongems.org/sermon/chs388.pdf) | Independent biographical identity, theological eligibility and reception review are outside this Spurgeon inventory mission. |
+| James Smith of Cheltenham |  | context-only | [Basis](https://www.spurgeongems.org/sermon/chs388a.pdf) | Independent biographical identity, theological eligibility and reception review are outside this Spurgeon inventory mission. |
+| William O’Neill |  | context-only | [Basis](https://www.spurgeongems.org/sermon/chs388b.pdf) | Independent biographical identity, theological eligibility and reception review are outside this Spurgeon inventory mission. |
+| Henry Vincent |  | context-only | [Basis](https://www.spurgeongems.org/sermon/chs389-390.pdf) | Independent biographical identity, theological eligibility and reception review are outside this Spurgeon inventory mission. |
+| Metropolitan Tabernacle opening committee |  | context-only | [Basis](https://www.spurgeongems.org/sermon/chs364A.pdf) | Independent biographical identity, theological eligibility and reception review are outside this Spurgeon inventory mission. |
+| Unidentified author: The Burning of the Metropolitan Tabernacle |  | context-only | [Basis](https://www.spurgeongems.org/sermon/chs001A.pdf) | Independent biographical identity, theological eligibility and reception review are outside this Spurgeon inventory mission. |
+| Unidentified author: Rebuilding the Metropolitan Tabernacle |  | context-only | [Basis](https://www.spurgeongems.org/sermon/chs001B.pdf) | Independent biographical identity, theological eligibility and reception review are outside this Spurgeon inventory mission. |
 
-The registry records fuller rationales and source locators. Tradition tags are broad placement labels. The initial `distinctives` arrays are empty because specific positions must be supported individually; membership does not imply uniform baptism, covenant, gifts or eschatological views.
+The registry records fuller rationales and source locators. Tradition tags are broad placement labels. Specific positions require their own evidence; membership does not imply uniform baptism, covenant, gifts or eschatological views.

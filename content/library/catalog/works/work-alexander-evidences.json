@@ -1,0 +1,65 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-alexander-evidences",
+  "editorialState": "published",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-10-05",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Bibliographic identity, reading purpose, source access and historic-text/file-rights distinction checked; not a full-text theological or transcription audit."
+    }
+  ],
+  "title": "Evidences of the Christian Religion",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-archibald-alexander",
+      "role": "author"
+    }
+  ],
+  "genre": "treatise",
+  "role": "core-teaching",
+  "collections": [
+    "theology",
+    "apologetics"
+  ],
+  "subjects": [
+    "apologetics",
+    "miracles",
+    "authority-of-scripture"
+  ],
+  "occasions": [],
+  "audiences": [
+    "general",
+    "students"
+  ],
+  "depth": "intermediate",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [],
+  "related": [],
+  "externalIds": {},
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/alexander_a/evidences.html",
+      "locator": "Historic English text at CCEL",
+      "note": "Source identifies this work and the selected reading edition or historic text.",
+      "checkedOn": "2026-10-05"
+    }
+  ],
+  "reading": {
+    "summary": "A historic Princeton presentation of reasons for Christian belief.",
+    "startingPoint": "Begin with the method and evidence chapters, distinguishing historical arguments from current research.",
+    "cautions": [
+      "Historic apologetic evidence should be supplemented with current manuscript and historical research."
+    ],
+    "studyIds": [
+      "resurrection",
+      "scripture"
+    ]
+  }
+}

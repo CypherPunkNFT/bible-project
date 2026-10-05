@@ -1,0 +1,63 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-ursinus-catechism",
+  "editorialState": "published",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-10-05",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Bibliographic identity, reading purpose, source access and historic-text/file-rights distinction checked; not a full-text theological or transcription audit."
+    }
+  ],
+  "title": "What Is Catechism?",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-zacharias-ursinus",
+      "role": "author"
+    }
+  ],
+  "genre": "treatise",
+  "role": "core-teaching",
+  "collections": [
+    "theology"
+  ],
+  "subjects": [
+    "catechesis",
+    "law-and-gospel"
+  ],
+  "occasions": [],
+  "audiences": [
+    "general",
+    "students"
+  ],
+  "depth": "introductory",
+  "era": "reformation",
+  "dates": [],
+  "passages": [],
+  "related": [],
+  "externalIds": {},
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/ursinus/catechism/catechism.i.html",
+      "locator": "Commentary prolegomena · English excerpt",
+      "note": "Source identifies this work and the selected reading edition or historic text.",
+      "checkedOn": "2026-10-05"
+    }
+  ],
+  "reading": {
+    "summary": "The prolegomena from Ursinus’s Heidelberg Catechism commentary, explaining the purpose and structure of catechesis.",
+    "startingPoint": "Begin with the distinction between law and gospel and the catechism’s order.",
+    "cautions": [
+      "This is the introductory excerpt, not the complete Heidelberg commentary."
+    ],
+    "studyIds": [
+      "reformed",
+      "grace"
+    ]
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-warfield-plan",
+  "editorialState": "published",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-10-05",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Bibliographic identity, reading purpose, source access and historic-text/file-rights distinction checked; not a full-text theological or transcription audit."
+    }
+  ],
+  "title": "The Plan of Salvation",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-b-b-warfield",
+      "role": "author"
+    }
+  ],
+  "genre": "lecture",
+  "role": "core-teaching",
+  "collections": [
+    "theology",
+    "apologetics"
+  ],
+  "subjects": [
+    "salvation",
+    "election",
+    "apologetics"
+  ],
+  "occasions": [],
+  "audiences": [
+    "general",
+    "students"
+  ],
+  "depth": "intermediate",
+  "era": "twentieth-century",
+  "dates": [],
+  "passages": [],
+  "related": [],
+  "externalIds": {},
+  "evidence": [
+    {
+      "url": "https://archive.org/details/planofsalvation00warf",
+      "locator": "Princeton lectures · Philadelphia edition, 1915",
+      "note": "Source identifies this work and the selected reading edition or historic text.",
+      "checkedOn": "2026-10-05"
+    }
+  ],
+  "reading": {
+    "summary": "Five lectures comparing accounts of salvation and presenting Warfield’s Calvinistic argument.",
+    "startingPoint": "Begin with The Differing Conceptions before the final lecture on Calvinism.",
+    "cautions": [],
+    "studyIds": [
+      "election",
+      "grace"
+    ]
+  }
+}

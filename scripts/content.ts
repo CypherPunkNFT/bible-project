@@ -6,6 +6,7 @@ import { assertValid, contentHash, impact, inspectRepository, recordReview, revi
 import { exportRecord, renderDocument } from "./content/export.ts";
 import { documentKey, FOLDERS, type DocumentKind } from "./content/model.ts";
 import { assertOrdinaryPath } from "./content/files.ts";
+import { prepareReadingLibrary, recordReadingReview } from "./content/reading-library.ts";
 
 const { positionals, values } = parseArgs({ allowPositionals: true, options: {
   document: { type: "string" }, topic: { type: "string" }, source: { type: "string" }, kind: { type: "string" },
@@ -29,12 +30,24 @@ try {
       --scope "What was checked" --note "Findings and remaining limits"
   npm run content:build
   npm run content:check\n
+  npm run content -- library-check
+  npm run content -- library-review --reviewer "Name" --review-kind ai-assisted|human --scope "What was checked"
 Review records are explicit attestations, not automatic theological approval.
 Drafts stay out of the site. Published documents require current reviews.
 Generated Markdown is for reading; apply edits to the JSON source documents.`);
   } else if (command === "build" || command === "check") {
     const result = buildContent(PROJECT_ROOT, command === "check");
     console.log(`${command === "check" ? "Verified" : "Built"} ${result.runtime.STUDIES.length} studies from ${result.repository.entries.length} documents; ${result.artifacts.size} generated artifacts.`);
+  } else if (command === "library-check" || command === "library-review") {
+    const repo = inspectRepository(PROJECT_ROOT); assertValid(repo.issues);
+    const documents = repo.entries.map((e) => e.document);
+    if (command === "library-review") {
+      if (!values.reviewer || !values["review-kind"] || !values.scope) throw new Error("Supply --reviewer, --review-kind and --scope after examining the catalogue and its evidence.");
+      console.log(JSON.stringify(recordReadingReview(PROJECT_ROOT, documents, { reviewer: values.reviewer, kind: values["review-kind"] as "human" | "ai-assisted", scope: values.scope }), null, 2));
+    } else {
+      const { library } = prepareReadingLibrary(PROJECT_ROOT, documents);
+      console.log(`Reading publication valid: ${library.works.length} works, ${library.authors.length} authors; ${library.hash}`);
+    }
   } else if (command === "review") {
     if (!key || !values.reviewer || !values["review-kind"] || !values.scope || !values.note) throw new Error("Supply a document key, --reviewer, --review-kind, --scope and --note.");
     console.log(JSON.stringify(recordReview(PROJECT_ROOT, key, { reviewer: values.reviewer, kind: values["review-kind"] as "human" | "ai-assisted", scope: values.scope, note: values.note }), null, 2));

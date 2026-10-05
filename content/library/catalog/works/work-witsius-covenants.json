@@ -1,0 +1,63 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-witsius-covenants",
+  "editorialState": "published",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-10-05",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Bibliographic identity, reading purpose, source access and historic-text/file-rights distinction checked; not a full-text theological or transcription audit."
+    }
+  ],
+  "title": "The Economy of the Covenants Between God and Man",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-herman-witsius",
+      "role": "author"
+    }
+  ],
+  "genre": "systematic-theology",
+  "role": "core-teaching",
+  "collections": [
+    "theology"
+  ],
+  "subjects": [
+    "covenant",
+    "covenant-of-works",
+    "covenant-of-grace"
+  ],
+  "occasions": [],
+  "audiences": [
+    "general",
+    "students"
+  ],
+  "depth": "advanced",
+  "era": "post-reformation",
+  "dates": [],
+  "passages": [],
+  "related": [],
+  "externalIds": {},
+  "evidence": [
+    {
+      "url": "https://archive.org/details/economycovenant01witsgoog",
+      "locator": "Historic English translation · volume 1, 1803",
+      "note": "Source identifies this work and the selected reading edition or historic text.",
+      "checkedOn": "2026-10-05"
+    }
+  ],
+  "reading": {
+    "summary": "A sustained historic treatment of the covenants and the saving work of Christ.",
+    "startingPoint": "Begin with Book I’s definition of covenant; compare Book II on the covenant of grace.",
+    "cautions": [
+      "Volume 1 is linked. This is not a modern translation or a claim that both volumes have been checked."
+    ],
+    "studyIds": [
+      "covenant"
+    ]
+  }
+}

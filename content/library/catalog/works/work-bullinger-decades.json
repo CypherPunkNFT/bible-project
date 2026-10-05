@@ -1,0 +1,63 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-bullinger-decades",
+  "editorialState": "published",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-10-05",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Bibliographic identity, reading purpose, source access and historic-text/file-rights distinction checked; not a full-text theological or transcription audit."
+    }
+  ],
+  "title": "The Decades",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-heinrich-bullinger",
+      "role": "author"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "theology"
+  ],
+  "subjects": [
+    "historical-theology",
+    "god",
+    "church"
+  ],
+  "occasions": [],
+  "audiences": [
+    "general",
+    "students"
+  ],
+  "depth": "intermediate",
+  "era": "reformation",
+  "dates": [],
+  "passages": [],
+  "related": [],
+  "externalIds": {},
+  "evidence": [
+    {
+      "url": "https://archive.org/details/decadeshenrybul06britgoog",
+      "locator": "Parker Society English edition, 1850 · volume scan",
+      "note": "Source identifies this work and the selected reading edition or historic text.",
+      "checkedOn": "2026-10-05"
+    }
+  ],
+  "reading": {
+    "summary": "Bullinger’s doctrinal sermons in a historic English edition.",
+    "startingPoint": "Use the volume contents to locate a complete sermon and its Scripture references.",
+    "cautions": [
+      "A single volume scan is linked; the full five decades are not claimed as a complete holding."
+    ],
+    "studyIds": [
+      "reformed"
+    ]
+  }
+}

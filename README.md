@@ -64,6 +64,17 @@ reading, source links, comparisons and saved notes. These automated checks catch
 they do not establish theological correctness. Reopen the cited section and assess the actual claim when
 editing doctrine. Last comprehensive editorial source pass: **2026-10-05**.
 
+The **Reformed theology branch** at `/apologetics/topics/reformed` connects four additional sourced guides
+and a six-study learning path to the historic reading library at `/apologetics/texts`. The reading library
+currently offers 46 works by 30 authors, with 48 identified editions/holdings, source links, reading pointers,
+tradition notes and shareable filters. These are catalogue entries and external reading links; book files
+have not been bulk-ingested. Historic text rights are separate from modern translation and host-file rights.
+
+Its canonical records live in `content/library/`, under the explicit `publication.json` selection. See the
+[Reformed reading handbook](content/library/REFORMED-READING.md) for the author list, edition findings,
+JSON/Markdown exports and review commands. Normal content builds and release preparation validate both
+the study documents and this selected reading catalogue; unrelated collection missions remain separate.
+
 ## Scrolling tables and lists
 
 Vertical table scrollbars belong outside the right border, with a small gap. Keep the rounded frame fixed,

@@ -1,0 +1,54 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-hodge-systematic-1",
+  "editorialState": "published",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-10-05",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Bibliographic identity, reading purpose, source access and historic-text/file-rights distinction checked; not a full-text theological or transcription audit."
+    }
+  ],
+  "workId": "work-hodge-systematic",
+  "label": "Volume I · historic English text",
+  "languages": [
+    "en"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "complete",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/hodge/theology1.html",
+      "locator": "Volume I · historic English text",
+      "note": "Source identifies this work and the selected reading edition or historic text.",
+      "checkedOn": "2026-10-05"
+    }
+  ],
+  "textRights": {
+    "status": "public-domain",
+    "jurisdiction": "United States",
+    "scope": "Historic author’s English text only; website descriptions, modern introductions and downloadable-file packaging are excluded.",
+    "basis": "The identified historic text predates 1931. The linked host identifies the author and work; modern additions and file packaging are not included in this assessment.",
+    "evidence": [
+      {
+        "url": "https://ccel.org/ccel/hodge/theology1.html",
+        "locator": "Volume I · historic English text",
+        "note": "Source identifies this work and the selected reading edition or historic text.",
+        "checkedOn": "2026-10-05"
+      },
+      {
+        "url": "https://www.copyright.gov/circs/circ15a.pdf",
+        "locator": "Copyright duration: works published before January 1, 1931 in 2026",
+        "note": "Copyright duration: works published before January 1, 1931 in 2026",
+        "checkedOn": "2026-10-05"
+      }
+    ]
+  }
+}

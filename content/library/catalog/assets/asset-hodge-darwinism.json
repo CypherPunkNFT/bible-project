@@ -1,0 +1,81 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "asset",
+  "id": "asset-hodge-darwinism",
+  "editorialState": "published",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-10-05",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Bibliographic identity, reading purpose, source access and historic-text/file-rights distinction checked; not a full-text theological or transcription audit."
+    }
+  ],
+  "editionId": "edition-hodge-darwinism",
+  "sourceId": "source-gutenberg",
+  "canonicalUrl": "https://www.gutenberg.org/ebooks/19192",
+  "finalUrl": null,
+  "format": "html",
+  "mediaKind": "text",
+  "acquisitionStatus": "link-only",
+  "storage": "none",
+  "relativePath": null,
+  "sha256": null,
+  "byteCount": null,
+  "mimeType": null,
+  "retrievedAt": null,
+  "rights": {
+    "category": "public-domain",
+    "jurisdiction": "United States",
+    "licenseId": null,
+    "licenseUrl": null,
+    "attribution": null,
+    "conditions": [
+      "Observe the host’s applicable distribution/trademark terms and distinguish later additions."
+    ],
+    "conditionsMet": false,
+    "actions": {
+      "download": "conditional",
+      "host": "conditional",
+      "redistribute": "conditional",
+      "adapt": "conditional",
+      "transcribe": "unknown",
+      "embed": "unknown",
+      "indexMetadata": "allowed",
+      "indexFullText": "conditional"
+    },
+    "evidence": [
+      {
+        "url": "https://www.gutenberg.org/ebooks/19192",
+        "locator": "Historic English text · Project Gutenberg 19192",
+        "note": "Source identifies this work and the selected reading edition or historic text.",
+        "checkedOn": "2026-10-05"
+      }
+    ],
+    "unresolved": [],
+    "review": {
+      "date": "2026-10-05",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Bibliographic identity, reading purpose, source access and historic-text/file-rights distinction checked; not a full-text theological or transcription audit."
+    }
+  },
+  "fullTextIndexed": false,
+  "processing": {
+    "parentAssetId": null,
+    "method": "none",
+    "tool": null,
+    "toolVersion": null,
+    "parameters": null,
+    "date": null,
+    "note": "No corpus bytes acquired or transformed by this publication."
+  },
+  "quality": {
+    "state": "unreviewed",
+    "reviewedBy": null,
+    "reviewedOn": null,
+    "note": "Bibliographic record and reading destination checked; complete text and transcription have not been collated."
+  }
+}

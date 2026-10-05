@@ -1,0 +1,65 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-kuyper-calvinism",
+  "editorialState": "published",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-10-05",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Bibliographic identity, reading purpose, source access and historic-text/file-rights distinction checked; not a full-text theological or transcription audit."
+    }
+  ],
+  "title": "Lectures on Calvinism",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-abraham-kuyper",
+      "role": "author"
+    }
+  ],
+  "genre": "lecture",
+  "role": "core-teaching",
+  "collections": [
+    "theology",
+    "apologetics"
+  ],
+  "subjects": [
+    "historical-theology",
+    "apologetics",
+    "vocation"
+  ],
+  "occasions": [],
+  "audiences": [
+    "general",
+    "students"
+  ],
+  "depth": "intermediate",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [],
+  "related": [],
+  "externalIds": {},
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/kuyper/lecture.html",
+      "locator": "Calvinism: Six Stone Lectures · historic English text",
+      "note": "Source identifies this work and the selected reading edition or historic text.",
+      "checkedOn": "2026-10-05"
+    }
+  ],
+  "reading": {
+    "summary": "Six Stone Lectures on Calvinism in religion, politics, science, art and public life.",
+    "startingPoint": "Begin with Calvinism as a life system, then test each application against Scripture.",
+    "cautions": [
+      "Historical cultural and political judgments are not the site’s doctrinal standard."
+    ],
+    "studyIds": [
+      "reformed",
+      "science"
+    ]
+  }
+}

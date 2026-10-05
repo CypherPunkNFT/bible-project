@@ -26,6 +26,9 @@
     },
     {
       "$ref": "#/definitions/run"
+    },
+    {
+      "$ref": "#/definitions/readingCollection"
     }
   ],
   "definitions": {
@@ -78,6 +81,10 @@
         "scope": {
           "type": "string",
           "minLength": 1
+        },
+        "contentHash": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
         }
       },
       "required": [
@@ -1091,6 +1098,40 @@
           "items": {
             "$ref": "#/definitions/evidence"
           }
+        },
+        "reading": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "summary": {
+              "type": "string",
+              "minLength": 1
+            },
+            "startingPoint": {
+              "type": "string",
+              "minLength": 1
+            },
+            "cautions": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "studyIds": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "required": [
+            "summary",
+            "startingPoint",
+            "cautions",
+            "studyIds"
+          ]
         }
       },
       "required": [
@@ -1214,6 +1255,44 @@
           "items": {
             "$ref": "#/definitions/evidence"
           }
+        },
+        "textRights": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "status": {
+              "enum": [
+                "public-domain",
+                "unverified"
+              ]
+            },
+            "jurisdiction": {
+              "type": "string",
+              "minLength": 1
+            },
+            "scope": {
+              "type": "string",
+              "minLength": 1
+            },
+            "basis": {
+              "type": "string",
+              "minLength": 1
+            },
+            "evidence": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/definitions/evidence"
+              }
+            }
+          },
+          "required": [
+            "status",
+            "jurisdiction",
+            "scope",
+            "basis",
+            "evidence"
+          ]
         }
       },
       "required": [
@@ -1654,6 +1733,117 @@
         "counts",
         "gaps",
         "reportPath"
+      ]
+    },
+    "readingCollection": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "$schema": {
+          "type": "string",
+          "minLength": 1
+        },
+        "schemaVersion": {
+          "const": 1
+        },
+        "kind": {
+          "const": "reading-collection"
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "scopeNote": {
+          "type": "string",
+          "minLength": 1
+        },
+        "rightsNote": {
+          "type": "string",
+          "minLength": 1
+        },
+        "rightsSources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/evidence"
+          },
+          "minItems": 1
+        },
+        "topicId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "pathId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "workIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true,
+          "minItems": 1
+        },
+        "featuredWorkIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "reviews": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/review"
+          },
+          "minItems": 1
+        },
+        "editionIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9]*(?:-[a-z0-9]+)*$"
+          },
+          "uniqueItems": true,
+          "minItems": 1
+        },
+        "assetIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9]*(?:-[a-z0-9]+)*$"
+          },
+          "uniqueItems": true,
+          "minItems": 1
+        }
+      },
+      "required": [
+        "$schema",
+        "schemaVersion",
+        "kind",
+        "id",
+        "title",
+        "description",
+        "scopeNote",
+        "rightsNote",
+        "rightsSources",
+        "topicId",
+        "pathId",
+        "workIds",
+        "featuredWorkIds",
+        "reviews",
+        "editionIds",
+        "assetIds"
       ]
     }
   }

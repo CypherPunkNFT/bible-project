@@ -264,6 +264,23 @@
         }
       ],
       "reviewedOn": "2026-10-05"
+    },
+    {
+      "id": "source-internet-archive",
+      "name": "Internet Archive historic scans",
+      "url": "https://archive.org/",
+      "role": "content-host",
+      "automation": "unreviewed",
+      "acquisitionNote": "This mission uses item metadata and links to identified historic scans. No blanket crawl, file redistribution or OCR-quality approval is granted.",
+      "evidence": [
+        {
+          "url": "https://archive.org/details/planofsalvation00warf",
+          "locator": "Representative dated historic scan and catalogue record",
+          "note": "Representative dated historic scan and catalogue record",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "reviewedOn": "2026-10-05"
     }
   ]
 }

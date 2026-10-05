@@ -1,0 +1,87 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "asset",
+  "id": "asset-ursinus-catechism",
+  "editorialState": "published",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-10-05",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Bibliographic identity, reading purpose, source access and historic-text/file-rights distinction checked; not a full-text theological or transcription audit."
+    }
+  ],
+  "editionId": "edition-ursinus-catechism",
+  "sourceId": "source-ccel",
+  "canonicalUrl": "https://ccel.org/ccel/ursinus/catechism/catechism.i.html",
+  "finalUrl": null,
+  "format": "html",
+  "mediaKind": "text",
+  "acquisitionStatus": "link-only",
+  "storage": "none",
+  "relativePath": null,
+  "sha256": null,
+  "byteCount": null,
+  "mimeType": null,
+  "retrievedAt": null,
+  "rights": {
+    "category": "public-domain",
+    "jurisdiction": "United States",
+    "licenseId": null,
+    "licenseUrl": null,
+    "attribution": null,
+    "conditions": [
+      "Observe the host’s applicable distribution/trademark terms and distinguish later additions."
+    ],
+    "conditionsMet": false,
+    "actions": {
+      "download": "conditional",
+      "host": "conditional",
+      "redistribute": "conditional",
+      "adapt": "conditional",
+      "transcribe": "unknown",
+      "embed": "unknown",
+      "indexMetadata": "allowed",
+      "indexFullText": "conditional"
+    },
+    "evidence": [
+      {
+        "url": "https://ccel.org/ccel/ursinus/catechism/catechism.i.html",
+        "locator": "Commentary prolegomena · English excerpt",
+        "note": "Source identifies this work and the selected reading edition or historic text.",
+        "checkedOn": "2026-10-05"
+      },
+      {
+        "url": "https://www.ccel.org/about/copyright.html",
+        "locator": "CCEL website and file conditions",
+        "note": "CCEL website and file conditions",
+        "checkedOn": "2026-10-05"
+      }
+    ],
+    "unresolved": [],
+    "review": {
+      "date": "2026-10-05",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Bibliographic identity, reading purpose, source access and historic-text/file-rights distinction checked; not a full-text theological or transcription audit."
+    }
+  },
+  "fullTextIndexed": false,
+  "processing": {
+    "parentAssetId": null,
+    "method": "none",
+    "tool": null,
+    "toolVersion": null,
+    "parameters": null,
+    "date": null,
+    "note": "No corpus bytes acquired or transformed by this publication."
+  },
+  "quality": {
+    "state": "unreviewed",
+    "reviewedBy": null,
+    "reviewedOn": null,
+    "note": "Bibliographic record and reading destination checked; complete text and transcription have not been collated."
+  }
+}

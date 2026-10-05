@@ -1,0 +1,217 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "study",
+  "id": "reformed",
+  "order": 21,
+  "publication": "published",
+  "content": {
+    "title": "What is Reformed theology, and why does it matter for apologetics?",
+    "topic": "reformed",
+    "summary": "A connected account of Scripture, God, grace and the Christian life, with Scripture judging every teacher.",
+    "answer": {
+      "id": "answer",
+      "text": "Reformed theology seeks to confess the whole counsel of God: the triune Creator, humanity’s fall, Christ’s finished saving work, the Spirit’s renewal and the life of the church. Its center is God’s glory and salvation by grace, received through faith in Christ. It gives apologetics doctrinal substance: we should understand the faith we are defending, and defend it with humility.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Acts 20:27"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Ephesians 2:8-10"
+        },
+        {
+          "kind": "scripture",
+          "reference": "1 Peter 3:15-16"
+        },
+        {
+          "kind": "source",
+          "source": "wcf",
+          "locator": "1.6; 2.3; 8; 11.1–2"
+        }
+      ]
+    },
+    "reasoning": [
+      {
+        "id": "reason-1",
+        "text": "Scripture supplies the final rule. A confession summarizes the church’s understanding but remains answerable to God’s Word.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "2 Timothy 3:16-17"
+          },
+          {
+            "kind": "source",
+            "source": "wcf",
+            "locator": "1.10; 31.3"
+          }
+        ]
+      },
+      {
+        "id": "reason-2",
+        "text": "Sin affects the whole person. We retain the dignity of God’s image, yet cannot turn that dignity or outward virtue into a claim to righteousness before him.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "James 3:9"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Romans 3:10-12"
+          },
+          {
+            "kind": "source",
+            "source": "wcf",
+            "locator": "6.2–4; 9.3"
+          }
+        ]
+      },
+      {
+        "id": "reason-3",
+        "text": "The gospel announces what God has done in Christ. Justification is his gracious verdict; holiness follows as the fruit of a renewed life.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Romans 4:4-5"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Ephesians 2:8-10"
+          },
+          {
+            "kind": "source",
+            "source": "wcf",
+            "locator": "11.1–2; 13.1"
+          }
+        ]
+      }
+    ],
+    "conclusion": {
+      "id": "conclusion",
+      "text": "A Reformed defense of Christianity should move from the truth of God’s revelation to repentance, faith, worship and love. Winning an argument is never a substitute for those ends.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "2 Timothy 2:24-26"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Romans 11:33-36"
+        }
+      ]
+    },
+    "sections": [
+      {
+        "id": "whole-faith",
+        "text": "Start with God and his Word, then follow creation, fall, redemption and consummation. Election belongs within that larger account; the church, prayer, sacraments and obedience also belong to it. Reducing the tradition to a slogan about predestination leaves much of its teaching unread.",
+        "citations": [
+          {
+            "kind": "source",
+            "source": "wcf",
+            "locator": "2–10; 21; 25–29; 32–33"
+          }
+        ],
+        "title": "More than a single controversy"
+      },
+      {
+        "id": "learn-in-order",
+        "text": "Ursinus organizes catechetical instruction around our misery, deliverance and gratitude. That order helps keep moral instruction attached to the gospel: obedience expresses gratitude for deliverance rather than purchasing it. Read a short guide, open its biblical passages, then test a historic author’s fuller argument.",
+        "citations": [
+          {
+            "kind": "source",
+            "source": "ursinus-catechesis",
+            "locator": "Sections III–IV: law and gospel; the parts of the catechism"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Titus 3:4-8"
+          }
+        ],
+        "title": "Learn doctrine as a connected story"
+      }
+    ],
+    "objection": "Does a Reformed confession make Calvin or a church council infallible?",
+    "reply": {
+      "id": "reply",
+      "text": "No. Westminster explicitly allows that councils may err and identifies Scripture as the final judge. We receive teachers as servants who help us understand the Word. Their arguments can be examined, corrected and rejected where they fail that test.",
+      "citations": [
+        {
+          "kind": "source",
+          "source": "wcf",
+          "locator": "1.10; 31.3"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Acts 17:11"
+        },
+        {
+          "kind": "scripture",
+          "reference": "1 Corinthians 3:5-7"
+        }
+      ]
+    },
+    "limit": {
+      "id": "limit",
+      "text": "This guide states the site’s Westminster-based approach. The wider reading library includes authors whose baptism, church order or covenant conclusions differ. Inclusion is an invitation to examine a work, not approval of every statement in an author’s corpus.",
+      "citations": [
+        {
+          "kind": "source",
+          "source": "wcf",
+          "locator": "1.10; 25.4–5"
+        }
+      ]
+    },
+    "prompt": {
+      "id": "conversation",
+      "text": "Which teaching would you most like to trace from the biblical passage through the argument to its effect on everyday life?",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "2 Timothy 3:16-17"
+        }
+      ]
+    },
+    "passages": [
+      {
+        "reference": "Acts 20:27",
+        "note": "The whole counsel of God"
+      },
+      {
+        "reference": "Ephesians 2:1-10",
+        "note": "Sin, grace, faith and good works"
+      },
+      {
+        "reference": "1 Peter 3:15-16",
+        "note": "Conviction with gentleness and reverence"
+      }
+    ],
+    "related": [
+      "scripture",
+      "grace",
+      "election",
+      "covenant",
+      "assurance"
+    ],
+    "keywords": [
+      "Calvinism",
+      "Reformed",
+      "confessions",
+      "theology",
+      "Westminster",
+      "sovereign grace",
+      "Puritans"
+    ]
+  },
+  "reviews": [
+    {
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "New Reformed branch: checked biblical references, Westminster chapter/paragraph locators, catechetical source scope and relationship to existing guides.",
+      "note": "AI-assisted editorial review against the cited primary texts; not independent human theological approval. Confessional synthesis, biblical wording and open doctrinal questions are distinguished.",
+      "date": "2026-10-05",
+      "contentHash": "c26735bf149ceca83b3a93a13aced9c5ad7cee33649f321fa4a1695202d452aa",
+      "basisHash": "89c5c1041a354ea36072b0ac16cf677bc5ada508433694e872b593ce93efcc01"
+    }
+  ]
+}

@@ -2,6 +2,15 @@
 
 Established 2026-10-05 at the owner's request. This is the reusable starting point for each future collection mission. The owner will request categories one by one; the backlog is not authorization to run them all.
 
+## Published Reformed reading selection
+
+The owner-requested theology/apologetics expansion is now connected to the website through an explicit
+[publication manifest](publication.json): 46 works, 30 authors and 48 identified reading editions.
+See [REFORMED-READING.md](REFORMED-READING.md) for the author list, edition findings, publication review
+and generated Markdown/JSON catalogue. This publishes metadata and reading links; it does not ingest
+the books or authorize other collection missions. The broader desk and its acquired collections remain
+separate from the selected website publication.
+
 ## Read first
 
 1. [CHARTER.md](CHARTER.md): theological scope, author eligibility and editorial decisions.
@@ -22,7 +31,7 @@ Established 2026-10-05 at the owner's request. This is the reusable starting poi
 | Private permission correspondence | `Website/.local/library/permissions/` | Keep personal details out of the public repository; publish a safe grant summary and evidence reference |
 | Current Apologetics teaching guides | `Website/content/apologetics/` | Existing separate editorial schema and review process; do not move or overwrite |
 | Search/database/vector state | `BibleProject/KnowledgeBase/` through `Website/knowledge/` | Existing search instance; future adapter must consume reviewed records with stable IDs and rights filters |
-| Public website output | A future explicit publication build | Collection records are not automatically deployed or bundled into the app |
+| Public website output | Explicit `publication.json` selection, built through the Apologetics content pipeline | Only selected and reviewed metadata/reading links are deployed; see REFORMED-READING.md |
 
 In this workspace the project root is `D:/FortressOfSolitude/Jarvis/Projects/BibleProject`.
 Resolve raw storage using `Website/scripts/bible/paths.py`: `BIBLE_SOURCES`, then `Website/sources/` if present, otherwise `BibleProject/sources/`. Check that resolution before every acquisition. Do not create `Website/sources/` casually: doing so changes the source root for the existing Bible pipeline.
