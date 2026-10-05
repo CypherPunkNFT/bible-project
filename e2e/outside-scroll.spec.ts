@@ -100,6 +100,45 @@ for (const table of [
   });
 }
 
+for (const view of ["verse references", "every version", "chapter references"]) {
+  test(`reader ${view}: scrolling continues onto the page at both ends`, async ({ page }) => {
+    await page.goto(view === "chapter references" ? "/read/kjv/1CO/15" : "/read/kjv/1CO/5?v=4");
+    await expect(page.locator(".scripture")).toBeVisible();
+    const panel = page.locator(".reader-reference-panel");
+    if (view === "chapter references" && page.viewportSize()!.width < 1024) {
+      await page.getByRole("button", { name: /^Show this chapter's .* cross-references$/ }).click();
+    }
+    if (view === "every version") await panel.getByRole("button", { name: "Show this verse in every version" }).click();
+    await expect(panel).toBeVisible();
+    await page.waitForLoadState("networkidle");
+    await page.evaluate(() => document.fonts.ready);
+    await expect.poll(() => panel.evaluate((el) => el.scrollHeight - el.clientHeight)).toBeGreaterThan(300);
+    const placePage = () => page.evaluate(() => window.scrollTo(0, Math.min(400, (document.documentElement.scrollHeight - innerHeight) / 2)));
+    await placePage();
+    await panel.evaluate((el) => { el.scrollTop = 100; });
+    await panel.hover();
+    const initialPageY = await page.evaluate(() => scrollY);
+    await page.mouse.wheel(0, 100);
+    await expect.poll(() => panel.evaluate((el) => el.scrollTop)).toBeGreaterThan(150);
+    expect(await page.evaluate(() => scrollY)).toBe(initialPageY);
+
+    for (const overScrollbar of [false, true]) {
+      for (const direction of [-1, 1]) {
+        await placePage();
+        await panel.evaluate((el, down) => { el.scrollTop = down ? el.scrollHeight : 0; }, direction > 0);
+        const box = (await panel.boundingBox())!;
+        await page.mouse.move(box.x + (overScrollbar ? box.width - 3 : box.width / 2), box.y + box.height / 2);
+        const before = await page.evaluate(() => scrollY);
+        await expect.poll(async () => {
+          await page.mouse.wheel(0, direction * 100);
+          return (await page.evaluate(() => scrollY) - before) * direction;
+        }, { message: `${view}: ${overScrollbar ? "scrollbar" : "content"}, ${direction > 0 ? "bottom" : "top"}` }).toBeGreaterThan(20);
+        await expect.poll(() => panel.evaluate((el, down) => down ? el.scrollHeight - el.clientHeight - el.scrollTop : el.scrollTop, direction > 0)).toBeLessThanOrEqual(1);
+      }
+    }
+  });
+}
+
 test("outside scroll: book-pair rankings keep their scrollbar outside and selections working", async ({ page }) => {
   await page.goto("/study/references#matrix");
   const viewport = page.getByRole("region", { name: "Most cross-referenced book pairs" });

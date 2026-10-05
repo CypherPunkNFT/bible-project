@@ -94,7 +94,8 @@ table reaches either end, scrolling should continue up or down the page. Do not 
 Check with native browser scrollbars visible: `bunx playwright test -c e2e/outside-scroll.config.ts`.
 The checks cover Miracles, book pairs, measure evidence, place references and the testimonies list, including
 keyboard scrolling, filters and expanded passages. They also verify page scrolling past both ends of the
-Miracles, Harmony and Library versions tables. Testimony checks use browser fixtures without API writes.
+Miracles, Harmony and Library versions tables, plus the reader's verse references, chapter references and
+every-version view on desktop and mobile. Testimony checks use browser fixtures without API writes.
 
 ## Run it yourself
 
