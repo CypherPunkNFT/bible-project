@@ -72,7 +72,7 @@ def _embed_all(config, limit, batch_size):
         vectors.delete(f"id IN ({values})")
     present &= active
     total, initial = len(active), len(present)
-    batch_size = max(1, min(batch_size or cfg["batch_size"], 64))
+    batch_size = max(1, min(batch_size or cfg.get("write_batch_size", cfg["batch_size"]), 64))
     cursor = db.execute("SELECT id,embed_text,kind,edition,language,book FROM chunks ORDER BY CASE kind WHEN 'guide' THEN 0 WHEN 'study' THEN 1 WHEN 'person' THEN 2 WHEN 'place' THEN 3 WHEN 'bible' THEN 4 ELSE 5 END, CASE edition WHEN 'kjv' THEN 0 WHEN 'bsb' THEN 1 ELSE 2 END, rowid")
     completed, started, buffer = 0, time.monotonic(), []
 
@@ -114,6 +114,13 @@ def _embed_all(config, limit, batch_size):
                   "remaining": remaining, "corpus_build": corpus_build, "updated_at": datetime.now(timezone.utc).isoformat(), "seconds": round(time.monotonic()-started, 1)}
         write_json(config["state_dir"] / "embedding-progress.json", report)
         print(json.dumps(report), flush=True)
+        if not remaining:
+            from .retrieval import verify
+            verification = verify(config)
+            verification["corpus_build"] = corpus_build
+            verification["verified_at"] = datetime.now(timezone.utc).isoformat()
+            write_json(config["state_dir"] / "verification.json", verification)
+            print(json.dumps(verification), flush=True)
         return report
     except BaseException as exc:
         write_json(config["state_dir"] / "embedding-progress.json", {"state": "interrupted", "indexed": initial+completed,

@@ -1,5 +1,9 @@
 # Bible Project
 
+**Current knowledge priority:** [Incorporate and fully embed the expanded local library](knowledge/README.md#expanded-library-intake), then verify coverage before enrichment. The independent completion worker catches late acquisitions and records its outcome in `../KnowledgeBase/intake-completion.json`.
+
+**KNOWLEDGE BASE ENRICHMENT STRATEGY:** [LLM-authored terms, deterministic Python and FTS5 analysis](knowledge/ENRICHMENT-STRATEGY.md). Author and validate reusable vocabulary/rules, then enrich the independent local database through repeatable passes without per-document model calls. See the [analytical roadmap](knowledge/ANALYSIS.md) for the resulting graph layers. Strategy documented; enrichment runner planned.
+
 **LIBRARY DOWNLOADS · MASTER CATEGORY INDEX · CROSS-CHAT HANDOFF:** [All collection categories and mission status (L00–L15)](content/library/BACKLOG.md) · [Actual text/download inventory](content/library/reports/text-backlog/REPORT.md) · [Collection desk](content/library/README.md). Collection chats share these mission IDs and consult the latest category acquisition manifest to avoid duplicate downloads. Prioritize permitted readable texts; catalog links, acquired files and published selections have separate statuses.
 
 Read the whole Bible in every free version we can find, in sixteen languages, side by side, with charts, a satellite atlas of

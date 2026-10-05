@@ -60,14 +60,17 @@ def search_text(text):
 def split_text(text, limit=1500):
     """Bound every chunk, preserving all content including long non-space-separated text."""
     text = text.strip()
-    while text:
-        end = min(len(text), limit)
+    start = 0
+    while start < len(text):
+        end = min(start + limit, len(text))
         if end < len(text):
-            split = max(text.rfind("\n", end // 2, end), text.rfind(" ", end // 2, end))
-            if split > 0:
+            split = max(text.rfind("\n", start + limit // 2, end), text.rfind(" ", start + limit // 2, end))
+            if split > start:
                 end = split
-        yield text[:end].strip()
-        text = text[end:].lstrip()
+        yield text[start:end].strip()
+        start = end
+        while start < len(text) and text[start].isspace():
+            start += 1
 
 
 class Writer:
@@ -80,9 +83,10 @@ class Writer:
         if path in self.seen_files:
             return
         self.seen_files.add(path)
-        data = path.read_bytes()
+        with path.open("rb") as stream:
+            checksum = hashlib.file_digest(stream, "sha256").hexdigest()
         self.db.execute("INSERT INTO files VALUES(?,?,?,?,?)", (
-            str(path), hashlib.sha256(data).hexdigest(), len(data), status, detail))
+            str(path), checksum, path.stat().st_size, status, detail))
 
     def document(self, id, title, kind, source, licence, language="en", edition="", metadata=None):
         self.db.execute("INSERT INTO documents VALUES(?,?,?,?,?,?,?,?)", (

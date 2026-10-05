@@ -1,6 +1,7 @@
 const $ = (id) => document.getElementById(id);
 const labels = { bible:'Scripture', bible_note:'Edition notes & headings', guide:'Guides & source records', authored_document:'Authored documents', reference:'Reference books', person:'People', place:'Places', study:'Study datasets', project_document:'Project documentation' };
 const languageNames = {en:'English', hbo:'Hebrew', grc:'Greek', la:'Latin', es:'Spanish', fr:'French', de:'German', ar:'Arabic', zh:'Chinese', hi:'Hindi', pt:'Portuguese', ru:'Russian', ja:'Japanese', vi:'Vietnamese', fa:'Persian', it:'Italian'};
+Object.assign(labels, {library_text:'Library texts', library_catalog:'Library catalog', library_review:'Library editions awaiting review'});
 let documentId='', documentOffset=0, requestId=0;
 function element(tag, text, className){ const node=document.createElement(tag); if(text!==undefined)node.textContent=text; if(className)node.className=className; return node; }
 async function json(url){const response=await fetch(url);const data=await response.json();if(!response.ok)throw new Error(data.error||'Request failed');return data;}

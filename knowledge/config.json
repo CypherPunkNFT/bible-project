@@ -11,6 +11,7 @@
     "dimensions": 2560,
     "max_tokens": 4096,
     "batch_size": 16,
+    "write_batch_size": 64,
     "daemon_url": "http://127.0.0.1:8936",
     "gpu_lock": "../../../../../HyperVault/KnowledgeBase/data/.qwen3-embed.lock"
   }

@@ -142,9 +142,13 @@ def import_authored(writer, catalog):
     content = site / "content"
     if content.exists():
         for file in sorted(content.rglob("*.json")):
+            if file.is_relative_to(content / "library/catalog") or file.is_relative_to(content / "library/reports"):
+                continue  # The library adapter retains these ledgers and indexes actual works.
             value = read_json(file)
             writer.file(file)
-            record(writer, context, f"content:{file.relative_to(content).as_posix()}", value.get("content", {}).get("title", file.stem), value, "authored_document", file,
+            body = value.get("content", {}) if isinstance(value, dict) else {}
+            title = body.get("title", file.stem) if isinstance(body, dict) else file.stem
+            record(writer, context, f"content:{file.relative_to(content).as_posix()}", title, value, "authored_document", file,
                    "Bible Project authored document; publication/review status retained")
 
 

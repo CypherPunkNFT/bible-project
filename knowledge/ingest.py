@@ -7,6 +7,7 @@ from pathlib import Path
 from .bibles import import_bibles
 from .documents import import_study, import_authored, import_reference_books, import_project_docs
 from .graph import import_cross_references
+from .library import import_library
 from .store import SCHEMA, Writer, connect
 from .settings import write_json
 
@@ -52,6 +53,8 @@ def build(config):
     db = connect(stage)
     try:
         db.executescript(SCHEMA)
+        # Large random chunk-ID indexes otherwise thrash SQLite's small default cache.
+        db.execute("PRAGMA cache_size=-131072")
         writer = Writer(db, config)
         catalog = import_bibles(writer)
         import_study(writer, catalog)
@@ -59,6 +62,10 @@ def build(config):
         import_authored(writer, catalog)
         import_project_docs(writer)
         import_cross_references(writer)
+        library = import_library(writer)
+        if library["errors"] or library["missing_catalog_files"]:
+            write_json(state / "library-intake-errors.json", library)
+            raise RuntimeError("Library intake has unresolved errors; inspect library-intake-errors.json. Previous database retained.")
         inventory(writer)
         db.execute("INSERT INTO chunks_fts(chunks_fts) VALUES('rebuild')")
         db.execute("INSERT INTO chunks_fts(chunks_fts) VALUES('integrity-check')")
@@ -77,6 +84,7 @@ def build(config):
             "by_kind": [dict(row) for row in db.execute("SELECT kind,COUNT(*) count FROM chunks GROUP BY kind")],
             "source_inventory": [dict(row) for row in db.execute("SELECT status,COUNT(*) count FROM files GROUP BY status")],
             "integrity": integrity,
+            "library": {key: value for key, value in library.items() if key != "low_text_pdf_pages"},
         }
         if report["counts"]["verses"] != report["expected_verses"]:
             raise RuntimeError("Full corpus verse count failed")
@@ -91,6 +99,8 @@ def build(config):
                 previous.replace(config["db"])
             raise
         write_json(state / "coverage.json", report)
+        write_json(state / "library-intake.json", library)
+        write_json(state / "library-intake-progress.json", {"state": "complete", "processed": library["files"], "total": library["files"], "statuses": library["statuses"]})
         print(json.dumps(report, ensure_ascii=False, indent=2), flush=True)
         return report
     finally:

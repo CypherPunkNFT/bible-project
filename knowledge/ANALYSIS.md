@@ -2,6 +2,8 @@
 
 **Class:** LIVING · **Recorded:** 2026-10-05 · **Status:** Planned; analytical implementation remains open.
 
+**Preferred execution strategy:** [Knowledge base enrichment strategy](ENRICHMENT-STRATEGY.md). Use an LLM to author reusable term libraries and context rules, then execute deterministic Python/FTS5 passes without inference in the bulk run. This refinement prioritizes inexpensive, measurable entity/topic/citation enrichment before selected deeper interpretation. The strategy governs the first implementation of this roadmap.
+
 This segment strengthens the independent Bible Project knowledge database by extracting, storing and analyzing relationships across Scripture, reference works and the Christian library. The owner selected entity graphs, Scripture-use networks and topic networks as the first priorities, followed by argument mapping and comparative analysis. FTS5 and vector retrieval remain the foundation; these additions make relationships and evidence directly queryable.
 
 The immediate request is to record this direction in the project documents. This documentation update does not execute extraction runs, choose a graph database, acquire more material or publish new website features.

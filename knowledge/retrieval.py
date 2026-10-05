@@ -1,5 +1,6 @@
 """Lexical, semantic, reference and fused retrieval, with source-grounded result records."""
 import json
+import hashlib
 import re
 import time
 from collections import defaultdict
@@ -182,11 +183,47 @@ def verify(config):
         snapshot = vectors.to_lance() if vectors is not None else None
         actual = set(snapshot.to_table(columns=["id"]).column("id").to_pylist()) if snapshot is not None else set()
         duplicate_vectors = snapshot.count_rows()-len(actual) if snapshot is not None else 0
-        return {"sqlite_integrity": db.execute("PRAGMA integrity_check").fetchone()[0],
-                "foreign_key_errors": len(db.execute("PRAGMA foreign_key_check").fetchall()),
+        integrity = db.execute("PRAGMA integrity_check").fetchone()[0]
+        foreign_keys = len(db.execute("PRAGMA foreign_key_check").fetchall())
+        try:
+            validate_identity(config)
+            identity_ok = True
+        except (OSError, ValueError, RuntimeError):
+            identity_ok = False
+        library_row = db.execute("SELECT value FROM meta WHERE key='library_intake'").fetchone()
+        library = json.loads(library_row[0]) if library_row else None
+        corpus_build = db.execute("SELECT value FROM meta WHERE key='built_at'").fetchone()[0]
+        progress_file = config["state_dir"] / "embedding-progress.json"
+        progress = json.loads(progress_file.read_text("utf-8")) if progress_file.exists() else {}
+        job_complete = progress.get("state") == "complete" and progress.get("corpus_build") == corpus_build
+        new_files, missing_files, changed_ledgers = [], [], []
+        if library:
+            imported = {row[0] for row in db.execute("SELECT path FROM library_files")}
+            current = {str(path) for path in (config["sources_dir"] / "library").rglob("*") if path.is_file()}
+            new_files, missing_files = sorted(current-imported), sorted(imported-current)
+            recorded = dict(db.execute("SELECT path,sha256 FROM files WHERE status='library_metadata'"))
+            ledger_paths = {str(path): path for folder in ("catalog", "reports") for path in (config["site_dir"] / "content/library" / folder).rglob("*.json")}
+            changed_ledgers = sorted(set(recorded) ^ set(ledger_paths))
+            for name in set(recorded) & set(ledger_paths):
+                with ledger_paths[name].open("rb") as stream:
+                    checksum = hashlib.file_digest(stream, "sha256").hexdigest()
+                if checksum != recorded[name]:
+                    changed_ledgers.append(name)
+        complete = actual == active and bool(active) and not duplicate_vectors and integrity == "ok" and not foreign_keys and identity_ok and job_complete
+        return {"sqlite_integrity": integrity,
+                "foreign_key_errors": foreign_keys, "embedding_identity_matches": identity_ok,
+                "corpus_build": corpus_build, "embedding_job_complete": job_complete,
                 "chunks": len(active), "vectors": len(actual), "missing_vectors": len(active-actual), "stale_vectors": len(actual-active),
                 "verse_count": db.execute("SELECT COUNT(*) FROM verses").fetchone()[0],
                 "duplicate_vectors": duplicate_vectors,
-                "complete": actual == active and bool(active) and not duplicate_vectors}
+                "new_library_files_since_snapshot": len(new_files),
+                "missing_library_files_since_snapshot": len(missing_files),
+                "changed_library_ledgers_since_snapshot": len(changed_ledgers),
+                "library": {"files": library["files"], "statuses": library["statuses"], "errors": len(library["errors"]),
+                            "missing_catalog_files": len(library.get("missing_catalog_files", []))} if library else None,
+                "complete": complete,
+                "enrichment_ready": bool(complete and library and not library["errors"] and not library.get("missing_catalog_files")
+                    and not new_files and not missing_files and not changed_ledgers
+                    and not library["statuses"].get("no_text") and not library["statuses"].get("unsupported"))}
     finally:
         db.close()

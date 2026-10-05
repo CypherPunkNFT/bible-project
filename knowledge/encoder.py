@@ -13,8 +13,12 @@ from urllib.parse import urlparse
 
 def request_vectors(config, texts, kind="document"):
     cfg = config["embedding"]
+    payload = json.dumps({"texts": texts, "kind": kind}, ensure_ascii=False).encode("utf-8")
+    if len(texts) > 1 and (len(payload) > 262144 or len(texts) > 64):
+        middle = len(texts) // 2
+        return request_vectors(config, texts[:middle], kind) + request_vectors(config, texts[middle:], kind)
     request = urllib.request.Request(cfg["daemon_url"] + "/embed",
-        json.dumps({"texts": texts, "kind": kind}).encode("utf-8"), {"Content-Type": "application/json"})
+        payload, {"Content-Type": "application/json"})
     try:
         with urllib.request.urlopen(request, timeout=180) as response:
             result = json.load(response)

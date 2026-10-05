@@ -1,5 +1,9 @@
 # Bible Project local knowledge library
 
+**Enrichment strategy:** [LLM-authored term libraries and deterministic Python/FTS5 passes](ENRICHMENT-STRATEGY.md) is the preferred first method for the [analytical roadmap](ANALYSIS.md). Intelligence is prepared and validated in reusable rules; the bulk runner makes no model calls. The strategy is documented; term packs and the runner remain planned.
+
+**Current order:** incorporate the expanded held library, finish its embeddings, verify corpus/vector parity, then begin enrichment. The original 198,656-passage snapshot passed parity verification on 2026-10-05. This does not establish coverage of subsequent acquisitions. Check `KnowledgeBase/coverage.json`, `library-intake.json`, `embedding-progress.json` and `python -m knowledge verify` for the active snapshot.
+
 A separate local search system for the Bible Project corpus. Open **http://127.0.0.1:8935** after starting it. The website and reader continue at :8931; this does not deploy or change public search.
 
 ## Start, update and stop
@@ -12,6 +16,10 @@ powershell -ExecutionPolicy Bypass -File knowledge/start.ps1
 
 # After changing sources/content: rebuild the verified full-text snapshot, then resume vectors.
 powershell -ExecutionPolicy Bypass -File knowledge/start.ps1 -Refresh
+
+# One-time full incorporation: refresh, finish vectors, verify, and catch late acquisitions.
+# Runs until the held-text snapshot is current, then exits without starting enrichment.
+powershell -ExecutionPolicy Bypass -File knowledge/finish-intake.ps1
 
 # Stop only this instance's services. The database and vectors remain on disk.
 powershell -ExecutionPolicy Bypass -File knowledge/start.ps1 -Stop
@@ -44,12 +52,25 @@ It also imports:
 - All generated people (including family relationships), places, Gospel harmony, names of God, letters, miracles and prophets.
 - Full local Torrey, Nave, Easton and Robertson reference texts, plus STEP Bible's full proper-name/reference source.
 - Authored apologetics guides, library/source records, Gospel portraits, chart insights and study collection material from an explicit allowlist of repository modules.
-- JSON documents throughout `content/`, including publication/review status, and project/design/reference documentation.
+- Authored JSON documents throughout `content/`, including publication/review status, and project/design/reference documentation. Library catalogs and acquisition reports have their own structured adapter.
+- Held library bodies from `sources/library`: PDF text layers, EPUB sections and notes, HTML, text, XML and structured text documents. Acquisition ledgers supplement catalog records, including books and sermons not yet promoted into the catalog. Existing approved OCR and font repairs are reused; this importer performs no OCR, download or model-based transcription.
 - All **344,799 original OpenBible cross-reference rows**, including their votes and source attribution. These remain recorded references, not new theological assertions.
 
 `coverage.json` reports actual counts. `/api/inventory` pages through the file/checksum manifest. All raw source files are accounted for: original/duplicate representations, archives, images and source metadata are distinguished from indexed text. The incomplete Korean download is not promoted into the 37-edition catalogue. Linked external books are not full texts unless their content exists locally. Images are inventoried, not OCR'd; archives are not separately embedded. Credentials, application dependencies, build output and private runtime databases are excluded. Original files remain unchanged.
 
 This is a snapshot of local content: use `-Refresh` after edits or downloads. The raw originals and generated Bible reader data remain the canonical inputs; the knowledge database can be rebuilt.
+
+### Expanded library intake
+
+`library.py` reconciles catalog records, acquisition manifests and repair ledgers before importing the raw collection. Original and selected derivative checksums are checked. A repaired derivative can be shared across acquisition IDs only when original checksums match. Identical originals or extracted bodies reuse one searchable document while `library_files` retains each source's identity, edition and provenance. EPUBs retain section locators; PDF pages and page-marked repairs retain PDF page numbers. Text without reliable pagination is labeled as a transcription rather than assigned invented pages.
+
+`library_records` retains catalog metadata; `library_reports` retains acquisition/quality ledgers. Catalog descriptions, library bodies and review-held editions have separate collection labels. Publisher AI disclosures and existing editorial qualifications remain attached to their editions. No source's public hosting or indexing permission is promoted by this private-local intake. Public-site integration remains separate.
+
+Extraction caches live under `KnowledgeBase/extracted-library/` and are keyed by input/derivative hashes and extractor version. A failed build preserves the previous published database; rerunning reuses extraction caches. `library-intake-progress.json` reports staging progress. Original or derivative checksum failures block publication. `library-intake.json` records duplicates, metadata-only assets, empty text, unsupported files and low-text PDF pages for review. Blank pages and illustrations are not assumed to contain missing prose; existing extraction audits remain authoritative for their review status. Acquisitions completed after a snapshot require a later refresh.
+
+The enrichment readiness check must establish SQLite integrity, complete FTS5 construction, the intended acquisition snapshot, resolution or explicit classification of intake gaps, matching embedding model identity and zero missing/stale/duplicate vectors. A running job or a count of downloaded files does not satisfy that gate.
+
+`finish-intake.ps1` is a one-time completion worker. It waits for this instance's embedding process, verifies parity, checks new/missing originals and changed catalog/acquisition ledgers, and refreshes late arrivals while reusing saved vectors. It exits with a recorded `needs_attention` state on errors or unresolved text gaps. Explicitly deferred scan-only sources retain searchable metadata and their existing review decisions; they are not counted as full-text documents. `intake-completion.json` records the outcome, while `verification.json` records the post-embedding audit. The worker does not download, transcribe or start enrichment, and does not install a recurring task.
 
 ## Retrieval behavior
 
@@ -79,14 +100,15 @@ The model identity is recorded and checked during indexing and queries. Do not c
 
 The first semantic pass is a substantial GPU job. No arbitrary source/sample limit is used. The encoder retries smaller batches after CUDA out-of-memory errors and unloads when idle. Progress writes use unique temporary files and retry atomic replacement through temporary Windows sharing violations; persistent failures retain the previous valid report. The launcher creates hidden background processes, not terminal windows.
 
+GPU batches remain 16 passages; vector writes group up to 64 to reduce file/index overhead on the larger corpus. Oversized multilingual requests are split within the encoder's byte limit without dropping text or changing model identity. Book chunking uses offsets instead of repeatedly copying the entire remaining book, while preserving prior chunk boundaries and reusable vector IDs.
+
 ### Coverage audit — 2026-10-05
 
-The stored snapshot was built at `2026-10-05T05:04:57Z`. A later audit found 7,647 files under `sources/library` absent from that snapshot, alongside 12,539 newer catalog JSON records. These are files/records, not counts of unique books. The expanded collection is not yet covered by this knowledge instance.
+The original snapshot was built at `2026-10-05T05:04:57Z`. It passed complete vector parity verification on 2026-10-05: 198,656 passages/vectors and 1,027,939 original verse records. A subsequent expanded-library build is in progress; consult the live coverage report rather than treating this historic count as the new corpus total.
 
 Remaining work:
 
-- Finish semantic indexing of the existing 198,656 passages and verify complete vector parity. A Windows progress-file sharing violation interrupted the first run at 45,004 passages; the fix is covered by two regression tests and indexing resumed from saved vectors.
-- Add asset-aware ingestion of the newly acquired library full texts and existing OCR/transcriptions, retaining work/edition/asset identity, page/section locators, duplicate relationships and recorded access conditions. The current generic JSON importer imports catalog descriptions; it does not ingest the PDF/book bodies. A simple `-Refresh` does not close that gap.
+- Complete and verify the expanded library build and its semantic pass. The asset-aware importer is implemented; `-Refresh` now includes held library bodies and existing repairs. A running build is not evidence that these bodies have reached the published snapshot or vector index.
 - Keep linked, acquired, text-extracted and searchable counts distinct. At audit time the catalog had 3,702 downloaded and 130 link-only assets; per-asset full-text flags were 54 allowed, three conditional and 3,775 unknown. These are the catalog's recorded flags, not a new rights determination.
 - Add source-change detection and an intentional refresh workflow for the growing library. Refresh and startup are currently manual; no watcher or logon task is installed.
 - Evaluate retrieval against representative known-answer queries across editions, languages and reference works. Existing functional tests establish operation, not a measured relevance benchmark.
