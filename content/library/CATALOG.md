@@ -4,6 +4,12 @@ Version 1 · 2026-10-05. Machine contract: [schema.json](schema.json). Controlle
 
 ## Identity and levels
 
+### Acquisition priority — owner instruction, 2026-10-05
+
+Find existing readable text first and acquire it where permitted. Reuse local files and recorded source decisions before searching again; check current acquisition manifests to avoid duplicating another session's downloads. Prefer complete HTML, XML, EPUB or TXT transcriptions and usable existing OCR. Keep edition identity, source notices and acquisition hashes.
+
+Reserve new transcription/OCR for books genuinely unavailable as usable text after checking existing holdings and relevant text repositories. Record which sources were checked and what was unavailable before placing a book in that queue; a PDF or missing local transcript alone is not sufficient. Do not spend a text-acquisition mission processing scans while eligible ready-made texts remain available. Batch retrievals, resume from checkpoints and report acquired texts separately from links, scans and catalog records.
+
 Use UTF-8, LF line endings, two-space JSON indentation and a trailing newline. Every catalog file has `$schema`, `schemaVersion: 1`, `kind` and an immutable `id`. All IDs use lowercase ASCII words separated by hyphens and a kind prefix, e.g. `author-john-owen`, `work-spurgeon-sermon-0001`, `edition-spurgeon-sermon-0001-1855-en`, `asset-spurgeon-sermon-0001-scan-a`. These are illustrative IDs, not acquired records.
 
 Do not derive identity solely from a title, URL, array position or file checksum. Titles and URLs change; several files can represent one edition. Never reuse an ID for a different entity. Correct an existing record without silently changing its identity. Registry aliases preserve name variants; merged duplicates leave a documented crosswalk in the run report.
