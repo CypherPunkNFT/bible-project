@@ -1,5 +1,7 @@
 # Acquisition backlog
 
+**Master text/transcription list:** [All currently recorded book holdings and deferred files](reports/text-backlog/REPORT.md), with [exact paths and source evidence](reports/text-backlog/inventory.json). Rebuild from local records with `python -X utf8 scripts/inventory-text-backlog.py`. Existing text, existing OCR, PDFs awaiting text checks, and unacquired text sources are separate; a PDF is not automatically an OCR job.
+
 Established 2026-10-05. The owner has requested L00–L14. The L12 ministry collection now has a completed first batch; the other missions retain their own states below. Dependencies guide ordering; website integration (L15) still requires its own request.
 
 | ID | Mission | Bounded first unit | Completion evidence | State |

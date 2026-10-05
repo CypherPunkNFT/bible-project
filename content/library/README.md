@@ -89,6 +89,8 @@ The [L08 report](reports/confessional-standards/REPORT.md) preserves Westminster
 
 ## Pastoral care: text first
 
+The library-wide [master text and transcription backlog](reports/text-backlog/REPORT.md) consolidates known book/volume holdings and deferred files across missions. It lists existing text, existing OCR, PDFs awaiting a text check, and books awaiting text-source discovery.
+
 The [L11 reading index](reports/pastoral-care/REPORT.md) provides seven acquired transcribed books, 23 substantial sections, ten concern routes and 19 catalog-based sermon connections. Original XML identifiers and Scripture citations remain attached to each section; editorial companions are labeled separately. Dedicated bereavement transcription is still a gap. The [deferred PDF list](reports/pastoral-care/deferred-pdfs.json) retains the already-acquired Flavel scan/OCR without further processing. Per the owner's instruction, prioritize ready-made readable transcriptions and list scan-only candidates for later. Rebuild offline with `python -X utf8 scripts/catalog-pastoral-care.py`.
 
 ## Preaching, church ministry and missions
