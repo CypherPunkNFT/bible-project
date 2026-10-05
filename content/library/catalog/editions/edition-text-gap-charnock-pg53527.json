@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-text-gap-charnock-pg53527",
+  "editorialState": "catalogued",
+  "notes": [
+    "Separate electronic witness; not asserted identical to the existing 1840 scan. Both volumes are in this one file."
+  ],
+  "reviews": [],
+  "workId": "work-charnock-attributes",
+  "label": "Project Gutenberg 53527: The Existence and Attributes of God, Volumes 1 and 2",
+  "languages": [
+    "en"
+  ],
+  "contributors": [],
+  "publisher": "Project Gutenberg",
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://www.gutenberg.org/ebooks/53527",
+      "locator": "Catalog title, ebook number and copyright field",
+      "note": "Source identifies the historical work and public-domain status in the USA.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://mirrors.xmission.com/gutenberg/5/3/5/2/53527/53527-0.txt",
+      "locator": "Complete electronic file including header and license",
+      "note": "Named static mirror download. Electronic notices retained; no scan or OCR processing.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://www.gutenberg.org/policy/robot_access.html",
+      "locator": "Approved mirror routes",
+      "note": "Use the mirror instead of crawling the ordinary Gutenberg website.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+[
+  {
+    "parentAssetId": "asset-l10-zwemer-christ-pdf",
+    "parentSha256": "dfc639d3dd9d114c2e048241dc324833b9446e1b074a25b0e2299ee3853b7518",
+    "sourceUrl": "https://www.zwemercenter.com/wp-content/uploads/2017/10/Zwemer-Moslem-Christ.pdf",
+    "textPath": ".local/library/text-gap-batch/asset-l10-zwemer-christ-pdf/readable.txt",
+    "pageMapPath": ".local/library/text-gap-batch/asset-l10-zwemer-christ-pdf/pages.json",
+    "sha256": "d9f5e6485332fb835bd64b0cdbae3f2d8cdee707131667dacfff561decc1a647",
+    "pages": 107,
+    "lowTextPages": [
+      70,
+      95
+    ],
+    "method": "existing-pdf-text-layer",
+    "tool": "PyMuPDF",
+    "toolVersion": "1.28.2",
+    "characters": 422608,
+    "scope": "All PDF pages attempted. Blank/image-only pages and text-layer errors remain; no new OCR, proofreading or source-rights promotion."
+  },
+  {
+    "parentAssetId": "asset-l10-zwemer-god-pdf",
+    "parentSha256": "a363ac13ebacffbfe5a8a9a35f76459458b4d9b00014f9052111090db93eb733",
+    "sourceUrl": "https://www.zwemercenter.com/wp-content/uploads/2017/10/Zwemer-Moslem-Doctrine-of-God-.pdf",
+    "textPath": ".local/library/text-gap-batch/asset-l10-zwemer-god-pdf/readable.txt",
+    "pageMapPath": ".local/library/text-gap-batch/asset-l10-zwemer-god-pdf/pages.json",
+    "sha256": "106633a2503a9ba04736cf8158562a23f944f3f822b8f0da7c995e32667aaa0b",
+    "pages": 62,
+    "lowTextPages": [],
+    "method": "existing-pdf-text-layer",
+    "tool": "PyMuPDF",
+    "toolVersion": "1.28.2",
+    "characters": 257550,
+    "scope": "All PDF pages attempted. Blank/image-only pages and text-layer errors remain; no new OCR, proofreading or source-rights promotion."
+  },
+  {
+    "parentAssetId": "asset-l10-zwemer-lectures-pdf",
+    "parentSha256": "6912dd246886cd65d761b5165a042c2787b6b49b5b0f1a1fc2bc2cebd10edf2b",
+    "sourceUrl": "https://www.zwemercenter.com/wp-content/uploads/2017/10/Zwemer-Disintegration-of-Islam.pdf",
+    "textPath": ".local/library/text-gap-batch/asset-l10-zwemer-lectures-pdf/readable.txt",
+    "pageMapPath": ".local/library/text-gap-batch/asset-l10-zwemer-lectures-pdf/pages.json",
+    "sha256": "0e1e1a332edd9a2524d38df2e68fbab9d2d90edb2262419a825a90ae54591311",
+    "pages": 131,
+    "lowTextPages": [
+      8,
+      35,
+      76
+    ],
+    "method": "existing-pdf-text-layer",
+    "tool": "PyMuPDF",
+    "toolVersion": "1.28.2",
+    "characters": 450527,
+    "scope": "All PDF pages attempted. Blank/image-only pages and text-layer errors remain; no new OCR, proofreading or source-rights promotion."
+  }
+]

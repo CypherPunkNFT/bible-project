@@ -1,0 +1,89 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "asset",
+  "id": "asset-text-gap-hodge-pg19192-txt",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "editionId": "edition-hodge-darwinism",
+  "sourceId": "source-gutenberg",
+  "canonicalUrl": "https://www.gutenberg.org/ebooks/19192",
+  "finalUrl": "https://mirrors.xmission.com/gutenberg/1/9/1/9/19192/19192.txt",
+  "format": "text",
+  "mediaKind": "text",
+  "acquisitionStatus": "downloaded",
+  "storage": "raw",
+  "relativePath": "library/source-gutenberg/asset-text-gap-hodge-pg19192-txt/19192.txt",
+  "sha256": "35b1042523b307fde6775ce62a32925f53dd9b9223e09c37eace3e3327453405",
+  "byteCount": 265565,
+  "mimeType": "text/plain",
+  "retrievedAt": "2026-10-05T13:23:44.772637Z",
+  "rights": {
+    "category": "public-domain",
+    "jurisdiction": "United States",
+    "licenseId": null,
+    "licenseUrl": null,
+    "attribution": "Named historical authors, editors and source institutions; electronic notices preserved.",
+    "conditions": [
+      "Retain Project Gutenberg license and notices if distributing the Gutenberg electronic edition; verify applicable trademark and jurisdiction requirements."
+    ],
+    "conditionsMet": false,
+    "actions": {
+      "download": "allowed",
+      "host": "unknown",
+      "redistribute": "unknown",
+      "adapt": "unknown",
+      "transcribe": "unknown",
+      "embed": "unknown",
+      "indexMetadata": "allowed",
+      "indexFullText": "unknown"
+    },
+    "evidence": [
+      {
+        "url": "https://www.gutenberg.org/ebooks/19192",
+        "locator": "Catalog title, ebook number and copyright field",
+        "note": "Source identifies the historical work and public-domain status in the USA.",
+        "checkedOn": "2026-10-05"
+      },
+      {
+        "url": "https://mirrors.xmission.com/gutenberg/1/9/1/9/19192/19192.txt",
+        "locator": "Complete electronic file including header and license",
+        "note": "Named static mirror download. Electronic notices retained; no scan or OCR processing.",
+        "checkedOn": "2026-10-05"
+      },
+      {
+        "url": "https://www.gutenberg.org/policy/robot_access.html",
+        "locator": "Approved mirror routes",
+        "note": "Use the mirror instead of crawling the ordinary Gutenberg website.",
+        "checkedOn": "2026-10-05"
+      }
+    ],
+    "unresolved": [
+      "Historical text is public domain in the United States; digital packaging and use outside the United States require separate review.",
+      "Public hosting and full-text search are not cleared by this private acquisition record."
+    ],
+    "review": {
+      "date": "2026-10-05",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Bibliographic links and source boundaries; not a whole-text clearance."
+    }
+  },
+  "fullTextIndexed": false,
+  "processing": {
+    "parentAssetId": null,
+    "method": "none",
+    "tool": null,
+    "toolVersion": null,
+    "parameters": null,
+    "date": null,
+    "note": "Unmodified source-offered text; complete Gutenberg notices retained."
+  },
+  "quality": {
+    "state": "unreviewed",
+    "reviewedBy": null,
+    "reviewedOn": null,
+    "note": "Author/title and ebook boundary markers checked. Not fully proofread or collated; historical scientific and religious claims remain attributed to their authors."
+  }
+}

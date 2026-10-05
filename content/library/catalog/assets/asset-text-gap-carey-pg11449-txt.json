@@ -1,0 +1,89 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "asset",
+  "id": "asset-text-gap-carey-pg11449-txt",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "editionId": "edition-l12-carey",
+  "sourceId": "source-gutenberg",
+  "canonicalUrl": "https://www.gutenberg.org/ebooks/11449",
+  "finalUrl": "https://mirrors.xmission.com/gutenberg/1/1/4/4/11449/11449-0.txt",
+  "format": "text",
+  "mediaKind": "text",
+  "acquisitionStatus": "downloaded",
+  "storage": "raw",
+  "relativePath": "library/source-gutenberg/asset-text-gap-carey-pg11449-txt/11449-0.txt",
+  "sha256": "3c5827a8f6f054e57b8b5865a80db1227d5c8f73ad194fe8bf3208489f131652",
+  "byteCount": 97681,
+  "mimeType": "text/plain",
+  "retrievedAt": "2026-10-05T13:23:39.231925Z",
+  "rights": {
+    "category": "public-domain",
+    "jurisdiction": "United States",
+    "licenseId": null,
+    "licenseUrl": null,
+    "attribution": "Named historical authors, editors and source institutions; electronic notices preserved.",
+    "conditions": [
+      "Retain Project Gutenberg license and notices if distributing the Gutenberg electronic edition; verify applicable trademark and jurisdiction requirements."
+    ],
+    "conditionsMet": false,
+    "actions": {
+      "download": "allowed",
+      "host": "unknown",
+      "redistribute": "unknown",
+      "adapt": "unknown",
+      "transcribe": "unknown",
+      "embed": "unknown",
+      "indexMetadata": "allowed",
+      "indexFullText": "unknown"
+    },
+    "evidence": [
+      {
+        "url": "https://www.gutenberg.org/ebooks/11449",
+        "locator": "Catalog title, ebook number and copyright field",
+        "note": "Source identifies the historical work and public-domain status in the USA.",
+        "checkedOn": "2026-10-05"
+      },
+      {
+        "url": "https://mirrors.xmission.com/gutenberg/1/1/4/4/11449/11449-0.txt",
+        "locator": "Complete electronic file including header and license",
+        "note": "Named static mirror download. Electronic notices retained; no scan or OCR processing.",
+        "checkedOn": "2026-10-05"
+      },
+      {
+        "url": "https://www.gutenberg.org/policy/robot_access.html",
+        "locator": "Approved mirror routes",
+        "note": "Use the mirror instead of crawling the ordinary Gutenberg website.",
+        "checkedOn": "2026-10-05"
+      }
+    ],
+    "unresolved": [
+      "Historical text is public domain in the United States; digital packaging and use outside the United States require separate review.",
+      "Public hosting and full-text search are not cleared by this private acquisition record."
+    ],
+    "review": {
+      "date": "2026-10-05",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Bibliographic links and source boundaries; not a whole-text clearance."
+    }
+  },
+  "fullTextIndexed": false,
+  "processing": {
+    "parentAssetId": null,
+    "method": "none",
+    "tool": null,
+    "toolVersion": null,
+    "parameters": null,
+    "date": null,
+    "note": "Unmodified source-offered text; complete Gutenberg notices retained."
+  },
+  "quality": {
+    "state": "unreviewed",
+    "reviewedBy": null,
+    "reviewedOn": null,
+    "note": "Author/title and ebook boundary markers checked. Not fully proofread or collated; historical scientific and religious claims remain attributed to their authors."
+  }
+}
