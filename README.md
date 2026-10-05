@@ -88,10 +88,13 @@ and let headings and row dividers span the full interior without a scrollbar gut
 `src/components/OutsideScroll.tsx` for new bounded tables and reference lists; it synchronizes native
 scrolling in both directions and updates the thumb when content or the viewport changes. Keep its ancestors
 from clipping the outside scrollbar. Harmony and the Library versions list already use the same pattern.
+Keep vertical overscroll behavior `auto` on both the content viewport and its outside scrollbar: once a
+table reaches either end, scrolling should continue up or down the page. Do not trap page scrolling inside tables.
 
 Check with native browser scrollbars visible: `bunx playwright test -c e2e/outside-scroll.config.ts`.
 The checks cover Miracles, book pairs, measure evidence, place references and the testimonies list, including
-keyboard scrolling, filters and expanded passages. Testimony checks use browser fixtures without API writes.
+keyboard scrolling, filters and expanded passages. They also verify page scrolling past both ends of the
+Miracles, Harmony and Library versions tables. Testimony checks use browser fixtures without API writes.
 
 ## Run it yourself
 

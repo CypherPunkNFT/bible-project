@@ -92,7 +92,7 @@ export function VersionsList() {
       </div>
       <div className="relative">
       <div className="versions-list-frame overflow-hidden rounded-2xl border border-line bg-surface">
-        <div ref={viewport} onScroll={event => syncScroll(event.currentTarget, outsideScroll.current)} role="region" aria-label="Bible versions" tabIndex={0} className="versions-list-scroll no-scrollbar overflow-y-auto overscroll-contain" style={{ height: `${ROW_REM * VISIBLE + HEADING_REM + 0.15}rem` }}>
+        <div ref={viewport} onScroll={event => syncScroll(event.currentTarget, outsideScroll.current)} role="region" aria-label="Bible versions" tabIndex={0} className="versions-list-scroll no-scrollbar overflow-y-auto overscroll-auto" style={{ height: `${ROW_REM * VISIBLE + HEADING_REM + 0.15}rem` }}>
           <div ref={content}>
           {shown.map(({ group, count, sections }) => (
             <section key={group.id} aria-label={group.title}>
@@ -132,7 +132,7 @@ export function VersionsList() {
           </div>
         </div>
       </div>
-      <div ref={outsideScroll} onScroll={event => syncScroll(event.currentTarget, viewport.current)} aria-hidden="true" tabIndex={-1} className="versions-outside-scroll slim-scroll absolute inset-y-px -right-4 w-[12px] overflow-y-scroll overscroll-contain"><div ref={outsideSize} className="w-px" /></div>
+      <div ref={outsideScroll} onScroll={event => syncScroll(event.currentTarget, viewport.current)} aria-hidden="true" tabIndex={-1} className="versions-outside-scroll slim-scroll absolute inset-y-px -right-4 w-[12px] overflow-y-scroll overscroll-auto"><div ref={outsideSize} className="w-px" /></div>
       </div>
     </section>
   );

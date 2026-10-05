@@ -51,6 +51,55 @@ test("outside scroll: both miracle tables retain their frames through scrolling,
   await expect.poll(() => jesus.locator(".outside-scrollbar").evaluate((el) => el.scrollHeight - el.clientHeight)).toBeGreaterThan(100);
 });
 
+for (const table of [
+  { name: "Jesus miracles", path: "/study/miracles", viewport: '[aria-label="Jesus miracles"]', bar: '[aria-labelledby="who-jesus"] .outside-scrollbar' },
+  { name: "Moses miracles", path: "/study/miracles", viewport: '[aria-label="Moses and Aaron miracles"]', bar: '[aria-labelledby="who-moses-and-aaron"] .outside-scrollbar' },
+  { name: "Gospel Harmony", path: "/study/harmony", viewport: ".harmony-rows", bar: ".harmony-outside-scroll" },
+  { name: "Library versions", path: "/library", viewport: ".versions-list-scroll", bar: ".versions-outside-scroll" },
+]) {
+  test(`outside scroll: ${table.name} hands scrolling to the page at both ends`, async ({ page }) => {
+    await page.goto(table.path);
+    const viewport = page.locator(table.viewport);
+    const bar = page.locator(table.bar);
+    await expect.poll(() => viewport.evaluate((el) => el.scrollHeight - el.clientHeight)).toBeGreaterThan(300);
+    await page.evaluate(() => document.fonts.ready);
+    await viewport.evaluate((el) => { el.scrollTop = 150; el.scrollIntoView({ block: "center" }); });
+    await viewport.hover();
+    const initialPageY = await page.evaluate(() => scrollY);
+    await page.mouse.wheel(0, 100);
+    await expect.poll(() => viewport.evaluate((el) => el.scrollTop)).toBeGreaterThan(200);
+    expect(await page.evaluate(() => scrollY)).toBe(initialPageY);
+
+    // Test real wheel input over both the rows and the external native scrollbar.
+    for (const target of [viewport, bar]) {
+      for (const direction of [-1, 1]) {
+        await viewport.evaluate((el, down) => {
+          el.scrollTop = down ? el.scrollHeight : 0;
+          el.scrollIntoView({ block: "center" });
+          // Leave some page below even when the table is next to the footer.
+          window.scrollBy(0, -120);
+        }, direction > 0);
+        await expect.poll(async () => Math.abs(await viewport.evaluate((el) => el.scrollTop) - await bar.evaluate((el) => el.scrollTop))).toBeLessThanOrEqual(1);
+        // Put this surface at its exact native edge; a mirrored, rounded scrollTop can leave a fraction to scroll.
+        await target.evaluate((el, down) => { el.scrollTop = down ? el.scrollHeight : 0; }, direction > 0);
+        const bounds = (await target.boundingBox())!;
+        const screenHeight = page.viewportSize()!.height;
+        const point = { x: bounds.x + bounds.width - (target === bar ? 3 : bounds.width / 2), y: Math.max(140, Math.min(screenHeight - 32, bounds.y + bounds.height / 2)) };
+        expect(point.y).toBeGreaterThan(bounds.y);
+        expect(point.y).toBeLessThan(bounds.y + bounds.height);
+        await page.mouse.move(point.x, point.y);
+        const before = await page.evaluate(() => scrollY);
+        // Continue the wheel gesture through the boundary, including any subpixel remainder at its end.
+        await expect.poll(async () => {
+          await page.mouse.wheel(0, direction * 100);
+          return (await page.evaluate(() => scrollY) - before) * direction;
+        }, { message: `${table.name}: ${target === bar ? "bar" : "rows"}, ${direction > 0 ? "bottom" : "top"}` }).toBeGreaterThan(20);
+        await expect.poll(() => viewport.evaluate((el, down) => down ? el.scrollHeight - el.clientHeight - el.scrollTop : el.scrollTop, direction > 0)).toBeLessThanOrEqual(1);
+      }
+    }
+  });
+}
+
 test("outside scroll: book-pair rankings keep their scrollbar outside and selections working", async ({ page }) => {
   await page.goto("/study/references#matrix");
   const viewport = page.getByRole("region", { name: "Most cross-referenced book pairs" });
