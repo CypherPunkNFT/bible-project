@@ -1,0 +1,2459 @@
+{
+  "date": "2026-10-05",
+  "scope": "All 77 PDF-only book/volume candidates and all 84 catalogued book holdings previously awaiting text have an explicit source decision; existing text/OCR holdings retained, with selected better alternatives. Short-item and unidentified-file appendices are not claimed fully researched.",
+  "pdfCandidates": 77,
+  "pdfTextVerified": 76,
+  "pdfAlternateEditionText": 1,
+  "newCompleteCcelTranscriptions": 63,
+  "calvinVolumes": 45,
+  "statusCounts": {
+    "existing-ocr-retained": 44,
+    "online-text-alternative-verified": 2,
+    "ready-text-download-offered": 1,
+    "existing-text-retained": 15,
+    "ready-transcription-acquired": 63,
+    "keyboarded-text-located-access-unverified": 1,
+    "online-text-verified": 11,
+    "official-digital-edition-offered": 1,
+    "authorized-free-text-not-verified": 3,
+    "official-excerpt-only": 1,
+    "partial-work-online": 3,
+    "ebook-links-need-quality-check": 1,
+    "existing-alternative-edition-text": 1,
+    "existing-pdf-text-verified": 76
+  },
+  "confirmedNewOcrJobs": 0,
+  "limits": [
+    "No claim that every historic edition has a clean exact transcription.",
+    "Text-layer checks sampled pages; full transcription quality and completeness remain open.",
+    "A commercial or permission-dependent edition is not a transcription assignment.",
+    "No new OCR was run. Original bytes preserved. Public publication selection unchanged."
+  ],
+  "records": [
+    {
+      "holdingId": "ia:bodyofpracticald01wats",
+      "status": "existing-ocr-retained",
+      "bestSource": "https://archive.org/download/bodyofpracticald01wats/bodyofpracticald01wats_djvu.txt",
+      "note": "Already acquired text retained. No claim of new body review or a verified cleaner edition in this pass.",
+      "evidence": [
+        "content/library/reports/puritan-sermons/acquisition-checkpoint.json"
+      ],
+      "originalStatus": "existing-ocr-review",
+      "title": "A body of practical divinity : consisting of above one hundred and seventy six sermons on the lesser catechism, composed by the reverend assembly of divines at Westminster. With a supplement of some sermons, on several texts of Scripture: together with The art of divine contentment. To which is added, Christ's various fulness: by the same author, never before printed in the former editions of this book"
+    },
+    {
+      "holdingId": "ia:bodyofpracticald02wats",
+      "status": "existing-ocr-retained",
+      "bestSource": "https://archive.org/download/bodyofpracticald02wats/bodyofpracticald02wats_djvu.txt",
+      "note": "Already acquired text retained. No claim of new body review or a verified cleaner edition in this pass.",
+      "evidence": [
+        "content/library/reports/puritan-sermons/acquisition-checkpoint.json"
+      ],
+      "originalStatus": "existing-ocr-review",
+      "title": "A body of practical divinity : consisting of above one hundred and seventy six sermons on the lesser catechism, composed by the reverend assembly of divines at Westminster. With a supplement of some sermons, on several texts of Scripture: together with The art of divine contentment. To which is added, Christ's various fulness: by the same author, never before printed in the former editions of this book"
+    },
+    {
+      "holdingId": "ia:selectionofmostc00calv",
+      "status": "existing-ocr-retained",
+      "bestSource": "https://archive.org/download/selectionofmostc00calv/selectionofmostc00calv_djvu.txt",
+      "note": "Already acquired text retained. No claim of new body review or a verified cleaner edition in this pass.",
+      "evidence": [
+        "content/library/reports/puritan-sermons/acquisition-checkpoint.json"
+      ],
+      "originalStatus": "existing-ocr-review",
+      "title": "A Selection of the most celebrated sermons of John Calvin, minister of the gospel, and one of the principal leaders in the Protestant Reformation ... to which is prefixed a biographical history of his life"
+    },
+    {
+      "holdingId": "ia:tokenformourners00flav",
+      "status": "online-text-alternative-verified",
+      "bestSource": "https://christianreader.app/books/a-token-for-mourners/01-epistle-dedicatory",
+      "note": "Readable Flavel text with a 57-item navigation list is available. Dedication body verified; exact edition and Newton appendices are not established, so retain the 1813 scan as a separate witness.",
+      "evidence": "Live chapter body and contents; no bulk retrieval or redistribution clearance.",
+      "checkedOn": "2026-10-05",
+      "originalStatus": "existing-ocr-review",
+      "title": "flavel-mourners"
+    },
+    {
+      "holdingId": "edition-l13-paton-1889-v1",
+      "status": "existing-ocr-retained",
+      "bestSource": "https://archive.org/details/johngpatonmissio188901pato",
+      "note": "Already acquired text retained. No claim of new body review or a verified cleaner edition in this pass.",
+      "evidence": [
+        "content/library/catalog/assets/asset-l13-paton-1889-v1-pdf.json",
+        "content/library/catalog/assets/asset-l13-paton-1889-v1-text.json",
+        "content/library/reports/historical-lives/acquisition-manifest.json"
+      ],
+      "originalStatus": "existing-ocr-review",
+      "title": "John G. Paton, missionary to the New Hebrides: an autobiography, volume 1"
+    },
+    {
+      "holdingId": "edition-l13-paton-1889-v2",
+      "status": "existing-ocr-retained",
+      "bestSource": "https://archive.org/details/johngpatonmissio188902pato",
+      "note": "Already acquired text retained. No claim of new body review or a verified cleaner edition in this pass.",
+      "evidence": [
+        "content/library/catalog/assets/asset-l13-paton-1889-v2-pdf.json",
+        "content/library/catalog/assets/asset-l13-paton-1889-v2-text.json",
+        "content/library/reports/historical-lives/acquisition-manifest.json"
+      ],
+      "originalStatus": "existing-ocr-review",
+      "title": "John G. Paton, missionary to the New Hebrides: an autobiography, volume 2"
+    },
+    {
+      "holdingId": "edition-l13-paton-v3",
+      "status": "existing-ocr-retained",
+      "bestSource": "https://archive.org/details/johngpatonmissio03pato",
+      "note": "Already acquired text retained. No claim of new body review or a verified cleaner edition in this pass.",
+      "evidence": [
+        "content/library/catalog/assets/asset-l13-paton-v3-pdf.json",
+        "content/library/catalog/assets/asset-l13-paton-v3-text.json",
+        "content/library/reports/historical-lives/acquisition-manifest.json"
+      ],
+      "originalStatus": "existing-ocr-review",
+      "title": "John G. Paton, missionary to the New Hebrides: an autobiography, volume 3"
+    },
+    {
+      "holdingId": "edition-l12-spurgeon-lectures",
+      "status": "online-text-alternative-verified",
+      "bestSource": "https://www.spurgeon.org/books/lectures-to-my-students",
+      "note": "Spurgeon Library offers a book reader; first-series preface body verified. Use the reader before processing the existing scan; chapter completeness still needs collation.",
+      "evidence": "Official archive book page, substantial preface and chapter navigation.",
+      "checkedOn": "2026-10-05",
+      "originalStatus": "existing-ocr-review",
+      "title": "Lectures to My Students: First Series"
+    },
+    {
+      "holdingId": "edition-l13-mcheyne-1844",
+      "status": "existing-ocr-retained",
+      "bestSource": "https://archive.org/details/robertmurraymcch00bonauoft",
+      "note": "Already acquired text retained. No claim of new body review or a verified cleaner edition in this pass.",
+      "evidence": [
+        "content/library/catalog/assets/asset-l13-mcheyne-1844-pdf.json",
+        "content/library/catalog/assets/asset-l13-mcheyne-1844-text.json",
+        "content/library/reports/historical-lives/acquisition-manifest.json"
+      ],
+      "originalStatus": "existing-ocr-review",
+      "title": "Memoir and Remains of Robert Murray M'Cheyne"
+    },
+    {
+      "holdingId": "edition-l13-brainerd-1822",
+      "status": "existing-ocr-retained",
+      "bestSource": "https://archive.org/details/memoirsrevdavid00dwiggoog",
+      "note": "Already acquired text retained. No claim of new body review or a verified cleaner edition in this pass.",
+      "evidence": [
+        "content/library/catalog/assets/asset-l13-brainerd-1822-pdf.json",
+        "content/library/catalog/assets/asset-l13-brainerd-1822-text.json",
+        "content/library/reports/historical-lives/acquisition-manifest.json"
+      ],
+      "originalStatus": "existing-ocr-review",
+      "title": "Memoirs of the Rev. David Brainerd"
+    },
+    {
+      "holdingId": "edition-berkhof-introduction",
+      "status": "ready-text-download-offered",
+      "bestSource": "https://www.ccel.org/ccel/berkhof/newtestament.html",
+      "note": "CCEL offers ready-made text and XML; introduction body verified online. Existing OCR need not be transcribed from scratch.",
+      "evidence": "Work page formats plus newtestament.ii.html and newtestament.iii.html body.",
+      "checkedOn": "2026-10-05",
+      "originalStatus": "existing-ocr-review",
+      "title": "New Testament Introduction"
+    },
+    {
+      "holdingId": "edition-l03-thechristianrace00ryleuoft",
+      "status": "existing-ocr-retained",
+      "bestSource": "https://archive.org/download/thechristianrace00ryleuoft/thechristianrace00ryleuoft_djvu.txt",
+      "note": "Already acquired text retained. No claim of new body review or a verified cleaner edition in this pass.",
+      "evidence": [
+        "content/library/catalog/assets/asset-l03-thechristianrace00ryleuoft-ocr.json",
+        "content/library/catalog/assets/asset-l03-thechristianrace00ryleuoft-pdf.json",
+        "content/library/reports/historic-preaching/acquisition-manifest.json"
+      ],
+      "originalStatus": "existing-ocr-review",
+      "title": "The Christian Race and Other Sermons"
+    },
+    {
+      "holdingId": "ia:completeworksofr01sibbuoft",
+      "status": "existing-ocr-retained",
+      "bestSource": "https://archive.org/download/completeworksofr01sibbuoft/completeworksofr01sibbuoft_djvu.txt",
+      "note": "Already acquired text retained. No claim of new body review or a verified cleaner edition in this pass.",
+      "evidence": [
+        "content/library/reports/puritan-sermons/acquisition-checkpoint.json"
+      ],
+      "originalStatus": "existing-ocr-review",
+      "title": "The complete works of Richard Sibbes"
+    },
+    {
+      "holdingId": "ia:completeworkso02sibb",
+      "status": "existing-ocr-retained",
+      "bestSource": "https://archive.org/download/completeworkso02sibb/completeworkso02sibb_djvu.txt",
+      "note": "Already acquired text retained. No claim of new body review or a verified cleaner edition in this pass.",
+      "evidence": [
+        "content/library/reports/puritan-sermons/acquisition-checkpoint.json"
+      ],
+      "originalStatus": "existing-ocr-review",
+      "title": "The complete works of Richard Sibbes, D.D."
+    },
+    {
+      "holdingId": "ia:completeworkso03sibb",
+      "status": "existing-ocr-retained",
+      "bestSource": "https://archive.org/download/completeworkso03sibb/completeworkso03sibb_djvu.txt",
+      "note": "Already acquired text retained. No claim of new body review or a verified cleaner edition in this pass.",
+      "evidence": [
+        "content/library/reports/puritan-sermons/acquisition-checkpoint.json"
+      ],
+      "originalStatus": "existing-ocr-review",
+      "title": "The complete works of Richard Sibbes, D.D."
+    },
+    {
+      "holdingId": "ia:completeworkso04sibb",
+      "status": "existing-ocr-retained",
+      "bestSource": "https://archive.org/download/completeworkso04sibb/completeworkso04sibb_djvu.txt",
+      "note": "Already acquired text retained. No claim of new body review or a verified cleaner edition in this pass.",
+      "evidence": [
+        "content/library/reports/puritan-sermons/acquisition-checkpoint.json"
+      ],
+      "originalStatus": "existing-ocr-review",
+      "title": "The complete works of Richard Sibbes, D.D."
+    },
+    {
+      "holdingId": "ia:completeworkso05sibb",
+      "status": "existing-ocr-retained",
+      "bestSource": "https://archive.org/download/completeworkso05sibb/completeworkso05sibb_djvu.txt",
+      "note": "Already acquired text retained. No claim of new body review or a verified cleaner edition in this pass.",
+      "evidence": [
+        "content/library/reports/puritan-sermons/acquisition-checkpoint.json"
+      ],
+      "originalStatus": "existing-ocr-review",
+      "title": "The complete works of Richard Sibbes, D.D."
+    },
+    {
+      "holdingId": "ia:completeworkso06sibb",
+      "status": "existing-ocr-retained",
+      "bestSource": "https://archive.org/download/completeworkso06sibb/completeworkso06sibb_djvu.txt",
+      "note": "Already acquired text retained. No claim of new body review or a verified cleaner edition in this pass.",
+      "evidence": [
+        "content/library/reports/puritan-sermons/acquisition-checkpoint.json"
+      ],
+      "originalStatus": "existing-ocr-review",
+      "title": "The complete works of Richard Sibbes, D.D."
+    },
+    {
+      "holdingId": "ia:completeworkso07sibb",
+      "status": "existing-ocr-retained",
+      "bestSource": "https://archive.org/download/completeworkso07sibb/completeworkso07sibb_djvu.txt",
+      "note": "Already acquired text retained. No claim of new body review or a verified cleaner edition in this pass.",
+      "evidence": [
+        "content/library/reports/puritan-sermons/acquisition-checkpoint.json"
+      ],
+      "originalStatus": "existing-ocr-review",
+      "title": "The complete works of Richard Sibbes, D.D."
+    },
+    {
+      "holdingId": "edition-vos-kingdom",
+      "status": "existing-ocr-retained",
+      "bestSource": "https://archive.org/download/theteachingofjes00vosuoft/theteachingofjes00vosuoft.pdf",
+      "note": "Already acquired text retained. No claim of new body review or a verified cleaner edition in this pass.",
+      "evidence": [
+        "content/library/catalog/assets/asset-l06-vos-pdf.json",
+        "content/library/catalog/assets/asset-l06-vos-text.json",
+        "content/library/catalog/assets/asset-vos-kingdom.json",
+        "content/library/reports/scripture-studies/acquisition-manifest.json"
+      ],
+      "originalStatus": "existing-ocr-review",
+      "title": "The Teaching of Jesus Concerning the Kingdom of God and the Church"
+    },
+    {
+      "holdingId": "edition-l03-twobearsandothe00rylegoog",
+      "status": "existing-ocr-retained",
+      "bestSource": "https://archive.org/download/twobearsandothe00rylegoog/twobearsandothe00rylegoog_djvu.txt",
+      "note": "Already acquired text retained. No claim of new body review or a verified cleaner edition in this pass.",
+      "evidence": [
+        "content/library/catalog/assets/asset-l03-twobearsandothe00rylegoog-ocr.json",
+        "content/library/catalog/assets/asset-l03-twobearsandothe00rylegoog-ocrxml.json",
+        "content/library/catalog/assets/asset-l03-twobearsandothe00rylegoog-pdf.json",
+        "content/library/reports/historic-preaching/acquisition-manifest.json"
+      ],
+      "originalStatus": "existing-ocr-review",
+      "title": "The Two Bears, and Other Sermons for Children"
+    },
+    {
+      "holdingId": "ia:wholeworksofjohn01flav",
+      "status": "existing-ocr-retained",
+      "bestSource": "https://archive.org/download/wholeworksofjohn01flav/wholeworksofjohn01flav_djvu.txt",
+      "note": "Already acquired text retained. No claim of new body review or a verified cleaner edition in this pass.",
+      "evidence": [
+        "content/library/reports/puritan-sermons/acquisition-checkpoint.json"
+      ],
+      "originalStatus": "existing-ocr-review",
+      "title": "The whole works of John Flavel, late minister of the gospel at Dartmouth, Devon"
+    },
+    {
+      "holdingId": "ia:wholeworksofjohn02flav",
+      "status": "existing-ocr-retained",
+      "bestSource": "https://archive.org/download/wholeworksofjohn02flav/wholeworksofjohn02flav_djvu.txt",
+      "note": "Already acquired text retained. No claim of new body review or a verified cleaner edition in this pass.",
+      "evidence": [
+        "content/library/reports/puritan-sermons/acquisition-checkpoint.json"
+      ],
+      "originalStatus": "existing-ocr-review",
+      "title": "The whole works of John Flavel, late minister of the gospel at Dartmouth, Devon"
+    },
+    {
+      "holdingId": "ia:wholeworksofjohn03flav",
+      "status": "existing-ocr-retained",
+      "bestSource": "https://archive.org/download/wholeworksofjohn03flav/wholeworksofjohn03flav_djvu.txt",
+      "note": "Already acquired text retained. No claim of new body review or a verified cleaner edition in this pass.",
+      "evidence": [
+        "content/library/reports/puritan-sermons/acquisition-checkpoint.json"
+      ],
+      "originalStatus": "existing-ocr-review",
+      "title": "The whole works of John Flavel, late minister of the gospel at Dartmouth, Devon"
+    },
+    {
+      "holdingId": "ia:worksofjohnowe08owen",
+      "status": "existing-ocr-retained",
+      "bestSource": "https://archive.org/download/worksofjohnowe08owen/worksofjohnowe08owen_djvu.txt",
+      "note": "Already acquired text retained. No claim of new body review or a verified cleaner edition in this pass.",
+      "evidence": [
+        "content/library/reports/puritan-sermons/acquisition-checkpoint.json"
+      ],
+      "originalStatus": "existing-ocr-review",
+      "title": "The works of John Owen"
+    },
+    {
+      "holdingId": "ia:worksofjohnowe09owen",
+      "status": "existing-ocr-retained",
+      "bestSource": "https://archive.org/download/worksofjohnowe09owen/worksofjohnowe09owen_djvu.txt",
+      "note": "Already acquired text retained. No claim of new body review or a verified cleaner edition in this pass.",
+      "evidence": [
+        "content/library/reports/puritan-sermons/acquisition-checkpoint.json"
+      ],
+      "originalStatus": "existing-ocr-review",
+      "title": "The works of John Owen"
+    },
+    {
+      "holdingId": "ia:worksofjohnowe185008owen",
+      "status": "existing-ocr-retained",
+      "bestSource": "https://archive.org/download/worksofjohnowe185008owen/worksofjohnowe185008owen_djvu.txt",
+      "note": "Already acquired text retained. No claim of new body review or a verified cleaner edition in this pass.",
+      "evidence": [
+        "content/library/reports/puritan-sermons/acquisition-checkpoint.json"
+      ],
+      "originalStatus": "existing-ocr-review",
+      "title": "The works of John Owen"
+    },
+    {
+      "holdingId": "ia:worksofjohnowe185009owen",
+      "status": "existing-ocr-retained",
+      "bestSource": "https://archive.org/download/worksofjohnowe185009owen/worksofjohnowe185009owen_djvu.txt",
+      "note": "Already acquired text retained. No claim of new body review or a verified cleaner edition in this pass.",
+      "evidence": [
+        "content/library/reports/puritan-sermons/acquisition-checkpoint.json"
+      ],
+      "originalStatus": "existing-ocr-review",
+      "title": "The works of John Owen"
+    },
+    {
+      "holdingId": "ia:worksofjohnowend0017owen",
+      "status": "existing-ocr-retained",
+      "bestSource": "https://archive.org/download/worksofjohnowend0017owen/worksofjohnowend0017owen_djvu.txt",
+      "note": "Already acquired text retained. No claim of new body review or a verified cleaner edition in this pass.",
+      "evidence": [
+        "content/library/reports/puritan-sermons/acquisition-checkpoint.json"
+      ],
+      "originalStatus": "existing-ocr-review",
+      "title": "The works of John Owen, D.D. "
+    },
+    {
+      "holdingId": "edition-l03-worksofpresidents01edwa",
+      "status": "existing-ocr-retained",
+      "bestSource": "https://archive.org/download/worksofpresidents01edwa/worksofpresidents01edwa_djvu.txt",
+      "note": "Already acquired text retained. No claim of new body review or a verified cleaner edition in this pass.",
+      "evidence": [
+        "content/library/catalog/assets/asset-l03-worksofpresidents01edwa-ocr.json",
+        "content/library/catalog/assets/asset-l03-worksofpresidents01edwa-pdf.json",
+        "content/library/reports/historic-preaching/acquisition-manifest.json"
+      ],
+      "originalStatus": "existing-ocr-review",
+      "title": "The Works of President Edwards, with a Memoir of His Life, volume 1"
+    },
+    {
+      "holdingId": "edition-l03-worksofpresident10edwa",
+      "status": "existing-ocr-retained",
+      "bestSource": "https://archive.org/download/worksofpresident10edwa/worksofpresident10edwa_djvu.txt",
+      "note": "Already acquired text retained. No claim of new body review or a verified cleaner edition in this pass.",
+      "evidence": [
+        "content/library/catalog/assets/asset-l03-worksofpresident10edwa-ocr.json",
+        "content/library/catalog/assets/asset-l03-worksofpresident10edwa-pdf.json",
+        "content/library/reports/historic-preaching/acquisition-manifest.json"
+      ],
+      "originalStatus": "existing-ocr-review",
+      "title": "The Works of President Edwards, with a Memoir of His Life, volume 10"
+    },
+    {
+      "holdingId": "edition-l03-worksofpresidents03edwa",
+      "status": "existing-ocr-retained",
+      "bestSource": "https://archive.org/download/worksofpresidents03edwa/worksofpresidents03edwa_djvu.txt",
+      "note": "Already acquired text retained. No claim of new body review or a verified cleaner edition in this pass.",
+      "evidence": [
+        "content/library/catalog/assets/asset-l03-worksofpresidents03edwa-ocr.json",
+        "content/library/catalog/assets/asset-l03-worksofpresidents03edwa-pdf.json",
+        "content/library/reports/historic-preaching/acquisition-manifest.json"
+      ],
+      "originalStatus": "existing-ocr-review",
+      "title": "The Works of President Edwards, with a Memoir of His Life, volume 3"
+    },
+    {
+      "holdingId": "edition-l03-worksofpresidents05edwa",
+      "status": "existing-ocr-retained",
+      "bestSource": "https://archive.org/download/worksofpresidents05edwa/worksofpresidents05edwa_djvu.txt",
+      "note": "Already acquired text retained. No claim of new body review or a verified cleaner edition in this pass.",
+      "evidence": [
+        "content/library/catalog/assets/asset-l03-worksofpresidents05edwa-ocr.json",
+        "content/library/catalog/assets/asset-l03-worksofpresidents05edwa-pdf.json",
+        "content/library/reports/historic-preaching/acquisition-manifest.json"
+      ],
+      "originalStatus": "existing-ocr-review",
+      "title": "The Works of President Edwards, with a Memoir of His Life, volume 5"
+    },
+    {
+      "holdingId": "edition-l03-worksofpresidents06edwa",
+      "status": "existing-ocr-retained",
+      "bestSource": "https://archive.org/download/worksofpresidents06edwa/worksofpresidents06edwa_djvu.txt",
+      "note": "Already acquired text retained. No claim of new body review or a verified cleaner edition in this pass.",
+      "evidence": [
+        "content/library/catalog/assets/asset-l03-worksofpresidents06edwa-ocr.json",
+        "content/library/catalog/assets/asset-l03-worksofpresidents06edwa-pdf.json",
+        "content/library/reports/historic-preaching/acquisition-manifest.json"
+      ],
+      "originalStatus": "existing-ocr-review",
+      "title": "The Works of President Edwards, with a Memoir of His Life, volume 6"
+    },
+    {
+      "holdingId": "edition-l03-worksofpresidents07edwa",
+      "status": "existing-ocr-retained",
+      "bestSource": "https://archive.org/download/worksofpresidents07edwa/worksofpresidents07edwa_djvu.txt",
+      "note": "Already acquired text retained. No claim of new body review or a verified cleaner edition in this pass.",
+      "evidence": [
+        "content/library/catalog/assets/asset-l03-worksofpresidents07edwa-ocr.json",
+        "content/library/catalog/assets/asset-l03-worksofpresidents07edwa-pdf.json",
+        "content/library/reports/historic-preaching/acquisition-manifest.json"
+      ],
+      "originalStatus": "existing-ocr-review",
+      "title": "The Works of President Edwards, with a Memoir of His Life, volume 7"
+    },
+    {
+      "holdingId": "edition-l03-worksofpresidents08edwa",
+      "status": "existing-ocr-retained",
+      "bestSource": "https://archive.org/download/worksofpresidents08edwa/worksofpresidents08edwa_djvu.txt",
+      "note": "Already acquired text retained. No claim of new body review or a verified cleaner edition in this pass.",
+      "evidence": [
+        "content/library/catalog/assets/asset-l03-worksofpresidents08edwa-ocr.json",
+        "content/library/catalog/assets/asset-l03-worksofpresidents08edwa-pdf.json",
+        "content/library/reports/historic-preaching/acquisition-manifest.json"
+      ],
+      "originalStatus": "existing-ocr-review",
+      "title": "The Works of President Edwards, with a Memoir of His Life, volume 8"
+    },
+    {
+      "holdingId": "edition-l03-worksofpresident09edwa",
+      "status": "existing-ocr-retained",
+      "bestSource": "https://archive.org/download/worksofpresident09edwa/worksofpresident09edwa_djvu.txt",
+      "note": "Already acquired text retained. No claim of new body review or a verified cleaner edition in this pass.",
+      "evidence": [
+        "content/library/catalog/assets/asset-l03-worksofpresident09edwa-ocr.json",
+        "content/library/catalog/assets/asset-l03-worksofpresident09edwa-pdf.json",
+        "content/library/reports/historic-preaching/acquisition-manifest.json"
+      ],
+      "originalStatus": "existing-ocr-review",
+      "title": "The Works of President Edwards, with a Memoir of His Life, volume 9"
+    },
+    {
+      "holdingId": "edition-l03-worksrevjohnne02newt",
+      "status": "existing-ocr-retained",
+      "bestSource": "https://archive.org/download/worksrevjohnne02newt/worksrevjohnne02newt_djvu.txt",
+      "note": "Already acquired text retained. No claim of new body review or a verified cleaner edition in this pass.",
+      "evidence": [
+        "content/library/catalog/assets/asset-l03-worksrevjohnne02newt-ocr.json",
+        "content/library/catalog/assets/asset-l03-worksrevjohnne02newt-pdf.json",
+        "content/library/reports/historic-preaching/acquisition-manifest.json"
+      ],
+      "originalStatus": "existing-ocr-review",
+      "title": "The Works of the Rev. John Newton, volume 2"
+    },
+    {
+      "holdingId": "edition-l03-worksrevjohnne03newt",
+      "status": "existing-ocr-retained",
+      "bestSource": "https://archive.org/download/worksrevjohnne03newt/worksrevjohnne03newt_djvu.txt",
+      "note": "Already acquired text retained. No claim of new body review or a verified cleaner edition in this pass.",
+      "evidence": [
+        "content/library/catalog/assets/asset-l03-worksrevjohnne03newt-ocr.json",
+        "content/library/catalog/assets/asset-l03-worksrevjohnne03newt-pdf.json",
+        "content/library/reports/historic-preaching/acquisition-manifest.json"
+      ],
+      "originalStatus": "existing-ocr-review",
+      "title": "The Works of the Rev. John Newton, volume 3"
+    },
+    {
+      "holdingId": "edition-l03-worksrevjohnne04newt",
+      "status": "existing-ocr-retained",
+      "bestSource": "https://archive.org/download/worksrevjohnne04newt/worksrevjohnne04newt_djvu.txt",
+      "note": "Already acquired text retained. No claim of new body review or a verified cleaner edition in this pass.",
+      "evidence": [
+        "content/library/catalog/assets/asset-l03-worksrevjohnne04newt-ocr.json",
+        "content/library/catalog/assets/asset-l03-worksrevjohnne04newt-pdf.json",
+        "content/library/reports/historic-preaching/acquisition-manifest.json"
+      ],
+      "originalStatus": "existing-ocr-review",
+      "title": "The Works of the Rev. John Newton, volume 4"
+    },
+    {
+      "holdingId": "edition-l03-worksrevjohnne05newt",
+      "status": "existing-ocr-retained",
+      "bestSource": "https://archive.org/download/worksrevjohnne05newt/worksrevjohnne05newt_djvu.txt",
+      "note": "Already acquired text retained. No claim of new body review or a verified cleaner edition in this pass.",
+      "evidence": [
+        "content/library/catalog/assets/asset-l03-worksrevjohnne05newt-ocr.json",
+        "content/library/catalog/assets/asset-l03-worksrevjohnne05newt-pdf.json",
+        "content/library/reports/historic-preaching/acquisition-manifest.json"
+      ],
+      "originalStatus": "existing-ocr-review",
+      "title": "The Works of the Rev. John Newton, volume 5"
+    },
+    {
+      "holdingId": "edition-l03-worksrevjohnne06newt",
+      "status": "existing-ocr-retained",
+      "bestSource": "https://archive.org/download/worksrevjohnne06newt/worksrevjohnne06newt_djvu.txt",
+      "note": "Already acquired text retained. No claim of new body review or a verified cleaner edition in this pass.",
+      "evidence": [
+        "content/library/catalog/assets/asset-l03-worksrevjohnne06newt-ocr.json",
+        "content/library/catalog/assets/asset-l03-worksrevjohnne06newt-pdf.json",
+        "content/library/reports/historic-preaching/acquisition-manifest.json"
+      ],
+      "originalStatus": "existing-ocr-review",
+      "title": "The Works of the Rev. John Newton, volume 6"
+    },
+    {
+      "holdingId": "edition-l03-worksofreverendg05whit",
+      "status": "existing-ocr-retained",
+      "bestSource": "https://archive.org/download/worksofreverendg05whit/worksofreverendg05whit_djvu.txt",
+      "note": "Already acquired text retained. No claim of new body review or a verified cleaner edition in this pass.",
+      "evidence": [
+        "content/library/catalog/assets/asset-l03-worksofreverendg05whit-ocr.json",
+        "content/library/catalog/assets/asset-l03-worksofreverendg05whit-pdf.json",
+        "content/library/reports/historic-preaching/acquisition-manifest.json"
+      ],
+      "originalStatus": "existing-ocr-review",
+      "title": "The Works of the Reverend George Whitefield, volume 5"
+    },
+    {
+      "holdingId": "edition-l03-worksofreverendg06whit",
+      "status": "existing-ocr-retained",
+      "bestSource": "https://archive.org/download/worksofreverendg06whit/worksofreverendg06whit_djvu.txt",
+      "note": "Already acquired text retained. No claim of new body review or a verified cleaner edition in this pass.",
+      "evidence": [
+        "content/library/catalog/assets/asset-l03-worksofreverendg06whit-ocr.json",
+        "content/library/catalog/assets/asset-l03-worksofreverendg06whit-pdf.json",
+        "content/library/reports/historic-preaching/acquisition-manifest.json"
+      ],
+      "originalStatus": "existing-ocr-review",
+      "title": "The Works of the Reverend George Whitefield, volume 6"
+    },
+    {
+      "holdingId": "ia:WilliamPerkinsWorksVol1",
+      "status": "existing-ocr-retained",
+      "bestSource": "https://archive.org/download/WilliamPerkinsWorksVol1/William-Perkins-Works-vol-1_djvu.txt",
+      "note": "Already acquired text retained. No claim of new body review or a verified cleaner edition in this pass.",
+      "evidence": [
+        "content/library/reports/puritan-sermons/acquisition-checkpoint.json"
+      ],
+      "originalStatus": "existing-ocr-review",
+      "title": "The Works of William Perkins, vol. 1 (of 3)"
+    },
+    {
+      "holdingId": "ia:WilliamPerkinsWorksVol2",
+      "status": "existing-ocr-retained",
+      "bestSource": "https://archive.org/download/WilliamPerkinsWorksVol2/William-Perkins-Works-vol-2_djvu.txt",
+      "note": "Already acquired text retained. No claim of new body review or a verified cleaner edition in this pass.",
+      "evidence": [
+        "content/library/reports/puritan-sermons/acquisition-checkpoint.json"
+      ],
+      "originalStatus": "existing-ocr-review",
+      "title": "The Works of William Perkins, vol. 2 (of 3)"
+    },
+    {
+      "holdingId": "ia:WilliamPerkinsWorksVol3",
+      "status": "existing-ocr-retained",
+      "bestSource": "https://archive.org/download/WilliamPerkinsWorksVol3/William-Perkins-Works-vol-3_djvu.txt",
+      "note": "Already acquired text retained. No claim of new body review or a verified cleaner edition in this pass.",
+      "evidence": [
+        "content/library/reports/puritan-sermons/acquisition-checkpoint.json"
+      ],
+      "originalStatus": "existing-ocr-review",
+      "title": "The Works of William Perkins, vol. 3 (of 3)"
+    },
+    {
+      "holdingId": "edition-l08-lbc",
+      "status": "existing-text-retained",
+      "bestSource": "https://raw.githubusercontent.com/NonlinearFruit/Creeds.json/2ae21a4c5387ecc91f474c9d3d67c826d2a6b9d5/creeds/london_baptist_1689.json",
+      "note": "Already acquired text retained. No claim of new body review or a verified cleaner edition in this pass.",
+      "evidence": [
+        "content/library/catalog/assets/asset-l08-lbc-json.json"
+      ],
+      "originalStatus": "existing-text-review",
+      "title": "1689 London Baptist Confession"
+    },
+    {
+      "holdingId": "edition-l08-lbc-cc0-json",
+      "status": "existing-text-retained",
+      "bestSource": "https://raw.githubusercontent.com/lwalen/lbcf/235da776742a7956ebb678ec236382813dbe2c33/lbcf.json",
+      "note": "Already acquired text retained. No claim of new body review or a verified cleaner edition in this pass.",
+      "evidence": [
+        "content/library/catalog/assets/asset-l08-lbc-cc0-lbcf-json.json"
+      ],
+      "originalStatus": "existing-text-review",
+      "title": "1689 London Baptist Confession"
+    },
+    {
+      "holdingId": "edition-l08-lbc-cc0-md",
+      "status": "existing-text-retained",
+      "bestSource": "https://raw.githubusercontent.com/lwalen/lbcf/235da776742a7956ebb678ec236382813dbe2c33/lbcf_with_scripture_refs.md",
+      "note": "Already acquired text retained. No claim of new body review or a verified cleaner edition in this pass.",
+      "evidence": [
+        "content/library/catalog/assets/asset-l08-lbc-cc0-lbcf-with-scripture-refs-md.json"
+      ],
+      "originalStatus": "existing-text-review",
+      "title": "1689 London Baptist Confession"
+    },
+    {
+      "holdingId": "edition-l08-baptist",
+      "status": "existing-text-retained",
+      "bestSource": "https://raw.githubusercontent.com/NonlinearFruit/Creeds.json/2ae21a4c5387ecc91f474c9d3d67c826d2a6b9d5/creeds/1695_baptist_catechism.json",
+      "note": "Already acquired text retained. No claim of new body review or a verified cleaner edition in this pass.",
+      "evidence": [
+        "content/library/catalog/assets/asset-l08-baptist-json.json"
+      ],
+      "originalStatus": "existing-text-review",
+      "title": "1695 Baptist Catechism"
+    },
+    {
+      "holdingId": "edition-l08-flavel",
+      "status": "existing-text-retained",
+      "bestSource": "https://raw.githubusercontent.com/NonlinearFruit/Creeds.json/2ae21a4c5387ecc91f474c9d3d67c826d2a6b9d5/creeds/exposition_of_the_assemblies_catechism.json",
+      "note": "Already acquired text retained. No claim of new body review or a verified cleaner edition in this pass.",
+      "evidence": [
+        "content/library/catalog/assets/asset-l08-flavel-json.json"
+      ],
+      "originalStatus": "existing-text-review",
+      "title": "An Exposition of the Assemblies Catechism"
+    },
+    {
+      "holdingId": "edition-l13-knox-pg48250",
+      "status": "existing-text-retained",
+      "bestSource": "https://www.gutenberg.org/ebooks/48250",
+      "note": "Already acquired text retained. No claim of new body review or a verified cleaner edition in this pass.",
+      "evidence": [
+        "content/library/catalog/assets/asset-l13-knox-pg48250-html.json",
+        "content/library/reports/historical-lives/acquisition-manifest.json"
+      ],
+      "originalStatus": "existing-text-review",
+      "title": "History of the Reformation of Religion in Scotland, edited by Cuthbert Lennox"
+    },
+    {
+      "holdingId": "edition-ryle-holiness",
+      "status": "existing-text-retained",
+      "bestSource": "https://www.ccel.org/ccel/ryle/holiness.html",
+      "note": "Already acquired text retained. No claim of new body review or a verified cleaner edition in this pass.",
+      "evidence": [
+        "content/library/catalog/assets/asset-l11-ryle-holiness-xml.json",
+        "content/library/catalog/assets/asset-ryle-holiness.json",
+        "content/library/reports/pastoral-care/acquisition-manifest.json"
+      ],
+      "originalStatus": "existing-text-review",
+      "title": "Holiness"
+    },
+    {
+      "holdingId": "edition-flavel-heart",
+      "status": "existing-text-retained",
+      "bestSource": "https://ccel.org/ccel/flavel/saintindeed/saintindeed",
+      "note": "Already acquired text retained. No claim of new body review or a verified cleaner edition in this pass.",
+      "evidence": [
+        "content/library/catalog/assets/asset-flavel-heart.json",
+        "content/library/catalog/assets/asset-l11-flavel-heart-xml.json",
+        "content/library/reports/pastoral-care/acquisition-manifest.json"
+      ],
+      "originalStatus": "existing-text-review",
+      "title": "Keeping the Heart (A Saint Indeed)"
+    },
+    {
+      "holdingId": "edition-l11-owen-temptation",
+      "status": "existing-text-retained",
+      "bestSource": "https://www.ccel.org/ccel/owen/temptation.html",
+      "note": "Already acquired text retained. No claim of new body review or a verified cleaner edition in this pass.",
+      "evidence": [
+        "content/library/catalog/assets/asset-l11-owen-temptation-xml.json",
+        "content/library/reports/pastoral-care/acquisition-manifest.json"
+      ],
+      "originalStatus": "existing-text-review",
+      "title": "Of Temptation"
+    },
+    {
+      "holdingId": "edition-owen-mortification",
+      "status": "existing-text-retained",
+      "bestSource": "https://www.ccel.org/ccel/owen/mort.html",
+      "note": "Already acquired text retained. No claim of new body review or a verified cleaner edition in this pass.",
+      "evidence": [
+        "content/library/catalog/assets/asset-l11-owen-mortification-xml.json",
+        "content/library/catalog/assets/asset-owen-mortification.json",
+        "content/library/reports/pastoral-care/acquisition-manifest.json"
+      ],
+      "originalStatus": "existing-text-review",
+      "title": "Of the Mortification of Sin in Believers"
+    },
+    {
+      "holdingId": "edition-boston-crook",
+      "status": "existing-text-retained",
+      "bestSource": "https://ccel.org/ccel/boston/crook/crook",
+      "note": "Already acquired text retained. No claim of new body review or a verified cleaner edition in this pass.",
+      "evidence": [
+        "content/library/catalog/assets/asset-boston-crook.json",
+        "content/library/catalog/assets/asset-l11-boston-crook-xml.json",
+        "content/library/reports/pastoral-care/acquisition-manifest.json"
+      ],
+      "originalStatus": "existing-text-review",
+      "title": "The Crook in the Lot"
+    },
+    {
+      "holdingId": "edition-watson-prayer",
+      "status": "existing-text-retained",
+      "bestSource": "https://www.ccel.org/ccel/watson/prayer.html",
+      "note": "Already acquired text retained. No claim of new body review or a verified cleaner edition in this pass.",
+      "evidence": [
+        "content/library/catalog/assets/asset-l11-watson-prayer-xml.json",
+        "content/library/catalog/assets/asset-watson-prayer.json",
+        "content/library/reports/pastoral-care/acquisition-manifest.json"
+      ],
+      "originalStatus": "existing-text-review",
+      "title": "The Lord’s Prayer"
+    },
+    {
+      "holdingId": "edition-l08-wcf",
+      "status": "existing-text-retained",
+      "bestSource": "https://raw.githubusercontent.com/NonlinearFruit/Creeds.json/2ae21a4c5387ecc91f474c9d3d67c826d2a6b9d5/creeds/westminster_confession_of_faith.json",
+      "note": "Already acquired text retained. No claim of new body review or a verified cleaner edition in this pass.",
+      "evidence": [
+        "content/library/catalog/assets/asset-l08-wcf-json.json"
+      ],
+      "originalStatus": "existing-text-review",
+      "title": "Westminster Confession of Faith"
+    },
+    {
+      "holdingId": "edition-l08-wlc",
+      "status": "existing-text-retained",
+      "bestSource": "https://raw.githubusercontent.com/NonlinearFruit/Creeds.json/2ae21a4c5387ecc91f474c9d3d67c826d2a6b9d5/creeds/westminster_larger_catechism.json",
+      "note": "Already acquired text retained. No claim of new body review or a verified cleaner edition in this pass.",
+      "evidence": [
+        "content/library/catalog/assets/asset-l08-wlc-json.json"
+      ],
+      "originalStatus": "existing-text-review",
+      "title": "Westminster Larger Catechism"
+    },
+    {
+      "holdingId": "edition-l08-wsc",
+      "status": "existing-text-retained",
+      "bestSource": "https://raw.githubusercontent.com/NonlinearFruit/Creeds.json/2ae21a4c5387ecc91f474c9d3d67c826d2a6b9d5/creeds/westminster_shorter_catechism.json",
+      "note": "Already acquired text retained. No claim of new body review or a verified cleaner edition in this pass.",
+      "evidence": [
+        "content/library/catalog/assets/asset-l08-wsc-json.json"
+      ],
+      "originalStatus": "existing-text-review",
+      "title": "Westminster Shorter Catechism"
+    },
+    {
+      "holdingId": "edition-watson-divinity",
+      "status": "ready-transcription-acquired",
+      "bestSource": "https://www.ccel.org/ccel/watson/divinity.html",
+      "textUrl": "https://www.ccel.org/ccel/w/watson/divinity.xml",
+      "localText": "library/source-ccel/asset-ready-text-edition-watson-divinity/divinity.xml",
+      "sourceTitle": "A Body of Divinity",
+      "note": "Complete source-offered XML transcription downloaded and parsed; preserve edition and editorial differences.",
+      "evidence": "ready-text-acquisition-manifest.json",
+      "originalStatus": "find-existing-text",
+      "title": "A Body of Divinity"
+    },
+    {
+      "holdingId": "edition-l12-owen-worship",
+      "status": "ready-transcription-acquired",
+      "bestSource": "https://www.ccel.org/ccel/owen/worship.html",
+      "textUrl": "https://www.ccel.org/ccel/o/owen/worship.xml",
+      "localText": "library/source-ccel/asset-ready-text-edition-l12-owen-worship/worship.xml",
+      "sourceTitle": "A Brief Instruction in the Worship of God",
+      "note": "Complete source-offered XML transcription downloaded and parsed; preserve edition and editorial differences.",
+      "evidence": "ready-text-acquisition-manifest.json",
+      "originalStatus": "find-existing-text",
+      "title": "A Brief Instruction in the Worship of God and Discipline of the Churches of the New Testament"
+    },
+    {
+      "holdingId": "edition-perkins-golden-chain",
+      "status": "keyboarded-text-located-access-unverified",
+      "bestSource": "https://quod.lib.umich.edu/cgi/i/idresolver/idresolver-nr?id=A09339.0001.001",
+      "note": "University of Michigan EEBO-TCP record identifies a keyboarded, encoded CC0 text of the 1600 edition. Search record verified; direct retrieval failed. This differs from the catalogued 1591 impression.",
+      "evidence": "University record: author, 1600 imprint, CC0 statement; direct-fetch failure retained.",
+      "checkedOn": "2026-10-05",
+      "originalStatus": "find-existing-text",
+      "title": "A Golden Chain"
+    },
+    {
+      "holdingId": "edition-knox-prayer",
+      "status": "ready-transcription-acquired",
+      "bestSource": "https://www.ccel.org/ccel/knox/prayer.html",
+      "textUrl": "https://www.ccel.org/ccel/k/knox/prayer.xml",
+      "localText": "library/source-ccel/asset-ready-text-edition-knox-prayer/prayer.xml",
+      "sourceTitle": "Treatise on Prayer",
+      "note": "Complete source-offered XML transcription downloaded and parsed; preserve edition and editorial differences.",
+      "evidence": "ready-text-acquisition-manifest.json",
+      "originalStatus": "find-existing-text",
+      "title": "A Treatise on Prayer"
+    },
+    {
+      "holdingId": "edition-spurgeon-grace",
+      "status": "ready-transcription-acquired",
+      "bestSource": "https://www.ccel.org/ccel/spurgeon/grace.html",
+      "textUrl": "https://www.ccel.org/ccel/s/spurgeon/grace.xml",
+      "localText": "library/source-ccel/asset-ready-text-edition-spurgeon-grace/grace.xml",
+      "sourceTitle": "All of Grace",
+      "note": "Complete source-offered XML transcription downloaded and parsed; preserve edition and editorial differences.",
+      "evidence": "ready-text-acquisition-manifest.json",
+      "originalStatus": "find-existing-text",
+      "title": "All of Grace"
+    },
+    {
+      "holdingId": "edition-l12-carey",
+      "status": "online-text-verified",
+      "bestSource": "https://www.gutenberg.org/cache/epub/11449/pg11449-images.html",
+      "note": "Complete readable Gutenberg transcription; retain electronic notices and edition details.",
+      "evidence": "Book text, numbered sections and ending inspected through web source; Gutenberg catalog offers text and EPUB.",
+      "checkedOn": "2026-10-05",
+      "originalStatus": "find-existing-text",
+      "title": "An Enquiry into the Obligations of Christians to Use Means for the Conversion of the Heathens"
+    },
+    {
+      "holdingId": "edition-l08-belgic",
+      "status": "online-text-verified",
+      "bestSource": "https://ccel.org/ccel/schaff/creeds3/creeds3.iv.viii.html",
+      "note": "Substantive HTML document body verified inside book-content; retain the edition/translation and quoted-author distinctions.",
+      "evidence": "ready-text-acquisition-manifest.json",
+      "bodyCharacters": 141739,
+      "bodySha256": "d4f22bd30293b12408232382385c0129375259d569a1f8ce84ef686cb12b4fa0",
+      "originalStatus": "find-existing-text",
+      "title": "Belgic Confession"
+    },
+    {
+      "holdingId": "edition-l12-piper-brothers",
+      "status": "official-digital-edition-offered",
+      "bestSource": "https://www.desiringgod.org/books/brothers-we-are-not-professionals",
+      "note": "Official page offers a complete PDF, unlike the sample-only Nations page. Reuse existing modern-text acquisition if present; no duplicate download performed here.",
+      "evidence": "Official page link /books/brothers-we-are-not-professionals.pdf; PDF body not newly checked in this audit.",
+      "checkedOn": "2026-10-05",
+      "originalStatus": "find-existing-text",
+      "title": "Brothers, We Are Not Professionals: A Plea to Pastors for Radical Ministry"
+    },
+    {
+      "holdingId": "edition-l08-dort",
+      "status": "online-text-verified",
+      "bestSource": "https://ccel.org/ccel/schaff/creeds3/creeds3.iv.xvi.html",
+      "note": "Substantive HTML document body verified inside book-content; retain the edition/translation and quoted-author distinctions.",
+      "evidence": "ready-text-acquisition-manifest.json",
+      "bodyCharacters": 125465,
+      "bodySha256": "25a2028516e55ec7f5f3aa75e3d7568081477eae497ac7aab67912959c2827ef",
+      "originalStatus": "find-existing-text",
+      "title": "Canons of Dort"
+    },
+    {
+      "holdingId": "edition-machen-liberalism",
+      "status": "online-text-verified",
+      "bestSource": "https://www.ccel.org/m/machen/liberalism/home.html",
+      "note": "Legacy CCEL HTML edition has seven chapter links; chapter 1 contains substantive text. Not a scanned-book transcription job.",
+      "evidence": "Cached contents and chr_and_lib_1.html; all seven chapter links inventoried, one body checked.",
+      "checkedOn": "2026-10-05",
+      "originalStatus": "find-existing-text",
+      "title": "Christianity and Liberalism"
+    },
+    {
+      "holdingId": "edition-l06-calvin-36",
+      "status": "ready-transcription-acquired",
+      "bestSource": "https://www.ccel.org/ccel/calvin/calcom36.html",
+      "textUrl": "https://www.ccel.org/ccel/c/calvin/calcom36.xml",
+      "localText": "library/source-ccel/asset-ready-text-edition-l06-calvin-36/calcom36.xml",
+      "sourceTitle": "Commentary on Acts - Volume 1",
+      "note": "Complete source-offered XML transcription downloaded and parsed; preserve edition and editorial differences.",
+      "evidence": "ready-text-acquisition-manifest.json",
+      "originalStatus": "find-existing-text",
+      "title": "Commentary on Acts, volume 1"
+    },
+    {
+      "holdingId": "edition-l06-calvin-37",
+      "status": "ready-transcription-acquired",
+      "bestSource": "https://www.ccel.org/ccel/calvin/calcom37.html",
+      "textUrl": "https://www.ccel.org/ccel/c/calvin/calcom37.xml",
+      "localText": "library/source-ccel/asset-ready-text-edition-l06-calvin-37/calcom37.xml",
+      "sourceTitle": "Commentary on Acts - Volume 2",
+      "note": "Complete source-offered XML transcription downloaded and parsed; preserve edition and editorial differences.",
+      "evidence": "ready-text-acquisition-manifest.json",
+      "originalStatus": "find-existing-text",
+      "title": "Commentary on Acts, volume 2"
+    },
+    {
+      "holdingId": "edition-l06-calvin-45",
+      "status": "ready-transcription-acquired",
+      "bestSource": "https://www.ccel.org/ccel/calvin/calcom45.html",
+      "textUrl": "https://www.ccel.org/ccel/c/calvin/calcom45.xml",
+      "localText": "library/source-ccel/asset-ready-text-edition-l06-calvin-45/calcom45.xml",
+      "sourceTitle": "Commentaries on the Catholic Epistles",
+      "note": "Complete source-offered XML transcription downloaded and parsed; preserve edition and editorial differences.",
+      "evidence": "ready-text-acquisition-manifest.json",
+      "originalStatus": "find-existing-text",
+      "title": "Commentary on Catholic Epistles"
+    },
+    {
+      "holdingId": "edition-l06-calvin-39",
+      "status": "ready-transcription-acquired",
+      "bestSource": "https://www.ccel.org/ccel/calvin/calcom39.html",
+      "textUrl": "https://www.ccel.org/ccel/c/calvin/calcom39.xml",
+      "localText": "library/source-ccel/asset-ready-text-edition-l06-calvin-39/calcom39.xml",
+      "sourceTitle": "Commentary on Corinthians - Volume 1",
+      "note": "Complete source-offered XML transcription downloaded and parsed; preserve edition and editorial differences.",
+      "evidence": "ready-text-acquisition-manifest.json",
+      "originalStatus": "find-existing-text",
+      "title": "Commentary on Corinthians, volume 1"
+    },
+    {
+      "holdingId": "edition-l06-calvin-40",
+      "status": "ready-transcription-acquired",
+      "bestSource": "https://www.ccel.org/ccel/calvin/calcom40.html",
+      "textUrl": "https://www.ccel.org/ccel/c/calvin/calcom40.xml",
+      "localText": "library/source-ccel/asset-ready-text-edition-l06-calvin-40/calcom40.xml",
+      "sourceTitle": "Commentary on Corinthians - Volume 2",
+      "note": "Complete source-offered XML transcription downloaded and parsed; preserve edition and editorial differences.",
+      "evidence": "ready-text-acquisition-manifest.json",
+      "originalStatus": "find-existing-text",
+      "title": "Commentary on Corinthians, volume 2"
+    },
+    {
+      "holdingId": "edition-l06-calvin-24",
+      "status": "ready-transcription-acquired",
+      "bestSource": "https://www.ccel.org/ccel/calvin/calcom24.html",
+      "textUrl": "https://www.ccel.org/ccel/c/calvin/calcom24.xml",
+      "localText": "library/source-ccel/asset-ready-text-edition-l06-calvin-24/calcom24.xml",
+      "sourceTitle": "Commentary on Daniel - Volume 1",
+      "note": "Complete source-offered XML transcription downloaded and parsed; preserve edition and editorial differences.",
+      "evidence": "ready-text-acquisition-manifest.json",
+      "originalStatus": "find-existing-text",
+      "title": "Commentary on Daniel, volume 1"
+    },
+    {
+      "holdingId": "edition-l06-calvin-25",
+      "status": "ready-transcription-acquired",
+      "bestSource": "https://www.ccel.org/ccel/calvin/calcom25.html",
+      "textUrl": "https://www.ccel.org/ccel/c/calvin/calcom25.xml",
+      "localText": "library/source-ccel/asset-ready-text-edition-l06-calvin-25/calcom25.xml",
+      "sourceTitle": "Commentary on Daniel - Volume 2",
+      "note": "Complete source-offered XML transcription downloaded and parsed; preserve edition and editorial differences.",
+      "evidence": "ready-text-acquisition-manifest.json",
+      "originalStatus": "find-existing-text",
+      "title": "Commentary on Daniel, volume 2"
+    },
+    {
+      "holdingId": "edition-l06-calvin-22",
+      "status": "ready-transcription-acquired",
+      "bestSource": "https://www.ccel.org/ccel/calvin/calcom22.html",
+      "textUrl": "https://www.ccel.org/ccel/c/calvin/calcom22.xml",
+      "localText": "library/source-ccel/asset-ready-text-edition-l06-calvin-22/calcom22.xml",
+      "sourceTitle": "Commentary on Ezekiel - Volume 1",
+      "note": "Complete source-offered XML transcription downloaded and parsed; preserve edition and editorial differences.",
+      "evidence": "ready-text-acquisition-manifest.json",
+      "originalStatus": "find-existing-text",
+      "title": "Commentary on Ezekiel, volume 1"
+    },
+    {
+      "holdingId": "edition-l06-calvin-23",
+      "status": "ready-transcription-acquired",
+      "bestSource": "https://www.ccel.org/ccel/calvin/calcom23.html",
+      "textUrl": "https://www.ccel.org/ccel/c/calvin/calcom23.xml",
+      "localText": "library/source-ccel/asset-ready-text-edition-l06-calvin-23/calcom23.xml",
+      "sourceTitle": "Commentary on Ezekiel - Volume 2",
+      "note": "Complete source-offered XML transcription downloaded and parsed; preserve edition and editorial differences.",
+      "evidence": "ready-text-acquisition-manifest.json",
+      "originalStatus": "find-existing-text",
+      "title": "Commentary on Ezekiel, volume 2"
+    },
+    {
+      "holdingId": "edition-l06-calvin-41",
+      "status": "ready-transcription-acquired",
+      "bestSource": "https://www.ccel.org/ccel/calvin/calcom41.html",
+      "textUrl": "https://www.ccel.org/ccel/c/calvin/calcom41.xml",
+      "localText": "library/source-ccel/asset-ready-text-edition-l06-calvin-41/calcom41.xml",
+      "sourceTitle": "Commentary on Galatians and Ephesians",
+      "note": "Complete source-offered XML transcription downloaded and parsed; preserve edition and editorial differences.",
+      "evidence": "ready-text-acquisition-manifest.json",
+      "originalStatus": "find-existing-text",
+      "title": "Commentary on Galatians and Ephesians"
+    },
+    {
+      "holdingId": "edition-l06-calvin-01",
+      "status": "ready-transcription-acquired",
+      "bestSource": "https://www.ccel.org/ccel/calvin/calcom01.html",
+      "textUrl": "https://www.ccel.org/ccel/c/calvin/calcom01.xml",
+      "localText": "library/source-ccel/asset-ready-text-edition-l06-calvin-01/calcom01.xml",
+      "sourceTitle": "Commentary on Genesis - Volume 1",
+      "note": "Complete source-offered XML transcription downloaded and parsed; preserve edition and editorial differences.",
+      "evidence": "ready-text-acquisition-manifest.json",
+      "originalStatus": "find-existing-text",
+      "title": "Commentary on Genesis, volume 1 (chapters 1–23)"
+    },
+    {
+      "holdingId": "edition-l06-calvin-02",
+      "status": "ready-transcription-acquired",
+      "bestSource": "https://www.ccel.org/ccel/calvin/calcom02.html",
+      "textUrl": "https://www.ccel.org/ccel/c/calvin/calcom02.xml",
+      "localText": "library/source-ccel/asset-ready-text-edition-l06-calvin-02/calcom02.xml",
+      "sourceTitle": "Commentary on Genesis - Volume 2",
+      "note": "Complete source-offered XML transcription downloaded and parsed; preserve edition and editorial differences.",
+      "evidence": "ready-text-acquisition-manifest.json",
+      "originalStatus": "find-existing-text",
+      "title": "Commentary on Genesis, volume 2 (chapters 24–50)"
+    },
+    {
+      "holdingId": "edition-l06-calvin-29",
+      "status": "ready-transcription-acquired",
+      "bestSource": "https://www.ccel.org/ccel/calvin/calcom29.html",
+      "textUrl": "https://www.ccel.org/ccel/c/calvin/calcom29.xml",
+      "localText": "library/source-ccel/asset-ready-text-edition-l06-calvin-29/calcom29.xml",
+      "sourceTitle": "Commentary on Habakkuk, Zephaniah, Haggai",
+      "note": "Complete source-offered XML transcription downloaded and parsed; preserve edition and editorial differences.",
+      "evidence": "ready-text-acquisition-manifest.json",
+      "originalStatus": "find-existing-text",
+      "title": "Commentary on Habakkuk, Zephaniah and Haggai"
+    },
+    {
+      "holdingId": "edition-l06-calvin-31",
+      "status": "ready-transcription-acquired",
+      "bestSource": "https://www.ccel.org/ccel/calvin/calcom31.html",
+      "textUrl": "https://www.ccel.org/ccel/c/calvin/calcom31.xml",
+      "localText": "library/source-ccel/asset-ready-text-edition-l06-calvin-31/calcom31.xml",
+      "sourceTitle": "Commentary on Matthew, Mark, Luke - Volume 1",
+      "note": "Complete source-offered XML transcription downloaded and parsed; preserve edition and editorial differences.",
+      "evidence": "ready-text-acquisition-manifest.json",
+      "originalStatus": "find-existing-text",
+      "title": "Commentary on Harmony of the Gospels, volume 1"
+    },
+    {
+      "holdingId": "edition-l06-calvin-32",
+      "status": "ready-transcription-acquired",
+      "bestSource": "https://www.ccel.org/ccel/calvin/calcom32.html",
+      "textUrl": "https://www.ccel.org/ccel/c/calvin/calcom32.xml",
+      "localText": "library/source-ccel/asset-ready-text-edition-l06-calvin-32/calcom32.xml",
+      "sourceTitle": "Commentary on Matthew, Mark, Luke - Volume 2",
+      "note": "Complete source-offered XML transcription downloaded and parsed; preserve edition and editorial differences.",
+      "evidence": "ready-text-acquisition-manifest.json",
+      "originalStatus": "find-existing-text",
+      "title": "Commentary on Harmony of the Gospels, volume 2"
+    },
+    {
+      "holdingId": "edition-l06-calvin-33",
+      "status": "ready-transcription-acquired",
+      "bestSource": "https://www.ccel.org/ccel/calvin/calcom33.html",
+      "textUrl": "https://www.ccel.org/ccel/c/calvin/calcom33.xml",
+      "localText": "library/source-ccel/asset-ready-text-edition-l06-calvin-33/calcom33.xml",
+      "sourceTitle": "Commentary on Matthew, Mark, Luke - Volume 3",
+      "note": "Complete source-offered XML transcription downloaded and parsed; preserve edition and editorial differences.",
+      "evidence": "ready-text-acquisition-manifest.json",
+      "originalStatus": "find-existing-text",
+      "title": "Commentary on Harmony of the Gospels, volume 3"
+    },
+    {
+      "holdingId": "edition-l06-calvin-03",
+      "status": "ready-transcription-acquired",
+      "bestSource": "https://www.ccel.org/ccel/calvin/calcom03.html",
+      "textUrl": "https://www.ccel.org/ccel/c/calvin/calcom03.xml",
+      "localText": "library/source-ccel/asset-ready-text-edition-l06-calvin-03/calcom03.xml",
+      "sourceTitle": "Harmony of the Law - Volume 1",
+      "note": "Complete source-offered XML transcription downloaded and parsed; preserve edition and editorial differences.",
+      "evidence": "ready-text-acquisition-manifest.json",
+      "originalStatus": "find-existing-text",
+      "title": "Commentary on Harmony of the Law, volume 1"
+    },
+    {
+      "holdingId": "edition-l06-calvin-04",
+      "status": "ready-transcription-acquired",
+      "bestSource": "https://www.ccel.org/ccel/calvin/calcom04.html",
+      "textUrl": "https://www.ccel.org/ccel/c/calvin/calcom04.xml",
+      "localText": "library/source-ccel/asset-ready-text-edition-l06-calvin-04/calcom04.xml",
+      "sourceTitle": "Harmony of the Law - Volume 2",
+      "note": "Complete source-offered XML transcription downloaded and parsed; preserve edition and editorial differences.",
+      "evidence": "ready-text-acquisition-manifest.json",
+      "originalStatus": "find-existing-text",
+      "title": "Commentary on Harmony of the Law, volume 2"
+    },
+    {
+      "holdingId": "edition-l06-calvin-05",
+      "status": "ready-transcription-acquired",
+      "bestSource": "https://www.ccel.org/ccel/calvin/calcom05.html",
+      "textUrl": "https://www.ccel.org/ccel/c/calvin/calcom05.xml",
+      "localText": "library/source-ccel/asset-ready-text-edition-l06-calvin-05/calcom05.xml",
+      "sourceTitle": "Harmony of the Law - Volume 3",
+      "note": "Complete source-offered XML transcription downloaded and parsed; preserve edition and editorial differences.",
+      "evidence": "ready-text-acquisition-manifest.json",
+      "originalStatus": "find-existing-text",
+      "title": "Commentary on Harmony of the Law, volume 3"
+    },
+    {
+      "holdingId": "edition-l06-calvin-06",
+      "status": "ready-transcription-acquired",
+      "bestSource": "https://www.ccel.org/ccel/calvin/calcom06.html",
+      "textUrl": "https://www.ccel.org/ccel/c/calvin/calcom06.xml",
+      "localText": "library/source-ccel/asset-ready-text-edition-l06-calvin-06/calcom06.xml",
+      "sourceTitle": "Harmony of the Law - Volume 4",
+      "note": "Complete source-offered XML transcription downloaded and parsed; preserve edition and editorial differences.",
+      "evidence": "ready-text-acquisition-manifest.json",
+      "originalStatus": "find-existing-text",
+      "title": "Commentary on Harmony of the Law, volume 4"
+    },
+    {
+      "holdingId": "edition-l06-calvin-44",
+      "status": "ready-transcription-acquired",
+      "bestSource": "https://www.ccel.org/ccel/calvin/calcom44.html",
+      "textUrl": "https://www.ccel.org/ccel/c/calvin/calcom44.xml",
+      "localText": "library/source-ccel/asset-ready-text-edition-l06-calvin-44/calcom44.xml",
+      "sourceTitle": "Commentary on Hebrews",
+      "note": "Complete source-offered XML transcription downloaded and parsed; preserve edition and editorial differences.",
+      "evidence": "ready-text-acquisition-manifest.json",
+      "originalStatus": "find-existing-text",
+      "title": "Commentary on Hebrews"
+    },
+    {
+      "holdingId": "edition-l06-calvin-26",
+      "status": "ready-transcription-acquired",
+      "bestSource": "https://www.ccel.org/ccel/calvin/calcom26.html",
+      "textUrl": "https://www.ccel.org/ccel/c/calvin/calcom26.xml",
+      "localText": "library/source-ccel/asset-ready-text-edition-l06-calvin-26/calcom26.xml",
+      "sourceTitle": "Commentary on Hosea",
+      "note": "Complete source-offered XML transcription downloaded and parsed; preserve edition and editorial differences.",
+      "evidence": "ready-text-acquisition-manifest.json",
+      "originalStatus": "find-existing-text",
+      "title": "Commentary on Hosea"
+    },
+    {
+      "holdingId": "edition-l06-calvin-13",
+      "status": "ready-transcription-acquired",
+      "bestSource": "https://www.ccel.org/ccel/calvin/calcom13.html",
+      "textUrl": "https://www.ccel.org/ccel/c/calvin/calcom13.xml",
+      "localText": "library/source-ccel/asset-ready-text-edition-l06-calvin-13/calcom13.xml",
+      "sourceTitle": "Commentary on Isaiah - Volume 1",
+      "note": "Complete source-offered XML transcription downloaded and parsed; preserve edition and editorial differences.",
+      "evidence": "ready-text-acquisition-manifest.json",
+      "originalStatus": "find-existing-text",
+      "title": "Commentary on Isaiah, volume 1"
+    },
+    {
+      "holdingId": "edition-l06-calvin-14",
+      "status": "ready-transcription-acquired",
+      "bestSource": "https://www.ccel.org/ccel/calvin/calcom14.html",
+      "textUrl": "https://www.ccel.org/ccel/c/calvin/calcom14.xml",
+      "localText": "library/source-ccel/asset-ready-text-edition-l06-calvin-14/calcom14.xml",
+      "sourceTitle": "Commentary on Isaiah - Volume 2",
+      "note": "Complete source-offered XML transcription downloaded and parsed; preserve edition and editorial differences.",
+      "evidence": "ready-text-acquisition-manifest.json",
+      "originalStatus": "find-existing-text",
+      "title": "Commentary on Isaiah, volume 2"
+    },
+    {
+      "holdingId": "edition-l06-calvin-15",
+      "status": "ready-transcription-acquired",
+      "bestSource": "https://www.ccel.org/ccel/calvin/calcom15.html",
+      "textUrl": "https://www.ccel.org/ccel/c/calvin/calcom15.xml",
+      "localText": "library/source-ccel/asset-ready-text-edition-l06-calvin-15/calcom15.xml",
+      "sourceTitle": "Commentary on Isaiah - Volume 3",
+      "note": "Complete source-offered XML transcription downloaded and parsed; preserve edition and editorial differences.",
+      "evidence": "ready-text-acquisition-manifest.json",
+      "originalStatus": "find-existing-text",
+      "title": "Commentary on Isaiah, volume 3"
+    },
+    {
+      "holdingId": "edition-l06-calvin-16",
+      "status": "ready-transcription-acquired",
+      "bestSource": "https://www.ccel.org/ccel/calvin/calcom16.html",
+      "textUrl": "https://www.ccel.org/ccel/c/calvin/calcom16.xml",
+      "localText": "library/source-ccel/asset-ready-text-edition-l06-calvin-16/calcom16.xml",
+      "sourceTitle": "Commentary on Isaiah - Volume 4",
+      "note": "Complete source-offered XML transcription downloaded and parsed; preserve edition and editorial differences.",
+      "evidence": "ready-text-acquisition-manifest.json",
+      "originalStatus": "find-existing-text",
+      "title": "Commentary on Isaiah, volume 4"
+    },
+    {
+      "holdingId": "edition-l06-calvin-17",
+      "status": "ready-transcription-acquired",
+      "bestSource": "https://www.ccel.org/ccel/calvin/calcom17.html",
+      "textUrl": "https://www.ccel.org/ccel/c/calvin/calcom17.xml",
+      "localText": "library/source-ccel/asset-ready-text-edition-l06-calvin-17/calcom17.xml",
+      "sourceTitle": "Commentary on Jeremiah and Lamentations - Volume 1",
+      "note": "Complete source-offered XML transcription downloaded and parsed; preserve edition and editorial differences.",
+      "evidence": "ready-text-acquisition-manifest.json",
+      "originalStatus": "find-existing-text",
+      "title": "Commentary on Jeremiah and Lamentations, volume 1"
+    },
+    {
+      "holdingId": "edition-l06-calvin-18",
+      "status": "ready-transcription-acquired",
+      "bestSource": "https://www.ccel.org/ccel/calvin/calcom18.html",
+      "textUrl": "https://www.ccel.org/ccel/c/calvin/calcom18.xml",
+      "localText": "library/source-ccel/asset-ready-text-edition-l06-calvin-18/calcom18.xml",
+      "sourceTitle": "Commentary on Jeremiah and Lamentations - Volume 2",
+      "note": "Complete source-offered XML transcription downloaded and parsed; preserve edition and editorial differences.",
+      "evidence": "ready-text-acquisition-manifest.json",
+      "originalStatus": "find-existing-text",
+      "title": "Commentary on Jeremiah and Lamentations, volume 2"
+    },
+    {
+      "holdingId": "edition-l06-calvin-19",
+      "status": "ready-transcription-acquired",
+      "bestSource": "https://www.ccel.org/ccel/calvin/calcom19.html",
+      "textUrl": "https://www.ccel.org/ccel/c/calvin/calcom19.xml",
+      "localText": "library/source-ccel/asset-ready-text-edition-l06-calvin-19/calcom19.xml",
+      "sourceTitle": "Commentary on Jeremiah and Lamentations - Volume 3",
+      "note": "Complete source-offered XML transcription downloaded and parsed; preserve edition and editorial differences.",
+      "evidence": "ready-text-acquisition-manifest.json",
+      "originalStatus": "find-existing-text",
+      "title": "Commentary on Jeremiah and Lamentations, volume 3"
+    },
+    {
+      "holdingId": "edition-l06-calvin-20",
+      "status": "ready-transcription-acquired",
+      "bestSource": "https://www.ccel.org/ccel/calvin/calcom20.html",
+      "textUrl": "https://www.ccel.org/ccel/c/calvin/calcom20.xml",
+      "localText": "library/source-ccel/asset-ready-text-edition-l06-calvin-20/calcom20.xml",
+      "sourceTitle": "Commentary on Jeremiah and Lamentations - Volume 4",
+      "note": "Complete source-offered XML transcription downloaded and parsed; preserve edition and editorial differences.",
+      "evidence": "ready-text-acquisition-manifest.json",
+      "originalStatus": "find-existing-text",
+      "title": "Commentary on Jeremiah and Lamentations, volume 4"
+    },
+    {
+      "holdingId": "edition-l06-calvin-21",
+      "status": "ready-transcription-acquired",
+      "bestSource": "https://www.ccel.org/ccel/calvin/calcom21.html",
+      "textUrl": "https://www.ccel.org/ccel/c/calvin/calcom21.xml",
+      "localText": "library/source-ccel/asset-ready-text-edition-l06-calvin-21/calcom21.xml",
+      "sourceTitle": "Commentary on Jeremiah and Lamentations - Volume 5",
+      "note": "Complete source-offered XML transcription downloaded and parsed; preserve edition and editorial differences.",
+      "evidence": "ready-text-acquisition-manifest.json",
+      "originalStatus": "find-existing-text",
+      "title": "Commentary on Jeremiah and Lamentations, volume 5"
+    },
+    {
+      "holdingId": "edition-l06-calvin-27",
+      "status": "ready-transcription-acquired",
+      "bestSource": "https://www.ccel.org/ccel/calvin/calcom27.html",
+      "textUrl": "https://www.ccel.org/ccel/c/calvin/calcom27.xml",
+      "localText": "library/source-ccel/asset-ready-text-edition-l06-calvin-27/calcom27.xml",
+      "sourceTitle": "Commentary on Joel, Amos, Obadiah",
+      "note": "Complete source-offered XML transcription downloaded and parsed; preserve edition and editorial differences.",
+      "evidence": "ready-text-acquisition-manifest.json",
+      "originalStatus": "find-existing-text",
+      "title": "Commentary on Joel, Amos and Obadiah"
+    },
+    {
+      "holdingId": "edition-l06-calvin-34",
+      "status": "ready-transcription-acquired",
+      "bestSource": "https://www.ccel.org/ccel/calvin/calcom34.html",
+      "textUrl": "https://www.ccel.org/ccel/c/calvin/calcom34.xml",
+      "localText": "library/source-ccel/asset-ready-text-edition-l06-calvin-34/calcom34.xml",
+      "sourceTitle": "Commentary on John - Volume 1",
+      "note": "Complete source-offered XML transcription downloaded and parsed; preserve edition and editorial differences.",
+      "evidence": "ready-text-acquisition-manifest.json",
+      "originalStatus": "find-existing-text",
+      "title": "Commentary on John, volume 1"
+    },
+    {
+      "holdingId": "edition-l06-calvin-35",
+      "status": "ready-transcription-acquired",
+      "bestSource": "https://www.ccel.org/ccel/calvin/calcom35.html",
+      "textUrl": "https://www.ccel.org/ccel/c/calvin/calcom35.xml",
+      "localText": "library/source-ccel/asset-ready-text-edition-l06-calvin-35/calcom35.xml",
+      "sourceTitle": "Commentary on John - Volume 2",
+      "note": "Complete source-offered XML transcription downloaded and parsed; preserve edition and editorial differences.",
+      "evidence": "ready-text-acquisition-manifest.json",
+      "originalStatus": "find-existing-text",
+      "title": "Commentary on John, volume 2"
+    },
+    {
+      "holdingId": "edition-l06-calvin-28",
+      "status": "ready-transcription-acquired",
+      "bestSource": "https://www.ccel.org/ccel/calvin/calcom28.html",
+      "textUrl": "https://www.ccel.org/ccel/c/calvin/calcom28.xml",
+      "localText": "library/source-ccel/asset-ready-text-edition-l06-calvin-28/calcom28.xml",
+      "sourceTitle": "Commentary on Jonah, Micah, Nahum",
+      "note": "Complete source-offered XML transcription downloaded and parsed; preserve edition and editorial differences.",
+      "evidence": "ready-text-acquisition-manifest.json",
+      "originalStatus": "find-existing-text",
+      "title": "Commentary on Jonah, Micah and Nahum"
+    },
+    {
+      "holdingId": "edition-l06-calvin-07",
+      "status": "ready-transcription-acquired",
+      "bestSource": "https://www.ccel.org/ccel/calvin/calcom07.html",
+      "textUrl": "https://www.ccel.org/ccel/c/calvin/calcom07.xml",
+      "localText": "library/source-ccel/asset-ready-text-edition-l06-calvin-07/calcom07.xml",
+      "sourceTitle": "Commentary on Joshua",
+      "note": "Complete source-offered XML transcription downloaded and parsed; preserve edition and editorial differences.",
+      "evidence": "ready-text-acquisition-manifest.json",
+      "originalStatus": "find-existing-text",
+      "title": "Commentary on Joshua"
+    },
+    {
+      "holdingId": "edition-l06-calvin-42",
+      "status": "ready-transcription-acquired",
+      "bestSource": "https://www.ccel.org/ccel/calvin/calcom42.html",
+      "textUrl": "https://www.ccel.org/ccel/c/calvin/calcom42.xml",
+      "localText": "library/source-ccel/asset-ready-text-edition-l06-calvin-42/calcom42.xml",
+      "sourceTitle": "Commentary on Philippians, Colossians, and Thessalonians",
+      "note": "Complete source-offered XML transcription downloaded and parsed; preserve edition and editorial differences.",
+      "evidence": "ready-text-acquisition-manifest.json",
+      "originalStatus": "find-existing-text",
+      "title": "Commentary on Philippians, Colossians and Thessalonians"
+    },
+    {
+      "holdingId": "edition-l06-calvin-08",
+      "status": "ready-transcription-acquired",
+      "bestSource": "https://www.ccel.org/ccel/calvin/calcom08.html",
+      "textUrl": "https://www.ccel.org/ccel/c/calvin/calcom08.xml",
+      "localText": "library/source-ccel/asset-ready-text-edition-l06-calvin-08/calcom08.xml",
+      "sourceTitle": "Commentary on Psalms - Volume 1",
+      "note": "Complete source-offered XML transcription downloaded and parsed; preserve edition and editorial differences.",
+      "evidence": "ready-text-acquisition-manifest.json",
+      "originalStatus": "find-existing-text",
+      "title": "Commentary on Psalms, volume 1"
+    },
+    {
+      "holdingId": "edition-l06-calvin-09",
+      "status": "ready-transcription-acquired",
+      "bestSource": "https://www.ccel.org/ccel/calvin/calcom09.html",
+      "textUrl": "https://www.ccel.org/ccel/c/calvin/calcom09.xml",
+      "localText": "library/source-ccel/asset-ready-text-edition-l06-calvin-09/calcom09.xml",
+      "sourceTitle": "Commentary on Psalms - Volume 2",
+      "note": "Complete source-offered XML transcription downloaded and parsed; preserve edition and editorial differences.",
+      "evidence": "ready-text-acquisition-manifest.json",
+      "originalStatus": "find-existing-text",
+      "title": "Commentary on Psalms, volume 2"
+    },
+    {
+      "holdingId": "edition-l06-calvin-10",
+      "status": "ready-transcription-acquired",
+      "bestSource": "https://www.ccel.org/ccel/calvin/calcom10.html",
+      "textUrl": "https://www.ccel.org/ccel/c/calvin/calcom10.xml",
+      "localText": "library/source-ccel/asset-ready-text-edition-l06-calvin-10/calcom10.xml",
+      "sourceTitle": "Commentary on Psalms - Volume 3",
+      "note": "Complete source-offered XML transcription downloaded and parsed; preserve edition and editorial differences.",
+      "evidence": "ready-text-acquisition-manifest.json",
+      "originalStatus": "find-existing-text",
+      "title": "Commentary on Psalms, volume 3"
+    },
+    {
+      "holdingId": "edition-l06-calvin-11",
+      "status": "ready-transcription-acquired",
+      "bestSource": "https://www.ccel.org/ccel/calvin/calcom11.html",
+      "textUrl": "https://www.ccel.org/ccel/c/calvin/calcom11.xml",
+      "localText": "library/source-ccel/asset-ready-text-edition-l06-calvin-11/calcom11.xml",
+      "sourceTitle": "Commentary on Psalms - Volume 4",
+      "note": "Complete source-offered XML transcription downloaded and parsed; preserve edition and editorial differences.",
+      "evidence": "ready-text-acquisition-manifest.json",
+      "originalStatus": "find-existing-text",
+      "title": "Commentary on Psalms, volume 4"
+    },
+    {
+      "holdingId": "edition-l06-calvin-12",
+      "status": "ready-transcription-acquired",
+      "bestSource": "https://www.ccel.org/ccel/calvin/calcom12.html",
+      "textUrl": "https://www.ccel.org/ccel/c/calvin/calcom12.xml",
+      "localText": "library/source-ccel/asset-ready-text-edition-l06-calvin-12/calcom12.xml",
+      "sourceTitle": "Commentary on Psalms - Volume 5",
+      "note": "Complete source-offered XML transcription downloaded and parsed; preserve edition and editorial differences.",
+      "evidence": "ready-text-acquisition-manifest.json",
+      "originalStatus": "find-existing-text",
+      "title": "Commentary on Psalms, volume 5"
+    },
+    {
+      "holdingId": "edition-l06-calvin-38",
+      "status": "ready-transcription-acquired",
+      "bestSource": "https://www.ccel.org/ccel/calvin/calcom38.html",
+      "textUrl": "https://www.ccel.org/ccel/c/calvin/calcom38.xml",
+      "localText": "library/source-ccel/asset-ready-text-edition-l06-calvin-38/calcom38.xml",
+      "sourceTitle": "Commentary on Romans",
+      "note": "Complete source-offered XML transcription downloaded and parsed; preserve edition and editorial differences.",
+      "evidence": "ready-text-acquisition-manifest.json",
+      "originalStatus": "find-existing-text",
+      "title": "Commentary on Romans"
+    },
+    {
+      "holdingId": "edition-l06-calvin-43",
+      "status": "ready-transcription-acquired",
+      "bestSource": "https://www.ccel.org/ccel/calvin/calcom43.html",
+      "textUrl": "https://www.ccel.org/ccel/c/calvin/calcom43.xml",
+      "localText": "library/source-ccel/asset-ready-text-edition-l06-calvin-43/calcom43.xml",
+      "sourceTitle": "Commentary on Timothy, Titus, Philemon",
+      "note": "Complete source-offered XML transcription downloaded and parsed; preserve edition and editorial differences.",
+      "evidence": "ready-text-acquisition-manifest.json",
+      "originalStatus": "find-existing-text",
+      "title": "Commentary on Timothy, Titus and Philemon"
+    },
+    {
+      "holdingId": "edition-l06-calvin-30",
+      "status": "ready-transcription-acquired",
+      "bestSource": "https://www.ccel.org/ccel/calvin/calcom30.html",
+      "textUrl": "https://www.ccel.org/ccel/c/calvin/calcom30.xml",
+      "localText": "library/source-ccel/asset-ready-text-edition-l06-calvin-30/calcom30.xml",
+      "sourceTitle": "Commentary on Zechariah, Malachi",
+      "note": "Complete source-offered XML transcription downloaded and parsed; preserve edition and editorial differences.",
+      "evidence": "ready-text-acquisition-manifest.json",
+      "originalStatus": "find-existing-text",
+      "title": "Commentary on Zechariah and Malachi"
+    },
+    {
+      "holdingId": "edition-charnock-attributes",
+      "status": "online-text-verified",
+      "bestSource": "https://www.gutenberg.org/cache/epub/53527/pg53527-images.html",
+      "note": "Gutenberg 53527 contains Volumes 1 and 2. Its transcription notes disclose standardized punctuation and retained spelling variation; match edition before replacing scan pagination.",
+      "evidence": "Gutenberg title, book body and transcriber notes inspected; not neighboring ebook 53528, which is unrelated.",
+      "checkedOn": "2026-10-05",
+      "originalStatus": "find-existing-text",
+      "title": "Discourses upon the Existence and Attributes of God"
+    },
+    {
+      "holdingId": "edition-l12-packer",
+      "status": "authorized-free-text-not-verified",
+      "bestSource": "https://ivpress.org/evangelism-and-the-sovereignty-of-god",
+      "note": "Publisher edition located; no authorized complete free transcription verified. Keep official source link; do not create a transcription of a commercial edition by default.",
+      "evidence": "Official publisher page checked; no complete free-text grant established.",
+      "checkedOn": "2026-10-05",
+      "originalStatus": "find-existing-text",
+      "title": "Evangelism and the Sovereignty of God"
+    },
+    {
+      "holdingId": "edition-alexander-evidences",
+      "status": "ready-transcription-acquired",
+      "bestSource": "https://www.ccel.org/ccel/alexander_a/evidences.html",
+      "textUrl": "https://www.ccel.org/ccel/a/alexander_a/evidences.xml",
+      "localText": "library/source-ccel/asset-ready-text-edition-alexander-evidences/evidences.xml",
+      "sourceTitle": "The Evidences of the Christian Religion.",
+      "note": "Complete source-offered XML transcription downloaded and parsed; preserve edition and editorial differences.",
+      "evidence": "ready-text-acquisition-manifest.json",
+      "originalStatus": "find-existing-text",
+      "title": "Evidences of the Christian Religion"
+    },
+    {
+      "holdingId": "edition-l06-gill-exposition",
+      "status": "online-text-verified",
+      "bestSource": "https://www.biblestudytools.com/commentaries/gills-exposition-of-the-bible/",
+      "note": "Readable passage-organized commentary exists; Genesis 1:1 body checked. Site-wide acquisition or redistribution is not authorized by this source discovery.",
+      "evidence": "Index and named Genesis 1:1 commentary page; not a claim that every passage was checked.",
+      "checkedOn": "2026-10-05",
+      "originalStatus": "find-existing-text",
+      "title": "Exposition of the Old and New Testaments"
+    },
+    {
+      "holdingId": "edition-ryle-matthew",
+      "status": "ready-transcription-acquired",
+      "bestSource": "https://www.ccel.org/ccel/ryle/matthew.html",
+      "textUrl": "https://www.ccel.org/ccel/r/ryle/matthew.xml",
+      "localText": "library/source-ccel/asset-ready-text-edition-ryle-matthew/matthew.xml",
+      "sourceTitle": "Expository Thoughts on Matthew",
+      "note": "Complete source-offered XML transcription downloaded and parsed; preserve edition and editorial differences.",
+      "evidence": "ready-text-acquisition-manifest.json",
+      "originalStatus": "find-existing-text",
+      "title": "Expository Thoughts on Matthew"
+    },
+    {
+      "holdingId": "edition-edwards-will",
+      "status": "ready-transcription-acquired",
+      "bestSource": "https://www.ccel.org/ccel/edwards/will.html",
+      "textUrl": "https://www.ccel.org/ccel/e/edwards/will.xml",
+      "localText": "library/source-ccel/asset-ready-text-edition-edwards-will/will.xml",
+      "sourceTitle": "Freedom of the Will",
+      "note": "Complete source-offered XML transcription downloaded and parsed; preserve edition and editorial differences.",
+      "evidence": "ready-text-acquisition-manifest.json",
+      "originalStatus": "find-existing-text",
+      "title": "Freedom of the Will"
+    },
+    {
+      "holdingId": "edition-l08-heidelberg",
+      "status": "online-text-verified",
+      "bestSource": "https://ccel.org/ccel/schaff/creeds3/creeds3.iv.vi.html",
+      "note": "Substantive HTML document body verified inside book-content; retain the edition/translation and quoted-author distinctions.",
+      "evidence": "ready-text-acquisition-manifest.json",
+      "bodyCharacters": 108254,
+      "bodySha256": "25d8312a76d082c1c3d7982799f9bd98fd2cdbb45196bbe8c7b56e8d71834d63",
+      "originalStatus": "find-existing-text",
+      "title": "Heidelberg Catechism"
+    },
+    {
+      "holdingId": "edition-l12-owen-churches",
+      "status": "ready-transcription-acquired",
+      "bestSource": "https://www.ccel.org/ccel/owen/evangelicalchurches.html",
+      "textUrl": "https://www.ccel.org/ccel/o/owen/evangelicalchurches.xml",
+      "localText": "library/source-ccel/asset-ready-text-edition-l12-owen-churches/evangelicalchurches.xml",
+      "sourceTitle": "An Inquiry into the Original, Nature, Institution, Power, Order,\nand Communion of Evangelical Churches",
+      "note": "Complete source-offered XML transcription downloaded and parsed; preserve edition and editorial differences.",
+      "evidence": "ready-text-acquisition-manifest.json",
+      "originalStatus": "find-existing-text",
+      "title": "Inquiry into the Original, Nature, Institution, Power, Order, and Communion of Evangelical Churches"
+    },
+    {
+      "holdingId": "edition-l12-piper-nations",
+      "status": "official-excerpt-only",
+      "bestSource": "https://www.desiringgod.org/books/let-the-nations-be-glad",
+      "note": "Official page offers two Sample PDF links, not a verified complete free book. Keep separate from full-text holdings.",
+      "evidence": "Official sample-pdf.pdf and sample-pdf-2.pdf links.",
+      "checkedOn": "2026-10-05",
+      "originalStatus": "find-existing-text",
+      "title": "Let the Nations Be Glad! The Supremacy of God in Missions"
+    },
+    {
+      "holdingId": "edition-spurgeon-morning-evening",
+      "status": "ready-transcription-acquired",
+      "bestSource": "https://www.ccel.org/ccel/spurgeon/morneve.html",
+      "textUrl": "https://www.ccel.org/ccel/s/spurgeon/morneve.xml",
+      "localText": "library/source-ccel/asset-ready-text-edition-spurgeon-morning-evening/morneve.xml",
+      "sourceTitle": "Morning and Evening: Daily Readings",
+      "note": "Complete source-offered XML transcription downloaded and parsed; preserve edition and editorial differences.",
+      "evidence": "ready-text-acquisition-manifest.json",
+      "originalStatus": "find-existing-text",
+      "title": "Morning and Evening"
+    },
+    {
+      "holdingId": "edition-owen-communion",
+      "status": "ready-transcription-acquired",
+      "bestSource": "https://www.ccel.org/ccel/owen/communion.html",
+      "textUrl": "https://www.ccel.org/ccel/o/owen/communion.xml",
+      "localText": "library/source-ccel/asset-ready-text-edition-owen-communion/communion.xml",
+      "sourceTitle": "Of Communion with God the Father, Son and Holy Ghost",
+      "note": "Complete source-offered XML transcription downloaded and parsed; preserve edition and editorial differences.",
+      "evidence": "ready-text-acquisition-manifest.json",
+      "originalStatus": "find-existing-text",
+      "title": "Of Communion with God"
+    },
+    {
+      "holdingId": "edition-l06-berkhof-hermeneutics",
+      "status": "authorized-free-text-not-verified",
+      "bestSource": "https://bakerpublishinggroup.com/products/9780801064777_principles-of-biblical-interpretation",
+      "note": "Official publisher and preview located; a complete authorized free transcription was not verified. Generic archive download labels do not establish unrestricted full text.",
+      "evidence": "Baker publisher page and existing Biblia preview; no full-body acquisition.",
+      "checkedOn": "2026-10-05",
+      "originalStatus": "find-existing-text",
+      "title": "Principles of Biblical Interpretation: Sacred Hermeneutics"
+    },
+    {
+      "holdingId": "edition-edwards-affections",
+      "status": "ready-transcription-acquired",
+      "bestSource": "https://www.ccel.org/ccel/edwards/affections.html",
+      "textUrl": "https://www.ccel.org/ccel/e/edwards/affections.xml",
+      "localText": "library/source-ccel/asset-ready-text-edition-edwards-affections/affections.xml",
+      "sourceTitle": "Religious Affections",
+      "note": "Complete source-offered XML transcription downloaded and parsed; preserve edition and editorial differences.",
+      "evidence": "ready-text-acquisition-manifest.json",
+      "originalStatus": "find-existing-text",
+      "title": "Religious Affections"
+    },
+    {
+      "holdingId": "edition-l08-savoy",
+      "status": "partial-work-online",
+      "bestSource": "https://ccel.org/ccel/schaff/creeds3/creeds3.v.i.i.html",
+      "note": "Schaff prints the preface and platform in full but only confession sections differing from Westminster. Not a standalone full Savoy confession.",
+      "evidence": "ready-text-acquisition-manifest.json",
+      "bodyCharacters": 72030,
+      "bodySha256": "e0189479c834871d81142b521131ffd890e40d7d6839c999aa5c7dd8099e2bac",
+      "originalStatus": "find-existing-text",
+      "title": "Savoy Declaration"
+    },
+    {
+      "holdingId": "edition-watson-contentment",
+      "status": "ready-transcription-acquired",
+      "bestSource": "https://www.ccel.org/ccel/watson/contentment.html",
+      "textUrl": "https://www.ccel.org/ccel/w/watson/contentment.xml",
+      "localText": "library/source-ccel/asset-ready-text-edition-watson-contentment/contentment.xml",
+      "sourceTitle": "The Art of Divine Contentment: An Exposition of Philippians 4:11",
+      "note": "Complete source-offered XML transcription downloaded and parsed; preserve edition and editorial differences.",
+      "evidence": "ready-text-acquisition-manifest.json",
+      "originalStatus": "find-existing-text",
+      "title": "The Art of Divine Contentment"
+    },
+    {
+      "holdingId": "edition-l12-perkins",
+      "status": "partial-work-online",
+      "bestSource": "https://www.monergism.com/thethreshold/sdg/perkins_prophesying.html",
+      "note": "Substantial HTML text of The Art of Prophesying is available. It does not establish coverage of The Calling of the Ministry in the combined catalogued modern edition. Link only under Monergism policy.",
+      "evidence": "Full HTML page, preface and numbered chapters; second work remains unresolved.",
+      "checkedOn": "2026-10-05",
+      "originalStatus": "find-existing-text",
+      "title": "The Art of Prophesying and The Calling of the Ministry"
+    },
+    {
+      "holdingId": "edition-sibbes-bruised-reed",
+      "status": "online-text-verified",
+      "bestSource": "https://www.monergism.com/thethreshold/sdg/bruisedreed.html",
+      "note": "Readable HTML includes sixteen chapters and a modern publisher foreword. Treat as a distinct electronic/modernized witness, not the exact catalogued print copy; link rather than republish.",
+      "evidence": "Contents, first chapter and later body present in fetched 225 KB page.",
+      "checkedOn": "2026-10-05",
+      "originalStatus": "find-existing-text",
+      "title": "The Bruised Reed"
+    },
+    {
+      "holdingId": "edition-alexander-canon",
+      "status": "ready-transcription-acquired",
+      "bestSource": "https://www.ccel.org/ccel/alexander_a/canon.html",
+      "textUrl": "https://www.ccel.org/ccel/a/alexander_a/canon.xml",
+      "localText": "library/source-ccel/asset-ready-text-edition-alexander-canon/canon.xml",
+      "sourceTitle": "The Canon of the Old and New Testaments Ascertained, or The Bible Complete without the Apocrypha and Unwritten Traditions.",
+      "note": "Complete source-offered XML transcription downloaded and parsed; preserve edition and editorial differences.",
+      "evidence": "ready-text-acquisition-manifest.json",
+      "originalStatus": "find-existing-text",
+      "title": "The Canon of the Old and New Testaments Ascertained"
+    },
+    {
+      "holdingId": "edition-owen-death-of-death",
+      "status": "ready-transcription-acquired",
+      "bestSource": "https://www.ccel.org/ccel/owen/deathofdeath.html",
+      "textUrl": "https://www.ccel.org/ccel/o/owen/deathofdeath.xml",
+      "localText": "library/source-ccel/asset-ready-text-edition-owen-death-of-death/deathofdeath.xml",
+      "sourceTitle": "The Death of Death in the Death of Christ",
+      "note": "Complete source-offered XML transcription downloaded and parsed; preserve edition and editorial differences.",
+      "evidence": "ready-text-acquisition-manifest.json",
+      "originalStatus": "find-existing-text",
+      "title": "The Death of Death in the Death of Christ"
+    },
+    {
+      "holdingId": "edition-owen-justification",
+      "status": "ready-transcription-acquired",
+      "bestSource": "https://www.ccel.org/ccel/owen/just.html",
+      "textUrl": "https://www.ccel.org/ccel/o/owen/just.xml",
+      "localText": "library/source-ccel/asset-ready-text-edition-owen-justification/just.xml",
+      "sourceTitle": "The Doctrine of Justification by Faith",
+      "note": "Complete source-offered XML transcription downloaded and parsed; preserve edition and editorial differences.",
+      "evidence": "ready-text-acquisition-manifest.json",
+      "originalStatus": "find-existing-text",
+      "title": "The Doctrine of Justification by Faith"
+    },
+    {
+      "holdingId": "edition-l12-ryle-parents",
+      "status": "online-text-verified",
+      "bestSource": "https://www.biblebb.com/files/ryle/parentsjc.htm",
+      "note": "Full readable tract with seventeen duties; modernization is disclosed by its editor. Preserve that distinction from historical wording.",
+      "evidence": "Fetched HTML tract and editorial preface; not a fresh collation.",
+      "checkedOn": "2026-10-05",
+      "originalStatus": "find-existing-text",
+      "title": "The Duties of Parents"
+    },
+    {
+      "holdingId": "edition-owen-glory",
+      "status": "ready-transcription-acquired",
+      "bestSource": "https://www.ccel.org/ccel/owen/glory.html",
+      "textUrl": "https://www.ccel.org/ccel/o/owen/glory.xml",
+      "localText": "library/source-ccel/asset-ready-text-edition-owen-glory/glory.xml",
+      "sourceTitle": "Meditations and Discourses on the Glory of Christ",
+      "note": "Complete source-offered XML transcription downloaded and parsed; preserve edition and editorial differences.",
+      "evidence": "ready-text-acquisition-manifest.json",
+      "originalStatus": "find-existing-text",
+      "title": "The Glory of Christ"
+    },
+    {
+      "holdingId": "edition-watson-commandments",
+      "status": "ready-transcription-acquired",
+      "bestSource": "https://www.ccel.org/ccel/watson/commandments.html",
+      "textUrl": "https://www.ccel.org/ccel/w/watson/commandments.xml",
+      "localText": "library/source-ccel/asset-ready-text-edition-watson-commandments/commandments.xml",
+      "sourceTitle": "The Ten Commandments",
+      "note": "Complete source-offered XML transcription downloaded and parsed; preserve edition and editorial differences.",
+      "evidence": "ready-text-acquisition-manifest.json",
+      "originalStatus": "find-existing-text",
+      "title": "The Ten Commandments"
+    },
+    {
+      "holdingId": "edition-charnock-regeneration",
+      "status": "ready-transcription-acquired",
+      "bestSource": "https://www.ccel.org/ccel/charnock/instr_regen.html",
+      "textUrl": "https://www.ccel.org/ccel/c/charnock/instr_regen.xml",
+      "localText": "library/source-ccel/asset-ready-text-edition-charnock-regeneration/instr_regen.xml",
+      "sourceTitle": "A Discourse of the Word, the Instrument of Regeneration",
+      "note": "Complete source-offered XML transcription downloaded and parsed; preserve edition and editorial differences.",
+      "evidence": "ready-text-acquisition-manifest.json",
+      "originalStatus": "find-existing-text",
+      "title": "The Word, the Instrument of Regeneration"
+    },
+    {
+      "holdingId": "edition-goodwin-works",
+      "status": "ebook-links-need-quality-check",
+      "bestSource": "https://puritanlibrary.com/",
+      "note": "The collection directory offers all twelve Goodwin volumes with EPUB links. These lead to archive-derived files and are not evidence of clean proofreading. Check available EPUB/OCR before considering any new transcription.",
+      "evidence": "Directory inspected; destination bodies not systematically downloaded or reviewed.",
+      "checkedOn": "2026-10-05",
+      "originalStatus": "find-existing-text",
+      "title": "The Works of Thomas Goodwin"
+    },
+    {
+      "holdingId": "edition-l08-articles",
+      "status": "online-text-verified",
+      "bestSource": "https://ccel.org/ccel/schaff/creeds3/creeds3.iv.xi.html",
+      "note": "Substantive HTML document body verified inside book-content; retain the edition/translation and quoted-author distinctions.",
+      "evidence": "ready-text-acquisition-manifest.json",
+      "bodyCharacters": 84573,
+      "bodySha256": "9a19922f35489593c0dcdca9bed6a3b6a67efd54ab609727d8c797cb875205db",
+      "originalStatus": "find-existing-text",
+      "title": "Thirty-Nine Articles"
+    },
+    {
+      "holdingId": "edition-l10-white-quran",
+      "status": "authorized-free-text-not-verified",
+      "bestSource": "https://bakerpublishinggroup.com/products/9780764209765_what-every-christian-needs-to-know-about-the-quran",
+      "note": "Official publisher edition identified; complete authorized free text not verified. Purchase/permission route remains separate from transcription work.",
+      "evidence": "Official publisher page checked; no full-text grant established.",
+      "checkedOn": "2026-10-05",
+      "originalStatus": "find-existing-text",
+      "title": "What Every Christian Needs to Know About the Qur’an"
+    },
+    {
+      "holdingId": "edition-ursinus-catechism",
+      "status": "partial-work-online",
+      "bestSource": "https://ccel.org/ccel/ursinus/catechism/catechism.i.html",
+      "note": "The linked page is an editorial introduction to a selected prolegomena article, not the complete catechism commentary. Text source is identified but complete-book coverage is not established.",
+      "evidence": "ready-text-acquisition-manifest.json",
+      "bodyCharacters": 460,
+      "bodySha256": "c62311a59e0a25a225361405562613cbf5007f2fa3303eb42da7e0dc592a6010",
+      "originalStatus": "find-existing-text",
+      "title": "What Is Catechism?"
+    },
+    {
+      "holdingId": "edition-hodge-darwinism",
+      "status": "online-text-verified",
+      "bestSource": "https://www.gutenberg.org/cache/epub/19192/pg19192-images.html",
+      "note": "Complete Gutenberg HTML and text formats available. Preserve the electronic edition notices.",
+      "evidence": "Book body, conclusion and Gutenberg catalog formats inspected.",
+      "checkedOn": "2026-10-05",
+      "originalStatus": "find-existing-text",
+      "title": "What Is Darwinism?"
+    },
+    {
+      "holdingId": "edition-l08-flavel-1767",
+      "status": "existing-alternative-edition-text",
+      "bestSource": "https://raw.githubusercontent.com/NonlinearFruit/Creeds.json/2ae21a4c5387ecc91f474c9d3d67c826d2a6b9d5/creeds/exposition_of_the_assemblies_catechism.json",
+      "localText": "library/source-creeds-json/asset-l08-flavel-json/exposition_of_the_assemblies_catechism.json",
+      "note": "Structured Flavel catechism text already acquired under edition-l08-flavel. The L08 report records modernization/numbering differences; it is not an exact transcription of this 1767 scan.",
+      "evidence": "content/library/catalog/assets/asset-l08-flavel-json.json",
+      "originalStatus": "pdf-text-check-deferred",
+      "title": "An Exposition of the Assemblies Catechism"
+    },
+    {
+      "holdingId": "edition-spurgeon-sermon-268-270-spurgeon-gems-2026",
+      "status": "existing-pdf-text-verified",
+      "bestSource": "https://www.spurgeongems.org/sermon/chs268-270.pdf",
+      "note": "Existing PDF text layer verified on at least two of three sampled pages. Read/extract the existing text first; no OCR needed to obtain text. Page completeness, ordering and accuracy remain review tasks.",
+      "evidence": "pdf-text-checks.json",
+      "originalStatus": "pdf-text-check-deferred",
+      "title": "Ceremony of Laying the First Stone of the New Tabernacle"
+    },
+    {
+      "holdingId": "edition-spurgeon-sermon-0385-spurgeon-gems-2026",
+      "status": "existing-pdf-text-verified",
+      "bestSource": "https://www.spurgeongems.org/sermon/chs385.pdf",
+      "note": "Existing PDF text layer verified on at least two of three sampled pages. Read/extract the existing text first; no OCR needed to obtain text. Page completeness, ordering and accuracy remain review tasks.",
+      "evidence": "pdf-text-checks.json",
+      "originalStatus": "pdf-text-check-deferred",
+      "title": "Expositions of the Doctrines of Grace"
+    },
+    {
+      "holdingId": "edition-spurgeon-sermon-0380-spurgeon-gems-2026",
+      "status": "existing-pdf-text-verified",
+      "bestSource": "https://www.spurgeongems.org/sermon/chs380.pdf",
+      "note": "Existing PDF text layer verified on at least two of three sampled pages. Read/extract the existing text first; no OCR needed to obtain text. Page completeness, ordering and accuracy remain review tasks.",
+      "evidence": "pdf-text-checks.json",
+      "originalStatus": "pdf-text-check-deferred",
+      "title": "Meeting of Our Own Church"
+    },
+    {
+      "holdingId": "edition-spurgeon-sermon-0372-spurgeon-gems-2026",
+      "status": "existing-pdf-text-verified",
+      "bestSource": "https://www.spurgeongems.org/sermon/chs372.pdf",
+      "note": "Existing PDF text layer verified on at least two of three sampled pages. Read/extract the existing text first; no OCR needed to obtain text. Page completeness, ordering and accuracy remain review tasks.",
+      "evidence": "pdf-text-checks.json",
+      "originalStatus": "pdf-text-check-deferred",
+      "title": "Meeting of the Neighboring Churches"
+    },
+    {
+      "holdingId": "edition-spurgeon-sermon-364a-spurgeon-gems-2026",
+      "status": "existing-pdf-text-verified",
+      "bestSource": "https://www.spurgeongems.org/sermon/chs364A.pdf",
+      "note": "Existing PDF text layer verified on at least two of three sampled pages. Read/extract the existing text first; no OCR needed to obtain text. Page completeness, ordering and accuracy remain review tasks.",
+      "evidence": "pdf-text-checks.json",
+      "originalStatus": "pdf-text-check-deferred",
+      "title": "Opening of the Metropolitan Tabernacle"
+    },
+    {
+      "holdingId": "edition-spurgeon-sermon-0369-spurgeon-gems-2026",
+      "status": "existing-pdf-text-verified",
+      "bestSource": "https://www.spurgeongems.org/sermon/chs369.pdf",
+      "note": "Existing PDF text layer verified on at least two of three sampled pages. Read/extract the existing text first; no OCR needed to obtain text. Page completeness, ordering and accuracy remain review tasks.",
+      "evidence": "pdf-text-checks.json",
+      "originalStatus": "pdf-text-check-deferred",
+      "title": "Opening Service of the Metropolitan Tabernacle"
+    },
+    {
+      "holdingId": "edition-spurgeon-sermon-0371-spurgeon-gems-2026",
+      "status": "existing-pdf-text-verified",
+      "bestSource": "https://www.spurgeongems.org/sermon/chs371.pdf",
+      "note": "Existing PDF text layer verified on at least two of three sampled pages. Read/extract the existing text first; no OCR needed to obtain text. Page completeness, ordering and accuracy remain review tasks.",
+      "evidence": "pdf-text-checks.json",
+      "originalStatus": "pdf-text-check-deferred",
+      "title": "Opening Services"
+    },
+    {
+      "holdingId": "edition-spurgeon-sermon-0376-spurgeon-gems-2026",
+      "status": "existing-pdf-text-verified",
+      "bestSource": "https://www.spurgeongems.org/sermon/chs376.pdf",
+      "note": "Existing PDF text layer verified on at least two of three sampled pages. Read/extract the existing text first; no OCR needed to obtain text. Page completeness, ordering and accuracy remain review tasks.",
+      "evidence": "pdf-text-checks.json",
+      "originalStatus": "pdf-text-check-deferred",
+      "title": "Public Meeting of Our London Baptist Brethren"
+    },
+    {
+      "holdingId": "edition-spurgeon-sermon-0377-spurgeon-gems-2026",
+      "status": "existing-pdf-text-verified",
+      "bestSource": "https://www.spurgeongems.org/sermon/chs377.pdf",
+      "note": "Existing PDF text layer verified on at least two of three sampled pages. Read/extract the existing text first; no OCR needed to obtain text. Page completeness, ordering and accuracy remain review tasks.",
+      "evidence": "pdf-text-checks.json",
+      "originalStatus": "pdf-text-check-deferred",
+      "title": "Public Meeting of the Various Denominations"
+    },
+    {
+      "holdingId": "edition-l10-zwemer-lectures",
+      "status": "existing-pdf-text-verified",
+      "bestSource": "https://www.zwemercenter.com/wp-content/uploads/2017/10/Zwemer-Disintegration-of-Islam.pdf",
+      "note": "Existing PDF text layer verified on at least two of three sampled pages. Read/extract the existing text first; no OCR needed to obtain text. Page completeness, ordering and accuracy remain review tasks.",
+      "evidence": "pdf-text-checks.json",
+      "originalStatus": "pdf-text-check-deferred",
+      "title": "The Disintegration of Islam"
+    },
+    {
+      "holdingId": "edition-spurgeon-volume-10-spurgeon-gems-2026",
+      "status": "existing-pdf-text-verified",
+      "bestSource": "https://www.spurgeongems.org/chsbm10.pdf",
+      "note": "Existing PDF text layer verified on at least two of three sampled pages. Read/extract the existing text first; no OCR needed to obtain text. Page completeness, ordering and accuracy remain review tasks.",
+      "evidence": "pdf-text-checks.json",
+      "originalStatus": "pdf-text-check-deferred",
+      "title": "The Metropolitan Tabernacle Pulpit, volume 10 (1864)"
+    },
+    {
+      "holdingId": "edition-spurgeon-volume-11-spurgeon-gems-2026",
+      "status": "existing-pdf-text-verified",
+      "bestSource": "https://www.spurgeongems.org/chsbm11.pdf",
+      "note": "Existing PDF text layer verified on at least two of three sampled pages. Read/extract the existing text first; no OCR needed to obtain text. Page completeness, ordering and accuracy remain review tasks.",
+      "evidence": "pdf-text-checks.json",
+      "originalStatus": "pdf-text-check-deferred",
+      "title": "The Metropolitan Tabernacle Pulpit, volume 11 (1865)"
+    },
+    {
+      "holdingId": "edition-spurgeon-volume-12-spurgeon-gems-2026",
+      "status": "existing-pdf-text-verified",
+      "bestSource": "https://www.spurgeongems.org/chsbm12.pdf",
+      "note": "Existing PDF text layer verified on at least two of three sampled pages. Read/extract the existing text first; no OCR needed to obtain text. Page completeness, ordering and accuracy remain review tasks.",
+      "evidence": "pdf-text-checks.json",
+      "originalStatus": "pdf-text-check-deferred",
+      "title": "The Metropolitan Tabernacle Pulpit, volume 12 (1866)"
+    },
+    {
+      "holdingId": "edition-spurgeon-volume-13-spurgeon-gems-2026",
+      "status": "existing-pdf-text-verified",
+      "bestSource": "https://www.spurgeongems.org/chsbm13.pdf",
+      "note": "Existing PDF text layer verified on at least two of three sampled pages. Read/extract the existing text first; no OCR needed to obtain text. Page completeness, ordering and accuracy remain review tasks.",
+      "evidence": "pdf-text-checks.json",
+      "originalStatus": "pdf-text-check-deferred",
+      "title": "The Metropolitan Tabernacle Pulpit, volume 13 (1867)"
+    },
+    {
+      "holdingId": "edition-spurgeon-volume-14-spurgeon-gems-2026",
+      "status": "existing-pdf-text-verified",
+      "bestSource": "https://www.spurgeongems.org/chsbm14.pdf",
+      "note": "Existing PDF text layer verified on at least two of three sampled pages. Read/extract the existing text first; no OCR needed to obtain text. Page completeness, ordering and accuracy remain review tasks.",
+      "evidence": "pdf-text-checks.json",
+      "originalStatus": "pdf-text-check-deferred",
+      "title": "The Metropolitan Tabernacle Pulpit, volume 14 (1868)"
+    },
+    {
+      "holdingId": "edition-spurgeon-volume-15-spurgeon-gems-2026",
+      "status": "existing-pdf-text-verified",
+      "bestSource": "https://www.spurgeongems.org/chsbm15.pdf",
+      "note": "Existing PDF text layer verified on at least two of three sampled pages. Read/extract the existing text first; no OCR needed to obtain text. Page completeness, ordering and accuracy remain review tasks.",
+      "evidence": "pdf-text-checks.json",
+      "originalStatus": "pdf-text-check-deferred",
+      "title": "The Metropolitan Tabernacle Pulpit, volume 15 (1869)"
+    },
+    {
+      "holdingId": "edition-spurgeon-volume-16-spurgeon-gems-2026",
+      "status": "existing-pdf-text-verified",
+      "bestSource": "https://www.spurgeongems.org/chsbm16.pdf",
+      "note": "Existing PDF text layer verified on at least two of three sampled pages. Read/extract the existing text first; no OCR needed to obtain text. Page completeness, ordering and accuracy remain review tasks.",
+      "evidence": "pdf-text-checks.json",
+      "originalStatus": "pdf-text-check-deferred",
+      "title": "The Metropolitan Tabernacle Pulpit, volume 16 (1870)"
+    },
+    {
+      "holdingId": "edition-spurgeon-volume-17-spurgeon-gems-2026",
+      "status": "existing-pdf-text-verified",
+      "bestSource": "https://www.spurgeongems.org/chsbm17.pdf",
+      "note": "Existing PDF text layer verified on at least two of three sampled pages. Read/extract the existing text first; no OCR needed to obtain text. Page completeness, ordering and accuracy remain review tasks.",
+      "evidence": "pdf-text-checks.json",
+      "originalStatus": "pdf-text-check-deferred",
+      "title": "The Metropolitan Tabernacle Pulpit, volume 17 (1871)"
+    },
+    {
+      "holdingId": "edition-spurgeon-volume-18-spurgeon-gems-2026",
+      "status": "existing-pdf-text-verified",
+      "bestSource": "https://www.spurgeongems.org/chsbm18.pdf",
+      "note": "Existing PDF text layer verified on at least two of three sampled pages. Read/extract the existing text first; no OCR needed to obtain text. Page completeness, ordering and accuracy remain review tasks.",
+      "evidence": "pdf-text-checks.json",
+      "originalStatus": "pdf-text-check-deferred",
+      "title": "The Metropolitan Tabernacle Pulpit, volume 18 (1872)"
+    },
+    {
+      "holdingId": "edition-spurgeon-volume-19-spurgeon-gems-2026",
+      "status": "existing-pdf-text-verified",
+      "bestSource": "https://www.spurgeongems.org/chsbm19.pdf",
+      "note": "Existing PDF text layer verified on at least two of three sampled pages. Read/extract the existing text first; no OCR needed to obtain text. Page completeness, ordering and accuracy remain review tasks.",
+      "evidence": "pdf-text-checks.json",
+      "originalStatus": "pdf-text-check-deferred",
+      "title": "The Metropolitan Tabernacle Pulpit, volume 19 (1873)"
+    },
+    {
+      "holdingId": "edition-spurgeon-volume-20-spurgeon-gems-2026",
+      "status": "existing-pdf-text-verified",
+      "bestSource": "https://www.spurgeongems.org/chsbm20.pdf",
+      "note": "Existing PDF text layer verified on at least two of three sampled pages. Read/extract the existing text first; no OCR needed to obtain text. Page completeness, ordering and accuracy remain review tasks.",
+      "evidence": "pdf-text-checks.json",
+      "originalStatus": "pdf-text-check-deferred",
+      "title": "The Metropolitan Tabernacle Pulpit, volume 20 (1874)"
+    },
+    {
+      "holdingId": "edition-spurgeon-volume-21-spurgeon-gems-2026",
+      "status": "existing-pdf-text-verified",
+      "bestSource": "https://www.spurgeongems.org/chsbm21.pdf",
+      "note": "Existing PDF text layer verified on at least two of three sampled pages. Read/extract the existing text first; no OCR needed to obtain text. Page completeness, ordering and accuracy remain review tasks.",
+      "evidence": "pdf-text-checks.json",
+      "originalStatus": "pdf-text-check-deferred",
+      "title": "The Metropolitan Tabernacle Pulpit, volume 21 (1875)"
+    },
+    {
+      "holdingId": "edition-spurgeon-volume-22-spurgeon-gems-2026",
+      "status": "existing-pdf-text-verified",
+      "bestSource": "https://www.spurgeongems.org/chsbm22.pdf",
+      "note": "Existing PDF text layer verified on at least two of three sampled pages. Read/extract the existing text first; no OCR needed to obtain text. Page completeness, ordering and accuracy remain review tasks.",
+      "evidence": "pdf-text-checks.json",
+      "originalStatus": "pdf-text-check-deferred",
+      "title": "The Metropolitan Tabernacle Pulpit, volume 22 (1876)"
+    },
+    {
+      "holdingId": "edition-spurgeon-volume-23-spurgeon-gems-2026",
+      "status": "existing-pdf-text-verified",
+      "bestSource": "https://www.spurgeongems.org/chsbm23.pdf",
+      "note": "Existing PDF text layer verified on at least two of three sampled pages. Read/extract the existing text first; no OCR needed to obtain text. Page completeness, ordering and accuracy remain review tasks.",
+      "evidence": "pdf-text-checks.json",
+      "originalStatus": "pdf-text-check-deferred",
+      "title": "The Metropolitan Tabernacle Pulpit, volume 23 (1877)"
+    },
+    {
+      "holdingId": "edition-spurgeon-volume-24-spurgeon-gems-2026",
+      "status": "existing-pdf-text-verified",
+      "bestSource": "https://www.spurgeongems.org/chsbm24.pdf",
+      "note": "Existing PDF text layer verified on at least two of three sampled pages. Read/extract the existing text first; no OCR needed to obtain text. Page completeness, ordering and accuracy remain review tasks.",
+      "evidence": "pdf-text-checks.json",
+      "originalStatus": "pdf-text-check-deferred",
+      "title": "The Metropolitan Tabernacle Pulpit, volume 24 (1878)"
+    },
+    {
+      "holdingId": "edition-spurgeon-volume-25-spurgeon-gems-2026",
+      "status": "existing-pdf-text-verified",
+      "bestSource": "https://www.spurgeongems.org/chsbm25.pdf",
+      "note": "Existing PDF text layer verified on at least two of three sampled pages. Read/extract the existing text first; no OCR needed to obtain text. Page completeness, ordering and accuracy remain review tasks.",
+      "evidence": "pdf-text-checks.json",
+      "originalStatus": "pdf-text-check-deferred",
+      "title": "The Metropolitan Tabernacle Pulpit, volume 25 (1879)"
+    },
+    {
+      "holdingId": "edition-spurgeon-volume-26-spurgeon-gems-2026",
+      "status": "existing-pdf-text-verified",
+      "bestSource": "https://www.spurgeongems.org/chsbm26.pdf",
+      "note": "Existing PDF text layer verified on at least two of three sampled pages. Read/extract the existing text first; no OCR needed to obtain text. Page completeness, ordering and accuracy remain review tasks.",
+      "evidence": "pdf-text-checks.json",
+      "originalStatus": "pdf-text-check-deferred",
+      "title": "The Metropolitan Tabernacle Pulpit, volume 26 (1880)"
+    },
+    {
+      "holdingId": "edition-spurgeon-volume-27-spurgeon-gems-2026",
+      "status": "existing-pdf-text-verified",
+      "bestSource": "https://www.spurgeongems.org/chsbm27.pdf",
+      "note": "Existing PDF text layer verified on at least two of three sampled pages. Read/extract the existing text first; no OCR needed to obtain text. Page completeness, ordering and accuracy remain review tasks.",
+      "evidence": "pdf-text-checks.json",
+      "originalStatus": "pdf-text-check-deferred",
+      "title": "The Metropolitan Tabernacle Pulpit, volume 27 (1881)"
+    },
+    {
+      "holdingId": "edition-spurgeon-volume-28-spurgeon-gems-2026",
+      "status": "existing-pdf-text-verified",
+      "bestSource": "https://www.spurgeongems.org/chsbm28.pdf",
+      "note": "Existing PDF text layer verified on at least two of three sampled pages. Read/extract the existing text first; no OCR needed to obtain text. Page completeness, ordering and accuracy remain review tasks.",
+      "evidence": "pdf-text-checks.json",
+      "originalStatus": "pdf-text-check-deferred",
+      "title": "The Metropolitan Tabernacle Pulpit, volume 28 (1882)"
+    },
+    {
+      "holdingId": "edition-spurgeon-volume-29-spurgeon-gems-2026",
+      "status": "existing-pdf-text-verified",
+      "bestSource": "https://www.spurgeongems.org/chsbm29.pdf",
+      "note": "Existing PDF text layer verified on at least two of three sampled pages. Read/extract the existing text first; no OCR needed to obtain text. Page completeness, ordering and accuracy remain review tasks.",
+      "evidence": "pdf-text-checks.json",
+      "originalStatus": "pdf-text-check-deferred",
+      "title": "The Metropolitan Tabernacle Pulpit, volume 29 (1883)"
+    },
+    {
+      "holdingId": "edition-spurgeon-volume-30-spurgeon-gems-2026",
+      "status": "existing-pdf-text-verified",
+      "bestSource": "https://www.spurgeongems.org/chsbm30.pdf",
+      "note": "Existing PDF text layer verified on at least two of three sampled pages. Read/extract the existing text first; no OCR needed to obtain text. Page completeness, ordering and accuracy remain review tasks.",
+      "evidence": "pdf-text-checks.json",
+      "originalStatus": "pdf-text-check-deferred",
+      "title": "The Metropolitan Tabernacle Pulpit, volume 30 (1884)"
+    },
+    {
+      "holdingId": "edition-spurgeon-volume-31-spurgeon-gems-2026",
+      "status": "existing-pdf-text-verified",
+      "bestSource": "https://www.spurgeongems.org/chsbm31.pdf",
+      "note": "Existing PDF text layer verified on at least two of three sampled pages. Read/extract the existing text first; no OCR needed to obtain text. Page completeness, ordering and accuracy remain review tasks.",
+      "evidence": "pdf-text-checks.json",
+      "originalStatus": "pdf-text-check-deferred",
+      "title": "The Metropolitan Tabernacle Pulpit, volume 31 (1885)"
+    },
+    {
+      "holdingId": "edition-spurgeon-volume-32-spurgeon-gems-2026",
+      "status": "existing-pdf-text-verified",
+      "bestSource": "https://www.spurgeongems.org/chsbm32.pdf",
+      "note": "Existing PDF text layer verified on at least two of three sampled pages. Read/extract the existing text first; no OCR needed to obtain text. Page completeness, ordering and accuracy remain review tasks.",
+      "evidence": "pdf-text-checks.json",
+      "originalStatus": "pdf-text-check-deferred",
+      "title": "The Metropolitan Tabernacle Pulpit, volume 32 (1886)"
+    },
+    {
+      "holdingId": "edition-spurgeon-volume-33-spurgeon-gems-2026",
+      "status": "existing-pdf-text-verified",
+      "bestSource": "https://www.spurgeongems.org/chsbm33.pdf",
+      "note": "Existing PDF text layer verified on at least two of three sampled pages. Read/extract the existing text first; no OCR needed to obtain text. Page completeness, ordering and accuracy remain review tasks.",
+      "evidence": "pdf-text-checks.json",
+      "originalStatus": "pdf-text-check-deferred",
+      "title": "The Metropolitan Tabernacle Pulpit, volume 33 (1887)"
+    },
+    {
+      "holdingId": "edition-spurgeon-volume-34-spurgeon-gems-2026",
+      "status": "existing-pdf-text-verified",
+      "bestSource": "https://www.spurgeongems.org/chsbm34.pdf",
+      "note": "Existing PDF text layer verified on at least two of three sampled pages. Read/extract the existing text first; no OCR needed to obtain text. Page completeness, ordering and accuracy remain review tasks.",
+      "evidence": "pdf-text-checks.json",
+      "originalStatus": "pdf-text-check-deferred",
+      "title": "The Metropolitan Tabernacle Pulpit, volume 34 (1888)"
+    },
+    {
+      "holdingId": "edition-spurgeon-volume-35-spurgeon-gems-2026",
+      "status": "existing-pdf-text-verified",
+      "bestSource": "https://www.spurgeongems.org/chsbm35.pdf",
+      "note": "Existing PDF text layer verified on at least two of three sampled pages. Read/extract the existing text first; no OCR needed to obtain text. Page completeness, ordering and accuracy remain review tasks.",
+      "evidence": "pdf-text-checks.json",
+      "originalStatus": "pdf-text-check-deferred",
+      "title": "The Metropolitan Tabernacle Pulpit, volume 35 (1889)"
+    },
+    {
+      "holdingId": "edition-spurgeon-volume-36-spurgeon-gems-2026",
+      "status": "existing-pdf-text-verified",
+      "bestSource": "https://www.spurgeongems.org/chsbm36.pdf",
+      "note": "Existing PDF text layer verified on at least two of three sampled pages. Read/extract the existing text first; no OCR needed to obtain text. Page completeness, ordering and accuracy remain review tasks.",
+      "evidence": "pdf-text-checks.json",
+      "originalStatus": "pdf-text-check-deferred",
+      "title": "The Metropolitan Tabernacle Pulpit, volume 36 (1890)"
+    },
+    {
+      "holdingId": "edition-spurgeon-volume-37-spurgeon-gems-2026",
+      "status": "existing-pdf-text-verified",
+      "bestSource": "https://www.spurgeongems.org/chsbm37.pdf",
+      "note": "Existing PDF text layer verified on at least two of three sampled pages. Read/extract the existing text first; no OCR needed to obtain text. Page completeness, ordering and accuracy remain review tasks.",
+      "evidence": "pdf-text-checks.json",
+      "originalStatus": "pdf-text-check-deferred",
+      "title": "The Metropolitan Tabernacle Pulpit, volume 37 (1891)"
+    },
+    {
+      "holdingId": "edition-spurgeon-volume-38-spurgeon-gems-2026",
+      "status": "existing-pdf-text-verified",
+      "bestSource": "https://www.spurgeongems.org/chsbm38.pdf",
+      "note": "Existing PDF text layer verified on at least two of three sampled pages. Read/extract the existing text first; no OCR needed to obtain text. Page completeness, ordering and accuracy remain review tasks.",
+      "evidence": "pdf-text-checks.json",
+      "originalStatus": "pdf-text-check-deferred",
+      "title": "The Metropolitan Tabernacle Pulpit, volume 38 (1892)"
+    },
+    {
+      "holdingId": "edition-spurgeon-volume-39-spurgeon-gems-2026",
+      "status": "existing-pdf-text-verified",
+      "bestSource": "https://www.spurgeongems.org/chsbm39.pdf",
+      "note": "Existing PDF text layer verified on at least two of three sampled pages. Read/extract the existing text first; no OCR needed to obtain text. Page completeness, ordering and accuracy remain review tasks.",
+      "evidence": "pdf-text-checks.json",
+      "originalStatus": "pdf-text-check-deferred",
+      "title": "The Metropolitan Tabernacle Pulpit, volume 39 (1893)"
+    },
+    {
+      "holdingId": "edition-spurgeon-volume-40-spurgeon-gems-2026",
+      "status": "existing-pdf-text-verified",
+      "bestSource": "https://www.spurgeongems.org/chsbm40.pdf",
+      "note": "Existing PDF text layer verified on at least two of three sampled pages. Read/extract the existing text first; no OCR needed to obtain text. Page completeness, ordering and accuracy remain review tasks.",
+      "evidence": "pdf-text-checks.json",
+      "originalStatus": "pdf-text-check-deferred",
+      "title": "The Metropolitan Tabernacle Pulpit, volume 40 (1894)"
+    },
+    {
+      "holdingId": "edition-spurgeon-volume-41-spurgeon-gems-2026",
+      "status": "existing-pdf-text-verified",
+      "bestSource": "https://www.spurgeongems.org/chsbm41.pdf",
+      "note": "Existing PDF text layer verified on at least two of three sampled pages. Read/extract the existing text first; no OCR needed to obtain text. Page completeness, ordering and accuracy remain review tasks.",
+      "evidence": "pdf-text-checks.json",
+      "originalStatus": "pdf-text-check-deferred",
+      "title": "The Metropolitan Tabernacle Pulpit, volume 41 (1895)"
+    },
+    {
+      "holdingId": "edition-spurgeon-volume-42-spurgeon-gems-2026",
+      "status": "existing-pdf-text-verified",
+      "bestSource": "https://www.spurgeongems.org/chsbm42.pdf",
+      "note": "Existing PDF text layer verified on at least two of three sampled pages. Read/extract the existing text first; no OCR needed to obtain text. Page completeness, ordering and accuracy remain review tasks.",
+      "evidence": "pdf-text-checks.json",
+      "originalStatus": "pdf-text-check-deferred",
+      "title": "The Metropolitan Tabernacle Pulpit, volume 42 (1896)"
+    },
+    {
+      "holdingId": "edition-spurgeon-volume-43-spurgeon-gems-2026",
+      "status": "existing-pdf-text-verified",
+      "bestSource": "https://www.spurgeongems.org/chsbm43.pdf",
+      "note": "Existing PDF text layer verified on at least two of three sampled pages. Read/extract the existing text first; no OCR needed to obtain text. Page completeness, ordering and accuracy remain review tasks.",
+      "evidence": "pdf-text-checks.json",
+      "originalStatus": "pdf-text-check-deferred",
+      "title": "The Metropolitan Tabernacle Pulpit, volume 43 (1897)"
+    },
+    {
+      "holdingId": "edition-spurgeon-volume-44-spurgeon-gems-2026",
+      "status": "existing-pdf-text-verified",
+      "bestSource": "https://www.spurgeongems.org/chsbm44.pdf",
+      "note": "Existing PDF text layer verified on at least two of three sampled pages. Read/extract the existing text first; no OCR needed to obtain text. Page completeness, ordering and accuracy remain review tasks.",
+      "evidence": "pdf-text-checks.json",
+      "originalStatus": "pdf-text-check-deferred",
+      "title": "The Metropolitan Tabernacle Pulpit, volume 44 (1898)"
+    },
+    {
+      "holdingId": "edition-spurgeon-volume-45-spurgeon-gems-2026",
+      "status": "existing-pdf-text-verified",
+      "bestSource": "https://www.spurgeongems.org/chsbm45.pdf",
+      "note": "Existing PDF text layer verified on at least two of three sampled pages. Read/extract the existing text first; no OCR needed to obtain text. Page completeness, ordering and accuracy remain review tasks.",
+      "evidence": "pdf-text-checks.json",
+      "originalStatus": "pdf-text-check-deferred",
+      "title": "The Metropolitan Tabernacle Pulpit, volume 45 (1899)"
+    },
+    {
+      "holdingId": "edition-spurgeon-volume-46-spurgeon-gems-2026",
+      "status": "existing-pdf-text-verified",
+      "bestSource": "https://www.spurgeongems.org/chsbm46.pdf",
+      "note": "Existing PDF text layer verified on at least two of three sampled pages. Read/extract the existing text first; no OCR needed to obtain text. Page completeness, ordering and accuracy remain review tasks.",
+      "evidence": "pdf-text-checks.json",
+      "originalStatus": "pdf-text-check-deferred",
+      "title": "The Metropolitan Tabernacle Pulpit, volume 46 (1900)"
+    },
+    {
+      "holdingId": "edition-spurgeon-volume-47-spurgeon-gems-2026",
+      "status": "existing-pdf-text-verified",
+      "bestSource": "https://www.spurgeongems.org/chsbm47.pdf",
+      "note": "Existing PDF text layer verified on at least two of three sampled pages. Read/extract the existing text first; no OCR needed to obtain text. Page completeness, ordering and accuracy remain review tasks.",
+      "evidence": "pdf-text-checks.json",
+      "originalStatus": "pdf-text-check-deferred",
+      "title": "The Metropolitan Tabernacle Pulpit, volume 47 (1901)"
+    },
+    {
+      "holdingId": "edition-spurgeon-volume-48-spurgeon-gems-2026",
+      "status": "existing-pdf-text-verified",
+      "bestSource": "https://www.spurgeongems.org/chsbm48.pdf",
+      "note": "Existing PDF text layer verified on at least two of three sampled pages. Read/extract the existing text first; no OCR needed to obtain text. Page completeness, ordering and accuracy remain review tasks.",
+      "evidence": "pdf-text-checks.json",
+      "originalStatus": "pdf-text-check-deferred",
+      "title": "The Metropolitan Tabernacle Pulpit, volume 48 (1902)"
+    },
+    {
+      "holdingId": "edition-spurgeon-volume-49-spurgeon-gems-2026",
+      "status": "existing-pdf-text-verified",
+      "bestSource": "https://www.spurgeongems.org/chsbm49.pdf",
+      "note": "Existing PDF text layer verified on at least two of three sampled pages. Read/extract the existing text first; no OCR needed to obtain text. Page completeness, ordering and accuracy remain review tasks.",
+      "evidence": "pdf-text-checks.json",
+      "originalStatus": "pdf-text-check-deferred",
+      "title": "The Metropolitan Tabernacle Pulpit, volume 49 (1903)"
+    },
+    {
+      "holdingId": "edition-spurgeon-volume-50-spurgeon-gems-2026",
+      "status": "existing-pdf-text-verified",
+      "bestSource": "https://www.spurgeongems.org/chsbm50.pdf",
+      "note": "Existing PDF text layer verified on at least two of three sampled pages. Read/extract the existing text first; no OCR needed to obtain text. Page completeness, ordering and accuracy remain review tasks.",
+      "evidence": "pdf-text-checks.json",
+      "originalStatus": "pdf-text-check-deferred",
+      "title": "The Metropolitan Tabernacle Pulpit, volume 50 (1904)"
+    },
+    {
+      "holdingId": "edition-spurgeon-volume-51-spurgeon-gems-2026",
+      "status": "existing-pdf-text-verified",
+      "bestSource": "https://www.spurgeongems.org/chsbm51.pdf",
+      "note": "Existing PDF text layer verified on at least two of three sampled pages. Read/extract the existing text first; no OCR needed to obtain text. Page completeness, ordering and accuracy remain review tasks.",
+      "evidence": "pdf-text-checks.json",
+      "originalStatus": "pdf-text-check-deferred",
+      "title": "The Metropolitan Tabernacle Pulpit, volume 51 (1905)"
+    },
+    {
+      "holdingId": "edition-spurgeon-volume-52-spurgeon-gems-2026",
+      "status": "existing-pdf-text-verified",
+      "bestSource": "https://www.spurgeongems.org/chsbm52.pdf",
+      "note": "Existing PDF text layer verified on at least two of three sampled pages. Read/extract the existing text first; no OCR needed to obtain text. Page completeness, ordering and accuracy remain review tasks.",
+      "evidence": "pdf-text-checks.json",
+      "originalStatus": "pdf-text-check-deferred",
+      "title": "The Metropolitan Tabernacle Pulpit, volume 52 (1906)"
+    },
+    {
+      "holdingId": "edition-spurgeon-volume-53-spurgeon-gems-2026",
+      "status": "existing-pdf-text-verified",
+      "bestSource": "https://www.spurgeongems.org/chsbm53.pdf",
+      "note": "Existing PDF text layer verified on at least two of three sampled pages. Read/extract the existing text first; no OCR needed to obtain text. Page completeness, ordering and accuracy remain review tasks.",
+      "evidence": "pdf-text-checks.json",
+      "originalStatus": "pdf-text-check-deferred",
+      "title": "The Metropolitan Tabernacle Pulpit, volume 53 (1907)"
+    },
+    {
+      "holdingId": "edition-spurgeon-volume-54-spurgeon-gems-2026",
+      "status": "existing-pdf-text-verified",
+      "bestSource": "https://www.spurgeongems.org/chsbm54.pdf",
+      "note": "Existing PDF text layer verified on at least two of three sampled pages. Read/extract the existing text first; no OCR needed to obtain text. Page completeness, ordering and accuracy remain review tasks.",
+      "evidence": "pdf-text-checks.json",
+      "originalStatus": "pdf-text-check-deferred",
+      "title": "The Metropolitan Tabernacle Pulpit, volume 54 (1908)"
+    },
+    {
+      "holdingId": "edition-spurgeon-volume-55-spurgeon-gems-2026",
+      "status": "existing-pdf-text-verified",
+      "bestSource": "https://www.spurgeongems.org/chsbm55.pdf",
+      "note": "Existing PDF text layer verified on at least two of three sampled pages. Read/extract the existing text first; no OCR needed to obtain text. Page completeness, ordering and accuracy remain review tasks.",
+      "evidence": "pdf-text-checks.json",
+      "originalStatus": "pdf-text-check-deferred",
+      "title": "The Metropolitan Tabernacle Pulpit, volume 55 (1909)"
+    },
+    {
+      "holdingId": "edition-spurgeon-volume-56-spurgeon-gems-2026",
+      "status": "existing-pdf-text-verified",
+      "bestSource": "https://www.spurgeongems.org/chsbm56.pdf",
+      "note": "Existing PDF text layer verified on at least two of three sampled pages. Read/extract the existing text first; no OCR needed to obtain text. Page completeness, ordering and accuracy remain review tasks.",
+      "evidence": "pdf-text-checks.json",
+      "originalStatus": "pdf-text-check-deferred",
+      "title": "The Metropolitan Tabernacle Pulpit, volume 56 (1910)"
+    },
+    {
+      "holdingId": "edition-spurgeon-volume-57-spurgeon-gems-2026",
+      "status": "existing-pdf-text-verified",
+      "bestSource": "https://www.spurgeongems.org/chsbm57.pdf",
+      "note": "Existing PDF text layer verified on at least two of three sampled pages. Read/extract the existing text first; no OCR needed to obtain text. Page completeness, ordering and accuracy remain review tasks.",
+      "evidence": "pdf-text-checks.json",
+      "originalStatus": "pdf-text-check-deferred",
+      "title": "The Metropolitan Tabernacle Pulpit, volume 57 (1911)"
+    },
+    {
+      "holdingId": "edition-spurgeon-volume-58-spurgeon-gems-2026",
+      "status": "existing-pdf-text-verified",
+      "bestSource": "https://www.spurgeongems.org/chsbm58.pdf",
+      "note": "Existing PDF text layer verified on at least two of three sampled pages. Read/extract the existing text first; no OCR needed to obtain text. Page completeness, ordering and accuracy remain review tasks.",
+      "evidence": "pdf-text-checks.json",
+      "originalStatus": "pdf-text-check-deferred",
+      "title": "The Metropolitan Tabernacle Pulpit, volume 58 (1912)"
+    },
+    {
+      "holdingId": "edition-spurgeon-volume-59-spurgeon-gems-2026",
+      "status": "existing-pdf-text-verified",
+      "bestSource": "https://www.spurgeongems.org/chsbm59.pdf",
+      "note": "Existing PDF text layer verified on at least two of three sampled pages. Read/extract the existing text first; no OCR needed to obtain text. Page completeness, ordering and accuracy remain review tasks.",
+      "evidence": "pdf-text-checks.json",
+      "originalStatus": "pdf-text-check-deferred",
+      "title": "The Metropolitan Tabernacle Pulpit, volume 59 (1913)"
+    },
+    {
+      "holdingId": "edition-spurgeon-volume-60-spurgeon-gems-2026",
+      "status": "existing-pdf-text-verified",
+      "bestSource": "https://www.spurgeongems.org/chsbm60.pdf",
+      "note": "Existing PDF text layer verified on at least two of three sampled pages. Read/extract the existing text first; no OCR needed to obtain text. Page completeness, ordering and accuracy remain review tasks.",
+      "evidence": "pdf-text-checks.json",
+      "originalStatus": "pdf-text-check-deferred",
+      "title": "The Metropolitan Tabernacle Pulpit, volume 60 (1914)"
+    },
+    {
+      "holdingId": "edition-spurgeon-volume-61-spurgeon-gems-2026",
+      "status": "existing-pdf-text-verified",
+      "bestSource": "https://www.spurgeongems.org/chsbm61.pdf",
+      "note": "Existing PDF text layer verified on at least two of three sampled pages. Read/extract the existing text first; no OCR needed to obtain text. Page completeness, ordering and accuracy remain review tasks.",
+      "evidence": "pdf-text-checks.json",
+      "originalStatus": "pdf-text-check-deferred",
+      "title": "The Metropolitan Tabernacle Pulpit, volume 61 (1915)"
+    },
+    {
+      "holdingId": "edition-spurgeon-volume-62-spurgeon-gems-2026",
+      "status": "existing-pdf-text-verified",
+      "bestSource": "https://www.spurgeongems.org/chsbm62.pdf",
+      "note": "Existing PDF text layer verified on at least two of three sampled pages. Read/extract the existing text first; no OCR needed to obtain text. Page completeness, ordering and accuracy remain review tasks.",
+      "evidence": "pdf-text-checks.json",
+      "originalStatus": "pdf-text-check-deferred",
+      "title": "The Metropolitan Tabernacle Pulpit, volume 62 (1916)"
+    },
+    {
+      "holdingId": "edition-spurgeon-volume-63-spurgeon-gems-2026",
+      "status": "existing-pdf-text-verified",
+      "bestSource": "https://www.spurgeongems.org/chsbm63.pdf",
+      "note": "Existing PDF text layer verified on at least two of three sampled pages. Read/extract the existing text first; no OCR needed to obtain text. Page completeness, ordering and accuracy remain review tasks.",
+      "evidence": "pdf-text-checks.json",
+      "originalStatus": "pdf-text-check-deferred",
+      "title": "The Metropolitan Tabernacle Pulpit, volume 63 (1917)"
+    },
+    {
+      "holdingId": "edition-spurgeon-volume-07-spurgeon-gems-2026",
+      "status": "existing-pdf-text-verified",
+      "bestSource": "https://www.spurgeongems.org/chsbm7.pdf",
+      "note": "Existing PDF text layer verified on at least two of three sampled pages. Read/extract the existing text first; no OCR needed to obtain text. Page completeness, ordering and accuracy remain review tasks.",
+      "evidence": "pdf-text-checks.json",
+      "originalStatus": "pdf-text-check-deferred",
+      "title": "The Metropolitan Tabernacle Pulpit, volume 7 (1861)"
+    },
+    {
+      "holdingId": "edition-spurgeon-volume-08-spurgeon-gems-2026",
+      "status": "existing-pdf-text-verified",
+      "bestSource": "https://www.spurgeongems.org/chsbm8.pdf",
+      "note": "Existing PDF text layer verified on at least two of three sampled pages. Read/extract the existing text first; no OCR needed to obtain text. Page completeness, ordering and accuracy remain review tasks.",
+      "evidence": "pdf-text-checks.json",
+      "originalStatus": "pdf-text-check-deferred",
+      "title": "The Metropolitan Tabernacle Pulpit, volume 8 (1862)"
+    },
+    {
+      "holdingId": "edition-spurgeon-volume-09-spurgeon-gems-2026",
+      "status": "existing-pdf-text-verified",
+      "bestSource": "https://www.spurgeongems.org/chsbm9.pdf",
+      "note": "Existing PDF text layer verified on at least two of three sampled pages. Read/extract the existing text first; no OCR needed to obtain text. Page completeness, ordering and accuracy remain review tasks.",
+      "evidence": "pdf-text-checks.json",
+      "originalStatus": "pdf-text-check-deferred",
+      "title": "The Metropolitan Tabernacle Pulpit, volume 9 (1863)"
+    },
+    {
+      "holdingId": "edition-l10-zwemer-christ",
+      "status": "existing-pdf-text-verified",
+      "bestSource": "https://www.zwemercenter.com/wp-content/uploads/2017/10/Zwemer-Moslem-Christ.pdf",
+      "note": "Existing PDF text layer verified on at least two of three sampled pages. Read/extract the existing text first; no OCR needed to obtain text. Page completeness, ordering and accuracy remain review tasks. A separately hosted HTML chapter was also checked; complete edition collation remains open.",
+      "evidence": "pdf-text-checks.json",
+      "originalStatus": "pdf-text-check-deferred",
+      "alternativeHtml": "https://answeringislam.info/Books/Zwemer/Christ/chap5.htm",
+      "title": "The Moslem Christ"
+    },
+    {
+      "holdingId": "edition-l10-zwemer-god",
+      "status": "existing-pdf-text-verified",
+      "bestSource": "https://www.zwemercenter.com/wp-content/uploads/2017/10/Zwemer-Moslem-Doctrine-of-God-.pdf",
+      "note": "Existing PDF text layer verified on at least two of three sampled pages. Read/extract the existing text first; no OCR needed to obtain text. Page completeness, ordering and accuracy remain review tasks. A separately hosted HTML chapter was also checked; complete edition collation remains open.",
+      "evidence": "pdf-text-checks.json",
+      "originalStatus": "pdf-text-check-deferred",
+      "alternativeHtml": "https://answeringislam.info/Books/Zwemer/God/chap1.htm",
+      "title": "The Moslem Doctrine of God"
+    },
+    {
+      "holdingId": "edition-spurgeon-volume-01-spurgeon-gems-2026",
+      "status": "existing-pdf-text-verified",
+      "bestSource": "https://www.spurgeongems.org/chsbm1.pdf",
+      "note": "Existing PDF text layer verified on at least two of three sampled pages. Read/extract the existing text first; no OCR needed to obtain text. Page completeness, ordering and accuracy remain review tasks.",
+      "evidence": "pdf-text-checks.json",
+      "originalStatus": "pdf-text-check-deferred",
+      "title": "The New Park Street Pulpit, volume 1 (1855)"
+    },
+    {
+      "holdingId": "edition-spurgeon-volume-02-spurgeon-gems-2026",
+      "status": "existing-pdf-text-verified",
+      "bestSource": "https://www.spurgeongems.org/chsbm2.pdf",
+      "note": "Existing PDF text layer verified on at least two of three sampled pages. Read/extract the existing text first; no OCR needed to obtain text. Page completeness, ordering and accuracy remain review tasks.",
+      "evidence": "pdf-text-checks.json",
+      "originalStatus": "pdf-text-check-deferred",
+      "title": "The New Park Street Pulpit, volume 2 (1856)"
+    },
+    {
+      "holdingId": "edition-spurgeon-volume-03-spurgeon-gems-2026",
+      "status": "existing-pdf-text-verified",
+      "bestSource": "https://www.spurgeongems.org/chsbm3.pdf",
+      "note": "Existing PDF text layer verified on at least two of three sampled pages. Read/extract the existing text first; no OCR needed to obtain text. Page completeness, ordering and accuracy remain review tasks.",
+      "evidence": "pdf-text-checks.json",
+      "originalStatus": "pdf-text-check-deferred",
+      "title": "The New Park Street Pulpit, volume 3 (1857)"
+    },
+    {
+      "holdingId": "edition-spurgeon-volume-04-spurgeon-gems-2026",
+      "status": "existing-pdf-text-verified",
+      "bestSource": "https://www.spurgeongems.org/chsbm4.pdf",
+      "note": "Existing PDF text layer verified on at least two of three sampled pages. Read/extract the existing text first; no OCR needed to obtain text. Page completeness, ordering and accuracy remain review tasks.",
+      "evidence": "pdf-text-checks.json",
+      "originalStatus": "pdf-text-check-deferred",
+      "title": "The New Park Street Pulpit, volume 4 (1858)"
+    },
+    {
+      "holdingId": "edition-spurgeon-volume-05-spurgeon-gems-2026",
+      "status": "existing-pdf-text-verified",
+      "bestSource": "https://www.spurgeongems.org/chsbm5.pdf",
+      "note": "Existing PDF text layer verified on at least two of three sampled pages. Read/extract the existing text first; no OCR needed to obtain text. Page completeness, ordering and accuracy remain review tasks.",
+      "evidence": "pdf-text-checks.json",
+      "originalStatus": "pdf-text-check-deferred",
+      "title": "The New Park Street Pulpit, volume 5 (1859)"
+    },
+    {
+      "holdingId": "edition-spurgeon-volume-06-spurgeon-gems-2026",
+      "status": "existing-pdf-text-verified",
+      "bestSource": "https://www.spurgeongems.org/chsbm6.pdf",
+      "note": "Existing PDF text layer verified on at least two of three sampled pages. Read/extract the existing text first; no OCR needed to obtain text. Page completeness, ordering and accuracy remain review tasks.",
+      "evidence": "pdf-text-checks.json",
+      "originalStatus": "pdf-text-check-deferred",
+      "title": "The New Park Street Pulpit, volume 6 (1860)"
+    },
+    {
+      "holdingId": "edition-spurgeon-sermon-331-332-spurgeon-gems-2026",
+      "status": "existing-pdf-text-verified",
+      "bestSource": "https://www.spurgeongems.org/sermon/chs331-332.pdf",
+      "note": "Existing PDF text layer verified on at least two of three sampled pages. Read/extract the existing text first; no OCR needed to obtain text. Page completeness, ordering and accuracy remain review tasks.",
+      "evidence": "pdf-text-checks.json",
+      "originalStatus": "pdf-text-check-deferred",
+      "title": "The Proceedings of the Great Meeting in the Metropolitan Tabernacle"
+    }
+  ],
+  "supplementaryFindings": [
+    {
+      "holdingId": "edition-warfield-plan",
+      "title": "The Plan of Salvation",
+      "status": "online-text-alternative-verified",
+      "bestSource": "https://www.monergism.com/thethreshold/articles/onsite/WarfieldPlan01.html",
+      "note": "Readable lecture text available at Monergism; Part I body verified. Do not treat one checked part as a complete five-lecture collation; retain link-only handling.",
+      "evidence": "Part I substantive body, author and title inspected."
+    },
+    {
+      "holdingId": "edition-aa-hodge-outlines",
+      "title": "Outlines of Theology",
+      "status": "partial-work-online",
+      "bestSource": "https://www.theologue.org/AAHodgeTheology/Theology-AAHodge.html",
+      "note": "Directory explicitly names the revised 1878 edition but exposes only ten chapter links (1–9 and 39). Chapter retrieval failed. This is not verified replacement coverage for the whole book.",
+      "evidence": "Fetched title and ten links; failed chapter01.html request retained."
+    }
+  ]
+}
