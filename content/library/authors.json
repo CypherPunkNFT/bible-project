@@ -1,0 +1,869 @@
+{
+  "$schema": "./schema.json",
+  "schemaVersion": 1,
+  "kind": "author-registry",
+  "updated": "2026-10-05",
+  "authors": [
+    {
+      "id": "author-john-calvin",
+      "entityType": "person",
+      "name": "John Calvin",
+      "aliases": [
+        "Jean Calvin",
+        "Calvin"
+      ],
+      "cohort": "reformation-puritan",
+      "traditions": [
+        "reformed"
+      ],
+      "eligibility": "eligible",
+      "rationale": "PRDL identifies Calvin as Reformed and records his Geneva theology post and substantial bibliography.",
+      "receptionBasis": "Reformed classification and historical bibliography.",
+      "evidence": [
+        {
+          "url": "https://www.prdl.org/authors.php?a_in=C",
+          "locator": "Calvin, Jean (d. 1564)",
+          "note": "Reformed classification and historical bibliography.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "distinctives": [],
+      "unresolved": [
+        "Classify each translation and publisher's added material separately."
+      ],
+      "review": {
+        "date": "2026-10-05",
+        "reviewer": "Codex",
+        "kind": "ai-assisted",
+        "scope": "Initial bibliographic and theological-fit screening; work/edition review remains required."
+      }
+    },
+    {
+      "id": "author-william-perkins",
+      "entityType": "person",
+      "name": "William Perkins",
+      "aliases": [],
+      "cohort": "reformation-puritan",
+      "traditions": [
+        "reformed",
+        "puritan"
+      ],
+      "eligibility": "eligible",
+      "rationale": "PRDL identifies the theologian Perkins as Puritan and Reformed, with a substantial early printed corpus.",
+      "receptionBasis": "Puritan/Reformed author and editions.",
+      "evidence": [
+        {
+          "url": "https://www.prdl.org/search.php?limit=20&q=william+perkins&s=40&sort=",
+          "locator": "Perkins, William (1558–1602)",
+          "note": "Puritan/Reformed author and editions.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "distinctives": [],
+      "unresolved": [
+        "Distinguish posthumous editorial arrangements from the original works."
+      ],
+      "review": {
+        "date": "2026-10-05",
+        "reviewer": "Codex",
+        "kind": "ai-assisted",
+        "scope": "Initial bibliographic and theological-fit screening; work/edition review remains required."
+      }
+    },
+    {
+      "id": "author-john-owen",
+      "entityType": "person",
+      "name": "John Owen",
+      "aliases": [],
+      "cohort": "reformation-puritan",
+      "traditions": [
+        "reformed",
+        "puritan",
+        "congregational"
+      ],
+      "eligibility": "eligible",
+      "rationale": "PRDL classifies Owen as Puritan/Reformed; Banner's Goodwin biography identifies their joint work on the Savoy Declaration.",
+      "receptionBasis": "Puritan/Reformed theologian; distinguish John Owen who died in 1622.",
+      "evidence": [
+        {
+          "url": "https://www.prdl.org/authors.php?a_in=O",
+          "locator": "Owen, John (d. 1683)",
+          "note": "Puritan/Reformed theologian; distinguish John Owen who died in 1622.",
+          "checkedOn": "2026-10-05"
+        },
+        {
+          "url": "https://banneroftruth.org/us/about/banner-authors/thomas-goodwin/",
+          "locator": "Savoy Declaration paragraph",
+          "note": "Owen and Goodwin's Congregational confessional work.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "distinctives": [],
+      "unresolved": [
+        "Identify individual sermons within collected volumes; verify any later abridgment."
+      ],
+      "review": {
+        "date": "2026-10-05",
+        "reviewer": "Codex",
+        "kind": "ai-assisted",
+        "scope": "Initial bibliographic and theological-fit screening; work/edition review remains required."
+      }
+    },
+    {
+      "id": "author-richard-sibbes",
+      "entityType": "person",
+      "name": "Richard Sibbes",
+      "aliases": [
+        "Richard Sibbs"
+      ],
+      "cohort": "reformation-puritan",
+      "traditions": [
+        "reformed",
+        "puritan"
+      ],
+      "eligibility": "eligible",
+      "rationale": "PRDL supplies a Puritan/Reformed classification and historical corpus.",
+      "receptionBasis": "Puritan/Reformed classification.",
+      "evidence": [
+        {
+          "url": "https://www.prdl.org/authors.php?a_in=S",
+          "locator": "Sibbes, Richard (d. 1635)",
+          "note": "Puritan/Reformed classification.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "distinctives": [],
+      "unresolved": [
+        "Verify publication and editorial history of posthumous sermons."
+      ],
+      "review": {
+        "date": "2026-10-05",
+        "reviewer": "Codex",
+        "kind": "ai-assisted",
+        "scope": "Initial bibliographic and theological-fit screening; work/edition review remains required."
+      }
+    },
+    {
+      "id": "author-thomas-watson",
+      "entityType": "person",
+      "name": "Thomas Watson",
+      "aliases": [],
+      "cohort": "reformation-puritan",
+      "traditions": [
+        "reformed",
+        "puritan"
+      ],
+      "eligibility": "eligible",
+      "rationale": "PRDL identifies Watson as Puritan/Reformed and catalogs catechetical sermons and devotional works.",
+      "receptionBasis": "Bibliography identifies Body of Practical Divinity and sermon collections.",
+      "evidence": [
+        {
+          "url": "https://prdl.org/recent_findings.php?limit=10&s=130760&sort=",
+          "locator": "Watson, Thomas (c.1620–1686)",
+          "note": "Bibliography identifies Body of Practical Divinity and sermon collections.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "distinctives": [],
+      "unresolved": [
+        "Disambiguate the Puritan from namesakes; retain combined work and individual sermon identities."
+      ],
+      "review": {
+        "date": "2026-10-05",
+        "reviewer": "Codex",
+        "kind": "ai-assisted",
+        "scope": "Initial bibliographic and theological-fit screening; work/edition review remains required."
+      }
+    },
+    {
+      "id": "author-john-flavel",
+      "entityType": "person",
+      "name": "John Flavel",
+      "aliases": [],
+      "cohort": "reformation-puritan",
+      "traditions": [
+        "reformed",
+        "puritan"
+      ],
+      "eligibility": "eligible",
+      "rationale": "PRDL identifies the relevant Flavel as Puritan/Reformed with a substantial published corpus.",
+      "receptionBasis": "Distinguish the other John Flavel who died in 1617.",
+      "evidence": [
+        {
+          "url": "https://www.prdl.org/authors.php?a_in=F",
+          "locator": "Flavel, John (d. 1691)",
+          "note": "Distinguish the other John Flavel who died in 1617.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "distinctives": [],
+      "unresolved": [
+        "Check modernized editions and identify sermons inside collected works."
+      ],
+      "review": {
+        "date": "2026-10-05",
+        "reviewer": "Codex",
+        "kind": "ai-assisted",
+        "scope": "Initial bibliographic and theological-fit screening; work/edition review remains required."
+      }
+    },
+    {
+      "id": "author-thomas-goodwin",
+      "entityType": "person",
+      "name": "Thomas Goodwin",
+      "aliases": [],
+      "cohort": "reformation-puritan",
+      "traditions": [
+        "reformed",
+        "puritan",
+        "congregational"
+      ],
+      "eligibility": "eligible",
+      "rationale": "Banner's author biography documents Goodwin's Puritan ministry and participation in the Savoy Declaration.",
+      "receptionBasis": "Established Reformed publisher's historical author account; interested institutional source.",
+      "evidence": [
+        {
+          "url": "https://banneroftruth.org/us/about/banner-authors/thomas-goodwin/",
+          "locator": "Biography; paragraph on Owen and the Savoy Declaration",
+          "note": "Established Reformed publisher's historical author account; interested institutional source.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "distinctives": [],
+      "unresolved": [
+        "Distinguish Thomas Goodwin the theologian from his son/editor."
+      ],
+      "review": {
+        "date": "2026-10-05",
+        "reviewer": "Codex",
+        "kind": "ai-assisted",
+        "scope": "Initial bibliographic and theological-fit screening; work/edition review remains required."
+      }
+    },
+    {
+      "id": "author-john-bunyan",
+      "entityType": "person",
+      "name": "John Bunyan",
+      "aliases": [],
+      "cohort": "reformation-puritan",
+      "traditions": [
+        "baptist",
+        "puritan"
+      ],
+      "eligibility": "provisional",
+      "rationale": "PRDL establishes Baptist/Puritan identity and a recognized corpus; this pass has not independently documented the precise Calvinistic scope from his own teaching.",
+      "receptionBasis": "Baptist/Puritan classification supports candidacy.",
+      "evidence": [
+        {
+          "url": "https://www.prdl.org/authors.php?a_in=B",
+          "locator": "Bunyan, John (d. 1688)",
+          "note": "Baptist/Puritan classification supports candidacy.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "distinctives": [],
+      "unresolved": [
+        "Confirm Calvinistic soteriology from a located primary passage before core admission; do not infer 1689 subscription or church practice."
+      ],
+      "review": {
+        "date": "2026-10-05",
+        "reviewer": "Codex",
+        "kind": "ai-assisted",
+        "scope": "Initial bibliographic and theological-fit screening; work/edition review remains required."
+      }
+    },
+    {
+      "id": "author-thomas-boston",
+      "entityType": "person",
+      "name": "Thomas Boston",
+      "aliases": [],
+      "cohort": "reformation-puritan",
+      "traditions": [
+        "reformed"
+      ],
+      "eligibility": "eligible",
+      "rationale": "PRDL records the elder Boston as Reformed with an extensive bibliography.",
+      "receptionBasis": "Reformed classification; elder Boston identity.",
+      "evidence": [
+        {
+          "url": "https://www.prdl.org/authors.php?a_in=B",
+          "locator": "Boston, Thomas (d. 1732)",
+          "note": "Reformed classification; elder Boston identity.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "distinctives": [],
+      "unresolved": [
+        "Distinguish the elder Boston from his son and record historical controversy context where relevant."
+      ],
+      "review": {
+        "date": "2026-10-05",
+        "reviewer": "Codex",
+        "kind": "ai-assisted",
+        "scope": "Initial bibliographic and theological-fit screening; work/edition review remains required."
+      }
+    },
+    {
+      "id": "author-jonathan-edwards",
+      "entityType": "person",
+      "name": "Jonathan Edwards",
+      "aliases": [],
+      "cohort": "eighteenth-nineteenth",
+      "traditions": [
+        "reformed",
+        "puritan"
+      ],
+      "eligibility": "eligible",
+      "rationale": "PRDL identifies Edwards who died in 1758 as Puritan/Reformed and distinguishes two namesakes.",
+      "receptionBasis": "Distinguish Edwards d.1712 and Jonathan Edwards Jr.",
+      "evidence": [
+        {
+          "url": "https://www.prdl.org/authors.php?a_in=E",
+          "locator": "Edwards, Jonathan (d. 1758)",
+          "note": "Distinguish Edwards d.1712 and Jonathan Edwards Jr.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "distinctives": [],
+      "unresolved": [
+        "Check scholarly transcript/edition rights independently from the historical author's texts."
+      ],
+      "review": {
+        "date": "2026-10-05",
+        "reviewer": "Codex",
+        "kind": "ai-assisted",
+        "scope": "Initial bibliographic and theological-fit screening; work/edition review remains required."
+      }
+    },
+    {
+      "id": "author-george-whitefield",
+      "entityType": "person",
+      "name": "George Whitefield",
+      "aliases": [
+        "George Whitfield"
+      ],
+      "cohort": "eighteenth-nineteenth",
+      "traditions": [
+        "calvinist-evangelical"
+      ],
+      "eligibility": "eligible",
+      "rationale": "Banner's historical account documents Whitefield's Calvinistic theology and role in the Calvinistic Methodist association.",
+      "receptionBasis": "Historical reception and Calvinistic ministry documented by a Reformed publisher.",
+      "evidence": [
+        {
+          "url": "https://banneroftruth.org/uk/resources/articles/2015/life-george-whitefield/",
+          "locator": "Association and theology discussion",
+          "note": "Historical reception and Calvinistic ministry documented by a Reformed publisher.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "distinctives": [],
+      "unresolved": [
+        "Verify sermon attribution and the relationship between surviving printed reports and delivered sermons."
+      ],
+      "review": {
+        "date": "2026-10-05",
+        "reviewer": "Codex",
+        "kind": "ai-assisted",
+        "scope": "Initial bibliographic and theological-fit screening; work/edition review remains required."
+      }
+    },
+    {
+      "id": "author-john-newton",
+      "entityType": "person",
+      "name": "John Newton",
+      "aliases": [],
+      "cohort": "eighteenth-nineteenth",
+      "traditions": [
+        "calvinist-evangelical",
+        "anglican"
+      ],
+      "eligibility": "eligible",
+      "rationale": "Banner's historical account identifies Newton's ordained ministry and self-described Calvinism.",
+      "receptionBasis": "Calvinistic teaching and ordained ministry, with cited historical material.",
+      "evidence": [
+        {
+          "url": "https://banneroftruth.org/us/resources/articles/2006/john-newton-under-amazing-grace/",
+          "locator": "Section 4",
+          "note": "Calvinistic teaching and ordained ministry, with cited historical material.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "distinctives": [],
+      "unresolved": [
+        "Separate letters, hymns and sermons; record modern musical/recording rights independently."
+      ],
+      "review": {
+        "date": "2026-10-05",
+        "reviewer": "Codex",
+        "kind": "ai-assisted",
+        "scope": "Initial bibliographic and theological-fit screening; work/edition review remains required."
+      }
+    },
+    {
+      "id": "author-charles-spurgeon",
+      "entityType": "person",
+      "name": "Charles Haddon Spurgeon",
+      "aliases": [
+        "C. H. Spurgeon",
+        "Charles Spurgeon"
+      ],
+      "cohort": "eighteenth-nineteenth",
+      "traditions": [
+        "baptist",
+        "calvinist-evangelical"
+      ],
+      "eligibility": "eligible",
+      "rationale": "Spurgeon's own published Election sermon identifies his Calvinism and use of the Baptist Confession.",
+      "receptionBasis": "Primary sermon supports theological fit; institutional sermon archive supports corpus identity.",
+      "evidence": [
+        {
+          "url": "https://www.spurgeon.org/sermons/election",
+          "locator": "Sermon 41; confession and election discussion",
+          "note": "Primary sermon supports theological fit; institutional sermon archive supports corpus identity.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "distinctives": [],
+      "unresolved": [
+        "Reconcile delivery/publication dates and combined sermon numbers; distinguish later readings from original recordings."
+      ],
+      "review": {
+        "date": "2026-10-05",
+        "reviewer": "Codex",
+        "kind": "ai-assisted",
+        "scope": "Initial bibliographic and theological-fit screening; work/edition review remains required."
+      }
+    },
+    {
+      "id": "author-j-c-ryle",
+      "entityType": "person",
+      "name": "J. C. Ryle",
+      "aliases": [
+        "John Charles Ryle"
+      ],
+      "cohort": "eighteenth-nineteenth",
+      "traditions": [
+        "anglican",
+        "calvinist-evangelical"
+      ],
+      "eligibility": "eligible",
+      "rationale": "Banner's review characterizes Ryle as an evangelical Episcopalian and moderate Calvinist.",
+      "receptionBasis": "Publisher-hosted review documents theological placement and reception.",
+      "evidence": [
+        {
+          "url": "https://banneroftruth.org/uk/resources/book-review-resources/2017/expository-thoughts-gospels-review-barry-shucksmith/",
+          "locator": "Review of Expository Thoughts",
+          "note": "Publisher-hosted review documents theological placement and reception.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "distinctives": [],
+      "unresolved": [
+        "Keep the broad evangelical Anglican category; verify any more specific doctrinal tags work by work."
+      ],
+      "review": {
+        "date": "2026-10-05",
+        "reviewer": "Codex",
+        "kind": "ai-assisted",
+        "scope": "Initial bibliographic and theological-fit screening; work/edition review remains required."
+      }
+    },
+    {
+      "id": "author-charles-hodge",
+      "entityType": "person",
+      "name": "Charles Hodge",
+      "aliases": [],
+      "cohort": "systematic-biblical-theologians",
+      "traditions": [
+        "reformed"
+      ],
+      "eligibility": "eligible",
+      "rationale": "An OPC teaching answer recommends Hodge's systematic theology as a substantial exposition of doctrine.",
+      "receptionBasis": "Institutional Reformed reception; edition inventory still required.",
+      "evidence": [
+        {
+          "url": "https://www.opc.org/qa.html?question_id=287",
+          "locator": "Recommended treatments of atonement",
+          "note": "Institutional Reformed reception; edition inventory still required.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "distinctives": [],
+      "unresolved": [
+        "Distinguish Charles from A. A. Hodge and record edition/publisher details."
+      ],
+      "review": {
+        "date": "2026-10-05",
+        "reviewer": "Codex",
+        "kind": "ai-assisted",
+        "scope": "Initial bibliographic and theological-fit screening; work/edition review remains required."
+      }
+    },
+    {
+      "id": "author-b-b-warfield",
+      "entityType": "person",
+      "name": "B. B. Warfield",
+      "aliases": [
+        "Benjamin Breckinridge Warfield"
+      ],
+      "cohort": "systematic-biblical-theologians",
+      "traditions": [
+        "reformed"
+      ],
+      "eligibility": "eligible",
+      "rationale": "An OPC teaching answer recommends Warfield's treatment of Christ's person and work.",
+      "receptionBasis": "Institutional Reformed reception for doctrinal writing.",
+      "evidence": [
+        {
+          "url": "https://www.opc.org/qa.html?question_id=287",
+          "locator": "Warfield recommendation",
+          "note": "Institutional Reformed reception for doctrinal writing.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "distinctives": [],
+      "unresolved": [
+        "Identify original articles versus posthumous thematic collections and check editors' additions."
+      ],
+      "review": {
+        "date": "2026-10-05",
+        "reviewer": "Codex",
+        "kind": "ai-assisted",
+        "scope": "Initial bibliographic and theological-fit screening; work/edition review remains required."
+      }
+    },
+    {
+      "id": "author-herman-bavinck",
+      "entityType": "person",
+      "name": "Herman Bavinck",
+      "aliases": [],
+      "cohort": "systematic-biblical-theologians",
+      "traditions": [
+        "reformed",
+        "continental-reformed"
+      ],
+      "eligibility": "eligible",
+      "rationale": "The Bavinck Institute at Calvin Seminary identifies Herman Bavinck's Reformed theological legacy and bibliography.",
+      "receptionBasis": "Institutional scholarship and identity; distinguishes Herman from Johan Herman Bavinck.",
+      "evidence": [
+        {
+          "url": "https://bavinckinstitute.org/",
+          "locator": "Institute description",
+          "note": "Institutional scholarship and identity; distinguishes Herman from Johan Herman Bavinck.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "distinctives": [],
+      "unresolved": [
+        "Modern English translations have separate rights; inventory original-language editions and translation licenses."
+      ],
+      "review": {
+        "date": "2026-10-05",
+        "reviewer": "Codex",
+        "kind": "ai-assisted",
+        "scope": "Initial bibliographic and theological-fit screening; work/edition review remains required."
+      }
+    },
+    {
+      "id": "author-geerhardus-vos",
+      "entityType": "person",
+      "name": "Geerhardus Vos",
+      "aliases": [],
+      "cohort": "systematic-biblical-theologians",
+      "traditions": [
+        "reformed"
+      ],
+      "eligibility": "eligible",
+      "rationale": "The OPC's historical account documents Vos's biblical theology and enduring use in Reformed study.",
+      "receptionBasis": "Institutional historical assessment and scholarly reception.",
+      "evidence": [
+        {
+          "url": "https://opc.org/nh.html?article_id=762",
+          "locator": "The Legacy of Geerhardus Vos",
+          "note": "Institutional historical assessment and scholarly reception.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "distinctives": [],
+      "unresolved": [
+        "Distinguish lecture notes, author-published works and later translations."
+      ],
+      "review": {
+        "date": "2026-10-05",
+        "reviewer": "Codex",
+        "kind": "ai-assisted",
+        "scope": "Initial bibliographic and theological-fit screening; work/edition review remains required."
+      }
+    },
+    {
+      "id": "author-john-murray",
+      "entityType": "person",
+      "name": "John Murray",
+      "aliases": [],
+      "cohort": "systematic-biblical-theologians",
+      "traditions": [
+        "reformed"
+      ],
+      "eligibility": "eligible",
+      "rationale": "An OPC teaching answer commends Murray's Redemption Accomplished and Applied as careful biblical exposition.",
+      "receptionBasis": "Institutional Reformed reception for the theologian and work.",
+      "evidence": [
+        {
+          "url": "https://www.opc.org/qa.html?question_id=287",
+          "locator": "Recommendation 4",
+          "note": "Institutional Reformed reception for the theologian and work.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "distinctives": [],
+      "unresolved": [
+        "Disambiguate the Westminster theologian from namesakes; verify rights for every modern edition."
+      ],
+      "review": {
+        "date": "2026-10-05",
+        "reviewer": "Codex",
+        "kind": "ai-assisted",
+        "scope": "Initial bibliographic and theological-fit screening; work/edition review remains required."
+      }
+    },
+    {
+      "id": "author-martyn-lloyd-jones",
+      "entityType": "person",
+      "name": "D. Martyn Lloyd-Jones",
+      "aliases": [
+        "Martyn Lloyd-Jones",
+        "D. M. Lloyd-Jones"
+      ],
+      "cohort": "recorded-recent",
+      "traditions": [
+        "reformed",
+        "calvinist-evangelical"
+      ],
+      "eligibility": "eligible",
+      "rationale": "His official archive identifies his ministry in the Reformed tradition and preserves the sermon corpus.",
+      "receptionBasis": "Official ministry's description and corpus.",
+      "evidence": [
+        {
+          "url": "https://www.mljtrust.org/sermons/",
+          "locator": "Archive introduction",
+          "note": "Official ministry's description and corpus.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "distinctives": [],
+      "unresolved": [
+        "MLJ Trust prohibits systematic database retrieval under current terms; source access must be resolved before bulk acquisition."
+      ],
+      "review": {
+        "date": "2026-10-05",
+        "reviewer": "Codex",
+        "kind": "ai-assisted",
+        "scope": "Initial bibliographic and theological-fit screening; work/edition review remains required."
+      }
+    },
+    {
+      "id": "author-r-c-sproul",
+      "entityType": "person",
+      "name": "R. C. Sproul",
+      "aliases": [
+        "Robert Charles Sproul"
+      ],
+      "cohort": "recorded-recent",
+      "traditions": [
+        "reformed"
+      ],
+      "eligibility": "eligible",
+      "rationale": "Ligonier's memorial documents Sproul's defense of Scripture, Reformation doctrine and sustained theological teaching.",
+      "receptionBasis": "Official institutional biography and reception.",
+      "evidence": [
+        {
+          "url": "https://www.ligonier.org/posts/remembering-rc-sproul",
+          "locator": "Life and teaching account",
+          "note": "Official institutional biography and reception.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "distinctives": [],
+      "unresolved": [
+        "Ligonier and third-party publishers hold different materials; check each source and edition."
+      ],
+      "review": {
+        "date": "2026-10-05",
+        "reviewer": "Codex",
+        "kind": "ai-assisted",
+        "scope": "Initial bibliographic and theological-fit screening; work/edition review remains required."
+      }
+    },
+    {
+      "id": "author-sinclair-ferguson",
+      "entityType": "person",
+      "name": "Sinclair B. Ferguson",
+      "aliases": [
+        "Sinclair Ferguson"
+      ],
+      "cohort": "recorded-recent",
+      "traditions": [
+        "reformed"
+      ],
+      "eligibility": "eligible",
+      "rationale": "His official Ligonier profile identifies systematic theology work at Reformed Theological Seminary and extensive ministry resources.",
+      "receptionBasis": "Institutional Reformed teaching role and publications.",
+      "evidence": [
+        {
+          "url": "https://learn.ligonier.org/teachers/sinclair-ferguson",
+          "locator": "Author biography",
+          "note": "Institutional Reformed teaching role and publications.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "distinctives": [],
+      "unresolved": [
+        "Identify the actual church/ministry/publisher owning each sermon or text."
+      ],
+      "review": {
+        "date": "2026-10-05",
+        "reviewer": "Codex",
+        "kind": "ai-assisted",
+        "scope": "Initial bibliographic and theological-fit screening; work/edition review remains required."
+      }
+    },
+    {
+      "id": "author-j-i-packer",
+      "entityType": "person",
+      "name": "J. I. Packer",
+      "aliases": [
+        "James Innell Packer"
+      ],
+      "cohort": "recorded-recent",
+      "traditions": [
+        "anglican",
+        "calvinist-evangelical"
+      ],
+      "eligibility": "eligible",
+      "rationale": "Packer's own essay expounds Reformed justification; Ligonier's profile identifies his Anglican theological ministry.",
+      "receptionBasis": "Primary teaching on justification and its Reformed exposition.",
+      "evidence": [
+        {
+          "url": "https://learn.ligonier.org/articles/sola-fide-the-reformed-doctrine-of-justification",
+          "locator": "Sola Fide essay",
+          "note": "Primary teaching on justification and its Reformed exposition.",
+          "checkedOn": "2026-10-05"
+        },
+        {
+          "url": "https://learn.ligonier.org/teachers/j-i-packer",
+          "locator": "Biography",
+          "note": "Anglican theologian and institutional reception.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "distinctives": [],
+      "unresolved": [
+        "Work-level doctrinal review remains necessary; a modern published essay is not an open-reuse grant."
+      ],
+      "review": {
+        "date": "2026-10-05",
+        "reviewer": "Codex",
+        "kind": "ai-assisted",
+        "scope": "Initial bibliographic and theological-fit screening; work/edition review remains required."
+      }
+    },
+    {
+      "id": "author-john-piper",
+      "entityType": "person",
+      "name": "John Piper",
+      "aliases": [],
+      "cohort": "recorded-recent",
+      "traditions": [
+        "baptist",
+        "calvinist-evangelical"
+      ],
+      "eligibility": "eligible",
+      "rationale": "Piper explicitly affirms Calvinistic salvation doctrine in his own published statement.",
+      "receptionBasis": "Primary author statement; official bio identifies Baptist ministry.",
+      "evidence": [
+        {
+          "url": "https://www.desiringgod.org/articles/what-we-believe-about-the-five-points-of-calvinism",
+          "locator": "Preface and doctrinal exposition",
+          "note": "Primary author statement; official bio identifies Baptist ministry.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "distinctives": [],
+      "unresolved": [
+        "Document further distinctives from their own sources; Desiring God permissions differ for text, media and third-party authors."
+      ],
+      "review": {
+        "date": "2026-10-05",
+        "reviewer": "Codex",
+        "kind": "ai-assisted",
+        "scope": "Initial bibliographic and theological-fit screening; work/edition review remains required."
+      }
+    },
+    {
+      "id": "author-d-a-carson",
+      "entityType": "person",
+      "name": "D. A. Carson",
+      "aliases": [
+        "Donald Arthur Carson",
+        "Don Carson"
+      ],
+      "cohort": "recorded-recent",
+      "traditions": [
+        "calvinist-evangelical"
+      ],
+      "eligibility": "provisional",
+      "rationale": "TGC's account documents Carson's Reformed-oriented project and scholarly reception; a direct author-level scope review is still needed.",
+      "receptionBasis": "Institutional account supports candidacy; does not establish every individual doctrinal position.",
+      "evidence": [
+        {
+          "url": "https://www.thegospelcoalition.org/article/prophetic-center-carson-vision/",
+          "locator": "Carson's vision and theological commitments",
+          "note": "Institutional account supports candidacy; does not establish every individual doctrinal position.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "distinctives": [],
+      "unresolved": [
+        "Locate primary statements supporting the collection's core scope; assess covenant distinctions and publisher-by-publisher rights."
+      ],
+      "review": {
+        "date": "2026-10-05",
+        "reviewer": "Codex",
+        "kind": "ai-assisted",
+        "scope": "Initial bibliographic and theological-fit screening; work/edition review remains required."
+      }
+    },
+    {
+      "id": "author-alistair-begg",
+      "entityType": "person",
+      "name": "Alistair Begg",
+      "aliases": [],
+      "cohort": "recorded-recent",
+      "traditions": [
+        "calvinist-evangelical"
+      ],
+      "eligibility": "provisional",
+      "rationale": "An official sermon documents gospel-centered teaching on salvation by grace; that sermon alone does not settle the full author-selection criteria.",
+      "receptionBasis": "Authorized source verifies identity and relevant teaching; broader doctrinal eligibility remains to be documented.",
+      "evidence": [
+        {
+          "url": "https://www.truthforlife.org/resources/sermon/we-stand-in-grace/",
+          "locator": "Ephesians 2:1–10 sermon, ID 1846",
+          "note": "Authorized source verifies identity and relevant teaching; broader doctrinal eligibility remains to be documented.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "distinctives": [],
+      "unresolved": [
+        "Locate an authoritative doctrinal statement and supporting reception evidence; inspect Truth For Life's current indexing/reuse policy."
+      ],
+      "review": {
+        "date": "2026-10-05",
+        "reviewer": "Codex",
+        "kind": "ai-assisted",
+        "scope": "Initial bibliographic and theological-fit screening; work/edition review remains required."
+      }
+    }
+  ]
+}

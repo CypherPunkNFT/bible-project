@@ -118,6 +118,16 @@ The map follows each Gospel's written order; Robertson supplies the event groupi
 include one without a Gospel passage (the appearance to James), so the portrait browser has 184 entries.
 Passage lengths count distinct KJV verses within each selection, including disjoint or overlapping ranges.
 
+## Christian library collection desk (2026-10-05)
+
+The [collection charter and catalog](content/library/README.md) establish the broader Calvinist
+evangelical library requested by the owner. [sources.json](content/library/sources.json) records
+discovery sources, current policy evidence and unresolved access questions. These are research records,
+not a list of downloaded books or cleared reuse permissions. No library content was acquired in L00.
+Future category missions store immutable downloads under the resolved `sources/library/` directory,
+edition/asset/checksum records under `content/library/catalog/`, and a concise acquisition pointer here.
+The owner will request each category separately; see [the backlog](content/library/BACKLOG.md).
+
 ## Considered and left out
 
 - **KJV in the UK:** public domain everywhere except Britain (perpetual Crown patent). Only relevant if the

@@ -1,0 +1,44 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "run",
+  "id": "run-l00-charter-2026-10-05",
+  "missionId": "L00",
+  "status": "complete",
+  "startedOn": "2026-10-05",
+  "completedOn": "2026-10-05",
+  "boundary": "Establish scope, selection criteria, metadata, vocabulary, rights, initial author/source registries and future mission conventions. No content acquisition.",
+  "sourceIds": [
+    "source-prdl",
+    "source-monergism",
+    "source-ccel",
+    "source-gutenberg",
+    "source-reformed-books-online",
+    "source-spurgeon-gems",
+    "source-spurgeon-library",
+    "source-mlj-trust",
+    "source-ligonier",
+    "source-desiring-god",
+    "source-truth-for-life",
+    "source-gospel-coalition",
+    "source-banner-of-truth",
+    "source-bavinck-institute",
+    "source-opc"
+  ],
+  "inventory": "The 26 authors proposed in the preceding owner discussion; 8 collections; 106 subjects; 15 discovery/source records. These are registry counts, not acquired works.",
+  "checkpoint": "Await the owner's next category prompt. Begin by reading content/library/README.md and the matching BACKLOG mission. Review source-specific rights/access before acquisition.",
+  "counts": {
+    "works": 0,
+    "editions": 0,
+    "assets": 0,
+    "series": 0,
+    "reviewedWorks": 0,
+    "publishedWorks": 0
+  },
+  "gaps": [
+    "Three provisional author fit checks: John Bunyan, D. A. Carson, Alistair Begg.",
+    "No asset/edition reuse rights cleared in this foundation; source policies are acquisition guidance.",
+    "Library-to-KnowledgeBase and website publication adapters remain future integration tasks."
+  ],
+  "reportPath": "content/library/README.md"
+}

@@ -1,0 +1,889 @@
+{
+  "$schema": "./schema.json",
+  "schemaVersion": 1,
+  "kind": "vocabulary",
+  "updated": "2026-10-05",
+  "collections": [
+    {
+      "id": "sermons",
+      "label": "Sermons & exposition",
+      "definition": "Complete sermons and series, with main-text and exposition indexing."
+    },
+    {
+      "id": "scripture",
+      "label": "Understanding Scripture",
+      "definition": "Commentary, interpretation, biblical theology and language helps."
+    },
+    {
+      "id": "theology",
+      "label": "Theology & doctrine",
+      "definition": "Systematic and particular doctrinal treatments."
+    },
+    {
+      "id": "apologetics",
+      "label": "Apologetics & other beliefs",
+      "definition": "Questions, arguments, objections, debates and sourced comparison."
+    },
+    {
+      "id": "christian-life",
+      "label": "Christian life & devotion",
+      "definition": "Prayer, holiness and spiritual or pastoral concerns."
+    },
+    {
+      "id": "ministry",
+      "label": "Church & ministry",
+      "definition": "Preaching, pastoral care, discipleship, worship and missions."
+    },
+    {
+      "id": "history",
+      "label": "History & lives",
+      "definition": "Historical works, biographies, letters and first-person records."
+    },
+    {
+      "id": "standards",
+      "label": "Confessions & reference",
+      "definition": "Identified confessions, catechisms, dictionaries and bibliographies."
+    }
+  ],
+  "subjects": [
+    {
+      "id": "scripture",
+      "label": "Scripture and interpretation",
+      "parent": null,
+      "definition": "Study of scripture and interpretation.",
+      "aliases": []
+    },
+    {
+      "id": "authority-of-scripture",
+      "label": "Authority of Scripture",
+      "parent": "scripture",
+      "definition": "Substantial treatment of authority of scripture within scripture and interpretation.",
+      "aliases": []
+    },
+    {
+      "id": "inspiration",
+      "label": "Inspiration",
+      "parent": "scripture",
+      "definition": "Substantial treatment of inspiration within scripture and interpretation.",
+      "aliases": []
+    },
+    {
+      "id": "inerrancy",
+      "label": "Inerrancy",
+      "parent": "scripture",
+      "definition": "Substantial treatment of inerrancy within scripture and interpretation.",
+      "aliases": []
+    },
+    {
+      "id": "canon",
+      "label": "Canon",
+      "parent": "scripture",
+      "definition": "Substantial treatment of canon within scripture and interpretation.",
+      "aliases": []
+    },
+    {
+      "id": "transmission",
+      "label": "Textual transmission",
+      "parent": "scripture",
+      "definition": "Substantial treatment of textual transmission within scripture and interpretation.",
+      "aliases": []
+    },
+    {
+      "id": "hermeneutics",
+      "label": "Hermeneutics",
+      "parent": "scripture",
+      "definition": "Substantial treatment of hermeneutics within scripture and interpretation.",
+      "aliases": []
+    },
+    {
+      "id": "biblical-languages",
+      "label": "Biblical languages",
+      "parent": "scripture",
+      "definition": "Substantial treatment of biblical languages within scripture and interpretation.",
+      "aliases": []
+    },
+    {
+      "id": "biblical-theology",
+      "label": "Biblical theology",
+      "parent": "scripture",
+      "definition": "Substantial treatment of biblical theology within scripture and interpretation.",
+      "aliases": []
+    },
+    {
+      "id": "typology",
+      "label": "Typology",
+      "parent": "scripture",
+      "definition": "Substantial treatment of typology within scripture and interpretation.",
+      "aliases": []
+    },
+    {
+      "id": "promise-fulfillment",
+      "label": "Promise and fulfillment",
+      "parent": "scripture",
+      "definition": "Substantial treatment of promise and fulfillment within scripture and interpretation.",
+      "aliases": []
+    },
+    {
+      "id": "god",
+      "label": "God and his works",
+      "parent": null,
+      "definition": "Study of god and his works.",
+      "aliases": []
+    },
+    {
+      "id": "trinity",
+      "label": "Trinity",
+      "parent": "god",
+      "definition": "Substantial treatment of trinity within god and his works.",
+      "aliases": []
+    },
+    {
+      "id": "attributes-of-god",
+      "label": "Attributes of God",
+      "parent": "god",
+      "definition": "Substantial treatment of attributes of god within god and his works.",
+      "aliases": []
+    },
+    {
+      "id": "creation",
+      "label": "Creation",
+      "parent": "god",
+      "definition": "Substantial treatment of creation within god and his works.",
+      "aliases": []
+    },
+    {
+      "id": "providence",
+      "label": "Providence",
+      "parent": "god",
+      "definition": "Substantial treatment of providence within god and his works.",
+      "aliases": []
+    },
+    {
+      "id": "divine-decrees",
+      "label": "Divine decrees",
+      "parent": "god",
+      "definition": "Substantial treatment of divine decrees within god and his works.",
+      "aliases": []
+    },
+    {
+      "id": "common-grace",
+      "label": "Common grace",
+      "parent": "god",
+      "definition": "God's non-saving kindness and restraint of sin; distinguish it from regeneration and saving grace.",
+      "aliases": []
+    },
+    {
+      "id": "humanity",
+      "label": "Humanity and sin",
+      "parent": null,
+      "definition": "Study of humanity and sin.",
+      "aliases": []
+    },
+    {
+      "id": "image-of-god",
+      "label": "Image of God",
+      "parent": "humanity",
+      "definition": "Substantial treatment of image of god within humanity and sin.",
+      "aliases": []
+    },
+    {
+      "id": "fall",
+      "label": "The fall",
+      "parent": "humanity",
+      "definition": "Substantial treatment of the fall within humanity and sin.",
+      "aliases": []
+    },
+    {
+      "id": "original-sin",
+      "label": "Original sin",
+      "parent": "humanity",
+      "definition": "Substantial treatment of original sin within humanity and sin.",
+      "aliases": []
+    },
+    {
+      "id": "total-depravity",
+      "label": "Total depravity",
+      "parent": "humanity",
+      "definition": "Substantial treatment of total depravity within humanity and sin.",
+      "aliases": []
+    },
+    {
+      "id": "moral-responsibility",
+      "label": "Moral responsibility",
+      "parent": "humanity",
+      "definition": "Substantial treatment of moral responsibility within humanity and sin.",
+      "aliases": []
+    },
+    {
+      "id": "christ",
+      "label": "Person and work of Christ",
+      "parent": null,
+      "definition": "Study of person and work of christ.",
+      "aliases": []
+    },
+    {
+      "id": "incarnation",
+      "label": "Incarnation",
+      "parent": "christ",
+      "definition": "Substantial treatment of incarnation within person and work of christ.",
+      "aliases": []
+    },
+    {
+      "id": "deity-of-christ",
+      "label": "Deity of Christ",
+      "parent": "christ",
+      "definition": "Substantial treatment of deity of christ within person and work of christ.",
+      "aliases": []
+    },
+    {
+      "id": "humanity-of-christ",
+      "label": "Humanity of Christ",
+      "parent": "christ",
+      "definition": "Substantial treatment of humanity of christ within person and work of christ.",
+      "aliases": []
+    },
+    {
+      "id": "atonement",
+      "label": "Atonement",
+      "parent": "christ",
+      "definition": "Christ's reconciling work; use more specific tags when a particular theory or aspect is treated.",
+      "aliases": []
+    },
+    {
+      "id": "penal-substitution",
+      "label": "Penal substitution",
+      "parent": "christ",
+      "definition": "Substantial treatment of penal substitution within person and work of christ.",
+      "aliases": []
+    },
+    {
+      "id": "resurrection-of-christ",
+      "label": "Resurrection of Christ",
+      "parent": "christ",
+      "definition": "The bodily resurrection of Jesus Christ and its significance; distinct from general resurrection.",
+      "aliases": []
+    },
+    {
+      "id": "ascension-intercession",
+      "label": "Ascension and intercession",
+      "parent": "christ",
+      "definition": "Substantial treatment of ascension and intercession within person and work of christ.",
+      "aliases": []
+    },
+    {
+      "id": "salvation",
+      "label": "Salvation",
+      "parent": null,
+      "definition": "Study of salvation.",
+      "aliases": []
+    },
+    {
+      "id": "election",
+      "label": "Election",
+      "parent": "salvation",
+      "definition": "Substantial treatment of election within salvation.",
+      "aliases": []
+    },
+    {
+      "id": "effectual-calling",
+      "label": "Effectual calling",
+      "parent": "salvation",
+      "definition": "Substantial treatment of effectual calling within salvation.",
+      "aliases": []
+    },
+    {
+      "id": "regeneration",
+      "label": "Regeneration",
+      "parent": "salvation",
+      "definition": "Substantial treatment of regeneration within salvation.",
+      "aliases": []
+    },
+    {
+      "id": "repentance",
+      "label": "Repentance",
+      "parent": "salvation",
+      "definition": "Substantial treatment of repentance within salvation.",
+      "aliases": []
+    },
+    {
+      "id": "faith",
+      "label": "Faith",
+      "parent": "salvation",
+      "definition": "Substantial treatment of faith within salvation.",
+      "aliases": []
+    },
+    {
+      "id": "justification",
+      "label": "Justification",
+      "parent": "salvation",
+      "definition": "Substantial treatment of justification within salvation.",
+      "aliases": []
+    },
+    {
+      "id": "imputation",
+      "label": "Imputation",
+      "parent": "salvation",
+      "definition": "Substantial treatment of imputation within salvation.",
+      "aliases": []
+    },
+    {
+      "id": "adoption",
+      "label": "Adoption",
+      "parent": "salvation",
+      "definition": "Substantial treatment of adoption within salvation.",
+      "aliases": []
+    },
+    {
+      "id": "union-with-christ",
+      "label": "Union with Christ",
+      "parent": "salvation",
+      "definition": "Substantial treatment of union with christ within salvation.",
+      "aliases": []
+    },
+    {
+      "id": "sanctification",
+      "label": "Sanctification",
+      "parent": "salvation",
+      "definition": "Substantial treatment of sanctification within salvation.",
+      "aliases": []
+    },
+    {
+      "id": "assurance",
+      "label": "Assurance",
+      "parent": "salvation",
+      "definition": "The believer's knowledge and confidence of salvation; distinguish this from perseverance as God's preserving work.",
+      "aliases": [
+        "assurance of salvation"
+      ]
+    },
+    {
+      "id": "perseverance",
+      "label": "Perseverance",
+      "parent": "salvation",
+      "definition": "Substantial treatment of perseverance within salvation.",
+      "aliases": []
+    },
+    {
+      "id": "glorification",
+      "label": "Glorification",
+      "parent": "salvation",
+      "definition": "Substantial treatment of glorification within salvation.",
+      "aliases": []
+    },
+    {
+      "id": "covenant",
+      "label": "Covenant and redemptive history",
+      "parent": null,
+      "definition": "Study of covenant and redemptive history.",
+      "aliases": []
+    },
+    {
+      "id": "covenant-of-works",
+      "label": "Covenant of works",
+      "parent": "covenant",
+      "definition": "Substantial treatment of covenant of works within covenant and redemptive history.",
+      "aliases": []
+    },
+    {
+      "id": "covenant-of-grace",
+      "label": "Covenant of grace",
+      "parent": "covenant",
+      "definition": "Substantial treatment of covenant of grace within covenant and redemptive history.",
+      "aliases": []
+    },
+    {
+      "id": "law-and-gospel",
+      "label": "Law and gospel",
+      "parent": "covenant",
+      "definition": "Substantial treatment of law and gospel within covenant and redemptive history.",
+      "aliases": []
+    },
+    {
+      "id": "kingdom",
+      "label": "Kingdom",
+      "parent": "covenant",
+      "definition": "Substantial treatment of kingdom within covenant and redemptive history.",
+      "aliases": []
+    },
+    {
+      "id": "temple",
+      "label": "Temple",
+      "parent": "covenant",
+      "definition": "Substantial treatment of temple within covenant and redemptive history.",
+      "aliases": []
+    },
+    {
+      "id": "sacrifice",
+      "label": "Sacrifice",
+      "parent": "covenant",
+      "definition": "Substantial treatment of sacrifice within covenant and redemptive history.",
+      "aliases": []
+    },
+    {
+      "id": "exile-restoration",
+      "label": "Exile and restoration",
+      "parent": "covenant",
+      "definition": "Substantial treatment of exile and restoration within covenant and redemptive history.",
+      "aliases": []
+    },
+    {
+      "id": "church",
+      "label": "The church",
+      "parent": null,
+      "definition": "Study of the church.",
+      "aliases": []
+    },
+    {
+      "id": "church-government",
+      "label": "Church government",
+      "parent": "church",
+      "definition": "Substantial treatment of church government within the church.",
+      "aliases": []
+    },
+    {
+      "id": "baptism",
+      "label": "Baptism",
+      "parent": "church",
+      "definition": "Substantial treatment of baptism within the church.",
+      "aliases": []
+    },
+    {
+      "id": "lords-supper",
+      "label": "Lord's Supper",
+      "parent": "church",
+      "definition": "Substantial treatment of lord's supper within the church.",
+      "aliases": []
+    },
+    {
+      "id": "church-discipline",
+      "label": "Church discipline",
+      "parent": "church",
+      "definition": "Substantial treatment of church discipline within the church.",
+      "aliases": []
+    },
+    {
+      "id": "worship",
+      "label": "Worship",
+      "parent": "church",
+      "definition": "Substantial treatment of worship within the church.",
+      "aliases": []
+    },
+    {
+      "id": "spiritual-gifts",
+      "label": "Spiritual gifts",
+      "parent": "church",
+      "definition": "Substantial treatment of spiritual gifts within the church.",
+      "aliases": []
+    },
+    {
+      "id": "unity",
+      "label": "Christian unity",
+      "parent": "church",
+      "definition": "Substantial treatment of christian unity within the church.",
+      "aliases": []
+    },
+    {
+      "id": "last-things",
+      "label": "Last things",
+      "parent": null,
+      "definition": "Study of last things.",
+      "aliases": []
+    },
+    {
+      "id": "return-of-christ",
+      "label": "Return of Christ",
+      "parent": "last-things",
+      "definition": "Substantial treatment of return of christ within last things.",
+      "aliases": []
+    },
+    {
+      "id": "general-resurrection",
+      "label": "General resurrection",
+      "parent": "last-things",
+      "definition": "The future resurrection of the dead; distinct from the historical resurrection of Jesus.",
+      "aliases": []
+    },
+    {
+      "id": "judgment",
+      "label": "Judgment",
+      "parent": "last-things",
+      "definition": "Substantial treatment of judgment within last things.",
+      "aliases": []
+    },
+    {
+      "id": "heaven-hell",
+      "label": "Heaven and hell",
+      "parent": "last-things",
+      "definition": "Substantial treatment of heaven and hell within last things.",
+      "aliases": []
+    },
+    {
+      "id": "new-creation",
+      "label": "New creation",
+      "parent": "last-things",
+      "definition": "Substantial treatment of new creation within last things.",
+      "aliases": []
+    },
+    {
+      "id": "millennium",
+      "label": "Millennium",
+      "parent": "last-things",
+      "definition": "Substantial treatment of millennium within last things.",
+      "aliases": []
+    },
+    {
+      "id": "apologetics",
+      "label": "Apologetic questions",
+      "parent": null,
+      "definition": "Study of apologetic questions.",
+      "aliases": []
+    },
+    {
+      "id": "existence-of-god",
+      "label": "Existence of God",
+      "parent": "apologetics",
+      "definition": "Substantial treatment of existence of god within apologetic questions.",
+      "aliases": []
+    },
+    {
+      "id": "evil-suffering",
+      "label": "Evil and suffering",
+      "parent": "apologetics",
+      "definition": "The apologetic question of evil and suffering in relation to God's goodness and power.",
+      "aliases": [
+        "problem of evil"
+      ]
+    },
+    {
+      "id": "miracles",
+      "label": "Miracles",
+      "parent": "apologetics",
+      "definition": "Substantial treatment of miracles within apologetic questions.",
+      "aliases": []
+    },
+    {
+      "id": "science-faith",
+      "label": "Science and faith",
+      "parent": "apologetics",
+      "definition": "Substantial treatment of science and faith within apologetic questions.",
+      "aliases": []
+    },
+    {
+      "id": "religious-pluralism",
+      "label": "Religious pluralism",
+      "parent": "apologetics",
+      "definition": "Substantial treatment of religious pluralism within apologetic questions.",
+      "aliases": []
+    },
+    {
+      "id": "naturalism",
+      "label": "Naturalism",
+      "parent": "apologetics",
+      "definition": "Substantial treatment of naturalism within apologetic questions.",
+      "aliases": []
+    },
+    {
+      "id": "islam",
+      "label": "Christianity and Islam",
+      "parent": "apologetics",
+      "definition": "Sourced Christian engagement with Islamic beliefs and texts; this tag does not confer teaching-authority status.",
+      "aliases": [
+        "Christianity and Islam"
+      ]
+    },
+    {
+      "id": "revelation-prophethood",
+      "label": "Revelation and prophethood",
+      "parent": "apologetics",
+      "definition": "Substantial treatment of revelation and prophethood within apologetic questions.",
+      "aliases": []
+    },
+    {
+      "id": "comparative-salvation",
+      "label": "Comparative accounts of salvation",
+      "parent": "apologetics",
+      "definition": "Substantial treatment of comparative accounts of salvation within apologetic questions.",
+      "aliases": []
+    },
+    {
+      "id": "christian-life",
+      "label": "Christian life and care",
+      "parent": null,
+      "definition": "Study of christian life and care.",
+      "aliases": []
+    },
+    {
+      "id": "prayer",
+      "label": "Prayer",
+      "parent": "christian-life",
+      "definition": "Substantial treatment of prayer within christian life and care.",
+      "aliases": []
+    },
+    {
+      "id": "holiness",
+      "label": "Holiness",
+      "parent": "christian-life",
+      "definition": "Substantial treatment of holiness within christian life and care.",
+      "aliases": []
+    },
+    {
+      "id": "temptation",
+      "label": "Temptation",
+      "parent": "christian-life",
+      "definition": "Substantial treatment of temptation within christian life and care.",
+      "aliases": []
+    },
+    {
+      "id": "doubt",
+      "label": "Doubt",
+      "parent": "christian-life",
+      "definition": "Substantial treatment of doubt within christian life and care.",
+      "aliases": []
+    },
+    {
+      "id": "grief",
+      "label": "Grief",
+      "parent": "christian-life",
+      "definition": "Substantial treatment of grief within christian life and care.",
+      "aliases": []
+    },
+    {
+      "id": "suffering",
+      "label": "Suffering and comfort",
+      "parent": "christian-life",
+      "definition": "Pastoral instruction and comfort in affliction; use evil-suffering for the philosophical objection.",
+      "aliases": [
+        "affliction"
+      ]
+    },
+    {
+      "id": "contentment",
+      "label": "Contentment",
+      "parent": "christian-life",
+      "definition": "Substantial treatment of contentment within christian life and care.",
+      "aliases": []
+    },
+    {
+      "id": "marriage-family",
+      "label": "Marriage and family",
+      "parent": "christian-life",
+      "definition": "Substantial treatment of marriage and family within christian life and care.",
+      "aliases": []
+    },
+    {
+      "id": "parenting",
+      "label": "Parenting",
+      "parent": "christian-life",
+      "definition": "Substantial treatment of parenting within christian life and care.",
+      "aliases": []
+    },
+    {
+      "id": "family-worship",
+      "label": "Family worship",
+      "parent": "christian-life",
+      "definition": "Substantial treatment of family worship within christian life and care.",
+      "aliases": []
+    },
+    {
+      "id": "vocation",
+      "label": "Vocation",
+      "parent": "christian-life",
+      "definition": "Substantial treatment of vocation within christian life and care.",
+      "aliases": []
+    },
+    {
+      "id": "ethics",
+      "label": "Christian ethics",
+      "parent": "christian-life",
+      "definition": "Substantial treatment of christian ethics within christian life and care.",
+      "aliases": []
+    },
+    {
+      "id": "ministry",
+      "label": "Ministry practice",
+      "parent": null,
+      "definition": "Study of ministry practice.",
+      "aliases": []
+    },
+    {
+      "id": "preaching",
+      "label": "Preaching",
+      "parent": "ministry",
+      "definition": "Substantial treatment of preaching within ministry practice.",
+      "aliases": []
+    },
+    {
+      "id": "pastoral-care",
+      "label": "Pastoral care",
+      "parent": "ministry",
+      "definition": "Substantial treatment of pastoral care within ministry practice.",
+      "aliases": []
+    },
+    {
+      "id": "discipleship",
+      "label": "Discipleship",
+      "parent": "ministry",
+      "definition": "Substantial treatment of discipleship within ministry practice.",
+      "aliases": []
+    },
+    {
+      "id": "evangelism",
+      "label": "Evangelism",
+      "parent": "ministry",
+      "definition": "Substantial treatment of evangelism within ministry practice.",
+      "aliases": []
+    },
+    {
+      "id": "missions",
+      "label": "Missions",
+      "parent": "ministry",
+      "definition": "Substantial treatment of missions within ministry practice.",
+      "aliases": []
+    },
+    {
+      "id": "catechesis",
+      "label": "Catechesis",
+      "parent": "ministry",
+      "definition": "Substantial treatment of catechesis within ministry practice.",
+      "aliases": []
+    },
+    {
+      "id": "history",
+      "label": "Historical study",
+      "parent": null,
+      "definition": "Study of historical study.",
+      "aliases": []
+    },
+    {
+      "id": "reformation",
+      "label": "Reformation",
+      "parent": "history",
+      "definition": "Substantial treatment of reformation within historical study.",
+      "aliases": []
+    },
+    {
+      "id": "puritanism",
+      "label": "Puritanism",
+      "parent": "history",
+      "definition": "Substantial treatment of puritanism within historical study.",
+      "aliases": []
+    },
+    {
+      "id": "revival",
+      "label": "Revival",
+      "parent": "history",
+      "definition": "Substantial treatment of revival within historical study.",
+      "aliases": []
+    },
+    {
+      "id": "biography",
+      "label": "Biography",
+      "parent": "history",
+      "definition": "Substantial treatment of biography within historical study.",
+      "aliases": []
+    },
+    {
+      "id": "church-history",
+      "label": "Church history",
+      "parent": "history",
+      "definition": "Substantial treatment of church history within historical study.",
+      "aliases": []
+    },
+    {
+      "id": "historical-theology",
+      "label": "Historical theology",
+      "parent": "history",
+      "definition": "Substantial treatment of historical theology within historical study.",
+      "aliases": []
+    }
+  ],
+  "traditions": [
+    "reformed",
+    "continental-reformed",
+    "presbyterian",
+    "congregational",
+    "puritan",
+    "baptist",
+    "anglican",
+    "calvinist-evangelical"
+  ],
+  "genres": [
+    "sermon",
+    "commentary",
+    "treatise",
+    "systematic-theology",
+    "lecture",
+    "article",
+    "debate",
+    "confession",
+    "catechism",
+    "devotional",
+    "prayer",
+    "hymn",
+    "biography",
+    "autobiography",
+    "letter",
+    "journal",
+    "history",
+    "dictionary",
+    "bibliography",
+    "study-guide",
+    "collected-works"
+  ],
+  "occasions": [
+    "ordinary-worship",
+    "evangelistic",
+    "communion",
+    "baptism",
+    "ordination",
+    "funeral",
+    "missions",
+    "conference",
+    "family-worship"
+  ],
+  "audiences": [
+    "general",
+    "new-believers",
+    "students",
+    "pastors",
+    "elders",
+    "ministry-leaders",
+    "families",
+    "children",
+    "seekers"
+  ],
+  "depths": [
+    "introductory",
+    "intermediate",
+    "advanced",
+    "mixed",
+    "unknown"
+  ],
+  "eras": [
+    "reformation",
+    "post-reformation",
+    "eighteenth-century",
+    "nineteenth-century",
+    "twentieth-century",
+    "twenty-first-century",
+    "multiple",
+    "unknown"
+  ],
+  "formats": [
+    "html",
+    "text",
+    "pdf",
+    "epub",
+    "image-scan",
+    "audio",
+    "video",
+    "other"
+  ],
+  "roles": [
+    "core-teaching",
+    "confessional-standard",
+    "historical-context",
+    "opposing-position",
+    "editorial-guide"
+  ]
+}

@@ -1,0 +1,269 @@
+{
+  "$schema": "./schema.json",
+  "schemaVersion": 1,
+  "kind": "source-registry",
+  "updated": "2026-10-05",
+  "sources": [
+    {
+      "id": "source-prdl",
+      "name": "Post-Reformation Digital Library",
+      "url": "https://www.prdl.org/",
+      "role": "discovery",
+      "automation": "unreviewed",
+      "acquisitionNote": "Inventory discovery only; follow the actual holding library for edition and access rights.",
+      "evidence": [
+        {
+          "url": "https://www.prdl.org/about.php",
+          "locator": "About: purpose",
+          "note": "Links to sources held by other libraries; no blanket reuse grant established.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "reviewedOn": "2026-10-05"
+    },
+    {
+      "id": "source-monergism",
+      "name": "Monergism",
+      "url": "https://www.monergism.com/",
+      "role": "discovery",
+      "automation": "unreviewed",
+      "acquisitionNote": "Index and link; do not mirror curated ebook files or place them in external corpora under the published policy.",
+      "evidence": [
+        {
+          "url": "https://www.monergism.com/monergism-copyright-permissions",
+          "locator": "Copyright and permissions",
+          "note": "Permits reference/index/link uses; restricts external republication of its curated files.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "reviewedOn": "2026-10-05"
+    },
+    {
+      "id": "source-ccel",
+      "name": "Christian Classics Ethereal Library",
+      "url": "https://www.ccel.org/",
+      "role": "content-host",
+      "automation": "unreviewed",
+      "acquisitionNote": "Use authorized links; verify the individual book and obtain applicable republication permission or locate a separately reusable edition.",
+      "evidence": [
+        {
+          "url": "https://www.ccel.org/about/copyright.html",
+          "locator": "Copyright policy",
+          "note": "Historical underlying books and added editorial contents can have different rights; republication is not a blanket grant.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "reviewedOn": "2026-10-05"
+    },
+    {
+      "id": "source-gutenberg",
+      "name": "Project Gutenberg",
+      "url": "https://www.gutenberg.org/",
+      "role": "content-host",
+      "automation": "unreviewed",
+      "acquisitionNote": "Check each ebook/license and jurisdiction. Select a documented catalog/bulk/mirror route before automation; do not crawl ordinary pages.",
+      "evidence": [
+        {
+          "url": "https://www.gutenberg.org/policy/robot_access.html",
+          "locator": "Robot access exceptions",
+          "note": "Ordinary website automation is restricted; documented alternatives exist.",
+          "checkedOn": "2026-10-05"
+        },
+        {
+          "url": "https://www.gutenberg.org/policy/license.html",
+          "locator": "Project Gutenberg license",
+          "note": "Evaluate the particular ebook and intended distribution conditions.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "reviewedOn": "2026-10-05"
+    },
+    {
+      "id": "source-reformed-books-online",
+      "name": "Reformed Books Online",
+      "url": "https://reformedbooksonline.com/",
+      "role": "discovery",
+      "automation": "unreviewed",
+      "acquisitionNote": "Useful sermon/bibliographic discovery; verify per-item licenses and external hosts.",
+      "evidence": [
+        {
+          "url": "https://reformedbooksonline.com/exclusive-books-to-rbo/",
+          "locator": "Exclusive works introduction",
+          "note": "This specific collection describes public-domain or sharing-friendly Creative Commons works; do not generalize to every linked source.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "reviewedOn": "2026-10-05"
+    },
+    {
+      "id": "source-spurgeon-gems",
+      "name": "Spurgeon Gems / Chapel Library",
+      "url": "https://www.spurgeongems.org/",
+      "role": "content-host",
+      "automation": "unreviewed",
+      "acquisitionNote": "Use the 63-volume inventory; inspect each edition's notice and current source access policy before acquisition.",
+      "evidence": [
+        {
+          "url": "https://www.spurgeongems.org/spurgeon-sermons/",
+          "locator": "Complete set introduction",
+          "note": "Collection inventory verified; blanket asset rights not established by the index.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "reviewedOn": "2026-10-05"
+    },
+    {
+      "id": "source-spurgeon-library",
+      "name": "The Spurgeon Library",
+      "url": "https://www.spurgeon.org/",
+      "role": "content-host",
+      "automation": "unreviewed",
+      "acquisitionNote": "Authenticate sermons, numbering and theology; check site/edition rights before mirroring.",
+      "evidence": [
+        {
+          "url": "https://www.spurgeon.org/sermons/election",
+          "locator": "Sermon 41",
+          "note": "Primary sermon available; availability alone is not a republication grant.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "reviewedOn": "2026-10-05"
+    },
+    {
+      "id": "source-mlj-trust",
+      "name": "Martyn Lloyd-Jones Trust",
+      "url": "https://www.mljtrust.org/",
+      "role": "content-host",
+      "automation": "prohibited",
+      "acquisitionNote": "Do not systematically retrieve a database or re-upload audio under current terms. Keep an archive-level discovery record pending a permission-compatible route.",
+      "evidence": [
+        {
+          "url": "https://www.mljtrust.org/terms-use/",
+          "locator": "Intellectual Property and License Agreement A–C",
+          "note": "Terms prohibit systematic retrieval for collections/databases and unapproved online audio redistribution.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "reviewedOn": "2026-10-05"
+    },
+    {
+      "id": "source-ligonier",
+      "name": "Ligonier Ministries",
+      "url": "https://www.ligonier.org/",
+      "role": "content-host",
+      "automation": "unreviewed",
+      "acquisitionNote": "Link to authorized pages; full articles and media re-uploads require permission. Apply excerpt limits and attribution per policy.",
+      "evidence": [
+        {
+          "url": "https://www.ligonier.org/copyright-policy",
+          "locator": "Usage/distribution, audio/video and publications",
+          "note": "Published policy distinguishes limited excerpts/linking from full republication.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "reviewedOn": "2026-10-05"
+    },
+    {
+      "id": "source-desiring-god",
+      "name": "Desiring God",
+      "url": "https://www.desiringgod.org/",
+      "role": "content-host",
+      "automation": "unreviewed",
+      "acquisitionNote": "Piper text: permitted excerpts under conditions; media: eligible original embeds. Do not republish complete texts or re-upload media without the required grant.",
+      "evidence": [
+        {
+          "url": "https://www.desiringgod.org/permissions",
+          "locator": "Resources by John Piper; exceptions; other authors",
+          "note": "Permissions depend on author, format and publisher; other authors require separate permission.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "reviewedOn": "2026-10-05"
+    },
+    {
+      "id": "source-truth-for-life",
+      "name": "Truth For Life",
+      "url": "https://www.truthforlife.org/",
+      "role": "content-host",
+      "automation": "unreviewed",
+      "acquisitionNote": "Official sermon source identified; review automation, indexing, transcription and redistribution policies before acquisition.",
+      "evidence": [
+        {
+          "url": "https://www.truthforlife.org/resources/sermon/we-stand-in-grace/",
+          "locator": "Sermon record",
+          "note": "Identity and official resource verified; policy not yet reviewed.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "reviewedOn": "2026-10-05"
+    },
+    {
+      "id": "source-gospel-coalition",
+      "name": "The Gospel Coalition",
+      "url": "https://www.thegospelcoalition.org/",
+      "role": "content-host",
+      "automation": "unreviewed",
+      "acquisitionNote": "Use for author research and authorized source discovery; policy and individual publisher rights await review.",
+      "evidence": [
+        {
+          "url": "https://www.thegospelcoalition.org/article/d-a-carsons-publications/",
+          "locator": "Carson bibliography",
+          "note": "Bibliographic discovery; not a site-wide author endorsement or content-reuse grant.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "reviewedOn": "2026-10-05"
+    },
+    {
+      "id": "source-banner-of-truth",
+      "name": "Banner of Truth",
+      "url": "https://banneroftruth.org/",
+      "role": "publisher",
+      "automation": "unreviewed",
+      "acquisitionNote": "Author/edition research; modern publisher editions are not assumed reusable.",
+      "evidence": [
+        {
+          "url": "https://banneroftruth.org/us/about/banner-authors/thomas-goodwin/",
+          "locator": "Author biography",
+          "note": "Institutional reception evidence; no full-text reuse grant reviewed.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "reviewedOn": "2026-10-05"
+    },
+    {
+      "id": "source-bavinck-institute",
+      "name": "Bavinck Institute",
+      "url": "https://bavinckinstitute.org/",
+      "role": "discovery",
+      "automation": "unreviewed",
+      "acquisitionNote": "Establish author identity and bibliography; check original Dutch works and each translation independently.",
+      "evidence": [
+        {
+          "url": "https://bavinckinstitute.org/resources/herman-bavinck-bibliography/",
+          "locator": "Herman Bavinck bibliography",
+          "note": "Edition discovery and scholarly reception.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "reviewedOn": "2026-10-05"
+    },
+    {
+      "id": "source-opc",
+      "name": "Orthodox Presbyterian Church",
+      "url": "https://www.opc.org/",
+      "role": "institutional-evidence",
+      "automation": "unreviewed",
+      "acquisitionNote": "Institutional theological/reception evidence; source reuse policy awaits review.",
+      "evidence": [
+        {
+          "url": "https://www.opc.org/qa.html?question_id=287",
+          "locator": "Atonement reading recommendations",
+          "note": "Initial reception evidence for Hodge, Warfield and Murray.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "reviewedOn": "2026-10-05"
+    }
+  ]
+}
