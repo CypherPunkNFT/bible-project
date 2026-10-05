@@ -1,0 +1,74 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "asset",
+  "id": "asset-l12-carey-link",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "editionId": "edition-l12-carey",
+  "sourceId": "source-gutenberg",
+  "canonicalUrl": "https://www.gutenberg.org/cache/epub/11449/pg11449-images.html",
+  "finalUrl": null,
+  "format": "html",
+  "mediaKind": "text",
+  "acquisitionStatus": "link-only",
+  "storage": "none",
+  "relativePath": null,
+  "sha256": null,
+  "byteCount": null,
+  "mimeType": null,
+  "retrievedAt": null,
+  "rights": {
+    "category": "link-only",
+    "jurisdiction": null,
+    "licenseId": null,
+    "licenseUrl": null,
+    "attribution": "Author and source credited in the catalog.",
+    "conditions": [],
+    "conditionsMet": false,
+    "actions": {
+      "download": "unknown",
+      "host": "unknown",
+      "redistribute": "unknown",
+      "adapt": "unknown",
+      "transcribe": "unknown",
+      "embed": "unknown",
+      "indexMetadata": "allowed",
+      "indexFullText": "unknown"
+    },
+    "evidence": [
+      {
+        "url": "https://www.gutenberg.org/cache/epub/11449/pg11449-images.html",
+        "locator": "Project Gutenberg ebook 11449; historical title dates 1792; digital release 2004-03-01",
+        "note": "Five sections; historical title retained. Tables describe Carey’s world, not present demographics. Catalog and HTML display different digital update dates; no fixed modern revision date asserted.",
+        "checkedOn": "2026-10-05"
+      }
+    ],
+    "unresolved": [
+      "No source-file republication, bulk retrieval or full-text indexing grant established."
+    ],
+    "review": {
+      "date": "2026-10-05",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Bibliographic links and source boundaries; not a whole-text clearance."
+    }
+  },
+  "fullTextIndexed": false,
+  "processing": {
+    "parentAssetId": null,
+    "method": "none",
+    "tool": null,
+    "toolVersion": null,
+    "parameters": null,
+    "date": null,
+    "note": "Source link only; no content copied."
+  },
+  "quality": {
+    "state": "unreviewed",
+    "reviewedBy": null,
+    "reviewedOn": null,
+    "note": "Bibliographic inventory and selected passages checked; full text not collated."
+  }
+}

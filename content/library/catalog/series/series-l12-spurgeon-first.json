@@ -1,0 +1,91 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "series",
+  "id": "series-l12-spurgeon-first",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "title": "Lectures to My Students: First Series",
+  "authorIds": [
+    "author-charles-spurgeon"
+  ],
+  "members": [
+    {
+      "workId": "work-l12-spurgeon-lecture-01",
+      "position": 1,
+      "originalLabel": "Lecture 1"
+    },
+    {
+      "workId": "work-l12-spurgeon-lecture-02",
+      "position": 2,
+      "originalLabel": "Lecture 2"
+    },
+    {
+      "workId": "work-l12-spurgeon-lecture-03",
+      "position": 3,
+      "originalLabel": "Lecture 3"
+    },
+    {
+      "workId": "work-l12-spurgeon-lecture-04",
+      "position": 4,
+      "originalLabel": "Lecture 4"
+    },
+    {
+      "workId": "work-l12-spurgeon-lecture-05",
+      "position": 5,
+      "originalLabel": "Lecture 5"
+    },
+    {
+      "workId": "work-l12-spurgeon-lecture-06",
+      "position": 6,
+      "originalLabel": "Lecture 6"
+    },
+    {
+      "workId": "work-l12-spurgeon-lecture-07",
+      "position": 7,
+      "originalLabel": "Lecture 7"
+    },
+    {
+      "workId": "work-l12-spurgeon-lecture-08",
+      "position": 8,
+      "originalLabel": "Lecture 8"
+    },
+    {
+      "workId": "work-l12-spurgeon-lecture-09",
+      "position": 9,
+      "originalLabel": "Lecture 9"
+    },
+    {
+      "workId": "work-l12-spurgeon-lecture-10",
+      "position": 10,
+      "originalLabel": "Lecture 10"
+    },
+    {
+      "workId": "work-l12-spurgeon-lecture-11",
+      "position": 11,
+      "originalLabel": "Lecture 11"
+    },
+    {
+      "workId": "work-l12-spurgeon-lecture-12",
+      "position": 12,
+      "originalLabel": "Lecture 12"
+    },
+    {
+      "workId": "work-l12-spurgeon-lecture-13",
+      "position": 13,
+      "originalLabel": "Lecture 13"
+    }
+  ],
+  "expectedCount": 13,
+  "completeness": "complete",
+  "inventoryEvidence": [
+    {
+      "url": "https://archive.org/details/lecturestomystud00spurrich",
+      "locator": "Printed contents pp. 3-4, PDF pp. 9-10",
+      "note": "Complete thirteen-lecture inventory of this first-series witness only.",
+      "checkedOn": "2026-10-05"
+    }
+  ],
+  "missing": []
+}

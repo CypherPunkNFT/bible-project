@@ -1,6 +1,6 @@
 # Acquisition backlog
 
-Established 2026-10-05. The owner has requested L00–L14 and most recently selected L10; its selected Christianity-and-Islam collection batch is complete. Preserve the other requests in this queue. Dependencies guide ordering; website integration (L15) still requires its own request.
+Established 2026-10-05. The owner has requested L00–L14. The L12 ministry collection now has a completed first batch; the other missions retain their own states below. Dependencies guide ordering; website integration (L15) still requires its own request.
 
 | ID | Mission | Bounded first unit | Completion evidence | State |
 |---|---|---|---|---|
@@ -16,7 +16,7 @@ Established 2026-10-05. The owner has requested L00–L14 and most recently sele
 | L09 | Apologetic arguments | One question and a defined bibliography | Claim/premise/evidence/objection/reply locators; explicit author roles | Authorized; queued |
 | L10 | Christianity and Islam | White, Zwemer and Piper sources; nine question comparisons | [Report](reports/islam-studies/REPORT.md): 13 primary holdings, 21 chapters/lectures, three acquired PDFs, nine sourced maps and five collated translation excerpts; contextual Muslim material labeled | Selected batch complete; five debate recordings unviewed, broader authors/lectures, original quotation checks and undated-edition reuse remain |
 | L11 | Christian life and pastoral care | One concern across a small set of complete eligible works | Contextual applications, audiences and links to existing sermons | Authorized; queued |
-| L12 | Church, preaching and missions | One ministry responsibility and defined source list | Principles distinguished from historic practice and editorial advice | Authorized; queued |
+| L12 | Church, preaching and missions | Eight responsibilities, five audiences, selected historic and modern works | [Report](reports/ministry-resources/REPORT.md): ten roots, 50 components, 18 reused references, two acquired files, 30 scoped assessments and four comparisons | First batch complete; broader acquisition, modern book review, Owen/Perkins editions and historical-practice review remain |
 | L13 | History, biographies and letters | Brainerd, M’Cheyne, Rutherford, Knox and three Paton parts | [Report](reports/historical-lives/REPORT.md): seven editions, 12 acquired files, 421 components, 17 source-checked assertions, 21 relationships and ten editorial issues | Bounded batch complete; full collation, fuller witnesses, diary/letter segmentation and wider traditions remain |
 | L14 | Guided study paths | A named audience/need using reviewed records only | Every recommendation resolves; purpose, order and prerequisites stated | Authorized; depends on reviewed content |
 | L15 | Website/KnowledgeBase integration | Read-only adapter and publication design against actual collected records | Rights-filtered ingestion; stable crosswalk; no duplicate content authority; deployment budget | Separate integration request |

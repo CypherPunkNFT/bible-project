@@ -1,0 +1,42 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-l12-perkins",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "workId": "work-l12-perkins",
+  "label": "Banner of Truth, 2021; ISBN 9781800401037",
+  "languages": [
+    "en"
+  ],
+  "contributors": [],
+  "publisher": "Banner of Truth",
+  "dates": [
+    {
+      "event": "edition-publication",
+      "value": "2021-09-10",
+      "precision": "day",
+      "label": "Banner of Truth, 2021; ISBN 9781800401037",
+      "evidence": [
+        {
+          "url": "https://banneroftruth.org/us/store/church-ministry/the-art-of-prophesying/?attribute_pa_binding=paperback",
+          "locator": "Banner of Truth, 2021; ISBN 9781800401037",
+          "note": "Two historical works in a modern edition. Publisher lists original dates 1592 and 1605; modernization explicitly noted in its chapter-7 excerpt. Modern wording is not cleared for reuse.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    }
+  ],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://banneroftruth.org/us/store/church-ministry/the-art-of-prophesying/?attribute_pa_binding=paperback",
+      "locator": "Banner of Truth, 2021; ISBN 9781800401037",
+      "note": "Two historical works in a modern edition. Publisher lists original dates 1592 and 1605; modernization explicitly noted in its chapter-7 excerpt. Modern wording is not cleared for reuse.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

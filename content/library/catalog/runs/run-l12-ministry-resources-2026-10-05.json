@@ -1,0 +1,36 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "run",
+  "id": "run-l12-ministry-resources-2026-10-05",
+  "missionId": "L12",
+  "status": "complete",
+  "startedOn": "2026-10-05",
+  "completedOn": "2026-10-05",
+  "boundary": "Eight ministry areas; selected works, audience maps, treatment distinctions and one acquired first-series volume.",
+  "sourceIds": [
+    "source-banner-of-truth",
+    "source-ccel",
+    "source-desiring-god",
+    "source-gutenberg",
+    "source-internet-archive",
+    "source-intervarsity-press",
+    "source-monergism"
+  ],
+  "inventory": "content/library/reports/ministry-resources/inventory.json",
+  "checkpoint": "content/library/reports/ministry-resources/checkpoint.json",
+  "counts": {
+    "works": 60,
+    "editions": 10,
+    "assets": 11,
+    "series": 1,
+    "reviewedWorks": 0,
+    "publishedWorks": 0
+  },
+  "gaps": [
+    "Modern books remain authorized links.",
+    "Only selected bodies reviewed; OCR and historic practice require contextual checks.",
+    "No public publication or full-text index."
+  ],
+  "reportPath": "content/library/reports/ministry-resources/REPORT.md"
+}

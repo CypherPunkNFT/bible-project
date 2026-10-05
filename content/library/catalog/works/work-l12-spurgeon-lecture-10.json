@@ -1,0 +1,52 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-l12-spurgeon-lecture-10",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "title": "The Faculty of Impromptu Speech",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-charles-spurgeon",
+      "role": "author"
+    }
+  ],
+  "genre": "lecture",
+  "role": "core-teaching",
+  "collections": [
+    "ministry"
+  ],
+  "subjects": [
+    "preaching",
+    "pastoral-care"
+  ],
+  "occasions": [],
+  "audiences": [
+    "pastors",
+    "elders",
+    "ministry-leaders"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-l12-spurgeon-lectures",
+      "locator": "Lecture 10; printed pp. 227-248; PDF p. 233"
+    }
+  ],
+  "externalIds": {},
+  "evidence": [
+    {
+      "url": "https://archive.org/details/lecturestomystud00spurrich",
+      "locator": "Lecture 10; printed pp. 227-248; PDF p. 233",
+      "note": "Bibliographic identity and stated locator checked; whole-text review not implied.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

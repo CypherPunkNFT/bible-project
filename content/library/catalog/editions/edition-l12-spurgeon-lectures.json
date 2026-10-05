@@ -1,0 +1,42 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-l12-spurgeon-lectures",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "workId": "work-l12-spurgeon-lectures",
+  "label": "Sheldon & Company, New York; host catalog dates 1875",
+  "languages": [
+    "en"
+  ],
+  "contributors": [],
+  "publisher": "Sheldon & Company",
+  "dates": [
+    {
+      "event": "edition-publication",
+      "value": "1875",
+      "precision": "year",
+      "label": "Sheldon & Company, New York; host catalog dates 1875",
+      "evidence": [
+        {
+          "url": "https://archive.org/details/lecturestomystud00spurrich",
+          "locator": "Sheldon & Company, New York; host catalog dates 1875",
+          "note": "Title page is undated; 1875 comes from library metadata. Thirteen selected college addresses, not a dated delivery sequence. Other series are not included.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    }
+  ],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/details/lecturestomystud00spurrich",
+      "locator": "Sheldon & Company, New York; host catalog dates 1875",
+      "note": "Title page is undated; 1875 comes from library metadata. Thirteen selected college addresses, not a dated delivery sequence. Other series are not included.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

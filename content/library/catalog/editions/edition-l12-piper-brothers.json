@@ -1,0 +1,42 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-l12-piper-brothers",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "workId": "work-l12-piper-brothers",
+  "label": "2013 revised edition",
+  "languages": [
+    "en"
+  ],
+  "contributors": [],
+  "publisher": "B&H",
+  "dates": [
+    {
+      "event": "edition-publication",
+      "value": "2013",
+      "precision": "year",
+      "label": "2013 revised edition",
+      "evidence": [
+        {
+          "url": "https://www.desiringgod.org/books/brothers-we-are-not-professionals",
+          "locator": "2013 revised edition",
+          "note": "Official book source; whole chapter inventory and comparison with first edition remain open. Do not merge with the multi-author Still Not Professionals volume.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    }
+  ],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://www.desiringgod.org/books/brothers-we-are-not-professionals",
+      "locator": "2013 revised edition",
+      "note": "Official book source; whole chapter inventory and comparison with first edition remain open. Do not merge with the multi-author Still Not Professionals volume.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

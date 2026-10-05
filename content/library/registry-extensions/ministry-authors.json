@@ -1,0 +1,46 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "author-registry",
+  "updated": "2026-10-05",
+  "authors": [
+    {
+      "id": "author-william-carey",
+      "entityType": "person",
+      "name": "William Carey",
+      "aliases": [],
+      "cohort": "eighteenth-century",
+      "traditions": [
+        "baptist",
+        "calvinist-evangelical"
+      ],
+      "eligibility": "eligible",
+      "rationale": "Particular Baptist missionary in the Calvinist evangelical tradition; selected work joins divine agency to the church’s obligation to use means.",
+      "receptionBasis": "Primary Enquiry and Southern Seminary institutional historical assessment.",
+      "evidence": [
+        {
+          "url": "https://www.gutenberg.org/cache/epub/11449/pg11449-images.html",
+          "locator": "1792 title; introduction and sections I, V",
+          "note": "Primary missionary argument and identity.",
+          "checkedOn": "2026-10-05"
+        },
+        {
+          "url": "https://www.sbts.edu/news/patterson-mohler-calvinism-shouldnt-divide-southern-baptists/",
+          "locator": "Mohler discussion of Carey and Calvinist missions",
+          "note": "Institutional account supports theological placement; not endorsement of every institutional statement.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "distinctives": [],
+      "unresolved": [
+        "Historical demographic claims and colonial-era vocabulary require contextual review; no blanket approval of all later editions."
+      ],
+      "review": {
+        "date": "2026-10-05",
+        "reviewer": "Codex",
+        "kind": "ai-assisted",
+        "scope": "Initial work-scoped bibliographic and theological screening."
+      }
+    }
+  ]
+}

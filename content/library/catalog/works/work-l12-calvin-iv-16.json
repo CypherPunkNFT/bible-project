@@ -1,0 +1,52 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-l12-calvin-iv-16",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "title": "Paedobaptism",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-john-calvin",
+      "role": "author"
+    }
+  ],
+  "genre": "treatise",
+  "role": "core-teaching",
+  "collections": [
+    "ministry"
+  ],
+  "subjects": [
+    "baptism"
+  ],
+  "occasions": [],
+  "audiences": [
+    "pastors",
+    "elders",
+    "ministry-leaders",
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "reformation",
+  "dates": [],
+  "passages": [],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-calvin-institutes",
+      "locator": "Institutes IV.16; Beveridge translation; whole chapter link, selected paragraphs only"
+    }
+  ],
+  "externalIds": {},
+  "evidence": [
+    {
+      "url": "https://www.ccel.org/ccel/calvin/institutes.vi.xvii.html",
+      "locator": "Institutes IV.16; Beveridge translation; whole chapter link, selected paragraphs only",
+      "note": "Bibliographic identity and stated locator checked; whole-text review not implied.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

@@ -171,6 +171,10 @@ The [L10 report](content/library/reports/islam-studies/REPORT.md) records 13 pri
 
 The [L13 report](content/library/reports/historical-lives/REPORT.md) documents seven identified editions in 12 acquired files: five paired Internet Archive PDF/OCR holdings (Brainerd, M’Cheyne and three Paton parts) and two Gutenberg HTML witnesses (Rutherford and Knox). The [manifest](content/library/reports/historical-lives/acquisition-manifest.json) preserves original URLs, final destinations, hashes and 89,995,054 content bytes. Named static Gutenberg mirror files retain all electronic notices. Historic-text public-domain treatment is scoped to the United States; public hosting and full-text indexing remain uncleared. Firsthand and later accounts, explicit abridgments, contributor identities and Paton’s 1898/1889 metadata conflict are retained in the catalog and source-linked issue register. No publication selection changed.
 
+## Church, preaching and missions (L12, 2026-10-05)
+
+The [L12 report](content/library/reports/ministry-resources/REPORT.md) identifies ten new holdings and 50 components, reusing 18 existing work references. One historic Spurgeon first-series volume was acquired from Internet Archive in PDF and host OCR: 17,600,369 bytes with immutable [provenance and hashes](content/library/reports/ministry-resources/acquisition-manifest.json). Nine holdings remain authorized source links at Banner of Truth, CCEL, Gutenberg, IVP, Desiring God and Monergism. Modernization, source permissions and historical edition gaps are preserved. Thirty scoped assessments distinguish doctrine, dated practice and ministry advice across eight areas and five audiences. No public publication or full-text index changed.
+
 ## Considered and left out
 
 - **KJV in the UK:** public domain everywhere except Britain (perpetual Crown patent). Only relevant if the

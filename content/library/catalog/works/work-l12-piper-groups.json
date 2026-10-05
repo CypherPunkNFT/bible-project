@@ -1,0 +1,73 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-l12-piper-groups",
+  "editorialState": "catalogued",
+  "notes": [
+    "Selected written sections inspected. Bethlehem’s small-group implementation is distinguished from the biblical duty of mutual encouragement. Audio not listened to; duration unknown."
+  ],
+  "reviews": [],
+  "title": "Small Group Life in the Power of God’s Promises",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-john-piper",
+      "role": "author"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "ministry"
+  ],
+  "subjects": [
+    "discipleship",
+    "pastoral-care"
+  ],
+  "occasions": [],
+  "audiences": [
+    "general",
+    "ministry-leaders",
+    "elders"
+  ],
+  "depth": "unknown",
+  "era": "twentieth-century",
+  "dates": [
+    {
+      "event": "delivery",
+      "value": "1997-09-14",
+      "precision": "day",
+      "label": "Official message date",
+      "evidence": [
+        {
+          "url": "https://www.desiringgod.org/messages/small-group-life-in-the-power-of-gods-promises",
+          "locator": "Official sermon text and audio destination, September 14, 1997",
+          "note": "Selected written sections inspected. Bethlehem’s small-group implementation is distinguished from the biblical duty of mutual encouragement. Audio not listened to; duration unknown.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    }
+  ],
+  "passages": [
+    {
+      "reference": "Hebrews 13:1-6",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 58013001,
+      "end": 58013006,
+      "verification": "verified",
+      "locator": "Official message heading"
+    }
+  ],
+  "related": [],
+  "externalIds": {},
+  "evidence": [
+    {
+      "url": "https://www.desiringgod.org/messages/small-group-life-in-the-power-of-gods-promises",
+      "locator": "Official sermon text and audio destination, September 14, 1997",
+      "note": "Selected written sections inspected. Bethlehem’s small-group implementation is distinguished from the biblical duty of mutual encouragement. Audio not listened to; duration unknown.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

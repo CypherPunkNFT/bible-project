@@ -1,0 +1,52 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-l12-spurgeon-lecture-03",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "title": "The Preacher’s Private Prayer",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-charles-spurgeon",
+      "role": "author"
+    }
+  ],
+  "genre": "lecture",
+  "role": "core-teaching",
+  "collections": [
+    "ministry"
+  ],
+  "subjects": [
+    "preaching",
+    "pastoral-care"
+  ],
+  "occasions": [],
+  "audiences": [
+    "pastors",
+    "elders",
+    "ministry-leaders"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-l12-spurgeon-lectures",
+      "locator": "Lecture 3; printed pp. 66-83; PDF p. 72"
+    }
+  ],
+  "externalIds": {},
+  "evidence": [
+    {
+      "url": "https://archive.org/details/lecturestomystud00spurrich",
+      "locator": "Lecture 3; printed pp. 66-83; PDF p. 72",
+      "note": "Bibliographic identity and stated locator checked; whole-text review not implied.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

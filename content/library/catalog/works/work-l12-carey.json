@@ -1,0 +1,64 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-l12-carey",
+  "editorialState": "catalogued",
+  "notes": [
+    "Five sections; historical title retained. Tables describe Carey’s world, not present demographics. Catalog and HTML display different digital update dates; no fixed modern revision date asserted."
+  ],
+  "reviews": [],
+  "title": "An Enquiry into the Obligations of Christians to Use Means for the Conversion of the Heathens",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-william-carey",
+      "role": "author"
+    }
+  ],
+  "genre": "treatise",
+  "role": "core-teaching",
+  "collections": [
+    "ministry"
+  ],
+  "subjects": [
+    "missions",
+    "evangelism"
+  ],
+  "occasions": [],
+  "audiences": [
+    "pastors",
+    "elders",
+    "ministry-leaders",
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "eighteenth-century",
+  "dates": [
+    {
+      "event": "original-publication",
+      "value": "1792",
+      "precision": "year",
+      "label": "Source original publication label",
+      "evidence": [
+        {
+          "url": "https://www.gutenberg.org/cache/epub/11449/pg11449-images.html",
+          "locator": "Project Gutenberg ebook 11449; historical title dates 1792; digital release 2004-03-01",
+          "note": "Five sections; historical title retained. Tables describe Carey’s world, not present demographics. Catalog and HTML display different digital update dates; no fixed modern revision date asserted.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    }
+  ],
+  "passages": [],
+  "related": [],
+  "externalIds": {},
+  "evidence": [
+    {
+      "url": "https://www.gutenberg.org/cache/epub/11449/pg11449-images.html",
+      "locator": "Project Gutenberg ebook 11449; historical title dates 1792; digital release 2004-03-01",
+      "note": "Five sections; historical title retained. Tables describe Carey’s world, not present demographics. Catalog and HTML display different digital update dates; no fixed modern revision date asserted.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

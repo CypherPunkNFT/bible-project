@@ -4,7 +4,7 @@ Generated from [authors.json](authors.json). Edit the JSON, then run `node scrip
 
 Established 2026-10-05. All decisions are AI-assisted initial screening, not independent human theological approval. Eligible authors still require work-level and edition/rights checks. Provisional status identifies incomplete evidence, not a finding against an author.
 
-**64 people: 45 initially eligible; 3 provisional.**
+**76 people: 46 initially eligible; 3 provisional.**
 
 | Author | Placement | Decision | Evidence | Next check |
 |---|---|---|---|---|
@@ -60,6 +60,18 @@ Established 2026-10-05. All decisions are AI-assisted initial screening, not ind
 | Synod of Dort | continental-reformed | eligible | [Basis](https://ccel.org/ccel/schaff/creeds3/creeds3.iv.xvi.html) | No blanket eligibility judgment concerning later members, revisions or affiliated institutions. |
 | Savoy Assembly | congregational, reformed | eligible | [Basis](https://ccel.org/ccel/schaff/creeds3/creeds3.toc.html) | No blanket eligibility judgment concerning later members, revisions or affiliated institutions. |
 | Convocation of the Church of England | anglican, reformed | eligible | [Basis](https://ccel.org/ccel/schaff/creeds3/creeds3.iv.xi.html) | No blanket eligibility judgment concerning later members, revisions or affiliated institutions. |
+| David Brainerd |  | context-only | [Basis](https://archive.org/details/memoirsrevdavid00dwiggoog) | Core-teaching eligibility and full biographical authority record are outside this documentary batch. |
+| Sereno Edwards Dwight |  | context-only | [Basis](https://archive.org/details/memoirsrevdavid00dwiggoog) | Core-teaching eligibility and full biographical authority record are outside this documentary batch. |
+| Andrew A. Bonar | presbyterian, reformed | context-only | [Basis](https://archive.org/details/robertmurraymcch00bonauoft) | Core-teaching eligibility and full biographical authority record are outside this documentary batch. |
+| Robert Murray M’Cheyne | presbyterian, reformed | context-only | [Basis](https://archive.org/details/robertmurraymcch00bonauoft) | Core-teaching eligibility and full biographical authority record are outside this documentary batch. |
+| Samuel Rutherford | presbyterian, reformed | context-only | [Basis](https://www.gutenberg.org/ebooks/42557) | Core-teaching eligibility and full biographical authority record are outside this documentary batch. |
+| Cuthbert Lennox |  | context-only | [Basis](https://www.gutenberg.org/ebooks/48250) | Core-teaching eligibility and full biographical authority record are outside this documentary batch. |
+| John G. Paton | presbyterian, reformed | context-only | [Basis](https://archive.org/details/johngpatonmissio188901pato) | Core-teaching eligibility and full biographical authority record are outside this documentary batch. |
+| James Paton |  | context-only | [Basis](https://archive.org/details/johngpatonmissio188901pato) | Core-teaching eligibility and full biographical authority record are outside this documentary batch. |
+| Mrs. John G. Paton |  | context-only | [Basis](https://archive.org/details/johngpatonmissio188902pato) | Core-teaching eligibility and full biographical authority record are outside this documentary batch. |
+| Samuel Miller |  | context-only | [Basis](https://archive.org/details/robertmurraymcch00bonauoft) | Core-teaching eligibility and full biographical authority record are outside this documentary batch. |
+| Arthur T. Pierson |  | context-only | [Basis](https://archive.org/details/johngpatonmissio188901pato) | Core-teaching eligibility and full biographical authority record are outside this documentary batch. |
+| William Carey | baptist, calvinist-evangelical | eligible | [Basis](https://www.gutenberg.org/cache/epub/11449/pg11449-images.html) | Historical demographic claims and colonial-era vocabulary require contextual review; no blanket approval of all later editions. |
 | W. Brock |  | context-only | [Basis](https://www.spurgeongems.org/sermon/chs370.pdf) | Independent biographical identity, theological eligibility and reception review are outside this Spurgeon inventory mission. |
 | Octavius Winslow |  | context-only | [Basis](https://www.spurgeongems.org/sermon/chs378.pdf) | Independent biographical identity, theological eligibility and reception review are outside this Spurgeon inventory mission. |
 | Hugh Stowell Brown |  | context-only | [Basis](https://www.spurgeongems.org/sermon/chs381.pdf) | Independent biographical identity, theological eligibility and reception review are outside this Spurgeon inventory mission. |

@@ -1,0 +1,51 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-l12-perkins-art-10",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "title": "Preaching the Word",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-william-perkins",
+      "role": "author"
+    }
+  ],
+  "genre": "treatise",
+  "role": "core-teaching",
+  "collections": [
+    "ministry"
+  ],
+  "subjects": [
+    "preaching"
+  ],
+  "occasions": [],
+  "audiences": [
+    "pastors",
+    "elders",
+    "ministry-leaders"
+  ],
+  "depth": "unknown",
+  "era": "post-reformation",
+  "dates": [],
+  "passages": [],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-l12-perkins-art",
+      "locator": "Art, chapter 10, p. 68"
+    }
+  ],
+  "externalIds": {},
+  "evidence": [
+    {
+      "url": "https://banneroftruth.org/us/store/church-ministry/the-art-of-prophesying/?attribute_pa_binding=paperback",
+      "locator": "Art, chapter 10, p. 68",
+      "note": "Bibliographic identity and stated locator checked; whole-text review not implied.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

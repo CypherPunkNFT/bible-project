@@ -1,0 +1,50 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-l12-packer-02",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "title": "Divine Sovereignty and Human Responsibility",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-j-i-packer",
+      "role": "author"
+    }
+  ],
+  "genre": "treatise",
+  "role": "core-teaching",
+  "collections": [
+    "ministry"
+  ],
+  "subjects": [
+    "evangelism"
+  ],
+  "occasions": [],
+  "audiences": [
+    "general",
+    "ministry-leaders"
+  ],
+  "depth": "unknown",
+  "era": "twentieth-century",
+  "dates": [],
+  "passages": [],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-l12-packer",
+      "locator": "Publisher contents, chapter 2; page unknown"
+    }
+  ],
+  "externalIds": {},
+  "evidence": [
+    {
+      "url": "https://ivpress.org/evangelism-and-the-sovereignty-of-god",
+      "locator": "Publisher contents, chapter 2; page unknown",
+      "note": "Bibliographic identity and stated locator checked; whole-text review not implied.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

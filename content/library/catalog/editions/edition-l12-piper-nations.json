@@ -1,0 +1,42 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-l12-piper-nations",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "workId": "work-l12-piper-nations",
+  "label": "2022 edition on official book page",
+  "languages": [
+    "en"
+  ],
+  "contributors": [],
+  "publisher": "Baker Books",
+  "dates": [
+    {
+      "event": "edition-publication",
+      "value": "2022",
+      "precision": "year",
+      "label": "2022 edition on official book page",
+      "evidence": [
+        {
+          "url": "https://www.desiringgod.org/books/let-the-nations-be-glad",
+          "locator": "2022 edition on official book page",
+          "note": "Official book source; edition date is not first publication. No full text or chapter inventory acquired.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    }
+  ],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://www.desiringgod.org/books/let-the-nations-be-glad",
+      "locator": "2022 edition on official book page",
+      "note": "Official book source; edition date is not first publication. No full text or chapter inventory acquired.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

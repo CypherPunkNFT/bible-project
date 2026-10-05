@@ -1,0 +1,67 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-l12-perkins-calling",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "title": "The Calling of the Ministry",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-william-perkins",
+      "role": "author"
+    }
+  ],
+  "genre": "treatise",
+  "role": "core-teaching",
+  "collections": [
+    "ministry"
+  ],
+  "subjects": [
+    "preaching",
+    "pastoral-care"
+  ],
+  "occasions": [],
+  "audiences": [
+    "pastors",
+    "elders",
+    "ministry-leaders"
+  ],
+  "depth": "unknown",
+  "era": "post-reformation",
+  "dates": [
+    {
+      "event": "original-publication",
+      "value": "1605",
+      "precision": "year",
+      "label": "Publisher’s historical date for this component",
+      "evidence": [
+        {
+          "url": "https://banneroftruth.org/us/store/church-ministry/the-art-of-prophesying/?attribute_pa_binding=paperback",
+          "locator": "Publisher contents, named component",
+          "note": "Bibliographic identity and stated locator checked; whole-text review not implied.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    }
+  ],
+  "passages": [],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-l12-perkins",
+      "locator": "Publisher contents, named component"
+    }
+  ],
+  "externalIds": {},
+  "evidence": [
+    {
+      "url": "https://banneroftruth.org/us/store/church-ministry/the-art-of-prophesying/?attribute_pa_binding=paperback",
+      "locator": "Publisher contents, named component",
+      "note": "Bibliographic identity and stated locator checked; whole-text review not implied.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

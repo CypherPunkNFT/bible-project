@@ -1,0 +1,46 @@
+{
+  "date": "2026-10-05",
+  "comparisons": [
+    {
+      "id": "baptism",
+      "question": "Who should receive baptism, and by what mode?",
+      "assessmentIds": [
+        "l12-baptism-wcf",
+        "l12-baptism-lbc"
+      ],
+      "relationship": "doctrinal-disagreement",
+      "readingRule": "Read both numbered statements in their own confessional setting; do not blend the positions."
+    },
+    {
+      "id": "supper",
+      "question": "Do these Presbyterian and Baptist standards affirm spiritual feeding on Christ?",
+      "assessmentIds": [
+        "l12-supper-wcf",
+        "l12-supper-lbc"
+      ],
+      "relationship": "shared-affirmation",
+      "readingRule": "Agreement here does not erase their differences on baptism or establish identical wording throughout."
+    },
+    {
+      "id": "government",
+      "question": "What authority does an interchurch assembly possess?",
+      "assessmentIds": [
+        "l12-polity-wcf",
+        "l12-polity-lbc"
+      ],
+      "relationship": "doctrinal-disagreement",
+      "readingRule": "Compare authority to determine complaints with advice lacking jurisdiction; keep the historic WCF edition visible."
+    },
+    {
+      "id": "small-groups",
+      "question": "Is a biblical duty identical with a particular group program?",
+      "assessmentIds": [
+        "l12-groups-principle",
+        "l12-groups-setting",
+        "l12-groups-method"
+      ],
+      "relationship": "principle-context-method",
+      "readingRule": "The same sermon contains an argued duty, a dated implementation and a proposed practice; those are separate claims."
+    }
+  ]
+}

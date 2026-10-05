@@ -1,0 +1,52 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-l12-spurgeon-lecture-13",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "title": "To Workers with Slender Apparatus",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-charles-spurgeon",
+      "role": "author"
+    }
+  ],
+  "genre": "lecture",
+  "role": "core-teaching",
+  "collections": [
+    "ministry"
+  ],
+  "subjects": [
+    "preaching",
+    "pastoral-care"
+  ],
+  "occasions": [],
+  "audiences": [
+    "pastors",
+    "elders",
+    "ministry-leaders"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-l12-spurgeon-lectures",
+      "locator": "Lecture 13; printed pp. 282-297; PDF p. 288"
+    }
+  ],
+  "externalIds": {},
+  "evidence": [
+    {
+      "url": "https://archive.org/details/lecturestomystud00spurrich",
+      "locator": "Lecture 13; printed pp. 282-297; PDF p. 288",
+      "note": "Bibliographic identity and stated locator checked; whole-text review not implied.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

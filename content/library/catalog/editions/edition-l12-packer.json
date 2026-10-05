@@ -1,0 +1,42 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-l12-packer",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "workId": "work-l12-packer",
+  "label": "IVP revised edition, 2012; ISBN 9780830837991",
+  "languages": [
+    "en"
+  ],
+  "contributors": [],
+  "publisher": "InterVarsity Press",
+  "dates": [
+    {
+      "event": "edition-publication",
+      "value": "2012-01-16",
+      "precision": "day",
+      "label": "IVP revised edition, 2012; ISBN 9780830837991",
+      "evidence": [
+        {
+          "url": "https://ivpress.org/evangelism-and-the-sovereignty-of-god",
+          "locator": "IVP revised edition, 2012; ISBN 9780830837991",
+          "note": "Publisher bibliography and four chapter headings only. Modern text and added foreword not acquired.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    }
+  ],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://ivpress.org/evangelism-and-the-sovereignty-of-god",
+      "locator": "IVP revised edition, 2012; ISBN 9780830837991",
+      "note": "Publisher bibliography and four chapter headings only. Modern text and added foreword not acquired.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

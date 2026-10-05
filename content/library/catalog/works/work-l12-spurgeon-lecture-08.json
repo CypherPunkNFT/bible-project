@@ -1,0 +1,52 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-l12-spurgeon-lecture-08",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "title": "On the Voice",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-charles-spurgeon",
+      "role": "author"
+    }
+  ],
+  "genre": "lecture",
+  "role": "core-teaching",
+  "collections": [
+    "ministry"
+  ],
+  "subjects": [
+    "preaching",
+    "pastoral-care"
+  ],
+  "occasions": [],
+  "audiences": [
+    "pastors",
+    "elders",
+    "ministry-leaders"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-l12-spurgeon-lectures",
+      "locator": "Lecture 8; printed pp. 178-204; PDF p. 184"
+    }
+  ],
+  "externalIds": {},
+  "evidence": [
+    {
+      "url": "https://archive.org/details/lecturestomystud00spurrich",
+      "locator": "Lecture 8; printed pp. 178-204; PDF p. 184",
+      "note": "Bibliographic identity and stated locator checked; whole-text review not implied.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

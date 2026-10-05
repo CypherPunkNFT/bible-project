@@ -1,0 +1,50 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-l12-carey-03",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "title": "Religious state of the world",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-william-carey",
+      "role": "author"
+    }
+  ],
+  "genre": "treatise",
+  "role": "core-teaching",
+  "collections": [
+    "ministry"
+  ],
+  "subjects": [
+    "missions"
+  ],
+  "occasions": [],
+  "audiences": [
+    "general",
+    "ministry-leaders"
+  ],
+  "depth": "unknown",
+  "era": "eighteenth-century",
+  "dates": [],
+  "passages": [],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-l12-carey",
+      "locator": "Section 3; editorial short label, original heading retained at source"
+    }
+  ],
+  "externalIds": {},
+  "evidence": [
+    {
+      "url": "https://www.gutenberg.org/cache/epub/11449/pg11449-images.html",
+      "locator": "Section 3; editorial short label, original heading retained at source",
+      "note": "Bibliographic identity and stated locator checked; whole-text review not implied.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}
