@@ -1,45 +1,143 @@
 import { expect, test } from "@playwright/test";
+import { mkdir } from "node:fs/promises";
+import { DEBATES, PATHS, STUDIES, TOPICS, WORLDVIEWS } from "../src/data/apologetics-library";
 
 for (const theme of ["light", "dark"] as const) {
-  test(`apologetics: header destination works and the ${theme} page fits`, async ({ page }, testInfo) => {
+  test(`apologetics: the ${theme} universe and collections fit the viewport`, async ({ page }, testInfo) => {
     if (testInfo.project.name === "phone") await page.setViewportSize({ width: 320, height: 844 });
     await page.emulateMedia({ colorScheme: theme });
     const errors: string[] = [];
     page.on("pageerror", (error) => errors.push(error.message));
-    await page.goto("/");
-    const link = page.getByRole("navigation", { name: "Main", exact: true }).getByRole("link", { name: "Apologetics", exact: true });
-    await link.click();
-    await expect(page).toHaveURL(/\/apologetics$/);
-    await expect(link).toHaveAttribute("aria-current", "page");
+    await page.goto("/apologetics");
     await expect(page.getByRole("heading", { level: 1 })).toHaveText("A reason for the hope.");
-    await expect(page.getByRole("tab")).toHaveCount(6);
-    await expect(page.getByText("No debates have been added yet.", { exact: false })).toBeVisible();
-    expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(1);
+    await expect(page.getByRole("navigation", { name: "Explore connected topics" }).getByRole("link")).toHaveCount(6);
+    await expect(page.getByRole("navigation", { name: "Main", exact: true }).getByRole("link", { name: "Apologetics", exact: true })).toHaveAttribute("aria-current", "page");
+    await page.evaluate(() => document.fonts.ready);
+    await mkdir("front-end capture/2026-10-04", { recursive: true });
+    await page.screenshot({ path: `front-end capture/2026-10-04/apologetics-universe-${testInfo.project.name}-${theme}.png` });
+    await page.locator(".ap-topic-grid").screenshot({ path: `front-end capture/2026-10-04/apologetics-fields-${testInfo.project.name}-${theme}.png` });
+    for (const route of ["", "/questions", "/study/suffering", "/paths/begin", "/worldviews/islam", "/debates", "/debates/craig-hitchens", "/practice", "/sources", "/saved"]) {
+      await page.goto("/apologetics" + route);
+      await expect(page.locator(".ap-page h1")).toBeVisible();
+      expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth), route).toBeLessThanOrEqual(1);
+      await expect(page.locator(".ap-page")).not.toContainText("coming soon");
+    }
     expect(errors).toEqual([]);
   });
 }
 
-test("apologetics: keyboard foundations show their claims and open the correct Scripture", async ({ page }) => {
+test("apologetics: search, shareable filters and empty recovery", async ({ page }) => {
   await page.goto("/apologetics");
-  await page.getByRole("tab", { name: "God", exact: true }).focus();
-  await page.keyboard.press("ArrowRight");
-  await expect(page.getByRole("tab", { name: "Jesus Christ" })).toHaveAttribute("aria-selected", "true");
-  await expect(page.getByRole("tabpanel")).toContainText("Was Jesus simply a great teacher?");
-  await page.getByText("Read the first passage here", { exact: true }).click();
-  await expect(page.locator(".ap-read-preview")).toContainText("the Word was made flesh");
-  await page.getByRole("tabpanel").getByRole("link", { name: "John 20:24–31", exact: true }).click();
+  await page.getByRole("searchbox", { name: "Find an apologetics question" }).fill("manuscripts");
+  await page.getByRole("button", { name: "Search apologetics" }).click();
+  await expect(page).toHaveURL(/\/apologetics\/questions\?q=manuscripts$/);
+  await page.getByRole("button", { name: "Bible & reliability", exact: true }).click();
+  await expect(page.locator(".ap-study-card")).not.toHaveCount(0);
+  await page.reload();
+  await expect(page.getByRole("searchbox", { name: "Search studies" })).toHaveValue("manuscripts");
+  await expect(page.getByRole("button", { name: "Bible & reliability", exact: true })).toHaveAttribute("aria-pressed", "true");
+  await page.getByRole("searchbox", { name: "Search studies" }).fill("zz-nonexistent-question");
+  await expect(page.getByRole("heading", { name: "No studies match that search." })).toBeVisible();
+  await page.getByRole("button", { name: "Clear search and filters" }).click();
+  await expect(page.locator(".ap-study-card")).toHaveCount(STUDIES.length);
+  await page.goto("/apologetics/topics/jesus");
+  await expect(page.locator(".ap-study-card")).toHaveCount(STUDIES.filter((study) => study.topic === "jesus").length);
+});
+
+test("apologetics: Scripture preview is lazy and its reader links retain the passage", async ({ page }) => {
+  const texts: string[] = [];
+  page.on("request", (request) => { if (request.url().includes("/data/text/")) texts.push(request.url()); });
+  await page.goto("/apologetics/study/jesus");
+  await expect(page.locator(".ap-passages")).toBeVisible();
+  expect(texts).toEqual([]);
+  await page.getByRole("button", { name: "Read the first passage here" }).click();
+  await expect(page.locator(".ap-passage-preview")).toContainText("the Word was made flesh");
+  expect(texts.length).toBeGreaterThan(0);
+  await page.locator(".ap-passages").getByRole("link", { name: "John 20:24–31", exact: true }).click();
   await expect(page).toHaveURL(/\/read\/kjv\/JHN\/20\?hl=24-31$/);
 });
 
-test("apologetics: ministry steps and Islam preparation links work", async ({ page }) => {
-  await page.goto("/apologetics");
-  await page.getByRole("navigation", { name: "On this page" }).getByRole("link", { name: "Across beliefs" }).click();
-  await expect(page).toHaveURL(/#across-beliefs$/);
-  await expect(page.locator(".ap-islam-questions li")).toHaveCount(6);
-  await page.getByRole("link", { name: "How we will study the debates" }).click();
-  await expect(page).toHaveURL(/#debates$/);
-  await expect(page.locator(".ap-debate-method")).toContainText("The strongest objection and reply");
+test("apologetics: bookmarks, reflection and learning progress persist and can be changed", async ({ page }) => {
+  await page.goto("/apologetics/study/jesus");
+  await page.getByRole("button", { name: "Save study", exact: true }).click();
+  await page.locator(".ap-note textarea").fill("Compare John 1 with Thomas's confession in John 20.");
+  await page.getByRole("button", { name: "Mark this study as read" }).click();
+  await page.reload();
+  await expect(page.getByRole("button", { name: "Saved to my study" })).toHaveAttribute("aria-pressed", "true");
+  await expect(page.locator(".ap-note textarea")).toHaveValue("Compare John 1 with Thomas's confession in John 20.");
+  await expect(page.getByRole("button", { name: "Marked as read" })).toHaveAttribute("aria-pressed", "true");
+  await page.goto("/apologetics/paths/begin");
+  await expect(page.locator(".ap-path-progress")).toContainText("1 of 6 read");
+  await page.goto("/apologetics/saved");
+  await expect(page.locator(".ap-study-card")).toHaveCount(1);
+  await expect(page.locator(".ap-reflections")).toContainText("Thomas's confession");
+  await page.getByRole("button", { name: /^Unsave:/ }).click();
+  await expect(page.locator(".ap-study-card")).toHaveCount(0);
+  await page.goto("/apologetics/study/jesus");
+  await page.locator(".ap-note textarea").fill("");
+  await page.getByRole("button", { name: "Marked as read" }).click();
+  await page.goto("/apologetics/saved");
+  await expect(page.locator(".ap-desk-counts")).toContainText("0 reflections");
+  await expect(page.locator(".ap-desk-counts")).toContainText("0 read");
+});
+
+test("apologetics: worldview comparison and sources lead to actual studies", async ({ page }) => {
+  await page.goto("/apologetics/worldviews/islam");
+  await expect(page.locator(".ap-comparison-row")).toHaveCount(3);
+  await expect(page.locator(".ap-study-card")).toHaveCount(6);
+  await expect(page.locator('.ap-source-grid a[href="https://quran.com/en/an-nisa/157"]')).toBeVisible();
+  await page.locator(".ap-comparison-row > a").first().click();
+  await expect(page).toHaveURL(/\/apologetics\/study\/islam-jesus$/);
+  await expect(page.locator(".ap-objection")).toBeVisible();
+  await page.goto("/apologetics/sources");
+  await page.getByRole("button", { name: "Manuscript", exact: true }).click();
+  await expect(page.locator(".ap-source-room > article")).toHaveCount(1);
+  await expect(page.locator(".ap-source-room")).toContainText("Codex Sinaiticus");
+  await expect(page.locator('.ap-source-backlinks a[href="/apologetics/study/manuscripts"]')).toBeVisible();
+});
+
+test("apologetics: each debate has a real transcript, a reading guide and connected studies", async ({ page }) => {
+  await page.goto("/apologetics/debates");
+  await expect(page.locator(".ap-debate-list > a")).toHaveCount(3);
+  for (const debate of DEBATES) {
+    await page.goto("/apologetics/debates/" + debate.id);
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText(debate.title);
+    await expect(page.getByRole("link", { name: "Open the full transcript" })).toHaveAttribute("href", /^https:\/\/www.reasonablefaith.org\/media\/debates\//);
+    await expect(page.locator(".ap-debate-study ol li")).toHaveCount(3);
+    await expect(page.locator(".ap-study-card")).toHaveCount(debate.studies.length);
+  }
+});
+
+test("apologetics: conversation scenarios explain choices and keep separate reflections", async ({ page }) => {
+  await page.goto("/apologetics/practice");
+  await page.locator(".ap-practice-options button").nth(0).click();
+  await expect(page.locator(".ap-practice-feedback")).toContainText("Consider a different first step.");
+  await page.locator(".ap-practice-options button").nth(1).click();
+  await expect(page.locator(".ap-practice-feedback")).toContainText("A thoughtful place to begin.");
+  await page.locator(".ap-note textarea").fill("Make room to hear the person before answering.");
+  await page.getByRole("button", { name: "The Trinity", exact: true }).click();
+  await expect(page.locator(".ap-practice-feedback")).toHaveCount(0);
+  await expect(page.locator(".ap-note textarea")).toHaveValue("");
+  await page.locator(".ap-practice-options button").nth(0).click();
+  await expect(page.locator(".ap-practice-feedback")).toContainText("A thoughtful place to begin.");
+  await page.getByRole("button", { name: "Grief & suffering", exact: true }).click();
+  await expect(page.locator(".ap-note textarea")).toHaveValue("Make room to hear the person before answering.");
   await page.getByRole("group", { name: "Conversation steps" }).getByRole("button", { name: /Invite/ }).click();
   await expect(page.locator(".ap-step-detail")).toContainText("Would you like to keep exploring this with me?");
-  await expect(page.locator(".ap-step-detail a")).toHaveAttribute("href", /\/read\/kjv\/COL\/4\?hl=5-6$/);
+});
+
+test("apologetics: deep links cover the complete library and preserve legacy entries", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== "desktop", "The route audit is viewport-independent.");
+  for (const [type, collection] of [["study", STUDIES], ["topics", TOPICS], ["paths", PATHS], ["worldviews", WORLDVIEWS]] as const) {
+    for (const item of collection) {
+      await page.goto(`/apologetics/${type}/${item.id}`);
+      await expect(page.getByRole("heading", { level: 1 })).toHaveText(item.title);
+    }
+  }
+  await page.goto("/apologetics#foundations");
+  await expect(page).toHaveURL(/\/apologetics\/paths\/begin$/);
+  await page.goto("/apologetics/study/missing");
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("This study could not be found.");
+  await page.getByRole("link", { name: "Back to Apologetics", exact: true }).click();
+  await expect(page).toHaveURL(/\/apologetics$/);
 });

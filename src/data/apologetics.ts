@@ -1,4 +1,4 @@
-import type { Span } from "@/lib/study";
+import type { Span } from "../lib/study";
 
 export const APOLOGETICS_ANCHOR: Span = [60003015, 60003016];
 
