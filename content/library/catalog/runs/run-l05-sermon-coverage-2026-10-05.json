@@ -1,0 +1,23 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "run",
+  "id": "run-l05-sermon-coverage-2026-10-05",
+  "missionId": "L05",
+  "status": "complete",
+  "startedOn": "2026-10-05",
+  "completedOn": "2026-10-05",
+  "boundary": "All-66-book catalog metadata audit; four targeted body assessments; series membership and preacher concentration analysis; four verified gap-resource discoveries. Not an exhaustive body review or acquisition mission.",
+  "sourceIds": ["source-spurgeon-gems", "source-desiring-god", "source-internet-archive", "source-ligonier"],
+  "inventory": "content/library/reports/sermon-coverage/book-coverage.json",
+  "checkpoint": "content/library/reports/sermon-coverage/summary.json",
+  "counts": {"works": 0, "editions": 0, "assets": 0, "series": 0, "reviewedWorks": 0, "publishedWorks": 0},
+  "gaps": [
+    "Main-text coverage is not substantial exposition: canonical records have no explicit exposition classifications; four scoped body assessments remain a separate report layer, not promoted editorial reviews.",
+    "121 unresolved main-text assignments affect apparent passage gaps. Unknowns are excluded and listed, not silently mapped.",
+    "3791 core units were not body-assessed in this audit. No statistical coverage estimate is extrapolated from the four purposive reviews.",
+    "All 83 recorded series match their bounded membership inventories; author-wide completeness, L02 component indexing and wider modern series acquisition remain unfinished.",
+    "Gap discoveries remain outside catalog and coverage totals. No new content bytes, full-text indexing, public website selection or deployment."
+  ],
+  "reportPath": "content/library/reports/sermon-coverage/REPORT.md"
+}

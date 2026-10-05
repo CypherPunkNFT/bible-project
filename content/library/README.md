@@ -66,3 +66,7 @@ The [historic preaching report](reports/historic-preaching/REPORT.md) covers 17 
 ## Modern preaching sources
 
 The [L04 source report](reports/modern-preaching/REPORT.md) maps five ministries for six eligible authors. Piper’s Ruth (1984) and Sproul’s 2 Peter (2008) supply two complete bounded inventories: 16 sermons with passages, dates, order, recording durations and official links; 20 format-specific link records. Source policies, permission-dependent collections, eligibility holds and exact resumption steps accompany the catalog. No media/text corpus was downloaded or added to public publication by this batch.
+
+## Sermon coverage
+
+The [L05 coverage report](reports/sermon-coverage/REPORT.md) audits 3,795 core sermon units across all 66 books. Its verse/chapter maps measure source-assigned main texts, with substantial exposition and incidental citations kept in a separate assessed layer. The report documents 354 chapters without a mapped main text, 121 unresolved assignments, strong preacher concentration, bounded series completeness, unfinished collections, and four verified gap-resource discoveries. Reproduce it with `python -X utf8 scripts/analyze-sermon-coverage.py`; exact input hashes, review locators and machine-readable gaps accompany the report. No discovery record has been added to the coverage numerator or public publication selection.

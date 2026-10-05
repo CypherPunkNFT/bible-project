@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-10-05",
+  "reviewer": "Codex; AI-assisted targeted body review",
+  "boundary": "Four purposively selected Spurgeon texts, not a representative sample. Classifications concern passage treatment, not theological endorsement or transcription certification. Original PDFs unchanged; no extracted full text stored here.",
+  "assessments": [
+    {
+      "workId": "work-spurgeon-sermon-0001",
+      "title": "The Immutability of God (no. 1)",
+      "assetId": "asset-spurgeon-gems-chs1",
+      "sha256": "2bc78e4705d737f267bb214c3d1c48ab68c721a0c1b35db3329a24fb6ab713d3",
+      "sourceUrl": "https://www.spurgeongems.org/sermon/chs1.pdf",
+      "classification": "substantial-exposition",
+      "passages": [{"reference": "Malachi 3:6", "start": 39003006, "end": 39003006}],
+      "locator": "PDF pages 1-6, with concluding structural heading on page 8",
+      "basis": "Explains God's unchangeableness, the sons of Jacob and their preservation through the clauses of the announced text. This is sustained doctrinal/textual exposition of one verse, not a survey of Malachi.",
+      "incidentalCitations": [{"reference": "James 1:17", "start": 59001017, "end": 59001017, "locator": "PDF page 2, section I.1", "basis": "Brief supporting quotation about the Father of lights and absence of variableness; reference identified by reviewer. No sustained explanation of James's argument."}]
+    },
+    {
+      "workId": "work-spurgeon-sermon-1097",
+      "title": "Good Cause for Great Zeal (no. 1097)",
+      "assetId": "asset-spurgeon-gems-chs1097",
+      "sha256": "69a87bcff5e591ee6b2b38c2507ecb83a102cbd2d395ead4122b9b3445bb027f",
+      "sourceUrl": "https://www.spurgeongems.org/sermon/chs1097.pdf",
+      "classification": "application-dominant",
+      "passages": [{"reference": "Ezra 4:14", "start": 15004014, "end": 15004014}],
+      "locator": "PDF pages 1-2; structural headings on pages 4 and 7",
+      "basis": "Identifies the hostile letter to Artaxerxes, then transfers its language about royal maintenance and honor to Christian service. Retain main-text status, but do not certify contextual exposition of Ezra from this chiefly analogical application.",
+      "incidentalCitations": []
+    },
+    {
+      "workId": "work-spurgeon-sermon-1148",
+      "title": "The Parent’s and Pastor’s Joy (no. 1148)",
+      "assetId": "asset-spurgeon-gems-chs1148",
+      "sha256": "8223d9f5028498ace01180997a3acc60b6b32359f8821fcbd7724903e32f639c",
+      "sourceUrl": "https://www.spurgeongems.org/sermon/chs1148.pdf",
+      "classification": "substantial-exposition",
+      "passages": [{"reference": "3 John 1:4", "start": 64001004, "end": 64001004}],
+      "locator": "PDF pages 1-2; pastoral section heading on page 6",
+      "basis": "Distinguishes John's spiritual children from the parental application and explains walking in truth. Qualifies narrowly for verse 4, not the rest of the letter.",
+      "incidentalCitations": []
+    },
+    {
+      "workId": "work-spurgeon-sermon-1201",
+      "title": "Providence—As Seen in the Book of Esther (no. 1201)",
+      "assetId": "asset-spurgeon-gems-chs1201",
+      "sha256": "22de4c34b873efcbe036de4b4f2e8cc5fcaaa41cbe6a755fd17ef47e0abd5a3a",
+      "sourceUrl": "https://www.spurgeongems.org/sermon/chs1201.pdf",
+      "classification": "book-level-thematic-survey",
+      "passages": [{"reference": "Esther 9:1 (source main text)", "start": 17009001, "end": 17009001}],
+      "locator": "PDF pages 1-5; deliverance heading on page 7",
+      "basis": "Surveys providence across Esther's narrative: placement of agents, restraint of enemies, trials, small events and deliverance. The main-text tag understates scope, but no whole-book verse coverage is inferred from the survey.",
+      "incidentalCitations": []
+    }
+  ]
+}

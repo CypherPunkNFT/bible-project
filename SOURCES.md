@@ -147,6 +147,10 @@ full-text search index. Exact current totals and remaining metadata checks are i
 
 The [modern preaching report](content/library/reports/modern-preaching/REPORT.md) records five ministry access decisions and two complete bounded biblical sermon inventories: Piper’s Ruth (1984), four sermons, and Sproul’s 2 Peter (2008), twelve. Six eligible authors are mapped to official sources; 16 sermons have passages, sequence, archive dates, durations and destinations. All 20 format records are link-only. No sermon files or transcripts were downloaded, indexed or published. The ministry inventory documents permission-dependent retrieval, unresolved source methods and provisional-author holds.
 
+## Sermon coverage research (L05, 2026-10-05)
+
+The [all-66-book coverage report](content/library/reports/sermon-coverage/REPORT.md) separates source-assigned main texts from body-assessed exposition and incidental citations. It audits 3,795 core units, identifies exact unmapped chapters/verses, preacher concentration and unfinished corpus boundaries, and checks all 83 recorded series memberships. [Gap discoveries](content/library/reports/sermon-coverage/gap-resources.json) link to three official Piper messages and Princeton's 1583 Calvin Deuteronomy edition record. They remain outside the catalog numerator; no new sermon bytes or public content were acquired by this audit.
+
 ## Considered and left out
 
 - **KJV in the UK:** public domain everywhere except Britain (perpetual Crown patent). Only relevant if the
