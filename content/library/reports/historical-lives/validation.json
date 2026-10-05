@@ -7,5 +7,21 @@
   "exitCode": 0,
   "stdout": "Library valid: 75 authors, 28 sources, 8 collections, 110 subjects, 12990 catalog record(s).\n",
   "stderr": "",
-  "integrityTests": "python -X utf8 -m unittest discover -s scripts -p test_historical_lives.py: 8 passed"
+  "integrityTests": "python -X utf8 -m unittest discover -s scripts -p test_historical_lives.py: 8 passed",
+  "latestWorkspaceCheck": {
+    "date": "2026-10-05",
+    "baseCommit": "66b8fdf4b35795e9709845488a64d4aa031fafaa",
+    "scope": "Full current library, including the completed L12 and L13 catalogs; no catalog records excluded.",
+    "command": "node scripts/validate-library.mjs",
+    "exitCode": 0,
+    "stdout": "Library valid: 76 authors, 28 sources, 8 collections, 110 subjects, 13073 catalog record(s).\nStructural validation only; no content acquisition or external theological approval.\n",
+    "integrityCommand": "D:/Python/python.exe -X utf8 -m unittest discover -s scripts -p test_historical_lives.py",
+    "integrityTestsPassed": 8,
+    "sourceReaderSpotChecks": [
+      "claim-l13-paton-v2-omissions",
+      "claim-l13-mcheyne-omissions"
+    ],
+    "newAcquisition": false,
+    "note": "Original validation evidence above is retained. Recheck verifies original hashes, selected span integrity and metadata boundaries; it does not add independent historical corroboration."
+  }
 }
