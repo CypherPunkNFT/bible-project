@@ -8,7 +8,7 @@ export interface DisplayOptions {
 }
 
 const FLAG_CLASSES: Record<string, string> = {
-  a: "italic opacity-80", // words the translators added
+  a: "italic", // words the translators added; keep the surrounding text's full contrast
   n: "divine-name",
   s: "italic text-muted",
   i: "italic",
