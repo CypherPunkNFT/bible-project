@@ -1,0 +1,88 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-l04-piper-ruth-1984-03",
+  "editorialState": "catalogued",
+  "notes": [
+    "Metadata verified; recording has not been listened through or audited for theological content.",
+    "Whole-chapter indexing follows the source. Later UCCF messages, Light + Truth edits and book treatments are distinct manifestations, not replacement copies."
+  ],
+  "reviews": [],
+  "title": "Ruth: Strategic Righteousness",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-john-piper",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [
+    "ordinary-worship"
+  ],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "twentieth-century",
+  "dates": [
+    {
+      "event": "delivery",
+      "value": "1984-07-15",
+      "precision": "day",
+      "label": "Archive-assigned sermon date; independent service documentation not collated.",
+      "evidence": [
+        {
+          "url": "https://www.desiringgod.org/messages/ruth-strategic-righteousness",
+          "locator": "Sermon heading, date, author and player",
+          "note": "Official original-sermon destination; no upload or first-publication date established.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    },
+    {
+      "event": "original-publication",
+      "value": null,
+      "precision": "unknown",
+      "label": "Not documented by inspected source.",
+      "evidence": []
+    }
+  ],
+  "passages": [
+    {
+      "reference": "Ruth 3",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 8003001,
+      "end": 8003018,
+      "verification": "verified",
+      "locator": "https://www.desiringgod.org/scripture/ruth/messages?sort=newest; source-assigned Scripture heading"
+    }
+  ],
+  "related": [],
+  "externalIds": {
+    "officialDestination": [
+      "https://www.desiringgod.org/messages/ruth-strategic-righteousness"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://www.desiringgod.org/messages/ruth-strategic-righteousness",
+      "locator": "Sermon heading, date, author and player",
+      "note": "Official original-sermon destination; no upload or first-publication date established.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://www.desiringgod.org/scripture/ruth/messages?sort=newest",
+      "locator": "Scripture index entry",
+      "note": "Main text as assigned by the source; not an incidental citation and not a claim of verse-by-verse exposition.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

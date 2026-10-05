@@ -1380,6 +1380,18 @@
           "type": "string",
           "pattern": "^[a-z][a-z0-9]*(?:-[a-z0-9]+)*$"
         },
+        "recording": {
+          "description": "Optional metadata for this specific audio/video manifestation; never a reading-time estimate.",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "durationSeconds": { "type": ["number", "null"], "exclusiveMinimum": 0 },
+            "durationLabel": { "type": ["string", "null"], "minLength": 1 },
+            "evidence": { "type": "array", "minItems": 1, "items": { "$ref": "#/definitions/evidence" } },
+            "note": { "type": "string", "minLength": 1 }
+          },
+          "required": ["durationSeconds", "durationLabel", "evidence", "note"]
+        },
         "mediaKind": {
           "enum": [
             "text",

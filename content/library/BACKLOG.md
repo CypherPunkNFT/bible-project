@@ -1,6 +1,6 @@
 # Acquisition backlog
 
-Established 2026-10-05. The owner has now requested L00–L14 and most recently selected L03; its bounded first acquisition is complete. Preserve the other requests in this queue. Dependencies guide ordering; website integration (L15) still requires its own request.
+Established 2026-10-05. The owner has now requested L00–L14 and most recently selected L04; its bounded source inventory and two sermon-series pilots are complete. Preserve the other requests in this queue. Dependencies guide ordering; website integration (L15) still requires its own request.
 
 | ID | Mission | Bounded first unit | Completion evidence | State |
 |---|---|---|---|---|
@@ -8,7 +8,7 @@ Established 2026-10-05. The owner has now requested L00–L14 and most recently 
 | L01 | Spurgeon sermons | All 63 published pulpit volumes and their numbered contents | [Inventory and report](reports/spurgeon/REPORT.md): 3,568 indexed entries, numbering corrections, edition/duplicate distinctions, file hashes and metadata review queue | Acquired; metadata exceptions documented |
 | L02 | Reformation and Puritan preaching | One author and one identified collected edition per batch | [Retained acquisition checkpoint](reports/puritan-sermons/REPORT.md); component catalog unfinished | In progress; checkpoint retained while owner selected L03 |
 | L03 | Eighteenth-/nineteenth-century preaching | Edwards, Whitefield, Newton and Ryle, author by author | [Selected-edition report](reports/historic-preaching/REPORT.md): 17 volumes, 243 classified components, 51 content assets; source dates and editorial forms distinguished | Selected corpora acquired and catalogued; expansion gaps documented |
-| L04 | Modern preaching | One approved ministry/source and one series per batch | Eligibility questions resolved; current access/rights method; ordered series | Authorized; queued |
+| L04 | Modern preaching | Ministry policy inventory and complete biblical-series pilots | [Source report](reports/modern-preaching/REPORT.md): five ministries, six eligible authors; Piper Ruth and Sproul 2 Peter, 16 sermons/20 link records with verified durations; permission queue | Bounded source inventory complete; wider corpus expansion and permission-dependent retrieval remain |
 | L05 | Scripture coverage | Reviewed sermons from completed acquisition batches | Main-text/exposition coverage by book/chapter; citation-only links excluded | Authorized; depends on sermon review |
 | L06 | Commentaries and biblical theology | One author/edition; pilot one Bible book | Passage locators, edition rights and coverage gaps | Authorized; queued |
 | L07 | Doctrine and systematic theology | One complete volume/work before subject expansion | Chapter hierarchy, specific subject indexing and source pages | Authorized; queued |

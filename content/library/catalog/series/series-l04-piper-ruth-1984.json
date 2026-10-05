@@ -1,0 +1,55 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "series",
+  "id": "series-l04-piper-ruth-1984",
+  "editorialState": "catalogued",
+  "notes": [
+    "Complete within the specified source-listed series, not an author-wide census or a fully downloaded/reviewed corpus.",
+    "Series positions are catalog ordinals, not original sermon numbers."
+  ],
+  "reviews": [],
+  "title": "Ruth: Under the Wings of God (1984)",
+  "authorIds": [
+    "author-john-piper"
+  ],
+  "members": [
+    {
+      "workId": "work-l04-piper-ruth-1984-01",
+      "position": 1,
+      "originalLabel": "Catalog position 1; source chronological/Scripture sequence"
+    },
+    {
+      "workId": "work-l04-piper-ruth-1984-02",
+      "position": 2,
+      "originalLabel": "Catalog position 2; source chronological/Scripture sequence"
+    },
+    {
+      "workId": "work-l04-piper-ruth-1984-03",
+      "position": 3,
+      "originalLabel": "Catalog position 3; source chronological/Scripture sequence"
+    },
+    {
+      "workId": "work-l04-piper-ruth-1984-04",
+      "position": 4,
+      "originalLabel": "Catalog position 4; source chronological/Scripture sequence"
+    }
+  ],
+  "expectedCount": 4,
+  "completeness": "complete",
+  "inventoryEvidence": [
+    {
+      "url": "https://www.desiringgod.org/scripture/ruth/messages?sort=newest",
+      "locator": "Biblical index: dated Ruth messages",
+      "note": "Only the four July 1984 sermons; excludes 2008 conference deliveries.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://www.desiringgod.org/messages/ruth-sweet-and-bitter-providence",
+      "locator": "Opening paragraph",
+      "note": "Announces four Sundays, one chapter each; final sermon identifies the end of the series.",
+      "checkedOn": "2026-10-05"
+    }
+  ],
+  "missing": []
+}

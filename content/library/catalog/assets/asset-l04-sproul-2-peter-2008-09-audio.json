@@ -1,0 +1,93 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "asset",
+  "id": "asset-l04-sproul-2-peter-2008-09-audio",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "editionId": "edition-l04-sproul-2-peter-2008-09",
+  "sourceId": "source-ligonier",
+  "canonicalUrl": "https://learn.ligonier.org/sermons/gods-wrath-for-apostates",
+  "finalUrl": null,
+  "format": "audio",
+  "mediaKind": "original-recording",
+  "acquisitionStatus": "link-only",
+  "storage": "none",
+  "relativePath": null,
+  "sha256": null,
+  "byteCount": null,
+  "mimeType": null,
+  "retrievedAt": null,
+  "rights": {
+    "category": "link-only",
+    "jurisdiction": null,
+    "licenseId": null,
+    "licenseUrl": null,
+    "attribution": "God’s Wrath for Apostates by R.C. Sproul. © Ligonier Ministries. Source: https://learn.ligonier.org/sermons/gods-wrath-for-apostates",
+    "conditions": [],
+    "conditionsMet": false,
+    "actions": {
+      "download": "unknown",
+      "host": "denied",
+      "redistribute": "denied",
+      "adapt": "denied",
+      "transcribe": "unknown",
+      "embed": "denied",
+      "indexMetadata": "allowed",
+      "indexFullText": "unknown"
+    },
+    "evidence": [
+      {
+        "url": "https://www.ligonier.org/copyright-policy",
+        "locator": "Usage and Distribution; Audio and Video; Permission Requests",
+        "note": "Media sharing uses official page hyperlinks; re-upload/distribution otherwise needs special permission. General conditions prohibit derivatives and revenue, and require attribution.",
+        "checkedOn": "2026-10-05"
+      },
+      {
+        "url": "https://www.ligonier.org/terms",
+        "locator": "Copyright Notice and Limited License",
+        "note": "Refers use to the copyright policy; does not supply a bulk data acquisition grant.",
+        "checkedOn": "2026-10-05"
+      }
+    ],
+    "unresolved": [
+      "Project-scale downloads, full-text indexing, transcription and republication require a separate decision or written permission."
+    ],
+    "review": {
+      "date": "2026-10-05",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Link inventory and source-policy routing; not a grant for systematic retrieval or publication."
+    }
+  },
+  "fullTextIndexed": false,
+  "processing": {
+    "parentAssetId": null,
+    "method": "none",
+    "tool": null,
+    "toolVersion": null,
+    "parameters": null,
+    "date": null,
+    "note": "Bibliographic facts only; no media or sermon text acquired into the library."
+  },
+  "quality": {
+    "state": "unreviewed",
+    "reviewedBy": null,
+    "reviewedOn": null,
+    "note": "Identity and available format checked; complete content not reviewed."
+  },
+  "recording": {
+    "durationSeconds": 2952,
+    "durationLabel": "49:12",
+    "evidence": [
+      {
+        "url": "https://learn.ligonier.org/sermons/gods-wrath-for-apostates",
+        "locator": "Hydrated official audio player total-time display",
+        "note": "Minutes:seconds displayed by the player; initial 00:00 placeholder excluded.",
+        "checkedOn": "2026-10-05"
+      }
+    ],
+    "note": "Duration of this original archive recording, not an edited podcast or later reading."
+  }
+}

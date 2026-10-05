@@ -1,0 +1,74 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "asset",
+  "id": "asset-l04-piper-ruth-1984-02-html",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "editionId": "edition-l04-piper-ruth-1984-02",
+  "sourceId": "source-desiring-god",
+  "canonicalUrl": "https://www.desiringgod.org/messages/ruth-under-the-wings-of-god",
+  "finalUrl": null,
+  "format": "html",
+  "mediaKind": "text",
+  "acquisitionStatus": "link-only",
+  "storage": "none",
+  "relativePath": null,
+  "sha256": null,
+  "byteCount": null,
+  "mimeType": null,
+  "retrievedAt": null,
+  "rights": {
+    "category": "link-only",
+    "jurisdiction": null,
+    "licenseId": null,
+    "licenseUrl": null,
+    "attribution": "By John Piper. © Desiring God Foundation. Source: desiringGod.org",
+    "conditions": [],
+    "conditionsMet": false,
+    "actions": {
+      "download": "unknown",
+      "host": "denied",
+      "redistribute": "denied",
+      "adapt": "unknown",
+      "transcribe": "unknown",
+      "embed": "unknown",
+      "indexMetadata": "allowed",
+      "indexFullText": "unknown"
+    },
+    "evidence": [
+      {
+        "url": "https://www.desiringgod.org/permissions",
+        "locator": "Resources by John Piper; audio/video; exceptions and other authors",
+        "note": "Permits qualified original embeds and limited textual quotation; complete text republication and other media redistribution need permission. Attribution and noncommercial conditions apply.",
+        "checkedOn": "2026-10-05"
+      }
+    ],
+    "unresolved": [
+      "Project-scale downloads, full-text indexing, transcription and republication require a separate decision or written permission."
+    ],
+    "review": {
+      "date": "2026-10-05",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Link inventory and source-policy routing; not a grant for systematic retrieval or publication."
+    }
+  },
+  "fullTextIndexed": false,
+  "processing": {
+    "parentAssetId": null,
+    "method": "none",
+    "tool": null,
+    "toolVersion": null,
+    "parameters": null,
+    "date": null,
+    "note": "Bibliographic facts only; no media or sermon text acquired into the library."
+  },
+  "quality": {
+    "state": "unreviewed",
+    "reviewedBy": null,
+    "reviewedOn": null,
+    "note": "Identity and available format checked; complete content not reviewed."
+  }
+}

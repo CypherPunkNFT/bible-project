@@ -1,0 +1,89 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "series",
+  "id": "series-l04-sproul-2-peter-2008",
+  "editorialState": "catalogued",
+  "notes": [
+    "Complete within the specified source-listed series, not an author-wide census or a fully downloaded/reviewed corpus.",
+    "Series positions are catalog ordinals, not original sermon numbers."
+  ],
+  "reviews": [],
+  "title": "2 Peter: Saint Andrew’s Chapel sermons (2008)",
+  "authorIds": [
+    "author-r-c-sproul"
+  ],
+  "members": [
+    {
+      "workId": "work-l04-sproul-2-peter-2008-01",
+      "position": 1,
+      "originalLabel": "Catalog position 1; source chronological/Scripture sequence"
+    },
+    {
+      "workId": "work-l04-sproul-2-peter-2008-02",
+      "position": 2,
+      "originalLabel": "Catalog position 2; source chronological/Scripture sequence"
+    },
+    {
+      "workId": "work-l04-sproul-2-peter-2008-03",
+      "position": 3,
+      "originalLabel": "Catalog position 3; source chronological/Scripture sequence"
+    },
+    {
+      "workId": "work-l04-sproul-2-peter-2008-04",
+      "position": 4,
+      "originalLabel": "Catalog position 4; source chronological/Scripture sequence"
+    },
+    {
+      "workId": "work-l04-sproul-2-peter-2008-05",
+      "position": 5,
+      "originalLabel": "Catalog position 5; source chronological/Scripture sequence"
+    },
+    {
+      "workId": "work-l04-sproul-2-peter-2008-06",
+      "position": 6,
+      "originalLabel": "Catalog position 6; source chronological/Scripture sequence"
+    },
+    {
+      "workId": "work-l04-sproul-2-peter-2008-07",
+      "position": 7,
+      "originalLabel": "Catalog position 7; source chronological/Scripture sequence"
+    },
+    {
+      "workId": "work-l04-sproul-2-peter-2008-08",
+      "position": 8,
+      "originalLabel": "Catalog position 8; source chronological/Scripture sequence"
+    },
+    {
+      "workId": "work-l04-sproul-2-peter-2008-09",
+      "position": 9,
+      "originalLabel": "Catalog position 9; source chronological/Scripture sequence"
+    },
+    {
+      "workId": "work-l04-sproul-2-peter-2008-10",
+      "position": 10,
+      "originalLabel": "Catalog position 10; source chronological/Scripture sequence"
+    },
+    {
+      "workId": "work-l04-sproul-2-peter-2008-11",
+      "position": 11,
+      "originalLabel": "Catalog position 11; source chronological/Scripture sequence"
+    },
+    {
+      "workId": "work-l04-sproul-2-peter-2008-12",
+      "position": 12,
+      "originalLabel": "Catalog position 12; source chronological/Scripture sequence"
+    }
+  ],
+  "expectedCount": 12,
+  "completeness": "complete",
+  "inventoryEvidence": [
+    {
+      "url": "https://learn.ligonier.org/scripture/2-peter?type=sermon",
+      "locator": "Sermon filter: 12 results; Scripture order",
+      "note": "All twelve source-listed sermons, ordered by source index and adjacent links; book boundaries checked.",
+      "checkedOn": "2026-10-05"
+    }
+  ],
+  "missing": []
+}

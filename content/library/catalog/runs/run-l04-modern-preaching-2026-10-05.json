@@ -1,0 +1,38 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "run",
+  "id": "run-l04-modern-preaching-2026-10-05",
+  "missionId": "L04",
+  "status": "complete",
+  "startedOn": "2026-10-05",
+  "completedOn": "2026-10-05",
+  "boundary": "Five-ministry source/access inventory for six eligible modern-era authors; complete Piper Ruth (1984) and Sproul 2 Peter (2008) source-link pilots. No exhaustive archive acquisition.",
+  "sourceIds": [
+    "source-desiring-god",
+    "source-ligonier",
+    "source-mlj-trust",
+    "source-first-pres-columbia",
+    "source-westminster-media"
+  ],
+  "inventory": "content/library/reports/modern-preaching/sermon-inventory.json",
+  "checkpoint": "content/library/reports/modern-preaching/checkpoint.json",
+  "counts": {
+    "works": 16,
+    "editions": 16,
+    "assets": 20,
+    "series": 2,
+    "reviewedWorks": 0,
+    "publishedWorks": 0
+  },
+  "gaps": [
+    "No author-wide completeness claim. Two bounded biblical series are complete as link inventories.",
+    "First publication/upload dates and recording completeness remain unknown. Archive-assigned delivery dates retain their source qualification.",
+    "Source main texts are verified bibliographic metadata, not a completed substantial-exposition assessment.",
+    "No original content files downloaded, no transcript/search ingestion, no website publication.",
+    "Ferguson church archive and Murray media require reuse/automation clearance; Packer has no complete biblical sermon series established in the inspected Ligonier collection.",
+    "MLJ Trust database retrieval requires prior written permission; no individual-sermon database was harvested.",
+    "Begg and Carson remain provisional in the shared author registry and outside core-teaching acquisition."
+  ],
+  "reportPath": "content/library/reports/modern-preaching/REPORT.md"
+}

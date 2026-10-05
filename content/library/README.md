@@ -62,3 +62,7 @@ The owner subsequently requested the published Spurgeon sermon inventory. Its [r
 ## Edwards, Whitefield, Newton and Ryle acquisition
 
 The [historic preaching report](reports/historic-preaching/REPORT.md) covers 17 selected volumes and 243 classified components. Bibliography, precise scan locators, original main texts, publication and delivery witnesses, editorial compilations, and remaining gaps accompany the immutable source files. These records are catalogued and excluded from public publication selection. The separate [Puritan acquisition checkpoint](reports/puritan-sermons/REPORT.md) remains unfinished; it was preserved when the owner selected this historic preaching category.
+
+## Modern preaching sources
+
+The [L04 source report](reports/modern-preaching/REPORT.md) maps five ministries for six eligible authors. Piper’s Ruth (1984) and Sproul’s 2 Peter (2008) supply two complete bounded inventories: 16 sermons with passages, dates, order, recording durations and official links; 20 format-specific link records. Source policies, permission-dependent collections, eligibility holds and exact resumption steps accompany the catalog. No media/text corpus was downloaded or added to public publication by this batch.

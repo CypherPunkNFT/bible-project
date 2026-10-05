@@ -1,0 +1,87 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-l04-sproul-2-peter-2008-05",
+  "editorialState": "catalogued",
+  "notes": [
+    "Metadata verified; recording has not been listened through or audited for theological content."
+  ],
+  "reviews": [],
+  "title": "Remember These Things",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-r-c-sproul",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [
+    "ordinary-worship"
+  ],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "twenty-first-century",
+  "dates": [
+    {
+      "event": "delivery",
+      "value": "2008-05-11",
+      "precision": "day",
+      "label": "Archive-assigned sermon date; independent service documentation not collated.",
+      "evidence": [
+        {
+          "url": "https://learn.ligonier.org/sermons/remember-these-things",
+          "locator": "Sermon heading, date, author and player",
+          "note": "Official original-sermon destination; no upload or first-publication date established.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    },
+    {
+      "event": "original-publication",
+      "value": null,
+      "precision": "unknown",
+      "label": "Not documented by inspected source.",
+      "evidence": []
+    }
+  ],
+  "passages": [
+    {
+      "reference": "2 Peter 1:12–18",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 61001012,
+      "end": 61001018,
+      "verification": "verified",
+      "locator": "https://learn.ligonier.org/scripture/2-peter?type=sermon; source-assigned Scripture heading"
+    }
+  ],
+  "related": [],
+  "externalIds": {
+    "officialDestination": [
+      "https://learn.ligonier.org/sermons/remember-these-things"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://learn.ligonier.org/sermons/remember-these-things",
+      "locator": "Sermon heading, date, author and player",
+      "note": "Official original-sermon destination; no upload or first-publication date established.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://learn.ligonier.org/scripture/2-peter?type=sermon",
+      "locator": "Scripture index entry",
+      "note": "Main text as assigned by the source; not an incidental citation and not a claim of verse-by-verse exposition.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

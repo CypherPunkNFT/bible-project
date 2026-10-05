@@ -76,6 +76,8 @@ The intended project use is free access on a public website, with potentially se
 
 ## Publication and knowledge integration
 
+Modern recordings may include optional `asset.recording` metadata: `durationSeconds` (positive number or null), `durationLabel` (source/display label or null), evidence and a note. This describes the specific recording manifestation, never an article reading-time estimate. Preserve ambiguous labels with null seconds until resolved. Original recordings, later readings, podcast edits and written messages need separate identities/format records. Link-only records retain null local paths, hashes, byte counts and retrieval timestamps. A manual metadata check belongs in evidence `checkedOn`, not a fabricated media acquisition date. See [L04](reports/modern-preaching/REPORT.md).
+
 Canonical files remain here; `.local/` derivatives and `KnowledgeBase/` search state are rebuildable outputs. An eventual adapter should use namespaced IDs such as `library:work:<work-id>`; chunks must retain edition/asset ID, locator, source URL, rights and text hash. Search indexes may include only the actions authorized for their actual contents: metadata permission is not full-text indexing permission.
 
 Connect existing Apologetics sources by a crosswalk. Preserve its reviewed content, source roles and review hashes; generated TypeScript/public exports are not editable inputs. This mission does not implement the adapter or add the collection to production. Plan pagination and bundled indexes before publishing at scale; the existing Pages release checks enforce a finite file budget.

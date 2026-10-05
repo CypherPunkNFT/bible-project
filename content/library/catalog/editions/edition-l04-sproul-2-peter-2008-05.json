@@ -1,0 +1,43 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-l04-sproul-2-peter-2008-05",
+  "editorialState": "catalogued",
+  "notes": [
+    "Recording completeness and correspondence between written text and spoken delivery have not been collated."
+  ],
+  "reviews": [],
+  "workId": "work-l04-sproul-2-peter-2008-05",
+  "label": "Official archive presentation of the original sermon",
+  "languages": [
+    "en"
+  ],
+  "contributors": [],
+  "publisher": "Ligonier Ministries",
+  "dates": [
+    {
+      "event": "upload",
+      "value": null,
+      "precision": "unknown",
+      "label": "Archive upload date is not supplied; do not substitute delivery date.",
+      "evidence": []
+    }
+  ],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://learn.ligonier.org/sermons/remember-these-things",
+      "locator": "Sermon heading, date, author and player",
+      "note": "Official original-sermon destination; no upload or first-publication date established.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://learn.ligonier.org/scripture/2-peter?type=sermon",
+      "locator": "Scripture index entry",
+      "note": "Main text as assigned by the source; not an incidental citation and not a claim of verse-by-verse exposition.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-l04-piper-ruth-1984-01",
+  "editorialState": "catalogued",
+  "notes": [
+    "Recording completeness and correspondence between written text and spoken delivery have not been collated."
+  ],
+  "reviews": [],
+  "workId": "work-l04-piper-ruth-1984-01",
+  "label": "Official archive presentation of the original sermon",
+  "languages": [
+    "en"
+  ],
+  "contributors": [],
+  "publisher": "Desiring God",
+  "dates": [
+    {
+      "event": "upload",
+      "value": null,
+      "precision": "unknown",
+      "label": "Archive upload date is not supplied; do not substitute delivery date.",
+      "evidence": []
+    }
+  ],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://www.desiringgod.org/messages/ruth-sweet-and-bitter-providence",
+      "locator": "Sermon heading, date, author and player",
+      "note": "Official original-sermon destination; no upload or first-publication date established.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://www.desiringgod.org/scripture/ruth/messages?sort=newest",
+      "locator": "Scripture index entry",
+      "note": "Main text as assigned by the source; not an incidental citation and not a claim of verse-by-verse exposition.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

@@ -135,12 +135,12 @@
       "url": "https://www.mljtrust.org/",
       "role": "content-host",
       "automation": "prohibited",
-      "acquisitionNote": "Do not systematically retrieve a database or re-upload audio under current terms. Keep an archive-level discovery record pending a permission-compatible route.",
+      "acquisitionNote": "Archive-level discovery link only for this library pending written permission. Do not parse the sermon-index PDF or build a sermon database from the site. Terms expressly prohibit systematic retrieval for a collection, compilation, database or directory.",
       "evidence": [
         {
           "url": "https://www.mljtrust.org/terms-use/",
-          "locator": "Intellectual Property and License Agreement A–C",
-          "note": "Terms prohibit systematic retrieval for collections/databases and unapproved online audio redistribution.",
+          "locator": "Intellectual Property; License Agreement",
+          "note": "Systematic data/content retrieval for a collection/database is prohibited; free access does not authorize the proposed corpus.",
           "checkedOn": "2026-10-05"
         }
       ],
@@ -151,13 +151,19 @@
       "name": "Ligonier Ministries",
       "url": "https://www.ligonier.org/",
       "role": "content-host",
-      "automation": "unreviewed",
-      "acquisitionNote": "Link to authorized pages; full articles and media re-uploads require permission. Apply excerpt limits and attribution per policy.",
+      "automation": "manual-only",
+      "acquisitionNote": "Curate source links and bibliographic facts. Keep playback on the official site. Do not re-upload, distribute, embed elsewhere or create derivatives without the necessary grant. Published sharing route is a hyperlink to the official resource page; this batch is bounded factual research, not a crawler grant.",
       "evidence": [
         {
           "url": "https://www.ligonier.org/copyright-policy",
-          "locator": "Usage/distribution, audio/video and publications",
-          "note": "Published policy distinguishes limited excerpts/linking from full republication.",
+          "locator": "Usage and Distribution; Audio and Video; Permission Requests",
+          "note": "Media sharing uses official page hyperlinks; re-upload/distribution otherwise needs special permission. General conditions prohibit derivatives and revenue, and require attribution.",
+          "checkedOn": "2026-10-05"
+        },
+        {
+          "url": "https://www.ligonier.org/terms",
+          "locator": "Copyright Notice and Limited License",
+          "note": "Refers use to the copyright policy; does not supply a bulk data acquisition grant.",
           "checkedOn": "2026-10-05"
         }
       ],
@@ -168,13 +174,13 @@
       "name": "Desiring God",
       "url": "https://www.desiringgod.org/",
       "role": "content-host",
-      "automation": "unreviewed",
-      "acquisitionNote": "Piper text: permitted excerpts under conditions; media: eligible original embeds. Do not republish complete texts or re-upload media without the required grant.",
+      "automation": "manual-only",
+      "acquisitionNote": "Curate factual metadata and official links. Eligible original media may be embedded under the published conditions; no embed is implemented in this run. Conservative project route for this batch: manually selected pages and facts; no bulk endpoint or crawl grant established.",
       "evidence": [
         {
           "url": "https://www.desiringgod.org/permissions",
-          "locator": "Resources by John Piper; exceptions; other authors",
-          "note": "Permissions depend on author, format and publisher; other authors require separate permission.",
+          "locator": "Resources by John Piper; audio/video; exceptions and other authors",
+          "note": "Permits qualified original embeds and limited textual quotation; complete text republication and other media redistribution need permission. Attribution and noncommercial conditions apply.",
           "checkedOn": "2026-10-05"
         }
       ],
@@ -277,6 +283,52 @@
           "url": "https://archive.org/details/planofsalvation00warf",
           "locator": "Representative dated historic scan and catalogue record",
           "note": "Representative dated historic scan and catalogue record",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "reviewedOn": "2026-10-05"
+    },
+    {
+      "id": "source-first-pres-columbia",
+      "name": "First Presbyterian Church, Columbia",
+      "url": "https://www.firstprescolumbia.org/teaching",
+      "role": "content-host",
+      "automation": "unreviewed",
+      "acquisitionNote": "Retain official church discovery and broadcaster links. Defer systematic retrieval until both broadcaster content rights and platform access terms are reviewed. Church and host-platform permission/access terms have not been established for library acquisition.",
+      "evidence": [
+        {
+          "url": "https://www.firstprescolumbia.org/teaching",
+          "locator": "Sermon Archives and contact information",
+          "note": "Official ministry provenance, not a content reuse grant. No applicable library acquisition license established.",
+          "checkedOn": "2026-10-05"
+        },
+        {
+          "url": "https://www.firstprescolumbia.org/podcasts",
+          "locator": "Sermon Audio links",
+          "note": "Establishes the church’s own broadcaster route; platform access and content reuse remain separate questions.",
+          "checkedOn": "2026-10-05"
+        },
+        {
+          "url": "https://cloud.sermonaudio.com/media/pdf/high/42312935301.pdf?language=eng&ts=1746319731",
+          "locator": "Living in the Light: source heading",
+          "note": "Discovery witness identifies Ferguson, 1 John: Fellowship with God, 1 John 1:5-10, April 22, 2012 and the church; no local transcript copy acquired.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "reviewedOn": "2026-10-05"
+    },
+    {
+      "id": "source-westminster-media",
+      "name": "Westminster Theological Seminary Media",
+      "url": "https://wm.wts.edu/listen/romans-6",
+      "role": "content-host",
+      "automation": "unreviewed",
+      "acquisitionNote": "Official discovery link and factual source notes only; clarify rights and supported retrieval route before systematic acquisition. No media-specific automated retrieval or corpus reuse grant established from the inspected source.",
+      "evidence": [
+        {
+          "url": "https://wm.wts.edu/listen/romans-6",
+          "locator": "Recording player, title and author biography",
+          "note": "Official attribution and listening source; no redistribution grant found. The displayed 61:16:00 duration is ambiguous and is not normalized as 61 hours or 61 minutes.",
           "checkedOn": "2026-10-05"
         }
       ],

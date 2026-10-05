@@ -1,0 +1,101 @@
+{
+  "checkedOn": "2026-10-05",
+  "scope": "Eligible recorded-recent roster plus Westminster theologian John Murray. Five ministry/source decisions; no exhaustive author-wide census.",
+  "ministries": [
+    {
+      "sourceId": "source-desiring-god",
+      "name": "Desiring God",
+      "authorIds": ["author-john-piper"],
+      "officialDestination": "https://www.desiringgod.org/messages",
+      "automation": "manual-only",
+      "automationBasis": "Conservative project route for this batch: manually selected pages and facts; no bulk endpoint or crawl grant established.",
+      "permittedMethod": "Curate factual metadata and official links. Eligible original media may be embedded under the published conditions; no embed is implemented in this run.",
+      "personalAccess": "Source supplies MP3 playback/download and written messages. Personal/noncommercial access is distinct from library acquisition and redistribution.",
+      "formats": ["audio", "video where offered", "HTML written message where offered"],
+      "prioritySeries": [{"title":"Ruth: Under the Wings of God (1984)","expectedCount":4,"state":"complete-link-inventory","url":"https://www.desiringgod.org/scripture/ruth/messages?sort=newest"}],
+      "permissionQueue": {
+        "status":"not-requested",
+        "neededFor":["Systematic archive metadata/media retrieval or approved export","Complete text hosting and full-text indexing","Transcription and any media re-upload"],
+        "destination":"https://www.desiringgod.org/permissions",
+        "requestScope":"Ask the rights holder to specify permitted series, fields, retrieval route, request rate, local retention, search indexing, public excerpts, attribution, and withdrawal terms. Distinguish John Piper content from other authors and publisher-owned books."
+      },
+      "policyEvidence":[{"url":"https://www.desiringgod.org/permissions","locator":"Resources by John Piper; audio/video; exceptions and other authors","note":"Permits qualified original embeds and limited textual quotation; complete text republication and other media redistribution need permission. Attribution and noncommercial conditions apply.","checkedOn":"2026-10-05"}],
+      "unresolved":["No automated retrieval endpoint/rate limit approved.","No grant for corpus-wide transcription or full-text search.","1984 Ruth sermons, 2008 UCCF deliveries, 2001 treatments, edited Light + Truth episodes and later books must remain distinct."]
+    },
+    {
+      "sourceId":"source-ligonier",
+      "name":"Ligonier Ministries",
+      "authorIds":["author-r-c-sproul","author-sinclair-ferguson","author-j-i-packer"],
+      "officialDestination":"https://learn.ligonier.org/sermons",
+      "automation":"manual-only",
+      "automationBasis":"Published sharing route is a hyperlink to the official resource page; this batch is bounded factual research, not a crawler grant.",
+      "permittedMethod":"Curate source links and bibliographic facts. Keep playback on the official site. Do not re-upload, distribute, embed elsewhere or create derivatives without the necessary grant.",
+      "personalAccess":"Sproul sermon pages provide streaming audio. Paid downloads, subscriptions and teaching-series access do not supply redistribution rights.",
+      "formats":["streaming audio", "video and study guides for some teaching courses", "HTML transcripts on some sermon pages"],
+      "prioritySeries":[
+        {"title":"Sproul: 2 Peter, Saint Andrew’s Chapel (2008)","expectedCount":12,"state":"complete-link-inventory","url":"https://learn.ligonier.org/scripture/2-peter?type=sermon"},
+        {"title":"Ferguson: My Joy and Crown: Paul’s Letter to the Philippians","expectedCount":12,"state":"identified-teaching-course-not-counted-as-sermons","url":"https://learn.ligonier.org/series/my-joy-and-crown-pauls-letter-to-the-philippians"},
+        {"title":"Packer author archive","expectedCount":null,"state":"no-complete-biblical-sermon-series-established","url":"https://learn.ligonier.org/teachers/j-i-packer"}
+      ],
+      "permissionQueue":{"status":"not-requested","neededFor":["Systematic metadata export or approved API","Media hosting or third-party embedding","Full transcripts, transcription and full-text indexing"],"destination":"https://www.ligonier.org/copyright-policy","requestScope":"Use the policy’s Copyright Permissions Request Form only after owner authorizes contact. Request a defined Saint Andrew’s biblical series and distinguish source-page links from mirrors, transcripts and searchable text."},
+      "policyEvidence":[
+        {"url":"https://www.ligonier.org/copyright-policy","locator":"Usage and Distribution; Audio and Video; Permission Requests","note":"Media sharing uses official page hyperlinks; re-upload/distribution otherwise needs special permission. General conditions prohibit derivatives and revenue, and require attribution.","checkedOn":"2026-10-05"},
+        {"url":"https://www.ligonier.org/terms","locator":"Copyright Notice and Limited License","note":"Refers use to the copyright policy; does not supply a bulk data acquisition grant.","checkedOn":"2026-10-05"}
+      ],
+      "unresolved":["Packer’s inspected archive mixes conference messages, media, articles and products; do not call the nine-message mixed-speaker conference listing a Packer sermon series.","Ferguson’s Philippians course is a twelve-lesson course; a pulpit collection belongs to its church source.","Retain source copyright year as unknown until established; do not silently use sermon year as publication/copyright year."]
+    },
+    {
+      "sourceId":"source-mlj-trust",
+      "name":"Martyn Lloyd-Jones Trust",
+      "authorIds":["author-martyn-lloyd-jones"],
+      "officialDestination":"https://www.mljtrust.org/sermons/",
+      "automation":"prohibited",
+      "automationBasis":"Terms expressly prohibit systematic retrieval for a collection, compilation, database or directory.",
+      "permittedMethod":"Archive-level discovery link only for this library pending written permission. Do not parse the sermon-index PDF or build a sermon database from the site.",
+      "personalAccess":"Freely accessible listening does not override the database restriction.",
+      "formats":["streaming audio", "sermon index PDF (not retrieved)"],
+      "prioritySeries":[{"title":"Romans and Ephesians: priority permission request","expectedCount":null,"state":"archive-level-only-pending-permission","url":"https://www.mljtrust.org/sermons/"}],
+      "permissionQueue":{"status":"not-requested","neededFor":["Any systematic individual-sermon metadata inventory","Database compilation","Media acquisition, hosting, transcription and indexing"],"destination":"https://www.mljtrust.org/terms-use/","requestScope":"Seek an explicit written exception for defined biblical series and a Trust-supplied metadata export. Specify whether permission includes individual official links, dates, texts, durations, retention and searchable text. Until granted, keep this archive-level record only."},
+      "policyEvidence":[{"url":"https://www.mljtrust.org/terms-use/","locator":"Intellectual Property; License Agreement","note":"Systematic data/content retrieval for a collection/database is prohibited; free access does not authorize the proposed corpus.","checkedOn":"2026-10-05"}],
+      "unresolved":["No individual-sermon corpus or expected series count harvested.","No permission correspondence sent."]
+    },
+    {
+      "sourceId":"source-first-pres-columbia",
+      "name":"First Presbyterian Church, Columbia",
+      "authorIds":["author-sinclair-ferguson"],
+      "officialDestination":"https://www.firstprescolumbia.org/teaching",
+      "automation":"unreviewed",
+      "automationBasis":"Church and host-platform permission/access terms have not been established for library acquisition.",
+      "permittedMethod":"Retain official church discovery and broadcaster links. Defer systematic retrieval until both broadcaster content rights and platform access terms are reviewed.",
+      "personalAccess":"Church provides a sermon archive and links to its SermonAudio presence.",
+      "formats":["audio", "PDF transcripts for some sermons; quality and authorship unreviewed"],
+      "prioritySeries":[{"title":"Ferguson: 1 John: Fellowship with God","expectedCount":null,"state":"candidate-series-count-not-established","url":"https://www.sermonaudio.com/broadcasters/fpccolumbia/"}],
+      "permissionQueue":{"status":"not-requested","neededFor":["Defined Ferguson-only series inventory/export","Systematic platform retrieval","Audio/transcript retention, reuse and search indexing"],"destination":"https://www.firstprescolumbia.org/teaching","requestScope":"Request an authorized Ferguson series bibliography/export and clarification of church/preacher/transcript rights, with a platform-supported retrieval route. Do not assume rights over licensed worship music or guest speakers."},
+      "policyEvidence":[
+        {"url":"https://www.firstprescolumbia.org/teaching","locator":"Sermon Archives and contact information","note":"Official ministry provenance, not a content reuse grant. No applicable library acquisition license established.","checkedOn":"2026-10-05"},
+        {"url":"https://www.firstprescolumbia.org/podcasts","locator":"Sermon Audio links","note":"Establishes the church’s own broadcaster route; platform access and content reuse remain separate questions.","checkedOn":"2026-10-05"},
+        {"url":"https://cloud.sermonaudio.com/media/pdf/high/42312935301.pdf?language=eng&ts=1746319731","locator":"Living in the Light: source heading","note":"Discovery witness identifies Ferguson, 1 John: Fellowship with God, 1 John 1:5-10, April 22, 2012 and the church; no local transcript copy acquired.","checkedOn":"2026-10-05"}
+      ],
+      "unresolved":["Complete Ferguson series order/count not established.","Availability of a download/transcript does not establish hosting or full-text rights.","Unreviewed is not an express source prohibition; it is an unresolved acquisition method."]
+    },
+    {
+      "sourceId":"source-westminster-media",
+      "name":"Westminster Theological Seminary Media",
+      "authorIds":["author-john-murray"],
+      "officialDestination":"https://wm.wts.edu/listen/romans-6",
+      "automation":"unreviewed",
+      "automationBasis":"No media-specific automated retrieval or corpus reuse grant established from the inspected source.",
+      "permittedMethod":"Official discovery link and factual source notes only; clarify rights and supported retrieval route before systematic acquisition.",
+      "personalAccess":"Official page provides a player and identifies the Westminster systematic theologian, disambiguating namesakes.",
+      "formats":["MP3 audio"],
+      "prioritySeries":[{"title":"John Murray Romans recordings","expectedCount":null,"state":"candidate-sequence-not-established","url":"https://wm.wts.edu/listen/romans-6"}],
+      "permissionQueue":{"status":"not-requested","neededFor":["Source series bibliography and original recording metadata","Library retention, hosting and transcription","Full-text index and systematic export"],"destination":"https://www.wts.edu/academic-study/tools-resources","requestScope":"Clarify Seminary and estate/author rights in original Murray recordings, original delivery dates, sequence, recording completeness and supported metadata export. Do not apply journal or unrelated PDF policies to audio."},
+      "policyEvidence":[{"url":"https://wm.wts.edu/listen/romans-6","locator":"Recording player, title and author biography","note":"Official attribution and listening source; no redistribution grant found. The displayed 61:16:00 duration is ambiguous and is not normalized as 61 hours or 61 minutes.","checkedOn":"2026-10-05"}],
+      "unresolved":["Romans 6 is a source title, not yet a verified main-text range or proof of a complete Romans series.","DurationSeconds, delivery date, series position and recording completeness remain null/unestablished at discovery level.","Do not infer a 1 January delivery from default archive calendar placeholders."]
+    }
+  ],
+  "eligibilityHolds":[
+    {"name":"D. A. Carson","state":"provisional-in-shared-registry","source":"https://www.thegospelcoalition.org/article/d-a-carsons-publications/","nextAction":"Resolve registry questions from primary theological evidence, then review source rights before core-teaching acquisition."},
+    {"name":"Alistair Begg","state":"provisional-in-shared-registry","source":"https://www.truthforlife.org/","nextAction":"Resolve registry questions and Truth For Life rights/access policy before core-teaching acquisition."}
+  ]
+}

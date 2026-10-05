@@ -143,6 +143,10 @@ recorded as **restricted-license**, not an unrestricted open license. [Run-speci
 supplements the initial source-registry defaults. This acquisition does not publish the files or create a
 full-text search index. Exact current totals and remaining metadata checks are in the report and its summary.
 
+## Modern preaching source inventory (L04, 2026-10-05)
+
+The [modern preaching report](content/library/reports/modern-preaching/REPORT.md) records five ministry access decisions and two complete bounded biblical sermon inventories: Piper’s Ruth (1984), four sermons, and Sproul’s 2 Peter (2008), twelve. Six eligible authors are mapped to official sources; 16 sermons have passages, sequence, archive dates, durations and destinations. All 20 format records are link-only. No sermon files or transcripts were downloaded, indexed or published. The ministry inventory documents permission-dependent retrieval, unresolved source methods and provisional-author holds.
+
 ## Considered and left out
 
 - **KJV in the UK:** public domain everywhere except Britain (perpetual Crown patent). Only relevant if the
