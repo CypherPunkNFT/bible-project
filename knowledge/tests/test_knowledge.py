@@ -120,3 +120,41 @@ def test_storage_rejects_shared_knowledge_base(tmp_path):
     file.write_text(json.dumps(cfg),encoding="utf-8")
     with pytest.raises(ValueError,match="dedicated"):
         load(file)
+
+
+def test_progress_write_survives_temporary_windows_lock(tmp_path, monkeypatch):
+    from knowledge import settings
+    file = tmp_path / "progress.json"
+    file.write_text('{"indexed": 10}', encoding="utf-8")
+    original_replace = Path.replace
+    attempts = []
+
+    def locked_twice(path, target):
+        attempts.append(path)
+        if len(attempts) <= 2:
+            assert json.loads(file.read_text("utf-8")) == {"indexed": 10}
+            raise PermissionError("Simulated Windows sharing violation")
+        return original_replace(path, target)
+
+    monkeypatch.setattr(Path, "replace", locked_twice)
+    monkeypatch.setattr(settings.time, "sleep", lambda _: None)
+    settings.write_json(file, {"indexed": 26})
+    assert len(attempts) == 3
+    assert json.loads(file.read_text("utf-8")) == {"indexed": 26}
+    assert not list(tmp_path.glob("*.tmp"))
+
+
+def test_persistent_progress_write_failure_keeps_previous_file(tmp_path, monkeypatch):
+    from knowledge import settings
+    file = tmp_path / "progress.json"
+    file.write_text('{"indexed": 10}', encoding="utf-8")
+
+    def locked(path, target):
+        raise PermissionError("Persistent permission failure")
+
+    monkeypatch.setattr(Path, "replace", locked)
+    monkeypatch.setattr(settings.time, "sleep", lambda _: None)
+    with pytest.raises(PermissionError):
+        settings.write_json(file, {"indexed": 26})
+    assert json.loads(file.read_text("utf-8")) == {"indexed": 10}
+    assert not list(tmp_path.glob("*.tmp"))

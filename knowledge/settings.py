@@ -1,5 +1,8 @@
 """Resolve all writable state into this instance, never the Fortress knowledge stores."""
 import json
+import os
+import tempfile
+import time
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
@@ -23,6 +26,20 @@ def load(config_path=None):
 def write_json(file, value):
     file = Path(file)
     file.parent.mkdir(parents=True, exist_ok=True)
-    temporary = file.with_suffix(file.suffix + ".tmp")
-    temporary.write_text(json.dumps(value, ensure_ascii=False, indent=2), encoding="utf-8")
-    temporary.replace(file)
+    descriptor, name = tempfile.mkstemp(prefix=file.name + ".", suffix=".tmp", dir=file.parent)
+    temporary = Path(name)
+    try:
+        with os.fdopen(descriptor, "w", encoding="utf-8") as stream:
+            json.dump(value, stream, ensure_ascii=False, indent=2)
+        # Windows readers/antivirus can briefly deny replacement of an open file.
+        # Keep the previous valid JSON visible and retry the atomic rename.
+        for attempt in range(30):
+            try:
+                temporary.replace(file)
+                return
+            except PermissionError:
+                if attempt == 29:
+                    raise
+                time.sleep(min(.01 * 2**attempt, .2))
+    finally:
+        temporary.unlink(missing_ok=True)

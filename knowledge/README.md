@@ -77,7 +77,21 @@ Builds stage a new database, validate SQLite/FTS/FK integrity and edition counts
 
 The model identity is recorded and checked during indexing and queries. Do not change model/revision/dimensions over existing vectors. Completion includes creation of a cosine ANN index; exact full-vector search works while it is building. Logs/progress are under `../KnowledgeBase`; `embedding-error.log` contains indexing failures. `stalled`, `interrupted`, or `needs_refresh` means run the launcher again (or `-Refresh` when source data changed). `-Refresh` stops only this instance's active indexer/server before swapping files; retained vectors survive the restart.
 
-The first semantic pass is a substantial GPU job. No arbitrary source/sample limit is used. The encoder retries smaller batches after CUDA out-of-memory errors and unloads when idle. The launcher creates hidden background processes, not terminal windows.
+The first semantic pass is a substantial GPU job. No arbitrary source/sample limit is used. The encoder retries smaller batches after CUDA out-of-memory errors and unloads when idle. Progress writes use unique temporary files and retry atomic replacement through temporary Windows sharing violations; persistent failures retain the previous valid report. The launcher creates hidden background processes, not terminal windows.
+
+### Coverage audit — 2026-10-05
+
+The stored snapshot was built at `2026-10-05T05:04:57Z`. A later audit found 7,647 files under `sources/library` absent from that snapshot, alongside 12,539 newer catalog JSON records. These are files/records, not counts of unique books. The expanded collection is not yet covered by this knowledge instance.
+
+Remaining work:
+
+- Finish semantic indexing of the existing 198,656 passages and verify complete vector parity. A Windows progress-file sharing violation interrupted the first run at 45,004 passages; the fix is covered by two regression tests and indexing resumed from saved vectors.
+- Add asset-aware ingestion of the newly acquired library full texts and existing OCR/transcriptions, retaining work/edition/asset identity, page/section locators, duplicate relationships and recorded access conditions. The current generic JSON importer imports catalog descriptions; it does not ingest the PDF/book bodies. A simple `-Refresh` does not close that gap.
+- Keep linked, acquired, text-extracted and searchable counts distinct. At audit time the catalog had 3,702 downloaded and 130 link-only assets; per-asset full-text flags were 54 allowed, three conditional and 3,775 unknown. These are the catalog's recorded flags, not a new rights determination.
+- Add source-change detection and an intentional refresh workflow for the growing library. Refresh and startup are currently manual; no watcher or logon task is installed.
+- Evaluate retrieval against representative known-answer queries across editions, languages and reference works. Existing functional tests establish operation, not a measured relevance benchmark.
+
+The separate store, original Bible full-text coverage, recorded cross-references and local search interface are already implemented. Public-site integration and generated theological answers are separate features, not part of this local baseline.
 
 ## Runtime
 
