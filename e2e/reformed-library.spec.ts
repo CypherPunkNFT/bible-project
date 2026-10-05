@@ -72,6 +72,9 @@ test("reading library remains usable at 320px in both themes", async ({ page }, 
       expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth), route).toBeLessThanOrEqual(1);
     }
     await page.goto("/apologetics/texts?language=la");
+    await expect(page.locator(".rf-work")).toHaveCount(1);
+    await expect(page.locator(".rf-work")).toContainText("Latin");
+    await page.evaluate(() => document.fonts.ready);
     await page.screenshot({ path: testInfo.outputPath("latin-edition-" + colorScheme + ".png"), fullPage: true });
   }
 });
