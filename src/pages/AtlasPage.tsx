@@ -135,7 +135,7 @@ export default function AtlasPage() {
                         animate={{ x: 0, opacity: 1 }}
                         exit={{ x: 48, opacity: 0 }}
                         transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-                        className="absolute bottom-3 right-3 top-3 w-[min(24rem,40%)]"
+                        className="absolute bottom-3 right-4 top-3 w-[min(24rem,40%)]"
                       >
                         <PlacePanel key={selected.id} place={selected} onClose={() => choose(null)} overlay />
                       </motion.div>

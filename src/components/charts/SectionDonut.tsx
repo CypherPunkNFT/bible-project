@@ -1,5 +1,6 @@
 import { arc, pie } from "d3-shape";
 import { useMemo, useState } from "react";
+import { OutsideScroll } from "@/components/OutsideScroll";
 import { RefLink } from "@/components/study/StudyParts";
 import { type PassageEntry } from "@/data/chart-insights";
 import { useCatalog } from "@/lib/catalog";
@@ -69,6 +70,6 @@ function SectionChart({ stats, section, onSection, measure, entries }: Props & {
       </button></li>)}</ul>
     </div>
     <p className="chart-measure-note">{entries ? <>{STUDY_MEASURES.find((m) => m.id === measure)?.note} Each entry counts once in every section cited; percentages compare those section placements. Open the source passages below.</> : measure === "red" ? "Words marked as Jesus speaking in this KJV edition. Editorial red-letter boundaries may differ between editions." : "Counts from the KJV text, excluding the Apocrypha. Chapter and verse divisions are reading aids, not measures of importance."}</p>
-    {entries && <details className="measure-evidence" open={!!section}><summary>Explore the passages · {detail.length} {section ? "entries here" : "source entries"}</summary><ol className="slim-scroll">{detail.map((entry, i) => <li key={i}><strong>{entry.title}</strong><div>{entry.refs.map((ref, j) => <RefLink key={j} span={ref} />)}</div></li>)}</ol>{detail.length === 0 && <p>No entries in this selection. Try another section or measure.</p>}</details>}
+    {entries && <details className="measure-evidence" open={!!section}><summary>Explore the passages · {detail.length} {section ? "entries here" : "source entries"}</summary><OutsideScroll label="Source passages for the selected measure" className="measure-evidence-scroll" resetKey={`${measure}:${section}`}><ol>{detail.map((entry, i) => <li key={i}><strong>{entry.title}</strong><div>{entry.refs.map((ref, j) => <RefLink key={j} span={ref} />)}</div></li>)}</ol></OutsideScroll>{detail.length === 0 && <p>No entries in this selection. Try another section or measure.</p>}</details>}
   </>;
 }

@@ -62,6 +62,18 @@ reading, source links, comparisons and saved notes. These automated checks catch
 they do not establish theological correctness. Reopen the cited section and assess the actual claim when
 editing doctrine. Last comprehensive editorial source pass: **2026-10-05**.
 
+## Scrolling tables and lists
+
+Vertical table scrollbars belong outside the right border, with a small gap. Keep the rounded frame fixed,
+and let headings and row dividers span the full interior without a scrollbar gutter. Use
+`src/components/OutsideScroll.tsx` for new bounded tables and reference lists; it synchronizes native
+scrolling in both directions and updates the thumb when content or the viewport changes. Keep its ancestors
+from clipping the outside scrollbar. Harmony and the Library versions list already use the same pattern.
+
+Check with native browser scrollbars visible: `bunx playwright test -c e2e/outside-scroll.config.ts`.
+The checks cover Miracles, book pairs, measure evidence, place references and the testimonies list, including
+keyboard scrolling, filters and expanded passages. Testimony checks use browser fixtures without API writes.
+
 ## Run it yourself
 
 You need [Python 3.12+](https://www.python.org/), [Node.js 22.16+](https://nodejs.org/) and

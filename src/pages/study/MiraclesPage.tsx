@@ -7,6 +7,7 @@ import { loadStudyIndex, loadHarmony, loadMiracles, shortRange, type HarmonySect
 import { tone, type Tone } from "@/lib/sections";
 import { useAsync } from "@/lib/useAsync";
 import { cn } from "@/lib/utils";
+import { OutsideScroll } from "@/components/OutsideScroll";
 
 const GOSPELS = [
   ["MAT", "Mt"],
@@ -90,7 +91,7 @@ export default function MiraclesPage() {
                   <span className="font-sans text-sm font-normal text-muted">{group.items.length}</span>
                 </h2>
                 {group.who === "Jesus" || group.who === "Moses and Aaron" ? (
-                  <MiracleWindow items={group.items} kinds={group.who === "Jesus" ? JESUS_KINDS : MOSES_KINDS} open={open} setOpen={setOpen} />
+                  <MiracleWindow label={`${group.who} miracles`} items={group.items} kinds={group.who === "Jesus" ? JESUS_KINDS : MOSES_KINDS} open={open} setOpen={setOpen} />
                 ) : (
                   <ul className="divide-y divide-line rounded-2xl border border-line bg-surface">
                     {group.items.map((item) => (
@@ -185,10 +186,10 @@ const MOSES_KINDS: Kinds = { categories: MOSES_CATEGORIES, of: (item) => MOSES_C
 
 /**
  * A miracle list as a fixed rounded box ten rows tall. The box never moves: only the rows scroll inside it
- * and slide out behind its edge, with a slim scrollbar just inside the right edge. Category buttons above it
+ * and slide out behind its edge, with a slim scrollbar outside the right edge. Category buttons above it
  * filter the rows.
  */
-function MiracleWindow({ items, kinds, open, setOpen }: { items: Item[]; kinds: Kinds; open: string | null; setOpen: (key: string | null) => void }) {
+function MiracleWindow({ label, items, kinds, open, setOpen }: { label: string; items: Item[]; kinds: Kinds; open: string | null; setOpen: (key: string | null) => void }) {
   const [category, setCategory] = useState("all");
   const list = useRef<HTMLUListElement>(null);
   const [windowHeight, setWindowHeight] = useState<number | undefined>(undefined);
@@ -201,7 +202,7 @@ function MiracleWindow({ items, kinds, open, setOpen }: { items: Item[]; kinds: 
     const element = list.current;
     if (!element) return;
     const measure = () => {
-      if (open) return;
+      if (element.querySelector('[aria-expanded="true"]')) return;
       const rows = [...element.children] as HTMLElement[];
       if (rows.length <= VISIBLE_ROWS) return setWindowHeight(undefined);
       const tenth = rows[VISIBLE_ROWS - 1];
@@ -212,7 +213,6 @@ function MiracleWindow({ items, kinds, open, setOpen }: { items: Item[]; kinds: 
     observer.observe(element);
     return () => observer.disconnect();
     // Not on `open`: opening a row must not resize the box.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [shown.length, category]);
 
   const chip = (id: string, label: string, count: number) => (
@@ -236,15 +236,13 @@ function MiracleWindow({ items, kinds, open, setOpen }: { items: Item[]; kinds: 
         {chip("all", "All", items.length)}
         {kinds.categories.map((c) => counts(c.id) > 0 && chip(c.id, c.name, counts(c.id)))}
       </div>
-      <div className="overflow-hidden rounded-2xl border border-line bg-surface">
-        <div className="slim-scroll overflow-y-auto overscroll-contain" style={{ maxHeight: windowHeight }}>
+      <OutsideScroll label={label} frameClassName="rounded-2xl border border-line bg-surface" style={{ maxHeight: windowHeight === undefined ? undefined : windowHeight + 2 }} resetKey={`${category}:${shown.map((item) => item.key).join(",")}`}>
           <ul ref={list} className="relative divide-y divide-line">
             {shown.map((item) => (
               <MiracleRow key={item.key} item={item} open={open === item.key} onToggle={() => setOpen(open === item.key ? null : item.key)} />
             ))}
           </ul>
-        </div>
-      </div>
+      </OutsideScroll>
     </div>
   );
 }

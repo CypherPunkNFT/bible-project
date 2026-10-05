@@ -3,6 +3,7 @@ import { useCatalog } from "@/lib/catalog";
 import { resolvedSectionColors } from "@/lib/sections";
 import { useThemeVersion } from "@/lib/theme";
 import { formatNumber } from "@/lib/utils";
+import { OutsideScroll } from "@/components/OutsideScroll";
 
 /** Paint the heatmap once; pointer movement updates only its selection and detail panel. */
 export function BookMatrix({ pairs }: { pairs: [string, string, number][] }) {
@@ -80,7 +81,7 @@ export function BookMatrix({ pairs }: { pairs: [string, string, number][] }) {
             {active ? <p><strong>{formatNumber(model.values.get(active[0] * 66 + active[1]) ?? 0)}</strong> cross-references{pinned && <span className="block mt-1">Selected · choose another pair to compare</span>}</p> : <p>Hover over the grid, tap a square, or select a pair below. The book selectors also work with a keyboard.</p>}
           </div>
           <div className="matrix-pairs"><h3>Most cross-referenced book pairs</h3>
-            <ol className="slim-scroll">{model.top.map(([a, b, n]) => <li key={a + "-" + b}><button type="button" aria-pressed={same(pinned, [a, b])} onClick={() => pin([a, b])}><span>{books[a].name} → {books[b].name}</span><span>{formatNumber(n)}</span></button></li>)}</ol>
+            <OutsideScroll label="Most cross-referenced book pairs" className="matrix-pairs-scroll" frameClassName="rounded-[.6rem] border border-line"><ol>{model.top.map(([a, b, n]) => <li key={a + "-" + b}><button type="button" aria-pressed={same(pinned, [a, b])} onClick={() => pin([a, b])}><span>{books[a].name} → {books[b].name}</span><span>{formatNumber(n)}</span></button></li>)}</ol></OutsideScroll>
           </div>
         </div></div>
       </div>

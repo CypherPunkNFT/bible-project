@@ -7,6 +7,7 @@ import { bookByNum, formatRange, splitId } from "@/lib/refs";
 import { sectionColor } from "@/lib/sections";
 import { useVerseText } from "@/lib/useVerseText";
 import type { MapPlace } from "./projection";
+import { OutsideScroll } from "@/components/OutsideScroll";
 
 /** One place: where it is named, as a reference list by book, then the verses themselves. */
 export function PlacePanel({ place, onClose, overlay }: { place: MapPlace; onClose: () => void; overlay: boolean }) {
@@ -25,7 +26,7 @@ export function PlacePanel({ place, onClose, overlay }: { place: MapPlace; onClo
     // are fixed at the top; only the part from "Where it is named" down scrolls, with a slim pill scrollbar.
     <aside
       aria-labelledby="place-title"
-      className={cn("flex flex-col overflow-hidden rounded-2xl border border-line bg-surface", overlay ? "h-full shadow-2xl" : "max-h-[70vh]")}
+      className={cn("flex flex-col rounded-2xl border border-line bg-surface", overlay ? "h-full shadow-2xl" : "max-h-[70vh]")}
     >
       <div className="flex shrink-0 items-start justify-between gap-2 border-b border-line/60 px-4 pb-3 pt-4">
         <div>
@@ -42,7 +43,7 @@ export function PlacePanel({ place, onClose, overlay }: { place: MapPlace; onClo
         </button>
       </div>
 
-      <div className="slim-scroll min-h-0 flex-1 overflow-y-auto overscroll-contain px-4 pb-4">
+      <OutsideScroll label={`Passages naming ${place.name}`} className="flex-1" frameClassName="rounded-b-2xl" viewportClassName="px-4 pb-4">
       <h3 className="mb-1.5 mt-4 text-xs font-semibold uppercase tracking-[0.16em] text-muted">Where it is named</h3>
       <ul className="space-y-1.5 text-sm leading-relaxed">
         {books.map(([num, ids]) => {
@@ -85,7 +86,7 @@ export function PlacePanel({ place, onClose, overlay }: { place: MapPlace; onClo
         </button>
       )}
       <p className="mt-4 text-[11px] text-muted">Place data from OpenBible.info's Bible geocoding (CC-BY 4.0).</p>
-      </div>
+      </OutsideScroll>
     </aside>
   );
 }

@@ -1,0 +1,6 @@
+.outside-scroll-area { position: relative; display: flex; flex-direction: column; min-width: 0; min-height: 0; }
+.outside-scroll-frame { display: flex; flex: 1; flex-direction: column; min-height: 0; overflow: hidden; }
+.outside-scroll-viewport { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior-y: contain; }
+.outside-scroll-viewport:focus-visible { outline-offset: -2px; }
+.outside-scroll-content { display: flow-root; }
+.outside-scrollbar { position: absolute; right: -13px; width: 12px; overflow-y: auto; overscroll-behavior-y: contain; }

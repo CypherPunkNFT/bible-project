@@ -102,7 +102,8 @@
 .testimony-reader-error { display: grid; gap: 1rem; font-size: .85rem; }
 @media (max-width: 640px) { .testimony-reader { width: 100%; height: 100dvh; border: 0; border-radius: 0; } .testimony-reader-toolbar { padding: max(.6rem, env(safe-area-inset-top)) .8rem .6rem; } .testimony-reader-scroll article { padding: 2rem 1.4rem max(2rem, env(safe-area-inset-bottom)); } .testimony-reader-toolbar .testimony-avatar { display: none; } }
 .testimony-small { font-size: .67rem; line-height: 1.8; color: var(--muted); }
-.testimony-list { min-height: 0; overflow-y: auto; border-block: 1px solid var(--line); }
+.testimony-map:has(.testimony-list-scroll) { overflow: visible; }
+.testimony-list-scroll { border-block: 1px solid var(--line); }
 .testimony-list button { display: flex; align-items: center; justify-content: space-between; width: 100%; gap: 1.5rem; padding: 1rem 1.4rem; text-align: left; border-bottom: 1px solid var(--line); }
 .testimony-list button[aria-pressed="true"] { background: color-mix(in srgb, var(--testimony-tone) 10%, var(--page)); }
 .testimony-list strong { font-family: var(--font-serif); font-size: .9rem; }
