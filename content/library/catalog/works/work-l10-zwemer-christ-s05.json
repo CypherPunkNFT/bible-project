@@ -1,0 +1,54 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-l10-zwemer-christ-s05",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "title": "The Person and Character of Jesus Christ",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-samuel-m-zwemer",
+      "role": "author"
+    }
+  ],
+  "genre": "treatise",
+  "role": "core-teaching",
+  "collections": [
+    "apologetics"
+  ],
+  "subjects": [
+    "islam",
+    "christ",
+    "atonement",
+    "revelation-prophethood"
+  ],
+  "occasions": [],
+  "audiences": [
+    "students",
+    "pastors",
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "twentieth-century",
+  "dates": [],
+  "passages": [],
+  "related": [
+    {
+      "targetId": "work-l10-zwemer-christ",
+      "relation": "is-part-of",
+      "locator": "Chapter/lecture 5, printed p. 113; contents in PDF pp. 9-11"
+    }
+  ],
+  "externalIds": {},
+  "evidence": [
+    {
+      "url": "https://www.zwemercenter.com/wp-content/uploads/2017/10/Zwemer-Moslem-Christ.pdf",
+      "locator": "Chapter/lecture 5, printed p. 113; contents in PDF pp. 9-11",
+      "note": "Contents verified; substantial body review not claimed.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

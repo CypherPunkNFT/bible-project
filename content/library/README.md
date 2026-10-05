@@ -13,6 +13,8 @@ separate from the selected website publication.
 
 ## Read first
 
+The latest [Christianity and Islam collection](reports/islam-studies/REPORT.md) catalogs 13 primary holdings and 21 chapters/lectures from White, Zwemer and Piper, with contextual Muslim contributions distinctly labeled. Three historical PDFs are acquired; modern sources remain links. [Nine question maps](reports/islam-studies/QUESTIONS.md) preserve claims, premises, objections, replies and precise source locators, with five collated translation excerpts. Five official debate listings await playback/completeness review. Edition-date conflicts, secondhand quotations, translation limits and source permissions remain explicit; no public publication changed.
+
 1. [CHARTER.md](CHARTER.md): theological scope, author eligibility and editorial decisions.
 2. [CATALOG.md](CATALOG.md): shared metadata, identity, Scripture, rights and acquisition conventions.
 3. [AUTHORS.md](AUTHORS.md): readable initial roster and unresolved questions; [authors.json](authors.json) is the editable registry.

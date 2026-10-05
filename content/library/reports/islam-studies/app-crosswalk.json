@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-05",
+  "mode": "Documentary cross-reference only; no migration or publication changes",
+  "links": [
+    {
+      "questionId": "question-l10-god",
+      "appPath": "content/apologetics/debates/craig-ally-god.json",
+      "relation": "Contextual debate; Craig not admitted as eligible core teacher"
+    },
+    {
+      "questionId": "question-l10-resurrection",
+      "appPath": "content/apologetics/debates/craig-ally-resurrection.json",
+      "relation": "Contextual debate; body review not repeated"
+    },
+    {
+      "questionId": "question-l10-christ",
+      "appPath": "content/apologetics/studies/islam-jesus.json",
+      "relation": "Existing editorial guide; independent review workflow"
+    },
+    {
+      "questionId": "question-l10-trinity",
+      "appPath": "content/apologetics/studies/islam-trinity.json",
+      "relation": "Existing editorial guide; independent review workflow"
+    },
+    {
+      "questionId": "question-l10-crucifixion",
+      "appPath": "content/apologetics/studies/islam-cross.json",
+      "relation": "Existing editorial guide; independent review workflow"
+    }
+  ]
+}

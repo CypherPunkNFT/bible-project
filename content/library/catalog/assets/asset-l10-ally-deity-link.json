@@ -1,0 +1,74 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "asset",
+  "id": "asset-l10-ally-deity-link",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "editionId": "edition-l10-ally-deity",
+  "sourceId": "source-ally-responses",
+  "canonicalUrl": "https://shabirally.wordpress.com/2012/03/27/did-jesus-claim-deity/",
+  "finalUrl": null,
+  "format": "html",
+  "mediaKind": "text",
+  "acquisitionStatus": "link-only",
+  "storage": "none",
+  "relativePath": null,
+  "sha256": null,
+  "byteCount": null,
+  "mimeType": null,
+  "retrievedAt": null,
+  "rights": {
+    "category": "link-only",
+    "jurisdiction": null,
+    "licenseId": null,
+    "licenseUrl": null,
+    "attribution": "Author and source credited in the catalog.",
+    "conditions": [],
+    "conditionsMet": false,
+    "actions": {
+      "download": "unknown",
+      "host": "unknown",
+      "redistribute": "unknown",
+      "adapt": "unknown",
+      "transcribe": "unknown",
+      "embed": "unknown",
+      "indexMetadata": "allowed",
+      "indexFullText": "unknown"
+    },
+    "evidence": [
+      {
+        "url": "https://shabirally.wordpress.com/2012/03/27/did-jesus-claim-deity/",
+        "locator": "Byline; opening thesis; eight Gospel comparisons; methodological discussion",
+        "note": "Contextual Muslim argument. Attributed byline verified; independent authentication of blog control and reported dialogue remains outstanding. Not a recording transcript.",
+        "checkedOn": "2026-10-05"
+      }
+    ],
+    "unresolved": [
+      "No source-file republication, bulk retrieval or full-text indexing grant established."
+    ],
+    "review": {
+      "date": "2026-10-05",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Bibliographic links and source boundaries; not a whole-text clearance."
+    }
+  },
+  "fullTextIndexed": false,
+  "processing": {
+    "parentAssetId": null,
+    "method": "none",
+    "tool": null,
+    "toolVersion": null,
+    "parameters": null,
+    "date": null,
+    "note": "Source link only; no content copied."
+  },
+  "quality": {
+    "state": "unreviewed",
+    "reviewedBy": null,
+    "reviewedOn": null,
+    "note": "Bibliographic inventory and selected passages checked; full text not collated."
+  }
+}

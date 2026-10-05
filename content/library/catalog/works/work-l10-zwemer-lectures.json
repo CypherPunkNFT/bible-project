@@ -1,0 +1,88 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-l10-zwemer-lectures",
+  "editorialState": "catalogued",
+  "notes": [
+    "Five missionary lectures delivered at Princeton in October 1915, subsequently New Brunswick and Cairo. Predictions and political descriptions belong to their historical setting, not a current forecast."
+  ],
+  "reviews": [],
+  "title": "The Disintegration of Islam",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-samuel-m-zwemer",
+      "role": "author"
+    }
+  ],
+  "genre": "collected-works",
+  "role": "historical-context",
+  "collections": [
+    "apologetics"
+  ],
+  "subjects": [
+    "islam",
+    "missions",
+    "historical-theology"
+  ],
+  "occasions": [],
+  "audiences": [
+    "students",
+    "pastors",
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "twentieth-century",
+  "dates": [
+    {
+      "event": "delivery",
+      "value": "1915-10",
+      "precision": "month",
+      "label": "Princeton delivery; subsequent venues undated",
+      "evidence": [
+        {
+          "url": "https://www.zwemercenter.com/wp-content/uploads/2017/10/Zwemer-Disintegration-of-Islam.pdf",
+          "locator": "PDF p. 3 copyright/delivery notice; PDF p. 6 contents",
+          "note": "Five missionary lectures delivered at Princeton in October 1915, subsequently New Brunswick and Cairo. Predictions and political descriptions belong to their historical setting, not a current forecast.",
+          "checkedOn": "2026-10-05"
+        },
+        {
+          "url": "https://www.zwemercenter.com/items/the-disintegration-of-islam/",
+          "locator": "Read and download offered by host",
+          "note": "Source identity and selected content checked; no whole-work endorsement.",
+          "checkedOn": "2026-10-05"
+        },
+        {
+          "url": "https://www.copyright.gov/circs/circ15a.pdf",
+          "locator": "Duration of copyright",
+          "note": "Identified 1905/1916 historic text; no worldwide or modern-added-material clearance.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    }
+  ],
+  "passages": [],
+  "related": [],
+  "externalIds": {},
+  "evidence": [
+    {
+      "url": "https://www.zwemercenter.com/wp-content/uploads/2017/10/Zwemer-Disintegration-of-Islam.pdf",
+      "locator": "PDF p. 3 copyright/delivery notice; PDF p. 6 contents",
+      "note": "Five missionary lectures delivered at Princeton in October 1915, subsequently New Brunswick and Cairo. Predictions and political descriptions belong to their historical setting, not a current forecast.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://www.zwemercenter.com/items/the-disintegration-of-islam/",
+      "locator": "Read and download offered by host",
+      "note": "Source identity and selected content checked; no whole-work endorsement.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://www.copyright.gov/circs/circ15a.pdf",
+      "locator": "Duration of copyright",
+      "note": "Identified 1905/1916 historic text; no worldwide or modern-added-material clearance.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

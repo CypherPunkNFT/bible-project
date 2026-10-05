@@ -163,6 +163,10 @@ The [L07 report](content/library/reports/doctrinal-studies/REPORT.md) records co
 
 The [L08 report](content/library/reports/confessional-standards/REPORT.md) identifies nine acquired files: six named Creeds.json witnesses, two lwalen Second London witnesses and a 1767 Flavel scan from Oxford/Google via Internet Archive. [Pinned URLs and hashes](content/library/reports/confessional-standards/acquisition-manifest.json) preserve original bytes. Creeds.json's Unlicense excludes listed texts, including its Savoy file; only selected eligible files were fetched. The lwalen files carry CC0. Flavel's modernized text needs further provenance review before republication; the 1767 scan is separately identified. Continental/Anglican/Savoy CCEL witnesses remain links. Original proofs are citations, not exposition coverage, and no public publication or full-text ingestion changed.
 
+## Christianity and Islam collection (L10, 2026-10-05)
+
+The [L10 report](content/library/reports/islam-studies/REPORT.md) records 13 primary holdings, 21 indexed chapters/lectures and nine source-based question comparisons. Three Zwemer PDFs from the Zwemer Center are retained unchanged: 22,060,863 bytes with [hashes and provenance](content/library/reports/islam-studies/acquisition-manifest.json). The 1905 and 1916 historic texts have scoped U.S. public-domain assessments; the undated ATS *Moslem Christ* impression has only the host's reading/download permission, with public reuse unresolved. AOMin and Baker works, Piper's article and the attributed Ally response remain source links. Quran.com supplies contextual references; five short English excerpts are collated against named translations at the Quranic Arabic Corpus. Modern text/media and translations are not republished or ingested into full-text search. No public publication changed.
+
 ## Considered and left out
 
 - **KJV in the UK:** public domain everywhere except Britain (perpetual Crown patent). Only relevant if the

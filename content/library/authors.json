@@ -1281,6 +1281,204 @@
         "kind": "ai-assisted",
         "scope": "Bibliographic identity, reading purpose, source access and historic-text/file-rights distinction checked; not a full-text theological or transcription audit."
       }
+    },
+    {
+      "id": "author-james-r-white",
+      "entityType": "person",
+      "name": "James R. White",
+      "aliases": [],
+      "cohort": "twenty-first-century",
+      "traditions": [
+        "reformed",
+        "baptist"
+      ],
+      "eligibility": "eligible",
+      "rationale": "Identifies himself as a Reformed Baptist elder; Baker identifies his ministry as evangelical Reformed. Selected Islam works fit the broader Calvinist collection.",
+      "receptionBasis": "Institutional bibliography and primary theological evidence identified.",
+      "evidence": [
+        {
+          "url": "https://www.aomin.org/aoblog/islam/opening-and-closing-statements-shabir-ally-debate/",
+          "locator": "Opening self-identification",
+          "note": "Source identity and selected content checked; no whole-work endorsement.",
+          "checkedOn": "2026-10-05"
+        },
+        {
+          "url": "https://learn.ligonier.org/teachers/james-white",
+          "locator": "Institutional teacher bibliography",
+          "note": "Source identity and selected content checked; no whole-work endorsement.",
+          "checkedOn": "2026-10-05"
+        },
+        {
+          "url": "https://bakerpublishinggroup.com/authors/james-r-white/673",
+          "locator": "Publisher author biography",
+          "note": "Source identity and selected content checked; no whole-work endorsement.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "distinctives": [],
+      "unresolved": [
+        "No blanket approval of all works, political opinions or source rights."
+      ],
+      "review": {
+        "date": "2026-10-05",
+        "reviewer": "Codex",
+        "kind": "ai-assisted",
+        "scope": "Initial mission-specific author screening; not independent human theological review."
+      }
+    },
+    {
+      "id": "author-samuel-m-zwemer",
+      "entityType": "person",
+      "name": "Samuel Marinus Zwemer",
+      "aliases": [],
+      "cohort": "twentieth-century",
+      "traditions": [
+        "reformed",
+        "continental-reformed"
+      ],
+      "eligibility": "eligible",
+      "rationale": "Reformed missionary and theologian; primary discussion distinguishes Calvinistic decrees from his account of Islamic fatalism. Historical judgments require work-level review.",
+      "receptionBasis": "Institutional bibliography and primary theological evidence identified.",
+      "evidence": [
+        {
+          "url": "https://www.zwemercenter.com/wp-content/uploads/2017/10/Zwemer-Moslem-Doctrine-of-God-.pdf",
+          "locator": "Chapter VII, pp. 93-106; compare pp. 107ff",
+          "note": "Source identity and selected content checked; no whole-work endorsement.",
+          "checkedOn": "2026-10-05"
+        },
+        {
+          "url": "https://www.zwemercenter.com/brief-biography-of-samuel-zwemer/",
+          "locator": "Biography, Reformed ministry and Calvinist theology",
+          "note": "Source identity and selected content checked; no whole-work endorsement.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "distinctives": [],
+      "unresolved": [
+        "No blanket approval of all works, political opinions or source rights."
+      ],
+      "review": {
+        "date": "2026-10-05",
+        "reviewer": "Codex",
+        "kind": "ai-assisted",
+        "scope": "Initial mission-specific author screening; not independent human theological review."
+      }
+    },
+    {
+      "id": "author-shabir-ally",
+      "entityType": "person",
+      "name": "Shabir Ally",
+      "aliases": [],
+      "cohort": "twenty-first-century",
+      "traditions": [],
+      "eligibility": "context-only",
+      "rationale": "Muslim debate participant; retained for accurate representation of his position, not recommended Christian teaching.",
+      "receptionBasis": "Primary debate/attributed article identity only; contextual inclusion.",
+      "evidence": [
+        {
+          "url": "https://shabirally.wordpress.com/2012/03/27/did-jesus-claim-deity/",
+          "locator": "Byline, My Reflections on the Ally-White Debate; posting account nazam44",
+          "note": "Source identity and selected content checked; no whole-work endorsement.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "distinctives": [],
+      "unresolved": [
+        "Scope of attribution must remain attached to each source."
+      ],
+      "review": {
+        "date": "2026-10-05",
+        "reviewer": "Codex",
+        "kind": "ai-assisted",
+        "scope": "Initial mission-specific author screening; not independent human theological review."
+      }
+    },
+    {
+      "id": "author-yusuf-bux",
+      "entityType": "person",
+      "name": "Yusuf Bux",
+      "aliases": [],
+      "cohort": "twenty-first-century",
+      "traditions": [],
+      "eligibility": "context-only",
+      "rationale": "Muslim participant identified in the official event heading; no Christian author eligibility implied.",
+      "receptionBasis": "Primary debate/attributed article identity only; contextual inclusion.",
+      "evidence": [
+        {
+          "url": "https://www.aomin.org/aoblog/debate/debate-trinity-and-tawid-yusuf-bux-university-of-johannesburg-south-africa-10-4-2013/",
+          "locator": "Event heading; tag misspells surname Tux",
+          "note": "Source identity and selected content checked; no whole-work endorsement.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "distinctives": [],
+      "unresolved": [
+        "Scope of attribution must remain attached to each source."
+      ],
+      "review": {
+        "date": "2026-10-05",
+        "reviewer": "Codex",
+        "kind": "ai-assisted",
+        "scope": "Initial mission-specific author screening; not independent human theological review."
+      }
+    },
+    {
+      "id": "author-zakir-hussain",
+      "entityType": "person",
+      "name": "Zakir Hussain",
+      "aliases": [],
+      "cohort": "twenty-first-century",
+      "traditions": [],
+      "eligibility": "context-only",
+      "rationale": "Muslim participant identified in the official event heading; identity scoped to this debate, not namesakes.",
+      "receptionBasis": "Primary debate/attributed article identity only; contextual inclusion.",
+      "evidence": [
+        {
+          "url": "https://www.aomin.org/aoblog/debate/debate-is-muhammad-prophesied-in-the-bible-zakir-hussain-london-9-17-2012/",
+          "locator": "Event heading",
+          "note": "Source identity and selected content checked; no whole-work endorsement.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "distinctives": [],
+      "unresolved": [
+        "Scope of attribution must remain attached to each source."
+      ],
+      "review": {
+        "date": "2026-10-05",
+        "reviewer": "Codex",
+        "kind": "ai-assisted",
+        "scope": "Initial mission-specific author screening; not independent human theological review."
+      }
+    },
+    {
+      "id": "author-adnan-rashid",
+      "entityType": "person",
+      "name": "Adnan Rashid",
+      "aliases": [],
+      "cohort": "twenty-first-century",
+      "traditions": [],
+      "eligibility": "context-only",
+      "rationale": "Muslim participant identified in the official debate listing; not recommended Christian teaching.",
+      "receptionBasis": "Primary debate/attributed article identity only; contextual inclusion.",
+      "evidence": [
+        {
+          "url": "https://www.aomin.org/aoblog/islam/a-wonderful-evening-at-university-college-dublin/",
+          "locator": "Event heading",
+          "note": "Source identity and selected content checked; no whole-work endorsement.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "distinctives": [],
+      "unresolved": [
+        "Scope of attribution must remain attached to each source."
+      ],
+      "review": {
+        "date": "2026-10-05",
+        "reviewer": "Codex",
+        "kind": "ai-assisted",
+        "scope": "Initial mission-specific author screening; not independent human theological review."
+      }
     }
   ]
 }

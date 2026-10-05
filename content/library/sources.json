@@ -413,6 +413,91 @@
         }
       ],
       "reviewedOn": "2026-10-05"
+    },
+    {
+      "id": "source-zwemer-center",
+      "name": "Zwemer Center for Muslim Studies",
+      "url": "https://www.zwemercenter.com/",
+      "role": "content-host",
+      "automation": "manual-only",
+      "acquisitionNote": "Three historic PDFs explicitly offered for reading/download. Download permission is separate from redistribution. Undated Christ impression not cleared for public reuse.",
+      "evidence": [
+        {
+          "url": "https://www.zwemercenter.com/",
+          "locator": "Source-specific access assessment",
+          "note": "Three historic PDFs explicitly offered for reading/download. Download permission is separate from redistribution. Undated Christ impression not cleared for public reuse.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "reviewedOn": "2026-10-05"
+    },
+    {
+      "id": "source-alpha-omega",
+      "name": "Alpha and Omega Ministries",
+      "url": "https://www.aomin.org/",
+      "role": "publisher",
+      "automation": "manual-only",
+      "acquisitionNote": "Official debate and article links only. robots.txt returned 404; this is not a prohibition. Script conservatively skipped automated retrieval; no media or transcripts acquired.",
+      "evidence": [
+        {
+          "url": "https://www.aomin.org/",
+          "locator": "Source-specific access assessment",
+          "note": "Official debate and article links only. robots.txt returned 404; this is not a prohibition. Script conservatively skipped automated retrieval; no media or transcripts acquired.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "reviewedOn": "2026-10-05"
+    },
+    {
+      "id": "source-ally-responses",
+      "name": "Shabir Ally’s Responses (WordPress)",
+      "url": "https://shabirally.wordpress.com/",
+      "role": "content-host",
+      "automation": "manual-only",
+      "acquisitionNote": "Attributed Ally article posted by nazam44. Personal control/authentication unresolved. Private research snapshot only; no public text mirror.",
+      "evidence": [
+        {
+          "url": "https://shabirally.wordpress.com/",
+          "locator": "Source-specific access assessment",
+          "note": "Attributed Ally article posted by nazam44. Personal control/authentication unresolved. Private research snapshot only; no public text mirror.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "reviewedOn": "2026-10-05"
+    },
+    {
+      "id": "source-quran-com",
+      "name": "Quran.com",
+      "url": "https://quran.com/",
+      "role": "content-host",
+      "automation": "manual-only",
+      "acquisitionNote": "Contextual Muslim primary text and named translations. Link and short attributed comparison only; no translation corpus acquisition.",
+      "evidence": [
+        {
+          "url": "https://quran.com/",
+          "locator": "Source-specific access assessment",
+          "note": "Contextual Muslim primary text and named translations. Link and short attributed comparison only; no translation corpus acquisition.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "reviewedOn": "2026-10-05"
+    },
+    {
+      "id": "source-quran-corpus",
+      "name": "Quranic Arabic Corpus",
+      "url": "https://corpus.quran.com/",
+      "role": "content-host",
+      "automation": "manual-only",
+      "acquisitionNote": "Parallel translator display used for short quotation collation. robots endpoint redirected to HTML, so no valid robots policy established; no systematic retrieval authorized.",
+      "evidence": [
+        {
+          "url": "https://corpus.quran.com/",
+          "locator": "Source-specific access assessment",
+          "note": "Parallel translator display used for short quotation collation. robots endpoint redirected to HTML, so no valid robots policy established; no systematic retrieval authorized.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "reviewedOn": "2026-10-05"
     }
   ]
 }

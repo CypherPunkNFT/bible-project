@@ -1,0 +1,66 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-l10-zwemer-god",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "workId": "work-l10-zwemer-god",
+  "label": "American Tract Society, copyright 1905",
+  "languages": [
+    "en"
+  ],
+  "contributors": [],
+  "publisher": "American Tract Society",
+  "dates": [
+    {
+      "event": "edition-publication",
+      "value": "1905",
+      "precision": "year",
+      "label": "Printed copyright; visually verified",
+      "evidence": [
+        {
+          "url": "https://www.zwemercenter.com/wp-content/uploads/2017/10/Zwemer-Moslem-Doctrine-of-God-.pdf",
+          "locator": "PDF pp. 1-6; preface pp. 7-9; contents pp. 11-13",
+          "note": "Historical Christian polemic; compare each claim about Islamic belief with Muslim primary sources. Quran quotations use Palmer; tradition quotations need independent collation.",
+          "checkedOn": "2026-10-05"
+        },
+        {
+          "url": "https://www.zwemercenter.com/items/moslem-doctrine-of-god/",
+          "locator": "Read and download offered by host",
+          "note": "Source identity and selected content checked; no whole-work endorsement.",
+          "checkedOn": "2026-10-05"
+        },
+        {
+          "url": "https://www.copyright.gov/circs/circ15a.pdf",
+          "locator": "Duration of copyright",
+          "note": "Identified 1905/1916 historic text; no worldwide or modern-added-material clearance.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    }
+  ],
+  "abridgment": "unknown",
+  "modernization": "original-language-form",
+  "evidence": [
+    {
+      "url": "https://www.zwemercenter.com/wp-content/uploads/2017/10/Zwemer-Moslem-Doctrine-of-God-.pdf",
+      "locator": "PDF pp. 1-6; preface pp. 7-9; contents pp. 11-13",
+      "note": "Historical Christian polemic; compare each claim about Islamic belief with Muslim primary sources. Quran quotations use Palmer; tradition quotations need independent collation.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://www.zwemercenter.com/items/moslem-doctrine-of-god/",
+      "locator": "Read and download offered by host",
+      "note": "Source identity and selected content checked; no whole-work endorsement.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://www.copyright.gov/circs/circ15a.pdf",
+      "locator": "Duration of copyright",
+      "note": "Identified 1905/1916 historic text; no worldwide or modern-added-material clearance.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

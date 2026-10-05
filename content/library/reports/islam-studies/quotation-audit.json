@@ -1,0 +1,92 @@
+{
+  "date": "2026-10-05",
+  "verifiedExcerpts": [
+    {
+      "id": "q4157-sahih",
+      "role": "opposing-position",
+      "url": "https://corpus.quran.com/translation.jsp?chapter=4&verse=157",
+      "locator": "Qur’an 4:157",
+      "translator": "Sahih International",
+      "exactExcerpt": "but [another] was made to resemble him to them",
+      "contextNote": "Brackets retained: another supplies an interpretive identification; no substitute is named in the verse.",
+      "evidenceKey": "q4157-translations",
+      "evidenceSha256": "262aa8d69b98cdee5f6aeeb3cc484af5bdaeb5cf6688d400397da8ab535bf874",
+      "verification": "English wording collated against named translator display; spelling, punctuation and brackets retained.",
+      "limitations": "No independent Arabic philological, manuscript or edition authentication. No full translation republished."
+    },
+    {
+      "id": "q4157-pickthall",
+      "role": "opposing-position",
+      "url": "https://corpus.quran.com/translation.jsp?chapter=4&verse=157",
+      "locator": "Qur’an 4:157",
+      "translator": "Marmaduke Pickthall",
+      "exactExcerpt": "but it appeared so unto them",
+      "contextNote": "Less explicit about the mechanism than the bracketed Sahih International wording.",
+      "evidenceKey": "q4157-translations",
+      "evidenceSha256": "262aa8d69b98cdee5f6aeeb3cc484af5bdaeb5cf6688d400397da8ab535bf874",
+      "verification": "English wording collated against named translator display; spelling, punctuation and brackets retained.",
+      "limitations": "No independent Arabic philological, manuscript or edition authentication. No full translation republished."
+    },
+    {
+      "id": "q4171-pickthall",
+      "role": "opposing-position",
+      "url": "https://corpus.quran.com/translation.jsp?chapter=4&verse=171",
+      "locator": "Qur’an 4:171",
+      "translator": "Marmaduke Pickthall",
+      "exactExcerpt": "say not \"Three\"",
+      "contextNote": "Read with the surrounding rejection of sonship and description of Jesus; not a standalone account of Nicene doctrine.",
+      "evidenceKey": "q4171-translations",
+      "evidenceSha256": "26d59e1c0bc6b55d75f2513eedb2543e9b1faa1d444d49e6f31093ee03946dc0",
+      "verification": "English wording collated against named translator display; spelling, punctuation and brackets retained.",
+      "limitations": "No independent Arabic philological, manuscript or edition authentication. No full translation republished."
+    },
+    {
+      "id": "q4171-yusuf",
+      "role": "opposing-position",
+      "url": "https://corpus.quran.com/translation.jsp?chapter=4&verse=171",
+      "locator": "Qur’an 4:171",
+      "translator": "Yusuf Ali",
+      "exactExcerpt": "Say not \"Trinity\"",
+      "contextNote": "Translator supplies the doctrinal label where another translation has Three.",
+      "evidenceKey": "q4171-translations",
+      "evidenceSha256": "26d59e1c0bc6b55d75f2513eedb2543e9b1faa1d444d49e6f31093ee03946dc0",
+      "verification": "English wording collated against named translator display; spelling, punctuation and brackets retained.",
+      "limitations": "No independent Arabic philological, manuscript or edition authentication. No full translation republished."
+    },
+    {
+      "id": "q1123-pickthall",
+      "role": "opposing-position",
+      "url": "https://corpus.quran.com/translation.jsp?chapter=112&verse=3",
+      "locator": "Qur’an 112:3",
+      "translator": "Marmaduke Pickthall",
+      "exactExcerpt": "He begetteth not nor was begotten.",
+      "contextNote": "Do not restrict the theological rejection to physical reproduction without further argument.",
+      "evidenceKey": "q1123-translations",
+      "evidenceSha256": "79a2220c163176f94d0b649c688696345f562917b46d57e7a93407f4d53f0b09",
+      "verification": "English wording collated against named translator display; spelling, punctuation and brackets retained.",
+      "limitations": "No independent Arabic philological, manuscript or edition authentication. No full translation republished."
+    }
+  ],
+  "pending": [
+    {
+      "source": "White opening statement",
+      "item": "Ignatius, Smyrnaeans 1-2; ancient chronology assertions",
+      "reason": "Quoted through a modern apologist, not checked against a critical edition."
+    },
+    {
+      "source": "Piper article",
+      "item": "Tacitus, Annals 15.44; Kateregga/Shenk; Neill",
+      "reason": "Bibliographic footnotes identified; underlying complete editions not independently collated."
+    },
+    {
+      "source": "Ally reflection",
+      "item": "Bruce, Bauckham and reported live dialogue",
+      "reason": "Attribution to Ally documented; original scholarly sources and recording not independently verified."
+    },
+    {
+      "source": "Zwemer scans",
+      "item": "Palmer Quran and al-Tha‘labi narratives",
+      "reason": "Named source chain retained; no independent Arabic/translation collation."
+    }
+  ]
+}

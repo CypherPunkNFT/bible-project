@@ -1,0 +1,53 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-l10-zwemer-god-s08",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "title": "The Completed Idea and Its Insufficiency",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-samuel-m-zwemer",
+      "role": "author"
+    }
+  ],
+  "genre": "treatise",
+  "role": "core-teaching",
+  "collections": [
+    "apologetics"
+  ],
+  "subjects": [
+    "islam",
+    "god",
+    "trinity"
+  ],
+  "occasions": [],
+  "audiences": [
+    "students",
+    "pastors",
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "twentieth-century",
+  "dates": [],
+  "passages": [],
+  "related": [
+    {
+      "targetId": "work-l10-zwemer-god",
+      "relation": "is-part-of",
+      "locator": "Chapter/lecture 8, printed p. 107; contents in PDF pp. 5-6"
+    }
+  ],
+  "externalIds": {},
+  "evidence": [
+    {
+      "url": "https://www.zwemercenter.com/wp-content/uploads/2017/10/Zwemer-Moslem-Doctrine-of-God-.pdf",
+      "locator": "Chapter/lecture 8, printed p. 107; contents in PDF pp. 5-6",
+      "note": "Contents verified; substantial body review not claimed.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

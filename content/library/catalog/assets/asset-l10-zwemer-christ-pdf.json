@@ -1,0 +1,83 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "asset",
+  "id": "asset-l10-zwemer-christ-pdf",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "editionId": "edition-l10-zwemer-christ",
+  "sourceId": "source-zwemer-center",
+  "canonicalUrl": "https://www.zwemercenter.com/wp-content/uploads/2017/10/Zwemer-Moslem-Christ.pdf",
+  "finalUrl": "https://www.zwemercenter.com/wp-content/uploads/2017/10/Zwemer-Moslem-Christ.pdf",
+  "format": "pdf",
+  "mediaKind": "scan",
+  "acquisitionStatus": "downloaded",
+  "storage": "raw",
+  "relativePath": "library/source-zwemer-center/asset-l10-zwemer-christ-pdf/Zwemer-Moslem-Christ.pdf",
+  "sha256": "dfc639d3dd9d114c2e048241dc324833b9446e1b074a25b0e2299ee3853b7518",
+  "byteCount": 8430576,
+  "mimeType": "application/pdf",
+  "retrievedAt": "2026-10-05T11:31:04.437839Z",
+  "rights": {
+    "category": "permission-granted",
+    "jurisdiction": null,
+    "licenseId": null,
+    "licenseUrl": null,
+    "attribution": "Author and source credited in the catalog.",
+    "conditions": [
+      "Host explicitly offers this file for reading and download; permission is scoped to that action, not republication or database reuse."
+    ],
+    "conditionsMet": true,
+    "actions": {
+      "download": "allowed",
+      "host": "unknown",
+      "redistribute": "unknown",
+      "adapt": "unknown",
+      "transcribe": "unknown",
+      "embed": "unknown",
+      "indexMetadata": "allowed",
+      "indexFullText": "unknown"
+    },
+    "evidence": [
+      {
+        "url": "https://www.zwemercenter.com/wp-content/uploads/2017/10/Zwemer-Moslem-Christ.pdf",
+        "locator": "PDF pp. 1-11; introduction pp. 7-15; contents pp. 17-20",
+        "note": "Undated scanned impression. Title advertises A Moslem Seeker After God; do not assign the discovery lead 1912 as this edition date. Distinguish Quran, later commentary, and al-Tha‘labi story traditions.",
+        "checkedOn": "2026-10-05"
+      },
+      {
+        "url": "https://www.zwemercenter.com/items/the-moslem-christ/",
+        "locator": "Read and download offered by host",
+        "note": "Source identity and selected content checked; no whole-work endorsement.",
+        "checkedOn": "2026-10-05"
+      }
+    ],
+    "unresolved": [
+      "Public hosting, redistribution, OCR quality and any added material require separate review.",
+      "Undated ATS impression: first-publication lead 1912 is not the date of this scan. Permission required before public reuse unless this manifestation is dated and cleared."
+    ],
+    "review": {
+      "date": "2026-10-05",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Bibliographic links and source boundaries; not a whole-text clearance."
+    }
+  },
+  "fullTextIndexed": false,
+  "processing": {
+    "parentAssetId": null,
+    "method": "none",
+    "tool": null,
+    "toolVersion": null,
+    "parameters": null,
+    "date": null,
+    "note": "Original offered PDF retained unchanged; no new OCR, public text copy or full-text index."
+  },
+  "quality": {
+    "state": "unreviewed",
+    "reviewedBy": null,
+    "reviewedOn": null,
+    "note": "Title/copyright and contents visually checked; selected prefaces read; full page/quotation collation outstanding."
+  }
+}

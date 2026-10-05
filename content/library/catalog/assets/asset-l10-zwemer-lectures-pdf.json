@@ -1,0 +1,86 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "asset",
+  "id": "asset-l10-zwemer-lectures-pdf",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "editionId": "edition-l10-zwemer-lectures",
+  "sourceId": "source-zwemer-center",
+  "canonicalUrl": "https://www.zwemercenter.com/wp-content/uploads/2017/10/Zwemer-Disintegration-of-Islam.pdf",
+  "finalUrl": "https://www.zwemercenter.com/wp-content/uploads/2017/10/Zwemer-Disintegration-of-Islam.pdf",
+  "format": "pdf",
+  "mediaKind": "scan",
+  "acquisitionStatus": "downloaded",
+  "storage": "raw",
+  "relativePath": "library/source-zwemer-center/asset-l10-zwemer-lectures-pdf/Zwemer-Disintegration-of-Islam.pdf",
+  "sha256": "6912dd246886cd65d761b5165a042c2787b6b49b5b0f1a1fc2bc2cebd10edf2b",
+  "byteCount": 9282614,
+  "mimeType": "application/pdf",
+  "retrievedAt": "2026-10-05T11:31:06.320068Z",
+  "rights": {
+    "category": "public-domain",
+    "jurisdiction": "United States",
+    "licenseId": null,
+    "licenseUrl": null,
+    "attribution": "Author and source credited in the catalog.",
+    "conditions": [],
+    "conditionsMet": false,
+    "actions": {
+      "download": "allowed",
+      "host": "unknown",
+      "redistribute": "unknown",
+      "adapt": "unknown",
+      "transcribe": "unknown",
+      "embed": "unknown",
+      "indexMetadata": "allowed",
+      "indexFullText": "unknown"
+    },
+    "evidence": [
+      {
+        "url": "https://www.zwemercenter.com/wp-content/uploads/2017/10/Zwemer-Disintegration-of-Islam.pdf",
+        "locator": "PDF p. 3 copyright/delivery notice; PDF p. 6 contents",
+        "note": "Five missionary lectures delivered at Princeton in October 1915, subsequently New Brunswick and Cairo. Predictions and political descriptions belong to their historical setting, not a current forecast.",
+        "checkedOn": "2026-10-05"
+      },
+      {
+        "url": "https://www.zwemercenter.com/items/the-disintegration-of-islam/",
+        "locator": "Read and download offered by host",
+        "note": "Source identity and selected content checked; no whole-work endorsement.",
+        "checkedOn": "2026-10-05"
+      },
+      {
+        "url": "https://www.copyright.gov/circs/circ15a.pdf",
+        "locator": "Duration of copyright",
+        "note": "Identified 1905/1916 historic text; no worldwide or modern-added-material clearance.",
+        "checkedOn": "2026-10-05"
+      }
+    ],
+    "unresolved": [
+      "Public hosting, redistribution, OCR quality and any added material require separate review."
+    ],
+    "review": {
+      "date": "2026-10-05",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Bibliographic links and source boundaries; not a whole-text clearance."
+    }
+  },
+  "fullTextIndexed": false,
+  "processing": {
+    "parentAssetId": null,
+    "method": "none",
+    "tool": null,
+    "toolVersion": null,
+    "parameters": null,
+    "date": null,
+    "note": "Original offered PDF retained unchanged; no new OCR, public text copy or full-text index."
+  },
+  "quality": {
+    "state": "unreviewed",
+    "reviewedBy": null,
+    "reviewedOn": null,
+    "note": "Title/copyright and contents visually checked; selected prefaces read; full page/quotation collation outstanding."
+  }
+}

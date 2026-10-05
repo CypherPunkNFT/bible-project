@@ -1,0 +1,34 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "run",
+  "id": "run-l10-islam-studies-2026-10-05",
+  "missionId": "L10",
+  "status": "complete",
+  "startedOn": "2026-10-05",
+  "completedOn": "2026-10-05",
+  "boundary": "Selected bibliography, three historic scans, nine sourced question maps; full-debate playback and exhaustive corpus review not completed.",
+  "sourceIds": [
+    "source-ally-responses",
+    "source-alpha-omega",
+    "source-baker-publishing",
+    "source-desiring-god",
+    "source-zwemer-center"
+  ],
+  "inventory": "content/library/reports/islam-studies/inventory.json",
+  "checkpoint": "content/library/reports/islam-studies/checkpoint.json",
+  "counts": {
+    "works": 34,
+    "editions": 13,
+    "assets": 13,
+    "series": 0,
+    "reviewedWorks": 0,
+    "publishedWorks": 0
+  },
+  "gaps": [
+    "Five debate bodies unviewed; duration/completeness unknown.",
+    "Modern full texts not acquired; undated scan reuse unresolved.",
+    "Historical quotations not all independently collated; no public publication."
+  ],
+  "reportPath": "content/library/reports/islam-studies/REPORT.md"
+}

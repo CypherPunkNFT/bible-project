@@ -1,0 +1,33 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-l10-zwemer-christ",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "workId": "work-l10-zwemer-christ",
+  "label": "American Tract Society, undated impression",
+  "languages": [
+    "en"
+  ],
+  "contributors": [],
+  "publisher": "American Tract Society",
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "original-language-form",
+  "evidence": [
+    {
+      "url": "https://www.zwemercenter.com/wp-content/uploads/2017/10/Zwemer-Moslem-Christ.pdf",
+      "locator": "PDF pp. 1-11; introduction pp. 7-15; contents pp. 17-20",
+      "note": "Undated scanned impression. Title advertises A Moslem Seeker After God; do not assign the discovery lead 1912 as this edition date. Distinguish Quran, later commentary, and al-Tha‘labi story traditions.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://www.zwemercenter.com/items/the-moslem-christ/",
+      "locator": "Read and download offered by host",
+      "note": "Source identity and selected content checked; no whole-work endorsement.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-l10-zwemer-lectures-s03",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "title": "The Political Collapse",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-samuel-m-zwemer",
+      "role": "author"
+    }
+  ],
+  "genre": "lecture",
+  "role": "historical-context",
+  "collections": [
+    "apologetics"
+  ],
+  "subjects": [
+    "islam",
+    "missions",
+    "historical-theology"
+  ],
+  "occasions": [],
+  "audiences": [
+    "students",
+    "pastors",
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "twentieth-century",
+  "dates": [],
+  "passages": [],
+  "related": [
+    {
+      "targetId": "work-l10-zwemer-lectures",
+      "relation": "is-part-of",
+      "locator": "Chapter/lecture 3, printed p. 107; contents in PDF p. 6"
+    }
+  ],
+  "externalIds": {},
+  "evidence": [
+    {
+      "url": "https://www.zwemercenter.com/wp-content/uploads/2017/10/Zwemer-Disintegration-of-Islam.pdf",
+      "locator": "Chapter/lecture 3, printed p. 107; contents in PDF p. 6",
+      "note": "Contents verified; substantial body review not claimed.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

@@ -4,7 +4,7 @@ Generated from [authors.json](authors.json). Edit the JSON, then run `node scrip
 
 Established 2026-10-05. All decisions are AI-assisted initial screening, not independent human theological approval. Eligible authors still require work-level and edition/rights checks. Provisional status identifies incomplete evidence, not a finding against an author.
 
-**51 people: 36 initially eligible; 3 provisional.**
+**64 people: 45 initially eligible; 3 provisional.**
 
 | Author | Placement | Decision | Evidence | Next check |
 |---|---|---|---|---|
@@ -47,6 +47,19 @@ Established 2026-10-05. All decisions are AI-assisted initial screening, not ind
 | A. A. Hodge | reformed, presbyterian | eligible | [Basis](https://ccel.org/ccel/hodge_aa) | Eligibility is work-specific; modern translations and editions need separate rights review. |
 | Archibald Alexander | reformed, presbyterian | eligible | [Basis](https://www.ccel.org/ccel/alexander_a) | Eligibility is work-specific; modern translations and editions need separate rights review. |
 | Louis Berkhof | reformed, continental-reformed | eligible | [Basis](https://www.ccel.org/ccel/berkhof) | Eligibility is work-specific; modern translations and editions need separate rights review. |
+| James R. White | reformed, baptist | eligible | [Basis](https://www.aomin.org/aoblog/islam/opening-and-closing-statements-shabir-ally-debate/) | No blanket approval of all works, political opinions or source rights. |
+| Samuel Marinus Zwemer | reformed, continental-reformed | eligible | [Basis](https://www.zwemercenter.com/wp-content/uploads/2017/10/Zwemer-Moslem-Doctrine-of-God-.pdf) | No blanket approval of all works, political opinions or source rights. |
+| Shabir Ally |  | context-only | [Basis](https://shabirally.wordpress.com/2012/03/27/did-jesus-claim-deity/) | Scope of attribution must remain attached to each source. |
+| Yusuf Bux |  | context-only | [Basis](https://www.aomin.org/aoblog/debate/debate-trinity-and-tawid-yusuf-bux-university-of-johannesburg-south-africa-10-4-2013/) | Scope of attribution must remain attached to each source. |
+| Zakir Hussain |  | context-only | [Basis](https://www.aomin.org/aoblog/debate/debate-is-muhammad-prophesied-in-the-bible-zakir-hussain-london-9-17-2012/) | Scope of attribution must remain attached to each source. |
+| Adnan Rashid |  | context-only | [Basis](https://www.aomin.org/aoblog/islam/a-wonderful-evening-at-university-college-dublin/) | Scope of attribution must remain attached to each source. |
+| Westminster Assembly | presbyterian, reformed | eligible | [Basis](https://raw.githubusercontent.com/NonlinearFruit/Creeds.json/2ae21a4c5387ecc91f474c9d3d67c826d2a6b9d5/creeds/westminster_confession_of_faith.json) | No blanket eligibility judgment concerning later members, revisions or affiliated institutions. |
+| Particular Baptist churches and messengers | baptist, reformed | eligible | [Basis](https://raw.githubusercontent.com/NonlinearFruit/Creeds.json/2ae21a4c5387ecc91f474c9d3d67c826d2a6b9d5/creeds/london_baptist_1689.json) | No blanket eligibility judgment concerning later members, revisions or affiliated institutions. |
+| Reformed church of the Electoral Palatinate | continental-reformed | eligible | [Basis](https://ccel.org/ccel/schaff/creeds3/creeds3.iv.vi.html) | No blanket eligibility judgment concerning later members, revisions or affiliated institutions. |
+| Reformed churches of the Netherlands | continental-reformed | eligible | [Basis](https://ccel.org/ccel/schaff/creeds3/creeds3.iv.viii.html) | No blanket eligibility judgment concerning later members, revisions or affiliated institutions. |
+| Synod of Dort | continental-reformed | eligible | [Basis](https://ccel.org/ccel/schaff/creeds3/creeds3.iv.xvi.html) | No blanket eligibility judgment concerning later members, revisions or affiliated institutions. |
+| Savoy Assembly | congregational, reformed | eligible | [Basis](https://ccel.org/ccel/schaff/creeds3/creeds3.toc.html) | No blanket eligibility judgment concerning later members, revisions or affiliated institutions. |
+| Convocation of the Church of England | anglican, reformed | eligible | [Basis](https://ccel.org/ccel/schaff/creeds3/creeds3.iv.xi.html) | No blanket eligibility judgment concerning later members, revisions or affiliated institutions. |
 | W. Brock |  | context-only | [Basis](https://www.spurgeongems.org/sermon/chs370.pdf) | Independent biographical identity, theological eligibility and reception review are outside this Spurgeon inventory mission. |
 | Octavius Winslow |  | context-only | [Basis](https://www.spurgeongems.org/sermon/chs378.pdf) | Independent biographical identity, theological eligibility and reception review are outside this Spurgeon inventory mission. |
 | Hugh Stowell Brown |  | context-only | [Basis](https://www.spurgeongems.org/sermon/chs381.pdf) | Independent biographical identity, theological eligibility and reception review are outside this Spurgeon inventory mission. |

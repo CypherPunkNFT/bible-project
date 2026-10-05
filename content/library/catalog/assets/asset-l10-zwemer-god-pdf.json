@@ -1,0 +1,86 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "asset",
+  "id": "asset-l10-zwemer-god-pdf",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "editionId": "edition-l10-zwemer-god",
+  "sourceId": "source-zwemer-center",
+  "canonicalUrl": "https://www.zwemercenter.com/wp-content/uploads/2017/10/Zwemer-Moslem-Doctrine-of-God-.pdf",
+  "finalUrl": "https://www.zwemercenter.com/wp-content/uploads/2017/10/Zwemer-Moslem-Doctrine-of-God-.pdf",
+  "format": "pdf",
+  "mediaKind": "scan",
+  "acquisitionStatus": "downloaded",
+  "storage": "raw",
+  "relativePath": "library/source-zwemer-center/asset-l10-zwemer-god-pdf/Zwemer-Moslem-Doctrine-of-God-.pdf",
+  "sha256": "a363ac13ebacffbfe5a8a9a35f76459458b4d9b00014f9052111090db93eb733",
+  "byteCount": 4347673,
+  "mimeType": "application/pdf",
+  "retrievedAt": "2026-10-05T11:31:02.752140Z",
+  "rights": {
+    "category": "public-domain",
+    "jurisdiction": "United States",
+    "licenseId": null,
+    "licenseUrl": null,
+    "attribution": "Author and source credited in the catalog.",
+    "conditions": [],
+    "conditionsMet": false,
+    "actions": {
+      "download": "allowed",
+      "host": "unknown",
+      "redistribute": "unknown",
+      "adapt": "unknown",
+      "transcribe": "unknown",
+      "embed": "unknown",
+      "indexMetadata": "allowed",
+      "indexFullText": "unknown"
+    },
+    "evidence": [
+      {
+        "url": "https://www.zwemercenter.com/wp-content/uploads/2017/10/Zwemer-Moslem-Doctrine-of-God-.pdf",
+        "locator": "PDF pp. 1-6; preface pp. 7-9; contents pp. 11-13",
+        "note": "Historical Christian polemic; compare each claim about Islamic belief with Muslim primary sources. Quran quotations use Palmer; tradition quotations need independent collation.",
+        "checkedOn": "2026-10-05"
+      },
+      {
+        "url": "https://www.zwemercenter.com/items/moslem-doctrine-of-god/",
+        "locator": "Read and download offered by host",
+        "note": "Source identity and selected content checked; no whole-work endorsement.",
+        "checkedOn": "2026-10-05"
+      },
+      {
+        "url": "https://www.copyright.gov/circs/circ15a.pdf",
+        "locator": "Duration of copyright",
+        "note": "Identified 1905/1916 historic text; no worldwide or modern-added-material clearance.",
+        "checkedOn": "2026-10-05"
+      }
+    ],
+    "unresolved": [
+      "Public hosting, redistribution, OCR quality and any added material require separate review."
+    ],
+    "review": {
+      "date": "2026-10-05",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Bibliographic links and source boundaries; not a whole-text clearance."
+    }
+  },
+  "fullTextIndexed": false,
+  "processing": {
+    "parentAssetId": null,
+    "method": "none",
+    "tool": null,
+    "toolVersion": null,
+    "parameters": null,
+    "date": null,
+    "note": "Original offered PDF retained unchanged; no new OCR, public text copy or full-text index."
+  },
+  "quality": {
+    "state": "unreviewed",
+    "reviewedBy": null,
+    "reviewedOn": null,
+    "note": "Title/copyright and contents visually checked; selected prefaces read; full page/quotation collation outstanding."
+  }
+}

@@ -1,6 +1,6 @@
 # Acquisition backlog
 
-Established 2026-10-05. The owner has requested L00–L14 and most recently selected L08; its bounded historical-confessions and catechisms batch is complete. Preserve the other requests in this queue. Dependencies guide ordering; website integration (L15) still requires its own request.
+Established 2026-10-05. The owner has requested L00–L14 and most recently selected L10; its selected Christianity-and-Islam collection batch is complete. Preserve the other requests in this queue. Dependencies guide ordering; website integration (L15) still requires its own request.
 
 | ID | Mission | Bounded first unit | Completion evidence | State |
 |---|---|---|---|---|
@@ -14,7 +14,7 @@ Established 2026-10-05. The owner has requested L00–L14 and most recently sele
 | L07 | Doctrine and systematic theology | Hodge, A. A. Hodge, Owen and Warfield; complete selected chapter/lecture inventories | [Collection report](reports/doctrinal-studies/REPORT.md): 129 sections, 54 doctrine nodes, two acquired books/four files; Scripture companions and 322 links to 124 existing sermons, including two scoped body-checked pairings | Bounded batch complete; larger text acquisition, body review and wider authors remain |
 | L08 | Confessions and catechisms | Westminster, Second London, Baptist Catechism and Flavel acquired; continental, Savoy and Anglican witnesses linked | [Collection report](reports/confessional-standards/REPORT.md): nine acquired files, 2,438 witness units, 4,616 structured proof references, eight edition-aware comparisons; original wording and source defects retained | Bounded batch complete; WSC proofs, continental/Savoy full-text acquisition, Flavel collation and wider explanations remain |
 | L09 | Apologetic arguments | One question and a defined bibliography | Claim/premise/evidence/objection/reply locators; explicit author roles | Authorized; queued |
-| L10 | Christianity and Islam | One question or complete debate at a time | Both positions sourced; quotations/translations checked; recording-specific timestamps only | Authorized; queued |
+| L10 | Christianity and Islam | White, Zwemer and Piper sources; nine question comparisons | [Report](reports/islam-studies/REPORT.md): 13 primary holdings, 21 chapters/lectures, three acquired PDFs, nine sourced maps and five collated translation excerpts; contextual Muslim material labeled | Selected batch complete; five debate recordings unviewed, broader authors/lectures, original quotation checks and undated-edition reuse remain |
 | L11 | Christian life and pastoral care | One concern across a small set of complete eligible works | Contextual applications, audiences and links to existing sermons | Authorized; queued |
 | L12 | Church, preaching and missions | One ministry responsibility and defined source list | Principles distinguished from historic practice and editorial advice | Authorized; queued |
 | L13 | History, biographies and letters | One person/collection with chronology | Firsthand/later accounts distinguished; editorial omissions identified | Authorized; queued |
