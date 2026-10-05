@@ -1,0 +1,94 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-l03-edwards-five-01",
+  "editorialState": "catalogued",
+  "notes": [
+    "Witness classification: author-expanded-sermon-compilation.",
+    "Preface attests Northampton preaching and explains that Justification combines two lectures and is much enlarged for publication; other four have little added. First published 1738; collected here 1830.",
+    "Author preface pp.348–349: originally two public lectures, substantially enlarged for print. Not one delivery.",
+    "Title is a catalog/contents label; historical title variants and spelling remain available in the scan. Published-unit count is not a delivered-occasion count."
+  ],
+  "reviews": [],
+  "title": "Justification by Faith Alone",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-jonathan-edwards",
+      "role": "author"
+    }
+  ],
+  "genre": "treatise",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "eighteenth-century",
+  "dates": [
+    {
+      "event": "original-publication",
+      "value": "1738",
+      "precision": "year",
+      "label": "First-publication date preserved by the preface; distinct from the 1830 volume.",
+      "evidence": [
+        {
+          "url": "https://archive.org/details/worksofpresidents05edwa",
+          "locator": "Volume V, preface PDF pp.363–366",
+          "note": "First-publication date preserved by the preface; distinct from the 1830 volume.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    },
+    {
+      "event": "delivery",
+      "value": null,
+      "precision": "unknown",
+      "label": "Not established for this individual printed unit; edition year is recorded separately.",
+      "evidence": []
+    }
+  ],
+  "passages": [
+    {
+      "reference": "Romans 4:5",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 45004005,
+      "end": 45004005,
+      "verification": "verified",
+      "locator": "Five Discourses on Important Subjects; published contents/start reference p.351; actual sermon/body heading PDF p.367 (one-based). Contents pagination may refer to preceding title matter; PDF locator is checked independently."
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-l03-worksofpresidents05edwa",
+      "locator": "Five Discourses on Important Subjects; published contents/start reference p.351; actual sermon/body heading PDF p.367 (one-based). Contents pagination may refer to preceding title matter; PDF locator is checked independently."
+    }
+  ],
+  "externalIds": {
+    "l03-printed-group": [
+      "edwards-five"
+    ],
+    "l03-component-position": [
+      "1"
+    ],
+    "original-printed-label": [
+      "I"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/details/worksofpresidents05edwa",
+      "locator": "Five Discourses on Important Subjects; published contents/start reference p.351; actual sermon/body heading PDF p.367 (one-based). Contents pagination may refer to preceding title matter; PDF locator is checked independently.",
+      "note": "Printed component identity and opening main text; not incidental citations.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

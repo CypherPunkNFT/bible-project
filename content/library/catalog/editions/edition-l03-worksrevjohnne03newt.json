@@ -1,0 +1,62 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-l03-worksrevjohnne03newt",
+  "editorialState": "catalogued",
+  "notes": [
+    "Volumes 2–6 screened for sermon material; preserve Messiah as a complete 50-discourse series and distinguish Discourses Intended for the Pulpit from documented delivery.",
+    "Posthumous New York reprint from the London edition directed by Newton's executors. Volume VI's advertisement distinguishes author-approved letters, periodical essays, and the previously printed 1800 sermon. Messiah is author-abridged; the 1800 sermon was reconstructed from memory, as its advertisement states.",
+    "Mixed-volume contents are not all sermons by the named preacher. Only explicitly inventoried components enter sermon counts.",
+    "Olney Hymns includes William Cowper as well as Newton. No hymn is catalogued here as a Newton sermon; the volume is contextual.",
+    "Original-language-form describes this historic printing, not a claim of an autograph manuscript or verbatim delivery."
+  ],
+  "reviews": [],
+  "workId": "work-l03-worksrevjohnne03newt",
+  "label": "The Works of the Rev. John Newton, volume 3 (1810)",
+  "languages": [
+    "en"
+  ],
+  "contributors": [],
+  "publisher": "New York: Williams and Whiting",
+  "dates": [
+    {
+      "event": "edition-publication",
+      "value": "1810",
+      "precision": "year",
+      "label": "Original title-page imprint.",
+      "evidence": [
+        {
+          "url": "https://archive.org/details/worksrevjohnne03newt",
+          "locator": "Title page, contents, prefaces and identified component headings",
+          "note": "Edition date checked against original imprint rather than generic item metadata.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    }
+  ],
+  "abridgment": "unknown",
+  "modernization": "original-language-form",
+  "evidence": [
+    {
+      "url": "https://archive.org/details/worksrevjohnne03newt",
+      "locator": "Title page, contents, prefaces and identified component headings",
+      "note": "Edition date checked against original imprint rather than generic item metadata.",
+      "checkedOn": "2026-10-05"
+    }
+  ],
+  "textRights": {
+    "status": "public-domain",
+    "jurisdiction": "US",
+    "scope": "Text of the identified historical printed edition only; excludes modern metadata and scan wrapper.",
+    "basis": "Printed 1810; US publication copyright term expired.",
+    "evidence": [
+      {
+        "url": "https://www.copyright.gov/title17/92chap3.html",
+        "locator": "17 USC 304",
+        "note": "Pre-1931 published historical edition.",
+        "checkedOn": "2026-10-05"
+      }
+    ]
+  }
+}

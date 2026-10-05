@@ -1,0 +1,86 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-l03-edwards-seventeen-13",
+  "editorialState": "catalogued",
+  "notes": [
+    "Witness classification: printed-sermon.",
+    "Posthumous collected edition, 1830. Seventeen published units; no inference of seventeen unique delivery occasions.",
+    "Title is a catalog/contents label; historical title variants and spelling remain available in the scan. Published-unit count is not a delivered-occasion count."
+  ],
+  "reviews": [],
+  "title": "Christians a Chosen Generation, a Royal Priesthood, a Holy Nation, a Peculiar People",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-jonathan-edwards",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "eighteenth-century",
+  "dates": [
+    {
+      "event": "delivery",
+      "value": null,
+      "precision": "unknown",
+      "label": "Not established for this individual printed unit; edition year is recorded separately.",
+      "evidence": []
+    },
+    {
+      "event": "original-publication",
+      "value": null,
+      "precision": "unknown",
+      "label": "Not established for this individual printed unit; edition year is recorded separately.",
+      "evidence": []
+    }
+  ],
+  "passages": [
+    {
+      "reference": "1 Peter 2:9",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 60002009,
+      "end": 60002009,
+      "verification": "verified",
+      "locator": "Seventeen Occasional Sermons; published contents/start reference p.379; actual sermon/body heading PDF p.389 (one-based). Contents pagination may refer to preceding title matter; PDF locator is checked independently."
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-l03-worksofpresidents08edwa",
+      "locator": "Seventeen Occasional Sermons; published contents/start reference p.379; actual sermon/body heading PDF p.389 (one-based). Contents pagination may refer to preceding title matter; PDF locator is checked independently."
+    }
+  ],
+  "externalIds": {
+    "l03-printed-group": [
+      "edwards-seventeen"
+    ],
+    "l03-component-position": [
+      "13"
+    ],
+    "original-printed-label": [
+      "XIII"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/details/worksofpresidents08edwa",
+      "locator": "Seventeen Occasional Sermons; published contents/start reference p.379; actual sermon/body heading PDF p.389 (one-based). Contents pagination may refer to preceding title matter; PDF locator is checked independently.",
+      "note": "Printed component identity and opening main text; not incidental citations.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

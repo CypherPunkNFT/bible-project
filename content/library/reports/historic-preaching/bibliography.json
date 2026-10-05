@@ -1,0 +1,259 @@
+{
+  "missionId": "L03",
+  "establishedOn": "2026-10-05",
+  "establishedAtUtc": "2026-10-05T09:03:42.472921+00:00",
+  "phase": "bibliography-established-before-acquisition",
+  "authors": [
+    {
+      "author": "edwards",
+      "authorId": "author-jonathan-edwards",
+      "name": "Jonathan Edwards (1703–1758)",
+      "title": "The Works of President Edwards, with a Memoir of His Life",
+      "editorialHistory": "Posthumous Dwight collection, incorporating earlier editorial work by John Erskine, Edward Williams and Jonathan Edwards the younger. The younger Edwards is a manuscript editor here, not the preacher. Editorial consolidation is identified at component level.",
+      "catalogDate": "1830",
+      "catalogPublisher": "New York: G. & C. & H. Carvill",
+      "boundary": "Sermon-bearing volumes 1, 3, 5–8 and 10 of the ten-volume Dwight collection; volume 9 retained as a screened non-sermon contextual volume. Not a complete surviving-manuscript census.",
+      "selectedVolumes": [
+        {
+          "volume": 1,
+          "item": "worksofpresidents01edwa",
+          "url": "https://archive.org/details/worksofpresidents01edwa"
+        },
+        {
+          "volume": 3,
+          "item": "worksofpresidents03edwa",
+          "url": "https://archive.org/details/worksofpresidents03edwa"
+        },
+        {
+          "volume": 5,
+          "item": "worksofpresidents05edwa",
+          "url": "https://archive.org/details/worksofpresidents05edwa"
+        },
+        {
+          "volume": 6,
+          "item": "worksofpresidents06edwa",
+          "url": "https://archive.org/details/worksofpresidents06edwa"
+        },
+        {
+          "volume": 7,
+          "item": "worksofpresidents07edwa",
+          "url": "https://archive.org/details/worksofpresidents07edwa"
+        },
+        {
+          "volume": 8,
+          "item": "worksofpresidents08edwa",
+          "url": "https://archive.org/details/worksofpresidents08edwa"
+        },
+        {
+          "volume": 9,
+          "item": "worksofpresident09edwa",
+          "url": "https://archive.org/details/worksofpresident09edwa"
+        },
+        {
+          "volume": 10,
+          "item": "worksofpresident10edwa",
+          "url": "https://archive.org/details/worksofpresident10edwa"
+        }
+      ],
+      "expectedSermons": null,
+      "selectionEvidence": [
+        {
+          "url": "https://archive.org/metadata/worksofpresidents07edwa",
+          "locator": "Public item catalog; retained metadata snapshot",
+          "note": "Bibliographic selection precedes full-file acquisition; title-page and contents verification will correct generic host metadata.",
+          "checkedOn": "2026-10-05"
+        },
+        {
+          "url": "https://archive.org/metadata/worksofpresidents08edwa",
+          "locator": "Public item catalog; retained metadata snapshot",
+          "note": "Bibliographic selection precedes full-file acquisition; title-page and contents verification will correct generic host metadata.",
+          "checkedOn": "2026-10-05"
+        },
+        {
+          "url": "https://archive.org/metadata/worksofpresident09edwa",
+          "locator": "Public item catalog; retained metadata snapshot",
+          "note": "Bibliographic selection precedes full-file acquisition; title-page and contents verification will correct generic host metadata.",
+          "checkedOn": "2026-10-05"
+        },
+        {
+          "url": "https://archive.org/metadata/worksofpresident10edwa",
+          "locator": "Public item catalog; retained metadata snapshot",
+          "note": "Bibliographic selection precedes full-file acquisition; title-page and contents verification will correct generic host metadata.",
+          "checkedOn": "2026-10-05"
+        },
+        {
+          "url": "https://ixtheo.de/Record/1894331125",
+          "locator": "Summary: ten-volume contents",
+          "note": "Bibliography identifies farewell sermon in volume 1, Redemption and Distinguishing Marks in volume 3, five discourses in volume 5, practical and occasional sermons in volumes 6–8, and Brainerd memoir in volume 10.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    },
+    {
+      "author": "whitefield",
+      "authorId": "author-george-whitefield",
+      "name": "George Whitefield",
+      "title": "The Works of the Reverend George Whitefield",
+      "editorialHistory": "Posthumous collected edition. Both sermon-volume title pages read 1772; their contents mark certain sermons as first publication from the author's manuscripts. Specific editor identity not independently established from these two volumes.",
+      "catalogDate": "1771–1772",
+      "catalogPublisher": "London: Edward and Charles Dilly; Edinburgh: Kincaid and Creech",
+      "boundary": "Both sermon volumes of the six-volume collected works; retain manuscript-first-publication markers. Later Gurney shorthand collections are separate witnesses, not automatic duplicates.",
+      "selectedVolumes": [
+        {
+          "volume": 5,
+          "item": "worksofreverendg05whit",
+          "url": "https://archive.org/details/worksofreverendg05whit"
+        },
+        {
+          "volume": 6,
+          "item": "worksofreverendg06whit",
+          "url": "https://archive.org/details/worksofreverendg06whit"
+        }
+      ],
+      "expectedSermons": null,
+      "selectionEvidence": [
+        {
+          "url": "https://archive.org/metadata/worksofreverendg05whit",
+          "locator": "Public item catalog; retained metadata snapshot",
+          "note": "Bibliographic selection precedes full-file acquisition; title-page and contents verification will correct generic host metadata.",
+          "checkedOn": "2026-10-05"
+        },
+        {
+          "url": "https://archive.org/metadata/worksofreverendg06whit",
+          "locator": "Public item catalog; retained metadata snapshot",
+          "note": "Bibliographic selection precedes full-file acquisition; title-page and contents verification will correct generic host metadata.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    },
+    {
+      "author": "newton",
+      "authorId": "author-john-newton",
+      "name": "John Newton",
+      "title": "The Works of the Rev. John Newton",
+      "editorialHistory": "Posthumous New York reprint from the London edition directed by Newton's executors. Volume VI's advertisement distinguishes author-approved letters, periodical essays, and the previously printed 1800 sermon. Messiah is author-abridged; the 1800 sermon was reconstructed from memory, as its advertisement states.",
+      "catalogDate": "1810–1811",
+      "catalogPublisher": "New York: Williams & Whiting; Samuel Whiting",
+      "boundary": "Volumes 2–6 screened for sermon material; preserve Messiah as a complete 50-discourse series and distinguish Discourses Intended for the Pulpit from documented delivery.",
+      "selectedVolumes": [
+        {
+          "volume": 2,
+          "item": "worksrevjohnne02newt",
+          "url": "https://archive.org/details/worksrevjohnne02newt"
+        },
+        {
+          "volume": 3,
+          "item": "worksrevjohnne03newt",
+          "url": "https://archive.org/details/worksrevjohnne03newt"
+        },
+        {
+          "volume": 4,
+          "item": "worksrevjohnne04newt",
+          "url": "https://archive.org/details/worksrevjohnne04newt"
+        },
+        {
+          "volume": 5,
+          "item": "worksrevjohnne05newt",
+          "url": "https://archive.org/details/worksrevjohnne05newt"
+        },
+        {
+          "volume": 6,
+          "item": "worksrevjohnne06newt",
+          "url": "https://archive.org/details/worksrevjohnne06newt"
+        }
+      ],
+      "expectedSermons": null,
+      "selectionEvidence": [
+        {
+          "url": "https://archive.org/metadata/worksrevjohnne02newt",
+          "locator": "Public item catalog; retained metadata snapshot",
+          "note": "Bibliographic selection precedes full-file acquisition; title-page and contents verification will correct generic host metadata.",
+          "checkedOn": "2026-10-05"
+        },
+        {
+          "url": "https://archive.org/metadata/worksrevjohnne03newt",
+          "locator": "Public item catalog; retained metadata snapshot",
+          "note": "Bibliographic selection precedes full-file acquisition; title-page and contents verification will correct generic host metadata.",
+          "checkedOn": "2026-10-05"
+        },
+        {
+          "url": "https://archive.org/metadata/worksrevjohnne04newt",
+          "locator": "Public item catalog; retained metadata snapshot",
+          "note": "Bibliographic selection precedes full-file acquisition; title-page and contents verification will correct generic host metadata.",
+          "checkedOn": "2026-10-05"
+        },
+        {
+          "url": "https://archive.org/metadata/worksrevjohnne05newt",
+          "locator": "Public item catalog; retained metadata snapshot",
+          "note": "Bibliographic selection precedes full-file acquisition; title-page and contents verification will correct generic host metadata.",
+          "checkedOn": "2026-10-05"
+        },
+        {
+          "url": "https://archive.org/metadata/worksrevjohnne06newt",
+          "locator": "Public item catalog; retained metadata snapshot",
+          "note": "Bibliographic selection precedes full-file acquisition; title-page and contents verification will correct generic host metadata.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    },
+    {
+      "author": "ryle",
+      "authorId": "author-j-c-ryle",
+      "name": "J. C. Ryle (1816–1900)",
+      "title": "The Christian Race and Other Sermons; The Two Bears and Other Sermons for Children",
+      "editorialHistory": "Christian Race: selected from Ryle's manuscripts by T. J. Madden with Ryle's authorization, as Madden's March 1, 1900 preface states. Selection was not by Ryle personally. Publication day relative to Ryle's death is unestablished. Two Bears: 1869 lifetime printing, including pastoral pieces alongside sermon-form addresses.",
+      "catalogDate": "1869; 1900",
+      "catalogPublisher": "London: Hodder & Stoughton (Christian Race); London and Ipswich: William Hunt (Two Bears), verified on title pages",
+      "boundary": "Two separately published sermon collections; exclude Herbert Edward Ryle, and distinguish collection publication from individual delivery.",
+      "selectedVolumes": [
+        {
+          "volume": 1,
+          "item": "thechristianrace00ryleuoft",
+          "url": "https://archive.org/details/thechristianrace00ryleuoft"
+        },
+        {
+          "volume": 1,
+          "item": "twobearsandothe00rylegoog",
+          "url": "https://archive.org/details/twobearsandothe00rylegoog"
+        }
+      ],
+      "expectedSermons": null,
+      "selectionEvidence": [
+        {
+          "url": "https://archive.org/metadata/thechristianrace00ryleuoft",
+          "locator": "Public item catalog; retained metadata snapshot",
+          "note": "Bibliographic selection precedes full-file acquisition; title-page and contents verification will correct generic host metadata.",
+          "checkedOn": "2026-10-05"
+        },
+        {
+          "url": "https://archive.org/metadata/twobearsandothe00rylegoog",
+          "locator": "Public item catalog; retained metadata snapshot",
+          "note": "Bibliographic selection precedes full-file acquisition; title-page and contents verification will correct generic host metadata.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    }
+  ],
+  "exclusions": [
+    {
+      "label": "Jonathan Edwards the younger (1745–1801)",
+      "reason": "Different person; 1842 works rejected for this author identity."
+    },
+    {
+      "label": "Herbert Edward Ryle",
+      "reason": "Different person; his 1904 sermon volumes excluded."
+    },
+    {
+      "label": "Modern audio readings",
+      "reason": "No recording is a historic preacher voice; none acquired in this scan batch."
+    },
+    {
+      "label": "Modern critical editions and publisher reprints",
+      "reason": "Historical author copyright does not authorize copying later editorial apparatus; links only pending edition-specific rights."
+    }
+  ],
+  "revisionNotes": [
+    "Added Edwards volumes 5–6 before their acquisition to examine practical sermons and their collected context; volume 9 is theological notebooks, not sermons.",
+    "Added Edwards volumes 1 and 3 before acquisition on evidence of the collected-edition contents bibliography."
+  ]
+}

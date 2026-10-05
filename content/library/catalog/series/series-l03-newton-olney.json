@@ -1,0 +1,129 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "series",
+  "id": "series-l03-newton-olney",
+  "editorialState": "catalogued",
+  "notes": [
+    "Series title attests preaching at Olney; individual delivery dates remain unknown unless explicitly documented.",
+    "Complete means this identified printed division, not the author’s complete ministry."
+  ],
+  "reviews": [],
+  "title": "Twenty Sermons Preached in the Parish Church of Olney",
+  "authorIds": [
+    "author-john-newton"
+  ],
+  "members": [
+    {
+      "workId": "work-l03-newton-olney-01",
+      "position": 1,
+      "originalLabel": "I"
+    },
+    {
+      "workId": "work-l03-newton-olney-02",
+      "position": 2,
+      "originalLabel": "II"
+    },
+    {
+      "workId": "work-l03-newton-olney-03",
+      "position": 3,
+      "originalLabel": "III"
+    },
+    {
+      "workId": "work-l03-newton-olney-04",
+      "position": 4,
+      "originalLabel": "IV"
+    },
+    {
+      "workId": "work-l03-newton-olney-05",
+      "position": 5,
+      "originalLabel": "V"
+    },
+    {
+      "workId": "work-l03-newton-olney-06",
+      "position": 6,
+      "originalLabel": "VI"
+    },
+    {
+      "workId": "work-l03-newton-olney-07",
+      "position": 7,
+      "originalLabel": "VII"
+    },
+    {
+      "workId": "work-l03-newton-olney-08",
+      "position": 8,
+      "originalLabel": "VIII"
+    },
+    {
+      "workId": "work-l03-newton-olney-09",
+      "position": 9,
+      "originalLabel": "IX"
+    },
+    {
+      "workId": "work-l03-newton-olney-10",
+      "position": 10,
+      "originalLabel": "X"
+    },
+    {
+      "workId": "work-l03-newton-olney-11",
+      "position": 11,
+      "originalLabel": "XI"
+    },
+    {
+      "workId": "work-l03-newton-olney-12",
+      "position": 12,
+      "originalLabel": "XII"
+    },
+    {
+      "workId": "work-l03-newton-olney-13",
+      "position": 13,
+      "originalLabel": "XIII"
+    },
+    {
+      "workId": "work-l03-newton-olney-14",
+      "position": 14,
+      "originalLabel": "XIV"
+    },
+    {
+      "workId": "work-l03-newton-olney-15",
+      "position": 15,
+      "originalLabel": "XV"
+    },
+    {
+      "workId": "work-l03-newton-olney-16",
+      "position": 16,
+      "originalLabel": "XVI"
+    },
+    {
+      "workId": "work-l03-newton-olney-17",
+      "position": 17,
+      "originalLabel": "XVII"
+    },
+    {
+      "workId": "work-l03-newton-olney-18",
+      "position": 18,
+      "originalLabel": "XVIII"
+    },
+    {
+      "workId": "work-l03-newton-olney-19",
+      "position": 19,
+      "originalLabel": "XIX"
+    },
+    {
+      "workId": "work-l03-newton-olney-20",
+      "position": 20,
+      "originalLabel": "XX"
+    }
+  ],
+  "expectedCount": 20,
+  "completeness": "complete",
+  "inventoryEvidence": [
+    {
+      "url": "https://archive.org/details/worksrevjohnne02newt",
+      "locator": "Printed contents and component headings; see inventory.json for page references",
+      "note": "All units in this bounded printed division located, including cross-volume redirects.",
+      "checkedOn": "2026-10-05"
+    }
+  ],
+  "missing": []
+}

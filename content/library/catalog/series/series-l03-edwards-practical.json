@@ -1,0 +1,119 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "series",
+  "id": "series-l03-edwards-practical",
+  "editorialState": "catalogued",
+  "notes": [
+    "Contents says first published Edinburgh 1778; individual footnotes also identify 1788 material. This collected division must not receive a uniform first-publication date. Contents continuation leaf is misplaced in volume VII, PDF p.12; bodies are in volume VI.",
+    "Complete means this identified printed division, not the author’s complete ministry."
+  ],
+  "reviews": [],
+  "title": "Practical Sermons",
+  "authorIds": [
+    "author-jonathan-edwards"
+  ],
+  "members": [
+    {
+      "workId": "work-l03-edwards-practical-01",
+      "position": 1,
+      "originalLabel": "I"
+    },
+    {
+      "workId": "work-l03-edwards-practical-02",
+      "position": 2,
+      "originalLabel": "II"
+    },
+    {
+      "workId": "work-l03-edwards-practical-03",
+      "position": 3,
+      "originalLabel": "III"
+    },
+    {
+      "workId": "work-l03-edwards-practical-04",
+      "position": 4,
+      "originalLabel": "IV"
+    },
+    {
+      "workId": "work-l03-edwards-practical-05",
+      "position": 5,
+      "originalLabel": "V"
+    },
+    {
+      "workId": "work-l03-edwards-practical-06",
+      "position": 6,
+      "originalLabel": "VI"
+    },
+    {
+      "workId": "work-l03-edwards-practical-07",
+      "position": 7,
+      "originalLabel": "VII"
+    },
+    {
+      "workId": "work-l03-edwards-practical-08",
+      "position": 8,
+      "originalLabel": "VIII"
+    },
+    {
+      "workId": "work-l03-edwards-practical-09",
+      "position": 9,
+      "originalLabel": "IX"
+    },
+    {
+      "workId": "work-l03-edwards-practical-10",
+      "position": 10,
+      "originalLabel": "X"
+    },
+    {
+      "workId": "work-l03-edwards-practical-11",
+      "position": 11,
+      "originalLabel": "XI"
+    },
+    {
+      "workId": "work-l03-edwards-practical-12",
+      "position": 12,
+      "originalLabel": "XII"
+    },
+    {
+      "workId": "work-l03-edwards-practical-13",
+      "position": 13,
+      "originalLabel": "XIII"
+    },
+    {
+      "workId": "work-l03-edwards-practical-14",
+      "position": 14,
+      "originalLabel": "XIV"
+    },
+    {
+      "workId": "work-l03-edwards-practical-15",
+      "position": 15,
+      "originalLabel": "XV"
+    },
+    {
+      "workId": "work-l03-edwards-practical-16",
+      "position": 16,
+      "originalLabel": "XVI"
+    },
+    {
+      "workId": "work-l03-edwards-practical-17",
+      "position": 17,
+      "originalLabel": "XVII"
+    },
+    {
+      "workId": "work-l03-edwards-practical-18",
+      "position": 18,
+      "originalLabel": "XVIII"
+    }
+  ],
+  "expectedCount": 18,
+  "completeness": "complete",
+  "inventoryEvidence": [
+    {
+      "url": "https://archive.org/details/worksofpresidents06edwa",
+      "locator": "Printed contents and component headings; see inventory.json for page references",
+      "note": "All units in this bounded printed division located, including cross-volume redirects.",
+      "checkedOn": "2026-10-05"
+    }
+  ],
+  "missing": []
+}

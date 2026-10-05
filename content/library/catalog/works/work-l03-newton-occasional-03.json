@@ -1,0 +1,100 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-l03-newton-occasional-03",
+  "editorialState": "catalogued",
+  "notes": [
+    "Witness classification: printed-sermon.",
+    "Sermons embedded among tracts, memoir and letters. Contents position is editorial, not delivery order.",
+    "Title is a catalog/contents label; historical title variants and spelling remain available in the scan. Published-unit count is not a delivered-occasion count."
+  ],
+  "reviews": [],
+  "title": "On the Death of Dr. Conyers",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-john-newton",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "eighteenth-century",
+  "dates": [
+    {
+      "event": "delivery",
+      "value": "1786-05-07",
+      "precision": "day",
+      "label": "Explicit preaching date; occasion preserved in title-page witness.",
+      "evidence": [
+        {
+          "url": "https://archive.org/details/worksrevjohnne05newt",
+          "locator": "PDF p.175, individual title",
+          "note": "Explicit preaching date; occasion preserved in title-page witness.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    },
+    {
+      "event": "original-publication",
+      "value": "1786",
+      "precision": "year",
+      "label": "Explicit first-printed year; distinct from 1810 collected edition.",
+      "evidence": [
+        {
+          "url": "https://archive.org/details/worksrevjohnne05newt",
+          "locator": "PDF p.175, individual title",
+          "note": "Explicit first-printed year; distinct from 1810 collected edition.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    }
+  ],
+  "passages": [
+    {
+      "reference": "1 Thessalonians 2:8",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 52002008,
+      "end": 52002008,
+      "verification": "verified",
+      "locator": "Works, volume V: seven occasional sermons; published contents/start reference p.167; actual sermon/body heading PDF p.177 (one-based). Contents pagination may refer to preceding title matter; PDF locator is checked independently."
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-l03-worksrevjohnne05newt",
+      "locator": "Works, volume V: seven occasional sermons; published contents/start reference p.167; actual sermon/body heading PDF p.177 (one-based). Contents pagination may refer to preceding title matter; PDF locator is checked independently."
+    }
+  ],
+  "externalIds": {
+    "l03-printed-group": [
+      "newton-occasional"
+    ],
+    "l03-component-position": [
+      "3"
+    ],
+    "original-printed-label": [
+      "III"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/details/worksrevjohnne05newt",
+      "locator": "Works, volume V: seven occasional sermons; published contents/start reference p.167; actual sermon/body heading PDF p.177 (one-based). Contents pagination may refer to preceding title matter; PDF locator is checked independently.",
+      "note": "Printed component identity and opening main text; not incidental citations.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

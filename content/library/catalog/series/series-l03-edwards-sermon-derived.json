@@ -1,0 +1,39 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "series",
+  "id": "series-l03-edwards-sermon-derived",
+  "editorialState": "catalogued",
+  "notes": [
+    "Long-form editorial/publication units; not counted as two discrete delivered sermons. Prefaces and publishers frame these works separately from the discourses they originated in.",
+    "Complete means this identified printed division, not the author’s complete ministry."
+  ],
+  "reviews": [],
+  "title": "Sermon-derived works in volume III",
+  "authorIds": [
+    "author-jonathan-edwards"
+  ],
+  "members": [
+    {
+      "workId": "work-l03-edwards-sermon-derived-01",
+      "position": 1,
+      "originalLabel": "A History of the Work of Redemption"
+    },
+    {
+      "workId": "work-l03-edwards-sermon-derived-02",
+      "position": 2,
+      "originalLabel": "The Distinguishing Marks of a Work of the Spirit of God"
+    }
+  ],
+  "expectedCount": 2,
+  "completeness": "complete",
+  "inventoryEvidence": [
+    {
+      "url": "https://archive.org/details/worksofpresidents03edwa",
+      "locator": "Printed contents and component headings; see inventory.json for page references",
+      "note": "All units in this bounded printed division located, including cross-volume redirects.",
+      "checkedOn": "2026-10-05"
+    }
+  ],
+  "missing": []
+}

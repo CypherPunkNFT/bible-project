@@ -1,0 +1,64 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "series",
+  "id": "series-l03-ryle-children",
+  "editorialState": "catalogued",
+  "notes": [
+    "William Hunt, 1869: date visually verified on title page, PDF p.9. Seven contents entries include two pastoral pieces distinguished from the five sermon-form texts. Intended audience: children.",
+    "Complete means this identified printed division, not the author’s complete ministry."
+  ],
+  "reviews": [],
+  "title": "The Two Bears, and Other Sermons for Children",
+  "authorIds": [
+    "author-j-c-ryle"
+  ],
+  "members": [
+    {
+      "workId": "work-l03-ryle-children-01",
+      "position": 1,
+      "originalLabel": "The Two Bears"
+    },
+    {
+      "workId": "work-l03-ryle-children-02",
+      "position": 2,
+      "originalLabel": "Children Walking in Truth"
+    },
+    {
+      "workId": "work-l03-ryle-children-03",
+      "position": 3,
+      "originalLabel": "Little and Wise"
+    },
+    {
+      "workId": "work-l03-ryle-children-04",
+      "position": 4,
+      "originalLabel": "No More Crying!"
+    },
+    {
+      "workId": "work-l03-ryle-children-05",
+      "position": 5,
+      "originalLabel": "The Happy Little Girl"
+    },
+    {
+      "workId": "work-l03-ryle-children-06",
+      "position": 6,
+      "originalLabel": "Little Things"
+    },
+    {
+      "workId": "work-l03-ryle-children-07",
+      "position": 7,
+      "originalLabel": "Seeking the Lord Early"
+    }
+  ],
+  "expectedCount": 7,
+  "completeness": "complete",
+  "inventoryEvidence": [
+    {
+      "url": "https://archive.org/details/twobearsandothe00rylegoog",
+      "locator": "Printed contents and component headings; see inventory.json for page references",
+      "note": "All units in this bounded printed division located, including cross-volume redirects.",
+      "checkedOn": "2026-10-05"
+    }
+  ],
+  "missing": []
+}

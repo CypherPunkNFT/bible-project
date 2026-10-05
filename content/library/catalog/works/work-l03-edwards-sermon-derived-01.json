@@ -1,0 +1,86 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-l03-edwards-sermon-derived-01",
+  "editorialState": "catalogued",
+  "notes": [
+    "Witness classification: sermon-derived-work.",
+    "Long-form editorial/publication units; not counted as two discrete delivered sermons. Prefaces and publishers frame these works separately from the discourses they originated in.",
+    "Title is a catalog/contents label; historical title variants and spelling remain available in the scan. Published-unit count is not a delivered-occasion count."
+  ],
+  "reviews": [],
+  "title": "A History of the Work of Redemption",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-jonathan-edwards",
+      "role": "author"
+    }
+  ],
+  "genre": "treatise",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "eighteenth-century",
+  "dates": [
+    {
+      "event": "delivery",
+      "value": null,
+      "precision": "unknown",
+      "label": "Not established for this individual printed unit; edition year is recorded separately.",
+      "evidence": []
+    },
+    {
+      "event": "original-publication",
+      "value": null,
+      "precision": "unknown",
+      "label": "Not established for this individual printed unit; edition year is recorded separately.",
+      "evidence": []
+    }
+  ],
+  "passages": [
+    {
+      "reference": "Isaiah 51:8",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 23051008,
+      "end": 23051008,
+      "verification": "verified",
+      "locator": "Sermon-derived works in volume III; published contents/start reference p.165; actual sermon/body heading PDF p.179 (one-based). Contents pagination may refer to preceding title matter; PDF locator is checked independently."
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-l03-worksofpresidents03edwa",
+      "locator": "Sermon-derived works in volume III; published contents/start reference p.165; actual sermon/body heading PDF p.179 (one-based). Contents pagination may refer to preceding title matter; PDF locator is checked independently."
+    }
+  ],
+  "externalIds": {
+    "l03-printed-group": [
+      "edwards-sermon-derived"
+    ],
+    "l03-component-position": [
+      "1"
+    ],
+    "original-printed-label": [
+      "A History of the Work of Redemption"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/details/worksofpresidents03edwa",
+      "locator": "Sermon-derived works in volume III; published contents/start reference p.165; actual sermon/body heading PDF p.179 (one-based). Contents pagination may refer to preceding title matter; PDF locator is checked independently.",
+      "note": "Printed component identity and opening main text; not incidental citations.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

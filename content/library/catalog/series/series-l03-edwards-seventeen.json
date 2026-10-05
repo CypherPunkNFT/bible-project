@@ -1,0 +1,114 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "series",
+  "id": "series-l03-edwards-seventeen",
+  "editorialState": "catalogued",
+  "notes": [
+    "Posthumous collected edition, 1830. Seventeen published units; no inference of seventeen unique delivery occasions.",
+    "Complete means this identified printed division, not the author’s complete ministry."
+  ],
+  "reviews": [],
+  "title": "Seventeen Occasional Sermons",
+  "authorIds": [
+    "author-jonathan-edwards"
+  ],
+  "members": [
+    {
+      "workId": "work-l03-edwards-seventeen-01",
+      "position": 1,
+      "originalLabel": "I"
+    },
+    {
+      "workId": "work-l03-edwards-seventeen-02",
+      "position": 2,
+      "originalLabel": "II"
+    },
+    {
+      "workId": "work-l03-edwards-seventeen-03",
+      "position": 3,
+      "originalLabel": "III"
+    },
+    {
+      "workId": "work-l03-edwards-seventeen-04",
+      "position": 4,
+      "originalLabel": "IV"
+    },
+    {
+      "workId": "work-l03-edwards-seventeen-05",
+      "position": 5,
+      "originalLabel": "V"
+    },
+    {
+      "workId": "work-l03-edwards-seventeen-06",
+      "position": 6,
+      "originalLabel": "VI"
+    },
+    {
+      "workId": "work-l03-edwards-seventeen-07",
+      "position": 7,
+      "originalLabel": "VII"
+    },
+    {
+      "workId": "work-l03-edwards-seventeen-08",
+      "position": 8,
+      "originalLabel": "VIII"
+    },
+    {
+      "workId": "work-l03-edwards-seventeen-09",
+      "position": 9,
+      "originalLabel": "IX"
+    },
+    {
+      "workId": "work-l03-edwards-seventeen-10",
+      "position": 10,
+      "originalLabel": "X"
+    },
+    {
+      "workId": "work-l03-edwards-seventeen-11",
+      "position": 11,
+      "originalLabel": "XI"
+    },
+    {
+      "workId": "work-l03-edwards-seventeen-12",
+      "position": 12,
+      "originalLabel": "XII"
+    },
+    {
+      "workId": "work-l03-edwards-seventeen-13",
+      "position": 13,
+      "originalLabel": "XIII"
+    },
+    {
+      "workId": "work-l03-edwards-seventeen-14",
+      "position": 14,
+      "originalLabel": "XIV"
+    },
+    {
+      "workId": "work-l03-edwards-seventeen-15",
+      "position": 15,
+      "originalLabel": "XV"
+    },
+    {
+      "workId": "work-l03-edwards-seventeen-16",
+      "position": 16,
+      "originalLabel": "XVI"
+    },
+    {
+      "workId": "work-l03-edwards-seventeen-17",
+      "position": 17,
+      "originalLabel": "XVII"
+    }
+  ],
+  "expectedCount": 17,
+  "completeness": "complete",
+  "inventoryEvidence": [
+    {
+      "url": "https://archive.org/details/worksofpresidents08edwa",
+      "locator": "Printed contents and component headings; see inventory.json for page references",
+      "note": "All units in this bounded printed division located, including cross-volume redirects.",
+      "checkedOn": "2026-10-05"
+    }
+  ],
+  "missing": []
+}

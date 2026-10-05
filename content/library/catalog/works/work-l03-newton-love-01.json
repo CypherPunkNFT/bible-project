@@ -1,0 +1,101 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-l03-newton-love-01",
+  "editorialState": "catalogued",
+  "notes": [
+    "Witness classification: author-reconstructed-delivered-sermon.",
+    "1811 posthumous collected volume. Executors distinguish this previously published 1800 sermon from their letters and miscellaneous essays.",
+    "Advertisement, PDF p.508: not an exact copy of delivery; reconstructed after an interval without notes, with impaired recollection.",
+    "Title is a catalog/contents label; historical title variants and spelling remain available in the scan. Published-unit count is not a delivered-occasion count."
+  ],
+  "reviews": [],
+  "title": "The Constraining Influence of the Love of Christ",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-john-newton",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "eighteenth-century",
+  "dates": [
+    {
+      "event": "delivery",
+      "value": "1800-03-30",
+      "precision": "day",
+      "label": "Charity sermon before the Lord Mayor, aldermen and sheriffs for Langbourn-Ward Charity School.",
+      "evidence": [
+        {
+          "url": "https://archive.org/details/worksrevjohnne06newt",
+          "locator": "PDF p.505",
+          "note": "Charity sermon before the Lord Mayor, aldermen and sheriffs for Langbourn-Ward Charity School.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    },
+    {
+      "event": "original-publication",
+      "value": "1800",
+      "precision": "year",
+      "label": "Executors identify prior publication in 1800.",
+      "evidence": [
+        {
+          "url": "https://archive.org/details/worksrevjohnne06newt",
+          "locator": "Executors advertisement, PDF pp.9–11",
+          "note": "Executors identify prior publication in 1800.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    }
+  ],
+  "passages": [
+    {
+      "reference": "2 Corinthians 5:13-15",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 47005013,
+      "end": 47005015,
+      "verification": "verified",
+      "locator": "Works, volume VI: sermon on the love of Christ; published contents/start reference p.489; actual sermon/body heading PDF p.509 (one-based). Contents pagination may refer to preceding title matter; PDF locator is checked independently."
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-l03-worksrevjohnne06newt",
+      "locator": "Works, volume VI: sermon on the love of Christ; published contents/start reference p.489; actual sermon/body heading PDF p.509 (one-based). Contents pagination may refer to preceding title matter; PDF locator is checked independently."
+    }
+  ],
+  "externalIds": {
+    "l03-printed-group": [
+      "newton-love"
+    ],
+    "l03-component-position": [
+      "1"
+    ],
+    "original-printed-label": [
+      "The Constraining Influence of the Love of Christ"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/details/worksrevjohnne06newt",
+      "locator": "Works, volume VI: sermon on the love of Christ; published contents/start reference p.489; actual sermon/body heading PDF p.509 (one-based). Contents pagination may refer to preceding title matter; PDF locator is checked independently.",
+      "note": "Printed component identity and opening main text; not incidental citations.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

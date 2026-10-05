@@ -1,0 +1,61 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-l03-twobearsandothe00rylegoog",
+  "editorialState": "catalogued",
+  "notes": [
+    "Two separately published sermon collections; exclude Herbert Edward Ryle, and distinguish collection publication from individual delivery.",
+    "Christian Race: selected from Ryle's manuscripts by T. J. Madden with Ryle's authorization, as Madden's March 1, 1900 preface states. Selection was not by Ryle personally. Publication day relative to Ryle's death is unestablished. Two Bears: 1869 lifetime printing, including pastoral pieces alongside sermon-form addresses.",
+    "Mixed-volume contents are not all sermons by the named preacher. Only explicitly inventoried components enter sermon counts.",
+    "Original-language-form describes this historic printing, not a claim of an autograph manuscript or verbatim delivery."
+  ],
+  "reviews": [],
+  "workId": "work-l03-twobearsandothe00rylegoog",
+  "label": "The Two Bears, and Other Sermons for Children (1869)",
+  "languages": [
+    "en"
+  ],
+  "contributors": [],
+  "publisher": "London and Ipswich: William Hunt",
+  "dates": [
+    {
+      "event": "edition-publication",
+      "value": "1869",
+      "precision": "year",
+      "label": "Original title-page imprint.",
+      "evidence": [
+        {
+          "url": "https://archive.org/details/twobearsandothe00rylegoog",
+          "locator": "Title page, contents, prefaces and identified component headings",
+          "note": "Edition date checked against original imprint rather than generic item metadata.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    }
+  ],
+  "abridgment": "unknown",
+  "modernization": "original-language-form",
+  "evidence": [
+    {
+      "url": "https://archive.org/details/twobearsandothe00rylegoog",
+      "locator": "Title page, contents, prefaces and identified component headings",
+      "note": "Edition date checked against original imprint rather than generic item metadata.",
+      "checkedOn": "2026-10-05"
+    }
+  ],
+  "textRights": {
+    "status": "public-domain",
+    "jurisdiction": "US",
+    "scope": "Text of the identified historical printed edition only; excludes modern metadata and scan wrapper.",
+    "basis": "Printed 1869; US publication copyright term expired.",
+    "evidence": [
+      {
+        "url": "https://www.copyright.gov/title17/92chap3.html",
+        "locator": "17 USC 304",
+        "note": "Pre-1931 published historical edition.",
+        "checkedOn": "2026-10-05"
+      }
+    ]
+  }
+}

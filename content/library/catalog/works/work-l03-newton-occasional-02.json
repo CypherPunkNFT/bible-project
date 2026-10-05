@@ -1,0 +1,100 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-l03-newton-occasional-02",
+  "editorialState": "catalogued",
+  "notes": [
+    "Witness classification: printed-sermon.",
+    "Sermons embedded among tracts, memoir and letters. Contents position is editorial, not delivery order.",
+    "Title is a catalog/contents label; historical title variants and spelling remain available in the scan. Published-unit count is not a delivered-occasion count."
+  ],
+  "reviews": [],
+  "title": "The Guilt and Danger of Such a Nation as This",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-john-newton",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "eighteenth-century",
+  "dates": [
+    {
+      "event": "delivery",
+      "value": "1781-02-21",
+      "precision": "day",
+      "label": "Explicit preaching date; occasion preserved in title-page witness.",
+      "evidence": [
+        {
+          "url": "https://archive.org/details/worksrevjohnne05newt",
+          "locator": "PDF p.147, individual title",
+          "note": "Explicit preaching date; occasion preserved in title-page witness.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    },
+    {
+      "event": "original-publication",
+      "value": "1781",
+      "precision": "year",
+      "label": "Explicit first-printed year; distinct from 1810 collected edition.",
+      "evidence": [
+        {
+          "url": "https://archive.org/details/worksrevjohnne05newt",
+          "locator": "PDF p.147, individual title",
+          "note": "Explicit first-printed year; distinct from 1810 collected edition.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    }
+  ],
+  "passages": [
+    {
+      "reference": "Jeremiah 5:29",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 24005029,
+      "end": 24005029,
+      "verification": "verified",
+      "locator": "Works, volume V: seven occasional sermons; published contents/start reference p.137; actual sermon/body heading PDF p.149 (one-based). Contents pagination may refer to preceding title matter; PDF locator is checked independently."
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-l03-worksrevjohnne05newt",
+      "locator": "Works, volume V: seven occasional sermons; published contents/start reference p.137; actual sermon/body heading PDF p.149 (one-based). Contents pagination may refer to preceding title matter; PDF locator is checked independently."
+    }
+  ],
+  "externalIds": {
+    "l03-printed-group": [
+      "newton-occasional"
+    ],
+    "l03-component-position": [
+      "2"
+    ],
+    "original-printed-label": [
+      "II"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/details/worksrevjohnne05newt",
+      "locator": "Works, volume V: seven occasional sermons; published contents/start reference p.137; actual sermon/body heading PDF p.149 (one-based). Contents pagination may refer to preceding title matter; PDF locator is checked independently.",
+      "note": "Printed component identity and opening main text; not incidental citations.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

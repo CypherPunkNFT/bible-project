@@ -1,0 +1,88 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-l03-edwards-eight-01",
+  "editorialState": "catalogued",
+  "notes": [
+    "Witness classification: sermon-derived-editorial-compilation.",
+    "The editor explicitly combines three short sermons into the first treatise; contents units are not a delivery count. Miscellaneous observations after these eight are excluded.",
+    "Editor W. at printed p.3 says three short unfinished sermons were recast as a treatise; Glasgow 1785 form also mentioned.",
+    "Title is a catalog/contents label; historical title variants and spelling remain available in the scan. Published-unit count is not a delivered-occasion count.",
+    "Source dating/editorial witness is retained in inventory.json; wording such as \"dated\" alone is not treated as a delivery assertion."
+  ],
+  "reviews": [],
+  "title": "Man's Natural Blindness in Religion",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-jonathan-edwards",
+      "role": "author"
+    }
+  ],
+  "genre": "treatise",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "eighteenth-century",
+  "dates": [
+    {
+      "event": "delivery",
+      "value": null,
+      "precision": "unknown",
+      "label": "Not established for this individual printed unit; edition year is recorded separately.",
+      "evidence": []
+    },
+    {
+      "event": "original-publication",
+      "value": null,
+      "precision": "unknown",
+      "label": "Not established for this individual printed unit; edition year is recorded separately.",
+      "evidence": []
+    }
+  ],
+  "passages": [
+    {
+      "reference": "Psalms 94:8-11",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 19094008,
+      "end": 19094011,
+      "verification": "verified",
+      "locator": "Eight Sermons on Various Subjects; published contents/start reference p.3; actual sermon/body heading PDF p.15 (one-based). Contents pagination may refer to preceding title matter; PDF locator is checked independently."
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-l03-worksofpresidents07edwa",
+      "locator": "Eight Sermons on Various Subjects; published contents/start reference p.3; actual sermon/body heading PDF p.15 (one-based). Contents pagination may refer to preceding title matter; PDF locator is checked independently."
+    }
+  ],
+  "externalIds": {
+    "l03-printed-group": [
+      "edwards-eight"
+    ],
+    "l03-component-position": [
+      "1"
+    ],
+    "original-printed-label": [
+      "I"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/details/worksofpresidents07edwa",
+      "locator": "Eight Sermons on Various Subjects; published contents/start reference p.3; actual sermon/body heading PDF p.15 (one-based). Contents pagination may refer to preceding title matter; PDF locator is checked independently.",
+      "note": "Printed component identity and opening main text; not incidental citations.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

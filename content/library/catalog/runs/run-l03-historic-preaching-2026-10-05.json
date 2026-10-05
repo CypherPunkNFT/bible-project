@@ -1,0 +1,37 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "run",
+  "id": "run-l03-historic-preaching-2026-10-05",
+  "missionId": "L03",
+  "status": "complete",
+  "startedOn": "2026-10-05",
+  "completedOn": "2026-10-05",
+  "boundary": "17 selected printed volumes; 243 indexed components including sermon-derived works and two pastoral pieces. Bibliography preceded acquisition; no author-wide completeness claim.",
+  "sourceIds": [
+    "source-internet-archive"
+  ],
+  "inventory": "content/library/reports/historic-preaching/inventory.json",
+  "checkpoint": "content/library/reports/historic-preaching/acquisition-manifest.json",
+  "counts": {
+    "works": 260,
+    "editions": 17,
+    "assets": 51,
+    "series": 17,
+    "reviewedWorks": 0,
+    "publishedWorks": 0
+  },
+  "gaps": [
+    "This is a census of selected printed collections, not every surviving sermon manuscript or preaching occasion of the four authors.",
+    "Edwards: Dwight volumes II and IV are outside this sermon inventory; Religious Affections and other sermon-derived theological works require the theology mission. Modern Yale manuscript and critical editions are not mirrored.",
+    "Edwards: misplaced contents leaves and conflicting page/date witnesses are retained in corrections; author-wide completeness remains unknown.",
+    "Whitefield: 57 numbered Works sermons are complete within this edition. Gurney shorthand reports and other lifetime pamphlet witnesses still require independent comparison; do not collapse them into these texts.",
+    "Newton: volume I letters and the separately catalogued Cardiphonia are outside this sermon extraction; volume III contains history/hymns, not individual sermons.",
+    "Ryle: two selected books only; other tracts and sermon collections remain to be inventoried. No exhaustive author-wide claim.",
+    "Unknown delivery and first-publication dates remain unknown. Manuscript dates are not automatically delivery dates; original calendars and conflicts remain in witness notes.",
+    "OCR is unproofread. Whole-page previews and heading checks do not establish full-text accuracy or absence of missing internal leaves.",
+    "No recordings acquired. Any future modern reading must identify its performer/date and use later-reading, never original-recording.",
+    "No permission-dependent modern editions, Monergism curated files, or other modern copyrighted sermon corpora acquired in this run."
+  ],
+  "reportPath": "content/library/reports/historic-preaching/REPORT.md"
+}

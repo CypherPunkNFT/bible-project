@@ -1,0 +1,34 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "series",
+  "id": "series-l03-edwards-farewell",
+  "editorialState": "catalogued",
+  "notes": [
+    "Posthumous 1830 collected edition. Original 1751 imprint reproduced on printed p.626. June 22, 1750 in the title describes rejection by the congregation; do not automatically use it as the delivery date.",
+    "Complete means this identified printed division, not the author’s complete ministry."
+  ],
+  "reviews": [],
+  "title": "Farewell Sermon",
+  "authorIds": [
+    "author-jonathan-edwards"
+  ],
+  "members": [
+    {
+      "workId": "work-l03-edwards-farewell-01",
+      "position": 1,
+      "originalLabel": "Farewell Sermon"
+    }
+  ],
+  "expectedCount": 1,
+  "completeness": "complete",
+  "inventoryEvidence": [
+    {
+      "url": "https://archive.org/details/worksofpresidents01edwa",
+      "locator": "Printed contents and component headings; see inventory.json for page references",
+      "note": "All units in this bounded printed division located, including cross-volume redirects.",
+      "checkedOn": "2026-10-05"
+    }
+  ],
+  "missing": []
+}

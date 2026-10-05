@@ -1,0 +1,86 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-l03-newton-olney-11",
+  "editorialState": "catalogued",
+  "notes": [
+    "Witness classification: delivered-sermon.",
+    "Series title attests preaching at Olney; individual delivery dates remain unknown unless explicitly documented.",
+    "Title is a catalog/contents label; historical title variants and spelling remain available in the scan. Published-unit count is not a delivered-occasion count."
+  ],
+  "reviews": [],
+  "title": "The Present and Future Rest of Believers in Christ",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-john-newton",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "eighteenth-century",
+  "dates": [
+    {
+      "event": "delivery",
+      "value": null,
+      "precision": "unknown",
+      "label": "Not established for this individual printed unit; edition year is recorded separately.",
+      "evidence": []
+    },
+    {
+      "event": "original-publication",
+      "value": null,
+      "precision": "unknown",
+      "label": "Not established for this individual printed unit; edition year is recorded separately.",
+      "evidence": []
+    }
+  ],
+  "passages": [
+    {
+      "reference": "Matthew 11:28",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 40011028,
+      "end": 40011028,
+      "verification": "verified",
+      "locator": "Twenty Sermons Preached in the Parish Church of Olney; published contents/start reference p.469; actual sermon/body heading PDF p.483 (one-based). Contents pagination may refer to preceding title matter; PDF locator is checked independently."
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-l03-worksrevjohnne02newt",
+      "locator": "Twenty Sermons Preached in the Parish Church of Olney; published contents/start reference p.469; actual sermon/body heading PDF p.483 (one-based). Contents pagination may refer to preceding title matter; PDF locator is checked independently."
+    }
+  ],
+  "externalIds": {
+    "l03-printed-group": [
+      "newton-olney"
+    ],
+    "l03-component-position": [
+      "11"
+    ],
+    "original-printed-label": [
+      "XI"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/details/worksrevjohnne02newt",
+      "locator": "Twenty Sermons Preached in the Parish Church of Olney; published contents/start reference p.469; actual sermon/body heading PDF p.483 (one-based). Contents pagination may refer to preceding title matter; PDF locator is checked independently.",
+      "note": "Printed component identity and opening main text; not incidental citations.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

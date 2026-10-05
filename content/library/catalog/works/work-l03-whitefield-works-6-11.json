@@ -1,0 +1,89 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-l03-whitefield-works-6-11",
+  "editorialState": "catalogued",
+  "notes": [
+    "Witness classification: printed-sermon.",
+    "1772 posthumous collection; continues volume V numbering. Separate from later Gurney shorthand reports.",
+    "Title is a catalog/contents label; historical title variants and spelling remain available in the scan. Published-unit count is not a delivered-occasion count."
+  ],
+  "reviews": [],
+  "title": "Marks of Having Received the Holy Ghost",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-george-whitefield",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "eighteenth-century",
+  "dates": [
+    {
+      "event": "delivery",
+      "value": null,
+      "precision": "unknown",
+      "label": "Not established for this individual printed unit; edition year is recorded separately.",
+      "evidence": []
+    },
+    {
+      "event": "original-publication",
+      "value": null,
+      "precision": "unknown",
+      "label": "Not established for this individual printed unit; edition year is recorded separately.",
+      "evidence": []
+    }
+  ],
+  "passages": [
+    {
+      "reference": "Acts 19:2",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 44019002,
+      "end": 44019002,
+      "verification": "verified",
+      "locator": "Works, volume VI: sermons XXXII–LVII; published contents/start reference p.161; actual sermon/body heading PDF p.171 (one-based). Contents pagination may refer to preceding title matter; PDF locator is checked independently."
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-l03-worksofreverendg06whit",
+      "locator": "Works, volume VI: sermons XXXII–LVII; published contents/start reference p.161; actual sermon/body heading PDF p.171 (one-based). Contents pagination may refer to preceding title matter; PDF locator is checked independently."
+    }
+  ],
+  "externalIds": {
+    "l03-printed-group": [
+      "whitefield-works-6"
+    ],
+    "l03-component-position": [
+      "11"
+    ],
+    "published-sermon-number": [
+      "42"
+    ],
+    "original-printed-label": [
+      "XLII"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/details/worksofreverendg06whit",
+      "locator": "Works, volume VI: sermons XXXII–LVII; published contents/start reference p.161; actual sermon/body heading PDF p.171 (one-based). Contents pagination may refer to preceding title matter; PDF locator is checked independently.",
+      "note": "Printed component identity and opening main text; not incidental citations.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

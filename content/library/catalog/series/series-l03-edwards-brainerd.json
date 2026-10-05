@@ -1,0 +1,34 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "series",
+  "id": "series-l03-edwards-brainerd",
+  "editorialState": "catalogued",
+  "notes": [
+    "Embedded after Brainerd memoir; same work as no. XVIII cross-reference in volume VI. Pemberton’s earlier ordination sermon is a different author and is excluded.",
+    "Complete means this identified printed division, not the author’s complete ministry."
+  ],
+  "reviews": [],
+  "title": "Funeral Sermon on David Brainerd",
+  "authorIds": [
+    "author-jonathan-edwards"
+  ],
+  "members": [
+    {
+      "workId": "work-l03-edwards-brainerd-01",
+      "position": 1,
+      "originalLabel": "True Saints, When Absent from the Body, Are Present with the Lord"
+    }
+  ],
+  "expectedCount": 1,
+  "completeness": "complete",
+  "inventoryEvidence": [
+    {
+      "url": "https://archive.org/details/worksofpresident10edwa",
+      "locator": "Printed contents and component headings; see inventory.json for page references",
+      "note": "All units in this bounded printed division located, including cross-volume redirects.",
+      "checkedOn": "2026-10-05"
+    }
+  ],
+  "missing": []
+}

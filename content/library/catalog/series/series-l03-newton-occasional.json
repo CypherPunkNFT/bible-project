@@ -1,0 +1,64 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "series",
+  "id": "series-l03-newton-occasional",
+  "editorialState": "catalogued",
+  "notes": [
+    "Sermons embedded among tracts, memoir and letters. Contents position is editorial, not delivery order.",
+    "Complete means this identified printed division, not the author’s complete ministry."
+  ],
+  "reviews": [],
+  "title": "Works, volume V: seven occasional sermons",
+  "authorIds": [
+    "author-john-newton"
+  ],
+  "members": [
+    {
+      "workId": "work-l03-newton-occasional-01",
+      "position": 1,
+      "originalLabel": "I"
+    },
+    {
+      "workId": "work-l03-newton-occasional-02",
+      "position": 2,
+      "originalLabel": "II"
+    },
+    {
+      "workId": "work-l03-newton-occasional-03",
+      "position": 3,
+      "originalLabel": "III"
+    },
+    {
+      "workId": "work-l03-newton-occasional-04",
+      "position": 4,
+      "originalLabel": "IV"
+    },
+    {
+      "workId": "work-l03-newton-occasional-05",
+      "position": 5,
+      "originalLabel": "V"
+    },
+    {
+      "workId": "work-l03-newton-occasional-06",
+      "position": 6,
+      "originalLabel": "VI"
+    },
+    {
+      "workId": "work-l03-newton-occasional-07",
+      "position": 7,
+      "originalLabel": "VII"
+    }
+  ],
+  "expectedCount": 7,
+  "completeness": "complete",
+  "inventoryEvidence": [
+    {
+      "url": "https://archive.org/details/worksrevjohnne05newt",
+      "locator": "Printed contents and component headings; see inventory.json for page references",
+      "note": "All units in this bounded printed division located, including cross-volume redirects.",
+      "checkedOn": "2026-10-05"
+    }
+  ],
+  "missing": []
+}

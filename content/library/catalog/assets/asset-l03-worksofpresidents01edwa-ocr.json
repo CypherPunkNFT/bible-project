@@ -1,0 +1,90 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "asset",
+  "id": "asset-l03-worksofpresidents01edwa-ocr",
+  "editorialState": "catalogued",
+  "notes": [
+    "Title page and original text rights are distinct from rights in modern catalog metadata."
+  ],
+  "reviews": [],
+  "editionId": "edition-l03-worksofpresidents01edwa",
+  "sourceId": "source-internet-archive",
+  "canonicalUrl": "https://archive.org/download/worksofpresidents01edwa/worksofpresidents01edwa_djvu.txt",
+  "finalUrl": "https://dn760009.eu.archive.org/0/items/worksofpresidents01edwa/worksofpresidents01edwa_djvu.txt",
+  "format": "text",
+  "mediaKind": "text",
+  "acquisitionStatus": "downloaded",
+  "storage": "raw",
+  "relativePath": "library/source-internet-archive/asset-l03-worksofpresidents01edwa-ocr/worksofpresidents01edwa_djvu.txt",
+  "sha256": "cc23b73d572af7b13fc0406bb1d0dd70d42e9e256627641eb86a176f32cf6d8e",
+  "byteCount": 2681653,
+  "mimeType": "text/plain",
+  "retrievedAt": "2026-10-05T09:09:43.769826Z",
+  "rights": {
+    "category": "public-domain",
+    "jurisdiction": "US",
+    "licenseId": null,
+    "licenseUrl": null,
+    "attribution": "Historical author, publisher and digitizing library identified in the retained volume; accessed through Internet Archive.",
+    "conditions": [
+      "Retain source and author attribution. Historical printed text and digital file are assessed separately."
+    ],
+    "conditionsMet": true,
+    "actions": {
+      "download": "allowed",
+      "host": "allowed",
+      "redistribute": "allowed",
+      "adapt": "allowed",
+      "transcribe": "allowed",
+      "embed": "allowed",
+      "indexMetadata": "allowed",
+      "indexFullText": "allowed"
+    },
+    "evidence": [
+      {
+        "url": "https://archive.org/details/worksofpresidents01edwa",
+        "locator": "Title page and original scan",
+        "note": "Historical printed edition 1830; modern catalog descriptions and file wrappers are not claimed public domain.",
+        "checkedOn": "2026-10-05"
+      },
+      {
+        "url": "https://www.copyright.gov/title17/92chap3.html",
+        "locator": "17 USC 304",
+        "note": "The selected printed editions predate 1931; their US publication term has expired.",
+        "checkedOn": "2026-10-05"
+      },
+      {
+        "url": "https://archive.org/developers/bots.html",
+        "locator": "Public API automation guidance",
+        "note": "Bounded requests, identified agent, caching, retries and source metadata; no access restrictions bypassed.",
+        "checkedOn": "2026-10-05"
+      }
+    ],
+    "unresolved": [
+      "Outside-US rights and accuracy of unproofread host OCR require separate assessment."
+    ],
+    "review": {
+      "date": "2026-10-05",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Selected historical edition and permitted public retrieval; no full-text publication or search ingestion."
+    }
+  },
+  "fullTextIndexed": false,
+  "processing": {
+    "parentAssetId": null,
+    "method": "none",
+    "tool": null,
+    "toolVersion": null,
+    "parameters": null,
+    "date": null,
+    "note": "Original downloaded bytes; upstream OCR retained without correction. No generated sermon prose."
+  },
+  "quality": {
+    "state": "unreviewed",
+    "reviewedBy": null,
+    "reviewedOn": null,
+    "note": "PDF opened and headings/contents checked; OCR and all internal pages not proofread."
+  }
+}

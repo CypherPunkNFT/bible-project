@@ -1,0 +1,61 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-l03-worksofreverendg05whit",
+  "editorialState": "catalogued",
+  "notes": [
+    "Both sermon volumes of the six-volume collected works; retain manuscript-first-publication markers. Later Gurney shorthand collections are separate witnesses, not automatic duplicates.",
+    "Posthumous collected edition. Both sermon-volume title pages read 1772; their contents mark certain sermons as first publication from the author's manuscripts. Specific editor identity not independently established from these two volumes.",
+    "Mixed-volume contents are not all sermons by the named preacher. Only explicitly inventoried components enter sermon counts.",
+    "Original-language-form describes this historic printing, not a claim of an autograph manuscript or verbatim delivery."
+  ],
+  "reviews": [],
+  "workId": "work-l03-worksofreverendg05whit",
+  "label": "The Works of the Reverend George Whitefield, volume 5 (1772)",
+  "languages": [
+    "en"
+  ],
+  "contributors": [],
+  "publisher": "London: Edward and Charles Dilly; Edinburgh: Kincaid and Creech",
+  "dates": [
+    {
+      "event": "edition-publication",
+      "value": "1772",
+      "precision": "year",
+      "label": "Original title-page imprint.",
+      "evidence": [
+        {
+          "url": "https://archive.org/details/worksofreverendg05whit",
+          "locator": "Title page, contents, prefaces and identified component headings",
+          "note": "Edition date checked against original imprint rather than generic item metadata.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    }
+  ],
+  "abridgment": "unknown",
+  "modernization": "original-language-form",
+  "evidence": [
+    {
+      "url": "https://archive.org/details/worksofreverendg05whit",
+      "locator": "Title page, contents, prefaces and identified component headings",
+      "note": "Edition date checked against original imprint rather than generic item metadata.",
+      "checkedOn": "2026-10-05"
+    }
+  ],
+  "textRights": {
+    "status": "public-domain",
+    "jurisdiction": "US",
+    "scope": "Text of the identified historical printed edition only; excludes modern metadata and scan wrapper.",
+    "basis": "Printed 1772; US publication copyright term expired.",
+    "evidence": [
+      {
+        "url": "https://www.copyright.gov/title17/92chap3.html",
+        "locator": "17 USC 304",
+        "note": "Pre-1931 published historical edition.",
+        "checkedOn": "2026-10-05"
+      }
+    ]
+  }
+}

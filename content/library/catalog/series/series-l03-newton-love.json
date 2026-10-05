@@ -1,0 +1,34 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "series",
+  "id": "series-l03-newton-love",
+  "editorialState": "catalogued",
+  "notes": [
+    "1811 posthumous collected volume. Executors distinguish this previously published 1800 sermon from their letters and miscellaneous essays.",
+    "Complete means this identified printed division, not the author’s complete ministry."
+  ],
+  "reviews": [],
+  "title": "Works, volume VI: sermon on the love of Christ",
+  "authorIds": [
+    "author-john-newton"
+  ],
+  "members": [
+    {
+      "workId": "work-l03-newton-love-01",
+      "position": 1,
+      "originalLabel": "The Constraining Influence of the Love of Christ"
+    }
+  ],
+  "expectedCount": 1,
+  "completeness": "complete",
+  "inventoryEvidence": [
+    {
+      "url": "https://archive.org/details/worksrevjohnne06newt",
+      "locator": "Printed contents and component headings; see inventory.json for page references",
+      "note": "All units in this bounded printed division located, including cross-volume redirects.",
+      "checkedOn": "2026-10-05"
+    }
+  ],
+  "missing": []
+}

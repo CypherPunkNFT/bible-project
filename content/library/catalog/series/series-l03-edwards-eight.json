@@ -1,0 +1,69 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "series",
+  "id": "series-l03-edwards-eight",
+  "editorialState": "catalogued",
+  "notes": [
+    "The editor explicitly combines three short sermons into the first treatise; contents units are not a delivery count. Miscellaneous observations after these eight are excluded.",
+    "Complete means this identified printed division, not the author’s complete ministry."
+  ],
+  "reviews": [],
+  "title": "Eight Sermons on Various Subjects",
+  "authorIds": [
+    "author-jonathan-edwards"
+  ],
+  "members": [
+    {
+      "workId": "work-l03-edwards-eight-01",
+      "position": 1,
+      "originalLabel": "I"
+    },
+    {
+      "workId": "work-l03-edwards-eight-02",
+      "position": 2,
+      "originalLabel": "II"
+    },
+    {
+      "workId": "work-l03-edwards-eight-03",
+      "position": 3,
+      "originalLabel": "III"
+    },
+    {
+      "workId": "work-l03-edwards-eight-04",
+      "position": 4,
+      "originalLabel": "IV"
+    },
+    {
+      "workId": "work-l03-edwards-eight-05",
+      "position": 5,
+      "originalLabel": "V"
+    },
+    {
+      "workId": "work-l03-edwards-eight-06",
+      "position": 6,
+      "originalLabel": "VI"
+    },
+    {
+      "workId": "work-l03-edwards-eight-07",
+      "position": 7,
+      "originalLabel": "VII"
+    },
+    {
+      "workId": "work-l03-edwards-eight-08",
+      "position": 8,
+      "originalLabel": "VIII"
+    }
+  ],
+  "expectedCount": 8,
+  "completeness": "complete",
+  "inventoryEvidence": [
+    {
+      "url": "https://archive.org/details/worksofpresidents07edwa",
+      "locator": "Printed contents and component headings; see inventory.json for page references",
+      "note": "All units in this bounded printed division located, including cross-volume redirects.",
+      "checkedOn": "2026-10-05"
+    }
+  ],
+  "missing": []
+}

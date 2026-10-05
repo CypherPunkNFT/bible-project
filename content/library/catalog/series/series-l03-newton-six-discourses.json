@@ -1,0 +1,59 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "series",
+  "id": "series-l03-newton-six-discourses",
+  "editorialState": "catalogued",
+  "notes": [
+    "The title says intended for the pulpit; no actual delivery is inferred.",
+    "Complete means this identified printed division, not the author’s complete ministry."
+  ],
+  "reviews": [],
+  "title": "Six Discourses (or Sermons), as Intended for the Pulpit",
+  "authorIds": [
+    "author-john-newton"
+  ],
+  "members": [
+    {
+      "workId": "work-l03-newton-six-discourses-01",
+      "position": 1,
+      "originalLabel": "I"
+    },
+    {
+      "workId": "work-l03-newton-six-discourses-02",
+      "position": 2,
+      "originalLabel": "II"
+    },
+    {
+      "workId": "work-l03-newton-six-discourses-03",
+      "position": 3,
+      "originalLabel": "III"
+    },
+    {
+      "workId": "work-l03-newton-six-discourses-04",
+      "position": 4,
+      "originalLabel": "IV"
+    },
+    {
+      "workId": "work-l03-newton-six-discourses-05",
+      "position": 5,
+      "originalLabel": "V"
+    },
+    {
+      "workId": "work-l03-newton-six-discourses-06",
+      "position": 6,
+      "originalLabel": "VI"
+    }
+  ],
+  "expectedCount": 6,
+  "completeness": "complete",
+  "inventoryEvidence": [
+    {
+      "url": "https://archive.org/details/worksrevjohnne02newt",
+      "locator": "Printed contents and component headings; see inventory.json for page references",
+      "note": "All units in this bounded printed division located, including cross-volume redirects.",
+      "checkedOn": "2026-10-05"
+    }
+  ],
+  "missing": []
+}

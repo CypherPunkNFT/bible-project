@@ -1,0 +1,86 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-l03-ryle-race-16",
+  "editorialState": "catalogued",
+  "notes": [
+    "Witness classification: printed-sermon.",
+    "Hodder & Stoughton, 1900. Preface by T. J. Madden, Liverpool, March 1, 1900: Ryle authorized Madden to select manuscripts for this ministry memorial. No individual preaching dates established; 1900 alone does not establish posthumous publication.",
+    "Title is a catalog/contents label; historical title variants and spelling remain available in the scan. Published-unit count is not a delivered-occasion count."
+  ],
+  "reviews": [],
+  "title": "The Compassion of Jesus",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-j-c-ryle",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [
+    {
+      "event": "delivery",
+      "value": null,
+      "precision": "unknown",
+      "label": "Not established for this individual printed unit; edition year is recorded separately.",
+      "evidence": []
+    },
+    {
+      "event": "original-publication",
+      "value": null,
+      "precision": "unknown",
+      "label": "Not established for this individual printed unit; edition year is recorded separately.",
+      "evidence": []
+    }
+  ],
+  "passages": [
+    {
+      "reference": "Mark 6:34",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 41006034,
+      "end": 41006034,
+      "verification": "verified",
+      "locator": "The Christian Race and Other Sermons; published contents/start reference p.219; actual sermon/body heading PDF p.237 (one-based). Contents pagination may refer to preceding title matter; PDF locator is checked independently."
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-l03-thechristianrace00ryleuoft",
+      "locator": "The Christian Race and Other Sermons; published contents/start reference p.219; actual sermon/body heading PDF p.237 (one-based). Contents pagination may refer to preceding title matter; PDF locator is checked independently."
+    }
+  ],
+  "externalIds": {
+    "l03-printed-group": [
+      "ryle-race"
+    ],
+    "l03-component-position": [
+      "16"
+    ],
+    "original-printed-label": [
+      "XVI"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/details/thechristianrace00ryleuoft",
+      "locator": "The Christian Race and Other Sermons; published contents/start reference p.219; actual sermon/body heading PDF p.237 (one-based). Contents pagination may refer to preceding title matter; PDF locator is checked independently.",
+      "note": "Printed component identity and opening main text; not incidental citations.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

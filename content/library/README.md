@@ -58,3 +58,7 @@ The charter, initial roster, vocabulary, source notes and mission backlog are th
 ## Spurgeon acquisition
 
 The owner subsequently requested the published Spurgeon sermon inventory. Its [report](reports/spurgeon/REPORT.md), [counts](reports/spurgeon/summary.json), and [reconciliation register](reports/spurgeon/reconciliation.json) cover the 63-volume pulpit set and distinguish individual PDFs from whole-volume editions. Contextual contributors are recorded separately in `registry-extensions/`. See the run record for acquisition completion and the report for remaining metadata review.
+
+## Edwards, Whitefield, Newton and Ryle acquisition
+
+The [historic preaching report](reports/historic-preaching/REPORT.md) covers 17 selected volumes and 243 classified components. Bibliography, precise scan locators, original main texts, publication and delivery witnesses, editorial compilations, and remaining gaps accompany the immutable source files. These records are catalogued and excluded from public publication selection. The separate [Puritan acquisition checkpoint](reports/puritan-sermons/REPORT.md) remains unfinished; it was preserved when the owner selected this historic preaching category.

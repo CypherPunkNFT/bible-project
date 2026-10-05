@@ -1,0 +1,61 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-l03-worksofpresident10edwa",
+  "editorialState": "catalogued",
+  "notes": [
+    "Sermon-bearing volumes 1, 3, 5–8 and 10 of the ten-volume Dwight collection; volume 9 retained as a screened non-sermon contextual volume. Not a complete surviving-manuscript census.",
+    "Posthumous Dwight collection, incorporating earlier editorial work by John Erskine, Edward Williams and Jonathan Edwards the younger. The younger Edwards is a manuscript editor here, not the preacher. Editorial consolidation is identified at component level.",
+    "Mixed-volume contents are not all sermons by the named preacher. Only explicitly inventoried components enter sermon counts.",
+    "Original-language-form describes this historic printing, not a claim of an autograph manuscript or verbatim delivery."
+  ],
+  "reviews": [],
+  "workId": "work-l03-worksofpresident10edwa",
+  "label": "The Works of President Edwards, with a Memoir of His Life, volume 10 (1830)",
+  "languages": [
+    "en"
+  ],
+  "contributors": [],
+  "publisher": "New York: G. & C. & H. Carvill",
+  "dates": [
+    {
+      "event": "edition-publication",
+      "value": "1830",
+      "precision": "year",
+      "label": "Original title-page imprint.",
+      "evidence": [
+        {
+          "url": "https://archive.org/details/worksofpresident10edwa",
+          "locator": "Title page, contents, prefaces and identified component headings",
+          "note": "Edition date checked against original imprint rather than generic item metadata.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    }
+  ],
+  "abridgment": "unknown",
+  "modernization": "original-language-form",
+  "evidence": [
+    {
+      "url": "https://archive.org/details/worksofpresident10edwa",
+      "locator": "Title page, contents, prefaces and identified component headings",
+      "note": "Edition date checked against original imprint rather than generic item metadata.",
+      "checkedOn": "2026-10-05"
+    }
+  ],
+  "textRights": {
+    "status": "public-domain",
+    "jurisdiction": "US",
+    "scope": "Text of the identified historical printed edition only; excludes modern metadata and scan wrapper.",
+    "basis": "Printed 1830; US publication copyright term expired.",
+    "evidence": [
+      {
+        "url": "https://www.copyright.gov/title17/92chap3.html",
+        "locator": "17 USC 304",
+        "note": "Pre-1931 published historical edition.",
+        "checkedOn": "2026-10-05"
+      }
+    ]
+  }
+}

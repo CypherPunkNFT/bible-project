@@ -1,0 +1,46 @@
+{
+  "missionId": "L03",
+  "checkedOn": "2026-10-05",
+  "decisions": [
+    {
+      "case": "Edwards VI XVIII / Edwards X Brainerd funeral",
+      "decision": "One component work, work-l03-edwards-brainerd-01, is a member of both printed series. VI contains a redirect, not a second sermon body.",
+      "source": "https://archive.org/details/worksofpresidents06edwa",
+      "locator": "VI contents PDF p.13; X body PDF p.465"
+    },
+    {
+      "case": "Whitefield 1772 Works and existing 1830 selection",
+      "existingWorkId": "work-whitefield-sermons",
+      "decision": "Retain existing published collection identity. Newly indexed individual sermons belong to 1772 volumes V and VI. An item-by-item 1830 selection crosswalk is unresolved; shared titles alone do not establish identical text.",
+      "source": "https://archive.org/details/sermonsonimport00whitgoog",
+      "locator": "Existing edition record, H. Fisher and P. Jackson 1830"
+    },
+    {
+      "case": "Edwards Religious Affections / volume V",
+      "existingWorkId": "work-edwards-affections",
+      "decision": "The full scan contains Religious Affections; it is excluded from individual sermon counts and not recreated as a second theological work. Only the following five discourses are extracted here.",
+      "source": "https://archive.org/details/worksofpresidents05edwa",
+      "locator": "Title PDF p.11; Five Discourses title PDF p.361"
+    },
+    {
+      "case": "Newton Cardiphonia / volume II",
+      "existingWorkId": "work-newton-cardiphonia",
+      "decision": "Letters preceding the six discourses are excluded from sermon counts. The previously published Cardiphonia record retains its own edition identity.",
+      "source": "https://archive.org/details/worksrevjohnne02newt",
+      "locator": "Volume contents PDF pp.9–12"
+    },
+    {
+      "case": "Ryle Holiness and later sermon selections",
+      "existingWorkId": "work-ryle-holiness",
+      "decision": "No title-based merge. The two acquired sermon books retain their edition-specific component identities; textual reuse across Ryle's tracts and books requires later collation.",
+      "source": "https://archive.org/details/thechristianrace00ryleuoft",
+      "locator": "Madden preface PDF pp.11–12"
+    }
+  ],
+  "unresolved": [
+    "Whitefield Gurney shorthand witnesses are not identical by presumption to author-manuscript or previously printed versions.",
+    "Alternate long headings versus short contents titles are retained in original scans and heading witnesses; no OCR spelling is silently promoted into an authoritative text.",
+    "Edwards VI/X printed page references and duplicated/misplaced contents leaves require the independently recorded PDF locators.",
+    "No similarity search or title match is used to infer an additional historical preaching occasion."
+  ]
+}

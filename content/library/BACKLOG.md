@@ -1,24 +1,24 @@
 # Acquisition backlog
 
-Established 2026-10-05. The owner has requested L00 and L01. Other acquisition missions await their category prompts. Dependencies guide ordering; they do not trigger unattended collection.
+Established 2026-10-05. The owner has now requested L00–L14 and most recently selected L03; its bounded first acquisition is complete. Preserve the other requests in this queue. Dependencies guide ordering; website integration (L15) still requires its own request.
 
 | ID | Mission | Bounded first unit | Completion evidence | State |
 |---|---|---|---|---|
 | L00 | Collection charter | Scope, 26 proposed people, schema, vocabulary, source policies, conventions | Validator passes; each initial decision has evidence and stated limitations | Established |
 | L01 | Spurgeon sermons | All 63 published pulpit volumes and their numbered contents | [Inventory and report](reports/spurgeon/REPORT.md): 3,568 indexed entries, numbering corrections, edition/duplicate distinctions, file hashes and metadata review queue | Acquired; metadata exceptions documented |
-| L02 | Reformation and Puritan preaching | One author and one identified collected edition per batch | Table-of-contents reconciliation; sermons separated from treatises | Awaiting category prompt |
-| L03 | Eighteenth-/nineteenth-century preaching | Edwards, Whitefield, Newton and Ryle, author by author | Attribution, delivery/publication dates and posthumous editorial history | Awaiting category prompt |
-| L04 | Modern preaching | One approved ministry/source and one series per batch | Eligibility questions resolved; current access/rights method; ordered series | Awaiting category prompt |
-| L05 | Scripture coverage | Reviewed sermons from completed acquisition batches | Main-text/exposition coverage by book/chapter; citation-only links excluded | Depends on sermon records |
-| L06 | Commentaries and biblical theology | One author/edition; pilot one Bible book | Passage locators, edition rights and coverage gaps | Awaiting category prompt |
-| L07 | Doctrine and systematic theology | One complete volume/work before subject expansion | Chapter hierarchy, specific subject indexing and source pages | Awaiting category prompt |
-| L08 | Confessions and catechisms | Westminster, Three Forms, Savoy, 1689 and Anglican Articles as identified editions | Stable document/article/question IDs; historical variants retained | Awaiting category prompt |
-| L09 | Apologetic arguments | One question and a defined bibliography | Claim/premise/evidence/objection/reply locators; explicit author roles | Awaiting category prompt |
-| L10 | Christianity and Islam | One question or complete debate at a time | Both positions sourced; quotations/translations checked; recording-specific timestamps only | Awaiting category prompt |
-| L11 | Christian life and pastoral care | One concern across a small set of complete eligible works | Contextual applications, audiences and links to existing sermons | Awaiting category prompt |
-| L12 | Church, preaching and missions | One ministry responsibility and defined source list | Principles distinguished from historic practice and editorial advice | Awaiting category prompt |
-| L13 | History, biographies and letters | One person/collection with chronology | Firsthand/later accounts distinguished; editorial omissions identified | Awaiting category prompt |
-| L14 | Guided study paths | A named audience/need using reviewed records only | Every recommendation resolves; purpose, order and prerequisites stated | Depends on reviewed content |
+| L02 | Reformation and Puritan preaching | One author and one identified collected edition per batch | [Retained acquisition checkpoint](reports/puritan-sermons/REPORT.md); component catalog unfinished | In progress; checkpoint retained while owner selected L03 |
+| L03 | Eighteenth-/nineteenth-century preaching | Edwards, Whitefield, Newton and Ryle, author by author | [Selected-edition report](reports/historic-preaching/REPORT.md): 17 volumes, 243 classified components, 51 content assets; source dates and editorial forms distinguished | Selected corpora acquired and catalogued; expansion gaps documented |
+| L04 | Modern preaching | One approved ministry/source and one series per batch | Eligibility questions resolved; current access/rights method; ordered series | Authorized; queued |
+| L05 | Scripture coverage | Reviewed sermons from completed acquisition batches | Main-text/exposition coverage by book/chapter; citation-only links excluded | Authorized; depends on sermon review |
+| L06 | Commentaries and biblical theology | One author/edition; pilot one Bible book | Passage locators, edition rights and coverage gaps | Authorized; queued |
+| L07 | Doctrine and systematic theology | One complete volume/work before subject expansion | Chapter hierarchy, specific subject indexing and source pages | Authorized; queued |
+| L08 | Confessions and catechisms | Westminster, Three Forms, Savoy, 1689 and Anglican Articles as identified editions | Stable document/article/question IDs; historical variants retained | Authorized; queued |
+| L09 | Apologetic arguments | One question and a defined bibliography | Claim/premise/evidence/objection/reply locators; explicit author roles | Authorized; queued |
+| L10 | Christianity and Islam | One question or complete debate at a time | Both positions sourced; quotations/translations checked; recording-specific timestamps only | Authorized; queued |
+| L11 | Christian life and pastoral care | One concern across a small set of complete eligible works | Contextual applications, audiences and links to existing sermons | Authorized; queued |
+| L12 | Church, preaching and missions | One ministry responsibility and defined source list | Principles distinguished from historic practice and editorial advice | Authorized; queued |
+| L13 | History, biographies and letters | One person/collection with chronology | Firsthand/later accounts distinguished; editorial omissions identified | Authorized; queued |
+| L14 | Guided study paths | A named audience/need using reviewed records only | Every recommendation resolves; purpose, order and prerequisites stated | Authorized; depends on reviewed content |
 | L15 | Website/KnowledgeBase integration | Read-only adapter and publication design against actual collected records | Rights-filtered ingestion; stable crosswalk; no duplicate content authority; deployment budget | Separate integration request |
 
 ## First acquisition pass

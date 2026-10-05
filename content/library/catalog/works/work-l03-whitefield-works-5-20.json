@@ -1,0 +1,89 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-l03-whitefield-works-5-20",
+  "editorialState": "catalogued",
+  "notes": [
+    "Witness classification: printed-sermon.",
+    "1772 posthumous collection. Asterisks in the contents identify first publication from author manuscripts; printed numbering is not a delivery chronology.",
+    "Title is a catalog/contents label; historical title variants and spelling remain available in the scan. Published-unit count is not a delivered-occasion count."
+  ],
+  "reviews": [],
+  "title": "Worldly Business No Plea for the Neglect of Religion",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-george-whitefield",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "eighteenth-century",
+  "dates": [
+    {
+      "event": "delivery",
+      "value": null,
+      "precision": "unknown",
+      "label": "Not established for this individual printed unit; edition year is recorded separately.",
+      "evidence": []
+    },
+    {
+      "event": "original-publication",
+      "value": null,
+      "precision": "unknown",
+      "label": "Not established for this individual printed unit; edition year is recorded separately.",
+      "evidence": []
+    }
+  ],
+  "passages": [
+    {
+      "reference": "Matthew 8:22",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 40008022,
+      "end": 40008022,
+      "verification": "verified",
+      "locator": "Works, volume V: sermons I–XXXI; published contents/start reference p.299; actual sermon/body heading PDF p.309 (one-based). Contents pagination may refer to preceding title matter; PDF locator is checked independently."
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-l03-worksofreverendg05whit",
+      "locator": "Works, volume V: sermons I–XXXI; published contents/start reference p.299; actual sermon/body heading PDF p.309 (one-based). Contents pagination may refer to preceding title matter; PDF locator is checked independently."
+    }
+  ],
+  "externalIds": {
+    "l03-printed-group": [
+      "whitefield-works-5"
+    ],
+    "l03-component-position": [
+      "20"
+    ],
+    "published-sermon-number": [
+      "20"
+    ],
+    "original-printed-label": [
+      "XX"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/details/worksofreverendg05whit",
+      "locator": "Works, volume V: sermons I–XXXI; published contents/start reference p.299; actual sermon/body heading PDF p.309 (one-based). Contents pagination may refer to preceding title matter; PDF locator is checked independently.",
+      "note": "Printed component identity and opening main text; not incidental citations.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}
