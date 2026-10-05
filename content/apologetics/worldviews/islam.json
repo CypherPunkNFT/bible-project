@@ -1,0 +1,152 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "worldview",
+  "id": "islam",
+  "order": 0,
+  "publication": "published",
+  "content": {
+    "title": "Christianity & Islam",
+    "subtitle": "One conversation. Real differences.",
+    "description": "Jesus, the oneness of God, the cross and Scripture. Read the Christian and Islamic texts together, then identify the question that needs an answer.",
+    "studies": [
+      "islam-jesus",
+      "islam-trinity",
+      "islam-cross",
+      "manuscripts",
+      "grace",
+      "conversation"
+    ],
+    "sources": [
+      "q112",
+      "q4171",
+      "q4157",
+      "creed"
+    ],
+    "rows": [
+      {
+        "id": "comparison-1",
+        "question": "Who is Jesus?",
+        "christian": {
+          "id": "christian-1",
+          "text": "The eternal Son became truly human: one person, fully God and fully man.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "John 1:1"
+            },
+            {
+              "kind": "scripture",
+              "reference": "John 1:14"
+            },
+            {
+              "kind": "source",
+              "source": "wcf",
+              "locator": "8.2"
+            }
+          ]
+        },
+        "other": {
+          "id": "other-1",
+          "text": "Qur’an 4:171 calls Jesus Messiah and messenger while rejecting divine sonship and the language of three.",
+          "citations": [
+            {
+              "kind": "source",
+              "source": "q4171",
+              "locator": "4:171"
+            }
+          ]
+        },
+        "study": "islam-jesus"
+      },
+      {
+        "id": "comparison-2",
+        "question": "What does one God mean?",
+        "christian": {
+          "id": "christian-2",
+          "text": "One divine being in three distinct persons: Father, Son and Holy Spirit.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "Matthew 28:19"
+            },
+            {
+              "kind": "source",
+              "source": "wcf",
+              "locator": "2.3"
+            }
+          ]
+        },
+        "other": {
+          "id": "other-2",
+          "text": "Qur’an 112 affirms oneness and denies begetting; 4:171 rejects the language of three.",
+          "citations": [
+            {
+              "kind": "source",
+              "source": "q112",
+              "locator": "112:1–4"
+            },
+            {
+              "kind": "source",
+              "source": "q4171",
+              "locator": "4:171"
+            }
+          ]
+        },
+        "study": "islam-trinity"
+      },
+      {
+        "id": "comparison-3",
+        "question": "What happened at the cross?",
+        "christian": {
+          "id": "christian-3",
+          "text": "Christ died for our sins, was buried and rose bodily. His saving work is essential to the gospel.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "1 Corinthians 15:3-8"
+            },
+            {
+              "kind": "source",
+              "source": "wcf",
+              "locator": "8.4–5"
+            }
+          ]
+        },
+        "other": {
+          "id": "other-3",
+          "text": "Qur’an 4:157 denies that Jesus' opponents killed or crucified him; 4:158 says God raised him.",
+          "citations": [
+            {
+              "kind": "source",
+              "source": "q4157",
+              "locator": "4:157–158"
+            }
+          ]
+        },
+        "study": "islam-cross"
+      }
+    ],
+    "otherLabel": "Islamic primary texts"
+  },
+  "reviews": [
+    {
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Structured-document migration and preservation of the 2026-10-05 editorial pass",
+      "note": "Compared the compiled documents with the pre-migration website data. Existing text, references, source roles and relationships are preserved. This records migration verification and the prior AI-assisted editorial source pass, not independent human theological approval.",
+      "date": "2026-10-05",
+      "contentHash": "6e6c8d59554ec3b82245486b68b53c1acf37445b10b1d9dab4999a5143d2523a",
+      "basisHash": "fc52b985d1e9e4263ef1549d47f6e886376b07e34b7851a3e8445122633e50d6"
+    },
+    {
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Preservation of existing comparison headings and practice tab labels",
+      "note": "Moved the existing UI labels into their owning documents so new entries can render without hardcoded index-based labels. Study claims and citations are unchanged; this is not human theological approval.",
+      "date": "2026-10-05",
+      "contentHash": "be7cd17561cd656f5702342e91bce5675843cd0e3094f69442e4d3c214da1b19",
+      "basisHash": "fc52b985d1e9e4263ef1549d47f6e886376b07e34b7851a3e8445122633e50d6"
+    }
+  ]
+}

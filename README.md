@@ -40,9 +40,11 @@ Reformed standard, with exposition from Calvin, Sproul, Ferguson, Kruger and Lig
 room at `/apologetics/sources` explains each source's role and limits. These are original editorial notes;
 citations do not claim that an author or a theological reviewer approved the website.
 
-- Every answer, reasoning step, conclusion, explanatory section, reply, limitation and conversation
-  application must carry support in `src/data/apologetics-studies.ts`. The `paragraph` constructor requires
-  a citation; use precise biblical spans and source locators, not an unrelated bibliography.
+- Author apologetics in `content/apologetics/`: individual structured documents drive the website and its
+  downloadable reading copies. See the [document handbook](content/apologetics/README.md) for editing,
+  AI review packets, source impact reports, draft publication and review records. Every answer, reasoning
+  step, conclusion, explanatory section, reply, limitation and conversation application requires citations.
+  Use readable Scripture references and precise source locators, not an unrelated bibliography.
 - Keep human sin, the continuing image of God and common grace distinct. Outwardly beneficial conduct
   does not justify a sinner. State justification through faith alone, Christ's substitutionary atonement,
   Scripture's authority and God's sovereign providence clearly wherever those doctrines are discussed.
@@ -53,7 +55,7 @@ citations do not claim that an author or a theological reviewer approved the web
   not doctrinal authorities. Craig's debate participation is not a Reformed endorsement. Represent other
   positions accurately from their own texts. Mark invented scenarios and practical applications as editorial.
 - Keep comparisons and legacy summaries consistent with the full guides. Preserve stable guide IDs for
-  saved notes. Source roles and scope notes live in the apologetics source catalogues; the legacy foundations
+  saved notes. Source roles and scope notes live in `content/apologetics/sources/`; the legacy foundations
   now derive from the same guides instead of maintaining duplicate answers.
 
 The library tests check citation coverage, source relationships and every Scripture endpoint against the

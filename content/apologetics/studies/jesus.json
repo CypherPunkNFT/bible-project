@@ -1,0 +1,187 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "study",
+  "id": "jesus",
+  "order": 1,
+  "publication": "published",
+  "content": {
+    "title": "Was Jesus simply a great teacher?",
+    "topic": "jesus",
+    "summary": "The eternal Son became truly human to save sinners.",
+    "answer": {
+      "id": "answer",
+      "text": "Jesus is more than a great teacher: he is the eternal Son of God, truly God and truly man, without sin. He did not cease to be divine when he became human. His person and saving work belong together.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "John 1:1-3"
+        },
+        {
+          "kind": "scripture",
+          "reference": "John 1:14"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Hebrews 4:15"
+        },
+        {
+          "kind": "source",
+          "source": "wcf",
+          "locator": "8.2"
+        }
+      ]
+    },
+    "reasoning": [
+      {
+        "id": "reason-1",
+        "text": "John identifies the Word as God and as the maker of all created things.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "John 1:1-3"
+          }
+        ]
+      },
+      {
+        "id": "reason-2",
+        "text": "That same Word becomes flesh and dwells among us.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "John 1:14"
+          }
+        ]
+      },
+      {
+        "id": "reason-3",
+        "text": "Thomas addresses the risen Jesus as his Lord and God; John calls readers to believe in this Christ.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "John 20:28-31"
+          }
+        ]
+      }
+    ],
+    "conclusion": {
+      "id": "conclusion",
+      "text": "Christian faith receives Jesus as Lord and Saviour, not merely as one teacher alongside others.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Acts 4:12"
+        },
+        {
+          "kind": "source",
+          "source": "creed",
+          "locator": "The confession concerning Jesus Christ"
+        }
+      ]
+    },
+    "sections": [
+      {
+        "id": "section-1",
+        "text": "Thomas's confession follows his doubt and Jesus' invitation to examine the wounds. John connects this testimony to life through faith in Christ. Read the scene as the Gospel presents it before considering objections to its truth.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "John 20:24-31"
+          }
+        ],
+        "title": "Read the encounter, not a slogan"
+      },
+      {
+        "id": "section-2",
+        "text": "Christ shares our humanity, yet without our sin. As our high priest he understands weakness and brings us to God. His deity does not make his suffering pretend, and his humanity does not reduce him to a creature.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Hebrews 2:14-18"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Hebrews 4:14-16"
+          },
+          {
+            "kind": "source",
+            "source": "wcf",
+            "locator": "8.2"
+          }
+        ],
+        "title": "Why his humanity matters"
+      }
+    ],
+    "objection": "Could we keep Jesus' ethics and leave his divine identity aside?",
+    "reply": {
+      "id": "reply",
+      "text": "You can examine his teaching, but that would omit the identity and authority the Gospels give him. Jesus calls people to honour the Son as they honour the Father.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "John 5:22-24"
+        }
+      ]
+    },
+    "limit": {
+      "id": "limit",
+      "text": "Recognising what a passage claims and trusting Christ are distinguishable. Faith is God's gift; skill in argument cannot produce new life by itself.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "John 1:12-13"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Ephesians 2:8-9"
+        }
+      ]
+    },
+    "prompt": {
+      "id": "conversation",
+      "text": "Could we read John's account together and ask who Jesus says he is?",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "John 20:30-31"
+        }
+      ]
+    },
+    "passages": [
+      {
+        "reference": "John 1:14-18",
+        "note": "The Word became flesh"
+      },
+      {
+        "reference": "John 20:24-31",
+        "note": "Thomas and the purpose of John's Gospel"
+      },
+      {
+        "reference": "Colossians 1:15-20",
+        "note": "Christ and creation"
+      }
+    ],
+    "related": [
+      "resurrection",
+      "scripture",
+      "islam-jesus"
+    ],
+    "keywords": [
+      "incarnation",
+      "divinity",
+      "foundation",
+      "Son of God"
+    ]
+  },
+  "reviews": [
+    {
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Structured-document migration and preservation of the 2026-10-05 editorial pass",
+      "note": "Compared the compiled documents with the pre-migration website data. Existing text, references, source roles and relationships are preserved. This records migration verification and the prior AI-assisted editorial source pass, not independent human theological approval.",
+      "date": "2026-10-05",
+      "contentHash": "26d7b4a58681bf477b36e99367eefb3330d3cfa1fd4cc7b13a1d07fbdd3b7fcd",
+      "basisHash": "7a9f475485ee68fb19430bfb741986a98d06a6bbd7b57a4ad6068fcfb9aff1c6"
+    }
+  ]
+}

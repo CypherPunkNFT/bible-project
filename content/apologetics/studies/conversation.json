@@ -1,0 +1,199 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "study",
+  "id": "conversation",
+  "order": 20,
+  "publication": "published",
+  "content": {
+    "title": "How do we defend the faith without becoming combative?",
+    "topic": "faith",
+    "summary": "Christ is Lord; our witness should be truthful, gentle and clear.",
+    "answer": {
+      "id": "answer",
+      "text": "Peter commands readiness to give a reason for our hope with gentleness and respect, while honouring Christ as Lord. Faithful apologetics neither softens the gospel into agreeable generalities nor treats another person as an opponent to humiliate. We speak truth and depend on God to give repentance.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "1 Peter 3:15-16"
+        },
+        {
+          "kind": "scripture",
+          "reference": "2 Timothy 2:24-26"
+        },
+        {
+          "kind": "source",
+          "source": "wcf",
+          "locator": "14.1"
+        }
+      ]
+    },
+    "reasoning": [
+      {
+        "id": "reason-1",
+        "text": "Listening before answering guards against misrepresenting a person.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "James 1:19"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Proverbs 18:13"
+          }
+        ]
+      },
+      {
+        "id": "reason-2",
+        "text": "Our answer should name the Christian hope and its reason, not merely our preference.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "1 Peter 3:15-16"
+          }
+        ]
+      },
+      {
+        "id": "reason-3",
+        "text": "The Lord's servant teaches patiently, trusting God to grant repentance.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "2 Timothy 2:24-26"
+          }
+        ]
+      }
+    ],
+    "conclusion": {
+      "id": "conclusion",
+      "text": "Conviction and gentleness belong together because the person, the truth and the outcome all matter to God.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Colossians 4:5-6"
+        },
+        {
+          "kind": "scripture",
+          "reference": "2 Timothy 2:24-26"
+        }
+      ]
+    },
+    "sections": [
+      {
+        "id": "section-1",
+        "text": "Listen, clarify the actual question, explain a Christian answer from Scripture, and offer a next conversation. These are editorial applications of biblical instructions to listen and speak wisely; no fixed script can replace attention to the person.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "James 1:19"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Proverbs 18:13"
+          },
+          {
+            "kind": "scripture",
+            "reference": "1 Peter 3:15"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Colossians 4:5-6"
+          }
+        ],
+        "title": "A practical pattern, not a new commandment"
+      },
+      {
+        "id": "section-2",
+        "text": "Open a passage in context and explain what it teaches. Arguments can remove misunderstandings, but the Spirit gives faith through the Word. Humility includes admitting when an answer needs further study.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Romans 10:17"
+          },
+          {
+            "kind": "source",
+            "source": "calvin-scripture",
+            "locator": "I.7.4–5"
+          }
+        ],
+        "title": "Let Scripture do more than decorate the reply"
+      }
+    ],
+    "objection": "Does gentleness mean avoiding hard truths?",
+    "reply": {
+      "id": "reply",
+      "text": "No. Peter joins gentleness to honouring Christ as Lord. Paul joins patience to correction and repentance. Love concerns both how we speak and whether what we say is true.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "1 Peter 3:15-16"
+        },
+        {
+          "kind": "scripture",
+          "reference": "2 Timothy 2:24-26"
+        }
+      ]
+    },
+    "limit": {
+      "id": "limit",
+      "text": "A well-handled discussion cannot manufacture conversion. We plant and water; God gives growth. Do not judge faithfulness solely by whether the person immediately agrees.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "1 Corinthians 3:5-7"
+        }
+      ]
+    },
+    "prompt": {
+      "id": "conversation",
+      "text": "What is the question beneath your objection, and would you be willing to read a passage together?",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Proverbs 18:13"
+        },
+        {
+          "kind": "scripture",
+          "reference": "1 Peter 3:15"
+        }
+      ]
+    },
+    "passages": [
+      {
+        "reference": "1 Peter 3:15-16",
+        "note": "A reason with gentleness and respect"
+      },
+      {
+        "reference": "2 Timothy 2:24-26",
+        "note": "Patient instruction; God grants repentance"
+      },
+      {
+        "reference": "Colossians 4:5-6",
+        "note": "Speech seasoned with grace"
+      }
+    ],
+    "related": [
+      "grace",
+      "church-harm",
+      "islam-trinity"
+    ],
+    "keywords": [
+      "witness",
+      "evangelism",
+      "gentleness",
+      "dialogue",
+      "listen"
+    ]
+  },
+  "reviews": [
+    {
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Structured-document migration and preservation of the 2026-10-05 editorial pass",
+      "note": "Compared the compiled documents with the pre-migration website data. Existing text, references, source roles and relationships are preserved. This records migration verification and the prior AI-assisted editorial source pass, not independent human theological approval.",
+      "date": "2026-10-05",
+      "contentHash": "abc3a98e7e6513afcbc49ac0864bf6b111dac5f5095b9c423c8ebfcadc2ee687",
+      "basisHash": "755fb4f2b0a6711ac14a8ec83d702c8150a3b4f32a46cd50619b27960cfe9b10"
+    }
+  ]
+}

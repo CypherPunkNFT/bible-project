@@ -1,0 +1,27 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "source",
+  "id": "calvin-sin",
+  "order": 1,
+  "publication": "published",
+  "content": {
+    "title": "Institutes II.3: the corruption of human nature",
+    "author": "John Calvin · Beveridge translation, CCEL",
+    "kind": "Theology",
+    "role": "Reformed exposition",
+    "url": "https://ccel.org/ccel/calvin/institutes/institutes.iv.iv.html",
+    "note": "Sections 3–4 distinguish God's restraint of sin and gifts in civic life from an inwardly righteous heart. Used alongside Romans 3, not to deny the benefit of an unbeliever's kindness."
+  },
+  "reviews": [
+    {
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Structured-document migration and preservation of the 2026-10-05 editorial pass",
+      "note": "Compared the compiled documents with the pre-migration website data. Existing text, references, source roles and relationships are preserved. This records migration verification and the prior AI-assisted editorial source pass, not independent human theological approval.",
+      "date": "2026-10-05",
+      "contentHash": "7424a0f377b2f31dd9e23a5b940e4c5d202346e6bc2ca098ce819e766f9bc19d",
+      "basisHash": "0efe3718a95480d6a8c9af8b57b574d84bcbbad92b0bd84b02bddba780c54a09"
+    }
+  ]
+}

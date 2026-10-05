@@ -1,0 +1,27 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "source",
+  "id": "sproul-image",
+  "order": 2,
+  "publication": "published",
+  "content": {
+    "title": "Have we lost the image of God?",
+    "author": "R. C. Sproul · Ligonier Ministries",
+    "kind": "Theology",
+    "role": "Reformed exposition",
+    "url": "https://learn.ligonier.org/qas/does-the-doctrine-of-total-depravity-teach-that-we-have-lost-the-image-of-god",
+    "note": "Explains the continuing image of God after the fall and the difference between total and utter depravity. Image-bearing does not mean innocence or saving righteousness."
+  },
+  "reviews": [
+    {
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Structured-document migration and preservation of the 2026-10-05 editorial pass",
+      "note": "Compared the compiled documents with the pre-migration website data. Existing text, references, source roles and relationships are preserved. This records migration verification and the prior AI-assisted editorial source pass, not independent human theological approval.",
+      "date": "2026-10-05",
+      "contentHash": "dfc08e9d9bd33d57363e4be464101892575b6a6f1826ed95867bc8b4193d4d5d",
+      "basisHash": "0efe3718a95480d6a8c9af8b57b574d84bcbbad92b0bd84b02bddba780c54a09"
+    }
+  ]
+}

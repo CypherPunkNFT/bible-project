@@ -1,0 +1,62 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "practice",
+  "id": "changed-bible",
+  "order": 2,
+  "publication": "published",
+  "content": {
+    "title": "“The Bible has been rewritten so many times.”",
+    "context": "A colleague has heard that no original meaning can be recovered.",
+    "question": "Which question helps you investigate together?",
+    "options": [
+      "There are no differences between any manuscripts.",
+      "Every other ancient text is worse.",
+      "Is there a particular passage or manuscript claim we could look at?"
+    ],
+    "best": 2,
+    "explanation": {
+      "id": "feedback",
+      "text": "Make the claim specific and open the evidence. Different translations, copying variants and the history of the canon are different issues. Ask which one your colleague means.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Proverbs 18:17"
+        },
+        {
+          "kind": "source",
+          "source": "sinaiticus",
+          "locator": "Manuscript and corrections"
+        },
+        {
+          "kind": "source",
+          "source": "wcf",
+          "locator": "1.8–9"
+        }
+      ]
+    },
+    "study": "manuscripts",
+    "prompt": "Draft one clarifying question and one source you could examine together.",
+    "label": "The Bible"
+  },
+  "reviews": [
+    {
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Structured-document migration and preservation of the 2026-10-05 editorial pass",
+      "note": "Compared the compiled documents with the pre-migration website data. Existing text, references, source roles and relationships are preserved. This records migration verification and the prior AI-assisted editorial source pass, not independent human theological approval.",
+      "date": "2026-10-05",
+      "contentHash": "19b772e943ad9f1ab67849adba92676f8ad56a5dcc7e86fd4e277c417549d0ea",
+      "basisHash": "947184b4770031978035c4d1f4ca79bed90d597a862faa910785d850ae95d9b9"
+    },
+    {
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Preservation of existing comparison headings and practice tab labels",
+      "note": "Moved the existing UI labels into their owning documents so new entries can render without hardcoded index-based labels. Study claims and citations are unchanged; this is not human theological approval.",
+      "date": "2026-10-05",
+      "contentHash": "c85d2f8793bede1b5845219683ca8a3ef93027216cb8d182ea57e2569d03f626",
+      "basisHash": "947184b4770031978035c4d1f4ca79bed90d597a862faa910785d850ae95d9b9"
+    }
+  ]
+}

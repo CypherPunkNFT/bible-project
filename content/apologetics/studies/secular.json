@@ -1,0 +1,202 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "study",
+  "id": "secular",
+  "order": 19,
+  "publication": "published",
+  "content": {
+    "title": "How should Christians engage secular thought?",
+    "topic": "worldviews",
+    "summary": "Honour image-bearers while making the gospel's claim clear.",
+    "answer": {
+      "id": "answer",
+      "text": "Listen accurately and speak honestly. People outside the church remain image-bearers, with dignity and moral accountability, while sharing humanity's need for Christ. Secular humanism affirms ethics, reason and human flourishing without religious belief. We can recognise that stated concern without treating it as saving righteousness or accepting its account of reality.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Genesis 9:6"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Romans 3:9-24"
+        },
+        {
+          "kind": "source",
+          "source": "sproul-image",
+          "locator": "God's image after the fall"
+        },
+        {
+          "kind": "source",
+          "source": "humanism",
+          "locator": "Declaration of Modern Humanism"
+        }
+      ]
+    },
+    "reasoning": [
+      {
+        "id": "reason-1",
+        "text": "God's revelation in creation addresses everyone, and sinful humanity suppresses it.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Romans 1:18-23"
+          }
+        ]
+      },
+      {
+        "id": "reason-2",
+        "text": "Conscience bears witness to accountability beyond those who possess the written law.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Romans 2:14-16"
+          }
+        ]
+      },
+      {
+        "id": "reason-3",
+        "text": "The gospel calls all people to repentance and announces Christ's resurrection and coming judgment.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Acts 17:30-31"
+          }
+        ]
+      }
+    ],
+    "conclusion": {
+      "id": "conclusion",
+      "text": "Christian witness joins respect for the person with a clear account of creation, sin, grace and the risen Christ.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Acts 17:24-31"
+        },
+        {
+          "kind": "scripture",
+          "reference": "1 Peter 3:15-16"
+        }
+      ]
+    },
+    "sections": [
+      {
+        "id": "section-1",
+        "text": "The continuing image of God explains why a non-Christian neighbour must be treated with honour. Common grace helps explain useful and kind conduct. Neither teaching cancels Paul's universal verdict of sin or the need for Christ's righteousness.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "James 3:9"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Romans 3:23-24"
+          },
+          {
+            "kind": "source",
+            "source": "common-grace",
+            "locator": "Common and saving grace"
+          }
+        ],
+        "title": "Do not mistake dignity for innocence"
+      },
+      {
+        "id": "section-2",
+        "text": "The Humanists International declaration is one organisation's account, not the creed of every nonreligious person. Use its sections on ethics, rational inquiry and fulfilment to identify actual claims; ask your neighbour which they share.",
+        "citations": [
+          {
+            "kind": "source",
+            "source": "humanism",
+            "locator": "Ethical, rational and fulfilling lives"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Proverbs 18:13"
+          }
+        ],
+        "title": "Let a position speak for itself"
+      }
+    ],
+    "objection": "Is religion necessary for someone to behave kindly?",
+    "reply": {
+      "id": "reply",
+      "text": "Professed belief is not required for outward kindness. But no one lives independently of the God who gives life, and kindness does not justify a sinner. The deeper Christian claim concerns our dependence, guilt and need for grace.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Luke 6:32-33"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Acts 17:25"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Romans 3:20-24"
+        },
+        {
+          "kind": "source",
+          "source": "wcf",
+          "locator": "16.7"
+        }
+      ]
+    },
+    "limit": {
+      "id": "limit",
+      "text": "Do not assume a person's whole philosophy from the label atheist, agnostic or humanist. Hearing their account first is a matter of truthfulness and neighbour-love.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Proverbs 18:13"
+        },
+        {
+          "kind": "scripture",
+          "reference": "James 1:19"
+        }
+      ]
+    },
+    "prompt": {
+      "id": "conversation",
+      "text": "How do you understand human dignity and moral responsibility, and where does your account place Jesus?",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Acts 17:22-31"
+        }
+      ]
+    },
+    "passages": [
+      {
+        "reference": "Acts 17:24-31",
+        "note": "Paul speaks of creation, repentance and resurrection"
+      },
+      {
+        "reference": "Romans 2:14-16",
+        "note": "Conscience and accountability"
+      }
+    ],
+    "related": [
+      "morality",
+      "why-anything",
+      "conversation"
+    ],
+    "keywords": [
+      "atheism",
+      "agnostic",
+      "humanism",
+      "meaning",
+      "reason"
+    ]
+  },
+  "reviews": [
+    {
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Structured-document migration and preservation of the 2026-10-05 editorial pass",
+      "note": "Compared the compiled documents with the pre-migration website data. Existing text, references, source roles and relationships are preserved. This records migration verification and the prior AI-assisted editorial source pass, not independent human theological approval.",
+      "date": "2026-10-05",
+      "contentHash": "5106698fd130c116ed92e766e5333c9d4e3438c46f8a3533a4a14ab38b71cdcc",
+      "basisHash": "4a368938919834e6f009d3a307028ae7d505f588b030b310725da9f88f19b162"
+    }
+  ]
+}

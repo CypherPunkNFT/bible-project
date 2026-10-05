@@ -1,0 +1,183 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "study",
+  "id": "resurrection",
+  "order": 3,
+  "publication": "published",
+  "content": {
+    "title": "Does the resurrection really matter?",
+    "topic": "jesus",
+    "summary": "Christ rose bodily. Our forgiveness and hope depend on it.",
+    "answer": {
+      "id": "answer",
+      "text": "Yes. Jesus actually rose from the dead, bodily and gloriously. Paul says that without his resurrection faith would be futile and we would remain in our sins. The resurrection is God's saving act in history, not a metaphor for the disciples keeping Jesus' ideals alive.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "1 Corinthians 15:12-22"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Luke 24:36-43"
+        },
+        {
+          "kind": "source",
+          "source": "wcf",
+          "locator": "8.4"
+        }
+      ]
+    },
+    "reasoning": [
+      {
+        "id": "reason-1",
+        "text": "Paul passes on the message of Christ's death for sins, burial, resurrection and appearances.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "1 Corinthians 15:3-8"
+          }
+        ]
+      },
+      {
+        "id": "reason-2",
+        "text": "Luke presents Jesus showing his body and eating with his disciples.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Luke 24:36-43"
+          }
+        ]
+      },
+      {
+        "id": "reason-3",
+        "text": "Christ's resurrection is the beginning and guarantee of his people's resurrection.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "1 Corinthians 15:20-23"
+          }
+        ]
+      }
+    ],
+    "conclusion": {
+      "id": "conclusion",
+      "text": "The Christian hope rests in the risen Christ himself, not merely in the psychological value of believing a resurrection story.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "1 Peter 1:3-5"
+        }
+      ]
+    },
+    "sections": [
+      {
+        "id": "section-1",
+        "text": "First Corinthians 15 reports appearances to named people and to a large group. It is Paul's account of witnesses; we do not possess 500 separate statements in that passage. A strong case should describe the evidence we actually have.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "1 Corinthians 15:3-8"
+          }
+        ],
+        "title": "Use the testimony accurately"
+      },
+      {
+        "id": "section-2",
+        "text": "Read the accounts, examine objections and explain why the testimony is credible. Do not turn an argument into a substitute for God's authority or the Spirit's work. Christianity's supernatural claims cannot be removed while leaving its gospel intact.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "John 20:30-31"
+          },
+          {
+            "kind": "source",
+            "source": "sproul-miracles",
+            "locator": "The supernatural character of Christianity"
+          },
+          {
+            "kind": "source",
+            "source": "calvin-scripture",
+            "locator": "I.7.4–5"
+          }
+        ],
+        "title": "Historical reasoning serves the Word"
+      }
+    ],
+    "objection": "Could the disciples simply have meant that Jesus' influence survived?",
+    "reply": {
+      "id": "reply",
+      "text": "That does not fit the claim of the texts: the tomb is empty, Jesus appears, and Paul ties his resurrection to our future bodily resurrection.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Luke 24:1-7"
+        },
+        {
+          "kind": "scripture",
+          "reference": "1 Corinthians 15:20-23"
+        }
+      ]
+    },
+    "limit": {
+      "id": "limit",
+      "text": "A summary cannot settle every historical objection. Distinguish Scripture's testimony, your explanation of it and additional reconstructions that may remain uncertain.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Luke 1:1-4"
+        },
+        {
+          "kind": "scripture",
+          "reference": "1 Peter 3:15-16"
+        }
+      ]
+    },
+    "prompt": {
+      "id": "conversation",
+      "text": "Could we read the resurrection testimony and ask what difference it makes if Christ really rose?",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "1 Corinthians 15:12-22"
+        }
+      ]
+    },
+    "passages": [
+      {
+        "reference": "1 Corinthians 15:3-8",
+        "note": "The message Paul received"
+      },
+      {
+        "reference": "1 Corinthians 15:12-22",
+        "note": "Why resurrection matters"
+      },
+      {
+        "reference": "Luke 24:36-43",
+        "note": "The risen Jesus among his disciples"
+      }
+    ],
+    "related": [
+      "miracles",
+      "jesus",
+      "islam-cross"
+    ],
+    "keywords": [
+      "bodily",
+      "empty tomb",
+      "witnesses",
+      "foundation"
+    ]
+  },
+  "reviews": [
+    {
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Structured-document migration and preservation of the 2026-10-05 editorial pass",
+      "note": "Compared the compiled documents with the pre-migration website data. Existing text, references, source roles and relationships are preserved. This records migration verification and the prior AI-assisted editorial source pass, not independent human theological approval.",
+      "date": "2026-10-05",
+      "contentHash": "ebb46e74afb45d41376816c6db78ad6aa7543e0e27ff9b69cea9978f48b2f8fb",
+      "basisHash": "e48ae7010a6bc8cfda2097a67b8d32eacc1fa6bbe84ba57349ac4445d67c5fd9"
+    }
+  ]
+}

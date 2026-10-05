@@ -1,0 +1,33 @@
+name: Apologetics documents
+
+on:
+  push:
+    branches: [main]
+    paths: ['content/apologetics/**', 'scripts/content/**', 'scripts/content.ts', 'package.json', 'bun.lock', '.github/workflows/apologetics-content.yml']
+  pull_request:
+    paths: ['content/apologetics/**', 'scripts/content/**', 'scripts/content.ts', 'package.json', 'bun.lock', '.github/workflows/apologetics-content.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  documents:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '22.16.0'
+          package-manager-cache: false
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: '1.4.0'
+      - run: bun install --frozen-lockfile
+      - run: npm run content -- validate
+      - run: npm run test:content
+      - run: npm run content:build
+      - run: npm run content:check

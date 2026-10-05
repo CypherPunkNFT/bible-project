@@ -5,6 +5,7 @@ import path from "node:path";
 import { pipeline } from "node:stream";
 import zlib from "node:zlib";
 import { testimonyApiPlugin } from "./scripts/testimony-vite";
+import { studyContentPlugin } from "./scripts/content/vite";
 
 // The CypherPunk NFT site's toolchain. Local only: dev on 8930, the always-on preview
 // (scripts/start-preview.ps1) on 8931; browser checks start their own preview on 8932.
@@ -87,7 +88,7 @@ const dataPlugin: Plugin = {
 export default defineConfig({
   server: { host: "127.0.0.1", port: 8930, strictPort: true },
   preview: { host: "127.0.0.1", port: 8931, strictPort: true },
-  plugins: [react(), dataPlugin, testimonyApiPlugin()],
+  plugins: [studyContentPlugin(), react(), dataPlugin, testimonyApiPlugin()],
   resolve: {
     alias: { "@": path.resolve(__dirname, "./src") },
   },

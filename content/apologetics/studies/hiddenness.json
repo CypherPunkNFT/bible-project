@@ -1,0 +1,194 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "study",
+  "id": "hiddenness",
+  "order": 14,
+  "publication": "published",
+  "content": {
+    "title": "Why does God sometimes seem absent?",
+    "topic": "doubt",
+    "summary": "Bring darkness to God; anchor assurance in Christ.",
+    "answer": {
+      "id": "answer",
+      "text": "A sense of God's absence is real distress, but it is not a reliable measure of his existence or faithfulness. Scripture gives believers prayers of lament and grounds assurance in God's promises, especially his giving of the Son. We may cry to him without pretending to feel what we do not feel.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Psalms 13:1-6"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Romans 8:31-32"
+        },
+        {
+          "kind": "source",
+          "source": "ferguson-assurance",
+          "locator": "The Father giving his Son"
+        }
+      ]
+    },
+    "reasoning": [
+      {
+        "id": "reason-1",
+        "text": "The Psalms include faithful people asking how long God will seem hidden.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Psalms 13:1-2"
+          }
+        ]
+      },
+      {
+        "id": "reason-2",
+        "text": "God has made himself known in creation and supremely in his Son.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Romans 1:19-20"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Hebrews 1:1-3"
+          }
+        ]
+      },
+      {
+        "id": "reason-3",
+        "text": "The believer's assurance rests in God's saving promise, not uninterrupted emotional certainty.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Romans 8:31-39"
+          },
+          {
+            "kind": "source",
+            "source": "wcf",
+            "locator": "18.2–4"
+          }
+        ]
+      }
+    ],
+    "conclusion": {
+      "id": "conclusion",
+      "text": "In darkness, turn toward the God who has spoken in Christ rather than making the strength of your feelings the foundation of faith.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Hebrews 1:1-3"
+        },
+        {
+          "kind": "source",
+          "source": "ferguson-assurance",
+          "locator": "Romans 8:31–32"
+        }
+      ]
+    },
+    "sections": [
+      {
+        "id": "section-1",
+        "text": "Someone may be asking why God does not provide a requested sign, or why a believer feels abandoned. Scripture addresses both our accountability to God's revelation and the anguish of his people. Ask which concern is being expressed before replying.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Romans 1:18-23"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Psalms 42:9-11"
+          }
+        ],
+        "title": "Distinguish two questions"
+      },
+      {
+        "id": "section-2",
+        "text": "Return to Scripture, prayer and the fellowship of the church. These are ordinary ways God sustains faith; they are not a formula guaranteeing an immediate feeling. Assurance can be shaken without God's saving hold on his people being lost.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Hebrews 10:23-25"
+          },
+          {
+            "kind": "source",
+            "source": "wcf",
+            "locator": "14.1; 18.4"
+          }
+        ],
+        "title": "Use the ordinary means of grace"
+      }
+    ],
+    "objection": "If God loved me, wouldn't I always sense his presence?",
+    "reply": {
+      "id": "reply",
+      "text": "Scripture does not promise uninterrupted felt assurance. Look to the Father who gave his Son and to his promises in Christ; bring the feeling of abandonment honestly into prayer.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Psalms 13:1-6"
+        },
+        {
+          "kind": "source",
+          "source": "ferguson-assurance",
+          "locator": "God's love shown in the gift of Christ"
+        }
+      ]
+    },
+    "limit": {
+      "id": "limit",
+      "text": "We should not diagnose every season of darkness as someone's specific sin or claim to know why God permits it. His revealed promises guide us; his secret purposes are not ours to declare.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Deuteronomy 29:29"
+        },
+        {
+          "kind": "scripture",
+          "reference": "John 9:1-3"
+        }
+      ]
+    },
+    "prompt": {
+      "id": "conversation",
+      "text": "Are you asking for reasons to believe, or describing a season when the God you trust feels far away?",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "James 1:19"
+        }
+      ]
+    },
+    "passages": [
+      {
+        "reference": "Psalms 13:1-6",
+        "note": "Lament and trust"
+      },
+      {
+        "reference": "Romans 8:31-39",
+        "note": "God's love in Christ"
+      }
+    ],
+    "related": [
+      "suffering",
+      "grace",
+      "conversation"
+    ],
+    "keywords": [
+      "silence",
+      "doubt",
+      "assurance",
+      "absence",
+      "prayer"
+    ]
+  },
+  "reviews": [
+    {
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Structured-document migration and preservation of the 2026-10-05 editorial pass",
+      "note": "Compared the compiled documents with the pre-migration website data. Existing text, references, source roles and relationships are preserved. This records migration verification and the prior AI-assisted editorial source pass, not independent human theological approval.",
+      "date": "2026-10-05",
+      "contentHash": "cc884dd1becc4d0278161152b0d4f43fe2d45be27771ac4e78163027acf3e672",
+      "basisHash": "6fbd3f932706fe198c421cdeb96cb943d0948d326b75a866c702fc0a183b9750"
+    }
+  ]
+}

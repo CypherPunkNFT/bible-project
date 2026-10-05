@@ -1,0 +1,61 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "practice",
+  "id": "three-gods",
+  "order": 1,
+  "publication": "published",
+  "content": {
+    "title": "“You Christians believe in three gods.”",
+    "context": "A Muslim neighbour raises a concern about the Trinity.",
+    "question": "Which response first clarifies the disagreement?",
+    "options": [
+      "Christians confess one God. Can I explain what we mean by persons and being?",
+      "It is exactly like water, ice and steam.",
+      "You would understand if you read the Bible."
+    ],
+    "best": 0,
+    "explanation": {
+      "id": "feedback",
+      "text": "State the actual Christian claim and invite clarification. An analogy may obscure the doctrine, while a dismissive reply avoids the question. Understanding the claim does not require your neighbour to accept it.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Deuteronomy 6:4"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Matthew 28:19"
+        },
+        {
+          "kind": "source",
+          "source": "wcf",
+          "locator": "2.3"
+        }
+      ]
+    },
+    "study": "islam-trinity",
+    "prompt": "Explain the Christian claim in two sentences, then ask a question that invites a reply.",
+    "label": "The Trinity"
+  },
+  "reviews": [
+    {
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Structured-document migration and preservation of the 2026-10-05 editorial pass",
+      "note": "Compared the compiled documents with the pre-migration website data. Existing text, references, source roles and relationships are preserved. This records migration verification and the prior AI-assisted editorial source pass, not independent human theological approval.",
+      "date": "2026-10-05",
+      "contentHash": "8ff028a0abb1fd7a473ad4217e3023c86fc9c21bdadb499d07f84ecfc40edc4e",
+      "basisHash": "aa6ef2ee72a927b9de9b88f4d2c752386d9716f0ef1e2bfe541bf64fc02dc331"
+    },
+    {
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Preservation of existing comparison headings and practice tab labels",
+      "note": "Moved the existing UI labels into their owning documents so new entries can render without hardcoded index-based labels. Study claims and citations are unchanged; this is not human theological approval.",
+      "date": "2026-10-05",
+      "contentHash": "502ad3e01089927801145f3c9f6da9d97fb430225a8d6a697d384d995a7a8d34",
+      "basisHash": "aa6ef2ee72a927b9de9b88f4d2c752386d9716f0ef1e2bfe541bf64fc02dc331"
+    }
+  ]
+}

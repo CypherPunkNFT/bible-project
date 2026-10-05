@@ -1,0 +1,27 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "source",
+  "id": "humanism",
+  "order": 24,
+  "publication": "published",
+  "content": {
+    "title": "Declaration of Modern Humanism",
+    "author": "Humanists International · 2022",
+    "kind": "Worldview statement",
+    "url": "https://humanists.international/policy/declaration-of-modern-humanism/",
+    "note": "An organization's own account of humanist ethics, reason and meaning. It does not speak for every atheist or secular person.",
+    "role": "Primary record · not a teaching authority"
+  },
+  "reviews": [
+    {
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Structured-document migration and preservation of the 2026-10-05 editorial pass",
+      "note": "Compared the compiled documents with the pre-migration website data. Existing text, references, source roles and relationships are preserved. This records migration verification and the prior AI-assisted editorial source pass, not independent human theological approval.",
+      "date": "2026-10-05",
+      "contentHash": "a1945739445a9426d697769b780cba8a0ff0d2b096ddd3b0caa9025ad2dab0d4",
+      "basisHash": "0efe3718a95480d6a8c9af8b57b574d84bcbbad92b0bd84b02bddba780c54a09"
+    }
+  ]
+}

@@ -1,0 +1,188 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "study",
+  "id": "islam-jesus",
+  "order": 16,
+  "publication": "published",
+  "content": {
+    "title": "Do Christians and Muslims mean the same thing by Jesus?",
+    "topic": "worldviews",
+    "summary": "Shared names do not remove the decisive question of his identity.",
+    "answer": {
+      "id": "answer",
+      "text": "There is overlap in vocabulary, but a decisive disagreement. Christianity confesses Jesus as the eternal Son, truly God and truly man. Qur'an 4:171 calls him Messiah and messenger while rejecting the language of three and God's having a son. Honour for Jesus as a messenger is not the same confession as worship of the incarnate Son.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "John 1:1-14"
+        },
+        {
+          "kind": "source",
+          "source": "wcf",
+          "locator": "8.2"
+        },
+        {
+          "kind": "source",
+          "source": "q4171",
+          "locator": "4:171"
+        }
+      ]
+    },
+    "reasoning": [
+      {
+        "id": "reason-1",
+        "text": "John identifies the Word as God and says that the Word became flesh.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "John 1:1-3"
+          },
+          {
+            "kind": "scripture",
+            "reference": "John 1:14"
+          }
+        ]
+      },
+      {
+        "id": "reason-2",
+        "text": "Qur'an 4:171 places its statements about Jesus within an explicit rejection of divine sonship.",
+        "citations": [
+          {
+            "kind": "source",
+            "source": "q4171",
+            "locator": "4:171"
+          }
+        ]
+      },
+      {
+        "id": "reason-3",
+        "text": "Thomas's confession to Jesus as Lord and God shows why the difference is substantive.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "John 20:28-31"
+          }
+        ]
+      }
+    ],
+    "conclusion": {
+      "id": "conclusion",
+      "text": "We should explain the actual disagreement honestly while treating a Muslim neighbour with gentleness and respect.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "1 Peter 3:15-16"
+        },
+        {
+          "kind": "source",
+          "source": "wcf",
+          "locator": "8.2"
+        }
+      ]
+    },
+    "sections": [
+      {
+        "id": "section-1",
+        "text": "The Christian claim concerns the Son's eternal relation to the Father, not God producing a child by a sexual act. The incarnation is the eternal Son taking human nature. Distinguish these claims before answering an objection.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "John 1:1-14"
+          },
+          {
+            "kind": "source",
+            "source": "wcf",
+            "locator": "2.3; 8.2"
+          }
+        ],
+        "title": "Sonship is not biological procreation"
+      },
+      {
+        "id": "section-2",
+        "text": "Read John 1 and Qur'an 4:171 in full. Do not turn the Qur'an's references to Jesus as a word or spirit into an admission of Nicene theology; the passage states its own boundaries. Ask your neighbour how they understand the text.",
+        "citations": [
+          {
+            "kind": "source",
+            "source": "q4171",
+            "locator": "4:171 in context"
+          },
+          {
+            "kind": "scripture",
+            "reference": "John 1:1-18"
+          }
+        ],
+        "title": "Read each text in its own voice"
+      }
+    ],
+    "objection": "Isn't calling Jesus a great prophet enough?",
+    "reply": {
+      "id": "reply",
+      "text": "It does not match the Gospel's presentation of his identity. Jesus says the Son is to receive the honour given to the Father; Christian faith centres on who he is and what he accomplished.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "John 5:22-24"
+        }
+      ]
+    },
+    "limit": {
+      "id": "limit",
+      "text": "A primary text establishes a teaching to discuss; it does not tell you everything a particular Muslim believes. Let the person explain their own understanding.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Proverbs 18:13"
+        },
+        {
+          "kind": "source",
+          "source": "q4171",
+          "locator": "The claim stated in 4:171"
+        }
+      ]
+    },
+    "prompt": {
+      "id": "conversation",
+      "text": "What do you understand Christians to mean by Son of God, and could we compare that with John's account?",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "1 Peter 3:15-16"
+        }
+      ]
+    },
+    "passages": [
+      {
+        "reference": "John 1:1-18",
+        "note": "The Word and the incarnation"
+      },
+      {
+        "reference": "John 20:28-31",
+        "note": "Thomas's confession"
+      }
+    ],
+    "related": [
+      "jesus",
+      "islam-trinity",
+      "islam-cross"
+    ],
+    "keywords": [
+      "Islam",
+      "Muslim",
+      "prophet",
+      "Messiah",
+      "Son of God"
+    ]
+  },
+  "reviews": [
+    {
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Structured-document migration and preservation of the 2026-10-05 editorial pass",
+      "note": "Compared the compiled documents with the pre-migration website data. Existing text, references, source roles and relationships are preserved. This records migration verification and the prior AI-assisted editorial source pass, not independent human theological approval.",
+      "date": "2026-10-05",
+      "contentHash": "6b70eceebd72fd7fa4bffe249a53a18763794ff2aa301270a323d1834c74ac0e",
+      "basisHash": "f93d9d5e28a44e0c455d8443b4bc5ed72bb85dd6c1e5406207fc322fc10d4b52"
+    }
+  ]
+}

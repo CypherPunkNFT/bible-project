@@ -1,0 +1,214 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "study",
+  "id": "suffering",
+  "order": 13,
+  "publication": "published",
+  "content": {
+    "title": "How can a good God allow suffering?",
+    "topic": "doubt",
+    "summary": "God is sovereign and good; evil is real, and Christ is our hope.",
+    "answer": {
+      "id": "answer",
+      "text": "God governs all things without becoming the author of sin. Scripture never asks us to call evil good. It shows him bringing good through what creatures intend for evil, supremely at Christ's cross. We know his character and promises without knowing his hidden purpose in every loss.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Genesis 50:20"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Acts 2:23-24"
+        },
+        {
+          "kind": "source",
+          "source": "wcf",
+          "locator": "3.1; 5.4"
+        },
+        {
+          "kind": "source",
+          "source": "sproul-suffering",
+          "locator": "Romans 8:28 and Genesis 50:20"
+        }
+      ]
+    },
+    "reasoning": [
+      {
+        "id": "reason-1",
+        "text": "Joseph names his brothers' intention as evil and God's intention in the same events as good.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Genesis 50:20"
+          }
+        ]
+      },
+      {
+        "id": "reason-2",
+        "text": "Jesus was delivered according to God's purpose, yet those who crucified him acted wickedly.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Acts 2:23"
+          }
+        ]
+      },
+      {
+        "id": "reason-3",
+        "text": "For those who love God, suffering cannot defeat his purpose of conforming them to Christ.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Romans 8:28-30"
+          }
+        ]
+      }
+    ],
+    "conclusion": {
+      "id": "conclusion",
+      "text": "Our hope rests in God's sovereign goodness and the risen Christ, not in pretending we can explain every tragedy.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Romans 8:31-39"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Deuteronomy 29:29"
+        }
+      ]
+    },
+    "sections": [
+      {
+        "id": "section-1",
+        "text": "A reply that treats suffering as outside God's government fails to express the Reformed confession. Scripture holds together divine purpose and creaturely responsibility. It does not portray God as helpless before human decisions or blind natural forces.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Ephesians 1:11"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Acts 4:27-28"
+          },
+          {
+            "kind": "source",
+            "source": "sproul-suffering",
+            "locator": "God's purpose without excusing evil"
+          }
+        ],
+        "title": "More than a free-will answer"
+      },
+      {
+        "id": "section-2",
+        "text": "Jesus weeps at Lazarus's tomb. The Psalms give words for anguish. When someone is grieving, listening and weeping with them may be the first faithful response. God's promises do not require them to disguise pain.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "John 11:32-36"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Psalms 13:1-6"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Romans 12:15"
+          }
+        ],
+        "title": "Lament belongs to faith"
+      }
+    ],
+    "objection": "Does a good purpose make evil acceptable?",
+    "reply": {
+      "id": "reply",
+      "text": "No. The brothers' evil remained evil, and the crucifixion involved guilty human action. God's power to redeem suffering does not authorise us to inflict, conceal or excuse it.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Genesis 50:20"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Acts 2:23"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Romans 3:8"
+        }
+      ]
+    },
+    "limit": {
+      "id": "limit",
+      "text": "Romans 8:28 is a promise to those who love God, not a claim that every event feels good. Do not announce the secret reason for someone's loss as if God had revealed it to you.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Romans 8:28"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Deuteronomy 29:29"
+        },
+        {
+          "kind": "source",
+          "source": "sproul-suffering",
+          "locator": "The recipients and meaning of the promise"
+        }
+      ]
+    },
+    "prompt": {
+      "id": "conversation",
+      "text": "Would it help more to discuss the question now, or to have someone listen and grieve with you?",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Romans 12:15"
+        },
+        {
+          "kind": "scripture",
+          "reference": "James 1:19"
+        }
+      ]
+    },
+    "passages": [
+      {
+        "reference": "John 11:32-36",
+        "note": "Jesus weeps"
+      },
+      {
+        "reference": "Genesis 50:19-21",
+        "note": "Human evil and God's good purpose"
+      },
+      {
+        "reference": "Romans 8:28-39",
+        "note": "Hope for those in Christ"
+      }
+    ],
+    "related": [
+      "hiddenness",
+      "cross",
+      "resurrection"
+    ],
+    "keywords": [
+      "evil",
+      "pain",
+      "grief",
+      "loss",
+      "providence",
+      "theodicy"
+    ]
+  },
+  "reviews": [
+    {
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Structured-document migration and preservation of the 2026-10-05 editorial pass",
+      "note": "Compared the compiled documents with the pre-migration website data. Existing text, references, source roles and relationships are preserved. This records migration verification and the prior AI-assisted editorial source pass, not independent human theological approval.",
+      "date": "2026-10-05",
+      "contentHash": "f60cb685a586b595658ce7c4d450b782cb1765207afbd0aceccb68cd247c5101",
+      "basisHash": "05c8c8414560f7c10eb300988ca25abc75681eef1e0c6c5451f2d2414f431556"
+    }
+  ]
+}

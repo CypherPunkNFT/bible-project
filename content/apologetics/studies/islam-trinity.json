@@ -1,0 +1,203 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "study",
+  "id": "islam-trinity",
+  "order": 17,
+  "publication": "published",
+  "content": {
+    "title": "How can Christians defend the Trinity to a Muslim neighbour?",
+    "topic": "worldviews",
+    "summary": "Confess one God clearly and explain the real disagreement.",
+    "answer": {
+      "id": "answer",
+      "text": "Begin with the Christian confession: one God in three distinct persons, Father, Son and Holy Spirit. Christianity rejects three gods. Islam's affirmation of God's oneness does not remove its disagreement with this confession: Qur'an 112 denies begetting, and 4:171 rejects the language of three.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Deuteronomy 6:4"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Matthew 28:19"
+        },
+        {
+          "kind": "source",
+          "source": "wcf",
+          "locator": "2.3"
+        },
+        {
+          "kind": "source",
+          "source": "q112",
+          "locator": "112:1–4"
+        },
+        {
+          "kind": "source",
+          "source": "q4171",
+          "locator": "4:171"
+        }
+      ]
+    },
+    "reasoning": [
+      {
+        "id": "reason-1",
+        "text": "The unity of God is explicit in Scripture.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Deuteronomy 6:4"
+          }
+        ]
+      },
+      {
+        "id": "reason-2",
+        "text": "The Son is distinguished from the Father while sharing divine identity.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "John 1:1-3"
+          }
+        ]
+      },
+      {
+        "id": "reason-3",
+        "text": "The baptismal command names Father, Son and Holy Spirit together.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Matthew 28:18-20"
+          }
+        ]
+      }
+    ],
+    "conclusion": {
+      "id": "conclusion",
+      "text": "The dispute is about the identity of the one God, not whether Christianity should permit three separate deities.",
+      "citations": [
+        {
+          "kind": "source",
+          "source": "wcf",
+          "locator": "2.3"
+        },
+        {
+          "kind": "source",
+          "source": "q4171",
+          "locator": "4:171"
+        }
+      ]
+    },
+    "sections": [
+      {
+        "id": "section-1",
+        "text": "Being and person answer different questions. The confession is not one person who switches roles, nor three beings who cooperate. Everyday objects cannot reproduce God's triune life; a simple illustration can mislead if it removes the distinction.",
+        "citations": [
+          {
+            "kind": "source",
+            "source": "wcf",
+            "locator": "2.3"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Matthew 3:16-17"
+          }
+        ],
+        "title": "Define before illustrating"
+      },
+      {
+        "id": "section-2",
+        "text": "The Nicene confession calls the Son begotten, not made. This expresses his eternal relation to the Father, not a physical birth within the divine nature. The Word already is before creation and later takes flesh.",
+        "citations": [
+          {
+            "kind": "source",
+            "source": "creed",
+            "locator": "The confession concerning the Son"
+          },
+          {
+            "kind": "scripture",
+            "reference": "John 1:1-3"
+          },
+          {
+            "kind": "scripture",
+            "reference": "John 1:14"
+          }
+        ],
+        "title": "Eternal, not physical, generation"
+      }
+    ],
+    "objection": "Does calling Jesus God divide God's oneness?",
+    "reply": {
+      "id": "reply",
+      "text": "The confession distinguishes persons without dividing the divine being. That answers a three-gods caricature; the positive reason for the doctrine is God's revelation in Scripture.",
+      "citations": [
+        {
+          "kind": "source",
+          "source": "wcf",
+          "locator": "2.3"
+        },
+        {
+          "kind": "scripture",
+          "reference": "John 1:1"
+        }
+      ]
+    },
+    "limit": {
+      "id": "limit",
+      "text": "Explaining what Christianity teaches does not make the disagreement disappear. We should acknowledge the Qur'anic rejection rather than claim the texts secretly teach the same doctrine.",
+      "citations": [
+        {
+          "kind": "source",
+          "source": "q112",
+          "locator": "112:1–4"
+        },
+        {
+          "kind": "source",
+          "source": "q4171",
+          "locator": "4:171"
+        }
+      ]
+    },
+    "prompt": {
+      "id": "conversation",
+      "text": "Could I explain what we mean by one being and three persons, then hear which part you find difficult?",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "1 Peter 3:15-16"
+        }
+      ]
+    },
+    "passages": [
+      {
+        "reference": "Deuteronomy 6:4-5",
+        "note": "One God"
+      },
+      {
+        "reference": "Matthew 28:18-20",
+        "note": "The three persons named together"
+      }
+    ],
+    "related": [
+      "god",
+      "islam-jesus",
+      "conversation"
+    ],
+    "keywords": [
+      "Islam",
+      "Muslim",
+      "tawhid",
+      "Trinity",
+      "oneness"
+    ]
+  },
+  "reviews": [
+    {
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Structured-document migration and preservation of the 2026-10-05 editorial pass",
+      "note": "Compared the compiled documents with the pre-migration website data. Existing text, references, source roles and relationships are preserved. This records migration verification and the prior AI-assisted editorial source pass, not independent human theological approval.",
+      "date": "2026-10-05",
+      "contentHash": "e2c3249149a030bc8373575a66087741eb7d79d7f63933eda8c1deacb670d096",
+      "basisHash": "d81026e5c934970bd9d3ab4dfef682de97e0d519243c374cb86636a10e87dd28"
+    }
+  ]
+}

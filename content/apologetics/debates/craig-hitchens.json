@@ -1,0 +1,50 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "debate",
+  "id": "craig-hitchens",
+  "order": 0,
+  "publication": "published",
+  "content": {
+    "title": "Does God exist?",
+    "speakers": "William Lane Craig · Christopher Hitchens",
+    "setting": "Biola University · April 2009",
+    "source": "craig-hitchens",
+    "lens": "Theism & atheism",
+    "description": "Compare arguments for God's existence with challenges to religious belief and its moral implications.",
+    "claim": {
+      "id": "exchange",
+      "text": "Craig offers a cumulative case involving the universe, morality and Jesus. Hitchens challenges the case for theism and the character and effects of religion.",
+      "citations": [
+        {
+          "kind": "source",
+          "source": "craig-hitchens",
+          "locator": "Opening statements and responses"
+        }
+      ]
+    },
+    "hinge": "Does an objection to the conduct or desirability of religion address the argument for God's existence, and where does a philosophical case become specifically Christian?",
+    "prompts": [
+      "Separate each claim from the evidence offered for it.",
+      "Identify which premise an objection challenges.",
+      "Ask what would remain if one argument failed."
+    ],
+    "studies": [
+      "why-anything",
+      "morality",
+      "church-harm",
+      "resurrection"
+    ]
+  },
+  "reviews": [
+    {
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Structured-document migration and preservation of the 2026-10-05 editorial pass",
+      "note": "Compared the compiled documents with the pre-migration website data. Existing text, references, source roles and relationships are preserved. This records migration verification and the prior AI-assisted editorial source pass, not independent human theological approval.",
+      "date": "2026-10-05",
+      "contentHash": "7f46a1abb0f2c2830f1dd7acf6ba77799cf782b25979fed828413503443a1b21",
+      "basisHash": "fd6397c2f4e0bb8bff87e039682a89805080bdb0822f0f73f3f84dd1a1b461ee"
+    }
+  ]
+}

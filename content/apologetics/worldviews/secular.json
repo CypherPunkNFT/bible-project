@@ -1,0 +1,145 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "worldview",
+  "id": "secular",
+  "order": 1,
+  "publication": "published",
+  "content": {
+    "title": "Christianity & secular thought",
+    "subtitle": "Meaning, morality and the question of God.",
+    "description": "Explore the positive claims people make about a life without religious belief. Humanism is one starting point, not a label for every nonreligious person.",
+    "studies": [
+      "secular",
+      "why-anything",
+      "morality",
+      "science",
+      "suffering",
+      "conversation"
+    ],
+    "sources": [
+      "humanism",
+      "aquinas"
+    ],
+    "rows": [
+      {
+        "id": "comparison-1",
+        "question": "Can people be good?",
+        "christian": {
+          "id": "christian-1",
+          "text": "No fallen person is righteous by nature. God's image remains; common grace enables beneficial acts that cannot justify us.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "Romans 3:10-12"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Genesis 9:6"
+            },
+            {
+              "kind": "source",
+              "source": "wcf",
+              "locator": "16.7"
+            }
+          ]
+        },
+        "other": {
+          "id": "other-1",
+          "text": "Modern humanism affirms ethical responsibility and human flourishing without requiring religious belief.",
+          "citations": [
+            {
+              "kind": "source",
+              "source": "humanism",
+              "locator": "An ethical life"
+            }
+          ]
+        },
+        "study": "morality"
+      },
+      {
+        "id": "comparison-2",
+        "question": "What counts as a reason?",
+        "christian": {
+          "id": "christian-2",
+          "text": "God reveals himself in creation and Scripture. Our reasoning serves his Word; it does not grant the Word authority.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "Romans 1:19-20"
+            },
+            {
+              "kind": "source",
+              "source": "calvin-scripture",
+              "locator": "I.7.1–5"
+            }
+          ]
+        },
+        "other": {
+          "id": "other-2",
+          "text": "The Humanists International declaration calls for reason, evidence and free inquiry. Ask which commitments your neighbour shares.",
+          "citations": [
+            {
+              "kind": "source",
+              "source": "humanism",
+              "locator": "A rational life"
+            }
+          ]
+        },
+        "study": "secular"
+      },
+      {
+        "id": "comparison-3",
+        "question": "Does science settle the question?",
+        "christian": {
+          "id": "christian-3",
+          "text": "Understanding a natural process does not remove its dependence on the Creator who sustains all things.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "Colossians 1:16-17"
+            },
+            {
+              "kind": "source",
+              "source": "sproul-science",
+              "locator": "Nature and its divine author"
+            }
+          ]
+        },
+        "other": {
+          "id": "other-3",
+          "text": "The declaration advocates science and free inquiry, and says its opinions are not based on revelations fixed for all time.",
+          "citations": [
+            {
+              "kind": "source",
+              "source": "humanism",
+              "locator": "Sections 2 and 4: reason and revelation"
+            }
+          ]
+        },
+        "study": "science"
+      }
+    ],
+    "otherLabel": "A secular conversation"
+  },
+  "reviews": [
+    {
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Structured-document migration and preservation of the 2026-10-05 editorial pass",
+      "note": "Compared the compiled documents with the pre-migration website data. Existing text, references, source roles and relationships are preserved. This records migration verification and the prior AI-assisted editorial source pass, not independent human theological approval.",
+      "date": "2026-10-05",
+      "contentHash": "c0552bb6b72eb369a64e30598eb40ea9ed7b08397ff5f0e2933fab1de69f0822",
+      "basisHash": "3f8bd18856428c0a5745f4a6f0c2dfa422c08602ca4a38a636fd4b7ce5e8f05e"
+    },
+    {
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Preservation of existing comparison headings and practice tab labels",
+      "note": "Moved the existing UI labels into their owning documents so new entries can render without hardcoded index-based labels. Study claims and citations are unchanged; this is not human theological approval.",
+      "date": "2026-10-05",
+      "contentHash": "90325b27da9d822791750751b2268249e1a6c057cb5592e8dea21dd0bc01b60d",
+      "basisHash": "3f8bd18856428c0a5745f4a6f0c2dfa422c08602ca4a38a636fd4b7ce5e8f05e"
+    }
+  ]
+}

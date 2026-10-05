@@ -1,0 +1,1065 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://bibleproject.io/schemas/apologetics-document-v1.json",
+  "title": "Bible Project apologetics document v1",
+  "description": "Editable source documents. Reviewed content feeds the website and AI reading exports; see content/apologetics/README.md.",
+  "oneOf": [
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "$schema",
+        "schemaVersion",
+        "kind",
+        "id",
+        "order",
+        "publication",
+        "content",
+        "reviews"
+      ],
+      "properties": {
+        "$schema": {
+          "const": "../schema.json"
+        },
+        "schemaVersion": {
+          "const": 1
+        },
+        "kind": {
+          "const": "study"
+        },
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "order": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "publication": {
+          "enum": [
+            "draft",
+            "published"
+          ]
+        },
+        "content": {
+          "$ref": "#/$defs/study"
+        },
+        "reviews": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/review"
+          }
+        }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "$schema",
+        "schemaVersion",
+        "kind",
+        "id",
+        "order",
+        "publication",
+        "content",
+        "reviews"
+      ],
+      "properties": {
+        "$schema": {
+          "const": "../schema.json"
+        },
+        "schemaVersion": {
+          "const": 1
+        },
+        "kind": {
+          "const": "source"
+        },
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "order": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "publication": {
+          "enum": [
+            "draft",
+            "published"
+          ]
+        },
+        "content": {
+          "$ref": "#/$defs/source"
+        },
+        "reviews": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/review"
+          }
+        }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "$schema",
+        "schemaVersion",
+        "kind",
+        "id",
+        "order",
+        "publication",
+        "content",
+        "reviews"
+      ],
+      "properties": {
+        "$schema": {
+          "const": "../schema.json"
+        },
+        "schemaVersion": {
+          "const": 1
+        },
+        "kind": {
+          "const": "topic"
+        },
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "order": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "publication": {
+          "enum": [
+            "draft",
+            "published"
+          ]
+        },
+        "content": {
+          "$ref": "#/$defs/topic"
+        },
+        "reviews": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/review"
+          }
+        }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "$schema",
+        "schemaVersion",
+        "kind",
+        "id",
+        "order",
+        "publication",
+        "content",
+        "reviews"
+      ],
+      "properties": {
+        "$schema": {
+          "const": "../schema.json"
+        },
+        "schemaVersion": {
+          "const": 1
+        },
+        "kind": {
+          "const": "path"
+        },
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "order": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "publication": {
+          "enum": [
+            "draft",
+            "published"
+          ]
+        },
+        "content": {
+          "$ref": "#/$defs/path"
+        },
+        "reviews": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/review"
+          }
+        }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "$schema",
+        "schemaVersion",
+        "kind",
+        "id",
+        "order",
+        "publication",
+        "content",
+        "reviews"
+      ],
+      "properties": {
+        "$schema": {
+          "const": "../schema.json"
+        },
+        "schemaVersion": {
+          "const": 1
+        },
+        "kind": {
+          "const": "worldview"
+        },
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "order": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "publication": {
+          "enum": [
+            "draft",
+            "published"
+          ]
+        },
+        "content": {
+          "$ref": "#/$defs/worldview"
+        },
+        "reviews": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/review"
+          }
+        }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "$schema",
+        "schemaVersion",
+        "kind",
+        "id",
+        "order",
+        "publication",
+        "content",
+        "reviews"
+      ],
+      "properties": {
+        "$schema": {
+          "const": "../schema.json"
+        },
+        "schemaVersion": {
+          "const": 1
+        },
+        "kind": {
+          "const": "debate"
+        },
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "order": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "publication": {
+          "enum": [
+            "draft",
+            "published"
+          ]
+        },
+        "content": {
+          "$ref": "#/$defs/debate"
+        },
+        "reviews": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/review"
+          }
+        }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "$schema",
+        "schemaVersion",
+        "kind",
+        "id",
+        "order",
+        "publication",
+        "content",
+        "reviews"
+      ],
+      "properties": {
+        "$schema": {
+          "const": "../schema.json"
+        },
+        "schemaVersion": {
+          "const": 1
+        },
+        "kind": {
+          "const": "practice"
+        },
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "order": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "publication": {
+          "enum": [
+            "draft",
+            "published"
+          ]
+        },
+        "content": {
+          "$ref": "#/$defs/practice"
+        },
+        "reviews": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/review"
+          }
+        }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "$schema",
+        "schemaVersion",
+        "kind",
+        "id",
+        "order",
+        "publication",
+        "content",
+        "reviews"
+      ],
+      "properties": {
+        "$schema": {
+          "const": "../schema.json"
+        },
+        "schemaVersion": {
+          "const": 1
+        },
+        "kind": {
+          "const": "editorial"
+        },
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "order": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "publication": {
+          "enum": [
+            "draft",
+            "published"
+          ]
+        },
+        "content": {
+          "$ref": "#/$defs/editorial"
+        },
+        "reviews": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/review"
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "citation": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "reference"
+          ],
+          "properties": {
+            "kind": {
+              "const": "scripture"
+            },
+            "reference": {
+              "type": "string"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "source",
+            "locator"
+          ],
+          "properties": {
+            "kind": {
+              "const": "source"
+            },
+            "source": {
+              "type": "string",
+              "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+            },
+            "locator": {
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+    "block": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "text",
+        "citations"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "text": {
+          "type": "string"
+        },
+        "citations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/citation"
+          }
+        }
+      }
+    },
+    "section": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "title",
+        "text",
+        "citations"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "title": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        },
+        "citations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/citation"
+          }
+        }
+      }
+    },
+    "review": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "date",
+        "reviewer",
+        "kind",
+        "scope",
+        "contentHash",
+        "basisHash",
+        "note"
+      ],
+      "properties": {
+        "date": {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+        },
+        "reviewer": {
+          "type": "string",
+          "minLength": 1
+        },
+        "kind": {
+          "enum": [
+            "ai-assisted",
+            "human"
+          ]
+        },
+        "scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "contentHash": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "basisHash": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "note": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "study": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "title",
+        "topic",
+        "summary",
+        "answer",
+        "reasoning",
+        "conclusion",
+        "sections",
+        "objection",
+        "reply",
+        "limit",
+        "prompt",
+        "passages",
+        "related",
+        "keywords"
+      ],
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "topic": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "answer": {
+          "$ref": "#/$defs/block"
+        },
+        "reasoning": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/block"
+          },
+          "minItems": 2
+        },
+        "conclusion": {
+          "$ref": "#/$defs/block"
+        },
+        "sections": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/section"
+          },
+          "minItems": 1
+        },
+        "objection": {
+          "type": "string"
+        },
+        "reply": {
+          "$ref": "#/$defs/block"
+        },
+        "limit": {
+          "$ref": "#/$defs/block"
+        },
+        "prompt": {
+          "$ref": "#/$defs/block"
+        },
+        "passages": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "reference",
+              "note"
+            ],
+            "properties": {
+              "reference": {
+                "type": "string"
+              },
+              "note": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "related": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          },
+          "uniqueItems": true
+        },
+        "keywords": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        }
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "title",
+        "author",
+        "kind",
+        "url",
+        "role",
+        "note"
+      ],
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "author": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "pattern": "^https://[^\\s]+$"
+        },
+        "role": {
+          "enum": [
+            "Reformed confession",
+            "Reformed exposition",
+            "Historic Christian witness",
+            "Catholic contribution · limited scope",
+            "Primary record · not a teaching authority"
+          ]
+        },
+        "note": {
+          "type": "string"
+        }
+      }
+    },
+    "topic": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "title",
+        "short",
+        "color",
+        "description",
+        "question"
+      ],
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "short": {
+          "type": "string"
+        },
+        "color": {
+          "enum": [
+            "accent",
+            "history",
+            "poetry",
+            "prophets",
+            "gospels",
+            "acts",
+            "epistles",
+            "revelation"
+          ]
+        },
+        "description": {
+          "type": "string"
+        },
+        "question": {
+          "type": "string"
+        }
+      }
+    },
+    "path": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "title",
+        "label",
+        "description",
+        "studies"
+      ],
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "studies": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        }
+      }
+    },
+    "worldview": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "title",
+        "subtitle",
+        "description",
+        "studies",
+        "sources",
+        "rows",
+        "otherLabel"
+      ],
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "subtitle": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "studies": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          },
+          "uniqueItems": true
+        },
+        "rows": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "question",
+              "christian",
+              "other",
+              "study"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+              },
+              "question": {
+                "type": "string"
+              },
+              "christian": {
+                "$ref": "#/$defs/block"
+              },
+              "other": {
+                "$ref": "#/$defs/block"
+              },
+              "study": {
+                "type": "string",
+                "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+              }
+            }
+          },
+          "minItems": 1
+        },
+        "otherLabel": {
+          "type": "string"
+        }
+      }
+    },
+    "debate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "title",
+        "speakers",
+        "setting",
+        "source",
+        "lens",
+        "description",
+        "claim",
+        "hinge",
+        "prompts",
+        "studies"
+      ],
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "speakers": {
+          "type": "string"
+        },
+        "setting": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "lens": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "claim": {
+          "$ref": "#/$defs/block"
+        },
+        "hinge": {
+          "type": "string"
+        },
+        "prompts": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        },
+        "studies": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        }
+      }
+    },
+    "practice": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "title",
+        "context",
+        "question",
+        "options",
+        "best",
+        "explanation",
+        "study",
+        "prompt",
+        "label"
+      ],
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "context": {
+          "type": "string"
+        },
+        "question": {
+          "type": "string"
+        },
+        "options": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 2,
+          "uniqueItems": true
+        },
+        "best": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "explanation": {
+          "$ref": "#/$defs/block"
+        },
+        "study": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "prompt": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        }
+      }
+    },
+    "editorial": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "title",
+        "anchor",
+        "foundations",
+        "islamStudyQuestions",
+        "conversationSteps",
+        "policy",
+        "copy"
+      ],
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "anchor": {
+          "type": "string"
+        },
+        "foundations": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "islamStudyQuestions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "conversationSteps": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "title",
+              "line",
+              "detail",
+              "prompt",
+              "reference"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+              },
+              "title": {
+                "type": "string"
+              },
+              "line": {
+                "type": "string"
+              },
+              "detail": {
+                "type": "string"
+              },
+              "prompt": {
+                "type": "string"
+              },
+              "reference": {
+                "type": "string"
+              }
+            }
+          },
+          "minItems": 1
+        },
+        "policy": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "eyebrow",
+            "title",
+            "introduction",
+            "sections"
+          ],
+          "properties": {
+            "eyebrow": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "introduction": {
+              "$ref": "#/$defs/block"
+            },
+            "sections": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/section"
+              },
+              "minItems": 1
+            }
+          }
+        },
+        "copy": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "guideNote",
+            "debateNote",
+            "debateIndexNote",
+            "sourceRoomIntro",
+            "sourceRoomNote",
+            "footerTitle",
+            "footerText",
+            "practiceNote"
+          ],
+          "properties": {
+            "guideNote": {
+              "type": "string"
+            },
+            "debateNote": {
+              "type": "string"
+            },
+            "debateIndexNote": {
+              "type": "string"
+            },
+            "sourceRoomIntro": {
+              "type": "string"
+            },
+            "sourceRoomNote": {
+              "type": "string"
+            },
+            "footerTitle": {
+              "type": "string"
+            },
+            "footerText": {
+              "type": "string"
+            },
+            "practiceNote": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

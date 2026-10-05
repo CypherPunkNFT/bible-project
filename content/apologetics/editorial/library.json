@@ -1,0 +1,160 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "editorial",
+  "id": "library",
+  "order": 0,
+  "publication": "published",
+  "content": {
+    "title": "Apologetics editorial basis and reading practice",
+    "anchor": "1 Peter 3:15-16",
+    "foundations": [
+      "god",
+      "jesus",
+      "cross",
+      "resurrection",
+      "scripture",
+      "grace"
+    ],
+    "islamStudyQuestions": [
+      "Who is Jesus?",
+      "God's oneness and the Trinity",
+      "The crucifixion and resurrection",
+      "Scripture and its transmission",
+      "Revelation and prophethood",
+      "Sin, grace and salvation"
+    ],
+    "conversationSteps": [
+      {
+        "id": "step-1",
+        "title": "Listen",
+        "line": "Understand the person before answering the position.",
+        "detail": "Invite them to explain what they believe and why it matters to them. Reflect it back in words they recognise.",
+        "prompt": "What has most shaped your understanding of God?",
+        "reference": "James 1:19-20"
+      },
+      {
+        "id": "step-2",
+        "title": "Clarify",
+        "line": "Find the question you are actually discussing.",
+        "detail": "Define the important terms, distinguish a claim from its evidence, and take one question at a time.",
+        "prompt": "When you say that, what exactly do you mean?",
+        "reference": "Proverbs 18:13-17"
+      },
+      {
+        "id": "step-3",
+        "title": "Give a reason",
+        "line": "Connect a clear Christian claim to its grounds.",
+        "detail": "Read the passage in context, explain the reasoning, and address the strongest version of the objection. Say when a question needs more study.",
+        "prompt": "Could we read the passage together and examine the claim?",
+        "reference": "1 Peter 3:15-16"
+      },
+      {
+        "id": "step-4",
+        "title": "Invite",
+        "line": "Leave room for a next conversation and a lived response.",
+        "detail": "Offer to read a Gospel together, continue investigating a question, or pray if they welcome it. Let patient love accompany the words.",
+        "prompt": "Would you like to keep exploring this with me?",
+        "reference": "Colossians 4:5-6"
+      }
+    ],
+    "policy": {
+      "eyebrow": "Scripture first · Reformed convictions",
+      "title": "Know what stands behind the answer.",
+      "introduction": {
+        "id": "policy-introduction",
+        "text": "We receive Scripture as our final authority. These guides use the Westminster Confession as a subordinate doctrinal standard, with exposition from Reformed theologians. Read the passage and the cited section together.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "2 Timothy 3:16-17"
+          },
+          {
+            "kind": "source",
+            "source": "wcf",
+            "locator": "1.4–10"
+          }
+        ]
+      },
+      "sections": [
+        {
+          "title": "Teaching and explanation",
+          "id": "policy-1",
+          "text": "Reformed confessions and theologians explain the doctrines taught here. Our paragraphs are original study notes, not quotations or a claim that the named authors reviewed this site.",
+          "citations": [
+            {
+              "kind": "source",
+              "source": "wcf",
+              "locator": "1.10"
+            }
+          ]
+        },
+        {
+          "title": "Limited agreement",
+          "id": "policy-2",
+          "text": "Aquinas is used for causation and dependence. Augustine contributes on grace; Athanasius supplies a historical New Testament list. Each use has a stated scope. None endorses every doctrine of its author or erases disagreements over justification, merit, canon or church authority.",
+          "citations": [
+            {
+              "kind": "source",
+              "source": "aquinas",
+              "locator": "I, q.2, a.3"
+            },
+            {
+              "kind": "source",
+              "source": "augustine-grace",
+              "locator": "Chapter 17"
+            },
+            {
+              "kind": "source",
+              "source": "athanasius",
+              "locator": "Section 5"
+            }
+          ]
+        },
+        {
+          "title": "Records of other positions",
+          "id": "policy-3",
+          "text": "The Qur’an, a humanist declaration and debate transcripts document claims to examine. They are not doctrinal authorities here. Craig's participation in a debate does not make him a Reformed teacher for this library.",
+          "citations": [
+            {
+              "kind": "source",
+              "source": "q4171",
+              "locator": "4:171"
+            },
+            {
+              "kind": "source",
+              "source": "humanism",
+              "locator": "Declaration of Modern Humanism"
+            },
+            {
+              "kind": "source",
+              "source": "craig-hitchens",
+              "locator": "Full transcript"
+            }
+          ]
+        }
+      ]
+    },
+    "copy": {
+      "guideNote": "Original study notes · Reformed perspective. Citations identify the basis of each explanation; they do not imply review or endorsement by the cited authors.",
+      "debateNote": "The speakers are not doctrinal authorities for this library. Use the connected Reformed guides to evaluate the claims, and the speaker sections in the full transcript to follow the exchange. These are editorial reading prompts, not attributed quotations or a timestamped recording analysis.",
+      "debateIndexNote": "Transcripts are records of the speakers’ arguments, hosted by Craig’s organisation. They are not Reformed teaching authorities. The connected guides state our scriptural and confessional position.",
+      "sourceRoomIntro": "Inspect the documents behind the discussion. A source may establish what someone believes without establishing that the belief is true.",
+      "sourceRoomNote": "Bible passages open in this site’s reader. Other sources open at their publishers. Scope notes distinguish teaching sources from documentary evidence.",
+      "footerTitle": "Conviction with an open Bible.",
+      "footerText": "Scripture first. Reformed convictions. Sources you can examine.",
+      "practiceNote": "An editorial practice pattern drawn from the passages below."
+    }
+  },
+  "reviews": [
+    {
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Structured-document migration and preservation of the 2026-10-05 editorial pass",
+      "note": "Compared the compiled documents with the pre-migration website data. Existing text, references, source roles and relationships are preserved. This records migration verification and the prior AI-assisted editorial source pass, not independent human theological approval.",
+      "date": "2026-10-05",
+      "contentHash": "fb803ff69106854d319702de73ef610bef9dc7de543e1c6edbca03b79a195b14",
+      "basisHash": "4666cbd6e51d5498611c9d251a5c7ddce5fe5f02015703051006274a122e8663"
+    }
+  ]
+}

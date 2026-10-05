@@ -1,0 +1,185 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "study",
+  "id": "manuscripts",
+  "order": 10,
+  "publication": "published",
+  "content": {
+    "title": "Has the Bible been changed beyond recognition?",
+    "topic": "bible",
+    "summary": "Trust God's preservation and examine the actual manuscript witnesses.",
+    "answer": {
+      "id": "answer",
+      "text": "The Reformed confession affirms God's providential preservation of Scripture. That does not mean that every surviving copy is identical. Manuscripts contain differences and corrections that can be inspected. An allegation of corruption should identify the passage and the evidence rather than assume an untraceable chain of changes.",
+      "citations": [
+        {
+          "kind": "source",
+          "source": "wcf",
+          "locator": "1.8"
+        },
+        {
+          "kind": "source",
+          "source": "sinaiticus",
+          "locator": "The manuscript and its corrections"
+        }
+      ]
+    },
+    "reasoning": [
+      {
+        "id": "reason-1",
+        "text": "Scripture's authority rests on God, not on a claim that copyists were incapable of error.",
+        "citations": [
+          {
+            "kind": "source",
+            "source": "calvin-scripture",
+            "locator": "I.7.1–5"
+          }
+        ]
+      },
+      {
+        "id": "reason-2",
+        "text": "Surviving manuscripts make ancient readings and corrections available for comparison.",
+        "citations": [
+          {
+            "kind": "source",
+            "source": "sinaiticus",
+            "locator": "About Codex Sinaiticus"
+          }
+        ]
+      },
+      {
+        "id": "reason-3",
+        "text": "A difference in a modern translation may concern interpretation, so first establish what kind of difference is alleged.",
+        "citations": [
+          {
+            "kind": "source",
+            "source": "wcf",
+            "locator": "1.8–9"
+          }
+        ]
+      }
+    ],
+    "conclusion": {
+      "id": "conclusion",
+      "text": "Neither denying the existence of variants nor assuming they erase Scripture is an adequate response. Open the evidence for the specific claim.",
+      "citations": [
+        {
+          "kind": "source",
+          "source": "sinaiticus",
+          "locator": "Digital manuscript and corrections"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Proverbs 18:17"
+        }
+      ]
+    },
+    "sections": [
+      {
+        "id": "section-1",
+        "text": "Codex Sinaiticus is a Greek manuscript dated by its project to the middle of the fourth century. It contains the earliest complete New Testament. Its corrections are visible in the project: they should be studied, not concealed.",
+        "citations": [
+          {
+            "kind": "source",
+            "source": "sinaiticus",
+            "locator": "About the manuscript"
+          }
+        ],
+        "title": "A witness you can inspect"
+      },
+      {
+        "id": "section-2",
+        "text": "Write down the disputed words and distinguish a copying variant from a translation choice. Compare the relevant witnesses or an editor's account of them. Our reader can help locate a passage; it does not itself provide a full critical apparatus.",
+        "citations": [
+          {
+            "kind": "source",
+            "source": "sinaiticus",
+            "locator": "Manuscript viewer"
+          },
+          {
+            "kind": "source",
+            "source": "wcf",
+            "locator": "1.8–9"
+          }
+        ],
+        "title": "A practical reading method"
+      }
+    ],
+    "objection": "Does the existence of variants disprove inspiration?",
+    "reply": {
+      "id": "reply",
+      "text": "Inspiration concerns God's giving his Word. A difference between copies is a question of transmission, not automatic proof that God spoke falsely. We must handle that textual question honestly.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "2 Peter 1:20-21"
+        },
+        {
+          "kind": "source",
+          "source": "sproul-inerrancy",
+          "locator": "Inspiration and God's truthfulness"
+        }
+      ]
+    },
+    "limit": {
+      "id": "limit",
+      "text": "A manuscript establishes a witness to wording. By itself it does not demonstrate every event narrated or establish divine inspiration.",
+      "citations": [
+        {
+          "kind": "source",
+          "source": "sinaiticus",
+          "locator": "The scope of a manuscript witness"
+        },
+        {
+          "kind": "source",
+          "source": "calvin-scripture",
+          "locator": "I.7.4–5"
+        }
+      ]
+    },
+    "prompt": {
+      "id": "conversation",
+      "text": "Which passage is said to have changed, and could we inspect the evidence together?",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Proverbs 18:17"
+        }
+      ]
+    },
+    "passages": [
+      {
+        "reference": "Luke 1:1-4",
+        "note": "Luke's account and its purpose"
+      },
+      {
+        "reference": "2 Peter 1:20-21",
+        "note": "The Spirit's work in Scripture"
+      }
+    ],
+    "related": [
+      "scripture",
+      "canon",
+      "contradictions"
+    ],
+    "keywords": [
+      "corruption",
+      "variants",
+      "telephone",
+      "translation",
+      "textual criticism"
+    ]
+  },
+  "reviews": [
+    {
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Structured-document migration and preservation of the 2026-10-05 editorial pass",
+      "note": "Compared the compiled documents with the pre-migration website data. Existing text, references, source roles and relationships are preserved. This records migration verification and the prior AI-assisted editorial source pass, not independent human theological approval.",
+      "date": "2026-10-05",
+      "contentHash": "4368bb8a20569cd75f74ab595e9a403c576b603a6357d1ea0acdefe802f289c0",
+      "basisHash": "5cfb7911b114c3ec5f56c78a98c039438ee5706b226f4469c84ee5ae71731b98"
+    }
+  ]
+}

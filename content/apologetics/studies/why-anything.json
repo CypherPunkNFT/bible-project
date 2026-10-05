@@ -1,0 +1,181 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "study",
+  "id": "why-anything",
+  "order": 6,
+  "publication": "published",
+  "content": {
+    "title": "Why is there something rather than nothing?",
+    "topic": "god",
+    "summary": "Creation depends on the self-existent God.",
+    "answer": {
+      "id": "answer",
+      "text": "God gives life and existence to creation while depending on nothing outside himself. Christian reasoning about dependence points toward this self-existent Creator, not toward one more object inside the universe. Scripture identifies the Creator more fully than a philosophical outline can.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Acts 17:24-28"
+        },
+        {
+          "kind": "source",
+          "source": "sproul-aseity",
+          "locator": "Self-existence and causation"
+        }
+      ]
+    },
+    "reasoning": [
+      {
+        "id": "reason-1",
+        "text": "Created things receive their existence and depend on what they do not supply for themselves.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Acts 17:24-25"
+          }
+        ]
+      },
+      {
+        "id": "reason-2",
+        "text": "An ultimate explanation cannot simply be another being with the same unresolved dependence.",
+        "citations": [
+          {
+            "kind": "source",
+            "source": "sproul-aseity",
+            "locator": "The necessity of self-existent being"
+          }
+        ]
+      },
+      {
+        "id": "reason-3",
+        "text": "God is underived, not self-created: causing oneself would require already existing.",
+        "citations": [
+          {
+            "kind": "source",
+            "source": "sproul-aseity",
+            "locator": "Self-existence is not self-creation"
+          }
+        ]
+      }
+    ],
+    "conclusion": {
+      "id": "conclusion",
+      "text": "The Christian confession is of an eternal Creator who gives existence, not a god who needs to be made.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Psalms 90:2"
+        },
+        {
+          "kind": "source",
+          "source": "wcf",
+          "locator": "2.1–2"
+        }
+      ]
+    },
+    "sections": [
+      {
+        "id": "section-1",
+        "text": "Aquinas's arguments from causation and dependence are useful historical contributions. We use Summa I, question 2, article 3 on that specific point, alongside Reformed exposition. This does not adopt his entire theology or settle the doctrines of salvation.",
+        "citations": [
+          {
+            "kind": "source",
+            "source": "aquinas",
+            "locator": "I, q.2, a.3: second and third ways"
+          },
+          {
+            "kind": "source",
+            "source": "sproul-aseity",
+            "locator": "Self-existent being"
+          }
+        ],
+        "title": "A Catholic contribution, with a defined scope"
+      },
+      {
+        "id": "section-2",
+        "text": "Romans teaches that creation reveals God's power and deity, leaving us accountable. The problem is not merely missing information: sinful people suppress truth. The gospel must therefore address our need for reconciliation as well as our questions.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Romans 1:18-23"
+          }
+        ],
+        "title": "The Creator is known through his works"
+      }
+    ],
+    "objection": "Then who created God?",
+    "reply": {
+      "id": "reply",
+      "text": "The claim is not that everything, without exception, has a creator. God is eternal and uncreated. The question challenges the argument only if it shows that this distinction between derived and underived being fails.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Psalms 90:2"
+        },
+        {
+          "kind": "source",
+          "source": "sproul-aseity",
+          "locator": "Causation and eternal being"
+        }
+      ]
+    },
+    "limit": {
+      "id": "limit",
+      "text": "A causal argument alone does not teach the Trinity or Christ's saving work. God's general revelation is real, but we need the gospel to know the way of salvation.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Romans 10:13-17"
+        },
+        {
+          "kind": "source",
+          "source": "wcf",
+          "locator": "1.1"
+        }
+      ]
+    },
+    "prompt": {
+      "id": "conversation",
+      "text": "What explains the existence of the things on which we all depend?",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Acts 17:24-28"
+        }
+      ]
+    },
+    "passages": [
+      {
+        "reference": "Acts 17:24-28",
+        "note": "God gives life to all"
+      },
+      {
+        "reference": "Romans 1:18-23",
+        "note": "Creation reveals God"
+      }
+    ],
+    "related": [
+      "science",
+      "morality",
+      "god"
+    ],
+    "keywords": [
+      "cosmological",
+      "first cause",
+      "contingency",
+      "creation",
+      "atheism"
+    ]
+  },
+  "reviews": [
+    {
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Structured-document migration and preservation of the 2026-10-05 editorial pass",
+      "note": "Compared the compiled documents with the pre-migration website data. Existing text, references, source roles and relationships are preserved. This records migration verification and the prior AI-assisted editorial source pass, not independent human theological approval.",
+      "date": "2026-10-05",
+      "contentHash": "87114452f5e78701fca91ee7b8f62858cae3c609b218ca5b430a770ad38e0a08",
+      "basisHash": "4414282d4400050a93ad4abab4098bf6efc27701a11c4f2f1579cf601fbfae3e"
+    }
+  ]
+}

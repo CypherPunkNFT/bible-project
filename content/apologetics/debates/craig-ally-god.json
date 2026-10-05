@@ -1,0 +1,50 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "debate",
+  "id": "craig-ally-god",
+  "order": 2,
+  "publication": "published",
+  "content": {
+    "title": "The concept of God",
+    "speakers": "William Lane Craig · Shabir Ally",
+    "setting": "McMaster University · March 2002",
+    "source": "craig-ally-god",
+    "lens": "Trinity & tawhid",
+    "description": "Follow a Christian–Muslim exchange about God's unity, nature and character.",
+    "claim": {
+      "id": "exchange",
+      "text": "The speakers defend different accounts of God and challenge the other's account. The exchange includes arguments about divine unity and love.",
+      "citations": [
+        {
+          "kind": "source",
+          "source": "craig-ally-god",
+          "locator": "Opening statements and responses"
+        }
+      ]
+    },
+    "hinge": "Does the criticism address what the other speaker actually affirms, or a definition the speaker rejects?",
+    "prompts": [
+      "Write down each definition before evaluating it.",
+      "Distinguish an objection to coherence from an objection to scriptural support.",
+      "Compare the religious passages in their own contexts."
+    ],
+    "studies": [
+      "god",
+      "islam-trinity",
+      "islam-jesus",
+      "conversation"
+    ]
+  },
+  "reviews": [
+    {
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Structured-document migration and preservation of the 2026-10-05 editorial pass",
+      "note": "Compared the compiled documents with the pre-migration website data. Existing text, references, source roles and relationships are preserved. This records migration verification and the prior AI-assisted editorial source pass, not independent human theological approval.",
+      "date": "2026-10-05",
+      "contentHash": "5dd8c5ed1795d27493db1ba14a7bdf3cd24f1b426f5e2141b93fcc145693d71f",
+      "basisHash": "bf13034733b2d73e39055e9dac066247b77fab46245fe5ea68c7d6bcf184b3cd"
+    }
+  ]
+}

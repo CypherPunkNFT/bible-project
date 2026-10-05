@@ -1,0 +1,197 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "study",
+  "id": "science",
+  "order": 8,
+  "publication": "published",
+  "content": {
+    "title": "Has science made God unnecessary?",
+    "topic": "god",
+    "summary": "The world we investigate is sustained by its Creator.",
+    "answer": {
+      "id": "answer",
+      "text": "Learning how a natural process works does not remove its dependence on God. Scripture presents creation as declaring his glory and Christ as sustaining all things. God's works and his Word cannot ultimately contradict, though our scientific models and biblical interpretations can be mistaken.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Psalms 19:1-4"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Colossians 1:16-17"
+        },
+        {
+          "kind": "source",
+          "source": "sproul-science",
+          "locator": "The unity of truth and fallible interpretation"
+        }
+      ]
+    },
+    "reasoning": [
+      {
+        "id": "reason-1",
+        "text": "Creation is a witness to God rather than a realm independent of him.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Romans 1:19-20"
+          }
+        ]
+      },
+      {
+        "id": "reason-2",
+        "text": "God ordinarily works through means without being confined to them.",
+        "citations": [
+          {
+            "kind": "source",
+            "source": "wcf",
+            "locator": "5.2–3"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Psalms 104:14-15"
+          }
+        ]
+      },
+      {
+        "id": "reason-3",
+        "text": "Finding an ordinary cause does not establish that nature is all that exists.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Acts 17:24-28"
+          },
+          {
+            "kind": "source",
+            "source": "sproul-science",
+            "locator": "Nature and its divine author"
+          }
+        ]
+      }
+    ],
+    "conclusion": {
+      "id": "conclusion",
+      "text": "Scientific inquiry can describe God's world; it cannot make that world self-sufficient simply by describing it.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Colossians 1:16-17"
+        }
+      ]
+    },
+    "sections": [
+      {
+        "id": "section-1",
+        "text": "Do not build a case on a temporary gap in knowledge. The biblical Creator governs what we understand as well as what we do not. Greater knowledge of creation can deepen gratitude rather than push God into a smaller corner.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Psalms 104:24"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Acts 17:25"
+          },
+          {
+            "kind": "source",
+            "source": "sproul-science",
+            "locator": "The unity of truth"
+          }
+        ],
+        "title": "God is more than a placeholder"
+      },
+      {
+        "id": "section-2",
+        "text": "Identify the biblical text, the interpretation being proposed and the scientific claim. Scripture remains our final authority; an interpretation can need correction without God's Word being false. This guide does not adjudicate particular measurements or theories.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Acts 17:11"
+          },
+          {
+            "kind": "source",
+            "source": "wcf",
+            "locator": "1.9–10"
+          },
+          {
+            "kind": "source",
+            "source": "sproul-science",
+            "locator": "Scripture, science and interpretation"
+          }
+        ],
+        "title": "Examine a specific disagreement"
+      }
+    ],
+    "objection": "Does faith require us to ignore evidence?",
+    "reply": {
+      "id": "reply",
+      "text": "No. God's works declare his glory. We should investigate truthfully while recognising that human judgments remain fallible and that neither a model nor a private interpretation has God's authority.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Psalms 19:1-4"
+        },
+        {
+          "kind": "source",
+          "source": "sproul-science",
+          "locator": "Interpreting nature and Scripture"
+        }
+      ]
+    },
+    "limit": {
+      "id": "limit",
+      "text": "The distinction between Creator and creation does not settle a disputed scientific claim. Do not present a conclusion about biology or cosmology as if it followed merely from a Bible reference.",
+      "citations": [
+        {
+          "kind": "source",
+          "source": "sproul-science",
+          "locator": "Distinguishing truth from our interpretations"
+        }
+      ]
+    },
+    "prompt": {
+      "id": "conversation",
+      "text": "Which finding seems to conflict with which passage, and what assumptions connect the two?",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Proverbs 18:13-17"
+        }
+      ]
+    },
+    "passages": [
+      {
+        "reference": "Psalms 19:1-4",
+        "note": "Creation declares God's glory"
+      },
+      {
+        "reference": "Colossians 1:15-17",
+        "note": "All things held together in Christ"
+      }
+    ],
+    "related": [
+      "why-anything",
+      "miracles",
+      "scripture"
+    ],
+    "keywords": [
+      "evolution",
+      "creation",
+      "cosmology",
+      "reason",
+      "naturalism"
+    ]
+  },
+  "reviews": [
+    {
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Structured-document migration and preservation of the 2026-10-05 editorial pass",
+      "note": "Compared the compiled documents with the pre-migration website data. Existing text, references, source roles and relationships are preserved. This records migration verification and the prior AI-assisted editorial source pass, not independent human theological approval.",
+      "date": "2026-10-05",
+      "contentHash": "9f0c4e3033481765957a2f1778a43fe1e9f62a00903e401b239b50d2d1cfe9c3",
+      "basisHash": "ee3d5327d9b07fdf21c2e9bc00ca33bd7bb9288dd710ab2054ce9e8514107f13"
+    }
+  ]
+}

@@ -1,0 +1,203 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "study",
+  "id": "church-harm",
+  "order": 15,
+  "publication": "published",
+  "content": {
+    "title": "What about the harm Christians have done?",
+    "topic": "doubt",
+    "summary": "Tell the truth about sin. Christ's name must never shield wrongdoing.",
+    "answer": {
+      "id": "answer",
+      "text": "Sin in the church must be named and confronted, not excused because the offender claims Christian faith. Scripture condemns hypocrisy and requires accountability. Christ is sinless; his people are not. That distinction calls the church to repentance rather than giving it an escape from responsibility.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Matthew 23:23-28"
+        },
+        {
+          "kind": "scripture",
+          "reference": "1 Corinthians 5:1-5"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Hebrews 4:15"
+        },
+        {
+          "kind": "source",
+          "source": "ferguson-discipline",
+          "locator": "The need and aim of church discipline"
+        }
+      ]
+    },
+    "reasoning": [
+      {
+        "id": "reason-1",
+        "text": "A Christian label does not establish genuine faith or faithful conduct.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Matthew 7:21-23"
+          }
+        ]
+      },
+      {
+        "id": "reason-2",
+        "text": "The church is responsible to address serious wrongdoing within it.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "1 Corinthians 5:9-13"
+          }
+        ]
+      },
+      {
+        "id": "reason-3",
+        "text": "Repentance produces fruit; it is more than a demand that others stop discussing the harm.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Matthew 3:8"
+          },
+          {
+            "kind": "scripture",
+            "reference": "2 Corinthians 7:10-11"
+          }
+        ]
+      }
+    ],
+    "conclusion": {
+      "id": "conclusion",
+      "text": "We defend the truth of Christ by telling the truth about evil and pursuing faithful accountability, not by protecting a reputation at any cost.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Ephesians 5:11"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Ephesians 4:25"
+        }
+      ]
+    },
+    "sections": [
+      {
+        "id": "section-1",
+        "text": "Ask what happened and resist answering a particular person's pain with a general slogan. Love listens and grieves. Fairness also requires care with testimony; neither reflexive denial nor an unsupported accusation serves the truth.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "James 1:19"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Romans 12:15"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Proverbs 18:13-17"
+          }
+        ],
+        "title": "Listen before defending an institution"
+      },
+      {
+        "id": "section-2",
+        "text": "Church discipline seeks repentance and restoration while taking sin seriously. It is not a substitute for civil responsibility. Christian submission to governing authorities does not allow a church to treat itself as beyond accountability.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Galatians 6:1"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Romans 13:1-4"
+          },
+          {
+            "kind": "source",
+            "source": "ferguson-discipline",
+            "locator": "Discipline and restoration"
+          }
+        ],
+        "title": "Repentance and accountability"
+      }
+    ],
+    "objection": "Why should I trust a faith whose followers behave like that?",
+    "reply": {
+      "id": "reply",
+      "text": "The offence should not be minimised. Jesus himself exposes religious hypocrisy. His life and gospel deserve examination on their own truth, while the church must answer to the standards it professes.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Matthew 23:23-28"
+        },
+        {
+          "kind": "scripture",
+          "reference": "1 Peter 2:21-24"
+        }
+      ]
+    },
+    "limit": {
+      "id": "limit",
+      "text": "Forgiveness must not be used as permission to continue harming people or avoid the fruits of repentance. This study supplies biblical principles, not a determination of the facts in an individual case.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Luke 17:3-4"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Matthew 3:8"
+        }
+      ]
+    },
+    "prompt": {
+      "id": "conversation",
+      "text": "What happened, and what would it mean for Christians to take that wrong seriously?",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "James 1:19"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Ephesians 5:11"
+        }
+      ]
+    },
+    "passages": [
+      {
+        "reference": "Matthew 23:23-28",
+        "note": "Jesus condemns hypocrisy"
+      },
+      {
+        "reference": "1 Corinthians 5:9-13",
+        "note": "Accountability in the church"
+      }
+    ],
+    "related": [
+      "grace",
+      "suffering",
+      "conversation"
+    ],
+    "keywords": [
+      "hypocrisy",
+      "abuse",
+      "accountability",
+      "repentance",
+      "discipline"
+    ]
+  },
+  "reviews": [
+    {
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Structured-document migration and preservation of the 2026-10-05 editorial pass",
+      "note": "Compared the compiled documents with the pre-migration website data. Existing text, references, source roles and relationships are preserved. This records migration verification and the prior AI-assisted editorial source pass, not independent human theological approval.",
+      "date": "2026-10-05",
+      "contentHash": "711191ad7f4ef881475688d973deb02f6db74136a913358e884b139ece5101fe",
+      "basisHash": "bbb10caeced68f0e72965152f4bbb46b5239a78540718060a6d3e2f33a79da61"
+    }
+  ]
+}

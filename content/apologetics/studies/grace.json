@@ -1,0 +1,198 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "study",
+  "id": "grace",
+  "order": 5,
+  "publication": "published",
+  "content": {
+    "title": "If salvation is a gift, why do good works matter?",
+    "topic": "faith",
+    "summary": "Justified by faith alone; renewed for a life of obedience.",
+    "answer": {
+      "id": "answer",
+      "text": "God justifies sinners by grace alone, through faith alone, on the basis of Christ's righteousness alone. Our works do not contribute to that verdict. The same grace renews us, so genuine faith bears fruit in repentance, love and obedience. Justification and sanctification are inseparable benefits, but they are not the same thing.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Romans 4:4-8"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Ephesians 2:8-10"
+        },
+        {
+          "kind": "source",
+          "source": "calvin-justification",
+          "locator": "Institutes III.11"
+        }
+      ]
+    },
+    "reasoning": [
+      {
+        "id": "reason-1",
+        "text": "We are dead in sins and made alive by God's mercy; salvation begins in his grace.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Ephesians 2:1-5"
+          }
+        ]
+      },
+      {
+        "id": "reason-2",
+        "text": "Faith receives Christ and his righteousness rather than offering our achievements to God.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Philippians 3:8-9"
+          }
+        ]
+      },
+      {
+        "id": "reason-3",
+        "text": "Those saved by grace are created in Christ for good works.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Ephesians 2:8-10"
+          }
+        ]
+      }
+    ],
+    "conclusion": {
+      "id": "conclusion",
+      "text": "Good works are the fruit of salvation, never the price of God's justifying acceptance.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Titus 3:4-8"
+        },
+        {
+          "kind": "source",
+          "source": "wcf",
+          "locator": "11.1–2; 16.2"
+        }
+      ]
+    },
+    "sections": [
+      {
+        "id": "section-1",
+        "text": "Justification concerns pardon and being counted righteous in Christ. Sanctification concerns the Spirit's real renewal of our lives. Our growth remains imperfect; it must not become the ground of our peace with God.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Romans 5:1"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Hebrews 10:14"
+          },
+          {
+            "kind": "source",
+            "source": "calvin-justification",
+            "locator": "Institutes III.11: righteousness received through faith"
+          }
+        ],
+        "title": "A verdict and a changed life"
+      },
+      {
+        "id": "section-2",
+        "text": "We cannot boast that we supplied the decisive goodness God lacked. Augustine's chapter 17 is useful here: God's mercy gives faith, and good works follow. This limited agreement does not make all of Augustine's account of justification identical to the Reformed confession.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Ephesians 2:8-9"
+          },
+          {
+            "kind": "source",
+            "source": "augustine-grace",
+            "locator": "Chapter 17"
+          },
+          {
+            "kind": "source",
+            "source": "wcf",
+            "locator": "11.1–2"
+          }
+        ],
+        "title": "Even faith is a gift"
+      }
+    ],
+    "objection": "Does faith alone give us permission to live however we please?",
+    "reply": {
+      "id": "reply",
+      "text": "No. Paul rejects continuing in sin so that grace may abound. Living faith produces obedience; James condemns a merely verbal profession without fruit. Works evidence life rather than purchase it.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Romans 6:1-4"
+        },
+        {
+          "kind": "scripture",
+          "reference": "James 2:14-18"
+        }
+      ]
+    },
+    "limit": {
+      "id": "limit",
+      "text": "Neither a profession of faith nor a moving testimony excuses ongoing harm. Repentance must bear fruit, while our confidence for forgiveness rests in Christ.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Matthew 3:8"
+        },
+        {
+          "kind": "scripture",
+          "reference": "1 John 1:8-9"
+        }
+      ]
+    },
+    "prompt": {
+      "id": "conversation",
+      "text": "Are you resting in Christ's finished work, or trying to make yourself worthy enough to be accepted?",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Romans 4:4-5"
+        }
+      ]
+    },
+    "passages": [
+      {
+        "reference": "Ephesians 2:8-10",
+        "note": "Grace, faith and good works"
+      },
+      {
+        "reference": "Romans 4:4-8",
+        "note": "Righteousness apart from works"
+      },
+      {
+        "reference": "Titus 3:3-8",
+        "note": "Mercy and renewal"
+      }
+    ],
+    "related": [
+      "cross",
+      "church-harm",
+      "morality"
+    ],
+    "keywords": [
+      "faith alone",
+      "imputation",
+      "justification",
+      "sanctification",
+      "foundation"
+    ]
+  },
+  "reviews": [
+    {
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Structured-document migration and preservation of the 2026-10-05 editorial pass",
+      "note": "Compared the compiled documents with the pre-migration website data. Existing text, references, source roles and relationships are preserved. This records migration verification and the prior AI-assisted editorial source pass, not independent human theological approval.",
+      "date": "2026-10-05",
+      "contentHash": "0a01cbe2d25e0eab810b2dd07752766bf31d6d807ec4003d8e55dd29bdb51cdf",
+      "basisHash": "fc572ffe4e83e5976984caf20b9dfaaaa916ba7c7db24540d9159aba440f87a3"
+    }
+  ]
+}

@@ -1,0 +1,206 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "study",
+  "id": "scripture",
+  "order": 4,
+  "publication": "published",
+  "content": {
+    "title": "What does it mean to say the Bible is trustworthy?",
+    "topic": "bible",
+    "summary": "God's written Word is our final authority for faith and life.",
+    "answer": {
+      "id": "answer",
+      "text": "Scripture is breathed out by God and therefore truthful in all it affirms. Its authority comes from God, not from a church's permission or our ability to prove every detail. We receive it as the final authority, interpreting each passage in context and in the light of the whole Bible.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "2 Timothy 3:16-17"
+        },
+        {
+          "kind": "scripture",
+          "reference": "John 17:17"
+        },
+        {
+          "kind": "source",
+          "source": "calvin-scripture",
+          "locator": "I.7.1–5"
+        }
+      ]
+    },
+    "reasoning": [
+      {
+        "id": "reason-1",
+        "text": "The biblical writers speak as people carried along by the Holy Spirit.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "2 Peter 1:20-21"
+          }
+        ]
+      },
+      {
+        "id": "reason-2",
+        "text": "God's truthfulness grounds our confidence in the Word he gives.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Titus 1:2"
+          },
+          {
+            "kind": "scripture",
+            "reference": "John 17:17"
+          },
+          {
+            "kind": "source",
+            "source": "sproul-inerrancy",
+            "locator": "Inspiration and God's truthfulness"
+          }
+        ]
+      },
+      {
+        "id": "reason-3",
+        "text": "The Spirit enables us to receive that Word; evidence is useful but is not a higher authority over God.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "1 Corinthians 2:12-14"
+          },
+          {
+            "kind": "source",
+            "source": "calvin-scripture",
+            "locator": "I.7.4–5"
+          }
+        ]
+      }
+    ],
+    "conclusion": {
+      "id": "conclusion",
+      "text": "Careful inquiry and confidence in Scripture belong together. Our interpretations must answer to God's Word.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Acts 17:11"
+        },
+        {
+          "kind": "source",
+          "source": "wcf",
+          "locator": "1.9–10"
+        }
+      ]
+    },
+    "sections": [
+      {
+        "id": "section-1",
+        "text": "Inspiration concerns God's giving Scripture. Copying, translating and interpreting concern how we encounter its words. A copyist's correction or a translator's choice does not, by itself, establish an error in the inspired text.",
+        "citations": [
+          {
+            "kind": "source",
+            "source": "wcf",
+            "locator": "1.8"
+          },
+          {
+            "kind": "source",
+            "source": "sinaiticus",
+            "locator": "The manuscript and its corrections"
+          },
+          {
+            "kind": "source",
+            "source": "sproul-inerrancy",
+            "locator": "Divine inspiration and human fallibility"
+          }
+        ],
+        "title": "Name the question"
+      },
+      {
+        "id": "section-2",
+        "text": "Read the surrounding paragraph and compare clearer passages on the same subject. Bring difficult questions into the open. Our inability to resolve a difficulty immediately does not entitle us to invent a solution or to make our uncertainty the measure of God's truthfulness.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "2 Peter 3:15-16"
+          },
+          {
+            "kind": "source",
+            "source": "wcf",
+            "locator": "1.7–9"
+          }
+        ],
+        "title": "Read with accountable confidence"
+      }
+    ],
+    "objection": "Isn't an appeal to Scripture just circular?",
+    "reply": {
+      "id": "reply",
+      "text": "Every ultimate authority raises a question about its own grounds. The Reformed answer is that God's Word carries divine authority and the Spirit bears witness to it. We can also discuss historical evidence, but human judgment does not create the authority it examines.",
+      "citations": [
+        {
+          "kind": "source",
+          "source": "calvin-scripture",
+          "locator": "I.7.1–5"
+        }
+      ]
+    },
+    "limit": {
+      "id": "limit",
+      "text": "Inerrancy does not make every translation or every Christian interpretation infallible. We should be ready to correct our reading in submission to the text.",
+      "citations": [
+        {
+          "kind": "source",
+          "source": "sproul-inerrancy",
+          "locator": "God's speech and human fallibility"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Acts 17:11"
+        }
+      ]
+    },
+    "prompt": {
+      "id": "conversation",
+      "text": "Is your question about what this passage teaches, how its wording reached us, or why we receive it as God's Word?",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Acts 17:11"
+        }
+      ]
+    },
+    "passages": [
+      {
+        "reference": "2 Timothy 3:14-17",
+        "note": "Scripture is God-breathed"
+      },
+      {
+        "reference": "2 Peter 1:20-21",
+        "note": "The Spirit and the writers"
+      },
+      {
+        "reference": "Acts 17:10-12",
+        "note": "Examining the Scriptures"
+      }
+    ],
+    "related": [
+      "manuscripts",
+      "canon",
+      "contradictions"
+    ],
+    "keywords": [
+      "inspiration",
+      "inerrancy",
+      "authority",
+      "foundation"
+    ]
+  },
+  "reviews": [
+    {
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Structured-document migration and preservation of the 2026-10-05 editorial pass",
+      "note": "Compared the compiled documents with the pre-migration website data. Existing text, references, source roles and relationships are preserved. This records migration verification and the prior AI-assisted editorial source pass, not independent human theological approval.",
+      "date": "2026-10-05",
+      "contentHash": "ddbbda104f2882cd8ebe4de6781409bb21a5a3435e72db6707408e2d487129af",
+      "basisHash": "5cfb7911b114c3ec5f56c78a98c039438ee5706b226f4469c84ee5ae71731b98"
+    }
+  ]
+}

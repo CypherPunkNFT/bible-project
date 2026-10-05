@@ -1,0 +1,32 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "path",
+  "id": "read-evidence",
+  "order": 3,
+  "publication": "published",
+  "content": {
+    "title": "Learn to examine the evidence",
+    "label": "Sharpen your reading",
+    "description": "Distinguish a claim, its sources and the conclusions they can carry.",
+    "studies": [
+      "scripture",
+      "manuscripts",
+      "canon",
+      "contradictions",
+      "miracles",
+      "resurrection"
+    ]
+  },
+  "reviews": [
+    {
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Structured-document migration and preservation of the 2026-10-05 editorial pass",
+      "note": "Compared the compiled documents with the pre-migration website data. Existing text, references, source roles and relationships are preserved. This records migration verification and the prior AI-assisted editorial source pass, not independent human theological approval.",
+      "date": "2026-10-05",
+      "contentHash": "1c707609946f495a386b351665a9f3f70809193d19a85cfffcea64e88a08ab04",
+      "basisHash": "0efe3718a95480d6a8c9af8b57b574d84bcbbad92b0bd84b02bddba780c54a09"
+    }
+  ]
+}

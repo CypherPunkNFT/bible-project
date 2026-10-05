@@ -1,0 +1,50 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "debate",
+  "id": "craig-ally-resurrection",
+  "order": 1,
+  "publication": "published",
+  "content": {
+    "title": "Hoax or history?",
+    "speakers": "William Lane Craig · Shabir Ally",
+    "setting": "McGill University · February 2009",
+    "source": "craig-ally-resurrection",
+    "lens": "Resurrection & Islam",
+    "description": "Examine an actual exchange about Jesus' death, resurrection and the competing interpretations of the sources.",
+    "claim": {
+      "id": "exchange",
+      "text": "Craig defends the resurrection as the best explanation of the evidence. Ally disputes that inference and discusses an alternative account of Jesus' fate.",
+      "citations": [
+        {
+          "kind": "source",
+          "source": "craig-ally-resurrection",
+          "locator": "Opening statements and responses"
+        }
+      ]
+    },
+    "hinge": "Which points are claims about the sources, which are historical inferences, and which depend on theological expectations?",
+    "prompts": [
+      "Read both opening contributions before judging the replies.",
+      "Track the difference between crucifixion, death and resurrection.",
+      "Test the explanatory costs of each proposed account."
+    ],
+    "studies": [
+      "resurrection",
+      "islam-cross",
+      "miracles",
+      "contradictions"
+    ]
+  },
+  "reviews": [
+    {
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Structured-document migration and preservation of the 2026-10-05 editorial pass",
+      "note": "Compared the compiled documents with the pre-migration website data. Existing text, references, source roles and relationships are preserved. This records migration verification and the prior AI-assisted editorial source pass, not independent human theological approval.",
+      "date": "2026-10-05",
+      "contentHash": "2aaf79ad1ab2d38fb75f786b51635a60ffe21c75581afe1d4fd21d0809ccc7d1",
+      "basisHash": "a6d6975c6ae1a7c6ecc58659de234acce935a4494621e6274e304be375c17dc0"
+    }
+  ]
+}

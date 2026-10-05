@@ -168,3 +168,26 @@ test("apologetics: moral goodness is qualified and its sources are inspectable",
   expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(1);
   await page.locator(".ap-source-policy").screenshot({ path: testInfo.outputPath("source-policy.png") });
 });
+
+test("apologetics: study and library downloads match the documents rendered on the site", async ({ page, request }, testInfo) => {
+  await page.goto("/apologetics/study/morality");
+  const studyLink = page.getByRole("link", { name: "Download this study" });
+  await expect(studyLink).toHaveAttribute("href", "/content/apologetics/study-morality.md");
+  const downloading = page.waitForEvent("download"); await studyLink.click();
+  const download = await downloading; expect(download.suggestedFilename()).toBe("study-morality.md");
+  expect(await download.failure()).toBeNull();
+  const markdown = await request.get("/content/apologetics/study-morality.md");
+  expect(markdown.ok()).toBe(true); const text = await markdown.text();
+  expect(text).toContain(STUDIES.find((s) => s.id === "morality")!.answer);
+  expect(text).toContain("Romans 3:10-12"); expect(text).toContain("https://opc.org/wcf.html");
+  await page.goto("/apologetics/sources");
+  await expect(page.getByRole("link", { name: "Study documents · Markdown" })).toHaveAttribute("href", "/content/apologetics/library.md");
+  await expect(page.getByRole("link", { name: "Structured collection · JSON" })).toHaveAttribute("href", "/content/apologetics/library.json");
+  const response = await request.get("/content/apologetics/library.json"); expect(response.ok()).toBe(true);
+  const corpus = await response.json();
+  expect(corpus.documents.filter((d: { kind: string }) => d.kind === "study")).toHaveLength(STUDIES.length);
+  expect(corpus.documents.find((d: { kind: string; id: string }) => d.kind === "study" && d.id === "morality").content.answer.text).toBe(STUDIES.find((s) => s.id === "morality")!.answer);
+  expect(corpus.documents.every((d: Record<string, unknown>) => !("reviews" in d) && !("publication" in d))).toBe(true);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(1);
+  await page.locator(".ap-document-downloads").screenshot({ path: testInfo.outputPath("document-downloads.png") });
+});

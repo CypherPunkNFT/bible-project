@@ -1,0 +1,206 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "study",
+  "id": "cross",
+  "order": 2,
+  "publication": "published",
+  "content": {
+    "title": "Why would forgiveness involve the cross?",
+    "topic": "jesus",
+    "summary": "Christ willingly bore the judgment our sins deserve.",
+    "answer": {
+      "id": "answer",
+      "text": "God is holy and just, and our sin deserves judgment. In love, the Father sent the Son, who willingly offered himself as our substitute. Christ bore the penalty of sin and satisfied divine justice, reconciling his people to God. This is penal substitution, central to the Reformed account of the cross.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Isaiah 53:4-6"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Romans 3:23-26"
+        },
+        {
+          "kind": "source",
+          "source": "penal-substitution",
+          "locator": "Christ bearing the penalty of sin"
+        }
+      ]
+    },
+    "reasoning": [
+      {
+        "id": "reason-1",
+        "text": "Sin is guilt before God, not merely a feeling of shame or a lack of fulfilment.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Romans 3:19-23"
+          }
+        ]
+      },
+      {
+        "id": "reason-2",
+        "text": "The sinless Christ bears our sins; his death is a willing gift.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "1 Peter 2:22-24"
+          },
+          {
+            "kind": "scripture",
+            "reference": "John 10:17-18"
+          }
+        ]
+      },
+      {
+        "id": "reason-3",
+        "text": "Through Christ's blood God justifies sinners while remaining just.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Romans 3:24-26"
+          }
+        ]
+      }
+    ],
+    "conclusion": {
+      "id": "conclusion",
+      "text": "Forgiveness rests on Christ's completed obedience and sacrifice, not on God overlooking evil or our paying him back.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Hebrews 10:10-14"
+        },
+        {
+          "kind": "source",
+          "source": "wcf",
+          "locator": "8.5"
+        }
+      ]
+    },
+    "sections": [
+      {
+        "id": "section-1",
+        "text": "Scripture also describes ransom, reconciliation and victory. These belong with Christ's bearing our guilt. We should not use one image to remove another part of what the Bible teaches.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Mark 10:45"
+          },
+          {
+            "kind": "scripture",
+            "reference": "2 Corinthians 5:18-21"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Colossians 2:13-15"
+          },
+          {
+            "kind": "source",
+            "source": "penal-substitution",
+            "locator": "Biblical descriptions of the atonement"
+          }
+        ],
+        "title": "One saving work, several biblical descriptions"
+      },
+      {
+        "id": "section-2",
+        "text": "The cross is not an unwilling stranger punished by a hostile deity. The incarnate Son freely lays down his life in obedience to the Father. God's love and God's justice meet in this saving work.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "John 10:17-18"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Romans 5:6-11"
+          }
+        ],
+        "title": "The Son gives himself"
+      }
+    ],
+    "objection": "Why can't God simply ignore the offence?",
+    "reply": {
+      "id": "reply",
+      "text": "The gospel does not deny the seriousness of guilt. God condemns sin and grants mercy through Christ's sacrifice. The righteousness by which we stand before God is Christ's, received through faith.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Romans 3:25-26"
+        },
+        {
+          "kind": "scripture",
+          "reference": "2 Corinthians 5:21"
+        },
+        {
+          "kind": "source",
+          "source": "calvin-justification",
+          "locator": "Institutes III.11: forgiveness and imputed righteousness"
+        }
+      ]
+    },
+    "limit": {
+      "id": "limit",
+      "text": "A courtroom or debt analogy is an aid to explanation, not a replacement for Scripture's account of the person and work of the mediator.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "1 Timothy 2:5-6"
+        },
+        {
+          "kind": "source",
+          "source": "wcf",
+          "locator": "8.2–5"
+        }
+      ]
+    },
+    "prompt": {
+      "id": "conversation",
+      "text": "What would forgiveness mean if God took both the evil of our sin and the cost of our rescue seriously?",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Romans 5:8-11"
+        }
+      ]
+    },
+    "passages": [
+      {
+        "reference": "Isaiah 53:4-6",
+        "note": "The servant bears our iniquities"
+      },
+      {
+        "reference": "Romans 3:23-26",
+        "note": "God is just and justifies believers"
+      },
+      {
+        "reference": "2 Corinthians 5:18-21",
+        "note": "Reconciled through Christ"
+      }
+    ],
+    "related": [
+      "grace",
+      "resurrection",
+      "islam-cross"
+    ],
+    "keywords": [
+      "atonement",
+      "penal substitution",
+      "wrath",
+      "justice",
+      "foundation"
+    ]
+  },
+  "reviews": [
+    {
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Structured-document migration and preservation of the 2026-10-05 editorial pass",
+      "note": "Compared the compiled documents with the pre-migration website data. Existing text, references, source roles and relationships are preserved. This records migration verification and the prior AI-assisted editorial source pass, not independent human theological approval.",
+      "date": "2026-10-05",
+      "contentHash": "86e59af7ac24d62d6ff3c739238b5325153a50f7e2a194f8a800bd59a5f45a4a",
+      "basisHash": "97e68c35877607efb2b547fe688882962a60da0c5178d2985bb1d05f95abf667"
+    }
+  ]
+}

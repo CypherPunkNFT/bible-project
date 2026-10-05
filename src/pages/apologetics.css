@@ -406,6 +406,10 @@
 .ap-source-policy h2 { font-family: var(--font-serif); font-size: clamp(1.3rem,2.2vw,1.8rem); margin: .65rem 0; }
 .ap-source-policy > p:not(.ap-eyebrow) { max-width: 78ch; color: var(--muted); font-size: .82rem; line-height: 1.85; }
 .ap-source-policy > a { display: inline-flex; align-items: center; gap: .6rem; margin-top: .8rem; color: var(--accent); font-size: .75rem; }
+.ap-document-downloads { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem 1.5rem; padding: 1rem 0 1.5rem; margin-bottom: 1rem; border-bottom: 1px solid var(--line); font-size: .75rem; }
+.ap-document-downloads > span { color: var(--muted); }
+.ap-document-downloads a { display: inline-flex; align-items: center; gap: .3rem; color: var(--accent); }
+.ap-document-download { margin: .8rem 0; }
 .ap-policy-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 1.5rem; border-top: 1px solid var(--line); padding-top: 1.4rem; margin-top: 1.4rem; }
 .ap-policy-grid h3 { font-family: var(--font-serif); font-size: 1rem; margin-bottom: .5rem; }
 .ap-policy-grid p { font-size: .75rem; line-height: 1.85; color: var(--muted); }

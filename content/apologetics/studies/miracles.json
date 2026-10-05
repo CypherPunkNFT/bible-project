@@ -1,0 +1,188 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "study",
+  "id": "miracles",
+  "order": 9,
+  "publication": "published",
+  "content": {
+    "title": "Can a reasonable person believe in miracles?",
+    "topic": "jesus",
+    "summary": "God acts in his world; not every remarkable report is true.",
+    "answer": {
+      "id": "answer",
+      "text": "Yes. The Creator is not imprisoned by the ordinary patterns of his creation. Christianity depends on God's supernatural acts, supremely Christ's resurrection. That conviction does not require us to accept every claim of a miracle: Scripture itself commands discernment.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Luke 1:37"
+        },
+        {
+          "kind": "scripture",
+          "reference": "1 Corinthians 15:14"
+        },
+        {
+          "kind": "scripture",
+          "reference": "1 John 4:1"
+        },
+        {
+          "kind": "source",
+          "source": "sproul-miracles",
+          "locator": "Christianity's supernatural claims"
+        }
+      ]
+    },
+    "reasoning": [
+      {
+        "id": "reason-1",
+        "text": "God both sustains ordinary events and is free to act beyond ordinary means.",
+        "citations": [
+          {
+            "kind": "source",
+            "source": "wcf",
+            "locator": "5.2–3"
+          }
+        ]
+      },
+      {
+        "id": "reason-2",
+        "text": "The resurrection is essential to the gospel, not an optional embellishment.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "1 Corinthians 15:12-22"
+          }
+        ]
+      },
+      {
+        "id": "reason-3",
+        "text": "An impressive sign is not sufficient grounds for receiving false teaching.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Deuteronomy 13:1-4"
+          }
+        ]
+      }
+    ],
+    "conclusion": {
+      "id": "conclusion",
+      "text": "We should confess the miracles God reveals and test additional reports without confusing wonder with truth.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "John 20:30-31"
+        },
+        {
+          "kind": "scripture",
+          "reference": "1 John 4:1"
+        }
+      ]
+    },
+    "sections": [
+      {
+        "id": "section-1",
+        "text": "John records signs so that readers may believe Jesus is the Christ. Their meaning concerns his identity, not merely the occurrence of something unusual. Read what the author says the sign demonstrates.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "John 20:30-31"
+          }
+        ],
+        "title": "Read the event in its setting"
+      },
+      {
+        "id": "section-2",
+        "text": "Ask what occurred, what the witnesses claim and whether an explanation goes beyond their testimony. Those are practical applications of testing claims. A sincere or moving story should not be treated as automatically reliable.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Proverbs 18:17"
+          },
+          {
+            "kind": "scripture",
+            "reference": "1 Thessalonians 5:21"
+          },
+          {
+            "kind": "scripture",
+            "reference": "1 John 4:1"
+          }
+        ],
+        "title": "Discernment belongs to faith"
+      }
+    ],
+    "objection": "A miracle contradicts the regularity of nature.",
+    "reply": {
+      "id": "reply",
+      "text": "Regularity describes God's ordinary ordering of the world; it does not establish his inability to act exceptionally. The historical question about a particular event still deserves careful examination.",
+      "citations": [
+        {
+          "kind": "source",
+          "source": "wcf",
+          "locator": "5.2–3"
+        },
+        {
+          "kind": "source",
+          "source": "sproul-miracles",
+          "locator": "God's supernatural action"
+        }
+      ]
+    },
+    "limit": {
+      "id": "limit",
+      "text": "An unexplained event does not by itself identify its cause or authenticate a religion. Scripture warns that impressive signs can accompany deception.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Matthew 24:24"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Deuteronomy 13:1-4"
+        }
+      ]
+    },
+    "prompt": {
+      "id": "conversation",
+      "text": "Could we distinguish the possibility of God's action from the evidence for this particular report?",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Proverbs 18:17"
+        }
+      ]
+    },
+    "passages": [
+      {
+        "reference": "John 20:24-31",
+        "note": "Thomas, signs and faith"
+      },
+      {
+        "reference": "1 John 4:1-3",
+        "note": "Test the spirits"
+      }
+    ],
+    "related": [
+      "resurrection",
+      "science",
+      "why-anything"
+    ],
+    "keywords": [
+      "supernatural",
+      "testimony",
+      "evidence",
+      "naturalism"
+    ]
+  },
+  "reviews": [
+    {
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Structured-document migration and preservation of the 2026-10-05 editorial pass",
+      "note": "Compared the compiled documents with the pre-migration website data. Existing text, references, source roles and relationships are preserved. This records migration verification and the prior AI-assisted editorial source pass, not independent human theological approval.",
+      "date": "2026-10-05",
+      "contentHash": "3e31d0f42830d7068c688234cbce67234e3026bec19756df0aca4807953181d3",
+      "basisHash": "778d468b4cb39bcad5e309047b55830faca204697b3f6ed82f2fef662cdfa73f"
+    }
+  ]
+}

@@ -1,0 +1,197 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "study",
+  "id": "islam-cross",
+  "order": 18,
+  "publication": "published",
+  "content": {
+    "title": "What separates Christian and Islamic accounts of the cross?",
+    "topic": "worldviews",
+    "summary": "Christ's death and resurrection are essential to the gospel.",
+    "answer": {
+      "id": "answer",
+      "text": "The New Testament proclaims that Christ died for our sins, was buried and rose. Qur'an 4:157 denies that Jesus' opponents killed or crucified him; 4:158 says God raised him. These statements must be read honestly as a real disagreement, with later interpretations distinguished from the wording itself.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "1 Corinthians 15:3-8"
+        },
+        {
+          "kind": "source",
+          "source": "q4157",
+          "locator": "4:157–158"
+        },
+        {
+          "kind": "source",
+          "source": "wcf",
+          "locator": "8.4–5"
+        }
+      ]
+    },
+    "reasoning": [
+      {
+        "id": "reason-1",
+        "text": "Paul explicitly includes death, burial and resurrection in the gospel he received.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "1 Corinthians 15:3-4"
+          }
+        ]
+      },
+      {
+        "id": "reason-2",
+        "text": "The Qur'anic passage denies the opponents' claim to have killed and crucified Jesus.",
+        "citations": [
+          {
+            "kind": "source",
+            "source": "q4157",
+            "locator": "4:157–158"
+          }
+        ]
+      },
+      {
+        "id": "reason-3",
+        "text": "Removing Christ's death for sin removes the atoning work central to the Christian message.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "1 Peter 2:24"
+          },
+          {
+            "kind": "source",
+            "source": "penal-substitution",
+            "locator": "Christ as the substitute for sinners"
+          }
+        ]
+      }
+    ],
+    "conclusion": {
+      "id": "conclusion",
+      "text": "The cross is not an incidental detail on which the two accounts can simply be merged.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "1 Corinthians 1:23-24"
+        },
+        {
+          "kind": "scripture",
+          "reference": "1 Corinthians 15:3-4"
+        }
+      ]
+    },
+    "sections": [
+      {
+        "id": "section-1",
+        "text": "Compare First Corinthians 15 with Qur'an 4:157–158. The latter does not name a substitute for Jesus. If someone proposes a substitute, survival or another explanation, distinguish that interpretation from the text being cited.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "1 Corinthians 15:3-8"
+          },
+          {
+            "kind": "source",
+            "source": "q4157",
+            "locator": "4:157–158"
+          }
+        ],
+        "title": "Read what the sources say"
+      },
+      {
+        "id": "section-2",
+        "text": "Christians confess more than an execution: the Son willingly gives himself to save sinners. His resurrection confirms that death does not have the final word. Begin with that gospel before discussing a theory about what might have happened instead.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "John 10:17-18"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Romans 4:24-25"
+          },
+          {
+            "kind": "source",
+            "source": "wcf",
+            "locator": "8.4–5"
+          }
+        ],
+        "title": "Explain why the cross matters"
+      }
+    ],
+    "objection": "Wouldn't saving Jesus from death honour him more?",
+    "reply": {
+      "id": "reply",
+      "text": "The New Testament presents his willing humiliation and obedience through death as the path followed by exaltation. The cross displays his love and saving obedience, not God's inability to rescue him.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Philippians 2:5-11"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Matthew 26:53-54"
+        }
+      ]
+    },
+    "limit": {
+      "id": "limit",
+      "text": "This comparison identifies the primary disagreement; it does not survey every Muslim interpretation. A debate transcript is a record of an argument, not an authority capable of replacing either source.",
+      "citations": [
+        {
+          "kind": "source",
+          "source": "q4157",
+          "locator": "4:157–158"
+        },
+        {
+          "kind": "source",
+          "source": "craig-ally-resurrection",
+          "locator": "Opening statements and responses"
+        }
+      ]
+    },
+    "prompt": {
+      "id": "conversation",
+      "text": "Could we first compare what each passage claims, then discuss why Christians consider the cross good news?",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "1 Corinthians 15:3-4"
+        }
+      ]
+    },
+    "passages": [
+      {
+        "reference": "1 Corinthians 15:3-8",
+        "note": "Death, burial and resurrection"
+      },
+      {
+        "reference": "Philippians 2:5-11",
+        "note": "Obedience and exaltation"
+      }
+    ],
+    "related": [
+      "cross",
+      "resurrection",
+      "manuscripts"
+    ],
+    "keywords": [
+      "Islam",
+      "Muslim",
+      "crucifixion",
+      "atonement",
+      "substitution"
+    ]
+  },
+  "reviews": [
+    {
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Structured-document migration and preservation of the 2026-10-05 editorial pass",
+      "note": "Compared the compiled documents with the pre-migration website data. Existing text, references, source roles and relationships are preserved. This records migration verification and the prior AI-assisted editorial source pass, not independent human theological approval.",
+      "date": "2026-10-05",
+      "contentHash": "b9e36b2fb8c30fafe9ab5428fc76bd7de513faa66aaf98f9b1702dc5117b72e7",
+      "basisHash": "9aabc77df1e5b81e69bb178ad277e20440fdf32fd2182c8c9a0c8616a66d337f"
+    }
+  ]
+}

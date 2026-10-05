@@ -1,0 +1,26 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "topic",
+  "id": "bible",
+  "order": 2,
+  "publication": "published",
+  "content": {
+    "title": "Bible & reliability",
+    "short": "Scripture",
+    "color": "history",
+    "description": "Manuscripts, canon and the patient work of reading in context.",
+    "question": "Can we trust what we are reading?"
+  },
+  "reviews": [
+    {
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Structured-document migration and preservation of the 2026-10-05 editorial pass",
+      "note": "Compared the compiled documents with the pre-migration website data. Existing text, references, source roles and relationships are preserved. This records migration verification and the prior AI-assisted editorial source pass, not independent human theological approval.",
+      "date": "2026-10-05",
+      "contentHash": "2cf3116dbe458fa65ab23c191cea0e185f4950ad6cf9b41fa09744e293badd5f",
+      "basisHash": "0efe3718a95480d6a8c9af8b57b574d84bcbbad92b0bd84b02bddba780c54a09"
+    }
+  ]
+}

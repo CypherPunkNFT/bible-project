@@ -1,0 +1,181 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "study",
+  "id": "contradictions",
+  "order": 12,
+  "publication": "published",
+  "content": {
+    "title": "What should we do with apparent Bible contradictions?",
+    "topic": "bible",
+    "summary": "Trust the truthful God and read his Word carefully.",
+    "answer": {
+      "id": "answer",
+      "text": "Because God is truthful, we receive Scripture as truthful in what it affirms. Apparent conflicts call for careful reading of wording, context and genre. Different details are not necessarily incompatible claims, and a suggested reconciliation must not be dressed up as a demonstrated fact.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Titus 1:2"
+        },
+        {
+          "kind": "scripture",
+          "reference": "John 17:17"
+        },
+        {
+          "kind": "source",
+          "source": "sproul-differences",
+          "locator": "Difference and logical contradiction"
+        }
+      ]
+    },
+    "reasoning": [
+      {
+        "id": "reason-1",
+        "text": "Two accounts can select different details without denying each other.",
+        "citations": [
+          {
+            "kind": "source",
+            "source": "sproul-differences",
+            "locator": "Complementary accounts"
+          }
+        ]
+      },
+      {
+        "id": "reason-2",
+        "text": "A genuine contradiction affirms and denies the same thing in the same respect.",
+        "citations": [
+          {
+            "kind": "source",
+            "source": "sproul-differences",
+            "locator": "What counts as a contradiction"
+          }
+        ]
+      },
+      {
+        "id": "reason-3",
+        "text": "Our interpretation is accountable to Scripture, including clearer passages on the same subject.",
+        "citations": [
+          {
+            "kind": "source",
+            "source": "wcf",
+            "locator": "1.9"
+          }
+        ]
+      }
+    ],
+    "conclusion": {
+      "id": "conclusion",
+      "text": "Confidence in God's Word should produce patient attention to the text, not a willingness to invent details.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Acts 17:11"
+        },
+        {
+          "kind": "source",
+          "source": "sproul-inerrancy",
+          "locator": "The truthfulness of inspired Scripture"
+        }
+      ]
+    },
+    "sections": [
+      {
+        "id": "section-1",
+        "text": "As a reading exercise, note each passage's speaker, setting and explicit claim. Identify what you have inferred. Then state exactly why the two assertions would exclude each other. This applies the distinction between difference and contradiction.",
+        "citations": [
+          {
+            "kind": "source",
+            "source": "sproul-differences",
+            "locator": "Difference or Contradiction?"
+          }
+        ],
+        "title": "Compare the actual assertions"
+      },
+      {
+        "id": "section-2",
+        "text": "A possible scenario may show that two statements could both be true. It does not establish that the scenario happened. If you cannot resolve a difficulty yet, say so while continuing to examine the text.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Proverbs 18:17"
+          },
+          {
+            "kind": "source",
+            "source": "wcf",
+            "locator": "1.7–9"
+          }
+        ],
+        "title": "Be honest about what you can establish"
+      }
+    ],
+    "objection": "Is harmonisation just making excuses?",
+    "reply": {
+      "id": "reply",
+      "text": "It can become special pleading if it ignores the wording. But examining complementary perspectives is legitimate. The proposed explanation must respect what the passages actually assert.",
+      "citations": [
+        {
+          "kind": "source",
+          "source": "sproul-differences",
+          "locator": "Complementary testimony and contradiction"
+        }
+      ]
+    },
+    "limit": {
+      "id": "limit",
+      "text": "Our inability to answer a particular challenge is not itself proof of an error in Scripture. Nor is our confidence permission to call an unsupported reconstruction certain.",
+      "citations": [
+        {
+          "kind": "source",
+          "source": "sproul-inerrancy",
+          "locator": "God's truthfulness"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Proverbs 18:17"
+        }
+      ]
+    },
+    "prompt": {
+      "id": "conversation",
+      "text": "Which two statements do you think cannot both be true, and what does each say in context?",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Proverbs 18:13-17"
+        }
+      ]
+    },
+    "passages": [
+      {
+        "reference": "Luke 1:1-4",
+        "note": "Luke's stated purpose"
+      },
+      {
+        "reference": "John 17:17",
+        "note": "God's Word is truth"
+      }
+    ],
+    "related": [
+      "scripture",
+      "resurrection",
+      "manuscripts"
+    ],
+    "keywords": [
+      "errors",
+      "inerrancy",
+      "Gospel harmony",
+      "discrepancies"
+    ]
+  },
+  "reviews": [
+    {
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Structured-document migration and preservation of the 2026-10-05 editorial pass",
+      "note": "Compared the compiled documents with the pre-migration website data. Existing text, references, source roles and relationships are preserved. This records migration verification and the prior AI-assisted editorial source pass, not independent human theological approval.",
+      "date": "2026-10-05",
+      "contentHash": "0c3e67afd906d46be9778893a9454ad12f15100cf5c9755c7fd12c39cc22a92f",
+      "basisHash": "4e3e5c496459ba3c9ea668611ef6c1b052e311680a6f1c61c12a571f73b66f9f"
+    }
+  ]
+}

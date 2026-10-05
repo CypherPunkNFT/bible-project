@@ -1,0 +1,171 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "study",
+  "id": "canon",
+  "order": 11,
+  "publication": "published",
+  "content": {
+    "title": "Who decided which books belong in the Bible?",
+    "topic": "bible",
+    "summary": "The church recognises God's Word; it does not give it authority.",
+    "answer": {
+      "id": "answer",
+      "text": "God gives Scripture its authority. The church receives and recognises the books he inspired; it does not make them divine by voting. The history of that recognition includes discussion and disagreement, and must be studied through actual witnesses. The canon was not invented at Nicaea.",
+      "citations": [
+        {
+          "kind": "source",
+          "source": "calvin-scripture",
+          "locator": "I.7.1–2"
+        },
+        {
+          "kind": "source",
+          "source": "kruger-canon",
+          "locator": "Recognition, councils and Nicaea"
+        }
+      ]
+    },
+    "reasoning": [
+      {
+        "id": "reason-1",
+        "text": "Scripture is God's gift, not merely a collection of texts a community finds useful.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "2 Timothy 3:16-17"
+          }
+        ]
+      },
+      {
+        "id": "reason-2",
+        "text": "Peter refers to Paul's letters alongside the other Scriptures.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "2 Peter 3:15-16"
+          }
+        ]
+      },
+      {
+        "id": "reason-3",
+        "text": "Athanasius's Festal Letter 39 lists the 27 New Testament books we receive today.",
+        "citations": [
+          {
+            "kind": "source",
+            "source": "athanasius",
+            "locator": "Festal Letter 39, section 5"
+          }
+        ]
+      }
+    ],
+    "conclusion": {
+      "id": "conclusion",
+      "text": "Historical lists document recognition. They do not create the authority that belongs to God's Word.",
+      "citations": [
+        {
+          "kind": "source",
+          "source": "kruger-canon",
+          "locator": "The church's recognition of authoritative books"
+        },
+        {
+          "kind": "source",
+          "source": "wcf",
+          "locator": "1.4"
+        }
+      ]
+    },
+    "sections": [
+      {
+        "id": "section-1",
+        "text": "Athanasius distinguishes canonical books from other recommended reading. We cite his New Testament list as historical evidence, not as an endorsement of every detail of his Old Testament list or his theology.",
+        "citations": [
+          {
+            "kind": "source",
+            "source": "athanasius",
+            "locator": "Sections 4–7"
+          }
+        ],
+        "title": "Use a historical witness within its scope"
+      },
+      {
+        "id": "section-2",
+        "text": "This library follows the 66-book Protestant canon expressed in Westminster. Its account of the Old Testament differs from the Roman Catholic canon. We do not describe that difference as a mere interface choice or imply that citing a Catholic writer removes it.",
+        "citations": [
+          {
+            "kind": "source",
+            "source": "wcf",
+            "locator": "1.2–3"
+          }
+        ],
+        "title": "Be clear about our canon"
+      }
+    ],
+    "objection": "Did a council simply choose the books that supported its power?",
+    "reply": {
+      "id": "reply",
+      "text": "Name the council and examine the records. Kruger's account distinguishes the prior use of books from later ecclesiastical recognition and explains why attributing the New Testament canon to Nicaea fails.",
+      "citations": [
+        {
+          "kind": "source",
+          "source": "kruger-canon",
+          "locator": "The NT canon was not decided at Nicaea"
+        }
+      ]
+    },
+    "limit": {
+      "id": "limit",
+      "text": "A short guide is not a complete history of every book's reception. Human testimony can help us, while the authority and ultimate assurance of Scripture rest in God and his Spirit.",
+      "citations": [
+        {
+          "kind": "source",
+          "source": "calvin-scripture",
+          "locator": "I.7.4–5"
+        }
+      ]
+    },
+    "prompt": {
+      "id": "conversation",
+      "text": "Are you asking how the church recognised the books, or what gives those books authority?",
+      "citations": [
+        {
+          "kind": "source",
+          "source": "calvin-scripture",
+          "locator": "I.7.1–2"
+        }
+      ]
+    },
+    "passages": [
+      {
+        "reference": "2 Timothy 3:14-17",
+        "note": "Scripture comes from God"
+      },
+      {
+        "reference": "2 Peter 3:15-16",
+        "note": "Paul's letters and the Scriptures"
+      }
+    ],
+    "related": [
+      "scripture",
+      "manuscripts",
+      "jesus"
+    ],
+    "keywords": [
+      "council",
+      "Nicaea",
+      "books",
+      "apocrypha",
+      "authority"
+    ]
+  },
+  "reviews": [
+    {
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Structured-document migration and preservation of the 2026-10-05 editorial pass",
+      "note": "Compared the compiled documents with the pre-migration website data. Existing text, references, source roles and relationships are preserved. This records migration verification and the prior AI-assisted editorial source pass, not independent human theological approval.",
+      "date": "2026-10-05",
+      "contentHash": "4c4a9930607c9f49fdc8720ed02731663899037b86c5a348e16c3d5237819fe9",
+      "basisHash": "9c90c0280ff974a54b872cab24e8a5588e81c032a3752fda09a68c9e3dd2634b"
+    }
+  ]
+}

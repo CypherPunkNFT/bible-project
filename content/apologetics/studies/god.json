@@ -1,0 +1,193 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "study",
+  "id": "god",
+  "order": 0,
+  "publication": "published",
+  "content": {
+    "title": "Does the Trinity mean three gods?",
+    "topic": "faith",
+    "summary": "One God, eternally Father, Son and Holy Spirit.",
+    "answer": {
+      "id": "answer",
+      "text": "No. There is one God in three distinct persons: Father, Son and Holy Spirit. Each person is fully God; they are not three gods, parts of God or successive disguises. This is the God revealed in Scripture, whom Christians worship.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Deuteronomy 6:4"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Matthew 28:19"
+        },
+        {
+          "kind": "source",
+          "source": "wcf",
+          "locator": "2.3"
+        }
+      ]
+    },
+    "reasoning": [
+      {
+        "id": "reason-1",
+        "text": "Israel confesses the one Lord; Christian faith does not abandon that confession.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Deuteronomy 6:4"
+          },
+          {
+            "kind": "scripture",
+            "reference": "1 Corinthians 8:4-6"
+          }
+        ]
+      },
+      {
+        "id": "reason-2",
+        "text": "The Word is with God and is God; the Father and Son are distinct without the Son being a creature.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "John 1:1-3"
+          }
+        ]
+      },
+      {
+        "id": "reason-3",
+        "text": "Jesus names Father, Son and Holy Spirit together in the one baptismal name.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Matthew 28:18-20"
+          }
+        ]
+      }
+    ],
+    "conclusion": {
+      "id": "conclusion",
+      "text": "One divine being and three persons are different affirmations, not a claim that God is both one person and three persons.",
+      "citations": [
+        {
+          "kind": "source",
+          "source": "wcf",
+          "locator": "2.3"
+        },
+        {
+          "kind": "source",
+          "source": "creed",
+          "locator": "Confession of Father, Son and Holy Spirit"
+        }
+      ]
+    },
+    "sections": [
+      {
+        "id": "section-1",
+        "text": "John's Word becomes flesh. At Jesus' baptism the Son is present, the Spirit descends and the Father speaks. These scenes rule out treating Father, Son and Spirit as one person simply changing roles.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "John 1:14"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Matthew 3:16-17"
+          }
+        ],
+        "title": "Read the passages together"
+      },
+      {
+        "id": "section-2",
+        "text": "Our access is through Christ, in one Spirit, to the Father. The doctrine belongs to the gospel and our life of prayer. An illustration such as water changing state cannot replace the distinctions Scripture actually gives.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Ephesians 2:18"
+          },
+          {
+            "kind": "source",
+            "source": "wcf",
+            "locator": "2.3"
+          }
+        ],
+        "title": "The Trinity and our salvation"
+      }
+    ],
+    "objection": "Isn't the Trinity a contradiction?",
+    "reply": {
+      "id": "reply",
+      "text": "It would be contradictory to affirm one and three in the same respect. The confession distinguishes being from person. That clarification answers the numerical objection; Scripture is our reason for affirming the doctrine.",
+      "citations": [
+        {
+          "kind": "source",
+          "source": "wcf",
+          "locator": "2.3"
+        },
+        {
+          "kind": "scripture",
+          "reference": "John 1:1"
+        }
+      ]
+    },
+    "limit": {
+      "id": "limit",
+      "text": "We know what God reveals without comprehending God exhaustively. Mystery does not permit us to replace his revelation with a different god.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Romans 11:33-36"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Deuteronomy 29:29"
+        }
+      ]
+    },
+    "prompt": {
+      "id": "conversation",
+      "text": "When you hear Trinity, do you hear three gods, or the Christian confession of one God in three persons?",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "1 Peter 3:15-16"
+        }
+      ]
+    },
+    "passages": [
+      {
+        "reference": "Deuteronomy 6:4-5",
+        "note": "The Lord is one"
+      },
+      {
+        "reference": "Matthew 28:18-20",
+        "note": "Father, Son and Holy Spirit"
+      },
+      {
+        "reference": "John 1:1-3",
+        "note": "The Word and God"
+      }
+    ],
+    "related": [
+      "jesus",
+      "islam-trinity",
+      "why-anything"
+    ],
+    "keywords": [
+      "Trinity",
+      "foundation",
+      "persons",
+      "being"
+    ]
+  },
+  "reviews": [
+    {
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Structured-document migration and preservation of the 2026-10-05 editorial pass",
+      "note": "Compared the compiled documents with the pre-migration website data. Existing text, references, source roles and relationships are preserved. This records migration verification and the prior AI-assisted editorial source pass, not independent human theological approval.",
+      "date": "2026-10-05",
+      "contentHash": "c8986722b412441b72b0e363c9fbc84bf3e04686126355f6b769c09e2cfb1235",
+      "basisHash": "7a9f475485ee68fb19430bfb741986a98d06a6bbd7b57a4ad6068fcfb9aff1c6"
+    }
+  ]
+}

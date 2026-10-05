@@ -1,0 +1,277 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "study",
+  "id": "morality",
+  "order": 7,
+  "publication": "published",
+  "content": {
+    "title": "Can we be good without believing in God?",
+    "topic": "god",
+    "summary": "No one is righteous by nature. God's image remains, and common grace is real.",
+    "answer": {
+      "id": "answer",
+      "text": "Not if ‘good’ means righteous before God. Scripture says that none of us is righteous by nature: sin affects the whole person, and outward kindness cannot make us right with God. Yet fallen people still bear God's image. By common grace, unbelievers can love their children, act generously and do things that benefit their neighbours. These acts do not earn salvation or constitute the God-pleasing righteousness that comes through faith in Christ. We must keep those meanings of ‘good’ distinct.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Romans 3:10-12"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Genesis 9:6"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Luke 6:32-33"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Hebrews 11:6"
+        },
+        {
+          "kind": "source",
+          "source": "wcf",
+          "locator": "16.7"
+        }
+      ]
+    },
+    "reasoning": [
+      {
+        "id": "reason-1",
+        "text": "The Bible's verdict includes all fallen humanity, not just unbelievers. Christians are saved sinners, not people who were naturally better than their neighbours.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Romans 3:9-24"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Ephesians 2:1-9"
+          }
+        ]
+      },
+      {
+        "id": "reason-2",
+        "text": "Sin has corrupted God's image in us without erasing it. Total depravity means that sin affects every faculty; it does not mean that everyone commits every possible evil or is as wicked as they could be.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Genesis 9:6"
+          },
+          {
+            "kind": "scripture",
+            "reference": "James 3:9"
+          },
+          {
+            "kind": "source",
+            "source": "sproul-image",
+            "locator": "The image retained; total versus utter depravity"
+          }
+        ]
+      },
+      {
+        "id": "reason-3",
+        "text": "God restrains evil and gives gifts beyond the church. Real benefit to a neighbour is distinguishable from an act proceeding from faith, according to God's Word and for God's glory.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Matthew 5:44-45"
+          },
+          {
+            "kind": "source",
+            "source": "calvin-sin",
+            "locator": "II.3.3–4"
+          },
+          {
+            "kind": "source",
+            "source": "wcf",
+            "locator": "16.7"
+          }
+        ]
+      }
+    ],
+    "conclusion": {
+      "id": "conclusion",
+      "text": "An unbeliever can perform outwardly beneficial acts, but no sinner can become righteous before God by those acts. Our need is Christ, whose righteousness is received by faith.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Romans 3:20-26"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Philippians 3:8-9"
+        }
+      ]
+    },
+    "sections": [
+      {
+        "id": "section-1",
+        "text": "Genesis grounds the protection of human life in God's image even after the fall. James condemns cursing people made in God's likeness. We must honour that dignity without treating it as proof of an unfallen heart. Conscience bears witness to accountability; it does not remove our guilt.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Genesis 9:6"
+          },
+          {
+            "kind": "scripture",
+            "reference": "James 3:9-10"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Romans 2:14-16"
+          },
+          {
+            "kind": "source",
+            "source": "sproul-image",
+            "locator": "The continuing image of God"
+          }
+        ],
+        "title": "God's image is dignity, not innocence"
+      },
+      {
+        "id": "section-2",
+        "text": "God's kindness and restraint help explain civic virtue outside the church. They do not regenerate the heart or turn helpful conduct into merit. Even believers' imperfect works are accepted only through Christ. The gospel therefore removes boasting while calling us to grateful obedience.",
+        "citations": [
+          {
+            "kind": "source",
+            "source": "common-grace",
+            "locator": "Restraint of sin and civic virtue"
+          },
+          {
+            "kind": "source",
+            "source": "wcf",
+            "locator": "16.5–7"
+          },
+          {
+            "kind": "scripture",
+            "reference": "Titus 3:3-8"
+          }
+        ],
+        "title": "Common grace is not saving grace"
+      },
+      {
+        "id": "section-3",
+        "text": "The moral argument is a further question, not a substitute for the biblical account of sin. God is holy and his law expresses his righteous character. Humanists also affirm ethical responsibility; we should represent that claim accurately while asking what grounds it. Their moral seriousness does not establish a right standing before God.",
+        "citations": [
+          {
+            "kind": "scripture",
+            "reference": "Psalms 19:7-9"
+          },
+          {
+            "kind": "scripture",
+            "reference": "1 Peter 1:15-16"
+          },
+          {
+            "kind": "source",
+            "source": "humanism",
+            "locator": "Declaration of Modern Humanism: ethics"
+          },
+          {
+            "kind": "source",
+            "source": "wcf",
+            "locator": "2.1; 19.2"
+          }
+        ],
+        "title": "Then ask what makes morality binding"
+      }
+    ],
+    "objection": "Doesn't this deny the kindness of people who do not believe?",
+    "reply": {
+      "id": "reply",
+      "text": "No. Feeding someone really benefits them, and neglecting that duty is worse. The question is whether the act meets God's whole standard, including the heart and its ultimate end. Scripture does not permit us to turn relative civic goodness into innocence before a holy God. Nor does it permit Christians to look down on people whose mercy may shame our conduct.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Luke 6:32-36"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Romans 3:27-28"
+        },
+        {
+          "kind": "source",
+          "source": "wcf",
+          "locator": "16.7"
+        }
+      ]
+    },
+    "limit": {
+      "id": "limit",
+      "text": "The sinlessness of Christ is not an exception we may forget: he alone is our perfectly righteous Saviour. Believers do become truly renewed and do works God accepts in him, but never establish their own saving merit.",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Hebrews 4:15"
+        },
+        {
+          "kind": "scripture",
+          "reference": "Ephesians 2:8-10"
+        },
+        {
+          "kind": "source",
+          "source": "wcf",
+          "locator": "16.5–6"
+        }
+      ]
+    },
+    "prompt": {
+      "id": "conversation",
+      "text": "When we say someone is good, do we mean that they benefit others, or that they are righteous before God—and how does Christ answer our deeper need?",
+      "citations": [
+        {
+          "kind": "scripture",
+          "reference": "Romans 3:21-26"
+        }
+      ]
+    },
+    "passages": [
+      {
+        "reference": "Romans 3:9-12",
+        "note": "No one is righteous by nature"
+      },
+      {
+        "reference": "Genesis 9:6",
+        "note": "God's image after the fall"
+      },
+      {
+        "reference": "Luke 6:32-36",
+        "note": "Even sinners do good to others"
+      },
+      {
+        "reference": "Hebrews 11:6",
+        "note": "Without faith we cannot please God"
+      },
+      {
+        "reference": "Romans 3:21-28",
+        "note": "Righteousness through Christ"
+      }
+    ],
+    "related": [
+      "grace",
+      "secular",
+      "suffering"
+    ],
+    "keywords": [
+      "ethics",
+      "total depravity",
+      "image of God",
+      "common grace",
+      "goodness",
+      "atheist",
+      "objective morality"
+    ]
+  },
+  "reviews": [
+    {
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Structured-document migration and preservation of the 2026-10-05 editorial pass",
+      "note": "Compared the compiled documents with the pre-migration website data. Existing text, references, source roles and relationships are preserved. This records migration verification and the prior AI-assisted editorial source pass, not independent human theological approval.",
+      "date": "2026-10-05",
+      "contentHash": "befb59e8f5e599012f752076d5f5346139c78ebd518b21f870899cc9c1e0210f",
+      "basisHash": "6696f0d97fc7873366a332edb7958eafed694041be8a150b90bc479a280f73cd"
+    }
+  ]
+}
