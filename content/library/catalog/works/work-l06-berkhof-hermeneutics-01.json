@@ -1,0 +1,59 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-l06-berkhof-hermeneutics-01",
+  "editorialState": "catalogued",
+  "notes": [
+    "Section classification: hermeneutical-section; evidence level: contents-only.",
+    "A section is not an additional complete book. Book introduction scope does not imply verse-level exposition.",
+    "Theme assessments and comparison claims are AI-assisted metadata; preserve author wording at the source."
+  ],
+  "reviews": [],
+  "title": "Introduction",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-louis-berkhof",
+      "role": "author"
+    }
+  ],
+  "genre": "treatise",
+  "role": "core-teaching",
+  "collections": [
+    "scripture"
+  ],
+  "subjects": [
+    "hermeneutics"
+  ],
+  "occasions": [],
+  "audiences": [
+    "students",
+    "pastors",
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "twentieth-century",
+  "dates": [],
+  "passages": [],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-l06-berkhof-hermeneutics",
+      "locator": "Contents, chapter I"
+    }
+  ],
+  "externalIds": {
+    "source-section": [
+      "https://biblia.com/api/plugins/embeddedpreview?historybuttons=false&layout=minimal&navigationbox=false&resourceName=LLS%3APRNCINTBERKHOF&sharebutton=false"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://biblia.com/api/plugins/embeddedpreview?historybuttons=false&layout=minimal&navigationbox=false&resourceName=LLS%3APRNCINTBERKHOF&sharebutton=false",
+      "locator": "Contents, chapter 1",
+      "note": "Paraphrased navigation label; chapter body is not included in the limited preview or acquired here.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

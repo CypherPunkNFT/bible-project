@@ -1,0 +1,143 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "series",
+  "id": "series-l06-calvin-01",
+  "editorialState": "catalogued",
+  "notes": [
+    "Appendices, translator notes and bibliographies are excluded from commentary/author-chapter counts."
+  ],
+  "reviews": [],
+  "title": "Calvin Genesis volume 1 commentary sections",
+  "authorIds": [
+    "author-john-calvin"
+  ],
+  "members": [
+    {
+      "workId": "work-l06-calvin-01-01-01",
+      "position": 1,
+      "originalLabel": "Catalog order 1"
+    },
+    {
+      "workId": "work-l06-calvin-01-02-01",
+      "position": 2,
+      "originalLabel": "Catalog order 2"
+    },
+    {
+      "workId": "work-l06-calvin-01-03-01",
+      "position": 3,
+      "originalLabel": "Catalog order 3"
+    },
+    {
+      "workId": "work-l06-calvin-01-04-01",
+      "position": 4,
+      "originalLabel": "Catalog order 4"
+    },
+    {
+      "workId": "work-l06-calvin-01-05-01",
+      "position": 5,
+      "originalLabel": "Catalog order 5"
+    },
+    {
+      "workId": "work-l06-calvin-01-06-01",
+      "position": 6,
+      "originalLabel": "Catalog order 6"
+    },
+    {
+      "workId": "work-l06-calvin-01-07-01",
+      "position": 7,
+      "originalLabel": "Catalog order 7"
+    },
+    {
+      "workId": "work-l06-calvin-01-08-01",
+      "position": 8,
+      "originalLabel": "Catalog order 8"
+    },
+    {
+      "workId": "work-l06-calvin-01-09-01",
+      "position": 9,
+      "originalLabel": "Catalog order 9"
+    },
+    {
+      "workId": "work-l06-calvin-01-10-01",
+      "position": 10,
+      "originalLabel": "Catalog order 10"
+    },
+    {
+      "workId": "work-l06-calvin-01-11-01",
+      "position": 11,
+      "originalLabel": "Catalog order 11"
+    },
+    {
+      "workId": "work-l06-calvin-01-12-01",
+      "position": 12,
+      "originalLabel": "Catalog order 12"
+    },
+    {
+      "workId": "work-l06-calvin-01-13-01",
+      "position": 13,
+      "originalLabel": "Catalog order 13"
+    },
+    {
+      "workId": "work-l06-calvin-01-14-01",
+      "position": 14,
+      "originalLabel": "Catalog order 14"
+    },
+    {
+      "workId": "work-l06-calvin-01-15-01",
+      "position": 15,
+      "originalLabel": "Catalog order 15"
+    },
+    {
+      "workId": "work-l06-calvin-01-16-01",
+      "position": 16,
+      "originalLabel": "Catalog order 16"
+    },
+    {
+      "workId": "work-l06-calvin-01-17-01",
+      "position": 17,
+      "originalLabel": "Catalog order 17"
+    },
+    {
+      "workId": "work-l06-calvin-01-18-01",
+      "position": 18,
+      "originalLabel": "Catalog order 18"
+    },
+    {
+      "workId": "work-l06-calvin-01-19-01",
+      "position": 19,
+      "originalLabel": "Catalog order 19"
+    },
+    {
+      "workId": "work-l06-calvin-01-20-01",
+      "position": 20,
+      "originalLabel": "Catalog order 20"
+    },
+    {
+      "workId": "work-l06-calvin-01-21-01",
+      "position": 21,
+      "originalLabel": "Catalog order 21"
+    },
+    {
+      "workId": "work-l06-calvin-01-22-01",
+      "position": 22,
+      "originalLabel": "Catalog order 22"
+    },
+    {
+      "workId": "work-l06-calvin-01-23-01",
+      "position": 23,
+      "originalLabel": "Catalog order 23"
+    }
+  ],
+  "expectedCount": 23,
+  "completeness": "complete",
+  "inventoryEvidence": [
+    {
+      "url": "https://ccel.org/ccel/calvin/calcom01/calcom01.toc.html",
+      "locator": "Contents/index boundaries",
+      "note": "Complete metadata inventory in this boundary; not full-body review or author-wide completeness.",
+      "checkedOn": "2026-10-05"
+    }
+  ],
+  "missing": []
+}

@@ -1,0 +1,87 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-l06-calvin-16-65-01",
+  "editorialState": "catalogued",
+  "notes": [
+    "Section classification: commentary-section; evidence level: source-heading.",
+    "A section is not an additional complete book. Book introduction scope does not imply verse-level exposition.",
+    "Theme assessments and comparison claims are AI-assisted metadata; preserve author wording at the source."
+  ],
+  "reviews": [],
+  "title": "Isaiah 65:1-25",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-john-calvin",
+      "role": "author"
+    }
+  ],
+  "genre": "commentary",
+  "role": "core-teaching",
+  "collections": [
+    "scripture"
+  ],
+  "subjects": [
+    "exile-restoration",
+    "new-creation",
+    "promise-fulfillment",
+    "kingdom"
+  ],
+  "occasions": [],
+  "audiences": [
+    "students",
+    "pastors",
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "reformation",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Isaiah 65:1-25",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 23065001,
+      "end": 23065025,
+      "verification": "verified",
+      "locator": "Source commentary heading Isaiah 65:1-25"
+    },
+    {
+      "reference": "Isaiah 65:16-17",
+      "numberingSystem": "english",
+      "role": "substantial-exposition",
+      "start": 23065016,
+      "end": 23065017,
+      "verification": "verified",
+      "locator": "Comments on verses 16-17: former afflictions, return from Babylon, and new heavens and earth"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-l06-calvin-16",
+      "locator": "Source commentary heading Isaiah 65:1-25"
+    }
+  ],
+  "externalIds": {
+    "source-section": [
+      "https://ccel.org/ccel/calvin/calcom16/calcom16.xviii.i.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/calvin/calcom16/calcom16.toc.html",
+      "locator": "Isaiah 65:1-25",
+      "note": "Commentary passage boundary from contents, not a body-review claim. Editorial appendices and Scripture-reference indexes excluded.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://ccel.org/ccel/calvin/calcom16/calcom16.xviii.i.html",
+      "locator": "Comments on verses 16-17: former afflictions, return from Babylon, and new heavens and earth",
+      "note": "Calvin begins the restoration with return from Babylon and extends its fulfillment through Christ's whole reign to the last resurrection. The new-world language describes church restoration, yet he also expects heaven and earth to be fully renewed with perfected humanity.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

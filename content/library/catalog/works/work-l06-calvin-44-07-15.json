@@ -1,0 +1,67 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-l06-calvin-44-07-15",
+  "editorialState": "catalogued",
+  "notes": [
+    "Section classification: commentary-section; evidence level: source-heading.",
+    "A section is not an additional complete book. Book introduction scope does not imply verse-level exposition.",
+    "Theme assessments and comparison claims are AI-assisted metadata; preserve author wording at the source."
+  ],
+  "reviews": [],
+  "title": "Hebrews 7:15-22",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-john-calvin",
+      "role": "author"
+    }
+  ],
+  "genre": "commentary",
+  "role": "core-teaching",
+  "collections": [
+    "scripture"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "students",
+    "pastors",
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "reformation",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Hebrews 7:15-22",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 58007015,
+      "end": 58007022,
+      "verification": "verified",
+      "locator": "Source commentary heading Heb 7:15-22"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-l06-calvin-44",
+      "locator": "Source commentary heading Heb 7:15-22"
+    }
+  ],
+  "externalIds": {
+    "source-section": [
+      "https://ccel.org/ccel/calvin/calcom44/calcom44.xiii.iv.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/calvin/calcom44/calcom44.toc.html",
+      "locator": "Heb 7:15-22",
+      "note": "Commentary passage boundary from contents, not a body-review claim. Editorial appendices and Scripture-reference indexes excluded.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

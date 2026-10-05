@@ -1,0 +1,57 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-l06-berkhof-introduction-26",
+  "editorialState": "catalogued",
+  "notes": [
+    "Section classification: book-introduction; evidence level: contents-and-heading.",
+    "A section is not an additional complete book. Book introduction scope does not imply verse-level exposition.",
+    "Theme assessments and comparison claims are AI-assisted metadata; preserve author wording at the source."
+  ],
+  "reviews": [],
+  "title": "Introduction to Revelation",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-louis-berkhof",
+      "role": "author"
+    }
+  ],
+  "genre": "treatise",
+  "role": "core-teaching",
+  "collections": [
+    "scripture"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "students",
+    "pastors",
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "twentieth-century",
+  "dates": [],
+  "passages": [],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-berkhof-introduction",
+      "locator": "Printed pp. 339–352; PDF pp. 343–356 (one-based)"
+    }
+  ],
+  "externalIds": {
+    "source-section": [
+      "https://archive.org/details/newtestamentintr00berk/page/n342/mode/2up"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/details/newtestamentintr00berk",
+      "locator": "Contents PDF pp. 10–11; opening of named section",
+      "note": "Book-level introduction. No verse-by-verse exposition coverage inferred from its scope.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

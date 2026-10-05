@@ -1,0 +1,87 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-l06-calvin-44-09-06",
+  "editorialState": "catalogued",
+  "notes": [
+    "Section classification: commentary-section; evidence level: source-heading.",
+    "A section is not an additional complete book. Book introduction scope does not imply verse-level exposition.",
+    "Theme assessments and comparison claims are AI-assisted metadata; preserve author wording at the source."
+  ],
+  "reviews": [],
+  "title": "Hebrews 9:6-12",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-john-calvin",
+      "role": "author"
+    }
+  ],
+  "genre": "commentary",
+  "role": "core-teaching",
+  "collections": [
+    "scripture"
+  ],
+  "subjects": [
+    "temple",
+    "typology",
+    "sacrifice",
+    "promise-fulfillment"
+  ],
+  "occasions": [],
+  "audiences": [
+    "students",
+    "pastors",
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "reformation",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Hebrews 9:6-12",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 58009006,
+      "end": 58009012,
+      "verification": "verified",
+      "locator": "Source commentary heading Heb 9:6-12"
+    },
+    {
+      "reference": "Hebrews 9:6-12",
+      "numberingSystem": "english",
+      "role": "substantial-exposition",
+      "start": 58009006,
+      "end": 58009012,
+      "verification": "verified",
+      "locator": "Comments on verses 6-12, especially verses 9 and 11; excludes notes marked Ed. and fj"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-l06-calvin-44",
+      "locator": "Source commentary heading Heb 9:6-12"
+    }
+  ],
+  "externalIds": {
+    "source-section": [
+      "https://ccel.org/ccel/calvin/calcom44/calcom44.xv.ii.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/calvin/calcom44/calcom44.toc.html",
+      "locator": "Heb 9:6-12",
+      "note": "Commentary passage boundary from contents, not a body-review claim. Editorial appendices and Scripture-reference indexes excluded.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://ccel.org/ccel/calvin/calcom44/calcom44.xv.ii.html",
+      "locator": "Comments on verses 6-12, especially verses 9 and 11; excludes notes marked Ed. and fj",
+      "note": "Calvin reads sanctuary access and the high priest's blood offering as patterns fulfilled in Christ. He identifies the greater tabernacle with Christ's body and distinguishes recurring animal offerings from Christ's effective, enduring redemption.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

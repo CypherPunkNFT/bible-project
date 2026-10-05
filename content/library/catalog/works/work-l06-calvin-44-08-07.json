@@ -1,0 +1,85 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-l06-calvin-44-08-07",
+  "editorialState": "catalogued",
+  "notes": [
+    "Section classification: commentary-section; evidence level: source-heading.",
+    "A section is not an additional complete book. Book introduction scope does not imply verse-level exposition.",
+    "Theme assessments and comparison claims are AI-assisted metadata; preserve author wording at the source."
+  ],
+  "reviews": [],
+  "title": "Hebrews 8:7-13",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-john-calvin",
+      "role": "author"
+    }
+  ],
+  "genre": "commentary",
+  "role": "core-teaching",
+  "collections": [
+    "scripture"
+  ],
+  "subjects": [
+    "covenant",
+    "promise-fulfillment"
+  ],
+  "occasions": [],
+  "audiences": [
+    "students",
+    "pastors",
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "reformation",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Hebrews 8:7-13",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 58008007,
+      "end": 58008013,
+      "verification": "verified",
+      "locator": "Source commentary heading Heb 8:7-13"
+    },
+    {
+      "reference": "Hebrews 8:7-13",
+      "numberingSystem": "english",
+      "role": "substantial-exposition",
+      "start": 58008007,
+      "end": 58008013,
+      "verification": "verified",
+      "locator": "Author comments on Hebrews 8:7-13, especially verse 10 and his question about grace under the Law"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-l06-calvin-44",
+      "locator": "Source commentary heading Heb 8:7-13"
+    }
+  ],
+  "externalIds": {
+    "source-section": [
+      "https://ccel.org/ccel/calvin/calcom44/calcom44.xiv.ii.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/calvin/calcom44/calcom44.toc.html",
+      "locator": "Heb 8:7-13",
+      "note": "Commentary passage boundary from contents, not a body-review claim. Editorial appendices and Scripture-reference indexes excluded.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://ccel.org/ccel/calvin/calcom44/calcom44.xiv.ii.html",
+      "locator": "Author comments on Hebrews 8:7-13, especially verse 10 and his question about grace under the Law",
+      "note": "Calvin explains the new covenant through forgiveness, inward renewal and knowledge of God. He preserves saving grace among the Old Testament fathers while contrasting the relative administrations before and after Christ.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

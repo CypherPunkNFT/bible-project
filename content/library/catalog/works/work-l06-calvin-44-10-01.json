@@ -1,0 +1,86 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-l06-calvin-44-10-01",
+  "editorialState": "catalogued",
+  "notes": [
+    "Section classification: commentary-section; evidence level: source-heading.",
+    "A section is not an additional complete book. Book introduction scope does not imply verse-level exposition.",
+    "Theme assessments and comparison claims are AI-assisted metadata; preserve author wording at the source."
+  ],
+  "reviews": [],
+  "title": "Hebrews 10:1-4",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-john-calvin",
+      "role": "author"
+    }
+  ],
+  "genre": "commentary",
+  "role": "core-teaching",
+  "collections": [
+    "scripture"
+  ],
+  "subjects": [
+    "sacrifice",
+    "typology",
+    "promise-fulfillment"
+  ],
+  "occasions": [],
+  "audiences": [
+    "students",
+    "pastors",
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "reformation",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Hebrews 10:1-4",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 58010001,
+      "end": 58010004,
+      "verification": "verified",
+      "locator": "Source commentary heading Heb 10:1-4"
+    },
+    {
+      "reference": "Hebrews 10:1-4",
+      "numberingSystem": "english",
+      "role": "substantial-exposition",
+      "start": 58010001,
+      "end": 58010004,
+      "verification": "verified",
+      "locator": "Comments on the shadow/image contrast and repeated sacrifices in Hebrews 10:1-4"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-l06-calvin-44",
+      "locator": "Source commentary heading Heb 10:1-4"
+    }
+  ],
+  "externalIds": {
+    "source-section": [
+      "https://ccel.org/ccel/calvin/calcom44/calcom44.xvi.i.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/calvin/calcom44/calcom44.toc.html",
+      "locator": "Heb 10:1-4",
+      "note": "Commentary passage boundary from contents, not a body-review claim. Editorial appendices and Scripture-reference indexes excluded.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://ccel.org/ccel/calvin/calcom44/calcom44.xvi.i.html",
+      "locator": "Comments on the shadow/image contrast and repeated sacrifices in Hebrews 10:1-4",
+      "note": "Calvin treats legal sacrifices as an incomplete portrayal of the same Christ and salvation, unable in themselves to settle guilt. Repetition supports his argument for the sufficiency of Christ's sacrifice.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

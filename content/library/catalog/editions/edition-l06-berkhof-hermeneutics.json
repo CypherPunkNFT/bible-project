@@ -1,0 +1,48 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-l06-berkhof-hermeneutics",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "workId": "work-l06-berkhof-hermeneutics",
+  "label": "Baker text; 1950 copyright, twenty-fourth printing April 1994 as displayed in authorized preview",
+  "languages": [
+    "en"
+  ],
+  "contributors": [],
+  "publisher": "Baker",
+  "dates": [
+    {
+      "event": "edition-publication",
+      "value": "1994",
+      "precision": "year",
+      "label": "Printing stated by the inspected preview",
+      "evidence": [
+        {
+          "url": "https://biblia.com/api/plugins/embeddedpreview?historybuttons=false&layout=minimal&navigationbox=false&resourceName=LLS%3APRNCINTBERKHOF&sharebutton=false",
+          "locator": "Copyright leaf and contents",
+          "note": "The displayed printing is 1994; 1950 is its copyright date, not a verified first-edition date.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    }
+  ],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://biblia.com/api/plugins/embeddedpreview?historybuttons=false&layout=minimal&navigationbox=false&resourceName=LLS%3APRNCINTBERKHOF&sharebutton=false",
+      "locator": "Copyright leaf and contents",
+      "note": "The displayed printing is 1994; 1950 is its copyright date, not a verified first-edition date.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://bakerpublishinggroup.com/products/9780801064777_principles-of-biblical-interpretation",
+      "locator": "Publisher title destination",
+      "note": "Authorized publisher link, not free full-text access.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

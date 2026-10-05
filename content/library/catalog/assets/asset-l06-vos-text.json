@@ -1,0 +1,80 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "asset",
+  "id": "asset-l06-vos-text",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "editionId": "edition-vos-kingdom",
+  "sourceId": "source-internet-archive",
+  "canonicalUrl": "https://archive.org/download/theteachingofjes00vosuoft/theteachingofjes00vosuoft_djvu.txt",
+  "finalUrl": "https://dn760102.eu.archive.org/0/items/theteachingofjes00vosuoft/theteachingofjes00vosuoft_djvu.txt",
+  "format": "text",
+  "mediaKind": "text",
+  "acquisitionStatus": "downloaded",
+  "storage": "raw",
+  "relativePath": "library/source-internet-archive/asset-l06-vos-text/theteachingofjes00vosuoft_djvu.txt",
+  "sha256": "62b4f6c3192bb3cad68e02d4749d9d3fbf45e18fe9426ec4fb60302c8a4bbbb6",
+  "byteCount": 218685,
+  "mimeType": "text/plain",
+  "retrievedAt": "2026-10-05T10:22:41.806185Z",
+  "rights": {
+    "category": "public-domain",
+    "jurisdiction": "United States",
+    "licenseId": null,
+    "licenseUrl": null,
+    "attribution": "Geerhardus Vos / Louis Berkhof; identified historic edition digitized by the contributing library via Internet Archive.",
+    "conditions": [],
+    "conditionsMet": false,
+    "actions": {
+      "download": "allowed",
+      "host": "unknown",
+      "redistribute": "unknown",
+      "adapt": "unknown",
+      "transcribe": "unknown",
+      "embed": "unknown",
+      "indexMetadata": "allowed",
+      "indexFullText": "unknown"
+    },
+    "evidence": [
+      {
+        "url": "https://archive.org/details/theteachingofjes00vosuoft",
+        "locator": "Retained scan and host file inventory",
+        "note": "Identified historic edition, unaltered bytes; host size and MD5 checked.",
+        "checkedOn": "2026-10-05"
+      },
+      {
+        "url": "https://www.copyright.gov/title17/92chap3.html",
+        "locator": "Copyright duration for historic published works",
+        "note": "1903 and 1915 printed editions; scoped United States assessment, modern added material excluded.",
+        "checkedOn": "2026-10-05"
+      }
+    ],
+    "unresolved": [
+      "No worldwide copyright conclusion. Host OCR is unproofread; historical text and modern additions must stay distinguished."
+    ],
+    "review": {
+      "date": "2026-10-05",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Historic edition identity and private acquisition checked. Public packaging and text-quality review remain separate."
+    }
+  },
+  "fullTextIndexed": false,
+  "processing": {
+    "parentAssetId": null,
+    "method": "none",
+    "tool": null,
+    "toolVersion": null,
+    "parameters": null,
+    "date": null,
+    "note": "Original host PDF or OCR retained; no new OCR, full-text index or public copy generated."
+  },
+  "quality": {
+    "state": "unreviewed",
+    "reviewedBy": null,
+    "reviewedOn": null,
+    "note": "Title/contents and section starts checked against PDF; complete OCR proofreading not performed."
+  }
+}

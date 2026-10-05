@@ -151,6 +151,10 @@ The [modern preaching report](content/library/reports/modern-preaching/REPORT.md
 
 The [all-66-book coverage report](content/library/reports/sermon-coverage/REPORT.md) separates source-assigned main texts from body-assessed exposition and incidental citations. It audits 3,795 core units, identifies exact unmapped chapters/verses, preacher concentration and unfinished corpus boundaries, and checks all 83 recorded series memberships. [Gap discoveries](content/library/reports/sermon-coverage/gap-resources.json) link to three official Piper messages and Princeton's 1583 Calvin Deuteronomy edition record. They remain outside the catalog numerator; no new sermon bytes or public content were acquired by this audit.
 
+## Commentary and biblical-theology collection (L06, 2026-10-05)
+
+The [L06 report](content/library/reports/scripture-studies/REPORT.md) documents 47 linked holdings and 155 indexed sections, retaining passage boundaries, edition locators, all eight requested themes and author-specific interpretations. Two historical Internet Archive editions—Vos (1903) and Berkhof's New Testament Introduction (1915)—were acquired in PDF and host OCR: four original files, 25,927,121 bytes, with hashes in the [manifest](content/library/reports/scripture-studies/acquisition-manifest.json). CCEL, Gill's Bible Study Tools presentation and Baker's hermeneutics edition remain source links; private contents evidence and a licensed preview do not imply republication rights. Existing Vos/Berkhof identities are reused. No new full-text search or public publication is created.
+
 ## Considered and left out
 
 - **KJV in the UK:** public domain everywhere except Britain (perpetual Crown patent). Only relevant if the

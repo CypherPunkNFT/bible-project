@@ -1,0 +1,60 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-l06-vos-kingdom-05",
+  "editorialState": "catalogued",
+  "notes": [
+    "Section classification: biblical-theological-section; evidence level: contents-and-heading.",
+    "A section is not an additional complete book. Book introduction scope does not imply verse-level exposition.",
+    "Theme assessments and comparison claims are AI-assisted metadata; preserve author wording at the source."
+  ],
+  "reviews": [],
+  "title": "Current Misconceptions regarding the Present and Future Kingdoms",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-geerhardus-vos",
+      "role": "author"
+    }
+  ],
+  "genre": "treatise",
+  "role": "core-teaching",
+  "collections": [
+    "scripture"
+  ],
+  "subjects": [
+    "kingdom",
+    "biblical-theology"
+  ],
+  "occasions": [],
+  "audiences": [
+    "students",
+    "pastors",
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "twentieth-century",
+  "dates": [],
+  "passages": [],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-vos-kingdom",
+      "locator": "Chapter 5; printed pp. 66–79; PDF pp. 76–89 (one-based)"
+    }
+  ],
+  "externalIds": {
+    "source-section": [
+      "https://archive.org/details/theteachingofjes00vosuoft/page/n75/mode/2up"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/details/theteachingofjes00vosuoft",
+      "locator": "Contents PDF pp. 9–10; chapter opening",
+      "note": "All eleven chapter starts checked against the scan; full body and every cited passage not reviewed.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

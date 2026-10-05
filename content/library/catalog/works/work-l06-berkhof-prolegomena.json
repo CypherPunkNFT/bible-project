@@ -1,0 +1,67 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-l06-berkhof-prolegomena",
+  "editorialState": "catalogued",
+  "notes": [
+    "Section classification: hermeneutical-section; evidence level: selected-body-reviewed.",
+    "A section is not an additional complete book. Book introduction scope does not imply verse-level exposition.",
+    "Theme assessments and comparison claims are AI-assisted metadata; preserve author wording at the source."
+  ],
+  "reviews": [],
+  "title": "Prolegomena to New Testament Introduction",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-louis-berkhof",
+      "role": "author"
+    }
+  ],
+  "genre": "treatise",
+  "role": "core-teaching",
+  "collections": [
+    "scripture"
+  ],
+  "subjects": [
+    "hermeneutics",
+    "canon",
+    "inspiration"
+  ],
+  "occasions": [],
+  "audiences": [
+    "students",
+    "pastors",
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "twentieth-century",
+  "dates": [],
+  "passages": [],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-berkhof-introduction",
+      "locator": "Printed pp. 9–25; PDF pp. 13–29; especially Leading Principles, pp. 12–13"
+    }
+  ],
+  "externalIds": {
+    "source-section": [
+      "https://archive.org/details/newtestamentintr00berk/page/n12/mode/2up"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/berkhof/newtestament.iii.html",
+      "locator": "Prolegomena, Leading Principles",
+      "note": "Methods and assumptions read; introductory discipline, not a complete hermeneutics textbook.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://ccel.org/ccel/berkhof/newtestament.iii.html",
+      "locator": "Prolegomena, Leading Principles; 1915 scan printed pp. 12-13, PDF pp. 16-17",
+      "note": "Berkhof states his assumptions about inspiration, Scripture's own claims, early testimony and the limited use of working hypotheses. These are his stated interpretive commitments, not neutral premises attributed to all scholarship.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

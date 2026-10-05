@@ -1,0 +1,77 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-l06-vos-kingdom-09",
+  "editorialState": "catalogued",
+  "notes": [
+    "Section classification: biblical-theological-section; evidence level: contents-and-heading.",
+    "A section is not an additional complete book. Book introduction scope does not imply verse-level exposition.",
+    "Theme assessments and comparison claims are AI-assisted metadata; preserve author wording at the source."
+  ],
+  "reviews": [],
+  "title": "The Kingdom and the Church",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-geerhardus-vos",
+      "role": "author"
+    }
+  ],
+  "genre": "treatise",
+  "role": "core-teaching",
+  "collections": [
+    "scripture"
+  ],
+  "subjects": [
+    "kingdom",
+    "biblical-theology",
+    "church"
+  ],
+  "occasions": [],
+  "audiences": [
+    "students",
+    "pastors",
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "twentieth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Matthew 16:16-18",
+      "numberingSystem": "english",
+      "role": "substantial-exposition",
+      "start": 40016016,
+      "end": 40016018,
+      "verification": "verified",
+      "locator": "Chapter IX, printed pp. 140-142; PDF pp. 150-152, including Peter's confession and church announcement"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-vos-kingdom",
+      "locator": "Chapter 9; printed pp. 140–168; PDF pp. 150–178 (one-based)"
+    }
+  ],
+  "externalIds": {
+    "source-section": [
+      "https://archive.org/details/theteachingofjes00vosuoft/page/n149/mode/2up"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/details/theteachingofjes00vosuoft",
+      "locator": "Contents PDF pp. 9–10; chapter opening",
+      "note": "All eleven chapter starts checked against the scan; full body and every cited passage not reviewed.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://archive.org/details/theteachingofjes00vosuoft/page/n150/mode/2up",
+      "locator": "Chapter IX, printed pp. 140-142; PDF pp. 150-152, including Peter's confession and church announcement",
+      "note": "Vos locates the church announcement in the historical moment of Peter's confession amid others' rejection. He emphasizes Peter as the steadfast confessor rather than treating the saying as detached from Jesus' ministry.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

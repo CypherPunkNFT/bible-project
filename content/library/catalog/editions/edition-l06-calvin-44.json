@@ -1,0 +1,35 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-l06-calvin-44",
+  "editorialState": "catalogued",
+  "notes": [
+    "The source credits translator Rev. John Owen. This contributor is not linked to the seventeenth-century Puritan author-john-owen; authority identification remains separate. Translator/editor footnotes and digital corrections are not attributed to Calvin."
+  ],
+  "reviews": [],
+  "workId": "work-l06-calvin-44",
+  "label": "CCEL electronic presentation of Calvin Translation Society text; individual print impression not established",
+  "languages": [
+    "en"
+  ],
+  "contributors": [],
+  "publisher": "CCEL",
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/calvin/commentaries/commentaries.i.html",
+      "locator": "Volume link 44; Hebrews",
+      "note": "Bibliographic holding; not a complete Bible commentary or a fully collated text.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://ccel.org/c/calvin/comment3/comm_vol44/htm/About.htm",
+      "locator": "Dublin Core translator field",
+      "note": "Translator name as supplied by the electronic edition.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

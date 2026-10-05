@@ -1,0 +1,73 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-l06-calvin-01-13-01",
+  "editorialState": "catalogued",
+  "notes": [
+    "Section classification: commentary-section; evidence level: source-heading-corrected-against-body.",
+    "A section is not an additional complete book. Book introduction scope does not imply verse-level exposition.",
+    "Theme assessments and comparison claims are AI-assisted metadata; preserve author wording at the source."
+  ],
+  "reviews": [],
+  "title": "Genesis 13:1-18",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-john-calvin",
+      "role": "author"
+    }
+  ],
+  "genre": "commentary",
+  "role": "core-teaching",
+  "collections": [
+    "scripture"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "students",
+    "pastors",
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "reformation",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Genesis 13:1-18",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 1013001,
+      "end": 1013018,
+      "verification": "verified",
+      "locator": "Source commentary heading Genesis 13:1-20"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-l06-calvin-01",
+      "locator": "Source commentary heading Genesis 13:1-20"
+    }
+  ],
+  "externalIds": {
+    "source-section": [
+      "https://ccel.org/ccel/calvin/calcom01/calcom01.xix.i.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/calvin/calcom01/calcom01.toc.html",
+      "locator": "Genesis 13:1-20",
+      "note": "Commentary passage boundary from contents, not a body-review claim. Editorial appendices and Scripture-reference indexes excluded.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://ccel.org/ccel/calvin/calcom01/calcom01.xix.i.html",
+      "locator": "Scripture table, verses 1 through 18",
+      "note": "Source heading incorrectly says Genesis 13:1-20. The displayed Scripture ends at verse 18; normalized range retains the source-heading discrepancy explicitly.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

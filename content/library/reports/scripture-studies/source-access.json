@@ -1,0 +1,37 @@
+{
+  "checkedOn": "2026-10-05",
+  "decisions": [
+    {
+      "sourceId": "source-internet-archive",
+      "scope": "theteachingofjes00vosuoft and newtestamentintr00berk only",
+      "method": "Public item metadata API, then each named unrestricted PDF and host OCR file. Sequential bounded retrieval, one-second spacing between content files; no search crawl or account access.",
+      "evidence": ["https://archive.org/developers/", "https://archive.org/metadata/theteachingofjes00vosuoft", "https://archive.org/metadata/newtestamentintr00berk", "https://www.copyright.gov/title17/92chap3.html"],
+      "rightsBasis": "Identified 1903 and 1915 printed editions; existing edition text-rights findings supplemented by inspected scan witnesses. US public-domain historical text; modern host material not included in that conclusion.",
+      "result": "Four content files and two metadata provenance files retained. Host size and MD5, local SHA-256, PDF readability, contents and chapter starts checked. No public redistribution or full-text search ingestion."
+    },
+    {
+      "sourceId": "source-ccel",
+      "scope": "One Calvin volume index, three contents pages, and selected manually read commentary passages",
+      "method": "Four explicitly named bibliographic pages retrieved with at least ten seconds between requests; no recursive corpus crawl. Selected body passages read through web research; public outputs retain metadata and short editorial descriptions only.",
+      "evidence": ["https://ccel.org/robots.txt", "https://www.ccel.org/about/copyright.html", "https://ccel.org/ccel/calvin/commentaries/commentaries.i.html"],
+      "rightsBasis": "CCEL permits educational/nonprofit use but directs republication requests to the host. Robots response on this date specified a ten-second general crawl delay and no general disallow; it is an access signal, not a content license.",
+      "result": "45 volume links and three bounded section inventories. Private HTML evidence retained under .local; no full commentary corpus downloaded or republished."
+    },
+    {
+      "sourceId": "source-bible-study-tools",
+      "scope": "Two Gill verse entries and commentary identity",
+      "method": "Manual source reading and bibliographic links only; no crawling or page mirroring.",
+      "evidence": ["https://www.biblestudytools.com/commentaries/gills-exposition-of-the-bible/genesis-17-7.html", "https://www.biblestudytools.com/commentaries/gills-exposition-of-the-bible/isaiah-65-17.html"],
+      "rightsBasis": "Historical Gill text is distinct from the contemporary website and its additions; underlying print witness remains unidentified for this manifestation. Link-only records avoid assuming a host-file reuse grant.",
+      "result": "One work/edition holding and two selected passage records; no copied content assets."
+    },
+    {
+      "sourceId": "source-baker-publishing",
+      "scope": "Berkhof Principles of Biblical Interpretation",
+      "method": "Publisher destination and authorized Logos/Biblia limited-preview bibliography; no purchase, login or retrieval of restricted chapters.",
+      "evidence": ["https://bakerpublishinggroup.com/products/9780801064777_principles-of-biblical-interpretation", "https://www.logos.com/product/6691/principles-of-biblical-interpretation-sacred-hermeneutics"],
+      "rightsBasis": "Preview states copyright 1950, with April 1994 printing and reserved reproduction rights. This edition is not treated as public domain.",
+      "result": "Publisher link, edition facts and seven chapter navigation records. Full text not acquired; chapters remain contents-only."
+    }
+  ]
+}

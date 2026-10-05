@@ -333,6 +333,40 @@
         }
       ],
       "reviewedOn": "2026-10-05"
+    },
+    {
+      "id": "source-bible-study-tools",
+      "name": "Bible Study Tools historic commentary presentations",
+      "url": "https://www.biblestudytools.com/",
+      "role": "content-host",
+      "automation": "manual-only",
+      "acquisitionNote": "Two manually inspected Gill entries; metadata and source links only. No automated corpus or host-file reuse clearance.",
+      "evidence": [
+        {
+          "url": "https://www.biblestudytools.com/commentaries/gills-exposition-of-the-bible/genesis-17-7.html",
+          "locator": "Identified source destination",
+          "note": "Two manually inspected Gill entries; metadata and source links only. No automated corpus or host-file reuse clearance.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "reviewedOn": "2026-10-05"
+    },
+    {
+      "id": "source-baker-publishing",
+      "name": "Baker Publishing Group",
+      "url": "https://bakerpublishinggroup.com/",
+      "role": "publisher",
+      "automation": "manual-only",
+      "acquisitionNote": "Publisher bibliography and authorized preview only; no full-text retrieval or republication grant.",
+      "evidence": [
+        {
+          "url": "https://bakerpublishinggroup.com/products/9780801064777_principles-of-biblical-interpretation",
+          "locator": "Identified source destination",
+          "note": "Publisher bibliography and authorized preview only; no full-text retrieval or republication grant.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "reviewedOn": "2026-10-05"
     }
   ]
 }

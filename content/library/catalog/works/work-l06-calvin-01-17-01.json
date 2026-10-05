@@ -1,0 +1,85 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-l06-calvin-01-17-01",
+  "editorialState": "catalogued",
+  "notes": [
+    "Section classification: commentary-section; evidence level: source-heading.",
+    "A section is not an additional complete book. Book introduction scope does not imply verse-level exposition.",
+    "Theme assessments and comparison claims are AI-assisted metadata; preserve author wording at the source."
+  ],
+  "reviews": [],
+  "title": "Genesis 17:1-27",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-john-calvin",
+      "role": "author"
+    }
+  ],
+  "genre": "commentary",
+  "role": "core-teaching",
+  "collections": [
+    "scripture"
+  ],
+  "subjects": [
+    "covenant",
+    "promise-fulfillment"
+  ],
+  "occasions": [],
+  "audiences": [
+    "students",
+    "pastors",
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "reformation",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Genesis 17:1-27",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 1017001,
+      "end": 1017027,
+      "verification": "verified",
+      "locator": "Source commentary heading Genesis 17:1-27"
+    },
+    {
+      "reference": "Genesis 17:7",
+      "numberingSystem": "english",
+      "role": "substantial-exposition",
+      "start": 1017007,
+      "end": 1017007,
+      "verification": "verified",
+      "locator": "Comment on verse 7, from And thy seed after thee through To be a God unto thee; excludes translator footnotes"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-l06-calvin-01",
+      "locator": "Source commentary heading Genesis 17:1-27"
+    }
+  ],
+  "externalIds": {
+    "source-section": [
+      "https://ccel.org/ccel/calvin/calcom01/calcom01.xxiii.i.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/calvin/calcom01/calcom01.toc.html",
+      "locator": "Genesis 17:1-27",
+      "note": "Commentary passage boundary from contents, not a body-review claim. Editorial appendices and Scripture-reference indexes excluded.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://ccel.org/ccel/calvin/calcom01/calcom01.xxiii.i.html",
+      "locator": "Comment on verse 7, from And thy seed after thee through To be a God unto thee; excludes translator footnotes",
+      "note": "Calvin includes Abraham's natural descendants in an outward covenant adoption while distinguishing those who effectually receive the promise through faith. He calls the covenant spiritual and directed to eternal salvation, with the land an added benefit.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

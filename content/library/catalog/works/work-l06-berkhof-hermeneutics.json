@@ -1,0 +1,54 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-l06-berkhof-hermeneutics",
+  "editorialState": "catalogued",
+  "notes": [
+    "Holding-level source link; component coverage is separately inventoried. No first-publication date inferred from this electronic manifestation.",
+    "Publisher link and limited preview only; full book not acquired or offered as free-to-read."
+  ],
+  "reviews": [],
+  "title": "Principles of Biblical Interpretation: Sacred Hermeneutics",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-louis-berkhof",
+      "role": "author"
+    }
+  ],
+  "genre": "treatise",
+  "role": "core-teaching",
+  "collections": [
+    "scripture"
+  ],
+  "subjects": [
+    "hermeneutics"
+  ],
+  "occasions": [],
+  "audiences": [
+    "students",
+    "pastors",
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "twentieth-century",
+  "dates": [],
+  "passages": [],
+  "related": [],
+  "externalIds": {},
+  "evidence": [
+    {
+      "url": "https://biblia.com/api/plugins/embeddedpreview?historybuttons=false&layout=minimal&navigationbox=false&resourceName=LLS%3APRNCINTBERKHOF&sharebutton=false",
+      "locator": "Copyright leaf and contents",
+      "note": "The displayed printing is 1994; 1950 is its copyright date, not a verified first-edition date.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://bakerpublishinggroup.com/products/9780801064777_principles-of-biblical-interpretation",
+      "locator": "Publisher title destination",
+      "note": "Authorized publisher link, not free full-text access.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

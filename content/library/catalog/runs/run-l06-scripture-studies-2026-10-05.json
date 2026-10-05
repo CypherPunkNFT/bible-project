@@ -1,0 +1,34 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "run",
+  "id": "run-l06-scripture-studies-2026-10-05",
+  "missionId": "L06",
+  "status": "complete",
+  "startedOn": "2026-10-05",
+  "completedOn": "2026-10-05",
+  "boundary": "45 Calvin volume links, three complete volume section inventories, 26 NT introductions, 11 Vos chapters, two Gill entries, and a bounded hermeneutics inventory; selected body treatments and explicit comparisons.",
+  "sourceIds": [
+    "source-ccel",
+    "source-internet-archive",
+    "source-bible-study-tools",
+    "source-baker-publishing"
+  ],
+  "inventory": "content/library/reports/scripture-studies/inventory.json",
+  "checkpoint": "content/library/reports/scripture-studies/checkpoint.json",
+  "counts": {
+    "works": 202,
+    "editions": 47,
+    "assets": 51,
+    "series": 7,
+    "reviewedWorks": 0,
+    "publishedWorks": 0
+  },
+  "gaps": [
+    "42 Calvin volumes await component indexing; the edition index is not a 66-book coverage claim.",
+    "Berkhof hermeneutics is a publisher link/limited-preview inventory, not acquired full text.",
+    "Only selected body passages are classified; complete text quality and theological review remain undone.",
+    "Gill underlying print edition and wider passage inventory remain unresolved. No app or search publication."
+  ],
+  "reportPath": "content/library/reports/scripture-studies/REPORT.md"
+}

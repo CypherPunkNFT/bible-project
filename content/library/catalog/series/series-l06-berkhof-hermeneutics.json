@@ -1,0 +1,63 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "series",
+  "id": "series-l06-berkhof-hermeneutics",
+  "editorialState": "catalogued",
+  "notes": [
+    "Appendices, translator notes and bibliographies are excluded from commentary/author-chapter counts."
+  ],
+  "reviews": [],
+  "title": "Berkhof hermeneutics chapter inventory",
+  "authorIds": [
+    "author-louis-berkhof"
+  ],
+  "members": [
+    {
+      "workId": "work-l06-berkhof-hermeneutics-01",
+      "position": 1,
+      "originalLabel": "Catalog order 1"
+    },
+    {
+      "workId": "work-l06-berkhof-hermeneutics-02",
+      "position": 2,
+      "originalLabel": "Catalog order 2"
+    },
+    {
+      "workId": "work-l06-berkhof-hermeneutics-03",
+      "position": 3,
+      "originalLabel": "Catalog order 3"
+    },
+    {
+      "workId": "work-l06-berkhof-hermeneutics-04",
+      "position": 4,
+      "originalLabel": "Catalog order 4"
+    },
+    {
+      "workId": "work-l06-berkhof-hermeneutics-05",
+      "position": 5,
+      "originalLabel": "Catalog order 5"
+    },
+    {
+      "workId": "work-l06-berkhof-hermeneutics-06",
+      "position": 6,
+      "originalLabel": "Catalog order 6"
+    },
+    {
+      "workId": "work-l06-berkhof-hermeneutics-07",
+      "position": 7,
+      "originalLabel": "Catalog order 7"
+    }
+  ],
+  "expectedCount": 7,
+  "completeness": "complete",
+  "inventoryEvidence": [
+    {
+      "url": "https://biblia.com/api/plugins/embeddedpreview?historybuttons=false&layout=minimal&navigationbox=false&resourceName=LLS%3APRNCINTBERKHOF&sharebutton=false",
+      "locator": "Contents/index boundaries",
+      "note": "Complete metadata inventory in this boundary; not full-body review or author-wide completeness.",
+      "checkedOn": "2026-10-05"
+    }
+  ],
+  "missing": []
+}

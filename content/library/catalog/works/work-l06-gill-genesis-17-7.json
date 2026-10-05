@@ -1,0 +1,85 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-l06-gill-genesis-17-7",
+  "editorialState": "catalogued",
+  "notes": [
+    "Section classification: commentary-section; evidence level: selected-body-reviewed.",
+    "A section is not an additional complete book. Book introduction scope does not imply verse-level exposition.",
+    "Theme assessments and comparison claims are AI-assisted metadata; preserve author wording at the source."
+  ],
+  "reviews": [],
+  "title": "Genesis 17:7",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-john-gill",
+      "role": "author"
+    }
+  ],
+  "genre": "commentary",
+  "role": "core-teaching",
+  "collections": [
+    "scripture"
+  ],
+  "subjects": [
+    "covenant",
+    "promise-fulfillment"
+  ],
+  "occasions": [],
+  "audiences": [
+    "students",
+    "pastors",
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "eighteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Genesis 17:7",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 1017007,
+      "end": 1017007,
+      "verification": "verified",
+      "locator": "Verse entry, all author commentary paragraphs"
+    },
+    {
+      "reference": "Genesis 17:7",
+      "numberingSystem": "english",
+      "role": "substantial-exposition",
+      "start": 1017007,
+      "end": 1017007,
+      "verification": "verified",
+      "locator": "All verse-7 commentary paragraphs, especially the two applications of to be a God"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-l06-gill-exposition",
+      "locator": "Verse entry, all author commentary paragraphs"
+    }
+  ],
+  "externalIds": {
+    "source-section": [
+      "https://www.biblestudytools.com/commentaries/gills-exposition-of-the-bible/genesis-17-7.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://www.biblestudytools.com/commentaries/gills-exposition-of-the-bible/genesis-17-7.html",
+      "locator": "Verse commentary",
+      "note": "Selected author text read; website furniture not treated as Gill.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://www.biblestudytools.com/commentaries/gills-exposition-of-the-bible/genesis-17-7.html",
+      "locator": "All verse-7 commentary paragraphs, especially the two applications of to be a God",
+      "note": "Gill distinguishes temporal and providential blessings for natural descendants from enduring grace and glory for spiritual descendants. The circumcision covenant's natural-seed administration reaches its fulfillment and end in Messiah, while the spiritual blessings endure.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}
