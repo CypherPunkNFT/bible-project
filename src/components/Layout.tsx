@@ -79,7 +79,7 @@ export function Layout({ children }: { children: ReactNode }) {
             <a className="underline hover:text-ink" href="https://www.openbible.info/" rel="noreferrer">
               OpenBible.info
             </a>{" "}
-            (CC-BY). <Link className="underline hover:text-ink" to="/versions">Sources</Link> ·{" "}
+            (CC-BY). <Link className="underline hover:text-ink" to="/sources">Sources & references</Link> ·{" "}
             <a className="underline hover:text-ink" href="https://github.com/CYPKNFT/bible-project" rel="noreferrer">
               Code on GitHub
             </a>

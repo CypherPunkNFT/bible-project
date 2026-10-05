@@ -57,6 +57,7 @@ export default function App() {
               <Route path="/atlas" element={<StudyRedirect />} />
               <Route path="/search" element={<SearchPage />} />
               <Route path="/versions" element={<VersionsPage />} />
+              <Route path="/sources" element={<VersionsPage />} />
               <Route path="/study" element={<StudyPage />} />
               <Route path="/study/references" element={<ChartsPage />} />
               <Route path="/study/structure" element={<ChartsPage />} />

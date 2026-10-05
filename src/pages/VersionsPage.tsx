@@ -2,6 +2,7 @@ import { BookOpen } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { CreditLine } from "@/components/CreditLine";
+import { SourceDirectory } from "@/components/SourceDirectory";
 import { useCatalog } from "@/lib/catalog";
 import { groupVersions, VERSION_GROUPS, type VersionGroup } from "@/lib/languages";
 import { NUMBERING_LABEL } from "@/lib/numbering";
@@ -25,9 +26,10 @@ export default function VersionsPage() {
   const shown = grouped.filter((g) => filter === "all" || g.group.id === filter);
   return (
     <div className="mx-auto max-w-6xl px-4 pb-16 sm:px-6">
-      <header className="pb-6 pt-10">
+      <SourceDirectory scriptureCount={catalog.translations.length} />
+      <header id="scriptures" className="scroll-mt-24 pb-6 pt-10">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">Versions & sources</p>
-        <h1 className="mt-1 font-serif text-4xl font-semibold tracking-tight sm:text-5xl">{catalog.translations.length} texts, all free to read.</h1>
+        <h2 className="mt-1 font-serif text-4xl font-semibold tracking-tight sm:text-5xl">{catalog.translations.length} scriptures, all free to read.</h2>
         <p className="mt-3 max-w-2xl text-muted">
           Every text below is in the public domain except one: the Hindi Indian Revised Version, which its publisher shares under an open licence (CC BY-SA 4.0).
           Each was downloaded from eBible.org and is shown as published there, without the book introductions some of them carry.

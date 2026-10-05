@@ -1,5 +1,23 @@
 # Sources
 
+## Reference directory (2026-10-05, local preview)
+
+`/sources` and `/versions` now open the full reference desk: introduction, collection navigation,
+study/atlas credits, searchable bibliography, research reports and source institutions, followed by
+the existing edition table headed “37 scriptures, all free to read.”
+
+`scripts/source-directory.ts` rebuilds `public/content/sources/directory.json` during Vite builds and
+library-content changes in development. Inputs: library vocabulary, authors, works, editions, assets
+and source registry; published Apologetics citations; category acquisition manifests/results.
+Only selected bibliographic fields and public source URLs are exported, without source bodies,
+private permission files, local paths or embedding state. Unreconciled acquisitions retain their
+source URL and explicit status. Counts are reference records, not unique books or reviewed works.
+
+Verified: app/node TypeScript, targeted lint, build, unique IDs, category/public-link integrity,
+absence of local acquisition fields, search, filters, pagination, Scripture anchors and mobile layout.
+Snapshot: 16,348 reference records and 29 registered institutions; later acquisition work can change
+build totals. Local preview only; not publicly deployed.
+
 **Class:** LIVING · **Downloaded:** 2026-10-03
 
 Every text the Bible Project uses, exactly as downloaded. Get them all with `python scripts/fetch-sources.py`
