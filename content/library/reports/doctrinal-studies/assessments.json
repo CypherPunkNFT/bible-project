@@ -1,0 +1,49 @@
+{
+  "checkedOn": "2026-10-05",
+  "reviewType": "AI-assisted selected-source reading, not external approval or complete chapter review",
+  "assessments": [
+    {
+      "sectionKey": "hodge-v3-03-s02",
+      "authorId": "author-charles-hodge",
+      "url": "https://ccel.org/ccel/hodge/theology3/theology3.iii.iii.ii.html",
+      "locator": "Volume III, Part III, chapter XVII, section 2; opening argument, printed pp. 118-121",
+      "summary": "Hodge distinguishes the declarative act of justification from inward sanctification while treating the gifts as inseparable. Romans 4:5 supports his claim that the ungodly are accepted on the ground of Christ's work, rather than declared personally sinless.",
+      "passages": [{"range": ["Romans", 4, 5, 4, 5], "role": "citation"}],
+      "limits": "Only the opening argument assessed. Hodge's account of Roman Catholic teaching is his polemical description, not independent verification of that tradition."
+    },
+    {
+      "sectionKey": "owen-18-s07",
+      "authorId": "author-john-owen",
+      "url": "https://ccel.org/ccel/owen/just/just.xxii.vii.html",
+      "locator": "Chapter XVIII, subsection 2 Corinthians 5:21; especially printed pp. 347-351",
+      "summary": "Owen interprets Christ's bearing sin and believers' righteousness through imputation and union with Christ. He distinguishes transferred guilt from inherent sinfulness in Christ and argues from the contrast within the verse.",
+      "passages": [{"range": ["2 Corinthians", 5, 21, 5, 21], "role": "substantial-exposition"}],
+      "limits": "Preserve his lexical argument and engagement with alternatives at the source. Editorial footnotes are not Owen's own assertions."
+    },
+    {
+      "sectionKey": "owen-20",
+      "authorId": "author-john-owen",
+      "url": "https://ccel.org/ccel/owen/just/just.xxiv.html",
+      "locator": "Chapter XX; synopsis identifies James 2:14 to chapter end; selected body discussion printed pp. 392-397",
+      "summary": "Owen distinguishes Paul's treatment of acceptance before God from James's concern with evidence of living faith. He treats Abraham's obedience as manifestation of prior justification and rejects a profession that remains barren of obedience.",
+      "passages": [
+        {"range": ["James", 2, 14, 2, 26], "role": "main-text"},
+        {"range": ["James", 2, 14, 2, 23], "role": "substantial-exposition"}
+      ],
+      "limits": "The chapter's full scope is recorded from its synopsis; the narrower exposition range follows the selected body reading. This is Owen's reconciliation, not a synthesis of every eligible author's interpretation."
+    },
+    {
+      "sectionKey": "aa-hodge-30",
+      "authorId": "author-a-a-hodge",
+      "url": "https://archive.org/details/outlinesoftheolo00hodguoft/page/n391/mode/2up",
+      "locator": "1877 edition, chapter XXX, questions 1-4; printed pp. 388-389, PDF pp. 392-393",
+      "summary": "A. A. Hodge distinguishes moral character from forensic standing and supports the forensic use of justification with cited texts and its opposition to condemnation. The question-and-answer form is a condensed theological outline, not a transcript of a sermon.",
+      "passages": [
+        {"range": ["Romans", 4, 5, 4, 7], "role": "citation"},
+        {"range": ["Romans", 8, 33, 8, 34], "role": "citation"},
+        {"range": ["Galatians", 2, 16, 2, 16], "role": "citation"}
+      ],
+      "limits": "Citations are not counted as substantial verse exposition. The British editor's preface is excluded from the author's chapter."
+    }
+  ]
+}

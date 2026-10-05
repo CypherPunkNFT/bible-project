@@ -1,0 +1,69 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-l07-owen-18-s09",
+  "editorialState": "catalogued",
+  "notes": [
+    "Section of work-owen-justification in edition-owen-justification.",
+    "Editorial Scripture and sermon companions live in the L07 connection index; they are not author citations or doctrinal endorsements."
+  ],
+  "reviews": [],
+  "title": "Ephesians ii. 8–10",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-john-owen",
+      "role": "author"
+    }
+  ],
+  "genre": "treatise",
+  "role": "core-teaching",
+  "collections": [
+    "theology"
+  ],
+  "subjects": [
+    "justification",
+    "imputation"
+  ],
+  "occasions": [],
+  "audiences": [
+    "students",
+    "pastors",
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "post-reformation",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Ephesians 2:8-10",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 49002008,
+      "end": 49002010,
+      "verification": "verified",
+      "locator": "Chapter XVIII; source subsection Ephesians ii. 8–10"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-l07-owen-18",
+      "locator": "Chapter XVIII; source subsection Ephesians ii. 8–10"
+    }
+  ],
+  "externalIds": {
+    "source-section": [
+      "https://ccel.org/ccel/owen/just/just.xxii.ix.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/owen/just/just.toc.html",
+      "locator": "Chapter XVIII; source subsection Ephesians ii. 8–10",
+      "note": "Identified chapter/section boundary; source context retained. Full-body review is not inferred from contents.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

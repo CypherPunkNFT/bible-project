@@ -1,0 +1,76 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "series",
+  "id": "series-l07-hodge-v3",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "title": "Chapter/lecture inventory: hodge-v3",
+  "authorIds": [
+    "author-charles-hodge"
+  ],
+  "members": [
+    {
+      "workId": "work-l07-hodge-v3-01",
+      "position": 1,
+      "originalLabel": "Chapter XV. Regeneration."
+    },
+    {
+      "workId": "work-l07-hodge-v3-02",
+      "position": 2,
+      "originalLabel": "Chapter XVI. Faith."
+    },
+    {
+      "workId": "work-l07-hodge-v3-03",
+      "position": 3,
+      "originalLabel": "Chapter XVII. Justification."
+    },
+    {
+      "workId": "work-l07-hodge-v3-04",
+      "position": 4,
+      "originalLabel": "Chapter XVIII. Sanctification."
+    },
+    {
+      "workId": "work-l07-hodge-v3-05",
+      "position": 5,
+      "originalLabel": "Chapter XIX. The Law."
+    },
+    {
+      "workId": "work-l07-hodge-v3-06",
+      "position": 6,
+      "originalLabel": "Chapter XX. The Means of Grace."
+    },
+    {
+      "workId": "work-l07-hodge-v3-07",
+      "position": 7,
+      "originalLabel": "Chapter I. State of the Soul After Death."
+    },
+    {
+      "workId": "work-l07-hodge-v3-08",
+      "position": 8,
+      "originalLabel": "The Resurrection."
+    },
+    {
+      "workId": "work-l07-hodge-v3-09",
+      "position": 9,
+      "originalLabel": "Second Advent."
+    },
+    {
+      "workId": "work-l07-hodge-v3-10",
+      "position": 10,
+      "originalLabel": "The Concomitants of the Second Advent."
+    }
+  ],
+  "expectedCount": 10,
+  "completeness": "complete",
+  "inventoryEvidence": [
+    {
+      "url": "https://ccel.org/ccel/hodge/theology3/theology3.toc.html",
+      "locator": "Contents and source chapter divisions",
+      "note": "Complete in this chapter-level boundary; does not imply every subparagraph indexed or body-reviewed.",
+      "checkedOn": "2026-10-05"
+    }
+  ],
+  "missing": []
+}

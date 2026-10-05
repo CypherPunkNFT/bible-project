@@ -155,6 +155,10 @@ The [all-66-book coverage report](content/library/reports/sermon-coverage/REPORT
 
 The [L06 report](content/library/reports/scripture-studies/REPORT.md) documents 47 linked holdings and 155 indexed sections, retaining passage boundaries, edition locators, all eight requested themes and author-specific interpretations. Two historical Internet Archive editions—Vos (1903) and Berkhof's New Testament Introduction (1915)—were acquired in PDF and host OCR: four original files, 25,927,121 bytes, with hashes in the [manifest](content/library/reports/scripture-studies/acquisition-manifest.json). CCEL, Gill's Bible Study Tools presentation and Baker's hermeneutics edition remain source links; private contents evidence and a licensed preview do not imply republication rights. Existing Vos/Berkhof identities are reused. No new full-text search or public publication is created.
 
+## Doctrinal collection (L07, 2026-10-05)
+
+The [L07 report](content/library/reports/doctrinal-studies/REPORT.md) records complete selected chapter inventories for Charles Hodge's three-volume Systematic Theology, A. A. Hodge's 1877 Outlines, Owen's Justification, and Warfield's five lectures. Two historical books were acquired as four unchanged PDF/OCR files, 35,047,686 bytes; [the manifest](content/library/reports/doctrinal-studies/acquisition-manifest.json) retains hashes and provenance. CCEL full texts remain source links. Shared doctrine terms organize 129 sections; Scripture attribution, editorial companions and sermon-match evidence stay separate. No new public downloads or full-text search ingestion.
+
 ## Considered and left out
 
 - **KJV in the UK:** public domain everywhere except Britain (perpetual Crown patent). Only relevant if the

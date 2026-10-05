@@ -1,0 +1,80 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "asset",
+  "id": "asset-l07-aa-hodge-pdf",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "editionId": "edition-aa-hodge-outlines",
+  "sourceId": "source-internet-archive",
+  "canonicalUrl": "https://archive.org/download/outlinesoftheolo00hodguoft/outlinesoftheolo00hodguoft.pdf",
+  "finalUrl": "https://dn760007.eu.archive.org/0/items/outlinesoftheolo00hodguoft/outlinesoftheolo00hodguoft.pdf",
+  "format": "pdf",
+  "mediaKind": "scan",
+  "acquisitionStatus": "downloaded",
+  "storage": "raw",
+  "relativePath": "library/source-internet-archive/asset-l07-aa-hodge-pdf/outlinesoftheolo00hodguoft.pdf",
+  "sha256": "ef1341f8441e72db4a5d370a5b80f098bed505248fe99023ebf15e1bf99b22db",
+  "byteCount": 26964899,
+  "mimeType": "application/pdf",
+  "retrievedAt": "2026-10-05T10:45:17.827072Z",
+  "rights": {
+    "category": "public-domain",
+    "jurisdiction": "United States",
+    "licenseId": null,
+    "licenseUrl": null,
+    "attribution": "Author and source credited in the catalog.",
+    "conditions": [],
+    "conditionsMet": false,
+    "actions": {
+      "download": "allowed",
+      "host": "unknown",
+      "redistribute": "unknown",
+      "adapt": "unknown",
+      "transcribe": "unknown",
+      "embed": "unknown",
+      "indexMetadata": "allowed",
+      "indexFullText": "unknown"
+    },
+    "evidence": [
+      {
+        "url": "https://archive.org/details/outlinesoftheolo00hodguoft",
+        "locator": "Retained title/contents leaves",
+        "note": "Identified 1877 or 1915 historic edition; original bytes checked against host size and MD5.",
+        "checkedOn": "2026-10-05"
+      },
+      {
+        "url": "https://www.copyright.gov/circs/circ15a.pdf",
+        "locator": "Duration of copyright",
+        "note": "Scoped US assessment of historical published text; later additions excluded.",
+        "checkedOn": "2026-10-05"
+      }
+    ],
+    "unresolved": [
+      "No worldwide rights conclusion; host OCR unproofread and public packaging not cleared."
+    ],
+    "review": {
+      "date": "2026-10-05",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Identified historical edition and private acquisition; no public republication or full-text-index clearance."
+    }
+  },
+  "fullTextIndexed": false,
+  "processing": {
+    "parentAssetId": null,
+    "method": "none",
+    "tool": null,
+    "toolVersion": null,
+    "parameters": null,
+    "date": null,
+    "note": "Unaltered host file; not newly transcribed."
+  },
+  "quality": {
+    "state": "unreviewed",
+    "reviewedBy": null,
+    "reviewedOn": null,
+    "note": "Title, contents and openings checked; full OCR not proofread."
+  }
+}

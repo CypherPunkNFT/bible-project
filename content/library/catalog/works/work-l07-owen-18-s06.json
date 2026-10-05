@@ -1,0 +1,69 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-l07-owen-18-s06",
+  "editorialState": "catalogued",
+  "notes": [
+    "Section of work-owen-justification in edition-owen-justification.",
+    "Editorial Scripture and sermon companions live in the L07 connection index; they are not author citations or doctrinal endorsements."
+  ],
+  "reviews": [],
+  "title": "1 Corinthians i. 30",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-john-owen",
+      "role": "author"
+    }
+  ],
+  "genre": "treatise",
+  "role": "core-teaching",
+  "collections": [
+    "theology"
+  ],
+  "subjects": [
+    "justification",
+    "imputation"
+  ],
+  "occasions": [],
+  "audiences": [
+    "students",
+    "pastors",
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "post-reformation",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "1 Corinthians 1:30",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 46001030,
+      "end": 46001030,
+      "verification": "verified",
+      "locator": "Chapter XVIII; source subsection 1 Corinthians i. 30"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-l07-owen-18",
+      "locator": "Chapter XVIII; source subsection 1 Corinthians i. 30"
+    }
+  ],
+  "externalIds": {
+    "source-section": [
+      "https://ccel.org/ccel/owen/just/just.xxii.vi.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/owen/just/just.toc.html",
+      "locator": "Chapter XVIII; source subsection 1 Corinthians i. 30",
+      "note": "Identified chapter/section boundary; source context retained. Full-body review is not inferred from contents.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

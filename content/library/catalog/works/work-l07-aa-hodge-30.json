@@ -1,0 +1,92 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-l07-aa-hodge-30",
+  "editorialState": "catalogued",
+  "notes": [
+    "Section of work-aa-hodge-outlines in edition-aa-hodge-outlines.",
+    "Editorial Scripture and sermon companions live in the L07 connection index; they are not author citations or doctrinal endorsements."
+  ],
+  "reviews": [],
+  "title": "Justification",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-a-a-hodge",
+      "role": "author"
+    }
+  ],
+  "genre": "systematic-theology",
+  "role": "core-teaching",
+  "collections": [
+    "theology"
+  ],
+  "subjects": [
+    "justification"
+  ],
+  "occasions": [],
+  "audiences": [
+    "students",
+    "pastors",
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Romans 4:5-7",
+      "numberingSystem": "english",
+      "role": "citation",
+      "start": 45004005,
+      "end": 45004007,
+      "verification": "verified",
+      "locator": "1877 edition, chapter XXX, questions 1-4; printed pp. 388-389, PDF pp. 392-393"
+    },
+    {
+      "reference": "Romans 8:33-34",
+      "numberingSystem": "english",
+      "role": "citation",
+      "start": 45008033,
+      "end": 45008034,
+      "verification": "verified",
+      "locator": "1877 edition, chapter XXX, questions 1-4; printed pp. 388-389, PDF pp. 392-393"
+    },
+    {
+      "reference": "Galatians 2:16",
+      "numberingSystem": "english",
+      "role": "citation",
+      "start": 48002016,
+      "end": 48002016,
+      "verification": "verified",
+      "locator": "1877 edition, chapter XXX, questions 1-4; printed pp. 388-389, PDF pp. 392-393"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-aa-hodge-outlines",
+      "locator": "Chapter 30; printed pp. 388-403; PDF pp. 392-407 (one-based)"
+    }
+  ],
+  "externalIds": {
+    "source-section": [
+      "https://archive.org/details/outlinesoftheolo00hodguoft/page/n391/mode/2up"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/details/outlinesoftheolo00hodguoft/page/n14/mode/2up",
+      "locator": "Chapter 30; printed pp. 388-403; PDF pp. 392-407 (one-based)",
+      "note": "Identified chapter/section boundary; source context retained. Full-body review is not inferred from contents.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://archive.org/details/outlinesoftheolo00hodguoft/page/n391/mode/2up",
+      "locator": "1877 edition, chapter XXX, questions 1-4; printed pp. 388-389, PDF pp. 392-393",
+      "note": "A. A. Hodge distinguishes moral character from forensic standing and supports the forensic use of justification with cited texts and its opposition to condemnation. The question-and-answer form is a condensed theological outline, not a transcript of a sermon.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

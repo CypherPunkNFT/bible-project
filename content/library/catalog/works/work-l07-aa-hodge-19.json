@@ -1,0 +1,58 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-l07-aa-hodge-19",
+  "editorialState": "catalogued",
+  "notes": [
+    "Section of work-aa-hodge-outlines in edition-aa-hodge-outlines.",
+    "Editorial Scripture and sermon companions live in the L07 connection index; they are not author citations or doctrinal endorsements."
+  ],
+  "reviews": [],
+  "title": "The Covenant of Grace",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-a-a-hodge",
+      "role": "author"
+    }
+  ],
+  "genre": "systematic-theology",
+  "role": "core-teaching",
+  "collections": [
+    "theology"
+  ],
+  "subjects": [
+    "covenant-of-grace"
+  ],
+  "occasions": [],
+  "audiences": [
+    "students",
+    "pastors",
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-aa-hodge-outlines",
+      "locator": "Chapter 19; printed pp. 276-286; PDF pp. 280-290 (one-based)"
+    }
+  ],
+  "externalIds": {
+    "source-section": [
+      "https://archive.org/details/outlinesoftheolo00hodguoft/page/n279/mode/2up"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/details/outlinesoftheolo00hodguoft/page/n14/mode/2up",
+      "locator": "Chapter 19; printed pp. 276-286; PDF pp. 280-290 (one-based)",
+      "note": "Identified chapter/section boundary; source context retained. Full-body review is not inferred from contents.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

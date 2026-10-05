@@ -1,0 +1,58 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-l07-owen-05",
+  "editorialState": "catalogued",
+  "notes": [
+    "Section of work-owen-justification in edition-owen-justification.",
+    "Editorial Scripture and sermon companions live in the L07 connection index; they are not author citations or doctrinal endorsements."
+  ],
+  "reviews": [],
+  "title": "Chapter V. The distinction of a first and second justification examined. The continuation of justification: whereon it does depend.",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-john-owen",
+      "role": "author"
+    }
+  ],
+  "genre": "treatise",
+  "role": "core-teaching",
+  "collections": [
+    "theology"
+  ],
+  "subjects": [
+    "justification"
+  ],
+  "occasions": [],
+  "audiences": [
+    "students",
+    "pastors",
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "post-reformation",
+  "dates": [],
+  "passages": [],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-owen-justification",
+      "locator": "Chapter V. The distinction of a first and second justification examined. The continuation of justification: whereon it does depend."
+    }
+  ],
+  "externalIds": {
+    "source-section": [
+      "https://ccel.org/ccel/owen/just/just.ix.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/owen/just/just.toc.html",
+      "locator": "Chapter V. The distinction of a first and second justification examined. The continuation of justification: whereon it does depend.",
+      "note": "Identified chapter/section boundary; source context retained. Full-body review is not inferred from contents.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

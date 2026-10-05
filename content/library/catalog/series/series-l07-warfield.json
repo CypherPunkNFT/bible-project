@@ -1,0 +1,51 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "series",
+  "id": "series-l07-warfield",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "title": "Chapter/lecture inventory: warfield",
+  "authorIds": [
+    "author-b-b-warfield"
+  ],
+  "members": [
+    {
+      "workId": "work-l07-warfield-01",
+      "position": 1,
+      "originalLabel": "The Differing Conceptions"
+    },
+    {
+      "workId": "work-l07-warfield-02",
+      "position": 2,
+      "originalLabel": "Autosoterism"
+    },
+    {
+      "workId": "work-l07-warfield-03",
+      "position": 3,
+      "originalLabel": "Sacerdotalism"
+    },
+    {
+      "workId": "work-l07-warfield-04",
+      "position": 4,
+      "originalLabel": "Universalism"
+    },
+    {
+      "workId": "work-l07-warfield-05",
+      "position": 5,
+      "originalLabel": "Calvinism"
+    }
+  ],
+  "expectedCount": 5,
+  "completeness": "complete",
+  "inventoryEvidence": [
+    {
+      "url": "https://archive.org/details/planofsalvation00warf/page/n8/mode/2up",
+      "locator": "Contents and source chapter divisions",
+      "note": "Complete in this chapter-level boundary; does not imply every subparagraph indexed or body-reviewed.",
+      "checkedOn": "2026-10-05"
+    }
+  ],
+  "missing": []
+}

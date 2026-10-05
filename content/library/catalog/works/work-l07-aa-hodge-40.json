@@ -1,0 +1,58 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-l07-aa-hodge-40",
+  "editorialState": "catalogued",
+  "notes": [
+    "Section of work-aa-hodge-outlines in edition-aa-hodge-outlines.",
+    "Editorial Scripture and sermon companions live in the L07 connection index; they are not author citations or doctrinal endorsements."
+  ],
+  "reviews": [],
+  "title": "The Lord's Supper",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-a-a-hodge",
+      "role": "author"
+    }
+  ],
+  "genre": "systematic-theology",
+  "role": "core-teaching",
+  "collections": [
+    "theology"
+  ],
+  "subjects": [
+    "lords-supper"
+  ],
+  "occasions": [],
+  "audiences": [
+    "students",
+    "pastors",
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-aa-hodge-outlines",
+      "locator": "Chapter 40; printed pp. 510-523; PDF pp. 514-527 (one-based)"
+    }
+  ],
+  "externalIds": {
+    "source-section": [
+      "https://archive.org/details/outlinesoftheolo00hodguoft/page/n513/mode/2up"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/details/outlinesoftheolo00hodguoft/page/n14/mode/2up",
+      "locator": "Chapter 40; printed pp. 510-523; PDF pp. 514-527 (one-based)",
+      "note": "Identified chapter/section boundary; source context retained. Full-body review is not inferred from contents.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

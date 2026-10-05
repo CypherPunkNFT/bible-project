@@ -1,0 +1,31 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "run",
+  "id": "run-l07-doctrinal-studies-2026-10-05",
+  "missionId": "L07",
+  "status": "complete",
+  "startedOn": "2026-10-05",
+  "completedOn": "2026-10-05",
+  "boundary": "Four existing works: Hodge three volumes, A. A. Hodge 1877, Owen justification, Warfield five lectures; complete chapter inventories and selected substantial units.",
+  "sourceIds": [
+    "source-ccel",
+    "source-internet-archive"
+  ],
+  "inventory": "content/library/reports/doctrinal-studies/inventory.json",
+  "checkpoint": "content/library/reports/doctrinal-studies/checkpoint.json",
+  "counts": {
+    "editions": 0,
+    "works": 129,
+    "assets": 4,
+    "series": 6,
+    "reviewedWorks": 0,
+    "publishedWorks": 0
+  },
+  "gaps": [
+    "Only two whole books acquired. CCEL manifestations remain link-only.",
+    "Editorial companions are not verified author citations.",
+    "Full theological, textual and sermon-pairing review outstanding."
+  ],
+  "reportPath": "content/library/reports/doctrinal-studies/REPORT.md"
+}

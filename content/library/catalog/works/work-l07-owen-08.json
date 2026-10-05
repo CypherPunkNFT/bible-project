@@ -1,0 +1,59 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-l07-owen-08",
+  "editorialState": "catalogued",
+  "notes": [
+    "Section of work-owen-justification in edition-owen-justification.",
+    "Editorial Scripture and sermon companions live in the L07 connection index; they are not author citations or doctrinal endorsements."
+  ],
+  "reviews": [],
+  "title": "Chapter VIII. Imputation of the sins of the church unto Christ. Grounds of it. The nature of his suretiship. Causes of the new covenant. Christ and the church one mystical person. Consequents thereof.",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-john-owen",
+      "role": "author"
+    }
+  ],
+  "genre": "treatise",
+  "role": "core-teaching",
+  "collections": [
+    "theology"
+  ],
+  "subjects": [
+    "imputation",
+    "justification"
+  ],
+  "occasions": [],
+  "audiences": [
+    "students",
+    "pastors",
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "post-reformation",
+  "dates": [],
+  "passages": [],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-owen-justification",
+      "locator": "Chapter VIII. Imputation of the sins of the church unto Christ. Grounds of it. The nature of his suretiship. Causes of the new covenant. Christ and the church one mystical person. Consequents thereof."
+    }
+  ],
+  "externalIds": {
+    "source-section": [
+      "https://ccel.org/ccel/owen/just/just.xii.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/owen/just/just.toc.html",
+      "locator": "Chapter VIII. Imputation of the sins of the church unto Christ. Grounds of it. The nature of his suretiship. Causes of the new covenant. Christ and the church one mystical person. Consequents thereof.",
+      "note": "Identified chapter/section boundary; source context retained. Full-body review is not inferred from contents.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

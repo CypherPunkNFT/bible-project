@@ -1,0 +1,58 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-l07-aa-hodge-28",
+  "editorialState": "catalogued",
+  "notes": [
+    "Section of work-aa-hodge-outlines in edition-aa-hodge-outlines.",
+    "Editorial Scripture and sermon companions live in the L07 connection index; they are not author citations or doctrinal endorsements."
+  ],
+  "reviews": [],
+  "title": "Union of Believers with Christ",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-a-a-hodge",
+      "role": "author"
+    }
+  ],
+  "genre": "systematic-theology",
+  "role": "core-teaching",
+  "collections": [
+    "theology"
+  ],
+  "subjects": [
+    "union-with-christ"
+  ],
+  "occasions": [],
+  "audiences": [
+    "students",
+    "pastors",
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-aa-hodge-outlines",
+      "locator": "Chapter 28; printed pp. 376-380; PDF pp. 380-384 (one-based)"
+    }
+  ],
+  "externalIds": {
+    "source-section": [
+      "https://archive.org/details/outlinesoftheolo00hodguoft/page/n379/mode/2up"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/details/outlinesoftheolo00hodguoft/page/n14/mode/2up",
+      "locator": "Chapter 28; printed pp. 376-380; PDF pp. 380-384 (one-based)",
+      "note": "Identified chapter/section boundary; source context retained. Full-body review is not inferred from contents.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

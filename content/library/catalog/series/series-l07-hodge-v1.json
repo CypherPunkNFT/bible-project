@@ -1,0 +1,121 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "series",
+  "id": "series-l07-hodge-v1",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "title": "Chapter/lecture inventory: hodge-v1",
+  "authorIds": [
+    "author-charles-hodge"
+  ],
+  "members": [
+    {
+      "workId": "work-l07-hodge-v1-01",
+      "position": 1,
+      "originalLabel": "Chapter I. On Method."
+    },
+    {
+      "workId": "work-l07-hodge-v1-02",
+      "position": 2,
+      "originalLabel": "Chapter II. Theology."
+    },
+    {
+      "workId": "work-l07-hodge-v1-03",
+      "position": 3,
+      "originalLabel": "Chapter III. Rationalism."
+    },
+    {
+      "workId": "work-l07-hodge-v1-04",
+      "position": 4,
+      "originalLabel": "Chapter IV. Mysticism."
+    },
+    {
+      "workId": "work-l07-hodge-v1-05",
+      "position": 5,
+      "originalLabel": "Chapter V. Roman Catholic Doctrine Concerning the Rule of Faith."
+    },
+    {
+      "workId": "work-l07-hodge-v1-06",
+      "position": 6,
+      "originalLabel": "Chapter VI. The Protestant Rule of Faith."
+    },
+    {
+      "workId": "work-l07-hodge-v1-07",
+      "position": 7,
+      "originalLabel": "Chapter I. Origin of the Idea of God."
+    },
+    {
+      "workId": "work-l07-hodge-v1-08",
+      "position": 8,
+      "originalLabel": "Chapter II. Theism."
+    },
+    {
+      "workId": "work-l07-hodge-v1-09",
+      "position": 9,
+      "originalLabel": "Chapter III. Anti-Theistic Theories"
+    },
+    {
+      "workId": "work-l07-hodge-v1-10",
+      "position": 10,
+      "originalLabel": "Chapter IV. The Knowledge of God."
+    },
+    {
+      "workId": "work-l07-hodge-v1-11",
+      "position": 11,
+      "originalLabel": "Chapter V. Nature and Attributes of God."
+    },
+    {
+      "workId": "work-l07-hodge-v1-12",
+      "position": 12,
+      "originalLabel": "Chapter VI. The Trinity."
+    },
+    {
+      "workId": "work-l07-hodge-v1-13",
+      "position": 13,
+      "originalLabel": "Chapter VII. The Divinity of Christ."
+    },
+    {
+      "workId": "work-l07-hodge-v1-14",
+      "position": 14,
+      "originalLabel": "Chapter VIII. The Holy Spirit."
+    },
+    {
+      "workId": "work-l07-hodge-v1-15",
+      "position": 15,
+      "originalLabel": "Chapter IX. The Decrees of God."
+    },
+    {
+      "workId": "work-l07-hodge-v1-16",
+      "position": 16,
+      "originalLabel": "Chapter X. Creation."
+    },
+    {
+      "workId": "work-l07-hodge-v1-17",
+      "position": 17,
+      "originalLabel": "Chapter XI. Providence."
+    },
+    {
+      "workId": "work-l07-hodge-v1-18",
+      "position": 18,
+      "originalLabel": "Chapter XII. Miracles."
+    },
+    {
+      "workId": "work-l07-hodge-v1-19",
+      "position": 19,
+      "originalLabel": "Chapter XIII. Angels."
+    }
+  ],
+  "expectedCount": 19,
+  "completeness": "complete",
+  "inventoryEvidence": [
+    {
+      "url": "https://ccel.org/ccel/hodge/theology1/theology1.toc.html",
+      "locator": "Contents and source chapter divisions",
+      "note": "Complete in this chapter-level boundary; does not imply every subparagraph indexed or body-reviewed.",
+      "checkedOn": "2026-10-05"
+    }
+  ],
+  "missing": []
+}

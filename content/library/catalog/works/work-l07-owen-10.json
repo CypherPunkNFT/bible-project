@@ -1,0 +1,58 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-l07-owen-10",
+  "editorialState": "catalogued",
+  "notes": [
+    "Section of work-owen-justification in edition-owen-justification.",
+    "Editorial Scripture and sermon companions live in the L07 connection index; they are not author citations or doctrinal endorsements."
+  ],
+  "reviews": [],
+  "title": "Chapter X. Arguments of justification by the imputation of the righteousness of Christ — The first argument from the nature and use of our own personal righteousness.",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-john-owen",
+      "role": "author"
+    }
+  ],
+  "genre": "treatise",
+  "role": "core-teaching",
+  "collections": [
+    "theology"
+  ],
+  "subjects": [
+    "justification"
+  ],
+  "occasions": [],
+  "audiences": [
+    "students",
+    "pastors",
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "post-reformation",
+  "dates": [],
+  "passages": [],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-owen-justification",
+      "locator": "Chapter X. Arguments of justification by the imputation of the righteousness of Christ — The first argument from the nature and use of our own personal righteousness."
+    }
+  ],
+  "externalIds": {
+    "source-section": [
+      "https://ccel.org/ccel/owen/just/just.xiv.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/owen/just/just.toc.html",
+      "locator": "Chapter X. Arguments of justification by the imputation of the righteousness of Christ — The first argument from the nature and use of our own personal righteousness.",
+      "note": "Identified chapter/section boundary; source context retained. Full-body review is not inferred from contents.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

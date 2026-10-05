@@ -1,0 +1,84 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-l07-owen-20",
+  "editorialState": "catalogued",
+  "notes": [
+    "Section of work-owen-justification in edition-owen-justification.",
+    "Editorial Scripture and sermon companions live in the L07 connection index; they are not author citations or doctrinal endorsements."
+  ],
+  "reviews": [],
+  "title": "Chapter XX. The doctrine of the apostle James concerning faith and works. Its agreement with that of St Paul.",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-john-owen",
+      "role": "author"
+    }
+  ],
+  "genre": "treatise",
+  "role": "core-teaching",
+  "collections": [
+    "theology"
+  ],
+  "subjects": [
+    "faith",
+    "justification"
+  ],
+  "occasions": [],
+  "audiences": [
+    "students",
+    "pastors",
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "post-reformation",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "James 2:14-26",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 59002014,
+      "end": 59002026,
+      "verification": "verified",
+      "locator": "Chapter XX; synopsis identifies James 2:14 to chapter end; selected body discussion printed pp. 392-397"
+    },
+    {
+      "reference": "James 2:14-23",
+      "numberingSystem": "english",
+      "role": "substantial-exposition",
+      "start": 59002014,
+      "end": 59002023,
+      "verification": "verified",
+      "locator": "Chapter XX; synopsis identifies James 2:14 to chapter end; selected body discussion printed pp. 392-397"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-owen-justification",
+      "locator": "Chapter XX. The doctrine of the apostle James concerning faith and works. Its agreement with that of St Paul."
+    }
+  ],
+  "externalIds": {
+    "source-section": [
+      "https://ccel.org/ccel/owen/just/just.xxiv.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/owen/just/just.toc.html",
+      "locator": "Chapter XX. The doctrine of the apostle James concerning faith and works. Its agreement with that of St Paul.",
+      "note": "Identified chapter/section boundary; source context retained. Full-body review is not inferred from contents.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://ccel.org/ccel/owen/just/just.xxiv.html",
+      "locator": "Chapter XX; synopsis identifies James 2:14 to chapter end; selected body discussion printed pp. 392-397",
+      "note": "Owen distinguishes Paul's treatment of acceptance before God from James's concern with evidence of living faith. He treats Abraham's obedience as manifestation of prior justification and rejects a profession that remains barren of obedience.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

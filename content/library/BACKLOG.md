@@ -1,6 +1,6 @@
 # Acquisition backlog
 
-Established 2026-10-05. The owner has requested L00–L14 and most recently selected L06; its bounded commentary, introduction, hermeneutics and biblical-theology batch is complete. Preserve the other requests in this queue. Dependencies guide ordering; website integration (L15) still requires its own request.
+Established 2026-10-05. The owner has requested L00–L14 and most recently selected L07; its bounded systematic-theology, doctrinal-treatise and lecture batch is complete. Preserve the other requests in this queue. Dependencies guide ordering; website integration (L15) still requires its own request.
 
 | ID | Mission | Bounded first unit | Completion evidence | State |
 |---|---|---|---|---|
@@ -11,7 +11,7 @@ Established 2026-10-05. The owner has requested L00–L14 and most recently sele
 | L04 | Modern preaching | Ministry policy inventory and complete biblical-series pilots | [Source report](reports/modern-preaching/REPORT.md): five ministries, six eligible authors; Piper Ruth and Sproul 2 Peter, 16 sermons/20 link records with verified durations; permission queue | Bounded source inventory complete; wider corpus expansion and permission-dependent retrieval remain |
 | L05 | Scripture coverage | All catalogued core sermon units; separate evidence for body-reviewed passages | [Coverage report](reports/sermon-coverage/REPORT.md): all 66 books, 3,795 units, exact chapter/verse gaps, 83 series inventories, preacher concentration, four scoped body reviews and four gap-resource discoveries | Bounded audit complete; wider body review, metadata reconciliation and gap acquisition remain |
 | L06 | Commentaries and biblical theology | Calvin volume inventory and three passage inventories; Vos and Berkhof historical editions; selected comparisons | [Collection report](reports/scripture-studies/REPORT.md): 47 linked holdings, 155 indexed sections, two acquired books/four files; all eight themes and two source-specific comparisons | Bounded batch complete; wider component indexing, OT introductions, full hermeneutics acquisition and body review remain |
-| L07 | Doctrine and systematic theology | One complete volume/work before subject expansion | Chapter hierarchy, specific subject indexing and source pages | Authorized; queued |
+| L07 | Doctrine and systematic theology | Hodge, A. A. Hodge, Owen and Warfield; complete selected chapter/lecture inventories | [Collection report](reports/doctrinal-studies/REPORT.md): 129 sections, 54 doctrine nodes, two acquired books/four files; Scripture companions and 322 links to 124 existing sermons, including two scoped body-checked pairings | Bounded batch complete; larger text acquisition, body review and wider authors remain |
 | L08 | Confessions and catechisms | Westminster, Three Forms, Savoy, 1689 and Anglican Articles as identified editions | Stable document/article/question IDs; historical variants retained | Authorized; queued |
 | L09 | Apologetic arguments | One question and a defined bibliography | Claim/premise/evidence/objection/reply locators; explicit author roles | Authorized; queued |
 | L10 | Christianity and Islam | One question or complete debate at a time | Both positions sourced; quotations/translations checked; recording-specific timestamps only | Authorized; queued |

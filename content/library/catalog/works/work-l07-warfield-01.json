@@ -1,0 +1,83 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-l07-warfield-01",
+  "editorialState": "catalogued",
+  "notes": [
+    "Section of work-warfield-plan in edition-warfield-plan.",
+    "Editorial Scripture and sermon companions live in the L07 connection index; they are not author citations or doctrinal endorsements."
+  ],
+  "reviews": [],
+  "title": "The Differing Conceptions",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-b-b-warfield",
+      "role": "author"
+    }
+  ],
+  "genre": "lecture",
+  "role": "core-teaching",
+  "collections": [
+    "theology"
+  ],
+  "subjects": [
+    "salvation"
+  ],
+  "occasions": [],
+  "audiences": [
+    "students",
+    "pastors",
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "twentieth-century",
+  "dates": [
+    {
+      "event": "delivery",
+      "value": "1914-06",
+      "precision": "month",
+      "label": "Series delivered at Princeton Summer School of Theology, June 1914; no individual lecture day known",
+      "evidence": [
+        {
+          "url": "https://archive.org/details/planofsalvation00warf",
+          "locator": "Title leaf, PDF p. 5",
+          "note": "Series delivery month, distinct from 1915 edition publication.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    }
+  ],
+  "passages": [
+    {
+      "reference": "1 Corinthians 1:30",
+      "numberingSystem": "english",
+      "role": "citation",
+      "start": 46001030,
+      "end": 46001030,
+      "verification": "verified",
+      "locator": "Lecture motto; PDF p. 12; a motto does not establish verse-by-verse exposition"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-warfield-plan",
+      "locator": "Lecture 1; printed pp. 11-33; PDF pp. 13-35; motto PDF p. 12"
+    }
+  ],
+  "externalIds": {
+    "source-section": [
+      "https://archive.org/details/planofsalvation00warf/page/n12/mode/2up"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/details/planofsalvation00warf/page/n8/mode/2up",
+      "locator": "Lecture 1; printed pp. 11-33; PDF pp. 13-35; motto PDF p. 12",
+      "note": "Identified chapter/section boundary; source context retained. Full-body review is not inferred from contents.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

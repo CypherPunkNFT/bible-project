@@ -1,0 +1,963 @@
+{
+  "checkedOn": "2026-10-05",
+  "authority": "Shared vocabulary IDs and parent relationships; an editorial browsing arrangement, not an assertion of identical author systems.",
+  "nodes": [
+    {
+      "subjectId": "theological-method",
+      "label": "Theological method",
+      "parent": "scripture",
+      "definition": "Sources, reasoning and organization of theological knowledge; distinct from rules for interpreting particular texts.",
+      "directSectionIds": [
+        "work-l07-hodge-v1-01",
+        "work-l07-hodge-v1-02",
+        "work-l07-aa-hodge-02"
+      ],
+      "includingDescendantSectionIds": [
+        "work-l07-aa-hodge-02",
+        "work-l07-hodge-v1-01",
+        "work-l07-hodge-v1-02"
+      ]
+    },
+    {
+      "subjectId": "authority-of-scripture",
+      "label": "Authority of Scripture",
+      "parent": "scripture",
+      "definition": "Substantial treatment of authority of scripture within scripture and interpretation.",
+      "directSectionIds": [
+        "work-l07-hodge-v1-03",
+        "work-l07-hodge-v1-04",
+        "work-l07-hodge-v1-05",
+        "work-l07-aa-hodge-05"
+      ],
+      "includingDescendantSectionIds": [
+        "work-l07-aa-hodge-05",
+        "work-l07-hodge-v1-03",
+        "work-l07-hodge-v1-04",
+        "work-l07-hodge-v1-05"
+      ]
+    },
+    {
+      "subjectId": "inspiration",
+      "label": "Inspiration",
+      "parent": "scripture",
+      "definition": "Substantial treatment of inspiration within scripture and interpretation.",
+      "directSectionIds": [
+        "work-l07-hodge-v1-06",
+        "work-l07-aa-hodge-04"
+      ],
+      "includingDescendantSectionIds": [
+        "work-l07-aa-hodge-04",
+        "work-l07-hodge-v1-06"
+      ]
+    },
+    {
+      "subjectId": "canon",
+      "label": "Canon",
+      "parent": "scripture",
+      "definition": "Substantial treatment of canon within scripture and interpretation.",
+      "directSectionIds": [
+        "work-l07-aa-hodge-06"
+      ],
+      "includingDescendantSectionIds": [
+        "work-l07-aa-hodge-06"
+      ]
+    },
+    {
+      "subjectId": "existence-of-god",
+      "label": "Existence of God",
+      "parent": "apologetics",
+      "definition": "Substantial treatment of existence of god within apologetic questions.",
+      "directSectionIds": [
+        "work-l07-hodge-v1-07",
+        "work-l07-hodge-v1-08",
+        "work-l07-hodge-v1-09",
+        "work-l07-aa-hodge-01"
+      ],
+      "includingDescendantSectionIds": [
+        "work-l07-aa-hodge-01",
+        "work-l07-hodge-v1-07",
+        "work-l07-hodge-v1-08",
+        "work-l07-hodge-v1-09"
+      ]
+    },
+    {
+      "subjectId": "apologetics",
+      "label": "Apologetic questions",
+      "parent": null,
+      "definition": "Study of apologetic questions.",
+      "directSectionIds": [
+        "work-l07-aa-hodge-03"
+      ],
+      "includingDescendantSectionIds": [
+        "work-l07-aa-hodge-01",
+        "work-l07-aa-hodge-03",
+        "work-l07-hodge-v1-07",
+        "work-l07-hodge-v1-08",
+        "work-l07-hodge-v1-09",
+        "work-l07-hodge-v1-18"
+      ]
+    },
+    {
+      "subjectId": "attributes-of-god",
+      "label": "Attributes of God",
+      "parent": "god",
+      "definition": "Substantial treatment of attributes of god within god and his works.",
+      "directSectionIds": [
+        "work-l07-hodge-v1-10",
+        "work-l07-hodge-v1-11",
+        "work-l07-aa-hodge-07"
+      ],
+      "includingDescendantSectionIds": [
+        "work-l07-aa-hodge-07",
+        "work-l07-hodge-v1-10",
+        "work-l07-hodge-v1-11"
+      ]
+    },
+    {
+      "subjectId": "trinity",
+      "label": "Trinity",
+      "parent": "god",
+      "definition": "Substantial treatment of trinity within god and his works.",
+      "directSectionIds": [
+        "work-l07-hodge-v1-12",
+        "work-l07-aa-hodge-08"
+      ],
+      "includingDescendantSectionIds": [
+        "work-l07-aa-hodge-08",
+        "work-l07-hodge-v1-12",
+        "work-l07-hodge-v1-14"
+      ]
+    },
+    {
+      "subjectId": "holy-spirit",
+      "label": "Person and work of the Holy Spirit",
+      "parent": "trinity",
+      "definition": "The Spirit's person, deity and operations; specific saving benefits also receive their own salvation subjects.",
+      "directSectionIds": [
+        "work-l07-hodge-v1-14"
+      ],
+      "includingDescendantSectionIds": [
+        "work-l07-hodge-v1-14"
+      ]
+    },
+    {
+      "subjectId": "divine-decrees",
+      "label": "Divine decrees",
+      "parent": "god",
+      "definition": "Substantial treatment of divine decrees within god and his works.",
+      "directSectionIds": [
+        "work-l07-hodge-v1-15",
+        "work-l07-aa-hodge-09"
+      ],
+      "includingDescendantSectionIds": [
+        "work-l07-aa-hodge-09",
+        "work-l07-hodge-v1-15"
+      ]
+    },
+    {
+      "subjectId": "creation",
+      "label": "Creation",
+      "parent": "god",
+      "definition": "Substantial treatment of creation within god and his works.",
+      "directSectionIds": [
+        "work-l07-hodge-v1-16",
+        "work-l07-aa-hodge-11"
+      ],
+      "includingDescendantSectionIds": [
+        "work-l07-aa-hodge-11",
+        "work-l07-hodge-v1-16"
+      ]
+    },
+    {
+      "subjectId": "providence",
+      "label": "Providence",
+      "parent": "god",
+      "definition": "Substantial treatment of providence within god and his works.",
+      "directSectionIds": [
+        "work-l07-hodge-v1-17",
+        "work-l07-aa-hodge-13"
+      ],
+      "includingDescendantSectionIds": [
+        "work-l07-aa-hodge-13",
+        "work-l07-hodge-v1-17"
+      ]
+    },
+    {
+      "subjectId": "miracles",
+      "label": "Miracles",
+      "parent": "apologetics",
+      "definition": "Substantial treatment of miracles within apologetic questions.",
+      "directSectionIds": [
+        "work-l07-hodge-v1-18"
+      ],
+      "includingDescendantSectionIds": [
+        "work-l07-hodge-v1-18"
+      ]
+    },
+    {
+      "subjectId": "angels",
+      "label": "Angels and spiritual creatures",
+      "parent": "god",
+      "definition": "Created spiritual beings, their nature and service, including fallen angels; distinguished from the divine persons.",
+      "directSectionIds": [
+        "work-l07-hodge-v1-19",
+        "work-l07-aa-hodge-12"
+      ],
+      "includingDescendantSectionIds": [
+        "work-l07-aa-hodge-12",
+        "work-l07-hodge-v1-19"
+      ]
+    },
+    {
+      "subjectId": "humanity",
+      "label": "Humanity and sin",
+      "parent": null,
+      "definition": "Study of humanity and sin.",
+      "directSectionIds": [
+        "work-l07-hodge-v2-02",
+        "work-l07-hodge-v2-03",
+        "work-l07-hodge-v2-04"
+      ],
+      "includingDescendantSectionIds": [
+        "work-l07-aa-hodge-14",
+        "work-l07-aa-hodge-16",
+        "work-l07-aa-hodge-17",
+        "work-l07-aa-hodge-18",
+        "work-l07-hodge-v2-01",
+        "work-l07-hodge-v2-02",
+        "work-l07-hodge-v2-03",
+        "work-l07-hodge-v2-04",
+        "work-l07-hodge-v2-05",
+        "work-l07-hodge-v2-07",
+        "work-l07-hodge-v2-08",
+        "work-l07-hodge-v2-09"
+      ]
+    },
+    {
+      "subjectId": "image-of-god",
+      "label": "Image of God",
+      "parent": "humanity",
+      "definition": "Substantial treatment of image of god within humanity and sin.",
+      "directSectionIds": [
+        "work-l07-hodge-v2-01",
+        "work-l07-hodge-v2-05",
+        "work-l07-aa-hodge-14"
+      ],
+      "includingDescendantSectionIds": [
+        "work-l07-aa-hodge-14",
+        "work-l07-hodge-v2-01",
+        "work-l07-hodge-v2-05"
+      ]
+    },
+    {
+      "subjectId": "covenant-of-works",
+      "label": "Covenant of works",
+      "parent": "covenant",
+      "definition": "Substantial treatment of covenant of works within covenant and redemptive history.",
+      "directSectionIds": [
+        "work-l07-hodge-v2-06",
+        "work-l07-aa-hodge-15"
+      ],
+      "includingDescendantSectionIds": [
+        "work-l07-aa-hodge-15",
+        "work-l07-hodge-v2-06"
+      ]
+    },
+    {
+      "subjectId": "fall",
+      "label": "The fall",
+      "parent": "humanity",
+      "definition": "Substantial treatment of the fall within humanity and sin.",
+      "directSectionIds": [
+        "work-l07-hodge-v2-07",
+        "work-l07-aa-hodge-16"
+      ],
+      "includingDescendantSectionIds": [
+        "work-l07-aa-hodge-16",
+        "work-l07-hodge-v2-07"
+      ]
+    },
+    {
+      "subjectId": "original-sin",
+      "label": "Original sin",
+      "parent": "humanity",
+      "definition": "Substantial treatment of original sin within humanity and sin.",
+      "directSectionIds": [
+        "work-l07-hodge-v2-08",
+        "work-l07-aa-hodge-17"
+      ],
+      "includingDescendantSectionIds": [
+        "work-l07-aa-hodge-17",
+        "work-l07-hodge-v2-08"
+      ]
+    },
+    {
+      "subjectId": "moral-responsibility",
+      "label": "Moral responsibility",
+      "parent": "humanity",
+      "definition": "Substantial treatment of moral responsibility within humanity and sin.",
+      "directSectionIds": [
+        "work-l07-hodge-v2-09",
+        "work-l07-aa-hodge-18"
+      ],
+      "includingDescendantSectionIds": [
+        "work-l07-aa-hodge-18",
+        "work-l07-hodge-v2-09"
+      ]
+    },
+    {
+      "subjectId": "salvation",
+      "label": "Salvation",
+      "parent": null,
+      "definition": "Study of salvation.",
+      "directSectionIds": [
+        "work-l07-hodge-v2-10",
+        "work-l07-warfield-01",
+        "work-l07-warfield-02"
+      ],
+      "includingDescendantSectionIds": [
+        "work-l07-aa-hodge-10",
+        "work-l07-aa-hodge-25",
+        "work-l07-aa-hodge-26",
+        "work-l07-aa-hodge-27",
+        "work-l07-aa-hodge-28",
+        "work-l07-aa-hodge-29",
+        "work-l07-aa-hodge-30",
+        "work-l07-aa-hodge-31",
+        "work-l07-aa-hodge-32",
+        "work-l07-aa-hodge-33",
+        "work-l07-hodge-v2-10",
+        "work-l07-hodge-v2-23",
+        "work-l07-hodge-v3-01",
+        "work-l07-hodge-v3-02",
+        "work-l07-hodge-v3-03",
+        "work-l07-hodge-v3-03-s02",
+        "work-l07-hodge-v3-04",
+        "work-l07-owen-01",
+        "work-l07-owen-02",
+        "work-l07-owen-03",
+        "work-l07-owen-04",
+        "work-l07-owen-05",
+        "work-l07-owen-06",
+        "work-l07-owen-07",
+        "work-l07-owen-08",
+        "work-l07-owen-09",
+        "work-l07-owen-10",
+        "work-l07-owen-11",
+        "work-l07-owen-12",
+        "work-l07-owen-13",
+        "work-l07-owen-14",
+        "work-l07-owen-15",
+        "work-l07-owen-16",
+        "work-l07-owen-17",
+        "work-l07-owen-18",
+        "work-l07-owen-18-s01",
+        "work-l07-owen-18-s02",
+        "work-l07-owen-18-s03",
+        "work-l07-owen-18-s04",
+        "work-l07-owen-18-s05",
+        "work-l07-owen-18-s06",
+        "work-l07-owen-18-s07",
+        "work-l07-owen-18-s08",
+        "work-l07-owen-18-s09",
+        "work-l07-owen-18-s10",
+        "work-l07-owen-19",
+        "work-l07-owen-20",
+        "work-l07-owen-general",
+        "work-l07-warfield-01",
+        "work-l07-warfield-02",
+        "work-l07-warfield-05"
+      ]
+    },
+    {
+      "subjectId": "covenant-of-grace",
+      "label": "Covenant of grace",
+      "parent": "covenant",
+      "definition": "Substantial treatment of covenant of grace within covenant and redemptive history.",
+      "directSectionIds": [
+        "work-l07-hodge-v2-11",
+        "work-l07-owen-13",
+        "work-l07-aa-hodge-19"
+      ],
+      "includingDescendantSectionIds": [
+        "work-l07-aa-hodge-19",
+        "work-l07-hodge-v2-11",
+        "work-l07-owen-13"
+      ]
+    },
+    {
+      "subjectId": "incarnation",
+      "label": "Incarnation",
+      "parent": "christ",
+      "definition": "Substantial treatment of incarnation within person and work of christ.",
+      "directSectionIds": [
+        "work-l07-hodge-v2-12",
+        "work-l07-hodge-v2-21",
+        "work-l07-aa-hodge-20"
+      ],
+      "includingDescendantSectionIds": [
+        "work-l07-aa-hodge-20",
+        "work-l07-hodge-v2-12",
+        "work-l07-hodge-v2-21"
+      ]
+    },
+    {
+      "subjectId": "deity-of-christ",
+      "label": "Deity of Christ",
+      "parent": "christ",
+      "definition": "Substantial treatment of deity of christ within person and work of christ.",
+      "directSectionIds": [
+        "work-l07-hodge-v1-13"
+      ],
+      "includingDescendantSectionIds": [
+        "work-l07-hodge-v1-13"
+      ]
+    },
+    {
+      "subjectId": "christ",
+      "label": "Person and work of Christ",
+      "parent": null,
+      "definition": "Study of person and work of christ.",
+      "directSectionIds": [
+        "work-l07-hodge-v2-13",
+        "work-l07-hodge-v2-14",
+        "work-l07-aa-hodge-21"
+      ],
+      "includingDescendantSectionIds": [
+        "work-l07-aa-hodge-20",
+        "work-l07-aa-hodge-21",
+        "work-l07-aa-hodge-22",
+        "work-l07-aa-hodge-23",
+        "work-l07-hodge-v1-13",
+        "work-l07-hodge-v2-12",
+        "work-l07-hodge-v2-13",
+        "work-l07-hodge-v2-14",
+        "work-l07-hodge-v2-15",
+        "work-l07-hodge-v2-16",
+        "work-l07-hodge-v2-17",
+        "work-l07-hodge-v2-18",
+        "work-l07-hodge-v2-19",
+        "work-l07-hodge-v2-21",
+        "work-l07-hodge-v2-22",
+        "work-l07-warfield-04"
+      ]
+    },
+    {
+      "subjectId": "atonement",
+      "label": "Atonement",
+      "parent": "christ",
+      "definition": "Christ's reconciling work; use more specific tags when a particular theory or aspect is treated.",
+      "directSectionIds": [
+        "work-l07-hodge-v2-15",
+        "work-l07-hodge-v2-17",
+        "work-l07-hodge-v2-18",
+        "work-l07-aa-hodge-22",
+        "work-l07-warfield-04"
+      ],
+      "includingDescendantSectionIds": [
+        "work-l07-aa-hodge-22",
+        "work-l07-hodge-v2-15",
+        "work-l07-hodge-v2-17",
+        "work-l07-hodge-v2-18",
+        "work-l07-warfield-04"
+      ]
+    },
+    {
+      "subjectId": "penal-substitution",
+      "label": "Penal substitution",
+      "parent": "christ",
+      "definition": "Substantial treatment of penal substitution within person and work of christ.",
+      "directSectionIds": [
+        "work-l07-hodge-v2-16"
+      ],
+      "includingDescendantSectionIds": [
+        "work-l07-hodge-v2-16"
+      ]
+    },
+    {
+      "subjectId": "ascension-intercession",
+      "label": "Ascension and intercession",
+      "parent": "christ",
+      "definition": "Substantial treatment of ascension and intercession within person and work of christ.",
+      "directSectionIds": [
+        "work-l07-hodge-v2-19",
+        "work-l07-aa-hodge-23"
+      ],
+      "includingDescendantSectionIds": [
+        "work-l07-aa-hodge-23",
+        "work-l07-hodge-v2-19"
+      ]
+    },
+    {
+      "subjectId": "kingdom",
+      "label": "Kingdom",
+      "parent": "covenant",
+      "definition": "Substantial treatment of kingdom within covenant and redemptive history.",
+      "directSectionIds": [
+        "work-l07-hodge-v2-20",
+        "work-l07-aa-hodge-24"
+      ],
+      "includingDescendantSectionIds": [
+        "work-l07-aa-hodge-24",
+        "work-l07-hodge-v2-20"
+      ]
+    },
+    {
+      "subjectId": "resurrection-of-christ",
+      "label": "Resurrection of Christ",
+      "parent": "christ",
+      "definition": "The bodily resurrection of Jesus Christ and its significance; distinct from general resurrection.",
+      "directSectionIds": [
+        "work-l07-hodge-v2-22"
+      ],
+      "includingDescendantSectionIds": [
+        "work-l07-hodge-v2-22"
+      ]
+    },
+    {
+      "subjectId": "effectual-calling",
+      "label": "Effectual calling",
+      "parent": "salvation",
+      "definition": "Substantial treatment of effectual calling within salvation.",
+      "directSectionIds": [
+        "work-l07-hodge-v2-23",
+        "work-l07-aa-hodge-25"
+      ],
+      "includingDescendantSectionIds": [
+        "work-l07-aa-hodge-25",
+        "work-l07-hodge-v2-23"
+      ]
+    },
+    {
+      "subjectId": "regeneration",
+      "label": "Regeneration",
+      "parent": "salvation",
+      "definition": "Substantial treatment of regeneration within salvation.",
+      "directSectionIds": [
+        "work-l07-hodge-v3-01",
+        "work-l07-aa-hodge-26"
+      ],
+      "includingDescendantSectionIds": [
+        "work-l07-aa-hodge-26",
+        "work-l07-hodge-v3-01"
+      ]
+    },
+    {
+      "subjectId": "faith",
+      "label": "Faith",
+      "parent": "salvation",
+      "definition": "Substantial treatment of faith within salvation.",
+      "directSectionIds": [
+        "work-l07-hodge-v3-02",
+        "work-l07-owen-01",
+        "work-l07-owen-02",
+        "work-l07-owen-03",
+        "work-l07-owen-15",
+        "work-l07-owen-20",
+        "work-l07-aa-hodge-27"
+      ],
+      "includingDescendantSectionIds": [
+        "work-l07-aa-hodge-27",
+        "work-l07-hodge-v3-02",
+        "work-l07-owen-01",
+        "work-l07-owen-02",
+        "work-l07-owen-03",
+        "work-l07-owen-15",
+        "work-l07-owen-20"
+      ]
+    },
+    {
+      "subjectId": "justification",
+      "label": "Justification",
+      "parent": "salvation",
+      "definition": "Substantial treatment of justification within salvation.",
+      "directSectionIds": [
+        "work-l07-hodge-v3-03",
+        "work-l07-owen-01",
+        "work-l07-owen-02",
+        "work-l07-owen-03",
+        "work-l07-owen-04",
+        "work-l07-owen-05",
+        "work-l07-owen-06",
+        "work-l07-owen-07",
+        "work-l07-owen-08",
+        "work-l07-owen-09",
+        "work-l07-owen-10",
+        "work-l07-owen-11",
+        "work-l07-owen-12",
+        "work-l07-owen-13",
+        "work-l07-owen-14",
+        "work-l07-owen-15",
+        "work-l07-owen-16",
+        "work-l07-owen-17",
+        "work-l07-owen-18",
+        "work-l07-owen-19",
+        "work-l07-owen-20",
+        "work-l07-aa-hodge-30",
+        "work-l07-owen-18-s01",
+        "work-l07-owen-18-s02",
+        "work-l07-owen-18-s03",
+        "work-l07-owen-18-s04",
+        "work-l07-owen-18-s05",
+        "work-l07-owen-18-s06",
+        "work-l07-owen-18-s07",
+        "work-l07-owen-18-s08",
+        "work-l07-owen-18-s09",
+        "work-l07-owen-18-s10",
+        "work-l07-hodge-v3-03-s02",
+        "work-l07-owen-general"
+      ],
+      "includingDescendantSectionIds": [
+        "work-l07-aa-hodge-30",
+        "work-l07-hodge-v3-03",
+        "work-l07-hodge-v3-03-s02",
+        "work-l07-owen-01",
+        "work-l07-owen-02",
+        "work-l07-owen-03",
+        "work-l07-owen-04",
+        "work-l07-owen-05",
+        "work-l07-owen-06",
+        "work-l07-owen-07",
+        "work-l07-owen-08",
+        "work-l07-owen-09",
+        "work-l07-owen-10",
+        "work-l07-owen-11",
+        "work-l07-owen-12",
+        "work-l07-owen-13",
+        "work-l07-owen-14",
+        "work-l07-owen-15",
+        "work-l07-owen-16",
+        "work-l07-owen-17",
+        "work-l07-owen-18",
+        "work-l07-owen-18-s01",
+        "work-l07-owen-18-s02",
+        "work-l07-owen-18-s03",
+        "work-l07-owen-18-s04",
+        "work-l07-owen-18-s05",
+        "work-l07-owen-18-s06",
+        "work-l07-owen-18-s07",
+        "work-l07-owen-18-s08",
+        "work-l07-owen-18-s09",
+        "work-l07-owen-18-s10",
+        "work-l07-owen-19",
+        "work-l07-owen-20",
+        "work-l07-owen-general"
+      ]
+    },
+    {
+      "subjectId": "imputation",
+      "label": "Imputation",
+      "parent": "salvation",
+      "definition": "Substantial treatment of imputation within salvation.",
+      "directSectionIds": [
+        "work-l07-owen-07",
+        "work-l07-owen-08",
+        "work-l07-owen-12",
+        "work-l07-owen-18-s01",
+        "work-l07-owen-18-s02",
+        "work-l07-owen-18-s03",
+        "work-l07-owen-18-s04",
+        "work-l07-owen-18-s05",
+        "work-l07-owen-18-s06",
+        "work-l07-owen-18-s07",
+        "work-l07-owen-18-s08",
+        "work-l07-owen-18-s09",
+        "work-l07-owen-18-s10"
+      ],
+      "includingDescendantSectionIds": [
+        "work-l07-owen-07",
+        "work-l07-owen-08",
+        "work-l07-owen-12",
+        "work-l07-owen-18-s01",
+        "work-l07-owen-18-s02",
+        "work-l07-owen-18-s03",
+        "work-l07-owen-18-s04",
+        "work-l07-owen-18-s05",
+        "work-l07-owen-18-s06",
+        "work-l07-owen-18-s07",
+        "work-l07-owen-18-s08",
+        "work-l07-owen-18-s09",
+        "work-l07-owen-18-s10"
+      ]
+    },
+    {
+      "subjectId": "sanctification",
+      "label": "Sanctification",
+      "parent": "salvation",
+      "definition": "Substantial treatment of sanctification within salvation.",
+      "directSectionIds": [
+        "work-l07-hodge-v3-04",
+        "work-l07-owen-19",
+        "work-l07-aa-hodge-32"
+      ],
+      "includingDescendantSectionIds": [
+        "work-l07-aa-hodge-32",
+        "work-l07-hodge-v3-04",
+        "work-l07-owen-19"
+      ]
+    },
+    {
+      "subjectId": "law-and-gospel",
+      "label": "Law and gospel",
+      "parent": "covenant",
+      "definition": "Substantial treatment of law and gospel within covenant and redemptive history.",
+      "directSectionIds": [
+        "work-l07-hodge-v3-05",
+        "work-l07-owen-11"
+      ],
+      "includingDescendantSectionIds": [
+        "work-l07-hodge-v3-05",
+        "work-l07-owen-11"
+      ]
+    },
+    {
+      "subjectId": "means-of-grace",
+      "label": "Means of grace",
+      "parent": "church",
+      "definition": "Word, sacraments and prayer as means of grace, retaining differences concerning their operation and efficacy.",
+      "directSectionIds": [
+        "work-l07-hodge-v3-06",
+        "work-l07-aa-hodge-38",
+        "work-l07-warfield-03"
+      ],
+      "includingDescendantSectionIds": [
+        "work-l07-aa-hodge-38",
+        "work-l07-hodge-v3-06",
+        "work-l07-warfield-03"
+      ]
+    },
+    {
+      "subjectId": "heaven-hell",
+      "label": "Heaven and hell",
+      "parent": "last-things",
+      "definition": "Substantial treatment of heaven and hell within last things.",
+      "directSectionIds": [
+        "work-l07-hodge-v3-07",
+        "work-l07-aa-hodge-34",
+        "work-l07-aa-hodge-37"
+      ],
+      "includingDescendantSectionIds": [
+        "work-l07-aa-hodge-34",
+        "work-l07-aa-hodge-37",
+        "work-l07-hodge-v3-07"
+      ]
+    },
+    {
+      "subjectId": "general-resurrection",
+      "label": "General resurrection",
+      "parent": "last-things",
+      "definition": "The future resurrection of the dead; distinct from the historical resurrection of Jesus.",
+      "directSectionIds": [
+        "work-l07-hodge-v3-08",
+        "work-l07-aa-hodge-35"
+      ],
+      "includingDescendantSectionIds": [
+        "work-l07-aa-hodge-35",
+        "work-l07-hodge-v3-08"
+      ]
+    },
+    {
+      "subjectId": "return-of-christ",
+      "label": "Return of Christ",
+      "parent": "last-things",
+      "definition": "Substantial treatment of return of christ within last things.",
+      "directSectionIds": [
+        "work-l07-hodge-v3-09",
+        "work-l07-aa-hodge-36"
+      ],
+      "includingDescendantSectionIds": [
+        "work-l07-aa-hodge-36",
+        "work-l07-hodge-v3-09"
+      ]
+    },
+    {
+      "subjectId": "judgment",
+      "label": "Judgment",
+      "parent": "last-things",
+      "definition": "Substantial treatment of judgment within last things.",
+      "directSectionIds": [
+        "work-l07-hodge-v3-10"
+      ],
+      "includingDescendantSectionIds": [
+        "work-l07-hodge-v3-10"
+      ]
+    },
+    {
+      "subjectId": "election",
+      "label": "Election",
+      "parent": "salvation",
+      "definition": "Substantial treatment of election within salvation.",
+      "directSectionIds": [
+        "work-l07-aa-hodge-10",
+        "work-l07-warfield-05"
+      ],
+      "includingDescendantSectionIds": [
+        "work-l07-aa-hodge-10",
+        "work-l07-warfield-05"
+      ]
+    },
+    {
+      "subjectId": "union-with-christ",
+      "label": "Union with Christ",
+      "parent": "salvation",
+      "definition": "Substantial treatment of union with christ within salvation.",
+      "directSectionIds": [
+        "work-l07-aa-hodge-28"
+      ],
+      "includingDescendantSectionIds": [
+        "work-l07-aa-hodge-28"
+      ]
+    },
+    {
+      "subjectId": "repentance",
+      "label": "Repentance",
+      "parent": "salvation",
+      "definition": "Substantial treatment of repentance within salvation.",
+      "directSectionIds": [
+        "work-l07-aa-hodge-29"
+      ],
+      "includingDescendantSectionIds": [
+        "work-l07-aa-hodge-29"
+      ]
+    },
+    {
+      "subjectId": "adoption",
+      "label": "Adoption",
+      "parent": "salvation",
+      "definition": "Substantial treatment of adoption within salvation.",
+      "directSectionIds": [
+        "work-l07-aa-hodge-31"
+      ],
+      "includingDescendantSectionIds": [
+        "work-l07-aa-hodge-31"
+      ]
+    },
+    {
+      "subjectId": "perseverance",
+      "label": "Perseverance",
+      "parent": "salvation",
+      "definition": "Substantial treatment of perseverance within salvation.",
+      "directSectionIds": [
+        "work-l07-aa-hodge-33"
+      ],
+      "includingDescendantSectionIds": [
+        "work-l07-aa-hodge-33"
+      ]
+    },
+    {
+      "subjectId": "baptism",
+      "label": "Baptism",
+      "parent": "church",
+      "definition": "Substantial treatment of baptism within the church.",
+      "directSectionIds": [
+        "work-l07-aa-hodge-39"
+      ],
+      "includingDescendantSectionIds": [
+        "work-l07-aa-hodge-39"
+      ]
+    },
+    {
+      "subjectId": "lords-supper",
+      "label": "Lord's Supper",
+      "parent": "church",
+      "definition": "Substantial treatment of lord's supper within the church.",
+      "directSectionIds": [
+        "work-l07-aa-hodge-40"
+      ],
+      "includingDescendantSectionIds": [
+        "work-l07-aa-hodge-40"
+      ]
+    },
+    {
+      "subjectId": "scripture",
+      "label": "Scripture and interpretation",
+      "parent": null,
+      "definition": "Study of scripture and interpretation.",
+      "directSectionIds": [],
+      "includingDescendantSectionIds": [
+        "work-l07-aa-hodge-02",
+        "work-l07-aa-hodge-04",
+        "work-l07-aa-hodge-05",
+        "work-l07-aa-hodge-06",
+        "work-l07-hodge-v1-01",
+        "work-l07-hodge-v1-02",
+        "work-l07-hodge-v1-03",
+        "work-l07-hodge-v1-04",
+        "work-l07-hodge-v1-05",
+        "work-l07-hodge-v1-06"
+      ]
+    },
+    {
+      "subjectId": "god",
+      "label": "God and his works",
+      "parent": null,
+      "definition": "Study of god and his works.",
+      "directSectionIds": [],
+      "includingDescendantSectionIds": [
+        "work-l07-aa-hodge-07",
+        "work-l07-aa-hodge-08",
+        "work-l07-aa-hodge-09",
+        "work-l07-aa-hodge-11",
+        "work-l07-aa-hodge-12",
+        "work-l07-aa-hodge-13",
+        "work-l07-hodge-v1-10",
+        "work-l07-hodge-v1-11",
+        "work-l07-hodge-v1-12",
+        "work-l07-hodge-v1-14",
+        "work-l07-hodge-v1-15",
+        "work-l07-hodge-v1-16",
+        "work-l07-hodge-v1-17",
+        "work-l07-hodge-v1-19"
+      ]
+    },
+    {
+      "subjectId": "covenant",
+      "label": "Covenant and redemptive history",
+      "parent": null,
+      "definition": "Study of covenant and redemptive history.",
+      "directSectionIds": [],
+      "includingDescendantSectionIds": [
+        "work-l07-aa-hodge-15",
+        "work-l07-aa-hodge-19",
+        "work-l07-aa-hodge-24",
+        "work-l07-hodge-v2-06",
+        "work-l07-hodge-v2-11",
+        "work-l07-hodge-v2-20",
+        "work-l07-hodge-v3-05",
+        "work-l07-owen-11",
+        "work-l07-owen-13"
+      ]
+    },
+    {
+      "subjectId": "church",
+      "label": "The church",
+      "parent": null,
+      "definition": "Study of the church.",
+      "directSectionIds": [],
+      "includingDescendantSectionIds": [
+        "work-l07-aa-hodge-38",
+        "work-l07-aa-hodge-39",
+        "work-l07-aa-hodge-40",
+        "work-l07-hodge-v3-06",
+        "work-l07-warfield-03"
+      ]
+    },
+    {
+      "subjectId": "last-things",
+      "label": "Last things",
+      "parent": null,
+      "definition": "Study of last things.",
+      "directSectionIds": [],
+      "includingDescendantSectionIds": [
+        "work-l07-aa-hodge-34",
+        "work-l07-aa-hodge-35",
+        "work-l07-aa-hodge-36",
+        "work-l07-aa-hodge-37",
+        "work-l07-hodge-v3-07",
+        "work-l07-hodge-v3-08",
+        "work-l07-hodge-v3-09",
+        "work-l07-hodge-v3-10"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-l07-hodge-v2-02",
+  "editorialState": "catalogued",
+  "notes": [
+    "Section of work-hodge-systematic in edition-hodge-systematic-2.",
+    "Editorial Scripture and sermon companions live in the L07 connection index; they are not author citations or doctrinal endorsements."
+  ],
+  "reviews": [],
+  "title": "Chapter II. Nature of Man.",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-charles-hodge",
+      "role": "author"
+    }
+  ],
+  "genre": "systematic-theology",
+  "role": "core-teaching",
+  "collections": [
+    "theology"
+  ],
+  "subjects": [
+    "humanity"
+  ],
+  "occasions": [],
+  "audiences": [
+    "students",
+    "pastors",
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-hodge-systematic",
+      "locator": "Volume 2; Part II. Anthropology; Chapter II. Nature of Man."
+    }
+  ],
+  "externalIds": {
+    "source-section": [
+      "https://ccel.org/ccel/hodge/theology2/theology2.iii.ii.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/hodge/theology2/theology2.toc.html",
+      "locator": "Volume 2; Part II. Anthropology; Chapter II. Nature of Man.",
+      "note": "Identified chapter/section boundary; source context retained. Full-body review is not inferred from contents.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

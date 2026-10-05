@@ -1,0 +1,83 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-l07-warfield-02",
+  "editorialState": "catalogued",
+  "notes": [
+    "Section of work-warfield-plan in edition-warfield-plan.",
+    "Editorial Scripture and sermon companions live in the L07 connection index; they are not author citations or doctrinal endorsements."
+  ],
+  "reviews": [],
+  "title": "Autosoterism",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-b-b-warfield",
+      "role": "author"
+    }
+  ],
+  "genre": "lecture",
+  "role": "core-teaching",
+  "collections": [
+    "theology"
+  ],
+  "subjects": [
+    "salvation"
+  ],
+  "occasions": [],
+  "audiences": [
+    "students",
+    "pastors",
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "twentieth-century",
+  "dates": [
+    {
+      "event": "delivery",
+      "value": "1914-06",
+      "precision": "month",
+      "label": "Series delivered at Princeton Summer School of Theology, June 1914; no individual lecture day known",
+      "evidence": [
+        {
+          "url": "https://archive.org/details/planofsalvation00warf",
+          "locator": "Title leaf, PDF p. 5",
+          "note": "Series delivery month, distinct from 1915 edition publication.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    }
+  ],
+  "passages": [
+    {
+      "reference": "Romans 9:16",
+      "numberingSystem": "english",
+      "role": "citation",
+      "start": 45009016,
+      "end": 45009016,
+      "verification": "verified",
+      "locator": "Lecture motto; PDF p. 38; a motto does not establish verse-by-verse exposition"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-warfield-plan",
+      "locator": "Lecture 2; printed pp. 37-59; PDF pp. 39-61; motto PDF p. 38"
+    }
+  ],
+  "externalIds": {
+    "source-section": [
+      "https://archive.org/details/planofsalvation00warf/page/n38/mode/2up"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/details/planofsalvation00warf/page/n8/mode/2up",
+      "locator": "Lecture 2; printed pp. 37-59; PDF pp. 39-61; motto PDF p. 38",
+      "note": "Identified chapter/section boundary; source context retained. Full-body review is not inferred from contents.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

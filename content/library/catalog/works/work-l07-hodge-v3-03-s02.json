@@ -1,0 +1,74 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-l07-hodge-v3-03-s02",
+  "editorialState": "catalogued",
+  "notes": [
+    "Section of work-hodge-systematic in edition-hodge-systematic-3.",
+    "Editorial Scripture and sermon companions live in the L07 connection index; they are not author citations or doctrinal endorsements."
+  ],
+  "reviews": [],
+  "title": "Justification is a Forensic Act",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-charles-hodge",
+      "role": "author"
+    }
+  ],
+  "genre": "systematic-theology",
+  "role": "core-teaching",
+  "collections": [
+    "theology"
+  ],
+  "subjects": [
+    "justification"
+  ],
+  "occasions": [],
+  "audiences": [
+    "students",
+    "pastors",
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Romans 4:5",
+      "numberingSystem": "english",
+      "role": "citation",
+      "start": 45004005,
+      "end": 45004005,
+      "verification": "verified",
+      "locator": "Volume III, Part III, chapter XVII, section 2; opening argument, printed pp. 118-121"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-l07-hodge-v3-03",
+      "locator": "Volume III; Part III; chapter XVII; section 2; printed pp. 118ff."
+    }
+  ],
+  "externalIds": {
+    "source-section": [
+      "https://ccel.org/ccel/hodge/theology3/theology3.iii.iii.ii.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/hodge/theology3/theology3.toc.html",
+      "locator": "Volume III; Part III; chapter XVII; section 2; printed pp. 118ff.",
+      "note": "Identified chapter/section boundary; source context retained. Full-body review is not inferred from contents.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://ccel.org/ccel/hodge/theology3/theology3.iii.iii.ii.html",
+      "locator": "Volume III, Part III, chapter XVII, section 2; opening argument, printed pp. 118-121",
+      "note": "Hodge distinguishes the declarative act of justification from inward sanctification while treating the gifts as inseparable. Romans 4:5 supports his claim that the ungodly are accepted on the ground of Christ's work, rather than declared personally sinless.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

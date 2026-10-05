@@ -1,0 +1,57 @@
+{
+  "checkedOn": "2026-10-05",
+  "boundary": "Four existing works; full chapter/lecture inventories in selected manifestations",
+  "works": [
+    {
+      "workId": "work-hodge-systematic",
+      "authorId": "author-charles-hodge",
+      "editionIds": [
+        "edition-hodge-systematic-1",
+        "edition-hodge-systematic-2",
+        "edition-hodge-systematic-3"
+      ],
+      "access": "source-links",
+      "sources": [
+        "https://ccel.org/ccel/hodge/theology1/theology1.toc.html",
+        "https://ccel.org/ccel/hodge/theology2/theology2.toc.html",
+        "https://ccel.org/ccel/hodge/theology3/theology3.toc.html"
+      ]
+    },
+    {
+      "workId": "work-owen-justification",
+      "authorId": "author-john-owen",
+      "editionIds": [
+        "edition-owen-justification"
+      ],
+      "access": "source-links",
+      "sources": [
+        "https://ccel.org/ccel/owen/just/just.toc.html"
+      ]
+    },
+    {
+      "workId": "work-aa-hodge-outlines",
+      "authorId": "author-a-a-hodge",
+      "editionIds": [
+        "edition-aa-hodge-outlines"
+      ],
+      "access": "historical-PDF-and-host-OCR",
+      "year": "1877",
+      "sources": [
+        "https://archive.org/details/outlinesoftheolo00hodguoft"
+      ]
+    },
+    {
+      "workId": "work-warfield-plan",
+      "authorId": "author-b-b-warfield",
+      "editionIds": [
+        "edition-warfield-plan"
+      ],
+      "access": "historical-PDF-and-host-OCR",
+      "year": "1915",
+      "sources": [
+        "https://archive.org/details/planofsalvation00warf"
+      ]
+    }
+  ],
+  "deduplication": "Reuse four root works and six edition identities; no root-work duplication or public publication changes."
+}

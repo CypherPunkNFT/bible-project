@@ -47,6 +47,34 @@
   ],
   "subjects": [
     {
+      "id": "theological-method",
+      "label": "Theological method",
+      "parent": "scripture",
+      "definition": "Sources, reasoning and organization of theological knowledge; distinct from rules for interpreting particular texts.",
+      "aliases": ["prolegomena"]
+    },
+    {
+      "id": "holy-spirit",
+      "label": "Person and work of the Holy Spirit",
+      "parent": "trinity",
+      "definition": "The Spirit's person, deity and operations; specific saving benefits also receive their own salvation subjects.",
+      "aliases": ["pneumatology"]
+    },
+    {
+      "id": "angels",
+      "label": "Angels and spiritual creatures",
+      "parent": "god",
+      "definition": "Created spiritual beings, their nature and service, including fallen angels; distinguished from the divine persons.",
+      "aliases": ["angelology"]
+    },
+    {
+      "id": "means-of-grace",
+      "label": "Means of grace",
+      "parent": "church",
+      "definition": "Word, sacraments and prayer as means of grace, retaining differences concerning their operation and efficacy.",
+      "aliases": []
+    },
+    {
       "id": "scripture",
       "label": "Scripture and interpretation",
       "parent": null,

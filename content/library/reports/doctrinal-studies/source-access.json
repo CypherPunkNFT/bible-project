@@ -1,0 +1,41 @@
+{
+  "checkedOn": "2026-10-05",
+  "decisions": [
+    {
+      "sourceId": "source-internet-archive",
+      "scope": "outlinesoftheolo00hodguoft and planofsalvation00warf only",
+      "method": "Public item metadata API followed by four individually named unrestricted PDF/OCR files; sequential requests with a one-second pause between content files. No account access or recursive crawl.",
+      "evidence": ["https://archive.org/developers/", "https://archive.org/metadata/outlinesoftheolo00hodguoft", "https://archive.org/metadata/planofsalvation00warf", "https://www.copyright.gov/circs/circ15a.pdf"],
+      "rightsBasis": "1877 and 1915 print witnesses visually checked. Scoped United States public-domain assessment of the historical editions, excluding modern additions; not a worldwide conclusion.",
+      "result": "Four unchanged content files and two host metadata snapshots retained with hashes. Hosting, republication and full-text indexing remain separate unresolved actions."
+    },
+    {
+      "sourceId": "source-ccel",
+      "scope": "Three Hodge contents pages, one Owen contents page and selected manually consulted body passages",
+      "method": "Four private bibliographic HTML witnesses; at least ten seconds between contents requests. Robots checked and retained before retrieval. No full-work corpus downloaded.",
+      "evidence": ["https://ccel.org/robots.txt", "https://www.ccel.org/about/copyright.html", "https://ccel.org/ccel/hodge/theology1/theology1.toc.html", "https://ccel.org/ccel/owen/just/just.toc.html"],
+      "rightsBasis": "CCEL permits educational/nonprofit use but requests permission for republication. Robots is an access signal, not a content license. Historical author text and digital additions remain distinct.",
+      "result": "Existing source-link assets and edition identities reused. Public catalog contains bibliographic facts and short editorial paraphrases, not copied chapter text."
+    }
+  ],
+  "editionWitnesses": [
+    {
+      "editionId": "edition-aa-hodge-outlines",
+      "locator": "PDF p. 7 title; pp. 9-10 British editor preface; pp. 11-13 author preface; pp. 15-16 contents",
+      "finding": "London, T. Nelson and Sons, 1877; edited by William H. Goold. The editor's preface is distinct from A. A. Hodge's chapters. The author describes outlines used for extemporaneous congregational lectures and acknowledges adaptation of his father's questions and some lectures. Forty chapters in this witness, not an assumed chapter count imported from a later expanded edition.",
+      "limit": "No new canonical contributor identity or change to the already published edition record in this mission. Contributor credit is retained here pending edition-authority reconciliation."
+    },
+    {
+      "editionId": "edition-warfield-plan",
+      "locator": "PDF p. 5 title; p. 6 copyright; p. 9 contents; lecture mottos pp. 12, 38, 64, 88, 112",
+      "finding": "Five lectures delivered at Princeton Summer School of Theology in June 1914; Philadelphia, Presbyterian Board of Publication, 1915. Delivery month and edition year remain distinct. Notes printed pp. 137-144 are supporting apparatus, not a sixth lecture.",
+      "limit": "Individual delivery days unknown. Universalism is Warfield's category in this argument; do not assume the chapter only concerns universal final salvation."
+    },
+    {
+      "editionIds": ["edition-hodge-systematic-1", "edition-hodge-systematic-2", "edition-hodge-systematic-3", "edition-owen-justification"],
+      "locator": "CCEL contents and source chapter URLs",
+      "finding": "Existing electronic manifestations retained. Hodge has 19, 23 and 10 major units in these volume contents; the final three eschatology units lack the word Chapter in the contents but occupy the same hierarchy. Owen has 20 chapters plus preliminary considerations and nested Scripture treatments.",
+      "limit": "Individual historic print impressions remain unverified for these electronic manifestations. Source structural locators are used instead of fabricated scan-page ranges."
+    }
+  ]
+}

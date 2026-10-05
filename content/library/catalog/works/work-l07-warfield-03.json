@@ -1,0 +1,83 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-l07-warfield-03",
+  "editorialState": "catalogued",
+  "notes": [
+    "Section of work-warfield-plan in edition-warfield-plan.",
+    "Editorial Scripture and sermon companions live in the L07 connection index; they are not author citations or doctrinal endorsements."
+  ],
+  "reviews": [],
+  "title": "Sacerdotalism",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-b-b-warfield",
+      "role": "author"
+    }
+  ],
+  "genre": "lecture",
+  "role": "core-teaching",
+  "collections": [
+    "theology"
+  ],
+  "subjects": [
+    "means-of-grace"
+  ],
+  "occasions": [],
+  "audiences": [
+    "students",
+    "pastors",
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "twentieth-century",
+  "dates": [
+    {
+      "event": "delivery",
+      "value": "1914-06",
+      "precision": "month",
+      "label": "Series delivered at Princeton Summer School of Theology, June 1914; no individual lecture day known",
+      "evidence": [
+        {
+          "url": "https://archive.org/details/planofsalvation00warf",
+          "locator": "Title leaf, PDF p. 5",
+          "note": "Series delivery month, distinct from 1915 edition publication.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    }
+  ],
+  "passages": [
+    {
+      "reference": "Acts 2:47",
+      "numberingSystem": "english",
+      "role": "citation",
+      "start": 44002047,
+      "end": 44002047,
+      "verification": "verified",
+      "locator": "Lecture motto; PDF p. 64; a motto does not establish verse-by-verse exposition"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-warfield-plan",
+      "locator": "Lecture 3; printed pp. 63-84; PDF pp. 65-86; motto PDF p. 64"
+    }
+  ],
+  "externalIds": {
+    "source-section": [
+      "https://archive.org/details/planofsalvation00warf/page/n64/mode/2up"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/details/planofsalvation00warf/page/n8/mode/2up",
+      "locator": "Lecture 3; printed pp. 63-84; PDF pp. 65-86; motto PDF p. 64",
+      "note": "Identified chapter/section boundary; source context retained. Full-body review is not inferred from contents.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

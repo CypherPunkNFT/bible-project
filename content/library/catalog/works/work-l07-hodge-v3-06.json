@@ -1,0 +1,58 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-l07-hodge-v3-06",
+  "editorialState": "catalogued",
+  "notes": [
+    "Section of work-hodge-systematic in edition-hodge-systematic-3.",
+    "Editorial Scripture and sermon companions live in the L07 connection index; they are not author citations or doctrinal endorsements."
+  ],
+  "reviews": [],
+  "title": "Chapter XX. The Means of Grace.",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-charles-hodge",
+      "role": "author"
+    }
+  ],
+  "genre": "systematic-theology",
+  "role": "core-teaching",
+  "collections": [
+    "theology"
+  ],
+  "subjects": [
+    "means-of-grace"
+  ],
+  "occasions": [],
+  "audiences": [
+    "students",
+    "pastors",
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-hodge-systematic",
+      "locator": "Volume 3; Part III. Continued.; Chapter XX. The Means of Grace."
+    }
+  ],
+  "externalIds": {
+    "source-section": [
+      "https://ccel.org/ccel/hodge/theology3/theology3.iii.vi.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/hodge/theology3/theology3.toc.html",
+      "locator": "Volume 3; Part III. Continued.; Chapter XX. The Means of Grace.",
+      "note": "Identified chapter/section boundary; source context retained. Full-body review is not inferred from contents.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

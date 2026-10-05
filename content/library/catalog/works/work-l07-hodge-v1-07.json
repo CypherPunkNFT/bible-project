@@ -1,0 +1,58 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-l07-hodge-v1-07",
+  "editorialState": "catalogued",
+  "notes": [
+    "Section of work-hodge-systematic in edition-hodge-systematic-1.",
+    "Editorial Scripture and sermon companions live in the L07 connection index; they are not author citations or doctrinal endorsements."
+  ],
+  "reviews": [],
+  "title": "Chapter I. Origin of the Idea of God.",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-charles-hodge",
+      "role": "author"
+    }
+  ],
+  "genre": "systematic-theology",
+  "role": "core-teaching",
+  "collections": [
+    "theology"
+  ],
+  "subjects": [
+    "existence-of-god"
+  ],
+  "occasions": [],
+  "audiences": [
+    "students",
+    "pastors",
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-hodge-systematic",
+      "locator": "Volume 1; Part I. Theology Proper.; Chapter I. Origin of the Idea of God."
+    }
+  ],
+  "externalIds": {
+    "source-section": [
+      "https://ccel.org/ccel/hodge/theology1/theology1.iv.i.html"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://ccel.org/ccel/hodge/theology1/theology1.toc.html",
+      "locator": "Volume 1; Part I. Theology Proper.; Chapter I. Origin of the Idea of God.",
+      "note": "Identified chapter/section boundary; source context retained. Full-body review is not inferred from contents.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}
