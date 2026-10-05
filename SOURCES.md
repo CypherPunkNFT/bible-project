@@ -109,6 +109,15 @@ The **Names of God** page reads the snapshot above (refresh: copy the two files 
 diff, then update the checksums) — never the live files,
 and never edits that site.
 
+## Four Gospel portraits (2026-10-04)
+
+The narrative map uses the existing Robertson harmony references and KJV chapter/verse counts above.
+Eight original reading guides in `src/data/gospel-portraits.ts` were checked against their cited local KJV
+passages. They describe observations in those passages, rather than importing commentary text.
+The map follows each Gospel's written order; Robertson supplies the event groupings. Its 185 entries
+include one without a Gospel passage (the appearance to James), so the portrait browser has 184 entries.
+Passage lengths count distinct KJV verses within each selection, including disjoint or overlapping ranges.
+
 ## Considered and left out
 
 - **KJV in the UK:** public domain everywhere except Britain (perpetual Crown patent). Only relevant if the

@@ -1,6 +1,6 @@
 import type { StudyCollectionId } from "./study-collections";
 
-export type StudyIllustration = "arcs" | "matrix" | "sections" | "sizes" | "chapters" | "teaching" | "speech" | "harmony" | "timeline" | "coverage" | "people" | "prophets" | "places" | "miracles" | "letters" | "names";
+export type StudyIllustration = "arcs" | "matrix" | "sections" | "sizes" | "chapters" | "teaching" | "speech" | "harmony" | "portraits" | "timeline" | "coverage" | "people" | "prophets" | "places" | "miracles" | "letters" | "names";
 export type StudySection = {
   id: string;
   title: string;
@@ -22,6 +22,7 @@ export const STUDY_SECTIONS: Record<StudyCollectionId, StudySection[]> = {
     { id: "chapters", title: "Chapter atlas", description: "Find your place in a numbered map of every chapter, then open it to read.", kind: "Chart", illustration: "chapters" },
   ],
   gospels: [
+    { id: "portraits", title: "Four Gospel portraits", description: "See each account in its own narrative order, with eight guided comparisons and the complete event map.", kind: "Guide", illustration: "portraits" },
     { id: "jesus", title: "Teaching journeys", description: "Read eight selected teachings in their setting and compare parallel passages.", kind: "Guide", illustration: "teaching" },
     { id: "speech", title: "Where he speaks", description: "Explore the speech atlas by Gospel, chapter and red-letter word count.", kind: "Chart", illustration: "speech" },
     { id: "harmony", title: "Gospel harmony", description: "Follow 185 events and read Matthew, Mark, Luke and John side by side.", kind: "Guide", illustration: "harmony" },

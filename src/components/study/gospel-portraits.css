@@ -1,0 +1,82 @@
+.gospel-portraits { color: var(--ink); }
+.gospel-portraits button:focus-visible, .gospel-portraits a:focus-visible, .gospel-portraits input:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+.portrait-guides { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .5rem; }
+.portrait-guides button { display: flex; align-items: center; gap: .6rem; padding: .8rem; border: 1px solid var(--line); border-radius: .65rem; font-size: .78rem; text-align: left; transition: background .15s, border-color .15s; }
+.portrait-guides button > span { color: var(--muted); font-size: .65rem; }
+.portrait-guides button:hover, .portrait-guides button[aria-pressed='true'] { background: color-mix(in srgb, var(--gospels) 10%, var(--surface)); border-color: var(--gospels); }
+.portrait-guides button[aria-pressed='true'] > span { color: var(--gospels); }
+.portrait-question { display: flex; justify-content: space-between; align-items: center; gap: 2rem; padding: 2rem 0 1.5rem; }
+.portrait-eyebrow { color: var(--accent); text-transform: uppercase; font-size: .62rem; letter-spacing: .15em; font-weight: 600; }
+.portrait-question h3 { font-family: var(--font-serif); font-size: clamp(1.5rem, 2.5vw, 2rem); line-height: 1.3; margin: .5rem 0; max-width: 45rem; }
+.portrait-question > div > p:last-child { max-width: 44rem; color: var(--muted); font-size: .88rem; line-height: 1.65; }
+.portrait-account-count { display: flex; align-items: center; gap: .9rem; flex-shrink: 0; border-left: 1px solid var(--line); padding-left: 1.5rem; }
+.portrait-account-count strong { font-family: var(--font-serif); color: var(--gospels); font-size: 3rem; font-weight: 400; }
+.portrait-account-count > span { color: var(--muted); font-size: .7rem; line-height: 1.6; }
+.portrait-map { border: 1px solid var(--line); border-radius: 1rem; background: var(--page); padding: 1.4rem; }
+.portrait-map-heading { display: flex; justify-content: space-between; gap: 1rem; margin-bottom: 1.2rem; }
+.portrait-map-heading h4, .portrait-comparison-heading h4, .portrait-browser h4 { font-family: var(--font-serif); font-size: 1.15rem; }
+.portrait-map-heading > span { display: flex; align-items: center; gap: .5rem; font-size: .65rem; color: var(--muted); }
+.portrait-lane { display: grid; grid-template-columns: 8rem minmax(0, 1fr); gap: 1rem; margin-bottom: 1rem; }
+.portrait-lane-name strong { display: block; color: var(--portrait-color); font-family: var(--font-serif); }
+.portrait-lane-name span { display: block; font-size: .67rem; color: var(--muted); margin-top: .2rem; }
+.portrait-track svg { width: 100%; height: 36px; overflow: visible; }
+.portrait-baseline { stroke: var(--line); stroke-width: 1; }
+.portrait-trace { fill: var(--portrait-color); opacity: .25; }
+.portrait-highlight { fill: var(--portrait-color); }
+.portrait-marker { stroke: var(--portrait-color); stroke-width: 1.5; }
+.portrait-ticks { display: flex; justify-content: space-between; font-size: .58rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.portrait-map figcaption { border-top: 1px solid var(--line); padding-top: 1rem; font-size: .7rem; line-height: 1.6; color: var(--muted); }
+.portrait-comparison-heading { display: flex; justify-content: space-between; align-items: baseline; gap: .6rem; margin: 2rem 0 1rem; }
+.portrait-comparison-heading > span { font-size: .64rem; color: var(--muted); }
+.portrait-accounts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; align-items: start; }
+.portrait-account { min-width: 0; border-top: 3px solid var(--portrait-color); padding-top: 1rem; }
+.portrait-account > header { display: flex; align-items: center; justify-content: space-between; gap: .5rem; margin-bottom: 1rem; }
+.portrait-account h5 { font-family: var(--font-serif); font-size: 1.2rem; color: var(--portrait-color); }
+.portrait-account > header > span { font-size: .63rem; color: var(--muted); white-space: nowrap; }
+.portrait-passage { margin-bottom: 1rem; }
+.portrait-reference { display: inline-block; color: var(--portrait-color); font-size: .75rem; text-decoration: underline; text-underline-offset: 3px; margin-bottom: .6rem; }
+.portrait-observation { font-size: .76rem; color: var(--muted); line-height: 1.7; border-top: 1px solid var(--line); padding-top: .9rem; margin-top: .9rem; }
+.portrait-observation strong { display: block; color: var(--portrait-color); font-size: .6rem; letter-spacing: .1em; text-transform: uppercase; margin-bottom: .3rem; }
+.portrait-context { display: flex; align-items: center; gap: .4rem; margin: 1rem 0; font-size: .68rem; }
+.portrait-context:hover { color: var(--portrait-color); }
+.portrait-neighbours { display: grid; gap: .6rem; padding-top: .9rem; border-top: 1px solid var(--line); }
+.portrait-neighbours > p { color: var(--muted); font-size: .6rem; }
+.portrait-neighbours button { text-align: left; border-radius: .5rem; background: var(--page); padding: .7rem; }
+.portrait-neighbours button:hover { background: var(--surface-2); }
+.portrait-neighbours button span { display: block; color: var(--portrait-color); font-size: .62rem; margin-bottom: .25rem; }
+.portrait-neighbours button strong { display: block; font-size: .7rem; line-height: 1.5; font-weight: 400; }
+.portrait-absent { color: var(--muted); font-size: .78rem; line-height: 1.65; padding-top: .5rem; }
+.portrait-absent > span { color: var(--portrait-color); font-family: var(--font-serif); font-size: 2rem; }
+.portrait-absent p { margin: .5rem 0; }
+.portrait-absent p:last-child { font-size: .68rem; }
+.portrait-browser { border-top: 1px solid var(--line); padding-top: 1.5rem; margin-top: 2rem; }
+.portrait-browser > header { display: flex; justify-content: space-between; align-items: end; gap: 1rem; margin-bottom: 1rem; }
+.portrait-browser h4 { margin-top: .4rem; }
+.portrait-browser > header > a { display: flex; align-items: center; gap: .4rem; color: var(--muted); font-size: .7rem; }
+.portrait-search { display: flex; align-items: center; gap: .7rem; background: var(--page); border: 1px solid var(--line); border-radius: .65rem; padding: .7rem .9rem; color: var(--muted); }
+.portrait-search input { width: 100%; min-width: 0; background: transparent; color: var(--ink); font-size: .82rem; }
+.portrait-filters { display: flex; align-items: center; flex-wrap: wrap; gap: .5rem; margin: .8rem 0; }
+.portrait-filters button { border: 1px solid var(--line); border-radius: 99px; padding: .4rem .8rem; font-size: .7rem; }
+.portrait-filters button[aria-pressed='true'] { color: var(--page); background: var(--ink); border-color: var(--ink); }
+.portrait-filters > span { color: var(--muted); font-size: .7rem; margin-left: auto; }
+.portrait-results li { border-bottom: 1px solid var(--line); }
+.portrait-results button { width: 100%; display: grid; grid-template-columns: 2.8rem minmax(0, 1fr) 11rem 1rem; gap: .7rem; text-align: left; align-items: center; padding: .8rem .4rem; }
+.portrait-results button:hover, .portrait-results button[aria-pressed='true'] { background: var(--surface-2); }
+.portrait-results button strong { font-size: .76rem; line-height: 1.6; font-weight: 500; }
+.portrait-results button > span { font-size: .63rem; color: var(--muted); }
+.portrait-more { font-size: .75rem; border: 1px solid var(--line); padding: .6rem 1rem; border-radius: .5rem; margin-top: 1rem; }
+.portrait-selection, .portrait-empty, .portrait-method { color: var(--muted); font-size: .7rem; line-height: 1.65; margin-top: 1rem; }
+.portrait-method a { text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 1000px) { .portrait-accounts { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem 1.5rem; } .portrait-guides { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) {
+  .portrait-question { padding-top: 1.5rem; gap: 1rem; } .portrait-account-count { display: none; }
+  .portrait-guides button { padding: .65rem .5rem; font-size: .68rem; gap: .4rem; }
+  .portrait-map { padding: 1rem; } .portrait-map-heading { display: block; } .portrait-map-heading > span { margin-top: .5rem; }
+  .portrait-lane { grid-template-columns: minmax(0, 1fr); gap: .3rem; }
+  .portrait-lane-name { display: flex; align-items: baseline; justify-content: space-between; gap: .5rem; }
+  .portrait-accounts { grid-template-columns: minmax(0, 1fr); }
+  .portrait-comparison-heading, .portrait-browser > header { display: block; } .portrait-browser > header > a { margin-top: .7rem; }
+  .portrait-results button { grid-template-columns: 2.3rem minmax(0, 1fr) 1rem; gap: .4rem; }
+  .portrait-results button > span:nth-of-type(2) { grid-column: 2; } .portrait-results button > svg { grid-column: 3; grid-row: 1; }
+}
+@media (prefers-reduced-motion: reduce) { .portrait-guides button { transition: none; } }

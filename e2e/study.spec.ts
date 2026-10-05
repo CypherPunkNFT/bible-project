@@ -10,6 +10,7 @@ const PAGES = ["/study", "/study/gospels", "/study/references", "/study/structur
 
 test("study: teaching, speech and harmony work together without hiding one another", async ({ page }) => {
   await page.goto("/study/gospels");
+  await page.getByRole("navigation", { name: "Collection contents" }).getByRole("link", { name: "Teaching journeys", exact: true }).click();
   await page.getByRole("button", { name: "Prayer Teach us to pray." }).click();
   await expect(page.locator(".teaching-scripture").first()).toContainText("Our Father");
   await page.locator("#harmony").scrollIntoViewIfNeeded();

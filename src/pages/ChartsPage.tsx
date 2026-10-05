@@ -19,6 +19,7 @@ import "./charts.css";
 import { StudyContents } from "@/components/study/StudyContents";
 import { StudyBackLink } from "@/components/study/StudyBackLink";
 import HarmonyPage from "@/pages/study/HarmonyPage";
+import { GospelPortraits } from "@/components/study/GospelPortraits";
 
 function Result<T>({ state, children }: { state: AsyncState<T>; children: (value: T) => ReactNode }) {
   if (state.status === "loading") return <Loading height={380} />;
@@ -35,7 +36,7 @@ function ChartPanel({ id, title, lead, source, height = 480, children }: { id: s
   const sections = STUDY_SECTIONS[collection];
   const position = sections.findIndex((item) => item.id === id);
   const element = useRef<HTMLElement>(null);
-  const [ready, setReady] = useState(() => window.location.hash === "#" + id || (id === "jesus" && window.location.hash === "#speech") || (id === "harmony" && window.location.hash.startsWith("#event-")) || (id === "arcs" && (!window.location.hash || window.location.hash === "#references")));
+  const [ready, setReady] = useState(() => window.location.hash === "#" + id || (id === "portraits" && new URLSearchParams(window.location.search).has("portrait")) || (id === "jesus" && window.location.hash === "#speech") || (id === "harmony" && window.location.hash.startsWith("#event-")) || (id === "arcs" && (!window.location.hash || window.location.hash === "#references")));
   useEffect(() => {
     if (ready || !element.current) return;
     const observer = new IntersectionObserver(([entry]) => {
@@ -91,8 +92,9 @@ export default function ChartsPage() {
       </ChartPanel>
     </section>}
     {shown("words") && <section hidden={activeId !== "words"} id="words" aria-labelledby="words-title" className="chart-area" style={{ "--chart-color": "var(--revelation)" } as CSSProperties}>
-      <header className="chart-area-heading"><div><p className="charts-panel-kicker">Life & teaching · Jesus & the Gospels</p><Heading id="words-title">Four accounts. One life.</Heading><p>Meet Jesus through the accounts of his life and the words of his teaching. Begin with a teaching in its Gospel setting, explore where he speaks, then compare events across Matthew, Mark, Luke and John.</p></div><Quote aria-hidden="true" /></header>
+      <header className="chart-area-heading"><div><p className="charts-panel-kicker">Life & teaching · Jesus & the Gospels</p><Heading id="words-title">Four accounts. One life.</Heading><p>See how each Gospel tells the story. Compare episodes in their narrative setting, read Jesus' teaching, and follow the passages into the reader.</p></div><Quote aria-hidden="true" /></header>
       <StudyContents />
+      <ChartPanel id="portraits" title="Four Gospel portraits" lead="Where does an episode appear, and what does each account bring into view? Follow four narrative lines, then read their passages together." source={<span>Robertson’s harmony · KJV verse positions · Eight guided comparisons</span>} height={1400}><Result state={stats}>{(data) => <GospelPortraits stats={data} />}</Result></ChartPanel>
       <ChartPanel id="jesus" title="Teaching journeys" lead="Read eight selected teachings in their Gospel setting, compare parallel accounts, and follow the passages into the reader." source={<span>KJV previews · Teaching passages include their narrative setting.</span>} height={850}><TeachingJourneys /></ChartPanel>
       <ChartPanel id="speech" title="Where he speaks" lead="See the shape of Jesus' speech across the Gospel chapters. Compare the share of a chapter with its red-letter word count, then read the surrounding story." source={<span>KJV red-letter markup · Chapter bars open their passages in the reader.</span>} height={850}><Result state={stats}>{(data) => <SpeechAtlas stats={data} />}</Result></ChartPanel>
       <ChartPanel id="harmony" title="Gospel harmony" lead="Follow 185 events through A. T. Robertson's fourteen parts. Open an event to read its accounts together; each Gospel retains its own voice and setting." source={<span>A. T. Robertson · 1922 · Gospel order follows this harmony, rather than an independently established chronology.</span>} height={700}><HarmonyPage embedded /></ChartPanel>
