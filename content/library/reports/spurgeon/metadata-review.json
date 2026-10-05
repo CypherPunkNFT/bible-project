@@ -364,6 +364,20 @@
       "calendarWeekday": "Thursday"
     }
   ],
+  "volumeOpeningPageAnomalies": [
+    {
+      "volume": 43,
+      "assetId": "asset-spurgeon-gems-chsbm43",
+      "properContentsBeginAtPdfPage": 2,
+      "issue": "Unrelated opening page from another volume; original source bytes retained."
+    },
+    {
+      "volume": 45,
+      "assetId": "asset-spurgeon-gems-chsbm45",
+      "properContentsBeginAtPdfPage": 2,
+      "issue": "Unrelated opening page from another volume; original source bytes retained."
+    }
+  ],
   "noMainTextEstablished": [
     {
       "numberLabel": "221",

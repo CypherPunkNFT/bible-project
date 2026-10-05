@@ -187,6 +187,8 @@ def make_asset(asset_id,edition_id,url):
     obj=dict(**common('asset',asset_id),editionId=edition_id,sourceId='source-spurgeon-gems',canonicalUrl=url,finalUrl=rec['finalUrl'] if rec else None,format='pdf',mediaKind='text',acquisitionStatus='downloaded' if rec else 'not-acquired',storage='raw' if rec else 'none',relativePath=rec['relativePath'] if rec else None,sha256=rec['sha256'] if rec else None,byteCount=rec['byteCount'] if rec else None,mimeType=rec['mimeType'] if rec else None,retrievedAt=rec['retrievedAt'] if rec else None,rights=rights(),fullTextIndexed=False,processing=dict(parentAssetId=None,method='none',tool=None,toolVersion=None,parameters=None,date=None,note='Original downloaded bytes retained without content alteration; catalog metadata extraction is separate.'),quality=dict(state='unreviewed',reviewedBy=None,reviewedOn=None,note='PDF opened and headings machine-parsed; this does not certify the complete transcription.'))
     if asset_id in ['asset-spurgeon-gems-chs1','asset-spurgeon-gems-chsbm63']:
         obj['quality']=dict(state='sampled',reviewedBy='Codex',reviewedOn=DAY,note='First page rendered and inspected against extracted title, dates, and main text; remainder not visually verified.')
+    if asset_id in ['asset-spurgeon-gems-chsbm43','asset-spurgeon-gems-chsbm45']:
+        obj['quality']=dict(state='issues',reviewedBy='Codex',reviewedOn=DAY,note='The source PDF begins with an unrelated page from another volume; proper volume contents start on PDF page 2. Original bytes preserved. Use individual sermon PDFs where available.')
     save(obj);return obj
 def edition(work_id,label,ev,modernization='unknown',complete=False):
     ident=work_id.replace('work-','edition-',1)+'-spurgeon-gems-2026'
@@ -334,6 +336,14 @@ def audit():
     for m in raw:
         p=SOURCES/m['relativePath']; data=p.read_bytes()
         assert len(data)==m['byteCount'] and hashlib.sha256(data).hexdigest()==m['sha256'],str(p)
+    volume_anomalies=[]
+    for v in read(LOCAL/'volume-headers.json'):
+        n=v['volume']; pattern=r'\bVOLUME\s+'+str(n)+r'\b'
+        with pymupdf.open(RAW/v['assetId']/f'chsbm{n}.pdf') as doc:
+            pages=[p.get_text() for p in list(doc.pages(0,min(3,len(doc))))]
+        matched=next((i+1 for i,t in enumerate(pages) if re.search(pattern,t,re.I)),None)
+        assert matched is not None,f'Expected volume {n} not established from opening pages'
+        if matched!=1:volume_anomalies.append(dict(volume=n,assetId=v['assetId'],properContentsBeginAtPdfPage=matched,issue='Unrelated opening page from another volume; original source bytes retained.'))
     for h in headers:
         actual=label_key(h['headerNumber']) if h['headerNumber'] else None
         if actual and actual!=sermon_key(h):
@@ -352,7 +362,7 @@ def audit():
     no_main=[dict(numberLabel=r['numberLabel'],title=r['title'],genre=r['genre']) for r in rows if not r['mainTexts']]
     no_date=[r['numberLabel'] for r in rows if not any(d['event']=='delivery' and d['value'] for d in r['dates'])]
     unresolved=[dict(numberLabel=r['numberLabel'],references=[p['reference'] for p in r['mainTexts'] if p['verification']!='verified']) for r in rows if any(p['verification']!='verified' for p in r['mainTexts'])]
-    write(REPORT/'metadata-review.json',dict(sourceIssues=issues,noMainTextEstablished=no_main,noDeliveryDateEstablished=no_date,unmappedReferences=unresolved,note='Documented dates are preserved as printed. Weekday conflicts are review flags, not silently corrected dates. Unmapped references remain available as literal text.'))
+    write(REPORT/'metadata-review.json',dict(sourceIssues=issues,volumeOpeningPageAnomalies=volume_anomalies,noMainTextEstablished=no_main,noDeliveryDateEstablished=no_date,unmappedReferences=unresolved,note='Documented dates are preserved as printed. Weekday conflicts are review flags, not silently corrected dates. Unmapped references remain available as literal text.'))
     write(REPORT/'verification.json',dict(checkedOn=DAY,rawFilesVerified=len(raw),sha256Failures=0,indexedEntries=len(rows),uniqueWorkIds=len({r['workId'] for r in rows}),volumes=63,numericGaps=[],sourceIssues=len(issues),noMainTextEstablished=len(no_main),noDeliveryDateEstablished=len(no_date),unmappedReferenceEntries=len(unresolved),pdfTool='PyMuPDF '+pymupdf.VersionBind,visualSamples=['chs1.pdf page 1','chsbm63.pdf page 1','chstix.pdf page 1'],note='Structural/catalog and selected heading checks; not a full transcription or theological review.'))
     # Regression cases that would otherwise silently lose works or distort Scripture metadata.
     assert label_key('154-55')=='154-155' and label_key('1451A')=='1451A'

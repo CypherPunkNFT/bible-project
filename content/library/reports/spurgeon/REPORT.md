@@ -42,6 +42,8 @@ The [metadata review queue](metadata-review.json) lists 747 entries without an e
 
 The [verification record](verification.json) distinguishes schema, identity, checksum, passage-endpoint, and sampled visual checks. This is a complete acquisition of the specified inventory with a review queue, not a claim that every transcription or printed date is correct.
 
+The whole-volume files for **43 and 45 each contain an unrelated opening page**; their proper contents begin on PDF page 2. Their asset quality is marked `issues`, and the opening-page anomalies are recorded in the metadata review queue. The original bytes remain intact. Volume identity was established from the first three pages for all 63 files, and the separate individual sermon PDFs remain available.
+
 ## Rights and access
 
 The [Spurgeon Gems permission statement](https://www.spurgeongems.org/about-us/) permits free, unchanged use with credit to the author and archive. Acquired digital assets are therefore recorded as **restricted-license**, with explicit no-charge, no-change, and attribution conditions. They are not labeled unrestricted open-source editions or automatically public domain. Full-text indexing and modified editions remain outside the established permission decision.
