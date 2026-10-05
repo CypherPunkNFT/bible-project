@@ -1,0 +1,47 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-l13-paton-v3",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "workId": "work-l13-paton-v3",
+  "label": "John G. Paton, missionary to the New Hebrides: an autobiography, volume 3 — selected witness",
+  "languages": [
+    "en"
+  ],
+  "contributors": [
+    {
+      "authorId": "author-l13-james-paton",
+      "role": "editor"
+    }
+  ],
+  "publisher": "Fleming H. Revell Company",
+  "dates": [
+    {
+      "event": "edition-publication",
+      "value": "1898",
+      "precision": "year",
+      "label": "1898; source title/copyright or signed editorial evidence",
+      "evidence": [
+        {
+          "url": "https://archive.org/details/johngpatonmissio03pato",
+          "locator": "Title, preface and contents; see inventory and editorial-issues.json",
+          "note": "Copyright 1898 and editor’s preface February 1898 establish the continuation’s date; archive metadata 1889 conflicts with the book. Includes retrospective historical and mission essays.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    }
+  ],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/details/johngpatonmissio03pato",
+      "locator": "Title, preface and contents; see inventory and editorial-issues.json",
+      "note": "Copyright 1898 and editor’s preface February 1898 establish the continuation’s date; archive metadata 1889 conflicts with the book. Includes retrospective historical and mission essays.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

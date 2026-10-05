@@ -1,0 +1,278 @@
+{
+  "entities": [
+    {
+      "id": "author-l13-david-brainerd",
+      "label": "David Brainerd",
+      "kind": "person"
+    },
+    {
+      "id": "author-l13-sereno-edwards-dwight",
+      "label": "Sereno Edwards Dwight",
+      "kind": "person"
+    },
+    {
+      "id": "author-l13-andrew-bonar",
+      "label": "Andrew A. Bonar",
+      "kind": "person"
+    },
+    {
+      "id": "author-l13-robert-murray-mcheyne",
+      "label": "Robert Murray M’Cheyne",
+      "kind": "person"
+    },
+    {
+      "id": "author-l13-samuel-rutherford",
+      "label": "Samuel Rutherford",
+      "kind": "person"
+    },
+    {
+      "id": "author-l13-cuthbert-lennox",
+      "label": "Cuthbert Lennox",
+      "kind": "person"
+    },
+    {
+      "id": "author-l13-john-g-paton",
+      "label": "John G. Paton",
+      "kind": "person"
+    },
+    {
+      "id": "author-l13-james-paton",
+      "label": "James Paton",
+      "kind": "person"
+    },
+    {
+      "id": "author-l13-mrs-john-g-paton",
+      "label": "Mrs. John G. Paton",
+      "kind": "person"
+    },
+    {
+      "id": "author-l13-samuel-miller",
+      "label": "Samuel Miller",
+      "kind": "person"
+    },
+    {
+      "id": "author-l13-arthur-pierson",
+      "label": "Arthur T. Pierson",
+      "kind": "person"
+    },
+    {
+      "id": "author-jonathan-edwards",
+      "label": "Jonathan Edwards",
+      "kind": "person"
+    },
+    {
+      "id": "author-john-knox",
+      "label": "John Knox",
+      "kind": "person"
+    },
+    {
+      "id": "work-l13-brainerd-1822",
+      "label": "Memoirs of the Rev. David Brainerd",
+      "kind": "work"
+    },
+    {
+      "id": "work-l13-mcheyne-1844",
+      "label": "Memoir and Remains of Robert Murray M'Cheyne",
+      "kind": "work"
+    },
+    {
+      "id": "work-l13-rutherford-pg42557",
+      "label": "Letters of Samuel Rutherford, edited by Andrew A. Bonar, third edition",
+      "kind": "work"
+    },
+    {
+      "id": "work-l13-knox-pg48250",
+      "label": "History of the Reformation of Religion in Scotland, edited by Cuthbert Lennox",
+      "kind": "work"
+    },
+    {
+      "id": "work-l13-paton-1889-v1",
+      "label": "John G. Paton, missionary to the New Hebrides: an autobiography, volume 1",
+      "kind": "work"
+    },
+    {
+      "id": "work-l13-paton-1889-v2",
+      "label": "John G. Paton, missionary to the New Hebrides: an autobiography, volume 2",
+      "kind": "work"
+    },
+    {
+      "id": "work-l13-paton-v3",
+      "label": "John G. Paton, missionary to the New Hebrides: an autobiography, volume 3",
+      "kind": "work"
+    },
+    {
+      "id": "church-st-peters-dundee",
+      "label": "St. Peter’s Church, Dundee",
+      "kind": "church"
+    },
+    {
+      "id": "church-free-scotland",
+      "label": "Free Church of Scotland",
+      "kind": "church"
+    },
+    {
+      "id": "movement-scottish-reformation",
+      "label": "Scottish Reformation",
+      "kind": "movement"
+    },
+    {
+      "id": "event-rutherford-letter-1",
+      "label": "Rutherford letter I, closing label June 6, 1627",
+      "kind": "event"
+    },
+    {
+      "id": "event-brainerd-kaunaumeek",
+      "label": "Brainerd mission at Kaunaumeek",
+      "kind": "event"
+    },
+    {
+      "id": "event-brainerd-death",
+      "label": "Brainerd’s death, as reported in the 1749 title",
+      "kind": "event"
+    },
+    {
+      "id": "event-paton-aniwa-1867",
+      "label": "Aniwa correspondence, source year 1867",
+      "kind": "event"
+    },
+    {
+      "id": "event-paton-continuation-1898",
+      "label": "Paton continuation publication, 1898",
+      "kind": "event"
+    },
+    {
+      "id": "movement-new-hebrides-missions",
+      "label": "New Hebrides Protestant missions",
+      "kind": "movement"
+    }
+  ],
+  "edges": [
+    {
+      "source": "author-l13-sereno-edwards-dwight",
+      "relation": "edited",
+      "target": "work-l13-brainerd-1822",
+      "claimId": "claim-l13-brainerd-composite"
+    },
+    {
+      "source": "author-jonathan-edwards",
+      "relation": "compiled-biographical-narrative",
+      "target": "work-l13-brainerd-1822",
+      "claimId": "claim-l13-brainerd-composite"
+    },
+    {
+      "source": "author-l13-david-brainerd",
+      "relation": "wrote-embedded-diary-and-journal",
+      "target": "work-l13-brainerd-1822",
+      "claimId": "claim-l13-brainerd-composite"
+    },
+    {
+      "source": "author-l13-david-brainerd",
+      "relation": "subject-of",
+      "target": "event-brainerd-death",
+      "claimId": "claim-l13-brainerd-first-publication"
+    },
+    {
+      "source": "author-l13-david-brainerd",
+      "relation": "served-at",
+      "target": "event-brainerd-kaunaumeek",
+      "claimId": "claim-l13-brainerd-kaunaumeek"
+    },
+    {
+      "source": "author-l13-robert-murray-mcheyne",
+      "relation": "minister-of",
+      "target": "church-st-peters-dundee",
+      "claimId": "claim-l13-mcheyne-attributions"
+    },
+    {
+      "source": "author-l13-andrew-bonar",
+      "relation": "minister-in",
+      "target": "church-free-scotland",
+      "claimId": "claim-l13-mcheyne-attributions"
+    },
+    {
+      "source": "author-l13-andrew-bonar",
+      "relation": "wrote-biography",
+      "target": "work-l13-mcheyne-1844",
+      "claimId": "claim-l13-mcheyne-attributions"
+    },
+    {
+      "source": "author-l13-samuel-miller",
+      "relation": "contributed-introduction",
+      "target": "work-l13-mcheyne-1844",
+      "claimId": "claim-l13-mcheyne-attributions"
+    },
+    {
+      "source": "author-l13-andrew-bonar",
+      "relation": "edited",
+      "target": "work-l13-rutherford-pg42557",
+      "claimId": "claim-l13-rutherford-editor-changes"
+    },
+    {
+      "source": "author-l13-samuel-rutherford",
+      "relation": "wrote",
+      "target": "event-rutherford-letter-1",
+      "claimId": "claim-l13-rutherford-letter-one"
+    },
+    {
+      "source": "author-l13-cuthbert-lennox",
+      "relation": "abridged-and-edited",
+      "target": "work-l13-knox-pg48250",
+      "claimId": "claim-l13-knox-abridgment"
+    },
+    {
+      "source": "work-l13-knox-pg48250",
+      "relation": "narrates",
+      "target": "movement-scottish-reformation",
+      "claimId": "claim-l13-knox-abridgment"
+    },
+    {
+      "source": "author-l13-james-paton",
+      "relation": "edited-and-recast",
+      "target": "work-l13-paton-1889-v1",
+      "claimId": "claim-l13-paton-v1-revision"
+    },
+    {
+      "source": "author-l13-john-g-paton",
+      "relation": "supplied-autobiographical-narrative",
+      "target": "work-l13-paton-1889-v1",
+      "claimId": "claim-l13-paton-v1-revision"
+    },
+    {
+      "source": "author-l13-james-paton",
+      "relation": "abridged",
+      "target": "work-l13-paton-1889-v2",
+      "claimId": "claim-l13-paton-v2-omissions"
+    },
+    {
+      "source": "author-l13-mrs-john-g-paton",
+      "relation": "wrote-embedded-letters",
+      "target": "work-l13-paton-1889-v2",
+      "claimId": "claim-l13-paton-letter-authorship"
+    },
+    {
+      "source": "author-l13-mrs-john-g-paton",
+      "relation": "reported-from",
+      "target": "event-paton-aniwa-1867",
+      "claimId": "claim-l13-paton-aniwa-letter"
+    },
+    {
+      "source": "event-paton-aniwa-1867",
+      "relation": "part-of",
+      "target": "movement-new-hebrides-missions",
+      "claimId": "claim-l13-paton-aniwa-letter"
+    },
+    {
+      "source": "work-l13-paton-v3",
+      "relation": "published-in",
+      "target": "event-paton-continuation-1898",
+      "claimId": "claim-l13-paton-v3-date"
+    },
+    {
+      "source": "author-l13-john-g-paton",
+      "relation": "participated-in",
+      "target": "movement-new-hebrides-missions",
+      "claimId": "claim-l13-paton-mission-assessment"
+    }
+  ],
+  "policy": "Every relationship requires a claimId; labels alone are not evidence."
+}

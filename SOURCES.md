@@ -167,6 +167,10 @@ The [L08 report](content/library/reports/confessional-standards/REPORT.md) ident
 
 The [L10 report](content/library/reports/islam-studies/REPORT.md) records 13 primary holdings, 21 indexed chapters/lectures and nine source-based question comparisons. Three Zwemer PDFs from the Zwemer Center are retained unchanged: 22,060,863 bytes with [hashes and provenance](content/library/reports/islam-studies/acquisition-manifest.json). The 1905 and 1916 historic texts have scoped U.S. public-domain assessments; the undated ATS *Moslem Christ* impression has only the host's reading/download permission, with public reuse unresolved. AOMin and Baker works, Piper's article and the attributed Ally response remain source links. Quran.com supplies contextual references; five short English excerpts are collated against named translations at the Quranic Arabic Corpus. Modern text/media and translations are not republished or ingested into full-text search. No public publication changed.
 
+## Historical lives and missionary testimony (L13, 2026-10-05)
+
+The [L13 report](content/library/reports/historical-lives/REPORT.md) documents seven identified editions in 12 acquired files: five paired Internet Archive PDF/OCR holdings (Brainerd, M’Cheyne and three Paton parts) and two Gutenberg HTML witnesses (Rutherford and Knox). The [manifest](content/library/reports/historical-lives/acquisition-manifest.json) preserves original URLs, final destinations, hashes and 89,995,054 content bytes. Named static Gutenberg mirror files retain all electronic notices. Historic-text public-domain treatment is scoped to the United States; public hosting and full-text indexing remain uncleared. Firsthand and later accounts, explicit abridgments, contributor identities and Paton’s 1898/1889 metadata conflict are retained in the catalog and source-linked issue register. No publication selection changed.
+
 ## Considered and left out
 
 - **KJV in the UK:** public domain everywhere except Britain (perpetual Crown patent). Only relevant if the

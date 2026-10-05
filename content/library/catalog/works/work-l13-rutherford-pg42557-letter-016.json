@@ -1,0 +1,58 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-l13-rutherford-pg42557-letter-016",
+  "editorialState": "catalogued",
+  "notes": [
+    "Testimony layer: firsthand-letter-with-editorial-apparatus. Full body review remains separate."
+  ],
+  "reviews": [],
+  "title": "XVI.— For Marion M'Naught , on occasion of a proposal to remove him from Anwoth .",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-l13-samuel-rutherford",
+      "role": "author"
+    }
+  ],
+  "genre": "letter",
+  "role": "historical-context",
+  "collections": [
+    "history"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "students",
+    "pastors",
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "multiple",
+  "dates": [],
+  "passages": [],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-l13-rutherford-pg42557",
+      "locator": "Letter XVI (16); HTML #XVI_For_Marion_MNaught_on_occasion_of_a_proposal_to_remove_him_from"
+    }
+  ],
+  "externalIds": {
+    "l13-unit": [
+      "unit-l13-rutherford-pg42557-letter-016"
+    ],
+    "l13-edition": [
+      "edition-l13-rutherford-pg42557"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://www.gutenberg.org/ebooks/42557",
+      "locator": "Letter XVI (16); HTML #XVI_For_Marion_MNaught_on_occasion_of_a_proposal_to_remove_him_from",
+      "note": "Source boundary indexed; testimony layer applies at component level and does not certify each embedded assertion.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

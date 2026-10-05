@@ -1,0 +1,8 @@
+{
+  "date": "2026-10-05",
+  "queries": {
+    "brainerd": "title:(\"memoirs\" AND \"Brainerd\") AND year:1822",
+    "mcheyne": "title:(\"memoir\" AND \"remains\") AND creator:(\"Bonar\") AND year:[1844 TO 1900]"
+  },
+  "scope": "Named historic editions only; inspect metadata and front matter before acquiring content."
+}

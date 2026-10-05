@@ -1,0 +1,40 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-l13-paton-1889-v2",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "workId": "work-l13-paton-1889-v2",
+  "label": "John G. Paton, missionary to the New Hebrides: an autobiography, volume 2 — selected witness",
+  "languages": [
+    "en"
+  ],
+  "contributors": [
+    {
+      "authorId": "author-l13-james-paton",
+      "role": "editor"
+    },
+    {
+      "authorId": "author-l13-arthur-pierson",
+      "role": "author"
+    },
+    {
+      "authorId": "author-l13-mrs-john-g-paton",
+      "role": "author"
+    }
+  ],
+  "publisher": "Fleming H. Revell Company",
+  "dates": [],
+  "abridgment": "abridged",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/details/johngpatonmissio188902pato",
+      "locator": "Title, preface and contents; see inventory and editorial-issues.json",
+      "note": "Undated Revell illustrated edition; preface October 1889, archive year 1889. Editor cuts two planned chapters and presents Mrs. Paton’s letters in fragments.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

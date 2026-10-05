@@ -1,0 +1,81 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "asset",
+  "id": "asset-l13-paton-1889-v2-pdf",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "editionId": "edition-l13-paton-1889-v2",
+  "sourceId": "source-internet-archive",
+  "canonicalUrl": "https://archive.org/details/johngpatonmissio188902pato",
+  "finalUrl": "https://dn760101.eu.archive.org/0/items/johngpatonmissio188902pato/johngpatonmissio188902pato.pdf",
+  "format": "pdf",
+  "mediaKind": "scan",
+  "acquisitionStatus": "downloaded",
+  "storage": "raw",
+  "relativePath": "library/source-internet-archive/asset-l13-paton-1889-v2-pdf/johngpatonmissio188902pato.pdf",
+  "sha256": "e2883ab4425d5333f9c8551f4444363a885520825b5b26a25e1c6233ff890fce",
+  "byteCount": 15681643,
+  "mimeType": "application/pdf",
+  "retrievedAt": "2026-10-05T11:46:49.492699Z",
+  "rights": {
+    "category": "public-domain",
+    "jurisdiction": "United States",
+    "licenseId": null,
+    "licenseUrl": null,
+    "attribution": "Named historical authors, editors and source institutions; electronic notices preserved.",
+    "conditions": [],
+    "conditionsMet": false,
+    "actions": {
+      "download": "allowed",
+      "host": "unknown",
+      "redistribute": "unknown",
+      "adapt": "unknown",
+      "transcribe": "unknown",
+      "embed": "unknown",
+      "indexMetadata": "allowed",
+      "indexFullText": "unknown"
+    },
+    "evidence": [
+      {
+        "url": "https://archive.org/details/johngpatonmissio188902pato",
+        "locator": "Title, preface and contents; see inventory and editorial-issues.json",
+        "note": "Undated Revell illustrated edition; preface October 1889, archive year 1889. Editor cuts two planned chapters and presents Mrs. Paton’s letters in fragments.",
+        "checkedOn": "2026-10-05"
+      },
+      {
+        "url": "https://archive.org/download/johngpatonmissio188902pato/johngpatonmissio188902pato.pdf",
+        "locator": "Named public file; immutable manifest",
+        "note": "Bounded download from unrestricted identified historic item or Gutenberg mirror; no systematic website crawl.",
+        "checkedOn": "2026-10-05"
+      }
+    ],
+    "unresolved": [
+      "Historical text is public domain in the United States; digital packaging and use outside the United States require separate review.",
+      "Public hosting and full-text search are not cleared by this private acquisition record."
+    ],
+    "review": {
+      "date": "2026-10-05",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Bibliographic links and source boundaries; not a whole-text clearance."
+    }
+  },
+  "fullTextIndexed": false,
+  "processing": {
+    "parentAssetId": null,
+    "method": "none",
+    "tool": null,
+    "toolVersion": null,
+    "parameters": null,
+    "date": null,
+    "note": "Unmodified acquired file; supplied OCR is not a proofread transcription. Gutenberg notices retained in full."
+  },
+  "quality": {
+    "state": "issues",
+    "reviewedBy": "Codex",
+    "reviewedOn": "2026-10-05",
+    "note": "Front matter, structural inventory and selected passages inspected; editorial changes and OCR defects are documented. Full text not collated."
+  }
+}

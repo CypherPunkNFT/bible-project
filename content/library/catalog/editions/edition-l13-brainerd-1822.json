@@ -1,0 +1,47 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-l13-brainerd-1822",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "workId": "work-l13-brainerd-1822",
+  "label": "Memoirs of the Rev. David Brainerd — selected witness",
+  "languages": [
+    "en"
+  ],
+  "contributors": [
+    {
+      "authorId": "author-l13-sereno-edwards-dwight",
+      "role": "editor"
+    }
+  ],
+  "publisher": "S. Converse, New Haven",
+  "dates": [
+    {
+      "event": "edition-publication",
+      "value": "1822",
+      "precision": "year",
+      "label": "1822; source title/copyright or signed editorial evidence",
+      "evidence": [
+        {
+          "url": "https://archive.org/details/memoirsrevdavid00dwiggoog",
+          "locator": "Title, preface and contents; see inventory and editorial-issues.json",
+          "note": "1822 combination of Edwards’s 1749 Life, Brainerd’s diary and previously published Journal; selected and edited testimony, not an uncut manuscript transcription.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    }
+  ],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/details/memoirsrevdavid00dwiggoog",
+      "locator": "Title, preface and contents; see inventory and editorial-issues.json",
+      "note": "1822 combination of Edwards’s 1749 Life, Brainerd’s diary and previously published Journal; selected and edited testimony, not an uncut manuscript transcription.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

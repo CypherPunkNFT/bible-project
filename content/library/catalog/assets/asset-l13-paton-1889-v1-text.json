@@ -1,0 +1,87 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "asset",
+  "id": "asset-l13-paton-1889-v1-text",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "editionId": "edition-l13-paton-1889-v1",
+  "sourceId": "source-internet-archive",
+  "canonicalUrl": "https://archive.org/details/johngpatonmissio188901pato",
+  "finalUrl": "https://dn760103.eu.archive.org/0/items/johngpatonmissio188901pato/johngpatonmissio188901pato_djvu.txt",
+  "format": "text",
+  "mediaKind": "text",
+  "acquisitionStatus": "downloaded",
+  "storage": "raw",
+  "relativePath": "library/source-internet-archive/asset-l13-paton-1889-v1-text/johngpatonmissio188901pato_djvu.txt",
+  "sha256": "7ba202640eeabbf6c1cacc966f199aef74d8b703cb64ae7832d79cec44410798",
+  "byteCount": 640476,
+  "mimeType": "text/plain",
+  "retrievedAt": "2026-10-05T11:46:45.242744Z",
+  "rights": {
+    "category": "public-domain",
+    "jurisdiction": "United States",
+    "licenseId": null,
+    "licenseUrl": null,
+    "attribution": "Named historical authors, editors and source institutions; electronic notices preserved.",
+    "conditions": [],
+    "conditionsMet": false,
+    "actions": {
+      "download": "allowed",
+      "host": "unknown",
+      "redistribute": "unknown",
+      "adapt": "unknown",
+      "transcribe": "unknown",
+      "embed": "unknown",
+      "indexMetadata": "allowed",
+      "indexFullText": "unknown"
+    },
+    "evidence": [
+      {
+        "url": "https://archive.org/details/johngpatonmissio188901pato",
+        "locator": "Title, preface and contents; see inventory and editorial-issues.json",
+        "note": "New illustrated Revell edition, undated title. Prefaces January/February 1889; archive dates item 1889. James rewrote and expanded portions without John’s final revision.",
+        "checkedOn": "2026-10-05"
+      },
+      {
+        "url": "https://archive.org/download/johngpatonmissio188901pato/johngpatonmissio188901pato.pdf",
+        "locator": "Named public file; immutable manifest",
+        "note": "Bounded download from unrestricted identified historic item or Gutenberg mirror; no systematic website crawl.",
+        "checkedOn": "2026-10-05"
+      },
+      {
+        "url": "https://archive.org/download/johngpatonmissio188901pato/johngpatonmissio188901pato_djvu.txt",
+        "locator": "Named public file; immutable manifest",
+        "note": "Bounded download from unrestricted identified historic item or Gutenberg mirror; no systematic website crawl.",
+        "checkedOn": "2026-10-05"
+      }
+    ],
+    "unresolved": [
+      "Historical text is public domain in the United States; digital packaging and use outside the United States require separate review.",
+      "Public hosting and full-text search are not cleared by this private acquisition record."
+    ],
+    "review": {
+      "date": "2026-10-05",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Bibliographic links and source boundaries; not a whole-text clearance."
+    }
+  },
+  "fullTextIndexed": false,
+  "processing": {
+    "parentAssetId": null,
+    "method": "none",
+    "tool": null,
+    "toolVersion": null,
+    "parameters": null,
+    "date": null,
+    "note": "Unmodified acquired file; supplied OCR is not a proofread transcription. Gutenberg notices retained in full."
+  },
+  "quality": {
+    "state": "issues",
+    "reviewedBy": "Codex",
+    "reviewedOn": "2026-10-05",
+    "note": "Front matter, structural inventory and selected passages inspected; editorial changes and OCR defects are documented. Full text not collated."
+  }
+}

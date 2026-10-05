@@ -1,0 +1,58 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-l13-rutherford-pg42557-letter-268",
+  "editorialState": "catalogued",
+  "notes": [
+    "Testimony layer: firsthand-letter-with-editorial-apparatus. Full body review remains separate."
+  ],
+  "reviews": [],
+  "title": "CCLXVIII.— To the Earl of Cassillis . [Letter CXXVIII.]",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-l13-samuel-rutherford",
+      "role": "author"
+    }
+  ],
+  "genre": "letter",
+  "role": "historical-context",
+  "collections": [
+    "history"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "students",
+    "pastors",
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "multiple",
+  "dates": [],
+  "passages": [],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-l13-rutherford-pg42557",
+      "locator": "Letter CCLXVIII (268); HTML #CCLXVIII_To_the_Earl_of_Cassillis_Letter_CXXVIII"
+    }
+  ],
+  "externalIds": {
+    "l13-unit": [
+      "unit-l13-rutherford-pg42557-letter-268"
+    ],
+    "l13-edition": [
+      "edition-l13-rutherford-pg42557"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://www.gutenberg.org/ebooks/42557",
+      "locator": "Letter CCLXVIII (268); HTML #CCLXVIII_To_the_Earl_of_Cassillis_Letter_CXXVIII",
+      "note": "Source boundary indexed; testimony layer applies at component level and does not certify each embedded assertion.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

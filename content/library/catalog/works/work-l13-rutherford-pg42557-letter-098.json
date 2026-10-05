@@ -1,0 +1,58 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-l13-rutherford-pg42557-letter-098",
+  "editorialState": "catalogued",
+  "notes": [
+    "Testimony layer: firsthand-letter-with-editorial-apparatus. Full body review remains separate."
+  ],
+  "reviews": [],
+  "title": "XCVIII.— To the Worthy and much Honoured Mr. Alexander Colville of Blair.",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-l13-samuel-rutherford",
+      "role": "author"
+    }
+  ],
+  "genre": "letter",
+  "role": "historical-context",
+  "collections": [
+    "history"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "students",
+    "pastors",
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "multiple",
+  "dates": [],
+  "passages": [],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-l13-rutherford-pg42557",
+      "locator": "Letter XCVIII (98); HTML #XCVIII_To_the_Worthy_and_much_Honoured_Mr_Alexander_Colville"
+    }
+  ],
+  "externalIds": {
+    "l13-unit": [
+      "unit-l13-rutherford-pg42557-letter-098"
+    ],
+    "l13-edition": [
+      "edition-l13-rutherford-pg42557"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://www.gutenberg.org/ebooks/42557",
+      "locator": "Letter XCVIII (98); HTML #XCVIII_To_the_Worthy_and_much_Honoured_Mr_Alexander_Colville",
+      "note": "Source boundary indexed; testimony layer applies at component level and does not certify each embedded assertion.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

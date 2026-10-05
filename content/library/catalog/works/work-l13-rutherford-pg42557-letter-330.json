@@ -1,0 +1,58 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-l13-rutherford-pg42557-letter-330",
+  "editorialState": "catalogued",
+  "notes": [
+    "Testimony layer: firsthand-letter-with-editorial-apparatus. Full body review remains separate."
+  ],
+  "reviews": [],
+  "title": "CCCXXX.— To Mr. William Guthrie , when the army was at Stirling, after the defeat at Dunbar, [475] and the godly in the West were falsely branded with intended compliance with the usurpers, about the time when those debates and that difference concerning the Public Resolutions arose. [476]",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-l13-samuel-rutherford",
+      "role": "author"
+    }
+  ],
+  "genre": "letter",
+  "role": "historical-context",
+  "collections": [
+    "history"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "students",
+    "pastors",
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "multiple",
+  "dates": [],
+  "passages": [],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-l13-rutherford-pg42557",
+      "locator": "Letter CCCXXX (330); HTML #CCCXXX_To_Mr_William_Guthrie_when_the_army_was_at_Stirling_after"
+    }
+  ],
+  "externalIds": {
+    "l13-unit": [
+      "unit-l13-rutherford-pg42557-letter-330"
+    ],
+    "l13-edition": [
+      "edition-l13-rutherford-pg42557"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://www.gutenberg.org/ebooks/42557",
+      "locator": "Letter CCCXXX (330); HTML #CCCXXX_To_Mr_William_Guthrie_when_the_army_was_at_Stirling_after",
+      "note": "Source boundary indexed; testimony layer applies at component level and does not certify each embedded assertion.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

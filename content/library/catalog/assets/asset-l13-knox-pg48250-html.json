@@ -1,0 +1,89 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "asset",
+  "id": "asset-l13-knox-pg48250-html",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "editionId": "edition-l13-knox-pg48250",
+  "sourceId": "source-gutenberg",
+  "canonicalUrl": "https://www.gutenberg.org/ebooks/48250",
+  "finalUrl": "https://mirrors.xmission.com/gutenberg/4/8/2/5/48250/48250-h/48250-h.htm",
+  "format": "html",
+  "mediaKind": "text",
+  "acquisitionStatus": "downloaded",
+  "storage": "raw",
+  "relativePath": "library/source-gutenberg/asset-l13-knox-pg48250-html/48250-h.htm",
+  "sha256": "231cf308b4e1c6d81e3f0c1a87c52bb686d0c709254a64704fc1a15e1f1e39cd",
+  "byteCount": 1158342,
+  "mimeType": "text/html",
+  "retrievedAt": "2026-10-05T11:46:37.982889Z",
+  "rights": {
+    "category": "public-domain",
+    "jurisdiction": "United States",
+    "licenseId": null,
+    "licenseUrl": null,
+    "attribution": "Named historical authors, editors and source institutions; electronic notices preserved.",
+    "conditions": [
+      "Retain Project Gutenberg license and notices if distributing the Gutenberg electronic edition; verify applicable trademark and jurisdiction requirements."
+    ],
+    "conditionsMet": false,
+    "actions": {
+      "download": "allowed",
+      "host": "unknown",
+      "redistribute": "unknown",
+      "adapt": "unknown",
+      "transcribe": "unknown",
+      "embed": "unknown",
+      "indexMetadata": "allowed",
+      "indexFullText": "unknown"
+    },
+    "evidence": [
+      {
+        "url": "https://www.gutenberg.org/ebooks/48250",
+        "locator": "Title, preface and contents; see inventory and editorial-issues.json",
+        "note": "Lennox’s 1905 abridgment modernizes expression and cuts parenthetical material and parts of documents. Four history books plus documentary appendices.",
+        "checkedOn": "2026-10-05"
+      },
+      {
+        "url": "https://mirrors.xmission.com/gutenberg/4/8/2/5/48250/48250-h/48250-h.htm",
+        "locator": "Named public file; immutable manifest",
+        "note": "Bounded download from unrestricted identified historic item or Gutenberg mirror; no systematic website crawl.",
+        "checkedOn": "2026-10-05"
+      },
+      {
+        "url": "https://www.gutenberg.org/policy/robot_access.html",
+        "locator": "Mirrors and approved retrieval methods",
+        "note": "Named static mirror files selected; ordinary website crawling excluded.",
+        "checkedOn": "2026-10-05"
+      }
+    ],
+    "unresolved": [
+      "Historical text is public domain in the United States; digital packaging and use outside the United States require separate review.",
+      "Public hosting and full-text search are not cleared by this private acquisition record."
+    ],
+    "review": {
+      "date": "2026-10-05",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Bibliographic links and source boundaries; not a whole-text clearance."
+    }
+  },
+  "fullTextIndexed": false,
+  "processing": {
+    "parentAssetId": null,
+    "method": "none",
+    "tool": null,
+    "toolVersion": null,
+    "parameters": null,
+    "date": null,
+    "note": "Unmodified acquired file; supplied OCR is not a proofread transcription. Gutenberg notices retained in full."
+  },
+  "quality": {
+    "state": "issues",
+    "reviewedBy": "Codex",
+    "reviewedOn": "2026-10-05",
+    "note": "Front matter, structural inventory and selected passages inspected; editorial changes and OCR defects are documented. Full text not collated."
+  }
+}

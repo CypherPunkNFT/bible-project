@@ -1,0 +1,58 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-l13-knox-pg48250-book-4",
+  "editorialState": "catalogued",
+  "notes": [
+    "Testimony layer: mixed-participant-and-reported-history. Full body review remains separate."
+  ],
+  "reviews": [],
+  "title": "Book Fourth.",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-john-knox",
+      "role": "author"
+    }
+  ],
+  "genre": "history",
+  "role": "historical-context",
+  "collections": [
+    "history"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "students",
+    "pastors",
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "multiple",
+  "dates": [],
+  "passages": [],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-l13-knox-pg48250",
+      "locator": "Body heading BOOK FOURTH."
+    }
+  ],
+  "externalIds": {
+    "l13-unit": [
+      "unit-l13-knox-pg48250-book-4"
+    ],
+    "l13-edition": [
+      "edition-l13-knox-pg48250"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://www.gutenberg.org/ebooks/48250",
+      "locator": "Body heading BOOK FOURTH.",
+      "note": "Source boundary indexed; testimony layer applies at component level and does not certify each embedded assertion.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

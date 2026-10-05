@@ -1,0 +1,87 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "asset",
+  "id": "asset-l13-mcheyne-1844-text",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "editionId": "edition-l13-mcheyne-1844",
+  "sourceId": "source-internet-archive",
+  "canonicalUrl": "https://archive.org/details/robertmurraymcch00bonauoft",
+  "finalUrl": "https://dn790007.ca.archive.org/0/items/robertmurraymcch00bonauoft/robertmurraymcch00bonauoft_djvu.txt",
+  "format": "text",
+  "mediaKind": "text",
+  "acquisitionStatus": "downloaded",
+  "storage": "raw",
+  "relativePath": "library/source-internet-archive/asset-l13-mcheyne-1844-text/robertmurraymcch00bonauoft_djvu.txt",
+  "sha256": "51f9c6f21761608a46c254f9b1ea89eb1c9c709e266e3f58ad7ec4cab062c1bf",
+  "byteCount": 937360,
+  "mimeType": "text/plain",
+  "retrievedAt": "2026-10-05T11:46:36.387491Z",
+  "rights": {
+    "category": "public-domain",
+    "jurisdiction": "United States",
+    "licenseId": null,
+    "licenseUrl": null,
+    "attribution": "Named historical authors, editors and source institutions; electronic notices preserved.",
+    "conditions": [],
+    "conditionsMet": false,
+    "actions": {
+      "download": "allowed",
+      "host": "unknown",
+      "redistribute": "unknown",
+      "adapt": "unknown",
+      "transcribe": "unknown",
+      "embed": "unknown",
+      "indexMetadata": "allowed",
+      "indexFullText": "unknown"
+    },
+    "evidence": [
+      {
+        "url": "https://archive.org/details/robertmurraymcch00bonauoft",
+        "locator": "Title, preface and contents; see inventory and editorial-issues.json",
+        "note": "Publisher explicitly omits sermons and some minor writings. Archive year 1844 is an attributed catalog date; title leaf is undated. Introductory letter cites July 1844 review.",
+        "checkedOn": "2026-10-05"
+      },
+      {
+        "url": "https://archive.org/download/robertmurraymcch00bonauoft/robertmurraymcch00bonauoft.pdf",
+        "locator": "Named public file; immutable manifest",
+        "note": "Bounded download from unrestricted identified historic item or Gutenberg mirror; no systematic website crawl.",
+        "checkedOn": "2026-10-05"
+      },
+      {
+        "url": "https://archive.org/download/robertmurraymcch00bonauoft/robertmurraymcch00bonauoft_djvu.txt",
+        "locator": "Named public file; immutable manifest",
+        "note": "Bounded download from unrestricted identified historic item or Gutenberg mirror; no systematic website crawl.",
+        "checkedOn": "2026-10-05"
+      }
+    ],
+    "unresolved": [
+      "Historical text is public domain in the United States; digital packaging and use outside the United States require separate review.",
+      "Public hosting and full-text search are not cleared by this private acquisition record."
+    ],
+    "review": {
+      "date": "2026-10-05",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Bibliographic links and source boundaries; not a whole-text clearance."
+    }
+  },
+  "fullTextIndexed": false,
+  "processing": {
+    "parentAssetId": null,
+    "method": "none",
+    "tool": null,
+    "toolVersion": null,
+    "parameters": null,
+    "date": null,
+    "note": "Unmodified acquired file; supplied OCR is not a proofread transcription. Gutenberg notices retained in full."
+  },
+  "quality": {
+    "state": "issues",
+    "reviewedBy": "Codex",
+    "reviewedOn": "2026-10-05",
+    "note": "Front matter, structural inventory and selected passages inspected; editorial changes and OCR defects are documented. Full text not collated."
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-l13-paton-1889-v2-chapter-02",
+  "editorialState": "catalogued",
+  "notes": [
+    "Testimony layer: edited-retrospective-autobiography. Full body review remains separate."
+  ],
+  "reviews": [],
+  "title": "Among the Aborigines",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-l13-john-g-paton",
+      "role": "author"
+    }
+  ],
+  "genre": "autobiography",
+  "role": "historical-context",
+  "collections": [
+    "history"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "students",
+    "pastors",
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "multiple",
+  "dates": [],
+  "passages": [],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-l13-paton-1889-v2",
+      "locator": "Chapter 2; printed p. 47; contents inventory"
+    }
+  ],
+  "externalIds": {
+    "l13-unit": [
+      "unit-l13-paton-1889-v2-chapter-02"
+    ],
+    "l13-edition": [
+      "edition-l13-paton-1889-v2"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/details/johngpatonmissio188902pato",
+      "locator": "Chapter 2; printed p. 47; contents inventory",
+      "note": "Source boundary indexed; testimony layer applies at component level and does not certify each embedded assertion.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

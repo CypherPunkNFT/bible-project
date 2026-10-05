@@ -1,0 +1,53 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "series",
+  "id": "series-l13-paton-autobiography",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "title": "Paton autobiography: selected three-part printed sequence",
+  "authorIds": [
+    "author-l13-john-g-paton"
+  ],
+  "members": [
+    {
+      "workId": "work-l13-paton-1889-v1",
+      "position": 1,
+      "originalLabel": "First Part"
+    },
+    {
+      "workId": "work-l13-paton-1889-v2",
+      "position": 2,
+      "originalLabel": "Second Part"
+    },
+    {
+      "workId": "work-l13-paton-v3",
+      "position": 3,
+      "originalLabel": "Volume III"
+    }
+  ],
+  "expectedCount": 3,
+  "completeness": "complete",
+  "inventoryEvidence": [
+    {
+      "url": "https://archive.org/details/johngpatonmissio188901pato",
+      "locator": "Title leaf and preface",
+      "note": "Three numbered parts are acquired; internal editorial omissions remain explicit.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://archive.org/details/johngpatonmissio188902pato",
+      "locator": "Title leaf and preface",
+      "note": "Three numbered parts are acquired; internal editorial omissions remain explicit.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://archive.org/details/johngpatonmissio03pato",
+      "locator": "Title leaf and preface",
+      "note": "Three numbered parts are acquired; internal editorial omissions remain explicit.",
+      "checkedOn": "2026-10-05"
+    }
+  ],
+  "missing": []
+}

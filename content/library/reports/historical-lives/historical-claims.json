@@ -1,0 +1,329 @@
+{
+  "date": "2026-10-05",
+  "claims": [
+    {
+      "id": "claim-l13-brainerd-composite",
+      "documentKey": "brainerd-1822",
+      "editionId": "edition-l13-brainerd-1822",
+      "assertion": "Dwight says Edwards omitted Journal passages from the 1749 Life, while supplying diary material absent from that Journal. The 1822 editor brings the two publications together.",
+      "testimonyLayer": "later-editorial-account",
+      "verification": "source-passage-checked; independent corroboration not claimed",
+      "sourceUrl": "https://archive.org/details/memoirsrevdavid00dwiggoog",
+      "locator": "Advertisement, discussion of the 1749 Life and Journal",
+      "evidence": {
+        "assetId": "asset-l13-brainerd-1822-text",
+        "characterSpan": {
+          "start": 16761,
+          "end": 24159
+        },
+        "payloadSha256": "f3f7044ff3c9fdf9d4ccde716ab934057c87c6d5de2d80ea8b9c9f63d6625a86",
+        "offsetConvention": "Unicode code points after UTF-8-sig decode; original newline characters retained"
+      }
+    },
+    {
+      "id": "claim-l13-brainerd-first-publication",
+      "documentKey": "brainerd-1822",
+      "editionId": "edition-l13-brainerd-1822",
+      "assertion": "Dwight reports that Edwards’s Life appeared at Boston in 1749; he reproduces its title reporting Brainerd’s death at Northampton on October 9, 1747.",
+      "testimonyLayer": "later-editor-quoting-earlier-title",
+      "verification": "source-passage-checked; independent corroboration not claimed",
+      "sourceUrl": "https://archive.org/details/memoirsrevdavid00dwiggoog",
+      "locator": "Advertisement; quoted 1749 title",
+      "evidence": {
+        "assetId": "asset-l13-brainerd-1822-text",
+        "characterSpan": {
+          "start": 15845,
+          "end": 17344
+        },
+        "payloadSha256": "49272db1f0b7bef483a9089407accb2e035e36e7d879bb1a3d2e98b0817f1aba",
+        "offsetConvention": "Unicode code points after UTF-8-sig decode; original newline characters retained"
+      }
+    },
+    {
+      "id": "claim-l13-brainerd-kaunaumeek",
+      "documentKey": "brainerd-1822",
+      "editionId": "edition-l13-brainerd-1822",
+      "assertion": "Dwight dates the start of Brainerd’s Kaunaumeek work to April 1, 1743, and describes a subsequent move of the community to Stockbridge.",
+      "testimonyLayer": "later-editorial-biographical-account",
+      "verification": "source-passage-checked; independent corroboration not claimed",
+      "sourceUrl": "https://archive.org/details/memoirsrevdavid00dwiggoog",
+      "locator": "Advertisement, account of mission stations",
+      "evidence": {
+        "assetId": "asset-l13-brainerd-1822-text",
+        "characterSpan": {
+          "start": 11557,
+          "end": 13071
+        },
+        "payloadSha256": "65265316828c59dbd85ff9c5b034e6ea8b82051ebea88ca2402d1a3f262f4033",
+        "offsetConvention": "Unicode code points after UTF-8-sig decode; original newline characters retained"
+      }
+    },
+    {
+      "id": "claim-l13-brainerd-styles-omissions",
+      "documentKey": "brainerd-1822",
+      "editionId": "edition-l13-brainerd-1822",
+      "assertion": "Dwight discusses a Styles abridgment and lists substantial omissions. This is Dwight’s report; the Styles edition has not been acquired or independently collated.",
+      "testimonyLayer": "later-editorial-comparison",
+      "verification": "source-passage-checked; independent corroboration not claimed",
+      "sourceUrl": "https://archive.org/details/memoirsrevdavid00dwiggoog",
+      "locator": "Advertisement, abridgment discussion",
+      "evidence": {
+        "assetId": "asset-l13-brainerd-1822-text",
+        "characterSpan": {
+          "start": 18665,
+          "end": 25051
+        },
+        "payloadSha256": "340b6d8c64982f5cd5cc4f5b5a847c7daece697de5d8c2bb627bd8ab5ba935da",
+        "offsetConvention": "Unicode code points after UTF-8-sig decode; original newline characters retained"
+      }
+    },
+    {
+      "id": "claim-l13-brainerd-journal-assessment",
+      "documentKey": "brainerd-1822",
+      "editionId": "edition-l13-brainerd-1822",
+      "assertion": "In the concluding June 19 journal entry Brainerd reports visiting with two correspondents and interprets the preceding year as a work of divine grace. The visit is his reported action; the assessment of spiritual change remains his theological interpretation.",
+      "testimonyLayer": "firsthand-mission-journal-with-theological-interpretation",
+      "verification": "source-passage-checked; independent corroboration not claimed",
+      "sourceUrl": "https://archive.org/details/memoirsrevdavid00dwiggoog",
+      "locator": "Chapter VIII, concluding June 19 entry; chapter scope ends in 1746",
+      "evidence": {
+        "assetId": "asset-l13-brainerd-1822-text",
+        "characterSpan": {
+          "start": 959052,
+          "end": 960235
+        },
+        "payloadSha256": "4db068783e0c841c2de518db9cc89801e119f5f982388ccd393bdaa0360af9c7",
+        "offsetConvention": "Unicode code points after UTF-8-sig decode; original newline characters retained"
+      }
+    },
+    {
+      "id": "claim-l13-mcheyne-omissions",
+      "documentKey": "mcheyne-1844",
+      "editionId": "edition-l13-mcheyne-1844",
+      "assertion": "The publisher says sermons and some minor writings were omitted to make this reprint portable; some appeared separately.",
+      "testimonyLayer": "publisher-editorial-disclosure",
+      "verification": "source-passage-checked; independent corroboration not claimed",
+      "sourceUrl": "https://archive.org/details/robertmurraymcch00bonauoft",
+      "locator": "Advertisement, printed p. iii; PDF p. 11 visually checked",
+      "evidence": {
+        "assetId": "asset-l13-mcheyne-1844-text",
+        "characterSpan": {
+          "start": 310,
+          "end": 1267
+        },
+        "payloadSha256": "82ad827ba18ab38058895762793de0d0aca7cfa37ef8d21e15cd0ba1fab07fcd",
+        "offsetConvention": "Unicode code points after UTF-8-sig decode; original newline characters retained"
+      }
+    },
+    {
+      "id": "claim-l13-mcheyne-attributions",
+      "documentKey": "mcheyne-1844",
+      "editionId": "edition-l13-mcheyne-1844",
+      "assertion": "The title identifies M’Cheyne as minister of St. Peter’s, Dundee, Bonar as a Free Church of Scotland minister at Collace, and Miller as the introductory letter’s author.",
+      "testimonyLayer": "edition-title-attribution",
+      "verification": "source-passage-checked; independent corroboration not claimed",
+      "sourceUrl": "https://archive.org/details/robertmurraymcch00bonauoft",
+      "locator": "Title leaf, PDF p. 9",
+      "evidence": {
+        "assetId": "asset-l13-mcheyne-1844-text",
+        "characterSpan": {
+          "start": 0,
+          "end": 803
+        },
+        "payloadSha256": "53eb890b9e654dea03a0f9446c5243fb20b2fbd39ae38d5b5d8c3a5b53ae893d",
+        "offsetConvention": "Unicode code points after UTF-8-sig decode; original newline characters retained"
+      }
+    },
+    {
+      "id": "claim-l13-rutherford-editor-changes",
+      "documentKey": "rutherford-pg42557",
+      "editionId": "edition-l13-rutherford-pg42557",
+      "assertion": "Bonar reports relocating most footnotes to the glossary, condensing some notices and making small additions relative to 1863. His judgment that nothing important was omitted is not an independent collation.",
+      "testimonyLayer": "editorial-disclosure",
+      "verification": "source-passage-checked; independent corroboration not claimed",
+      "sourceUrl": "https://www.gutenberg.org/ebooks/42557",
+      "locator": "Preface, comparison with 1863",
+      "evidence": {
+        "assetId": "asset-l13-rutherford-pg42557-html",
+        "characterSpan": {
+          "start": 5701,
+          "end": 7201
+        },
+        "payloadSha256": "c6e302c1cc22cb8fdc849335c5f378aabb8c6c58eda30de5ef0d2440272393d3",
+        "offsetConvention": "Unicode code points after UTF-8-sig decode; original newline characters retained"
+      }
+    },
+    {
+      "id": "claim-l13-rutherford-letter-one",
+      "documentKey": "rutherford-pg42557",
+      "editionId": "edition-l13-rutherford-pg42557",
+      "assertion": "Letter I’s closing identifies Anwoth and June 6, 1627; the editor heads it as addressed to Marion M’Naught on her daughter’s return.",
+      "testimonyLayer": "firsthand-letter-transmitted-in-later-edition",
+      "verification": "source-passage-checked; independent corroboration not claimed",
+      "sourceUrl": "https://www.gutenberg.org/ebooks/42557",
+      "locator": "Letter I, closing; compare editorial heading",
+      "evidence": {
+        "assetId": "asset-l13-rutherford-pg42557-html",
+        "characterSpan": {
+          "start": 176475,
+          "end": 178487
+        },
+        "payloadSha256": "e387e5917491ea32c39137854f91a434c486cafa234feebdd01efb030dd211c4",
+        "offsetConvention": "Unicode code points after UTF-8-sig decode; original newline characters retained"
+      }
+    },
+    {
+      "id": "claim-l13-knox-abridgment",
+      "documentKey": "knox-pg48250",
+      "editionId": "edition-l13-knox-pg48250",
+      "assertion": "Lennox discloses omitted parentheses and anecdotes and the retention of essential clauses from letters/documents. He says the Confession and Book of Discipline are retained in full in the appendix.",
+      "testimonyLayer": "later-editorial-disclosure",
+      "verification": "source-passage-checked; independent corroboration not claimed",
+      "sourceUrl": "https://www.gutenberg.org/ebooks/48250",
+      "locator": "Introductory Note, February 1905",
+      "evidence": {
+        "assetId": "asset-l13-knox-pg48250-html",
+        "characterSpan": {
+          "start": 13350,
+          "end": 15110
+        },
+        "payloadSha256": "e240ef7ed774ca410b0f43f9c7c1ea5c8fc370542f22d765b75d5b264a282b2b",
+        "offsetConvention": "Unicode code points after UTF-8-sig decode; original newline characters retained"
+      }
+    },
+    {
+      "id": "claim-l13-paton-v1-revision",
+      "documentKey": "paton-1889-v1",
+      "editionId": "edition-l13-paton-1889-v1",
+      "assertion": "James Paton says he rewrote, pruned and expanded the manuscript, recast some sections using his own knowledge, and could not submit the final shape to John before publication.",
+      "testimonyLayer": "editorial-firsthand-disclosure",
+      "verification": "source-passage-checked; independent corroboration not claimed",
+      "sourceUrl": "https://archive.org/details/johngpatonmissio188901pato",
+      "locator": "Preface, printed pp. v–vi, January 1889",
+      "evidence": {
+        "assetId": "asset-l13-paton-1889-v1-text",
+        "characterSpan": {
+          "start": 5815,
+          "end": 7416
+        },
+        "payloadSha256": "7ced506537ef4096654436634b1800bd351635fdbf13441fb2784a56a0f6ec88",
+        "offsetConvention": "Unicode code points after UTF-8-sig decode; original newline characters retained"
+      }
+    },
+    {
+      "id": "claim-l13-paton-v2-omissions",
+      "documentKey": "paton-1889-v2",
+      "editionId": "edition-l13-paton-1889-v2",
+      "assertion": "James says space forced the omission of chapters on the South Seas labour traffic and annexation/the future of the New Hebrides. He also describes chapter IX’s letters as fragments.",
+      "testimonyLayer": "editorial-firsthand-disclosure",
+      "verification": "source-passage-checked; independent corroboration not claimed",
+      "sourceUrl": "https://archive.org/details/johngpatonmissio188902pato",
+      "locator": "Preface, printed pp. v–vii, October 1889",
+      "evidence": {
+        "assetId": "asset-l13-paton-1889-v2-text",
+        "characterSpan": {
+          "start": 4375,
+          "end": 6545
+        },
+        "payloadSha256": "8c50d74c17f45e66ddaa04ccac7bf123a8445988e77a46810cf002a6d4ea6759",
+        "offsetConvention": "Unicode code points after UTF-8-sig decode; original newline characters retained"
+      }
+    },
+    {
+      "id": "claim-l13-paton-letter-authorship",
+      "documentKey": "paton-1889-v2",
+      "editionId": "edition-l13-paton-1889-v2",
+      "assertion": "Chapter IX’s editor attributes the family letters to Mrs. John G. Paton and says he has selected fragments for publication without obtaining her consent to this appearance.",
+      "testimonyLayer": "editorial-firsthand-disclosure",
+      "verification": "source-passage-checked; independent corroboration not claimed",
+      "sourceUrl": "https://archive.org/details/johngpatonmissio188902pato",
+      "locator": "Chapter IX editorial preface, printed pp. 285–286",
+      "evidence": {
+        "assetId": "asset-l13-paton-1889-v2-text",
+        "characterSpan": {
+          "start": 511477,
+          "end": 513184
+        },
+        "payloadSha256": "f5f2b0c8a13e3237dff26e899afb85f8c89ef758e4b623ef97296fc9236df5a6",
+        "offsetConvention": "Unicode code points after UTF-8-sig decode; original newline characters retained"
+      }
+    },
+    {
+      "id": "claim-l13-paton-aniwa-letter",
+      "documentKey": "paton-1889-v2",
+      "editionId": "edition-l13-paton-1889-v2",
+      "assertion": "In the letter grouped under 1867, Mrs. Paton reports disappointment over assignment to Aniwa rather than Tanna and hopes for future local evangelists; she explicitly says she does not mean half the people are converted.",
+      "testimonyLayer": "firsthand-letter-excerpt",
+      "verification": "source-passage-checked; independent corroboration not claimed",
+      "sourceUrl": "https://archive.org/details/johngpatonmissio188902pato",
+      "locator": "Chapter IX, 1867 letter to Rev. Dr. Macdonald, printed pp. 286–287",
+      "evidence": {
+        "assetId": "asset-l13-paton-1889-v2-text",
+        "characterSpan": {
+          "start": 513528,
+          "end": 515556
+        },
+        "payloadSha256": "3f5df65b82969c7ccbf216432f53010f2ae9f3d5950fe1ffc753caa7cbcbc34c",
+        "offsetConvention": "Unicode code points after UTF-8-sig decode; original newline characters retained"
+      }
+    },
+    {
+      "id": "claim-l13-paton-v3-date",
+      "documentKey": "paton-v3",
+      "editionId": "edition-l13-paton-v3",
+      "assertion": "The acquired third volume prints copyright 1898; the signed preface is dated February 1898. The archive’s 1889 date is inconsistent with these pages.",
+      "testimonyLayer": "edition-primary-publication-evidence",
+      "verification": "source-passage-checked; independent corroboration not claimed",
+      "sourceUrl": "https://archive.org/details/johngpatonmissio03pato",
+      "locator": "Copyright leaf, PDF p. 8 visually checked; editor preface PDF p. 9",
+      "evidence": {
+        "assetId": "asset-l13-paton-v3-text",
+        "characterSpan": {
+          "start": 616,
+          "end": 4272
+        },
+        "payloadSha256": "23ad759417c8aeb3e4fcf5e79f851de2dacba9a8d33864f3dde4e85b9280cca7",
+        "offsetConvention": "Unicode code points after UTF-8-sig decode; original newline characters retained"
+      }
+    },
+    {
+      "id": "claim-l13-paton-historical-note",
+      "documentKey": "paton-v3",
+      "editionId": "edition-l13-paton-v3",
+      "assertion": "Paton’s signed Historical Note recounts early European voyages centuries before his life; it is a later historical account, not eyewitness testimony.",
+      "testimonyLayer": "later-reported-history",
+      "verification": "source-passage-checked; independent corroboration not claimed",
+      "sourceUrl": "https://archive.org/details/johngpatonmissio03pato",
+      "locator": "Historical Note, printed pp. 9–10",
+      "evidence": {
+        "assetId": "asset-l13-paton-v3-text",
+        "characterSpan": {
+          "start": 5208,
+          "end": 8255
+        },
+        "payloadSha256": "b428ea4e969b2a795ccfc9997db088a3346bc7fff220a9fe1ef8b446501d3a72",
+        "offsetConvention": "Unicode code points after UTF-8-sig decode; original newline characters retained"
+      }
+    },
+    {
+      "id": "claim-l13-paton-mission-assessment",
+      "documentKey": "paton-v3",
+      "editionId": "edition-l13-paton-v3",
+      "assertion": "Paton’s retrospective mission survey dates his party’s arrival on Tanna to 1858 and describes escape in 1862. Its broader claims about conversions, Indigenous peoples and colonial policy are the author’s perspective and require separate corroboration.",
+      "testimonyLayer": "retrospective-participant-testimony-with-interpretation",
+      "verification": "source-passage-checked; independent corroboration not claimed",
+      "sourceUrl": "https://archive.org/details/johngpatonmissio03pato",
+      "locator": "The Gospel in the New Hebrides, printed pp. 15–16",
+      "evidence": {
+        "assetId": "asset-l13-paton-v3-text",
+        "characterSpan": {
+          "start": 15967,
+          "end": 18366
+        },
+        "payloadSha256": "23f7d5cf9f11ea0cf646ac84d3edd6e7c3e151657b969be68991a663c9781f54",
+        "offsetConvention": "Unicode code points after UTF-8-sig decode; original newline characters retained"
+      }
+    }
+  ],
+  "policy": "Each assertion retains the source voice and exact immutable-file span. Verification means source checked, not independently established historical truth."
+}

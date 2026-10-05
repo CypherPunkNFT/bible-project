@@ -1,0 +1,81 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "asset",
+  "id": "asset-l13-brainerd-1822-pdf",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "editionId": "edition-l13-brainerd-1822",
+  "sourceId": "source-internet-archive",
+  "canonicalUrl": "https://archive.org/details/memoirsrevdavid00dwiggoog",
+  "finalUrl": "https://dn710901.ca.archive.org/0/items/memoirsrevdavid00dwiggoog/memoirsrevdavid00dwiggoog.pdf",
+  "format": "pdf",
+  "mediaKind": "scan",
+  "acquisitionStatus": "downloaded",
+  "storage": "raw",
+  "relativePath": "library/source-internet-archive/asset-l13-brainerd-1822-pdf/memoirsrevdavid00dwiggoog.pdf",
+  "sha256": "79392176c1fc191758c4b4afd5f8d4cae16e45b95a00aebdc1d4faff3cff66c7",
+  "byteCount": 23384637,
+  "mimeType": "application/pdf",
+  "retrievedAt": "2026-10-05T11:46:30.190875Z",
+  "rights": {
+    "category": "public-domain",
+    "jurisdiction": "United States",
+    "licenseId": null,
+    "licenseUrl": null,
+    "attribution": "Named historical authors, editors and source institutions; electronic notices preserved.",
+    "conditions": [],
+    "conditionsMet": false,
+    "actions": {
+      "download": "allowed",
+      "host": "unknown",
+      "redistribute": "unknown",
+      "adapt": "unknown",
+      "transcribe": "unknown",
+      "embed": "unknown",
+      "indexMetadata": "allowed",
+      "indexFullText": "unknown"
+    },
+    "evidence": [
+      {
+        "url": "https://archive.org/details/memoirsrevdavid00dwiggoog",
+        "locator": "Title, preface and contents; see inventory and editorial-issues.json",
+        "note": "1822 combination of Edwards’s 1749 Life, Brainerd’s diary and previously published Journal; selected and edited testimony, not an uncut manuscript transcription.",
+        "checkedOn": "2026-10-05"
+      },
+      {
+        "url": "https://archive.org/download/memoirsrevdavid00dwiggoog/memoirsrevdavid00dwiggoog.pdf",
+        "locator": "Named public file; immutable manifest",
+        "note": "Bounded download from unrestricted identified historic item or Gutenberg mirror; no systematic website crawl.",
+        "checkedOn": "2026-10-05"
+      }
+    ],
+    "unresolved": [
+      "Historical text is public domain in the United States; digital packaging and use outside the United States require separate review.",
+      "Public hosting and full-text search are not cleared by this private acquisition record."
+    ],
+    "review": {
+      "date": "2026-10-05",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Bibliographic links and source boundaries; not a whole-text clearance."
+    }
+  },
+  "fullTextIndexed": false,
+  "processing": {
+    "parentAssetId": null,
+    "method": "none",
+    "tool": null,
+    "toolVersion": null,
+    "parameters": null,
+    "date": null,
+    "note": "Unmodified acquired file; supplied OCR is not a proofread transcription. Gutenberg notices retained in full."
+  },
+  "quality": {
+    "state": "issues",
+    "reviewedBy": "Codex",
+    "reviewedOn": "2026-10-05",
+    "note": "Front matter, structural inventory and selected passages inspected; editorial changes and OCR defects are documented. Full text not collated."
+  }
+}

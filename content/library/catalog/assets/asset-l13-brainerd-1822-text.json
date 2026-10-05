@@ -1,0 +1,87 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "asset",
+  "id": "asset-l13-brainerd-1822-text",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "editionId": "edition-l13-brainerd-1822",
+  "sourceId": "source-internet-archive",
+  "canonicalUrl": "https://archive.org/details/memoirsrevdavid00dwiggoog",
+  "finalUrl": "https://dn710901.ca.archive.org/0/items/memoirsrevdavid00dwiggoog/memoirsrevdavid00dwiggoog_djvu.txt",
+  "format": "text",
+  "mediaKind": "text",
+  "acquisitionStatus": "downloaded",
+  "storage": "raw",
+  "relativePath": "library/source-internet-archive/asset-l13-brainerd-1822-text/memoirsrevdavid00dwiggoog_djvu.txt",
+  "sha256": "00ce411b51f5bd2c4fdb15bbc694cbe002e49aaab7b7d90fdedc6fc706009656",
+  "byteCount": 1528142,
+  "mimeType": "text/plain",
+  "retrievedAt": "2026-10-05T11:46:31.660723Z",
+  "rights": {
+    "category": "public-domain",
+    "jurisdiction": "United States",
+    "licenseId": null,
+    "licenseUrl": null,
+    "attribution": "Named historical authors, editors and source institutions; electronic notices preserved.",
+    "conditions": [],
+    "conditionsMet": false,
+    "actions": {
+      "download": "allowed",
+      "host": "unknown",
+      "redistribute": "unknown",
+      "adapt": "unknown",
+      "transcribe": "unknown",
+      "embed": "unknown",
+      "indexMetadata": "allowed",
+      "indexFullText": "unknown"
+    },
+    "evidence": [
+      {
+        "url": "https://archive.org/details/memoirsrevdavid00dwiggoog",
+        "locator": "Title, preface and contents; see inventory and editorial-issues.json",
+        "note": "1822 combination of Edwards’s 1749 Life, Brainerd’s diary and previously published Journal; selected and edited testimony, not an uncut manuscript transcription.",
+        "checkedOn": "2026-10-05"
+      },
+      {
+        "url": "https://archive.org/download/memoirsrevdavid00dwiggoog/memoirsrevdavid00dwiggoog.pdf",
+        "locator": "Named public file; immutable manifest",
+        "note": "Bounded download from unrestricted identified historic item or Gutenberg mirror; no systematic website crawl.",
+        "checkedOn": "2026-10-05"
+      },
+      {
+        "url": "https://archive.org/download/memoirsrevdavid00dwiggoog/memoirsrevdavid00dwiggoog_djvu.txt",
+        "locator": "Named public file; immutable manifest",
+        "note": "Bounded download from unrestricted identified historic item or Gutenberg mirror; no systematic website crawl.",
+        "checkedOn": "2026-10-05"
+      }
+    ],
+    "unresolved": [
+      "Historical text is public domain in the United States; digital packaging and use outside the United States require separate review.",
+      "Public hosting and full-text search are not cleared by this private acquisition record."
+    ],
+    "review": {
+      "date": "2026-10-05",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Bibliographic links and source boundaries; not a whole-text clearance."
+    }
+  },
+  "fullTextIndexed": false,
+  "processing": {
+    "parentAssetId": null,
+    "method": "none",
+    "tool": null,
+    "toolVersion": null,
+    "parameters": null,
+    "date": null,
+    "note": "Unmodified acquired file; supplied OCR is not a proofread transcription. Gutenberg notices retained in full."
+  },
+  "quality": {
+    "state": "issues",
+    "reviewedBy": "Codex",
+    "reviewedOn": "2026-10-05",
+    "note": "Front matter, structural inventory and selected passages inspected; editorial changes and OCR defects are documented. Full text not collated."
+  }
+}

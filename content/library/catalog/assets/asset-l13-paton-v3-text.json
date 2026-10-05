@@ -1,0 +1,87 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "asset",
+  "id": "asset-l13-paton-v3-text",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "editionId": "edition-l13-paton-v3",
+  "sourceId": "source-internet-archive",
+  "canonicalUrl": "https://archive.org/details/johngpatonmissio03pato",
+  "finalUrl": "https://ia801603.us.archive.org/14/items/johngpatonmissio03pato/johngpatonmissio03pato_djvu.txt",
+  "format": "text",
+  "mediaKind": "text",
+  "acquisitionStatus": "downloaded",
+  "storage": "raw",
+  "relativePath": "library/source-internet-archive/asset-l13-paton-v3-text/johngpatonmissio03pato_djvu.txt",
+  "sha256": "0fcd5d607f93cee6142f597be3076328af8014f83bdf578035e4483f2bec4cb4",
+  "byteCount": 183671,
+  "mimeType": "text/plain",
+  "retrievedAt": "2026-10-05T11:47:57.165138Z",
+  "rights": {
+    "category": "public-domain",
+    "jurisdiction": "United States",
+    "licenseId": null,
+    "licenseUrl": null,
+    "attribution": "Named historical authors, editors and source institutions; electronic notices preserved.",
+    "conditions": [],
+    "conditionsMet": false,
+    "actions": {
+      "download": "allowed",
+      "host": "unknown",
+      "redistribute": "unknown",
+      "adapt": "unknown",
+      "transcribe": "unknown",
+      "embed": "unknown",
+      "indexMetadata": "allowed",
+      "indexFullText": "unknown"
+    },
+    "evidence": [
+      {
+        "url": "https://archive.org/details/johngpatonmissio03pato",
+        "locator": "Title, preface and contents; see inventory and editorial-issues.json",
+        "note": "Copyright 1898 and editor’s preface February 1898 establish the continuation’s date; archive metadata 1889 conflicts with the book. Includes retrospective historical and mission essays.",
+        "checkedOn": "2026-10-05"
+      },
+      {
+        "url": "https://archive.org/download/johngpatonmissio03pato/johngpatonmissio03pato.pdf",
+        "locator": "Named public file; immutable manifest",
+        "note": "Bounded download from unrestricted identified historic item or Gutenberg mirror; no systematic website crawl.",
+        "checkedOn": "2026-10-05"
+      },
+      {
+        "url": "https://archive.org/download/johngpatonmissio03pato/johngpatonmissio03pato_djvu.txt",
+        "locator": "Named public file; immutable manifest",
+        "note": "Bounded download from unrestricted identified historic item or Gutenberg mirror; no systematic website crawl.",
+        "checkedOn": "2026-10-05"
+      }
+    ],
+    "unresolved": [
+      "Historical text is public domain in the United States; digital packaging and use outside the United States require separate review.",
+      "Public hosting and full-text search are not cleared by this private acquisition record."
+    ],
+    "review": {
+      "date": "2026-10-05",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Bibliographic links and source boundaries; not a whole-text clearance."
+    }
+  },
+  "fullTextIndexed": false,
+  "processing": {
+    "parentAssetId": null,
+    "method": "none",
+    "tool": null,
+    "toolVersion": null,
+    "parameters": null,
+    "date": null,
+    "note": "Unmodified acquired file; supplied OCR is not a proofread transcription. Gutenberg notices retained in full."
+  },
+  "quality": {
+    "state": "issues",
+    "reviewedBy": "Codex",
+    "reviewedOn": "2026-10-05",
+    "note": "Front matter, structural inventory and selected passages inspected; editorial changes and OCR defects are documented. Full text not collated."
+  }
+}

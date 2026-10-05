@@ -1,0 +1,20 @@
+{
+  "fileDuplicates": [],
+  "method": "All 12 content SHA-256 values are distinct; PDF and OCR are manifestations of the same seven editions, not new intellectual works.",
+  "patonRelationship": "Three parts of one autobiographical sequence; separately catalogued volume works joined by series-l13-paton-autobiography.",
+  "possibleExistingComponents": [
+    {
+      "existingWorkId": "work-l03-edwards-brainerd-01",
+      "holding": "work-l13-brainerd-1822",
+      "locator": "Funeral sermon, printed p. 473; terminal contents",
+      "status": "Title/occasion match lead; exact textual identity not collated. No additional sermon unit or coverage count created."
+    }
+  ],
+  "excludedComparisons": [
+    {
+      "url": "https://www.gutenberg.org/ebooks/28025",
+      "title": "The Story of John G. Paton",
+      "status": "Later recasting/abridgment; link for comparison only, not counted as an acquired copy or equivalent text."
+    }
+  ]
+}

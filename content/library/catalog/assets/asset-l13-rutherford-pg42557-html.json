@@ -1,0 +1,89 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "asset",
+  "id": "asset-l13-rutherford-pg42557-html",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "editionId": "edition-l13-rutherford-pg42557",
+  "sourceId": "source-gutenberg",
+  "canonicalUrl": "https://www.gutenberg.org/ebooks/42557",
+  "finalUrl": "https://mirrors.xmission.com/gutenberg/4/2/5/5/42557/42557-h/42557-h.htm",
+  "format": "html",
+  "mediaKind": "text",
+  "acquisitionStatus": "downloaded",
+  "storage": "raw",
+  "relativePath": "library/source-gutenberg/asset-l13-rutherford-pg42557-html/42557-h.htm",
+  "sha256": "3d241ced78ceec32491a0e384bd604858b6b76fd6750b9e6e0b799f6477c0fcb",
+  "byteCount": 2387637,
+  "mimeType": "text/html",
+  "retrievedAt": "2026-10-05T11:46:37.271233Z",
+  "rights": {
+    "category": "public-domain",
+    "jurisdiction": "United States",
+    "licenseId": null,
+    "licenseUrl": null,
+    "attribution": "Named historical authors, editors and source institutions; electronic notices preserved.",
+    "conditions": [
+      "Retain Project Gutenberg license and notices if distributing the Gutenberg electronic edition; verify applicable trademark and jurisdiction requirements."
+    ],
+    "conditionsMet": false,
+    "actions": {
+      "download": "allowed",
+      "host": "unknown",
+      "redistribute": "unknown",
+      "adapt": "unknown",
+      "transcribe": "unknown",
+      "embed": "unknown",
+      "indexMetadata": "allowed",
+      "indexFullText": "unknown"
+    },
+    "evidence": [
+      {
+        "url": "https://www.gutenberg.org/ebooks/42557",
+        "locator": "Title, preface and contents; see inventory and editorial-issues.json",
+        "note": "Third edition, undated Religious Tract Society imprint. Editor reports condensed notices, relocated notes and additions relative to 1863; 365 numbered letters in this witness.",
+        "checkedOn": "2026-10-05"
+      },
+      {
+        "url": "https://mirrors.xmission.com/gutenberg/4/2/5/5/42557/42557-h/42557-h.htm",
+        "locator": "Named public file; immutable manifest",
+        "note": "Bounded download from unrestricted identified historic item or Gutenberg mirror; no systematic website crawl.",
+        "checkedOn": "2026-10-05"
+      },
+      {
+        "url": "https://www.gutenberg.org/policy/robot_access.html",
+        "locator": "Mirrors and approved retrieval methods",
+        "note": "Named static mirror files selected; ordinary website crawling excluded.",
+        "checkedOn": "2026-10-05"
+      }
+    ],
+    "unresolved": [
+      "Historical text is public domain in the United States; digital packaging and use outside the United States require separate review.",
+      "Public hosting and full-text search are not cleared by this private acquisition record."
+    ],
+    "review": {
+      "date": "2026-10-05",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Bibliographic links and source boundaries; not a whole-text clearance."
+    }
+  },
+  "fullTextIndexed": false,
+  "processing": {
+    "parentAssetId": null,
+    "method": "none",
+    "tool": null,
+    "toolVersion": null,
+    "parameters": null,
+    "date": null,
+    "note": "Unmodified acquired file; supplied OCR is not a proofread transcription. Gutenberg notices retained in full."
+  },
+  "quality": {
+    "state": "issues",
+    "reviewedBy": "Codex",
+    "reviewedOn": "2026-10-05",
+    "note": "Front matter, structural inventory and selected passages inspected; editorial changes and OCR defects are documented. Full text not collated."
+  }
+}

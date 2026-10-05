@@ -1,0 +1,81 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "asset",
+  "id": "asset-l13-paton-v3-pdf",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "editionId": "edition-l13-paton-v3",
+  "sourceId": "source-internet-archive",
+  "canonicalUrl": "https://archive.org/details/johngpatonmissio03pato",
+  "finalUrl": "https://dn790007.ca.archive.org/0/items/johngpatonmissio03pato/johngpatonmissio03pato.pdf",
+  "format": "pdf",
+  "mediaKind": "scan",
+  "acquisitionStatus": "downloaded",
+  "storage": "raw",
+  "relativePath": "library/source-internet-archive/asset-l13-paton-v3-pdf/johngpatonmissio03pato.pdf",
+  "sha256": "2b0757e12fdcdfc2e63a644851ccccffdb25ad74414ff661ba80ce8f20db2c08",
+  "byteCount": 4626967,
+  "mimeType": "application/pdf",
+  "retrievedAt": "2026-10-05T11:47:56.269569Z",
+  "rights": {
+    "category": "public-domain",
+    "jurisdiction": "United States",
+    "licenseId": null,
+    "licenseUrl": null,
+    "attribution": "Named historical authors, editors and source institutions; electronic notices preserved.",
+    "conditions": [],
+    "conditionsMet": false,
+    "actions": {
+      "download": "allowed",
+      "host": "unknown",
+      "redistribute": "unknown",
+      "adapt": "unknown",
+      "transcribe": "unknown",
+      "embed": "unknown",
+      "indexMetadata": "allowed",
+      "indexFullText": "unknown"
+    },
+    "evidence": [
+      {
+        "url": "https://archive.org/details/johngpatonmissio03pato",
+        "locator": "Title, preface and contents; see inventory and editorial-issues.json",
+        "note": "Copyright 1898 and editor’s preface February 1898 establish the continuation’s date; archive metadata 1889 conflicts with the book. Includes retrospective historical and mission essays.",
+        "checkedOn": "2026-10-05"
+      },
+      {
+        "url": "https://archive.org/download/johngpatonmissio03pato/johngpatonmissio03pato.pdf",
+        "locator": "Named public file; immutable manifest",
+        "note": "Bounded download from unrestricted identified historic item or Gutenberg mirror; no systematic website crawl.",
+        "checkedOn": "2026-10-05"
+      }
+    ],
+    "unresolved": [
+      "Historical text is public domain in the United States; digital packaging and use outside the United States require separate review.",
+      "Public hosting and full-text search are not cleared by this private acquisition record."
+    ],
+    "review": {
+      "date": "2026-10-05",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Bibliographic links and source boundaries; not a whole-text clearance."
+    }
+  },
+  "fullTextIndexed": false,
+  "processing": {
+    "parentAssetId": null,
+    "method": "none",
+    "tool": null,
+    "toolVersion": null,
+    "parameters": null,
+    "date": null,
+    "note": "Unmodified acquired file; supplied OCR is not a proofread transcription. Gutenberg notices retained in full."
+  },
+  "quality": {
+    "state": "issues",
+    "reviewedBy": "Codex",
+    "reviewedOn": "2026-10-05",
+    "note": "Front matter, structural inventory and selected passages inspected; editorial changes and OCR defects are documented. Full text not collated."
+  }
+}

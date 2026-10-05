@@ -1,0 +1,58 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-l13-brainerd-1822-chapter-09",
+  "editorialState": "catalogued",
+  "notes": [
+    "Testimony layer: mixed-testimony-and-editorial-interpretation. Full body review remains separate."
+  ],
+  "reviews": [],
+  "title": "Remarks on doctrine and the work at Crossweeksung",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-jonathan-edwards",
+      "role": "author"
+    }
+  ],
+  "genre": "biography",
+  "role": "historical-context",
+  "collections": [
+    "history"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "students",
+    "pastors",
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "multiple",
+  "dates": [],
+  "passages": [],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-l13-brainerd-1822",
+      "locator": "Chapter 9; printed page numeral unresolved in OCR; terminal contents"
+    }
+  ],
+  "externalIds": {
+    "l13-unit": [
+      "unit-l13-brainerd-1822-chapter-09"
+    ],
+    "l13-edition": [
+      "edition-l13-brainerd-1822"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/details/memoirsrevdavid00dwiggoog",
+      "locator": "Chapter 9; printed page numeral unresolved in OCR; terminal contents",
+      "note": "Source boundary indexed; testimony layer applies at component level and does not certify each embedded assertion.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

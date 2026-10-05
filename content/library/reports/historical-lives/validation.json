@@ -1,0 +1,11 @@
+{
+  "date": "2026-10-05",
+  "scope": "Current tracked library files plus only the L13 record manifest, extension and report files. Other untracked in-progress collection records excluded without modifying the shared workspace.",
+  "baseCommit": "5974325d3ad817397bf9cbcc7d8a13a08273b87f",
+  "snapshotPath": ".local/library/run-l13-historical-lives-2026-10-05/validation-3yaf6hrk",
+  "fileCount": 13100,
+  "exitCode": 0,
+  "stdout": "Library valid: 75 authors, 28 sources, 8 collections, 110 subjects, 12990 catalog record(s).\n",
+  "stderr": "",
+  "integrityTests": "python -X utf8 -m unittest discover -s scripts -p test_historical_lives.py: 8 passed"
+}

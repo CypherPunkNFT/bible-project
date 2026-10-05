@@ -1,0 +1,147 @@
+{
+  "date": "2026-10-05",
+  "scope": "Named nineteenth-/early-twentieth-century editions and identified Gutenberg derivatives; historical context collection. Establish file identities and editorial layers before content acquisition.",
+  "editions": [
+    {
+      "key": "brainerd-1822",
+      "itemId": "memoirsrevdavid00dwiggoog",
+      "title": "Memoirs of the Rev. David Brainerd",
+      "year": "1822",
+      "creators": [
+        "David Brainerd",
+        "Jonathan Edwards",
+        "Sereno Edwards Dwight"
+      ],
+      "genre": "biography",
+      "files": [
+        [
+          "pdf",
+          "memoirsrevdavid00dwiggoog.pdf"
+        ],
+        [
+          "text",
+          "memoirsrevdavid00dwiggoog_djvu.txt"
+        ]
+      ]
+    },
+    {
+      "key": "mcheyne-1844",
+      "itemId": "robertmurraymcch00bonauoft",
+      "title": "Memoir and Remains of Robert Murray M'Cheyne",
+      "year": "1844",
+      "creators": [
+        "Andrew A. Bonar",
+        "Robert Murray M'Cheyne"
+      ],
+      "genre": "biography",
+      "files": [
+        [
+          "pdf",
+          "robertmurraymcch00bonauoft.pdf"
+        ],
+        [
+          "text",
+          "robertmurraymcch00bonauoft_djvu.txt"
+        ]
+      ]
+    },
+    {
+      "key": "rutherford-pg42557",
+      "itemId": "pg42557",
+      "title": "Letters of Samuel Rutherford, edited by Andrew A. Bonar, third edition",
+      "year": null,
+      "creators": [
+        "Samuel Rutherford",
+        "Andrew A. Bonar"
+      ],
+      "genre": "letter",
+      "files": [],
+      "mirrorUrl": "https://mirrors.xmission.com/gutenberg/4/2/5/5/42557/42557-h/42557-h.htm"
+    },
+    {
+      "key": "knox-pg48250",
+      "itemId": "pg48250",
+      "title": "History of the Reformation of Religion in Scotland, edited by Cuthbert Lennox",
+      "year": "1905",
+      "creators": [
+        "John Knox",
+        "Cuthbert Lennox"
+      ],
+      "genre": "history",
+      "files": [],
+      "mirrorUrl": "https://mirrors.xmission.com/gutenberg/4/8/2/5/48250/48250-h/48250-h.htm"
+    },
+    {
+      "key": "paton-1889-v1",
+      "itemId": "johngpatonmissio188901pato",
+      "title": "John G. Paton, missionary to the New Hebrides: an autobiography, volume 1",
+      "year": "1889",
+      "creators": [
+        "John G. Paton",
+        "James Paton"
+      ],
+      "genre": "autobiography",
+      "files": [
+        [
+          "pdf",
+          "johngpatonmissio188901pato.pdf"
+        ],
+        [
+          "text",
+          "johngpatonmissio188901pato_djvu.txt"
+        ]
+      ]
+    },
+    {
+      "key": "paton-1889-v2",
+      "itemId": "johngpatonmissio188902pato",
+      "title": "John G. Paton, missionary to the New Hebrides: an autobiography, volume 2",
+      "year": "1889",
+      "creators": [
+        "John G. Paton",
+        "James Paton"
+      ],
+      "genre": "autobiography",
+      "files": [
+        [
+          "pdf",
+          "johngpatonmissio188902pato.pdf"
+        ],
+        [
+          "text",
+          "johngpatonmissio188902pato_djvu.txt"
+        ]
+      ]
+    },
+    {
+      "key": "paton-v3",
+      "itemId": "johngpatonmissio03pato",
+      "title": "John G. Paton, missionary to the New Hebrides: an autobiography, volume 3",
+      "year": null,
+      "sourceMetadataYear": "1889",
+      "verifiedEditionYear": "1898",
+      "dateResolution": "Initial bibliography left the year unresolved. Acquired copyright leaf (PDF p. 8) and signed editor preface (PDF p. 9) establish 1898; the archive metadata year is retained as a conflict.",
+      "creators": [
+        "John G. Paton",
+        "James Paton"
+      ],
+      "genre": "autobiography",
+      "files": [
+        [
+          "pdf",
+          "johngpatonmissio03pato.pdf"
+        ],
+        [
+          "text",
+          "johngpatonmissio03pato_djvu.txt"
+        ]
+      ]
+    }
+  ],
+  "rules": [
+    "Preserve diary and letter writers separately from biographers and editors.",
+    "A digital file is not automatically an unabridged witness.",
+    "Never infer all claimed missionary outcomes are independently corroborated.",
+    "Only explicitly selected public files from unrestricted historical items may be retrieved."
+  ]
+}

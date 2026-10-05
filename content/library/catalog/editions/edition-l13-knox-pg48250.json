@@ -1,0 +1,47 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-l13-knox-pg48250",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "workId": "work-l13-knox-pg48250",
+  "label": "History of the Reformation of Religion in Scotland, edited by Cuthbert Lennox — selected witness",
+  "languages": [
+    "en"
+  ],
+  "contributors": [
+    {
+      "authorId": "author-l13-cuthbert-lennox",
+      "role": "editor"
+    }
+  ],
+  "publisher": "Andrew Melrose, London",
+  "dates": [
+    {
+      "event": "edition-publication",
+      "value": "1905",
+      "precision": "year",
+      "label": "1905; source title/copyright or signed editorial evidence",
+      "evidence": [
+        {
+          "url": "https://www.gutenberg.org/ebooks/48250",
+          "locator": "Title, preface and contents; see inventory and editorial-issues.json",
+          "note": "Lennox’s 1905 abridgment modernizes expression and cuts parenthetical material and parts of documents. Four history books plus documentary appendices.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    }
+  ],
+  "abridgment": "abridged",
+  "modernization": "modernized",
+  "evidence": [
+    {
+      "url": "https://www.gutenberg.org/ebooks/48250",
+      "locator": "Title, preface and contents; see inventory and editorial-issues.json",
+      "note": "Lennox’s 1905 abridgment modernizes expression and cuts parenthetical material and parts of documents. Four history books plus documentary appendices.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

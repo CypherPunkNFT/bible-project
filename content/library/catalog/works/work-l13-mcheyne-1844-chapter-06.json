@@ -1,0 +1,58 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-l13-mcheyne-1844-chapter-06",
+  "editorialState": "catalogued",
+  "notes": [
+    "Testimony layer: later-biography-with-embedded-firsthand-material. Full body review remains separate."
+  ],
+  "reviews": [],
+  "title": "Latter days of ministry",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-l13-andrew-bonar",
+      "role": "author"
+    }
+  ],
+  "genre": "biography",
+  "role": "historical-context",
+  "collections": [
+    "history"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "students",
+    "pastors",
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "multiple",
+  "dates": [],
+  "passages": [],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-l13-mcheyne-1844",
+      "locator": "Chapter 6; printed p. 189; contents inventory"
+    }
+  ],
+  "externalIds": {
+    "l13-unit": [
+      "unit-l13-mcheyne-1844-chapter-06"
+    ],
+    "l13-edition": [
+      "edition-l13-mcheyne-1844"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/details/robertmurraymcch00bonauoft",
+      "locator": "Chapter 6; printed p. 189; contents inventory",
+      "note": "Source boundary indexed; testimony layer applies at component level and does not certify each embedded assertion.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

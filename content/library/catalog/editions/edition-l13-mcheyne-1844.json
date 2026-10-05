@@ -1,0 +1,36 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-l13-mcheyne-1844",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "workId": "work-l13-mcheyne-1844",
+  "label": "Memoir and Remains of Robert Murray M'Cheyne — selected witness",
+  "languages": [
+    "en"
+  ],
+  "contributors": [
+    {
+      "authorId": "author-l13-andrew-bonar",
+      "role": "editor"
+    },
+    {
+      "authorId": "author-l13-samuel-miller",
+      "role": "author"
+    }
+  ],
+  "publisher": "Presbyterian Board of Publication, Philadelphia",
+  "dates": [],
+  "abridgment": "abridged",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/details/robertmurraymcch00bonauoft",
+      "locator": "Title, preface and contents; see inventory and editorial-issues.json",
+      "note": "Publisher explicitly omits sermons and some minor writings. Archive year 1844 is an attributed catalog date; title leaf is undated. Introductory letter cites July 1844 review.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

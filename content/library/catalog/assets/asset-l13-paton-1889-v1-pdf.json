@@ -1,0 +1,81 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "asset",
+  "id": "asset-l13-paton-1889-v1-pdf",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "editionId": "edition-l13-paton-1889-v1",
+  "sourceId": "source-internet-archive",
+  "canonicalUrl": "https://archive.org/details/johngpatonmissio188901pato",
+  "finalUrl": "https://dn760103.eu.archive.org/0/items/johngpatonmissio188901pato/johngpatonmissio188901pato.pdf",
+  "format": "pdf",
+  "mediaKind": "scan",
+  "acquisitionStatus": "downloaded",
+  "storage": "raw",
+  "relativePath": "library/source-internet-archive/asset-l13-paton-1889-v1-pdf/johngpatonmissio188901pato.pdf",
+  "sha256": "a97b0b7909fff445e3a9f0858e0c3f4cf46b8b3ecdd2d5382c30db02b4fd1bfd",
+  "byteCount": 14971532,
+  "mimeType": "application/pdf",
+  "retrievedAt": "2026-10-05T11:46:42.320990Z",
+  "rights": {
+    "category": "public-domain",
+    "jurisdiction": "United States",
+    "licenseId": null,
+    "licenseUrl": null,
+    "attribution": "Named historical authors, editors and source institutions; electronic notices preserved.",
+    "conditions": [],
+    "conditionsMet": false,
+    "actions": {
+      "download": "allowed",
+      "host": "unknown",
+      "redistribute": "unknown",
+      "adapt": "unknown",
+      "transcribe": "unknown",
+      "embed": "unknown",
+      "indexMetadata": "allowed",
+      "indexFullText": "unknown"
+    },
+    "evidence": [
+      {
+        "url": "https://archive.org/details/johngpatonmissio188901pato",
+        "locator": "Title, preface and contents; see inventory and editorial-issues.json",
+        "note": "New illustrated Revell edition, undated title. Prefaces January/February 1889; archive dates item 1889. James rewrote and expanded portions without John’s final revision.",
+        "checkedOn": "2026-10-05"
+      },
+      {
+        "url": "https://archive.org/download/johngpatonmissio188901pato/johngpatonmissio188901pato.pdf",
+        "locator": "Named public file; immutable manifest",
+        "note": "Bounded download from unrestricted identified historic item or Gutenberg mirror; no systematic website crawl.",
+        "checkedOn": "2026-10-05"
+      }
+    ],
+    "unresolved": [
+      "Historical text is public domain in the United States; digital packaging and use outside the United States require separate review.",
+      "Public hosting and full-text search are not cleared by this private acquisition record."
+    ],
+    "review": {
+      "date": "2026-10-05",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Bibliographic links and source boundaries; not a whole-text clearance."
+    }
+  },
+  "fullTextIndexed": false,
+  "processing": {
+    "parentAssetId": null,
+    "method": "none",
+    "tool": null,
+    "toolVersion": null,
+    "parameters": null,
+    "date": null,
+    "note": "Unmodified acquired file; supplied OCR is not a proofread transcription. Gutenberg notices retained in full."
+  },
+  "quality": {
+    "state": "issues",
+    "reviewedBy": "Codex",
+    "reviewedOn": "2026-10-05",
+    "note": "Front matter, structural inventory and selected passages inspected; editorial changes and OCR defects are documented. Full text not collated."
+  }
+}
