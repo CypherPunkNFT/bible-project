@@ -1,0 +1,94 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-ready-begg-3035",
+  "editorialState": "catalogued",
+  "notes": [
+    "https://www.truthforlife.org/resources/series/study-in-2-timothy-volume-two/, position 2.",
+    "Publisher audio duration: 17:39.",
+    "resource_date: 2014-06-01",
+    "published_on: 2014-06-01"
+  ],
+  "reviews": [],
+  "title": "Discipleship in 3D — Part Two",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alistair-begg",
+      "role": "author"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "students",
+    "pastors",
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "twenty-first-century",
+  "dates": [
+    {
+      "event": "delivery",
+      "value": "2014-06-01",
+      "precision": "day",
+      "label": "Publisher resource_date",
+      "evidence": [
+        {
+          "url": "https://www.truthforlife.org/resources/sermon/discipleship-3-d-part-two/",
+          "locator": "Transcript, resource metadata and series listing",
+          "note": "Publisher transcript; preaching/resource date remains separate from web publication date.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    },
+    {
+      "event": "upload",
+      "value": "2014-06-01",
+      "precision": "day",
+      "label": "Publisher published_on",
+      "evidence": [
+        {
+          "url": "https://www.truthforlife.org/resources/sermon/discipleship-3-d-part-two/",
+          "locator": "Transcript, resource metadata and series listing",
+          "note": "Publisher transcript; preaching/resource date remains separate from web publication date.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    }
+  ],
+  "passages": [
+    {
+      "reference": "2 Timothy 2:3–6",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 55002003,
+      "end": 55002006,
+      "verification": "verified",
+      "locator": "https://www.truthforlife.org/resources/sermon/discipleship-3-d-part-two/; source-assigned Scripture metadata"
+    }
+  ],
+  "related": [],
+  "externalIds": {
+    "officialDestination": [
+      "https://www.truthforlife.org/resources/sermon/discipleship-3-d-part-two/"
+    ],
+    "officialSermonNumber": [
+      "3035"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://www.truthforlife.org/resources/sermon/discipleship-3-d-part-two/",
+      "locator": "Transcript, resource metadata and series listing",
+      "note": "Publisher transcript; preaching/resource date remains separate from web publication date.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

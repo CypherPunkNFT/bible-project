@@ -1,0 +1,55 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "series",
+  "id": "series-ready-begg-study-in-2-timothy-volume-three",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "title": "A Study in 2 Timothy, Volume 3 - Truth For Life",
+  "authorIds": [
+    "author-alistair-begg"
+  ],
+  "members": [
+    {
+      "workId": "work-ready-begg-3053",
+      "position": 6,
+      "originalLabel": "Source position 6; sermon 3053"
+    },
+    {
+      "workId": "work-ready-begg-3054",
+      "position": 7,
+      "originalLabel": "Source position 7; sermon 3054"
+    },
+    {
+      "workId": "work-ready-begg-3055",
+      "position": 8,
+      "originalLabel": "Source position 8; sermon 3055"
+    },
+    {
+      "workId": "work-ready-begg-3057",
+      "position": 9,
+      "originalLabel": "Source position 9; sermon 3057"
+    }
+  ],
+  "expectedCount": 12,
+  "completeness": "partial",
+  "missing": [
+    "https://www.truthforlife.org/resources/sermon/times-difficulty/ — no-substantial-transcript",
+    "https://www.truthforlife.org/resources/sermon/bad-men-weak-women/ — no-substantial-transcript",
+    "https://www.truthforlife.org/resources/sermon/persecuted-church/ — no-substantial-transcript",
+    "https://www.truthforlife.org/resources/sermon/keep-on/ — no-substantial-transcript",
+    "https://www.truthforlife.org/resources/sermon/scripture-god-breathed/ — no-substantial-transcript",
+    "https://www.truthforlife.org/resources/sermon/preach-word-2015/ — no-substantial-transcript",
+    "https://www.truthforlife.org/resources/sermon/itching-ears/ — no-substantial-transcript",
+    "https://www.truthforlife.org/resources/sermon/fulfill-your-ministry/ — no-substantial-transcript"
+  ],
+  "inventoryEvidence": [
+    {
+      "url": "https://www.truthforlife.org/resources/series/study-in-2-timothy-volume-three/",
+      "locator": "Source-listed series members",
+      "note": "Completeness here concerns acquired publisher transcripts; missing transcript pages remain listed explicitly.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

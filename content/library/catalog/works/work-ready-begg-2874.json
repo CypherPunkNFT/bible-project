@@ -1,0 +1,94 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-ready-begg-2874",
+  "editorialState": "catalogued",
+  "notes": [
+    "Titus series volume 2, position 3.",
+    "Publisher audio duration: 40:22.",
+    "resource_date: 2012-06-03",
+    "published_on: 2012-06-05"
+  ],
+  "reviews": [],
+  "title": "Teaching That Accords with Sound Doctrine — Part One",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alistair-begg",
+      "role": "author"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "students",
+    "pastors",
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "twenty-first-century",
+  "dates": [
+    {
+      "event": "delivery",
+      "value": "2012-06-03",
+      "precision": "day",
+      "label": "Publisher resource_date",
+      "evidence": [
+        {
+          "url": "https://www.truthforlife.org/resources/sermon/teaching-accords-sound-doctrine-part-one/",
+          "locator": "Transcript, resource metadata and series listing",
+          "note": "Publisher transcript; preaching/resource date remains separate from web publication date.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    },
+    {
+      "event": "upload",
+      "value": "2012-06-05",
+      "precision": "day",
+      "label": "Publisher published_on",
+      "evidence": [
+        {
+          "url": "https://www.truthforlife.org/resources/sermon/teaching-accords-sound-doctrine-part-one/",
+          "locator": "Transcript, resource metadata and series listing",
+          "note": "Publisher transcript; preaching/resource date remains separate from web publication date.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    }
+  ],
+  "passages": [
+    {
+      "reference": "Titus 2:4–10",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 56002004,
+      "end": 56002010,
+      "verification": "verified",
+      "locator": "https://www.truthforlife.org/resources/sermon/teaching-accords-sound-doctrine-part-one/; source-assigned Scripture metadata"
+    }
+  ],
+  "related": [],
+  "externalIds": {
+    "officialDestination": [
+      "https://www.truthforlife.org/resources/sermon/teaching-accords-sound-doctrine-part-one/"
+    ],
+    "officialSermonNumber": [
+      "2874"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://www.truthforlife.org/resources/sermon/teaching-accords-sound-doctrine-part-one/",
+      "locator": "Transcript, resource metadata and series listing",
+      "note": "Publisher transcript; preaching/resource date remains separate from web publication date.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

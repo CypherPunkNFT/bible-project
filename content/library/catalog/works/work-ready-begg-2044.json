@@ -1,0 +1,94 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-ready-begg-2044",
+  "editorialState": "catalogued",
+  "notes": [
+    "https://www.truthforlife.org/resources/series/study-in-philippians-volume-1/, position 5.",
+    "Publisher audio duration: 45:12.",
+    "resource_date: 1998-11-08",
+    "published_on: 1998-11-08"
+  ],
+  "reviews": [],
+  "title": "Take a Stand",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alistair-begg",
+      "role": "author"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "students",
+    "pastors",
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "twenty-first-century",
+  "dates": [
+    {
+      "event": "delivery",
+      "value": "1998-11-08",
+      "precision": "day",
+      "label": "Publisher resource_date",
+      "evidence": [
+        {
+          "url": "https://www.truthforlife.org/resources/sermon/take-a-stand/",
+          "locator": "Transcript, resource metadata and series listing",
+          "note": "Publisher transcript; preaching/resource date remains separate from web publication date.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    },
+    {
+      "event": "upload",
+      "value": "1998-11-08",
+      "precision": "day",
+      "label": "Publisher published_on",
+      "evidence": [
+        {
+          "url": "https://www.truthforlife.org/resources/sermon/take-a-stand/",
+          "locator": "Transcript, resource metadata and series listing",
+          "note": "Publisher transcript; preaching/resource date remains separate from web publication date.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    }
+  ],
+  "passages": [
+    {
+      "reference": "Philippians 1:27–30",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 50001027,
+      "end": 50001030,
+      "verification": "verified",
+      "locator": "https://www.truthforlife.org/resources/sermon/take-a-stand/; source-assigned Scripture metadata"
+    }
+  ],
+  "related": [],
+  "externalIds": {
+    "officialDestination": [
+      "https://www.truthforlife.org/resources/sermon/take-a-stand/"
+    ],
+    "officialSermonNumber": [
+      "2044"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://www.truthforlife.org/resources/sermon/take-a-stand/",
+      "locator": "Transcript, resource metadata and series listing",
+      "note": "Publisher transcript; preaching/resource date remains separate from web publication date.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

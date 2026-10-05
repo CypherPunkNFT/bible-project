@@ -1,0 +1,94 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-ready-begg-2023",
+  "editorialState": "catalogued",
+  "notes": [
+    "https://www.truthforlife.org/resources/series/study-in-philippians-volume-2/, position 5.",
+    "Publisher audio duration: 45:21.",
+    "resource_date: 1998-07-12",
+    "published_on: 1998-07-12"
+  ],
+  "reviews": [],
+  "title": "Love, Joy, Peace",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alistair-begg",
+      "role": "author"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "students",
+    "pastors",
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "twenty-first-century",
+  "dates": [
+    {
+      "event": "delivery",
+      "value": "1998-07-12",
+      "precision": "day",
+      "label": "Publisher resource_date",
+      "evidence": [
+        {
+          "url": "https://www.truthforlife.org/resources/sermon/love-joy-peace/",
+          "locator": "Transcript, resource metadata and series listing",
+          "note": "Publisher transcript; preaching/resource date remains separate from web publication date.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    },
+    {
+      "event": "upload",
+      "value": "1998-07-12",
+      "precision": "day",
+      "label": "Publisher published_on",
+      "evidence": [
+        {
+          "url": "https://www.truthforlife.org/resources/sermon/love-joy-peace/",
+          "locator": "Transcript, resource metadata and series listing",
+          "note": "Publisher transcript; preaching/resource date remains separate from web publication date.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    }
+  ],
+  "passages": [
+    {
+      "reference": "Philippians 4:2–7",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 50004002,
+      "end": 50004007,
+      "verification": "verified",
+      "locator": "https://www.truthforlife.org/resources/sermon/love-joy-peace/; source-assigned Scripture metadata"
+    }
+  ],
+  "related": [],
+  "externalIds": {
+    "officialDestination": [
+      "https://www.truthforlife.org/resources/sermon/love-joy-peace/"
+    ],
+    "officialSermonNumber": [
+      "2023"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://www.truthforlife.org/resources/sermon/love-joy-peace/",
+      "locator": "Transcript, resource metadata and series listing",
+      "note": "Publisher transcript; preaching/resource date remains separate from web publication date.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

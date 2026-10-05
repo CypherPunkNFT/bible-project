@@ -1,0 +1,94 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-ready-begg-1990",
+  "editorialState": "catalogued",
+  "notes": [
+    "https://www.truthforlife.org/resources/series/a-study-in-1-timothy-volume-2/, position 5.",
+    "Publisher audio duration: 47:10.",
+    "resource_date: 1998-03-01",
+    "published_on: 1998-03-01"
+  ],
+  "reviews": [],
+  "title": "False Teachers",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alistair-begg",
+      "role": "author"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "students",
+    "pastors",
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "twenty-first-century",
+  "dates": [
+    {
+      "event": "delivery",
+      "value": "1998-03-01",
+      "precision": "day",
+      "label": "Publisher resource_date",
+      "evidence": [
+        {
+          "url": "https://www.truthforlife.org/resources/sermon/false-teachers/",
+          "locator": "Transcript, resource metadata and series listing",
+          "note": "Publisher transcript; preaching/resource date remains separate from web publication date.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    },
+    {
+      "event": "upload",
+      "value": "1998-03-01",
+      "precision": "day",
+      "label": "Publisher published_on",
+      "evidence": [
+        {
+          "url": "https://www.truthforlife.org/resources/sermon/false-teachers/",
+          "locator": "Transcript, resource metadata and series listing",
+          "note": "Publisher transcript; preaching/resource date remains separate from web publication date.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    }
+  ],
+  "passages": [
+    {
+      "reference": "1 Timothy 6:3–5",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 54006003,
+      "end": 54006005,
+      "verification": "verified",
+      "locator": "https://www.truthforlife.org/resources/sermon/false-teachers/; source-assigned Scripture metadata"
+    }
+  ],
+  "related": [],
+  "externalIds": {
+    "officialDestination": [
+      "https://www.truthforlife.org/resources/sermon/false-teachers/"
+    ],
+    "officialSermonNumber": [
+      "1990"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://www.truthforlife.org/resources/sermon/false-teachers/",
+      "locator": "Transcript, resource metadata and series listing",
+      "note": "Publisher transcript; preaching/resource date remains separate from web publication date.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

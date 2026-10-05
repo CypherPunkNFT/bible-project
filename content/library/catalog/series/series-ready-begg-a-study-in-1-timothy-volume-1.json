@@ -1,0 +1,76 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "series",
+  "id": "series-ready-begg-a-study-in-1-timothy-volume-1",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "title": "A Study in 1 Timothy, Volume 1 - Truth For Life",
+  "authorIds": [
+    "author-alistair-begg"
+  ],
+  "members": [
+    {
+      "workId": "work-ready-begg-1952",
+      "position": 1,
+      "originalLabel": "Source position 1; sermon 1952"
+    },
+    {
+      "workId": "work-ready-begg-1954",
+      "position": 2,
+      "originalLabel": "Source position 2; sermon 1954"
+    },
+    {
+      "workId": "work-ready-begg-1956",
+      "position": 3,
+      "originalLabel": "Source position 3; sermon 1956"
+    },
+    {
+      "workId": "work-ready-begg-1960",
+      "position": 4,
+      "originalLabel": "Source position 4; sermon 1960"
+    },
+    {
+      "workId": "work-ready-begg-1961",
+      "position": 5,
+      "originalLabel": "Source position 5; sermon 1961"
+    },
+    {
+      "workId": "work-ready-begg-1963",
+      "position": 6,
+      "originalLabel": "Source position 6; sermon 1963"
+    },
+    {
+      "workId": "work-ready-begg-1964",
+      "position": 7,
+      "originalLabel": "Source position 7; sermon 1964"
+    },
+    {
+      "workId": "work-ready-begg-1968",
+      "position": 8,
+      "originalLabel": "Source position 8; sermon 1968"
+    },
+    {
+      "workId": "work-ready-begg-1977",
+      "position": 9,
+      "originalLabel": "Source position 9; sermon 1977"
+    },
+    {
+      "workId": "work-ready-begg-1979",
+      "position": 10,
+      "originalLabel": "Source position 10; sermon 1979"
+    }
+  ],
+  "expectedCount": 10,
+  "completeness": "complete",
+  "missing": [],
+  "inventoryEvidence": [
+    {
+      "url": "https://www.truthforlife.org/resources/series/a-study-in-1-timothy-volume-1/",
+      "locator": "Source-listed series members",
+      "note": "Completeness here concerns acquired publisher transcripts; missing transcript pages remain listed explicitly.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

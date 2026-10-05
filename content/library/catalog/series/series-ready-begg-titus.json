@@ -1,0 +1,123 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "series",
+  "id": "series-ready-begg-titus",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "title": "A Study in Titus — three volumes",
+  "authorIds": [
+    "author-alistair-begg"
+  ],
+  "members": [
+    {
+      "workId": "work-ready-begg-2866",
+      "position": 1,
+      "originalLabel": "Volume 1, item 1; sermon 2866"
+    },
+    {
+      "workId": "work-ready-begg-2867",
+      "position": 2,
+      "originalLabel": "Volume 1, item 2; sermon 2867"
+    },
+    {
+      "workId": "work-ready-begg-2868",
+      "position": 3,
+      "originalLabel": "Volume 1, item 3; sermon 2868"
+    },
+    {
+      "workId": "work-ready-begg-2870",
+      "position": 4,
+      "originalLabel": "Volume 1, item 4; sermon 2870"
+    },
+    {
+      "workId": "work-ready-begg-2871",
+      "position": 5,
+      "originalLabel": "Volume 1, item 5; sermon 2871"
+    },
+    {
+      "workId": "work-ready-begg-2872",
+      "position": 6,
+      "originalLabel": "Volume 1, item 6; sermon 2872"
+    },
+    {
+      "workId": "work-ready-begg-2873",
+      "position": 7,
+      "originalLabel": "Volume 2, item 1; sermon 2873"
+    },
+    {
+      "workId": "work-ready-begg-2877",
+      "position": 8,
+      "originalLabel": "Volume 2, item 2; sermon 2877"
+    },
+    {
+      "workId": "work-ready-begg-2874",
+      "position": 9,
+      "originalLabel": "Volume 2, item 3; sermon 2874"
+    },
+    {
+      "workId": "work-ready-begg-2878",
+      "position": 10,
+      "originalLabel": "Volume 2, item 4; sermon 2878"
+    },
+    {
+      "workId": "work-ready-begg-2881",
+      "position": 11,
+      "originalLabel": "Volume 3, item 1; sermon 2881"
+    },
+    {
+      "workId": "work-ready-begg-2882",
+      "position": 12,
+      "originalLabel": "Volume 3, item 2; sermon 2882"
+    },
+    {
+      "workId": "work-ready-begg-2883",
+      "position": 13,
+      "originalLabel": "Volume 3, item 3; sermon 2883"
+    },
+    {
+      "workId": "work-ready-begg-2884",
+      "position": 14,
+      "originalLabel": "Volume 3, item 4; sermon 2884"
+    },
+    {
+      "workId": "work-ready-begg-2885",
+      "position": 15,
+      "originalLabel": "Volume 3, item 5; sermon 2885"
+    },
+    {
+      "workId": "work-ready-begg-2887",
+      "position": 16,
+      "originalLabel": "Volume 3, item 6; sermon 2887"
+    },
+    {
+      "workId": "work-ready-begg-2890",
+      "position": 17,
+      "originalLabel": "Volume 3, item 7; sermon 2890"
+    }
+  ],
+  "expectedCount": 17,
+  "completeness": "complete",
+  "inventoryEvidence": [
+    {
+      "url": "https://www.truthforlife.org/resources/series/study-in-titus-volume-1/",
+      "locator": "Ordered sermons and available volumes",
+      "note": "All three source-listed volumes, including chapter 3.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://www.truthforlife.org/resources/series/a-study-in-titus-volume-2/",
+      "locator": "Ordered sermons and available volumes",
+      "note": "All three source-listed volumes, including chapter 3.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://www.truthforlife.org/resources/series/study-titus-volume-3/",
+      "locator": "Ordered sermons and available volumes",
+      "note": "All three source-listed volumes, including chapter 3.",
+      "checkedOn": "2026-10-05"
+    }
+  ],
+  "missing": []
+}

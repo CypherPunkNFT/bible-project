@@ -1,0 +1,81 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "series",
+  "id": "series-ready-begg-study-in-philippians-volume-1",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "title": "A Study in Philippians, Volume 1 - Truth For Life",
+  "authorIds": [
+    "author-alistair-begg"
+  ],
+  "members": [
+    {
+      "workId": "work-ready-begg-2038",
+      "position": 1,
+      "originalLabel": "Source position 1; sermon 2038"
+    },
+    {
+      "workId": "work-ready-begg-2039",
+      "position": 2,
+      "originalLabel": "Source position 2; sermon 2039"
+    },
+    {
+      "workId": "work-ready-begg-2040",
+      "position": 3,
+      "originalLabel": "Source position 3; sermon 2040"
+    },
+    {
+      "workId": "work-ready-begg-2041",
+      "position": 4,
+      "originalLabel": "Source position 4; sermon 2041"
+    },
+    {
+      "workId": "work-ready-begg-2044",
+      "position": 5,
+      "originalLabel": "Source position 5; sermon 2044"
+    },
+    {
+      "workId": "work-ready-begg-2045",
+      "position": 6,
+      "originalLabel": "Source position 6; sermon 2045"
+    },
+    {
+      "workId": "work-ready-begg-2046",
+      "position": 7,
+      "originalLabel": "Source position 7; sermon 2046"
+    },
+    {
+      "workId": "work-ready-begg-2047",
+      "position": 8,
+      "originalLabel": "Source position 8; sermon 2047"
+    },
+    {
+      "workId": "work-ready-begg-2010",
+      "position": 9,
+      "originalLabel": "Source position 9; sermon 2010"
+    },
+    {
+      "workId": "work-ready-begg-2012",
+      "position": 10,
+      "originalLabel": "Source position 10; sermon 2012"
+    },
+    {
+      "workId": "work-ready-begg-2013",
+      "position": 11,
+      "originalLabel": "Source position 11; sermon 2013"
+    }
+  ],
+  "expectedCount": 11,
+  "completeness": "complete",
+  "missing": [],
+  "inventoryEvidence": [
+    {
+      "url": "https://www.truthforlife.org/resources/series/study-in-philippians-volume-1/",
+      "locator": "Source-listed series members",
+      "note": "Completeness here concerns acquired publisher transcripts; missing transcript pages remain listed explicitly.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

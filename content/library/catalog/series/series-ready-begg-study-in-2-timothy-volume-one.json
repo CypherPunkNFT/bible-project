@@ -1,0 +1,58 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "series",
+  "id": "series-ready-begg-study-in-2-timothy-volume-one",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "title": "A Study in 2 Timothy, Volume 1 - Truth For Life",
+  "authorIds": [
+    "author-alistair-begg"
+  ],
+  "members": [
+    {
+      "workId": "work-ready-begg-3000",
+      "position": 1,
+      "originalLabel": "Source position 1; sermon 3000"
+    },
+    {
+      "workId": "work-ready-begg-3007",
+      "position": 3,
+      "originalLabel": "Source position 3; sermon 3007"
+    },
+    {
+      "workId": "work-ready-begg-3009",
+      "position": 5,
+      "originalLabel": "Source position 5; sermon 3009"
+    },
+    {
+      "workId": "work-ready-begg-3010",
+      "position": 6,
+      "originalLabel": "Source position 6; sermon 3010"
+    },
+    {
+      "workId": "work-ready-begg-3023",
+      "position": 9,
+      "originalLabel": "Source position 9; sermon 3023"
+    }
+  ],
+  "expectedCount": 11,
+  "completeness": "partial",
+  "missing": [
+    "https://www.truthforlife.org/resources/sermon/paul-timothy/ — no-substantial-transcript",
+    "https://www.truthforlife.org/resources/sermon/necessary-reminders-part-two/ — no-substantial-transcript",
+    "https://www.truthforlife.org/resources/sermon/preacher-apostle-teacher/ — no-substantial-transcript",
+    "https://www.truthforlife.org/resources/sermon/follow-pattern/ — no-substantial-transcript",
+    "https://www.truthforlife.org/resources/sermon/passing-truth/ — no-substantial-transcript",
+    "https://www.truthforlife.org/resources/sermon/passing-truth-part-two/ — no-substantial-transcript"
+  ],
+  "inventoryEvidence": [
+    {
+      "url": "https://www.truthforlife.org/resources/series/study-in-2-timothy-volume-one/",
+      "locator": "Source-listed series members",
+      "note": "Completeness here concerns acquired publisher transcripts; missing transcript pages remain listed explicitly.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-ready-completion-perkins",
+  "editorialState": "catalogued",
+  "notes": [
+    "Retain original spelling, page markers and encoded editorial gaps; distinct from other catalog witnesses."
+  ],
+  "reviews": [],
+  "workId": "work-perkins-golden-chain",
+  "label": "Perkins, Golden Chaine with appended treatises, 1600 — EEBO-TCP A09339",
+  "languages": [
+    "en"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A09339/master/A09339.xml",
+      "locator": "Acquired text and source metadata",
+      "note": "EEBO-TCP CC0; keep encoding and gap markers. 1600 edition, not the catalogued 1591 impression.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

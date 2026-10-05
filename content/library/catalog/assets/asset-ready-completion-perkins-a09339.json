@@ -1,0 +1,76 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "asset",
+  "id": "asset-ready-completion-perkins-a09339",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "editionId": "edition-ready-completion-perkins",
+  "sourceId": "source-eebo-tcp",
+  "canonicalUrl": "https://raw.githubusercontent.com/textcreationpartnership/A09339/master/A09339.xml",
+  "finalUrl": "https://raw.githubusercontent.com/textcreationpartnership/A09339/master/A09339.xml",
+  "format": "other",
+  "mediaKind": "text",
+  "acquisitionStatus": "downloaded",
+  "storage": "raw",
+  "relativePath": "library/source-eebo-tcp/asset-ready-completion-perkins-a09339/original",
+  "sha256": "7f6e78ed2196e7bd1bdf1d3dff372cf1ffc8065fae50f73de775397d28df07dd",
+  "byteCount": 4915852,
+  "mimeType": "text/plain",
+  "retrievedAt": "2026-10-05T13:36:21.008100Z",
+  "rights": {
+    "category": "open-license",
+    "jurisdiction": "Worldwide",
+    "licenseId": "CC0-1.0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "attribution": "Original author, host and electronic contributors retained in the unchanged source file.",
+    "conditions": [
+      "EEBO-TCP CC0; keep encoding and gap markers. 1600 edition, not the catalogued 1591 impression."
+    ],
+    "conditionsMet": true,
+    "actions": {
+      "download": "allowed",
+      "host": "allowed",
+      "redistribute": "allowed",
+      "adapt": "allowed",
+      "transcribe": "allowed",
+      "embed": "unknown",
+      "indexMetadata": "allowed",
+      "indexFullText": "allowed"
+    },
+    "evidence": [
+      {
+        "url": "https://raw.githubusercontent.com/textcreationpartnership/A09339/master/A09339.xml",
+        "locator": "Acquired source and preserved notices",
+        "note": "Keyboarded XML with 2416 encoded gaps. Not a gap-free critical edition.",
+        "checkedOn": "2026-10-05"
+      }
+    ],
+    "unresolved": [
+      "No public full-text publication or whole-work proofreading performed."
+    ],
+    "review": {
+      "date": "2026-10-05",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Bibliographic links and source boundaries; not a whole-text clearance."
+    }
+  },
+  "fullTextIndexed": false,
+  "processing": {
+    "parentAssetId": null,
+    "method": "none",
+    "tool": null,
+    "toolVersion": null,
+    "parameters": null,
+    "date": null,
+    "note": "Original acquired bytes unchanged; existing text, no OCR."
+  },
+  "quality": {
+    "state": "issues",
+    "reviewedBy": "Codex",
+    "reviewedOn": "2026-10-05",
+    "note": "Keyboarded XML with 2416 encoded gaps. Not a gap-free critical edition."
+  }
+}

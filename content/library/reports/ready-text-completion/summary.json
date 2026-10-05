@@ -1,0 +1,50 @@
+{
+  "historicalAcquiredFiles": 26,
+  "historicalNewDownloads": 21,
+  "historicalReusedEvidenceFiles": 5,
+  "goodwinVolumes": 12,
+  "machenChapters": 7,
+  "cc0XmlEditions": 2,
+  "confessionalHtmlDocuments": 5,
+  "beggPagesChecked": 102,
+  "beggTranscripts": 80,
+  "beggNoSubstantialTranscript": 22,
+  "piper": {
+    "checkedAt": "2026-10-05T13:58:00.158836+00:00",
+    "expected": 2397,
+    "processed": 1907,
+    "statuses": {
+      "downloaded": 1885,
+      "no-substantial-text": 13,
+      "author-review": 8,
+      "error": 1
+    },
+    "pending": 490,
+    "verifiedOriginals": 1885,
+    "uniqueOriginalHashes": 1885,
+    "verifiedDerivedTexts": 1885,
+    "recordedExtractedWords": 7503133,
+    "accessErrors": [
+      {
+        "url": "https://www.desiringgod.org/messages/a-burning-witness-to-the-light",
+        "source": "piper",
+        "kind": "messages",
+        "title": "A Burning Witness to the Light",
+        "subtitle": null,
+        "dateLabel": "Dec 10, 1989",
+        "indexUrl": "https://www.desiringgod.org/authors/john-piper/messages?page=77",
+        "indexSha256": "cee95dcbe904b36ca8d37d55e98a43f0e85c8e147ff4e0f6512f4d04d261e907",
+        "status": "error",
+        "error": "HTTP Error 429: Too Many Requests"
+      }
+    ],
+    "inputInventorySha256": "1b6e43eafd2a82ddf2ebbddea4b02b6d6c105556108e34b7f97386210c41cad3",
+    "inputResultsSha256": "b4bc261d31f85f2d1f148755fe0b2883d6ba4970e3d34ddbe5b126b5f8dad0f5",
+    "completion": "partial-rate-limited",
+    "rights": "Private noncommercial copies; no public republication or app full-text indexing clearance.",
+    "limits": "Written messages are not certified verbatim audio transcripts. Multiple-speaker entries remain outside the single-author acquisition."
+  },
+  "ocrJobs": 0,
+  "audioTranscriptionJobs": 0,
+  "newScanDownloads": 0
+}

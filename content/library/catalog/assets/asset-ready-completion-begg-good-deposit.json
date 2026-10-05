@@ -1,0 +1,76 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "asset",
+  "id": "asset-ready-completion-begg-good-deposit",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "editionId": "edition-ready-begg-3023",
+  "sourceId": "source-truth-for-life",
+  "canonicalUrl": "https://www.truthforlife.org/resources/sermon/good-deposit/",
+  "finalUrl": "https://www.truthforlife.org/resources/sermon/good-deposit/",
+  "format": "html",
+  "mediaKind": "text",
+  "acquisitionStatus": "downloaded",
+  "storage": "raw",
+  "relativePath": "library/source-truth-for-life/asset-ready-completion-begg-good-deposit/original",
+  "sha256": "9fba360a5bb1e90d95556294b32ae8f5f63330dc0128b243f495eff92263638b",
+  "byteCount": 104159,
+  "mimeType": "text/html",
+  "retrievedAt": "2026-10-05T13:52:40.918131Z",
+  "rights": {
+    "category": "restricted-license",
+    "jurisdiction": "United States",
+    "licenseId": "source-personal-educational-permission",
+    "licenseUrl": "https://www.truthforlife.org/about/policies/",
+    "attribution": "Original author, host and electronic contributors retained in the unchanged source file.",
+    "conditions": [
+      "Preserve unedited content; credit Truth For Life and link original plus homepage. Preserve third-party Scripture notices."
+    ],
+    "conditionsMet": false,
+    "actions": {
+      "download": "allowed",
+      "host": "unknown",
+      "redistribute": "unknown",
+      "adapt": "unknown",
+      "transcribe": "unknown",
+      "embed": "unknown",
+      "indexMetadata": "allowed",
+      "indexFullText": "unknown"
+    },
+    "evidence": [
+      {
+        "url": "https://www.truthforlife.org/resources/sermon/good-deposit/",
+        "locator": "Acquired source and preserved notices",
+        "note": "Full publisher transcript extracted; not independently compared against audio.",
+        "checkedOn": "2026-10-05"
+      }
+    ],
+    "unresolved": [
+      "No public full-text publication or whole-work proofreading performed."
+    ],
+    "review": {
+      "date": "2026-10-05",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Bibliographic links and source boundaries; not a whole-text clearance."
+    }
+  },
+  "fullTextIndexed": false,
+  "processing": {
+    "parentAssetId": null,
+    "method": "none",
+    "tool": null,
+    "toolVersion": null,
+    "parameters": null,
+    "date": null,
+    "note": "Original acquired bytes unchanged; existing text, no OCR."
+  },
+  "quality": {
+    "state": "issues",
+    "reviewedBy": "Codex",
+    "reviewedOn": "2026-10-05",
+    "note": "Full publisher transcript extracted; not independently compared against audio."
+  }
+}

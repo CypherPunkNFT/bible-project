@@ -515,6 +515,23 @@
         }
       ],
       "reviewedOn": "2026-10-05"
+    },
+    {
+      "id": "source-eebo-tcp",
+      "name": "Early English Books Online Text Creation Partnership",
+      "url": "https://github.com/textcreationpartnership",
+      "role": "content-host",
+      "automation": "approved-endpoint",
+      "acquisitionNote": "Named CC0 XML releases on the official TCP repository; inspect each header/license. Preserve page markers, encoded characters and editorial gaps.",
+      "evidence": [
+        {
+          "url": "https://github.com/textcreationpartnership/A09339",
+          "locator": "README and TEI availability statement",
+          "note": "Phase I CC0 keyboarded text; not scan images or a guarantee of completeness.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "reviewedOn": "2026-10-05"
     }
   ]
 }

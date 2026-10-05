@@ -1,0 +1,76 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "asset",
+  "id": "asset-ready-completion-confession-heidelberg",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "editionId": "edition-l08-heidelberg",
+  "sourceId": "source-ccel",
+  "canonicalUrl": "https://ccel.org/ccel/schaff/creeds3/creeds3.iv.vi.html",
+  "finalUrl": "https://ccel.org/ccel/schaff/creeds3/creeds3.iv.vi.html",
+  "format": "html",
+  "mediaKind": "text",
+  "acquisitionStatus": "downloaded",
+  "storage": "raw",
+  "relativePath": "library/source-ccel/asset-ready-completion-confession-heidelberg/original.html",
+  "sha256": "6f2bc7b33b7136d38423481627e1682e1c9f6b52d81d6a07565d73e5dc62f511",
+  "byteCount": 311151,
+  "mimeType": "text/html",
+  "retrievedAt": "2026-10-05T12:39:12.946427Z",
+  "rights": {
+    "category": "restricted-license",
+    "jurisdiction": "United States",
+    "licenseId": "source-personal-educational-permission",
+    "licenseUrl": "https://www.ccel.org/about/copyright.html",
+    "attribution": "Original author, host and electronic contributors retained in the unchanged source file.",
+    "conditions": [
+      "CCEL personal/educational/nonprofit use; public republication not cleared."
+    ],
+    "conditionsMet": false,
+    "actions": {
+      "download": "allowed",
+      "host": "unknown",
+      "redistribute": "unknown",
+      "adapt": "unknown",
+      "transcribe": "unknown",
+      "embed": "unknown",
+      "indexMetadata": "allowed",
+      "indexFullText": "unknown"
+    },
+    "evidence": [
+      {
+        "url": "https://ccel.org/ccel/schaff/creeds3/creeds3.iv.vi.html",
+        "locator": "Acquired source and preserved notices",
+        "note": "Complete named document body in Schaff compilation; preserve parallel languages and proofs.",
+        "checkedOn": "2026-10-05"
+      }
+    ],
+    "unresolved": [
+      "No public full-text publication or whole-work proofreading performed."
+    ],
+    "review": {
+      "date": "2026-10-05",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Bibliographic links and source boundaries; not a whole-text clearance."
+    }
+  },
+  "fullTextIndexed": false,
+  "processing": {
+    "parentAssetId": null,
+    "method": "none",
+    "tool": null,
+    "toolVersion": null,
+    "parameters": null,
+    "date": null,
+    "note": "Original acquired bytes unchanged; existing text, no OCR."
+  },
+  "quality": {
+    "state": "issues",
+    "reviewedBy": "Codex",
+    "reviewedOn": "2026-10-05",
+    "note": "Complete named document body in Schaff compilation; preserve parallel languages and proofs."
+  }
+}

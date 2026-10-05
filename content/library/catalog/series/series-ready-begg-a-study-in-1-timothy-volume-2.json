@@ -1,0 +1,84 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "series",
+  "id": "series-ready-begg-a-study-in-1-timothy-volume-2",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "title": "A Study in 1 Timothy, Volume 2 - Truth For Life",
+  "authorIds": [
+    "author-alistair-begg"
+  ],
+  "members": [
+    {
+      "workId": "work-ready-begg-1982",
+      "position": 1,
+      "originalLabel": "Source position 1; sermon 1982"
+    },
+    {
+      "workId": "work-ready-begg-1985",
+      "position": 2,
+      "originalLabel": "Source position 2; sermon 1985"
+    },
+    {
+      "workId": "work-ready-begg-1986",
+      "position": 3,
+      "originalLabel": "Source position 3; sermon 1986"
+    },
+    {
+      "workId": "work-ready-begg-1988",
+      "position": 4,
+      "originalLabel": "Source position 4; sermon 1988"
+    },
+    {
+      "workId": "work-ready-begg-1990",
+      "position": 5,
+      "originalLabel": "Source position 5; sermon 1990"
+    },
+    {
+      "workId": "work-ready-begg-1992",
+      "position": 6,
+      "originalLabel": "Source position 6; sermon 1992"
+    },
+    {
+      "workId": "work-ready-begg-1993",
+      "position": 7,
+      "originalLabel": "Source position 7; sermon 1993"
+    },
+    {
+      "workId": "work-ready-begg-2001",
+      "position": 10,
+      "originalLabel": "Source position 10; sermon 2001"
+    },
+    {
+      "workId": "work-ready-begg-2007",
+      "position": 11,
+      "originalLabel": "Source position 11; sermon 2007"
+    },
+    {
+      "workId": "work-ready-begg-2009",
+      "position": 12,
+      "originalLabel": "Source position 12; sermon 2009"
+    },
+    {
+      "workId": "work-ready-begg-2011",
+      "position": 13,
+      "originalLabel": "Source position 13; sermon 2011"
+    }
+  ],
+  "expectedCount": 13,
+  "completeness": "partial",
+  "missing": [
+    "https://www.truthforlife.org/resources/sermon/a-charge-to-a-man-of-god-pt1/ — no-substantial-transcript",
+    "https://www.truthforlife.org/resources/sermon/a-charge-to-a-man-of-god-pt2/ — no-substantial-transcript"
+  ],
+  "inventoryEvidence": [
+    {
+      "url": "https://www.truthforlife.org/resources/series/a-study-in-1-timothy-volume-2/",
+      "locator": "Source-listed series members",
+      "note": "Completeness here concerns acquired publisher transcripts; missing transcript pages remain listed explicitly.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

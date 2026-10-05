@@ -1,0 +1,76 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "asset",
+  "id": "asset-ready-completion-begg-take-a-stand",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "editionId": "edition-ready-begg-2044",
+  "sourceId": "source-truth-for-life",
+  "canonicalUrl": "https://www.truthforlife.org/resources/sermon/take-a-stand/",
+  "finalUrl": "https://www.truthforlife.org/resources/sermon/take-a-stand/",
+  "format": "html",
+  "mediaKind": "text",
+  "acquisitionStatus": "downloaded",
+  "storage": "raw",
+  "relativePath": "library/source-truth-for-life/asset-ready-completion-begg-take-a-stand/original",
+  "sha256": "94f1ea55b35dfddd3b7f9e1576e0b932215208e80e7d9f4f02c8c383ee8fe641",
+  "byteCount": 112456,
+  "mimeType": "text/html",
+  "retrievedAt": "2026-10-05T13:53:27.285701Z",
+  "rights": {
+    "category": "restricted-license",
+    "jurisdiction": "United States",
+    "licenseId": "source-personal-educational-permission",
+    "licenseUrl": "https://www.truthforlife.org/about/policies/",
+    "attribution": "Original author, host and electronic contributors retained in the unchanged source file.",
+    "conditions": [
+      "Preserve unedited content; credit Truth For Life and link original plus homepage. Preserve third-party Scripture notices."
+    ],
+    "conditionsMet": false,
+    "actions": {
+      "download": "allowed",
+      "host": "unknown",
+      "redistribute": "unknown",
+      "adapt": "unknown",
+      "transcribe": "unknown",
+      "embed": "unknown",
+      "indexMetadata": "allowed",
+      "indexFullText": "unknown"
+    },
+    "evidence": [
+      {
+        "url": "https://www.truthforlife.org/resources/sermon/take-a-stand/",
+        "locator": "Acquired source and preserved notices",
+        "note": "Full publisher transcript extracted; not independently compared against audio.",
+        "checkedOn": "2026-10-05"
+      }
+    ],
+    "unresolved": [
+      "No public full-text publication or whole-work proofreading performed."
+    ],
+    "review": {
+      "date": "2026-10-05",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Bibliographic links and source boundaries; not a whole-text clearance."
+    }
+  },
+  "fullTextIndexed": false,
+  "processing": {
+    "parentAssetId": null,
+    "method": "none",
+    "tool": null,
+    "toolVersion": null,
+    "parameters": null,
+    "date": null,
+    "note": "Original acquired bytes unchanged; existing text, no OCR."
+  },
+  "quality": {
+    "state": "issues",
+    "reviewedBy": "Codex",
+    "reviewedOn": "2026-10-05",
+    "note": "Full publisher transcript extracted; not independently compared against audio."
+  }
+}

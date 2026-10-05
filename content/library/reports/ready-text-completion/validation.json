@@ -1,0 +1,17 @@
+{
+  "status": "passed",
+  "checks": [
+    "All historical file hashes and bytes",
+    "Goodwin volumes 1–12 against metadata, roman title labels and server MD5",
+    "Machen seven chapter bodies",
+    "Savoy 32 chapters and church order",
+    "CC0 XML availability and preserved gap markers",
+    "Begg complete 17-member Titus inventory, source transcript equality, dates and durations",
+    "Additional 85-member series inventory; acquired bodies separated from absent transcripts"
+  ],
+  "historicalFiles": 26,
+  "goodwinVolumes": 12,
+  "machenChapters": 7,
+  "beggTranscripts": 80,
+  "limits": "File, structure and provenance checks; not whole-book proofreading, theological endorsement or audio comparison."
+}

@@ -1,0 +1,66 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "series",
+  "id": "series-ready-begg-study-in-2-timothy-volume-two",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "title": "A Study in 2 Timothy, Volume 2 - Truth For Life",
+  "authorIds": [
+    "author-alistair-begg"
+  ],
+  "members": [
+    {
+      "workId": "work-ready-begg-3034",
+      "position": 1,
+      "originalLabel": "Source position 1; sermon 3034"
+    },
+    {
+      "workId": "work-ready-begg-3035",
+      "position": 2,
+      "originalLabel": "Source position 2; sermon 3035"
+    },
+    {
+      "workId": "work-ready-begg-3036",
+      "position": 3,
+      "originalLabel": "Source position 3; sermon 3036"
+    },
+    {
+      "workId": "work-ready-begg-3042",
+      "position": 4,
+      "originalLabel": "Source position 4; sermon 3042"
+    },
+    {
+      "workId": "work-ready-begg-3043",
+      "position": 5,
+      "originalLabel": "Source position 5; sermon 3043"
+    },
+    {
+      "workId": "work-ready-begg-3044",
+      "position": 6,
+      "originalLabel": "Source position 6; sermon 3044"
+    },
+    {
+      "workId": "work-ready-begg-3045",
+      "position": 7,
+      "originalLabel": "Source position 7; sermon 3045"
+    },
+    {
+      "workId": "work-ready-begg-3047",
+      "position": 8,
+      "originalLabel": "Source position 8; sermon 3047"
+    }
+  ],
+  "expectedCount": 8,
+  "completeness": "complete",
+  "missing": [],
+  "inventoryEvidence": [
+    {
+      "url": "https://www.truthforlife.org/resources/series/study-in-2-timothy-volume-two/",
+      "locator": "Source-listed series members",
+      "note": "Completeness here concerns acquired publisher transcripts; missing transcript pages remain listed explicitly.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

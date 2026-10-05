@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "series",
+  "id": "series-ready-begg-study-in-philemon",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "title": "A Study in Philemon - Truth For Life",
+  "authorIds": [
+    "author-alistair-begg"
+  ],
+  "members": [
+    {
+      "workId": "work-ready-begg-2628",
+      "position": 1,
+      "originalLabel": "Source position 1; sermon 2628"
+    },
+    {
+      "workId": "work-ready-begg-2633",
+      "position": 2,
+      "originalLabel": "Source position 2; sermon 2633"
+    },
+    {
+      "workId": "work-ready-begg-2635",
+      "position": 3,
+      "originalLabel": "Source position 3; sermon 2635"
+    }
+  ],
+  "expectedCount": 3,
+  "completeness": "complete",
+  "missing": [],
+  "inventoryEvidence": [
+    {
+      "url": "https://www.truthforlife.org/resources/series/study-in-philemon/",
+      "locator": "Source-listed series members",
+      "note": "Completeness here concerns acquired publisher transcripts; missing transcript pages remain listed explicitly.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

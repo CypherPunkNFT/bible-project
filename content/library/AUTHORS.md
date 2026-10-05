@@ -4,7 +4,7 @@ Generated from [authors.json](authors.json). Edit the JSON, then run `node scrip
 
 Established 2026-10-05. All decisions are AI-assisted initial screening, not independent human theological approval. Eligible authors still require work-level and edition/rights checks. Provisional status identifies incomplete evidence, not a finding against an author.
 
-**76 people: 46 initially eligible; 3 provisional.**
+**76 people: 47 initially eligible; 2 provisional.**
 
 | Author | Placement | Decision | Evidence | Next check |
 |---|---|---|---|---|
@@ -33,7 +33,7 @@ Established 2026-10-05. All decisions are AI-assisted initial screening, not ind
 | J. I. Packer | anglican, calvinist-evangelical | eligible | [Basis](https://learn.ligonier.org/articles/sola-fide-the-reformed-doctrine-of-justification) | Work-level doctrinal review remains necessary; a modern published essay is not an open-reuse grant. |
 | John Piper | baptist, calvinist-evangelical | eligible | [Basis](https://www.desiringgod.org/articles/what-we-believe-about-the-five-points-of-calvinism) | Document further distinctives from their own sources; Desiring God permissions differ for text, media and third-party authors. |
 | D. A. Carson | calvinist-evangelical | provisional | [Basis](https://www.thegospelcoalition.org/article/prophetic-center-carson-vision/) | Locate primary statements supporting the collection's core scope; assess covenant distinctions and publisher-by-publisher rights. |
-| Alistair Begg | calvinist-evangelical | provisional | [Basis](https://www.truthforlife.org/resources/sermon/we-stand-in-grace/) | Locate an authoritative doctrinal statement and supporting reception evidence; inspect Truth For Life's current indexing/reuse policy. |
+| Alistair Begg | calvinist-evangelical | eligible | [Basis](https://www.truthforlife.org/resources/sermon/we-stand-in-grace/) |  |
 | Zacharias Ursinus | reformed, continental-reformed | eligible | [Basis](https://ccel.org/ccel/ursinus/catechism/catechism.i.html) | Eligibility is work-specific; modern translations and editions need separate rights review. |
 | Heinrich Bullinger | reformed, continental-reformed | eligible | [Basis](https://commons.wikimedia.org/wiki/File:The_Decades_of_Henry_Bullinger_(IA_decadeshenrybul06britgoog).pdf) | Eligibility is work-specific; modern translations and editions need separate rights review. |
 | John Knox | reformed, presbyterian | eligible | [Basis](https://ccel.org/ccel/knox/prayer/prayer.ii.html) | Eligibility is work-specific; modern translations and editions need separate rights review. |

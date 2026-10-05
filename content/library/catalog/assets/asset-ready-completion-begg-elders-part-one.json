@@ -1,0 +1,76 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "asset",
+  "id": "asset-ready-completion-begg-elders-part-one",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "editionId": "edition-ready-begg-2870",
+  "sourceId": "source-truth-for-life",
+  "canonicalUrl": "https://www.truthforlife.org/resources/sermon/elders-part-one/",
+  "finalUrl": "https://www.truthforlife.org/resources/sermon/elders-part-one/",
+  "format": "html",
+  "mediaKind": "text",
+  "acquisitionStatus": "downloaded",
+  "storage": "raw",
+  "relativePath": "library/source-truth-for-life/asset-ready-completion-begg-elders-part-one/original",
+  "sha256": "8c57cddf081c6e5eca91e02bee8ec59d8f0b8ebbb934c2a079e8440cc0401a5e",
+  "byteCount": 106466,
+  "mimeType": "text/html",
+  "retrievedAt": "2026-10-05T13:40:28.352860Z",
+  "rights": {
+    "category": "restricted-license",
+    "jurisdiction": "United States",
+    "licenseId": "source-personal-educational-permission",
+    "licenseUrl": "https://www.truthforlife.org/about/policies/",
+    "attribution": "Original author, host and electronic contributors retained in the unchanged source file.",
+    "conditions": [
+      "Preserve unedited content; credit Truth For Life and link original plus homepage. Preserve third-party Scripture notices."
+    ],
+    "conditionsMet": false,
+    "actions": {
+      "download": "allowed",
+      "host": "unknown",
+      "redistribute": "unknown",
+      "adapt": "unknown",
+      "transcribe": "unknown",
+      "embed": "unknown",
+      "indexMetadata": "allowed",
+      "indexFullText": "unknown"
+    },
+    "evidence": [
+      {
+        "url": "https://www.truthforlife.org/resources/sermon/elders-part-one/",
+        "locator": "Acquired source and preserved notices",
+        "note": "Full publisher transcript extracted; not independently compared against audio.",
+        "checkedOn": "2026-10-05"
+      }
+    ],
+    "unresolved": [
+      "No public full-text publication or whole-work proofreading performed."
+    ],
+    "review": {
+      "date": "2026-10-05",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Bibliographic links and source boundaries; not a whole-text clearance."
+    }
+  },
+  "fullTextIndexed": false,
+  "processing": {
+    "parentAssetId": null,
+    "method": "none",
+    "tool": null,
+    "toolVersion": null,
+    "parameters": null,
+    "date": null,
+    "note": "Original acquired bytes unchanged; existing text, no OCR."
+  },
+  "quality": {
+    "state": "issues",
+    "reviewedBy": "Codex",
+    "reviewedOn": "2026-10-05",
+    "note": "Full publisher transcript extracted; not independently compared against audio."
+  }
+}

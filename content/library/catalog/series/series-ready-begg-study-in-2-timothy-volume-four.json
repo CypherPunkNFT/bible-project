@@ -1,0 +1,38 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "series",
+  "id": "series-ready-begg-study-in-2-timothy-volume-four",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "title": "A Study in 2 Timothy, Volume 4 - Truth For Life",
+  "authorIds": [
+    "author-alistair-begg"
+  ],
+  "members": [
+    {
+      "workId": "work-ready-begg-3085",
+      "position": 1,
+      "originalLabel": "Source position 1; sermon 3085"
+    }
+  ],
+  "expectedCount": 7,
+  "completeness": "partial",
+  "missing": [
+    "https://www.truthforlife.org/resources/sermon/mission-accomplished-cd/ — no-substantial-transcript",
+    "https://www.truthforlife.org/resources/sermon/crown-righteousness/ — no-substantial-transcript",
+    "https://www.truthforlife.org/resources/sermon/mr-temporary/ — no-substantial-transcript",
+    "https://www.truthforlife.org/resources/sermon/friendship-matters/ — no-substantial-transcript",
+    "https://www.truthforlife.org/resources/sermon/lions-mouth/ — no-substantial-transcript",
+    "https://www.truthforlife.org/resources/sermon/postscript/ — no-substantial-transcript"
+  ],
+  "inventoryEvidence": [
+    {
+      "url": "https://www.truthforlife.org/resources/series/study-in-2-timothy-volume-four/",
+      "locator": "Source-listed series members",
+      "note": "Completeness here concerns acquired publisher transcripts; missing transcript pages remain listed explicitly.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

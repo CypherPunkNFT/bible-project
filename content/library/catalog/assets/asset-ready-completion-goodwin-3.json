@@ -1,0 +1,76 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "asset",
+  "id": "asset-ready-completion-goodwin-3",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "editionId": "edition-ready-completion-goodwin-3",
+  "sourceId": "source-internet-archive",
+  "canonicalUrl": "https://archive.org/download/goodwinsworks03gooduoft/goodwinsworks03gooduoft_djvu.txt",
+  "finalUrl": "https://dn790007.ca.archive.org/0/items/goodwinsworks03gooduoft/goodwinsworks03gooduoft_djvu.txt",
+  "format": "text",
+  "mediaKind": "text",
+  "acquisitionStatus": "downloaded",
+  "storage": "raw",
+  "relativePath": "library/source-internet-archive/asset-ready-completion-goodwin-3/original",
+  "sha256": "78c818a09fbc406ecc709e80550bc4e31b8c2cf77951c07dda5d50911b2c0e19",
+  "byteCount": 2175230,
+  "mimeType": "text/plain",
+  "retrievedAt": "2026-10-05T13:36:45.290278Z",
+  "rights": {
+    "category": "public-domain",
+    "jurisdiction": "United States",
+    "licenseId": null,
+    "licenseUrl": null,
+    "attribution": "Original author, host and electronic contributors retained in the unchanged source file.",
+    "conditions": [
+      "Identified nineteenth-century edition, public domain in US; unmodified host OCR; no new transcription."
+    ],
+    "conditionsMet": false,
+    "actions": {
+      "download": "allowed",
+      "host": "unknown",
+      "redistribute": "unknown",
+      "adapt": "unknown",
+      "transcribe": "unknown",
+      "embed": "unknown",
+      "indexMetadata": "allowed",
+      "indexFullText": "unknown"
+    },
+    "evidence": [
+      {
+        "url": "https://archive.org/download/goodwinsworks03gooduoft/goodwinsworks03gooduoft_djvu.txt",
+        "locator": "Acquired source and preserved notices",
+        "note": "Source-provided OCR; unproofread; this volume is part of a twelve-volume collected work.",
+        "checkedOn": "2026-10-05"
+      }
+    ],
+    "unresolved": [
+      "No public full-text publication or whole-work proofreading performed."
+    ],
+    "review": {
+      "date": "2026-10-05",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Bibliographic links and source boundaries; not a whole-text clearance."
+    }
+  },
+  "fullTextIndexed": false,
+  "processing": {
+    "parentAssetId": null,
+    "method": "none",
+    "tool": null,
+    "toolVersion": null,
+    "parameters": null,
+    "date": null,
+    "note": "Original acquired bytes unchanged; existing text, no OCR."
+  },
+  "quality": {
+    "state": "issues",
+    "reviewedBy": "Codex",
+    "reviewedOn": "2026-10-05",
+    "note": "Source-provided OCR; unproofread; this volume is part of a twelve-volume collected work."
+  }
+}

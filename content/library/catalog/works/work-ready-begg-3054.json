@@ -1,0 +1,103 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-ready-begg-3054",
+  "editorialState": "catalogued",
+  "notes": [
+    "https://www.truthforlife.org/resources/series/study-in-2-timothy-volume-three/, position 7.",
+    "Publisher audio duration: 21:05.",
+    "resource_date: 2014-11-02",
+    "published_on: 2014-11-04"
+  ],
+  "reviews": [],
+  "title": "The Necessary Word",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-alistair-begg",
+      "role": "author"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "students",
+    "pastors",
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "twenty-first-century",
+  "dates": [
+    {
+      "event": "delivery",
+      "value": "2014-11-02",
+      "precision": "day",
+      "label": "Publisher resource_date",
+      "evidence": [
+        {
+          "url": "https://www.truthforlife.org/resources/sermon/necessary-word/",
+          "locator": "Transcript, resource metadata and series listing",
+          "note": "Publisher transcript; preaching/resource date remains separate from web publication date.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    },
+    {
+      "event": "upload",
+      "value": "2014-11-04",
+      "precision": "day",
+      "label": "Publisher published_on",
+      "evidence": [
+        {
+          "url": "https://www.truthforlife.org/resources/sermon/necessary-word/",
+          "locator": "Transcript, resource metadata and series listing",
+          "note": "Publisher transcript; preaching/resource date remains separate from web publication date.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    }
+  ],
+  "passages": [
+    {
+      "reference": "2 Timothy 3:16",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 55003016,
+      "end": 55003016,
+      "verification": "verified",
+      "locator": "https://www.truthforlife.org/resources/sermon/necessary-word/; source-assigned Scripture metadata"
+    },
+    {
+      "reference": "Psalm 119:1–176",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 19119001,
+      "end": 19119176,
+      "verification": "verified",
+      "locator": "https://www.truthforlife.org/resources/sermon/necessary-word/; source-assigned Scripture metadata"
+    }
+  ],
+  "related": [],
+  "externalIds": {
+    "officialDestination": [
+      "https://www.truthforlife.org/resources/sermon/necessary-word/"
+    ],
+    "officialSermonNumber": [
+      "3054"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://www.truthforlife.org/resources/sermon/necessary-word/",
+      "locator": "Transcript, resource metadata and series listing",
+      "note": "Publisher transcript; preaching/resource date remains separate from web publication date.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

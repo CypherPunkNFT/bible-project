@@ -1,0 +1,76 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "series",
+  "id": "series-ready-begg-study-in-philippians-volume-2",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "title": "A Study in Philippians, Volume 2 - Truth For Life",
+  "authorIds": [
+    "author-alistair-begg"
+  ],
+  "members": [
+    {
+      "workId": "work-ready-begg-2015",
+      "position": 1,
+      "originalLabel": "Source position 1; sermon 2015"
+    },
+    {
+      "workId": "work-ready-begg-2020",
+      "position": 2,
+      "originalLabel": "Source position 2; sermon 2020"
+    },
+    {
+      "workId": "work-ready-begg-2021",
+      "position": 3,
+      "originalLabel": "Source position 3; sermon 2021"
+    },
+    {
+      "workId": "work-ready-begg-2022",
+      "position": 4,
+      "originalLabel": "Source position 4; sermon 2022"
+    },
+    {
+      "workId": "work-ready-begg-2023",
+      "position": 5,
+      "originalLabel": "Source position 5; sermon 2023"
+    },
+    {
+      "workId": "work-ready-begg-2029",
+      "position": 6,
+      "originalLabel": "Source position 6; sermon 2029"
+    },
+    {
+      "workId": "work-ready-begg-2031",
+      "position": 7,
+      "originalLabel": "Source position 7; sermon 2031"
+    },
+    {
+      "workId": "work-ready-begg-2032",
+      "position": 8,
+      "originalLabel": "Source position 8; sermon 2032"
+    },
+    {
+      "workId": "work-ready-begg-2035",
+      "position": 9,
+      "originalLabel": "Source position 9; sermon 2035"
+    },
+    {
+      "workId": "work-ready-begg-2036",
+      "position": 10,
+      "originalLabel": "Source position 10; sermon 2036"
+    }
+  ],
+  "expectedCount": 10,
+  "completeness": "complete",
+  "missing": [],
+  "inventoryEvidence": [
+    {
+      "url": "https://www.truthforlife.org/resources/series/study-in-philippians-volume-2/",
+      "locator": "Source-listed series members",
+      "note": "Completeness here concerns acquired publisher transcripts; missing transcript pages remain listed explicitly.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

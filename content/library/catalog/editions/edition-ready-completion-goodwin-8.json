@@ -1,0 +1,30 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-ready-completion-goodwin-8",
+  "editorialState": "catalogued",
+  "notes": [
+    "Source item: goodwinsworks08gooduoft",
+    "Volume 8 verified in item metadata and text front matter; host OCR retains defects."
+  ],
+  "reviews": [],
+  "workId": "work-goodwin-works",
+  "label": "Thomas Goodwin, Works, volume 8 — Nichol nineteenth-century witness",
+  "languages": [
+    "en"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/goodwinsworks08gooduoft/goodwinsworks08gooduoft_djvu.txt",
+      "locator": "Acquired text and source metadata",
+      "note": "Identified nineteenth-century edition, public domain in US; unmodified host OCR; no new transcription.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

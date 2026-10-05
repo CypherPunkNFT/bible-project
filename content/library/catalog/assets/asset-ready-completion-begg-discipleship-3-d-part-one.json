@@ -1,0 +1,76 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "asset",
+  "id": "asset-ready-completion-begg-discipleship-3-d-part-one",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "editionId": "edition-ready-begg-3034",
+  "sourceId": "source-truth-for-life",
+  "canonicalUrl": "https://www.truthforlife.org/resources/sermon/discipleship-3-d-part-one/",
+  "finalUrl": "https://www.truthforlife.org/resources/sermon/discipleship-3-d-part-one/",
+  "format": "html",
+  "mediaKind": "text",
+  "acquisitionStatus": "downloaded",
+  "storage": "raw",
+  "relativePath": "library/source-truth-for-life/asset-ready-completion-begg-discipleship-3-d-part-one/original",
+  "sha256": "4f2c7434eb83a2dfcfb75724127199e98bcd3b32ff1bf6d28795717a10d2eed1",
+  "byteCount": 102263,
+  "mimeType": "text/html",
+  "retrievedAt": "2026-10-05T13:53:04.484901Z",
+  "rights": {
+    "category": "restricted-license",
+    "jurisdiction": "United States",
+    "licenseId": "source-personal-educational-permission",
+    "licenseUrl": "https://www.truthforlife.org/about/policies/",
+    "attribution": "Original author, host and electronic contributors retained in the unchanged source file.",
+    "conditions": [
+      "Preserve unedited content; credit Truth For Life and link original plus homepage. Preserve third-party Scripture notices."
+    ],
+    "conditionsMet": false,
+    "actions": {
+      "download": "allowed",
+      "host": "unknown",
+      "redistribute": "unknown",
+      "adapt": "unknown",
+      "transcribe": "unknown",
+      "embed": "unknown",
+      "indexMetadata": "allowed",
+      "indexFullText": "unknown"
+    },
+    "evidence": [
+      {
+        "url": "https://www.truthforlife.org/resources/sermon/discipleship-3-d-part-one/",
+        "locator": "Acquired source and preserved notices",
+        "note": "Full publisher transcript extracted; not independently compared against audio.",
+        "checkedOn": "2026-10-05"
+      }
+    ],
+    "unresolved": [
+      "No public full-text publication or whole-work proofreading performed."
+    ],
+    "review": {
+      "date": "2026-10-05",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Bibliographic links and source boundaries; not a whole-text clearance."
+    }
+  },
+  "fullTextIndexed": false,
+  "processing": {
+    "parentAssetId": null,
+    "method": "none",
+    "tool": null,
+    "toolVersion": null,
+    "parameters": null,
+    "date": null,
+    "note": "Original acquired bytes unchanged; existing text, no OCR."
+  },
+  "quality": {
+    "state": "issues",
+    "reviewedBy": "Codex",
+    "reviewedOn": "2026-10-05",
+    "note": "Full publisher transcript extracted; not independently compared against audio."
+  }
+}
