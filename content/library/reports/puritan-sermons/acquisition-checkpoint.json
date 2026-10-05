@@ -1,0 +1,879 @@
+{
+  "missionId": "L02",
+  "status": "in-progress",
+  "date": "2026-10-05",
+  "reason": "Owner selected L03 while L02 cataloguing was underway; no acquisition job remains running.",
+  "acquiredFiles": 86,
+  "bytes": 1235103494,
+  "lastSuccessfulItem": "wholeworksofjohn03flav",
+  "nextItem": "Resolve missing Internet Archive item wholeworksofjohn04flav using a holding-library record before continuing Flavel, Goodwin, Bunyan and Boston.",
+  "failures": [
+    {
+      "item": "wholeworksofjohn04flav",
+      "reason": "Metadata API returned no item; raw response retained, no bypass attempted."
+    }
+  ],
+  "catalogueState": "Raw acquisition and working scan inspection exist; nine-author component catalog is unfinished and no completed run has been published.",
+  "assets": [
+    {
+      "assetId": "asset-l02-bodyofpracticald01wats-metadata",
+      "url": "https://archive.org/metadata/bodyofpracticald01wats",
+      "finalUrl": "https://archive.org/metadata/bodyofpracticald01wats",
+      "retrievedAt": "2026-10-05T05:42:00.647583Z",
+      "sha256": "95afaff9898b6ac50cb155811e27f54f1b41f532e81b7bdaf2be349bfff7566a",
+      "byteCount": 106280,
+      "mimeType": "application/json",
+      "relativePath": "library/source-internet-archive/asset-l02-bodyofpracticald01wats-metadata/metadata.json"
+    },
+    {
+      "assetId": "asset-l02-bodyofpracticald01wats-ocr",
+      "url": "https://archive.org/download/bodyofpracticald01wats/bodyofpracticald01wats_djvu.txt",
+      "finalUrl": "https://dn760001.eu.archive.org/0/items/bodyofpracticald01wats/bodyofpracticald01wats_djvu.txt",
+      "retrievedAt": "2026-10-05T05:47:30.735218Z",
+      "sha256": "13c8176025db491dddb081a56029470c5b24dfe756c302245f1d7059aa4ec0de",
+      "byteCount": 1819348,
+      "mimeType": "text/plain",
+      "relativePath": "library/source-internet-archive/asset-l02-bodyofpracticald01wats-ocr/bodyofpracticald01wats_djvu.txt"
+    },
+    {
+      "assetId": "asset-l02-bodyofpracticald01wats-pdf",
+      "url": "https://archive.org/download/bodyofpracticald01wats/bodyofpracticald01wats.pdf",
+      "finalUrl": "https://dn720404.ca.archive.org/0/items/bodyofpracticald01wats/bodyofpracticald01wats.pdf",
+      "retrievedAt": "2026-10-05T05:47:44.276858Z",
+      "sha256": "c3aabc421c118462cffddfe05dc337565b58b4d820ce83b41ae34406dfd91561",
+      "byteCount": 41694866,
+      "mimeType": "application/pdf",
+      "relativePath": "library/source-internet-archive/asset-l02-bodyofpracticald01wats-pdf/bodyofpracticald01wats.pdf"
+    },
+    {
+      "assetId": "asset-l02-bodyofpracticald01wats-scandata",
+      "url": "https://archive.org/download/bodyofpracticald01wats/bodyofpracticald01wats_scandata.xml",
+      "finalUrl": "https://dn720404.ca.archive.org/0/items/bodyofpracticald01wats/bodyofpracticald01wats_scandata.xml",
+      "retrievedAt": "2026-10-05T05:47:32.718207Z",
+      "sha256": "2b8b5e9b817f944dcc60fff60daebaf74754ef87ab566c6d00bf1c7c485683ac",
+      "byteCount": 297217,
+      "mimeType": "text/xml",
+      "relativePath": "library/source-internet-archive/asset-l02-bodyofpracticald01wats-scandata/bodyofpracticald01wats_scandata.xml"
+    },
+    {
+      "assetId": "asset-l02-bodyofpracticald02wats-metadata",
+      "url": "https://archive.org/metadata/bodyofpracticald02wats",
+      "finalUrl": "https://archive.org/metadata/bodyofpracticald02wats",
+      "retrievedAt": "2026-10-05T05:42:05.007116Z",
+      "sha256": "884486240e392602d9717d428952cd0cacfb584f219f6788a92f431cdfba9fa0",
+      "byteCount": 110190,
+      "mimeType": "application/json",
+      "relativePath": "library/source-internet-archive/asset-l02-bodyofpracticald02wats-metadata/metadata.json"
+    },
+    {
+      "assetId": "asset-l02-bodyofpracticald02wats-ocr",
+      "url": "https://archive.org/download/bodyofpracticald02wats/bodyofpracticald02wats_djvu.txt",
+      "finalUrl": "https://dn790000.ca.archive.org/0/items/bodyofpracticald02wats/bodyofpracticald02wats_djvu.txt",
+      "retrievedAt": "2026-10-05T05:47:46.876516Z",
+      "sha256": "4f14019ddca30579150d205252bb41643e7d3d6914fcf3963c08b7dc90a4484c",
+      "byteCount": 1931481,
+      "mimeType": "text/plain",
+      "relativePath": "library/source-internet-archive/asset-l02-bodyofpracticald02wats-ocr/bodyofpracticald02wats_djvu.txt"
+    },
+    {
+      "assetId": "asset-l02-bodyofpracticald02wats-pdf",
+      "url": "https://archive.org/download/bodyofpracticald02wats/bodyofpracticald02wats.pdf",
+      "finalUrl": "https://dn790000.ca.archive.org/0/items/bodyofpracticald02wats/bodyofpracticald02wats.pdf",
+      "retrievedAt": "2026-10-05T05:48:00.772046Z",
+      "sha256": "b7325cb6e7ee338711db07e03aa62b1b4b9cb479a2ae7622e7bd6a5be42080e9",
+      "byteCount": 41222993,
+      "mimeType": "application/pdf",
+      "relativePath": "library/source-internet-archive/asset-l02-bodyofpracticald02wats-pdf/bodyofpracticald02wats.pdf"
+    },
+    {
+      "assetId": "asset-l02-bodyofpracticald02wats-scandata",
+      "url": "https://archive.org/download/bodyofpracticald02wats/bodyofpracticald02wats_scandata.xml",
+      "finalUrl": "https://dn790000.ca.archive.org/0/items/bodyofpracticald02wats/bodyofpracticald02wats_scandata.xml",
+      "retrievedAt": "2026-10-05T05:47:48.757532Z",
+      "sha256": "ac36a03a3272ff8e7b19ce8c1bd736f626c3669e1f1ea328cbda24ba564efb53",
+      "byteCount": 308526,
+      "mimeType": "text/xml",
+      "relativePath": "library/source-internet-archive/asset-l02-bodyofpracticald02wats-scandata/bodyofpracticald02wats_scandata.xml"
+    },
+    {
+      "assetId": "asset-l02-completeworkso02sibb-metadata",
+      "url": "https://archive.org/metadata/completeworkso02sibb",
+      "finalUrl": "https://archive.org/metadata/completeworkso02sibb",
+      "retrievedAt": "2026-10-05T05:44:39.458565Z",
+      "sha256": "1bc7f5a496f0745c1727a3ecfa08da062026b4a3063c76e090e2943aabf136d0",
+      "byteCount": 102546,
+      "mimeType": "application/json",
+      "relativePath": "library/source-internet-archive/asset-l02-completeworkso02sibb-metadata/metadata.json"
+    },
+    {
+      "assetId": "asset-l02-completeworkso02sibb-ocr",
+      "url": "https://archive.org/download/completeworkso02sibb/completeworkso02sibb_djvu.txt",
+      "finalUrl": "https://dn710606.ca.archive.org/0/items/completeworkso02sibb/completeworkso02sibb_djvu.txt",
+      "retrievedAt": "2026-10-05T05:44:41.842657Z",
+      "sha256": "6b0ec5910cc21ae1654b868353d06312b57a119f234c3ff90b71b4a63aa19b9e",
+      "byteCount": 2270408,
+      "mimeType": "text/plain",
+      "relativePath": "library/source-internet-archive/asset-l02-completeworkso02sibb-ocr/completeworkso02sibb_djvu.txt"
+    },
+    {
+      "assetId": "asset-l02-completeworkso02sibb-pdf",
+      "url": "https://archive.org/download/completeworkso02sibb/completeworkso02sibb.pdf",
+      "finalUrl": "https://ia801505.us.archive.org/13/items/completeworkso02sibb/completeworkso02sibb.pdf",
+      "retrievedAt": "2026-10-05T05:44:59.192604Z",
+      "sha256": "b490f5f34b38688a55bf14256010ca0e9a1ea06dc2f88339c0a8bbdcfb65c000",
+      "byteCount": 46291683,
+      "mimeType": "application/pdf",
+      "relativePath": "library/source-internet-archive/asset-l02-completeworkso02sibb-pdf/completeworkso02sibb.pdf"
+    },
+    {
+      "assetId": "asset-l02-completeworkso02sibb-scandata",
+      "url": "https://archive.org/download/completeworkso02sibb/completeworkso02sibb_scandata.xml",
+      "finalUrl": "https://dn760002.eu.archive.org/0/items/completeworkso02sibb/completeworkso02sibb_scandata.xml",
+      "retrievedAt": "2026-10-05T05:44:49.959099Z",
+      "sha256": "49662f18d8b6a9196be1af73e8df57b3abcecec05519823a65fb5187951cbd88",
+      "byteCount": 287183,
+      "mimeType": "text/xml",
+      "relativePath": "library/source-internet-archive/asset-l02-completeworkso02sibb-scandata/completeworkso02sibb_scandata.xml"
+    },
+    {
+      "assetId": "asset-l02-completeworkso03sibb-metadata",
+      "url": "https://archive.org/metadata/completeworkso03sibb",
+      "finalUrl": "https://archive.org/metadata/completeworkso03sibb",
+      "retrievedAt": "2026-10-05T05:45:02.894391Z",
+      "sha256": "f2201019d308240964593201289217189e02579c486a82c58466b612b603e5ed",
+      "byteCount": 104392,
+      "mimeType": "application/json",
+      "relativePath": "library/source-internet-archive/asset-l02-completeworkso03sibb-metadata/metadata.json"
+    },
+    {
+      "assetId": "asset-l02-completeworkso03sibb-ocr",
+      "url": "https://archive.org/download/completeworkso03sibb/completeworkso03sibb_djvu.txt",
+      "finalUrl": "https://dn710805.ca.archive.org/0/items/completeworkso03sibb/completeworkso03sibb_djvu.txt",
+      "retrievedAt": "2026-10-05T05:45:05.237782Z",
+      "sha256": "fcf015cde6199eb4227d33730644cb4aef82dee443a9a5090061b08e4b065971",
+      "byteCount": 2392900,
+      "mimeType": "text/plain",
+      "relativePath": "library/source-internet-archive/asset-l02-completeworkso03sibb-ocr/completeworkso03sibb_djvu.txt"
+    },
+    {
+      "assetId": "asset-l02-completeworkso03sibb-pdf",
+      "url": "https://archive.org/download/completeworkso03sibb/completeworkso03sibb.pdf",
+      "finalUrl": "https://dn710805.ca.archive.org/0/items/completeworkso03sibb/completeworkso03sibb.pdf",
+      "retrievedAt": "2026-10-05T05:45:15.663797Z",
+      "sha256": "6deb78b66f69d5f6ce7235db7d06362ad002e84411283ea8761350e39eeefab5",
+      "byteCount": 48959963,
+      "mimeType": "application/pdf",
+      "relativePath": "library/source-internet-archive/asset-l02-completeworkso03sibb-pdf/completeworkso03sibb.pdf"
+    },
+    {
+      "assetId": "asset-l02-completeworkso03sibb-scandata",
+      "url": "https://archive.org/download/completeworkso03sibb/completeworkso03sibb_scandata.xml",
+      "finalUrl": "https://dn760100.eu.archive.org/0/items/completeworkso03sibb/completeworkso03sibb_scandata.xml",
+      "retrievedAt": "2026-10-05T05:45:08.542710Z",
+      "sha256": "c24f4dc52fd7c1a61f65e5add226554880eb2b79c6879a13a33bf2b738302a0c",
+      "byteCount": 293003,
+      "mimeType": "text/xml",
+      "relativePath": "library/source-internet-archive/asset-l02-completeworkso03sibb-scandata/completeworkso03sibb_scandata.xml"
+    },
+    {
+      "assetId": "asset-l02-completeworkso04sibb-metadata",
+      "url": "https://archive.org/metadata/completeworkso04sibb",
+      "finalUrl": "https://archive.org/metadata/completeworkso04sibb",
+      "retrievedAt": "2026-10-05T05:45:16.959525Z",
+      "sha256": "3b3237a2d24dbaa8b8da1c81441d5304cbf8307486771f9f3e882bab61df6849",
+      "byteCount": 101797,
+      "mimeType": "application/json",
+      "relativePath": "library/source-internet-archive/asset-l02-completeworkso04sibb-metadata/metadata.json"
+    },
+    {
+      "assetId": "asset-l02-completeworkso04sibb-ocr",
+      "url": "https://archive.org/download/completeworkso04sibb/completeworkso04sibb_djvu.txt",
+      "finalUrl": "https://ia601802.us.archive.org/12/items/completeworkso04sibb/completeworkso04sibb_djvu.txt",
+      "retrievedAt": "2026-10-05T05:45:20.944552Z",
+      "sha256": "41b41f38b3ce83a26cf8c8feba8baa1275535044a6c5e5679c3d76f3f16d9202",
+      "byteCount": 2230453,
+      "mimeType": "text/plain",
+      "relativePath": "library/source-internet-archive/asset-l02-completeworkso04sibb-ocr/completeworkso04sibb_djvu.txt"
+    },
+    {
+      "assetId": "asset-l02-completeworkso04sibb-pdf",
+      "url": "https://archive.org/download/completeworkso04sibb/completeworkso04sibb.pdf",
+      "finalUrl": "https://dn760009.eu.archive.org/0/items/completeworkso04sibb/completeworkso04sibb.pdf",
+      "retrievedAt": "2026-10-05T05:45:32.215273Z",
+      "sha256": "99f7349eec64c626776e9081be4d344635daabcff259bc09e5335ed523a02f20",
+      "byteCount": 36594656,
+      "mimeType": "application/pdf",
+      "relativePath": "library/source-internet-archive/asset-l02-completeworkso04sibb-pdf/completeworkso04sibb.pdf"
+    },
+    {
+      "assetId": "asset-l02-completeworkso04sibb-scandata",
+      "url": "https://archive.org/download/completeworkso04sibb/completeworkso04sibb_scandata.xml",
+      "finalUrl": "https://dn760009.eu.archive.org/0/items/completeworkso04sibb/completeworkso04sibb_scandata.xml",
+      "retrievedAt": "2026-10-05T05:45:23.855982Z",
+      "sha256": "da8e4c3ffc41ce97198fd7e865bc08598cc1f8554e2011aab1a73d46e0224f1e",
+      "byteCount": 284717,
+      "mimeType": "text/xml",
+      "relativePath": "library/source-internet-archive/asset-l02-completeworkso04sibb-scandata/completeworkso04sibb_scandata.xml"
+    },
+    {
+      "assetId": "asset-l02-completeworkso05sibb-metadata",
+      "url": "https://archive.org/metadata/completeworkso05sibb",
+      "finalUrl": "https://archive.org/metadata/completeworkso05sibb",
+      "retrievedAt": "2026-10-05T05:45:34.511751Z",
+      "sha256": "e528c190ff5effb09128abdd0a5cf983110ed0920428f1bf7373297029d9eff8",
+      "byteCount": 105016,
+      "mimeType": "application/json",
+      "relativePath": "library/source-internet-archive/asset-l02-completeworkso05sibb-metadata/metadata.json"
+    },
+    {
+      "assetId": "asset-l02-completeworkso05sibb-ocr",
+      "url": "https://archive.org/download/completeworkso05sibb/completeworkso05sibb_djvu.txt",
+      "finalUrl": "https://ia800805.us.archive.org/28/items/completeworkso05sibb/completeworkso05sibb_djvu.txt",
+      "retrievedAt": "2026-10-05T05:45:36.252405Z",
+      "sha256": "f9cb661175e74e81e1900235147160fc20f419d862f47f85292587cda1407088",
+      "byteCount": 2199656,
+      "mimeType": "text/plain",
+      "relativePath": "library/source-internet-archive/asset-l02-completeworkso05sibb-ocr/completeworkso05sibb_djvu.txt"
+    },
+    {
+      "assetId": "asset-l02-completeworkso05sibb-pdf",
+      "url": "https://archive.org/download/completeworkso05sibb/completeworkso05sibb.pdf",
+      "finalUrl": "https://dn760005.eu.archive.org/0/items/completeworkso05sibb/completeworkso05sibb.pdf",
+      "retrievedAt": "2026-10-05T05:46:38.350514Z",
+      "sha256": "08816c8b06417f40456d1e722048583c299c9f8e77707ff3fdfb8efac5c0d823",
+      "byteCount": 46629890,
+      "mimeType": "application/pdf",
+      "relativePath": "library/source-internet-archive/asset-l02-completeworkso05sibb-pdf/completeworkso05sibb.pdf"
+    },
+    {
+      "assetId": "asset-l02-completeworkso05sibb-scandata",
+      "url": "https://archive.org/download/completeworkso05sibb/completeworkso05sibb_scandata.xml",
+      "finalUrl": "https://ia800805.us.archive.org/28/items/completeworkso05sibb/completeworkso05sibb_scandata.xml",
+      "retrievedAt": "2026-10-05T05:45:37.681367Z",
+      "sha256": "601a9125ccd3d393037f6b1c075ec778a43e5045052abc4f97d18c65dd721a70",
+      "byteCount": 294703,
+      "mimeType": "text/xml",
+      "relativePath": "library/source-internet-archive/asset-l02-completeworkso05sibb-scandata/completeworkso05sibb_scandata.xml"
+    },
+    {
+      "assetId": "asset-l02-completeworkso06sibb-metadata",
+      "url": "https://archive.org/metadata/completeworkso06sibb",
+      "finalUrl": "https://archive.org/metadata/completeworkso06sibb",
+      "retrievedAt": "2026-10-05T05:46:40.874986Z",
+      "sha256": "fb3480273ecc23835fbd622edc1ab05b2509a807a678035a2d82cf82137cd645",
+      "byteCount": 107790,
+      "mimeType": "application/json",
+      "relativePath": "library/source-internet-archive/asset-l02-completeworkso06sibb-metadata/metadata.json"
+    },
+    {
+      "assetId": "asset-l02-completeworkso06sibb-ocr",
+      "url": "https://archive.org/download/completeworkso06sibb/completeworkso06sibb_djvu.txt",
+      "finalUrl": "https://dn760003.eu.archive.org/0/items/completeworkso06sibb/completeworkso06sibb_djvu.txt",
+      "retrievedAt": "2026-10-05T05:46:54.910329Z",
+      "sha256": "dbd1f0f5c81a9c8cf12f269a174e925ebcd362a281702bddac6f54a2d6389044",
+      "byteCount": 2247257,
+      "mimeType": "text/plain",
+      "relativePath": "library/source-internet-archive/asset-l02-completeworkso06sibb-ocr/completeworkso06sibb_djvu.txt"
+    },
+    {
+      "assetId": "asset-l02-completeworkso06sibb-pdf",
+      "url": "https://archive.org/download/completeworkso06sibb/completeworkso06sibb.pdf",
+      "finalUrl": "https://ia800106.us.archive.org/25/items/completeworkso06sibb/completeworkso06sibb.pdf",
+      "retrievedAt": "2026-10-05T05:47:09.055174Z",
+      "sha256": "434dee581a5f804d0275b779286f3c350b04f55a2e75d3edef969c854f90aed3",
+      "byteCount": 48859715,
+      "mimeType": "application/pdf",
+      "relativePath": "library/source-internet-archive/asset-l02-completeworkso06sibb-pdf/completeworkso06sibb.pdf"
+    },
+    {
+      "assetId": "asset-l02-completeworkso06sibb-scandata",
+      "url": "https://archive.org/download/completeworkso06sibb/completeworkso06sibb_scandata.xml",
+      "finalUrl": "https://dn760003.eu.archive.org/0/items/completeworkso06sibb/completeworkso06sibb_scandata.xml",
+      "retrievedAt": "2026-10-05T05:46:58.836254Z",
+      "sha256": "1dc99a0dde4d93ef48d63efd704075811d81b48bbc77ef61e315357f01e954bd",
+      "byteCount": 302955,
+      "mimeType": "text/xml",
+      "relativePath": "library/source-internet-archive/asset-l02-completeworkso06sibb-scandata/completeworkso06sibb_scandata.xml"
+    },
+    {
+      "assetId": "asset-l02-completeworkso07sibb-metadata",
+      "url": "https://archive.org/metadata/completeworkso07sibb",
+      "finalUrl": "https://archive.org/metadata/completeworkso07sibb",
+      "retrievedAt": "2026-10-05T05:47:10.288534Z",
+      "sha256": "9bfc74ad2d38559cca11a6baed1b3e4438402858a1d1a28fe145d19b50a9aa95",
+      "byteCount": 115621,
+      "mimeType": "application/json",
+      "relativePath": "library/source-internet-archive/asset-l02-completeworkso07sibb-metadata/metadata.json"
+    },
+    {
+      "assetId": "asset-l02-completeworkso07sibb-ocr",
+      "url": "https://archive.org/download/completeworkso07sibb/completeworkso07sibb_djvu.txt",
+      "finalUrl": "https://dn760107.eu.archive.org/0/items/completeworkso07sibb/completeworkso07sibb_djvu.txt",
+      "retrievedAt": "2026-10-05T05:47:14.916392Z",
+      "sha256": "c30912dd5bf7603d109cd44b0c01e58a29a1832b03da59dd492d7ce464daf2fc",
+      "byteCount": 2550493,
+      "mimeType": "text/plain",
+      "relativePath": "library/source-internet-archive/asset-l02-completeworkso07sibb-ocr/completeworkso07sibb_djvu.txt"
+    },
+    {
+      "assetId": "asset-l02-completeworkso07sibb-pdf",
+      "url": "https://archive.org/download/completeworkso07sibb/completeworkso07sibb.pdf",
+      "finalUrl": "https://dn760107.eu.archive.org/0/items/completeworkso07sibb/completeworkso07sibb.pdf",
+      "retrievedAt": "2026-10-05T05:47:26.856851Z",
+      "sha256": "61959ca97107ee7ffbcc4ff53cec83ccf36ff0f442b0fd14157cc368c5e07e21",
+      "byteCount": 42347004,
+      "mimeType": "application/pdf",
+      "relativePath": "library/source-internet-archive/asset-l02-completeworkso07sibb-pdf/completeworkso07sibb.pdf"
+    },
+    {
+      "assetId": "asset-l02-completeworkso07sibb-scandata",
+      "url": "https://archive.org/download/completeworkso07sibb/completeworkso07sibb_scandata.xml",
+      "finalUrl": "https://dn790008.ca.archive.org/0/items/completeworkso07sibb/completeworkso07sibb_scandata.xml",
+      "retrievedAt": "2026-10-05T05:47:17.655908Z",
+      "sha256": "33fb441aabb3cde04065750cb3ed282b018d5a468d1f3af766b520b4e74c6201",
+      "byteCount": 325677,
+      "mimeType": "text/xml",
+      "relativePath": "library/source-internet-archive/asset-l02-completeworkso07sibb-scandata/completeworkso07sibb_scandata.xml"
+    },
+    {
+      "assetId": "asset-l02-completeworksofr01sibbuoft-metadata",
+      "url": "https://archive.org/metadata/completeworksofr01sibbuoft",
+      "finalUrl": "https://archive.org/metadata/completeworksofr01sibbuoft",
+      "retrievedAt": "2026-10-05T05:44:20.202022Z",
+      "sha256": "af9ba4911e8c7dbd77d19ddca6a2e58218cf3dd6b73ae1496f7846eed4604f8e",
+      "byteCount": 109271,
+      "mimeType": "application/json",
+      "relativePath": "library/source-internet-archive/asset-l02-completeworksofr01sibbuoft-metadata/metadata.json"
+    },
+    {
+      "assetId": "asset-l02-completeworksofr01sibbuoft-ocr",
+      "url": "https://archive.org/download/completeworksofr01sibbuoft/completeworksofr01sibbuoft_djvu.txt",
+      "finalUrl": "https://dn790000.ca.archive.org/0/items/completeworksofr01sibbuoft/completeworksofr01sibbuoft_djvu.txt",
+      "retrievedAt": "2026-10-05T05:44:26.560891Z",
+      "sha256": "c1e617be58d7d1ebb7d24e19887d630bc77b3c826d15418ca07e33afa7cf8d9d",
+      "byteCount": 2261267,
+      "mimeType": "text/plain",
+      "relativePath": "library/source-internet-archive/asset-l02-completeworksofr01sibbuoft-ocr/completeworksofr01sibbuoft_djvu.txt"
+    },
+    {
+      "assetId": "asset-l02-completeworksofr01sibbuoft-pdf",
+      "url": "https://archive.org/download/completeworksofr01sibbuoft/completeworksofr01sibbuoft.pdf",
+      "finalUrl": "https://dn790000.ca.archive.org/0/items/completeworksofr01sibbuoft/completeworksofr01sibbuoft.pdf",
+      "retrievedAt": "2026-10-05T05:44:36.670831Z",
+      "sha256": "b8ae48406e7c8633e19ec3687c3bfd54c0b6307cd4cf38eada2e79f19b50540f",
+      "byteCount": 62190971,
+      "mimeType": "application/pdf",
+      "relativePath": "library/source-internet-archive/asset-l02-completeworksofr01sibbuoft-pdf/completeworksofr01sibbuoft.pdf"
+    },
+    {
+      "assetId": "asset-l02-selectionofmostc00calv-metadata",
+      "url": "https://archive.org/metadata/selectionofmostc00calv",
+      "finalUrl": "https://archive.org/metadata/selectionofmostc00calv",
+      "retrievedAt": "2026-10-05T05:41:38.856080Z",
+      "sha256": "e7ad0997782b28ab83f94bf57252dcc51ed12514c21ac7f957cefd096d90f2bd",
+      "byteCount": 46411,
+      "mimeType": "application/json",
+      "relativePath": "library/source-internet-archive/asset-l02-selectionofmostc00calv-metadata/metadata.json"
+    },
+    {
+      "assetId": "asset-l02-selectionofmostc00calv-ocr",
+      "url": "https://archive.org/download/selectionofmostc00calv/selectionofmostc00calv_djvu.txt",
+      "finalUrl": "https://dn760003.eu.archive.org/0/items/selectionofmostc00calv/selectionofmostc00calv_djvu.txt",
+      "retrievedAt": "2026-10-05T05:41:47.554204Z",
+      "sha256": "b415e2efe701de6f5b1e17fd6b34af85aa83b58544cef276c7064f30c472d362",
+      "byteCount": 441707,
+      "mimeType": "text/plain",
+      "relativePath": "library/source-internet-archive/asset-l02-selectionofmostc00calv-ocr/selectionofmostc00calv_djvu.txt"
+    },
+    {
+      "assetId": "asset-l02-selectionofmostc00calv-pdf",
+      "url": "https://archive.org/download/selectionofmostc00calv/selectionofmostc00calv.pdf",
+      "finalUrl": "https://dn790008.ca.archive.org/0/items/selectionofmostc00calv/selectionofmostc00calv.pdf",
+      "retrievedAt": "2026-10-05T05:41:52.985561Z",
+      "sha256": "15b5674020f4ce8357cc149665b2c1185487cc2c92922f584b0a7480c415fedc",
+      "byteCount": 11988100,
+      "mimeType": "application/pdf",
+      "relativePath": "library/source-internet-archive/asset-l02-selectionofmostc00calv-pdf/selectionofmostc00calv.pdf"
+    },
+    {
+      "assetId": "asset-l02-selectionofmostc00calv-scandata",
+      "url": "https://archive.org/download/selectionofmostc00calv/selectionofmostc00calv_scandata.xml",
+      "finalUrl": "https://dn790008.ca.archive.org/0/items/selectionofmostc00calv/selectionofmostc00calv_scandata.xml",
+      "retrievedAt": "2026-10-05T05:41:49.459336Z",
+      "sha256": "6f68d55f01f19113bdbf2eae65bd7f1a6355192ebcd8fa401e92827d7e6491f1",
+      "byteCount": 112664,
+      "mimeType": "text/xml",
+      "relativePath": "library/source-internet-archive/asset-l02-selectionofmostc00calv-scandata/selectionofmostc00calv_scandata.xml"
+    },
+    {
+      "assetId": "asset-l02-selectworksofrev00wats-metadata",
+      "url": "https://archive.org/metadata/selectworksofrev00wats",
+      "finalUrl": "https://archive.org/metadata/selectworksofrev00wats",
+      "retrievedAt": "2026-10-05T05:41:59.572929Z",
+      "sha256": "fab8440f88d3f6686f9c9a1966ad0ab21aa9d590733dd9a34c8ad719c981b2f8",
+      "byteCount": 144226,
+      "mimeType": "application/json",
+      "relativePath": "library/source-internet-archive/asset-l02-selectworksofrev00wats-metadata/metadata.json"
+    },
+    {
+      "assetId": "asset-l02-wholeworksofjohn01flav-metadata",
+      "url": "https://archive.org/metadata/wholeworksofjohn01flav",
+      "finalUrl": "https://archive.org/metadata/wholeworksofjohn01flav",
+      "retrievedAt": "2026-10-05T05:48:02.660127Z",
+      "sha256": "9bdfe2c45971e358004c98e40eec0b2d6da52fa86af984fa740b1c30aeea26a2",
+      "byteCount": 107708,
+      "mimeType": "application/json",
+      "relativePath": "library/source-internet-archive/asset-l02-wholeworksofjohn01flav-metadata/metadata.json"
+    },
+    {
+      "assetId": "asset-l02-wholeworksofjohn01flav-ocr",
+      "url": "https://archive.org/download/wholeworksofjohn01flav/wholeworksofjohn01flav_djvu.txt",
+      "finalUrl": "https://dn790002.ca.archive.org/0/items/wholeworksofjohn01flav/wholeworksofjohn01flav_djvu.txt",
+      "retrievedAt": "2026-10-05T05:48:04.929863Z",
+      "sha256": "9e4019febb9593f27401cfcc6aa8210f9165b1256754b4d1d5f33df5bafcfd9c",
+      "byteCount": 1837298,
+      "mimeType": "text/plain",
+      "relativePath": "library/source-internet-archive/asset-l02-wholeworksofjohn01flav-ocr/wholeworksofjohn01flav_djvu.txt"
+    },
+    {
+      "assetId": "asset-l02-wholeworksofjohn01flav-pdf",
+      "url": "https://archive.org/download/wholeworksofjohn01flav/wholeworksofjohn01flav.pdf",
+      "finalUrl": "https://dn760106.eu.archive.org/0/items/wholeworksofjohn01flav/wholeworksofjohn01flav.pdf",
+      "retrievedAt": "2026-10-05T05:48:15.132808Z",
+      "sha256": "e62e5694214e8ed30d89c80ce27220cb1e6ea74a307da124a289b50d74b4d5c1",
+      "byteCount": 55206538,
+      "mimeType": "application/pdf",
+      "relativePath": "library/source-internet-archive/asset-l02-wholeworksofjohn01flav-pdf/wholeworksofjohn01flav.pdf"
+    },
+    {
+      "assetId": "asset-l02-wholeworksofjohn01flav-scandata",
+      "url": "https://archive.org/download/wholeworksofjohn01flav/wholeworksofjohn01flav_scandata.xml",
+      "finalUrl": "https://dn790002.ca.archive.org/0/items/wholeworksofjohn01flav/wholeworksofjohn01flav_scandata.xml",
+      "retrievedAt": "2026-10-05T05:48:06.824832Z",
+      "sha256": "554c4b999e501c80552696fa004c27be3f813f30a9944a5993c6598261439ba6",
+      "byteCount": 299150,
+      "mimeType": "text/xml",
+      "relativePath": "library/source-internet-archive/asset-l02-wholeworksofjohn01flav-scandata/wholeworksofjohn01flav_scandata.xml"
+    },
+    {
+      "assetId": "asset-l02-wholeworksofjohn02flav-metadata",
+      "url": "https://archive.org/metadata/wholeworksofjohn02flav",
+      "finalUrl": "https://archive.org/metadata/wholeworksofjohn02flav",
+      "retrievedAt": "2026-10-05T05:48:17.110228Z",
+      "sha256": "4a889caf87b507efdf75f4d194e1d4f404d2c882eeb575610f3c2ab58cdff45a",
+      "byteCount": 115729,
+      "mimeType": "application/json",
+      "relativePath": "library/source-internet-archive/asset-l02-wholeworksofjohn02flav-metadata/metadata.json"
+    },
+    {
+      "assetId": "asset-l02-wholeworksofjohn02flav-ocr",
+      "url": "https://archive.org/download/wholeworksofjohn02flav/wholeworksofjohn02flav_djvu.txt",
+      "finalUrl": "https://dn760001.eu.archive.org/0/items/wholeworksofjohn02flav/wholeworksofjohn02flav_djvu.txt",
+      "retrievedAt": "2026-10-05T05:48:20.759047Z",
+      "sha256": "e65815ab5469f6af76fceb87b041c63893c5665e6fa9972b208c77258831e2e0",
+      "byteCount": 1977720,
+      "mimeType": "text/plain",
+      "relativePath": "library/source-internet-archive/asset-l02-wholeworksofjohn02flav-ocr/wholeworksofjohn02flav_djvu.txt"
+    },
+    {
+      "assetId": "asset-l02-wholeworksofjohn02flav-pdf",
+      "url": "https://archive.org/download/wholeworksofjohn02flav/wholeworksofjohn02flav.pdf",
+      "finalUrl": "https://dn760001.eu.archive.org/0/items/wholeworksofjohn02flav/wholeworksofjohn02flav.pdf",
+      "retrievedAt": "2026-10-05T05:48:31.427767Z",
+      "sha256": "64053a40db01747be01d3b48e295e73a11903ec58b9ae691ba1066535bacf154",
+      "byteCount": 57580848,
+      "mimeType": "application/pdf",
+      "relativePath": "library/source-internet-archive/asset-l02-wholeworksofjohn02flav-pdf/wholeworksofjohn02flav.pdf"
+    },
+    {
+      "assetId": "asset-l02-wholeworksofjohn02flav-scandata",
+      "url": "https://archive.org/download/wholeworksofjohn02flav/wholeworksofjohn02flav_scandata.xml",
+      "finalUrl": "https://dn760001.eu.archive.org/0/items/wholeworksofjohn02flav/wholeworksofjohn02flav_scandata.xml",
+      "retrievedAt": "2026-10-05T05:48:23.599042Z",
+      "sha256": "7dad622b92227b38baa0662bb2da4b146d5ffe056efb701d3d7f287f3cf1922c",
+      "byteCount": 323921,
+      "mimeType": "text/xml",
+      "relativePath": "library/source-internet-archive/asset-l02-wholeworksofjohn02flav-scandata/wholeworksofjohn02flav_scandata.xml"
+    },
+    {
+      "assetId": "asset-l02-wholeworksofjohn03flav-metadata",
+      "url": "https://archive.org/metadata/wholeworksofjohn03flav",
+      "finalUrl": "https://archive.org/metadata/wholeworksofjohn03flav",
+      "retrievedAt": "2026-10-05T05:48:33.906717Z",
+      "sha256": "f32840eb01365ddb0a3e0ecbadfe99079a896c4cce90a9e2a1a0369ee7db3662",
+      "byteCount": 116030,
+      "mimeType": "application/json",
+      "relativePath": "library/source-internet-archive/asset-l02-wholeworksofjohn03flav-metadata/metadata.json"
+    },
+    {
+      "assetId": "asset-l02-wholeworksofjohn03flav-ocr",
+      "url": "https://archive.org/download/wholeworksofjohn03flav/wholeworksofjohn03flav_djvu.txt",
+      "finalUrl": "https://dn760104.eu.archive.org/0/items/wholeworksofjohn03flav/wholeworksofjohn03flav_djvu.txt",
+      "retrievedAt": "2026-10-05T05:48:37.184988Z",
+      "sha256": "147225549597894406edf1f3bc62ac1b713dd08313092330b26f6fd0c91abf5f",
+      "byteCount": 1982360,
+      "mimeType": "text/plain",
+      "relativePath": "library/source-internet-archive/asset-l02-wholeworksofjohn03flav-ocr/wholeworksofjohn03flav_djvu.txt"
+    },
+    {
+      "assetId": "asset-l02-wholeworksofjohn03flav-pdf",
+      "url": "https://archive.org/download/wholeworksofjohn03flav/wholeworksofjohn03flav.pdf",
+      "finalUrl": "https://dn720500.ca.archive.org/0/items/wholeworksofjohn03flav/wholeworksofjohn03flav.pdf",
+      "retrievedAt": "2026-10-05T05:48:45.992917Z",
+      "sha256": "46bd7976c9052c3cd0e57acf34fce01f8f104699c30ee68780b7f897105c65bc",
+      "byteCount": 56385271,
+      "mimeType": "application/pdf",
+      "relativePath": "library/source-internet-archive/asset-l02-wholeworksofjohn03flav-pdf/wholeworksofjohn03flav.pdf"
+    },
+    {
+      "assetId": "asset-l02-wholeworksofjohn03flav-scandata",
+      "url": "https://archive.org/download/wholeworksofjohn03flav/wholeworksofjohn03flav_scandata.xml",
+      "finalUrl": "https://dn720500.ca.archive.org/0/items/wholeworksofjohn03flav/wholeworksofjohn03flav_scandata.xml",
+      "retrievedAt": "2026-10-05T05:48:39.172334Z",
+      "sha256": "92fd37834bb0d069d0c825fc038b7a8a306401c57cb04c190c0dae403c3eecde",
+      "byteCount": 323875,
+      "mimeType": "text/xml",
+      "relativePath": "library/source-internet-archive/asset-l02-wholeworksofjohn03flav-scandata/wholeworksofjohn03flav_scandata.xml"
+    },
+    {
+      "assetId": "asset-l02-wholeworksofjohn04flav-metadata",
+      "url": "https://archive.org/metadata/wholeworksofjohn04flav",
+      "finalUrl": "https://archive.org/metadata/wholeworksofjohn04flav",
+      "retrievedAt": "2026-10-05T05:49:14.784737Z",
+      "sha256": "9169e7d3b34d659dbcfbf6b9f44b0299914b94cde8a36211249c680ae59361ba",
+      "byteCount": 68,
+      "mimeType": "application/json",
+      "relativePath": "library/source-internet-archive/asset-l02-wholeworksofjohn04flav-metadata/metadata.json"
+    },
+    {
+      "assetId": "asset-l02-WilliamPerkinsWorksVol1-metadata",
+      "url": "https://archive.org/metadata/WilliamPerkinsWorksVol1",
+      "finalUrl": "https://archive.org/metadata/WilliamPerkinsWorksVol1",
+      "retrievedAt": "2026-10-05T05:41:54.653717Z",
+      "sha256": "df095a3a6350601203eaefa4e4d22dffb54eb9453af0abb82c24a86fb27ddb89",
+      "byteCount": 5392,
+      "mimeType": "application/json",
+      "relativePath": "library/source-internet-archive/asset-l02-WilliamPerkinsWorksVol1-metadata/metadata.json"
+    },
+    {
+      "assetId": "asset-l02-WilliamPerkinsWorksVol1-ocr",
+      "url": "https://archive.org/download/WilliamPerkinsWorksVol1/William-Perkins-Works-vol-1_djvu.txt",
+      "finalUrl": "https://dn790002.ca.archive.org/0/items/WilliamPerkinsWorksVol1/William-Perkins-Works-vol-1_djvu.txt",
+      "retrievedAt": "2026-10-05T05:42:47.588943Z",
+      "sha256": "49a0d6d10fd0144210dbf7c6a7354a2bfc8678fbe1a9fc72c2c3e36f396c7769",
+      "byteCount": 4697444,
+      "mimeType": "text/plain",
+      "relativePath": "library/source-internet-archive/asset-l02-WilliamPerkinsWorksVol1-ocr/William-Perkins-Works-vol-1_djvu.txt"
+    },
+    {
+      "assetId": "asset-l02-WilliamPerkinsWorksVol1-pdf",
+      "url": "https://archive.org/download/WilliamPerkinsWorksVol1/William-Perkins-Works-vol-1_text.pdf",
+      "finalUrl": "https://dn790002.ca.archive.org/0/items/WilliamPerkinsWorksVol1/William-Perkins-Works-vol-1_text.pdf",
+      "retrievedAt": "2026-10-05T05:43:08.784261Z",
+      "sha256": "32131287fb1bd3461777d2aed208f285a4b6d259428ebee4256e0724da0dc0b3",
+      "byteCount": 119276715,
+      "mimeType": "application/pdf",
+      "relativePath": "library/source-internet-archive/asset-l02-WilliamPerkinsWorksVol1-pdf/William-Perkins-Works-vol-1_text.pdf"
+    },
+    {
+      "assetId": "asset-l02-WilliamPerkinsWorksVol1-scandata",
+      "url": "https://archive.org/download/WilliamPerkinsWorksVol1/William-Perkins-Works-vol-1_scandata.xml",
+      "finalUrl": "https://dn790002.ca.archive.org/0/items/WilliamPerkinsWorksVol1/William-Perkins-Works-vol-1_scandata.xml",
+      "retrievedAt": "2026-10-05T05:42:50.506892Z",
+      "sha256": "3f811ae675b425f1fe60c68e9a1c581f4da80ddc43ca95119e4676cdf8ea655a",
+      "byteCount": 124926,
+      "mimeType": "text/xml",
+      "relativePath": "library/source-internet-archive/asset-l02-WilliamPerkinsWorksVol1-scandata/William-Perkins-Works-vol-1_scandata.xml"
+    },
+    {
+      "assetId": "asset-l02-WilliamPerkinsWorksVol2-metadata",
+      "url": "https://archive.org/metadata/WilliamPerkinsWorksVol2",
+      "finalUrl": "https://archive.org/metadata/WilliamPerkinsWorksVol2",
+      "retrievedAt": "2026-10-05T05:41:56.157601Z",
+      "sha256": "e4ad3ca0bdaba0f74f2742b124ed625bff9a5be84207fd30ae91a93b3fb1bdd8",
+      "byteCount": 5180,
+      "mimeType": "application/json",
+      "relativePath": "library/source-internet-archive/asset-l02-WilliamPerkinsWorksVol2-metadata/metadata.json"
+    },
+    {
+      "assetId": "asset-l02-WilliamPerkinsWorksVol2-ocr",
+      "url": "https://archive.org/download/WilliamPerkinsWorksVol2/William-Perkins-Works-vol-2_djvu.txt",
+      "finalUrl": "https://ia802905.us.archive.org/17/items/WilliamPerkinsWorksVol2/William-Perkins-Works-vol-2_djvu.txt",
+      "retrievedAt": "2026-10-05T05:43:11.142807Z",
+      "sha256": "0224be1722c552bfc3e1763462e47f81befcb29297f5806ad35abc723470c40a",
+      "byteCount": 3986731,
+      "mimeType": "text/plain",
+      "relativePath": "library/source-internet-archive/asset-l02-WilliamPerkinsWorksVol2-ocr/William-Perkins-Works-vol-2_djvu.txt"
+    },
+    {
+      "assetId": "asset-l02-WilliamPerkinsWorksVol2-pdf",
+      "url": "https://archive.org/download/WilliamPerkinsWorksVol2/William-Perkins-Works-vol-2_text.pdf",
+      "finalUrl": "https://dn760004.eu.archive.org/0/items/WilliamPerkinsWorksVol2/William-Perkins-Works-vol-2_text.pdf",
+      "retrievedAt": "2026-10-05T05:43:33.911499Z",
+      "sha256": "67ba88ff3eaadbd63e5563b9f0b968e8fe168479a83485eda91f681ed3b6764e",
+      "byteCount": 93791842,
+      "mimeType": "application/pdf",
+      "relativePath": "library/source-internet-archive/asset-l02-WilliamPerkinsWorksVol2-pdf/William-Perkins-Works-vol-2_text.pdf"
+    },
+    {
+      "assetId": "asset-l02-WilliamPerkinsWorksVol2-scandata",
+      "url": "https://archive.org/download/WilliamPerkinsWorksVol2/William-Perkins-Works-vol-2_scandata.xml",
+      "finalUrl": "https://dn760004.eu.archive.org/0/items/WilliamPerkinsWorksVol2/William-Perkins-Works-vol-2_scandata.xml",
+      "retrievedAt": "2026-10-05T05:43:14.003918Z",
+      "sha256": "e8cae6c65a44e1c301ab580a4226bd635eee1aea7371e667130c61daeff48a4d",
+      "byteCount": 118026,
+      "mimeType": "text/xml",
+      "relativePath": "library/source-internet-archive/asset-l02-WilliamPerkinsWorksVol2-scandata/William-Perkins-Works-vol-2_scandata.xml"
+    },
+    {
+      "assetId": "asset-l02-WilliamPerkinsWorksVol3-metadata",
+      "url": "https://archive.org/metadata/WilliamPerkinsWorksVol3",
+      "finalUrl": "https://archive.org/metadata/WilliamPerkinsWorksVol3",
+      "retrievedAt": "2026-10-05T05:41:57.793670Z",
+      "sha256": "45ac863fd8ed89ff48b4e016a9472218c1c8d8db926607146d4e4b29a74b29cf",
+      "byteCount": 5337,
+      "mimeType": "application/json",
+      "relativePath": "library/source-internet-archive/asset-l02-WilliamPerkinsWorksVol3-metadata/metadata.json"
+    },
+    {
+      "assetId": "asset-l02-WilliamPerkinsWorksVol3-ocr",
+      "url": "https://archive.org/download/WilliamPerkinsWorksVol3/William-Perkins-Works-vol-3_djvu.txt",
+      "finalUrl": "https://dn790007.ca.archive.org/0/items/WilliamPerkinsWorksVol3/William-Perkins-Works-vol-3_djvu.txt",
+      "retrievedAt": "2026-10-05T05:43:36.594051Z",
+      "sha256": "ccb52720be15d2fac8d0f185252aa6a70c927527c4a6e5414467d18b44cb7b95",
+      "byteCount": 5927080,
+      "mimeType": "text/plain",
+      "relativePath": "library/source-internet-archive/asset-l02-WilliamPerkinsWorksVol3-ocr/William-Perkins-Works-vol-3_djvu.txt"
+    },
+    {
+      "assetId": "asset-l02-WilliamPerkinsWorksVol3-ocrxml",
+      "url": "https://archive.org/download/WilliamPerkinsWorksVol3/William-Perkins-Works-vol-3_djvu.xml",
+      "finalUrl": "https://dn790007.ca.archive.org/0/items/WilliamPerkinsWorksVol3/William-Perkins-Works-vol-3_djvu.xml",
+      "retrievedAt": "2026-10-05T05:45:46.470488Z",
+      "sha256": "000c0776d692560626777ed6149a608474e7f4834721b3705ddc4fbfe5449dec",
+      "byteCount": 58364750,
+      "mimeType": "text/xml",
+      "relativePath": "library/source-internet-archive/asset-l02-WilliamPerkinsWorksVol3-ocrxml/William-Perkins-Works-vol-3_djvu.xml"
+    },
+    {
+      "assetId": "asset-l02-WilliamPerkinsWorksVol3-pdf",
+      "url": "https://archive.org/download/WilliamPerkinsWorksVol3/William-Perkins-Works-vol-3.pdf",
+      "finalUrl": "https://ia802905.us.archive.org/4/items/WilliamPerkinsWorksVol3/William-Perkins-Works-vol-3.pdf",
+      "retrievedAt": "2026-10-05T05:43:50.025716Z",
+      "sha256": "a8b3b59d6a6e1b86b57b69c61d1e850a07488d9b94a908d7fea901103d4b0d19",
+      "byteCount": 97916846,
+      "mimeType": "application/pdf",
+      "relativePath": "library/source-internet-archive/asset-l02-WilliamPerkinsWorksVol3-pdf/William-Perkins-Works-vol-3.pdf"
+    },
+    {
+      "assetId": "asset-l02-WilliamPerkinsWorksVol3-scandata",
+      "url": "https://archive.org/download/WilliamPerkinsWorksVol3/William-Perkins-Works-vol-3_scandata.xml",
+      "finalUrl": "https://ia802905.us.archive.org/4/items/WilliamPerkinsWorksVol3/William-Perkins-Works-vol-3_scandata.xml",
+      "retrievedAt": "2026-10-05T05:43:38.065951Z",
+      "sha256": "bc9cc1ca7865ebe953026ed7ab6966ecb3f53aa2ec7ffe3805ce8e60a8ade97c",
+      "byteCount": 160626,
+      "mimeType": "text/xml",
+      "relativePath": "library/source-internet-archive/asset-l02-WilliamPerkinsWorksVol3-scandata/William-Perkins-Works-vol-3_scandata.xml"
+    },
+    {
+      "assetId": "asset-l02-worksofjohnowe08owen-metadata",
+      "url": "https://archive.org/metadata/worksofjohnowe08owen",
+      "finalUrl": "https://archive.org/metadata/worksofjohnowe08owen",
+      "retrievedAt": "2026-10-05T05:43:52.070181Z",
+      "sha256": "7c319d4ec6d707879fc0dcc98b17836e6c4795f0053648c41791b1d8165483de",
+      "byteCount": 100937,
+      "mimeType": "application/json",
+      "relativePath": "library/source-internet-archive/asset-l02-worksofjohnowe08owen-metadata/metadata.json"
+    },
+    {
+      "assetId": "asset-l02-worksofjohnowe08owen-ocr",
+      "url": "https://archive.org/download/worksofjohnowe08owen/worksofjohnowe08owen_djvu.txt",
+      "finalUrl": "https://dn790000.ca.archive.org/0/items/worksofjohnowe08owen/worksofjohnowe08owen_djvu.txt",
+      "retrievedAt": "2026-10-05T05:43:54.968038Z",
+      "sha256": "2e82bb9709cb427cfa7a46f351d640867f5b252540db11cda8e5a3c0338f93eb",
+      "byteCount": 1513543,
+      "mimeType": "text/plain",
+      "relativePath": "library/source-internet-archive/asset-l02-worksofjohnowe08owen-ocr/worksofjohnowe08owen_djvu.txt"
+    },
+    {
+      "assetId": "asset-l02-worksofjohnowe08owen-pdf",
+      "url": "https://archive.org/download/worksofjohnowe08owen/worksofjohnowe08owen.pdf",
+      "finalUrl": "https://dn760106.eu.archive.org/0/items/worksofjohnowe08owen/worksofjohnowe08owen.pdf",
+      "retrievedAt": "2026-10-05T05:44:04.379044Z",
+      "sha256": "70d2f8119d44fe420d3b1d0190d789dc1312a0083f8bd12a23ba65a3ef20c17a",
+      "byteCount": 37713045,
+      "mimeType": "application/pdf",
+      "relativePath": "library/source-internet-archive/asset-l02-worksofjohnowe08owen-pdf/worksofjohnowe08owen.pdf"
+    },
+    {
+      "assetId": "asset-l02-worksofjohnowe08owen-scandata",
+      "url": "https://archive.org/download/worksofjohnowe08owen/worksofjohnowe08owen_scandata.xml",
+      "finalUrl": "https://ia803100.us.archive.org/27/items/worksofjohnowe08owen/worksofjohnowe08owen_scandata.xml",
+      "retrievedAt": "2026-10-05T05:43:56.540231Z",
+      "sha256": "9bedb6f7f71fe08244ecadaeda8d2171bc88e109f10630439deb3b5d01710d2d",
+      "byteCount": 277833,
+      "mimeType": "text/xml",
+      "relativePath": "library/source-internet-archive/asset-l02-worksofjohnowe08owen-scandata/worksofjohnowe08owen_scandata.xml"
+    },
+    {
+      "assetId": "asset-l02-worksofjohnowe09owen-metadata",
+      "url": "https://archive.org/metadata/worksofjohnowe09owen",
+      "finalUrl": "https://archive.org/metadata/worksofjohnowe09owen",
+      "retrievedAt": "2026-10-05T05:44:06.945194Z",
+      "sha256": "d9a756e7ff8198b392c7e1ccdee9aff9214eb72a77a60a31aefc0991d3e6c632",
+      "byteCount": 99019,
+      "mimeType": "application/json",
+      "relativePath": "library/source-internet-archive/asset-l02-worksofjohnowe09owen-metadata/metadata.json"
+    },
+    {
+      "assetId": "asset-l02-worksofjohnowe09owen-ocr",
+      "url": "https://archive.org/download/worksofjohnowe09owen/worksofjohnowe09owen_djvu.txt",
+      "finalUrl": "https://dn760004.eu.archive.org/0/items/worksofjohnowe09owen/worksofjohnowe09owen_djvu.txt",
+      "retrievedAt": "2026-10-05T05:44:10.097808Z",
+      "sha256": "ff62120a66e4c5fc1d37ef206f3e0f1f83dc4fa95beaede31da29bd7c2b7aeb1",
+      "byteCount": 1398015,
+      "mimeType": "text/plain",
+      "relativePath": "library/source-internet-archive/asset-l02-worksofjohnowe09owen-ocr/worksofjohnowe09owen_djvu.txt"
+    },
+    {
+      "assetId": "asset-l02-worksofjohnowe09owen-pdf",
+      "url": "https://archive.org/download/worksofjohnowe09owen/worksofjohnowe09owen.pdf",
+      "finalUrl": "https://dn790002.ca.archive.org/0/items/worksofjohnowe09owen/worksofjohnowe09owen.pdf",
+      "retrievedAt": "2026-10-05T05:44:19.021358Z",
+      "sha256": "0b5eca8668553ebe3109230304117c8f4669f40237d320311fa97064ac8ba58f",
+      "byteCount": 35781403,
+      "mimeType": "application/pdf",
+      "relativePath": "library/source-internet-archive/asset-l02-worksofjohnowe09owen-pdf/worksofjohnowe09owen.pdf"
+    },
+    {
+      "assetId": "asset-l02-worksofjohnowe09owen-scandata",
+      "url": "https://archive.org/download/worksofjohnowe09owen/worksofjohnowe09owen_scandata.xml",
+      "finalUrl": "https://dn760004.eu.archive.org/0/items/worksofjohnowe09owen/worksofjohnowe09owen_scandata.xml",
+      "retrievedAt": "2026-10-05T05:44:12.814111Z",
+      "sha256": "84db9a8b52180dc74cf348fcc32d3e8b6b9df2291218432d8364cb083fd29dae",
+      "byteCount": 274610,
+      "mimeType": "text/xml",
+      "relativePath": "library/source-internet-archive/asset-l02-worksofjohnowe09owen-scandata/worksofjohnowe09owen_scandata.xml"
+    },
+    {
+      "assetId": "asset-l02-worksofjohnowe185008owen-metadata",
+      "url": "https://archive.org/metadata/worksofjohnowe185008owen",
+      "finalUrl": "https://archive.org/metadata/worksofjohnowe185008owen",
+      "retrievedAt": "2026-10-05T05:46:56.857507Z",
+      "sha256": "3c6288464743277c8f62ba8926c40ed7d23c1a0e9094d77523ed3a9db8ef6ba4",
+      "byteCount": 125911,
+      "mimeType": "application/json",
+      "relativePath": "library/source-internet-archive/asset-l02-worksofjohnowe185008owen-metadata/metadata.json"
+    },
+    {
+      "assetId": "asset-l02-worksofjohnowe185008owen-ocr",
+      "url": "https://archive.org/download/worksofjohnowe185008owen/worksofjohnowe185008owen_djvu.txt",
+      "finalUrl": "https://dn760108.eu.archive.org/0/items/worksofjohnowe185008owen/worksofjohnowe185008owen_djvu.txt",
+      "retrievedAt": "2026-10-05T05:47:00.304899Z",
+      "sha256": "7e81faee3cab6856969fc13071df90eb5f9a3831f344fcfa4452d0607c20e7f5",
+      "byteCount": 2123312,
+      "mimeType": "text/plain",
+      "relativePath": "library/source-internet-archive/asset-l02-worksofjohnowe185008owen-ocr/worksofjohnowe185008owen_djvu.txt"
+    },
+    {
+      "assetId": "asset-l02-worksofjohnowe185008owen-pdf",
+      "url": "https://archive.org/download/worksofjohnowe185008owen/worksofjohnowe185008owen.pdf",
+      "finalUrl": "https://dn720005.ca.archive.org/0/items/worksofjohnowe185008owen/worksofjohnowe185008owen.pdf",
+      "retrievedAt": "2026-10-05T05:47:08.240805Z",
+      "sha256": "a758446b3305304e2811000d139d62f43e1ee65f6746802201ba88119679904c",
+      "byteCount": 49220286,
+      "mimeType": "application/pdf",
+      "relativePath": "library/source-internet-archive/asset-l02-worksofjohnowe185008owen-pdf/worksofjohnowe185008owen.pdf"
+    },
+    {
+      "assetId": "asset-l02-worksofjohnowe185008owen-scandata",
+      "url": "https://archive.org/download/worksofjohnowe185008owen/worksofjohnowe185008owen_scandata.xml",
+      "finalUrl": "https://dn760108.eu.archive.org/0/items/worksofjohnowe185008owen/worksofjohnowe185008owen_scandata.xml",
+      "retrievedAt": "2026-10-05T05:47:03.232320Z",
+      "sha256": "4bcfcf714fc8dc519ec08ae37ab350d7a61fab65bae201c6f598f3c6f29eaeac",
+      "byteCount": 376000,
+      "mimeType": "text/xml",
+      "relativePath": "library/source-internet-archive/asset-l02-worksofjohnowe185008owen-scandata/worksofjohnowe185008owen_scandata.xml"
+    },
+    {
+      "assetId": "asset-l02-worksofjohnowe185009owen-metadata",
+      "url": "https://archive.org/metadata/worksofjohnowe185009owen",
+      "finalUrl": "https://archive.org/metadata/worksofjohnowe185009owen",
+      "retrievedAt": "2026-10-05T05:47:10.262143Z",
+      "sha256": "5f54bc74de14bc2cde6cb8bfbbd159aca58cb98bbaa3ec4266cf667fb8580e98",
+      "byteCount": 119210,
+      "mimeType": "application/json",
+      "relativePath": "library/source-internet-archive/asset-l02-worksofjohnowe185009owen-metadata/metadata.json"
+    },
+    {
+      "assetId": "asset-l02-worksofjohnowe185009owen-ocr",
+      "url": "https://archive.org/download/worksofjohnowe185009owen/worksofjohnowe185009owen_djvu.txt",
+      "finalUrl": "https://dn760103.eu.archive.org/0/items/worksofjohnowe185009owen/worksofjohnowe185009owen_djvu.txt",
+      "retrievedAt": "2026-10-05T05:47:15.270683Z",
+      "sha256": "da450ad4032ae208e5b8e3fcb1e3c036bcac87aff290c6047b1be46d59f024d6",
+      "byteCount": 2096938,
+      "mimeType": "text/plain",
+      "relativePath": "library/source-internet-archive/asset-l02-worksofjohnowe185009owen-ocr/worksofjohnowe185009owen_djvu.txt"
+    },
+    {
+      "assetId": "asset-l02-worksofjohnowe185009owen-pdf",
+      "url": "https://archive.org/download/worksofjohnowe185009owen/worksofjohnowe185009owen.pdf",
+      "finalUrl": "https://dn760103.eu.archive.org/0/items/worksofjohnowe185009owen/worksofjohnowe185009owen.pdf",
+      "retrievedAt": "2026-10-05T05:47:26.754506Z",
+      "sha256": "11eb88fab98660c394bd57edf6eed62f922a7c461c7f9cc1cc564f7f40259c85",
+      "byteCount": 49663193,
+      "mimeType": "application/pdf",
+      "relativePath": "library/source-internet-archive/asset-l02-worksofjohnowe185009owen-pdf/worksofjohnowe185009owen.pdf"
+    },
+    {
+      "assetId": "asset-l02-worksofjohnowe185009owen-scandata",
+      "url": "https://archive.org/download/worksofjohnowe185009owen/worksofjohnowe185009owen_scandata.xml",
+      "finalUrl": "https://dn760103.eu.archive.org/0/items/worksofjohnowe185009owen/worksofjohnowe185009owen_scandata.xml",
+      "retrievedAt": "2026-10-05T05:47:17.954341Z",
+      "sha256": "67984d5081532f2388db0f46b67adfdb2b95514f9c65a21dfb6cf5cdbf46d24c",
+      "byteCount": 335937,
+      "mimeType": "text/xml",
+      "relativePath": "library/source-internet-archive/asset-l02-worksofjohnowe185009owen-scandata/worksofjohnowe185009owen_scandata.xml"
+    },
+    {
+      "assetId": "asset-l02-worksofjohnowend0017owen-metadata",
+      "url": "https://archive.org/metadata/worksofjohnowend0017owen",
+      "finalUrl": "https://archive.org/metadata/worksofjohnowend0017owen",
+      "retrievedAt": "2026-10-05T05:47:31.255050Z",
+      "sha256": "1120a4099a61c1e8b44c99ff58a1373e83b3af7c7bff751f0d1846c40e7ac71c",
+      "byteCount": 117958,
+      "mimeType": "application/json",
+      "relativePath": "library/source-internet-archive/asset-l02-worksofjohnowend0017owen-metadata/metadata.json"
+    },
+    {
+      "assetId": "asset-l02-worksofjohnowend0017owen-ocr",
+      "url": "https://archive.org/download/worksofjohnowend0017owen/worksofjohnowend0017owen_djvu.txt",
+      "finalUrl": "https://dn760004.eu.archive.org/0/items/worksofjohnowend0017owen/worksofjohnowend0017owen_djvu.txt",
+      "retrievedAt": "2026-10-05T05:47:34.336557Z",
+      "sha256": "95982aff39ddcd590ac3f56fc96d80babb09ee0edd8161c6c15925afbfff561c",
+      "byteCount": 1822125,
+      "mimeType": "text/plain",
+      "relativePath": "library/source-internet-archive/asset-l02-worksofjohnowend0017owen-ocr/worksofjohnowend0017owen_djvu.txt"
+    },
+    {
+      "assetId": "asset-l02-worksofjohnowend0017owen-pdf",
+      "url": "https://archive.org/download/worksofjohnowend0017owen/worksofjohnowend0017owen.pdf",
+      "finalUrl": "https://ia801500.us.archive.org/7/items/worksofjohnowend0017owen/worksofjohnowend0017owen.pdf",
+      "retrievedAt": "2026-10-05T05:47:49.491187Z",
+      "sha256": "dc9bc2600b1ad5a1b61121d4861b9beaf99542d670266b2d21e45bf58154f415",
+      "byteCount": 39853759,
+      "mimeType": "application/pdf",
+      "relativePath": "library/source-internet-archive/asset-l02-worksofjohnowend0017owen-pdf/worksofjohnowend0017owen.pdf"
+    },
+    {
+      "assetId": "asset-l02-worksofjohnowend0017owen-scandata",
+      "url": "https://archive.org/download/worksofjohnowend0017owen/worksofjohnowend0017owen_scandata.xml",
+      "finalUrl": "https://dn760004.eu.archive.org/0/items/worksofjohnowend0017owen/worksofjohnowend0017owen_scandata.xml",
+      "retrievedAt": "2026-10-05T05:47:40.428328Z",
+      "sha256": "715323644b62d5109543a4644be2d01438552e069f066204c48c343ed622fbd1",
+      "byteCount": 668053,
+      "mimeType": "text/xml",
+      "relativePath": "library/source-internet-archive/asset-l02-worksofjohnowend0017owen-scandata/worksofjohnowend0017owen_scandata.xml"
+    }
+  ]
+}
