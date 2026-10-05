@@ -1,26 +1,9 @@
-/* Only theme changes override the browser's default crossfade. */
-html[data-theme-transition]::view-transition-old(root),
-html[data-theme-transition]::view-transition-new(root) {
+/* Match Towerline's original circular reveal, without the default crossfade. */
+::view-transition-old(root),
+::view-transition-new(root) {
   animation: none;
   mix-blend-mode: normal;
 }
-html[data-theme-transition]::view-transition-old(root) { z-index: 1; }
-html[data-theme-transition]::view-transition-new(root) { z-index: 2; }
-/* Keep the old light page above the new dark page while its circle shrinks. */
-html[data-theme-transition="retract"]::view-transition-old(root) { z-index: 3; }
-/* Keep the toggle out of the shrinking light snapshot, so its old sun doesn't
-   linger over the new moon and pop away at the very end of the retraction. */
-html[data-theme-transition] .theme-switch { view-transition-name: theme-switch; }
-html[data-theme-transition]::view-transition-group(theme-switch) { animation: none; }
-html[data-theme-transition]::view-transition-old(theme-switch) { display: none; }
-html[data-theme-transition]::view-transition-new(theme-switch) {
-  animation: none;
-  mix-blend-mode: normal;
-}
-/* Capture the finished palette rather than intermediate transition-colors frames. */
-html[data-theme-transition] *,
-html[data-theme-transition] *::before,
-html[data-theme-transition] *::after { transition: none !important; }
 
 .theme-switch {
   position: relative;

@@ -26,7 +26,7 @@ export function useTheme(): [Theme, (event?: MouseEvent<HTMLButtonElement>) => v
   }, [theme]);
   const toggle = (event?: MouseEvent<HTMLButtonElement>) => {
     const next = theme === "dark" ? "light" : "dark";
-    revealTheme(event?.currentTarget, next, () => {
+    revealTheme(event?.currentTarget, () => {
       try {
         localStorage.setItem("bp-theme", next);
       } catch (error) {
