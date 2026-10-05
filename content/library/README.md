@@ -1,5 +1,7 @@
 # Christian library — collection desk
 
+**LIBRARY DOWNLOADS · MASTER CATEGORY INDEX · CROSS-CHAT HANDOFF:** [All collection categories and mission status (L00–L15)](BACKLOG.md) · [Actual text/download inventory](reports/text-backlog/REPORT.md). Use these mission IDs across chats, reports and checkpoints; check the category's latest acquisition manifest before starting work. Reuse existing readable text, acquire permitted missing text, and reserve transcription for books genuinely unavailable as usable text. Category entries and source links are not completed downloads.
+
 Established 2026-10-05 at the owner's request. This is the reusable starting point for each future collection mission. The owner will request categories one by one; the backlog is not authorization to run them all.
 
 ## Published Reformed reading selection

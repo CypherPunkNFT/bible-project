@@ -1,5 +1,7 @@
 # Bible Project
 
+**LIBRARY DOWNLOADS · MASTER CATEGORY INDEX · CROSS-CHAT HANDOFF:** [All collection categories and mission status (L00–L15)](content/library/BACKLOG.md) · [Actual text/download inventory](content/library/reports/text-backlog/REPORT.md) · [Collection desk](content/library/README.md). Collection chats share these mission IDs and consult the latest category acquisition manifest to avoid duplicate downloads. Prioritize permitted readable texts; catalog links, acquired files and published selections have separate statuses.
+
 Read the whole Bible in every free version we can find, in sixteen languages, side by side, with charts, a satellite atlas of
 its places, study pages and every open cross-reference. Free for everyone, with no account, no ads and no
 paywall. The code, the data pipeline and the sources list are all here, to use, change, take apart and
