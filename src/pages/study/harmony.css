@@ -1,0 +1,50 @@
+/* One screen from the four-Gospel map to the start of the source footer. Only events scroll. */
+.harmony-workbench {
+  --harmony-inset: 2rem;
+  display: flex;
+  flex-direction: column;
+  height: calc(100dvh - 6rem - env(safe-area-inset-top, 0px));
+  min-height: 34rem;
+  scroll-margin-top: calc(4.5rem + env(safe-area-inset-top, 0px));
+}
+.harmony-coverage { flex-shrink: 0; margin-bottom: 1.5rem; }
+.harmony-coverage figcaption { height: 2rem; overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
+.harmony-filters {
+  flex-shrink: 0;
+  margin-inline: calc(-1 * var(--harmony-inset));
+  padding-inline: var(--harmony-inset);
+}
+.harmony-table { display: flex; flex: 1; flex-direction: column; min-height: 0; }
+.harmony-table-heading { flex-shrink: 0; padding-block: 1rem .75rem; border-bottom: 1px solid var(--line); }
+.harmony-scroll-shell { position: relative; flex: 1; min-height: 0; }
+.harmony-rows { height: 100%; overflow-y: auto; overscroll-behavior-y: contain; overflow-anchor: none; }
+.harmony-rows:focus-visible { outline-offset: -2px; }
+.harmony-rows > ol { display: flow-root; padding-bottom: 1rem; }
+.harmony-rows > ol > li:first-child > h2 { margin-top: 1.25rem; }
+.harmony-outside-scroll {
+  position: absolute;
+  inset-block: 0;
+  right: calc(-1 * var(--harmony-inset) - 13px);
+  width: 12px;
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
+}
+/* The enclosing card supplies the stationary border; the scrollbar lives beyond it. */
+#harmony > .charts-stage { padding-bottom: 0; }
+@media (min-width: 768px) and (max-width: 1023px) {
+  .harmony-column-labels { font-size: .625rem; letter-spacing: .08em; }
+}
+@media (max-width: 767px) {
+  .harmony-workbench { --harmony-inset: 1.25rem; }
+  .harmony-coverage { margin-bottom: 1rem; padding: .75rem; }
+  .harmony-coverage figcaption { padding-inline-start: 0; height: 3rem; -webkit-line-clamp: 3; }
+  .harmony-coverage .h-5 { height: 1rem; }
+  .harmony-table-heading { padding-block: .75rem; }
+  .harmony-table-heading > p { gap: .5rem 1rem; font-size: .65rem; }
+  .harmony-table-heading > p span[aria-hidden] { width: 1rem; }
+}
+@media (max-width: 420px) {
+  .harmony-filters fieldset { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .375rem; }
+  .harmony-filters fieldset > span, .harmony-filters fieldset > label { grid-column: 1 / -1; margin-inline: 0; }
+  .harmony-filters fieldset > button { padding-inline: .25rem; font-size: .75rem; }
+}

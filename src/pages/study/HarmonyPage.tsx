@@ -1,10 +1,12 @@
 import { ChevronDown } from "lucide-react";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { PassageText, RefLink, StudyCredits, StudyHeader, StudySearch } from "@/components/study/StudyParts";
 import { loadHarmony, shortRange, type HarmonySection, type Span } from "@/lib/study";
 import { tone } from "@/lib/sections";
 import { useAsync } from "@/lib/useAsync";
 import { cn } from "@/lib/utils";
+import "./harmony.css";
 
 const GOSPELS = [
   { key: "MAT", name: "Matthew", short: "Mt" },
@@ -19,7 +21,16 @@ interface Row extends HarmonySection {
   partTitle: string;
 }
 
+/** Move only the rows; scrollIntoView would also move the page and lose the coverage chart. */
+function revealEvent(n: string) {
+  const row = document.getElementById(`event-${n}`);
+  const viewport = row?.closest<HTMLElement>(".harmony-rows");
+  if (row && viewport) viewport.scrollTop += row.getBoundingClientRect().top - viewport.getBoundingClientRect().top;
+}
+
 export default function HarmonyPage({ embedded = false }: { embedded?: boolean }) {
+  const location = useLocation();
+  const workbench = useRef<HTMLDivElement>(null);
   const harmony = useAsync(loadHarmony, "harmony");
   const [query, setQuery] = useState("");
   const [only, setOnly] = useState<GospelKey[]>([]);
@@ -42,12 +53,30 @@ export default function HarmonyPage({ embedded = false }: { embedded?: boolean }
 
   // A link such as /study/harmony#event-72 (from the Miracles page) opens that event.
   useEffect(() => {
-    const n = /^#event-(\w+)$/.exec(window.location.hash)?.[1];
-    if (!n || harmony.status !== "ready") return;
+    const n = /^#event-(\w+)$/.exec(location.hash)?.[1];
+    if ((!n && location.hash !== "#harmony") || harmony.status !== "ready") return;
+    if (n) {
+      setQuery("");
+      setOnly([]);
+      setExactly(false);
+      setOpen(n);
+    }
+    const frame = requestAnimationFrame(() => {
+      workbench.current?.scrollIntoView({ block: "start", behavior: "instant" });
+      if (n) revealEvent(n);
+    });
+    return () => cancelAnimationFrame(frame);
+  }, [harmony.status, location.hash]);
+
+  const pickEvent = (n: string) => {
+    if (!shown.some((row) => row.n === n)) {
+      setQuery("");
+      setOnly([]);
+      setExactly(false);
+    }
     setOpen(n);
-    const timer = window.setTimeout(() => document.getElementById(`event-${n}`)?.scrollIntoView({ block: "start" }), 80);
-    return () => window.clearTimeout(timer);
-  }, [harmony.status]);
+    requestAnimationFrame(() => revealEvent(n));
+  };
 
   const toggle = (key: GospelKey) => setOnly((list) => (list.includes(key) ? list.filter((g) => g !== key) : [...list, key]));
 
@@ -67,8 +96,9 @@ export default function HarmonyPage({ embedded = false }: { embedded?: boolean }
       {harmony.status === "error" && <p className="text-muted">The harmony could not be loaded.</p>}
       {harmony.status === "ready" && (
         <>
-          <Coverage rows={rows} shown={shown} onPick={(n) => setOpen(n)} />
-          <div className="sticky top-[calc(env(safe-area-inset-top,0px)+3.5rem)] z-10 mt-6 space-y-3 border-b border-line bg-page/95 py-3 backdrop-blur">
+          <div ref={workbench} className="harmony-workbench">
+          <Coverage rows={rows} shown={shown} onPick={pickEvent} />
+          <div className="harmony-filters space-y-3 border-y border-line bg-page py-3">
             <StudySearch value={query} onChange={setQuery} label="Find an event, e.g. lepers" count={shown.length} total={rows.length} />
             <fieldset className="flex flex-wrap items-center gap-2 text-sm">
               <legend className="sr-only">Show only events told in</legend>
@@ -92,15 +122,16 @@ export default function HarmonyPage({ embedded = false }: { embedded?: boolean }
             </fieldset>
           </div>
           <HarmonyTable rows={shown} open={open} setOpen={setOpen} />
-          <StudyCredits>
-            Events, their order, the fourteen parts and the references: A. T. Robertson, <cite>A Harmony of the Gospels for Students of the Life of Christ</cite>{" "}
-            (1922), public domain, from Project Gutenberg. His headings are shown in ordinary sentence case; references are his, checked against the King James
-            text. Passages shown in the King James Version.
-          </StudyCredits>
+          </div>
+          {!embedded && <StudyCredits><HarmonySource /></StudyCredits>}
         </>
       )}
     </div>
   );
+}
+
+export function HarmonySource() {
+  return <span>A. T. Robertson, <cite>A Harmony of the Gospels for Students of the Life of Christ</cite> (1922), public domain, Project Gutenberg. Events, fourteen parts and references follow his harmony; headings use sentence case. References checked against the KJV; passages shown in the KJV. This order is not an independently established chronology.</span>;
 }
 
 /** Four rows (one per Gospel) of 185 cells: where each Gospel tells the story. */
@@ -114,7 +145,7 @@ function Coverage({ rows, shown, onPick }: { rows: Row[]; shown: Row[]; onPick: 
     return told === 4 ? "#2e9e5b" : told === 3 ? "#9bd3b0" : colors.tab;
   };
   return (
-    <figure className="rounded-2xl border border-line bg-surface p-4">
+    <figure className="harmony-coverage rounded-2xl border border-line bg-surface p-4">
       <div className="overflow-x-auto pb-1">
       <div className="min-w-[36rem] space-y-1" role="img" aria-label="Which Gospels tell each event, from the first event to the last">
         {GOSPELS.map((g) => (
@@ -125,10 +156,8 @@ function Coverage({ rows, shown, onPick }: { rows: Row[]; shown: Row[]; onPick: 
                 <span
                   key={row.n}
                   onMouseEnter={() => setHover(row)}
-                  onClick={() => {
-                    onPick(row.n);
-                    document.getElementById(`event-${row.n}`)?.scrollIntoView({ block: "center" });
-                  }}
+                  onClick={() => onPick(row.n)}
+                  data-event={row.n}
                   className={cn("flex-1 cursor-pointer rounded-[1px]", !visible.has(row.n) && "opacity-25")}
                   style={{ background: row.refs[g.key] ? blockColor(row) : "var(--surface-2)" }}
                 />
@@ -144,7 +173,7 @@ function Coverage({ rows, shown, onPick }: { rows: Row[]; shown: Row[]; onPick: 
             §{hover.n} {hover.title} — {GOSPELS.filter((g) => hover.refs[g.key]).map((g) => g.name).join(", ") || "no Gospel"}
           </>
         ) : (
-          "Each column is one event, first to last. Filled = that Gospel tells it (dark green: all four tell it; light green: three). Point at one; click to go to it."
+          "One column per event, first to last. Filled = that Gospel tells it. Select an event to read its accounts."
         )}
       </figcaption>
     </figure>
@@ -163,28 +192,65 @@ function Refs({ spans }: { spans: Span[] | undefined }) {
 }
 
 function HarmonyTable({ rows, open, setOpen }: { rows: Row[]; open: string | null; setOpen: (n: string | null) => void }) {
+  const viewport = useRef<HTMLDivElement>(null);
+  const content = useRef<HTMLOListElement>(null);
+  const outsideScroll = useRef<HTMLDivElement>(null);
+  const outsideSize = useRef<HTMLDivElement>(null);
+  const mirrored = useRef(new WeakMap<HTMLDivElement, number>());
+
+  useLayoutEffect(() => {
+    if (viewport.current) viewport.current.scrollTop = 0;
+  }, [rows]);
+
+  useLayoutEffect(() => {
+    const syncSize = () => {
+      if (!viewport.current || !outsideSize.current || !outsideScroll.current) return;
+      outsideSize.current.style.height = `${viewport.current.scrollHeight}px`;
+      mirrored.current.set(outsideScroll.current, viewport.current.scrollTop);
+      outsideScroll.current.scrollTop = viewport.current.scrollTop;
+    };
+    syncSize();
+    const observer = new ResizeObserver(syncSize);
+    if (content.current) observer.observe(content.current);
+    if (viewport.current) observer.observe(viewport.current);
+    return () => observer.disconnect();
+  }, []);
+
+  const syncScroll = (from: HTMLDivElement, to: HTMLDivElement | null) => {
+    const expected = mirrored.current.get(from);
+    mirrored.current.delete(from);
+    if (expected !== undefined && Math.abs(expected - from.scrollTop) <= .5) return;
+    if (to && Math.abs(to.scrollTop - from.scrollTop) > .5) {
+      mirrored.current.set(to, from.scrollTop);
+      to.scrollTop = from.scrollTop;
+    }
+  };
   let lastPart = 0;
   return (
-    <>
-    <p className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-1 text-xs text-muted">
-      <span className="flex items-center gap-1.5"><span className="harmony-all h-3 w-6 rounded-sm border border-line" aria-hidden />All four Gospels tell it</span>
-      <span className="flex items-center gap-1.5"><span className="harmony-three h-3 w-6 rounded-sm border border-line" aria-hidden />Three tell it</span>
+    <div className="harmony-table">
+    <div className="harmony-table-heading">
+    <p className="flex flex-wrap items-center gap-x-5 gap-y-1 text-xs text-muted">
+      <span className="flex items-center gap-1.5"><span className="harmony-all h-3 w-6 rounded-sm border border-line" aria-hidden />All four Gospels</span>
+      <span className="flex items-center gap-1.5"><span className="harmony-three h-3 w-6 rounded-sm border border-line" aria-hidden />Three Gospels</span>
     </p>
-    <div aria-hidden className="mt-3 hidden grid-cols-[2.5rem_minmax(0,1fr)_repeat(4,6.5rem)] gap-x-3 text-xs font-semibold uppercase tracking-[0.14em] text-muted md:grid">
+    <div aria-hidden className="harmony-column-labels mt-3 hidden grid-cols-[2.5rem_minmax(0,6fr)_repeat(4,minmax(0,1fr))] gap-x-3 text-xs font-semibold uppercase tracking-[0.14em] text-muted md:grid">
       <span />
       <span>Event</span>
       {GOSPELS.map((g) => (
         <span key={g.key}>{g.name}</span>
       ))}
     </div>
-    <ol className="mt-2">
+    </div>
+    <div className="harmony-scroll-shell">
+    <div ref={viewport} onScroll={(event) => syncScroll(event.currentTarget, outsideScroll.current)} className="harmony-rows no-scrollbar" role="region" aria-label="Gospel harmony events" tabIndex={0}>
+    <ol ref={content}>
       {rows.map((row) => {
         const partHeading = row.part !== lastPart;
         lastPart = row.part;
         const isOpen = open === row.n;
         const told = GOSPELS.filter((g) => row.refs[g.key]).length;
         return (
-          <li key={row.n} id={`event-${row.n}`} className="scroll-mt-48">
+          <li key={row.n} id={`event-${row.n}`}>
             {partHeading && (
               <h2 className="mb-1 mt-8 text-xs font-semibold uppercase tracking-[0.16em] text-muted">
                 Part {row.part} · {row.partTitle}
@@ -192,7 +258,7 @@ function HarmonyTable({ rows, open, setOpen }: { rows: Row[]; open: string | nul
             )}
             <div
               className={cn(
-                "grid grid-cols-[2.5rem_1fr] gap-x-3 border-b border-line py-2.5 md:grid-cols-[2.5rem_minmax(0,1fr)_repeat(4,6.5rem)]",
+                "grid grid-cols-[2.5rem_1fr] gap-x-3 border-b border-line py-2.5 md:grid-cols-[2.5rem_minmax(0,6fr)_repeat(4,minmax(0,1fr))]",
                 isOpen ? "bg-surface" : told === 4 ? "harmony-all" : told === 3 ? "harmony-three" : "",
               )}
             >
@@ -233,7 +299,10 @@ function HarmonyTable({ rows, open, setOpen }: { rows: Row[]; open: string | nul
       })}
       {!rows.length && <li className="py-10 text-center text-muted">No event matches.</li>}
     </ol>
-    </>
+    </div>
+    <div ref={outsideScroll} onScroll={(event) => syncScroll(event.currentTarget, viewport.current)} className="harmony-outside-scroll slim-scroll" aria-hidden="true" tabIndex={-1}><div ref={outsideSize} className="w-px" /></div>
+    </div>
+    </div>
   );
 }
 

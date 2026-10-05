@@ -103,6 +103,72 @@ test("harmony: 'only John' shows the events no other Gospel tells", async ({ pag
   await expect(page.getByRole("button", { name: /Feeding of the five thousand/ })).toHaveCount(0);
 });
 
+test("harmony: rows and the outside scrollbar scroll together while the chart stays visible", async ({ page }) => {
+  await page.goto("/study/harmony");
+  const rows = page.getByRole("region", { name: "Gospel harmony events", exact: true });
+  const chart = page.locator(".harmony-coverage");
+  await expect(chart).toBeInViewport({ ratio: 1 });
+  await expect(rows).toBeInViewport({ ratio: 1 });
+  const before = await page.evaluate(() => {
+    const card = document.getElementById("harmony")!.getBoundingClientRect();
+    const band = document.querySelector(".harmony-filters")!.getBoundingClientRect();
+    const outside = document.querySelector(".harmony-outside-scroll")!.getBoundingClientRect();
+    const footer = document.querySelector("#harmony > footer")!.getBoundingClientRect();
+    const rows = document.querySelector(".harmony-rows")!;
+    return { pageY: scrollY, chartY: document.querySelector(".harmony-coverage")!.getBoundingClientRect().top,
+      leftInset: band.left - card.left, rightInset: card.right - band.right,
+      scrollbarGap: outside.right - 6 - card.right, gutter: rows.getBoundingClientRect().width - rows.clientWidth,
+      footerPeek: innerHeight - footer.top };
+  });
+  expect(before.leftInset).toBeCloseTo(1);
+  expect(before.rightInset).toBeCloseTo(1);
+  expect(before.scrollbarGap).toBeGreaterThan(0);
+  expect(before.gutter).toBeLessThanOrEqual(1);
+  expect(before.footerPeek).toBeGreaterThan(15);
+  expect(before.footerPeek).toBeLessThan(40);
+
+  await rows.hover();
+  await page.mouse.wheel(0, 550);
+  await expect.poll(() => rows.evaluate((el) => el.scrollTop)).toBeGreaterThan(400);
+  await expect.poll(() => page.evaluate(() => Math.abs(document.querySelector(".harmony-rows")!.scrollTop - document.querySelector(".harmony-outside-scroll")!.scrollTop))).toBeLessThanOrEqual(1);
+  await page.locator(".harmony-outside-scroll").evaluate((el) => { el.scrollTop = 1400; });
+  await expect.poll(() => rows.evaluate((el) => el.scrollTop)).toBe(1400);
+  expect(await page.evaluate(() => scrollY)).toBeCloseTo(before.pageY, 0);
+  expect((await chart.boundingBox())!.y).toBeCloseTo(before.chartY, 0);
+  await expect(chart).toBeInViewport({ ratio: 1 });
+
+  await rows.focus();
+  await page.keyboard.press("End");
+  await expect(page.locator(".harmony-rows > ol > li").last()).toBeInViewport();
+  expect(await page.evaluate(() => scrollY)).toBeCloseTo(before.pageY, 0);
+});
+
+test("harmony: map selections and filters preserve the chart and keep the scroll range accurate", async ({ page }) => {
+  await page.goto("/study/harmony");
+  const rows = page.getByRole("region", { name: "Gospel harmony events", exact: true });
+  const chart = page.locator(".harmony-coverage");
+  await expect(chart).toBeInViewport({ ratio: 1 });
+  const chartY = (await chart.boundingBox())!.y;
+  await page.locator('.harmony-coverage [data-event="54"]').first().click();
+  await expect(page.locator("#event-54 button").first()).toHaveAttribute("aria-expanded", "true");
+  await expect.poll(async () => Math.abs((await page.locator("#event-54").boundingBox())!.y - (await rows.boundingBox())!.y)).toBeLessThan(2);
+  expect((await chart.boundingBox())!.y).toBeCloseTo(chartY, 0);
+  await expect(page.locator("#event-54-panel")).toContainText("Blessed");
+
+  const search = page.getByPlaceholder("Find an event, e.g. lepers");
+  await search.fill("no matching event here");
+  await expect(rows).toContainText("No event matches.");
+  await expect.poll(() => rows.evaluate((el) => el.scrollTop)).toBe(0);
+  await expect.poll(() => page.locator(".harmony-outside-scroll").evaluate((el) => el.scrollHeight - el.clientHeight)).toBeLessThanOrEqual(1);
+  // A dimmed map event still opens its accounts by clearing filters that would hide it.
+  await page.locator('.harmony-coverage [data-event="54"]').first().click();
+  await expect(search).toHaveValue("");
+  await expect(page.locator(".harmony-rows > ol > li")).toHaveCount(185);
+  await expect.poll(() => rows.evaluate((el) => el.scrollTop)).toBeGreaterThan(500);
+  await expect(chart).toBeInViewport({ ratio: 1 });
+  await expect.poll(() => page.evaluate(() => Math.abs(document.querySelector(".harmony-rows")!.scrollHeight - document.querySelector(".harmony-outside-scroll")!.scrollHeight))).toBeLessThanOrEqual(1);
+});
+
 test("harmony references open the reader on the whole passage", async ({ page }) => {
   await page.goto("/study/harmony");
   await page.getByRole("link", { name: "6:30–44" }).first().click();
@@ -148,6 +214,8 @@ test("harmony: a long passage across chapters ends with 'read on' (the Sermon on
   await page.goto("/study/harmony#event-54");
   const panel = page.locator("#event-54-panel");
   await expect(panel).toBeVisible();
+  await expect(page.locator(".harmony-coverage")).toBeInViewport({ ratio: 1 });
+  await expect(page.locator("#event-54 button").first()).toBeInViewport();
   await expect(panel.getByRole("link", { name: /read on/ }).first()).toBeVisible();
 });
 

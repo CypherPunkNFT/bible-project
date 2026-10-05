@@ -18,7 +18,7 @@ import { useAsync, type AsyncState } from "@/lib/useAsync";
 import "./charts.css";
 import { StudyContents } from "@/components/study/StudyContents";
 import { StudyBackLink } from "@/components/study/StudyBackLink";
-import HarmonyPage from "@/pages/study/HarmonyPage";
+import HarmonyPage, { HarmonySource } from "@/pages/study/HarmonyPage";
 import { GospelPortraits } from "@/components/study/GospelPortraits";
 
 function Result<T>({ state, children }: { state: AsyncState<T>; children: (value: T) => ReactNode }) {
@@ -64,7 +64,9 @@ export default function ChartsPage() {
   const shown = (id: string) => activeId === id;
   useLayoutEffect(() => {
     const target = location.hash.slice(1);
-    if (target) (document.getElementById(target) ?? (target === "speech" ? document.getElementById("jesus") : target.startsWith("event-") ? document.getElementById("harmony") : null))?.scrollIntoView({ block: "start", behavior: "instant" });
+    // Harmony handles its own event anchors inside the row viewport, preserving the map above it.
+    if (target === "harmony" || target.startsWith("event-")) return;
+    if (target) (document.getElementById(target) ?? (target === "speech" ? document.getElementById("jesus") : null))?.scrollIntoView({ block: "start", behavior: "instant" });
   }, [location.hash, stats.status, activeId]);
   const structureFilters = <SectionFilters value={section} onChange={setSection} />;
   const source = <a href="https://www.openbible.info/labs/cross-references/" target="_blank" rel="noreferrer">OpenBible.info ↗</a>;
@@ -97,7 +99,7 @@ export default function ChartsPage() {
       <ChartPanel id="portraits" title="Four Gospel portraits" lead="Where does an episode appear, and what does each account bring into view? Follow four narrative lines, then read their passages together." source={<span>Robertson’s harmony · KJV verse positions · Eight guided comparisons</span>} height={1400}><Result state={stats}>{(data) => <GospelPortraits stats={data} />}</Result></ChartPanel>
       <ChartPanel id="jesus" title="Teaching journeys" lead="Read eight selected teachings in their Gospel setting, compare parallel accounts, and follow the passages into the reader." source={<span>KJV previews · Teaching passages include their narrative setting.</span>} height={850}><TeachingJourneys /></ChartPanel>
       <ChartPanel id="speech" title="Where he speaks" lead="See the shape of Jesus' speech across the Gospel chapters. Compare the share of a chapter with its red-letter word count, then read the surrounding story." source={<span>KJV red-letter markup · Chapter bars open their passages in the reader.</span>} height={850}><Result state={stats}>{(data) => <SpeechAtlas stats={data} />}</Result></ChartPanel>
-      <ChartPanel id="harmony" title="Gospel harmony" lead="Follow 185 events through A. T. Robertson's fourteen parts. Open an event to read its accounts together; each Gospel retains its own voice and setting." source={<span>A. T. Robertson · 1922 · Gospel order follows this harmony, rather than an independently established chronology.</span>} height={700}><HarmonyPage embedded /></ChartPanel>
+      <ChartPanel id="harmony" title="Gospel harmony" lead="Follow 185 events through A. T. Robertson's fourteen parts. Open an event to read its accounts together; each Gospel retains its own voice and setting." source={<HarmonySource />} height={700}><HarmonyPage embedded /></ChartPanel>
     </section>}
     {shown("versions") && <section hidden={activeId !== "versions"} id="versions" aria-labelledby="versions-title" className="chart-area" style={{ "--chart-color": "var(--acts)" } as CSSProperties}>
       <header className="chart-area-heading"><div><p className="charts-panel-kicker">Editions & contents · Versions</p><Heading id="versions-title">Know the edition you are reading.</Heading><p>Know the texts in your hands. Edition dates place the library in time; coverage shows which books each edition actually includes. The Library brings these editions together by language.</p></div><Layers aria-hidden="true" /></header>
