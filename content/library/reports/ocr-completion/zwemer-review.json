@@ -1,0 +1,75 @@
+{
+  "reviewedOn": "2026-10-05",
+  "scope": "Visual inspection of the five previously flagged low-text PDF pages in two Zwemer books. This is not a full-book accuracy review.",
+  "method": "PyMuPDF 1.28.2 render at 130 DPI, visual comparison against existing extracted text; enlarged folio crops for the Moslem Christ pages.",
+  "pagesReviewed": 5,
+  "missingBodyTextPages": 0,
+  "ocrRequiredPages": 0,
+  "ocrPerformedPages": 0,
+  "originalsModified": false,
+  "priorDerivedTextModified": false,
+  "conclusion": "All five flags are chapter-divider pages. Their complete chapter headings are already in the existing text layer. Low character counts do not indicate missing prose. Two small folio numbers were not captured; they are retained below as locator metadata. No OCR or restoration is necessary for these flags.",
+  "rights": "Existing source-rights qualifications unchanged. No public hosting, redistribution, or full-text indexing clearance is asserted.",
+  "pages": [
+    {
+      "assetId": "asset-l10-zwemer-christ-pdf",
+      "parentSha256": "dfc639d3dd9d114c2e048241dc324833b9446e1b074a25b0e2299ee3853b7518",
+      "pdfPage": 70,
+      "printedFolio": "133",
+      "classification": "chapter-divider",
+      "heading": "VI — HIS TEACHING",
+      "headingAlreadyExtracted": true,
+      "omittedMaterial": "Printed folio 133 only; retained as locator metadata here.",
+      "renderPath": ".local/library/ocr-completion/zwemer/christ-70.png",
+      "disposition": "closed-no-ocr-needed"
+    },
+    {
+      "assetId": "asset-l10-zwemer-christ-pdf",
+      "parentSha256": "dfc639d3dd9d114c2e048241dc324833b9446e1b074a25b0e2299ee3853b7518",
+      "pdfPage": 95,
+      "printedFolio": "175",
+      "classification": "chapter-divider",
+      "heading": "VIII — HOW TO PREACH CHRIST TO MOSLEMS WHO KNOW JESUS",
+      "headingAlreadyExtracted": true,
+      "omittedMaterial": "Printed folio 175 only; retained as locator metadata here.",
+      "renderPath": ".local/library/ocr-completion/zwemer/christ-95.png",
+      "disposition": "closed-no-ocr-needed"
+    },
+    {
+      "assetId": "asset-l10-zwemer-lectures-pdf",
+      "parentSha256": "6912dd246886cd65d761b5165a042c2787b6b49b5b0f1a1fc2bc2cebd10edf2b",
+      "pdfPage": 8,
+      "printedFolio": null,
+      "classification": "chapter-divider",
+      "heading": "I — THE DEAD WEIGHT OF TRADITION",
+      "headingAlreadyExtracted": true,
+      "omittedMaterial": null,
+      "renderPath": ".local/library/ocr-completion/zwemer/lectures-8.png",
+      "disposition": "closed-no-ocr-needed"
+    },
+    {
+      "assetId": "asset-l10-zwemer-lectures-pdf",
+      "parentSha256": "6912dd246886cd65d761b5165a042c2787b6b49b5b0f1a1fc2bc2cebd10edf2b",
+      "pdfPage": 35,
+      "printedFolio": null,
+      "classification": "chapter-divider",
+      "heading": "II — THE REVOLT AND ITS FAILURE",
+      "headingAlreadyExtracted": true,
+      "omittedMaterial": null,
+      "renderPath": ".local/library/ocr-completion/zwemer/lectures-35.png",
+      "disposition": "closed-no-ocr-needed"
+    },
+    {
+      "assetId": "asset-l10-zwemer-lectures-pdf",
+      "parentSha256": "6912dd246886cd65d761b5165a042c2787b6b49b5b0f1a1fc2bc2cebd10edf2b",
+      "pdfPage": 76,
+      "printedFolio": null,
+      "classification": "chapter-divider",
+      "heading": "IV — THE NEW ISLAM: HAS IT A FUTURE?",
+      "headingAlreadyExtracted": true,
+      "omittedMaterial": null,
+      "renderPath": ".local/library/ocr-completion/zwemer/lectures-76.png",
+      "disposition": "closed-no-ocr-needed"
+    }
+  ]
+}

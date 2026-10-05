@@ -1,0 +1,665 @@
+{
+  "processedAt": "2026-10-05T14:21:49.438751+00:00",
+  "engine": "Windows.Media.Ocr en-US",
+  "parallelWorkers": 3,
+  "documents": [
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-d105295f1ff9df838a5d/original.pdf",
+      "title": "D. A. Carson review of Ridderbos, Matthew, and Newman and Stine, A Translator's Handbook on the Gospel of Matthew",
+      "pages": [
+        {
+          "page": 1,
+          "decision": "ocr-legible-print",
+          "reason": "Clear ordinary modern single-column journal print. Large blank upper region on page 1 is intentional; lower body text continues onto page 2. Printed folios 124-125. No tables or image-only pages.",
+          "regions": [
+            [
+              0,
+              0,
+              1,
+              1
+            ]
+          ],
+          "verifiedCorrections": [
+            {
+              "before": "Philip C. Steine",
+              "after": "Philip C. Stine",
+              "basis": "Visual source comparison recorded in tgc-ocr-quality.json"
+            },
+            {
+              "before": "Newman and Steine",
+              "after": "Newman and Stine",
+              "basis": "Visual source comparison recorded in tgc-ocr-quality.json"
+            }
+          ]
+        },
+        {
+          "page": 2,
+          "decision": "ocr-legible-print",
+          "reason": "Clear ordinary modern single-column journal print. Large blank upper region on page 1 is intentional; lower body text continues onto page 2. Printed folios 124-125. No tables or image-only pages.",
+          "regions": [
+            [
+              0,
+              0,
+              1,
+              1
+            ]
+          ]
+        }
+      ],
+      "sourceSha256": "1523c061fd472c75895969ce782c43ed98928ae5c8a6b96421e52689a3424e89",
+      "documentId": "pdf-1523c061fd472c758959",
+      "derivedText": ".local/library/ocr-completion/text/pdf-1523c061fd472c758959/readable.txt",
+      "derivedSha256": "d492be8ac77aee7575489d7bab2fbdd6be9d4b6a93d863f1116736e5d639bb6c",
+      "totalPages": 2,
+      "ocrPages": 2,
+      "ocrWords": 555,
+      "pageMap": ".local/library/ocr-completion/text/pdf-1523c061fd472c758959/page-map.json",
+      "publicHostingAllowed": false,
+      "reviewStatus": "machine-output-needs-proofreading"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-1266ceab761d554d725c/original.pdf",
+      "title": "Recent Reprints (D. A. C.)",
+      "pages": [
+        {
+          "page": 1,
+          "decision": "ocr-legible-print",
+          "reason": "Clear ordinary modern single-column journal print. Large blank upper region on page 1 is intentional; review begins near bottom and continues onto page 2. Printed folios 283-284. No tables or image-only pages.",
+          "regions": [
+            [
+              0,
+              0,
+              1,
+              1
+            ]
+          ],
+          "verifiedCorrections": [
+            {
+              "before": "Thomapple Commentaries",
+              "after": "Thornapple Commentaries",
+              "basis": "Visual source comparison recorded in tgc-ocr-quality.json"
+            }
+          ]
+        },
+        {
+          "page": 2,
+          "decision": "ocr-legible-print",
+          "reason": "Clear ordinary modern single-column journal print. Large blank upper region on page 1 is intentional; review begins near bottom and continues onto page 2. Printed folios 283-284. No tables or image-only pages.",
+          "regions": [
+            [
+              0,
+              0,
+              1,
+              1
+            ]
+          ],
+          "verifiedCorrections": [
+            {
+              "before": "The Reformation md Natural",
+              "after": "The Reformation and Natural",
+              "basis": "Visual source comparison recorded in tgc-ocr-quality.json"
+            }
+          ]
+        }
+      ],
+      "sourceSha256": "40c0bf2b5d99f136b651e13bff9d13709367fabaecc3cb18fd80b31a1b6baa85",
+      "documentId": "pdf-40c0bf2b5d99f136b651",
+      "derivedText": ".local/library/ocr-completion/text/pdf-40c0bf2b5d99f136b651/readable.txt",
+      "derivedSha256": "98b8553a2d3752d85ef5123c306c0da24ba431168c01132ee4aa50e79bf9ee7b",
+      "totalPages": 2,
+      "ocrPages": 2,
+      "ocrWords": 545,
+      "pageMap": ".local/library/ocr-completion/text/pdf-40c0bf2b5d99f136b651/page-map.json",
+      "publicHostingAllowed": false,
+      "reviewStatus": "machine-output-needs-proofreading"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-5d05e6c43f42bc58be3d/original.pdf",
+      "title": "Living by the Sermon on the Mount (Don Carson)",
+      "pages": [
+        {
+          "page": 1,
+          "decision": "ocr-legible-print",
+          "reason": "Legible modern magazine print, three columns with photographs and boxed pullquotes. All pages contain substantial prose; none should be excluded as image-only. Normalized crop rectangles preserve approximate column reading order and place pullquotes last; OCR output needs boundary checks where text wraps around boxes. Photographs, running author masthead and magazine footer excluded. Printed folios 15-17. No tables.",
+          "regions": [
+            [
+              0.025,
+              0.075,
+              0.98,
+              0.478
+            ],
+            [
+              0.035,
+              0.48,
+              0.675,
+              0.611
+            ],
+            [
+              0.036,
+              0.62,
+              0.351,
+              0.957
+            ],
+            [
+              0.36,
+              0.62,
+              0.669,
+              0.957
+            ],
+            [
+              0.676,
+              0.738,
+              0.984,
+              0.957
+            ]
+          ],
+          "renderRevision": 2,
+          "regionLabels": [
+            "title",
+            "standfirst",
+            "body-column-1",
+            "body-column-2",
+            "body-column-3"
+          ]
+        },
+        {
+          "page": 2,
+          "decision": "ocr-legible-print",
+          "reason": "Legible modern magazine print, three columns with photographs and boxed pullquotes. All pages contain substantial prose; none should be excluded as image-only. Normalized crop rectangles preserve approximate column reading order and place pullquotes last; OCR output needs boundary checks where text wraps around boxes. Photographs, running author masthead and magazine footer excluded. Printed folios 15-17. No tables.",
+          "regions": [
+            [
+              0.01,
+              0.097,
+              0.315,
+              0.643
+            ],
+            [
+              0.01,
+              0.643,
+              0.195,
+              0.824
+            ],
+            [
+              0.01,
+              0.824,
+              0.315,
+              0.962
+            ],
+            [
+              0.323,
+              0.606,
+              0.627,
+              0.643
+            ],
+            [
+              0.444,
+              0.643,
+              0.627,
+              0.824
+            ],
+            [
+              0.323,
+              0.824,
+              0.627,
+              0.962
+            ],
+            [
+              0.637,
+              0.606,
+              0.965,
+              0.962
+            ],
+            [
+              0.205,
+              0.644,
+              0.434,
+              0.846
+            ]
+          ],
+          "renderRevision": 2,
+          "regionLabels": [
+            "body-column-1-upper",
+            "body-column-1-around-pullquote",
+            "body-column-1-lower",
+            "body-column-2-upper",
+            "body-column-2-around-pullquote",
+            "body-column-2-lower",
+            "body-column-3",
+            "pullquote"
+          ]
+        },
+        {
+          "page": 3,
+          "decision": "ocr-legible-print",
+          "reason": "Legible modern magazine print, three columns with photographs and boxed pullquotes. All pages contain substantial prose; none should be excluded as image-only. Normalized crop rectangles preserve approximate column reading order and place pullquotes last; OCR output needs boundary checks where text wraps around boxes. Photographs, running author masthead and magazine footer excluded. Printed folios 15-17. No tables.",
+          "regions": [
+            [
+              0.065,
+              0.599,
+              0.367,
+              0.752
+            ],
+            [
+              0.065,
+              0.752,
+              0.255,
+              0.951
+            ],
+            [
+              0.373,
+              0.599,
+              0.667,
+              0.759
+            ],
+            [
+              0.675,
+              0.092,
+              0.978,
+              0.759
+            ],
+            [
+              0.797,
+              0.761,
+              0.978,
+              0.951
+            ],
+            [
+              0.26,
+              0.762,
+              0.793,
+              0.951
+            ]
+          ],
+          "renderRevision": 2,
+          "regionLabels": [
+            "body-column-1-upper",
+            "body-column-1-around-pullquote",
+            "body-column-2",
+            "body-column-3",
+            "author-biography-and-source-note",
+            "pullquote"
+          ]
+        }
+      ],
+      "sourceSha256": "86c7725bf5191e6f60989ca4da784dabff623089d9c4dacee2c75a6b55fffb4d",
+      "documentId": "pdf-86c7725bf5191e6f6098",
+      "derivedText": ".local/library/ocr-completion/text/pdf-86c7725bf5191e6f6098/readable.txt",
+      "derivedSha256": "bfc66e7d18f8805cf04823c8935bd62c19708afe782d969ee8ad285bc742af8f",
+      "totalPages": 3,
+      "ocrPages": 3,
+      "ocrWords": 1776,
+      "pageMap": ".local/library/ocr-completion/text/pdf-86c7725bf5191e6f6098/page-map.json",
+      "publicHostingAllowed": false,
+      "reviewStatus": "machine-output-needs-proofreading"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-7c35a71a71a28c2fdfa3/original.pdf",
+      "title": "Book review: N. T. Wright, The New Testament and the People of God",
+      "pages": [
+        {
+          "page": 3,
+          "decision": "ocr-legible-print",
+          "reason": "Clear modern two-column book-review prose. Left then right column. No table or photograph; header and footer excluded. Only this requested page was reviewed; no claim about other pages.",
+          "regions": [
+            [
+              0.045,
+              0.065,
+              0.49,
+              0.943
+            ],
+            [
+              0.507,
+              0.065,
+              0.963,
+              0.943
+            ]
+          ]
+        }
+      ],
+      "sourceSha256": "bb3cfa01b905d7437b20a4e85223c9e1606ebe7b61fd0be80a5ce04fef7ddd6b",
+      "documentId": "pdf-bb3cfa01b905d7437b20",
+      "derivedText": ".local/library/ocr-completion/text/pdf-bb3cfa01b905d7437b20/readable.txt",
+      "derivedSha256": "405cd394b67fbf023a0ae2e1dc5df4c3acd59e9fb87b8ad67af1f4ba118819f0",
+      "totalPages": 4,
+      "ocrPages": 1,
+      "ocrWords": 909,
+      "pageMap": ".local/library/ocr-completion/text/pdf-bb3cfa01b905d7437b20/page-map.json",
+      "publicHostingAllowed": false,
+      "reviewStatus": "machine-output-needs-proofreading"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-85375bee65b349de0eff/original.pdf",
+      "title": "Recent Reprints",
+      "pages": [
+        {
+          "page": 1,
+          "decision": "ocr-legible-print",
+          "reason": "Visually reviewed: clear ordinary single-column print; missing all text on this page."
+        }
+      ],
+      "sourceSha256": "575e6db50433605d3bca0c4956877a96824130642aa995ef4116952e2674d1f9",
+      "documentId": "pdf-575e6db50433605d3bca",
+      "derivedText": ".local/library/ocr-completion/text/pdf-575e6db50433605d3bca/readable.txt",
+      "derivedSha256": "45f3a02dafeceb3d3c429b2cccfa995309e0b3a47cd2af7ce99d046973b8556b",
+      "totalPages": 2,
+      "ocrPages": 1,
+      "ocrWords": 778,
+      "pageMap": ".local/library/ocr-completion/text/pdf-575e6db50433605d3bca/page-map.json",
+      "publicHostingAllowed": false,
+      "reviewStatus": "machine-output-needs-proofreading"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-6aa09acd54284f1d24f5/original.pdf",
+      "title": "Paul's mission and prayer (Donald A. Carson)",
+      "pages": [
+        {
+          "page": 1,
+          "decision": "ocr-legible-print",
+          "reason": "Readable ordinary English prose in a modern print chapter; gray photocopy background but strong legible letters throughout. Latin-script transliterations and scholarly names, no substantial mixed-script Greek passages. Copyright line Donald A. Carson 2000. First spread blank on left, last blank on right; crop only occupied halves. Whole chapter folios 175-184. Notes1-23 on final page retained. No tables. Straightforward OCR eligible with reading-order crops; output quality should be checked before marking complete.",
+          "regions": [
+            [
+              0.53,
+              0.21,
+              0.955,
+              0.938
+            ]
+          ]
+        },
+        {
+          "page": 2,
+          "decision": "ocr-legible-print",
+          "reason": "Readable ordinary English prose in a modern print chapter; gray photocopy background but strong legible letters throughout. Latin-script transliterations and scholarly names, no substantial mixed-script Greek passages. Copyright line Donald A. Carson 2000. First spread blank on left, last blank on right; crop only occupied halves. Whole chapter folios 175-184. Notes1-23 on final page retained. No tables. Straightforward OCR eligible with reading-order crops; output quality should be checked before marking complete.",
+          "regions": [
+            [
+              0.065,
+              0.045,
+              0.486,
+              0.94
+            ],
+            [
+              0.55,
+              0.045,
+              0.978,
+              0.94
+            ]
+          ]
+        },
+        {
+          "page": 3,
+          "decision": "ocr-legible-print",
+          "reason": "Readable ordinary English prose in a modern print chapter; gray photocopy background but strong legible letters throughout. Latin-script transliterations and scholarly names, no substantial mixed-script Greek passages. Copyright line Donald A. Carson 2000. First spread blank on left, last blank on right; crop only occupied halves. Whole chapter folios 175-184. Notes1-23 on final page retained. No tables. Straightforward OCR eligible with reading-order crops; output quality should be checked before marking complete.",
+          "regions": [
+            [
+              0.05,
+              0.045,
+              0.475,
+              0.94
+            ],
+            [
+              0.535,
+              0.045,
+              0.945,
+              0.94
+            ]
+          ]
+        },
+        {
+          "page": 4,
+          "decision": "ocr-legible-print",
+          "reason": "Readable ordinary English prose in a modern print chapter; gray photocopy background but strong legible letters throughout. Latin-script transliterations and scholarly names, no substantial mixed-script Greek passages. Copyright line Donald A. Carson 2000. First spread blank on left, last blank on right; crop only occupied halves. Whole chapter folios 175-184. Notes1-23 on final page retained. No tables. Straightforward OCR eligible with reading-order crops; output quality should be checked before marking complete.",
+          "regions": [
+            [
+              0.045,
+              0.045,
+              0.47,
+              0.94
+            ],
+            [
+              0.515,
+              0.045,
+              0.94,
+              0.94
+            ]
+          ]
+        },
+        {
+          "page": 5,
+          "decision": "ocr-legible-print",
+          "reason": "Readable ordinary English prose in a modern print chapter; gray photocopy background but strong legible letters throughout. Latin-script transliterations and scholarly names, no substantial mixed-script Greek passages. Copyright line Donald A. Carson 2000. First spread blank on left, last blank on right; crop only occupied halves. Whole chapter folios 175-184. Notes1-23 on final page retained. No tables. Straightforward OCR eligible with reading-order crops; output quality should be checked before marking complete.",
+          "regions": [
+            [
+              0.045,
+              0.045,
+              0.475,
+              0.94
+            ],
+            [
+              0.515,
+              0.045,
+              0.94,
+              0.94
+            ]
+          ]
+        },
+        {
+          "page": 6,
+          "decision": "ocr-legible-print",
+          "reason": "Readable ordinary English prose in a modern print chapter; gray photocopy background but strong legible letters throughout. Latin-script transliterations and scholarly names, no substantial mixed-script Greek passages. Copyright line Donald A. Carson 2000. First spread blank on left, last blank on right; crop only occupied halves. Whole chapter folios 175-184. Notes1-23 on final page retained. No tables. Straightforward OCR eligible with reading-order crops; output quality should be checked before marking complete.",
+          "regions": [
+            [
+              0.018,
+              0.045,
+              0.441,
+              0.875
+            ]
+          ]
+        }
+      ],
+      "sourceSha256": "aa42a3fe34d5344164a76039ce7eb4041cbd7ad391b39385f22a669b2a8699b2",
+      "documentId": "pdf-aa42a3fe34d5344164a7",
+      "derivedText": ".local/library/ocr-completion/text/pdf-aa42a3fe34d5344164a7/readable.txt",
+      "derivedSha256": "557cbc1a28380c411c16ee1eee97c9164f598c0aec24b87501f904fb879bdccb",
+      "totalPages": 6,
+      "ocrPages": 6,
+      "ocrWords": 4333,
+      "pageMap": ".local/library/ocr-completion/text/pdf-aa42a3fe34d5344164a7/page-map.json",
+      "publicHostingAllowed": false,
+      "reviewStatus": "machine-output-needs-proofreading"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-be37942fba0f179629f7/original.pdf",
+      "title": "D. A. Carson article - final bibliography page",
+      "pages": [
+        {
+          "page": 11,
+          "decision": "ocr-legible-print",
+          "reason": "Clean modern printed final bibliography entries for M. Wilcox and F. W. Young near upper left. Rest blank except folio264. No table or illustration. OCR eligible; prior empty extraction missed actual references.",
+          "regions": [
+            [
+              0.045,
+              0.025,
+              0.47,
+              0.194
+            ]
+          ]
+        }
+      ],
+      "sourceSha256": "0dc92ab496fa83408c01672541ab722820210634d3f3637004b5bc15723c76f6",
+      "documentId": "pdf-0dc92ab496fa83408c01",
+      "derivedText": ".local/library/ocr-completion/text/pdf-0dc92ab496fa83408c01/readable.txt",
+      "derivedSha256": "41a0d997458bd60081c8829599262ed31d552a16876d2ddcec17b5f09f0d1e38",
+      "totalPages": 11,
+      "ocrPages": 1,
+      "ocrWords": 61,
+      "pageMap": ".local/library/ocr-completion/text/pdf-0dc92ab496fa83408c01/page-map.json",
+      "publicHostingAllowed": false,
+      "reviewStatus": "machine-output-needs-proofreading"
+    },
+    {
+      "sourceRelativePath": "library/source-desiring-god/asset-modern-piper-853e22d72b3a619fc400-pdf/original.pdf",
+      "title": "Cross",
+      "pages": [
+        {
+          "page": 224,
+          "decision": "ocr-legible-print",
+          "reason": "Visually reviewed by audit agent: readable modern preface/contact or contents text missing/unusable in existing extraction."
+        }
+      ],
+      "sourceSha256": "b8727e42fde3477c68dea291edac605b7fdc241dfcd206c736a4aeff62b20e1c",
+      "documentId": "pdf-b8727e42fde3477c68de",
+      "derivedText": ".local/library/ocr-completion/text/pdf-b8727e42fde3477c68de/readable.txt",
+      "derivedSha256": "b66469f3c6d80dd95a750ca9cbadf6a7e18bc1f178c033fbdead90a067b97996",
+      "totalPages": 224,
+      "ocrPages": 1,
+      "ocrWords": 132,
+      "pageMap": ".local/library/ocr-completion/text/pdf-b8727e42fde3477c68de/page-map.json",
+      "publicHostingAllowed": false,
+      "reviewStatus": "machine-output-needs-proofreading"
+    },
+    {
+      "sourceRelativePath": "library/source-desiring-god/asset-modern-piper-3e2cdbe410efea6d860f-pdf/original.pdf",
+      "title": "The Future of Justification",
+      "pages": [
+        {
+          "page": 7,
+          "decision": "ocr-legible-print",
+          "reason": "Visually reviewed by audit agent: readable modern preface/contact or contents text missing/unusable in existing extraction."
+        },
+        {
+          "page": 8,
+          "decision": "ocr-legible-print",
+          "reason": "Visually reviewed by audit agent: readable modern preface/contact or contents text missing/unusable in existing extraction."
+        },
+        {
+          "page": 240,
+          "decision": "ocr-legible-print",
+          "reason": "Individual page rendered and verified: modern ministry contact prose absent from text layer.",
+          "verifiedCorrections": [
+            {
+              "before": "It you",
+              "after": "If you",
+              "basis": "Compared with rendered original page; root visual review 2026-10-05"
+            },
+            {
+              "before": "presented In",
+              "after": "presented in",
+              "basis": "Compared with rendered original page; root visual review 2026-10-05"
+            },
+            {
+              "before": "he p you",
+              "after": "help you",
+              "basis": "Compared with rendered original page; root visual review 2026-10-05"
+            },
+            {
+              "before": "resources john",
+              "after": "resources John",
+              "basis": "Compared with rendered original page; root visual review 2026-10-05"
+            },
+            {
+              "before": "'listen",
+              "after": "listen",
+              "basis": "Compared with rendered original page; root visual review 2026-10-05"
+            },
+            {
+              "before": "on ine",
+              "after": "online",
+              "basis": "Compared with rendered original page; root visual review 2026-10-05"
+            },
+            {
+              "before": "our daw internet",
+              "after": "our daily internet",
+              "basis": "Compared with rendered original page; root visual review 2026-10-05"
+            },
+            {
+              "before": "children+s",
+              "after": "children's",
+              "basis": "Compared with rendered original page; root visual review 2026-10-05"
+            },
+            {
+              "before": "storeo",
+              "after": "store.",
+              "basis": "Compared with rendered original page; root visual review 2026-10-05"
+            },
+            {
+              "before": "Desiring God, These",
+              "after": "Desiring God. These",
+              "basis": "Compared with rendered original page; root visual review 2026-10-05"
+            },
+            {
+              "before": "534064103",
+              "after": "55406-1103",
+              "basis": "Compared with rendered original page; root visual review 2026-10-05"
+            },
+            {
+              "before": "612238.4372 {fax)",
+              "after": "612.338.4372 (fax)",
+              "basis": "Compared with rendered original page; root visual review 2026-10-05"
+            },
+            {
+              "before": "www.desifingGod.org",
+              "after": "www.desiringGod.org",
+              "basis": "Compared with rendered original page; root visual review 2026-10-05"
+            }
+          ]
+        }
+      ],
+      "sourceSha256": "1b046fe8b70ef43681153b88ab9205521014cfaeecbdc495a1eb7f88ccd2a2ce",
+      "documentId": "pdf-1b046fe8b70ef4368115",
+      "derivedText": ".local/library/ocr-completion/text/pdf-1b046fe8b70ef4368115/readable.txt",
+      "derivedSha256": "a5ba1b4b6331c254a02a2268fc7686a62adcdf95fbe531f86a3a74409f4302a0",
+      "totalPages": 240,
+      "ocrPages": 3,
+      "ocrWords": 566,
+      "pageMap": ".local/library/ocr-completion/text/pdf-1b046fe8b70ef4368115/page-map.json",
+      "publicHostingAllowed": false,
+      "reviewStatus": "machine-output-needs-proofreading"
+    },
+    {
+      "sourceRelativePath": "library/source-desiring-god/asset-modern-piper-4dd65023ed45caa6f617-pdf/original.pdf",
+      "title": "The Supremacy of Christ in a Postmodern World",
+      "pages": [
+        {
+          "page": 192,
+          "decision": "ocr-legible-print",
+          "reason": "Individual page rendered and verified: modern ministry contact prose absent from text layer.",
+          "verifiedCorrections": [
+            {
+              "before": "Göd",
+              "after": "God",
+              "basis": "Compared with rendered original page; root visual review 2026-10-05"
+            },
+            {
+              "before": "hundreds ot",
+              "after": "hundreds of",
+              "basis": "Compared with rendered original page; root visual review 2026-10-05"
+            },
+            {
+              "before": "www.deslringGod.org",
+              "after": "www.desiringGod.org",
+              "basis": "Compared with rendered original page; root visual review 2026-10-05"
+            }
+          ]
+        }
+      ],
+      "sourceSha256": "2da4f5257286ae4fa90d2e9de79a38bb16878675c514a407561efbf7c1bc4951",
+      "documentId": "pdf-2da4f5257286ae4fa90d",
+      "derivedText": ".local/library/ocr-completion/text/pdf-2da4f5257286ae4fa90d/readable.txt",
+      "derivedSha256": "0b4286e0528b39de025f8c7739930da872b614a63e2587a29493a0c39a1df9b4",
+      "totalPages": 192,
+      "ocrPages": 1,
+      "ocrWords": 246,
+      "pageMap": ".local/library/ocr-completion/text/pdf-2da4f5257286ae4fa90d/page-map.json",
+      "publicHostingAllowed": false,
+      "reviewStatus": "machine-output-needs-proofreading"
+    }
+  ],
+  "documentCount": 10,
+  "ocrPages": 21,
+  "ocrWords": 9901,
+  "originalsUnchanged": true,
+  "limitations": [
+    "Original page images govern disputed words.",
+    "Local OCR provides no confidence score; results are not full proofreading.",
+    "Existing text pages are preserved as extracted; only explicitly approved pages receive OCR."
+  ]
+}

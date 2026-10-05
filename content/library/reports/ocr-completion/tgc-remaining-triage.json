@@ -1,0 +1,755 @@
+{
+  "reviewedOn": "2026-10-05",
+  "method": "Root inspected six rendered contact sheets containing 72 TGC pages; supplement with existing-text and no-content page-object checks. Separate difficult and OCR-assigned pages have individual triage records.",
+  "renders": [
+    ".local/library/ocr-completion/triage/tgc-sheet-0.png",
+    ".local/library/ocr-completion/triage/tgc-sheet-1.png",
+    ".local/library/ocr-completion/triage/tgc-sheet-2.png",
+    ".local/library/ocr-completion/triage/tgc-sheet-3.png",
+    ".local/library/ocr-completion/triage/tgc-sheet-4.png",
+    ".local/library/ocr-completion/triage/tgc-sheet-5.png"
+  ],
+  "pages": [
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-0f153b8a64750eba56b1/original.pdf",
+      "pdfPage": 1,
+      "auditFlags": [
+        "low-text"
+      ],
+      "disposition": "no-body-text-gap",
+      "basis": "Contact sheets inspected for remaining TGC flags: blanks, covers, title/dedication/divider pages or deliberately spaced title lettering. Blank page object checks supplement visual review.",
+      "evidence": "tgc-remaining-triage.json"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-0f153b8a64750eba56b1/original.pdf",
+      "pdfPage": 2,
+      "auditFlags": [
+        "low-text"
+      ],
+      "disposition": "no-body-text-gap",
+      "basis": "Contact sheets inspected for remaining TGC flags: blanks, covers, title/dedication/divider pages or deliberately spaced title lettering. Blank page object checks supplement visual review.",
+      "evidence": "tgc-remaining-triage.json"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-0f153b8a64750eba56b1/original.pdf",
+      "pdfPage": 3,
+      "auditFlags": [
+        "low-text"
+      ],
+      "disposition": "no-body-text-gap",
+      "basis": "Contact sheets inspected for remaining TGC flags: blanks, covers, title/dedication/divider pages or deliberately spaced title lettering. Blank page object checks supplement visual review.",
+      "evidence": "tgc-remaining-triage.json"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-0f153b8a64750eba56b1/original.pdf",
+      "pdfPage": 4,
+      "auditFlags": [
+        "low-text"
+      ],
+      "disposition": "no-body-text-gap",
+      "basis": "Contact sheets inspected for remaining TGC flags: blanks, covers, title/dedication/divider pages or deliberately spaced title lettering. Blank page object checks supplement visual review.",
+      "evidence": "tgc-remaining-triage.json"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-0f153b8a64750eba56b1/original.pdf",
+      "pdfPage": 6,
+      "auditFlags": [
+        "low-text"
+      ],
+      "disposition": "no-body-text-gap",
+      "basis": "Contact sheets inspected for remaining TGC flags: blanks, covers, title/dedication/divider pages or deliberately spaced title lettering. Blank page object checks supplement visual review.",
+      "evidence": "tgc-remaining-triage.json"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-0f153b8a64750eba56b1/original.pdf",
+      "pdfPage": 7,
+      "auditFlags": [
+        "low-text"
+      ],
+      "disposition": "no-body-text-gap",
+      "basis": "Contact sheets inspected for remaining TGC flags: blanks, covers, title/dedication/divider pages or deliberately spaced title lettering. Blank page object checks supplement visual review.",
+      "evidence": "tgc-remaining-triage.json"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-15caf1357bae4eb49d5f/original.pdf",
+      "pdfPage": 1,
+      "auditFlags": [
+        "low-text"
+      ],
+      "disposition": "no-body-text-gap",
+      "basis": "Contact sheets inspected for remaining TGC flags: blanks, covers, title/dedication/divider pages or deliberately spaced title lettering. Blank page object checks supplement visual review.",
+      "evidence": "tgc-remaining-triage.json"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-195fd4265b9a4ed54aa9/original.pdf",
+      "pdfPage": 6,
+      "auditFlags": [
+        "low-text"
+      ],
+      "disposition": "no-body-text-gap",
+      "basis": "Contact sheets inspected for remaining TGC flags: blanks, covers, title/dedication/divider pages or deliberately spaced title lettering. Blank page object checks supplement visual review.",
+      "evidence": "tgc-remaining-triage.json"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-195fd4265b9a4ed54aa9/original.pdf",
+      "pdfPage": 11,
+      "auditFlags": [
+        "low-text"
+      ],
+      "disposition": "no-body-text-gap",
+      "basis": "Contact sheets inspected for remaining TGC flags: blanks, covers, title/dedication/divider pages or deliberately spaced title lettering. Blank page object checks supplement visual review.",
+      "evidence": "tgc-remaining-triage.json"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-195fd4265b9a4ed54aa9/original.pdf",
+      "pdfPage": 16,
+      "auditFlags": [
+        "low-text"
+      ],
+      "disposition": "no-body-text-gap",
+      "basis": "Contact sheets inspected for remaining TGC flags: blanks, covers, title/dedication/divider pages or deliberately spaced title lettering. Blank page object checks supplement visual review.",
+      "evidence": "tgc-remaining-triage.json"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-195fd4265b9a4ed54aa9/original.pdf",
+      "pdfPage": 20,
+      "auditFlags": [
+        "low-text"
+      ],
+      "disposition": "no-body-text-gap",
+      "basis": "Contact sheets inspected for remaining TGC flags: blanks, covers, title/dedication/divider pages or deliberately spaced title lettering. Blank page object checks supplement visual review.",
+      "evidence": "tgc-remaining-triage.json"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-195fd4265b9a4ed54aa9/original.pdf",
+      "pdfPage": 24,
+      "auditFlags": [
+        "low-text"
+      ],
+      "disposition": "no-body-text-gap",
+      "basis": "Contact sheets inspected for remaining TGC flags: blanks, covers, title/dedication/divider pages or deliberately spaced title lettering. Blank page object checks supplement visual review.",
+      "evidence": "tgc-remaining-triage.json"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-195fd4265b9a4ed54aa9/original.pdf",
+      "pdfPage": 28,
+      "auditFlags": [
+        "low-text"
+      ],
+      "disposition": "no-body-text-gap",
+      "basis": "Contact sheets inspected for remaining TGC flags: blanks, covers, title/dedication/divider pages or deliberately spaced title lettering. Blank page object checks supplement visual review.",
+      "evidence": "tgc-remaining-triage.json"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-195fd4265b9a4ed54aa9/original.pdf",
+      "pdfPage": 36,
+      "auditFlags": [
+        "low-text"
+      ],
+      "disposition": "no-body-text-gap",
+      "basis": "Contact sheets inspected for remaining TGC flags: blanks, covers, title/dedication/divider pages or deliberately spaced title lettering. Blank page object checks supplement visual review.",
+      "evidence": "tgc-remaining-triage.json"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-195fd4265b9a4ed54aa9/original.pdf",
+      "pdfPage": 44,
+      "auditFlags": [
+        "low-text"
+      ],
+      "disposition": "no-body-text-gap",
+      "basis": "Contact sheets inspected for remaining TGC flags: blanks, covers, title/dedication/divider pages or deliberately spaced title lettering. Blank page object checks supplement visual review.",
+      "evidence": "tgc-remaining-triage.json"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-195fd4265b9a4ed54aa9/original.pdf",
+      "pdfPage": 50,
+      "auditFlags": [
+        "low-text"
+      ],
+      "disposition": "no-body-text-gap",
+      "basis": "Contact sheets inspected for remaining TGC flags: blanks, covers, title/dedication/divider pages or deliberately spaced title lettering. Blank page object checks supplement visual review.",
+      "evidence": "tgc-remaining-triage.json"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-195fd4265b9a4ed54aa9/original.pdf",
+      "pdfPage": 54,
+      "auditFlags": [
+        "low-text"
+      ],
+      "disposition": "no-body-text-gap",
+      "basis": "Contact sheets inspected for remaining TGC flags: blanks, covers, title/dedication/divider pages or deliberately spaced title lettering. Blank page object checks supplement visual review.",
+      "evidence": "tgc-remaining-triage.json"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-195fd4265b9a4ed54aa9/original.pdf",
+      "pdfPage": 62,
+      "auditFlags": [
+        "low-text"
+      ],
+      "disposition": "no-body-text-gap",
+      "basis": "Contact sheets inspected for remaining TGC flags: blanks, covers, title/dedication/divider pages or deliberately spaced title lettering. Blank page object checks supplement visual review.",
+      "evidence": "tgc-remaining-triage.json"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-1fadaf1358f70440efdd/original.pdf",
+      "pdfPage": 3,
+      "auditFlags": [
+        "low-text"
+      ],
+      "disposition": "no-body-text-gap",
+      "basis": "Contact sheets inspected for remaining TGC flags: blanks, covers, title/dedication/divider pages or deliberately spaced title lettering. Blank page object checks supplement visual review.",
+      "evidence": "tgc-remaining-triage.json"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-1fadaf1358f70440efdd/original.pdf",
+      "pdfPage": 6,
+      "auditFlags": [
+        "low-text"
+      ],
+      "disposition": "no-body-text-gap",
+      "basis": "Contact sheets inspected for remaining TGC flags: blanks, covers, title/dedication/divider pages or deliberately spaced title lettering. Blank page object checks supplement visual review.",
+      "evidence": "tgc-remaining-triage.json"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-1fadaf1358f70440efdd/original.pdf",
+      "pdfPage": 8,
+      "auditFlags": [
+        "low-text"
+      ],
+      "disposition": "no-body-text-gap",
+      "basis": "Contact sheets inspected for remaining TGC flags: blanks, covers, title/dedication/divider pages or deliberately spaced title lettering. Blank page object checks supplement visual review.",
+      "evidence": "tgc-remaining-triage.json"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-1fadaf1358f70440efdd/original.pdf",
+      "pdfPage": 14,
+      "auditFlags": [
+        "low-text"
+      ],
+      "disposition": "no-body-text-gap",
+      "basis": "Contact sheets inspected for remaining TGC flags: blanks, covers, title/dedication/divider pages or deliberately spaced title lettering. Blank page object checks supplement visual review.",
+      "evidence": "tgc-remaining-triage.json"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-1fadaf1358f70440efdd/original.pdf",
+      "pdfPage": 26,
+      "auditFlags": [
+        "low-text"
+      ],
+      "disposition": "no-body-text-gap",
+      "basis": "Contact sheets inspected for remaining TGC flags: blanks, covers, title/dedication/divider pages or deliberately spaced title lettering. Blank page object checks supplement visual review.",
+      "evidence": "tgc-remaining-triage.json"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-1fadaf1358f70440efdd/original.pdf",
+      "pdfPage": 108,
+      "auditFlags": [
+        "low-text"
+      ],
+      "disposition": "no-body-text-gap",
+      "basis": "Contact sheets inspected for remaining TGC flags: blanks, covers, title/dedication/divider pages or deliberately spaced title lettering. Blank page object checks supplement visual review.",
+      "evidence": "tgc-remaining-triage.json"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-1fadaf1358f70440efdd/original.pdf",
+      "pdfPage": 120,
+      "auditFlags": [
+        "low-text"
+      ],
+      "disposition": "no-body-text-gap",
+      "basis": "Contact sheets inspected for remaining TGC flags: blanks, covers, title/dedication/divider pages or deliberately spaced title lettering. Blank page object checks supplement visual review.",
+      "evidence": "tgc-remaining-triage.json"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-1fadaf1358f70440efdd/original.pdf",
+      "pdfPage": 138,
+      "auditFlags": [
+        "low-text"
+      ],
+      "disposition": "no-body-text-gap",
+      "basis": "Contact sheets inspected for remaining TGC flags: blanks, covers, title/dedication/divider pages or deliberately spaced title lettering. Blank page object checks supplement visual review.",
+      "evidence": "tgc-remaining-triage.json"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-2b9a1d6601d44f92fbdc/original.pdf",
+      "pdfPage": 1,
+      "auditFlags": [
+        "low-text"
+      ],
+      "disposition": "no-body-text-gap",
+      "basis": "Contact sheets inspected for remaining TGC flags: blanks, covers, title/dedication/divider pages or deliberately spaced title lettering. Blank page object checks supplement visual review.",
+      "evidence": "tgc-remaining-triage.json"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-2b9a1d6601d44f92fbdc/original.pdf",
+      "pdfPage": 5,
+      "auditFlags": [
+        "low-text"
+      ],
+      "disposition": "no-body-text-gap",
+      "basis": "Contact sheets inspected for remaining TGC flags: blanks, covers, title/dedication/divider pages or deliberately spaced title lettering. Blank page object checks supplement visual review.",
+      "evidence": "tgc-remaining-triage.json"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-2b9a1d6601d44f92fbdc/original.pdf",
+      "pdfPage": 6,
+      "auditFlags": [
+        "low-text"
+      ],
+      "disposition": "no-body-text-gap",
+      "basis": "Contact sheets inspected for remaining TGC flags: blanks, covers, title/dedication/divider pages or deliberately spaced title lettering. Blank page object checks supplement visual review.",
+      "evidence": "tgc-remaining-triage.json"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-2b9a1d6601d44f92fbdc/original.pdf",
+      "pdfPage": 8,
+      "auditFlags": [
+        "low-text"
+      ],
+      "disposition": "no-body-text-gap",
+      "basis": "Contact sheets inspected for remaining TGC flags: blanks, covers, title/dedication/divider pages or deliberately spaced title lettering. Blank page object checks supplement visual review.",
+      "evidence": "tgc-remaining-triage.json"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-2b9a1d6601d44f92fbdc/original.pdf",
+      "pdfPage": 34,
+      "auditFlags": [
+        "low-text"
+      ],
+      "disposition": "no-body-text-gap",
+      "basis": "Contact sheets inspected for remaining TGC flags: blanks, covers, title/dedication/divider pages or deliberately spaced title lettering. Blank page object checks supplement visual review.",
+      "evidence": "tgc-remaining-triage.json"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-2b9a1d6601d44f92fbdc/original.pdf",
+      "pdfPage": 70,
+      "auditFlags": [
+        "low-text"
+      ],
+      "disposition": "no-body-text-gap",
+      "basis": "Contact sheets inspected for remaining TGC flags: blanks, covers, title/dedication/divider pages or deliberately spaced title lettering. Blank page object checks supplement visual review.",
+      "evidence": "tgc-remaining-triage.json"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-2b9a1d6601d44f92fbdc/original.pdf",
+      "pdfPage": 86,
+      "auditFlags": [
+        "low-text"
+      ],
+      "disposition": "no-body-text-gap",
+      "basis": "Contact sheets inspected for remaining TGC flags: blanks, covers, title/dedication/divider pages or deliberately spaced title lettering. Blank page object checks supplement visual review.",
+      "evidence": "tgc-remaining-triage.json"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-2b9a1d6601d44f92fbdc/original.pdf",
+      "pdfPage": 196,
+      "auditFlags": [
+        "low-text"
+      ],
+      "disposition": "no-body-text-gap",
+      "basis": "Contact sheets inspected for remaining TGC flags: blanks, covers, title/dedication/divider pages or deliberately spaced title lettering. Blank page object checks supplement visual review.",
+      "evidence": "tgc-remaining-triage.json"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-5d152d4ae4f761e86340/original.pdf",
+      "pdfPage": 1,
+      "auditFlags": [
+        "low-text"
+      ],
+      "disposition": "no-body-text-gap",
+      "basis": "Contact sheets inspected for remaining TGC flags: blanks, covers, title/dedication/divider pages or deliberately spaced title lettering. Blank page object checks supplement visual review.",
+      "evidence": "tgc-remaining-triage.json"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-5d152d4ae4f761e86340/original.pdf",
+      "pdfPage": 2,
+      "auditFlags": [
+        "low-text"
+      ],
+      "disposition": "no-body-text-gap",
+      "basis": "Contact sheets inspected for remaining TGC flags: blanks, covers, title/dedication/divider pages or deliberately spaced title lettering. Blank page object checks supplement visual review.",
+      "evidence": "tgc-remaining-triage.json"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-5d152d4ae4f761e86340/original.pdf",
+      "pdfPage": 3,
+      "auditFlags": [
+        "low-text"
+      ],
+      "disposition": "no-body-text-gap",
+      "basis": "Contact sheets inspected for remaining TGC flags: blanks, covers, title/dedication/divider pages or deliberately spaced title lettering. Blank page object checks supplement visual review.",
+      "evidence": "tgc-remaining-triage.json"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-5d152d4ae4f761e86340/original.pdf",
+      "pdfPage": 4,
+      "auditFlags": [
+        "low-text"
+      ],
+      "disposition": "no-body-text-gap",
+      "basis": "Contact sheets inspected for remaining TGC flags: blanks, covers, title/dedication/divider pages or deliberately spaced title lettering. Blank page object checks supplement visual review.",
+      "evidence": "tgc-remaining-triage.json"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-5d152d4ae4f761e86340/original.pdf",
+      "pdfPage": 6,
+      "auditFlags": [
+        "low-text"
+      ],
+      "disposition": "no-body-text-gap",
+      "basis": "Contact sheets inspected for remaining TGC flags: blanks, covers, title/dedication/divider pages or deliberately spaced title lettering. Blank page object checks supplement visual review.",
+      "evidence": "tgc-remaining-triage.json"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-5d152d4ae4f761e86340/original.pdf",
+      "pdfPage": 7,
+      "auditFlags": [
+        "low-text"
+      ],
+      "disposition": "no-body-text-gap",
+      "basis": "Contact sheets inspected for remaining TGC flags: blanks, covers, title/dedication/divider pages or deliberately spaced title lettering. Blank page object checks supplement visual review.",
+      "evidence": "tgc-remaining-triage.json"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-79bac65ee7447afbf6cc/original.pdf",
+      "pdfPage": 1,
+      "auditFlags": [
+        "low-text"
+      ],
+      "disposition": "no-body-text-gap",
+      "basis": "Contact sheets inspected for remaining TGC flags: blanks, covers, title/dedication/divider pages or deliberately spaced title lettering. Blank page object checks supplement visual review.",
+      "evidence": "tgc-remaining-triage.json"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-79bac65ee7447afbf6cc/original.pdf",
+      "pdfPage": 3,
+      "auditFlags": [
+        "fragmented-single-letter-tokens"
+      ],
+      "disposition": "no-body-text-gap",
+      "basis": "Contact sheets inspected for remaining TGC flags: blanks, covers, title/dedication/divider pages or deliberately spaced title lettering. Blank page object checks supplement visual review.",
+      "evidence": "tgc-remaining-triage.json"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-79bac65ee7447afbf6cc/original.pdf",
+      "pdfPage": 5,
+      "auditFlags": [
+        "low-text"
+      ],
+      "disposition": "no-body-text-gap",
+      "basis": "Contact sheets inspected for remaining TGC flags: blanks, covers, title/dedication/divider pages or deliberately spaced title lettering. Blank page object checks supplement visual review.",
+      "evidence": "tgc-remaining-triage.json"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-79bac65ee7447afbf6cc/original.pdf",
+      "pdfPage": 6,
+      "auditFlags": [
+        "low-text"
+      ],
+      "disposition": "no-body-text-gap",
+      "basis": "Contact sheets inspected for remaining TGC flags: blanks, covers, title/dedication/divider pages or deliberately spaced title lettering. Blank page object checks supplement visual review.",
+      "evidence": "tgc-remaining-triage.json"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-79bac65ee7447afbf6cc/original.pdf",
+      "pdfPage": 8,
+      "auditFlags": [
+        "low-text"
+      ],
+      "disposition": "no-body-text-gap",
+      "basis": "Contact sheets inspected for remaining TGC flags: blanks, covers, title/dedication/divider pages or deliberately spaced title lettering. Blank page object checks supplement visual review.",
+      "evidence": "tgc-remaining-triage.json"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-79bac65ee7447afbf6cc/original.pdf",
+      "pdfPage": 26,
+      "auditFlags": [
+        "low-text"
+      ],
+      "disposition": "no-body-text-gap",
+      "basis": "Contact sheets inspected for remaining TGC flags: blanks, covers, title/dedication/divider pages or deliberately spaced title lettering. Blank page object checks supplement visual review.",
+      "evidence": "tgc-remaining-triage.json"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-7a2303b08ad33d857822/original.pdf",
+      "pdfPage": 1,
+      "auditFlags": [
+        "low-text"
+      ],
+      "disposition": "no-body-text-gap",
+      "basis": "Contact sheets inspected for remaining TGC flags: blanks, covers, title/dedication/divider pages or deliberately spaced title lettering. Blank page object checks supplement visual review.",
+      "evidence": "tgc-remaining-triage.json"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-7a2303b08ad33d857822/original.pdf",
+      "pdfPage": 3,
+      "auditFlags": [
+        "low-text"
+      ],
+      "disposition": "no-body-text-gap",
+      "basis": "Contact sheets inspected for remaining TGC flags: blanks, covers, title/dedication/divider pages or deliberately spaced title lettering. Blank page object checks supplement visual review.",
+      "evidence": "tgc-remaining-triage.json"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-7a2303b08ad33d857822/original.pdf",
+      "pdfPage": 6,
+      "auditFlags": [
+        "low-text"
+      ],
+      "disposition": "no-body-text-gap",
+      "basis": "Contact sheets inspected for remaining TGC flags: blanks, covers, title/dedication/divider pages or deliberately spaced title lettering. Blank page object checks supplement visual review.",
+      "evidence": "tgc-remaining-triage.json"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-7a2303b08ad33d857822/original.pdf",
+      "pdfPage": 44,
+      "auditFlags": [
+        "low-text"
+      ],
+      "disposition": "no-body-text-gap",
+      "basis": "Contact sheets inspected for remaining TGC flags: blanks, covers, title/dedication/divider pages or deliberately spaced title lettering. Blank page object checks supplement visual review.",
+      "evidence": "tgc-remaining-triage.json"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-9da5d924f99219162a52/original.pdf",
+      "pdfPage": 1,
+      "auditFlags": [
+        "low-text"
+      ],
+      "disposition": "no-body-text-gap",
+      "basis": "Contact sheets inspected for remaining TGC flags: blanks, covers, title/dedication/divider pages or deliberately spaced title lettering. Blank page object checks supplement visual review.",
+      "evidence": "tgc-remaining-triage.json"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-9da5d924f99219162a52/original.pdf",
+      "pdfPage": 3,
+      "auditFlags": [
+        "fragmented-single-letter-tokens"
+      ],
+      "disposition": "no-body-text-gap",
+      "basis": "Contact sheets inspected for remaining TGC flags: blanks, covers, title/dedication/divider pages or deliberately spaced title lettering. Blank page object checks supplement visual review.",
+      "evidence": "tgc-remaining-triage.json"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-9da5d924f99219162a52/original.pdf",
+      "pdfPage": 5,
+      "auditFlags": [
+        "low-text"
+      ],
+      "disposition": "no-body-text-gap",
+      "basis": "Contact sheets inspected for remaining TGC flags: blanks, covers, title/dedication/divider pages or deliberately spaced title lettering. Blank page object checks supplement visual review.",
+      "evidence": "tgc-remaining-triage.json"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-9da5d924f99219162a52/original.pdf",
+      "pdfPage": 6,
+      "auditFlags": [
+        "low-text"
+      ],
+      "disposition": "no-body-text-gap",
+      "basis": "Contact sheets inspected for remaining TGC flags: blanks, covers, title/dedication/divider pages or deliberately spaced title lettering. Blank page object checks supplement visual review.",
+      "evidence": "tgc-remaining-triage.json"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-9da5d924f99219162a52/original.pdf",
+      "pdfPage": 8,
+      "auditFlags": [
+        "low-text"
+      ],
+      "disposition": "no-body-text-gap",
+      "basis": "Contact sheets inspected for remaining TGC flags: blanks, covers, title/dedication/divider pages or deliberately spaced title lettering. Blank page object checks supplement visual review.",
+      "evidence": "tgc-remaining-triage.json"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-9da5d924f99219162a52/original.pdf",
+      "pdfPage": 26,
+      "auditFlags": [
+        "low-text"
+      ],
+      "disposition": "no-body-text-gap",
+      "basis": "Contact sheets inspected for remaining TGC flags: blanks, covers, title/dedication/divider pages or deliberately spaced title lettering. Blank page object checks supplement visual review.",
+      "evidence": "tgc-remaining-triage.json"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-aa95f7528c094ac20b01/original.pdf",
+      "pdfPage": 2,
+      "auditFlags": [
+        "fragmented-single-letter-tokens"
+      ],
+      "disposition": "no-body-text-gap",
+      "basis": "Contact sheets inspected for remaining TGC flags: blanks, covers, title/dedication/divider pages or deliberately spaced title lettering. Blank page object checks supplement visual review.",
+      "evidence": "tgc-remaining-triage.json"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-c78f75c5d15a15670cd6/original.pdf",
+      "pdfPage": 1,
+      "auditFlags": [
+        "low-text"
+      ],
+      "disposition": "no-body-text-gap",
+      "basis": "Contact sheets inspected for remaining TGC flags: blanks, covers, title/dedication/divider pages or deliberately spaced title lettering. Blank page object checks supplement visual review.",
+      "evidence": "tgc-remaining-triage.json"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-d1b48ee42d65d4aeaffb/original.pdf",
+      "pdfPage": 2,
+      "auditFlags": [
+        "low-text"
+      ],
+      "disposition": "no-body-text-gap",
+      "basis": "Contact sheets inspected for remaining TGC flags: blanks, covers, title/dedication/divider pages or deliberately spaced title lettering. Blank page object checks supplement visual review.",
+      "evidence": "tgc-remaining-triage.json"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-d1b48ee42d65d4aeaffb/original.pdf",
+      "pdfPage": 7,
+      "auditFlags": [
+        "low-text"
+      ],
+      "disposition": "no-body-text-gap",
+      "basis": "Contact sheets inspected for remaining TGC flags: blanks, covers, title/dedication/divider pages or deliberately spaced title lettering. Blank page object checks supplement visual review.",
+      "evidence": "tgc-remaining-triage.json"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-d1b48ee42d65d4aeaffb/original.pdf",
+      "pdfPage": 8,
+      "auditFlags": [
+        "low-text"
+      ],
+      "disposition": "no-body-text-gap",
+      "basis": "Contact sheets inspected for remaining TGC flags: blanks, covers, title/dedication/divider pages or deliberately spaced title lettering. Blank page object checks supplement visual review.",
+      "evidence": "tgc-remaining-triage.json"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-d1b48ee42d65d4aeaffb/original.pdf",
+      "pdfPage": 9,
+      "auditFlags": [
+        "low-text"
+      ],
+      "disposition": "no-body-text-gap",
+      "basis": "Contact sheets inspected for remaining TGC flags: blanks, covers, title/dedication/divider pages or deliberately spaced title lettering. Blank page object checks supplement visual review.",
+      "evidence": "tgc-remaining-triage.json"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-dace75e064af7d9cf591/original.pdf",
+      "pdfPage": 1,
+      "auditFlags": [
+        "low-text"
+      ],
+      "disposition": "no-body-text-gap",
+      "basis": "Contact sheets inspected for remaining TGC flags: blanks, covers, title/dedication/divider pages or deliberately spaced title lettering. Blank page object checks supplement visual review.",
+      "evidence": "tgc-remaining-triage.json"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-dace75e064af7d9cf591/original.pdf",
+      "pdfPage": 2,
+      "auditFlags": [
+        "low-text"
+      ],
+      "disposition": "no-body-text-gap",
+      "basis": "Contact sheets inspected for remaining TGC flags: blanks, covers, title/dedication/divider pages or deliberately spaced title lettering. Blank page object checks supplement visual review.",
+      "evidence": "tgc-remaining-triage.json"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-dace75e064af7d9cf591/original.pdf",
+      "pdfPage": 5,
+      "auditFlags": [
+        "low-text"
+      ],
+      "disposition": "no-body-text-gap",
+      "basis": "Contact sheets inspected for remaining TGC flags: blanks, covers, title/dedication/divider pages or deliberately spaced title lettering. Blank page object checks supplement visual review.",
+      "evidence": "tgc-remaining-triage.json"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-dace75e064af7d9cf591/original.pdf",
+      "pdfPage": 6,
+      "auditFlags": [
+        "low-text"
+      ],
+      "disposition": "no-body-text-gap",
+      "basis": "Contact sheets inspected for remaining TGC flags: blanks, covers, title/dedication/divider pages or deliberately spaced title lettering. Blank page object checks supplement visual review.",
+      "evidence": "tgc-remaining-triage.json"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-dace75e064af7d9cf591/original.pdf",
+      "pdfPage": 8,
+      "auditFlags": [
+        "low-text"
+      ],
+      "disposition": "no-body-text-gap",
+      "basis": "Contact sheets inspected for remaining TGC flags: blanks, covers, title/dedication/divider pages or deliberately spaced title lettering. Blank page object checks supplement visual review.",
+      "evidence": "tgc-remaining-triage.json"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-e8ea7c4467a61a1e5ae9/original.pdf",
+      "pdfPage": 1,
+      "auditFlags": [
+        "low-text"
+      ],
+      "disposition": "no-body-text-gap",
+      "basis": "Contact sheets inspected for remaining TGC flags: blanks, covers, title/dedication/divider pages or deliberately spaced title lettering. Blank page object checks supplement visual review.",
+      "evidence": "tgc-remaining-triage.json"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-e9853237da59c909d6c4/original.pdf",
+      "pdfPage": 1,
+      "auditFlags": [
+        "low-text"
+      ],
+      "disposition": "no-body-text-gap",
+      "basis": "Contact sheets inspected for remaining TGC flags: blanks, covers, title/dedication/divider pages or deliberately spaced title lettering. Blank page object checks supplement visual review.",
+      "evidence": "tgc-remaining-triage.json"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-e9853237da59c909d6c4/original.pdf",
+      "pdfPage": 2,
+      "auditFlags": [
+        "low-text"
+      ],
+      "disposition": "no-body-text-gap",
+      "basis": "Contact sheets inspected for remaining TGC flags: blanks, covers, title/dedication/divider pages or deliberately spaced title lettering. Blank page object checks supplement visual review.",
+      "evidence": "tgc-remaining-triage.json"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-e9853237da59c909d6c4/original.pdf",
+      "pdfPage": 5,
+      "auditFlags": [
+        "low-text"
+      ],
+      "disposition": "no-body-text-gap",
+      "basis": "Contact sheets inspected for remaining TGC flags: blanks, covers, title/dedication/divider pages or deliberately spaced title lettering. Blank page object checks supplement visual review.",
+      "evidence": "tgc-remaining-triage.json"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-e9853237da59c909d6c4/original.pdf",
+      "pdfPage": 23,
+      "auditFlags": [
+        "low-text"
+      ],
+      "disposition": "no-body-text-gap",
+      "basis": "Contact sheets inspected for remaining TGC flags: blanks, covers, title/dedication/divider pages or deliberately spaced title lettering. Blank page object checks supplement visual review.",
+      "evidence": "tgc-remaining-triage.json"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-e9853237da59c909d6c4/original.pdf",
+      "pdfPage": 33,
+      "auditFlags": [
+        "low-text"
+      ],
+      "disposition": "no-body-text-gap",
+      "basis": "Contact sheets inspected for remaining TGC flags: blanks, covers, title/dedication/divider pages or deliberately spaced title lettering. Blank page object checks supplement visual review.",
+      "evidence": "tgc-remaining-triage.json"
+    },
+    {
+      "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-ffed180a7f84794d30ed/original.pdf",
+      "pdfPage": 1,
+      "auditFlags": [
+        "low-text"
+      ],
+      "disposition": "no-body-text-gap",
+      "basis": "Contact sheets inspected for remaining TGC flags: blanks, covers, title/dedication/divider pages or deliberately spaced title lettering. Blank page object checks supplement visual review.",
+      "evidence": "tgc-remaining-triage.json"
+    }
+  ],
+  "limits": "Title, cover and decorative text is not claimed as complete prose transcription. Existing body text not proofread."
+}

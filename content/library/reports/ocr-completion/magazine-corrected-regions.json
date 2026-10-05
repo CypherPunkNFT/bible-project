@@ -1,0 +1,162 @@
+{
+  "sourceRelativePath": "library/source-gospel-coalition/asset-ready-library-5d05e6c43f42bc58be3d/original.pdf",
+  "reason": "QA identified clipped left edges and wraparound-column joins in first crop pass. These widened/source-aligned regions supersede first-pass regions; preserve first OCR evidence.",
+  "verifiedTitle": "Living by the Sermon on the Mount",
+  "titleNote": "Visually verified source title; highly spaced display lettering was not captured completely by OCR.",
+  "pageRegions": [
+    {
+      "pdfPage": 1,
+      "regions": [
+        [
+          0.025,
+          0.075,
+          0.98,
+          0.478
+        ],
+        [
+          0.035,
+          0.48,
+          0.675,
+          0.611
+        ],
+        [
+          0.036,
+          0.62,
+          0.351,
+          0.957
+        ],
+        [
+          0.36,
+          0.62,
+          0.669,
+          0.957
+        ],
+        [
+          0.676,
+          0.738,
+          0.984,
+          0.957
+        ]
+      ],
+      "regionLabels": [
+        "title",
+        "standfirst",
+        "body-column-1",
+        "body-column-2",
+        "body-column-3"
+      ]
+    },
+    {
+      "pdfPage": 2,
+      "regions": [
+        [
+          0.01,
+          0.097,
+          0.315,
+          0.643
+        ],
+        [
+          0.01,
+          0.643,
+          0.195,
+          0.824
+        ],
+        [
+          0.01,
+          0.824,
+          0.315,
+          0.962
+        ],
+        [
+          0.323,
+          0.606,
+          0.627,
+          0.643
+        ],
+        [
+          0.444,
+          0.643,
+          0.627,
+          0.824
+        ],
+        [
+          0.323,
+          0.824,
+          0.627,
+          0.962
+        ],
+        [
+          0.637,
+          0.606,
+          0.965,
+          0.962
+        ],
+        [
+          0.205,
+          0.644,
+          0.434,
+          0.846
+        ]
+      ],
+      "regionLabels": [
+        "body-column-1-upper",
+        "body-column-1-around-pullquote",
+        "body-column-1-lower",
+        "body-column-2-upper",
+        "body-column-2-around-pullquote",
+        "body-column-2-lower",
+        "body-column-3",
+        "pullquote"
+      ]
+    },
+    {
+      "pdfPage": 3,
+      "regions": [
+        [
+          0.065,
+          0.599,
+          0.367,
+          0.752
+        ],
+        [
+          0.065,
+          0.752,
+          0.255,
+          0.951
+        ],
+        [
+          0.373,
+          0.599,
+          0.667,
+          0.759
+        ],
+        [
+          0.675,
+          0.092,
+          0.978,
+          0.759
+        ],
+        [
+          0.797,
+          0.761,
+          0.978,
+          0.951
+        ],
+        [
+          0.26,
+          0.762,
+          0.793,
+          0.951
+        ]
+      ],
+      "regionLabels": [
+        "body-column-1-upper",
+        "body-column-1-around-pullquote",
+        "body-column-2",
+        "body-column-3",
+        "author-biography-and-source-note",
+        "pullquote"
+      ]
+    }
+  ]
+}

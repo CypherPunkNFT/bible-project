@@ -1,0 +1,244 @@
+{
+  "reviewedOn": "2026-10-05",
+  "method": "All 16 PDF pages rendered at 110 DPI and examined in a contact sheet, with full-size representative views of each work and first/middle/last views of the grainy chapter.",
+  "originalsModified": false,
+  "eligiblePageCount": 7,
+  "deferredPageCount": 9,
+  "items": [
+    {
+      "sourceRelativePath": "../sources/library/source-gospel-coalition/asset-ready-library-d105295f1ff9df838a5d/original.pdf",
+      "assetId": "asset-ready-library-d105295f1ff9df838a5d",
+      "title": "D. A. Carson review of Ridderbos, Matthew, and Newman and Stine, A Translator's Handbook on the Gospel of Matthew",
+      "eligiblePdfPages": [
+        1,
+        2
+      ],
+      "excludedPages": [],
+      "notes": "Clear ordinary modern single-column journal print. Large blank upper region on page 1 is intentional; lower body text continues onto page 2. Printed folios 124-125. No tables or image-only pages."
+    },
+    {
+      "sourceRelativePath": "../sources/library/source-gospel-coalition/asset-ready-library-1266ceab761d554d725c/original.pdf",
+      "assetId": "asset-ready-library-1266ceab761d554d725c",
+      "title": "Recent Reprints (D. A. C.)",
+      "eligiblePdfPages": [
+        1,
+        2
+      ],
+      "excludedPages": [],
+      "notes": "Clear ordinary modern single-column journal print. Large blank upper region on page 1 is intentional; review begins near bottom and continues onto page 2. Printed folios 283-284. No tables or image-only pages."
+    },
+    {
+      "sourceRelativePath": "../sources/library/source-gospel-coalition/asset-ready-library-5d05e6c43f42bc58be3d/original.pdf",
+      "assetId": "asset-ready-library-5d05e6c43f42bc58be3d",
+      "title": "Living by the Sermon on the Mount (Don Carson)",
+      "eligiblePdfPages": [
+        1,
+        2,
+        3
+      ],
+      "pageRegions": [
+        {
+          "pdfPage": 1,
+          "regions": [
+            [
+              0.025,
+              0.075,
+              0.98,
+              0.478
+            ],
+            [
+              0.035,
+              0.48,
+              0.705,
+              0.611
+            ],
+            [
+              0.036,
+              0.62,
+              0.351,
+              0.957
+            ],
+            [
+              0.36,
+              0.62,
+              0.681,
+              0.957
+            ],
+            [
+              0.686,
+              0.738,
+              0.977,
+              0.957
+            ]
+          ],
+          "regionLabels": [
+            "title",
+            "standfirst",
+            "body-column-1",
+            "body-column-2",
+            "body-column-3"
+          ]
+        },
+        {
+          "pdfPage": 2,
+          "regions": [
+            [
+              0.01,
+              0.097,
+              0.313,
+              0.64
+            ],
+            [
+              0.01,
+              0.639,
+              0.126,
+              0.857
+            ],
+            [
+              0.01,
+              0.855,
+              0.315,
+              0.962
+            ],
+            [
+              0.323,
+              0.606,
+              0.651,
+              0.64
+            ],
+            [
+              0.44,
+              0.639,
+              0.651,
+              0.857
+            ],
+            [
+              0.323,
+              0.855,
+              0.651,
+              0.962
+            ],
+            [
+              0.666,
+              0.606,
+              0.982,
+              0.962
+            ],
+            [
+              0.13,
+              0.642,
+              0.438,
+              0.845
+            ]
+          ],
+          "regionLabels": [
+            "body-column-1-upper",
+            "body-column-1-around-pullquote",
+            "body-column-1-lower",
+            "body-column-2-upper",
+            "body-column-2-around-pullquote",
+            "body-column-2-lower",
+            "body-column-3",
+            "pullquote"
+          ]
+        },
+        {
+          "pdfPage": 3,
+          "regions": [
+            [
+              0.065,
+              0.599,
+              0.367,
+              0.759
+            ],
+            [
+              0.065,
+              0.759,
+              0.255,
+              0.951
+            ],
+            [
+              0.373,
+              0.599,
+              0.667,
+              0.759
+            ],
+            [
+              0.675,
+              0.092,
+              0.978,
+              0.759
+            ],
+            [
+              0.797,
+              0.761,
+              0.978,
+              0.951
+            ],
+            [
+              0.26,
+              0.762,
+              0.793,
+              0.951
+            ]
+          ],
+          "regionLabels": [
+            "body-column-1-upper",
+            "body-column-1-around-pullquote",
+            "body-column-2",
+            "body-column-3",
+            "author-biography-and-source-note",
+            "pullquote"
+          ]
+        }
+      ],
+      "excludedPages": [],
+      "notes": "Legible modern magazine print, three columns with photographs and boxed pullquotes. All pages contain substantial prose; none should be excluded as image-only. Normalized crop rectangles preserve approximate column reading order and place pullquotes last; OCR output needs boundary checks where text wraps around boxes. Photographs, running author masthead and magazine footer excluded. Printed folios 15-17. No tables."
+    },
+    {
+      "sourceRelativePath": "../sources/library/source-gospel-coalition/asset-ready-library-4ca8531489497774617a/original.pdf",
+      "assetId": "asset-ready-library-4ca8531489497774617a",
+      "title": "Do the Prophets and the Law Quit Prophesying Before John? A Note on Matthew 11.13 (D. A. Carson)",
+      "eligiblePdfPages": [],
+      "excludedPages": [
+        {
+          "pdfPage": 1,
+          "reason": "Deferred grainy scan with mixed English and Greek; English-only recognizer cannot recover all scholarly text reliably."
+        },
+        {
+          "pdfPage": 2,
+          "reason": "Deferred grainy two-page spread with mixed English and Greek and footnotes."
+        },
+        {
+          "pdfPage": 3,
+          "reason": "Deferred grainy two-page spread with mixed English and Greek and footnotes."
+        },
+        {
+          "pdfPage": 4,
+          "reason": "Deferred grainy two-page spread with mixed English and Greek and footnotes."
+        },
+        {
+          "pdfPage": 5,
+          "reason": "Deferred grainy two-page spread with substantial Greek, English prose and footnotes."
+        },
+        {
+          "pdfPage": 6,
+          "reason": "Deferred grainy two-page spread with mixed English and Greek and footnotes."
+        },
+        {
+          "pdfPage": 7,
+          "reason": "Deferred grainy two-page spread with mixed English and Greek and footnotes."
+        },
+        {
+          "pdfPage": 8,
+          "reason": "Deferred grainy two-page spread with mixed English and Greek and footnotes."
+        },
+        {
+          "pdfPage": 9,
+          "reason": "Deferred with work for consistent whole-article transcription; left page contains ending prose and footnote, right half is blank."
+        }
+      ],
+      "notes": "Ordinary modern typography, not manuscript or archaic type, but gray scan noise, small mixed-script text and two-page layout make this outside the user's clean straightforward OCR priority. First spread has blank left half; final spread has blank right half. Remaining spreads contain article text. English is visually readable; deferred status is a scoped quality decision, not a claim that the source is illegible or irrecoverable."
+    }
+  ]
+}

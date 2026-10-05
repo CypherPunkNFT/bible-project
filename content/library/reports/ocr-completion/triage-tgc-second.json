@@ -1,0 +1,204 @@
+{
+  "reviewedOn": "2026-10-05",
+  "method": "Rendered ten requested pages at 110 DPI; examined all in contact sheet and all six mission-and-prayer pages at full size, together with representative full views of matrix, bibliography and cover.",
+  "eligiblePageCount": 7,
+  "deferredPageCount": 2,
+  "closedNonProsePageCount": 1,
+  "items": [
+    {
+      "sourceRelativePath": "../sources/library/source-gospel-coalition/asset-ready-library-6aa09acd54284f1d24f5/original.pdf",
+      "assetId": "asset-ready-library-6aa09acd54284f1d24f5",
+      "title": "Paul's mission and prayer (Donald A. Carson)",
+      "eligiblePdfPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "excludedPages": [],
+      "pageRegions": [
+        {
+          "pdfPage": 1,
+          "regions": [
+            [
+              0.53,
+              0.21,
+              0.955,
+              0.938
+            ]
+          ],
+          "regionLabels": [
+            "printed-page-175"
+          ]
+        },
+        {
+          "pdfPage": 2,
+          "regions": [
+            [
+              0.065,
+              0.045,
+              0.486,
+              0.94
+            ],
+            [
+              0.55,
+              0.045,
+              0.978,
+              0.94
+            ]
+          ],
+          "regionLabels": [
+            "printed-page-176",
+            "printed-page-177"
+          ]
+        },
+        {
+          "pdfPage": 3,
+          "regions": [
+            [
+              0.05,
+              0.045,
+              0.475,
+              0.94
+            ],
+            [
+              0.535,
+              0.045,
+              0.945,
+              0.94
+            ]
+          ],
+          "regionLabels": [
+            "printed-page-178",
+            "printed-page-179"
+          ]
+        },
+        {
+          "pdfPage": 4,
+          "regions": [
+            [
+              0.045,
+              0.045,
+              0.47,
+              0.94
+            ],
+            [
+              0.515,
+              0.045,
+              0.94,
+              0.94
+            ]
+          ],
+          "regionLabels": [
+            "printed-page-180",
+            "printed-page-181"
+          ]
+        },
+        {
+          "pdfPage": 5,
+          "regions": [
+            [
+              0.045,
+              0.045,
+              0.475,
+              0.94
+            ],
+            [
+              0.515,
+              0.045,
+              0.94,
+              0.94
+            ]
+          ],
+          "regionLabels": [
+            "printed-page-182",
+            "printed-page-183"
+          ]
+        },
+        {
+          "pdfPage": 6,
+          "regions": [
+            [
+              0.018,
+              0.045,
+              0.441,
+              0.875
+            ]
+          ],
+          "regionLabels": [
+            "printed-page-184-including-notes-and-copyright"
+          ]
+        }
+      ],
+      "notes": "Readable ordinary English prose in a modern print chapter; gray photocopy background but strong legible letters throughout. Latin-script transliterations and scholarly names, no substantial mixed-script Greek passages. Copyright line Donald A. Carson 2000. First spread blank on left, last blank on right; crop only occupied halves. Whole chapter folios 175-184. Notes1-23 on final page retained. No tables. Straightforward OCR eligible with reading-order crops; output quality should be checked before marking complete."
+    },
+    {
+      "sourceRelativePath": "../sources/library/source-gospel-coalition/asset-ready-library-049e23d3003b67d880e2/original.pdf",
+      "assetId": "asset-ready-library-049e23d3003b67d880e2",
+      "title": "Understanding Misunderstandings - final matrix table",
+      "eligiblePdfPages": [],
+      "excludedPages": [
+        {
+          "pdfPage": 33,
+          "reason": "Dense matrix table with twenty rotated column headings and numerous small row marks; plain OCR would lose cell relationships. Deferred structured-table transcription, not missing prose."
+        }
+      ],
+      "notes": "Printed folio91. Visually the same matrix appears in the 490980c39f1ee37a8feb copy. Do not count these two copies as two distinct content gaps. Existing fragmented extraction is not a usable table transcription."
+    },
+    {
+      "sourceRelativePath": "../sources/library/source-gospel-coalition/asset-ready-library-490980c39f1ee37a8feb/original.pdf",
+      "assetId": "asset-ready-library-490980c39f1ee37a8feb",
+      "title": "Understanding Misunderstandings - alternate copy of final matrix table",
+      "eligiblePdfPages": [],
+      "excludedPages": [
+        {
+          "pdfPage": 33,
+          "reason": "Duplicate of dense matrix table in 049e23d3003b67d880e2 page33. Deferred structured-table transcription; running header alone is already extracted."
+        }
+      ],
+      "notes": "Printed folio91. Table is an embedded page image with small marks and rotated headings, requiring cell-aware verification beyond straightforward prose OCR."
+    },
+    {
+      "sourceRelativePath": "../sources/library/source-gospel-coalition/asset-ready-library-98603a1b46f34e2e2654/original.pdf",
+      "assetId": "asset-ready-library-98603a1b46f34e2e2654",
+      "title": "For the Fame of God's Name: Essays in Honor of John Piper - cover",
+      "eligiblePdfPages": [],
+      "excludedPages": [
+        {
+          "pdfPage": 1,
+          "reason": "Decorative book cover only; no body-text gap. Title and editors retained as metadata below."
+        }
+      ],
+      "coverText": "Sam Storms and Justin Taylor, eds. For the Fame of God's Name. Essays in Honor of John Piper.",
+      "disposition": "closed-no-prose-ocr-needed"
+    },
+    {
+      "sourceRelativePath": "../sources/library/source-gospel-coalition/asset-ready-library-be37942fba0f179629f7/original.pdf",
+      "assetId": "asset-ready-library-be37942fba0f179629f7",
+      "title": "D. A. Carson article - final bibliography page",
+      "eligiblePdfPages": [
+        11
+      ],
+      "excludedPages": [],
+      "pageRegions": [
+        {
+          "pdfPage": 11,
+          "regions": [
+            [
+              0.045,
+              0.025,
+              0.47,
+              0.194
+            ]
+          ],
+          "regionLabels": [
+            "running-author-and-two-bibliographic-entries"
+          ]
+        }
+      ],
+      "notes": "Clean modern printed final bibliography entries for M. Wilcox and F. W. Young near upper left. Rest blank except folio264. No table or illustration. OCR eligible; prior empty extraction missed actual references."
+    }
+  ]
+}

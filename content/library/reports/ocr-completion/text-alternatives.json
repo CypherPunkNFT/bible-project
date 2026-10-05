@@ -1,0 +1,3316 @@
+{
+  "generatedAt": "2026-10-05T14:06:27.069780+00:00",
+  "scope": "Read-only crosswalk of 49 baseline existing-OCR holdings (47 identified book holdings plus two other holdings), the known image-only Flavel 1767 PDF, and 12 later Goodwin source-text volumes. Complements the separate filesystem-wide PDF gap audit; does not claim every page has been proofread.",
+  "userScope": "Only straightforward OCR gaps in legible common printed text. Defer damaged scans, difficult old typography, handwritten manuscripts and extensive restoration.",
+  "summary": {
+    "mappedHoldings": 62,
+    "baselineExistingOcrHoldings": 49,
+    "laterGoodwinSourceTextVolumes": 12,
+    "knownScanWithAlternateReadyText": 1,
+    "confirmedNewOcrAssignmentsFromThisReview": 0,
+    "alternativeReadyTextEditions": 53,
+    "baselineIdentifiedBookOcrHoldings": 47,
+    "modernImageOnlyFilesReferredToVisualTriage": 4
+  },
+  "records": [
+    {
+      "holdingId": "ia:bodyofpracticald01wats",
+      "title": "A body of practical divinity : consisting of above one hundred and seventy six sermons on the lesser catechism, composed by the reverend assembly of divines at Westminster. With a supplement of some sermons, on several texts of Scripture: together with The art of divine contentment. To which is added, Christ's various fulness: by the same author, never before printed in the former editions of this book",
+      "pdfPaths": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l02-bodyofpracticald01wats-pdf\\bodyofpracticald01wats.pdf"
+      ],
+      "existingTexts": [
+        {
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l02-bodyofpracticald01wats-ocr\\bodyofpracticald01wats_djvu.txt",
+          "exists": true,
+          "byteCount": 1819348,
+          "sha256": "13c8176025db491dddb081a56029470c5b24dfe756c302245f1d7059aa4ec0de",
+          "recordedHashMatches": true,
+          "sourceUrl": "https://archive.org/download/bodyofpracticald01wats/bodyofpracticald01wats_djvu.txt",
+          "textKind": "ocr",
+          "relationship": "same source item/edition",
+          "completeness": "source-offered file acquired; page accuracy and completeness not certified"
+        }
+      ],
+      "alternativeIds": [
+        "asset-historical-ready-f3d6b2a924b1958752"
+      ],
+      "evidence": [
+        "content/library/reports/puritan-sermons/acquisition-checkpoint.json"
+      ],
+      "decision": "reuse-existing-source-text; no blanket repeat OCR",
+      "remainingWork": "Targeted corrections only if a legible printed page has a demonstrated missing-text gap; no scan restoration or old-typography OCR."
+    },
+    {
+      "holdingId": "ia:bodyofpracticald02wats",
+      "title": "A body of practical divinity : consisting of above one hundred and seventy six sermons on the lesser catechism, composed by the reverend assembly of divines at Westminster. With a supplement of some sermons, on several texts of Scripture: together with The art of divine contentment. To which is added, Christ's various fulness: by the same author, never before printed in the former editions of this book",
+      "pdfPaths": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l02-bodyofpracticald02wats-pdf\\bodyofpracticald02wats.pdf"
+      ],
+      "existingTexts": [
+        {
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l02-bodyofpracticald02wats-ocr\\bodyofpracticald02wats_djvu.txt",
+          "exists": true,
+          "byteCount": 1931481,
+          "sha256": "4f14019ddca30579150d205252bb41643e7d3d6914fcf3963c08b7dc90a4484c",
+          "recordedHashMatches": true,
+          "sourceUrl": "https://archive.org/download/bodyofpracticald02wats/bodyofpracticald02wats_djvu.txt",
+          "textKind": "ocr",
+          "relationship": "same source item/edition",
+          "completeness": "source-offered file acquired; page accuracy and completeness not certified"
+        }
+      ],
+      "alternativeIds": [
+        "asset-historical-ready-f3d6b2a924b1958752"
+      ],
+      "evidence": [
+        "content/library/reports/puritan-sermons/acquisition-checkpoint.json"
+      ],
+      "decision": "reuse-existing-source-text; no blanket repeat OCR",
+      "remainingWork": "Targeted corrections only if a legible printed page has a demonstrated missing-text gap; no scan restoration or old-typography OCR."
+    },
+    {
+      "holdingId": "ia:selectionofmostc00calv",
+      "title": "A Selection of the most celebrated sermons of John Calvin, minister of the gospel, and one of the principal leaders in the Protestant Reformation ... to which is prefixed a biographical history of his life",
+      "pdfPaths": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l02-selectionofmostc00calv-pdf\\selectionofmostc00calv.pdf"
+      ],
+      "existingTexts": [
+        {
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l02-selectionofmostc00calv-ocr\\selectionofmostc00calv_djvu.txt",
+          "exists": true,
+          "byteCount": 441707,
+          "sha256": "b415e2efe701de6f5b1e17fd6b34af85aa83b58544cef276c7064f30c472d362",
+          "recordedHashMatches": true,
+          "sourceUrl": "https://archive.org/download/selectionofmostc00calv/selectionofmostc00calv_djvu.txt",
+          "textKind": "ocr",
+          "relationship": "same source item/edition",
+          "completeness": "source-offered file acquired; page accuracy and completeness not certified"
+        }
+      ],
+      "alternativeIds": [
+        "asset-historical-ready-ffd2fef8aa9d1d649c",
+        "asset-historical-ready-db1b2a4f3ae1915281",
+        "asset-historical-ready-73b1c2a2b26b332269",
+        "asset-historical-ready-f630e6436935235b1c",
+        "asset-historical-ready-3614887871a433a3bf",
+        "asset-historical-ready-2f9d1a63f861a60554",
+        "asset-historical-ready-42bb5193d20c628763",
+        "asset-historical-ready-b10c9c9bd06780e2f4",
+        "asset-historical-ready-7b3e796c52083d7cc9",
+        "asset-historical-ready-78eca4007bf70c46dd",
+        "asset-historical-ready-7c0a653e55823aab64",
+        "asset-historical-ready-755c002821631d847c",
+        "asset-historical-ready-9ced7ffee08a73ba3e",
+        "asset-historical-ready-e50ad366f72f9904f0",
+        "asset-historical-ready-9668b0c43be10aab1f",
+        "asset-historical-ready-cc4fd10613a188f0c7"
+      ],
+      "evidence": [
+        "content/library/reports/puritan-sermons/acquisition-checkpoint.json"
+      ],
+      "decision": "reuse-existing-source-text; no blanket repeat OCR",
+      "remainingWork": "Targeted corrections only if a legible printed page has a demonstrated missing-text gap; no scan restoration or old-typography OCR."
+    },
+    {
+      "holdingId": "ia:tokenformourners00flav",
+      "title": "flavel-mourners",
+      "pdfPaths": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l11-flavel-mourners-pdf\\tokenformourners00flav.pdf"
+      ],
+      "existingTexts": [
+        {
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l11-flavel-mourners-text\\tokenformourners00flav_djvu.txt",
+          "exists": true,
+          "byteCount": 241001,
+          "sha256": "3b8b787ab1bed806843029e716b50ad069c3afaea452cc44cd9f932bba10c7b9",
+          "sourceUrl": "https://archive.org/download/tokenformourners00flav/tokenformourners00flav_djvu.txt",
+          "textKind": "ocr",
+          "relationship": "same source item/edition",
+          "completeness": "source-offered file acquired; page accuracy and completeness not certified"
+        }
+      ],
+      "alternativeIds": [
+        "asset-historical-ready-008a6eac2308d5c1e2",
+        "asset-historical-ready-c3be03957b0b5fd485"
+      ],
+      "evidence": [
+        "content/library/reports/pastoral-care/acquisition-manifest.json"
+      ],
+      "decision": "reuse-existing-source-text; no blanket repeat OCR",
+      "remainingWork": "Targeted corrections only if a legible printed page has a demonstrated missing-text gap; no scan restoration or old-typography OCR."
+    },
+    {
+      "holdingId": "edition-l13-paton-1889-v1",
+      "title": "John G. Paton, missionary to the New Hebrides: an autobiography, volume 1",
+      "pdfPaths": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l13-paton-1889-v1-pdf\\johngpatonmissio188901pato.pdf"
+      ],
+      "existingTexts": [
+        {
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l13-paton-1889-v1-text\\johngpatonmissio188901pato_djvu.txt",
+          "exists": true,
+          "byteCount": 640476,
+          "sha256": "7ba202640eeabbf6c1cacc966f199aef74d8b703cb64ae7832d79cec44410798",
+          "recordedHashMatches": true,
+          "sourceUrl": "https://dn760103.eu.archive.org/0/items/johngpatonmissio188901pato/johngpatonmissio188901pato_djvu.txt",
+          "textKind": "ocr",
+          "relationship": "same source item/edition",
+          "completeness": "source-offered file acquired; page accuracy and completeness not certified"
+        }
+      ],
+      "alternativeIds": [],
+      "evidence": [
+        "content/library/catalog/assets/asset-l13-paton-1889-v1-pdf.json",
+        "content/library/catalog/assets/asset-l13-paton-1889-v1-text.json",
+        "content/library/reports/historical-lives/acquisition-manifest.json"
+      ],
+      "decision": "reuse-existing-source-text; no blanket repeat OCR",
+      "remainingWork": "Targeted corrections only if a legible printed page has a demonstrated missing-text gap; no scan restoration or old-typography OCR."
+    },
+    {
+      "holdingId": "edition-l13-paton-1889-v2",
+      "title": "John G. Paton, missionary to the New Hebrides: an autobiography, volume 2",
+      "pdfPaths": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l13-paton-1889-v2-pdf\\johngpatonmissio188902pato.pdf"
+      ],
+      "existingTexts": [
+        {
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l13-paton-1889-v2-text\\johngpatonmissio188902pato_djvu.txt",
+          "exists": true,
+          "byteCount": 734762,
+          "sha256": "6f1fb1e5dc8a509152792c9681964937527fb85817e14f606d4d04bef6ca2766",
+          "recordedHashMatches": true,
+          "sourceUrl": "https://dn760101.eu.archive.org/0/items/johngpatonmissio188902pato/johngpatonmissio188902pato_djvu.txt",
+          "textKind": "ocr",
+          "relationship": "same source item/edition",
+          "completeness": "source-offered file acquired; page accuracy and completeness not certified"
+        }
+      ],
+      "alternativeIds": [],
+      "evidence": [
+        "content/library/catalog/assets/asset-l13-paton-1889-v2-pdf.json",
+        "content/library/catalog/assets/asset-l13-paton-1889-v2-text.json",
+        "content/library/reports/historical-lives/acquisition-manifest.json"
+      ],
+      "decision": "reuse-existing-source-text; no blanket repeat OCR",
+      "remainingWork": "Targeted corrections only if a legible printed page has a demonstrated missing-text gap; no scan restoration or old-typography OCR."
+    },
+    {
+      "holdingId": "edition-l13-paton-v3",
+      "title": "John G. Paton, missionary to the New Hebrides: an autobiography, volume 3",
+      "pdfPaths": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l13-paton-v3-pdf\\johngpatonmissio03pato.pdf"
+      ],
+      "existingTexts": [
+        {
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l13-paton-v3-text\\johngpatonmissio03pato_djvu.txt",
+          "exists": true,
+          "byteCount": 183671,
+          "sha256": "0fcd5d607f93cee6142f597be3076328af8014f83bdf578035e4483f2bec4cb4",
+          "recordedHashMatches": true,
+          "sourceUrl": "https://ia801603.us.archive.org/14/items/johngpatonmissio03pato/johngpatonmissio03pato_djvu.txt",
+          "textKind": "ocr",
+          "relationship": "same source item/edition",
+          "completeness": "source-offered file acquired; page accuracy and completeness not certified"
+        }
+      ],
+      "alternativeIds": [],
+      "evidence": [
+        "content/library/catalog/assets/asset-l13-paton-v3-pdf.json",
+        "content/library/catalog/assets/asset-l13-paton-v3-text.json",
+        "content/library/reports/historical-lives/acquisition-manifest.json"
+      ],
+      "decision": "reuse-existing-source-text; no blanket repeat OCR",
+      "remainingWork": "Targeted corrections only if a legible printed page has a demonstrated missing-text gap; no scan restoration or old-typography OCR."
+    },
+    {
+      "holdingId": "edition-l12-spurgeon-lectures",
+      "title": "Lectures to My Students: First Series",
+      "pdfPaths": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l12-spurgeon-lectures-pdf\\lecturestomystud00spurrich.pdf"
+      ],
+      "existingTexts": [
+        {
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l12-spurgeon-lectures-text\\lecturestomystud00spurrich_djvu.txt",
+          "exists": true,
+          "byteCount": 634595,
+          "sha256": "63351ebda5ea7f4717f7537199fd25397d9e6c1a36d844d27851a7ff9aeca3a0",
+          "recordedHashMatches": true,
+          "sourceUrl": "https://dn790007.ca.archive.org/0/items/lecturestomystud00spurrich/lecturestomystud00spurrich_djvu.txt",
+          "textKind": "ocr",
+          "relationship": "same source item/edition",
+          "completeness": "source-offered file acquired; page accuracy and completeness not certified"
+        }
+      ],
+      "alternativeIds": [],
+      "evidence": [
+        "content/library/catalog/assets/asset-l12-spurgeon-lectures-pdf.json",
+        "content/library/catalog/assets/asset-l12-spurgeon-lectures-text.json",
+        "content/library/reports/ministry-resources/acquisition-manifest.json"
+      ],
+      "decision": "reuse-existing-source-text; no blanket repeat OCR",
+      "remainingWork": "Targeted corrections only if a legible printed page has a demonstrated missing-text gap; no scan restoration or old-typography OCR."
+    },
+    {
+      "holdingId": "edition-l13-mcheyne-1844",
+      "title": "Memoir and Remains of Robert Murray M'Cheyne",
+      "pdfPaths": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l13-mcheyne-1844-pdf\\robertmurraymcch00bonauoft.pdf"
+      ],
+      "existingTexts": [
+        {
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l13-mcheyne-1844-text\\robertmurraymcch00bonauoft_djvu.txt",
+          "exists": true,
+          "byteCount": 937360,
+          "sha256": "51f9c6f21761608a46c254f9b1ea89eb1c9c709e266e3f58ad7ec4cab062c1bf",
+          "recordedHashMatches": true,
+          "sourceUrl": "https://dn790007.ca.archive.org/0/items/robertmurraymcch00bonauoft/robertmurraymcch00bonauoft_djvu.txt",
+          "textKind": "ocr",
+          "relationship": "same source item/edition",
+          "completeness": "source-offered file acquired; page accuracy and completeness not certified"
+        }
+      ],
+      "alternativeIds": [],
+      "evidence": [
+        "content/library/catalog/assets/asset-l13-mcheyne-1844-pdf.json",
+        "content/library/catalog/assets/asset-l13-mcheyne-1844-text.json",
+        "content/library/reports/historical-lives/acquisition-manifest.json"
+      ],
+      "decision": "reuse-existing-source-text; no blanket repeat OCR",
+      "remainingWork": "Targeted corrections only if a legible printed page has a demonstrated missing-text gap; no scan restoration or old-typography OCR."
+    },
+    {
+      "holdingId": "edition-l13-brainerd-1822",
+      "title": "Memoirs of the Rev. David Brainerd",
+      "pdfPaths": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l13-brainerd-1822-pdf\\memoirsrevdavid00dwiggoog.pdf"
+      ],
+      "existingTexts": [
+        {
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l13-brainerd-1822-text\\memoirsrevdavid00dwiggoog_djvu.txt",
+          "exists": true,
+          "byteCount": 1528142,
+          "sha256": "00ce411b51f5bd2c4fdb15bbc694cbe002e49aaab7b7d90fdedc6fc706009656",
+          "recordedHashMatches": true,
+          "sourceUrl": "https://dn710901.ca.archive.org/0/items/memoirsrevdavid00dwiggoog/memoirsrevdavid00dwiggoog_djvu.txt",
+          "textKind": "ocr",
+          "relationship": "same source item/edition",
+          "completeness": "source-offered file acquired; page accuracy and completeness not certified"
+        }
+      ],
+      "alternativeIds": [],
+      "evidence": [
+        "content/library/catalog/assets/asset-l13-brainerd-1822-pdf.json",
+        "content/library/catalog/assets/asset-l13-brainerd-1822-text.json",
+        "content/library/reports/historical-lives/acquisition-manifest.json"
+      ],
+      "decision": "reuse-existing-source-text; no blanket repeat OCR",
+      "remainingWork": "Targeted corrections only if a legible printed page has a demonstrated missing-text gap; no scan restoration or old-typography OCR."
+    },
+    {
+      "holdingId": "edition-berkhof-introduction",
+      "title": "New Testament Introduction",
+      "pdfPaths": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l06-berkhof-pdf\\newtestamentintr00berk.pdf"
+      ],
+      "existingTexts": [
+        {
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l06-berkhof-text\\newtestamentintr00berk_djvu.txt",
+          "exists": true,
+          "byteCount": 797535,
+          "sha256": "4a376ebd5b1bbcebfc166c26e96c453943bc4e3c9ff0d16eea8ecf3181aa42a2",
+          "recordedHashMatches": true,
+          "sourceUrl": "https://dn760101.eu.archive.org/0/items/newtestamentintr00berk/newtestamentintr00berk_djvu.txt",
+          "textKind": "ocr",
+          "relationship": "same source item/edition",
+          "completeness": "source-offered file acquired; page accuracy and completeness not certified"
+        }
+      ],
+      "alternativeIds": [],
+      "evidence": [
+        "content/library/catalog/assets/asset-berkhof-introduction.json",
+        "content/library/catalog/assets/asset-l06-berkhof-pdf.json",
+        "content/library/catalog/assets/asset-l06-berkhof-text.json",
+        "content/library/reports/scripture-studies/acquisition-manifest.json"
+      ],
+      "decision": "reuse-existing-source-text; no blanket repeat OCR",
+      "remainingWork": "Targeted corrections only if a legible printed page has a demonstrated missing-text gap; no scan restoration or old-typography OCR."
+    },
+    {
+      "holdingId": "edition-aa-hodge-outlines",
+      "title": "Outlines of Theology",
+      "pdfPaths": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l07-aa-hodge-pdf\\outlinesoftheolo00hodguoft.pdf"
+      ],
+      "existingTexts": [
+        {
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l07-aa-hodge-text\\outlinesoftheolo00hodguoft_djvu.txt",
+          "exists": true,
+          "byteCount": 1310039,
+          "sha256": "1a207a6b82e66dcda97f466901ea99c9fbf44ac2a2a5f2033acf7ab6603e0b99",
+          "recordedHashMatches": true,
+          "sourceUrl": "https://dn760007.eu.archive.org/0/items/outlinesoftheolo00hodguoft/outlinesoftheolo00hodguoft_djvu.txt",
+          "textKind": "ocr",
+          "relationship": "same source item/edition",
+          "completeness": "source-offered file acquired; page accuracy and completeness not certified"
+        }
+      ],
+      "alternativeIds": [],
+      "evidence": [
+        "content/library/catalog/assets/asset-aa-hodge-outlines.json",
+        "content/library/catalog/assets/asset-l07-aa-hodge-pdf.json",
+        "content/library/catalog/assets/asset-l07-aa-hodge-text.json",
+        "content/library/reports/doctrinal-studies/acquisition-manifest.json"
+      ],
+      "decision": "reuse-existing-source-text; no blanket repeat OCR",
+      "remainingWork": "Targeted corrections only if a legible printed page has a demonstrated missing-text gap; no scan restoration or old-typography OCR."
+    },
+    {
+      "holdingId": "edition-l03-thechristianrace00ryleuoft",
+      "title": "The Christian Race and Other Sermons",
+      "pdfPaths": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l03-thechristianrace00ryleuoft-pdf\\thechristianrace00ryleuoft.pdf"
+      ],
+      "existingTexts": [
+        {
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l03-thechristianrace00ryleuoft-ocr\\thechristianrace00ryleuoft_djvu.txt",
+          "exists": true,
+          "byteCount": 736900,
+          "sha256": "5927e3b2ffc9339e5e8fe540ee2e34bb3218fc3c63450964bbbf42b77796f64a",
+          "recordedHashMatches": true,
+          "sourceUrl": "https://dn760002.eu.archive.org/0/items/thechristianrace00ryleuoft/thechristianrace00ryleuoft_djvu.txt",
+          "textKind": "ocr",
+          "relationship": "same source item/edition",
+          "completeness": "source-offered file acquired; page accuracy and completeness not certified"
+        }
+      ],
+      "alternativeIds": [
+        "asset-historical-ready-6dd1ef918e594dc1ca",
+        "asset-historical-ready-506ad8751d2041224b",
+        "asset-historical-ready-a325770bec3516fb9d"
+      ],
+      "evidence": [
+        "content/library/catalog/assets/asset-l03-thechristianrace00ryleuoft-ocr.json",
+        "content/library/catalog/assets/asset-l03-thechristianrace00ryleuoft-pdf.json",
+        "content/library/reports/historic-preaching/acquisition-manifest.json"
+      ],
+      "decision": "reuse-existing-source-text; no blanket repeat OCR",
+      "remainingWork": "Targeted corrections only if a legible printed page has a demonstrated missing-text gap; no scan restoration or old-typography OCR."
+    },
+    {
+      "holdingId": "ia:completeworksofr01sibbuoft",
+      "title": "The complete works of Richard Sibbes",
+      "pdfPaths": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l02-completeworksofr01sibbuoft-pdf\\completeworksofr01sibbuoft.pdf"
+      ],
+      "existingTexts": [
+        {
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l02-completeworksofr01sibbuoft-ocr\\completeworksofr01sibbuoft_djvu.txt",
+          "exists": true,
+          "byteCount": 2261267,
+          "sha256": "c1e617be58d7d1ebb7d24e19887d630bc77b3c826d15418ca07e33afa7cf8d9d",
+          "recordedHashMatches": true,
+          "sourceUrl": "https://archive.org/download/completeworksofr01sibbuoft/completeworksofr01sibbuoft_djvu.txt",
+          "textKind": "ocr",
+          "relationship": "same source item/edition",
+          "completeness": "source-offered file acquired; page accuracy and completeness not certified"
+        }
+      ],
+      "alternativeIds": [
+        "asset-historical-ready-687b65a8eda2fd5a90",
+        "asset-historical-ready-d15b4cf6863497c962",
+        "asset-historical-ready-d59677e49b1d80dec7",
+        "asset-historical-ready-a5671896d31ac1c863"
+      ],
+      "evidence": [
+        "content/library/reports/puritan-sermons/acquisition-checkpoint.json"
+      ],
+      "decision": "reuse-existing-source-text; no blanket repeat OCR",
+      "remainingWork": "Targeted corrections only if a legible printed page has a demonstrated missing-text gap; no scan restoration or old-typography OCR."
+    },
+    {
+      "holdingId": "ia:completeworkso02sibb",
+      "title": "The complete works of Richard Sibbes, D.D.",
+      "pdfPaths": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l02-completeworkso02sibb-pdf\\completeworkso02sibb.pdf"
+      ],
+      "existingTexts": [
+        {
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l02-completeworkso02sibb-ocr\\completeworkso02sibb_djvu.txt",
+          "exists": true,
+          "byteCount": 2270408,
+          "sha256": "6b0ec5910cc21ae1654b868353d06312b57a119f234c3ff90b71b4a63aa19b9e",
+          "recordedHashMatches": true,
+          "sourceUrl": "https://archive.org/download/completeworkso02sibb/completeworkso02sibb_djvu.txt",
+          "textKind": "ocr",
+          "relationship": "same source item/edition",
+          "completeness": "source-offered file acquired; page accuracy and completeness not certified"
+        }
+      ],
+      "alternativeIds": [
+        "asset-historical-ready-687b65a8eda2fd5a90",
+        "asset-historical-ready-d15b4cf6863497c962",
+        "asset-historical-ready-d59677e49b1d80dec7",
+        "asset-historical-ready-a5671896d31ac1c863"
+      ],
+      "evidence": [
+        "content/library/reports/puritan-sermons/acquisition-checkpoint.json"
+      ],
+      "decision": "reuse-existing-source-text; no blanket repeat OCR",
+      "remainingWork": "Targeted corrections only if a legible printed page has a demonstrated missing-text gap; no scan restoration or old-typography OCR."
+    },
+    {
+      "holdingId": "ia:completeworkso03sibb",
+      "title": "The complete works of Richard Sibbes, D.D.",
+      "pdfPaths": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l02-completeworkso03sibb-pdf\\completeworkso03sibb.pdf"
+      ],
+      "existingTexts": [
+        {
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l02-completeworkso03sibb-ocr\\completeworkso03sibb_djvu.txt",
+          "exists": true,
+          "byteCount": 2392900,
+          "sha256": "fcf015cde6199eb4227d33730644cb4aef82dee443a9a5090061b08e4b065971",
+          "recordedHashMatches": true,
+          "sourceUrl": "https://archive.org/download/completeworkso03sibb/completeworkso03sibb_djvu.txt",
+          "textKind": "ocr",
+          "relationship": "same source item/edition",
+          "completeness": "source-offered file acquired; page accuracy and completeness not certified"
+        }
+      ],
+      "alternativeIds": [
+        "asset-historical-ready-687b65a8eda2fd5a90",
+        "asset-historical-ready-d15b4cf6863497c962",
+        "asset-historical-ready-d59677e49b1d80dec7",
+        "asset-historical-ready-a5671896d31ac1c863"
+      ],
+      "evidence": [
+        "content/library/reports/puritan-sermons/acquisition-checkpoint.json"
+      ],
+      "decision": "reuse-existing-source-text; no blanket repeat OCR",
+      "remainingWork": "Targeted corrections only if a legible printed page has a demonstrated missing-text gap; no scan restoration or old-typography OCR."
+    },
+    {
+      "holdingId": "ia:completeworkso04sibb",
+      "title": "The complete works of Richard Sibbes, D.D.",
+      "pdfPaths": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l02-completeworkso04sibb-pdf\\completeworkso04sibb.pdf"
+      ],
+      "existingTexts": [
+        {
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l02-completeworkso04sibb-ocr\\completeworkso04sibb_djvu.txt",
+          "exists": true,
+          "byteCount": 2230453,
+          "sha256": "41b41f38b3ce83a26cf8c8feba8baa1275535044a6c5e5679c3d76f3f16d9202",
+          "recordedHashMatches": true,
+          "sourceUrl": "https://archive.org/download/completeworkso04sibb/completeworkso04sibb_djvu.txt",
+          "textKind": "ocr",
+          "relationship": "same source item/edition",
+          "completeness": "source-offered file acquired; page accuracy and completeness not certified"
+        }
+      ],
+      "alternativeIds": [
+        "asset-historical-ready-687b65a8eda2fd5a90",
+        "asset-historical-ready-d15b4cf6863497c962",
+        "asset-historical-ready-d59677e49b1d80dec7",
+        "asset-historical-ready-a5671896d31ac1c863"
+      ],
+      "evidence": [
+        "content/library/reports/puritan-sermons/acquisition-checkpoint.json"
+      ],
+      "decision": "reuse-existing-source-text; no blanket repeat OCR",
+      "remainingWork": "Targeted corrections only if a legible printed page has a demonstrated missing-text gap; no scan restoration or old-typography OCR."
+    },
+    {
+      "holdingId": "ia:completeworkso05sibb",
+      "title": "The complete works of Richard Sibbes, D.D.",
+      "pdfPaths": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l02-completeworkso05sibb-pdf\\completeworkso05sibb.pdf"
+      ],
+      "existingTexts": [
+        {
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l02-completeworkso05sibb-ocr\\completeworkso05sibb_djvu.txt",
+          "exists": true,
+          "byteCount": 2199656,
+          "sha256": "f9cb661175e74e81e1900235147160fc20f419d862f47f85292587cda1407088",
+          "recordedHashMatches": true,
+          "sourceUrl": "https://archive.org/download/completeworkso05sibb/completeworkso05sibb_djvu.txt",
+          "textKind": "ocr",
+          "relationship": "same source item/edition",
+          "completeness": "source-offered file acquired; page accuracy and completeness not certified"
+        }
+      ],
+      "alternativeIds": [
+        "asset-historical-ready-687b65a8eda2fd5a90",
+        "asset-historical-ready-d15b4cf6863497c962",
+        "asset-historical-ready-d59677e49b1d80dec7",
+        "asset-historical-ready-a5671896d31ac1c863"
+      ],
+      "evidence": [
+        "content/library/reports/puritan-sermons/acquisition-checkpoint.json"
+      ],
+      "decision": "reuse-existing-source-text; no blanket repeat OCR",
+      "remainingWork": "Targeted corrections only if a legible printed page has a demonstrated missing-text gap; no scan restoration or old-typography OCR."
+    },
+    {
+      "holdingId": "ia:completeworkso06sibb",
+      "title": "The complete works of Richard Sibbes, D.D.",
+      "pdfPaths": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l02-completeworkso06sibb-pdf\\completeworkso06sibb.pdf"
+      ],
+      "existingTexts": [
+        {
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l02-completeworkso06sibb-ocr\\completeworkso06sibb_djvu.txt",
+          "exists": true,
+          "byteCount": 2247257,
+          "sha256": "dbd1f0f5c81a9c8cf12f269a174e925ebcd362a281702bddac6f54a2d6389044",
+          "recordedHashMatches": true,
+          "sourceUrl": "https://archive.org/download/completeworkso06sibb/completeworkso06sibb_djvu.txt",
+          "textKind": "ocr",
+          "relationship": "same source item/edition",
+          "completeness": "source-offered file acquired; page accuracy and completeness not certified"
+        }
+      ],
+      "alternativeIds": [
+        "asset-historical-ready-687b65a8eda2fd5a90",
+        "asset-historical-ready-d15b4cf6863497c962",
+        "asset-historical-ready-d59677e49b1d80dec7",
+        "asset-historical-ready-a5671896d31ac1c863"
+      ],
+      "evidence": [
+        "content/library/reports/puritan-sermons/acquisition-checkpoint.json"
+      ],
+      "decision": "reuse-existing-source-text; no blanket repeat OCR",
+      "remainingWork": "Targeted corrections only if a legible printed page has a demonstrated missing-text gap; no scan restoration or old-typography OCR."
+    },
+    {
+      "holdingId": "ia:completeworkso07sibb",
+      "title": "The complete works of Richard Sibbes, D.D.",
+      "pdfPaths": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l02-completeworkso07sibb-pdf\\completeworkso07sibb.pdf"
+      ],
+      "existingTexts": [
+        {
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l02-completeworkso07sibb-ocr\\completeworkso07sibb_djvu.txt",
+          "exists": true,
+          "byteCount": 2550493,
+          "sha256": "c30912dd5bf7603d109cd44b0c01e58a29a1832b03da59dd492d7ce464daf2fc",
+          "recordedHashMatches": true,
+          "sourceUrl": "https://archive.org/download/completeworkso07sibb/completeworkso07sibb_djvu.txt",
+          "textKind": "ocr",
+          "relationship": "same source item/edition",
+          "completeness": "source-offered file acquired; page accuracy and completeness not certified"
+        }
+      ],
+      "alternativeIds": [
+        "asset-historical-ready-687b65a8eda2fd5a90",
+        "asset-historical-ready-d15b4cf6863497c962",
+        "asset-historical-ready-d59677e49b1d80dec7",
+        "asset-historical-ready-a5671896d31ac1c863"
+      ],
+      "evidence": [
+        "content/library/reports/puritan-sermons/acquisition-checkpoint.json"
+      ],
+      "decision": "reuse-existing-source-text; no blanket repeat OCR",
+      "remainingWork": "Targeted corrections only if a legible printed page has a demonstrated missing-text gap; no scan restoration or old-typography OCR."
+    },
+    {
+      "holdingId": "edition-warfield-plan",
+      "title": "The Plan of Salvation",
+      "pdfPaths": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l07-warfield-pdf\\planofsalvation00warf.pdf"
+      ],
+      "existingTexts": [
+        {
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l07-warfield-text\\planofsalvation00warf_djvu.txt",
+          "exists": true,
+          "byteCount": 224550,
+          "sha256": "c4d011f685875cb62c95a64d5d9462cfc60c24e985852c68332e5c55d361f56d",
+          "recordedHashMatches": true,
+          "sourceUrl": "https://dn710705.ca.archive.org/0/items/planofsalvation00warf/planofsalvation00warf_djvu.txt",
+          "textKind": "ocr",
+          "relationship": "same source item/edition",
+          "completeness": "source-offered file acquired; page accuracy and completeness not certified"
+        }
+      ],
+      "alternativeIds": [],
+      "evidence": [
+        "content/library/catalog/assets/asset-l07-warfield-pdf.json",
+        "content/library/catalog/assets/asset-l07-warfield-text.json",
+        "content/library/catalog/assets/asset-warfield-plan.json",
+        "content/library/reports/doctrinal-studies/acquisition-manifest.json"
+      ],
+      "decision": "reuse-existing-source-text; no blanket repeat OCR",
+      "remainingWork": "Targeted corrections only if a legible printed page has a demonstrated missing-text gap; no scan restoration or old-typography OCR."
+    },
+    {
+      "holdingId": "edition-vos-kingdom",
+      "title": "The Teaching of Jesus Concerning the Kingdom of God and the Church",
+      "pdfPaths": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l06-vos-pdf\\theteachingofjes00vosuoft.pdf"
+      ],
+      "existingTexts": [
+        {
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l06-vos-text\\theteachingofjes00vosuoft_djvu.txt",
+          "exists": true,
+          "byteCount": 218685,
+          "sha256": "62b4f6c3192bb3cad68e02d4749d9d3fbf45e18fe9426ec4fb60302c8a4bbbb6",
+          "recordedHashMatches": true,
+          "sourceUrl": "https://dn760102.eu.archive.org/0/items/theteachingofjes00vosuoft/theteachingofjes00vosuoft_djvu.txt",
+          "textKind": "ocr",
+          "relationship": "same source item/edition",
+          "completeness": "source-offered file acquired; page accuracy and completeness not certified"
+        }
+      ],
+      "alternativeIds": [],
+      "evidence": [
+        "content/library/catalog/assets/asset-l06-vos-pdf.json",
+        "content/library/catalog/assets/asset-l06-vos-text.json",
+        "content/library/catalog/assets/asset-vos-kingdom.json",
+        "content/library/reports/scripture-studies/acquisition-manifest.json"
+      ],
+      "decision": "reuse-existing-source-text; no blanket repeat OCR",
+      "remainingWork": "Targeted corrections only if a legible printed page has a demonstrated missing-text gap; no scan restoration or old-typography OCR."
+    },
+    {
+      "holdingId": "edition-l03-twobearsandothe00rylegoog",
+      "title": "The Two Bears, and Other Sermons for Children",
+      "pdfPaths": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l03-twobearsandothe00rylegoog-pdf\\twobearsandothe00rylegoog.pdf"
+      ],
+      "existingTexts": [
+        {
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l03-twobearsandothe00rylegoog-ocr\\twobearsandothe00rylegoog_djvu.txt",
+          "exists": true,
+          "byteCount": 126436,
+          "sha256": "b35a10b8a7dd0f804914fa95ae6125c5abd1260e40069cc654c260d027af894c",
+          "recordedHashMatches": true,
+          "sourceUrl": "https://dn760009.eu.archive.org/0/items/twobearsandothe00rylegoog/twobearsandothe00rylegoog_djvu.txt",
+          "textKind": "ocr",
+          "relationship": "same source item/edition",
+          "completeness": "source-offered file acquired; page accuracy and completeness not certified"
+        },
+        {
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l03-twobearsandothe00rylegoog-ocrxml\\twobearsandothe00rylegoog_djvu.xml",
+          "exists": true,
+          "byteCount": 1341478,
+          "sha256": "0e6235dc7351eccda24d9b8b4c465ae7c167651a11077f81ac809333506e92cf",
+          "recordedHashMatches": true,
+          "sourceUrl": "https://dn790003.ca.archive.org/0/items/twobearsandothe00rylegoog/twobearsandothe00rylegoog_djvu.xml",
+          "textKind": "ocr",
+          "relationship": "same source item/edition",
+          "completeness": "source-offered file acquired; page accuracy and completeness not certified"
+        }
+      ],
+      "alternativeIds": [
+        "asset-historical-ready-6dd1ef918e594dc1ca",
+        "asset-historical-ready-506ad8751d2041224b",
+        "asset-historical-ready-a325770bec3516fb9d"
+      ],
+      "evidence": [
+        "content/library/catalog/assets/asset-l03-twobearsandothe00rylegoog-ocr.json",
+        "content/library/catalog/assets/asset-l03-twobearsandothe00rylegoog-ocrxml.json",
+        "content/library/catalog/assets/asset-l03-twobearsandothe00rylegoog-pdf.json",
+        "content/library/reports/historic-preaching/acquisition-manifest.json"
+      ],
+      "decision": "reuse-existing-source-text; no blanket repeat OCR",
+      "remainingWork": "Targeted corrections only if a legible printed page has a demonstrated missing-text gap; no scan restoration or old-typography OCR."
+    },
+    {
+      "holdingId": "ia:wholeworksofjohn01flav",
+      "title": "The whole works of John Flavel, late minister of the gospel at Dartmouth, Devon",
+      "pdfPaths": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l02-wholeworksofjohn01flav-pdf\\wholeworksofjohn01flav.pdf"
+      ],
+      "existingTexts": [
+        {
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l02-wholeworksofjohn01flav-ocr\\wholeworksofjohn01flav_djvu.txt",
+          "exists": true,
+          "byteCount": 1837298,
+          "sha256": "9e4019febb9593f27401cfcc6aa8210f9165b1256754b4d1d5f33df5bafcfd9c",
+          "recordedHashMatches": true,
+          "sourceUrl": "https://archive.org/download/wholeworksofjohn01flav/wholeworksofjohn01flav_djvu.txt",
+          "textKind": "ocr",
+          "relationship": "same source item/edition",
+          "completeness": "source-offered file acquired; page accuracy and completeness not certified"
+        }
+      ],
+      "alternativeIds": [
+        "asset-historical-ready-008a6eac2308d5c1e2",
+        "asset-historical-ready-c3be03957b0b5fd485"
+      ],
+      "evidence": [
+        "content/library/reports/puritan-sermons/acquisition-checkpoint.json"
+      ],
+      "decision": "reuse-existing-source-text; no blanket repeat OCR",
+      "remainingWork": "Targeted corrections only if a legible printed page has a demonstrated missing-text gap; no scan restoration or old-typography OCR."
+    },
+    {
+      "holdingId": "ia:wholeworksofjohn02flav",
+      "title": "The whole works of John Flavel, late minister of the gospel at Dartmouth, Devon",
+      "pdfPaths": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l02-wholeworksofjohn02flav-pdf\\wholeworksofjohn02flav.pdf"
+      ],
+      "existingTexts": [
+        {
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l02-wholeworksofjohn02flav-ocr\\wholeworksofjohn02flav_djvu.txt",
+          "exists": true,
+          "byteCount": 1977720,
+          "sha256": "e65815ab5469f6af76fceb87b041c63893c5665e6fa9972b208c77258831e2e0",
+          "recordedHashMatches": true,
+          "sourceUrl": "https://archive.org/download/wholeworksofjohn02flav/wholeworksofjohn02flav_djvu.txt",
+          "textKind": "ocr",
+          "relationship": "same source item/edition",
+          "completeness": "source-offered file acquired; page accuracy and completeness not certified"
+        }
+      ],
+      "alternativeIds": [
+        "asset-historical-ready-008a6eac2308d5c1e2",
+        "asset-historical-ready-c3be03957b0b5fd485"
+      ],
+      "evidence": [
+        "content/library/reports/puritan-sermons/acquisition-checkpoint.json"
+      ],
+      "decision": "reuse-existing-source-text; no blanket repeat OCR",
+      "remainingWork": "Targeted corrections only if a legible printed page has a demonstrated missing-text gap; no scan restoration or old-typography OCR."
+    },
+    {
+      "holdingId": "ia:wholeworksofjohn03flav",
+      "title": "The whole works of John Flavel, late minister of the gospel at Dartmouth, Devon",
+      "pdfPaths": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l02-wholeworksofjohn03flav-pdf\\wholeworksofjohn03flav.pdf"
+      ],
+      "existingTexts": [
+        {
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l02-wholeworksofjohn03flav-ocr\\wholeworksofjohn03flav_djvu.txt",
+          "exists": true,
+          "byteCount": 1982360,
+          "sha256": "147225549597894406edf1f3bc62ac1b713dd08313092330b26f6fd0c91abf5f",
+          "recordedHashMatches": true,
+          "sourceUrl": "https://archive.org/download/wholeworksofjohn03flav/wholeworksofjohn03flav_djvu.txt",
+          "textKind": "ocr",
+          "relationship": "same source item/edition",
+          "completeness": "source-offered file acquired; page accuracy and completeness not certified"
+        }
+      ],
+      "alternativeIds": [
+        "asset-historical-ready-008a6eac2308d5c1e2",
+        "asset-historical-ready-c3be03957b0b5fd485"
+      ],
+      "evidence": [
+        "content/library/reports/puritan-sermons/acquisition-checkpoint.json"
+      ],
+      "decision": "reuse-existing-source-text; no blanket repeat OCR",
+      "remainingWork": "Targeted corrections only if a legible printed page has a demonstrated missing-text gap; no scan restoration or old-typography OCR."
+    },
+    {
+      "holdingId": "ia:worksofjohnowe08owen",
+      "title": "The works of John Owen",
+      "pdfPaths": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l02-worksofjohnowe08owen-pdf\\worksofjohnowe08owen.pdf"
+      ],
+      "existingTexts": [
+        {
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l02-worksofjohnowe08owen-ocr\\worksofjohnowe08owen_djvu.txt",
+          "exists": true,
+          "byteCount": 1513543,
+          "sha256": "2e82bb9709cb427cfa7a46f351d640867f5b252540db11cda8e5a3c0338f93eb",
+          "recordedHashMatches": true,
+          "sourceUrl": "https://archive.org/download/worksofjohnowe08owen/worksofjohnowe08owen_djvu.txt",
+          "textKind": "ocr",
+          "relationship": "same source item/edition",
+          "completeness": "source-offered file acquired; page accuracy and completeness not certified"
+        }
+      ],
+      "alternativeIds": [
+        "asset-historical-ready-95f30cd348d0c18803",
+        "asset-historical-ready-9d40702777e86b2b1e",
+        "asset-historical-ready-1b27e25c713148d311",
+        "asset-historical-ready-c79a094d348c46edc8",
+        "asset-historical-ready-11e4d2caf65f4983e1",
+        "asset-historical-ready-743b2f00836569a37a",
+        "asset-historical-ready-31419f62d6f61d1240",
+        "asset-historical-ready-a8729e6740eb1824f3",
+        "asset-historical-ready-808d65d71b1c9549a7",
+        "asset-historical-ready-e6ef89d23b57316fe4"
+      ],
+      "evidence": [
+        "content/library/reports/puritan-sermons/acquisition-checkpoint.json"
+      ],
+      "decision": "reuse-existing-source-text; no blanket repeat OCR",
+      "remainingWork": "Targeted corrections only if a legible printed page has a demonstrated missing-text gap; no scan restoration or old-typography OCR."
+    },
+    {
+      "holdingId": "ia:worksofjohnowe09owen",
+      "title": "The works of John Owen",
+      "pdfPaths": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l02-worksofjohnowe09owen-pdf\\worksofjohnowe09owen.pdf"
+      ],
+      "existingTexts": [
+        {
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l02-worksofjohnowe09owen-ocr\\worksofjohnowe09owen_djvu.txt",
+          "exists": true,
+          "byteCount": 1398015,
+          "sha256": "ff62120a66e4c5fc1d37ef206f3e0f1f83dc4fa95beaede31da29bd7c2b7aeb1",
+          "recordedHashMatches": true,
+          "sourceUrl": "https://archive.org/download/worksofjohnowe09owen/worksofjohnowe09owen_djvu.txt",
+          "textKind": "ocr",
+          "relationship": "same source item/edition",
+          "completeness": "source-offered file acquired; page accuracy and completeness not certified"
+        }
+      ],
+      "alternativeIds": [
+        "asset-historical-ready-95f30cd348d0c18803",
+        "asset-historical-ready-9d40702777e86b2b1e",
+        "asset-historical-ready-1b27e25c713148d311",
+        "asset-historical-ready-c79a094d348c46edc8",
+        "asset-historical-ready-11e4d2caf65f4983e1",
+        "asset-historical-ready-743b2f00836569a37a",
+        "asset-historical-ready-31419f62d6f61d1240",
+        "asset-historical-ready-a8729e6740eb1824f3",
+        "asset-historical-ready-808d65d71b1c9549a7",
+        "asset-historical-ready-e6ef89d23b57316fe4"
+      ],
+      "evidence": [
+        "content/library/reports/puritan-sermons/acquisition-checkpoint.json"
+      ],
+      "decision": "reuse-existing-source-text; no blanket repeat OCR",
+      "remainingWork": "Targeted corrections only if a legible printed page has a demonstrated missing-text gap; no scan restoration or old-typography OCR."
+    },
+    {
+      "holdingId": "ia:worksofjohnowe185008owen",
+      "title": "The works of John Owen",
+      "pdfPaths": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l02-worksofjohnowe185008owen-pdf\\worksofjohnowe185008owen.pdf"
+      ],
+      "existingTexts": [
+        {
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l02-worksofjohnowe185008owen-ocr\\worksofjohnowe185008owen_djvu.txt",
+          "exists": true,
+          "byteCount": 2123312,
+          "sha256": "7e81faee3cab6856969fc13071df90eb5f9a3831f344fcfa4452d0607c20e7f5",
+          "recordedHashMatches": true,
+          "sourceUrl": "https://archive.org/download/worksofjohnowe185008owen/worksofjohnowe185008owen_djvu.txt",
+          "textKind": "ocr",
+          "relationship": "same source item/edition",
+          "completeness": "source-offered file acquired; page accuracy and completeness not certified"
+        }
+      ],
+      "alternativeIds": [
+        "asset-historical-ready-95f30cd348d0c18803",
+        "asset-historical-ready-9d40702777e86b2b1e",
+        "asset-historical-ready-1b27e25c713148d311",
+        "asset-historical-ready-c79a094d348c46edc8",
+        "asset-historical-ready-11e4d2caf65f4983e1",
+        "asset-historical-ready-743b2f00836569a37a",
+        "asset-historical-ready-31419f62d6f61d1240",
+        "asset-historical-ready-a8729e6740eb1824f3",
+        "asset-historical-ready-808d65d71b1c9549a7",
+        "asset-historical-ready-e6ef89d23b57316fe4"
+      ],
+      "evidence": [
+        "content/library/reports/puritan-sermons/acquisition-checkpoint.json"
+      ],
+      "decision": "reuse-existing-source-text; no blanket repeat OCR",
+      "remainingWork": "Targeted corrections only if a legible printed page has a demonstrated missing-text gap; no scan restoration or old-typography OCR."
+    },
+    {
+      "holdingId": "ia:worksofjohnowe185009owen",
+      "title": "The works of John Owen",
+      "pdfPaths": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l02-worksofjohnowe185009owen-pdf\\worksofjohnowe185009owen.pdf"
+      ],
+      "existingTexts": [
+        {
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l02-worksofjohnowe185009owen-ocr\\worksofjohnowe185009owen_djvu.txt",
+          "exists": true,
+          "byteCount": 2096938,
+          "sha256": "da450ad4032ae208e5b8e3fcb1e3c036bcac87aff290c6047b1be46d59f024d6",
+          "recordedHashMatches": true,
+          "sourceUrl": "https://archive.org/download/worksofjohnowe185009owen/worksofjohnowe185009owen_djvu.txt",
+          "textKind": "ocr",
+          "relationship": "same source item/edition",
+          "completeness": "source-offered file acquired; page accuracy and completeness not certified"
+        }
+      ],
+      "alternativeIds": [
+        "asset-historical-ready-95f30cd348d0c18803",
+        "asset-historical-ready-9d40702777e86b2b1e",
+        "asset-historical-ready-1b27e25c713148d311",
+        "asset-historical-ready-c79a094d348c46edc8",
+        "asset-historical-ready-11e4d2caf65f4983e1",
+        "asset-historical-ready-743b2f00836569a37a",
+        "asset-historical-ready-31419f62d6f61d1240",
+        "asset-historical-ready-a8729e6740eb1824f3",
+        "asset-historical-ready-808d65d71b1c9549a7",
+        "asset-historical-ready-e6ef89d23b57316fe4"
+      ],
+      "evidence": [
+        "content/library/reports/puritan-sermons/acquisition-checkpoint.json"
+      ],
+      "decision": "reuse-existing-source-text; no blanket repeat OCR",
+      "remainingWork": "Targeted corrections only if a legible printed page has a demonstrated missing-text gap; no scan restoration or old-typography OCR."
+    },
+    {
+      "holdingId": "ia:worksofjohnowend0017owen",
+      "title": "The works of John Owen, D.D. ",
+      "pdfPaths": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l02-worksofjohnowend0017owen-pdf\\worksofjohnowend0017owen.pdf"
+      ],
+      "existingTexts": [
+        {
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l02-worksofjohnowend0017owen-ocr\\worksofjohnowend0017owen_djvu.txt",
+          "exists": true,
+          "byteCount": 1822125,
+          "sha256": "95982aff39ddcd590ac3f56fc96d80babb09ee0edd8161c6c15925afbfff561c",
+          "recordedHashMatches": true,
+          "sourceUrl": "https://archive.org/download/worksofjohnowend0017owen/worksofjohnowend0017owen_djvu.txt",
+          "textKind": "ocr",
+          "relationship": "same source item/edition",
+          "completeness": "source-offered file acquired; page accuracy and completeness not certified"
+        }
+      ],
+      "alternativeIds": [
+        "asset-historical-ready-95f30cd348d0c18803",
+        "asset-historical-ready-9d40702777e86b2b1e",
+        "asset-historical-ready-1b27e25c713148d311",
+        "asset-historical-ready-c79a094d348c46edc8",
+        "asset-historical-ready-11e4d2caf65f4983e1",
+        "asset-historical-ready-743b2f00836569a37a",
+        "asset-historical-ready-31419f62d6f61d1240",
+        "asset-historical-ready-a8729e6740eb1824f3",
+        "asset-historical-ready-808d65d71b1c9549a7",
+        "asset-historical-ready-e6ef89d23b57316fe4"
+      ],
+      "evidence": [
+        "content/library/reports/puritan-sermons/acquisition-checkpoint.json"
+      ],
+      "decision": "reuse-existing-source-text; no blanket repeat OCR",
+      "remainingWork": "Targeted corrections only if a legible printed page has a demonstrated missing-text gap; no scan restoration or old-typography OCR."
+    },
+    {
+      "holdingId": "edition-l03-worksofpresidents01edwa",
+      "title": "The Works of President Edwards, with a Memoir of His Life, volume 1",
+      "pdfPaths": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l03-worksofpresidents01edwa-pdf\\worksofpresidents01edwa.pdf"
+      ],
+      "existingTexts": [
+        {
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l03-worksofpresidents01edwa-ocr\\worksofpresidents01edwa_djvu.txt",
+          "exists": true,
+          "byteCount": 2681653,
+          "sha256": "cc23b73d572af7b13fc0406bb1d0dd70d42e9e256627641eb86a176f32cf6d8e",
+          "recordedHashMatches": true,
+          "sourceUrl": "https://dn760009.eu.archive.org/0/items/worksofpresidents01edwa/worksofpresidents01edwa_djvu.txt",
+          "textKind": "ocr",
+          "relationship": "same source item/edition",
+          "completeness": "source-offered file acquired; page accuracy and completeness not certified"
+        }
+      ],
+      "alternativeIds": [
+        "asset-historical-ready-4f8610cb616d8771b8",
+        "asset-historical-ready-7ada3b6a1ad5b523ee",
+        "asset-historical-ready-06b2eb27850dded908",
+        "asset-historical-ready-f9e07afa874df95690",
+        "asset-historical-ready-bfcc98eb1242d78d83",
+        "asset-historical-ready-3e404516d5f2e4f049"
+      ],
+      "evidence": [
+        "content/library/catalog/assets/asset-l03-worksofpresidents01edwa-ocr.json",
+        "content/library/catalog/assets/asset-l03-worksofpresidents01edwa-pdf.json",
+        "content/library/reports/historic-preaching/acquisition-manifest.json"
+      ],
+      "decision": "reuse-existing-source-text; no blanket repeat OCR",
+      "remainingWork": "Targeted corrections only if a legible printed page has a demonstrated missing-text gap; no scan restoration or old-typography OCR."
+    },
+    {
+      "holdingId": "edition-l03-worksofpresident10edwa",
+      "title": "The Works of President Edwards, with a Memoir of His Life, volume 10",
+      "pdfPaths": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l03-worksofpresident10edwa-pdf\\worksofpresident10edwa.pdf"
+      ],
+      "existingTexts": [
+        {
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l03-worksofpresident10edwa-ocr\\worksofpresident10edwa_djvu.txt",
+          "exists": true,
+          "byteCount": 1551153,
+          "sha256": "68ac7a4ac0017f7cafbef23ef94abf908949b2aab8e075173eb97267cf8ef6c8",
+          "recordedHashMatches": true,
+          "sourceUrl": "https://ia801602.us.archive.org/5/items/worksofpresident10edwa/worksofpresident10edwa_djvu.txt",
+          "textKind": "ocr",
+          "relationship": "same source item/edition",
+          "completeness": "source-offered file acquired; page accuracy and completeness not certified"
+        }
+      ],
+      "alternativeIds": [
+        "asset-historical-ready-4f8610cb616d8771b8",
+        "asset-historical-ready-7ada3b6a1ad5b523ee",
+        "asset-historical-ready-06b2eb27850dded908",
+        "asset-historical-ready-f9e07afa874df95690",
+        "asset-historical-ready-bfcc98eb1242d78d83",
+        "asset-historical-ready-3e404516d5f2e4f049"
+      ],
+      "evidence": [
+        "content/library/catalog/assets/asset-l03-worksofpresident10edwa-ocr.json",
+        "content/library/catalog/assets/asset-l03-worksofpresident10edwa-pdf.json",
+        "content/library/reports/historic-preaching/acquisition-manifest.json"
+      ],
+      "decision": "reuse-existing-source-text; no blanket repeat OCR",
+      "remainingWork": "Targeted corrections only if a legible printed page has a demonstrated missing-text gap; no scan restoration or old-typography OCR."
+    },
+    {
+      "holdingId": "edition-l03-worksofpresidents03edwa",
+      "title": "The Works of President Edwards, with a Memoir of His Life, volume 3",
+      "pdfPaths": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l03-worksofpresidents03edwa-pdf\\worksofpresidents03edwa.pdf"
+      ],
+      "existingTexts": [
+        {
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l03-worksofpresidents03edwa-ocr\\worksofpresidents03edwa_djvu.txt",
+          "exists": true,
+          "byteCount": 2034534,
+          "sha256": "753604e0c7f3c9b898bdb2a10cfb8d241a6d0c15e8e7255c8e4e912f4cd5106e",
+          "recordedHashMatches": true,
+          "sourceUrl": "https://dn720506.ca.archive.org/0/items/worksofpresidents03edwa/worksofpresidents03edwa_djvu.txt",
+          "textKind": "ocr",
+          "relationship": "same source item/edition",
+          "completeness": "source-offered file acquired; page accuracy and completeness not certified"
+        }
+      ],
+      "alternativeIds": [
+        "asset-historical-ready-4f8610cb616d8771b8",
+        "asset-historical-ready-7ada3b6a1ad5b523ee",
+        "asset-historical-ready-06b2eb27850dded908",
+        "asset-historical-ready-f9e07afa874df95690",
+        "asset-historical-ready-bfcc98eb1242d78d83",
+        "asset-historical-ready-3e404516d5f2e4f049"
+      ],
+      "evidence": [
+        "content/library/catalog/assets/asset-l03-worksofpresidents03edwa-ocr.json",
+        "content/library/catalog/assets/asset-l03-worksofpresidents03edwa-pdf.json",
+        "content/library/reports/historic-preaching/acquisition-manifest.json"
+      ],
+      "decision": "reuse-existing-source-text; no blanket repeat OCR",
+      "remainingWork": "Targeted corrections only if a legible printed page has a demonstrated missing-text gap; no scan restoration or old-typography OCR."
+    },
+    {
+      "holdingId": "edition-l03-worksofpresidents05edwa",
+      "title": "The Works of President Edwards, with a Memoir of His Life, volume 5",
+      "pdfPaths": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l03-worksofpresidents05edwa-pdf\\worksofpresidents05edwa.pdf"
+      ],
+      "existingTexts": [
+        {
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l03-worksofpresidents05edwa-ocr\\worksofpresidents05edwa_djvu.txt",
+          "exists": true,
+          "byteCount": 1979932,
+          "sha256": "24e90010b4b4805a3f3dae43d1333b475a54e35276fd6c28610d6fd8cfe897d0",
+          "recordedHashMatches": true,
+          "sourceUrl": "https://dn760009.eu.archive.org/0/items/worksofpresidents05edwa/worksofpresidents05edwa_djvu.txt",
+          "textKind": "ocr",
+          "relationship": "same source item/edition",
+          "completeness": "source-offered file acquired; page accuracy and completeness not certified"
+        }
+      ],
+      "alternativeIds": [
+        "asset-historical-ready-4f8610cb616d8771b8",
+        "asset-historical-ready-7ada3b6a1ad5b523ee",
+        "asset-historical-ready-06b2eb27850dded908",
+        "asset-historical-ready-f9e07afa874df95690",
+        "asset-historical-ready-bfcc98eb1242d78d83",
+        "asset-historical-ready-3e404516d5f2e4f049"
+      ],
+      "evidence": [
+        "content/library/catalog/assets/asset-l03-worksofpresidents05edwa-ocr.json",
+        "content/library/catalog/assets/asset-l03-worksofpresidents05edwa-pdf.json",
+        "content/library/reports/historic-preaching/acquisition-manifest.json"
+      ],
+      "decision": "reuse-existing-source-text; no blanket repeat OCR",
+      "remainingWork": "Targeted corrections only if a legible printed page has a demonstrated missing-text gap; no scan restoration or old-typography OCR."
+    },
+    {
+      "holdingId": "edition-l03-worksofpresidents06edwa",
+      "title": "The Works of President Edwards, with a Memoir of His Life, volume 6",
+      "pdfPaths": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l03-worksofpresidents06edwa-pdf\\worksofpresidents06edwa.pdf"
+      ],
+      "existingTexts": [
+        {
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l03-worksofpresidents06edwa-ocr\\worksofpresidents06edwa_djvu.txt",
+          "exists": true,
+          "byteCount": 1826547,
+          "sha256": "c89431931ae778bfc312b0887e93c638aa4aac42afc00f2a19ba85451338c950",
+          "recordedHashMatches": true,
+          "sourceUrl": "https://dn790009.ca.archive.org/0/items/worksofpresidents06edwa/worksofpresidents06edwa_djvu.txt",
+          "textKind": "ocr",
+          "relationship": "same source item/edition",
+          "completeness": "source-offered file acquired; page accuracy and completeness not certified"
+        }
+      ],
+      "alternativeIds": [
+        "asset-historical-ready-4f8610cb616d8771b8",
+        "asset-historical-ready-7ada3b6a1ad5b523ee",
+        "asset-historical-ready-06b2eb27850dded908",
+        "asset-historical-ready-f9e07afa874df95690",
+        "asset-historical-ready-bfcc98eb1242d78d83",
+        "asset-historical-ready-3e404516d5f2e4f049"
+      ],
+      "evidence": [
+        "content/library/catalog/assets/asset-l03-worksofpresidents06edwa-ocr.json",
+        "content/library/catalog/assets/asset-l03-worksofpresidents06edwa-pdf.json",
+        "content/library/reports/historic-preaching/acquisition-manifest.json"
+      ],
+      "decision": "reuse-existing-source-text; no blanket repeat OCR",
+      "remainingWork": "Targeted corrections only if a legible printed page has a demonstrated missing-text gap; no scan restoration or old-typography OCR."
+    },
+    {
+      "holdingId": "edition-l03-worksofpresidents07edwa",
+      "title": "The Works of President Edwards, with a Memoir of His Life, volume 7",
+      "pdfPaths": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l03-worksofpresidents07edwa-pdf\\worksofpresidents07edwa.pdf"
+      ],
+      "existingTexts": [
+        {
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l03-worksofpresidents07edwa-ocr\\worksofpresidents07edwa_djvu.txt",
+          "exists": true,
+          "byteCount": 2057797,
+          "sha256": "dad83f40126a4490a5858a3f991138e749098f7657ed8641fbd53174ee71cbae",
+          "recordedHashMatches": true,
+          "sourceUrl": "https://dn790006.ca.archive.org/0/items/worksofpresidents07edwa/worksofpresidents07edwa_djvu.txt",
+          "textKind": "ocr",
+          "relationship": "same source item/edition",
+          "completeness": "source-offered file acquired; page accuracy and completeness not certified"
+        }
+      ],
+      "alternativeIds": [
+        "asset-historical-ready-4f8610cb616d8771b8",
+        "asset-historical-ready-7ada3b6a1ad5b523ee",
+        "asset-historical-ready-06b2eb27850dded908",
+        "asset-historical-ready-f9e07afa874df95690",
+        "asset-historical-ready-bfcc98eb1242d78d83",
+        "asset-historical-ready-3e404516d5f2e4f049"
+      ],
+      "evidence": [
+        "content/library/catalog/assets/asset-l03-worksofpresidents07edwa-ocr.json",
+        "content/library/catalog/assets/asset-l03-worksofpresidents07edwa-pdf.json",
+        "content/library/reports/historic-preaching/acquisition-manifest.json"
+      ],
+      "decision": "reuse-existing-source-text; no blanket repeat OCR",
+      "remainingWork": "Targeted corrections only if a legible printed page has a demonstrated missing-text gap; no scan restoration or old-typography OCR."
+    },
+    {
+      "holdingId": "edition-l03-worksofpresidents08edwa",
+      "title": "The Works of President Edwards, with a Memoir of His Life, volume 8",
+      "pdfPaths": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l03-worksofpresidents08edwa-pdf\\worksofpresidents08edwa.pdf"
+      ],
+      "existingTexts": [
+        {
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l03-worksofpresidents08edwa-ocr\\worksofpresidents08edwa_djvu.txt",
+          "exists": true,
+          "byteCount": 1985189,
+          "sha256": "8631fd8d5b11b95be04c372616fb0834f3216e087f8e3c44d448ea3854a9214f",
+          "recordedHashMatches": true,
+          "sourceUrl": "https://dn760002.eu.archive.org/0/items/worksofpresidents08edwa/worksofpresidents08edwa_djvu.txt",
+          "textKind": "ocr",
+          "relationship": "same source item/edition",
+          "completeness": "source-offered file acquired; page accuracy and completeness not certified"
+        }
+      ],
+      "alternativeIds": [
+        "asset-historical-ready-4f8610cb616d8771b8",
+        "asset-historical-ready-7ada3b6a1ad5b523ee",
+        "asset-historical-ready-06b2eb27850dded908",
+        "asset-historical-ready-f9e07afa874df95690",
+        "asset-historical-ready-bfcc98eb1242d78d83",
+        "asset-historical-ready-3e404516d5f2e4f049"
+      ],
+      "evidence": [
+        "content/library/catalog/assets/asset-l03-worksofpresidents08edwa-ocr.json",
+        "content/library/catalog/assets/asset-l03-worksofpresidents08edwa-pdf.json",
+        "content/library/reports/historic-preaching/acquisition-manifest.json"
+      ],
+      "decision": "reuse-existing-source-text; no blanket repeat OCR",
+      "remainingWork": "Targeted corrections only if a legible printed page has a demonstrated missing-text gap; no scan restoration or old-typography OCR."
+    },
+    {
+      "holdingId": "edition-l03-worksofpresident09edwa",
+      "title": "The Works of President Edwards, with a Memoir of His Life, volume 9",
+      "pdfPaths": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l03-worksofpresident09edwa-pdf\\worksofpresident09edwa.pdf"
+      ],
+      "existingTexts": [
+        {
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l03-worksofpresident09edwa-ocr\\worksofpresident09edwa_djvu.txt",
+          "exists": true,
+          "byteCount": 1860567,
+          "sha256": "64e2edd9e1332966447d6e6bd93c6cb3e757b2e18f87aee8cd62748b1a8383a8",
+          "recordedHashMatches": true,
+          "sourceUrl": "https://dn720003.ca.archive.org/0/items/worksofpresident09edwa/worksofpresident09edwa_djvu.txt",
+          "textKind": "ocr",
+          "relationship": "same source item/edition",
+          "completeness": "source-offered file acquired; page accuracy and completeness not certified"
+        }
+      ],
+      "alternativeIds": [
+        "asset-historical-ready-4f8610cb616d8771b8",
+        "asset-historical-ready-7ada3b6a1ad5b523ee",
+        "asset-historical-ready-06b2eb27850dded908",
+        "asset-historical-ready-f9e07afa874df95690",
+        "asset-historical-ready-bfcc98eb1242d78d83",
+        "asset-historical-ready-3e404516d5f2e4f049"
+      ],
+      "evidence": [
+        "content/library/catalog/assets/asset-l03-worksofpresident09edwa-ocr.json",
+        "content/library/catalog/assets/asset-l03-worksofpresident09edwa-pdf.json",
+        "content/library/reports/historic-preaching/acquisition-manifest.json"
+      ],
+      "decision": "reuse-existing-source-text; no blanket repeat OCR",
+      "remainingWork": "Targeted corrections only if a legible printed page has a demonstrated missing-text gap; no scan restoration or old-typography OCR."
+    },
+    {
+      "holdingId": "edition-l03-worksrevjohnne02newt",
+      "title": "The Works of the Rev. John Newton, volume 2",
+      "pdfPaths": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l03-worksrevjohnne02newt-pdf\\worksrevjohnne02newt.pdf"
+      ],
+      "existingTexts": [
+        {
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l03-worksrevjohnne02newt-ocr\\worksrevjohnne02newt_djvu.txt",
+          "exists": true,
+          "byteCount": 1216350,
+          "sha256": "5b2b89ff605b64521e110c2811db96b288f28c2054fe02b45c62436d116edc1d",
+          "recordedHashMatches": true,
+          "sourceUrl": "https://dn760005.eu.archive.org/0/items/worksrevjohnne02newt/worksrevjohnne02newt_djvu.txt",
+          "textKind": "ocr",
+          "relationship": "same source item/edition",
+          "completeness": "source-offered file acquired; page accuracy and completeness not certified"
+        }
+      ],
+      "alternativeIds": [
+        "asset-historical-ready-3b57b1085f4599f336",
+        "asset-historical-ready-228d6c35dc5fc61c4e"
+      ],
+      "evidence": [
+        "content/library/catalog/assets/asset-l03-worksrevjohnne02newt-ocr.json",
+        "content/library/catalog/assets/asset-l03-worksrevjohnne02newt-pdf.json",
+        "content/library/reports/historic-preaching/acquisition-manifest.json"
+      ],
+      "decision": "reuse-existing-source-text; no blanket repeat OCR",
+      "remainingWork": "Targeted corrections only if a legible printed page has a demonstrated missing-text gap; no scan restoration or old-typography OCR."
+    },
+    {
+      "holdingId": "edition-l03-worksrevjohnne03newt",
+      "title": "The Works of the Rev. John Newton, volume 3",
+      "pdfPaths": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l03-worksrevjohnne03newt-pdf\\worksrevjohnne03newt.pdf"
+      ],
+      "existingTexts": [
+        {
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l03-worksrevjohnne03newt-ocr\\worksrevjohnne03newt_djvu.txt",
+          "exists": true,
+          "byteCount": 1152927,
+          "sha256": "e610ce3565418981636eab8c7c85794560496a1e8d2462e5066926d56db03de6",
+          "recordedHashMatches": true,
+          "sourceUrl": "https://dn790001.ca.archive.org/0/items/worksrevjohnne03newt/worksrevjohnne03newt_djvu.txt",
+          "textKind": "ocr",
+          "relationship": "same source item/edition",
+          "completeness": "source-offered file acquired; page accuracy and completeness not certified"
+        }
+      ],
+      "alternativeIds": [
+        "asset-historical-ready-3b57b1085f4599f336",
+        "asset-historical-ready-228d6c35dc5fc61c4e"
+      ],
+      "evidence": [
+        "content/library/catalog/assets/asset-l03-worksrevjohnne03newt-ocr.json",
+        "content/library/catalog/assets/asset-l03-worksrevjohnne03newt-pdf.json",
+        "content/library/reports/historic-preaching/acquisition-manifest.json"
+      ],
+      "decision": "reuse-existing-source-text; no blanket repeat OCR",
+      "remainingWork": "Targeted corrections only if a legible printed page has a demonstrated missing-text gap; no scan restoration or old-typography OCR."
+    },
+    {
+      "holdingId": "edition-l03-worksrevjohnne04newt",
+      "title": "The Works of the Rev. John Newton, volume 4",
+      "pdfPaths": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l03-worksrevjohnne04newt-pdf\\worksrevjohnne04newt.pdf"
+      ],
+      "existingTexts": [
+        {
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l03-worksrevjohnne04newt-ocr\\worksrevjohnne04newt_djvu.txt",
+          "exists": true,
+          "byteCount": 1258985,
+          "sha256": "32ee426bb3d85d5775b8a2cea51b08e04e32399fa345b309de04ae13721202ae",
+          "recordedHashMatches": true,
+          "sourceUrl": "https://dn760008.eu.archive.org/0/items/worksrevjohnne04newt/worksrevjohnne04newt_djvu.txt",
+          "textKind": "ocr",
+          "relationship": "same source item/edition",
+          "completeness": "source-offered file acquired; page accuracy and completeness not certified"
+        }
+      ],
+      "alternativeIds": [
+        "asset-historical-ready-3b57b1085f4599f336",
+        "asset-historical-ready-228d6c35dc5fc61c4e"
+      ],
+      "evidence": [
+        "content/library/catalog/assets/asset-l03-worksrevjohnne04newt-ocr.json",
+        "content/library/catalog/assets/asset-l03-worksrevjohnne04newt-pdf.json",
+        "content/library/reports/historic-preaching/acquisition-manifest.json"
+      ],
+      "decision": "reuse-existing-source-text; no blanket repeat OCR",
+      "remainingWork": "Targeted corrections only if a legible printed page has a demonstrated missing-text gap; no scan restoration or old-typography OCR."
+    },
+    {
+      "holdingId": "edition-l03-worksrevjohnne05newt",
+      "title": "The Works of the Rev. John Newton, volume 5",
+      "pdfPaths": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l03-worksrevjohnne05newt-pdf\\worksrevjohnne05newt.pdf"
+      ],
+      "existingTexts": [
+        {
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l03-worksrevjohnne05newt-ocr\\worksrevjohnne05newt_djvu.txt",
+          "exists": true,
+          "byteCount": 1206725,
+          "sha256": "c0f64585a2e40e0f2791e42a01de90bedc5eb400b2062d277851c4b1f040d52e",
+          "recordedHashMatches": true,
+          "sourceUrl": "https://dn760104.eu.archive.org/0/items/worksrevjohnne05newt/worksrevjohnne05newt_djvu.txt",
+          "textKind": "ocr",
+          "relationship": "same source item/edition",
+          "completeness": "source-offered file acquired; page accuracy and completeness not certified"
+        }
+      ],
+      "alternativeIds": [
+        "asset-historical-ready-3b57b1085f4599f336",
+        "asset-historical-ready-228d6c35dc5fc61c4e"
+      ],
+      "evidence": [
+        "content/library/catalog/assets/asset-l03-worksrevjohnne05newt-ocr.json",
+        "content/library/catalog/assets/asset-l03-worksrevjohnne05newt-pdf.json",
+        "content/library/reports/historic-preaching/acquisition-manifest.json"
+      ],
+      "decision": "reuse-existing-source-text; no blanket repeat OCR",
+      "remainingWork": "Targeted corrections only if a legible printed page has a demonstrated missing-text gap; no scan restoration or old-typography OCR."
+    },
+    {
+      "holdingId": "edition-l03-worksrevjohnne06newt",
+      "title": "The Works of the Rev. John Newton, volume 6",
+      "pdfPaths": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l03-worksrevjohnne06newt-pdf\\worksrevjohnne06newt.pdf"
+      ],
+      "existingTexts": [
+        {
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l03-worksrevjohnne06newt-ocr\\worksrevjohnne06newt_djvu.txt",
+          "exists": true,
+          "byteCount": 1362341,
+          "sha256": "c202ab9c7e5e9d586c9896d74f7c80f833d191d9209a022993800edae7371a9b",
+          "recordedHashMatches": true,
+          "sourceUrl": "https://dn720707.ca.archive.org/0/items/worksrevjohnne06newt/worksrevjohnne06newt_djvu.txt",
+          "textKind": "ocr",
+          "relationship": "same source item/edition",
+          "completeness": "source-offered file acquired; page accuracy and completeness not certified"
+        }
+      ],
+      "alternativeIds": [
+        "asset-historical-ready-3b57b1085f4599f336",
+        "asset-historical-ready-228d6c35dc5fc61c4e"
+      ],
+      "evidence": [
+        "content/library/catalog/assets/asset-l03-worksrevjohnne06newt-ocr.json",
+        "content/library/catalog/assets/asset-l03-worksrevjohnne06newt-pdf.json",
+        "content/library/reports/historic-preaching/acquisition-manifest.json"
+      ],
+      "decision": "reuse-existing-source-text; no blanket repeat OCR",
+      "remainingWork": "Targeted corrections only if a legible printed page has a demonstrated missing-text gap; no scan restoration or old-typography OCR."
+    },
+    {
+      "holdingId": "edition-l03-worksofreverendg05whit",
+      "title": "The Works of the Reverend George Whitefield, volume 5",
+      "pdfPaths": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l03-worksofreverendg05whit-pdf\\worksofreverendg05whit.pdf"
+      ],
+      "existingTexts": [
+        {
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l03-worksofreverendg05whit-ocr\\worksofreverendg05whit_djvu.txt",
+          "exists": true,
+          "byteCount": 1257617,
+          "sha256": "ab8a0e5c3baac55bd24fa3484f786afd0f08ef70b9a60e666abc8a398c3e6ae1",
+          "recordedHashMatches": true,
+          "sourceUrl": "https://ia600601.us.archive.org/24/items/worksofreverendg05whit/worksofreverendg05whit_djvu.txt",
+          "textKind": "ocr",
+          "relationship": "same source item/edition",
+          "completeness": "source-offered file acquired; page accuracy and completeness not certified"
+        }
+      ],
+      "alternativeIds": [
+        "asset-historical-ready-47ce1ac5dc51e76b5a",
+        "asset-historical-ready-f31a9725ad5510898d",
+        "asset-historical-ready-b8fc69053a3b6655b6",
+        "asset-historical-ready-f71c8475256a7fb04f",
+        "asset-historical-ready-23c971b228557e9967",
+        "asset-historical-ready-42ff4f28ba6a463854"
+      ],
+      "evidence": [
+        "content/library/catalog/assets/asset-l03-worksofreverendg05whit-ocr.json",
+        "content/library/catalog/assets/asset-l03-worksofreverendg05whit-pdf.json",
+        "content/library/reports/historic-preaching/acquisition-manifest.json"
+      ],
+      "decision": "reuse-existing-source-text; no blanket repeat OCR",
+      "remainingWork": "Targeted corrections only if a legible printed page has a demonstrated missing-text gap; no scan restoration or old-typography OCR."
+    },
+    {
+      "holdingId": "edition-l03-worksofreverendg06whit",
+      "title": "The Works of the Reverend George Whitefield, volume 6",
+      "pdfPaths": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l03-worksofreverendg06whit-pdf\\worksofreverendg06whit.pdf"
+      ],
+      "existingTexts": [
+        {
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l03-worksofreverendg06whit-ocr\\worksofreverendg06whit_djvu.txt",
+          "exists": true,
+          "byteCount": 1032787,
+          "sha256": "a6cb9de0e20344d8abf5c4d4ae5a4d290bb022c746e08961c5397873a3da6cba",
+          "recordedHashMatches": true,
+          "sourceUrl": "https://ia800609.us.archive.org/2/items/worksofreverendg06whit/worksofreverendg06whit_djvu.txt",
+          "textKind": "ocr",
+          "relationship": "same source item/edition",
+          "completeness": "source-offered file acquired; page accuracy and completeness not certified"
+        }
+      ],
+      "alternativeIds": [
+        "asset-historical-ready-47ce1ac5dc51e76b5a",
+        "asset-historical-ready-f31a9725ad5510898d",
+        "asset-historical-ready-b8fc69053a3b6655b6",
+        "asset-historical-ready-f71c8475256a7fb04f",
+        "asset-historical-ready-23c971b228557e9967",
+        "asset-historical-ready-42ff4f28ba6a463854"
+      ],
+      "evidence": [
+        "content/library/catalog/assets/asset-l03-worksofreverendg06whit-ocr.json",
+        "content/library/catalog/assets/asset-l03-worksofreverendg06whit-pdf.json",
+        "content/library/reports/historic-preaching/acquisition-manifest.json"
+      ],
+      "decision": "reuse-existing-source-text; no blanket repeat OCR",
+      "remainingWork": "Targeted corrections only if a legible printed page has a demonstrated missing-text gap; no scan restoration or old-typography OCR."
+    },
+    {
+      "holdingId": "ia:WilliamPerkinsWorksVol1",
+      "title": "The Works of William Perkins, vol. 1 (of 3)",
+      "pdfPaths": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l02-WilliamPerkinsWorksVol1-pdf\\William-Perkins-Works-vol-1_text.pdf"
+      ],
+      "existingTexts": [
+        {
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l02-WilliamPerkinsWorksVol1-ocr\\William-Perkins-Works-vol-1_djvu.txt",
+          "exists": true,
+          "byteCount": 4697444,
+          "sha256": "49a0d6d10fd0144210dbf7c6a7354a2bfc8678fbe1a9fc72c2c3e36f396c7769",
+          "recordedHashMatches": true,
+          "sourceUrl": "https://archive.org/download/WilliamPerkinsWorksVol1/William-Perkins-Works-vol-1_djvu.txt",
+          "textKind": "ocr",
+          "relationship": "same source item/edition",
+          "completeness": "source-offered file acquired; page accuracy and completeness not certified"
+        }
+      ],
+      "alternativeIds": [
+        "asset-historical-ready-99853bace0c6266b5a",
+        "asset-historical-ready-6f2999e0bc7dd59711",
+        "asset-historical-ready-f7ba4e28705c078623"
+      ],
+      "evidence": [
+        "content/library/reports/puritan-sermons/acquisition-checkpoint.json"
+      ],
+      "decision": "defer-new-OCR-outside-current-typography-scope; retain existing source text",
+      "remainingWork": "Mixed 1626/1631 impressions, commonly two printed pages per scan; user excluded difficult historical typography."
+    },
+    {
+      "holdingId": "ia:WilliamPerkinsWorksVol2",
+      "title": "The Works of William Perkins, vol. 2 (of 3)",
+      "pdfPaths": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l02-WilliamPerkinsWorksVol2-pdf\\William-Perkins-Works-vol-2_text.pdf"
+      ],
+      "existingTexts": [
+        {
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l02-WilliamPerkinsWorksVol2-ocr\\William-Perkins-Works-vol-2_djvu.txt",
+          "exists": true,
+          "byteCount": 3986731,
+          "sha256": "0224be1722c552bfc3e1763462e47f81befcb29297f5806ad35abc723470c40a",
+          "recordedHashMatches": true,
+          "sourceUrl": "https://archive.org/download/WilliamPerkinsWorksVol2/William-Perkins-Works-vol-2_djvu.txt",
+          "textKind": "ocr",
+          "relationship": "same source item/edition",
+          "completeness": "source-offered file acquired; page accuracy and completeness not certified"
+        }
+      ],
+      "alternativeIds": [
+        "asset-historical-ready-99853bace0c6266b5a",
+        "asset-historical-ready-6f2999e0bc7dd59711",
+        "asset-historical-ready-f7ba4e28705c078623"
+      ],
+      "evidence": [
+        "content/library/reports/puritan-sermons/acquisition-checkpoint.json"
+      ],
+      "decision": "defer-new-OCR-outside-current-typography-scope; retain existing source text",
+      "remainingWork": "Mixed 1626/1631 impressions, commonly two printed pages per scan; user excluded difficult historical typography."
+    },
+    {
+      "holdingId": "ia:WilliamPerkinsWorksVol3",
+      "title": "The Works of William Perkins, vol. 3 (of 3)",
+      "pdfPaths": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l02-WilliamPerkinsWorksVol3-pdf\\William-Perkins-Works-vol-3.pdf"
+      ],
+      "existingTexts": [
+        {
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l02-WilliamPerkinsWorksVol3-ocr\\William-Perkins-Works-vol-3_djvu.txt",
+          "exists": true,
+          "byteCount": 5927080,
+          "sha256": "ccb52720be15d2fac8d0f185252aa6a70c927527c4a6e5414467d18b44cb7b95",
+          "recordedHashMatches": true,
+          "sourceUrl": "https://archive.org/download/WilliamPerkinsWorksVol3/William-Perkins-Works-vol-3_djvu.txt",
+          "textKind": "ocr",
+          "relationship": "same source item/edition",
+          "completeness": "source-offered file acquired; page accuracy and completeness not certified"
+        },
+        {
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l02-WilliamPerkinsWorksVol3-ocrxml\\William-Perkins-Works-vol-3_djvu.xml",
+          "exists": true,
+          "byteCount": 58364750,
+          "sha256": "000c0776d692560626777ed6149a608474e7f4834721b3705ddc4fbfe5449dec",
+          "recordedHashMatches": true,
+          "textKind": "source OCR XML",
+          "relationship": "same source item/edition",
+          "completeness": "prior L02 report verifies OCR XML and PDF page counts agree; not a proofreading guarantee"
+        }
+      ],
+      "alternativeIds": [
+        "asset-historical-ready-99853bace0c6266b5a",
+        "asset-historical-ready-6f2999e0bc7dd59711",
+        "asset-historical-ready-f7ba4e28705c078623"
+      ],
+      "evidence": [
+        "content/library/reports/puritan-sermons/acquisition-checkpoint.json"
+      ],
+      "decision": "defer-new-OCR-outside-current-typography-scope; retain existing source text",
+      "remainingWork": "Mixed 1626/1631 impressions, commonly two printed pages per scan; user excluded difficult historical typography."
+    },
+    {
+      "holdingId": "edition-l08-flavel-1767",
+      "title": "An Exposition of the Assemblies Catechism",
+      "pdfPaths": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l08-flavel-1767-pdf\\anexpositionass00flavgoog.pdf"
+      ],
+      "existingTexts": [
+        {
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-creeds-json\\asset-l08-flavel-json\\exposition_of_the_assemblies_catechism.json",
+          "exists": true,
+          "byteCount": 578488,
+          "sha256": "65f07de14532455bfa7b6a56e75dbe863028f70bc40a9776c0d0203524e7e986",
+          "recordedHashMatches": true,
+          "textKind": "structured JSON",
+          "relationship": "alternate digital edition; not the exact 1767 witness",
+          "completeness": "complete acquired source file; exact 1767 wording/page collation not established"
+        }
+      ],
+      "alternativeIds": [
+        "asset-historical-ready-008a6eac2308d5c1e2"
+      ],
+      "evidence": [
+        "content/library/catalog/assets/asset-l08-flavel-1767-pdf.json",
+        "content/library/reports/confessional-standards/acquisition-manifest.json"
+      ],
+      "decision": "reuse-alternate-ready-text; defer exact 1767 scan OCR under user scope",
+      "remainingWork": "No content-acquisition OCR needed; retain 1767 scan separately. Public scan hosting remains uncleared."
+    },
+    {
+      "holdingId": "goodwin-1",
+      "title": "The Works of Thomas Goodwin, volume 1",
+      "pdfPaths": [],
+      "existingTexts": [
+        {
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-ready-completion-goodwin-1\\original",
+          "exists": true,
+          "byteCount": 2648779,
+          "sha256": "503a0c23e7ced1b474623cefecb6d18d889db2dd472c32e4a0161bfc8eb8f09c",
+          "recordedHashMatches": true,
+          "textKind": "source-provided OCR TXT",
+          "relationship": "identified Nichol-edition volume",
+          "completeness": "whole source-offered text file; unproofread OCR; not a page-completeness claim"
+        }
+      ],
+      "alternativeIds": [],
+      "decision": "reuse-existing-source-text; no scan acquisition or repeat OCR",
+      "remainingWork": "Targeted quality corrections require evidence; no blanket nineteenth-century scan reprocessing.",
+      "evidence": [
+        "content/library/reports/ready-text-completion/historical-results.json",
+        "content/library/reports/ready-text-completion/REPORT.md"
+      ]
+    },
+    {
+      "holdingId": "goodwin-2",
+      "title": "The Works of Thomas Goodwin, volume 2",
+      "pdfPaths": [],
+      "existingTexts": [
+        {
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-ready-completion-goodwin-2\\original",
+          "exists": true,
+          "byteCount": 2215096,
+          "sha256": "b21551e1b330399a96fad68871ff4fec012ed05ff4f0c4dcf76d44e43517834c",
+          "recordedHashMatches": true,
+          "textKind": "source-provided OCR TXT",
+          "relationship": "identified Nichol-edition volume",
+          "completeness": "whole source-offered text file; unproofread OCR; not a page-completeness claim"
+        }
+      ],
+      "alternativeIds": [],
+      "decision": "reuse-existing-source-text; no scan acquisition or repeat OCR",
+      "remainingWork": "Targeted quality corrections require evidence; no blanket nineteenth-century scan reprocessing.",
+      "evidence": [
+        "content/library/reports/ready-text-completion/historical-results.json",
+        "content/library/reports/ready-text-completion/REPORT.md"
+      ]
+    },
+    {
+      "holdingId": "goodwin-3",
+      "title": "The Works of Thomas Goodwin, volume 3",
+      "pdfPaths": [],
+      "existingTexts": [
+        {
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-ready-completion-goodwin-3\\original",
+          "exists": true,
+          "byteCount": 2175230,
+          "sha256": "78c818a09fbc406ecc709e80550bc4e31b8c2cf77951c07dda5d50911b2c0e19",
+          "recordedHashMatches": true,
+          "textKind": "source-provided OCR TXT",
+          "relationship": "identified Nichol-edition volume",
+          "completeness": "whole source-offered text file; unproofread OCR; not a page-completeness claim"
+        }
+      ],
+      "alternativeIds": [],
+      "decision": "reuse-existing-source-text; no scan acquisition or repeat OCR",
+      "remainingWork": "Targeted quality corrections require evidence; no blanket nineteenth-century scan reprocessing.",
+      "evidence": [
+        "content/library/reports/ready-text-completion/historical-results.json",
+        "content/library/reports/ready-text-completion/REPORT.md"
+      ]
+    },
+    {
+      "holdingId": "goodwin-4",
+      "title": "The Works of Thomas Goodwin, volume 4",
+      "pdfPaths": [],
+      "existingTexts": [
+        {
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-ready-completion-goodwin-4\\original",
+          "exists": true,
+          "byteCount": 2439077,
+          "sha256": "d6fd71165d8e5630eb3f3e01fec005b728a773647dd772daab0fb128f4d1122a",
+          "recordedHashMatches": true,
+          "textKind": "source-provided OCR TXT",
+          "relationship": "identified Nichol-edition volume",
+          "completeness": "whole source-offered text file; unproofread OCR; not a page-completeness claim"
+        }
+      ],
+      "alternativeIds": [],
+      "decision": "reuse-existing-source-text; no scan acquisition or repeat OCR",
+      "remainingWork": "Targeted quality corrections require evidence; no blanket nineteenth-century scan reprocessing.",
+      "evidence": [
+        "content/library/reports/ready-text-completion/historical-results.json",
+        "content/library/reports/ready-text-completion/REPORT.md"
+      ]
+    },
+    {
+      "holdingId": "goodwin-5",
+      "title": "The Works of Thomas Goodwin, volume 5",
+      "pdfPaths": [],
+      "existingTexts": [
+        {
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-ready-completion-goodwin-5\\original",
+          "exists": true,
+          "byteCount": 2370642,
+          "sha256": "25ebe21f30add76f9e44b3b12fe3388b2bdc1f899245c8b135bacc2679de3a0a",
+          "recordedHashMatches": true,
+          "textKind": "source-provided OCR TXT",
+          "relationship": "identified Nichol-edition volume",
+          "completeness": "whole source-offered text file; unproofread OCR; not a page-completeness claim"
+        }
+      ],
+      "alternativeIds": [],
+      "decision": "reuse-existing-source-text; no scan acquisition or repeat OCR",
+      "remainingWork": "Targeted quality corrections require evidence; no blanket nineteenth-century scan reprocessing.",
+      "evidence": [
+        "content/library/reports/ready-text-completion/historical-results.json",
+        "content/library/reports/ready-text-completion/REPORT.md"
+      ]
+    },
+    {
+      "holdingId": "goodwin-6",
+      "title": "The Works of Thomas Goodwin, volume 6",
+      "pdfPaths": [],
+      "existingTexts": [
+        {
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-ready-completion-goodwin-6\\original",
+          "exists": true,
+          "byteCount": 2350994,
+          "sha256": "0b8e851de510272b436886b3e9bbb593ba5438dd23f4c46fd3f7a2656e04b8a9",
+          "recordedHashMatches": true,
+          "textKind": "source-provided OCR TXT",
+          "relationship": "identified Nichol-edition volume",
+          "completeness": "whole source-offered text file; unproofread OCR; not a page-completeness claim"
+        }
+      ],
+      "alternativeIds": [],
+      "decision": "reuse-existing-source-text; no scan acquisition or repeat OCR",
+      "remainingWork": "Targeted quality corrections require evidence; no blanket nineteenth-century scan reprocessing.",
+      "evidence": [
+        "content/library/reports/ready-text-completion/historical-results.json",
+        "content/library/reports/ready-text-completion/REPORT.md"
+      ]
+    },
+    {
+      "holdingId": "goodwin-7",
+      "title": "The Works of Thomas Goodwin, volume 7",
+      "pdfPaths": [],
+      "existingTexts": [
+        {
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-ready-completion-goodwin-7\\original",
+          "exists": true,
+          "byteCount": 2521925,
+          "sha256": "fed79fcffaff62f9c5b7d2a59083cf44f413846483f5dc5171f5ccac2ed9ea5d",
+          "recordedHashMatches": true,
+          "textKind": "source-provided OCR TXT",
+          "relationship": "identified Nichol-edition volume",
+          "completeness": "whole source-offered text file; unproofread OCR; not a page-completeness claim"
+        }
+      ],
+      "alternativeIds": [],
+      "decision": "reuse-existing-source-text; no scan acquisition or repeat OCR",
+      "remainingWork": "Targeted quality corrections require evidence; no blanket nineteenth-century scan reprocessing.",
+      "evidence": [
+        "content/library/reports/ready-text-completion/historical-results.json",
+        "content/library/reports/ready-text-completion/REPORT.md"
+      ]
+    },
+    {
+      "holdingId": "goodwin-8",
+      "title": "The Works of Thomas Goodwin, volume 8",
+      "pdfPaths": [],
+      "existingTexts": [
+        {
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-ready-completion-goodwin-8\\original",
+          "exists": true,
+          "byteCount": 2690213,
+          "sha256": "a64ea603d7071118094eaf4b45d30b56821cb7f5052ff1036858f68dd4235be7",
+          "recordedHashMatches": true,
+          "textKind": "source-provided OCR TXT",
+          "relationship": "identified Nichol-edition volume",
+          "completeness": "whole source-offered text file; unproofread OCR; not a page-completeness claim"
+        }
+      ],
+      "alternativeIds": [],
+      "decision": "reuse-existing-source-text; no scan acquisition or repeat OCR",
+      "remainingWork": "Targeted quality corrections require evidence; no blanket nineteenth-century scan reprocessing.",
+      "evidence": [
+        "content/library/reports/ready-text-completion/historical-results.json",
+        "content/library/reports/ready-text-completion/REPORT.md"
+      ]
+    },
+    {
+      "holdingId": "goodwin-9",
+      "title": "The Works of Thomas Goodwin, volume 9",
+      "pdfPaths": [],
+      "existingTexts": [
+        {
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-ready-completion-goodwin-9\\original",
+          "exists": true,
+          "byteCount": 2348914,
+          "sha256": "93ada4695a4f89e90a8385f729c2dc832ec6239b50e924120258d8a32f0f475b",
+          "recordedHashMatches": true,
+          "textKind": "source-provided OCR TXT",
+          "relationship": "identified Nichol-edition volume",
+          "completeness": "whole source-offered text file; unproofread OCR; not a page-completeness claim"
+        }
+      ],
+      "alternativeIds": [],
+      "decision": "reuse-existing-source-text; no scan acquisition or repeat OCR",
+      "remainingWork": "Targeted quality corrections require evidence; no blanket nineteenth-century scan reprocessing.",
+      "evidence": [
+        "content/library/reports/ready-text-completion/historical-results.json",
+        "content/library/reports/ready-text-completion/REPORT.md"
+      ]
+    },
+    {
+      "holdingId": "goodwin-10",
+      "title": "The Works of Thomas Goodwin, volume 10",
+      "pdfPaths": [],
+      "existingTexts": [
+        {
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-ready-completion-goodwin-10\\original",
+          "exists": true,
+          "byteCount": 2602513,
+          "sha256": "c31dce0427ec2fe6c5be9b348c8b481007431f15f09bc310cb5f8b54cb392919",
+          "recordedHashMatches": true,
+          "textKind": "source-provided OCR TXT",
+          "relationship": "identified Nichol-edition volume",
+          "completeness": "whole source-offered text file; unproofread OCR; not a page-completeness claim"
+        }
+      ],
+      "alternativeIds": [],
+      "decision": "reuse-existing-source-text; no scan acquisition or repeat OCR",
+      "remainingWork": "Targeted quality corrections require evidence; no blanket nineteenth-century scan reprocessing.",
+      "evidence": [
+        "content/library/reports/ready-text-completion/historical-results.json",
+        "content/library/reports/ready-text-completion/REPORT.md"
+      ]
+    },
+    {
+      "holdingId": "goodwin-11",
+      "title": "The Works of Thomas Goodwin, volume 11",
+      "pdfPaths": [],
+      "existingTexts": [
+        {
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-ready-completion-goodwin-11\\original",
+          "exists": true,
+          "byteCount": 2494563,
+          "sha256": "8b0d4a4f17016fedeefa890ae19142c1452e3fb540cda1cd2a289716bf739ad0",
+          "recordedHashMatches": true,
+          "textKind": "source-provided OCR TXT",
+          "relationship": "identified Nichol-edition volume",
+          "completeness": "whole source-offered text file; unproofread OCR; not a page-completeness claim"
+        }
+      ],
+      "alternativeIds": [],
+      "decision": "reuse-existing-source-text; no scan acquisition or repeat OCR",
+      "remainingWork": "Targeted quality corrections require evidence; no blanket nineteenth-century scan reprocessing.",
+      "evidence": [
+        "content/library/reports/ready-text-completion/historical-results.json",
+        "content/library/reports/ready-text-completion/REPORT.md"
+      ]
+    },
+    {
+      "holdingId": "goodwin-12",
+      "title": "The Works of Thomas Goodwin, volume 12",
+      "pdfPaths": [],
+      "existingTexts": [
+        {
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-ready-completion-goodwin-12\\original",
+          "exists": true,
+          "byteCount": 1147480,
+          "sha256": "ead527a160556991972778db86d579d472670455f66fd4da96deb6455832d847",
+          "recordedHashMatches": true,
+          "textKind": "source-provided OCR TXT",
+          "relationship": "identified Nichol-edition volume",
+          "completeness": "whole source-offered text file; unproofread OCR; not a page-completeness claim"
+        }
+      ],
+      "alternativeIds": [],
+      "decision": "reuse-existing-source-text; no scan acquisition or repeat OCR",
+      "remainingWork": "Targeted quality corrections require evidence; no blanket nineteenth-century scan reprocessing.",
+      "evidence": [
+        "content/library/reports/ready-text-completion/historical-results.json",
+        "content/library/reports/ready-text-completion/REPORT.md"
+      ]
+    }
+  ],
+  "alternativeEditions": {
+    "asset-historical-ready-f3d6b2a924b1958752": {
+      "title": "The Works of Thomas Watson",
+      "author": "Thomas Watson",
+      "original": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-monergism\\asset-historical-ready-f3d6b2a924b1958752\\original.epub",
+        "exists": true,
+        "byteCount": 2265744,
+        "sha256": "c4b16f4d8580691033329c86aab17638887bc739b08032b5429933adc777b225",
+        "recordedHashMatches": true
+      },
+      "text": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\library\\historical-text-corpora\\text\\asset-historical-ready-f3d6b2a924b1958752.txt",
+        "exists": true,
+        "byteCount": 5220699,
+        "sha256": "fb027aec47a3c742529b14f2afc0925d7c9d2d0e7905846e68d7a7e7481889f7",
+        "recordedHashMatches": true
+      },
+      "sourcePage": "https://www.monergism.com/works-thomas-watson-ebook",
+      "relationship": "alternate electronic edition or selected work; no exact scan collation established",
+      "completeness": "full acquired EPUB body extracted; may cover only selected works within historical collected volume",
+      "reviewClass": "ready-text-not-fully-proofread",
+      "publicHostingAllowed": false,
+      "publicFullTextIndexAllowed": false
+    },
+    "asset-historical-ready-ffd2fef8aa9d1d649c": {
+      "title": "Commentary on Genesis: Chapters 1–50",
+      "author": "John Calvin",
+      "original": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-monergism\\asset-historical-ready-ffd2fef8aa9d1d649c\\original.epub",
+        "exists": true,
+        "byteCount": 1950362,
+        "sha256": "c3e709ba58b60fead7cdb12ee5235226bd1f3aa58085431549ed5650c5c4a579",
+        "recordedHashMatches": true
+      },
+      "text": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\library\\historical-text-corpora\\text\\asset-historical-ready-ffd2fef8aa9d1d649c.txt",
+        "exists": true,
+        "byteCount": 2555983,
+        "sha256": "2f8849278bf1dbea5e22b9f8a1137f4ee7fa9cb2ea931b6d2139368c5ec75d5c",
+        "recordedHashMatches": true
+      },
+      "sourcePage": "https://www.monergism.com/calvins-commentaries",
+      "relationship": "alternate electronic edition or selected work; no exact scan collation established",
+      "completeness": "full acquired EPUB body extracted; may cover only selected works within historical collected volume",
+      "reviewClass": "ready-text-not-fully-proofread",
+      "publicHostingAllowed": false,
+      "publicFullTextIndexAllowed": false
+    },
+    "asset-historical-ready-db1b2a4f3ae1915281": {
+      "title": "Lest Any Man Should Boast",
+      "author": "John Calvin",
+      "original": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-monergism\\asset-historical-ready-db1b2a4f3ae1915281\\original.epub",
+        "exists": true,
+        "byteCount": 247359,
+        "sha256": "f01cdf658f25acbbf40d1b1f72cc670055858db99282ce071c486f1a757a8ed7",
+        "recordedHashMatches": true
+      },
+      "text": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\library\\historical-text-corpora\\text\\asset-historical-ready-db1b2a4f3ae1915281.txt",
+        "exists": true,
+        "byteCount": 533015,
+        "sha256": "31a7f339418858a3cd809723c014f7cdbdd69633ba7b5b581c8593ee67c8c69f",
+        "recordedHashMatches": true
+      },
+      "sourcePage": "https://www.monergism.com/lest-any-man-should-boast-ebook",
+      "relationship": "alternate electronic edition or selected work; no exact scan collation established",
+      "completeness": "full acquired EPUB body extracted; may cover only selected works within historical collected volume",
+      "reviewClass": "ready-text-not-fully-proofread",
+      "publicHostingAllowed": false,
+      "publicFullTextIndexAllowed": false
+    },
+    "asset-historical-ready-73b1c2a2b26b332269": {
+      "title": "On the History of Melchizedek",
+      "author": "John Calvin",
+      "original": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-monergism\\asset-historical-ready-73b1c2a2b26b332269\\original.epub",
+        "exists": true,
+        "byteCount": 198993,
+        "sha256": "d17e71fa20a07b6852ce93dc149be2727f42049a02a6ea46fd7512484e0b9c2c",
+        "recordedHashMatches": true
+      },
+      "text": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\library\\historical-text-corpora\\text\\asset-historical-ready-73b1c2a2b26b332269.txt",
+        "exists": true,
+        "byteCount": 354371,
+        "sha256": "fd53fef6fe18139fabc85f4120b4dc9a6642e2df61eca43c7b7df2f6c8352ae6",
+        "recordedHashMatches": true
+      },
+      "sourcePage": "https://www.monergism.com/sermons-history-melchizedek-ebook",
+      "relationship": "alternate electronic edition or selected work; no exact scan collation established",
+      "completeness": "full acquired EPUB body extracted; may cover only selected works within historical collected volume",
+      "reviewClass": "ready-text-not-fully-proofread",
+      "publicHostingAllowed": false,
+      "publicFullTextIndexAllowed": false
+    },
+    "asset-historical-ready-f630e6436935235b1c": {
+      "title": "Sermons Concerning Jacob and Esau",
+      "author": "John Calvin",
+      "original": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-monergism\\asset-historical-ready-f630e6436935235b1c\\original.epub",
+        "exists": true,
+        "byteCount": 242343,
+        "sha256": "eed630a2ef8b1f5367811e5132742be1b848e4f1e8233cb51dae5106431944d7",
+        "recordedHashMatches": true
+      },
+      "text": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\library\\historical-text-corpora\\text\\asset-historical-ready-f630e6436935235b1c.txt",
+        "exists": true,
+        "byteCount": 522775,
+        "sha256": "ae94d88d6f40bcedd232ef7680d816a6d50a4331215a4b4d994fed32c5488471",
+        "recordedHashMatches": true
+      },
+      "sourcePage": "https://www.monergism.com/sermons-concerning-jacob-and-esau-ebook",
+      "relationship": "alternate electronic edition or selected work; no exact scan collation established",
+      "completeness": "full acquired EPUB body extracted; may cover only selected works within historical collected volume",
+      "reviewClass": "ready-text-not-fully-proofread",
+      "publicHostingAllowed": false,
+      "publicFullTextIndexAllowed": false
+    },
+    "asset-historical-ready-3614887871a433a3bf": {
+      "title": "Lectures on Jonah",
+      "author": "John Calvin",
+      "original": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-monergism\\asset-historical-ready-3614887871a433a3bf\\original.epub",
+        "exists": true,
+        "byteCount": 309905,
+        "sha256": "3526f7b1200013d6e271982c77aee4d1a635cb5cf7cfdf065f104a0594dbcc80",
+        "recordedHashMatches": true
+      },
+      "text": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\library\\historical-text-corpora\\text\\asset-historical-ready-3614887871a433a3bf.txt",
+        "exists": true,
+        "byteCount": 288080,
+        "sha256": "f0bb8f85aa4936393bc8211a92dcd5f06f9c24bb5b339ce629c43afa169c6796",
+        "recordedHashMatches": true
+      },
+      "sourcePage": "https://www.monergism.com/lectures-jonah-ebook",
+      "relationship": "alternate electronic edition or selected work; no exact scan collation established",
+      "completeness": "full acquired EPUB body extracted; may cover only selected works within historical collected volume",
+      "reviewClass": "publisher-ai-edition-review",
+      "publicHostingAllowed": false,
+      "publicFullTextIndexAllowed": false
+    },
+    "asset-historical-ready-2f9d1a63f861a60554": {
+      "title": "Sermons upon the Epistle of Saint Paul to the Galatians",
+      "author": "John Calvin",
+      "original": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-monergism\\asset-historical-ready-2f9d1a63f861a60554\\original.epub",
+        "exists": true,
+        "byteCount": 552877,
+        "sha256": "fae39b29306fa516fb9ea33dee221614bce56fc33ec19188a794ceaa4f5ab962",
+        "recordedHashMatches": true
+      },
+      "text": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\library\\historical-text-corpora\\text\\asset-historical-ready-2f9d1a63f861a60554.txt",
+        "exists": true,
+        "byteCount": 1505766,
+        "sha256": "c681fde8407ea56219fea6a6fe78082355843b216377e6231d38495e500ecdcb",
+        "recordedHashMatches": true
+      },
+      "sourcePage": "https://www.monergism.com/sermons-upon-epistle-saint-paul-galatians-ebook",
+      "relationship": "alternate electronic edition or selected work; no exact scan collation established",
+      "completeness": "full acquired EPUB body extracted; may cover only selected works within historical collected volume",
+      "reviewClass": "ready-text-not-fully-proofread",
+      "publicHostingAllowed": false,
+      "publicFullTextIndexAllowed": false
+    },
+    "asset-historical-ready-42bb5193d20c628763": {
+      "title": "Sermons on Ephesians",
+      "author": "John Calvin",
+      "original": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-monergism\\asset-historical-ready-42bb5193d20c628763\\original.epub",
+        "exists": true,
+        "byteCount": 641130,
+        "sha256": "84fb05238b4e1ba4c79c9fb610a2ddbaf9a0f77586d58288332368ade9774bf8",
+        "recordedHashMatches": true
+      },
+      "text": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\library\\historical-text-corpora\\text\\asset-historical-ready-42bb5193d20c628763.txt",
+        "exists": true,
+        "byteCount": 1651604,
+        "sha256": "9b87e28891929334b79076091a69be560f6427c3784cf9da994a15e8796d4b3d",
+        "recordedHashMatches": true
+      },
+      "sourcePage": "https://www.monergism.com/sermons-ephesians-ebook",
+      "relationship": "alternate electronic edition or selected work; no exact scan collation established",
+      "completeness": "full acquired EPUB body extracted; may cover only selected works within historical collected volume",
+      "reviewClass": "ready-text-not-fully-proofread",
+      "publicHostingAllowed": false,
+      "publicFullTextIndexAllowed": false
+    },
+    "asset-historical-ready-b10c9c9bd06780e2f4": {
+      "title": "Five Sermons on the Beatitudes",
+      "author": "John Calvin",
+      "original": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-monergism\\asset-historical-ready-b10c9c9bd06780e2f4\\original.epub",
+        "exists": true,
+        "byteCount": 468924,
+        "sha256": "040953befecf63eddffc4e11f8b1d65a7cd0861c29286426f5fe9c14d0540470",
+        "recordedHashMatches": true
+      },
+      "text": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\library\\historical-text-corpora\\text\\asset-historical-ready-b10c9c9bd06780e2f4.txt",
+        "exists": true,
+        "byteCount": 164984,
+        "sha256": "523891d284aab62f8e2a8f4713b727e5b027c7430aa97a464dcd5de5ea68614d",
+        "recordedHashMatches": true
+      },
+      "sourcePage": "https://www.monergism.com/five-sermons-beatitudes-ebook",
+      "relationship": "alternate electronic edition or selected work; no exact scan collation established",
+      "completeness": "full acquired EPUB body extracted; may cover only selected works within historical collected volume",
+      "reviewClass": "ready-text-not-fully-proofread",
+      "publicHostingAllowed": false,
+      "publicFullTextIndexAllowed": false
+    },
+    "asset-historical-ready-7b3e796c52083d7cc9": {
+      "title": "The Covenant Unveiled",
+      "author": "John Calvin",
+      "original": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-monergism\\asset-historical-ready-7b3e796c52083d7cc9\\original.epub",
+        "exists": true,
+        "byteCount": 258169,
+        "sha256": "2ac01a4ae7228ccba20b98992158df633cc483e958c4c5892c7dfbef38961213",
+        "recordedHashMatches": true
+      },
+      "text": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\library\\historical-text-corpora\\text\\asset-historical-ready-7b3e796c52083d7cc9.txt",
+        "exists": true,
+        "byteCount": 544503,
+        "sha256": "f06a3f3c9064296c27db6911fc651425d45808c63902d0c78d3522a745fe9595",
+        "recordedHashMatches": true
+      },
+      "sourcePage": "https://www.monergism.com/covenant-unveiled-exposition-deuteronomy-27-28-ebook",
+      "relationship": "alternate electronic edition or selected work; no exact scan collation established",
+      "completeness": "full acquired EPUB body extracted; may cover only selected works within historical collected volume",
+      "reviewClass": "ready-text-not-fully-proofread",
+      "publicHostingAllowed": false,
+      "publicFullTextIndexAllowed": false
+    },
+    "asset-historical-ready-78eca4007bf70c46dd": {
+      "title": "Thirty-Six Select Sermons of John Calvin",
+      "author": "John Calvin",
+      "original": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-monergism\\asset-historical-ready-78eca4007bf70c46dd\\original.epub",
+        "exists": true,
+        "byteCount": 527807,
+        "sha256": "db1fe744963395e8ea58de9ad6b8b842532e12108279bc59e0bfdf6575ca7a23",
+        "recordedHashMatches": true
+      },
+      "text": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\library\\historical-text-corpora\\text\\asset-historical-ready-78eca4007bf70c46dd.txt",
+        "exists": true,
+        "byteCount": 1152889,
+        "sha256": "477bea962679515b0309440b6c6739ecabcd8a8139139febf77583a9a725cca7",
+        "recordedHashMatches": true
+      },
+      "sourcePage": "https://www.monergism.com/thirty-six-select-sermons-john-calvin-ebook",
+      "relationship": "alternate electronic edition or selected work; no exact scan collation established",
+      "completeness": "full acquired EPUB body extracted; may cover only selected works within historical collected volume",
+      "reviewClass": "ready-text-not-fully-proofread",
+      "publicHostingAllowed": false,
+      "publicFullTextIndexAllowed": false
+    },
+    "asset-historical-ready-7c0a653e55823aab64": {
+      "title": "Sermons on Psalm 119",
+      "author": "John Calvin",
+      "original": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-monergism\\asset-historical-ready-7c0a653e55823aab64\\original.epub",
+        "exists": true,
+        "byteCount": 313408,
+        "sha256": "193214e4485a0af046d4defbeef849d981cf2ba3724442b121e139d42c36bf21",
+        "recordedHashMatches": true
+      },
+      "text": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\library\\historical-text-corpora\\text\\asset-historical-ready-7c0a653e55823aab64.txt",
+        "exists": true,
+        "byteCount": 744146,
+        "sha256": "0b83079e9f87d5e6e59905eb02f8da55a7608a40fee6377db1abe2c96d6a182f",
+        "recordedHashMatches": true
+      },
+      "sourcePage": "https://www.monergism.com/sermons-psalm-119-ebook",
+      "relationship": "alternate electronic edition or selected work; no exact scan collation established",
+      "completeness": "full acquired EPUB body extracted; may cover only selected works within historical collected volume",
+      "reviewClass": "ready-text-not-fully-proofread",
+      "publicHostingAllowed": false,
+      "publicFullTextIndexAllowed": false
+    },
+    "asset-historical-ready-755c002821631d847c": {
+      "title": "Sermons on Deuteronomy",
+      "author": "John Calvin",
+      "original": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-monergism\\asset-historical-ready-755c002821631d847c\\original.epub",
+        "exists": true,
+        "byteCount": 2898229,
+        "sha256": "6adfd5157fe906462e1c11f08e814f3faa3673a9b894666590d0cb4193eff3db",
+        "recordedHashMatches": true
+      },
+      "text": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\library\\historical-text-corpora\\text\\asset-historical-ready-755c002821631d847c.txt",
+        "exists": true,
+        "byteCount": 6337449,
+        "sha256": "91708ca41e8fc5512083c18ab65bc0a02b313e273e600546aacead1a844e9988",
+        "recordedHashMatches": true
+      },
+      "sourcePage": "https://www.monergism.com/sermons-deuteronomy-ebook",
+      "relationship": "alternate electronic edition or selected work; no exact scan collation established",
+      "completeness": "full acquired EPUB body extracted; may cover only selected works within historical collected volume",
+      "reviewClass": "ready-text-not-fully-proofread",
+      "publicHostingAllowed": false,
+      "publicFullTextIndexAllowed": false
+    },
+    "asset-historical-ready-9ced7ffee08a73ba3e": {
+      "title": "A Selection of the Most Celebrated Sermons of John Calvin",
+      "author": "John Calvin",
+      "original": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-monergism\\asset-historical-ready-9ced7ffee08a73ba3e\\original.epub",
+        "exists": true,
+        "byteCount": 222273,
+        "sha256": "b3d26d27ef657d895e8502e6acb43f40fff691aac1598ce2dc3caf66848d5775",
+        "recordedHashMatches": true
+      },
+      "text": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\library\\historical-text-corpora\\text\\asset-historical-ready-9ced7ffee08a73ba3e.txt",
+        "exists": true,
+        "byteCount": 365719,
+        "sha256": "1a7598be48d2d58718e927ac567b85a907f05a923a1e824fc30f9c5c1de8078c",
+        "recordedHashMatches": true
+      },
+      "sourcePage": "https://www.monergism.com/selection-most-celebrated-sermons-john-calvin-ebook",
+      "relationship": "alternate electronic edition or selected work; no exact scan collation established",
+      "completeness": "full acquired EPUB body extracted; may cover only selected works within historical collected volume",
+      "reviewClass": "ready-text-not-fully-proofread",
+      "publicHostingAllowed": false,
+      "publicFullTextIndexAllowed": false
+    },
+    "asset-historical-ready-e50ad366f72f9904f0": {
+      "title": "Sermons on the Song of King Hezekiah",
+      "author": "John Calvin",
+      "original": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-monergism\\asset-historical-ready-e50ad366f72f9904f0\\original.epub",
+        "exists": true,
+        "byteCount": 211251,
+        "sha256": "423fbf91adffed675584d49ca6183420a9f4627100ebe487cc13d111b5296ba9",
+        "recordedHashMatches": true
+      },
+      "text": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\library\\historical-text-corpora\\text\\asset-historical-ready-e50ad366f72f9904f0.txt",
+        "exists": true,
+        "byteCount": 146116,
+        "sha256": "069ad676643fc8b005febf13d47c6ae2531ead2109a81f8694dbc2363a0a1933",
+        "recordedHashMatches": true
+      },
+      "sourcePage": "https://www.monergism.com/sermons-song-king-hezekiah-ebook",
+      "relationship": "alternate electronic edition or selected work; no exact scan collation established",
+      "completeness": "full acquired EPUB body extracted; may cover only selected works within historical collected volume",
+      "reviewClass": "publisher-ai-edition-review",
+      "publicHostingAllowed": false,
+      "publicFullTextIndexAllowed": false
+    },
+    "asset-historical-ready-9668b0c43be10aab1f": {
+      "title": "Four Godly Sermons Against the Pollution of Idolatries",
+      "author": "John Calvin",
+      "original": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-monergism\\asset-historical-ready-9668b0c43be10aab1f\\original.epub",
+        "exists": true,
+        "byteCount": 196076,
+        "sha256": "c9f150ab37a95de4d14974e467da1c461676a926ae0ec251c04c05a21f5f1087",
+        "recordedHashMatches": true
+      },
+      "text": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\library\\historical-text-corpora\\text\\asset-historical-ready-9668b0c43be10aab1f.txt",
+        "exists": true,
+        "byteCount": 234503,
+        "sha256": "32deb1c0ccf5ec91ac065a0a6c6c0df5f323f90949a0290ef3bd72a86f3a68e3",
+        "recordedHashMatches": true
+      },
+      "sourcePage": "https://www.monergism.com/four-godly-sermons-against-pollution-idolatries-ebook",
+      "relationship": "alternate electronic edition or selected work; no exact scan collation established",
+      "completeness": "full acquired EPUB body extracted; may cover only selected works within historical collected volume",
+      "reviewClass": "ready-text-not-fully-proofread",
+      "publicHostingAllowed": false,
+      "publicFullTextIndexAllowed": false
+    },
+    "asset-historical-ready-cc4fd10613a188f0c7": {
+      "title": "The Prophecy of Christ’s Death and Passion",
+      "author": "John Calvin",
+      "original": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-monergism\\asset-historical-ready-cc4fd10613a188f0c7\\original.epub",
+        "exists": true,
+        "byteCount": 306668,
+        "sha256": "087a8c467bd084c461ff843455e70b47a126e229e9ee87f3046352873ce09ed2",
+        "recordedHashMatches": true
+      },
+      "text": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\library\\historical-text-corpora\\text\\asset-historical-ready-cc4fd10613a188f0c7.txt",
+        "exists": true,
+        "byteCount": 253058,
+        "sha256": "893852990c2ce49d63dc16ec285ad01f0eb3e93bedf78fa37c3899387e7d112e",
+        "recordedHashMatches": true
+      },
+      "sourcePage": "https://www.monergism.com/prophecy-christ%E2%80%99s-death-and-passion-ebook",
+      "relationship": "alternate electronic edition or selected work; no exact scan collation established",
+      "completeness": "full acquired EPUB body extracted; may cover only selected works within historical collected volume",
+      "reviewClass": "publisher-ai-edition-review",
+      "publicHostingAllowed": false,
+      "publicFullTextIndexAllowed": false
+    },
+    "asset-historical-ready-008a6eac2308d5c1e2": {
+      "title": "An Exposition of the Assembly's Shorter Catechism",
+      "author": "John Flavel",
+      "original": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-monergism\\asset-historical-ready-008a6eac2308d5c1e2\\original.epub",
+        "exists": true,
+        "byteCount": 224452,
+        "sha256": "64bf5813248d09edd649e1b232807fe1da6e60535fc1a916fed5988d02427588",
+        "recordedHashMatches": true
+      },
+      "text": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\library\\historical-text-corpora\\text\\asset-historical-ready-008a6eac2308d5c1e2.txt",
+        "exists": true,
+        "byteCount": 469267,
+        "sha256": "fb5fcef026373ed6f199aa5327f711ac5fa452411522e21cb8388a5733da67b2",
+        "recordedHashMatches": true
+      },
+      "sourcePage": "https://www.monergism.com/exposition-assemblys-shorter-catechism-ebook",
+      "relationship": "alternate electronic edition or selected work; no exact scan collation established",
+      "completeness": "full acquired EPUB body extracted; may cover only selected works within historical collected volume",
+      "reviewClass": "ready-text-not-fully-proofread",
+      "publicHostingAllowed": false,
+      "publicFullTextIndexAllowed": false
+    },
+    "asset-historical-ready-c3be03957b0b5fd485": {
+      "title": "The Character of a Complete Evangelical Pastor Drawn by Christ",
+      "author": "John Flavel",
+      "original": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-monergism\\asset-historical-ready-c3be03957b0b5fd485\\original.epub",
+        "exists": true,
+        "byteCount": 744346,
+        "sha256": "d604611d1f16cfa557f58571c34a83dabe5093da851cbb235b9468ba9bcc33b1",
+        "recordedHashMatches": true
+      },
+      "text": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\library\\historical-text-corpora\\text\\asset-historical-ready-c3be03957b0b5fd485.txt",
+        "exists": true,
+        "byteCount": 63855,
+        "sha256": "8491b06055a1d27439688815e8d37ee7e231ef834c20e615d1276e6cacf31223",
+        "recordedHashMatches": true
+      },
+      "sourcePage": "https://www.monergism.com/character-complete-evangelical-pastor-drawn-christ-ebook",
+      "relationship": "alternate electronic edition or selected work; no exact scan collation established",
+      "completeness": "full acquired EPUB body extracted; may cover only selected works within historical collected volume",
+      "reviewClass": "ready-text-not-fully-proofread",
+      "publicHostingAllowed": false,
+      "publicFullTextIndexAllowed": false
+    },
+    "asset-historical-ready-6dd1ef918e594dc1ca": {
+      "title": "Expository Thoughts on the Gospels",
+      "author": "J. C. Ryle",
+      "original": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-monergism\\asset-historical-ready-6dd1ef918e594dc1ca\\original.epub",
+        "exists": true,
+        "byteCount": 2434072,
+        "sha256": "e3295041a1f1439a44404691434cd2d48171d6d8d98b8e94b3e8ebdbc4fd1e86",
+        "recordedHashMatches": true
+      },
+      "text": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\library\\historical-text-corpora\\text\\asset-historical-ready-6dd1ef918e594dc1ca.txt",
+        "exists": true,
+        "byteCount": 5629053,
+        "sha256": "685e8531da4eb64bed511744351cd05081c5d77438fdb4471c668e477e107641",
+        "recordedHashMatches": true
+      },
+      "sourcePage": "https://www.monergism.com/expository-thoughts-gospels-ebook-j-c-ryle",
+      "relationship": "alternate electronic edition or selected work; no exact scan collation established",
+      "completeness": "full acquired EPUB body extracted; may cover only selected works within historical collected volume",
+      "reviewClass": "ready-text-not-fully-proofread",
+      "publicHostingAllowed": false,
+      "publicFullTextIndexAllowed": false
+    },
+    "asset-historical-ready-506ad8751d2041224b": {
+      "title": "109 Sermons by J.C. Ryle",
+      "author": "J. C. Ryle",
+      "original": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-monergism\\asset-historical-ready-506ad8751d2041224b\\original.epub",
+        "exists": true,
+        "byteCount": 1552957,
+        "sha256": "68181fb60e442d8edf08946f0700afe0096733b9b31eff60fcafc3bd21910d17",
+        "recordedHashMatches": true
+      },
+      "text": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\library\\historical-text-corpora\\text\\asset-historical-ready-506ad8751d2041224b.txt",
+        "exists": true,
+        "byteCount": 3812537,
+        "sha256": "5a9681b4a327b333c1c629a4f9929417165d2c5feec69e292760335e60636ed3",
+        "recordedHashMatches": true
+      },
+      "sourcePage": "https://www.monergism.com/109-sermons-and-tracts-ebook",
+      "relationship": "alternate electronic edition or selected work; no exact scan collation established",
+      "completeness": "full acquired EPUB body extracted; may cover only selected works within historical collected volume",
+      "reviewClass": "ready-text-not-fully-proofread",
+      "publicHostingAllowed": false,
+      "publicFullTextIndexAllowed": false
+    },
+    "asset-historical-ready-a325770bec3516fb9d": {
+      "title": "Can There be Unity and Other Works",
+      "author": "J. C. Ryle",
+      "original": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-monergism\\asset-historical-ready-a325770bec3516fb9d\\original.epub",
+        "exists": true,
+        "byteCount": 564590,
+        "sha256": "b19b27e6c5bccf0b7b704583be425c547014034af95b40c8b977db78e029ad8f",
+        "recordedHashMatches": true
+      },
+      "text": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\library\\historical-text-corpora\\text\\asset-historical-ready-a325770bec3516fb9d.txt",
+        "exists": true,
+        "byteCount": 1392656,
+        "sha256": "34e8ca650864c7fac06efad7fd51aa6e88455813605c8a7d0ac9ce725bb4c3e0",
+        "recordedHashMatches": true
+      },
+      "sourcePage": "https://www.monergism.com/can-there-be-unity-and-other-works",
+      "relationship": "alternate electronic edition or selected work; no exact scan collation established",
+      "completeness": "full acquired EPUB body extracted; may cover only selected works within historical collected volume",
+      "reviewClass": "ready-text-not-fully-proofread",
+      "publicHostingAllowed": false,
+      "publicFullTextIndexAllowed": false
+    },
+    "asset-historical-ready-687b65a8eda2fd5a90": {
+      "title": "An Exposition of 2 Corinthians 4",
+      "author": "Richard Sibbes",
+      "original": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-monergism\\asset-historical-ready-687b65a8eda2fd5a90\\original.epub",
+        "exists": true,
+        "byteCount": 246215,
+        "sha256": "6c276111d0547ab1593e3727547d68c2a8b02cfe0df754c9e0e7f41d24f2d6cc",
+        "recordedHashMatches": true
+      },
+      "text": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\library\\historical-text-corpora\\text\\asset-historical-ready-687b65a8eda2fd5a90.txt",
+        "exists": true,
+        "byteCount": 634912,
+        "sha256": "61ce473ad3b1dfae95ec234e458b04beb7fe7d94c679750aacd53e6df3848ccd",
+        "recordedHashMatches": true
+      },
+      "sourcePage": "https://www.monergism.com/exposition-2-corinthians-4-ebook",
+      "relationship": "alternate electronic edition or selected work; no exact scan collation established",
+      "completeness": "full acquired EPUB body extracted; may cover only selected works within historical collected volume",
+      "reviewClass": "ready-text-not-fully-proofread",
+      "publicHostingAllowed": false,
+      "publicFullTextIndexAllowed": false
+    },
+    "asset-historical-ready-d15b4cf6863497c962": {
+      "title": "Exposition of Philippians Chapter 3",
+      "author": "Richard Sibbes",
+      "original": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-monergism\\asset-historical-ready-d15b4cf6863497c962\\original.epub",
+        "exists": true,
+        "byteCount": 164186,
+        "sha256": "959b999dfb2aaee416acc65e473da78570f7fc822216b3e5dd44b6841cf148db",
+        "recordedHashMatches": true
+      },
+      "text": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\library\\historical-text-corpora\\text\\asset-historical-ready-d15b4cf6863497c962.txt",
+        "exists": true,
+        "byteCount": 335266,
+        "sha256": "07480de90f9e6be235978230a108120751a960099c03368d25634fa94379292d",
+        "recordedHashMatches": true
+      },
+      "sourcePage": "https://www.monergism.com/exposition-philippians-chapter-3-ebook",
+      "relationship": "alternate electronic edition or selected work; no exact scan collation established",
+      "completeness": "full acquired EPUB body extracted; may cover only selected works within historical collected volume",
+      "reviewClass": "ready-text-not-fully-proofread",
+      "publicHostingAllowed": false,
+      "publicFullTextIndexAllowed": false
+    },
+    "asset-historical-ready-d59677e49b1d80dec7": {
+      "title": "The Saint's Comforts",
+      "author": "Richard Sibbes",
+      "original": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-monergism\\asset-historical-ready-d59677e49b1d80dec7\\original.epub",
+        "exists": true,
+        "byteCount": 95423,
+        "sha256": "d30b926c978d0a046ba5ec257fe7e5b0fc5302134e78184d3269c2da3d8f63dc",
+        "recordedHashMatches": true
+      },
+      "text": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\library\\historical-text-corpora\\text\\asset-historical-ready-d59677e49b1d80dec7.txt",
+        "exists": true,
+        "byteCount": 70811,
+        "sha256": "a46e061eab47cebc3236acfde18aef202a91e4f51507c8eb2804f3762a2144b6",
+        "recordedHashMatches": true
+      },
+      "sourcePage": "https://www.monergism.com/saints-comforts-exposition-psalm-130-ebook",
+      "relationship": "alternate electronic edition or selected work; no exact scan collation established",
+      "completeness": "full acquired EPUB body extracted; may cover only selected works within historical collected volume",
+      "reviewClass": "ready-text-not-fully-proofread",
+      "publicHostingAllowed": false,
+      "publicFullTextIndexAllowed": false
+    },
+    "asset-historical-ready-a5671896d31ac1c863": {
+      "title": "Union with Christ",
+      "author": "Richard Sibbes",
+      "original": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-monergism\\asset-historical-ready-a5671896d31ac1c863\\original.epub",
+        "exists": true,
+        "byteCount": 286254,
+        "sha256": "2bb1a12dd3e1aba2d0aed27577c6f8b8f0a414ec604e1325e6569bad14e63224",
+        "recordedHashMatches": true
+      },
+      "text": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\library\\historical-text-corpora\\text\\asset-historical-ready-a5671896d31ac1c863.txt",
+        "exists": true,
+        "byteCount": 683897,
+        "sha256": "e0a5b8bb8db69cb681bce83f6b736fb1e5c3bdd89e800f95fe46b6d8a4c01f9c",
+        "recordedHashMatches": true
+      },
+      "sourcePage": "https://www.monergism.com/bowels-opened-expository-sermons-song-solomon-416-63-ebook",
+      "relationship": "alternate electronic edition or selected work; no exact scan collation established",
+      "completeness": "full acquired EPUB body extracted; may cover only selected works within historical collected volume",
+      "reviewClass": "ready-text-not-fully-proofread",
+      "publicHostingAllowed": false,
+      "publicFullTextIndexAllowed": false
+    },
+    "asset-historical-ready-95f30cd348d0c18803": {
+      "title": "An Exposition of the Epistle to the Hebrews, Volume I",
+      "author": "John Owen",
+      "original": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-monergism\\asset-historical-ready-95f30cd348d0c18803\\original.epub",
+        "exists": true,
+        "byteCount": 1526089,
+        "sha256": "874e742e20171e05772c6eaa2ca8674d2d3b398329863241e37edf8c861b7a73",
+        "recordedHashMatches": true
+      },
+      "text": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\library\\historical-text-corpora\\text\\asset-historical-ready-95f30cd348d0c18803.txt",
+        "exists": true,
+        "byteCount": 1676010,
+        "sha256": "4c4b566a46df5681c3d2200f5bc34cfe259a775879b768f6dd520737b07192f4",
+        "recordedHashMatches": true
+      },
+      "sourcePage": "https://www.monergism.com/exposition-epistle-hebrews-ebook",
+      "relationship": "alternate electronic edition or selected work; no exact scan collation established",
+      "completeness": "full acquired EPUB body extracted; may cover only selected works within historical collected volume",
+      "reviewClass": "ready-text-not-fully-proofread",
+      "publicHostingAllowed": false,
+      "publicFullTextIndexAllowed": false
+    },
+    "asset-historical-ready-9d40702777e86b2b1e": {
+      "title": "Sacramental Discourses",
+      "author": "John Owen",
+      "original": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-monergism\\asset-historical-ready-9d40702777e86b2b1e\\original.epub",
+        "exists": true,
+        "byteCount": 411444,
+        "sha256": "9df556fa8b3a1aa077f436057c94d9ba30240746794a31ac598d021719137629",
+        "recordedHashMatches": true
+      },
+      "text": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\library\\historical-text-corpora\\text\\asset-historical-ready-9d40702777e86b2b1e.txt",
+        "exists": true,
+        "byteCount": 285121,
+        "sha256": "3edbcd8500cda41604fa600522596c5347a0b0a2283a6366ec904c8a34a330ac",
+        "recordedHashMatches": true
+      },
+      "sourcePage": "https://www.monergism.com/sacramental-discourses-25-sermons-preparation-communion-ebook",
+      "relationship": "alternate electronic edition or selected work; no exact scan collation established",
+      "completeness": "full acquired EPUB body extracted; may cover only selected works within historical collected volume",
+      "reviewClass": "ready-text-not-fully-proofread",
+      "publicHostingAllowed": false,
+      "publicFullTextIndexAllowed": false
+    },
+    "asset-historical-ready-1b27e25c713148d311": {
+      "title": "The Forgiveness of Sin",
+      "author": "John Owen",
+      "original": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-monergism\\asset-historical-ready-1b27e25c713148d311\\original.epub",
+        "exists": true,
+        "byteCount": 388162,
+        "sha256": "80d5b03c6ca77b9fd62e8ef385fcd9a954c1e073e52af98082df16ddf1e46e3e",
+        "recordedHashMatches": true
+      },
+      "text": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\library\\historical-text-corpora\\text\\asset-historical-ready-1b27e25c713148d311.txt",
+        "exists": true,
+        "byteCount": 914749,
+        "sha256": "9bbab5c396ed53f76ae59d60b827c7f8933f29b5ad769145c014820c89bc8722",
+        "recordedHashMatches": true
+      },
+      "sourcePage": "https://www.monergism.com/forgiveness-sin-practical-exposition-upon-psalm-130-ebook",
+      "relationship": "alternate electronic edition or selected work; no exact scan collation established",
+      "completeness": "full acquired EPUB body extracted; may cover only selected works within historical collected volume",
+      "reviewClass": "ready-text-not-fully-proofread",
+      "publicHostingAllowed": false,
+      "publicFullTextIndexAllowed": false
+    },
+    "asset-historical-ready-c79a094d348c46edc8": {
+      "title": "Posthumous Sermons of 1756",
+      "author": "John Owen",
+      "original": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-monergism\\asset-historical-ready-c79a094d348c46edc8\\original.epub",
+        "exists": true,
+        "byteCount": 154654,
+        "sha256": "f6fdd1ac5efe80b85085bee7e70d729d4194d1f6e50c4c891f074c8c448ca641",
+        "recordedHashMatches": true
+      },
+      "text": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\library\\historical-text-corpora\\text\\asset-historical-ready-c79a094d348c46edc8.txt",
+        "exists": true,
+        "byteCount": 297473,
+        "sha256": "76fa40da2d2206f94781292506faa4b2526d41435bb9abc6802d7c9f6bb826b3",
+        "recordedHashMatches": true
+      },
+      "sourcePage": "https://www.monergism.com/posthumous-sermons-1756-ebook",
+      "relationship": "alternate electronic edition or selected work; no exact scan collation established",
+      "completeness": "full acquired EPUB body extracted; may cover only selected works within historical collected volume",
+      "reviewClass": "ready-text-not-fully-proofread",
+      "publicHostingAllowed": false,
+      "publicFullTextIndexAllowed": false
+    },
+    "asset-historical-ready-11e4d2caf65f4983e1": {
+      "title": "An Exposition of the Epistle to the Hebrews, Volume II",
+      "author": "John Owen",
+      "original": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-monergism\\asset-historical-ready-11e4d2caf65f4983e1\\original.epub",
+        "exists": true,
+        "byteCount": 1547522,
+        "sha256": "c18037bb1d1bd8a4f7f2253f75dfa154a5f406b2c79a48dc03e120a5d9dc0bd4",
+        "recordedHashMatches": true
+      },
+      "text": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\library\\historical-text-corpora\\text\\asset-historical-ready-11e4d2caf65f4983e1.txt",
+        "exists": true,
+        "byteCount": 1564886,
+        "sha256": "eb5bd5f903e8956fb436f4f8568486d12bdf4b1fd191226c4cd6b5b2d3b34f0c",
+        "recordedHashMatches": true
+      },
+      "sourcePage": "https://www.monergism.com/exposition-epistle-hebrews-ebook",
+      "relationship": "alternate electronic edition or selected work; no exact scan collation established",
+      "completeness": "full acquired EPUB body extracted; may cover only selected works within historical collected volume",
+      "reviewClass": "ready-text-not-fully-proofread",
+      "publicHostingAllowed": false,
+      "publicFullTextIndexAllowed": false
+    },
+    "asset-historical-ready-743b2f00836569a37a": {
+      "title": "An Exposition of the Epistle to the Hebrews, Volume III",
+      "author": "John Owen",
+      "original": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-monergism\\asset-historical-ready-743b2f00836569a37a\\original.epub",
+        "exists": true,
+        "byteCount": 1501994,
+        "sha256": "706157f7dee0007659d792a157e70006cd81ee7aac4515fa1554690101f095a7",
+        "recordedHashMatches": true
+      },
+      "text": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\library\\historical-text-corpora\\text\\asset-historical-ready-743b2f00836569a37a.txt",
+        "exists": true,
+        "byteCount": 1674908,
+        "sha256": "5846fbf2b52ddb88346329e4a90680f95cff33d95b742911358a2eb9d70c416a",
+        "recordedHashMatches": true
+      },
+      "sourcePage": "https://www.monergism.com/exposition-epistle-hebrews-ebook",
+      "relationship": "alternate electronic edition or selected work; no exact scan collation established",
+      "completeness": "full acquired EPUB body extracted; may cover only selected works within historical collected volume",
+      "reviewClass": "ready-text-not-fully-proofread",
+      "publicHostingAllowed": false,
+      "publicFullTextIndexAllowed": false
+    },
+    "asset-historical-ready-31419f62d6f61d1240": {
+      "title": "An Exposition of the Epistle to the Hebrews, Volume IV",
+      "author": "John Owen",
+      "original": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-monergism\\asset-historical-ready-31419f62d6f61d1240\\original.epub",
+        "exists": true,
+        "byteCount": 1531055,
+        "sha256": "be917e0d602c05db6ef564dc11df2df4027a99b72b24364434ae70f455f01e47",
+        "recordedHashMatches": true
+      },
+      "text": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\library\\historical-text-corpora\\text\\asset-historical-ready-31419f62d6f61d1240.txt",
+        "exists": true,
+        "byteCount": 1787639,
+        "sha256": "fa898f9ad628144cb301850504bcadae532faeb69b160e1f996c92dbea43622e",
+        "recordedHashMatches": true
+      },
+      "sourcePage": "https://www.monergism.com/exposition-epistle-hebrews-ebook",
+      "relationship": "alternate electronic edition or selected work; no exact scan collation established",
+      "completeness": "full acquired EPUB body extracted; may cover only selected works within historical collected volume",
+      "reviewClass": "ready-text-not-fully-proofread",
+      "publicHostingAllowed": false,
+      "publicFullTextIndexAllowed": false
+    },
+    "asset-historical-ready-a8729e6740eb1824f3": {
+      "title": "An Exposition of the Epistle to the Hebrews, Vol. 5",
+      "author": "John Owen",
+      "original": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-monergism\\asset-historical-ready-a8729e6740eb1824f3\\original.epub",
+        "exists": true,
+        "byteCount": 1582777,
+        "sha256": "f49e7bbe1de1ae318f9fa4a22f387405d22dc43ba8418bb4d2bb9e4559b2e9c4",
+        "recordedHashMatches": true
+      },
+      "text": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\library\\historical-text-corpora\\text\\asset-historical-ready-a8729e6740eb1824f3.txt",
+        "exists": true,
+        "byteCount": 1687047,
+        "sha256": "eb35f8cc98c1527d2dd3b0de54dc39285d77a468f6f83cca18081380699ddaf2",
+        "recordedHashMatches": true
+      },
+      "sourcePage": "https://www.monergism.com/exposition-epistle-hebrews-ebook",
+      "relationship": "alternate electronic edition or selected work; no exact scan collation established",
+      "completeness": "full acquired EPUB body extracted; may cover only selected works within historical collected volume",
+      "reviewClass": "ready-text-not-fully-proofread",
+      "publicHostingAllowed": false,
+      "publicFullTextIndexAllowed": false
+    },
+    "asset-historical-ready-808d65d71b1c9549a7": {
+      "title": "An Exposition of the Epistle to the Hebrews, Vol. 6",
+      "author": "John Owen",
+      "original": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-monergism\\asset-historical-ready-808d65d71b1c9549a7\\original.epub",
+        "exists": true,
+        "byteCount": 1736572,
+        "sha256": "2d507819b85788e72600f389d252bc06070a660647f854a5950bc1115ab64ebd",
+        "recordedHashMatches": true
+      },
+      "text": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\library\\historical-text-corpora\\text\\asset-historical-ready-808d65d71b1c9549a7.txt",
+        "exists": true,
+        "byteCount": 1693614,
+        "sha256": "8fd53e2ea5462f65abd39c2c9c9dbcb0e8bbd28d9360fc80c88475611ef97f4f",
+        "recordedHashMatches": true
+      },
+      "sourcePage": "https://www.monergism.com/exposition-epistle-hebrews-ebook",
+      "relationship": "alternate electronic edition or selected work; no exact scan collation established",
+      "completeness": "full acquired EPUB body extracted; may cover only selected works within historical collected volume",
+      "reviewClass": "ready-text-not-fully-proofread",
+      "publicHostingAllowed": false,
+      "publicFullTextIndexAllowed": false
+    },
+    "asset-historical-ready-e6ef89d23b57316fe4": {
+      "title": "An Exposition of the Epistle to the Hebrews, Vol. 7",
+      "author": "John Owen",
+      "original": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-monergism\\asset-historical-ready-e6ef89d23b57316fe4\\original.epub",
+        "exists": true,
+        "byteCount": 1562047,
+        "sha256": "b27e6df0c517ff2205cd0f84380b13142f3a8b51bf9b5f884af058cee90aae0c",
+        "recordedHashMatches": true
+      },
+      "text": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\library\\historical-text-corpora\\text\\asset-historical-ready-e6ef89d23b57316fe4.txt",
+        "exists": true,
+        "byteCount": 1367926,
+        "sha256": "f891a6a937fe0a3f2e1f57b889d59ac38f1dba09446551b5311725a8b194a2e9",
+        "recordedHashMatches": true
+      },
+      "sourcePage": "https://www.monergism.com/exposition-epistle-hebrews-ebook",
+      "relationship": "alternate electronic edition or selected work; no exact scan collation established",
+      "completeness": "full acquired EPUB body extracted; may cover only selected works within historical collected volume",
+      "reviewClass": "ready-text-not-fully-proofread",
+      "publicHostingAllowed": false,
+      "publicFullTextIndexAllowed": false
+    },
+    "asset-historical-ready-4f8610cb616d8771b8": {
+      "title": "The Works of Jonathan Edwards, Volume One",
+      "author": "Jonathan Edwards",
+      "original": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-monergism\\asset-historical-ready-4f8610cb616d8771b8\\original.epub",
+        "exists": true,
+        "byteCount": 4102301,
+        "sha256": "5bc75221f966ee18d16eedb7d6a522aae8ed3a7e934e4271005cd54dac7b0ec1",
+        "recordedHashMatches": true
+      },
+      "text": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\library\\historical-text-corpora\\text\\asset-historical-ready-4f8610cb616d8771b8.txt",
+        "exists": true,
+        "byteCount": 8074799,
+        "sha256": "46f0cba4c0e8903b632a8029bcffda8255ad4074ec3606d053cf20715b994047",
+        "recordedHashMatches": true
+      },
+      "sourcePage": "https://www.monergism.com/works-jonathan-edwards-ebook",
+      "relationship": "alternate electronic edition or selected work; no exact scan collation established",
+      "completeness": "full acquired EPUB body extracted; may cover only selected works within historical collected volume",
+      "reviewClass": "ready-text-not-fully-proofread",
+      "publicHostingAllowed": false,
+      "publicFullTextIndexAllowed": false
+    },
+    "asset-historical-ready-7ada3b6a1ad5b523ee": {
+      "title": "92 Sermons of Jonathan Edwards",
+      "author": "Jonathan Edwards",
+      "original": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-monergism\\asset-historical-ready-7ada3b6a1ad5b523ee\\original.epub",
+        "exists": true,
+        "byteCount": 1759842,
+        "sha256": "ad987d34aad53cf59fc1e05afe2d2b860959aece35af1ca169e4e6a5809ca0e8",
+        "recordedHashMatches": true
+      },
+      "text": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\library\\historical-text-corpora\\text\\asset-historical-ready-7ada3b6a1ad5b523ee.txt",
+        "exists": true,
+        "byteCount": 4932629,
+        "sha256": "208a34608843c8cafffd941105ff000bbe09c1ac23129121e1aadccc4cdb067a",
+        "recordedHashMatches": true
+      },
+      "sourcePage": "https://www.monergism.com/92-sermons-jonathan-edwards",
+      "relationship": "alternate electronic edition or selected work; no exact scan collation established",
+      "completeness": "full acquired EPUB body extracted; may cover only selected works within historical collected volume",
+      "reviewClass": "ready-text-not-fully-proofread",
+      "publicHostingAllowed": false,
+      "publicFullTextIndexAllowed": false
+    },
+    "asset-historical-ready-06b2eb27850dded908": {
+      "title": "Pastoral Sermons",
+      "author": "Jonathan Edwards",
+      "original": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-monergism\\asset-historical-ready-06b2eb27850dded908\\original.epub",
+        "exists": true,
+        "byteCount": 474403,
+        "sha256": "3d8b4aa653950812ad5cbf28a61377fbe10d45c03b8df512bd8c227312e3c033",
+        "recordedHashMatches": true
+      },
+      "text": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\library\\historical-text-corpora\\text\\asset-historical-ready-06b2eb27850dded908.txt",
+        "exists": true,
+        "byteCount": 1185427,
+        "sha256": "6cda1f971f6bb820dfaf389595a17265b20cdfbfb99d281214eb02e396ff4c4b",
+        "recordedHashMatches": true
+      },
+      "sourcePage": "https://www.monergism.com/pastoral-sermons-ebook",
+      "relationship": "alternate electronic edition or selected work; no exact scan collation established",
+      "completeness": "full acquired EPUB body extracted; may cover only selected works within historical collected volume",
+      "reviewClass": "ready-text-not-fully-proofread",
+      "publicHostingAllowed": false,
+      "publicFullTextIndexAllowed": false
+    },
+    "asset-historical-ready-f9e07afa874df95690": {
+      "title": "Sermons of Warning and Judgment",
+      "author": "Jonathan Edwards",
+      "original": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-monergism\\asset-historical-ready-f9e07afa874df95690\\original.epub",
+        "exists": true,
+        "byteCount": 322669,
+        "sha256": "5ba20c0af814a545dc3778dc6d39dcc8a154f6cbb5478749b3e589dd7e44dc56",
+        "recordedHashMatches": true
+      },
+      "text": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\library\\historical-text-corpora\\text\\asset-historical-ready-f9e07afa874df95690.txt",
+        "exists": true,
+        "byteCount": 797608,
+        "sha256": "669bb692bc5163de18b93c4bd841adcbef1c0569c8463a9341f6e0f77f364fc4",
+        "recordedHashMatches": true
+      },
+      "sourcePage": "https://www.monergism.com/sermons-warnings-and-judgment-ebook",
+      "relationship": "alternate electronic edition or selected work; no exact scan collation established",
+      "completeness": "full acquired EPUB body extracted; may cover only selected works within historical collected volume",
+      "reviewClass": "ready-text-not-fully-proofread",
+      "publicHostingAllowed": false,
+      "publicFullTextIndexAllowed": false
+    },
+    "asset-historical-ready-bfcc98eb1242d78d83": {
+      "title": "Jonathan Edwards: Selected Shorter Writings",
+      "author": "Jonathan Edwards",
+      "original": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-monergism\\asset-historical-ready-bfcc98eb1242d78d83\\original.epub",
+        "exists": true,
+        "byteCount": 466894,
+        "sha256": "8d3adbff177ef68fa8f1ebdd1248df9e29819f75a9ed8a0459f38f7817f5b758",
+        "recordedHashMatches": true
+      },
+      "text": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\library\\historical-text-corpora\\text\\asset-historical-ready-bfcc98eb1242d78d83.txt",
+        "exists": true,
+        "byteCount": 1156304,
+        "sha256": "f4333fe2d0846639a3a6dd1ed63aa619f5a48c9c94003b3804bea94c20f5465b",
+        "recordedHashMatches": true
+      },
+      "sourcePage": "https://www.monergism.com/jonathan-edwards-selected-shorter-writings-ebook",
+      "relationship": "alternate electronic edition or selected work; no exact scan collation established",
+      "completeness": "full acquired EPUB body extracted; may cover only selected works within historical collected volume",
+      "reviewClass": "ready-text-not-fully-proofread",
+      "publicHostingAllowed": false,
+      "publicFullTextIndexAllowed": false
+    },
+    "asset-historical-ready-3e404516d5f2e4f049": {
+      "title": "The Works of Jonathan Edwards, Volume Two",
+      "author": "Jonathan Edwards",
+      "original": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-monergism\\asset-historical-ready-3e404516d5f2e4f049\\original.epub",
+        "exists": true,
+        "byteCount": 3996505,
+        "sha256": "50887ba2b3cccefe3095cb19d1b84ae6e90f573e4e295f04d4ba5e5a908f0cdc",
+        "recordedHashMatches": true
+      },
+      "text": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\library\\historical-text-corpora\\text\\asset-historical-ready-3e404516d5f2e4f049.txt",
+        "exists": true,
+        "byteCount": 8338360,
+        "sha256": "30b73b71c596ad5b43d0d00459b9ed38128aa8cbb07c1475c56c98a23ffa5738",
+        "recordedHashMatches": true
+      },
+      "sourcePage": "https://www.monergism.com/works-jonathan-edwards-ebook",
+      "relationship": "alternate electronic edition or selected work; no exact scan collation established",
+      "completeness": "full acquired EPUB body extracted; may cover only selected works within historical collected volume",
+      "reviewClass": "ready-text-not-fully-proofread",
+      "publicHostingAllowed": false,
+      "publicFullTextIndexAllowed": false
+    },
+    "asset-historical-ready-3b57b1085f4599f336": {
+      "title": "The Letters of John Newton",
+      "author": "John Newton",
+      "original": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-monergism\\asset-historical-ready-3b57b1085f4599f336\\original.epub",
+        "exists": true,
+        "byteCount": 1418494,
+        "sha256": "d9460aa0b6da8a8d18dcd011c7ef712366c7b30398dff1880bf634bf3f2a1755",
+        "recordedHashMatches": true
+      },
+      "text": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\library\\historical-text-corpora\\text\\asset-historical-ready-3b57b1085f4599f336.txt",
+        "exists": true,
+        "byteCount": 3305460,
+        "sha256": "bf816e1d62cb208f13f5eec91dd492e6e8ad5edd6e20f540397b9b6ab5c2ed7a",
+        "recordedHashMatches": true
+      },
+      "sourcePage": "https://www.monergism.com/letters-john-newton-ebook",
+      "relationship": "alternate electronic edition or selected work; no exact scan collation established",
+      "completeness": "full acquired EPUB body extracted; may cover only selected works within historical collected volume",
+      "reviewClass": "ready-text-not-fully-proofread",
+      "publicHostingAllowed": false,
+      "publicFullTextIndexAllowed": false
+    },
+    "asset-historical-ready-228d6c35dc5fc61c4e": {
+      "title": "Sermons Preached in the Parish-Church of Olney",
+      "author": "John Newton",
+      "original": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-monergism\\asset-historical-ready-228d6c35dc5fc61c4e\\original.epub",
+        "exists": true,
+        "byteCount": 259226,
+        "sha256": "fa712e99673f1b8c71a054ccfce57155fe789f68f7b651043beed6060a0bae3e",
+        "recordedHashMatches": true
+      },
+      "text": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\library\\historical-text-corpora\\text\\asset-historical-ready-228d6c35dc5fc61c4e.txt",
+        "exists": true,
+        "byteCount": 558780,
+        "sha256": "6e095a4e57ee9e4e4ab3c3f457fd2d54e2167efa2592771bff8f4a5ef1ffa3b1",
+        "recordedHashMatches": true
+      },
+      "sourcePage": "https://www.monergism.com/sermons-preached-parish-church-olney-ebook",
+      "relationship": "alternate electronic edition or selected work; no exact scan collation established",
+      "completeness": "full acquired EPUB body extracted; may cover only selected works within historical collected volume",
+      "reviewClass": "ready-text-not-fully-proofread",
+      "publicHostingAllowed": false,
+      "publicFullTextIndexAllowed": false
+    },
+    "asset-historical-ready-47ce1ac5dc51e76b5a": {
+      "title": "THE WORKS OF THE REVEREND GEORGE WHITEFIELD, M.A.",
+      "author": "George Whitefield",
+      "original": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-monergism\\asset-historical-ready-47ce1ac5dc51e76b5a\\original.epub",
+        "exists": true,
+        "byteCount": 932324,
+        "sha256": "fdb9599875e1ffa52edd53f7d9e8b4078b6b0fb4f821e178e55579a28fc5a3d1",
+        "recordedHashMatches": true
+      },
+      "text": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\library\\historical-text-corpora\\text\\asset-historical-ready-47ce1ac5dc51e76b5a.txt",
+        "exists": true,
+        "byteCount": 970410,
+        "sha256": "ce3f6e1a170ceabf9d6e215ea09c06d8d606c9cb9518e3f03b11482d3e06b201",
+        "recordedHashMatches": true
+      },
+      "sourcePage": "https://www.monergism.com/works-reverend-george-whitefield-ma-ebook",
+      "relationship": "alternate electronic edition or selected work; no exact scan collation established",
+      "completeness": "full acquired EPUB body extracted; may cover only selected works within historical collected volume",
+      "reviewClass": "ready-text-not-fully-proofread",
+      "publicHostingAllowed": false,
+      "publicFullTextIndexAllowed": false
+    },
+    "asset-historical-ready-f31a9725ad5510898d": {
+      "title": "THE WORKS OF GEORGE WHITEFIELD, Volume 2",
+      "author": "George Whitefield",
+      "original": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-monergism\\asset-historical-ready-f31a9725ad5510898d\\original.epub",
+        "exists": true,
+        "byteCount": 746393,
+        "sha256": "5b1e535c35d231de32256c3762871f37e38b46bc6134d8198f910b54db054fcc",
+        "recordedHashMatches": true
+      },
+      "text": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\library\\historical-text-corpora\\text\\asset-historical-ready-f31a9725ad5510898d.txt",
+        "exists": true,
+        "byteCount": 674356,
+        "sha256": "f9fb5d4f2cad23a29403bbe2e243bab945f3d8cfd18ef3fd4ab9afc0a9f0b76d",
+        "recordedHashMatches": true
+      },
+      "sourcePage": "https://www.monergism.com/works-reverend-george-whitefield-ma-ebook",
+      "relationship": "alternate electronic edition or selected work; no exact scan collation established",
+      "completeness": "full acquired EPUB body extracted; may cover only selected works within historical collected volume",
+      "reviewClass": "ready-text-not-fully-proofread",
+      "publicHostingAllowed": false,
+      "publicFullTextIndexAllowed": false
+    },
+    "asset-historical-ready-b8fc69053a3b6655b6": {
+      "title": "THE WORKS OF GEORGE WHITEFIELD, Volume 3",
+      "author": "George Whitefield",
+      "original": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-monergism\\asset-historical-ready-b8fc69053a3b6655b6\\original.epub",
+        "exists": true,
+        "byteCount": 941517,
+        "sha256": "7560cd2523b9ccacdea9931f42389985121d5dc5ca9a1763f50ca2e20a86be73",
+        "recordedHashMatches": true
+      },
+      "text": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\library\\historical-text-corpora\\text\\asset-historical-ready-b8fc69053a3b6655b6.txt",
+        "exists": true,
+        "byteCount": 984498,
+        "sha256": "616625ef62c2430559a3c3d4ae5dd1c7f55e8482d5ff9d7c5c31332d19e90298",
+        "recordedHashMatches": true
+      },
+      "sourcePage": "https://www.monergism.com/works-reverend-george-whitefield-ma-ebook",
+      "relationship": "alternate electronic edition or selected work; no exact scan collation established",
+      "completeness": "full acquired EPUB body extracted; may cover only selected works within historical collected volume",
+      "reviewClass": "ready-text-not-fully-proofread",
+      "publicHostingAllowed": false,
+      "publicFullTextIndexAllowed": false
+    },
+    "asset-historical-ready-f71c8475256a7fb04f": {
+      "title": "THE WORKS OF GEORGE WHITEFIELD, Vol 4",
+      "author": "George Whitefield",
+      "original": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-monergism\\asset-historical-ready-f71c8475256a7fb04f\\original.epub",
+        "exists": true,
+        "byteCount": 483762,
+        "sha256": "e15ae0a19a5883e7ce10b0bfac86d8906a27849ac3ee676f163925a4a304780e",
+        "recordedHashMatches": true
+      },
+      "text": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\library\\historical-text-corpora\\text\\asset-historical-ready-f71c8475256a7fb04f.txt",
+        "exists": true,
+        "byteCount": 924647,
+        "sha256": "53c199c3368f7e75f44fd2b63b87dc34e78cc4858692572a66c1ba5dab71669d",
+        "recordedHashMatches": true
+      },
+      "sourcePage": "https://www.monergism.com/works-reverend-george-whitefield-ma-ebook",
+      "relationship": "alternate electronic edition or selected work; no exact scan collation established",
+      "completeness": "full acquired EPUB body extracted; may cover only selected works within historical collected volume",
+      "reviewClass": "ready-text-not-fully-proofread",
+      "publicHostingAllowed": false,
+      "publicFullTextIndexAllowed": false
+    },
+    "asset-historical-ready-23c971b228557e9967": {
+      "title": "THE WORKS OF GEORGE WHITEFIELD, Vol 5",
+      "author": "George Whitefield",
+      "original": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-monergism\\asset-historical-ready-23c971b228557e9967\\original.epub",
+        "exists": true,
+        "byteCount": 514290,
+        "sha256": "06eabb800f28a70b2d168a50e303a248d71a0f552f103b2490782eed551c2de9",
+        "recordedHashMatches": true
+      },
+      "text": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\library\\historical-text-corpora\\text\\asset-historical-ready-23c971b228557e9967.txt",
+        "exists": true,
+        "byteCount": 1029966,
+        "sha256": "49266d78699e90c0c90cccbe184163be7c59fdc27df01a81e6821b404b3c0ed9",
+        "recordedHashMatches": true
+      },
+      "sourcePage": "https://www.monergism.com/works-reverend-george-whitefield-ma-ebook",
+      "relationship": "alternate electronic edition or selected work; no exact scan collation established",
+      "completeness": "full acquired EPUB body extracted; may cover only selected works within historical collected volume",
+      "reviewClass": "ready-text-not-fully-proofread",
+      "publicHostingAllowed": false,
+      "publicFullTextIndexAllowed": false
+    },
+    "asset-historical-ready-42ff4f28ba6a463854": {
+      "title": "THE WORKS OF GEORGE WHITEFIELD, Vol 6",
+      "author": "George Whitefield",
+      "original": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-monergism\\asset-historical-ready-42ff4f28ba6a463854\\original.epub",
+        "exists": true,
+        "byteCount": 445855,
+        "sha256": "9930780768937ca935355aebcbcc2b4b7870822d17e5f6895cad0dcc68534311",
+        "recordedHashMatches": true
+      },
+      "text": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\library\\historical-text-corpora\\text\\asset-historical-ready-42ff4f28ba6a463854.txt",
+        "exists": true,
+        "byteCount": 845865,
+        "sha256": "8f4138e01d791dc91ac05273372bdf38230455a48bc10b7d1167d2df8760cbec",
+        "recordedHashMatches": true
+      },
+      "sourcePage": "https://www.monergism.com/works-reverend-george-whitefield-ma-ebook",
+      "relationship": "alternate electronic edition or selected work; no exact scan collation established",
+      "completeness": "full acquired EPUB body extracted; may cover only selected works within historical collected volume",
+      "reviewClass": "ready-text-not-fully-proofread",
+      "publicHostingAllowed": false,
+      "publicFullTextIndexAllowed": false
+    },
+    "asset-historical-ready-99853bace0c6266b5a": {
+      "title": "A Godly and Learned Exposition upon Christ’s Sermon in the Mount",
+      "author": "William Perkins",
+      "original": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-monergism\\asset-historical-ready-99853bace0c6266b5a\\original.epub",
+        "exists": true,
+        "byteCount": 910842,
+        "sha256": "1fa78f512013dac3d9b75bc5a6b6e1846cf2fc8f655bc70b3440271396dc763c",
+        "recordedHashMatches": true
+      },
+      "text": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\library\\historical-text-corpora\\text\\asset-historical-ready-99853bace0c6266b5a.txt",
+        "exists": true,
+        "byteCount": 1490961,
+        "sha256": "a88811ebc76d58b195a9b675783b1ce9ba36aca8d178e6aa52e254951cc0b996",
+        "recordedHashMatches": true
+      },
+      "sourcePage": "https://www.monergism.com/godly-and-learned-exposition-upon-christ%E2%80%99s-sermon-mount-ebook",
+      "relationship": "alternate electronic edition or selected work; no exact scan collation established",
+      "completeness": "full acquired EPUB body extracted; may cover only selected works within historical collected volume",
+      "reviewClass": "ready-text-not-fully-proofread",
+      "publicHostingAllowed": false,
+      "publicFullTextIndexAllowed": false
+    },
+    "asset-historical-ready-6f2999e0bc7dd59711": {
+      "title": "Commentary on Galatians",
+      "author": "William Perkins",
+      "original": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-monergism\\asset-historical-ready-6f2999e0bc7dd59711\\original.epub",
+        "exists": true,
+        "byteCount": 596455,
+        "sha256": "5d81331c88966f2e007b89c31e046d8a5f587d6605bca141db1a669587d318c3",
+        "recordedHashMatches": true
+      },
+      "text": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\library\\historical-text-corpora\\text\\asset-historical-ready-6f2999e0bc7dd59711.txt",
+        "exists": true,
+        "byteCount": 1547063,
+        "sha256": "35d4c98382e19b37320feceee9eb54b745936b873069a04791318210a899f62b",
+        "recordedHashMatches": true
+      },
+      "sourcePage": "https://www.monergism.com/commentary-galatians-ebook",
+      "relationship": "alternate electronic edition or selected work; no exact scan collation established",
+      "completeness": "full acquired EPUB body extracted; may cover only selected works within historical collected volume",
+      "reviewClass": "ready-text-not-fully-proofread",
+      "publicHostingAllowed": false,
+      "publicFullTextIndexAllowed": false
+    },
+    "asset-historical-ready-f7ba4e28705c078623": {
+      "title": "Hebrews 11 Commentary",
+      "author": "William Perkins",
+      "original": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-monergism\\asset-historical-ready-f7ba4e28705c078623\\original.epub",
+        "exists": true,
+        "byteCount": 625310,
+        "sha256": "8f95cb813a224b17bc40aa9c737ed3e17f14e9805dfd19e6f9f3fe4eed811241",
+        "recordedHashMatches": true
+      },
+      "text": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\library\\historical-text-corpora\\text\\asset-historical-ready-f7ba4e28705c078623.txt",
+        "exists": true,
+        "byteCount": 1139853,
+        "sha256": "7f62869902262ee1337d2ed552608ade2d1eb9ff6877e866e0f54b974e1eea8f",
+        "recordedHashMatches": true
+      },
+      "sourcePage": "https://www.monergism.com/commentary-hebrews-chapter-11-ebook",
+      "relationship": "alternate electronic edition or selected work; no exact scan collation established",
+      "completeness": "full acquired EPUB body extracted; may cover only selected works within historical collected volume",
+      "reviewClass": "ready-text-not-fully-proofread",
+      "publicHostingAllowed": false,
+      "publicFullTextIndexAllowed": false
+    }
+  },
+  "additionalDecisions": [
+    {
+      "holdingId": "edition-perkins-golden-chain",
+      "decision": "use existing EEBO-TCP A09339 XML rather than OCR",
+      "relationship": "1600 witness, alternate to catalogued 1591 printing",
+      "completeness": "full acquired XML with 2416 explicit encoded gaps; do not replace gaps with guesses",
+      "evidence": "content/library/reports/ready-text-completion/REPORT.md"
+    },
+    {
+      "holdingId": "savoy-declaration",
+      "decision": "use existing EEBO-TCP A89790 XML; preserve partial Schaff separately",
+      "relationship": "1659 printing of 1658 declaration",
+      "completeness": "full source-listed XML with 43 encoded editorial gaps; partial Schaff remains partial",
+      "evidence": "content/library/reports/ready-text-completion/REPORT.md"
+    },
+    {
+      "holdingId": "modern-transcript-gaps",
+      "decision": "missing publisher transcripts, link-only permissions, unprocessed/rate-limited source destinations and commercial samples are not OCR jobs",
+      "examples": [
+        "Begg: 22 pages lack substantial source transcripts",
+        "Piper: source rate limiting/pending queue",
+        "Ligonier/MLJ/other permission queues"
+      ],
+      "evidence": [
+        "content/library/reports/ready-text-completion/REPORT.md",
+        "content/library/reports/modern-texts/SOURCE-QUEUE.md"
+      ]
+    },
+    {
+      "holdingId": "previous-pdf-candidates",
+      "decision": "prior 76 text-positive sample checks do not guarantee every page; use separate current full-page audit",
+      "evidence": "content/library/reports/text-backlog/pdf-text-checks.json"
+    }
+  ],
+  "rights": "No original modified, no acquisition and no public full-text publication. Monergism alternatives stay private-use and are not redistribution clearance. Source-provided OCR and alternate editions retain their own source rights and attribution.",
+  "limitations": [
+    "Alternative author/work collections are discovery links, not evidence that an exact historical volume is complete or identical.",
+    "Hash/existence verification establishes saved file integrity, not transcription accuracy.",
+    "OCR-free EPUB/TXT extraction does not guarantee fully proofread or AI-free source text; publisher AI disclosures stay in reviewClass.",
+    "Page gaps in ready keyboarded historical texts are not within the straightforward modern OCR scope."
+  ],
+  "verification": {
+    "checkedFiles": 170,
+    "missingFiles": [],
+    "hashMismatches": []
+  },
+  "modernImageOnlyFollowup": [
+    {
+      "assetId": "asset-ready-library-4ca8531489497774617a",
+      "title": "Do the Prophets and the Law Quit Prophesying Before John? A Note on Matthew 11.13",
+      "sourceUrl": "https://media.thegospelcoalition.org/documents/carson/1994_do_the_prophets_and_law.pdf",
+      "relativePath": "library/source-gospel-coalition/asset-ready-library-4ca8531489497774617a/original.pdf",
+      "existingDerivative": {
+        "path": ".local/library/run-modern-texts-2026-10-05/text/asset-ready-library-4ca8531489497774617a.txt",
+        "sha256": "01bf59209d2b7d7c5699f654f63165d75e472367cbe4ab4e2dd85fd9a50a21ec",
+        "wordCount": 0,
+        "method": "Existing EPUB HTML / PDF text layer; no OCR; no model calls",
+        "quality": "unreviewed"
+      },
+      "pageCount": 9,
+      "decision": "No usable alternative identified in the inspected local ready-library ledger; existing derivative contains zero words. Refer to root visual triage/current PDF gap audit for straightforward OCR.",
+      "rights": {
+        "useScope": "private-noncommercial-reading",
+        "publicHostingAllowed": false,
+        "publicFullTextIndexAllowed": false
+      }
+    },
+    {
+      "assetId": "asset-ready-library-5d05e6c43f42bc58be3d",
+      "title": "Living by the Sermon on the Mount",
+      "sourceUrl": "https://media.thegospelcoalition.org/documents/carson/1994_living_by_the_sermon_on_the_mount.pdf",
+      "relativePath": "library/source-gospel-coalition/asset-ready-library-5d05e6c43f42bc58be3d/original.pdf",
+      "existingDerivative": {
+        "path": ".local/library/run-modern-texts-2026-10-05/text/asset-ready-library-5d05e6c43f42bc58be3d.txt",
+        "sha256": "e6c767aaabb678ed4d3fb4f5c9193c55abf9739f641095705e94f198f08010f9",
+        "wordCount": 0,
+        "method": "Existing EPUB HTML / PDF text layer; no OCR; no model calls",
+        "quality": "unreviewed"
+      },
+      "pageCount": 3,
+      "decision": "No usable alternative identified in the inspected local ready-library ledger; existing derivative contains zero words. Refer to root visual triage/current PDF gap audit for straightforward OCR.",
+      "rights": {
+        "useScope": "private-noncommercial-reading",
+        "publicHostingAllowed": false,
+        "publicFullTextIndexAllowed": false
+      }
+    },
+    {
+      "assetId": "asset-ready-library-1266ceab761d554d725c",
+      "title": "Recent Reprints",
+      "sourceUrl": "https://media.thegospelcoalition.org/documents/carson/1980_review_recent_reprints2.pdf",
+      "relativePath": "library/source-gospel-coalition/asset-ready-library-1266ceab761d554d725c/original.pdf",
+      "existingDerivative": {
+        "path": ".local/library/run-modern-texts-2026-10-05/text/asset-ready-library-1266ceab761d554d725c.txt",
+        "sha256": "dba5166ad9db9ba648c1032ebbd34dcd0d085b50023b839ef5c68ca1db93a563",
+        "wordCount": 0,
+        "method": "Existing EPUB HTML / PDF text layer; no OCR; no model calls",
+        "quality": "unreviewed"
+      },
+      "pageCount": 2,
+      "decision": "No usable alternative identified in the inspected local ready-library ledger; existing derivative contains zero words. Refer to root visual triage/current PDF gap audit for straightforward OCR.",
+      "rights": {
+        "useScope": "private-noncommercial-reading",
+        "publicHostingAllowed": false,
+        "publicFullTextIndexAllowed": false
+      }
+    },
+    {
+      "assetId": "asset-ready-library-d105295f1ff9df838a5d",
+      "title": "Review",
+      "sourceUrl": "https://media.thegospelcoalition.org/documents/carson/1991_review_Ridderbos.pdf",
+      "relativePath": "library/source-gospel-coalition/asset-ready-library-d105295f1ff9df838a5d/original.pdf",
+      "existingDerivative": {
+        "path": ".local/library/run-modern-texts-2026-10-05/text/asset-ready-library-d105295f1ff9df838a5d.txt",
+        "sha256": "dba5166ad9db9ba648c1032ebbd34dcd0d085b50023b839ef5c68ca1db93a563",
+        "wordCount": 0,
+        "method": "Existing EPUB HTML / PDF text layer; no OCR; no model calls",
+        "quality": "unreviewed"
+      },
+      "pageCount": 2,
+      "decision": "No usable alternative identified in the inspected local ready-library ledger; existing derivative contains zero words. Refer to root visual triage/current PDF gap audit for straightforward OCR.",
+      "rights": {
+        "useScope": "private-noncommercial-reading",
+        "publicHostingAllowed": false,
+        "publicFullTextIndexAllowed": false
+      }
+    }
+  ]
+}

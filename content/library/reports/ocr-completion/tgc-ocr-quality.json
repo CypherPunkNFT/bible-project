@@ -1,0 +1,123 @@
+{
+  "reviewedOn": "2026-10-05",
+  "reviewer": "Codex visual source comparison",
+  "scope": "Boundary and reading-order QA of all 16 newly OCR-processed TGC pages across seven documents. Compared first/last lines of every OCR region against rendered source pages and checked chapter/page joins. Selected interior examples inspected; not a character-by-character proofread and not a review of every pre-existing text layer in these documents.",
+  "ocrEngine": "Windows.Media.Ocr en-US",
+  "pagesReviewed": 16,
+  "documentsReviewed": 7,
+  "fullProofreadingComplete": false,
+  "originalsModified": false,
+  "rawOcrResultsModified": false,
+  "initialPass": {
+    "pagesWithoutDetectedCropLoss": 13,
+    "pagesNeedingRegionCorrections": 3,
+    "correctionScope": "Magazine only: clipped first letters in page1 final column; cropped wraparound columns and third column on page2; omitted line fragment at page3 first-column split.",
+    "correctedRegionSpecification": ".local/library/ocr-completion/magazine-corrected-regions.json",
+    "replacementPassVerified": true,
+    "replacementPass": "All 19 magazine revision2 region outputs ending -v2.json examined. Previously clipped first letters, wraparound text and long garment which restored. No remaining boundary loss detected in those revised regions; stylized display title remains separately verified metadata."
+  },
+  "documents": [
+    {
+      "documentId": "pdf-1523c061fd472c758959",
+      "pdfPages": [
+        1,
+        2
+      ],
+      "boundaryResult": "Both pages retain first and last prose lines; page1 ending 'and consequently' joins page2 'advocates translations' correctly. Author and institution retained.",
+      "remainingRisk": "Ordinary OCR character mistakes remain, including proper names and ligatures. Source has Philip C. Stine; OCR reads Steine. This remains unproofread machine transcription."
+    },
+    {
+      "documentId": "pdf-40c0bf2b5d99f136b651",
+      "pdfPages": [
+        1,
+        2
+      ],
+      "boundaryResult": "Review starts near bottom of first page and continues correctly from 'and' into 'the New Testament Canon' on page2. Final D.A.C. initials retained.",
+      "remainingRisk": "A few OCR word errors: source Thornapple Commentaries appears as Thomapple; source 'The Reformation and Natural Law' appears with 'md'. Verify exact bibliographic quotation against image."
+    },
+    {
+      "documentId": "pdf-86c7725bf5191e6f6098",
+      "pdfPages": [
+        1,
+        2,
+        3
+      ],
+      "boundaryResult": "First-pass crop failures corrected in revision2 and all 19 replacement regions boundary-checked. Page1 final column begins prevented violence with full first letters. Page2 left wrap now retains offered my time to try to through drink, and next region begins Is it the Christian's. Middle wrap continues result, quite literally doing / without food himself while, then nor his teaching / Thus, no matter how. Third column begins of the argument. Page3 first-column split now retains long garment which. Column and page joins match source; no remaining crop loss detected.",
+      "remainingRisk": "Highly spaced display title was captured only as SERMON MOUNT. Verified complete title is Living by the Sermon on the Mount. Pullquotes belong outside continuous prose and are deliberately placed last; author biography/source permission note retained."
+    },
+    {
+      "documentId": "pdf-bb3cfa01b905d7437b20",
+      "pdfPages": [
+        3
+      ],
+      "boundaryResult": "Two columns retained in correct left-to-right sequence; first line 'evangelists, more briefly summarizes the stories' and final line 'these points; all the more remarkable, then, that' match the source. First column ends 'remaining four volumes'; second begins 'Of the various hesitations'.",
+      "remainingRisk": "Other pages retain pre-existing text layers containing visible noise and column-order defects; this page repair is not a whole-document quality clearance."
+    },
+    {
+      "documentId": "pdf-575e6db50433605d3bca",
+      "pdfPages": [
+        1
+      ],
+      "boundaryResult": "Title, opening paragraph and final printed line ending 'The First Book of Samuel (pp. viii +' retained; continuation follows on next PDF page. Printed folio377 retained.",
+      "remainingRisk": "Bibliographic roman numerals, prices and punctuation remain machine output; no complete bibliography collation performed."
+    },
+    {
+      "documentId": "pdf-aa42a3fe34d5344164a7",
+      "pdfPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "boundaryResult": "All ten printed pages175-184 represented in correct order. First and last prose lines of each page/region checked. Joins modified/the formal analysis; this/calls for caution; both/demanded; Gentiles/Gal.2:8-9; prophecies/about kingship all present. Conclusion, notes and copyright line retained.",
+      "remainingRisk": "Gray scan noise produces spacing and character mistakes, including Fellowship, thanksgiving and occasional scholarly names or note markers. Text is usable for discovery but not verified quotation. No claim of clean proofreading or error-free references."
+    },
+    {
+      "documentId": "pdf-0dc92ab496fa83408c01",
+      "pdfPages": [
+        11
+      ],
+      "boundaryResult": "Both final bibliography entries retained in full from M. Wilcox through F. W. Young and ending215-33. Author running head retained; printed folio264 recorded in triage metadata.",
+      "remainingRisk": "Punctuation and diacritics remain unproofread. Other pre-existing pages were outside this OCR boundary review."
+    }
+  ],
+  "sourceVerifiedCorrections": [
+    {
+      "documentId": "pdf-1523c061fd472c758959",
+      "pdfPage": 1,
+      "observed": "Philip C. Steine",
+      "sourceReading": "Philip C. Stine",
+      "status": "applied-to-derived-reading-text-original-ocr-preserved"
+    },
+    {
+      "documentId": "pdf-1523c061fd472c758959",
+      "pdfPage": 1,
+      "observed": "Newman and Steine",
+      "sourceReading": "Newman and Stine",
+      "status": "applied-to-derived-reading-text-original-ocr-preserved"
+    },
+    {
+      "documentId": "pdf-40c0bf2b5d99f136b651",
+      "pdfPage": 1,
+      "observed": "Thomapple Commentaries",
+      "sourceReading": "Thornapple Commentaries",
+      "status": "applied-to-derived-reading-text-original-ocr-preserved"
+    },
+    {
+      "documentId": "pdf-40c0bf2b5d99f136b651",
+      "pdfPage": 2,
+      "observed": "The Reformation md Natural",
+      "sourceReading": "The Reformation and Natural",
+      "status": "applied-to-derived-reading-text-original-ocr-preserved"
+    },
+    {
+      "documentId": "pdf-86c7725bf5191e6f6098",
+      "pdfPage": 1,
+      "observed": "SERMON MOUNT",
+      "sourceReading": "Living by the Sermon on the Mount",
+      "status": "verified-display-title-metadata-not-a-body-text-replacement"
+    }
+  ]
+}
