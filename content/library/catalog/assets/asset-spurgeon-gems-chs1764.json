@@ -1,0 +1,78 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "asset",
+  "id": "asset-spurgeon-gems-chs1764",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "editionId": "edition-spurgeon-sermon-1764-spurgeon-gems-2026",
+  "sourceId": "source-spurgeon-gems",
+  "canonicalUrl": "https://www.spurgeongems.org/sermon/chs1764.pdf",
+  "finalUrl": "https://www.spurgeongems.org/sermon/chs1764.pdf",
+  "format": "pdf",
+  "mediaKind": "text",
+  "acquisitionStatus": "downloaded",
+  "storage": "raw",
+  "relativePath": "library/source-spurgeon-gems/asset-spurgeon-gems-chs1764/chs1764.pdf",
+  "sha256": "130887d72560ac9f1d7aeb26feb289292ed94b0656cfbf8bc5faca42181f466a",
+  "byteCount": 81920,
+  "mimeType": "application/pdf",
+  "retrievedAt": "2026-10-05T05:17:46Z",
+  "rights": {
+    "category": "restricted-license",
+    "jurisdiction": null,
+    "licenseId": "Spurgeon-Gems-free-unaltered",
+    "licenseUrl": "https://www.spurgeongems.org/about-us/",
+    "attribution": "Charles H. Spurgeon and individually identified contributors; digital edition supplied by Spurgeon Gems (www.spurgeongems.org).",
+    "conditions": [
+      "Do not charge for the material.",
+      "Do not change the content.",
+      "Credit the author and Spurgeon Gems as source."
+    ],
+    "conditionsMet": true,
+    "actions": {
+      "download": "conditional",
+      "host": "conditional",
+      "redistribute": "conditional",
+      "adapt": "denied",
+      "transcribe": "unknown",
+      "embed": "unknown",
+      "indexMetadata": "allowed",
+      "indexFullText": "unknown"
+    },
+    "evidence": [
+      {
+        "url": "https://www.spurgeongems.org/about-us/",
+        "locator": "Use of material permission",
+        "note": "Published grant permits free, unchanged use with author and source credit; no unrestricted open license is claimed.",
+        "checkedOn": "2026-10-05"
+      }
+    ],
+    "unresolved": [
+      "Full-text indexing, modified editions, and commercial uses require a separate rights decision."
+    ],
+    "review": {
+      "date": "2026-10-05",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Verified website permission and retained raw PDFs with attribution; no public hosting or full-text indexing performed."
+    }
+  },
+  "fullTextIndexed": false,
+  "processing": {
+    "parentAssetId": null,
+    "method": "none",
+    "tool": null,
+    "toolVersion": null,
+    "parameters": null,
+    "date": null,
+    "note": "Original downloaded bytes retained without content alteration; catalog metadata extraction is separate."
+  },
+  "quality": {
+    "state": "unreviewed",
+    "reviewedBy": null,
+    "reviewedOn": null,
+    "note": "PDF opened and headings machine-parsed; this does not certify the complete transcription."
+  }
+}

@@ -1,0 +1,126 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-spurgeon-sermon-2971",
+  "editorialState": "catalogued",
+  "notes": [
+    "Number is an edition/index identifier, not a count of distinct preached occasions."
+  ],
+  "reviews": [],
+  "title": "The Right Kind of Fear",
+  "alternateTitles": [
+    "Right Kind of Fear, The"
+  ],
+  "creators": [
+    {
+      "authorId": "author-charles-spurgeon",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [
+    {
+      "event": "original-publication",
+      "value": "1906",
+      "precision": "year",
+      "label": "Volume 52 publication year; exact issue date not inferred.",
+      "evidence": [
+        {
+          "url": "https://www.spurgeongems.org/spurgeon-sermons/",
+          "locator": "63-volume numbered index",
+          "note": "Snapshot retained with checksum; entry count includes guest addresses, historical documents, combined numbers, and suffixes.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    },
+    {
+      "event": "original-publication",
+      "value": "1906-01-18",
+      "precision": "day",
+      "label": " THE RIGHT KIND OF FEAR NO. 2971 A SERMON PUBLISHED ON THURSDAY, JANUARY 18, 1906",
+      "evidence": [
+        {
+          "url": "https://www.spurgeongems.org/sermon/chs2971.pdf",
+          "locator": "PDF opening matter",
+          "note": "Title, main texts, and dates transcribed as catalog facts; source distinctions preserved.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    },
+    {
+      "event": "delivery",
+      "value": "1876-09-02",
+      "precision": "day",
+      "label": "N AT THE METROPOLITAN TABERNACLE, NEWINGTON ON THURSDAY EVENING, SEPTEMBER 2, 1876",
+      "evidence": [
+        {
+          "url": "https://www.spurgeongems.org/sermon/chs2971.pdf",
+          "locator": "PDF opening matter",
+          "note": "Title, main texts, and dates transcribed as catalog facts; source distinctions preserved.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    }
+  ],
+  "passages": [
+    {
+      "reference": "Proverbs 28:14",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 20028014,
+      "end": 20028014,
+      "verification": "verified",
+      "locator": "Individual PDF, opening Scripture heading"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-spurgeon-volume-52",
+      "locator": "Index entry 2971"
+    }
+  ],
+  "externalIds": {
+    "spurgeon-gems-index-number": [
+      "2971"
+    ],
+    "reconciled-sermon-number": [
+      "2971"
+    ],
+    "published-volume": [
+      "52"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://www.spurgeongems.org/spurgeon-sermons/",
+      "locator": "63-volume numbered index",
+      "note": "Snapshot retained with checksum; entry count includes guest addresses, historical documents, combined numbers, and suffixes.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://www.spurgeongems.org/sermon/chs2971.pdf",
+      "locator": "PDF opening matter",
+      "note": "Title, main texts, and dates transcribed as catalog facts; source distinctions preserved.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://www.spurgeongems.org/chstix.pdf",
+      "locator": "Page 99; original number 2971",
+      "note": "Alphabetical title variant; reconciled by title and numbering context.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

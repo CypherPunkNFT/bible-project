@@ -1,0 +1,105 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-spurgeon-sermon-001a",
+  "editorialState": "catalogued",
+  "notes": [
+    "Number is an edition/index identifier, not a count of distinct preached occasions.",
+    "Contextual volume contribution; not counted as a sermon preached by Charles H. Spurgeon."
+  ],
+  "reviews": [],
+  "title": "The Burning of the Metropolitan Tabernacle",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-unidentified-tabernacle-burning-author",
+      "role": "author"
+    }
+  ],
+  "genre": "article",
+  "role": "historical-context",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [
+    {
+      "event": "original-publication",
+      "value": "1898",
+      "precision": "year",
+      "label": "Volume 44 publication year; exact issue date not inferred.",
+      "evidence": [
+        {
+          "url": "https://www.spurgeongems.org/spurgeon-sermons/",
+          "locator": "63-volume numbered index",
+          "note": "Snapshot retained with checksum; entry count includes guest addresses, historical documents, combined numbers, and suffixes.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    },
+    {
+      "event": "delivery",
+      "value": null,
+      "precision": "unknown",
+      "label": "No unambiguous delivery date established from the inspected heading.",
+      "evidence": [
+        {
+          "url": "https://www.spurgeongems.org/sermon/chs001A.pdf",
+          "locator": "PDF opening matter",
+          "note": "Title, main texts, and dates transcribed as catalog facts; source distinctions preserved.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    }
+  ],
+  "passages": [
+    {
+      "reference": "Isaiah 64:11",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 23064011,
+      "end": 23064011,
+      "verification": "verified",
+      "locator": "Individual PDF, opening Scripture heading"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-spurgeon-volume-44",
+      "locator": "Index entry 001A"
+    }
+  ],
+  "externalIds": {
+    "spurgeon-gems-index-number": [
+      "001A"
+    ],
+    "reconciled-sermon-number": [
+      "1A"
+    ],
+    "published-volume": [
+      "44"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://www.spurgeongems.org/spurgeon-sermons/",
+      "locator": "63-volume numbered index",
+      "note": "Snapshot retained with checksum; entry count includes guest addresses, historical documents, combined numbers, and suffixes.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://www.spurgeongems.org/sermon/chs001A.pdf",
+      "locator": "PDF opening matter",
+      "note": "Title, main texts, and dates transcribed as catalog facts; source distinctions preserved.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

@@ -1,0 +1,133 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-spurgeon-sermon-3525",
+  "editorialState": "catalogued",
+  "notes": [
+    "Number is an edition/index identifier, not a count of distinct preached occasions."
+  ],
+  "reviews": [],
+  "title": "God's Overtaking Mercy",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-charles-spurgeon",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [
+    {
+      "event": "original-publication",
+      "value": "1916",
+      "precision": "year",
+      "label": "Volume 62 publication year; exact issue date not inferred.",
+      "evidence": [
+        {
+          "url": "https://www.spurgeongems.org/spurgeon-sermons/",
+          "locator": "63-volume numbered index",
+          "note": "Snapshot retained with checksum; entry count includes guest addresses, historical documents, combined numbers, and suffixes.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    },
+    {
+      "event": "original-publication",
+      "value": "1916-08-17",
+      "precision": "day",
+      "label": " GOD’S OVERTAKING MERCY NO. 3525 A SERMON PUBLISHED ON THURSDAY, AUGUST 17, 1916",
+      "evidence": [
+        {
+          "url": "https://www.spurgeongems.org/sermon/chs3525.pdf",
+          "locator": "PDF opening matter",
+          "note": "Title, main texts, and dates transcribed as catalog facts; source distinctions preserved.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    },
+    {
+      "event": "delivery",
+      "value": "1871-02-22",
+      "precision": "day",
+      "label": "AT THE METROPOLITAN TABERNACLE, NEWINGTON ON LORD’S DAY EVENING, FEBRUARY 22, 1871",
+      "evidence": [
+        {
+          "url": "https://www.spurgeongems.org/sermon/chs3525.pdf",
+          "locator": "PDF opening matter",
+          "note": "Title, main texts, and dates transcribed as catalog facts; source distinctions preserved.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    }
+  ],
+  "passages": [
+    {
+      "reference": "Genesis 16:8",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 1016008,
+      "end": 1016008,
+      "verification": "verified",
+      "locator": "Individual PDF, opening Scripture heading"
+    },
+    {
+      "reference": "Genesis 16:13",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 1016013,
+      "end": 1016013,
+      "verification": "verified",
+      "locator": "Individual PDF, opening Scripture heading"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-spurgeon-volume-62",
+      "locator": "Index entry 3525"
+    }
+  ],
+  "externalIds": {
+    "spurgeon-gems-index-number": [
+      "3525"
+    ],
+    "reconciled-sermon-number": [
+      "3525"
+    ],
+    "published-volume": [
+      "62"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://www.spurgeongems.org/spurgeon-sermons/",
+      "locator": "63-volume numbered index",
+      "note": "Snapshot retained with checksum; entry count includes guest addresses, historical documents, combined numbers, and suffixes.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://www.spurgeongems.org/sermon/chs3525.pdf",
+      "locator": "PDF opening matter",
+      "note": "Title, main texts, and dates transcribed as catalog facts; source distinctions preserved.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://www.spurgeongems.org/chstix.pdf",
+      "locator": "Page 43; original number 3525",
+      "note": "Alphabetical title variant; reconciled by title and numbering context.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

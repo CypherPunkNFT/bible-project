@@ -1,0 +1,104 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-spurgeon-sermon-0548",
+  "editorialState": "catalogued",
+  "notes": [
+    "Number is an edition/index identifier, not a count of distinct preached occasions."
+  ],
+  "reviews": [],
+  "title": "Forward! Forward! Forward!",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-charles-spurgeon",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [
+    {
+      "event": "original-publication",
+      "value": "1864",
+      "precision": "year",
+      "label": "Volume 10 publication year; exact issue date not inferred.",
+      "evidence": [
+        {
+          "url": "https://www.spurgeongems.org/spurgeon-sermons/",
+          "locator": "63-volume numbered index",
+          "note": "Snapshot retained with checksum; entry count includes guest addresses, historical documents, combined numbers, and suffixes.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    },
+    {
+      "event": "delivery",
+      "value": "1863-10-18",
+      "precision": "day",
+      "label": " FORWARD! FORWARD! NO. 548 A SERMON DELIVERED ON SUNDAY EVENING, OCTOBER 18, 1863",
+      "evidence": [
+        {
+          "url": "https://www.spurgeongems.org/sermon/chs548.pdf",
+          "locator": "PDF opening matter",
+          "note": "Title, main texts, and dates transcribed as catalog facts; source distinctions preserved.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    }
+  ],
+  "passages": [
+    {
+      "reference": "Exodus 14:15",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 2014015,
+      "end": 2014015,
+      "verification": "verified",
+      "locator": "Individual PDF, opening Scripture heading"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-spurgeon-volume-10",
+      "locator": "Index entry 548"
+    }
+  ],
+  "externalIds": {
+    "spurgeon-gems-index-number": [
+      "548"
+    ],
+    "reconciled-sermon-number": [
+      "548"
+    ],
+    "published-volume": [
+      "10"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://www.spurgeongems.org/spurgeon-sermons/",
+      "locator": "63-volume numbered index",
+      "note": "Snapshot retained with checksum; entry count includes guest addresses, historical documents, combined numbers, and suffixes.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://www.spurgeongems.org/sermon/chs548.pdf",
+      "locator": "PDF opening matter",
+      "note": "Title, main texts, and dates transcribed as catalog facts; source distinctions preserved.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

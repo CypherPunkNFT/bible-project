@@ -1,0 +1,124 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-spurgeon-sermon-2957",
+  "editorialState": "catalogued",
+  "notes": [
+    "Number is an edition/index identifier, not a count of distinct preached occasions."
+  ],
+  "reviews": [],
+  "title": "Advance!",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-charles-spurgeon",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [
+    {
+      "event": "original-publication",
+      "value": "1905",
+      "precision": "year",
+      "label": "Volume 51 publication year; exact issue date not inferred.",
+      "evidence": [
+        {
+          "url": "https://www.spurgeongems.org/spurgeon-sermons/",
+          "locator": "63-volume numbered index",
+          "note": "Snapshot retained with checksum; entry count includes guest addresses, historical documents, combined numbers, and suffixes.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    },
+    {
+      "event": "original-publication",
+      "value": "1905-10-12",
+      "precision": "day",
+      "label": " 1 Volume 51 1 ADVANCE! NO. 2957 A SERMON PUBLISHED ON THURSDAY, OCTOBER 12, 1905",
+      "evidence": [
+        {
+          "url": "https://www.spurgeongems.org/sermon/chs2957.pdf",
+          "locator": "PDF opening matter",
+          "note": "Title, main texts, and dates transcribed as catalog facts; source distinctions preserved.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    },
+    {
+      "event": "delivery",
+      "value": "1875-06-24",
+      "precision": "day",
+      "label": "N AT THE METROPOLITAN TABERNACLE, NEWINGTON ON THURSDAY EVENING, JUNE 24, 1875",
+      "evidence": [
+        {
+          "url": "https://www.spurgeongems.org/sermon/chs2957.pdf",
+          "locator": "PDF opening matter",
+          "note": "Title, main texts, and dates transcribed as catalog facts; source distinctions preserved.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    }
+  ],
+  "passages": [
+    {
+      "reference": "Deuteronomy 1:6",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 5001006,
+      "end": 5001006,
+      "verification": "verified",
+      "locator": "Individual PDF, opening Scripture heading"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-spurgeon-volume-51",
+      "locator": "Index entry 2957"
+    }
+  ],
+  "externalIds": {
+    "spurgeon-gems-index-number": [
+      "2957"
+    ],
+    "reconciled-sermon-number": [
+      "2957"
+    ],
+    "published-volume": [
+      "51"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://www.spurgeongems.org/spurgeon-sermons/",
+      "locator": "63-volume numbered index",
+      "note": "Snapshot retained with checksum; entry count includes guest addresses, historical documents, combined numbers, and suffixes.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://www.spurgeongems.org/sermon/chs2957.pdf",
+      "locator": "PDF opening matter",
+      "note": "Title, main texts, and dates transcribed as catalog facts; source distinctions preserved.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://www.spurgeongems.org/chstix.pdf",
+      "locator": "Page 2; original number 2957",
+      "note": "Alphabetical title variant; reconciled by title and numbering context.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

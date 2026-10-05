@@ -1,0 +1,126 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-spurgeon-sermon-3531",
+  "editorialState": "catalogued",
+  "notes": [
+    "Number is an edition/index identifier, not a count of distinct preached occasions."
+  ],
+  "reviews": [],
+  "title": "\"That Day\"\" and Its Disclosures",
+  "alternateTitles": [
+    "“THE DAY” AND ITS DISCLOSURES"
+  ],
+  "creators": [
+    {
+      "authorId": "author-charles-spurgeon",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [
+    {
+      "event": "original-publication",
+      "value": "1916",
+      "precision": "year",
+      "label": "Volume 62 publication year; exact issue date not inferred.",
+      "evidence": [
+        {
+          "url": "https://www.spurgeongems.org/spurgeon-sermons/",
+          "locator": "63-volume numbered index",
+          "note": "Snapshot retained with checksum; entry count includes guest addresses, historical documents, combined numbers, and suffixes.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    },
+    {
+      "event": "original-publication",
+      "value": "1916-09-28",
+      "precision": "day",
+      "label": "AY” AND ITS DISCLOSURES NO. 3531 A SERMON PUBLISHED ON THURSDAY, SEPTEMBER 28, 1916",
+      "evidence": [
+        {
+          "url": "https://www.spurgeongems.org/sermon/chs3531.pdf",
+          "locator": "PDF opening matter",
+          "note": "Title, main texts, and dates transcribed as catalog facts; source distinctions preserved.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    },
+    {
+      "event": "delivery",
+      "value": "1872-02-18",
+      "precision": "day",
+      "label": "N AT THE METROPOLITAN TABERNACLE, NEWINGTON ON THURSDAY EVENING, FEBRUARY 18, 1872",
+      "evidence": [
+        {
+          "url": "https://www.spurgeongems.org/sermon/chs3531.pdf",
+          "locator": "PDF opening matter",
+          "note": "Title, main texts, and dates transcribed as catalog facts; source distinctions preserved.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    }
+  ],
+  "passages": [
+    {
+      "reference": "2 Timothy 1:18",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 55001018,
+      "end": 55001018,
+      "verification": "verified",
+      "locator": "Individual PDF, opening Scripture heading"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-spurgeon-volume-62",
+      "locator": "Index entry 3531"
+    }
+  ],
+  "externalIds": {
+    "spurgeon-gems-index-number": [
+      "3531"
+    ],
+    "reconciled-sermon-number": [
+      "3531"
+    ],
+    "published-volume": [
+      "62"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://www.spurgeongems.org/spurgeon-sermons/",
+      "locator": "63-volume numbered index",
+      "note": "Snapshot retained with checksum; entry count includes guest addresses, historical documents, combined numbers, and suffixes.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://www.spurgeongems.org/sermon/chs3531.pdf",
+      "locator": "PDF opening matter",
+      "note": "Title, main texts, and dates transcribed as catalog facts; source distinctions preserved.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://www.spurgeongems.org/chstix.pdf",
+      "locator": "Page 118; original number 3531",
+      "note": "Alphabetical title variant; reconciled by title and numbering context.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

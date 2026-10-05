@@ -1,0 +1,112 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-spurgeon-sermon-1182",
+  "editorialState": "catalogued",
+  "notes": [
+    "Number is an edition/index identifier, not a count of distinct preached occasions."
+  ],
+  "reviews": [],
+  "title": "A Singular Title and a Special Favor",
+  "alternateTitles": [
+    "Singular Title and a Special Favor, A"
+  ],
+  "creators": [
+    {
+      "authorId": "author-charles-spurgeon",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [
+    {
+      "event": "original-publication",
+      "value": "1874",
+      "precision": "year",
+      "label": "Volume 20 publication year; exact issue date not inferred.",
+      "evidence": [
+        {
+          "url": "https://www.spurgeongems.org/spurgeon-sermons/",
+          "locator": "63-volume numbered index",
+          "note": "Snapshot retained with checksum; entry count includes guest addresses, historical documents, combined numbers, and suffixes.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    },
+    {
+      "event": "delivery",
+      "value": "1874-07-12",
+      "precision": "day",
+      "label": "SPECIAL FAVOR NO. 1182 A SERMON DELIVERED ON LORD’S-DAY MORNING, JULY 12, 1874",
+      "evidence": [
+        {
+          "url": "https://www.spurgeongems.org/sermon/chs1182.pdf",
+          "locator": "PDF opening matter",
+          "note": "Title, main texts, and dates transcribed as catalog facts; source distinctions preserved.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    }
+  ],
+  "passages": [
+    {
+      "reference": "Psalm 59:10",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 19059010,
+      "end": 19059010,
+      "verification": "verified",
+      "locator": "Individual PDF, opening Scripture heading"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-spurgeon-volume-20",
+      "locator": "Index entry 1182"
+    }
+  ],
+  "externalIds": {
+    "spurgeon-gems-index-number": [
+      "1182"
+    ],
+    "reconciled-sermon-number": [
+      "1182"
+    ],
+    "published-volume": [
+      "20"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://www.spurgeongems.org/spurgeon-sermons/",
+      "locator": "63-volume numbered index",
+      "note": "Snapshot retained with checksum; entry count includes guest addresses, historical documents, combined numbers, and suffixes.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://www.spurgeongems.org/sermon/chs1182.pdf",
+      "locator": "PDF opening matter",
+      "note": "Title, main texts, and dates transcribed as catalog facts; source distinctions preserved.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://www.spurgeongems.org/chstix.pdf",
+      "locator": "Page 109; original number 1182",
+      "note": "Alphabetical title variant; reconciled by title and numbering context.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

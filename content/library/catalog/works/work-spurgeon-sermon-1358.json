@@ -1,0 +1,132 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-spurgeon-sermon-1358",
+  "editorialState": "catalogued",
+  "notes": [
+    "Number is an edition/index identifier, not a count of distinct preached occasions.",
+    "Both texts are introduced in the opening prose rather than a separate Scripture heading."
+  ],
+  "reviews": [],
+  "title": "All the People at Work for Jesus",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-charles-spurgeon",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [
+    {
+      "event": "original-publication",
+      "value": "1877",
+      "precision": "year",
+      "label": "Volume 23 publication year; exact issue date not inferred.",
+      "evidence": [
+        {
+          "url": "https://www.spurgeongems.org/spurgeon-sermons/",
+          "locator": "63-volume numbered index",
+          "note": "Snapshot retained with checksum; entry count includes guest addresses, historical documents, combined numbers, and suffixes.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    },
+    {
+      "event": "delivery",
+      "value": "1877-05-09",
+      "precision": "day",
+      "label": "WORK FOR JESUS NO. 1358 A SERMON DELIVERED ON WEDNESDAY MORNING, MAY 9, 1877",
+      "evidence": [
+        {
+          "url": "https://www.spurgeongems.org/sermon/chs1358.pdf",
+          "locator": "PDF opening matter",
+          "note": "Title, main texts, and dates transcribed as catalog facts; source distinctions preserved.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    }
+  ],
+  "passages": [
+    {
+      "reference": "Joshua 7:3",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 6007003,
+      "end": 6007003,
+      "verification": "verified",
+      "locator": "Individual PDF, page 1; inspected passage introduction"
+    },
+    {
+      "reference": "Joshua 8:1",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 6008001,
+      "end": 6008001,
+      "verification": "verified",
+      "locator": "Individual PDF, page 1; inspected passage introduction"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-spurgeon-volume-23",
+      "locator": "Index entry 1358"
+    }
+  ],
+  "externalIds": {
+    "spurgeon-gems-index-number": [
+      "1358"
+    ],
+    "reconciled-sermon-number": [
+      "1358"
+    ],
+    "published-volume": [
+      "23"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://www.spurgeongems.org/spurgeon-sermons/",
+      "locator": "63-volume numbered index",
+      "note": "Snapshot retained with checksum; entry count includes guest addresses, historical documents, combined numbers, and suffixes.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://www.spurgeongems.org/sermon/chs1358.pdf",
+      "locator": "PDF opening matter",
+      "note": "Title, main texts, and dates transcribed as catalog facts; source distinctions preserved.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://www.spurgeongems.org/sindex_ot.pdf",
+      "locator": "Page 8",
+      "note": "Main-text index row; appended expositions are excluded.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://www.spurgeongems.org/chstix.pdf",
+      "locator": "Page 2; original number 1358",
+      "note": "Alphabetical title variant; reconciled by title and numbering context.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://www.spurgeongems.org/sermon/chs1358.pdf",
+      "locator": "Pages 1, 1",
+      "note": "Both texts are introduced in the opening prose rather than a separate Scripture heading.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

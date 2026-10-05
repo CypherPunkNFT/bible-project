@@ -1,0 +1,113 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-spurgeon-sermon-2576",
+  "editorialState": "catalogued",
+  "notes": [
+    "Number is an edition/index identifier, not a count of distinct preached occasions.",
+    "Scheduled reading: 1898-06-26. Source heading: PROSPERITY NO. 2576 A SERMON INTENDED FOR READING ON LORD’S-DAY, JUNE 26, 1898. This is not asserted as publication or delivery."
+  ],
+  "reviews": [],
+  "title": "Zion's Prosperity",
+  "alternateTitles": [
+    "Zion’s Prosperity PRAY THE HOLY SPIRIT WILL USE THIS INDEX TO A SAVING KNOWLEDGE OF JESUS"
+  ],
+  "creators": [
+    {
+      "authorId": "author-charles-spurgeon",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [
+    {
+      "event": "original-publication",
+      "value": "1898",
+      "precision": "year",
+      "label": "Volume 44 publication year; exact issue date not inferred.",
+      "evidence": [
+        {
+          "url": "https://www.spurgeongems.org/spurgeon-sermons/",
+          "locator": "63-volume numbered index",
+          "note": "Snapshot retained with checksum; entry count includes guest addresses, historical documents, combined numbers, and suffixes.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    },
+    {
+      "event": "delivery",
+      "value": null,
+      "precision": "unknown",
+      "label": "No unambiguous delivery date established from the inspected heading.",
+      "evidence": [
+        {
+          "url": "https://www.spurgeongems.org/sermon/chs2576.pdf",
+          "locator": "PDF opening matter",
+          "note": "Title, main texts, and dates transcribed as catalog facts; source distinctions preserved.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    }
+  ],
+  "passages": [
+    {
+      "reference": "Psalm 102:13-14",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 19102013,
+      "end": 19102014,
+      "verification": "verified",
+      "locator": "Individual PDF, opening Scripture heading"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-spurgeon-volume-44",
+      "locator": "Index entry 2576"
+    }
+  ],
+  "externalIds": {
+    "spurgeon-gems-index-number": [
+      "2576"
+    ],
+    "reconciled-sermon-number": [
+      "2576"
+    ],
+    "published-volume": [
+      "44"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://www.spurgeongems.org/spurgeon-sermons/",
+      "locator": "63-volume numbered index",
+      "note": "Snapshot retained with checksum; entry count includes guest addresses, historical documents, combined numbers, and suffixes.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://www.spurgeongems.org/sermon/chs2576.pdf",
+      "locator": "PDF opening matter",
+      "note": "Title, main texts, and dates transcribed as catalog facts; source distinctions preserved.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://www.spurgeongems.org/chstix.pdf",
+      "locator": "Page 134; original number 2576",
+      "note": "Alphabetical title variant; reconciled by title and numbering context.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

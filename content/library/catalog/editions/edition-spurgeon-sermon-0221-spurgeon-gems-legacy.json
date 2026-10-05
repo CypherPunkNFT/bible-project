@@ -1,0 +1,37 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-spurgeon-sermon-0221-spurgeon-gems-legacy",
+  "editorialState": "catalogued",
+  "notes": [
+    "Digital snapshot acquired 2026-10-05. The source reports an ongoing return to original wording; no blanket claim of original typography or wording is made."
+  ],
+  "reviews": [],
+  "workId": "work-spurgeon-sermon-0221",
+  "label": "Spurgeon Gems older individual PDF of A Pastoral Letter, numbered 221-A",
+  "languages": [
+    "en"
+  ],
+  "contributors": [],
+  "publisher": "Spurgeon Gems",
+  "dates": [
+    {
+      "event": "edition-publication",
+      "value": null,
+      "precision": "unknown",
+      "label": "Digital edition publication date not established; retrieval date belongs to the asset.",
+      "evidence": []
+    }
+  ],
+  "abridgment": "unknown",
+  "modernization": "modernized",
+  "evidence": [
+    {
+      "url": "https://www.spurgeongems.org/sermon/chs221-A.pdf",
+      "locator": "Both PDF pages",
+      "note": "The linked document is a version of A Pastoral Letter; it contains no Comfort Proclaimed sermon.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

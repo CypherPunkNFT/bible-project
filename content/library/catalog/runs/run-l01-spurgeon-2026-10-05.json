@@ -1,0 +1,30 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "run",
+  "id": "run-l01-spurgeon-2026-10-05",
+  "missionId": "L01",
+  "status": "complete",
+  "startedOn": "2026-10-05",
+  "completedOn": "2026-10-05",
+  "boundary": "The 63 published pulpit volumes, 1855–1917, as inventoried by Spurgeon Gems on 2026-10-05; includes explicitly identified contextual contributions and documentary extras.",
+  "sourceIds": [
+    "source-spurgeon-gems"
+  ],
+  "inventory": "content/library/reports/spurgeon/inventory.json",
+  "checkpoint": "content/library/reports/spurgeon/acquisition-manifest.json",
+  "counts": {
+    "works": 3631,
+    "editions": 3632,
+    "assets": 3631,
+    "series": 64,
+    "reviewedWorks": 0,
+    "publishedWorks": 0
+  },
+  "gaps": [
+    "Dates not documented in inspected sources remain unknown.",
+    "Whole-volume and individual editions differ; reconciliation report preserves conflicts.",
+    "Not an inventory of every Spurgeon anthology, translation, or previously unpublished sermon."
+  ],
+  "reportPath": "content/library/reports/spurgeon/REPORT.md"
+}

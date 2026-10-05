@@ -45,3 +45,7 @@ The first command reads and validates the registries and any catalog records. Th
 ## State at establishment
 
 The charter, initial roster, vocabulary, source notes and mission backlog are the deliverables. No sermons, books or recordings have been acquired by this mission. Existing Bible/study sources and Apologetics records remain under their current conventions. Acquisition starts when the owner requests its category.
+
+## Spurgeon acquisition
+
+The owner subsequently requested the published Spurgeon sermon inventory. Its [report](reports/spurgeon/REPORT.md), [counts](reports/spurgeon/summary.json), and [reconciliation register](reports/spurgeon/reconciliation.json) cover the 63-volume pulpit set and distinguish individual PDFs from whole-volume editions. Contextual contributors are recorded separately in `registry-extensions/`. See the run record for acquisition completion and the report for remaining metadata review.

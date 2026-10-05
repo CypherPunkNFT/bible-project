@@ -1,0 +1,127 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-spurgeon-sermon-3362",
+  "editorialState": "catalogued",
+  "notes": [
+    "Number is an edition/index identifier, not a count of distinct preached occasions."
+  ],
+  "reviews": [],
+  "title": "Fearing and Trusting—Trusting and Not Fearing",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-charles-spurgeon",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [
+    {
+      "event": "original-publication",
+      "value": "1913",
+      "precision": "year",
+      "label": "Volume 59 publication year; exact issue date not inferred.",
+      "evidence": [
+        {
+          "url": "https://www.spurgeongems.org/spurgeon-sermons/",
+          "locator": "63-volume numbered index",
+          "note": "Snapshot retained with checksum; entry count includes guest addresses, historical documents, combined numbers, and suffixes.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    },
+    {
+      "event": "original-publication",
+      "value": "1913-07-10",
+      "precision": "day",
+      "label": "RUSTING AND NOT FEARING NO. 3362 A SERMON PUBLISHED ON THURSDAY, JULY 10, 1913",
+      "evidence": [
+        {
+          "url": "https://www.spurgeongems.org/sermon/chs3362.pdf",
+          "locator": "PDF opening matter",
+          "note": "Title, main texts, and dates transcribed as catalog facts; source distinctions preserved.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    },
+    {
+      "event": "delivery",
+      "value": "1867-12-15",
+      "precision": "day",
+      "label": "AT THE METROPOLITAN TABERNACLE, NEWINGTON ON LORD’S DAY EVENING, DECEMBER 15, 1867",
+      "evidence": [
+        {
+          "url": "https://www.spurgeongems.org/sermon/chs3362.pdf",
+          "locator": "PDF opening matter",
+          "note": "Title, main texts, and dates transcribed as catalog facts; source distinctions preserved.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    }
+  ],
+  "passages": [
+    {
+      "reference": "Psalm 56:3",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 19056003,
+      "end": 19056003,
+      "verification": "verified",
+      "locator": "Individual PDF, opening Scripture heading"
+    },
+    {
+      "reference": "Isaiah 12:2",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 23012002,
+      "end": 23012002,
+      "verification": "verified",
+      "locator": "Individual PDF, opening Scripture heading"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-spurgeon-volume-59",
+      "locator": "Index entry 3362"
+    }
+  ],
+  "externalIds": {
+    "spurgeon-gems-index-number": [
+      "3362"
+    ],
+    "reconciled-sermon-number": [
+      "3362"
+    ],
+    "published-volume": [
+      "59"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://www.spurgeongems.org/spurgeon-sermons/",
+      "locator": "63-volume numbered index",
+      "note": "Snapshot retained with checksum; entry count includes guest addresses, historical documents, combined numbers, and suffixes.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://www.spurgeongems.org/sermon/chs3362.pdf",
+      "locator": "PDF opening matter",
+      "note": "Title, main texts, and dates transcribed as catalog facts; source distinctions preserved.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

@@ -1,0 +1,113 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-spurgeon-sermon-2752",
+  "editorialState": "catalogued",
+  "notes": [
+    "Number is an edition/index identifier, not a count of distinct preached occasions.",
+    "Scheduled reading: 1901-11-10. Source heading: 1 THE DOOR NO. 2752 A SERMON INTENDED FOR READING ON LORD’S-DAY, NOVEMBER 10, 1901. This is not asserted as publication or delivery."
+  ],
+  "reviews": [],
+  "title": "The Door",
+  "alternateTitles": [
+    "Door, The"
+  ],
+  "creators": [
+    {
+      "authorId": "author-charles-spurgeon",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [
+    {
+      "event": "original-publication",
+      "value": "1901",
+      "precision": "year",
+      "label": "Volume 47 publication year; exact issue date not inferred.",
+      "evidence": [
+        {
+          "url": "https://www.spurgeongems.org/spurgeon-sermons/",
+          "locator": "63-volume numbered index",
+          "note": "Snapshot retained with checksum; entry count includes guest addresses, historical documents, combined numbers, and suffixes.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    },
+    {
+      "event": "delivery",
+      "value": "1879-06-15",
+      "precision": "day",
+      "label": "AT THE METROPOLITAN TABERNACLE, NEWINGTON ON LORD’S-DAY EVENING, JUNE 15, 1879",
+      "evidence": [
+        {
+          "url": "https://www.spurgeongems.org/sermon/chs2752.pdf",
+          "locator": "PDF opening matter",
+          "note": "Title, main texts, and dates transcribed as catalog facts; source distinctions preserved.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    }
+  ],
+  "passages": [
+    {
+      "reference": "John 10:9",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 43010009,
+      "end": 43010009,
+      "verification": "verified",
+      "locator": "Individual PDF, opening Scripture heading"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-spurgeon-volume-47",
+      "locator": "Index entry 2752"
+    }
+  ],
+  "externalIds": {
+    "spurgeon-gems-index-number": [
+      "2752"
+    ],
+    "reconciled-sermon-number": [
+      "2752"
+    ],
+    "published-volume": [
+      "47"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://www.spurgeongems.org/spurgeon-sermons/",
+      "locator": "63-volume numbered index",
+      "note": "Snapshot retained with checksum; entry count includes guest addresses, historical documents, combined numbers, and suffixes.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://www.spurgeongems.org/sermon/chs2752.pdf",
+      "locator": "PDF opening matter",
+      "note": "Title, main texts, and dates transcribed as catalog facts; source distinctions preserved.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://www.spurgeongems.org/chstix.pdf",
+      "locator": "Page 28; original number 2752",
+      "note": "Alphabetical title variant; reconciled by title and numbering context.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

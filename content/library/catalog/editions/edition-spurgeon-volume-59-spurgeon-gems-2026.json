@@ -1,0 +1,37 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-spurgeon-volume-59-spurgeon-gems-2026",
+  "editorialState": "catalogued",
+  "notes": [
+    "Digital snapshot acquired 2026-10-05. The source reports an ongoing return to original wording; no blanket claim of original typography or wording is made."
+  ],
+  "reviews": [],
+  "workId": "work-spurgeon-volume-59",
+  "label": "Spurgeon Gems whole-volume booklet PDF; older digital edition; acquired 2026-10-05",
+  "languages": [
+    "en"
+  ],
+  "contributors": [],
+  "publisher": "Spurgeon Gems",
+  "dates": [
+    {
+      "event": "edition-publication",
+      "value": null,
+      "precision": "unknown",
+      "label": "Digital edition publication date not established; retrieval date belongs to the asset.",
+      "evidence": []
+    }
+  ],
+  "abridgment": "unknown",
+  "modernization": "modernized",
+  "evidence": [
+    {
+      "url": "https://www.spurgeongems.org/chsbm59.pdf",
+      "locator": "Title/opening pages and PDF bookmarks",
+      "note": "Whole-volume digital edition kept separately from current individual PDFs.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

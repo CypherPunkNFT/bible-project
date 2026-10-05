@@ -1,0 +1,374 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-spurgeon-volume-34",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "title": "The Metropolitan Tabernacle Pulpit, volume 34 (1888)",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-charles-spurgeon",
+      "role": "author"
+    }
+  ],
+  "genre": "collected-works",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [
+    {
+      "event": "original-publication",
+      "value": "1888",
+      "precision": "year",
+      "label": "Volume 34, Sermons 2001-2061 (1888)",
+      "evidence": [
+        {
+          "url": "https://www.spurgeongems.org/spurgeon-sermons/",
+          "locator": "63-volume numbered index",
+          "note": "Snapshot retained with checksum; entry count includes guest addresses, historical documents, combined numbers, and suffixes.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    }
+  ],
+  "passages": [],
+  "related": [
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-2001a",
+      "locator": "2001A"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-2001",
+      "locator": "2001"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-2002",
+      "locator": "2002"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-2003",
+      "locator": "2003"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-2004",
+      "locator": "2004"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-2005",
+      "locator": "2005"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-2006",
+      "locator": "2006"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-2007",
+      "locator": "2007"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-2008",
+      "locator": "2008"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-2009",
+      "locator": "2009"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-2010",
+      "locator": "2010"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-2011",
+      "locator": "2011"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-2012",
+      "locator": "2012"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-2013",
+      "locator": "2013"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-2014",
+      "locator": "2014"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-2015",
+      "locator": "2015"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-2016",
+      "locator": "2016"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-2017",
+      "locator": "2017"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-2018",
+      "locator": "2018"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-2019",
+      "locator": "2019"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-2020",
+      "locator": "2020"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-2021",
+      "locator": "2021"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-2022",
+      "locator": "2022"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-2023",
+      "locator": "2023"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-2024",
+      "locator": "2024"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-2025",
+      "locator": "2025"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-2026",
+      "locator": "2026"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-2027",
+      "locator": "2027"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-2028",
+      "locator": "2028"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-2029",
+      "locator": "2029"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-2030",
+      "locator": "2030"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-2031",
+      "locator": "2031"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-2032",
+      "locator": "2032"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-2033",
+      "locator": "2033"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-2034",
+      "locator": "2034"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-2035",
+      "locator": "2035"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-2036",
+      "locator": "2036"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-2037",
+      "locator": "2037"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-2038",
+      "locator": "2038"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-2039",
+      "locator": "2039"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-2040",
+      "locator": "2040"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-2041",
+      "locator": "2041"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-2042",
+      "locator": "2042"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-2043",
+      "locator": "2043"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-2044",
+      "locator": "2044"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-2045",
+      "locator": "2045"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-2046",
+      "locator": "2046"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-2047",
+      "locator": "2047"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-2048",
+      "locator": "2048"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-2049",
+      "locator": "2049"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-2050",
+      "locator": "2050"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-2051",
+      "locator": "2051"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-2052",
+      "locator": "2052"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-2053",
+      "locator": "2053"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-2054",
+      "locator": "2054"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-2055",
+      "locator": "2055"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-2056",
+      "locator": "2056"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-2057",
+      "locator": "2057"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-2058",
+      "locator": "2058"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-2059",
+      "locator": "2059"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-2060",
+      "locator": "2060"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-2061",
+      "locator": "2061"
+    }
+  ],
+  "externalIds": {
+    "published-volume": [
+      "34"
+    ],
+    "number-range": [
+      "2001-2061"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://www.spurgeongems.org/spurgeon-sermons/",
+      "locator": "63-volume numbered index",
+      "note": "Snapshot retained with checksum; entry count includes guest addresses, historical documents, combined numbers, and suffixes.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

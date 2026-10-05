@@ -1,0 +1,121 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-spurgeon-sermon-1862",
+  "editorialState": "catalogued",
+  "notes": [
+    "Number is an edition/index identifier, not a count of distinct preached occasions."
+  ],
+  "reviews": [],
+  "title": "The True Tabernacle and Its Glory of Grace and Peace",
+  "alternateTitles": [
+    "True Tabernacle and Its Glory of Grace and Peace, The"
+  ],
+  "creators": [
+    {
+      "authorId": "author-charles-spurgeon",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [
+    {
+      "event": "original-publication",
+      "value": "1885",
+      "precision": "year",
+      "label": "Volume 31 publication year; exact issue date not inferred.",
+      "evidence": [
+        {
+          "url": "https://www.spurgeongems.org/spurgeon-sermons/",
+          "locator": "63-volume numbered index",
+          "note": "Snapshot retained with checksum; entry count includes guest addresses, historical documents, combined numbers, and suffixes.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    },
+    {
+      "event": "delivery",
+      "value": "1885-09-27",
+      "precision": "day",
+      "label": "ACE AND PEACE NO. 1862 A SERMON DELIVERED ON LORD’S-DAY MORNING, SEPTEMBER 27, 1885",
+      "evidence": [
+        {
+          "url": "https://www.spurgeongems.org/sermon/chs1862.pdf",
+          "locator": "PDF opening matter",
+          "note": "Title, main texts, and dates transcribed as catalog facts; source distinctions preserved.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    }
+  ],
+  "passages": [
+    {
+      "reference": "John 1:14",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 43001014,
+      "end": 43001014,
+      "verification": "verified",
+      "locator": "Individual PDF, opening Scripture heading"
+    },
+    {
+      "reference": "John 1:17",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 43001017,
+      "end": 43001017,
+      "verification": "verified",
+      "locator": "Individual PDF, opening Scripture heading"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-spurgeon-volume-31",
+      "locator": "Index entry 1862"
+    }
+  ],
+  "externalIds": {
+    "spurgeon-gems-index-number": [
+      "1862"
+    ],
+    "reconciled-sermon-number": [
+      "1862"
+    ],
+    "published-volume": [
+      "31"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://www.spurgeongems.org/spurgeon-sermons/",
+      "locator": "63-volume numbered index",
+      "note": "Snapshot retained with checksum; entry count includes guest addresses, historical documents, combined numbers, and suffixes.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://www.spurgeongems.org/sermon/chs1862.pdf",
+      "locator": "PDF opening matter",
+      "note": "Title, main texts, and dates transcribed as catalog facts; source distinctions preserved.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://www.spurgeongems.org/chstix.pdf",
+      "locator": "Page 121; original number 1862",
+      "note": "Alphabetical title variant; reconciled by title and numbering context.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

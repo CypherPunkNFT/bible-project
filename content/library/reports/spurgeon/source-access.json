@@ -1,0 +1,27 @@
+{
+  "sourceId": "source-spurgeon-gems",
+  "checkedOn": "2026-10-05",
+  "scope": "L01 acquisition of the public sermon PDFs, volume PDFs and source indexes",
+  "decision": "Public download endpoints cleared for this bounded acquisition",
+  "basis": "The About page grants free unchanged use with author/source credit. Robots excludes the WordPress administrative path, not the public sermon or volume PDF routes. This is an operational access assessment, not a claim of a separately negotiated bulk API agreement.",
+  "policyUrl": "https://www.spurgeongems.org/about-us/",
+  "policySnapshotAssetId": "asset-spurgeon-gems-policy-2026-10-05",
+  "robotsUrl": "https://www.spurgeongems.org/robots.txt",
+  "robotsSnapshotAssetId": "asset-spurgeon-gems-robots-2026-10-05",
+  "inventoryUrl": "https://www.spurgeongems.org/spurgeon-sermons/",
+  "inventorySnapshotAssetId": "asset-spurgeon-gems-inventory-2026-10-05",
+  "downloadControls": {
+    "workersPerProcess": 3,
+    "minimumLaunchIntervalSecondsPerProcess": 0.35,
+    "maximumAttempts": 3,
+    "requestTimeoutSeconds": 60,
+    "userAgent": "BibleProjectLibrary/1.0 (noncommercial scholarly catalog; rate-limited)",
+    "note": "The short support-file batch overlapped the main sermon batch; at most six requests were active during that overlap."
+  },
+  "rightsCategory": "restricted-license",
+  "conditions": ["No charge", "No changes to content", "Author and Spurgeon Gems credit"],
+  "contentChanged": false,
+  "fullTextIndexed": false,
+  "publiclyPublishedByThisMission": false,
+  "registryNote": "This run-specific finding supplements the L00 unreviewed source default. Shared sources.json was under concurrent editing; asset-specific rights records carry the verified permission decision."
+}

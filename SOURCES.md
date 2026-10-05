@@ -128,6 +128,21 @@ Future category missions store immutable downloads under the resolved `sources/l
 edition/asset/checksum records under `content/library/catalog/`, and a concise acquisition pointer here.
 The owner will request each category separately; see [the backlog](content/library/BACKLOG.md).
 
+### Spurgeon published sermons acquired 2026-10-05
+
+The [Spurgeon acquisition report](content/library/reports/spurgeon/REPORT.md) inventories the 63 pulpit
+volumes (1855–1917) and 3,568 numbered index entries, including explicitly identified guest and historical
+material. The original individual and whole-volume PDFs remain under the resolved
+`sources/library/source-spurgeon-gems/` root. [The manifest](content/library/reports/spurgeon/acquisition-manifest.json)
+records every URL, timestamp, full SHA-256 and byte count; [the reconciliation](content/library/reports/spurgeon/reconciliation.json)
+documents index errors, swapped numbering and the incorrect individual link for *Comfort Proclaimed*,
+whose correct text is in volume 4, PDF pages 673–683.
+
+These digital files use the archive's [free, unchanged, attributed-use permission](https://www.spurgeongems.org/about-us/),
+recorded as **restricted-license**, not an unrestricted open license. [Run-specific access evidence](content/library/reports/spurgeon/source-access.json)
+supplements the initial source-registry defaults. This acquisition does not publish the files or create a
+full-text search index. Exact current totals and remaining metadata checks are in the report and its summary.
+
 ## Considered and left out
 
 - **KJV in the UK:** public domain everywhere except Britain (perpetual Crown patent). Only relevant if the

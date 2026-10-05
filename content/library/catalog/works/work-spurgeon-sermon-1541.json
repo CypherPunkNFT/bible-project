@@ -1,0 +1,128 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-spurgeon-sermon-1541",
+  "editorialState": "catalogued",
+  "notes": [
+    "Number is an edition/index identifier, not a count of distinct preached occasions."
+  ],
+  "reviews": [],
+  "title": "Unprofitable Servants",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-charles-spurgeon",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [
+    {
+      "event": "original-publication",
+      "value": "1880",
+      "precision": "year",
+      "label": "Volume 26 publication year; exact issue date not inferred.",
+      "evidence": [
+        {
+          "url": "https://www.spurgeongems.org/spurgeon-sermons/",
+          "locator": "63-volume numbered index",
+          "note": "Snapshot retained with checksum; entry count includes guest addresses, historical documents, combined numbers, and suffixes.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    },
+    {
+      "event": "delivery",
+      "value": "1880-06-06",
+      "precision": "day",
+      "label": "ABLE SERVANTS NO. 1541 A SERMON DELIVERED ON LORD’S-DAY MORNING, JUNE 6, 1880",
+      "evidence": [
+        {
+          "url": "https://www.spurgeongems.org/sermon/chs1541.pdf",
+          "locator": "PDF opening matter",
+          "note": "Title, main texts, and dates transcribed as catalog facts; source distinctions preserved.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    }
+  ],
+  "passages": [
+    {
+      "reference": "Matthew 25:30",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 40025030,
+      "end": 40025030,
+      "verification": "verified",
+      "locator": "Individual PDF, opening Scripture heading"
+    },
+    {
+      "reference": "Luke 17:10",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 42017010,
+      "end": 42017010,
+      "verification": "verified",
+      "locator": "Individual PDF, opening Scripture heading"
+    },
+    {
+      "reference": "Matthew 25:21",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 40025021,
+      "end": 40025021,
+      "verification": "verified",
+      "locator": "Individual PDF, opening Scripture heading"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-spurgeon-volume-26",
+      "locator": "Index entry 1541"
+    }
+  ],
+  "externalIds": {
+    "spurgeon-gems-index-number": [
+      "1541"
+    ],
+    "reconciled-sermon-number": [
+      "1541"
+    ],
+    "published-volume": [
+      "26"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://www.spurgeongems.org/spurgeon-sermons/",
+      "locator": "63-volume numbered index",
+      "note": "Snapshot retained with checksum; entry count includes guest addresses, historical documents, combined numbers, and suffixes.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://www.spurgeongems.org/sermon/chs1541.pdf",
+      "locator": "PDF opening matter",
+      "note": "Title, main texts, and dates transcribed as catalog facts; source distinctions preserved.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://www.spurgeongems.org/chstix.pdf",
+      "locator": "Page 124; original number 1541",
+      "note": "Alphabetical title variant; reconciled by title and numbering context.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

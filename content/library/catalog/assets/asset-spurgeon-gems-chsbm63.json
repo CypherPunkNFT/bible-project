@@ -1,0 +1,78 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "asset",
+  "id": "asset-spurgeon-gems-chsbm63",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "editionId": "edition-spurgeon-volume-63-spurgeon-gems-2026",
+  "sourceId": "source-spurgeon-gems",
+  "canonicalUrl": "https://www.spurgeongems.org/chsbm63.pdf",
+  "finalUrl": "https://www.spurgeongems.org/chsbm63.pdf",
+  "format": "pdf",
+  "mediaKind": "text",
+  "acquisitionStatus": "downloaded",
+  "storage": "raw",
+  "relativePath": "library/source-spurgeon-gems/asset-spurgeon-gems-chsbm63/chsbm63.pdf",
+  "sha256": "cbbd60d613b8135d365bc62597d0bf1313150e64dada8dce020d86e748ad750c",
+  "byteCount": 921068,
+  "mimeType": "application/pdf",
+  "retrievedAt": "2026-10-05T05:10:30Z",
+  "rights": {
+    "category": "restricted-license",
+    "jurisdiction": null,
+    "licenseId": "Spurgeon-Gems-free-unaltered",
+    "licenseUrl": "https://www.spurgeongems.org/about-us/",
+    "attribution": "Charles H. Spurgeon and individually identified contributors; digital edition supplied by Spurgeon Gems (www.spurgeongems.org).",
+    "conditions": [
+      "Do not charge for the material.",
+      "Do not change the content.",
+      "Credit the author and Spurgeon Gems as source."
+    ],
+    "conditionsMet": true,
+    "actions": {
+      "download": "conditional",
+      "host": "conditional",
+      "redistribute": "conditional",
+      "adapt": "denied",
+      "transcribe": "unknown",
+      "embed": "unknown",
+      "indexMetadata": "allowed",
+      "indexFullText": "unknown"
+    },
+    "evidence": [
+      {
+        "url": "https://www.spurgeongems.org/about-us/",
+        "locator": "Use of material permission",
+        "note": "Published grant permits free, unchanged use with author and source credit; no unrestricted open license is claimed.",
+        "checkedOn": "2026-10-05"
+      }
+    ],
+    "unresolved": [
+      "Full-text indexing, modified editions, and commercial uses require a separate rights decision."
+    ],
+    "review": {
+      "date": "2026-10-05",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Verified website permission and retained raw PDFs with attribution; no public hosting or full-text indexing performed."
+    }
+  },
+  "fullTextIndexed": false,
+  "processing": {
+    "parentAssetId": null,
+    "method": "none",
+    "tool": null,
+    "toolVersion": null,
+    "parameters": null,
+    "date": null,
+    "note": "Original downloaded bytes retained without content alteration; catalog metadata extraction is separate."
+  },
+  "quality": {
+    "state": "sampled",
+    "reviewedBy": "Codex",
+    "reviewedOn": "2026-10-05",
+    "note": "First page rendered and inspected against extracted title, dates, and main text; remainder not visually verified."
+  }
+}

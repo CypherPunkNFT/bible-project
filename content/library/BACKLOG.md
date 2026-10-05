@@ -1,11 +1,11 @@
 # Acquisition backlog
 
-Established 2026-10-05. Mission L00 is the current charter request. All acquisition missions await the owner's category prompt. Dependencies guide ordering; they do not trigger unattended collection.
+Established 2026-10-05. The owner has requested L00 and L01. Other acquisition missions await their category prompts. Dependencies guide ordering; they do not trigger unattended collection.
 
 | ID | Mission | Bounded first unit | Completion evidence | State |
 |---|---|---|---|---|
 | L00 | Collection charter | Scope, 26 proposed people, schema, vocabulary, source policies, conventions | Validator passes; each initial decision has evidence and stated limitations | Established |
-| L01 | Spurgeon sermons | Bibliography of the published sermon set; first complete volume before expansion | Numbered inventory, edition distinctions, gaps and reusable/link-only totals | Awaiting category prompt |
+| L01 | Spurgeon sermons | All 63 published pulpit volumes and their numbered contents | [Inventory and report](reports/spurgeon/REPORT.md): 3,568 indexed entries, numbering corrections, edition/duplicate distinctions, file hashes and metadata review queue | Acquired; metadata exceptions documented |
 | L02 | Reformation and Puritan preaching | One author and one identified collected edition per batch | Table-of-contents reconciliation; sermons separated from treatises | Awaiting category prompt |
 | L03 | Eighteenth-/nineteenth-century preaching | Edwards, Whitefield, Newton and Ryle, author by author | Attribution, delivery/publication dates and posthumous editorial history | Awaiting category prompt |
 | L04 | Modern preaching | One approved ministry/source and one series per batch | Eligibility questions resolved; current access/rights method; ordered series | Awaiting category prompt |

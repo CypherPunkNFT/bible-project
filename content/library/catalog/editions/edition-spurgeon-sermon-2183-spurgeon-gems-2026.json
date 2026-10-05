@@ -1,0 +1,49 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-spurgeon-sermon-2183-spurgeon-gems-2026",
+  "editorialState": "catalogued",
+  "notes": [
+    "Digital snapshot acquired 2026-10-05. The source reports an ongoing return to original wording; no blanket claim of original typography or wording is made."
+  ],
+  "reviews": [],
+  "workId": "work-spurgeon-sermon-2183",
+  "label": "Spurgeon Gems individual PDF; acquired 2026-10-05",
+  "languages": [
+    "en"
+  ],
+  "contributors": [],
+  "publisher": "Spurgeon Gems",
+  "dates": [
+    {
+      "event": "edition-publication",
+      "value": null,
+      "precision": "unknown",
+      "label": "Digital edition publication date not established; retrieval date belongs to the asset.",
+      "evidence": []
+    }
+  ],
+  "abridgment": "unknown",
+  "modernization": "modernized",
+  "evidence": [
+    {
+      "url": "https://www.spurgeongems.org/spurgeon-sermons/",
+      "locator": "63-volume numbered index",
+      "note": "Snapshot retained with checksum; entry count includes guest addresses, historical documents, combined numbers, and suffixes.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://www.spurgeongems.org/sermon/chs2183.pdf",
+      "locator": "PDF opening matter",
+      "note": "Title, main texts, and dates transcribed as catalog facts; source distinctions preserved.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://www.spurgeongems.org/chstix.pdf",
+      "locator": "Page 47; original number 2183",
+      "note": "Alphabetical title variant; reconciled by title and numbering context.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

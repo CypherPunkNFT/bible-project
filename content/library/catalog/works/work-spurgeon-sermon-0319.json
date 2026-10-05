@@ -1,0 +1,126 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-spurgeon-sermon-0319",
+  "editorialState": "catalogued",
+  "notes": [
+    "Number is an edition/index identifier, not a count of distinct preached occasions."
+  ],
+  "reviews": [],
+  "title": "Special Thanksgiving to the Father",
+  "alternateTitles": [
+    "MY DEAR BRETHREN, I have journeyed happily to the borders of Switzerland, and already feel that the removing of the yoke from the shoulder is one of the readiest means of restoring the mental powers. Much of Popish superstition and idolatry have passed under my observation, and if nothing else could make me a Protestant, what I have seen would do so. One thing I have learned anew, which I would have all my brethren learn, namely, the power of a personal Christ. We Protestants are too apt to make doctrine everything, and the person of Christ is not held in sufficient remembrance, with the Roman Catholic, doctrine is nothing, but the person is ever kept in view. The evil is, that the image of Christ before the eye of the Papist is carnal and not spiritual, but could we always keep our Lord before our eyes, in a spiritual sense, we would be better men than any set of doctrines can ever make us. The Lord give to us to abide in Him and so to bring forth much fruit. Baden-Baden, June 15, 1860 C. H. Spurgeon __________________________________________________________________ SPECIAL THANKSGIVING TO THE FATHER"
+  ],
+  "creators": [
+    {
+      "authorId": "author-charles-spurgeon",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [
+    {
+      "event": "original-publication",
+      "value": "1860",
+      "precision": "year",
+      "label": "Volume 6 publication year; exact issue date not inferred.",
+      "evidence": [
+        {
+          "url": "https://www.spurgeongems.org/spurgeon-sermons/",
+          "locator": "63-volume numbered index",
+          "note": "Snapshot retained with checksum; entry count includes guest addresses, historical documents, combined numbers, and suffixes.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    },
+    {
+      "event": "delivery",
+      "value": "1860-06-15",
+      "precision": "day",
+      "label": "s to abide in Him and so to bring forth much fruit. Baden-Baden, June 15, 1860",
+      "evidence": [
+        {
+          "url": "https://www.spurgeongems.org/sermon/chs319.pdf",
+          "locator": "PDF opening matter",
+          "note": "Title, main texts, and dates transcribed as catalog facts; source distinctions preserved.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    },
+    {
+      "event": "delivery",
+      "value": "1860-01-15",
+      "precision": "day",
+      "label": "ING TO THE FATHER NO. 319 A SERMON DELIVERED ON SABBATH EVENING, JANUARY 15, 1860",
+      "evidence": [
+        {
+          "url": "https://www.spurgeongems.org/sermon/chs319.pdf",
+          "locator": "PDF opening matter",
+          "note": "Title, main texts, and dates transcribed as catalog facts; source distinctions preserved.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    }
+  ],
+  "passages": [
+    {
+      "reference": "Colossians 1:12-13",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 51001012,
+      "end": 51001013,
+      "verification": "verified",
+      "locator": "Individual PDF, opening Scripture heading"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-spurgeon-volume-06",
+      "locator": "Index entry 319"
+    }
+  ],
+  "externalIds": {
+    "spurgeon-gems-index-number": [
+      "319"
+    ],
+    "reconciled-sermon-number": [
+      "319"
+    ],
+    "published-volume": [
+      "6"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://www.spurgeongems.org/spurgeon-sermons/",
+      "locator": "63-volume numbered index",
+      "note": "Snapshot retained with checksum; entry count includes guest addresses, historical documents, combined numbers, and suffixes.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://www.spurgeongems.org/sermon/chs319.pdf",
+      "locator": "PDF opening matter",
+      "note": "Title, main texts, and dates transcribed as catalog facts; source distinctions preserved.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://www.spurgeongems.org/chstix.pdf",
+      "locator": "Page 112; original number 319",
+      "note": "Alphabetical title variant; reconciled by title and numbering context.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

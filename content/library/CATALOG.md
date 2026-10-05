@@ -22,6 +22,8 @@ Unknown scalar values use `null`; empty arrays mean none recorded, not proof of 
 
 Creators are typed: `author`, `preacher`, `editor`, `translator`, `speaker`, `narrator`, `institution`. Add institution records to the registry with `entityType: institution` when collecting corporate confessions. A narrator does not become the sermon author. A debate work may have contextual speakers; core-teaching authors must be acquisition-eligible.
 
+Mission-specific contextual contributors may be stored as schema-valid author registries in `registry-extensions/`. The validator combines these with `authors.json` and rejects duplicate IDs across registries. This keeps guest preachers and explicitly unidentified document authors distinct from the core selection roster. Anonymous placeholders identify one document's unresolved attribution; they do not assert a shared historical person. The Spurgeon mission supplies the first such extension.
+
 ## Classification
 
 The eight collection IDs are browsing shelves, not eight copies of each work. Subjects are hierarchical IDs with definitions and aliases. Genre, occasion, audience, depth, era, tradition and format are independent facets. A sermon on assurance remains genre `sermon` even when also shelved in theology and Christian life.

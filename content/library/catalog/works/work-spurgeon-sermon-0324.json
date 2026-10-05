@@ -1,0 +1,126 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-spurgeon-sermon-0324",
+  "editorialState": "catalogued",
+  "notes": [
+    "Number is an edition/index identifier, not a count of distinct preached occasions."
+  ],
+  "reviews": [],
+  "title": "Effects of Sound Doctrine",
+  "alternateTitles": [
+    "MY DEAR FRIENDS, I ought to have written to you long before this, but I have been traveling very fast, and I did not feel at all in an industrious state when I arrived at a hotel late at night. We have had the very best of weather, and the journey has surpassed all my expectations—we are now in lovely Venice. At Geneva I had a noble time. Only think of the Baptist in a Cathedral—an unpolluted High Church pulpit, wherein never stood Dissenter before. I wore the Calvinistic gown and bands for the first time, and I fancied that my figure was unsightly, nevertheless the Word was joyfully received and I felt glad. I have been into churches innumerable, and have seen sights which will never be forgotten by me, and really I cannot get the Popery enough out of my mind to attempt any poetical description of rock, river, or mountain. I shall be more glad to return than to have come hither, which is saying very much, since it has been one of the gems of my life. There are no buildings like “the Tabernacle,” no songs like ours, no people like my church, no days like Sabbath days at home. My journey has refreshed my mind, instructed my soul, fired my imagination, and rejoiced my spirit. Thank God for all His mercies. I trust there will be some inquirers when I return, and those not a few, to show that the labors of my brethren have been blessed in my absence. With kindest regards to all dear friends, and love to all the saints, I am, yours very truly in the Gospel of Christ, Venice, Hotel de la Ville, July 21, 1860 C. H. SPURGEON EFFECTS OF SOUND DOCTRINE"
+  ],
+  "creators": [
+    {
+      "authorId": "author-charles-spurgeon",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [
+    {
+      "event": "original-publication",
+      "value": "1860",
+      "precision": "year",
+      "label": "Volume 6 publication year; exact issue date not inferred.",
+      "evidence": [
+        {
+          "url": "https://www.spurgeongems.org/spurgeon-sermons/",
+          "locator": "63-volume numbered index",
+          "note": "Snapshot retained with checksum; entry count includes guest addresses, historical documents, combined numbers, and suffixes.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    },
+    {
+      "event": "delivery",
+      "value": "1860-07-21",
+      "precision": "day",
+      "label": "s very truly in the Gospel of Christ, Venice, Hotel de la Ville, July 21, 1860",
+      "evidence": [
+        {
+          "url": "https://www.spurgeongems.org/sermon/chs324.pdf",
+          "locator": "PDF opening matter",
+          "note": "Title, main texts, and dates transcribed as catalog facts; source distinctions preserved.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    },
+    {
+      "event": "delivery",
+      "value": "1860-04-22",
+      "precision": "day",
+      "label": "OF SOUND DOCTRINE NO. 324 A SERMON DELIVERED ON SABBATH EVENING, APRIL 22, 1860",
+      "evidence": [
+        {
+          "url": "https://www.spurgeongems.org/sermon/chs324.pdf",
+          "locator": "PDF opening matter",
+          "note": "Title, main texts, and dates transcribed as catalog facts; source distinctions preserved.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    }
+  ],
+  "passages": [
+    {
+      "reference": "Matthew 24:24",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 40024024,
+      "end": 40024024,
+      "verification": "verified",
+      "locator": "Individual PDF, opening Scripture heading"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-spurgeon-volume-06",
+      "locator": "Index entry 324"
+    }
+  ],
+  "externalIds": {
+    "spurgeon-gems-index-number": [
+      "324"
+    ],
+    "reconciled-sermon-number": [
+      "324"
+    ],
+    "published-volume": [
+      "6"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://www.spurgeongems.org/spurgeon-sermons/",
+      "locator": "63-volume numbered index",
+      "note": "Snapshot retained with checksum; entry count includes guest addresses, historical documents, combined numbers, and suffixes.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://www.spurgeongems.org/sermon/chs324.pdf",
+      "locator": "PDF opening matter",
+      "note": "Title, main texts, and dates transcribed as catalog facts; source distinctions preserved.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://www.spurgeongems.org/chstix.pdf",
+      "locator": "Page 29; original number 324",
+      "note": "Alphabetical title variant; reconciled by title and numbering context.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

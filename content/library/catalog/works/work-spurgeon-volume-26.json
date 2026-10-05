@@ -1,0 +1,384 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-spurgeon-volume-26",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "title": "The Metropolitan Tabernacle Pulpit, volume 26 (1880)",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-charles-spurgeon",
+      "role": "author"
+    }
+  ],
+  "genre": "collected-works",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [
+    {
+      "event": "original-publication",
+      "value": "1880",
+      "precision": "year",
+      "label": "Volume 26, Sermons 1511-1574 (1880)",
+      "evidence": [
+        {
+          "url": "https://www.spurgeongems.org/spurgeon-sermons/",
+          "locator": "63-volume numbered index",
+          "note": "Snapshot retained with checksum; entry count includes guest addresses, historical documents, combined numbers, and suffixes.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    }
+  ],
+  "passages": [],
+  "related": [
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-1511",
+      "locator": "1511"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-1512",
+      "locator": "1512"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-1513",
+      "locator": "1513"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-1514",
+      "locator": "1514"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-1515",
+      "locator": "1515"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-1516",
+      "locator": "1516"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-1517",
+      "locator": "1517"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-1518",
+      "locator": "1518"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-1519",
+      "locator": "1519"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-1520",
+      "locator": "1520"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-1521",
+      "locator": "1521"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-1522",
+      "locator": "1522"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-1523",
+      "locator": "1523"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-1524",
+      "locator": "1524"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-1525",
+      "locator": "1525"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-1526",
+      "locator": "1526"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-1527",
+      "locator": "1527"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-1528",
+      "locator": "1528"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-1529",
+      "locator": "1529"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-1530",
+      "locator": "1530"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-1531",
+      "locator": "1531"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-1532",
+      "locator": "1532"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-1533",
+      "locator": "1533"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-1534",
+      "locator": "1534"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-1535",
+      "locator": "1535"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-1536",
+      "locator": "1536"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-1537",
+      "locator": "1537"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-1538",
+      "locator": "1538"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-1539",
+      "locator": "1539"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-1540",
+      "locator": "1540"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-1541",
+      "locator": "1541"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-1542",
+      "locator": "1542"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-1543",
+      "locator": "1543"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-1544",
+      "locator": "1544"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-1545",
+      "locator": "1545"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-1546",
+      "locator": "1546"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-1547",
+      "locator": "1547"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-1548",
+      "locator": "1548"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-1549",
+      "locator": "1549"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-1550",
+      "locator": "1550"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-1551",
+      "locator": "1551"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-1552",
+      "locator": "1552"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-1553",
+      "locator": "1553"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-1554",
+      "locator": "1554"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-1555",
+      "locator": "1555"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-1556",
+      "locator": "1556"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-1557",
+      "locator": "1557"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-1558",
+      "locator": "1558"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-1559",
+      "locator": "1559"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-1560",
+      "locator": "1560"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-1561",
+      "locator": "1561"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-1562",
+      "locator": "1562"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-1563",
+      "locator": "1563"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-1564",
+      "locator": "1564"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-1565",
+      "locator": "1565"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-1566",
+      "locator": "1566"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-1567",
+      "locator": "1567"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-1568",
+      "locator": "1568"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-1569",
+      "locator": "1569"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-1570",
+      "locator": "1570"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-1571",
+      "locator": "1571"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-1572",
+      "locator": "1572"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-1573",
+      "locator": "1573"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-1574",
+      "locator": "1574"
+    }
+  ],
+  "externalIds": {
+    "published-volume": [
+      "26"
+    ],
+    "number-range": [
+      "1511-1574"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://www.spurgeongems.org/spurgeon-sermons/",
+      "locator": "63-volume numbered index",
+      "note": "Snapshot retained with checksum; entry count includes guest addresses, historical documents, combined numbers, and suffixes.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

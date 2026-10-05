@@ -1,0 +1,117 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-spurgeon-sermon-0340",
+  "editorialState": "catalogued",
+  "notes": [
+    "Number is an edition/index identifier, not a count of distinct preached occasions.",
+    "Hebrews 4:3 in the opening body paragraph is a citation, not a second main text."
+  ],
+  "reviews": [],
+  "title": "'Magnificat'",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-charles-spurgeon",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [
+    {
+      "event": "original-publication",
+      "value": "1860",
+      "precision": "year",
+      "label": "Volume 6 publication year; exact issue date not inferred.",
+      "evidence": [
+        {
+          "url": "https://www.spurgeongems.org/spurgeon-sermons/",
+          "locator": "63-volume numbered index",
+          "note": "Snapshot retained with checksum; entry count includes guest addresses, historical documents, combined numbers, and suffixes.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    },
+    {
+      "event": "delivery",
+      "value": "1860-10-14",
+      "precision": "day",
+      "label": " 6 1 “MAGNIFICAT” NO. 340 A SERMON DELIVERED ON SABBATH MORNING, OCTOBER 14, 1860",
+      "evidence": [
+        {
+          "url": "https://www.spurgeongems.org/sermon/chs340.pdf",
+          "locator": "PDF opening matter",
+          "note": "Title, main texts, and dates transcribed as catalog facts; source distinctions preserved.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    }
+  ],
+  "passages": [
+    {
+      "reference": "Judges 5:12",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 7005012,
+      "end": 7005012,
+      "verification": "verified",
+      "locator": "Individual PDF, page 1; inspected passage introduction"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-spurgeon-volume-06",
+      "locator": "Index entry 340"
+    }
+  ],
+  "externalIds": {
+    "spurgeon-gems-index-number": [
+      "340"
+    ],
+    "reconciled-sermon-number": [
+      "340"
+    ],
+    "published-volume": [
+      "6"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://www.spurgeongems.org/spurgeon-sermons/",
+      "locator": "63-volume numbered index",
+      "note": "Snapshot retained with checksum; entry count includes guest addresses, historical documents, combined numbers, and suffixes.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://www.spurgeongems.org/sermon/chs340.pdf",
+      "locator": "PDF opening matter",
+      "note": "Title, main texts, and dates transcribed as catalog facts; source distinctions preserved.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://www.spurgeongems.org/chstix.pdf",
+      "locator": "Page 71; original number 340",
+      "note": "Alphabetical title variant; reconciled by title and numbering context.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://www.spurgeongems.org/sermon/chs340.pdf",
+      "locator": "Pages 1",
+      "note": "Hebrews 4:3 in the opening body paragraph is a citation, not a second main text.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

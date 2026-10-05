@@ -1,0 +1,119 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-spurgeon-sermon-1101",
+  "editorialState": "catalogued",
+  "notes": [
+    "Number is an edition/index identifier, not a count of distinct preached occasions.",
+    "The opening quotation is Job 33:29-30, but the accompanying footnote explicitly identifies verses 14 through 30 as the real text."
+  ],
+  "reviews": [],
+  "title": "An Old-Fashioned Conversion",
+  "alternateTitles": [
+    "Old-Fashioned Conversion, An"
+  ],
+  "creators": [
+    {
+      "authorId": "author-charles-spurgeon",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [
+    {
+      "event": "original-publication",
+      "value": "1873",
+      "precision": "year",
+      "label": "Volume 19 publication year; exact issue date not inferred.",
+      "evidence": [
+        {
+          "url": "https://www.spurgeongems.org/spurgeon-sermons/",
+          "locator": "63-volume numbered index",
+          "note": "Snapshot retained with checksum; entry count includes guest addresses, historical documents, combined numbers, and suffixes.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    },
+    {
+      "event": "delivery",
+      "value": "1873-03-16",
+      "precision": "day",
+      "label": "ED CONVERSION NO. 1101 A SERMON DELIVERED ON LORD’S-DAY MORNING, MARCH 16, 1873",
+      "evidence": [
+        {
+          "url": "https://www.spurgeongems.org/sermon/chs1101.pdf",
+          "locator": "PDF opening matter",
+          "note": "Title, main texts, and dates transcribed as catalog facts; source distinctions preserved.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    }
+  ],
+  "passages": [
+    {
+      "reference": "Job 33:14-30",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 18033014,
+      "end": 18033030,
+      "verification": "verified",
+      "locator": "Individual PDF, page 1; inspected passage introduction"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-spurgeon-volume-19",
+      "locator": "Index entry 1101"
+    }
+  ],
+  "externalIds": {
+    "spurgeon-gems-index-number": [
+      "1101"
+    ],
+    "reconciled-sermon-number": [
+      "1101"
+    ],
+    "published-volume": [
+      "19"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://www.spurgeongems.org/spurgeon-sermons/",
+      "locator": "63-volume numbered index",
+      "note": "Snapshot retained with checksum; entry count includes guest addresses, historical documents, combined numbers, and suffixes.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://www.spurgeongems.org/sermon/chs1101.pdf",
+      "locator": "PDF opening matter",
+      "note": "Title, main texts, and dates transcribed as catalog facts; source distinctions preserved.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://www.spurgeongems.org/chstix.pdf",
+      "locator": "Page 81; original number 1101",
+      "note": "Alphabetical title variant; reconciled by title and numbering context.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://www.spurgeongems.org/sermon/chs1101.pdf",
+      "locator": "Pages 1",
+      "note": "The opening quotation is Job 33:29-30, but the accompanying footnote explicitly identifies verses 14 through 30 as the real text.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

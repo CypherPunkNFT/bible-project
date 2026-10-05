@@ -1,0 +1,126 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-spurgeon-sermon-0318",
+  "editorialState": "catalogued",
+  "notes": [
+    "Number is an edition/index identifier, not a count of distinct preached occasions."
+  ],
+  "reviews": [],
+  "title": "High Doctrine",
+  "alternateTitles": [
+    "MY DEAR BRETHREN, Incessant labor has so completely wearied me, that I am compelled to retire for a few weeks from active service. The great Master bade His disciples to “go into the desert and rest awhile,” and I feel that I should be acting in opposition to the warnings of providence in my mental and physical frame if I did not seek repose. During my absence I shall continue to address you through the evening sermons, which are richer and more full of doctrinal truth than those of the morning. If the sermons addressed to the mixed assemblies of Exeter Hall have been in any measure profitable to you, I am full well-assured that the evening sermons to the church of God will not fail, under the divine blessing, to edify you far more. I shall hope to write a few lines to you, which will be appended to the weekly sermon, that the links of our communion may not be broken, and that I may have the opportunity of begging your daily prayers. The Lord bless you and preserve you until the day of His appearing. I am, yours in Jesus, C. H. SPURGEON Clapham, Monday, June 4, 1860 HIGH DOCTRINE"
+  ],
+  "creators": [
+    {
+      "authorId": "author-charles-spurgeon",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [
+    {
+      "event": "original-publication",
+      "value": "1860",
+      "precision": "year",
+      "label": "Volume 6 publication year; exact issue date not inferred.",
+      "evidence": [
+        {
+          "url": "https://www.spurgeongems.org/spurgeon-sermons/",
+          "locator": "63-volume numbered index",
+          "note": "Snapshot retained with checksum; entry count includes guest addresses, historical documents, combined numbers, and suffixes.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    },
+    {
+      "event": "delivery",
+      "value": "1860-06-04",
+      "precision": "day",
+      "label": "appearing. I am, yours in Jesus, C. H. SPURGEON Clapham, Monday, June 4, 1860",
+      "evidence": [
+        {
+          "url": "https://www.spurgeongems.org/sermon/chs318.pdf",
+          "locator": "PDF opening matter",
+          "note": "Title, main texts, and dates transcribed as catalog facts; source distinctions preserved.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    },
+    {
+      "event": "delivery",
+      "value": "1860-06-03",
+      "precision": "day",
+      "label": "860 HIGH DOCTRINE NO. 318 A SERMON DELIVERED ON SABBATH MORNING, JUNE 3, 1860",
+      "evidence": [
+        {
+          "url": "https://www.spurgeongems.org/sermon/chs318.pdf",
+          "locator": "PDF opening matter",
+          "note": "Title, main texts, and dates transcribed as catalog facts; source distinctions preserved.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    }
+  ],
+  "passages": [
+    {
+      "reference": "2 Corinthians 5:18",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 47005018,
+      "end": 47005018,
+      "verification": "verified",
+      "locator": "Individual PDF, opening Scripture heading"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-spurgeon-volume-06",
+      "locator": "Index entry 318"
+    }
+  ],
+  "externalIds": {
+    "spurgeon-gems-index-number": [
+      "318"
+    ],
+    "reconciled-sermon-number": [
+      "318"
+    ],
+    "published-volume": [
+      "6"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://www.spurgeongems.org/spurgeon-sermons/",
+      "locator": "63-volume numbered index",
+      "note": "Snapshot retained with checksum; entry count includes guest addresses, historical documents, combined numbers, and suffixes.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://www.spurgeongems.org/sermon/chs318.pdf",
+      "locator": "PDF opening matter",
+      "note": "Title, main texts, and dates transcribed as catalog facts; source distinctions preserved.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://www.spurgeongems.org/chstix.pdf",
+      "locator": "Page 52; original number 318",
+      "note": "Alphabetical title variant; reconciled by title and numbering context.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

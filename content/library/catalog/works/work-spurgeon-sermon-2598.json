@@ -1,0 +1,114 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-spurgeon-sermon-2598",
+  "editorialState": "catalogued",
+  "notes": [
+    "Number is an edition/index identifier, not a count of distinct preached occasions.",
+    "Scheduled reading: 1898-11-27. Source heading: THE CHURCH NO. 2598 A SERMON INTENDED FOR READING ON LORD’S-DAY, NOVEMBER 27, 1898. This is not asserted as publication or delivery."
+  ],
+  "reviews": [],
+  "title": "Spiritual Revival",
+  "alternateTitles": [
+    "SPIRITUAL REVIVAL, THE WANT OF THE CHURCH",
+    "Spiritual Revival—The Need of the Church"
+  ],
+  "creators": [
+    {
+      "authorId": "author-charles-spurgeon",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [
+    {
+      "event": "original-publication",
+      "value": "1898",
+      "precision": "year",
+      "label": "Volume 44 publication year; exact issue date not inferred.",
+      "evidence": [
+        {
+          "url": "https://www.spurgeongems.org/spurgeon-sermons/",
+          "locator": "63-volume numbered index",
+          "note": "Snapshot retained with checksum; entry count includes guest addresses, historical documents, combined numbers, and suffixes.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    },
+    {
+      "event": "delivery",
+      "value": "1856-11-11",
+      "precision": "day",
+      "label": " COURT ROAD AT THE CENTENARY COMMEMORATION ON TUESDAY AFTERNOON, NOVEMBER 11, 1856",
+      "evidence": [
+        {
+          "url": "https://www.spurgeongems.org/sermon/chs2598.pdf",
+          "locator": "PDF opening matter",
+          "note": "Title, main texts, and dates transcribed as catalog facts; source distinctions preserved.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    }
+  ],
+  "passages": [
+    {
+      "reference": "Habakkuk 3:2",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 35003002,
+      "end": 35003002,
+      "verification": "verified",
+      "locator": "Individual PDF, opening Scripture heading"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-spurgeon-volume-44",
+      "locator": "Index entry 2598"
+    }
+  ],
+  "externalIds": {
+    "spurgeon-gems-index-number": [
+      "2598"
+    ],
+    "reconciled-sermon-number": [
+      "2598"
+    ],
+    "published-volume": [
+      "44"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://www.spurgeongems.org/spurgeon-sermons/",
+      "locator": "63-volume numbered index",
+      "note": "Snapshot retained with checksum; entry count includes guest addresses, historical documents, combined numbers, and suffixes.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://www.spurgeongems.org/sermon/chs2598.pdf",
+      "locator": "PDF opening matter",
+      "note": "Title, main texts, and dates transcribed as catalog facts; source distinctions preserved.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://www.spurgeongems.org/chstix.pdf",
+      "locator": "Page 113; original number 2598",
+      "note": "Alphabetical title variant; reconciled by title and numbering context.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

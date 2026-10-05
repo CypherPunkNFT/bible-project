@@ -1,0 +1,111 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-spurgeon-sermon-2610",
+  "editorialState": "catalogued",
+  "notes": [
+    "Number is an edition/index identifier, not a count of distinct preached occasions.",
+    "Scheduled reading: 1899-02-19. Source heading: A PARTAKER NO. 2610 A SERMON INTENDED FOR READING ON LORD’S-DAY, FEBRUARY 19, 1899. This is not asserted as publication or delivery."
+  ],
+  "reviews": [],
+  "title": "A Witness and a Partaker",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-charles-spurgeon",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [
+    {
+      "event": "original-publication",
+      "value": "1899",
+      "precision": "year",
+      "label": "Volume 45 publication year; exact issue date not inferred.",
+      "evidence": [
+        {
+          "url": "https://www.spurgeongems.org/spurgeon-sermons/",
+          "locator": "63-volume numbered index",
+          "note": "Snapshot retained with checksum; entry count includes guest addresses, historical documents, combined numbers, and suffixes.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    },
+    {
+      "event": "delivery",
+      "value": "1883-11-04",
+      "precision": "day",
+      "label": "AT THE METROPOLITAN TABERNACLE, NEWINGTON ON LORD’S-DAY EVENING, NOVEMBER 4, 1883",
+      "evidence": [
+        {
+          "url": "https://www.spurgeongems.org/sermon/chs2610.pdf",
+          "locator": "PDF opening matter",
+          "note": "Title, main texts, and dates transcribed as catalog facts; source distinctions preserved.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    }
+  ],
+  "passages": [
+    {
+      "reference": "1 Peter 5:1",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 60005001,
+      "end": 60005001,
+      "verification": "verified",
+      "locator": "sindex_nt.pdf, page 58; source index main-text row"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-spurgeon-volume-45",
+      "locator": "Index entry 2610"
+    }
+  ],
+  "externalIds": {
+    "spurgeon-gems-index-number": [
+      "2610"
+    ],
+    "reconciled-sermon-number": [
+      "2610"
+    ],
+    "published-volume": [
+      "45"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://www.spurgeongems.org/spurgeon-sermons/",
+      "locator": "63-volume numbered index",
+      "note": "Snapshot retained with checksum; entry count includes guest addresses, historical documents, combined numbers, and suffixes.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://www.spurgeongems.org/sermon/chs2610.pdf",
+      "locator": "PDF opening matter",
+      "note": "Title, main texts, and dates transcribed as catalog facts; source distinctions preserved.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://www.spurgeongems.org/sindex_nt.pdf",
+      "locator": "Page 58",
+      "note": "Main-text index row; appended expositions are excluded.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

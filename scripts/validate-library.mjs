@@ -23,7 +23,7 @@ function jsonFiles(folder) {
     return entry.isDirectory() ? jsonFiles(file) : entry.name.endsWith(".json") ? [file] : [];
   }).sort();
 }
-const files = ["authors.json", "sources.json", "vocabulary.json"].map((f) => path.join(root, f)).concat(jsonFiles(path.join(root, "catalog")));
+const files = ["authors.json", "sources.json", "vocabulary.json"].map((f) => path.join(root, f)).concat(jsonFiles(path.join(root, "registry-extensions")), jsonFiles(path.join(root, "catalog")));
 const documents = [];
 for (const file of files) {
   try {
@@ -33,7 +33,7 @@ for (const file of files) {
   } catch (error) { fail(file, error.message); }
 }
 if (issues.length) { console.error(issues.join("\n")); process.exit(1); }
-const authors = documents.find(({ doc }) => doc.kind === "author-registry").doc.authors;
+const authors = documents.filter(({ doc }) => doc.kind === "author-registry").flatMap(({ doc }) => doc.authors);
 const sources = documents.find(({ doc }) => doc.kind === "source-registry").doc.sources;
 const vocabulary = documents.find(({ doc }) => doc.kind === "vocabulary").doc;
 const records = documents.filter(({ doc }) => doc.id);

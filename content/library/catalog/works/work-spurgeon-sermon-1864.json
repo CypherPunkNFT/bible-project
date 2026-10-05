@@ -1,0 +1,123 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-spurgeon-sermon-1864",
+  "editorialState": "catalogued",
+  "notes": [
+    "Number is an edition/index identifier, not a count of distinct preached occasions.",
+    "The editorial preface precedes the delivery heading on page 1; the main text is introduced on page 2."
+  ],
+  "reviews": [],
+  "title": "First Things First",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-charles-spurgeon",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [
+    {
+      "event": "original-publication",
+      "value": "1885",
+      "precision": "year",
+      "label": "Volume 31 publication year; exact issue date not inferred.",
+      "evidence": [
+        {
+          "url": "https://www.spurgeongems.org/spurgeon-sermons/",
+          "locator": "63-volume numbered index",
+          "note": "Snapshot retained with checksum; entry count includes guest addresses, historical documents, combined numbers, and suffixes.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    },
+    {
+      "event": "delivery",
+      "value": "1885-09-28",
+      "precision": "day",
+      "label": "DELIVERED AT THE MONTHLY MEETING OF THE LONDON BANKS’ PRAYER UNION ... ON MONDAY AFTERNOON, SEPTEMBER 28, 1885",
+      "evidence": [
+        {
+          "url": "https://www.spurgeongems.org/sermon/chs1864.pdf",
+          "locator": "Page 1",
+          "note": "Delivery heading follows the editorial preface.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    }
+  ],
+  "passages": [
+    {
+      "reference": "Matthew 6:33",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 40006033,
+      "end": 40006033,
+      "verification": "verified",
+      "locator": "Individual PDF, page 2; inspected passage introduction"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-spurgeon-volume-31",
+      "locator": "Index entry 1864"
+    }
+  ],
+  "externalIds": {
+    "spurgeon-gems-index-number": [
+      "1864"
+    ],
+    "reconciled-sermon-number": [
+      "1864"
+    ],
+    "published-volume": [
+      "31"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://www.spurgeongems.org/spurgeon-sermons/",
+      "locator": "63-volume numbered index",
+      "note": "Snapshot retained with checksum; entry count includes guest addresses, historical documents, combined numbers, and suffixes.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://www.spurgeongems.org/sermon/chs1864.pdf",
+      "locator": "PDF opening matter",
+      "note": "Title, main texts, and dates transcribed as catalog facts; source distinctions preserved.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://www.spurgeongems.org/sindex_nt.pdf",
+      "locator": "Page 2",
+      "note": "Main-text index row; appended expositions are excluded.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://www.spurgeongems.org/chstix.pdf",
+      "locator": "Page 37; original number 1864",
+      "note": "Alphabetical title variant; reconciled by title and numbering context.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://www.spurgeongems.org/sermon/chs1864.pdf",
+      "locator": "Pages 2",
+      "note": "The editorial preface precedes the delivery heading on page 1; the main text is introduced on page 2.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

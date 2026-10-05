@@ -1,0 +1,159 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-spurgeon-volume-63",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [],
+  "title": "The Metropolitan Tabernacle Pulpit, volume 63 (1917)",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-charles-spurgeon",
+      "role": "author"
+    }
+  ],
+  "genre": "collected-works",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [
+    {
+      "event": "original-publication",
+      "value": "1917",
+      "precision": "year",
+      "label": "Volume 63, Sermons 3545-3563 (1917)",
+      "evidence": [
+        {
+          "url": "https://www.spurgeongems.org/spurgeon-sermons/",
+          "locator": "63-volume numbered index",
+          "note": "Snapshot retained with checksum; entry count includes guest addresses, historical documents, combined numbers, and suffixes.",
+          "checkedOn": "2026-10-05"
+        }
+      ]
+    }
+  ],
+  "passages": [],
+  "related": [
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-3545",
+      "locator": "3545"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-3546",
+      "locator": "3546"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-3547",
+      "locator": "3547"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-3548",
+      "locator": "3548"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-3549",
+      "locator": "3549"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-3550",
+      "locator": "3550"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-3551",
+      "locator": "3551"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-3552",
+      "locator": "3552"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-3553",
+      "locator": "3553"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-3554",
+      "locator": "3554"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-3555",
+      "locator": "3555"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-3556",
+      "locator": "3556"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-3557",
+      "locator": "3557"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-3558",
+      "locator": "3558"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-3559",
+      "locator": "3559"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-3560",
+      "locator": "3560"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-3561",
+      "locator": "3561"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-3562",
+      "locator": "3562"
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-spurgeon-sermon-3563",
+      "locator": "3563"
+    }
+  ],
+  "externalIds": {
+    "published-volume": [
+      "63"
+    ],
+    "number-range": [
+      "3545-3563"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://www.spurgeongems.org/spurgeon-sermons/",
+      "locator": "63-volume numbered index",
+      "note": "Snapshot retained with checksum; entry count includes guest addresses, historical documents, combined numbers, and suffixes.",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}
