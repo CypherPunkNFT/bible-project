@@ -1,0 +1,17 @@
+{
+  "state_dir": "../../KnowledgeBase",
+  "site_dir": "..",
+  "sources_dir": "../../sources",
+  "reader_url": "http://127.0.0.1:8931",
+  "port": 8935,
+  "chunk_chars": 1500,
+  "embedding": {
+    "model": "Qwen/Qwen3-Embedding-4B",
+    "revision": "5cf2132abc99cad020ac570b19d031efec650f2b",
+    "dimensions": 2560,
+    "max_tokens": 4096,
+    "batch_size": 16,
+    "daemon_url": "http://127.0.0.1:8936",
+    "gpu_lock": "../../../../../HyperVault/KnowledgeBase/data/.qwen3-embed.lock"
+  }
+}
