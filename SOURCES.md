@@ -183,6 +183,10 @@ The [modern text report](content/library/reports/modern-texts/REPORT.md) tracks 
 
 The [five study paths](content/library/reports/study-paths/PATHS.md) reuse 24 existing catalog works in 15 ordered stages. The [selection register](content/library/reports/study-paths/resources.json) retains source links and exact assigned locations; the [access record](content/library/reports/study-paths/source-access.json) distinguishes PRDL discovery, Monergism linking, Desiring God permissions and MLJ systematic-retrieval restrictions. No new source files were acquired, no full texts republished and no catalog editorial status promoted. See the [report](content/library/reports/study-paths/REPORT.md) for scoped verification and remaining gaps.
 
+## Historical collection-level ready text (2026-10-05)
+
+The [ready-text batch report](content/library/reports/historical-text-corpora/REPORT.md) records 91 source-offered Monergism EPUB editions across 23 eligible historical authors, discovered from one author-organized index. The primary batch comprises 79 editions with 24,036,037 extracted words; 12 editions disclosing publisher AI transcription/translation are excluded from that batch and retained for review. Text counts include overlapping collections. [Open local EPUB/TXT files](content/library/reports/historical-text-corpora/FILES.md); [hashes, source URLs, edition metadata and quality checks](content/library/reports/historical-text-corpora/acquisition-results.json). All offered volumes of the Edwards, Whitefield and Owen Hebrews sets were acquired; previously downloaded CCEL Calvin commentaries were reused. No scan downloads or new OCR. [Monergism's permissions](https://www.monergism.com/monergism-copyright-permissions) support private study copies and source linking, not republication of curated files. Nothing was added to public publication or app full-text search.
+
 ## Considered and left out
 
 - **KJV in the UK:** public domain everywhere except Britain (perpetual Crown patent). Only relevant if the
