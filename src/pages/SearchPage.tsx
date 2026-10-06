@@ -1,4 +1,5 @@
 import { Search } from "lucide-react";
+import { SearchLanding } from "@/components/search/SearchLanding";
 import { MeaningBadge, PlacesSection, StudiesSection, VersesSection } from "@/components/search/SearchSections";
 import { useMeaningResults } from "@/lib/meaning/useMeaningResults";
 import { useEffect, useMemo, useRef, useState, type FormEvent } from "react";
@@ -39,14 +40,17 @@ export default function SearchPage() {
   const [shown, setShown] = useState(PAGE);
   const books = catalog.books.filter((b) => translation.books[b.code]);
 
-  const run = async (event?: FormEvent) => {
+  // `asked` is a query from an example button; otherwise the box.
+  const run = async (event?: FormEvent, asked?: string) => {
     event?.preventDefault();
-    const matcher = makeMatcher(draft, wholeWords);
+    const query = asked ?? draft;
+    if (asked) setDraft(asked);
+    const matcher = makeMatcher(query, wholeWords);
     if (!matcher) return;
-    setParams({ q: draft, in: translation.slug, whole: wholeWords ? "1" : "0" }, { replace: true });
-    setSubmitted(draft.trim());
+    setParams({ q: query, in: translation.slug, whole: wholeWords ? "1" : "0" }, { replace: true });
+    setSubmitted(query.trim());
     const runId = ++latestRun.current;
-    const searched = { query: draft, slug: translation.slug, wholeWords };
+    const searched = { query, slug: translation.slug, wholeWords };
     setState({ status: "loading", loaded: 0, hits: [], ...searched });
     setShown(PAGE);
     let loaded = 0;
@@ -118,6 +122,7 @@ export default function SearchPage() {
         </div>
       </form>
 
+      {!submitted && <SearchLanding onAsk={(asked) => void run(undefined, asked)} />}
       {submitted && (
         <>
           <StudiesSection query={submitted} meaning={meaning} />
