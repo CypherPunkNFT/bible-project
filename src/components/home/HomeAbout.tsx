@@ -2,7 +2,7 @@ import { ArrowUpRight, BookOpen, Download, Gift } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useCatalog } from "@/lib/catalog";
 
-export const REPOSITORY = "https://github.com/CYPKNFT/bible-project";
+export const REPOSITORY = "https://github.com/CypherPunkNFT/bible-project";
 
 const POINTS = [
   {

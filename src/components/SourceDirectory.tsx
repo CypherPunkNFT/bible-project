@@ -27,7 +27,7 @@ const research = [
   ["Historical text corpora", "historical-text-corpora"], ["Text extraction & OCR decisions", "ocr-completion"],
   ["Ready-text completion", "ready-text-completion"], ["Acquisition gap batch", "text-gap-batch"],
 ];
-const repo = "https://github.com/CYPKNFT/bible-project/blob/main/";
+const repo = "https://github.com/CypherPunkNFT/bible-project/blob/main/";
 const PAGE_SIZE = 12;
 
 export function SourceDirectory({ scriptureCount }: { scriptureCount: number }) {
