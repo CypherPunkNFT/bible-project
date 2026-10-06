@@ -85,7 +85,10 @@ export function StreetAtlasMap({ places, selected, onSelect, overlay, coveredFra
     map.addControl(new ScaleControl({ unit: "metric" }), "bottom-left");
     map.on("error", (event) => {
       console.error("street atlas: map error", event.error);
-      if (/404|Failed to fetch|range/i.test(String(event.error?.message))) setProblem("The street map file is not available. Is the F: drive connected? See AtlasTiles/README.md.");
+      // Only a missing piece list means the map cannot load at all; a single dropped square is retried and harmless.
+      if (!String(event.error?.message).startsWith("street atlas: manifest")) return;
+      const local = /^(localhost|127\.)/.test(window.location.hostname);
+      setProblem(local ? "The map data is not available. Is the F: drive connected? See STREET_ATLAS.md." : "The map could not be loaded right now. Please try again in a moment.");
     });
     map.on("style.load", syncOverlays); // props may have changed while the style was still loading
     map.on("click", "place-cluster", async (event: MapLayerMouseEvent) => {

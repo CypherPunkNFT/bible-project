@@ -9,6 +9,13 @@ interface Manifest {
 }
 
 /**
+ * Chrome-family browsers on Windows can fail parallel byte-range requests to the same cached file ("Failed to fetch",
+ * net::ERR_CACHE_OPERATION_NOT_SUPPORTED). pmtiles' own FetchSource bypasses the cache there; so do we (seen live 2026-10-06).
+ */
+const RANGE_CACHE: RequestCache | undefined =
+  typeof navigator !== "undefined" && /Windows/.test(navigator.userAgent) && /Chrome|Chromium|Edg|OPR|Brave/.test(navigator.userAgent) ? "no-store" : undefined;
+
+/**
  * The map file read as numbered pieces (`<base>/<version>/000.bin` …), because Cloudflare Pages refuses files over
  * 25 MiB. A byte range is fetched from whichever piece(s) hold it; a range that crosses a boundary is stitched together.
  */
@@ -34,7 +41,9 @@ export class ChunkedSource implements Source {
   /** Bytes [start, end] inclusive of one piece. */
   private async readPiece(manifest: Manifest, index: number, start: number, end: number, signal?: AbortSignal): Promise<Uint8Array> {
     const url = `${this.base}/${manifest.version}/${String(index).padStart(3, "0")}.bin`;
-    const response = await fetch(url, { headers: { Range: `bytes=${start}-${end}` }, signal });
+    const request = () => fetch(url, { headers: { Range: `bytes=${start}-${end}` }, signal, cache: RANGE_CACHE });
+    // One retry for a dropped request; a cancelled one (the map moved on) is not retried.
+    const response = await request().catch((error: unknown) => { if (signal?.aborted) throw error; return request(); });
     if (response.status !== 206 && response.status !== 200) throw new Error(`street atlas: ${url} returned ${response.status}; expected 206 Partial Content`);
     const bytes = new Uint8Array(await response.arrayBuffer());
     if (response.status === 206) return bytes;
