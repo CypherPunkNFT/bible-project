@@ -137,7 +137,7 @@ export default function TestimoniesPage() {
   function openExplore(root?: string) { setReading(false); setMode("explore"); navigate("/testimonies" + (root ? "?branch=" + encodeURIComponent(root) : "")); void loadBranch(root); }
 
   return <div className="testimony-design mx-auto max-w-7xl px-4 sm:px-6">
-    <div className="testimony-account-access"><button type="button" onClick={() => { navigate("/testimonies"); setMode(me ? "manage" : "access"); }}>{me ? "My testimony" : "Private access"}</button></div>
+    <div className="testimony-account-access">{me && <button type="button" onClick={() => { navigate("/testimonies"); setMode("manage"); }}>My testimony</button>}</div>
     <header className="testimony-intro"><div><p className="testimony-kicker"><GitBranch size={16} /> A living collection of testimonies</p><h1>One story can<br /><em>open another.</em></h1><p>Listen to a life. Follow a connection. Invite someone to add their story of faith.</p></div><div className="testimony-intro-note"><span>Every branch begins<br />with a conversation.</span><p>The lines show who invited whom.<br />Each person speaks in their own words.</p></div></header>
     <nav className="testimony-navigation" aria-label="Testimonies">
       <button type="button" aria-current={mode === "explore" ? "page" : undefined} onClick={() => openExplore()}><GitBranch size={16} />Explore the branches</button>
