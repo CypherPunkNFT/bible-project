@@ -2,6 +2,8 @@
 
 **Class:** LIVING · **Owner direction recorded:** 2026-10-05 · **Status:** Strategy documented; term packs and Python enrichment runner are planned.
 
+**Implementation contract:** [GRAPH-PLAN.md](GRAPH-PLAN.md) supplies the graph schema design, 120-document/24-rule pilot, acceptance samples and release gates. The 1,710,344-passage corpus passed completion verification on 6 October 2026.
+
 Use an LLM to design a reusable library of terms, aliases, search patterns and contextual rules. Validate those artifacts, then run ordinary Python and SQLite FTS5 across the corpus. The intelligence goes into preparing the vocabulary and algorithms; the bulk enrichment run uses deterministic computation and makes no LLM calls.
 
 The aim is to obtain most of the useful initial enrichment with a small share of the time and reasoning expense of reading every chunk with a model. This is an efficiency objective to measure, not a promised 80/20 coverage result. The first outputs should be useful entity/topic matches, explicit citation links and shared-reference networks. More difficult argument and interpretation analysis can use those outputs to select a much smaller body of material for later examination.

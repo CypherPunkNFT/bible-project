@@ -2,6 +2,7 @@ import { BookOpen, GitBranch, GraduationCap, Map, Moon, Search, ShieldCheck, Sun
 import { useEffect, type ReactNode } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { SectionStrip } from "@/components/SectionStrip";
+import { SiteFooter } from "@/components/SiteFooter";
 import { useTheme } from "@/lib/theme";
 import { cn } from "@/lib/utils";
 
@@ -71,21 +72,7 @@ export function Layout({ children }: { children: ReactNode }) {
       <main id="main" className="flex-1">
         {children}
       </main>
-      <footer className="border-t border-line bg-surface/60" style={{ paddingBottom: "env(safe-area-inset-bottom, 0px)" }}>
-        <div className="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-6 text-xs text-muted sm:flex-row sm:items-center sm:justify-between sm:px-6">
-          <p>Every Bible text here is free: all public domain but one openly licensed Hindi text (CC BY-SA). Texts from eBible.org.</p>
-          <p>
-            Cross references and places from{" "}
-            <a className="underline hover:text-ink" href="https://www.openbible.info/" rel="noreferrer">
-              OpenBible.info
-            </a>{" "}
-            (CC-BY). <Link className="underline hover:text-ink" to="/sources">Sources & references</Link> ·{" "}
-            <a className="underline hover:text-ink" href="https://github.com/CYPKNFT/bible-project" rel="noreferrer">
-              Code on GitHub
-            </a>
-          </p>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }

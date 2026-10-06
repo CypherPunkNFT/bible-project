@@ -2,7 +2,9 @@
 
 **Enrichment strategy:** [LLM-authored term libraries and deterministic Python/FTS5 passes](ENRICHMENT-STRATEGY.md) is the preferred first method for the [analytical roadmap](ANALYSIS.md). Intelligence is prepared and validated in reusable rules; the bulk runner makes no model calls. The strategy is documented; term packs and the runner remain planned.
 
-**Current order:** incorporate the expanded held library, finish its embeddings, verify corpus/vector parity, then begin enrichment. The original 198,656-passage snapshot passed parity verification on 2026-10-05. This does not establish coverage of subsequent acquisitions. Check `KnowledgeBase/coverage.json`, `library-intake.json`, `embedding-progress.json` and `python -m knowledge verify` for the active snapshot.
+**Knowledge checkpoint (2026-10-06):** Embedding and held-library intake are complete: 1,710,344 / 1,710,344 vectors, 32,312 documents, 1,027,939 verse records. Completion passed at 9:14 AM Eastern; a fresh read-only verification also passed with zero missing/stale/duplicate vectors, zero FK errors and no new/missing library files or changed ledgers. Two scan-only files remain explicitly deferred. Lexical and hybrid API smoke checks succeeded. Enrichment has not started.
+
+**Next: careful graph construction.** [GRAPH-PLAN.md](GRAPH-PLAN.md) fixes the identity/evidence contracts, separate analytical store, allowed relations, 120-document pilot, 24-rule pack, review gates, scale-up and rollback. Build G0/G1 first; no graph extraction runs or new servers have been started.
 
 A separate local search system for the Bible Project corpus. Open **http://127.0.0.1:8935** after starting it. The website and reader continue at :8931; this does not deploy or change public search.
 
