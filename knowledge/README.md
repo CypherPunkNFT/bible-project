@@ -1,5 +1,7 @@
 # Bible Project local knowledge library
 
+**STUDY MAP — TABLES FIRST:** [Actual relationships, all collections, all 110 topics and catalogue facets](STUDY-MAP.md). Rebuild with `python -m knowledge.study_map`. The [study-table specification](STUDY-TABLES.md) makes sortable evidence tables and comparisons the primary study surface; graph visualization is secondary. Inventory/specification are complete; the interactive table UI remains planned.
+
 **Enrichment strategy:** [LLM-authored term libraries and deterministic Python/FTS5 passes](ENRICHMENT-STRATEGY.md) is the preferred first method for the [analytical roadmap](ANALYSIS.md). Intelligence is prepared and validated in reusable rules; the bulk runner makes no model calls. The strategy is documented; term packs and the runner remain planned.
 
 **Knowledge checkpoint (2026-10-06):** Embedding and held-library intake are complete: 1,710,344 / 1,710,344 vectors, 32,312 documents, 1,027,939 verse records. Completion passed at 9:14 AM Eastern; a fresh read-only verification also passed with zero missing/stale/duplicate vectors, zero FK errors and no new/missing library files or changed ledgers. Two scan-only files remain explicitly deferred. Lexical and hybrid API smoke checks succeeded. Enrichment has not started.

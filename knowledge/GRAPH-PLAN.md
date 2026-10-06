@@ -4,6 +4,8 @@
 
 This is the concrete build plan for [ANALYSIS.md](ANALYSIS.md), using the deterministic strategy in [ENRICHMENT-STRATEGY.md](ENRICHMENT-STRATEGY.md). The graph belongs only to Bible Project. Its purpose is to explain connections between Scripture and the held library, improve retrieval, and make every analytical result inspectable.
 
+**Study interface priority (owner direction, 6 October): tables first.** The [current study map](STUDY-MAP.md) inventories the actual relationships, collections and topics in table form. [STUDY-TABLES.md](STUDY-TABLES.md) specifies the primary study interface: directories, source-evidence rows, filters and side-by-side comparisons. Graph visualization is optional exploration of selected rows, after the tables are useful. This does not postpone the underlying identity/evidence work.
+
 ## 1. Verified starting point
 
 The completion monitor passed at **9:14 AM Eastern, 6 October 2026**. Its corpus build is `2026-10-06T08:27:52.542399+00:00`.
@@ -181,6 +183,6 @@ Compare graph-assisted retrieval with the frozen FTS/vector baseline on **50 pre
 2. `knowledge/terms/schema.json` and the draft 24-rule pilot pack.
 3. `knowledge/enrich.py` validate/plan/run/resume/report interface, with explicit scope and no default full-corpus mutation.
 4. Local run manifests, source-backed review samples and acceptance report.
-5. A read-only evidence/path API and then a purposeful visual explorer, after query quality is demonstrated.
+5. A read-only evidence/path API and table-first study interface: topic/category directory, relationship register, evidence expansion and comparison. An optional graph explorer follows demonstrated table/query usefulness.
 
 The next implementation unit is **G0 + G1**, with a small fixture graph first. Completing this plan does not mark G0–G5 or E01–E04 done. Broad topic extraction, argument mapping and GraphRAG community summaries remain gated. Microsoft's GraphRAG documentation describes model-based entity/relationship extraction and community summarization; those are possible later derived layers, not substitutes for the source-backed foundation planned here. [GraphRAG indexing overview](https://microsoft.github.io/graphrag/index/overview/)

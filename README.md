@@ -1,5 +1,7 @@
 # Bible Project
 
+**TABLE-FIRST KNOWLEDGE MAP:** [Relationship, category and topic inventory](knowledge/STUDY-MAP.md) and [study-table design](knowledge/STUDY-TABLES.md). Existing links are imported cross-references and family records; topic classification and future extracted evidence remain distinct. Study tables precede an optional graph explorer.
+
 **SOURCES & CORPUS DASHBOARD:** [Inventory, provenance and refresh handbook](content/library/SOURCES-DASHBOARD.md). `/sources` now joins collection dashboards, authors, works and acquisition links: 16,498 reference records, including 15,479 verified acquired files in the shared library snapshot. Attribution and collection gaps remain explicit; counts and embedding coverage are dated.
 
 **KNOWLEDGE GRAPH PLAN:** [Evidence, identity, schema and phased implementation](knowledge/GRAPH-PLAN.md). The expanded corpus is fully embedded and verified (1,710,344 passages). Next: a separate evidence-backed graph, starting with explicit bibliographic and Scripture connections, then a measured term/citation pilot. Graph implementation remains planned.
