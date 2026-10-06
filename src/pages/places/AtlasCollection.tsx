@@ -168,7 +168,7 @@ function ExperiencePreview({ id }: { id: PreviewId }) {
     });
   };
   return <>
-    <header className="places-destination-intro"><p className="places-kicker">{data.kicker}</p><h1>{data.title}</h1><p>{data.description}</p></header>
+    <header className="places-destination-intro history-intro"><div><p className="places-kicker">{data.kicker}</p><h1>{data.title}</h1><p>{data.description}</p></div><PlacesArtwork kind={id} /></header>
     {collection ? <CitySelection collection={collection} choice={choice} expanded={expanded} onCollection={chooseCollection} onCity={chooseCity} onBack={() => { const next = new URLSearchParams(search); next.set("browse", "collections"); setSearch(next); }} /> : <section className="places-choose" aria-labelledby="places-choose-title">
       <div className="places-section-heading"><h2 id="places-choose-title">{data.choose}</h2><span>Choose your starting point</span></div>
       <div className="places-choices" role="group" aria-label={data.choose}>{options.map((option, i) => <button type="button" key={option.id} aria-pressed={choice.id === option.id} onClick={() => update("focus", option.id)}><span className="places-choice-mark" aria-hidden>{String(i + 1).padStart(2, "0")}</span><span><strong>{option.title}</strong><small>{option.subtitle}</small></span></button>)}</div>

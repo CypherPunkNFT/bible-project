@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useMemo, useState } from "react";
 import { useLocation, useSearchParams } from "react-router-dom";
 import { AtlasCollection } from "./places/AtlasCollection";
+import { PlacesArtwork } from "./places/PlacesArtwork";
 import { StreetAtlasMap } from "@/components/atlas/StreetAtlasMap";
 import { projectPlace, type MapPlace } from "@/components/atlas/projection";
 import { PlacePanel } from "@/components/atlas/PlacePanel";
@@ -85,10 +86,13 @@ function AtlasExplorer() {
 
   return (
     <div>
-      <header className="places-destination-intro">
-        <p className="places-kicker">Explore by place</p>
-        <h1>The places of the Bible.</h1>
-        <p>Explore {formatNumber(all.length || 1252)} places. Find a name, open a group, or move closer. Every place leads back to Scripture.</p>
+      <header className="places-destination-intro history-intro">
+        <div>
+          <p className="places-kicker">Explore by place</p>
+          <h1>The places of the Bible.</h1>
+          <p>Explore {formatNumber(all.length || 1252)} places. Find a name, open a group, or move closer. Every place leads back to Scripture.</p>
+        </div>
+        <PlacesArtwork kind="atlas" />
       </header>
       <div id="places-map" className="study-section-anchor mb-4 flex flex-wrap items-center gap-2">
         {SECTIONS.filter((s) => s.id !== "apocrypha").map((s) => (

@@ -4,6 +4,7 @@ import { loadPlaces } from "@/lib/data";
 import { useAsync } from "@/lib/useAsync";
 
 import { ATLAS_BASE as BASE } from "./routes";
+import { PlacesArtwork } from "./PlacesArtwork";
 export function FindCityCard() {
   return <Link to={`${BASE}/cities/find`} className="places-compact-card places-find-city" aria-label="Find Your City">
     <Search size={34} strokeWidth={1.35} aria-hidden /><span><strong>Find Your City</strong><small>Search the places behind the stories</small></span><ArrowUpRight size={15} aria-hidden />
@@ -20,7 +21,7 @@ export function CityDirectory() {
   const current = Math.min(page, last);
   const changePage = (value: number) => { const next = new URLSearchParams(search); next.set("page", String(value)); setSearch(next); };
   return <>
-    <header className="places-destination-intro"><p className="places-kicker">The city directory</p><h1>Find your city.</h1><p>Choose a city or settlement by name. Open its location and the passages that name it in the atlas.</p></header>
+    <header className="places-destination-intro history-intro"><div><p className="places-kicker">The city directory</p><h1>Find your city.</h1><p>Choose a city or settlement by name. Open its location and the passages that name it in the atlas.</p></div><PlacesArtwork kind="cities" /></header>
     <Link className="places-collections-back" to={`${BASE}/cities`}><ArrowLeft size={16} aria-hidden />All city collections</Link>
     <section className="places-city-directory" aria-label="City directory">
       <label className="places-directory-search"><Search size={18} aria-hidden /><span className="sr-only">Search cities</span><input type="search" value={query} placeholder="Jerusalem, Corinth, Nineveh…" onChange={(event) => { const next = new URLSearchParams(search); next.set("q", event.target.value); next.delete("page"); setSearch(next, { replace: true }); }} /></label>

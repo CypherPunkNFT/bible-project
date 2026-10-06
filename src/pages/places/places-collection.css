@@ -140,7 +140,8 @@
 .history-intro { display: flex; align-items: center; gap: 2rem; }
 .history-intro > div { flex: 1; }
 .history-intro > div > p:last-child { max-width: 49rem; font-size: .875rem; color: var(--muted); line-height: 1.8; }
-.history-intro > .places-artwork { width: 220px; flex-shrink: 0; }
+/* As large as the row allows; shrinks only when the window is too narrow for it. */
+.history-intro > .places-artwork { flex: 0 1 380px; width: 380px; min-width: 200px; }
 .history-topic-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
 .history-topic-card { text-align: left; border: 1px solid var(--line); border-top: 2px solid color-mix(in srgb, var(--places-color) 60%, var(--line)); border-radius: .8rem; padding: 1.1rem 1.3rem; background: linear-gradient(135deg, color-mix(in srgb, var(--places-color) 7%, var(--surface)), var(--surface)); }
 .history-topic-card:hover, .history-topic-card:focus-visible { border-color: var(--places-color); }
@@ -171,7 +172,6 @@
 .history-topic-next button:hover { border-color: var(--places-color); }
 @media (max-width: 1100px) {
   .places-destinations { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .history-intro > .places-artwork { width: 160px; }
   .history-topic-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 767px) {
