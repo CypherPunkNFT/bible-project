@@ -1,0 +1,38 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Meaning search benchmark</title>
+<pre id="log">loading…</pre>
+<script type="module">
+// Measures, in this browser: model start-up, one-question embedding time, and brute-force search over N vectors.
+import { pipeline, env } from "https://cdn.jsdelivr.net/npm/@huggingface/transformers@4.3.1";
+env.allowLocalModels = false;
+const log = (s) => { document.getElementById("log").textContent += "\n" + s; };
+const params = new URLSearchParams(location.search);
+const modelId = params.get("model"), device = params.get("device") || "wasm", dtype = params.get("dtype") || "q8";
+
+async function bench() {
+  const result = { model: modelId, device, dtype, webgpu: !!navigator.gpu, cores: navigator.hardwareConcurrency, memoryGB: navigator.deviceMemory ?? null };
+  let t = performance.now();
+  const extract = await pipeline("feature-extraction", modelId, { device, dtype });
+  result.loadMs = Math.round(performance.now() - t);
+  const questions = ["Why does God let bad things happen to good people?", "Did Jesus really rise from the dead?", "How can I know I am forgiven?", "Is the Bible reliable?", "What happens after we die?"];
+  await extract("warm up", { pooling: "mean", normalize: true });
+  const times = [];
+  for (const q of questions) { t = performance.now(); await extract(q, { pooling: "mean", normalize: true }); times.push(performance.now() - t); }
+  result.queryMs = Math.round(times.reduce((a, b) => a + b) / times.length);
+  // Brute-force cosine search (dot product of unit vectors) over N random 384- or 768-number vectors.
+  const dims = (await extract("x", { pooling: "mean", normalize: true })).dims.at(-1);
+  result.dims = dims;
+  for (const n of [31102, 200000]) {
+    const vectors = new Float32Array(n * dims); for (let i = 0; i < vectors.length; i++) vectors[i] = Math.random() - 0.5;
+    const query = new Float32Array(dims).fill(0.05);
+    t = performance.now();
+    const scores = new Float32Array(n);
+    for (let i = 0; i < n; i++) { let s = 0; const o = i * dims; for (let d = 0; d < dims; d++) s += vectors[o + d] * query[d]; scores[i] = s; }
+    let best = 0; for (let i = 1; i < n; i++) if (scores[i] > scores[best]) best = i;
+    result["searchMs_" + n] = Math.round(performance.now() - t);
+  }
+  return result;
+}
+bench().then((r) => { window.__result = r; log(JSON.stringify(r)); }, (e) => { window.__result = { error: String(e) }; log("ERROR " + e); });
+</script>
