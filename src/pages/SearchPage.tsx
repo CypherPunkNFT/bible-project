@@ -1,4 +1,6 @@
 import { Search } from "lucide-react";
+import { MeaningBadge, PlacesSection, StudiesSection, VersesSection } from "@/components/search/SearchSections";
+import { useMeaningResults } from "@/lib/meaning/useMeaningResults";
 import { useEffect, useMemo, useRef, useState, type FormEvent } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { useCatalog } from "@/lib/catalog";
@@ -11,6 +13,10 @@ import { cn, formatNumber } from "@/lib/utils";
 
 const PAGE = 100;
 
+/**
+ * The site's search: one box, then studies (by meaning or words), verses by meaning (World English Bible, when meaning search is
+ * on), atlas places, and the exact-words search in any version. Meaning search runs on the visitor's device (MEANING_SEARCH.md).
+ */
 export default function SearchPage() {
   const catalog = useCatalog();
   const [params, setParams] = useSearchParams();
@@ -28,6 +34,8 @@ export default function SearchPage() {
     wholeWords,
   });
   const latestRun = useRef(0);
+  const [submitted, setSubmitted] = useState(params.get("q") ?? "");
+  const meaning = useMeaningResults(submitted);
   const [shown, setShown] = useState(PAGE);
   const books = catalog.books.filter((b) => translation.books[b.code]);
 
@@ -36,6 +44,7 @@ export default function SearchPage() {
     const matcher = makeMatcher(draft, wholeWords);
     if (!matcher) return;
     setParams({ q: draft, in: translation.slug, whole: wholeWords ? "1" : "0" }, { replace: true });
+    setSubmitted(draft.trim());
     const runId = ++latestRun.current;
     const searched = { query: draft, slug: translation.slug, wholeWords };
     setState({ status: "loading", loaded: 0, hits: [], ...searched });
@@ -79,13 +88,14 @@ export default function SearchPage() {
     <div className="mx-auto max-w-5xl px-4 pb-16 sm:px-6">
       <header className="pb-6 pt-10">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">Search</p>
-        <h1 className="mt-1 font-serif text-4xl font-semibold tracking-tight sm:text-5xl">Find any word, in any version.</h1>
+        <h1 className="mt-1 font-serif text-4xl font-semibold tracking-tight sm:text-5xl">Ask a question. Find a word.</h1>
+        <p className="mt-3 max-w-2xl text-muted">Studies, verses and places, by the words you remember or by what you mean. Exact words work in every version.</p>
       </header>
       <form onSubmit={run} className="flex flex-wrap items-center gap-2" role="search">
         <label className="relative min-w-[14rem] flex-1">
           <span className="sr-only">Words to find</span>
           <Search className="pointer-events-none absolute left-3 top-3 h-5 w-5 text-muted" aria-hidden />
-          <input value={draft} onChange={(e) => setDraft(e.target.value)} placeholder="e.g. the stone which the builders" className="h-11 w-full rounded-xl border border-line bg-surface pl-10 pr-3 text-base" />
+          <input value={draft} onChange={(e) => setDraft(e.target.value)} placeholder="Ask a question, or type words: why does God allow suffering? · the stone which the builders" className="h-12 w-full rounded-xl border border-line bg-surface pl-10 pr-3 text-base" />
         </label>
         <label className="sr-only" htmlFor="search-version">
           Version
@@ -100,18 +110,30 @@ export default function SearchPage() {
         <button type="submit" className="h-11 rounded-xl bg-ink px-5 text-sm font-semibold text-page hover:opacity-90">
           Search
         </button>
-        <label className="flex w-full items-center gap-2 text-sm text-muted">
-          <input type="checkbox" checked={wholeWords} onChange={(e) => setWholeWords(e.target.checked)} className="accent-[var(--accent)]" /> Whole words only
-        </label>
+        <div className="flex w-full flex-wrap items-center justify-between gap-2">
+          <label className="flex items-center gap-2 text-sm text-muted">
+            <input type="checkbox" checked={wholeWords} onChange={(e) => setWholeWords(e.target.checked)} className="accent-[var(--accent)]" /> Whole words only (exact-words search)
+          </label>
+          <MeaningBadge />
+        </div>
       </form>
 
+      {submitted && (
+        <>
+          <StudiesSection query={submitted} meaning={meaning} />
+          <VersesSection query={submitted} meaning={meaning} />
+          <PlacesSection query={submitted} />
+        </>
+      )}
+      {(state.status === "loading" || state.status === "done") && <h2 className="mt-10 font-serif text-2xl font-semibold">Exact words <span className="align-middle text-xs font-normal text-muted">in {resultTranslation.abbr}; change the version above</span></h2>}
+
       {state.status === "loading" && (
-        <p className="mt-6 text-sm text-muted" role="status">
+        <p className="mt-3 text-sm text-muted" role="status">
           Reading {translation.abbr}… {state.loaded} of {books.length} books
         </p>
       )}
       {state.status === "done" && (
-        <section aria-live="polite" className="mt-8">
+        <section aria-live="polite" className="mt-3">
           <p className="text-lg">
             <strong>{formatNumber(state.hits.length)}</strong> {state.hits.length === 1 ? "verse contains" : "verses contain"} “{state.query}” in the {resultTranslation.name}.
           </p>

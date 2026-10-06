@@ -26,6 +26,10 @@ await cp("public/_routes.json", path.join(site, "_routes.json"));
 const atlas = process.env.ATLAS_TILES_DIR ?? path.resolve(import.meta.dirname, "../../AtlasTiles/site");
 const atlasManifest = JSON.parse(await readFile(path.join(atlas, "bible-atlas.json"), "utf8")) as { version: string; chunks: number };
 for (const part of ["bible-atlas.json", atlasManifest.version, "fonts", "sprites"]) await cp(path.join(atlas, part), path.join(site, "atlas-tiles", part), { recursive: true, dereference: true });
+// The meaning-search pack (MEANING_SEARCH.md): its manifest and the current version's files, built by scripts/build-meaning-pack.py.
+const meaning = process.env.MEANING_PACK_DIR ?? path.resolve(import.meta.dirname, "../../MeaningPack/site");
+const meaningManifest = JSON.parse(await readFile(path.join(meaning, "meaning.json"), "utf8")) as { version: string };
+for (const part of ["meaning.json", meaningManifest.version]) await cp(path.join(meaning, part), path.join(site, "search-model", part), { recursive: true, dereference: true });
 const files = await readdir(site, { recursive: true, withFileTypes: true });
 if (files.some((entry) => entry.isSymbolicLink())) throw new Error("The release contains a link instead of files; copy with dereference.");
 if (files.filter((entry) => entry.isFile()).length > 20000) throw new Error("The release exceeds the project's 20,000-file limit.");

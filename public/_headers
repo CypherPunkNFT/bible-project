@@ -13,3 +13,8 @@
 /atlas-tiles/bible-atlas.json
   ! Cache-Control
   Cache-Control: public, max-age=300
+/search-model/*
+  Cache-Control: public, max-age=31536000, immutable
+/search-model/meaning.json
+  ! Cache-Control
+  Cache-Control: public, max-age=300
