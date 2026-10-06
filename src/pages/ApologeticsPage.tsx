@@ -7,6 +7,7 @@ import { AP_EDITORIAL, DEBATES, PATHS, PRACTICE, SOURCES, STUDIES, TOPICS, WORLD
 import { useApologeticsNotebook, type ApNotebook } from "@/lib/apologetics-notebook";
 import { ApBack as Back, ApHeading as Heading, ApSectionHeading as SectionHeading, ApNote as Note, ApPassages, ApSearch, ApCitations, ApSourcePolicy, Constellation, PathCard, SourceLink, StudyCard, TopicArt } from "@/components/ApologeticsParts";
 import { AP_BASE as base, apColor as color, studyUrl } from "@/lib/apologetics-links";
+import { searchStudies } from "@/lib/apologetics-search";
 import ReformedLibraryPage, { ReformedDoor, HistoricReading } from "./ReformedLibraryPage";
 import "./apologetics.css";
 
@@ -46,11 +47,11 @@ function Hub({ book }: { book: ApNotebook }) {
 function QuestionLibrary({ book, topicId }: { book: ApNotebook; topicId?: string }) {
   const [params, setParams] = useSearchParams(), topic = topicId ? topicById(topicId) : undefined;
   const query = params.get("q") ?? "", filter = topic?.id ?? params.get("topic") ?? "all";
-  const visible = STUDIES.filter((study) => (filter === "all" || study.topic === filter) && query.toLowerCase().trim().split(/\s+/).every((word) => [study.title, study.summary, study.answer, ...study.keywords].join(" ").toLowerCase().includes(word)));
+  const search = searchStudies(STUDIES, query), visible = search.hits.filter((hit) => filter === "all" || hit.study.topic === filter);
   const change = (key: string, value: string) => { const next = new URLSearchParams(params); if (value && value !== "all") next.set(key, value); else next.delete(key); setParams(next, { replace: true }); };
-  return <><Heading eyebrow={topic ? "Explore a field" : "The question library"} title={topic?.title ?? "A good question opens a door."} lead={topic?.description ?? "Find a starting answer, follow the argument, test an objection and open the sources."} />{topic?.id === "reformed" && <ReformedDoor />}<div className="ap-filter-bar"><ApSearch value={query} onChange={(value) => change("q", value)} /><p role="status">{visible.length} {visible.length === 1 ? "study" : "studies"}</p></div>
+  return <><Heading eyebrow={topic ? "Explore a field" : "The question library"} title={topic?.title ?? "A good question opens a door."} lead={topic?.description ?? "Find a starting answer, follow the argument, test an objection and open the sources."} />{topic?.id === "reformed" && <ReformedDoor />}<div className="ap-filter-bar"><ApSearch value={query} onChange={(value) => change("q", value)} /><p role="status">{visible.length} {visible.length === 1 ? "study" : "studies"}{search.partial && visible.length > 0 && " · none has every word, so these have some"}</p></div>
     {!topic && <div className="ap-filter-chips" role="group" aria-label="Filter by topic"><button type="button" aria-pressed={filter === "all"} onClick={() => change("topic", "all")}><ListFilter size={14} />All questions</button>{TOPICS.map((item) => <button key={item.id} type="button" aria-pressed={filter === item.id} onClick={() => change("topic", item.id)}>{item.title}</button>)}</div>}
-    {visible.length ? <div className="ap-study-grid">{visible.map((study) => <StudyCard key={study.id} study={study} book={book} />)}</div> : <div className="ap-empty"><Search size={26} /><h2>No studies match that search.</h2><p>Try a broader word or clear the filters.</p><button className="ap-button" onClick={() => setParams({})}>Clear search and filters</button></div>}
+    {visible.length ? <div className="ap-study-grid">{visible.map((hit) => <StudyCard key={hit.study.id} study={hit.study} book={book} snippet={hit.snippet} />)}</div> : <div className="ap-empty"><Search size={26} /><h2>No studies match that search.</h2><p>Try a broader word or clear the filters.</p><button className="ap-button" onClick={() => setParams({})}>Clear search and filters</button></div>}
     {topic && <section className="ap-section"><SectionHeading eyebrow="Everything connects" title="Follow a neighbouring question." /><div className="ap-topic-links">{TOPICS.filter((item) => item.id !== topic.id).map((item) => <Link key={item.id} to={base + "/topics/" + item.id}>{item.title}<ArrowUpRight size={14} /></Link>)}</div></section>}
   </>;
 }
