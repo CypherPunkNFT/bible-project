@@ -1,6 +1,6 @@
 import { Search } from "lucide-react";
 import { SearchLanding } from "@/components/search/SearchLanding";
-import { MeaningBadge, PlacesSection, StudiesSection, VersesSection } from "@/components/search/SearchSections";
+import { MeaningBadge, PlacesSection, StudiesSection, TopicsSection, VersesSection } from "@/components/search/SearchSections";
 import { useMeaningResults } from "@/lib/meaning/useMeaningResults";
 import { useEffect, useMemo, useRef, useState, type FormEvent } from "react";
 import { Link, useSearchParams } from "react-router-dom";
@@ -125,6 +125,7 @@ export default function SearchPage() {
       {!submitted && <SearchLanding onAsk={(asked) => void run(undefined, asked)} />}
       {submitted && (
         <>
+          <TopicsSection query={submitted} />
           <StudiesSection query={submitted} meaning={meaning} />
           <VersesSection query={submitted} meaning={meaning} />
           <PlacesSection query={submitted} />

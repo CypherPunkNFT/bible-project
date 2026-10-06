@@ -5,7 +5,8 @@ import { STUDIES } from "@/data/apologetics-studies";
 import { searchStudies } from "@/lib/apologetics-search";
 import { studyUrl } from "@/lib/apologetics-links";
 import { useCatalog } from "@/lib/catalog";
-import { loadPlaces } from "@/lib/data";
+import { loadPlaces, loadTopicIndex } from "@/lib/data";
+import { matchTopics, topicUrl } from "@/lib/topics";
 import { preferMeaning, useMeaning } from "@/lib/meaning/store";
 import type { useMeaningResults } from "@/lib/meaning/useMeaningResults";
 import { sectionColor } from "@/lib/sections";
@@ -103,6 +104,22 @@ export function PlacesSection({ query }: { query: string }) {
       <div id="search-places"><SectionHead title="Places" note="on the atlas" /></div>
       <ul className="flex flex-wrap gap-2">
         {hits.map((place) => <li key={place.id}><Link to={`/study/atlas/map?place=${place.id}`} className="inline-flex items-center gap-1.5 rounded-full border border-line bg-surface px-3 py-1.5 text-sm hover:border-accent"><MapPin size={14} className="text-accent" />{place.name}<span className="text-xs text-muted">{formatNumber(place.verses.length)} verses</span></Link></li>)}
+      </ul>
+    </section>
+  );
+}
+
+/** Topics whose name matches the query (623 Torrey topics in two levels of categories). */
+export function TopicsSection({ query }: { query: string }) {
+  const index = useAsync(loadTopicIndex, "topic-index");
+  if (index.status !== "ready") return null;
+  const ids = matchTopics(index.value, query);
+  if (!ids.length) return null;
+  return (
+    <section aria-labelledby="search-topics" className="mt-10">
+      <div id="search-topics"><SectionHead title="Topics" note="with their verses" link={{ to: "/topics", label: "All topics" }} /></div>
+      <ul className="flex flex-wrap gap-2">
+        {ids.map((id) => <li key={id}><Link to={topicUrl(id)} className="inline-flex items-baseline gap-1.5 rounded-full border border-line bg-surface px-3 py-1.5 text-sm hover:border-accent">{index.value.topics[id].title}<span className="text-xs text-muted">{formatNumber(index.value.topics[id].refs)} passages</span></Link></li>)}
       </ul>
     </section>
   );

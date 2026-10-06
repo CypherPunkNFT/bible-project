@@ -1,8 +1,11 @@
-import { ArrowRight, BookOpen, Download, MapPin, MessageCircleQuestion, Sparkles, TextSearch } from "lucide-react";
+import { ArrowRight, Download, MapPin, MessageCircleQuestion, Sparkles, TextSearch } from "lucide-react";
 import { Link } from "react-router-dom";
-import { TOPICS } from "@/data/apologetics-library";
 import { AP_BASE } from "@/lib/apologetics-links";
 import { useCatalog } from "@/lib/catalog";
+import { loadTopicIndex } from "@/lib/data";
+import { categoryUrl } from "@/lib/topics";
+import { useAsync } from "@/lib/useAsync";
+import { formatNumber } from "@/lib/utils";
 import { enableMeaning, useMeaning } from "@/lib/meaning/store";
 
 /** What the Search page shows before a search: example questions, what can be searched, meaning search, topics to browse. */
@@ -75,12 +78,32 @@ export function SearchLanding({ onAsk }: { onAsk: (query: string) => void }) {
         </ul>
       </section>
 
-      <section aria-labelledby="browse-topics" className="mt-10">
-        <h2 id="browse-topics" className="font-serif text-2xl font-semibold">Or browse by topic</h2>
-        <ul className="mt-4 flex flex-wrap gap-2">
-          {TOPICS.map((topic) => <li key={topic.id}><Link to={`${AP_BASE}/topics/${topic.id}`} className="inline-flex items-center gap-1.5 rounded-full border border-line px-3.5 py-2 text-sm hover:border-accent hover:text-accent"><BookOpen size={14} />{topic.title}</Link></li>)}
-        </ul>
-      </section>
+      <TopicBrowser />
     </div>
+  );
+}
+
+/** The topic taxonomy in two levels: each category with its subcategories (scripts/build-topics.py). */
+function TopicBrowser() {
+  const index = useAsync(loadTopicIndex, "topic-index");
+  if (index.status !== "ready") return null;
+  const total = Object.keys(index.value.topics).length;
+  return (
+    <section aria-labelledby="browse-topics" className="mt-10">
+      <div className="flex flex-wrap items-baseline justify-between gap-2">
+        <h2 id="browse-topics" className="font-serif text-2xl font-semibold">Or browse by topic</h2>
+        <Link to="/topics" className="inline-flex items-center gap-1 text-sm text-accent hover:underline">All {formatNumber(total)} topics <ArrowRight size={14} /></Link>
+      </div>
+      <ul className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        {index.value.categories.map((category) => (
+          <li key={category.id} className="rounded-2xl border border-line bg-surface p-4">
+            <Link to={categoryUrl(category.id)} className="font-semibold hover:text-accent">{category.title} <span className="text-xs font-normal text-muted">{category.subcategories.reduce((n, s) => n + s.topics.length, 0)}</span></Link>
+            <ul className="mt-2 flex flex-wrap gap-x-3 gap-y-1">
+              {category.subcategories.map((sub) => <li key={sub.id}><Link to={categoryUrl(category.id, sub.id)} className="text-sm text-muted hover:text-accent">{sub.title}</Link></li>)}
+            </ul>
+          </li>
+        ))}
+      </ul>
+    </section>
   );
 }
