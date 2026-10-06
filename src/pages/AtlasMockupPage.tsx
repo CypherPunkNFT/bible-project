@@ -1,8 +1,8 @@
 import { Search } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useMemo, useState } from "react";
-import { Link, useSearchParams } from "react-router-dom";
-import { StudyBackLink } from "@/components/study/StudyBackLink";
+import { useSearchParams } from "react-router-dom";
+import { PlacesCollectionMockup } from "./places/PlacesCollectionMockup";
 import { VectorAtlasMap } from "@/components/atlas/VectorAtlasMap";
 import { projectPlace, type MapPlace } from "@/components/atlas/projection";
 import { PlacePanel } from "@/components/atlas/PlacePanel";
@@ -30,12 +30,22 @@ function dominantSection(catalog: Catalog, place: Place): SectionId {
 }
 
 export default function AtlasMockupPage() {
+  return <PlacesCollectionMockup atlas={<AtlasExplorer />} />;
+}
+
+function AtlasExplorer() {
   const catalog = useCatalog();
   const raw = useAsync(loadPlaces, "places");
   const [search, setSearch] = useSearchParams();
   const [sections, setSections] = useState<Set<SectionId>>(new Set());
   const [book, setBook] = useState("");
-  const [query, setQuery] = useState("");
+  const query = search.get("find") ?? "";
+  const setQuery = (value: string) => {
+    const next = new URLSearchParams(search);
+    if (value) next.set("find", value);
+    else next.delete("find");
+    setSearch(next, { replace: true });
+  };
   const wide = useMediaQuery("(min-width: 1024px)");
 
   const all = useMemo<MapPlace[]>(() => {
@@ -69,18 +79,11 @@ export default function AtlasMockupPage() {
     });
 
   return (
-    <div className="mx-auto max-w-7xl px-4 pb-16 sm:px-6">
-      <header className="pb-5 pt-10">
-        <StudyBackLink />
-        <div className="mt-4 flex flex-wrap items-center justify-between gap-3">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">Atlas · Interactive mockup</p>
-          <Link to="/study/places" className="rounded-full border border-line px-3 py-1.5 text-xs text-muted hover:text-ink">Open the current atlas ↗</Link>
-        </div>
-        <h1 className="mt-1 font-serif text-4xl font-semibold tracking-tight sm:text-5xl">The places of the Bible.</h1>
-        <p className="mt-3 max-w-2xl text-muted">
-          A clearer way to explore {formatNumber(all.length || 1252)} places. Open a numbered group, zoom into a region, or find a place by name.
-          Each place leads back to the passages that name it.
-        </p>
+    <div>
+      <header className="places-destination-intro">
+        <p className="places-kicker">Explore by place</p>
+        <h1>The places of the Bible.</h1>
+        <p>Explore {formatNumber(all.length || 1252)} places. Find a name, open a group, or move closer. Every place leads back to Scripture.</p>
       </header>
       <div id="places-map" className="study-section-anchor mb-4 flex flex-wrap items-center gap-2">
         {SECTIONS.filter((s) => s.id !== "apocrypha").map((s) => (

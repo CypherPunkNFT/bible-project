@@ -1,0 +1,78 @@
+.places-collection { --places-color: var(--poetry); padding-top: 1.7rem; padding-bottom: 3rem; }
+.places-topline { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .75rem; font-size: .75rem; color: var(--muted); }
+.places-topline a { display: inline-flex; align-items: center; gap: .5rem; padding-block: .3rem; }
+.places-topline a:hover { color: var(--ink); }
+.places-topline > span { font-size: .65rem; text-transform: uppercase; letter-spacing: .14em; align-self: center; }
+.places-collection-intro { display: flex; justify-content: space-between; align-items: center; gap: 2rem; padding-block: 2.4rem 2.2rem; }
+.places-kicker { color: var(--places-color); font-size: .65rem; font-weight: 600; text-transform: uppercase; letter-spacing: .18em; }
+.places-collection-intro h1 { font-family: var(--font-serif); font-size: clamp(2.6rem, 4.7vw, 4rem); letter-spacing: -.045em; line-height: 1.12; margin-block: .8rem 1rem; }
+.places-collection-intro h1 em { color: var(--accent); font-weight: 400; }
+.places-collection-intro p:last-child { color: var(--muted); font-size: .9rem; line-height: 1.8; }
+.places-intro-compass { width: 15rem; text-align: center; color: var(--poetry); }
+.places-intro-compass > svg { width: 112px; height: 112px; margin: auto; opacity: .45; transform: rotate(-15deg); }
+.places-intro-compass > span { display: block; margin-top: 1rem; font-size: .55rem; letter-spacing: .24em; opacity: .75; }
+.places-destinations { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; }
+.places-destination-card { display: flex; flex-direction: column; min-width: 0; border: 1px solid var(--line); border-top: 2px solid var(--places-color); border-radius: 1rem; background: linear-gradient(145deg, color-mix(in srgb, var(--places-color) 7%, var(--surface)), var(--surface) 75%); padding: 1.35rem 1.6rem; transition: transform .2s, border-color .2s; }
+.places-destination-card:hover { transform: translateY(-3px); border-color: var(--places-color); }
+.places-destination-card:focus-visible { outline-color: var(--places-color); outline-offset: 4px; }
+.places-card-top { display: flex; gap: .65rem; align-items: center; color: var(--places-color); }
+.places-card-top > span { font-size: .6rem; letter-spacing: .14em; text-transform: uppercase; }
+.places-card-top > svg:last-child { margin-left: auto; }
+.places-artwork { display: block; width: 100%; color: var(--places-color); }
+.places-destination-card > .places-artwork { height: 165px; margin-block: .8rem .5rem; }
+.places-card-copy { position: relative; padding-right: 2rem; }
+.places-card-number { position: absolute; right: 0; top: .4rem; font-size: .7rem; color: var(--places-color); opacity: .65; }
+.places-card-copy h2 { font: 500 1.9rem/1.25 var(--font-serif); letter-spacing: -.025em; }
+.places-card-copy p { color: var(--muted); font-size: .83rem; line-height: 1.8; margin-block: .65rem 1.3rem; max-width: 32rem; }
+.places-card-foot { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: .5rem 1rem; margin-top: auto; padding-top: .85rem; border-top: 1px solid var(--line); font-size: .66rem; }
+.places-card-foot > span { color: var(--muted); }
+.places-card-foot strong { display: inline-flex; align-items: center; gap: .6rem; font-weight: 500; color: var(--places-color); }
+.places-collection-note { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem 2rem; padding-top: 1.7rem; color: var(--muted); font-size: .7rem; line-height: 1.7; }
+.places-collection-note > span, .places-collection-note > a { display: inline-flex; align-items: center; gap: .6rem; }
+.places-collection-note svg { flex-shrink: 0; }
+.places-collection-note a:hover { color: var(--ink); }
+.places-collection-nav { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .75rem; margin-top: 1.4rem; }
+.places-collection-nav > a { display: flex; align-items: center; gap: .7rem; padding: .75rem .85rem; min-width: 0; border: 1px solid var(--line); border-radius: .7rem; background: var(--surface); transition: border-color .2s, background .2s; }
+.places-collection-nav > a[aria-current=page] { border-color: var(--places-color); background: color-mix(in srgb, var(--places-color) 9%, var(--surface)); }
+.places-collection-nav > a:hover { border-color: var(--places-color); }
+.places-collection-nav .places-artwork { width: 64px; height: 38px; flex-shrink: 0; }
+.places-collection-nav > a > span { font-size: .8rem; font-weight: 600; }
+.places-collection-nav > a > svg:last-child { margin-left: auto; flex-shrink: 0; color: var(--places-color); }
+.places-destination-intro { padding-block: 2rem 1.65rem; }
+.places-destination-intro h1 { font: 500 clamp(2rem, 3.5vw, 2.8rem)/1.2 var(--font-serif); letter-spacing: -.035em; margin-block: .7rem; }
+.places-destination-intro > p:last-child { max-width: 49rem; font-size: .875rem; color: var(--muted); line-height: 1.8; }
+.places-section-heading { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: .5rem 1rem; margin-bottom: .85rem; }
+.places-section-heading h2 { font: 500 1.1rem var(--font-serif); }
+.places-section-heading > span { font-size: .65rem; color: var(--muted); }
+.places-choices { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: .6rem; }
+.places-choices button { display: flex; gap: .6rem; align-items: start; text-align: left; border: 1px solid var(--line); border-radius: .6rem; background: var(--surface); padding: .9rem .7rem; }
+.places-choices button:hover { border-color: var(--places-color); }
+.places-choices button[aria-pressed=true] { border-color: var(--places-color); background: color-mix(in srgb, var(--places-color) 9%, var(--surface)); }
+.places-choice-mark { font-size: .6rem; color: var(--places-color); padding-top: .15rem; }
+.places-choices strong { font-size: .82rem; font-weight: 600; }
+.places-choices small { display: block; font-size: .63rem; color: var(--muted); line-height: 1.5; margin-top: .3rem; }
+.places-workspace { margin-top: 1.5rem; border: 1px solid var(--line); border-radius: 1rem; background: var(--surface); overflow: hidden; }
+.places-workspace > header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; padding: 1.25rem 1.5rem; }
+.places-workspace h2 { font: 500 1.5rem var(--font-serif); margin-top: .35rem; }
+.places-workspace h2 > span { display: inline-block; margin-left: .8rem; font: 400 .75rem var(--font-sans); color: var(--muted); }
+.places-preview-label { font-size: .6rem; letter-spacing: .05em; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); padding: .35rem .65rem; }
+.places-lens-bar { display: flex; flex-wrap: wrap; align-items: center; gap: .8rem 1rem; padding: .8rem 1.5rem; border-block: 1px solid var(--line); background: var(--page); }
+.places-lens-bar > span { font-size: .7rem; color: var(--muted); }
+.places-lens-bar > div { display: flex; flex-wrap: wrap; gap: .35rem; }
+.places-lens-bar button { padding: .4rem .85rem; font-size: .75rem; border: 1px solid transparent; border-radius: 999px; color: var(--muted); }
+.places-lens-bar button:hover { color: var(--ink); border-color: var(--line); }
+.places-lens-bar button[aria-pressed=true] { background: var(--ink); color: var(--page); }
+.places-workspace-body { display: grid; grid-template-columns: 1.05fr 1fr; min-height: 285px; }
+.places-workspace-art { display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 2rem; background: radial-gradient(ellipse at center, color-mix(in srgb, var(--places-color) 6%, transparent), transparent 75%); border-right: 1px solid var(--line); }
+.places-workspace-art .places-artwork { max-width: 440px; }
+.places-workspace-art > span { margin-top: .5rem; color: var(--muted); font-size: .7rem; }
+.places-lens-copy { padding: 1.8rem 2rem; }
+.places-lens-copy h3 { font: 500 1.45rem/1.4 var(--font-serif); margin-block: .55rem; }
+.places-lens-copy > p:not(.places-kicker) { font-size: .82rem; line-height: 1.8; color: var(--muted); }
+.places-next-build { display: flex; align-items: start; gap: .6rem; border-top: 1px solid var(--line); margin-top: 1rem; padding-top: 1rem; font-size: .72rem; line-height: 1.7; color: var(--muted); }
+.places-next-build svg { flex-shrink: 0; margin-top: .1rem; }
+.places-lens-copy > a { display: inline-flex; gap: .6rem; align-items: center; color: var(--places-color); font-size: .75rem; margin-top: 1rem; }
+@media (max-width: 1100px) { .places-choices { grid-template-columns: repeat(3, minmax(0, 1fr)); } .places-collection-nav .places-artwork { width: 40px; } .places-collection-nav > a { gap: .4rem; padding-inline: .65rem; } }
+@media (max-width: 767px) { .places-collection-intro { padding-block: 1.7rem; } .places-intro-compass { display: none; } .places-destinations { grid-template-columns: 1fr; } .places-collection-nav { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .5rem; } .places-collection-nav .places-artwork { width: 52px; } .places-collection-nav > a { padding: .5rem .6rem; } .places-workspace-body { grid-template-columns: 1fr; } .places-workspace-art { padding: 1rem 1.5rem; border-right: 0; border-bottom: 1px solid var(--line); } .places-workspace-art .places-artwork { height: 140px; } .places-lens-copy { padding: 1.3rem; } }
+@media (max-width: 480px) { .places-topline { font-size: .65rem; } .places-topline > span { display: none; } .places-choices { grid-template-columns: repeat(2, minmax(0, 1fr)); } .places-destination-card { padding: 1.2rem; } .places-destination-card > .places-artwork { height: 135px; margin-block: .65rem; } .places-card-copy { padding-right: 1rem; } .places-card-copy h2 { font-size: 1.7rem; } .places-collection-nav > a > span { font-size: .72rem; } .places-collection-nav .places-artwork { width: 38px; } .places-workspace > header { padding: 1rem; } .places-workspace h2 > span { display: block; margin: .35rem 0 0; } .places-lens-bar { padding: .75rem 1rem; } .places-lens-bar button { padding-inline: .7rem; } }
+@media (prefers-reduced-motion: reduce) { .places-destination-card, .places-collection-nav > a { transition: none; } .places-destination-card:hover { transform: none; } }
