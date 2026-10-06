@@ -176,3 +176,31 @@
 @media (max-width: 1000px) { .testimony-workspace { grid-template-columns: minmax(0, 1fr); } .testimony-intro-note { display: none; } .testimony-write, .testimony-invite-panel { gap: 1.5rem; padding: 1.5rem; } }
 @media (max-width: 640px) { .testimony-intro { padding: 1.8rem 0; } .testimony-navigation { gap: .5rem 1rem; } .testimony-navigation button { font-size: .68rem; } .testimony-navigation button:last-child { margin-left: 0; } .testimony-workspace { grid-auto-rows: 620px; } .testimony-map > header { padding: 1rem; } .testimony-map h2 { font-size: 1.15rem; } .testimony-map h2 > span { display: block; margin: .4rem 0 0; } .testimony-map > footer { padding: .8rem 1rem; } .testimony-steps { grid-template-columns: 1fr; gap: 1.3rem; } .testimony-steps p { max-width: none; } .testimony-invite-panel, .testimony-write { grid-template-columns: minmax(0, 1fr); padding: 1.1rem; } .testimony-list button { gap: .8rem; padding: 1rem; } .testimony-list button > span:nth-child(2) { display: none; } }
 @media (prefers-reduced-motion: reduce) { .testimony-design * { transition: none !important; } }
+/* World map view: the pre-drawn world under one zoom transform; dots stay a fixed size on top. */
+.testimony-world-viewport { background: var(--page); }
+.testimony-world-drawing { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.testimony-world-drawing path { vector-effect: non-scaling-stroke; }
+.testimony-world-sea { fill: color-mix(in srgb, var(--testimony-tone) 6%, var(--surface)); stroke: var(--line); stroke-width: 1; }
+.testimony-world-land { fill: color-mix(in srgb, var(--ink) 9%, var(--surface)); stroke: color-mix(in srgb, var(--ink) 22%, var(--surface)); stroke-width: .6; }
+.testimony-world-borders { fill: none; stroke: color-mix(in srgb, var(--ink) 16%, var(--surface)); stroke-width: .5; }
+.testimony-world-dots { position: absolute; inset: 0; pointer-events: none; }
+.testimony-world-dot { position: absolute; top: 0; left: 0; display: grid; place-items: center; width: 28px; height: 28px; margin: -14px 0 0 -14px; border-radius: 999px; pointer-events: auto; cursor: pointer; will-change: transform; }
+.testimony-world-dot > span { display: grid; place-items: center; flex-shrink: 0; min-width: 14px; height: 14px; padding: 0 3px; border-radius: 999px; background: var(--testimony-tone); color: var(--page); font-size: .55rem; font-weight: 600; line-height: 1; box-shadow: 0 0 0 3px color-mix(in srgb, var(--testimony-tone) 25%, transparent), 0 2px 6px #0000002e; transition: transform .15s; }
+.testimony-world-dot > span:not(:empty) { min-width: 20px; height: 20px; }
+.testimony-world-dot:hover > span, .testimony-world-dot:focus-visible > span { transform: scale(1.25); }
+.testimony-world-dot:focus-visible { outline: none; }
+.testimony-world-dot:focus-visible > span { outline: 2px solid var(--ink); outline-offset: 3px; }
+.testimony-world-dot[aria-pressed="true"] > span { background: var(--ink); box-shadow: 0 0 0 4px color-mix(in srgb, var(--testimony-tone) 55%, transparent), 0 2px 6px #0000002e; }
+.testimony-world-status { position: absolute; left: 1rem; top: 1rem; display: flex; align-items: center; gap: .5rem; max-width: calc(100% - 2rem); padding: .6rem .8rem; border: 1px solid var(--line); border-radius: .5rem; background: var(--surface); color: var(--muted); font-size: .7rem; line-height: 1.5; pointer-events: none; }
+.testimony-world-status svg { flex-shrink: 0; color: var(--testimony-tone); }
+.testimony-world-place { position: absolute; left: 1rem; top: 1rem; width: min(280px, calc(100% - 2rem)); max-height: calc(100% - 6rem); display: grid; grid-template-rows: auto minmax(0, 1fr); border: 1px solid var(--line); border-radius: .6rem; background: var(--surface); box-shadow: 0 6px 24px #0000001f; overflow: hidden; }
+.testimony-world-place > header { display: flex; align-items: flex-start; justify-content: space-between; gap: .75rem; padding: .9rem 1rem .7rem; border-bottom: 1px solid var(--line); }
+.testimony-world-place h3 { font-family: var(--font-serif); font-size: 1rem; margin-top: .35rem; }
+.testimony-world-place > header button { display: grid; place-items: center; width: 32px; height: 32px; border-radius: .4rem; color: var(--muted); }
+.testimony-world-place > header button:hover { background: var(--surface-2); color: var(--ink); }
+.testimony-world-place ol { overflow-y: auto; overscroll-behavior: contain; }
+.testimony-world-place li button { display: flex; align-items: center; justify-content: space-between; gap: .75rem; width: 100%; padding: .75rem 1rem; text-align: left; border-bottom: 1px solid var(--line); }
+.testimony-world-place li:last-child button { border-bottom: 0; }
+.testimony-world-place li button:hover, .testimony-world-place li button[aria-pressed="true"] { background: color-mix(in srgb, var(--testimony-tone) 10%, var(--page)); }
+.testimony-world-place strong { font-family: var(--font-serif); font-size: .85rem; }
+.testimony-world-place small { display: block; font-size: .6rem; color: var(--muted); margin-top: .25rem; }

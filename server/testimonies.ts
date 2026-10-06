@@ -1,5 +1,5 @@
 import { immediatePublication, MAX_TESTIMONY_BLURB, MAX_TESTIMONY_CHARACTERS, MAX_TESTIMONY_REQUEST_BYTES, validateTestimony, type TestimonyNode, type TestimonySubmission } from "../src/lib/testimonies";
-import type { TestimonyAccount } from "../src/lib/testimony-contract";
+import type { TestimonyAccount, TestimonyPin } from "../src/lib/testimony-contract";
 
 const COOKIE = "bp_testimony_session";
 const TOKEN = /^[A-Za-z0-9_-]{43}$/;
@@ -90,6 +90,21 @@ async function invitation(env: Env, token: string) {
   if (invite.inviter_id && !await env.DB.prepare("SELECT id FROM testimony_public_stories WHERE id=?").bind(invite.inviter_id).first()) throw new HttpError(410, "This invitation is no longer available.");
   return invite;
 }
+/** Cloudflare's approximate IP location for this request, rounded to about 10 km; null when it is unknown. */
+function requestLocation(request: Request) {
+  const cf = (request as Request & { cf?: Record<string, unknown> }).cf;
+  const latitude = Number(cf?.latitude), longitude = Number(cf?.longitude);
+  if (!cf || cf.latitude === undefined || cf.longitude === undefined || !Number.isFinite(latitude) || !Number.isFinite(longitude) || Math.abs(latitude) > 90 || Math.abs(longitude) > 180) return null;
+  const label = (key: string, max: number) => typeof cf[key] === "string" ? (cf[key] as string).trim().slice(0, max) : "";
+  const country = label("country", 2).toUpperCase();
+  return { city: label("city", 80), region: label("region", 80), country: /^[A-Z]{2}$/.test(country) ? country : "", latitude: Math.round(latitude * 10) / 10, longitude: Math.round(longitude * 10) / 10 };
+}
+async function pins(env: Env) {
+  const rows = await env.DB.prepare(`SELECT v.id,v.name,v.title,v.theme,v.first_published_at,l.city,l.region,l.country,l.latitude,l.longitude
+    FROM testimony_public_stories v JOIN testimony_locations l ON l.person_id=v.id ORDER BY v.first_published_at,v.id LIMIT 5000`)
+    .all<{ id: string; name: string; title: string; theme: string; first_published_at: number | null; city: string; region: string; country: string; latitude: number; longitude: number }>();
+  return json(rows.results.map((r): TestimonyPin => ({ id: r.id, name: r.name, title: r.title, theme: r.theme, publishedAt: iso(r.first_published_at), city: r.city, region: r.region, country: r.country, latitude: r.latitude, longitude: r.longitude })));
+}
 async function revisionStatements(env: Env, storyId: string, authorId: string, revisionId: string, version: number, value: TestimonySubmission) {
   const contentHash = await digest(JSON.stringify([value.name, value.title, value.blurb, value.body, value.theme, value.happenedWhen]));
   const decision = await immediatePublication.evaluate({ ...value, authorId, revisionId, contentHash });
@@ -120,6 +135,8 @@ async function submit(env: Env, request: Request, input: Record<string, unknown>
   if (invite.inviter_id) statements.push(env.DB.prepare("INSERT INTO testimony_connections(child_id,parent_id,invitation_id) VALUES (?,?,?)").bind(personId, invite.inviter_id, invite.id));
   statements.push(env.DB.prepare("INSERT INTO testimony_stories(id,person_id) VALUES (?,?)").bind(storyId, personId));
   statements.push(...await revisionStatements(env, storyId, personId, crypto.randomUUID(), 1, value));
+  const place = requestLocation(request);
+  if (place) statements.push(env.DB.prepare("INSERT INTO testimony_locations(person_id,city,region,country,latitude,longitude) VALUES (?,?,?,?,?,?)").bind(personId, place.city, place.region, place.country, place.latitude, place.longitude));
   try { await env.DB.batch(statements); } catch { throw new HttpError(409, "The invitation could not be claimed. It may have just been used; your text remains in the form."); }
   return json({ personId, accessUrl: `${site}/testimonies/access#key=${access}` }, 201, { "Set-Cookie": await newSession(env, request, accountId) });
 }
@@ -147,6 +164,7 @@ export async function handleTestimonies(request: Request, env: Env): Promise<Res
     if (method === "GET" && path === "health") { await env.DB.prepare("SELECT 1 FROM testimony_accounts LIMIT 1").first(); return json({ ready: true }); }
     if (method === "GET" && path === "settings") return json({ siteUrl: publicOrigin(env) });
     if (method === "GET" && path === "branches") return await branch(env, url);
+    if (method === "GET" && path === "map") return await pins(env);
     if (method === "GET" && path.startsWith("stories/")) {
       const row = await env.DB.prepare("SELECT * FROM testimony_public_stories WHERE id=?").bind(path.slice(8)).first<StoryRow>();
       if (!row) throw new HttpError(404, "This story is not currently public."); return json(node(row));

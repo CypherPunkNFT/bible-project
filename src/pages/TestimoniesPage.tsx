@@ -1,15 +1,16 @@
-import { ArrowLeft, ArrowRight, Check, Copy, GitBranch, List, Plus, Share2 } from "lucide-react";
+import { ArrowLeft, ArrowRight, Check, Copy, GitBranch, Globe, List, Plus, Share2 } from "lucide-react";
 import { hierarchy, tree } from "d3-hierarchy";
 import QRCode from "qrcode";
 import { useCallback, useEffect, useMemo, useRef, useState, type FormEvent } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { TestimonyTree } from "@/components/TestimonyTree";
+import { TestimonyWorldMap } from "@/components/TestimonyWorldMap";
 import { OutsideScroll } from "@/components/OutsideScroll";
 import { formatTestimonyDate, MAX_TESTIMONY_BLURB, MAX_TESTIMONY_CHARACTERS, testimonyWordCount, TESTIMONY_THEMES, testimonyPath, validateTestimony, type TestimonyNode, type TestimonySubmission } from "@/lib/testimonies";
 import { founderBranch } from "@/data/testimony-founder";
 import { TestimonyReader } from "@/components/TestimonyReader";
 import { saveTestimonyValue, savedTestimonyValue, testimonyAccessToken, testimonyApi } from "@/lib/testimony-api";
-import type { InvitationStatus, InvitationWelcome, TestimonyAccount, TestimonyBranch, TestimonyInvite, TestimonyReport } from "@/lib/testimony-contract";
+import type { InvitationStatus, InvitationWelcome, TestimonyAccount, TestimonyBranch, TestimonyInvite, TestimonyPin, TestimonyReport } from "@/lib/testimony-contract";
 import "./testimonies-design.css";
 
 const emptyBranch: TestimonyBranch = { nodes: [], ancestors: [], rootId: null, hasMore: false, total: 0 };
@@ -35,7 +36,8 @@ export default function TestimoniesPage() {
   const branchRequest = useRef(0);
   const [page, setPage] = useState(0), [selectedId, setSelected] = useState("");
   const [story, setStory] = useState<TestimonyNode | null>(null), [storyError, setStoryError] = useState("");
-  const [display, setDisplay] = useState("tree"), [loading, setLoading] = useState(true);
+  const [display, setDisplay] = useState<"tree" | "map" | "list">("tree"), [loading, setLoading] = useState(true);
+  const [pins, setPins] = useState<TestimonyPin[] | null>(null), [pinsError, setPinsError] = useState("");
   const [error, setError] = useState(""), [notice, setNotice] = useState("");
   const [me, setMe] = useState<TestimonyAccount | null>(null), [siteUrl, setSiteUrl] = useState("");
   const [welcome, setWelcome] = useState<InvitationWelcome | null>(null), [invitationToken, setInvitationToken] = useState("");
@@ -81,6 +83,14 @@ export default function TestimoniesPage() {
     }
     return () => { active = false; };
   }, [location.pathname, refreshMe, navigate]);
+
+  // Fetched each time the map opens, so newly shared stories appear without a reload.
+  useEffect(() => {
+    if (display !== "map") return;
+    const controller = new AbortController(); setPinsError("");
+    void testimonyApi<TestimonyPin[]>("map", "GET", undefined, controller.signal).then(setPins).catch((cause) => { if (!controller.signal.aborted) setPinsError(message(cause)); });
+    return () => controller.abort();
+  }, [display]);
 
   const selected = branch.nodes.find((n) => n.id === selectedId);
   useEffect(() => {
@@ -138,10 +148,10 @@ export default function TestimoniesPage() {
     {accessUrl && <PrivateAccessLink url={accessUrl} onSaved={() => { setAccessUrl(""); saveTestimonyValue("testimony-private-url", null); }} />}
     {mode === "explore" && (loading ? <p className="testimony-empty" role="status">Loading the branches…</p> : branch.nodes.length === 0 ? <section className="testimony-empty"><GitBranch size={32} /><h2>Every branch begins with a story.</h2><p>No testimonies have been shared yet. If you have an invitation, open its link to begin.</p></section> : <div className="testimony-workspace">
       <section className="testimony-map" aria-label="Invitation branches">
-        <header><div><p className="testimony-kicker">Follow the invitations</p><h2>{branch.nodes[0].available ? branch.nodes[0].name + "'s branch" : "A continuing branch"}<span>{founderPlaceholder ? "Founder" : branch.nodes.filter((n) => n.available).length + " stories shown"}</span></h2></div><div className="testimony-view-toggle" role="group" aria-label="Branch display"><button type="button" aria-pressed={display === "tree"} onClick={() => setDisplay("tree")} aria-label="Tree view"><GitBranch size={17} /></button><button type="button" aria-pressed={display === "list"} onClick={() => setDisplay("list")} aria-label="List view"><List size={17} /></button></div></header>
+        <header><div><p className="testimony-kicker">Follow the invitations</p><h2>{branch.nodes[0].available ? branch.nodes[0].name + "'s branch" : "A continuing branch"}<span>{founderPlaceholder ? "Founder" : branch.nodes.filter((n) => n.available).length + " stories shown"}</span></h2></div><div className="testimony-view-toggle" role="group" aria-label="Branch display"><button type="button" aria-pressed={display === "tree"} onClick={() => setDisplay("tree")} aria-label="Tree view"><GitBranch size={17} /></button><button type="button" aria-pressed={display === "map"} onClick={() => setDisplay("map")} aria-label="World map view"><Globe size={17} /></button><button type="button" aria-pressed={display === "list"} onClick={() => setDisplay("list")} aria-label="List view"><List size={17} /></button></div></header>
         <nav className="testimony-breadcrumb" aria-label="Branch path">{branch.ancestors.map((n, index) => <span key={n.id}>{index > 0 && <ArrowRight size={11} />}<button type="button" onClick={() => openExplore(n.id)}>{n.name}</button></span>)}</nav>
-        {display === "tree" ? <TestimonyTree key={branch.rootId + ":" + page} positions={positions} width={Math.max(...positions.map((p) => p.left)) + 224} height={Math.max(...positions.map((p) => p.top)) + 132} selectedId={selectedId} onSelect={(id) => { setReading(false); setSelected(id); }} onExpand={openExplore} /> : <OutsideScroll label="Testimonies in this branch" className="testimony-list-scroll" resetKey={`${branch.rootId}:${page}`}><ol className="testimony-list">{branch.nodes.map((n) => <li key={n.id}><button type="button" aria-pressed={selectedId === n.id} onClick={() => setSelected(n.id)}><span><strong>{n.name}</strong>{n.publishedAt && <small><time dateTime={n.publishedAt}>Shared {formatTestimonyDate(n.publishedAt)}</time></small>}</span><span>{n.title}</span><ArrowRight size={16} /></button></li>)}</ol></OutsideScroll>}
-        <footer><span>Drag to move · Pinch or wheel to zoom<br />Select a person to read their story.</span>{(page > 0 || branch.hasMore) && <div className="testimony-pagination"><button disabled={page === 0} onClick={() => void loadBranch(branch.rootId, page - 1)}>Previous</button><span>Page {page + 1}</span><button disabled={!branch.hasMore} onClick={() => void loadBranch(branch.rootId, page + 1)}>Next</button></div>}</footer>
+        {display === "tree" ? <TestimonyTree key={branch.rootId + ":" + page} positions={positions} width={Math.max(...positions.map((p) => p.left)) + 224} height={Math.max(...positions.map((p) => p.top)) + 132} selectedId={selectedId} onSelect={(id) => { setReading(false); setSelected(id); }} onExpand={openExplore} /> : display === "map" ? <TestimonyWorldMap pins={pins} error={pinsError} selectedId={selectedId} onOpen={(id) => openExplore(id)} /> : <OutsideScroll label="Testimonies in this branch" className="testimony-list-scroll" resetKey={`${branch.rootId}:${page}`}><ol className="testimony-list">{branch.nodes.map((n) => <li key={n.id}><button type="button" aria-pressed={selectedId === n.id} onClick={() => setSelected(n.id)}><span><strong>{n.name}</strong>{n.publishedAt && <small><time dateTime={n.publishedAt}>Shared {formatTestimonyDate(n.publishedAt)}</time></small>}</span><span>{n.title}</span><ArrowRight size={16} /></button></li>)}</ol></OutsideScroll>}
+        <footer><span>Drag to move · Pinch or wheel to zoom<br />{display === "map" ? "Each dot is where a story was shared. Select one to read it." : "Select a person to read their story."}</span>{display !== "map" && (page > 0 || branch.hasMore) && <div className="testimony-pagination"><button disabled={page === 0} onClick={() => void loadBranch(branch.rootId, page - 1)}>Previous</button><span>Page {page + 1}</span><button disabled={!branch.hasMore} onClick={() => void loadBranch(branch.rootId, page + 1)}>Next</button></div>}</footer>
       </section>
       <aside className="testimony-story" aria-label="Selected testimony">
         <p className="testimony-kicker">A story in this branch</p>
@@ -238,7 +248,7 @@ function TestimonyForm({ welcome, existing, draftKey, preview = false, onBack, o
         <p id="testimony-body-help" className="testimony-small">{testimonyWordCount(value.body).toLocaleString()} words · {value.body.length.toLocaleString()} / 100,000 characters. Paragraphs and line breaks are preserved.</p>
       </div>
     </div>
-    <p className="testimony-small">Publishing makes your story, its details and your public name visible to visitors.</p>
+    <p className="testimony-small">Publishing makes your story, its details and your public name visible to visitors.{!existing && " A dot on the world map shows roughly where you shared it from (your city, not your address)."}</p>
     {error && <p role="alert" className="testimony-form-error">{error}</p>}<button type="submit" className="testimony-primary" disabled={busy || preview}>{busy ? "Publishing…" : existing?.state === "public" ? "Publish changes" : "Publish testimony"}<ArrowRight size={16} /></button>
   </form></section>;
 }

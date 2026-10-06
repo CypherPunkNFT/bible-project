@@ -3,7 +3,7 @@ import { createHash, randomBytes, randomUUID } from "node:crypto";
 import { mkdir, mkdtemp } from "node:fs/promises";
 import path from "node:path";
 import { createTestimonyRuntime } from "../testimony-runtime.ts";
-import type { TestimonyAccount, TestimonyBranch, TestimonyInvite, TestimonyReport } from "../../src/lib/testimony-contract.ts";
+import type { TestimonyAccount, TestimonyBranch, TestimonyInvite, TestimonyPin, TestimonyReport } from "../../src/lib/testimony-contract.ts";
 import "./testimonies-migration.ts";
 
 await mkdir("e2e/.output", { recursive: true });
@@ -122,6 +122,17 @@ try {
   const replacement = new URLSearchParams(new URL(rotation.data.url).hash.slice(1)).get("key");
   assert.equal((await call("session", "POST", { token: replacement })).status, 200);
   passed("private access works across sessions; sign-out and replacement revoke old access, including replay");
+
+  const londonInvite = await newInvite(root.cookie);
+  const london = await runtime.dispatchFetch(origin + "/api/testimonies/submissions", { method: "POST", headers: { Origin: origin, "Content-Type": "application/json" }, body: JSON.stringify(payload(londonInvite.token, "Map writer")),
+    cf: { latitude: "51.50722", longitude: "-0.12759", city: "London", region: "England", country: "GB" } });
+  assert.equal(london.status, 201);
+  const londonId = (await london.json() as { personId: string }).personId;
+  const map = await call<TestimonyPin[]>("map"); assert.equal(map.status, 200);
+  const pin = map.data.find((p) => p.id === londonId);
+  assert.deepEqual(pin && [pin.name, pin.city, pin.region, pin.country, pin.latitude, pin.longitude], ["Map writer", "London", "England", "GB", 51.5, -0.1]);
+  assert.ok(!map.data.some((p) => p.id === child.data.personId));
+  passed("first publication records an approximate, rounded place; the map lists only public stories");
 
   const publicData = await call<TestimonyBranch>("branches");
   assert.equal(publicData.headers.get("Cache-Control"), "no-store");
