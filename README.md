@@ -1,5 +1,7 @@
 # Bible Project
 
+**SOURCES & CORPUS DASHBOARD:** [Inventory, provenance and refresh handbook](content/library/SOURCES-DASHBOARD.md). `/sources` now joins collection dashboards, authors, works and acquisition links: 16,498 reference records, including 15,479 verified acquired files in the shared library snapshot. Attribution and collection gaps remain explicit; counts and embedding coverage are dated.
+
 **Current knowledge priority:** [Incorporate and fully embed the expanded local library](knowledge/README.md#expanded-library-intake), then verify coverage before enrichment. The independent completion worker catches late acquisitions and records its outcome in `../KnowledgeBase/intake-completion.json`.
 
 **KNOWLEDGE BASE ENRICHMENT STRATEGY:** [LLM-authored terms, deterministic Python and FTS5 analysis](knowledge/ENRICHMENT-STRATEGY.md). Author and validate reusable vocabulary/rules, then enrich the independent local database through repeatable passes without per-document model calls. See the [analytical roadmap](knowledge/ANALYSIS.md) for the resulting graph layers. Strategy documented; enrichment runner planned.

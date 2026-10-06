@@ -7,7 +7,7 @@ type RecordData = Record<string, any>;
 const read = (file: string): RecordData => JSON.parse(fs.readFileSync(file, "utf8").replace(/^\uFEFF/, ""));
 const records = (directory: string) => fs.readdirSync(directory).filter(f => f.endsWith(".json")).sort().map(f => read(path.join(directory, f)));
 const publicUrl = (url: unknown): url is string => typeof url === "string" && /^https?:\/\//.test(url);
-type Entry = { id: string; title: string; author: string; categories: string[]; kind: string; status: string; role: string; links: { url: string; sourceId: string }[] };
+type Entry = { id: string; title: string; author: string; categories: string[]; kind: string; status: string; role: string; held?: boolean; links: { url: string; sourceId: string; name?: string; held?: boolean; format?: string; edition?: string; acquired?: string }[] };
 
 /** Bibliographic metadata only: never export bodies, local paths, permission correspondence or private notes. */
 export function buildSourceDirectory(root: string) {
@@ -72,9 +72,22 @@ export function buildSourceDirectory(root: string) {
     }
   }
   const sources = read(path.join(base, "sources.json")).sources.map((s: RecordData) => ({ id: s.id, name: s.name, url: s.url, role: s.role }));
+  // Same reconciled, metadata-only bibliography used by the Jarvis collection dashboard.
+  // Preserve the separate published apologetics bibliography; replace older destination-only rows.
+  const corpus = read(path.join(base, "corpus-dashboard.json"));
+  const roles = new Map(entries.map(e => [e.id, e.role]));
+  const studyEntries = entries.filter(e => e.status === "Study bibliography");
+  entries.splice(0, entries.length, ...corpus.bibliography.entries.map((e: RecordData): Entry => ({
+    id: e.id, title: e.title, author: e.author,
+    categories: e.categories.map((c: string) => c === "unassigned" ? "research" : c),
+    kind: e.kind, held: e.held, status: e.held ? "Acquired file verified" : "Catalogue only",
+    role: roles.get(e.id) ?? "Collection record; inclusion is not an editorial endorsement",
+    links: e.sources.map((s: RecordData) => ({ url: s.url, sourceId: "", name: s.name, held: s.held, format: s.format, edition: s.edition, acquired: s.acquired })),
+  })), ...studyEntries);
   const result = {
-    collections: [...vocabulary.collections, { id: "research", label: "Further research & acquisitions", definition: "Additional source destinations recorded by acquisition batches, awaiting reconciliation with the main bibliography." }],
+    collections: [...vocabulary.collections, { id: "research", label: "Awaiting collection assignment", definition: "Additional acquired titles whose collection placement has not yet been reconciled." }],
     sources, entries,
+    corpus: { ...corpus.snapshot, bibliographyUpdatedAt: corpus.bibliography.updatedAt, verifiedFiles: corpus.bibliography.verifiedFiles, incompleteIdentity: corpus.bibliography.incompleteIdentity },
   };
   fs.mkdirSync(path.join(root, "public/content/sources"), { recursive: true });
   fs.writeFileSync(path.join(root, "public/content/sources/directory.json"), JSON.stringify(result));

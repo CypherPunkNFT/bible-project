@@ -1,22 +1,14 @@
 # Sources
 
-## Reference directory (2026-10-05, local preview)
+## Reference directory and corpus dashboard (2026-10-06, local preview)
 
-`/sources` and `/versions` now open the full reference desk: introduction, collection navigation,
-study/atlas credits, searchable bibliography, research reports and source institutions, followed by
-the existing edition table headed “37 scriptures, all free to read.”
+`/sources` and `/versions` contain the reference preamble, a corpus dashboard in the Bible website's visual style, eight expandable collections plus unassigned acquisitions, author/work/source browsing, the complete searchable bibliography, study/atlas credits, 18 collection and acquisition reports, source institutions, and the existing 37-Scripture edition table.
 
-`scripts/source-directory.ts` rebuilds `public/content/sources/directory.json` during Vite builds and
-library-content changes in development. Inputs: library vocabulary, authors, works, editions, assets
-and source registry; published Apologetics citations; category acquisition manifests/results.
-Only selected bibliographic fields and public source URLs are exported, without source bodies,
-private permission files, local paths or embedding state. Unreconciled acquisitions retain their
-source URL and explicit status. Counts are reference records, not unique books or reviewed works.
+The [sources dashboard handbook](content/library/SOURCES-DASHBOARD.md) documents all categories, inventory definitions, acquisition evidence, export boundaries, known gaps and exact refresh commands. The shared wiki bibliography reconciles catalogues, manifests, inventories and on-disk provenance; the website adds its published study citations. Snapshot: **16,498 reference records**, **15,479 acquired files verified**, **30,904 library files / 5.30 GB** including metadata. Records are not unique books. **701 acquired identities remain incomplete**; unresolved collection placement is visible rather than omitted.
 
-Verified: app/node TypeScript, targeted lint, build, unique IDs, category/public-link integrity,
-absence of local acquisition fields, search, filters, pagination, Scripture anchors and mobile layout.
-Snapshot: 16,348 reference records and 29 registered institutions; later acquisition work can change
-build totals. Local preview only; not publicly deployed.
+`scripts/sync-corpus-dashboard.py` imports the metadata-only wiki export. `scripts/source-directory.ts` builds `public/content/sources/directory.json`. Source bodies, private permission files, absolute paths and worker internals stay local; only dated aggregate search/embedding measurements are exposed. Later acquisitions need an explicit snapshot refresh. No collectors or embedding jobs are changed.
+
+Validation covers TypeScript, targeted lint/build, acquisition-evidence regression tests, metadata projection, collection/author search, source links and responsive browser checks. This revision is built locally; website publication is a separate release step.
 
 **Class:** LIVING · **Downloaded:** 2026-10-03
 
@@ -41,7 +33,7 @@ Books column = Old Testament / New Testament / Apocrypha-Deuterocanon, from eBib
 | [engtnt](sources/ebible/engtnt/) | Tyndale New Testament (1534) | English | 0/27/0 | 2020-12-20 | f9ccffa0956bcad8 |
 | [engWycliffe](sources/ebible/engWycliffe/) | Wycliffe Bible — five books of Moses and the Gospels only | Middle English | 5/4/0 | 2016-11-08 | eb71616d28ddf05b |
 | [engDRA](sources/ebible/engDRA/) | Douay-Rheims (1899 American edition), Catholic, from the Latin Vulgate | English | 39/27/7 | 2022-11-03 | 2a4bbd180de4a7ca |
-| [engwebster](sources/ebible/engwebster/) | Noah Webster Bible (1833) | English | 39/27/0 | 2024-08-01 | 505370352413cdf7 |
+| [engwebster](sources/ebible/engwebster/) | Noah Webster Bible (1833) | English | 39/27/0 | 2024-08-01 | 505370152413cdf7 |
 | [engylt](sources/ebible/engylt/) | Young's Literal Translation (1898) | English | 39/27/0 | 2019-10-20 | e50e55320bd5352e |
 | [engDBY](sources/ebible/engDBY/) | Darby Translation (1890) | English | 39/27/0 | 2019-11-15 | 93fc531ac7f06d9a |
 | [eng-rv](sources/ebible/eng-rv/) | Revised Version (1895) with Apocrypha | English | 39/27/14 | 2026-10-02 | ed587388c6a1935a |
