@@ -14,7 +14,8 @@ await mkdir(".release", { recursive: true });
 const directory = await mkdtemp(path.resolve(".release/testimonies-"));
 const site = path.join(directory, "site");
 await cp("dist", site, { recursive: true });
-await cp("data", path.join(site, "data"), { recursive: true });
+// dereference: follow links/junctions (a clean release worktree links data/ in), never ship a link.
+await cp("data", path.join(site, "data"), { recursive: true, dereference: true });
 await cp("migrations", path.join(directory, "migrations"), { recursive: true });
 const compiler = spawnSync(process.execPath, ["node_modules/wrangler/bin/wrangler.js", "pages", "functions", "build", "--outdir", path.join(site, "_worker.js")], { stdio: "inherit" });
 if (compiler.status !== 0) throw new Error("Pages Function compilation failed.");
@@ -24,8 +25,9 @@ await cp("public/_routes.json", path.join(site, "_routes.json"));
 // Lives on F: via the AtlasTiles junction; ATLAS_TILES_DIR overrides (e.g. when preparing from a clean worktree).
 const atlas = process.env.ATLAS_TILES_DIR ?? path.resolve(import.meta.dirname, "../../AtlasTiles/site");
 const atlasManifest = JSON.parse(await readFile(path.join(atlas, "bible-atlas.json"), "utf8")) as { version: string; chunks: number };
-for (const part of ["bible-atlas.json", atlasManifest.version, "fonts", "sprites"]) await cp(path.join(atlas, part), path.join(site, "atlas-tiles", part), { recursive: true });
+for (const part of ["bible-atlas.json", atlasManifest.version, "fonts", "sprites"]) await cp(path.join(atlas, part), path.join(site, "atlas-tiles", part), { recursive: true, dereference: true });
 const files = await readdir(site, { recursive: true, withFileTypes: true });
+if (files.some((entry) => entry.isSymbolicLink())) throw new Error("The release contains a link instead of files; copy with dereference.");
 if (files.filter((entry) => entry.isFile()).length > 20000) throw new Error("The release exceeds the project's 20,000-file limit.");
 for (const entry of files.filter((entry) => entry.isFile())) {
   const file = path.join(entry.parentPath, entry.name);
