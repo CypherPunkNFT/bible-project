@@ -1,0 +1,46 @@
+.vector-atlas { --vector-water: color-mix(in srgb, var(--poetry) 20%, var(--page)); --vector-land: color-mix(in srgb, var(--accent) 12%, var(--surface)); --vector-land-south: color-mix(in srgb, var(--accent) 22%, var(--surface)); --vector-coast: color-mix(in srgb, var(--accent) 45%, var(--line)); }
+.vector-atlas-frame { border: 1px solid var(--line); border-radius: 16px; background: var(--surface); }
+.vector-atlas-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px; border-bottom: 1px solid var(--line); flex-wrap: wrap; }
+.vector-region-buttons, .vector-zoom-buttons { display: flex; align-items: center; gap: 4px; }
+.vector-region-buttons button { border-radius: 7px; padding: 7px 10px; font-size: 12px; color: var(--muted); }
+.vector-region-buttons button[aria-pressed="true"] { background: var(--ink); color: var(--page); }
+.vector-zoom-buttons button { display: grid; place-items: center; width: 32px; height: 32px; border: 1px solid var(--line); border-radius: 7px; }
+.vector-zoom-buttons button:hover, .vector-region-buttons button:hover:not([aria-pressed="true"]) { background: var(--surface-2); }
+.vector-zoom-buttons button:disabled { opacity: .3; cursor: default; }
+.vector-zoom-buttons > span { width: 40px; text-align: center; font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.vector-atlas-canvas { position: relative; height: clamp(460px, 68dvh, 640px); isolation: isolate; }
+.vector-atlas-svg { display: block; width: 100%; height: 100%; background: var(--vector-water); touch-action: none; cursor: grab; overflow: hidden; }
+.vector-atlas-svg:active { cursor: grabbing; }
+.vector-map-marker { cursor: pointer; outline: none; }
+.vector-marker-hit { r: calc(17px / var(--atlas-k, 1)); fill: transparent; }
+.vector-marker-dot { r: calc(4.5px / var(--atlas-k, 1)); fill: var(--marker-color); stroke: var(--surface); stroke-width: 1.5px; vector-effect: non-scaling-stroke; }
+.vector-marker-dot[data-uncertain="true"] { fill: var(--vector-land); stroke: var(--marker-color); }
+.vector-marker-cluster { r: calc(13px / var(--atlas-k, 1)); fill: var(--surface); stroke: var(--marker-color); stroke-width: 1.5px; vector-effect: non-scaling-stroke; }
+.vector-marker-count { font: 600 calc(11px / var(--atlas-k, 1)) var(--font-sans); fill: var(--ink); pointer-events: none; }
+.vector-marker-selected { r: calc(17px / var(--atlas-k, 1)); fill: none; stroke: var(--accent); stroke-width: 1.5px; vector-effect: non-scaling-stroke; }
+.vector-map-marker:focus-visible .vector-marker-hit, .vector-map-marker:hover .vector-marker-hit { fill: color-mix(in srgb, var(--marker-color) 18%, transparent); stroke: var(--marker-color); stroke-width: 1px; vector-effect: non-scaling-stroke; }
+.vector-map-labels { pointer-events: none; fill: var(--ink); font-family: var(--font-sans); font-weight: 550; paint-order: stroke; stroke: var(--vector-land); stroke-linejoin: round; transition: opacity 120ms; }
+.vector-compass { fill: var(--muted); font: 10px var(--font-sans); pointer-events: none; }
+.vector-atlas-key { display: flex; gap: 12px 24px; flex-wrap: wrap; padding: 12px 16px; border-top: 1px solid var(--line); font-size: 11px; color: var(--muted); }
+.vector-atlas-key > span { display: flex; align-items: center; gap: 7px; }
+.vector-key-group { display: grid; place-items: center; width: 20px; height: 20px; border: 1px solid var(--history); border-radius: 50%; font-style: normal; color: var(--ink); }
+.vector-key-dot, .vector-key-uncertain { width: 8px; height: 8px; border-radius: 50%; background: var(--history); }
+.vector-key-uncertain { background: transparent; border: 1.5px solid var(--history); }
+.vector-atlas figcaption { margin-top: 10px; max-width: 65rem; font-size: 11px; line-height: 1.7; color: var(--muted); }
+.vector-cluster-card { position: absolute; bottom: 16px; left: 16px; width: min(310px, calc(100% - 42px)); padding: 16px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); box-shadow: 0 12px 40px #0003; }
+.vector-cluster-card header { display: flex; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+.vector-cluster-card header p { color: var(--muted); font-size: 11px; }
+.vector-cluster-card h3 { font: 600 20px var(--font-serif); }
+.vector-cluster-card header button { align-self: start; padding: 4px; border-radius: 5px; }
+.vector-cluster-list { max-height: 190px; }
+.vector-cluster-card .outside-scrollbar { right: -29px; }
+.vector-group-search { display: block; width: 100%; border: 1px solid var(--line); border-radius: 6px; padding: 7px 9px; background: var(--page); margin-bottom: 8px; font-size: 12px; }
+.vector-cluster-list li + li { border-top: 1px solid var(--line); }
+.vector-cluster-list li button { display: flex; align-items: center; gap: 10px; width: 100%; padding: 10px 6px; text-align: left; font-size: 13px; }
+.vector-cluster-list li button:hover { background: var(--surface-2); }
+.vector-cluster-list li button > span:last-child { margin-left: auto; text-align: right; color: var(--muted); font-size: 11px; }
+.vector-cluster-list small { display: block; font-size: 10px; color: var(--muted); }
+.vector-list-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+.vector-cluster-zoom { display: flex; align-items: center; justify-content: space-between; width: 100%; border-top: 1px solid var(--line); padding-top: 12px; margin-top: 8px; font-size: 12px; color: var(--accent); }
+.vector-empty { position: absolute; inset: 40% 16px auto; text-align: center; padding: 16px; border-radius: 10px; background: var(--surface); }
+@media (max-width: 540px) { .vector-atlas-toolbar { gap: 8px; } .vector-region-buttons { flex: 1 0 100%; } .vector-region-buttons button { flex: 1; } .vector-zoom-buttons { margin-left: auto; } .vector-atlas-key { gap: 10px; } }

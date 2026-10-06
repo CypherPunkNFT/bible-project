@@ -124,6 +124,13 @@ Checks: `bun run typecheck`, `bun run lint`, `bun run test`, `python -m pytest s
 
 ## How it is built
 
+The separate atlas mockup is at `/study/places/mockup`. It copies the current atlas's filters and place
+details, with a colored SVG coastline, markers that stay small when zoomed, collision-aware labels and
+searchable groups for crowded/co-located places. It offers Biblical world, Holy Land and Galilee views.
+The current `/study/places` atlas and navigation are unchanged. The mockup reuses the existing Natural
+Earth outline and OpenBible coordinates; it does not add historical borders or more precise location data.
+Run its checks with `node node_modules/@playwright/test/cli.js test -c e2e/atlas-mockup.config.ts`.
+
 React 18, Vite, TypeScript and Tailwind on the front end. A plain-Python pipeline (`scripts/`) turns the
 publishers' files (USFM Bible text, CSV, JSON, XML) into static JSON, so Bible reading needs no database.
 `scripts/build-map.mjs` draws the coastlines from Natural Earth, and the satellite picture is cut to the map's
