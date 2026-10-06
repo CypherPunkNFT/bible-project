@@ -13,7 +13,7 @@ interface Props { pins: TestimonyPin[] | null; error: string; selectedId: string
 const countryNames = (() => { try { return new Intl.DisplayNames(["en"], { type: "region" }); } catch { return null; } })();
 function placeLabel(pin: TestimonyPin) {
   const country = pin.country ? countryNames?.of(pin.country) ?? pin.country : "";
-  return [pin.city, country].filter(Boolean).join(", ") || "Unknown place";
+  return [pin.city, pin.region !== pin.city ? pin.region : "", country].filter(Boolean).join(", ") || "Unknown place";
 }
 
 /** Every public testimony at the approximate place it was first published. Pins at one place share a dot. */
