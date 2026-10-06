@@ -31,14 +31,12 @@ export const HISTORY_COLLECTIONS = [
     detail: "Traditions · Authority · Communion", action: "Explore the traditions",
     heading: "Shared roots. Distinct traditions.",
     intro: "Discover how Catholic and Orthodox Christians understand their history, worship, and continuity with the apostles. Follow developments over centuries, with each tradition's claims identified in its own voice.",
-    choose: "What would you like to understand?",
+    choose: "Which tradition will you follow?",
+    // The Atlas maps only these two traditions (TraditionExperience.tsx). The owner moved the other topics off the
+    // Atlas on 2026-10-06 as studies; they are kept in TRADITION_STUDY_TOPICS below.
     topics: [
-      topic("roots", "Shared Roots", "Scripture, creeds & early communities", "What inheritance do these traditions share, and how does each understand continuity?", ["Jerusalem", "Antioch", "Rome", "Alexandria", "Constantinople"], ["Apostolic continuity", "Scripture and the creeds", "Early centers and relationships"]),
       topic("catholic", "Catholic Christianity", "Communion, councils & the papacy", "How did Catholic institutions and understandings of authority develop?", ["Rome", "Avignon", "Trent"], ["The role of the bishop of Rome", "Councils and reform", "Latin and Eastern Catholic traditions"]),
       topic("eastern", "Eastern Orthodoxy", "Councils, icons & liturgy", "How do Orthodox churches express unity through their shared faith and worship?", ["Constantinople", "Thessalonica", "Mount Athos"], ["Councils and local churches", "Icons and their defense", "Liturgy and spiritual practice"]),
-      topic("oriental", "Oriental Orthodox Churches", "Ancient communities & Christology", "How do the Oriental Orthodox traditions differ from Eastern Orthodoxy?", ["Alexandria", "Etchmiadzin", "Aksum"], ["The reception of Chalcedon", "Coptic, Armenian, Syriac, and other traditions", "Distinct histories and later dialogue"]),
-      topic("separation", "Separation & Encounter", "A relationship across centuries", "How did disagreements become divisions, and what has made dialogue possible?", ["Rome", "Constantinople", "Lyon", "Florence"], ["Authority, language, and theological disputes", "Political conflict and broken communion", "Reunion attempts and modern dialogue"]),
-      topic("worship", "Worship & Spiritual Life", "Theology as lived practice", "What can worship reveal about a tradition's understanding of God and the church?", ["Rome", "Constantinople", "Sinai"], ["Sacraments and liturgical life", "Monastic traditions", "Sacred art and the church calendar"]),
     ],
     sources: [
       { title: "Catholic–Orthodox joint declaration · 1965", url: "https://www.vatican.va/content/paul-vi/en/speeches/1965/documents/hf_p-vi_spe_19651207_common-declaration.html" },
@@ -92,3 +90,11 @@ export const HISTORY_COLLECTIONS = [
 ] as const;
 
 export type HistoryId = typeof HISTORY_COLLECTIONS[number]["id"];
+
+/** Taken off the Atlas by the owner (2026-10-06): these read as studies, not maps. Not yet placed in Study. */
+export const TRADITION_STUDY_TOPICS: HistoryTopic[] = [
+  topic("roots", "Shared Roots", "Scripture, creeds & early communities", "What inheritance do these traditions share, and how does each understand continuity?", ["Jerusalem", "Antioch", "Rome", "Alexandria", "Constantinople"], ["Apostolic continuity", "Scripture and the creeds", "Early centers and relationships"]),
+  topic("oriental", "Oriental Orthodox Churches", "Ancient communities & Christology", "How do the Oriental Orthodox traditions differ from Eastern Orthodoxy?", ["Alexandria", "Etchmiadzin", "Aksum"], ["The reception of Chalcedon", "Coptic, Armenian, Syriac, and other traditions", "Distinct histories and later dialogue"]),
+  topic("separation", "Separation & Encounter", "A relationship across centuries", "How did disagreements become divisions, and what has made dialogue possible?", ["Rome", "Constantinople", "Lyon", "Florence"], ["Authority, language, and theological disputes", "Political conflict and broken communion", "Reunion attempts and modern dialogue"]),
+  topic("worship", "Worship & Spiritual Life", "Theology as lived practice", "What can worship reveal about a tradition's understanding of God and the church?", ["Rome", "Constantinople", "Sinai"], ["Sacraments and liturgical life", "Monastic traditions", "Sacred art and the church calendar"]),
+];

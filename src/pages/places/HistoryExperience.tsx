@@ -4,8 +4,13 @@ import { useSearchParams } from "react-router-dom";
 import { HISTORY_COLLECTIONS, type HistoryId } from "./history-collections";
 import { PlacesArtwork } from "./PlacesArtwork";
 import { RevealSelection } from "./RevealSelection";
+import { TraditionExperience } from "./TraditionExperience";
 
 export function HistoryExperience({ id }: { id: HistoryId }) {
+  return id === "catholic-orthodox" ? <TraditionExperience /> : <TopicExperience id={id} />;
+}
+
+function TopicExperience({ id }: { id: HistoryId }) {
   const data = HISTORY_COLLECTIONS.find((entry) => entry.id === id)!;
   const [search, setSearch] = useSearchParams();
   const active = data.topics.find((entry) => entry.id === search.get("topic"));
