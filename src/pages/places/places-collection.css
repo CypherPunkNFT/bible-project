@@ -32,10 +32,10 @@
 .places-collection-note svg { flex-shrink: 0; }
 .places-collection-note a:hover { color: var(--ink); }
 .places-collection-nav { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .75rem; margin-top: 1.4rem; }
-.places-collection-nav > a { display: flex; align-items: center; gap: .7rem; padding: .75rem .85rem; min-width: 0; border: 1px solid var(--line); border-radius: .7rem; background: var(--surface); transition: border-color .2s, background .2s; }
+.places-collection-nav > a { display: flex; align-items: center; gap: 1.15rem; padding: .75rem .85rem; min-width: 0; border: 1px solid var(--line); border-radius: .7rem; background: var(--surface); transition: border-color .2s, background .2s; }
 .places-collection-nav > a[aria-current=page] { border-color: var(--places-color); background: color-mix(in srgb, var(--places-color) 9%, var(--surface)); }
 .places-collection-nav > a:hover { border-color: var(--places-color); }
-.places-collection-nav .places-artwork { width: 64px; height: 38px; flex-shrink: 0; }
+.places-collection-nav .places-artwork { width: 84px; height: 48px; flex-shrink: 0; }
 .places-collection-nav > a > span { font-size: .8rem; font-weight: 600; }
 .places-collection-nav > a > svg:last-child { margin-left: auto; flex-shrink: 0; color: var(--places-color); }
 .places-destination-intro { padding-block: 2rem 1.65rem; }
