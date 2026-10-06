@@ -30,7 +30,7 @@ const PRESETS: Preset[] = [
   { name: "Biblical world", bounds: BOUNDS },
   { name: "Holy Land", center: [35.2, 31.7], zoom: 7 },
   { name: "Galilee", center: [35.45, 32.8], zoom: 10 },
-  { name: "Jerusalem streets", center: [35.2295, 31.7767], zoom: 15 },
+  { name: "Jerusalem", center: [35.2295, 31.7767], zoom: 15 },
 ];
 
 interface Props {
@@ -39,12 +39,10 @@ interface Props {
   onSelect: (place: MapPlace) => void;
   overlay?: ReactNode;
   coveredFraction?: number;
-  /** Mockup 3: no roads, buildings or modern towns (see ANCIENT_LAYERS in street-style.ts). */
-  ancient?: boolean;
 }
 
 /** Street-level atlas mockup: OpenStreetMap vector tiles (Protomaps) drawn by MapLibre, zoomable to streets near every place. */
-export function StreetAtlasMap({ places, selected, onSelect, overlay, coveredFraction = 0, ancient = false }: Props) {
+export function StreetAtlasMap({ places, selected, onSelect, overlay, coveredFraction = 0 }: Props) {
   const container = useRef<HTMLDivElement>(null);
   const mapRef = useRef<MapLibreMap | null>(null);
   const placesRef = useRef(places);
@@ -71,7 +69,7 @@ export function StreetAtlasMap({ places, selected, onSelect, overlay, coveredFra
     if (!container.current) return;
     addPmtilesProtocol();
     const map = new MapLibreMap({
-      container: container.current, style: buildStyle(currentTheme(), placesRef.current, selectedIdRef.current, ancient),
+      container: container.current, style: buildStyle(currentTheme(), placesRef.current, selectedIdRef.current),
       center: [35.2, 31.7], zoom: 7, maxZoom: 18, attributionControl: { compact: false },
       maxBounds: BOUNDS, renderWorldCopies: false, // the biblical world only: no panning or zooming out past it
     });
@@ -103,12 +101,12 @@ export function StreetAtlasMap({ places, selected, onSelect, overlay, coveredFra
     }
     mapRef.current = map;
     return () => { map.remove(); mapRef.current = null; firstPlaces.current = true; };
-  }, [ancient]); // a different look is a different map
+  }, []);
 
   // Theme switch: rebuild the style with the other palette (places included, so nothing is lost).
   useEffect(() => {
-    if (themeVersion > 0) mapRef.current?.setStyle(buildStyle(currentTheme(), placesRef.current, selectedIdRef.current, ancient));
-  }, [themeVersion, ancient]);
+    if (themeVersion > 0) mapRef.current?.setStyle(buildStyle(currentTheme(), placesRef.current, selectedIdRef.current));
+  }, [themeVersion]);
 
   // Filters changed: new dots, and frame them.
   useEffect(() => {
@@ -156,7 +154,7 @@ export function StreetAtlasMap({ places, selected, onSelect, overlay, coveredFra
       </div>
       <div className="vector-atlas-key"><span><i className="vector-key-group">7</i> Places in this area (select to zoom in)</span><span><i className="vector-key-dot" /> Individual place</span><span><i className="vector-key-uncertain" /> Less certain location</span></div>
     </div>
-    <figcaption>Drag to explore · scroll or pinch to zoom · {ancient ? "close detail" : "street detail"} within 50 km of every place, the wider biblical world everywhere else.
+    <figcaption>Drag to explore · scroll or pinch to zoom · close detail within 50 km of every place, the wider biblical world everywhere else.
       Map data: © OpenStreetMap contributors (ODbL), via Protomaps. Locations: OpenBible.info (CC BY 4.0).</figcaption>
   </figure>;
 }
