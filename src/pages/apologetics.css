@@ -115,6 +115,8 @@
 .ap-study-card > a { padding: .5rem 1.3rem 1.4rem; display: flex; flex-direction: column; flex: 1; }
 .ap-study-card h3 { font-size: 1.3rem; line-height: 1.45; }
 .ap-study-card p { margin: .7rem 0 1.4rem; font-size: .76rem; line-height: 1.8; color: var(--muted); }
+.ap-study-card p.ap-study-snippet { margin: -.6rem 0 1.4rem; padding-left: .7rem; border-left: 2px solid color-mix(in srgb,var(--ap-tone) 45%,var(--line)); display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; font-style: italic; }
+.ap-study-snippet mark { background: color-mix(in srgb,var(--ap-tone) 22%,transparent); color: var(--ink); font-style: normal; border-radius: .15rem; padding: 0 .1rem; }
 .ap-study-card > a > span { display: flex; align-items: center; gap: .5rem; font-size: .68rem; margin-top: auto; color: var(--ap-tone); }
 .ap-study-card:hover { border-color: var(--ap-tone); }
 .ap-study-card button[aria-pressed="true"] { color: var(--ap-tone); }

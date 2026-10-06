@@ -36,7 +36,7 @@ test("apologetics: search, shareable filters and empty recovery", async ({ page 
   await page.reload();
   await expect(page.getByRole("searchbox", { name: "Search studies" })).toHaveValue("manuscripts");
   await expect(page.getByRole("button", { name: "Bible & reliability", exact: true })).toHaveAttribute("aria-pressed", "true");
-  await page.getByRole("searchbox", { name: "Search studies" }).fill("zz-nonexistent-question");
+  await page.getByRole("searchbox", { name: "Search studies" }).fill("zzqqxx"); // one made-up word: a multi-word query falls back to studies with any of its words
   await expect(page.getByRole("heading", { name: "No studies match that search." })).toBeVisible();
   await page.getByRole("button", { name: "Clear search and filters" }).click();
   await expect(page.locator(".ap-study-card")).toHaveCount(STUDIES.length);
