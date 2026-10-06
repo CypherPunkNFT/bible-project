@@ -4,7 +4,7 @@
 <pre id="log">loading…</pre>
 <script type="module">
 // Measures, in this browser: model start-up, one-question embedding time, and brute-force search over N vectors.
-import { pipeline, env } from "https://cdn.jsdelivr.net/npm/@huggingface/transformers@4.3.1";
+import { pipeline, env, AutoTokenizer, AutoModel } from "https://cdn.jsdelivr.net/npm/@huggingface/transformers@4.3.1";
 env.allowLocalModels = false;
 const log = (s) => { document.getElementById("log").textContent += "\n" + s; };
 const params = new URLSearchParams(location.search);
@@ -13,7 +13,13 @@ const modelId = params.get("model"), device = params.get("device") || "wasm", dt
 async function bench() {
   const result = { model: modelId, device, dtype, webgpu: !!navigator.gpu, cores: navigator.hardwareConcurrency, memoryGB: navigator.deviceMemory ?? null };
   let t = performance.now();
-  const extract = await pipeline("feature-extraction", modelId, { device, dtype });
+  // pool=model: the model returns a finished sentence vector itself (e.g. Harrier); otherwise average the tokens.
+  let extract;
+  if (params.get("pool") === "model") {
+    const tokenizer = await AutoTokenizer.from_pretrained(modelId), model = await AutoModel.from_pretrained(modelId, { device, dtype });
+    extract = async (text) => { const out = await model(tokenizer(text, { padding: true, truncation: true })); return out.sentence_embedding ?? out.last_hidden_state; };
+  } else extract = pipeline("feature-extraction", modelId, { device, dtype }).then((pipe) => pipe);
+  extract = await extract;
   result.loadMs = Math.round(performance.now() - t);
   const questions = ["Why does God let bad things happen to good people?", "Did Jesus really rise from the dead?", "How can I know I am forgiven?", "Is the Bible reliable?", "What happens after we die?"];
   await extract("warm up", { pooling: "mean", normalize: true });

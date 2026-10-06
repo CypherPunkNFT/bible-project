@@ -5,6 +5,7 @@ Run: D:/Python/python.exe scripts/search-eval/meaning-quality.py BAAI/bge-small-
 Results 2026-10-06 and the proposal they support: ../MEANING_SEARCH.md (project root).
 """
 import json
+import os
 import sys
 from pathlib import Path
 
@@ -71,16 +72,18 @@ def main() -> None:
         studies[d["id"]] = study_text(d["content"])
     ids = list(studies)
     model_name = sys.argv[1]
-    q_kw, d_kw = {}, {}
+    q_prefix = d_prefix = ""
     if "e5" in model_name:
         q_prefix, d_prefix = "query: ", "passage: "
-    else:
-        q_prefix = d_prefix = ""
-    if "Qwen3" in model_name:
-        q_kw = {"prompt_name": "query"}
     if "bge" in model_name:
         q_prefix = "Represent this sentence for searching relevant passages: "
-    model = SentenceTransformer(model_name, device="cuda" if "4B" in model_name or "0.6B" in model_name else "cpu", trust_remote_code=True)
+    big = any(k in model_name for k in ("4B", "0.6B", "0.6b", "gemma", "270m", "nano"))
+    model = SentenceTransformer(model_name, device=os.environ.get("EVAL_DEVICE") or ("cuda" if big else "cpu"), trust_remote_code=True)  # EVAL_DEVICE=cpu overrides
+    # Models that ship their own question/passage instructions (Qwen3, Harrier, EmbeddingGemma, Arctic, ...) use them.
+    prompts = getattr(model, "prompts", {}) or {}
+    q_kw = {"prompt_name": next(n for n in ("query", "search_query", "retrieval_query") if n in prompts)} if any(n in prompts for n in ("query", "search_query", "retrieval_query")) else {}
+    d_name = next((n for n in ("document", "passage", "search_document", "retrieval_document") if n in prompts), None)
+    d_kw = {"prompt_name": d_name} if d_name else {}
     docs = model.encode([d_prefix + studies[i] for i in ids], normalize_embeddings=True, **d_kw)
     queries = model.encode([q_prefix + q for q in QUESTIONS.values()], normalize_embeddings=True, **q_kw)
     sims = queries @ docs.T
