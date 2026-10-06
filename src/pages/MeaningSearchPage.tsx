@@ -55,14 +55,14 @@ function Status() {
   if (meaning.phase === "ready") return (
     <div className={box + " border-accent/50 bg-accent/5"}>
       <p className="flex items-center gap-2 font-semibold text-ink"><Check size={18} className="text-accent" /> Meaning search is on for this device.</p>
-      <p className="mt-1 text-sm">It uses {MB(meaning.storedBytes)} of this browser’s storage and works offline. Try it on the <Link to="/search" className="text-accent underline">Search page</Link>.</p>
+      <p className="mt-1 text-sm">It uses {MB(meaning.storedBytes)} of this browser’s storage, and searching keeps working if your connection drops. Try it on the <Link to="/search" className="text-accent underline">Search page</Link>.</p>
       <button type="button" onClick={() => void disableMeaning()} className="mt-3 inline-flex items-center gap-2 rounded-xl border border-line px-4 py-2 text-sm hover:border-ink"><Trash2 size={15} /> Remove from this device</button>
     </div>
   );
   return (
     <div className={box + " border-accent/50"}>
       <p className="flex items-center gap-2 font-semibold text-ink"><Check size={18} className="text-accent" /> This device can run it.{meaning.phase === "update" && " An improved version is ready."}</p>
-      <p className="mt-1 text-sm">One download of {size}, then it runs here, privately, even offline. Wi-Fi is best.</p>
+      <p className="mt-1 text-sm">One download of {size}, then every search runs here, privately, with no internet needed. Wi-Fi is best.</p>
       <button type="button" onClick={() => void enableMeaning()} className="mt-3 inline-flex items-center gap-2 rounded-xl bg-ink px-5 py-2.5 text-sm font-semibold text-page hover:opacity-90"><Download size={16} /> {meaning.phase === "update" ? "Update" : "Turn on"} meaning search · {size}</button>
     </div>
   );
@@ -77,7 +77,7 @@ export default function MeaningSearchPage() {
         <Link to="/search" className="inline-flex items-center gap-1 text-sm text-muted hover:text-ink"><ArrowLeft size={15} /> Search</Link>
         <p className="mt-6 text-xs font-semibold uppercase tracking-[0.2em] text-accent">Meaning search</p>
         <h1 className="mt-1 font-serif text-4xl font-semibold tracking-tight sm:text-5xl">Search by what you mean.</h1>
-        <p className="mt-4 max-w-2xl text-lg text-muted">Not just the words you remember. A small model runs on your own device, so it’s free, private, and works offline.</p>
+        <p className="mt-4 max-w-2xl text-lg text-muted">Not just the words you remember. A small model runs on your own device, so it’s free, private, and needs no internet to search.</p>
       </header>
       <Status />
 
@@ -99,7 +99,7 @@ export default function MeaningSearchPage() {
       <Block title="Private, and it works offline.">
         <ul className="grid gap-2">
           <li className="flex gap-2"><Lock size={18} className="mt-0.5 shrink-0 text-accent" /> What you type stays on your device. There is no account and no server doing the searching.</li>
-          <li className="flex gap-2"><CloudOff size={18} className="mt-0.5 shrink-0 text-accent" /> After the download it works without internet: on a plane, in a church basement, on a mission trip.</li>
+          <li className="flex gap-2"><CloudOff size={18} className="mt-0.5 shrink-0 text-accent" /> After the download, searching needs no internet: once the Search page is open, it keeps working even if the connection drops (on a plane, in a church basement, on a mission trip).</li>
         </ul>
       </Block>
 
