@@ -6,7 +6,7 @@ test.skip(!existsSync("data/study/index.json"), "study data not built — run sc
 
 const TRANSLATION_LANGUAGES = ["Spanish", "Arabic", "Chinese", "French", "German", "Hindi", "Portuguese", "Russian", "Japanese", "Vietnamese", "Persian", "Italian"];
 
-const PAGES = ["/study", "/study/gospels", "/study/references", "/study/structure", "/study/versions", "/study/places", "/study/harmony", "/study/miracles", "/study/letters", "/study/people", "/study/people/elijah-1ki-17-1", "/study/prophets", "/study/names"];
+const PAGES = ["/study", "/study/gospels", "/study/references", "/study/structure", "/study/versions", "/study/atlas", "/study/harmony", "/study/miracles", "/study/letters", "/study/people", "/study/people/elijah-1ki-17-1", "/study/prophets", "/study/names"];
 
 test("study: teaching, speech and harmony work together without hiding one another", async ({ page }) => {
   await page.goto("/study/gospels");
@@ -35,7 +35,7 @@ test("study: prophets remain discoverable within People and Atlas bookmarks reta
   await page.getByRole("navigation", { name: "Collection contents" }).getByRole("link", { name: "People & families" }).click();
   await expect(page).toHaveURL(/\/study\/people#people-directory$/);
   await page.goto("/atlas?place=a15257a");
-  await expect(page).toHaveURL(/\/study\/places\?place=a15257a$/);
+  await expect(page).toHaveURL(/\/study\/atlas\/map\?place=a15257a$/);
   await expect(page.getByRole("heading", { name: "Jerusalem", level: 2 })).toBeVisible();
 });
 
@@ -48,8 +48,6 @@ test("study: guide contents reach their own sections instead of unrelated collec
     ["/study/letters", "Hebrews & the general letters", "general-letters"],
     ["/study/names", "Explore the names", "names-explorer"],
     ["/study/names", "Find a name", "names-list"],
-    ["/study/places", "Explore the atlas", "places-map"],
-    ["/study/places", "The most-named places", "top-places"],
   ]) {
     await page.goto(path);
     await page.getByRole("navigation", { name: "Collection contents" }).getByRole("link", { name: label, exact: true }).click();

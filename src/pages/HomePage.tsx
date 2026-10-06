@@ -12,7 +12,7 @@ const NamesOfGod = lazy(() => import("@/components/names/NamesOfGod").then((m) =
 const TILES = [
   { to: "/library", title: "Library", text: "Every chapter on the reading chart, your reading marked, and every version — English, the original languages and translations.", icon: Library },
   { to: "/study", title: "Study", text: "Explore Jesus and the Gospels, people, places, miracles, connected passages and the shape of the Bible.", icon: GraduationCap },
-  { to: "/study/places", title: "Atlas", text: "1,252 places of the Bible on a map of the ancient world — click a place to read its verses.", icon: Map },
+  { to: "/study/atlas", title: "Atlas", text: "1,252 places of the Bible on a map of the ancient world — click a place to read its verses.", icon: Map },
   { to: "/search", title: "Search", text: "Find any word or phrase in any version, and see where in the Bible it falls.", icon: Search },
 ];
 

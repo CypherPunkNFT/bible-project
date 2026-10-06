@@ -23,7 +23,7 @@ export function ChapterPlaces({ bookCode, bookNum, chapter }: { bookCode: string
         {found.map(({ place, count }) => (
           <li key={place.id}>
             <Link
-              to={`/study/places?place=${place.id}`}
+              to={`/study/atlas/map?place=${place.id}`}
               className="inline-flex items-center gap-1 rounded-full border border-line px-2.5 py-1 text-sm hover:bg-surface-2"
             >
               {place.name}

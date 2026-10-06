@@ -1,4 +1,4 @@
-import type { PlacesDestination } from "./PlacesCollectionMockup";
+import type { PlacesDestination } from "./AtlasCollection";
 
 /** Decorative illustrations, not geographic reconstructions or plotted itineraries. */
 export function PlacesArtwork({ kind }: { kind: PlacesDestination }) {

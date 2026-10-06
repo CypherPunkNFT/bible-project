@@ -1,9 +1,8 @@
 import { Search } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
-import { useMemo, useState } from "react";
-import { useSearchParams } from "react-router-dom";
-import { StudyBackLink } from "@/components/study/StudyBackLink";
-import { StudyContents } from "@/components/study/StudyContents";
+import { useEffect, useMemo, useState } from "react";
+import { useLocation, useSearchParams } from "react-router-dom";
+import { AtlasCollection } from "./places/AtlasCollection";
 import { StreetAtlasMap } from "@/components/atlas/StreetAtlasMap";
 import { projectPlace, type MapPlace } from "@/components/atlas/projection";
 import { PlacePanel } from "@/components/atlas/PlacePanel";
@@ -31,12 +30,27 @@ function dominantSection(catalog: Catalog, place: Place): SectionId {
 }
 
 export default function AtlasPage() {
+  return <AtlasCollection atlas={<AtlasExplorer />} />;
+}
+
+function AtlasExplorer() {
+  const { hash } = useLocation();
   const catalog = useCatalog();
   const raw = useAsync(loadPlaces, "places");
+  useEffect(() => {
+    if (raw.status !== "ready" || !["#places-map", "#top-places"].includes(hash)) return;
+    document.getElementById(hash.slice(1))?.scrollIntoView({ block: "start", behavior: "instant" });
+  }, [hash, raw.status]);
   const [search, setSearch] = useSearchParams();
   const [sections, setSections] = useState<Set<SectionId>>(new Set());
   const [book, setBook] = useState("");
-  const [query, setQuery] = useState("");
+  const query = search.get("find") ?? "";
+  const setQuery = (value: string) => {
+    const next = new URLSearchParams(search);
+    if (value) next.set("find", value);
+    else next.delete("find");
+    setSearch(next, { replace: true });
+  };
   const wide = useMediaQuery("(min-width: 1024px)");
 
   const all = useMemo<MapPlace[]>(() => {
@@ -48,7 +62,6 @@ export default function AtlasPage() {
   }, [raw, catalog]);
 
   const bookNum = catalog.books.find((b) => b.code === book)?.num;
-  // Memoised: the street map re-frames itself whenever this list changes identity.
   const shown = useMemo(() => all.filter((p) => {
     if (sections.size && !p.verses.some((id) => sections.has(sectionOfNum(catalog, splitId(id).num)))) return false;
     if (bookNum && !p.verses.some((id) => splitId(id).num === bookNum)) return false;
@@ -71,18 +84,12 @@ export default function AtlasPage() {
     });
 
   return (
-    <div className="mx-auto max-w-7xl px-4 pb-16 sm:px-6">
-      <header className="pb-5 pt-10">
-        <StudyBackLink />
-        <p className="mt-4 text-xs font-semibold uppercase tracking-[0.2em] text-accent">Study · Places & journeys</p>
-        <h1 className="mt-1 font-serif text-4xl font-semibold tracking-tight sm:text-5xl">The places of the Bible.</h1>
-        <p className="mt-3 max-w-2xl text-muted">
-          {formatNumber(all.length || 1252)} places with a known or likely location, on a map of land, water, rivers and borders with no
-          modern roads or towns. Each dot is coloured by the section that names it most. Zoom from the whole biblical world down close
-          to any place, and click one to read where it appears.
-        </p>
+    <div>
+      <header className="places-destination-intro">
+        <p className="places-kicker">Explore by place</p>
+        <h1>The places of the Bible.</h1>
+        <p>Explore {formatNumber(all.length || 1252)} places. Find a name, open a group, or move closer. Every place leads back to Scripture.</p>
       </header>
-      <StudyContents />
       <div id="places-map" className="study-section-anchor mb-4 flex flex-wrap items-center gap-2">
         {SECTIONS.filter((s) => s.id !== "apocrypha").map((s) => (
           <button
@@ -90,8 +97,8 @@ export default function AtlasPage() {
             type="button"
             aria-pressed={sections.has(s.id)}
             onClick={() => toggleSection(s.id)}
-            className={cn("flex items-center gap-1.5 rounded-full border px-3 py-1 text-sm transition", sections.has(s.id) ? "border-transparent text-white" : "border-line hover:bg-surface-2")}
-            style={sections.has(s.id) ? { background: sectionColor(s.id) } : undefined}
+            className={cn("flex items-center gap-1.5 rounded-full border px-3 py-1 text-sm transition", sections.has(s.id) ? "font-semibold" : "border-line hover:bg-surface-2")}
+            style={sections.has(s.id) ? { background: `color-mix(in srgb, ${sectionColor(s.id)} 15%, var(--surface))`, borderColor: sectionColor(s.id) } : undefined}
           >
             {!sections.has(s.id) && <span className="h-2.5 w-2.5 rounded-full" style={{ background: sectionColor(s.id) }} />}
             {s.name}
@@ -154,7 +161,7 @@ export default function AtlasPage() {
         {!wide && selected && <PlacePanel key={selected.id} place={selected} onClose={() => choose(null)} overlay={false} />}
       </div>
 
-      {all.length > 0 && <TopPlaces places={shown.length ? shown : all} onSelect={choose} />}
+      {shown.length > 0 && <TopPlaces places={shown} onSelect={choose} />}
     </div>
   );
 }

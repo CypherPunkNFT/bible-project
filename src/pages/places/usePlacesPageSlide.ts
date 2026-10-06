@@ -2,8 +2,8 @@ import { useEffect, useRef, type MouseEvent } from "react";
 import { flushSync } from "react-dom";
 import { useLocation, useNavigate } from "react-router-dom";
 
-const BASE = "/study/places/mockup";
-const ORDER = ["home", "atlas", "journeys", "cities", "gospels", "early-church", "catholic-orthodox", "reformation", "missions"];
+import { ATLAS_BASE as BASE } from "./routes";
+const ORDER = ["home", "map", "journeys", "cities", "gospels", "early-church", "catholic-orthodox", "reformation", "missions"];
 const destination = (pathname: string) => pathname === BASE || pathname === `${BASE}/` ? "home" : pathname.startsWith(`${BASE}/`) ? pathname.slice(BASE.length + 1).split("/")[0] : undefined;
 
 type Transition = { ready: Promise<void>; finished: Promise<void>; skipTransition: () => void };

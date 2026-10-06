@@ -1,6 +1,6 @@
 import { ArrowLeft, ArrowRight, ArrowUpRight, BookOpen, Compass, Landmark, Map, Route as RouteIcon } from "lucide-react";
 import { useState, type CSSProperties, type ReactNode } from "react";
-import { Link, NavLink, Navigate, Route, Routes, useSearchParams } from "react-router-dom";
+import { Link, NavLink, Navigate, Route, Routes, useLocation, useSearchParams } from "react-router-dom";
 import { PlacesArtwork } from "./PlacesArtwork";
 import { CITY_COLLECTIONS } from "./city-collections";
 import { CitySelection } from "./CitySelection";
@@ -11,7 +11,7 @@ import { HistoryExperience } from "./HistoryExperience";
 import { usePlacesPageSlide } from "./usePlacesPageSlide";
 import "./places-collection.css";
 
-const BASE = "/study/places/mockup";
+import { ATLAS_BASE as BASE, atlasDestination } from "./routes";
 const DESTINATIONS = [
   { id: "atlas", title: "Atlas", eyebrow: "Find a place", icon: Map, color: "poetry", description: "Explore the biblical world. Find a city, a mountain, or a sea, and read the passages that name it.", detail: "Places · Regions · Scripture", action: "Explore the atlas" },
   { id: "journeys", title: "Journeys", eyebrow: "Follow a life", icon: RouteIcon, color: "accent", description: "Follow people through the places that shaped their stories. See the encounters, companions, and turning points along the way.", detail: "Paul · Abraham · Moses · More", action: "Choose a journey" },
@@ -72,11 +72,11 @@ const EXPERIENCES: Record<PreviewId, Experience> = {
 
 const tint = (color: string) => ({ "--places-color": `var(--${color})` }) as CSSProperties;
 
-export function PlacesCollectionMockup({ atlas }: { atlas: ReactNode }) {
+export function AtlasCollection({ atlas }: { atlas: ReactNode }) {
   const slide = usePlacesPageSlide();
   return <div onClickCapture={slide}><Routes>
     <Route index element={<CollectionHome />} />
-    <Route path="atlas" element={<DestinationShell id="atlas">{atlas}</DestinationShell>} />
+    <Route path="map" element={<DestinationShell id="atlas">{atlas}</DestinationShell>} />
     <Route path="cities/motion" element={<LegacyCityMotion />} />
     <Route path="cities/find" element={<DestinationShell id="cities"><CityDirectory /></DestinationShell>} />
     {HISTORY_COLLECTIONS.map(({ id }) => <Route key={id} path={id} element={<DestinationShell id={id}><HistoryExperience key={id} id={id} /></DestinationShell>} />)}
@@ -92,11 +92,12 @@ function LegacyCityMotion() {
 }
 
 function CollectionHome() {
+  const { hash } = useLocation();
   const [search] = useSearchParams();
   // Keep saved links from the original SVG mockup opening their selected place.
-  if (search.has("place")) return <Navigate to={`${BASE}/atlas?${search}`} replace />;
+  if (search.has("place") || search.has("find") || ["#places-map", "#top-places"].includes(hash)) return <Navigate to={`${BASE}/map${search.size ? `?${search}` : ""}${hash}`} replace />;
   return <div className="places-collection mx-auto max-w-7xl px-4 sm:px-6">
-    <div className="places-topline"><Link to="/study"><ArrowLeft size={15} aria-hidden />Back to Study</Link><span>Places & journeys</span></div>
+    <div className="places-topline"><Link to="/study"><ArrowLeft size={15} aria-hidden />Back to Study</Link><span>Atlas</span></div>
     <div className="places-page-slide">
     <header className="places-collection-intro">
       <div><p className="places-kicker">Scripture, place & Christian history</p><h1>Real places.<br /><em>An unfolding story.</em></h1><p>Find a place. Follow a life. Step into the world of the Bible.<br className="hidden sm:block" /> Then explore the communities and movements that followed.</p></div>
@@ -104,7 +105,7 @@ function CollectionHome() {
     </header>
     <div className="places-section-heading places-row-heading"><h2>Explore the biblical world</h2><span>Places, people & the Gospel accounts</span></div>
     <nav aria-label="Places and journeys collection" className="places-destinations">
-      {DESTINATIONS.map((item, index) => <Link key={item.id} to={`${BASE}/${item.id}`} className="places-destination-card" style={tint(item.color)} aria-labelledby={`places-card-${item.id}`}>
+      {DESTINATIONS.map((item, index) => <Link key={item.id} to={atlasDestination(item.id)} className="places-destination-card" style={tint(item.color)} aria-labelledby={`places-card-${item.id}`}>
         <div className="places-card-top"><item.icon size={18} strokeWidth={1.5} aria-hidden /><span>{item.eyebrow}</span><ArrowUpRight size={19} aria-hidden /></div>
         <PlacesArtwork kind={item.id} />
         <div className="places-card-copy"><span className="places-card-number">0{index + 1}</span><h2 id={`places-card-${item.id}`}>{item.title}</h2><p>{item.description}</p></div>
@@ -113,14 +114,14 @@ function CollectionHome() {
     </nav>
     <div className="places-section-heading places-row-heading"><h2>Beyond the New Testament</h2><span>Communities, traditions & a worldwide church</span></div>
     <nav aria-label="Christian history collection" className="places-destinations">
-      {HISTORY_COLLECTIONS.map((item, index) => <Link key={item.id} to={`${BASE}/${item.id}`} className="places-destination-card" style={tint(item.color)} aria-labelledby={`places-card-${item.id}`}>
+      {HISTORY_COLLECTIONS.map((item, index) => <Link key={item.id} to={atlasDestination(item.id)} className="places-destination-card" style={tint(item.color)} aria-labelledby={`places-card-${item.id}`}>
         <div className="places-card-top"><item.icon size={18} strokeWidth={1.5} aria-hidden /><span>{item.eyebrow}</span><ArrowUpRight size={19} aria-hidden /></div>
         <PlacesArtwork kind={item.id} />
         <div className="places-card-copy"><span className="places-card-number">0{index + 5}</span><h2 id={`places-card-${item.id}`}>{item.title}</h2><p>{item.description}</p></div>
         <div className="places-card-foot"><span>{item.detail}</span><strong>{item.action}<ArrowRight size={15} aria-hidden /></strong></div>
       </Link>)}
     </nav>
-    <div className="places-collection-note"><span><BookOpen size={16} aria-hidden />Every place opens a passage. Every journey invites a closer reading.</span><Link to="/study/places">Open the current atlas <ArrowUpRight size={14} aria-hidden /></Link></div>
+    <div className="places-collection-note"><span><BookOpen size={16} aria-hidden />Every place opens a passage. Every journey invites a closer reading.</span><Link to={`${BASE}/map`}>Open the map <ArrowUpRight size={14} aria-hidden /></Link></div>
     </div>
   </div>;
 }
@@ -128,9 +129,9 @@ function CollectionHome() {
 function DestinationShell({ id, children }: { id: PlacesDestination; children: ReactNode }) {
   const item = [...DESTINATIONS, ...HISTORY_COLLECTIONS].find((entry) => entry.id === id)!;
   return <div className="places-collection places-destination mx-auto max-w-7xl px-4 sm:px-6" style={tint(item.color)}>
-    <div className="places-topline"><Link to={BASE}><ArrowLeft size={15} aria-hidden />Places & journeys</Link><Link to="/study/places">Open the current atlas <ArrowUpRight size={13} aria-hidden /></Link></div>
+    <div className="places-topline"><Link to={BASE}><ArrowLeft size={15} aria-hidden />Back to Atlas</Link><Link to={`${BASE}/map`}>Open the map <ArrowUpRight size={13} aria-hidden /></Link></div>
     <nav className="places-collection-nav" aria-label="Explore the collection">
-      {[...DESTINATIONS, ...HISTORY_COLLECTIONS].map((entry) => <NavLink key={entry.id} to={`${BASE}/${entry.id}`} style={tint(entry.color)}><PlacesArtwork kind={entry.id} /><span>{entry.title}</span><ArrowUpRight size={14} aria-hidden /></NavLink>)}
+      {[...DESTINATIONS, ...HISTORY_COLLECTIONS].map((entry) => <NavLink key={entry.id} to={atlasDestination(entry.id)} style={tint(entry.color)}><PlacesArtwork kind={entry.id} /><span>{entry.title}</span><ArrowUpRight size={14} aria-hidden /></NavLink>)}
     </nav>
     <div className="places-page-slide">{children}</div>
   </div>;
@@ -186,7 +187,7 @@ function ExperienceWorkspace({ id, choice, lenses, lens, onLens, showPreviewNote
       <div className="places-lens-bar"><span>{id === "gospels" ? "Read through" : "Explore through"}</span><div role="group" aria-label="Choose a lens">{lenses.map((option) => <button type="button" key={option.id} aria-pressed={lens.id === option.id} onClick={() => onLens(option.id)}>{option.label}</button>)}</div></div>
       <div className="places-workspace-body">
         <div className="places-workspace-art" aria-hidden><PlacesArtwork kind={id} /><span>{choice.title} · {choice.subtitle}</span></div>
-        <div className="places-lens-copy" aria-live="polite"><p className="places-kicker">{lens.label}{id !== "gospels" ? " lens" : " perspective"}</p><h3>{lens.title}</h3><p>{lens.description}</p>{showPreviewNotes && <div className="places-next-build"><Compass size={18} aria-hidden /><p>{data.next}</p></div>}<Link to={`${BASE}/atlas?find=${encodeURIComponent(choice.place)}`}>Find {choice.place} in the atlas<ArrowRight size={16} aria-hidden /></Link></div>
+        <div className="places-lens-copy" aria-live="polite"><p className="places-kicker">{lens.label}{id !== "gospels" ? " lens" : " perspective"}</p><h3>{lens.title}</h3><p>{lens.description}</p>{showPreviewNotes && <div className="places-next-build"><Compass size={18} aria-hidden /><p>{data.next}</p></div>}<Link to={`${BASE}/map?find=${encodeURIComponent(choice.place)}`}>Find {choice.place} in the atlas<ArrowRight size={16} aria-hidden /></Link></div>
       </div>
     </section>
   );

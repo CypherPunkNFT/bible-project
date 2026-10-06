@@ -1,9 +1,72 @@
 import { expect, test } from "@playwright/test";
 
+test("atlas routes: header, Study and legacy bookmarks reach the promoted collection", async ({ page }) => {
+  await page.goto("/study");
+  await page.getByRole("navigation", { name: "Main", exact: true }).getByRole("link", { name: "Atlas", exact: true }).click();
+  await expect(page).toHaveURL(/\/study\/atlas$/);
+  await expect(page.getByRole("heading", { level: 1 })).toContainText("Real places.");
+  await expect(page.locator(".places-destination-card")).toHaveCount(8);
+  const nav = page.getByRole("navigation", { name: "Main", exact: true });
+  await expect(nav.getByRole("link", { name: "Atlas", exact: true })).toHaveClass(/bg-ink/);
+  await expect(nav.getByRole("link", { name: "Study", exact: true })).not.toHaveClass(/bg-ink/);
+  await expect(page.locator('a[href*="/study/places"]')).toHaveCount(0);
+  await page.getByRole("link", { name: "Back to Study", exact: true }).click();
+  await expect(page.locator('.study-map-feature a')).toHaveAttribute("href", "/study/atlas");
+  await page.locator('.study-map-feature a').click();
+  await expect(page.getByRole("heading", { level: 1 })).toContainText("Real places.");
+
+  for (const [old, target] of [
+    ["/study/places", "/study/atlas"],
+    ["/atlas", "/study/atlas"],
+    ["/study/places/mockup", "/study/atlas"],
+    ["/study/places/mockup/cities?collection=pagan-world&focus=ephesus", "/study/atlas/cities?collection=pagan-world&focus=ephesus"],
+    ["/study/places/mockup/missions?topic=africa", "/study/atlas/missions?topic=africa"],
+    ["/study/places/mockup/atlas?find=Jerusalem", "/study/atlas/map?find=Jerusalem"],
+    ["/study/places/mockup2?place=a15257a", "/study/atlas/map?place=a15257a"],
+    ["/study/places/mockup3", "/study/atlas/map"],
+    ["/study/places?place=a15257a", "/study/atlas/map?place=a15257a"],
+    ["/atlas?place=a15257a#places-map", "/study/atlas/map?place=a15257a#places-map"],
+    ["/study/places#top-places", "/study/atlas/map#top-places"],
+  ]) {
+    await page.goto(old);
+    await expect(page).toHaveURL(new URL(target, "http://127.0.0.1:8958").href);
+    await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
+    if (target.includes("place=a15257a")) await expect(page.getByRole("complementary", { name: "Jerusalem", exact: true })).toBeVisible();
+    if (target.endsWith("#top-places")) await expect(page.locator("#top-places")).toBeInViewport();
+  }
+});
+
+test("atlas map: detailed map, persistent filters and Scripture links work inside the collection", async ({ page }) => {
+  await page.goto("/study/atlas/map");
+  await expect(page.locator(".maplibregl-canvas")).toBeVisible();
+  const region = page.getByRole("group", { name: "Map region" });
+  await region.getByRole("button", { name: "Jerusalem", exact: true }).click();
+  await expect(region.getByRole("button", { name: "Jerusalem", exact: true })).toHaveAttribute("aria-pressed", "true");
+  const search = page.getByRole("textbox", { name: "Find a place" });
+  await search.fill("Jerusalem");
+  await page.reload();
+  await expect(search).toHaveValue("Jerusalem");
+  await page.locator('section[aria-labelledby="top-places"]').getByRole("button", { name: /^Jerusalem/ }).click();
+  await expect(page).toHaveURL(/place=a15257a/);
+  const detail = page.getByRole("complementary", { name: "Jerusalem", exact: true });
+  await expect(detail).toBeVisible();
+  await expect(detail.getByRole("link").first()).toHaveAttribute("href", /\/read\/kjv\//);
+  await page.reload();
+  await expect(detail).toBeVisible();
+  await search.fill("no-matching-place");
+  await expect(page.getByText("No places match these filters.")).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Most-named places" })).toHaveCount(0);
+  await page.getByRole("button", { name: "Clear filters" }).click();
+  await expect(page).not.toHaveURL(/find=/);
+  await expect(page.getByRole("heading", { name: "Most-named places" })).toBeVisible();
+  await page.getByRole("link", { name: "Back to Atlas", exact: true }).click();
+  await expect(page).toHaveURL(/\/study\/atlas$/);
+});
+
 test("reveal: compact city and history selectors share the downward expansion", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "no-preference" });
   for (const [route, name] of [["cities", "The Pagan World"], ["early-church", "After the Apostles"], ["catholic-orthodox", "Shared Roots"], ["reformation", "Luther & Germany"], ["missions", "Africa"]]) {
-    await page.goto(`/study/places/mockup/${route}`);
+    await page.goto(`/study/atlas/${route}`);
     const stage = page.locator(".places-reveal");
     const card = page.getByRole("button", { name, exact: true });
     await expect(card).toBeVisible();
@@ -39,14 +102,14 @@ test("reveal: compact city and history selectors share the downward expansion", 
     await expect(card).toBeFocused();
     expect(Math.abs((await stage.boundingBox())!.height - before)).toBeLessThan(1);
   }
-  await page.goto("/study/places/mockup/cities/motion?design=slide");
-  await expect(page).toHaveURL(/\/mockup\/cities$/);
+  await page.goto("/study/atlas/cities/motion?design=slide");
+  await expect(page).toHaveURL(/\/atlas\/cities$/);
   await expect(page.locator(".motion-designs,.motion-demo-stage,.places-city-count,.history-topic-card")).toHaveCount(0);
 });
 
 test("cities: selecting any city scrolls to the shared Jerusalem map", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "no-preference", colorScheme: "dark" });
-  await page.goto("/study/places/mockup/cities");
+  await page.goto("/study/atlas/cities");
   await page.getByRole("button", { name: "The Pagan World", exact: true }).click();
   await expect(page.locator(".places-reveal")).toHaveAttribute("data-phase", "expanded");
   await expect(page.locator(".maplibregl-canvas")).toBeVisible();
@@ -75,7 +138,7 @@ test("page slide: collection destinations move sideways in both directions with 
   const errors: string[] = [];
   page.on("pageerror", (error) => errors.push(error.message));
   await page.emulateMedia({ reducedMotion: "no-preference", colorScheme: "dark" });
-  await page.goto("/study/places/mockup/journeys");
+  await page.goto("/study/atlas/journeys");
   const nav = page.getByRole("navigation", { name: "Explore the collection", exact: true });
   const navTop = (await nav.boundingBox())!.y;
   for (const [name, direction] of [["Ancient Cities", "forward"], ["Global Missions", "forward"], ["Atlas", "backward"], ["Journeys", "forward"]]) {
@@ -102,7 +165,7 @@ test("page slide: collection destinations move sideways in both directions with 
     await page.evaluate(() => document.getAnimations().filter((animation) => animation instanceof CSSAnimation && animation.animationName.startsWith("places-page-")).forEach((animation) => animation.play()));
     await expect(page.locator("html")).not.toHaveAttribute("data-places-slide");
   }
-  await page.getByRole("link", { name: "Places & journeys", exact: true }).click();
+  await page.getByRole("link", { name: "Back to Atlas", exact: true }).click();
   await expect(page.locator("html")).not.toHaveAttribute("data-places-slide");
   await page.getByRole("navigation", { name: "Places and journeys collection", exact: true }).getByRole("link", { name: "Ancient Cities", exact: true }).click();
   await expect(page.locator("html")).toHaveAttribute("data-places-slide", "forward");
@@ -116,7 +179,7 @@ test("page slide: rapid navigation, reduced motion and unsupported browsers keep
   const errors: string[] = [];
   page.on("pageerror", (error) => errors.push(error.message));
   await page.emulateMedia({ reducedMotion: "no-preference" });
-  await page.goto("/study/places/mockup/journeys");
+  await page.goto("/study/atlas/journeys");
   await expect(page.locator(".places-collection-nav a")).toHaveCount(8);
   await page.evaluate(() => {
     const links = document.querySelectorAll<HTMLAnchorElement>('.places-collection-nav a');
@@ -142,16 +205,16 @@ test("page slide: rapid navigation, reduced motion and unsupported browsers keep
 test("history: both collection rows and every new topic support navigation, focus and saved links", async ({ page }) => {
   const errors: string[] = [];
   page.on("pageerror", (error) => errors.push(error.message));
-  await page.goto("/study/places/mockup");
+  await page.goto("/study/atlas");
   await expect(page.getByRole("navigation", { name: "Places and journeys collection", exact: true }).getByRole("link")).toHaveCount(4);
   const history = page.getByRole("navigation", { name: "Christian history collection", exact: true });
   await expect(history.getByRole("link")).toHaveText([
     /The Early Church/, /Apostolic Church/, /The Reformation/, /Global Missions/,
   ]);
   await page.getByRole("link", { name: "The Reformation", exact: true }).click();
-  await expect(page).toHaveURL(/\/mockup\/reformation$/);
+  await expect(page).toHaveURL(/\/atlas\/reformation$/);
   for (const id of ["early-church", "catholic-orthodox", "reformation", "missions"]) {
-    await page.goto(`/study/places/mockup/${id}`);
+    await page.goto(`/study/atlas/${id}`);
     await expect(page.getByRole("navigation", { name: "Explore the collection", exact: true }).getByRole("link")).toHaveCount(8);
     const cards = page.locator(".history-topic-grid");
     await expect(cards.getByRole("button")).toHaveCount(6);
@@ -179,13 +242,13 @@ test("history: both collection rows and every new topic support navigation, focu
     await expect(page).not.toHaveURL(saved);
     expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(1);
   }
-  await page.goto("/study/places/mockup/reformation?topic=not-a-topic");
+  await page.goto("/study/atlas/reformation?topic=not-a-topic");
   await expect(page.locator(".history-topic-grid")).toBeVisible();
   expect(errors).toEqual([]);
 });
 
 test("cities: new collections and full directory open real places", async ({ page }) => {
-  await page.goto("/study/places/mockup/cities");
+  await page.goto("/study/atlas/cities");
   const grid = page.getByRole("group", { name: "City collections", exact: true });
   await expect(grid.getByRole("button")).toHaveCount(11);
   await expect(grid.getByRole("link", { name: "Find Your City", exact: true })).toHaveCount(1);
@@ -215,9 +278,9 @@ test("cities: new collections and full directory open real places", async ({ pag
   await page.reload();
   await expect(search).toHaveValue("Jerusalem");
   await directory.getByRole("link").click();
-  await expect(page).toHaveURL(/\/atlas\?place=/);
+  await expect(page).toHaveURL(/\/atlas\/map\?place=/);
   await expect(page.getByRole("complementary", { name: "Jerusalem", exact: true })).toBeVisible();
-  await page.goto("/study/places/mockup/cities/motion?design=unfold");
+  await page.goto("/study/atlas/cities/motion?design=unfold");
   await expect(page.getByRole("group", { name: "City collections", exact: true }).getByRole("link", { name: "Find Your City", exact: true })).toBeVisible();
 });
 
@@ -225,7 +288,7 @@ test("history: expanded navigation fits both themes at each viewport", async ({ 
   for (const theme of ["dark", "light"] as const) {
     await page.emulateMedia({ colorScheme: theme });
     for (const route of ["", "/cities", "/cities/motion?design=unfold", "/early-church", "/catholic-orthodox?topic=oriental", "/reformation?topic=luther", "/missions"]) {
-      await page.goto(`/study/places/mockup${route}`);
+      await page.goto(`/study/atlas${route}`);
       await page.evaluate(() => document.fonts.ready);
       expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(1);
       await page.screenshot({ path: `front-end capture/2026-10-06/expanded-collections-${route.replace(/[^a-z]/g, "-") || "home"}-${theme}-${test.info().project.name}.png`, fullPage: true });
@@ -236,12 +299,12 @@ test("history: expanded navigation fits both themes at each viewport", async ({ 
 test("collection: illustrated destinations lead to separate pages and useful preview controls", async ({ page }) => {
   const errors: string[] = [];
   page.on("pageerror", (error) => errors.push(error.message));
-  await page.goto("/study/places/mockup");
+  await page.goto("/study/atlas");
   const collection = page.getByRole("navigation", { name: "Places and journeys collection" });
   await expect(collection.getByRole("link")).toHaveCount(4);
   await expect(page.locator(".vector-atlas-svg")).toHaveCount(0);
   await collection.getByRole("link", { name: "Journeys", exact: true }).click();
-  await expect(page).toHaveURL(/\/mockup\/journeys$/);
+  await expect(page).toHaveURL(/\/atlas\/journeys$/);
   await expect(page.getByRole("navigation", { name: "Explore the collection" }).getByRole("link", { name: "Journeys" })).toHaveAttribute("aria-current", "page");
   await page.getByRole("button", { name: "Letters", exact: true }).click();
   await expect(page.getByRole("heading", { name: "Connect places and correspondence." })).toBeVisible();
@@ -265,13 +328,13 @@ test("collection: illustrated destinations lead to separate pages and useful pre
   await page.getByRole("button", { name: /Passion week/ }).click();
   await page.getByRole("button", { name: "Luke", exact: true }).click();
   await expect(page.getByRole("heading", { name: "Follow Luke’s account." })).toBeVisible();
-  await page.getByRole("link", { name: "Places & journeys", exact: true }).click();
+  await page.getByRole("link", { name: "Back to Atlas", exact: true }).click();
   await expect(collection).toBeVisible();
   expect(errors).toEqual([]);
 });
 
 test("cities: collections drill into one selection area with keyboard and history support", async ({ page }) => {
-  await page.goto("/study/places/mockup/cities");
+  await page.goto("/study/atlas/cities");
   const collections = page.getByRole("group", { name: "City collections", exact: true });
   const cities = page.getByRole("group", { name: "Which city will you explore?", exact: true });
   const back = page.getByRole("button", { name: "All collections", exact: true });
@@ -313,10 +376,10 @@ test("cities: collections drill into one selection area with keyboard and histor
   await collections.getByRole("button", { name: "Cities of Refuge", exact: true }).click();
   await expect(cities.locator("strong")).toHaveText(["Kedesh", "Shechem", "Hebron", "Bezer", "Ramoth-gilead", "Golan"]);
   await expect(page.getByRole("link", { name: /Joshua 20/ })).toHaveAttribute("href", "/read/kjv/JOS/20?hl=1-9");
-  await page.goto("/study/places/mockup/cities?focus=corinth");
+  await page.goto("/study/atlas/cities?focus=corinth");
   await expect(collections).toHaveCount(0);
   await expect(cities.getByRole("button", { name: /^Corinth/ })).toHaveAttribute("aria-pressed", "true");
-  await page.goto("/study/places/mockup/cities?collection=seven-churches&focus=corinth");
+  await page.goto("/study/atlas/cities?collection=seven-churches&focus=corinth");
   await expect(cities.getByRole("button", { name: /^Ephesus/ })).toHaveAttribute("aria-pressed", "true");
   for (const theme of ["dark", "light"] as const) {
     await page.emulateMedia({ colorScheme: theme });
@@ -332,102 +395,14 @@ test("collection: landing and destination controls fit both themes and retain ol
   for (const theme of ["dark", "light"] as const) {
     await page.emulateMedia({ colorScheme: theme });
     for (const destination of ["", "/journeys", "/cities", "/gospels"]) {
-      await page.goto(`/study/places/mockup${destination}`);
+      await page.goto(`/study/atlas${destination}`);
       await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
       await page.evaluate(() => document.fonts.ready);
       expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(1);
       if (!destination || destination === "/journeys") await page.screenshot({ path: `front-end capture/2026-10-05/places-collection-${destination ? "journeys" : "home"}-${theme}-${test.info().project.name}.png`, fullPage: true });
     }
   }
-  await page.goto("/study/places/mockup?place=a15257a");
-  await expect(page).toHaveURL(/\/mockup\/atlas\?place=a15257a/);
+  await page.goto("/study/atlas?place=a15257a");
+  await expect(page).toHaveURL(/\/atlas\/map\?place=a15257a/);
   await expect(page.getByRole("complementary", { name: "Jerusalem" })).toBeVisible();
-});
-
-test("mockup: vector map, stable marker sizes, and deeper zoom", async ({ page }) => {
-  const images: string[] = [];
-  page.on("request", (request) => { if (request.url().includes("bluemarble")) images.push(request.url()); });
-  await page.goto("/study/places/mockup/atlas");
-  const map = page.getByRole("group", { name: "Vector map of biblical places" });
-  await expect(map).toHaveAttribute("data-zoom", "12.00");
-  await expect(map.locator(".vector-map-marker").first()).toBeVisible();
-  await expect(map.locator("image")).toHaveCount(0);
-  await expect(map.locator(".vector-map-labels")).toContainText("Jerusalem");
-  await page.getByRole("button", { name: "Galilee", exact: true }).click();
-  await expect(map).toHaveAttribute("data-zoom", "42.00");
-  await page.getByRole("button", { name: "Zoom in", exact: true }).click();
-  await page.getByRole("button", { name: "Zoom in", exact: true }).click();
-  await expect(map).toHaveAttribute("data-zoom", "136.08");
-  const zoomIn = page.getByRole("button", { name: "Zoom in", exact: true });
-  await expect(zoomIn).toBeEnabled();
-
-  // Center the dense Jerusalem group, then verify real wheel and button zoom past the old cap.
-  await page.getByRole("button", { name: "Reset map view" }).click();
-  await expect(map).toHaveAttribute("data-zoom", "12.00");
-  const jerusalem = map.locator('.vector-map-marker[data-place="a15257a"]');
-  const originalCount = Number(await jerusalem.getAttribute("data-count"));
-  await jerusalem.focus();
-  await page.keyboard.press("Enter");
-  await page.getByRole("button", { name: "Zoom closer", exact: true }).click();
-  await expect(map).toHaveAttribute("data-zoom", "30.00");
-  const bounds = await map.boundingBox();
-  expect(bounds).not.toBeNull();
-  await page.mouse.move(bounds!.x + bounds!.width / 2, bounds!.y + bounds!.height / 2);
-  await page.mouse.wheel(0, -1500);
-  await expect.poll(async () => Number(await map.getAttribute("data-zoom"))).toBeGreaterThan(128);
-  for (let i = 0; i < 8 && await zoomIn.isEnabled(); i++) {
-    const previous = Number(await map.getAttribute("data-zoom"));
-    await zoomIn.click();
-    await expect.poll(async () => Number(await map.getAttribute("data-zoom"))).toBeGreaterThan(previous);
-  }
-  await expect(map).toHaveAttribute("data-zoom", "8192.00");
-  await expect(zoomIn).toBeDisabled();
-  await expect(jerusalem).toBeVisible();
-  expect(Number(await jerusalem.getAttribute("data-count"))).toBeLessThan(originalCount);
-  const diameters = await map.locator(".vector-marker-dot,.vector-marker-cluster").evaluateAll((elements) => elements.map((el) => el.getBoundingClientRect().width));
-  expect(diameters.length).toBeGreaterThan(0);
-  expect(Math.max(...diameters)).toBeLessThanOrEqual(27);
-  await page.screenshot({ path: `front-end capture/2026-10-05/atlas-deep-zoom-${test.info().project.name}.png` });
-  await page.getByRole("button", { name: "Reset map view" }).click();
-  await expect(map).toHaveAttribute("data-zoom", "12.00");
-  expect(images).toEqual([]);
-  expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(1);
-});
-
-test("mockup: every member of a group can open its place and Scripture", async ({ page }) => {
-  await page.goto("/study/places/mockup/atlas");
-  await expect(page.locator(".vector-atlas-svg")).toHaveAttribute("data-zoom", "12.00");
-  const cluster = page.locator('.vector-map-marker:not([data-count="1"])').first();
-  await expect(cluster).toBeVisible();
-  const count = Number(await cluster.getAttribute("data-count"));
-  await cluster.focus();
-  await page.keyboard.press("Enter");
-  const group = page.getByRole("region", { name: "Grouped places", exact: true });
-  await expect(group.getByRole("button")).toHaveCount(count);
-  await page.getByRole("textbox", { name: "Find within this group" }).fill("Jerusalem");
-  await expect(group.getByRole("button")).toHaveCount(1);
-  await group.getByRole("button", { name: /^Jerusalem/ }).click();
-  await expect(page).toHaveURL(/\/study\/places\/mockup\/atlas\?place=a15257a/);
-  const detail = page.getByRole("complementary", { name: "Jerusalem" });
-  await expect(detail).toBeVisible();
-  await expect(detail.getByRole("link").first()).toHaveAttribute("href", /\/read\/kjv\//);
-  await expect(page.getByRole("region", { name: "Places in this area", exact: true })).toHaveCount(0);
-});
-
-test("mockup: filters find a place, empty results stay empty, and the current atlas is preserved", async ({ page }) => {
-  await page.goto("/study/places/mockup/atlas");
-  await page.getByRole("textbox", { name: "Find a place" }).fill("Jerusalem");
-  await expect(page.locator('.vector-map-marker[data-place="a15257a"]')).toBeVisible();
-  await page.reload();
-  await expect(page.getByRole("textbox", { name: "Find a place" })).toHaveValue("Jerusalem");
-  await page.getByRole("textbox", { name: "Find a place" }).fill("no-matching-place");
-  await expect(page.getByText("No places match these filters.")).toBeVisible();
-  await expect(page.locator(".vector-map-marker")).toHaveCount(0);
-  await expect(page.getByRole("heading", { name: "Most-named places" })).toHaveCount(0);
-  await page.getByRole("button", { name: "Clear filters" }).click();
-  await expect(page).not.toHaveURL(/find=/);
-  await expect(page.locator(".vector-map-marker").first()).toBeVisible();
-  await page.getByRole("link", { name: "Open the current atlas" }).click();
-  await expect(page).toHaveURL(/\/study\/places$/);
-  await expect(page.locator('svg image[href*="bluemarble"]').first()).toBeVisible();
 });
