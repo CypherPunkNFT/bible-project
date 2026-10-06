@@ -1,0 +1,4 @@
+.street-atlas-map { position: absolute; inset: 0; }
+.street-atlas .vector-atlas-canvas { overflow: hidden; border-radius: 0; }
+.street-atlas .maplibregl-ctrl-attrib { font-size: 10px; }
+.street-atlas .vector-empty { z-index: 2; }

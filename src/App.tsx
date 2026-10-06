@@ -12,6 +12,7 @@ const ChartsPage = lazy(() => import("@/pages/ChartsPage"));
 const TestimoniesPage = lazy(() => import("@/pages/TestimoniesPage"));
 const AtlasPage = lazy(() => import("@/pages/AtlasPage"));
 const AtlasMockupPage = lazy(() => import("@/pages/AtlasMockupPage"));
+const AtlasMockup2Page = lazy(() => import("@/pages/AtlasMockup2Page"));
 const SearchPage = lazy(() => import("@/pages/SearchPage"));
 const VersionsPage = lazy(() => import("@/pages/VersionsPage"));
 const NotFoundPage = lazy(() => import("@/pages/NotFoundPage"));
@@ -66,6 +67,7 @@ export default function App() {
               <Route path="/study/versions" element={<ChartsPage />} />
               <Route path="/study/places" element={<AtlasPage />} />
               <Route path="/study/places/mockup/*" element={<AtlasMockupPage />} />
+              <Route path="/study/places/mockup2" element={<AtlasMockup2Page />} />
               <Route path="/apologetics/*" element={<ApologeticsPage />} />
               <Route path="/study/harmony" element={<StudyRedirect />} />
               <Route path="/study/miracles" element={<MiraclesPage />} />
