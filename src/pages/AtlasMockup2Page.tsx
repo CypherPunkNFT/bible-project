@@ -29,7 +29,8 @@ function dominantSection(catalog: Catalog, place: Place): SectionId {
   return [...counts.entries()].sort((a, b) => b[1] - a[1])[0]?.[0] ?? "history";
 }
 
-export default function AtlasMockup2Page() {
+/** Mockups 2 and 3 share this page; mockup 3 ("ancient") hides roads, buildings and modern towns. */
+export function StreetAtlasPage({ ancient = false }: { ancient?: boolean }) {
   const catalog = useCatalog();
   const raw = useAsync(loadPlaces, "places");
   const [search, setSearch] = useSearchParams();
@@ -73,12 +74,12 @@ export default function AtlasMockup2Page() {
       <header className="pb-5 pt-10">
         <StudyBackLink />
         <div className="mt-4 flex flex-wrap items-center justify-between gap-3">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">Atlas · Street-level mockup 2</p>
-          <span className="flex gap-2"><Link to="/study/places/mockup" className="rounded-full border border-line px-3 py-1.5 text-xs text-muted hover:text-ink">Mockup 1 ↗</Link><Link to="/study/places" className="rounded-full border border-line px-3 py-1.5 text-xs text-muted hover:text-ink">Open the current atlas ↗</Link></span>
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">{ancient ? "Atlas · Ancient-look mockup 3" : "Atlas · Street-level mockup 2"}</p>
+          <span className="flex flex-wrap gap-2"><Link to="/study/places/mockup" className="rounded-full border border-line px-3 py-1.5 text-xs text-muted hover:text-ink">Mockup 1 ↗</Link><Link to={ancient ? "/study/places/mockup2" : "/study/places/mockup3"} className="rounded-full border border-line px-3 py-1.5 text-xs text-muted hover:text-ink">{ancient ? "Mockup 2 (modern roads) ↗" : "Mockup 3 (ancient look) ↗"}</Link><Link to="/study/places" className="rounded-full border border-line px-3 py-1.5 text-xs text-muted hover:text-ink">Open the current atlas ↗</Link></span>
         </div>
         <h1 className="mt-1 font-serif text-4xl font-semibold tracking-tight sm:text-5xl">The places of the Bible.</h1>
         <p className="mt-3 max-w-2xl text-muted">
-          Zoom from the whole biblical world down to the streets around any of {formatNumber(all.length || 1252)} places. Open a numbered group, zoom into a region, or find a place by name.
+          {ancient ? "Land, water, rivers and borders only — no modern roads or towns — from the whole biblical world down close to any of " : "Zoom from the whole biblical world down to the streets around any of "}{formatNumber(all.length || 1252)} places. Open a numbered group, zoom into a region, or find a place by name.
           Each place leads back to the passages that name it.
         </p>
       </header>
@@ -123,6 +124,7 @@ export default function AtlasMockup2Page() {
         <div>
           {raw.status === "ready" ? (
             <StreetAtlasMap
+              ancient={ancient}
               places={shown}
               selected={selected}
               onSelect={choose}
@@ -180,4 +182,8 @@ function TopPlaces({ places, onSelect }: { places: MapPlace[]; onSelect: (place:
       </ol>
     </section>
   );
+}
+
+export default function AtlasMockup2Page() {
+  return <StreetAtlasPage />;
 }

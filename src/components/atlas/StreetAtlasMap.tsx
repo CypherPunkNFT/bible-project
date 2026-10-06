@@ -1,4 +1,4 @@
-import { addProtocol, LngLatBounds, Map as MapLibreMap, NavigationControl, ScaleControl, setWorkerUrl, type GeoJSONSource, type LngLatLike, type MapLayerMouseEvent } from "maplibre-gl";
+import { addProtocol, LngLatBounds, Map as MapLibreMap, NavigationControl, ScaleControl, setWorkerUrl, type GeoJSONSource, type LngLatBoundsLike, type LngLatLike, type MapLayerMouseEvent } from "maplibre-gl";
 import mapWorkerUrl from "maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url";
 import "maplibre-gl/dist/maplibre-gl.css";
 import { Protocol } from "pmtiles";
@@ -6,7 +6,7 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 import { useMediaQuery } from "@/lib/useMediaQuery";
 import { useThemeVersion, type Theme } from "@/lib/theme";
 import type { MapPlace } from "./projection";
-import { buildStyle, placeFeatures } from "./street-style";
+import { BOUNDS, buildStyle, placeFeatures } from "./street-style";
 import "./vector-atlas.css";
 import "./street-atlas.css";
 
@@ -25,8 +25,9 @@ const currentTheme = (): Theme => {
   if (chosen === "dark" || chosen === "light") return chosen;
   return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
 };
-const PRESETS: { name: string; center: LngLatLike; zoom: number }[] = [
-  { name: "Biblical world", center: [30, 33], zoom: 3.2 },
+type Preset = { name: string } & ({ center: LngLatLike; zoom: number } | { bounds: LngLatBoundsLike });
+const PRESETS: Preset[] = [
+  { name: "Biblical world", bounds: BOUNDS },
   { name: "Holy Land", center: [35.2, 31.7], zoom: 7 },
   { name: "Galilee", center: [35.45, 32.8], zoom: 10 },
   { name: "Jerusalem streets", center: [35.2295, 31.7767], zoom: 15 },
@@ -38,10 +39,12 @@ interface Props {
   onSelect: (place: MapPlace) => void;
   overlay?: ReactNode;
   coveredFraction?: number;
+  /** Mockup 3: no roads, buildings or modern towns (see ANCIENT_LAYERS in street-style.ts). */
+  ancient?: boolean;
 }
 
 /** Street-level atlas mockup: OpenStreetMap vector tiles (Protomaps) drawn by MapLibre, zoomable to streets near every place. */
-export function StreetAtlasMap({ places, selected, onSelect, overlay, coveredFraction = 0 }: Props) {
+export function StreetAtlasMap({ places, selected, onSelect, overlay, coveredFraction = 0, ancient = false }: Props) {
   const container = useRef<HTMLDivElement>(null);
   const mapRef = useRef<MapLibreMap | null>(null);
   const placesRef = useRef(places);
@@ -68,9 +71,11 @@ export function StreetAtlasMap({ places, selected, onSelect, overlay, coveredFra
     if (!container.current) return;
     addPmtilesProtocol();
     const map = new MapLibreMap({
-      container: container.current, style: buildStyle(currentTheme(), placesRef.current, selectedIdRef.current),
-      center: PRESETS[1].center, zoom: PRESETS[1].zoom, maxZoom: 18, attributionControl: { compact: false },
+      container: container.current, style: buildStyle(currentTheme(), placesRef.current, selectedIdRef.current, ancient),
+      center: [35.2, 31.7], zoom: 7, maxZoom: 18, attributionControl: { compact: false },
+      maxBounds: BOUNDS, renderWorldCopies: false, // the biblical world only: no panning or zooming out past it
     });
+    map.on("movestart", (event) => { if (event.originalEvent) setActiveRegion(""); }); // the reader moved away from a preset
     map.addControl(new NavigationControl({ visualizePitch: false }), "top-left"); // the place panel slides in on the right
     map.addControl(new ScaleControl({ unit: "metric" }), "bottom-left");
     map.on("error", (event) => {
@@ -98,12 +103,12 @@ export function StreetAtlasMap({ places, selected, onSelect, overlay, coveredFra
     }
     mapRef.current = map;
     return () => { map.remove(); mapRef.current = null; firstPlaces.current = true; };
-  }, []);
+  }, [ancient]); // a different look is a different map
 
   // Theme switch: rebuild the style with the other palette (places included, so nothing is lost).
   useEffect(() => {
-    if (themeVersion > 0) mapRef.current?.setStyle(buildStyle(currentTheme(), placesRef.current, selectedIdRef.current));
-  }, [themeVersion]);
+    if (themeVersion > 0) mapRef.current?.setStyle(buildStyle(currentTheme(), placesRef.current, selectedIdRef.current, ancient));
+  }, [themeVersion, ancient]);
 
   // Filters changed: new dots, and frame them.
   useEffect(() => {
@@ -129,9 +134,11 @@ export function StreetAtlasMap({ places, selected, onSelect, overlay, coveredFra
     map.flyTo({ center: [selected.lon, selected.lat], zoom: Math.max(map.getZoom(), 12), padding: { top: 0, bottom: 0, left: 0, right: width * coveredFraction }, duration: reducedMotion ? 0 : 1400 });
   }, [selected, coveredFraction, reducedMotion]);
 
-  const goTo = (preset: (typeof PRESETS)[number]) => {
+  const goTo = (preset: Preset) => {
     setActiveRegion(preset.name);
-    mapRef.current?.flyTo({ center: preset.center, zoom: preset.zoom, padding: 0, duration: reducedMotion ? 0 : 1600 });
+    const duration = reducedMotion ? 0 : 1600;
+    if ("bounds" in preset) mapRef.current?.fitBounds(preset.bounds, { padding: 0, duration });
+    else mapRef.current?.flyTo({ center: preset.center, zoom: preset.zoom, padding: 0, duration });
   };
 
   return <figure className="vector-atlas street-atlas">
@@ -149,7 +156,7 @@ export function StreetAtlasMap({ places, selected, onSelect, overlay, coveredFra
       </div>
       <div className="vector-atlas-key"><span><i className="vector-key-group">7</i> Places in this area (select to zoom in)</span><span><i className="vector-key-dot" /> Individual place</span><span><i className="vector-key-uncertain" /> Less certain location</span></div>
     </div>
-    <figcaption>Drag to explore · scroll or pinch to zoom · street detail within 50 km of every place, world view everywhere else.
+    <figcaption>Drag to explore · scroll or pinch to zoom · {ancient ? "close detail" : "street detail"} within 50 km of every place, the wider biblical world everywhere else.
       Map data: © OpenStreetMap contributors (ODbL), via Protomaps. Locations: OpenBible.info (CC BY 4.0).</figcaption>
   </figure>;
 }

@@ -8,6 +8,9 @@ import type { MapPlace } from "./projection";
 /** Where the map file, label fonts and icons are served (scripts/atlas-tiles-vite.ts locally; R2 in production). */
 export const TILES_BASE = "/atlas-tiles";
 export const MAP_FILE = "bible-atlas.pmtiles";
+/** The biblical world (west, south, east, north): the map file holds nothing outside it, and the page stops panning and
+ *  zooming out here. Same box as BIBLICAL_BOUNDS in scripts/build-street-atlas.py; keep them equal. */
+export const BOUNDS: [number, number, number, number] = [-12, 8, 73, 49];
 
 /** Earth tones in place of Protomaps' default greys and cyan, to sit with the site's reading-chart colours. */
 const EARTH: Record<Theme, Partial<Flavor>> = {
@@ -78,9 +81,19 @@ function englishLabels(base: LayerSpecification[]): LayerSpecification[] {
 const WORLD_MAX_ZOOM = 8;
 const DETAIL_MIN_ZOOM = 9;
 
+/** Mockup 3, the "ancient" look (owner 2026-10-06): land, green, water, rivers and borders only. No roads, rail,
+ *  buildings, airports, icons or modern town names; country, sea, lake, river and island names stay. */
+const ANCIENT_LAYERS = new Set([
+  "background", "earth", "landcover", "landuse_park", "landuse_beach", "water", "water_stream", "water_river",
+  "boundaries_country", "boundaries", "water_waterway_label", "water_label_ocean", "water_label_lakes",
+  "earth_label_islands", "places_country",
+]);
+
 /** The same basemap drawn from one source, with ids made unique per source. */
-function basemapLayers(source: "world" | "detail", flavor: Flavor): LayerSpecification[] {
-  return englishLabels(layers(source, flavor, { lang: "en" })).map((layer) => ({ ...layer, id: `${source}-${layer.id}` }));
+function basemapLayers(source: "world" | "detail", flavor: Flavor, ancient: boolean): LayerSpecification[] {
+  return englishLabels(layers(source, flavor, { lang: "en" }))
+    .filter((layer) => !ancient || ANCIENT_LAYERS.has(layer.id))
+    .map((layer) => ({ ...layer, id: `${source}-${layer.id}` }));
 }
 
 /**
@@ -91,28 +104,30 @@ function basemapLayers(source: "world" | "detail", flavor: Flavor): LayerSpecifi
  *    so wherever it exists it hides the stretched world underneath.
  * World labels stop at zoom 9 so they never crowd out the sharper street-level labels.
  */
-function layeredBasemap(flavor: Flavor): LayerSpecification[] {
-  const world = basemapLayers("world", flavor).map((layer) =>
+function layeredBasemap(flavor: Flavor, ancient: boolean): LayerSpecification[] {
+  const world = basemapLayers("world", flavor, ancient).map((layer) =>
     layer.type === "symbol" ? { ...layer, maxzoom: Math.min(layer.maxzoom ?? 24, DETAIL_MIN_ZOOM) } : layer);
-  const detail = basemapLayers("detail", flavor).filter((layer) => layer.type !== "background");
+  const detail = basemapLayers("detail", flavor, ancient).filter((layer) => layer.type !== "background");
   return [...world, ...detail];
 }
 
 /** The whole map style: earth-toned OpenStreetMap basemap underneath, the Bible places on top. */
-export function buildStyle(theme: Theme, places: MapPlace[], selectedId: string): StyleSpecification {
+export function buildStyle(theme: Theme, places: MapPlace[], selectedId: string, ancient = false): StyleSpecification {
   const base = new URL(TILES_BASE, window.location.href).href.replace(/\/$/, "");
-  const flavor: Flavor = { ...namedFlavor(theme), ...EARTH[theme] } as Flavor;
+  const earthy = { ...namedFlavor(theme), ...EARTH[theme] } as Flavor;
+  // Ancient: modern built-up areas are drawn as open land.
+  const flavor: Flavor = ancient ? { ...earthy, landcover: { ...earthy.landcover!, urban_area: earthy.earth } } : earthy;
   const tiles = [`pmtiles://${base}/${MAP_FILE}/{z}/{x}/{y}`];
   return {
     version: 8,
     glyphs: `${base}/fonts/{fontstack}/{range}.pbf`,
     sprite: `${base}/sprites/v4/${theme}`,
     sources: {
-      world: { type: "vector", tiles, minzoom: 0, maxzoom: WORLD_MAX_ZOOM,
+      world: { type: "vector", tiles, bounds: BOUNDS, minzoom: 0, maxzoom: WORLD_MAX_ZOOM,
         attribution: '<a href="https://www.openstreetmap.org/copyright">© OpenStreetMap</a> · <a href="https://protomaps.com">Protomaps</a>' },
-      detail: { type: "vector", tiles, minzoom: DETAIL_MIN_ZOOM, maxzoom: 15 },
+      detail: { type: "vector", tiles, bounds: BOUNDS, minzoom: DETAIL_MIN_ZOOM, maxzoom: 15 },
       places: { type: "geojson", data: placeFeatures(places), cluster: true, clusterRadius: 38, clusterMaxZoom: 11 },
     },
-    layers: [...layeredBasemap(flavor), ...placeLayers(selectedId)],
+    layers: [...layeredBasemap(flavor, ancient), ...placeLayers(selectedId)],
   };
 }

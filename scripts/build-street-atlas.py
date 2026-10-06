@@ -2,12 +2,12 @@
 """Build the street-level atlas map file (AtlasTiles/site/bible-atlas.pmtiles) for /study/places/mockup2.
 
 The map is OpenStreetMap data from the Protomaps world build, cut down to:
-  * the whole world, zoomed out (zoom 0-8: countries, coastlines, rivers, major cities), and
+  * the biblical world only (BIBLICAL_BOUNDS), zoomed out (zoom 0-8: countries, coastlines, rivers, cities), and
   * street level (zoom 9-15) only within 50 km of a Bible place (data/places.json),
 merged into one PMTiles file. Steps, in order (each is safe to re-run):
 
   py -3.12 scripts/build-street-atlas.py regions          # data/places.json -> build/region_50km.geojson
-  pmtiles extract <build-url> build/world-z0-8.pmtiles --maxzoom=8
+  pmtiles extract <build-url> build/world-biblical-z0-8.pmtiles --bbox=-12,8,73,49 --maxzoom=8
   pmtiles extract <build-url> build/places-50km-z9-15.pmtiles --region=build/region_50km.geojson --minzoom=9 --maxzoom=15
   py -3.12 scripts/build-street-atlas.py merge            # both -> site/bible-atlas.pmtiles
 
@@ -23,7 +23,10 @@ from pathlib import Path
 ATLAS_DIR = Path(__file__).resolve().parents[2] / "AtlasTiles"  # junction to F: (bulk data)
 PLACES = Path(__file__).resolve().parents[1] / "data" / "places.json"
 RADIUS_KM = 50
-WORLD = ATLAS_DIR / "build" / "world-z0-8.pmtiles"
+# West, south, east, north in degrees: Spain to beyond the Indus, Sudan/Yemen to the Black Sea. The page stops
+# panning and zooming out at the same box (BOUNDS in src/components/atlas/street-style.ts; keep them equal).
+BIBLICAL_BOUNDS = (-12, 8, 73, 49)
+WORLD = ATLAS_DIR / "build" / "world-biblical-z0-8.pmtiles"
 DETAIL = ATLAS_DIR / "build" / f"places-{RADIUS_KM}km-z9-15.pmtiles"
 REGION = ATLAS_DIR / "build" / f"region_{RADIUS_KM}km.geojson"
 OUTPUT = ATLAS_DIR / "site" / "bible-atlas.pmtiles"
@@ -68,7 +71,7 @@ def copy_tiles(source_path: Path, writer, zooms: range) -> int:
 
 
 def merge() -> None:
-    """World zoom 0-8 then place detail zoom 9-15 into one file (every zoom-9 id is above every zoom-8 id)."""
+    """Biblical-world zoom 0-8 then place detail zoom 9-15 into one file (every zoom-9 id is above every zoom-8 id)."""
     from pmtiles.reader import MmapSource, Reader
     from pmtiles.writer import Writer
 
@@ -84,8 +87,10 @@ def merge() -> None:
         writer = Writer(out)
         world = copy_tiles(WORLD, writer, range(0, 9))
         detail = copy_tiles(DETAIL, writer, range(9, 16))
-        header.update(max_zoom=15, center_zoom=5, center_lon_e7=int(35.2e7), center_lat_e7=int(31.7e7))
-        metadata["description"] = f"Protomaps basemap: world z0-8 + z9-15 within {RADIUS_KM} km of Bible places"
+        west, south, east, north = BIBLICAL_BOUNDS
+        header.update(max_zoom=15, center_zoom=5, center_lon_e7=int(35.2e7), center_lat_e7=int(31.7e7),
+                      min_lon_e7=int(west * 1e7), min_lat_e7=int(south * 1e7), max_lon_e7=int(east * 1e7), max_lat_e7=int(north * 1e7))
+        metadata["description"] = f"Protomaps basemap: biblical world z0-8 + z9-15 within {RADIUS_KM} km of Bible places"
         writer.finalize(header, metadata)
     partial.replace(OUTPUT)  # never leave a half-written map where the site reads it
     print(f"merge: {world} world + {detail} detail tiles -> {OUTPUT} ({OUTPUT.stat().st_size / 1e9:.2f} GB)")
