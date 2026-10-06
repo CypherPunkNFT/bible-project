@@ -37,7 +37,7 @@ export const STUDY_SECTIONS: Record<StudyCollectionId, StudySection[]> = {
     { id: "prophets", title: "Prophets through time", description: "Follow the prophets by era and the kings Scripture names beside them.", kind: "Guide", illustration: "prophets", to: "/study/prophets" },
   ],
   places: [
-    { id: "places-map", title: "Explore the atlas", description: "Find biblical places on the satellite map; filter by section or book.", kind: "Map", illustration: "places" },
+    { id: "places-map", title: "Explore the atlas", description: "Find biblical places on the map, from the whole biblical world down close to each place; filter by section or book.", kind: "Map", illustration: "places" },
     { id: "top-places", title: "The most-named places", description: "Compare the places mentioned most often, then locate one on the map.", kind: "Chart", illustration: "sizes" },
   ],
   miracles: [

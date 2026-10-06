@@ -1,22 +1,25 @@
 import { addProtocol, LngLatBounds, Map as MapLibreMap, NavigationControl, ScaleControl, setWorkerUrl, type GeoJSONSource, type LngLatBoundsLike, type LngLatLike, type MapLayerMouseEvent } from "maplibre-gl";
 import mapWorkerUrl from "maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url";
 import "maplibre-gl/dist/maplibre-gl.css";
-import { Protocol } from "pmtiles";
+import { PMTiles, Protocol } from "pmtiles";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { useMediaQuery } from "@/lib/useMediaQuery";
 import { useThemeVersion, type Theme } from "@/lib/theme";
 import type { MapPlace } from "./projection";
-import { BOUNDS, buildStyle, placeFeatures } from "./street-style";
+import { ChunkedSource } from "./chunked-source";
+import { BOUNDS, buildStyle, placeFeatures, tilesBase } from "./street-style";
 import "./vector-atlas.css";
 import "./street-atlas.css";
 
 // MapLibre looks for its worker beside its own file, which bundling breaks; point it at the bundled copy.
-// The map reads byte ranges of one PMTiles file; register that once for the whole app.
+// The map reads byte ranges of one PMTiles file, stored as pieces (ChunkedSource); register that once for the whole app.
 let protocolAdded = false;
 function addPmtilesProtocol() {
   if (protocolAdded) return;
   setWorkerUrl(mapWorkerUrl);
-  addProtocol("pmtiles", new Protocol().tile);
+  const protocol = new Protocol();
+  protocol.add(new PMTiles(new ChunkedSource(tilesBase())));
+  addProtocol("pmtiles", protocol.tile);
   protocolAdded = true;
 }
 

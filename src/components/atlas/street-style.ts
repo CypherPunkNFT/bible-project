@@ -5,9 +5,17 @@ import { resolvedSectionColors } from "@/lib/sections";
 import type { Theme } from "@/lib/theme";
 import type { MapPlace } from "./projection";
 
-/** Where the map file, label fonts and icons are served (scripts/atlas-tiles-vite.ts locally; R2 in production). */
-export const TILES_BASE = "/atlas-tiles";
-export const MAP_FILE = "bible-atlas.pmtiles";
+/**
+ * Where the map pieces, label fonts and icons are served: scripts/atlas-tiles-vite.ts locally, the site's own
+ * /atlas-tiles/ folder in production. The pages.dev address ignores byte ranges (it would send whole 24 MiB pieces),
+ * so there the map reads from the real domain, which honours them (measured 2026-10-06; CORS in public/_headers).
+ */
+export function tilesBase(): string {
+  const base = window.location.hostname.endsWith(".pages.dev") ? "https://bibleproject.io/atlas-tiles" : "/atlas-tiles";
+  return new URL(base, window.location.href).href.replace(/\/$/, "");
+}
+/** Key the page's PMTiles reader is registered under (ChunkedSource.getKey). */
+export const MAP_KEY = "bible-atlas";
 /** The biblical world (west, south, east, north): the map file holds nothing outside it, and the page stops panning and
  *  zooming out here. Same box as BIBLICAL_BOUNDS in scripts/build-street-atlas.py; keep them equal. */
 export const BOUNDS: [number, number, number, number] = [-12, 8, 73, 49];
@@ -114,11 +122,11 @@ function layeredBasemap(flavor: Flavor): LayerSpecification[] {
 
 /** The whole map style: earth-toned OpenStreetMap basemap underneath, the Bible places on top. */
 export function buildStyle(theme: Theme, places: MapPlace[], selectedId: string): StyleSpecification {
-  const base = new URL(TILES_BASE, window.location.href).href.replace(/\/$/, "");
+  const base = tilesBase();
   const earthy = { ...namedFlavor(theme), ...EARTH[theme] } as Flavor;
   // Modern built-up areas are drawn as open land.
   const flavor: Flavor = { ...earthy, landcover: { ...earthy.landcover!, urban_area: earthy.earth } };
-  const tiles = [`pmtiles://${base}/${MAP_FILE}/{z}/{x}/{y}`];
+  const tiles = [`pmtiles://${MAP_KEY}/{z}/{x}/{y}`];
   return {
     version: 8,
     glyphs: `${base}/fonts/{fontstack}/{range}.pbf`,

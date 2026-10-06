@@ -11,7 +11,11 @@ Steps, in order (each is safe to re-run):
   pmtiles extract <build-url> build/world-biblical-z0-8.pmtiles --bbox=-12,8,73,49 --maxzoom=8
   pmtiles extract <build-url> build/places-50km-z9-15.pmtiles --region=build/region_50km.geojson --minzoom=9 --maxzoom=15
   py -3.12 scripts/build-street-atlas.py merge            # both -> build/bible-atlas-full.pmtiles
-  py -3.12 scripts/build-street-atlas.py strip            # full -> site/bible-atlas.pmtiles (what the site reads)
+  py -3.12 scripts/build-street-atlas.py strip            # full -> build/bible-atlas-ancient.pmtiles (what the page draws)
+  py -3.12 scripts/build-street-atlas.py split            # -> site/bible-atlas.json + site/<version>/NNN.bin (what the site serves)
+
+Why split: Cloudflare Pages refuses files over 25 MiB, so the map ships as 24 MiB pieces read with byte ranges
+(src/components/atlas/chunked-source.ts). The version folder is a content hash, so pieces can be cached forever.
 
 Needs: pip install shapely pmtiles. The pmtiles CLI is github.com/protomaps/go-pmtiles; build URLs are
 listed at https://build-metadata.protomaps.dev/builds.json. Full instructions: AtlasTiles/README.md.
@@ -32,7 +36,10 @@ WORLD = ATLAS_DIR / "build" / "world-biblical-z0-8.pmtiles"
 DETAIL = ATLAS_DIR / "build" / f"places-{RADIUS_KM}km-z9-15.pmtiles"
 REGION = ATLAS_DIR / "build" / f"region_{RADIUS_KM}km.geojson"
 MERGED = ATLAS_DIR / "build" / "bible-atlas-full.pmtiles"  # every layer, kept so the look can change without downloading
-OUTPUT = ATLAS_DIR / "site" / "bible-atlas.pmtiles"
+OUTPUT = ATLAS_DIR / "build" / "bible-atlas-ancient.pmtiles"
+SITE = ATLAS_DIR / "site"
+MANIFEST = SITE / "bible-atlas.json"
+CHUNK_SIZE = 24 * 1024 * 1024  # under Cloudflare Pages' 25 MiB per-file limit
 # Vector layers the ancient look draws (ANCIENT_LAYERS in src/components/atlas/street-style.ts uses only these).
 # Dropped: roads, buildings, pois (34%, 20% and 5% of street-level data, measured 2026-10-06).
 KEPT_LAYERS = {"earth", "landcover", "landuse", "water", "boundaries", "places"}
@@ -157,11 +164,47 @@ def strip() -> None:
     print(f"strip: {count} tiles -> {OUTPUT} ({OUTPUT.stat().st_size / 1e9:.2f} GB)")
 
 
+def split() -> None:
+    """The ancient map -> numbered 24 MiB pieces in a content-hash folder, plus the manifest the page reads first."""
+    import hashlib
+    import shutil
+
+    if not OUTPUT.exists():
+        raise SystemExit(f"split: missing {OUTPUT}; run the strip step first")
+    digest = hashlib.sha256()
+    with OUTPUT.open("rb") as handle:
+        while block := handle.read(8 * 1024 * 1024):
+            digest.update(block)
+    version = digest.hexdigest()[:12]
+    size = OUTPUT.stat().st_size
+    staging = SITE / f"{version}.partial"
+    shutil.rmtree(staging, ignore_errors=True)
+    staging.mkdir(parents=True)
+    with OUTPUT.open("rb") as handle:
+        index = 0
+        while chunk := handle.read(CHUNK_SIZE):
+            (staging / f"{index:03d}.bin").write_bytes(chunk)
+            index += 1
+    final = SITE / version
+    if final.exists():
+        shutil.rmtree(staging)  # identical content already split
+    else:
+        staging.rename(final)
+    manifest = {"version": version, "size": size, "chunkSize": CHUNK_SIZE, "chunks": index}
+    partial = MANIFEST.with_suffix(".json.partial")
+    partial.write_text(json.dumps(manifest), encoding="utf-8")
+    partial.replace(MANIFEST)  # the manifest switches last, so the page never points at missing pieces
+    old = [d.name for d in SITE.iterdir() if d.is_dir() and len(d.name) == 12 and d.name != version]
+    print(f"split: {size / 1e9:.2f} GB -> {index} pieces in {final} (manifest {MANIFEST})")
+    if old:
+        print(f"split: older piece folders no longer referenced (safe to delete once the new site is live): {old}")
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("step", choices=["regions", "merge", "strip"])
+    parser.add_argument("step", choices=["regions", "merge", "strip", "split"])
     step = parser.parse_args().step
-    {"regions": build_regions, "merge": merge, "strip": strip}[step]()
+    {"regions": build_regions, "merge": merge, "strip": strip, "split": split}[step]()
 
 
 if __name__ == "__main__":

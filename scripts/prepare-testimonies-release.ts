@@ -20,8 +20,17 @@ const compiler = spawnSync(process.execPath, ["node_modules/wrangler/bin/wrangle
 if (compiler.status !== 0) throw new Error("Pages Function compilation failed.");
 await cp("public/_headers", path.join(site, "_headers"));
 await cp("public/_routes.json", path.join(site, "_routes.json"));
+// The atlas map (STREET_ATLAS.md): its manifest, the current version's 24 MiB pieces, label fonts and icons.
+// Lives on F: via the AtlasTiles junction; ATLAS_TILES_DIR overrides (e.g. when preparing from a clean worktree).
+const atlas = process.env.ATLAS_TILES_DIR ?? path.resolve(import.meta.dirname, "../../AtlasTiles/site");
+const atlasManifest = JSON.parse(await readFile(path.join(atlas, "bible-atlas.json"), "utf8")) as { version: string; chunks: number };
+for (const part of ["bible-atlas.json", atlasManifest.version, "fonts", "sprites"]) await cp(path.join(atlas, part), path.join(site, "atlas-tiles", part), { recursive: true });
 const files = await readdir(site, { recursive: true, withFileTypes: true });
 if (files.filter((entry) => entry.isFile()).length > 20000) throw new Error("The release exceeds the project's 20,000-file limit.");
+for (const entry of files.filter((entry) => entry.isFile())) {
+  const file = path.join(entry.parentPath, entry.name);
+  if ((await stat(file)).size > 25 * 1024 * 1024) throw new Error(`Cloudflare Pages refuses files over 25 MiB: ${file}`);
+}
 if (databaseId) {
   const config = { name: "bible-project", pages_build_output_dir: "./site", compatibility_date: "2026-10-04", compatibility_flags: ["nodejs_compat"], vars: { PUBLIC_SITE_URL: siteUrl.origin }, d1_databases: [{ binding: "DB", database_name: "bible-testimonies", database_id: databaseId, migrations_dir: "./migrations" }] };
   await writeFile(path.join(directory, "wrangler.jsonc"), JSON.stringify(config, null, 2) + "\n");

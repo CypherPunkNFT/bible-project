@@ -11,7 +11,8 @@ const foundational = [
   ["R. A. Torrey", "The New Topical Text Book", "Topic headings and passage references used in the study resources and the background to the Names of God collection.", "https://ccel.org/ccel/torrey/ttt"],
   ["Orville J. Nave", "Nave’s Topical Bible", "A historical topical reference work consulted for subjects and their biblical references.", "https://ccel.org/ccel/nave/bible"],
   ["M. G. Easton", "Illustrated Bible Dictionary", "Historical dictionary material used for reference facts, with electronic-edition rights distinguished from the original book.", "https://ccel.org/ccel/easton/ebd2"],
-  ["NASA & Natural Earth", "Atlas imagery & boundaries", "Blue Marble imagery and public-domain map outlines provide geographical context around the biblical places.", "https://earthobservatory.nasa.gov/features/BlueMarble"],
+  ["OpenStreetMap contributors", "Atlas map", "Land, water, rivers and borders of the atlas, from OpenStreetMap data (ODbL) packaged by Protomaps; modern roads and towns are left out.", "https://www.openstreetmap.org/copyright"],
+  ["NASA & Natural Earth", "Atlas preview imagery & outlines", "Blue Marble imagery and public-domain map outlines used in atlas previews.", "https://earthobservatory.nasa.gov/features/BlueMarble"],
 ];
 const research = [
   ["Spurgeon’s published sermons", "spurgeon"], ["Reformation & Puritan preaching", "puritan-sermons"],

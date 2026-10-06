@@ -3,10 +3,10 @@ import path from "node:path";
 import { pipeline } from "node:stream";
 import type { Connect, Plugin } from "vite";
 
-// The street-level atlas (/study/places/mockup2) reads a ~2.5 GB map file plus its label fonts and icons from
+// The atlas (/study/places) reads its map, stored as 24 MiB pieces, plus label fonts and icons from
 // ../AtlasTiles/site (a junction to F:, built by scripts/build-street-atlas.py). Like data/, it is served
 // straight from disk and never copied into dist/ — Cloudflare Pages refuses files over 25 MB. The map
-// library asks for byte ranges of the one file, so ranges are supported. Production: AtlasTiles/README.md.
+// library asks for byte ranges of the pieces, so ranges are supported. Production: STREET_ATLAS.md.
 
 const SITE_DIR = path.resolve(process.env.ATLAS_TILES_DIR ?? path.resolve(__dirname, "../../AtlasTiles/site"));
 const PREFIX = "/atlas-tiles/";
@@ -15,6 +15,7 @@ const TYPES: Record<string, string> = {
   ".pbf": "application/x-protobuf",
   ".json": "application/json; charset=utf-8",
   ".png": "image/png",
+  ".bin": "application/octet-stream",
 };
 
 function fail(response: import("node:http").ServerResponse, status: number, message: string) {

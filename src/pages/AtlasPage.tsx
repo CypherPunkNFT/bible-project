@@ -4,7 +4,7 @@ import { useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { StudyBackLink } from "@/components/study/StudyBackLink";
 import { StudyContents } from "@/components/study/StudyContents";
-import { AtlasMap } from "@/components/atlas/AtlasMap";
+import { StreetAtlasMap } from "@/components/atlas/StreetAtlasMap";
 import { projectPlace, type MapPlace } from "@/components/atlas/projection";
 import { PlacePanel } from "@/components/atlas/PlacePanel";
 import { Loading } from "@/components/charts/ChartCard";
@@ -48,12 +48,13 @@ export default function AtlasPage() {
   }, [raw, catalog]);
 
   const bookNum = catalog.books.find((b) => b.code === book)?.num;
-  const shown = all.filter((p) => {
+  // Memoised: the street map re-frames itself whenever this list changes identity.
+  const shown = useMemo(() => all.filter((p) => {
     if (sections.size && !p.verses.some((id) => sections.has(sectionOfNum(catalog, splitId(id).num)))) return false;
     if (bookNum && !p.verses.some((id) => splitId(id).num === bookNum)) return false;
     if (query && !p.name.toLowerCase().includes(query.toLowerCase())) return false;
     return true;
-  });
+  }), [all, sections, bookNum, query, catalog]);
   const selected = all.find((p) => p.id === search.get("place")) ?? null;
   const choose = (place: MapPlace | null) => {
     const next = new URLSearchParams(search);
@@ -76,8 +77,9 @@ export default function AtlasPage() {
         <p className="mt-4 text-xs font-semibold uppercase tracking-[0.2em] text-accent">Study · Places & journeys</p>
         <h1 className="mt-1 font-serif text-4xl font-semibold tracking-tight sm:text-5xl">The places of the Bible.</h1>
         <p className="mt-3 max-w-2xl text-muted">
-          {formatNumber(all.length || 1252)} places with a known or likely location. Each dot is coloured by the section that names it most, and sized by how many verses name
-          it. Click one to read where it appears.
+          {formatNumber(all.length || 1252)} places with a known or likely location, on a map of land, water, rivers and borders with no
+          modern roads or towns. Each dot is coloured by the section that names it most. Zoom from the whole biblical world down close
+          to any place, and click one to read where it appears.
         </p>
       </header>
       <StudyContents />
@@ -113,6 +115,7 @@ export default function AtlasPage() {
         <span className="text-sm text-muted" aria-live="polite">
           {formatNumber(shown.length)} shown
         </span>
+        {(query || book || sections.size > 0) && <button type="button" className="text-xs text-accent underline underline-offset-4" onClick={() => { setQuery(""); setBook(""); setSections(new Set()); }}>Clear filters</button>}
       </div>
 
       {/* Wide screens: the place panel slides in over the right of the map while the map flies to the place,
@@ -120,7 +123,7 @@ export default function AtlasPage() {
       <div className="grid gap-5">
         <div>
           {raw.status === "ready" ? (
-            <AtlasMap
+            <StreetAtlasMap
               places={shown}
               selected={selected}
               onSelect={choose}

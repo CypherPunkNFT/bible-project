@@ -143,7 +143,7 @@ export default function VersionsPage() {
               <strong>Cross references</strong> — <a className="underline" href="https://www.openbible.info/labs/cross-references/" rel="noreferrer">OpenBible.info</a>, licensed CC-BY. About 344,000 reader-voted links, seeded from the public-domain Treasury of Scripture Knowledge.
             </li>
             <li>
-              <strong>Places</strong> — <a className="underline" href="https://www.openbible.info/geo/" rel="noreferrer">OpenBible.info Bible geocoding</a>, licensed CC-BY 4.0. Map outlines from Natural Earth via world-atlas (public domain). Satellite imagery: NASA Blue Marble Next Generation, via NASA GIBS (public domain), downloaded once and served from this site.
+              <strong>Places</strong> — <a className="underline" href="https://www.openbible.info/geo/" rel="noreferrer">OpenBible.info Bible geocoding</a>, licensed CC-BY 4.0. Atlas map: © <a className="underline" href="https://www.openstreetmap.org/copyright" rel="noreferrer">OpenStreetMap contributors</a> (ODbL), via Protomaps, served from this site. Preview imagery: NASA Blue Marble Next Generation and Natural Earth outlines (public domain).
             </li>
             <li>
               <strong>Hebrew text</strong> — the words of the Westminster Leningrad Codex are public domain. Its word-by-word grammar tags are licensed separately (CC BY-SA) and are not used here.

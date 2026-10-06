@@ -8,7 +8,7 @@ const POINTS = [
   {
     icon: BookOpen,
     title: "What it is",
-    text: "The whole Bible in every free version we can find: the King James, Geneva, Tyndale, Douay-Rheims, the Hebrew and Greek originals, the Latin Vulgate, and translations in twelve more languages, from Spanish and Chinese to Hindi and Russian. You can read them side by side, with charts, a satellite atlas of its places, and study pages.",
+    text: "The whole Bible in every free version we can find: the King James, Geneva, Tyndale, Douay-Rheims, the Hebrew and Greek originals, the Latin Vulgate, and translations in twelve more languages, from Spanish and Chinese to Hindi and Russian. You can read them side by side, with charts, an atlas of its places, and study pages.",
   },
   {
     icon: Gift,
