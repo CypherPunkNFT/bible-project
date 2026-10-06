@@ -11,7 +11,7 @@
 .places-intro-compass { width: 15rem; text-align: center; color: var(--poetry); }
 .places-intro-compass > svg { width: 112px; height: 112px; margin: auto; opacity: .45; transform: rotate(-15deg); }
 .places-intro-compass > span { display: block; margin-top: 1rem; font-size: .55rem; letter-spacing: .24em; opacity: .75; }
-.places-destinations { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; }
+.places-destinations { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
 .places-destination-card { display: flex; flex-direction: column; min-width: 0; border: 1px solid var(--line); border-top: 2px solid var(--places-color); border-radius: 1rem; background: linear-gradient(145deg, color-mix(in srgb, var(--places-color) 7%, var(--surface)), var(--surface) 75%); padding: 1.35rem 1.6rem; transition: transform .2s, border-color .2s; }
 .places-destination-card:hover { transform: translateY(-3px); border-color: var(--places-color); }
 .places-destination-card:focus-visible { outline-color: var(--places-color); outline-offset: 4px; }
@@ -110,3 +110,81 @@
 @media (prefers-reduced-motion: reduce) { .places-destination-card, .places-collection-nav > a { transition: none; } .places-destination-card:hover { transform: none; } }
 @media (max-width: 767px) { .places-city-collection-grid, .places-choices.places-city-choices { grid-template-columns: repeat(2, minmax(0, 1fr)); } .places-city-card-trigger { padding: .85rem; } .places-city-card-trigger strong { font-size: 1rem; } .places-city-selector { min-height: 0; } .places-city-card-interior { padding: 1rem; } .places-city-card-heading { flex-wrap: wrap; gap: .65rem; } .places-city-card-heading h3 { font-size: 1.4rem; } .places-city-count { margin-left: 0; } .places-city-card .places-city-choices button { padding: .8rem .6rem; } .places-city-choices button > svg { display: none; } }
 @media (prefers-reduced-motion: reduce) { .places-city-collection-top > svg, .places-city-card .places-city-choices button { transition: none; } .places-city-card-trigger:hover .places-city-collection-top > svg { transform: none; } }
+
+.places-row-heading { margin-top: 2.2rem; padding-top: 1.3rem; border-top: 1px solid var(--line); }
+.places-row-heading h2 { font-size: 1.35rem; }
+.places-destination-card { padding: 1.1rem; }
+.places-destination-card > .places-artwork { height: 120px; }
+.places-card-copy h2 { font-size: 1.55rem; }
+.places-card-copy p { font-size: .78rem; line-height: 1.7; }
+.places-card-top > span { letter-spacing: .08em; line-height: 1.5; }
+.places-card-copy { padding-right: 0; }
+.places-card-number { position: static; display: block; margin-bottom: .45rem; }
+.places-card-foot { align-items: start; flex-direction: column; gap: .7rem; }
+.places-collection-nav > a { min-height: 66px; }
+.places-collection-nav > a > span { line-height: 1.4; }
+.places-find-city { border-radius: 14px; --places-color: var(--poetry); }
+.places-city-selector { min-height: 0; }
+.places-city-directory { margin-top: 1rem; }
+.places-directory-search { display: flex; align-items: center; gap: .7rem; padding: .8rem 1rem; border: 1px solid var(--line); border-radius: .7rem; background: var(--surface); max-width: 36rem; }
+.places-directory-search input { min-width: 0; width: 100%; background: transparent; font-size: .9rem; }
+.places-directory-results { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .7rem; margin-block: 1rem; }
+.places-directory-results a { display: grid; grid-template-columns: 1fr auto; gap: .35rem; padding: 1rem; background: var(--surface); border: 1px solid var(--line); border-radius: .6rem; }
+.places-directory-results a:hover { border-color: var(--places-color); }
+.places-directory-results strong { font: 500 1.15rem var(--font-serif); }
+.places-directory-results span { font-size: .65rem; color: var(--muted); grid-row: 2; }
+.places-directory-results svg { color: var(--places-color); grid-column: 2; grid-row: 1; }
+.places-directory-pages { display: flex; justify-content: space-between; align-items: center; gap: .6rem; font-size: .75rem; }
+.places-directory-pages button { display: flex; align-items: center; gap: .5rem; padding: .6rem; border: 1px solid var(--line); border-radius: .4rem; }
+.places-directory-pages button:disabled { opacity: .35; cursor: default; }
+.history-intro { display: flex; align-items: center; gap: 2rem; }
+.history-intro > div { flex: 1; }
+.history-intro > div > p:last-child { max-width: 49rem; font-size: .875rem; color: var(--muted); line-height: 1.8; }
+.history-intro > .places-artwork { width: 220px; flex-shrink: 0; }
+.history-topic-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+.history-topic-card { text-align: left; border: 1px solid var(--line); border-top: 2px solid color-mix(in srgb, var(--places-color) 60%, var(--line)); border-radius: .8rem; padding: 1.1rem 1.3rem; background: linear-gradient(135deg, color-mix(in srgb, var(--places-color) 7%, var(--surface)), var(--surface)); }
+.history-topic-card:hover, .history-topic-card:focus-visible { border-color: var(--places-color); }
+.history-topic-top { display: flex; justify-content: space-between; align-items: center; font-size: .65rem; color: var(--places-color); }
+.history-topic-card > .places-artwork { height: 90px; margin-block: .5rem; opacity: .7; }
+.history-topic-card h3 { font: 500 1.35rem/1.3 var(--font-serif); }
+.history-topic-card p { color: var(--places-color); font-size: .7rem; margin-block: .45rem .9rem; }
+.history-topic-question { display: block; padding-top: .8rem; border-top: 1px solid var(--line); color: var(--muted); font-size: .78rem; line-height: 1.7; }
+.history-detail { border: 1px solid var(--line); border-top: 2px solid var(--places-color); border-radius: 1rem; padding: 1.3rem 1.6rem; background: var(--surface); }
+.history-detail-heading { display: flex; gap: 2rem; align-items: center; padding-block: .4rem 1.5rem; }
+.history-detail-heading > div { flex: 1; }
+.history-detail-heading h3 { font: 500 clamp(1.5rem, 2.4vw, 2rem)/1.4 var(--font-serif); margin-top: .7rem; max-width: 42rem; }
+.history-detail-heading .places-artwork { width: 230px; }
+.history-detail-columns { display: grid; grid-template-columns: 1.3fr 1fr; gap: 2rem; border-block: 1px solid var(--line); padding-block: 1.5rem; }
+.history-detail h4 { display: flex; gap: .5rem; align-items: center; font: 500 1.15rem var(--font-serif); margin-bottom: .8rem; }
+.history-threads { display: grid; gap: .7rem; font-size: .82rem; line-height: 1.7; }
+.history-threads li { display: flex; gap: .8rem; }
+.history-threads li > span { color: var(--places-color); font-size: .65rem; padding-top: .15rem; }
+.history-place-list { display: flex; flex-wrap: wrap; gap: .5rem; }
+.history-place-list li { background: var(--page); border: 1px solid var(--line); border-radius: .4rem; padding: .55rem .75rem; font-size: .75rem; }
+.history-sources { margin-top: 1.5rem; }
+.history-sources p { color: var(--muted); font-size: .75rem; line-height: 1.7; margin-bottom: .8rem; }
+.history-sources a { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: .8rem; border-bottom: 1px solid var(--line); color: var(--places-color); font-size: .78rem; }
+.history-sources a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.history-sources svg { flex-shrink: 0; }
+.history-topic-next { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.3rem; }
+.history-topic-next button { display: flex; align-items: center; gap: .6rem; border: 1px solid var(--line); border-radius: .5rem; padding: .6rem .8rem; font-size: .72rem; }
+.history-topic-next button:hover { border-color: var(--places-color); }
+@media (max-width: 1100px) {
+  .places-destinations { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .history-intro > .places-artwork { width: 160px; }
+  .history-topic-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 767px) {
+  .history-intro > .places-artwork { display: none; }
+  .places-directory-results { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .history-detail-heading { gap: .8rem; }
+  .history-detail-heading .places-artwork { width: 130px; }
+  .history-detail-columns { grid-template-columns: 1fr; gap: 1.5rem; }
+  .places-collection-nav .places-artwork { width: 35px; }
+}
+@media (max-width: 480px) {
+  .places-destinations, .history-topic-grid { grid-template-columns: 1fr; }
+  .places-directory-results { grid-template-columns: 1fr; }
+  .history-detail { padding: 1rem; }
+  .history-detail-heading .places-artwork { display: none; }
+}

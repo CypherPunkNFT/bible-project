@@ -4,6 +4,7 @@ import { Link, useSearchParams } from "react-router-dom";
 import { useReducedMotion } from "framer-motion";
 import { CITY_COLLECTIONS, type CityChoice } from "./city-collections";
 import "./city-motion-lab.css";
+import { FindCityCard } from "./CityDirectory";
 
 const DESIGNS = [
   { id: "expand", name: "Clear & expand" },
@@ -178,13 +179,13 @@ function CitySelection({ design, renderCity }: { design: Design; renderCity: (ci
 
   return <>
     <section className="motion-city-selection" aria-labelledby="motion-city-selection-title">
-    <div className="places-section-heading"><h2 id="motion-city-selection-title"><span className="places-tier-number">01</span>{expanded ? "Choose a city" : "Choose a collection"}</h2><span>{expanded ? collection.title : "Eight doorways into the ancient world"}</span></div>
+    <div className="places-section-heading"><h2 id="motion-city-selection-title"><span className="places-tier-number">01</span>{expanded ? "Choose a city" : "Choose a collection"}</h2><span>{expanded ? collection.title : `${CITY_COLLECTIONS.length} collections and a city directory`}</span></div>
     <div ref={stage} className="motion-demo-stage" data-phase={busy ? "animating" : expanded ? "cities" : "collections"} onKeyDown={(event) => { if (event.key === "Escape" && expanded && !busy) { event.preventDefault(); void transition(false); } }}>
-      <div ref={grid} hidden={expanded} className="places-city-collection-grid motion-demo-grid" role="group" aria-label="City collections">{CITY_COLLECTIONS.map((entry) => <button key={entry.id} type="button" data-motion-collection={entry.id} style={tint(entry.color)} className="places-city-card places-city-card-trigger" onClick={() => void transition(true, entry)} disabled={busy} aria-label={entry.title}><span className="places-city-collection-top"><entry.icon size={23} strokeWidth={1.4} aria-hidden /><span>{entry.cities.length} cities</span><ArrowUpRight size={15} aria-hidden /></span><strong>{entry.title}</strong><small>{entry.subtitle}</small></button>)}</div>
+      <div ref={grid} hidden={expanded} className="places-city-collection-grid motion-demo-grid" role="group" aria-label="City collections">{CITY_COLLECTIONS.map((entry) => <button key={entry.id} type="button" data-motion-collection={entry.id} style={tint(entry.color)} className="places-city-card places-city-card-trigger" onClick={() => void transition(true, entry)} disabled={busy} aria-label={entry.title}><span className="places-city-collection-top"><entry.icon size={23} strokeWidth={1.4} aria-hidden /><span>{entry.cities.length} places</span><ArrowUpRight size={15} aria-hidden /></span><strong>{entry.title}</strong><small>{entry.subtitle}</small></button>)}<FindCityCard /></div>
       <article ref={panel} hidden={!expanded} className="places-city-card is-expanded motion-demo-panel" style={tint(collection.color)}>
         <div className="places-city-card-interior">
           <div className="places-city-card-navigation"><button ref={back} type="button" className="places-collections-back" onClick={() => void transition(false)} disabled={busy}><ArrowLeft size={16} aria-hidden />All collections</button><span aria-hidden>/</span><span>{collection.title}</span></div>
-          <div className="places-city-card-heading"><span className="places-city-icon"><collection.icon size={25} strokeWidth={1.4} aria-hidden /></span><div><h3>{collection.title}</h3><p>{collection.subtitle}</p></div><span className="places-city-count">{collection.cities.length} cities</span></div>
+          <div className="places-city-card-heading"><span className="places-city-icon"><collection.icon size={25} strokeWidth={1.4} aria-hidden /></span><div><h3>{collection.title}</h3><p>{collection.subtitle}</p></div><span className="places-city-count">{collection.cities.length} places</span></div>
           <p className="places-city-card-description">{collection.description}</p>
           <div className="places-choices places-city-choices" role="group" aria-label="Which city will you explore?">{collection.cities.map((item, index) => <button type="button" key={item.id} aria-pressed={item.id === city.id} disabled={busy} onClick={() => setCity(item)}><span className="places-choice-mark" aria-hidden>{String(index + 1).padStart(2, "0")}</span><span><strong>{item.title}</strong><small>{item.subtitle}</small></span>{item.id === city.id ? <Check size={15} aria-hidden /> : <ArrowRight size={15} aria-hidden />}</button>)}</div>
           <div className="places-city-card-footer"><span>Choose a city to explore below.</span><Link to={collection.passage.path}><BookOpen size={14} aria-hidden />{collection.passage.label}<ArrowUpRight size={13} aria-hidden /></Link></div>

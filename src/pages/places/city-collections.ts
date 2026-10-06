@@ -1,4 +1,4 @@
-import { Church, Crown, Footprints, Landmark, ScrollText, ShieldCheck, Ship, Sun } from "lucide-react";
+import { Church, Crown, Footprints, Landmark, ScrollText, ShieldCheck, Ship, Sun, Tent, Waves, Bell } from "lucide-react";
 
 export type CityChoice = { id: string; title: string; subtitle: string; place: string };
 const city = (title: string, subtitle: string, place = title) => ({ title, subtitle, place });
@@ -47,6 +47,15 @@ const CITIES = {
   bezer: city("Bezer", "Refuge in Reuben"),
   ramoth: city("Ramoth-gilead", "Refuge in Gilead"),
   golan: city("Golan", "Refuge in Bashan"),
+  ur: city("Ur", "Ancestral origins"),
+  haran: city("Haran", "Family, departure & promise"),
+  pithom: city("Pithom", "Store city & forced labor"),
+  rameses: city("Rameses", "Labor & departure"),
+  succoth: city("Succoth", "The first encampment from Rameses"),
+  sodom: city("Sodom", "Judgment & Lot's rescue"),
+  gomorrah: city("Gomorrah", "A city of the plain"),
+  zoar: city("Zoar", "Spared at Lot's request"),
+  chorazin: city("Chorazin", "Witness without repentance"),
 } satisfies Record<string, Omit<CityChoice, "id">>;
 
 const choices = (...ids: (keyof typeof CITIES)[]): CityChoice[] => ids.map((id) => ({ id, ...CITIES[id] }));
@@ -99,5 +108,23 @@ export const CITY_COLLECTIONS = [
     description: "The six cities named in Joshua 20 offered protection for someone accused of an unintentional killing while the case was heard. Explore their geography and purpose.",
     passage: { label: "Joshua 20:1–9", path: "/read/kjv/JOS/20?hl=1-9" },
     cities: choices("kedesh", "shechem", "hebron", "bezer", "ramoth", "golan"),
+  },
+  {
+    id: "patriarchs", title: "Patriarchs & Promises", subtitle: "Places of covenant & belonging", icon: Tent, color: "history",
+    description: "Enter the places associated with Abraham, Isaac, Jacob, and their households. Explore the local stories of family, wells, altars, and promise; follow their movement between places in Journeys.",
+    passage: { label: "Genesis 12:1–9", path: "/read/kjv/GEN/12?hl=1-9" },
+    cities: choices("ur", "haran", "shechem", "bethel", "hebron", "beersheba"),
+  },
+  {
+    id: "egypt-exodus", title: "Egypt & the Exodus", subtitle: "Oppression, departure & deliverance", icon: Waves, color: "poetry",
+    description: "Begin with the store cities named in Exodus and the first encampment after departure. Explore each place in the biblical account; the unfolding wilderness itinerary belongs in Journeys. Ancient site identifications remain a separate question.",
+    passage: { label: "Exodus 1:8–14", path: "/read/kjv/EXO/1?hl=8-14" },
+    cities: choices("pithom", "rameses", "succoth"),
+  },
+  {
+    id: "warned-spared", title: "Cities Warned & Spared", subtitle: "Judgment, repentance & mercy", icon: Bell, color: "revelation",
+    description: "How does a community respond to God? Read Nineveh's repentance, the destruction of Sodom and Gomorrah, Zoar's reprieve, and Jesus' warnings and comparisons. Each city keeps its own setting and outcome.",
+    passage: { label: "Matthew 11:20–24", path: "/read/kjv/MAT/11?hl=20-24" },
+    cities: choices("nineveh", "sodom", "gomorrah", "zoar", "chorazin", "bethsaida", "capernaum", "tyre", "sidon"),
   },
 ];

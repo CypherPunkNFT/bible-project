@@ -1,5 +1,99 @@
 import { expect, test } from "@playwright/test";
 
+test("history: both collection rows and every new topic support navigation, focus and saved links", async ({ page }) => {
+  const errors: string[] = [];
+  page.on("pageerror", (error) => errors.push(error.message));
+  await page.goto("/study/places/mockup");
+  await expect(page.getByRole("navigation", { name: "Places and journeys collection", exact: true }).getByRole("link")).toHaveCount(4);
+  const history = page.getByRole("navigation", { name: "Christian history collection", exact: true });
+  await expect(history.getByRole("link")).toHaveText([
+    /The Early Church/, /Catholic & Orthodox Christianity/, /The Reformation/, /Missions & the Global Church/,
+  ]);
+  await page.getByRole("link", { name: "The Reformation", exact: true }).click();
+  await expect(page).toHaveURL(/\/mockup\/reformation$/);
+  for (const id of ["early-church", "catholic-orthodox", "reformation", "missions"]) {
+    await page.goto(`/study/places/mockup/${id}`);
+    await expect(page.getByRole("navigation", { name: "Explore the collection", exact: true }).getByRole("link")).toHaveCount(8);
+    const cards = page.locator(".history-topic-grid");
+    await expect(cards.getByRole("button")).toHaveCount(6);
+    const titles = await cards.getByRole("button").evaluateAll((buttons) => buttons.map((button) => button.getAttribute("aria-label")!));
+    const back = page.getByRole("button", { name: id === "missions" ? "All regions" : "All topics", exact: true });
+    for (const title of titles) {
+      await cards.getByRole("button", { name: title, exact: true }).click();
+      await expect(cards).toHaveCount(0);
+      await expect(back).toBeFocused();
+      await expect(page.locator(".history-threads li")).toHaveCount(3);
+      expect(await page.locator(".history-place-list li").count()).toBeGreaterThanOrEqual(3);
+      expect(await page.locator(".history-sources a").count()).toBeGreaterThanOrEqual(2);
+      await page.keyboard.press("Escape");
+      await expect(cards.getByRole("button", { name: title, exact: true })).toBeFocused();
+    }
+    await cards.getByRole("button").first().click();
+    const saved = page.url();
+    await page.reload();
+    await expect(page.locator(".history-detail")).toBeVisible();
+    await back.click();
+    await page.goBack();
+    await expect(page).toHaveURL(saved);
+    await expect(page.locator(".history-detail")).toBeVisible();
+    await page.getByRole("navigation", { name: "Continue exploring" }).getByRole("button").first().click();
+    await expect(page).not.toHaveURL(saved);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(1);
+  }
+  await page.goto("/study/places/mockup/reformation?topic=not-a-topic");
+  await expect(page.locator(".history-topic-grid")).toBeVisible();
+  expect(errors).toEqual([]);
+});
+
+test("cities: new collections and full directory open real places", async ({ page }) => {
+  await page.goto("/study/places/mockup/cities");
+  const grid = page.getByRole("group", { name: "City collections", exact: true });
+  await expect(grid.getByRole("button")).toHaveCount(11);
+  await expect(grid.getByRole("link", { name: "Find Your City", exact: true })).toHaveCount(1);
+  for (const [title, city, ref] of [
+    ["Patriarchs & Promises", "Haran", "Genesis 12"],
+    ["Egypt & the Exodus", "Pithom", "Exodus 1"],
+    ["Cities Warned & Spared", "Zoar", "Matthew 11"],
+  ]) {
+    await grid.getByRole("button", { name: title, exact: true }).click();
+    await page.getByRole("group", { name: "Which city will you explore?", exact: true }).getByRole("button", { name: new RegExp(city) }).click();
+    await expect(page.locator("#places-workspace-title")).toContainText(city);
+    await expect(page.getByRole("link", { name: new RegExp(ref) })).toBeVisible();
+    await expect(page.getByRole("link", { name: `Find ${city} in the atlas`, exact: true })).toHaveAttribute("href", new RegExp(`find=${city}`));
+    await page.getByRole("button", { name: "All collections", exact: true }).click();
+  }
+  await grid.getByRole("link", { name: "Find Your City", exact: true }).click();
+  await expect(page).toHaveURL(/\/cities\/find$/);
+  const directory = page.locator(".places-directory-results");
+  await expect(directory.getByRole("link")).toHaveCount(24);
+  await page.getByRole("button", { name: "Next", exact: true }).click();
+  await expect(page).toHaveURL(/page=1/);
+  const search = page.getByRole("searchbox", { name: "Search cities", exact: true });
+  await search.fill("no-such-city-123");
+  await expect(page.getByText(/No cities match/)).toBeVisible();
+  await search.fill("Jerusalem");
+  await expect(directory.getByRole("link")).toHaveCount(1);
+  await page.reload();
+  await expect(search).toHaveValue("Jerusalem");
+  await directory.getByRole("link").click();
+  await expect(page).toHaveURL(/\/atlas\?place=/);
+  await expect(page.getByRole("complementary", { name: "Jerusalem", exact: true })).toBeVisible();
+  await page.goto("/study/places/mockup/cities/motion?design=unfold");
+  await expect(page.getByRole("group", { name: "City collections", exact: true }).getByRole("link", { name: "Find Your City", exact: true })).toBeVisible();
+});
+
+test("history: expanded navigation fits both themes at each viewport", async ({ page }) => {
+  for (const theme of ["dark", "light"] as const) {
+    await page.emulateMedia({ colorScheme: theme });
+    for (const route of ["", "/cities", "/cities/motion?design=unfold", "/early-church", "/catholic-orthodox?topic=oriental", "/reformation?topic=luther", "/missions"]) {
+      await page.goto(`/study/places/mockup${route}`);
+      await page.evaluate(() => document.fonts.ready);
+      expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(1);
+      await page.screenshot({ path: `front-end capture/2026-10-06/expanded-collections-${route.replace(/[^a-z]/g, "-") || "home"}-${theme}-${test.info().project.name}.png`, fullPage: true });
+    }
+  }
+});
+
 test("motion lab: four distinct transitions, full-page city selection, return and cancellation", async ({ page }) => {
   const errors: string[] = [];
   page.on("pageerror", (error) => errors.push(error.message));
@@ -15,7 +109,7 @@ test("motion lab: four distinct transitions, full-page city selection, return an
   for (const name of ["Clear & expand", "Soft dissolve", "Slide across", "Reveal downward"]) {
     await designs.getByRole("button", { name: new RegExp(name) }).click();
     const grid = page.getByRole("group", { name: "City collections" });
-    await expect(grid.getByRole("button")).toHaveCount(8);
+    await expect(grid.getByRole("button")).toHaveCount(11);
     await grid.getByRole("button", { name: "The Seven Churches", exact: true }).click();
     await expect(stage).toHaveAttribute("data-phase", "cities");
     const back = page.getByRole("button", { name: "All collections", exact: true });
@@ -205,7 +299,7 @@ test("cities: collections drill into one selection area with keyboard and histor
   const collections = page.getByRole("group", { name: "City collections", exact: true });
   const cities = page.getByRole("group", { name: "Which city will you explore?", exact: true });
   const back = page.getByRole("button", { name: "All collections", exact: true });
-  await expect(collections.getByRole("button")).toHaveCount(8);
+  await expect(collections.getByRole("button")).toHaveCount(11);
   await expect(cities).toHaveCount(0);
   const names = await collections.getByRole("button").evaluateAll((buttons) => buttons.map((button) => button.getAttribute("aria-label")!));
   const seven = collections.getByRole("button", { name: "The Seven Churches", exact: true });
@@ -239,8 +333,10 @@ test("cities: collections drill into one selection area with keyboard and histor
     await collections.getByRole("button", { name, exact: true }).click();
     await expect(collections).toHaveCount(0);
     await expect(cities.locator('[aria-pressed="true"]')).toHaveCount(1);
-    expect(await cities.getByRole("button").count()).toBeGreaterThanOrEqual(6);
+    expect(await cities.getByRole("button").count()).toBeGreaterThanOrEqual(3);
   }
+  await back.click();
+  await collections.getByRole("button", { name: "Cities of Refuge", exact: true }).click();
   await expect(cities.locator("strong")).toHaveText(["Kedesh", "Shechem", "Hebron", "Bezer", "Ramoth-gilead", "Golan"]);
   await expect(page.getByRole("link", { name: /Joshua 20/ })).toHaveAttribute("href", "/read/kjv/JOS/20?hl=1-9");
   await page.goto("/study/places/mockup/cities?focus=corinth");
@@ -285,7 +381,7 @@ test("cities: the selected card visibly grows around its cities and collapses ba
   expect(backBounds.x - panelBounds.x).toBeLessThan(40);
   await back.focus();
   await page.keyboard.press("Escape");
-  await expect(page.getByRole("group", { name: "City collections" }).getByRole("button")).toHaveCount(8);
+  await expect(page.getByRole("group", { name: "City collections" }).getByRole("button")).toHaveCount(11);
   await expect.poll(async () => Math.abs((await card.boundingBox())!.width - startWidth)).toBeLessThan(2);
   await expect(card.getByRole("button", { name: "The Seven Churches", exact: true })).toBeFocused();
 });

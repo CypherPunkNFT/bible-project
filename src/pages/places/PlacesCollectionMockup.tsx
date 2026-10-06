@@ -5,6 +5,9 @@ import { Link, NavLink, Navigate, Route, Routes, useSearchParams } from "react-r
 import { PlacesArtwork } from "./PlacesArtwork";
 import { CITY_COLLECTIONS } from "./city-collections";
 import { CityMotionLab } from "./CityMotionLab";
+import { CityDirectory, FindCityCard } from "./CityDirectory";
+import { HISTORY_COLLECTIONS, type HistoryId } from "./history-collections";
+import { HistoryExperience } from "./HistoryExperience";
 import "./places-collection.css";
 
 const BASE = "/study/places/mockup";
@@ -14,8 +17,8 @@ const DESTINATIONS = [
   { id: "cities", title: "Ancient Cities", eyebrow: "Enter their world", icon: Landmark, color: "history", description: "Get to know a city behind the text. Explore its setting, its people, and the moments that make it part of the story.", detail: "Jerusalem · Corinth · Beyond", action: "Choose a city" },
   { id: "gospels", title: "Gospel Events", eyebrow: "Walk through the accounts", icon: BookOpen, color: "gospels", description: "Follow the life of Jesus across the land. Explore events in their setting and see how the four Gospels tell them.", detail: "Four accounts · Places & encounters", action: "Explore the Gospels" },
 ] as const;
-export type PlacesDestination = typeof DESTINATIONS[number]["id"];
-type PreviewId = Exclude<PlacesDestination, "atlas">;
+export type PlacesDestination = typeof DESTINATIONS[number]["id"] | HistoryId;
+type PreviewId = "journeys" | "cities" | "gospels";
 type Choice = { id: string; title: string; subtitle: string; place: string };
 type Lens = { id: string; label: string; title: string; description: string };
 type Experience = { kicker: string; title: string; description: string; choose: string; options: Choice[]; lenses: Lens[]; next: string };
@@ -73,6 +76,8 @@ export function PlacesCollectionMockup({ atlas }: { atlas: ReactNode }) {
     <Route index element={<CollectionHome />} />
     <Route path="atlas" element={<DestinationShell id="atlas">{atlas}</DestinationShell>} />
     <Route path="cities/motion" element={<DestinationShell id="cities"><CityMotionLab renderCity={(choice) => <CityWorkspace choice={choice} />} /></DestinationShell>} />
+    <Route path="cities/find" element={<DestinationShell id="cities"><CityDirectory /></DestinationShell>} />
+    {HISTORY_COLLECTIONS.map(({ id }) => <Route key={id} path={id} element={<DestinationShell id={id}><HistoryExperience key={id} id={id} /></DestinationShell>} />)}
     {(["journeys", "cities", "gospels"] as const).map((id) => <Route key={id} path={id} element={<DestinationShell id={id}><ExperiencePreview id={id} /></DestinationShell>} />)}
     <Route path="*" element={<Navigate to={BASE} replace />} />
   </Routes>;
@@ -85,9 +90,10 @@ function CollectionHome() {
   return <div className="places-collection mx-auto max-w-7xl px-4 sm:px-6">
     <div className="places-topline"><Link to="/study"><ArrowLeft size={15} aria-hidden />Back to Study</Link><span>Places & journeys</span></div>
     <header className="places-collection-intro">
-      <div><p className="places-kicker">The world of Scripture</p><h1>Real places.<br /><em>An unfolding story.</em></h1><p>Find a place. Follow a life. Step into the world of the Bible.<br className="hidden sm:block" /> Four ways to explore, with Scripture at the heart of each.</p></div>
+      <div><p className="places-kicker">Scripture, place & Christian history</p><h1>Real places.<br /><em>An unfolding story.</em></h1><p>Find a place. Follow a life. Step into the world of the Bible.<br className="hidden sm:block" /> Then explore the communities and movements that followed.</p></div>
       <div className="places-intro-compass" aria-hidden><Compass strokeWidth={.65} /><span>PLACE · PEOPLE · STORY</span></div>
     </header>
+    <div className="places-section-heading places-row-heading"><h2>Explore the biblical world</h2><span>Places, people & the Gospel accounts</span></div>
     <nav aria-label="Places and journeys collection" className="places-destinations">
       {DESTINATIONS.map((item, index) => <Link key={item.id} to={`${BASE}/${item.id}`} className="places-destination-card" style={tint(item.color)} aria-labelledby={`places-card-${item.id}`}>
         <div className="places-card-top"><item.icon size={18} strokeWidth={1.5} aria-hidden /><span>{item.eyebrow}</span><ArrowUpRight size={19} aria-hidden /></div>
@@ -96,16 +102,25 @@ function CollectionHome() {
         <div className="places-card-foot"><span>{item.detail}</span><strong>{item.action}<ArrowRight size={15} aria-hidden /></strong></div>
       </Link>)}
     </nav>
+    <div className="places-section-heading places-row-heading"><h2>Beyond the New Testament</h2><span>Communities, traditions & a worldwide church</span></div>
+    <nav aria-label="Christian history collection" className="places-destinations">
+      {HISTORY_COLLECTIONS.map((item, index) => <Link key={item.id} to={`${BASE}/${item.id}`} className="places-destination-card" style={tint(item.color)} aria-labelledby={`places-card-${item.id}`}>
+        <div className="places-card-top"><item.icon size={18} strokeWidth={1.5} aria-hidden /><span>{item.eyebrow}</span><ArrowUpRight size={19} aria-hidden /></div>
+        <PlacesArtwork kind={item.id} />
+        <div className="places-card-copy"><span className="places-card-number">0{index + 5}</span><h2 id={`places-card-${item.id}`}>{item.title}</h2><p>{item.description}</p></div>
+        <div className="places-card-foot"><span>{item.detail}</span><strong>{item.action}<ArrowRight size={15} aria-hidden /></strong></div>
+      </Link>)}
+    </nav>
     <div className="places-collection-note"><span><BookOpen size={16} aria-hidden />Every place opens a passage. Every journey invites a closer reading.</span><Link to="/study/places">Open the current atlas <ArrowUpRight size={14} aria-hidden /></Link></div>
   </div>;
 }
 
 function DestinationShell({ id, children }: { id: PlacesDestination; children: ReactNode }) {
-  const item = DESTINATIONS.find((entry) => entry.id === id)!;
+  const item = [...DESTINATIONS, ...HISTORY_COLLECTIONS].find((entry) => entry.id === id)!;
   return <div className="places-collection places-destination mx-auto max-w-7xl px-4 sm:px-6" style={tint(item.color)}>
     <div className="places-topline"><Link to={BASE}><ArrowLeft size={15} aria-hidden />Places & journeys</Link><Link to="/study/places">Open the current atlas <ArrowUpRight size={13} aria-hidden /></Link></div>
     <nav className="places-collection-nav" aria-label="Explore the collection">
-      {DESTINATIONS.map((entry) => <NavLink key={entry.id} to={`${BASE}/${entry.id}`} style={tint(entry.color)}><PlacesArtwork kind={entry.id} /><span>{entry.title}</span><ArrowUpRight size={14} aria-hidden /></NavLink>)}
+      {[...DESTINATIONS, ...HISTORY_COLLECTIONS].map((entry) => <NavLink key={entry.id} to={`${BASE}/${entry.id}`} style={tint(entry.color)}><PlacesArtwork kind={entry.id} /><span>{entry.title}</span><ArrowUpRight size={14} aria-hidden /></NavLink>)}
     </nav>
     {children}
   </div>;
@@ -185,7 +200,7 @@ function CityCollectionPicker({ collection, choice, expanded, onCollection, onCi
   return <section className="places-city-selector" aria-labelledby="city-collections-title" onKeyDown={(event) => { if (expanded && event.key === "Escape") { event.preventDefault(); onBack(); } }}>
     <div className="places-section-heading">
       <h2 id="city-collections-title" ref={heading}><span className="places-tier-number">01</span>{expanded ? "Choose a city" : "Choose a collection"}</h2>
-      <span>{expanded ? "Explore inside this collection" : "Eight doorways into the ancient world"}</span>
+      <span>{expanded ? "Explore inside this collection" : `${CITY_COLLECTIONS.length} collections and a city directory`}</span>
     </div>
     <LayoutGroup id="ancient-city-collections">
       <motion.div layout={!reducedMotion} className="places-city-collection-grid" role={expanded ? undefined : "group"} aria-label={expanded ? undefined : "City collections"}>
@@ -201,7 +216,7 @@ function CityCollectionPicker({ collection, choice, expanded, onCollection, onCi
               <motion.div layout={reducedMotion ? false : "position"} className="places-city-card-heading">
                 <motion.span layoutId={reducedMotion ? undefined : `city-icon-${entry.id}`} className="places-city-icon"><entry.icon size={25} strokeWidth={1.4} aria-hidden /></motion.span>
                 <div><motion.h3 layoutId={reducedMotion ? undefined : `city-title-${entry.id}`}>{entry.title}</motion.h3><p>{entry.subtitle}</p></div>
-                <span className="places-city-count">{entry.cities.length} cities</span>
+                <span className="places-city-count">{entry.cities.length} places</span>
               </motion.div>
               <motion.div key={`contents-${entry.id}`} initial={reducedMotion ? false : { opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: reducedMotion ? 0 : .22, delay: reducedMotion ? 0 : .16 }}>
                 <p className="places-city-card-description">{entry.description}</p>
@@ -209,10 +224,11 @@ function CityCollectionPicker({ collection, choice, expanded, onCollection, onCi
                 <div className="places-city-card-footer"><span>Choose a city to explore below.</span><Link to={entry.passage.path}><BookOpen size={14} aria-hidden />{entry.passage.label}<ArrowUpRight size={13} aria-hidden /></Link></div>
               </motion.div>
             </div> : <button ref={entry.id === collection.id ? selectedCard : undefined} type="button" className="places-city-card-trigger" aria-label={entry.title} aria-expanded={false} onClick={() => onCollection(entry)}>
-              <span className="places-city-collection-top"><motion.span layoutId={reducedMotion ? undefined : `city-icon-${entry.id}`}><entry.icon size={23} strokeWidth={1.4} aria-hidden /></motion.span><span>{entry.cities.length} cities</span><ArrowUpRight size={16} aria-hidden /></span>
+              <span className="places-city-collection-top"><motion.span layoutId={reducedMotion ? undefined : `city-icon-${entry.id}`}><entry.icon size={23} strokeWidth={1.4} aria-hidden /></motion.span><span>{entry.cities.length} places</span><ArrowUpRight size={16} aria-hidden /></span>
               <motion.strong layoutId={reducedMotion ? undefined : `city-title-${entry.id}`}>{entry.title}</motion.strong><small>{entry.subtitle}</small>
             </button>}
           </motion.article>)}
+          {!expanded && <motion.div key="directory" layout={!reducedMotion} exit={{ opacity: 0 }} transition={{ duration: reducedMotion ? 0 : .15 }}><FindCityCard /></motion.div>}
         </AnimatePresence>
       </motion.div>
     </LayoutGroup>
