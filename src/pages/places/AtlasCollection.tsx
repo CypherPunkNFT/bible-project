@@ -131,7 +131,7 @@ function DestinationShell({ id, children }: { id: PlacesDestination; children: R
   return <div className="places-collection places-destination mx-auto max-w-7xl px-4 sm:px-6" style={tint(item.color)}>
     <div className="places-topline"><Link to={BASE}><ArrowLeft size={15} aria-hidden />Back to Atlas</Link><Link to={`${BASE}/map`}>Open the map <ArrowUpRight size={13} aria-hidden /></Link></div>
     <nav className="places-collection-nav" aria-label="Explore the collection">
-      {[...DESTINATIONS, ...HISTORY_COLLECTIONS].map((entry) => <NavLink key={entry.id} to={atlasDestination(entry.id)} style={tint(entry.color)}><PlacesArtwork kind={entry.id} /><span>{entry.title}</span><ArrowUpRight size={14} aria-hidden /></NavLink>)}
+      {[...DESTINATIONS, ...HISTORY_COLLECTIONS].map((entry) => <NavLink key={entry.id} to={atlasDestination(entry.id)} style={tint(entry.color)}><entry.icon className="places-tile-icon" strokeWidth={1.35} aria-hidden /><span>{entry.title}</span><ArrowUpRight size={14} aria-hidden /></NavLink>)}
     </nav>
     <div className="places-page-slide">{children}</div>
   </div>;

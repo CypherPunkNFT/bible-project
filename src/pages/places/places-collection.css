@@ -239,10 +239,6 @@ html[data-places-slide] .places-collection-nav > a { transition: none; }
   .city-map-experience > header { align-items: start; flex-direction: column; gap: .5rem; }
 }
 
-/* Collection tiles: the drawing is a large background, cropped by the tile; the bold title sits over it. */
-.places-collection-nav > a { position: relative; overflow: hidden; isolation: isolate; }
-.places-collection-nav > a > .places-artwork { position: absolute; left: -1rem; top: 50%; width: 250px; height: auto; transform: translateY(-50%); z-index: -1; pointer-events: none; }
-.places-collection-nav > a > span { position: relative; margin-left: 6.75rem; text-shadow: 0 1px 8px var(--surface); }
-.places-collection-nav > a > svg:last-child { position: relative; }
-@media (max-width: 1100px) { .places-collection-nav > a > .places-artwork { width: 200px; } .places-collection-nav > a > span { margin-left: 5rem; } }
-@media (max-width: 767px) { .places-collection-nav > a > .places-artwork { width: 170px; left: -1.25rem; } .places-collection-nav > a > span { margin-left: 3.5rem; } }
+/* Collection tiles: each destination's own icon, as large as the tile allows, beside the bold title. */
+.places-collection-nav > a > .places-tile-icon { width: 40px; height: 40px; flex-shrink: 0; color: var(--places-color); }
+@media (max-width: 767px) { .places-collection-nav > a > .places-tile-icon { width: 32px; height: 32px; } }
