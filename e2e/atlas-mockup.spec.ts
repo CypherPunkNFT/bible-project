@@ -1,5 +1,77 @@
 import { expect, test } from "@playwright/test";
 
+test("motion lab: four distinct transitions, city selection, replay, return and cancellation", async ({ page }) => {
+  const errors: string[] = [];
+  page.on("pageerror", (error) => errors.push(error.message));
+  await page.emulateMedia({ reducedMotion: "no-preference", colorScheme: "dark" });
+  await page.goto("/study/places/mockup/cities/motion");
+  const designs = page.getByRole("group", { name: "Animation designs" });
+  const stage = page.locator(".motion-demo-stage");
+  for (const name of ["Clear & expand", "Soft dissolve", "Next chapter", "Unfold the collection"]) {
+    await designs.getByRole("button", { name: new RegExp(name) }).click();
+    const grid = page.getByRole("group", { name: "Preview collections" });
+    await expect(grid.getByRole("button")).toHaveCount(8);
+    await grid.getByRole("button", { name: "The Seven Churches", exact: true }).click();
+    await expect(stage).toHaveAttribute("data-phase", "cities");
+    const back = page.getByRole("button", { name: "All collections", exact: true });
+    await expect(back).toBeFocused();
+    const cities = page.getByRole("group", { name: "Preview cities" });
+    await expect(cities.getByRole("button")).toHaveCount(7);
+    await cities.getByRole("button", { name: /Laodicea/ }).click();
+    await expect(page.getByRole("link", { name: "Open the city preview" })).toHaveAttribute("href", /focus=laodicea/);
+    await page.getByRole("button", { name: "Replay opening" }).click();
+    await expect(stage).toHaveAttribute("data-phase", "cities");
+    await expect(cities.getByRole("button", { name: /Laodicea/ })).toHaveAttribute("aria-pressed", "true");
+    await back.click();
+    await expect(stage).toHaveAttribute("data-phase", "collections");
+    await expect(grid.getByRole("button", { name: "The Seven Churches", exact: true })).toBeFocused();
+    expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(1);
+  }
+  await page.getByLabel("Slow motion").check();
+  await page.getByRole("button", { name: "The Seven Churches", exact: true }).click();
+  await designs.getByRole("button", { name: /Soft dissolve/ }).click();
+  await expect(stage).toHaveAttribute("data-phase", "collections");
+  await page.getByLabel("Slow motion").uncheck();
+  await page.getByRole("button", { name: "Cities of Refuge", exact: true }).click();
+  await expect(stage).toHaveAttribute("data-phase", "cities");
+  await expect(page.getByRole("group", { name: "Preview cities" }).getByRole("button")).toHaveCount(6);
+  await page.evaluate(() => document.fonts.ready);
+  await page.evaluate(() => window.scrollTo(0, 0));
+  await page.screenshot({ path: `front-end capture/2026-10-06/city-motion-lab-dark-${test.info().project.name}.png`, fullPage: true });
+  await page.emulateMedia({ colorScheme: "light", reducedMotion: "reduce" });
+  await page.reload();
+  await page.getByRole("button", { name: "The Seven Churches", exact: true }).click();
+  await expect(stage).toHaveAttribute("data-phase", "cities");
+  await expect(page.getByRole("status")).toContainText("Reduced motion is on");
+  await page.evaluate(() => window.scrollTo(0, 0));
+  await page.screenshot({ path: `front-end capture/2026-10-06/city-motion-lab-light-${test.info().project.name}.png`, fullPage: true });
+  expect(errors).toEqual([]);
+});
+
+test("motion lab: neighbors finish fading before expansion begins", async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: "no-preference" });
+  await page.goto("/study/places/mockup/cities/motion?design=expand");
+  await page.getByLabel("Slow motion").check();
+  await page.locator(".motion-demo-stage").evaluate((stage) => {
+    const samples: { ghost: boolean; opacity: number }[] = [];
+    (window as unknown as { motionSamples: typeof samples }).motionSamples = samples;
+    const start = performance.now();
+    const capture = () => {
+      const shell = stage.querySelector<HTMLElement>(".motion-demo-ghost")!;
+      const neighbor = stage.querySelector<HTMLElement>('[data-motion-collection="israel-judah"]')!;
+      samples.push({ ghost: !shell.hidden, opacity: Number(getComputedStyle(neighbor).opacity) });
+      if (performance.now() - start < 2300) requestAnimationFrame(capture);
+    };
+    requestAnimationFrame(capture);
+  });
+  await page.getByRole("button", { name: "Cities of Refuge", exact: true }).click();
+  await expect(page.locator(".motion-demo-stage")).toHaveAttribute("data-phase", "cities");
+  const samples = await page.evaluate(() => (window as unknown as { motionSamples: { ghost: boolean; opacity: number }[] }).motionSamples);
+  expect(samples.some((sample) => !sample.ghost && sample.opacity > .05 && sample.opacity < .95)).toBe(true);
+  expect(samples.some((sample) => sample.ghost)).toBe(true);
+  expect(samples.filter((sample) => sample.ghost).every((sample) => sample.opacity < .01)).toBe(true);
+});
+
 test("collection: illustrated destinations lead to separate pages and useful preview controls", async ({ page }) => {
   const errors: string[] = [];
   page.on("pageerror", (error) => errors.push(error.message));

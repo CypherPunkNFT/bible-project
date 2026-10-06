@@ -4,6 +4,7 @@ import { useEffect, useRef, type CSSProperties, type ReactNode } from "react";
 import { Link, NavLink, Navigate, Route, Routes, useSearchParams } from "react-router-dom";
 import { PlacesArtwork } from "./PlacesArtwork";
 import { CITY_COLLECTIONS } from "./city-collections";
+import { CityMotionLab } from "./CityMotionLab";
 import "./places-collection.css";
 
 const BASE = "/study/places/mockup";
@@ -71,6 +72,7 @@ export function PlacesCollectionMockup({ atlas }: { atlas: ReactNode }) {
   return <Routes>
     <Route index element={<CollectionHome />} />
     <Route path="atlas" element={<DestinationShell id="atlas">{atlas}</DestinationShell>} />
+    <Route path="cities/motion" element={<DestinationShell id="cities"><CityMotionLab /></DestinationShell>} />
     {(["journeys", "cities", "gospels"] as const).map((id) => <Route key={id} path={id} element={<DestinationShell id={id}><ExperiencePreview id={id} /></DestinationShell>} />)}
     <Route path="*" element={<Navigate to={BASE} replace />} />
   </Routes>;
@@ -131,6 +133,7 @@ function ExperiencePreview({ id }: { id: PreviewId }) {
   };
   return <>
     <header className="places-destination-intro"><p className="places-kicker">{data.kicker}</p><h1>{data.title}</h1><p>{data.description}</p></header>
+    {collection && <p className="motion-lab-note" style={{ marginBlock: "0 1rem" }}><Link to={`${BASE}/cities/motion`}>Compare four animation designs<ArrowRight size={14} aria-hidden /></Link></p>}
     {collection ? <CityCollectionPicker collection={collection} choice={choice} expanded={expanded} onCollection={chooseCollection} onCity={(value) => update("focus", value)} onBack={() => { const next = new URLSearchParams(search); next.set("browse", "collections"); setSearch(next); }} /> : <section className="places-choose" aria-labelledby="places-choose-title">
       <div className="places-section-heading"><h2 id="places-choose-title">{data.choose}</h2><span>Choose your starting point</span></div>
       <div className="places-choices" role="group" aria-label={data.choose}>{options.map((option, i) => <button type="button" key={option.id} aria-pressed={choice.id === option.id} onClick={() => update("focus", option.id)}><span className="places-choice-mark" aria-hidden>{String(i + 1).padStart(2, "0")}</span><span><strong>{option.title}</strong><small>{option.subtitle}</small></span></button>)}</div>
