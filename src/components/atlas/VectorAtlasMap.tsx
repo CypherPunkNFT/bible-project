@@ -11,7 +11,8 @@ import { projectPlace, type MapPlace } from "./projection";
 import { groupPlaces, labelGroups, type PlaceGroup } from "./vector-layout";
 import "./vector-atlas.css";
 
-const MAX_ZOOM = 128;
+// Allow close inspection of dense city groups; marker sizes remain constant on screen.
+const MAX_ZOOM = 8192;
 const coordinate = (lon: number, lat: number) => projectPlace({ lon, lat } as MapPlace);
 const PRESETS = [
   { name: "Biblical world", point: [map.width / 2, map.height / 2], scale: 0 },

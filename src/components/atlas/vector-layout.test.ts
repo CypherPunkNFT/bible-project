@@ -8,7 +8,7 @@ const place = (id: string, x: number, y = 100): MapPlace => ({ id, name: id, x, 
 describe("vector atlas grouping", () => {
   it("keeps every co-located place accessible in one group, even at maximum zoom", () => {
     const places = Array.from({ length: 40 }, (_, i) => place(`place-${i}`, 100));
-    const view = zoomIdentity.translate(-12600, -12600).scale(128);
+    const view = zoomIdentity.translate(200 - 100 * 8192, 200 - 100 * 8192).scale(8192);
     const groups = groupPlaces(places, view, 400, 400, "place-25");
     expect(groups).toHaveLength(1);
     expect(groups[0].place.id).toBe("place-25");

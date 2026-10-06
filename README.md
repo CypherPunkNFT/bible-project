@@ -127,6 +127,8 @@ Checks: `bun run typecheck`, `bun run lint`, `bun run test`, `python -m pytest s
 The separate atlas mockup is at `/study/places/mockup`. It copies the current atlas's filters and place
 details, with a colored SVG coastline, markers that stay small when zoomed, collision-aware labels and
 searchable groups for crowded/co-located places. It offers Biblical world, Holy Land and Galilee views.
+Zoom now reaches k=8192 (64 times closer than the initial mockup); markers stay the same screen size.
+Locations recorded at identical coordinates remain accessible in their searchable group.
 The current `/study/places` atlas and navigation are unchanged. The mockup reuses the existing Natural
 Earth outline and OpenBible coordinates; it does not add historical borders or more precise location data.
 Run its checks with `node node_modules/@playwright/test/cli.js test -c e2e/atlas-mockup.config.ts`.

@@ -13,11 +13,39 @@ test("mockup: vector map, stable marker sizes, and deeper zoom", async ({ page }
   await expect(map).toHaveAttribute("data-zoom", "42.00");
   await page.getByRole("button", { name: "Zoom in", exact: true }).click();
   await page.getByRole("button", { name: "Zoom in", exact: true }).click();
-  await expect(map).toHaveAttribute("data-zoom", "128.00");
-  await expect(page.getByRole("button", { name: "Zoom in", exact: true })).toBeDisabled();
+  await expect(map).toHaveAttribute("data-zoom", "136.08");
+  const zoomIn = page.getByRole("button", { name: "Zoom in", exact: true });
+  await expect(zoomIn).toBeEnabled();
+
+  // Center the dense Jerusalem group, then verify real wheel and button zoom past the old cap.
+  await page.getByRole("button", { name: "Reset map view" }).click();
+  await expect(map).toHaveAttribute("data-zoom", "12.00");
+  const jerusalem = map.locator('.vector-map-marker[data-place="a15257a"]');
+  const originalCount = Number(await jerusalem.getAttribute("data-count"));
+  await jerusalem.focus();
+  await page.keyboard.press("Enter");
+  await page.getByRole("button", { name: "Zoom closer", exact: true }).click();
+  await expect(map).toHaveAttribute("data-zoom", "30.00");
+  const bounds = await map.boundingBox();
+  expect(bounds).not.toBeNull();
+  await page.mouse.move(bounds!.x + bounds!.width / 2, bounds!.y + bounds!.height / 2);
+  await page.mouse.wheel(0, -1500);
+  await expect.poll(async () => Number(await map.getAttribute("data-zoom"))).toBeGreaterThan(128);
+  for (let i = 0; i < 8 && await zoomIn.isEnabled(); i++) {
+    const previous = Number(await map.getAttribute("data-zoom"));
+    await zoomIn.click();
+    await expect.poll(async () => Number(await map.getAttribute("data-zoom"))).toBeGreaterThan(previous);
+  }
+  await expect(map).toHaveAttribute("data-zoom", "8192.00");
+  await expect(zoomIn).toBeDisabled();
+  await expect(jerusalem).toBeVisible();
+  expect(Number(await jerusalem.getAttribute("data-count"))).toBeLessThan(originalCount);
   const diameters = await map.locator(".vector-marker-dot,.vector-marker-cluster").evaluateAll((elements) => elements.map((el) => el.getBoundingClientRect().width));
   expect(diameters.length).toBeGreaterThan(0);
   expect(Math.max(...diameters)).toBeLessThanOrEqual(27);
+  await page.screenshot({ path: `front-end capture/2026-10-05/atlas-deep-zoom-${test.info().project.name}.png` });
+  await page.getByRole("button", { name: "Reset map view" }).click();
+  await expect(map).toHaveAttribute("data-zoom", "12.00");
   expect(images).toEqual([]);
   expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(1);
 });
