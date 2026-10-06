@@ -186,12 +186,12 @@
 .testimony-world-dots { position: absolute; inset: 0; pointer-events: none; }
 .testimony-world-dot { position: absolute; top: 0; left: 0; display: grid; place-items: center; width: 28px; height: 28px; margin: -14px 0 0 -14px; border-radius: 999px; pointer-events: auto; cursor: pointer; will-change: transform; }
 .testimony-world-dot { --dot-yellow: #f5c518; }
-.testimony-world-dot > span { display: block; flex-shrink: 0; width: 7px; height: 7px; border-radius: 999px; background: var(--dot-yellow); font-size: 0; box-shadow: 0 0 0 1px #00000059, 0 0 6px color-mix(in srgb, var(--dot-yellow) 70%, transparent); transition: transform .15s; }
-.testimony-world-dot > span:not(:empty) { width: 9px; height: 9px; }
+.testimony-world-dot > span { display: block; flex-shrink: 0; width: 4px; height: 4px; border-radius: 999px; background: var(--dot-yellow); font-size: 0; transition: transform .15s; }
+.testimony-world-dot > span:not(:empty) { width: 5px; height: 5px; }
 .testimony-world-dot:hover > span, .testimony-world-dot:focus-visible > span { transform: scale(1.6); }
 .testimony-world-dot:focus-visible { outline: none; }
 .testimony-world-dot:focus-visible > span { outline: 2px solid var(--ink); outline-offset: 3px; }
-.testimony-world-dot[aria-pressed="true"] > span { transform: scale(1.25); box-shadow: 0 0 0 1px #00000073, 0 0 0 3px color-mix(in srgb, var(--dot-yellow) 30%, transparent); }
+.testimony-world-dot[aria-pressed="true"] > span { transform: scale(1.25); }
 .testimony-world-status { position: absolute; left: 1rem; top: 1rem; display: flex; align-items: center; gap: .5rem; max-width: calc(100% - 2rem); padding: .6rem .8rem; border: 1px solid var(--line); border-radius: .5rem; background: var(--surface); color: var(--muted); font-size: .7rem; line-height: 1.5; pointer-events: none; }
 .testimony-world-status svg { flex-shrink: 0; color: var(--testimony-tone); }
 .testimony-world-place { position: absolute; left: 1rem; top: 1rem; width: min(280px, calc(100% - 2rem)); max-height: calc(100% - 6rem); display: grid; grid-template-rows: auto minmax(0, 1fr); border: 1px solid var(--line); border-radius: .6rem; background: var(--surface); box-shadow: 0 6px 24px #0000001f; overflow: hidden; }
