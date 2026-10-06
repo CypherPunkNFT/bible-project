@@ -37,38 +37,51 @@ test("collection: illustrated destinations lead to separate pages and useful pre
   expect(errors).toEqual([]);
 });
 
-test("cities: two tiers preserve shared cities, reset unrelated choices, and support direct links", async ({ page }) => {
+test("cities: collections drill into one selection area with keyboard and history support", async ({ page }) => {
   await page.goto("/study/places/mockup/cities");
   const collections = page.getByRole("group", { name: "City collections", exact: true });
   const cities = page.getByRole("group", { name: "Which city will you explore?", exact: true });
+  const back = page.getByRole("button", { name: "All collections", exact: true });
   await expect(collections.getByRole("button")).toHaveCount(8);
-  await expect(collections.getByRole("button", { name: "The Seven Churches", exact: true })).toHaveAttribute("aria-pressed", "true");
+  await expect(cities).toHaveCount(0);
+  const names = await collections.getByRole("button").evaluateAll((buttons) => buttons.map((button) => button.getAttribute("aria-label")!));
+  const seven = collections.getByRole("button", { name: "The Seven Churches", exact: true });
+  await seven.focus();
+  await page.keyboard.press("Enter");
+  await expect(collections).toHaveCount(0);
+  await expect(page.locator("#city-collections-title")).toBeFocused();
   await expect(cities.locator("strong")).toHaveText(["Ephesus", "Smyrna", "Pergamum", "Thyatira", "Sardis", "Philadelphia", "Laodicea"]);
+  await expect(page.locator(".places-tier-number")).toHaveText(["01"]);
+  await expect(page.locator(".places-city-selector + .places-workspace")).toHaveCount(1);
   await page.getByRole("button", { name: "Then & now", exact: true }).click();
+  await back.click();
+  await expect(seven).toBeFocused();
+  await expect(cities).toHaveCount(0);
   await collections.getByRole("button", { name: "Cities of the Apostles", exact: true }).click();
   await expect(cities.getByRole("button", { name: /^Ephesus/ })).toHaveAttribute("aria-pressed", "true");
   await cities.getByRole("button", { name: /^Corinth/ }).click();
-  await collections.getByRole("button", { name: "Ancient Israel & Judah", exact: true }).click();
-  await expect(cities.getByRole("button", { name: /^Jerusalem/ })).toHaveAttribute("aria-pressed", "true");
-  await expect(page.getByRole("button", { name: "Then & now", exact: true })).toHaveAttribute("aria-pressed", "true");
-  await page.goBack();
-  await expect(cities.getByRole("button", { name: /^Corinth/ })).toHaveAttribute("aria-pressed", "true");
   await page.reload();
   await expect(cities.getByRole("button", { name: /^Corinth/ })).toHaveAttribute("aria-pressed", "true");
-  const refuge = collections.getByRole("button", { name: "Cities of Refuge", exact: true });
-  await refuge.focus();
-  await page.keyboard.press("Enter");
+  await expect(page.getByRole("button", { name: "Then & now", exact: true })).toHaveAttribute("aria-pressed", "true");
+  await back.click();
+  await page.reload();
+  await expect(collections).toBeVisible();
+  await page.goBack();
+  await expect(cities.getByRole("button", { name: /^Corinth/ })).toHaveAttribute("aria-pressed", "true");
+  await back.click();
+  await collections.getByRole("button", { name: "Ancient Israel & Judah", exact: true }).click();
+  await expect(cities.getByRole("button", { name: /^Jerusalem/ })).toHaveAttribute("aria-pressed", "true");
+  for (const name of names) {
+    await back.click();
+    await collections.getByRole("button", { name, exact: true }).click();
+    await expect(collections).toHaveCount(0);
+    await expect(cities.locator('[aria-pressed="true"]')).toHaveCount(1);
+    expect(await cities.getByRole("button").count()).toBeGreaterThanOrEqual(6);
+  }
   await expect(cities.locator("strong")).toHaveText(["Kedesh", "Shechem", "Hebron", "Bezer", "Ramoth-gilead", "Golan"]);
   await expect(page.getByRole("link", { name: /Start with Scripture.*Joshua/ })).toHaveAttribute("href", "/read/kjv/JOS/20?hl=1-9");
-  for (const button of await collections.getByRole("button").all()) {
-    await button.click();
-    await expect(cities.locator('[aria-pressed="true"]')).toHaveCount(1);
-    const names = await cities.locator("strong").allTextContents();
-    expect(new Set(names).size).toBe(names.length);
-    expect(names.length).toBeGreaterThanOrEqual(6);
-  }
   await page.goto("/study/places/mockup/cities?focus=corinth");
-  await expect(collections.getByRole("button", { name: "Cities of the Apostles", exact: true })).toHaveAttribute("aria-pressed", "true");
+  await expect(collections).toHaveCount(0);
   await expect(cities.getByRole("button", { name: /^Corinth/ })).toHaveAttribute("aria-pressed", "true");
   await page.goto("/study/places/mockup/cities?collection=seven-churches&focus=corinth");
   await expect(cities.getByRole("button", { name: /^Ephesus/ })).toHaveAttribute("aria-pressed", "true");
@@ -78,7 +91,7 @@ test("cities: two tiers preserve shared cities, reset unrelated choices, and sup
     await expect(page.locator("html")).toHaveAttribute("data-theme", theme);
     await page.evaluate(() => document.fonts.ready);
     expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(1);
-    await page.screenshot({ path: `front-end capture/2026-10-06/ancient-cities-${theme}-${test.info().project.name}.png`, fullPage: true });
+    await page.screenshot({ path: `front-end capture/2026-10-06/cities-drilldown-${theme}-${test.info().project.name}.png`, fullPage: true });
   }
 });
 

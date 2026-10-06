@@ -1,5 +1,5 @@
 import { ArrowLeft, ArrowRight, ArrowUpRight, BookOpen, Check, Compass, Landmark, Map, Route as RouteIcon } from "lucide-react";
-import type { CSSProperties, ReactNode } from "react";
+import { useEffect, useRef, type CSSProperties, type ReactNode } from "react";
 import { Link, NavLink, Navigate, Route, Routes, useSearchParams } from "react-router-dom";
 import { PlacesArtwork } from "./PlacesArtwork";
 import { CITY_COLLECTIONS } from "./city-collections";
@@ -119,32 +119,21 @@ function ExperiencePreview({ id }: { id: PreviewId }) {
   const choice = options.find((option) => option.id === search.get("focus")) ?? options[0];
   const lenses = data.lenses.filter((option) => id !== "journeys" || option.id !== "letters" || ["paul", "peter"].includes(choice.id));
   const lens = lenses.find((option) => option.id === search.get("lens")) ?? lenses[0];
-  const update = (key: string, value: string) => { const next = new URLSearchParams(search); next.set(key, value); if (collection) next.set("collection", collection.id); setSearch(next, { replace: true }); };
+  const expanded = search.get("browse") !== "collections" && (search.has("collection") || search.has("focus"));
+  const update = (key: string, value: string) => { const next = new URLSearchParams(search); next.set(key, value); if (collection && key === "focus") next.set("collection", collection.id); setSearch(next, { replace: true }); };
   const chooseCollection = (entry: typeof CITY_COLLECTIONS[number]) => {
     const next = new URLSearchParams(search);
+    next.delete("browse");
     next.set("collection", entry.id);
     next.set("focus", entry.cities.some((city) => city.id === choice.id) ? choice.id : entry.cities[0].id);
     setSearch(next);
   };
   return <>
     <header className="places-destination-intro"><p className="places-kicker">{data.kicker}</p><h1>{data.title}</h1><p>{data.description}</p></header>
-    {collection && <section className="places-city-collections" aria-labelledby="city-collections-title">
-      <div className="places-section-heading"><h2 id="city-collections-title"><span className="places-tier-number">01</span>Choose a collection</h2><span>Eight doorways into the ancient world</span></div>
-      <div className="places-city-collection-grid" role="group" aria-label="City collections">
-        {CITY_COLLECTIONS.map((entry) => <button key={entry.id} type="button" style={tint(entry.color)} aria-label={entry.title} aria-pressed={collection.id === entry.id} aria-controls="city-collection-choices" onClick={() => chooseCollection(entry)}>
-          <span className="places-city-collection-top"><entry.icon size={23} strokeWidth={1.4} aria-hidden /><span>{entry.cities.length} cities</span>{collection.id === entry.id && <Check size={15} aria-hidden />}</span>
-          <strong>{entry.title}</strong><small>{entry.subtitle}</small>
-        </button>)}
-      </div>
-      <p className="places-city-overlap">One city can open several stories. Collections overlap; the broader groups offer selected starting points.</p>
+    {collection ? <CityCollectionPicker collection={collection} choice={choice} expanded={expanded} onCollection={chooseCollection} onCity={(value) => update("focus", value)} onBack={() => { const next = new URLSearchParams(search); next.set("browse", "collections"); setSearch(next); }} /> : <section className="places-choose" aria-labelledby="places-choose-title">
+      <div className="places-section-heading"><h2 id="places-choose-title">{data.choose}</h2><span>Choose your starting point</span></div>
+      <div className="places-choices" role="group" aria-label={data.choose}>{options.map((option, i) => <button type="button" key={option.id} aria-pressed={choice.id === option.id} onClick={() => update("focus", option.id)}><span className="places-choice-mark" aria-hidden>{String(i + 1).padStart(2, "0")}</span><span><strong>{option.title}</strong><small>{option.subtitle}</small></span></button>)}</div>
     </section>}
-    <section className="places-choose" aria-labelledby="places-choose-title">
-      <div className="places-section-heading"><h2 id="places-choose-title">{collection && <span className="places-tier-number">02</span>}{data.choose}</h2><span>{collection ? `${collection.title} · ${options.length} cities` : "Choose your starting point"}</span></div>
-      <div id="city-collection-choices">
-        {collection && <div className="places-city-context" aria-live="polite"><div><h3>{collection.title}</h3><p>{collection.description}</p></div><Link to={collection.passage.path}><BookOpen size={15} aria-hidden /><span>Start with Scripture<strong>{collection.passage.label}</strong></span><ArrowUpRight size={14} aria-hidden /></Link></div>}
-        <div className={`places-choices${collection ? " places-city-choices" : ""}`} role="group" aria-label={data.choose}>{options.map((option, i) => <button type="button" key={option.id} aria-pressed={choice.id === option.id} onClick={() => update("focus", option.id)}><span className="places-choice-mark" aria-hidden>{String(i + 1).padStart(2, "0")}</span><span><strong>{option.title}</strong><small>{option.subtitle}</small></span></button>)}</div>
-      </div>
-    </section>
     <section className="places-workspace" aria-labelledby="places-workspace-title">
       <header><div><p className="places-kicker">{id === "journeys" ? "Your journey" : id === "cities" ? "Your city" : "Your starting point"}</p><h2 id="places-workspace-title">{choice.title}<span>{choice.subtitle}</span></h2></div><span className="places-preview-label">Experience preview</span></header>
       <div className="places-lens-bar"><span>{id === "gospels" ? "Read through" : "Explore through"}</span><div role="group" aria-label="Choose a lens">{lenses.map((option) => <button type="button" key={option.id} aria-pressed={lens.id === option.id} onClick={() => update("lens", option.id)}>{option.label}</button>)}</div></div>
@@ -154,4 +143,38 @@ function ExperiencePreview({ id }: { id: PreviewId }) {
       </div>
     </section>
   </>;
+}
+
+type CityCollection = typeof CITY_COLLECTIONS[number];
+function CityCollectionPicker({ collection, choice, expanded, onCollection, onCity, onBack }: {
+  collection: CityCollection; choice: Choice; expanded: boolean;
+  onCollection: (entry: CityCollection) => void; onCity: (id: string) => void; onBack: () => void;
+}) {
+  const heading = useRef<HTMLHeadingElement>(null);
+  const selectedCard = useRef<HTMLButtonElement>(null);
+  const previousExpanded = useRef(expanded);
+  useEffect(() => {
+    if (previousExpanded.current === expanded) return;
+    previousExpanded.current = expanded;
+    // Replace the removed control's focus without moving the page on desktop.
+    (expanded ? heading.current : selectedCard.current)?.focus({ preventScroll: true });
+    if (heading.current && heading.current.getBoundingClientRect().top < 80) heading.current.scrollIntoView({ block: "start" });
+  }, [expanded]);
+  return <section className="places-city-selector" aria-labelledby="city-collections-title" style={expanded ? tint(collection.color) : undefined}>
+    <div className="places-section-heading">
+      <h2 id="city-collections-title" ref={heading} tabIndex={-1}><span className="places-tier-number">01</span>{expanded ? collection.title : "Choose a collection"}</h2>
+      {expanded ? <button type="button" className="places-collections-back" onClick={onBack}><ArrowLeft size={14} aria-hidden />All collections</button> : <span>Eight doorways into the ancient world</span>}
+    </div>
+    {expanded ? <div className="places-city-selection" key={collection.id}>
+      <div className="places-city-context"><p>{collection.description}</p><Link to={collection.passage.path}><BookOpen size={15} aria-hidden /><span>Start with Scripture<strong>{collection.passage.label}</strong></span><ArrowUpRight size={14} aria-hidden /></Link></div>
+      <div className="places-choices places-city-choices" role="group" aria-label="Which city will you explore?">{collection.cities.map((city, index) => <button key={city.id} type="button" aria-pressed={choice.id === city.id} onClick={() => onCity(city.id)}><span className="places-choice-mark" aria-hidden>{String(index + 1).padStart(2, "0")}</span><span><strong>{city.title}</strong><small>{city.subtitle}</small></span></button>)}</div>
+      <p className="places-city-overlap">{collection.cities.length} cities · Choose a city to explore below.</p>
+    </div> : <div className="places-city-selection">
+      <div className="places-city-collection-grid" role="group" aria-label="City collections">{CITY_COLLECTIONS.map((entry) => <button key={entry.id} ref={entry.id === collection.id ? selectedCard : undefined} type="button" style={tint(entry.color)} aria-label={entry.title} onClick={() => onCollection(entry)}>
+        <span className="places-city-collection-top"><entry.icon size={23} strokeWidth={1.4} aria-hidden /><span>{entry.cities.length} cities</span>{collection.id === entry.id ? <Check size={15} aria-hidden /> : <ArrowRight size={15} aria-hidden />}</span>
+        <strong>{entry.title}</strong><small>{entry.subtitle}</small>
+      </button>)}</div>
+      <p className="places-city-overlap">One city can open several stories. Choose a collection to see its cities.</p>
+    </div>}
+  </section>;
 }
