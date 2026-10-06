@@ -1,4 +1,5 @@
 import { ArrowLeft, ArrowRight, ArrowUpRight, BookOpen, Check, Compass, Landmark, Map, Route as RouteIcon } from "lucide-react";
+import { AnimatePresence, LayoutGroup, motion, useReducedMotion } from "framer-motion";
 import { useEffect, useRef, type CSSProperties, type ReactNode } from "react";
 import { Link, NavLink, Navigate, Route, Routes, useSearchParams } from "react-router-dom";
 import { PlacesArtwork } from "./PlacesArtwork";
@@ -151,30 +152,51 @@ function CityCollectionPicker({ collection, choice, expanded, onCollection, onCi
   onCollection: (entry: CityCollection) => void; onCity: (id: string) => void; onBack: () => void;
 }) {
   const heading = useRef<HTMLHeadingElement>(null);
+  const backButton = useRef<HTMLButtonElement>(null);
   const selectedCard = useRef<HTMLButtonElement>(null);
   const previousExpanded = useRef(expanded);
+  const reducedMotion = useReducedMotion();
   useEffect(() => {
     if (previousExpanded.current === expanded) return;
     previousExpanded.current = expanded;
-    // Replace the removed control's focus without moving the page on desktop.
-    (expanded ? heading.current : selectedCard.current)?.focus({ preventScroll: true });
+    (expanded ? backButton.current : selectedCard.current)?.focus({ preventScroll: true });
     if (heading.current && heading.current.getBoundingClientRect().top < 80) heading.current.scrollIntoView({ block: "start" });
   }, [expanded]);
-  return <section className="places-city-selector" aria-labelledby="city-collections-title" style={expanded ? tint(collection.color) : undefined}>
+  const visibleCollections = expanded ? [collection] : CITY_COLLECTIONS;
+  return <section className="places-city-selector" aria-labelledby="city-collections-title" onKeyDown={(event) => { if (expanded && event.key === "Escape") { event.preventDefault(); onBack(); } }}>
     <div className="places-section-heading">
-      <h2 id="city-collections-title" ref={heading} tabIndex={-1}><span className="places-tier-number">01</span>{expanded ? collection.title : "Choose a collection"}</h2>
-      {expanded ? <button type="button" className="places-collections-back" onClick={onBack}><ArrowLeft size={14} aria-hidden />All collections</button> : <span>Eight doorways into the ancient world</span>}
+      <h2 id="city-collections-title" ref={heading}><span className="places-tier-number">01</span>{expanded ? "Choose a city" : "Choose a collection"}</h2>
+      <span>{expanded ? "Explore inside this collection" : "Eight doorways into the ancient world"}</span>
     </div>
-    {expanded ? <div className="places-city-selection" key={collection.id}>
-      <div className="places-city-context"><p>{collection.description}</p><Link to={collection.passage.path}><BookOpen size={15} aria-hidden /><span>Start with Scripture<strong>{collection.passage.label}</strong></span><ArrowUpRight size={14} aria-hidden /></Link></div>
-      <div className="places-choices places-city-choices" role="group" aria-label="Which city will you explore?">{collection.cities.map((city, index) => <button key={city.id} type="button" aria-pressed={choice.id === city.id} onClick={() => onCity(city.id)}><span className="places-choice-mark" aria-hidden>{String(index + 1).padStart(2, "0")}</span><span><strong>{city.title}</strong><small>{city.subtitle}</small></span></button>)}</div>
-      <p className="places-city-overlap">{collection.cities.length} cities · Choose a city to explore below.</p>
-    </div> : <div className="places-city-selection">
-      <div className="places-city-collection-grid" role="group" aria-label="City collections">{CITY_COLLECTIONS.map((entry) => <button key={entry.id} ref={entry.id === collection.id ? selectedCard : undefined} type="button" style={tint(entry.color)} aria-label={entry.title} onClick={() => onCollection(entry)}>
-        <span className="places-city-collection-top"><entry.icon size={23} strokeWidth={1.4} aria-hidden /><span>{entry.cities.length} cities</span>{collection.id === entry.id ? <Check size={15} aria-hidden /> : <ArrowRight size={15} aria-hidden />}</span>
-        <strong>{entry.title}</strong><small>{entry.subtitle}</small>
-      </button>)}</div>
-      <p className="places-city-overlap">One city can open several stories. Choose a collection to see its cities.</p>
-    </div>}
+    <LayoutGroup id="ancient-city-collections">
+      <motion.div layout={!reducedMotion} className="places-city-collection-grid" role={expanded ? undefined : "group"} aria-label={expanded ? undefined : "City collections"}>
+        <AnimatePresence initial={false} mode="popLayout">
+          {visibleCollections.map((entry) => <motion.article key={entry.id} data-collection={entry.id} layout={!reducedMotion} className={`places-city-card${expanded ? " is-expanded" : ""}`} style={{ ...tint(entry.color), borderRadius: 14 }}
+            initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+            transition={{ layout: reducedMotion ? { duration: 0 } : { type: "spring", stiffness: 300, damping: 32 }, opacity: { duration: reducedMotion ? 0 : .15 } }}>
+            {expanded ? <div className="places-city-card-interior">
+              <motion.div layout={reducedMotion ? false : "position"} className="places-city-card-navigation">
+                <button ref={backButton} type="button" className="places-collections-back" onClick={onBack}><ArrowLeft size={16} aria-hidden />All collections</button>
+                <span aria-hidden>/</span><span>{entry.title}</span>
+              </motion.div>
+              <motion.div layout={reducedMotion ? false : "position"} className="places-city-card-heading">
+                <motion.span layoutId={reducedMotion ? undefined : `city-icon-${entry.id}`} className="places-city-icon"><entry.icon size={25} strokeWidth={1.4} aria-hidden /></motion.span>
+                <div><motion.h3 layoutId={reducedMotion ? undefined : `city-title-${entry.id}`}>{entry.title}</motion.h3><p>{entry.subtitle}</p></div>
+                <span className="places-city-count">{entry.cities.length} cities</span>
+              </motion.div>
+              <motion.div key={`contents-${entry.id}`} initial={reducedMotion ? false : { opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: reducedMotion ? 0 : .22, delay: reducedMotion ? 0 : .16 }}>
+                <p className="places-city-card-description">{entry.description}</p>
+                <div className="places-choices places-city-choices" role="group" aria-label="Which city will you explore?">{entry.cities.map((city, index) => <button key={city.id} type="button" aria-pressed={choice.id === city.id} onClick={() => onCity(city.id)}><span className="places-choice-mark" aria-hidden>{String(index + 1).padStart(2, "0")}</span><span><strong>{city.title}</strong><small>{city.subtitle}</small></span>{choice.id === city.id ? <Check size={15} aria-hidden /> : <ArrowRight size={15} aria-hidden />}</button>)}</div>
+                <div className="places-city-card-footer"><span>Choose a city to explore below.</span><Link to={entry.passage.path}><BookOpen size={14} aria-hidden />{entry.passage.label}<ArrowUpRight size={13} aria-hidden /></Link></div>
+              </motion.div>
+            </div> : <button ref={entry.id === collection.id ? selectedCard : undefined} type="button" className="places-city-card-trigger" aria-label={entry.title} aria-expanded={false} onClick={() => onCollection(entry)}>
+              <span className="places-city-collection-top"><motion.span layoutId={reducedMotion ? undefined : `city-icon-${entry.id}`}><entry.icon size={23} strokeWidth={1.4} aria-hidden /></motion.span><span>{entry.cities.length} cities</span><ArrowUpRight size={16} aria-hidden /></span>
+              <motion.strong layoutId={reducedMotion ? undefined : `city-title-${entry.id}`}>{entry.title}</motion.strong><small>{entry.subtitle}</small>
+            </button>}
+          </motion.article>)}
+        </AnimatePresence>
+      </motion.div>
+    </LayoutGroup>
+    {!expanded && <p className="places-city-overlap">One city can open several stories. Open a collection to explore its cities.</p>}
   </section>;
 }

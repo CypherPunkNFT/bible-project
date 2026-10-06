@@ -49,7 +49,7 @@ test("cities: collections drill into one selection area with keyboard and histor
   await seven.focus();
   await page.keyboard.press("Enter");
   await expect(collections).toHaveCount(0);
-  await expect(page.locator("#city-collections-title")).toBeFocused();
+  await expect(back).toBeFocused();
   await expect(cities.locator("strong")).toHaveText(["Ephesus", "Smyrna", "Pergamum", "Thyatira", "Sardis", "Philadelphia", "Laodicea"]);
   await expect(page.locator(".places-tier-number")).toHaveText(["01"]);
   await expect(page.locator(".places-city-selector + .places-workspace")).toHaveCount(1);
@@ -79,7 +79,7 @@ test("cities: collections drill into one selection area with keyboard and histor
     expect(await cities.getByRole("button").count()).toBeGreaterThanOrEqual(6);
   }
   await expect(cities.locator("strong")).toHaveText(["Kedesh", "Shechem", "Hebron", "Bezer", "Ramoth-gilead", "Golan"]);
-  await expect(page.getByRole("link", { name: /Start with Scripture.*Joshua/ })).toHaveAttribute("href", "/read/kjv/JOS/20?hl=1-9");
+  await expect(page.getByRole("link", { name: /Joshua 20/ })).toHaveAttribute("href", "/read/kjv/JOS/20?hl=1-9");
   await page.goto("/study/places/mockup/cities?focus=corinth");
   await expect(collections).toHaveCount(0);
   await expect(cities.getByRole("button", { name: /^Corinth/ })).toHaveAttribute("aria-pressed", "true");
@@ -91,8 +91,40 @@ test("cities: collections drill into one selection area with keyboard and histor
     await expect(page.locator("html")).toHaveAttribute("data-theme", theme);
     await page.evaluate(() => document.fonts.ready);
     expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(1);
-    await page.screenshot({ path: `front-end capture/2026-10-06/cities-drilldown-${theme}-${test.info().project.name}.png`, fullPage: true });
+    await page.screenshot({ path: `front-end capture/2026-10-06/cities-expanding-card-${theme}-${test.info().project.name}.png`, fullPage: true });
   }
+});
+
+test("cities: the selected card visibly grows around its cities and collapses back", async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: "no-preference" });
+  await page.goto("/study/places/mockup/cities");
+  const card = page.locator('[data-collection="seven-churches"]');
+  await expect(card).toBeVisible();
+  await page.evaluate(() => document.fonts.ready);
+  const startWidth = (await card.boundingBox())!.width;
+  await card.evaluate((element) => {
+    const samples: number[] = [];
+    (window as unknown as { cardWidths: number[] }).cardWidths = samples;
+    const start = performance.now();
+    const sample = () => { samples.push(element.getBoundingClientRect().width); if (performance.now() - start < 1400) requestAnimationFrame(sample); };
+    requestAnimationFrame(sample);
+  });
+  await card.getByRole("button", { name: "The Seven Churches", exact: true }).click();
+  await expect(card.getByRole("group", { name: "Which city will you explore?" })).toBeVisible();
+  await expect.poll(async () => (await card.boundingBox())!.width).toBeGreaterThan(startWidth * 1.5);
+  await expect.poll(() => page.evaluate(() => {
+    const widths = (window as unknown as { cardWidths: number[] }).cardWidths;
+    return widths.filter((width) => width > widths[0] * 1.1 && width < Math.max(...widths) * .9).length;
+  })).toBeGreaterThan(1);
+  const back = card.getByRole("button", { name: "All collections", exact: true });
+  const panelBounds = (await card.boundingBox())!;
+  const backBounds = (await back.boundingBox())!;
+  expect(backBounds.x - panelBounds.x).toBeLessThan(40);
+  await back.focus();
+  await page.keyboard.press("Escape");
+  await expect(page.getByRole("group", { name: "City collections" }).getByRole("button")).toHaveCount(8);
+  await expect.poll(async () => Math.abs((await card.boundingBox())!.width - startWidth)).toBeLessThan(2);
+  await expect(card.getByRole("button", { name: "The Seven Churches", exact: true })).toBeFocused();
 });
 
 test("collection: landing and destination controls fit both themes and retain old place links", async ({ page }) => {
