@@ -72,6 +72,45 @@ test("motion lab: neighbors finish fading before expansion begins", async ({ pag
   expect(samples.filter((sample) => sample.ghost).every((sample) => sample.opacity < .01)).toBe(true);
 });
 
+test("motion lab: opening and returning never expose an empty handoff frame", async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: "no-preference" });
+  for (const design of ["expand", "dissolve", "slide", "unfold"]) {
+    await page.goto(`/study/places/mockup/cities/motion?design=${design}`);
+    await expect(page.getByRole("button", { name: "Cities of Refuge", exact: true })).toBeVisible();
+    for (const opening of [true, false]) {
+      const samples = await page.evaluate(async (open) => {
+        const stage = document.querySelector<HTMLElement>(".motion-demo-stage")!;
+        const grid = stage.querySelector<HTMLElement>(".motion-demo-grid")!;
+        const panel = stage.querySelector<HTMLElement>(".motion-demo-panel")!;
+        const ghost = stage.querySelector<HTMLElement>(".motion-demo-ghost")!;
+        const card = grid.querySelector<HTMLElement>('[data-motion-collection="cities-refuge"]')!;
+        const opacity = (element: HTMLElement) => element.hidden ? 0 : Number(getComputedStyle(element).opacity);
+        const frames: number[] = [];
+        const offsets: number[] = [];
+        const start = performance.now();
+        let settled = 0;
+        (open ? card : panel.querySelector<HTMLElement>(".places-collections-back")!).click();
+        await new Promise<void>((resolve) => {
+          const sample = () => {
+            frames.push(opacity(grid) * opacity(card) + opacity(panel) + opacity(ghost));
+            const top = stage.getBoundingClientRect().top;
+            if (!grid.hidden) offsets.push(Math.abs(grid.getBoundingClientRect().top - top));
+            if (!panel.hidden) offsets.push(Math.abs(panel.getBoundingClientRect().top - top));
+            if (stage.dataset.phase === (open ? "cities" : "collections")) settled++;
+            if (settled > 5 || performance.now() - start > 3000) resolve();
+            else requestAnimationFrame(sample);
+          };
+          requestAnimationFrame(sample);
+        });
+        return { frames, offsets };
+      }, opening);
+      expect(Math.min(...samples.frames), `${design} ${opening ? "opening" : "return"}: continuous layer coverage`).toBeGreaterThan(.95);
+      expect(Math.max(...samples.offsets), `${design}: both layers stay at the top of the stage throughout the transition`).toBeLessThan(1);
+      await expect(page.locator(".motion-demo-stage")).toHaveAttribute("data-phase", opening ? "cities" : "collections");
+    }
+  }
+});
+
 test("collection: illustrated destinations lead to separate pages and useful preview controls", async ({ page }) => {
   const errors: string[] = [];
   page.on("pageerror", (error) => errors.push(error.message));

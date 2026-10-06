@@ -7,9 +7,9 @@ import "./city-motion-lab.css";
 
 const DESIGNS = [
   { id: "expand", name: "Clear & expand", hint: "Keep the card's identity", description: "The other cards disappear first. Only then does the chosen card grow; its cities arrive last.", steps: "Clear the neighbors → grow the card → reveal cities" },
-  { id: "dissolve", name: "Soft dissolve", hint: "The quietest transition", description: "The collection grid fades away, then the city panel comes into focus. No stretching or traveling card.", steps: "Fade the grid → settle the space → reveal cities" },
-  { id: "slide", name: "Next chapter", hint: "A sense of going deeper", description: "The grid eases to the left; the city panel enters from the right. Going back reverses the direction.", steps: "Move out → pause → enter from the right" },
-  { id: "unfold", name: "Unfold the collection", hint: "Open a layer of the story", description: "The cards fade away and the new panel reveals downward. Its text stays still as the container opens.", steps: "Clear the grid → open downward → settle" },
+  { id: "dissolve", name: "Soft dissolve", hint: "The quietest transition", description: "The collection grid and city panel crossfade in one continuous motion. No empty beat between views.", steps: "Fade the grid → settle the space → reveal cities" },
+  { id: "slide", name: "Next chapter", hint: "A sense of going deeper", description: "The grid eases left as the city panel enters from the right. Both move together; going back reverses the direction.", steps: "Move out → pause → enter from the right" },
+  { id: "unfold", name: "Unfold the collection", hint: "Open a layer of the story", description: "The new panel reveals downward over the fading cards. Its text stays still as the container opens.", steps: "Clear the grid → open downward → settle" },
 ] as const;
 type Design = typeof DESIGNS[number]["id"];
 type Collection = typeof CITY_COLLECTIONS[number];
@@ -90,34 +90,55 @@ function MotionDemo({ design, slow, steps }: { design: Design; slow: boolean; st
       if (reduced) {
         // The same content and focus changes, without spatial movement or staged delays.
       } else if (design === "expand") {
-        setPhase(open ? "1 / 3 · Let the other cards fade." : "1 / 3 · Close the city choices.");
+        // Keep a matching surface beneath each handoff; never remove the shell before its replacement is opaque.
+        const facade = chosen.cloneNode(true) as HTMLElement;
+        facade.removeAttribute("data-motion-collection");
+        facade.classList.remove("places-city-card");
+        Object.assign(facade.style, { border: "0", background: "transparent", opacity: open ? "1" : "0" });
+        facade.inert = true;
+        shell.replaceChildren(facade);
+        const surface = getComputedStyle(open ? chosen : detail);
+        Object.assign(shell.style, { background: surface.background, border: surface.border, borderTop: surface.borderTop, borderRadius: surface.borderRadius, opacity: "1", zIndex: "2" });
+        to.style.zIndex = "3";
+        detail.style.zIndex = "3";
         if (open) {
+          setPhase("1 / 3 ? Let the other cards fade.");
           await Promise.all(Array.from(list.children).filter((element) => element !== chosen).map((element) => animate(element as HTMLElement, [{ opacity: 1 }, { opacity: 0 }], 180)));
-        } else await animate(detail, [{ opacity: 1 }, { opacity: 0 }], 160);
-        setPhase(open ? "2 / 3 · Expand into the cleared space." : "2 / 3 · Return to the card's place.");
-        shell.hidden = false;
-        Object.assign(shell.style, open ? small : large);
-        from.style.opacity = "0";
-        await Promise.all([animate(shell, [open ? small : large, open ? large : small], 420), resize(420)]);
+          Object.assign(shell.style, small);
+          shell.hidden = false;
+          list.style.opacity = "0";
+        } else {
+          setPhase("1 / 3 ? Close the city choices.");
+          Object.assign(shell.style, large);
+          shell.hidden = false;
+          await animate(detail, [{ opacity: 1 }, { opacity: 0 }], 180);
+        }
+        setPhase(open ? "2 / 3 ? Expand into the cleared space." : "2 / 3 ? Return to the card's place.");
+        await Promise.all([
+          animate(shell, [open ? small : large, open ? large : small], 420),
+          animate(facade, [{ opacity: open ? 1 : 0 }, { opacity: open ? 0 : 1 }], 420),
+          resize(420),
+        ]);
+        setPhase(open ? "3 / 3 ? Reveal the cities." : "3 / 3 ? Bring the collection back.");
+        await animate(to, [{ opacity: 0 }, { opacity: 1 }], 220);
+        // The incoming view now fully covers the shell, so removing it cannot expose an empty frame.
         shell.hidden = true;
-        setPhase(open ? "3 / 3 · Reveal the cities." : "3 / 3 · Bring the collection back.");
-        await animate(to, [{ opacity: 0 }, { opacity: 1 }], 180);
       } else {
-        setPhase("1 / 2 · Let the current view leave.");
+        setPhase("Bring the next view in as the current view leaves.");
         const distance = open ? -22 : 22;
         const leaving: Keyframe[] = design === "slide" ? [{ opacity: 1, transform: "translateX(0)" }, { opacity: 0, transform: `translateX(${distance}px)` }]
           : design === "unfold" && !open ? [{ opacity: 1, clipPath: "inset(0 0 0% 0)" }, { opacity: 0, clipPath: "inset(0 0 100% 0)" }]
           : [{ opacity: 1 }, { opacity: 0 }];
-        await animate(from, leaving, 180);
-        setPhase("2 / 2 · Reveal the next view.");
         const arriving: Keyframe[] = design === "slide" ? [{ opacity: 0, transform: `translateX(${-distance}px)` }, { opacity: 1, transform: "translateX(0)" }]
           : design === "unfold" && open ? [{ opacity: 0, clipPath: "inset(0 0 100% 0)" }, { opacity: 1, clipPath: "inset(0 0 0% 0)" }]
           : [{ opacity: 0 }, { opacity: 1 }];
-        await Promise.all([animate(to, arriving, design === "unfold" ? 360 : 260), resize(design === "unfold" ? 360 : 260)]);
+        const duration = design === "dissolve" ? 320 : 380;
+        await Promise.all([animate(from, leaving, duration), animate(to, arriving, duration), resize(duration)]);
       }
       if (run !== generation.current) return;
       from.hidden = true; to.hidden = false; shell.hidden = true;
       from.style.opacity = "1"; to.style.opacity = "1";
+      list.style.zIndex = ""; detail.style.zIndex = "";
       box.style.height = `${endHeight}px`;
       to.inert = false;
       setExpanded(open);
@@ -134,13 +155,11 @@ function MotionDemo({ design, slow, steps }: { design: Design; slow: boolean; st
     }
   }
 
-  function replay() {
+  async function replay() {
     if (running.current) return;
-    grid.current!.hidden = false; panel.current!.hidden = true;
-    grid.current!.style.opacity = "1"; grid.current!.inert = false;
-    stage.current!.style.height = `${grid.current!.offsetHeight}px`;
-    setExpanded(false);
-    void transition(true);
+    const instance = stage.current;
+    if (expanded) await transition(false);
+    if (stage.current === instance && instance?.isConnected) await transition(true);
   }
   return <section className="motion-demo" aria-label="Interactive animation preview">
     <div className="motion-demo-toolbar"><span>{steps}</span><button type="button" onClick={replay} disabled={busy}><RotateCcw size={14} aria-hidden />Replay opening</button></div>
@@ -155,7 +174,7 @@ function MotionDemo({ design, slow, steps }: { design: Design; slow: boolean; st
           <div className="places-city-card-footer"><span>Selected: <strong>{city.title}</strong></span><Link to={`/study/places/mockup/cities?collection=${collection.id}&focus=${city.id}`}>Open the city preview<ArrowUpRight size={13} aria-hidden /></Link></div>
         </div>
       </article>
-      <div ref={ghost} hidden className="motion-demo-ghost" style={tint(collection.color)} aria-hidden><collection.icon size={25} strokeWidth={1.4} /><strong>{collection.title}</strong></div>
+      <div ref={ghost} hidden className="motion-demo-ghost" style={tint(collection.color)} aria-hidden />
     </div>
     <div className="motion-demo-status" role="status">{reduced ? "Reduced motion is on — transitions are immediate." : phase}</div>
   </section>;
