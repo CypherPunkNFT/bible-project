@@ -1,7 +1,8 @@
-import { ArrowLeft, ArrowRight, ArrowUpRight, BookOpen, Compass, Landmark, Map, Route as RouteIcon } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight, BookOpen, Check, Compass, Landmark, Map, Route as RouteIcon } from "lucide-react";
 import type { CSSProperties, ReactNode } from "react";
 import { Link, NavLink, Navigate, Route, Routes, useSearchParams } from "react-router-dom";
 import { PlacesArtwork } from "./PlacesArtwork";
+import { CITY_COLLECTIONS } from "./city-collections";
 import "./places-collection.css";
 
 const BASE = "/study/places/mockup";
@@ -37,14 +38,7 @@ const EXPERIENCES: Record<PreviewId, Experience> = {
   },
   cities: {
     kicker: "Explore by city", title: "Enter a city. Understand its story.", description: "Look beyond the dot on the map. Discover the setting, people, and passages that give a place its meaning.", choose: "Which city will you explore?",
-    options: [
-      { id: "jerusalem", title: "Jerusalem", subtitle: "Worship & kingdom", place: "Jerusalem" },
-      { id: "corinth", title: "Corinth", subtitle: "A church & its questions", place: "Corinth" },
-      { id: "ephesus", title: "Ephesus", subtitle: "The gospel in a city", place: "Ephesus" },
-      { id: "antioch", title: "Antioch", subtitle: "A sending community", place: "Antioch" },
-      { id: "rome", title: "Rome", subtitle: "At the imperial capital", place: "Rome" },
-      { id: "capernaum", title: "Capernaum", subtitle: "Beside the sea", place: "Capernaum" },
-    ],
+    options: CITY_COLLECTIONS[0].cities,
     lenses: [
       { id: "setting", label: "City & setting", title: "Get your bearings.", description: "Explore a city's surroundings and landmarks, with historical periods and proposed reconstructions clearly identified." },
       { id: "people", label: "People", title: "See who belongs to this story.", description: "Connect the city with people who lived, taught, worshiped, and encountered one another there." },
@@ -117,15 +111,39 @@ function DestinationShell({ id, children }: { id: PlacesDestination; children: R
 function ExperiencePreview({ id }: { id: PreviewId }) {
   const data = EXPERIENCES[id];
   const [search, setSearch] = useSearchParams();
-  const choice = data.options.find((option) => option.id === search.get("focus")) ?? data.options[0];
+  // Old city-only links still find their collection; an explicit collection always takes precedence.
+  const collection = id === "cities" ? (CITY_COLLECTIONS.find((entry) => entry.id === search.get("collection"))
+    ?? (!search.has("collection") ? CITY_COLLECTIONS.find((entry) => entry.cities.some((city) => city.id === search.get("focus"))) : undefined)
+    ?? CITY_COLLECTIONS[0]) : undefined;
+  const options = collection?.cities ?? data.options;
+  const choice = options.find((option) => option.id === search.get("focus")) ?? options[0];
   const lenses = data.lenses.filter((option) => id !== "journeys" || option.id !== "letters" || ["paul", "peter"].includes(choice.id));
   const lens = lenses.find((option) => option.id === search.get("lens")) ?? lenses[0];
-  const update = (key: string, value: string) => { const next = new URLSearchParams(search); next.set(key, value); setSearch(next, { replace: true }); };
+  const update = (key: string, value: string) => { const next = new URLSearchParams(search); next.set(key, value); if (collection) next.set("collection", collection.id); setSearch(next, { replace: true }); };
+  const chooseCollection = (entry: typeof CITY_COLLECTIONS[number]) => {
+    const next = new URLSearchParams(search);
+    next.set("collection", entry.id);
+    next.set("focus", entry.cities.some((city) => city.id === choice.id) ? choice.id : entry.cities[0].id);
+    setSearch(next);
+  };
   return <>
     <header className="places-destination-intro"><p className="places-kicker">{data.kicker}</p><h1>{data.title}</h1><p>{data.description}</p></header>
+    {collection && <section className="places-city-collections" aria-labelledby="city-collections-title">
+      <div className="places-section-heading"><h2 id="city-collections-title"><span className="places-tier-number">01</span>Choose a collection</h2><span>Eight doorways into the ancient world</span></div>
+      <div className="places-city-collection-grid" role="group" aria-label="City collections">
+        {CITY_COLLECTIONS.map((entry) => <button key={entry.id} type="button" style={tint(entry.color)} aria-label={entry.title} aria-pressed={collection.id === entry.id} aria-controls="city-collection-choices" onClick={() => chooseCollection(entry)}>
+          <span className="places-city-collection-top"><entry.icon size={23} strokeWidth={1.4} aria-hidden /><span>{entry.cities.length} cities</span>{collection.id === entry.id && <Check size={15} aria-hidden />}</span>
+          <strong>{entry.title}</strong><small>{entry.subtitle}</small>
+        </button>)}
+      </div>
+      <p className="places-city-overlap">One city can open several stories. Collections overlap; the broader groups offer selected starting points.</p>
+    </section>}
     <section className="places-choose" aria-labelledby="places-choose-title">
-      <div className="places-section-heading"><h2 id="places-choose-title">{data.choose}</h2><span>Choose your starting point</span></div>
-      <div className="places-choices" role="group" aria-label={data.choose}>{data.options.map((option, i) => <button type="button" key={option.id} aria-pressed={choice.id === option.id} onClick={() => update("focus", option.id)}><span className="places-choice-mark" aria-hidden>{String(i + 1).padStart(2, "0")}</span><span><strong>{option.title}</strong><small>{option.subtitle}</small></span></button>)}</div>
+      <div className="places-section-heading"><h2 id="places-choose-title">{collection && <span className="places-tier-number">02</span>}{data.choose}</h2><span>{collection ? `${collection.title} · ${options.length} cities` : "Choose your starting point"}</span></div>
+      <div id="city-collection-choices">
+        {collection && <div className="places-city-context" aria-live="polite"><div><h3>{collection.title}</h3><p>{collection.description}</p></div><Link to={collection.passage.path}><BookOpen size={15} aria-hidden /><span>Start with Scripture<strong>{collection.passage.label}</strong></span><ArrowUpRight size={14} aria-hidden /></Link></div>}
+        <div className={`places-choices${collection ? " places-city-choices" : ""}`} role="group" aria-label={data.choose}>{options.map((option, i) => <button type="button" key={option.id} aria-pressed={choice.id === option.id} onClick={() => update("focus", option.id)}><span className="places-choice-mark" aria-hidden>{String(i + 1).padStart(2, "0")}</span><span><strong>{option.title}</strong><small>{option.subtitle}</small></span></button>)}</div>
+      </div>
     </section>
     <section className="places-workspace" aria-labelledby="places-workspace-title">
       <header><div><p className="places-kicker">{id === "journeys" ? "Your journey" : id === "cities" ? "Your city" : "Your starting point"}</p><h2 id="places-workspace-title">{choice.title}<span>{choice.subtitle}</span></h2></div><span className="places-preview-label">Experience preview</span></header>
