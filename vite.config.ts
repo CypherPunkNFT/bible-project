@@ -76,6 +76,16 @@ function serveData(): Connect.NextHandleFunction {
   };
 }
 
+// Meaning search loads its own 14 MB ONNX Runtime engine from the meaning pack (src/lib/meaning/engine.ts). Bundling
+// transformers.js would also copy onnxruntime-web's 27 MB default engine into dist/, unused and over Cloudflare Pages'
+// 25 MiB per-file limit, so it is left out of the build.
+const dropUnusedOrtEngine: Plugin = {
+  name: "drop-unused-ort-engine",
+  generateBundle(_options, bundle) {
+    for (const name of Object.keys(bundle)) if (/ort-wasm[\w.-]*\.wasm$/.test(name)) delete bundle[name];
+  },
+};
+
 const dataPlugin: Plugin = {
   name: "bible-data",
   configureServer(server) {
@@ -89,7 +99,7 @@ const dataPlugin: Plugin = {
 export default defineConfig({
   server: { host: "127.0.0.1", port: 8930, strictPort: true },
   preview: { host: "127.0.0.1", port: 8931, strictPort: true },
-  plugins: [studyContentPlugin(), react(), dataPlugin, atlasTilesPlugin(), testimonyApiPlugin()],
+  plugins: [studyContentPlugin(), react(), dataPlugin, atlasTilesPlugin(), testimonyApiPlugin(), dropUnusedOrtEngine],
   resolve: {
     alias: { "@": path.resolve(__dirname, "./src") },
   },
