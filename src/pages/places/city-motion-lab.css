@@ -3,23 +3,12 @@
 .motion-designs > button[aria-pressed=true] { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 8%, var(--surface)); }
 .motion-designs > button > span { display: flex; align-items: center; justify-content: space-between; color: var(--accent); font-size: .65rem; margin-bottom: .8rem; }
 .motion-designs strong { display: block; font: 500 1.2rem var(--font-serif); }
-.motion-designs small { display: block; color: var(--muted); font-size: .7rem; margin-top: .35rem; line-height: 1.5; }
 .motion-miniature { display: flex; gap: 3px; align-items: center; height: 25px; }
 .motion-miniature i { display: block; width: 12px; height: 18px; border: 1px solid currentColor; border-radius: 2px; }
 .motion-miniature-expand i:last-child { width: 28px; height: 25px; }
 .motion-miniature-dissolve i:first-child { opacity: .2; }.motion-miniature-dissolve i:nth-child(2) { opacity: .5; }
 .motion-miniature-slide i { transform: skewY(-12deg); }.motion-miniature-slide i:last-child { margin-left: 6px; }
 .motion-miniature-unfold i { width: 18px; height: 6px; }.motion-miniature-unfold i:nth-child(2) { height: 14px; }.motion-miniature-unfold i:last-child { height: 24px; }
-.motion-design-explanation { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-block: 1.25rem; }
-.motion-design-explanation h2 { font: 500 1.3rem var(--font-serif); margin-bottom: .4rem; }
-.motion-design-explanation p { max-width: 52rem; color: var(--muted); font-size: .8rem; line-height: 1.7; }
-.motion-design-explanation label { display: flex; gap: .5rem; align-items: center; font-size: .75rem; white-space: nowrap; cursor: pointer; }
-.motion-design-explanation input { accent-color: var(--accent); }
-.motion-demo { padding: 1.2rem; border: 1px solid var(--line); border-radius: 1rem; background: color-mix(in srgb, var(--surface) 40%, var(--page)); }
-.motion-demo-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 1rem; color: var(--muted); font-size: .7rem; }
-.motion-demo-toolbar button { display: inline-flex; gap: .4rem; align-items: center; color: var(--ink); border: 1px solid var(--line); border-radius: .5rem; padding: .5rem .7rem; flex-shrink: 0; }
-.motion-demo button:disabled { cursor: default; }
-.motion-demo-toolbar button:disabled { opacity: .45; }
 .motion-demo-stage { position: relative; overflow: clip; }
 .motion-demo-stage > .motion-demo-grid, .motion-demo-stage > .motion-demo-panel { position: absolute; top: 0; left: 0; width: 100%; }
 .motion-demo-grid[hidden], .motion-demo-panel[hidden], .motion-demo-ghost[hidden] { display: none; }
@@ -27,7 +16,9 @@
 .motion-demo-grid .places-city-card { height: auto; }
 .motion-demo-ghost { position: absolute; z-index: 2; border-radius: 14px; overflow: hidden; pointer-events: none; }
 .motion-demo-ghost .places-city-card-trigger { width: 100%; height: auto; }
-.motion-demo-status { margin-top: 1rem; font-size: .7rem; line-height: 1.6; color: var(--muted); min-height: 1.2rem; }
 .motion-lab-note { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .75rem; margin-top: 1.25rem; font-size: .75rem; color: var(--muted); }
 .motion-lab-note a { display: inline-flex; align-items: center; gap: .35rem; color: var(--places-color); }
-@media (max-width: 767px) { .motion-designs { grid-template-columns: repeat(2, minmax(0, 1fr)); } .motion-designs > button { padding: .85rem; } .motion-designs strong { font-size: 1.05rem; } .motion-design-explanation { align-items: flex-start; flex-direction: column; } .motion-demo { padding: .65rem; } .motion-demo-toolbar { flex-wrap: wrap; gap: .6rem; } .motion-demo-panel .places-city-card-interior { padding: .8rem; } .motion-demo-panel .places-city-card-heading h3 { font-size: 1.2rem; } }
+
+.motion-designs { margin-bottom: 1.8rem; }
+.motion-city-selection button:disabled { cursor: default; }
+@media (max-width: 767px) { .motion-designs { grid-template-columns: repeat(2, minmax(0, 1fr)); } .motion-designs > button { padding: .85rem; } .motion-designs strong { font-size: 1.05rem; } }

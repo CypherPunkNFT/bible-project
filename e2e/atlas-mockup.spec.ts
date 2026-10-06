@@ -1,40 +1,43 @@
 import { expect, test } from "@playwright/test";
 
-test("motion lab: four distinct transitions, city selection, replay, return and cancellation", async ({ page }) => {
+test("motion lab: four distinct transitions, full-page city selection, return and cancellation", async ({ page }) => {
   const errors: string[] = [];
   page.on("pageerror", (error) => errors.push(error.message));
   await page.emulateMedia({ reducedMotion: "no-preference", colorScheme: "dark" });
   await page.goto("/study/places/mockup/cities/motion");
   const designs = page.getByRole("group", { name: "Animation designs" });
   const stage = page.locator(".motion-demo-stage");
-  for (const name of ["Clear & expand", "Soft dissolve", "Next chapter", "Unfold the collection"]) {
+  await expect(page.getByRole("heading", { name: "Enter a city. Understand its story." })).toBeVisible();
+  await expect(page.locator(".motion-demo,.motion-demo-toolbar,.motion-demo-status,.motion-design-explanation")).toHaveCount(0);
+  await expect(page.getByRole("button", { name: "Replay opening" })).toHaveCount(0);
+  await expect(page.getByText("Experience preview", { exact: true })).toHaveCount(0);
+  await expect(designs.getByRole("button")).toHaveCount(4);
+  for (const name of ["Clear & expand", "Soft dissolve", "Slide across", "Reveal downward"]) {
     await designs.getByRole("button", { name: new RegExp(name) }).click();
-    const grid = page.getByRole("group", { name: "Preview collections" });
+    const grid = page.getByRole("group", { name: "City collections" });
     await expect(grid.getByRole("button")).toHaveCount(8);
     await grid.getByRole("button", { name: "The Seven Churches", exact: true }).click();
     await expect(stage).toHaveAttribute("data-phase", "cities");
     const back = page.getByRole("button", { name: "All collections", exact: true });
     await expect(back).toBeFocused();
-    const cities = page.getByRole("group", { name: "Preview cities" });
+    const cities = page.getByRole("group", { name: "Which city will you explore?" });
     await expect(cities.getByRole("button")).toHaveCount(7);
     await cities.getByRole("button", { name: /Laodicea/ }).click();
-    await expect(page.getByRole("link", { name: "Open the city preview" })).toHaveAttribute("href", /focus=laodicea/);
-    await page.getByRole("button", { name: "Replay opening" }).click();
-    await expect(stage).toHaveAttribute("data-phase", "cities");
-    await expect(cities.getByRole("button", { name: /Laodicea/ })).toHaveAttribute("aria-pressed", "true");
+    await expect(page.locator("#places-workspace-title")).toContainText("Laodicea");
+    await expect(page.getByRole("link", { name: "Find Laodicea in the atlas" })).toHaveAttribute("href", /find=Laodicea/);
+    await page.getByRole("button", { name: "Then & now", exact: true }).click();
+    await expect(page.getByRole("heading", { name: "Connect the ancient and present landscape." })).toBeVisible();
     await back.click();
     await expect(stage).toHaveAttribute("data-phase", "collections");
     await expect(grid.getByRole("button", { name: "The Seven Churches", exact: true })).toBeFocused();
     expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(1);
   }
-  await page.getByLabel("Slow motion").check();
   await page.getByRole("button", { name: "The Seven Churches", exact: true }).click();
   await designs.getByRole("button", { name: /Soft dissolve/ }).click();
   await expect(stage).toHaveAttribute("data-phase", "collections");
-  await page.getByLabel("Slow motion").uncheck();
   await page.getByRole("button", { name: "Cities of Refuge", exact: true }).click();
   await expect(stage).toHaveAttribute("data-phase", "cities");
-  await expect(page.getByRole("group", { name: "Preview cities" }).getByRole("button")).toHaveCount(6);
+  await expect(page.getByRole("group", { name: "Which city will you explore?" }).getByRole("button")).toHaveCount(6);
   await page.evaluate(() => document.fonts.ready);
   await page.evaluate(() => window.scrollTo(0, 0));
   await page.screenshot({ path: `front-end capture/2026-10-06/city-motion-lab-dark-${test.info().project.name}.png`, fullPage: true });
@@ -42,7 +45,6 @@ test("motion lab: four distinct transitions, city selection, replay, return and 
   await page.reload();
   await page.getByRole("button", { name: "The Seven Churches", exact: true }).click();
   await expect(stage).toHaveAttribute("data-phase", "cities");
-  await expect(page.getByRole("status")).toContainText("Reduced motion is on");
   await page.evaluate(() => window.scrollTo(0, 0));
   await page.screenshot({ path: `front-end capture/2026-10-06/city-motion-lab-light-${test.info().project.name}.png`, fullPage: true });
   expect(errors).toEqual([]);
@@ -51,7 +53,6 @@ test("motion lab: four distinct transitions, city selection, replay, return and 
 test("motion lab: neighbors finish fading before expansion begins", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "no-preference" });
   await page.goto("/study/places/mockup/cities/motion?design=expand");
-  await page.getByLabel("Slow motion").check();
   await page.locator(".motion-demo-stage").evaluate((stage) => {
     const samples: { ghost: boolean; opacity: number }[] = [];
     (window as unknown as { motionSamples: typeof samples }).motionSamples = samples;
@@ -108,6 +109,43 @@ test("motion lab: opening and returning never expose an empty handoff frame", as
       expect(Math.max(...samples.offsets), `${design}: both layers stay at the top of the stage throughout the transition`).toBeLessThan(1);
       await expect(page.locator(".motion-demo-stage")).toHaveAttribute("data-phase", opening ? "cities" : "collections");
     }
+  }
+});
+
+test("motion lab: fade, horizontal slide and vertical reveal are visibly distinct", async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: "no-preference", colorScheme: "dark" });
+  for (const design of ["dissolve", "slide", "unfold"]) {
+    await page.goto(`/study/places/mockup/cities/motion?design=${design}`);
+    const stage = page.locator(".motion-demo-stage");
+    await expect(page.getByRole("button", { name: "The Seven Churches", exact: true })).toBeVisible();
+    const initialHeight = (await stage.boundingBox())!.height;
+    await page.getByRole("button", { name: "The Seven Churches", exact: true }).click();
+    await page.waitForFunction(() => {
+      const element = document.querySelector(".motion-demo-stage")!;
+      // Wait for the panel transition, not an unrelated hover transition on the clicked card.
+      if (!element.querySelector(".motion-demo-panel")!.getAnimations().length) return false;
+      element.getAnimations({ subtree: true }).forEach((animation) => { animation.pause(); animation.currentTime = Number(animation.effect!.getComputedTiming().duration) / 2; });
+      return true;
+    });
+    const frame = await stage.evaluate((element) => {
+      element.getAnimations({ subtree: true }).forEach((animation) => { animation.pause(); animation.currentTime = Number(animation.effect!.getComputedTiming().duration) / 2; });
+      const panel = element.querySelector<HTMLElement>(".motion-demo-panel")!;
+      const styles = getComputedStyle(panel);
+      const transform = new DOMMatrix(styles.transform);
+      return { x: transform.m41, y: transform.m42, opacity: Number(styles.opacity), clip: styles.clipPath, width: element.clientWidth, height: element.getBoundingClientRect().height };
+    });
+    expect(Math.abs(frame.height - initialHeight)).toBeLessThan(1);
+    expect(frame.y).toBe(0);
+    if (design === "dissolve") {
+      expect(frame.x).toBe(0); expect(frame.opacity).toBeCloseTo(.5, 1); expect(frame.clip).toBe("none");
+    } else if (design === "slide") {
+      expect(frame.x / frame.width).toBeCloseTo(.5, 1); expect(frame.opacity).toBe(1); expect(frame.clip).toBe("none");
+    } else {
+      expect(frame.x).toBe(0); expect(frame.opacity).toBe(1); expect(frame.clip).toContain("50%");
+    }
+    await stage.screenshot({ path: `front-end capture/2026-10-06/city-motion-${design}-midpoint-${test.info().project.name}.png` });
+    await stage.evaluate((element) => element.getAnimations({ subtree: true }).forEach((animation) => animation.play()));
+    await expect(stage).toHaveAttribute("data-phase", "cities");
   }
 });
 

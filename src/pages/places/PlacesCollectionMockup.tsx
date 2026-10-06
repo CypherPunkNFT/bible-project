@@ -72,7 +72,7 @@ export function PlacesCollectionMockup({ atlas }: { atlas: ReactNode }) {
   return <Routes>
     <Route index element={<CollectionHome />} />
     <Route path="atlas" element={<DestinationShell id="atlas">{atlas}</DestinationShell>} />
-    <Route path="cities/motion" element={<DestinationShell id="cities"><CityMotionLab /></DestinationShell>} />
+    <Route path="cities/motion" element={<DestinationShell id="cities"><CityMotionLab renderCity={(choice) => <CityWorkspace choice={choice} />} /></DestinationShell>} />
     {(["journeys", "cities", "gospels"] as const).map((id) => <Route key={id} path={id} element={<DestinationShell id={id}><ExperiencePreview id={id} /></DestinationShell>} />)}
     <Route path="*" element={<Navigate to={BASE} replace />} />
   </Routes>;
@@ -138,15 +138,31 @@ function ExperiencePreview({ id }: { id: PreviewId }) {
       <div className="places-section-heading"><h2 id="places-choose-title">{data.choose}</h2><span>Choose your starting point</span></div>
       <div className="places-choices" role="group" aria-label={data.choose}>{options.map((option, i) => <button type="button" key={option.id} aria-pressed={choice.id === option.id} onClick={() => update("focus", option.id)}><span className="places-choice-mark" aria-hidden>{String(i + 1).padStart(2, "0")}</span><span><strong>{option.title}</strong><small>{option.subtitle}</small></span></button>)}</div>
     </section>}
+    <ExperienceWorkspace id={id} choice={choice} lenses={lenses} lens={lens} onLens={(value) => update("lens", value)} />
+  </>;
+}
+
+function CityWorkspace({ choice }: { choice: Choice }) {
+  const [search, setSearch] = useSearchParams();
+  const lenses = EXPERIENCES.cities.lenses;
+  const lens = lenses.find((entry) => entry.id === search.get("lens")) ?? lenses[0];
+  return <ExperienceWorkspace id="cities" choice={choice} lenses={lenses} lens={lens} showPreviewNotes={false} onLens={(value) => { const next = new URLSearchParams(search); next.set("lens", value); setSearch(next, { replace: true }); }} />;
+}
+
+function ExperienceWorkspace({ id, choice, lenses, lens, onLens, showPreviewNotes = true }: {
+  id: PreviewId; choice: Choice; lenses: Lens[]; lens: Lens; onLens: (id: string) => void; showPreviewNotes?: boolean;
+}) {
+  const data = EXPERIENCES[id];
+  return (
     <section className="places-workspace" aria-labelledby="places-workspace-title">
-      <header><div><p className="places-kicker">{id === "journeys" ? "Your journey" : id === "cities" ? "Your city" : "Your starting point"}</p><h2 id="places-workspace-title">{choice.title}<span>{choice.subtitle}</span></h2></div><span className="places-preview-label">Experience preview</span></header>
-      <div className="places-lens-bar"><span>{id === "gospels" ? "Read through" : "Explore through"}</span><div role="group" aria-label="Choose a lens">{lenses.map((option) => <button type="button" key={option.id} aria-pressed={lens.id === option.id} onClick={() => update("lens", option.id)}>{option.label}</button>)}</div></div>
+      <header><div><p className="places-kicker">{id === "journeys" ? "Your journey" : id === "cities" ? "Your city" : "Your starting point"}</p><h2 id="places-workspace-title">{choice.title}<span>{choice.subtitle}</span></h2></div>{showPreviewNotes && <span className="places-preview-label">Experience preview</span>}</header>
+      <div className="places-lens-bar"><span>{id === "gospels" ? "Read through" : "Explore through"}</span><div role="group" aria-label="Choose a lens">{lenses.map((option) => <button type="button" key={option.id} aria-pressed={lens.id === option.id} onClick={() => onLens(option.id)}>{option.label}</button>)}</div></div>
       <div className="places-workspace-body">
         <div className="places-workspace-art" aria-hidden><PlacesArtwork kind={id} /><span>{choice.title} · {choice.subtitle}</span></div>
-        <div className="places-lens-copy" aria-live="polite"><p className="places-kicker">{lens.label}{id !== "gospels" ? " lens" : " perspective"}</p><h3>{lens.title}</h3><p>{lens.description}</p><div className="places-next-build"><Compass size={18} aria-hidden /><p>{data.next}</p></div><Link to={`${BASE}/atlas?find=${encodeURIComponent(choice.place)}`}>Find {choice.place} in the atlas<ArrowRight size={16} aria-hidden /></Link></div>
+        <div className="places-lens-copy" aria-live="polite"><p className="places-kicker">{lens.label}{id !== "gospels" ? " lens" : " perspective"}</p><h3>{lens.title}</h3><p>{lens.description}</p>{showPreviewNotes && <div className="places-next-build"><Compass size={18} aria-hidden /><p>{data.next}</p></div>}<Link to={`${BASE}/atlas?find=${encodeURIComponent(choice.place)}`}>Find {choice.place} in the atlas<ArrowRight size={16} aria-hidden /></Link></div>
       </div>
     </section>
-  </>;
+  );
 }
 
 type CityCollection = typeof CITY_COLLECTIONS[number];
