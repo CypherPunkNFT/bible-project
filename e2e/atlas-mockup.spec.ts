@@ -1,5 +1,144 @@
 import { expect, test } from "@playwright/test";
 
+test("reveal: compact city and history selectors share the downward expansion", async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: "no-preference" });
+  for (const [route, name] of [["cities", "The Pagan World"], ["early-church", "After the Apostles"], ["catholic-orthodox", "Shared Roots"], ["reformation", "Luther & Germany"], ["missions", "Africa"]]) {
+    await page.goto(`/study/places/mockup/${route}`);
+    const stage = page.locator(".places-reveal");
+    const card = page.getByRole("button", { name, exact: true });
+    await expect(card).toBeVisible();
+    await page.evaluate(() => document.fonts.ready);
+    const before = (await stage.boundingBox())!.height;
+    const layout = await card.evaluate((element) => {
+      const icon = element.querySelector("svg")!.getBoundingClientRect();
+      const title = element.querySelector("strong")!.getBoundingClientRect();
+      return { iconRight: icon.right, titleLeft: title.left, height: element.getBoundingClientRect().height };
+    });
+    expect(layout.titleLeft).toBeGreaterThan(layout.iconRight);
+    expect(layout.height).toBeLessThan(150);
+    await card.click();
+    await page.waitForFunction(() => {
+      const stage = document.querySelector(".places-reveal")!;
+      if (!stage.querySelector(".places-reveal-detail")!.getAnimations().length) return false;
+      stage.getAnimations({ subtree: true }).forEach((animation) => { animation.pause(); animation.currentTime = 240; });
+      return true;
+    });
+    const frame = await stage.evaluate((element) => {
+      const panel = element.querySelector<HTMLElement>(".places-reveal-detail")!;
+      return { height: element.getBoundingClientRect().height, target: panel.offsetHeight, clip: getComputedStyle(panel).clipPath, x: new DOMMatrix(getComputedStyle(panel).transform).m41 };
+    });
+    expect(frame.clip).toContain("50%");
+    expect(frame.x).toBe(0);
+    expect(Math.abs(frame.height - (before + frame.target) / 2)).toBeLessThan(1);
+    await stage.evaluate((element) => element.getAnimations({ subtree: true }).forEach((animation) => animation.play()));
+    await expect(stage).toHaveAttribute("data-phase", "expanded");
+    const back = stage.locator(".places-collections-back");
+    await expect(back).toBeFocused();
+    await page.keyboard.press("Escape");
+    await expect(stage).toHaveAttribute("data-phase", "collapsed");
+    await expect(card).toBeFocused();
+    expect(Math.abs((await stage.boundingBox())!.height - before)).toBeLessThan(1);
+  }
+  await page.goto("/study/places/mockup/cities/motion?design=slide");
+  await expect(page).toHaveURL(/\/mockup\/cities$/);
+  await expect(page.locator(".motion-designs,.motion-demo-stage,.places-city-count,.history-topic-card")).toHaveCount(0);
+});
+
+test("cities: selecting any city scrolls to the shared Jerusalem map", async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: "no-preference", colorScheme: "dark" });
+  await page.goto("/study/places/mockup/cities");
+  await page.getByRole("button", { name: "The Pagan World", exact: true }).click();
+  await expect(page.locator(".places-reveal")).toHaveAttribute("data-phase", "expanded");
+  await expect(page.locator(".maplibregl-canvas")).toBeVisible();
+  const map = page.locator("#city-map-experience");
+  for (const name of ["Ephesus", "Athens", "Ephesus"]) {
+    await page.getByRole("group", { name: "Which city will you explore?" }).getByRole("button", { name: new RegExp(`^${name}`) }).click();
+    await expect(page.locator("#city-map-title")).toHaveText(name);
+    await expect(map).toBeFocused();
+    await expect(map).toHaveAttribute("data-map-city", "Jerusalem");
+    await expect.poll(async () => Math.round((await map.boundingBox())!.y)).toBeGreaterThanOrEqual(70);
+    await expect.poll(async () => Math.round((await map.boundingBox())!.y)).toBeLessThanOrEqual(90);
+  }
+  await page.waitForFunction(() => {
+    const top = document.getElementById("city-map-experience")!.getBoundingClientRect().top;
+    const state = window as unknown as { settledMapFrames?: number };
+    state.settledMapFrames = top >= 70 && top <= 90 ? (state.settledMapFrames ?? 0) + 1 : 0;
+    return state.settledMapFrames > 15;
+  });
+  await expect(page.getByText("Jerusalem map · shared demonstration view", { exact: true })).toBeVisible();
+  await page.screenshot({ path: `front-end capture/2026-10-06/city-selection-map-${test.info().project.name}.png` });
+  await page.getByRole("group", { name: "Map region" }).getByRole("button", { name: "Jerusalem", exact: true }).click();
+  await expect(page.getByRole("group", { name: "Map region" }).getByRole("button", { name: "Jerusalem", exact: true })).toHaveAttribute("aria-pressed", "true");
+});
+
+test("page slide: collection destinations move sideways in both directions with stable navigation", async ({ page }) => {
+  const errors: string[] = [];
+  page.on("pageerror", (error) => errors.push(error.message));
+  await page.emulateMedia({ reducedMotion: "no-preference", colorScheme: "dark" });
+  await page.goto("/study/places/mockup/journeys");
+  const nav = page.getByRole("navigation", { name: "Explore the collection", exact: true });
+  const navTop = (await nav.boundingBox())!.y;
+  for (const [name, direction] of [["Ancient Cities", "forward"], ["Global Missions", "forward"], ["Atlas", "backward"], ["Journeys", "forward"]]) {
+    await nav.getByRole("link", { name, exact: true }).click();
+    await page.waitForFunction(() => {
+      const slides = document.getAnimations().filter((animation) => animation instanceof CSSAnimation && animation.animationName.startsWith("places-page-"));
+      if (slides.length !== 2) return false;
+      slides.forEach((animation) => { animation.pause(); animation.currentTime = 230; });
+      return true;
+    });
+    await expect(page.locator("html")).toHaveAttribute("data-places-slide", direction);
+    const snapshots = await page.evaluate(() => ["old", "new"].map((kind) => {
+      const style = getComputedStyle(document.documentElement, `::view-transition-${kind}(places-page)`);
+      const matrix = new DOMMatrix(style.transform);
+      return { x: matrix.m41, y: matrix.m42, opacity: Number(style.opacity), width: parseFloat(style.width) };
+    }));
+    expect(snapshots[0].x / snapshots[0].width).toBeCloseTo(direction === "forward" ? -.5 : .5, 1);
+    expect(snapshots[1].x / snapshots[1].width).toBeCloseTo(direction === "forward" ? .5 : -.5, 1);
+    expect(snapshots.map((frame) => frame.y)).toEqual([0, 0]);
+    expect(snapshots.map((frame) => frame.opacity)).toEqual([1, 1]);
+    expect(Math.abs((await nav.boundingBox())!.y - navTop)).toBeLessThan(1);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(1);
+    await page.screenshot({ path: `front-end capture/2026-10-06/page-slide-${name.replace(/[^a-z]/gi, "-")}-${test.info().project.name}.png` });
+    await page.evaluate(() => document.getAnimations().filter((animation) => animation instanceof CSSAnimation && animation.animationName.startsWith("places-page-")).forEach((animation) => animation.play()));
+    await expect(page.locator("html")).not.toHaveAttribute("data-places-slide");
+  }
+  await page.getByRole("link", { name: "Places & journeys", exact: true }).click();
+  await expect(page.locator("html")).not.toHaveAttribute("data-places-slide");
+  await page.getByRole("navigation", { name: "Places and journeys collection", exact: true }).getByRole("link", { name: "Ancient Cities", exact: true }).click();
+  await expect(page.locator("html")).toHaveAttribute("data-places-slide", "forward");
+  await expect(page.locator("html")).not.toHaveAttribute("data-places-slide");
+  await page.getByRole("button", { name: "The Seven Churches", exact: true }).click();
+  await expect(page.locator("html")).not.toHaveAttribute("data-places-slide");
+  expect(errors).toEqual([]);
+});
+
+test("page slide: rapid navigation, reduced motion and unsupported browsers keep working", async ({ page }) => {
+  const errors: string[] = [];
+  page.on("pageerror", (error) => errors.push(error.message));
+  await page.emulateMedia({ reducedMotion: "no-preference" });
+  await page.goto("/study/places/mockup/journeys");
+  await expect(page.locator(".places-collection-nav a")).toHaveCount(8);
+  await page.evaluate(() => {
+    const links = document.querySelectorAll<HTMLAnchorElement>('.places-collection-nav a');
+    links[2].click(); links[7].click();
+  });
+  await expect(page).toHaveURL(/\/missions$/);
+  await expect(page.getByRole("heading", { name: "A worldwide church. Many local stories." })).toBeVisible();
+  await expect(page.locator("html")).not.toHaveAttribute("data-places-slide");
+  await page.goBack();
+  await expect(page).toHaveURL(/\/journeys$/);
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.getByRole("navigation", { name: "Explore the collection", exact: true }).getByRole("link", { name: "Ancient Cities", exact: true }).click();
+  await expect(page).toHaveURL(/\/cities$/);
+  await expect(page.locator("html")).not.toHaveAttribute("data-places-slide");
+  await page.emulateMedia({ reducedMotion: "no-preference" });
+  await page.evaluate(() => Object.defineProperty(document, "startViewTransition", { value: undefined, configurable: true }));
+  await page.getByRole("navigation", { name: "Explore the collection", exact: true }).getByRole("link", { name: "The Reformation", exact: true }).click();
+  await expect(page.getByRole("heading", { name: "Words that changed the church." })).toBeVisible();
+  await expect(page.locator("html")).not.toHaveAttribute("data-places-slide");
+  expect(errors).toEqual([]);
+});
+
 test("history: both collection rows and every new topic support navigation, focus and saved links", async ({ page }) => {
   const errors: string[] = [];
   page.on("pageerror", (error) => errors.push(error.message));
@@ -7,7 +146,7 @@ test("history: both collection rows and every new topic support navigation, focu
   await expect(page.getByRole("navigation", { name: "Places and journeys collection", exact: true }).getByRole("link")).toHaveCount(4);
   const history = page.getByRole("navigation", { name: "Christian history collection", exact: true });
   await expect(history.getByRole("link")).toHaveText([
-    /The Early Church/, /Catholic & Orthodox Christianity/, /The Reformation/, /Missions & the Global Church/,
+    /The Early Church/, /Apostolic Church/, /The Reformation/, /Global Missions/,
   ]);
   await page.getByRole("link", { name: "The Reformation", exact: true }).click();
   await expect(page).toHaveURL(/\/mockup\/reformation$/);
@@ -20,7 +159,7 @@ test("history: both collection rows and every new topic support navigation, focu
     const back = page.getByRole("button", { name: id === "missions" ? "All regions" : "All topics", exact: true });
     for (const title of titles) {
       await cards.getByRole("button", { name: title, exact: true }).click();
-      await expect(cards).toHaveCount(0);
+      await expect(cards).toBeHidden();
       await expect(back).toBeFocused();
       await expect(page.locator(".history-threads li")).toHaveCount(3);
       expect(await page.locator(".history-place-list li").count()).toBeGreaterThanOrEqual(3);
@@ -57,9 +196,9 @@ test("cities: new collections and full directory open real places", async ({ pag
   ]) {
     await grid.getByRole("button", { name: title, exact: true }).click();
     await page.getByRole("group", { name: "Which city will you explore?", exact: true }).getByRole("button", { name: new RegExp(city) }).click();
-    await expect(page.locator("#places-workspace-title")).toContainText(city);
+    await expect(page.locator("#city-map-title")).toContainText(city);
     await expect(page.getByRole("link", { name: new RegExp(ref) })).toBeVisible();
-    await expect(page.getByRole("link", { name: `Find ${city} in the atlas`, exact: true })).toHaveAttribute("href", new RegExp(`find=${city}`));
+    await expect(page.locator("#city-map-experience")).toHaveAttribute("data-map-city", "Jerusalem");
     await page.getByRole("button", { name: "All collections", exact: true }).click();
   }
   await grid.getByRole("link", { name: "Find Your City", exact: true }).click();
@@ -94,169 +233,6 @@ test("history: expanded navigation fits both themes at each viewport", async ({ 
   }
 });
 
-test("motion lab: four distinct transitions, full-page city selection, return and cancellation", async ({ page }) => {
-  const errors: string[] = [];
-  page.on("pageerror", (error) => errors.push(error.message));
-  await page.emulateMedia({ reducedMotion: "no-preference", colorScheme: "dark" });
-  await page.goto("/study/places/mockup/cities/motion");
-  const designs = page.getByRole("group", { name: "Animation designs" });
-  const stage = page.locator(".motion-demo-stage");
-  await expect(page.getByRole("heading", { name: "Enter a city. Understand its story." })).toBeVisible();
-  await expect(page.locator(".motion-demo,.motion-demo-toolbar,.motion-demo-status,.motion-design-explanation")).toHaveCount(0);
-  await expect(page.getByRole("button", { name: "Replay opening" })).toHaveCount(0);
-  await expect(page.getByText("Experience preview", { exact: true })).toHaveCount(0);
-  await expect(designs.getByRole("button")).toHaveCount(4);
-  for (const name of ["Clear & expand", "Soft dissolve", "Slide across", "Reveal downward"]) {
-    await designs.getByRole("button", { name: new RegExp(name) }).click();
-    const grid = page.getByRole("group", { name: "City collections" });
-    await expect(grid.getByRole("button")).toHaveCount(11);
-    await grid.getByRole("button", { name: "The Seven Churches", exact: true }).click();
-    await expect(stage).toHaveAttribute("data-phase", "cities");
-    const back = page.getByRole("button", { name: "All collections", exact: true });
-    await expect(back).toBeFocused();
-    const cities = page.getByRole("group", { name: "Which city will you explore?" });
-    await expect(cities.getByRole("button")).toHaveCount(7);
-    await cities.getByRole("button", { name: /Laodicea/ }).click();
-    await expect(page.locator("#places-workspace-title")).toContainText("Laodicea");
-    await expect(page.getByRole("link", { name: "Find Laodicea in the atlas" })).toHaveAttribute("href", /find=Laodicea/);
-    await page.getByRole("button", { name: "Then & now", exact: true }).click();
-    await expect(page.getByRole("heading", { name: "Connect the ancient and present landscape." })).toBeVisible();
-    await back.click();
-    await expect(stage).toHaveAttribute("data-phase", "collections");
-    await expect(grid.getByRole("button", { name: "The Seven Churches", exact: true })).toBeFocused();
-    expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(1);
-  }
-  await page.getByRole("button", { name: "The Seven Churches", exact: true }).click();
-  await designs.getByRole("button", { name: /Soft dissolve/ }).click();
-  await expect(stage).toHaveAttribute("data-phase", "collections");
-  await page.getByRole("button", { name: "Cities of Refuge", exact: true }).click();
-  await expect(stage).toHaveAttribute("data-phase", "cities");
-  await expect(page.getByRole("group", { name: "Which city will you explore?" }).getByRole("button")).toHaveCount(6);
-  await page.evaluate(() => document.fonts.ready);
-  await page.evaluate(() => window.scrollTo(0, 0));
-  await page.screenshot({ path: `front-end capture/2026-10-06/city-motion-lab-dark-${test.info().project.name}.png`, fullPage: true });
-  await page.emulateMedia({ colorScheme: "light", reducedMotion: "reduce" });
-  await page.reload();
-  await page.getByRole("button", { name: "The Seven Churches", exact: true }).click();
-  await expect(stage).toHaveAttribute("data-phase", "cities");
-  await page.evaluate(() => window.scrollTo(0, 0));
-  await page.screenshot({ path: `front-end capture/2026-10-06/city-motion-lab-light-${test.info().project.name}.png`, fullPage: true });
-  expect(errors).toEqual([]);
-});
-
-test("motion lab: neighbors finish fading before expansion begins", async ({ page }) => {
-  await page.emulateMedia({ reducedMotion: "no-preference" });
-  await page.goto("/study/places/mockup/cities/motion?design=expand");
-  await page.locator(".motion-demo-stage").evaluate((stage) => {
-    const samples: { ghost: boolean; opacity: number }[] = [];
-    (window as unknown as { motionSamples: typeof samples }).motionSamples = samples;
-    const start = performance.now();
-    const capture = () => {
-      const shell = stage.querySelector<HTMLElement>(".motion-demo-ghost")!;
-      const neighbor = stage.querySelector<HTMLElement>('[data-motion-collection="israel-judah"]')!;
-      samples.push({ ghost: !shell.hidden, opacity: Number(getComputedStyle(neighbor).opacity) });
-      if (performance.now() - start < 2300) requestAnimationFrame(capture);
-    };
-    requestAnimationFrame(capture);
-  });
-  await page.getByRole("button", { name: "Cities of Refuge", exact: true }).click();
-  await expect(page.locator(".motion-demo-stage")).toHaveAttribute("data-phase", "cities");
-  const samples = await page.evaluate(() => (window as unknown as { motionSamples: { ghost: boolean; opacity: number }[] }).motionSamples);
-  expect(samples.some((sample) => !sample.ghost && sample.opacity > .05 && sample.opacity < .95)).toBe(true);
-  expect(samples.some((sample) => sample.ghost)).toBe(true);
-  expect(samples.filter((sample) => sample.ghost).every((sample) => sample.opacity < .01)).toBe(true);
-});
-
-test("motion lab: opening and returning never expose an empty handoff frame", async ({ page }) => {
-  await page.emulateMedia({ reducedMotion: "no-preference" });
-  for (const design of ["expand", "dissolve", "slide", "unfold"]) {
-    await page.goto(`/study/places/mockup/cities/motion?design=${design}`);
-    await expect(page.getByRole("button", { name: "Cities of Refuge", exact: true })).toBeVisible();
-    for (const opening of [true, false]) {
-      const samples = await page.evaluate(async (open) => {
-        const stage = document.querySelector<HTMLElement>(".motion-demo-stage")!;
-        const grid = stage.querySelector<HTMLElement>(".motion-demo-grid")!;
-        const panel = stage.querySelector<HTMLElement>(".motion-demo-panel")!;
-        const ghost = stage.querySelector<HTMLElement>(".motion-demo-ghost")!;
-        const card = grid.querySelector<HTMLElement>('[data-motion-collection="cities-refuge"]')!;
-        const opacity = (element: HTMLElement) => element.hidden ? 0 : Number(getComputedStyle(element).opacity);
-        const frames: number[] = [];
-        const offsets: number[] = [];
-        const start = performance.now();
-        let settled = 0;
-        (open ? card : panel.querySelector<HTMLElement>(".places-collections-back")!).click();
-        await new Promise<void>((resolve) => {
-          const sample = () => {
-            frames.push(opacity(grid) * opacity(card) + opacity(panel) + opacity(ghost));
-            const top = stage.getBoundingClientRect().top;
-            if (!grid.hidden) offsets.push(Math.abs(grid.getBoundingClientRect().top - top));
-            if (!panel.hidden) offsets.push(Math.abs(panel.getBoundingClientRect().top - top));
-            if (stage.dataset.phase === (open ? "cities" : "collections")) settled++;
-            if (settled > 5 || performance.now() - start > 3000) resolve();
-            else requestAnimationFrame(sample);
-          };
-          requestAnimationFrame(sample);
-        });
-        return { frames, offsets };
-      }, opening);
-      expect(Math.min(...samples.frames), `${design} ${opening ? "opening" : "return"}: continuous layer coverage`).toBeGreaterThan(.95);
-      expect(Math.max(...samples.offsets), `${design}: both layers stay at the top of the stage throughout the transition`).toBeLessThan(1);
-      await expect(page.locator(".motion-demo-stage")).toHaveAttribute("data-phase", opening ? "cities" : "collections");
-    }
-  }
-});
-
-test("motion lab: fade, horizontal slide and vertical reveal are visibly distinct", async ({ page }) => {
-  await page.emulateMedia({ reducedMotion: "no-preference", colorScheme: "dark" });
-  for (const design of ["dissolve", "slide", "unfold"]) {
-    await page.goto(`/study/places/mockup/cities/motion?design=${design}`);
-    const stage = page.locator(".motion-demo-stage");
-    await expect(page.getByRole("button", { name: "The Seven Churches", exact: true })).toBeVisible();
-    const initialHeight = (await stage.boundingBox())!.height;
-    if (design === "unfold") {
-      const gridHeight = await page.locator(".motion-demo-grid").evaluate((element) => element.getBoundingClientRect().height);
-      expect(Math.abs(initialHeight - gridHeight)).toBeLessThan(1);
-    }
-    await page.getByRole("button", { name: "The Seven Churches", exact: true }).click();
-    await page.waitForFunction(() => {
-      const element = document.querySelector(".motion-demo-stage")!;
-      // Wait for the panel transition, not an unrelated hover transition on the clicked card.
-      if (!element.querySelector(".motion-demo-panel")!.getAnimations().length) return false;
-      element.getAnimations({ subtree: true }).forEach((animation) => { animation.pause(); animation.currentTime = Number(animation.effect!.getComputedTiming().duration) / 2; });
-      return true;
-    });
-    const frame = await stage.evaluate((element) => {
-      element.getAnimations({ subtree: true }).forEach((animation) => { animation.pause(); animation.currentTime = Number(animation.effect!.getComputedTiming().duration) / 2; });
-      const panel = element.querySelector<HTMLElement>(".motion-demo-panel")!;
-      const styles = getComputedStyle(panel);
-      const transform = new DOMMatrix(styles.transform);
-      return { x: transform.m41, y: transform.m42, opacity: Number(styles.opacity), clip: styles.clipPath, width: element.clientWidth, height: element.getBoundingClientRect().height, panelHeight: panel.offsetHeight };
-    });
-    if (design === "unfold") {
-      expect(Math.abs(frame.height - (initialHeight + frame.panelHeight) / 2)).toBeLessThan(1);
-    } else {
-      expect(Math.abs(frame.height - initialHeight)).toBeLessThan(1);
-    }
-    expect(frame.y).toBe(0);
-    if (design === "dissolve") {
-      expect(frame.x).toBe(0); expect(frame.opacity).toBeCloseTo(.5, 1); expect(frame.clip).toBe("none");
-    } else if (design === "slide") {
-      expect(frame.x / frame.width).toBeCloseTo(.5, 1); expect(frame.opacity).toBe(1); expect(frame.clip).toBe("none");
-    } else {
-      expect(frame.x).toBe(0); expect(frame.opacity).toBe(1); expect(frame.clip).toContain("50%");
-    }
-    await stage.screenshot({ path: `front-end capture/2026-10-06/city-motion-${design}-midpoint-${test.info().project.name}.png` });
-    await stage.evaluate((element) => element.getAnimations({ subtree: true }).forEach((animation) => animation.play()));
-    await expect(stage).toHaveAttribute("data-phase", "cities");
-    if (design === "unfold") {
-      expect(Math.abs((await stage.boundingBox())!.height - frame.panelHeight)).toBeLessThan(1);
-      await page.getByRole("button", { name: "All collections", exact: true }).click();
-      await expect(stage).toHaveAttribute("data-phase", "collections");
-      expect(Math.abs((await stage.boundingBox())!.height - initialHeight)).toBeLessThan(1);
-    }
-  }
-});
-
 test("collection: illustrated destinations lead to separate pages and useful preview controls", async ({ page }) => {
   const errors: string[] = [];
   page.on("pageerror", (error) => errors.push(error.message));
@@ -283,8 +259,8 @@ test("collection: illustrated destinations lead to separate pages and useful pre
   await navigation.getByRole("link", { name: "Ancient Cities" }).click();
   await page.getByRole("button", { name: "Cities of the Apostles", exact: true }).click();
   await page.getByRole("button", { name: /Corinth.*A church/ }).click();
-  await page.getByRole("button", { name: "Then & now" }).click();
-  await expect(page.getByRole("heading", { name: "Connect the ancient and present landscape." })).toBeVisible();
+  await expect(page.locator("#city-map-title")).toHaveText("Corinth");
+  await expect(page.locator("#city-map-experience")).toHaveAttribute("data-map-city", "Jerusalem");
   await navigation.getByRole("link", { name: "Gospel Events" }).click();
   await page.getByRole("button", { name: /Passion week/ }).click();
   await page.getByRole("button", { name: "Luke", exact: true }).click();
@@ -308,9 +284,8 @@ test("cities: collections drill into one selection area with keyboard and histor
   await expect(collections).toHaveCount(0);
   await expect(back).toBeFocused();
   await expect(cities.locator("strong")).toHaveText(["Ephesus", "Smyrna", "Pergamum", "Thyatira", "Sardis", "Philadelphia", "Laodicea"]);
-  await expect(page.locator(".places-tier-number")).toHaveText(["01"]);
-  await expect(page.locator(".places-city-selector + .places-workspace")).toHaveCount(1);
-  await page.getByRole("button", { name: "Then & now", exact: true }).click();
+  await expect(page.locator(".places-city-count,.places-tier-number")).toHaveCount(0);
+  await expect(page.locator(".places-city-selector + .city-map-experience")).toHaveCount(1);
   await back.click();
   await expect(seven).toBeFocused();
   await expect(cities).toHaveCount(0);
@@ -319,7 +294,6 @@ test("cities: collections drill into one selection area with keyboard and histor
   await cities.getByRole("button", { name: /^Corinth/ }).click();
   await page.reload();
   await expect(cities.getByRole("button", { name: /^Corinth/ })).toHaveAttribute("aria-pressed", "true");
-  await expect(page.getByRole("button", { name: "Then & now", exact: true })).toHaveAttribute("aria-pressed", "true");
   await back.click();
   await page.reload();
   await expect(collections).toBeVisible();
@@ -352,38 +326,6 @@ test("cities: collections drill into one selection area with keyboard and histor
     expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(1);
     await page.screenshot({ path: `front-end capture/2026-10-06/cities-expanding-card-${theme}-${test.info().project.name}.png`, fullPage: true });
   }
-});
-
-test("cities: the selected card visibly grows around its cities and collapses back", async ({ page }) => {
-  await page.emulateMedia({ reducedMotion: "no-preference" });
-  await page.goto("/study/places/mockup/cities");
-  const card = page.locator('[data-collection="seven-churches"]');
-  await expect(card).toBeVisible();
-  await page.evaluate(() => document.fonts.ready);
-  const startWidth = (await card.boundingBox())!.width;
-  await card.evaluate((element) => {
-    const samples: number[] = [];
-    (window as unknown as { cardWidths: number[] }).cardWidths = samples;
-    const start = performance.now();
-    const sample = () => { samples.push(element.getBoundingClientRect().width); if (performance.now() - start < 1400) requestAnimationFrame(sample); };
-    requestAnimationFrame(sample);
-  });
-  await card.getByRole("button", { name: "The Seven Churches", exact: true }).click();
-  await expect(card.getByRole("group", { name: "Which city will you explore?" })).toBeVisible();
-  await expect.poll(async () => (await card.boundingBox())!.width).toBeGreaterThan(startWidth * 1.5);
-  await expect.poll(() => page.evaluate(() => {
-    const widths = (window as unknown as { cardWidths: number[] }).cardWidths;
-    return widths.filter((width) => width > widths[0] * 1.1 && width < Math.max(...widths) * .9).length;
-  })).toBeGreaterThan(1);
-  const back = card.getByRole("button", { name: "All collections", exact: true });
-  const panelBounds = (await card.boundingBox())!;
-  const backBounds = (await back.boundingBox())!;
-  expect(backBounds.x - panelBounds.x).toBeLessThan(40);
-  await back.focus();
-  await page.keyboard.press("Escape");
-  await expect(page.getByRole("group", { name: "City collections" }).getByRole("button")).toHaveCount(11);
-  await expect.poll(async () => Math.abs((await card.boundingBox())!.width - startWidth)).toBeLessThan(2);
-  await expect(card.getByRole("button", { name: "The Seven Churches", exact: true })).toBeFocused();
 });
 
 test("collection: landing and destination controls fit both themes and retain old place links", async ({ page }) => {

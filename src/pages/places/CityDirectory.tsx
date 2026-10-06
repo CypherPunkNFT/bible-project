@@ -5,9 +5,8 @@ import { useAsync } from "@/lib/useAsync";
 
 const BASE = "/study/places/mockup";
 export function FindCityCard() {
-  return <Link to={`${BASE}/cities/find`} className="places-city-card places-city-card-trigger places-find-city" aria-label="Find Your City">
-    <span className="places-city-collection-top"><Search size={23} strokeWidth={1.4} aria-hidden /><span>Full directory</span><ArrowUpRight size={15} aria-hidden /></span>
-    <strong>Find Your City</strong><small>Search the places behind the stories</small>
+  return <Link to={`${BASE}/cities/find`} className="places-compact-card places-find-city" aria-label="Find Your City">
+    <Search size={34} strokeWidth={1.35} aria-hidden /><span><strong>Find Your City</strong><small>Search the places behind the stories</small></span><ArrowUpRight size={15} aria-hidden />
   </Link>;
 }
 

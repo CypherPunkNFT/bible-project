@@ -42,17 +42,20 @@ interface Props {
   onSelect: (place: MapPlace) => void;
   overlay?: ReactNode;
   coveredFraction?: number;
+  initialRegion?: string;
+  focusKey?: number;
 }
 
 /** Street-level atlas mockup: OpenStreetMap vector tiles (Protomaps) drawn by MapLibre, zoomable to streets near every place. */
-export function StreetAtlasMap({ places, selected, onSelect, overlay, coveredFraction = 0 }: Props) {
+export function StreetAtlasMap({ places, selected, onSelect, overlay, coveredFraction = 0, initialRegion = "Holy Land", focusKey }: Props) {
   const container = useRef<HTMLDivElement>(null);
   const mapRef = useRef<MapLibreMap | null>(null);
   const placesRef = useRef(places);
   const onSelectRef = useRef(onSelect);
   const selectedIdRef = useRef(selected?.id ?? "");
   const firstPlaces = useRef(true);
-  const [activeRegion, setActiveRegion] = useState("Holy Land");
+  const [activeRegion, setActiveRegion] = useState(initialRegion);
+  const initialPreset = useRef(PRESETS.find((preset) => preset.name === initialRegion));
   const [problem, setProblem] = useState("");
   const themeVersion = useThemeVersion();
   const reducedMotion = useMediaQuery("(prefers-reduced-motion: reduce)");
@@ -73,7 +76,8 @@ export function StreetAtlasMap({ places, selected, onSelect, overlay, coveredFra
     addPmtilesProtocol();
     const map = new MapLibreMap({
       container: container.current, style: buildStyle(currentTheme(), placesRef.current, selectedIdRef.current),
-      center: [35.2, 31.7], zoom: 7, maxZoom: 18, attributionControl: { compact: false },
+      center: initialPreset.current && "center" in initialPreset.current ? initialPreset.current.center : [35.2, 31.7],
+      zoom: initialPreset.current && "zoom" in initialPreset.current ? initialPreset.current.zoom : 7, maxZoom: 18, attributionControl: { compact: false },
       maxBounds: BOUNDS, renderWorldCopies: false, // the biblical world only: no panning or zooming out past it
     });
     map.on("movestart", (event) => { if (event.originalEvent) setActiveRegion(""); }); // the reader moved away from a preset
@@ -133,7 +137,7 @@ export function StreetAtlasMap({ places, selected, onSelect, overlay, coveredFra
     setActiveRegion("");
     const width = container.current?.clientWidth ?? 0;
     map.flyTo({ center: [selected.lon, selected.lat], zoom: Math.max(map.getZoom(), 12), padding: { top: 0, bottom: 0, left: 0, right: width * coveredFraction }, duration: reducedMotion ? 0 : 1400 });
-  }, [selected, coveredFraction, reducedMotion]);
+  }, [selected, coveredFraction, reducedMotion, focusKey]);
 
   const goTo = (preset: Preset) => {
     setActiveRegion(preset.name);

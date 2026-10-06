@@ -26,7 +26,7 @@ export const HISTORY_COLLECTIONS = [
     ],
   },
   {
-    id: "catholic-orthodox", title: "Catholic & Orthodox Christianity", eyebrow: "Shared roots, distinct traditions", icon: Split, color: "prophets",
+    id: "catholic-orthodox", title: "Apostolic Church", eyebrow: "Shared roots, distinct traditions", icon: Split, color: "prophets",
     description: "Explore the development of Catholic and Orthodox Christianity through its worship, centers of authority, divisions, and encounters.",
     detail: "Traditions · Authority · Communion", action: "Explore the traditions",
     heading: "Shared roots. Distinct traditions.",
@@ -69,7 +69,7 @@ export const HISTORY_COLLECTIONS = [
     ],
   },
   {
-    id: "missions", title: "Missions & the Global Church", eyebrow: "Across languages and cultures", icon: Globe2, color: "poetry",
+    id: "missions", title: "Global Missions", eyebrow: "Across languages and cultures", icon: Globe2, color: "poetry",
     description: "Explore how communities receive and share the gospel. Meet local believers, translators, and missionaries within the worlds they inhabit.",
     detail: "Regions · Languages · Communities", action: "Explore missions",
     heading: "A worldwide church. Many local stories.",

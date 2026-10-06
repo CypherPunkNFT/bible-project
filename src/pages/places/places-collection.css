@@ -188,3 +188,53 @@
   .history-detail { padding: 1rem; }
   .history-detail-heading .places-artwork { display: none; }
 }
+
+/* Name snapshots only for collection navigation, leaving the theme reveal untouched. */
+html[data-places-slide] .places-page-slide { view-transition-name: places-page; background: var(--page); }
+html[data-places-slide]::view-transition { pointer-events: none; }
+html[data-places-slide]::view-transition-old(root) { display: none; }
+html[data-places-slide]::view-transition-new(root) { animation: none; }
+html[data-places-slide]::view-transition-group(places-page) { overflow: clip; animation-duration: 460ms; animation-timing-function: cubic-bezier(.65, 0, .35, 1); }
+html[data-places-slide]::view-transition-old(places-page),
+html[data-places-slide]::view-transition-new(places-page) {
+  height: auto; mix-blend-mode: normal; opacity: 1;
+  animation-duration: 460ms; animation-timing-function: cubic-bezier(.65, 0, .35, 1); animation-fill-mode: both;
+}
+html[data-places-slide=forward]::view-transition-old(places-page) { animation-name: places-page-exit-left; }
+html[data-places-slide=forward]::view-transition-new(places-page) { animation-name: places-page-enter-right; }
+html[data-places-slide=backward]::view-transition-old(places-page) { animation-name: places-page-exit-right; }
+html[data-places-slide=backward]::view-transition-new(places-page) { animation-name: places-page-enter-left; }
+@keyframes places-page-enter-right { from { transform: translateX(100%); } to { transform: translateX(0); } }
+@keyframes places-page-exit-left { from { transform: translateX(0); } to { transform: translateX(-100%); } }
+@keyframes places-page-enter-left { from { transform: translateX(-100%); } to { transform: translateX(0); } }
+@keyframes places-page-exit-right { from { transform: translateX(0); } to { transform: translateX(100%); } }
+
+html[data-places-slide] .places-collection-nav > a { transition: none; }
+.places-reveal { position: relative; overflow: clip; }
+.places-reveal-grid, .places-reveal-detail { position: absolute; top: 0; left: 0; width: 100%; }
+.places-reveal-detail { z-index: 2; }
+.places-reveal-grid[hidden], .places-reveal-detail[hidden] { display: none; }
+.places-compact-card { display: flex; align-items: center; gap: .8rem; min-width: 0; width: 100%; height: 100%; padding: 1rem; text-align: left; border: 1px solid var(--line); border-top: 2px solid color-mix(in srgb, var(--places-color) 55%, var(--line)); border-radius: .8rem; background: linear-gradient(135deg, color-mix(in srgb, var(--places-color) 7%, var(--surface)), var(--surface)); }
+.places-compact-card:hover, .places-compact-card:focus-visible { border-color: var(--places-color); background: color-mix(in srgb, var(--places-color) 10%, var(--surface)); }
+.places-compact-card > svg { flex-shrink: 0; color: var(--places-color); }
+.places-compact-card > svg:last-child { margin-left: auto; width: 13px; }
+.places-compact-card > span { min-width: 0; }
+.places-compact-card strong { display: block; font: 500 1.05rem/1.35 var(--font-serif); }
+.places-compact-card small { display: block; margin-top: .3rem; font-size: .65rem; color: var(--muted); line-height: 1.5; }
+.places-city-card.is-expanded { border-radius: .8rem; }
+.places-city-card-heading > svg { color: var(--places-color); flex-shrink: 0; }
+.history-topic-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.city-map-experience { margin-top: 1.8rem; scroll-margin-top: 5rem; outline: none; }
+.city-map-experience > header { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 1rem; }
+.city-map-experience h2 { font: 500 1.8rem/1.3 var(--font-serif); margin-top: .35rem; }
+.city-map-experience > header > span { font-size: .7rem; color: var(--muted); }
+.city-map-loading { display: grid; place-items: center; min-height: 560px; background: var(--surface); border: 1px solid var(--line); border-radius: .8rem; color: var(--muted); }
+@media (max-width: 1100px) { .places-city-collection-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .history-topic-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 480px) {
+  .places-compact-card { padding: .75rem; gap: .6rem; }
+  .places-compact-card > svg:first-child { width: 29px; }
+  .places-compact-card > svg:last-child { display: none; }
+  .places-compact-card strong { font-size: .95rem; }
+  .places-compact-card small { font-size: .62rem; }
+  .city-map-experience > header { align-items: start; flex-direction: column; gap: .5rem; }
+}
