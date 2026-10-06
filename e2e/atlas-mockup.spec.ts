@@ -119,6 +119,10 @@ test("motion lab: fade, horizontal slide and vertical reveal are visibly distinc
     const stage = page.locator(".motion-demo-stage");
     await expect(page.getByRole("button", { name: "The Seven Churches", exact: true })).toBeVisible();
     const initialHeight = (await stage.boundingBox())!.height;
+    if (design === "unfold") {
+      const gridHeight = await page.locator(".motion-demo-grid").evaluate((element) => element.getBoundingClientRect().height);
+      expect(Math.abs(initialHeight - gridHeight)).toBeLessThan(1);
+    }
     await page.getByRole("button", { name: "The Seven Churches", exact: true }).click();
     await page.waitForFunction(() => {
       const element = document.querySelector(".motion-demo-stage")!;
@@ -132,9 +136,13 @@ test("motion lab: fade, horizontal slide and vertical reveal are visibly distinc
       const panel = element.querySelector<HTMLElement>(".motion-demo-panel")!;
       const styles = getComputedStyle(panel);
       const transform = new DOMMatrix(styles.transform);
-      return { x: transform.m41, y: transform.m42, opacity: Number(styles.opacity), clip: styles.clipPath, width: element.clientWidth, height: element.getBoundingClientRect().height };
+      return { x: transform.m41, y: transform.m42, opacity: Number(styles.opacity), clip: styles.clipPath, width: element.clientWidth, height: element.getBoundingClientRect().height, panelHeight: panel.offsetHeight };
     });
-    expect(Math.abs(frame.height - initialHeight)).toBeLessThan(1);
+    if (design === "unfold") {
+      expect(Math.abs(frame.height - (initialHeight + frame.panelHeight) / 2)).toBeLessThan(1);
+    } else {
+      expect(Math.abs(frame.height - initialHeight)).toBeLessThan(1);
+    }
     expect(frame.y).toBe(0);
     if (design === "dissolve") {
       expect(frame.x).toBe(0); expect(frame.opacity).toBeCloseTo(.5, 1); expect(frame.clip).toBe("none");
@@ -146,6 +154,12 @@ test("motion lab: fade, horizontal slide and vertical reveal are visibly distinc
     await stage.screenshot({ path: `front-end capture/2026-10-06/city-motion-${design}-midpoint-${test.info().project.name}.png` });
     await stage.evaluate((element) => element.getAnimations({ subtree: true }).forEach((animation) => animation.play()));
     await expect(stage).toHaveAttribute("data-phase", "cities");
+    if (design === "unfold") {
+      expect(Math.abs((await stage.boundingBox())!.height - frame.panelHeight)).toBeLessThan(1);
+      await page.getByRole("button", { name: "All collections", exact: true }).click();
+      await expect(stage).toHaveAttribute("data-phase", "collections");
+      expect(Math.abs((await stage.boundingBox())!.height - initialHeight)).toBeLessThan(1);
+    }
   }
 });
 

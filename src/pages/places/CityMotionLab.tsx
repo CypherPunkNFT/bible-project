@@ -47,10 +47,10 @@ function CitySelection({ design, renderCity }: { design: Design; renderCity: (ci
     const fitStage = () => {
       if (running.current || !stage.current || !grid.current || !panel.current) return;
       const list = grid.current, detail = panel.current;
-      if (design === "expand") {
+      if (design === "expand" || design === "unfold") {
         stage.current.style.height = `${(detail.hidden ? list : detail).offsetHeight}px`;
       } else {
-        // Reserve the city panel's space before interaction: fading/sliding/revealing must not look like growing.
+        // Fades and horizontal slides keep their canvas; expansion and downward reveal fit the visible content.
         const wasHidden = detail.hidden, visibility = detail.style.visibility;
         detail.style.visibility = "hidden";
         detail.hidden = false;
@@ -96,8 +96,8 @@ function CitySelection({ design, renderCity }: { design: Design; renderCity: (ci
     const cardRect = chosen.getBoundingClientRect(), boxRect = box.getBoundingClientRect();
     const small = { left: `${cardRect.left - boxRect.left}px`, top: `${cardRect.top - boxRect.top}px`, width: `${cardRect.width}px`, height: `${cardRect.height}px` };
     const large = { left: "0px", top: "0px", width: `${box.clientWidth}px`, height: `${detail.offsetHeight}px` };
-    const resize = (duration: number) => animate(box, [{ height: `${startHeight}px` }, { height: `${endHeight}px` }], duration);
-    if (design !== "expand") {
+    const resize = (duration: number, easing = EASE) => animate(box, [{ height: `${startHeight}px` }, { height: `${endHeight}px` }], duration, easing);
+    if (design === "dissolve" || design === "slide") {
       reservedHeight.current = Math.max(reservedHeight.current, startHeight, endHeight);
       box.style.height = `${reservedHeight.current}px`;
     }
@@ -148,10 +148,11 @@ function CitySelection({ design, renderCity }: { design: Design; renderCity: (ci
           animate(to, [{ transform: `translateX(${-direction}%)` }, { transform: "translateX(0%)" }], 480, "cubic-bezier(.65, 0, .35, 1)"),
         ]);
       } else {
-        // Reveal the stationary city panel over the grid; reverse by rolling its lower edge upward.
+        // Reveal downward while making room in the page; collapse back to the grid on return.
         detail.style.zIndex = "3";
         to.style.opacity = "1";
         await Promise.all([
+          resize(480, "cubic-bezier(.65, 0, .35, 1)"),
           animate(detail, [{ clipPath: open ? "inset(0 0 100% 0)" : "inset(0 0 0% 0)" }, { clipPath: open ? "inset(0 0 0% 0)" : "inset(0 0 100% 0)" }], 480, "cubic-bezier(.65, 0, .35, 1)"),
           animate(list, [{ opacity: open ? 1 : 0 }, { opacity: open ? 0 : 1 }], 480, "cubic-bezier(.65, 0, .35, 1)"),
         ]);
@@ -160,7 +161,7 @@ function CitySelection({ design, renderCity }: { design: Design; renderCity: (ci
       from.hidden = true; to.hidden = false; shell.hidden = true;
       from.style.opacity = "1"; to.style.opacity = "1";
       list.style.zIndex = ""; detail.style.zIndex = "";
-      box.style.height = `${design === "expand" ? endHeight : reservedHeight.current}px`;
+      box.style.height = `${design === "expand" || design === "unfold" ? endHeight : reservedHeight.current}px`;
       to.inert = false;
       setExpanded(open);
       completed = true;
