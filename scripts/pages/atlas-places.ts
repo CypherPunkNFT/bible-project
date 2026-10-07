@@ -1,6 +1,7 @@
 // The two Atlas pages built on the places data: the map (/study/atlas/map) and Ancient Cities (/study/atlas/cities).
 import { readFile } from "node:fs/promises";
 import path from "node:path";
+import ts from "typescript";
 import { SECTIONS } from "../../src/lib/sections";
 import type { BookInfo, Place, SectionId } from "../../src/lib/types";
 import { CITY_COLLECTIONS } from "../../src/pages/places/city-collections";
@@ -10,8 +11,7 @@ import { codeLink, count, siteLink, table, wordingSection, type Experience } fro
 import { loadConstants, WEBSITE } from "./atlas-source";
 
 const DEPTH = 2;
-/** How many of the most-named places to list here (the page itself shows the top 24). */
-const TOP_LISTED = 100;
+/** The page's "Most-named places" list shows this many; every place is listed further down. */
 const TOP_ON_PAGE = 24;
 
 export interface PlacesData {
@@ -50,11 +50,51 @@ interface Preset {
   name: string;
 }
 
+/** Every fixed phrase an expression can produce: a string, or both sides of a condition. */
+function phrases(node: ts.Expression): string[] {
+  if (ts.isStringLiteral(node) || ts.isNoSubstitutionTemplateLiteral(node)) return [node.text];
+  if (ts.isParenthesizedExpression(node)) return phrases(node.expression);
+  if (ts.isConditionalExpression(node)) return [...phrases(node.whenTrue), ...phrases(node.whenFalse)];
+  return [];
+}
+
+/**
+ * The messages the map shows over itself when its list of map pieces cannot load. They are set in code
+ * (setProblem in StreetAtlasMap.tsx), so the page-wording scan cannot see them.
+ */
+async function mapProblems(): Promise<string[]> {
+  const relative = "src/components/atlas/StreetAtlasMap.tsx";
+  const file = path.join(WEBSITE, relative);
+  const source = ts.createSourceFile(file, await readFile(file, "utf8"), ts.ScriptTarget.Latest, true, ts.ScriptKind.TSX);
+  const found: string[] = [];
+  const visit = (node: ts.Node) => {
+    if (ts.isCallExpression(node) && ts.isIdentifier(node.expression) && node.expression.text === "setProblem") node.arguments.forEach((arg) => found.push(...phrases(arg)));
+    node.forEachChild(visit);
+  };
+  visit(source);
+  // The wording below says which message is the local one; if the code changes shape, say so rather than guess.
+  if (found.length !== 2) throw new Error(`${relative}: expected 2 map error messages in setProblem(local ? a : b), found ${found.length}: ${JSON.stringify(found)}`);
+  return found;
+}
+
+/** Every place, grouped by dot colour (in the Bible's order), A to Z inside each group. */
+function everyPlace(coloured: { place: Place; section: SectionId }[]): string[] {
+  const parts: string[] = [];
+  for (const section of SECTIONS) {
+    const group = coloured.filter((entry) => entry.section === section.id).sort((a, b) => a.place.name.localeCompare(b.place.name) || a.place.id.localeCompare(b.place.id));
+    if (!group.length) continue;
+    parts.push(`### ${section.name} (${count(group.length)})`, "", table(["Place", "Kind", "Verses", "Id"], group.map(({ place }) => [place.name, place.type, count(place.verses.length), place.id])), "");
+  }
+  return parts;
+}
+
 export async function mapMarkdown({ places, books }: PlacesData): Promise<string> {
   const sectionOf = new Map(books.map((book) => [book.num, book.section]));
   const sectionName = new Map(SECTIONS.map((section) => [section.id, section.name]));
   const coloured = places.map((place) => ({ place, section: dominantSection(place, sectionOf) }));
-  const top = [...coloured].sort((a, b) => b.place.verses.length - a.place.verses.length).slice(0, TOP_LISTED);
+  const top = [...coloured].sort((a, b) => b.place.verses.length - a.place.verses.length).slice(0, TOP_ON_PAGE);
+  const [localProblem, liveProblem] = await mapProblems();
+  const sharedNames = tally(places.map((place) => place.name)).filter(([, n]) => n > 1).length;
   const { PRESETS } = (await loadConstants("src/components/atlas/StreetAtlasMap.tsx", ["PRESETS"], ["BOUNDS"])) as { PRESETS: Preset[] };
   const references = places.reduce((sum, place) => sum + place.verses.length, 0);
   return [
@@ -80,13 +120,24 @@ export async function mapMarkdown({ places, books }: PlacesData): Promise<string
     "",
     table(["Section", "Places"], tally(coloured.map((entry) => entry.section)).map(([id, n]) => [sectionName.get(id as SectionId) ?? id, count(n)])),
     "",
-    `## Most-named places (top ${TOP_LISTED}; the page lists the first ${TOP_ON_PAGE} under "Most-named places")`,
+    `## Most-named places (the ${TOP_ON_PAGE} the page lists, with no filters chosen)`,
     "",
     table(["#", "Place", "Kind", "Verses", "Colour", "Link"], top.map(({ place, section }, index) => [index + 1, place.name, place.type, count(place.verses.length), sectionName.get(section) ?? section, siteLink(`/study/atlas/map?place=${place.id}`)])),
     "",
+    `## Every place (${count(places.length)}), by dot colour`,
+    "",
+    `A to Z within each colour. "Verses" is how many verses name the place (the number its panel shows). ${count(sharedNames)} names belong to more than one place; the id tells them apart, and \`/study/atlas/map?place=<id>\` opens one.`,
+    "",
+    ...everyPlace(coloured),
     "## The place panel",
     "",
     "Opening a place shows its kind, its name, how many verses name it, a location-confidence percentage, \"Where it is named\" (book by book, each reference a link to the reader) and the verses themselves in the KJV, 15 at a time.",
+    "",
+    "## When the map cannot load",
+    "",
+    `If the map's list of pieces cannot be loaded, a notice covers the map (set in ${codeLink("src/components/atlas/StreetAtlasMap.tsx", DEPTH)}); the filters and the most-named list still work. A single dropped map square is retried and shows nothing.`,
+    "",
+    table(["Shown on", "Message"], [["The local preview (an address starting localhost or 127.)", localProblem], ["The live site and everywhere else", liveProblem]]),
     "",
     await wordingSection([{ file: "src/pages/AtlasPage.tsx" }, { file: "src/components/atlas/StreetAtlasMap.tsx" }, { file: "src/components/atlas/PlacePanel.tsx" }], DEPTH),
   ].join("\n");

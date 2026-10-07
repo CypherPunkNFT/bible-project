@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useMemo, useState } from "react";
 import { useLocation, useSearchParams } from "react-router-dom";
 import { AtlasCollection } from "./places/AtlasCollection";
+import { placeMatchesFind } from "./places/atlas-find";
 import { PlacesArtwork } from "./places/PlacesArtwork";
 import { StreetAtlasMap } from "@/components/atlas/StreetAtlasMap";
 import { projectPlace, type MapPlace } from "@/components/atlas/projection";
@@ -66,7 +67,7 @@ function AtlasExplorer() {
   const shown = useMemo(() => all.filter((p) => {
     if (sections.size && !p.verses.some((id) => sections.has(sectionOfNum(catalog, splitId(id).num)))) return false;
     if (bookNum && !p.verses.some((id) => splitId(id).num === bookNum)) return false;
-    if (query && !p.name.toLowerCase().includes(query.toLowerCase())) return false;
+    if (query && !placeMatchesFind(p.name, query)) return false;
     return true;
   }), [all, sections, bookNum, query, catalog]);
   const selected = all.find((p) => p.id === search.get("place")) ?? null;

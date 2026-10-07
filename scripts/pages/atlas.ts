@@ -5,7 +5,8 @@ import path from "node:path";
 import { HISTORY_COLLECTIONS, TRADITION_STUDY_TOPICS } from "../../src/pages/places/history-collections";
 import { ATLAS_BASE, atlasDestination } from "../../src/pages/places/routes";
 import { codeLink, experienceMarkdown, siteLink, table, wordingSection, type Destination, type Experience, type HistoryCollection, type HistoryTopic } from "./atlas-md";
-import { citiesMarkdown, loadPlacesData, mapMarkdown } from "./atlas-places";
+import { atlasHasPlace } from "../../src/pages/places/atlas-find";
+import { citiesMarkdown, loadPlacesData, mapMarkdown, type PlacesData } from "./atlas-places";
 import { loadConstants, WEBSITE } from "./atlas-source";
 import type { Extractor, PageContent } from "./types";
 
@@ -52,7 +53,7 @@ function homeMarkdown(destinations: readonly Destination[], ticker: boolean): st
     "",
     "## On every Atlas page",
     "",
-    `A "Back to Atlas" link, an "Open the map" link and a row of eight small tiles, one per page: ${[...destinations, ...collections].map((item) => item.title).join(" · ")}.${ticker ? ' A "Ticker" button (a debugging tool for the page transitions) sits at the bottom right.' : ""}`,
+    `A "Back to Atlas" link, an "Open the map" link and a row of eight small tiles, one per page: ${[...destinations, ...collections].map((item) => item.title).join(" · ")}.${ticker ? ' On the local preview only (127.0.0.1 or localhost, or with ?ticker in the address), a "Ticker" button (a debugging tool for the page transitions) sits at the bottom right; visitors to the live site do not see it.' : ""}`,
     "",
   ].join("\n");
 }
@@ -88,7 +89,10 @@ async function historyMarkdown(data: HistoryCollection): Promise<string> {
   ].join("\n");
 }
 
-async function apostolicMarkdown(data: HistoryCollection): Promise<string> {
+/** The map link's words, or why there is none: it is offered only when the map holds a place by that name. */
+const findLink = ({ places }: PlacesData, place: string) => (atlasHasPlace(places, place) ? `Find ${place} in the atlas` : `None: ${place} is not an atlas place, so the link is not shown`);
+
+async function apostolicMarkdown(data: HistoryCollection, placesData: PlacesData): Promise<string> {
   const { TRADITIONS, LENS_LABELS } = (await loadConstants("src/pages/places/TraditionExperience.tsx", ["LENS_LABELS", "TRADITIONS"])) as {
     TRADITIONS: Tradition[];
     LENS_LABELS: Record<LensId, string>;
@@ -103,7 +107,7 @@ async function apostolicMarkdown(data: HistoryCollection): Promise<string> {
     "",
     `## ${data.choose}`,
     "",
-    table(["Tradition", "Eyebrow", "Subtitle", "Description", "Places", "Map link"], TRADITIONS.map((item) => [item.title, item.eyebrow, item.subtitle, item.description, item.places.join(" · "), `Find ${item.place} in the atlas`])),
+    table(["Tradition", "Eyebrow", "Subtitle", "Description", "Places", "Map link"], TRADITIONS.map((item) => [item.title, item.eyebrow, item.subtitle, item.description, item.places.join(" · "), findLink(placesData, item.place)])),
     "",
     "## Lenses, per tradition",
     "",
@@ -146,7 +150,7 @@ export const extract: Extractor = async () => {
       "",
       await wordingSection(workspace, DEPTH),
     ].join("\n")),
-    ...(await Promise.all(collections.map(async (data) => page(data.id, data.id === "catholic-orthodox" ? await apostolicMarkdown(data) : await historyMarkdown(data))))),
+    ...(await Promise.all(collections.map(async (data) => page(data.id, data.id === "catholic-orthodox" ? await apostolicMarkdown(data, placesData) : await historyMarkdown(data))))),
   ];
   return pages;
 };

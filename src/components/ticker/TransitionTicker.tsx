@@ -1,15 +1,20 @@
 import { useEffect, useRef, useState } from "react";
 import { Gauge, Pause, Play, RotateCcw, SkipBack, SkipForward, X } from "lucide-react";
-import { SPEEDS, TICKS, transitionTicker, type TickerState } from "./transition-clock";
+import { SPEEDS, TICKER_ENABLED, TICKS, transitionTicker, type TickerState } from "./transition-clock";
 import "./transition-ticker.css";
 
 const speedLabel = (speed: number) => (speed === 1 ? "Normal speed" : `${Math.round(1 / speed)}× slower`);
+
+/** The ticker on the local preview (or with ?ticker); nothing on the live site. See tickerAllowed in transition-clock.ts. */
+export function TransitionTicker() {
+  return TICKER_ENABLED ? <TickerPanel /> : null;
+}
 
 /**
  * Debug panel for the Atlas and study page transitions: speed, a 20-tick timeline you can click, pause,
  * one-tick steps, restart and finish, plus which parts are moving at the current tick.
  */
-export function TransitionTicker() {
+function TickerPanel() {
   const [s, setS] = useState<TickerState>(transitionTicker.state);
   useEffect(() => transitionTicker.subscribe(setS), []);
   const panel = useRef<HTMLElement>(null);

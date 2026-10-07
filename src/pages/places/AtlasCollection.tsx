@@ -8,6 +8,7 @@ import { CityDirectory } from "./CityDirectory";
 import { HISTORY_COLLECTIONS, type HistoryId } from "./history-collections";
 import { HistoryExperience } from "./HistoryExperience";
 import { usePlacesPageSlide } from "./usePlacesPageSlide";
+import { AtlasFindLink } from "./AtlasFindLink";
 import { TransitionTicker } from "@/components/ticker/TransitionTicker";
 import "./places-collection.css";
 
@@ -190,7 +191,7 @@ function ExperienceWorkspace({ id, choice, lenses, lens, onLens, showPreviewNote
       <div className="places-lens-bar"><span>{id === "gospels" ? "Read through" : "Explore through"}</span><div role="group" aria-label="Choose a lens">{lenses.map((option) => <button type="button" key={option.id} aria-pressed={lens.id === option.id} onClick={() => onLens(option.id)}>{option.label}</button>)}</div></div>
       <div className="places-workspace-body">
         <div className="places-workspace-art" aria-hidden><PlacesArtwork kind={id} /><span>{choice.title} · {choice.subtitle}</span></div>
-        <div className="places-lens-copy" aria-live="polite"><p className="places-kicker">{lens.label}{id !== "gospels" ? " lens" : " perspective"}</p><h3>{lens.title}</h3><p>{lens.description}</p>{showPreviewNotes && <div className="places-next-build"><Compass size={18} aria-hidden /><p>{data.next}</p></div>}<Link to={`${BASE}/map?find=${encodeURIComponent(choice.place)}`}>Find {choice.place} in the atlas<ArrowRight size={16} aria-hidden /></Link></div>
+        <div className="places-lens-copy" aria-live="polite"><p className="places-kicker">{lens.label}{id !== "gospels" ? " lens" : " perspective"}</p><h3>{lens.title}</h3><p>{lens.description}</p>{showPreviewNotes && <div className="places-next-build"><Compass size={18} aria-hidden /><p>{data.next}</p></div>}<AtlasFindLink place={choice.place} /></div>
       </div>
     </section>
   );

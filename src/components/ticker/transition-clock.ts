@@ -33,11 +33,24 @@ const PART_NAMES: [RegExp, string][] = [
 const HOLD_MARGIN_MS = 1;
 const STORAGE_KEY = "atlas-transition-ticker";
 
+/**
+ * The ticker is a tool for tuning the transitions, not for visitors: it shows on the local preview (127.0.0.1 or
+ * localhost; the preview is a production build, so a dev-mode check would hide it there too) or with ?ticker in the
+ * address of the first page opened. Owner, 2026-10-07: keep it off the live site.
+ */
+export function tickerAllowed(hostname: string, search: string): boolean {
+  const local = hostname === "localhost" || hostname === "127.0.0.1" || hostname === "[::1]" || hostname === "::1";
+  return local || new URLSearchParams(search).has("ticker");
+}
+
+export const TICKER_ENABLED = typeof window !== "undefined" && tickerAllowed(window.location.hostname, window.location.search);
+
 function loadSettings(): Pick<TickerState, "open" | "speed"> {
   try {
     const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) ?? "{}") as Partial<TickerState>;
     const speed = SPEEDS.includes(saved.speed as (typeof SPEEDS)[number]) ? (saved.speed as number) : 0.1;
-    return { open: saved.open === true, speed };
+    // Where the ticker is hidden, a panel left open on an earlier visit must not slow or hold the transitions.
+    return { open: TICKER_ENABLED && saved.open === true, speed };
   } catch {
     return { open: false, speed: 0.1 };
   }
@@ -127,6 +140,7 @@ export const transitionTicker = {
     emit({ active: false, paused: false, held: false, progress: 0, elapsed: 0, moving: [] });
   },
   setOpen(open: boolean) {
+    if (open && !TICKER_ENABLED) return;
     emit({ open });
     saveSettings(state);
     animations.forEach((a) => { a.playbackRate = effectiveSpeed(); });

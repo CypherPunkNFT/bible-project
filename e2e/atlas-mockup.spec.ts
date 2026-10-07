@@ -142,41 +142,58 @@ test("cities: choosing a city opens it inside the card and moves the card's map 
   await expect(page.getByRole("group", { name: "Map region" }).getByRole("button", { name: "Jerusalem", exact: true })).toHaveAttribute("aria-pressed", "true");
 });
 
-test("page slide: collection destinations move sideways in both directions with stable navigation", async ({ page }) => {
+// The owner chose the "wipe" for every Atlas page change (2026-10-06, usePlacesPageSlide.ts and places-collection.css).
+// Going forward (to a page later in the row) the leaving page fades out in 150 ms and the new page is uncovered from
+// left to right over 620 ms. Going back (to an earlier page, or the Atlas home) is one quick sequence instead: the
+// leaving page fades out in 150 ms and the arriving page fades in over 260 ms from 140 ms. Each run is paused part way.
+test("page wipe: going forward wipes the new page in, going back fades, with stable navigation", async ({ page }) => {
   const errors: string[] = [];
   page.on("pageerror", (error) => errors.push(error.message));
   await page.emulateMedia({ reducedMotion: "no-preference", colorScheme: "dark" });
   await page.goto("/study/atlas/journeys");
   const nav = page.getByRole("navigation", { name: "Explore the collection", exact: true });
   const navTop = (await nav.boundingBox())!.y;
-  for (const [name, direction] of [["Ancient Cities", "forward"], ["Global Missions", "forward"], ["Atlas", "backward"], ["Journeys", "forward"]]) {
+  const RUNS = { forward: { names: ["places-fade-out", "places-wipe-in"], at: 310 }, backward: { names: ["places-fade-out", "places-fade-in"], at: 200 } };
+  const ALL = ["places-fade-out", "places-wipe-in", "places-fade-in"];
+  for (const [name, direction] of [["Ancient Cities", "forward"], ["Global Missions", "forward"], ["Atlas", "backward"], ["Journeys", "forward"]] as const) {
     await nav.getByRole("link", { name, exact: true }).click();
-    await page.waitForFunction(() => {
-      const slides = document.getAnimations().filter((animation) => animation instanceof CSSAnimation && animation.animationName.startsWith("places-page-"));
-      if (slides.length !== 2) return false;
-      slides.forEach((animation) => { animation.pause(); animation.currentTime = 230; });
+    await page.waitForFunction(({ names, at }) => {
+      const runs = document.getAnimations().filter((animation) => animation instanceof CSSAnimation && names.includes(animation.animationName));
+      if (!names.every((wanted) => runs.some((animation) => (animation as CSSAnimation).animationName === wanted))) return false;
+      runs.forEach((animation) => { animation.pause(); animation.currentTime = at; });
       return true;
-    });
-    await expect(page.locator("html")).toHaveAttribute("data-places-slide", direction);
-    const snapshots = await page.evaluate(() => ["old", "new"].map((kind) => {
+    }, RUNS[direction]);
+    await expect(page.locator("html")).toHaveAttribute("data-places-slide", "wipe");
+    await expect(page.locator("html")).toHaveAttribute("data-places-direction", direction);
+    const [leaving, arriving] = await page.evaluate(() => ["old", "new"].map((kind) => {
       const style = getComputedStyle(document.documentElement, `::view-transition-${kind}(places-page)`);
-      const matrix = new DOMMatrix(style.transform);
-      return { x: matrix.m41, y: matrix.m42, opacity: Number(style.opacity), width: parseFloat(style.width) };
+      // How much of the page the clip hides from the right, as a share of its width ("inset(0px 50% 0px 0px)").
+      const sides = /inset\((.*)\)/.exec(style.clipPath)?.[1].split(/ (?![^(]*\))/) ?? [];
+      const right = sides[1] ?? sides[0] ?? "0px";
+      const percent = Number(/([\d.]+)%/.exec(right)?.[1] ?? 0), pixels = Number(/([\d.]+)px/.exec(right)?.[1] ?? 0);
+      return { hiddenRight: percent / 100 + pixels / parseFloat(style.width), clipped: style.clipPath !== "none", opacity: Number(style.opacity) };
     }));
-    expect(snapshots[0].x / snapshots[0].width).toBeCloseTo(direction === "forward" ? -.5 : .5, 1);
-    expect(snapshots[1].x / snapshots[1].width).toBeCloseTo(direction === "forward" ? .5 : -.5, 1);
-    expect(snapshots.map((frame) => frame.y)).toEqual([0, 0]);
-    expect(snapshots.map((frame) => frame.opacity)).toEqual([1, 1]);
+    expect(leaving.opacity).toBe(0);
+    expect(leaving.clipped).toBe(false);
+    if (direction === "forward") {
+      expect(arriving.hiddenRight).toBeCloseTo(.5, 1);
+      expect(arriving.opacity).toBe(1);
+    } else {
+      expect(arriving.clipped).toBe(false);
+      expect(arriving.opacity).toBeGreaterThan(0);
+      expect(arriving.opacity).toBeLessThan(1);
+    }
     expect(Math.abs((await nav.boundingBox())!.y - navTop)).toBeLessThan(1);
     expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(1);
-    await page.screenshot({ path: `front-end capture/2026-10-06/page-slide-${name.replace(/[^a-z]/gi, "-")}-${test.info().project.name}.png` });
-    await page.evaluate(() => document.getAnimations().filter((animation) => animation instanceof CSSAnimation && animation.animationName.startsWith("places-page-")).forEach((animation) => animation.play()));
+    await page.screenshot({ path: `front-end capture/2026-10-07/page-wipe-${name.replace(/[^a-z]/gi, "-")}-${test.info().project.name}.png` });
+    await page.evaluate((names) => document.getAnimations().filter((animation) => animation instanceof CSSAnimation && names.includes(animation.animationName)).forEach((animation) => animation.play()), ALL);
     await expect(page.locator("html")).not.toHaveAttribute("data-places-slide");
   }
   await page.getByRole("link", { name: "Back to Atlas", exact: true }).click();
   await expect(page.locator("html")).not.toHaveAttribute("data-places-slide");
   await page.getByRole("navigation", { name: "Places and journeys collection", exact: true }).getByRole("link", { name: "Ancient Cities", exact: true }).click();
-  await expect(page.locator("html")).toHaveAttribute("data-places-slide", "forward");
+  await expect(page.locator("html")).toHaveAttribute("data-places-slide", "wipe");
+  await expect(page.locator("html")).toHaveAttribute("data-places-direction", "forward");
   await expect(page.locator("html")).not.toHaveAttribute("data-places-slide");
   await page.getByRole("button", { name: "The Seven Churches", exact: true }).click();
   await expect(page.locator("html")).not.toHaveAttribute("data-places-slide");
@@ -227,8 +244,11 @@ test("history: both collection rows and every new topic support navigation, focu
   await expect(traditions).toHaveCount(2);
   await expect(traditions.first()).toHaveAttribute("aria-pressed", "true");
   await expect(page.locator("#tradition-workspace-title")).toContainText("Catholic Christianity");
+  await expect(page.getByRole("link", { name: "Find Rome in the atlas", exact: true })).toBeVisible();
   await traditions.nth(1).click();
   await expect(page.locator("#tradition-workspace-title")).toContainText("Eastern Orthodoxy");
+  // Constantinople is not a Bible place, so the map would find nothing: no link is offered (2026-10-07).
+  await expect(page.getByRole("link", { name: /in the atlas$/ })).toHaveCount(0);
   await page.getByRole("button", { name: "Councils", exact: true }).click();
   await expect(page).toHaveURL(/tradition=eastern&lens=councils/);
   for (const id of ["early-church", "reformation", "missions"]) {

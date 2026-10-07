@@ -1,8 +1,8 @@
 import { ArrowRight, BookOpen, Church, Compass, Landmark, MapPin } from "lucide-react";
-import { Link, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
+import { AtlasFindLink } from "./AtlasFindLink";
 import { HISTORY_COLLECTIONS } from "./history-collections";
 import { PlacesArtwork } from "./PlacesArtwork";
-import { ATLAS_BASE as BASE } from "./routes";
 import "./tradition-experience.css";
 
 type LensId = "growth" | "centers" | "councils" | "worship";
@@ -64,7 +64,7 @@ export function TraditionExperience() {
         <div className="places-workspace-art" aria-hidden><PlacesArtwork kind="catholic-orthodox" /><span>{tradition.title} · {tradition.places.join(" · ")}</span></div>
         <div className="places-lens-copy" aria-live="polite"><p className="places-kicker">{LENS_LABELS[lensId]}</p><h3>{lens.title}</h3><p>{lens.description}</p>
           <div className="places-next-build"><Compass size={18} aria-hidden /><p>The growth map comes next: {tradition.title} spreading across the map, century by century.</p></div>
-          <Link to={`${BASE}/map?find=${encodeURIComponent(tradition.place)}`}>Find {tradition.place} in the atlas<ArrowRight size={16} aria-hidden /></Link></div>
+          <AtlasFindLink place={tradition.place} /></div>
       </div>
     </section>
     <section className="history-sources tradition-sources"><h4><BookOpen size={16} aria-hidden />Reading room · {data.title}</h4><p>Start with these texts and accounts. Each source speaks from its own church perspective.</p>{data.sources.map((source) => <a href={source.url} key={source.url} target="_blank" rel="noreferrer">{source.title}<ArrowRight size={15} aria-hidden /></a>)}</section>
