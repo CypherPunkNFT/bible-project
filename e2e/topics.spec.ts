@@ -54,7 +54,10 @@ test("study and search lead to topics too", async ({ page }) => {
   await page.goto("/study");
   await expect(page.getByRole("link", { name: /Topics/ }).filter({ hasText: "5,084 subjects" })).toBeVisible();
   await page.goto("/search");
-  await expect(page.getByRole("link", { name: /All 5,084 topics/ })).toBeVisible();
+  const browse = page.locator("section[aria-labelledby=browse-topics]");
+  await expect(browse.getByRole("heading", { name: /God and his word/ })).toBeVisible(); // the whole Topics page, on Search
+  await browse.getByRole("link", { name: "God", exact: true }).click();
+  await expect(page).toHaveURL(/\/topics\/c\/god$/);
   await page.goto("/search?q=grace&in=kjv");
   await expect(page.locator("section[aria-labelledby=search-topics]").getByRole("link", { name: /^Grace/ }).first()).toBeVisible();
 });

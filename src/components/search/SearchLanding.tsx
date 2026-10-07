@@ -1,6 +1,7 @@
 import { ArrowRight, Download, MapPin, MessageCircleQuestion, Sparkles, TextSearch } from "lucide-react";
 import { Link } from "react-router-dom";
-import { CategoryCard } from "@/components/topics/TopicCards";
+import { TopicSectionRows } from "@/pages/topics/TopicsHome";
+import "@/pages/topics/topics-collection.css";
 import { AP_BASE } from "@/lib/apologetics-links";
 import { useCatalog } from "@/lib/catalog";
 import { loadTopicIndex } from "@/lib/data";
@@ -83,20 +84,15 @@ export function SearchLanding({ onAsk }: { onAsk: (query: string) => void }) {
   );
 }
 
-/** The topic taxonomy in two levels: each category with its subcategories (scripts/build-topics.py). */
+/** Every topic section and its families, as on the Topics page, so topics can be browsed right here. */
 function TopicBrowser() {
   const index = useAsync(loadTopicIndex, "topic-index");
   if (index.status !== "ready") return null;
-  const total = Object.keys(index.value.topics).length;
   return (
-    <section aria-labelledby="browse-topics" className="mt-10">
-      <div className="flex flex-wrap items-baseline justify-between gap-2">
-        <h2 id="browse-topics" className="font-serif text-2xl font-semibold">Or browse by topic</h2>
-        <Link to="/topics" className="inline-flex items-center gap-1 text-sm text-accent hover:underline">All {formatNumber(total)} topics <ArrowRight size={14} /></Link>
-      </div>
-      <ul className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-        {index.value.categories.map((category) => <li key={category.id}><CategoryCard category={category} compact /></li>)}
-      </ul>
+    <section aria-labelledby="browse-topics" className="mt-14 xl:-mx-12 2xl:-mx-32">{/* wider than the search column on large screens, like the Topics page */}
+      <h2 id="browse-topics" className="font-serif text-3xl font-semibold tracking-tight">Or browse by topic</h2>
+      <p className="mt-1 text-sm text-muted">{formatNumber(Object.keys(index.value.topics).length)} topics in {index.value.categories.length} families, each with the passages that speak to it.</p>
+      <div className="mt-6"><TopicSectionRows index={index.value} /></div>
     </section>
   );
 }
