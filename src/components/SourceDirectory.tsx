@@ -10,9 +10,9 @@ const foundational = [
   ["OpenBible.info geocoding", "Biblical places", "Geographical identifications used in the atlas. Ancient locations can be uncertain or disputed.", "https://www.openbible.info/geo/"],
   ["STEP Bible · TIPNR", "People & proper names", "Named people, family relationships and Scripture references used in the people and prophets collections.", "https://github.com/STEPBible/STEPBible-Data/tree/master/Proper%20Nouns"],
   ["A. T. Robertson", "Gospel harmony · 1922", "The numbered events and references behind the harmony. An editorial ordering of the accounts, rather than a fifth Gospel.", "https://www.gutenberg.org/ebooks/36264"],
-  ["R. A. Torrey", "The New Topical Text Book", "Topic headings and passage references used in the study resources and the background to the Names of God collection.", "https://ccel.org/ccel/torrey/ttt"],
-  ["Orville J. Nave", "Nave’s Topical Bible", "A historical topical reference work consulted for subjects and their biblical references.", "https://ccel.org/ccel/nave/bible"],
-  ["M. G. Easton", "Illustrated Bible Dictionary", "Historical dictionary material used for reference facts, with electronic-edition rights distinguished from the original book.", "https://ccel.org/ccel/easton/ebd2"],
+  ["R. A. Torrey", "The New Topical Text Book", "623 topics with their points and passage references in Topics, and the background to the study resources and the Names of God collection.", "https://ccel.org/ccel/torrey/ttt"],
+  ["Orville J. Nave", "Nave’s Topical Bible", "Points and passage references for 4,461 topics of their own in Topics (people, places, customs and doctrines), and Nave’s notes beside Torrey’s on 270 more.", "https://ccel.org/ccel/nave/bible"],
+  ["M. G. Easton", "Illustrated Bible Dictionary", "The short articles (“In brief”) on 2,671 topic pages, with their passage references, and reference facts elsewhere; electronic-edition rights distinguished from the original book.", "https://ccel.org/ccel/easton/ebd2"],
   ["OpenStreetMap contributors", "Atlas map", "Land, water, rivers and borders of the atlas, from OpenStreetMap data (ODbL) packaged by Protomaps; modern roads and towns are left out.", "https://www.openstreetmap.org/copyright"],
   ["NASA & Natural Earth", "Atlas preview imagery & outlines", "Blue Marble imagery and public-domain map outlines used in atlas previews.", "https://earthobservatory.nasa.gov/features/BlueMarble"],
 ];

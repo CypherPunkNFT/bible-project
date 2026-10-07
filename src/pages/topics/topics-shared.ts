@@ -16,3 +16,13 @@ export function orderedFamilies(index: TopicIndex): TopicCategory[] {
   const byId = new Map(index.categories.map((c) => [c.id, c]));
   return [...placed.flatMap((id) => byId.get(id) ?? []), ...index.categories.filter((c) => !placed.includes(c.id))];
 }
+
+/** A family's most-cited topics with short names, to float faintly around its drawing. */
+export function familyWords(family: TopicCategory, index: TopicIndex, count = 6): string[] {
+  return family.subcategories.flatMap((group) => group.topics)
+    .map((id) => index.topics[id])
+    .filter((topic) => topic && topic.title.length <= 15)
+    .sort((a, b) => b.refs - a.refs)
+    .slice(0, count)
+    .map((topic) => topic.title.replace(/^The /, ""));
+}

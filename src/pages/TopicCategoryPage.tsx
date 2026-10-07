@@ -1,19 +1,35 @@
-import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
-import { useState } from "react";
+import { ArrowLeft, ArrowRight, ArrowUpRight, Search } from "lucide-react";
+import { useMemo, useState } from "react";
 import { Link, useLocation, useParams, useSearchParams } from "react-router-dom";
 import { RevealSelection } from "@/pages/places/RevealSelection";
 import { TopicsArtwork } from "@/pages/topics/TopicsArtwork";
 import { TopicsShell } from "@/pages/topics/TopicsShell";
+import { familyWords } from "@/pages/topics/topics-shared";
 import { groupIcon, sectionOf } from "@/lib/topic-style";
-import { topicCount, topicUrl, type TopicCategory, type TopicIndex, type TopicSubcategory } from "@/lib/topics";
+import { pointsAndPassages, topicCount, topicUrl, type TopicCategory, type TopicIndex, type TopicSubcategory } from "@/lib/topics";
 import { formatNumber } from "@/lib/utils";
 
 const passagesOf = (sub: TopicSubcategory, index: TopicIndex) => sub.topics.reduce((n, id) => n + (index.topics[id]?.refs ?? 0), 0);
 
-/** One group opened: its topics as small cards, most-cited first, and the way on to the other groups. */
+/** Past this many topics a group lists them A to Z, with a filter and a letter bar. */
+const LARGE_GROUP = 48;
+const sortKey = (title: string) => title.replace(/^The /, "").toLowerCase();
+
+/** One group opened: its topics as small cards (most-cited first, or A to Z with a filter for large groups), and the way on. */
 function GroupDetail({ family, group, index, onChoose }: { family: TopicCategory; group: TopicSubcategory; index: TopicIndex; onChoose: (id?: string) => void }) {
   const Icon = groupIcon(group.id);
-  const ordered = [...group.topics].sort((a, b) => (index.topics[b]?.refs ?? 0) - (index.topics[a]?.refs ?? 0));
+  const large = group.topics.length > LARGE_GROUP;
+  const [filter, setFilter] = useState("");
+  const [letter, setLetter] = useState("");
+  const ordered = useMemo(() => large
+    ? [...group.topics].sort((a, b) => sortKey(index.topics[a]?.title ?? a).localeCompare(sortKey(index.topics[b]?.title ?? b)))
+    : [...group.topics].sort((a, b) => (index.topics[b]?.refs ?? 0) - (index.topics[a]?.refs ?? 0)), [group, index, large]);
+  const letters = useMemo(() => [...new Set(ordered.map((id) => sortKey(index.topics[id]?.title ?? id).charAt(0).toUpperCase()))], [ordered, index]);
+  const words = filter.toLowerCase().split(/\s+/).filter(Boolean);
+  const shown = ordered.filter((id) => {
+    const title = index.topics[id]?.title ?? "";
+    return (!letter || sortKey(title).charAt(0).toUpperCase() === letter) && words.every((word) => title.toLowerCase().includes(word));
+  });
   return (
     <article className="topics-group-detail">
       <div className="topics-detail-nav"><button type="button" className="topics-back places-collections-back" onClick={() => onChoose()}><ArrowLeft size={16} aria-hidden />All groups</button><span aria-hidden>/</span><span>{group.title}</span></div>
@@ -22,10 +38,20 @@ function GroupDetail({ family, group, index, onChoose }: { family: TopicCategory
         <div><h3>{group.title}</h3><p>{group.description}</p></div>
         <span className="topics-detail-count">{group.topics.length} topics · {formatNumber(passagesOf(group, index))} passages</span>
       </div>
+      {large && (
+        <div className="topics-group-tools">
+          <label className="topics-group-filter"><Search size={15} aria-hidden /><span className="sr-only">Filter {group.title}</span><input value={filter} onChange={(e) => setFilter(e.target.value)} placeholder={`Filter ${group.topics.length} topics…`} /></label>
+          <div className="topics-letters" role="group" aria-label="First letter">
+            <button type="button" aria-pressed={!letter} onClick={() => setLetter("")}>All</button>
+            {letters.map((l) => <button key={l} type="button" aria-pressed={letter === l} onClick={() => setLetter(letter === l ? "" : l)}>{l}</button>)}
+          </div>
+        </div>
+      )}
+      {large && !shown.length && <p className="topics-group-empty">No topic in {group.title} matches “{filter}”.</p>}
       <ul className="topics-topic-grid" aria-label={`Topics in ${group.title}`}>
-        {ordered.map((id) => {
+        {shown.map((id) => {
           const topic = index.topics[id];
-          return topic && <li key={id}><Link to={topicUrl(id)}><span><strong>{topic.title}</strong><small>{topic.points} points · {formatNumber(topic.refs)} passages</small></span><ArrowRight size={14} aria-hidden /></Link></li>;
+          return topic && <li key={id}><Link to={topicUrl(id)}><span><strong>{topic.title}</strong><small>{pointsAndPassages(topic.points, topic.refs)}</small></span><ArrowRight size={14} aria-hidden /></Link></li>;
         })}
       </ul>
       {family.subcategories.length > 1 && (
@@ -70,7 +96,7 @@ export function TopicFamilyPage({ index }: { index: TopicIndex }) {
           <h1>{family.title}</h1>
           <p>{family.description} {family.subcategories.length} groups; open one to see its topics.</p>
         </div>
-        <TopicsArtwork kind={family.id} />
+        <TopicsArtwork kind={family.id} words={familyWords(family, index)} />
       </header>
       <section key={family.id} aria-labelledby="topics-groups-title">
         <div className="topics-section-heading"><h2 id="topics-groups-title">{active ? selected.title : "Choose a group"}</h2><span>{active ? family.title : "Every group opens onto its topics"}</span></div>
@@ -84,7 +110,7 @@ export function TopicFamilyPage({ index }: { index: TopicIndex }) {
             })}
           </div>
         }>
-          <GroupDetail family={family} group={selected} index={index} onChoose={choose} />
+          <GroupDetail key={selected.id} family={family} group={selected} index={index} onChoose={choose} />
         </RevealSelection>
       </section>
     </TopicsShell>

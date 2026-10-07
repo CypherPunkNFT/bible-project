@@ -6,7 +6,7 @@ import { useAsync } from "@/lib/useAsync";
 
 const SHOWN = 12;
 
-/** Topics that cite this chapter (Torrey's New Topical Textbook), most-cited first; each a link to the topic. */
+/** Topics that cite this chapter (Torrey's New Topical Textbook and Nave's Topical Bible), most-cited first; each a link to the topic. */
 export function ChapterTopics({ bookCode, bookNum, chapter }: { bookCode: string; bookNum: number; chapter: number }) {
   const inCanon = bookNum <= 66;
   const index = useAsync(loadTopicIndex, "topic-index");

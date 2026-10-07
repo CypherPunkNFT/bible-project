@@ -1,10 +1,34 @@
 import type { ReactElement } from "react";
+import { categoryStyle } from "@/lib/topic-style";
 
-/** Decorative line drawings for the twelve topic families, in the Atlas card style (src/pages/places/PlacesArtwork.tsx). */
-export function TopicsArtwork({ kind }: { kind: string }) {
+// Where faded topic names sit around a drawing: [x, y, text-anchor]. The corners and edges, clear of the centre.
+const WORD_SLOTS: [number, number, "start" | "middle" | "end"][] = [
+  [14, 22, "start"], [466, 22, "end"], [6, 92, "start"], [474, 92, "end"], [22, 172, "start"], [458, 172, "end"], [150, 12, "middle"], [330, 180, "middle"],
+];
+
+/** Decorative line drawings for the topic families, in the Atlas card style (src/pages/places/PlacesArtwork.tsx). A family
+ * without its own drawing gets an emblem: its icon in a radiant circle. `words` (a few of its topics) float faintly around it. */
+export function TopicsArtwork({ kind, words = [] }: { kind: string; words?: string[] }) {
   return <svg className={`topics-artwork topics-artwork-${kind}`} viewBox="0 0 480 185" fill="none" aria-hidden="true" focusable="false">
-    {ART[kind] ?? ART.scripture}
+    {words.slice(0, WORD_SLOTS.length).map((word, i) => {
+      const [x, y, anchor] = WORD_SLOTS[i];
+      return <text key={word} x={x} y={y} textAnchor={anchor} className="topics-artwork-word">{word}</text>;
+    })}
+    {ART[kind] ?? <Emblem kind={kind} />}
   </svg>;
+}
+
+/** The God family's radiant circle (below) around the family's own icon. */
+function Emblem({ kind }: { kind: string }) {
+  const { Icon } = categoryStyle(kind);
+  return <>
+    <g stroke="currentColor" opacity=".12"><ellipse cx="240" cy="92" rx="190" ry="66" /><ellipse cx="240" cy="92" rx="132" ry="44" /><path d="M50 92H430" /></g>
+    <g stroke="currentColor" opacity=".5">{Array.from({ length: 24 }, (_, i) => <path key={i} d={ray(240, 92, 56, i % 2 ? 68 : 80, i * 15)} />)}</g>
+    <circle cx="240" cy="92" r="46" fill="var(--surface)" stroke="currentColor" />
+    <circle cx="240" cy="92" r="38" fill="currentColor" fillOpacity=".08" stroke="currentColor" strokeOpacity=".3" />
+    <Icon x={219} y={71} width={42} height={42} strokeWidth={1.4} />
+    {[[96, 44], [384, 40], [130, 146], [356, 150]].map(([x, y], i) => <circle key={i} cx={x} cy={y} r={i < 2 ? 2.2 : 1.6} fill="currentColor" opacity=".5" />)}
+  </>;
 }
 
 const ray = (cx: number, cy: number, r1: number, r2: number, deg: number) => {

@@ -99,5 +99,11 @@ export const loadPlaces = () => load<Place[]>("places.json", Array.isArray);
 
 /** Topics: Torrey's New Topical Textbook in a two-level taxonomy (scripts/build-topics.py). */
 export const loadTopicIndex = () => load<TopicIndex>("topics/index.json", (v) => isObject(v) && Array.isArray(v.categories) && isObject(v.topics));
-export const loadTopic = (id: string) => load<Topic>(`topics/${id}.json`, (v) => isObject(v) && Array.isArray(v.points));
+/** A topic from its bundle file (the index gives the bundle number). */
+export async function loadTopic(id: string, bundle: number): Promise<Topic> {
+  const topics = await load<Record<string, Topic>>(`topics/t/${bundle}.json`, isObject);
+  const topic = topics[id];
+  if (!topic || !Array.isArray(topic.points)) throw new Error(`Topic "${id}" is not in bundle ${bundle}.`);
+  return topic;
+}
 export const loadChapterTopics = (code: string) => load<ChapterTopics>(`topics/books/${code}.json`, isObject);
