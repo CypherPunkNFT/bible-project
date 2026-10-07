@@ -23,6 +23,7 @@
     "content:build": "node --experimental-strip-types scripts/content.ts build",
     "content:check": "node --experimental-strip-types scripts/content.ts check",
     "content:audit": "node --experimental-strip-types scripts/content.ts audit",
+    "pages:content": "bun scripts/export-pages.ts",
     "test:content": "node --experimental-strip-types --test scripts/content/content.test.ts",
     "test:api": "node --experimental-strip-types scripts/tests/testimonies-api.ts",
     "lint": "eslint . --max-warnings 0",
