@@ -2,6 +2,7 @@ import { ArrowRight, Download, MapPin, MessageCircleQuestion, Sparkles, TextSear
 import { Link } from "react-router-dom";
 import { TopicSectionRows } from "@/pages/topics/TopicsHome";
 import "@/pages/topics/topics-collection.css";
+import "./search-topics.css";
 import { AP_BASE } from "@/lib/apologetics-links";
 import { useCatalog } from "@/lib/catalog";
 import { loadTopicIndex } from "@/lib/data";
@@ -89,7 +90,7 @@ function TopicBrowser() {
   const index = useAsync(loadTopicIndex, "topic-index");
   if (index.status !== "ready") return null;
   return (
-    <section aria-labelledby="browse-topics" className="mt-14 xl:-mx-12 2xl:-mx-32">{/* wider than the search column on large screens, like the Topics page */}
+    <section aria-labelledby="browse-topics" className="search-topic-browser mt-14 xl:-mx-12 2xl:-mx-32">{/* wider than the search column on large screens, like the Topics page */}
       <h2 id="browse-topics" className="font-serif text-3xl font-semibold tracking-tight">Or browse by topic</h2>
       <p className="mt-1 text-sm text-muted">{formatNumber(Object.keys(index.value.topics).length)} topics in {index.value.categories.length} families, each with the passages that speak to it.</p>
       <div className="mt-6"><TopicSectionRows index={index.value} /></div>
