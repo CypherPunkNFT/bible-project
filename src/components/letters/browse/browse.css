@@ -84,6 +84,20 @@
 .lb-panel { padding: 1.4rem; border: 1px solid var(--line); border-radius: 1rem; background: var(--surface); }
 .lb-panel + .lb-panel { margin-top: 1rem; }
 .lb-panel-label { margin-bottom: .7rem; font-size: .6rem; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+/* A collection's introduction under its title; the Bible's section headings beside the outline. */
+.lb-about { max-width: 72ch; margin: .2rem 0 1.8rem; }
+.lb-about p { font: 400 1.02rem/1.8 var(--font-serif); color: var(--ink); }
+.lb-about p + p { margin-top: .9rem; }
+.lb-beside { margin-top: 1.2rem; border-top: 1px solid var(--line); }
+.lb-beside-head, .lb-beside-row { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: 1.2rem; }
+.lb-beside-head { padding-block: .8rem .4rem; font-size: .6rem; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+.lb-beside-row { padding: .7rem 0 .7rem .8rem; border-top: 1px solid var(--line); border-left: 3px solid var(--part); }
+.lb-beside-row[data-kept] { background: color-mix(in srgb, var(--part) 12%, transparent); }
+.lb-beside-row b { display: block; font-size: .88rem; line-height: 1.4; }
+.lb-beside-row small { display: block; margin-top: .15rem; font-size: .72rem; color: var(--muted); }
+.lb-beside-row ul { display: grid; gap: .45rem; }
+.lb-beside-row li { font-size: .85rem; line-height: 1.4; }
+.lb-beside-row li small { display: inline; margin: 0 0 0 .4rem; }
 .lb-tip { min-height: 2.6em; margin-top: .7rem; font-size: .85rem; color: var(--muted); }
 .lb-tip b { color: var(--ink); }
 .lb-caption { margin-top: .9rem; font-size: .78rem; line-height: 1.7; color: var(--muted); }
@@ -187,6 +201,7 @@
   .lb-part-head { grid-template-columns: auto minmax(0, 1fr); } .lb-part-art { display: none; }
 }
 @media (max-width: 640px) {
+  .lb-beside-head, .lb-beside-row { grid-template-columns: 1fr; gap: .4rem; }
   .lb-cards, .lb-pager, .lb-hands { grid-template-columns: 1fr; }
   .lb-emblem { display: none; }
   .lb-outline { gap: 2px; min-height: 44px; } .lb-outline button { min-width: 2px; padding: 0; } .lb-outline button span { display: none; }

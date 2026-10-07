@@ -46,3 +46,19 @@ test("letters: every page has its sources and no page scrolls sideways", async (
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
   }
 });
+
+// Owner trial on Paul's letters (2026-10-07): the collection's introduction, its own Old Testament chart, and the
+// Bible's section headings beside the outline. The other three collections keep the short tagline for now.
+test("letters: Paul's letters show the introduction, their own Old Testament chart and headings beside the outline", async ({ page }) => {
+  await page.goto("/study/letters/paul");
+  await expect(page.locator(".lb-about p")).toHaveCount(3);
+  await expect(page.locator(".lb-about")).toContainText("Tarsus");
+  await page.goto("/study/letters/paul/inside/shape?letter=ROM");
+  await expect(page.locator(".lb-beside-row")).toHaveCount(10);
+  await expect(page.locator(".lb-beside")).toContainText("Unashamed of the Gospel");
+  await page.goto("/study/letters/paul/inside/ot?letter=ROM");
+  await expect(page.locator("#part-ot")).toContainText("Isaiah");
+  await expect(page.locator("#part-ot .lb-ot-list li").first()).toBeVisible();
+  await page.goto("/study/letters/hebrews");
+  await expect(page.locator(".lb-about")).toHaveCount(0);
+});

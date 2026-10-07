@@ -1,6 +1,7 @@
-import type { Letter } from "@/data/letters/types";
+import type { Letter, LetterGroup } from "@/data/letters/types";
 import { CanonLanes } from "../CanonLanes";
 import { BetterLadder, OpenQuestions } from "../LetterBlocks";
+import { FlowChart } from "../FlowChart";
 import { LetterMap } from "../LetterMap";
 import { ParallelRibbon } from "../ParallelRibbon";
 import { PeopleCards } from "../PeopleCards";
@@ -16,18 +17,25 @@ export type Chosen = Record<GroupKey, [Letter, (code: string) => void]>;
 const card = (art: string, tone: string, icon: CardDef["icon"], eyebrow: string, title: string, text: string, foot: string, cta: string): CardDef => ({ art, tone, icon, eyebrow, title, text, foot, cta });
 const part = (id: string, c: CardDef, lead: string, body: PartDef["body"]): PartDef => ({ id, card: c, lead, body });
 
+/** What a collection adds to its "Inside" cards: its own Old Testament chart, and the Bible's headings beside the outline. */
+interface InsideExtras { flow?: LetterGroup["flows"][number]; collection?: string; headings?: boolean }
+
 /** The four parts every collection's "Inside" section shows, for the chosen letter. */
-function inside(l: Letter, fourth: "ot" | "names" = "ot"): PartDef[] {
+function inside(l: Letter, fourth: "ot" | "names" = "ot", extras: InsideExtras = {}): PartDef[] {
+  const { flow, collection, headings } = extras;
   return [
     part("glance", card("glance", "epistles", "book", "At a glance", `${l.name} at a glance`, "Who wrote it, to whom, from where and when, with its key verses and themes.", "Key verses · Themes · People · Places", "Read the overview"),
       "Who wrote it, to whom, from where, when and why; who and where it names; its key verses and its themes.", <Glance key={l.code} letter={l} />),
-    part("shape", card("shape", "history", "bars", "Its shape", "How it is built", "The letter cut into its sections, and its outline in our own words.", "Teaching · Practice · Personal", "See the outline"),
-      "The letter cut into its parts, in our own words, coloured by what each part does.", <OutlineBar key={l.code} letter={l} />),
+    part("shape", card("shape", "history", "bars", "Its shape", "How it is built", headings ? "Its outline in our own words, beside the Bible's own section headings." : "The letter cut into its sections, and its outline in our own words.", "Teaching · Practice · Personal", "See the outline"),
+      headings ? "The letter cut into its parts, in our own words, coloured by what each part does; beneath, each part beside the Bible's section headings inside it."
+        : "The letter cut into its parts, in our own words, coloured by what each part does.", <OutlineBar key={l.code} letter={l} headings={headings} />),
     part("words", card("words", "gospels", "star", "Greek words", "The words it leans on", "Its key Greek words as stars; choose one for every verse.", "Every verse behind each star", "See the words"),
       "Its key Greek words, counted in the Greek text. Click one to list every verse it appears in.", <LetterWords key={l.code} letter={l} />),
     fourth === "names"
       ? part("names", card("people", "poetry", "users", "Who and where", `People and places in ${l.name}`, "Everyone the letter names, and every place, with where it names them.", "People · Places", "See the names"), "Everyone and everywhere the letter names.", <PeoplePlaces letter={l} />)
-      : part("ot", card("ot", "epistles", "book", "Old Testament", `The Old Testament behind ${l.name}`, "Each quotation linked to the passage it comes from.", "Psalms · Isaiah · More", "Follow the quotations"), "Each quotation, linked to the passage it comes from.", <OtList key={l.code} letter={l} />),
+      : part("ot", card("ot", "epistles", "book", "Old Testament", `The Old Testament behind ${l.name}`, flow ? `Where ${collection}'s quotations come from, then each one in ${l.name}.` : "Each quotation linked to the passage it comes from.", "Psalms · Isaiah · More", "Follow the quotations"),
+        flow ? `Where the quotations in ${collection} come from, book by book. Click a book or a letter to keep it. Below, each quotation in ${l.name}, linked to the passage it comes from.` : "Each quotation, linked to the passage it comes from.",
+        <>{flow && <FlowChart flow={flow} />}<OtList key={l.code} letter={l} /></>),
   ];
 }
 
@@ -50,7 +58,7 @@ export function collectionPages(data: LettersData, chosen: Chosen): Record<strin
   const [paulLetter, choosePaul] = chosen.paul, [genLetter, chooseGen] = chosen.general, [johnLetter, chooseJohn] = chosen.john;
   const heb = G.hebrews.letters[0];
   return {
-    paul: { ...common("paul"), slug: "paul", title: "Paul's letters", right: "PAUL'S LETTERS", tone: "epistles", kicker: "Thirteen letters · Paul", h1: "Paul's letters.", em: "Written on the road.",
+    paul: { ...common("paul"), about: G.paul.intro, slug: "paul", title: "Paul's letters", right: "PAUL'S LETTERS", tone: "epistles", kicker: "Thirteen letters · Paul", h1: "Paul's letters.", em: "Written on the road.",
       intro: "Letters to young churches and to friends, from his first visit to Thessalonica to his last days in Rome. Choose a letter, then a card.",
       emblem: "route", caption: "EARLY · MAJOR · PRISON · PASTORAL", bar: <GroupsBar data={data} group="paul" chosen={paulLetter} choose={choosePaul} />,
       sections: [
@@ -64,7 +72,8 @@ export function collectionPages(data: LettersData, chosen: Chosen): Record<strin
           part("onesimus", card("onesimus", "acts", "mail", "A story in letters", "The story of Onesimus", "A runaway slave sent home with a letter from Rome to Colossae.", "Philemon · Colossians", "Follow the story"),
             "A runaway sent home with a letter, from Paul's prison to Philemon's house.", <TimelineStrip timeline={tl("paul", "onesimus")} />),
         ] },
-        { id: "inside", art: "glance", tone: "prophets", picker: true, title: `Inside ${paulLetter.name}`, lead: "Choose any of the thirteen; these four cards follow it.", parts: inside(paulLetter) },
+        { id: "inside", art: "glance", tone: "prophets", picker: true, title: `Inside ${paulLetter.name}`, lead: "Choose any of the thirteen; these four cards follow it.",
+          parts: inside(paulLetter, "ot", { flow: G.paul.flows.find((f) => f.id === "ot-sources"), collection: "Paul's letters", headings: true }) },
         { id: "side", art: "compare", tone: "poetry", title: "Side by side, and how they were read", lead: "Pairs of letters, the people Paul greets, and how the church received them.", parts: [
           part("ephcol", card("compare", "prophets", "compare", "Twin letters", "Ephesians and Colossians", "Two letters written close together, passage against passage.", "31 paired passages", "Compare them"),
             "Thirty-one passages that run in parallel. Click a ribbon to keep it.", <ParallelRibbon parallel={par("paul", "ephesians-colossians")} />),

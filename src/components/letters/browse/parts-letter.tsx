@@ -1,5 +1,7 @@
 import { useState, type CSSProperties } from "react";
 import { PassageText } from "@/components/study/StudyParts";
+import { loadLetters } from "@/lib/study";
+import { useAsync } from "@/lib/useAsync";
 import type { Letter, Named } from "@/data/letters/types";
 import { useKeep, useSpanLabel, useVerseIndex, useWordVerses } from "../letter-hooks";
 import { ClaimText, KeepX, Refs } from "../LetterParts";
@@ -54,8 +56,9 @@ export function PeoplePlaces({ letter }: { letter: Letter }) {
 }
 
 /** The letter cut into its parts in our own words, each as long as it is, coloured by what it does. */
-export function OutlineBar({ letter }: { letter: Letter }) {
+export function OutlineBar({ letter, headings = false }: { letter: Letter; headings?: boolean }) {
   const index = useVerseIndex(), label = useSpanLabel(), keep = useKeep<number>();
+  const sections = useAsync(loadLetters, "letters");
   if (!index) return <div className="lb-panel" style={{ minHeight: 120 }} />;
   const parts = letter.outline, kinds = [...new Set(parts.map((p) => p.kind).filter(Boolean))] as string[];
   const verses = (i: number) => index(parts[i].span[1]) - index(parts[i].span[0]) + 1;
@@ -65,6 +68,19 @@ export function OutlineBar({ letter }: { letter: Letter }) {
     <div className="lb-outline">{parts.map((p, i) => <button key={p.span[0]} type="button" aria-pressed={keep.kept === i} style={{ flexGrow: verses(i), "--part": kindTone(p.kind) } as CSSProperties} {...keep.bind(i)}><span>{p.title}</span></button>)}</div>
     <p className="lb-tip">{k ? <><b>{k.title}</b>{keep.kept !== null && <KeepX onRelease={keep.release} />} · {label(k.span)} · {verses(parts.indexOf(k))} verses{k.kind ? ` · ${k.kind}` : ""}<Refs refs={[k.span]} /></>
       : `${letter.name} in ${parts.length} parts, each as long as it is, in our own words. Click a part to keep it.`}</p>
+    {headings && sections.status === "ready" && <HeadingsBeside parts={parts} sections={sections.value.find((s) => s.code === letter.code)?.sections ?? []} kept={keep.kept} label={label} />}
+  </div>;
+}
+
+/** Each outline part (our words) beside the Berean Standard Bible's section headings that fall inside it. */
+function HeadingsBeside({ parts, sections, kept, label }: { parts: Letter["outline"]; sections: { title: string; start: number; end: number }[]; kept: number | null; label: (span: [number, number]) => string }) {
+  if (!sections.length) return null;
+  return <div className="lb-beside">
+    <div className="lb-beside-head"><span>Our outline</span><span>The Bible's section headings (Berean Standard Bible)</span></div>
+    {parts.map((p, i) => <div key={p.span[0]} className="lb-beside-row" data-kept={kept === i || undefined} style={{ "--part": kindTone(p.kind) } as CSSProperties}>
+      <div><b>{p.title}</b><small>{label(p.span)}</small></div>
+      <ul>{sections.filter((s) => s.start >= p.span[0] && s.start <= p.span[1]).map((s) => <li key={s.start}>{s.title}<small>{label([s.start, s.end])}</small></li>)}</ul>
+    </div>)}
   </div>;
 }
 

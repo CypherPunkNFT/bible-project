@@ -1,8 +1,8 @@
 import { ArrowLeft, ArrowRight, ArrowUpRight, BookOpen, CircleCheck, Clock, Cross, Globe2, GitCompare, Lamp, Link as LinkIcon, Mail, Map as MapIcon, PenTool, Route, Split, Star, Tags, Tent, Users, AlignLeft, type LucideIcon } from "lucide-react";
 import type { CSSProperties, ReactNode } from "react";
 import { Link, useLocation } from "react-router-dom";
-import type { Citation } from "@/data/letters/types";
-import { CitationProvider } from "../LetterParts";
+import type { Citation, Claim } from "@/data/letters/types";
+import { CitationProvider, ClaimText } from "../LetterParts";
 import { SourcesList } from "../LetterBlocks";
 import { drawing } from "./builders";
 
@@ -28,6 +28,8 @@ export interface SectionDef { id: string; art: string; tone: string; title: stri
 export interface PageDef {
   slug: string; title: string; crumb: string; right: string; tone: string; kicker: string; h1: string; em: string; intro: string;
   emblem: IconName; caption: string; bar: ReactNode; sections: SectionDef[]; citations: Citation[];
+  /** The collection's introduction (3–4 paragraphs with source marks), shown under the title. */
+  about?: Claim[];
 }
 
 export function Card({ card, n, to }: { card: CardDef; n: number; to: string }) {
@@ -70,6 +72,11 @@ function Hero({ page }: { page: PageDef }) {
   </header>;
 }
 
+function About({ claims }: { claims?: Claim[] }) {
+  if (!claims?.length) return null;
+  return <section className="lb-about" aria-label="About these letters">{claims.map((claim, i) => <ClaimText key={i} claim={claim} />)}</section>;
+}
+
 /** A collection or way-in page: title, its bar, and three rows of cards; each card opens its section at its part. */
 export function CollectionPage({ page }: { page: PageDef }) {
   const { search } = useLocation();
@@ -77,6 +84,7 @@ export function CollectionPage({ page }: { page: PageDef }) {
   return <CitationProvider citations={page.citations}><div className="lb" style={toneStyle(page.tone)}>
     <Crumbs parts={[page.crumb]} right={page.right} />
     <Hero page={page} />
+    <About claims={page.about} />
     {page.bar}
     <CardRows rows={rows} compact />
     <Sources citations={page.citations} />
