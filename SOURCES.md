@@ -119,6 +119,40 @@ The **Names of God** page reads the snapshot above (refresh: copy the two files 
 diff, then update the checksums) — never the live files,
 and never edits that site.
 
+## Reference library — downloaded 2026-10-07 (owner: "let's get everything")
+
+Highly respected reference works, added so that person, place and topic pages can show researched, credited
+information. **None is used on the site yet.** Each "Planned use" is a to-do, and the full plan is in the project's
+`REFERENCE_LIBRARY.md`. Everything is fetched by `scripts/fetch-sources.py`; two of these sources update in place
+(Theographic, OpenBible Topics), so a fresh download can differ from these checksums.
+
+| File | What · Planned use | Licence | Checksum |
+|---|---|---|---|
+| [isbe](sources/crosswire/ISBE.zip) | James Orr (ed.), *International Standard Bible Encyclopedia* (1915), about 9,000 articles; CrossWire SWORD module, version 2.2 · **the in-depth article on person, place and topic pages** | Public domain (CrossWire: "DistributionLicense=Public Domain") | 4de747545d9c349a |
+| [smith-xml](sources/ccel/smith-bibledict.xml) | William Smith, *Smith's Bible Dictionary* (1863/1884), CCEL edition · a second classic-dictionary voice on person, place and topic pages | Book public domain; CCEL claims its electronic markup, so the text is used, not CCEL's markup | f0aa85b544f70384 |
+| [hitchcock-xml](sources/ccel/hitchcock-bible-names.xml) | Roswell D. Hitchcock, *Bible Names Dictionary* (1869), CCEL edition · **the meaning of each name** on person and place pages | as above | 43390f72248bb368 |
+| [fausset-ocr](sources/archive-org/fausset-bible-encyclopedia-1900.txt) | A. R. Fausset, *Bible Encyclopaedia and Dictionary, Critical and Expository* (1900 printing), Internet Archive item `bibleencyclopedi0000arfa_c4x1`, machine-read (OCR) text · a third dictionary voice, **after cleaning** | Public domain (1900; author died 1910) | 1dd222ab3f21cb1f |
+| [theographic](sources/theographic/theographic-bible-metadata.zip) | Robert Rouse, *Theographic Bible Metadata*: people, places, events, periods and dates linked to verses (GitHub `robertrouse/theographic-bible-metadata`, master) · dates for the people periods, events on person pages, a timeline, a cross-check of family links | **CC BY-SA 4.0**: credit Theographic; anything built from it is shared under the same licence | 16b4def7d1bf491a |
+| [openbible-topics](sources/openbible-topics/topic-scores.zip) | OpenBible.info *Topical Bible*: modern topics with verse references ranked by reader votes (generated 2026-10-05; updated weekly) · today's topics beside Torrey's and Nave's, verses ranked by votes; **references only** (its quotations are ESV, which is under copyright) | **CC BY**: credit OpenBible.info | ba9c95ecc5377ca0 |
+| [strongs](sources/openscriptures/strongs.zip) | James Strong's Hebrew and Greek dictionaries, Open Scriptures edition (GitHub `openscriptures/strongs`, master) · **word study pages**, keyed by the Strong's numbers already in our KJV | Public domain (files: "rights: Public Domain") | b462cb85fd7e825f |
+| [hebrew-lexicon](sources/openscriptures/HebrewLexicon.zip) | Brown, Driver & Briggs, *Hebrew and English Lexicon* (1906) with Strong's Hebrew, Open Scriptures' Hebrew Lexicon (GitHub `openscriptures/HebrewLexicon`, master) · word study pages (Hebrew) | Text public domain; this edition **CC BY 4.0**: credit Open Scriptures | 907bcdcd507b40b9 |
+| [thayer-ocr](sources/archive-org/thayer-lexicon-1889.txt) | Joseph Henry Thayer, *Greek-English Lexicon of the New Testament* (1889 printing), Internet Archive item `thayer-lexicon`, OCR text · word study pages (Greek), **after cleaning** | Public domain (Internet Archive marks it CC0) | 345d42ff7be84bdf |
+| [josephus-antiquities](sources/gutenberg/josephus-antiquities-2848.txt) | Flavius Josephus, *Antiquities of the Jews*, tr. William Whiston, Project Gutenberg #2848 · "outside the Bible" history notes on person and place pages | Public domain in the US (Project Gutenberg edition) | bb2e32da8ba3adc1 |
+| [josephus-wars](sources/gutenberg/josephus-wars-2850.txt) | Josephus, *The Wars of the Jews*, tr. Whiston, Project Gutenberg #2850 · as above | as above | 9a72663aefa6b22b |
+| [josephus-life](sources/gutenberg/josephus-life-2846.txt) | Josephus, *The Life of Flavius Josephus*, tr. Whiston, Project Gutenberg #2846 · as above | as above | 7c4408526f781f67 |
+| [josephus-apion](sources/gutenberg/josephus-apion-2849.txt) | Josephus, *Against Apion*, tr. Whiston, Project Gutenberg #2849 · as above | as above | b6791c018b1033ea |
+
+Nave's *Topical Bible* (above, `nave-xml`) was downloaded on 2026-10-03 but is not used yet. Its planned use is the
+Topics expansion (about 14 super-categories), merged with Torrey's.
+
+**Not used, on purpose:** the Thompson Chain-Reference Bible and modern study Bibles (ESV, NIV) are under copyright,
+and Vine's *Expository Dictionary* has an unclear copyright status.
+
+URLs: CrossWire `https://www.crosswire.org/ftpmirror/pub/sword/packages/rawzip/ISBE.zip`; CCEL
+`https://ccel.org/ccel/{s/smith_w/bibledict,h/hitchcock/bible_names}.xml`; Internet Archive
+`https://archive.org/download/<item>/<file>_djvu.txt`; GitHub archives of the three repositories above; OpenBible
+`https://a.openbible.info/data/topic-scores.zip`; Project Gutenberg `https://www.gutenberg.org/cache/epub/<n>/pg<n>.txt`.
+
 ## Four Gospel portraits (2026-10-04)
 
 The narrative map uses the existing Robertson harmony references and KJV chapter/verse counts above.

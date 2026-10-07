@@ -41,6 +41,25 @@ DOWNLOADS = [
      "TIPNR%20-%20Translators%20Individualised%20Proper%20Names%20with%20all%20References%20-%20STEPBible.org%20CC%20BY.txt",
      "stepbible/TIPNR.txt", None),
     ("torrey-xml", "https://ccel.org/ccel/t/torrey/ttt.xml", "ccel/ttt.xml", None),
+    ("nave-xml", "https://ccel.org/ccel/n/nave/bible.xml", "ccel/bible.xml", None),
+    ("easton-xml", "https://ccel.org/ccel/e/easton/ebd2.xml", "ccel/ebd2.xml", None),
+    # Reference library, 2026-10-07 (SOURCES.md "Reference library"; how each is to be used: REFERENCE_LIBRARY.md beside this repository).
+    ("isbe", "https://www.crosswire.org/ftpmirror/pub/sword/packages/rawzip/ISBE.zip", "crosswire/ISBE.zip", "crosswire/ISBE"),
+    ("smith-xml", "https://ccel.org/ccel/s/smith_w/bibledict.xml", "ccel/smith-bibledict.xml", None),
+    ("hitchcock-xml", "https://ccel.org/ccel/h/hitchcock/bible_names.xml", "ccel/hitchcock-bible-names.xml", None),
+    ("fausset-ocr", "https://archive.org/download/bibleencyclopedi0000arfa_c4x1/bibleencyclopedi0000arfa_c4x1_djvu.txt",
+     "archive-org/fausset-bible-encyclopedia-1900.txt", None),
+    ("theographic", "https://github.com/robertrouse/theographic-bible-metadata/archive/refs/heads/master.zip",
+     "theographic/theographic-bible-metadata.zip", "theographic"),
+    ("openbible-topics", "https://a.openbible.info/data/topic-scores.zip", "openbible-topics/topic-scores.zip", "openbible-topics"),
+    ("strongs", "https://github.com/openscriptures/strongs/archive/refs/heads/master.zip", "openscriptures/strongs.zip", "openscriptures/strongs"),
+    ("hebrew-lexicon", "https://github.com/openscriptures/HebrewLexicon/archive/refs/heads/master.zip",
+     "openscriptures/HebrewLexicon.zip", "openscriptures/HebrewLexicon"),
+    ("thayer-ocr", "https://archive.org/download/thayer-lexicon/Thayer%20lexicon_djvu.txt", "archive-org/thayer-lexicon-1889.txt", None),
+    ("josephus-antiquities", "https://www.gutenberg.org/cache/epub/2848/pg2848.txt", "gutenberg/josephus-antiquities-2848.txt", None),
+    ("josephus-wars", "https://www.gutenberg.org/cache/epub/2850/pg2850.txt", "gutenberg/josephus-wars-2850.txt", None),
+    ("josephus-life", "https://www.gutenberg.org/cache/epub/2846/pg2846.txt", "gutenberg/josephus-life-2846.txt", None),
+    ("josephus-apion", "https://www.gutenberg.org/cache/epub/2849/pg2849.txt", "gutenberg/josephus-apion-2849.txt", None),
 ]
 BUNDLED = [("faith-names", "cypherpunk-faith/faith-names.json"), ("faith-names-approved", "cypherpunk-faith/faith-names-approved.json")]
 
