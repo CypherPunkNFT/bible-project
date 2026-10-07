@@ -1,6 +1,35 @@
 import { expect, test } from "@playwright/test";
 import { readFileSync } from "node:fs";
 
+test("home: landing designs switch in place and keep flat illustrated shortcuts", async ({ page }) => {
+  await page.goto("/?landing=outline");
+  const options = page.getByRole("navigation", { name: "Landing designs" });
+  const shortcuts = page.getByRole("navigation", { name: "Explore the five collections" });
+  for (const theme of ["dark", "light"] as const) {
+    await page.emulateMedia({ colorScheme: theme });
+    const themeSwitch = page.getByRole("switch", { name: "Dark mode" });
+    if ((await themeSwitch.getAttribute("aria-checked")) !== String(theme === "dark")) await themeSwitch.click();
+    await expect(page.locator("html")).toHaveAttribute("data-theme", theme);
+    for (const [id, name] of [["outline", "Outlined boxes"], ["gallery", "Open gallery"], ["rail", "Illustrated rail"]]) {
+      await options.getByRole("button", { name: new RegExp(name) }).click();
+      await expect(page.locator(".home-hub")).toHaveAttribute("data-landing", id);
+      await expect(options.getByRole("button", { name: new RegExp(name) })).toHaveAttribute("aria-pressed", "true");
+      await expect(shortcuts.getByRole("link")).toHaveCount(5);
+      await expect(shortcuts.locator(".home-doorway-art > svg")).toHaveCount(5);
+      await expect(page.getByRole("link", { name: "Explore the collections", exact: true })).toHaveCount(0);
+      expect(await shortcuts.getByRole("link").first().evaluate((el) => getComputedStyle(el).backgroundImage)).toBe("none");
+      expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(1);
+      const box = await shortcuts.boundingBox();
+      expect(box!.y + box!.height).toBeLessThanOrEqual(page.viewportSize()!.height + 1);
+      await page.screenshot({ path: `front-end capture/2026-10-07/landing-${id}-${theme}-${test.info().project.name}.png` });
+    }
+  }
+  await shortcuts.getByRole("link", { name: /^Bible/ }).click();
+  await expect(page).toHaveURL(/\/bible$/);
+  await page.goto("/");
+  await expect(options).toHaveCount(0);
+});
+
 test("home: illustrated collections fit both themes and all destinations exist", async ({ page }) => {
   const errors: string[] = [];
   page.on("pageerror", (error) => errors.push(error.message));
@@ -54,8 +83,7 @@ test("home: reading memory and preview navigation open the intended pages", asyn
     await expect(page.getByRole("heading", { level: 1 })).toContainText(new RegExp(heading, "i"));
   }
   await page.goto("/");
-  await page.getByRole("link", { name: "Explore the collections", exact: true }).click();
-  await expect(page.locator("#explore")).toBeInViewport();
+  await expect(page.getByRole("link", { name: "Explore the collections", exact: true })).toHaveCount(0);
 });
 
 test("home: marquee keeps moving on hover, supports deliberate pause and respects reduced motion", async ({ page }) => {

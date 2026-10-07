@@ -1,11 +1,12 @@
-import { ArrowDown, ArrowRight, ArrowUpRight, BookOpen, Compass, GitBranch, Map, Pause, Play } from "lucide-react";
+import { ArrowRight, ArrowUpRight, BookOpen, Compass, GitBranch, Map, Pause, Play } from "lucide-react";
 import { useLayoutEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { useCatalog } from "@/lib/catalog";
 import { lastReadPath } from "@/lib/last-read";
 import { BibleShelf, CollectionArtwork, HomeArtwork, OpenBible, QuestionOrbit } from "@/components/home/HomeArtwork";
 import { HOME_PATHS, HOME_PREVIEWS, HOME_STUDIES, HOME_TOPICS } from "@/components/home/collection-data";
 import "@/components/home/home-hub.css";
+import "@/components/home/home-landing-options.css";
 
 const tint = (color: string) => ({ "--home-color": `var(--${color})` } as CSSProperties);
 
@@ -26,6 +27,11 @@ function PreviewMarquee() {
 }
 
 export default function HomePage() {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const requestedLanding = searchParams.get("landing");
+  const landingOptions = ["outline", "gallery", "rail"] as const;
+  const comparing = landingOptions.some((option) => option === requestedLanding);
+  const landing = comparing ? requestedLanding : "outline";
   const opening = useRef<HTMLDivElement>(null);
   useLayoutEffect(() => {
     const header = document.querySelector("body header");
@@ -45,10 +51,13 @@ export default function HomePage() {
   const resumeLabel = version ? `Continue: ${book?.name ?? code} ${chapter}` : "Begin with John 1";
   const languages = new Set(catalog.translations.map((item) => item.lang)).size;
 
-  return <div className="home-hub">
+  return <div className="home-hub" data-landing={landing}>
     <div className="home-opening" ref={opening}>
+    {comparing && <nav className="home-landing-options home-wrap" aria-label="Landing designs">
+      {landingOptions.map((option, index) => <button key={option} type="button" aria-pressed={landing === option} onClick={() => setSearchParams((current) => { const next = new URLSearchParams(current); next.set("landing", option); return next; }, { preventScrollReset: true })}><span>0{index + 1}</span>{option === "outline" ? "Outlined boxes" : option === "gallery" ? "Open gallery" : "Illustrated rail"}</button>)}
+    </nav>}
     <section className="home-hero home-wrap" aria-labelledby="home-title">
-      <div className="home-hero-copy"><p className="home-eyebrow"><span className="home-live-dot" />The Bible, open to you</p><h1 id="home-title">One Word.<br /><em>A world to<br className="home-hero-break" /> discover.</em></h1><p className="home-hero-lead">Read the Scriptures. Follow the connections.<br />Bring your questions. See the bigger story.</p><div className="home-hero-actions"><Link className="home-button" to={resume}><BookOpen size={17} aria-hidden />{resumeLabel}<ArrowRight size={17} aria-hidden /></Link><a className="home-text-link" href="#explore">Explore the collections<ArrowDown size={16} aria-hidden /></a></div><p className="home-hero-foot">Free to explore. Open to everyone.<span>{catalog.translations.length} Bible versions · {languages} languages</span></p></div>
+      <div className="home-hero-copy"><p className="home-eyebrow"><span className="home-live-dot" />The Bible, open to you</p><h1 id="home-title">One Word.<br /><em>A world to<br className="home-hero-break" /> discover.</em></h1><p className="home-hero-lead">Read the Scriptures. Follow the connections.<br />Bring your questions. See the bigger story.</p><div className="home-hero-actions"><Link className="home-button" to={resume}><BookOpen size={17} aria-hidden />{resumeLabel}<ArrowRight size={17} aria-hidden /></Link></div><p className="home-hero-foot">Free to explore. Open to everyone.<span>{catalog.translations.length} Bible versions · {languages} languages</span></p></div>
       <div className="home-hero-art" aria-label="Scripture at the heart of the collection">
         <div className="home-art-orbit home-art-orbit-one" aria-hidden /><div className="home-art-orbit home-art-orbit-two" aria-hidden /><div className="home-art-crosshair" aria-hidden />
         <Link to="/bible" className="home-hero-book" aria-label="Explore the Bible"><OpenBible /></Link>
