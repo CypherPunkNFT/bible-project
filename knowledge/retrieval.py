@@ -175,6 +175,8 @@ def status(config):
 
 
 def verify(config):
+    from .source_audit import source_drift
+    from .settings import write_json
     db = connect(config["db"], readonly=True)
     try:
         active = {row[0] for row in db.execute("SELECT id FROM chunks")}
@@ -209,6 +211,10 @@ def verify(config):
                     checksum = hashlib.file_digest(stream, "sha256").hexdigest()
                 if checksum != recorded[name]:
                     changed_ledgers.append(name)
+        drift = source_drift(config, db)
+        write_json(config["state_dir"] / "source-drift.json", drift)
+        reference_row = db.execute("SELECT value FROM meta WHERE key='reference_intake'").fetchone()
+        reference_intake = json.loads(reference_row[0]) if reference_row else None
         complete = actual == active and bool(active) and not duplicate_vectors and integrity == "ok" and not foreign_keys and identity_ok and job_complete
         return {"sqlite_integrity": integrity,
                 "foreign_key_errors": foreign_keys, "embedding_identity_matches": identity_ok,
@@ -216,13 +222,19 @@ def verify(config):
                 "chunks": len(active), "vectors": len(actual), "missing_vectors": len(active-actual), "stale_vectors": len(actual-active),
                 "verse_count": db.execute("SELECT COUNT(*) FROM verses").fetchone()[0],
                 "duplicate_vectors": duplicate_vectors,
+                "new_source_files_since_snapshot": len(drift["new"]),
+                "changed_source_inputs_since_snapshot": len(drift["changed"]),
+                "missing_source_inputs_since_snapshot": len(drift["missing"]),
+                "source_files_hash_checked": drift["checked_files"],
+                "reference_library": reference_intake,
                 "new_library_files_since_snapshot": len(new_files),
                 "missing_library_files_since_snapshot": len(missing_files),
                 "changed_library_ledgers_since_snapshot": len(changed_ledgers),
                 "library": {"files": library["files"], "statuses": library["statuses"], "errors": len(library["errors"]),
                             "missing_catalog_files": len(library.get("missing_catalog_files", []))} if library else None,
                 "complete": complete,
-                "enrichment_ready": bool(complete and library and not library["errors"] and not library.get("missing_catalog_files")
+                "enrichment_ready": bool(complete and library and reference_intake and not library["errors"] and not library.get("missing_catalog_files")
+                    and not drift["new"] and not drift["changed"] and not drift["missing"]
                     and not new_files and not missing_files and not changed_ledgers
                     and not library["statuses"].get("no_text") and not library["statuses"].get("unsupported"))}
     finally:

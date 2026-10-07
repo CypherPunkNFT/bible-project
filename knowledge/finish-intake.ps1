@@ -44,8 +44,10 @@ try {
         $verification = ($json -join "`n") | ConvertFrom-Json
         if (-not $verification.complete) { throw 'Embedding pass is incomplete or failed verification; inspect embedding-error.log and resume the instance.' }
         if ($verification.missing_library_files_since_snapshot -gt 0) { throw 'Previously imported originals are missing. Inspect the source collection before refreshing.' }
-        if ($verification.new_library_files_since_snapshot -gt 0 -or $verification.changed_library_ledgers_since_snapshot -gt 0) {
+        if ($verification.missing_source_inputs_since_snapshot -gt 0) { throw 'Previously indexed source inputs are missing. Inspect source-drift.json before refreshing.' }
+        if ($verification.new_library_files_since_snapshot -gt 0 -or $verification.changed_library_ledgers_since_snapshot -gt 0 -or $verification.new_source_files_since_snapshot -gt 0 -or $verification.changed_source_inputs_since_snapshot -gt 0) {
             Write-Output "Found $($verification.new_library_files_since_snapshot) later acquisition files and $($verification.changed_library_ledgers_since_snapshot) changed ledgers. Refreshing and reusing saved vectors."
+            Write-Output "Full source audit: $($verification.new_source_files_since_snapshot) new files; $($verification.changed_source_inputs_since_snapshot) changed inputs. See source-drift.json."
             Write-Completion @{state='refreshing_late_acquisitions'; pid=$PID; verification=$verification}
             Refresh-Corpus
             continue

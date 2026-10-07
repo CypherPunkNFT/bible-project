@@ -1,5 +1,7 @@
 # Bible Project local knowledge library
 
+**New-input refresh (2026-10-07):** The October 6 completion below is a historical snapshot, not coverage of later downloads. The new reference adapters and full content-hash audit are documented in [REFERENCE-INTAKE.md](REFERENCE-INTAKE.md). See runtime `intake-completion.json`, `embedding-progress.json` and `source-drift.json` for the current run.
+
 **STUDY MAP — TABLES FIRST:** [Actual relationships, all collections, all 110 topics and catalogue facets](STUDY-MAP.md). Rebuild with `python -m knowledge.study_map`. The [study-table specification](STUDY-TABLES.md) makes sortable evidence tables and comparisons the primary study surface; graph visualization is secondary. Inventory/specification are complete; the interactive table UI remains planned.
 
 **Enrichment strategy:** [LLM-authored term libraries and deterministic Python/FTS5 passes](ENRICHMENT-STRATEGY.md) is the preferred first method for the [analytical roadmap](ANALYSIS.md). Intelligence is prepared and validated in reusable rules; the bulk runner makes no model calls. The strategy is documented; term packs and the runner remain planned.
@@ -32,7 +34,7 @@ powershell -ExecutionPolicy Bypass -File knowledge/finish-intake.ps1 -Resume
 powershell -ExecutionPolicy Bypass -File knowledge/start.ps1 -Stop
 ```
 
-The launcher uses the dedicated environment at `../KnowledgeBase/.venv`. There is no scheduled task, automatic download, remote embedding API or public listener. Services bind to 127.0.0.1. To start without the bulk embedding job, add `-NoIndex`. Searches by meaning may load the encoder on demand.
+The launcher uses the dedicated environment at `../KnowledgeBase/.venv`. The existing BibleProject-Knowledge-Watchdog checks every 30 minutes and resumes stopped embedding work. There is no automatic download, remote embedding API or public listener. Services bind to 127.0.0.1. To start without the bulk embedding job, add `-NoIndex`. Searches by meaning may load the encoder on demand.
 
 ## What was reviewed and reused
 

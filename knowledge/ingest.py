@@ -8,6 +8,7 @@ from .bibles import import_bibles
 from .documents import import_study, import_authored, import_reference_books, import_project_docs
 from .graph import import_cross_references
 from .library import import_library
+from .reference_library import import_reference_library, import_topics
 from .store import SCHEMA, Writer, connect
 from .settings import write_json
 
@@ -59,6 +60,9 @@ def build(config):
         catalog = import_bibles(writer)
         import_study(writer, catalog)
         import_reference_books(writer)
+        references = import_reference_library(writer)
+        references["topics"] = import_topics(writer, catalog)
+        db.execute("INSERT INTO meta VALUES('reference_intake',?)", (json.dumps(references),))
         import_authored(writer, catalog)
         import_project_docs(writer)
         import_cross_references(writer)
@@ -84,6 +88,7 @@ def build(config):
             "by_kind": [dict(row) for row in db.execute("SELECT kind,COUNT(*) count FROM chunks GROUP BY kind")],
             "source_inventory": [dict(row) for row in db.execute("SELECT status,COUNT(*) count FROM files GROUP BY status")],
             "integrity": integrity,
+            "reference_library": references,
             "library": {key: value for key, value in library.items() if key != "low_text_pdf_pages"},
         }
         if report["counts"]["verses"] != report["expected_verses"]:
