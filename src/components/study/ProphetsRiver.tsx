@@ -123,7 +123,8 @@ export function ProphetsRiver({ prophets, kingId }: { prophets: Prophet[]; kingI
 
     <section className="pm-shelf" aria-labelledby="pm-shelf-title">
       <div className="pm-shelf-head"><h3 id="pm-shelf-title">The sixteen who wrote</h3><p>Isaiah to Malachi, each spine as tall as its book is long. Point at one; click to meet the prophet.</p></div>
-      <ol className="pm-books">
+      {/* Names no larger than Daniel's (owner): Daniel's spine height sets the cap for every spine. */}
+      <ol className="pm-books" style={{ "--daniel-h": `${7.5 + CHAPTERS.DAN * .12}rem` } as CSSProperties}>
         {writers.map((p, i) => <li key={p.id} style={{ "--h": `${7.5 + CHAPTERS[p.book!] * .12}rem`, "--chars": p.name.length, "--pm": tone(i < 4 ? "prophets" : "poetry").tab } as CSSProperties}>
           <Link to={`/people/${p.id}`} state={back()} onMouseEnter={() => setFocus(p)} onFocus={() => setFocus(p)} title={`${p.name} · ${CHAPTERS[p.book!]} chapters${p.king ? ` · in the days of ${p.king}` : ""}`}>
             <span>{p.name}</span><small>{CHAPTERS[p.book!]}</small>

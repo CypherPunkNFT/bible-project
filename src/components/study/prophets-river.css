@@ -54,8 +54,9 @@
 .pm-books li { flex: 1 0 2.3rem; }
 .pm-books a { container-type: size; display: flex; flex-direction: column; align-items: center; justify-content: space-between; height: var(--h); padding: .55rem 0 .4rem; border-radius: .3rem .3rem 0 0; background: linear-gradient(90deg, color-mix(in srgb, var(--pm) 80%, #000), var(--pm) 35%, color-mix(in srgb, var(--pm) 85%, #fff)); color: #fff; transition: transform .18s; }
 .pm-books a:hover, .pm-books a:focus-visible { transform: translateY(-.5rem); }
-/* Each name as large as its spine allows: no wider than the spine, no longer than its height (less the chapter count). */
-.pm-books a span { writing-mode: vertical-rl; transform: rotate(180deg); font: 600 min(58cqw, calc((100cqh - 2.4rem) / (var(--chars) * .56))) / 1 var(--font-serif); letter-spacing: .01em; white-space: nowrap; }
+/* Each name as large as its spine allows (no wider than the spine, no longer than its height less the chapter count),
+   but never larger than Daniel's (owner): the last term is Daniel's height rule, from its spine (--daniel-h, 6 letters). */
+.pm-books a span { writing-mode: vertical-rl; transform: rotate(180deg); font: 600 min(58cqw, calc((100cqh - 2.4rem) / (var(--chars) * .56)), calc((var(--daniel-h) - .95rem - 2.4rem) / 3.36)) / 1 var(--font-serif); letter-spacing: .01em; white-space: nowrap; }
 .pm-books a small { font-size: .58rem; opacity: .85; }
 .pm-shelf-foot { display: flex; gap: 1.2rem; margin-top: .6rem; font-size: .72rem; color: var(--muted); }
 .pm-shelf-foot span { display: inline-flex; align-items: center; gap: .4rem; }
