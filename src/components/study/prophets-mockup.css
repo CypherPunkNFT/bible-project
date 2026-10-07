@@ -17,7 +17,7 @@
 .pm-band-label { display: block; font: 600 .95rem/1.2 var(--font-serif); }
 .pm-band-dates { display: block; margin-top: .15rem; font-size: .62rem; color: var(--muted); white-space: nowrap; }
 .pm-axis { position: absolute; left: 0; right: 0; top: 17rem; height: 2px; background: linear-gradient(90deg, transparent, var(--ink) 4%, var(--ink) 96%, transparent); opacity: .5; }
-.pm-spot { position: absolute; top: calc(4rem + var(--lane) * 2.85rem); height: calc(17rem - 4rem - var(--lane) * 2.85rem); display: flex; flex-direction: column; align-items: center; transform: translateX(-50%); }
+.pm-spot { position: absolute; top: calc(5rem + var(--lane) * 2.6rem); height: calc(17rem - 5rem - var(--lane) * 2.6rem); display: flex; flex-direction: column; align-items: center; transform: translateX(-50%); }
 .pm-stem { position: absolute; top: 1rem; bottom: 0; width: 1px; background: var(--pm); opacity: .45; }
 .pm-medal { position: relative; z-index: 1; display: grid; place-items: center; width: 2rem; height: 2rem; border-radius: 999px; background: color-mix(in srgb, var(--pm) 22%, var(--surface)); border: 1.5px solid var(--pm); font: 600 .62rem var(--font-sans); letter-spacing: .02em; color: var(--ink); transition: transform .18s, box-shadow .18s; }
 .pm-medal[data-kind="writing"] { width: 2.5rem; height: 2.5rem; font-size: .72rem; background: var(--pm); color: #fff; }
@@ -74,3 +74,10 @@
 .pm-pill-thumb { position: absolute; top: 0; bottom: 0; min-width: 2.5rem; border-radius: 999px; background: color-mix(in srgb, var(--ink) 38%, transparent); cursor: grab; transition: background .15s; }
 .pm-pill:hover .pm-pill-thumb, .pm-pill:active .pm-pill-thumb { background: color-mix(in srgb, var(--ink) 58%, transparent); }
 .pm-pill:active .pm-pill-thumb { cursor: grabbing; }
+
+/* Each era band opens with a bar in the colour of the part of the Bible that tells it, and its icon (prophet-eras.ts). */
+.pm-band { border-top: 4px solid var(--era); }
+.pm-band-bar { display: inline-flex; align-items: center; gap: .45rem; max-width: 100%; padding: .3rem .7rem .3rem .3rem; border-radius: 999px; background: var(--era); color: var(--era-ink); }
+.pm-band-icon { display: grid; place-items: center; width: 1.5rem; height: 1.5rem; flex-shrink: 0; border-radius: 999px; background: color-mix(in srgb, currentColor 18%, transparent); }
+.pm-band-bar .pm-band-label { font-size: .85rem; white-space: nowrap; }
+.pm-band-dates { margin-top: .35rem; padding-left: .35rem; }

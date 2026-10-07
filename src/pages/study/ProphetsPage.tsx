@@ -3,6 +3,7 @@ import { Link, useSearchParams } from "react-router-dom";
 import { ProphetsMockup } from "@/components/study/ProphetsMockup";
 import { cameFrom } from "@/lib/came-from";
 import { kingFinder } from "@/lib/prophet-links";
+import { prophetEra } from "@/lib/prophet-eras";
 import { RefLink, StudyCredits, StudyHeader } from "@/components/study/StudyParts";
 import { useCatalog } from "@/lib/catalog";
 import { bookByCode } from "@/lib/refs";
@@ -19,7 +20,6 @@ const KINDS: { id: Prophet["kind"] | "all"; label: string }[] = [
   { id: "false", label: "False prophets" },
 ];
 const KIND_TONE: Record<Prophet["kind"], Tone> = { writing: "prophets", prophet: "history", nt: "gospels", false: "apocrypha" };
-const ERA_LABEL: Record<string, string> = { Judges: "The Judges" };
 const slug = (text: string) => text.toLowerCase().replace(/[^a-z0-9]+/g, "-");
 
 export default function ProphetsPage() { return <ProphetsContent />; }
@@ -77,9 +77,7 @@ export function ProphetsContent({ embedded = false }: { embedded?: boolean }) {
           <div className="mt-6 space-y-8">
             {eras.map((era) => (
               <section key={era} aria-labelledby={`era-${slug(era)}`}>
-                <h2 id={`era-${slug(era)}`} className="mb-3 font-serif text-2xl font-semibold">
-                  {ERA_LABEL[era] ?? era}
-                </h2>
+                <EraBar id={`era-${slug(era)}`} era={era} count={shown.filter((p) => p.era === era).length} />
                 <ol className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
                   {shown
                     .filter((p) => p.era === era)
@@ -131,7 +129,7 @@ function Timeline({ prophets, active }: { prophets: Prophet[]; active: Prophet["
                   />
                 ))}
               </div>
-              <p className="truncate border-t-2 border-ink/70 pt-1 text-center text-[11px] text-muted">{ERA_LABEL[era] ?? era}</p>
+              <p className="truncate border-t-2 pt-1 text-center text-[11px] text-muted" style={{ borderColor: tone(prophetEra(era).tone).tab }}>{prophetEra(era).label}</p>
             </div>
           );
         })}
@@ -196,5 +194,20 @@ function ProphetCard({ prophet, kingId }: { prophet: Prophet; kingId: (name: str
         )}
       </div>
     </li>
+  );
+}
+
+/** An era's heading as a bar in the colour of the part of the Bible that tells it, with its icon, dates and books. */
+function EraBar({ id, era, count }: { id: string; era: string; count: number }) {
+  const info = prophetEra(era), colors = tone(info.tone), Icon = info.icon;
+  return (
+    <h2 id={id} className="mb-3 flex items-center gap-3 rounded-xl px-3 py-2.5 sm:px-4" style={{ background: `linear-gradient(90deg, ${colors.tab}, color-mix(in srgb, ${colors.tab} 62%, transparent))`, color: colors.tabInk }}>
+      <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full" style={{ background: "color-mix(in srgb, currentColor 16%, transparent)" }} aria-hidden><Icon size={18} strokeWidth={1.75} /></span>
+      <span className="min-w-0">
+        <span className="block font-serif text-xl font-semibold leading-tight">{info.label}</span>
+        <span className="block truncate text-xs font-normal opacity-85">{info.dates}{info.told && ` · told in ${info.told}`}</span>
+      </span>
+      <span className="ml-auto shrink-0 rounded-full px-2.5 py-0.5 text-xs font-semibold" style={{ background: "color-mix(in srgb, currentColor 16%, transparent)" }}>{count} {count === 1 ? "prophet" : "prophets"}</span>
+    </h2>
   );
 }

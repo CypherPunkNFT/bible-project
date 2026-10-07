@@ -6,6 +6,7 @@ import { RefLink } from "@/components/study/StudyParts";
 import { cameFrom } from "@/lib/came-from";
 import { tone, type Tone } from "@/lib/sections";
 import type { Prophet } from "@/lib/study";
+import { PROPHET_ERAS } from "@/lib/prophet-eras";
 import "./prophets-mockup.css";
 
 /**
@@ -14,14 +15,7 @@ import "./prophets-mockup.css";
  * Pointing at a prophet previews them; clicking opens their own page.
  */
 
-const ERAS: { id: string; label: string; dates: string }[] = [
-  { id: "Egypt and Wilderness", label: "Exodus & wilderness", dates: "c. 1450–1400 BC" },
-  { id: "Judges", label: "The judges", dates: "c. 1380–1050 BC" },
-  { id: "United Monarchy", label: "United kingdom", dates: "c. 1050–930 BC" },
-  { id: "Divided Monarchy", label: "Two kingdoms", dates: "930–586 BC" },
-  { id: "Exile and Return", label: "Exile & return", dates: "586–430 BC" },
-  { id: "New Testament", label: "New Testament", dates: "AD 1–60" },
-];
+const ERAS = PROPHET_ERAS;
 const KIND_TONE: Record<Prophet["kind"], Tone> = { writing: "prophets", prophet: "history", nt: "gospels", false: "apocrypha" };
 const KIND_LABEL: Record<Prophet["kind"], string> = { writing: "Wrote a book", prophet: "Prophet", nt: "New Testament", false: "False prophet" };
 /** Chapters in each prophetic book, for the shelf's spines. */
@@ -80,8 +74,8 @@ export function ProphetsMockup({ prophets, kingId }: { prophets: Prophet[]; king
     {/* The page's scroll travels through the river once the section reaches its stop (useSideScroll). */}
     <div ref={side.box} className="pm-river-scroll">
       <div className="pm-river" role="list" aria-label="Prophets in time order">
-        {layout.bands.map((band, i) => <div key={band.id} className="pm-band" data-odd={i % 2 ? "" : undefined} style={{ left: `${band.left}%`, width: `${band.width}%` }}>
-          <span className="pm-band-label">{band.label}</span><span className="pm-band-dates">{band.dates}</span>
+        {layout.bands.map((band, i) => <div key={band.id} className="pm-band" data-odd={i % 2 ? "" : undefined} style={{ left: `${band.left}%`, width: `${band.width}%`, "--era": tone(band.tone).tab, "--era-ink": tone(band.tone).tabInk } as CSSProperties}>
+          <span className="pm-band-bar"><span className="pm-band-icon" aria-hidden><band.icon size={14} strokeWidth={1.9} /></span><span className="pm-band-label">{band.label}</span></span><span className="pm-band-dates">{band.dates}</span>
         </div>)}
         <div className="pm-axis" aria-hidden />
         {layout.placed.map(({ prophet: p, x, lane }) => <div key={p.id} role="listitem" className="pm-spot" style={{ left: `${x}%`, "--lane": lane, "--pm": tone(KIND_TONE[p.kind]).tab } as CSSProperties}>
