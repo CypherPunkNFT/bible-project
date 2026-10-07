@@ -1,0 +1,64 @@
+{
+  "request": {
+    "url": "https://archive.org/advancedsearch.php?q=creator%3A%28%22Gill%2C+John%22%29+AND+title%3A%28exposition%29&fl%5B%5D=identifier&fl%5B%5D=title&fl%5B%5D=date&fl%5B%5D=volume&rows=60&output=json",
+    "finalUrl": "https://archive.org/advancedsearch.php?q=creator%3A%28%22Gill%2C+John%22%29+AND+title%3A%28exposition%29&fl%5B%5D=identifier&fl%5B%5D=title&fl%5B%5D=date&fl%5B%5D=volume&rows=60&output=json",
+    "mimeType": "application/json",
+    "byteCount": 1390,
+    "sha256": "c9d9f8e0a011053f4b29b64b58cd0409a449836e5e9bf1c082d7b4b63280d458",
+    "retrievedAt": "2026-10-07T07:17:30.507998+00:00"
+  },
+  "response": {
+    "responseHeader": {
+      "status": 0,
+      "QTime": 30,
+      "params": {
+        "query": "creator:&quot;Gill, John&quot; AND title:exposition",
+        "qin": "creator:(&quot;Gill, John&quot;) AND title:(exposition)",
+        "fields": "identifier,title,date,volume",
+        "wt": "json",
+        "rows": 60,
+        "start": 0
+      }
+    },
+    "response": {
+      "numFound": 6,
+      "start": 0,
+      "docs": [
+        {
+          "date": "1971-01-01T00:00:00Z",
+          "identifier": "expositionofsong0000gill",
+          "title": "An exposition of the Song of Solomon"
+        },
+        {
+          "date": "1762-01-01T00:00:00Z",
+          "identifier": "expositionofbook0001gill",
+          "title": "An Exposition of the Books of the Prophets of the Old Testament",
+          "volume": "1"
+        },
+        {
+          "date": "1764-01-01T00:00:00Z",
+          "identifier": "expositionofoldt0002gill",
+          "title": "The Exposition of The Old Testament: In Which are Recorded The Origin of Mankind, of the Several Nations of the World, and of The Jewish Nation in Particular",
+          "volume": "2"
+        },
+        {
+          "date": "1854-01-01T00:00:00Z",
+          "identifier": "expositionofbook00gill",
+          "title": "An exposition of the book of Solomon's song, commonly called Canticles ..."
+        },
+        {
+          "date": "1758-01-01T00:00:00Z",
+          "identifier": "expositionofbook0002gill",
+          "title": "An Exposition of the books of prophets of the old testament",
+          "volume": "2"
+        },
+        {
+          "date": "1765-01-01T00:00:00Z",
+          "identifier": "expositionofoldt0003gill",
+          "title": "The Exposition of The Old Testament: In Which are Recorded The Origin of Mankind, of the Several Nations of the World, and of The Jewish Nation in Particular",
+          "volume": "3"
+        }
+      ]
+    }
+  }
+}

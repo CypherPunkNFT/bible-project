@@ -415,3 +415,402 @@ Historic edited witnesses, source gaps, existing OCR, quoted opponents and contr
 | Gold refin'd, or, Baptism in its primitive purity (TCP original-spelling witness) | [Offered source](<https://raw.githubusercontent.com/textcreationpartnership/A47535/master/A47535.xml>) | xml / complete-offered-diplomatic-transcription-with-encoded-source-gaps |
 
 <!-- RB02 sources:end -->
+
+<!-- RB03 sources:start -->
+
+## RB03: sustained commentary gaps (7 October 2026)
+
+380 immutable readable originals: Henry’s missing OT volumes II–IV, Keach’s missing parables books I/II/IV, and selected Gill chapter witnesses. These are three work families, including two completions of held partial works; file counts are not new-book counts.
+
+[Report](content/library/reports/reformed-baptist-overnight/RB03/REPORT.md) | [Book/chapter coverage](content/library/reports/reformed-baptist-overnight/RB03/COVERAGE.md) | [Keach reading map](content/library/reports/reformed-baptist-overnight/RB03/KEACH-READING-MAP.md) | [Manifest and hashes](content/library/reports/reformed-baptist-overnight/RB03/acquisition-manifest.json) | [Intake scopes](content/library/reports/reformed-baptist-overnight/RB03/intake-scope.json).
+
+Private study acquisitions; no public text hosting or external redistribution. [CCEL policy](https://ccel.org/about/copyright.html), [Monergism policy](https://www.monergism.com/monergism-copyright-permissions), and [HelloAO API documentation](https://bible.helloao.org/docs/) apply; Gill’s inventory uses Public Domain Mark 1.0, not CC0. Henry’s non-Baptist scope and the sparse Gill responses remain explicit. Not yet ingested or embedded; post-RB14 gate applies.
+
+<details><summary>Every acquired source URL (one row per immutable original)</summary>
+
+| Acquired witness | Offered source | Format / scope |
+|---|---|---|
+| Commentary on the Whole Bible, Volume 2 | [Source](<https://ccel.org/ccel/h/henry/mhc2.xml>) | xml / complete-offered-volume |
+| Commentary on the Whole Bible, Volume 3 | [Source](<https://ccel.org/ccel/h/henry/mhc3.xml>) | xml / complete-offered-volume |
+| Commentary on the Whole Bible, Volume 4 | [Source](<https://ccel.org/ccel/h/henry/mhc4.xml>) | xml / complete-offered-volume |
+| Exposition of the Parables and Express Similitudes, offered Volume 1 | [Source](<https://www.monergism.com/thethreshold/sdg/keach/An%20Exposition%20of%20the%20Parablesv1,%20-%20Benjamin%20Keach.epub>) | epub / complete-offered-volume |
+| Exposition of the Parables and Express Similitudes, offered Volume 2 | [Source](<https://www.monergism.com/thethreshold/sdg/keach/An%20Exposition%20of%20the%20Parablesv2,%20-%20Benjamin%20Keach.epub>) | epub / complete-offered-volume |
+| Exposition of the Parables and Express Similitudes, offered Volume 4 | [Source](<https://www.monergism.com/thethreshold/sdg/keach/An%20Exposition%20of%20the%20Parablesv4,%20-%20Benjamin%20Keach.epub>) | epub / complete-offered-volume |
+| Gill Exposition: Leviticus 1 | [Source](<https://bible.helloao.org/api/c/john-gill/LEV/1.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Leviticus 2 | [Source](<https://bible.helloao.org/api/c/john-gill/LEV/2.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Leviticus 3 | [Source](<https://bible.helloao.org/api/c/john-gill/LEV/3.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Leviticus 4 | [Source](<https://bible.helloao.org/api/c/john-gill/LEV/4.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Leviticus 5 | [Source](<https://bible.helloao.org/api/c/john-gill/LEV/5.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Leviticus 6 | [Source](<https://bible.helloao.org/api/c/john-gill/LEV/6.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Leviticus 7 | [Source](<https://bible.helloao.org/api/c/john-gill/LEV/7.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Leviticus 8 | [Source](<https://bible.helloao.org/api/c/john-gill/LEV/8.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Leviticus 9 | [Source](<https://bible.helloao.org/api/c/john-gill/LEV/9.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Leviticus 10 | [Source](<https://bible.helloao.org/api/c/john-gill/LEV/10.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Leviticus 11 | [Source](<https://bible.helloao.org/api/c/john-gill/LEV/11.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Leviticus 12 | [Source](<https://bible.helloao.org/api/c/john-gill/LEV/12.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Leviticus 13 | [Source](<https://bible.helloao.org/api/c/john-gill/LEV/13.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Leviticus 14 | [Source](<https://bible.helloao.org/api/c/john-gill/LEV/14.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Leviticus 15 | [Source](<https://bible.helloao.org/api/c/john-gill/LEV/15.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Leviticus 16 | [Source](<https://bible.helloao.org/api/c/john-gill/LEV/16.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Leviticus 17 | [Source](<https://bible.helloao.org/api/c/john-gill/LEV/17.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Leviticus 18 | [Source](<https://bible.helloao.org/api/c/john-gill/LEV/18.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Leviticus 19 | [Source](<https://bible.helloao.org/api/c/john-gill/LEV/19.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Leviticus 20 | [Source](<https://bible.helloao.org/api/c/john-gill/LEV/20.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Leviticus 21 | [Source](<https://bible.helloao.org/api/c/john-gill/LEV/21.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Leviticus 22 | [Source](<https://bible.helloao.org/api/c/john-gill/LEV/22.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Leviticus 23 | [Source](<https://bible.helloao.org/api/c/john-gill/LEV/23.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Leviticus 24 | [Source](<https://bible.helloao.org/api/c/john-gill/LEV/24.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Leviticus 25 | [Source](<https://bible.helloao.org/api/c/john-gill/LEV/25.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Leviticus 26 | [Source](<https://bible.helloao.org/api/c/john-gill/LEV/26.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Leviticus 27 | [Source](<https://bible.helloao.org/api/c/john-gill/LEV/27.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Numbers 1 | [Source](<https://bible.helloao.org/api/c/john-gill/NUM/1.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Numbers 2 | [Source](<https://bible.helloao.org/api/c/john-gill/NUM/2.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Numbers 3 | [Source](<https://bible.helloao.org/api/c/john-gill/NUM/3.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Numbers 4 | [Source](<https://bible.helloao.org/api/c/john-gill/NUM/4.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Numbers 5 | [Source](<https://bible.helloao.org/api/c/john-gill/NUM/5.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Numbers 6 | [Source](<https://bible.helloao.org/api/c/john-gill/NUM/6.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Numbers 7 | [Source](<https://bible.helloao.org/api/c/john-gill/NUM/7.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Numbers 8 | [Source](<https://bible.helloao.org/api/c/john-gill/NUM/8.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Numbers 9 | [Source](<https://bible.helloao.org/api/c/john-gill/NUM/9.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Numbers 10 | [Source](<https://bible.helloao.org/api/c/john-gill/NUM/10.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Numbers 11 | [Source](<https://bible.helloao.org/api/c/john-gill/NUM/11.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Numbers 12 | [Source](<https://bible.helloao.org/api/c/john-gill/NUM/12.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Numbers 13 | [Source](<https://bible.helloao.org/api/c/john-gill/NUM/13.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Numbers 14 | [Source](<https://bible.helloao.org/api/c/john-gill/NUM/14.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Numbers 15 | [Source](<https://bible.helloao.org/api/c/john-gill/NUM/15.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Numbers 16 | [Source](<https://bible.helloao.org/api/c/john-gill/NUM/16.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Numbers 17 | [Source](<https://bible.helloao.org/api/c/john-gill/NUM/17.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Numbers 18 | [Source](<https://bible.helloao.org/api/c/john-gill/NUM/18.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Numbers 19 | [Source](<https://bible.helloao.org/api/c/john-gill/NUM/19.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Numbers 20 | [Source](<https://bible.helloao.org/api/c/john-gill/NUM/20.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Numbers 21 | [Source](<https://bible.helloao.org/api/c/john-gill/NUM/21.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Numbers 22 | [Source](<https://bible.helloao.org/api/c/john-gill/NUM/22.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Numbers 23 | [Source](<https://bible.helloao.org/api/c/john-gill/NUM/23.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Numbers 24 | [Source](<https://bible.helloao.org/api/c/john-gill/NUM/24.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Numbers 25 | [Source](<https://bible.helloao.org/api/c/john-gill/NUM/25.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Numbers 26 | [Source](<https://bible.helloao.org/api/c/john-gill/NUM/26.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Numbers 27 | [Source](<https://bible.helloao.org/api/c/john-gill/NUM/27.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Numbers 28 | [Source](<https://bible.helloao.org/api/c/john-gill/NUM/28.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Numbers 29 | [Source](<https://bible.helloao.org/api/c/john-gill/NUM/29.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Numbers 30 | [Source](<https://bible.helloao.org/api/c/john-gill/NUM/30.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Numbers 31 | [Source](<https://bible.helloao.org/api/c/john-gill/NUM/31.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Numbers 32 | [Source](<https://bible.helloao.org/api/c/john-gill/NUM/32.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Numbers 33 | [Source](<https://bible.helloao.org/api/c/john-gill/NUM/33.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Numbers 34 | [Source](<https://bible.helloao.org/api/c/john-gill/NUM/34.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Numbers 35 | [Source](<https://bible.helloao.org/api/c/john-gill/NUM/35.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Numbers 36 | [Source](<https://bible.helloao.org/api/c/john-gill/NUM/36.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: 1 Chronicles 1 | [Source](<https://bible.helloao.org/api/c/john-gill/1CH/1.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: 1 Chronicles 2 | [Source](<https://bible.helloao.org/api/c/john-gill/1CH/2.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: 1 Chronicles 3 | [Source](<https://bible.helloao.org/api/c/john-gill/1CH/3.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: 1 Chronicles 4 | [Source](<https://bible.helloao.org/api/c/john-gill/1CH/4.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: 1 Chronicles 5 | [Source](<https://bible.helloao.org/api/c/john-gill/1CH/5.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: 1 Chronicles 6 | [Source](<https://bible.helloao.org/api/c/john-gill/1CH/6.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: 1 Chronicles 7 | [Source](<https://bible.helloao.org/api/c/john-gill/1CH/7.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: 1 Chronicles 8 | [Source](<https://bible.helloao.org/api/c/john-gill/1CH/8.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: 1 Chronicles 9 | [Source](<https://bible.helloao.org/api/c/john-gill/1CH/9.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: 1 Chronicles 10 | [Source](<https://bible.helloao.org/api/c/john-gill/1CH/10.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: 1 Chronicles 12 | [Source](<https://bible.helloao.org/api/c/john-gill/1CH/12.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: 1 Chronicles 13 | [Source](<https://bible.helloao.org/api/c/john-gill/1CH/13.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: 1 Chronicles 15 | [Source](<https://bible.helloao.org/api/c/john-gill/1CH/15.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: 1 Chronicles 16 | [Source](<https://bible.helloao.org/api/c/john-gill/1CH/16.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: 1 Chronicles 20 | [Source](<https://bible.helloao.org/api/c/john-gill/1CH/20.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: 1 Chronicles 21 | [Source](<https://bible.helloao.org/api/c/john-gill/1CH/21.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: 1 Chronicles 22 | [Source](<https://bible.helloao.org/api/c/john-gill/1CH/22.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: 1 Chronicles 23 | [Source](<https://bible.helloao.org/api/c/john-gill/1CH/23.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: 1 Chronicles 24 | [Source](<https://bible.helloao.org/api/c/john-gill/1CH/24.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: 1 Chronicles 25 | [Source](<https://bible.helloao.org/api/c/john-gill/1CH/25.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: 1 Chronicles 26 | [Source](<https://bible.helloao.org/api/c/john-gill/1CH/26.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: 1 Chronicles 27 | [Source](<https://bible.helloao.org/api/c/john-gill/1CH/27.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: 1 Chronicles 28 | [Source](<https://bible.helloao.org/api/c/john-gill/1CH/28.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: 1 Chronicles 29 | [Source](<https://bible.helloao.org/api/c/john-gill/1CH/29.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: 2 Chronicles 1 | [Source](<https://bible.helloao.org/api/c/john-gill/2CH/1.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: 2 Chronicles 2 | [Source](<https://bible.helloao.org/api/c/john-gill/2CH/2.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: 2 Chronicles 7 | [Source](<https://bible.helloao.org/api/c/john-gill/2CH/7.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: 2 Chronicles 8 | [Source](<https://bible.helloao.org/api/c/john-gill/2CH/8.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: 2 Chronicles 11 | [Source](<https://bible.helloao.org/api/c/john-gill/2CH/11.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: 2 Chronicles 12 | [Source](<https://bible.helloao.org/api/c/john-gill/2CH/12.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: 2 Chronicles 13 | [Source](<https://bible.helloao.org/api/c/john-gill/2CH/13.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: 2 Chronicles 14 | [Source](<https://bible.helloao.org/api/c/john-gill/2CH/14.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: 2 Chronicles 15 | [Source](<https://bible.helloao.org/api/c/john-gill/2CH/15.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: 2 Chronicles 16 | [Source](<https://bible.helloao.org/api/c/john-gill/2CH/16.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: 2 Chronicles 17 | [Source](<https://bible.helloao.org/api/c/john-gill/2CH/17.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: 2 Chronicles 18 | [Source](<https://bible.helloao.org/api/c/john-gill/2CH/18.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: 2 Chronicles 19 | [Source](<https://bible.helloao.org/api/c/john-gill/2CH/19.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: 2 Chronicles 20 | [Source](<https://bible.helloao.org/api/c/john-gill/2CH/20.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: 2 Chronicles 21 | [Source](<https://bible.helloao.org/api/c/john-gill/2CH/21.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: 2 Chronicles 22 | [Source](<https://bible.helloao.org/api/c/john-gill/2CH/22.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: 2 Chronicles 23 | [Source](<https://bible.helloao.org/api/c/john-gill/2CH/23.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: 2 Chronicles 24 | [Source](<https://bible.helloao.org/api/c/john-gill/2CH/24.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: 2 Chronicles 25 | [Source](<https://bible.helloao.org/api/c/john-gill/2CH/25.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: 2 Chronicles 26 | [Source](<https://bible.helloao.org/api/c/john-gill/2CH/26.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: 2 Chronicles 27 | [Source](<https://bible.helloao.org/api/c/john-gill/2CH/27.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: 2 Chronicles 28 | [Source](<https://bible.helloao.org/api/c/john-gill/2CH/28.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: 2 Chronicles 29 | [Source](<https://bible.helloao.org/api/c/john-gill/2CH/29.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: 2 Chronicles 30 | [Source](<https://bible.helloao.org/api/c/john-gill/2CH/30.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: 2 Chronicles 31 | [Source](<https://bible.helloao.org/api/c/john-gill/2CH/31.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: 2 Chronicles 32 | [Source](<https://bible.helloao.org/api/c/john-gill/2CH/32.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: 2 Chronicles 33 | [Source](<https://bible.helloao.org/api/c/john-gill/2CH/33.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: 2 Chronicles 34 | [Source](<https://bible.helloao.org/api/c/john-gill/2CH/34.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: 2 Chronicles 35 | [Source](<https://bible.helloao.org/api/c/john-gill/2CH/35.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: 2 Chronicles 36 | [Source](<https://bible.helloao.org/api/c/john-gill/2CH/36.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Ezra 1 | [Source](<https://bible.helloao.org/api/c/john-gill/EZR/1.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Ezra 2 | [Source](<https://bible.helloao.org/api/c/john-gill/EZR/2.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Ezra 3 | [Source](<https://bible.helloao.org/api/c/john-gill/EZR/3.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Ezra 4 | [Source](<https://bible.helloao.org/api/c/john-gill/EZR/4.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Ezra 5 | [Source](<https://bible.helloao.org/api/c/john-gill/EZR/5.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Ezra 6 | [Source](<https://bible.helloao.org/api/c/john-gill/EZR/6.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Ezra 7 | [Source](<https://bible.helloao.org/api/c/john-gill/EZR/7.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Ezra 8 | [Source](<https://bible.helloao.org/api/c/john-gill/EZR/8.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Ezra 9 | [Source](<https://bible.helloao.org/api/c/john-gill/EZR/9.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Ezra 10 | [Source](<https://bible.helloao.org/api/c/john-gill/EZR/10.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Nehemiah 1 | [Source](<https://bible.helloao.org/api/c/john-gill/NEH/1.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Nehemiah 2 | [Source](<https://bible.helloao.org/api/c/john-gill/NEH/2.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Nehemiah 3 | [Source](<https://bible.helloao.org/api/c/john-gill/NEH/3.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Nehemiah 4 | [Source](<https://bible.helloao.org/api/c/john-gill/NEH/4.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Nehemiah 5 | [Source](<https://bible.helloao.org/api/c/john-gill/NEH/5.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Nehemiah 6 | [Source](<https://bible.helloao.org/api/c/john-gill/NEH/6.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Nehemiah 7 | [Source](<https://bible.helloao.org/api/c/john-gill/NEH/7.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Nehemiah 8 | [Source](<https://bible.helloao.org/api/c/john-gill/NEH/8.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Nehemiah 9 | [Source](<https://bible.helloao.org/api/c/john-gill/NEH/9.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Nehemiah 10 | [Source](<https://bible.helloao.org/api/c/john-gill/NEH/10.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Nehemiah 11 | [Source](<https://bible.helloao.org/api/c/john-gill/NEH/11.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Nehemiah 12 | [Source](<https://bible.helloao.org/api/c/john-gill/NEH/12.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Nehemiah 13 | [Source](<https://bible.helloao.org/api/c/john-gill/NEH/13.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Esther 1 | [Source](<https://bible.helloao.org/api/c/john-gill/EST/1.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Esther 2 | [Source](<https://bible.helloao.org/api/c/john-gill/EST/2.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Esther 3 | [Source](<https://bible.helloao.org/api/c/john-gill/EST/3.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Esther 4 | [Source](<https://bible.helloao.org/api/c/john-gill/EST/4.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Esther 5 | [Source](<https://bible.helloao.org/api/c/john-gill/EST/5.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Esther 6 | [Source](<https://bible.helloao.org/api/c/john-gill/EST/6.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Esther 7 | [Source](<https://bible.helloao.org/api/c/john-gill/EST/7.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Esther 8 | [Source](<https://bible.helloao.org/api/c/john-gill/EST/8.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Esther 9 | [Source](<https://bible.helloao.org/api/c/john-gill/EST/9.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Esther 10 | [Source](<https://bible.helloao.org/api/c/john-gill/EST/10.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Job 1 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/1.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Job 2 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/2.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Job 3 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/3.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Job 4 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/4.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Job 5 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/5.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Job 6 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/6.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Job 7 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/7.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Job 8 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/8.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Job 9 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/9.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Job 10 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/10.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Job 11 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/11.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Job 12 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/12.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Job 13 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/13.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Job 14 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/14.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Job 15 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/15.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Job 16 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/16.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Job 17 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/17.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Job 18 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/18.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Job 19 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/19.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Job 20 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/20.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Job 21 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/21.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Job 22 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/22.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Job 23 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/23.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Job 24 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/24.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Job 25 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/25.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Job 26 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/26.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Job 27 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/27.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Job 28 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/28.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Job 29 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/29.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Job 30 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/30.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Job 31 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/31.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Job 32 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/32.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Job 33 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/33.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Job 34 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/34.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Job 35 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/35.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Job 36 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/36.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Job 37 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/37.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Job 38 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/38.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Job 39 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/39.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Job 40 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/40.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Job 41 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/41.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Job 42 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/42.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Proverbs 1 | [Source](<https://bible.helloao.org/api/c/john-gill/PRO/1.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Proverbs 2 | [Source](<https://bible.helloao.org/api/c/john-gill/PRO/2.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Proverbs 3 | [Source](<https://bible.helloao.org/api/c/john-gill/PRO/3.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Proverbs 4 | [Source](<https://bible.helloao.org/api/c/john-gill/PRO/4.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Proverbs 5 | [Source](<https://bible.helloao.org/api/c/john-gill/PRO/5.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Proverbs 6 | [Source](<https://bible.helloao.org/api/c/john-gill/PRO/6.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Proverbs 7 | [Source](<https://bible.helloao.org/api/c/john-gill/PRO/7.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Proverbs 8 | [Source](<https://bible.helloao.org/api/c/john-gill/PRO/8.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Proverbs 9 | [Source](<https://bible.helloao.org/api/c/john-gill/PRO/9.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Proverbs 10 | [Source](<https://bible.helloao.org/api/c/john-gill/PRO/10.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Proverbs 11 | [Source](<https://bible.helloao.org/api/c/john-gill/PRO/11.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Proverbs 12 | [Source](<https://bible.helloao.org/api/c/john-gill/PRO/12.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Proverbs 13 | [Source](<https://bible.helloao.org/api/c/john-gill/PRO/13.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Proverbs 14 | [Source](<https://bible.helloao.org/api/c/john-gill/PRO/14.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Proverbs 15 | [Source](<https://bible.helloao.org/api/c/john-gill/PRO/15.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Proverbs 16 | [Source](<https://bible.helloao.org/api/c/john-gill/PRO/16.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Proverbs 17 | [Source](<https://bible.helloao.org/api/c/john-gill/PRO/17.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Proverbs 18 | [Source](<https://bible.helloao.org/api/c/john-gill/PRO/18.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Proverbs 19 | [Source](<https://bible.helloao.org/api/c/john-gill/PRO/19.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Proverbs 20 | [Source](<https://bible.helloao.org/api/c/john-gill/PRO/20.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Proverbs 21 | [Source](<https://bible.helloao.org/api/c/john-gill/PRO/21.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Proverbs 22 | [Source](<https://bible.helloao.org/api/c/john-gill/PRO/22.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Proverbs 23 | [Source](<https://bible.helloao.org/api/c/john-gill/PRO/23.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Proverbs 24 | [Source](<https://bible.helloao.org/api/c/john-gill/PRO/24.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Proverbs 25 | [Source](<https://bible.helloao.org/api/c/john-gill/PRO/25.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Proverbs 26 | [Source](<https://bible.helloao.org/api/c/john-gill/PRO/26.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Proverbs 27 | [Source](<https://bible.helloao.org/api/c/john-gill/PRO/27.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Proverbs 28 | [Source](<https://bible.helloao.org/api/c/john-gill/PRO/28.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Proverbs 29 | [Source](<https://bible.helloao.org/api/c/john-gill/PRO/29.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Proverbs 30 | [Source](<https://bible.helloao.org/api/c/john-gill/PRO/30.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Proverbs 31 | [Source](<https://bible.helloao.org/api/c/john-gill/PRO/31.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Ecclesiastes 1 | [Source](<https://bible.helloao.org/api/c/john-gill/ECC/1.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Ecclesiastes 2 | [Source](<https://bible.helloao.org/api/c/john-gill/ECC/2.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Ecclesiastes 3 | [Source](<https://bible.helloao.org/api/c/john-gill/ECC/3.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Ecclesiastes 4 | [Source](<https://bible.helloao.org/api/c/john-gill/ECC/4.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Ecclesiastes 5 | [Source](<https://bible.helloao.org/api/c/john-gill/ECC/5.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Ecclesiastes 6 | [Source](<https://bible.helloao.org/api/c/john-gill/ECC/6.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Ecclesiastes 7 | [Source](<https://bible.helloao.org/api/c/john-gill/ECC/7.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Ecclesiastes 8 | [Source](<https://bible.helloao.org/api/c/john-gill/ECC/8.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Ecclesiastes 9 | [Source](<https://bible.helloao.org/api/c/john-gill/ECC/9.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Ecclesiastes 10 | [Source](<https://bible.helloao.org/api/c/john-gill/ECC/10.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Ecclesiastes 11 | [Source](<https://bible.helloao.org/api/c/john-gill/ECC/11.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Ecclesiastes 12 | [Source](<https://bible.helloao.org/api/c/john-gill/ECC/12.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Hosea 1 | [Source](<https://bible.helloao.org/api/c/john-gill/HOS/1.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Hosea 2 | [Source](<https://bible.helloao.org/api/c/john-gill/HOS/2.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Hosea 3 | [Source](<https://bible.helloao.org/api/c/john-gill/HOS/3.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Hosea 4 | [Source](<https://bible.helloao.org/api/c/john-gill/HOS/4.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Hosea 5 | [Source](<https://bible.helloao.org/api/c/john-gill/HOS/5.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Hosea 6 | [Source](<https://bible.helloao.org/api/c/john-gill/HOS/6.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Hosea 7 | [Source](<https://bible.helloao.org/api/c/john-gill/HOS/7.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Hosea 8 | [Source](<https://bible.helloao.org/api/c/john-gill/HOS/8.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Hosea 9 | [Source](<https://bible.helloao.org/api/c/john-gill/HOS/9.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Hosea 10 | [Source](<https://bible.helloao.org/api/c/john-gill/HOS/10.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Hosea 11 | [Source](<https://bible.helloao.org/api/c/john-gill/HOS/11.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Hosea 12 | [Source](<https://bible.helloao.org/api/c/john-gill/HOS/12.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Hosea 13 | [Source](<https://bible.helloao.org/api/c/john-gill/HOS/13.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Hosea 14 | [Source](<https://bible.helloao.org/api/c/john-gill/HOS/14.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Joel 1 | [Source](<https://bible.helloao.org/api/c/john-gill/JOL/1.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Joel 2 | [Source](<https://bible.helloao.org/api/c/john-gill/JOL/2.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Joel 3 | [Source](<https://bible.helloao.org/api/c/john-gill/JOL/3.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Amos 1 | [Source](<https://bible.helloao.org/api/c/john-gill/AMO/1.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Amos 2 | [Source](<https://bible.helloao.org/api/c/john-gill/AMO/2.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Amos 3 | [Source](<https://bible.helloao.org/api/c/john-gill/AMO/3.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Amos 4 | [Source](<https://bible.helloao.org/api/c/john-gill/AMO/4.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Amos 5 | [Source](<https://bible.helloao.org/api/c/john-gill/AMO/5.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Amos 6 | [Source](<https://bible.helloao.org/api/c/john-gill/AMO/6.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Amos 7 | [Source](<https://bible.helloao.org/api/c/john-gill/AMO/7.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Amos 8 | [Source](<https://bible.helloao.org/api/c/john-gill/AMO/8.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Amos 9 | [Source](<https://bible.helloao.org/api/c/john-gill/AMO/9.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Obadiah 1 | [Source](<https://bible.helloao.org/api/c/john-gill/OBA/1.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Jonah 1 | [Source](<https://bible.helloao.org/api/c/john-gill/JON/1.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Jonah 2 | [Source](<https://bible.helloao.org/api/c/john-gill/JON/2.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Jonah 3 | [Source](<https://bible.helloao.org/api/c/john-gill/JON/3.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Jonah 4 | [Source](<https://bible.helloao.org/api/c/john-gill/JON/4.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Micah 1 | [Source](<https://bible.helloao.org/api/c/john-gill/MIC/1.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Micah 2 | [Source](<https://bible.helloao.org/api/c/john-gill/MIC/2.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Micah 3 | [Source](<https://bible.helloao.org/api/c/john-gill/MIC/3.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Micah 4 | [Source](<https://bible.helloao.org/api/c/john-gill/MIC/4.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Micah 5 | [Source](<https://bible.helloao.org/api/c/john-gill/MIC/5.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Micah 6 | [Source](<https://bible.helloao.org/api/c/john-gill/MIC/6.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Micah 7 | [Source](<https://bible.helloao.org/api/c/john-gill/MIC/7.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Nahum 1 | [Source](<https://bible.helloao.org/api/c/john-gill/NAM/1.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Nahum 2 | [Source](<https://bible.helloao.org/api/c/john-gill/NAM/2.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Nahum 3 | [Source](<https://bible.helloao.org/api/c/john-gill/NAM/3.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Habakkuk 1 | [Source](<https://bible.helloao.org/api/c/john-gill/HAB/1.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Habakkuk 2 | [Source](<https://bible.helloao.org/api/c/john-gill/HAB/2.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Habakkuk 3 | [Source](<https://bible.helloao.org/api/c/john-gill/HAB/3.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Zephaniah 1 | [Source](<https://bible.helloao.org/api/c/john-gill/ZEP/1.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Zephaniah 2 | [Source](<https://bible.helloao.org/api/c/john-gill/ZEP/2.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Zephaniah 3 | [Source](<https://bible.helloao.org/api/c/john-gill/ZEP/3.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Haggai 1 | [Source](<https://bible.helloao.org/api/c/john-gill/HAG/1.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Haggai 2 | [Source](<https://bible.helloao.org/api/c/john-gill/HAG/2.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Zechariah 1 | [Source](<https://bible.helloao.org/api/c/john-gill/ZEC/1.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Zechariah 2 | [Source](<https://bible.helloao.org/api/c/john-gill/ZEC/2.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Zechariah 3 | [Source](<https://bible.helloao.org/api/c/john-gill/ZEC/3.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Zechariah 4 | [Source](<https://bible.helloao.org/api/c/john-gill/ZEC/4.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Zechariah 5 | [Source](<https://bible.helloao.org/api/c/john-gill/ZEC/5.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Zechariah 6 | [Source](<https://bible.helloao.org/api/c/john-gill/ZEC/6.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Zechariah 7 | [Source](<https://bible.helloao.org/api/c/john-gill/ZEC/7.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Zechariah 8 | [Source](<https://bible.helloao.org/api/c/john-gill/ZEC/8.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Zechariah 9 | [Source](<https://bible.helloao.org/api/c/john-gill/ZEC/9.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Zechariah 10 | [Source](<https://bible.helloao.org/api/c/john-gill/ZEC/10.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Zechariah 11 | [Source](<https://bible.helloao.org/api/c/john-gill/ZEC/11.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Zechariah 12 | [Source](<https://bible.helloao.org/api/c/john-gill/ZEC/12.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Zechariah 13 | [Source](<https://bible.helloao.org/api/c/john-gill/ZEC/13.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Zechariah 14 | [Source](<https://bible.helloao.org/api/c/john-gill/ZEC/14.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Malachi 1 | [Source](<https://bible.helloao.org/api/c/john-gill/MAL/1.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Malachi 2 | [Source](<https://bible.helloao.org/api/c/john-gill/MAL/2.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Malachi 3 | [Source](<https://bible.helloao.org/api/c/john-gill/MAL/3.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Malachi 4 | [Source](<https://bible.helloao.org/api/c/john-gill/MAL/4.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Philemon 1 | [Source](<https://bible.helloao.org/api/c/john-gill/PHM/1.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: 2 John 1 | [Source](<https://bible.helloao.org/api/c/john-gill/2JN/1.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: 3 John 1 | [Source](<https://bible.helloao.org/api/c/john-gill/3JN/1.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Judges 1 | [Source](<https://bible.helloao.org/api/c/john-gill/JDG/1.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Judges 2 | [Source](<https://bible.helloao.org/api/c/john-gill/JDG/2.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Judges 3 | [Source](<https://bible.helloao.org/api/c/john-gill/JDG/3.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Judges 4 | [Source](<https://bible.helloao.org/api/c/john-gill/JDG/4.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Judges 5 | [Source](<https://bible.helloao.org/api/c/john-gill/JDG/5.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Judges 6 | [Source](<https://bible.helloao.org/api/c/john-gill/JDG/6.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Judges 7 | [Source](<https://bible.helloao.org/api/c/john-gill/JDG/7.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Judges 8 | [Source](<https://bible.helloao.org/api/c/john-gill/JDG/8.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Judges 9 | [Source](<https://bible.helloao.org/api/c/john-gill/JDG/9.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Judges 10 | [Source](<https://bible.helloao.org/api/c/john-gill/JDG/10.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Judges 11 | [Source](<https://bible.helloao.org/api/c/john-gill/JDG/11.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Judges 12 | [Source](<https://bible.helloao.org/api/c/john-gill/JDG/12.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Judges 13 | [Source](<https://bible.helloao.org/api/c/john-gill/JDG/13.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Judges 14 | [Source](<https://bible.helloao.org/api/c/john-gill/JDG/14.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Judges 15 | [Source](<https://bible.helloao.org/api/c/john-gill/JDG/15.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Judges 16 | [Source](<https://bible.helloao.org/api/c/john-gill/JDG/16.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Judges 17 | [Source](<https://bible.helloao.org/api/c/john-gill/JDG/17.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Judges 18 | [Source](<https://bible.helloao.org/api/c/john-gill/JDG/18.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Judges 19 | [Source](<https://bible.helloao.org/api/c/john-gill/JDG/19.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Judges 20 | [Source](<https://bible.helloao.org/api/c/john-gill/JDG/20.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Judges 21 | [Source](<https://bible.helloao.org/api/c/john-gill/JDG/21.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Ezekiel 1 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/1.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Ezekiel 2 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/2.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Ezekiel 3 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/3.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Ezekiel 4 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/4.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Ezekiel 5 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/5.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Ezekiel 6 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/6.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Ezekiel 7 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/7.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Ezekiel 8 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/8.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Ezekiel 9 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/9.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Ezekiel 10 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/10.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Ezekiel 11 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/11.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Ezekiel 12 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/12.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Ezekiel 13 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/13.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Ezekiel 14 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/14.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Ezekiel 15 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/15.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Ezekiel 16 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/16.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Ezekiel 17 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/17.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Ezekiel 18 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/18.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Ezekiel 19 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/19.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Ezekiel 20 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/20.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Ezekiel 21 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/21.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Ezekiel 22 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/22.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Ezekiel 23 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/23.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Ezekiel 24 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/24.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Ezekiel 25 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/25.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Ezekiel 26 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/26.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Ezekiel 27 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/27.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Ezekiel 28 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/28.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Ezekiel 29 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/29.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Ezekiel 30 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/30.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Ezekiel 31 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/31.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Ezekiel 32 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/32.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Ezekiel 33 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/33.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Ezekiel 34 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/34.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Ezekiel 35 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/35.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Ezekiel 36 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/36.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Ezekiel 37 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/37.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Ezekiel 38 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/38.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Ezekiel 39 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/39.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Ezekiel 40 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/40.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Ezekiel 41 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/41.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Ezekiel 42 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/42.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Ezekiel 43 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/43.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Ezekiel 44 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/44.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Ezekiel 45 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/45.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Ezekiel 46 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/46.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Ezekiel 47 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/47.json>) | json / complete-offered-chapter-component-of-selected-book |
+| Gill Exposition: Ezekiel 48 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/48.json>) | json / complete-offered-chapter-component-of-selected-book |
+
+</details>
+
+<!-- RB03 sources:end -->

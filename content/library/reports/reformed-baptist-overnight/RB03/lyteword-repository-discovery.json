@@ -1,0 +1,201 @@
+{
+  "request": {
+    "url": "https://api.github.com/orgs/lyteword/repos?per_page=100",
+    "finalUrl": "https://api.github.com/orgs/lyteword/repos?per_page=100",
+    "mimeType": "application/json",
+    "byteCount": 80305,
+    "sha256": "fca50fb60b7c3ff69758c7955b81b8f73063281f18efe1a9ff4d0f054e5c8c1a",
+    "retrievedAt": "2026-10-07T07:19:50.057405+00:00"
+  },
+  "repositories": [
+    {
+      "name": "mhenry-concise",
+      "html_url": "https://github.com/lyteword/mhenry-concise",
+      "description": "A comprehensive markdown edition of Matthew Henry's concise commentary, designed for easy reading and study.",
+      "default_branch": "main",
+      "license": {
+        "key": "cc0-1.0",
+        "name": "Creative Commons Zero v1.0 Universal",
+        "spdx_id": "CC0-1.0",
+        "url": "https://api.github.com/licenses/cc0-1.0",
+        "node_id": "MDc6TGljZW5zZTY="
+      }
+    },
+    {
+      "name": "chspurgeon-sermons",
+      "html_url": "https://github.com/lyteword/chspurgeon-sermons",
+      "description": "A comprehensive markdown edition of Charles H. Spurgeon's complete 63-volume sermon collection, designed for easy reading and study.",
+      "default_branch": "main",
+      "license": {
+        "key": "cc0-1.0",
+        "name": "Creative Commons Zero v1.0 Universal",
+        "spdx_id": "CC0-1.0",
+        "url": "https://api.github.com/licenses/cc0-1.0",
+        "node_id": "MDc6TGljZW5zZTY="
+      }
+    },
+    {
+      "name": "lyteword",
+      "html_url": "https://github.com/lyteword/lyteword",
+      "description": "A website featuring a collection of writings from past theologians and scholars, exploring the Bible and Christian theology",
+      "default_branch": "main",
+      "license": null
+    },
+    {
+      "name": "mhenry-complete",
+      "html_url": "https://github.com/lyteword/mhenry-complete",
+      "description": "A comprehensive markdown edition of Matthew Henry's complete 6 volume commentary, designed for easy reading and study. ",
+      "default_branch": "main",
+      "license": {
+        "key": "cc0-1.0",
+        "name": "Creative Commons Zero v1.0 Universal",
+        "spdx_id": "CC0-1.0",
+        "url": "https://api.github.com/licenses/cc0-1.0",
+        "node_id": "MDc6TGljZW5zZTY="
+      }
+    },
+    {
+      "name": "chspurgeon-tod",
+      "html_url": "https://github.com/lyteword/chspurgeon-tod",
+      "description": "A comprehensive markdown edition of Charles H. Spurgeon's Treasury of David, designed for easy reading and study.",
+      "default_branch": "main",
+      "license": {
+        "key": "cc0-1.0",
+        "name": "Creative Commons Zero v1.0 Universal",
+        "spdx_id": "CC0-1.0",
+        "url": "https://api.github.com/licenses/cc0-1.0",
+        "node_id": "MDc6TGljZW5zZTY="
+      }
+    },
+    {
+      "name": "kjv",
+      "html_url": "https://github.com/lyteword/kjv",
+      "description": "An open-source, verse-by-verse markdown version of the Holy Bible (King James Version), structured for easy reading, referencing, and integration into projects that support Markdown formatting.",
+      "default_branch": "main",
+      "license": {
+        "key": "cc0-1.0",
+        "name": "Creative Commons Zero v1.0 Universal",
+        "spdx_id": "CC0-1.0",
+        "url": "https://api.github.com/licenses/cc0-1.0",
+        "node_id": "MDc6TGljZW5zZTY="
+      }
+    },
+    {
+      "name": "web",
+      "html_url": "https://github.com/lyteword/web",
+      "description": "An open-source, verse-by-verse markdown version of the Holy Bible (World English Bible), structured for easy reading, referencing, and integration into projects that support Markdown formatting.",
+      "default_branch": "main",
+      "license": {
+        "key": "cc0-1.0",
+        "name": "Creative Commons Zero v1.0 Universal",
+        "spdx_id": "CC0-1.0",
+        "url": "https://api.github.com/licenses/cc0-1.0",
+        "node_id": "MDc6TGljZW5zZTY="
+      }
+    },
+    {
+      "name": "bsb",
+      "html_url": "https://github.com/lyteword/bsb",
+      "description": "An open-source, verse-by-verse markdown version of the Holy Bible (Berean Standard Bible), structured for easy reading, referencing, and integration into projects that support Markdown formatting.",
+      "default_branch": "main",
+      "license": {
+        "key": "cc0-1.0",
+        "name": "Creative Commons Zero v1.0 Universal",
+        "spdx_id": "CC0-1.0",
+        "url": "https://api.github.com/licenses/cc0-1.0",
+        "node_id": "MDc6TGljZW5zZTY="
+      }
+    },
+    {
+      "name": "bbe",
+      "html_url": "https://github.com/lyteword/bbe",
+      "description": "An open-source, verse-by-verse markdown version of the Holy Bible (Bible in Basic English), structured for easy reading, referencing, and integration into projects that support Markdown formatting.",
+      "default_branch": "main",
+      "license": {
+        "key": "cc0-1.0",
+        "name": "Creative Commons Zero v1.0 Universal",
+        "spdx_id": "CC0-1.0",
+        "url": "https://api.github.com/licenses/cc0-1.0",
+        "node_id": "MDc6TGljZW5zZTY="
+      }
+    },
+    {
+      "name": "asv",
+      "html_url": "https://github.com/lyteword/asv",
+      "description": "An open-source, verse-by-verse markdown version of the Holy Bible (American Standard Version), structured for easy reading, referencing, and integration into projects that support Markdown formatting.",
+      "default_branch": "main",
+      "license": {
+        "key": "cc0-1.0",
+        "name": "Creative Commons Zero v1.0 Universal",
+        "spdx_id": "CC0-1.0",
+        "url": "https://api.github.com/licenses/cc0-1.0",
+        "node_id": "MDc6TGljZW5zZTY="
+      }
+    },
+    {
+      "name": "rv",
+      "html_url": "https://github.com/lyteword/rv",
+      "description": "An open-source, verse-by-verse markdown version of the Holy Bible (Revised Version, 1885, alternatively called English Revised Version), structured for easy reading, referencing, and integration into projects that support Markdown formatting.",
+      "default_branch": "main",
+      "license": {
+        "key": "cc0-1.0",
+        "name": "Creative Commons Zero v1.0 Universal",
+        "spdx_id": "CC0-1.0",
+        "url": "https://api.github.com/licenses/cc0-1.0",
+        "node_id": "MDc6TGljZW5zZTY="
+      }
+    },
+    {
+      "name": "ylt",
+      "html_url": "https://github.com/lyteword/ylt",
+      "description": "An open-source, verse-by-verse markdown version of the Young's Literal Translation of Holy Bible, structured for easy reading, referencing, and integration into projects that support Markdown formatting.",
+      "default_branch": "main",
+      "license": {
+        "key": "cc0-1.0",
+        "name": "Creative Commons Zero v1.0 Universal",
+        "spdx_id": "CC0-1.0",
+        "url": "https://api.github.com/licenses/cc0-1.0",
+        "node_id": "MDc6TGljZW5zZTY="
+      }
+    },
+    {
+      "name": "chspurgeon-mae",
+      "html_url": "https://github.com/lyteword/chspurgeon-mae",
+      "description": "A markdown edition of Charles H. Spurgeon's devotional series: Morning and Evening; designed for easy reading and study. ",
+      "default_branch": "main",
+      "license": {
+        "key": "cc0-1.0",
+        "name": "Creative Commons Zero v1.0 Universal",
+        "spdx_id": "CC0-1.0",
+        "url": "https://api.github.com/licenses/cc0-1.0",
+        "node_id": "MDc6TGljZW5zZTY="
+      }
+    },
+    {
+      "name": "chspurgeon-fcb",
+      "html_url": "https://github.com/lyteword/chspurgeon-fcb",
+      "description": "A markdown edition of Charles H. Spurgeon's devotional series: Faith's Checkbook; designed for easy reading and study.",
+      "default_branch": "main",
+      "license": {
+        "key": "cc0-1.0",
+        "name": "Creative Commons Zero v1.0 Universal",
+        "spdx_id": "CC0-1.0",
+        "url": "https://api.github.com/licenses/cc0-1.0",
+        "node_id": "MDc6TGljZW5zZTY="
+      }
+    },
+    {
+      "name": "reading-plans",
+      "html_url": "https://github.com/lyteword/reading-plans",
+      "description": "A collection of various Bible reading plans that are all formatted into markdown documents.",
+      "default_branch": "main",
+      "license": {
+        "key": "cc0-1.0",
+        "name": "Creative Commons Zero v1.0 Universal",
+        "spdx_id": "CC0-1.0",
+        "url": "https://api.github.com/licenses/cc0-1.0",
+        "node_id": "MDc6TGljZW5zZTY="
+      }
+    }
+  ]
+}

@@ -1,0 +1,175 @@
+{
+  "request": {
+    "url": "https://bible.helloao.org/api/available_commentaries.json",
+    "finalUrl": "https://bible.helloao.org/api/available_commentaries.json",
+    "mimeType": "application/json",
+    "byteCount": 5248,
+    "sha256": "48bdfc8aeca0275c6c4a45531a242250f260f2258fafae4a1ca362d3dcc43956",
+    "retrievedAt": "2026-10-07T07:21:59.084313+00:00"
+  },
+  "inventory": {
+    "commentaries": [
+      {
+        "id": "adam-clarke",
+        "name": "Adam Clarke Bible Commentary",
+        "website": "https://en.wikipedia.org/wiki/Adam_Clarke",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "licenseNotes": null,
+        "licenseNotice": null,
+        "englishName": "Adam Clarke Bible Commentary",
+        "language": "eng",
+        "textDirection": "rtl",
+        "sha256": "92e28c9363c876d215e296f2fe04abb3ab7e34a2aacebdf06bd62ae79c6e3dba",
+        "availableFormats": [
+          "json"
+        ],
+        "listOfBooksApiLink": "/api/c/adam-clarke/books.json",
+        "listOfProfilesApiLink": "/api/c/adam-clarke/profiles.json",
+        "numberOfBooks": 57,
+        "totalNumberOfChapters": 854,
+        "totalNumberOfVerses": 13318,
+        "totalNumberOfProfiles": 0,
+        "languageName": "English",
+        "languageEnglishName": "English"
+      },
+      {
+        "id": "jamieson-fausset-brown",
+        "name": "Jamieson-Fausset-Brown Bible Commentary",
+        "website": "https://en.wikipedia.org/wiki/Jamieson-Fausset-Brown_Bible_Commentary",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "licenseNotes": null,
+        "licenseNotice": null,
+        "englishName": "Jamieson-Fausset-Brown Bible Commentary",
+        "language": "eng",
+        "textDirection": "rtl",
+        "sha256": "db3d4c8b3c1f32ef9d1430a57392e02bda3a17aac1f9bbe398461de021a3cb13",
+        "availableFormats": [
+          "json"
+        ],
+        "listOfBooksApiLink": "/api/c/jamieson-fausset-brown/books.json",
+        "listOfProfilesApiLink": "/api/c/jamieson-fausset-brown/profiles.json",
+        "numberOfBooks": 66,
+        "totalNumberOfChapters": 1187,
+        "totalNumberOfVerses": 17056,
+        "totalNumberOfProfiles": 0,
+        "languageName": "English",
+        "languageEnglishName": "English"
+      },
+      {
+        "id": "john-calvin",
+        "name": "John Calvin's Commentaries",
+        "website": "https://www.ccel.org/ccel/calvin/commentaries.html",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "licenseNotes": "Calvin Translation Society English texts. CCEL identifies its electronic Calvin commentaries as public domain and usable for any purpose.",
+        "licenseNotice": null,
+        "englishName": "John Calvin's Commentaries",
+        "language": "eng",
+        "textDirection": "ltr",
+        "sha256": "ce747f130251d4b38a651090242d0a492fe965b19d689f752b4e0c367b5044a6",
+        "availableFormats": [
+          "json"
+        ],
+        "listOfBooksApiLink": "/api/c/john-calvin/books.json",
+        "listOfProfilesApiLink": "/api/c/john-calvin/profiles.json",
+        "numberOfBooks": 48,
+        "totalNumberOfChapters": 817,
+        "totalNumberOfVerses": 7332,
+        "totalNumberOfProfiles": 0,
+        "languageName": "English",
+        "languageEnglishName": "English"
+      },
+      {
+        "id": "john-gill",
+        "name": "John Gill Bible Commentary",
+        "website": "https://en.wikipedia.org/wiki/John_Gill_(theologian)",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "licenseNotes": null,
+        "licenseNotice": null,
+        "englishName": "John Gill Bible Commentary",
+        "language": "eng",
+        "textDirection": "rtl",
+        "sha256": "f6fcfd6c3a726dc834cfaf1ae1cd0bf49bffb88c1246ac3500699e8af7be71a5",
+        "availableFormats": [
+          "json"
+        ],
+        "listOfBooksApiLink": "/api/c/john-gill/books.json",
+        "listOfProfilesApiLink": "/api/c/john-gill/profiles.json",
+        "numberOfBooks": 66,
+        "totalNumberOfChapters": 1189,
+        "totalNumberOfVerses": 29707,
+        "totalNumberOfProfiles": 0,
+        "languageName": "English",
+        "languageEnglishName": "English"
+      },
+      {
+        "id": "keil-delitzsch",
+        "name": "Carl Friedrich Keil and Franz Delitzsch Old Testament Commentary",
+        "website": "https://worthy.bible/commentaries/keil-delitzsch-commentary",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "licenseNotes": null,
+        "licenseNotice": null,
+        "englishName": "Carl Friedrich Keil and Franz Delitzsch Old Testament Commentary",
+        "language": "eng",
+        "textDirection": "rtl",
+        "sha256": "bb5cc0f9cfe0a93b3c903bb6972c6bc8c4e9f2bd3be6c2a6d276737cf9c5edce",
+        "availableFormats": [
+          "json"
+        ],
+        "listOfBooksApiLink": "/api/c/keil-delitzsch/books.json",
+        "listOfProfilesApiLink": "/api/c/keil-delitzsch/profiles.json",
+        "numberOfBooks": 39,
+        "totalNumberOfChapters": 909,
+        "totalNumberOfVerses": 6516,
+        "totalNumberOfProfiles": 0,
+        "languageName": "English",
+        "languageEnglishName": "English"
+      },
+      {
+        "id": "matthew-henry",
+        "name": "Matthew Henry Bible Commentary",
+        "website": "https://en.wikipedia.org/wiki/Matthew_Henry",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "licenseNotes": null,
+        "licenseNotice": null,
+        "englishName": "Matthew Henry Bible Commentary",
+        "language": "eng",
+        "textDirection": "rtl",
+        "sha256": "ad2850450a1e5c0546c275f4bd09b9325ae47424d83311120ca7ced5724c4bc8",
+        "availableFormats": [
+          "json"
+        ],
+        "listOfBooksApiLink": "/api/c/matthew-henry/books.json",
+        "listOfProfilesApiLink": "/api/c/matthew-henry/profiles.json",
+        "numberOfBooks": 65,
+        "totalNumberOfChapters": 1167,
+        "totalNumberOfVerses": 4124,
+        "totalNumberOfProfiles": 0,
+        "languageName": "English",
+        "languageEnglishName": "English"
+      },
+      {
+        "id": "tyndale",
+        "name": "Tyndale Open Study Notes",
+        "website": "https://tyndaleopenresources.com/",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "licenseNotes": "Changes were made to the content to change the format to JSON to make it compatible with the Free Use Bible API. No changes were made to the content contained in the XML formatting.",
+        "licenseNotice": null,
+        "englishName": "Tyndale Open Study Notes",
+        "language": "eng",
+        "textDirection": "rtl",
+        "sha256": "62fa003ca326f8ab22a04accb2a49d2b5865ce2cecd74284228e1be08edd5e10",
+        "availableFormats": [
+          "json"
+        ],
+        "listOfBooksApiLink": "/api/c/tyndale/books.json",
+        "listOfProfilesApiLink": "/api/c/tyndale/profiles.json",
+        "numberOfBooks": 69,
+        "totalNumberOfChapters": 1243,
+        "totalNumberOfVerses": 15757,
+        "totalNumberOfProfiles": 0,
+        "languageName": "English",
+        "languageEnglishName": "English"
+      }
+    ]
+  }
+}

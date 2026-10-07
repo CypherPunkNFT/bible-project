@@ -1,0 +1,402 @@
+{
+  "request": {
+    "url": "https://archive.org/advancedsearch.php?q=title%3A%28exposition%29+AND+%28Gill+OR+creator%3A%28Gill%29%29&fl%5B%5D=identifier&fl%5B%5D=title&fl%5B%5D=date&fl%5B%5D=volume&rows=80&output=json",
+    "finalUrl": "https://archive.org/advancedsearch.php?q=title%3A%28exposition%29+AND+%28Gill+OR+creator%3A%28Gill%29%29&fl%5B%5D=identifier&fl%5B%5D=title&fl%5B%5D=date&fl%5B%5D=volume&rows=80&output=json",
+    "mimeType": "application/json",
+    "byteCount": 18186,
+    "sha256": "13bb129d69b0e82a59f64795b4cc31eee8a93e27b0aae8693466122ee958d3b0",
+    "retrievedAt": "2026-10-07T07:19:10.714911+00:00"
+  },
+  "response": {
+    "responseHeader": {
+      "status": 0,
+      "QTime": 55,
+      "params": {
+        "query": "title:exposition AND ((text:Gill OR text:Gill OR text__reviews:Gill) OR creator:Gill)",
+        "qin": "title:(exposition) AND (Gill OR creator:(Gill))",
+        "fields": "identifier,title,date,volume",
+        "wt": "json",
+        "rows": 80,
+        "start": 0
+      }
+    },
+    "response": {
+      "numFound": 154,
+      "start": 0,
+      "docs": [
+        {
+          "identifier": "Jude20-johnGillsCommentaryOfTheEntireBibleVerseByVerse-Exposition",
+          "title": "Jude 20 -John Gill's Commentary of the Entire Bible verse by verse - Exposition of the Entire Bible - Read by Peter-John Parisis - founder of The School of Prayer"
+        },
+        {
+          "identifier": "Genesis113-JohnGills-ExpositionOfTheBible-ReadByPeter-john",
+          "title": "Genesis 1:13 - John Gill's - Exposition of the Bible - Read by Peter-John Parisis"
+        },
+        {
+          "identifier": "Genesis12-JohnGills-ExpositionOfTheBible",
+          "title": "00002 Genesis 1:2 - John Gill's - Exposition of the Bible"
+        },
+        {
+          "identifier": "Genesis212-GenesisChapter2Verse12-JohnGillsExpositionOfTheBible",
+          "title": "Genesis 2:12 - Genesis Chapter 2 Verse 12 - John Gill's Exposition of the Bible - Commentary - Read by Peter-John Parisis"
+        },
+        {
+          "identifier": "Genesis23-JohnGillsExpositionOfTheBible-Commentary-ReadBy",
+          "title": "Genesis 2:3 - John Gill's Exposition of the Bible - Commentary - Read by Peter-John Parisis"
+        },
+        {
+          "date": "1751-01-01T00:00:00Z",
+          "identifier": "bim_eighteenth-century_an-exposition-of-the-boo_1751",
+          "title": "An exposition of the Book of Solomon's Song, commonly called Canticles: wherein the authority of it is established and vindicated, against objections both ancient and modern; ... By John Gill, D.D. 1751"
+        },
+        {
+          "identifier": "Jude8-JohnGillsCommentaryOfTheEntireBibleVerseByVerse-Exposition",
+          "title": "Jude 8 - John Gill's Commentary of the Entire Bible verse by verse - Exposition of the Entire Bible - Read by Peter-John Parisis - founder of The School of Prayer"
+        },
+        {
+          "date": "1854-01-01T00:00:00Z",
+          "identifier": "expositionofbook00gill",
+          "title": "An exposition of the book of Solomon's song, commonly called Canticles ..."
+        },
+        {
+          "identifier": "Genesis214-GenesisChapter2Verse14-JohnGillsExpositionOfTheBible",
+          "title": "Genesis 2:14 - Genesis Chapter 2 Verse 14 - John Gill's Exposition of the Bible - Commentary - Read by Peter-John Parisis"
+        },
+        {
+          "identifier": "Genesis215-GenesisChapter2Verse15-JohnGillsExpositionOfTheBible",
+          "title": "Genesis 2:15 - Genesis Chapter 2 Verse 15 - John Gill's Exposition of the Bible - Commentary - Read by Peter-John Parisis"
+        },
+        {
+          "identifier": "Genesis22-JohnGillsExpositionOfTheBible-Commentary-ReadBy",
+          "title": "Genesis 2:2 - John Gill's Exposition of the Bible - Commentary - Read by Peter-John Parisis"
+        },
+        {
+          "identifier": "Genesis224-GenesisChapter2Verse24-JohnGillsExpositionOfTheBible_98",
+          "title": "Genesis 2:25 - Genesis Chapter 2 Verse 25- John Gill's Exposition of the Bible - Commentary - Read by Peter-John Parisis"
+        },
+        {
+          "date": "1971-01-01T00:00:00Z",
+          "identifier": "expositionofsong0000gill",
+          "title": "An exposition of the Song of Solomon"
+        },
+        {
+          "identifier": "Matthew11-8matthewChapter1Verses1Thru8-ByJohnGill-Dated1746",
+          "title": "Matthew 1:1-8 (Matthew Chapter 1, Verses 1 thru 8) - by John Gill - dated 1746 - The Exposition of the New Testament - Volume 1 of 3 - being read by Peter-John Parisis (the Founder of The School of Prayer)"
+        },
+        {
+          "identifier": "SchoolOfPrayerPresents-IntroductionToTheBookOfGenesis-JohnGills",
+          "title": "School of Prayer presents - Introduction to the book of Genesis - John Gill's Exposition of the"
+        },
+        {
+          "date": "1898-01-01T00:00:00Z",
+          "identifier": "expositionofgosp00macerich",
+          "title": "An exposition of the Gospels : consisting of an analysis of each chapter and of a commentary, critical, exegetical, doctrinal, and moral"
+        },
+        {
+          "date": "1811-01-01T00:00:00Z",
+          "identifier": "expositionofnewt0003john",
+          "title": "An exposition of The New Testament in which the sense of the sacred text is given",
+          "volume": "3"
+        },
+        {
+          "date": "1758-01-01T00:00:00Z",
+          "identifier": "bim_eighteenth-century_an-exposition-of-the-boo_1758_1",
+          "title": "An exposition of the Books of the Prophets of the Old Testament. Both larger and lesser. Vol. II. Containing the prophecies of … By John Gill, D.D. 1758: Vol 1",
+          "volume": "1"
+        },
+        {
+          "date": "1971-03-21T00:00:00Z",
+          "identifier": "gd71-03-21.aud.cotsman.12074.sbeok.shnf",
+          "title": "Grateful Dead Live at Exposition Center on 1971-03-21"
+        },
+        {
+          "identifier": "Genesis121-JohnGills-ExpositionOfTheBible-ReadByPeter-john",
+          "title": "Genesis 1:21 - John Gill's - Exposition of the Bible - Read by Peter-John Parisis"
+        },
+        {
+          "identifier": "Genesis21-JohnGillsExpositionOfTheBible-Commentary-ReadBy",
+          "title": "Genesis 2:1 - John Gill's Exposition of the Bible - Commentary - Read by Peter-John Parisis"
+        },
+        {
+          "identifier": "Genesis19-JohnGills-ExpositionOfTheBible-ReadByPeter-johnParisis",
+          "title": "Genesis 1:9 - John Gill's - Exposition of the Bible - Read by Peter-John Parisis"
+        },
+        {
+          "identifier": "Genesis110-JohnGills-ExpositionOfTheBible-ReadByPeter-john",
+          "title": "Genesis 1:10 - John Gill's - Exposition of the Bible - Read by Peter-John Parisis"
+        },
+        {
+          "identifier": "SchoolOfPrayerPresents-JohnGillExpositionOfTheEntireBible-Genesis",
+          "title": "School of Prayer presents - Introduction to the book of Genesis - John Gill Exposition of the Entire Bible - Genesis - being read by Peter-John Parisis"
+        },
+        {
+          "identifier": "Genesis122-JohnGills-ExpositionOfTheBible-ReadByPeter-john",
+          "title": "Genesis 1:22 - John Gill's - Exposition of the Bible - Read by Peter-John Parisis"
+        },
+        {
+          "identifier": "Genesis-Chapter4-Verses1-26-JohnGillsExpositionOfTheBible-",
+          "title": "Genesis - Chapter 4 - Verses 1 - 26 - John Gill's Exposition of the Bible - read by Peter-John Parisis (The Founder of The School of Prayer)"
+        },
+        {
+          "identifier": "Genesis221-GenesisChapter2Verse21-JohnGillsExpositionOfTheBible",
+          "title": "Genesis 2:21 - Genesis Chapter 2 Verse 21 - John Gill's Exposition of the Bible - Commentary - Read by Peter-John Parisis"
+        },
+        {
+          "identifier": "Genesis29-JohnGillsExpositionOfTheBible-Commentary-ReadBy",
+          "title": "Genesis 2:9 - John Gill's Exposition of the Bible - Commentary - Read by Peter-John Parisis"
+        },
+        {
+          "date": "1765-01-01T00:00:00Z",
+          "identifier": "expositionofoldt0003gill",
+          "title": "The Exposition of The Old Testament: In Which are Recorded The Origin of Mankind, of the Several Nations of the World, and of The Jewish Nation in Particular",
+          "volume": "3"
+        },
+        {
+          "date": "1898-01-01T00:00:00Z",
+          "identifier": "expositionofepis01maceuoft",
+          "title": "An exposition of the Epistles of St. Paul, and of the Catholic Epistles : consisting of an introduction to each Epistle, and analysis of each chapter, a paraphrase of the sacred text, and a commentary, embracing notes, critical, explanatory, and dogmatical",
+          "volume": "1"
+        },
+        {
+          "date": "1758-01-01T00:00:00Z",
+          "identifier": "expositionofbook0002gill",
+          "title": "An Exposition of the books of prophets of the old testament",
+          "volume": "2"
+        },
+        {
+          "date": "1884-01-01T00:00:00Z",
+          "identifier": "CatechismOfPerseveranceV1",
+          "title": "The Catechism Of Perseverance; Or, An Historical Dogmatical, Moral, Liturgical, Apologetical, Philosophical, And Social Exposition Of Religion, From The Beginning Of The World Down To Our Days: Volume 1"
+        },
+        {
+          "identifier": "Jude5-JohnGillsCommentaryOfTheEntireBibleVerseByVerse-Exposition",
+          "title": "Jude 5 - John Gill's Commentary of the Entire Bible verse by verse - Exposition of the Entire Bible - Read by Peter-John Parisis - founder of The School of Prayer"
+        },
+        {
+          "identifier": "Jude1-JohnGillsCommentaryOfTheEntireBibleVerseByVerse-Exposition",
+          "title": "Jude 1 - John Gill's Commentary of the Entire Bible verse by verse - Exposition of the"
+        },
+        {
+          "identifier": "Jude24-johnGillsCommentaryOfTheEntireBibleVerseByVerse-Exposition",
+          "title": "Jude 24 -John Gill's Commentary of the Entire Bible verse by verse - Exposition of the Entire Bible - Read by Peter-John Parisis - founder of The School of Prayer"
+        },
+        {
+          "date": "1884-01-01T00:00:00Z",
+          "identifier": "plansofbuildings00nort",
+          "title": "Plans of buildings, rules and regulations governing exhibitors at the North Carolina State Exposition : Raleigh, N.C., October 1st to October 28th, 1884; also premium lists of the North Carolina Agricultural Society and the North Carolina Industrial Association"
+        },
+        {
+          "date": "2026-05-28T00:00:00Z",
+          "identifier": "ephesians-j-gill-complete-issuu_20260529",
+          "title": "An Exposition of Paul's Ephesians, John Gill"
+        },
+        {
+          "identifier": "Jude16-johnGillsCommentaryOfTheEntireBibleVerseByVerse-Exposition",
+          "title": "Jude 16 -John Gill's Commentary of the Entire Bible verse by verse - Exposition of the Entire Bible - Read by Peter-John Parisis - founder of The School of Prayer"
+        },
+        {
+          "identifier": "Jude21-johnGillsCommentaryOfTheEntireBibleVerseByVerse-Exposition",
+          "title": "Jude 21 -John Gill's Commentary of the Entire Bible verse by verse - Exposition of the Entire Bible"
+        },
+        {
+          "date": "1764-01-01T00:00:00Z",
+          "identifier": "expositiondelath00bthi",
+          "title": "Exposition de la théorie et de la pratique de la musique, suivant les nouvelles découvertes"
+        },
+        {
+          "date": "2002-01-01T00:00:00Z",
+          "identifier": "expositionepistl0000john",
+          "title": "An exposition of the Epistle of Paul the Apostle to the Romans"
+        },
+        {
+          "identifier": "Genesis27-JohnGillsExpositionOfTheBible-Commentary-ReadBy",
+          "title": "Genesis 2:7 - John Gill's Exposition of the Bible - Commentary - Read by Peter-John Parisis"
+        },
+        {
+          "identifier": "Genesis15-JohnGills-ExpositionOfTheBible-ReadByPeter-johnParisis",
+          "title": "Genesis 1:5 - John Gill's - Exposition of the Bible - Read by Peter-John Parisis"
+        },
+        {
+          "identifier": "Genesis11-JohnGills-ExpositionOfTheBible",
+          "title": "00001 Genesis 1:1 - John Gill's - Exposition of the Bible"
+        },
+        {
+          "date": "1746-01-01T00:00:00Z",
+          "identifier": "bim_eighteenth-century_an-exposition-of-the-new_1746_2",
+          "title": "An exposition of the New Testament, in three volumes: ... By John Gill. 1746: Vol 2",
+          "volume": "2"
+        },
+        {
+          "date": "1776-01-01T00:00:00Z",
+          "identifier": "bim_eighteenth-century_an-exposition-of-the-new_bible-nt-english-a_1776_5",
+          "title": "An exposition of the New Testament, both doctrinal and practical: ... By John Gill, D.D. 1776: Vol 5",
+          "volume": "5"
+        },
+        {
+          "date": "1765-01-01T00:00:00Z",
+          "identifier": "bim_eighteenth-century_an-exposition-of-the-old_1765_3",
+          "title": "An exposition of the Old Testament, ... Vol. IV. Containing, Psalms, the latter part, Proverbs, Ecclesiastes, and Song of Solomon. By John Gill, D.D. 1765: Vol 3",
+          "volume": "3"
+        },
+        {
+          "identifier": "Genesis220-GenesisChapter2Verse20-JohnGillsExpositionOfTheBible",
+          "title": "Genesis 2:20 - Genesis Chapter 2 Verse 20 - John Gill's Exposition of the Bible - Commentary - Read by Peter-John Parisis"
+        },
+        {
+          "identifier": "Jude2-JohnGillsCommentaryOfTheEntireBibleVerseByVerse-Exposition",
+          "title": "Jude 2 - John Gill's Commentary of the Entire Bible verse by verse - Exposition of the Entire Bible - Read by Peter-John Parisis - founder of The School of Prayer"
+        },
+        {
+          "identifier": "Jude4-JohnGillsCommentaryOfTheEntireBibleVerseByVerse-Exposition",
+          "title": "Jude 4 - John Gill's Commentary of the Entire Bible verse by verse - Exposition of the Entire Bible - Read by Peter-John Parisis - founder of The School of Prayer"
+        },
+        {
+          "identifier": "Jude6-JohnGillsCommentaryOfTheEntireBibleVerseByVerse-Exposition",
+          "title": "Jude 6 - John Gill's Commentary of the Entire Bible verse by verse - Exposition of the Entire Bible - Read by Peter-John Parisis - founder of The School of Prayer"
+        },
+        {
+          "identifier": "Genesis218-GenesisChapter2Verse18-JohnGillsExpositionOfTheBible",
+          "title": "Genesis 2:18 - Genesis Chapter 2 Verse 18 - John Gill's Exposition of the Bible - Commentary - Read"
+        },
+        {
+          "identifier": "Genesis223-GenesisChapter2Verse23-JohnGillsExpositionOfTheBible",
+          "title": "Genesis 2:23 - Genesis Chapter 2 Verse 23- John Gill's Exposition of the Bible - Commentary - Read by Peter-John Parisis"
+        },
+        {
+          "identifier": "Genesis24-JohnGillsExpositionOfTheBible-Commentary-ReadBy",
+          "title": "Genesis 2:4 - John Gill's Exposition of the Bible - Commentary - Read by Peter-John Parisis"
+        },
+        {
+          "identifier": "Genesis111-JohnGills-ExpositionOfTheBible-ReadByPeter-john",
+          "title": "Genesis 1:11 - John Gill's - Exposition of the Bible - Read by Peter-John Parisis"
+        },
+        {
+          "identifier": "Leviticus-JohnGillsExpositionOfTheBookOfLeviticusBroughtBy",
+          "title": "Leviticus - John Gill's Exposition of the Book of Leviticus brought by Peter-John Parisis"
+        },
+        {
+          "date": "1877-01-01T00:00:00Z",
+          "identifier": "rulesregulations1877unse",
+          "title": "Rules, regulations and schedule of premiums for the ... annual exposition of the North Carolina Agricultural Society",
+          "volume": "1877"
+        },
+        {
+          "date": "1882-01-01T00:00:00Z",
+          "identifier": "TheCatechismOfPerseveranceV4ed2",
+          "title": "The Catechism Of Perseverance, or, An historical, dogmatical, moral, liturgical, apologetical, philosophical, and social exposition of religion from the beginning of the world down to our own days, Volume 4, 2nd Ed."
+        },
+        {
+          "identifier": "Genesis115-JohnGills-ExpositionOfTheBible-ReadByPeter-john",
+          "title": "Genesis 1:15 - John Gill's - Exposition of the Bible - Read by Peter-John Parisis"
+        },
+        {
+          "identifier": "Genesis25-JohnGillsExpositionOfTheBible-Commentary-ReadBy",
+          "title": "Genesis 2:5 - John Gill's Exposition of the Bible - Commentary - Read by Peter-John Parisis"
+        },
+        {
+          "identifier": "Genesis-Chapter1-Verses1-31-JohnGillsExpositionOfTheBible-",
+          "title": "Genesis - Chapter 1 - Verses 1 - 31 - John Gill's Exposition of the Bible - read by Peter-John Parisis (The Founder of The School of Prayer)"
+        },
+        {
+          "date": "1762-01-01T00:00:00Z",
+          "identifier": "expositionofbook0001gill",
+          "title": "An Exposition of the Books of the Prophets of the Old Testament",
+          "volume": "1"
+        },
+        {
+          "date": "1765-01-01T00:00:00Z",
+          "identifier": "bim_eighteenth-century_an-exposition-of-the-old_1765_1",
+          "title": "An exposition of the Old Testament, ... Vol. IV. Containing, Psalms, the latter part, Proverbs, Ecclesiastes, and Song of Solomon. By John Gill, D.D. 1765: Vol 1",
+          "volume": "1"
+        },
+        {
+          "date": "1774-01-01T00:00:00Z",
+          "identifier": "bim_eighteenth-century_an-exposition-of-the-new_1774_1",
+          "title": "An exposition of the New Testament, both doctrinal and practical: ... By John Gill, D.D. 1774: Vol 1",
+          "volume": "1"
+        },
+        {
+          "identifier": "Jude7-JohnGillsCommentaryOfTheEntireBibleVerseByVerse-Exposition",
+          "title": "Jude 7 - John Gill's Commentary of the Entire Bible verse by verse - Exposition of the Entire Bible - Read by Peter-John Parisis - founder of The School of Prayer"
+        },
+        {
+          "date": "2023-05-14T00:00:00Z",
+          "identifier": "revelation-john-gills-exposition-of-the-entire-bible-verse-by-verse",
+          "title": "Revelation John Gill's Exposition Of The Entire Bible Verse By Verse"
+        },
+        {
+          "identifier": "Jude15-johnGillsCommentaryOfTheEntireBibleVerseByVerse-Exposition",
+          "title": "Jude 15 -John Gill's Commentary of the Entire Bible verse by verse - Exposition of the Entire Bible - Read by Peter-John Parisis - founder of The School of Prayer"
+        },
+        {
+          "identifier": "Jude18-johnGillsCommentaryOfTheEntireBibleVerseByVerse-Exposition",
+          "title": "Jude 18 -John Gill's Commentary of the Entire Bible verse by verse - Exposition of the Entire Bible - Read by Peter-John Parisis - founder of The School of Prayer"
+        },
+        {
+          "identifier": "Jude22-johnGillsCommentaryOfTheEntireBibleVerseByVerse-Exposition",
+          "title": "Jude 22 -John Gill's Commentary of the Entire Bible verse by verse - Exposition of the Entire Bible - Read by Peter-John Parisis - founder of The School of Prayer"
+        },
+        {
+          "date": "1765-01-01T00:00:00Z",
+          "identifier": "bim_eighteenth-century_an-exposition-of-the-old_1765_4",
+          "title": "An exposition of the Old Testament, ... Vol. IV. Containing, Psalms, the latter part, Proverbs, Ecclesiastes, and Song of Solomon. By John Gill, D.D. 1765: Vol 4",
+          "volume": "4"
+        },
+        {
+          "date": "1758-01-01T00:00:00Z",
+          "identifier": "bim_eighteenth-century_an-exposition-of-the-boo_1758_2",
+          "title": "An exposition of the Books of the Prophets of the Old Testament. Both larger and lesser. Vol. II. Containing the prophecies of … By John Gill, D.D. 1758: Vol 2",
+          "volume": "2"
+        },
+        {
+          "date": "1882-01-01T00:00:00Z",
+          "identifier": "TheCatechismOfPerseveranceV2ed2",
+          "title": "The Catechism Of Perseverance, or, An historical, dogmatical, moral, liturgical, apologetical, philosophical, and social exposition of religion from the beginning of the world down to our own days, Volume 2, 2nd Ed."
+        },
+        {
+          "identifier": "rulesregulations00nort",
+          "title": "Rules and regulations and schedule of premiums for the ... annual exposition"
+        },
+        {
+          "date": "1746-01-01T00:00:00Z",
+          "identifier": "bim_eighteenth-century_an-exposition-of-the-new_1746_3",
+          "title": "An exposition of the New Testament, in three volumes: ... By John Gill. 1746: Vol 3",
+          "volume": "3"
+        },
+        {
+          "date": "1776-01-01T00:00:00Z",
+          "identifier": "bim_eighteenth-century_an-exposition-of-the-rev_1776",
+          "title": "An exposition of the Revelation of S. John the Divine, both doctrinal and practical: in which is inserted I. A correct copy of the sacred text, ... The whole illustrated and confirmed from the most ancient Jewish writings. By John Gill, D.D. 1776"
+        },
+        {
+          "date": "1746-01-01T00:00:00Z",
+          "identifier": "bim_eighteenth-century_an-exposition-of-the-new_1746_1",
+          "title": "An exposition of the New Testament, in three volumes: ... By John Gill. 1746: Vol 1",
+          "volume": "1"
+        },
+        {
+          "date": "1844-01-01T00:00:00Z",
+          "identifier": "64210710R.nlm.nih.gov",
+          "title": "A guide to health : being an exposition of the principles of the Thomsonian system of practice, and their mode of application in the cure of every form of disease : embracing a concise view of the various theories of ancient and modern practice"
+        },
+        {
+          "date": "1882-01-01T00:00:00Z",
+          "identifier": "TheCatechismOfPerseveranceV1ed2",
+          "title": "The Catechism Of Perseverance, or, An historical, dogmatical, moral, liturgical, apologetical, philosophical, and social exposition of religion from the beginning of the world down to our own days, Volume 1, 2nd Ed."
+        },
+        {
+          "date": "1884-01-01T00:00:00Z",
+          "identifier": "plansofbuildings1884unse",
+          "title": "Plans of buildings, rules and regulations governing exhibitors at the North Carolina State Exposition : Raleigh, N.C., October 1st to October 28th, 1884; also premium lists of the North Carolina Agricultural Society and the North Carolina Industrial Association.",
+          "volume": "1884"
+        },
+        {
+          "date": "1898-01-01T00:00:00Z",
+          "identifier": "6edexpositionepi02maceuoft",
+          "title": "An exposition of the Epistles of St. Paul, and of the Catholic Epistles : consisting of an introduction to each Epistle, and analysis of each chapter, a paraphrase of the sacred text, and a commentary, embracing notes, critical, explanatory, and dogmatical",
+          "volume": "2"
+        }
+      ]
+    }
+  }
+}

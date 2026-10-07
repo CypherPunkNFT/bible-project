@@ -1,0 +1,106 @@
+{
+  "request": {
+    "url": "https://api.github.com/repos/HelloAOLab/bible-api/git/trees/main?recursive=1",
+    "finalUrl": "https://api.github.com/repos/HelloAOLab/bible-api/git/trees/main?recursive=1",
+    "mimeType": "application/json",
+    "byteCount": 157589,
+    "sha256": "5b4355160a5337d1c50a8114a35fdb4b218a764a5688300952c94426c5d9b34f",
+    "retrievedAt": "2026-10-07T07:22:31.531706+00:00"
+  },
+  "commit": "feff031684cab67a610938ac788561c02c3e2c40",
+  "truncated": false,
+  "relevantPaths": [
+    {
+      "path": "docs/guide/downloads.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c75ed2c24795d8358e9870592014633456ef6aa2",
+      "size": 873,
+      "url": "https://api.github.com/repos/HelloAOLab/bible-api/git/blobs/c75ed2c24795d8358e9870592014633456ef6aa2"
+    },
+    {
+      "path": "docs/reference/commentaries",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "874a54bd5bf434dfaaafa767c45bbbb63eff19b1",
+      "url": "https://api.github.com/repos/HelloAOLab/bible-api/git/trees/874a54bd5bf434dfaaafa767c45bbbb63eff19b1"
+    },
+    {
+      "path": "docs/reference/commentaries/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "96c796a0910642205a7e149f29be4f08954ff52f",
+      "size": 50048,
+      "url": "https://api.github.com/repos/HelloAOLab/bible-api/git/blobs/96c796a0910642205a7e149f29be4f08954ff52f"
+    },
+    {
+      "path": "packages/helloao-cli/downloads.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8c7404859a1c2ba06c2b0df302c1e82d016860f4",
+      "size": 3298,
+      "url": "https://api.github.com/repos/HelloAOLab/bible-api/git/blobs/8c7404859a1c2ba06c2b0df302c1e82d016860f4"
+    },
+    {
+      "path": "packages/helloao-cli/migrations/20241113173937_add_commentaries",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "76229f5b3f93cfd84912f4b145f0f2b634e74be7",
+      "url": "https://api.github.com/repos/HelloAOLab/bible-api/git/trees/76229f5b3f93cfd84912f4b145f0f2b634e74be7"
+    },
+    {
+      "path": "packages/helloao-cli/migrations/20241113173937_add_commentaries/migration.sql",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7fe7ddc958fa7df3cf3a1be88dd63f3aa930f3af",
+      "size": 2294,
+      "url": "https://api.github.com/repos/HelloAOLab/bible-api/git/blobs/7fe7ddc958fa7df3cf3a1be88dd63f3aa930f3af"
+    },
+    {
+      "path": "packages/helloao-cli/migrations/20250212183533_add_usfm_download_date",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "4e3f0d4a71148bd8a3230922f1bdca9dbb2d9ac8",
+      "url": "https://api.github.com/repos/HelloAOLab/bible-api/git/trees/4e3f0d4a71148bd8a3230922f1bdca9dbb2d9ac8"
+    },
+    {
+      "path": "packages/helloao-cli/migrations/20250212183533_add_usfm_download_date/migration.sql",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "da32d0f8ee10f157d257f77a85dd58a9325f727e",
+      "size": 1991,
+      "url": "https://api.github.com/repos/HelloAOLab/bible-api/git/blobs/da32d0f8ee10f157d257f77a85dd58a9325f727e"
+    },
+    {
+      "path": "packages/helloao-cli/migrations/20250212193627_add_usfm_download_path",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "464179d78736ffd6d9cde3b48b42daac677e94ee",
+      "url": "https://api.github.com/repos/HelloAOLab/bible-api/git/trees/464179d78736ffd6d9cde3b48b42daac677e94ee"
+    },
+    {
+      "path": "packages/helloao-cli/migrations/20250212193627_add_usfm_download_path/migration.sql",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a50d933bcd9e21b2b59af98d7609129815cb2109",
+      "size": 77,
+      "url": "https://api.github.com/repos/HelloAOLab/bible-api/git/blobs/a50d933bcd9e21b2b59af98d7609129815cb2109"
+    },
+    {
+      "path": "packages/helloao-tools/parser/commentary-csv-parser.spec.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4a93f89111a9ab105c43a93b1850b6f496bea6f7",
+      "size": 17789,
+      "url": "https://api.github.com/repos/HelloAOLab/bible-api/git/blobs/4a93f89111a9ab105c43a93b1850b6f496bea6f7"
+    },
+    {
+      "path": "packages/helloao-tools/parser/commentary-csv-parser.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "79e265a92d0c6f52401c8c03669e14d0a5f47e88",
+      "size": 4555,
+      "url": "https://api.github.com/repos/HelloAOLab/bible-api/git/blobs/79e265a92d0c6f52401c8c03669e14d0a5f47e88"
+    }
+  ]
+}

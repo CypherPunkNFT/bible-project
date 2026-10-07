@@ -1,0 +1,49 @@
+{
+  "mission": "RB03",
+  "state": "bounded-acquisition-verified-and-checkpointed",
+  "startedAt": "2026-10-07T07:10:31+00:00",
+  "checkpointedAt": "2026-10-07T08:04:08.135032+00:00",
+  "downloadLastUpdatedAt": "2026-10-07T07:56:22.754958+00:00",
+  "originalSourceRoot": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources",
+  "privateCache": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\library\\run-rb03-2026-10-07",
+  "actualOriginals": 380,
+  "actualOriginalBytes": 48360694,
+  "targetRequestsAttempted": 391,
+  "pendingRequests": [],
+  "terminalSparseSourceExceptions": 11,
+  "originalsWithEvidenceOnlyRole": 1,
+  "activeRbCollectors": [],
+  "ingested": false,
+  "embedded": false,
+  "ocrStarted": false,
+  "newDbOrVectorWorkerStarted": false,
+  "finalRuntimeEvidence": "runtime-audit-final.json",
+  "currentExistingBibleSnapshotObservation": {
+    "intakeState": "snapshot_complete_followup_pending",
+    "embeddingState": "complete",
+    "remaining": 0,
+    "embeddingUpdatedAt": "2026-10-07T07:20:27.604174+00:00",
+    "scope": "Pre-existing snapshot only; RB03 downloads began later and are not part of that completed embedding."
+  },
+  "nextMission": "RB04",
+  "resumeInstructions": [
+    "Read RB03 REPORT.md, GAP-DECISIONS.md, COVERAGE.md, KEACH-READING-MAP.md and INTAKE-NOTES.md before new acquisition.",
+    "Next owner-supplied mission is RB04. Audit acquired/reused Keach and Gill before doctrine-book hunting.",
+    "Do not retry unchanged sparse Chronicles responses as network failures. They are rejected exposition witnesses, with source hashes in sparse-chapter-exceptions.json.",
+    "Future commentary expansion: Gill unselected books and Henry NT volumes V/VI require a new bounded scope; Henry VI requires contributor review.",
+    "After all RB01-RB14 final reports and valid manifests, use the existing automatic gate. Reconcile role/edition/passage corrections and reuse existing vectors; no manual DB/vector launch here."
+  ],
+  "verificationCommands": [
+    "python -X utf8 scripts/rb03-acquire.py verify",
+    "python -X utf8 scripts/verify-rb03.py"
+  ],
+  "verifiedFiles": {
+    "acquisition-manifest.json": "2f067c518b1efcd1f43704fed435b402990d8b816dc4226837695257e84f8825",
+    "targets.json": "73816f5d472b48ba10730e9fb4253f961ccf3fadf1405800cf89ba6808bb57f3",
+    "chapter-coverage.json": "aaab417838c9f591af792ffdff249b5b2316b01f999630800a1bb7e2856293f0",
+    "keach-reading-map.json": "4dae0f0c53e8f9044abc4b39b7352e1d2467881beff5410d19b5cf91e5a70a46",
+    "intake-scope.json": "687f08a8e9823f16db1f8deca0242de3625a8ef49f544943d9ac4b571e938620",
+    "intake-plan-audit.json": "fcdfe686108e287505eb9aa7ece3586f77ac5a7f8af106902dbd4e83e9b19407",
+    "verification.json": "382dd1553a75e34dad31a3ac5c2f3b87955671967bad823f697288c0f3d17814"
+  }
+}

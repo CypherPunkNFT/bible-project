@@ -1,0 +1,71 @@
+{
+  "selectedEntries": [
+    {
+      "id": "author-john-calvin",
+      "entityType": "person",
+      "name": "John Calvin",
+      "aliases": [
+        "Jean Calvin",
+        "Calvin"
+      ],
+      "cohort": "reformation-puritan",
+      "traditions": [
+        "reformed"
+      ],
+      "eligibility": "eligible",
+      "rationale": "PRDL identifies Calvin as Reformed and records his Geneva theology post and substantial bibliography.",
+      "receptionBasis": "Reformed classification and historical bibliography.",
+      "evidence": [
+        {
+          "url": "https://www.prdl.org/authors.php?a_in=C",
+          "locator": "Calvin, Jean (d. 1564)",
+          "note": "Reformed classification and historical bibliography.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "distinctives": [],
+      "unresolved": [
+        "Classify each translation and publisher's added material separately."
+      ],
+      "review": {
+        "date": "2026-10-05",
+        "reviewer": "Codex",
+        "kind": "ai-assisted",
+        "scope": "Initial bibliographic and theological-fit screening; work/edition review remains required."
+      }
+    },
+    {
+      "id": "author-john-gill",
+      "entityType": "person",
+      "name": "John Gill",
+      "aliases": [],
+      "cohort": "eighteenth-century",
+      "traditions": [
+        "baptist",
+        "calvinist-evangelical"
+      ],
+      "eligibility": "eligible",
+      "rationale": "Particular Baptist theologian and biblical expositor; CCEL identifies his explicitly Calvinistic theology.",
+      "receptionBasis": "Historic theological text and/or institutional bibliographic account identified in the evidence.",
+      "evidence": [
+        {
+          "url": "https://ccel.org/ccel/gill",
+          "locator": "Author identity and theological placement",
+          "note": "Particular Baptist theologian and biblical expositor; CCEL identifies his explicitly Calvinistic theology.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "distinctives": [],
+      "unresolved": [
+        "Eligibility is work-specific; modern translations and editions need separate rights review."
+      ],
+      "review": {
+        "date": "2026-10-05",
+        "reviewer": "Codex",
+        "kind": "ai-assisted",
+        "scope": "Bibliographic identity, reading purpose, source access and historic-text/file-rights distinction checked; not a full-text theological or transcription audit."
+      }
+    }
+  ],
+  "globalRegistryChanged": false
+}

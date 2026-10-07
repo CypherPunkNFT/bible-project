@@ -1,0 +1,35 @@
+{
+  "mission": "RB03",
+  "checkedOn": "2026-10-07T07:57:48.363870+00:00",
+  "originalCount": 380,
+  "originalBytes": 48360694,
+  "formats": {
+    "xml": 3,
+    "epub": 3,
+    "json": 374
+  },
+  "readableDerivativeWords": 6854454,
+  "rejectedSparseChapters": 11,
+  "unresolvedFailures": 0,
+  "acquiredReferencePointerOnlyChapters": 1,
+  "targets": 391,
+  "fullyAttempted": true,
+  "coverage": {
+    "mission": "RB03",
+    "snapshot": "2026-10-07T07:56:22.754958+00:00",
+    "acquisitionFiles": 380,
+    "newHenryChapters": 742,
+    "reusedHenryChapters": 187,
+    "gillChapters": 374,
+    "gillCompleteBooks": 25,
+    "henryCompleteBooks": 39,
+    "gillAbsentVerseEntryLabels": 866,
+    "gillPointerOnlyChapters": 1,
+    "note": "Structural readable coverage, not exhaustive human-reviewed exegesis, verse completeness or DB ingestion."
+  },
+  "actualHeldOriginalsAudited": 186,
+  "inputDocumentsAudited": 37,
+  "privateBodiesCommitted": false,
+  "ingested": false,
+  "embedded": false
+}

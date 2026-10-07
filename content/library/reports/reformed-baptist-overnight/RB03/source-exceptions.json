@@ -1,0 +1,99 @@
+{
+  "mission": "RB03",
+  "checkedOn": "2026-10-07",
+  "editionAndScopeExceptions": [
+    {
+      "kind": "misleading-held-title",
+      "work": "Matthew Henry Whole Bible",
+      "finding": "Held EPUB is Volume I only (Genesis-Deuteronomy), despite broad metadata title; now II-IV complete OT sequence. V and VI not acquired. VI contributor/editor review required."
+    },
+    {
+      "kind": "print-witness-identity",
+      "work": "Keach Parables",
+      "finding": "Volume I actual title page: Aylott and Co., London,1858, in four books. Author preface dated1701. Do not replace this offered edition identity with an assumed historic two-volume structure."
+    },
+    {
+      "kind": "duplicate-avoided",
+      "work": "Keach Parables III",
+      "finding": "All36 TOC titles including32 sermon headings match held EPUB; reused, not new acquisition or second work. TOC parity does not mean byte-identical editions."
+    },
+    {
+      "kind": "text-extraction",
+      "work": "Henry II-IV",
+      "finding": "Initial collector inherited raw XML extraction. RB03 collector now renders ThML.body text into private derivatives; originals remain unchanged. Final verify uses refreshed derivative hashes."
+    },
+    {
+      "kind": "sparse-commentary",
+      "work": "Gill Chronicles",
+      "finding": "Empty and see-reference API chapters are rejected as sustained exposition; separate exception map retains private cached source hashes. One longer pointer-only chapter may be retained with source-reference role."
+    },
+    {
+      "kind": "source-label-errors",
+      "work": "Keach Parables",
+      "finding": "Eight explicit NCX/body citation defects are recorded in passage-exceptions.json; all47 division starting passages were reviewed from actual EPUB body incipits. Do not silently rewrite originals."
+    },
+    {
+      "kind": "metadata-error",
+      "work": "Gill API witness",
+      "finding": "Inventory reports English language but rtl text direction. Preserve raw field; do not render actual English right-to-left."
+    },
+    {
+      "kind": "unresolved-print-lineage",
+      "work": "Gill API witness",
+      "finding": "Primary API supplies author ID and historical body with explicit Public Domain Mark1.0; print impression and transcription ancestry not established. Not a collated whole-Bible critical edition."
+    },
+    {
+      "kind": "stale-index-report",
+      "work": "Calvin",
+      "finding": "All45 numbered calcom XML volumes physically held. Old45 discovery/110 indexed-section evidence is not complete physical coverage; Ezekiel chapter divisions stop at20 in held Calvin volumes."
+    }
+  ],
+  "rights": [
+    {
+      "source": "CCEL",
+      "url": "https://ccel.org/about/copyright.html",
+      "scope": "Personal, educational/nonprofit reading; permission needed for republication/commercial use. Publisher additions may remain copyrighted."
+    },
+    {
+      "source": "Monergism",
+      "url": "https://www.monergism.com/monergism-copyright-permissions",
+      "scope": "Offered downloads and private/church/classroom study allowed; referencing/indexing welcome. File redistribution on apps, websites, repositories, AI datasets or similar external platforms prohibited; link to primary source instead."
+    },
+    {
+      "source": "HelloAO",
+      "url": "https://bible.helloao.org/docs/",
+      "inventory": "helloao-commentary-inventory.json",
+      "scope": "Primary API/docs offer access/downloads without keys/usage limits. Gill record has Public Domain Mark1.0 (not CC0). This mission retains private sources and does not authorize public bodies."
+    }
+  ],
+  "accessFailuresAndAlternatives": [
+    {
+      "source": "grace-ebooks.com",
+      "result": "Three bounded desk discovery attempts: DNS resolution failed (11001); no originals acquired. Monergism and CCEL alternatives used."
+    },
+    {
+      "source": "CrossWire Gill info",
+      "result": "Connection refused (10061); no originals acquired. Official HelloAO witness used."
+    },
+    {
+      "source": "bible-commentaries.com old John Gill URL",
+      "result": "404 and current home identified a different author; source not used or admitted."
+    },
+    {
+      "source": "Archive Gill editions",
+      "result": "Creator/title searches found partial historical volumes; no complete coherent edition established in budget. Metadata-only research, no acquired bodies."
+    },
+    {
+      "source": "Lyteword GitHub discovery",
+      "result": "No Gill repository established. Other repositories licenses were not borrowed for this Gill witness."
+    },
+    {
+      "source": "commercial/vendor/user-uploaded copies",
+      "result": "No paid access bypass or user-uploaded modern book acquisition. Laridian and third-party copies not used."
+    }
+  ],
+  "globalAuthorRegistryChanged": false,
+  "newOCR": false,
+  "newModelCalls": false,
+  "dbWorkerStarted": false
+}

@@ -1,0 +1,115 @@
+{
+  "asset": {
+    "url": "https://www.monergism.com/thethreshold/sdg/henry/A%20Method%20for%20Prayer01%20-%20Matthew%20Henry.epub",
+    "finalUrl": "https://www.monergism.com/thethreshold/sdg/henry/A%20Method%20for%20Prayer01%20-%20Matthew%20Henry.epub",
+    "mimeType": "application/epub+zip",
+    "byteCount": 495936,
+    "sha256": "116147d73707815437938a1e747b4acc3b7ee321646d404e1d3f8f91870065d1",
+    "retrievedAt": "2026-10-05T14:51:22.480380+00:00",
+    "headers": {
+      "Date": "Mon, 05 Oct 2026 14:51:21 GMT",
+      "Content-Type": "application/epub+zip",
+      "Content-Length": "495936",
+      "Connection": "close",
+      "CF-Ray": "a45d3e723d29a658-MIA",
+      "CF-Cache-Status": "MISS",
+      "Accept-Ranges": "bytes",
+      "Access-Control-Allow-Origin": "*",
+      "Cache-Control": "max-age=1209600",
+      "Content-Disposition": "attachment",
+      "Expires": "Mon, 19 Oct 2026 14:51:20 GMT",
+      "Last-Modified": "Sat, 14 Sep 2024 02:31:43 GMT",
+      "Server": "cloudflare",
+      "Vary": "Accept-Encoding",
+      "Nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+      "Report-To": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=32ZEi9uJA6Ef99XfNhtpAFb1iu1I2JP97btRlafWVUr%2B5jT4pXXpbL6okdLi0ApLS%2BvErTRcnglh6A%2BHWJOjN2V24I5ZPglvS%2FsuvoXnbvN8uVBVxoESsMlWNQaALTOvSop%2B3NEMd%2Bx%2BbpasFDNQ\"}]}",
+      "access-control-allow-headers": "*",
+      "x-content-type-options": "nosniff"
+    },
+    "assetId": "asset-expanded-517c7414bd2a1c3a5f57",
+    "author": "Henry, Matthew",
+    "title": "A Method for Prayer",
+    "format": "epub",
+    "relativePath": "library/source-monergism-library/asset-expanded-517c7414bd2a1c3a5f57/original.epub",
+    "sourcePage": "https://www.monergism.com/method-prayer-ebook",
+    "textKind": "offered-ebook-edition",
+    "rightsCategory": "restricted-license",
+    "useScope": "private-noncommercial-reading",
+    "publicHostingAllowed": false,
+    "publicFullTextIndexAllowed": false,
+    "policyUrl": "https://www.monergism.com/monergism-copyright-permissions",
+    "derivedText": {
+      "path": ".local/library/run-modern-texts-2026-10-05/text/asset-expanded-517c7414bd2a1c3a5f57.txt",
+      "wordCount": 76118,
+      "sha256": "d4b034af577af9882ae894d9227d0798b66f7c1f545d5b14b8ba4c1ebc2381cc",
+      "method": "Existing publisher text; no OCR; no model calls",
+      "quality": "unreviewed"
+    },
+    "authorGroup": "monergism-library",
+    "ledger": "content/library/reports/modern-texts/acquisition-manifest.json"
+  },
+  "contents": [
+    {
+      "title": "To the Reader",
+      "locator": "index_split_003.html",
+      "member": "index_split_003.html",
+      "memberPresent": true
+    },
+    {
+      "title": "Adoration of God",
+      "locator": "index_split_004.html",
+      "member": "index_split_004.html",
+      "memberPresent": true
+    },
+    {
+      "title": "Confession of Sin",
+      "locator": "index_split_005.html",
+      "member": "index_split_005.html",
+      "memberPresent": true
+    },
+    {
+      "title": "Petitions and Requests",
+      "locator": "index_split_006.html",
+      "member": "index_split_006.html",
+      "memberPresent": true
+    },
+    {
+      "title": "Thanksgivings for Mercy",
+      "locator": "index_split_007.html",
+      "member": "index_split_007.html",
+      "memberPresent": true
+    },
+    {
+      "title": "Intercession for Others",
+      "locator": "index_split_008.html",
+      "member": "index_split_008.html",
+      "memberPresent": true
+    },
+    {
+      "title": "Occasional Addresses to God",
+      "locator": "index_split_009.html",
+      "member": "index_split_009.html",
+      "memberPresent": true
+    },
+    {
+      "title": "The Conclusion of Prayer",
+      "locator": "index_split_010.html",
+      "member": "index_split_010.html",
+      "memberPresent": true
+    },
+    {
+      "title": "A Paraphrase on the Lord’s Prayer",
+      "locator": "index_split_011.html",
+      "member": "index_split_011.html",
+      "memberPresent": true
+    },
+    {
+      "title": "Some forms of Prayer",
+      "locator": "index_split_012.html",
+      "member": "index_split_012.html",
+      "memberPresent": true
+    }
+  ],
+  "privateDerivative": ".local\\library\\run-rb03-2026-10-07\\audit-text\\henry-method-prayer.txt",
+  "note": "Specific source locators and admission decision recorded separately; no blanket author approval."
+}

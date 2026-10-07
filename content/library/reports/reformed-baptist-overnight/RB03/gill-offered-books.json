@@ -1,0 +1,1951 @@
+{
+  "request": {
+    "url": "https://bible.helloao.org/api/c/john-gill/books.json",
+    "finalUrl": "https://bible.helloao.org/api/c/john-gill/books.json",
+    "mimeType": "application/json",
+    "byteCount": 279386,
+    "sha256": "e7685f03735111e05ec1960344ac3f56dcae96e21ddd26feaffc75ed52746d28",
+    "retrievedAt": "2026-10-07T07:23:05.341281+00:00"
+  },
+  "data": {
+    "commentary": {
+      "id": "john-gill",
+      "name": "John Gill Bible Commentary",
+      "website": "https://en.wikipedia.org/wiki/John_Gill_(theologian)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "licenseNotes": null,
+      "licenseNotice": null,
+      "englishName": "John Gill Bible Commentary",
+      "language": "eng",
+      "textDirection": "rtl",
+      "sha256": "f6fcfd6c3a726dc834cfaf1ae1cd0bf49bffb88c1246ac3500699e8af7be71a5",
+      "availableFormats": [
+        "json"
+      ],
+      "listOfBooksApiLink": "/api/c/john-gill/books.json",
+      "listOfProfilesApiLink": "/api/c/john-gill/profiles.json",
+      "numberOfBooks": 66,
+      "totalNumberOfChapters": 1189,
+      "totalNumberOfVerses": 29707,
+      "totalNumberOfProfiles": 0,
+      "languageName": "English",
+      "languageEnglishName": "English"
+    },
+    "books": [
+      {
+        "id": "GEN",
+        "commentaryId": "john-gill",
+        "name": "Genesis",
+        "commonName": "Genesis",
+        "order": 1,
+        "numberOfChapters": 50,
+        "sha256": "e9d4395fcf1301e32bfb529f130ea892c32226eab4610b62d1dc0a35c2359fb4",
+        "firstChapterNumber": 1,
+        "firstChapterApiLink": "/api/c/john-gill/GEN/1.json",
+        "firstChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "GEN",
+          "chapter": 1
+        },
+        "lastChapterNumber": 50,
+        "lastChapterApiLink": "/api/c/john-gill/GEN/50.json",
+        "lastChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "GEN",
+          "chapter": 50
+        },
+        "totalNumberOfVerses": 1532,
+        "introductionAudit": {
+          "charCount": 4638,
+          "sha256": "3914fecbdd633291aa5171128aa736ef6f9710ed2f924213246bea0ba6b5a4c9",
+          "bodyStorage": "private HTTP cache and chosen original chapter JSON; no introduction body in versioned report"
+        }
+      },
+      {
+        "id": "EXO",
+        "commentaryId": "john-gill",
+        "name": "Exodus",
+        "commonName": "Exodus",
+        "order": 2,
+        "numberOfChapters": 40,
+        "sha256": "d8cffbd33b920dde7e6653b41f9bf8bb3de031a1bad2fdeaf216fd48cc07b288",
+        "firstChapterNumber": 1,
+        "firstChapterApiLink": "/api/c/john-gill/EXO/1.json",
+        "firstChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "EXO",
+          "chapter": 1
+        },
+        "lastChapterNumber": 40,
+        "lastChapterApiLink": "/api/c/john-gill/EXO/40.json",
+        "lastChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "EXO",
+          "chapter": 40
+        },
+        "totalNumberOfVerses": 1090,
+        "introductionAudit": {
+          "charCount": 2762,
+          "sha256": "dc4518d5ca96efcc21761fe66731026caada57338f50780e9a368f1ddc841707",
+          "bodyStorage": "private HTTP cache and chosen original chapter JSON; no introduction body in versioned report"
+        }
+      },
+      {
+        "id": "LEV",
+        "commentaryId": "john-gill",
+        "name": "Leviticus",
+        "commonName": "Leviticus",
+        "order": 3,
+        "numberOfChapters": 27,
+        "sha256": "2e83df7e7938b026cc82e77eb0cf267b3095a9b41c834cb0062f7638ae0ce882",
+        "firstChapterNumber": 1,
+        "firstChapterApiLink": "/api/c/john-gill/LEV/1.json",
+        "firstChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "LEV",
+          "chapter": 1
+        },
+        "lastChapterNumber": 27,
+        "lastChapterApiLink": "/api/c/john-gill/LEV/27.json",
+        "lastChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "LEV",
+          "chapter": 27
+        },
+        "totalNumberOfVerses": 846,
+        "introductionAudit": {
+          "charCount": 2682,
+          "sha256": "269a6bfd8187eebd6e76d78e21867c2fe43548082cbdb376a2af36c5b4327947",
+          "bodyStorage": "private HTTP cache and chosen original chapter JSON; no introduction body in versioned report"
+        }
+      },
+      {
+        "id": "NUM",
+        "commentaryId": "john-gill",
+        "name": "Numbers",
+        "commonName": "Numbers",
+        "order": 4,
+        "numberOfChapters": 36,
+        "sha256": "f25264ff6246f7a229d4079085a5f91fd1ccdbddfebfc43a808327bb569bac61",
+        "firstChapterNumber": 1,
+        "firstChapterApiLink": "/api/c/john-gill/NUM/1.json",
+        "firstChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "NUM",
+          "chapter": 1
+        },
+        "lastChapterNumber": 36,
+        "lastChapterApiLink": "/api/c/john-gill/NUM/36.json",
+        "lastChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "NUM",
+          "chapter": 36
+        },
+        "totalNumberOfVerses": 1176,
+        "introductionAudit": {
+          "charCount": 1383,
+          "sha256": "4624d1d8629bd25bdcfc418f75b07a1ba6fb2d30de3b10c373af7a07349e2161",
+          "bodyStorage": "private HTTP cache and chosen original chapter JSON; no introduction body in versioned report"
+        }
+      },
+      {
+        "id": "DEU",
+        "commentaryId": "john-gill",
+        "name": "Deuteronomy",
+        "commonName": "Deuteronomy",
+        "order": 5,
+        "numberOfChapters": 34,
+        "sha256": "e1cb5d6fa345abaa8a56e2d296a469f536fca4f9cc04791c55da56a89f9c40e3",
+        "firstChapterNumber": 1,
+        "firstChapterApiLink": "/api/c/john-gill/DEU/1.json",
+        "firstChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "DEU",
+          "chapter": 1
+        },
+        "lastChapterNumber": 34,
+        "lastChapterApiLink": "/api/c/john-gill/DEU/34.json",
+        "lastChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "DEU",
+          "chapter": 34
+        },
+        "totalNumberOfVerses": 939,
+        "introductionAudit": {
+          "charCount": 2841,
+          "sha256": "920dcc1a2f64d1db711f4683da39178ab315ba62396e8fea304bcac5ad0aa582",
+          "bodyStorage": "private HTTP cache and chosen original chapter JSON; no introduction body in versioned report"
+        }
+      },
+      {
+        "id": "JOS",
+        "commentaryId": "john-gill",
+        "name": "Joshua",
+        "commonName": "Joshua",
+        "order": 6,
+        "numberOfChapters": 24,
+        "sha256": "4e39585f1661a78454434acff60b102e5d8c49d7554035e673cac47054538aec",
+        "firstChapterNumber": 1,
+        "firstChapterApiLink": "/api/c/john-gill/JOS/1.json",
+        "firstChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "JOS",
+          "chapter": 1
+        },
+        "lastChapterNumber": 24,
+        "lastChapterApiLink": "/api/c/john-gill/JOS/24.json",
+        "lastChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "JOS",
+          "chapter": 24
+        },
+        "totalNumberOfVerses": 658,
+        "introductionAudit": {
+          "charCount": 6935,
+          "sha256": "410c4cd8464b156cbd157893cf83d03963568dd5583fc19a1acec1e66aba07c8",
+          "bodyStorage": "private HTTP cache and chosen original chapter JSON; no introduction body in versioned report"
+        }
+      },
+      {
+        "id": "JDG",
+        "commentaryId": "john-gill",
+        "name": "Judges",
+        "commonName": "Judges",
+        "order": 7,
+        "numberOfChapters": 21,
+        "sha256": "2e59946669902cc501eca350557e8994424d294ca0e07095e4d282e8fd14a472",
+        "firstChapterNumber": 1,
+        "firstChapterApiLink": "/api/c/john-gill/JDG/1.json",
+        "firstChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "JDG",
+          "chapter": 1
+        },
+        "lastChapterNumber": 21,
+        "lastChapterApiLink": "/api/c/john-gill/JDG/21.json",
+        "lastChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "JDG",
+          "chapter": 21
+        },
+        "totalNumberOfVerses": 618,
+        "introductionAudit": {
+          "charCount": 2903,
+          "sha256": "a0e1615cc4ea298543ef18a6e4090edfe1f05fedea35e7c369931e80bcbc10ae",
+          "bodyStorage": "private HTTP cache and chosen original chapter JSON; no introduction body in versioned report"
+        }
+      },
+      {
+        "id": "RUT",
+        "commentaryId": "john-gill",
+        "name": "Ruth",
+        "commonName": "Ruth",
+        "order": 8,
+        "numberOfChapters": 4,
+        "sha256": "b71bd9d0ef4e99d02c72606c457a24ac0222c9fa10a3cc73b8a7a1cf3a867d4d",
+        "firstChapterNumber": 1,
+        "firstChapterApiLink": "/api/c/john-gill/RUT/1.json",
+        "firstChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "RUT",
+          "chapter": 1
+        },
+        "lastChapterNumber": 4,
+        "lastChapterApiLink": "/api/c/john-gill/RUT/4.json",
+        "lastChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "RUT",
+          "chapter": 4
+        },
+        "totalNumberOfVerses": 85,
+        "introductionAudit": {
+          "charCount": 2121,
+          "sha256": "21f210658f2eff2cf8a3bbbb6158b48cdf29df6f1b1b3b342dddcb9c9f5d2dcb",
+          "bodyStorage": "private HTTP cache and chosen original chapter JSON; no introduction body in versioned report"
+        }
+      },
+      {
+        "id": "1SA",
+        "commentaryId": "john-gill",
+        "name": "1 Samuel",
+        "commonName": "1 Samuel",
+        "order": 9,
+        "numberOfChapters": 31,
+        "sha256": "7286b9b6fd06789d070d8700d42e4cdbcf48f1a341ad7832c18785f030b55776",
+        "firstChapterNumber": 1,
+        "firstChapterApiLink": "/api/c/john-gill/1SA/1.json",
+        "firstChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "1SA",
+          "chapter": 1
+        },
+        "lastChapterNumber": 31,
+        "lastChapterApiLink": "/api/c/john-gill/1SA/31.json",
+        "lastChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "1SA",
+          "chapter": 31
+        },
+        "totalNumberOfVerses": 810,
+        "introductionAudit": {
+          "charCount": 2242,
+          "sha256": "f2391606eb48fb8b4d9bef30d6402e5884adcd0394f25cdaebe8a0b3d8767fcf",
+          "bodyStorage": "private HTTP cache and chosen original chapter JSON; no introduction body in versioned report"
+        }
+      },
+      {
+        "id": "2SA",
+        "commentaryId": "john-gill",
+        "name": "2 Samuel",
+        "commonName": "2 Samuel",
+        "order": 10,
+        "numberOfChapters": 24,
+        "sha256": "ca18d8d0648b1034836affee8255d50c8441673a0a91e402612e9c63f8c851be",
+        "firstChapterNumber": 1,
+        "firstChapterApiLink": "/api/c/john-gill/2SA/1.json",
+        "firstChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "2SA",
+          "chapter": 1
+        },
+        "lastChapterNumber": 24,
+        "lastChapterApiLink": "/api/c/john-gill/2SA/24.json",
+        "lastChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "2SA",
+          "chapter": 24
+        },
+        "totalNumberOfVerses": 695,
+        "introductionAudit": {
+          "charCount": 2246,
+          "sha256": "60dd65cb7c0cf8279074cdd425fd7332a89928903bf7f7546741cd451fff2e30",
+          "bodyStorage": "private HTTP cache and chosen original chapter JSON; no introduction body in versioned report"
+        }
+      },
+      {
+        "id": "1KI",
+        "commentaryId": "john-gill",
+        "name": "1 Kings",
+        "commonName": "1 Kings",
+        "order": 11,
+        "numberOfChapters": 22,
+        "sha256": "4cc492dfbdd9128b7270a3a9d01cba49ad440540726f4cc815e2c87b3be60396",
+        "firstChapterNumber": 1,
+        "firstChapterApiLink": "/api/c/john-gill/1KI/1.json",
+        "firstChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "1KI",
+          "chapter": 1
+        },
+        "lastChapterNumber": 22,
+        "lastChapterApiLink": "/api/c/john-gill/1KI/22.json",
+        "lastChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "1KI",
+          "chapter": 22
+        },
+        "totalNumberOfVerses": 811,
+        "introductionAudit": {
+          "charCount": 5120,
+          "sha256": "683fb17c89b058b3d236064e7f60c619f8388ba7783294fe63de24ef83b38e89",
+          "bodyStorage": "private HTTP cache and chosen original chapter JSON; no introduction body in versioned report"
+        }
+      },
+      {
+        "id": "2KI",
+        "commentaryId": "john-gill",
+        "name": "2 Kings",
+        "commonName": "2 Kings",
+        "order": 12,
+        "numberOfChapters": 25,
+        "sha256": "226cfa4a0528a4d72ec0d553ecf198d0f3d55bbab43e659b6251fa9ce40158d2",
+        "firstChapterNumber": 1,
+        "firstChapterApiLink": "/api/c/john-gill/2KI/1.json",
+        "firstChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "2KI",
+          "chapter": 1
+        },
+        "lastChapterNumber": 25,
+        "lastChapterApiLink": "/api/c/john-gill/2KI/25.json",
+        "lastChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "2KI",
+          "chapter": 25
+        },
+        "totalNumberOfVerses": 630,
+        "introductionAudit": {
+          "charCount": 346,
+          "sha256": "cdda934362bccf8d032292d288737fafe99bf18a10a7743e678ac45d150472ff",
+          "bodyStorage": "private HTTP cache and chosen original chapter JSON; no introduction body in versioned report"
+        }
+      },
+      {
+        "id": "1CH",
+        "commentaryId": "john-gill",
+        "name": "1 Chronicles",
+        "commonName": "1 Chronicles",
+        "order": 13,
+        "numberOfChapters": 29,
+        "sha256": "c783d4c4f163c45fc96774fade3ee30134fba8e8589b237f2292554bb4242517",
+        "firstChapterNumber": 1,
+        "firstChapterApiLink": "/api/c/john-gill/1CH/1.json",
+        "firstChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "1CH",
+          "chapter": 1
+        },
+        "lastChapterNumber": 29,
+        "lastChapterApiLink": "/api/c/john-gill/1CH/29.json",
+        "lastChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "1CH",
+          "chapter": 29
+        },
+        "totalNumberOfVerses": 466,
+        "introductionAudit": {
+          "charCount": 5028,
+          "sha256": "89c0a2eeb68316c2313c8e831f78ea491284689013a844a1d9495081c8dca4e8",
+          "bodyStorage": "private HTTP cache and chosen original chapter JSON; no introduction body in versioned report"
+        }
+      },
+      {
+        "id": "2CH",
+        "commentaryId": "john-gill",
+        "name": "2 Chronicles",
+        "commonName": "2 Chronicles",
+        "order": 14,
+        "numberOfChapters": 36,
+        "sha256": "a29a7f9b3280e73f1b8315c1f098b91bc151dd89db16e550ce7a8c2ed308bb24",
+        "firstChapterNumber": 1,
+        "firstChapterApiLink": "/api/c/john-gill/2CH/1.json",
+        "firstChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "2CH",
+          "chapter": 1
+        },
+        "lastChapterNumber": 36,
+        "lastChapterApiLink": "/api/c/john-gill/2CH/36.json",
+        "lastChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "2CH",
+          "chapter": 36
+        },
+        "totalNumberOfVerses": 506,
+        "introductionAudit": {
+          "charCount": 955,
+          "sha256": "72855fdc4f85640cf58389fe8d137c60cd7585ef61e3589a7a868819bfa3eee7",
+          "bodyStorage": "private HTTP cache and chosen original chapter JSON; no introduction body in versioned report"
+        }
+      },
+      {
+        "id": "EZR",
+        "commentaryId": "john-gill",
+        "name": "Ezra",
+        "commonName": "Ezra",
+        "order": 15,
+        "numberOfChapters": 10,
+        "sha256": "e31f6f6f0eeac120308cc93b89a52af8e07522c2264e5539c7d15306ce31aa2e",
+        "firstChapterNumber": 1,
+        "firstChapterApiLink": "/api/c/john-gill/EZR/1.json",
+        "firstChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "EZR",
+          "chapter": 1
+        },
+        "lastChapterNumber": 10,
+        "lastChapterApiLink": "/api/c/john-gill/EZR/10.json",
+        "lastChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "EZR",
+          "chapter": 10
+        },
+        "totalNumberOfVerses": 187,
+        "introductionAudit": {
+          "charCount": 1995,
+          "sha256": "3acfe3a79223f6e78b72b78324d1145fb5cab79c10ce15cfe19d2597cff84ed2",
+          "bodyStorage": "private HTTP cache and chosen original chapter JSON; no introduction body in versioned report"
+        }
+      },
+      {
+        "id": "NEH",
+        "commentaryId": "john-gill",
+        "name": "Nehemiah",
+        "commonName": "Nehemiah",
+        "order": 16,
+        "numberOfChapters": 13,
+        "sha256": "9b16f4b34e7afee4e0233ba70b15ed183b6520e0c2fa137114f750b684a151e4",
+        "firstChapterNumber": 1,
+        "firstChapterApiLink": "/api/c/john-gill/NEH/1.json",
+        "firstChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "NEH",
+          "chapter": 1
+        },
+        "lastChapterNumber": 13,
+        "lastChapterApiLink": "/api/c/john-gill/NEH/13.json",
+        "lastChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "NEH",
+          "chapter": 13
+        },
+        "totalNumberOfVerses": 293,
+        "introductionAudit": {
+          "charCount": 1431,
+          "sha256": "07a02ea040cc0ccbfbdbcfafa39e519b7aab71ac79a2fad6d286c1636e797824",
+          "bodyStorage": "private HTTP cache and chosen original chapter JSON; no introduction body in versioned report"
+        }
+      },
+      {
+        "id": "EST",
+        "commentaryId": "john-gill",
+        "name": "Esther",
+        "commonName": "Esther",
+        "order": 17,
+        "numberOfChapters": 10,
+        "sha256": "b55cd985242768f56e63acb8f448f50f3f76817f80df49e7e08f3dbba866840c",
+        "firstChapterNumber": 1,
+        "firstChapterApiLink": "/api/c/john-gill/EST/1.json",
+        "firstChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "EST",
+          "chapter": 1
+        },
+        "lastChapterNumber": 10,
+        "lastChapterApiLink": "/api/c/john-gill/EST/10.json",
+        "lastChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "EST",
+          "chapter": 10
+        },
+        "totalNumberOfVerses": 164,
+        "introductionAudit": {
+          "charCount": 3841,
+          "sha256": "a652f019ac7cb383da42d4df4ffcd15c360732b9906d708c2b7728ea3da8d2a5",
+          "bodyStorage": "private HTTP cache and chosen original chapter JSON; no introduction body in versioned report"
+        }
+      },
+      {
+        "id": "JOB",
+        "commentaryId": "john-gill",
+        "name": "Job",
+        "commonName": "Job",
+        "order": 18,
+        "numberOfChapters": 42,
+        "sha256": "6a8df82b4e2a074b7bc7c5a1626d801afa57d12ab40a88032a6873f6fe6db3d6",
+        "firstChapterNumber": 1,
+        "firstChapterApiLink": "/api/c/john-gill/JOB/1.json",
+        "firstChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "JOB",
+          "chapter": 1
+        },
+        "lastChapterNumber": 42,
+        "lastChapterApiLink": "/api/c/john-gill/JOB/42.json",
+        "lastChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "JOB",
+          "chapter": 42
+        },
+        "totalNumberOfVerses": 1070,
+        "introductionAudit": {
+          "charCount": 10031,
+          "sha256": "46c1c4f2af27cc3f08a6fc502daa390b6e5bc857c3af1220bdf110db0ede62ec",
+          "bodyStorage": "private HTTP cache and chosen original chapter JSON; no introduction body in versioned report"
+        }
+      },
+      {
+        "id": "PSA",
+        "commentaryId": "john-gill",
+        "name": "Psalms",
+        "commonName": "Psalms",
+        "order": 19,
+        "numberOfChapters": 150,
+        "sha256": "33d90ea59a0a57d8b7c22ed72fa2b82269cfbf967fb43dc0a325d1555bd7f267",
+        "firstChapterNumber": 1,
+        "firstChapterApiLink": "/api/c/john-gill/PSA/1.json",
+        "firstChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "PSA",
+          "chapter": 1
+        },
+        "lastChapterNumber": 150,
+        "lastChapterApiLink": "/api/c/john-gill/PSA/150.json",
+        "lastChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "PSA",
+          "chapter": 150
+        },
+        "totalNumberOfVerses": 2453,
+        "introductionAudit": {
+          "charCount": 4077,
+          "sha256": "a44fabfaf7495094946111454d31167ee0c57eb79aa238379e9c824acc96e15b",
+          "bodyStorage": "private HTTP cache and chosen original chapter JSON; no introduction body in versioned report"
+        }
+      },
+      {
+        "id": "PRO",
+        "commentaryId": "john-gill",
+        "name": "Proverbs",
+        "commonName": "Proverbs",
+        "order": 20,
+        "numberOfChapters": 31,
+        "sha256": "e2e4afbcd140b03371a8a88deb44e6dd481d7ae3c0ee079fa32bcc8d9c98a9ce",
+        "firstChapterNumber": 1,
+        "firstChapterApiLink": "/api/c/john-gill/PRO/1.json",
+        "firstChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "PRO",
+          "chapter": 1
+        },
+        "lastChapterNumber": 31,
+        "lastChapterApiLink": "/api/c/john-gill/PRO/31.json",
+        "lastChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "PRO",
+          "chapter": 31
+        },
+        "totalNumberOfVerses": 915,
+        "introductionAudit": {
+          "charCount": 3275,
+          "sha256": "42f1e72263f62818dc18fbba81a3cda5ee400256dfdfda7edfa93cc3d5ddadcb",
+          "bodyStorage": "private HTTP cache and chosen original chapter JSON; no introduction body in versioned report"
+        }
+      },
+      {
+        "id": "ECC",
+        "commentaryId": "john-gill",
+        "name": "Ecclesiastes",
+        "commonName": "Ecclesiastes",
+        "order": 21,
+        "numberOfChapters": 12,
+        "sha256": "3000f9b6a49fddc66c819c8f10af156a62eee8caee9b6e39af87d655b55518f5",
+        "firstChapterNumber": 1,
+        "firstChapterApiLink": "/api/c/john-gill/ECC/1.json",
+        "firstChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "ECC",
+          "chapter": 1
+        },
+        "lastChapterNumber": 12,
+        "lastChapterApiLink": "/api/c/john-gill/ECC/12.json",
+        "lastChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "ECC",
+          "chapter": 12
+        },
+        "totalNumberOfVerses": 222,
+        "introductionAudit": {
+          "charCount": 6530,
+          "sha256": "f1c4f129d5587d6921c89e3aec9d40b86e175e7078f044970ff987b68bb785ee",
+          "bodyStorage": "private HTTP cache and chosen original chapter JSON; no introduction body in versioned report"
+        }
+      },
+      {
+        "id": "SNG",
+        "commentaryId": "john-gill",
+        "name": "Song of Songs",
+        "commonName": "Song of Songs",
+        "order": 22,
+        "numberOfChapters": 8,
+        "sha256": "a4167c779e680ef1dc09888ecbbd9007fe8723a58ce69ad9fcacf44197baef71",
+        "firstChapterNumber": 1,
+        "firstChapterApiLink": "/api/c/john-gill/SNG/1.json",
+        "firstChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "SNG",
+          "chapter": 1
+        },
+        "lastChapterNumber": 8,
+        "lastChapterApiLink": "/api/c/john-gill/SNG/8.json",
+        "lastChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "SNG",
+          "chapter": 8
+        },
+        "totalNumberOfVerses": 117,
+        "introductionAudit": {
+          "charCount": 9707,
+          "sha256": "26220bbe2cc9862cefa17fdae546787fc228f0db13633fe764041b3afd1d658d",
+          "bodyStorage": "private HTTP cache and chosen original chapter JSON; no introduction body in versioned report"
+        }
+      },
+      {
+        "id": "ISA",
+        "commentaryId": "john-gill",
+        "name": "Isaiah",
+        "commonName": "Isaiah",
+        "order": 23,
+        "numberOfChapters": 66,
+        "sha256": "0fdec92bb44896a043963c0d66c20f49ab8505986420016b97be38a68f84c6d0",
+        "firstChapterNumber": 1,
+        "firstChapterApiLink": "/api/c/john-gill/ISA/1.json",
+        "firstChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "ISA",
+          "chapter": 1
+        },
+        "lastChapterNumber": 66,
+        "lastChapterApiLink": "/api/c/john-gill/ISA/66.json",
+        "lastChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "ISA",
+          "chapter": 66
+        },
+        "totalNumberOfVerses": 1292,
+        "introductionAudit": {
+          "charCount": 5345,
+          "sha256": "23c9b379e10205e3b9f68d1b69dfbf8f1250eac452dc30e41ee8fa5dfeef50e8",
+          "bodyStorage": "private HTTP cache and chosen original chapter JSON; no introduction body in versioned report"
+        }
+      },
+      {
+        "id": "JER",
+        "commentaryId": "john-gill",
+        "name": "Jeremiah",
+        "commonName": "Jeremiah",
+        "order": 24,
+        "numberOfChapters": 52,
+        "sha256": "e6fdb48a104d192ca661f7da609750e4bde97c4b46f0c7a5174cddc0144bb02e",
+        "firstChapterNumber": 1,
+        "firstChapterApiLink": "/api/c/john-gill/JER/1.json",
+        "firstChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "JER",
+          "chapter": 1
+        },
+        "lastChapterNumber": 52,
+        "lastChapterApiLink": "/api/c/john-gill/JER/52.json",
+        "lastChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "JER",
+          "chapter": 52
+        },
+        "totalNumberOfVerses": 1363,
+        "introductionAudit": {
+          "charCount": 3475,
+          "sha256": "22cc45142766124ab407417eedba229531e8d7fefdc0d265b6a3711c768fa762",
+          "bodyStorage": "private HTTP cache and chosen original chapter JSON; no introduction body in versioned report"
+        }
+      },
+      {
+        "id": "LAM",
+        "commentaryId": "john-gill",
+        "name": "Lamentations",
+        "commonName": "Lamentations",
+        "order": 25,
+        "numberOfChapters": 5,
+        "sha256": "43c641f63a424bbb81c7664de58ac64553aeabbd5075ed4ef6e636991ce6a0c9",
+        "firstChapterNumber": 1,
+        "firstChapterApiLink": "/api/c/john-gill/LAM/1.json",
+        "firstChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "LAM",
+          "chapter": 1
+        },
+        "lastChapterNumber": 5,
+        "lastChapterApiLink": "/api/c/john-gill/LAM/5.json",
+        "lastChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "LAM",
+          "chapter": 5
+        },
+        "totalNumberOfVerses": 154,
+        "introductionAudit": {
+          "charCount": 4383,
+          "sha256": "ccd9163744f9456aa34cfe2e7608d91fb1228a1919918b1c99b40da22c0fab3e",
+          "bodyStorage": "private HTTP cache and chosen original chapter JSON; no introduction body in versioned report"
+        }
+      },
+      {
+        "id": "EZK",
+        "commentaryId": "john-gill",
+        "name": "Ezekiel",
+        "commonName": "Ezekiel",
+        "order": 26,
+        "numberOfChapters": 48,
+        "sha256": "a2bff36f63d1a4a53517fd7f79fabf493ef6385f77a2cbc1e732c83f03f4e606",
+        "firstChapterNumber": 1,
+        "firstChapterApiLink": "/api/c/john-gill/EZK/1.json",
+        "firstChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "EZK",
+          "chapter": 1
+        },
+        "lastChapterNumber": 48,
+        "lastChapterApiLink": "/api/c/john-gill/EZK/48.json",
+        "lastChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "EZK",
+          "chapter": 48
+        },
+        "totalNumberOfVerses": 1271,
+        "introductionAudit": {
+          "charCount": 4640,
+          "sha256": "9cb81ffed1add97a63e04be2c0c1a874dd8deb998946710bd762ac6bf55d6fbc",
+          "bodyStorage": "private HTTP cache and chosen original chapter JSON; no introduction body in versioned report"
+        }
+      },
+      {
+        "id": "DAN",
+        "commentaryId": "john-gill",
+        "name": "Daniel",
+        "commonName": "Daniel",
+        "order": 27,
+        "numberOfChapters": 12,
+        "sha256": "6db0763fbbc9e1fb34a8d8fe5e0194d8509ea55621d96da748ceb6b0f51611ae",
+        "firstChapterNumber": 1,
+        "firstChapterApiLink": "/api/c/john-gill/DAN/1.json",
+        "firstChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "DAN",
+          "chapter": 1
+        },
+        "lastChapterNumber": 12,
+        "lastChapterApiLink": "/api/c/john-gill/DAN/12.json",
+        "lastChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "DAN",
+          "chapter": 12
+        },
+        "totalNumberOfVerses": 356,
+        "introductionAudit": {
+          "charCount": 5953,
+          "sha256": "de230f280ffdf90ef3d4ce61289ecfdf51a2d1798c92e566434dcc9f55f4cb82",
+          "bodyStorage": "private HTTP cache and chosen original chapter JSON; no introduction body in versioned report"
+        }
+      },
+      {
+        "id": "HOS",
+        "commentaryId": "john-gill",
+        "name": "Hosea",
+        "commonName": "Hosea",
+        "order": 28,
+        "numberOfChapters": 14,
+        "sha256": "0da7a275cf1b87bc00c14b8bdba32485905ebcceb50e1e3c52dfe1a227ae9470",
+        "firstChapterNumber": 1,
+        "firstChapterApiLink": "/api/c/john-gill/HOS/1.json",
+        "firstChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "HOS",
+          "chapter": 1
+        },
+        "lastChapterNumber": 14,
+        "lastChapterApiLink": "/api/c/john-gill/HOS/14.json",
+        "lastChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "HOS",
+          "chapter": 14
+        },
+        "totalNumberOfVerses": 197,
+        "introductionAudit": {
+          "charCount": 3099,
+          "sha256": "2b88c8d42cf336896a8b73ee8cfe8aa5867bd04e76c549692f2520f2418a6738",
+          "bodyStorage": "private HTTP cache and chosen original chapter JSON; no introduction body in versioned report"
+        }
+      },
+      {
+        "id": "JOL",
+        "commentaryId": "john-gill",
+        "name": "Joel",
+        "commonName": "Joel",
+        "order": 29,
+        "numberOfChapters": 3,
+        "sha256": "8ca7479d742b788343e81d60f239037b9c265235281ba5caaa4e07d8ed8900ff",
+        "firstChapterNumber": 1,
+        "firstChapterApiLink": "/api/c/john-gill/JOL/1.json",
+        "firstChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "JOL",
+          "chapter": 1
+        },
+        "lastChapterNumber": 3,
+        "lastChapterApiLink": "/api/c/john-gill/JOL/3.json",
+        "lastChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "JOL",
+          "chapter": 3
+        },
+        "totalNumberOfVerses": 73,
+        "introductionAudit": {
+          "charCount": 2454,
+          "sha256": "79be27f07f2077a87d79e92c5c7c03cd63a1b3b7cba167796d70404b62684395",
+          "bodyStorage": "private HTTP cache and chosen original chapter JSON; no introduction body in versioned report"
+        }
+      },
+      {
+        "id": "AMO",
+        "commentaryId": "john-gill",
+        "name": "Amos",
+        "commonName": "Amos",
+        "order": 30,
+        "numberOfChapters": 9,
+        "sha256": "d36518ece7a3931e429328943f97d725ffad97504e9bd43ad6394c694b38b295",
+        "firstChapterNumber": 1,
+        "firstChapterApiLink": "/api/c/john-gill/AMO/1.json",
+        "firstChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "AMO",
+          "chapter": 1
+        },
+        "lastChapterNumber": 9,
+        "lastChapterApiLink": "/api/c/john-gill/AMO/9.json",
+        "lastChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "AMO",
+          "chapter": 9
+        },
+        "totalNumberOfVerses": 146,
+        "introductionAudit": {
+          "charCount": 3472,
+          "sha256": "b23d5c9dee9d1bb14663d859d63436cccbceec47298e4d9c035a6e36fb73d8d1",
+          "bodyStorage": "private HTTP cache and chosen original chapter JSON; no introduction body in versioned report"
+        }
+      },
+      {
+        "id": "OBA",
+        "commentaryId": "john-gill",
+        "name": "Obadiah",
+        "commonName": "Obadiah",
+        "order": 31,
+        "numberOfChapters": 1,
+        "sha256": "62cb773b36401df846bdc3e3b825fe202a326238bb41589d25c2defbc2d43150",
+        "firstChapterNumber": 1,
+        "firstChapterApiLink": "/api/c/john-gill/OBA/1.json",
+        "firstChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "OBA",
+          "chapter": 1
+        },
+        "lastChapterNumber": 1,
+        "lastChapterApiLink": "/api/c/john-gill/OBA/1.json",
+        "lastChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "OBA",
+          "chapter": 1
+        },
+        "totalNumberOfVerses": 21,
+        "introductionAudit": {
+          "charCount": 4045,
+          "sha256": "1af9c037beb08ba35d2bfaa4cffeda88bbf1b1086baa3f339a971ee1a269354a",
+          "bodyStorage": "private HTTP cache and chosen original chapter JSON; no introduction body in versioned report"
+        }
+      },
+      {
+        "id": "JON",
+        "commentaryId": "john-gill",
+        "name": "Jonah",
+        "commonName": "Jonah",
+        "order": 32,
+        "numberOfChapters": 4,
+        "sha256": "2f41d4700f14013940cc4c446e510b48c3729d656ba3a014e990d8567c5a1918",
+        "firstChapterNumber": 1,
+        "firstChapterApiLink": "/api/c/john-gill/JON/1.json",
+        "firstChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "JON",
+          "chapter": 1
+        },
+        "lastChapterNumber": 4,
+        "lastChapterApiLink": "/api/c/john-gill/JON/4.json",
+        "lastChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "JON",
+          "chapter": 4
+        },
+        "totalNumberOfVerses": 48,
+        "introductionAudit": {
+          "charCount": 4433,
+          "sha256": "cc1e881043874fd83f7fa2965a3415081e8dc248e8386057098ba125e4c3a44d",
+          "bodyStorage": "private HTTP cache and chosen original chapter JSON; no introduction body in versioned report"
+        }
+      },
+      {
+        "id": "MIC",
+        "commentaryId": "john-gill",
+        "name": "Micah",
+        "commonName": "Micah",
+        "order": 33,
+        "numberOfChapters": 7,
+        "sha256": "28c95d2d5993c200c471349ecf31d0e0ecdda9d9d9a11b2dd637ccb58cf87cda",
+        "firstChapterNumber": 1,
+        "firstChapterApiLink": "/api/c/john-gill/MIC/1.json",
+        "firstChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "MIC",
+          "chapter": 1
+        },
+        "lastChapterNumber": 7,
+        "lastChapterApiLink": "/api/c/john-gill/MIC/7.json",
+        "lastChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "MIC",
+          "chapter": 7
+        },
+        "totalNumberOfVerses": 105,
+        "introductionAudit": {
+          "charCount": 4064,
+          "sha256": "c1bc7bee1feeb8e78b70f12bf57f378f575fc24ed818ddf6442efe302fd6defd",
+          "bodyStorage": "private HTTP cache and chosen original chapter JSON; no introduction body in versioned report"
+        }
+      },
+      {
+        "id": "NAM",
+        "commentaryId": "john-gill",
+        "name": "Nahum",
+        "commonName": "Nahum",
+        "order": 34,
+        "numberOfChapters": 3,
+        "sha256": "f25c4e0a0da3a33a85b8fbda41772272e8b97f6fa9e61d84bd195dac030810d1",
+        "firstChapterNumber": 1,
+        "firstChapterApiLink": "/api/c/john-gill/NAM/1.json",
+        "firstChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "NAM",
+          "chapter": 1
+        },
+        "lastChapterNumber": 3,
+        "lastChapterApiLink": "/api/c/john-gill/NAM/3.json",
+        "lastChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "NAM",
+          "chapter": 3
+        },
+        "totalNumberOfVerses": 47,
+        "introductionAudit": {
+          "charCount": 3569,
+          "sha256": "27577226e7155cc894406215c59626d633cb7faa75587f4db6306960e97b3c29",
+          "bodyStorage": "private HTTP cache and chosen original chapter JSON; no introduction body in versioned report"
+        }
+      },
+      {
+        "id": "HAB",
+        "commentaryId": "john-gill",
+        "name": "Habakkuk",
+        "commonName": "Habakkuk",
+        "order": 35,
+        "numberOfChapters": 3,
+        "sha256": "d46b265460ffbf127d73506d1cdc474e1f5cca5ccd685c46d5d65586294ada8d",
+        "firstChapterNumber": 1,
+        "firstChapterApiLink": "/api/c/john-gill/HAB/1.json",
+        "firstChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "HAB",
+          "chapter": 1
+        },
+        "lastChapterNumber": 3,
+        "lastChapterApiLink": "/api/c/john-gill/HAB/3.json",
+        "lastChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "HAB",
+          "chapter": 3
+        },
+        "totalNumberOfVerses": 56,
+        "introductionAudit": {
+          "charCount": 4973,
+          "sha256": "fc81f7426eec01e0d0ba22e045f51e208cba1977e8b79eb21baa27ac88cfb3f8",
+          "bodyStorage": "private HTTP cache and chosen original chapter JSON; no introduction body in versioned report"
+        }
+      },
+      {
+        "id": "ZEP",
+        "commentaryId": "john-gill",
+        "name": "Zephaniah",
+        "commonName": "Zephaniah",
+        "order": 36,
+        "numberOfChapters": 3,
+        "sha256": "46e040b09b79f81d6d764c009995f7b65bffa2f2bc22bca17ed814cd5d339c04",
+        "firstChapterNumber": 1,
+        "firstChapterApiLink": "/api/c/john-gill/ZEP/1.json",
+        "firstChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "ZEP",
+          "chapter": 1
+        },
+        "lastChapterNumber": 3,
+        "lastChapterApiLink": "/api/c/john-gill/ZEP/3.json",
+        "lastChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "ZEP",
+          "chapter": 3
+        },
+        "totalNumberOfVerses": 53,
+        "introductionAudit": {
+          "charCount": 3965,
+          "sha256": "24723a5a9655516fd8b2e2e9f56907a42382448e50143b1334731775688b8afb",
+          "bodyStorage": "private HTTP cache and chosen original chapter JSON; no introduction body in versioned report"
+        }
+      },
+      {
+        "id": "HAG",
+        "commentaryId": "john-gill",
+        "name": "Haggai",
+        "commonName": "Haggai",
+        "order": 37,
+        "numberOfChapters": 2,
+        "sha256": "fe7948cc6746fd6b6bdd964a53d925ca4cbb70d53cb44137238db22a8475467e",
+        "firstChapterNumber": 1,
+        "firstChapterApiLink": "/api/c/john-gill/HAG/1.json",
+        "firstChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "HAG",
+          "chapter": 1
+        },
+        "lastChapterNumber": 2,
+        "lastChapterApiLink": "/api/c/john-gill/HAG/2.json",
+        "lastChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "HAG",
+          "chapter": 2
+        },
+        "totalNumberOfVerses": 38,
+        "introductionAudit": {
+          "charCount": 3113,
+          "sha256": "49e7b51002cb7c412a3bd2b62c7c01be149eabf9cfe15a89a2a194cf6879e654",
+          "bodyStorage": "private HTTP cache and chosen original chapter JSON; no introduction body in versioned report"
+        }
+      },
+      {
+        "id": "ZEC",
+        "commentaryId": "john-gill",
+        "name": "Zechariah",
+        "commonName": "Zechariah",
+        "order": 38,
+        "numberOfChapters": 14,
+        "sha256": "96336603edb515938b80637ef8d8c92e8cd9ecf357b817a576d81e6c7972a07c",
+        "firstChapterNumber": 1,
+        "firstChapterApiLink": "/api/c/john-gill/ZEC/1.json",
+        "firstChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "ZEC",
+          "chapter": 1
+        },
+        "lastChapterNumber": 14,
+        "lastChapterApiLink": "/api/c/john-gill/ZEC/14.json",
+        "lastChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "ZEC",
+          "chapter": 14
+        },
+        "totalNumberOfVerses": 211,
+        "introductionAudit": {
+          "charCount": 3746,
+          "sha256": "6c967712790eea2cbbfd3457b84d64521a60389b3afd1e1ff1f7aa115f70933c",
+          "bodyStorage": "private HTTP cache and chosen original chapter JSON; no introduction body in versioned report"
+        }
+      },
+      {
+        "id": "MAL",
+        "commentaryId": "john-gill",
+        "name": "Malachi",
+        "commonName": "Malachi",
+        "order": 39,
+        "numberOfChapters": 4,
+        "sha256": "c02be2ad306509b28fea8e2e019f5ba9474aa6c95c16207ba69852744c2c6dae",
+        "firstChapterNumber": 1,
+        "firstChapterApiLink": "/api/c/john-gill/MAL/1.json",
+        "firstChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "MAL",
+          "chapter": 1
+        },
+        "lastChapterNumber": 4,
+        "lastChapterApiLink": "/api/c/john-gill/MAL/4.json",
+        "lastChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "MAL",
+          "chapter": 4
+        },
+        "totalNumberOfVerses": 55,
+        "introductionAudit": {
+          "charCount": 4203,
+          "sha256": "d5243828f3a3a3fa17059ca310a51c0b0fc44dc3e81ed8c688f511d67e8a2880",
+          "bodyStorage": "private HTTP cache and chosen original chapter JSON; no introduction body in versioned report"
+        }
+      },
+      {
+        "id": "MAT",
+        "commentaryId": "john-gill",
+        "name": "Matthew",
+        "commonName": "Matthew",
+        "order": 40,
+        "numberOfChapters": 28,
+        "sha256": "5cdd1f048bdaa15b0114eb5e1e27b41cc97e84d5411e021f3222cbc21050a0ca",
+        "firstChapterNumber": 1,
+        "firstChapterApiLink": "/api/c/john-gill/MAT/1.json",
+        "firstChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "MAT",
+          "chapter": 1
+        },
+        "lastChapterNumber": 28,
+        "lastChapterApiLink": "/api/c/john-gill/MAT/28.json",
+        "lastChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "MAT",
+          "chapter": 28
+        },
+        "totalNumberOfVerses": 1063,
+        "introductionAudit": {
+          "charCount": 5545,
+          "sha256": "3e3763d064fedece124d11d64dc22f531d53755fbf4b6e41e12afbec318f429c",
+          "bodyStorage": "private HTTP cache and chosen original chapter JSON; no introduction body in versioned report"
+        }
+      },
+      {
+        "id": "MRK",
+        "commentaryId": "john-gill",
+        "name": "Mark",
+        "commonName": "Mark",
+        "order": 41,
+        "numberOfChapters": 16,
+        "sha256": "e4c3caa6e70ff9ea4db8d138d62f6edc51a19b8e9b527a45163c982eda4ef7cb",
+        "firstChapterNumber": 1,
+        "firstChapterApiLink": "/api/c/john-gill/MRK/1.json",
+        "firstChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "MRK",
+          "chapter": 1
+        },
+        "lastChapterNumber": 16,
+        "lastChapterApiLink": "/api/c/john-gill/MRK/16.json",
+        "lastChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "MRK",
+          "chapter": 16
+        },
+        "totalNumberOfVerses": 678,
+        "introductionAudit": {
+          "charCount": 1242,
+          "sha256": "244dcec6d626b5152cb131a5b9b4dd6a2d3749621a3c85b8c3615f577b3f9e29",
+          "bodyStorage": "private HTTP cache and chosen original chapter JSON; no introduction body in versioned report"
+        }
+      },
+      {
+        "id": "LUK",
+        "commentaryId": "john-gill",
+        "name": "Luke",
+        "commonName": "Luke",
+        "order": 42,
+        "numberOfChapters": 24,
+        "sha256": "d20bcf5e10f8c5e920feab760c838fc12819f23782e1605e64a82ccdcfe6f767",
+        "firstChapterNumber": 1,
+        "firstChapterApiLink": "/api/c/john-gill/LUK/1.json",
+        "firstChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "LUK",
+          "chapter": 1
+        },
+        "lastChapterNumber": 24,
+        "lastChapterApiLink": "/api/c/john-gill/LUK/24.json",
+        "lastChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "LUK",
+          "chapter": 24
+        },
+        "totalNumberOfVerses": 1143,
+        "introductionAudit": {
+          "charCount": 3161,
+          "sha256": "5c69a0278e5f3621aec91fe3885f02bdb8eb125952570c75f4839ea448396f89",
+          "bodyStorage": "private HTTP cache and chosen original chapter JSON; no introduction body in versioned report"
+        }
+      },
+      {
+        "id": "JHN",
+        "commentaryId": "john-gill",
+        "name": "John",
+        "commonName": "John",
+        "order": 43,
+        "numberOfChapters": 21,
+        "sha256": "f6fbfa1116b25eff5820adfc04667f291ba389628da8bb8eef0be06080f91815",
+        "firstChapterNumber": 1,
+        "firstChapterApiLink": "/api/c/john-gill/JHN/1.json",
+        "firstChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "JHN",
+          "chapter": 1
+        },
+        "lastChapterNumber": 21,
+        "lastChapterApiLink": "/api/c/john-gill/JHN/21.json",
+        "lastChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "JHN",
+          "chapter": 21
+        },
+        "totalNumberOfVerses": 879,
+        "introductionAudit": {
+          "charCount": 3782,
+          "sha256": "52cc7b6dd8d0ecb92dec72e3060aced937cbe6347b585cbb47fbbe3f3943aad9",
+          "bodyStorage": "private HTTP cache and chosen original chapter JSON; no introduction body in versioned report"
+        }
+      },
+      {
+        "id": "ACT",
+        "commentaryId": "john-gill",
+        "name": "Acts",
+        "commonName": "Acts",
+        "order": 44,
+        "numberOfChapters": 28,
+        "sha256": "21294e38c42c3251f472f0630095eed14676fca4d445e2a87f46b02de61b4fb6",
+        "firstChapterNumber": 1,
+        "firstChapterApiLink": "/api/c/john-gill/ACT/1.json",
+        "firstChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "ACT",
+          "chapter": 1
+        },
+        "lastChapterNumber": 28,
+        "lastChapterApiLink": "/api/c/john-gill/ACT/28.json",
+        "lastChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "ACT",
+          "chapter": 28
+        },
+        "totalNumberOfVerses": 1007,
+        "introductionAudit": {
+          "charCount": 2341,
+          "sha256": "571b22796d0a848b722e19fc45ff0eea6f53028ca5fee81932387082e66552e1",
+          "bodyStorage": "private HTTP cache and chosen original chapter JSON; no introduction body in versioned report"
+        }
+      },
+      {
+        "id": "ROM",
+        "commentaryId": "john-gill",
+        "name": "Romans",
+        "commonName": "Romans",
+        "order": 45,
+        "numberOfChapters": 16,
+        "sha256": "bdfbeeeb7e4a66fcdbf59486f8e6cdf0df618056807aa7e7b8c32c1115beb6e6",
+        "firstChapterNumber": 1,
+        "firstChapterApiLink": "/api/c/john-gill/ROM/1.json",
+        "firstChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "ROM",
+          "chapter": 1
+        },
+        "lastChapterNumber": 16,
+        "lastChapterApiLink": "/api/c/john-gill/ROM/16.json",
+        "lastChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "ROM",
+          "chapter": 16
+        },
+        "totalNumberOfVerses": 432,
+        "introductionAudit": {
+          "charCount": 4387,
+          "sha256": "1aa34e0152cd3a52443871ef51c5416e8ce29fab09cd82368d3b2636616d9ba1",
+          "bodyStorage": "private HTTP cache and chosen original chapter JSON; no introduction body in versioned report"
+        }
+      },
+      {
+        "id": "1CO",
+        "commentaryId": "john-gill",
+        "name": "1 Corinthians",
+        "commonName": "1 Corinthians",
+        "order": 46,
+        "numberOfChapters": 16,
+        "sha256": "0269022355937f6745f946cc21812da8707e879e032d55ce10cc17b8ee7a2b72",
+        "firstChapterNumber": 1,
+        "firstChapterApiLink": "/api/c/john-gill/1CO/1.json",
+        "firstChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "1CO",
+          "chapter": 1
+        },
+        "lastChapterNumber": 16,
+        "lastChapterApiLink": "/api/c/john-gill/1CO/16.json",
+        "lastChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "1CO",
+          "chapter": 16
+        },
+        "totalNumberOfVerses": 437,
+        "introductionAudit": {
+          "charCount": 2693,
+          "sha256": "620a0caec5d3ffeb56e1a1fbdeb3ab3de65717114e389653f566be3e59077b47",
+          "bodyStorage": "private HTTP cache and chosen original chapter JSON; no introduction body in versioned report"
+        }
+      },
+      {
+        "id": "2CO",
+        "commentaryId": "john-gill",
+        "name": "2 Corinthians",
+        "commonName": "2 Corinthians",
+        "order": 47,
+        "numberOfChapters": 13,
+        "sha256": "df7a814244e9c9b8ec78347fb9c3ef1e5d803185101a12a27da6d1f4f10be827",
+        "firstChapterNumber": 1,
+        "firstChapterApiLink": "/api/c/john-gill/2CO/1.json",
+        "firstChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "2CO",
+          "chapter": 1
+        },
+        "lastChapterNumber": 13,
+        "lastChapterApiLink": "/api/c/john-gill/2CO/13.json",
+        "lastChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "2CO",
+          "chapter": 13
+        },
+        "totalNumberOfVerses": 256,
+        "introductionAudit": {
+          "charCount": 2189,
+          "sha256": "05682d15b6cdbf6f6b91591138fe70c658afb6af0416f53a415cfe3c3b71f352",
+          "bodyStorage": "private HTTP cache and chosen original chapter JSON; no introduction body in versioned report"
+        }
+      },
+      {
+        "id": "GAL",
+        "commentaryId": "john-gill",
+        "name": "Galatians",
+        "commonName": "Galatians",
+        "order": 48,
+        "numberOfChapters": 6,
+        "sha256": "cb289078ecd7ebfa14fc4070724e4736035dfb9a422315df171d0a60fa3870c5",
+        "firstChapterNumber": 1,
+        "firstChapterApiLink": "/api/c/john-gill/GAL/1.json",
+        "firstChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "GAL",
+          "chapter": 1
+        },
+        "lastChapterNumber": 6,
+        "lastChapterApiLink": "/api/c/john-gill/GAL/6.json",
+        "lastChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "GAL",
+          "chapter": 6
+        },
+        "totalNumberOfVerses": 149,
+        "introductionAudit": {
+          "charCount": 4654,
+          "sha256": "8a391f46b41c583b416a70d0acdce5e811fd2c9a917a0ac6bac74cc3db0f097d",
+          "bodyStorage": "private HTTP cache and chosen original chapter JSON; no introduction body in versioned report"
+        }
+      },
+      {
+        "id": "EPH",
+        "commentaryId": "john-gill",
+        "name": "Ephesians",
+        "commonName": "Ephesians",
+        "order": 49,
+        "numberOfChapters": 6,
+        "sha256": "2aa6a79d5fc148fd8675f2930f1d6cdb297b3455855c9771d1f399bbbe5d9cdb",
+        "firstChapterNumber": 1,
+        "firstChapterApiLink": "/api/c/john-gill/EPH/1.json",
+        "firstChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "EPH",
+          "chapter": 1
+        },
+        "lastChapterNumber": 6,
+        "lastChapterApiLink": "/api/c/john-gill/EPH/6.json",
+        "lastChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "EPH",
+          "chapter": 6
+        },
+        "totalNumberOfVerses": 155,
+        "introductionAudit": {
+          "charCount": 2594,
+          "sha256": "ca094a8ecfd20a5e0780e1eccbdb3d534ccbd22b0fc36eff5c9e131b1e15864d",
+          "bodyStorage": "private HTTP cache and chosen original chapter JSON; no introduction body in versioned report"
+        }
+      },
+      {
+        "id": "PHP",
+        "commentaryId": "john-gill",
+        "name": "Philippians",
+        "commonName": "Philippians",
+        "order": 50,
+        "numberOfChapters": 4,
+        "sha256": "9c409b491a8ff3fda2b65aae1de5dccc96668fbca395bd10b50fa942253baa0b",
+        "firstChapterNumber": 1,
+        "firstChapterApiLink": "/api/c/john-gill/PHP/1.json",
+        "firstChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "PHP",
+          "chapter": 1
+        },
+        "lastChapterNumber": 4,
+        "lastChapterApiLink": "/api/c/john-gill/PHP/4.json",
+        "lastChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "PHP",
+          "chapter": 4
+        },
+        "totalNumberOfVerses": 104,
+        "introductionAudit": {
+          "charCount": 2388,
+          "sha256": "5a2e762fd400544e66d8b21b75290c95abe968ce9c3a51e4de63fac6580d0544",
+          "bodyStorage": "private HTTP cache and chosen original chapter JSON; no introduction body in versioned report"
+        }
+      },
+      {
+        "id": "COL",
+        "commentaryId": "john-gill",
+        "name": "Colossians",
+        "commonName": "Colossians",
+        "order": 51,
+        "numberOfChapters": 4,
+        "sha256": "b5dcec919272bb85733e316dc2b0ee70a8fab8625727d9c43ce784e245a463b6",
+        "firstChapterNumber": 1,
+        "firstChapterApiLink": "/api/c/john-gill/COL/1.json",
+        "firstChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "COL",
+          "chapter": 1
+        },
+        "lastChapterNumber": 4,
+        "lastChapterApiLink": "/api/c/john-gill/COL/4.json",
+        "lastChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "COL",
+          "chapter": 4
+        },
+        "totalNumberOfVerses": 95,
+        "introductionAudit": {
+          "charCount": 2553,
+          "sha256": "e9284d65ffc4ee83428fc4d43b0a7c00f5d47d7fae56bae27eefd82a5fe9fbb3",
+          "bodyStorage": "private HTTP cache and chosen original chapter JSON; no introduction body in versioned report"
+        }
+      },
+      {
+        "id": "1TH",
+        "commentaryId": "john-gill",
+        "name": "1 Thessalonians",
+        "commonName": "1 Thessalonians",
+        "order": 52,
+        "numberOfChapters": 5,
+        "sha256": "91e19a465f08f91054f4a337579d29edda16482385dc7a368f0c07080d1b3b87",
+        "firstChapterNumber": 1,
+        "firstChapterApiLink": "/api/c/john-gill/1TH/1.json",
+        "firstChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "1TH",
+          "chapter": 1
+        },
+        "lastChapterNumber": 5,
+        "lastChapterApiLink": "/api/c/john-gill/1TH/5.json",
+        "lastChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "1TH",
+          "chapter": 5
+        },
+        "totalNumberOfVerses": 89,
+        "introductionAudit": {
+          "charCount": 2412,
+          "sha256": "f620824cc287609338920b7c66545816529daf88e118d2846db3e9d879237a8c",
+          "bodyStorage": "private HTTP cache and chosen original chapter JSON; no introduction body in versioned report"
+        }
+      },
+      {
+        "id": "2TH",
+        "commentaryId": "john-gill",
+        "name": "2 Thessalonians",
+        "commonName": "2 Thessalonians",
+        "order": 53,
+        "numberOfChapters": 3,
+        "sha256": "80c40ca31268e4781b0e6cc76f14d1932205c5cd58f5c29d6fe44b6d7272ac65",
+        "firstChapterNumber": 1,
+        "firstChapterApiLink": "/api/c/john-gill/2TH/1.json",
+        "firstChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "2TH",
+          "chapter": 1
+        },
+        "lastChapterNumber": 3,
+        "lastChapterApiLink": "/api/c/john-gill/2TH/3.json",
+        "lastChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "2TH",
+          "chapter": 3
+        },
+        "totalNumberOfVerses": 47,
+        "introductionAudit": {
+          "charCount": 1173,
+          "sha256": "a9c30ad87abc754cf533cc0a86464ae3118a556956c8db03d6cafe377190d29b",
+          "bodyStorage": "private HTTP cache and chosen original chapter JSON; no introduction body in versioned report"
+        }
+      },
+      {
+        "id": "1TI",
+        "commentaryId": "john-gill",
+        "name": "1 Timothy",
+        "commonName": "1 Timothy",
+        "order": 54,
+        "numberOfChapters": 6,
+        "sha256": "bb516c403c7d4f929c5a327e0517393b9a42670923b5c37bd152c91619f23531",
+        "firstChapterNumber": 1,
+        "firstChapterApiLink": "/api/c/john-gill/1TI/1.json",
+        "firstChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "1TI",
+          "chapter": 1
+        },
+        "lastChapterNumber": 6,
+        "lastChapterApiLink": "/api/c/john-gill/1TI/6.json",
+        "lastChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "1TI",
+          "chapter": 6
+        },
+        "totalNumberOfVerses": 112,
+        "introductionAudit": {
+          "charCount": 2281,
+          "sha256": "14f6bd015ee4f1fc14761e46177c0d2c496991817a7ac05bcfcdbc4c813364a5",
+          "bodyStorage": "private HTTP cache and chosen original chapter JSON; no introduction body in versioned report"
+        }
+      },
+      {
+        "id": "2TI",
+        "commentaryId": "john-gill",
+        "name": "2 Timothy",
+        "commonName": "2 Timothy",
+        "order": 55,
+        "numberOfChapters": 4,
+        "sha256": "eaed889f466b373cad2da879c2f1a1f969421ff8cc5c4f41bdda126ac88f9b5d",
+        "firstChapterNumber": 1,
+        "firstChapterApiLink": "/api/c/john-gill/2TI/1.json",
+        "firstChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "2TI",
+          "chapter": 1
+        },
+        "lastChapterNumber": 4,
+        "lastChapterApiLink": "/api/c/john-gill/2TI/4.json",
+        "lastChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "2TI",
+          "chapter": 4
+        },
+        "totalNumberOfVerses": 83,
+        "introductionAudit": {
+          "charCount": 2514,
+          "sha256": "334250e71bc6ecfc8a90340995935b547d8e30951966ecda2646733a5e1d985b",
+          "bodyStorage": "private HTTP cache and chosen original chapter JSON; no introduction body in versioned report"
+        }
+      },
+      {
+        "id": "TIT",
+        "commentaryId": "john-gill",
+        "name": "Titus",
+        "commonName": "Titus",
+        "order": 56,
+        "numberOfChapters": 3,
+        "sha256": "0a30b2e2e983e196aafedef46f69ca47a7c17168f9a3344f0559c726238a86bf",
+        "firstChapterNumber": 1,
+        "firstChapterApiLink": "/api/c/john-gill/TIT/1.json",
+        "firstChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "TIT",
+          "chapter": 1
+        },
+        "lastChapterNumber": 3,
+        "lastChapterApiLink": "/api/c/john-gill/TIT/3.json",
+        "lastChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "TIT",
+          "chapter": 3
+        },
+        "totalNumberOfVerses": 46,
+        "introductionAudit": {
+          "charCount": 3163,
+          "sha256": "ff6f78281417b5a919f6a7e71ac7faadefa3abf2ccaea100a5219bfeb212ba23",
+          "bodyStorage": "private HTTP cache and chosen original chapter JSON; no introduction body in versioned report"
+        }
+      },
+      {
+        "id": "PHM",
+        "commentaryId": "john-gill",
+        "name": "Philemon",
+        "commonName": "Philemon",
+        "order": 57,
+        "numberOfChapters": 1,
+        "sha256": "d657f6366e84a67569ef96b6daa7f2da255a0252e27d79d0ebae2dafacf9ce2a",
+        "firstChapterNumber": 1,
+        "firstChapterApiLink": "/api/c/john-gill/PHM/1.json",
+        "firstChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "PHM",
+          "chapter": 1
+        },
+        "lastChapterNumber": 1,
+        "lastChapterApiLink": "/api/c/john-gill/PHM/1.json",
+        "lastChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "PHM",
+          "chapter": 1
+        },
+        "totalNumberOfVerses": 25,
+        "introductionAudit": {
+          "charCount": 3005,
+          "sha256": "2eee7dc503b80fda60d1b2c554a052118469e57613a3cdc1f987c5ee13a77b31",
+          "bodyStorage": "private HTTP cache and chosen original chapter JSON; no introduction body in versioned report"
+        }
+      },
+      {
+        "id": "HEB",
+        "commentaryId": "john-gill",
+        "name": "Hebrews",
+        "commonName": "Hebrews",
+        "order": 58,
+        "numberOfChapters": 13,
+        "sha256": "8a180935b9fda7237cdd28a75e855003c0c04f119a328c5a6f932fc551d0c61f",
+        "firstChapterNumber": 1,
+        "firstChapterApiLink": "/api/c/john-gill/HEB/1.json",
+        "firstChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "HEB",
+          "chapter": 1
+        },
+        "lastChapterNumber": 13,
+        "lastChapterApiLink": "/api/c/john-gill/HEB/13.json",
+        "lastChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "HEB",
+          "chapter": 13
+        },
+        "totalNumberOfVerses": 303,
+        "introductionAudit": {
+          "charCount": 6986,
+          "sha256": "7a5c8230027cb5f9d87c67b94fa1c1acc81df7d1dcfbe2ef455a1cffda9b479b",
+          "bodyStorage": "private HTTP cache and chosen original chapter JSON; no introduction body in versioned report"
+        }
+      },
+      {
+        "id": "JAS",
+        "commentaryId": "john-gill",
+        "name": "James",
+        "commonName": "James",
+        "order": 59,
+        "numberOfChapters": 5,
+        "sha256": "4ff39e3000394d362d3cd9bb9d98977bbf05d1aa24fd959d3b808eb045155862",
+        "firstChapterNumber": 1,
+        "firstChapterApiLink": "/api/c/john-gill/JAS/1.json",
+        "firstChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "JAS",
+          "chapter": 1
+        },
+        "lastChapterNumber": 5,
+        "lastChapterApiLink": "/api/c/john-gill/JAS/5.json",
+        "lastChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "JAS",
+          "chapter": 5
+        },
+        "totalNumberOfVerses": 108,
+        "introductionAudit": {
+          "charCount": 3687,
+          "sha256": "25e12a2592b1643b716dc6cd9580f63f7021abd0479ccd3b87a83b1bf902ee20",
+          "bodyStorage": "private HTTP cache and chosen original chapter JSON; no introduction body in versioned report"
+        }
+      },
+      {
+        "id": "1PE",
+        "commentaryId": "john-gill",
+        "name": "1 Peter",
+        "commonName": "1 Peter",
+        "order": 60,
+        "numberOfChapters": 5,
+        "sha256": "1350ac1c7e30ce330bd5f6809f9f32635eb135f6e37ddb2fb8f129ddbc73b8d2",
+        "firstChapterNumber": 1,
+        "firstChapterApiLink": "/api/c/john-gill/1PE/1.json",
+        "firstChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "1PE",
+          "chapter": 1
+        },
+        "lastChapterNumber": 5,
+        "lastChapterApiLink": "/api/c/john-gill/1PE/5.json",
+        "lastChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "1PE",
+          "chapter": 5
+        },
+        "totalNumberOfVerses": 105,
+        "introductionAudit": {
+          "charCount": 3948,
+          "sha256": "bf2e1a81200fb163ddc8b4262543270d580a69aff1fac676329cf166fd43f2e9",
+          "bodyStorage": "private HTTP cache and chosen original chapter JSON; no introduction body in versioned report"
+        }
+      },
+      {
+        "id": "2PE",
+        "commentaryId": "john-gill",
+        "name": "2 Peter",
+        "commonName": "2 Peter",
+        "order": 61,
+        "numberOfChapters": 3,
+        "sha256": "29d4bc97632998d94dd246541cc96e307ca8e11d521100a15cfe7a9af1375666",
+        "firstChapterNumber": 1,
+        "firstChapterApiLink": "/api/c/john-gill/2PE/1.json",
+        "firstChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "2PE",
+          "chapter": 1
+        },
+        "lastChapterNumber": 3,
+        "lastChapterApiLink": "/api/c/john-gill/2PE/3.json",
+        "lastChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "2PE",
+          "chapter": 3
+        },
+        "totalNumberOfVerses": 61,
+        "introductionAudit": {
+          "charCount": 3861,
+          "sha256": "203d4788968b17e93257bea5ce6d19acee0546d5e1f18d7edbba6cc201c70dc6",
+          "bodyStorage": "private HTTP cache and chosen original chapter JSON; no introduction body in versioned report"
+        }
+      },
+      {
+        "id": "1JN",
+        "commentaryId": "john-gill",
+        "name": "1 John",
+        "commonName": "1 John",
+        "order": 62,
+        "numberOfChapters": 5,
+        "sha256": "d8327cd4b3c3117b0ef519e942c85c3361b9ab49e0839f1c7e00eb6a83da95b9",
+        "firstChapterNumber": 1,
+        "firstChapterApiLink": "/api/c/john-gill/1JN/1.json",
+        "firstChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "1JN",
+          "chapter": 1
+        },
+        "lastChapterNumber": 5,
+        "lastChapterApiLink": "/api/c/john-gill/1JN/5.json",
+        "lastChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "1JN",
+          "chapter": 5
+        },
+        "totalNumberOfVerses": 105,
+        "introductionAudit": {
+          "charCount": 5169,
+          "sha256": "5a18e6e7befefb850d86939664e34d9104a018b10830bad7ea7ea861e31515d4",
+          "bodyStorage": "private HTTP cache and chosen original chapter JSON; no introduction body in versioned report"
+        }
+      },
+      {
+        "id": "2JN",
+        "commentaryId": "john-gill",
+        "name": "2 John",
+        "commonName": "2 John",
+        "order": 63,
+        "numberOfChapters": 1,
+        "sha256": "e585d6fb7d8bbb89d8891adc7589d2b72091a4e0509333fd61d825f5bf3a56d3",
+        "firstChapterNumber": 1,
+        "firstChapterApiLink": "/api/c/john-gill/2JN/1.json",
+        "firstChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "2JN",
+          "chapter": 1
+        },
+        "lastChapterNumber": 1,
+        "lastChapterApiLink": "/api/c/john-gill/2JN/1.json",
+        "lastChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "2JN",
+          "chapter": 1
+        },
+        "totalNumberOfVerses": 13,
+        "introductionAudit": {
+          "charCount": 1650,
+          "sha256": "b10dffc2f6c9b9db9e217a5c92a992d8b7db885a81b9e0cde8bfedaab7319b0f",
+          "bodyStorage": "private HTTP cache and chosen original chapter JSON; no introduction body in versioned report"
+        }
+      },
+      {
+        "id": "3JN",
+        "commentaryId": "john-gill",
+        "name": "3 John",
+        "commonName": "3 John",
+        "order": 64,
+        "numberOfChapters": 1,
+        "sha256": "55ee579de0b039472fe1258f3839ec95dd07ae9f13df729f59cee9f9b0f1f5dd",
+        "firstChapterNumber": 1,
+        "firstChapterApiLink": "/api/c/john-gill/3JN/1.json",
+        "firstChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "3JN",
+          "chapter": 1
+        },
+        "lastChapterNumber": 1,
+        "lastChapterApiLink": "/api/c/john-gill/3JN/1.json",
+        "lastChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "3JN",
+          "chapter": 1
+        },
+        "totalNumberOfVerses": 14,
+        "introductionAudit": {
+          "charCount": 2169,
+          "sha256": "4bd9006273cdbbe01c4996eb045f9b332aed0a31e218f9cdce9259788dd38d1a",
+          "bodyStorage": "private HTTP cache and chosen original chapter JSON; no introduction body in versioned report"
+        }
+      },
+      {
+        "id": "JUD",
+        "commentaryId": "john-gill",
+        "name": "Jude",
+        "commonName": "Jude",
+        "order": 65,
+        "numberOfChapters": 1,
+        "sha256": "3d149c9a1ac9b0880cc061f919b65251275f0491d2f407b866d49b7f3f387dcf",
+        "firstChapterNumber": 1,
+        "firstChapterApiLink": "/api/c/john-gill/JUD/1.json",
+        "firstChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "JUD",
+          "chapter": 1
+        },
+        "lastChapterNumber": 1,
+        "lastChapterApiLink": "/api/c/john-gill/JUD/1.json",
+        "lastChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "JUD",
+          "chapter": 1
+        },
+        "totalNumberOfVerses": 25,
+        "introductionAudit": {
+          "charCount": 3990,
+          "sha256": "cee0abec59cd8fb20cbc4e748454a3fd76e3276e8d92901f600ba5ec1c25b20c",
+          "bodyStorage": "private HTTP cache and chosen original chapter JSON; no introduction body in versioned report"
+        }
+      },
+      {
+        "id": "REV",
+        "commentaryId": "john-gill",
+        "name": "Revelation",
+        "commonName": "Revelation",
+        "order": 66,
+        "numberOfChapters": 22,
+        "sha256": "d12041f976862f42a34f8ded71aecf7a22ef4426978087ebc8971e7aab00926d",
+        "firstChapterNumber": 1,
+        "firstChapterApiLink": "/api/c/john-gill/REV/1.json",
+        "firstChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "REV",
+          "chapter": 1
+        },
+        "lastChapterNumber": 22,
+        "lastChapterApiLink": "/api/c/john-gill/REV/22.json",
+        "lastChapterReference": {
+          "commentaryId": "john-gill",
+          "book": "REV",
+          "chapter": 22
+        },
+        "totalNumberOfVerses": 404,
+        "introductionAudit": {
+          "charCount": 6424,
+          "sha256": "9c54a7327738a44548b420fdd187bf785f90ec1bba8dfb46e4fad23eb0c158af",
+          "bodyStorage": "private HTTP cache and chosen original chapter JSON; no introduction body in versioned report"
+        }
+      }
+    ]
+  }
+}

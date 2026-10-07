@@ -1,0 +1,166 @@
+{
+  "review": {
+    "date": "2026-10-07",
+    "reviewer": "Codex",
+    "kind": "ai-assisted",
+    "scope": "Work-specific source-body sampling, exact structure and provenance checks. No exhaustive human approval or global registry change."
+  },
+  "decisions": [
+    {
+      "author": "John Gill",
+      "workIds": [
+        "work-rb03-gill-exposition-selected-books"
+      ],
+      "decision": "admit-selected-historical-Baptist-exegesis-with-source-witness-limits",
+      "sixAnchorEvidence": [
+        {
+          "anchor": "Scripture authority",
+          "url": "https://ccel.org/ccel/g/gill/doctrinal.xml",
+          "locator": "Doctrinal Divinity ii.ii (Book I, chapter 2)",
+          "finding": "Divine authority; perfect rule and standard of faith/practice."
+        },
+        {
+          "anchor": "Trinity",
+          "url": "https://ccel.org/ccel/g/gill/doctrinal.xml",
+          "locator": "ii.xxvii (Book I, chapter 27)",
+          "finding": "Three persons in the unity of the divine essence."
+        },
+        {
+          "anchor": "Christ deity and humanity",
+          "url": "https://ccel.org/ccel/g/gill/doctrinal.xml",
+          "locator": "vi.i (Book V, chapter 1)",
+          "finding": "Divine Son with human nature, two natures in one person."
+        },
+        {
+          "anchor": "Substitutionary atonement",
+          "url": "https://ccel.org/ccel/g/gill/doctrinal.xml",
+          "locator": "vii.v (Book VI, chapter 5), subsection 2a3a",
+          "finding": "Voluntary substitution in sinners place, satisfaction, divine-human Mediator."
+        },
+        {
+          "anchor": "Bodily resurrection",
+          "url": "https://ccel.org/ccel/g/gill/doctrinal.xml",
+          "locator": "vi.vi (Book V, chapter 6), subsection 3b",
+          "finding": "Same real body raised that died, physical wounds and handling cited."
+        },
+        {
+          "anchor": "Grace and faith apart from works",
+          "url": "https://ccel.org/ccel/g/gill/doctrinal.xml",
+          "locator": "vii.viii (Book VI, chapter 8)",
+          "finding": "Free grace, Christ righteousness, faith receiving rather than moral-law works. Preserve Gill distinctions about decree, actual justification and manifested justification."
+        }
+      ],
+      "newWorkEvidence": [
+        {
+          "url": "https://bible.helloao.org/api/c/john-gill/EZR/1.json",
+          "locator": "book introduction; chapter.content verse labels",
+          "finding": "Historic Ezra/Cyrus/Jeremiah exposition sampled; conservative author identification consistent with Gill. Selected JSON witness, not print collation."
+        }
+      ],
+      "limits": [
+        "Underlying print impression and transcription lineage unresolved; no exact critical/unabridged edition claim.",
+        "API English body wrongly declares rtl in metadata; render English by actual language, preserve source field.",
+        "Chronicles contains empty/pointer-only chapters; these are not filled sustained-exegesis gaps.",
+        "Historical covenant, eschatological, gospel-offer and pre-faith justification claims stay attributed; no uniform Baptist position inferred.",
+        "Ancient rabbis, polemical quotations and alternative interpretations are not independent endorsed teaching."
+      ],
+      "globalAuthorApproval": false
+    },
+    {
+      "author": "Benjamin Keach",
+      "workIds": [
+        "work-rb03-keach-parables"
+      ],
+      "decision": "admit-completed-offered-historical-Baptist-parable-set",
+      "sixAnchorEvidence": [
+        {
+          "url": "https://www.monergism.com/thethreshold/sdg/keach/A%20Short%20Confession%20of%20Faith%20-%20Benjamin%20Keach.epub",
+          "locator": "Held short confession: Trinity; Scriptures; Christ Mediator; humiliation/exaltation; justification; resurrection",
+          "finding": "Explicit six-anchor confidence, including one essence/three persons, two natures/one Christ, satisfaction in our place, third-day resurrection, faith alone and authoritative Scriptures.",
+          "checkedOn": "2026-10-07"
+        }
+      ],
+      "newWorkEvidence": [
+        {
+          "url": "https://www.monergism.com/exposition-parables-ebook",
+          "locator": "Four offered volumes; all 47 division opening passages inspected in actual EPUBs",
+          "finding": "Sustained biblical exposition, doctrine and application; Luke 15 prodigal sequence, Matthew 3 repentance, and Luke 18 justified publican sampled. Reuse existing III."
+        }
+      ],
+      "limits": [
+        "Modern EPUB arrangement has 1858 Volume I title page and 1701 author preface; no historical two-volume set identity substituted.",
+        "Eight specific passage-label/citation defects recorded; original preserved.",
+        "Source-specific typology and eschatology remain attributed interpretations, not automatically canonical relationships.",
+        "Modern packaging/editorial material remains separately identified; no redistribution to external AI datasets or public app."
+      ],
+      "globalAuthorApproval": false
+    },
+    {
+      "author": "Matthew Henry",
+      "workIds": [
+        "work-rb03-henry-complete-commentary"
+      ],
+      "decision": "admit-scoped-non-Baptist-conservative-Protestant-Old-Testament-exegesis",
+      "sixAnchorEvidence": [
+        {
+          "anchor": "Scripture authority",
+          "url": "https://www.monergism.com/thethreshold/sdg/henry/A%20Method%20for%20Prayer01%20-%20Matthew%20Henry.epub",
+          "locator": "A Method for Prayer, preface and Scripture-shaped prayer method",
+          "finding": "Scripture provides the rule/language of prayer and interpretation."
+        },
+        {
+          "anchor": "Trinity",
+          "url": "https://www.monergism.com/thethreshold/sdg/henry/A%20Method%20for%20Prayer01%20-%20Matthew%20Henry.epub",
+          "locator": "Adoration section 4",
+          "finding": "Distinct Father, Son, Holy Spirit; one divine Godhead."
+        },
+        {
+          "anchor": "Christ deity and humanity",
+          "url": "https://www.monergism.com/thethreshold/sdg/henry/A%20Method%20for%20Prayer01%20-%20Matthew%20Henry.epub",
+          "locator": "Adoration section 4; Thanksgiving 2.3.1",
+          "finding": "Eternal divine Word made flesh; born of woman."
+        },
+        {
+          "anchor": "Substitutionary atonement",
+          "url": "https://ccel.org/ccel/h/henry/mhc4.xml",
+          "locator": "Is.liv = Isaiah chapter 53",
+          "finding": "Christ suffered in sinners place as sin offering and satisfied divine justice; actual new chapter inspected."
+        },
+        {
+          "anchor": "Bodily resurrection",
+          "url": "https://www.monergism.com/thethreshold/sdg/henry/A%20Method%20for%20Prayer01%20-%20Matthew%20Henry.epub",
+          "locator": "Thanksgiving 2.3.1.11",
+          "finding": "Third-day resurrection, Christ living again, Holy One did not see corruption, bodily resurrection 1 Corinthians 15."
+        },
+        {
+          "anchor": "Faith apart from works",
+          "url": "https://www.monergism.com/thethreshold/sdg/henry/Matthew_Henry_Commentary_Volume_1.epub",
+          "locator": "Held Volume I gen-xvi.xhtml: Genesis 15:6 exposition",
+          "finding": "Explicit justification by faith without law works; Abraham not justified by his good works. Confidence comes from inspected body, not publisher affiliation."
+        }
+      ],
+      "newWorkEvidence": [
+        {
+          "url": "https://ccel.org/ccel/h/henry/mhc2.xml",
+          "locator": "All 249 Joshua-Esther chapter divisions"
+        },
+        {
+          "url": "https://ccel.org/ccel/h/henry/mhc3.xml",
+          "locator": "All 243 Job-Song chapter divisions"
+        },
+        {
+          "url": "https://ccel.org/ccel/h/henry/mhc4.xml",
+          "locator": "All 250 Isaiah-Malachi chapter divisions"
+        }
+      ],
+      "limits": [
+        "Held Volume I title appears whole-Bible but body is Genesis-Deuteronomy only. Completing OT does not complete six-volume whole Bible.",
+        "Henry Genesis 17 gen-xviii.xhtml makes circumcision give way to baptism: explicitly retain non-Baptist covenant/ordinance difference; not default Baptist teaching.",
+        "Volumes V and posthumous contributor-written VI deferred; contributors require their own admission review.",
+        "Historic chronology, typology and pastoral applications are attributed interpretations.",
+        "Publisher front matter and indexes are not original-author doctrine; CCEL permits private educational use, not blanket republication."
+      ],
+      "globalAuthorApproval": false
+    }
+  ]
+}
