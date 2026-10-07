@@ -56,6 +56,28 @@ export function PeopleCatalog({ people, backLabel }: { people: PersonRow[]; back
     // Only on arrival; later filtering clears the remembered card.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+  // Stopping the page near the catalogue settles it neatly in view, just under the site header (CSS snapping cannot: the
+  // People page's view window is its own scroll container). It settles only when you were heading towards it, or just went
+  // past it, and stopped within a quarter screen; moving away from it is never pulled back.
+  useEffect(() => {
+    const offsetOf = (box: HTMLElement) => box.getBoundingClientRect().top - parseFloat(getComputedStyle(box).scrollMarginTop);
+    let previous = root.current ? offsetOf(root.current) : 0;
+    const settle = () => {
+      const box = root.current;
+      if (!box) return;
+      const offset = offsetOf(box), before = previous;
+      previous = offset;
+      const approaching = Math.sign(offset) === Math.sign(before) && Math.abs(offset) < Math.abs(before) - 2;
+      const crossed = Math.abs(before) > 2 && Math.sign(offset) !== Math.sign(before);
+      if ((approaching || crossed) && Math.abs(offset) > 2 && Math.abs(offset) < window.innerHeight * .25) {
+        previous = 0;
+        const smooth = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        window.scrollTo({ top: window.scrollY + offset, behavior: smooth ? "smooth" : "instant" });
+      }
+    };
+    window.addEventListener("scrollend", settle);
+    return () => window.removeEventListener("scrollend", settle);
+  }, []);
   return <section ref={root} className="people-catalog" aria-labelledby="people-catalog-title">
     <header className="people-catalog-header">
       <div><h2 id="people-catalog-title">Everyone in the Bible</h2>

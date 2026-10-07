@@ -11,14 +11,17 @@ async function checkScroll(page: Page, viewport: Locator, enclosingFrame?: Locat
   // The six-pixel native thumb has a real gap beyond the rounded frame, not a gutter inside it.
   expect(barBounds.x + barBounds.width - 6 - initial.x - initial.width).toBeGreaterThanOrEqual(5);
   expect(await viewport.evaluate((el) => el.getBoundingClientRect().width - el.clientWidth)).toBeLessThanOrEqual(1);
-  await expect.poll(async () => Math.abs(await viewport.evaluate((el) => el.scrollHeight - el.clientHeight) - await bar.evaluate((el) => el.scrollHeight - el.clientHeight))).toBeLessThanOrEqual(1);
+  // The bar's track matches the list, or stands for it at a reduced scale beyond 12 screens (OutsideScroll LONGEST_TRACK).
+  const expectedTrack = () => viewport.evaluate((el) => Math.min(el.scrollHeight, el.clientHeight * 12) - el.clientHeight);
+  await expect.poll(async () => Math.abs(await expectedTrack() - await bar.evaluate((el) => el.scrollHeight - el.clientHeight))).toBeLessThanOrEqual(1);
+  const ratio = await bar.evaluate((el) => el.scrollHeight - el.clientHeight) / await viewport.evaluate((el) => el.scrollHeight - el.clientHeight);
 
   await viewport.hover();
   await page.mouse.wheel(0, 180);
   await expect.poll(() => viewport.evaluate((el) => el.scrollTop)).toBeGreaterThan(100);
-  await expect.poll(async () => Math.abs(await viewport.evaluate((el) => el.scrollTop) - await bar.evaluate((el) => el.scrollTop))).toBeLessThanOrEqual(1);
+  await expect.poll(async () => Math.abs(await viewport.evaluate((el) => el.scrollTop) * ratio - await bar.evaluate((el) => el.scrollTop))).toBeLessThanOrEqual(1.5);
   await bar.evaluate((el) => { el.scrollTop = 350; });
-  await expect.poll(() => viewport.evaluate((el) => el.scrollTop)).toBe(350);
+  await expect.poll(async () => Math.abs(await viewport.evaluate((el) => el.scrollTop) - await bar.evaluate((el) => el.scrollTop) / ratio)).toBeLessThanOrEqual(Math.max(1.5, 1 / ratio));
   expect((await frame.boundingBox())!.height).toBeCloseTo(initial.height, 0);
   await viewport.focus();
   await page.keyboard.press("End");

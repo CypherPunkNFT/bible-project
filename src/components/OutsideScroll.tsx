@@ -2,6 +2,16 @@ import { useLayoutEffect, useRef, type CSSProperties, type ReactNode } from "rea
 import { cn } from "@/lib/utils";
 import "./outside-scroll.css";
 
+/** A very long list would shrink the pill to a dot (browsers ignore a minimum pill size), so the bar's track stands for
+ * the list at a reduced scale beyond this many screens: the pill stays at least 1/LONGEST_TRACK of the bar. */
+const LONGEST_TRACK = 12;
+
+/** How far the bar scrolls per pixel of the list. */
+function scale(list: HTMLDivElement, bar: HTMLDivElement): number {
+  const listRange = list.scrollHeight - list.clientHeight, barRange = bar.scrollHeight - bar.clientHeight;
+  return listRange > 0 && barRange > 0 ? barRange / listRange : 1;
+}
+
 /** A fixed frame with gutter-free content and a native scrollbar just beyond its right edge. */
 export function OutsideScroll({ children, label, className, frameClassName, viewportClassName, style, resetKey }: {
   children: ReactNode;
@@ -28,9 +38,10 @@ export function OutsideScroll({ children, label, className, frameClassName, view
       if (!root.current || !viewport.current || !scrollbar.current || !extent.current) return;
       scrollbar.current.style.top = `${viewport.current.getBoundingClientRect().top - root.current.getBoundingClientRect().top}px`;
       scrollbar.current.style.height = `${viewport.current.clientHeight}px`;
-      extent.current.style.height = `${viewport.current.scrollHeight}px`;
-      mirrored.current.set(scrollbar.current, viewport.current.scrollTop);
-      scrollbar.current.scrollTop = viewport.current.scrollTop;
+      extent.current.style.height = `${Math.min(viewport.current.scrollHeight, viewport.current.clientHeight * LONGEST_TRACK)}px`;
+      const target = viewport.current.scrollTop * scale(viewport.current, scrollbar.current);
+      mirrored.current.set(scrollbar.current, target);
+      scrollbar.current.scrollTop = target;
     };
     measure();
     const observer = new ResizeObserver(measure);
@@ -39,13 +50,17 @@ export function OutsideScroll({ children, label, className, frameClassName, view
     return () => observer.disconnect();
   }, []);
 
+  /** One element's scroll position mirrored onto the other, through the bar's scale (1 unless the list is very long). */
   const sync = (from: HTMLDivElement, to: HTMLDivElement | null) => {
     const expected = mirrored.current.get(from);
     mirrored.current.delete(from);
-    if (expected !== undefined && Math.abs(expected - from.scrollTop) <= .5) return;
-    if (to && Math.abs(to.scrollTop - from.scrollTop) > .5) {
-      mirrored.current.set(to, from.scrollTop);
-      to.scrollTop = from.scrollTop;
+    if (expected !== undefined && Math.abs(expected - from.scrollTop) <= 1) return;
+    if (!to || !viewport.current || !scrollbar.current) return;
+    const ratio = scale(viewport.current, scrollbar.current);
+    const target = from === viewport.current ? from.scrollTop * ratio : from.scrollTop / ratio;
+    if (Math.abs(to.scrollTop - target) > 1) {
+      mirrored.current.set(to, target);
+      to.scrollTop = target;
     }
   };
 
