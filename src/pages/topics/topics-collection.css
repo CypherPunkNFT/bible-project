@@ -209,3 +209,5 @@ html[data-topics-slide][data-topics-direction=backward]::view-transition-new(.to
 .topics-point-book-head { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; margin-bottom: .5rem; font-size: .62rem; text-transform: uppercase; letter-spacing: .14em; color: var(--muted); }
 .topics-point-book-head button { font-size: .72rem; font-weight: 600; text-transform: none; letter-spacing: 0; }
 @media (max-width: 900px) { .topics-point-books:has(> :nth-child(2)) { grid-template-columns: 1fr; } }
+/* All family cards as tall as the tallest (useEqualCardHeights.ts sets the height). */
+.topics-rows .topics-family-card { min-height: var(--topics-card-h, auto); }
