@@ -75,10 +75,20 @@ def _embed_all(config, limit, batch_size):
     active = {row[0] for row in db.execute("SELECT id FROM chunks")}
     corpus_build = db.execute("SELECT value FROM meta WHERE key='built_at'").fetchone()[0]
     stale = list(present-active)
+    def reconciliation_progress(removed):
+        write_json(config["state_dir"] / "embedding-progress.json", {
+            "state": "reconciling", "updated_at": datetime.now(timezone.utc).isoformat(),
+            "pid": os.getpid(), "corpus_build": corpus_build, "total": len(active),
+            "indexed": len(present & active), "remaining": len(active-present),
+            "stale_remaining": len(stale)-removed})
+    # Deleting old vectors can take several minutes. Replace the previous run's
+    # completion timestamp immediately so the watchdog sees this live work.
+    reconciliation_progress(0)
     for i in range(0, len(stale), 500):
         # IDs are our SHA-256 hex digests, never query/user text.
         values = ",".join("'"+value+"'" for value in stale[i:i+500])
         vectors.delete(f"id IN ({values})")
+        reconciliation_progress(min(i+500, len(stale)))
     present &= active
     total, initial = len(active), len(present)
     batch_size = max(1, min(batch_size or cfg.get("write_batch_size", cfg["batch_size"]), 64))
