@@ -24,6 +24,8 @@ sys.path.insert(0, str(WEBSITE / "scripts"))
 from bible.books import BOOK_NUMBER, OSIS_TO_CODE, verse_id  # noqa: E402
 import easton  # noqa: E402
 import naves  # noqa: E402
+import topic_extras  # noqa: E402
+from bible.books import BOOKS  # noqa: E402
 
 TORREY = WEBSITE.parent / "sources" / "ccel" / "ttt.xml"
 TAXONOMY = WEBSITE / "content" / "topics" / "taxonomy.json"
@@ -192,6 +194,22 @@ BIBLE_WEB = WEBSITE / "data" / "plain" / "web"
 CODE_BY_NUMBER = {number: code for code, number in BOOK_NUMBER.items()}
 
 
+_CHAPTER_ENDS: dict[str, dict[int, int]] = {}
+
+
+def chapter_end(code: str, chapter: int) -> int | None:
+    """The last verse of a chapter in the World English Bible text (data/plain/web), or None when unknown."""
+    if code not in _CHAPTER_ENDS:
+        path = BIBLE_WEB / f"{code}.json"
+        ends: dict[int, int] = {}
+        for key in (json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}):
+            ch, _, v = key.partition(":")
+            if ch.isdigit() and v.isdigit():
+                ends[int(ch)] = max(ends.get(int(ch), 0), int(v))
+        _CHAPTER_ENDS[code] = ends
+    return _CHAPTER_ENDS[code].get(chapter)
+
+
 def verse_parts(verse: int) -> tuple[str, int, int]:
     return CODE_BY_NUMBER[verse // 1_000_000], verse // 1000 % 1000, verse % 1000
 
@@ -297,13 +315,22 @@ def safe_span(parsed: str) -> list[int] | None:
         return None
 
 
-def attach_dictionary(topics: list[dict]) -> int:
-    """Easton's Bible Dictionary article for every topic whose heading Easton also has."""
-    articles = easton.parse(safe_span)
+def attach_dictionary(topics: list[dict], articles: dict) -> int:
+    """Easton's Bible Dictionary article for every topic whose heading Easton also has. Easton's back-to-front headwords
+    ("pilate, pontius") also answer to "pontius pilate" and "pilate"; a headword that already exists keeps its own article."""
+    lookup = dict(articles)
+    for key, article in articles.items():
+        if ", " in key:
+            head, tail = key.split(", ", 1)
+            lookup.setdefault(f"{tail} {head}", article)
+            lookup.setdefault(head, article)
     found = 0
     for topic in topics:
+        if topic.get("dictionary"):
+            found += 1
+            continue
         for name in (topic.get("heading", ""), topic["title"], re.sub(r"^The ", "", topic["title"])):
-            article = articles.get(name.lower())
+            article = lookup.get(name.lower())
             if article:
                 topic["dictionary"] = article
                 found += 1
@@ -324,18 +351,33 @@ def build() -> None:
     if missing or unknown:
         raise SystemExit(f"topics: taxonomy mismatch: {len(missing)} topics not placed {missing[:5]}, {len(unknown)} unknown ids {unknown[:5]}")
     torrey_ids = {t["id"] for t in topics}
+    naves.CHAPTER_END = chapter_end
     aliases = merge_naves(topics)
     placement = json.loads(NAVE_PLACEMENT.read_text(encoding="utf-8"))
     groups = {s["id"]: (c["id"], s) for c in taxonomy["categories"] for s in c["subcategories"]}
-    unplaced = [t["id"] for t in topics if t["id"] not in torrey_ids and placement.get(t["id"]) not in groups]
+    unplaced = [t["id"] for t in topics if t["id"] not in torrey_ids and placement.get(t["id"]) not in groups]  # generated topics are checked below
     if unplaced:
         raise SystemExit(f"topics: {len(unplaced)} Nave topics have no group in {NAVE_PLACEMENT.name}: {unplaced[:8]}")
+    # Nave's largest entries split at their sub-headings; the books of the Bible and other Easton-only topics.
+    articles = easton.parse(safe_span)
+    generated = topic_extras.split_entries(topics, None)
+    titles = {t["title"].lower() for t in topics} | {t["title"].lower() for t in generated}
+    generated += topic_extras.easton_topics(articles, BOOKS, titles)
+    existing = {t["id"] for t in topics}
+    clash = [t["id"] for t in generated if t["id"] in existing]
+    if clash:
+        raise SystemExit(f"topics: generated topic ids clash with existing topics: {clash[:8]}")
+    topics.extend(generated)
     for topic in topics:
         if topic["id"] not in torrey_ids:
-            category, group = groups[placement[topic["id"]]]
+            group_id = topic.pop("placeAt", None) or placement.get(topic["id"])
+            if group_id not in groups:
+                raise SystemExit(f"topics: {topic['id']} goes to unknown group {group_id!r}")
+            category, group = groups[group_id]
             group["topics"].append(topic["id"])
             placed[topic["id"]] = (category, group["id"])
-    dictionary = attach_dictionary(topics)
+    dictionary = attach_dictionary(topics, articles)
+    readings = topic_extras.select_readings(next(e for e in naves.parse(OSIS_TO_CODE, verse_id) if e["id"] == "readings-select"))
     from sentence_transformers import SentenceTransformer
 
     model = SentenceTransformer(MODEL)
@@ -356,7 +398,7 @@ def build() -> None:
         points = all_points(topic)
         refs = sum(len(p["refs"]) + sum(len(i["refs"]) for i in p.get("items", [])) for p in points)
         source = ("t" if topic["points"] else "") + ("n" if topic.get("nave") else "")
-        summary[topic["id"]] = {"title": topic["title"], "points": len(points), "refs": refs, "f": shard, "s": source}
+        summary[topic["id"]] = {"title": topic["title"], "points": len(points), "refs": refs, "f": shard, "s": source + ("e" if topic.get("dictionary") else "")}
     (OUT / "t").mkdir(exist_ok=True)
     for stale in (OUT / "t").glob("*.json"):
         stale.unlink()
@@ -365,7 +407,9 @@ def build() -> None:
     (OUT / "books").mkdir(exist_ok=True)
     for code, chapters in chapter_index(topics).items():
         (OUT / "books" / f"{code}.json").write_text(json.dumps(chapters, separators=(",", ":")), encoding="utf-8")
-    index = {"source": taxonomy["source"], "categories": taxonomy["categories"], "topics": summary, "aliases": aliases}
+    for family in taxonomy["categories"]:  # a group can be empty (an era without prophets); it is left out
+        family["subcategories"] = [group for group in family["subcategories"] if group["topics"]]
+    index = {"source": taxonomy["source"], "categories": taxonomy["categories"], "topics": summary, "aliases": aliases, "readings": readings}
     (OUT / "index.json").write_text(json.dumps(index, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
     refs = sum(t["refs"] for t in summary.values())
     related = sum(1 for t in topics if t["relatedStudies"])

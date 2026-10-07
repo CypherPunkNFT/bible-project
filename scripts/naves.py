@@ -43,6 +43,9 @@ def topic_id(title: str) -> str:
     return re.sub(r"[^a-z0-9]+", "-", re.sub(r"^the ", "", title.lower())).strip("-")
 
 
+CHAPTER_END = None  # set by the build: (book code, chapter) -> its last verse, so a whole chapter ("Ps 23") spans 23:1-6
+
+
 def span(parsed: str, osis_to_code, verse_id) -> list[int] | None:
     """CCEL's "|John|10|7|0|0" (book, chapter, verse, end chapter, end verse; 0 = none) -> [start id, end id]."""
     book, chapter, verse, end_chapter, end_verse = (parsed.strip("|").split("|") + ["0"] * 5)[:5]
@@ -58,7 +61,8 @@ def span(parsed: str, osis_to_code, verse_id) -> list[int] | None:
 def _span(code: str, chapter: str, verse: str, end_chapter: str, end_verse: str, verse_id) -> list[int]:
     start = verse_id(code, int(chapter), int(verse) or 1)
     if end_chapter == "0" and end_verse == "0":
-        return [start, start]  # a whole chapter ("1Ch 24") links to its first verse, as Torrey's topics do
+        last = CHAPTER_END(code, int(chapter)) if CHAPTER_END and verse == "0" else None
+        return [start, verse_id(code, int(chapter), last)] if last else [start, start]  # a whole chapter spans it
     return [start, verse_id(code, int(end_chapter) if end_chapter != "0" else int(chapter), int(end_verse) or 1)]
 
 

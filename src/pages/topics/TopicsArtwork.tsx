@@ -14,9 +14,12 @@ export function TopicsArtwork({ kind, words = [] }: { kind: string; words?: stri
       const [x, y, anchor] = WORD_SLOTS[i];
       return <text key={word} x={x} y={y} textAnchor={anchor} className="topics-artwork-word">{word}</text>;
     })}
-    {ART[kind] ?? <Emblem kind={kind} />}
+    {(kind in DRAWN_AS ? ART[DRAWN_AS[kind]] : kind === "society" ? undefined : ART[kind]) ?? <Emblem kind={kind} />}
   </svg>;
 }
+
+// The household drawing now belongs to "Marriage & family"; "Government & law" (still id "society") takes an emblem.
+const DRAWN_AS: Record<string, string> = { family: "society" };
 
 /** The God family's radiant circle (below) around the family's own icon. */
 function Emblem({ kind }: { kind: string }) {

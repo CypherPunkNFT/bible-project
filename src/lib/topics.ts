@@ -7,7 +7,9 @@ export interface TopicCategory { id: string; title: string; description: string;
 /** f: the bundle file holding the topic (data/topics/t/<f>.json); s: its sources, "t" Torrey and/or "n" Nave. */
 export interface TopicSummary { title: string; points: number; refs: number; f: number; s: string }
 /** aliases: Nave's "See ..." headings -> the topic they point to. */
-export interface TopicIndex { source: string; categories: TopicCategory[]; topics: Record<string, TopicSummary>; aliases: Record<string, string> }
+/** A great passage from Nave's "Select readings". */
+export interface Reading { title: string; refs: Span[] }
+export interface TopicIndex { source: string; categories: TopicCategory[]; topics: Record<string, TopicSummary>; aliases: Record<string, string>; readings?: Reading[] }
 
 export interface TopicItem { text: string; refs: Span[] }
 export interface TopicPoint extends TopicItem { see: string[]; items?: TopicItem[] }
@@ -15,7 +17,8 @@ export interface KeyVerse { span: Span; text: string; point: string }
 /** One paragraph of a dictionary article: text, and verse references as [start id, end id, label]. */
 export type ArticleParagraph = (string | [number, number, string])[];
 /** points: Torrey's; nave: Nave's; dictionary: Easton's article. */
-export interface Topic { id: string; title: string; category: string; subcategory: string; points: TopicPoint[]; nave?: TopicPoint[]; dictionary?: ArticleParagraph[]; relatedStudies: string[]; keyVerses: KeyVerse[] }
+/** book: a book of the Bible's reader code; parts: the topics split out of this one (in order); parent: the topic this one was split from. */
+export interface Topic { id: string; title: string; category: string; subcategory: string; points: TopicPoint[]; nave?: TopicPoint[]; dictionary?: ArticleParagraph[]; relatedStudies: string[]; keyVerses: KeyVerse[]; book?: string; parts?: string[]; parent?: string }
 /** Per book (scripts/build-topics.py): chapter -> [[topic id, passages cited], ...], most cited first. */
 export type ChapterTopics = Record<string, [string, number][]>;
 
@@ -44,5 +47,5 @@ export function matchTopics(index: TopicIndex, query: string, limit = 12): strin
 }
 
 /** "1 point · 1 passage", "3 points · 12 passages". */
-export const pointsAndPassages = (points: number, passages: number) =>
+export const pointsAndPassages = (points: number, passages: number) => points === 0 && passages === 0 ? "Dictionary article" :
   `${points} ${points === 1 ? "point" : "points"} · ${passages.toLocaleString("en-US")} ${passages === 1 ? "passage" : "passages"}`;

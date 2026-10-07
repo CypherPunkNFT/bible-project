@@ -3,8 +3,8 @@
  "categories": [
   {
    "id": "god",
-   "title": "God",
-   "description": "Who God is, what he is like, and how he acts in the world.",
+   "title": "Who God is",
+   "description": "God's nature and character: one God in three persons, holy, loving, just and almighty.",
    "subcategories": [
     {
      "id": "the-godhead",
@@ -40,7 +40,14 @@
       "joy-of-god-over-his-people",
       "favour-of-god"
      ]
-    },
+    }
+   ]
+  },
+  {
+   "id": "god-works",
+   "title": "What God does",
+   "description": "Creation, providence, protection, promises and miracles: God at work in the world.",
+   "subcategories": [
     {
      "id": "works-of-god",
      "title": "Works & ways of God",
@@ -54,7 +61,27 @@
       "protection",
       "miracles"
      ]
-    },
+    }
+   ]
+  },
+  {
+   "id": "god-names",
+   "title": "Names of God",
+   "description": "The names and titles by which God makes himself known.",
+   "subcategories": [
+    {
+     "id": "names-of-god",
+     "title": "Names & titles of God",
+     "description": "The names by which God makes himself known.",
+     "topics": []
+    }
+   ]
+  },
+  {
+   "id": "spirit",
+   "title": "The Holy Spirit",
+   "description": "The person and work of the Spirit, in Christ and in believers.",
+   "subcategories": [
     {
      "id": "holy-spirit",
      "title": "The Holy Spirit",
@@ -74,19 +101,130 @@
       "witness-of-the-holy-spirit",
       "offences-against-the-holy-spirit"
      ]
+    }
+   ]
+  },
+  {
+   "id": "bible-books",
+   "title": "The books of the Bible",
+   "description": "All 66 books: what each is, who wrote it, and what it is about.",
+   "subcategories": [
+    {
+     "id": "books-law",
+     "title": "The Law",
+     "description": "Genesis to Deuteronomy, the five books of Moses.",
+     "topics": []
     },
     {
-     "id": "names-of-god",
-     "title": "Names & titles of God",
-     "description": "The names by which God makes himself known.",
+     "id": "books-history",
+     "title": "History",
+     "description": "Joshua to Esther.",
+     "topics": []
+    },
+    {
+     "id": "books-poetry",
+     "title": "Poetry & wisdom",
+     "description": "Job, Psalms, Proverbs, Ecclesiastes and the Song of Songs.",
+     "topics": []
+    },
+    {
+     "id": "books-prophets",
+     "title": "Prophets",
+     "description": "Isaiah to Malachi.",
+     "topics": []
+    },
+    {
+     "id": "books-gospels",
+     "title": "Gospels & Acts",
+     "description": "Matthew, Mark, Luke, John and Acts.",
+     "topics": []
+    },
+    {
+     "id": "books-letters",
+     "title": "Letters & Revelation",
+     "description": "Romans to Jude, and Revelation.",
+     "topics": []
+    }
+   ]
+  },
+  {
+   "id": "scripture",
+   "title": "The word & how it came to us",
+   "description": "Scripture's authority and power, its languages, and how the Bible was written, gathered and translated.",
+   "subcategories": [
+    {
+     "id": "word-of-god",
+     "title": "The word of God",
+     "description": "Inspired Scripture, the gospel and its doctrines.",
+     "topics": [
+      "scriptures",
+      "inspiration-of-the-holy-spirit",
+      "gospel",
+      "doctrines-of-the-gospel",
+      "truth"
+     ]
+    },
+    {
+     "id": "bible-making",
+     "title": "How the Bible came to us",
+     "description": "The canon, inspiration, manuscripts, versions and the Bible's languages.",
+     "topics": []
+    },
+    {
+     "id": "language-and-learning",
+     "title": "Language & learning",
+     "description": "Speech, books, music and the sciences in the Bible world.",
+     "topics": [
+      "language",
+      "books",
+      "sciences",
+      "music"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "symbols",
+   "title": "Prophecy, types & figures",
+   "description": "Prophecy and visions, and the types, figures and signs through which Scripture speaks.",
+   "subcategories": [
+    {
+     "id": "prophecy",
+     "title": "Prophecy & visions",
+     "description": "True and false prophets, visions, dreams and counterfeit signs.",
+     "topics": [
+      "prophecy",
+      "prophets",
+      "prophets-false",
+      "visions",
+      "dreams",
+      "miracles-through-evil-agents"
+     ]
+    },
+    {
+     "id": "types-and-shadows",
+     "title": "Types & shadows",
+     "description": "People, things and events that foreshadow Christ and the gospel.",
+     "topics": []
+    },
+    {
+     "id": "figures-and-metaphors",
+     "title": "Figures & metaphors",
+     "description": "Scripture's figurative language: Christ the door, the vine, the rock.",
+     "topics": []
+    },
+    {
+     "id": "signs-and-numbers",
+     "title": "Signs, wonders & numbers",
+     "description": "Miracles as signs, symbolic numbers and tokens.",
      "topics": []
     }
    ]
   },
   {
    "id": "christ",
-   "title": "Jesus Christ",
-   "description": "The person, offices and saving work of the Lord Jesus Christ.",
+   "title": "Who Jesus is",
+   "description": "The person of Christ: truly God and truly man, sinless, eternal, and his people's union with him.",
    "subcategories": [
     {
      "id": "person-of-christ",
@@ -104,44 +242,6 @@
      ]
     },
     {
-     "id": "titles-and-offices",
-     "title": "Titles & offices",
-     "description": "Christ as prophet, priest, king, mediator and shepherd.",
-     "topics": [
-      "christ-the-head-of-the-church",
-      "christ-the-high-priest",
-      "christ-the-king",
-      "christ-the-mediator",
-      "christ-the-prophet",
-      "christ-the-shepherd",
-      "titles-and-names-of-christ"
-     ]
-    },
-    {
-     "id": "life-and-ministry",
-     "title": "Foretold, life & ministry",
-     "description": "Christ foretold and foreshadowed, his miracles, parables and opposition.",
-     "topics": [
-      "prophecies-respecting-christ",
-      "types-of-christ",
-      "miracles-of-christ",
-      "parables",
-      "hatred-to-christ"
-     ]
-    },
-    {
-     "id": "cross-resurrection-return",
-     "title": "Cross, resurrection & return",
-     "description": "Christ's atoning death, rising, ascension and coming again.",
-     "topics": [
-      "death-of-christ",
-      "atonement",
-      "resurrection-of-christ",
-      "ascension-of-christ",
-      "second-coming-of-christ"
-     ]
-    },
-    {
      "id": "believers-and-christ",
      "title": "Believers & Christ",
      "description": "Union with Christ, loving and confessing him.",
@@ -156,52 +256,163 @@
    ]
   },
   {
-   "id": "scripture",
-   "title": "Scripture & revelation",
-   "description": "How God makes himself known through his word, prophets and visions.",
+   "id": "christ-titles",
+   "title": "Names & titles of Jesus",
+   "description": "Messiah, Son of God, Son of Man, Shepherd, Prophet, Priest and King.",
    "subcategories": [
     {
-     "id": "word-of-god",
-     "title": "The word of God",
-     "description": "Inspired Scripture, the gospel and its doctrines.",
+     "id": "titles-and-offices",
+     "title": "Titles & offices",
+     "description": "Christ as prophet, priest, king, mediator and shepherd.",
      "topics": [
-      "scriptures",
-      "inspiration-of-the-holy-spirit",
-      "gospel",
-      "doctrines-of-the-gospel",
-      "truth"
-     ]
-    },
-    {
-     "id": "prophecy",
-     "title": "Prophecy & visions",
-     "description": "True and false prophets, visions, dreams and counterfeit signs.",
-     "topics": [
-      "prophecy",
-      "prophets",
-      "prophets-false",
-      "visions",
-      "dreams",
-      "miracles-through-evil-agents"
-     ]
-    },
-    {
-     "id": "language-and-learning",
-     "title": "Language & learning",
-     "description": "Speech, books, music and the sciences in the Bible world.",
-     "topics": [
-      "language",
-      "books",
-      "sciences",
-      "music"
+      "christ-the-head-of-the-church",
+      "christ-the-high-priest",
+      "christ-the-king",
+      "christ-the-mediator",
+      "christ-the-prophet",
+      "christ-the-shepherd",
+      "titles-and-names-of-christ"
      ]
     }
    ]
   },
   {
+   "id": "christ-life",
+   "title": "The life of Jesus",
+   "description": "His birth, family, temptation, ministry, prayers and example, and the prophecies he fulfilled.",
+   "subcategories": [
+    {
+     "id": "life-and-ministry",
+     "title": "Foretold, life & ministry",
+     "description": "Christ foretold and foreshadowed, his miracles, parables and opposition.",
+     "topics": [
+      "prophecies-respecting-christ",
+      "types-of-christ",
+      "hatred-to-christ"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "christ-miracles",
+   "title": "Miracles of Jesus",
+   "description": "The signs Jesus did, one by one: healings, power over nature, demons cast out and the dead raised.",
+   "subcategories": [
+    {
+     "id": "miracles-overview",
+     "title": "All his miracles",
+     "description": "Nave's list of the miracles of Christ.",
+     "topics": [
+      "miracles-of-christ"
+     ]
+    },
+    {
+     "id": "miracles-healing",
+     "title": "Healings",
+     "description": "The sick, the blind, the lame and the lepers made well.",
+     "topics": []
+    },
+    {
+     "id": "miracles-nature",
+     "title": "Power over nature",
+     "description": "Water into wine, the storm stilled, the crowds fed.",
+     "topics": []
+    },
+    {
+     "id": "miracles-demons",
+     "title": "Demons cast out",
+     "description": "Deliverance from evil spirits.",
+     "topics": []
+    },
+    {
+     "id": "miracles-raising",
+     "title": "The dead raised",
+     "description": "The widow's son, Jairus' daughter and Lazarus.",
+     "topics": []
+    }
+   ]
+  },
+  {
+   "id": "christ-teaching",
+   "title": "Parables & teaching",
+   "description": "The parables of Jesus, one by one, and the parables and allegories of the rest of Scripture.",
+   "subcategories": [
+    {
+     "id": "parables-of-jesus",
+     "title": "The parables of Jesus",
+     "description": "Each parable with its passages.",
+     "topics": []
+    },
+    {
+     "id": "parables-and-allegories",
+     "title": "Other parables & allegories",
+     "description": "Parables and allegories of the prophets and others.",
+     "topics": [
+      "parables"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "christ-cross",
+   "title": "Cross, resurrection & return",
+   "description": "His sufferings and atoning death, his resurrection and ascension, his kingdom and his coming again.",
+   "subcategories": [
+    {
+     "id": "cross-resurrection-return",
+     "title": "Cross, resurrection & return",
+     "description": "Christ's atoning death, rising, ascension and coming again.",
+     "topics": [
+      "death-of-christ",
+      "atonement",
+      "resurrection-of-christ",
+      "ascension-of-christ",
+      "second-coming-of-christ"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "people-nt",
+   "title": "People of the New Testament",
+   "description": "Jesus' family, his apostles and friends, the early church and its opponents.",
+   "subcategories": [
+    {
+     "id": "jesus-family",
+     "title": "Jesus' family & forerunner",
+     "description": "Mary, Joseph, Jesus' brothers and John the Baptist.",
+     "topics": []
+    },
+    {
+     "id": "the-apostles",
+     "title": "The apostles",
+     "description": "The Twelve, Matthias and Paul.",
+     "topics": []
+    },
+    {
+     "id": "followers-and-friends",
+     "title": "Followers & friends of Jesus",
+     "description": "Disciples, those he healed and those who welcomed him.",
+     "topics": []
+    },
+    {
+     "id": "early-church-people",
+     "title": "The early church & Paul's companions",
+     "description": "Believers in Acts and the letters, and Paul's fellow workers.",
+     "topics": []
+    },
+    {
+     "id": "nt-rulers-and-opponents",
+     "title": "Rulers & opponents",
+     "description": "The Herods, Pilate, the high priests and other opponents.",
+     "topics": []
+    }
+   ]
+  },
+  {
    "id": "church",
-   "title": "The church",
-   "description": "The body of Christ: its nature, ministry, ordinances and fellowship.",
+   "title": "The church & its ministers",
+   "description": "The church's nature, life and discipline, its ministers and mission, its ordinances and fellowship.",
    "subcategories": [
     {
      "id": "the-church",
@@ -241,9 +452,25 @@
   },
   {
    "id": "sin",
-   "title": "Sin & its consequences",
-   "description": "The forms sin takes and God's judgment upon it.",
+   "title": "Sin & temptation",
+   "description": "The fall, the sinful heart, temptation, turning from God and the ways of the ungodly.",
    "subcategories": [
+    {
+     "id": "sin-and-the-fall",
+     "title": "Sin & the fall",
+     "description": "Humanity's fall in Adam and its ruin of the heart.",
+     "topics": [
+      "man",
+      "fall-of-man",
+      "sin",
+      "death-spiritual",
+      "blindness-spiritual",
+      "bondage-spiritual",
+      "heart-character-of-the-unrenewed",
+      "vanity",
+      "condemnation"
+     ]
+    },
     {
      "id": "sins-of-the-heart",
      "title": "Sins of the heart",
@@ -270,6 +497,41 @@
       "unbelief"
      ]
     },
+    {
+     "id": "turning-from-god",
+     "title": "Turning from God",
+     "description": "Backsliding, apostasy, rebellion and forgetting God.",
+     "topics": [
+      "backsliding",
+      "apostates",
+      "forsaking-god",
+      "forgetting-god",
+      "disobedience-to-god",
+      "rebellion-against-god",
+      "ignorance-of-god",
+      "sins-national"
+     ]
+    },
+    {
+     "id": "the-ungodly",
+     "title": "The ungodly",
+     "description": "How Scripture describes the wicked and their passing success.",
+     "topics": [
+      "character-of-the-wicked",
+      "titles-and-names-of-the-wicked",
+      "wicked-the-are-compared-to",
+      "happiness-of-the-wicked",
+      "fools",
+      "hypocrites"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "vices",
+   "title": "Sins & vices",
+   "description": "Sins of speech and conduct, and idolatry and false worship.",
+   "subcategories": [
     {
      "id": "sins-of-speech",
      "title": "Sins of speech",
@@ -308,21 +570,6 @@
      ]
     },
     {
-     "id": "turning-from-god",
-     "title": "Turning from God",
-     "description": "Backsliding, apostasy, rebellion and forgetting God.",
-     "topics": [
-      "backsliding",
-      "apostates",
-      "forsaking-god",
-      "forgetting-god",
-      "disobedience-to-god",
-      "rebellion-against-god",
-      "ignorance-of-god",
-      "sins-national"
-     ]
-    },
-    {
      "id": "idolatry-and-false-worship",
      "title": "Idolatry & false worship",
      "description": "Idols, high places, sorcery and false teaching.",
@@ -335,20 +582,14 @@
       "divination",
       "doctrines-false"
      ]
-    },
-    {
-     "id": "the-ungodly",
-     "title": "The ungodly",
-     "description": "How Scripture describes the wicked and their passing success.",
-     "topics": [
-      "character-of-the-wicked",
-      "titles-and-names-of-the-wicked",
-      "wicked-the-are-compared-to",
-      "happiness-of-the-wicked",
-      "fools",
-      "hypocrites"
-     ]
-    },
+    }
+   ]
+  },
+  {
+   "id": "judgment",
+   "title": "Judgment",
+   "description": "God's judgments in this life, and the resurrection and last judgment.",
+   "subcategories": [
     {
      "id": "judgment-on-sin",
      "title": "Judgment on sin",
@@ -362,6 +603,17 @@
       "famine",
       "plague-or-pestilence"
      ]
+    },
+    {
+     "id": "resurrection-and-judgment",
+     "title": "Resurrection & judgment",
+     "description": "The rising of the dead, the last judgment and the Antichrist.",
+     "topics": [
+      "resurrection",
+      "judgment",
+      "reward-of-saints",
+      "antichrist"
+     ]
     }
    ]
   },
@@ -370,22 +622,6 @@
    "title": "Salvation",
    "description": "How sinners are rescued and made new by God's grace in Christ.",
    "subcategories": [
-    {
-     "id": "sin-and-the-fall",
-     "title": "Sin & the fall",
-     "description": "Humanity's fall in Adam and its ruin of the heart.",
-     "topics": [
-      "man",
-      "fall-of-man",
-      "sin",
-      "death-spiritual",
-      "blindness-spiritual",
-      "bondage-spiritual",
-      "heart-character-of-the-unrenewed",
-      "vanity",
-      "condemnation"
-     ]
-    },
     {
      "id": "grace-and-redemption",
      "title": "Grace & redemption",
@@ -445,8 +681,8 @@
   },
   {
    "id": "christian-life",
-   "title": "The Christian life",
-   "description": "How believers live, pray, suffer and rejoice as God's people.",
+   "title": "Virtues & graces",
+   "description": "Who believers are, the graces of the heart, godly conduct and their duties to God and others.",
    "subcategories": [
     {
      "id": "gods-people",
@@ -519,7 +755,14 @@
       "reproof",
       "afflicted-duty-toward-the"
      ]
-    },
+    }
+   ]
+  },
+  {
+   "id": "devotion",
+   "title": "Prayer & devotion",
+   "description": "Prayer of every kind, praise, thanksgiving, fasting and worship.",
+   "subcategories": [
     {
      "id": "prayer",
      "title": "Prayer",
@@ -550,7 +793,14 @@
       "fasting",
       "vows"
      ]
-    },
+    }
+   ]
+  },
+  {
+   "id": "trials",
+   "title": "Trials & comfort",
+   "description": "Suffering, persecution and temptation, and the joy, peace and comfort God gives.",
+   "subcategories": [
     {
      "id": "trials-and-afflictions",
      "title": "Trials & afflictions",
@@ -581,8 +831,8 @@
   },
   {
    "id": "last-things",
-   "title": "Last things",
-   "description": "Death, the resurrection, the final judgment and eternity.",
+   "title": "Death, heaven & hell",
+   "description": "Death and the grave, heaven and hell, and the angels and spirits.",
    "subcategories": [
     {
      "id": "death-and-the-grave",
@@ -594,17 +844,6 @@
       "dead",
       "burial",
       "embalming"
-     ]
-    },
-    {
-     "id": "resurrection-and-judgment",
-     "title": "Resurrection & judgment",
-     "description": "The rising of the dead, the last judgment and the Antichrist.",
-     "topics": [
-      "resurrection",
-      "judgment",
-      "reward-of-saints",
-      "antichrist"
      ]
     },
     {
@@ -633,8 +872,8 @@
   },
   {
    "id": "worship-in-israel",
-   "title": "Worship in Israel",
-   "description": "The tabernacle, priesthood, sacrifices, feasts and law given to Israel.",
+   "title": "The tabernacle & temples",
+   "description": "The tabernacle, Solomon's, the second and Herod's temples, and their holy things.",
    "subcategories": [
     {
      "id": "tabernacle-and-temple",
@@ -662,6 +901,19 @@
      ]
     },
     {
+     "id": "holy-things-and-vessels",
+     "title": "Holy things & vessels",
+     "description": "The ark, altars, lampstand, incense and the vessels of worship.",
+     "topics": []
+    }
+   ]
+  },
+  {
+   "id": "priesthood",
+   "title": "Priests & Levites",
+   "description": "The priesthood, its garments and consecration, and the Levites' service.",
+   "subcategories": [
+    {
      "id": "priests-and-levites",
      "title": "Priests & Levites",
      "description": "The priesthood, its garments and its consecration.",
@@ -676,7 +928,14 @@
       "anointing-sacred",
       "anointing"
      ]
-    },
+    }
+   ]
+  },
+  {
+   "id": "sacrifices",
+   "title": "Sacrifices & offerings",
+   "description": "The offerings of the law, all pointing to Christ.",
+   "subcategories": [
     {
      "id": "sacrifices-and-offerings",
      "title": "Sacrifices & offerings",
@@ -701,7 +960,14 @@
       "first-born",
       "tithe"
      ]
-    },
+    }
+   ]
+  },
+  {
+   "id": "feasts",
+   "title": "Feasts & holy days",
+   "description": "The sabbath and Israel's appointed feasts and fasts.",
+   "subcategories": [
     {
      "id": "feasts-and-sabbaths",
      "title": "Feasts & sabbaths",
@@ -720,7 +986,14 @@
       "feast-of-purim-or-lots",
       "feast-of-dedication"
      ]
-    },
+    }
+   ]
+  },
+  {
+   "id": "law",
+   "title": "Law, covenant & cleanness",
+   "description": "God's law and covenants, vows, and clean and unclean.",
+   "subcategories": [
     {
      "id": "law-and-covenant",
      "title": "Law & covenant",
@@ -735,12 +1008,6 @@
       "purifications",
       "defilement"
      ]
-    },
-    {
-     "id": "holy-things-and-vessels",
-     "title": "Holy things & vessels",
-     "description": "The ark, altars, lampstand, incense and the vessels of worship.",
-     "topics": []
     },
     {
      "id": "vows-and-cleanness",
@@ -776,156 +1043,218 @@
    ]
   },
   {
-   "id": "symbols",
-   "title": "Types, symbols & figures",
-   "description": "Pictures and patterns in Scripture: types of Christ, figures of speech, parables and signs.",
+   "id": "era-beginning",
+   "title": "In the beginning",
+   "description": "From Adam to the tower of Babel: the first generations and the nations after the flood.",
    "subcategories": [
     {
-     "id": "types-and-shadows",
-     "title": "Types & shadows",
-     "description": "People, things and events that foreshadow Christ and the gospel.",
+     "id": "beginning-leaders",
+     "title": "Adam to Noah's sons",
+     "description": "The leaders and central figures of the era.",
      "topics": []
     },
     {
-     "id": "figures-and-metaphors",
-     "title": "Figures & metaphors",
-     "description": "Scripture's figurative language: Christ the door, the vine, the rock.",
+     "id": "beginning-holy",
+     "title": "Prophets & priests",
+     "description": "Prophets, priests and Levites of the era.",
      "topics": []
     },
     {
-     "id": "parables-and-allegories",
-     "title": "Parables & allegories",
-     "description": "The parables of Jesus and the prophets, and allegories.",
+     "id": "beginning-officials",
+     "title": "Officials & warriors",
+     "description": "Courtiers, officers and fighting men.",
      "topics": []
     },
     {
-     "id": "signs-and-numbers",
-     "title": "Signs, wonders & numbers",
-     "description": "Miracles as signs, symbolic numbers and tokens.",
+     "id": "beginning-families",
+     "title": "Families & names",
+     "description": "Names in the era's family lists and registers.",
      "topics": []
     }
    ]
   },
   {
-   "id": "people-early",
-   "title": "Patriarchs & founders",
-   "description": "From Adam to the judges: the families God called and the leaders of the early nation.",
+   "id": "era-patriarchs",
+   "title": "The patriarchs",
+   "description": "Abraham, Isaac, Jacob and Joseph, and their wives, sons and households.",
    "subcategories": [
     {
-     "id": "first-generations",
-     "title": "The first generations",
-     "description": "Adam to Noah and the nations after the flood.",
+     "id": "patriarchs-leaders",
+     "title": "Abraham, Isaac, Jacob & Joseph",
+     "description": "The leaders and central figures of the era.",
      "topics": []
     },
     {
-     "id": "patriarchs",
-     "title": "The patriarchs & their families",
-     "description": "Abraham, Isaac, Jacob, Joseph and their households.",
+     "id": "patriarchs-holy",
+     "title": "Prophets & priests",
+     "description": "Prophets, priests and Levites of the era.",
      "topics": []
     },
     {
-     "id": "exodus-generation",
-     "title": "Moses & the exodus generation",
-     "description": "Moses, Aaron, Miriam and the people of the wilderness.",
+     "id": "patriarchs-officials",
+     "title": "Officials & warriors",
+     "description": "Courtiers, officers and fighting men.",
      "topics": []
     },
     {
-     "id": "conquest-and-judges",
-     "title": "Joshua & the judges",
-     "description": "Joshua, Caleb, the judges and their times.",
+     "id": "patriarchs-families",
+     "title": "Families & names",
+     "description": "Names in the era's family lists and registers.",
      "topics": []
     }
    ]
   },
   {
-   "id": "people-kings",
-   "title": "Kings, courts & warriors",
-   "description": "The kings of Israel and Judah, their officials and their mighty men.",
+   "id": "era-exodus",
+   "title": "Exodus & wilderness",
+   "description": "Moses, Aaron and Miriam, and the people of the exodus and the wilderness years.",
    "subcategories": [
     {
-     "id": "kings-of-judah",
-     "title": "Saul, David & the kings of Judah",
-     "description": "Saul, David, Solomon and the kings in Jerusalem.",
+     "id": "exodus-leaders",
+     "title": "Moses, Aaron & the elders",
+     "description": "The leaders and central figures of the era.",
      "topics": []
     },
     {
-     "id": "kings-of-israel",
-     "title": "Kings of Israel",
-     "description": "The kings of the northern kingdom, from Jeroboam to Hoshea.",
+     "id": "exodus-holy",
+     "title": "Prophets & priests",
+     "description": "Prophets, priests and Levites of the era.",
      "topics": []
     },
     {
-     "id": "court-and-officials",
-     "title": "Courtiers & officials",
-     "description": "Counsellors, scribes, stewards and royal households.",
+     "id": "exodus-officials",
+     "title": "Officials & warriors",
+     "description": "Courtiers, officers and fighting men.",
      "topics": []
     },
     {
-     "id": "mighty-men",
-     "title": "Captains & mighty men",
-     "description": "Army commanders, David's mighty men and warriors.",
+     "id": "exodus-families",
+     "title": "Families & names",
+     "description": "Names in the era's family lists and registers.",
      "topics": []
     }
    ]
   },
   {
-   "id": "people-prophets",
-   "title": "Prophets & priests",
-   "description": "The prophets who spoke for God and the priests and Levites who served him.",
+   "id": "era-judges",
+   "title": "Joshua & the judges",
+   "description": "The conquest of Canaan, the judges who rescued Israel, and the days of Ruth.",
    "subcategories": [
     {
-     "id": "prophets-and-seers",
-     "title": "Prophets & seers",
-     "description": "Elijah, Elisha, Isaiah, Jeremiah and the prophets, true and false.",
+     "id": "judges-leaders",
+     "title": "Joshua, the judges & Ruth's family",
+     "description": "The leaders and central figures of the era.",
      "topics": []
     },
     {
-     "id": "priests",
-     "title": "Priests & high priests",
-     "description": "Aaron's sons, Eli, Zadok and the high priests.",
+     "id": "judges-holy",
+     "title": "Prophets & priests",
+     "description": "Prophets, priests and Levites of the era.",
      "topics": []
     },
     {
-     "id": "levites-and-singers",
-     "title": "Levites, singers & gatekeepers",
-     "description": "The Levites, temple musicians and porters.",
+     "id": "judges-officials",
+     "title": "Officials & warriors",
+     "description": "Courtiers, officers and fighting men.",
+     "topics": []
+    },
+    {
+     "id": "judges-families",
+     "title": "Families & names",
+     "description": "Names in the era's family lists and registers.",
      "topics": []
     }
    ]
   },
   {
-   "id": "people-nt",
-   "title": "People of the New Testament",
-   "description": "Jesus' family, his apostles and friends, the early church and its opponents.",
+   "id": "era-kingdom",
+   "title": "The united kingdom",
+   "description": "Samuel, Saul, David and Solomon, with their courts, armies and families.",
    "subcategories": [
     {
-     "id": "jesus-family",
-     "title": "Jesus' family & forerunner",
-     "description": "Mary, Joseph, Jesus' brothers and John the Baptist.",
+     "id": "kingdom-leaders",
+     "title": "Samuel, Saul, David & Solomon",
+     "description": "The leaders and central figures of the era.",
      "topics": []
     },
     {
-     "id": "the-apostles",
-     "title": "The apostles",
-     "description": "The Twelve, Matthias and Paul.",
+     "id": "kingdom-holy",
+     "title": "Prophets & priests",
+     "description": "Prophets, priests and Levites of the era.",
      "topics": []
     },
     {
-     "id": "followers-and-friends",
-     "title": "Followers & friends of Jesus",
-     "description": "Disciples, those he healed and those who welcomed him.",
+     "id": "kingdom-officials",
+     "title": "Officials & warriors",
+     "description": "Courtiers, officers and fighting men.",
      "topics": []
     },
     {
-     "id": "early-church-people",
-     "title": "The early church & Paul's companions",
-     "description": "Believers in Acts and the letters, and Paul's fellow workers.",
+     "id": "kingdom-families",
+     "title": "Families & names",
+     "description": "Names in the era's family lists and registers.",
+     "topics": []
+    }
+   ]
+  },
+  {
+   "id": "era-kings",
+   "title": "Kings of Israel & Judah",
+   "description": "The divided kingdom, from Jeroboam and Rehoboam to the fall of Jerusalem.",
+   "subcategories": [
+    {
+     "id": "kings-leaders",
+     "title": "The kings of Israel & Judah",
+     "description": "The leaders and central figures of the era.",
      "topics": []
     },
     {
-     "id": "nt-rulers-and-opponents",
-     "title": "Rulers & opponents",
-     "description": "The Herods, Pilate, the high priests and other opponents.",
+     "id": "kings-holy",
+     "title": "Prophets & priests",
+     "description": "Prophets, priests and Levites of the era.",
+     "topics": []
+    },
+    {
+     "id": "kings-officials",
+     "title": "Officials & warriors",
+     "description": "Courtiers, officers and fighting men.",
+     "topics": []
+    },
+    {
+     "id": "kings-families",
+     "title": "Families & names",
+     "description": "Names in the era's family lists and registers.",
+     "topics": []
+    }
+   ]
+  },
+  {
+   "id": "era-exile",
+   "title": "Exile & return",
+   "description": "Daniel and Esther in exile, and Zerubbabel, Ezra and Nehemiah at the return.",
+   "subcategories": [
+    {
+     "id": "exile-leaders",
+     "title": "Leaders in exile & return",
+     "description": "The leaders and central figures of the era.",
+     "topics": []
+    },
+    {
+     "id": "exile-holy",
+     "title": "Prophets & priests",
+     "description": "Prophets, priests and Levites of the era.",
+     "topics": []
+    },
+    {
+     "id": "exile-officials",
+     "title": "Officials & warriors",
+     "description": "Courtiers, officers and fighting men.",
+     "topics": []
+    },
+    {
+     "id": "exile-families",
+     "title": "Families & names",
+     "description": "Names in the era's family lists and registers.",
      "topics": []
     }
    ]
@@ -987,58 +1316,137 @@
    ]
   },
   {
-   "id": "people-genealogies",
-   "title": "Names in the genealogies",
-   "description": "The many names in the family lists and registers, by family line.",
+   "id": "jerusalem",
+   "title": "Jerusalem",
+   "description": "The city of David and the temple: Zion, its hills, gates, walls, pools and valleys.",
    "subcategories": [
     {
-     "id": "line-of-judah",
-     "title": "Line of Judah",
-     "description": "Descendants of Judah and the house of David.",
-     "topics": []
+     "id": "jerusalem-city",
+     "title": "The city & Zion",
+     "description": "Jerusalem, Zion, Moriah and the city's quarters.",
+     "topics": [
+      "jerusalem"
+     ]
     },
     {
-     "id": "line-of-levi",
-     "title": "Line of Levi",
-     "description": "Descendants of Levi, Kohath, Gershon and Merari.",
-     "topics": []
-    },
-    {
-     "id": "line-of-benjamin",
-     "title": "Line of Benjamin",
-     "description": "Descendants of Benjamin and the house of Saul.",
-     "topics": []
-    },
-    {
-     "id": "northern-tribes",
-     "title": "The other tribes",
-     "description": "Ephraim, Manasseh, Reuben, Simeon, Gad, Asher and the rest.",
-     "topics": []
-    },
-    {
-     "id": "lines-of-the-nations",
-     "title": "Lines of the nations",
-     "description": "Edom, Ishmael, Midian and the other peoples' family lists.",
-     "topics": []
-    },
-    {
-     "id": "returned-exiles",
-     "title": "The returned exiles",
-     "description": "Names in the registers of Ezra and Nehemiah.",
-     "topics": []
-    },
-    {
-     "id": "other-names",
-     "title": "Other names",
-     "description": "Names whose family line Scripture does not give.",
+     "id": "jerusalem-landmarks",
+     "title": "Gates, pools & valleys",
+     "description": "The gates and walls, pools and springs, the Kidron and Hinnom valleys, Gethsemane and Calvary.",
      "topics": []
     }
    ]
   },
   {
+   "id": "judah",
+   "title": "Judah & the Negev",
+   "description": "The towns of Judah, the Shephelah and the Negev.",
+   "subcategories": [
+    {
+     "id": "judah-and-jerusalem",
+     "title": "Towns of Judah & the Negev",
+     "description": "Bethlehem, Hebron, Beersheba and the towns of Judah.",
+     "topics": []
+    }
+   ]
+  },
+  {
+   "id": "samaria-galilee",
+   "title": "Samaria & Galilee",
+   "description": "The central hill country and the north.",
+   "subcategories": [
+    {
+     "id": "central-hill-country",
+     "title": "Benjamin, Ephraim & Samaria",
+     "description": "Bethel, Shiloh, Shechem, Samaria and the central hills.",
+     "topics": []
+    },
+    {
+     "id": "galilee-and-the-north",
+     "title": "Galilee & the north",
+     "description": "Nazareth, Capernaum, Dan and the northern tribes.",
+     "topics": []
+    }
+   ]
+  },
+  {
+   "id": "transjordan-coast",
+   "title": "Beyond the Jordan & the coast",
+   "description": "Gilead, Bashan, Moab, Ammon and Edom, and the coastal plain and Philistia.",
+   "subcategories": [
+    {
+     "id": "beyond-the-jordan",
+     "title": "Beyond the Jordan",
+     "description": "Gilead, Bashan, Moab, Ammon and Edom.",
+     "topics": []
+    },
+    {
+     "id": "coast-and-philistia",
+     "title": "The coast & Philistia",
+     "description": "Gaza, Ashdod, Joppa, Caesarea and the coastal plain.",
+     "topics": []
+    }
+   ]
+  },
+  {
+   "id": "egypt-sinai",
+   "title": "Egypt, Sinai & the wilderness",
+   "description": "Egypt's cities, the wilderness stations of the exodus, and the deserts of the story.",
+   "subcategories": [
+    {
+     "id": "egypt-and-sinai",
+     "title": "Egypt & Sinai",
+     "description": "Egypt's cities and the wilderness stations of the exodus.",
+     "topics": []
+    },
+    {
+     "id": "wilderness",
+     "title": "Wildernesses & deserts",
+     "description": "The wildernesses of the wanderings and of David's flight.",
+     "topics": []
+    }
+   ]
+  },
+  {
+   "id": "empires",
+   "title": "Empires east & west",
+   "description": "Syria, Mesopotamia and Persia; Asia Minor, Greece and Rome; and the great empires.",
+   "subcategories": [
+    {
+     "id": "syria-and-mesopotamia",
+     "title": "Syria, Mesopotamia & Persia",
+     "description": "Damascus, Nineveh, Babylon, Susa and the east.",
+     "topics": []
+    },
+    {
+     "id": "asia-minor-greece-rome",
+     "title": "Asia Minor, Greece & Rome",
+     "description": "The cities of Paul's journeys and the Roman world.",
+     "topics": []
+    },
+    {
+     "id": "empires-and-gentiles",
+     "title": "Empires & the Gentiles",
+     "description": "The great empires and the Gentile nations.",
+     "topics": [
+      "egypt",
+      "assyria",
+      "nineveh",
+      "babylon",
+      "medo-persian-kingdom",
+      "macedonian-empire",
+      "roman-empire",
+      "syria",
+      "tyre",
+      "gentiles",
+      "heathen"
+     ]
+    }
+   ]
+  },
+  {
    "id": "peoples",
-   "title": "People & nations",
-   "description": "Israel, its tribes and leaders, and the nations around it.",
+   "title": "Nations & tribes",
+   "description": "The tribes of Israel, the Jewish people, and the nations around them.",
    "subcategories": [
     {
      "id": "tribes-of-israel",
@@ -1078,19 +1486,6 @@
      ]
     },
     {
-     "id": "leaders-and-servants-of-god",
-     "title": "Leaders & servants of God",
-     "description": "Kings, judges, apostles and others God raised up.",
-     "topics": [
-      "kings",
-      "judges-extraordinary",
-      "patriarchal-government",
-      "theocracy-the-or-immediate-government-by-god",
-      "apostles",
-      "miracles-wrought-through-servants-of-god"
-     ]
-    },
-    {
      "id": "neighbouring-nations",
      "title": "Neighbouring nations",
      "description": "The peoples of Canaan and Israel's neighbours.",
@@ -1114,21 +1509,16 @@
      ]
     },
     {
-     "id": "empires-and-gentiles",
-     "title": "Empires & the Gentiles",
-     "description": "The great empires and the Gentile nations.",
+     "id": "leaders-and-servants-of-god",
+     "title": "Leaders & servants of God",
+     "description": "Kings, judges, apostles and others God raised up.",
      "topics": [
-      "egypt",
-      "assyria",
-      "nineveh",
-      "babylon",
-      "medo-persian-kingdom",
-      "macedonian-empire",
-      "roman-empire",
-      "syria",
-      "tyre",
-      "gentiles",
-      "heathen"
+      "kings",
+      "judges-extraordinary",
+      "patriarchal-government",
+      "theocracy-the-or-immediate-government-by-god",
+      "apostles",
+      "miracles-wrought-through-servants-of-god"
      ]
     },
     {
@@ -1137,7 +1527,6 @@
      "description": "The Holy Land, its regions, cities and rivers.",
      "topics": [
       "holy-land",
-      "jerusalem",
       "judea-modern",
       "samaria-ancient",
       "samaria-modern",
@@ -1151,64 +1540,9 @@
    ]
   },
   {
-   "id": "places-cities",
-   "title": "Cities & towns",
-   "description": "Every city, town and village, region by region.",
-   "subcategories": [
-    {
-     "id": "judah-and-jerusalem",
-     "title": "Jerusalem & Judah",
-     "description": "Jerusalem, Bethlehem, Hebron and the towns of Judah and the Negev.",
-     "topics": []
-    },
-    {
-     "id": "central-hill-country",
-     "title": "Benjamin, Ephraim & Samaria",
-     "description": "Bethel, Shiloh, Shechem, Samaria and the central hills.",
-     "topics": []
-    },
-    {
-     "id": "galilee-and-the-north",
-     "title": "Galilee & the north",
-     "description": "Nazareth, Capernaum, Dan and the northern tribes.",
-     "topics": []
-    },
-    {
-     "id": "coast-and-philistia",
-     "title": "The coast & Philistia",
-     "description": "Gaza, Ashdod, Joppa, Caesarea and the coastal plain.",
-     "topics": []
-    },
-    {
-     "id": "beyond-the-jordan",
-     "title": "Beyond the Jordan",
-     "description": "Gilead, Bashan, Moab, Ammon and Edom.",
-     "topics": []
-    },
-    {
-     "id": "egypt-and-sinai",
-     "title": "Egypt & Sinai",
-     "description": "Egypt's cities and the wilderness stations of the exodus.",
-     "topics": []
-    },
-    {
-     "id": "syria-and-mesopotamia",
-     "title": "Syria, Mesopotamia & Persia",
-     "description": "Damascus, Nineveh, Babylon, Susa and the east.",
-     "topics": []
-    },
-    {
-     "id": "asia-minor-greece-rome",
-     "title": "Asia Minor, Greece & Rome",
-     "description": "The cities of Paul's journeys and the Roman world.",
-     "topics": []
-    }
-   ]
-  },
-  {
    "id": "places-landscape",
-   "title": "Mountains, waters & wilderness",
-   "description": "The land itself: its mountains, rivers, seas, valleys, wildernesses, wells and landmarks.",
+   "title": "Mountains, waters & landmarks",
+   "description": "Mountains and hills, rivers and seas, valleys and plains, wells and springs, and named landmarks.",
    "subcategories": [
     {
      "id": "mountains-and-hills",
@@ -1229,12 +1563,6 @@
      "topics": []
     },
     {
-     "id": "wilderness",
-     "title": "Wildernesses & deserts",
-     "description": "The wildernesses of the wanderings and of David's flight.",
-     "topics": []
-    },
-    {
      "id": "wells-springs-pools",
      "title": "Wells, springs & pools",
      "description": "Wells, fountains, springs and pools.",
@@ -1249,9 +1577,9 @@
    ]
   },
   {
-   "id": "society",
-   "title": "Family & society",
-   "description": "God's design for home, work, wealth, government and neighbours.",
+   "id": "family",
+   "title": "Marriage & family",
+   "description": "Husbands, wives, parents and children, households, neighbours and the poor.",
    "subcategories": [
     {
      "id": "marriage-and-family",
@@ -1274,6 +1602,54 @@
      ]
     },
     {
+     "id": "neighbours-and-the-poor",
+     "title": "Neighbours & the poor",
+     "description": "Care for the poor and stranger, hospitality and courtesy.",
+     "topics": [
+      "poor",
+      "hospitality",
+      "strangers-in-israel",
+      "salutations",
+      "entertainments",
+      "presents"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "society",
+   "title": "Government & law",
+   "description": "Rulers, courts and judges, oaths and punishments, crime and its penalties.",
+   "subcategories": [
+    {
+     "id": "government-and-justice",
+     "title": "Government & justice",
+     "description": "Rulers, courts, oaths, punishments and refuge.",
+     "topics": [
+      "magistrates",
+      "courts-of-justice",
+      "justice",
+      "punishments",
+      "prisons",
+      "homicide",
+      "cities-of-refuge",
+      "oaths"
+     ]
+    },
+    {
+     "id": "crime-and-punishment",
+     "title": "Crime & punishment",
+     "description": "Offences against others and their penalties under the law.",
+     "topics": []
+    }
+   ]
+  },
+  {
+   "id": "trades",
+   "title": "Work, wealth & trade",
+   "description": "Labour and wealth, trades and occupations, money and measures, travel and ships.",
+   "subcategories": [
+    {
      "id": "work-and-wealth",
      "title": "Work & wealth",
      "description": "Labour, money, trade, lending and generosity.",
@@ -1292,38 +1668,219 @@
      ]
     },
     {
-     "id": "government-and-justice",
-     "title": "Government & justice",
-     "description": "Rulers, courts, oaths, punishments and refuge.",
-     "topics": [
-      "magistrates",
-      "courts-of-justice",
-      "justice",
-      "punishments",
-      "prisons",
-      "homicide",
-      "cities-of-refuge",
-      "oaths"
-     ]
-    },
-    {
-     "id": "neighbours-and-the-poor",
-     "title": "Neighbours & the poor",
-     "description": "Care for the poor and stranger, hospitality and courtesy.",
-     "topics": [
-      "poor",
-      "hospitality",
-      "strangers-in-israel",
-      "salutations",
-      "entertainments",
-      "presents"
-     ]
-    },
-    {
-     "id": "crime-and-punishment",
-     "title": "Crime & punishment",
-     "description": "Offences against others and their penalties under the law.",
+     "id": "occupations",
+     "title": "Occupations & trades",
+     "description": "Potters, smiths, shepherds, fishermen and the work of the Bible world.",
      "topics": []
+    },
+    {
+     "id": "money-and-measures",
+     "title": "Money, weights & measures",
+     "description": "Coins, weights, measures and commerce.",
+     "topics": []
+    },
+    {
+     "id": "travel-and-ships",
+     "title": "Travel, roads & ships",
+     "description": "Journeys, roads, caravans, ships and the sea.",
+     "topics": []
+    }
+   ]
+  },
+  {
+   "id": "crafts",
+   "title": "Precious things & crafts",
+   "description": "Gold, silver, stones and spices, and the crafts that worked them.",
+   "subcategories": [
+    {
+     "id": "materials-and-crafts",
+     "title": "Materials & crafts",
+     "description": "Trades, metals, precious stones and seals.",
+     "topics": [
+      "arts-of-the",
+      "metals",
+      "gold",
+      "silver",
+      "iron",
+      "brass-or-copper",
+      "precious-stones",
+      "seals"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "home-life",
+   "title": "Home, food & dress",
+   "description": "Daily life: houses, meals, farming, clothing and customs.",
+   "subcategories": [
+    {
+     "id": "farming-and-food",
+     "title": "Farming & food",
+     "description": "Tilling, harvest, flocks and the food of daily life.",
+     "topics": [
+      "agriculture-or-husbandry",
+      "ploughing",
+      "reaping",
+      "threshing",
+      "harvest",
+      "vineyards",
+      "gardens",
+      "hedges",
+      "shepherds",
+      "diet-of-the-jews",
+      "bread",
+      "milk",
+      "honey",
+      "oil",
+      "wine",
+      "salt",
+      "leaven",
+      "mills"
+     ]
+    },
+    {
+     "id": "homes-and-buildings",
+     "title": "Homes & buildings",
+     "description": "Houses, tents, cities, walls and household things.",
+     "topics": [
+      "houses",
+      "tents",
+      "cities",
+      "gates",
+      "walls",
+      "towers",
+      "palaces",
+      "pillars",
+      "foundation",
+      "beds",
+      "lamps",
+      "bottles"
+     ]
+    },
+    {
+     "id": "dress-and-customs",
+     "title": "Dress & customs",
+     "description": "Clothing, adornment, anointing and travel.",
+     "topics": [
+      "garments",
+      "hyke-or-upper-garment",
+      "girdles",
+      "shoes",
+      "rings",
+      "vail-or-veil",
+      "beard",
+      "travellers",
+      "highways",
+      "ships"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "war",
+   "title": "War & armies",
+   "description": "Armies and soldiers, weapons and armour, battles and sieges.",
+   "subcategories": [
+    {
+     "id": "war-and-weapons",
+     "title": "War & weapons",
+     "description": "Armies, weapons, fortresses and sieges.",
+     "topics": [
+      "war",
+      "armies",
+      "armies-of-israel",
+      "arms-military",
+      "sword",
+      "spear",
+      "bow",
+      "arrows",
+      "shields",
+      "chariots",
+      "fortresses",
+      "sieges",
+      "watchmen"
+     ]
+    },
+    {
+     "id": "armies-and-soldiers",
+     "title": "Armies & soldiers",
+     "description": "Soldiers, captains, chariots and horsemen.",
+     "topics": []
+    },
+    {
+     "id": "battles-and-sieges",
+     "title": "Battles & sieges",
+     "description": "Named battles, campaigns, sieges and spoils.",
+     "topics": []
+    }
+   ]
+  },
+  {
+   "id": "health",
+   "title": "Body, health & healing",
+   "description": "The body, sickness and disease, physicians and healing.",
+   "subcategories": [
+    {
+     "id": "body-and-health",
+     "title": "Body & health",
+     "description": "The human body, life, sickness and disease.",
+     "topics": [
+      "life-natural",
+      "head",
+      "heart",
+      "eye",
+      "ear",
+      "hands",
+      "feet",
+      "hair",
+      "blood",
+      "sickness",
+      "diseases",
+      "leprosy"
+     ]
+    },
+    {
+     "id": "sickness-and-healing",
+     "title": "Sickness & healing",
+     "description": "Diseases, plagues, leprosy, physicians and cures.",
+     "topics": []
+    }
+   ]
+  },
+  {
+   "id": "learning",
+   "title": "Music, writing & time",
+   "description": "Music and its instruments, writing and learning, and the reckoning of time.",
+   "subcategories": [
+    {
+     "id": "music-and-instruments",
+     "title": "Music & instruments",
+     "description": "Songs, singers, harps, trumpets and musical terms.",
+     "topics": []
+    },
+    {
+     "id": "writing-and-learning",
+     "title": "Writing & learning",
+     "description": "Books, scrolls, writing, schools and wisdom.",
+     "topics": []
+    },
+    {
+     "id": "time-and-seasons",
+     "title": "Time & seasons",
+     "description": "Days, weeks, months, years and the seasons.",
+     "topics": [
+      "time",
+      "day",
+      "night",
+      "morning",
+      "evening",
+      "weeks",
+      "months",
+      "years",
+      "summer",
+      "winter"
+     ]
     }
    ]
   },
@@ -1441,221 +1998,6 @@
       "rain",
       "wind",
       "whirlwind"
-     ]
-    }
-   ]
-  },
-  {
-   "id": "home-life",
-   "title": "Home, food & dress",
-   "description": "Daily life: houses, meals, farming, clothing and customs.",
-   "subcategories": [
-    {
-     "id": "farming-and-food",
-     "title": "Farming & food",
-     "description": "Tilling, harvest, flocks and the food of daily life.",
-     "topics": [
-      "agriculture-or-husbandry",
-      "ploughing",
-      "reaping",
-      "threshing",
-      "harvest",
-      "vineyards",
-      "gardens",
-      "hedges",
-      "shepherds",
-      "diet-of-the-jews",
-      "bread",
-      "milk",
-      "honey",
-      "oil",
-      "wine",
-      "salt",
-      "leaven",
-      "mills"
-     ]
-    },
-    {
-     "id": "homes-and-buildings",
-     "title": "Homes & buildings",
-     "description": "Houses, tents, cities, walls and household things.",
-     "topics": [
-      "houses",
-      "tents",
-      "cities",
-      "gates",
-      "walls",
-      "towers",
-      "palaces",
-      "pillars",
-      "foundation",
-      "beds",
-      "lamps",
-      "bottles"
-     ]
-    },
-    {
-     "id": "dress-and-customs",
-     "title": "Dress & customs",
-     "description": "Clothing, adornment, anointing and travel.",
-     "topics": [
-      "garments",
-      "hyke-or-upper-garment",
-      "girdles",
-      "shoes",
-      "rings",
-      "vail-or-veil",
-      "beard",
-      "travellers",
-      "highways",
-      "ships"
-     ]
-    }
-   ]
-  },
-  {
-   "id": "trades",
-   "title": "Work, trade & travel",
-   "description": "Crafts and trades, money and measures, travel by land and sea.",
-   "subcategories": [
-    {
-     "id": "materials-and-crafts",
-     "title": "Materials & crafts",
-     "description": "Trades, metals, precious stones and seals.",
-     "topics": [
-      "arts-of-the",
-      "metals",
-      "gold",
-      "silver",
-      "iron",
-      "brass-or-copper",
-      "precious-stones",
-      "seals"
-     ]
-    },
-    {
-     "id": "occupations",
-     "title": "Occupations & trades",
-     "description": "Potters, smiths, shepherds, fishermen and the work of the Bible world.",
-     "topics": []
-    },
-    {
-     "id": "money-and-measures",
-     "title": "Money, weights & measures",
-     "description": "Coins, weights, measures and commerce.",
-     "topics": []
-    },
-    {
-     "id": "travel-and-ships",
-     "title": "Travel, roads & ships",
-     "description": "Journeys, roads, caravans, ships and the sea.",
-     "topics": []
-    }
-   ]
-  },
-  {
-   "id": "war",
-   "title": "War & armies",
-   "description": "Armies and soldiers, weapons and armour, battles and sieges.",
-   "subcategories": [
-    {
-     "id": "war-and-weapons",
-     "title": "War & weapons",
-     "description": "Armies, weapons, fortresses and sieges.",
-     "topics": [
-      "war",
-      "armies",
-      "armies-of-israel",
-      "arms-military",
-      "sword",
-      "spear",
-      "bow",
-      "arrows",
-      "shields",
-      "chariots",
-      "fortresses",
-      "sieges",
-      "watchmen"
-     ]
-    },
-    {
-     "id": "armies-and-soldiers",
-     "title": "Armies & soldiers",
-     "description": "Soldiers, captains, chariots and horsemen.",
-     "topics": []
-    },
-    {
-     "id": "battles-and-sieges",
-     "title": "Battles & sieges",
-     "description": "Named battles, campaigns, sieges and spoils.",
-     "topics": []
-    }
-   ]
-  },
-  {
-   "id": "health",
-   "title": "Body, health & healing",
-   "description": "The body, sickness and disease, physicians and healing.",
-   "subcategories": [
-    {
-     "id": "body-and-health",
-     "title": "Body & health",
-     "description": "The human body, life, sickness and disease.",
-     "topics": [
-      "life-natural",
-      "head",
-      "heart",
-      "eye",
-      "ear",
-      "hands",
-      "feet",
-      "hair",
-      "blood",
-      "sickness",
-      "diseases",
-      "leprosy"
-     ]
-    },
-    {
-     "id": "sickness-and-healing",
-     "title": "Sickness & healing",
-     "description": "Diseases, plagues, leprosy, physicians and cures.",
-     "topics": []
-    }
-   ]
-  },
-  {
-   "id": "learning",
-   "title": "Music, learning & time",
-   "description": "Music and its instruments, writing and learning, and the reckoning of time.",
-   "subcategories": [
-    {
-     "id": "music-and-instruments",
-     "title": "Music & instruments",
-     "description": "Songs, singers, harps, trumpets and musical terms.",
-     "topics": []
-    },
-    {
-     "id": "writing-and-learning",
-     "title": "Writing & learning",
-     "description": "Books, scrolls, writing, schools and wisdom.",
-     "topics": []
-    },
-    {
-     "id": "time-and-seasons",
-     "title": "Time & seasons",
-     "description": "Days, weeks, months, years and the seasons.",
-     "topics": [
-      "time",
-      "day",
-      "night",
-      "morning",
-      "evening",
-      "weeks",
-      "months",
-      "years",
-      "summer",
-      "winter"
      ]
     }
    ]

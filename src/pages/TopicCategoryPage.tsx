@@ -5,7 +5,7 @@ import { RevealSelection } from "@/pages/places/RevealSelection";
 import { TopicsArtwork } from "@/pages/topics/TopicsArtwork";
 import { TopicsShell } from "@/pages/topics/TopicsShell";
 import { familyWords } from "@/pages/topics/topics-shared";
-import { groupIcon, sectionOf } from "@/lib/topic-style";
+import { FAMILY_STUDY, groupIcon, sectionOf } from "@/lib/topic-style";
 import { pointsAndPassages, topicCount, topicUrl, type TopicCategory, type TopicIndex, type TopicSubcategory } from "@/lib/topics";
 import { formatNumber } from "@/lib/utils";
 
@@ -98,6 +98,7 @@ export function TopicFamilyPage({ index }: { index: TopicIndex }) {
         </div>
         <TopicsArtwork kind={family.id} words={familyWords(family, index)} />
       </header>
+      {FAMILY_STUDY[family.id] && <nav className="topics-study-links" aria-label="Studied in depth">{FAMILY_STUDY[family.id].map((link) => <Link key={link.to} to={link.to}><span>In depth</span>{link.label}<ArrowUpRight size={14} aria-hidden /></Link>)}</nav>}
       <section key={family.id} aria-labelledby="topics-groups-title">
         <div className="topics-section-heading"><h2 id="topics-groups-title">{active ? selected.title : "Choose a group"}</h2><span>{active ? family.title : "Every group opens onto its topics"}</span></div>
         <RevealSelection expanded={!!active} selectionKey={selected.id} onBack={() => choose()} grid={

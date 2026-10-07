@@ -1,4 +1,4 @@
-import { ArrowLeft, ArrowRight, ArrowUpRight, BookMarked, ChevronDown, ChevronRight, MapPin, Network } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight, BookMarked, BookOpen, ChevronDown, ChevronRight, ListTree, MapPin, Network } from "lucide-react";
 import { Fragment, useState } from "react";
 import { Link, Navigate, useParams } from "react-router-dom";
 import { Loading } from "@/components/charts/ChartCard";
@@ -130,7 +130,11 @@ export function TopicPage({ index }: { index: TopicIndex }) {
             {place && <><ChevronRight size={12} aria-hidden /><Link to={categoryUrl(place.category.id)}>{place.category.title}</Link><ChevronRight size={12} aria-hidden /><Link to={categoryUrl(place.category.id, place.subcategory.id)}>{place.subcategory.title}</Link></>}
           </nav>
           <h1 className="flex items-center gap-4"><span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl text-white" style={{ background: "var(--topics-color)" }}><Icon size={24} aria-hidden /></span>{t.title}</h1>
-          <p>{pointsAndPassages(t.points.length + nave.length, verseCount)} · from {sourcesLine(t)}</p>
+          <p>{t.points.length + nave.length ? `${pointsAndPassages(t.points.length + nave.length, verseCount)} · ` : ""}from {sourcesLine(t)}</p>
+          {(t.book || t.parent) && <p className="topics-topic-actions">
+            {t.book && <Link to={`/read/kjv/${t.book}/1`} className="topics-read-book"><BookOpen size={16} aria-hidden />Read {t.title.replace(/^The Book of /, "")}<ArrowRight size={15} aria-hidden /></Link>}
+            {t.parent && index.topics[t.parent] && <Link to={topicUrl(t.parent)} className="topics-parent-link"><ListTree size={15} aria-hidden />Part of {index.topics[t.parent].title}</Link>}
+          </p>}
         </div>
         {place && <TopicsArtwork kind={place.category.id} words={familyWords(place.category, index)} />}
       </header>
@@ -139,6 +143,15 @@ export function TopicPage({ index }: { index: TopicIndex }) {
         <section aria-labelledby="topic-article" className="mb-10">
           <div className="topics-section-heading"><h2 id="topic-article" className="flex items-center gap-2"><BookMarked size={18} aria-hidden style={{ color: "var(--topics-color)" }} />In brief</h2><span>Easton’s Bible Dictionary (1897)</span></div>
           <Article paragraphs={t.dictionary} />
+        </section>
+      )}
+
+      {t.parts && t.parts.length > 0 && (
+        <section aria-labelledby="topic-parts" className="mb-10">
+          <div className="topics-section-heading"><h2 id="topic-parts" className="flex items-center gap-2"><ListTree size={18} aria-hidden style={{ color: "var(--topics-color)" }} />In this topic</h2><span>{t.parts.length} topics of their own</span></div>
+          <ul className="topics-topic-grid !mt-0">
+            {t.parts.map((part) => { const other = index.topics[part]; return other && <li key={part}><Link to={topicUrl(part)}><span><strong>{other.title}</strong><small>{pointsAndPassages(other.points, other.refs)}</small></span><ArrowRight size={14} aria-hidden /></Link></li>; })}
+          </ul>
         </section>
       )}
 
@@ -157,13 +170,13 @@ export function TopicPage({ index }: { index: TopicIndex }) {
         </section>
       )}
 
-      <section aria-labelledby="all-points" className="mt-10">
+      {t.points.length + nave.length > 0 && <section aria-labelledby="all-points" className="mt-10">
         <div className="topics-section-heading"><h2 id="all-points">What Scripture says</h2><span>{t.points.length && nave.length ? "Two topical Bibles, side by side" : "Point by point, with every passage"}</span></div>
         <div className="topics-point-books">
           {t.points.length > 0 && <PointList points={t.points} titles={titles} label="Torrey’s New Topical Textbook" />}
           {nave.length > 0 && <PointList points={nave} titles={titles} label="Nave’s Topical Bible" />}
         </div>
-      </section>
+      </section>}
 
       <Elsewhere title={t.title} />
 

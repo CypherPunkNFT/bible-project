@@ -2,6 +2,7 @@ import { ArrowLeft, ArrowRight, ArrowUpRight, BookOpen, BookOpenText, Search } f
 import { useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { categoryStyle, FAMILY_EYEBROW, groupIcon, TOPIC_SECTIONS } from "@/lib/topic-style";
+import { RefLink } from "@/components/study/StudyParts";
 import { categoryUrl, matchTopics, placeOf, topicUrl, type TopicCategory, type TopicIndex } from "@/lib/topics";
 import { formatNumber } from "@/lib/utils";
 import { MeaningPrompt } from "@/components/search/MeaningPrompt";
@@ -19,7 +20,7 @@ function FamilyCard({ family, number, index }: { family: TopicCategory; number: 
       <div className="topics-card-top"><Icon size={18} strokeWidth={1.5} aria-hidden /><span>{FAMILY_EYEBROW[family.id] ?? "Topics"}</span><ArrowUpRight size={19} aria-hidden /></div>
       <TopicsArtwork kind={family.id} words={familyWords(family, index, 4)} />
       <div className="topics-card-copy"><span className="topics-card-number">{String(number).padStart(2, "0")}</span><h3 id={`topics-card-${family.id}`}>{family.title}</h3><p>{family.description}</p></div>
-      <div className="topics-card-foot"><span>{family.subcategories.slice(0, 3).map((sub) => sub.title).join(" · ")}{family.subcategories.length > 3 ? " · More" : ""}</span><strong>{topics} topics in {family.subcategories.length} groups<ArrowRight size={15} aria-hidden /></strong></div>
+      <div className="topics-card-foot"><span>{family.subcategories.slice(0, 3).map((sub) => sub.title).join(" · ")}{family.subcategories.length > 3 ? " · More" : ""}</span><strong>{topics} topics in {family.subcategories.length} {family.subcategories.length === 1 ? "group" : "groups"}<ArrowRight size={15} aria-hidden /></strong></div>
     </Link>
   );
 }
@@ -100,6 +101,13 @@ export function TopicsHome({ index }: { index: TopicIndex }) {
           </section>
         ) : (
           <TopicSectionRows index={index} />
+        )}
+
+        {!query.trim() && index.readings && index.readings.length > 0 && (
+          <section id="section-great-passages" className="topics-section topics-readings" aria-labelledby="topics-readings-title">
+            <div className="topics-row-heading"><h2 id="topics-readings-title"><span>★</span>Great passages</h2><p>{index.readings.length} readings chosen by Orville J. Nave, from Judah's plea for Benjamin to the new song.</p></div>
+            <ol>{index.readings.map((reading, i) => <li key={reading.title}><span className="topics-reading-number">{String(i + 1).padStart(2, "0")}</span><strong>{reading.title}</strong><span className="topics-reading-refs">{reading.refs.slice(0, 3).map((span, j) => <RefLink key={j} span={span} />)}</span></li>)}</ol>
+          </section>
         )}
 
         <div className="topics-note"><span><BookOpen size={16} aria-hidden />Topics, points and references: R. A. Torrey, The New Topical Textbook (1897), and Orville J. Nave, Nave's Topical Bible (1896/1903); articles: M. G. Easton, Illustrated Bible Dictionary (1897); all public domain. Families and groups by the Bible Project.</span><Link to="/search">Search everything <ArrowUpRight size={14} aria-hidden /></Link></div>

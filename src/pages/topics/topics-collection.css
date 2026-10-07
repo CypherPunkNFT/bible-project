@@ -211,3 +211,22 @@ html[data-topics-slide][data-topics-direction=backward]::view-transition-new(.to
 @media (max-width: 900px) { .topics-point-books:has(> :nth-child(2)) { grid-template-columns: 1fr; } }
 /* All family cards as tall as the tallest (useEqualCardHeights.ts sets the height). */
 .topics-rows .topics-family-card { min-height: var(--topics-card-h, auto); }
+/* A family's subject studied in depth elsewhere on the site. */
+.topics-study-links { display: flex; flex-wrap: wrap; gap: .5rem; margin: -.5rem 0 1.6rem; }
+.topics-study-links a { display: inline-flex; align-items: center; gap: .55rem; padding: .5rem .85rem; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); font-size: .76rem; }
+.topics-study-links a:hover { border-color: var(--topics-color); }
+.topics-study-links span { font-size: .58rem; text-transform: uppercase; letter-spacing: .14em; color: var(--topics-color); }
+/* Topic page: read the book, or go up to the topic this one was split from. */
+.topics-topic-actions { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1rem; }
+.topics-read-book, .topics-parent-link { display: inline-flex; align-items: center; gap: .5rem; padding: .55rem .95rem; border-radius: 999px; font-size: .8rem; font-weight: 600; }
+.topics-read-book { background: var(--topics-color); color: var(--page); }
+.topics-parent-link { border: 1px solid var(--line); color: var(--ink); }
+.topics-parent-link:hover { border-color: var(--topics-color); }
+/* Home: Nave's great passages. */
+.topics-readings ol { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .5rem; }
+.topics-readings li { display: grid; grid-template-columns: auto 1fr; gap: .15rem .7rem; padding: .75rem .9rem; border: 1px solid var(--line); border-radius: .7rem; background: var(--surface); }
+.topics-reading-number { grid-row: span 2; font-size: .6rem; color: var(--accent); padding-top: .2rem; }
+.topics-readings strong { font: 500 .95rem/1.35 var(--font-serif); }
+.topics-reading-refs { display: flex; flex-wrap: wrap; gap: .2rem .7rem; font-size: .7rem; color: var(--muted); }
+@media (max-width: 1023px) { .topics-readings ol { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) { .topics-readings ol { grid-template-columns: 1fr; } }
