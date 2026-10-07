@@ -1,6 +1,6 @@
 # Bible Project
 
-**REFORMED/BAPTIST ACQUISITION CAMPAIGN (2026-10-07):** [Eight sequential overnight missions](content/library/REFORMED-BAPTIST-ACQUISITION.md). Audit existing originals first, verify work-level theological fit, acquire permitted readable texts and record each source in SOURCES.md. Prompts prepared; this documentation update starts no download or embedding workers.
+**REFORMED/BAPTIST ACQUISITION CAMPAIGN (2026-10-07):** [RB01–RB08 results](content/library/reports/reformed-baptist-overnight/RB01-RB08/SUMMARY.md): 561 original witnesses / 180.15 MB and 191 prepared private slices. [Consolidated intake manifest](content/library/reports/reformed-baptist-overnight/RB01-RB08/consolidated-intake-manifest.json) preserves scope, rights and attribution corrections. These are not 561 new books or a new embedding-completion claim. The owner-expanded campaign continues through RB14 before the scheduled aggregate refresh. [Mission protocol](content/library/REFORMED-BAPTIST-ACQUISITION.md).
 
 **GENEALOGY EXPLORER:** [Interaction, source records and refresh guide](GENEALOGY.md). `/study/people` now opens with an SVG family explorer below the selected People & families card; the Prophets through time card slides the lower content into its timeline and directory. Local preview built and checked; production release is separate.
 

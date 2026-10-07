@@ -910,3 +910,41 @@ The newer Smith biography mentions 1909 and omits the complete missionary Agreem
 [Project Gutenberg terms](https://www.gutenberg.org/policy/terms_of_use.html), Archive item rights evidence and the institutional offered-text directory are recorded per original. All new parents and 69 private prepared slices remain evidence-only for the current importer, awaiting contributor-aware aggregate intake after RB14. They are **not ingested or embedded**. No private full text was committed or publicly rehosted.
 
 <!-- RB07 sources:end -->
+
+<!-- RB08 sources:start -->
+
+## RB08: Scripture authority, canon and focused apologetics (7 October 2026)
+
+Seventeen immutable readable witnesses / 2,806,462 bytes and 48,210 derivative words; seven logical works or complete series, not seventeen books. Fifteen HTML bodies and two text-layer scholarly PDFs; no scans, separate image assets, OCR, audio/video or transcription. Audited 631 actual held originals first and reused substantial Warfield, Piper and Carson coverage.
+
+[Report](content/library/reports/reformed-baptist-overnight/RB08/REPORT.md) | [Original/provenance/hash ledger](content/library/reports/reformed-baptist-overnight/RB08/acquisition-manifest.json) | [Ten study questions and 244 exact locations](content/library/reports/reformed-baptist-overnight/RB08/READING-MAP.md) | [Theological boundaries](content/library/reports/reformed-baptist-overnight/RB08/THEOLOGICAL-SCOPE.md) | [Access/edition exceptions](content/library/reports/reformed-baptist-overnight/RB08/source-exceptions.json) | [Intake requirements](content/library/reports/reformed-baptist-overnight/RB08/INTAKE-NOTES.md).
+
+| Author / actual work | Offered acquired source | Format / extent |
+| --- | --- | --- |
+| James White: Purpose and Meaning of “Ego Eimi” in the Gospel of John | [Source](https://www.aomin.org/aoblog/general-apologetics/purpose-and-meaning-of-ego-eimi-in-the-gospel-of-john/) | HTML; 5,272 readable words |
+| James White: A Brief Definition of the Trinity | [Source](https://www.aomin.org/aoblog/theology-matters/a-brief-definition-of-the-trinity/) | HTML; 753 readable words |
+| James White: The Trinity, the Definition of Chalcedon, and Oneness Theology | [Source](https://www.aomin.org/aoblog/oneness-pentecostalism/the-trinity-the-definition-of-chalcedon-and-oneness-theology/) | HTML; 11,451 readable words |
+| James White: Some Brief Thoughts Regarding Liberal Scholarship, Redaction Criticism, and Islam (Part 1) | [Source](https://www.aomin.org/aoblog/islam/some-brief-thoughts-regarding-liberal-scholarship-redaction-criticism-and-islam-part-1/) | HTML; 2,559 readable words |
+| James White: Some Brief Thoughts Regarding Liberal Scholarship, Redaction Criticism, and Islam (Part 2) | [Source](https://www.aomin.org/aoblog/islam/some-brief-thoughts-regarding-liberal-scholarship-redaction-criticism-and-islam-part-2/) | HTML; 1,955 readable words |
+| Michael J. Kruger: Ten Basic Facts about the NT Canon that Every Christian Should Memorize: #1: “The New Testament Books are the Earliest Christian Writings We Possess” | [Source](http://wp.me/p2dVaB-dB) | HTML; 598 readable words |
+| Michael J. Kruger: Ten Basic Facts about the NT Canon that Every Christian Should Memorize: #2: “Apocryphal Writings are All Written in the Second Century or Later” | [Source](http://wp.me/p2dVaB-dZ) | HTML; 678 readable words |
+| Michael J. Kruger: Ten Basic Facts about the NT Canon that Every Christian Should Memorize: #3: “The New Testament Books Are Unique Because They Are Apostolic Books” | [Source](http://wp.me/p2dVaB-ep) | HTML; 574 readable words |
+| Michael J. Kruger: Ten Basic Facts about the NT Canon that Every Christian Should Memorize: #4: “Some NT Writers Quote Other NT Writers as Scripture” | [Source](http://wp.me/p2dVaB-eO) | HTML; 566 readable words |
+| Michael J. Kruger: Ten Basic Facts about the NT Canon that Every Christian Should Memorize: #5: “The Four Gospels are Well Established by the End of the Second Century” | [Source](http://wp.me/p2dVaB-gh) | HTML; 747 readable words |
+| Michael J. Kruger: Ten Basic Facts about the NT Canon that Every Christian Should Memorize: #6: “At the End of the Second Century, the Muratorian Fragment lists 22 of our 27 NT books” | [Source](http://wp.me/p2dVaB-im) | HTML; 587 readable words |
+| Michael J. Kruger: Ten Basic Facts about the NT Canon that Every Christian Should Memorize: #7: “Early Christians Often Used Non-Canonical Writings.” | [Source](http://wp.me/p2dVaB-iZ) | HTML; 575 readable words |
+| Michael J. Kruger: Ten Basic Facts about the NT Canon that Every Christian Should Memorize: #8: “The NT Canon Was Not Decided at Nicea—Nor Any Other Church Council.” | [Source](http://wp.me/p2dVaB-jk) | HTML; 572 readable words |
+| Michael J. Kruger: Ten Basic Facts about the NT Canon that Every Christian Should Memorize: #9: “Christians Did Disagree about the Canonicity of Some NT Books” | [Source](http://wp.me/p2dVaB-jB) | HTML; 841 readable words |
+| Michael J. Kruger: Ten Basic Facts about the NT Canon that Every Christian Should Memorize: #10: “Early Christians Believed that Canonical Books were Self-Authenticating.” | [Source](http://wp.me/p2dVaB-kN) | HTML; 927 readable words |
+| Michael J. Kruger: The Sufficiency of Scripture in Apologetics | [Source](https://tyndale.tms.edu/wp-content/uploads/2021/09/tmsj12k.pdf) | PDF; 10,319 readable words |
+| Michael J. Kruger: The Definition of the Term 'Canon': Exclusive or Multi-Dimensional? | [Source](https://www.tyndalebulletin.org/article/29324-the-definition-of-the-term-canon-exclusive-or-multi-dimensional.pdf) | PDF; 9,236 readable words |
+
+Kruger series short links above redirect to the author-site canonical URLs recorded in the ledger; all ten parts were actually acquired. The two White redaction/Islam parts form one complete series. The brief Trinity definition supports the substantial 11,451-word Chalcedon/Oneness study; it is not counted as a large treatise by itself.
+
+The current [Tyndale publisher policy](https://www.tyndalebulletin.org/about) explicitly permits noncommercial indexing/software use of pre-2021 articles with credit; the acquired 2012 canon essay uses that policy, not the later CC license. Its offered XML is abstract-only; the complete PDF has existing text on all twenty pages. Other modern author-offered pages are limited private reading witnesses with later corpus-use rights review; no public hosting or blanket author approval. Seventeen parents remain evidence-only outside new full-body DB/vector intake.
+
+The held Carson desk Islam essay is actually Chawkat Moucarry; the held Trinity dictionary PDF includes adjacent entries by other authors. The Piper/Taylor suffering anthology has actual chapter contributors. These corrections and source boundaries are documented without silently changing old database rows. Two author-offered PDFs returned 403; current TGC crawl delay was honored; commercial modern full books remain genuine gaps.
+
+[All eight mission outcomes](content/library/reports/reformed-baptist-overnight/RB01-RB08/SUMMARY.md) and [consolidated intake queue](content/library/reports/reformed-baptist-overnight/RB01-RB08/consolidated-intake-manifest.json): 561 originals / 180.15 MB and 191 prepared private slices. This interim first-eight queue does not release the owner's post-RB14 gate. The website dashboard snapshot above still needs a later explicit metadata refresh; these new counts are not silently merged into its dated inventory.
+
+<!-- RB08 sources:end -->

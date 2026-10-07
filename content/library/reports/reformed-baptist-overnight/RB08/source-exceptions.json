@@ -1,0 +1,64 @@
+{
+  "mission": "RB08",
+  "entries": [
+    {
+      "target": "Kruger: Resurrection of Jesus roundtable",
+      "url": "https://5mt.michaeljkruger.com/2012/07/A-Roundtable-Discussion-with-Michael-Licona-on-The-Resurrection-of-Jesus.pdf",
+      "status": "403-forbidden-deferred",
+      "reason": "Offered faculty link returned 403; no bypass, no scan or URL-variant hunt. Scholarly roundtable would require contributor and disputed inerrancy review."
+    },
+    {
+      "target": "Kruger: Manuscripts, Scribes and Book Production",
+      "url": "https://5mt.michaeljkruger.com/2012/02/Manuscripts-and-Scribes-Chapter.pdf",
+      "status": "403-forbidden-deferred",
+      "reason": "Offered faculty link returned 403. No repeated attempts, OCR or image acquisition."
+    },
+    {
+      "target": "TGC Carson HTML discovery",
+      "url": "https://www.thegospelcoalition.org/carson-center/",
+      "status": "crawl-delay-deferred-held-texts-reused",
+      "reason": "Current robots specifies 600-second crawl delay; stopped own waiting inspection instead of bypassing the rule. Existing author desk already holds 377 relevant records, not all Carson-authored."
+    },
+    {
+      "target": "AOM transcript desk",
+      "url": "https://www.aomin.org/aoblog/transcripts/",
+      "status": "no-substantial-written-body",
+      "reason": "Desk had no actual full transcripts. No audio/video or transcription jobs."
+    },
+    {
+      "target": "White: Scripture Alone / Forgotten Trinity / What Every Christian Needs to Know About the Quran",
+      "status": "commercial-complete-book-gaps",
+      "reason": "No authorized free complete edition verified. Selected author-offered substantial essays add coverage without pretending to replace these books."
+    },
+    {
+      "target": "Kruger: Canon Revisited / Question of Canon / Surviving Religion 101",
+      "status": "commercial-complete-book-gaps",
+      "reason": "No authorized full free books verified. Complete popular ten-part series and offered 2001 journal essay are different works."
+    },
+    {
+      "target": "White: NT transmission 2004 initial posts",
+      "status": "inspected-not-promoted-incomplete-series",
+      "url": "https://www.aomin.org/aoblog/islam/islamic-apologetics-and-new-testament-transmission-a-rebuttal/",
+      "reason": "First installment and #2 point forward; not a verified complete series. Prefer complete 2012 two-part argument."
+    },
+    {
+      "target": "Carson desk: A Christian Perspective on Islam",
+      "status": "held-attribution-correction-required",
+      "assetId": "asset-ready-library-53250b31337562f206aa",
+      "url": "https://media.thegospelcoalition.org/documents/cci/Moucarry.pdf",
+      "reason": "Actual Chawkat Moucarry essay, not Carson. Repository desk label is not author identity. Work-level eligibility unresolved; not selected as approved teaching or blindly imported."
+    },
+    {
+      "target": "Modern resurrection evidence monograph",
+      "status": "remaining-depth-gap",
+      "reason": "Held orthodox theological exposition supplies doctrine; it does not equal a newly verified comprehensive modern historical-resurrection study. Continue legitimate author/publisher offered text discovery."
+    },
+    {
+      "target": "Modern trauma/suffering care and Christian/Islam comparative scholarship",
+      "status": "remaining-depth-gap",
+      "reason": "Held Piper and selected White essays are useful but do not establish complete modern care or comparative religion coverage. No Muslim primary-text expansion under this campaign."
+    }
+  ],
+  "noNewOCR": true,
+  "noImageAcquisition": true
+}

@@ -1,0 +1,77 @@
+{
+  "embedding-progress.json": {
+    "path": "../KnowledgeBase/embedding-progress.json",
+    "sha256": "c7013e69b6f1e29f9e7b380f0b14220c65b7c54bfbaf9dae49e976647eb83575",
+    "snapshot": {
+      "state": "complete",
+      "total": 1901555,
+      "indexed": 1901555,
+      "remaining": 0,
+      "corpus_build": "2026-10-07T05:30:10.874999+00:00",
+      "updated_at": "2026-10-07T07:20:27.604174+00:00",
+      "seconds": 5711.2
+    }
+  },
+  "acquisition-followup.json": {
+    "path": "../KnowledgeBase/acquisition-followup.json",
+    "sha256": "0f5fc0e07a2fceb8d4312c0b9c9f9ce54df71b434330aea2008ffc0cf1773808",
+    "snapshot": {
+      "state": "waiting_for_acquisition",
+      "checked_at": "2026-10-07T12:10:37.235396+00:00",
+      "gate": {
+        "ready": false,
+        "completed": [
+          "RB01",
+          "RB02",
+          "RB03",
+          "RB04",
+          "RB05",
+          "RB06",
+          "RB07"
+        ],
+        "missing": [
+          "RB08",
+          "RB09",
+          "RB10",
+          "RB11",
+          "RB12",
+          "RB13",
+          "RB14"
+        ],
+        "invalid": [],
+        "quiet": false,
+        "expected": 14
+      },
+      "active_collectors": [],
+      "busy": {}
+    }
+  },
+  "acquisition-followup-plan.json": {
+    "path": "../KnowledgeBase/acquisition-followup-plan.json",
+    "sha256": "879506fcd006700cdea8f69983c253685fafb2f71a69a66a989268cb813cf701",
+    "snapshot": {
+      "task_name": "BibleProject-After14Missions-Refresh",
+      "created_at": "2026-10-07T05:45:34.060954+00:00",
+      "campaign_dir": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight",
+      "missions": [
+        "RB01",
+        "RB02",
+        "RB03",
+        "RB04",
+        "RB05",
+        "RB06",
+        "RB07",
+        "RB08",
+        "RB09",
+        "RB10",
+        "RB11",
+        "RB12",
+        "RB13",
+        "RB14"
+      ],
+      "quiet_seconds": 300,
+      "time_constraint": null,
+      "instruction": "Run one full Bible-only refresh and resume embeddings once all 14 missions have final REPORT.md plus acquisition-manifest.json; do not wait for 5 AM; do not interrupt active intake."
+    }
+  }
+}

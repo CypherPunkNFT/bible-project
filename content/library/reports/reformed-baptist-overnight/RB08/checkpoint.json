@@ -1,0 +1,48 @@
+{
+  "mission": "RB08",
+  "state": "acquisition-and-documentation-complete-awaiting-dedicated-post-RB14-intake",
+  "startedAtUtc": "2026-10-07T11:32:21Z",
+  "acquisitionFinishedAtUtc": "2026-10-07T12:04:35.282398+00:00",
+  "originalFiles": 17,
+  "originalBytes": 2806462,
+  "readableDerivativeWords": 48210,
+  "logicalWorkOrSeriesGroups": 7,
+  "heldOriginalsAudited": 631,
+  "auditInputs": 52,
+  "newOCR": false,
+  "imageAcquisition": false,
+  "dbIngested": false,
+  "embedded": false,
+  "originalRoot": "D:/FortressOfSolitude/Jarvis/Projects/BibleProject/sources",
+  "privateCache": ".local/library/run-rb08-2026-10-07",
+  "noUnchangedSourceRetries": true,
+  "resumeSteps": [
+    "Read REPORT.md, THEOLOGICAL-SCOPE.md, INTAKE-NOTES.md, source-exceptions.json and the current project HANDOFF.",
+    "From Website run python scripts/rb08-acquire.py verify to check unchanged originals and derivatives.",
+    "Run python scripts/map-rb08.py and python scripts/verify-rb08.py for reproducible source/claim maps and read-only intake holds.",
+    "The first-eight queue is ../RB01-RB08/consolidated-intake-manifest.json; rebuild with python scripts/consolidate-rb01-rb08.py after relevant finalized mission metadata changes.",
+    "Continue RB09-RB14 only under owner mission prompts; do not launch a fresh DB/vector/graph/enrichment job here.",
+    "At the dedicated aggregate intake reconcile identity, voice, rights and underlying-work overlaps before eligible full-body import; preserve all parent holds until implementation exists.",
+    "Reuse existing vectors and verify parity after the eligible delta import; only then begin knowledge enrichment."
+  ],
+  "remainingTargets": [
+    {
+      "target": "Kruger manuscript/scribes and resurrection roundtable essays",
+      "checkpoint": "Actual faculty/author links returned 403. Seek current legitimate publisher offered texts; no access bypass, scans or guessed private URLs. Roundtable requires contributor-specific review."
+    },
+    {
+      "target": "Modern historical resurrection depth",
+      "checkpoint": "Held theological exposition is mapped; a complete modern historical evidence monograph remains unverified. Prioritize author/publisher-offered readable text."
+    },
+    {
+      "target": "White/Kruger commercial books",
+      "checkpoint": "No complete authorized free bodies found. Acquired articles do not fulfill these complete-book gaps."
+    },
+    {
+      "target": "Moucarry held Islam essay",
+      "checkpoint": "Actual byline differs from legacy Carson desk label. Work-level eligibility unresolved; normalize only with correction evidence, not automatic teaching admission."
+    }
+  ],
+  "gate": "Owner-expanded fourteen-mission task remains unchanged; RB01-RB08 interim queue does not release it.",
+  "checkpointFinishedAtUtc": "2026-10-07T12:18:56.470275+00:00"
+}

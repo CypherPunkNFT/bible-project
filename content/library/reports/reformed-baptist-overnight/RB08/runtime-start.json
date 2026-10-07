@@ -1,0 +1,19 @@
+{
+    "checkedAtUtc":  "2026-10-07T11:33:48.5595658Z",
+    "processQuerySucceeded":  true,
+    "processes":  [
+                      {
+                          "ProcessId":  34344,
+                          "ParentProcessId":  34296,
+                          "Name":  "python.exe",
+                          "CommandLine":  "\"D:\\FortressOfSolitude\\HyperVault\\KnowledgeBase\\.venv\\Scripts\\python.exe\"  \"D:\\FortressOfSolitude\\HyperVault\\KnowledgeBase\\tools\\embed-daemon.py\" "
+                      },
+                      {
+                          "ProcessId":  34496,
+                          "ParentProcessId":  34344,
+                          "Name":  "python3.13.exe",
+                          "CommandLine":  "\"D:\\FortressOfSolitude\\HyperVault\\KnowledgeBase\\.venv\\Scripts\\python.exe\"  \"D:\\FortressOfSolitude\\HyperVault\\KnowledgeBase\\tools\\embed-daemon.py\" "
+                      }
+                  ],
+    "schedulerChanged":  false
+}
