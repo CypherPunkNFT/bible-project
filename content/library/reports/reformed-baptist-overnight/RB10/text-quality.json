@@ -1,0 +1,73 @@
+{
+  "mission": "RB10",
+  "witnesses": [
+    {
+      "assetId": "asset-rb10-0510478805287be6d73c",
+      "words": 66295,
+      "replacementCharacters": 8345,
+      "newOCR": false,
+      "separateImageAssets": false,
+      "sourcePages": 226,
+      "replacementPages": [
+        8,
+        9,
+        221,
+        222,
+        223,
+        224
+      ],
+      "quality": "Existing narrative text; decorative leaders/index glyph diagnostics retained, not repaired."
+    },
+    {
+      "assetId": "asset-rb10-59c3d6ac6824531e4d74",
+      "words": 2321,
+      "replacementCharacters": 0,
+      "newOCR": false,
+      "separateImageAssets": false,
+      "quality": "Complete exact authored wrapper; sibling journal promotion excluded; displayed author/date checked."
+    },
+    {
+      "assetId": "asset-rb10-a0ed734f2df65de0b444",
+      "words": 2393,
+      "replacementCharacters": 0,
+      "newOCR": false,
+      "separateImageAssets": false,
+      "quality": "Complete exact authored wrapper; sibling journal promotion excluded; displayed author/date checked."
+    },
+    {
+      "assetId": "asset-rb10-2beb3e9f77d9b9661c4e",
+      "words": 2559,
+      "replacementCharacters": 0,
+      "newOCR": false,
+      "separateImageAssets": false,
+      "quality": "Complete exact authored wrapper; sibling journal promotion excluded; displayed author/date checked."
+    },
+    {
+      "assetId": "asset-rb10-0c5d72504570b0071846",
+      "words": 24185,
+      "replacementCharacters": 0,
+      "newOCR": false,
+      "separateImageAssets": false,
+      "quality": "Complete EPUB spine replay; HTML head/export-title artifacts excluded; embedded artwork not separately acquired or rendered."
+    },
+    {
+      "assetId": "asset-rb10-fd1f5406a3e50c0e9d88",
+      "words": 24957,
+      "replacementCharacters": 0,
+      "newOCR": false,
+      "separateImageAssets": false,
+      "quality": "Complete EPUB spine replay; HTML head/export-title artifacts excluded; embedded artwork not separately acquired or rendered."
+    },
+    {
+      "assetId": "asset-rb10-c6c87244cc77bf85498e",
+      "words": 24053,
+      "replacementCharacters": 0,
+      "newOCR": false,
+      "separateImageAssets": false,
+      "quality": "Complete EPUB spine replay; HTML head/export-title artifacts excluded; embedded artwork not separately acquired or rendered."
+    }
+  ],
+  "noNewOCR": true,
+  "noSeparateImageAssets": true,
+  "reviewLimit": "Integrity and targeted reading, not full critical collation of every word."
+}

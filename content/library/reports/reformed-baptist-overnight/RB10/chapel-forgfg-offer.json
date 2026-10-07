@@ -1,0 +1,116 @@
+{
+  "request": {
+    "url": "https://www.chapellibrary.org/api/books/getdetail?code=forgfg&language=EN",
+    "finalUrl": "https://www.chapellibrary.org/api/books/getdetail?code=forgfg&language=EN",
+    "mimeType": "application/json",
+    "byteCount": 2071,
+    "sha256": "4fcd6c0797469d48d1208656fb4f7fa7d5ca272cfe9b1dd2a6239f9c9e4e4535",
+    "retrievedAt": "2026-10-07T13:24:05.370254+00:00"
+  },
+  "book": {
+    "id": "3106e721-59e8-46d7-b3ee-66fa3c751637",
+    "code": "forgfg",
+    "title": "Forgiveness",
+    "description": "<p>Forgiveness is God's promise to us that He will not remember our sins against us anymore. All of us as guilty sinners need forgiveness. The cross of Christ provides us the only basis of this forgiveness. Those who have been forgiven will follow their Savior in forgiving others who do them wrong. We can be free from bitterness, and pray with Christ, \"Father, forgive them.\"</p>",
+    "pageCount": 52,
+    "number": 184,
+    "type": "Booklets",
+    "language": "English",
+    "price": 1.92,
+    "isoLangCode": "EN",
+    "coverUrl": "/images/covers/booklets/forgfg.jpg",
+    "pdfUrl": "/pdf/books/forgfg.pdf",
+    "epubUrl": "/epub/books/forgfg.epub",
+    "mobiUrl": "/mobi/books/forgfg.mobi",
+    "audioUrl": "",
+    "hasPrintableVersion": true,
+    "courseLessonsCount": null,
+    "courseLevel": "",
+    "authors": [],
+    "parent": null,
+    "courseOriginal": null,
+    "courses": [],
+    "articles": [
+      {
+        "articleId": 246,
+        "bookId": 288,
+        "authorId": 256,
+        "title": "Conditional or Unconditional Forgiveness?",
+        "description": null,
+        "audioUrl": "",
+        "author": {
+          "code": "macarthurjrjohn",
+          "name": "John MacArthur, Jr.",
+          "date": ""
+        }
+      },
+      {
+        "articleId": 247,
+        "bookId": 288,
+        "authorId": 6,
+        "title": "Divine Forgiveness Admired and Imitated",
+        "description": null,
+        "audioUrl": "",
+        "author": {
+          "code": "spurgeoncharlesh",
+          "name": "Charles H. Spurgeon",
+          "date": "(1834-1892)"
+        }
+      },
+      {
+        "articleId": 248,
+        "bookId": 288,
+        "authorId": 71,
+        "title": "Father, Forgive Them",
+        "description": null,
+        "audioUrl": "",
+        "author": {
+          "code": "flaveljohn",
+          "name": "John Flavel",
+          "date": "(1627-1691)"
+        }
+      },
+      {
+        "articleId": 249,
+        "bookId": 288,
+        "authorId": 5,
+        "title": "Forgiveness",
+        "description": null,
+        "audioUrl": "",
+        "author": {
+          "code": "rylejohnc",
+          "name": "John C. Ryle",
+          "date": "(1816-1900)"
+        }
+      },
+      {
+        "articleId": 250,
+        "bookId": 288,
+        "authorId": 302,
+        "title": "How To Be Free from Bitterness*",
+        "description": null,
+        "audioUrl": "",
+        "author": {
+          "code": "wilsonjim",
+          "name": "Jim Wilson",
+          "date": ""
+        }
+      },
+      {
+        "articleId": 251,
+        "bookId": 288,
+        "authorId": 19,
+        "title": "What Is Forgiveness?",
+        "description": null,
+        "audioUrl": "",
+        "author": {
+          "code": "adamsjay",
+          "name": "Jay Adams",
+          "date": "(1929-2020)"
+        }
+      }
+    ],
+    "friendlyTitle": "forgiveness",
+    "children": []
+  }
+}

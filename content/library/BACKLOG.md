@@ -1,5 +1,9 @@
 # Acquisition backlog
 
+<!-- RB10 status -->
+**RB10 executed (2026-10-07):** Seven originals / 4.13 MB / 146,763 derivative words; one complete book, three essays, three issues with 26 bylined articles/excerpts. [Report](reports/reformed-baptist-overnight/RB10/REPORT.md), [13 ethics questions / 513 locations](reports/reformed-baptist-overnight/RB10/READING-MAP.md), [scope](reports/reformed-baptist-overnight/RB10/THEOLOGICAL-SCOPE.md), [intake requirements](reports/reformed-baptist-overnight/RB10/INTAKE-NOTES.md), [checkpoint](reports/reformed-baptist-overnight/RB10/checkpoint.json). Audited 1,138 actual held originals / 57 inputs; twelve witnesses reused. All acquired URLs documented in SOURCES. All seven parents held; no new corpus license, ingestion or embedding. RB11 only when prompted; post-RB14 gate unchanged.
+<!-- /RB10 status -->
+
 <!-- RB09 status -->
 **RB09 executed (2026-10-07):** 13 readable originals / 32.64 MB, five books, one workbook, three essays and four written lessons. [Report](reports/reformed-baptist-overnight/RB09/REPORT.md), [study/passage table](reports/reformed-baptist-overnight/RB09/READING-MAP.md), [scope](reports/reformed-baptist-overnight/RB09/THEOLOGICAL-SCOPE.md), [checkpoint](reports/reformed-baptist-overnight/RB09/checkpoint.json). 819 relevant held originals plus three historical originals audited. All thirteen parents held: no corpus license inferred from personal-reading offers, no ingestion/embedding. At post-RB14 intake integrate contributor roles, rights, edition/work overlap and qualified coverage; historical-context and commercial hermeneutics books remain scoped gaps. [Exact intake actions](reports/reformed-baptist-overnight/RB09/INTAKE-NOTES.md). RB10 only when prompted.
 

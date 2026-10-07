@@ -1,0 +1,511 @@
+{
+  "mission": "RB10",
+  "checksPassed": true,
+  "checkCount": 92,
+  "checks": [
+    {
+      "kind": "every-actual-acquired-source-author-edition-listed",
+      "passed": true,
+      "assetId": "asset-rb10-0510478805287be6d73c"
+    },
+    {
+      "kind": "every-actual-acquired-source-author-edition-listed",
+      "passed": true,
+      "assetId": "asset-rb10-59c3d6ac6824531e4d74"
+    },
+    {
+      "kind": "every-actual-acquired-source-author-edition-listed",
+      "passed": true,
+      "assetId": "asset-rb10-a0ed734f2df65de0b444"
+    },
+    {
+      "kind": "every-actual-acquired-source-author-edition-listed",
+      "passed": true,
+      "assetId": "asset-rb10-2beb3e9f77d9b9661c4e"
+    },
+    {
+      "kind": "every-actual-acquired-source-author-edition-listed",
+      "passed": true,
+      "assetId": "asset-rb10-0c5d72504570b0071846"
+    },
+    {
+      "kind": "every-actual-acquired-source-author-edition-listed",
+      "passed": true,
+      "assetId": "asset-rb10-fd1f5406a3e50c0e9d88"
+    },
+    {
+      "kind": "every-actual-acquired-source-author-edition-listed",
+      "passed": true,
+      "assetId": "asset-rb10-c6c87244cc77bf85498e"
+    },
+    {
+      "kind": "utf8-no-bom-lf-versioned-metadata",
+      "passed": true,
+      "path": "acquisition-manifest.json"
+    },
+    {
+      "kind": "utf8-no-bom-lf-versioned-metadata",
+      "passed": true,
+      "path": "bibliography.json"
+    },
+    {
+      "kind": "utf8-no-bom-lf-versioned-metadata",
+      "passed": true,
+      "path": "chapel-consfg-offer.json"
+    },
+    {
+      "kind": "utf8-no-bom-lf-versioned-metadata",
+      "passed": true,
+      "path": "chapel-forgfg-offer.json"
+    },
+    {
+      "kind": "utf8-no-bom-lf-versioned-metadata",
+      "passed": true,
+      "path": "chapter-map.json"
+    },
+    {
+      "kind": "utf8-no-bom-lf-versioned-metadata",
+      "passed": true,
+      "path": "checkpoint.json"
+    },
+    {
+      "kind": "utf8-no-bom-lf-versioned-metadata",
+      "passed": true,
+      "path": "discovery-evidence.json"
+    },
+    {
+      "kind": "utf8-no-bom-lf-versioned-metadata",
+      "passed": true,
+      "path": "documentation-verification.json"
+    },
+    {
+      "kind": "utf8-no-bom-lf-versioned-metadata",
+      "passed": true,
+      "path": "duplicate-decisions.json"
+    },
+    {
+      "kind": "utf8-no-bom-lf-versioned-metadata",
+      "passed": true,
+      "path": "holdings-audit.json"
+    },
+    {
+      "kind": "utf8-no-bom-lf-versioned-metadata",
+      "passed": true,
+      "path": "input-audit.json"
+    },
+    {
+      "kind": "utf8-no-bom-lf-versioned-metadata",
+      "passed": true,
+      "path": "INTAKE-NOTES.md"
+    },
+    {
+      "kind": "utf8-no-bom-lf-versioned-metadata",
+      "passed": true,
+      "path": "intake-scope.json"
+    },
+    {
+      "kind": "utf8-no-bom-lf-versioned-metadata",
+      "passed": true,
+      "path": "metadata-corrections.json"
+    },
+    {
+      "kind": "utf8-no-bom-lf-versioned-metadata",
+      "passed": true,
+      "path": "passage-evidence.json"
+    },
+    {
+      "kind": "utf8-no-bom-lf-versioned-metadata",
+      "passed": true,
+      "path": "READING-MAP.md"
+    },
+    {
+      "kind": "utf8-no-bom-lf-versioned-metadata",
+      "passed": true,
+      "path": "reading-paths.json"
+    },
+    {
+      "kind": "utf8-no-bom-lf-versioned-metadata",
+      "passed": true,
+      "path": "registry-audit.json"
+    },
+    {
+      "kind": "utf8-no-bom-lf-versioned-metadata",
+      "passed": true,
+      "path": "runtime-final.json"
+    },
+    {
+      "kind": "utf8-no-bom-lf-versioned-metadata",
+      "passed": true,
+      "path": "runtime-start.json"
+    },
+    {
+      "kind": "utf8-no-bom-lf-versioned-metadata",
+      "passed": true,
+      "path": "SCRIPTURE-GROUNDS.md"
+    },
+    {
+      "kind": "utf8-no-bom-lf-versioned-metadata",
+      "passed": true,
+      "path": "selected-components.json"
+    },
+    {
+      "kind": "utf8-no-bom-lf-versioned-metadata",
+      "passed": true,
+      "path": "selected-text-review.json"
+    },
+    {
+      "kind": "utf8-no-bom-lf-versioned-metadata",
+      "passed": true,
+      "path": "source-exceptions.json"
+    },
+    {
+      "kind": "utf8-no-bom-lf-versioned-metadata",
+      "passed": true,
+      "path": "targets.json"
+    },
+    {
+      "kind": "utf8-no-bom-lf-versioned-metadata",
+      "passed": true,
+      "path": "text-quality.json"
+    },
+    {
+      "kind": "utf8-no-bom-lf-versioned-metadata",
+      "passed": true,
+      "path": "theological-decisions.json"
+    },
+    {
+      "kind": "utf8-no-bom-lf-versioned-metadata",
+      "passed": true,
+      "path": "theological-evidence.json"
+    },
+    {
+      "kind": "utf8-no-bom-lf-versioned-metadata",
+      "passed": true,
+      "path": "THEOLOGICAL-SCOPE.md"
+    },
+    {
+      "kind": "utf8-no-bom-lf-versioned-metadata",
+      "passed": true,
+      "path": "verification.json"
+    },
+    {
+      "kind": "rb10-report-relative-link-resolves-or-final-publication-target",
+      "passed": true,
+      "path": "INTAKE-NOTES.md",
+      "target": "intake-scope.json"
+    },
+    {
+      "kind": "rb10-report-relative-link-resolves-or-final-publication-target",
+      "passed": true,
+      "path": "INTAKE-NOTES.md",
+      "target": "selected-components.json"
+    },
+    {
+      "kind": "rb10-report-relative-link-resolves-or-final-publication-target",
+      "passed": true,
+      "path": "READING-MAP.md",
+      "target": "reading-paths.json"
+    },
+    {
+      "kind": "rb10-report-relative-link-resolves-or-final-publication-target",
+      "passed": true,
+      "path": "READING-MAP.md",
+      "target": "chapter-map.json"
+    },
+    {
+      "kind": "rb10-report-relative-link-resolves-or-final-publication-target",
+      "passed": true,
+      "path": "READING-MAP.md",
+      "target": "selected-components.json"
+    },
+    {
+      "kind": "rb10-report-relative-link-resolves-or-final-publication-target",
+      "passed": true,
+      "path": "READING-MAP.md",
+      "target": "THEOLOGICAL-SCOPE.md"
+    },
+    {
+      "kind": "rb10-report-relative-link-resolves-or-final-publication-target",
+      "passed": true,
+      "path": "READING-MAP.md",
+      "target": "INTAKE-NOTES.md"
+    },
+    {
+      "kind": "rb10-report-relative-link-resolves-or-final-publication-target",
+      "passed": true,
+      "path": "READING-MAP.md",
+      "target": "checkpoint.json"
+    },
+    {
+      "kind": "rb10-report-relative-link-resolves-or-final-publication-target",
+      "passed": true,
+      "path": "READING-MAP.md",
+      "target": "SCRIPTURE-GROUNDS.md"
+    },
+    {
+      "kind": "rb10-report-relative-link-resolves-or-final-publication-target",
+      "passed": true,
+      "path": "SCRIPTURE-GROUNDS.md",
+      "target": "passage-evidence.json"
+    },
+    {
+      "kind": "rb10-report-relative-link-resolves-or-final-publication-target",
+      "passed": true,
+      "path": "SCRIPTURE-GROUNDS.md",
+      "target": "READING-MAP.md"
+    },
+    {
+      "kind": "rb10-report-relative-link-resolves-or-final-publication-target",
+      "passed": true,
+      "path": "SCRIPTURE-GROUNDS.md",
+      "target": "THEOLOGICAL-SCOPE.md"
+    },
+    {
+      "kind": "rb10-report-relative-link-resolves-or-final-publication-target",
+      "passed": true,
+      "path": "SCRIPTURE-GROUNDS.md",
+      "target": "INTAKE-NOTES.md"
+    },
+    {
+      "kind": "rb10-report-relative-link-resolves-or-final-publication-target",
+      "passed": true,
+      "path": "THEOLOGICAL-SCOPE.md",
+      "target": "theological-decisions.json"
+    },
+    {
+      "kind": "rb10-report-relative-link-resolves-or-final-publication-target",
+      "passed": true,
+      "path": "THEOLOGICAL-SCOPE.md",
+      "target": "theological-evidence.json"
+    },
+    {
+      "kind": "rb10-report-relative-link-resolves-or-final-publication-target",
+      "passed": true,
+      "path": "THEOLOGICAL-SCOPE.md",
+      "target": "READING-MAP.md"
+    },
+    {
+      "kind": "rb10-report-relative-link-resolves-or-final-publication-target",
+      "passed": true,
+      "path": "REPORT-draft.md",
+      "target": "input-audit.json"
+    },
+    {
+      "kind": "rb10-report-relative-link-resolves-or-final-publication-target",
+      "passed": true,
+      "path": "REPORT-draft.md",
+      "target": "holdings-audit.json"
+    },
+    {
+      "kind": "rb10-report-relative-link-resolves-or-final-publication-target",
+      "passed": true,
+      "path": "REPORT-draft.md",
+      "target": "duplicate-decisions.json"
+    },
+    {
+      "kind": "rb10-report-relative-link-resolves-or-final-publication-target",
+      "passed": true,
+      "path": "REPORT-draft.md",
+      "target": "registry-audit.json"
+    },
+    {
+      "kind": "rb10-report-relative-link-resolves-or-final-publication-target",
+      "passed": true,
+      "path": "REPORT-draft.md",
+      "target": "acquisition-manifest.json"
+    },
+    {
+      "kind": "rb10-report-relative-link-resolves-or-final-publication-target",
+      "passed": true,
+      "path": "REPORT-draft.md",
+      "target": "bibliography.json"
+    },
+    {
+      "kind": "rb10-report-relative-link-resolves-or-final-publication-target",
+      "passed": true,
+      "path": "REPORT-draft.md",
+      "target": "selected-text-review.json"
+    },
+    {
+      "kind": "rb10-report-relative-link-resolves-or-final-publication-target",
+      "passed": true,
+      "path": "REPORT-draft.md",
+      "target": "metadata-corrections.json"
+    },
+    {
+      "kind": "rb10-report-relative-link-resolves-or-final-publication-target",
+      "passed": true,
+      "path": "REPORT-draft.md",
+      "target": "READING-MAP.md"
+    },
+    {
+      "kind": "rb10-report-relative-link-resolves-or-final-publication-target",
+      "passed": true,
+      "path": "REPORT-draft.md",
+      "target": "SCRIPTURE-GROUNDS.md"
+    },
+    {
+      "kind": "rb10-report-relative-link-resolves-or-final-publication-target",
+      "passed": true,
+      "path": "REPORT-draft.md",
+      "target": "reading-paths.json"
+    },
+    {
+      "kind": "rb10-report-relative-link-resolves-or-final-publication-target",
+      "passed": true,
+      "path": "REPORT-draft.md",
+      "target": "chapter-map.json"
+    },
+    {
+      "kind": "rb10-report-relative-link-resolves-or-final-publication-target",
+      "passed": true,
+      "path": "REPORT-draft.md",
+      "target": "selected-components.json"
+    },
+    {
+      "kind": "rb10-report-relative-link-resolves-or-final-publication-target",
+      "passed": true,
+      "path": "REPORT-draft.md",
+      "target": "THEOLOGICAL-SCOPE.md"
+    },
+    {
+      "kind": "rb10-report-relative-link-resolves-or-final-publication-target",
+      "passed": true,
+      "path": "REPORT-draft.md",
+      "target": "theological-decisions.json"
+    },
+    {
+      "kind": "rb10-report-relative-link-resolves-or-final-publication-target",
+      "passed": true,
+      "path": "REPORT-draft.md",
+      "target": "theological-evidence.json"
+    },
+    {
+      "kind": "rb10-report-relative-link-resolves-or-final-publication-target",
+      "passed": true,
+      "path": "REPORT-draft.md",
+      "target": "INTAKE-NOTES.md"
+    },
+    {
+      "kind": "rb10-report-relative-link-resolves-or-final-publication-target",
+      "passed": true,
+      "path": "REPORT-draft.md",
+      "target": "intake-scope.json"
+    },
+    {
+      "kind": "rb10-report-relative-link-resolves-or-final-publication-target",
+      "passed": true,
+      "path": "REPORT-draft.md",
+      "target": "verification.json"
+    },
+    {
+      "kind": "rb10-report-relative-link-resolves-or-final-publication-target",
+      "passed": true,
+      "path": "REPORT-draft.md",
+      "target": "text-quality.json"
+    },
+    {
+      "kind": "rb10-report-relative-link-resolves-or-final-publication-target",
+      "passed": true,
+      "path": "REPORT-draft.md",
+      "target": "documentation-verification.json"
+    },
+    {
+      "kind": "rb10-report-relative-link-resolves-or-final-publication-target",
+      "passed": true,
+      "path": "REPORT-draft.md",
+      "target": "source-exceptions.json"
+    },
+    {
+      "kind": "rb10-report-relative-link-resolves-or-final-publication-target",
+      "passed": true,
+      "path": "REPORT-draft.md",
+      "target": "discovery-evidence.json"
+    },
+    {
+      "kind": "rb10-report-relative-link-resolves-or-final-publication-target",
+      "passed": true,
+      "path": "REPORT-draft.md",
+      "target": "runtime-final.json"
+    },
+    {
+      "kind": "rb10-report-relative-link-resolves-or-final-publication-target",
+      "passed": true,
+      "path": "REPORT-draft.md",
+      "target": "runtime-start.json"
+    },
+    {
+      "kind": "rb10-report-relative-link-resolves-or-final-publication-target",
+      "passed": true,
+      "path": "REPORT-draft.md",
+      "target": "checkpoint.json"
+    },
+    {
+      "kind": "project-governance-document-has-rb10-report-and-checkpoint",
+      "passed": true,
+      "path": "Website\\README.md"
+    },
+    {
+      "kind": "project-governance-document-has-rb10-report-and-checkpoint",
+      "passed": true,
+      "path": "Website\\SOURCES.md"
+    },
+    {
+      "kind": "project-governance-document-has-rb10-report-and-checkpoint",
+      "passed": true,
+      "path": "Website\\content\\library\\BACKLOG.md"
+    },
+    {
+      "kind": "project-governance-document-has-rb10-report-and-checkpoint",
+      "passed": true,
+      "path": "Website\\content\\library\\REFORMED-BAPTIST-ACQUISITION.md"
+    },
+    {
+      "kind": "project-governance-document-has-rb10-report-and-checkpoint",
+      "passed": true,
+      "path": "TODO.md"
+    },
+    {
+      "kind": "project-governance-document-has-rb10-report-and-checkpoint",
+      "passed": true,
+      "path": "HANDOFF.md"
+    },
+    {
+      "kind": "warnings-as-errors-python-compilation",
+      "passed": true,
+      "path": "audit-rb10.py"
+    },
+    {
+      "kind": "warnings-as-errors-python-compilation",
+      "passed": true,
+      "path": "prepare-rb10.py"
+    },
+    {
+      "kind": "warnings-as-errors-python-compilation",
+      "passed": true,
+      "path": "rb10-acquire.py"
+    },
+    {
+      "kind": "warnings-as-errors-python-compilation",
+      "passed": true,
+      "path": "map-rb10.py"
+    },
+    {
+      "kind": "warnings-as-errors-python-compilation",
+      "passed": true,
+      "path": "map-rb10-passages.py"
+    },
+    {
+      "kind": "warnings-as-errors-python-compilation",
+      "passed": true,
+      "path": "verify-rb10.py"
+    },
+    {
+      "kind": "final-documented-counts-and-acquisition-only-state",
+      "passed": true
+    }
+  ],
+  "finalReportValidatedAsPrivateDraft": true,
+  "finalReportMustMatchDraft": true,
+  "libraryStructuralValidation": "Passed: 76 authors / 32 sources / 8 collections / 110 subjects / 13440 formal records; no theological approval."
+}

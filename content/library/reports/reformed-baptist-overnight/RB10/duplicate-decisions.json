@@ -1,0 +1,96 @@
+{
+  "mission": "RB10",
+  "newOriginalHashesDisjointFromAuditedHoldings": true,
+  "heldWitnessesReused": [
+    {
+      "assetId": "asset-expanded-28f606b1d75204c407c5",
+      "title": "The Ten Commandments",
+      "originalSha256": "cf7ae37b7d7e31364c97baf9a7762a6f14b1fb00f15e6a561de4fc7f4cf6dc0e",
+      "reason": "Readable held witness; use exact sections rather than acquire another format."
+    },
+    {
+      "assetId": "asset-expanded-7a3ec2d6ad154f5650e0",
+      "title": "The Beatitudes",
+      "originalSha256": "d12fd12548ef990468c2ace6dcd86218ad461fc979dbeed119b2baa2496e2326",
+      "reason": "Readable held witness; use exact sections rather than acquire another format."
+    },
+    {
+      "assetId": "asset-expanded-6a41e8103fbcb7515140",
+      "title": "The Art of Divine Contentment",
+      "originalSha256": "e78adf666397a25506fa03a4e6bba7a94e16c1932f2221bb6000905c5f3de82c",
+      "reason": "Readable held witness; use exact sections rather than acquire another format."
+    },
+    {
+      "assetId": "asset-expanded-8a34bac731e6ca2d2812",
+      "title": "The Godly Man's Picture",
+      "originalSha256": "bef86078337e67be390d8c31e80f5bd7bb51a1783b683f6980e9fed073c054ad",
+      "reason": "Readable held witness; use exact sections rather than acquire another format."
+    },
+    {
+      "assetId": "asset-expanded-9a36485f458d25880bdf",
+      "title": "Practical Relgion",
+      "originalSha256": "3322d5ed978027e25d73f7b8e921b450e273638178a218764eac110dd8a7594e",
+      "reason": "Readable held witness; use exact sections rather than acquire another format."
+    },
+    {
+      "assetId": "asset-expanded-406adfda0365ff1667a5",
+      "title": "Forgiveness",
+      "originalSha256": "e0ef734ca9aa4b67fcb2b5b303ad465f35438edf56c9e4bb3e952ff5b221b755",
+      "reason": "Readable held witness; use exact sections rather than acquire another format."
+    },
+    {
+      "assetId": "asset-expanded-055d90ed37da03c9cfb5",
+      "title": "The Law of God as Contained in the Ten Commandments",
+      "originalSha256": "149d027586c49e7a0555d69294efa70ce1e3f2bcdb1bbfeb3a3092dc9cd97abb",
+      "reason": "Readable held witness; use exact sections rather than acquire another format."
+    },
+    {
+      "assetId": "asset-modern-piper-a750dc8708d67b661255-epub",
+      "title": "Living in the Light",
+      "originalSha256": "cf78980ef7fe77c83b85b8c4dbda6139f737f614c2d5a6289a64725569f42566",
+      "reason": "Readable held witness; use exact sections rather than acquire another format."
+    },
+    {
+      "assetId": "asset-expanded-eb7ad9ce89c3bc19e6d5",
+      "title": "The Religious Tradesman",
+      "originalSha256": "01a228e67d02b965686150eec39ae87bd3cf2b2b9f15ad1ce07a3374377d8f03",
+      "reason": "Readable held witness; use exact sections rather than acquire another format."
+    },
+    {
+      "assetId": "asset-expanded-a1eb952f4be6ebda9e59",
+      "title": "A Treatise of Vocations",
+      "originalSha256": "f3942ea72f04a2e0f5e9b711f0b158868bb91418b9ab145b6de0f0f5bee9f2ac",
+      "reason": "Readable held witness; use exact sections rather than acquire another format."
+    },
+    {
+      "assetId": "asset-expanded-cc625a129188762da130",
+      "title": "The Mortification of Sin in Believers",
+      "originalSha256": "7867a83d0bd3918478826ecbbad889b7f5324a56909b44cdd567749cbd96a366",
+      "reason": "Readable held witness; use exact sections rather than acquire another format."
+    },
+    {
+      "assetId": "asset-rb04-0309d1a642bea2895f0a",
+      "title": "Definitive Sanctification",
+      "originalSha256": "f083b7dcd5c013572e055be4fa2a229d6a4bcbed2101aa568038bc0ec8b1effd",
+      "reason": "Readable held witness; use exact sections rather than acquire another format."
+    }
+  ],
+  "otherDecisions": [
+    {
+      "candidate": "John Murray, Principles of Conduct / The Sanctity of Truth",
+      "decision": "Not found as a complete authorized held book; modern reprint permission unresolved. Held Definitive Sanctification reused."
+    },
+    {
+      "candidate": "Piper Living in the Light",
+      "decision": "Offered modern download confirmed but readable held EPUB already exists; no duplicate PDF acquired."
+    },
+    {
+      "candidate": "Steele Religious Tradesman / Perkins Vocations",
+      "decision": "Located in expanded ledger despite initial title searches; actual originals hashed and reused."
+    },
+    {
+      "candidate": "Watson / Owen / Ryle multiple formats or compilation excerpts",
+      "decision": "Reconcile same underlying work/edition before intake; new issue curation is not a new full underlying book."
+    }
+  ]
+}

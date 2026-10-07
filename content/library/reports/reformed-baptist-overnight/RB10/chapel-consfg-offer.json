@@ -1,0 +1,209 @@
+{
+  "request": {
+    "url": "https://www.chapellibrary.org/api/books/getdetail?code=consfg&language=EN",
+    "finalUrl": "https://www.chapellibrary.org/api/books/getdetail?code=consfg&language=EN",
+    "mimeType": "application/json",
+    "byteCount": 8540,
+    "sha256": "29b685d1b53621ab87caa6302ce0f10e0ebc0af72cb7cffca8a33b1cd7e1db6e",
+    "retrievedAt": "2026-10-07T13:25:21.958132+00:00"
+  },
+  "book": {
+    "id": "cc082e19-d641-448a-97e7-9d7c21ff4626",
+    "code": "consfg",
+    "title": "Conscience",
+    "description": "<p>This <em>Free Grace Broadcaster</em> is dedicated to the subject of the conscience. Arthur Pink introduces this vital subject by defining conscience and by describing it as our best friend or worst enemy. Richard Sibbes beautifully explains the nature of conscience and why God gave it to us. William Perkins helpfully lists the duties of conscience as giving testimony and judgment. Following that, William Fenner demonstrates that every person has a conscience and gives further reasons why God gave it to us. In a second article, Arthur Pink helps us understand that our conscience has been corrupted by sin, that it is only able to work according to the light that it has, and that its operations are faulty. John Flavel takes us deeply into the sin-burdened conscience, and what a journey that is! He writes of the burdensome sense of sin, the memories of our sin, and the condemnation of conscience. In his second article, William Fenner informs us that ministers must know the spiritual state of their flocks to properly minister the Word to the conscience of God’s people. Again, John Flavel reveals the misery of a conscience in hell—a damned conscience. Yes, friends, consciences will follow the lost to hell. Mercifully, in his third article, Pink takes us into the comforting realm of a good conscience: how do we obtain one, what are its characteristics, and how do we maintain it? J. C. Ryle than tells us that nothing in our gospel-war against sin is better calculated to quiet, soothe, and comfort a raging conscience than justification by grace alone through faith alone in Christ alone. Finally, Charles Spurgeon warns against using outward practices and a little bit of religion to quiet our conscience: that can be eternally deadly. As always, the joy of salvation and the heaven-on-earth of a peaceful conscience are found only in the finished work of Christ and the regenerating power of the Holy Spirit.</p>\r",
+    "pageCount": 48,
+    "number": 261,
+    "type": "Booklets",
+    "language": "English",
+    "price": 1.78,
+    "isoLangCode": "EN",
+    "coverUrl": "/images/covers/booklets/consfg.jpg",
+    "pdfUrl": "/pdf/books/consfg.pdf",
+    "epubUrl": "/epub/books/consfg.epub",
+    "mobiUrl": "/mobi/books/consfg.mobi",
+    "audioUrl": "",
+    "hasPrintableVersion": true,
+    "courseLessonsCount": null,
+    "courseLevel": "",
+    "authors": [],
+    "parent": null,
+    "courseOriginal": null,
+    "courses": [],
+    "articles": [
+      {
+        "articleId": 6095,
+        "bookId": 4716,
+        "authorId": 10,
+        "title": "Our Best Friend or Worst Enemy",
+        "description": "a helpful definition of conscience and its description as our best friend or worst enemy. ",
+        "audioUrl": "",
+        "author": {
+          "code": "pinkarthurw",
+          "name": "Arthur W. Pink",
+          "date": "(1886-1952)"
+        }
+      },
+      {
+        "articleId": 6096,
+        "bookId": 4716,
+        "authorId": 166,
+        "title": "The Nature of Conscience ",
+        "description": "an explanation of the nature of conscience and why God gave it to us.",
+        "audioUrl": "",
+        "author": {
+          "code": "sibbesrichard",
+          "name": "Richard Sibbes",
+          "date": "(1577-1635)"
+        }
+      },
+      {
+        "articleId": 6097,
+        "bookId": 4716,
+        "authorId": 2355,
+        "title": "The Duties of Conscience ",
+        "description": "a brief introduction to the duties of conscience, listed as giving testimony and judgment.",
+        "audioUrl": "",
+        "author": {
+          "code": "perkinswilliam",
+          "name": "William Perkins",
+          "date": "(1558-1602)"
+        }
+      },
+      {
+        "articleId": 6099,
+        "bookId": 4716,
+        "authorId": 2356,
+        "title": "Everyone Has a Conscience ",
+        "description": "an easily proven assertion of the universality of the conscience and more reasons why God gave it to His image-bearers.\r",
+        "audioUrl": "",
+        "author": {
+          "code": "fennerwilliam",
+          "name": "William Fenner",
+          "date": "(1600-1640)"
+        }
+      },
+      {
+        "articleId": 6100,
+        "bookId": 4716,
+        "authorId": 10,
+        "title": "A Corrupted Conscience",
+        "description": "a biblical account of what our conscience is like in its natural state—contaminated by sin, only able to work according to the light it has, and faulty in its operations.",
+        "audioUrl": "",
+        "author": {
+          "code": "pinkarthurw",
+          "name": "Arthur W. Pink",
+          "date": "(1886-1952)"
+        }
+      },
+      {
+        "articleId": 6101,
+        "bookId": 4716,
+        "authorId": 71,
+        "title": "A Sin-Burdened Conscience ",
+        "description": "an astonishing journey into our conscience: its sense of sin, its memories of sin, and its condemnation of sinful thoughts, words, and deeds.",
+        "audioUrl": "",
+        "author": {
+          "code": "flaveljohn",
+          "name": "John Flavel",
+          "date": "(1627-1691)"
+        }
+      },
+      {
+        "articleId": 6102,
+        "bookId": 4716,
+        "authorId": 2356,
+        "title": "Ministers and Consciences ",
+        "description": "what pastors and elders must know about Christ’s flock to properly apply God’s Word to their conscience.\r",
+        "audioUrl": "",
+        "author": {
+          "code": "fennerwilliam",
+          "name": "William Fenner",
+          "date": "(1600-1640)"
+        }
+      },
+      {
+        "articleId": 6104,
+        "bookId": 4716,
+        "authorId": 71,
+        "title": "A Damned Conscience ",
+        "description": "a sobering look at the misery of a conscience suffering the horrors of hell forever. ",
+        "audioUrl": "",
+        "author": {
+          "code": "flaveljohn",
+          "name": "John Flavel",
+          "date": "(1627-1691)"
+        }
+      },
+      {
+        "articleId": 6105,
+        "bookId": 4716,
+        "authorId": 10,
+        "title": "A Good Conscience ",
+        "description": "a comforting look at the meaning of a “good” conscience and how we obtain and maintain one.",
+        "audioUrl": "",
+        "author": {
+          "code": "pinkarthurw",
+          "name": "Arthur W. Pink",
+          "date": "(1886-1952)"
+        }
+      },
+      {
+        "articleId": 6106,
+        "bookId": 4716,
+        "authorId": 5,
+        "title": "A Peaceful Conscience ",
+        "description": "a comforting proclamation that nothing is better calculated to quiet a raging conscience than justification by grace alone through faith alone in Christ alone.\r",
+        "audioUrl": "",
+        "author": {
+          "code": "rylejohnc",
+          "name": "John C. Ryle",
+          "date": "(1816-1900)"
+        }
+      },
+      {
+        "articleId": 6107,
+        "bookId": 4716,
+        "authorId": 6,
+        "title": "A Little Religion for Conscience’s Sake ",
+        "description": "a warning against the soul-damning trap of a little religion to pacify the conscience.",
+        "audioUrl": "",
+        "author": {
+          "code": "spurgeoncharlesh",
+          "name": "Charles H. Spurgeon",
+          "date": "(1834-1892)"
+        }
+      }
+    ],
+    "friendlyTitle": "conscience",
+    "children": [
+      {
+        "id": "9480a3c6-c74f-4acc-b80a-c1a3e7d5c711",
+        "code": "consfgs",
+        "title": "La conciencia",
+        "description": "<p>Ofrecemos el <em>Portavoz de la Gracia: La conciencia</em>. Oramos con todo nuestro corazón y alma para que el Espíritu de Dios lo use para el bien eterno de todos los que lo lean. Arthur Pink introduce este vital tema, definiendo la conciencia y describiéndola como nuestro mejor amigo o nuestro peor enemigo. Richard Sibbes explica, maravillosamente, la naturaleza de la conciencia y por qué Dios nos la ha dado. William Perkins enumera, útilmente, los deberes de la conciencia como dar testimonio y juzgar. A continuación, William Fenner demuestra que todos tenemos una conciencia y da otras razones por las que Dios nos la dio. En un segundo artículo, Arthur Pink nos ayuda a comprender que nuestra conciencia ha sido corrompida por el pecado, que sólo es capaz de funcionar según la luz que tiene y que sus operaciones son defectuosas. John Flavel nos adentra, profundamente, en la conciencia cargada por el pecado y ¡qué viaje! Él escribe sobre el agobiante sentido del pecado, los recuerdos de nuestro pecado y la condenación de la conciencia. En su segundo artículo, William Fenner nos informa que los ministros deben conocer el estado espiritual de sus rebaños para ministrar, correctamente, la Palabra a la conciencia del pueblo de Dios. De nuevo, John Flavel revela la miseria de una conciencia en el infierno —una conciencia condenada—. Sí amigos, las conciencias seguirán a los perdidos al infierno. Misericordiosamente, en su tercer artículo, Pink nos lleva al reconfortante reino de una buena conciencia: ¿cómo la obtenemos?, ¿cuáles son sus características y cómo la mantenemos? J. C. Ryle nos dice que nada en nuestra guerra evangélica contra el pecado es más adecuado para calmar, aliviar y reconfortar una conciencia enfurecida que la justificación por la sola gracia, mediante la sola fe en sólo Cristo. Por último, Charles Spurgeon advierte contra el uso de prácticas externas y un poco de religión para calmar nuestra conciencia: Eso puede ser eternamente mortal. Como siempre, el gozo de la salvación y el paraíso terrenal de una conciencia tranquila, sólo se encuentran en la obra consumada de Cristo y en el poder regenerador del Espíritu Santo.</p>\r",
+        "pageCount": 52,
+        "number": 53,
+        "type": "Booklets",
+        "language": "ES",
+        "price": 1.92,
+        "isoLangCode": "ES",
+        "coverUrl": "/images/covers/booklets/consfgs.jpg",
+        "pdfUrl": "",
+        "epubUrl": "",
+        "mobiUrl": "",
+        "audioUrl": "",
+        "hasPrintableVersion": true,
+        "courseLessonsCount": null,
+        "courseLevel": "",
+        "authors": [],
+        "parent": null,
+        "courseOriginal": null,
+        "courses": [],
+        "articles": [],
+        "friendlyTitle": "la-conciencia",
+        "children": []
+      }
+    ]
+  }
+}

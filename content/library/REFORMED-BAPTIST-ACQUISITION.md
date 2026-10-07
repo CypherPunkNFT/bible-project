@@ -1,5 +1,13 @@
 # Eight overnight acquisition missions: Reformed theology with Baptist confidence
 
+<!-- RB10 protocol -->
+## 2026-10-07: RB10 Christian ethics acquisition complete
+
+**RB10 executed (2026-10-07):** Seven originals / 4.13 MB / 146,763 derivative words; one complete book, three essays, three issues with 26 bylined articles/excerpts. [Report](reports/reformed-baptist-overnight/RB10/REPORT.md), [13 ethics questions / 513 locations](reports/reformed-baptist-overnight/RB10/READING-MAP.md), [scope](reports/reformed-baptist-overnight/RB10/THEOLOGICAL-SCOPE.md), [intake requirements](reports/reformed-baptist-overnight/RB10/INTAKE-NOTES.md), [checkpoint](reports/reformed-baptist-overnight/RB10/checkpoint.json). Audited 1,138 actual held originals / 57 inputs; twelve witnesses reused. All acquired URLs documented in SOURCES. All seven parents held; no new corpus license, ingestion or embedding. RB11 only when prompted; post-RB14 gate unchanged.
+
+Owner-added RB10 applies the shared protocol to conscience, truthfulness, money, generosity, work, justice, forgiveness, sexual holiness and neighbor responsibilities. Particular teachings are scoped, not approved from affiliation alone. Reuse substantial held works where new format acquisition adds little. No new scans/images/OCR/media; modern retrieval-system/contributor rights remain held. This completion does not launch another mission or release the fourteen-mission gate.
+<!-- /RB10 protocol -->
+
 Owner direction recorded **7 October 2026**. These are eight sequential source-discovery and acquisition prompts, not a claim that their targets are missing or that every named author's work is approved. The goal is maximum useful new readable coverage for Scripture study, doctrinal understanding, church life and future evidence tables.
 
 ## Shared execution protocol — applies to every mission

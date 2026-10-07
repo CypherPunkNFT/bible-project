@@ -1,0 +1,86 @@
+{
+  "mission": "RB10",
+  "exceptions": [
+    {
+      "id": "murray-truth",
+      "url": "http://www.the-highway.com/truth_Murray.html",
+      "finding": "Complete readable modern reprint found in private discovery cache; no explicit authorized reprint/corpus terms identified. Not promoted to original holding.",
+      "nextAction": "Seek author-estate/publisher-authorized complete essay or permission; do not treat link availability as clearance."
+    },
+    {
+      "id": "murray-principles",
+      "url": "https://banneroftruth.org/us/resources/articles/2007/practical-godliness/",
+      "finding": "Publisher recommendations identify the commercial book, not an offered full text.",
+      "nextAction": "Resume only with new offered-source evidence; no paid preview or scan acquisition."
+    },
+    {
+      "id": "frame-ethics",
+      "url": "https://frame-poythress.org/ebooks/",
+      "finding": "Doctrine of the Christian Life desk identifies an excerpt, not the complete commercial book.",
+      "nextAction": "Full Lordship book offers a distinct acquired ethical foundation; retain Frame whole-book gap."
+    },
+    {
+      "id": "covetousness-issue",
+      "url": "https://www.chapellibrary.org/book/covefg",
+      "finding": "Candidate issue contributor mix includes S. L. Brengle / Marcus Dods; Reformed fit not resolved. Not acquired.",
+      "nextAction": "Use held Watson/Piper money treatment; no repository-wide approval."
+    },
+    {
+      "id": "phoenix-old-domain",
+      "url": "https://www.phoenixseminary.edu/statement-of-faith",
+      "finding": "Incorrect/old discovery route timed out; superseded by correct primary ps.edu.",
+      "nextAction": "Do not retry unchanged old route."
+    },
+    {
+      "id": "phoenix-403",
+      "url": "https://ps.edu/statement-of-faith/",
+      "finding": "Direct collector 403; full current primary doctrine verified through web tool. No fabricated cached-byte hash.",
+      "nextAction": "Retain web-only evidence record; no access bypass."
+    },
+    {
+      "id": "hinson-old-route",
+      "url": "https://www.hinsonchurch.org/statement-of-faith/",
+      "finding": "404 discovery path; correct /beliefs primary page successfully cached.",
+      "nextAction": "Use recorded /beliefs evidence, not old route."
+    },
+    {
+      "id": "chapel-html-shell",
+      "url": "https://www.chapellibrary.org/about",
+      "finding": "Direct collector React shell is not full theological text. Primary web tool exposes actual doctrinal and author-scope guide.",
+      "nextAction": "Keep web-only textual evidence distinct from cached shell."
+    },
+    {
+      "id": "chapel-code-correction",
+      "url": "https://www.chapellibrary.org/book/concfg",
+      "finding": "Incorrect legacy/guessed conscience code; publisher verifies actual consfg.",
+      "nextAction": "Use acquired publisher-offered consfg EPUB; do not retry wrong code."
+    },
+    {
+      "id": "chapel-goodworks-detail",
+      "url": "https://www.chapellibrary.org/api/books/getdetail?code=gworfg&language=EN",
+      "finding": "Detail API connection reset (WinError10054). Actual public offered EPUB downloaded successfully with internal worldwide free-download terms.",
+      "nextAction": "Do not retry unchanged failing detail route; byte-verified EPUB and internal terms remain primary evidence."
+    },
+    {
+      "id": "generosity-query",
+      "url": "https://www.chapellibrary.org/literature",
+      "finding": "Publisher generosity query returned no matching complete issue.",
+      "nextAction": "Do not invent a generosity anthology; held mercy/love/money chapters provide substantive coverage."
+    },
+    {
+      "id": "epub-discovery-inspector",
+      "url": null,
+      "finding": "Initial diagnostic inspector treated ZIP as HTML; fixed to OPF/spine inspection. Acquired derivatives use proper EPUB body/spine extraction.",
+      "nextAction": "No binary/garbled preview bodies retained in versioned evidence."
+    },
+    {
+      "id": "source-typography",
+      "url": null,
+      "finding": "Lordship existing-text PDF decorative leaders/index glyphs contain replacement characters; targeted prose and exact page structure remain usable.",
+      "nextAction": "Record affected pages in text-quality.json; no OCR or invented glyph repairs."
+    }
+  ],
+  "failedAcquiredTargets": 0,
+  "noAccessBypass": true,
+  "noNewOCR": true
+}

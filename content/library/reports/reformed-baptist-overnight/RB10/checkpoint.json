@@ -1,0 +1,81 @@
+{
+  "mission": "RB10",
+  "state": "acquisition-verified-documented-private-holdings-only",
+  "sourceRoot": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources",
+  "sessionStartedAtUtc": "2026-10-07T13:15:01Z",
+  "checkpointAtUtc": "2026-10-07T14:03:19.294365+00:00",
+  "activeSessionMinutes": 48.3,
+  "acquisitionFinishedAtUtc": "2026-10-07T13:32:48.795134+00:00",
+  "newOriginals": 7,
+  "bytes": 4131882,
+  "readableDerivativeWords": 146763,
+  "completeBooks": 1,
+  "completeEssays": 3,
+  "completeIssues": 3,
+  "issueArticleExcerpts": 26,
+  "uniqueUnderlyingNewBookCountNotInferred": true,
+  "manifest": {
+    "path": "acquisition-manifest.json",
+    "sha256": "c70b70fe9aeb3002deee596dcaf9a26ae7e2f03b692f9f5b260171f34e58e9d9"
+  },
+  "immutableOriginalAndDerivativeHashes": "Every exact original/private derivative path and SHA-256 is in the manifest; chapter-map/selected-components link reused witnesses and component hashes.",
+  "completed": [
+    "1138 actual relevant held original hashes audited before target promotion",
+    "57 initial input snapshots retained",
+    "Seven new complete readable witnesses verified; no acquired target failures",
+    "Thirteen ethical-question paths / 513 locations / twelve held witnesses reused",
+    "Twenty-six bylined private issue component extracts",
+    "SOURCES/README/backlog/protocol/TODO/HANDOFF updated",
+    "1724 checks, seven parent and 26 component extraction replays; source-held read-only intake planner"
+  ],
+  "resumeWorkingDirectory": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website",
+  "resumeCommands": [
+    "python -X utf8 scripts/map-rb10.py",
+    "python -X utf8 scripts/map-rb10-passages.py",
+    "python -X utf8 scripts/verify-rb10.py",
+    "node scripts/validate-library.mjs"
+  ],
+  "acquisitionResume": "No incomplete target transaction or background collector remains. Do not run an acquire command to recollect these witnesses; use the valid manifest/cache and only add separately reviewed new offers.",
+  "remaining": [
+    {
+      "target": "John Murray Principles of Conduct / Sanctity of Truth",
+      "condition": "Fresh primary author-estate/publisher permission or explicitly offered complete text. Current reprint/discovery body is not an acquired original."
+    },
+    {
+      "target": "Modern Baptist contextual ethics beyond current held sections",
+      "condition": "Prioritize substantial new authorized conscience/truth/sexual-holiness/work/justice exposition only after held-work and doctrinal audit."
+    },
+    {
+      "target": "John Frame Doctrine of the Christian Life whole book",
+      "condition": "Current author desk excerpt does not satisfy full-book gap; no commercial previews/scans."
+    },
+    {
+      "target": "Aggregate RB10 intake",
+      "condition": "Resolve per-parent corpus rights, contributor/quotation and linked-note roles, held-work/edition/excerpt overlap; retain table-first reading qualifications."
+    }
+  ],
+  "nextMission": "RB11 only on explicit owner prompt; RB10 does not launch it.",
+  "postRB14": {
+    "gateUnchanged": true,
+    "requirements": [
+      "All RB01-RB14 final reports and valid manifests",
+      "Five-minute quiet interval",
+      "No active relevant acquisition/intake/embed workers"
+    ],
+    "action": "Separate delta reconciliation/import; reuse unchanged vectors and verify source/FTS/vector parity before enrichment."
+  },
+  "ingested": false,
+  "embedded": false,
+  "dbTouched": false,
+  "graphTouched": false,
+  "schedulerChanged": false,
+  "watchdogChanged": false,
+  "noNewOCR": true,
+  "noSeparateImageAcquisition": true,
+  "publication": {
+    "localMetadataOnly": true,
+    "pushAttempted": false,
+    "status": "Prior Git push automatic approval-review rejection remains unresolved; no retry or workaround."
+  },
+  "knownLimits": "Targeted source/doctrine/section review and integrity checks, not full critical collation or author-wide approval. Personal download permission is not a general corpus license."
+}
