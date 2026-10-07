@@ -64,7 +64,7 @@ async function prophets(list: Prophet[]): Promise<string> {
     ...eras.map((era) => blocks(`#### ${era === "Judges" ? "The Judges" : era}`, table(["Prophet", "Kind", "Description", "When"], list.filter((p) => p.era === era).map((p) => [p.name, `${role(p)} · ${kinds[p.kind]}${p.book ? " · wrote a book" : ""}`, p.brief, when(p)])))),
     `Credits: ${credits}`,
     `*Interface wording (ProphetsPage.tsx):* ${(await wording(PROPHETS, "ProphetsContent")).join(" · ")}`,
-    `*Mock-up shown with ?design=mockup (ProphetsMockup.tsx):* ${(await wording("src/components/study/ProphetsMockup.tsx")).join(" · ")}`);
+    `*The prophets view, the river (ProphetsRiver.tsx):* ${(await wording("src/components/study/ProphetsRiver.tsx")).join(" · ")}`);
 }
 
 export async function peoplePage(): Promise<PageContent> {
