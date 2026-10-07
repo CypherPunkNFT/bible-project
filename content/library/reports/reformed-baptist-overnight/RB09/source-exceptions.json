@@ -1,0 +1,52 @@
+{
+  "mission": "RB09",
+  "entries": [
+    {
+      "target": "MBTS parable summary",
+      "url": "https://cbs.mbts.edu/2018/08/21/a-call-for-discernment-interpreting-the-parables/",
+      "status": "discovery-only-short-summary",
+      "reason": "435-word complete summary of commercial Invitation to Biblical Interpretation; not a full book/substantial replacement, no promotion."
+    },
+    {
+      "target": "WTS beliefs route",
+      "url": "https://www.wts.edu/beliefs",
+      "status": "404-route-deferred",
+      "reason": "Primary current mission-values page verified instead; no repeated dead-route variants."
+    },
+    {
+      "target": "BCS curriculum generic route",
+      "url": "https://bcsmn.edu/curriculum/",
+      "status": "redirected-to-video-not-acquired",
+      "reason": "Redirects to unrelated video archive; actual institutional workbook offer independently verified. No media acquisition."
+    },
+    {
+      "target": "Commercial hermeneutics books",
+      "status": "remaining-complete-book-gaps",
+      "reason": "Carson Exegetical Fallacies, Kostenberger/Patterson Invitation to Biblical Interpretation and other commercial manuals are not satisfied by previews; no unauthorized full edition acquired."
+    },
+    {
+      "target": "Modern historical/context depth",
+      "status": "remaining-specialist-gaps",
+      "reason": "Method/books and selected overview lessons do not equal a new comprehensive ANE/Second Temple historical-context corpus. Existing Josephus/lexicons remain background witnesses, not new commentary."
+    },
+    {
+      "target": "PDF navigation glyphs",
+      "status": "text-layer-usable-not-ocr",
+      "reason": "Poythress replacement glyphs confined to decorative contents/index leaders; workbook replacements are section bullets. Prose is substantial existing text. Preserve exact raw extraction and diagnose locations; do not fabricate glyph repairs or count diagrams as acquired text."
+    },
+    {
+      "target": "Hamilton generic articles route",
+      "url": "https://jimhamilton.info/articles/",
+      "status": "404-discovery-route",
+      "reason": "Exact full essay links were instead verified from current official Southern faculty page; no dead-route retries."
+    },
+    {
+      "target": "Southern generic confessional-documents route",
+      "url": "https://www.sbts.edu/about/confessional-documents/",
+      "status": "404-discovery-route",
+      "reason": "Actual primary Abstract of Principles page verified; no need for alternate route guesses."
+    }
+  ],
+  "noNewOCR": true,
+  "noImageAcquisition": true
+}

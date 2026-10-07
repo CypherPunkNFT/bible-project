@@ -1,0 +1,26 @@
+# RB09: theological, interpretive and editorial scope
+
+Scope decisions are for these thirteen witnesses and their declared subjects. They are not author-wide approval, a replacement confession, or permission to import copyrighted bodies. [Primary evidence and six doctrinal anchors](theological-decisions.json) records Scripture authority, Trinity, Christ's deity/humanity, substitutionary atonement, bodily resurrection and grace through faith. The 1689 confession remains the working Baptist reference.
+
+| Source | Supported theological identity | Use and boundaries |
+|---|---|---|
+| Vern S. Poythress / Westminster | Conservative Presbyterian/Reformed; current PCA affiliation, previously RPCES ordination. Baptist childhood does not make his current theology Baptist. | Five complete interpretation books, with Scripture authority and Christ-centered exegesis. Attribute multiperspectival method, covenant arguments, amillennial/recapitulation readings and creation/cosmology arguments. Do not blend them into Baptist covenant models or select an owner-approved creation chronology. |
+| Bethlehem College & Seminary | Institutional affirmation supports Reformed soteriology, baptistic ecclesiology, orthodox Christology and Scripture authority; permits differing views of gifts and eschatology. | Complete twelve-lesson workbook. Institutional authorship: no verified individual writer and no Piper byline inferred. Philippians exercises teach method, not a complete Philippians commentary. Commercial supplementary books are not part of this download. |
+| Capitol Hill Baptist Church | Baptist institutional statement supplies the six anchors and congregational/believer-baptism context. | Four complete written OT Survey lessons. Individual manuscript writers are not identified: do not attribute all lessons to Mark Dever. Named quotations and bibliographic sources remain separate contributors. Genre overview is not sustained commentary on every verse. |
+| Tom Ascol / Founders | Actual visible byline and confessional Baptist source evidence, including held 1689 explanations. | Complete Hermeneutics and Expository Preaching essay. Schema uploader Hannah Ascol is not the author. Original magazine context Sept/Oct 2015; current webpage May 7, 2020. Constitutional/legal opening analogy remains the author's illustration, not project legal guidance. |
+| James M. Hamilton Jr. / Southern | Official faculty identity, Southern Abstract and the actual Christological/exegetical arguments support conservative Baptist scope. | Two complete scholarly essays with notes. Genesis seed/serpent patterns and Song messianic interpretation remain argued theses. Critical scholars/ancient documents quoted within them are not separately admitted teaching sources. |
+
+## Preserve these differences
+
+- Poythress's symbolic/typological prophecy arguments, Hamilton's inner-biblical Genesis argument, and older Fairbairn/Pink/Keach witnesses are separate positions and editions. Cross-reference similarity does not establish agreement.
+- Hamilton's 2006 Song essay explicitly proposes a non-allegorical messianic reading. CHBC's lesson reads ordinary marriage/creation poetry. The faculty-listed 2015 commercial Song commentary is not acquired; its different title is not evidence for a fully reconstructed change of view.
+- CHBC's Proverbs lesson distinguishes generally true wisdom patterns from statements expressing universal divine truths; do not turn every proverb into either an exceptionless promise or a merely fallible maxim. Its boundary-stone interpretation of Proverbs 26:27 is an attributed source claim, not an independently verified ancient custom. Psalms/Ezra authorship speculation remains explicitly conjectural.
+- Job's literary explanation does not diagnose an individual sufferer's guilt. Ecclesiastes, Song, Psalms and Proverbs have different literary aims; do not collapse all wisdom literature into one interpretive formula.
+- Paul's and James's faith/justification language is treated contextually in Poythress's handbook chapter 17. Matching words are not evidence of identical semantic roles.
+- Josephus is already held historical evidence outside the Bible, not an approved Christian doctrinal teacher. Three Whiston text originals were separately hash-audited, not newly downloaded. Historical claims require source criticism.
+
+## Edition and contributor corrections
+
+Understanding Dispensationalists includes a 1993 postscript, so the opening 1986 statement does not date the whole witness. Interpreting Eden is the 2019 first printing despite a later 2021 file/production timestamp. Reading the Word of God is the 2016 first printing. Eden's foreword is D. A. Carson's voice, distinct from Poythress. Hamilton's older article biographical note is historical, not a current appointment. His Song witness has a prepress-named filename; the printed publication line is WTJ 68 (2006), pp.331-345. The Genesis paper's visible journal pagination is pp.30-54; source bibliography identifies SBJT 10/2 (2006), rather than establishing the date from the 2008 upload path.
+
+No Catholic/progressive teaching resource was acquired. Quoted opponents, book references and ancient witnesses embedded in eligible source arguments retain quotation/reference roles. Study tables precede any later graph inference.

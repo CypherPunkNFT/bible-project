@@ -1,0 +1,65 @@
+{
+  "mission": "RB09",
+  "state": "acquisition-and-documentation-complete-awaiting-dedicated-post-RB14-intake",
+  "startedAtUtc": "2026-10-07T12:25:03Z",
+  "acquisitionFinishedAtUtc": "2026-10-07T12:59:43.356050+00:00",
+  "originalFiles": 13,
+  "originalBytes": 32637830,
+  "readableDerivativeWords": 584520,
+  "formats": {
+    "html": 8,
+    "pdf": 5
+  },
+  "sourcePdfPages": 1103,
+  "completeBooks": 5,
+  "completeWorkbooks": 1,
+  "completeEssays": 3,
+  "completeWrittenLessons": 4,
+  "heldOriginalsAudited": 819,
+  "supplementaryHistoricalOriginalsAudited": 3,
+  "auditInputs": 55,
+  "mappedWitnesses": 25,
+  "sourceLocations": 2007,
+  "studyQuestions": 13,
+  "qualifiedPassageEntries": 85,
+  "originalRoot": "D:/FortressOfSolitude/Jarvis/Projects/BibleProject/sources",
+  "privateCache": ".local/library/run-rb09-2026-10-07",
+  "newOCR": false,
+  "imageAcquisition": false,
+  "dbIngested": false,
+  "embedded": false,
+  "schedulerChanged": false,
+  "noUnchangedSourceRetries": true,
+  "gate": "Await owner-prompted RB10-RB14 and dedicated aggregate intake; RB09 completion does not launch refresh.",
+  "resumeSteps": [
+    "Read REPORT.md, THEOLOGICAL-SCOPE.md, INTAKE-NOTES.md, source-exceptions.json and current project HANDOFF.",
+    "From Website: python -X utf8 scripts/rb09-acquire.py verify; this verifies local originals/derivatives without download.",
+    "Rebuild source maps: python -X utf8 scripts/map-rb09.py; then python -X utf8 scripts/verify-rb09.py.",
+    "Do not rerun unchanged targets or launch ingestion/embedding/graph/enrichment during acquisition missions.",
+    "At dedicated post-RB14 intake reconcile enlarged aggregate with RB09 manifest; preserve rights and contributor holds until implemented.",
+    "Import eligible text delta only, reuse unchanged vectors and verify parity before knowledge enrichment."
+  ],
+  "remainingTargets": [
+    {
+      "target": "Comprehensive ancient/Second Temple historical context",
+      "checkpoint": "Held Josephus/Edersheim and new method exercises are not a new reference corpus. Seek author/publisher-offered substantial text, no scans or access bypass."
+    },
+    {
+      "target": "Whole modern parables/difficult-passage resources",
+      "checkpoint": "Held Keach/Pink/Fairbairn provide substantial depth; new BCS methods and brief genre lessons do not fulfill whole modern commentary gaps. MBTS short summary is discovery-only."
+    },
+    {
+      "target": "Carson Exegetical Fallacies / modern interpretation textbooks",
+      "checkpoint": "No complete authorized free body verified. Commercial references/previews are not acquired editions."
+    },
+    {
+      "target": "Modern corpus rights and contributor roles",
+      "checkpoint": "All thirteen parents held. Personal reading/download permission does not establish retrieval-system or republication permission; apply INTAKE-NOTES before admission."
+    }
+  ],
+  "checkpointFinishedAtUtc": "2026-10-07T13:12:25.176378+00:00",
+  "verificationChecks": 2944,
+  "closeoutElapsedMinutes": 47.4,
+  "matchingBibleWorkersAtCloseout": 0,
+  "repositoryPublication": "local-only-existing-approval-block-not-retried"
+}
