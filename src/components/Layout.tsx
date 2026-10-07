@@ -1,4 +1,4 @@
-import { BookOpen, GitBranch, GraduationCap, Map, Moon, Search, ShieldCheck, Sun, Tags } from "lucide-react";
+import { BookOpen, Church, GitBranch, GraduationCap, Map, Moon, Search, ShieldCheck, Sun, Tags } from "lucide-react";
 import { useEffect, type ReactNode } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { SectionStrip } from "@/components/SectionStrip";
@@ -95,6 +95,17 @@ export function Layout({ children }: { children: ReactNode }) {
           >
             <span>{theme === "dark" ? <Moon className="h-3.5 w-3.5" aria-hidden /> : <Sun className="h-3.5 w-3.5" aria-hidden />}</span>
           </button>
+          <a
+            href="https://churchfamily.io"
+            target="_blank"
+            rel="noopener"
+            title="ChurchFamily — a church community site (opens in a new tab)"
+            className="flex h-[34px] shrink-0 items-center gap-1.5 rounded-full border border-line px-2.5 text-sm text-accent transition-colors hover:bg-surface-2 focus:outline-none sm:px-3"
+          >
+            <Church className="h-4 w-4" aria-hidden />
+            <span className="hidden lg:inline">ChurchFamily</span>
+            <span className="sr-only lg:hidden">ChurchFamily (opens in a new tab)</span>
+          </a>
         </div>
       </header>
       <main id="main" className="flex-1">
