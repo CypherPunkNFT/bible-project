@@ -24,7 +24,7 @@ from bible.study_harmony import describe, parse_harmony, parse_miracles  # noqa:
 from bible.study_home import build_home  # noqa: E402
 from bible.study_letters import build_letters  # noqa: E402
 from bible.study_names import build_names  # noqa: E402
-from bible.study_people import parse_people  # noqa: E402
+from bible.study_people import parse_people, people_period  # noqa: E402
 from bible.study_prophets import build_prophets  # noqa: E402
 from bible.study_refs import Verses  # noqa: E402
 from bible.study_torrey import parse_evil_agents, parse_servants  # noqa: E402
@@ -91,7 +91,7 @@ def people_files(people: list[dict]) -> tuple[list[dict], dict[str, dict]]:
             raise SystemExit(f"people: id {p['id']!r} cannot be a file name")
         books = Counter(ref // 1_000_000 for ref in p["refs"])
         rows.append({"id": p["id"], "n": p["name"], "o": p["names"], "b": p["brief"] or p["description"],
-                     "c": len(p["refs"])})
+                     "c": len(p["refs"]), "p": people_period(p["era"], p["refs"][0] if p["refs"] else 0)})
         detail[p["id"]] = {
             "s": p["sex"][:1], "d": p["description"], "e": p["era"], "t": p["tribe"], "b": p["brief"],
             "pa": p["parents"], "si": p["siblings"], "sp": p["partners"], "ch": p["children"],

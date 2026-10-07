@@ -23,6 +23,8 @@ const StudyRedirect = lazy(() => import("@/pages/study/StudyRedirect"));
 const MiraclesPage = lazy(() => import("@/pages/study/MiraclesPage"));
 const LettersPage = lazy(() => import("@/pages/study/LettersPage"));
 const PeoplePage = lazy(() => import("@/pages/study/PeoplePage"));
+const PersonPage = lazy(() => import("@/pages/PersonPage"));
+const PersonRedirect = lazy(() => import("@/pages/PersonPage").then((m) => ({ default: m.PersonRedirect })));
 const ProphetsPage = lazy(() => import("@/pages/study/ProphetsPage"));
 const NamesPage = lazy(() => import("@/pages/study/NamesPage"));
 
@@ -75,7 +77,8 @@ export default function App() {
               <Route path="/study/miracles" element={<MiraclesPage />} />
               <Route path="/study/letters" element={<LettersPage />} />
               <Route path="/study/people" element={<PeoplePage />} />
-              <Route path="/study/people/:id" element={<PeoplePage />} />
+              <Route path="/study/people/:id" element={<PersonRedirect />} />
+              <Route path="/people/:id" element={<PersonPage />} />
               <Route path="/study/prophets" element={<ProphetsPage />} />
               <Route path="/study/names" element={<NamesPage />} />
               <Route path="*" element={<NotFoundPage />} />

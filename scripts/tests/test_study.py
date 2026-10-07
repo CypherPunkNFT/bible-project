@@ -8,7 +8,7 @@ import pytest
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from bible.paths import SOURCES  # noqa: E402
 from bible.study_harmony import parse_harmony, parse_miracles, sentence_case  # noqa: E402
-from bible.study_people import parse_people  # noqa: E402
+from bible.study_people import parse_people, people_period  # noqa: E402
 from bible.study_prophets import build_prophets  # noqa: E402
 from bible.study_refs import TORREY_OVERRIDES, RefError, Verses, format_range, parse_refs  # noqa: E402
 from bible.study_torrey import parse_evil_agents, parse_servants  # noqa: E402
@@ -97,3 +97,14 @@ def test_prophets_hand_list(people, verses):
     assert sum(1 for p in prophets if p["kind"] == "writing") == 16
     order = [p["id"] for p in prophets]
     assert order.index("samuel-1sa-1-20") < order.index("elijah-1ki-17-1") < order.index("jeremiah-2ch-35-25")
+
+def test_people_periods_split_exile_return_and_the_new_testament():
+    assert people_period("Patriarchs", 1012001) == "patriarchs"
+    assert people_period("Egypt and Wilderness", 2019001) == "exodus"
+    assert people_period("Exile and Return", 15002001) == "return"  # Ezra 2
+    assert people_period("Exile and Return", 13009002) == "return"  # 1 Chronicles 9, the returned
+    assert people_period("Exile and Return", 27001006) == "exile"  # Daniel 1
+    assert people_period("New Testament", 42001005) == "life-of-christ"  # Luke 1
+    assert people_period("New Testament", 44006005) == "early-church"  # Acts 6
+    assert people_period("", 1001001) == ""
+

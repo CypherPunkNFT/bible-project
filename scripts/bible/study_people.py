@@ -164,3 +164,21 @@ def _link(records: list[dict]) -> tuple[list[dict], dict]:
     report = {"persons": len(records), "duplicate_keys": len(duplicates), "family_links_dropped": dict(unresolved),
               "refs_skipped": sum(r["skipped_refs"] for r in records)}
     return records, report
+
+# The People table's periods (owner, 2026-10-06): TIPNR's eras, with Exile/Return and Life of Christ/Early church split by
+# the book of a person's first mention. Ids match src/lib/people-periods.ts.
+PERIOD_BY_ERA = {"Before the Flood": "early-world", "Patriarchs": "patriarchs", "Egypt and Wilderness": "exodus",
+                 "Conquest": "conquest", "Judges": "judges", "United Monarchy": "united-kingdom",
+                 "Divided Monarchy": "divided-kingdom"}
+RETURN_BOOKS = {15, 16, 17, 37, 38, 39}  # Ezra, Nehemiah, Esther, Haggai, Zechariah, Malachi
+
+
+def people_period(era: str, first_ref: int) -> str:
+    """One period id for a person ('' when TIPNR gives no era). first_ref is book*1e6 + chapter*1e3 + verse."""
+    book, chapter = first_ref // 1_000_000, first_ref // 1_000 % 1_000
+    if era == "Exile and Return":
+        return "return" if book in RETURN_BOOKS or (book == 13 and chapter == 9) else "exile"
+    if era == "New Testament":
+        return "life-of-christ" if 40 <= book <= 43 else "early-church"
+    return PERIOD_BY_ERA.get(era, "")
+

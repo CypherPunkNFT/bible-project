@@ -36,6 +36,8 @@ export interface PersonRow {
   /** one line: the brief, else the description */
   b: string;
   c: number;
+  /** period id from src/lib/people-periods.ts ('' when the source gives no era) */
+  p: string;
 }
 /** Everything else about one person, in its own small file, loaded when the person is opened. */
 export interface PersonDetail {
