@@ -131,8 +131,26 @@ export function routeFeature(route: [number, number][]): FeatureCollection<LineS
 
 function routeLayers(): LayerSpecification[] {
   const accent = css("--accent") || "#b5562d";
-  return [{ id: "journey-route", type: "line", source: "route", layout: { "line-join": "round", "line-cap": "round" },
-    paint: { "line-color": accent, "line-width": 2.5, "line-opacity": 0.85, "line-dasharray": [1.6, 1.4] } }];
+  const surface = css("--surface") || "#fff";
+  return [
+    // The whole chapter, faint and dashed: where the journey will go (the roads are reconstructed).
+    { id: "journey-route", type: "line", source: "route", layout: { "line-join": "round", "line-cap": "round" },
+      paint: { "line-color": accent, "line-width": 1.6, "line-opacity": 0.4, "line-dasharray": [1.4, 1.8] } },
+    // The part travelled so far, drawn as the traveller moves: a soft glow under a solid line.
+    { id: "journey-travelled-glow", type: "line", source: "travelled", layout: { "line-join": "round", "line-cap": "round" },
+      paint: { "line-color": accent, "line-width": 10, "line-opacity": 0.22, "line-blur": 6 } },
+    { id: "journey-travelled", type: "line", source: "travelled", layout: { "line-join": "round", "line-cap": "round" },
+      paint: { "line-color": accent, "line-width": 3 } },
+    { id: "journey-traveller-halo", type: "circle", source: "traveller",
+      paint: { "circle-radius": 15, "circle-color": accent, "circle-opacity": 0.18, "circle-blur": 0.4 } },
+    { id: "journey-traveller", type: "circle", source: "traveller",
+      paint: { "circle-radius": 6.5, "circle-color": accent, "circle-stroke-color": surface, "circle-stroke-width": 2.5 } },
+  ];
+}
+
+/** The traveller's position, or nothing. */
+export function pointFeature(point: [number, number] | null): FeatureCollection<Point> {
+  return { type: "FeatureCollection", features: point ? [{ type: "Feature", geometry: { type: "Point", coordinates: point }, properties: {} }] : [] };
 }
 
 export function buildStyle(theme: Theme, places: MapPlace[], selectedId: string, extras: MapExtras = {}): StyleSpecification {
@@ -150,8 +168,12 @@ export function buildStyle(theme: Theme, places: MapPlace[], selectedId: string,
         attribution: '<a href="https://www.openstreetmap.org/copyright">© OpenStreetMap</a> · <a href="https://protomaps.com">Protomaps</a>' },
       detail: { type: "vector", tiles, bounds: BOUNDS, minzoom: DETAIL_MIN_ZOOM, maxzoom: 15 },
       places: { type: "geojson", data: placeFeatures(places), cluster: extras.cluster ?? true, clusterRadius: 38, clusterMaxZoom: 11 },
-      ...(extras.route ? { route: { type: "geojson" as const, data: routeFeature(extras.route) } } : {}),
+      ...(extras.route ? {
+        route: { type: "geojson" as const, data: routeFeature(extras.route) },
+        travelled: { type: "geojson" as const, data: routeFeature([]) },
+        traveller: { type: "geojson" as const, data: pointFeature(null) },
+      } : {}),
     },
-    layers: [...layeredBasemap(flavor), ...(extras.route ? routeLayers() : []), ...placeLayers(selectedId)],
+    layers: [...layeredBasemap(flavor), ...(extras.route ? routeLayers().slice(0, 3) : []), ...placeLayers(selectedId), ...(extras.route ? routeLayers().slice(3) : [])],
   };
 }

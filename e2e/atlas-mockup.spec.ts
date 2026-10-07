@@ -460,6 +460,9 @@ test("journeys: Paul's journey steps through chapters and stops, keeping Scriptu
   await expect(panel).toContainText("None of these years is stated in the Bible");
   await chapters.nth(1).click();
   await expect(panel.getByRole("heading", { name: "First journey" })).toBeVisible();
+  // The route draws itself once the map is in view, to the end of the chapter.
+  await page.locator(".street-atlas-map").scrollIntoViewIfNeeded();
+  await expect(page.locator(".street-atlas-map")).toHaveAttribute("data-route-progress", "1.000", { timeout: 8000 });
   await panel.getByRole("button", { name: "Begin" }).click();
   await expect(page).toHaveURL(/chapter=journey-1&stop=1/);
   await expect(panel).toContainText("stop 1 of 17");
@@ -473,6 +476,8 @@ test("journeys: Paul's journey steps through chapters and stops, keeping Scriptu
   await page.goto("/study/atlas/journeys?focus=paul&lens=story&chapter=rome&stop=3");
   await expect(panel).toContainText("Later tradition");
   await expect(panel).toContainText("Eusebius");
+  // Rome is one of the Ancient Cities: the stop opens its city page.
+  await expect(panel.getByRole("link", { name: /Explore Rome in Ancient Cities/ })).toHaveAttribute("href", /\/study\/atlas\/cities\?collection=apostolic-cities&focus=rome&view=city/);
   await expect(panel.getByRole("button", { name: "Next" })).toBeDisabled();
   await page.getByRole("button", { name: /Abraham.*Called to go/ }).click();
   await expect(page.locator(".places-preview-label")).toBeVisible();

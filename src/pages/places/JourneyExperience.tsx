@@ -1,4 +1,4 @@
-import { ArrowLeft, ArrowRight, BookOpen } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight, BookOpen } from "lucide-react";
 import { useMemo } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { StreetAtlasMap } from "@/components/atlas/StreetAtlasMap";
@@ -10,6 +10,7 @@ import { formatRange, sectionOfNum, splitId } from "@/lib/refs";
 import { studyRefLink } from "@/lib/study";
 import type { SectionId } from "@/lib/types";
 import { useAsync } from "@/lib/useAsync";
+import { cityPageFor } from "./city-link";
 import { buildPaulJourney, type JourneyChapter, type JourneyStop, type StopLayer } from "./paul-journey";
 import "./journey.css";
 
@@ -40,10 +41,17 @@ export function JourneyExperience({ lens }: { lens: "story" | "letters" }) {
     }));
   }, [raw, catalog]);
   const shown = useMemo(() => [...new Map((chapter?.stops ?? []).flatMap((s) => placesById.get(s.placeId) ?? []).map((p) => [p.id, p])).values()], [chapter, placesById]);
-  const route = useMemo(() => {
-    if (!chapter?.route) return [];
-    const points = chapter.stops.flatMap((s) => { const p = placesById.get(s.placeId); return p ? [[p.lon, p.lat] as [number, number]] : []; });
-    return points.filter((point, i) => i === 0 || point[0] !== points[i - 1][0] || point[1] !== points[i - 1][1]);
+  // The route's points (a stop repeated in place is drawn once) and, for each stop, its point on the route.
+  const { route, routeIndex } = useMemo(() => {
+    const points: [number, number][] = [];
+    const index: number[] = [];
+    for (const s of chapter?.route ? chapter.stops : []) {
+      const p = placesById.get(s.placeId);
+      const last = points.at(-1);
+      if (p && (!last || last[0] !== p.lon || last[1] !== p.lat)) points.push([p.lon, p.lat]);
+      index.push(Math.max(points.length - 1, 0));
+    }
+    return { route: points, routeIndex: index };
   }, [chapter, placesById]);
 
   const go = (chapterId: string, number: number) => {
@@ -68,10 +76,10 @@ export function JourneyExperience({ lens }: { lens: "story" | "letters" }) {
     </div>
     <div className="journey-stage">
       <div className="journey-map">
-        <StreetAtlasMap places={shown} selected={stop ? placesById.get(stop.placeId) ?? null : null} route={route} cluster={false} flyZoom={7} frameFirst frameMaxZoom={6} onSelect={(place) => go(chapter.id, chapter.stops.findIndex((s) => s.placeId === place.id) + 1)} />
+        <StreetAtlasMap places={shown} selected={stop ? placesById.get(stop.placeId) ?? null : null} route={route} routeAt={stop ? routeIndex[stopNumber - 1] : undefined} cluster={false} flyZoom={7} frameFirst frameMaxZoom={6} onSelect={(place) => go(chapter.id, chapter.stops.findIndex((s) => s.placeId === place.id) + 1)} />
       </div>
       <aside className="journey-panel" aria-live="polite">
-        {stop ? <StopView stop={stop} number={stopNumber} total={chapter.stops.length} chapter={chapter} citations={citations} />
+        {stop ? <StopView stop={stop} number={stopNumber} total={chapter.stops.length} chapter={chapter} citations={citations} cityPage={cityPageFor(stop.placeId, [...placesById.values()], ["apostolic-cities", "ports-trade"])} />
           : <ChapterView chapter={chapter} datingCites={journey.value.datingCites} citations={citations} onStop={(n) => go(chapter.id, n)} />}
         <div className="journey-steps">
           <button type="button" onClick={back} disabled={index === 0 && stopNumber === 0}><ArrowLeft size={15} aria-hidden /> Back</button>
@@ -105,7 +113,7 @@ function ChapterView({ chapter, datingCites, citations, onStop }: { chapter: Jou
   </div>;
 }
 
-function StopView({ stop, number, total, chapter, citations }: { stop: JourneyStop; number: number; total: number; chapter: JourneyChapter; citations: Citation[] }) {
+function StopView({ stop, number, total, chapter, citations, cityPage }: { stop: JourneyStop; number: number; total: number; chapter: JourneyChapter; citations: Citation[]; cityPage: string | null }) {
   return <div className="journey-stop">
     <p className="places-kicker">{chapter.title} · stop {number} of {total}</p>
     <h3>{stop.name}</h3>
@@ -114,6 +122,7 @@ function StopView({ stop, number, total, chapter, citations }: { stop: JourneySt
     {stop.refs.length > 0 && <p className="journey-refs"><BookOpen size={15} aria-hidden /><Passages refs={stop.refs} /></p>}
     {stop.layer === "tradition" && stop.refs.length > 0 && <p className="journey-dating">The passage is Scripture; this event and its place are told by later writers, not by the passage.</p>}
     {stop.cites.length > 0 && <p className="journey-dating">{stop.layer === "tradition" ? "Told by" : "Sources"}: <Sources ids={stop.cites} citations={citations} /></p>}
+    {cityPage && <Link className="journey-city" to={cityPage}>Explore {stop.name.replace(/[,(].*$/, "").trim()} in Ancient Cities <ArrowUpRight size={15} aria-hidden /></Link>}
   </div>;
 }
 

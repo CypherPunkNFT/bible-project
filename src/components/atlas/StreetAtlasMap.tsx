@@ -7,7 +7,8 @@ import { useMediaQuery } from "@/lib/useMediaQuery";
 import { useThemeVersion, type Theme } from "@/lib/theme";
 import type { MapPlace } from "./projection";
 import { ChunkedSource } from "./chunked-source";
-import { BOUNDS, buildStyle, placeFeatures, routeFeature, tilesBase } from "./street-style";
+import { animateDistance, cumulative, drawDuration, reachedCount, sliceTo, type Point } from "./route-animation";
+import { BOUNDS, buildStyle, placeFeatures, pointFeature, routeFeature, tilesBase } from "./street-style";
 import "./vector-atlas.css";
 import "./street-atlas.css";
 
@@ -46,6 +47,8 @@ interface Props {
   focusKey?: number;
   /** A route drawn as a dashed line under the dots, in order (Atlas journeys). */
   route?: [number, number][];
+  /** Where the traveller stands on the route (an index into `route`); omitted = the whole route travelled. */
+  routeAt?: number;
   /** Group nearby dots into numbered clusters (default); a journey turns this off to show every stop. */
   cluster?: boolean;
   /** The closest zoom a chosen place flies to (default 12, street level). */
@@ -57,12 +60,16 @@ interface Props {
 }
 
 /** Street-level atlas mockup: OpenStreetMap vector tiles (Protomaps) drawn by MapLibre, zoomable to streets near every place. */
-export function StreetAtlasMap({ places, selected, onSelect, overlay, coveredFraction = 0, initialRegion = "Holy Land", focusKey, route, cluster = true, flyZoom = 12, frameFirst = false, frameMaxZoom = 11 }: Props) {
+export function StreetAtlasMap({ places, selected, onSelect, overlay, coveredFraction = 0, initialRegion = "Holy Land", focusKey, route, cluster = true, flyZoom = 12, frameFirst = false, frameMaxZoom = 11, routeAt }: Props) {
   const container = useRef<HTMLDivElement>(null);
   const mapRef = useRef<MapLibreMap | null>(null);
   const placesRef = useRef(places);
   const routeRef = useRef(route);
   const clusterRef = useRef(cluster); // fixed for the map's life: the source is created with it
+  const distanceRef = useRef(0); // how far along the route the traveller is
+  const revealRef = useRef(-1); // how many route points have been reached (their dots are shown)
+  const cancelRef = useRef<() => void>(() => undefined);
+  const routeKeyRef = useRef("");
   const onSelectRef = useRef(onSelect);
   const selectedIdRef = useRef(selected?.id ?? "");
   const firstPlaces = useRef(true);
@@ -78,12 +85,44 @@ export function StreetAtlasMap({ places, selected, onSelect, overlay, coveredFra
 
   // Dots and the selected ring always come from the latest props (refs), never from a value captured earlier,
   // so a late call can't bring back an old filter result or an old selection.
+  // On a journey, a stop's dot appears once the traveller reaches it; places off the route always show.
+  const visiblePlaces = () => {
+    const path = routeRef.current;
+    if (!path?.length) return placesRef.current;
+    const key = (lon: number, lat: number) => `${lon},${lat}`;
+    const onPath = new Set(path.map(([lon, lat]) => key(lon, lat)));
+    const reached = new Set(path.slice(0, Math.max(revealRef.current, 0)).map(([lon, lat]) => key(lon, lat)));
+    return placesRef.current.filter((p) => !onPath.has(key(p.lon, p.lat)) || reached.has(key(p.lon, p.lat)));
+  };
+  // Draw the traveller at a distance along the route: the travelled line, the marker, and the dots reached.
+  const drawTravel = (distance: number) => {
+    distanceRef.current = distance;
+    const map = mapRef.current;
+    const path = (routeRef.current ?? []) as Point[];
+    if (!map || !path.length) return;
+    const lengths = cumulative(path);
+    const travelled = sliceTo(path, lengths, distance);
+    // Share of the route travelled, for tests and anyone inspecting the page (0 to 1).
+    if (container.current) container.current.dataset.routeProgress = (lengths.at(-1) ? distance / lengths.at(-1)! : 1).toFixed(3);
+    (map.getSource("travelled") as GeoJSONSource | undefined)?.setData(routeFeature(travelled));
+    (map.getSource("traveller") as GeoJSONSource | undefined)?.setData(pointFeature(travelled.at(-1) ?? null));
+    const reached = reachedCount(lengths, distance);
+    if (reached !== revealRef.current) {
+      revealRef.current = reached;
+      (map.getSource("places") as GeoJSONSource | undefined)?.setData(placeFeatures(visiblePlaces()));
+    }
+  };
+
   const syncOverlays = () => {
     const map = mapRef.current;
-    (map?.getSource("places") as GeoJSONSource | undefined)?.setData(placeFeatures(placesRef.current));
+    (map?.getSource("places") as GeoJSONSource | undefined)?.setData(placeFeatures(visiblePlaces()));
     (map?.getSource("route") as GeoJSONSource | undefined)?.setData(routeFeature(routeRef.current ?? []));
+    if (routeRef.current?.length) drawTravel(distanceRef.current);
     if (map?.getLayer("place-selected")) map.setFilter("place-selected", ["==", ["get", "id"], selectedIdRef.current]);
   };
+  // Effects and map events call the latest helpers through this handle (they read only refs).
+  const overlays = useRef({ sync: syncOverlays, draw: drawTravel });
+  overlays.current = { sync: syncOverlays, draw: drawTravel };
 
   useEffect(() => {
     if (!container.current) return;
@@ -104,7 +143,7 @@ export function StreetAtlasMap({ places, selected, onSelect, overlay, coveredFra
       const local = /^(localhost|127\.)/.test(window.location.hostname);
       setProblem(local ? "The map data is not available. Is the F: drive connected? See STREET_ATLAS.md." : "The map could not be loaded right now. Please try again in a moment.");
     });
-    map.on("style.load", syncOverlays); // props may have changed while the style was still loading
+    map.on("style.load", () => overlays.current.sync()); // props may have changed while the style was still loading
     map.on("click", "place-cluster", async (event: MapLayerMouseEvent) => {
       const feature = event.features?.[0];
       if (!feature) return;
@@ -132,11 +171,44 @@ export function StreetAtlasMap({ places, selected, onSelect, overlay, coveredFra
     if (themeVersion > 0) mapRef.current?.setStyle(buildStyle(currentTheme(), placesRef.current, selectedIdRef.current, { route: routeRef.current, cluster: clusterRef.current }));
   }, [themeVersion]);
 
+  // The journey moves (this runs before the dot and camera effects below, so a new route starts from zero): a new route draws itself from the start; a new stop moves the traveller along the route to it.
+  const routeKey = route?.map((point) => point.join(",")).join(";") ?? "";
+  useEffect(() => {
+    const map = mapRef.current;
+    const path = (routeRef.current ?? []) as Point[];
+    if (!map || path.length < 2) return;
+    const lengths = cumulative(path);
+    const target = lengths[Math.min(routeAt ?? path.length - 1, path.length - 1)];
+    const newRoute = routeKeyRef.current !== routeKey;
+    routeKeyRef.current = routeKey;
+    if (newRoute) { distanceRef.current = 0; revealRef.current = -1; }
+    const from = distanceRef.current;
+    const legs = Math.max(1, Math.abs(reachedCount(lengths, target) - reachedCount(lengths, from)));
+    const duration = reducedMotion ? 0 : newRoute ? drawDuration(legs) : Math.min(2400, 900 + legs * 250);
+    let timer = 0;
+    let observer: IntersectionObserver | null = null;
+    const run = () => { cancelRef.current = animateDistance(from, target, duration, (d) => overlays.current.draw(d)); };
+    const start = () => {
+      cancelRef.current();
+      if (!newRoute || reducedMotion || !container.current || typeof IntersectionObserver === "undefined") { run(); return; }
+      // A new chapter draws once the map is in view (not while the reader is still above it), after the camera frames it.
+      observer = new IntersectionObserver(([entry]) => {
+        if (!entry.isIntersecting) return;
+        observer?.disconnect();
+        timer = window.setTimeout(run, 500);
+      }, { threshold: 0.4 });
+      observer.observe(container.current);
+    };
+    // Its sources exist once the style has loaded (isStyleLoaded() is false while map pieces are still arriving).
+    if (map.getSource("travelled")) start(); else map.once("style.load", start);
+    return () => { window.clearTimeout(timer); observer?.disconnect(); cancelRef.current(); map.off("style.load", start); };
+  }, [routeKey, routeAt, reducedMotion]);
+
   // Filters changed: new dots, and frame them.
   useEffect(() => {
     const map = mapRef.current;
     if (!map) return;
-    syncOverlays();
+    overlays.current.sync();
     const first = firstPlaces.current;
     firstPlaces.current = false;
     if (first && !frameFirst) return;
@@ -151,7 +223,7 @@ export function StreetAtlasMap({ places, selected, onSelect, overlay, coveredFra
   useEffect(() => {
     const map = mapRef.current;
     if (!map) return;
-    syncOverlays();
+    overlays.current.sync();
     if (!selected) return;
     setActiveRegion("");
     const width = container.current?.clientWidth ?? 0;

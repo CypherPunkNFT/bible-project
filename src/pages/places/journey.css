@@ -10,16 +10,17 @@
 .journey-chapters button[aria-pressed="true"] { border-color: var(--places-color, var(--accent)); background: color-mix(in srgb, var(--places-color, var(--accent)) 9%, var(--surface)); }
 .journey-chapters button:focus { outline: none; }
 
-.journey-stage { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(17rem, 1fr); gap: 1rem; align-items: stretch; }
-.journey-map { min-width: 0; }
+.journey-stage { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(17rem, 1fr); gap: 1rem; align-items: start; }
+/* The map stays in view beside a long stop list (the panel is as tall as its content; no inner scroll box). */
+.journey-map { min-width: 0; position: sticky; top: 5rem; }
 .journey-map .vector-atlas { margin: 0; }
 .journey-map .vector-atlas-key { display: none; }
-.journey-panel { display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 1rem; background: var(--surface); padding: 1.2rem 1.3rem; min-height: 0; }
+.journey-panel { display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 1rem; background: var(--surface); padding: 1.2rem 1.3rem; }
 .journey-panel h3 { font-family: var(--font-serif, serif); font-size: 1.6rem; line-height: 1.15; margin: .25rem 0 .6rem; }
 .journey-panel p { line-height: 1.55; margin: .5rem 0; }
-.journey-chapter, .journey-stop { flex: 1; overflow-y: auto; max-height: 34rem; }
 
 .journey-stops { list-style: none; margin: .8rem 0 0; padding: 0; border-top: 1px solid var(--line); }
+.journey-stops li:last-child button { border-bottom: 0; }
 .journey-stops button { display: flex; flex-wrap: wrap; align-items: baseline; gap: .5rem; width: 100%; padding: .45rem 0; text-align: left; border-bottom: 1px solid var(--line); background: none; color: var(--ink); font-size: .9rem; }
 .journey-stops button:hover { color: var(--accent); }
 .journey-stops button:focus { outline: none; }
@@ -36,6 +37,8 @@
 .journey-refs a:hover, .journey-dating a:hover { text-decoration: underline; }
 .journey-dating { color: var(--muted); font-size: .82rem; }
 
+.journey-city { display: inline-flex; align-items: center; gap: .35rem; margin-top: .9rem; padding: .5rem .9rem; border: 1px solid var(--line); border-radius: 999px; color: var(--accent); font-size: .85rem; }
+.journey-city:hover { border-color: var(--accent); }
 .journey-steps { display: flex; gap: .5rem; justify-content: space-between; margin-top: 1rem; padding-top: .9rem; border-top: 1px solid var(--line); }
 .journey-steps button { display: inline-flex; align-items: center; gap: .35rem; padding: .5rem .9rem; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--ink); font-size: .82rem; }
 .journey-steps button:last-child { border-color: var(--accent); background: var(--accent); color: var(--page); }
@@ -53,7 +56,7 @@
 @media (max-width: 900px) {
   .journey { padding: 1rem .8rem 1.2rem; }
   .journey-stage { grid-template-columns: 1fr; }
-  .journey-chapter, .journey-stop { max-height: none; }
+  .journey-map { position: static; }
   /* Keep the stop panel in reach below the map on phones. */
   .journey-map .vector-atlas-canvas { height: clamp(260px, 42dvh, 420px); }
   .journey-map .vector-region-buttons { display: none; }
