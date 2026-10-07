@@ -1,12 +1,15 @@
 import { useState, type ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { cameFrom } from "@/lib/came-from";
+import { SlideLink } from "@/components/people-pages/SlideLink";
+import { useCarried } from "@/components/people-pages/use-carried";
 import { RefLink } from "@/components/study/StudyParts";
 import { useCatalog } from "@/lib/catalog";
+import { apostleFor, personPath, rulerFor } from "@/lib/people-pages-index";
 import { periodLabel } from "@/lib/people-periods";
 import { bookByNum, formatRange } from "@/lib/refs";
 import { sectionColor } from "@/lib/sections";
-import type { Person, PersonRow } from "@/lib/study";
+import type { Person, PersonRow, PersonStory } from "@/lib/study";
 import { cn } from "@/lib/utils";
 
 const SEX = { M: "Man", F: "Woman", G: "Group", "": "" } as const;
@@ -17,7 +20,7 @@ export function PersonProfile({ person, byId, sameName, switcher, entry }: { per
   const [refsShown, setRefsShown] = useState(40);
   const [full, setFull] = useState(false);
   const facts = [SEX[person.s], person.p && periodLabel(person.p), person.t].filter(Boolean).join(" · ");
-  const story = Boolean(person.short || person.article);
+  const story = Boolean(person.story || person.short || person.article);
   return <>
     {/* A ruler's or apostle's page is one click away: the switch under the name and, beside it, the entry card. */}
     <header className={entry ? "grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,25rem)] lg:items-start" : undefined}>
@@ -34,7 +37,8 @@ export function PersonProfile({ person, byId, sameName, switcher, entry }: { per
     </header>
     <div className="mt-8 grid gap-8 lg:grid-cols-[minmax(0,1fr)_22rem]">
       <div className="min-w-0">
-        {(person.short || person.article) && <section className="space-y-3 text-[0.98rem] leading-relaxed">
+        {person.story ? <SiteStory id={person.id} story={person.story} />
+          : (person.short || person.article) && <section className="space-y-3 text-[0.98rem] leading-relaxed">
           <h2 className="text-xs font-semibold uppercase tracking-[0.16em] text-muted">Their story</h2>
           {(full ? person.article || person.short : person.short || person.article).split("\n").filter(Boolean).map((para, i) => <p key={i}>{para}</p>)}
           {person.article && person.short && <button type="button" onClick={() => setFull(!full)} className="text-sm text-accent underline">{full ? "Shorter" : "Read more"}</button>}
@@ -50,6 +54,36 @@ export function PersonProfile({ person, byId, sameName, switcher, entry }: { per
       </aside>
     </div>
   </>;
+}
+
+/** The site's own story from Scripture (content/people/stories/): the short line, then, on "Read more", each paragraph
+ *  with the verses it rests on as links into the reader. */
+function SiteStory({ id, story }: { id: string; story: PersonStory }) {
+  const [full, setFull] = useState(false);
+  return <section className="space-y-3 text-[0.98rem] leading-relaxed">
+    <h2 className="text-xs font-semibold uppercase tracking-[0.16em] text-muted">Their story</h2>
+    <p>{story.short}</p>
+    {full && story.paragraphs.map((para, i) => <div key={i}>
+      <p>{para.text}</p>
+      <p className="mt-1 flex flex-wrap gap-x-3 gap-y-0.5 text-xs text-muted">{para.refs.map((span, j) => <RefLink key={j} span={span} />)}</p>
+    </div>)}
+    {story.paragraphs.length > 0 && <button type="button" onClick={() => setFull(!full)} className="text-sm text-accent underline">{full ? "Shorter" : "Read more"}</button>}
+    <SiteStoryCredit id={id} />
+  </section>;
+}
+
+const RULE_PAGE = { judge: "judge", leader: "leader", governor: "governorship", herod: "rule", roman: "rule" } as Record<string, string>;
+
+/** Credit for the site's story, pointing to the reign or mission page, where the sources are. */
+function SiteStoryCredit({ id }: { id: string }) {
+  const carried = useCarried();
+  const ruler = rulerFor(id), apostle = apostleFor(id);
+  const page = ruler ? { to: personPath(ruler.id, "rule"), label: `${RULE_PAGE[ruler.kind] ?? "reign"} page` }
+    : apostle ? { to: personPath(apostle.id, "mission"), label: "mission page" } : undefined;
+  return <p className="mt-2 text-xs text-muted">
+    Written by this site from Scripture
+    {page && <> · sources on the <SlideLink to={page.to} state={carried} className="underline decoration-line underline-offset-2 hover:text-accent">{page.label}</SlideLink></>}
+  </p>;
 }
 
 /** Who wrote the description: STEP Bible's AI-adapted text (and whether this site corrected it), or this site. */

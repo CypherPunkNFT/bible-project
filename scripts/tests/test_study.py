@@ -11,6 +11,7 @@ import pytest
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from bible.paths import SOURCES  # noqa: E402
 from bible.people_corrections import apply_people_corrections  # noqa: E402
+from bible.people_stories import StoryError, apply_people_stories, load_stories  # noqa: E402
 from bible.study_harmony import parse_harmony, parse_miracles, sentence_case  # noqa: E402
 from bible.study_people import parse_people, people_period, readable_name  # noqa: E402
 from bible.study_prophets import build_prophets  # noqa: E402
@@ -160,3 +161,60 @@ def test_people_corrections(people, verses):
 def test_annas_herod_is_herod_the_great(people, verses):
     anna = next(p for p in build_prophets(people, verses) if p["id"] == "anna-luk-2-36")
     assert anna["king"] == "Herod the Great"
+
+
+def _story(short="Short line.", refs=((40004018, 40004020),)):
+    return {"short": short, "paragraphs": [{"text": "A paragraph.", "refs": [list(span) for span in refs]}]}
+
+
+def test_people_stories_replace_steps_story_and_keep_it(tmp_path):
+    (tmp_path / "a.json").write_text(json.dumps({"about": "test", "stories": {"peter": _story()}}), encoding="utf-8")
+    (tmp_path / "b.json").write_text(json.dumps({"about": "test", "stories": {"john": _story("John.")}}), encoding="utf-8")
+    detail = {
+        "peter": {"b": "Apostle", "short": "STEP short", "article": "STEP article", "fx": ["article"], "note": "n"},
+        "john": {"b": "Apostle", "short": "s", "article": "a"},
+        "andrew": {"b": "Apostle", "short": "s", "article": "a"},
+    }
+    stories, source = load_stories(tmp_path)
+    assert source == {"peter": "a.json", "john": "b.json"}
+    assert apply_people_stories(detail, stories, source) == 2
+    peter = detail["peter"]
+    assert peter["story"] == _story() and peter["storyBy"] == "site"
+    # STEP's text, the corrections list and the note are left exactly as they were.
+    assert (peter["short"], peter["article"], peter["fx"], peter["note"], peter["b"]) == ("STEP short", "STEP article", ["article"], "n", "Apostle")
+    assert "story" not in detail["andrew"] and "storyBy" not in detail["andrew"]
+
+
+@pytest.mark.parametrize("stories, message", [
+    ({"nobody": _story()}, "not a person"),
+    ({"dup": _story()}, "duplicates"),
+])
+def test_people_stories_refuse_unknown_and_duplicate_records(stories, message):
+    detail = {"dup": {"same": "real"}, "real": {}}
+    with pytest.raises(StoryError, match=message):
+        apply_people_stories(detail, stories)
+
+
+@pytest.mark.parametrize("story, message", [
+    ({"short": "x"}, "keys must be exactly"),
+    ({"short": "x", "paragraphs": [{"text": "t", "refs": []}]}, "at least one verse span"),
+    ({"short": "x", "paragraphs": [{"text": "t", "refs": [[40004020, 40004018]]}]}, "is after"),
+    ({"short": "", "paragraphs": [{"text": "t", "refs": [[1, 1]]}]}, "non-empty"),
+])
+def test_people_story_shape(tmp_path, story, message):
+    (tmp_path / "bad.json").write_text(json.dumps({"about": "test", "stories": {"p": story}}), encoding="utf-8")
+    with pytest.raises(StoryError, match=message):
+        load_stories(tmp_path)
+
+
+def test_people_story_in_two_files_stops(tmp_path):
+    for name in ("a.json", "b.json"):
+        (tmp_path / name).write_text(json.dumps({"about": "test", "stories": {"peter": _story()}}), encoding="utf-8")
+    with pytest.raises(StoryError, match="already has a story in a.json"):
+        load_stories(tmp_path)
+
+
+def test_site_story_files_load():
+    stories, _ = load_stories(SITE / "content" / "people" / "stories")
+    people = {f.stem for f in (DATA / "study" / "people").glob("*.json")}
+    assert set(stories) <= people

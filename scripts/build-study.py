@@ -24,6 +24,7 @@ from bible.study_harmony import describe, parse_harmony, parse_miracles  # noqa:
 from bible.study_home import build_home  # noqa: E402
 from bible.study_letters import build_letters  # noqa: E402
 from bible.people_corrections import CorrectionError, apply_people_corrections  # noqa: E402
+from bible.people_stories import StoryError, apply_people_stories, load_stories  # noqa: E402
 from bible.study_names import build_names  # noqa: E402
 from bible.study_people import parse_people, people_period  # noqa: E402
 from bible.study_prophets import build_prophets  # noqa: E402
@@ -85,6 +86,9 @@ SAFE_PERSON_ID = re.compile(r"^[a-z0-9][a-z0-9_-]*$")
 # a period for each person TIPNR gives no era, and fixes to STEP's text, names, verses and family links plus records the
 # site added ("fixes", "added": scripts/bible/people_corrections.py; format in content/people/README.md).
 PEOPLE_CORRECTIONS = SITE / "content" / "people" / "catalogue-corrections.json"
+# The site's own sourced life stories (owner, 2026-10-07): each replaces STEP's AI-adapted story on the person page
+# (scripts/bible/people_stories.py; format in content/people/stories/README.md).
+PEOPLE_STORIES = SITE / "content" / "people" / "stories"
 
 
 def people_files(people: list[dict]) -> tuple[list[dict], dict[str, dict]]:
@@ -144,6 +148,10 @@ def build(data_root: Path, out: Path) -> dict:
     names = build_names(FILES["faith-names"].parent, verses)
     home = build_home(data_root, verses)
     rows, detail = people_files(people)
+    try:
+        people_report["stories"] = apply_people_stories(detail, *load_stories(PEOPLE_STORIES))
+    except StoryError as error:
+        raise SystemExit(f"{error} ({PEOPLE_STORIES})") from error
 
     sizes = {
         "harmony.json": write_json(out / "harmony.json", harmony),

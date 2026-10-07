@@ -6,6 +6,9 @@ people ([TIPNR](../../../sources/stepbible/TIPNR.txt), CC BY 4.0). It is read by
 [people_corrections.py](../../scripts/bible/people_corrections.py) when the study data is built. STEP's licence lets
 us change their data if the change is shown to readers, so every changed field is listed on the person's page data.
 
+The site's own life stories, which replace STEP's AI-adapted "Their story" on a person's page, are in
+[stories/](stories/README.md).
+
 The problems these fix, with their evidence, are in
 [INVENTORY.md](../../../Research/People/INVENTORY.md) sections 5.4 and 6.
 

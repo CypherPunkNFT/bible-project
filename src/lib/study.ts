@@ -66,6 +66,14 @@ export interface PersonDetail {
   note?: string;
   /** 1 when this site wrote the whole record (credited to the site, not to STEP). */
   added?: 1;
+  /** The site's own life story from Scripture (content/people/stories/), shown instead of STEP's short/article. */
+  story?: PersonStory;
+  storyBy?: "site";
+}
+/** A sourced life story: one short line, then paragraphs, each with the verses it rests on. */
+export interface PersonStory {
+  short: string;
+  paragraphs: { text: string; refs: Span[] }[];
 }
 export type Person = Omit<PersonRow, "b"> & PersonDetail;
 export interface Prophet {
