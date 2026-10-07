@@ -345,7 +345,8 @@ test("collection: illustrated destinations lead to separate pages and useful pre
   await expect(page).toHaveURL(/\/atlas\/journeys$/);
   await expect(page.getByRole("navigation", { name: "Explore the collection" }).getByRole("link", { name: "Journeys" })).toHaveAttribute("aria-current", "page");
   await page.getByRole("button", { name: "Letters", exact: true }).click();
-  await expect(page.getByRole("heading", { name: "Connect places and correspondence." })).toBeVisible();
+  // Paul's Letters lens is built: the letters on the map, not the preview heading.
+  await expect(page.getByRole("group", { name: "Chapters" }).getByRole("button", { name: /Where the letters went/ })).toBeVisible();
   await page.getByRole("button", { name: /Ruth.*Moab to Bethlehem/ }).click();
   await expect(page.getByRole("button", { name: "Letters", exact: true })).toHaveCount(0);
   await page.getByRole("button", { name: "People", exact: true }).click();
@@ -445,4 +446,35 @@ test("collection: landing and destination controls fit both themes and retain ol
   await page.goto("/study/atlas?place=a15257a");
   await expect(page).toHaveURL(/\/atlas\/map\?place=a15257a/);
   await expect(page.getByRole("complementary", { name: "Jerusalem" })).toBeVisible();
+});
+
+test("journeys: Paul's journey steps through chapters and stops, keeping Scripture, scholars' dating and tradition apart", async ({ page }) => {
+  const errors: string[] = [];
+  page.on("pageerror", (error) => errors.push(error.message));
+  await page.goto("/study/atlas/journeys?focus=paul&lens=story");
+  const chapters = page.getByRole("group", { name: "Chapters" }).getByRole("button");
+  await expect(chapters).toHaveCount(7);
+  await expect(chapters.first()).toHaveAttribute("aria-pressed", "true");
+  await expect(page.locator(".places-preview-label")).toHaveCount(0);
+  const panel = page.locator(".journey-panel");
+  await expect(panel).toContainText("None of these years is stated in the Bible");
+  await chapters.nth(1).click();
+  await expect(panel.getByRole("heading", { name: "First journey" })).toBeVisible();
+  await panel.getByRole("button", { name: "Begin" }).click();
+  await expect(page).toHaveURL(/chapter=journey-1&stop=1/);
+  await expect(panel).toContainText("stop 1 of 17");
+  await expect(panel).toContainText("Named in Scripture");
+  await panel.getByRole("button", { name: "Next stop" }).click();
+  await expect(panel.getByRole("heading", { name: "Seleucia" })).toBeVisible();
+  await panel.getByRole("link", { name: "Acts 13:4" }).click();
+  await expect(page).not.toHaveURL(/atlas/);
+  await page.goBack();
+  await expect(panel.getByRole("heading", { name: "Seleucia" })).toBeVisible();
+  await page.goto("/study/atlas/journeys?focus=paul&lens=story&chapter=rome&stop=3");
+  await expect(panel).toContainText("Later tradition");
+  await expect(panel).toContainText("Eusebius");
+  await expect(panel.getByRole("button", { name: "Next" })).toBeDisabled();
+  await page.getByRole("button", { name: /Abraham.*Called to go/ }).click();
+  await expect(page.locator(".places-preview-label")).toBeVisible();
+  expect(errors).toEqual([]);
 });

@@ -1,5 +1,5 @@
 import { layers, namedFlavor, type Flavor } from "@protomaps/basemaps";
-import type { FeatureCollection, Point } from "geojson";
+import type { FeatureCollection, LineString, Point } from "geojson";
 import type { FilterSpecification, LayerSpecification, StyleSpecification } from "maplibre-gl";
 import { resolvedSectionColors } from "@/lib/sections";
 import type { Theme } from "@/lib/theme";
@@ -121,7 +121,21 @@ function layeredBasemap(flavor: Flavor): LayerSpecification[] {
 }
 
 /** The whole map style: earth-toned OpenStreetMap basemap underneath, the Bible places on top. */
-export function buildStyle(theme: Theme, places: MapPlace[], selectedId: string): StyleSpecification {
+/** Optional extras for one map: a route line under the dots (drawn dashed, since the roads are reconstructed), and
+ * whether nearby dots group into numbered clusters (on by default; a journey shows every stop). */
+export interface MapExtras { route?: [number, number][]; cluster?: boolean }
+
+export function routeFeature(route: [number, number][]): FeatureCollection<LineString> {
+  return { type: "FeatureCollection", features: route.length > 1 ? [{ type: "Feature", geometry: { type: "LineString", coordinates: route }, properties: {} }] : [] };
+}
+
+function routeLayers(): LayerSpecification[] {
+  const accent = css("--accent") || "#b5562d";
+  return [{ id: "journey-route", type: "line", source: "route", layout: { "line-join": "round", "line-cap": "round" },
+    paint: { "line-color": accent, "line-width": 2.5, "line-opacity": 0.85, "line-dasharray": [1.6, 1.4] } }];
+}
+
+export function buildStyle(theme: Theme, places: MapPlace[], selectedId: string, extras: MapExtras = {}): StyleSpecification {
   const base = tilesBase();
   const earthy = { ...namedFlavor(theme), ...EARTH[theme] } as Flavor;
   // Modern built-up areas are drawn as open land.
@@ -135,8 +149,9 @@ export function buildStyle(theme: Theme, places: MapPlace[], selectedId: string)
       world: { type: "vector", tiles, bounds: BOUNDS, minzoom: 0, maxzoom: WORLD_MAX_ZOOM,
         attribution: '<a href="https://www.openstreetmap.org/copyright">© OpenStreetMap</a> · <a href="https://protomaps.com">Protomaps</a>' },
       detail: { type: "vector", tiles, bounds: BOUNDS, minzoom: DETAIL_MIN_ZOOM, maxzoom: 15 },
-      places: { type: "geojson", data: placeFeatures(places), cluster: true, clusterRadius: 38, clusterMaxZoom: 11 },
+      places: { type: "geojson", data: placeFeatures(places), cluster: extras.cluster ?? true, clusterRadius: 38, clusterMaxZoom: 11 },
+      ...(extras.route ? { route: { type: "geojson" as const, data: routeFeature(extras.route) } } : {}),
     },
-    layers: [...layeredBasemap(flavor), ...placeLayers(selectedId)],
+    layers: [...layeredBasemap(flavor), ...(extras.route ? routeLayers() : []), ...placeLayers(selectedId)],
   };
 }

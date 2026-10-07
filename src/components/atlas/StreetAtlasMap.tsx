@@ -7,7 +7,7 @@ import { useMediaQuery } from "@/lib/useMediaQuery";
 import { useThemeVersion, type Theme } from "@/lib/theme";
 import type { MapPlace } from "./projection";
 import { ChunkedSource } from "./chunked-source";
-import { BOUNDS, buildStyle, placeFeatures, tilesBase } from "./street-style";
+import { BOUNDS, buildStyle, placeFeatures, routeFeature, tilesBase } from "./street-style";
 import "./vector-atlas.css";
 import "./street-atlas.css";
 
@@ -44,13 +44,25 @@ interface Props {
   coveredFraction?: number;
   initialRegion?: string;
   focusKey?: number;
+  /** A route drawn as a dashed line under the dots, in order (Atlas journeys). */
+  route?: [number, number][];
+  /** Group nearby dots into numbered clusters (default); a journey turns this off to show every stop. */
+  cluster?: boolean;
+  /** The closest zoom a chosen place flies to (default 12, street level). */
+  flyZoom?: number;
+  /** Frame the first set of places too (a journey opens on its whole route); by default the map opens on initialRegion. */
+  frameFirst?: boolean;
+  /** The closest zoom when framing a set of places (default 11; a journey frames whole regions). */
+  frameMaxZoom?: number;
 }
 
 /** Street-level atlas mockup: OpenStreetMap vector tiles (Protomaps) drawn by MapLibre, zoomable to streets near every place. */
-export function StreetAtlasMap({ places, selected, onSelect, overlay, coveredFraction = 0, initialRegion = "Holy Land", focusKey }: Props) {
+export function StreetAtlasMap({ places, selected, onSelect, overlay, coveredFraction = 0, initialRegion = "Holy Land", focusKey, route, cluster = true, flyZoom = 12, frameFirst = false, frameMaxZoom = 11 }: Props) {
   const container = useRef<HTMLDivElement>(null);
   const mapRef = useRef<MapLibreMap | null>(null);
   const placesRef = useRef(places);
+  const routeRef = useRef(route);
+  const clusterRef = useRef(cluster); // fixed for the map's life: the source is created with it
   const onSelectRef = useRef(onSelect);
   const selectedIdRef = useRef(selected?.id ?? "");
   const firstPlaces = useRef(true);
@@ -60,6 +72,7 @@ export function StreetAtlasMap({ places, selected, onSelect, overlay, coveredFra
   const themeVersion = useThemeVersion();
   const reducedMotion = useMediaQuery("(prefers-reduced-motion: reduce)");
   placesRef.current = places;
+  routeRef.current = route;
   onSelectRef.current = onSelect;
   selectedIdRef.current = selected?.id ?? "";
 
@@ -68,6 +81,7 @@ export function StreetAtlasMap({ places, selected, onSelect, overlay, coveredFra
   const syncOverlays = () => {
     const map = mapRef.current;
     (map?.getSource("places") as GeoJSONSource | undefined)?.setData(placeFeatures(placesRef.current));
+    (map?.getSource("route") as GeoJSONSource | undefined)?.setData(routeFeature(routeRef.current ?? []));
     if (map?.getLayer("place-selected")) map.setFilter("place-selected", ["==", ["get", "id"], selectedIdRef.current]);
   };
 
@@ -75,7 +89,7 @@ export function StreetAtlasMap({ places, selected, onSelect, overlay, coveredFra
     if (!container.current) return;
     addPmtilesProtocol();
     const map = new MapLibreMap({
-      container: container.current, style: buildStyle(currentTheme(), placesRef.current, selectedIdRef.current),
+      container: container.current, style: buildStyle(currentTheme(), placesRef.current, selectedIdRef.current, { route: routeRef.current, cluster: clusterRef.current }),
       center: initialPreset.current && "center" in initialPreset.current ? initialPreset.current.center : [35.2, 31.7],
       zoom: initialPreset.current && "zoom" in initialPreset.current ? initialPreset.current.zoom : 7, maxZoom: 18, attributionControl: { compact: false },
       maxBounds: BOUNDS, renderWorldCopies: false, // the biblical world only: no panning or zooming out past it
@@ -115,7 +129,7 @@ export function StreetAtlasMap({ places, selected, onSelect, overlay, coveredFra
 
   // Theme switch: rebuild the style with the other palette (places included, so nothing is lost).
   useEffect(() => {
-    if (themeVersion > 0) mapRef.current?.setStyle(buildStyle(currentTheme(), placesRef.current, selectedIdRef.current));
+    if (themeVersion > 0) mapRef.current?.setStyle(buildStyle(currentTheme(), placesRef.current, selectedIdRef.current, { route: routeRef.current, cluster: clusterRef.current }));
   }, [themeVersion]);
 
   // Filters changed: new dots, and frame them.
@@ -123,13 +137,15 @@ export function StreetAtlasMap({ places, selected, onSelect, overlay, coveredFra
     const map = mapRef.current;
     if (!map) return;
     syncOverlays();
-    if (firstPlaces.current) { firstPlaces.current = false; return; }
+    const first = firstPlaces.current;
+    firstPlaces.current = false;
+    if (first && !frameFirst) return;
     if (!places.length) return;
     const bounds = new LngLatBounds();
     places.forEach((p) => bounds.extend([p.lon, p.lat]));
-    map.fitBounds(bounds, { padding: 60, maxZoom: 11, duration: reducedMotion ? 0 : 700 });
+    map.fitBounds(bounds, { padding: 60, maxZoom: frameMaxZoom, duration: reducedMotion || first ? 0 : 700 });
     setActiveRegion("");
-  }, [places, reducedMotion]);
+  }, [places, route, reducedMotion, frameFirst, frameMaxZoom]);
 
   // A chosen place: ring it and fly there, keeping it clear of the slide-in panel.
   useEffect(() => {
@@ -139,8 +155,8 @@ export function StreetAtlasMap({ places, selected, onSelect, overlay, coveredFra
     if (!selected) return;
     setActiveRegion("");
     const width = container.current?.clientWidth ?? 0;
-    map.flyTo({ center: [selected.lon, selected.lat], zoom: Math.max(map.getZoom(), 12), padding: { top: 0, bottom: 0, left: 0, right: width * coveredFraction }, duration: reducedMotion ? 0 : 1400 });
-  }, [selected, coveredFraction, reducedMotion, focusKey]);
+    map.flyTo({ center: [selected.lon, selected.lat], zoom: Math.max(map.getZoom(), flyZoom), padding: { top: 0, bottom: 0, left: 0, right: width * coveredFraction }, duration: reducedMotion ? 0 : 1400 });
+  }, [selected, coveredFraction, reducedMotion, focusKey, flyZoom]);
 
   const goTo = (preset: Preset) => {
     setActiveRegion(preset.name);

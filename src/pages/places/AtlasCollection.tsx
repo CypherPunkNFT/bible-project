@@ -3,6 +3,7 @@ import { useState, type CSSProperties, type ReactNode } from "react";
 import { Link, NavLink, Navigate, Route, Routes, useLocation, useSearchParams } from "react-router-dom";
 import { PlacesArtwork } from "./PlacesArtwork";
 import { CITY_COLLECTIONS } from "./city-collections";
+import { JourneyExperience } from "./JourneyExperience";
 import { CitySelection } from "./CitySelection";
 import { CityDirectory } from "./CityDirectory";
 import { HISTORY_COLLECTIONS, type HistoryId } from "./history-collections";
@@ -185,14 +186,16 @@ function ExperienceWorkspace({ id, choice, lenses, lens, onLens, showPreviewNote
   id: PreviewId; choice: Choice; lenses: Lens[]; lens: Lens; onLens: (id: string) => void; showPreviewNotes?: boolean;
 }) {
   const data = EXPERIENCES[id];
+  // Paul's journey is built (Story and Letters lenses); every other choice is still the preview.
+  const journey = id === "journeys" && choice.id === "paul" && (lens.id === "story" || lens.id === "letters") ? lens.id : null;
   return (
     <section className="places-workspace" aria-labelledby="places-workspace-title">
-      <header><div><p className="places-kicker">{id === "journeys" ? "Your journey" : id === "cities" ? "Your city" : "Your starting point"}</p><h2 id="places-workspace-title">{choice.title}<span>{choice.subtitle}</span></h2></div>{showPreviewNotes && <span className="places-preview-label">Experience preview</span>}</header>
+      <header><div><p className="places-kicker">{id === "journeys" ? "Your journey" : id === "cities" ? "Your city" : "Your starting point"}</p><h2 id="places-workspace-title">{choice.title}<span>{choice.subtitle}</span></h2></div>{showPreviewNotes && !journey && <span className="places-preview-label">Experience preview</span>}</header>
       <div className="places-lens-bar"><span>{id === "gospels" ? "Read through" : "Explore through"}</span><div role="group" aria-label="Choose a lens">{lenses.map((option) => <button type="button" key={option.id} aria-pressed={lens.id === option.id} onClick={() => onLens(option.id)}>{option.label}</button>)}</div></div>
-      <div className="places-workspace-body">
+      {journey ? <JourneyExperience lens={journey} /> : <div className="places-workspace-body">
         <div className="places-workspace-art" aria-hidden><PlacesArtwork kind={id} /><span>{choice.title} · {choice.subtitle}</span></div>
         <div className="places-lens-copy" aria-live="polite"><p className="places-kicker">{lens.label}{id !== "gospels" ? " lens" : " perspective"}</p><h3>{lens.title}</h3><p>{lens.description}</p>{showPreviewNotes && <div className="places-next-build"><Compass size={18} aria-hidden /><p>{data.next}</p></div>}<AtlasFindLink place={choice.place} /></div>
-      </div>
+      </div>}
     </section>
   );
 }
