@@ -106,34 +106,44 @@ test("harmony: 'only John' shows the events no other Gospel tells", async ({ pag
   await expect(page.getByRole("button", { name: /Feeding of the five thousand/ })).toHaveCount(0);
 });
 
+// The page end: the site footer (the tall editorial footer added 2026-10-06, 03ebbe4a) is taller than what the
+// screen has left below the map and filter strip, so the end shows the whole footer rather than the map.
+// What must hold there: the page really ends at the footer's bottom, and the filter strip is never cut in
+// half by the site header (it is either whole below the header or scrolled away above it).
+async function checkHarmonyPageEnd(page: Page) {
+  await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight));
+  await expect.poll(() => page.evaluate(() => Math.abs(document.querySelector("#main + footer")!.getBoundingClientRect().bottom - innerHeight))).toBeLessThanOrEqual(1);
+  const end = await page.evaluate(() => {
+    const band = document.querySelector(".harmony-filters")!.getBoundingClientRect();
+    const header = document.querySelector("#main")!.previousElementSibling!.getBoundingClientRect();
+    return { bandTop: band.top, bandBottom: band.bottom, headerBottom: header.bottom };
+  });
+  expect(end.bandTop >= end.headerBottom - 1 || end.bandBottom <= end.headerBottom + 1, `filter strip ${end.bandTop}-${end.bandBottom} is cut by the header ending at ${end.headerBottom}`).toBe(true);
+}
+
 test("harmony: rows and the outside scrollbar scroll together while the chart stays visible", async ({ page }) => {
   await page.goto("/study/harmony");
   const rows = page.getByRole("region", { name: "Gospel harmony events", exact: true });
   const chart = page.locator(".harmony-coverage");
+  // Where the page opens (the harmony card at the top): map, filter strip and event rows all on screen.
   await expect(chart).toBeInViewport({ ratio: 1 });
   await expect(rows).toBeInViewport({ ratio: 1 });
-  // Check the actual page end, not only the anchor landing: the old layout clipped the search strip here.
-  await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight));
-  await expect(chart).toBeInViewport({ ratio: 1 });
-  // Document scrolling rounds to whole pixels; the footer edge can land a fraction of a pixel below it.
-  await expect(page.locator("#main + footer")).toBeInViewport({ ratio: .99 });
+  await expect(page.locator(".harmony-filters")).toBeInViewport({ ratio: 1 });
   const before = await page.evaluate(() => {
     const card = document.getElementById("harmony")!.getBoundingClientRect();
     const band = document.querySelector(".harmony-filters")!.getBoundingClientRect();
     const outside = document.querySelector(".harmony-outside-scroll")!.getBoundingClientRect();
-    const footer = document.querySelector("#main + footer")!.getBoundingClientRect();
     const header = document.querySelector("#main")!.previousElementSibling!.getBoundingClientRect();
     const rows = document.querySelector(".harmony-rows")!;
     return { pageY: scrollY, chartY: document.querySelector(".harmony-coverage")!.getBoundingClientRect().top,
       leftInset: band.left - card.left, rightInset: card.right - band.right,
       scrollbarGap: outside.right - 6 - card.right, gutter: rows.getBoundingClientRect().width - rows.clientWidth,
-      footerVisible: innerHeight - footer.top, footerHeight: footer.height, bandClearance: band.top - header.bottom };
+      bandClearance: band.top - header.bottom };
   });
   expect(before.leftInset).toBeCloseTo(1);
   expect(before.rightInset).toBeCloseTo(1);
   expect(before.scrollbarGap).toBeGreaterThan(0);
   expect(before.gutter).toBeLessThanOrEqual(1);
-  expect(before.footerVisible).toBeGreaterThanOrEqual(before.footerHeight - 1);
   expect(before.bandClearance).toBeGreaterThanOrEqual(0);
 
   await rows.hover();
@@ -151,13 +161,10 @@ test("harmony: rows and the outside scrollbar scroll together while the chart st
   await expect(page.locator(".harmony-rows > ol > li").last()).toBeInViewport();
   expect(await page.evaluate(() => scrollY)).toBeCloseTo(before.pageY, 0);
 
+  await checkHarmonyPageEnd(page);
   if (page.viewportSize()!.width > 1000) {
     await page.setViewportSize({ width: 320, height: 640 });
-    await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight));
-    await expect(page.locator(".harmony-filters")).toBeInViewport({ ratio: 1 });
-    await expect(page.locator("#main + footer")).toBeInViewport({ ratio: .99 });
-    const clearance = await page.evaluate(() => document.querySelector(".harmony-filters")!.getBoundingClientRect().top - document.querySelector("#main")!.previousElementSibling!.getBoundingClientRect().bottom);
-    expect(clearance).toBeGreaterThanOrEqual(0);
+    await checkHarmonyPageEnd(page);
   }
 });
 
@@ -265,11 +272,13 @@ test("versions page: English, original languages and translations; no language c
   await expect(headers.nth(0)).toHaveText(/Abbreviation/i);
   await expect(headers.nth(1)).toHaveText(/Name/i);
   await expect(page.locator("thead")).not.toContainText(/Language/i);
-  await page.getByRole("button", { name: /^Translations/ }).click();
+  // The scriptures' own filter row ("Show"); the sources directory below has "All collections" and "All records" buttons too.
+  const show = page.getByRole("group", { name: "Show", exact: true });
+  await show.getByRole("button", { name: /^Translations/ }).click();
   const rows = page.locator("tbody tr:has(td)");
   await expect(rows).toHaveCount(13); // twelve languages; Chinese has two (the Union Version and the World Chinese Bible)
   for (const language of TRANSLATION_LANGUAGES) await expect(page.locator("tbody")).toContainText(language);
-  await page.getByRole("button", { name: /^All/ }).click();
+  await show.getByRole("button", { name: /^All/ }).click();
   await expect(page.locator("tbody > tr > th[colspan]").first()).toHaveText(/English/);
 });
 
