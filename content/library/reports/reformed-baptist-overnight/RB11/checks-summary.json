@@ -1,0 +1,18 @@
+{
+  "mission": "RB11",
+  "sourceChecks": 1795,
+  "pythonCompilation": {
+    "command": "python -W error -X utf8 -m py_compile scripts/audit-rb11.py scripts/prepare-rb11.py scripts/rb11-acquire.py scripts/map-rb11.py scripts/map-rb11-passages.py scripts/verify-rb11.py",
+    "exitCode": 0
+  },
+  "catalogueValidation": {
+    "command": "node scripts/validate-library.mjs",
+    "exitCode": 0,
+    "authors": 76,
+    "sources": 32,
+    "collections": 8,
+    "subjects": 110,
+    "records": 13440,
+    "structuralOnly": true
+  }
+}

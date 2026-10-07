@@ -1,0 +1,77 @@
+{
+  "mission": "RB11",
+  "witnesses": [
+    {
+      "assetId": "asset-rb11-557c938c44b6d9a49a28",
+      "words": 1087322,
+      "replacementCharacters": 9,
+      "noNewOCR": true,
+      "noImageExtraction": true,
+      "sourceReplacementByteMembers": [
+        {
+          "member": "treasury_split_003.html",
+          "count": 2
+        },
+        {
+          "member": "treasury_split_007.html",
+          "count": 6
+        },
+        {
+          "member": "treasury_split_013.html",
+          "count": 1
+        }
+      ],
+      "limit": "Nine source-embedded replacement characters in Latin/accented/Hebrew terms in quoted notes; preserved, no inferred repair. This does not make the edition a critical transcription."
+    },
+    {
+      "assetId": "asset-rb11-3155182074ef961ad9f4",
+      "words": 60945,
+      "replacementCharacters": 0,
+      "noNewOCR": true,
+      "noImageExtraction": true,
+      "sourceReplacementByteMembers": []
+    },
+    {
+      "assetId": "asset-rb11-a40dde4709d79db7b75d",
+      "words": 4556,
+      "replacementCharacters": 0,
+      "noNewOCR": true,
+      "noImageExtraction": true,
+      "selector": "article.detail > footer",
+      "sourceDisplayedDate": "Mar 26, 2023",
+      "normalizedDisplayedDate": "March 26, 2023"
+    },
+    {
+      "assetId": "asset-rb11-832c2439e342b5f786a0",
+      "words": 4225,
+      "replacementCharacters": 0,
+      "noNewOCR": true,
+      "noImageExtraction": true,
+      "selector": "article.detail > footer",
+      "sourceDisplayedDate": "Apr 02, 2023",
+      "normalizedDisplayedDate": "April 2, 2023"
+    },
+    {
+      "assetId": "asset-rb11-dbbd79c2bc09818d0621",
+      "words": 3397,
+      "replacementCharacters": 0,
+      "noNewOCR": true,
+      "noImageExtraction": true,
+      "selector": ".article-content-wrap",
+      "sourceDisplayedDate": "February 26, 2010",
+      "normalizedDisplayedDate": "February 26, 2010"
+    },
+    {
+      "assetId": "asset-rb11-b09faa867ce597b78d6b",
+      "words": 2551,
+      "replacementCharacters": 0,
+      "noNewOCR": true,
+      "noImageExtraction": true,
+      "selector": ".article-content-wrap",
+      "sourceDisplayedDate": "February 25, 2010",
+      "normalizedDisplayedDate": "February 25, 2010"
+    }
+  ],
+  "noNewOCR": true,
+  "noSeparateImageAssets": true
+}

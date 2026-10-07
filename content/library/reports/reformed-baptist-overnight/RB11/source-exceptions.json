@@ -1,0 +1,46 @@
+{
+  "mission": "RB11",
+  "exceptions": [
+    {
+      "source": "2008 corporate prayer journal",
+      "url": "https://www.9marks.org/files/ejournal200851janfeb.pdf",
+      "state": "404-no-retry",
+      "nextAction": "Use already acquired complete current Dever/Hamilton bodies; new exact offered URL evidence required before retry"
+    },
+    {
+      "source": "Spurgeon autobiography primary identity evidence",
+      "url": "https://www.cblibrary.org/biography/spurgeon/spurg_v1/spau1_ch28.htm",
+      "state": "collector-connection-reset-web-evidence-only",
+      "nextAction": "No hashed full-body claim or repeated request; primary account surfaced in web results, supplementary held confession/actual exposition retained"
+    },
+    {
+      "source": "9Marks 2016 Church Praying",
+      "url": "https://www.9marks.org/wp-content/uploads/2016/06/9Marks-Journal-Spring-2016-edit.pdf",
+      "state": "private-discovery-cache-not-promoted",
+      "nextAction": "Complete existing-text 61-page issue; review contributors/overlap first. No email signup submitted."
+    },
+    {
+      "source": "Ryken Lord Prayer excerpt",
+      "url": "https://www.9marks.org/article/corporate-aspects-lords-prayer/",
+      "state": "readable-excerpt-not-selected",
+      "nextAction": "991 whitespace words, explicitly pp43-45 excerpt; whole underlying book not acquired"
+    },
+    {
+      "source": "Founders chapter 22",
+      "state": "held-author-role-clarification",
+      "author": "Jon English Lee",
+      "nextAction": "Keep actual displayed byline in RB11 map, legacy institutional attribution in unchanged prior provenance. Office Admin uploader and Stan Reeves quotation translator distinct; Dawn/Brueggemann quotations not campaign teaching approvals."
+    },
+    {
+      "source": "Brooks Secret Key",
+      "state": "held-bibliographic-reconciliation",
+      "nextAction": "Mixed rod-of-affliction/prayer headings require identity check; not selected as clean chapter route"
+    },
+    {
+      "source": "Spurgeon digital part 1",
+      "state": "source-defects-preserved",
+      "nextAction": "Nine original U+FFFD in borrowed notes; Psalm68 original NCX bad, independently verified reading locator treasury_split_024.html#p68. No repair to immutable original"
+    }
+  ],
+  "acquiredTargetFailures": []
+}

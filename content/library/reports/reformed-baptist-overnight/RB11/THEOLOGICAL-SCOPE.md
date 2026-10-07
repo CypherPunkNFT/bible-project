@@ -1,0 +1,34 @@
+# RB11: prayer and worship scope
+
+Scripture and the 1689 Second London Baptist Confession remain the working reference. [Six work decisions](theological-decisions.json) combine actual target arguments with [primary evidence](theological-evidence.json). No author, publisher, denomination or quoted authority receives blanket approval. This is targeted doctrinal/edition/section review and integrity verification, not a critical reading of every acquired or held word.
+
+| New witness | Useful teaching inspected | Scope retained |
+|---|---|---|
+| Spurgeon, Treasury of David, digital part 1 | Psalm exposition, Christ's suffering and shepherd care in Psalms 22–23; confession, trust, longing and praise | Particular Baptist. This part covers Psalms 1–87, not the original print Volume I alone. Spurgeon's preface distinguishes his own exposition from borrowed notes he does not uniformly endorse. Historical Catholic writers and other disputed authorities quoted inside the commentary remain quotation roles; their works were not independently acquired or approved. |
+| Mathis, Habits of Grace | Prayer through Christ, secret prayer, constancy/company, Scripture intake, fellowship and corporate worship | Conservative Baptist; primary Cities statement supports the six anchors. Its section 8.2 permits all 1 Corinthians 12 gifts: continuationism remains attributed. Christian Hedonism is Mathis's framework. Chapters 16–17 favor believer baptism but engage paedobaptists and describe faith-dependent ordinances as means of grace, rejecting automatic efficacy. Frame/Westminster terminology and quotations are not silently imposed as Baptist policy. |
+| CHBC classes 4–5 | Prayer to the Father through the Son by the Spirit; mediation, gospel assurance, Scripture, habits and hindrances | CHBC's New Hampshire-based statement is not the 1689 verbatim. Individual manuscript writer is unidentified; do not assign Mark Dever as author. Preserve cited authors, source reference spelling and pastoral judgments. The wandering-attention comment is contextual, not a universal moral ruling. |
+| Dever, corporate-prayer interview | Shared dependence, congregational love, praise/confession/intercession/thanks; scriptural assurance of pardon explicitly distinguished from priestly absolution | CHBC prayer lengths, service order, leader selection and musical choices describe one church. Written and spontaneous prayer can both be useful in this argument. Interviewer's identity remains unresolved. |
+| Hamilton, biblical theology of corporate prayer | OT-to-NT prayer, Christ's sufficient sacrifice/intercession, the church praying together and reverent preparation | Displayed Jim Hamilton is James M. Hamilton, Jr.; official Southern faculty page supplies identity. His covenantal-mediator and messianic-Psalter arguments are attributed interpretations. A prayer leader represents the congregation; Christ alone is the saving mediator. |
+
+The primary Cities, CHBC and Southern confessional statements support Scripture authority, Trinity, Christ's deity/humanity, substitutionary atonement, bodily resurrection and justification by grace through faith alone. Spurgeon's own autobiographical account of his 1855 confession reprint was verified through web results; its collector connection failed and no hashed full-body evidence is claimed. The historical confession already held and actual selected Psalm exposition supply additional context.
+
+## Worship distinctions to keep visible
+
+| Question | Actual witnesses / differences | Treatment |
+|---|---|---|
+| Prayer in the Spirit / written forms | Bunyan and Owen's historic arguments; Henry's forms; Dever accepts preparation and either written or spontaneous prayer | Preserve arguments and historical controversy. No universal prescribed prayer book or automatic ban on all written prayers inferred. |
+| Psalms and hymns | Keach argues for united voices, psalms/hymns/spiritual songs and mixed assemblies; Grier's held Notes on Psalmody argues exclusive psalmody | Grier is already-held comparison material, not a new campaign acquisition or Baptist default. Spurgeon's commentary and Watts paraphrases are not proof of a required singing policy. |
+| Instruments and service order | Spurgeon/Keach's historic settings, Founders Journal's held singing discussion, Dever's CHBC description | Do not deduce an instrument rule from author affiliation or turn a church's arrangement into a universal confessional requirement. |
+| Who leads prayer / family worship | CHBC corporate guidance; FGB 188's actual Women Leading Family Worship section; Alexander household examples | Read actual context. Historic household authority, Presbyterian discipline and domestic-servant assumptions do not become project rules. |
+| Confession and pardon | Dever's Scripture declaration of pardon; Henry's confession category | Christ's pardon and assurance distinguished from sacerdotal absolution. |
+| Reverence and spiritual worship | Burroughs, Charnock, Mathis, held 1689 chapter 22 explanation | Puritan/Presbyterian sacramental and polity commitments stay scoped; sincerity and biblical warrant are not reduced to emotional intensity. |
+| Lord's Prayer numbering / text | Pink has seven-petition headings; Watson uses six-petition structure and a Deliver us section | Do not blend numbering or silently decide the Matthew 6:13 doxology/textual tradition. |
+| Historical directories | Westminster Directory's actual prayer/psalm/sacrament headings | Already held historic comparison, not an adopted Baptist liturgy, infant-baptism rule or church-government model. |
+
+## Audit qualifications
+
+Bunyan Prayer and modernized A Discourse Touching Prayer are witnesses of the same underlying discourse; Offor editorial matter and the modern CC BY-NC-ND edition remain distinct. Pink's Lord's Prayer, Guide to Fervent Prayer and Paul's prayers, Spurgeon's prayer books, Watson's large Lord's Prayer, Alexander and FGB 188 already supply substantial readable coverage. They were reused rather than recollected as more tract issues.
+
+The held Founders chapter 22 essay has an explicit displayed byline **Jon English Lee**. RB11's reading map identifies it without rewriting the original legacy institutional attribution. Office Admin is an uploader; Stan Reeves is cited for the modern confession wording. Nested Dawn/Brueggemann citations remain unapproved quotation roles, not separately acquired campaign teaching sources. Brooks's Secret Key EPUB has unexpectedly mixed rod-of-affliction headings; it was not chosen as a clean chapter route until bibliographic reconciliation.
+
+See [reading table](READING-MAP.md), [literal Scripture grounds](SCRIPTURE-GROUNDS.md), [Psalm coverage](PSALM-COVERAGE.md) and [intake requirements](INTAKE-NOTES.md). Reading permission does not establish corpus or public hosting permission.

@@ -1,0 +1,96 @@
+{
+  "mission": "RB11",
+  "state": "acquisition-verified-documented-private-holdings-only",
+  "sourceRoot": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources",
+  "sessionStartedAtUtc": "2026-10-07T14:04:57+00:00",
+  "checkpointAtUtc": "2026-10-07T14:48:42.583995+00:00",
+  "activeSessionMinutes": 43.8,
+  "newOriginals": 6,
+  "bytes": 2993326,
+  "readableDerivativeWords": 1162996,
+  "newCompleteBooks": 1,
+  "missingDigitalPartsOfHeldWorks": 1,
+  "completeWrittenLessons": 2,
+  "completeArticleInterviewUnits": 2,
+  "newFullOriginalPrintVolumesNotClaimed": true,
+  "manifest": {
+    "path": "acquisition-manifest.json",
+    "sha256": "b2f34b39e9a95b945ca8e007a91462e3087d1f5e46c0faa27f1d58b795743647"
+  },
+  "completed": [
+    "1119 actual relevant held originals and 61 input snapshots audited",
+    "All 13104 earlier ledger records screened for exact target URL/hash duplicates",
+    "Six immutable readable originals and complete extraction replays; zero target failures",
+    "Eleven questions, 452 locators, 17 reused witnesses",
+    "All 150 actual Psalm headings/reading anchors verified; bad original Psalm68 NCX retained alongside resolved locator",
+    "Eight exact private exposition samples and 17 literal Scripture citations",
+    "1795 integrity/locator/source/planner checks passed; six-script warnings-as-errors compilation and 13440-record structural catalogue validation passed",
+    "Every actual acquired URL/author/edition/rights record in SOURCES; README/backlog/protocol/TODO/HANDOFF updated",
+    "82 documentation, link, BOM/private-body and checkpoint checks passed"
+  ],
+  "resumeWorkingDirectory": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website",
+  "resumeCommands": [
+    "python -X utf8 scripts/map-rb11.py",
+    "python -X utf8 scripts/map-rb11-passages.py",
+    "python -X utf8 scripts/verify-rb11.py",
+    "node scripts/validate-library.mjs"
+  ],
+  "acquisitionResume": "No incomplete acquisition or background collector remains. Do not recollect the six promoted originals; reuse their manifest and source-hashed private caches. Add only separately reviewed offered complete texts.",
+  "remaining": [
+    {
+      "target": "9Marks The Church Praying Spring2016",
+      "url": "https://www.9marks.org/wp-content/uploads/2016/06/9Marks-Journal-Spring-2016-edit.pdf",
+      "state": "61-page clean text PDF privately cached, not promoted",
+      "condition": "Review individual contributors, doctrine and actual overlap before selection; no email signup or whole-book inference"
+    },
+    {
+      "target": "Complete Desiring God / Ryken When You Pray",
+      "condition": "Fresh authorized complete offer and rights evidence required; existing Desiring God sample and Ryken 991-word excerpt do not satisfy whole-book gaps"
+    },
+    {
+      "target": "Brooks Secret Key and CCEL print Treasury witnesses",
+      "condition": "Bibliographic reconciliation only; no scans/images/OCR, no inferred missing characters. Current EPUBs already cover all150 Psalms."
+    },
+    {
+      "target": "Aggregate RB11 intake",
+      "condition": "Six parent/eight sample retrieval-system rights, attribution/editorial/quotation integration and work/edition overlap before post-RB14 delta ingestion; preserve table qualifications"
+    }
+  ],
+  "postRB14": {
+    "gateUnchanged": true,
+    "requirements": [
+      "All RB01-RB14 final reports and valid manifests",
+      "Five-minute quiet interval",
+      "No relevant overlapping acquisition/intake/embedding/enrichment workers"
+    ],
+    "action": "Dedicated aggregate delta reconciliation/import, reuse unchanged vectors and verify parity before enrichment"
+  },
+  "nextMission": "RB12 only on explicit owner prompt; no automatic launch.",
+  "ingested": false,
+  "embedded": false,
+  "dbTouched": false,
+  "graphTouched": false,
+  "schedulerChanged": false,
+  "watchdogChanged": false,
+  "newOCR": false,
+  "separateImageAcquisition": false,
+  "mediaAcquisition": false,
+  "runtime": {
+    "checkedAtUtc": "2026-10-07T14:44:35.6630127Z",
+    "processQuerySucceeded": true,
+    "matchingAcquisitionIntakeEmbeddingEnrichmentProcesses": [],
+    "collectorLeftRunning": false,
+    "schedulerChanged": false,
+    "watchdogChanged": false,
+    "embeddingLaunched": false,
+    "dbJobLaunched": false
+  },
+  "publication": {
+    "localMetadataOnly": true,
+    "pushAttempted": false,
+    "status": "Prior automatic approval-review Git push rejection remains unresolved; no retry or bypass."
+  },
+  "concurrentWorkspace": "Unrelated PeopleCatalog/people-catalog/people-roles UI edits observed in shared workspace; left untouched and excluded from mission staging.",
+  "knownLimits": "Targeted doctrine/edition/section review and structural integrity, not complete critical reading/collation; personal reading offers do not establish corpus/retrieval license. Source defects and nested quoted voices retained.",
+  "documentationChecks": 82
+}

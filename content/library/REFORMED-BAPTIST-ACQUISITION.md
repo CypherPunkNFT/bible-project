@@ -1,5 +1,11 @@
 # Eight overnight acquisition missions: Reformed theology with Baptist confidence
 
+<!-- RB11 protocol -->
+## 2026-10-07: RB11 prayer and worship mission complete
+
+Owner-added RB11 applies the shared protocol to private/corporate prayer, family worship, Psalms, Lord's Prayer and reverent worship. **Six originals / 2.99 MB / 1,162,996 words**; seventeen held witnesses reused. [Report](reports/reformed-baptist-overnight/RB11/REPORT.md), [eleven questions](reports/reformed-baptist-overnight/RB11/READING-MAP.md), [150 Psalms](reports/reformed-baptist-overnight/RB11/PSALM-COVERAGE.md), [scope](reports/reformed-baptist-overnight/RB11/THEOLOGICAL-SCOPE.md), [checkpoint](reports/reformed-baptist-overnight/RB11/checkpoint.json). Audit: 1,119 actual relevant originals / 61 initial inputs; all 13,104 prior ledger records screened. Two EPUBs / four HTML bodies; eight exact private exposition samples. 1,795 source/locator/parent/planner checks passed. All six parents held; no DB/vector/graph/enrichment or scheduler/watchdog change. Keep psalmody, forms, leadership and Presbyterian/continuationist practices distinct. No new scans/images/OCR/media; SOURCES lists every offer. Fourteen-mission gate unchanged; RB12 does not start automatically.
+<!-- /RB11 -->
+
 <!-- RB10 protocol -->
 ## 2026-10-07: RB10 Christian ethics acquisition complete
 

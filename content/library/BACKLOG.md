@@ -1,5 +1,15 @@
 # Acquisition backlog
 
+<!-- RB11 backlog -->
+## RB11: prayer/worship acquired; aggregate intake held
+
+- [x] Six originals / 2,993,326 bytes / 1,162,996 words; 1,119 relevant held originals audited, 13,104 prior ledger records duplicate-screened. [Report](reports/reformed-baptist-overnight/RB11/REPORT.md).
+- [x] Eleven questions / 452 locations across 23 witnesses; 150-Psalm table; seventeen exact Scripture citations; eight private exposition samples.
+- [x] Every actual acquired URL/author/edition/rights record documented in SOURCES.
+- [ ] Resolve six parent/eight sample corpus rights, quoted authors/editors/endorsements and logical work overlap before post-RB14 delta intake. [Actions](reports/reformed-baptist-overnight/RB11/INTAKE-NOTES.md).
+- [ ] Review cached 2016 Church Praying journal by contributor only if useful and nonduplicate; retain complete Desiring God rights/preview gap and Brooks identity queue. No unchanged 2008 404 retry, scans/OCR/media or automatic RB12 launch.
+<!-- /RB11 -->
+
 <!-- RB10 status -->
 **RB10 executed (2026-10-07):** Seven originals / 4.13 MB / 146,763 derivative words; one complete book, three essays, three issues with 26 bylined articles/excerpts. [Report](reports/reformed-baptist-overnight/RB10/REPORT.md), [13 ethics questions / 513 locations](reports/reformed-baptist-overnight/RB10/READING-MAP.md), [scope](reports/reformed-baptist-overnight/RB10/THEOLOGICAL-SCOPE.md), [intake requirements](reports/reformed-baptist-overnight/RB10/INTAKE-NOTES.md), [checkpoint](reports/reformed-baptist-overnight/RB10/checkpoint.json). Audited 1,138 actual held originals / 57 inputs; twelve witnesses reused. All acquired URLs documented in SOURCES. All seven parents held; no new corpus license, ingestion or embedding. RB11 only when prompted; post-RB14 gate unchanged.
 <!-- /RB10 status -->
