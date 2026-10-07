@@ -3,6 +3,7 @@ import { Link, useSearchParams } from "react-router-dom";
 import { REFORMED_LIBRARY as library } from "@/generated/reading-library";
 import { studyById } from "@/data/apologetics-library";
 import type { ReadingWork } from "@/data/reading-library-types";
+import { MeaningPrompt } from "@/components/search/MeaningPrompt";
 import { ApHeading, ApSectionHeading } from "@/components/ApologeticsParts";
 import { AP_BASE, studyUrl } from "@/lib/apologetics-links";
 import "./reformed-library.css";
@@ -73,6 +74,7 @@ export default function ReformedLibraryPage() {
     <section className="rf-catalogue" aria-label="Browse the historic reading library">
       <div className="rf-catalogue-heading"><h2>Follow an author. Explore an idea.</h2><div className="ap-filter-chips" role="group" aria-label="Browse view"><button type="button" aria-pressed={view === "texts"} onClick={() => change("view", "texts")}><BookOpen size={15} />Texts</button><button type="button" aria-pressed={view === "authors"} onClick={() => change("view", "authors")}><Library size={15} />Authors</button></div></div>
       <label className="ap-search rf-search"><Search size={19} /><span className="sr-only">Search historic texts and authors</span><input type="search" value={query} placeholder="Search Calvin, assurance, covenant, justification…" onChange={(e) => change("q", e.target.value)} /></label>
+      <MeaningPrompt query={query} className="ap-meaning-prompt" />
       <div className="rf-filters">
         <label>Author<select value={author} onChange={(e) => change("author", e.target.value)}><option value="all">Every author</option>{library.authors.map((a) => <option key={a.id} value={a.id}>{a.name}</option>)}</select></label>
         <label>Period<select value={era} onChange={(e) => change("era", e.target.value)}><option value="all">Every period</option>{Object.entries(eras).map(([id, label]) => <option key={id} value={id}>{label}</option>)}</select></label>

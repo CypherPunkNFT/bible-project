@@ -35,3 +35,12 @@ test("turn meaning search on, ask a question, then remove it", async ({ page }, 
   await page.getByRole("button", { name: "Remove from this device" }).click();
   await expect(page.getByRole("button", { name: /Turn on meaning search/ })).toBeVisible();
 });
+
+test("meaning search is offered under searches for studies and information, not under name look-ups", async ({ page }) => {
+  for (const path of ["/apologetics", "/apologetics/questions?q=why+does+god+let+people+suffer", "/apologetics/texts", "/topics"]) {
+    await page.goto(path);
+    await expect(page.getByRole("button", { name: /Turn on/ }).first(), path).toBeVisible();
+  }
+  await page.goto("/study/people");
+  await expect(page.getByText(/Search by what you mean, not just the words/)).toHaveCount(0);
+});
