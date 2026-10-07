@@ -57,7 +57,7 @@ export const ART: Record<string, string> = {
     <g stroke="currentColor" opacity=".55">${[52, 60].map((y) => `<path d="M186 ${y}H${y === 60 ? 270 : 294}"/>`).join("")}${range(6).map((i) => `<path d="M186 ${80 + i * 9}H${i % 3 === 2 ? 252 : 294}"/>`).join("")}</g>
     <path d="M186 146H230M240 156Q252 142 262 154T290 150" stroke="currentColor"/>
     <g stroke="currentColor" opacity=".45"><path d="M160 30H150V40M160 46H150V64H160M160 76H150V130H160M160 140H150V162H160"/></g>
-    <g class="lb-art-word" style="font-size:13px">${[["Greeting", 35], ["Thanks", 57], ["Body", 106], ["Farewell", 154]].map(([t, y]) => `<text x="140" y="${y + 4}" text-anchor="end">${t}</text>`).join("")}</g>`,
+    <g class="lb-art-word" style="font-size:13px">${([["Greeting", 35], ["Thanks", 57], ["Body", 106], ["Farewell", 154]] as [string, number][]).map(([t, y]) => `<text x="140" y="${y + 4}" text-anchor="end">${t}</text>`).join("")}</g>`,
   // The hands that wrote and carried them: a quill on a line, a seal, a traveller's road.
   hands: `
     <path d="M70 120Q130 112 190 120" stroke="currentColor" stroke-opacity=".5"/>
