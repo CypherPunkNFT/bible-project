@@ -1,0 +1,18 @@
+/* The exact-words chart (WordDistribution.tsx): bars grow in, rise when pointed at, and the chosen book stays lit. */
+.word-dist-col { position: relative; display: flex; flex: 1; align-items: flex-end; height: 100%; min-width: 0; }
+.word-dist-col.is-hit { cursor: pointer; outline: none; }
+.word-dist-stack { position: relative; display: block; width: 100%; }
+.word-dist-bar { display: block; width: 100%; height: 100%; border-radius: 2px 2px 0 0; transform-origin: bottom; animation: word-dist-grow 520ms cubic-bezier(.22, 1, .36, 1) backwards; transition: transform .18s, filter .18s, opacity .2s, box-shadow .2s; }
+.word-dist-col.is-hit:hover .word-dist-bar, .word-dist-col.is-hit:focus-visible .word-dist-bar { transform: scaleX(1.6); filter: brightness(1.15); }
+.word-dist-col.is-selected .word-dist-bar { transform: scaleX(1.9); box-shadow: 0 0 10px color-mix(in srgb, var(--accent) 55%, transparent); }
+.word-dist-col.is-dimmed .word-dist-bar { opacity: .35; }
+/* The count floats above a bar while it is pointed at or chosen. */
+.word-dist-count { position: absolute; left: 50%; bottom: calc(100% + 2px); translate: -50% 4px; font-size: .65rem; font-weight: 600; opacity: 0; pointer-events: none; transition: opacity .15s, translate .15s; }
+.word-dist-col.is-hit:hover .word-dist-count, .word-dist-col.is-hit:focus-visible .word-dist-count, .word-dist-col.is-selected .word-dist-count { opacity: 1; translate: -50% 0; }
+.word-dist-col.is-hit:hover .word-dist-count { z-index: 1; }
+.word-dist-chapters { animation: word-dist-open 260ms ease both; }
+.word-dist-chapters li { animation: word-dist-pop 300ms cubic-bezier(.22, 1, .36, 1) both; }
+@keyframes word-dist-grow { from { transform: scaleY(0); } }
+@keyframes word-dist-open { from { opacity: 0; transform: translateY(-4px); } }
+@keyframes word-dist-pop { from { opacity: 0; transform: translateY(6px) scale(.96); } }
+@media (prefers-reduced-motion: reduce) { .word-dist-bar, .word-dist-chapters, .word-dist-chapters li { animation: none; transition: none; } }

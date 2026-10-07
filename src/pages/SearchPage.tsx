@@ -1,5 +1,6 @@
 import { Search } from "lucide-react";
 import { SearchLanding } from "@/components/search/SearchLanding";
+import { WordDistribution } from "@/components/search/WordDistribution";
 import { MeaningBadge, PlacesSection, StudiesSection, TopicsSection, VersesSection } from "@/components/search/SearchSections";
 import { useMeaningResults } from "@/lib/meaning/useMeaningResults";
 import { useEffect, useMemo, useRef, useState, type FormEvent } from "react";
@@ -8,9 +9,8 @@ import { useCatalog } from "@/lib/catalog";
 import { loadPlain } from "@/lib/data";
 import { lastReadPath } from "@/lib/last-read";
 import { highlightParts, makeMatcher, searchBooks, type Hit } from "@/lib/search";
-import { SECTIONS, sectionColor } from "@/lib/sections";
-import type { BookInfo } from "@/lib/types";
-import { cn, formatNumber } from "@/lib/utils";
+import { sectionColor } from "@/lib/sections";
+import { formatNumber } from "@/lib/utils";
 
 const PAGE = 100;
 
@@ -38,6 +38,8 @@ export default function SearchPage() {
   const [submitted, setSubmitted] = useState(params.get("q") ?? "");
   const meaning = useMeaningResults(submitted);
   const [shown, setShown] = useState(PAGE);
+  // A book picked on the chart narrows the verse list to it.
+  const [bookFilter, setBookFilter] = useState("");
   const books = catalog.books.filter((b) => translation.books[b.code]);
 
   // `asked` is a query from an example button; otherwise the box.
@@ -53,6 +55,7 @@ export default function SearchPage() {
     const searched = { query, slug: translation.slug, wholeWords };
     setState({ status: "loading", loaded: 0, hits: [], ...searched });
     setShown(PAGE);
+    setBookFilter("");
     let loaded = 0;
     const plains = await Promise.all(
       books.map((b) =>
@@ -82,11 +85,7 @@ export default function SearchPage() {
   const matcher = useMemo(() => makeMatcher(state.query, state.wholeWords), [state.query, state.wholeWords]);
   const resultTranslation = catalog.translations.find((t) => t.slug === state.slug) ?? translation;
   const resultBooks = catalog.books.filter((b) => resultTranslation.books[b.code]);
-  const perBook = useMemo(() => {
-    const counts = new Map<string, number>();
-    for (const hit of state.hits) counts.set(hit.code, (counts.get(hit.code) ?? 0) + 1);
-    return counts;
-  }, [state.hits]);
+  const listed = useMemo(() => (bookFilter ? state.hits.filter((hit) => hit.code === bookFilter) : state.hits), [state.hits, bookFilter]);
 
   return (
     <div className="mx-auto max-w-5xl px-4 pb-16 sm:px-6">
@@ -143,9 +142,9 @@ export default function SearchPage() {
           <p className="text-lg">
             <strong>{formatNumber(state.hits.length)}</strong> {state.hits.length === 1 ? "verse contains" : "verses contain"} “{state.query}” in the {resultTranslation.name}.
           </p>
-          {state.hits.length > 0 && <Distribution books={resultBooks} counts={perBook} />}
+          {state.hits.length > 0 && <WordDistribution books={resultBooks} hits={state.hits} selected={bookFilter} onSelect={(code) => { setBookFilter(code); setShown(PAGE); }} slug={resultTranslation.slug} />}
           <ol className="mt-6 divide-y divide-line">
-            {state.hits.slice(0, shown).map((hit) => {
+            {listed.slice(0, shown).map((hit) => {
               const book = catalog.books.find((b) => b.code === hit.code)!;
               return (
                 <li key={`${hit.code}${hit.chapter}:${hit.verse}`} className="py-3">
@@ -162,46 +161,13 @@ export default function SearchPage() {
               );
             })}
           </ol>
-          {state.hits.length > shown && (
+          {listed.length > shown && (
             <button type="button" onClick={() => setShown((n) => n + PAGE)} className="mt-4 w-full rounded-xl bg-surface-2 py-2.5 text-sm">
-              Show more ({formatNumber(state.hits.length - shown)} left)
+              Show more ({formatNumber(listed.length - shown)} left)
             </button>
           )}
         </section>
       )}
     </div>
-  );
-}
-
-/** Where in the Bible the matches fall: one bar per book, in order, coloured by section. */
-function Distribution({ books, counts }: { books: BookInfo[]; counts: Map<string, number> }) {
-  const max = Math.max(...counts.values());
-  const [hover, setHover] = useState("");
-  return (
-    <figure className="mt-4 rounded-2xl border border-line bg-surface p-4">
-      <div className="flex h-24 items-end gap-px" role="img" aria-label="Matches per book, Genesis to Revelation">
-        {books.map((b) => {
-          const n = counts.get(b.code) ?? 0;
-          return (
-            <span
-              key={b.code}
-              onMouseEnter={() => setHover(`${b.name}: ${n}`)}
-              className={cn("flex-1 rounded-t-sm", n === 0 && "opacity-20")}
-              style={{ height: `${n ? Math.max(4, (n / max) * 100) : 2}%`, background: sectionColor(b.section) }}
-            />
-          );
-        })}
-      </div>
-      <figcaption className="mt-2 flex flex-wrap justify-between gap-2 text-xs text-muted">
-        <span>{hover || "Where the matches fall, Genesis to Revelation. Point at a bar."}</span>
-        <span className="flex flex-wrap gap-3">
-          {SECTIONS.filter((s) => books.some((b) => b.section === s.id)).map((s) => (
-            <span key={s.id} className="flex items-center gap-1">
-              <span className="h-2 w-2 rounded-full" style={{ background: sectionColor(s.id) }} /> {s.name}
-            </span>
-          ))}
-        </span>
-      </figcaption>
-    </figure>
   );
 }
