@@ -18,9 +18,10 @@
 .people-catalog-scroll { flex: 1; min-height: 0; }
 /* The wheel over the cards scrolls the cards only; over the page it scrolls the page. */
 .people-catalog-viewport { overscroll-behavior: contain; padding: 0 1.4rem 1.4rem; }
-/* The pill sits just inside the box's right edge, beside the cards (as in the reader's cross-reference panel): the People
-   page's sliding view window clips anything outside the box. */
-.people-catalog .outside-scrollbar { right: 4px; overscroll-behavior: contain; }
+/* The pill sits just outside the box's right edge, as everywhere else. The People page's sliding view window clips its
+   panels; let it paint a little past its edge so the pill shows (clip, not hidden: no scroll container either). */
+.people-view-window:has(.people-catalog) { overflow: clip; overflow-clip-margin: 1.25rem; }
+.people-catalog .outside-scrollbar { overscroll-behavior: contain; }
 
 /* The period band: gold, flush with the frame's top while its cards scroll beneath it. */
 .people-catalog-group h3 { position: sticky; top: 0; z-index: 1; display: flex; align-items: center; gap: .9rem; margin: 0 -1.4rem .75rem; padding: .7rem 1.4rem; background: linear-gradient(90deg, var(--epistles-tab), color-mix(in srgb, var(--epistles-tab) 55%, #f5c518)); color: var(--epistles-tab-ink); box-shadow: 0 6px 14px -10px #00000080; }
