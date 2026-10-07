@@ -1,0 +1,18 @@
+{
+  "startedAt": "2026-10-05T12:21:36.816236+00:00",
+  "pid": 44368,
+  "status": "worker-finished-review-gaps",
+  "phases": [
+    {
+      "name": "piper-messages",
+      "startedAt": "2026-10-05T12:21:36.816371+00:00",
+      "status": "process-failed",
+      "log": ".local/library/run-modern-texts-2026-10-05/piper-messages.log",
+      "pid": 2760,
+      "exitCode": 1,
+      "finishedAt": "2026-10-05T13:43:21.863996+00:00"
+    }
+  ],
+  "note": "Piper existing sermon text only. Rogers PDF collection stopped at owner request; all other acquisition phases deferred.",
+  "finishedAt": "2026-10-05T13:44:03.545706+00:00"
+}

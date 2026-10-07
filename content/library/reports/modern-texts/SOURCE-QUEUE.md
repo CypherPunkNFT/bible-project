@@ -1,0 +1,17 @@
+# Modern text source queue
+
+The latest owner direction prioritizes existing readable text, including EPUB and searchable PDF libraries. New scans and transcription are deferred. **The author-library pass supersedes the earlier deferrals below where it identifies a permitted ready-text edition:** see [author-by-author libraries and active acquisitions](AUTHOR-LIBRARIES.md). The [holdings audit](HOLDINGS-AUDIT.md) remains a dated snapshot. Nothing is being published in the app by this acquisition.
+
+| Source | Current decision | Evidence |
+|---|---|---|
+| John Piper messages | Active: download substantial existing HTML text from the verified 2,397-entry author inventory. Skip short descriptions; preserve manuscripts as written messages rather than asserting verbatim delivery. Personal noncommercial copies only. | [Author index](https://www.desiringgod.org/authors/john-piper/messages), [permissions](https://www.desiringgod.org/permissions) |
+| R. C. Sproul sermon transcripts | Strong text source for a later pass. Bulk corpus acquisition/reuse basis remains unresolved; no new crawl active. | [Full transcript example](https://learn.ligonier.org/sermons/legion), [policy](https://www.ligonier.org/copyright-policy) |
+| John MacArthur transcripts | Strong existing text archive. Current site wildcard robots disallows crawling; legacy transcript links redirect there. No bulk workaround attempted. Legacy policy permits specified sermon-series transcript uses under conditions. | [Legacy policy](https://shop.gty.org/about#copyright), [current robots](https://www.gty.org/robots.txt) |
+| W. A. Criswell transcripts | Existing HTML transcripts. Bulk-copy basis unresolved. First sitemap yields 2,000 URLs; advertised next two return 404; REST request returns 401. Stop discovery for now. | [Library](https://wacriswell.com/), [sitemaps](https://wacriswell.com/wp-sitemap.xml) |
+| Adrian Rogers | PDF acquisition stopped at owner request. Preserve already downloaded transcripts/outlines and the full 619-entry landing-page inventory. | [PDF inventory](PDF-INVENTORY.md), [source policy](https://www.lwf.org/about-us/contact-us/copyright-information) |
+| J. I. Packer | Nine PDFs downloaded from the 27-entry C. S. Lewis Institute category. Audio-only and permission-review cases recorded; no more acquisition now. | [Category](https://www.cslewisinstitute.org/resources-category/j-i-packer/), [results](packer-results.json) |
+| Billy Graham | Four official sermon/devotional PDFs downloaded. Further archive research deferred. This is not a complete transcript corpus. | [Results](graham-results.json), [personal-use policy](https://billygraham.org/copyright) |
+| Martyn Lloyd-Jones | Permission-dependent. Trust holds audio rights only and restricts systematic database retrieval. No files acquired in this mission. | [FAQ](https://www.mljtrust.org/faqs/), [terms](https://www.mljtrust.org/terms-use/) |
+| Books and other works | Deferred. Two Sproul titles acquired in PDF and EPUB through a distributor stating Ligonier permission. Piper book collector was prepared but not run; samples must remain separately labeled. | [Sproul results](sproul-results.json), [offered edition and permission statement](https://www.freechristianebooks.org/dl-what-is-the-church.html) |
+
+Original files are under `BibleProject/sources/library/`; extracted text is under `Website/.local/library/run-modern-texts-2026-10-05/text/`. The machine-readable results preserve exact URLs, hashes and retrieval times. No permission correspondence has been sent.

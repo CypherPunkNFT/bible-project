@@ -194,22 +194,120 @@ html[data-places-slide] .places-page-slide { view-transition-name: places-page; 
 html[data-places-slide]::view-transition { pointer-events: none; }
 html[data-places-slide]::view-transition-old(root) { display: none; }
 html[data-places-slide]::view-transition-new(root) { animation: none; }
-html[data-places-slide]::view-transition-group(places-page) { overflow: clip; animation-duration: 460ms; animation-timing-function: cubic-bezier(.65, 0, .35, 1); }
+/* The content box stays put in its new position, so only the chosen effect moves, never across the collection links. */
+html[data-places-slide]::view-transition-group(places-page) { animation: none; }
+/* The leaving page stays exactly where it was on screen (offset measured in usePlacesPageSlide). */
+html[data-places-slide]::view-transition-old(places-page) { translate: 0 var(--places-old-shift, 0px); }
 html[data-places-slide]::view-transition-old(places-page),
 html[data-places-slide]::view-transition-new(places-page) {
   height: auto; mix-blend-mode: normal; opacity: 1;
-  animation-duration: 460ms; animation-timing-function: cubic-bezier(.65, 0, .35, 1); animation-fill-mode: both;
+  animation-duration: 560ms; animation-timing-function: cubic-bezier(.22, 1, .36, 1); animation-fill-mode: both;
 }
-html[data-places-slide=forward]::view-transition-old(places-page) { animation-name: places-page-exit-left; }
-html[data-places-slide=forward]::view-transition-new(places-page) { animation-name: places-page-enter-right; }
-html[data-places-slide=backward]::view-transition-old(places-page) { animation-name: places-page-exit-right; }
-html[data-places-slide=backward]::view-transition-new(places-page) { animation-name: places-page-enter-left; }
-@keyframes places-page-enter-right { from { transform: translateX(100%); } to { transform: translateX(0); } }
-@keyframes places-page-exit-left { from { transform: translateX(0); } to { transform: translateX(-100%); } }
-@keyframes places-page-enter-left { from { transform: translateX(-100%); } to { transform: translateX(0); } }
-@keyframes places-page-exit-right { from { transform: translateX(0); } to { transform: translateX(100%); } }
+/* Trial: one transition per destination (STYLE_BY_DESTINATION in usePlacesPageSlide.ts). Backward = returning to the Atlas. */
+
+/* 1 Atlas map: a plain crossfade. */
+html[data-places-slide=fade]::view-transition-old(places-page) { animation: places-fade-out 260ms ease both; }
+html[data-places-slide=fade]::view-transition-new(places-page) { animation: places-fade-in 380ms ease 80ms both; }
+
+/* 2 Journeys: the new page rises into place as the old one lifts away. */
+html[data-places-slide=rise][data-places-direction=forward]::view-transition-old(places-page) { animation-name: places-lift-out; animation-duration: 280ms; }
+html[data-places-slide=rise][data-places-direction=forward]::view-transition-new(places-page) { animation-name: places-rise-in; animation-delay: 60ms; }
+html[data-places-slide=rise][data-places-direction=backward]::view-transition-old(places-page) { animation-name: places-sink-out; animation-duration: 280ms; }
+html[data-places-slide=rise][data-places-direction=backward]::view-transition-new(places-page) { animation-name: places-drop-in; animation-delay: 60ms; }
+
+/* 3 Ancient cities: zoom through the card you clicked. */
+html[data-places-slide=zoom]::view-transition-old(places-page),
+html[data-places-slide=zoom]::view-transition-new(places-page) { transform-origin: var(--places-ox, 50%) var(--places-oy, 0); }
+html[data-places-slide=zoom][data-places-direction=forward]::view-transition-old(places-page) { animation-name: places-zoom-past; animation-duration: 340ms; }
+html[data-places-slide=zoom][data-places-direction=forward]::view-transition-new(places-page) { animation-name: places-zoom-arrive; }
+html[data-places-slide=zoom][data-places-direction=backward]::view-transition-old(places-page) { animation-name: places-zoom-recede; animation-duration: 340ms; }
+html[data-places-slide=zoom][data-places-direction=backward]::view-transition-new(places-page) { animation-name: places-zoom-return; }
+
+/* 4 Gospel events: a circle opens from the click, and closes back on return. */
+html[data-places-slide=reveal]::view-transition-old(places-page) { animation: none; }
+html[data-places-slide=reveal][data-places-direction=forward]::view-transition-new(places-page) { animation: places-circle-open 640ms cubic-bezier(.65, 0, .35, 1) both; }
+html[data-places-slide=reveal][data-places-direction=backward]::view-transition-new(places-page) { animation: none; }
+html[data-places-slide=reveal][data-places-direction=backward]::view-transition-old(places-page) { z-index: 2; animation: places-circle-close 560ms cubic-bezier(.65, 0, .35, 1) both; }
+
+/* 5 Early church: the new page wipes across like an unrolling scroll. */
+html[data-places-slide=wipe][data-places-direction=forward]::view-transition-old(places-page) { animation: places-dim 620ms ease both; }
+html[data-places-slide=wipe][data-places-direction=forward]::view-transition-new(places-page) { animation: places-wipe-in 620ms cubic-bezier(.65, 0, .35, 1) both; }
+html[data-places-slide=wipe][data-places-direction=backward]::view-transition-new(places-page) { animation: none; }
+html[data-places-slide=wipe][data-places-direction=backward]::view-transition-old(places-page) { z-index: 2; animation: places-wipe-out 620ms cubic-bezier(.65, 0, .35, 1) both; }
+
+/* 6 Apostolic church: out of focus, into focus. */
+html[data-places-slide=blur]::view-transition-old(places-page) { animation: places-blur-out 360ms ease both; }
+html[data-places-slide=blur]::view-transition-new(places-page) { animation: places-blur-in 520ms ease 120ms both; }
+
+/* 7 Reformation: the page turns on its spine. */
+html[data-places-slide=turn]::view-transition-image-pair(places-page) { perspective: 1800px; perspective-origin: 50% var(--places-vy, 50vh); }
+html[data-places-slide=turn][data-places-direction=forward]::view-transition-old(places-page) { transform-origin: left var(--places-vy, 50vh); animation-name: places-turn-away; animation-duration: 420ms; }
+html[data-places-slide=turn][data-places-direction=forward]::view-transition-new(places-page) { transform-origin: right var(--places-vy, 50vh); animation-name: places-turn-in; animation-delay: 120ms; }
+html[data-places-slide=turn][data-places-direction=backward]::view-transition-old(places-page) { transform-origin: right var(--places-vy, 50vh); animation-name: places-turn-away-back; animation-duration: 420ms; }
+html[data-places-slide=turn][data-places-direction=backward]::view-transition-new(places-page) { transform-origin: left var(--places-vy, 50vh); animation-name: places-turn-in-back; animation-delay: 120ms; }
+
+/* 8 Missions: the new page slides up over the old like a sheet. */
+html[data-places-slide=sheet]::view-transition-old(places-page),
+html[data-places-slide=sheet]::view-transition-new(places-page) { transform-origin: 50% var(--places-vy, 50vh); }
+html[data-places-slide=sheet][data-places-direction=forward]::view-transition-old(places-page) { animation-name: places-sheet-under; }
+html[data-places-slide=sheet][data-places-direction=forward]::view-transition-new(places-page) { animation-name: places-sheet-up; animation-duration: 620ms; }
+html[data-places-slide=sheet][data-places-direction=backward]::view-transition-old(places-page) { z-index: 2; animation-name: places-sheet-down; animation-duration: 520ms; animation-timing-function: cubic-bezier(.4, 0, 1, 1); }
+html[data-places-slide=sheet][data-places-direction=backward]::view-transition-new(places-page) { animation-name: places-sheet-surface; }
+
+@keyframes places-fade-out { to { opacity: 0; } }
+@keyframes places-fade-in { from { opacity: 0; } }
+@keyframes places-lift-out { to { opacity: 0; transform: translateY(-14px); } }
+@keyframes places-rise-in { from { opacity: 0; transform: translateY(36px); } }
+@keyframes places-sink-out { to { opacity: 0; transform: translateY(24px); } }
+@keyframes places-drop-in { from { opacity: 0; transform: translateY(-20px); } }
+@keyframes places-zoom-past { to { opacity: 0; transform: scale(1.08); } }
+@keyframes places-zoom-arrive { from { opacity: 0; transform: scale(.92); } }
+@keyframes places-zoom-recede { to { opacity: 0; transform: scale(.92); } }
+@keyframes places-zoom-return { from { opacity: 0; transform: scale(1.06); } }
+@keyframes places-circle-open { from { clip-path: circle(0 at var(--places-ox, 50%) var(--places-oy, 0)); } to { clip-path: circle(160vmax at var(--places-ox, 50%) var(--places-oy, 0)); } }
+@keyframes places-circle-close { from { clip-path: circle(160vmax at var(--places-ox, 50%) var(--places-oy, 0)); } to { clip-path: circle(0 at var(--places-ox, 50%) var(--places-oy, 0)); } }
+@keyframes places-dim { to { opacity: .35; } }
+@keyframes places-wipe-in { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
+@keyframes places-wipe-out { from { clip-path: inset(0 0 0 0); } to { clip-path: inset(0 100% 0 0); } }
+@keyframes places-blur-out { to { opacity: 0; filter: blur(14px); } }
+@keyframes places-blur-in { from { opacity: 0; filter: blur(14px); } }
+@keyframes places-turn-away { to { opacity: 0; transform: rotateY(-28deg) translateX(-6%); } }
+@keyframes places-turn-in { from { opacity: 0; transform: rotateY(28deg) translateX(6%); } }
+@keyframes places-turn-away-back { to { opacity: 0; transform: rotateY(28deg) translateX(6%); } }
+@keyframes places-turn-in-back { from { opacity: 0; transform: rotateY(-28deg) translateX(-6%); } }
+@keyframes places-sheet-under { to { transform: scale(.95); opacity: .35; } }
+@keyframes places-sheet-up { from { transform: translateY(100vh); box-shadow: 0 -24px 60px rgb(0 0 0 / 35%); } to { transform: translateY(0); box-shadow: 0 -24px 60px rgb(0 0 0 / 0%); } }
+@keyframes places-sheet-down { to { transform: translateY(100vh); } }
+@keyframes places-sheet-surface { from { transform: scale(.95); opacity: .35; } }
 
 html[data-places-slide] .places-collection-nav > a { transition: none; }
+/* The collapse: each Atlas card shrinks into its sub-page tile (and grows back), instead of vanishing in one frame. */
+html[data-places-slide][data-places-morph] [data-places-morph] { view-transition-name: var(--places-morph); view-transition-class: places-card; }
+/* Above the page snapshot: returning to the Atlas, the page fades in over the cards' spots and would hide them. */
+html[data-places-slide]::view-transition-group(.places-card) {
+  z-index: 1; overflow: clip; border-radius: .8rem; background: var(--surface); outline: 1px solid var(--line); outline-offset: -1px;
+  animation-duration: 560ms; animation-timing-function: cubic-bezier(.22, 1, .36, 1);
+}
+/* Unscaled and pinned top-left, so the card folds up from the bottom rather than squashing. */
+html[data-places-slide]::view-transition-old(.places-card),
+html[data-places-slide]::view-transition-new(.places-card) {
+  width: 100%; height: 100%; object-fit: none; object-position: left top; mix-blend-mode: normal;
+  animation-duration: 560ms; animation-timing-function: ease; animation-fill-mode: both;
+}
+html[data-places-slide]::view-transition-old(.places-card) { animation-name: places-morph-out; }
+html[data-places-slide]::view-transition-new(.places-card) { animation-name: places-morph-in; }
+@keyframes places-morph-out { 0% { opacity: 1; } 30%, 100% { opacity: 0; } }
+@keyframes places-morph-in { 0%, 45% { opacity: 0; } 100% { opacity: 1; } }
+
+/* Returning to the Atlas: the sub-page clears first, then the cards grow back, all quickly.
+   Overrides every per-destination style above, which now only shapes the way in. */
+html[data-places-slide][data-places-direction=backward]::view-transition-old(places-page) { z-index: auto; animation: places-fade-out 150ms ease-out both; }
+/* Going in, the Atlas page also clears quickly so its title never lingers under the shrinking cards. */
+html[data-places-slide][data-places-direction=forward]::view-transition-old(places-page) { z-index: auto; animation: places-fade-out 150ms ease-out both; }
+html[data-places-slide][data-places-direction=backward]::view-transition-new(places-page) { z-index: auto; animation: places-fade-in 260ms ease 140ms both; }
+html[data-places-slide][data-places-direction=backward]::view-transition-group(.places-card),
+html[data-places-slide][data-places-direction=backward]::view-transition-old(.places-card),
+html[data-places-slide][data-places-direction=backward]::view-transition-new(.places-card) { animation-delay: 120ms; animation-duration: 440ms; }
 .places-reveal { position: relative; overflow: clip; }
 .places-reveal-grid, .places-reveal-detail { position: absolute; top: 0; left: 0; width: 100%; }
 .places-reveal-detail { z-index: 2; }
@@ -242,6 +340,7 @@ html[data-places-slide] .places-collection-nav > a { transition: none; }
 /* Collection tiles: each destination's own icon, as large as the tile allows, beside the bold title. */
 .places-collection-nav > a > .places-tile-icon { width: 40px; height: 40px; flex-shrink: 0; color: var(--places-color); }
 @media (max-width: 767px) { .places-collection-nav > a > .places-tile-icon { width: 32px; height: 32px; } }
+
 
 /* City choices: compact cards, five to a row, so a collection of nine cities fits in two rows. */
 .places-choices.places-city-choices { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: .5rem; }

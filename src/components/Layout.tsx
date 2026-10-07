@@ -6,14 +6,14 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { useTheme } from "@/lib/theme";
 import { cn } from "@/lib/utils";
 
+const COMMUNITY = { to: "/testimonies", label: "Testimonies", icon: GitBranch };
+
 const NAV = [
   { to: "/bible", label: "Bible", icon: BookOpen, end: false },
   { to: "/study", label: "Study", icon: GraduationCap, end: false },
-  { to: "/testimonies", label: "Testimonies", icon: GitBranch, end: false },
   { to: "/apologetics", label: "Apologetics", icon: ShieldCheck, end: false },
   { to: "/topics", label: "Topics", icon: Tags, end: false },
   { to: "/study/atlas", label: "Atlas", icon: Map, end: false },
-  { to: "/search", label: "Search", icon: Search, end: false },
 ];
 
 export function Layout({ children }: { children: ReactNode }) {
@@ -36,7 +36,7 @@ export function Layout({ children }: { children: ReactNode }) {
             <img src="/favicon.svg" alt="" className="h-7 w-7" />
             <span className="hidden xs:inline">Bible Project</span>
           </Link>
-          <nav aria-label="Main" className="no-scrollbar flex flex-1 items-center gap-0.5 overflow-x-auto">
+          <nav aria-label="Main" className="no-scrollbar flex min-w-0 flex-1 items-center gap-0.5 overflow-x-auto">
             {NAV.map(({ to, label, icon: Icon, end }) => (
               <NavLink
                 key={to}
@@ -56,7 +56,34 @@ export function Layout({ children }: { children: ReactNode }) {
                 <span className="sr-only md:hidden">{label}</span>
               </NavLink>
             ))}
+            <span aria-hidden className="mx-1.5 h-5 w-px shrink-0 bg-line" />
+            <NavLink
+              to={COMMUNITY.to}
+              className={({ isActive }) =>
+                cn(
+                  "flex shrink-0 items-center gap-1.5 px-3 py-1.5 text-sm text-accent transition-opacity hover:opacity-80",
+                  isActive && "font-semibold",
+                )
+              }
+            >
+              <COMMUNITY.icon className="h-4 w-4" aria-hidden />
+              <span className="hidden md:inline">{COMMUNITY.label}</span>
+              <span className="sr-only md:hidden">{COMMUNITY.label}</span>
+            </NavLink>
           </nav>
+          <NavLink
+            to="/search"
+            aria-label="Search"
+            title="Search"
+            className={({ isActive }) =>
+              cn(
+                "grid h-[34px] w-[34px] shrink-0 place-items-center rounded-full border transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent",
+                isActive ? "border-ink bg-ink text-page" : "border-line text-muted hover:bg-surface-2 hover:text-ink",
+              )
+            }
+          >
+            <Search className="h-4 w-4" aria-hidden />
+          </NavLink>
           <button
             type="button"
             onClick={toggleTheme}

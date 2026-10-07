@@ -8,6 +8,7 @@ import { CityDirectory } from "./CityDirectory";
 import { HISTORY_COLLECTIONS, type HistoryId } from "./history-collections";
 import { HistoryExperience } from "./HistoryExperience";
 import { usePlacesPageSlide } from "./usePlacesPageSlide";
+import { TransitionTicker } from "@/components/ticker/TransitionTicker";
 import "./places-collection.css";
 
 import { ATLAS_BASE as BASE, atlasDestination } from "./routes";
@@ -70,6 +71,8 @@ const EXPERIENCES: Record<PreviewId, Experience> = {
 };
 
 const tint = (color: string) => ({ "--places-color": `var(--${color})` }) as CSSProperties;
+// Each big Atlas card and its small tile on a sub-page share one transition name, so the card folds into the tile.
+const morph = (id: string, color: string) => ({ ...tint(color), "--places-morph": `places-card-${id}` }) as CSSProperties;
 
 export function AtlasCollection({ atlas }: { atlas: ReactNode }) {
   const slide = usePlacesPageSlide();
@@ -81,7 +84,7 @@ export function AtlasCollection({ atlas }: { atlas: ReactNode }) {
     {HISTORY_COLLECTIONS.map(({ id }) => <Route key={id} path={id} element={<DestinationShell id={id}><HistoryExperience key={id} id={id} /></DestinationShell>} />)}
     {(["journeys", "cities", "gospels"] as const).map((id) => <Route key={id} path={id} element={<DestinationShell id={id}><ExperiencePreview id={id} /></DestinationShell>} />)}
     <Route path="*" element={<Navigate to={BASE} replace />} />
-  </Routes></div>;
+  </Routes><TransitionTicker /></div>;
 }
 
 function LegacyCityMotion() {
@@ -102,9 +105,8 @@ function CollectionHome() {
       <div><p className="places-kicker">Scripture, place & Christian history</p><h1>Real places.<br /><em>An unfolding story.</em></h1><p>Find a place. Follow a life. Step into the world of the Bible.<br className="hidden sm:block" /> Then explore the communities and movements that followed.</p></div>
       <div className="places-intro-compass" aria-hidden><Compass strokeWidth={.65} /><span>PLACE · PEOPLE · STORY</span></div>
     </header>
-    <div className="places-section-heading places-row-heading"><h2>Explore the biblical world</h2><span>Places, people & the Gospel accounts</span></div>
     <nav aria-label="Places and journeys collection" className="places-destinations">
-      {DESTINATIONS.map((item, index) => <Link key={item.id} to={atlasDestination(item.id)} className="places-destination-card" style={tint(item.color)} aria-labelledby={`places-card-${item.id}`}>
+      {DESTINATIONS.map((item, index) => <Link key={item.id} to={atlasDestination(item.id)} className="places-destination-card" data-places-morph style={morph(item.id, item.color)} aria-labelledby={`places-card-${item.id}`}>
         <div className="places-card-top"><item.icon size={18} strokeWidth={1.5} aria-hidden /><span>{item.eyebrow}</span><ArrowUpRight size={19} aria-hidden /></div>
         <PlacesArtwork kind={item.id} />
         <div className="places-card-copy"><span className="places-card-number">0{index + 1}</span><h2 id={`places-card-${item.id}`}>{item.title}</h2><p>{item.description}</p></div>
@@ -113,7 +115,7 @@ function CollectionHome() {
     </nav>
     <div className="places-section-heading places-row-heading"><h2>Beyond the New Testament</h2><span>Communities, traditions & a worldwide church</span></div>
     <nav aria-label="Christian history collection" className="places-destinations">
-      {HISTORY_COLLECTIONS.map((item, index) => <Link key={item.id} to={atlasDestination(item.id)} className="places-destination-card" style={tint(item.color)} aria-labelledby={`places-card-${item.id}`}>
+      {HISTORY_COLLECTIONS.map((item, index) => <Link key={item.id} to={atlasDestination(item.id)} className="places-destination-card" data-places-morph style={morph(item.id, item.color)} aria-labelledby={`places-card-${item.id}`}>
         <div className="places-card-top"><item.icon size={18} strokeWidth={1.5} aria-hidden /><span>{item.eyebrow}</span><ArrowUpRight size={19} aria-hidden /></div>
         <PlacesArtwork kind={item.id} />
         <div className="places-card-copy"><span className="places-card-number">0{index + 5}</span><h2 id={`places-card-${item.id}`}>{item.title}</h2><p>{item.description}</p></div>
@@ -130,7 +132,7 @@ function DestinationShell({ id, children }: { id: PlacesDestination; children: R
   return <div className="places-collection places-destination mx-auto max-w-7xl px-4 sm:px-6" style={tint(item.color)}>
     <div className="places-topline"><Link to={BASE}><ArrowLeft size={15} aria-hidden />Back to Atlas</Link><Link to={`${BASE}/map`}>Open the map <ArrowUpRight size={13} aria-hidden /></Link></div>
     <nav className="places-collection-nav" aria-label="Explore the collection">
-      {[...DESTINATIONS, ...HISTORY_COLLECTIONS].map((entry) => <NavLink key={entry.id} to={atlasDestination(entry.id)} style={tint(entry.color)}><entry.icon className="places-tile-icon" strokeWidth={1.35} aria-hidden /><span>{entry.title}</span><ArrowUpRight size={14} aria-hidden /></NavLink>)}
+      {[...DESTINATIONS, ...HISTORY_COLLECTIONS].map((entry) => <NavLink key={entry.id} to={atlasDestination(entry.id)} data-places-morph style={morph(entry.id, entry.color)}><entry.icon className="places-tile-icon" strokeWidth={1.35} aria-hidden /><span>{entry.title}</span><ArrowUpRight size={14} aria-hidden /></NavLink>)}
     </nav>
     <div className="places-page-slide">{children}</div>
   </div>;

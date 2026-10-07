@@ -19,7 +19,9 @@ const KIND_TONE: Record<Prophet["kind"], Tone> = { writing: "prophets", prophet:
 const ERA_LABEL: Record<string, string> = { Judges: "The Judges" };
 const slug = (text: string) => text.toLowerCase().replace(/[^a-z0-9]+/g, "-");
 
-export default function ProphetsPage() {
+export default function ProphetsPage() { return <ProphetsContent />; }
+
+export function ProphetsContent({ embedded = false }: { embedded?: boolean }) {
   const prophets = useAsync(loadProphets, "prophets");
   const [kind, setKind] = useState<Prophet["kind"] | "all">("all");
 
@@ -27,8 +29,8 @@ export default function ProphetsPage() {
   const eras = [...new Set(shown.map((p) => p.era))];
 
   return (
-    <div className="mx-auto max-w-6xl px-4 pb-16 sm:px-6">
-      <StudyHeader
+    <div className={embedded ? "min-w-0" : "mx-auto max-w-6xl px-4 pb-16 sm:px-6"}>
+      {!embedded && <StudyHeader
         eyebrow="Study · Prophets"
         title="The prophets, in order."
         lead={
@@ -37,7 +39,8 @@ export default function ProphetsPage() {
             sixteen whose books bear their names are marked.
           </p>
         }
-      />
+      />}
+      {embedded && <div className="mb-6"><h2 className="font-serif text-3xl font-semibold">Prophets through time.</h2><p className="mt-2 max-w-3xl text-muted">Follow the prophets and prophetesses through the eras of Scripture. Explore their lives, the kings they served under, and the passages that place them in history.</p></div>}
       {prophets.status === "loading" && <div className="h-64 animate-pulse rounded-2xl bg-surface-2" />}
       {prophets.status === "error" && <p className="text-muted">The prophets could not be loaded.</p>}
       {prophets.status === "ready" && (

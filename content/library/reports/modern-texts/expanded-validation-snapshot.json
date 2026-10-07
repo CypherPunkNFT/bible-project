@@ -1,0 +1,31 @@
+{
+  "totals": {
+    "begg": {
+      "filesChecked": 189,
+      "words": 1130909,
+      "statuses": {
+        "no-transcript-offered": 172,
+        "downloaded": 189,
+        "author-review-required": 13
+      }
+    },
+    "monergism-library": {
+      "filesChecked": 26,
+      "words": 3143655,
+      "statuses": {
+        "downloaded": 26,
+        "error": 1
+      }
+    },
+    "ccel-expansion": {
+      "filesChecked": 5,
+      "words": 690096,
+      "statuses": {
+        "already-held": 3,
+        "downloaded": 5
+      }
+    }
+  },
+  "issues": [],
+  "scope": "Every original and derived text present in new ledgers at this snapshot, checked by SHA-256; later downloads not yet included"
+}

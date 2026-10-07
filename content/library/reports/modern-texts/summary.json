@@ -1,0 +1,176 @@
+{
+  "updatedAt": "2026-10-05T22:24:15.368813+00:00",
+  "scope": "Private noncommercial reading acquisition; no new public full-text publication or canonical core-teaching admission",
+  "sources": [
+    {
+      "source": "piper",
+      "name": "John Piper messages and writings",
+      "recordsChecked": 7527,
+      "statuses": {
+        "downloaded": 7205,
+        "no-substantial-text": 206,
+        "author-review": 110,
+        "error": 6
+      },
+      "downloadedRecords": 7205,
+      "uniqueFiles": 7205,
+      "bytes": 486620644,
+      "pdfPages": 0,
+      "extractedWords": 14312626,
+      "bookSamples": 0
+    },
+    {
+      "source": "piper-books",
+      "name": "John Piper book editions",
+      "recordsChecked": 143,
+      "statuses": {
+        "outside-author-scope": 30,
+        "downloaded": 107,
+        "no-offered-download": 5,
+        "error": 1
+      },
+      "downloadedRecords": 107,
+      "uniqueFiles": 108,
+      "bytes": 183715964,
+      "pdfPages": 5891,
+      "extractedWords": 4982983,
+      "bookSamples": 10
+    },
+    {
+      "source": "rogers",
+      "name": "Adrian Rogers",
+      "recordsChecked": 619,
+      "statuses": {
+        "downloaded": 609,
+        "no-download": 10
+      },
+      "downloadedRecords": 609,
+      "uniqueFiles": 610,
+      "bytes": 189555846,
+      "pdfPages": 8718,
+      "extractedWords": 4140132,
+      "bookSamples": 0
+    },
+    {
+      "source": "packer",
+      "name": "J. I. Packer",
+      "recordsChecked": 27,
+      "statuses": {
+        "permission-review": 5,
+        "no-offered-pdf": 13,
+        "downloaded": 9
+      },
+      "downloadedRecords": 9,
+      "uniqueFiles": 9,
+      "bytes": 2466714,
+      "pdfPages": 26,
+      "extractedWords": 18280,
+      "bookSamples": 0
+    },
+    {
+      "source": "graham",
+      "name": "Billy Graham",
+      "recordsChecked": 4,
+      "statuses": {
+        "downloaded": 4
+      },
+      "downloadedRecords": 4,
+      "uniqueFiles": 4,
+      "bytes": 9080210,
+      "pdfPages": 72,
+      "extractedWords": 16298,
+      "bookSamples": 0
+    },
+    {
+      "source": "sproul",
+      "name": "R. C. Sproul books",
+      "recordsChecked": 2,
+      "statuses": {
+        "downloaded": 2
+      },
+      "downloadedRecords": 2,
+      "uniqueFiles": 4,
+      "bytes": 2326211,
+      "pdfPages": 148,
+      "extractedWords": 24508,
+      "bookSamples": 0
+    },
+    {
+      "source": "ready-library",
+      "name": "Ready author libraries (individual authors in manifest)",
+      "recordsChecked": 385,
+      "statuses": {
+        "downloaded": 375,
+        "no-readable-text": 7,
+        "error": 3
+      },
+      "downloadedRecords": 375,
+      "uniqueFiles": 382,
+      "bytes": 366032343,
+      "pdfPages": 4911,
+      "extractedWords": 2778425,
+      "bookSamples": 0
+    },
+    {
+      "source": "begg",
+      "name": "Alistair Begg official sermon transcripts",
+      "recordsChecked": 3067,
+      "statuses": {
+        "no-transcript-offered": 1379,
+        "downloaded": 1482,
+        "author-review-required": 204,
+        "error": 2
+      },
+      "downloadedRecords": 1482,
+      "uniqueFiles": 1482,
+      "bytes": 153085490,
+      "pdfPages": 0,
+      "extractedWords": 8861785,
+      "bookSamples": 0
+    },
+    {
+      "source": "monergism-library",
+      "name": "Monergism curated reading editions (author review pending)",
+      "recordsChecked": 1568,
+      "statuses": {
+        "downloaded": 1478,
+        "error": 6,
+        "already-held": 78,
+        "no-offered-epub": 6
+      },
+      "downloadedRecords": 1478,
+      "uniqueFiles": 1478,
+      "bytes": 655391035,
+      "pdfPages": 0,
+      "extractedWords": 153300724,
+      "bookSamples": 0
+    },
+    {
+      "source": "ccel-expansion",
+      "name": "CCEL additional historical author editions",
+      "recordsChecked": 229,
+      "statuses": {
+        "already-held": 70,
+        "downloaded": 145,
+        "no-readable-text": 1,
+        "no-offered-ThML": 11,
+        "error": 2
+      },
+      "downloadedRecords": 145,
+      "uniqueFiles": 146,
+      "bytes": 236274613,
+      "pdfPages": 0,
+      "extractedWords": 37575953,
+      "bookSamples": 0
+    }
+  ],
+  "uniqueOriginalFiles": 11428,
+  "uniqueOriginalChecksums": 11427,
+  "originalBytes": 2284549070,
+  "pdfPages": 19766,
+  "derivedTextFiles": 11426,
+  "extractedWords": 226011714,
+  "verifiedAllFileHashes": true,
+  "validationIssues": [],
+  "note": "Records, unique works, editions and files are not interchangeable. Extracted word totals include original quotation and repeated matter; PDF pages exclude HTML. No invented HTML page equivalents."
+}

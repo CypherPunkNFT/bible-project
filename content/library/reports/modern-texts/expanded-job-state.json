@@ -1,0 +1,44 @@
+{
+  "startedAt": "2026-10-05T13:51:21.615885+00:00",
+  "pid": 34452,
+  "status": "workers-finished-review-gaps",
+  "workers": {
+    "piper-message-runner": 44368,
+    "rogers": 7564,
+    "begg": 60616,
+    "monergism-library": 15032,
+    "ccel-expansion": 40648
+  },
+  "phases": [
+    {
+      "name": "piper-messages-resume",
+      "status": "process-finished",
+      "startedAt": "2026-10-05T14:03:02.599878+00:00",
+      "log": ".local/library/run-modern-texts-2026-10-05/piper-messages-resume-expanded.log",
+      "pid": 44668,
+      "exitCode": 0,
+      "finishedAt": "2026-10-05T14:31:12.918770+00:00"
+    },
+    {
+      "name": "piper-books",
+      "status": "process-finished",
+      "startedAt": "2026-10-05T14:31:12.920058+00:00",
+      "log": ".local/library/run-modern-texts-2026-10-05/piper-books-expanded.log",
+      "pid": 60460,
+      "exitCode": 0,
+      "finishedAt": "2026-10-05T14:31:43.564727+00:00"
+    },
+    {
+      "name": "piper-articles-interviews",
+      "status": "process-finished",
+      "startedAt": "2026-10-05T14:31:43.566387+00:00",
+      "log": ".local/library/run-modern-texts-2026-10-05/piper-articles-interviews-expanded.log",
+      "pid": 24276,
+      "exitCode": 0,
+      "finishedAt": "2026-10-05T19:19:55.136190+00:00"
+    }
+  ],
+  "scope": "Owner authorized broad existing-readable-text acquisition; no OCR, no public republication",
+  "checkedAt": "2026-10-05T22:23:04.907789+00:00",
+  "finishedAt": "2026-10-05T22:24:15.617218+00:00"
+}

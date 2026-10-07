@@ -5,6 +5,7 @@ import { PassageText, RefLink, StudyCredits, StudyHeader, StudySearch } from "@/
 import { loadNames, type NamesOfGod } from "@/lib/study";
 import { useAsync } from "@/lib/useAsync";
 import { cn } from "@/lib/utils";
+import { useStudyView } from "@/components/study/study-view";
 
 type Name = NamesOfGod["groups"][number]["names"][number];
 // The same gold, blue and green as the three words above (tokens in components/names/names-of-god.css).
@@ -14,6 +15,7 @@ const GROUP_TITLE: Record<string, string> = { father: "Abba Father", son: "Jesus
 
 /** Names of God: the Faith page's three word fields in this site's page, then every name in the same colours. */
 export default function NamesPage() {
+  const view = useStudyView("names");
   return (
     <div className="mx-auto max-w-7xl px-4 pb-16 sm:px-6">
       <StudyHeader
@@ -22,8 +24,8 @@ export default function NamesPage() {
         titleId="names-title"
         lead={<p>Names and titles of God as revealed in Scripture. Click a word to unfold its names, then click a name to read its passages.</p>}
       />
-      <div id="names-explorer" className="study-section-anchor"><NamesSection labelledBy="names-title" /></div>
-      <NamesList />
+      {view === "names-explorer" && <div id="names-explorer" data-study-panel className="study-section-anchor"><NamesSection labelledBy="names-title" /></div>}
+      {view === "names-list" && <NamesList />}
       <StudyCredits>
         The names, their three groups and their order are the ones chosen for the Faith page of the CypherPunk NFT site, shown here the same way; compiled from
         R. A. Torrey's <cite>New Topical Text Book</cite> (1897, public domain) and other references. Verses in the King James Version.
@@ -54,7 +56,7 @@ function NamesList() {
   );
 
   return (
-    <section id="names-list" aria-labelledby="names-list-title" className="study-section-anchor pt-10">
+    <section id="names-list" data-study-panel aria-labelledby="names-list-title" className="study-section-anchor pt-10">
       <h2 id="names-list-title" className="mb-4 font-serif text-2xl font-semibold sm:text-3xl">
         Every name
       </h2>

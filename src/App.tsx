@@ -1,7 +1,8 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, type ReactNode } from "react";
 import { MotionConfig } from "framer-motion";
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes, useLocation } from "react-router-dom";
 import { Layout } from "@/components/Layout";
+import { PageErrorBoundary } from "@/components/PageErrorBoundary";
 import { CatalogProvider } from "@/lib/catalog-context";
 import HomePage from "@/pages/HomePage";
 
@@ -22,6 +23,8 @@ const ApologeticsPage = lazy(() => import("@/pages/ApologeticsPage"));
 const StudyRedirect = lazy(() => import("@/pages/study/StudyRedirect"));
 const MiraclesPage = lazy(() => import("@/pages/study/MiraclesPage"));
 const LettersPage = lazy(() => import("@/pages/study/LettersPage"));
+const CurvedGenealogyPage = lazy(() => import("@/pages/study/CurvedGenealogyPage"));
+const CircularGenealogyPage = lazy(() => import("@/pages/study/CircularGenealogyPage"));
 const PeoplePage = lazy(() => import("@/pages/study/PeoplePage"));
 const PersonPage = lazy(() => import("@/pages/PersonPage"));
 const PersonRedirect = lazy(() => import("@/pages/PersonPage").then((m) => ({ default: m.PersonRedirect })));
@@ -36,13 +39,19 @@ function PageFallback() {
   );
 }
 
+function AppFrame({ children }: { children: ReactNode }) {
+  const { pathname } = useLocation();
+  const page = <PageErrorBoundary resetKey={pathname}>{children}</PageErrorBoundary>;
+  return pathname === "/mock/genealogy-circle-2" || pathname === "/mock/genealogy-circle" || pathname === "/mock/genealogy-curves" ? page : <Layout>{page}</Layout>;
+}
+
 export default function App() {
   return (
     // Framer Motion animations follow the reader's "reduce motion" setting, like the CSS ones.
     <MotionConfig reducedMotion="user">
     <BrowserRouter>
       <CatalogProvider>
-        <Layout>
+        <AppFrame>
           <Suspense fallback={<PageFallback />}>
             <Routes>
               <Route path="/" element={<HomePage />} />
@@ -76,6 +85,9 @@ export default function App() {
               <Route path="/study/harmony" element={<StudyRedirect />} />
               <Route path="/study/miracles" element={<MiraclesPage />} />
               <Route path="/study/letters" element={<LettersPage />} />
+              <Route path="/mock/genealogy-curves" element={<CurvedGenealogyPage />} />
+              <Route path="/mock/genealogy-circle-2" element={<CircularGenealogyPage familyBands />} />
+              <Route path="/mock/genealogy-circle" element={<CircularGenealogyPage />} />
               <Route path="/study/people" element={<PeoplePage />} />
               <Route path="/study/people/:id" element={<PersonRedirect />} />
               <Route path="/people/:id" element={<PersonPage />} />
@@ -84,7 +96,7 @@ export default function App() {
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </Suspense>
-        </Layout>
+        </AppFrame>
       </CatalogProvider>
     </BrowserRouter>
     </MotionConfig>

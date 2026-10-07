@@ -8,6 +8,10 @@ import { tone, type Tone } from "@/lib/sections";
 import { useAsync } from "@/lib/useAsync";
 import { cn } from "@/lib/utils";
 import { OutsideScroll } from "@/components/OutsideScroll";
+import { useStudyView } from "@/components/study/study-view";
+
+/** Which contents card a group of miracles belongs to. */
+const panelOf = (who: string) => (who === "Jesus" ? "who-jesus" : who === "Moses and Aaron" ? "who-moses-and-aaron" : "other-miracles");
 
 const GOSPELS = [
   ["MAT", "Mt"],
@@ -66,6 +70,9 @@ export default function MiraclesPage() {
   const total = groups.reduce((sum, g) => sum + g.items.length, 0);
   const shownCount = filtered.reduce((sum, g) => sum + g.items.length, 0);
   const firstOther = filtered.find((group) => group.who !== "Jesus" && group.who !== "Moses and Aaron")?.who;
+  // The cards above show one group at a time; a search looks across all of them.
+  const view = useStudyView("miracles");
+  const visible = words ? filtered : filtered.filter((group) => panelOf(group.who) === view);
 
   return (
     <div className="mx-auto max-w-6xl px-4 pb-16 sm:px-6">
@@ -82,8 +89,8 @@ export default function MiraclesPage() {
           <div className="mt-6">
             <StudySearch value={query} onChange={setQuery} label="Find a miracle or a name" count={shownCount} total={total} />
           </div>
-          <div className="mt-6 space-y-8">
-            {filtered.map((group) => (
+          <div data-study-panel className="mt-6 space-y-8">
+            {visible.map((group) => (
               <section key={group.who} id={group.who === firstOther ? "other-miracles" : undefined} className="study-section-anchor" aria-labelledby={`who-${slug(group.who)}`}>
                 <h2 id={`who-${slug(group.who)}`} className="study-section-anchor mb-2 flex items-baseline gap-2 font-serif text-2xl font-semibold">
                   <span className="h-3 w-3 self-center rounded-full" style={{ background: tone(groupTone(group)).tab }} aria-hidden />
@@ -103,7 +110,7 @@ export default function MiraclesPage() {
             ))}
             {!filtered.length && <p className="py-10 text-center text-muted">No miracle matches.</p>}
           </div>
-          {!words && (
+          {!words && view === "other-miracles" && (
             <section aria-labelledby="evil" className="mt-10 rounded-2xl border border-dashed border-line p-4">
               <h2 id="evil" className="font-serif text-xl font-semibold">Signs worked against God</h2>
               <p className="mt-1 text-sm text-muted">Torrey also lists wonders done through other powers. Only the events he names are shown here.</p>

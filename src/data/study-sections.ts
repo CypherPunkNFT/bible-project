@@ -47,7 +47,9 @@ export const STUDY_SECTIONS: Record<StudyCollectionId, StudySection[]> = {
   ],
   letters: [
     { id: "paul-letters", title: "Paul's letters", description: "Compare thirteen letters, their sections, and the communities they address.", kind: "Guide", illustration: "letters" },
-    { id: "general-letters", title: "Hebrews & the general letters", description: "Explore the other eight letters and how each message unfolds.", kind: "Guide", illustration: "letters" },
+    { id: "hebrews", title: "Hebrews", description: "One long sermon-letter, its author unnamed, on Christ and the old covenant.", kind: "Guide", illustration: "letters" },
+    { id: "general-letters", title: "James, Peter & Jude", description: "Four short letters to scattered believers: faith at work, suffering and false teaching.", kind: "Guide", illustration: "letters" },
+    { id: "john-letters", title: "The letters of John", description: "Three letters on love, truth and fellowship, from a single voice.", kind: "Guide", illustration: "letters" },
   ],
   names: [
     { id: "names-explorer", title: "Explore the names", description: "Unfold the names of the Father, Son and Holy Spirit into their passages.", kind: "Guide", illustration: "names" },

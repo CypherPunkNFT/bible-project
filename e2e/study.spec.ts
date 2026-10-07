@@ -8,21 +8,26 @@ const TRANSLATION_LANGUAGES = ["Spanish", "Arabic", "Chinese", "French", "German
 
 const PAGES = ["/study", "/study/gospels", "/study/references", "/study/structure", "/study/versions", "/study/atlas", "/study/harmony", "/study/miracles", "/study/letters", "/study/people", "/study/people/elijah-1ki-17-1", "/study/prophets", "/study/names"];
 
-test("study: teaching, speech and harmony work together without hiding one another", async ({ page }) => {
+test("study: teaching, speech and harmony each keep their state while the cards switch between them", async ({ page }) => {
   await page.goto("/study/gospels");
   await page.getByRole("navigation", { name: "Collection contents" }).getByRole("link", { name: "Teaching journeys", exact: true }).click();
   await page.getByRole("button", { name: "Prayer Teach us to pray." }).click();
   await expect(page.locator(".teaching-scripture").first()).toContainText("Our Father");
-  await page.locator("#harmony").scrollIntoViewIfNeeded();
+  // One chart at a time: each is opened from its contents card.
+  const contents = page.getByRole("navigation", { name: "Collection contents" });
+  await contents.getByRole("link", { name: "Gospel harmony", exact: true }).click();
   const harmony = page.locator("#harmony");
   await harmony.getByRole("button", { name: "John", exact: true }).click();
   await harmony.getByLabel("and no other Gospel").check();
   await expect(harmony.getByRole("button", { name: /Jesus works his first miracle/ }).first()).toBeVisible();
   await expect(harmony.getByRole("button", { name: /Feeding of the five thousand/ })).toHaveCount(0);
-  await page.locator("#speech").scrollIntoViewIfNeeded();
+  await contents.getByRole("link", { name: "Where he speaks", exact: true }).click();
   await page.locator("#speech").getByRole("group", { name: "Choose a Gospel" }).getByRole("button", { name: "John", exact: true }).click();
   await expect(page.locator(".speech-bars a")).toHaveCount(21);
+  // Each chart keeps its selections when its card is chosen again.
+  await contents.getByRole("link", { name: "Teaching journeys", exact: true }).click();
   await expect(page.locator(".teaching-paths").getByRole("button", { name: "Prayer Teach us to pray." })).toHaveAttribute("aria-pressed", "true");
+  await contents.getByRole("link", { name: "Gospel harmony", exact: true }).click();
   await expect(harmony.getByLabel("and no other Gospel")).toBeChecked();
   await expect(page.getByRole("heading", { level: 1 })).toHaveCount(1);
 });
@@ -30,29 +35,33 @@ test("study: teaching, speech and harmony work together without hiding one anoth
 test("study: prophets remain discoverable within People and Atlas bookmarks retain their place", async ({ page }) => {
   await page.goto("/study/people");
   await page.getByRole("navigation", { name: "Collection contents" }).getByRole("link", { name: "Prophets through time" }).click();
-  await expect(page).toHaveURL(/\/study\/prophets$/);
+  // Inside People the card opens the prophets in place; the stand-alone page also exists.
+  await expect(page).toHaveURL(/\/study\/(prophets|people\?view=prophets)$/);
   await expect(page.locator("#prophet-amos-amo-1-1")).toBeVisible();
   await page.getByRole("navigation", { name: "Collection contents" }).getByRole("link", { name: "People & families" }).click();
-  await expect(page).toHaveURL(/\/study\/people#people-directory$/);
+  await expect(page).toHaveURL(/\/study\/people(\?view=families|#people-directory)$/);
   await page.goto("/atlas?place=a15257a");
   await expect(page).toHaveURL(/\/study\/atlas\/map\?place=a15257a$/);
   await expect(page.getByRole("heading", { name: "Jerusalem", level: 2 })).toBeVisible();
 });
 
+// The cards show one section at a time below them (components/study/study-view.ts) rather than scrolling to it.
 test("study: guide contents reach their own sections instead of unrelated collections", async ({ page }) => {
   for (const [path, label, id] of [
     ["/study/miracles", "The miracles of Jesus", "who-jesus"],
     ["/study/miracles", "Moses & Aaron", "who-moses-and-aaron"],
     ["/study/miracles", "Prophets & apostles", "other-miracles"],
     ["/study/letters", "Paul's letters", "paul-letters"],
-    ["/study/letters", "Hebrews & the general letters", "general-letters"],
+    ["/study/letters", "Hebrews", "hebrews"],
+    ["/study/letters", "James, Peter & Jude", "general-letters"],
+    ["/study/letters", "The letters of John", "john-letters"],
     ["/study/names", "Explore the names", "names-explorer"],
     ["/study/names", "Find a name", "names-list"],
   ]) {
     await page.goto(path);
     await page.getByRole("navigation", { name: "Collection contents" }).getByRole("link", { name: label, exact: true }).click();
     await expect(page).toHaveURL(new RegExp(path + "#" + id + "$"));
-    await expect(page.locator("#" + id)).toBeInViewport();
+    await expect(page.locator("#" + id)).toBeVisible();
   }
   await page.goto("/study/places#top-places");
   await page.locator("section[aria-labelledby='top-places']").getByRole("button", { name: /^Jerusalem/ }).click();
@@ -191,12 +200,18 @@ test("harmony references open the reader on the whole passage", async ({ page })
 
 test("people: Zechariah is one of 29, and family links land on the right person", async ({ page }) => {
   await page.goto("/study/people");
-  await page.getByPlaceholder("Name, e.g. Zechariah").fill("Zechariah");
-  await expect(page.getByText("one of 29").first()).toBeVisible();
+  await page.getByPlaceholder("Name, another name, or what they did").fill("Zechariah");
+  await page.locator(".people-card", { has: page.locator("strong", { hasText: /^Zechariah$/ }) }).first().click();
+  await expect(page).toHaveURL(/\/people\/zechariah-/);
+  await expect(page.getByText(/one of 29 people named Zechariah/)).toBeVisible();
+  await expect(page.getByRole("link", { name: "Back to People & genealogies" })).toBeVisible();
+  // Old person addresses open the person's own page.
   await page.goto("/study/people/david-rut-4-17");
+  await expect(page).toHaveURL(/\/people\/david-rut-4-17$/);
   await page.getByRole("region", { name: "Family" }).getByRole("link", { name: "Absalom" }).click();
-  await expect(page).toHaveURL(/\/study\/people\/absalom-2sa-3-3$/);
-  await expect(page.getByRole("heading", { name: "Absalom", level: 2 })).toBeVisible();
+  await expect(page).toHaveURL(/\/people\/absalom-2sa-3-3$/);
+  await expect(page.getByRole("heading", { name: "Absalom", level: 1 })).toBeVisible();
+  await expect(page.getByRole("link", { name: "Back to David" })).toBeVisible();
 });
 
 test("prophets: Amos, Moses and Deborah the judge are there; Rebekah's nurse is not", async ({ page }) => {

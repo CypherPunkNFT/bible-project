@@ -1,0 +1,88 @@
+import type { FamilyEdge } from "./genealogy";
+export type MoveScope = "person" | "ancestors" | "descendants" | "both";
+export interface RingNode { id: string; angle: number; radius: number; size: number }
+/** Collapse tracks at unchanged ring radii; preserve order and spread only crowded rings. */
+export function singleTrackOffsets(nodes:(RingNode & {generation:number})[],offsets:Record<string,number>) {
+  let next={...offsets};
+  for(const generation of new Set(nodes.map(n=>n.generation))) {
+    if(!generation) continue;
+    const ring=nodes.filter(n=>n.generation===generation);
+    if(!ringOverlap(ring,next,1)) continue;
+    next=tightenSiblings(ring,next,new Set(ring.map(n=>n.id)),1);
+  }
+  return ringOverlap(nodes,next,1) ? null : next;
+}
+export function lockedPeople(id: string, scope: MoveScope, edges: FamilyEdge[], visible: Set<string>) {
+  const result = new Set([id]);
+  const walk = (up: boolean) => {
+    const queue = [id], visited = new Set(queue);
+    for (let i = 0; i < queue.length; i++) for (const edge of edges) {
+      if (edge.kind !== "parent" || (up ? edge.to : edge.from) !== queue[i]) continue;
+      const next = up ? edge.from : edge.to;
+      if (!visible.has(next) || visited.has(next)) continue;
+      visited.add(next); result.add(next); queue.push(next);
+    }
+  };
+  if (scope === "ancestors" || scope === "both") walk(true);
+  if (scope === "descendants" || scope === "both") walk(false);
+  return result;
+}
+export function ringOverlap(nodes: RingNode[], offsets: Record<string, number>, scale: number, affected?: Set<string>) {
+  const points = nodes.map(n => ({ ...n, x: Math.cos(n.angle + (offsets[n.id] ?? 0)) * n.radius * scale, y: Math.sin(n.angle + (offsets[n.id] ?? 0)) * n.radius * scale }));
+  for (let i = 0; i < points.length; i++) for (let j = 0; j < i; j++) {
+    const a = points[i], b = points[j];
+    if (affected && !affected.has(a.id) && !affected.has(b.id)) continue;
+    if (Math.hypot(a.x - b.x, a.y - b.y) < a.size + b.size + 10) return [a.id, b.id];
+  }
+  return null;
+}
+export function rotatePeople(offsets: Record<string, number>, ids: Set<string>, delta: number) {
+  const next = { ...offsets };
+  ids.forEach(id => { next[id] = ((offsets[id] ?? 0) + delta) % (Math.PI * 2); });
+  return next;
+}
+
+/** Midpoint of the shortest arc containing the group, including across 0/360. */
+export function siblingArc(angles: number[]) {
+  const tau = Math.PI * 2;
+  const sorted = angles.map(a => (a % tau + tau) % tau).sort((a,b) => a-b);
+  if (!sorted.length) return { start: 0, middle: 0 };
+  let gap = -1, start = sorted[0];
+  sorted.forEach((a,i) => { const next = sorted[(i+1)%sorted.length] + (i === sorted.length-1 ? tau : 0); if (next-a > gap) { gap = next-a; start = next % tau; } });
+  return { start, middle: start + (tau-gap)/2 };
+}
+export function tightenSiblings(nodes: RingNode[], offsets: Record<string, number>, ids: Set<string>, factor: number) {
+  const group = nodes.filter(n => ids.has(n.id));
+  const { start, middle } = siblingArc(group.map(n => n.angle + (offsets[n.id] ?? 0)));
+  const result = { ...offsets }, tau = Math.PI*2;
+  const ordered = group.map(n => {
+    const current=n.angle+(offsets[n.id] ?? 0), wrapped=((current-start)%tau+tau)%tau;
+    return { node:n, angle:start+(Math.abs(wrapped-tau)<1e-9 ? 0 : wrapped) };
+  }).sort((a,b)=>a.angle-b.angle);
+  const gaps=ordered.slice(1).map((item,i)=> {
+    const previous=ordered[i], a=previous.node, b=item.node;
+    const clearance=a.size+b.size+10+.001;
+    const cosine=(a.radius*a.radius+b.radius*b.radius-clearance*clearance)/(2*a.radius*b.radius);
+    const minimum=Math.acos(Math.max(-1,Math.min(1,cosine)));
+    return Math.max(minimum,(item.angle-previous.angle)*factor);
+  });
+  let angle=middle-gaps.reduce((sum,gap)=>sum+gap,0)/2;
+  ordered.forEach(({node},i)=> { if(i) angle+=gaps[i-1]; result[node.id]=angle-node.angle; });
+  return result;
+}
+
+/** Compact, evenly spaced siblings centered on a parent's radial direction. */
+export function balanceSiblings(nodes: RingNode[], offsets: Record<string,number>, ids: Set<string>, parentAngle?: number) {
+  const group=nodes.filter(n=>ids.has(n.id));
+  const {start,middle}=siblingArc(group.map(n=>n.angle+(offsets[n.id] ?? 0)));
+  const tau=Math.PI*2, result={...offsets};
+  const ordered=[...group].sort((a,b)=> ((a.angle+(offsets[a.id] ?? 0)-start)%tau+tau)%tau-((b.angle+(offsets[b.id] ?? 0)-start)%tau+tau)%tau);
+  let step=0;
+  for(let i=1;i<ordered.length;i++) {
+    const a=ordered[i-1], b=ordered[i], clearance=a.size+b.size+10+.001;
+    step=Math.max(step,Math.acos(Math.max(-1,Math.min(1,(a.radius*a.radius+b.radius*b.radius-clearance*clearance)/(2*a.radius*b.radius)))));
+  }
+  const center=parentAngle === undefined ? middle : middle+Math.atan2(Math.sin(parentAngle-middle),Math.cos(parentAngle-middle));
+  ordered.forEach((n,i)=> { result[n.id]=center+(i-(ordered.length-1)/2)*step-n.angle; });
+  return result;
+}

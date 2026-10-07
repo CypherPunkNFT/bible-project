@@ -1,5 +1,7 @@
 # Acquisition backlog
 
+**Recent-preacher book priorities (2026-10-05):** [65 missing-book tasks, five per author](reports/modern-texts/PRIORITY-MISSING-BOOKS.md), checked against actual held files, plus [nine bulk-source follow-ups](reports/modern-texts/BULK-TEXT-SOURCES.md). This extends L04/L07 and preserves existing mission states. Existing readable editions first; samples and same-title sermons do not complete a book task. These are planned acquisitions, not new downloaded books.
+
 **Latest ready-text gap batch (2026-10-05):** [Carey, Charnock and Hodge acquired as complete text; three existing Zwemer text layers extracted](reports/text-gap-batch/REPORT.md). Reuses the 63 acquired CCEL texts; no new OCR. Consult this manifest as well as the master inventory before repeating downloads.
 
 **Master text/transcription list:** [Verified source decisions](reports/text-backlog/REPORT.md), with [exact resolutions](reports/text-backlog/text-resolutions.json). All 77 PDF candidates checked; 76 contain substantial sampled text and the remaining Flavel scan has another text edition already acquired. Downloaded 63 complete CCEL transcriptions, including all 45 Calvin commentary volumes. All 84 previously unacquired book holdings have source decisions, including partial/permission-dependent cases. No confirmed new OCR assignment. Rebuild the verified report with `python -X utf8 scripts/report-ready-text.py`; the format-inventory script preserves it. Existing OCR quality and exact-edition collation remain separate tasks.

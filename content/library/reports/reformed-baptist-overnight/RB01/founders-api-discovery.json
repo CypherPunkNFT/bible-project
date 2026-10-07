@@ -1,0 +1,7 @@
+{
+  "url": "https://founders.org/wp-json/",
+  "routes": [
+    "/wp/v2/journal",
+    "/wp/v2/journal/(?P<id>[\\d]+)"
+  ]
+}
