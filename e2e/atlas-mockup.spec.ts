@@ -65,7 +65,7 @@ test("atlas map: detailed map, persistent filters and Scripture links work insid
 
 test("reveal: compact city and history selectors share the downward expansion", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "no-preference" });
-  for (const [route, name] of [["cities", "The Pagan World"], ["early-church", "After the Apostles"], ["catholic-orthodox", "Shared Roots"], ["reformation", "Luther & Germany"], ["missions", "Africa"]]) {
+  for (const [route, name] of [["cities", "The Pagan World"], ["early-church", "After the Apostles"], ["reformation", "Luther & Germany"], ["missions", "Africa"]]) {
     await page.goto(`/study/atlas/${route}`);
     const stage = page.locator(".places-reveal");
     const card = page.getByRole("button", { name, exact: true });
@@ -107,7 +107,7 @@ test("reveal: compact city and history selectors share the downward expansion", 
   await expect(page.locator(".motion-designs,.motion-demo-stage,.places-city-count,.history-topic-card")).toHaveCount(0);
 });
 
-test("cities: selecting any city scrolls to the shared Jerusalem map", async ({ page }) => {
+test("cities: selecting a city scrolls to the map at that city", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "no-preference", colorScheme: "dark" });
   await page.goto("/study/atlas/cities");
   await page.getByRole("button", { name: "The Pagan World", exact: true }).click();
@@ -118,7 +118,7 @@ test("cities: selecting any city scrolls to the shared Jerusalem map", async ({ 
     await page.getByRole("group", { name: "Which city will you explore?" }).getByRole("button", { name: new RegExp(`^${name}`) }).click();
     await expect(page.locator("#city-map-title")).toHaveText(name);
     await expect(map).toBeFocused();
-    await expect(map).toHaveAttribute("data-map-city", "Jerusalem");
+    await expect(map).toHaveAttribute("data-map-city", name);
     await expect.poll(async () => Math.round((await map.boundingBox())!.y)).toBeGreaterThanOrEqual(70);
     await expect.poll(async () => Math.round((await map.boundingBox())!.y)).toBeLessThanOrEqual(90);
   }
@@ -128,7 +128,7 @@ test("cities: selecting any city scrolls to the shared Jerusalem map", async ({ 
     state.settledMapFrames = top >= 70 && top <= 90 ? (state.settledMapFrames ?? 0) + 1 : 0;
     return state.settledMapFrames > 15;
   });
-  await expect(page.getByText("Jerusalem map · shared demonstration view", { exact: true })).toBeVisible();
+  await expect(map.locator("header")).toContainText("On the atlas · 37.94° N, 27.34° E");
   await page.screenshot({ path: `front-end capture/2026-10-06/city-selection-map-${test.info().project.name}.png` });
   await page.getByRole("group", { name: "Map region" }).getByRole("button", { name: "Jerusalem", exact: true }).click();
   await expect(page.getByRole("group", { name: "Map region" }).getByRole("button", { name: "Jerusalem", exact: true })).toHaveAttribute("aria-pressed", "true");
@@ -213,7 +213,17 @@ test("history: both collection rows and every new topic support navigation, focu
   ]);
   await page.getByRole("link", { name: "The Reformation", exact: true }).click();
   await expect(page).toHaveURL(/\/atlas\/reformation$/);
-  for (const id of ["early-church", "catholic-orthodox", "reformation", "missions"]) {
+  // Apostolic Church maps two traditions (owner, 2026-10-06): Catholic first, one shared workspace below.
+  await page.goto("/study/atlas/catholic-orthodox");
+  const traditions = page.getByRole("group", { name: "Which tradition will you follow?" }).getByRole("button");
+  await expect(traditions).toHaveCount(2);
+  await expect(traditions.first()).toHaveAttribute("aria-pressed", "true");
+  await expect(page.locator("#tradition-workspace-title")).toContainText("Catholic Christianity");
+  await traditions.nth(1).click();
+  await expect(page.locator("#tradition-workspace-title")).toContainText("Eastern Orthodoxy");
+  await page.getByRole("button", { name: "Councils", exact: true }).click();
+  await expect(page).toHaveURL(/tradition=eastern&lens=councils/);
+  for (const id of ["early-church", "reformation", "missions"]) {
     await page.goto(`/study/atlas/${id}`);
     await expect(page.getByRole("navigation", { name: "Explore the collection", exact: true }).getByRole("link")).toHaveCount(8);
     const cards = page.locator(".history-topic-grid");
@@ -261,7 +271,7 @@ test("cities: new collections and full directory open real places", async ({ pag
     await page.getByRole("group", { name: "Which city will you explore?", exact: true }).getByRole("button", { name: new RegExp(city) }).click();
     await expect(page.locator("#city-map-title")).toContainText(city);
     await expect(page.getByRole("link", { name: new RegExp(ref) })).toBeVisible();
-    await expect(page.locator("#city-map-experience")).toHaveAttribute("data-map-city", "Jerusalem");
+    await expect(page.locator("#city-map-experience")).toHaveAttribute("data-map-city", city);
     await page.getByRole("button", { name: "All collections", exact: true }).click();
   }
   await grid.getByRole("link", { name: "Find Your City", exact: true }).click();
@@ -323,7 +333,7 @@ test("collection: illustrated destinations lead to separate pages and useful pre
   await page.getByRole("button", { name: "Cities of the Apostles", exact: true }).click();
   await page.getByRole("button", { name: /Corinth.*A church/ }).click();
   await expect(page.locator("#city-map-title")).toHaveText("Corinth");
-  await expect(page.locator("#city-map-experience")).toHaveAttribute("data-map-city", "Jerusalem");
+  await expect(page.locator("#city-map-experience")).toHaveAttribute("data-map-city", "Corinth");
   await navigation.getByRole("link", { name: "Gospel Events" }).click();
   await page.getByRole("button", { name: /Passion week/ }).click();
   await page.getByRole("button", { name: "Luke", exact: true }).click();

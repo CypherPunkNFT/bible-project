@@ -24,13 +24,16 @@ export function CityMapExperience({ choice, visit }: { choice: CityChoice; visit
     const section = [...counts.entries()].sort((a, b) => b[1] - a[1])[0]?.[0] ?? "history";
     return { ...place, x, y, section };
   }), [raw, catalog]);
-  const jerusalem = places.find((place) => place.name === "Jerusalem") ?? null;
+  // The chosen city's own atlas place: a pinned entry, else the most often named place of that name.
+  const cityPlace = places.find((place) => place.id === choice.placeId)
+    ?? places.filter((place) => place.name === choice.place).sort((a, b) => b.verses.length - a.verses.length)[0] ?? null;
   const inspected = places.find((place) => place.id === inspectedId);
-  return <section id="city-map-experience" className="city-map-experience" tabIndex={-1} aria-labelledby="city-map-title" data-map-city="Jerusalem" data-selected-city={choice.id}>
-    <header><div><p className="places-kicker">Your city</p><h2 id="city-map-title">{choice.title}</h2></div><span>Jerusalem map · shared demonstration view</span></header>
+  return <section id="city-map-experience" className="city-map-experience" tabIndex={-1} aria-labelledby="city-map-title" data-map-city={cityPlace?.name ?? ""} data-map-place={cityPlace?.id ?? ""} data-selected-city={choice.id}>
+    <header><div><p className="places-kicker">Your city</p><h2 id="city-map-title">{choice.title}</h2></div>{cityPlace && <span>On the atlas · {cityPlace.lat.toFixed(2)}° N, {cityPlace.lon.toFixed(2)}° E</span>}</header>
     {raw.status === "loading" && <div className="city-map-loading" role="status">Loading the map…</div>}
     {raw.status === "error" && <p role="alert">The map could not load. Refresh to try again.</p>}
-    {jerusalem && <StreetAtlasMap places={places} selected={inspected ?? jerusalem} initialRegion="Jerusalem" focusKey={visit} onSelect={(place) => setInspectedId(place.id)} coveredFraction={wide && inspected ? .36 : 0} overlay={wide && inspected ? <div className="absolute bottom-3 right-4 top-3 w-[min(24rem,40%)]"><PlacePanel place={inspected} onClose={() => setInspectedId(null)} overlay /></div> : undefined} />}
+    {raw.status === "ready" && !cityPlace && <p role="status">{choice.title} is not on the atlas map yet.</p>}
+    {cityPlace && <StreetAtlasMap places={places} selected={inspected ?? cityPlace} focusKey={visit} onSelect={(place) => setInspectedId(place.id)} coveredFraction={wide && inspected ? .36 : 0} overlay={wide && inspected ? <div className="absolute bottom-3 right-4 top-3 w-[min(24rem,40%)]"><PlacePanel place={inspected} onClose={() => setInspectedId(null)} overlay /></div> : undefined} />}
     {!wide && inspected && <PlacePanel place={inspected} onClose={() => setInspectedId(null)} overlay={false} />}
   </section>;
 }

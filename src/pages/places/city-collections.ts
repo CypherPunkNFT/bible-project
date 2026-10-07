@@ -1,7 +1,8 @@
 import { Church, Crown, Footprints, Landmark, ScrollText, ShieldCheck, Ship, Sun, Tent, Waves, Bell } from "lucide-react";
 
-export type CityChoice = { id: string; title: string; subtitle: string; place: string };
-const city = (title: string, subtitle: string, place = title) => ({ title, subtitle, place });
+/** `place` is the atlas place name; `placeId` pins one atlas entry when several places share that name. */
+export type CityChoice = { id: string; title: string; subtitle: string; place: string; placeId?: string };
+const city = (title: string, subtitle: string, place = title, placeId?: string) => ({ title, subtitle, place, ...(placeId ? { placeId } : {}) });
 
 // Shared identities: a city can belong to several collections without becoming a different place.
 const CITIES = {
@@ -51,7 +52,8 @@ const CITIES = {
   haran: city("Haran", "Family, departure & promise"),
   pithom: city("Pithom", "Store city & forced labor"),
   rameses: city("Rameses", "Labor & departure"),
-  succoth: city("Succoth", "The first encampment from Rameses"),
+  // The Exodus Succoth in Egypt, not the Succoth by the Jordan (the more often named place of that name).
+  succoth: city("Succoth", "The first encampment from Rameses", "Succoth", "aa28709"),
   sodom: city("Sodom", "Judgment & Lot's rescue"),
   gomorrah: city("Gomorrah", "A city of the plain"),
   zoar: city("Zoar", "Spared at Lot's request"),
