@@ -1,5 +1,7 @@
 # Pastoral care — text-first collection
 
+**2026-10-07 audit clarification:** This remains the original seven-work batch snapshot. The broader [RB06 actual-holdings audit](../reformed-baptist-overnight/RB06/holdings-audit.json) finds already-held readable Flavel *Token for Mourners*, Alexander *Thoughts on Family Worship*, Gouge *Domestical Duties*, Ryle *Duties of Parents* and full Burroughs/Watson contentment treatments. The earlier bereavement transcription-gap statement is superseded for topical coverage, not a claim of critical collation of the Flavel archive scan. Use the [eleven concern paths](../reformed-baptist-overnight/RB06/READING-MAP.md); this old batch's counts/manifest remain unchanged.
+
 Seven complete transcribed books acquired; 23 substantial sections indexed by concern and intended audience. Ten concerns have reading routes. Grief currently has broader affliction readings; a dedicated bereavement transcription remains a gap.
 
 Use the online chapter links below. Original XML files are retained under `BibleProject/sources/library/source-ccel/`; the acquisition manifest records exact paths and hashes. No more downloads, OCR or PDF analysis were performed after the owner requested a text-first approach.

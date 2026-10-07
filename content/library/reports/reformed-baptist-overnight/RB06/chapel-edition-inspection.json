@@ -1,0 +1,50 @@
+[
+  {
+    "request": {
+      "url": "https://www.chapellibrary.org/api/books/download?code=doha&format=epub",
+      "finalUrl": "https://www.chapellibrary.org/api/books/download?code=doha&format=epub",
+      "mimeType": "application/epub+zip",
+      "byteCount": 116443,
+      "sha256": "baa9388e20d83519e7f8366d28c2a04cb34979389e564d0486aec6fcde9db03c",
+      "retrievedAt": "2026-10-07T09:56:36.035672+00:00"
+    },
+    "code": "doha",
+    "wordCount": 6073
+  },
+  {
+    "request": {
+      "url": "https://www.chapellibrary.org/api/books/download?code=doca&format=epub",
+      "finalUrl": "https://www.chapellibrary.org/api/books/download?code=doca&format=epub",
+      "mimeType": "application/epub+zip",
+      "byteCount": 92645,
+      "sha256": "01aad1d49bd8d84b63da00f89c780cb56f6e17df6089400c7874dc3c571a6afb",
+      "retrievedAt": "2026-10-07T09:56:38.283651+00:00"
+    },
+    "code": "doca",
+    "wordCount": 6582
+  },
+  {
+    "request": {
+      "url": "https://www.chapellibrary.org/api/books/download?code=ciaffg&format=epub",
+      "finalUrl": "https://www.chapellibrary.org/api/books/download?code=ciaffg&format=epub",
+      "mimeType": "application/epub+zip",
+      "byteCount": 229125,
+      "sha256": "cfd60255c0bd2b24349366599ec0ccdf266cd0752455caa537b9f1d54d4f9425",
+      "retrievedAt": "2026-10-07T09:57:40.898527+00:00"
+    },
+    "code": "ciaffg",
+    "wordCount": 23423
+  },
+  {
+    "request": {
+      "url": "https://www.chapellibrary.org/api/books/download?code=fworfg&format=epub",
+      "finalUrl": "https://www.chapellibrary.org/api/books/download?code=fworfg&format=epub",
+      "mimeType": "application/epub+zip",
+      "byteCount": 279017,
+      "sha256": "fd4cba465bf56c88587607006e44b4a09b2f352aa60e2f016bf95ee3132613ca",
+      "retrievedAt": "2026-10-07T09:57:43.240180+00:00"
+    },
+    "code": "fworfg",
+    "wordCount": 25170
+  }
+]

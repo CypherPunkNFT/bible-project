@@ -1,0 +1,243 @@
+[
+  {
+    "request": {
+      "url": "https://www.chapellibrary.org/api/books/getdetail?code=doha&language=EN",
+      "finalUrl": "https://www.chapellibrary.org/api/books/getdetail?code=doha&language=EN",
+      "mimeType": "application/json",
+      "byteCount": 3944,
+      "sha256": "d23a37ee49fbfc134e6462a4584d1b807bf44aeb69a3bec43391df0a0720c1c9",
+      "retrievedAt": "2026-10-07T09:54:23.957500+00:00"
+    },
+    "book": {
+      "id": "eab48bcf-2290-495c-9479-c77743843e46",
+      "code": "doha",
+      "title": "Duties of Husbands and Wives",
+      "pageCount": 24,
+      "number": null,
+      "type": "Booklets",
+      "language": "English",
+      "price": 0.61,
+      "isoLangCode": "EN",
+      "coverUrl": "/images/covers/booklets/doha.jpg",
+      "pdfUrl": "/pdf/books/doha.pdf",
+      "epubUrl": "/epub/books/doha.epub",
+      "mobiUrl": "/mobi/books/doha.mobi",
+      "audioUrl": "",
+      "hasPrintableVersion": true,
+      "courseLessonsCount": null,
+      "courseLevel": "",
+      "authors": [
+        {
+          "code": "steelerichard",
+          "name": "Richard Steele",
+          "date": "(1629-1692)"
+        }
+      ],
+      "parent": null,
+      "courseOriginal": null,
+      "courses": [],
+      "articles": [],
+      "friendlyTitle": "duties-of-husbands-and-wives",
+      "children": [
+        {
+          "id": "53a7acba-8d62-4ce2-ace1-419979788b38",
+          "code": "dohas",
+          "title": "Los deberes de esposos y esposas",
+          "pageCount": 24,
+          "number": null,
+          "type": "Booklets",
+          "language": "ES",
+          "price": 0.61,
+          "isoLangCode": "ES",
+          "coverUrl": "/images/covers/booklets/dohas.jpg",
+          "pdfUrl": "",
+          "epubUrl": "",
+          "mobiUrl": "",
+          "audioUrl": "/audio/books/dohas.mp3",
+          "hasPrintableVersion": true,
+          "courseLessonsCount": null,
+          "courseLevel": "",
+          "authors": [],
+          "parent": null,
+          "courseOriginal": null,
+          "courses": [],
+          "articles": [],
+          "friendlyTitle": "los-deberes-de-esposos-y-esposas",
+          "children": []
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "url": "https://www.chapellibrary.org/api/books/getdetail?code=doca&language=EN",
+      "finalUrl": "https://www.chapellibrary.org/api/books/getdetail?code=doca&language=EN",
+      "mimeType": "application/json",
+      "byteCount": 2574,
+      "sha256": "3e8ab47154bb0acf6e33f94b976296fe60d0b110a238bb2bf54c235c7e932976",
+      "retrievedAt": "2026-10-07T09:54:26.162754+00:00"
+    },
+    "book": {
+      "id": "bd9710e1-b88f-44df-bd02-2ad90630d2af",
+      "code": "doca",
+      "title": "Duties of Children and Parents, The",
+      "pageCount": 24,
+      "number": null,
+      "type": "Booklets",
+      "language": "English",
+      "price": 0.61,
+      "isoLangCode": "EN",
+      "coverUrl": "/images/covers/booklets/doca.jpg",
+      "pdfUrl": "/pdf/books/doca.pdf",
+      "epubUrl": "/epub/books/doca.epub",
+      "mobiUrl": "/mobi/books/doca.mobi",
+      "audioUrl": "",
+      "hasPrintableVersion": true,
+      "courseLessonsCount": null,
+      "courseLevel": "",
+      "authors": [
+        {
+          "code": "adamsrichard",
+          "name": "Richard Adams",
+          "date": "(1626-1698)"
+        }
+      ],
+      "parent": null,
+      "courseOriginal": null,
+      "courses": [],
+      "articles": [],
+      "friendlyTitle": "duties-of-children-and-parents-the",
+      "children": [
+        {
+          "id": "220794a0-597d-48a0-b38d-f4c52d58b776",
+          "code": "docas",
+          "title": "Los deberes de hijos y padres",
+          "pageCount": 24,
+          "number": null,
+          "type": "Booklets",
+          "language": "ES",
+          "price": 0.61,
+          "isoLangCode": "ES",
+          "coverUrl": "/images/covers/booklets/docas.jpg",
+          "pdfUrl": "",
+          "epubUrl": "",
+          "mobiUrl": "",
+          "audioUrl": "/audio/books/docas.mp3",
+          "hasPrintableVersion": true,
+          "courseLessonsCount": null,
+          "courseLevel": "",
+          "authors": [],
+          "parent": null,
+          "courseOriginal": null,
+          "courses": [],
+          "articles": [],
+          "friendlyTitle": "los-deberes-de-hijos-y-padres",
+          "children": []
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "url": "https://www.chapellibrary.org/api/books/getdetail?code=fwor&language=EN",
+      "finalUrl": "https://www.chapellibrary.org/api/books/getdetail?code=fwor&language=EN",
+      "mimeType": "application/json",
+      "byteCount": 2569,
+      "sha256": "a7542531e581692fb20b1a198313d170a5d337ea07783d4ede19b590a6653621",
+      "retrievedAt": "2026-10-07T09:54:28.335913+00:00"
+    },
+    "book": {
+      "id": "2fa53c30-0a6c-4c6e-b174-d3426c9d5ea5",
+      "code": "fwor",
+      "title": "Family Worship",
+      "pageCount": 24,
+      "number": null,
+      "type": "Booklets",
+      "language": "English",
+      "price": 0.61,
+      "isoLangCode": "EN",
+      "coverUrl": "/images/covers/booklets/fwor.jpg",
+      "pdfUrl": "/pdf/books/fwor.pdf",
+      "epubUrl": "/epub/books/fwor.epub",
+      "mobiUrl": "/mobi/books/fwor.mobi",
+      "audioUrl": "",
+      "hasPrintableVersion": true,
+      "courseLessonsCount": null,
+      "courseLevel": "",
+      "authors": [
+        {
+          "code": "d'aubignejmerle",
+          "name": "J. Merle D'Aubigne",
+          "date": "(1794-1872)"
+        }
+      ],
+      "parent": null,
+      "courseOriginal": null,
+      "courses": [],
+      "articles": [],
+      "friendlyTitle": "family-worship",
+      "children": [
+        {
+          "id": "0e6e98aa-cf7d-4a68-ad14-7cb23b9ef92b",
+          "code": "fwors",
+          "title": "Adoración familiar",
+          "pageCount": 24,
+          "number": null,
+          "type": "Booklets",
+          "language": "ES",
+          "price": 0.61,
+          "isoLangCode": "ES",
+          "coverUrl": "/images/covers/booklets/fwors.jpg",
+          "pdfUrl": "",
+          "epubUrl": "",
+          "mobiUrl": "",
+          "audioUrl": "",
+          "hasPrintableVersion": true,
+          "courseLessonsCount": null,
+          "courseLevel": "",
+          "authors": [],
+          "parent": null,
+          "courseOriginal": null,
+          "courses": [],
+          "articles": [],
+          "friendlyTitle": "adoracion-familiar",
+          "children": []
+        },
+        {
+          "id": "ca046094-e648-4974-843a-0704c11c3167",
+          "code": "fworc",
+          "title": "家庭敬拜",
+          "pageCount": 24,
+          "number": null,
+          "type": "ebooks",
+          "language": "ZH",
+          "price": 0.61,
+          "isoLangCode": "ZH",
+          "coverUrl": "/images/covers/booklets/fworc.jpg",
+          "pdfUrl": "",
+          "epubUrl": "",
+          "mobiUrl": "",
+          "audioUrl": "",
+          "hasPrintableVersion": false,
+          "courseLessonsCount": null,
+          "courseLevel": "",
+          "authors": [],
+          "parent": null,
+          "courseOriginal": null,
+          "courses": [],
+          "articles": [],
+          "friendlyTitle": "",
+          "children": []
+        }
+      ]
+    }
+  },
+  {
+    "url": "https://www.chapellibrary.org/api/books/getdetail?code=ddfg&language=EN",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "url": "https://www.chapellibrary.org/api/books/getdetail?code=cafffg&language=EN",
+    "error": "HTTP Error 404: Not Found"
+  }
+]

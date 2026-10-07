@@ -1,0 +1,2961 @@
+[
+  {
+    "request": {
+      "url": "https://www.chapellibrary.org/api/books/getbycriteria?input=Death+and+Dying&language=EN&take=20&pageCount=0",
+      "finalUrl": "https://www.chapellibrary.org/api/books/getbycriteria?input=Death+and+Dying&language=EN&take=20&pageCount=0",
+      "mimeType": "application/json",
+      "byteCount": 39979,
+      "sha256": "22b40ecb478f76d994318f41d684aac38d69c5d40bcd738363add4262be32f06",
+      "retrievedAt": "2026-10-07T09:55:43.845915+00:00"
+    },
+    "result": [
+      {
+        "id": "91ac5f55-0b44-4904-b955-ff262564ec1f",
+        "code": "dadyfg",
+        "title": "Death and Dying",
+        "pageCount": 48,
+        "number": 253,
+        "type": "Booklets",
+        "language": "EN",
+        "price": 1.78,
+        "isoLangCode": "EN",
+        "coverUrl": "/images/covers/booklets/dadyfg.jpg",
+        "pdfUrl": "/pdf/books/dadyfg.pdf",
+        "epubUrl": "/epub/books/dadyfg.epub",
+        "mobiUrl": "/mobi/books/dadyfg.mobi",
+        "audioUrl": "",
+        "hasPrintableVersion": true,
+        "courseLessonsCount": null,
+        "courseLevel": "",
+        "authors": [],
+        "parent": null,
+        "courseOriginal": null,
+        "courses": [],
+        "articles": [
+          {
+            "articleId": 5585,
+            "bookId": 4580,
+            "authorId": 2334,
+            "title": "Death Defined",
+            "audioUrl": "",
+            "author": {
+              "code": "bogoshchristopherw",
+              "name": "Christopher W. Bogosh",
+              "date": ""
+            }
+          },
+          {
+            "articleId": 5587,
+            "bookId": 4580,
+            "authorId": 105,
+            "title": "Death and Immortality",
+            "audioUrl": "",
+            "author": {
+              "code": "lloyd-jonesdavidmartyn",
+              "name": "David Martyn Lloyd-Jones",
+              "date": "(1899-1981)"
+            }
+          },
+          {
+            "articleId": 5589,
+            "bookId": 4580,
+            "authorId": 6,
+            "title": "Death Is an Enemy",
+            "audioUrl": "",
+            "author": {
+              "code": "spurgeoncharlesh",
+              "name": "Charles H. Spurgeon",
+              "date": "(1834-1892)"
+            }
+          },
+          {
+            "articleId": 5591,
+            "bookId": 4580,
+            "authorId": 2334,
+            "title": "Death Demystified",
+            "audioUrl": "",
+            "author": {
+              "code": "bogoshchristopherw",
+              "name": "Christopher W. Bogosh",
+              "date": ""
+            }
+          },
+          {
+            "articleId": 5592,
+            "bookId": 4580,
+            "authorId": 37,
+            "title": "Blessed Are the Dead",
+            "audioUrl": "",
+            "author": {
+              "code": "mccheynerobertmurray",
+              "name": "Robert Murray McCheyne",
+              "date": "(1813-1843)"
+            }
+          },
+          {
+            "articleId": 5593,
+            "bookId": 4580,
+            "authorId": 42,
+            "title": "How to Meditate on Death\r",
+            "audioUrl": "",
+            "author": {
+              "code": "bostonthomas",
+              "name": "Thomas Boston",
+              "date": "(1676-1732)"
+            }
+          },
+          {
+            "articleId": 5596,
+            "bookId": 4580,
+            "authorId": 223,
+            "title": "If You Should Die This Year",
+            "audioUrl": "",
+            "author": {
+              "code": "daviessamuel",
+              "name": "Samuel Davies",
+              "date": "(1723-1761)"
+            }
+          },
+          {
+            "articleId": 5597,
+            "bookId": 4580,
+            "authorId": 2334,
+            "title": "Praying to Prepare for Death",
+            "audioUrl": "",
+            "author": {
+              "code": "bogoshchristopherw",
+              "name": "Christopher W. Bogosh",
+              "date": ""
+            }
+          },
+          {
+            "articleId": 5598,
+            "bookId": 4580,
+            "authorId": 23,
+            "title": "Unwilling to Die?",
+            "audioUrl": "",
+            "author": {
+              "code": "brooksthomas",
+              "name": "Thomas Brooks",
+              "date": "(1608-1680)"
+            }
+          },
+          {
+            "articleId": 5599,
+            "bookId": 4580,
+            "authorId": 33,
+            "title": "The Saints' Death Precious",
+            "audioUrl": "",
+            "author": {
+              "code": "winslowoctavius",
+              "name": "Octavius Winslow",
+              "date": "(1808-1878)"
+            }
+          }
+        ],
+        "friendlyTitle": "death-and-dying",
+        "children": [
+          {
+            "id": "75743d19-b1ad-4380-a7e1-9f003fa13230",
+            "code": "dadyfgko",
+            "title": "죽음",
+            "pageCount": 44,
+            "number": null,
+            "type": "ebooks",
+            "language": "KO",
+            "price": 0.0,
+            "isoLangCode": "KO",
+            "coverUrl": "/images/covers/booklets/dadyfgko.jpg",
+            "pdfUrl": "",
+            "epubUrl": "",
+            "mobiUrl": "",
+            "audioUrl": "",
+            "hasPrintableVersion": false,
+            "courseLessonsCount": null,
+            "courseLevel": "",
+            "authors": [],
+            "parent": null,
+            "courseOriginal": null,
+            "courses": [],
+            "articles": [],
+            "friendlyTitle": "",
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "f902a51f-36ec-425b-afe3-134959534611",
+        "code": "rttg",
+        "title": "Return to the Gospel: Introductory Essay to the Death of Death",
+        "pageCount": 40,
+        "number": null,
+        "type": "Booklets",
+        "language": "EN",
+        "price": 0.95,
+        "isoLangCode": "EN",
+        "coverUrl": "/images/covers/booklets/rttg.jpg",
+        "pdfUrl": "/pdf/books/rttg.pdf",
+        "epubUrl": "",
+        "mobiUrl": "",
+        "audioUrl": "",
+        "hasPrintableVersion": true,
+        "courseLessonsCount": null,
+        "courseLevel": "",
+        "authors": [
+          {
+            "code": "packerjamesinnell",
+            "name": "James Innell Packer",
+            "date": "(1926-2020)"
+          }
+        ],
+        "parent": null,
+        "courseOriginal": null,
+        "courses": [],
+        "articles": [],
+        "friendlyTitle": "return-to-the-gospel-introductory-essay-to-the-death-of-death",
+        "children": []
+      },
+      {
+        "id": "8d75226a-fa7e-4dd7-9ae5-60143377a0d3",
+        "code": "dcom",
+        "title": "Divine Compassion",
+        "pageCount": 8,
+        "number": null,
+        "type": "Tracts",
+        "language": "EN",
+        "price": 0.17,
+        "isoLangCode": "EN",
+        "coverUrl": "/images/covers/tracts/dcom.jpg",
+        "pdfUrl": "/pdf/books/dcom.pdf",
+        "epubUrl": "",
+        "mobiUrl": "",
+        "audioUrl": "",
+        "hasPrintableVersion": true,
+        "courseLessonsCount": null,
+        "courseLevel": "",
+        "authors": [
+          {
+            "code": "bonar\rhoratius",
+            "name": "Horatius Bonar\r",
+            "date": "(1808-1889)"
+          }
+        ],
+        "parent": null,
+        "courseOriginal": null,
+        "courses": [],
+        "articles": [],
+        "friendlyTitle": "divine-compassion",
+        "children": []
+      },
+      {
+        "id": "da0439c7-dd9f-4431-b76d-93ac9a29220b",
+        "code": "botc",
+        "title": "Blood of the Covenant, The",
+        "pageCount": 20,
+        "number": null,
+        "type": "Booklets",
+        "language": "EN",
+        "price": 0.52,
+        "isoLangCode": "EN",
+        "coverUrl": "/images/covers/booklets/botc.jpg",
+        "pdfUrl": "/pdf/books/botc.pdf",
+        "epubUrl": "/epub/books/botc.epub",
+        "mobiUrl": "/mobi/books/botc.mobi",
+        "audioUrl": "",
+        "hasPrintableVersion": true,
+        "courseLessonsCount": null,
+        "courseLevel": "",
+        "authors": [
+          {
+            "code": "bonar\rhoratius",
+            "name": "Horatius Bonar\r",
+            "date": "(1808-1889)"
+          }
+        ],
+        "parent": null,
+        "courseOriginal": null,
+        "courses": [],
+        "articles": [
+          {
+            "articleId": 5746,
+            "bookId": 66,
+            "authorId": 4,
+            "title": "1. It Contains the Good News.",
+            "audioUrl": "/audio/books/botc-5746.mp3",
+            "author": {
+              "code": "bonar\rhoratius",
+              "name": "Horatius Bonar\r",
+              "date": "(1808-1889)"
+            }
+          },
+          {
+            "articleId": 5747,
+            "bookId": 66,
+            "authorId": 4,
+            "title": "2. It is the Purchase-money for the Church.",
+            "audioUrl": "/audio/books/botc-5747.mp3",
+            "author": {
+              "code": "bonar\rhoratius",
+              "name": "Horatius Bonar\r",
+              "date": "(1808-1889)"
+            }
+          },
+          {
+            "articleId": 5748,
+            "bookId": 66,
+            "authorId": 4,
+            "title": "3. It is the Atonement.",
+            "audioUrl": "/audio/books/botc-5748.mp3",
+            "author": {
+              "code": "bonar\rhoratius",
+              "name": "Horatius Bonar\r",
+              "date": "(1808-1889)"
+            }
+          },
+          {
+            "articleId": 5749,
+            "bookId": 66,
+            "authorId": 4,
+            "title": "4. It is the Redemption.",
+            "audioUrl": "/audio/books/botc-5749.mp3",
+            "author": {
+              "code": "bonar\rhoratius",
+              "name": "Horatius Bonar\r",
+              "date": "(1808-1889)"
+            }
+          },
+          {
+            "articleId": 5750,
+            "bookId": 66,
+            "authorId": 4,
+            "title": "5. It is the bringing nigh.",
+            "audioUrl": "/audio/books/botc-5750.mp3",
+            "author": {
+              "code": "bonar\rhoratius",
+              "name": "Horatius Bonar\r",
+              "date": "(1808-1889)"
+            }
+          },
+          {
+            "articleId": 5751,
+            "bookId": 66,
+            "authorId": 4,
+            "title": "6. It Contains the Cleansing.",
+            "audioUrl": "/audio/books/botc-5751.mp3",
+            "author": {
+              "code": "bonar\rhoratius",
+              "name": "Horatius Bonar\r",
+              "date": "(1808-1889)"
+            }
+          },
+          {
+            "articleId": 5752,
+            "bookId": 66,
+            "authorId": 4,
+            "title": "7. It Contains the Peace.",
+            "audioUrl": "/audio/books/botc-5752.mp3",
+            "author": {
+              "code": "bonar\rhoratius",
+              "name": "Horatius Bonar\r",
+              "date": "(1808-1889)"
+            }
+          },
+          {
+            "articleId": 5753,
+            "bookId": 66,
+            "authorId": 4,
+            "title": "8. It Contains the Pardon.",
+            "audioUrl": "/audio/books/botc-5753.mp3",
+            "author": {
+              "code": "bonar\rhoratius",
+              "name": "Horatius Bonar\r",
+              "date": "(1808-1889)"
+            }
+          },
+          {
+            "articleId": 5754,
+            "bookId": 66,
+            "authorId": 4,
+            "title": "9. It Contains Justification.",
+            "audioUrl": "/audio/books/botc-5754.mp3",
+            "author": {
+              "code": "bonar\rhoratius",
+              "name": "Horatius Bonar\r",
+              "date": "(1808-1889)"
+            }
+          },
+          {
+            "articleId": 5755,
+            "bookId": 66,
+            "authorId": 4,
+            "title": "10. It contains that which makes white.",
+            "audioUrl": "/audio/books/botc-5755.mp3",
+            "author": {
+              "code": "bonar\rhoratius",
+              "name": "Horatius Bonar\r",
+              "date": "(1808-1889)"
+            }
+          },
+          {
+            "articleId": 5756,
+            "bookId": 66,
+            "authorId": 4,
+            "title": "11. It Contains the Sanctifying.",
+            "audioUrl": "/audio/books/botc-5756.mp3",
+            "author": {
+              "code": "bonar\rhoratius",
+              "name": "Horatius Bonar\r",
+              "date": "(1808-1889)"
+            }
+          },
+          {
+            "articleId": 5757,
+            "bookId": 66,
+            "authorId": 4,
+            "title": "12. It Contains the Power to Conquer.",
+            "audioUrl": "/audio/books/botc-5757.mp3",
+            "author": {
+              "code": "bonar\rhoratius",
+              "name": "Horatius Bonar\r",
+              "date": "(1808-1889)"
+            }
+          },
+          {
+            "articleId": 5758,
+            "bookId": 66,
+            "authorId": 4,
+            "title": "13. It Contains Our Right of Entrance into the Holiest.",
+            "audioUrl": "/audio/books/botc-5758.mp3",
+            "author": {
+              "code": "bonar\rhoratius",
+              "name": "Horatius Bonar\r",
+              "date": "(1808-1889)"
+            }
+          },
+          {
+            "articleId": 5759,
+            "bookId": 66,
+            "authorId": 4,
+            "title": "14. It Contains the Seal of the Covenant.",
+            "audioUrl": "/audio/books/botc-5759.mp3",
+            "author": {
+              "code": "bonar\rhoratius",
+              "name": "Horatius Bonar\r",
+              "date": "(1808-1889)"
+            }
+          },
+          {
+            "articleId": 5760,
+            "bookId": 66,
+            "authorId": 4,
+            "title": "15. It Contains Drink for the Soul.",
+            "audioUrl": "/audio/books/botc-5760.mp3",
+            "author": {
+              "code": "bonar\rhoratius",
+              "name": "Horatius Bonar\r",
+              "date": "(1808-1889)"
+            }
+          },
+          {
+            "articleId": 5761,
+            "bookId": 66,
+            "authorId": 4,
+            "title": "16. It Contains Life.",
+            "audioUrl": "/audio/books/botc-5761.mp3",
+            "author": {
+              "code": "bonar\rhoratius",
+              "name": "Horatius Bonar\r",
+              "date": "(1808-1889)"
+            }
+          },
+          {
+            "articleId": 5762,
+            "bookId": 66,
+            "authorId": 4,
+            "title": "17. It Contains Protection.",
+            "audioUrl": "/audio/books/botc-5762.mp3",
+            "author": {
+              "code": "bonar\rhoratius",
+              "name": "Horatius Bonar\r",
+              "date": "(1808-1889)"
+            }
+          },
+          {
+            "articleId": 5763,
+            "bookId": 66,
+            "authorId": 4,
+            "title": "18. It Contains Separation from the World.",
+            "audioUrl": "/audio/books/botc-5763.mp3",
+            "author": {
+              "code": "bonar\rhoratius",
+              "name": "Horatius Bonar\r",
+              "date": "(1808-1889)"
+            }
+          },
+          {
+            "articleId": 5764,
+            "bookId": 66,
+            "authorId": 4,
+            "title": "19. It Contains Resurrection.",
+            "audioUrl": "/audio/books/botc-5764.mp3",
+            "author": {
+              "code": "bonar\rhoratius",
+              "name": "Horatius Bonar\r",
+              "date": "(1808-1889)"
+            }
+          },
+          {
+            "articleId": 5765,
+            "bookId": 66,
+            "authorId": 4,
+            "title": "20. It Contains Condemnation.",
+            "audioUrl": "/audio/books/botc-5765.mp3",
+            "author": {
+              "code": "bonar\rhoratius",
+              "name": "Horatius Bonar\r",
+              "date": "(1808-1889)"
+            }
+          },
+          {
+            "articleId": 5766,
+            "bookId": 66,
+            "authorId": 4,
+            "title": "Narration Credits",
+            "audioUrl": "/audio/books/botc-5766.mp3",
+            "author": {
+              "code": "bonar\rhoratius",
+              "name": "Horatius Bonar\r",
+              "date": "(1808-1889)"
+            }
+          },
+          {
+            "articleId": 5767,
+            "bookId": 66,
+            "authorId": 4,
+            "title": "Introduction",
+            "audioUrl": "/audio/books/botc-5767.mp3",
+            "author": {
+              "code": "bonar\rhoratius",
+              "name": "Horatius Bonar\r",
+              "date": "(1808-1889)"
+            }
+          },
+          {
+            "articleId": 5768,
+            "bookId": 66,
+            "authorId": 4,
+            "title": "Appendix",
+            "audioUrl": "/audio/books/botc-5768.mp3",
+            "author": {
+              "code": "bonar\rhoratius",
+              "name": "Horatius Bonar\r",
+              "date": "(1808-1889)"
+            }
+          }
+        ],
+        "friendlyTitle": "blood-of-the-covenant-the",
+        "children": []
+      },
+      {
+        "id": "affe1892-8e68-41b7-9f0b-4ea52086477d",
+        "code": "atonfg",
+        "title": "The Atonement",
+        "pageCount": 48,
+        "number": 227,
+        "type": "Booklets",
+        "language": "EN",
+        "price": 1.78,
+        "isoLangCode": "EN",
+        "coverUrl": "/images/covers/booklets/atonfg.jpg",
+        "pdfUrl": "/pdf/books/atonfg.pdf",
+        "epubUrl": "/epub/books/atonfg.epub",
+        "mobiUrl": "/mobi/books/atonfg.mobi",
+        "audioUrl": "",
+        "hasPrintableVersion": true,
+        "courseLessonsCount": null,
+        "courseLevel": "",
+        "authors": [],
+        "parent": null,
+        "courseOriginal": null,
+        "courses": [],
+        "articles": [
+          {
+            "articleId": 618,
+            "bookId": 765,
+            "authorId": 10,
+            "title": "The Most Remarkable Event",
+            "audioUrl": "",
+            "author": {
+              "code": "pinkarthurw",
+              "name": "Arthur W. Pink",
+              "date": "(1886-1952)"
+            }
+          },
+          {
+            "articleId": 619,
+            "bookId": 765,
+            "authorId": 234,
+            "title": "The Eternal Council of God",
+            "audioUrl": "",
+            "author": {
+              "code": "gilljohn",
+              "name": "John Gill",
+              "date": "(1697-1771)"
+            }
+          },
+          {
+            "articleId": 620,
+            "bookId": 765,
+            "authorId": 160,
+            "title": "The Intent of Christ's Death",
+            "audioUrl": "",
+            "author": {
+              "code": "owenjohn",
+              "name": "John Owen",
+              "date": "(1616-1683)"
+            }
+          },
+          {
+            "articleId": 621,
+            "bookId": 765,
+            "authorId": 5,
+            "title": "Our Need for Atonement",
+            "audioUrl": "",
+            "author": {
+              "code": "rylejohnc",
+              "name": "John C. Ryle",
+              "date": "(1816-1900)"
+            }
+          },
+          {
+            "articleId": 622,
+            "bookId": 765,
+            "authorId": 174,
+            "title": "The Nature of Christ's Death",
+            "audioUrl": "",
+            "author": {
+              "code": "plumerwilliams",
+              "name": "William S. Plumer",
+              "date": "(1802-1880)"
+            }
+          },
+          {
+            "articleId": 623,
+            "bookId": 765,
+            "authorId": 262,
+            "title": "Christ's Priestly Action",
+            "audioUrl": "",
+            "author": {
+              "code": "martinhugh",
+              "name": "Hugh Martin",
+              "date": "(1822-1885)"
+            }
+          },
+          {
+            "articleId": 624,
+            "bookId": 765,
+            "authorId": 12,
+            "title": "Christ's Propitiation",
+            "audioUrl": "",
+            "author": {
+              "code": "murrayjohn",
+              "name": "John Murray",
+              "date": "(1898-1975)"
+            }
+          },
+          {
+            "articleId": 625,
+            "bookId": 765,
+            "authorId": 33,
+            "title": "Christ's Atoning Blood",
+            "audioUrl": "",
+            "author": {
+              "code": "winslowoctavius",
+              "name": "Octavius Winslow",
+              "date": "(1808-1878)"
+            }
+          },
+          {
+            "articleId": 626,
+            "bookId": 765,
+            "authorId": 12,
+            "title": "Christ's Redemption",
+            "audioUrl": "",
+            "author": {
+              "code": "murrayjohn",
+              "name": "John Murray",
+              "date": "(1898-1975)"
+            }
+          },
+          {
+            "articleId": 627,
+            "bookId": 765,
+            "authorId": 6,
+            "title": "Christ's Successful Death",
+            "audioUrl": "",
+            "author": {
+              "code": "spurgeoncharlesh",
+              "name": "Charles H. Spurgeon",
+              "date": "(1834-1892)"
+            }
+          }
+        ],
+        "friendlyTitle": "the-atonement",
+        "children": [
+          {
+            "id": "a042e4a0-df79-4c35-9dec-777ff49e49cb",
+            "code": "atonfgru",
+            "title": "Искупление",
+            "pageCount": 72,
+            "number": null,
+            "type": "ebooks",
+            "language": "RU",
+            "price": 0.0,
+            "isoLangCode": "RU",
+            "coverUrl": "/images/covers/booklets/atonfgru.jpg",
+            "pdfUrl": "",
+            "epubUrl": "",
+            "mobiUrl": "",
+            "audioUrl": "",
+            "hasPrintableVersion": false,
+            "courseLessonsCount": null,
+            "courseLevel": "",
+            "authors": [],
+            "parent": null,
+            "courseOriginal": null,
+            "courses": [],
+            "articles": [],
+            "friendlyTitle": "",
+            "children": []
+          },
+          {
+            "id": "39c2797e-111c-429a-91a7-d5cf848a7b53",
+            "code": "atonfgs",
+            "title": "Expiación",
+            "pageCount": 52,
+            "number": 51,
+            "type": "Booklets",
+            "language": "ES",
+            "price": 1.92,
+            "isoLangCode": "ES",
+            "coverUrl": "/images/covers/booklets/atonfgs.jpg",
+            "pdfUrl": "",
+            "epubUrl": "",
+            "mobiUrl": "",
+            "audioUrl": "",
+            "hasPrintableVersion": true,
+            "courseLessonsCount": null,
+            "courseLevel": "",
+            "authors": [],
+            "parent": null,
+            "courseOriginal": null,
+            "courses": [],
+            "articles": [],
+            "friendlyTitle": "expiacion",
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "bee594d3-9299-43e0-84f2-9c23ea59e11c",
+        "code": "dolh",
+        "title": "Death of Legal Hope, The",
+        "pageCount": 64,
+        "number": null,
+        "type": "Booklets",
+        "language": "EN",
+        "price": 2.33,
+        "isoLangCode": "EN",
+        "coverUrl": "/images/covers/booklets/dolh.jpg",
+        "pdfUrl": "/pdf/books/dolh.pdf",
+        "epubUrl": "/epub/books/dolh.epub",
+        "mobiUrl": "/mobi/books/dolh.mobi",
+        "audioUrl": "",
+        "hasPrintableVersion": true,
+        "courseLessonsCount": null,
+        "courseLevel": "",
+        "authors": [
+          {
+            "code": "boothabraham",
+            "name": "Abraham Booth",
+            "date": "(1734-1806)"
+          }
+        ],
+        "parent": null,
+        "courseOriginal": null,
+        "courses": [],
+        "articles": [],
+        "friendlyTitle": "death-of-legal-hope-the",
+        "children": []
+      },
+      {
+        "id": "0c889a7f-48be-4e3a-b87c-e0f76be0638b",
+        "code": "cala",
+        "title": "Christ and Lazarus: Comfort in Sickness and Death",
+        "pageCount": 36,
+        "number": null,
+        "type": "Booklets",
+        "language": "EN",
+        "price": 1.37,
+        "isoLangCode": "EN",
+        "coverUrl": "/images/covers/booklets/cala.jpg",
+        "pdfUrl": "/pdf/books/cala.pdf",
+        "epubUrl": "/epub/books/cala.epub",
+        "mobiUrl": "/mobi/books/cala.mobi",
+        "audioUrl": "",
+        "hasPrintableVersion": true,
+        "courseLessonsCount": null,
+        "courseLevel": "",
+        "authors": [
+          {
+            "code": "mccheynerobertmurray",
+            "name": "Robert Murray McCheyne",
+            "date": "(1813-1843)"
+          }
+        ],
+        "parent": null,
+        "courseOriginal": null,
+        "courses": [],
+        "articles": [],
+        "friendlyTitle": "christ-and-lazarus-comfort-in-sickness-and-death",
+        "children": [
+          {
+            "id": "e24176f3-7187-422e-ac58-f27153915336",
+            "code": "calas",
+            "title": "Cristo y Lázaro: Consuelo en la enfermedad y en la muerte",
+            "pageCount": 36,
+            "number": null,
+            "type": "Booklets",
+            "language": "ES",
+            "price": 1.37,
+            "isoLangCode": "ES",
+            "coverUrl": "/images/covers/booklets/calas.jpg",
+            "pdfUrl": "",
+            "epubUrl": "",
+            "mobiUrl": "",
+            "audioUrl": "",
+            "hasPrintableVersion": true,
+            "courseLessonsCount": null,
+            "courseLevel": "",
+            "authors": [],
+            "parent": null,
+            "courseOriginal": null,
+            "courses": [],
+            "articles": [],
+            "friendlyTitle": "cristo-y-lazaro-consuelo-en-la-enfermedad-y-en-la-muerte",
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "977b4ac5-a3d3-4037-b74d-cf324cc86faa",
+        "code": "bubdsa",
+        "title": "Bunyan's Dying Sayings",
+        "pageCount": 1,
+        "number": null,
+        "type": "ebooks",
+        "language": "EN",
+        "price": 0.0,
+        "isoLangCode": "EN",
+        "coverUrl": "/images/covers/undefined/bubdsa.jpg",
+        "pdfUrl": "/pdf/books/bubdsa.pdf",
+        "epubUrl": "",
+        "mobiUrl": "",
+        "audioUrl": "",
+        "hasPrintableVersion": false,
+        "courseLessonsCount": null,
+        "courseLevel": "",
+        "authors": [
+          {
+            "code": "bunyanjohn",
+            "name": "John Bunyan",
+            "date": "(1628-1688)"
+          }
+        ],
+        "parent": null,
+        "courseOriginal": null,
+        "courses": [],
+        "articles": [],
+        "friendlyTitle": "bunyans-dying-sayings",
+        "children": []
+      },
+      {
+        "id": "bc995787-93bc-41fa-a5da-3c5344101de7",
+        "code": "ctdo",
+        "title": "Christ the Destroyer of Death",
+        "pageCount": 24,
+        "number": null,
+        "type": "Booklets",
+        "language": "EN",
+        "price": 0.61,
+        "isoLangCode": "EN",
+        "coverUrl": "/images/covers/booklets/ctdo.jpg",
+        "pdfUrl": "/pdf/books/ctdo.pdf",
+        "epubUrl": "/epub/books/ctdo.epub",
+        "mobiUrl": "/mobi/books/ctdo.mobi",
+        "audioUrl": "",
+        "hasPrintableVersion": true,
+        "courseLessonsCount": null,
+        "courseLevel": "",
+        "authors": [
+          {
+            "code": "spurgeoncharlesh",
+            "name": "Charles H. Spurgeon",
+            "date": "(1834-1892)"
+          }
+        ],
+        "parent": null,
+        "courseOriginal": null,
+        "courses": [],
+        "articles": [],
+        "friendlyTitle": "christ-the-destroyer-of-death",
+        "children": []
+      },
+      {
+        "id": "23ae8565-e9c6-4626-bdf0-514d4b83d33b",
+        "code": "cdea",
+        "title": "Concerning Death",
+        "pageCount": 28,
+        "number": null,
+        "type": "Booklets",
+        "language": "EN",
+        "price": 0.69,
+        "isoLangCode": "EN",
+        "coverUrl": "/images/covers/booklets/cdea.jpg",
+        "pdfUrl": "/pdf/books/cdea.pdf",
+        "epubUrl": "/epub/books/cdea.epub",
+        "mobiUrl": "/mobi/books/cdea.mobi",
+        "audioUrl": "",
+        "hasPrintableVersion": true,
+        "courseLessonsCount": null,
+        "courseLevel": "",
+        "authors": [
+          {
+            "code": "spurgeoncharlesh",
+            "name": "Charles H. Spurgeon",
+            "date": "(1834-1892)"
+          }
+        ],
+        "parent": null,
+        "courseOriginal": null,
+        "courses": [],
+        "articles": [],
+        "friendlyTitle": "concerning-death",
+        "children": []
+      },
+      {
+        "id": "33e53c5f-a447-48a6-8642-cf3ff6af46e1",
+        "code": "dalt",
+        "title": "Death and Life: The Wage and the Gift",
+        "pageCount": 24,
+        "number": null,
+        "type": "Booklets",
+        "language": "EN",
+        "price": 0.61,
+        "isoLangCode": "EN",
+        "coverUrl": "/images/covers/booklets/dalt.jpg",
+        "pdfUrl": "/pdf/books/dalt.pdf",
+        "epubUrl": "/epub/books/dalt.epub",
+        "mobiUrl": "/mobi/books/dalt.mobi",
+        "audioUrl": "",
+        "hasPrintableVersion": true,
+        "courseLessonsCount": null,
+        "courseLevel": "",
+        "authors": [
+          {
+            "code": "spurgeoncharlesh",
+            "name": "Charles H. Spurgeon",
+            "date": "(1834-1892)"
+          }
+        ],
+        "parent": null,
+        "courseOriginal": null,
+        "courses": [],
+        "articles": [],
+        "friendlyTitle": "death-and-life-the-wage-and-the-gift",
+        "children": []
+      },
+      {
+        "id": "cf6d4818-3468-4775-90ca-51198dbea293",
+        "code": "dicffg",
+        "title": "Death Is Coming: Flee!",
+        "pageCount": 48,
+        "number": 180,
+        "type": "Booklets",
+        "language": "EN",
+        "price": 1.78,
+        "isoLangCode": "EN",
+        "coverUrl": "/images/covers/booklets/dicffg.jpg",
+        "pdfUrl": "/pdf/books/dicffg.pdf",
+        "epubUrl": "/epub/books/dicffg.epub",
+        "mobiUrl": "/mobi/books/dicffg.mobi",
+        "audioUrl": "",
+        "hasPrintableVersion": true,
+        "courseLessonsCount": null,
+        "courseLevel": "",
+        "authors": [],
+        "parent": null,
+        "courseOriginal": null,
+        "courses": [],
+        "articles": [
+          {
+            "articleId": 221,
+            "bookId": 185,
+            "authorId": 3,
+            "title": "Appointment You Will Keep, An*",
+            "audioUrl": "",
+            "author": {
+              "code": "beekejoel",
+              "name": "Joel Beeke",
+              "date": ""
+            }
+          },
+          {
+            "articleId": 222,
+            "bookId": 185,
+            "authorId": 6,
+            "title": "Death and Life: The Wage and the Gift*",
+            "audioUrl": "",
+            "author": {
+              "code": "spurgeoncharlesh",
+              "name": "Charles H. Spurgeon",
+              "date": "(1834-1892)"
+            }
+          },
+          {
+            "articleId": 223,
+            "bookId": 185,
+            "authorId": 3,
+            "title": "Escape For Your Life*",
+            "audioUrl": "",
+            "author": {
+              "code": "beekejoel",
+              "name": "Joel Beeke",
+              "date": ""
+            }
+          },
+          {
+            "articleId": 224,
+            "bookId": 185,
+            "authorId": 34,
+            "title": "Eternal Destiny of the Unsaved, The*",
+            "audioUrl": "",
+            "author": {
+              "code": "herendeenic",
+              "name": "I. C. Herendeen",
+              "date": "(1883-1982)"
+            }
+          },
+          {
+            "articleId": 225,
+            "bookId": 185,
+            "authorId": 115,
+            "title": "Prayer From Hell, A*",
+            "audioUrl": "",
+            "author": {
+              "code": "mooreholmes",
+              "name": "Holmes Moore",
+              "date": ""
+            }
+          },
+          {
+            "articleId": 226,
+            "bookId": 185,
+            "authorId": 25,
+            "title": "Sinners in the Hands of an Angry God*",
+            "audioUrl": "",
+            "author": {
+              "code": "edwardsjonathan",
+              "name": "Jonathan Edwards",
+              "date": "(1703-1758)"
+            }
+          }
+        ],
+        "friendlyTitle": "death-is-coming-flee",
+        "children": []
+      },
+      {
+        "id": "24ae481c-2e26-4595-b44a-b80f7d56d460",
+        "code": "etdm",
+        "title": "Eternity - The Dying Man",
+        "pageCount": 4,
+        "number": null,
+        "type": "Tracts",
+        "language": "EN",
+        "price": 0.05,
+        "isoLangCode": "EN",
+        "coverUrl": "/images/covers/tracts/etdm.jpg",
+        "pdfUrl": "/pdf/books/etdm.pdf",
+        "epubUrl": "",
+        "mobiUrl": "",
+        "audioUrl": "/audio/books/etdm.mp3",
+        "hasPrintableVersion": true,
+        "courseLessonsCount": null,
+        "courseLevel": "",
+        "authors": [
+          {
+            "code": "jjs",
+            "name": "J.J.S.",
+            "date": ""
+          }
+        ],
+        "parent": null,
+        "courseOriginal": null,
+        "courses": [],
+        "articles": [],
+        "friendlyTitle": "eternity--the-dying-man",
+        "children": []
+      },
+      {
+        "id": "e44c6d83-2f54-4118-9b97-79afaff2216f",
+        "code": "bulado",
+        "title": "Life and Death of Mr. Badman",
+        "pageCount": 0,
+        "number": null,
+        "type": "ebooks",
+        "language": "EN",
+        "price": 0.0,
+        "isoLangCode": "EN",
+        "coverUrl": "/images/covers/undefined/bulado.jpg",
+        "pdfUrl": "/pdf/books/bulado.pdf",
+        "epubUrl": "",
+        "mobiUrl": "",
+        "audioUrl": "",
+        "hasPrintableVersion": false,
+        "courseLessonsCount": null,
+        "courseLevel": "",
+        "authors": [
+          {
+            "code": "bunyanjohn",
+            "name": "John Bunyan",
+            "date": "(1628-1688)"
+          }
+        ],
+        "parent": null,
+        "courseOriginal": null,
+        "courses": [],
+        "articles": [],
+        "friendlyTitle": "life-and-death-of-mr-badman",
+        "children": []
+      },
+      {
+        "id": "234bba3a-437f-451e-b706-af8af520cb99",
+        "code": "suda",
+        "title": "Sin unto Death and Sin against the Holy Spirit",
+        "pageCount": 20,
+        "number": null,
+        "type": "Booklets",
+        "language": "EN",
+        "price": 0.52,
+        "isoLangCode": "EN",
+        "coverUrl": "/images/covers/booklets/suda.jpg",
+        "pdfUrl": "/pdf/books/suda.pdf",
+        "epubUrl": "/epub/books/suda.epub",
+        "mobiUrl": "/mobi/books/suda.mobi",
+        "audioUrl": "",
+        "hasPrintableVersion": true,
+        "courseLessonsCount": null,
+        "courseLevel": "",
+        "authors": [
+          {
+            "code": "bonar\rhoratius",
+            "name": "Horatius Bonar\r",
+            "date": "(1808-1889)"
+          }
+        ],
+        "parent": null,
+        "courseOriginal": null,
+        "courses": [],
+        "articles": [],
+        "friendlyTitle": "sin-unto-death-and-sin-against-the-holy-spirit",
+        "children": []
+      }
+    ]
+  },
+  {
+    "request": {
+      "url": "https://www.chapellibrary.org/api/books/getbycriteria?input=Comfort+in+Affliction&language=EN&take=20&pageCount=0",
+      "finalUrl": "https://www.chapellibrary.org/api/books/getbycriteria?input=Comfort+in+Affliction&language=EN&take=20&pageCount=0",
+      "mimeType": "application/json",
+      "byteCount": 11317,
+      "sha256": "482e4a703fda7f4caf35a5951a71604ad7c9adcccdda8402cdd4f4f9a40081c5",
+      "retrievedAt": "2026-10-07T09:55:46.566189+00:00"
+    },
+    "result": [
+      {
+        "id": "41d3bf2a-6816-412f-a9cc-b31f8b94fe8a",
+        "code": "ciaffg",
+        "title": "Comfort in Affliction",
+        "pageCount": 48,
+        "number": 217,
+        "type": "Booklets",
+        "language": "EN",
+        "price": 1.78,
+        "isoLangCode": "EN",
+        "coverUrl": "/images/covers/booklets/ciaffg.jpg",
+        "pdfUrl": "/pdf/books/ciaffg.pdf",
+        "epubUrl": "/epub/books/ciaffg.epub",
+        "mobiUrl": "/mobi/books/ciaffg.mobi",
+        "audioUrl": "",
+        "hasPrintableVersion": true,
+        "courseLessonsCount": null,
+        "courseLevel": "",
+        "authors": [],
+        "parent": null,
+        "courseOriginal": null,
+        "courses": [],
+        "articles": [
+          {
+            "articleId": 529,
+            "bookId": 145,
+            "authorId": 6,
+            "title": "Beloved, and Yet Afflicted",
+            "audioUrl": "",
+            "author": {
+              "code": "spurgeoncharlesh",
+              "name": "Charles H. Spurgeon",
+              "date": "(1834-1892)"
+            }
+          },
+          {
+            "articleId": 530,
+            "bookId": 145,
+            "authorId": 6,
+            "title": "Cheer Up, My Dear Friends",
+            "audioUrl": "",
+            "author": {
+              "code": "spurgeoncharlesh",
+              "name": "Charles H. Spurgeon",
+              "date": "(1834-1892)"
+            }
+          },
+          {
+            "articleId": 531,
+            "bookId": 145,
+            "authorId": 33,
+            "title": "Christ, the Fountain of Comfort",
+            "audioUrl": "",
+            "author": {
+              "code": "winslowoctavius",
+              "name": "Octavius Winslow",
+              "date": "(1808-1878)"
+            }
+          },
+          {
+            "articleId": 532,
+            "bookId": 145,
+            "authorId": 43,
+            "title": "Comfort for Suffering Saints",
+            "audioUrl": "",
+            "author": {
+              "code": "zanchiusjerome",
+              "name": "Jerome Zanchius",
+              "date": "(1516-1590)"
+            }
+          },
+          {
+            "articleId": 533,
+            "bookId": 145,
+            "authorId": 23,
+            "title": "Good Comes through Affliction",
+            "audioUrl": "",
+            "author": {
+              "code": "brooksthomas",
+              "name": "Thomas Brooks",
+              "date": "(1608-1680)"
+            }
+          },
+          {
+            "articleId": 534,
+            "bookId": 145,
+            "authorId": 206,
+            "title": "The Bible and Consolation",
+            "audioUrl": "",
+            "author": {
+              "code": "buchananjames",
+              "name": "James Buchanan",
+              "date": "(1804-1870)"
+            }
+          },
+          {
+            "articleId": 535,
+            "bookId": 145,
+            "authorId": 10,
+            "title": "The Great Giver",
+            "audioUrl": "",
+            "author": {
+              "code": "pinkarthurw",
+              "name": "Arthur W. Pink",
+              "date": "(1886-1952)"
+            }
+          },
+          {
+            "articleId": 536,
+            "bookId": 145,
+            "authorId": 189,
+            "title": "Thoughts on Affliction",
+            "audioUrl": "",
+            "author": {
+              "code": "authorsvarious",
+              "name": "Various Authors",
+              "date": ""
+            }
+          },
+          {
+            "articleId": 537,
+            "bookId": 145,
+            "authorId": 10,
+            "title": "Tried by Fire",
+            "audioUrl": "",
+            "author": {
+              "code": "pinkarthurw",
+              "name": "Arthur W. Pink",
+              "date": "(1886-1952)"
+            }
+          }
+        ],
+        "friendlyTitle": "comfort-in-affliction",
+        "children": [
+          {
+            "id": "75036f62-7c17-4206-89a7-848fd84d4155",
+            "code": "ciaffgs",
+            "title": "Consuelo en la aflicción",
+            "pageCount": 48,
+            "number": 18,
+            "type": "Booklets",
+            "language": "ES",
+            "price": 1.78,
+            "isoLangCode": "ES",
+            "coverUrl": "/images/covers/booklets/ciaffgs.jpg",
+            "pdfUrl": "",
+            "epubUrl": "",
+            "mobiUrl": "",
+            "audioUrl": "",
+            "hasPrintableVersion": true,
+            "courseLessonsCount": null,
+            "courseLevel": "",
+            "authors": [],
+            "parent": null,
+            "courseOriginal": null,
+            "courses": [],
+            "articles": [],
+            "friendlyTitle": "consuelo-en-la-afliccion",
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "0c889a7f-48be-4e3a-b87c-e0f76be0638b",
+        "code": "cala",
+        "title": "Christ and Lazarus: Comfort in Sickness and Death",
+        "pageCount": 36,
+        "number": null,
+        "type": "Booklets",
+        "language": "EN",
+        "price": 1.37,
+        "isoLangCode": "EN",
+        "coverUrl": "/images/covers/booklets/cala.jpg",
+        "pdfUrl": "/pdf/books/cala.pdf",
+        "epubUrl": "/epub/books/cala.epub",
+        "mobiUrl": "/mobi/books/cala.mobi",
+        "audioUrl": "",
+        "hasPrintableVersion": true,
+        "courseLessonsCount": null,
+        "courseLevel": "",
+        "authors": [
+          {
+            "code": "mccheynerobertmurray",
+            "name": "Robert Murray McCheyne",
+            "date": "(1813-1843)"
+          }
+        ],
+        "parent": null,
+        "courseOriginal": null,
+        "courses": [],
+        "articles": [],
+        "friendlyTitle": "christ-and-lazarus-comfort-in-sickness-and-death",
+        "children": [
+          {
+            "id": "e24176f3-7187-422e-ac58-f27153915336",
+            "code": "calas",
+            "title": "Cristo y Lázaro: Consuelo en la enfermedad y en la muerte",
+            "pageCount": 36,
+            "number": null,
+            "type": "Booklets",
+            "language": "ES",
+            "price": 1.37,
+            "isoLangCode": "ES",
+            "coverUrl": "/images/covers/booklets/calas.jpg",
+            "pdfUrl": "",
+            "epubUrl": "",
+            "mobiUrl": "",
+            "audioUrl": "",
+            "hasPrintableVersion": true,
+            "courseLessonsCount": null,
+            "courseLevel": "",
+            "authors": [],
+            "parent": null,
+            "courseOriginal": null,
+            "courses": [],
+            "articles": [],
+            "friendlyTitle": "cristo-y-lazaro-consuelo-en-la-enfermedad-y-en-la-muerte",
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "a46dbb91-0fde-4553-95c4-da36b9a93125",
+        "code": "cfch",
+        "title": "Comfort for Christians",
+        "pageCount": 60,
+        "number": null,
+        "type": "Booklets",
+        "language": "EN",
+        "price": 2.19,
+        "isoLangCode": "EN",
+        "coverUrl": "/images/covers/booklets/cfch.jpg",
+        "pdfUrl": "/pdf/books/cfch.pdf",
+        "epubUrl": "/epub/books/cfch.epub",
+        "mobiUrl": "/mobi/books/cfch.mobi",
+        "audioUrl": "",
+        "hasPrintableVersion": true,
+        "courseLessonsCount": null,
+        "courseLevel": "",
+        "authors": [
+          {
+            "code": "pinkarthurw",
+            "name": "Arthur W. Pink",
+            "date": "(1886-1952)"
+          }
+        ],
+        "parent": null,
+        "courseOriginal": null,
+        "courses": [],
+        "articles": [],
+        "friendlyTitle": "comfort-for-christians",
+        "children": []
+      },
+      {
+        "id": "af883fed-2e10-4bb0-98d5-15e932915a32",
+        "code": "cfss",
+        "title": "Comfort for Suffering Saints",
+        "pageCount": 8,
+        "number": null,
+        "type": "Tracts",
+        "language": "EN",
+        "price": 0.09,
+        "isoLangCode": "EN",
+        "coverUrl": "/images/covers/tracts/cfss.jpg",
+        "pdfUrl": "/pdf/books/cfss.pdf",
+        "epubUrl": "",
+        "mobiUrl": "",
+        "audioUrl": "/audio/books/cfss.mp3",
+        "hasPrintableVersion": true,
+        "courseLessonsCount": null,
+        "courseLevel": "",
+        "authors": [
+          {
+            "code": "zanchiusjerome",
+            "name": "Jerome Zanchius",
+            "date": "(1516-1590)"
+          }
+        ],
+        "parent": null,
+        "courseOriginal": null,
+        "courses": [],
+        "articles": [],
+        "friendlyTitle": "comfort-for-suffering-saints",
+        "children": []
+      }
+    ]
+  },
+  {
+    "request": {
+      "url": "https://www.chapellibrary.org/api/books/getbycriteria?input=Family+Worship&language=EN&take=20&pageCount=0",
+      "finalUrl": "https://www.chapellibrary.org/api/books/getbycriteria?input=Family+Worship&language=EN&take=20&pageCount=0",
+      "mimeType": "application/json",
+      "byteCount": 67614,
+      "sha256": "0c367daa99d0969018bb2665755a3629d1e62b71e1a6c1dee3a72044137674ca",
+      "retrievedAt": "2026-10-07T09:55:49.542426+00:00"
+    },
+    "result": [
+      {
+        "id": "dfc2032c-525d-4032-896c-1d3649482bb0",
+        "code": "fworfg",
+        "title": "Family Worship",
+        "pageCount": 52,
+        "number": 188,
+        "type": "Booklets",
+        "language": "EN",
+        "price": 1.92,
+        "isoLangCode": "EN",
+        "coverUrl": "/images/covers/booklets/fworfg.jpg",
+        "pdfUrl": "/pdf/books/fworfg.pdf",
+        "epubUrl": "/epub/books/fworfg.epub",
+        "mobiUrl": "/mobi/books/fworfg.mobi",
+        "audioUrl": "",
+        "hasPrintableVersion": true,
+        "courseLessonsCount": null,
+        "courseLevel": "",
+        "authors": [],
+        "parent": null,
+        "courseOriginal": null,
+        "courses": [],
+        "articles": [
+          {
+            "articleId": 265,
+            "bookId": 267,
+            "authorId": 114,
+            "title": "Father and Family Worship, The",
+            "audioUrl": "",
+            "author": {
+              "code": "alexanderjamesw",
+              "name": "James W. Alexander",
+              "date": "(1804-1859)"
+            }
+          },
+          {
+            "articleId": 266,
+            "bookId": 267,
+            "authorId": 267,
+            "title": "Heathens and Christians",
+            "audioUrl": "",
+            "author": {
+              "code": "patonjohng",
+              "name": "John G. Paton",
+              "date": "(1824-1907)"
+            }
+          },
+          {
+            "articleId": 267,
+            "bookId": 267,
+            "authorId": 3,
+            "title": "Implementing Family Worship",
+            "audioUrl": "",
+            "author": {
+              "code": "beekejoel",
+              "name": "Joel Beeke",
+              "date": ""
+            }
+          },
+          {
+            "articleId": 268,
+            "bookId": 267,
+            "authorId": 267,
+            "title": "Memories of Family Worship",
+            "audioUrl": "",
+            "author": {
+              "code": "patonjohng",
+              "name": "John G. Paton",
+              "date": "(1824-1907)"
+            }
+          },
+          {
+            "articleId": 269,
+            "bookId": 267,
+            "authorId": 68,
+            "title": "Motives for Family Worship",
+            "audioUrl": "",
+            "author": {
+              "code": "d'aubignejmerle",
+              "name": "J. Merle D'Aubigne",
+              "date": "(1794-1872)"
+            }
+          },
+          {
+            "articleId": 270,
+            "bookId": 267,
+            "authorId": 114,
+            "title": "Nature, Warrant, and History of Family Worship, The",
+            "audioUrl": "",
+            "author": {
+              "code": "alexanderjamesw",
+              "name": "James W. Alexander",
+              "date": "(1804-1859)"
+            }
+          },
+          {
+            "articleId": 271,
+            "bookId": 267,
+            "authorId": 218,
+            "title": "One Cause of the Decay of Religion in Our Day",
+            "audioUrl": "",
+            "author": {
+              "code": "confessionlondonbaptist",
+              "name": "London Baptist Confession",
+              "date": "(1689)"
+            }
+          },
+          {
+            "articleId": 272,
+            "bookId": 267,
+            "authorId": 244,
+            "title": "Remedy for Decaying Religion, A",
+            "audioUrl": "",
+            "author": {
+              "code": "heywoodoliver",
+              "name": "Oliver Heywood",
+              "date": "(1629-1702)"
+            }
+          },
+          {
+            "articleId": 273,
+            "bookId": 267,
+            "authorId": 227,
+            "title": "Seven Reasons Families Should Pray",
+            "audioUrl": "",
+            "author": {
+              "code": "doolittlethomas",
+              "name": "Thomas Doolittle",
+              "date": "(1630-1707)"
+            }
+          },
+          {
+            "articleId": 274,
+            "bookId": 267,
+            "authorId": 227,
+            "title": "What God Is To Families",
+            "audioUrl": "",
+            "author": {
+              "code": "doolittlethomas",
+              "name": "Thomas Doolittle",
+              "date": "(1630-1707)"
+            }
+          },
+          {
+            "articleId": 275,
+            "bookId": 267,
+            "authorId": 249,
+            "title": "Women Leading Family Worship",
+            "audioUrl": "",
+            "author": {
+              "code": "howejohn",
+              "name": "John Howe",
+              "date": "(1630-1705)"
+            }
+          },
+          {
+            "articleId": 276,
+            "bookId": 267,
+            "authorId": 227,
+            "title": "Word of God and Family Worship, The",
+            "audioUrl": "",
+            "author": {
+              "code": "doolittlethomas",
+              "name": "Thomas Doolittle",
+              "date": "(1630-1707)"
+            }
+          }
+        ],
+        "friendlyTitle": "family-worship",
+        "children": [
+          {
+            "id": "cdc3ae89-2218-437d-b5c3-4ddfc194d6fd",
+            "code": "fworfgs",
+            "title": "Adoración familiar",
+            "pageCount": 48,
+            "number": 26,
+            "type": "Booklets",
+            "language": "ES",
+            "price": 1.78,
+            "isoLangCode": "ES",
+            "coverUrl": "/images/covers/booklets/fworfgs.jpg",
+            "pdfUrl": "",
+            "epubUrl": "",
+            "mobiUrl": "",
+            "audioUrl": "",
+            "hasPrintableVersion": true,
+            "courseLessonsCount": null,
+            "courseLevel": "",
+            "authors": [],
+            "parent": null,
+            "courseOriginal": null,
+            "courses": [],
+            "articles": [],
+            "friendlyTitle": "adoracion-familiar",
+            "children": []
+          },
+          {
+            "id": "53d04d7d-727f-4751-a1d3-a141e5ac7609",
+            "code": "fworfgko",
+            "title": "가정예배",
+            "pageCount": 0,
+            "number": null,
+            "type": "ebooks",
+            "language": "KO",
+            "price": 0.0,
+            "isoLangCode": "KO",
+            "coverUrl": "/images/covers/booklets/fworfgko.jpg",
+            "pdfUrl": "",
+            "epubUrl": "",
+            "mobiUrl": "",
+            "audioUrl": "",
+            "hasPrintableVersion": false,
+            "courseLessonsCount": null,
+            "courseLevel": "",
+            "authors": [],
+            "parent": null,
+            "courseOriginal": null,
+            "courses": [],
+            "articles": [],
+            "friendlyTitle": "",
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "96aa807f-cae9-42d4-acaa-58049d903015",
+        "code": "fwo2",
+        "title": "Family Worship",
+        "pageCount": 8,
+        "number": null,
+        "type": "Tracts",
+        "language": "EN",
+        "price": 0.1,
+        "isoLangCode": "EN",
+        "coverUrl": "/images/covers/tracts/fwo2.jpg",
+        "pdfUrl": "/pdf/books/fwo2.pdf",
+        "epubUrl": "",
+        "mobiUrl": "",
+        "audioUrl": "/audio/books/fwo2.mp3",
+        "hasPrintableVersion": true,
+        "courseLessonsCount": null,
+        "courseLevel": "",
+        "authors": [
+          {
+            "code": "pinkarthurw",
+            "name": "Arthur W. Pink",
+            "date": "(1886-1952)"
+          }
+        ],
+        "parent": null,
+        "courseOriginal": null,
+        "courses": [],
+        "articles": [],
+        "friendlyTitle": "family-worship",
+        "children": [
+          {
+            "id": "c0b49c91-0e53-4039-aac6-b828bf48a9c6",
+            "code": "fwo2s",
+            "title": "Culto familiar",
+            "pageCount": 8,
+            "number": null,
+            "type": "Tracts",
+            "language": "ES",
+            "price": 0.09,
+            "isoLangCode": "ES",
+            "coverUrl": "/images/covers/tracts/fwo2s.jpg",
+            "pdfUrl": "",
+            "epubUrl": "",
+            "mobiUrl": "",
+            "audioUrl": "/audio/books/fwo2s.mp3",
+            "hasPrintableVersion": true,
+            "courseLessonsCount": null,
+            "courseLevel": "",
+            "authors": [],
+            "parent": null,
+            "courseOriginal": null,
+            "courses": [],
+            "articles": [],
+            "friendlyTitle": "culto-familiar",
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "2fa53c30-0a6c-4c6e-b174-d3426c9d5ea5",
+        "code": "fwor",
+        "title": "Family Worship",
+        "pageCount": 24,
+        "number": null,
+        "type": "Booklets",
+        "language": "EN",
+        "price": 0.61,
+        "isoLangCode": "EN",
+        "coverUrl": "/images/covers/booklets/fwor.jpg",
+        "pdfUrl": "/pdf/books/fwor.pdf",
+        "epubUrl": "/epub/books/fwor.epub",
+        "mobiUrl": "/mobi/books/fwor.mobi",
+        "audioUrl": "",
+        "hasPrintableVersion": true,
+        "courseLessonsCount": null,
+        "courseLevel": "",
+        "authors": [
+          {
+            "code": "d'aubignejmerle",
+            "name": "J. Merle D'Aubigne",
+            "date": "(1794-1872)"
+          }
+        ],
+        "parent": null,
+        "courseOriginal": null,
+        "courses": [],
+        "articles": [],
+        "friendlyTitle": "family-worship",
+        "children": [
+          {
+            "id": "0e6e98aa-cf7d-4a68-ad14-7cb23b9ef92b",
+            "code": "fwors",
+            "title": "Adoración familiar",
+            "pageCount": 24,
+            "number": null,
+            "type": "Booklets",
+            "language": "ES",
+            "price": 0.61,
+            "isoLangCode": "ES",
+            "coverUrl": "/images/covers/booklets/fwors.jpg",
+            "pdfUrl": "",
+            "epubUrl": "",
+            "mobiUrl": "",
+            "audioUrl": "",
+            "hasPrintableVersion": true,
+            "courseLessonsCount": null,
+            "courseLevel": "",
+            "authors": [],
+            "parent": null,
+            "courseOriginal": null,
+            "courses": [],
+            "articles": [],
+            "friendlyTitle": "adoracion-familiar",
+            "children": []
+          },
+          {
+            "id": "ca046094-e648-4974-843a-0704c11c3167",
+            "code": "fworc",
+            "title": "家庭敬拜",
+            "pageCount": 24,
+            "number": null,
+            "type": "ebooks",
+            "language": "ZH",
+            "price": 0.61,
+            "isoLangCode": "ZH",
+            "coverUrl": "/images/covers/booklets/fworc.jpg",
+            "pdfUrl": "",
+            "epubUrl": "",
+            "mobiUrl": "",
+            "audioUrl": "",
+            "hasPrintableVersion": false,
+            "courseLessonsCount": null,
+            "courseLevel": "",
+            "authors": [],
+            "parent": null,
+            "courseOriginal": null,
+            "courses": [],
+            "articles": [],
+            "friendlyTitle": "",
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "ec7f3fad-7b32-4dcf-a5da-dd2fc384d5f7",
+        "code": "fathfg",
+        "title": "Fatherhood",
+        "pageCount": 48,
+        "number": 228,
+        "type": "Booklets",
+        "language": "EN",
+        "price": 1.78,
+        "isoLangCode": "EN",
+        "coverUrl": "/images/covers/booklets/fathfg.jpg",
+        "pdfUrl": "/pdf/books/fathfg.pdf",
+        "epubUrl": "/epub/books/fathfg.epub",
+        "mobiUrl": "/mobi/books/fathfg.mobi",
+        "audioUrl": "",
+        "hasPrintableVersion": true,
+        "courseLessonsCount": null,
+        "courseLevel": "",
+        "authors": [],
+        "parent": null,
+        "courseOriginal": null,
+        "courses": [],
+        "articles": [
+          {
+            "articleId": 628,
+            "bookId": 270,
+            "authorId": 239,
+            "title": "Father as Prophet, King, Priest",
+            "audioUrl": "",
+            "author": {
+              "code": "gurnallwilliam",
+              "name": "William Gurnall",
+              "date": "(1616-1679)"
+            }
+          },
+          {
+            "articleId": 629,
+            "bookId": 270,
+            "authorId": 10,
+            "title": "Fatherhood: Responsibility  and Privilege",
+            "audioUrl": "",
+            "author": {
+              "code": "pinkarthurw",
+              "name": "Arthur W. Pink",
+              "date": "(1886-1952)"
+            }
+          },
+          {
+            "articleId": 630,
+            "bookId": 270,
+            "authorId": 24,
+            "title": "A Father’s Main Responsibility",
+            "audioUrl": "",
+            "author": {
+              "code": "calvinjohn",
+              "name": "John Calvin",
+              "date": "(1509-1564)"
+            }
+          },
+          {
+            "articleId": 631,
+            "bookId": 270,
+            "authorId": 175,
+            "title": "Leading a Family for Christ",
+            "audioUrl": "",
+            "author": {
+              "code": "baxterrichard",
+              "name": "Richard Baxter",
+              "date": "(1615-1691)"
+            }
+          },
+          {
+            "articleId": 632,
+            "bookId": 270,
+            "authorId": 212,
+            "title": "A Father Must Be Godly",
+            "audioUrl": "",
+            "author": {
+              "code": "byfieldnicholas",
+              "name": "Nicholas Byfield",
+              "date": "(1579-1622)"
+            }
+          },
+          {
+            "articleId": 633,
+            "bookId": 270,
+            "authorId": 227,
+            "title": "A Father Must Teach God’s Word and Pray",
+            "audioUrl": "",
+            "author": {
+              "code": "doolittlethomas",
+              "name": "Thomas Doolittle",
+              "date": "(1630-1707)"
+            }
+          },
+          {
+            "articleId": 634,
+            "bookId": 270,
+            "authorId": 167,
+            "title": "Fathers and Discipline",
+            "audioUrl": "",
+            "author": {
+              "code": "gougewilliam",
+              "name": "William Gouge",
+              "date": "(1575-1653)"
+            }
+          },
+          {
+            "articleId": 635,
+            "bookId": 270,
+            "authorId": 138,
+            "title": "How Fathers Can Provoke Their Children to Wrath",
+            "audioUrl": "",
+            "author": {
+              "code": "watsonthomas",
+              "name": "Thomas Watson",
+              "date": "(1620-1686)"
+            }
+          },
+          {
+            "articleId": 636,
+            "bookId": 270,
+            "authorId": 175,
+            "title": "Counsel to Reforming Fathers",
+            "audioUrl": "",
+            "author": {
+              "code": "baxterrichard",
+              "name": "Richard Baxter",
+              "date": "(1615-1691)"
+            }
+          },
+          {
+            "articleId": 637,
+            "bookId": 270,
+            "authorId": 288,
+            "title": "A Father’s Prayer",
+            "audioUrl": "",
+            "author": {
+              "code": "swinnockgeorge",
+              "name": "George Swinnock",
+              "date": "(1627-1673)"
+            }
+          }
+        ],
+        "friendlyTitle": "fatherhood",
+        "children": [
+          {
+            "id": "8d9497a7-d078-4e70-9b84-38893a32253d",
+            "code": "fathfgs",
+            "title": "Paternidad",
+            "pageCount": 48,
+            "number": 25,
+            "type": "Booklets",
+            "language": "ES",
+            "price": 1.78,
+            "isoLangCode": "ES",
+            "coverUrl": "/images/covers/booklets/fathfgs.jpg",
+            "pdfUrl": "",
+            "epubUrl": "",
+            "mobiUrl": "",
+            "audioUrl": "",
+            "hasPrintableVersion": true,
+            "courseLessonsCount": null,
+            "courseLevel": "",
+            "authors": [],
+            "parent": null,
+            "courseOriginal": null,
+            "courses": [],
+            "articles": [],
+            "friendlyTitle": "paternidad",
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "9542d1d4-875d-46e0-836f-3c29ef9f242d",
+        "code": "rtcr",
+        "title": "Read the Christian's Reasonable Service",
+        "pageCount": 8,
+        "number": null,
+        "type": "ebooks",
+        "language": "EN",
+        "price": 0.17,
+        "isoLangCode": "EN",
+        "coverUrl": "/images/covers/tracts/rtcr.jpg",
+        "pdfUrl": "/pdf/books/rtcr.pdf",
+        "epubUrl": "",
+        "mobiUrl": "",
+        "audioUrl": "",
+        "hasPrintableVersion": false,
+        "courseLessonsCount": null,
+        "courseLevel": "",
+        "authors": [
+          {
+            "code": "brakelwilhelmusà",
+            "name": "Wilhelmus à Brakel",
+            "date": "(1635-1711)"
+          }
+        ],
+        "parent": null,
+        "courseOriginal": null,
+        "courses": [],
+        "articles": [],
+        "friendlyTitle": "read-the-christians-reasonable-service",
+        "children": []
+      },
+      {
+        "id": "687b2534-813c-4f4b-9060-a0d57807206b",
+        "code": "cchy",
+        "title": "Christ-centered Hymns",
+        "pageCount": 48,
+        "number": null,
+        "type": "Booklets",
+        "language": "EN",
+        "price": 1.78,
+        "isoLangCode": "EN",
+        "coverUrl": "/images/covers/booklets/cchy.jpg",
+        "pdfUrl": "/pdf/books/cchy.pdf",
+        "epubUrl": "",
+        "mobiUrl": "",
+        "audioUrl": "",
+        "hasPrintableVersion": true,
+        "courseLessonsCount": null,
+        "courseLevel": "",
+        "authors": [],
+        "parent": null,
+        "courseOriginal": null,
+        "courses": [],
+        "articles": [],
+        "friendlyTitle": "christcentered-hymns",
+        "children": []
+      },
+      {
+        "id": "d7a63b9a-6203-4793-80ad-3f1e2dcacbf3",
+        "code": "obedfg",
+        "title": "Obedience",
+        "pageCount": 48,
+        "number": 232,
+        "type": "Booklets",
+        "language": "EN",
+        "price": 1.78,
+        "isoLangCode": "EN",
+        "coverUrl": "/images/covers/booklets/obedfg.jpg",
+        "pdfUrl": "/pdf/books/obedfg.pdf",
+        "epubUrl": "/epub/books/obedfg.epub",
+        "mobiUrl": "/mobi/books/obedfg.mobi",
+        "audioUrl": "",
+        "hasPrintableVersion": true,
+        "courseLessonsCount": null,
+        "courseLevel": "",
+        "authors": [],
+        "parent": null,
+        "courseOriginal": null,
+        "courses": [],
+        "articles": [
+          {
+            "articleId": 668,
+            "bookId": 532,
+            "authorId": 10,
+            "title": "God's Word and Obedience",
+            "audioUrl": "",
+            "author": {
+              "code": "pinkarthurw",
+              "name": "Arthur W. Pink",
+              "date": "(1886-1952)"
+            }
+          },
+          {
+            "articleId": 669,
+            "bookId": 532,
+            "authorId": 105,
+            "title": "God's Gospel and Obedience",
+            "audioUrl": "",
+            "author": {
+              "code": "lloyd-jonesdavidmartyn",
+              "name": "David Martyn Lloyd-Jones",
+              "date": "(1899-1981)"
+            }
+          },
+          {
+            "articleId": 670,
+            "bookId": 532,
+            "authorId": 262,
+            "title": "God's Grace and Obedience",
+            "audioUrl": "",
+            "author": {
+              "code": "martinhugh",
+              "name": "Hugh Martin",
+              "date": "(1822-1885)"
+            }
+          },
+          {
+            "articleId": 671,
+            "bookId": 532,
+            "authorId": 293,
+            "title": "God's Law and Obedience",
+            "audioUrl": "",
+            "author": {
+              "code": "tyngstephen",
+              "name": "Stephen Tyng",
+              "date": "(1800-1885)"
+            }
+          },
+          {
+            "articleId": 672,
+            "bookId": 532,
+            "authorId": 6,
+            "title": "Our Faith and Obedience",
+            "audioUrl": "",
+            "author": {
+              "code": "spurgeoncharlesh",
+              "name": "Charles H. Spurgeon",
+              "date": "(1834-1892)"
+            }
+          },
+          {
+            "articleId": 673,
+            "bookId": 532,
+            "authorId": 10,
+            "title": "Our Love and Obedience",
+            "audioUrl": "",
+            "author": {
+              "code": "pinkarthurw",
+              "name": "Arthur W. Pink",
+              "date": "(1886-1952)"
+            }
+          },
+          {
+            "articleId": 674,
+            "bookId": 532,
+            "authorId": 215,
+            "title": "Christ's Friends Obey Him",
+            "audioUrl": "",
+            "author": {
+              "code": "charnockstephen",
+              "name": "Stephen Charnock",
+              "date": "(1628-1680)"
+            }
+          },
+          {
+            "articleId": 675,
+            "bookId": 532,
+            "authorId": 10,
+            "title": "Christ's Obedience Saves Us",
+            "audioUrl": "",
+            "author": {
+              "code": "pinkarthurw",
+              "name": "Arthur W. Pink",
+              "date": "(1886-1952)"
+            }
+          }
+        ],
+        "friendlyTitle": "obedience",
+        "children": []
+      },
+      {
+        "id": "f8289d9a-4a41-4a56-8f58-02643635fbb0",
+        "code": "jppi",
+        "title": "John Ploughman's Pictures",
+        "pageCount": 52,
+        "number": null,
+        "type": "Booklets",
+        "language": "EN",
+        "price": 1.92,
+        "isoLangCode": "EN",
+        "coverUrl": "/images/covers/booklets/jppi.jpg",
+        "pdfUrl": "/pdf/books/jppi.pdf",
+        "epubUrl": "/epub/books/jppi.epub",
+        "mobiUrl": "/mobi/books/jppi.mobi",
+        "audioUrl": "",
+        "hasPrintableVersion": true,
+        "courseLessonsCount": null,
+        "courseLevel": "",
+        "authors": [
+          {
+            "code": "spurgeoncharlesh",
+            "name": "Charles H. Spurgeon",
+            "date": "(1834-1892)"
+          }
+        ],
+        "parent": null,
+        "courseOriginal": null,
+        "courses": [],
+        "articles": [],
+        "friendlyTitle": "john-ploughmans-pictures",
+        "children": []
+      },
+      {
+        "id": "bf7a7a96-9189-4373-a47f-96fa7403b712",
+        "code": "htrtfg",
+        "title": "How to Read the Free Grace Broadcaster",
+        "pageCount": 4,
+        "number": null,
+        "type": "ebooks",
+        "language": "EN",
+        "price": 0.0,
+        "isoLangCode": "EN",
+        "coverUrl": "/images/covers/booklets/htrtfg.jpg",
+        "pdfUrl": "",
+        "epubUrl": "",
+        "mobiUrl": "",
+        "audioUrl": "",
+        "hasPrintableVersion": false,
+        "courseLessonsCount": null,
+        "courseLevel": "",
+        "authors": [],
+        "parent": null,
+        "courseOriginal": null,
+        "courses": [],
+        "articles": [],
+        "friendlyTitle": "how-to-read-the-free-grace-broadcaster",
+        "children": []
+      },
+      {
+        "id": "217a0565-c9be-4312-b291-530fde7c019f",
+        "code": "wors",
+        "title": "Worship",
+        "pageCount": 6,
+        "number": null,
+        "type": "Tracts",
+        "language": "EN",
+        "price": 0.14,
+        "isoLangCode": "EN",
+        "coverUrl": "/images/covers/tracts/wors.jpg",
+        "pdfUrl": "/pdf/books/wors.pdf",
+        "epubUrl": "",
+        "mobiUrl": "",
+        "audioUrl": "",
+        "hasPrintableVersion": true,
+        "courseLessonsCount": null,
+        "courseLevel": "",
+        "authors": [
+          {
+            "code": "pinkarthurw",
+            "name": "Arthur W. Pink",
+            "date": "(1886-1952)"
+          }
+        ],
+        "parent": null,
+        "courseOriginal": null,
+        "courses": [],
+        "articles": [],
+        "friendlyTitle": "worship",
+        "children": []
+      },
+      {
+        "id": "fff4ea28-8e35-4465-94b8-ac3543c072ce",
+        "code": "pwor",
+        "title": "Public Worship",
+        "pageCount": 24,
+        "number": null,
+        "type": "Booklets",
+        "language": "EN",
+        "price": 0.96,
+        "isoLangCode": "EN",
+        "coverUrl": "/images/covers/booklets/pwor.jpg",
+        "pdfUrl": "/pdf/books/pwor.pdf",
+        "epubUrl": "/epub/books/pwor.epub",
+        "mobiUrl": "/mobi/books/pwor.mobi",
+        "audioUrl": "",
+        "hasPrintableVersion": true,
+        "courseLessonsCount": null,
+        "courseLevel": "",
+        "authors": [
+          {
+            "code": "rylejohnc",
+            "name": "John C. Ryle",
+            "date": "(1816-1900)"
+          }
+        ],
+        "parent": null,
+        "courseOriginal": null,
+        "courses": [],
+        "articles": [],
+        "friendlyTitle": "public-worship",
+        "children": [
+          {
+            "id": "472e07bd-4bf1-42c8-8f2e-25da0d7afa7d",
+            "code": "pwors",
+            "title": "Adoración pública",
+            "pageCount": 24,
+            "number": null,
+            "type": "Booklets",
+            "language": "ES",
+            "price": 0.96,
+            "isoLangCode": "ES",
+            "coverUrl": "/images/covers/booklets/pwors.jpg",
+            "pdfUrl": "",
+            "epubUrl": "",
+            "mobiUrl": "",
+            "audioUrl": "",
+            "hasPrintableVersion": true,
+            "courseLessonsCount": null,
+            "courseLevel": "",
+            "authors": [],
+            "parent": null,
+            "courseOriginal": null,
+            "courses": [],
+            "articles": [],
+            "friendlyTitle": "adoracion-publica",
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "123e81fc-8724-4347-b7ed-3ba66416dbde",
+        "code": "worsfg",
+        "title": "Worship",
+        "pageCount": 48,
+        "number": 177,
+        "type": "Booklets",
+        "language": "EN",
+        "price": 1.78,
+        "isoLangCode": "EN",
+        "coverUrl": "/images/covers/booklets/worsfg.jpg",
+        "pdfUrl": "/pdf/books/worsfg.pdf",
+        "epubUrl": "/epub/books/worsfg.epub",
+        "mobiUrl": "/mobi/books/worsfg.mobi",
+        "audioUrl": "",
+        "hasPrintableVersion": true,
+        "courseLessonsCount": null,
+        "courseLevel": "",
+        "authors": [],
+        "parent": null,
+        "courseOriginal": null,
+        "courses": [],
+        "articles": [
+          {
+            "articleId": 206,
+            "bookId": 866,
+            "authorId": 4,
+            "title": "Conscience Pacified Forever*",
+            "audioUrl": "",
+            "author": {
+              "code": "bonar\rhoratius",
+              "name": "Horatius Bonar\r",
+              "date": "(1808-1889)"
+            }
+          },
+          {
+            "articleId": 207,
+            "bookId": 866,
+            "authorId": 288,
+            "title": "Do You Worship God?",
+            "audioUrl": "",
+            "author": {
+              "code": "swinnockgeorge",
+              "name": "George Swinnock",
+              "date": "(1627-1673)"
+            }
+          },
+          {
+            "articleId": 208,
+            "bookId": 866,
+            "authorId": 68,
+            "title": "Family Worship*",
+            "audioUrl": "",
+            "author": {
+              "code": "d'aubignejmerle",
+              "name": "J. Merle D'Aubigne",
+              "date": "(1794-1872)"
+            }
+          },
+          {
+            "articleId": 209,
+            "bookId": 866,
+            "authorId": 294,
+            "title": "Fragment On Worship, A",
+            "audioUrl": "",
+            "author": {
+              "code": "unknown",
+              "name": "Unknown",
+              "date": ""
+            }
+          },
+          {
+            "articleId": 210,
+            "bookId": 866,
+            "authorId": 4,
+            "title": "God Seeking Worshippers",
+            "audioUrl": "",
+            "author": {
+              "code": "bonar\rhoratius",
+              "name": "Horatius Bonar\r",
+              "date": "(1808-1889)"
+            }
+          },
+          {
+            "articleId": 211,
+            "bookId": 866,
+            "authorId": 6,
+            "title": "True Spiritual Worship",
+            "audioUrl": "",
+            "author": {
+              "code": "spurgeoncharlesh",
+              "name": "Charles H. Spurgeon",
+              "date": "(1834-1892)"
+            }
+          },
+          {
+            "articleId": 212,
+            "bookId": 866,
+            "authorId": 294,
+            "title": "True Worship",
+            "audioUrl": "",
+            "author": {
+              "code": "unknown",
+              "name": "Unknown",
+              "date": ""
+            }
+          },
+          {
+            "articleId": 213,
+            "bookId": 866,
+            "authorId": 294,
+            "title": "What Is Worship?",
+            "audioUrl": "",
+            "author": {
+              "code": "unknown",
+              "name": "Unknown",
+              "date": ""
+            }
+          },
+          {
+            "articleId": 214,
+            "bookId": 866,
+            "authorId": 263,
+            "title": "Worship of God",
+            "audioUrl": "",
+            "author": {
+              "code": "maurophilip",
+              "name": "Philip Mauro",
+              "date": "(1859-1922)"
+            }
+          }
+        ],
+        "friendlyTitle": "worship",
+        "children": []
+      },
+      {
+        "id": "8cd0995f-0699-4b46-bd52-c1deef0f4b87",
+        "code": "ldayfg",
+        "title": "Lord's Day, The",
+        "pageCount": 48,
+        "number": 233,
+        "type": "Booklets",
+        "language": "EN",
+        "price": 1.78,
+        "isoLangCode": "EN",
+        "coverUrl": "/images/covers/booklets/ldayfg.jpg",
+        "pdfUrl": "/pdf/books/ldayfg.pdf",
+        "epubUrl": "/epub/books/ldayfg.epub",
+        "mobiUrl": "/mobi/books/ldayfg.mobi",
+        "audioUrl": "",
+        "hasPrintableVersion": true,
+        "courseLessonsCount": null,
+        "courseLevel": "",
+        "authors": [],
+        "parent": null,
+        "courseOriginal": null,
+        "courses": [],
+        "articles": [
+          {
+            "articleId": 676,
+            "bookId": 473,
+            "authorId": 10,
+            "title": "Established at Creation",
+            "audioUrl": "",
+            "author": {
+              "code": "pinkarthurw",
+              "name": "Arthur W. Pink",
+              "date": "(1886-1952)"
+            }
+          },
+          {
+            "articleId": 677,
+            "bookId": 473,
+            "authorId": 5,
+            "title": "Biblical Thoughts about the Lord's Day",
+            "audioUrl": "",
+            "author": {
+              "code": "rylejohnc",
+              "name": "John C. Ryle",
+              "date": "(1816-1900)"
+            }
+          },
+          {
+            "articleId": 678,
+            "bookId": 473,
+            "authorId": 42,
+            "title": "The Fourth Commandment",
+            "audioUrl": "",
+            "author": {
+              "code": "bostonthomas",
+              "name": "Thomas Boston",
+              "date": "(1676-1732)"
+            }
+          },
+          {
+            "articleId": 679,
+            "bookId": 473,
+            "authorId": 300,
+            "title": "Foundations of the Lord's Day",
+            "audioUrl": "",
+            "author": {
+              "code": "warfieldbenjaminb",
+              "name": "Benjamin B. Warfield",
+              "date": "(1851-1921)"
+            }
+          },
+          {
+            "articleId": 680,
+            "bookId": 473,
+            "authorId": 306,
+            "title": "From Sabbath to Lord's Day",
+            "audioUrl": "",
+            "author": {
+              "code": "hodgearchibalda",
+              "name": "Archibald A. Hodge",
+              "date": "(1823-1878)"
+            }
+          },
+          {
+            "articleId": 681,
+            "bookId": 473,
+            "authorId": 247,
+            "title": "The Lord's Day in Public",
+            "audioUrl": "",
+            "author": {
+              "code": "hopkinsezekiel",
+              "name": "Ezekiel Hopkins",
+              "date": "(1634-1690)"
+            }
+          },
+          {
+            "articleId": 682,
+            "bookId": 473,
+            "authorId": 174,
+            "title": "The Lord's Day at Home",
+            "audioUrl": "",
+            "author": {
+              "code": "plumerwilliams",
+              "name": "William S. Plumer",
+              "date": "(1802-1880)"
+            }
+          },
+          {
+            "articleId": 683,
+            "bookId": 473,
+            "authorId": 247,
+            "title": "Piety, Necessity, and Charity",
+            "audioUrl": "",
+            "author": {
+              "code": "hopkinsezekiel",
+              "name": "Ezekiel Hopkins",
+              "date": "(1634-1690)"
+            }
+          },
+          {
+            "articleId": 684,
+            "bookId": 473,
+            "authorId": 213,
+            "title": "Honoring God on His Day",
+            "audioUrl": "",
+            "author": {
+              "code": "casethomas",
+              "name": "Thomas Case",
+              "date": "(1598-1682)"
+            }
+          },
+          {
+            "articleId": 685,
+            "bookId": 473,
+            "authorId": 25,
+            "title": "A Most Precious Enjoyment",
+            "audioUrl": "",
+            "author": {
+              "code": "edwardsjonathan",
+              "name": "Jonathan Edwards",
+              "date": "(1703-1758)"
+            }
+          }
+        ],
+        "friendlyTitle": "lords-day-the",
+        "children": [
+          {
+            "id": "33dd4665-a69a-404c-b856-ff48f33a4125",
+            "code": "ldayfgs",
+            "title": "El Día del Señor",
+            "pageCount": 48,
+            "number": 21,
+            "type": "Booklets",
+            "language": "ES",
+            "price": 1.78,
+            "isoLangCode": "ES",
+            "coverUrl": "/images/covers/booklets/ldayfgs.jpg",
+            "pdfUrl": "",
+            "epubUrl": "",
+            "mobiUrl": "",
+            "audioUrl": "",
+            "hasPrintableVersion": true,
+            "courseLessonsCount": null,
+            "courseLevel": "",
+            "authors": [],
+            "parent": null,
+            "courseOriginal": null,
+            "courses": [],
+            "articles": [],
+            "friendlyTitle": "el-dia-del-senor",
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "8a2a7c31-0700-40cb-88a8-544d154fb462",
+        "code": "ghomfg",
+        "title": "Godly Home, The",
+        "pageCount": 48,
+        "number": 170,
+        "type": "Booklets",
+        "language": "EN",
+        "price": 1.78,
+        "isoLangCode": "EN",
+        "coverUrl": "/images/covers/booklets/ghomfg.jpg",
+        "pdfUrl": "/pdf/books/ghomfg.pdf",
+        "epubUrl": "/epub/books/ghomfg.epub",
+        "mobiUrl": "/mobi/books/ghomfg.mobi",
+        "audioUrl": "",
+        "hasPrintableVersion": true,
+        "courseLessonsCount": null,
+        "courseLevel": "",
+        "authors": [],
+        "parent": null,
+        "courseOriginal": null,
+        "courses": [],
+        "articles": [
+          {
+            "articleId": 160,
+            "bookId": 316,
+            "authorId": 6,
+            "title": "Blood of Sprinkling and the Children, The*",
+            "audioUrl": "",
+            "author": {
+              "code": "spurgeoncharlesh",
+              "name": "Charles H. Spurgeon",
+              "date": "(1834-1892)"
+            }
+          },
+          {
+            "articleId": 161,
+            "bookId": 316,
+            "authorId": 294,
+            "title": "Children to Be Educated For Christ*",
+            "audioUrl": "",
+            "author": {
+              "code": "unknown",
+              "name": "Unknown",
+              "date": ""
+            }
+          },
+          {
+            "articleId": 162,
+            "bookId": 316,
+            "authorId": 61,
+            "title": "Duties of Husbands and Wives, The*",
+            "audioUrl": "",
+            "author": {
+              "code": "steelerichard",
+              "name": "Richard Steele",
+              "date": "(1629-1692)"
+            }
+          },
+          {
+            "articleId": 164,
+            "bookId": 316,
+            "authorId": 35,
+            "title": "Family Duty*",
+            "audioUrl": "",
+            "author": {
+              "code": "bunyanjohn",
+              "name": "John Bunyan",
+              "date": "(1628-1688)"
+            }
+          },
+          {
+            "articleId": 165,
+            "bookId": 316,
+            "authorId": 10,
+            "title": "Family Worship*",
+            "audioUrl": "",
+            "author": {
+              "code": "pinkarthurw",
+              "name": "Arthur W. Pink",
+              "date": "(1886-1952)"
+            }
+          }
+        ],
+        "friendlyTitle": "godly-home-the",
+        "children": [
+          {
+            "id": "6b8dae91-dc5b-46cb-ab5e-ef7e85b8d230",
+            "code": "ghomfgs",
+            "title": "El hogar consagrado a Dios",
+            "pageCount": 52,
+            "number": 3,
+            "type": "Booklets",
+            "language": "ES",
+            "price": 1.92,
+            "isoLangCode": "ES",
+            "coverUrl": "/images/covers/booklets/ghomfgs.jpg",
+            "pdfUrl": "",
+            "epubUrl": "",
+            "mobiUrl": "",
+            "audioUrl": "",
+            "hasPrintableVersion": true,
+            "courseLessonsCount": null,
+            "courseLevel": "",
+            "authors": [],
+            "parent": null,
+            "courseOriginal": null,
+            "courses": [],
+            "articles": [],
+            "friendlyTitle": "el-hogar-consagrado-a-dios",
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "1a3d2d92-23f4-43de-b19b-7e3947f8a7b3",
+        "code": "fdut",
+        "title": "Family Duty",
+        "pageCount": 28,
+        "number": null,
+        "type": "Booklets",
+        "language": "EN",
+        "price": 0.69,
+        "isoLangCode": "EN",
+        "coverUrl": "/images/covers/booklets/fdut.jpg",
+        "pdfUrl": "/pdf/books/fdut.pdf",
+        "epubUrl": "/epub/books/fdut.epub",
+        "mobiUrl": "/mobi/books/fdut.mobi",
+        "audioUrl": "/audio/books/fdut.mp3",
+        "hasPrintableVersion": true,
+        "courseLessonsCount": null,
+        "courseLevel": "",
+        "authors": [
+          {
+            "code": "bunyanjohn",
+            "name": "John Bunyan",
+            "date": "(1628-1688)"
+          }
+        ],
+        "parent": null,
+        "courseOriginal": null,
+        "courses": [],
+        "articles": [],
+        "friendlyTitle": "family-duty",
+        "children": [
+          {
+            "id": "2f54d3f0-6c33-43d1-b976-97951092cf19",
+            "code": "fduts",
+            "title": "Deberes familiares",
+            "pageCount": 28,
+            "number": null,
+            "type": "Booklets",
+            "language": "ES",
+            "price": 0.69,
+            "isoLangCode": "ES",
+            "coverUrl": "/images/covers/booklets/fduts.jpg",
+            "pdfUrl": "",
+            "epubUrl": "",
+            "mobiUrl": "",
+            "audioUrl": "",
+            "hasPrintableVersion": true,
+            "courseLessonsCount": null,
+            "courseLevel": "",
+            "authors": [],
+            "parent": null,
+            "courseOriginal": null,
+            "courses": [],
+            "articles": [],
+            "friendlyTitle": "deberes-familiares",
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "4969824d-f2f9-4011-9ac8-639c792eaf1b",
+        "code": "waoi",
+        "title": "Worship and Order in the Church",
+        "pageCount": 110,
+        "number": null,
+        "type": "Paperbacks",
+        "language": "EN",
+        "price": 3.81,
+        "isoLangCode": "EN",
+        "coverUrl": "/images/covers/paperbacks/waoi.jpg",
+        "pdfUrl": "/pdf/books/waoi.pdf",
+        "epubUrl": "/epub/books/waoi.epub",
+        "mobiUrl": "/mobi/books/waoi.mobi",
+        "audioUrl": "",
+        "hasPrintableVersion": true,
+        "courseLessonsCount": null,
+        "courseLevel": "",
+        "authors": [
+          {
+            "code": "owenjohn",
+            "name": "John Owen",
+            "date": "(1616-1683)"
+          }
+        ],
+        "parent": null,
+        "courseOriginal": null,
+        "courses": [],
+        "articles": [],
+        "friendlyTitle": "worship-and-order-in-the-church",
+        "children": []
+      },
+      {
+        "id": "28226576-461e-42b0-9346-7be856b162f7",
+        "code": "fpnt",
+        "title": "Family Prayer Not to Be Neglected",
+        "pageCount": 32,
+        "number": null,
+        "type": "Booklets",
+        "language": "EN",
+        "price": 0.78,
+        "isoLangCode": "EN",
+        "coverUrl": "/images/covers/booklets/fpnt.jpg",
+        "pdfUrl": "/pdf/books/fpnt.pdf",
+        "epubUrl": "/epub/books/fpnt.epub",
+        "mobiUrl": "/mobi/books/fpnt.mobi",
+        "audioUrl": "/audio/books/fpnt.mp3",
+        "hasPrintableVersion": true,
+        "courseLessonsCount": null,
+        "courseLevel": "",
+        "authors": [
+          {
+            "code": "backusisaac",
+            "name": "Isaac Backus",
+            "date": "(1724-1806)"
+          }
+        ],
+        "parent": null,
+        "courseOriginal": null,
+        "courses": [],
+        "articles": [],
+        "friendlyTitle": "family-prayer-not-to-be-neglected",
+        "children": [
+          {
+            "id": "9b88fae4-817a-4caa-99d5-87e1ae713844",
+            "code": "fpnts",
+            "title": "La oración familiar no debe ser descuidada",
+            "pageCount": 36,
+            "number": null,
+            "type": "Booklets",
+            "language": "ES",
+            "price": 0.87,
+            "isoLangCode": "ES",
+            "coverUrl": "/images/covers/booklets/fpnts.jpg",
+            "pdfUrl": "",
+            "epubUrl": "",
+            "mobiUrl": "",
+            "audioUrl": "",
+            "hasPrintableVersion": true,
+            "courseLessonsCount": null,
+            "courseLevel": "",
+            "authors": [],
+            "parent": null,
+            "courseOriginal": null,
+            "courses": [],
+            "articles": [],
+            "friendlyTitle": "la-oracion-familiar-no-debe-ser-descuidada",
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "dfde44a2-7c65-445f-b847-b17d4c55311c",
+        "code": "aigf",
+        "title": "Adopted into God's Family",
+        "pageCount": 24,
+        "number": null,
+        "type": "Booklets",
+        "language": "EN",
+        "price": 0.61,
+        "isoLangCode": "EN",
+        "coverUrl": "/images/covers/booklets/aigf.jpg",
+        "pdfUrl": "/pdf/books/aigf.pdf",
+        "epubUrl": "/epub/books/aigf.epub",
+        "mobiUrl": "/mobi/books/aigf.mobi",
+        "audioUrl": "",
+        "hasPrintableVersion": true,
+        "courseLessonsCount": null,
+        "courseLevel": "",
+        "authors": [
+          {
+            "code": "venturarob",
+            "name": "Rob Ventura",
+            "date": ""
+          }
+        ],
+        "parent": null,
+        "courseOriginal": null,
+        "courses": [],
+        "articles": [],
+        "friendlyTitle": "adopted-into-gods-family",
+        "children": []
+      }
+    ]
+  }
+]

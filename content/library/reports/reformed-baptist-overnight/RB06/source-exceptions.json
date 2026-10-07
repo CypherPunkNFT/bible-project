@@ -1,0 +1,46 @@
+{
+  "mission": "RB06",
+  "exceptions": [
+    {
+      "kind": "held-extent",
+      "assetId": "asset-expanded-10e04ffe1cad8d5665ec",
+      "correction": "Christian Directory Part II Christian Economics,31 chapters; not whole four-part Directory",
+      "originalChanged": false
+    },
+    {
+      "kind": "held-reference-error",
+      "assetId": "asset-expanded-4060d054a2a5dbc08d39",
+      "correction": "Opening train-up-a-child Proverbs 23:6 should be22:6; preserve source and record explicit normalized correction"
+    },
+    {
+      "kind": "edited-voice",
+      "assetId": "asset-rb06-684d3b71e51526d3c4ac",
+      "correction": "Modern paraphrase; Douglas Wilson additions in divisionsII andVI are editor voice, not Richard Steele"
+    },
+    {
+      "kind": "abridgment",
+      "assetId": "asset-rb06-f46d96a2ea4c8be2dd78",
+      "correction": "Modern revision omits original details/references; complete offered booklet, not complete historical sermon"
+    },
+    {
+      "kind": "digital-transcription",
+      "assetId": "asset-rb06-9bdee04056edd9e6bf22",
+      "correction": "Publisher describes existing API/Claude Opus 4.6 transcription and editorial checking. No new model/OCR run here; critical collation not claimed."
+    },
+    {
+      "kind": "rights-tension",
+      "source": "Monergism",
+      "correction": "Current hosted-file policy permits private study/indexing but internal older boilerplate may prohibit retrieval storage. Retain both notices; no external corpus/public hosting permission inferred."
+    },
+    {
+      "kind": "access",
+      "source": "Chapel public app",
+      "correction": "HTML responds with JavaScript shell; use observed public book API/free download links, not invented private endpoints. Public getdetail codes ddfg/cafffg returned404; correct ciaffg/fworfg records succeeded. No selected acquisition failed."
+    },
+    {
+      "kind": "prior-cache",
+      "assetId": "asset-rb06-7aa3620bf275d3d8af9c",
+      "correction": "PublicPDF response retrieved2026-10-07T09:00:45.218284+00:00 duringRB05 discovery; first preserved immutable inRB06, not newly fetched twice."
+    }
+  ]
+}

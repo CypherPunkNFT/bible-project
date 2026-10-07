@@ -1,0 +1,339 @@
+{
+  "selectedEntries": [
+    {
+      "id": "author-john-owen",
+      "entityType": "person",
+      "name": "John Owen",
+      "aliases": [],
+      "cohort": "reformation-puritan",
+      "traditions": [
+        "reformed",
+        "puritan",
+        "congregational"
+      ],
+      "eligibility": "eligible",
+      "rationale": "PRDL classifies Owen as Puritan/Reformed; Banner's Goodwin biography identifies their joint work on the Savoy Declaration.",
+      "receptionBasis": "Puritan/Reformed theologian; distinguish John Owen who died in 1622.",
+      "evidence": [
+        {
+          "url": "https://www.prdl.org/authors.php?a_in=O",
+          "locator": "Owen, John (d. 1683)",
+          "note": "Puritan/Reformed theologian; distinguish John Owen who died in 1622.",
+          "checkedOn": "2026-10-05"
+        },
+        {
+          "url": "https://banneroftruth.org/us/about/banner-authors/thomas-goodwin/",
+          "locator": "Savoy Declaration paragraph",
+          "note": "Owen and Goodwin's Congregational confessional work.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "distinctives": [],
+      "unresolved": [
+        "Identify individual sermons within collected volumes; verify any later abridgment."
+      ],
+      "review": {
+        "date": "2026-10-05",
+        "reviewer": "Codex",
+        "kind": "ai-assisted",
+        "scope": "Initial bibliographic and theological-fit screening; work/edition review remains required."
+      }
+    },
+    {
+      "id": "author-richard-sibbes",
+      "entityType": "person",
+      "name": "Richard Sibbes",
+      "aliases": [
+        "Richard Sibbs"
+      ],
+      "cohort": "reformation-puritan",
+      "traditions": [
+        "reformed",
+        "puritan"
+      ],
+      "eligibility": "eligible",
+      "rationale": "PRDL supplies a Puritan/Reformed classification and historical corpus.",
+      "receptionBasis": "Puritan/Reformed classification.",
+      "evidence": [
+        {
+          "url": "https://www.prdl.org/authors.php?a_in=S",
+          "locator": "Sibbes, Richard (d. 1635)",
+          "note": "Puritan/Reformed classification.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "distinctives": [],
+      "unresolved": [
+        "Verify publication and editorial history of posthumous sermons."
+      ],
+      "review": {
+        "date": "2026-10-05",
+        "reviewer": "Codex",
+        "kind": "ai-assisted",
+        "scope": "Initial bibliographic and theological-fit screening; work/edition review remains required."
+      }
+    },
+    {
+      "id": "author-thomas-watson",
+      "entityType": "person",
+      "name": "Thomas Watson",
+      "aliases": [],
+      "cohort": "reformation-puritan",
+      "traditions": [
+        "reformed",
+        "puritan"
+      ],
+      "eligibility": "eligible",
+      "rationale": "PRDL identifies Watson as Puritan/Reformed and catalogs catechetical sermons and devotional works.",
+      "receptionBasis": "Bibliography identifies Body of Practical Divinity and sermon collections.",
+      "evidence": [
+        {
+          "url": "https://prdl.org/recent_findings.php?limit=10&s=130760&sort=",
+          "locator": "Watson, Thomas (c.1620–1686)",
+          "note": "Bibliography identifies Body of Practical Divinity and sermon collections.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "distinctives": [],
+      "unresolved": [
+        "Disambiguate the Puritan from namesakes; retain combined work and individual sermon identities."
+      ],
+      "review": {
+        "date": "2026-10-05",
+        "reviewer": "Codex",
+        "kind": "ai-assisted",
+        "scope": "Initial bibliographic and theological-fit screening; work/edition review remains required."
+      }
+    },
+    {
+      "id": "author-john-flavel",
+      "entityType": "person",
+      "name": "John Flavel",
+      "aliases": [],
+      "cohort": "reformation-puritan",
+      "traditions": [
+        "reformed",
+        "puritan"
+      ],
+      "eligibility": "eligible",
+      "rationale": "PRDL identifies the relevant Flavel as Puritan/Reformed with a substantial published corpus.",
+      "receptionBasis": "Distinguish the other John Flavel who died in 1617.",
+      "evidence": [
+        {
+          "url": "https://www.prdl.org/authors.php?a_in=F",
+          "locator": "Flavel, John (d. 1691)",
+          "note": "Distinguish the other John Flavel who died in 1617.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "distinctives": [],
+      "unresolved": [
+        "Check modernized editions and identify sermons inside collected works."
+      ],
+      "review": {
+        "date": "2026-10-05",
+        "reviewer": "Codex",
+        "kind": "ai-assisted",
+        "scope": "Initial bibliographic and theological-fit screening; work/edition review remains required."
+      }
+    },
+    {
+      "id": "author-john-bunyan",
+      "entityType": "person",
+      "name": "John Bunyan",
+      "aliases": [],
+      "cohort": "reformation-puritan",
+      "traditions": [
+        "baptist",
+        "puritan"
+      ],
+      "eligibility": "provisional",
+      "rationale": "PRDL establishes Baptist/Puritan identity and a recognized corpus; this pass has not independently documented the precise Calvinistic scope from his own teaching.",
+      "receptionBasis": "Baptist/Puritan classification supports candidacy.",
+      "evidence": [
+        {
+          "url": "https://www.prdl.org/authors.php?a_in=B",
+          "locator": "Bunyan, John (d. 1688)",
+          "note": "Baptist/Puritan classification supports candidacy.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "distinctives": [],
+      "unresolved": [
+        "Confirm Calvinistic soteriology from a located primary passage before core admission; do not infer 1689 subscription or church practice."
+      ],
+      "review": {
+        "date": "2026-10-05",
+        "reviewer": "Codex",
+        "kind": "ai-assisted",
+        "scope": "Initial bibliographic and theological-fit screening; work/edition review remains required."
+      }
+    },
+    {
+      "id": "author-charles-spurgeon",
+      "entityType": "person",
+      "name": "Charles Haddon Spurgeon",
+      "aliases": [
+        "C. H. Spurgeon",
+        "Charles Spurgeon"
+      ],
+      "cohort": "eighteenth-nineteenth",
+      "traditions": [
+        "baptist",
+        "calvinist-evangelical"
+      ],
+      "eligibility": "eligible",
+      "rationale": "Spurgeon's own published Election sermon identifies his Calvinism and use of the Baptist Confession.",
+      "receptionBasis": "Primary sermon supports theological fit; institutional sermon archive supports corpus identity.",
+      "evidence": [
+        {
+          "url": "https://www.spurgeon.org/sermons/election",
+          "locator": "Sermon 41; confession and election discussion",
+          "note": "Primary sermon supports theological fit; institutional sermon archive supports corpus identity.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "distinctives": [],
+      "unresolved": [
+        "Reconcile delivery/publication dates and combined sermon numbers; distinguish later readings from original recordings."
+      ],
+      "review": {
+        "date": "2026-10-05",
+        "reviewer": "Codex",
+        "kind": "ai-assisted",
+        "scope": "Initial bibliographic and theological-fit screening; work/edition review remains required."
+      }
+    },
+    {
+      "id": "author-j-c-ryle",
+      "entityType": "person",
+      "name": "J. C. Ryle",
+      "aliases": [
+        "John Charles Ryle"
+      ],
+      "cohort": "eighteenth-nineteenth",
+      "traditions": [
+        "anglican",
+        "calvinist-evangelical"
+      ],
+      "eligibility": "eligible",
+      "rationale": "Banner's review characterizes Ryle as an evangelical Episcopalian and moderate Calvinist.",
+      "receptionBasis": "Publisher-hosted review documents theological placement and reception.",
+      "evidence": [
+        {
+          "url": "https://banneroftruth.org/uk/resources/book-review-resources/2017/expository-thoughts-gospels-review-barry-shucksmith/",
+          "locator": "Review of Expository Thoughts",
+          "note": "Publisher-hosted review documents theological placement and reception.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "distinctives": [],
+      "unresolved": [
+        "Keep the broad evangelical Anglican category; verify any more specific doctrinal tags work by work."
+      ],
+      "review": {
+        "date": "2026-10-05",
+        "reviewer": "Codex",
+        "kind": "ai-assisted",
+        "scope": "Initial bibliographic and theological-fit screening; work/edition review remains required."
+      }
+    },
+    {
+      "id": "author-john-piper",
+      "entityType": "person",
+      "name": "John Piper",
+      "aliases": [],
+      "cohort": "recorded-recent",
+      "traditions": [
+        "baptist",
+        "calvinist-evangelical"
+      ],
+      "eligibility": "eligible",
+      "rationale": "Piper explicitly affirms Calvinistic salvation doctrine in his own published statement.",
+      "receptionBasis": "Primary author statement; official bio identifies Baptist ministry.",
+      "evidence": [
+        {
+          "url": "https://www.desiringgod.org/articles/what-we-believe-about-the-five-points-of-calvinism",
+          "locator": "Preface and doctrinal exposition",
+          "note": "Primary author statement; official bio identifies Baptist ministry.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "distinctives": [],
+      "unresolved": [
+        "Document further distinctives from their own sources; Desiring God permissions differ for text, media and third-party authors."
+      ],
+      "review": {
+        "date": "2026-10-05",
+        "reviewer": "Codex",
+        "kind": "ai-assisted",
+        "scope": "Initial bibliographic and theological-fit screening; work/edition review remains required."
+      }
+    },
+    {
+      "id": "author-john-gill",
+      "entityType": "person",
+      "name": "John Gill",
+      "aliases": [],
+      "cohort": "eighteenth-century",
+      "traditions": [
+        "baptist",
+        "calvinist-evangelical"
+      ],
+      "eligibility": "eligible",
+      "rationale": "Particular Baptist theologian and biblical expositor; CCEL identifies his explicitly Calvinistic theology.",
+      "receptionBasis": "Historic theological text and/or institutional bibliographic account identified in the evidence.",
+      "evidence": [
+        {
+          "url": "https://ccel.org/ccel/gill",
+          "locator": "Author identity and theological placement",
+          "note": "Particular Baptist theologian and biblical expositor; CCEL identifies his explicitly Calvinistic theology.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "distinctives": [],
+      "unresolved": [
+        "Eligibility is work-specific; modern translations and editions need separate rights review."
+      ],
+      "review": {
+        "date": "2026-10-05",
+        "reviewer": "Codex",
+        "kind": "ai-assisted",
+        "scope": "Bibliographic identity, reading purpose, source access and historic-text/file-rights distinction checked; not a full-text theological or transcription audit."
+      }
+    },
+    {
+      "id": "author-archibald-alexander",
+      "entityType": "person",
+      "name": "Archibald Alexander",
+      "aliases": [],
+      "cohort": "nineteenth-century",
+      "traditions": [
+        "reformed",
+        "presbyterian"
+      ],
+      "eligibility": "eligible",
+      "rationale": "Founding Princeton Seminary professor and Presbyterian minister, teaching pastoral and polemical theology.",
+      "receptionBasis": "Historic theological text and/or institutional bibliographic account identified in the evidence.",
+      "evidence": [
+        {
+          "url": "https://www.ccel.org/ccel/alexander_a",
+          "locator": "Author identity and theological placement",
+          "note": "Founding Princeton Seminary professor and Presbyterian minister, teaching pastoral and polemical theology.",
+          "checkedOn": "2026-10-05"
+        }
+      ],
+      "distinctives": [],
+      "unresolved": [
+        "Eligibility is work-specific; modern translations and editions need separate rights review."
+      ],
+      "review": {
+        "date": "2026-10-05",
+        "reviewer": "Codex",
+        "kind": "ai-assisted",
+        "scope": "Bibliographic identity, reading purpose, source access and historic-text/file-rights distinction checked; not a full-text theological or transcription audit."
+      }
+    }
+  ],
+  "globalRegistryChanged": false
+}

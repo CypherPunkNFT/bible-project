@@ -1,0 +1,44 @@
+{
+  "mission": "RB06",
+  "state": "bounded-acquisition-complete",
+  "startedAtUtc": "2026-10-07T09:48:32+00:00",
+  "acquisitionCheckpointUtc": "2026-10-07T10:34:22.373187+00:00",
+  "elapsedMinutesAtCheckpoint": 45.8,
+  "downloadsFinished": true,
+  "activeDownloadSessions": [],
+  "originalsAcquired": 6,
+  "originalBytes": 2089630,
+  "pendingTargetUrls": [],
+  "failedAcquisitionTransactions": [],
+  "discoveryFailures": [
+    "Public Chapel book-detail codes ddfg and cafffg returned404; correct eligible ciaffg/fworfg records succeeded. No selected acquisition transaction failed."
+  ],
+  "verification": "verification.json:1668 passed checks and six extraction replays",
+  "resumptionCommands": [
+    "python -u -X utf8 scripts/rb06-acquire.py verify",
+    "python -u -X utf8 scripts/verify-rb06.py",
+    "node scripts/validate-library.mjs",
+    "git diff --check"
+  ],
+  "offlineMapRebuildOrder": [
+    "python -u -X utf8 scripts/map-rb06.py",
+    "python -u -X utf8 scripts/document-rb06.py",
+    "python -u -X utf8 scripts/overlap-rb06.py",
+    "python -u -X utf8 scripts/verify-rb06.py"
+  ],
+  "rerunPolicy": "Acquire skips six recorded URLs. Mapping/overlap scripts use unchanged local text only. Re-auditing hashes governance files as they now stand, so preserve historical input-audit snapshot when reviewing what was read before closeout.",
+  "nextActions": [
+    "RB07 next only on explicit owner request; reuse actual RB01-RB06 holdings and preserve all campaign parent holds.",
+    "At owner-directed post-RB14 aggregate intake, integrate52 source-hashed private components with contributor/editorial/quotation/rights and deduplication scopes before releasing six parent holds. Prepared components are not automatically approved.",
+    "Link21 source-attributed overlap pairs to held or newly acquired complete underlying works; preserve abridged-edition identities. Do not count six unique new books or475258 unique admitted words.",
+    "Reconcile held Baxter extent to PartII Christian Economics, source Ryle reference error and source-specific author distinctions; original bytes remain unchanged.",
+    "Resolve named contributor/rights review queues. Contemporary bereavement, abuse/trauma and household safety remain depth gaps; FGB253 Death/Dying and commercial CCEF books are not acquired here.",
+    "Refresh source dashboard and import/embed eligible delta only in the later aggregate task. Existing1901555-vector completeness predates RB06."
+  ],
+  "dbIngested": false,
+  "embedded": false,
+  "graphOrEnrichmentStarted": false,
+  "schedulerChanged": false,
+  "publicFullTextHosted": false,
+  "notes": "Final completion signal written after acquisition, mapping, documentation, integrity/extraction checks and read-only planner checks. Metadata commit/push closeout follows. No automatic next mission."
+}

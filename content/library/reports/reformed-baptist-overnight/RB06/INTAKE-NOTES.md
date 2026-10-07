@@ -1,0 +1,12 @@
+# RB06 aggregate-intake handoff
+
+Do not ingest or embed this mission independently. Follow the newer fourteen-mission gate in HANDOFF. The existing completed vector snapshot predates RB06 and does not prove these six files are embedded.
+
+1. Reconcile six source-first identities in bibliography/acquisition-manifest and the immutable provenance files. Six offered editions include three periodical issues, a 27-sermon anthology and two abridgments of sermons in that anthology; do not count six wholly unique books.
+2. Preserve all six parent holds in intake-scope.json. 52 source-hashed bodies exist locally: 13 historical sermons, 11 family-worship articles, 8 affliction articles, 6 Steele divisions, 5 Adams divisions and 9 counseling articles/interviews. Preparation is not admission. Modern notes, quoted voices and each named contributor still require scoped integration. Buchanan's article member ends with Brooks/Owen quotations; a whole-member slice is not a single-author paragraph mask.
+3. Link duplicate confession/Alexander/Pink/Spurgeon/Buchanan/Brooks/Zanchius excerpts to existing work identities and Doolittle articles to the full newly acquired sermon. The 21 source-attributed comparisons in work-overlaps.json corroborate literal overlap; low paraphrase scores do not establish a new work. Prefer sustained original source sermons over shortened editions for historical attribution. Retain abridger/editor identity and rights separately. Exclude 9Marks reviews 39-47 and anthology unselected baptism/polity material from default teaching intake.
+4. Correct Baxter held-file extent to Part II Christian Economics and Ryle's introductory Proverbs reference only in normalized metadata with explicit source-error provenance; immutable original bytes remain unchanged. Preserve Piper divorce/remarriage, Presbyterian ordinances and other comparison scopes.
+5. Reuse eleven concern paths and 595 original-hashed navigation units, not inferred vector tags. Publish a table-first study interface only in a separately authorized implementation task; no graph launch here. Source headings include source typos/truncations.
+6. Import eligible text delta after contributor/role/rights enforcement, reuse unchanged vectors, verify original-to-chunk/vector parity, and update the sources dashboard snapshot explicitly. No embedding completeness claim before that later verification.
+
+Resume with checkpoint.json and decision-queue.json. RB07 does not start automatically from this mission.

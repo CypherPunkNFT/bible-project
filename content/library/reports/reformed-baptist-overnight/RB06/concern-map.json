@@ -1,0 +1,953 @@
+{
+  "mission": "RB06",
+  "concerns": [
+    {
+      "concern": "Bereavement and fear of death",
+      "purpose": "Lawful grief, consolation, and hope grounded in Christ; distinguish bereavement from fear of one's own death.",
+      "limitations": "Flavel begins from parental bereavement and permits lawful sorrow. Historical discussion of excessive grief is not a diagnosis. Spurgeon treats Zion's mourners more broadly. Contemporary bereavement/trauma support remains a gap.",
+      "entries": [
+        {
+          "assetId": "asset-expanded-83ddfa911e67a4a9513b",
+          "title": "A Token for Mourners",
+          "author": "Flavel, John",
+          "status": "already-held-reused",
+          "originalSha256": "90bf69a1983cbdca4864dd78e3ae865ecdde0a9ea4b156249b950231297132b0",
+          "sourceUrl": "https://www.monergism.com/thethreshold/sdg/flavel/A%20Token%20for%20Mourners%20-%20John%20Flavel.epub",
+          "role": "start: full held bereavement treatise",
+          "readingUnits": [
+            {
+              "title": "\"Weep not.\" - Luke 7:13.",
+              "locator": "mourners.html#weepnot"
+            },
+            {
+              "title": "Considerations",
+              "locator": "mourners.html#considerations"
+            },
+            {
+              "title": "Rules",
+              "locator": "mourners.html#rules"
+            }
+          ]
+        },
+        {
+          "assetId": "asset-expanded-355fc207a25bb22422f9",
+          "title": "The Mourner's Comforter",
+          "author": "Spurgeon, C. H.",
+          "status": "already-held-reused",
+          "originalSha256": "503a886cd118529942b83e9e4146f385643068cce0b51f9b1ee3df748890c9b1",
+          "sourceUrl": "https://www.monergism.com/thethreshold/sdg/spurgeon/The%20Mourner%27s%20Comforter%20-%20C.%20H.%20Spurgeon.epub",
+          "role": "continue: held sermon collection",
+          "readingUnits": [
+            {
+              "title": "Beauty for Ashes",
+              "locator": "mourners_split_001.html#ashes"
+            },
+            {
+              "title": "The Oil of Joy for Mourning",
+              "locator": "mourners_split_001.html#oil"
+            }
+          ]
+        },
+        {
+          "assetId": "asset-rb06-9bdee04056edd9e6bf22",
+          "title": "Puritan Sermons: Morning Exercises at Cripplegate, Volume II",
+          "author": "Various Puritan ministers; James Nichols editor; Monergism digital editor",
+          "status": "new-witness",
+          "originalSha256": "2aa645c1c2af9559b26cc4e771027daf522bd1925d8a512b7f6d0e621442840e",
+          "sourceUrl": "https://www.monergism.com/thethreshold/sdg/puritans/PURITAN%20SERMONS%20-%20VOL.%202%20-%20Various%20Puritans.epub",
+          "role": "new: Sylvester and Hook on approaching death; contributors pending",
+          "readingUnits": [
+            {
+              "title": "26. SERM. 30. HOW WE MAY OVERCOME INORDINATE LOVE OF LIFE AND FEAR OF DEATH. - REV. MATTHEW SYLVESTER",
+              "locator": "OEBPS/PD6qeLEKHO1H6gf7.xhtml",
+              "componentId": "component-rb06-b58f7afb7b4c7b1ffa4b"
+            },
+            {
+              "title": "27. SERM. 31. WHAT GIFTS OF GRACE ARE CHIEFLY TO BE EXERCISED IN ORDER TO AN ACTUAL PREPARATION FOR THE COMING OF CHRIST BY DEATH AND JUDGMENT? - REV. WILLIAM HOOK",
+              "locator": "OEBPS/E7G1w6VdyZaK48zl.xhtml",
+              "componentId": "component-rb06-63470896130a90774b70"
+            }
+          ]
+        }
+      ],
+      "status": "curated-source-map-not-implemented-public-feature",
+      "inferredFromVectors": false
+    },
+    {
+      "concern": "Suffering and affliction",
+      "purpose": "Providence, endurance and comfort, with persecution distinguished from general adversity.",
+      "limitations": "Bunyan primarily addresses suffering for Christian obedience. Providence is not a claim to know why a particular person suffers, nor permission to leave preventable harm unaddressed.",
+      "entries": [
+        {
+          "assetId": "asset-expanded-f190d4048e00ae160bdd",
+          "title": "Seasonable Counsel or, Advice To Sufferers",
+          "author": "Bunyan, John",
+          "status": "already-held-reused",
+          "originalSha256": "ccd3c4824f48628c812bc3edc4c8b9319f6ea0ab9d9ac6537067e455aec6c1e6",
+          "sourceUrl": "https://www.monergism.com/thethreshold/sdg/bunyan/Seasonable%20Counsel%20-%20Bunyan.epub",
+          "role": "start: held full work",
+          "readingUnits": [
+            {
+              "title": "ADVICE TO SUFFERERS",
+              "locator": "suffering_split_001.html"
+            },
+            {
+              "title": "FIRST—THE DUTY TO WHICH SUFFERERS ARE DIRECTED",
+              "locator": "suffering_split_001.html#duty"
+            }
+          ]
+        },
+        {
+          "assetId": "asset-expanded-9c163e2a6edb0d752ffc",
+          "title": "The Crook in the Lot",
+          "author": "Boston, Thomas",
+          "status": "already-held-reused",
+          "originalSha256": "5fb7ad3073b802d24972bb899c8f865186fcb362eca355cbe6c0be9d902b8164",
+          "sourceUrl": "https://www.monergism.com/thethreshold/sdg/boston/Crook%20in%20the%20Lot%20-%20Thomas%20Boston.epub",
+          "role": "continue: held contextual providence",
+          "readingUnits": [
+            {
+              "title": "Proposition I.",
+              "locator": "crooklot.html#crook"
+            },
+            {
+              "title": "Proposition III:",
+              "locator": "crooklot.html#workofgod"
+            }
+          ]
+        },
+        {
+          "assetId": "asset-expanded-4ff17eb26ad29e64fa88",
+          "title": "Preparation for Sufferings",
+          "author": "Flavel, John",
+          "status": "already-held-reused",
+          "originalSha256": "f12c6b53e154f1057d3ac73cf8ea018bb21cc5c2723719043f93cb4ae75d7b58",
+          "sourceUrl": "https://www.monergism.com/thethreshold/sdg/flavel/Preparations%20for%20Sufferings%20-%20John%20Flavel.epub",
+          "role": "continue: prayer and support for trembling souls",
+          "readingUnits": [
+            {
+              "title": "Chapter XVI: Support and Comfort to Poor Trembling Souls",
+              "locator": "sufferings.html#c016"
+            }
+          ]
+        },
+        {
+          "assetId": "asset-expanded-8d4168fda1f1fa6bd5db",
+          "title": "Comfort in Affliction",
+          "author": "Buchanan, James",
+          "status": "already-held-reused",
+          "originalSha256": "82f4d489372e4ee14915c089069b4a7307e2fa2e80225e9d2d6d339f87fc96f3",
+          "sourceUrl": "https://www.monergism.com/thethreshold/sdg/buchanan/Comfort%20in%20Affliction%20-%20Buchanan.epub",
+          "role": "continue: already-held complete Buchanan comfort work; journal excerpt overlaps",
+          "readingUnits": [
+            {
+              "title": "Meditation 2: This is my comfort in my affliction",
+              "locator": "comfort_split_000.html#m2"
+            },
+            {
+              "title": "Meditation 6: We have a great high priest",
+              "locator": "comfort_split_001.html#m6"
+            },
+            {
+              "title": "Meditation 12: It any among you afflicted? Let him pray!",
+              "locator": "comfort_split_001.html#pray"
+            }
+          ]
+        },
+        {
+          "assetId": "asset-rb06-0fd945b1b33432a6eee9",
+          "title": "Free Grace Broadcaster 217: Comfort in Affliction",
+          "author": "A. W. Pink, C. H. Spurgeon, James Buchanan, Thomas Brooks, Jerome Zanchius, Octavius Winslow; Jeff Pollard editor; miscellaneous quoted authors",
+          "status": "new-witness",
+          "originalSha256": "cfd60255c0bd2b24349366599ec0ccdf266cd0752455caa537b9f1d54d4f9425",
+          "sourceUrl": "https://www.chapellibrary.org/api/books/download?code=ciaffg&format=epub",
+          "role": "new: Buchanan and Winslow edited articles, not whole source books",
+          "readingUnits": [
+            {
+              "title": "The Bible and Consolation",
+              "locator": "OEBPS/Text/Section0003.xhtml",
+              "componentId": "component-rb06-3f43754a624aae8b8fe4"
+            },
+            {
+              "title": "Christ, the Fountain of Comfort",
+              "locator": "OEBPS/Text/Section0008.xhtml",
+              "componentId": "component-rb06-d3c7d78d443dd7ceb7ba"
+            }
+          ]
+        },
+        {
+          "assetId": "asset-rb06-9bdee04056edd9e6bf22",
+          "title": "Puritan Sermons: Morning Exercises at Cripplegate, Volume II",
+          "author": "Various Puritan ministers; James Nichols editor; Monergism digital editor",
+          "status": "new-witness",
+          "originalSha256": "2aa645c1c2af9559b26cc4e771027daf522bd1925d8a512b7f6d0e621442840e",
+          "sourceUrl": "https://www.monergism.com/thethreshold/sdg/puritans/PURITAN%20SERMONS%20-%20VOL.%202%20-%20Various%20Puritans.epub",
+          "role": "new: Bates complete offered sermon, contributor pending",
+          "readingUnits": [
+            {
+              "title": "23. SERM. 27. HOW TO BEAR AFFLICTIONS. - REV. WILLIAM BATES",
+              "locator": "OEBPS/v2abjHCY4hzaLjTo.xhtml",
+              "componentId": "component-rb06-c72155537479bb2e925c"
+            }
+          ]
+        }
+      ],
+      "status": "curated-source-map-not-implemented-public-feature",
+      "inferredFromVectors": false
+    },
+    {
+      "concern": "Prayer",
+      "purpose": "What prayer is, praying with understanding, and scriptural petitions rather than isolated formulas.",
+      "limitations": "Prayer is not a guarantee of a requested temporal outcome. Pink includes Hebrews, Peter, Jude and Revelation prayers; it is not limited to Pauline prayers.",
+      "entries": [
+        {
+          "assetId": "asset-expanded-c43e16c2fd5805a53acf",
+          "title": "A Discourse Touching Prayer",
+          "author": "Bunyan, John",
+          "status": "already-held-reused",
+          "originalSha256": "3e60f52499501cf0ec8c3993f32f19f2f4d8cc2b41eaa1b39ea6c813afabac1c",
+          "sourceUrl": "https://www.monergism.com/thethreshold/sdg/bunyan/A%20Discourse%20Touching%20Prayer%20-%20John%20Bunyan.epub",
+          "role": "start: Bunyan held full work",
+          "readingUnits": [
+            {
+              "title": "1. What Prayer Is",
+              "locator": "index_split_004.html"
+            },
+            {
+              "title": "Submission to the Will of God",
+              "locator": "index_split_004.html#id_Toc182467529"
+            },
+            {
+              "title": "3. Praying with the Spirit and Understanding",
+              "locator": "index_split_006.html"
+            }
+          ]
+        },
+        {
+          "assetId": "asset-expanded-c95bd085ec490fad1afb",
+          "title": "A Guide to Fervent Prayer",
+          "author": "Pink, A. W.",
+          "status": "already-held-reused",
+          "originalSha256": "19a7310851401594c324fdf79bb3792657c11ed55e1e77b90e3d1ff9bac500a6",
+          "sourceUrl": "https://www.monergism.com/thethreshold/sdg/pink/A%20Guide%20to%20Fervent%20Prayer_Pink.epub",
+          "role": "continue: Pink Hebrews13 and 1Peter5",
+          "readingUnits": [
+            {
+              "title": "Chapter 1: Hebrews 13:20, 21",
+              "locator": "chapter-01.xhtml"
+            },
+            {
+              "title": "Chapter 3: 1 Peter 5:10, 11",
+              "locator": "chapter-03.xhtml"
+            }
+          ]
+        },
+        {
+          "assetId": "asset-l11-gill-practical-xml",
+          "title": "A Body of Practical Divinity",
+          "author": "John Gill",
+          "status": "already-held-reused",
+          "originalSha256": "9024138dbcf02d292b1313211b0197f8ba686823bd06bff04d6f91fcb9f36b10",
+          "sourceUrl": "https://www.ccel.org/ccel/g/gill/practical.xml",
+          "role": "continue: held Gill chapters",
+          "readingUnits": [
+            {
+              "title": "Chapter 2 OF THE LORD’S SUPPER",
+              "locator": "xml-id:iv.ii"
+            },
+            {
+              "title": "Chapter 5 OF PUBLIC PRAYER",
+              "locator": "xml-id:iv.v"
+            },
+            {
+              "title": "Chapter 6 OF THE LORD’S PRAYER",
+              "locator": "xml-id:iv.vi"
+            }
+          ]
+        },
+        {
+          "assetId": "asset-rb06-9bdee04056edd9e6bf22",
+          "title": "Puritan Sermons: Morning Exercises at Cripplegate, Volume II",
+          "author": "Various Puritan ministers; James Nichols editor; Monergism digital editor",
+          "status": "new-witness",
+          "originalSha256": "2aa645c1c2af9559b26cc4e771027daf522bd1925d8a512b7f6d0e621442840e",
+          "sourceUrl": "https://www.monergism.com/thethreshold/sdg/puritans/PURITAN%20SERMONS%20-%20VOL.%202%20-%20Various%20Puritans.epub",
+          "role": "new: Lee sustained private-prayer sermon, contributor pending",
+          "readingUnits": [
+            {
+              "title": "10. SERM. 14. HOW TO MANAGE SECRET PRAYER, THAT IT MAY BE PREVALENT WITH GOD TO THE COMFORT AND SATISFACTION OF THE SOUL. - REV. SAMUEL LEE",
+              "locator": "OEBPS/2zV6u1CY5cStFbdV.xhtml",
+              "componentId": "component-rb06-fe564ba32184bc5cae86"
+            }
+          ]
+        }
+      ],
+      "status": "curated-source-map-not-implemented-public-feature",
+      "inferredFromVectors": false
+    },
+    {
+      "concern": "Doubt, assurance and discouragement",
+      "purpose": "Distinguish saving faith from felt assurance, and spiritual darkness from unbelief.",
+      "limitations": "Historic accounts of despair and melancholy are attributed pastoral arguments, not universal explanations of mental illness. Follow-up on modern grief, anxiety and trauma remains.",
+      "entries": [
+        {
+          "assetId": "asset-expanded-0d49e5451e6bc1ec0371",
+          "title": "A Child of Light Walking in Darkness",
+          "author": "Goodwin, Thomas",
+          "status": "already-held-reused",
+          "originalSha256": "672c733cd1171d1403ef3cca75161c4f36aa4a882acef84e6f8209129147f268",
+          "sourceUrl": "https://www.monergism.com/thethreshold/sdg/goodwin/A%20Child%20of%20Light%20Walking%20in%20Darkness%20-%20Goodwin.epub",
+          "role": "start: Goodwin held full work",
+          "readingUnits": [
+            {
+              "title": "CHAPTER I: The first and main observation: That a child of God may walk in darkness",
+              "locator": "childoflight_split_000.html#main"
+            },
+            {
+              "title": "USE IV.—To such as fear God, and walk in darkness",
+              "locator": "childoflight_split_001.html#use4"
+            },
+            {
+              "title": "TEN DIRECTIONS for those who are more deeply troubled; and means to be used how to recover light",
+              "locator": "childoflight_split_001.html#ten"
+            }
+          ]
+        },
+        {
+          "assetId": "asset-expanded-5f852d84c9e03da65b92",
+          "title": "The Soul's Conflict and Victory Over Itself by Faith",
+          "author": "Sibbes, Richard",
+          "status": "already-held-reused",
+          "originalSha256": "d1e24f158de75e887fb915a84ff3426ec4b83af23203d07f7f606bd41f2b54b1",
+          "sourceUrl": "https://www.monergism.com/thethreshold/sdg/sibbes/TheSoulsConflictWithItselfRichardSibbes.epub",
+          "role": "continue: Sibbes inward/outward discouragement and comforters",
+          "readingUnits": [
+            {
+              "title": "CHAPTER II.—Of Discouragements from without",
+              "locator": "soulsconflict_split_000.html#c2"
+            },
+            {
+              "title": "CHAPTER III.—Of Discouragements from within",
+              "locator": "soulsconflict_split_000.html#c3"
+            },
+            {
+              "title": "CHAPTER XIV.—Of help by others. Of true comforters and their graces. Method. Ill success",
+              "locator": "soulsconflict_split_000.html#c14"
+            },
+            {
+              "title": "CHAPTER XVIII.—Other grounds of trusting in God, namely, the Promises, and twelve directions about t",
+              "locator": "soulsconflict_split_001.html#c18"
+            }
+          ]
+        },
+        {
+          "assetId": "asset-rb06-9bdee04056edd9e6bf22",
+          "title": "Puritan Sermons: Morning Exercises at Cripplegate, Volume II",
+          "author": "Various Puritan ministers; James Nichols editor; Monergism digital editor",
+          "status": "new-witness",
+          "originalSha256": "2aa645c1c2af9559b26cc4e771027daf522bd1925d8a512b7f6d0e621442840e",
+          "sourceUrl": "https://www.monergism.com/thethreshold/sdg/puritans/PURITAN%20SERMONS%20-%20VOL.%202%20-%20Various%20Puritans.epub",
+          "role": "new: Cole and Fowler sustained sermons, contributors pending",
+          "readingUnits": [
+            {
+              "title": "20. SERM. 24. HOW WE MAY STEER AN EVEN COURSE BETWEEN PRESUMPTION AND DESPAIR. - REV. THOMAS COLE",
+              "locator": "OEBPS/h4FK8UmVGl0HpSeO.xhtml",
+              "componentId": "component-rb06-ddf1356f272e25551572"
+            },
+            {
+              "title": "21. SERM. 25. HOW A CHRISTIAN MAY GET SUCH A FAITH THAT IS NOT ONLY SAVING, BUT COMFORTABLE AND JOYFUL AT PRESENT. - REV. CHRISTOPHER FOWLER",
+              "locator": "OEBPS/GKIwl2C20p2HJ2aI.xhtml",
+              "componentId": "component-rb06-33dfecf09ff472597642"
+            }
+          ]
+        }
+      ],
+      "status": "curated-source-map-not-implemented-public-feature",
+      "inferredFromVectors": false
+    },
+    {
+      "concern": "Temptation",
+      "purpose": "Understand temptation, vigilance, and Christ's sympathy; being tempted is distinguished from consenting to sin.",
+      "limitations": "Self-destruction is a historically framed chapter, not a modern crisis-care protocol. Charnock's thoughts sermon has a distinct contributor review.",
+      "entries": [
+        {
+          "assetId": "asset-l11-owen-temptation-xml",
+          "title": "Of Temptation",
+          "author": "John Owen",
+          "status": "already-held-reused",
+          "originalSha256": "6b5231f59965fe7b7d75db2f59919fd5e9aff429d48e65cabb528f393c14a0ab",
+          "sourceUrl": "https://www.ccel.org/ccel/o/owen/temptation.xml",
+          "role": "start: Owen held original XML; nine chapters, not eight",
+          "readingUnits": [
+            {
+              "title": "Chapter I.",
+              "locator": "xml-id:i.iv"
+            },
+            {
+              "title": "Chapter VIII.",
+              "locator": "xml-id:i.xi"
+            },
+            {
+              "title": "Chapter IX.",
+              "locator": "xml-id:i.xii"
+            }
+          ]
+        },
+        {
+          "assetId": "asset-expanded-117db3cbe83b54410e21",
+          "title": "Christ and the Christian in Temptation",
+          "author": "Winslow, Octavius",
+          "status": "already-held-reused",
+          "originalSha256": "f03d0fcda98b312a29faeefa0289d394ed31ce20b2f229dcf82a89fb2d2313dc",
+          "sourceUrl": "https://www.monergism.com/thethreshold/sdg/winslow/Christ%20and%20the%20Christian%20in%20Tem%20-%20Octavius%20Winslow.epub",
+          "role": "continue: Winslow providence, sympathy and final overthrow",
+          "readingUnits": [
+            {
+              "title": "2. Christ and the Christian Tempted to Distrust Divine Providence",
+              "locator": "temptation.html#c2"
+            },
+            {
+              "title": "7. The Sympathy of Christ with the Christian in Temptation",
+              "locator": "temptation.html#c7"
+            },
+            {
+              "title": "8. The Final Overthrow of the Tempter and Blessedness of the Tempted",
+              "locator": "temptation.html#c8"
+            }
+          ]
+        },
+        {
+          "assetId": "asset-rb06-9bdee04056edd9e6bf22",
+          "title": "Puritan Sermons: Morning Exercises at Cripplegate, Volume II",
+          "author": "Various Puritan ministers; James Nichols editor; Monergism digital editor",
+          "status": "new-witness",
+          "originalSha256": "2aa645c1c2af9559b26cc4e771027daf522bd1925d8a512b7f6d0e621442840e",
+          "sourceUrl": "https://www.monergism.com/thethreshold/sdg/puritans/PURITAN%20SERMONS%20-%20VOL.%202%20-%20Various%20Puritans.epub",
+          "role": "new: Charnock complete offered sermon",
+          "readingUnits": [
+            {
+              "title": "15. SERM. 19. THE SINFULNESS AND CURE OF THOUGHTS. - REV. STEPHEN CHARNOCK",
+              "locator": "OEBPS/nRWirUrvVMXnSnZf.xhtml",
+              "componentId": "component-rb06-c4682fa86a467283e33c"
+            }
+          ]
+        }
+      ],
+      "status": "curated-source-map-not-implemented-public-feature",
+      "inferredFromVectors": false
+    },
+    {
+      "concern": "Family worship",
+      "purpose": "Establish Scripture reading, prayer and singing with practical household directions and help in affliction.",
+      "limitations": "Alexander is James W., not Archibald, and is Presbyterian. Family worship does not mechanically regenerate children. Slater and historic household assumptions need context; confessional differences remain visible.",
+      "entries": [
+        {
+          "assetId": "asset-expanded-c17152ddf72a788ab047",
+          "title": "Thoughts on Family Worship",
+          "author": "Alexander, James W.",
+          "status": "already-held-reused",
+          "originalSha256": "297cab8006325aa1a52789452aa7faa2fc6057a082ec85bdc94c587a936f73b7",
+          "sourceUrl": "https://www.monergism.com/thethreshold/sdg/alexander/THOUGHTS%20ON%20FAMILY%20WORSHIP%20-%20James%20W.%20Alexander.epub",
+          "role": "start: held full eighteen-chapter book",
+          "readingUnits": [
+            {
+              "title": "1. CHAP. 1. THE NATURE, WARRANT, AND HISTORY OF FAMILY WORSHIP.",
+              "locator": "OEBPS/j3krZ2NjmeDgcLTf.xhtml"
+            },
+            {
+              "title": "8. CHAP. 8. THE INFLUENCE OF FAMILY-WORSHIP ON A HOUSEHOLD IN AFFLICTION.",
+              "locator": "OEBPS/PMOCl2XkhIowxXo6.xhtml"
+            },
+            {
+              "title": "14. CHAP. 14. PRACTICAL DIRECTIONS AS TO THE MODE OF CONDUCTING FAMILY-WORSHIP.",
+              "locator": "OEBPS/Ma4pcMTUpucEW1nF.xhtml"
+            },
+            {
+              "title": "15. CHAP. 15. THE READING OF SCRIPTURE AS A PART OF FAMILY WORSHIP.",
+              "locator": "OEBPS/KFDuQwTQqthURWKD.xhtml"
+            },
+            {
+              "title": "16. CHAP. 16. PSALMODY, AS A PART OF FAMILY-WORSHIP.",
+              "locator": "OEBPS/DjThwvWZ4hqvMCeI.xhtml"
+            },
+            {
+              "title": "18. CHAP. 18. DIFFICULTIES AND OBJECTIONS: CONCLUSION",
+              "locator": "OEBPS/Fbx3rmtECpywbdIE.xhtml"
+            }
+          ]
+        },
+        {
+          "assetId": "asset-expanded-e317c10a38c4cc9817b4",
+          "title": "An Earnest Call to Family Religion",
+          "author": "Slater, Samuel",
+          "status": "already-held-reused",
+          "originalSha256": "0ddbf007b7429f5701d0bde8284504d5507f45b263f03b1331a3cab8682eb565",
+          "sourceUrl": "https://www.monergism.com/thethreshold/sdg/slater/An%20Earnest%20Call%20to%20Family%20Relig%20-%20Samuel%20Slater.epub",
+          "role": "continue: held full family-religion work",
+          "readingUnits": [
+            {
+              "title": "IV. Particular Directions for the Instructing of your Families",
+              "locator": "family_religion_new_split_002.html#c4"
+            },
+            {
+              "title": "V. Counsel in the Right Directing of your Families.",
+              "locator": "family_religion_new_split_003.html"
+            }
+          ]
+        },
+        {
+          "assetId": "asset-rb06-9bdee04056edd9e6bf22",
+          "title": "Puritan Sermons: Morning Exercises at Cripplegate, Volume II",
+          "author": "Various Puritan ministers; James Nichols editor; Monergism digital editor",
+          "status": "new-witness",
+          "originalSha256": "2aa645c1c2af9559b26cc4e771027daf522bd1925d8a512b7f6d0e621442840e",
+          "sourceUrl": "https://www.monergism.com/thethreshold/sdg/puritans/PURITAN%20SERMONS%20-%20VOL.%202%20-%20Various%20Puritans.epub",
+          "role": "new: Doolittle full offered family-prayer sermon",
+          "readingUnits": [
+            {
+              "title": "11. SERM. 15. HOW MAY THE DUTY OF DAILY FAMILY PRAYER BE BEST MANAGED FOR THE SPIRITUAL BENEFIT OF EVERY ONE IN THE FAMILY? - REV. THOMAS DOOLITTLE",
+              "locator": "OEBPS/PBFJAASplocItHZl.xhtml",
+              "componentId": "component-rb06-a6fafe99bf19c904c8a1"
+            }
+          ]
+        },
+        {
+          "assetId": "asset-rb06-b31827789866393c629c",
+          "title": "Free Grace Broadcaster 188: Family Worship",
+          "author": "Named historical contributors; Joel R. Beeke; Jeff Pollard editor",
+          "status": "new-witness",
+          "originalSha256": "fd4cba465bf56c88587607006e44b4a09b2f352aa60e2f016bf95ee3132613ca",
+          "sourceUrl": "https://www.chapellibrary.org/api/books/download?code=fworfg&format=epub",
+          "role": "new: Howe and Beeke contextual articles, not whole books",
+          "readingUnits": [
+            {
+              "title": "Women Leading Family Worship",
+              "locator": "index_split_010.html",
+              "componentId": "component-rb06-058b0ceca31cd997c653"
+            },
+            {
+              "title": "Implementing Family Worship",
+              "locator": "index_split_012.html",
+              "componentId": "component-rb06-c7ff38f3cef277da3ab2"
+            }
+          ]
+        }
+      ],
+      "status": "curated-source-map-not-implemented-public-feature",
+      "inferredFromVectors": false
+    },
+    {
+      "concern": "Marriage",
+      "purpose": "Mutual duties, love, respect, forgiveness and forbearance in sustained treatments.",
+      "limitations": "Steele's Chapel edition is a modern paraphrase with Douglas Wilson additions in II and VI: those are not Steele's words. Gouge is a historic Presbyterian witness. Piper's divorce/remarriage position must be compared separately, not presented as the 1689 default; household counsel must not excuse coercion or abuse.",
+      "entries": [
+        {
+          "assetId": "asset-rb06-9bdee04056edd9e6bf22",
+          "title": "Puritan Sermons: Morning Exercises at Cripplegate, Volume II",
+          "author": "Various Puritan ministers; James Nichols editor; Monergism digital editor",
+          "status": "new-witness",
+          "originalSha256": "2aa645c1c2af9559b26cc4e771027daf522bd1925d8a512b7f6d0e621442840e",
+          "sourceUrl": "https://www.monergism.com/thethreshold/sdg/puritans/PURITAN%20SERMONS%20-%20VOL.%202%20-%20Various%20Puritans.epub",
+          "role": "start: new full offered Steele source sermon; editor notes separate",
+          "readingUnits": [
+            {
+              "title": "12. SERM. 16. WHAT ARE THE DUTIES OF HUSBANDS AND WIVES TOWARDS EACH OTHER? - REV. RICHARD STEELE",
+              "locator": "OEBPS/7WxI5lfwXeKgx5yg.xhtml",
+              "componentId": "component-rb06-9bfd1bf5d3354d92860a"
+            }
+          ]
+        },
+        {
+          "assetId": "asset-rb06-684d3b71e51526d3c4ac",
+          "title": "The Duties of Husbands and Wives",
+          "author": "Richard Steele; D. Scott Meadows, abridger and paraphraser",
+          "status": "new-witness",
+          "originalSha256": "baa9388e20d83519e7f8366d28c2a04cb34979389e564d0486aec6fcde9db03c",
+          "sourceUrl": "https://www.chapellibrary.org/api/books/download?code=doha&format=epub",
+          "role": "accessible comparison: modern abridged/paraphrased edition",
+          "readingUnits": [
+            {
+              "title": "III. The Duties Belonging to Both Alike",
+              "locator": "index_split_004.html",
+              "componentId": "component-rb06-de6582074888b49a0134"
+            },
+            {
+              "title": "IV. The Special Duty of a Husband: Love",
+              "locator": "index_split_005.html",
+              "componentId": "component-rb06-7edf09df23cf808e9750"
+            },
+            {
+              "title": "V. The Special Duty of a Wife: Respect",
+              "locator": "index_split_006.html",
+              "componentId": "component-rb06-39bb32a4b00e6bfe1404"
+            }
+          ]
+        },
+        {
+          "assetId": "asset-expanded-5a292f1b4784594679df",
+          "title": "Domestical Duties",
+          "author": "Gouge, William",
+          "status": "already-held-reused",
+          "originalSha256": "da51bf8cc52a80d015e81aaaf1f17418a17659bcc68559d89cb1fc4600de5b3b",
+          "sourceUrl": "https://www.monergism.com/thethreshold/sdg/gouge/Domestical%20Duties%20-%20William%20Gouge.epub",
+          "role": "continue: held substantial historical mutual/husband duties",
+          "readingUnits": [
+            {
+              "title": "The Second Treatise Part II: Of common-mutual duties betwixt Man and Wife",
+              "locator": "domesticduties_split_004.html"
+            },
+            {
+              "title": "The Fourth Treatise: Of Husbands’ Particular Duties",
+              "locator": "domesticduties_split_006.html"
+            }
+          ]
+        },
+        {
+          "assetId": "asset-modern-piper-0cfbb291a67c007735f5-epub",
+          "title": "This Momentary Marriage",
+          "author": "John Piper",
+          "status": "already-held-reused",
+          "originalSha256": "0e9174280f5463e6619387984a7b5a6541fc98c871b08eefcc8b1f9843a9446c",
+          "sourceUrl": "https://www.desiringgod.org/books/this-momentary-marriage.epub",
+          "role": "held modern comparison with explicit divorce/remarriage distinction",
+          "readingUnits": [
+            {
+              "title": "Chapter Four: Forgiving and Forbearing",
+              "locator": "ISBNXXXXXXXXX_epub_c12_r1.html"
+            },
+            {
+              "title": "Chapter Fourteen: What God has Joined Together, Let Not Man Separate: the Gospel and the Radical New Obedience",
+              "locator": "ISBNXXXXXXXXX_epub_c22_r1.html"
+            },
+            {
+              "title": "Chapter Fifteen: What God Has Joined Together, Let Not Man Separate: the Gospel and The Divorced",
+              "locator": "ISBNXXXXXXXXX_epub_c23_r1.html"
+            }
+          ]
+        }
+      ],
+      "status": "curated-source-map-not-implemented-public-feature",
+      "inferredFromVectors": false
+    },
+    {
+      "concern": "Parenting",
+      "purpose": "Tenderness, Scripture, prayer, example and mutual parent/child responsibilities.",
+      "limitations": "Ryle is Anglican and differs from the working Baptist theology on ordinances/atonement. The edition's opening Proverbs 23:6 citation should be normalized to 22:6 with an explicit correction, never silent original editing. Discipline and obedience must not become blanket approval of harshness or abuse.",
+      "entries": [
+        {
+          "assetId": "asset-expanded-4060d054a2a5dbc08d39",
+          "title": "The Duties of Parents",
+          "author": "Ryle, J. C.",
+          "status": "already-held-reused",
+          "originalSha256": "0ce68ba555434ed2dbd14779e6645542ab03d941b16baa180e0772bce087b3b3",
+          "sourceUrl": "https://www.monergism.com/thethreshold/sdg/ryle/The%20Duties%20of%20Parents%20-%20Ryle.epub",
+          "role": "start: full held seventeen-direction tract",
+          "readingUnits": [
+            {
+              "title": "II. Train up your child with all tenderness, affection, and patience.",
+              "locator": "dutyparents.html#patience"
+            },
+            {
+              "title": "V. Train your child to a knowledge of the Bible.",
+              "locator": "dutyparents.html#bible"
+            },
+            {
+              "title": "VI. Train them to a habit of prayer.",
+              "locator": "dutyparents.html#prayer"
+            },
+            {
+              "title": "XIV. Train them remembering continually the influence; of your own example.",
+              "locator": "dutyparents.html#example"
+            },
+            {
+              "title": "XVII. Train them, lastly, with continual prayer for a blessing on all you do.",
+              "locator": "dutyparents.html#blessing"
+            }
+          ]
+        },
+        {
+          "assetId": "asset-rb06-9bdee04056edd9e6bf22",
+          "title": "Puritan Sermons: Morning Exercises at Cripplegate, Volume II",
+          "author": "Various Puritan ministers; James Nichols editor; Monergism digital editor",
+          "status": "new-witness",
+          "originalSha256": "2aa645c1c2af9559b26cc4e771027daf522bd1925d8a512b7f6d0e621442840e",
+          "sourceUrl": "https://www.monergism.com/thethreshold/sdg/puritans/PURITAN%20SERMONS%20-%20VOL.%202%20-%20Various%20Puritans.epub",
+          "role": "new: Adams full offered source sermon",
+          "readingUnits": [
+            {
+              "title": "13. SERM. 17. WHAT ARE THE DUTIES OF PARENTS AND CHILDREN; AND HOW ARE THEY TO BE MANAGED ACCORDING TO SCRIPTURE? - REV. RICHARD ADAMS",
+              "locator": "OEBPS/ntxyqkJZHmcUTUsm.xhtml",
+              "componentId": "component-rb06-e88de4f007d58fc45910"
+            }
+          ]
+        },
+        {
+          "assetId": "asset-rb06-f46d96a2ea4c8be2dd78",
+          "title": "The Duties of Children and Parents",
+          "author": "Richard Adams; D. Scott Meadows, abridger and reviser",
+          "status": "new-witness",
+          "originalSha256": "01aad1d49bd8d84b63da00f89c780cb56f6e17df6089400c7874dc3c571a6afb",
+          "sourceUrl": "https://www.chapellibrary.org/api/books/download?code=doca&format=epub",
+          "role": "accessible comparison: deliberately abridged/revised edition",
+          "readingUnits": [
+            {
+              "title": "II. The Duty of Parents",
+              "locator": "index_split_004.html",
+              "componentId": "component-rb06-00fca3618be56f9048f3"
+            },
+            {
+              "title": "III. How to Accomplish Both Duties",
+              "locator": "index_split_005.html",
+              "componentId": "component-rb06-95cfe9b1c9407f16a8f9"
+            },
+            {
+              "title": "Conclusion",
+              "locator": "index_split_006.html",
+              "componentId": "component-rb06-c70b1450efd67413bcbd"
+            }
+          ]
+        },
+        {
+          "assetId": "asset-expanded-5a292f1b4784594679df",
+          "title": "Domestical Duties",
+          "author": "Gouge, William",
+          "status": "already-held-reused",
+          "originalSha256": "da51bf8cc52a80d015e81aaaf1f17418a17659bcc68559d89cb1fc4600de5b3b",
+          "sourceUrl": "https://www.monergism.com/thethreshold/sdg/gouge/Domestical%20Duties%20-%20William%20Gouge.epub",
+          "role": "continue: full held parental treatise",
+          "readingUnits": [
+            {
+              "title": "The Sixth Treatise: Duties of Parents",
+              "locator": "domesticduties_split_008.html"
+            }
+          ]
+        }
+      ],
+      "status": "curated-source-map-not-implemented-public-feature",
+      "inferredFromVectors": false
+    },
+    {
+      "concern": "Contentment",
+      "purpose": "Learn contentment under ordinary circumstances and adversity, distinct from complacency.",
+      "limitations": "This area already has substantial complete coverage; acquiring another short quotation booklet would add little. Burroughs' appended Saints' Duty is a separate work; Watson is not Richard Allestree.",
+      "entries": [
+        {
+          "assetId": "asset-expanded-a678daec0c2e95589c4e",
+          "title": "The Rare Jewel of Christian Contentment",
+          "author": "Burroughs, Jeremiah",
+          "status": "already-held-reused",
+          "originalSha256": "d5f00e864bfcd1591f5514c1ffb0bf42bc04da9294dea6a84e2eef1eb84d318a",
+          "sourceUrl": "https://www.monergism.com/thethreshold/sdg/burroughs/Jewel%20of%20Contentment%20-%20Jeremiah%20Burroughs.epub",
+          "role": "start: held Rare Jewel sermons",
+          "readingUnits": [
+            {
+              "title": "Sermon 1: Contentment: What It Is.",
+              "locator": "index_split_004.html"
+            },
+            {
+              "title": "Sermon 4: The Lessons of Contentment.",
+              "locator": "index_split_007.html"
+            },
+            {
+              "title": "Sermon 11: Considerations and Directions.",
+              "locator": "index_split_015.html"
+            }
+          ]
+        },
+        {
+          "assetId": "asset-expanded-6a41e8103fbcb7515140",
+          "title": "The Art of Divine Contentment",
+          "author": "Watson, Thomas",
+          "status": "already-held-reused",
+          "originalSha256": "e78adf666397a25506fa03a4e6bba7a94e16c1932f2221bb6000905c5f3de82c",
+          "sourceUrl": "https://www.monergism.com/thethreshold/sdg/watson/TheArtofDivineContentmentThomasWatson.epub",
+          "role": "continue: held Watson full work",
+          "readingUnits": [
+            {
+              "title": "Showing the Nature of Contentment",
+              "locator": "artcontentment.html#naturecontent"
+            },
+            {
+              "title": "Three Cautions",
+              "locator": "artcontentment.html#cautions"
+            },
+            {
+              "title": "A Christian Directory, or RULES about Contentment",
+              "locator": "artcontentment.html#rules"
+            }
+          ]
+        },
+        {
+          "assetId": "asset-l11-gill-practical-xml",
+          "title": "A Body of Practical Divinity",
+          "author": "John Gill",
+          "status": "already-held-reused",
+          "originalSha256": "9024138dbcf02d292b1313211b0197f8ba686823bd06bff04d6f91fcb9f36b10",
+          "sourceUrl": "https://www.ccel.org/ccel/g/gill/practical.xml",
+          "role": "continue: held Gill chapter",
+          "readingUnits": [
+            {
+              "title": "Chapter 12. OF CONTENTMENT OF MIND",
+              "locator": "xml-id:ii.xii"
+            }
+          ]
+        },
+        {
+          "assetId": "asset-rb06-9bdee04056edd9e6bf22",
+          "title": "Puritan Sermons: Morning Exercises at Cripplegate, Volume II",
+          "author": "Various Puritan ministers; James Nichols editor; Monergism digital editor",
+          "status": "new-witness",
+          "originalSha256": "2aa645c1c2af9559b26cc4e771027daf522bd1925d8a512b7f6d0e621442840e",
+          "sourceUrl": "https://www.monergism.com/thethreshold/sdg/puritans/PURITAN%20SERMONS%20-%20VOL.%202%20-%20Various%20Puritans.epub",
+          "role": "new: Jacombe substantial sermon, contributor pending",
+          "readingUnits": [
+            {
+              "title": "22. SERM. 26. HOW CHRISTIANS MAY LEARN IN EVERY STATE TO BE CONTENT. - REV. THOMAS JACOMBE",
+              "locator": "OEBPS/RPJrNpb255EOnWlE.xhtml",
+              "componentId": "component-rb06-56e75cbe0a5ac0e6bf09"
+            }
+          ]
+        }
+      ],
+      "status": "curated-source-map-not-implemented-public-feature",
+      "inferredFromVectors": false
+    },
+    {
+      "concern": "Repentance and restoration",
+      "purpose": "Godly sorrow, confession, restitution, receiving reproof and the blessedness of forgiveness.",
+      "limitations": "Repentance is not the meritorious basis of justification. Reuse RB04 Fuller backsliding components; parent holds remain. No new work count for reused material.",
+      "entries": [
+        {
+          "assetId": "asset-expanded-be0769a721109e5fd07e",
+          "title": "The Doctrine of Repentance",
+          "author": "Watson, Thomas",
+          "status": "already-held-reused",
+          "originalSha256": "28886260306124275dd8986f43303e28db43db667d73e5566b1f11dcf8465996",
+          "sourceUrl": "https://www.monergism.com/thethreshold/sdg/watson/The%20Doctrine%20of%20Repentance%20-%20Thomas%20Watson.epub",
+          "role": "start: held Watson full work",
+          "readingUnits": [
+            {
+              "title": "3. THE NATURE OF TRUE REPENTANCE (1)",
+              "locator": "index_split_005.html#id_Toc292790955"
+            },
+            {
+              "title": "Ingredient 2: Sorrow for Sin",
+              "locator": "index_split_007.html#id_Toc292790957"
+            },
+            {
+              "title": "Comfort for the Repenting Sinner",
+              "locator": "index_split_013.html#id_Toc292791029"
+            }
+          ]
+        },
+        {
+          "assetId": "asset-l11-gill-practical-xml",
+          "title": "A Body of Practical Divinity",
+          "author": "John Gill",
+          "status": "already-held-reused",
+          "originalSha256": "9024138dbcf02d292b1313211b0197f8ba686823bd06bff04d6f91fcb9f36b10",
+          "sourceUrl": "https://www.ccel.org/ccel/g/gill/practical.xml",
+          "role": "continue: held Baptist doctrinal chapter",
+          "readingUnits": [
+            {
+              "title": "Chapter 4 OF REPENTANCE TOWARDS GOD",
+              "locator": "xml-id:ii.iv"
+            }
+          ]
+        },
+        {
+          "assetId": "asset-rb06-9bdee04056edd9e6bf22",
+          "title": "Puritan Sermons: Morning Exercises at Cripplegate, Volume II",
+          "author": "Various Puritan ministers; James Nichols editor; Monergism digital editor",
+          "status": "new-witness",
+          "originalSha256": "2aa645c1c2af9559b26cc4e771027daf522bd1925d8a512b7f6d0e621442840e",
+          "sourceUrl": "https://www.monergism.com/thethreshold/sdg/puritans/PURITAN%20SERMONS%20-%20VOL.%202%20-%20Various%20Puritans.epub",
+          "role": "new: Owen and Vincent complete offered sermons; contributors scoped separately",
+          "readingUnits": [
+            {
+              "title": "24. SERM. 28. HOW WE MAY BRING OUR HEARTS TO BEAR REPROOFS. - REV. JOHN OWEN",
+              "locator": "OEBPS/xndn4XE2wTIY5lpL.xhtml",
+              "componentId": "component-rb06-06f169afe383dd5a9e0b"
+            },
+            {
+              "title": "25. SERM. 29. WHEREIN DOTH APPEAR THE BLESSEDNESS OF FORGIVENESS? AND HOW IT MAY BE OBTAINED. - REV. THOMAS VINCENT",
+              "locator": "OEBPS/ziblXVEULfrBLr6l.xhtml",
+              "componentId": "component-rb06-7929143cbe9f3bac417d"
+            }
+          ]
+        }
+      ],
+      "status": "curated-source-map-not-implemented-public-feature",
+      "inferredFromVectors": false
+    },
+    {
+      "concern": "Vocation and care in the church",
+      "purpose": "Justice and truth in work; discipleship and accountable support within a church.",
+      "limitations": "Steele's 1823 edition is an adapted/revised Tradesman, not an identical unabridged Tradesman's Calling. 9Marks interviews are historical 2008 counsel with named interviewees; medication/physical-spiritual discussion is not automatically a clinical directive. Journal reviews are excluded.",
+      "entries": [
+        {
+          "assetId": "asset-expanded-eb7ad9ce89c3bc19e6d5",
+          "title": "The Religious Tradesman",
+          "author": "Steele, Richard",
+          "status": "already-held-reused",
+          "originalSha256": "01a228e67d02b965686150eec39ae87bd3cf2b2b9f15ad1ce07a3374377d8f03",
+          "sourceUrl": "https://www.monergism.com/thethreshold/sdg/steele/The%20Religious%20Tradesman%20-%20Richard%20Steele.epub",
+          "role": "start: held revised historical whole edition",
+          "readingUnits": [
+            {
+              "title": "CHAPTER II: Of Choosing a Calling.",
+              "locator": "tradesmen.html#c2"
+            },
+            {
+              "title": "CHAPTER V: Of Justice.",
+              "locator": "tradesmen.html#c5"
+            },
+            {
+              "title": "CHAPTER VI: Of Truth.",
+              "locator": "tradesmen.html#c6"
+            },
+            {
+              "title": "CHAPTER VIII: Contentment",
+              "locator": "tradesmen.html#c8"
+            }
+          ]
+        },
+        {
+          "assetId": "asset-rb06-7aa3620bf275d3d8af9c",
+          "title": "9Marks eJournal: Counseling in the Church",
+          "author": "Deepak Reju, Jonathan Leeman, Michael Lawrence; named CCEF interviewees; separate reviewers",
+          "status": "new-witness",
+          "originalSha256": "b91a32a2d379ff1ba63ee5a16790873c7ecc45d470446b8071841e156dddf5a4",
+          "sourceUrl": "https://www.9marks.org/wp-content/uploads/2008/10/ejournal200856novdec.pdf",
+          "role": "new: exact articles/interview PDF 6-12,16-17,27-30; contributor review pending",
+          "readingUnits": [
+            {
+              "title": "Five Advantages of Church-Based Counseling",
+              "locator": "derivative-lines:121-269",
+              "componentId": "component-rb06-counseling-6"
+            },
+            {
+              "title": "Counseling and Discipleship",
+              "locator": "derivative-lines:270-361",
+              "componentId": "component-rb06-counseling-10"
+            },
+            {
+              "title": "Twenty Ways to Cultivate a Culture of Counseling in Your Church",
+              "locator": "derivative-lines:454-520",
+              "componentId": "component-rb06-counseling-16"
+            },
+            {
+              "title": "Sorting Out the Spiritual and the Physical in Counseling",
+              "locator": "derivative-lines:885-1053",
+              "componentId": "component-rb06-counseling-27"
+            }
+          ]
+        }
+      ],
+      "status": "curated-source-map-not-implemented-public-feature",
+      "inferredFromVectors": false
+    }
+  ],
+  "implemented": false,
+  "countRule": "Eleven manually curated reading paths; bibliographic coverage, not clinical adequacy or unique Scripture coverage."
+}

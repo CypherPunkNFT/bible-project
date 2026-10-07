@@ -1,0 +1,87 @@
+{
+  "mission": "RB06",
+  "readOnly": true,
+  "schedulerChanged": false,
+  "snapshots": {
+    "embedding-progress.json": {
+      "sha256": "c7013e69b6f1e29f9e7b380f0b14220c65b7c54bfbaf9dae49e976647eb83575",
+      "snapshot": {
+        "state": "complete",
+        "total": 1901555,
+        "indexed": 1901555,
+        "remaining": 0,
+        "corpus_build": "2026-10-07T05:30:10.874999+00:00",
+        "updated_at": "2026-10-07T07:20:27.604174+00:00",
+        "seconds": 5711.2
+      }
+    },
+    "intake-completion.json": {
+      "sha256": "e9c28e588a4b59311311647aa00b1b7fdac48d9e07ec879885f81c3cd2ba53be",
+      "snapshot": {
+        "corpus_build": "2026-10-07T05:30:10.874999+00:00",
+        "sqlite_integrity": "ok",
+        "chunks": 1901555,
+        "vectors": 1901555,
+        "missing_vectors": 0,
+        "stale_vectors": 0,
+        "duplicate_vectors": 0,
+        "embedding_job_complete": true
+      }
+    },
+    "watchdog.json": {
+      "sha256": "4c7d05fe435554f0282d8b9311b9c664be4adebf14e58c20a8fb1dcb3d1b1572",
+      "snapshot": {
+        "checked_at": "2026-10-07T10:13:16.591508+00:00",
+        "interval_minutes": 30,
+        "state": "waiting_for_acquisition",
+        "indexed": 1901555,
+        "total": 1901555,
+        "embedding_state": "complete",
+        "processes": {
+          "encoder": [
+            22536,
+            4348
+          ],
+          "embed": [],
+          "build": [],
+          "refresh": [],
+          "monitor": []
+        }
+      }
+    },
+    "acquisition-followup.json": {
+      "sha256": "bdce045b16f8361bfca726de1c45c1ea7f359f8134e4ae663aeeef60810a1a09",
+      "snapshot": {
+        "state": "waiting_for_acquisition",
+        "checked_at": "2026-10-07T10:20:36.889466+00:00",
+        "gate": {
+          "ready": false,
+          "completed": [
+            "RB01",
+            "RB02",
+            "RB03",
+            "RB04",
+            "RB05"
+          ],
+          "missing": [
+            "RB06",
+            "RB07",
+            "RB08",
+            "RB09",
+            "RB10",
+            "RB11",
+            "RB12",
+            "RB13",
+            "RB14"
+          ],
+          "invalid": [],
+          "quiet": false,
+          "expected": 14
+        },
+        "active_collectors": [],
+        "busy": {}
+      }
+    }
+  },
+  "note": "Dated completed vector snapshot predates RB06; acquired files are not newly embedded."
+}

@@ -1,0 +1,122 @@
+{
+  "mission": "RB06",
+  "primaryEvidence": [
+    {
+      "subject": "Chapel Library",
+      "sourceUrl": "https://www.chapellibrary.org/about",
+      "anchors": [
+        "Scripture authority",
+        "Trinity",
+        "Christ deity and humanity",
+        "Substitutionary atonement",
+        "Bodily resurrection",
+        "Salvation by grace through faith alone"
+      ],
+      "basis": "Primary doctrinal declaration explicitly uses1689; rendered source searched, raw local response is JSshell. Publication disclaimer retained.",
+      "scope": "Publisher framework, not blanket contributor admission",
+      "requestEvidence": {
+        "url": "https://www.chapellibrary.org/about",
+        "finalUrl": "https://www.chapellibrary.org/about",
+        "mimeType": "text/html",
+        "byteCount": 1302,
+        "sha256": "7efebe1969f51f5eaf0d2edc0f0a22b42e85b73f88da3548832df99c1a2d96c2",
+        "retrievedAt": "2026-10-07T09:52:36.687456+00:00",
+        "title": "Chapel Library"
+      }
+    },
+    {
+      "subject": "D. Scott Meadows editorial framework",
+      "sourceUrl": "https://cbcexeterreformed.org/whatwebelieve/",
+      "anchors": [
+        "Scripture authority",
+        "Trinity",
+        "Christ deity and humanity",
+        "Substitutionary atonement",
+        "Bodily resurrection",
+        "Salvation by grace through faith alone"
+      ],
+      "basis": "Own church wholehearted1689 subscription; pastor/editor identity confirmed by church history and actual edition notices.",
+      "scope": "Abridger framework; Wilson additions and historic source authors not automatically covered",
+      "requestEvidence": {
+        "url": "https://cbcexeterreformed.org/whatwebelieve/",
+        "finalUrl": "https://cbcexeterreformed.org/whatwebelieve/",
+        "mimeType": "text/html",
+        "byteCount": 131005,
+        "sha256": "0e47807327db0b805a93cf4e371b058f06c2a7388c8ed7f46420fea68dedec68",
+        "retrievedAt": "2026-10-07T09:58:26.528396+00:00",
+        "title": "What We Believe – Calvary Baptist Church of Exeter (Reformed)"
+      }
+    },
+    {
+      "subject": "9Marks church-context contributors",
+      "sourceUrl": "https://www.capitolhillbaptist.org/about-us/what-we-believe/statement-of-faith/",
+      "anchors": [
+        "Scripture authority",
+        "Trinity",
+        "Christ deity and humanity",
+        "Substitutionary atonement",
+        "Bodily resurrection",
+        "Salvation by grace through faith alone"
+      ],
+      "basis": "CHBC NewHampshire statement: I,II,IV,V,XVIII; actual issue bylines identify Reju/Leeman/Lawrence ministry context.",
+      "scope": "Source-supported Baptist context, not blanket approval of every interviewee/reviewer",
+      "requestEvidence": {
+        "url": "https://www.capitolhillbaptist.org/about-us/what-we-believe/statement-of-faith/",
+        "finalUrl": "https://www.capitolhillbaptist.org/about-us/what-we-believe/statement-of-faith/",
+        "mimeType": "text/html",
+        "byteCount": 41969,
+        "sha256": "bff1b265b3e71e12dab957458e758df94995c2e416b51e41f98b510e5d3dfe1e",
+        "retrievedAt": "2026-10-07T09:58:31.638195+00:00",
+        "title": "Statement of Faith | Capitol Hill Baptist"
+      }
+    },
+    {
+      "subject": "CCEF interview context",
+      "sourceUrl": "https://www.ccef.org/about/beliefs-and-history/",
+      "anchors": [
+        "Scripture authority",
+        "Trinity",
+        "Christ deity and humanity",
+        "Substitutionary atonement",
+        "Bodily resurrection",
+        "Salvation by grace through faith alone"
+      ],
+      "basis": "Own unique-Scripture-authority declaration plus explicit Apostles/Nicene/Westminster/London Baptist confessional subscription.",
+      "scope": "Conservative Reformed framework evidence; per-person/work, historic2008 application and quoted-voice review remains",
+      "requestEvidence": {
+        "url": "https://www.ccef.org/about/beliefs-and-history/",
+        "finalUrl": "https://www.ccef.org/about/beliefs-and-history/",
+        "mimeType": "text/html",
+        "byteCount": 81541,
+        "sha256": "ad9cab0c920ff748aeeab6cb57a981bb36cbcdec00e17f8a4bc9e0158dcdc789",
+        "retrievedAt": "2026-10-07T10:19:38.817429+00:00",
+        "title": "CCEF Beliefs and History",
+        "use": "primary doctrinal evidence; not acquired teaching body"
+      }
+    },
+    {
+      "subject": "Edward Veal sermon5",
+      "assetId": "asset-rb06-9bdee04056edd9e6bf22",
+      "originalSha256": "2aa645c1c2af9559b26cc4e771027daf522bd1925d8a512b7f6d0e621442840e",
+      "derivativeSha256": "13a40937ed4cb73ea9463be8a6e727da84fd971f596d5613af0ae701f184ac9d",
+      "sourceUrl": "https://www.monergism.com/thethreshold/sdg/puritans/PURITAN%20SERMONS%20-%20VOL.%202%20-%20Various%20Puritans.epub",
+      "anchors": [
+        "Scripture authority",
+        "Trinity",
+        "Christ deity and humanity",
+        "Substitutionary atonement",
+        "Bodily resurrection",
+        "Salvation by grace through faith alone"
+      ],
+      "basis": "Actual source derivative lines118,121,123-127,130,133",
+      "scope": "Veal only; no author-wide approval or evidence for the other26 ministers"
+    }
+  ],
+  "existingWorkReviewPointers": [
+    "../RB04/theological-evidence.json",
+    "registry-audit.json"
+  ],
+  "decisions": "decision-queue.json",
+  "globalAuthorRegistryChanged": false,
+  "parentAndComponentAdmissionPending": true
+}
