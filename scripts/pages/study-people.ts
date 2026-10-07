@@ -1,8 +1,9 @@
-// CONTENT for People & genealogies (/study/people with its three views, /people/:id, /study/prophets).
+// CONTENT for People & genealogies (/study/people with its five views, /people/:id with /rule and /mission, /study/prophets).
 import { FAMILY_STARTS, GOSPEL_NOTES } from "../../src/lib/genealogy-catalog";
 import { PEOPLE_PERIODS } from "../../src/lib/people-periods";
 import { assignRoles, PERSON_ROLES } from "../../src/lib/people-roles";
 import type { PersonRow, Prophet } from "../../src/lib/study";
+import type { PeoplePagesIndex, RulerSummary } from "../../src/lib/people-pages-index";
 import { contentsCards } from "./study-charts";
 import { headerAndCredits } from "./study-guides";
 import { blocks, link, loadCatalog, n, readJson, ref, table } from "./study-lib";
@@ -67,18 +68,41 @@ async function prophets(list: Prophet[]): Promise<string> {
     `*The prophets view, the river (ProphetsRiver.tsx):* ${(await wording("src/components/study/ProphetsRiver.tsx")).join(" · ")}`);
 }
 
+const VERDICT_WORDS: Record<RulerSummary["verdictTone"], string> = { right: "✓ did right", evil: "✕ did evil", mixed: "◐ mixed", none: "no verdict formula" };
+const years = (r: RulerSummary) => (r.dates ? (r.dates.from > 0 && r.dates.to > 0 ? `${r.dates.approx ? "c. " : ""}${r.dates.from}–${r.dates.to} BC` : `${r.dates.from}–${r.dates.to}`) : "no years BC");
+
+/** Rulers through time (?view=rulers, /study/rulers) and the ruler pages it opens (/people/<id>/rule). */
+async function rulers(index: PeoplePagesIndex): Promise<string> {
+  const realms = [...new Set(index.rulers.map((r) => r.realm))];
+  return blocks(`Heading: **Thrones through time.** One ribbon across the shared era bands (the prophets' eras, src/lib/eras.ts): a lane per throne (leaders and judges, the united kingdom, Israel, Judah), each reign a bar as long as its years in the main dating system; the judges, whom Scripture gives no years BC, in the order of the book with dotted edges. The symbol at a bar's end is Scripture's verdict (✓ ✕ ◐). "Show the prophets" adds a lane of prophet medallions beside the king they served. A preview panel follows the pointer or keyboard (step through all ${index.rulers.length} in order; "Open the reign"). Below: filter chips and every ruler as a card, era by era. On a phone the ribbon runs down the page, Israel left and Judah right.`,
+    ...realms.map((realm) => blocks(`#### ${realm}`, table(["#", "Ruler", "Title", "Reign (Scripture)", "Years (main system)", "Verdict", "Prophets"],
+      index.rulers.filter((r) => r.realm === realm).sort((a, b) => a.order - b.order).map((r) => [r.order, r.name, r.title, r.reignText, years(r), VERDICT_WORDS[r.verdictTone], r.prophets.join(", ")])))),
+    `Each ruler page (${link("/people/asa-1ki-15-8/rule")}): back link and crumbs (People / name / The reign), the switch "The person | The reign" (judges: "As judge"), a hero (title and era, the name with its one line, five figures: reigned with an ⓘ dating note, capital or tribe, house and place in the line, verdict, prophets) and the whole line of that throne lit at this reign; then section chips and, in order: the judges' cycle (judges), the anointing (Saul, David, Solomon), the succession strip (both kingdoms at once with Scripture's cross-dating lines; the judges in the book's order), the verdict word for word with "but also" and Chronicles, and the verdict row of the whole line; the kingdom card (the words above, the Atlas map below); the events by year of the reign with undated ones in a tray; what the nation did (Worship · Building · Alliances & tribute · The people); prophets of the reign; the powers of the day and records outside the Bible (sand edge); Kings and Chronicles side by side; dates differ (every dating system and the open questions); every passage; sources.`,
+    `*Interface wording (RulersGuide.tsx):* ${(await wording("src/components/people-pages/RulersGuide.tsx")).join(" · ")}`);
+}
+
+/** The apostles (?view=apostles, /study/apostles) and the apostle pages it opens (/people/<id>/mission). */
+async function apostles(index: PeoplePagesIndex): Promise<string> {
+  return blocks(`Heading: **The Twelve, and one untimely born.** The Twelve as a ring around a cross (Judas Iscariot dashed, Matthias in his place, Paul outside on a dashed arc); choosing a medallion rolls down a preview in place (called, home and trade, how the story ends in Scripture, what later tradition says, "Open his mission"). "The lists compared" redraws the ring as the four lists of the Twelve with a ribbon for each man; "The wider circle" adds Barnabas, James the Lord's brother, Silas, Timothy, Apollos, Priscilla, Aquila, Andronicus and Junia. On a phone the ring is a grid of medallions with Paul as a wide card. Below: every apostle as a card.`,
+    table(["#", "Apostle", "Title", "Line", "Called", "Scripture on the end", "Tradition"], [...index.apostles].sort((a, b) => a.order - b.order).map((a) => [a.order, a.name, a.title, a.tagline, a.called ?? "", a.ending ?? "", a.tradition ?? ""])),
+    `Each apostle page (${link("/people/peter-mat-4-18/mission")}): back link and crumbs, the switch "The person | The mission", a hero (also called, from, trade, family, his writings) with arrows to the previous and next apostle; then home, trade and family with their verses; the calling (one chip per account, the passage quoted, its harmony event); his moments with Jesus as a strip per Gospel in the harmony's order (for those Scripture barely names: the four lists of the Twelve instead); where he went (map, tradition dashed, places with no pin named) and Acts; companions (network); how the story ends (Scripture solid, tradition dashed with who and when); his writings (links only); open questions; every passage; sources.`,
+    `*Interface wording (ApostlesGuide.tsx):* ${(await wording("src/components/people-pages/ApostlesGuide.tsx")).join(" · ")}`);
+}
+
 export async function peoplePage(): Promise<PageContent> {
-  const [people, prophetList] = await Promise.all([readJson<PersonRow[]>("data/study/people.json"), readJson<Prophet[]>("data/study/prophets.json")]);
+  const [people, prophetList, pages] = await Promise.all([readJson<PersonRow[]>("data/study/people.json"), readJson<Prophet[]>("data/study/prophets.json"), readJson<PeoplePagesIndex>("src/data/people-pages/index.json")]);
   const { header } = await headerAndCredits(PEOPLE, "PeoplePage");
   const profile = await wording("src/components/study/PersonProfile.tsx");
   const personCredits = first(await jsxRoots("src/pages/PersonPage.tsx", "PersonPage"), byTag("StudyCredits")).text;
   const groups = people.filter((person) => person.g).length;
   return { dir: "Study/people-and-genealogies", title: "People & genealogies", markdown: blocks(
-    `**Addresses:** ${link("/study/people")} (Everyone, the default) · ${link("/study/people?view=families")} · ${link("/study/people?view=prophets")} · ${link("/study/prophets")} (the prophets on their own page) · /people/<id> (one page per person, e.g. ${link("/people/david-rut-4-17")}); old /study/people/<id> addresses forward to it.`,
-    header, await contentsCards("people", "On this page the cards switch the view below in place (the address gains ?view=families or ?view=prophets) instead of opening another page; the chosen card is outlined."),
+    `**Addresses:** ${link("/study/people")} (Everyone, the default) · ${link("/study/people?view=families")} · ${link("/study/people?view=prophets")} · ${link("/study/prophets")} (the prophets on their own page) · ${link("/study/people?view=rulers")} (also ${link("/study/rulers")}) · ${link("/study/people?view=apostles")} (also ${link("/study/apostles")}) · /people/<id>/rule and /people/<id>/mission (a ruler's or an apostle's second page) · /people/<id> (one page per person, e.g. ${link("/people/david-rut-4-17")}); old /study/people/<id> addresses forward to it.`,
+    header, await contentsCards("people", "On this page the cards switch the view below in place (the address gains ?view=families, ?view=prophets, ?view=rulers or ?view=apostles) instead of opening another page; the chosen card is outlined."),
     "## Everyone in the Bible (default view)", await everyone(people),
     "## People & families (the family trees)", await families(),
     "## Prophets through time", await prophets(prophetList),
-    `## One page per person (/people/<id>)\n\n${n(people.length)} person pages (data/study/people/<id>.json), including the ${groups} tribes and peoples left out of the catalogue. Each shows: a back link naming where the visitor came from, the name, "Also called …", sex · period · tribe, "one of N people named …", the one-line description, "Their story" (STEP's short summary, with the full article on request), "Family" (parents, brothers and sisters, spouses, children, each a link), a bar chart "Genesis to Revelation. Point at a bar." of where they are named, and "Every verse that names <name>".`,
+    "## Rulers through time", await rulers(pages),
+    "## The apostles", await apostles(pages),
+    `## One page per person (/people/<id>)\n\n${n(people.length)} person pages (data/study/people/<id>.json), including the ${groups} tribes and peoples left out of the catalogue. Each shows: a back link naming where the visitor came from, the name, "Also called …", sex · period · tribe, "one of N people named …", the one-line description, "Their story" (STEP's short summary, with the full article on request), "Family" (parents, brothers and sisters, spouses, children, each a link), a bar chart "Genesis to Revelation. Point at a bar." of where they are named, and "Every verse that names <name>". A ruler's or an apostle's page also has, under the name, the switch "The person | The reign" (or "The mission") and, beside it (above "Their story" on a phone), a card that opens that page. Under the description: "Description adapted by STEP Bible from AI output (Claude 3 Opus, 2024)", with "corrected by this site" where the site corrected the record ("Record added by this site" for records the site wrote), and the site's own note where there is one. A record that duplicates another person opens that person's page.`,
     `*Interface wording (PersonProfile.tsx):* ${profile.join(" · ")}`, `Credits on each person page: ${personCredits}`) };
 }

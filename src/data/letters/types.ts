@@ -138,6 +138,8 @@ export interface MapLayer {
   stops: { name: string; placeId: string; refs?: Span[]; note?: string; letter?: string }[];
   /** For routes the sources date (AD), shown while the journey plays. */
   years?: [number, number];
+  /** Places known only from tradition: drawn as dashed pins (the people pages). */
+  dashed?: boolean;
   claim: Claim;
 }
 

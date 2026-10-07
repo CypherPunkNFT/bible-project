@@ -106,6 +106,19 @@ def _unnamed_names(records: list[dict]) -> None:
         record["name"] = f"Unnamed {what or 'person'} ({match.group(1)} of {total})"
 
 
+def _name_forms(column: str) -> list[str]:
+    """Every English form on a TIPNR name line: 'Abijah =NIV; Abijam =ESV,KJV' -> ['Abijah', 'Abijam'], so the King
+    James spellings (Abijam, Cyrenius, Tatnai, Lucas) are searchable too. Words some Bibles translate a name into
+    ('great', 'son of'), blanks ('[ ]') and partial forms ('Caleb(-ephratah)') are not names and are left out."""
+    forms = []
+    for part in column.split(";"):
+        part = re.sub(r"<[^>]*>", "", re.sub(r"\s*=.*$", "", part)).replace("/", "")
+        for form in (re.sub(r"\s+", " ", f).strip() for f in part.split(",")):  # 'Pharaoh/ Neco' -> 'Pharaoh Neco'
+            if form[:1].isupper() and all(ch.isalpha() or ch in " -'’" for ch in form):
+                forms.append(form)
+    return forms
+
+
 def _family(field: str) -> list[str]:
     return [k.strip() for k in re.split(r"[,+]", field) if "@" in k]
 
@@ -134,8 +147,8 @@ def parse_people(source: str, verses: Verses) -> tuple[list[dict], dict]:
                     fields[label] = _plain(value.split("\t")[0])
             elif line.startswith("– ") and not line.startswith("– Total"):
                 cols = _cols(line)
-                if len(cols) >= 4 and cols[3].strip():
-                    names.append(re.sub(r"\s*=.*$", "", cols[3].split(";")[0]).strip())
+                if len(cols) >= 4:
+                    names.extend(_name_forms(cols[3]))
                 for ref in cols[-1].split(";"):
                     if not ref.strip():
                         continue
@@ -191,7 +204,12 @@ def _link(records: list[dict]) -> tuple[list[dict], dict]:
                 else:
                     unresolved["ambiguous" if matches else "not a person"] += 1
             record[field] = ids
-        record["names"] = sorted({n for n in record.pop("names_raw") if n and n != record["name"]})
+        seen, names = {record["name"].lower()}, []
+        for name in record.pop("names_raw"):  # 'Ben-Hadad' and 'Ben-hadad' are one name to a reader
+            if name.lower() not in seen:
+                seen.add(name.lower())
+                names.append(name)
+        record["names"] = sorted(names)
     ids = Counter(r["id"] for r in records)
     clashes = [i for i, n in ids.items() if n > 1]
     if clashes:

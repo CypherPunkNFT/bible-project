@@ -23,6 +23,7 @@ from bible.paths import SOURCES  # noqa: E402
 from bible.study_harmony import describe, parse_harmony, parse_miracles  # noqa: E402
 from bible.study_home import build_home  # noqa: E402
 from bible.study_letters import build_letters  # noqa: E402
+from bible.people_corrections import CorrectionError, apply_people_corrections  # noqa: E402
 from bible.study_names import build_names  # noqa: E402
 from bible.study_people import parse_people, people_period  # noqa: E402
 from bible.study_prophets import build_prophets  # noqa: E402
@@ -81,7 +82,8 @@ def write_json(path: Path, value) -> int:
 
 SAFE_PERSON_ID = re.compile(r"^[a-z0-9][a-z0-9_-]*$")
 # Owner's corrections to TIPNR (2026-10-07): tribes and peoples flagged as groups ("g", left out of Everyone in the Bible),
-# and a period for each person TIPNR gives no era, with the evidence for it.
+# a period for each person TIPNR gives no era, and fixes to STEP's text, names, verses and family links plus records the
+# site added ("fixes", "added": scripts/bible/people_corrections.py; format in content/people/README.md).
 PEOPLE_CORRECTIONS = SITE / "content" / "people" / "catalogue-corrections.json"
 
 
@@ -98,7 +100,8 @@ def people_files(people: list[dict]) -> tuple[list[dict], dict[str, dict]]:
         if not SAFE_PERSON_ID.match(p["id"]):
             raise SystemExit(f"people: id {p['id']!r} cannot be a file name")
         books = Counter(ref // 1_000_000 for ref in p["refs"])
-        period = periods[p["id"]]["period"] if p["id"] in periods else people_period(p["era"], p["refs"])
+        period = (periods[p["id"]]["period"] if p["id"] in periods
+                  else p.get("period_fix") or people_period(p["era"], p["refs"]))
         row = {"id": p["id"], "n": p["name"], "o": p["names"], "b": p["brief"] or p["description"], "c": len(p["refs"]), "p": period}
         if p["id"] in groups:
             row["g"] = 1
@@ -109,6 +112,9 @@ def people_files(people: list[dict]) -> tuple[list[dict], dict[str, dict]]:
             "k": {str(num): count for num, count in sorted(books.items())}, "f": p["refs"][0] if p["refs"] else 0,
             "short": p["short"], "article": p["article"], "refs": p["refs"],
         }
+        # fx: the fields this site changed in STEP's record (their licence asks that changes be shown); same: the person
+        # this record duplicates; note: the site's own one-line note; added: a record the site made, not STEP.
+        detail[p["id"]].update({key: p[key] for key in ("fx", "same", "note", "added") if p.get(key)})
     return rows, detail
 
 
@@ -117,6 +123,11 @@ def build(data_root: Path, out: Path) -> dict:
     verses = Verses(data_root)
     robertson = FILES["robertson-harmony"].read_text(encoding="cp1252")
     people, people_report = parse_people(FILES["tipnr"].read_text(encoding="utf-8"), verses)
+    try:
+        people_report["corrections"] = apply_people_corrections(
+            people, json.loads(PEOPLE_CORRECTIONS.read_text(encoding="utf-8")), verses, SAFE_PERSON_ID)
+    except CorrectionError as error:
+        raise SystemExit(f"{error} ({PEOPLE_CORRECTIONS})") from error
     names_for_case = {p["name"].lower() for p in people if p["sex"] in ("Male", "Female")}
     harmony = parse_harmony(robertson, verses, names_for_case)
     christ = parse_miracles(robertson)

@@ -90,8 +90,11 @@ export default function App() {
               <Route path="/mock/genealogy-circle" element={<CircularGenealogyPage />} />
               <Route path="/study/people" element={<PeoplePage />} />
               <Route path="/study/people/:id" element={<PersonRedirect />} />
-              <Route path="/people/:id" element={<PersonPage />} />
+              {/* A ruler's or apostle's second page: /people/:id/rule, /people/:id/mission (one route, so the page stays mounted). */}
+              <Route path="/people/:id/:aspect?" element={<PersonPage />} />
               <Route path="/study/prophets" element={<ProphetsPage />} />
+              <Route path="/study/rulers" element={<Navigate to="/study/people?view=rulers" replace />} />
+              <Route path="/study/apostles" element={<Navigate to="/study/people?view=apostles" replace />} />
               <Route path="/study/names" element={<NamesPage />} />
               <Route path="*" element={<NotFoundPage />} />
             </Routes>

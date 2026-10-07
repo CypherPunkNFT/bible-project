@@ -12,7 +12,7 @@ import "./study-transitions.css";
  */
 export const STUDY_BRUSH: Record<StudyCollectionId, string> = {
   references: "wipe", structure: "rise", gospels: "reveal", versions: "blur",
-  people: "sheet", places: "fade", miracles: "zoom", letters: "turn", names: "fade",
+  people: "wipe", places: "fade", miracles: "zoom", letters: "turn", names: "fade",
 };
 
 /** Sections shown on the study's own page (cards with `to` open another page instead). */

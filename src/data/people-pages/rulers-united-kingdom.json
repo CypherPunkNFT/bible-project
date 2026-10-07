@@ -1,0 +1,6454 @@
+{
+ "id": "rulers-united-kingdom",
+ "title": "The united kingdom",
+ "realm": "united",
+ "intro": [
+  {
+   "text": "The united kingdom is the time when one king ruled all the tribes: Saul, then David, then Solomon. Ish-bosheth, Saul's son, held the northern tribes for two years while David reigned over Judah in Hebron.",
+   "layer": "scripture",
+   "refs": [
+    [
+     9011015,
+     9011015
+    ],
+    [
+     10002008,
+     10002011
+    ],
+    [
+     10005001,
+     10005005
+    ],
+    [
+     11004001,
+     11004001
+    ]
+   ]
+  },
+  {
+   "text": "Its story is told twice: in 1–2 Samuel and 1 Kings 1–11, and again in 1 Chronicles 10–29 and 2 Chronicles 1–9. Chronicles leaves out most of Saul's reign, all of Ish-bosheth's, and many of David's and Solomon's troubles, and adds David's preparations for the temple. These pages show the two accounts side by side and do not merge them.",
+   "layer": "text",
+   "refs": [
+    [
+     9009001,
+     9031013
+    ],
+    [
+     10001001,
+     10024025
+    ],
+    [
+     11001001,
+     11011043
+    ],
+    [
+     13010001,
+     13029030
+    ],
+    [
+     14001001,
+     14009031
+    ]
+   ]
+  },
+  {
+   "text": "It ended as Ahijah had said: ten tribes made Jeroboam king, and only Judah followed the house of David.",
+   "layer": "scripture",
+   "refs": [
+    [
+     11011029,
+     11011036
+    ],
+    [
+     11012016,
+     11012020
+    ]
+   ]
+  },
+  {
+   "text": "Scripture gives reign lengths, not BC years. The main dates here follow Thiele's chronology as worked out for this period by McFall (2010) and Young (2003); the traditional dates of Ussher (1658) and the dates that follow from Albright's 922 BC are shown beside them.",
+   "layer": "scholars",
+   "cites": [
+    "mcfall-2010",
+    "young-2003",
+    "ussher-1658",
+    "albright-1945"
+   ]
+  }
+ ],
+ "rulers": [
+  {
+   "id": "saul-1sa-9-2",
+   "name": "Saul",
+   "kind": "king",
+   "realm": "united",
+   "title": "First king of Israel",
+   "tagline": "The first king, chosen from Benjamin.",
+   "order": 1,
+   "successor": "ish-bosheth-2sa-2-8",
+   "house": "House of Saul",
+   "tribe": "Benjamin",
+   "capital": {
+    "name": "Gibeah",
+    "placeId": "ac24f5f",
+    "refs": [
+     [
+      9010026,
+      9010026
+     ],
+     [
+      9015034,
+      9015034
+     ]
+    ],
+    "note": "His home town, which Scripture calls “Gibeah of Saul”. Scripture never calls it a capital."
+   },
+   "records": [
+    {
+     "book": "samuel",
+     "capital": {
+      "name": "Gibeah of Saul",
+      "span": [
+       9015034,
+       9015034
+      ]
+     },
+     "verdict": {
+      "text": "the LORD hath rejected thee from being king over Israel",
+      "span": [
+       9015026,
+       9015026
+      ]
+     },
+     "death": {
+      "text": "Badly wounded by the archers on mount Gilboa, Saul fell on his own sword. Three of his sons died the same day.",
+      "layer": "scripture",
+      "refs": [
+       [
+        9031002,
+        9031006
+       ]
+      ]
+     },
+     "burial": {
+      "text": "they took their bones, and buried them under a tree at Jabesh, and fasted seven days",
+      "span": [
+       9031013,
+       9031013
+      ]
+     }
+    },
+    {
+     "book": "chronicles",
+     "verdict": {
+      "text": "So Saul died for his transgression which he committed against the LORD",
+      "span": [
+       13010013,
+       13010013
+      ]
+     },
+     "death": {
+      "text": "Chronicles tells the same death in nearly the same words, then gives the reason: he did not keep the word of the LORD, asked counsel of a medium, and did not enquire of the LORD.",
+      "layer": "scripture",
+      "refs": [
+       [
+        13010004,
+        13010006
+       ],
+       [
+        13010013,
+        13010014
+       ]
+      ]
+     },
+     "burial": {
+      "text": "buried their bones under the oak in Jabesh, and fasted seven days",
+      "span": [
+       13010012,
+       13010012
+      ]
+     }
+    },
+    {
+     "book": "other",
+     "length": {
+      "years": 40,
+      "span": [
+       44013021,
+       44013021
+      ]
+     }
+    }
+   ],
+   "reign": {
+    "years": 40,
+    "text": "Forty years, by Acts 13:21. In 1 Samuel 13:1, where the age and length should stand, the Hebrew numbers are incomplete.",
+    "refs": [
+     [
+      44013021,
+      44013021
+     ],
+     [
+      9013001,
+      9013001
+     ]
+    ]
+   },
+   "dates": [
+    {
+     "system": "bible",
+     "label": "Scripture's numbers",
+     "note": "Acts 13:21: forty years. 1 Samuel 13:1 in the KJV reads “Saul reigned one year; and when he had reigned two years over Israel”; the KJV margin gives the Hebrew as “the son of one year in his reigning”. No age at accession survives."
+    },
+    {
+     "system": "thiele-mcfall",
+     "label": "McFall (2010), building on Thiele",
+     "from": 1050,
+     "to": 1010,
+     "approx": true,
+     "note": "McFall keeps Acts 13:21's forty years and counts back from David's accession in 1010 BC. On p. 477 he writes the span as 1050–1011.",
+     "cites": [
+      "mcfall-2010"
+     ]
+    },
+    {
+     "system": "ussher",
+     "label": "Traditional (Ussher, 1658)",
+     "from": 1095,
+     "to": 1055,
+     "approx": true,
+     "note": "Ussher also takes forty years: Saul made king in the year of the world 2909 (1095 BC); David king in Hebron in 2949 (1055 BC).",
+     "cites": [
+      "ussher-1658"
+     ]
+    },
+    {
+     "system": "other",
+     "label": "Keil and Delitzsch (tr. 1866)",
+     "note": "No BC years. They hold that numbers have dropped out of 1 Samuel 13:1 and that the reign lasted about twenty or twenty-two years.",
+     "cites": [
+      "keil-samuel"
+     ]
+    }
+   ],
+   "verdictTone": "evil",
+   "verdictNotes": [
+    {
+     "text": "Samuel's words after the war with Amalek: Saul “didst evil in the sight of the LORD”, and “Because thou hast rejected the word of the LORD, he hath also rejected thee from being king”.",
+     "layer": "scripture",
+     "refs": [
+      [
+       9015019,
+       9015019
+      ],
+      [
+       9015023,
+       9015023
+      ]
+     ]
+    },
+    {
+     "text": "An earlier rebuke came at Gilgal, when Saul offered the burnt offering before Samuel arrived: “now thy kingdom shall not continue”.",
+     "layer": "scripture",
+     "refs": [
+      [
+       9013008,
+       9013014
+      ]
+     ]
+    },
+    {
+     "text": "Saul twice answered, “I have sinned”.",
+     "layer": "scripture",
+     "refs": [
+      [
+       9015024,
+       9015024
+      ],
+      [
+       9015030,
+       9015030
+      ]
+     ]
+    },
+    {
+     "text": "Chronicles adds a reason Samuel's account does not give in its verdict: he asked “counsel of one that had a familiar spirit” and “enquired not of the LORD”. 1 Samuel tells that visit to Endor at length.",
+     "layer": "scripture",
+     "refs": [
+      [
+       13010013,
+       13010014
+      ],
+      [
+       9028007,
+       9028019
+      ]
+     ]
+    },
+    {
+     "text": "David would not harm him, calling him “the LORD's anointed”, and mourned him: “Saul and Jonathan were lovely and pleasant in their lives”.",
+     "layer": "scripture",
+     "refs": [
+      [
+       9024006,
+       9024006
+      ],
+      [
+       9026009,
+       9026009
+      ],
+      [
+       10001023,
+       10001023
+      ]
+     ]
+    }
+   ],
+   "accession": [
+    {
+     "text": "Israel's elders asked Samuel for “a king to judge us like all the nations”. The LORD told Samuel that they had rejected him, not Samuel, and to grant it.",
+     "layer": "scripture",
+     "refs": [
+      [
+       9008004,
+       9008009
+      ],
+      [
+       9008022,
+       9008022
+      ]
+     ]
+    },
+    {
+     "text": "Looking for his father's lost asses, Saul came to Samuel, who anointed him privately with a vial of oil “to be captain over his inheritance”.",
+     "layer": "scripture",
+     "refs": [
+      [
+       9009003,
+       9009020
+      ],
+      [
+       9010001,
+       9010001
+      ]
+     ]
+    },
+    {
+     "text": "At Mizpeh the lot fell on Benjamin and then on Saul, who had hidden “among the stuff”. The people shouted, “God save the king”.",
+     "layer": "scripture",
+     "refs": [
+      [
+       9010017,
+       9010024
+      ]
+     ]
+    },
+    {
+     "text": "After he rescued Jabesh-gilead from Nahash the Ammonite, “they made Saul king before the LORD in Gilgal”.",
+     "layer": "scripture",
+     "refs": [
+      [
+       9011001,
+       9011015
+      ]
+     ]
+    },
+    {
+     "text": "So 1 Samuel tells of three steps: a private anointing, a public choice by lot at Mizpeh, and the renewing of the kingdom at Gilgal.",
+     "layer": "text",
+     "refs": [
+      [
+       9010001,
+       9010001
+      ],
+      [
+       9010024,
+       9010024
+      ],
+      [
+       9011014,
+       9011015
+      ]
+     ]
+    }
+   ],
+   "events": [
+    {
+     "label": "Jabesh-gilead rescued",
+     "kind": "battle",
+     "claim": {
+      "text": "Saul mustered Israel at Bezek and broke Nahash's siege of Jabesh-gilead in the morning watch.",
+      "layer": "scripture",
+      "refs": [
+       [
+        9011007,
+        9011011
+       ]
+      ]
+     },
+     "placeId": "af92088"
+    },
+    {
+     "label": "Jonathan strikes the garrison at Geba",
+     "kind": "battle",
+     "claim": {
+      "text": "Saul chose 3,000 men; Jonathan struck the Philistine garrison in Geba, and the Philistines gathered at Michmash.",
+      "layer": "scripture",
+      "refs": [
+       [
+        9013002,
+        9013007
+       ]
+      ]
+     },
+     "placeId": "a264254"
+    },
+    {
+     "label": "The sacrifice at Gilgal",
+     "kind": "worship",
+     "claim": {
+      "text": "Saul waited seven days for Samuel, then offered the burnt offering himself. Samuel told him his kingdom would not continue.",
+      "layer": "scripture",
+      "refs": [
+       [
+        9013008,
+        9013014
+       ]
+      ]
+     },
+     "placeId": "ab94aea"
+    },
+    {
+     "label": "No smith in Israel",
+     "kind": "other",
+     "claim": {
+      "text": "The Philistines allowed no smith in Israel. On the day of battle only Saul and Jonathan had sword or spear.",
+      "layer": "scripture",
+      "refs": [
+       [
+        9013019,
+        9013022
+       ]
+      ]
+     }
+    },
+    {
+     "label": "Victory at Michmash",
+     "kind": "battle",
+     "claim": {
+      "text": "Jonathan and his armourbearer attacked the garrison, and Israel struck the Philistines “from Michmash to Aijalon”. Saul's oath that no one should eat that day nearly cost Jonathan his life, until the people rescued him.",
+      "layer": "scripture",
+      "refs": [
+       [
+        9014001,
+        9014023
+       ],
+       [
+        9014024,
+        9014045
+       ],
+       [
+        9014031,
+        9014031
+       ]
+      ]
+     },
+     "placeId": "adea06c"
+    },
+    {
+     "label": "Saul's first altar",
+     "kind": "worship",
+     "claim": {
+      "text": "“the same was the first altar that he built unto the LORD”",
+      "layer": "scripture",
+      "refs": [
+       [
+        9014035,
+        9014035
+       ]
+      ]
+     }
+    },
+    {
+     "label": "Wars on every side",
+     "kind": "battle",
+     "claim": {
+      "text": "Saul fought Moab, Ammon, Edom, the kings of Zobah and the Philistines, and struck the Amalekites. “there was sore war against the Philistines all the days of Saul”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        9014047,
+        9014048
+       ],
+       [
+        9014052,
+        9014052
+       ]
+      ]
+     }
+    },
+    {
+     "label": "Amalek, and Agag spared",
+     "kind": "battle",
+     "claim": {
+      "text": "Sent to destroy Amalek utterly, Saul struck them “from Havilah until thou comest to Shur”, but spared King Agag and the best of the flocks. Samuel told him the LORD had rejected him, and killed Agag at Gilgal.",
+      "layer": "scripture",
+      "refs": [
+       [
+        9015001,
+        9015009
+       ],
+       [
+        9015022,
+        9015033
+       ]
+      ]
+     }
+    },
+    {
+     "label": "David anointed at Bethlehem",
+     "kind": "prophecy",
+     "claim": {
+      "text": "The LORD sent Samuel to anoint one of Jesse's sons. “But the Spirit of the LORD departed from Saul, and an evil spirit from the LORD troubled him.”",
+      "layer": "scripture",
+      "refs": [
+       [
+        9016001,
+        9016014
+       ]
+      ]
+     },
+     "placeId": "a112427"
+    },
+    {
+     "label": "Goliath in the valley of Elah",
+     "kind": "battle",
+     "claim": {
+      "text": "While Saul's army faced the Philistines in the valley of Elah, David killed Goliath of Gath with a sling and a stone.",
+      "layer": "scripture",
+      "refs": [
+       [
+        9017001,
+        9017002
+       ],
+       [
+        9017048,
+        9017052
+       ]
+      ]
+     },
+     "placeId": "ab183f8"
+    },
+    {
+     "label": "Saul turns against David",
+     "kind": "personal",
+     "claim": {
+      "text": "After the women sang “Saul hath slain his thousands, and David his ten thousands”, Saul “eyed David from that day and forward”. He threw a javelin at him and told Jonathan and his servants to kill him.",
+      "layer": "scripture",
+      "refs": [
+       [
+        9018006,
+        9018011
+       ],
+       [
+        9019001,
+        9019001
+       ]
+      ]
+     }
+    },
+    {
+     "label": "The priests of Nob killed",
+     "kind": "other",
+     "claim": {
+      "text": "Because Ahimelech had given David bread and Goliath's sword, Saul ordered the priests killed. Doeg the Edomite killed eighty-five of them and struck the town of Nob.",
+      "layer": "scripture",
+      "refs": [
+       [
+        9022009,
+        9022019
+       ]
+      ]
+     },
+     "placeId": "afdda14"
+    },
+    {
+     "label": "Saul hunts David",
+     "kind": "personal",
+     "claim": {
+      "text": "Saul sought David “every day” in the wildernesses of Ziph and En-gedi. Twice David spared his life.",
+      "layer": "scripture",
+      "refs": [
+       [
+        9023014,
+        9023014
+       ],
+       [
+        9024001,
+        9024007
+       ],
+       [
+        9026007,
+        9026012
+       ]
+      ]
+     }
+    },
+    {
+     "label": "The woman at Endor",
+     "kind": "worship",
+     "claim": {
+      "text": "When the LORD answered him “neither by dreams, nor by Urim, nor by prophets”, Saul went to a woman with a familiar spirit at Endor. The one she brought up, whom the text calls Samuel, foretold his defeat and death.",
+      "layer": "scripture",
+      "refs": [
+       [
+        9028005,
+        9028019
+       ]
+      ]
+     },
+     "placeId": "aca444b"
+    },
+    {
+     "label": "Death on mount Gilboa",
+     "kind": "battle",
+     "claim": {
+      "text": "The Philistines beat Israel on mount Gilboa. Jonathan, Abinadab and Malchi-shua were killed, and Saul fell on his sword.",
+      "layer": "scripture",
+      "refs": [
+       [
+        9031001,
+        9031006
+       ]
+      ]
+     },
+     "placeId": "acf57c5"
+    },
+    {
+     "label": "The wall of Beth-shan",
+     "kind": "other",
+     "claim": {
+      "text": "The Philistines cut off his head and fastened his body to the wall of Beth-shan. The men of Jabesh-gilead took the bodies by night, burnt them, and buried the bones at Jabesh.",
+      "layer": "scripture",
+      "refs": [
+       [
+        9031008,
+        9031013
+       ]
+      ]
+     },
+     "placeId": "a2a8df0"
+    }
+   ],
+   "nation": {
+    "worship": [
+     {
+      "text": "Saul built an altar after Michmash, “the first altar that he built unto the LORD”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        9014035,
+        9014035
+       ]
+      ]
+     },
+     {
+      "text": "He had put “those that had familiar spirits, and the wizards, out of the land”, and then sought one himself.",
+      "layer": "scripture",
+      "refs": [
+       [
+        9028003,
+        9028003
+       ],
+       [
+        9028007,
+        9028007
+       ]
+      ]
+     },
+     {
+      "text": "He killed the priests of the LORD at Nob.",
+      "layer": "scripture",
+      "refs": [
+       [
+        9022017,
+        9022019
+       ]
+      ]
+     },
+     {
+      "text": "He tried to destroy the Gibeonites “in his zeal to the children of Israel and Judah”, though Israel had sworn to spare them. The famine in David's days was laid to this.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10021001,
+        10021002
+       ]
+      ]
+     }
+    ],
+    "building": [
+     {
+      "text": "Scripture records no building by Saul. His seat was his home town, Gibeah.",
+      "layer": "text",
+      "refs": [
+       [
+        9010026,
+        9010026
+       ],
+       [
+        9015034,
+        9015034
+       ]
+      ]
+     },
+     {
+      "text": "After the Amalek campaign he “set him up a place” at Carmel.",
+      "layer": "scripture",
+      "refs": [
+       [
+        9015012,
+        9015012
+       ]
+      ]
+     }
+    ],
+    "alliances": [
+     {
+      "text": "Scripture records no treaty or alliance under Saul. Every neighbour named in his reign is named as an enemy.",
+      "layer": "text",
+      "refs": [
+       [
+        9014047,
+        9014048
+       ]
+      ]
+     }
+    ],
+    "people": [
+     {
+      "text": "Saul kept a standing force: 3,000 chosen men, and “when Saul saw any strong man, or any valiant man, he took him unto him”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        9013002,
+        9013002
+       ],
+       [
+        9014052,
+        9014052
+       ]
+      ]
+     },
+     {
+      "text": "The musters Scripture counts: 300,000 of Israel and 30,000 of Judah at Bezek; 200,000 footmen and 10,000 of Judah at Telaim; about 600 with him at Gibeah after Gilgal.",
+      "layer": "scripture",
+      "refs": [
+       [
+        9011008,
+        9011008
+       ],
+       [
+        9015004,
+        9015004
+       ],
+       [
+        9013015,
+        9013015
+       ]
+      ]
+     },
+     {
+      "text": "Samuel had warned what a king would take: sons for his chariots, daughters as cooks and bakers, the best fields, a tenth of the flocks.",
+      "layer": "scripture",
+      "refs": [
+       [
+        9008011,
+        9008018
+       ]
+      ]
+     },
+     {
+      "text": "When Saul fell, the Israelites on the other side of the valley and beyond the Jordan left their cities, and the Philistines came and lived in them.",
+      "layer": "scripture",
+      "refs": [
+       [
+        9031007,
+        9031007
+       ]
+      ]
+     }
+    ]
+   },
+   "prophets": [
+    {
+     "person": {
+      "name": "Samuel",
+      "personId": "samuel-1sa-1-20"
+     },
+     "claim": {
+      "text": "Samuel anointed Saul, rebuked him at Gilgal and again after Amalek, and then anointed David. “Samuel came no more to see Saul until the day of his death: nevertheless Samuel mourned for Saul.” At Endor the figure the text calls Samuel spoke Saul's doom.",
+      "layer": "scripture",
+      "refs": [
+       [
+        9010001,
+        9010001
+       ],
+       [
+        9013013,
+        9013014
+       ],
+       [
+        9015022,
+        9015035
+       ],
+       [
+        9016001,
+        9016013
+       ],
+       [
+        9028015,
+        9028019
+       ]
+      ]
+     },
+     "quote": {
+      "text": "to obey is better than sacrifice, and to hearken than the fat of rams",
+      "span": [
+       9015022,
+       9015022
+      ]
+     }
+    },
+    {
+     "person": {
+      "name": "The company of prophets"
+     },
+     "claim": {
+      "text": "Twice Saul prophesied among a company of prophets, near Gibeah and at Naioth in Ramah. The people's saying “Is Saul also among the prophets?” came from this.",
+      "layer": "scripture",
+      "refs": [
+       [
+        9010010,
+        9010012
+       ],
+       [
+        9019020,
+        9019024
+       ]
+      ]
+     }
+    }
+   ],
+   "worldStage": [
+    {
+     "power": "The Philistines",
+     "rulers": [
+      {
+       "name": "Achish, king of Gath",
+       "personId": "achish-1sa-21-10",
+       "note": "David's host while Saul hunted him (1 Sam 21; 27–29)."
+      }
+     ],
+     "claim": {
+      "text": "The Philistines held garrisons in Israel's hill country and were Saul's enemy from his anointing to his death.",
+      "layer": "scripture",
+      "refs": [
+       [
+        9010005,
+        9010005
+       ],
+       [
+        9013003,
+        9013003
+       ],
+       [
+        9014052,
+        9014052
+       ],
+       [
+        9031001,
+        9031001
+       ]
+      ]
+     }
+    },
+    {
+     "power": "Ammon",
+     "rulers": [
+      {
+       "name": "Nahash",
+       "personId": "nahash-1sa-11-1"
+      }
+     ],
+     "claim": {
+      "text": "Nahash besieged Jabesh-gilead; Saul's victory there led to the renewing of the kingdom at Gilgal.",
+      "layer": "scripture",
+      "refs": [
+       [
+        9011001,
+        9011015
+       ]
+      ]
+     }
+    },
+    {
+     "power": "Amalek",
+     "rulers": [
+      {
+       "name": "Agag",
+       "personId": "agag-1sa-15-8"
+      }
+     ],
+     "claim": {
+      "text": "Saul struck Amalek but spared Agag, the act for which Samuel said he was rejected.",
+      "layer": "scripture",
+      "refs": [
+       [
+        9015007,
+        9015009
+       ],
+       [
+        9015023,
+        9015023
+       ]
+      ]
+     }
+    },
+    {
+     "power": "Moab, Edom and Zobah",
+     "rulers": [
+      {
+       "name": "The king of Moab",
+       "note": "Unnamed. He sheltered David's parents (1 Sam 22:3–4)."
+      }
+     ],
+     "claim": {
+      "text": "Saul fought them all. Scripture gives no account of these wars beyond the list.",
+      "layer": "scripture",
+      "refs": [
+       [
+        9014047,
+        9014047
+       ]
+      ]
+     }
+    }
+   ],
+   "outside": [
+    {
+     "name": "No inscription",
+     "date": "—",
+     "claim": {
+      "text": "None of the sources used for this page cites an inscription or other record from Saul's time that names him.",
+      "layer": "text"
+     }
+    },
+    {
+     "name": "Josephus's retelling (Antiquities 6.14.9; 10.8.4)",
+     "date": "about AD 93",
+     "claim": {
+      "text": "Josephus retells Scripture and gives two lengths for the reign: “eighteen years while Samuel was alive, and after his death two [and twenty]” (the brackets are in Whiston's translation), and elsewhere “twenty years”. He is not an independent witness.",
+      "layer": "ancient-record",
+      "cites": [
+       "josephus-antiquities"
+      ]
+     }
+    }
+   ],
+   "twoAccounts": [
+    {
+     "topic": "How Saul died",
+     "first": {
+      "text": "1 Samuel 31: badly wounded by the archers, Saul fell on his own sword when his armourbearer would not kill him.",
+      "layer": "scripture",
+      "refs": [
+       [
+        9031003,
+        9031005
+       ]
+      ]
+     },
+     "second": {
+      "text": "2 Samuel 1: an Amalekite told David he found Saul leaning on his spear and killed him at his request, and brought David the crown and bracelet. David had him put to death.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10001006,
+        10001010
+       ],
+       [
+        10001015,
+        10001016
+       ]
+      ]
+     }
+    },
+    {
+     "topic": "His body and burial",
+     "first": {
+      "text": "1 Samuel: his armour put “in the house of Ashtaroth”, his body fastened to the wall of Beth-shan; the bodies burnt at Jabesh and the bones buried “under a tree”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        9031010,
+        9031013
+       ]
+      ]
+     },
+     "second": {
+      "text": "1 Chronicles: his armour put “in the house of their gods”, his head fastened “in the temple of Dagon”; the bones buried “under the oak”. No burning is mentioned.",
+      "layer": "scripture",
+      "refs": [
+       [
+        13010010,
+        13010012
+       ]
+      ]
+     }
+    },
+    {
+     "topic": "Who died with him",
+     "first": {
+      "text": "1 Samuel: “Saul died, and his three sons, and his armourbearer, and all his men, that same day together.”",
+      "layer": "scripture",
+      "refs": [
+       [
+        9031006,
+        9031006
+       ]
+      ]
+     },
+     "second": {
+      "text": "1 Chronicles: “Saul died, and his three sons, and all his house died together.” 2 Samuel goes on to tell of his son Ish-bosheth's reign and his grandson Mephibosheth.",
+      "layer": "scripture",
+      "refs": [
+       [
+        13010006,
+        13010006
+       ],
+       [
+        10002008,
+        10002010
+       ],
+       [
+        10004004,
+        10004004
+       ]
+      ]
+     }
+    },
+    {
+     "topic": "How much of the reign is told",
+     "first": {
+      "text": "1 Samuel tells the reign from the anointing to the death, chapters 9 to 31.",
+      "layer": "text",
+      "refs": [
+       [
+        9009001,
+        9031013
+       ]
+      ]
+     },
+     "second": {
+      "text": "1 Chronicles gives Saul's family line, then only his last battle and death, with its own verdict.",
+      "layer": "text",
+      "refs": [
+       [
+        13008033,
+        13008033
+       ],
+       [
+        13010001,
+        13010014
+       ]
+      ]
+     }
+    }
+   ],
+   "questions": [
+    {
+     "id": "saul-13-1",
+     "question": "What did 1 Samuel 13:1 say about Saul's age and reign? (Views in the order they arose.)",
+     "views": [
+      {
+       "label": "A saying, not an age",
+       "holders": "The Aramaic Targum, and the Greek version of Symmachus (2nd century AD), as reported by Driver (1890)",
+       "argument": {
+        "text": "The Targum reads “as a child a year old who has no sins, was Saul when he became king”; Symmachus also turns the words into a description rather than an age.",
+        "layer": "tradition",
+        "cites": [
+         "driver-1890"
+        ]
+       }
+      },
+      {
+       "label": "One year after the Philistines were subdued",
+       "holders": "James Ussher (1658)",
+       "argument": {
+        "text": "Ussher read “son of one year” as one year after Samuel subdued the Philistines, and the “two years” as two years Saul reigned free of them, within a reign of forty years.",
+        "layer": "scholars",
+        "cites": [
+         "ussher-1658"
+        ]
+       }
+      },
+      {
+       "label": "Numbers have dropped out",
+       "holders": "Keil and Delitzsch (tr. 1866); Driver (1890)",
+       "argument": {
+        "text": "The verse has the shape of the regular formula, so an age once stood after “son of”. Keil thought Saul was at least forty, since Jonathan already led troops, and that a number such as twenty fell out before “two years”. Driver adds that the whole verse is missing from the Greek Old Testament and may be a late insertion.",
+        "layer": "scholars",
+        "cites": [
+         "keil-samuel",
+         "driver-1890"
+        ]
+       }
+      },
+      {
+       "label": "The 'two' is not original",
+       "holders": "Julius Wellhausen (tr. 1885)",
+       "argument": {
+        "text": "Wellhausen held that the age was never filled in, and that “two” grew out of the Hebrew word for “year” that follows it.",
+        "layer": "scholars",
+        "cites": [
+         "wellhausen-1885"
+        ]
+       }
+      },
+      {
+       "label": "Dated by an era from David's birth",
+       "holders": "Leslie McFall (2010)",
+       "argument": {
+        "text": "McFall keeps Acts 13:21's forty years and reads 13:1 as dating Saul's rejection by an era beginning at David's birth, which he puts in 1040 BC. On his reckoning Saul was rejected about 1037 BC, in his fourteenth year.",
+        "layer": "scholars",
+        "cites": [
+         "mcfall-2010"
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "id": "saul-forty",
+     "question": "Did Saul reign forty years?",
+     "views": [
+      {
+       "label": "Forty years",
+       "holders": "Acts 13:21; Ussher (1658); McFall (2010)",
+       "argument": {
+        "text": "Ussher and McFall take Paul's “the space of forty years” in Acts as the length of the reign. McFall notes that no Greek manuscript of Acts gives another figure.",
+        "layer": "scholars",
+        "refs": [
+         [
+          44013021,
+          44013021
+         ]
+        ],
+        "cites": [
+         "ussher-1658",
+         "mcfall-2010"
+        ]
+       }
+      },
+      {
+       "label": "About twenty years",
+       "holders": "Josephus, Antiquities 10.8.4; Keil and Delitzsch (tr. 1866)",
+       "argument": {
+        "text": "Josephus once gives Saul twenty years. Keil argued for twenty or twenty-two, and suggested the forty arose from making Saul's reign equal to David's and Solomon's.",
+        "layer": "scholars",
+        "cites": [
+         "josephus-antiquities",
+         "keil-samuel"
+        ]
+       }
+      },
+      {
+       "label": "The forty years include Samuel's time",
+       "holders": "J. A. Bengel (1742) and others, as reported by McFall (2010)",
+       "argument": {
+        "text": "Some writers read Acts' forty years as covering Samuel's leadership as well as Saul's own reign.",
+        "layer": "scholars",
+        "cites": [
+         "mcfall-2010"
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "id": "saul-amalekite",
+     "question": "Did the Amalekite kill Saul?",
+     "views": [
+      {
+       "label": "No: Saul took his own life, and the Amalekite lied",
+       "holders": "Keil and Delitzsch (tr. 1866)",
+       "argument": {
+        "text": "Keil judged the Amalekite's story to be at variance with 1 Samuel 31 and made up in hope of a reward from David.",
+        "layer": "scholars",
+        "cites": [
+         "keil-samuel"
+        ]
+       }
+      },
+      {
+       "label": "He finished what Saul's own sword began",
+       "holders": "Jean Le Clerc (Clericus), as reported by Keil (1866)",
+       "argument": {
+        "text": "Clericus took the Amalekite's “after that he was fallen” to mean after Saul had fallen on his sword, so that both accounts stand.",
+        "layer": "scholars",
+        "refs": [
+         [
+          10001010,
+          10001010
+         ]
+        ],
+        "cites": [
+         "keil-samuel"
+        ]
+       }
+      }
+     ]
+    }
+   ],
+   "notSaid": [
+    "Saul's age when he became king is not given: the number is missing in 1 Samuel 13:1.",
+    "Scripture does not say how many years passed between Saul's anointing and his rejection, or between his rejection and his death.",
+    "Scripture does not name Saul's mother.",
+    "Scripture does not explain how the woman at Endor brought up Samuel; the text simply calls the figure Samuel (1 Samuel 28:12–16).",
+    "Scripture gives no account of Saul's wars with Moab, Edom and the kings of Zobah beyond the list in 1 Samuel 14:47.",
+    "1 Samuel 14:49 does not list Ish-bosheth among Saul's sons; it names Jonathan, Ishui and Melchi-shua."
+   ],
+   "places": [
+    {
+     "name": "Gibeah",
+     "placeId": "ac24f5f",
+     "refs": [
+      [
+       9010026,
+       9010026
+      ],
+      [
+       9015034,
+       9015034
+      ]
+     ],
+     "note": "Saul's home"
+    },
+    {
+     "name": "Ramah",
+     "placeId": "a90f6e1",
+     "refs": [
+      [
+       9008004,
+       9008004
+      ]
+     ],
+     "note": "Samuel's town, where the elders asked for a king"
+    },
+    {
+     "name": "Mizpeh",
+     "placeId": "a736f6c",
+     "refs": [
+      [
+       9010017,
+       9010017
+      ]
+     ],
+     "note": "Chosen by lot"
+    },
+    {
+     "name": "Gilgal",
+     "placeId": "ab94aea",
+     "refs": [
+      [
+       9011015,
+       9011015
+      ],
+      [
+       9013008,
+       9013008
+      ]
+     ],
+     "note": "Made king; the first rebuke"
+    },
+    {
+     "name": "Jabesh-gilead",
+     "placeId": "af92088",
+     "refs": [
+      [
+       9011001,
+       9011001
+      ],
+      [
+       9031011,
+       9031013
+      ]
+     ],
+     "note": "Rescued by Saul; buried him"
+    },
+    {
+     "name": "Bezek",
+     "placeId": "a206291",
+     "refs": [
+      [
+       9011008,
+       9011008
+      ]
+     ],
+     "note": "The muster"
+    },
+    {
+     "name": "Michmash",
+     "placeId": "adea06c",
+     "refs": [
+      [
+       9013002,
+       9013002
+      ],
+      [
+       9014031,
+       9014031
+      ]
+     ],
+     "note": "The Philistine war"
+    },
+    {
+     "name": "Geba",
+     "placeId": "a264254",
+     "refs": [
+      [
+       9013003,
+       9013003
+      ]
+     ],
+     "note": "Jonathan's attack"
+    },
+    {
+     "name": "Aijalon",
+     "placeId": "a1c600b",
+     "refs": [
+      [
+       9014031,
+       9014031
+      ]
+     ],
+     "note": "End of the pursuit"
+    },
+    {
+     "name": "Carmel",
+     "placeId": "a053f15",
+     "refs": [
+      [
+       9015012,
+       9015012
+      ]
+     ],
+     "note": "After Amalek"
+    },
+    {
+     "name": "Valley of Elah",
+     "placeId": "ab183f8",
+     "refs": [
+      [
+       9017002,
+       9017002
+      ]
+     ],
+     "note": "David and Goliath"
+    },
+    {
+     "name": "Nob",
+     "placeId": "afdda14",
+     "refs": [
+      [
+       9022019,
+       9022019
+      ]
+     ],
+     "note": "The priests killed"
+    },
+    {
+     "name": "En-dor",
+     "placeId": "aca444b",
+     "refs": [
+      [
+       9028007,
+       9028007
+      ]
+     ],
+     "note": "The woman with a familiar spirit"
+    },
+    {
+     "name": "Shunem",
+     "placeId": "ac86af5",
+     "refs": [
+      [
+       9028004,
+       9028004
+      ]
+     ],
+     "note": "The Philistine camp"
+    },
+    {
+     "name": "Mount Gilboa",
+     "placeId": "acf57c5",
+     "refs": [
+      [
+       9031001,
+       9031001
+      ]
+     ],
+     "note": "Where he died"
+    },
+    {
+     "name": "Beth-shan",
+     "placeId": "a2a8df0",
+     "refs": [
+      [
+       9031010,
+       9031010
+      ]
+     ],
+     "note": "His body on the wall"
+    },
+    {
+     "name": "Zelah",
+     "placeId": "a597dd0",
+     "refs": [
+      [
+       10021014,
+       10021014
+      ]
+     ],
+     "note": "His bones reburied in Kish's tomb"
+    }
+   ],
+   "passages": [
+    [
+     9008001,
+     9031013
+    ],
+    [
+     10001001,
+     10001027
+    ],
+    [
+     10021001,
+     10021014
+    ],
+    [
+     13008033,
+     13008033
+    ],
+    [
+     13009039,
+     13009039
+    ],
+    [
+     13010001,
+     13010014
+    ],
+    [
+     44013021,
+     44013021
+    ]
+   ]
+  },
+  {
+   "id": "ish-bosheth-2sa-2-8",
+   "name": "Ish-bosheth",
+   "otherNames": [
+    "Esh-baal"
+   ],
+   "kind": "king",
+   "realm": "united",
+   "title": "King over Israel after Saul",
+   "tagline": "Two years over Israel, with Abner beside him.",
+   "order": 2,
+   "predecessor": "saul-1sa-9-2",
+   "successor": "david-rut-4-17",
+   "house": "House of Saul",
+   "tribe": "Benjamin",
+   "capital": {
+    "name": "Mahanaim",
+    "placeId": "ae5bfe9",
+    "refs": [
+     [
+      10002008,
+      10002008
+     ],
+     [
+      10002012,
+      10002012
+     ]
+    ],
+    "note": "East of the Jordan. Abner brought him there to be made king."
+   },
+   "identifications": [
+    {
+     "text": "This page takes Ish-bosheth of 2 Samuel to be the Esh-baal of Chronicles' lists of Saul's sons, as the site's person record does. Keil and Delitzsch (tr. 1866) hold that Esh-baal was his own name, and that “bosheth” (“shame”) later replaced “Baal” in it.",
+     "layer": "scholars",
+     "refs": [
+      [
+       10002008,
+       10002008
+      ],
+      [
+       13008033,
+       13008033
+      ],
+      [
+       13009039,
+       13009039
+      ]
+     ],
+     "cites": [
+      "keil-samuel"
+     ]
+    }
+   ],
+   "records": [
+    {
+     "book": "samuel",
+     "age": {
+      "years": 40,
+      "span": [
+       10002010,
+       10002010
+      ]
+     },
+     "length": {
+      "years": 2,
+      "span": [
+       10002010,
+       10002010
+      ]
+     },
+     "capital": {
+      "name": "Mahanaim",
+      "span": [
+       10002008,
+       10002008
+      ]
+     },
+     "death": {
+      "text": "Two of his own captains, Rechab and Baanah, killed him on his bed at noon and took his head to David at Hebron.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10004005,
+        10004008
+       ]
+      ]
+     },
+     "burial": {
+      "text": "they took the head of Ish-bosheth, and buried it in the sepulchre of Abner in Hebron",
+      "span": [
+       10004012,
+       10004012
+      ]
+     }
+    }
+   ],
+   "reign": {
+    "years": 2,
+    "text": "“reigned two years” (2 Samuel 2:10), while David was king in Hebron over Judah for seven years and six months.",
+    "refs": [
+     [
+      10002010,
+      10002011
+     ]
+    ]
+   },
+   "dates": [
+    {
+     "system": "bible",
+     "label": "Scripture's numbers",
+     "note": "Forty years old when he began to reign; reigned two years (2 Samuel 2:10). David reigned over Judah in Hebron seven years and six months (2 Samuel 2:11)."
+    },
+    {
+     "system": "thiele-mcfall",
+     "label": "McFall (2010), building on Thiele",
+     "from": 1010,
+     "to": 1003,
+     "approx": true,
+     "note": "McFall gives Ish-bosheth's two years as 1010–1008 BC, with Abner the real ruler from 1008, and puts the deaths of both Abner and Ish-bosheth in 1003 BC.",
+     "cites": [
+      "mcfall-2010"
+     ]
+    },
+    {
+     "system": "ussher",
+     "label": "Traditional (Ussher, 1658)",
+     "from": 1055,
+     "to": 1048,
+     "approx": true,
+     "note": "Ussher dates his two quiet years from 1055 BC, then the long war; David became king over all Israel after his murder, in 1048 BC.",
+     "cites": [
+      "ussher-1658"
+     ]
+    },
+    {
+     "system": "other",
+     "label": "Keil and Delitzsch (tr. 1866)",
+     "note": "No BC years. Keil holds that Abner made him king only after recovering the land west of the Jordan, which may have taken five years.",
+     "cites": [
+      "keil-samuel"
+     ]
+    }
+   ],
+   "verdictTone": "none",
+   "verdictNotes": [
+    {
+     "text": "Scripture gives Ish-bosheth no verdict. David, condemning his killers, called him “a righteous person” slain “in his own house upon his bed”.",
+     "layer": "scripture",
+     "refs": [
+      [
+       10004011,
+       10004011
+      ]
+     ]
+    }
+   ],
+   "scriptureSays": [
+    {
+     "text": "Abner, captain of Saul's host, took Ish-bosheth to Mahanaim and made him king over Gilead, the Ashurites, Jezreel, Ephraim and Benjamin, “and over all Israel”. “But the house of Judah followed David.”",
+     "layer": "scripture",
+     "refs": [
+      [
+       10002008,
+       10002010
+      ]
+     ]
+    },
+    {
+     "text": "When Ish-bosheth challenged Abner over Rizpah, Saul's concubine, Abner swore to give the kingdom to David, and Ish-bosheth “could not answer Abner a word again, because he feared him”.",
+     "layer": "scripture",
+     "refs": [
+      [
+       10003007,
+       10003011
+      ]
+     ]
+    },
+    {
+     "text": "At David's demand he took his sister Michal from her husband Phaltiel and sent her back to David.",
+     "layer": "scripture",
+     "refs": [
+      [
+       10003014,
+       10003016
+      ]
+     ]
+    },
+    {
+     "text": "When he heard that Abner was dead, “his hands were feeble, and all the Israelites were troubled”.",
+     "layer": "scripture",
+     "refs": [
+      [
+       10004001,
+       10004001
+      ]
+     ]
+    }
+   ],
+   "accession": [
+    {
+     "text": "After Saul died on Gilboa, Abner brought Ish-bosheth over the Jordan to Mahanaim and made him king. He was forty years old.",
+     "layer": "scripture",
+     "refs": [
+      [
+       10002008,
+       10002010
+      ]
+     ]
+    },
+    {
+     "text": "Scripture records no anointing for him and names no prophet in his reign.",
+     "layer": "text",
+     "refs": [
+      [
+       10002008,
+       10002010
+      ]
+     ]
+    }
+   ],
+   "events": [
+    {
+     "label": "Made king at Mahanaim",
+     "kind": "personal",
+     "claim": {
+      "text": "Abner made him king over the tribes other than Judah.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10002008,
+        10002009
+       ]
+      ]
+     },
+     "year": 1,
+     "placeId": "ae5bfe9"
+    },
+    {
+     "label": "The pool of Gibeon",
+     "kind": "battle",
+     "claim": {
+      "text": "Abner and Ish-bosheth's servants met Joab and David's servants at the pool of Gibeon. Twelve young men from each side killed one another, and Abner was beaten. In the pursuit Abner killed Asahel, Joab's brother.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10002012,
+        10002023
+       ]
+      ]
+     },
+     "placeId": "aede336"
+    },
+    {
+     "label": "The long war",
+     "kind": "battle",
+     "claim": {
+      "text": "“there was long war between the house of Saul and the house of David: but David waxed stronger and stronger, and the house of Saul waxed weaker and weaker.”",
+      "layer": "scripture",
+      "refs": [
+       [
+        10003001,
+        10003001
+       ]
+      ]
+     }
+    },
+    {
+     "label": "Abner turns to David",
+     "kind": "personal",
+     "claim": {
+      "text": "After the quarrel over Rizpah, Abner sent to David, spoke with Israel's elders and with Benjamin, and came to Hebron to make a league.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10003006,
+        10003021
+       ]
+      ]
+     },
+     "placeId": "a85151a"
+    },
+    {
+     "label": "Michal sent back",
+     "kind": "personal",
+     "claim": {
+      "text": "Ish-bosheth returned Michal to David, as David required.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10003013,
+        10003016
+       ]
+      ]
+     }
+    },
+    {
+     "label": "Abner killed",
+     "kind": "other",
+     "claim": {
+      "text": "Joab killed Abner in the gate of Hebron “for the blood of Asahel his brother”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10003027,
+        10003027
+       ]
+      ]
+     },
+     "placeId": "a85151a"
+    },
+    {
+     "label": "Ish-bosheth murdered",
+     "kind": "personal",
+     "claim": {
+      "text": "Rechab and Baanah killed him at noon and carried his head to Hebron.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10004005,
+        10004008
+       ]
+      ]
+     }
+    },
+    {
+     "label": "The killers punished",
+     "kind": "other",
+     "claim": {
+      "text": "David had them put to death and buried Ish-bosheth's head in Abner's tomb at Hebron.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10004009,
+        10004012
+       ]
+      ]
+     },
+     "placeId": "a85151a"
+    }
+   ],
+   "nation": {
+    "worship": [
+     {
+      "text": "Scripture records nothing about worship in his reign.",
+      "layer": "text"
+     }
+    ],
+    "building": [
+     {
+      "text": "Scripture records no building in his reign.",
+      "layer": "text"
+     }
+    ],
+    "alliances": [
+     {
+      "text": "Abner, not the king, made the league with David that ended the reign.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10003012,
+        10003021
+       ]
+      ]
+     }
+    ],
+    "people": [
+     {
+      "text": "Abner told Israel's elders, “Ye sought for David in times past to be king over you”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10003017,
+        10003018
+       ]
+      ]
+     },
+     {
+      "text": "Benjamin, Saul's tribe, was his core: twelve men “of Benjamin, which pertained to Ish-bosheth” fought at Gibeon, and Abner spoke separately “in the ears of Benjamin”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10002015,
+        10002015
+       ],
+       [
+        10003019,
+        10003019
+       ]
+      ]
+     },
+     {
+      "text": "His killers were Benjamites themselves, of Beeroth.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10004002,
+        10004002
+       ]
+      ]
+     }
+    ]
+   },
+   "prophets": [],
+   "worldStage": [
+    {
+     "power": "Judah under David",
+     "rulers": [
+      {
+       "name": "David, king over Judah at Hebron",
+       "personId": "david-rut-4-17"
+      }
+     ],
+     "claim": {
+      "text": "Judah was a separate kingdom for the whole of his reign.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10002010,
+        10002011
+       ]
+      ]
+     }
+    },
+    {
+     "power": "The Philistines",
+     "rulers": [],
+     "claim": {
+      "text": "Scripture does not mention the Philistines during his two years; Abner reminded Israel's elders that the LORD had promised to save Israel from them by David's hand.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10003018,
+        10003018
+       ]
+      ]
+     }
+    }
+   ],
+   "outside": [
+    {
+     "name": "No outside record",
+     "date": "—",
+     "claim": {
+      "text": "None of the sources used for this page cites a record outside the Bible that names Ish-bosheth.",
+      "layer": "text"
+     }
+    }
+   ],
+   "twoAccounts": [
+    {
+     "topic": "His name",
+     "first": {
+      "text": "2 Samuel calls him Ish-bosheth.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10002008,
+        10002008
+       ]
+      ]
+     },
+     "second": {
+      "text": "1 Chronicles calls Saul's fourth son Esh-baal.",
+      "layer": "scripture",
+      "refs": [
+       [
+        13008033,
+        13008033
+       ],
+       [
+        13009039,
+        13009039
+       ]
+      ]
+     }
+    },
+    {
+     "topic": "His reign",
+     "first": {
+      "text": "2 Samuel tells his two years, the war with David's house, Abner's change of side and his murder.",
+      "layer": "text",
+      "refs": [
+       [
+        10002008,
+        10004012
+       ]
+      ]
+     },
+     "second": {
+      "text": "Chronicles does not mention his reign. After Saul's death it moves straight to “all Israel” making David king at Hebron.",
+      "layer": "scripture",
+      "refs": [
+       [
+        13010014,
+        13010014
+       ],
+       [
+        13011001,
+        13011003
+       ]
+      ]
+     }
+    },
+    {
+     "topic": "Saul's sons",
+     "first": {
+      "text": "1 Samuel names Saul's sons as Jonathan, Ishui and Melchi-shua.",
+      "layer": "scripture",
+      "refs": [
+       [
+        9014049,
+        9014049
+       ]
+      ]
+     },
+     "second": {
+      "text": "1 Chronicles names Jonathan, Malchi-shua, Abinadab and Esh-baal.",
+      "layer": "scripture",
+      "refs": [
+       [
+        13008033,
+        13008033
+       ]
+      ]
+     }
+    }
+   ],
+   "questions": [
+    {
+     "id": "ishbosheth-years",
+     "question": "How do his two years fit David's seven and a half in Hebron? (Views in the order they arose.)",
+     "views": [
+      {
+       "label": "Two quiet years, then war",
+       "holders": "James Ussher (1658)",
+       "argument": {
+        "text": "Ussher read the two years as Ish-bosheth's reign before the long war with David's house began.",
+        "layer": "scholars",
+        "cites": [
+         "ussher-1658"
+        ]
+       }
+      },
+      {
+       "label": "Made king some years after Saul's death",
+       "holders": "Keil and Delitzsch (tr. 1866)",
+       "argument": {
+        "text": "Keil held that he reigned until his death and that Abner made him king only after retaking land lost to the Philistines, perhaps five years after Gilboa.",
+        "layer": "scholars",
+        "cites": [
+         "keil-samuel"
+        ]
+       }
+      },
+      {
+       "label": "The numbers are a later addition",
+       "holders": "Julius Wellhausen (tr. 1885)",
+       "argument": {
+        "text": "Wellhausen held that the notes on his age and years break into the story, that he was still young, and that he must have reigned as long as David did in Hebron.",
+        "layer": "scholars",
+        "cites": [
+         "wellhausen-1885"
+        ]
+       }
+      },
+      {
+       "label": "Two years his, the rest Abner's",
+       "holders": "Leslie McFall (2010)",
+       "argument": {
+        "text": "McFall dates his two years to 1010–1008 BC and treats Abner as the real ruler until both died in 1003 BC.",
+        "layer": "scholars",
+        "cites": [
+         "mcfall-2010"
+        ]
+       }
+      }
+     ]
+    }
+   ],
+   "notSaid": [
+    "Scripture does not name Ish-bosheth's mother. (The site's family data lists Ahinoam, Saul's wife, as his mother; no verse says so.)",
+    "Scripture records no anointing, no prophet and no verdict for him.",
+    "Scripture does not say where the rest of his body was buried; only his head is said to have been buried, in Abner's tomb.",
+    "1 Samuel 14:49 does not list him among Saul's sons."
+   ],
+   "places": [
+    {
+     "name": "Mahanaim",
+     "placeId": "ae5bfe9",
+     "refs": [
+      [
+       10002008,
+       10002008
+      ],
+      [
+       10002012,
+       10002012
+      ]
+     ],
+     "note": "Where he was made king"
+    },
+    {
+     "name": "Gilead",
+     "placeId": "ae73b90",
+     "refs": [
+      [
+       10002009,
+       10002009
+      ]
+     ],
+     "note": "First named of his lands"
+    },
+    {
+     "name": "Jezreel",
+     "placeId": "ae0bf4a",
+     "refs": [
+      [
+       10002009,
+       10002009
+      ]
+     ],
+     "note": "One of his lands"
+    },
+    {
+     "name": "Gibeon",
+     "placeId": "aede336",
+     "refs": [
+      [
+       10002012,
+       10002017
+      ]
+     ],
+     "note": "The battle at the pool"
+    },
+    {
+     "name": "Hebron",
+     "placeId": "a85151a",
+     "refs": [
+      [
+       10003027,
+       10003027
+      ],
+      [
+       10004012,
+       10004012
+      ]
+     ],
+     "note": "Abner killed; his head buried"
+    }
+   ],
+   "passages": [
+    [
+     10002008,
+     10004012
+    ],
+    [
+     13008033,
+     13008033
+    ],
+    [
+     13009039,
+     13009039
+    ]
+   ]
+  },
+  {
+   "id": "david-rut-4-17",
+   "name": "David",
+   "kind": "king",
+   "realm": "united",
+   "title": "King of Judah, then of all Israel",
+   "tagline": "Seven years in Hebron, thirty-three in Jerusalem.",
+   "order": 3,
+   "predecessor": "ish-bosheth-2sa-2-8",
+   "successor": "solomon-2sa-5-14",
+   "house": "House of David",
+   "tribe": "Judah",
+   "capital": {
+    "name": "Jerusalem",
+    "placeId": "a15257a",
+    "refs": [
+     [
+      10005005,
+      10005005
+     ],
+     [
+      10005009,
+      10005009
+     ]
+    ],
+    "note": "Hebron for the first seven years and six months, then Jerusalem, “the city of David”."
+   },
+   "identifications": [
+    {
+     "text": "The site's family data lists “Nahash” as one of David's parents. That is STEP Bible's reading of 2 Samuel 17:25, where Abigail, sister of Zeruiah, is called “the daughter of Nahash”; Chronicles calls Zeruiah and Abigail David's sisters. Scripture names Jesse as David's father and does not name his mother. This page does not rely on the Nahash link.",
+     "layer": "text",
+     "refs": [
+      [
+       8004017,
+       8004017
+      ],
+      [
+       10017025,
+       10017025
+      ],
+      [
+       13002013,
+       13002016
+      ]
+     ]
+    }
+   ],
+   "records": [
+    {
+     "book": "samuel",
+     "age": {
+      "years": 30,
+      "span": [
+       10005004,
+       10005004
+      ]
+     },
+     "length": {
+      "years": 40,
+      "span": [
+       10005004,
+       10005004
+      ]
+     },
+     "capital": {
+      "name": "Hebron, then Jerusalem",
+      "span": [
+       10005005,
+       10005005
+      ]
+     }
+    },
+    {
+     "book": "kings",
+     "length": {
+      "years": 40,
+      "span": [
+       11002011,
+       11002011
+      ]
+     },
+     "verdict": {
+      "text": "David did that which was right in the eyes of the LORD, and turned not aside from any thing that he commanded him all the days of his life, save only in the matter of Uriah the Hittite",
+      "span": [
+       11015005,
+       11015005
+      ]
+     },
+     "death": {
+      "text": "He gave Solomon his last charge and “slept with his fathers”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        11002001,
+        11002010
+       ]
+      ]
+     },
+     "burial": {
+      "text": "was buried in the city of David",
+      "span": [
+       11002010,
+       11002010
+      ]
+     }
+    },
+    {
+     "book": "chronicles",
+     "length": {
+      "years": 40,
+      "span": [
+       13029027,
+       13029027
+      ]
+     },
+     "death": {
+      "text": "“he died in a good old age, full of days, riches, and honour”, and Solomon reigned in his place.",
+      "layer": "scripture",
+      "refs": [
+       [
+        13029028,
+        13029028
+       ]
+      ]
+     },
+     "sourcesCited": {
+      "text": "the acts of David the king, first and last, behold, they are written in the book of Samuel the seer, and in the book of Nathan the prophet, and in the book of Gad the seer",
+      "span": [
+       13029029,
+       13029029
+      ]
+     }
+    }
+   ],
+   "reign": {
+    "years": 40,
+    "months": 6,
+    "text": "Forty years: seven years and six months in Hebron over Judah, thirty-three in Jerusalem over all Israel and Judah (2 Samuel 5:4–5). 1 Kings 2:11 and 1 Chronicles 29:27 give the Hebron years as seven.",
+    "refs": [
+     [
+      10005004,
+      10005005
+     ],
+     [
+      11002011,
+      11002011
+     ],
+     [
+      13029027,
+      13029027
+     ]
+    ]
+   },
+   "dates": [
+    {
+     "system": "bible",
+     "label": "Scripture's numbers",
+     "note": "Thirty years old at accession; seven years and six months in Hebron; thirty-three years in Jerusalem (2 Samuel 5:4–5)."
+    },
+    {
+     "system": "thiele-mcfall",
+     "label": "McFall (2010), building on Thiele",
+     "from": 1010,
+     "to": 970,
+     "approx": true,
+     "note": "King of Judah at Hebron 1010 BC; of all Israel 1003 BC; died 970 BC (McFall). Young (2003) puts Solomon's first official year in 972 or 971 BC, overlapping David's last.",
+     "cites": [
+      "mcfall-2010",
+      "young-2003"
+     ]
+    },
+    {
+     "system": "albright",
+     "label": "Counted back from Albright's 922 BC",
+     "to": 962,
+     "approx": true,
+     "note": "Albright dated the division of the kingdom to 922 BC. Scripture's forty years for Solomon then put David's death about 962 BC. Albright's own figure for David's accession was not checked for this page.",
+     "cites": [
+      "albright-1945"
+     ]
+    },
+    {
+     "system": "ussher",
+     "label": "Traditional (Ussher, 1658)",
+     "from": 1055,
+     "to": 1015,
+     "approx": true,
+     "note": "King in Hebron 1055 BC; over all Israel 1048 BC; Jerusalem taken 1047 BC; Solomon made king 1015 BC. Ussher has David live about six months more and die in 1014 BC.",
+     "cites": [
+      "ussher-1658"
+     ]
+    }
+   ],
+   "verdictTone": "right",
+   "verdictNotes": [
+    {
+     "text": "Kings' verdict names its one exception: “save only in the matter of Uriah the Hittite”.",
+     "layer": "scripture",
+     "refs": [
+      [
+       11015005,
+       11015005
+      ]
+     ]
+    },
+    {
+     "text": "Nathan gave him the LORD's sentence for that act: “the sword shall never depart from thine house”. David answered, “I have sinned against the LORD”.",
+     "layer": "scripture",
+     "refs": [
+      [
+       10012009,
+       10012013
+      ]
+     ]
+    },
+    {
+     "text": "After the census he said, “I have sinned greatly in that I have done”.",
+     "layer": "scripture",
+     "refs": [
+      [
+       10024010,
+       10024010
+      ]
+     ]
+    },
+    {
+     "text": "Kings measures later kings by him: Solomon's heart “was not perfect with the LORD his God, as was the heart of David his father”.",
+     "layer": "scripture",
+     "refs": [
+      [
+       11011004,
+       11011004
+      ],
+      [
+       11014008,
+       11014008
+      ]
+     ]
+    },
+    {
+     "text": "Chronicles gives the reason David might not build the temple: “Thou hast shed blood abundantly, and hast made great wars”.",
+     "layer": "scripture",
+     "refs": [
+      [
+       13022008,
+       13022008
+      ],
+      [
+       13028003,
+       13028003
+      ]
+     ]
+    },
+    {
+     "text": "In Acts, Paul quotes God's word about him: “I have found David the son of Jesse, a man after mine own heart”.",
+     "layer": "scripture",
+     "refs": [
+      [
+       44013022,
+       44013022
+      ],
+      [
+       9013014,
+       9013014
+      ]
+     ]
+    }
+   ],
+   "accession": [
+    {
+     "text": "Samuel anointed David, Jesse's youngest son, at Bethlehem “in the midst of his brethren”, while Saul still reigned.",
+     "layer": "scripture",
+     "refs": [
+      [
+       9016001,
+       9016013
+      ]
+     ]
+    },
+    {
+     "text": "After Saul's death David asked the LORD where to go, went up to Hebron, and “the men of Judah came, and there they anointed David king over the house of Judah”.",
+     "layer": "scripture",
+     "refs": [
+      [
+       10002001,
+       10002004
+      ]
+     ]
+    },
+    {
+     "text": "After Abner and Ish-bosheth were dead, the tribes came to Hebron; David “made a league with them”, and “they anointed David king over Israel”.",
+     "layer": "scripture",
+     "refs": [
+      [
+       10005001,
+       10005003
+      ]
+     ]
+    },
+    {
+     "text": "Chronicles tells only this last anointing, “according to the word of the LORD by Samuel”, and lists the armed men of every tribe who came to Hebron “to make David king over all Israel”.",
+     "layer": "scripture",
+     "refs": [
+      [
+       13011001,
+       13011003
+      ],
+      [
+       13012023,
+       13012023
+      ],
+      [
+       13012038,
+       13012038
+      ]
+     ]
+    },
+    {
+     "text": "So 1–2 Samuel record three anointings: by Samuel at Bethlehem, by Judah at Hebron, and by Israel's elders at Hebron.",
+     "layer": "text",
+     "refs": [
+      [
+       9016013,
+       9016013
+      ],
+      [
+       10002004,
+       10002004
+      ],
+      [
+       10005003,
+       10005003
+      ]
+     ]
+    }
+   ],
+   "events": [
+    {
+     "label": "King over Judah at Hebron",
+     "kind": "personal",
+     "claim": {
+      "text": "“there they anointed David king over the house of Judah.”",
+      "layer": "scripture",
+      "refs": [
+       [
+        10002001,
+        10002004
+       ]
+      ]
+     },
+     "year": 1,
+     "placeId": "a85151a"
+    },
+    {
+     "label": "War with the house of Saul",
+     "kind": "battle",
+     "claim": {
+      "text": "Joab beat Abner at the pool of Gibeon, and the long war followed.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10002012,
+        10002017
+       ],
+       [
+        10003001,
+        10003001
+       ]
+      ]
+     },
+     "placeId": "aede336"
+    },
+    {
+     "label": "King over all Israel",
+     "kind": "personal",
+     "claim": {
+      "text": "The elders of Israel anointed him king over Israel at Hebron after seven years and six months there.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10005001,
+        10005005
+       ]
+      ]
+     },
+     "year": 8,
+     "placeId": "a85151a"
+    },
+    {
+     "label": "Jerusalem taken",
+     "kind": "battle",
+     "claim": {
+      "text": "David took “the strong hold of Zion”, lived in the fort, called it “the city of David”, and built round about from Millo.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10005006,
+        10005009
+       ]
+      ]
+     },
+     "placeId": "a15257a"
+    },
+    {
+     "label": "Philistines beaten in the valley of Rephaim",
+     "kind": "battle",
+     "claim": {
+      "text": "Twice the Philistines came up; David beat them at Baal-perazim and then “from Geba until thou come to Gazer”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10005017,
+        10005025
+       ]
+      ]
+     },
+     "placeId": "a6bf059"
+    },
+    {
+     "label": "Hiram's embassy",
+     "kind": "alliance",
+     "claim": {
+      "text": "Hiram king of Tyre sent messengers, cedar trees, carpenters and masons, “and they built David an house”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10005011,
+        10005011
+       ]
+      ]
+     },
+     "placeId": "a160272"
+    },
+    {
+     "label": "Uzzah struck down",
+     "kind": "worship",
+     "claim": {
+      "text": "Bringing the ark from Baale of Judah on a new cart, Uzzah took hold of it and died. The ark stayed three months with Obed-edom.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10006001,
+        10006011
+       ]
+      ]
+     },
+     "placeId": "ae67841"
+    },
+    {
+     "label": "The ark comes to Jerusalem",
+     "kind": "worship",
+     "claim": {
+      "text": "David brought the ark into the city of David with sacrifices, dancing “with all his might”, and set it in the tent he had pitched. Michal despised him.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10006012,
+        10006023
+       ]
+      ]
+     },
+     "placeId": "a15257a"
+    },
+    {
+     "label": "Nathan's promise of a house",
+     "kind": "prophecy",
+     "claim": {
+      "text": "David wanted to build a house for the ark. Through Nathan the LORD said that David's son would build it, and that David's house, kingdom and throne would be “established for ever”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10007001,
+        10007017
+       ]
+      ]
+     }
+    },
+    {
+     "label": "Philistines and Moab subdued",
+     "kind": "battle",
+     "claim": {
+      "text": "David took Metheg-ammah from the Philistines and made Moab his servants, bringing gifts.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10008001,
+        10008002
+       ]
+      ]
+     }
+    },
+    {
+     "label": "Zobah and Damascus",
+     "kind": "battle",
+     "claim": {
+      "text": "David struck Hadadezer of Zobah “as he went to recover his border at the river Euphrates”, killed 22,000 Syrians of Damascus who came to help, and put garrisons in Damascus.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10008003,
+        10008008
+       ]
+      ]
+     },
+     "placeId": "a4aa78a"
+    },
+    {
+     "label": "Toi of Hamath sends gifts",
+     "kind": "alliance",
+     "claim": {
+      "text": "Toi, Hadadezer's enemy, sent his son Joram with vessels of silver, gold and brass, which David dedicated to the LORD.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10008009,
+        10008012
+       ]
+      ]
+     },
+     "placeId": "ac62cbc"
+    },
+    {
+     "label": "Garrisons in Edom",
+     "kind": "battle",
+     "claim": {
+      "text": "“all they of Edom became David's servants.”",
+      "layer": "scripture",
+      "refs": [
+       [
+        10008013,
+        10008014
+       ]
+      ]
+     },
+     "placeId": "a2735ff"
+    },
+    {
+     "label": "Kindness to Mephibosheth",
+     "kind": "personal",
+     "claim": {
+      "text": "For Jonathan's sake David restored Saul's land to Jonathan's lame son and had him eat at the king's table.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10009001,
+        10009013
+       ]
+      ]
+     }
+    },
+    {
+     "label": "Ammon and the Syrians",
+     "kind": "battle",
+     "claim": {
+      "text": "Hanun of Ammon shamed David's messengers and hired Syrians. Joab and Abishai beat both, and David beat Hadarezer's Syrians at Helam.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10010001,
+        10010019
+       ]
+      ]
+     },
+     "placeId": "aeb09c0"
+    },
+    {
+     "label": "Bathsheba and Uriah",
+     "kind": "personal",
+     "claim": {
+      "text": "While Joab besieged Rabbah, David lay with Bathsheba, Uriah's wife, then had Uriah put “in the forefront of the hottest battle”, where he was killed. “But the thing that David had done displeased the LORD.”",
+      "layer": "scripture",
+      "refs": [
+       [
+        10011001,
+        10011027
+       ]
+      ]
+     }
+    },
+    {
+     "label": "“Thou art the man”",
+     "kind": "prophecy",
+     "claim": {
+      "text": "Nathan's parable of the ewe lamb, the LORD's sentence, and David's confession. The child died.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10012001,
+        10012023
+       ]
+      ]
+     }
+    },
+    {
+     "label": "Solomon born",
+     "kind": "personal",
+     "claim": {
+      "text": "Bathsheba bore Solomon; “the LORD loved him”, and Nathan named him Jedidiah.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10012024,
+        10012025
+       ]
+      ]
+     }
+    },
+    {
+     "label": "Rabbah taken",
+     "kind": "battle",
+     "claim": {
+      "text": "David took Rabbah, the royal city of Ammon, and the crown of its king.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10012026,
+        10012031
+       ]
+      ]
+     },
+     "placeId": "ae067b5"
+    },
+    {
+     "label": "Amnon, Tamar and Absalom",
+     "kind": "personal",
+     "claim": {
+      "text": "Amnon forced his half-sister Tamar. Two years later Absalom had him killed and fled to Geshur for three years.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10013001,
+        10013039
+       ]
+      ]
+     },
+     "placeId": "af6c325"
+    },
+    {
+     "label": "Absalom's revolt",
+     "kind": "battle",
+     "claim": {
+      "text": "Absalom “stole the hearts of the men of Israel”, had himself proclaimed king in Hebron, and drew Ahithophel to his side.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10015001,
+        10015012
+       ]
+      ]
+     },
+     "placeId": "a85151a"
+    },
+    {
+     "label": "Flight over the mount of Olives",
+     "kind": "personal",
+     "claim": {
+      "text": "David left Jerusalem and went up the ascent of the mount of Olives weeping, barefoot. At Bahurim Shimei cursed him.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10015013,
+        10015030
+       ],
+       [
+        10016005,
+        10016013
+       ]
+      ]
+     },
+     "placeId": "ac2c4c5"
+    },
+    {
+     "label": "The wood of Ephraim",
+     "kind": "battle",
+     "claim": {
+      "text": "David's men beat Israel in the wood of Ephraim. Absalom was caught by his head in an oak, and Joab killed him. David wept: “O my son Absalom”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10018006,
+        10018015
+       ],
+       [
+        10018033,
+        10018033
+       ]
+      ]
+     }
+    },
+    {
+     "label": "Return, and Judah and Israel quarrel",
+     "kind": "other",
+     "claim": {
+      "text": "Judah brought the king back over the Jordan; the men of Israel complained that Judah had “stolen thee away”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10019009,
+        10019015
+       ],
+       [
+        10019041,
+        10019043
+       ]
+      ]
+     }
+    },
+    {
+     "label": "Sheba son of Bichri",
+     "kind": "battle",
+     "claim": {
+      "text": "Sheba blew a trumpet: “We have no part in David”. Israel followed him; Judah stayed with David. Joab killed Amasa, besieged Sheba in Abel of Beth-maachah, and the city threw Sheba's head over the wall.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10020001,
+        10020022
+       ]
+      ]
+     },
+     "placeId": "abffcaa"
+    },
+    {
+     "label": "Famine and the Gibeonites",
+     "kind": "other",
+     "claim": {
+      "text": "Three years of famine were laid to Saul's killing of Gibeonites. David handed seven of Saul's descendants to the Gibeonites, spared Mephibosheth, and buried Saul's and Jonathan's bones in Kish's tomb.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10021001,
+        10021014
+       ]
+      ]
+     }
+    },
+    {
+     "label": "Philistine giants",
+     "kind": "battle",
+     "claim": {
+      "text": "In four battles David's men killed four men “born to the giant in Gath”. David “waxed faint”, and his men swore he would go out to battle no more.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10021015,
+        10021022
+       ]
+      ]
+     }
+    },
+    {
+     "label": "The song and last words",
+     "kind": "worship",
+     "claim": {
+      "text": "David's song of deliverance, and the “last words” of “the sweet psalmist of Israel”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10022001,
+        10022001
+       ],
+       [
+        10023001,
+        10023007
+       ]
+      ]
+     }
+    },
+    {
+     "label": "The census",
+     "kind": "other",
+     "claim": {
+      "text": "David had Joab number Israel and Judah; it took nine months and twenty days.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10024001,
+        10024009
+       ]
+      ]
+     }
+    },
+    {
+     "label": "The plague",
+     "kind": "other",
+     "claim": {
+      "text": "Offered famine, flight or pestilence, David chose to fall “into the hand of the LORD”. Seventy thousand died, and the angel stopped by the threshingfloor of Araunah.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10024010,
+        10024017
+       ]
+      ]
+     }
+    },
+    {
+     "label": "Altar on Araunah's threshingfloor",
+     "kind": "worship",
+     "claim": {
+      "text": "At Gad's word David bought the threshingfloor and built an altar, “and the plague was stayed from Israel”. Chronicles adds that David said, “This is the house of the LORD God”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10024018,
+        10024025
+       ],
+       [
+        13022001,
+        13022001
+       ]
+      ]
+     },
+     "placeId": "a15257a"
+    },
+    {
+     "label": "Preparing for the temple",
+     "kind": "building",
+     "claim": {
+      "text": "Chronicles alone tells how David gathered gold, silver, brass, iron, timber and stone, ordered the Levites, priests, singers and gatekeepers, and gave Solomon the pattern of the house.",
+      "layer": "scripture",
+      "refs": [
+       [
+        13022002,
+        13022019
+       ],
+       [
+        13023001,
+        13026032
+       ],
+       [
+        13028011,
+        13028019
+       ]
+      ]
+     }
+    },
+    {
+     "label": "Adonijah's bid; Solomon anointed",
+     "kind": "personal",
+     "claim": {
+      "text": "When David was old, Adonijah declared himself king. At Nathan's and Bathsheba's urging David had Solomon anointed at Gihon.",
+      "layer": "scripture",
+      "refs": [
+       [
+        11001005,
+        11001040
+       ]
+      ]
+     },
+     "placeId": "a2a303c"
+    },
+    {
+     "label": "Charge and death",
+     "kind": "personal",
+     "claim": {
+      "text": "David charged Solomon to keep the LORD's ways, and died.",
+      "layer": "scripture",
+      "refs": [
+       [
+        11002001,
+        11002010
+       ]
+      ]
+     },
+     "year": 40
+    }
+   ],
+   "nation": {
+    "worship": [
+     {
+      "text": "David brought the ark to Jerusalem and set it in a tent he had pitched.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10006017,
+        10006017
+       ]
+      ]
+     },
+     {
+      "text": "Zadok and Ahimelech son of Abiathar were the priests.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10008017,
+        10008017
+       ]
+      ]
+     },
+     {
+      "text": "Chronicles describes the Levites' music before the ark and their courses, set up by David; a later king followed “the commandment of David, and of Gad the king's seer, and Nathan the prophet”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        13015016,
+        13015016
+       ],
+       [
+        13016004,
+        13016007
+       ],
+       [
+        13023001,
+        13026032
+       ],
+       [
+        14029025,
+        14029025
+       ]
+      ]
+     },
+     {
+      "text": "He built an altar on Araunah's threshingfloor; Chronicles says the LORD answered “from heaven by fire”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10024025,
+        10024025
+       ],
+       [
+        13021026,
+        13021026
+       ]
+      ]
+     },
+     {
+      "text": "Scripture calls him “the sweet psalmist of Israel”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10023001,
+        10023001
+       ]
+      ]
+     }
+    ],
+    "building": [
+     {
+      "text": "He built “round about from Millo and inward” in the city of David.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10005009,
+        10005009
+       ]
+      ]
+     },
+     {
+      "text": "Hiram's carpenters and masons built his house of cedar.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10005011,
+        10005011
+       ],
+       [
+        10007002,
+        10007002
+       ]
+      ]
+     },
+     {
+      "text": "He was not allowed to build the temple; his son would build it.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10007005,
+        10007005
+       ],
+       [
+        10007012,
+        10007013
+       ],
+       [
+        13022007,
+        13022010
+       ]
+      ]
+     },
+     {
+      "text": "Chronicles counts his stores for it: “an hundred thousand talents of gold, and a thousand thousand talents of silver”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        13022014,
+        13022014
+       ]
+      ]
+     }
+    ],
+    "alliances": [
+     {
+      "text": "Hiram of Tyre, who “was ever a lover of David”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10005011,
+        10005011
+       ],
+       [
+        11005001,
+        11005001
+       ]
+      ]
+     },
+     {
+      "text": "Toi of Hamath sent gifts after David beat Hadadezer.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10008009,
+        10008010
+       ]
+      ]
+     },
+     {
+      "text": "Nahash of Ammon had shown him kindness.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10010002,
+        10010002
+       ]
+      ]
+     },
+     {
+      "text": "He married Maacah, daughter of Talmai king of Geshur, Absalom's mother.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10003003,
+        10003003
+       ]
+      ]
+     },
+     {
+      "text": "Before he reigned he had served Achish of Gath, who gave him Ziklag.",
+      "layer": "scripture",
+      "refs": [
+       [
+        9027002,
+        9027007
+       ]
+      ]
+     },
+     {
+      "text": "Peoples paid him tribute: Moab, Syria of Damascus, Edom.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10008002,
+        10008002
+       ],
+       [
+        10008006,
+        10008006
+       ],
+       [
+        10008014,
+        10008014
+       ]
+      ]
+     }
+    ],
+    "people": [
+     {
+      "text": "“David executed judgment and justice unto all his people.”",
+      "layer": "scripture",
+      "refs": [
+       [
+        10008015,
+        10008015
+       ]
+      ]
+     },
+     {
+      "text": "His officers: Joab over the host, Jehoshaphat recorder, Seraiah scribe (Sheva in the later list), Benaiah over the Cherethites and Pelethites, Adoram over the tribute.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10008016,
+        10008018
+       ],
+       [
+        10020023,
+        10020026
+       ]
+      ]
+     },
+     {
+      "text": "The census counted 800,000 men of Israel and 500,000 of Judah.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10024009,
+        10024009
+       ]
+      ]
+     },
+     {
+      "text": "Judah and Israel were rivals within his kingdom: “We have ten parts in the king”, said Israel; Sheba's cry “We have no part in David” returned word for word at the division.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10019043,
+        10019043
+       ],
+       [
+        10020001,
+        10020001
+       ],
+       [
+        11012016,
+        11012016
+       ]
+      ]
+     }
+    ]
+   },
+   "prophets": [
+    {
+     "person": {
+      "name": "Samuel",
+      "personId": "samuel-1sa-1-20"
+     },
+     "claim": {
+      "text": "Samuel anointed David at Bethlehem and sheltered him at Naioth in Ramah when he fled from Saul.",
+      "layer": "scripture",
+      "refs": [
+       [
+        9016001,
+        9016013
+       ],
+       [
+        9019018,
+        9019018
+       ]
+      ]
+     },
+     "quote": {
+      "text": "man looketh on the outward appearance, but the LORD looketh on the heart",
+      "span": [
+       9016007,
+       9016007
+      ]
+     }
+    },
+    {
+     "person": {
+      "name": "Gad",
+      "personId": "gad-1sa-22-5"
+     },
+     "claim": {
+      "text": "Gad, “David's seer”, told him to leave the hold for Judah, brought the LORD's three choices after the census, and told him to build the altar on Araunah's threshingfloor. Chronicles names his book as a source.",
+      "layer": "scripture",
+      "refs": [
+       [
+        9022005,
+        9022005
+       ],
+       [
+        10024011,
+        10024019
+       ],
+       [
+        13029029,
+        13029029
+       ]
+      ]
+     },
+     "quote": {
+      "text": "Shall seven years of famine come unto thee in thy land",
+      "span": [
+       10024013,
+       10024013
+      ]
+     }
+    },
+    {
+     "person": {
+      "name": "Nathan",
+      "personId": "nathan-2sa-7-2"
+     },
+     "claim": {
+      "text": "Nathan brought the promise of David's house, confronted him over Uriah, named Solomon Jedidiah, and with Bathsheba secured Solomon's anointing. Chronicles names his book as a source.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10007001,
+        10007017
+       ],
+       [
+        10012001,
+        10012025
+       ],
+       [
+        11001011,
+        11001040
+       ],
+       [
+        13029029,
+        13029029
+       ]
+      ]
+     },
+     "quote": {
+      "text": "Thou art the man",
+      "span": [
+       10012007,
+       10012007
+      ]
+     }
+    }
+   ],
+   "worldStage": [
+    {
+     "power": "The Philistines",
+     "rulers": [
+      {
+       "name": "Achish, king of Gath",
+       "personId": "achish-1sa-21-10"
+      }
+     ],
+     "claim": {
+      "text": "David served Achish before he reigned, then beat the Philistines in the valley of Rephaim and took Metheg-ammah; late in his reign came the wars with the giants of Gath.",
+      "layer": "scripture",
+      "refs": [
+       [
+        9027002,
+        9027007
+       ],
+       [
+        10005017,
+        10005025
+       ],
+       [
+        10008001,
+        10008001
+       ],
+       [
+        10021015,
+        10021022
+       ]
+      ]
+     }
+    },
+    {
+     "power": "Aram (Zobah and Damascus)",
+     "rulers": [
+      {
+       "name": "Hadadezer, king of Zobah",
+       "personId": "hadadezer-2sa-8-3"
+      },
+      {
+       "name": "Shobach, his captain",
+       "personId": "shobach-2sa-10-16"
+      },
+      {
+       "name": "Rezon",
+       "personId": "rezon-1ki-11-23",
+       "note": "Fled from Hadadezer and later reigned in Damascus (1 Kgs 11:23–24)."
+      }
+     ],
+     "claim": {
+      "text": "David beat Hadadezer and the Syrians of Damascus, put garrisons in Damascus, and beat them again at Helam.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10008003,
+        10008008
+       ],
+       [
+        10010015,
+        10010019
+       ]
+      ]
+     }
+    },
+    {
+     "power": "Hamath",
+     "rulers": [
+      {
+       "name": "Toi",
+       "personId": "toi-2sa-8-9"
+      }
+     ],
+     "claim": {
+      "text": "Toi greeted David's victory over Hadadezer with gifts.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10008009,
+        10008010
+       ]
+      ]
+     }
+    },
+    {
+     "power": "Ammon",
+     "rulers": [
+      {
+       "name": "Nahash",
+       "personId": "nahash-2sa-10-2"
+      },
+      {
+       "name": "Hanun",
+       "personId": "hanun-2sa-10-1"
+      }
+     ],
+     "claim": {
+      "text": "Friendly under Nahash; at war under his son Hanun until Rabbah fell. In Absalom's revolt Shobi son of Nahash brought David supplies.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10010001,
+        10010005
+       ],
+       [
+        10012026,
+        10012031
+       ],
+       [
+        10017027,
+        10017027
+       ]
+      ]
+     }
+    },
+    {
+     "power": "Moab and Edom",
+     "rulers": [],
+     "claim": {
+      "text": "Both became David's servants. Kings adds that Joab spent six months in Edom “until he had cut off every male”, and that the young prince Hadad fled to Egypt.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10008002,
+        10008002
+       ],
+       [
+        10008014,
+        10008014
+       ],
+       [
+        11011015,
+        11011017
+       ]
+      ]
+     }
+    },
+    {
+     "power": "Tyre",
+     "rulers": [
+      {
+       "name": "Hiram",
+       "personId": "hiram-2sa-5-11"
+      }
+     ],
+     "claim": {
+      "text": "Hiram supplied cedar and craftsmen for David's house.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10005011,
+        10005011
+       ]
+      ]
+     }
+    },
+    {
+     "power": "Geshur",
+     "rulers": [
+      {
+       "name": "Talmai",
+       "personId": "talmai-2sa-3-3"
+      }
+     ],
+     "claim": {
+      "text": "David's father-in-law; Absalom fled to him after killing Amnon.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10003003,
+        10003003
+       ],
+       [
+        10013037,
+        10013038
+       ]
+      ]
+     }
+    },
+    {
+     "power": "Amalek",
+     "rulers": [],
+     "claim": {
+      "text": "Before he reigned David recovered everything the Amalekites took from Ziklag; their spoil is among the gifts he dedicated.",
+      "layer": "scripture",
+      "refs": [
+       [
+        9030001,
+        9030020
+       ],
+       [
+        10008012,
+        10008012
+       ]
+      ]
+     }
+    }
+   ],
+   "outside": [
+    {
+     "name": "Tel Dan stele",
+     "date": "about 840 BC; found 1993",
+     "claim": {
+      "text": "An Aramaic victory stele found at Tel Dan has a king of Aram speak of the “king of Israel” and of “bytdwd”, which its editors Biran and Naveh read as “house of David”, a name for Judah's royal line. It was written more than a century after David and does not describe him.",
+      "layer": "ancient-record",
+      "cites": [
+       "biran-naveh-1993"
+      ]
+     }
+    },
+    {
+     "name": "Nicolaus of Damascus, quoted by Josephus (Antiquities 7.5.2)",
+     "date": "first century BC; quoted about AD 93",
+     "claim": {
+      "text": "Josephus quotes Nicolaus of Damascus as writing that a king of Damascus named Hadad “made war against David, the king of Judea”, and was beaten “in the last battle at Euphrates”. Nicolaus wrote about nine centuries after David, and his source is not known.",
+      "layer": "ancient-record",
+      "cites": [
+       "josephus-antiquities"
+      ]
+     }
+    },
+    {
+     "name": "Nothing from his lifetime",
+     "date": "—",
+     "claim": {
+      "text": "None of the sources used for this page cites an inscription from David's own lifetime that names him. The Tel Dan stele, above, is more than a century later.",
+      "layer": "text"
+     }
+    }
+   ],
+   "twoAccounts": [
+    {
+     "topic": "Who moved David to number the people",
+     "first": {
+      "text": "2 Samuel: “the anger of the LORD was kindled against Israel, and he moved David against them”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10024001,
+        10024001
+       ]
+      ]
+     },
+     "second": {
+      "text": "1 Chronicles: “Satan stood up against Israel, and provoked David to number Israel”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        13021001,
+        13021001
+       ]
+      ]
+     }
+    },
+    {
+     "topic": "The census totals",
+     "first": {
+      "text": "2 Samuel: 800,000 men of Israel and 500,000 of Judah.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10024009,
+        10024009
+       ]
+      ]
+     },
+     "second": {
+      "text": "1 Chronicles: 1,100,000 of Israel and 470,000 of Judah.",
+      "layer": "scripture",
+      "refs": [
+       [
+        13021005,
+        13021005
+       ]
+      ]
+     }
+    },
+    {
+     "topic": "The years of famine offered",
+     "first": {
+      "text": "2 Samuel: “seven years of famine”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10024013,
+        10024013
+       ]
+      ]
+     },
+     "second": {
+      "text": "1 Chronicles: “three years' famine”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        13021012,
+        13021012
+       ]
+      ]
+     }
+    },
+    {
+     "topic": "The price of the threshingfloor, and its owner",
+     "first": {
+      "text": "2 Samuel: Araunah's threshingfloor and oxen for “fifty shekels of silver”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10024024,
+        10024024
+       ]
+      ]
+     },
+     "second": {
+      "text": "1 Chronicles: Ornan's place for “six hundred shekels of gold by weight”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        13021025,
+        13021025
+       ]
+      ]
+     }
+    },
+    {
+     "topic": "Who killed Goliath's brother",
+     "first": {
+      "text": "2 Samuel: Elhanan son of Jaare-oregim “slew the brother of Goliath the Gittite”. In the KJV “the brother of” is printed as supplied words; the Hebrew reads that Elhanan slew Goliath.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10021019,
+        10021019
+       ]
+      ]
+     },
+     "second": {
+      "text": "1 Chronicles: “Elhanan the son of Jair slew Lahmi the brother of Goliath the Gittite”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        13020005,
+        13020005
+       ]
+      ]
+     }
+    },
+    {
+     "topic": "Horsemen taken from Hadadezer",
+     "first": {
+      "text": "2 Samuel: “a thousand chariots, and seven hundred horsemen”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10008004,
+        10008004
+       ]
+      ]
+     },
+     "second": {
+      "text": "1 Chronicles: “a thousand chariots, and seven thousand horsemen”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        13018004,
+        13018004
+       ]
+      ]
+     }
+    },
+    {
+     "topic": "The Syrians killed at the end of the Ammonite war",
+     "first": {
+      "text": "2 Samuel: “the men of seven hundred chariots of the Syrians, and forty thousand horsemen”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10010018,
+        10010018
+       ]
+      ]
+     },
+     "second": {
+      "text": "1 Chronicles: “seven thousand men which fought in chariots, and forty thousand footmen”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        13019018,
+        13019018
+       ]
+      ]
+     }
+    },
+    {
+     "topic": "The valley of salt",
+     "first": {
+      "text": "2 Samuel: David struck “the Syrians in the valley of salt, being eighteen thousand men”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10008013,
+        10008013
+       ]
+      ]
+     },
+     "second": {
+      "text": "1 Chronicles: “Abishai the son of Zeruiah slew of the Edomites in the valley of salt eighteen thousand”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        13018012,
+        13018012
+       ]
+      ]
+     }
+    },
+    {
+     "topic": "The first Philistine conquest",
+     "first": {
+      "text": "2 Samuel: David “took Metheg-ammah out of the hand of the Philistines”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10008001,
+        10008001
+       ]
+      ]
+     },
+     "second": {
+      "text": "1 Chronicles: he “took Gath and her towns out of the hand of the Philistines”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        13018001,
+        13018001
+       ]
+      ]
+     }
+    },
+    {
+     "topic": "Where Uzzah died",
+     "first": {
+      "text": "2 Samuel: at “Nachon's threshingfloor”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10006006,
+        10006006
+       ]
+      ]
+     },
+     "second": {
+      "text": "1 Chronicles: at “the threshingfloor of Chidon”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        13013009,
+        13013009
+       ]
+      ]
+     }
+    },
+    {
+     "topic": "The chief of the mighty men",
+     "first": {
+      "text": "2 Samuel: “Adino the Eznite”, who lifted his spear “against eight hundred, whom he slew at one time”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10023008,
+        10023008
+       ]
+      ]
+     },
+     "second": {
+      "text": "1 Chronicles: “Jashobeam, an Hachmonite”, who lifted his spear “against three hundred slain by him at one time”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        13011011,
+        13011011
+       ]
+      ]
+     }
+    },
+    {
+     "topic": "The years in Hebron",
+     "first": {
+      "text": "2 Samuel: “seven years and six months”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10005005,
+        10005005
+       ]
+      ]
+     },
+     "second": {
+      "text": "1 Kings and 1 Chronicles: “seven years”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        11002011,
+        11002011
+       ],
+       [
+        13029027,
+        13029027
+       ]
+      ]
+     }
+    },
+    {
+     "topic": "What Chronicles leaves out",
+     "first": {
+      "text": "2 Samuel tells of the war with Saul's house while David was in Hebron, his kindness to Mephibosheth, Bathsheba and Uriah, Nathan's rebuke, Amnon and Tamar, Absalom's revolt, Sheba's rising and the hanging of Saul's descendants.",
+      "layer": "text",
+      "refs": [
+       [
+        10002008,
+        10004012
+       ],
+       [
+        10009001,
+        10009013
+       ],
+       [
+        10011001,
+        10021014
+       ]
+      ]
+     },
+     "second": {
+      "text": "1 Chronicles says that “David tarried at Jerusalem” while Joab besieged Rabbah, then tells the city's fall, and moves on to the Philistine wars. None of those stories is told; for the Hebron years it gives only the length, “seven years and six months”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        13003004,
+        13003004
+       ],
+       [
+        13020001,
+        13020004
+       ]
+      ]
+     }
+    },
+    {
+     "topic": "How Solomon became king",
+     "first": {
+      "text": "1 Kings: Adonijah declared himself king; Nathan and Bathsheba went to David; Zadok and Nathan anointed Solomon at Gihon.",
+      "layer": "scripture",
+      "refs": [
+       [
+        11001005,
+        11001040
+       ]
+      ]
+     },
+     "second": {
+      "text": "1 Chronicles: David “made Solomon his son king over Israel”, and later “they made Solomon the son of David king the second time”, with all David's sons submitting. Adonijah is not mentioned.",
+      "layer": "scripture",
+      "refs": [
+       [
+        13023001,
+        13023001
+       ],
+       [
+        13029022,
+        13029024
+       ]
+      ]
+     }
+    }
+   ],
+   "questions": [
+    {
+     "id": "david-goliath",
+     "question": "Who killed Goliath: David or Elhanan? (Views as Keil reports them, 1866.)",
+     "views": [
+      {
+       "label": "Chronicles keeps the original reading",
+       "holders": "Piscator, Clericus, Michaelis, Movers and Thenius, and Keil himself (tr. 1866)",
+       "argument": {
+        "text": "The two verses differ by a few Hebrew letters. Keil held that 2 Samuel was miscopied from a text like Chronicles', so Elhanan killed Goliath's brother Lahmi; David killed Goliath.",
+        "layer": "scholars",
+        "refs": [
+         [
+          10021019,
+          10021019
+         ],
+         [
+          13020005,
+          13020005
+         ],
+         [
+          9017049,
+          9017051
+         ]
+        ],
+        "cites": [
+         "keil-samuel"
+        ]
+       }
+      },
+      {
+       "label": "Samuel keeps the original reading",
+       "holders": "Bertheau and Böttcher, as reported by Keil (1866)",
+       "argument": {
+        "text": "They held that Chronicles altered a reading that said Elhanan killed a giant named Goliath, out of offence at the clash with 1 Samuel 17.",
+        "layer": "scholars",
+        "cites": [
+         "keil-samuel"
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "id": "david-census",
+     "question": "Who moved David to take the census?",
+     "views": [
+      {
+       "label": "Both: the LORD moved David, through Satan as tempter",
+       "holders": "Keil and Delitzsch (tr. 1866)",
+       "argument": {
+        "text": "Keil takes the LORD as the one who moved David, in anger at Israel's guilt, which he finds in the revolts of Absalom and Sheba; Chronicles names Satan as the tempter through whom the LORD led David to number the people.",
+        "layer": "scholars",
+        "cites": [
+         "keil-samuel"
+        ]
+       }
+      },
+      {
+       "label": "Chronicles rewrote the story",
+       "holders": "Julius Wellhausen (tr. 1885)",
+       "argument": {
+        "text": "Wellhausen treated 1 Chronicles 21 as a copy of 2 Samuel 24 with “improving touches”, of which Satan in place of the LORD's anger is one.",
+        "layer": "scholars",
+        "cites": [
+         "wellhausen-1885"
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "id": "david-absalom-forty",
+     "question": "Absalom's revolt came “after forty years” (2 Samuel 15:7). Forty years from what?",
+     "views": [
+      {
+       "label": "Read “four years”",
+       "holders": "Josephus, Antiquities 7.9.1; Whiston (1737), note 16",
+       "argument": {
+        "text": "Josephus gives “four years” after Absalom's reconciliation with his father. Whiston's note calls this one of the best corrections Josephus offers, and cites the copy of the Greek used by the Armenian translation.",
+        "layer": "scholars",
+        "cites": [
+         "josephus-antiquities"
+        ]
+       }
+      },
+      {
+       "label": "Forty years from Samuel's anointing of David",
+       "holders": "Ussher (1658); McFall (2010)",
+       "argument": {
+        "text": "Ussher dated the revolt forty years after Samuel anointed David. McFall argues the same way, noting that the Hebrew and nearly all Greek manuscripts read forty.",
+        "layer": "scholars",
+        "refs": [
+         [
+          10015007,
+          10015007
+         ]
+        ],
+        "cites": [
+         "ussher-1658",
+         "mcfall-2010"
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "id": "david-hiram",
+     "question": "When did Hiram of Tyre build David's house?",
+     "views": [
+      {
+       "label": "A different, earlier Hiram",
+       "holders": "Thenius and Ewald, as reported by Keil (1866)",
+       "argument": {
+        "text": "Josephus's Tyrian figures seem to start Hiram's reign late in David's life, so Thenius suggested that Hiram's father Abibal is meant in David's story, and Ewald that Abibal's own father was also called Hiram.",
+        "layer": "scholars",
+        "cites": [
+         "keil-samuel",
+         "josephus-apion"
+        ]
+       }
+      },
+      {
+       "label": "Samuel's order is by topic, not date",
+       "holders": "Movers, as reported by Keil (1866)",
+       "argument": {
+        "text": "2 Samuel 5 groups the building of Jerusalem with its capture, so Hiram's help may come years later.",
+        "layer": "scholars",
+        "refs": [
+         [
+          10005011,
+          10005011
+         ]
+        ],
+        "cites": [
+         "keil-samuel"
+        ]
+       }
+      },
+      {
+       "label": "Josephus's dating is his own calculation",
+       "holders": "Keil and Delitzsch (tr. 1866)",
+       "argument": {
+        "text": "Keil notes that Scripture makes the same Hiram a friend of both kings, and argues that the temple-in-Hiram's-twelfth-year figure is Josephus's own reckoning, not Menander's, so Hiram may have reigned longer.",
+        "layer": "scholars",
+        "refs": [
+         [
+          11005001,
+          11005001
+         ]
+        ],
+        "cites": [
+         "keil-samuel"
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "id": "david-teldan",
+     "question": "Does the Tel Dan stele name the house of David?",
+     "views": [
+      {
+       "label": "Yes: “house of David”, the dynasty of Judah",
+       "holders": "Biran and Naveh (1993)",
+       "argument": {
+        "text": "The excavators read the word as “house of David”, a name for the kingdom of Judah by its founding king.",
+        "layer": "scholars",
+        "cites": [
+         "biran-naveh-1993"
+        ]
+       }
+      },
+      {
+       "label": "Not proven",
+       "holders": "Philip R. Davies (1994)",
+       "argument": {
+        "text": "Davies questioned whether the stele mentions David at all, holding that such readings should be tested before they are treated as fact.",
+        "layer": "scholars",
+        "cites": [
+         "davies-1994"
+        ]
+       }
+      }
+     ]
+    }
+   ],
+   "notSaid": [
+    "Scripture does not name David's mother.",
+    "Scripture does not give his age at his first anointing or when he fought Goliath.",
+    "Apart from his first year in Hebron, his move to all Israel after seven and a half years, and his death in his fortieth year, Scripture does not say in which year of his reign most events happened.",
+    "Scripture does not say how long Absalom's revolt lasted.",
+    "No outside record from David's own lifetime names him."
+   ],
+   "places": [
+    {
+     "name": "Bethlehem",
+     "placeId": "a112427",
+     "refs": [
+      [
+       9016004,
+       9016004
+      ]
+     ],
+     "note": "Anointed by Samuel"
+    },
+    {
+     "name": "Adullam",
+     "placeId": "af82614",
+     "refs": [
+      [
+       9022001,
+       9022001
+      ]
+     ],
+     "note": "Refuge from Saul"
+    },
+    {
+     "name": "Ziklag",
+     "placeId": "a0ed7ff",
+     "refs": [
+      [
+       9027006,
+       9027006
+      ]
+     ],
+     "note": "Given him by Achish"
+    },
+    {
+     "name": "Hebron",
+     "placeId": "a85151a",
+     "refs": [
+      [
+       10002001,
+       10002004
+      ],
+      [
+       10005003,
+       10005003
+      ]
+     ],
+     "note": "King of Judah, then of Israel"
+    },
+    {
+     "name": "Jerusalem",
+     "placeId": "a15257a",
+     "refs": [
+      [
+       10005006,
+       10005009
+      ]
+     ],
+     "note": "His capital"
+    },
+    {
+     "name": "Zion",
+     "placeId": "af20c46",
+     "refs": [
+      [
+       10005007,
+       10005007
+      ]
+     ],
+     "note": "“the city of David”"
+    },
+    {
+     "name": "Baal-perazim",
+     "placeId": "a6bf059",
+     "refs": [
+      [
+       10005020,
+       10005020
+      ]
+     ],
+     "note": "Philistines beaten"
+    },
+    {
+     "name": "Baale of Judah",
+     "placeId": "a66f19c",
+     "refs": [
+      [
+       10006002,
+       10006002
+      ]
+     ],
+     "note": "Where the ark was fetched from"
+    },
+    {
+     "name": "Perez-uzzah",
+     "placeId": "ae67841",
+     "refs": [
+      [
+       10006008,
+       10006008
+      ]
+     ],
+     "note": "Uzzah died"
+    },
+    {
+     "name": "Zobah",
+     "placeId": "a4aa78a",
+     "refs": [
+      [
+       10008003,
+       10008003
+      ]
+     ],
+     "note": "Hadadezer's kingdom"
+    },
+    {
+     "name": "Damascus",
+     "placeId": "a69c1d4",
+     "refs": [
+      [
+       10008005,
+       10008006
+      ]
+     ],
+     "note": "Garrisons"
+    },
+    {
+     "name": "Hamath",
+     "placeId": "ac62cbc",
+     "refs": [
+      [
+       10008009,
+       10008009
+      ]
+     ],
+     "note": "Toi's kingdom"
+    },
+    {
+     "name": "Euphrates",
+     "placeId": "a62dec4",
+     "refs": [
+      [
+       10008003,
+       10008003
+      ]
+     ],
+     "note": "Hadadezer's border"
+    },
+    {
+     "name": "Moab",
+     "placeId": "aa0b1d6",
+     "refs": [
+      [
+       10008002,
+       10008002
+      ]
+     ],
+     "note": "Made tributary"
+    },
+    {
+     "name": "Edom",
+     "placeId": "a2735ff",
+     "refs": [
+      [
+       10008014,
+       10008014
+      ]
+     ],
+     "note": "Garrisons"
+    },
+    {
+     "name": "Helam",
+     "placeId": "aeb09c0",
+     "refs": [
+      [
+       10010016,
+       10010017
+      ]
+     ],
+     "note": "Battle with the Syrians"
+    },
+    {
+     "name": "Rabbah",
+     "placeId": "ae067b5",
+     "refs": [
+      [
+       10011001,
+       10011001
+      ],
+      [
+       10012029,
+       10012029
+      ]
+     ],
+     "note": "Ammon's royal city"
+    },
+    {
+     "name": "Geshur",
+     "placeId": "af6c325",
+     "refs": [
+      [
+       10013037,
+       10013038
+      ]
+     ],
+     "note": "Absalom's refuge"
+    },
+    {
+     "name": "Mount of Olives",
+     "placeId": "ac2c4c5",
+     "refs": [
+      [
+       10015030,
+       10015030
+      ]
+     ],
+     "note": "David's flight"
+    },
+    {
+     "name": "Bahurim",
+     "placeId": "a9ed5a4",
+     "refs": [
+      [
+       10016005,
+       10016005
+      ]
+     ],
+     "note": "Shimei's curse"
+    },
+    {
+     "name": "Mahanaim",
+     "placeId": "ae5bfe9",
+     "refs": [
+      [
+       10017024,
+       10017024
+      ]
+     ],
+     "note": "David's base in the revolt"
+    },
+    {
+     "name": "Abel-beth-maacah",
+     "placeId": "abffcaa",
+     "refs": [
+      [
+       10020015,
+       10020015
+      ]
+     ],
+     "note": "Sheba's end"
+    },
+    {
+     "name": "Gob",
+     "placeId": "aea4530",
+     "refs": [
+      [
+       10021018,
+       10021019
+      ]
+     ],
+     "note": "Battles with the giants"
+    },
+    {
+     "name": "Gath",
+     "placeId": "a18873f",
+     "refs": [
+      [
+       10021020,
+       10021020
+      ]
+     ],
+     "note": "The giant with six fingers"
+    },
+    {
+     "name": "Gihon",
+     "placeId": "a2a303c",
+     "refs": [
+      [
+       11001033,
+       11001033
+      ],
+      [
+       11001038,
+       11001038
+      ]
+     ],
+     "note": "Solomon anointed"
+    }
+   ],
+   "passages": [
+    [
+     9016001,
+     9016013
+    ],
+    [
+     10001001,
+     10024025
+    ],
+    [
+     11001001,
+     11002011
+    ],
+    [
+     13011001,
+     13029030
+    ]
+   ]
+  },
+  {
+   "id": "solomon-2sa-5-14",
+   "name": "Solomon",
+   "otherNames": [
+    "Jedidiah"
+   ],
+   "kind": "king",
+   "realm": "united",
+   "title": "King of all Israel",
+   "tagline": "Forty years in Jerusalem; the builder of the temple.",
+   "order": 4,
+   "predecessor": "david-rut-4-17",
+   "successor": "rehoboam-1ki-11-43",
+   "house": "House of David",
+   "tribe": "Judah",
+   "capital": {
+    "name": "Jerusalem",
+    "placeId": "a15257a",
+    "refs": [
+     [
+      11011042,
+      11011042
+     ]
+    ]
+   },
+   "identifications": [
+    {
+     "text": "Jedidiah is the name Nathan gave him at birth, “because of the LORD”.",
+     "layer": "scripture",
+     "refs": [
+      [
+       10012024,
+       10012025
+      ]
+     ]
+    },
+    {
+     "text": "His mother is “Bath-sheba, the daughter of Eliam” in 2 Samuel and “Bath-shua the daughter of Ammiel” in 1 Chronicles. The site's person record treats them as one woman, and so does this page.",
+     "layer": "text",
+     "refs": [
+      [
+       10011003,
+       10011003
+      ],
+      [
+       13003005,
+       13003005
+      ]
+     ]
+    }
+   ],
+   "records": [
+    {
+     "book": "kings",
+     "mother": {
+      "name": "Bath-sheba",
+      "personId": "bathsheba-2sa-11-3",
+      "span": [
+       11001011,
+       11001011
+      ]
+     },
+     "length": {
+      "years": 40,
+      "span": [
+       11011042,
+       11011042
+      ]
+     },
+     "capital": {
+      "name": "Jerusalem",
+      "span": [
+       11011042,
+       11011042
+      ]
+     },
+     "verdict": {
+      "text": "Solomon did evil in the sight of the LORD, and went not fully after the LORD, as did David his father",
+      "span": [
+       11011006,
+       11011006
+      ]
+     },
+     "comparison": {
+      "text": "Solomon loved the LORD, walking in the statutes of David his father: only he sacrificed and burnt incense in high places",
+      "span": [
+       11003003,
+       11003003
+      ]
+     },
+     "sourcesCited": {
+      "text": "the rest of the acts of Solomon, and all that he did, and his wisdom, are they not written in the book of the acts of Solomon",
+      "span": [
+       11011041,
+       11011041
+      ]
+     },
+     "death": {
+      "text": "“Solomon slept with his fathers”, and Rehoboam his son reigned in his place.",
+      "layer": "scripture",
+      "refs": [
+       [
+        11011043,
+        11011043
+       ]
+      ]
+     },
+     "burial": {
+      "text": "was buried in the city of David his father",
+      "span": [
+       11011043,
+       11011043
+      ]
+     }
+    },
+    {
+     "book": "chronicles",
+     "mother": {
+      "name": "Bath-shua",
+      "personId": "bathsheba-2sa-11-3",
+      "span": [
+       13003005,
+       13003005
+      ]
+     },
+     "length": {
+      "years": 40,
+      "span": [
+       14009030,
+       14009030
+      ]
+     },
+     "capital": {
+      "name": "Jerusalem",
+      "span": [
+       14009030,
+       14009030
+      ]
+     },
+     "sourcesCited": {
+      "text": "the rest of the acts of Solomon, first and last, are they not written in the book of Nathan the prophet, and in the prophecy of Ahijah the Shilonite, and in the visions of Iddo the seer against Jeroboam the son of Nebat",
+      "span": [
+       14009029,
+       14009029
+      ]
+     },
+     "death": {
+      "text": "“Solomon slept with his fathers”, and Rehoboam reigned in his place. Chronicles gives no verdict.",
+      "layer": "scripture",
+      "refs": [
+       [
+        14009031,
+        14009031
+       ]
+      ]
+     },
+     "burial": {
+      "text": "he was buried in the city of David his father",
+      "span": [
+       14009031,
+       14009031
+      ]
+     }
+    }
+   ],
+   "reign": {
+    "years": 40,
+    "text": "“forty years” in Jerusalem over all Israel (1 Kings 11:42; 2 Chronicles 9:30).",
+    "refs": [
+     [
+      11011042,
+      11011042
+     ],
+     [
+      14009030,
+      14009030
+     ]
+    ]
+   },
+   "dates": [
+    {
+     "system": "bible",
+     "label": "Scripture's numbers",
+     "note": "Age at accession not given. The temple was begun in his fourth year, “in the four hundred and eightieth year” after the Exodus (1 Kings 6:1), and finished in his eleventh (6:38). His own house took thirteen years (7:1); both were done “at the end of twenty years” (9:10)."
+    },
+    {
+     "system": "thiele-mcfall",
+     "label": "Thiele, as revised by McFall and Young",
+     "from": 971,
+     "to": 931,
+     "approx": true,
+     "note": "Young (2003) puts Solomon's first official year in 972 or 971 BC, the start of the temple in spring 967 BC, and his death between spring and autumn 931 BC; Thiele had placed the death in 931/930 BC. McFall (2010) has Solomon succeed David in 970 BC.",
+     "cites": [
+      "young-2003",
+      "mcfall-2010"
+     ]
+    },
+    {
+     "system": "albright",
+     "label": "Counted back from Albright's 922 BC",
+     "from": 962,
+     "to": 922,
+     "approx": true,
+     "note": "Albright (1945) dated the division of the kingdom, and so Solomon's death, to 922 BC. The start, 962 BC, is our own count: Scripture's forty years (1 Kings 11:42) added to 922. Albright's own figure for Solomon's accession was not checked for this page.",
+     "cites": [
+      "albright-1945"
+     ]
+    },
+    {
+     "system": "ussher",
+     "label": "Traditional (Ussher, 1658)",
+     "from": 1015,
+     "to": 975,
+     "approx": true,
+     "note": "Made king 1015 BC; temple founded 1012 BC, finished 1005 BC, dedicated 1004 BC; died 975 BC.",
+     "cites": [
+      "ussher-1658"
+     ]
+    }
+   ],
+   "verdictTone": "mixed",
+   "verdictNotes": [
+    {
+     "text": "Kings first praises him, with one reserve: “Solomon loved the LORD … only he sacrificed and burnt incense in high places”.",
+     "layer": "scripture",
+     "refs": [
+      [
+       11003003,
+       11003003
+      ]
+     ]
+    },
+    {
+     "text": "“when Solomon was old, … his wives turned away his heart after other gods”. He built high places for Chemosh and Molech “in the hill that is before Jerusalem”.",
+     "layer": "scripture",
+     "refs": [
+      [
+       11011004,
+       11011008
+      ]
+     ]
+    },
+    {
+     "text": "The LORD's word to him: “I will … rend the kingdom from thee”, yet not in his days, for David's sake, and one tribe would stay with his son.",
+     "layer": "scripture",
+     "refs": [
+      [
+       11011011,
+       11011013
+      ]
+     ]
+    },
+    {
+     "text": "Chronicles gives no verdict on Solomon, and does not tell of his foreign wives' gods or of the adversaries the LORD raised against him.",
+     "layer": "text",
+     "refs": [
+      [
+       14009029,
+       14009031
+      ]
+     ]
+    },
+    {
+     "text": "Nehemiah later recalled him: “among many nations was there no king like him, who was beloved of his God … nevertheless even him did outlandish women cause to sin”.",
+     "layer": "scripture",
+     "refs": [
+      [
+       16013026,
+       16013026
+      ]
+     ]
+    },
+    {
+     "text": "In the Gospels Jesus speaks of “Solomon in all his glory”, and of the queen of the south who came “to hear the wisdom of Solomon”.",
+     "layer": "scripture",
+     "refs": [
+      [
+       40006029,
+       40006029
+      ],
+      [
+       40012042,
+       40012042
+      ]
+     ]
+    }
+   ],
+   "accession": [
+    {
+     "text": "Born to David and Bathsheba in Jerusalem; “the LORD loved him”.",
+     "layer": "scripture",
+     "refs": [
+      [
+       10012024,
+       10012025
+      ]
+     ]
+    },
+    {
+     "text": "Chronicles records the word David received: “a son shall be born to thee, who shall be a man of rest … his name shall be Solomon”.",
+     "layer": "scripture",
+     "refs": [
+      [
+       13022009,
+       13022009
+      ]
+     ]
+    },
+    {
+     "text": "When David was old, his elder son Adonijah declared himself king, with Joab and Abiathar the priest on his side.",
+     "layer": "scripture",
+     "refs": [
+      [
+       11001005,
+       11001010
+      ]
+     ]
+    },
+    {
+     "text": "Nathan and Bathsheba reminded David of his oath that Solomon would reign. David had Zadok and Nathan anoint Solomon at Gihon, riding David's own mule, and the people cried, “God save king Solomon”.",
+     "layer": "scripture",
+     "refs": [
+      [
+       11001011,
+       11001040
+      ]
+     ]
+    },
+    {
+     "text": "Adonijah took hold of the horns of the altar and was spared. After David's death, when he asked for Abishag, Solomon had him killed; Abiathar was sent home to Anathoth, and Joab and Shimei were put to death. “And the kingdom was established in the hand of Solomon.”",
+     "layer": "scripture",
+     "refs": [
+      [
+       11001050,
+       11001053
+      ],
+      [
+       11002013,
+       11002046
+      ]
+     ]
+    },
+    {
+     "text": "Chronicles says only that David “made Solomon his son king over Israel”, and later that “they made Solomon the son of David king the second time”, with all David's sons submitting to him.",
+     "layer": "scripture",
+     "refs": [
+      [
+       13023001,
+       13023001
+      ],
+      [
+       13029022,
+       13029024
+      ]
+     ]
+    }
+   ],
+   "events": [
+    {
+     "label": "Anointed at Gihon",
+     "kind": "personal",
+     "claim": {
+      "text": "Zadok the priest anointed Solomon with oil from the tabernacle, and the trumpet sounded.",
+      "layer": "scripture",
+      "refs": [
+       [
+        11001038,
+        11001040
+       ]
+      ]
+     },
+     "placeId": "a2a303c"
+    },
+    {
+     "label": "Rivals removed",
+     "kind": "personal",
+     "claim": {
+      "text": "Adonijah, Joab and Shimei were put to death and Abiathar removed from the priesthood.",
+      "layer": "scripture",
+      "refs": [
+       [
+        11002013,
+        11002046
+       ]
+      ]
+     }
+    },
+    {
+     "label": "Marriage alliance with Pharaoh",
+     "kind": "alliance",
+     "claim": {
+      "text": "“Solomon made affinity with Pharaoh king of Egypt, and took Pharaoh's daughter”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        11003001,
+        11003001
+       ]
+      ]
+     }
+    },
+    {
+     "label": "The dream at Gibeon",
+     "kind": "worship",
+     "claim": {
+      "text": "At the great high place of Gibeon Solomon offered a thousand burnt offerings. In a dream he asked for “an understanding heart to judge thy people”, and was promised riches and honour as well.",
+      "layer": "scripture",
+      "refs": [
+       [
+        11003004,
+        11003015
+       ]
+      ]
+     },
+     "placeId": "aede336"
+    },
+    {
+     "label": "Judgment between two mothers",
+     "kind": "other",
+     "claim": {
+      "text": "His judgment over the living child; “they saw that the wisdom of God was in him, to do judgment”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        11003016,
+        11003028
+       ]
+      ]
+     }
+    },
+    {
+     "label": "Twelve officers over Israel",
+     "kind": "other",
+     "claim": {
+      "text": "Twelve officers each provided the king's household for one month of the year.",
+      "layer": "scripture",
+      "refs": [
+       [
+        11004007,
+        11004019
+       ]
+      ]
+     }
+    },
+    {
+     "label": "League with Hiram",
+     "kind": "alliance",
+     "claim": {
+      "text": "Hiram sent cedar and fir from Lebanon; Solomon paid him in wheat and oil “year by year”, “and they two made a league together”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        11005001,
+        11005012
+       ]
+      ]
+     },
+     "placeId": "a160272"
+    },
+    {
+     "label": "The levy to Lebanon",
+     "kind": "other",
+     "claim": {
+      "text": "A levy of 30,000 men from all Israel worked in Lebanon in shifts of 10,000 a month, under Adoniram.",
+      "layer": "scripture",
+      "refs": [
+       [
+        11005013,
+        11005014
+       ]
+      ]
+     },
+     "placeId": "a730058"
+    },
+    {
+     "label": "Temple foundation laid",
+     "kind": "building",
+     "claim": {
+      "text": "“in the fourth year of Solomon's reign over Israel, in the month Zif”. Chronicles places it “in mount Moriah”, on Ornan's threshingfloor.",
+      "layer": "scripture",
+      "refs": [
+       [
+        11006001,
+        11006001
+       ],
+       [
+        11006037,
+        11006037
+       ],
+       [
+        14003001,
+        14003002
+       ]
+      ]
+     },
+     "year": 4,
+     "placeId": "aac1fcf"
+    },
+    {
+     "label": "Temple finished",
+     "kind": "building",
+     "claim": {
+      "text": "“in the eleventh year, in the month Bul … So was he seven years in building it.”",
+      "layer": "scripture",
+      "refs": [
+       [
+        11006038,
+        11006038
+       ]
+      ]
+     },
+     "year": 11,
+     "placeId": "a15257a"
+    },
+    {
+     "label": "His own house",
+     "kind": "building",
+     "claim": {
+      "text": "He built his own house over thirteen years, with the house of the forest of Lebanon, the porch of judgment, and a house for Pharaoh's daughter.",
+      "layer": "scripture",
+      "refs": [
+       [
+        11007001,
+        11007008
+       ]
+      ]
+     },
+     "placeId": "a15257a"
+    },
+    {
+     "label": "Hiram the craftsman",
+     "kind": "building",
+     "claim": {
+      "text": "Hiram of Tyre, a widow's son of Naphtali, cast the two brass pillars, the molten sea and the temple vessels.",
+      "layer": "scripture",
+      "refs": [
+       [
+        11007013,
+        11007047
+       ]
+      ]
+     }
+    },
+    {
+     "label": "The temple dedicated",
+     "kind": "worship",
+     "claim": {
+      "text": "The ark was brought into the most holy place, and “the cloud filled the house of the LORD”. Solomon prayed, blessed the people, and kept the feast fourteen days.",
+      "layer": "scripture",
+      "refs": [
+       [
+        11008001,
+        11008011
+       ],
+       [
+        11008022,
+        11008066
+       ]
+      ]
+     },
+     "placeId": "a15257a"
+    },
+    {
+     "label": "The LORD appears a second time",
+     "kind": "prophecy",
+     "claim": {
+      "text": "The LORD promised to establish his throne if he walked as David did, and warned that the house would become “a proverb and a byword” if Israel served other gods.",
+      "layer": "scripture",
+      "refs": [
+       [
+        11009001,
+        11009009
+       ]
+      ]
+     }
+    },
+    {
+     "label": "Twenty cities to Hiram",
+     "kind": "alliance",
+     "claim": {
+      "text": "“at the end of twenty years”, when both houses were built, Solomon gave Hiram twenty cities in Galilee; Hiram called them Cabul.",
+      "layer": "scripture",
+      "refs": [
+       [
+        11009010,
+        11009014
+       ]
+      ]
+     },
+     "year": 20,
+     "placeId": "a08144e"
+    },
+    {
+     "label": "Cities built",
+     "kind": "building",
+     "claim": {
+      "text": "The levy built the temple, his house, Millo, the wall of Jerusalem, Hazor, Megiddo and Gezer, nether Beth-horon, Baalath, Tadmor, and store and chariot cities.",
+      "layer": "scripture",
+      "refs": [
+       [
+        11009015,
+        11009019
+       ]
+      ]
+     },
+     "placeId": "a8554e3"
+    },
+    {
+     "label": "Gezer, Pharaoh's present",
+     "kind": "alliance",
+     "claim": {
+      "text": "Pharaoh had taken and burnt Gezer and given it as a present to his daughter, Solomon's wife.",
+      "layer": "scripture",
+      "refs": [
+       [
+        11009016,
+        11009016
+       ]
+      ]
+     },
+     "placeId": "aed6538"
+    },
+    {
+     "label": "Fleet at Ezion-geber",
+     "kind": "alliance",
+     "claim": {
+      "text": "Solomon's ships, crewed with Hiram's seamen, sailed from Ezion-geber on the Red sea to Ophir and brought back 420 talents of gold.",
+      "layer": "scripture",
+      "refs": [
+       [
+        11009026,
+        11009028
+       ]
+      ]
+     },
+     "placeId": "a8e53d5"
+    },
+    {
+     "label": "The queen of Sheba",
+     "kind": "alliance",
+     "claim": {
+      "text": "The queen of Sheba came to test him “with hard questions”, said “the half was not told me”, and gave 120 talents of gold and great store of spices.",
+      "layer": "scripture",
+      "refs": [
+       [
+        11010001,
+        11010013
+       ]
+      ]
+     },
+     "placeId": "a81ab85"
+    },
+    {
+     "label": "Gold, ships and horses",
+     "kind": "other",
+     "claim": {
+      "text": "666 talents of gold came in one year; the navy of Tharshish came “once in three years”; horses and chariots were brought out of Egypt, and through his merchants for the kings of the Hittites and of Syria.",
+      "layer": "scripture",
+      "refs": [
+       [
+        11010014,
+        11010029
+       ]
+      ]
+     }
+    },
+    {
+     "label": "Foreign wives and their gods",
+     "kind": "worship",
+     "claim": {
+      "text": "Seven hundred wives and three hundred concubines “turned away his heart”; he built high places for Chemosh and Molech.",
+      "layer": "scripture",
+      "refs": [
+       [
+        11011001,
+        11011008
+       ]
+      ]
+     }
+    },
+    {
+     "label": "Hadad and Rezon",
+     "kind": "battle",
+     "claim": {
+      "text": "“the LORD stirred up an adversary unto Solomon, Hadad the Edomite”; and God raised up Rezon, who reigned in Damascus and “was an adversary to Israel all the days of Solomon”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        11011014,
+        11011025
+       ]
+      ]
+     },
+     "placeId": "a69c1d4"
+    },
+    {
+     "label": "Ahijah and Jeroboam",
+     "kind": "prophecy",
+     "claim": {
+      "text": "Ahijah tore his new garment into twelve pieces and gave Jeroboam ten. Solomon sought to kill Jeroboam, who fled to Shishak in Egypt.",
+      "layer": "scripture",
+      "refs": [
+       [
+        11011026,
+        11011040
+       ]
+      ]
+     }
+    },
+    {
+     "label": "Death",
+     "kind": "personal",
+     "claim": {
+      "text": "“the time that Solomon reigned in Jerusalem over all Israel was forty years. And Solomon slept with his fathers”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        11011042,
+        11011043
+       ]
+      ]
+     },
+     "year": 40
+    }
+   ],
+   "nation": {
+    "building": [
+     {
+      "text": "The house of the LORD, seven years in building, begun in his fourth year.",
+      "layer": "scripture",
+      "refs": [
+       [
+        11006001,
+        11006001
+       ],
+       [
+        11006037,
+        11006038
+       ]
+      ]
+     },
+     {
+      "text": "His own house, thirteen years; the house of the forest of Lebanon; the porch of pillars; the porch of judgment; a house for Pharaoh's daughter.",
+      "layer": "scripture",
+      "refs": [
+       [
+        11007001,
+        11007008
+       ]
+      ]
+     },
+     {
+      "text": "Millo, the wall of Jerusalem, Hazor, Megiddo, Gezer, nether Beth-horon, Baalath, Tadmor, store cities and chariot cities.",
+      "layer": "scripture",
+      "refs": [
+       [
+        11009015,
+        11009019
+       ]
+      ]
+     },
+     {
+      "text": "Ships at Ezion-geber, beside Eloth on the Red sea.",
+      "layer": "scripture",
+      "refs": [
+       [
+        11009026,
+        11009026
+       ]
+      ]
+     },
+     {
+      "text": "Chronicles adds that he prevailed against Hamath-zobah, built store cities in Hamath, and built Beth-horon the upper as well as the nether.",
+      "layer": "scripture",
+      "refs": [
+       [
+        14008003,
+        14008005
+       ]
+      ]
+     }
+    ],
+    "worship": [
+     {
+      "text": "Before the temple, “the people sacrificed in high places”, and Solomon too.",
+      "layer": "scripture",
+      "refs": [
+       [
+        11003002,
+        11003004
+       ]
+      ]
+     },
+     {
+      "text": "At the dedication the ark was brought in and the glory of the LORD filled the house; Solomon offered 22,000 oxen and 120,000 sheep.",
+      "layer": "scripture",
+      "refs": [
+       [
+        11008001,
+        11008011
+       ],
+       [
+        11008062,
+        11008063
+       ]
+      ]
+     },
+     {
+      "text": "Three times a year he offered burnt offerings and peace offerings on the altar he had built.",
+      "layer": "scripture",
+      "refs": [
+       [
+        11009025,
+        11009025
+       ]
+      ]
+     },
+     {
+      "text": "In his old age he built high places for the gods of his foreign wives.",
+      "layer": "scripture",
+      "refs": [
+       [
+        11011004,
+        11011008
+       ]
+      ]
+     }
+    ],
+    "alliances": [
+     {
+      "text": "Egypt: Pharaoh's daughter as wife, with Gezer as her present.",
+      "layer": "scripture",
+      "refs": [
+       [
+        11003001,
+        11003001
+       ],
+       [
+        11009016,
+        11009016
+       ]
+      ]
+     },
+     {
+      "text": "Tyre: Hiram's timber, gold and seamen, and Solomon's payments in wheat and oil and twenty cities.",
+      "layer": "scripture",
+      "refs": [
+       [
+        11005001,
+        11005012
+       ],
+       [
+        11009010,
+        11009014
+       ],
+       [
+        11009027,
+        11009027
+       ],
+       [
+        11010022,
+        11010022
+       ]
+      ]
+     },
+     {
+      "text": "Sheba: the queen's visit and gifts.",
+      "layer": "scripture",
+      "refs": [
+       [
+        11010001,
+        11010013
+       ]
+      ]
+     },
+     {
+      "text": "Trade in horses and chariots between Egypt and the kings of the Hittites and of Syria.",
+      "layer": "scripture",
+      "refs": [
+       [
+        11010028,
+        11010029
+       ]
+      ]
+     },
+     {
+      "text": "Marriages with women of Moab, Ammon, Edom, Sidon and the Hittites.",
+      "layer": "scripture",
+      "refs": [
+       [
+        11011001,
+        11011001
+       ]
+      ]
+     },
+     {
+      "text": "He ruled “over all kingdoms from the river unto the land of the Philistines, and unto the border of Egypt”, which “brought presents”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        11004021,
+        11004021
+       ],
+       [
+        11004024,
+        11004024
+       ]
+      ]
+     }
+    ],
+    "people": [
+     {
+      "text": "“Judah and Israel were many, as the sand which is by the sea in multitude, eating and drinking, and making merry”, “every man under his vine and under his fig tree, from Dan even to Beer-sheba”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        11004020,
+        11004020
+       ],
+       [
+        11004025,
+        11004025
+       ]
+      ]
+     },
+     {
+      "text": "A levy of 30,000 men for Lebanon; 70,000 burden-bearers and 80,000 hewers; 3,300 overseers.",
+      "layer": "scripture",
+      "refs": [
+       [
+        11005013,
+        11005016
+       ]
+      ]
+     },
+     {
+      "text": "The peoples left from the Amorites, Hittites, Perizzites, Hivites and Jebusites were put to “a tribute of bondservice”, but “of the children of Israel did Solomon make no bondmen”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        11009020,
+        11009022
+       ]
+      ]
+     },
+     {
+      "text": "Jeroboam was put over “all the charge of the house of Joseph”. After Solomon's death Israel told Rehoboam: “Thy father made our yoke grievous”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        11011028,
+        11011028
+       ],
+       [
+        11012004,
+        11012004
+       ]
+      ]
+     }
+    ]
+   },
+   "prophets": [
+    {
+     "person": {
+      "name": "Nathan",
+      "personId": "nathan-2sa-7-2"
+     },
+     "claim": {
+      "text": "Nathan named him Jedidiah at birth, warned Bathsheba of Adonijah's bid, and anointed him with Zadok. Chronicles names “the book of Nathan the prophet” as a source for his reign.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10012025,
+        10012025
+       ],
+       [
+        11001011,
+        11001014
+       ],
+       [
+        11001034,
+        11001034
+       ],
+       [
+        11001038,
+        11001038
+       ],
+       [
+        14009029,
+        14009029
+       ]
+      ]
+     }
+    },
+    {
+     "person": {
+      "name": "Ahijah the Shilonite",
+      "personId": "ahijah-1ki-11-29"
+     },
+     "claim": {
+      "text": "Ahijah met Jeroboam outside Jerusalem and foretold that ten tribes would be taken from Solomon's son, because “they have forsaken me”, while one tribe stayed for David's sake. Chronicles cites his “prophecy” as a source.",
+      "layer": "scripture",
+      "refs": [
+       [
+        11011029,
+        11011039
+       ],
+       [
+        14009029,
+        14009029
+       ]
+      ]
+     },
+     "quote": {
+      "text": "I will rend the kingdom out of the hand of Solomon, and will give ten tribes to thee",
+      "span": [
+       11011031,
+       11011031
+      ]
+     }
+    },
+    {
+     "person": {
+      "name": "Iddo the seer",
+      "personId": "iddo-2ch-9-29"
+     },
+     "claim": {
+      "text": "Named only as a source: “the visions of Iddo the seer against Jeroboam the son of Nebat”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        14009029,
+        14009029
+       ]
+      ]
+     }
+    }
+   ],
+   "worldStage": [
+    {
+     "power": "Egypt",
+     "rulers": [
+      {
+       "name": "Pharaoh, Solomon's father-in-law",
+       "personId": "pharaoh-1ki-3-1",
+       "note": "Not named in Scripture."
+      },
+      {
+       "name": "Shishak",
+       "personId": "shishak-1ki-11-40",
+       "note": "Sheltered Jeroboam until Solomon died."
+      }
+     ],
+     "claim": {
+      "text": "Solomon married Pharaoh's daughter; a Pharaoh also sheltered Hadad of Edom, and Shishak sheltered Jeroboam.",
+      "layer": "scripture",
+      "refs": [
+       [
+        11003001,
+        11003001
+       ],
+       [
+        11011017,
+        11011022
+       ],
+       [
+        11011040,
+        11011040
+       ]
+      ]
+     }
+    },
+    {
+     "power": "Tyre",
+     "rulers": [
+      {
+       "name": "Hiram",
+       "personId": "hiram-2sa-5-11"
+      }
+     ],
+     "claim": {
+      "text": "Hiram was his partner in building and at sea.",
+      "layer": "scripture",
+      "refs": [
+       [
+        11005001,
+        11005012
+       ],
+       [
+        11009026,
+        11009028
+       ]
+      ]
+     }
+    },
+    {
+     "power": "Sheba",
+     "rulers": [
+      {
+       "name": "The queen of Sheba",
+       "personId": "queen-of-sheba-1ki-10-1",
+       "note": "Not named in Scripture."
+      }
+     ],
+     "claim": {
+      "text": "She came from her own land to test his wisdom.",
+      "layer": "scripture",
+      "refs": [
+       [
+        11010001,
+        11010013
+       ]
+      ]
+     }
+    },
+    {
+     "power": "Edom",
+     "rulers": [
+      {
+       "name": "Hadad",
+       "personId": "hadad-1ki-11-14",
+       "note": "“of the king's seed in Edom”"
+      }
+     ],
+     "claim": {
+      "text": "Hadad had fled to Egypt as a child; when David and Joab were dead he asked Pharaoh to let him go home. Kings counts him an adversary “unto Solomon”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        11011014,
+        11011022
+       ]
+      ]
+     }
+    },
+    {
+     "power": "Aram (Damascus)",
+     "rulers": [
+      {
+       "name": "Rezon",
+       "personId": "rezon-1ki-11-23"
+      }
+     ],
+     "claim": {
+      "text": "Rezon “reigned in Damascus” and “abhorred Israel”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        11011023,
+        11011025
+       ]
+      ]
+     }
+    }
+   ],
+   "outside": [
+    {
+     "name": "The Tyrian histories, quoted by Josephus (Against Apion 1.17–18)",
+     "date": "Dius and Menander, Hellenistic writers; quoted about AD 95",
+     "claim": {
+      "text": "Josephus quotes two writers on Phoenician history. Both say that Hirom (Hiram) son of Abibalus cut timber on Lebanon for temples and that Solomon sent him problems to solve; Menander gives Hiram a reign of thirty-four years. Josephus himself adds that the temple was built in Hiram's twelfth year, 143 years and eight months before Carthage was founded (in Antiquities 8.3.1 he says the eleventh year).",
+      "layer": "ancient-record",
+      "cites": [
+       "josephus-apion",
+       "josephus-antiquities"
+      ]
+     }
+    },
+    {
+     "name": "Nothing from his lifetime",
+     "date": "—",
+     "claim": {
+      "text": "None of the sources used for this page cites an inscription from Solomon's own time that names him. Scripture does not name his Egyptian father-in-law, so no Egyptian record can be matched to him from the text.",
+      "layer": "text",
+      "refs": [
+       [
+        11003001,
+        11003001
+       ]
+      ]
+     }
+    },
+    {
+     "name": "The Kebra Nagast (later tradition)",
+     "date": "Arabic version dated AD 1314–1344 in its colophons",
+     "claim": {
+      "text": "A later tradition, first found in the Ethiopian Kebra Nagast, names the queen of Sheba Makeda and gives her a son by Solomon, Menyelek, from whom Ethiopia's kings claimed descent; Arab writers call her Balkis. Its translator Budge (1922) says neither name is ancient.",
+      "layer": "tradition",
+      "cites": [
+       "budge-1922"
+      ]
+     }
+    }
+   ],
+   "twoAccounts": [
+    {
+     "topic": "His mother's name",
+     "first": {
+      "text": "2 Samuel: “Bath-sheba, the daughter of Eliam”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        10011003,
+        10011003
+       ]
+      ]
+     },
+     "second": {
+      "text": "1 Chronicles: “Bath-shua the daughter of Ammiel”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        13003005,
+        13003005
+       ]
+      ]
+     }
+    },
+    {
+     "topic": "How he became king",
+     "first": {
+      "text": "1 Kings: Adonijah's bid, Nathan and Bathsheba's appeal, the anointing at Gihon, and the deaths of Adonijah, Joab and Shimei.",
+      "layer": "text",
+      "refs": [
+       [
+        11001001,
+        11002046
+       ]
+      ]
+     },
+     "second": {
+      "text": "1 Chronicles: David made him king, and the assembly made him king “the second time”; all David's sons submitted.",
+      "layer": "scripture",
+      "refs": [
+       [
+        13023001,
+        13023001
+       ],
+       [
+        13029022,
+        13029024
+       ]
+      ]
+     }
+    },
+    {
+     "topic": "The sacrifice at Gibeon",
+     "first": {
+      "text": "1 Kings: he went to Gibeon “for that was the great high place”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        11003004,
+        11003004
+       ]
+      ]
+     },
+     "second": {
+      "text": "2 Chronicles: “for there was the tabernacle of the congregation of God, which Moses … had made in the wilderness”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        14001003,
+        14001003
+       ]
+      ]
+     }
+    },
+    {
+     "topic": "Stalls for horses",
+     "first": {
+      "text": "1 Kings: “forty thousand stalls of horses for his chariots”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        11004026,
+        11004026
+       ]
+      ]
+     },
+     "second": {
+      "text": "2 Chronicles: “four thousand stalls for horses and chariots”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        14009025,
+        14009025
+       ]
+      ]
+     }
+    },
+    {
+     "topic": "Overseers of the work",
+     "first": {
+      "text": "1 Kings: “three thousand and three hundred”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        11005016,
+        11005016
+       ]
+      ]
+     },
+     "second": {
+      "text": "2 Chronicles: “three thousand and six hundred”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        14002002,
+        14002002
+       ],
+       [
+        14002018,
+        14002018
+       ]
+      ]
+     }
+    },
+    {
+     "topic": "Chief officers",
+     "first": {
+      "text": "1 Kings: “five hundred and fifty”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        11009023,
+        11009023
+       ]
+      ]
+     },
+     "second": {
+      "text": "2 Chronicles: “two hundred and fifty”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        14008010,
+        14008010
+       ]
+      ]
+     }
+    },
+    {
+     "topic": "Gold from Ophir",
+     "first": {
+      "text": "1 Kings: “four hundred and twenty talents”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        11009028,
+        11009028
+       ]
+      ]
+     },
+     "second": {
+      "text": "2 Chronicles: “four hundred and fifty talents”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        14008018,
+        14008018
+       ]
+      ]
+     }
+    },
+    {
+     "topic": "The molten sea",
+     "first": {
+      "text": "1 Kings: “it contained two thousand baths”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        11007026,
+        11007026
+       ]
+      ]
+     },
+     "second": {
+      "text": "2 Chronicles: it “held three thousand baths”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        14004005,
+        14004005
+       ]
+      ]
+     }
+    },
+    {
+     "topic": "The two pillars",
+     "first": {
+      "text": "1 Kings: “eighteen cubits high apiece”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        11007015,
+        11007015
+       ]
+      ]
+     },
+     "second": {
+      "text": "2 Chronicles: “thirty and five cubits high”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        14003015,
+        14003015
+       ]
+      ]
+     }
+    },
+    {
+     "topic": "Cities and Hiram",
+     "first": {
+      "text": "1 Kings: Solomon gave Hiram twenty cities in Galilee, which did not please him.",
+      "layer": "scripture",
+      "refs": [
+       [
+        11009011,
+        11009013
+       ]
+      ]
+     },
+     "second": {
+      "text": "2 Chronicles: Solomon built “the cities which Huram had restored to Solomon”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        14008002,
+        14008002
+       ]
+      ]
+     }
+    },
+    {
+     "topic": "The site of the temple",
+     "first": {
+      "text": "1 Kings names no hill.",
+      "layer": "text",
+      "refs": [
+       [
+        11006001,
+        11006001
+       ]
+      ]
+     },
+     "second": {
+      "text": "2 Chronicles: “in mount Moriah … in the threshingfloor of Ornan the Jebusite”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        14003001,
+        14003001
+       ]
+      ]
+     }
+    },
+    {
+     "topic": "The dedication",
+     "first": {
+      "text": "1 Kings: when the priests came out, “the cloud filled the house of the LORD”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        11008010,
+        11008011
+       ]
+      ]
+     },
+     "second": {
+      "text": "2 Chronicles adds that after his prayer “the fire came down from heaven, and consumed the burnt offering”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        14007001,
+        14007001
+       ]
+      ]
+     }
+    },
+    {
+     "topic": "Pharaoh's daughter moves house",
+     "first": {
+      "text": "1 Kings: she “came up out of the city of David unto her house which Solomon had built for her”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        11009024,
+        11009024
+       ]
+      ]
+     },
+     "second": {
+      "text": "2 Chronicles gives a reason: “My wife shall not dwell in the house of David king of Israel, because the places are holy”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        14008011,
+        14008011
+       ]
+      ]
+     }
+    },
+    {
+     "topic": "His last years",
+     "first": {
+      "text": "1 Kings tells of his foreign wives' gods, the LORD's anger, Hadad, Rezon and Jeroboam.",
+      "layer": "scripture",
+      "refs": [
+       [
+        11011001,
+        11011040
+       ]
+      ]
+     },
+     "second": {
+      "text": "2 Chronicles moves from his wealth straight to his sources, death and burial.",
+      "layer": "scripture",
+      "refs": [
+       [
+        14009029,
+        14009031
+       ]
+      ]
+     }
+    }
+   ],
+   "questions": [
+    {
+     "id": "solomon-480",
+     "question": "What do the 480 years of 1 Kings 6:1 measure?",
+     "views": [
+      {
+       "label": "A literal count back to the Exodus",
+       "holders": "Rodger C. Young (2003); Leslie McFall (2010)",
+       "argument": {
+        "text": "Young counts back from the start of the temple in 967 BC to an Exodus in 1446 BC, and finds the same date from the Jubilee cycles; McFall notes the figure means 479 complete years.",
+        "layer": "scholars",
+        "refs": [
+         [
+          11006001,
+          11006001
+         ]
+        ],
+        "cites": [
+         "young-2003",
+         "mcfall-2010"
+        ]
+       }
+      },
+      {
+       "label": "Twelve generations of forty years",
+       "holders": "Julius Wellhausen (tr. 1885)",
+       "argument": {
+        "text": "Wellhausen read 480 as twelve generations of forty years, one of two periods of 480 years in the Jewish chronology behind these books.",
+        "layer": "scholars",
+        "cites": [
+         "wellhausen-1885"
+        ]
+       }
+      },
+      {
+       "label": "A different figure",
+       "holders": "Josephus, Antiquities 8.3.1",
+       "argument": {
+        "text": "Josephus puts the start of the temple 592 years after the Exodus.",
+        "layer": "ancient-record",
+        "cites": [
+         "josephus-antiquities"
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "id": "solomon-sheba",
+     "question": "Where did the queen of Sheba come from?",
+     "views": [
+      {
+       "label": "Egypt and Ethiopia",
+       "holders": "Josephus, Antiquities 8.6.5",
+       "argument": {
+        "text": "Josephus calls her “queen of Egypt and Ethiopia”.",
+        "layer": "ancient-record",
+        "cites": [
+         "josephus-antiquities"
+        ]
+       }
+      },
+      {
+       "label": "South-west Arabia (Saba)",
+       "holders": "Whiston (1737), note 16 to Antiquities 8.6.5; Budge (1922)",
+       "argument": {
+        "text": "Whiston thought it “generally agreed” that she ruled Sabea in south Arabia, pointing to “the queen of the south” in Matthew 12:42. Budge judged a home in south-west Arabia “far more probable” than Ethiopia.",
+        "layer": "scholars",
+        "refs": [
+         [
+          40012042,
+          40012042
+         ]
+        ],
+        "cites": [
+         "josephus-antiquities",
+         "budge-1922"
+        ]
+       }
+      },
+      {
+       "label": "Ethiopia",
+       "holders": "The Kebra Nagast (Arabic version AD 1314–1344)",
+       "argument": {
+        "text": "The Ethiopian tradition makes her Makeda, queen of Ethiopia.",
+        "layer": "tradition",
+        "cites": [
+         "budge-1922"
+        ]
+       }
+      }
+     ]
+    }
+   ],
+   "notSaid": [
+    "Kings and Chronicles do not give Solomon's age when he began to reign.",
+    "Scripture does not name the Pharaoh whose daughter he married, nor the queen of Sheba.",
+    "The history books do not say that Solomon repented at the end of his life.",
+    "Kings says he “spake three thousand proverbs: and his songs were a thousand and five” (1 Kings 4:32); the history books do not say which of them survive.",
+    "Scripture does not say how many years of his reign remained when Ahijah spoke to Jeroboam."
+   ],
+   "places": [
+    {
+     "name": "Jerusalem",
+     "placeId": "a15257a",
+     "refs": [
+      [
+       11011042,
+       11011042
+      ]
+     ],
+     "note": "His capital"
+    },
+    {
+     "name": "Mount Moriah",
+     "placeId": "aac1fcf",
+     "refs": [
+      [
+       14003001,
+       14003001
+      ]
+     ],
+     "note": "The temple site, in Chronicles"
+    },
+    {
+     "name": "Gihon",
+     "placeId": "a2a303c",
+     "refs": [
+      [
+       11001038,
+       11001038
+      ]
+     ],
+     "note": "Anointed"
+    },
+    {
+     "name": "Gibeon",
+     "placeId": "aede336",
+     "refs": [
+      [
+       11003004,
+       11003005
+      ]
+     ],
+     "note": "The dream"
+    },
+    {
+     "name": "Anathoth",
+     "placeId": "ab34789",
+     "refs": [
+      [
+       11002026,
+       11002026
+      ]
+     ],
+     "note": "Abiathar sent home"
+    },
+    {
+     "name": "Tyre",
+     "placeId": "a160272",
+     "refs": [
+      [
+       11005001,
+       11005001
+      ]
+     ],
+     "note": "Hiram's city"
+    },
+    {
+     "name": "Lebanon",
+     "placeId": "a730058",
+     "refs": [
+      [
+       11005006,
+       11005006
+      ],
+      [
+       11005014,
+       11005014
+      ]
+     ],
+     "note": "Timber and the levy"
+    },
+    {
+     "name": "Cabul",
+     "placeId": "a08144e",
+     "refs": [
+      [
+       11009013,
+       11009013
+      ]
+     ],
+     "note": "Hiram's twenty cities"
+    },
+    {
+     "name": "Hazor",
+     "placeId": "a6f33c5",
+     "refs": [
+      [
+       11009015,
+       11009015
+      ]
+     ],
+     "note": "Built"
+    },
+    {
+     "name": "Megiddo",
+     "placeId": "a8554e3",
+     "refs": [
+      [
+       11009015,
+       11009015
+      ]
+     ],
+     "note": "Built"
+    },
+    {
+     "name": "Gezer",
+     "placeId": "aed6538",
+     "refs": [
+      [
+       11009015,
+       11009017
+      ]
+     ],
+     "note": "Pharaoh's present; rebuilt"
+    },
+    {
+     "name": "Lower Beth-horon",
+     "placeId": "a094036",
+     "refs": [
+      [
+       11009017,
+       11009017
+      ]
+     ],
+     "note": "Built"
+    },
+    {
+     "name": "Baalath",
+     "placeId": "a99875b",
+     "refs": [
+      [
+       11009018,
+       11009018
+      ]
+     ],
+     "note": "Built"
+    },
+    {
+     "name": "Tadmor",
+     "placeId": "ad797fe",
+     "refs": [
+      [
+       11009018,
+       11009018
+      ]
+     ],
+     "note": "Built in the wilderness"
+    },
+    {
+     "name": "Hamath-zobah",
+     "placeId": "ab6a417",
+     "refs": [
+      [
+       14008003,
+       14008003
+      ]
+     ],
+     "note": "Taken, in Chronicles"
+    },
+    {
+     "name": "Ezion-geber",
+     "placeId": "a8e53d5",
+     "refs": [
+      [
+       11009026,
+       11009026
+      ]
+     ],
+     "note": "The fleet"
+    },
+    {
+     "name": "Elath",
+     "placeId": "af0ac29",
+     "refs": [
+      [
+       11009026,
+       11009026
+      ]
+     ],
+     "note": "“Eloth”, beside Ezion-geber"
+    },
+    {
+     "name": "Ophir",
+     "placeId": "a104820",
+     "refs": [
+      [
+       11009028,
+       11009028
+      ]
+     ],
+     "note": "Gold"
+    },
+    {
+     "name": "Tarshish",
+     "placeId": "a5f43dd",
+     "refs": [
+      [
+       11010022,
+       11010022
+      ]
+     ],
+     "note": "“the navy of Tharshish”"
+    },
+    {
+     "name": "Sheba",
+     "placeId": "a81ab85",
+     "refs": [
+      [
+       11010001,
+       11010001
+      ]
+     ],
+     "note": "The queen's land"
+    },
+    {
+     "name": "Egypt",
+     "placeId": "af301ca",
+     "refs": [
+      [
+       11010028,
+       11010028
+      ]
+     ],
+     "note": "Horses; Pharaoh's daughter"
+    },
+    {
+     "name": "Tiphsah",
+     "placeId": "aab8f2d",
+     "refs": [
+      [
+       11004024,
+       11004024
+      ]
+     ],
+     "note": "Edge of his dominion"
+    },
+    {
+     "name": "Gaza",
+     "placeId": "aa8edd2",
+     "refs": [
+      [
+       11004024,
+       11004024
+      ]
+     ],
+     "note": "“Azzah”, the other edge"
+    },
+    {
+     "name": "Damascus",
+     "placeId": "a69c1d4",
+     "refs": [
+      [
+       11011024,
+       11011024
+      ]
+     ],
+     "note": "Rezon's kingdom"
+    },
+    {
+     "name": "Edom",
+     "placeId": "a2735ff",
+     "refs": [
+      [
+       11011014,
+       11011015
+      ]
+     ],
+     "note": "Hadad's land"
+    },
+    {
+     "name": "Zereda",
+     "placeId": "a07ae2d",
+     "refs": [
+      [
+       11011026,
+       11011026
+      ]
+     ],
+     "note": "Jeroboam's home"
+    }
+   ],
+   "passages": [
+    [
+     10012024,
+     10012025
+    ],
+    [
+     11001001,
+     11011043
+    ],
+    [
+     13022005,
+     13023001
+    ],
+    [
+     13028001,
+     13029030
+    ],
+    [
+     14001001,
+     14009031
+    ]
+   ]
+  }
+ ],
+ "citations": [
+  {
+   "id": "ussher-1658",
+   "author": "James Ussher",
+   "title": "The Annals of the World (English translation of the Annales, 1650–54)",
+   "year": "1658",
+   "where": "pp. 33–41 (years of the world 2909–3029, with the years before Christ in the margin)",
+   "url": "https://archive.org/details/TheAnnalsOfTheWorld1658EditionPartOne4004To176BC"
+  },
+  {
+   "id": "young-2003",
+   "author": "Rodger C. Young",
+   "title": "\"When Did Solomon Die?\", Journal of the Evangelical Theological Society 46/4",
+   "year": "2003",
+   "where": "pp. 589–603, esp. 590 and 599–603 (facts only; copyrighted)",
+   "url": "https://www.rcyoung.org/articles/solomon.pdf"
+  },
+  {
+   "id": "mcfall-2010",
+   "author": "Leslie McFall",
+   "title": "\"The Chronology of Saul and David\", Journal of the Evangelical Theological Society 53/3",
+   "year": "2010",
+   "where": "pp. 475–483, 486–487, 494–495, 498–501, 526–528 (facts only; copyrighted)",
+   "url": "https://etsjets.org/wp-content/uploads/2010/10/files_JETS-PDFs_53_53-3_McFall_JETS_53-3_pp_475-533.pdf"
+  },
+  {
+   "id": "albright-1945",
+   "author": "W. F. Albright",
+   "title": "\"The Chronology of the Divided Monarchy of Israel\", Bulletin of the American Schools of Oriental Research 100",
+   "year": "1945",
+   "where": "p. 20: the division of the kingdom in 922 BC (as cited by McFall 2010, p. 486 n. 24; facts only)",
+   "url": "https://www.jstor.org/stable/1355182"
+  },
+  {
+   "id": "keil-samuel",
+   "author": "C. F. Keil and F. Delitzsch, tr. James Martin",
+   "title": "Biblical Commentary on the Books of Samuel (Clark's Foreign Theological Library; translation first published 1866, this printing 1876)",
+   "year": "1866",
+   "where": "pp. 123–124 (1 Sam 13:1), 285–286 (2 Sam 1), 294–296 (2 Sam 2:8–11), 318–321 (Hiram), 459–460 (2 Sam 21:19), 502–503 (2 Sam 24:1)",
+   "url": "https://archive.org/details/biblicalcommen00keil"
+  },
+  {
+   "id": "driver-1890",
+   "author": "S. R. Driver",
+   "title": "Notes on the Hebrew Text of the Books of Samuel",
+   "year": "1890",
+   "where": "pp. 74–75, on 1 Sam 13:1",
+   "url": "https://archive.org/details/notesonhebrewte00driv"
+  },
+  {
+   "id": "wellhausen-1885",
+   "author": "Julius Wellhausen, tr. J. Sutherland Black and Allan Menzies",
+   "title": "Prolegomena to the History of Israel",
+   "year": "1885",
+   "where": "ch. VI, §I.1–3 (Chronicles on David's accession, the census, Solomon at Gibeon); ch. VI, §III.2 (480 years as twelve generations of forty); ch. VII, §II.1 (the numbers in 1 Sam 13:1 and 2 Sam 2:10)",
+   "url": "https://www.gutenberg.org/ebooks/4732"
+  },
+  {
+   "id": "josephus-antiquities",
+   "author": "Flavius Josephus, tr. William Whiston",
+   "title": "The Antiquities of the Jews",
+   "year": "1737",
+   "where": "6.14.9; 7.5.2; 7.9.1 (with Whiston's note 16); 8.3.1; 8.6.5 (with Whiston's note 16); 10.8.4",
+   "url": "https://www.gutenberg.org/ebooks/2848"
+  },
+  {
+   "id": "josephus-apion",
+   "author": "Flavius Josephus, tr. William Whiston",
+   "title": "Against Apion",
+   "year": "1737",
+   "where": "1.17–18 (Dius and Menander of Ephesus on Hiram of Tyre)",
+   "url": "https://www.gutenberg.org/ebooks/2849"
+  },
+  {
+   "id": "biran-naveh-1993",
+   "author": "Avraham Biran and Joseph Naveh",
+   "title": "\"An Aramaic Stele Fragment from Tel Dan\", Israel Exploration Journal 43",
+   "year": "1993",
+   "where": "pp. 81–98, esp. 95–98 on the reading 'house of David' (facts only; copyrighted)",
+   "url": "https://www.jstor.org/stable/27926300"
+  },
+  {
+   "id": "davies-1994",
+   "author": "Philip R. Davies",
+   "title": "\"'House of David' Built on Sand: The Sins of the Biblical Maximizers\", Biblical Archaeology Review 20/4",
+   "year": "1994",
+   "where": "pp. 54–55 (facts only; copyrighted)",
+   "url": "https://library.biblicalarchaeology.org/article/house-of-david-built-on-sand/"
+  },
+  {
+   "id": "budge-1922",
+   "author": "E. A. Wallis Budge (tr.)",
+   "title": "The Queen of Sheba and Her Only Son Menyelek (the Kebra Nagast)",
+   "year": "1922",
+   "where": "Introduction (the colophons' date for the Arabic version, AD 1314–1344; the names Makeda and Balkis)",
+   "url": "https://archive.org/details/queenofshebahero00budgrich"
+  }
+ ]
+}

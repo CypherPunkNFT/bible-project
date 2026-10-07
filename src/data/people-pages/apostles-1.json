@@ -1,0 +1,5760 @@
+{
+  "id": "apostles-1",
+  "title": "The first called",
+  "intro": [
+    {
+      "text": "The first seven names in Matthew’s list of the Twelve: two pairs of brothers who fished on the sea of Galilee (Peter and Andrew, James and John), then Philip, Bartholomew and Thomas.",
+      "layer": "text",
+      "refs": [
+        [
+          40010002,
+          40010003
+        ],
+        [
+          40004018,
+          40004022
+        ]
+      ]
+    },
+    {
+      "text": "In all four lists Peter is named first, and Philip and James son of Alphaeus head the second and third groups of four. Inside each group the order changes, but the members do not. (Acts 1:13 names eleven, after Judas Iscariot’s death.)",
+      "layer": "text",
+      "refs": [
+        [
+          40010002,
+          40010004
+        ],
+        [
+          41003016,
+          41003019
+        ],
+        [
+          42006014,
+          42006016
+        ],
+        [
+          44001013,
+          44001013
+        ]
+      ]
+    },
+    {
+      "text": "Of these seven, Scripture records the death of only one: Herod “killed James the brother of John with the sword” (Acts 12:2). What became of the other six after Acts 1 comes only from later writers, shown on each page with who said it and when.",
+      "layer": "scripture",
+      "refs": [
+        [
+          44012002,
+          44012002
+        ]
+      ]
+    }
+  ],
+  "apostles": [
+    {
+      "id": "peter-mat-4-18",
+      "name": "Peter",
+      "otherNames": [
+        "Simon",
+        "Simon Peter",
+        "Cephas",
+        "Simon Bar-jona",
+        "Simeon (Acts 15:14)"
+      ],
+      "title": "One of the Twelve",
+      "tagline": "A fisherman from Bethsaida, named first in every list of the Twelve.",
+      "order": 1,
+      "home": {
+        "text": "Scripture says Philip “was of Bethsaida, the city of Andrew and Peter” (John 1:44). In Capernaum Simon and Andrew had a house (Mark 1:21, 29), which Matthew calls “Peter’s house” (Matt 8:14).",
+        "layer": "scripture",
+        "refs": [
+          [
+            43001044,
+            43001044
+          ],
+          [
+            41001021,
+            41001021
+          ],
+          [
+            41001029,
+            41001029
+          ],
+          [
+            40008014,
+            40008014
+          ]
+        ]
+      },
+      "trade": {
+        "text": "A fisherman, casting a net with his brother Andrew (Matt 4:18). James and John, the sons of Zebedee, were his “partners” (Luke 5:10).",
+        "layer": "scripture",
+        "refs": [
+          [
+            40004018,
+            40004018
+          ],
+          [
+            42005010,
+            42005010
+          ]
+        ]
+      },
+      "family": [
+        {
+          "text": "His brother was Andrew, who brought him to Jesus (John 1:40–42).",
+          "layer": "scripture",
+          "refs": [
+            [
+              43001040,
+              43001042
+            ]
+          ]
+        },
+        {
+          "text": "His father is called Jona (John 1:42) and Jonas (John 21:15–17); Jesus calls him “Simon Bar-jona”, son of Jona (Matt 16:17).",
+          "layer": "scripture",
+          "refs": [
+            [
+              43001042,
+              43001042
+            ],
+            [
+              43021015,
+              43021017
+            ],
+            [
+              40016017,
+              40016017
+            ]
+          ]
+        },
+        {
+          "text": "He was married. Jesus healed “Simon’s wife’s mother” at his house (Mark 1:29–31), and Paul says Cephas took “a wife” with him on his travels (1 Cor 9:5). Scripture does not give her name or mention children.",
+          "layer": "scripture",
+          "refs": [
+            [
+              41001029,
+              41001031
+            ],
+            [
+              46009005,
+              46009005
+            ]
+          ]
+        },
+        {
+          "text": "Clement of Alexandria (about AD 200), as quoted by Eusebius, says that Peter had children, and that “they say” Peter saw his own wife led out to die and called to her, “Remember the Lord.”",
+          "layer": "early-church",
+          "cites": [
+            "eus-3"
+          ]
+        }
+      ],
+      "identifications": [
+        {
+          "text": "Jesus told Simon, “thou shalt be called Cephas, which is by interpretation, A stone” (John 1:42), and in Matthew, “thou art Peter, and upon this rock I will build my church” (Matt 16:18). Paul uses both names for the same man in two neighbouring verses (Gal 2:8–9).",
+          "layer": "text",
+          "refs": [
+            [
+              43001042,
+              43001042
+            ],
+            [
+              40016018,
+              40016018
+            ],
+            [
+              48002008,
+              48002009
+            ]
+          ]
+        },
+        {
+          "text": "The KJV gives his father’s name as Jona or Jonas. Tischendorf’s Greek text in the site library reads ‘son of John’ at John 21:15, and our people data files the father under the name John.",
+          "layer": "text",
+          "refs": [
+            [
+              43001042,
+              43001042
+            ],
+            [
+              43021015,
+              43021015
+            ]
+          ]
+        },
+        {
+          "text": "The “Simeon” of Acts 15:14 is taken to be Peter because James is replying to Peter’s speech just before (Acts 15:7–11). Our people data files the verse under Peter.",
+          "layer": "text",
+          "refs": [
+            [
+              44015007,
+              44015014
+            ]
+          ]
+        }
+      ],
+      "lists": [
+        {
+          "book": "MAT",
+          "position": 1,
+          "name": "Simon, who is called Peter",
+          "span": [
+            40010002,
+            40010002
+          ]
+        },
+        {
+          "book": "MRK",
+          "position": 1,
+          "name": "Simon he surnamed Peter",
+          "span": [
+            41003016,
+            41003016
+          ]
+        },
+        {
+          "book": "LUK",
+          "position": 1,
+          "name": "Simon, (whom he also named Peter,)",
+          "span": [
+            42006014,
+            42006014
+          ]
+        },
+        {
+          "book": "ACT",
+          "position": 1,
+          "name": "Peter",
+          "span": [
+            44001013,
+            44001013
+          ]
+        }
+      ],
+      "calling": [
+        {
+          "label": "John 1 · Brought by Andrew",
+          "quote": {
+            "text": "He first findeth his own brother Simon, and saith unto him, We have found the Messias, which is, being interpreted, the Christ. And he brought him to Jesus. And when Jesus beheld him, he said, Thou art Simon the son of Jona: thou shalt be called Cephas, which is by interpretation, A stone.",
+            "span": [
+              43001041,
+              43001042
+            ]
+          },
+          "claim": {
+            "text": "John’s Gospel tells this first meeting in Judea, the day after John the Baptist pointed out Jesus (John 1:35–42). Robertson’s harmony puts it before the call by the lake (sections 28 and 41).",
+            "layer": "scholars",
+            "refs": [
+              [
+                43001035,
+                43001042
+              ]
+            ],
+            "cites": [
+              "robertson-1922"
+            ]
+          }
+        },
+        {
+          "label": "Matthew 4 · By the sea of Galilee",
+          "quote": {
+            "text": "And Jesus, walking by the sea of Galilee, saw two brethren, Simon called Peter, and Andrew his brother, casting a net into the sea: for they were fishers. And he saith unto them, Follow me, and I will make you fishers of men. And they straightway left their nets, and followed him.",
+            "span": [
+              40004018,
+              40004020
+            ]
+          },
+          "placeId": "a562fcc"
+        },
+        {
+          "label": "Mark 1 · By the sea of Galilee",
+          "quote": {
+            "text": "Now as he walked by the sea of Galilee, he saw Simon and Andrew his brother casting a net into the sea: for they were fishers. And Jesus said unto them, Come ye after me, and I will make you to become fishers of men. And straightway they forsook their nets, and followed him.",
+            "span": [
+              41001016,
+              41001018
+            ]
+          },
+          "placeId": "a562fcc"
+        },
+        {
+          "label": "Luke 5 · The great catch",
+          "quote": {
+            "text": "When Simon Peter saw it, he fell down at Jesus’ knees, saying, Depart from me; for I am a sinful man, O Lord. For he was astonished, and all that were with him, at the draught of the fishes which they had taken: And so was also James, and John, the sons of Zebedee, which were partners with Simon. And Jesus said unto Simon, Fear not; from henceforth thou shalt catch men. And when they had brought their ships to land, they forsook all, and followed him.",
+            "span": [
+              42005008,
+              42005011
+            ]
+          },
+          "placeId": "a562fcc",
+          "claim": {
+            "text": "Luke tells the call with a great catch of fish from Simon’s boat. Robertson’s harmony sets Luke 5:1–11 beside Matthew 4 and Mark 1 as one event (section 41).",
+            "layer": "scholars",
+            "refs": [
+              [
+                42005001,
+                42005011
+              ]
+            ],
+            "cites": [
+              "robertson-1922"
+            ]
+          }
+        }
+      ],
+      "moments": [
+        {
+          "label": "Brought to Jesus by Andrew and named Cephas",
+          "refs": [
+            [
+              43001040,
+              43001042
+            ]
+          ],
+          "harmony": "28"
+        },
+        {
+          "label": "Called from his nets by the sea of Galilee",
+          "refs": [
+            [
+              40004018,
+              40004020
+            ],
+            [
+              41001016,
+              41001018
+            ],
+            [
+              42005001,
+              42005011
+            ]
+          ],
+          "harmony": "41"
+        },
+        {
+          "label": "His wife’s mother healed at his house",
+          "refs": [
+            [
+              41001029,
+              41001031
+            ],
+            [
+              40008014,
+              40008015
+            ],
+            [
+              42004038,
+              42004039
+            ]
+          ],
+          "harmony": "43"
+        },
+        {
+          "label": "Named first when the Twelve are chosen",
+          "refs": [
+            [
+              41003013,
+              41003019
+            ],
+            [
+              42006012,
+              42006016
+            ]
+          ],
+          "harmony": "53"
+        },
+        {
+          "label": "One of three allowed into Jairus’s house",
+          "refs": [
+            [
+              41005037,
+              41005037
+            ],
+            [
+              42008051,
+              42008051
+            ]
+          ],
+          "harmony": "67"
+        },
+        {
+          "label": "Sent out with the Twelve; first in Matthew’s list",
+          "refs": [
+            [
+              40010001,
+              40010005
+            ],
+            [
+              41006007,
+              41006013
+            ],
+            [
+              42009001,
+              42009006
+            ]
+          ],
+          "harmony": "70"
+        },
+        {
+          "label": "Walks on the water and begins to sink",
+          "refs": [
+            [
+              40014028,
+              40014031
+            ]
+          ],
+          "harmony": "74"
+        },
+        {
+          "label": "“Lord, to whom shall we go?”",
+          "refs": [
+            [
+              43006066,
+              43006069
+            ]
+          ],
+          "harmony": "76"
+        },
+        {
+          "label": "Says “Thou art the Christ” near Caesarea Philippi",
+          "refs": [
+            [
+              40016013,
+              40016020
+            ],
+            [
+              41008027,
+              41008030
+            ],
+            [
+              42009018,
+              42009021
+            ]
+          ],
+          "harmony": "82"
+        },
+        {
+          "label": "Rebukes Jesus and is rebuked: “Get thee behind me”",
+          "refs": [
+            [
+              40016021,
+              40016023
+            ],
+            [
+              41008031,
+              41008033
+            ]
+          ],
+          "harmony": "83"
+        },
+        {
+          "label": "On the mountain at the transfiguration",
+          "refs": [
+            [
+              40017001,
+              40017008
+            ],
+            [
+              41009002,
+              41009008
+            ],
+            [
+              42009028,
+              42009036
+            ]
+          ],
+          "harmony": "85"
+        },
+        {
+          "label": "The coin in the fish’s mouth for the temple tax",
+          "refs": [
+            [
+              40017024,
+              40017027
+            ]
+          ],
+          "harmony": "89"
+        },
+        {
+          "label": "Asks how often he must forgive",
+          "refs": [
+            [
+              40018021,
+              40018022
+            ]
+          ],
+          "harmony": "92"
+        },
+        {
+          "label": "“We have left all, and followed thee”",
+          "refs": [
+            [
+              40019027,
+              40019027
+            ],
+            [
+              41010028,
+              41010028
+            ],
+            [
+              42018028,
+              42018028
+            ]
+          ],
+          "harmony": "124"
+        },
+        {
+          "label": "Points out the withered fig tree",
+          "refs": [
+            [
+              41011020,
+              41011021
+            ]
+          ],
+          "harmony": "131"
+        },
+        {
+          "label": "Asks on the Mount of Olives when the temple will fall",
+          "refs": [
+            [
+              41013003,
+              41013004
+            ]
+          ],
+          "harmony": "139"
+        },
+        {
+          "label": "Sent with John to prepare the passover",
+          "refs": [
+            [
+              42022008,
+              42022008
+            ]
+          ],
+          "harmony": "143"
+        },
+        {
+          "label": "Protests as Jesus washes his feet",
+          "refs": [
+            [
+              43013006,
+              43013010
+            ]
+          ],
+          "harmony": "145"
+        },
+        {
+          "label": "Beckons the disciple whom Jesus loved to ask who the betrayer is",
+          "refs": [
+            [
+              43013024,
+              43013024
+            ]
+          ],
+          "harmony": "146"
+        },
+        {
+          "label": "Warned that he will deny Jesus three times",
+          "refs": [
+            [
+              40026033,
+              40026035
+            ],
+            [
+              41014029,
+              41014031
+            ],
+            [
+              42022031,
+              42022034
+            ],
+            [
+              43013036,
+              43013038
+            ]
+          ],
+          "harmony": "147"
+        },
+        {
+          "label": "Asleep in Gethsemane",
+          "refs": [
+            [
+              40026037,
+              40026040
+            ],
+            [
+              41014033,
+              41014037
+            ]
+          ],
+          "harmony": "152"
+        },
+        {
+          "label": "Cuts off the ear of Malchus",
+          "refs": [
+            [
+              43018010,
+              43018011
+            ]
+          ],
+          "harmony": "153"
+        },
+        {
+          "label": "Denies Jesus three times",
+          "refs": [
+            [
+              40026069,
+              40026075
+            ],
+            [
+              41014066,
+              41014072
+            ],
+            [
+              42022054,
+              42022062
+            ],
+            [
+              43018015,
+              43018018
+            ],
+            [
+              43018025,
+              43018027
+            ]
+          ],
+          "harmony": "156"
+        },
+        {
+          "label": "The angel at the tomb: “tell his disciples and Peter”",
+          "refs": [
+            [
+              41016007,
+              41016007
+            ]
+          ],
+          "harmony": "171"
+        },
+        {
+          "label": "Runs to the empty tomb",
+          "refs": [
+            [
+              42024012,
+              42024012
+            ],
+            [
+              43020002,
+              43020010
+            ]
+          ],
+          "harmony": "172"
+        },
+        {
+          "label": "The risen Lord appears to Simon",
+          "refs": [
+            [
+              42024034,
+              42024034
+            ],
+            [
+              46015005,
+              46015005
+            ]
+          ],
+          "harmony": "177"
+        },
+        {
+          "label": "By the sea: 153 fish and “Feed my sheep”",
+          "refs": [
+            [
+              43021001,
+              43021023
+            ]
+          ],
+          "harmony": "180"
+        }
+      ],
+      "acts": [
+        {
+          "text": "He stands up among about 120 believers and leads the choosing of one to take Judas’s place (Acts 1:15–26).",
+          "layer": "scripture",
+          "refs": [
+            [
+              44001015,
+              44001026
+            ]
+          ]
+        },
+        {
+          "text": "At Pentecost he speaks for the Eleven (“Peter, standing up with the eleven”), and about three thousand are baptized (Acts 2:14–41).",
+          "layer": "scripture",
+          "refs": [
+            [
+              44002014,
+              44002041
+            ]
+          ]
+        },
+        {
+          "text": "With John he heals a lame man at the temple gate and speaks in Solomon’s porch (Acts 3:1–26).",
+          "layer": "scripture",
+          "refs": [
+            [
+              44003001,
+              44003026
+            ]
+          ]
+        },
+        {
+          "text": "He and John are arrested and questioned by the council, who see that they are “unlearned and ignorant men” and that “they had been with Jesus” (Acts 4:1–22).",
+          "layer": "scripture",
+          "refs": [
+            [
+              44004001,
+              44004022
+            ]
+          ]
+        },
+        {
+          "text": "He confronts Ananias and Sapphira (Acts 5:1–11). People lay the sick in the streets so that “the shadow of Peter passing by” might fall on them (Acts 5:15). Before the council, “Peter and the other apostles” say, “We ought to obey God rather than men” (Acts 5:29).",
+          "layer": "scripture",
+          "refs": [
+            [
+              44005001,
+              44005011
+            ],
+            [
+              44005015,
+              44005015
+            ],
+            [
+              44005029,
+              44005029
+            ]
+          ]
+        },
+        {
+          "text": "He is sent with John to Samaria, where they lay hands on the new believers and Peter rebukes Simon the sorcerer (Acts 8:14–25).",
+          "layer": "scripture",
+          "refs": [
+            [
+              44008014,
+              44008025
+            ]
+          ]
+        },
+        {
+          "text": "At Lydda he heals Aeneas; at Joppa he raises Tabitha and stays with Simon a tanner (Acts 9:32–43).",
+          "layer": "scripture",
+          "refs": [
+            [
+              44009032,
+              44009043
+            ]
+          ]
+        },
+        {
+          "text": "After a vision at Joppa he goes to the Roman centurion Cornelius at Caesarea, and the Holy Ghost falls on Gentiles (Acts 10:1–48). He defends this in Jerusalem (Acts 11:1–18).",
+          "layer": "scripture",
+          "refs": [
+            [
+              44010001,
+              44010048
+            ],
+            [
+              44011001,
+              44011018
+            ]
+          ]
+        },
+        {
+          "text": "Herod kills James and then imprisons Peter; an angel leads him out. He goes to the house of Mary the mother of John Mark, then “departed, and went into another place” (Acts 12:3–17).",
+          "layer": "scripture",
+          "refs": [
+            [
+              44012003,
+              44012017
+            ]
+          ]
+        },
+        {
+          "text": "At the council in Jerusalem he speaks for receiving the Gentiles (Acts 15:7–11). This is the last time Acts names him.",
+          "layer": "text",
+          "refs": [
+            [
+              44015007,
+              44015011
+            ]
+          ]
+        },
+        {
+          "text": "Paul went up to Jerusalem “to see Peter, and abode with him fifteen days” (Gal 1:18). Later James, Cephas and John “seemed to be pillars” and gave Paul and Barnabas “the right hands of fellowship” (Gal 2:9).",
+          "layer": "scripture",
+          "refs": [
+            [
+              48001018,
+              48001018
+            ],
+            [
+              48002009,
+              48002009
+            ]
+          ]
+        },
+        {
+          "text": "At Antioch Paul “withstood him to the face” for withdrawing from eating with Gentiles (Gal 2:11–14).",
+          "layer": "scripture",
+          "refs": [
+            [
+              48002011,
+              48002014
+            ]
+          ]
+        },
+        {
+          "text": "Paul says Cephas travelled with a wife (1 Cor 9:5), and some at Corinth said “I of Cephas” (1 Cor 1:12).",
+          "layer": "scripture",
+          "refs": [
+            [
+              46009005,
+              46009005
+            ],
+            [
+              46001012,
+              46001012
+            ]
+          ]
+        },
+        {
+          "text": "1 Peter is written “By Silvanus” and sends greetings from the church “at Babylon” and from “Marcus my son” (1 Pet 5:12–13).",
+          "layer": "scripture",
+          "refs": [
+            [
+              60005012,
+              60005013
+            ]
+          ]
+        }
+      ],
+      "places": [
+        {
+          "name": "Bethsaida",
+          "placeId": "a91b732",
+          "refs": [
+            [
+              43001044,
+              43001044
+            ]
+          ],
+          "note": "His home town in John’s Gospel"
+        },
+        {
+          "name": "Capernaum",
+          "placeId": "af2161c",
+          "refs": [
+            [
+              41001021,
+              41001021
+            ],
+            [
+              41001029,
+              41001029
+            ],
+            [
+              40008014,
+              40008014
+            ]
+          ],
+          "note": "The house of Simon and Andrew"
+        },
+        {
+          "name": "Sea of Galilee",
+          "placeId": "a562fcc",
+          "refs": [
+            [
+              40004018,
+              40004018
+            ],
+            [
+              43021001,
+              43021001
+            ]
+          ],
+          "note": "Where he fished, was called, and met the risen Jesus"
+        },
+        {
+          "name": "Caesarea Philippi",
+          "placeId": "ab7bf48",
+          "refs": [
+            [
+              40016013,
+              40016016
+            ]
+          ],
+          "note": "Where he said “Thou art the Christ”"
+        },
+        {
+          "name": "Jerusalem",
+          "placeId": "a15257a",
+          "refs": [
+            [
+              44002014,
+              44002014
+            ],
+            [
+              44003001,
+              44003001
+            ],
+            [
+              44012005,
+              44012005
+            ],
+            [
+              48001018,
+              48001018
+            ]
+          ]
+        },
+        {
+          "name": "Samaria",
+          "placeId": "a282dce",
+          "refs": [
+            [
+              44008014,
+              44008014
+            ]
+          ]
+        },
+        {
+          "name": "Lydda",
+          "placeId": "a2c5cc7",
+          "refs": [
+            [
+              44009032,
+              44009032
+            ]
+          ],
+          "note": "Named Lod in the site’s places data"
+        },
+        {
+          "name": "Joppa",
+          "placeId": "ae023a9",
+          "refs": [
+            [
+              44009043,
+              44009043
+            ]
+          ]
+        },
+        {
+          "name": "Caesarea",
+          "placeId": "a58735e",
+          "refs": [
+            [
+              44010024,
+              44010024
+            ]
+          ],
+          "note": "The house of Cornelius"
+        },
+        {
+          "name": "Antioch",
+          "placeId": "ae41ab4",
+          "refs": [
+            [
+              48002011,
+              48002011
+            ]
+          ]
+        },
+        {
+          "name": "“Babylon”",
+          "refs": [
+            [
+              60005013,
+              60005013
+            ]
+          ],
+          "note": "Where 1 Peter was sent from. Which city is meant is disputed: Rome under a figure (Eusebius 2.15.2 reports that “they say” Peter wrote the letter in Rome), the city on the Euphrates, or another. The views are on the Letters page for 1 Peter, so no pin is drawn here"
+        },
+        {
+          "name": "Pontus, Galatia, Cappadocia, Asia and Bithynia",
+          "placeId": "a83a43e",
+          "refs": [
+            [
+              60001001,
+              60001001
+            ]
+          ],
+          "note": "The provinces 1 Peter is addressed to; Origen, as Eusebius reports, says Peter preached there",
+          "tradition": true
+        },
+        {
+          "name": "Rome",
+          "placeId": "afc8e7a",
+          "note": "Where early writers place his death; Scripture does not name it",
+          "tradition": true
+        }
+      ],
+      "companions": [
+        {
+          "person": {
+            "name": "Andrew",
+            "personId": "andrew-mat-4-18"
+          },
+          "claim": {
+            "text": "His brother, who brought him to Jesus (John 1:40–42). They fished together and shared a house (Mark 1:16, 29).",
+            "layer": "scripture",
+            "refs": [
+              [
+                43001040,
+                43001042
+              ],
+              [
+                41001016,
+                41001016
+              ],
+              [
+                41001029,
+                41001029
+              ]
+            ]
+          }
+        },
+        {
+          "person": {
+            "name": "James son of Zebedee",
+            "personId": "james-mat-4-21"
+          },
+          "claim": {
+            "text": "A fishing partner (Luke 5:10). With Peter and John, one of the three Jesus took into Jairus’s house, up the mountain, and further into Gethsemane (Mark 5:37; 9:2; 14:33).",
+            "layer": "scripture",
+            "refs": [
+              [
+                42005010,
+                42005010
+              ],
+              [
+                41005037,
+                41005037
+              ],
+              [
+                41009002,
+                41009002
+              ],
+              [
+                41014033,
+                41014033
+              ]
+            ]
+          }
+        },
+        {
+          "person": {
+            "name": "John son of Zebedee",
+            "personId": "john-mat-4-21"
+          },
+          "claim": {
+            "text": "A fishing partner (Luke 5:10), sent with Peter to prepare the passover (Luke 22:8), and with him at the temple, before the council and in Samaria (Acts 3:1; 4:13; 8:14).",
+            "layer": "scripture",
+            "refs": [
+              [
+                42005010,
+                42005010
+              ],
+              [
+                42022008,
+                42022008
+              ],
+              [
+                44003001,
+                44003001
+              ],
+              [
+                44004013,
+                44004013
+              ],
+              [
+                44008014,
+                44008014
+              ]
+            ]
+          }
+        },
+        {
+          "person": {
+            "name": "His wife",
+            "personId": "a-wife-of-peter-mat-8-14"
+          },
+          "claim": {
+            "text": "Paul says Cephas took “a wife” with him (1 Cor 9:5).",
+            "layer": "scripture",
+            "refs": [
+              [
+                46009005,
+                46009005
+              ]
+            ]
+          }
+        },
+        {
+          "person": {
+            "name": "Cornelius",
+            "personId": "cornelius-act-10-1"
+          },
+          "claim": {
+            "text": "The centurion at Caesarea who sent for Peter (Acts 10:1–8, 24–48).",
+            "layer": "scripture",
+            "refs": [
+              [
+                44010001,
+                44010008
+              ],
+              [
+                44010024,
+                44010048
+              ]
+            ]
+          }
+        },
+        {
+          "person": {
+            "name": "Paul",
+            "personId": "paul-act-7-58"
+          },
+          "claim": {
+            "text": "Paul stayed with him fifteen days in Jerusalem, and later opposed him at Antioch (Gal 1:18; 2:11).",
+            "layer": "scripture",
+            "refs": [
+              [
+                48001018,
+                48001018
+              ],
+              [
+                48002011,
+                48002011
+              ]
+            ]
+          }
+        },
+        {
+          "person": {
+            "name": "James, the Lord’s brother",
+            "personId": "james-mat-13-55"
+          },
+          "claim": {
+            "text": "On his visit to Peter, Paul saw no other apostle “save James the Lord’s brother” (Gal 1:19).",
+            "layer": "scripture",
+            "refs": [
+              [
+                48001018,
+                48001019
+              ]
+            ]
+          }
+        },
+        {
+          "person": {
+            "name": "Mark",
+            "personId": "mark-act-12-12"
+          },
+          "claim": {
+            "text": "Freed from prison, Peter went to the house of Mary, “the mother of John, whose surname was Mark” (Acts 12:12). 1 Peter sends greetings from “Marcus my son” (1 Pet 5:13); our people data treats the two as one man.",
+            "layer": "scripture",
+            "refs": [
+              [
+                44012012,
+                44012012
+              ],
+              [
+                60005013,
+                60005013
+              ]
+            ]
+          }
+        },
+        {
+          "person": {
+            "name": "Mark, Peter’s interpreter (tradition)",
+            "personId": "mark-act-12-12"
+          },
+          "claim": {
+            "text": "Papias (early 2nd century), quoted by Eusebius, says Mark “having become the interpreter of Peter, wrote down accurately … whatsoever he remembered”.",
+            "layer": "early-church",
+            "cites": [
+              "eus-3"
+            ]
+          }
+        },
+        {
+          "person": {
+            "name": "Silvanus",
+            "personId": "silas-act-15-22"
+          },
+          "claim": {
+            "text": "1 Peter is written “By Silvanus, a faithful brother” (1 Pet 5:12). Our people data treats Silvanus as Paul’s companion Silas.",
+            "layer": "scripture",
+            "refs": [
+              [
+                60005012,
+                60005012
+              ]
+            ]
+          }
+        }
+      ],
+      "ending": {
+        "scripture": [
+          {
+            "text": "Jesus tells Peter that when he is old “another shall gird thee, and carry thee whither thou wouldest not”. John adds: “This spake he, signifying by what death he should glorify God” (John 21:18–19).",
+            "layer": "scripture",
+            "refs": [
+              [
+                43021018,
+                43021019
+              ]
+            ]
+          },
+          {
+            "text": "The writer of 2 Peter, who names himself “Simon Peter” (2 Pet 1:1), says “shortly I must put off this my tabernacle, even as our Lord Jesus Christ hath shewed me” (2 Pet 1:14). Who wrote 2 Peter is discussed on the Letters pages.",
+            "layer": "scripture",
+            "refs": [
+              [
+                61001001,
+                61001001
+              ],
+              [
+                61001014,
+                61001014
+              ]
+            ]
+          },
+          {
+            "text": "Acts last names him at the council in Jerusalem (Acts 15:7) and never says how, where or when he died.",
+            "layer": "text",
+            "refs": [
+              [
+                44015007,
+                44015007
+              ]
+            ]
+          }
+        ],
+        "tradition": [
+          {
+            "text": "Peter “endured not one nor two but many labours, and thus having borne his testimony went to his appointed place of glory.” No place and no manner of death is given.",
+            "layer": "early-church",
+            "cites": [
+              "lightfoot-1891"
+            ],
+            "who": "Clement of Rome, 1 Clement 5",
+            "when": "about AD 95–96, at the close of Domitian’s persecution (Lightfoot, 1891)"
+          },
+          {
+            "text": "Writing to the Roman church on his way to death, Ignatius says, “I do not enjoin you, as Peter and Paul did.”",
+            "layer": "early-church",
+            "cites": [
+              "lightfoot-1891"
+            ],
+            "who": "Ignatius of Antioch, To the Romans 4",
+            "when": "early 2nd century (Lightfoot, 1891)"
+          },
+          {
+            "text": "Peter and Paul “taught together in like manner in Italy, and suffered martyrdom at the same time.”",
+            "layer": "early-church",
+            "cites": [
+              "eus-2",
+              "eus-4"
+            ],
+            "who": "Dionysius, bishop of Corinth, letter to the Romans, quoted by Eusebius (2.25.8)",
+            "when": "about AD 170, writing to Soter, bishop of Rome (Eusebius 4.23.9)"
+          },
+          {
+            "text": "Matthew wrote “while Peter and Paul were preaching at Rome, and laying the foundations of the Church”, and Mark was “the disciple and interpreter of Peter”.",
+            "layer": "early-church",
+            "cites": [
+              "irenaeus-3-1"
+            ],
+            "who": "Irenaeus, Against Heresies 3.1.1",
+            "when": "about AD 180"
+          },
+          {
+            "text": "Luke’s Acts leaves out “the passion of Peter” because Luke wrote only what he saw himself.",
+            "layer": "early-church",
+            "cites": [
+              "muratorian",
+              "lightfoot-1891"
+            ],
+            "who": "The Muratorian fragment, an anonymous list of New Testament books",
+            "when": "about AD 180 (Lightfoot, 1891)"
+          },
+          {
+            "text": "“I can show the trophies of the apostles. For if you will go to the Vatican or to the Ostian way, you will find the trophies of those who laid the foundations of this church.”",
+            "layer": "early-church",
+            "cites": [
+              "eus-2"
+            ],
+            "who": "Gaius (Caius) of Rome, against Proclus, quoted by Eusebius (2.25.7)",
+            "when": "about AD 200 (under Zephyrinus, bishop of Rome)"
+          },
+          {
+            "text": "At Rome, “Peter endures a passion like his Lord’s”; elsewhere, “Then is Peter girt by another, when he is made fast to the cross.”",
+            "layer": "early-church",
+            "cites": [
+              "tertullian-praescr",
+              "tertullian-scorp"
+            ],
+            "who": "Tertullian, Prescription against Heretics 36 and Scorpiace 15",
+            "when": "about AD 200"
+          },
+          {
+            "text": "Leaving Rome, Peter meets the Lord and asks, “Lord, whither goest thou”; told “I go into Rome to be crucified”, he turns back. He asks to be crucified “with the head downward and not otherwise”.",
+            "layer": "tradition",
+            "cites": [
+              "james-1924"
+            ],
+            "who": "The Acts of Peter (apocryphal), chs. 35–37",
+            "when": "not later than AD 200 (M. R. James, 1924)"
+          },
+          {
+            "text": "Peter “appears to have preached in Pontus, Galatia, Bithynia, Cappadocia, and Asia” and “at last, having come to Rome, he was crucified head-downwards; for he had requested that he might suffer in this way.”",
+            "layer": "early-church",
+            "cites": [
+              "eus-3"
+            ],
+            "who": "Origen, Commentary on Genesis book 3, as reported by Eusebius (3.1.2)",
+            "when": "first half of the 3rd century; Eusebius about AD 325"
+          },
+          {
+            "text": "“It is, therefore, recorded that Paul was beheaded in Rome itself, and that Peter likewise was crucified under Nero.”",
+            "layer": "early-church",
+            "cites": [
+              "eus-2"
+            ],
+            "who": "Eusebius, Church History 2.25.5",
+            "when": "about AD 325"
+          },
+          {
+            "text": "Peter was bishop of Antioch, reached Rome “in the second year of Claudius”, held “the sacerdotal chair there for twenty-five years until the last, that is the fourteenth, year of Nero”, and was “nailed to the cross with his head towards the ground”.",
+            "layer": "early-church",
+            "cites": [
+              "jerome-lives"
+            ],
+            "who": "Jerome, Lives of Illustrious Men 1",
+            "when": "AD 392"
+          }
+        ]
+      },
+      "writings": [
+        {
+          "title": "1 Peter and 2 Peter",
+          "letters": "general-letters"
+        }
+      ],
+      "questions": [
+        {
+          "id": "peter-rome",
+          "question": "When did Peter come to Rome, and how long was he there?",
+          "views": [
+            {
+              "label": "He and Paul founded the Roman church together",
+              "holders": "Dionysius of Corinth (about 170); Irenaeus (about 180)",
+              "argument": {
+                "text": "Irenaeus speaks of the church “founded and organized at Rome by the two most glorious apostles, Peter and Paul”, who then “committed into the hands of Linus the office of the episcopate”. Neither writer says how long Peter stayed.",
+                "layer": "early-church",
+                "cites": [
+                  "irenaeus-3-3",
+                  "eus-2"
+                ]
+              }
+            },
+            {
+              "label": "He came to Rome at the end of his life",
+              "holders": "Origen (first half of the 3rd century), as reported by Eusebius",
+              "argument": {
+                "text": "After preaching in Asia Minor, Peter “at last, having come to Rome, he was crucified”.",
+                "layer": "early-church",
+                "cites": [
+                  "eus-3"
+                ]
+              }
+            },
+            {
+              "label": "He came under Claudius and led the church for twenty-five years",
+              "holders": "Eusebius (about 325) for the arrival under Claudius; Jerome (392) for the twenty-five years",
+              "argument": {
+                "text": "Eusebius has Peter led to Rome “during the reign of Claudius”; Jerome dates it to “the second year of Claudius” and counts twenty-five years to Nero’s fourteenth year.",
+                "layer": "early-church",
+                "cites": [
+                  "eus-2",
+                  "jerome-lives"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "peter-antioch",
+          "question": "Was the man Paul opposed at Antioch the apostle Peter?",
+          "views": [
+            {
+              "label": "Yes, the apostle Peter",
+              "holders": "Tertullian (about 200); the KJV text",
+              "argument": {
+                "text": "The KJV reads “Peter” in Galatians 2:11 and 2:14. Tertullian writes that “Peter was rebuked because, after he had lived with the Gentiles, he proceeded to separate himself from their company”.",
+                "layer": "early-church",
+                "refs": [
+                  [
+                    48002011,
+                    48002011
+                  ],
+                  [
+                    48002014,
+                    48002014
+                  ]
+                ],
+                "cites": [
+                  "tertullian-praescr"
+                ]
+              }
+            },
+            {
+              "label": "No, another Cephas, one of the Seventy",
+              "holders": "Clement of Alexandria (about 200), Hypotyposes book 5, as reported by Eusebius",
+              "argument": {
+                "text": "Clement “says that Cephas was one of the seventy disciples, a man who bore the same name as the apostle Peter”. Tischendorf’s Greek text in the site library reads “Cephas” in Galatians 2:11 and 2:14, where the KJV reads “Peter”.",
+                "layer": "early-church",
+                "refs": [
+                  [
+                    48002011,
+                    48002011
+                  ],
+                  [
+                    48002014,
+                    48002014
+                  ]
+                ],
+                "cites": [
+                  "eus-1"
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "notSaid": [
+        "Scripture never says that Peter went to Rome, or how, where or when he died.",
+        "Acts does not say where “another place” was when Peter left Jerusalem after his escape (Acts 12:17).",
+        "Paul’s greetings to the church at Rome (Romans 16:3–16) do not name Peter.",
+        "Scripture does not name Peter’s wife and does not mention children.",
+        "Scripture does not give Peter’s age at any point."
+      ],
+      "passages": [
+        [
+          40004018,
+          40004020
+        ],
+        [
+          40008014,
+          40008015
+        ],
+        [
+          40010001,
+          40010005
+        ],
+        [
+          40014028,
+          40014031
+        ],
+        [
+          40016013,
+          40016023
+        ],
+        [
+          40017001,
+          40017008
+        ],
+        [
+          40017024,
+          40017027
+        ],
+        [
+          40018021,
+          40018022
+        ],
+        [
+          40019027,
+          40019027
+        ],
+        [
+          40026033,
+          40026035
+        ],
+        [
+          40026037,
+          40026040
+        ],
+        [
+          40026069,
+          40026075
+        ],
+        [
+          41001016,
+          41001018
+        ],
+        [
+          41001021,
+          41001021
+        ],
+        [
+          41001029,
+          41001031
+        ],
+        [
+          41003013,
+          41003019
+        ],
+        [
+          41005037,
+          41005037
+        ],
+        [
+          41006007,
+          41006013
+        ],
+        [
+          41008027,
+          41008033
+        ],
+        [
+          41009002,
+          41009008
+        ],
+        [
+          41010028,
+          41010028
+        ],
+        [
+          41011020,
+          41011021
+        ],
+        [
+          41013003,
+          41013004
+        ],
+        [
+          41014029,
+          41014031
+        ],
+        [
+          41014033,
+          41014037
+        ],
+        [
+          41014066,
+          41014072
+        ],
+        [
+          41016007,
+          41016007
+        ],
+        [
+          42004038,
+          42004039
+        ],
+        [
+          42005001,
+          42005011
+        ],
+        [
+          42006012,
+          42006016
+        ],
+        [
+          42008051,
+          42008051
+        ],
+        [
+          42009001,
+          42009006
+        ],
+        [
+          42009018,
+          42009021
+        ],
+        [
+          42009028,
+          42009036
+        ],
+        [
+          42018028,
+          42018028
+        ],
+        [
+          42022008,
+          42022008
+        ],
+        [
+          42022031,
+          42022034
+        ],
+        [
+          42022054,
+          42022062
+        ],
+        [
+          42024012,
+          42024012
+        ],
+        [
+          42024034,
+          42024034
+        ],
+        [
+          43001035,
+          43001042
+        ],
+        [
+          43001044,
+          43001044
+        ],
+        [
+          43006066,
+          43006069
+        ],
+        [
+          43013006,
+          43013010
+        ],
+        [
+          43013024,
+          43013024
+        ],
+        [
+          43013036,
+          43013038
+        ],
+        [
+          43018010,
+          43018011
+        ],
+        [
+          43018015,
+          43018018
+        ],
+        [
+          43018025,
+          43018027
+        ],
+        [
+          43020002,
+          43020010
+        ],
+        [
+          43021001,
+          43021023
+        ],
+        [
+          44001013,
+          44001013
+        ],
+        [
+          44001015,
+          44001026
+        ],
+        [
+          44002014,
+          44002041
+        ],
+        [
+          44003001,
+          44003026
+        ],
+        [
+          44004001,
+          44004022
+        ],
+        [
+          44005001,
+          44005011
+        ],
+        [
+          44005015,
+          44005015
+        ],
+        [
+          44005029,
+          44005029
+        ],
+        [
+          44008014,
+          44008025
+        ],
+        [
+          44009032,
+          44009043
+        ],
+        [
+          44010001,
+          44010048
+        ],
+        [
+          44011001,
+          44011018
+        ],
+        [
+          44012003,
+          44012017
+        ],
+        [
+          44015007,
+          44015011
+        ],
+        [
+          46001012,
+          46001012
+        ],
+        [
+          46009005,
+          46009005
+        ],
+        [
+          46015005,
+          46015005
+        ],
+        [
+          48001018,
+          48001018
+        ],
+        [
+          48002009,
+          48002009
+        ],
+        [
+          48002011,
+          48002014
+        ],
+        [
+          60005012,
+          60005013
+        ],
+        [
+          61001001,
+          61001001
+        ],
+        [
+          61001014,
+          61001014
+        ]
+      ]
+    },
+    {
+      "id": "andrew-mat-4-18",
+      "name": "Andrew",
+      "otherNames": [],
+      "title": "One of the Twelve",
+      "tagline": "Peter’s brother, and the first follower John’s Gospel names.",
+      "order": 2,
+      "home": {
+        "text": "From Bethsaida, “the city of Andrew and Peter” (John 1:44). He and Simon had a house in Capernaum (Mark 1:21, 29).",
+        "layer": "scripture",
+        "refs": [
+          [
+            43001044,
+            43001044
+          ],
+          [
+            41001021,
+            41001021
+          ],
+          [
+            41001029,
+            41001029
+          ]
+        ]
+      },
+      "trade": {
+        "text": "A fisherman with his brother Simon (Matt 4:18; Mark 1:16).",
+        "layer": "scripture",
+        "refs": [
+          [
+            40004018,
+            40004018
+          ],
+          [
+            41001016,
+            41001016
+          ]
+        ]
+      },
+      "family": [
+        {
+          "text": "Brother of Simon Peter (Matt 4:18; John 1:40). Scripture names their father only when speaking to Simon (John 1:42; Matt 16:17).",
+          "layer": "scripture",
+          "refs": [
+            [
+              40004018,
+              40004018
+            ],
+            [
+              43001040,
+              43001040
+            ],
+            [
+              43001042,
+              43001042
+            ],
+            [
+              40016017,
+              40016017
+            ]
+          ]
+        }
+      ],
+      "identifications": [
+        {
+          "text": "He was one of two disciples of John the Baptist who followed Jesus; John’s Gospel names Andrew but not the other (John 1:35–40).",
+          "layer": "scripture",
+          "refs": [
+            [
+              43001035,
+              43001040
+            ]
+          ]
+        }
+      ],
+      "lists": [
+        {
+          "book": "MAT",
+          "position": 2,
+          "name": "Andrew his brother",
+          "span": [
+            40010002,
+            40010002
+          ]
+        },
+        {
+          "book": "MRK",
+          "position": 4,
+          "name": "Andrew",
+          "span": [
+            41003018,
+            41003018
+          ]
+        },
+        {
+          "book": "LUK",
+          "position": 2,
+          "name": "Andrew his brother",
+          "span": [
+            42006014,
+            42006014
+          ]
+        },
+        {
+          "book": "ACT",
+          "position": 4,
+          "name": "Andrew",
+          "span": [
+            44001013,
+            44001013
+          ]
+        }
+      ],
+      "calling": [
+        {
+          "label": "John 1 · From John the Baptist",
+          "quote": {
+            "text": "And the two disciples heard him speak, and they followed Jesus. Then Jesus turned, and saw them following, and saith unto them, What seek ye? They said unto him, Rabbi, (which is to say, being interpreted, Master,) where dwellest thou? He saith unto them, Come and see. They came and saw where he dwelt, and abode with him that day: for it was about the tenth hour. One of the two which heard John speak, and followed him, was Andrew, Simon Peter’s brother. He first findeth his own brother Simon, and saith unto him, We have found the Messias, which is, being interpreted, the Christ.",
+            "span": [
+              43001037,
+              43001041
+            ]
+          },
+          "claim": {
+            "text": "Robertson’s harmony puts this meeting in Judea before the call by the lake (sections 28 and 41).",
+            "layer": "scholars",
+            "refs": [
+              [
+                43001035,
+                43001042
+              ]
+            ],
+            "cites": [
+              "robertson-1922"
+            ]
+          }
+        },
+        {
+          "label": "Matthew 4 · By the sea of Galilee",
+          "quote": {
+            "text": "And Jesus, walking by the sea of Galilee, saw two brethren, Simon called Peter, and Andrew his brother, casting a net into the sea: for they were fishers. And he saith unto them, Follow me, and I will make you fishers of men. And they straightway left their nets, and followed him.",
+            "span": [
+              40004018,
+              40004020
+            ]
+          },
+          "placeId": "a562fcc"
+        },
+        {
+          "label": "Mark 1 · By the sea of Galilee",
+          "quote": {
+            "text": "Now as he walked by the sea of Galilee, he saw Simon and Andrew his brother casting a net into the sea: for they were fishers. And Jesus said unto them, Come ye after me, and I will make you to become fishers of men. And straightway they forsook their nets, and followed him.",
+            "span": [
+              41001016,
+              41001018
+            ]
+          },
+          "placeId": "a562fcc"
+        }
+      ],
+      "moments": [
+        {
+          "label": "Follows Jesus from John the Baptist and brings his brother",
+          "refs": [
+            [
+              43001035,
+              43001042
+            ]
+          ],
+          "harmony": "28"
+        },
+        {
+          "label": "Called from his nets with Simon",
+          "refs": [
+            [
+              40004018,
+              40004020
+            ],
+            [
+              41001016,
+              41001018
+            ]
+          ],
+          "harmony": "41"
+        },
+        {
+          "label": "Jesus at the house of Simon and Andrew",
+          "refs": [
+            [
+              41001029,
+              41001031
+            ]
+          ],
+          "harmony": "43"
+        },
+        {
+          "label": "Chosen as one of the Twelve",
+          "refs": [
+            [
+              41003013,
+              41003019
+            ],
+            [
+              42006012,
+              42006016
+            ]
+          ],
+          "harmony": "53"
+        },
+        {
+          "label": "Sent out with the Twelve; second in Matthew’s list",
+          "refs": [
+            [
+              40010001,
+              40010005
+            ]
+          ],
+          "harmony": "70"
+        },
+        {
+          "label": "“There is a lad here, which hath five barley loaves”",
+          "refs": [
+            [
+              43006008,
+              43006009
+            ]
+          ],
+          "harmony": "72"
+        },
+        {
+          "label": "With Philip, brings the Greeks’ request to Jesus",
+          "refs": [
+            [
+              43012020,
+              43012022
+            ]
+          ],
+          "harmony": "130"
+        },
+        {
+          "label": "Asks with Peter, James and John when the temple will fall",
+          "refs": [
+            [
+              41013003,
+              41013004
+            ]
+          ],
+          "harmony": "139"
+        }
+      ],
+      "acts": [
+        {
+          "text": "He is named among the Eleven in the upper room in Jerusalem (Acts 1:13). Acts never names him again.",
+          "layer": "text",
+          "refs": [
+            [
+              44001013,
+              44001013
+            ]
+          ]
+        }
+      ],
+      "places": [
+        {
+          "name": "Bethsaida",
+          "placeId": "a91b732",
+          "refs": [
+            [
+              43001044,
+              43001044
+            ]
+          ]
+        },
+        {
+          "name": "Capernaum",
+          "placeId": "af2161c",
+          "refs": [
+            [
+              41001021,
+              41001021
+            ],
+            [
+              41001029,
+              41001029
+            ]
+          ]
+        },
+        {
+          "name": "Sea of Galilee",
+          "placeId": "a562fcc",
+          "refs": [
+            [
+              40004018,
+              40004018
+            ],
+            [
+              41001016,
+              41001016
+            ]
+          ]
+        },
+        {
+          "name": "Jerusalem",
+          "placeId": "a15257a",
+          "refs": [
+            [
+              44001012,
+              44001013
+            ]
+          ],
+          "note": "The upper room"
+        },
+        {
+          "name": "Scythia",
+          "note": "Origen, as reported by Eusebius: Scythia was allotted to Andrew “according to tradition”",
+          "tradition": true
+        },
+        {
+          "name": "Achaia",
+          "placeId": "aef4242",
+          "note": "Patrae in Achaia, where the Acts of Andrew (3rd century) set his death",
+          "tradition": true
+        }
+      ],
+      "companions": [
+        {
+          "person": {
+            "name": "Simon Peter",
+            "personId": "peter-mat-4-18"
+          },
+          "claim": {
+            "text": "“He first findeth his own brother Simon, and saith unto him, We have found the Messias” (John 1:41).",
+            "layer": "scripture",
+            "refs": [
+              [
+                43001041,
+                43001041
+              ]
+            ]
+          }
+        },
+        {
+          "person": {
+            "name": "John the Baptist",
+            "personId": "john-mat-3-1"
+          },
+          "claim": {
+            "text": "Andrew was one of the Baptist’s two disciples who heard him say “Behold the Lamb of God” and followed Jesus (John 1:35–40).",
+            "layer": "scripture",
+            "refs": [
+              [
+                43001035,
+                43001040
+              ]
+            ]
+          }
+        },
+        {
+          "person": {
+            "name": "Philip",
+            "personId": "philip-mat-10-3"
+          },
+          "claim": {
+            "text": "From the same town (John 1:44). When Greeks asked Philip to see Jesus, “Philip cometh and telleth Andrew: and again Andrew and Philip tell Jesus” (John 12:22).",
+            "layer": "scripture",
+            "refs": [
+              [
+                43001044,
+                43001044
+              ],
+              [
+                43012020,
+                43012022
+              ]
+            ]
+          }
+        },
+        {
+          "person": {
+            "name": "James and John",
+            "personId": "james-mat-4-21"
+          },
+          "claim": {
+            "text": "With them in Simon and Andrew’s house (Mark 1:29) and on the Mount of Olives (Mark 13:3).",
+            "layer": "scripture",
+            "refs": [
+              [
+                41001029,
+                41001029
+              ],
+              [
+                41013003,
+                41013003
+              ]
+            ]
+          }
+        }
+      ],
+      "ending": {
+        "scripture": [
+          {
+            "text": "Scripture says nothing of Andrew after the upper room (Acts 1:13).",
+            "layer": "text",
+            "refs": [
+              [
+                44001013,
+                44001013
+              ]
+            ]
+          }
+        ],
+        "tradition": [
+          {
+            "text": "When John was urged to write his Gospel, “it was revealed to Andrew, one of the apostles, that John should narrate all things in his own name”.",
+            "layer": "tradition",
+            "cites": [
+              "muratorian",
+              "lightfoot-1891"
+            ],
+            "who": "The Muratorian fragment, an anonymous list of New Testament books",
+            "when": "about AD 180 (Lightfoot, 1891)"
+          },
+          {
+            "text": "“Parthia, according to tradition, was allotted to Thomas as his field of labor, Scythia to Andrew”.",
+            "layer": "early-church",
+            "cites": [
+              "eus-3"
+            ],
+            "who": "Origen, as reported by Eusebius (3.1.1)",
+            "when": "first half of the 3rd century; Eusebius about AD 325"
+          },
+          {
+            "text": "Andrew is crucified at Patrae in Achaia by the proconsul Aegeates, who orders that he be bound and not nailed, so that he suffers longer.",
+            "layer": "tradition",
+            "cites": [
+              "james-1924"
+            ],
+            "who": "The Acts of Andrew (apocryphal), Martyrdom",
+            "when": "3rd century, perhaps about AD 260 (M. R. James, 1924)"
+          },
+          {
+            "text": "Later writers name other fields of work: Epirus (Gregory of Nazianzus), Achaia (Jerome) and Hellas (Theodoret). His relics are said to have been moved from Patrae to Constantinople about 357.",
+            "layer": "scholars",
+            "cites": [
+              "ce-andrew"
+            ],
+            "who": "As listed by J. MacRory, Catholic Encyclopedia",
+            "when": "1907"
+          },
+          {
+            "text": "The X-shaped cross now called St Andrew’s: MacRory notes that “the evidence for this view seems to be no older than the fourteenth century”.",
+            "layer": "tradition",
+            "cites": [
+              "ce-andrew"
+            ],
+            "who": "Later tradition, as assessed by J. MacRory",
+            "when": "14th century onward"
+          }
+        ]
+      },
+      "writings": [],
+      "questions": [
+        {
+          "id": "andrew-field",
+          "question": "Where did Andrew work after Pentecost?",
+          "views": [
+            {
+              "label": "Scythia",
+              "holders": "Origen (first half of the 3rd century), as reported by Eusebius",
+              "argument": {
+                "text": "Scythia was allotted to Andrew, “according to tradition”.",
+                "layer": "early-church",
+                "cites": [
+                  "eus-3"
+                ]
+              }
+            },
+            {
+              "label": "Achaia, ending at Patrae",
+              "holders": "The Acts of Andrew (3rd century); Jerome, as listed by MacRory (1907)",
+              "argument": {
+                "text": "The Acts of Andrew set his death at Patrae; Jerome names Achaia.",
+                "layer": "tradition",
+                "cites": [
+                  "james-1924",
+                  "ce-andrew"
+                ]
+              }
+            },
+            {
+              "label": "Epirus or Hellas",
+              "holders": "Gregory of Nazianzus (Epirus) and Theodoret (Hellas), as listed by MacRory (1907)",
+              "argument": {
+                "text": "MacRory lists these as further fields named by later writers and does not choose between them.",
+                "layer": "scholars",
+                "cites": [
+                  "ce-andrew"
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "notSaid": [
+        "Luke’s account of the great catch (Luke 5:1–11) does not name Andrew.",
+        "Scripture says nothing of Andrew after Acts 1:13, and nothing of his death.",
+        "Scripture never mentions an X-shaped cross."
+      ],
+      "passages": [
+        [
+          40004018,
+          40004020
+        ],
+        [
+          40010001,
+          40010005
+        ],
+        [
+          40016017,
+          40016017
+        ],
+        [
+          41001016,
+          41001018
+        ],
+        [
+          41001021,
+          41001021
+        ],
+        [
+          41001029,
+          41001031
+        ],
+        [
+          41003013,
+          41003019
+        ],
+        [
+          41013003,
+          41013004
+        ],
+        [
+          42006012,
+          42006016
+        ],
+        [
+          43001035,
+          43001042
+        ],
+        [
+          43001044,
+          43001044
+        ],
+        [
+          43006008,
+          43006009
+        ],
+        [
+          43012020,
+          43012022
+        ],
+        [
+          44001013,
+          44001013
+        ]
+      ]
+    },
+    {
+      "id": "james-mat-4-21",
+      "name": "James son of Zebedee",
+      "otherNames": [
+        "James the brother of John",
+        "Boanerges (with John)"
+      ],
+      "title": "One of the Twelve",
+      "tagline": "A fisherman’s son from Galilee; the one apostle Scripture says was put to death.",
+      "order": 3,
+      "home": {
+        "text": "Scripture does not name their town. They were fishing on the sea of Galilee near Capernaum when called, and went with Jesus to the house of Simon and Andrew there (Mark 1:19–21, 29).",
+        "layer": "text",
+        "refs": [
+          [
+            41001019,
+            41001021
+          ],
+          [
+            41001029,
+            41001029
+          ]
+        ]
+      },
+      "trade": {
+        "text": "Fishermen in their father’s boat on the sea of Galilee (Matt 4:21; Mark 1:19–20), “partners with Simon” (Luke 5:10).",
+        "layer": "scripture",
+        "refs": [
+          [
+            40004021,
+            40004021
+          ],
+          [
+            41001019,
+            41001020
+          ],
+          [
+            42005010,
+            42005010
+          ]
+        ]
+      },
+      "family": [
+        {
+          "text": "Son of Zebedee, who was in the boat with his sons mending nets when Jesus called them, and who had “hired servants” (Matt 4:21; Mark 1:20).",
+          "layer": "scripture",
+          "refs": [
+            [
+              40004021,
+              40004021
+            ],
+            [
+              41001020,
+              41001020
+            ]
+          ]
+        },
+        {
+          "text": "Their mother is “the mother of Zebedee’s children”, who asked Jesus for the places at his right and left (Matt 20:20–21) and watched the crucifixion from afar (Matt 27:55–56).",
+          "layer": "scripture",
+          "refs": [
+            [
+              40020020,
+              40020021
+            ],
+            [
+              40027055,
+              40027056
+            ]
+          ]
+        },
+        {
+          "text": "Mark names “Salome” where Matthew has “the mother of Zebedee’s children” among the women at the cross (Mark 15:40; Matt 27:56). Taking her to be Salome is an inference from comparing the two lists; our people data makes it.",
+          "layer": "text",
+          "refs": [
+            [
+              41015040,
+              41015040
+            ],
+            [
+              40027056,
+              40027056
+            ]
+          ]
+        },
+        {
+          "text": "Some writers go further and make Salome the sister of Jesus’ mother (John 19:25), which would make James and John cousins of Jesus. Camerlynck (1910) reports this and judges that “the relationship of St. James to Jesus remains doubtful”.",
+          "layer": "scholars",
+          "refs": [
+            [
+              43019025,
+              43019025
+            ]
+          ],
+          "cites": [
+            "ce-james"
+          ]
+        },
+        {
+          "text": "His brother was John (Matt 4:21; Acts 12:2).",
+          "layer": "scripture",
+          "refs": [
+            [
+              40004021,
+              40004021
+            ],
+            [
+              44012002,
+              44012002
+            ]
+          ]
+        }
+      ],
+      "identifications": [
+        {
+          "text": "Four men called James appear in our people data. This is the son of Zebedee and brother of John (Matt 4:21), not James son of Alphaeus (Matt 10:3) or James the Lord’s brother (Gal 1:19).",
+          "layer": "text",
+          "refs": [
+            [
+              40004021,
+              40004021
+            ],
+            [
+              40010003,
+              40010003
+            ],
+            [
+              48001019,
+              48001019
+            ]
+          ]
+        },
+        {
+          "text": "The name “James the Greater” is a later way of telling him from James son of Alphaeus; Scripture does not use it.",
+          "layer": "scholars",
+          "cites": [
+            "ce-james"
+          ]
+        },
+        {
+          "text": "Jesus “surnamed them Boanerges, which is, The sons of thunder” (Mark 3:17). Scripture does not explain the name.",
+          "layer": "scripture",
+          "refs": [
+            [
+              41003017,
+              41003017
+            ]
+          ]
+        }
+      ],
+      "lists": [
+        {
+          "book": "MAT",
+          "position": 3,
+          "name": "James the son of Zebedee",
+          "span": [
+            40010002,
+            40010002
+          ]
+        },
+        {
+          "book": "MRK",
+          "position": 2,
+          "name": "James the son of Zebedee",
+          "span": [
+            41003017,
+            41003017
+          ]
+        },
+        {
+          "book": "LUK",
+          "position": 3,
+          "name": "James",
+          "span": [
+            42006014,
+            42006014
+          ]
+        },
+        {
+          "book": "ACT",
+          "position": 2,
+          "name": "James",
+          "span": [
+            44001013,
+            44001013
+          ]
+        }
+      ],
+      "calling": [
+        {
+          "label": "Matthew 4 · In the boat with Zebedee",
+          "quote": {
+            "text": "And going on from thence, he saw other two brethren, James the son of Zebedee, and John his brother, in a ship with Zebedee their father, mending their nets; and he called them. And they immediately left the ship and their father, and followed him.",
+            "span": [
+              40004021,
+              40004022
+            ]
+          },
+          "placeId": "a562fcc"
+        },
+        {
+          "label": "Mark 1 · Leaving the hired servants",
+          "quote": {
+            "text": "And when he had gone a little further thence, he saw James the son of Zebedee, and John his brother, who also were in the ship mending their nets. And straightway he called them: and they left their father Zebedee in the ship with the hired servants, and went after him.",
+            "span": [
+              41001019,
+              41001020
+            ]
+          },
+          "placeId": "a562fcc"
+        },
+        {
+          "label": "Luke 5 · Simon’s partners",
+          "quote": {
+            "text": "And so was also James, and John, the sons of Zebedee, which were partners with Simon. And Jesus said unto Simon, Fear not; from henceforth thou shalt catch men. And when they had brought their ships to land, they forsook all, and followed him.",
+            "span": [
+              42005010,
+              42005011
+            ]
+          },
+          "placeId": "a562fcc",
+          "claim": {
+            "text": "Robertson’s harmony treats the three accounts as one event (section 41).",
+            "layer": "scholars",
+            "refs": [
+              [
+                42005001,
+                42005011
+              ]
+            ],
+            "cites": [
+              "robertson-1922"
+            ]
+          }
+        }
+      ],
+      "moments": [
+        {
+          "label": "Called from mending nets with his brother",
+          "refs": [
+            [
+              40004021,
+              40004022
+            ],
+            [
+              41001019,
+              41001020
+            ],
+            [
+              42005010,
+              42005011
+            ]
+          ],
+          "harmony": "41"
+        },
+        {
+          "label": "At the house of Simon and Andrew",
+          "refs": [
+            [
+              41001029,
+              41001029
+            ]
+          ],
+          "harmony": "43"
+        },
+        {
+          "label": "Chosen as one of the Twelve and named Boanerges",
+          "refs": [
+            [
+              41003013,
+              41003019
+            ],
+            [
+              42006012,
+              42006016
+            ]
+          ],
+          "harmony": "53"
+        },
+        {
+          "label": "One of three allowed into Jairus’s house",
+          "refs": [
+            [
+              41005037,
+              41005037
+            ],
+            [
+              42008051,
+              42008051
+            ]
+          ],
+          "harmony": "67"
+        },
+        {
+          "label": "Sent out with the Twelve; third in Matthew’s list",
+          "refs": [
+            [
+              40010001,
+              40010005
+            ]
+          ],
+          "harmony": "70"
+        },
+        {
+          "label": "On the mountain at the transfiguration",
+          "refs": [
+            [
+              40017001,
+              40017008
+            ],
+            [
+              41009002,
+              41009008
+            ],
+            [
+              42009028,
+              42009036
+            ]
+          ],
+          "harmony": "85"
+        },
+        {
+          "label": "Asks to call down fire on a Samaritan village",
+          "refs": [
+            [
+              42009051,
+              42009056
+            ]
+          ],
+          "harmony": "95"
+        },
+        {
+          "label": "Asks with John for the seats at Jesus’ right and left",
+          "refs": [
+            [
+              40020020,
+              40020028
+            ],
+            [
+              41010035,
+              41010045
+            ]
+          ],
+          "harmony": "125"
+        },
+        {
+          "label": "Asks on the Mount of Olives when the temple will fall",
+          "refs": [
+            [
+              41013003,
+              41013004
+            ]
+          ],
+          "harmony": "139"
+        },
+        {
+          "label": "Taken further into Gethsemane",
+          "refs": [
+            [
+              40026037,
+              40026037
+            ],
+            [
+              41014033,
+              41014033
+            ]
+          ],
+          "harmony": "152"
+        },
+        {
+          "label": "“The sons of Zebedee” by the sea when the risen Jesus appears",
+          "refs": [
+            [
+              43021001,
+              43021002
+            ]
+          ],
+          "harmony": "180"
+        }
+      ],
+      "acts": [
+        {
+          "text": "He is named second among the Eleven in the upper room (Acts 1:13).",
+          "layer": "scripture",
+          "refs": [
+            [
+              44001013,
+              44001013
+            ]
+          ]
+        },
+        {
+          "text": "“Herod the king” kills “James the brother of John with the sword” (Acts 12:1–2).",
+          "layer": "scripture",
+          "refs": [
+            [
+              44012001,
+              44012002
+            ]
+          ]
+        }
+      ],
+      "places": [
+        {
+          "name": "Sea of Galilee",
+          "placeId": "a562fcc",
+          "refs": [
+            [
+              40004021,
+              40004021
+            ],
+            [
+              41001019,
+              41001019
+            ]
+          ]
+        },
+        {
+          "name": "Capernaum",
+          "placeId": "af2161c",
+          "refs": [
+            [
+              41001021,
+              41001021
+            ],
+            [
+              41001029,
+              41001029
+            ]
+          ]
+        },
+        {
+          "name": "Jerusalem",
+          "placeId": "a15257a",
+          "refs": [
+            [
+              44001012,
+              44001013
+            ],
+            [
+              44012001,
+              44012002
+            ]
+          ],
+          "note": "Where Herod had him killed; Acts 12 is set in Jerusalem (Acts 12:5, 12)"
+        },
+        {
+          "name": "Spain",
+          "placeId": "a3f0f69",
+          "note": "A Spanish tradition, first certainly found in the 9th century, says he preached there and that his body lies at Compostela",
+          "tradition": true
+        }
+      ],
+      "companions": [
+        {
+          "person": {
+            "name": "John",
+            "personId": "john-mat-4-21"
+          },
+          "claim": {
+            "text": "His brother, called with him and named with him as Boanerges (Mark 1:19; 3:17).",
+            "layer": "scripture",
+            "refs": [
+              [
+                41001019,
+                41001019
+              ],
+              [
+                41003017,
+                41003017
+              ]
+            ]
+          }
+        },
+        {
+          "person": {
+            "name": "Peter",
+            "personId": "peter-mat-4-18"
+          },
+          "claim": {
+            "text": "A fishing partner (Luke 5:10), and with John one of the three at Jairus’s house, the transfiguration and Gethsemane (Mark 5:37; 9:2; 14:33).",
+            "layer": "scripture",
+            "refs": [
+              [
+                42005010,
+                42005010
+              ],
+              [
+                41005037,
+                41005037
+              ],
+              [
+                41009002,
+                41009002
+              ],
+              [
+                41014033,
+                41014033
+              ]
+            ]
+          }
+        },
+        {
+          "person": {
+            "name": "Zebedee",
+            "personId": "zebedee-mat-4-21"
+          },
+          "claim": {
+            "text": "His father, left in the boat “with the hired servants” (Mark 1:20).",
+            "layer": "scripture",
+            "refs": [
+              [
+                41001020,
+                41001020
+              ]
+            ]
+          }
+        },
+        {
+          "person": {
+            "name": "His mother",
+            "personId": "salome-mat-20-20"
+          },
+          "claim": {
+            "text": "She asked that her two sons might sit at Jesus’ right and left (Matt 20:20–21).",
+            "layer": "scripture",
+            "refs": [
+              [
+                40020020,
+                40020021
+              ]
+            ]
+          }
+        }
+      ],
+      "ending": {
+        "scripture": [
+          {
+            "text": "When James and John asked for the places of honour, Jesus told them, “Ye shall indeed drink of the cup that I drink of” (Mark 10:39).",
+            "layer": "scripture",
+            "refs": [
+              [
+                41010035,
+                41010039
+              ]
+            ]
+          },
+          {
+            "text": "“Now about that time Herod the king stretched forth his hands to vex certain of the church. And he killed James the brother of John with the sword” (Acts 12:1–2). Of the Twelve, he is the only one Scripture says was put to death.",
+            "layer": "scripture",
+            "refs": [
+              [
+                44012001,
+                44012002
+              ]
+            ]
+          },
+          {
+            "text": "Acts tells his death just before Peter’s arrest, which it sets in “the days of unleavened bread”, and before Herod’s own death at Caesarea (Acts 12:3–4, 19–23).",
+            "layer": "text",
+            "refs": [
+              [
+                44012003,
+                44012004
+              ],
+              [
+                44012019,
+                44012023
+              ]
+            ]
+          },
+          {
+            "text": "Camerlynck (1910) dates the death to the Passover of AD 44, the year in which Herod Agrippa I died.",
+            "layer": "scholars",
+            "refs": [
+              [
+                44012001,
+                44012023
+              ]
+            ],
+            "cites": [
+              "ce-james"
+            ]
+          }
+        ],
+        "tradition": [
+          {
+            "text": "The man who led James to the judgment seat was moved by his testimony, confessed himself a Christian, asked James’s forgiveness and received “Peace be with thee”; “thus they were both beheaded at the same time.” Clement tells it “as he received it from those who had lived before him”.",
+            "layer": "early-church",
+            "cites": [
+              "eus-2"
+            ],
+            "who": "Clement of Alexandria, Hypotyposes book 7, quoted by Eusebius (2.9.2–3)",
+            "when": "about AD 200; Eusebius about AD 325"
+          },
+          {
+            "text": "“Herod, after our Lord’s passion, beheaded” James the brother of John.",
+            "layer": "early-church",
+            "cites": [
+              "jerome-lives"
+            ],
+            "who": "Jerome, Lives of Illustrious Men 9",
+            "when": "AD 392"
+          },
+          {
+            "text": "James preached in Spain, returned to Judea to be killed, and his body was carried to north-west Spain and later to Compostela. Camerlynck notes that the tradition was current by about 700, but “the first certain mention” is in the 9th century.",
+            "layer": "tradition",
+            "cites": [
+              "ce-james"
+            ],
+            "who": "Spanish tradition, as assessed by A. Camerlynck",
+            "when": "first certainly found in the 9th century"
+          }
+        ]
+      },
+      "writings": [],
+      "questions": [
+        {
+          "id": "james-spain",
+          "question": "Did James preach in Spain before he died?",
+          "views": [
+            {
+              "label": "Yes, the Spanish tradition",
+              "holders": "Writers from the 9th century on (Notker, Walafrid Strabo); defended by the Bollandists",
+              "argument": {
+                "text": "Camerlynck reports the tradition and that the Bollandists defended it in the Acta Sanctorum.",
+                "layer": "tradition",
+                "cites": [
+                  "ce-james"
+                ]
+              }
+            },
+            {
+              "label": "Doubtful",
+              "holders": "The objections as summarised by A. Camerlynck (1910), who says “numerous scholars reject it”",
+              "argument": {
+                "text": "James died in AD 44 in Jerusalem (Acts 12:2), and early writers say the apostles had not yet left Jerusalem. Paul, planning to visit Spain, says he would not “build upon another man’s foundation” (Rom 15:20, 24). No early writer or council mentions it.",
+                "layer": "scholars",
+                "refs": [
+                  [
+                    44012002,
+                    44012002
+                  ],
+                  [
+                    45015020,
+                    45015020
+                  ],
+                  [
+                    45015024,
+                    45015024
+                  ]
+                ],
+                "cites": [
+                  "ce-james"
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "notSaid": [
+        "John’s Gospel never names James; it mentions only “the sons of Zebedee” (John 21:2).",
+        "Scripture does not say why Herod chose James, or where he was buried.",
+        "Scripture does not give his age or say whether he was older or younger than John."
+      ],
+      "passages": [
+        [
+          40004021,
+          40004022
+        ],
+        [
+          40010001,
+          40010005
+        ],
+        [
+          40017001,
+          40017008
+        ],
+        [
+          40020020,
+          40020028
+        ],
+        [
+          40026037,
+          40026037
+        ],
+        [
+          40027056,
+          40027056
+        ],
+        [
+          41001019,
+          41001021
+        ],
+        [
+          41001029,
+          41001029
+        ],
+        [
+          41003013,
+          41003019
+        ],
+        [
+          41005037,
+          41005037
+        ],
+        [
+          41009002,
+          41009008
+        ],
+        [
+          41010035,
+          41010045
+        ],
+        [
+          41013003,
+          41013004
+        ],
+        [
+          41014033,
+          41014033
+        ],
+        [
+          41015040,
+          41015040
+        ],
+        [
+          42005001,
+          42005011
+        ],
+        [
+          42006012,
+          42006016
+        ],
+        [
+          42008051,
+          42008051
+        ],
+        [
+          42009028,
+          42009036
+        ],
+        [
+          42009051,
+          42009056
+        ],
+        [
+          43019025,
+          43019025
+        ],
+        [
+          43021001,
+          43021002
+        ],
+        [
+          44001013,
+          44001013
+        ],
+        [
+          44012001,
+          44012023
+        ]
+      ]
+    },
+    {
+      "id": "john-mat-4-21",
+      "name": "John son of Zebedee",
+      "otherNames": [
+        "John the brother of James",
+        "Boanerges (with James)"
+      ],
+      "title": "One of the Twelve",
+      "tagline": "A fisherman’s son from Galilee; with Peter and James, one of the three Jesus took aside.",
+      "order": 4,
+      "home": {
+        "text": "Scripture does not name their town. They were fishing on the sea of Galilee near Capernaum when called, and went with Jesus to the house of Simon and Andrew there (Mark 1:19–21, 29).",
+        "layer": "text",
+        "refs": [
+          [
+            41001019,
+            41001021
+          ],
+          [
+            41001029,
+            41001029
+          ]
+        ]
+      },
+      "trade": {
+        "text": "Fishermen in their father’s boat on the sea of Galilee (Matt 4:21; Mark 1:19–20), “partners with Simon” (Luke 5:10).",
+        "layer": "scripture",
+        "refs": [
+          [
+            40004021,
+            40004021
+          ],
+          [
+            41001019,
+            41001020
+          ],
+          [
+            42005010,
+            42005010
+          ]
+        ]
+      },
+      "family": [
+        {
+          "text": "Son of Zebedee, who was in the boat with his sons mending nets when Jesus called them, and who had “hired servants” (Matt 4:21; Mark 1:20).",
+          "layer": "scripture",
+          "refs": [
+            [
+              40004021,
+              40004021
+            ],
+            [
+              41001020,
+              41001020
+            ]
+          ]
+        },
+        {
+          "text": "Their mother is “the mother of Zebedee’s children”, who asked Jesus for the places at his right and left (Matt 20:20–21) and watched the crucifixion from afar (Matt 27:55–56).",
+          "layer": "scripture",
+          "refs": [
+            [
+              40020020,
+              40020021
+            ],
+            [
+              40027055,
+              40027056
+            ]
+          ]
+        },
+        {
+          "text": "Mark names “Salome” where Matthew has “the mother of Zebedee’s children” among the women at the cross (Mark 15:40; Matt 27:56). Taking her to be Salome is an inference from comparing the two lists; our people data makes it.",
+          "layer": "text",
+          "refs": [
+            [
+              41015040,
+              41015040
+            ],
+            [
+              40027056,
+              40027056
+            ]
+          ]
+        },
+        {
+          "text": "Some writers go further and make Salome the sister of Jesus’ mother (John 19:25), which would make James and John cousins of Jesus. Camerlynck (1910) reports this and judges that “the relationship of St. James to Jesus remains doubtful”.",
+          "layer": "scholars",
+          "refs": [
+            [
+              43019025,
+              43019025
+            ]
+          ],
+          "cites": [
+            "ce-james"
+          ]
+        },
+        {
+          "text": "His brother was James, killed by Herod (Matt 4:21; Acts 12:2).",
+          "layer": "scripture",
+          "refs": [
+            [
+              40004021,
+              40004021
+            ],
+            [
+              44012002,
+              44012002
+            ]
+          ]
+        }
+      ],
+      "identifications": [
+        {
+          "text": "John’s Gospel never names John son of Zebedee. It speaks of “the disciple whom Jesus loved”, who leaned on Jesus at the supper, and says this disciple “wrote these things” (John 13:23; 21:20, 24).",
+          "layer": "scripture",
+          "refs": [
+            [
+              43013023,
+              43013023
+            ],
+            [
+              43021020,
+              43021020
+            ],
+            [
+              43021024,
+              43021024
+            ]
+          ]
+        },
+        {
+          "text": "Irenaeus (about 180) names the writer as “John, the disciple of the Lord, who also had leaned upon His breast”, and Polycrates of Ephesus (about 190) speaks of the John “who reclined upon the bosom of the Lord”. This page follows that identification wherever it shows the beloved disciple.",
+          "layer": "early-church",
+          "cites": [
+            "irenaeus-3-1",
+            "eus-3"
+          ]
+        },
+        {
+          "text": "Ishodad of Merv (about 850) says the unnamed disciple with Andrew in John 1:35–40 “was John, the son of thunder; for he concealed his name, out of modesty”.",
+          "layer": "tradition",
+          "refs": [
+            [
+              43001035,
+              43001040
+            ]
+          ],
+          "cites": [
+            "ishodad-1911"
+          ]
+        },
+        {
+          "text": "Our people data also attaches to this John the “John” of Galatians 2:9 and the John of Revelation (Rev 1:1, 4, 9; 21:2; 22:8). Both are identifications; the second is disputed (see the question below).",
+          "layer": "text",
+          "refs": [
+            [
+              48002009,
+              48002009
+            ],
+            [
+              66001001,
+              66001001
+            ],
+            [
+              66001004,
+              66001004
+            ],
+            [
+              66001009,
+              66001009
+            ]
+          ]
+        }
+      ],
+      "lists": [
+        {
+          "book": "MAT",
+          "position": 4,
+          "name": "John his brother",
+          "span": [
+            40010002,
+            40010002
+          ]
+        },
+        {
+          "book": "MRK",
+          "position": 3,
+          "name": "John the brother of James",
+          "span": [
+            41003017,
+            41003017
+          ]
+        },
+        {
+          "book": "LUK",
+          "position": 4,
+          "name": "John",
+          "span": [
+            42006014,
+            42006014
+          ]
+        },
+        {
+          "book": "ACT",
+          "position": 3,
+          "name": "John",
+          "span": [
+            44001013,
+            44001013
+          ]
+        }
+      ],
+      "calling": [
+        {
+          "label": "Matthew 4 · In the boat with Zebedee",
+          "quote": {
+            "text": "And going on from thence, he saw other two brethren, James the son of Zebedee, and John his brother, in a ship with Zebedee their father, mending their nets; and he called them. And they immediately left the ship and their father, and followed him.",
+            "span": [
+              40004021,
+              40004022
+            ]
+          },
+          "placeId": "a562fcc"
+        },
+        {
+          "label": "Mark 1 · Leaving the hired servants",
+          "quote": {
+            "text": "And when he had gone a little further thence, he saw James the son of Zebedee, and John his brother, who also were in the ship mending their nets. And straightway he called them: and they left their father Zebedee in the ship with the hired servants, and went after him.",
+            "span": [
+              41001019,
+              41001020
+            ]
+          },
+          "placeId": "a562fcc"
+        },
+        {
+          "label": "Luke 5 · Simon’s partners",
+          "quote": {
+            "text": "And so was also James, and John, the sons of Zebedee, which were partners with Simon. And Jesus said unto Simon, Fear not; from henceforth thou shalt catch men. And when they had brought their ships to land, they forsook all, and followed him.",
+            "span": [
+              42005010,
+              42005011
+            ]
+          },
+          "placeId": "a562fcc"
+        },
+        {
+          "label": "John 1 · Perhaps the unnamed disciple",
+          "quote": {
+            "text": "And the two disciples heard him speak, and they followed Jesus. Then Jesus turned, and saw them following, and saith unto them, What seek ye? They said unto him, Rabbi, (which is to say, being interpreted, Master,) where dwellest thou? He saith unto them, Come and see. They came and saw where he dwelt, and abode with him that day: for it was about the tenth hour. One of the two which heard John speak, and followed him, was Andrew, Simon Peter’s brother.",
+            "span": [
+              43001037,
+              43001040
+            ]
+          },
+          "claim": {
+            "text": "John’s Gospel names only Andrew; that the other was John comes from later writers such as Ishodad of Merv (about 850).",
+            "layer": "tradition",
+            "refs": [
+              [
+                43001035,
+                43001040
+              ]
+            ],
+            "cites": [
+              "ishodad-1911"
+            ]
+          }
+        }
+      ],
+      "moments": [
+        {
+          "label": "Called from mending nets with his brother",
+          "refs": [
+            [
+              40004021,
+              40004022
+            ],
+            [
+              41001019,
+              41001020
+            ],
+            [
+              42005010,
+              42005011
+            ]
+          ],
+          "harmony": "41"
+        },
+        {
+          "label": "At the house of Simon and Andrew",
+          "refs": [
+            [
+              41001029,
+              41001029
+            ]
+          ],
+          "harmony": "43"
+        },
+        {
+          "label": "Chosen as one of the Twelve and named Boanerges",
+          "refs": [
+            [
+              41003013,
+              41003019
+            ],
+            [
+              42006012,
+              42006016
+            ]
+          ],
+          "harmony": "53"
+        },
+        {
+          "label": "One of three allowed into Jairus’s house",
+          "refs": [
+            [
+              41005037,
+              41005037
+            ],
+            [
+              42008051,
+              42008051
+            ]
+          ],
+          "harmony": "67"
+        },
+        {
+          "label": "Sent out with the Twelve; fourth in Matthew’s list",
+          "refs": [
+            [
+              40010001,
+              40010005
+            ]
+          ],
+          "harmony": "70"
+        },
+        {
+          "label": "On the mountain at the transfiguration",
+          "refs": [
+            [
+              40017001,
+              40017008
+            ],
+            [
+              41009002,
+              41009008
+            ],
+            [
+              42009028,
+              42009036
+            ]
+          ],
+          "harmony": "85"
+        },
+        {
+          "label": "“We forbad him”: the man casting out devils in Jesus’ name",
+          "refs": [
+            [
+              41009038,
+              41009040
+            ],
+            [
+              42009049,
+              42009050
+            ]
+          ],
+          "harmony": "91"
+        },
+        {
+          "label": "Asks to call down fire on a Samaritan village",
+          "refs": [
+            [
+              42009051,
+              42009056
+            ]
+          ],
+          "harmony": "95"
+        },
+        {
+          "label": "Asks with James for the seats at Jesus’ right and left",
+          "refs": [
+            [
+              40020020,
+              40020028
+            ],
+            [
+              41010035,
+              41010045
+            ]
+          ],
+          "harmony": "125"
+        },
+        {
+          "label": "Asks on the Mount of Olives when the temple will fall",
+          "refs": [
+            [
+              41013003,
+              41013004
+            ]
+          ],
+          "harmony": "139"
+        },
+        {
+          "label": "Sent with Peter to prepare the passover",
+          "refs": [
+            [
+              42022008,
+              42022008
+            ]
+          ],
+          "harmony": "143"
+        },
+        {
+          "label": "The beloved disciple leans on Jesus at the supper",
+          "refs": [
+            [
+              43013023,
+              43013025
+            ]
+          ],
+          "harmony": "146"
+        },
+        {
+          "label": "Taken further into Gethsemane",
+          "refs": [
+            [
+              40026037,
+              40026037
+            ],
+            [
+              41014033,
+              41014033
+            ]
+          ],
+          "harmony": "152"
+        },
+        {
+          "label": "The beloved disciple given Jesus’ mother at the cross",
+          "refs": [
+            [
+              43019025,
+              43019027
+            ]
+          ],
+          "harmony": "164"
+        },
+        {
+          "label": "The beloved disciple outruns Peter to the tomb",
+          "refs": [
+            [
+              43020002,
+              43020010
+            ]
+          ],
+          "harmony": "172"
+        },
+        {
+          "label": "By the sea: “It is the Lord”",
+          "refs": [
+            [
+              43021001,
+              43021007
+            ],
+            [
+              43021020,
+              43021024
+            ]
+          ],
+          "harmony": "180"
+        }
+      ],
+      "acts": [
+        {
+          "text": "He is named third among the Eleven in the upper room (Acts 1:13).",
+          "layer": "scripture",
+          "refs": [
+            [
+              44001013,
+              44001013
+            ]
+          ]
+        },
+        {
+          "text": "With Peter he goes up to the temple at the hour of prayer, where a lame man is healed (Acts 3:1–11).",
+          "layer": "scripture",
+          "refs": [
+            [
+              44003001,
+              44003011
+            ]
+          ]
+        },
+        {
+          "text": "Before the council the leaders see “the boldness of Peter and John” and that they are “unlearned and ignorant men” (Acts 4:13).",
+          "layer": "scripture",
+          "refs": [
+            [
+              44004001,
+              44004022
+            ]
+          ]
+        },
+        {
+          "text": "The apostles send Peter and John to Samaria; they pray for the believers, then preach “in many villages of the Samaritans” on the way back (Acts 8:14–25).",
+          "layer": "scripture",
+          "refs": [
+            [
+              44008014,
+              44008025
+            ]
+          ]
+        },
+        {
+          "text": "Paul names “James, Cephas, and John, who seemed to be pillars” in Jerusalem (Gal 2:9).",
+          "layer": "scripture",
+          "refs": [
+            [
+              48002009,
+              48002009
+            ]
+          ]
+        },
+        {
+          "text": "The writer of Revelation calls himself John and says he “was in the isle that is called Patmos, for the word of God, and for the testimony of Jesus Christ” (Rev 1:9). Whether he is this John is disputed.",
+          "layer": "scripture",
+          "refs": [
+            [
+              66001009,
+              66001009
+            ]
+          ]
+        }
+      ],
+      "places": [
+        {
+          "name": "Sea of Galilee",
+          "placeId": "a562fcc",
+          "refs": [
+            [
+              40004021,
+              40004021
+            ],
+            [
+              41001019,
+              41001019
+            ],
+            [
+              43021001,
+              43021002
+            ]
+          ]
+        },
+        {
+          "name": "Capernaum",
+          "placeId": "af2161c",
+          "refs": [
+            [
+              41001021,
+              41001021
+            ],
+            [
+              41001029,
+              41001029
+            ]
+          ]
+        },
+        {
+          "name": "Jerusalem",
+          "placeId": "a15257a",
+          "refs": [
+            [
+              44003001,
+              44003001
+            ],
+            [
+              44004013,
+              44004013
+            ],
+            [
+              48002009,
+              48002009
+            ]
+          ]
+        },
+        {
+          "name": "Samaria",
+          "placeId": "a282dce",
+          "refs": [
+            [
+              44008014,
+              44008014
+            ],
+            [
+              44008025,
+              44008025
+            ]
+          ]
+        },
+        {
+          "name": "Patmos",
+          "placeId": "a8f60f3",
+          "refs": [
+            [
+              66001009,
+              66001009
+            ]
+          ],
+          "note": "Where the writer of Revelation was; that he is the apostle is an identification"
+        },
+        {
+          "name": "Ephesus",
+          "placeId": "a5feb15",
+          "note": "Irenaeus and Polycrates place his last years and grave here",
+          "tradition": true
+        }
+      ],
+      "companions": [
+        {
+          "person": {
+            "name": "James",
+            "personId": "james-mat-4-21"
+          },
+          "claim": {
+            "text": "His brother, called with him and named with him as Boanerges (Mark 1:19; 3:17).",
+            "layer": "scripture",
+            "refs": [
+              [
+                41001019,
+                41001019
+              ],
+              [
+                41003017,
+                41003017
+              ]
+            ]
+          }
+        },
+        {
+          "person": {
+            "name": "Peter",
+            "personId": "peter-mat-4-18"
+          },
+          "claim": {
+            "text": "A fishing partner (Luke 5:10); sent with him to prepare the passover (Luke 22:8); with him at the temple, before the council and in Samaria (Acts 3:1; 4:13; 8:14).",
+            "layer": "scripture",
+            "refs": [
+              [
+                42005010,
+                42005010
+              ],
+              [
+                42022008,
+                42022008
+              ],
+              [
+                44003001,
+                44003001
+              ],
+              [
+                44004013,
+                44004013
+              ],
+              [
+                44008014,
+                44008014
+              ]
+            ]
+          }
+        },
+        {
+          "person": {
+            "name": "Mary, the mother of Jesus",
+            "personId": "mary-mat-1-16"
+          },
+          "claim": {
+            "text": "From the cross Jesus gave his mother to “the disciple standing by, whom he loved”, who “took her unto his own home” (John 19:26–27), if that disciple is John.",
+            "layer": "scripture",
+            "refs": [
+              [
+                43019026,
+                43019027
+              ]
+            ]
+          }
+        },
+        {
+          "person": {
+            "name": "Paul",
+            "personId": "paul-act-7-58"
+          },
+          "claim": {
+            "text": "With James and Cephas he gave Paul and Barnabas “the right hands of fellowship” (Gal 2:9).",
+            "layer": "scripture",
+            "refs": [
+              [
+                48002009,
+                48002009
+              ]
+            ]
+          }
+        },
+        {
+          "person": {
+            "name": "Zebedee",
+            "personId": "zebedee-mat-4-21"
+          },
+          "claim": {
+            "text": "His father, left in the boat “with the hired servants” (Mark 1:20).",
+            "layer": "scripture",
+            "refs": [
+              [
+                41001020,
+                41001020
+              ]
+            ]
+          }
+        }
+      ],
+      "ending": {
+        "scripture": [
+          {
+            "text": "Jesus told James and John, “Ye shall indeed drink of the cup that I drink of” (Mark 10:39).",
+            "layer": "scripture",
+            "refs": [
+              [
+                41010035,
+                41010039
+              ]
+            ]
+          },
+          {
+            "text": "Of the beloved disciple a saying went round “that that disciple should not die: yet Jesus said not unto him, He shall not die” (John 21:23).",
+            "layer": "scripture",
+            "refs": [
+              [
+                43021020,
+                43021023
+              ]
+            ]
+          },
+          {
+            "text": "Revelation’s John was on Patmos “for the word of God, and for the testimony of Jesus Christ” (Rev 1:9).",
+            "layer": "scripture",
+            "refs": [
+              [
+                66001009,
+                66001009
+              ]
+            ]
+          },
+          {
+            "text": "Scripture does not record his death. Acts last shows him in Samaria (Acts 8:14–25) and then names him only as James’s brother (Acts 12:2).",
+            "layer": "text",
+            "refs": [
+              [
+                44008014,
+                44008025
+              ],
+              [
+                44012002,
+                44012002
+              ]
+            ]
+          }
+        ],
+        "tradition": [
+          {
+            "text": "John “did himself publish a Gospel during his residence at Ephesus in Asia”.",
+            "layer": "early-church",
+            "cites": [
+              "irenaeus-3-1"
+            ],
+            "who": "Irenaeus, Against Heresies 3.1.1",
+            "when": "about AD 180"
+          },
+          {
+            "text": "The church at Ephesus had “John remaining among them permanently until the times of Trajan”. Irenaeus also passes on, from hearers of Polycarp, that John rushed out of a bath-house at Ephesus on seeing the heretic Cerinthus inside.",
+            "layer": "early-church",
+            "cites": [
+              "irenaeus-3-3"
+            ],
+            "who": "Irenaeus, Against Heresies 3.3.4",
+            "when": "about AD 180"
+          },
+          {
+            "text": "The Revelation “was seen no very long time since, but almost in our day, towards the end of Domitian’s reign”.",
+            "layer": "early-church",
+            "cites": [
+              "irenaeus-5-30"
+            ],
+            "who": "Irenaeus, Against Heresies 5.30.3",
+            "when": "about AD 180"
+          },
+          {
+            "text": "John, “who reclined upon the bosom of the Lord, and being a priest wore the sacerdotal plate. He also sleeps at Ephesus.”",
+            "layer": "early-church",
+            "cites": [
+              "eus-3",
+              "eus-5"
+            ],
+            "who": "Polycrates, bishop of Ephesus, letter to Victor of Rome, quoted by Eusebius (3.31.3; 5.24.3)",
+            "when": "about AD 190"
+          },
+          {
+            "text": "At Rome “the Apostle John was first plunged, unhurt, into boiling oil, and thence remitted to his island-exile”.",
+            "layer": "tradition",
+            "cites": [
+              "tertullian-praescr"
+            ],
+            "who": "Tertullian, Prescription against Heretics 36",
+            "when": "about AD 200"
+          },
+          {
+            "text": "A story “handed down and treasured up in memory”: after “the tyrant’s death” John returned from Patmos to Ephesus, appointed bishops, and rode after a young man who had become a robber chief, and brought him back to the church.",
+            "layer": "early-church",
+            "cites": [
+              "eus-3"
+            ],
+            "who": "Clement of Alexandria, Who is the Rich Man that shall be Saved?, quoted by Eusebius (3.23.6–19)",
+            "when": "about AD 200"
+          },
+          {
+            "text": "Asia was allotted to John, “who, after he had lived some time there, died at Ephesus.”",
+            "layer": "early-church",
+            "cites": [
+              "eus-3"
+            ],
+            "who": "Origen, as reported by Eusebius (3.1.1)",
+            "when": "first half of the 3rd century; Eusebius about AD 325"
+          },
+          {
+            "text": "“It is said” that under Domitian John “was condemned to dwell on the island of Patmos”, and that after Domitian’s death he “returned from his banishment in the island and took up his abode at Ephesus, according to an ancient Christian tradition.”",
+            "layer": "early-church",
+            "cites": [
+              "eus-3"
+            ],
+            "who": "Eusebius, Church History 3.18.1 and 3.20.11",
+            "when": "about AD 325"
+          },
+          {
+            "text": "There were “two persons in Asia that bore the same name, and … two tombs in Ephesus, each of which, even to the present day, is called John’s.”",
+            "layer": "early-church",
+            "cites": [
+              "eus-3"
+            ],
+            "who": "Eusebius, Church History 3.39.6, on Papias",
+            "when": "about AD 325"
+          },
+          {
+            "text": "John was banished to Patmos “in the fourteenth year then after Nero”, returned to Ephesus, and “died in the sixty-eighth year after our Lord’s passion and was buried near the same city.”",
+            "layer": "early-church",
+            "cites": [
+              "jerome-lives"
+            ],
+            "who": "Jerome, Lives of Illustrious Men 9",
+            "when": "AD 392"
+          },
+          {
+            "text": "“Papias in his second book says that John the Divine and James his brother were killed by the Jews.”",
+            "layer": "tradition",
+            "cites": [
+              "lightfoot-1891"
+            ],
+            "who": "Philip of Side (5th century) and George Hamartolus (9th century), each citing Papias",
+            "when": "Papias wrote in the early 2nd century; these reports are 5th and 9th century"
+          }
+        ]
+      },
+      "writings": [
+        {
+          "title": "1, 2 and 3 John",
+          "letters": "john-letters"
+        },
+        {
+          "title": "The Gospel of John",
+          "book": "JHN"
+        },
+        {
+          "title": "Revelation",
+          "book": "REV"
+        }
+      ],
+      "questions": [
+        {
+          "id": "john-death",
+          "question": "How did John die?",
+          "views": [
+            {
+              "label": "Of old age at Ephesus",
+              "holders": "Irenaeus (about 180); Polycrates of Ephesus (about 190); Jerome (392)",
+              "argument": {
+                "text": "Irenaeus has him at Ephesus “until the times of Trajan”; Polycrates says he “sleeps at Ephesus”; Jerome says he died “worn out by old age”.",
+                "layer": "early-church",
+                "cites": [
+                  "irenaeus-3-3",
+                  "eus-3",
+                  "jerome-lives"
+                ]
+              }
+            },
+            {
+              "label": "Killed, like his brother",
+              "holders": "Papias’s second book, as reported by Philip of Side (5th century) and George Hamartolus (9th century)",
+              "argument": {
+                "text": "George Hamartolus says Papias wrote that John “was killed by the Jews, and thereby evidently fulfilled, together with his brother, Christ’s prophecy concerning them”. Lightfoot and Harmer (1891) print the first report with a question mark on its attribution to Philip of Side.",
+                "layer": "tradition",
+                "refs": [
+                  [
+                    41010039,
+                    41010039
+                  ]
+                ],
+                "cites": [
+                  "lightfoot-1891"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "john-revelation",
+          "question": "Is the John of Revelation the apostle John?",
+          "views": [
+            {
+              "label": "Yes",
+              "holders": "Justin Martyr (mid-2nd century); Eusebius reports it as said (about 325)",
+              "argument": {
+                "text": "Justin speaks of “a certain man with us, whose name was John, one of the apostles of Christ, who prophesied, by a revelation that was made to him”.",
+                "layer": "early-church",
+                "cites": [
+                  "justin-dial"
+                ]
+              }
+            },
+            {
+              "label": "Another John",
+              "holders": "Dionysius of Alexandria (about 250s), quoted by Eusebius; Eusebius himself suggests the “presbyter John” of Papias",
+              "argument": {
+                "text": "Dionysius does not deny the book is “the work of one John” but “cannot readily admit that he was the apostle, the son of Zebedee”, judging from its style. Eusebius thinks it “probable” that the second John of Papias “saw the Revelation”.",
+                "layer": "early-church",
+                "cites": [
+                  "eus-7",
+                  "eus-3"
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "notSaid": [
+        "John’s Gospel never names John son of Zebedee or his brother James; it mentions only “the sons of Zebedee” (John 21:2).",
+        "Scripture does not say that John lived at Ephesus, or how or when he died.",
+        "John 19:27 says the beloved disciple took Jesus’ mother “unto his own home”; Scripture does not say where that was.",
+        "1 John gives no writer’s name, and 2 and 3 John are from “the elder”; who wrote them is discussed on the Letters pages."
+      ],
+      "passages": [
+        [
+          40004021,
+          40004022
+        ],
+        [
+          40010001,
+          40010005
+        ],
+        [
+          40017001,
+          40017008
+        ],
+        [
+          40020020,
+          40020028
+        ],
+        [
+          40026037,
+          40026037
+        ],
+        [
+          40027056,
+          40027056
+        ],
+        [
+          41001019,
+          41001021
+        ],
+        [
+          41001029,
+          41001029
+        ],
+        [
+          41003013,
+          41003019
+        ],
+        [
+          41005037,
+          41005037
+        ],
+        [
+          41009002,
+          41009008
+        ],
+        [
+          41009038,
+          41009040
+        ],
+        [
+          41010035,
+          41010045
+        ],
+        [
+          41013003,
+          41013004
+        ],
+        [
+          41014033,
+          41014033
+        ],
+        [
+          41015040,
+          41015040
+        ],
+        [
+          42005010,
+          42005011
+        ],
+        [
+          42006012,
+          42006016
+        ],
+        [
+          42008051,
+          42008051
+        ],
+        [
+          42009028,
+          42009036
+        ],
+        [
+          42009049,
+          42009056
+        ],
+        [
+          42022008,
+          42022008
+        ],
+        [
+          43001035,
+          43001040
+        ],
+        [
+          43013023,
+          43013025
+        ],
+        [
+          43019025,
+          43019027
+        ],
+        [
+          43020002,
+          43020010
+        ],
+        [
+          43021001,
+          43021007
+        ],
+        [
+          43021020,
+          43021024
+        ],
+        [
+          44001013,
+          44001013
+        ],
+        [
+          44003001,
+          44003011
+        ],
+        [
+          44004001,
+          44004022
+        ],
+        [
+          44008014,
+          44008025
+        ],
+        [
+          44012002,
+          44012002
+        ],
+        [
+          48002009,
+          48002009
+        ],
+        [
+          66001009,
+          66001009
+        ]
+      ]
+    },
+    {
+      "id": "philip-mat-10-3",
+      "name": "Philip",
+      "otherNames": [],
+      "title": "One of the Twelve",
+      "tagline": "From Bethsaida; the one who told Nathanael, “Come and see.”",
+      "order": 5,
+      "home": {
+        "text": "“Philip was of Bethsaida, the city of Andrew and Peter” (John 1:44); John calls it “Bethsaida of Galilee” (John 12:21).",
+        "layer": "scripture",
+        "refs": [
+          [
+            43001044,
+            43001044
+          ],
+          [
+            43012021,
+            43012021
+          ]
+        ]
+      },
+      "family": [
+        {
+          "text": "Scripture names no family for Philip the apostle.",
+          "layer": "text",
+          "refs": [
+            [
+              43001043,
+              43001044
+            ]
+          ]
+        },
+        {
+          "text": "Clement of Alexandria (about 200), quoted by Eusebius, counts Philip among the apostles who married: “Peter and Philip begat children; and Philip also gave his daughters in marriage.” Polycrates (about 190) speaks of Philip’s “two aged virgin daughters” at Hierapolis and “another daughter” who rests at Ephesus.",
+          "layer": "early-church",
+          "cites": [
+            "eus-3"
+          ]
+        }
+      ],
+      "identifications": [
+        {
+          "text": "Three other men called Philip appear in the New Testament: Philip the evangelist, one of the Seven (Acts 6:5; 21:8), Philip the tetrarch (Luke 3:1), and Herodias’s husband Philip (Mark 6:17). This page is about the apostle.",
+          "layer": "text",
+          "refs": [
+            [
+              44006005,
+              44006005
+            ],
+            [
+              44021008,
+              44021008
+            ],
+            [
+              42003001,
+              42003001
+            ],
+            [
+              41006017,
+              41006017
+            ]
+          ]
+        },
+        {
+          "text": "The Philip who preached in Samaria and baptized the Ethiopian (Acts 8:5–40) is taken to be the evangelist, not the apostle: the believers were scattered “except the apostles” (Acts 8:1), “the apostles which were at Jerusalem” sent Peter and John to his converts (Acts 8:14), and Acts leaves him at Caesarea (Acts 8:40), where Philip the evangelist lives in Acts 21:8.",
+          "layer": "text",
+          "refs": [
+            [
+              44008001,
+              44008001
+            ],
+            [
+              44008005,
+              44008005
+            ],
+            [
+              44008014,
+              44008014
+            ],
+            [
+              44008040,
+              44008040
+            ],
+            [
+              44021008,
+              44021008
+            ]
+          ]
+        }
+      ],
+      "lists": [
+        {
+          "book": "MAT",
+          "position": 5,
+          "name": "Philip",
+          "span": [
+            40010003,
+            40010003
+          ]
+        },
+        {
+          "book": "MRK",
+          "position": 5,
+          "name": "Philip",
+          "span": [
+            41003018,
+            41003018
+          ]
+        },
+        {
+          "book": "LUK",
+          "position": 5,
+          "name": "Philip",
+          "span": [
+            42006014,
+            42006014
+          ]
+        },
+        {
+          "book": "ACT",
+          "position": 5,
+          "name": "Philip",
+          "span": [
+            44001013,
+            44001013
+          ]
+        }
+      ],
+      "calling": [
+        {
+          "label": "John 1 · “Follow me”",
+          "quote": {
+            "text": "The day following Jesus would go forth into Galilee, and findeth Philip, and saith unto him, Follow me. Now Philip was of Bethsaida, the city of Andrew and Peter.",
+            "span": [
+              43001043,
+              43001044
+            ]
+          },
+          "claim": {
+            "text": "In John 1 he is the only one Jesus himself finds and calls with “Follow me” (John 1:43); Andrew and the other disciple follow at the Baptist’s word, Peter is brought by Andrew, and Nathanael by Philip. Matthew, Mark and Luke name Philip only in the lists of the Twelve.",
+            "layer": "text",
+            "refs": [
+              [
+                43001035,
+                43001051
+              ],
+              [
+                40010003,
+                40010003
+              ],
+              [
+                41003018,
+                41003018
+              ],
+              [
+                42006014,
+                42006014
+              ]
+            ]
+          }
+        }
+      ],
+      "moments": [
+        {
+          "label": "Called by Jesus; finds Nathanael: “Come and see”",
+          "refs": [
+            [
+              43001043,
+              43001046
+            ]
+          ],
+          "harmony": "28"
+        },
+        {
+          "label": "Chosen as one of the Twelve",
+          "refs": [
+            [
+              41003013,
+              41003019
+            ],
+            [
+              42006012,
+              42006016
+            ]
+          ],
+          "harmony": "53"
+        },
+        {
+          "label": "Sent out with the Twelve; fifth in Matthew’s list",
+          "refs": [
+            [
+              40010001,
+              40010005
+            ]
+          ],
+          "harmony": "70"
+        },
+        {
+          "label": "“Whence shall we buy bread?”: the feeding of the five thousand",
+          "refs": [
+            [
+              43006005,
+              43006007
+            ]
+          ],
+          "harmony": "72"
+        },
+        {
+          "label": "Greeks come to him: “Sir, we would see Jesus”",
+          "refs": [
+            [
+              43012020,
+              43012022
+            ]
+          ],
+          "harmony": "130"
+        },
+        {
+          "label": "“Lord, shew us the Father”",
+          "refs": [
+            [
+              43014008,
+              43014011
+            ]
+          ],
+          "harmony": "149"
+        }
+      ],
+      "acts": [
+        {
+          "text": "He is named fifth among the Eleven in the upper room (Acts 1:13). Acts never names the apostle again.",
+          "layer": "text",
+          "refs": [
+            [
+              44001013,
+              44001013
+            ]
+          ]
+        }
+      ],
+      "places": [
+        {
+          "name": "Bethsaida",
+          "placeId": "a91b732",
+          "refs": [
+            [
+              43001044,
+              43001044
+            ],
+            [
+              43012021,
+              43012021
+            ]
+          ]
+        },
+        {
+          "name": "Jerusalem",
+          "placeId": "a15257a",
+          "refs": [
+            [
+              44001012,
+              44001013
+            ]
+          ],
+          "note": "The upper room"
+        },
+        {
+          "name": "Hierapolis",
+          "placeId": "a11bbbe",
+          "note": "Polycrates (about 190) says “Philip, one of the twelve apostles” sleeps here; the city is named in Scripture only at Colossians 4:13",
+          "tradition": true
+        }
+      ],
+      "companions": [
+        {
+          "person": {
+            "name": "Andrew",
+            "personId": "andrew-mat-4-18"
+          },
+          "claim": {
+            "text": "From the same town (John 1:44). With Andrew he brings the Greeks’ request to Jesus (John 12:22), and both speak up before the feeding of the five thousand (John 6:7–8).",
+            "layer": "scripture",
+            "refs": [
+              [
+                43001044,
+                43001044
+              ],
+              [
+                43012022,
+                43012022
+              ],
+              [
+                43006007,
+                43006008
+              ]
+            ]
+          }
+        },
+        {
+          "person": {
+            "name": "Nathanael",
+            "personId": "nathanael-jhn-1-45"
+          },
+          "claim": {
+            "text": "“Philip findeth Nathanael, and saith unto him, We have found him, of whom Moses in the law, and the prophets, did write” (John 1:45).",
+            "layer": "scripture",
+            "refs": [
+              [
+                43001045,
+                43001046
+              ]
+            ]
+          }
+        },
+        {
+          "person": {
+            "name": "Bartholomew",
+            "personId": "bartholomew-mat-10-3"
+          },
+          "claim": {
+            "text": "In the lists of Matthew, Mark and Luke Bartholomew is named straight after Philip (Matt 10:3; Mark 3:18; Luke 6:14).",
+            "layer": "text",
+            "refs": [
+              [
+                40010003,
+                40010003
+              ],
+              [
+                41003018,
+                41003018
+              ],
+              [
+                42006014,
+                42006014
+              ]
+            ]
+          }
+        }
+      ],
+      "ending": {
+        "scripture": [
+          {
+            "text": "Scripture says nothing of Philip the apostle after the upper room (Acts 1:13).",
+            "layer": "text",
+            "refs": [
+              [
+                44001013,
+                44001013
+              ]
+            ]
+          }
+        ],
+        "tradition": [
+          {
+            "text": "Papias, “their contemporary”, heard “a wonderful tale from the daughters of Philip”; Eusebius says “Philip the apostle dwelt at Hierapolis with his daughters”.",
+            "layer": "early-church",
+            "cites": [
+              "eus-3"
+            ],
+            "who": "Papias, as reported by Eusebius (3.39.9)",
+            "when": "early 2nd century; Eusebius about AD 325"
+          },
+          {
+            "text": "“Philip, one of the twelve apostles, who sleeps in Hierapolis, and his two aged virgin daughters, and another daughter who lived in the Holy Spirit and now rests at Ephesus”.",
+            "layer": "early-church",
+            "cites": [
+              "eus-3",
+              "eus-5"
+            ],
+            "who": "Polycrates, bishop of Ephesus, quoted by Eusebius (3.31.3; 5.24.2)",
+            "when": "about AD 190"
+          },
+          {
+            "text": "“There were four prophetesses, the daughters of Philip, at Hierapolis in Asia. Their tomb is there and the tomb of their father.”",
+            "layer": "early-church",
+            "cites": [
+              "eus-3"
+            ],
+            "who": "Proclus, in the Dialogue of Gaius, quoted by Eusebius (3.31.4)",
+            "when": "about AD 200"
+          },
+          {
+            "text": "Philip preaches at Hierapolis with Bartholomew and his sister Mariamne; the proconsul has his ankles and thighs pierced and hangs him “head downward”.",
+            "layer": "tradition",
+            "cites": [
+              "james-1924"
+            ],
+            "who": "The Acts of Philip (apocryphal), 107–125",
+            "when": "later than the five main apocryphal Acts of the 2nd and 3rd centuries (M. R. James, 1924)"
+          }
+        ]
+      },
+      "writings": [],
+      "questions": [
+        {
+          "id": "philip-hierapolis",
+          "question": "Which Philip lived and was buried at Hierapolis?",
+          "views": [
+            {
+              "label": "The apostle",
+              "holders": "Polycrates of Ephesus (about 190); Clement of Alexandria (about 200)",
+              "argument": {
+                "text": "Polycrates calls him “Philip, one of the twelve apostles”, with daughters. Clement names Philip with Peter among the married apostles.",
+                "layer": "early-church",
+                "cites": [
+                  "eus-3",
+                  "eus-5"
+                ]
+              }
+            },
+            {
+              "label": "The household of Philip the evangelist",
+              "holders": "Proclus (about 200), whose description matches Acts",
+              "argument": {
+                "text": "Proclus speaks of “four prophetesses, the daughters of Philip” at Hierapolis. Acts gives Philip the evangelist “four daughters, virgins, which did prophesy” (Acts 21:8–9). Eusebius sets the two reports side by side without comment.",
+                "layer": "early-church",
+                "refs": [
+                  [
+                    44021008,
+                    44021009
+                  ]
+                ],
+                "cites": [
+                  "eus-3"
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "notSaid": [
+        "Scripture gives no trade, no family and no later life for Philip the apostle.",
+        "Matthew, Mark and Luke name him only in the lists of the Twelve.",
+        "Acts 21:8 calls the Philip of Caesarea “the evangelist, which was one of the seven”; Acts 8 does not say which Philip preached in Samaria, though its details point to the same man."
+      ],
+      "passages": [
+        [
+          40010001,
+          40010005
+        ],
+        [
+          41003013,
+          41003019
+        ],
+        [
+          42006012,
+          42006016
+        ],
+        [
+          43001035,
+          43001051
+        ],
+        [
+          43006005,
+          43006007
+        ],
+        [
+          43012020,
+          43012022
+        ],
+        [
+          43014008,
+          43014011
+        ],
+        [
+          44001013,
+          44001013
+        ]
+      ]
+    },
+    {
+      "id": "bartholomew-mat-10-3",
+      "personIds": [
+        "nathanael-jhn-1-45"
+      ],
+      "name": "Bartholomew",
+      "otherNames": [
+        "Nathanael (if the same man)"
+      ],
+      "title": "One of the Twelve",
+      "tagline": "A name in every list of the Twelve; perhaps the Nathanael of John’s Gospel.",
+      "order": 6,
+      "home": {
+        "text": "Scripture gives no home for Bartholomew. Nathanael was “of Cana in Galilee” (John 21:2).",
+        "layer": "scripture",
+        "refs": [
+          [
+            43021002,
+            43021002
+          ]
+        ]
+      },
+      "family": [
+        {
+          "text": "The name Bartholomew means “son of Talmai” (or Tholmai). Fenlon (1907) notes that it may have been his own name, or a family name added to tell him apart.",
+          "layer": "scholars",
+          "cites": [
+            "ce-bartholomew"
+          ]
+        }
+      ],
+      "identifications": [
+        {
+          "text": "Bartholomew appears only in the four lists of the Twelve. Nathanael appears only in John’s Gospel (John 1:45–51; 21:2), which never uses the name Bartholomew.",
+          "layer": "text",
+          "refs": [
+            [
+              40010003,
+              40010003
+            ],
+            [
+              41003018,
+              41003018
+            ],
+            [
+              42006014,
+              42006014
+            ],
+            [
+              44001013,
+              44001013
+            ],
+            [
+              43001045,
+              43001051
+            ],
+            [
+              43021002,
+              43021002
+            ]
+          ]
+        },
+        {
+          "text": "In Matthew, Mark and Luke, Bartholomew is named straight after Philip; in Acts 1:13 Thomas comes between them. In John, Philip is the one who brings Nathanael to Jesus (John 1:45).",
+          "layer": "text",
+          "refs": [
+            [
+              40010003,
+              40010003
+            ],
+            [
+              41003018,
+              41003018
+            ],
+            [
+              42006014,
+              42006014
+            ],
+            [
+              44001013,
+              44001013
+            ],
+            [
+              43001045,
+              43001045
+            ]
+          ]
+        },
+        {
+          "text": "The earliest writer found who equates the two is Ishodad of Merv (about 850): “Bartholomew is perhaps Nathanael”, and “It is handed down that Nathanael, that is to say, Bar Toulmi, was well acquainted with the Scriptures”. This page shows both records and treats the identification as a view.",
+          "layer": "tradition",
+          "cites": [
+            "ishodad-1911"
+          ]
+        }
+      ],
+      "lists": [
+        {
+          "book": "MAT",
+          "position": 6,
+          "name": "Bartholomew",
+          "span": [
+            40010003,
+            40010003
+          ]
+        },
+        {
+          "book": "MRK",
+          "position": 6,
+          "name": "Bartholomew",
+          "span": [
+            41003018,
+            41003018
+          ]
+        },
+        {
+          "book": "LUK",
+          "position": 6,
+          "name": "Bartholomew",
+          "span": [
+            42006014,
+            42006014
+          ]
+        },
+        {
+          "book": "ACT",
+          "position": 7,
+          "name": "Bartholomew",
+          "span": [
+            44001013,
+            44001013
+          ]
+        }
+      ],
+      "calling": [
+        {
+          "label": "Luke 6 · Chosen as one of the Twelve",
+          "quote": {
+            "text": "And when it was day, he called unto him his disciples: and of them he chose twelve, whom also he named apostles;",
+            "span": [
+              42006013,
+              42006013
+            ]
+          },
+          "claim": {
+            "text": "Bartholomew is named among the twelve chosen (Luke 6:14). No calling of Bartholomew by that name is told.",
+            "layer": "text",
+            "refs": [
+              [
+                42006013,
+                42006014
+              ]
+            ]
+          }
+        },
+        {
+          "label": "John 1 · Nathanael, if he is Bartholomew",
+          "quote": {
+            "text": "Philip findeth Nathanael, and saith unto him, We have found him, of whom Moses in the law, and the prophets, did write, Jesus of Nazareth, the son of Joseph. And Nathanael said unto him, Can there any good thing come out of Nazareth? Philip saith unto him, Come and see. Jesus saw Nathanael coming to him, and saith of him, Behold an Israelite indeed, in whom is no guile! Nathanael saith unto him, Whence knowest thou me? Jesus answered and said unto him, Before that Philip called thee, when thou wast under the fig tree, I saw thee. Nathanael answered and saith unto him, Rabbi, thou art the Son of God; thou art the King of Israel.",
+            "span": [
+              43001045,
+              43001049
+            ]
+          },
+          "claim": {
+            "text": "Jesus answers Nathanael, “thou shalt see greater things than these” (John 1:50).",
+            "layer": "scripture",
+            "refs": [
+              [
+                43001050,
+                43001051
+              ]
+            ]
+          }
+        }
+      ],
+      "moments": [
+        {
+          "label": "Nathanael: “Can there any good thing come out of Nazareth?”",
+          "refs": [
+            [
+              43001045,
+              43001051
+            ]
+          ],
+          "harmony": "28"
+        },
+        {
+          "label": "Chosen as one of the Twelve",
+          "refs": [
+            [
+              41003013,
+              41003019
+            ],
+            [
+              42006012,
+              42006016
+            ]
+          ],
+          "harmony": "53"
+        },
+        {
+          "label": "Sent out with the Twelve; sixth in Matthew’s list",
+          "refs": [
+            [
+              40010001,
+              40010005
+            ]
+          ],
+          "harmony": "70"
+        },
+        {
+          "label": "Nathanael by the sea when the risen Jesus appears",
+          "refs": [
+            [
+              43021001,
+              43021003
+            ]
+          ],
+          "harmony": "180"
+        }
+      ],
+      "acts": [
+        {
+          "text": "He is named seventh among the Eleven in the upper room (Acts 1:13). Acts never names him again.",
+          "layer": "text",
+          "refs": [
+            [
+              44001013,
+              44001013
+            ]
+          ]
+        }
+      ],
+      "places": [
+        {
+          "name": "Cana",
+          "placeId": "a031bda",
+          "refs": [
+            [
+              43021002,
+              43021002
+            ]
+          ],
+          "note": "Nathanael’s town"
+        },
+        {
+          "name": "Jerusalem",
+          "placeId": "a15257a",
+          "refs": [
+            [
+              44001012,
+              44001013
+            ]
+          ],
+          "note": "The upper room"
+        },
+        {
+          "name": "India",
+          "placeId": "a878481",
+          "note": "Pantaenus “is said” to have found there a Gospel of Matthew left by Bartholomew (Eusebius 5.10); the name India then covered a wide area (Fenlon, 1907)",
+          "tradition": true
+        },
+        {
+          "name": "Armenia",
+          "note": "Later traditions place his death at Albanopolis in Armenia",
+          "tradition": true
+        }
+      ],
+      "companions": [
+        {
+          "person": {
+            "name": "Philip",
+            "personId": "philip-mat-10-3"
+          },
+          "claim": {
+            "text": "Named next to Philip in three of the lists (Matt 10:3; Mark 3:18; Luke 6:14). As Nathanael, brought to Jesus by Philip (John 1:45–46).",
+            "layer": "text",
+            "refs": [
+              [
+                40010003,
+                40010003
+              ],
+              [
+                41003018,
+                41003018
+              ],
+              [
+                42006014,
+                42006014
+              ],
+              [
+                43001045,
+                43001046
+              ]
+            ]
+          }
+        },
+        {
+          "person": {
+            "name": "Peter, Thomas and the sons of Zebedee",
+            "personId": "peter-mat-4-18"
+          },
+          "claim": {
+            "text": "As Nathanael, he went fishing with them when the risen Jesus appeared by the sea (John 21:2–3).",
+            "layer": "scripture",
+            "refs": [
+              [
+                43021002,
+                43021003
+              ]
+            ]
+          }
+        }
+      ],
+      "ending": {
+        "scripture": [
+          {
+            "text": "Scripture says nothing of Bartholomew after the upper room (Acts 1:13), or of Nathanael after the morning by the sea (John 21:2).",
+            "layer": "text",
+            "refs": [
+              [
+                44001013,
+                44001013
+              ],
+              [
+                43021002,
+                43021002
+              ]
+            ]
+          }
+        ],
+        "tradition": [
+          {
+            "text": "Pantaenus “is said to have gone to India. It is reported that … he found the Gospel according to Matthew”, for “Bartholomew, one of the apostles, had preached to them, and left with them the writing of Matthew in the Hebrew language”.",
+            "layer": "early-church",
+            "cites": [
+              "eus-5"
+            ],
+            "who": "Eusebius, Church History 5.10.3, reporting Pantaenus’s journey",
+            "when": "Pantaenus taught late in the 2nd century; Eusebius about AD 325"
+          },
+          {
+            "text": "Pantaenus was sent to India, “where he found that Bartholomew, one of the twelve apostles, had preached the advent of the Lord Jesus according to the gospel of Matthew”.",
+            "layer": "early-church",
+            "cites": [
+              "jerome-lives"
+            ],
+            "who": "Jerome, Lives of Illustrious Men 36",
+            "when": "AD 392"
+          },
+          {
+            "text": "“No mention of St. Bartholomew occurs in ecclesiastical literature before Eusebius.” Other traditions send him to Mesopotamia, Persia, Egypt, Armenia, Lycaonia, Phrygia and the Black Sea coast.",
+            "layer": "scholars",
+            "cites": [
+              "ce-bartholomew"
+            ],
+            "who": "J. F. Fenlon, Catholic Encyclopedia",
+            "when": "1907"
+          },
+          {
+            "text": "He died at Albanopolis in Armenia: “according to some, he was beheaded, according to others, flayed alive and crucified, head downward”. Fenlon calls the manner of death “equally uncertain”.",
+            "layer": "tradition",
+            "cites": [
+              "ce-bartholomew"
+            ],
+            "who": "Later traditions, as summarised by J. F. Fenlon",
+            "when": "earliest source not identified in the works read"
+          },
+          {
+            "text": "At Hierapolis, “Bartholomew they hung naked by the hair” while Philip was hung head downward.",
+            "layer": "tradition",
+            "cites": [
+              "james-1924"
+            ],
+            "who": "The Acts of Philip (apocryphal), 125",
+            "when": "later than the five main apocryphal Acts (M. R. James, 1924)"
+          }
+        ]
+      },
+      "writings": [],
+      "questions": [
+        {
+          "id": "bartholomew-nathanael",
+          "question": "Is Bartholomew the same man as Nathanael?",
+          "views": [
+            {
+              "label": "Two different apostles",
+              "holders": "The Epistle of the Apostles (about 160)",
+              "argument": {
+                "text": "Its opening list of apostles names Bartholomew and Nathanael as two men. The same list also names Peter and Cephas as two.",
+                "layer": "tradition",
+                "cites": [
+                  "james-1924"
+                ]
+              }
+            },
+            {
+              "label": "Nathanael was not one of the Twelve",
+              "holders": "Augustine (early 5th century)",
+              "argument": {
+                "text": "Augustine reasons that Nathanael “was learned and skilled in the law and for that reason was the Lord unwilling to place him among His disciples”, because he chose unlearned men.",
+                "layer": "early-church",
+                "cites": [
+                  "augustine-john"
+                ]
+              }
+            },
+            {
+              "label": "The same man: Nathanael, son of Talmai",
+              "holders": "Ishodad of Merv (about 850); generally held from the 9th century on (Kerr, 1915); reasons set out by Fenlon (1907)",
+              "argument": {
+                "text": "John never uses the name Bartholomew and the other Gospels never use Nathanael; the Gospel lists pair Bartholomew with Philip, who brought Nathanael; Nathanael was among disciples with apostles in John 21:2. Fenlon calls the case “ingenious and pretty strong”, with the weak link that Nathanael “may have been another personage”.",
+                "layer": "scholars",
+                "refs": [
+                  [
+                    43001045,
+                    43001045
+                  ],
+                  [
+                    43021002,
+                    43021002
+                  ],
+                  [
+                    40010003,
+                    40010003
+                  ]
+                ],
+                "cites": [
+                  "ishodad-1911",
+                  "isbe-bartholomew",
+                  "ce-bartholomew"
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "notSaid": [
+        "Scripture never says that Bartholomew and Nathanael are the same man.",
+        "Scripture gives no words or deeds of Bartholomew by that name, and nothing after Acts 1:13.",
+        "Scripture says nothing of India, Armenia or of how he died."
+      ],
+      "passages": [
+        [
+          40010001,
+          40010005
+        ],
+        [
+          41003013,
+          41003019
+        ],
+        [
+          42006012,
+          42006016
+        ],
+        [
+          43001045,
+          43001051
+        ],
+        [
+          43021001,
+          43021003
+        ],
+        [
+          44001013,
+          44001013
+        ]
+      ]
+    },
+    {
+      "id": "thomas-mat-10-3",
+      "name": "Thomas",
+      "otherNames": [
+        "Didymus",
+        "Judas Thomas (Syriac tradition)"
+      ],
+      "title": "One of the Twelve",
+      "tagline": "Called Didymus; the apostle who said, “My Lord and my God.”",
+      "order": 7,
+      "family": [
+        {
+          "text": "John three times adds that Thomas was “called Didymus” (John 11:16; 20:24; 21:2). Thomas in Syriac and Didymus in Greek both mean “twin” (Thurston, 1912). Scripture never says whose twin he was.",
+          "layer": "scholars",
+          "refs": [
+            [
+              43011016,
+              43011016
+            ],
+            [
+              43020024,
+              43020024
+            ],
+            [
+              43021002,
+              43021002
+            ]
+          ],
+          "cites": [
+            "ce-thomas"
+          ]
+        }
+      ],
+      "identifications": [
+        {
+          "text": "A Syriac document from Edessa, quoted by Eusebius, calls him “Judas, who was also called Thomas”, and the Acts of Thomas call him “Judas Thomas, which is also the twin”.",
+          "layer": "tradition",
+          "cites": [
+            "eus-1",
+            "james-1924"
+          ]
+        }
+      ],
+      "lists": [
+        {
+          "book": "MAT",
+          "position": 7,
+          "name": "Thomas",
+          "span": [
+            40010003,
+            40010003
+          ]
+        },
+        {
+          "book": "MRK",
+          "position": 8,
+          "name": "Thomas",
+          "span": [
+            41003018,
+            41003018
+          ]
+        },
+        {
+          "book": "LUK",
+          "position": 8,
+          "name": "Thomas",
+          "span": [
+            42006015,
+            42006015
+          ]
+        },
+        {
+          "book": "ACT",
+          "position": 6,
+          "name": "Thomas",
+          "span": [
+            44001013,
+            44001013
+          ]
+        }
+      ],
+      "calling": [
+        {
+          "label": "Luke 6 · Chosen as one of the Twelve",
+          "quote": {
+            "text": "And when it was day, he called unto him his disciples: and of them he chose twelve, whom also he named apostles;",
+            "span": [
+              42006013,
+              42006013
+            ]
+          },
+          "claim": {
+            "text": "Thomas is named among the twelve chosen (Luke 6:15). No account of his calling is given.",
+            "layer": "text",
+            "refs": [
+              [
+                42006013,
+                42006015
+              ]
+            ]
+          }
+        }
+      ],
+      "moments": [
+        {
+          "label": "Chosen as one of the Twelve",
+          "refs": [
+            [
+              41003013,
+              41003019
+            ],
+            [
+              42006012,
+              42006016
+            ]
+          ],
+          "harmony": "53"
+        },
+        {
+          "label": "Sent out with the Twelve; seventh in Matthew’s list",
+          "refs": [
+            [
+              40010001,
+              40010005
+            ]
+          ],
+          "harmony": "70"
+        },
+        {
+          "label": "“Let us also go, that we may die with him”",
+          "refs": [
+            [
+              43011007,
+              43011016
+            ]
+          ],
+          "harmony": "118"
+        },
+        {
+          "label": "“Lord, we know not whither thou goest”",
+          "refs": [
+            [
+              43014005,
+              43014007
+            ]
+          ],
+          "harmony": "149"
+        },
+        {
+          "label": "Absent when Jesus appears: “Except I shall see”",
+          "refs": [
+            [
+              43020024,
+              43020025
+            ]
+          ],
+          "harmony": "178"
+        },
+        {
+          "label": "Eight days later: “My Lord and my God”",
+          "refs": [
+            [
+              43020026,
+              43020029
+            ]
+          ],
+          "harmony": "179"
+        },
+        {
+          "label": "Fishing with Peter when the risen Jesus appears by the sea",
+          "refs": [
+            [
+              43021001,
+              43021003
+            ]
+          ],
+          "harmony": "180"
+        }
+      ],
+      "acts": [
+        {
+          "text": "He is named sixth among the Eleven in the upper room (Acts 1:13). Acts never names him again.",
+          "layer": "text",
+          "refs": [
+            [
+              44001013,
+              44001013
+            ]
+          ]
+        }
+      ],
+      "places": [
+        {
+          "name": "Bethany",
+          "placeId": "a4f35bc",
+          "refs": [
+            [
+              43011001,
+              43011001
+            ],
+            [
+              43011016,
+              43011016
+            ]
+          ],
+          "note": "Where Jesus was going when Thomas said “Let us also go”"
+        },
+        {
+          "name": "Jerusalem",
+          "placeId": "a15257a",
+          "refs": [
+            [
+              43020019,
+              43020026
+            ],
+            [
+              44001012,
+              44001013
+            ]
+          ],
+          "note": "John 20 does not name the city; Acts 1:12–13 does"
+        },
+        {
+          "name": "Sea of Tiberias (Galilee)",
+          "placeId": "a562fcc",
+          "refs": [
+            [
+              43021001,
+              43021002
+            ]
+          ]
+        },
+        {
+          "name": "Parthia",
+          "note": "Origen, as reported by Eusebius: allotted to Thomas “according to tradition”",
+          "tradition": true
+        },
+        {
+          "name": "India",
+          "placeId": "a878481",
+          "note": "Where the Acts of Thomas (3rd century) send him",
+          "tradition": true
+        },
+        {
+          "name": "Mesopotamia",
+          "placeId": "a43f60f",
+          "note": "The Acts of Thomas say his bones were taken there; Thurston (1912) says relics were venerated at Edessa in the 4th century",
+          "tradition": true
+        }
+      ],
+      "companions": [
+        {
+          "person": {
+            "name": "The other disciples"
+          },
+          "claim": {
+            "text": "“The other disciples therefore said unto him, We have seen the Lord” (John 20:25).",
+            "layer": "scripture",
+            "refs": [
+              [
+                43020025,
+                43020025
+              ]
+            ]
+          }
+        },
+        {
+          "person": {
+            "name": "Peter",
+            "personId": "peter-mat-4-18"
+          },
+          "claim": {
+            "text": "“There were together Simon Peter, and Thomas called Didymus, and Nathanael” when Peter said “I go a fishing” (John 21:2–3).",
+            "layer": "scripture",
+            "refs": [
+              [
+                43021002,
+                43021003
+              ]
+            ]
+          }
+        },
+        {
+          "person": {
+            "name": "Nathanael",
+            "personId": "nathanael-jhn-1-45"
+          },
+          "claim": {
+            "text": "With him in the boat by the sea (John 21:2).",
+            "layer": "scripture",
+            "refs": [
+              [
+                43021002,
+                43021002
+              ]
+            ]
+          }
+        },
+        {
+          "person": {
+            "name": "Thaddaeus of Edessa (tradition)"
+          },
+          "claim": {
+            "text": "The Edessa document quoted by Eusebius says that “Thomas, one of the twelve apostles, under divine impulse sent Thaddeus”, one of the Seventy, to Edessa.",
+            "layer": "tradition",
+            "cites": [
+              "eus-1"
+            ]
+          }
+        }
+      ],
+      "ending": {
+        "scripture": [
+          {
+            "text": "Scripture says nothing of Thomas after the upper room (Acts 1:13).",
+            "layer": "text",
+            "refs": [
+              [
+                44001013,
+                44001013
+              ]
+            ]
+          }
+        ],
+        "tradition": [
+          {
+            "text": "“Parthia, according to tradition, was allotted to Thomas as his field of labor”.",
+            "layer": "early-church",
+            "cites": [
+              "eus-3"
+            ],
+            "who": "Origen, as reported by Eusebius (3.1.1)",
+            "when": "first half of the 3rd century; Eusebius about AD 325"
+          },
+          {
+            "text": "The apostles divide the world by lot and “India fell unto Judas Thomas”. He goes unwillingly, sold as a carpenter to a merchant of King Gundaphorus.",
+            "layer": "tradition",
+            "cites": [
+              "james-1924",
+              "ce-thomas"
+            ],
+            "who": "The Acts of Thomas (apocryphal), chs. 1–2",
+            "when": "3rd century; Harnack dated it before AD 220 (Thurston, 1912)"
+          },
+          {
+            "text": "A king named Gondophernes or Guduphara ruled in north-west India about AD 20–46, known from coins and the Takht-i-Bahi inscription, and his name matches the Gundaphorus of the Acts. Thurston adds that a romancer may have borrowed real names.",
+            "layer": "scholars",
+            "cites": [
+              "ce-thomas"
+            ],
+            "who": "H. Thurston, Catholic Encyclopedia",
+            "when": "1912"
+          },
+          {
+            "text": "By order of King Misdaeus, four soldiers take him up a mountain and “pierced him with their spears”; later a brother takes his bones “unto Mesopotamia”.",
+            "layer": "tradition",
+            "cites": [
+              "james-1924"
+            ],
+            "who": "The Acts of Thomas (apocryphal), chs. 164–170",
+            "when": "3rd century"
+          },
+          {
+            "text": "Relics of Thomas were at Edessa in the 4th century; the tradition that he died at Mylapore near Madras is locally strong, but Thurston finds it hard “to discover any adequate support” for it.",
+            "layer": "scholars",
+            "cites": [
+              "ce-thomas"
+            ],
+            "who": "H. Thurston, Catholic Encyclopedia",
+            "when": "1912"
+          }
+        ]
+      },
+      "writings": [],
+      "questions": [
+        {
+          "id": "thomas-field",
+          "question": "Where did Thomas preach: Parthia or India?",
+          "views": [
+            {
+              "label": "Parthia",
+              "holders": "Origen (first half of the 3rd century), as reported by Eusebius",
+              "argument": {
+                "text": "Parthia was allotted to Thomas “according to tradition”.",
+                "layer": "early-church",
+                "cites": [
+                  "eus-3"
+                ]
+              }
+            },
+            {
+              "label": "India",
+              "holders": "The Acts of Thomas (3rd century); later Ephraem, Ambrose, Paulinus and Jerome, as listed by Thurston (1912)",
+              "argument": {
+                "text": "The Acts send him to India, and the names of King Gundaphorus and his kingdom match coins and an inscription from north-west India.",
+                "layer": "scholars",
+                "cites": [
+                  "james-1924",
+                  "ce-thomas"
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "notSaid": [
+        "Scripture never says whose twin Thomas was.",
+        "John 20:27–29 does not say that Thomas touched the wounds; it records Jesus’ invitation and Thomas’s answer, “My Lord and my God.”",
+        "Scripture gives no trade or home for Thomas, and nothing after Acts 1:13."
+      ],
+      "passages": [
+        [
+          40010001,
+          40010005
+        ],
+        [
+          41003013,
+          41003019
+        ],
+        [
+          42006012,
+          42006016
+        ],
+        [
+          43011007,
+          43011016
+        ],
+        [
+          43014005,
+          43014007
+        ],
+        [
+          43020024,
+          43020029
+        ],
+        [
+          43021001,
+          43021003
+        ],
+        [
+          44001013,
+          44001013
+        ]
+      ]
+    }
+  ],
+  "citations": [
+    {
+      "id": "eus-1",
+      "author": "Eusebius, tr. A. C. McGiffert",
+      "title": "Church History, book 1 (NPNF Second Series, vol. 1)",
+      "year": "1890",
+      "where": "1.12.2; 1.13.4, 1.13.10",
+      "url": "https://www.newadvent.org/fathers/250101.htm"
+    },
+    {
+      "id": "eus-2",
+      "author": "Eusebius, tr. A. C. McGiffert",
+      "title": "Church History, book 2 (NPNF Second Series, vol. 1)",
+      "year": "1890",
+      "where": "2.9.1–4; 2.14.6; 2.15.2; 2.25.5–8",
+      "url": "https://www.newadvent.org/fathers/250102.htm"
+    },
+    {
+      "id": "eus-3",
+      "author": "Eusebius, tr. A. C. McGiffert",
+      "title": "Church History, book 3 (NPNF Second Series, vol. 1)",
+      "year": "1890",
+      "where": "3.1.1–2; 3.18.1–3; 3.20.11; 3.23.1–6; 3.30.1–2; 3.31.2–5; 3.39.4–9, 3.39.15",
+      "url": "https://www.newadvent.org/fathers/250103.htm"
+    },
+    {
+      "id": "eus-4",
+      "author": "Eusebius, tr. A. C. McGiffert",
+      "title": "Church History, book 4 (NPNF Second Series, vol. 1)",
+      "year": "1890",
+      "where": "4.19.1; 4.23.9",
+      "url": "https://www.newadvent.org/fathers/250104.htm"
+    },
+    {
+      "id": "eus-5",
+      "author": "Eusebius, tr. A. C. McGiffert",
+      "title": "Church History, book 5 (NPNF Second Series, vol. 1)",
+      "year": "1890",
+      "where": "5.8.2–4; 5.10.2–3; 5.24.2–3",
+      "url": "https://www.newadvent.org/fathers/250105.htm"
+    },
+    {
+      "id": "eus-7",
+      "author": "Eusebius, tr. A. C. McGiffert",
+      "title": "Church History, book 7 (NPNF Second Series, vol. 1)",
+      "year": "1890",
+      "where": "7.25.7–8, 7.25.14–16 (Dionysius of Alexandria)",
+      "url": "https://www.newadvent.org/fathers/250107.htm"
+    },
+    {
+      "id": "lightfoot-1891",
+      "author": "J. B. Lightfoot and J. R. Harmer (eds. and trs.)",
+      "title": "The Apostolic Fathers (one-volume edition)",
+      "year": "1891",
+      "where": "introduction to 1 Clement, p. 3; 1 Clement 5, p. 59; introduction to Ignatius, p. 97; Ignatius, To the Romans 4, p. 151; introduction to Hermas, p. 293 (the Muratorian canon c. A.D. 180); Fragments of Papias V–VI, pp. 530–531",
+      "url": "https://archive.org/details/a590752000clemuoft"
+    },
+    {
+      "id": "irenaeus-3-1",
+      "author": "Irenaeus, tr. A. Roberts and W. H. Rambaut",
+      "title": "Against Heresies, book 3, ch. 1 (ANF vol. 1)",
+      "year": "1885",
+      "where": "3.1.1",
+      "url": "https://www.newadvent.org/fathers/0103301.htm"
+    },
+    {
+      "id": "irenaeus-3-3",
+      "author": "Irenaeus, tr. A. Roberts and W. H. Rambaut",
+      "title": "Against Heresies, book 3, ch. 3 (ANF vol. 1)",
+      "year": "1885",
+      "where": "3.3.2–4",
+      "url": "https://www.newadvent.org/fathers/0103303.htm"
+    },
+    {
+      "id": "irenaeus-5-30",
+      "author": "Irenaeus, tr. A. Roberts and W. H. Rambaut",
+      "title": "Against Heresies, book 5, ch. 30 (ANF vol. 1)",
+      "year": "1885",
+      "where": "5.30.3",
+      "url": "https://www.newadvent.org/fathers/0103530.htm"
+    },
+    {
+      "id": "justin-dial",
+      "author": "Justin Martyr, tr. M. Dods and G. Reith",
+      "title": "Dialogue with Trypho (ANF vol. 1)",
+      "year": "1885",
+      "where": "ch. 81",
+      "url": "https://www.newadvent.org/fathers/01286.htm"
+    },
+    {
+      "id": "tertullian-praescr",
+      "author": "Tertullian, tr. P. Holmes",
+      "title": "The Prescription against Heretics (ANF vol. 3)",
+      "year": "1885",
+      "where": "chs. 23 and 36",
+      "url": "https://www.newadvent.org/fathers/0311.htm"
+    },
+    {
+      "id": "tertullian-scorp",
+      "author": "Tertullian, tr. S. Thelwall",
+      "title": "Scorpiace (ANF vol. 3)",
+      "year": "1885",
+      "where": "ch. 15",
+      "url": "https://www.newadvent.org/fathers/0318.htm"
+    },
+    {
+      "id": "muratorian",
+      "author": "Anonymous, tr. S. D. F. Salmond",
+      "title": "The Muratorian fragment (Canon Muratorianus), among the Fragments of Caius (ANF vol. 5)",
+      "year": "1886",
+      "where": "lines on Luke and John",
+      "url": "https://www.newadvent.org/fathers/0510.htm"
+    },
+    {
+      "id": "augustine-john",
+      "author": "Augustine, tr. J. Gibb",
+      "title": "Tractates on the Gospel of John, tractate 7 (NPNF First Series, vol. 7)",
+      "year": "1888",
+      "where": "7.17",
+      "url": "https://www.newadvent.org/fathers/1701007.htm"
+    },
+    {
+      "id": "jerome-lives",
+      "author": "Jerome, tr. E. C. Richardson",
+      "title": "Lives of Illustrious Men (NPNF Second Series, vol. 3)",
+      "year": "1892",
+      "where": "chs. 1, 9, 36",
+      "url": "https://www.newadvent.org/fathers/2708.htm"
+    },
+    {
+      "id": "james-1924",
+      "author": "M. R. James (tr.)",
+      "title": "The Apocryphal New Testament",
+      "year": "1924",
+      "where": "Preface pp. xx–xxi; Acts of Peter, introduction p. 300 and chs. 35–38 (pp. 333–335); Acts of Andrew, introduction p. 337 and Martyrdom (pp. 357–362); Acts of Thomas, introduction p. 364, chs. 1–2 (p. 365) and 164–170 (pp. 436–438); Acts of Philip 107–125 (pp. 448–449); Epistle of the Apostles, introduction and ch. 2 (pp. 485–486)",
+      "url": "https://archive.org/details/apocryphalnewtes00unse"
+    },
+    {
+      "id": "ishodad-1911",
+      "author": "Ishodad of Merv, ed. and tr. M. D. Gibson",
+      "title": "The Commentaries of Ishodad of Merv, Bishop of Hadatha (c. 850 A.D.), vol. 1 (English translation)",
+      "year": "1911",
+      "where": "on Luke 6:14–16, p. 165; on John 1:35–48, p. 223",
+      "url": "https://archive.org/details/commentariesofis01gibs"
+    },
+    {
+      "id": "robertson-1922",
+      "author": "A. T. Robertson",
+      "title": "A Harmony of the Gospels for Students of the Life of Christ",
+      "year": "1922",
+      "where": "sections 28 and 41 (the site's harmony data)",
+      "url": "https://www.gutenberg.org/ebooks/36264"
+    },
+    {
+      "id": "ce-andrew",
+      "author": "Joseph MacRory",
+      "title": "\"St. Andrew\", Catholic Encyclopedia, vol. 1",
+      "year": "1907",
+      "url": "https://www.newadvent.org/cathen/01471a.htm"
+    },
+    {
+      "id": "ce-bartholomew",
+      "author": "John Francis Fenlon",
+      "title": "\"St. Bartholomew\", Catholic Encyclopedia, vol. 2",
+      "year": "1907",
+      "url": "https://www.newadvent.org/cathen/02313c.htm"
+    },
+    {
+      "id": "ce-james",
+      "author": "Achille Camerlynck",
+      "title": "\"St. James the Greater\", Catholic Encyclopedia, vol. 8",
+      "year": "1910",
+      "url": "https://www.newadvent.org/cathen/08279b.htm"
+    },
+    {
+      "id": "ce-thomas",
+      "author": "Herbert Thurston",
+      "title": "\"St. Thomas the Apostle\", Catholic Encyclopedia, vol. 14",
+      "year": "1912",
+      "url": "https://www.newadvent.org/cathen/14658b.htm"
+    },
+    {
+      "id": "isbe-bartholomew",
+      "author": "C. M. Kerr",
+      "title": "\"Bartholomew\", International Standard Bible Encyclopaedia",
+      "year": "1915",
+      "where": "online text; not yet checked against a scan of the printed 1915 edition",
+      "url": "https://www.internationalstandardbible.com/B/bartholomew.html"
+    }
+  ]
+}

@@ -1,0 +1,4876 @@
+{
+ "id": "apostles-2",
+ "title": "The rest of the Twelve, Matthias and Paul",
+ "intro": [
+  {
+   "text": "Seven pages: Matthew, James son of Alphaeus, Thaddaeus (Judas of James), Simon the Zealot and Judas Iscariot from the Twelve; Matthias, chosen in Judas's place; and Paul, called on the road to Damascus.",
+   "layer": "text",
+   "refs": [
+    [
+     40010002,
+     40010004
+    ],
+    [
+     44001026,
+     44001026
+    ],
+    [
+     44009003,
+     44009006
+    ]
+   ]
+  },
+  {
+   "text": "In all four lists of the Twelve the names fall into three groups of four, led by Peter, Philip and James son of Alphaeus; each group keeps its members, though the order inside it changes. Matthew stands in the second group; James son of Alphaeus, Thaddaeus, Simon and Judas Iscariot make up the third.",
+   "layer": "text",
+   "refs": [
+    [
+     40010002,
+     40010004
+    ],
+    [
+     41003016,
+     41003019
+    ],
+    [
+     42006014,
+     42006016
+    ],
+    [
+     44001013,
+     44001013
+    ]
+   ]
+  },
+  {
+   "text": "Scripture tells little about four of these apostles: James son of Alphaeus, Thaddaeus and Simon appear in little more than those lists, and Matthias only at his choosing (Acts 1:23-26). Their pages say so plainly and do not fill the gap.",
+   "layer": "text",
+   "refs": [
+    [
+     40010002,
+     40010004
+    ],
+    [
+     44001013,
+     44001013
+    ],
+    [
+     44001023,
+     44001026
+    ]
+   ]
+  },
+  {
+   "text": "What is said of their later travels comes from writers one to thirteen centuries later, and it often conflicts; Schaff (1890) calls it “vague and uncertain traditions”. Every such line on these pages names who said it and when.",
+   "layer": "scholars",
+   "cites": [
+    "schaff-1890"
+   ]
+  }
+ ],
+ "apostles": [
+  {
+   "id": "matthew-mat-9-9",
+   "name": "Matthew",
+   "otherNames": [
+    "Levi",
+    "Matthew the publican"
+   ],
+   "title": "One of the Twelve",
+   "tagline": "Called from the tax office: “Follow me.”",
+   "order": 8,
+   "home": {
+    "text": "Mark tells the call straight after Jesus came back to Capernaum and went out “by the sea side”, so the tax office stood at or near Capernaum by the order of events. No verse names his home town.",
+    "layer": "text",
+    "refs": [
+     [
+      41002001,
+      41002001
+     ],
+     [
+      41002013,
+      41002014
+     ]
+    ]
+   },
+   "trade": {
+    "text": "A publican, a collector of taxes and tolls. He was “sitting at the receipt of custom” when Jesus called him, and Matthew's own list calls him “Matthew the publican”.",
+    "layer": "scripture",
+    "refs": [
+     [
+      40009009,
+      40009009
+     ],
+     [
+      40010003,
+      40010003
+     ],
+     [
+      41002014,
+      41002014
+     ],
+     [
+      42005027,
+      42005027
+     ]
+    ]
+   },
+   "family": [
+    {
+     "text": "Mark names Levi's father: “Levi the son of Alphæus”.",
+     "layer": "scripture",
+     "refs": [
+      [
+       41002014,
+       41002014
+      ]
+     ]
+    },
+    {
+     "text": "In the KJV the words “the son” are printed as a supplied word; the Greek gives only the father's name, literally Levi of Alphaeus.",
+     "layer": "text",
+     "refs": [
+      [
+       41002014,
+       41002014
+      ]
+     ]
+    }
+   ],
+   "identifications": [
+    {
+     "text": "This page treats Matthew and Levi as one man, as Easton (1897) and Schodde (ISBE, 1915) do: the three Gospels tell the same call, with the same words, at the same point in the story.",
+     "layer": "scholars",
+     "cites": [
+      "easton-1897",
+      "schodde-isbe-matthew-1915"
+     ],
+     "refs": [
+      [
+       40009009,
+       40009009
+      ],
+      [
+       41002014,
+       41002014
+      ],
+      [
+       42005027,
+       42005027
+      ]
+     ]
+    },
+    {
+     "text": "Only Matthew's Gospel calls the tax collector “Matthew”. Mark and Luke call him Levi when he is called, and Matthew in their lists of the Twelve, where no Levi appears.",
+     "layer": "text",
+     "refs": [
+      [
+       40009009,
+       40009009
+      ],
+      [
+       41002014,
+       41002014
+      ],
+      [
+       42005027,
+       42005027
+      ],
+      [
+       41003018,
+       41003018
+      ],
+      [
+       42006015,
+       42006015
+      ]
+     ]
+    },
+    {
+     "text": "The page does not make him the brother of James son of Alphaeus. Our person data links them, but no verse calls them brothers (see the question below).",
+     "layer": "scholars",
+     "cites": [
+      "schodde-isbe-matthew-1915",
+      "fortune-isbe-alphaeus-1915"
+     ],
+     "refs": [
+      [
+       41002014,
+       41002014
+      ],
+      [
+       40010003,
+       40010003
+      ]
+     ]
+    }
+   ],
+   "lists": [
+    {
+     "book": "MAT",
+     "position": 8,
+     "name": "Matthew the publican",
+     "span": [
+      40010003,
+      40010003
+     ]
+    },
+    {
+     "book": "MRK",
+     "position": 7,
+     "name": "Matthew",
+     "span": [
+      41003018,
+      41003018
+     ]
+    },
+    {
+     "book": "LUK",
+     "position": 7,
+     "name": "Matthew",
+     "span": [
+      42006015,
+      42006015
+     ]
+    },
+    {
+     "book": "ACT",
+     "position": 8,
+     "name": "Matthew",
+     "span": [
+      44001013,
+      44001013
+     ]
+    }
+   ],
+   "calling": [
+    {
+     "label": "Matthew 9",
+     "quote": {
+      "text": "he saw a man, named Matthew, sitting at the receipt of custom: and he saith unto him, Follow me. And he arose, and followed him.",
+      "span": [
+       40009009,
+       40009009
+      ]
+     }
+    },
+    {
+     "label": "Mark 2",
+     "placeId": "af2161c",
+     "quote": {
+      "text": "he saw Levi the son of Alphæus sitting at the receipt of custom, and said unto him, Follow me. And he arose and followed him.",
+      "span": [
+       41002014,
+       41002014
+      ]
+     },
+     "claim": {
+      "text": "Mark sets the scene by the sea, after Jesus had come back to Capernaum.",
+      "layer": "scripture",
+      "refs": [
+       [
+        41002001,
+        41002001
+       ],
+       [
+        41002013,
+        41002013
+       ]
+      ]
+     }
+    },
+    {
+     "label": "Luke 5",
+     "quote": {
+      "text": "And he left all, rose up, and followed him.",
+      "span": [
+       42005028,
+       42005028
+      ]
+     },
+     "claim": {
+      "text": "Luke calls him “a publican, named Levi”, and adds that he “left all” and then “made him a great feast in his own house”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        42005027,
+        42005029
+       ]
+      ]
+     }
+    }
+   ],
+   "moments": [
+    {
+     "label": "Called at the tax office",
+     "refs": [
+      [
+       40009009,
+       40009009
+      ],
+      [
+       41002014,
+       41002014
+      ],
+      [
+       42005027,
+       42005028
+      ]
+     ],
+     "harmony": "47"
+    },
+    {
+     "label": "The feast with publicans and sinners",
+     "refs": [
+      [
+       40009010,
+       40009013
+      ],
+      [
+       41002015,
+       41002017
+      ],
+      [
+       42005029,
+       42005032
+      ]
+     ],
+     "harmony": "47"
+    },
+    {
+     "label": "Chosen as one of the Twelve",
+     "refs": [
+      [
+       41003013,
+       41003019
+      ],
+      [
+       42006012,
+       42006016
+      ]
+     ],
+     "harmony": "53"
+    },
+    {
+     "label": "Sent out with the Twelve",
+     "refs": [
+      [
+       40010001,
+       40010005
+      ]
+     ],
+     "harmony": "70"
+    }
+   ],
+   "acts": [
+    {
+     "text": "He is named with the other apostles in the upper room in Jerusalem after the ascension.",
+     "layer": "scripture",
+     "refs": [
+      [
+       44001013,
+       44001013
+      ]
+     ]
+    },
+    {
+     "text": "The last verse that names him is Acts 1:13. After that Acts speaks of “the eleven” and “the twelve” as a body (Acts 2:14; 6:2) but never names him again.",
+     "layer": "text",
+     "refs": [
+      [
+       44001013,
+       44001013
+      ],
+      [
+       44002014,
+       44002014
+      ],
+      [
+       44006002,
+       44006002
+      ]
+     ]
+    }
+   ],
+   "places": [
+    {
+     "name": "Capernaum",
+     "placeId": "af2161c",
+     "refs": [
+      [
+       41002001,
+       41002001
+      ]
+     ],
+     "note": "Jesus had come back here just before Levi's call (Mark 2:1, 13)."
+    },
+    {
+     "name": "Sea of Galilee",
+     "placeId": "a562fcc",
+     "refs": [
+      [
+       41002013,
+       41002013
+      ]
+     ],
+     "note": "Mark sets the call “by the sea side”."
+    },
+    {
+     "name": "Jerusalem",
+     "placeId": "a15257a",
+     "refs": [
+      [
+       44001013,
+       44001013
+      ]
+     ],
+     "note": "The upper room, after the ascension."
+    },
+    {
+     "name": "Ethiopia",
+     "placeId": "ab45bd3",
+     "note": "Tradition: Socrates, Church History 1.19, about AD 440.",
+     "tradition": true
+    },
+    {
+     "name": "Parthia",
+     "note": "Tradition: an Ethiopic martyrdom of Matthew (Budge, 1901).",
+     "tradition": true
+    }
+   ],
+   "companions": [
+    {
+     "person": {
+      "name": "Thomas",
+      "personId": "thomas-mat-10-3"
+     },
+     "claim": {
+      "text": "Named beside Matthew in Matthew's, Mark's and Luke's lists.",
+      "layer": "text",
+      "refs": [
+       [
+        40010003,
+        40010003
+       ],
+       [
+        41003018,
+        41003018
+       ],
+       [
+        42006015,
+        42006015
+       ]
+      ]
+     }
+    },
+    {
+     "person": {
+      "name": "Bartholomew",
+      "personId": "bartholomew-mat-10-3"
+     },
+     "claim": {
+      "text": "Named beside him in Mark's and Luke's lists and in Acts.",
+      "layer": "text",
+      "refs": [
+       [
+        41003018,
+        41003018
+       ],
+       [
+        42006014,
+        42006015
+       ],
+       [
+        44001013,
+        44001013
+       ]
+      ]
+     }
+    }
+   ],
+   "ending": {
+    "scripture": [
+     {
+      "text": "Scripture's last mention of Matthew is Acts 1:13. It says nothing of where he went or how he died.",
+      "layer": "text",
+      "refs": [
+       [
+        44001013,
+        44001013
+       ]
+      ]
+     }
+    ],
+    "tradition": [
+     {
+      "text": "Heracleon, a Valentinian teacher, argued that confessing Christ by one's life counts as well as confessing him aloud before the authorities, and named Matthew, Philip, Thomas and Levi in that argument. Schodde (ISBE, 1915) reads the passage as a plain denial that Matthew died a martyr.",
+      "layer": "early-church",
+      "cites": [
+       "clement-alex-anf-1885",
+       "schodde-isbe-matthew-1915"
+      ],
+      "who": "Heracleon, quoted by Clement of Alexandria, Stromata 4.9",
+      "when": "Heracleon about AD 170; Clement about AD 200"
+     },
+     {
+      "text": "Eusebius writes that Matthew “had at first preached to the Hebrews”, and when he was about to go to other peoples wrote his Gospel in his native tongue.",
+      "layer": "early-church",
+      "cites": [
+       "eusebius-npnf-1890"
+      ],
+      "who": "Eusebius, Church History 3.24.6",
+      "when": "about AD 325"
+     },
+     {
+      "text": "Socrates writes that when the apostles shared out the nations by lot, “Matthew was allotted Ethiopia”.",
+      "layer": "early-church",
+      "cites": [
+       "socrates-npnf"
+      ],
+      "who": "Socrates Scholasticus, Church History 1.19",
+      "when": "about AD 440"
+     },
+     {
+      "text": "The Greek “Acts and Martyrdom of St. Matthew” tells of his preaching in the city of Myrna, where a king tries to burn him; the fire does not touch him and he dies in prayer. The translator calls it a much later work than the Acts of Andrew and Matthias, and notes that Matthew and Matthias are confused in these stories.",
+      "layer": "tradition",
+      "cites": [
+       "walker-anf8-1886"
+      ],
+      "who": "Acts and Martyrdom of St. Matthew (Ante-Nicene Fathers, vol. 8)",
+      "when": "late; known from manuscripts of the 11th century and later"
+     },
+     {
+      "text": "An Ethiopic “Martyrdom of Saint Matthew in Parthia” says he wrote a Gospel in Hebrew in Judaea, preached abroad, and was beheaded on a king's order.",
+      "layer": "tradition",
+      "cites": [
+       "budge-1901"
+      ],
+      "who": "The Contendings of the Apostles (Ethiopic), trans. Budge, pp. 130-136",
+      "when": "Ethiopic version about the early 14th century; manuscript 15th century"
+     }
+    ]
+   },
+   "writings": [
+    {
+     "title": "The Gospel according to Matthew (its traditional title)",
+     "book": "MAT"
+    }
+   ],
+   "questions": [
+    {
+     "id": "matthew-levi",
+     "question": "Are Matthew and Levi the same man? (Most widely held view first.)",
+     "views": [
+      {
+       "label": "One man",
+       "holders": "Easton (1897); G. H. Schodde, ISBE (1915): “practically beyond all doubt”",
+       "argument": {
+        "text": "The three call stories agree in setting, words and sequence, and Mark's and Luke's lists of the Twelve include a Matthew but no Levi.",
+        "layer": "scholars",
+        "cites": [
+         "easton-1897",
+         "schodde-isbe-matthew-1915"
+        ],
+        "refs": [
+         [
+          40009009,
+          40009009
+         ],
+         [
+          41002014,
+          41002014
+         ],
+         [
+          42005027,
+          42005027
+         ],
+         [
+          41003018,
+          41003018
+         ]
+        ]
+       }
+      },
+      {
+       "label": "Two men",
+       "holders": "Heracleon (about AD 170), as quoted by Clement of Alexandria (about AD 200)",
+       "argument": {
+        "text": "Heracleon names “Matthew, Philip, Thomas, Levi” as four separate examples.",
+        "layer": "early-church",
+        "cites": [
+         "clement-alex-anf-1885"
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "id": "matthew-james-brothers",
+     "question": "Were Matthew and James son of Alphaeus brothers? (In the order the sources give them.)",
+     "views": [
+      {
+       "label": "Brothers",
+       "holders": "B. Weiss, as reported by A. W. Fortune (ISBE, 1915)",
+       "argument": {
+        "text": "Both are named as sons of an Alphaeus.",
+        "layer": "scholars",
+        "cites": [
+         "fortune-isbe-alphaeus-1915"
+        ],
+        "refs": [
+         [
+          41002014,
+          41002014
+         ],
+         [
+          40010003,
+          40010003
+         ]
+        ]
+       }
+      },
+      {
+       "label": "Not shown to be brothers",
+       "holders": "G. H. Schodde and A. W. Fortune (ISBE, 1915)",
+       "argument": {
+        "text": "The lists call Peter and Andrew, and James and John, brothers, but never Matthew and James; the two may have had different fathers of the same name.",
+        "layer": "scholars",
+        "cites": [
+         "schodde-isbe-matthew-1915",
+         "fortune-isbe-alphaeus-1915"
+        ],
+        "refs": [
+         [
+          40010002,
+          40010003
+         ]
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "id": "matthew-gospel",
+     "question": "Did Matthew write the Gospel that bears his name? (Earliest view first.)",
+     "views": [
+      {
+       "label": "Yes: he wrote it first in Hebrew, as the early church held",
+       "holders": "Papias (died about AD 155), quoted by Eusebius; Irenaeus (about AD 180); Eusebius (about AD 325)",
+       "argument": {
+        "text": "Papias wrote that “Matthew wrote the oracles in the Hebrew language, and every one interpreted them as he was able”; Irenaeus that Matthew “issued a written Gospel among the Hebrews in their own dialect”.",
+        "layer": "early-church",
+        "cites": [
+         "eusebius-npnf-1890",
+         "irenaeus-anf-1885",
+         "papias-anf-1885"
+        ]
+       }
+      },
+      {
+       "label": "Named after a Hebrew work of Matthew's that its writer used",
+       "holders": "the theory Schodde (ISBE, 1915) calls “prevailing” in his day, though he disputes parts of it",
+       "argument": {
+        "text": "On this view Papias meant a collection, mainly of Jesus' sayings, that the writer of the Greek Gospel and Luke both used in Greek; the Gospel itself never names its author.",
+        "layer": "scholars",
+        "cites": [
+         "schodde-isbe-gospel-1915"
+        ]
+       }
+      }
+     ]
+    }
+   ],
+   "notSaid": [
+    "The Gospel that bears his name does not name its author; Scripture never says Matthew wrote a book.",
+    "Scripture says nothing of Matthew after Acts 1:13: not where he went, nor how or where he died.",
+    "Scripture does not say whether he had both names before his call, or who gave him the name Matthew.",
+    "No verse calls Matthew the brother of James son of Alphaeus."
+   ],
+   "passages": [
+    [
+     40009009,
+     40009013
+    ],
+    [
+     40010001,
+     40010004
+    ],
+    [
+     41002013,
+     41002017
+    ],
+    [
+     41003013,
+     41003019
+    ],
+    [
+     42005027,
+     42005032
+    ],
+    [
+     42006012,
+     42006016
+    ],
+    [
+     44001013,
+     44001013
+    ]
+   ]
+  },
+  {
+   "id": "james-mat-10-3",
+   "name": "James son of Alphaeus",
+   "otherNames": [
+    "James of Alphaeus"
+   ],
+   "title": "One of the Twelve",
+   "tagline": "Named in every list of the Twelve, and nowhere else for certain.",
+   "order": 9,
+   "family": [
+    {
+     "text": "All four lists name his father, Alphaeus.",
+     "layer": "scripture",
+     "refs": [
+      [
+       40010003,
+       40010003
+      ],
+      [
+       41003018,
+       41003018
+      ],
+      [
+       42006015,
+       42006015
+      ],
+      [
+       44001013,
+       44001013
+      ]
+     ]
+    },
+    {
+     "text": "In the KJV “the son” is printed as a supplied word; the Greek gives only the father's name, literally James of Alphaeus.",
+     "layer": "text",
+     "refs": [
+      [
+       40010003,
+       40010003
+      ]
+     ]
+    }
+   ],
+   "identifications": [
+    {
+     "text": "This page is about the James of the four lists. Every other link below is a view, not a statement of Scripture.",
+     "layer": "text",
+     "refs": [
+      [
+       40010003,
+       40010003
+      ],
+      [
+       44001013,
+       44001013
+      ]
+     ]
+    },
+    {
+     "text": "He is often identified with “James the less”, whose mother Mary watched the crucifixion (Mark 15:40). Mark names that James only as Mary's son, so the link to Alphaeus is an inference. Easton (1897) makes it, and Kerr (ISBE, 1915) calls it the usual view; our person data makes it too.",
+     "layer": "scholars",
+     "cites": [
+      "easton-1897",
+      "kerr-isbe-james-1915"
+     ],
+     "refs": [
+      [
+       41015040,
+       41015040
+      ],
+      [
+       40027056,
+       40027056
+      ]
+     ]
+    }
+   ],
+   "lists": [
+    {
+     "book": "MAT",
+     "position": 9,
+     "name": "James the son of Alphaeus",
+     "span": [
+      40010003,
+      40010003
+     ]
+    },
+    {
+     "book": "MRK",
+     "position": 9,
+     "name": "James the son of Alphaeus",
+     "span": [
+      41003018,
+      41003018
+     ]
+    },
+    {
+     "book": "LUK",
+     "position": 9,
+     "name": "James the son of Alphæus",
+     "span": [
+      42006015,
+      42006015
+     ]
+    },
+    {
+     "book": "ACT",
+     "position": 9,
+     "name": "James the son of Alphaeus",
+     "span": [
+      44001013,
+      44001013
+     ]
+    }
+   ],
+   "calling": [
+    {
+     "label": "Mark 3",
+     "quote": {
+      "text": "And he ordained twelve, that they should be with him, and that he might send them forth to preach,",
+      "span": [
+       41003014,
+       41003014
+      ]
+     },
+     "claim": {
+      "text": "No Gospel tells how he was first called. He appears when Jesus chooses the Twelve.",
+      "layer": "text",
+      "refs": [
+       [
+        41003013,
+        41003019
+       ],
+       [
+        42006013,
+        42006016
+       ]
+      ]
+     }
+    },
+    {
+     "label": "Luke 6",
+     "quote": {
+      "text": "of them he chose twelve, whom also he named apostles",
+      "span": [
+       42006013,
+       42006013
+      ]
+     },
+     "claim": {
+      "text": "Luke says Jesus spent the night before in prayer on a mountain.",
+      "layer": "scripture",
+      "refs": [
+       [
+        42006012,
+        42006012
+       ]
+      ]
+     }
+    }
+   ],
+   "moments": [
+    {
+     "label": "Chosen as one of the Twelve",
+     "refs": [
+      [
+       41003013,
+       41003019
+      ],
+      [
+       42006012,
+       42006016
+      ]
+     ],
+     "harmony": "53"
+    },
+    {
+     "label": "Sent out with the Twelve",
+     "refs": [
+      [
+       40010001,
+       40010005
+      ]
+     ],
+     "harmony": "70"
+    }
+   ],
+   "acts": [
+    {
+     "text": "He is named with the other apostles in the upper room after the ascension.",
+     "layer": "scripture",
+     "refs": [
+      [
+       44001013,
+       44001013
+      ]
+     ]
+    },
+    {
+     "text": "The last verse that names him is Acts 1:13. After that Acts speaks of “the eleven” and “the twelve” as a body (Acts 2:14; 6:2) but never names him again.",
+     "layer": "text",
+     "refs": [
+      [
+       44001013,
+       44001013
+      ],
+      [
+       44002014,
+       44002014
+      ],
+      [
+       44006002,
+       44006002
+      ]
+     ]
+    },
+    {
+     "text": "A James later leads the church in Jerusalem (Acts 12:17; 15:13; 21:18), and Paul speaks of “James the Lord's brother” (Galatians 1:19). Whether that James is this apostle is disputed; see below.",
+     "layer": "text",
+     "refs": [
+      [
+       44012017,
+       44012017
+      ],
+      [
+       44015013,
+       44015013
+      ],
+      [
+       44021018,
+       44021018
+      ],
+      [
+       48001019,
+       48001019
+      ]
+     ]
+    }
+   ],
+   "places": [
+    {
+     "name": "Jerusalem",
+     "placeId": "a15257a",
+     "refs": [
+      [
+       44001013,
+       44001013
+      ]
+     ],
+     "note": "The upper room, after the ascension."
+    },
+    {
+     "name": "Jerusalem (his death, in tradition)",
+     "placeId": "a15257a",
+     "note": "Tradition: an Ethiopic martyrdom (Budge, 1901).",
+     "tradition": true
+    }
+   ],
+   "companions": [
+    {
+     "person": {
+      "name": "Thaddaeus (Judas of James)",
+      "personId": "judas-mat-10-3"
+     },
+     "claim": {
+      "text": "Named next to him in Matthew's and Mark's lists.",
+      "layer": "text",
+      "refs": [
+       [
+        40010003,
+        40010003
+       ],
+       [
+        41003018,
+        41003018
+       ]
+      ]
+     }
+    },
+    {
+     "person": {
+      "name": "Simon the Zealot",
+      "personId": "simon-mat-10-4"
+     },
+     "claim": {
+      "text": "Named next to him in Luke's list and in Acts.",
+      "layer": "text",
+      "refs": [
+       [
+        42006015,
+        42006015
+       ],
+       [
+        44001013,
+        44001013
+       ]
+      ]
+     }
+    }
+   ],
+   "ending": {
+    "scripture": [
+     {
+      "text": "Scripture does not mention him after Acts 1:13 and records nothing of his death.",
+      "layer": "text",
+      "refs": [
+       [
+        44001013,
+        44001013
+       ]
+      ]
+     }
+    ],
+    "tradition": [
+     {
+      "text": "An Ethiopic “Martyrdom of Saint James” says James son of Alphaeus was stoned for preaching Christ and “buried by the sanctuary in Jerusalem”.",
+      "layer": "tradition",
+      "cites": [
+       "budge-1901",
+       "kerr-isbe-james-1915"
+      ],
+      "who": "The Contendings of the Apostles (Ethiopic), trans. Budge, pp. 264-266",
+      "when": "Ethiopic version about the early 14th century; manuscript 15th century"
+     },
+     {
+      "text": "Only if he is the Lord's brother (Jerome's view, below) does the older account of that James's death apply: Hegesippus tells that James the Just was thrown down from the temple, stoned, and struck dead with a fuller's club.",
+      "layer": "early-church",
+      "cites": [
+       "eusebius-npnf-1890"
+      ],
+      "who": "Hegesippus, quoted by Eusebius, Church History 2.23",
+      "when": "Hegesippus about AD 170; Eusebius about AD 325"
+     }
+    ]
+   },
+   "writings": [],
+   "questions": [
+    {
+     "id": "james-lords-brother",
+     "question": "Is James son of Alphaeus the same man as “James the Lord's brother”? (In the order the views arose.)",
+     "views": [
+      {
+       "label": "Two different men",
+       "holders": "Helvidius (about AD 380), who took the Lord's brothers as later sons of Joseph and Mary; the older view, first found in the apocryphal Gospel of James (its stories go back to the 2nd century), that they were Joseph's sons by an earlier marriage; A. C. McGiffert (1890); Philip Schaff (1890)",
+       "argument": {
+        "text": "John says the Lord's brothers did not believe in him after the Twelve had been chosen, and Acts names the apostles and then, separately, “his brethren”.",
+        "layer": "scholars",
+        "cites": [
+         "mcgiffert-notes-1890",
+         "schaff-1890",
+         "walker-anf8-1886"
+        ],
+        "refs": [
+         [
+          43007005,
+          43007005
+         ],
+         [
+          44001013,
+          44001014
+         ]
+        ]
+       }
+      },
+      {
+       "label": "The same man",
+       "holders": "Jerome, Against Helvidius 15 (about AD 383); Easton (1897)",
+       "argument": {
+        "text": "Paul counts “James the Lord's brother” among the apostles he saw, and there were only two apostles named James; so Jerome took the Lord's brothers to be cousins, sons of the Mary who was the wife of Clopas.",
+        "layer": "early-church",
+        "cites": [
+         "jerome-npnf-1893",
+         "easton-1897"
+        ],
+        "refs": [
+         [
+          48001019,
+          48001019
+         ],
+         [
+          43019025,
+          43019025
+         ]
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "id": "alphaeus-clopas",
+     "question": "Is Alphaeus the same man as Clopas (KJV “Cleophas”), husband of a Mary at the cross? (Most widely held view first.)",
+     "views": [
+      {
+       "label": "The same man",
+       "holders": "John Chrysostom, as reported by A. W. Fortune (ISBE, 1915); Smith (1884); Easton (1897)",
+       "argument": {
+        "text": "The two names may be forms of one Aramaic name, and the Mary of Clopas may be the Mary who was mother of James.",
+        "layer": "scholars",
+        "cites": [
+         "fortune-isbe-alphaeus-1915",
+         "smith-1884",
+         "easton-1897"
+        ],
+        "refs": [
+         [
+          43019025,
+          43019025
+         ],
+         [
+          41015040,
+          41015040
+         ]
+        ]
+       }
+      },
+      {
+       "label": "Not proven, or different men",
+       "holders": "A. W. Fortune (ISBE, 1915), who still thinks it “quite probable”; Renan, whose separation of the names McGiffert (1890) finds there is “much to be said” for",
+       "argument": {
+        "text": "The link rests on several steps that cannot be proved: that the two Marys are one, that her son James is the apostle, and that the names are one name.",
+        "layer": "scholars",
+        "cites": [
+         "fortune-isbe-alphaeus-1915",
+         "mcgiffert-notes-1890"
+        ]
+       }
+      }
+     ]
+    }
+   ],
+   "notSaid": [
+    "Scripture tells nothing of his home, his trade, his calling or anything he said: he is a name in the lists.",
+    "No verse calls the son of Alphaeus “James the less”; that is an identification.",
+    "Scripture does not say where he went after Pentecost or how he died."
+   ],
+   "passages": [
+    [
+     40010001,
+     40010004
+    ],
+    [
+     41003013,
+     41003019
+    ],
+    [
+     42006012,
+     42006016
+    ],
+    [
+     44001013,
+     44001013
+    ]
+   ]
+  },
+  {
+   "id": "judas-mat-10-3",
+   "name": "Thaddaeus (Judas of James)",
+   "otherNames": [
+    "Lebbaeus",
+    "Judas of James",
+    "Judas, not Iscariot"
+   ],
+   "title": "One of the Twelve",
+   "tagline": "Two names in the lists, and one question at the Last Supper.",
+   "order": 10,
+   "family": [
+    {
+     "text": "Luke and Acts name him by his relation to a James. The Greek gives only the genitive, literally Judas of James; the KJV prints “the brother” as a supplied word, and the Revised Version of 1881 reads the son of James. Who this James was, Scripture does not say.",
+     "layer": "text",
+     "refs": [
+      [
+       42006016,
+       42006016
+      ],
+      [
+       44001013,
+       44001013
+      ]
+     ]
+    }
+   ],
+   "identifications": [
+    {
+     "text": "This page treats Thaddaeus (Matthew 10, Mark 3) and Judas of James (Luke 6, Acts 1) as one man: each stands in the third group of four (tenth in Matthew and Mark, eleventh in Luke and Acts), and no list has both names. Jerome (as McGiffert and Kerr report), McGiffert (1890) and Kerr (ISBE, 1915) hold this; Kerr calls it “generally accepted”.",
+     "layer": "scholars",
+     "cites": [
+      "mcgiffert-notes-1890",
+      "kerr-isbe-thaddaeus-1915",
+      "kerr-isbe-judas-of-james-1915"
+     ],
+     "refs": [
+      [
+       40010003,
+       40010003
+      ],
+      [
+       41003018,
+       41003018
+      ],
+      [
+       42006016,
+       42006016
+      ],
+      [
+       44001013,
+       44001013
+      ]
+     ]
+    },
+    {
+     "text": "John's “Judas … not Iscariot” at the Last Supper is taken to be this Judas, the only other Judas in the lists.",
+     "layer": "text",
+     "refs": [
+      [
+       43014022,
+       43014022
+      ]
+     ]
+    },
+    {
+     "text": "The texts differ at Matthew 10:3. The KJV, following the Textus Receptus, reads “Lebbaeus, whose surname was Thaddaeus”; Tischendorf's Greek text (1869-72) has “Lebbaeus” alone, and the Revised Version (1881) “Thaddaeus” alone.",
+     "layer": "text",
+     "refs": [
+      [
+       40010003,
+       40010003
+      ]
+     ]
+    }
+   ],
+   "lists": [
+    {
+     "book": "MAT",
+     "position": 10,
+     "name": "Lebbaeus, whose surname was Thaddaeus",
+     "span": [
+      40010003,
+      40010003
+     ]
+    },
+    {
+     "book": "MRK",
+     "position": 10,
+     "name": "Thaddaeus",
+     "span": [
+      41003018,
+      41003018
+     ]
+    },
+    {
+     "book": "LUK",
+     "position": 11,
+     "name": "Judas the brother of James",
+     "span": [
+      42006016,
+      42006016
+     ]
+    },
+    {
+     "book": "ACT",
+     "position": 11,
+     "name": "Judas the brother of James",
+     "span": [
+      44001013,
+      44001013
+     ]
+    }
+   ],
+   "calling": [
+    {
+     "label": "Mark 3",
+     "quote": {
+      "text": "And he ordained twelve, that they should be with him, and that he might send them forth to preach,",
+      "span": [
+       41003014,
+       41003014
+      ]
+     },
+     "claim": {
+      "text": "No Gospel tells how he was first called. He appears when Jesus chooses the Twelve.",
+      "layer": "text",
+      "refs": [
+       [
+        41003013,
+        41003019
+       ],
+       [
+        42006013,
+        42006016
+       ]
+      ]
+     }
+    },
+    {
+     "label": "Luke 6",
+     "quote": {
+      "text": "of them he chose twelve, whom also he named apostles",
+      "span": [
+       42006013,
+       42006013
+      ]
+     },
+     "claim": {
+      "text": "Luke says Jesus spent the night before in prayer on a mountain.",
+      "layer": "scripture",
+      "refs": [
+       [
+        42006012,
+        42006012
+       ]
+      ]
+     }
+    }
+   ],
+   "moments": [
+    {
+     "label": "Chosen as one of the Twelve",
+     "refs": [
+      [
+       41003013,
+       41003019
+      ],
+      [
+       42006012,
+       42006016
+      ]
+     ],
+     "harmony": "53"
+    },
+    {
+     "label": "Sent out with the Twelve",
+     "refs": [
+      [
+       40010001,
+       40010005
+      ]
+     ],
+     "harmony": "70"
+    },
+    {
+     "label": "His question at the Last Supper: “how is it that thou wilt manifest thyself unto us, and not unto the world?”",
+     "refs": [
+      [
+       43014021,
+       43014024
+      ]
+     ],
+     "harmony": "149"
+    }
+   ],
+   "acts": [
+    {
+     "text": "He is named with the other apostles in the upper room after the ascension.",
+     "layer": "scripture",
+     "refs": [
+      [
+       44001013,
+       44001013
+      ]
+     ]
+    },
+    {
+     "text": "The last verse that names him is Acts 1:13. After that Acts speaks of “the eleven” and “the twelve” as a body (Acts 2:14; 6:2) but never names him again.",
+     "layer": "text",
+     "refs": [
+      [
+       44001013,
+       44001013
+      ],
+      [
+       44002014,
+       44002014
+      ],
+      [
+       44006002,
+       44006002
+      ]
+     ]
+    }
+   ],
+   "places": [
+    {
+     "name": "Jerusalem",
+     "placeId": "a15257a",
+     "refs": [
+      [
+       43014022,
+       43014022
+      ],
+      [
+       44001013,
+       44001013
+      ]
+     ],
+     "note": "The Last Supper; the upper room after the ascension."
+    },
+    {
+     "name": "Edessa",
+     "note": "Tradition: Eusebius, Church History 1.13, about AD 325, of a Thaddaeus he counts among the Seventy.",
+     "tradition": true
+    },
+    {
+     "name": "Berytus (Beirut)",
+     "note": "Tradition: the Acts of Thaddaeus (ANF, vol. 8), place of his death.",
+     "tradition": true
+    },
+    {
+     "name": "Persia",
+     "placeId": "ab9696f",
+     "note": "Tradition: the Golden Legend, about 1260, with Simon.",
+     "tradition": true
+    }
+   ],
+   "companions": [
+    {
+     "person": {
+      "name": "James son of Alphaeus",
+      "personId": "james-mat-10-3"
+     },
+     "claim": {
+      "text": "Named next to him in Matthew's and Mark's lists.",
+      "layer": "text",
+      "refs": [
+       [
+        40010003,
+        40010003
+       ],
+       [
+        41003018,
+        41003018
+       ]
+      ]
+     }
+    },
+    {
+     "person": {
+      "name": "Simon the Zealot",
+      "personId": "simon-mat-10-4"
+     },
+     "claim": {
+      "text": "Named next to him in all four lists.",
+      "layer": "text",
+      "refs": [
+       [
+        40010003,
+        40010004
+       ],
+       [
+        41003018,
+        41003018
+       ],
+       [
+        42006015,
+        42006016
+       ],
+       [
+        44001013,
+        44001013
+       ]
+      ]
+     }
+    }
+   ],
+   "ending": {
+    "scripture": [
+     {
+      "text": "Scripture does not mention him after Acts 1:13 and records nothing of his death.",
+      "layer": "text",
+      "refs": [
+       [
+        44001013,
+        44001013
+       ]
+      ]
+     }
+    ],
+    "tradition": [
+     {
+      "text": "Eusebius says that after the ascension Thomas sent “Thaddeus, who was also numbered among the seventy disciples of Christ” to King Abgar at Edessa, translating the story from Syriac records he says were kept there. Eusebius counts this Thaddaeus among the Seventy, not the Twelve; McGiffert (1890) calls that an error and notes that Eusebius is the first known to tell the story.",
+      "layer": "early-church",
+      "cites": [
+       "eusebius-npnf-1890",
+       "mcgiffert-notes-1890"
+      ],
+      "who": "Eusebius, Church History 1.13.4",
+      "when": "about AD 325"
+     },
+     {
+      "text": "The Greek “Acts of the Holy Apostle Thaddaeus” makes him one of the Twelve, born at Edessa; after preaching in Syria he “fell asleep” at Berytus (Beirut) and was buried there.",
+      "layer": "tradition",
+      "cites": [
+       "walker-anf8-1886"
+      ],
+      "who": "Acts of the Holy Apostle Thaddaeus (Ante-Nicene Fathers, vol. 8)",
+      "when": "date not established; one manuscript's title calls him “one of the seventy”"
+     },
+     {
+      "text": "The Golden Legend says Jude preached in Mesopotamia and Pontus, then with Simon in Persia, where pagan priests killed them both.",
+      "layer": "tradition",
+      "cites": [
+       "golden-legend-1900",
+       "walker-anf8-1886"
+      ],
+      "who": "Jacobus de Voragine, The Golden Legend",
+      "when": "about 1260 (English by Caxton, 1483); it credits a passion written by “Abdias”, and the ANF editors date the Latin collection under that name to about the 6th century"
+     }
+    ]
+   },
+   "writings": [],
+   "questions": [
+    {
+     "id": "thaddaeus-judas",
+     "question": "Are Thaddaeus and Judas of James one man? (Most widely held view first.)",
+     "views": [
+      {
+       "label": "One man",
+       "holders": "Jerome, Commentary on Matthew (late 4th century), as reported by McGiffert and Kerr; A. C. McGiffert (1890); C. M. Kerr, ISBE (1915)",
+       "argument": {
+        "text": "Each stands in the third group of four (tenth in Matthew and Mark, eleventh in Luke and Acts), and no list has both names.",
+        "layer": "scholars",
+        "cites": [
+         "mcgiffert-notes-1890",
+         "kerr-isbe-thaddaeus-1915",
+         "kerr-isbe-judas-of-james-1915"
+        ],
+        "refs": [
+         [
+          40010003,
+          40010003
+         ],
+         [
+          41003018,
+          41003018
+         ],
+         [
+          42006016,
+          42006016
+         ],
+         [
+          44001013,
+          44001013
+         ]
+        ]
+       }
+      },
+      {
+       "label": "Two men",
+       "holders": "Ewald and others, as reported by C. M. Kerr (ISBE, 1915)",
+       "argument": {
+        "text": "On this view Thaddaeus died during Jesus' lifetime and Judas was chosen in his place.",
+        "layer": "scholars",
+        "cites": [
+         "kerr-isbe-judas-of-james-1915"
+        ]
+       }
+      },
+      {
+       "label": "A Thaddaeus of the Seventy",
+       "holders": "Eusebius, Church History 1.12.3 and 1.13 (about AD 325), reporting what “they say”",
+       "argument": {
+        "text": "Eusebius counts the Thaddaeus sent to Edessa among the seventy disciples, not the Twelve. McGiffert (1890) calls this an error like the one that made Cephas a different man from Peter.",
+        "layer": "early-church",
+        "cites": [
+         "eusebius-npnf-1890",
+         "mcgiffert-notes-1890"
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "id": "judas-brother-or-son",
+     "question": "Was he the brother of James, or the son of James? (In the order the readings appeared in English.)",
+     "views": [
+      {
+       "label": "Brother of James",
+       "holders": "the KJV translators (1611), who supplied “the brother”; Jacobus de Voragine (about 1260), who calls him “brother to James the Less”",
+       "argument": {
+        "text": "The letter of Jude opens with a Jude who is “brother of James”; read beside that verse, the supplied word “brother” fits.",
+        "layer": "text",
+        "refs": [
+         [
+          65001001,
+          65001001
+         ],
+         [
+          42006016,
+          42006016
+         ]
+        ]
+       }
+      },
+      {
+       "label": "Son of James",
+       "holders": "the Revised Version (1881); C. M. Kerr, ISBE (1915): “The latter is to be preferred”",
+       "argument": {
+        "text": "The Greek has the same bare genitive as for James of Alphaeus in the verse before, where the KJV itself supplies “the son”.",
+        "layer": "scholars",
+        "cites": [
+         "kerr-isbe-judas-of-james-1915"
+        ],
+        "refs": [
+         [
+          42006015,
+          42006016
+         ]
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "id": "judas-jude",
+     "question": "Is he Jude, the Lord's brother and the writer of the letter of Jude? (In the order the sources give them.)",
+     "views": [
+      {
+       "label": "Yes",
+       "holders": "Jacobus de Voragine (about 1260); Easton (1897, under “Thaddaeus”)",
+       "argument": {
+        "text": "The writer of Jude calls himself “brother of James”, and the Lord's brothers included a James and a Judas.",
+        "layer": "scholars",
+        "cites": [
+         "golden-legend-1900",
+         "easton-1897"
+        ],
+        "refs": [
+         [
+          65001001,
+          65001001
+         ],
+         [
+          40013055,
+          40013055
+         ]
+        ]
+       }
+      },
+      {
+       "label": "No",
+       "holders": "A. C. McGiffert (1890); C. M. Kerr, ISBE (1915); Easton himself under “Lebbaeus”",
+       "argument": {
+        "text": "John says the Lord's brothers did not believe in him, and if Luke means son of James, this Judas cannot be the Jude who is “brother of James”.",
+        "layer": "scholars",
+        "cites": [
+         "mcgiffert-notes-1890",
+         "kerr-isbe-judas-of-james-1915",
+         "easton-1897"
+        ],
+        "refs": [
+         [
+          43007005,
+          43007005
+         ],
+         [
+          42006016,
+          42006016
+         ],
+         [
+          65001001,
+          65001001
+         ]
+        ]
+       }
+      }
+     ]
+    }
+   ],
+   "notSaid": [
+    "Scripture records one sentence from him, his question in John 14:22, and nothing else he said or did.",
+    "Scripture does not say where he came from, what his trade was, where he went or how he died.",
+    "Scripture does not say that he wrote the letter of Jude."
+   ],
+   "passages": [
+    [
+     40010001,
+     40010004
+    ],
+    [
+     41003013,
+     41003019
+    ],
+    [
+     42006012,
+     42006016
+    ],
+    [
+     43014021,
+     43014024
+    ],
+    [
+     44001013,
+     44001013
+    ]
+   ]
+  },
+  {
+   "id": "simon-mat-10-4",
+   "name": "Simon the Zealot",
+   "otherNames": [
+    "Simon the Canaanite",
+    "Simon Zelotes"
+   ],
+   "title": "One of the Twelve",
+   "tagline": "Known only by his name in the lists, and the word that marks it.",
+   "order": 11,
+   "family": [],
+   "identifications": [
+    {
+     "text": "“Canaanite” here is explained not as a man from Canaan but as the Aramaic word for “zealot”, which Luke gives in Greek as Zelotes (Smith, 1884; Easton, 1897; Heidel, ISBE 1915). The Revised Version of 1881 prints “Cananaean”.",
+     "layer": "scholars",
+     "cites": [
+      "smith-1884",
+      "easton-1897",
+      "heidel-isbe-zealot-1915"
+     ],
+     "refs": [
+      [
+       40010004,
+       40010004
+      ],
+      [
+       42006015,
+       42006015
+      ]
+     ]
+    },
+    {
+     "text": "The same writers take the name to mean that he had belonged to the party of the Zealots, whom Josephus describes as fighting Roman rule. Scripture does not say so.",
+     "layer": "scholars",
+     "cites": [
+      "smith-1884",
+      "easton-1897",
+      "heidel-isbe-zealot-1915"
+     ],
+     "refs": [
+      [
+       42006015,
+       42006015
+      ],
+      [
+       44001013,
+       44001013
+      ]
+     ]
+    },
+    {
+     "text": "The Greek texts spell the word differently: the Textus Receptus behind the KJV has Kananitēs; Tischendorf's text has Kananaios.",
+     "layer": "text",
+     "refs": [
+      [
+       40010004,
+       40010004
+      ],
+      [
+       41003018,
+       41003018
+      ]
+     ]
+    }
+   ],
+   "lists": [
+    {
+     "book": "MAT",
+     "position": 11,
+     "name": "Simon the Canaanite",
+     "span": [
+      40010004,
+      40010004
+     ]
+    },
+    {
+     "book": "MRK",
+     "position": 11,
+     "name": "Simon the Canaanite",
+     "span": [
+      41003018,
+      41003018
+     ]
+    },
+    {
+     "book": "LUK",
+     "position": 10,
+     "name": "Simon called Zelotes",
+     "span": [
+      42006015,
+      42006015
+     ]
+    },
+    {
+     "book": "ACT",
+     "position": 10,
+     "name": "Simon Zelotes",
+     "span": [
+      44001013,
+      44001013
+     ]
+    }
+   ],
+   "calling": [
+    {
+     "label": "Mark 3",
+     "quote": {
+      "text": "And he ordained twelve, that they should be with him, and that he might send them forth to preach,",
+      "span": [
+       41003014,
+       41003014
+      ]
+     },
+     "claim": {
+      "text": "No Gospel tells how he was first called. He appears when Jesus chooses the Twelve.",
+      "layer": "text",
+      "refs": [
+       [
+        41003013,
+        41003019
+       ],
+       [
+        42006013,
+        42006016
+       ]
+      ]
+     }
+    },
+    {
+     "label": "Luke 6",
+     "quote": {
+      "text": "of them he chose twelve, whom also he named apostles",
+      "span": [
+       42006013,
+       42006013
+      ]
+     },
+     "claim": {
+      "text": "Luke says Jesus spent the night before in prayer on a mountain.",
+      "layer": "scripture",
+      "refs": [
+       [
+        42006012,
+        42006012
+       ]
+      ]
+     }
+    }
+   ],
+   "moments": [
+    {
+     "label": "Chosen as one of the Twelve",
+     "refs": [
+      [
+       41003013,
+       41003019
+      ],
+      [
+       42006012,
+       42006016
+      ]
+     ],
+     "harmony": "53"
+    },
+    {
+     "label": "Sent out with the Twelve",
+     "refs": [
+      [
+       40010001,
+       40010005
+      ]
+     ],
+     "harmony": "70"
+    }
+   ],
+   "acts": [
+    {
+     "text": "He is named with the other apostles in the upper room after the ascension.",
+     "layer": "scripture",
+     "refs": [
+      [
+       44001013,
+       44001013
+      ]
+     ]
+    },
+    {
+     "text": "The last verse that names him is Acts 1:13. After that Acts speaks of “the eleven” and “the twelve” as a body (Acts 2:14; 6:2) but never names him again.",
+     "layer": "text",
+     "refs": [
+      [
+       44001013,
+       44001013
+      ],
+      [
+       44002014,
+       44002014
+      ],
+      [
+       44006002,
+       44006002
+      ]
+     ]
+    }
+   ],
+   "places": [
+    {
+     "name": "Jerusalem",
+     "placeId": "a15257a",
+     "refs": [
+      [
+       44001013,
+       44001013
+      ]
+     ],
+     "note": "The upper room, after the ascension."
+    },
+    {
+     "name": "Egypt",
+     "placeId": "af301ca",
+     "note": "Tradition: the Golden Legend, about 1260.",
+     "tradition": true
+    },
+    {
+     "name": "Persia",
+     "placeId": "ab9696f",
+     "note": "Tradition: the Golden Legend, about 1260, with Jude.",
+     "tradition": true
+    }
+   ],
+   "companions": [
+    {
+     "person": {
+      "name": "James son of Alphaeus",
+      "personId": "james-mat-10-3"
+     },
+     "claim": {
+      "text": "Named next to him in Luke's list and in Acts.",
+      "layer": "text",
+      "refs": [
+       [
+        42006015,
+        42006015
+       ],
+       [
+        44001013,
+        44001013
+       ]
+      ]
+     }
+    },
+    {
+     "person": {
+      "name": "Thaddaeus (Judas of James)",
+      "personId": "judas-mat-10-3"
+     },
+     "claim": {
+      "text": "Named next to him in all four lists.",
+      "layer": "text",
+      "refs": [
+       [
+        40010003,
+        40010004
+       ],
+       [
+        41003018,
+        41003018
+       ],
+       [
+        42006015,
+        42006016
+       ],
+       [
+        44001013,
+        44001013
+       ]
+      ]
+     }
+    }
+   ],
+   "ending": {
+    "scripture": [
+     {
+      "text": "Scripture does not mention him after Acts 1:13 and records nothing of his death.",
+      "layer": "text",
+      "refs": [
+       [
+        44001013,
+        44001013
+       ]
+      ]
+     }
+    ],
+    "tradition": [
+     {
+      "text": "The Golden Legend says Simon preached in Egypt, then went with Jude to Persia, where pagan priests killed them both.",
+      "layer": "tradition",
+      "cites": [
+       "golden-legend-1900",
+       "walker-anf8-1886"
+      ],
+      "who": "Jacobus de Voragine, The Golden Legend",
+      "when": "about 1260 (English by Caxton, 1483); it credits a passion written by “Abdias”, and the ANF editors date the Latin collection under that name to about the 6th century"
+     },
+     {
+      "text": "The same work reports that some writers had Simon crucified, and that others said the crucified Simon was a different man, the son of Cleophas.",
+      "layer": "tradition",
+      "cites": [
+       "golden-legend-1900"
+      ],
+      "who": "Jacobus de Voragine, The Golden Legend",
+      "when": "about 1260"
+     }
+    ]
+   },
+   "writings": [],
+   "questions": [
+    {
+     "id": "simon-identity",
+     "question": "Is Simon the Zealot the same man as Simon the Lord's brother, or Symeon son of Clopas? (Earliest source first.)",
+     "views": [
+      {
+       "label": "Different men",
+       "holders": "Hegesippus (about AD 170) and Eusebius (about AD 325), who never call Symeon an apostle; A. C. McGiffert (1890)",
+       "argument": {
+        "text": "Hegesippus tells of Symeon son of Clopas, second bishop of Jerusalem, martyred under Trajan “at the age of one hundred and twenty years”; Eusebius, retelling it, says he “suffered a death similar to that of our Lord”, and calls him “a cousin, as they say, of the Saviour”. Neither calls him one of the Twelve. McGiffert holds that the Lord's brothers were not apostles, since they did not believe in him.",
+        "layer": "early-church",
+        "cites": [
+         "eusebius-npnf-1890",
+         "mcgiffert-notes-1890"
+        ],
+        "refs": [
+         [
+          43007005,
+          43007005
+         ]
+        ]
+       }
+      },
+      {
+       "label": "A kinsman of the Lord",
+       "holders": "Jacobus de Voragine, The Golden Legend (about 1260); noted by C. M. Kerr (ISBE, 1915)",
+       "argument": {
+        "text": "The Golden Legend makes Simon and Jude brothers of James the Less and sons of “Mary Cleophas”; Kerr notes that Simon “has been identified with Simon the brother of Jesus”.",
+        "layer": "tradition",
+        "cites": [
+         "golden-legend-1900",
+         "kerr-isbe-simon-1915"
+        ],
+        "refs": [
+         [
+          41006003,
+          41006003
+         ]
+        ]
+       }
+      },
+      {
+       "label": "Nathanael",
+       "holders": "C. M. Kerr (ISBE, 1915), drawing on Ethiopic texts translated by Budge",
+       "argument": {
+        "text": "Kerr argues that Simon may be Nathanael, citing an Ethiopic “Preaching of Simon, son of Cleopas”, whose heading calls him “Judas, which is interpreted Nathanael”.",
+        "layer": "scholars",
+        "cites": [
+         "kerr-isbe-simon-1915"
+        ]
+       }
+      }
+     ]
+    }
+   ],
+   "notSaid": [
+    "Scripture gives his name and his epithet, and nothing he said or did.",
+    "Scripture does not explain the epithet or say what Simon did as a “zealot”.",
+    "Scripture does not say where he came from, where he went or how he died."
+   ],
+   "passages": [
+    [
+     40010001,
+     40010004
+    ],
+    [
+     41003013,
+     41003019
+    ],
+    [
+     42006012,
+     42006016
+    ],
+    [
+     44001013,
+     44001013
+    ]
+   ]
+  },
+  {
+   "id": "judas-mat-10-4",
+   "name": "Judas Iscariot",
+   "otherNames": [
+    "Judas",
+    "Judas son of Simon"
+   ],
+   "title": "One of the Twelve, who betrayed Jesus",
+   "tagline": "Named last in every Gospel list, as the one who betrayed Jesus.",
+   "order": 12,
+   "home": {
+    "text": "“Iscariot” is most often explained as “man of Kerioth”, a town of Judah (Joshua 15:25), though Smith (1884) notes that the name has received many interpretations. Scripture does not say where he came from.",
+    "layer": "scholars",
+    "cites": [
+     "smith-1884",
+     "easton-1897",
+     "kerr-isbe-judas-1915"
+    ],
+    "refs": [
+     [
+      6015025,
+      6015025
+     ]
+    ]
+   },
+   "trade": {
+    "text": "He kept the common purse of the Twelve: he “had the bag”.",
+    "layer": "scripture",
+    "refs": [
+     [
+      43012006,
+      43012006
+     ],
+     [
+      43013029,
+      43013029
+     ]
+    ]
+   },
+   "family": [
+    {
+     "text": "His father was Simon: “Judas Iscariot the son of Simon”.",
+     "layer": "scripture",
+     "refs": [
+      [
+       43006071,
+       43006071
+      ],
+      [
+       43013002,
+       43013002
+      ],
+      [
+       43013026,
+       43013026
+      ]
+     ]
+    },
+    {
+     "text": "The Greek texts differ at John 6:71. In the Textus Receptus behind the KJV, Iscariot belongs to Judas; in Tischendorf's text it belongs to Simon, and the Revised Version (1881) follows that reading: Judas the son of Simon Iscariot. On that reading the father too was called Iscariot.",
+     "layer": "text",
+     "refs": [
+      [
+       43006071,
+       43006071
+      ]
+     ]
+    }
+   ],
+   "identifications": [
+    {
+     "text": "Every list of the Twelve names him “Judas Iscariot” and adds that he betrayed Jesus, which sets him apart from the other Judas among the Twelve.",
+     "layer": "text",
+     "refs": [
+      [
+       40010004,
+       40010004
+      ],
+      [
+       41003019,
+       41003019
+      ],
+      [
+       42006016,
+       42006016
+      ]
+     ]
+    }
+   ],
+   "lists": [
+    {
+     "book": "MAT",
+     "position": 12,
+     "name": "Judas Iscariot, who also betrayed him",
+     "span": [
+      40010004,
+      40010004
+     ]
+    },
+    {
+     "book": "MRK",
+     "position": 12,
+     "name": "Judas Iscariot, which also betrayed him",
+     "span": [
+      41003019,
+      41003019
+     ]
+    },
+    {
+     "book": "LUK",
+     "position": 12,
+     "name": "Judas Iscariot, which also was the traitor",
+     "span": [
+      42006016,
+      42006016
+     ]
+    }
+   ],
+   "calling": [
+    {
+     "label": "Luke 6",
+     "quote": {
+      "text": "of them he chose twelve, whom also he named apostles",
+      "span": [
+       42006013,
+       42006013
+      ]
+     },
+     "claim": {
+      "text": "Luke names him last: “Judas Iscariot, which also was the traitor”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        42006016,
+        42006016
+       ]
+      ]
+     }
+    },
+    {
+     "label": "John 6",
+     "placeId": "af2161c",
+     "quote": {
+      "text": "Have not I chosen you twelve, and one of you is a devil?",
+      "span": [
+       43006070,
+       43006070
+      ]
+     },
+     "claim": {
+      "text": "John adds: “He spake of Judas Iscariot the son of Simon: for he it was that should betray him, being one of the twelve.”",
+      "layer": "scripture",
+      "refs": [
+       [
+        43006071,
+        43006071
+       ]
+      ]
+     }
+    }
+   ],
+   "moments": [
+    {
+     "label": "Chosen as one of the Twelve",
+     "refs": [
+      [
+       41003013,
+       41003019
+      ],
+      [
+       42006012,
+       42006016
+      ]
+     ],
+     "harmony": "53"
+    },
+    {
+     "label": "Sent out with the Twelve",
+     "refs": [
+      [
+       40010001,
+       40010005
+      ]
+     ],
+     "harmony": "70"
+    },
+    {
+     "label": "“One of you is a devil”",
+     "refs": [
+      [
+       43006066,
+       43006071
+      ]
+     ],
+     "harmony": "76"
+    },
+    {
+     "label": "Objects to the ointment at Bethany: “Why was not this ointment sold”",
+     "refs": [
+      [
+       43012003,
+       43012008
+      ]
+     ],
+     "harmony": "141"
+    },
+    {
+     "label": "Goes to the chief priests: “What will ye give me?”",
+     "refs": [
+      [
+       40026014,
+       40026016
+      ],
+      [
+       41014010,
+       41014011
+      ],
+      [
+       42022003,
+       42022006
+      ]
+     ],
+     "harmony": "142"
+    },
+    {
+     "label": "At the foot-washing: “ye are clean, but not all”",
+     "refs": [
+      [
+       43013002,
+       43013002
+      ],
+      [
+       43013010,
+       43013011
+      ],
+      [
+       43013018,
+       43013018
+      ]
+     ],
+     "harmony": "145"
+    },
+    {
+     "label": "Named as the betrayer at the supper",
+     "refs": [
+      [
+       40026020,
+       40026025
+      ],
+      [
+       41014018,
+       41014021
+      ],
+      [
+       42022021,
+       42022023
+      ],
+      [
+       43013021,
+       43013030
+      ]
+     ],
+     "harmony": "146"
+    },
+    {
+     "label": "“None of them is lost, but the son of perdition”",
+     "refs": [
+      [
+       43017012,
+       43017012
+      ]
+     ],
+     "harmony": "151"
+    },
+    {
+     "label": "The kiss in the garden",
+     "refs": [
+      [
+       40026047,
+       40026050
+      ],
+      [
+       41014043,
+       41014046
+      ],
+      [
+       42022047,
+       42022048
+      ],
+      [
+       43018002,
+       43018005
+      ]
+     ],
+     "harmony": "153"
+    },
+    {
+     "label": "The silver returned; his death",
+     "refs": [
+      [
+       40027003,
+       40027010
+      ]
+     ],
+     "harmony": "158"
+    }
+   ],
+   "acts": [
+    {
+     "text": "Peter tells the believers that Judas “was guide to them that took Jesus”, and that he “was numbered with us, and had obtained part of this ministry”.",
+     "layer": "scripture",
+     "refs": [
+      [
+       44001016,
+       44001017
+      ]
+     ]
+    },
+    {
+     "text": "The apostles pray for a man to take the place “from which Judas by transgression fell, that he might go to his own place”.",
+     "layer": "scripture",
+     "refs": [
+      [
+       44001025,
+       44001025
+      ]
+     ]
+    }
+   ],
+   "places": [
+    {
+     "name": "Kerioth (Joshua 15:25)",
+     "placeId": "af66926",
+     "note": "Only if “Iscariot” means “man of Kerioth”, which is a view.",
+     "tradition": true
+    },
+    {
+     "name": "Capernaum",
+     "placeId": "af2161c",
+     "refs": [
+      [
+       43006059,
+       43006059
+      ],
+      [
+       43006070,
+       43006071
+      ]
+     ],
+     "note": "The synagogue where Jesus said “one of you is a devil”."
+    },
+    {
+     "name": "Bethany",
+     "placeId": "a4f35bc",
+     "refs": [
+      [
+       43012001,
+       43012006
+      ]
+     ],
+     "note": "He objects to the ointment."
+    },
+    {
+     "name": "Gethsemane",
+     "placeId": "a42418f",
+     "refs": [
+      [
+       40026036,
+       40026036
+      ],
+      [
+       40026047,
+       40026050
+      ],
+      [
+       43018001,
+       43018003
+      ]
+     ],
+     "note": "The betrayal."
+    },
+    {
+     "name": "Jerusalem",
+     "placeId": "a15257a",
+     "refs": [
+      [
+       40027003,
+       40027005
+      ]
+     ],
+     "note": "The silver cast down in the temple."
+    },
+    {
+     "name": "Aceldama, the field of blood",
+     "placeId": "a040ba5",
+     "refs": [
+      [
+       40027007,
+       40027008
+      ],
+      [
+       44001018,
+       44001019
+      ]
+     ],
+     "note": "Bought with the silver, by the priests (Matthew) or by Judas (Acts)."
+    }
+   ],
+   "companions": [
+    {
+     "person": {
+      "name": "Simon, his father",
+      "personId": "simon-jhn-6-71"
+     },
+     "claim": {
+      "text": "John three times calls him “the son of Simon” or “Simon's son”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        43006071,
+        43006071
+       ],
+       [
+        43012004,
+        43012004
+       ],
+       [
+        43013026,
+        43013026
+       ]
+      ]
+     }
+    },
+    {
+     "person": {
+      "name": "Peter",
+      "personId": "peter-mat-4-18"
+     },
+     "claim": {
+      "text": "At the supper Peter asked the disciple whom Jesus loved to find out who the betrayer was; after Judas's death Peter proposed that another take his place.",
+      "layer": "scripture",
+      "refs": [
+       [
+        43013024,
+        43013024
+       ],
+       [
+        44001015,
+        44001022
+       ]
+      ]
+     }
+    }
+   ],
+   "ending": {
+    "scripture": [
+     {
+      "text": "Matthew: when Judas saw that Jesus “was condemned”, he “repented himself”, brought back the thirty pieces of silver and said, “I have sinned in that I have betrayed the innocent blood”. He “cast down the pieces of silver in the temple, and departed, and went and hanged himself.”",
+      "layer": "scripture",
+      "refs": [
+       [
+        40027003,
+        40027005
+       ]
+      ]
+     },
+     {
+      "text": "Matthew: the chief priests would not put “the price of blood” into the treasury. They “bought with them the potter's field, to bury strangers in”, and so it was called “The field of blood”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        40027006,
+        40027008
+       ]
+      ]
+     },
+     {
+      "text": "Acts, in Peter's words: “this man purchased a field with the reward of iniquity; and falling headlong, he burst asunder in the midst, and all his bowels gushed out.” The field was called “Aceldama, that is to say, The field of blood.”",
+      "layer": "scripture",
+      "refs": [
+       [
+        44001018,
+        44001019
+       ]
+      ]
+     },
+     {
+      "text": "Each account quotes Scripture: Matthew the words “spoken by Jeremy the prophet” about the thirty pieces of silver and the potter's field; Acts two Psalms, “Let his habitation be desolate” and “his bishoprick let another take”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        40027009,
+        40027010
+       ],
+       [
+        44001020,
+        44001020
+       ]
+      ]
+     },
+     {
+      "text": "The two accounts stand side by side here and are not merged. They differ on who bought the field (the chief priests in Matthew, Judas himself in Acts) and on how he died (he “hanged himself” in Matthew; “falling headlong, he burst asunder” in Acts). Mark, Luke and John say nothing of his death.",
+      "layer": "text",
+      "refs": [
+       [
+        40027005,
+        40027008
+       ],
+       [
+        44001018,
+        44001019
+       ]
+      ]
+     }
+    ],
+    "tradition": [
+     {
+      "text": "Papias tells a third story, which Kerr (ISBE, 1915) calls “a legendary account”: Judas's body swelled until he could not pass where a chariot could pass easily, and he was crushed by the chariot, “so that his bowels gushed out”.",
+      "layer": "tradition",
+      "cites": [
+       "papias-anf-1885",
+       "kerr-isbe-judas-1915"
+      ],
+      "who": "First reported by Papias, fragment 3, preserved by Oecumenius",
+      "when": "Papias lived about AD 70-155"
+     }
+    ]
+   },
+   "writings": [],
+   "questions": [
+    {
+     "id": "judas-death",
+     "question": "How did Judas die? Matthew and Acts tell it differently. (Harmonising views first, as Strauss lists them, then the view that they differ.)",
+     "views": [
+      {
+       "label": "He hanged himself, then the body fell and burst",
+       "holders": "Easton (1897), quoting an earlier writer; Casaubon, Kuinoel, Winer and others, as listed by Strauss (1846); the Latin Vulgate's wording of Acts 1:18, “when he had hanged himself”, as reported by Kerr (ISBE, 1915)",
+       "argument": {
+        "text": "Easton: the rope gave way or the branch broke, and he fell headlong and was crushed. Acts tells the end of what Matthew begins.",
+        "layer": "scholars",
+        "cites": [
+         "easton-1897",
+         "strauss-1846",
+         "kerr-isbe-judas-1915"
+        ],
+        "refs": [
+         [
+          40027005,
+          40027005
+         ],
+         [
+          44001018,
+          44001018
+         ]
+        ]
+       }
+      },
+      {
+       "label": "“Hanged himself” means he was choked, and then fell",
+       "holders": "Matthew Henry (early 18th century), following Henry Hammond",
+       "argument": {
+        "text": "Henry takes Matthew's word to mean that Judas was “strangled, or choked with grief and horror”, after which he fell headlong and burst.",
+        "layer": "scholars",
+        "cites": [
+         "henry-acts"
+        ],
+        "refs": [
+         [
+          40027005,
+          40027005
+         ],
+         [
+          44001018,
+          44001018
+         ]
+        ]
+       }
+      },
+      {
+       "label": "He survived the hanging and died later",
+       "holders": "Oecumenius and other ancient commentators, as reported by Strauss (1846)",
+       "argument": {
+        "text": "On this view Matthew tells of a failed attempt, and Acts of the death that came afterwards.",
+        "layer": "scholars",
+        "cites": [
+         "strauss-1846"
+        ]
+       }
+      },
+      {
+       "label": "Two different accounts",
+       "holders": "D. F. Strauss (1846), with K. Hase",
+       "argument": {
+        "text": "Strauss argues that each writer knew only the story he tells, since otherwise he could not have left out the other half, and judges the attempts to reconcile them a failure.",
+        "layer": "scholars",
+        "cites": [
+         "strauss-1846"
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "id": "judas-field",
+     "question": "Who bought the field? (In the order Strauss discusses them.)",
+     "views": [
+      {
+       "label": "The priests bought it with his money, so Acts can say he acquired it",
+       "holders": "Matthew Henry (early 18th century); harmonists reported by Strauss (1846)",
+       "argument": {
+        "text": "Henry: “He did not purchase the field, but the wages of his unrighteousness did”.",
+        "layer": "scholars",
+        "cites": [
+         "henry-acts",
+         "strauss-1846"
+        ],
+        "refs": [
+         [
+          44001018,
+          44001018
+         ],
+         [
+          40027007,
+          40027007
+         ]
+        ]
+       }
+      },
+      {
+       "label": "The accounts differ",
+       "holders": "D. F. Strauss (1846)",
+       "argument": {
+        "text": "In Matthew the chief priests buy the field after his death, and it is named for the blood of Jesus on the money; in Acts Judas buys it and it is named for his own blood.",
+        "layer": "scholars",
+        "cites": [
+         "strauss-1846"
+        ],
+        "refs": [
+         [
+          40027006,
+          40027008
+         ],
+         [
+          44001018,
+          44001019
+         ]
+        ]
+       }
+      }
+     ]
+    }
+   ],
+   "notSaid": [
+    "Beyond these verses Scripture gives no reason for the betrayal: John says he “was a thief, and had the bag” (John 12:6); Luke says “Then entered Satan into Judas” (Luke 22:3), and John that the devil put it into his heart and Satan entered into him (John 13:2, 27); Matthew records his question “What will ye give me?” (Matthew 26:15). This page adds no motive of its own.",
+    "Scripture does not say where he came from, or what “Iscariot” means.",
+    "Mark, Luke and John do not tell how Judas died."
+   ],
+   "passages": [
+    [
+     40010004,
+     40010004
+    ],
+    [
+     42006016,
+     42006016
+    ],
+    [
+     43006064,
+     43006071
+    ],
+    [
+     43012001,
+     43012008
+    ],
+    [
+     40026014,
+     40026016
+    ],
+    [
+     43013001,
+     43013030
+    ],
+    [
+     40026020,
+     40026025
+    ],
+    [
+     43017012,
+     43017012
+    ],
+    [
+     40026047,
+     40026050
+    ],
+    [
+     43018002,
+     43018005
+    ],
+    [
+     40027003,
+     40027010
+    ],
+    [
+     44001015,
+     44001026
+    ]
+   ]
+  },
+  {
+   "id": "matthias-act-1-23",
+   "name": "Matthias",
+   "otherNames": [],
+   "title": "Chosen in place of Judas",
+   "tagline": "Chosen by lot to take Judas's place among the Twelve.",
+   "order": 13,
+   "family": [],
+   "identifications": [
+    {
+     "text": "Hilgenfeld identified Matthias with Nathanael, as Kerr reports (ISBE, 1915). This page does not rely on that link.",
+     "layer": "scholars",
+     "cites": [
+      "kerr-isbe-matthias-1915"
+     ]
+    }
+   ],
+   "calling": [
+    {
+     "label": "Acts 1",
+     "placeId": "a15257a",
+     "quote": {
+      "text": "And they gave forth their lots; and the lot fell upon Matthias; and he was numbered with the eleven apostles.",
+      "span": [
+       44001026,
+       44001026
+      ]
+     },
+     "claim": {
+      "text": "Peter set the condition: one of the men who had been with them “all the time that the Lord Jesus went in and out among us, Beginning from the baptism of John”, to be “a witness with us of his resurrection”. Two were put forward, Joseph called Barsabas, surnamed Justus, and Matthias. The apostles prayed and cast lots.",
+      "layer": "scripture",
+      "refs": [
+       [
+        44001021,
+        44001026
+       ]
+      ]
+     }
+    }
+   ],
+   "moments": [
+    {
+     "label": "With Jesus from John's baptism to the ascension (the condition he met)",
+     "refs": [
+      [
+       44001021,
+       44001022
+      ]
+     ]
+    }
+   ],
+   "acts": [
+    {
+     "text": "He “was numbered with the eleven apostles”.",
+     "layer": "scripture",
+     "refs": [
+      [
+       44001026,
+       44001026
+      ]
+     ]
+    },
+    {
+     "text": "From then on Acts speaks of Peter “standing up with the eleven” and of “the twelve” (Acts 2:14; 6:2), a number that now includes him, but it never names him again.",
+     "layer": "text",
+     "refs": [
+      [
+       44002014,
+       44002014
+      ],
+      [
+       44006002,
+       44006002
+      ]
+     ]
+    }
+   ],
+   "places": [
+    {
+     "name": "Jerusalem",
+     "placeId": "a15257a",
+     "refs": [
+      [
+       44001012,
+       44001026
+      ]
+     ],
+     "note": "Where the lot was cast."
+    },
+    {
+     "name": "Damascus",
+     "placeId": "a69c1d4",
+     "note": "Tradition: an Ethiopic martyrdom (Budge, 1901).",
+     "tradition": true
+    },
+    {
+     "name": "Ethiopia",
+     "placeId": "ab45bd3",
+     "note": "Tradition: “it is said” (Smith, 1884); the Acts of Andrew and Matthias place the man-eaters' city there. McGiffert (1890) thinks Nicephorus probably meant “Caucasian Ethiopia”, east of the Black Sea.",
+     "tradition": true
+    }
+   ],
+   "companions": [
+    {
+     "person": {
+      "name": "Joseph called Barsabas (Justus)",
+      "personId": "joseph-act-1-23"
+     },
+     "claim": {
+      "text": "The other man put forward with him.",
+      "layer": "scripture",
+      "refs": [
+       [
+        44001023,
+        44001023
+       ]
+      ]
+     }
+    },
+    {
+     "person": {
+      "name": "Peter",
+      "personId": "peter-mat-4-18"
+     },
+     "claim": {
+      "text": "Peter proposed that the place of Judas be filled.",
+      "layer": "scripture",
+      "refs": [
+       [
+        44001015,
+        44001022
+       ]
+      ]
+     }
+    }
+   ],
+   "ending": {
+    "scripture": [
+     {
+      "text": "Scripture does not mention him after Acts 1:26.",
+      "layer": "text",
+      "refs": [
+       [
+        44001026,
+        44001026
+       ]
+      ]
+     }
+    ],
+    "tradition": [
+     {
+      "text": "Clement of Alexandria writes that Matthias, “who was not chosen along with them, on showing himself worthy of becoming an apostle, is substituted for Judas”. Eusebius quotes him again for a saying of Matthias, that “we ought to fight against and abuse the flesh”.",
+      "layer": "early-church",
+      "cites": [
+       "clement-alex-anf-1885",
+       "eusebius-npnf-1890"
+      ],
+      "who": "Clement of Alexandria, Stromata 6.13; quoted by Eusebius, Church History 3.29.4",
+      "when": "Clement about AD 200; Eusebius about AD 325"
+     },
+     {
+      "text": "Eusebius reports that Matthias, and the man put forward with him, “are likewise said” to have been among the Seventy (Luke 10:1). He also lists a “Gospel of Matthias” among books put out by heretics under the apostles' names.",
+      "layer": "early-church",
+      "cites": [
+       "eusebius-npnf-1890"
+      ],
+      "who": "Eusebius, Church History 1.12.3 and 3.25.6",
+      "when": "about AD 325"
+     },
+     {
+      "text": "In the Acts of Andrew and Matthias, the lot sends Matthias to a city of man-eaters, who blind and imprison him until Andrew comes to free him. The translator notes that the Greek texts waver between Matthias and Matthew, and most place the city in Ethiopia.",
+      "layer": "tradition",
+      "cites": [
+       "walker-anf8-1886"
+      ],
+      "who": "Acts of Andrew and Matthias (Ante-Nicene Fathers, vol. 8)",
+      "when": "oldest manuscript about the 8th century"
+     },
+     {
+      "text": "An Ethiopic “Martyrdom of Saint Matthias” has him preach to the men of Damascus and die in peace in a town of Judaea it calls Pelwon (Phalaeon).",
+      "layer": "tradition",
+      "cites": [
+       "budge-1901",
+       "kerr-isbe-matthias-1915"
+      ],
+      "who": "The Contendings of the Apostles (Ethiopic), trans. Budge, pp. 289-294",
+      "when": "Ethiopic version about the early 14th century; manuscript 15th century"
+     },
+     {
+      "text": "Later writers say he preached and was martyred in Ethiopia. Smith (1884) reports it as “it is said”; McGiffert (1890) names the Byzantine historian Nicephorus Callistus for it.",
+      "layer": "tradition",
+      "cites": [
+       "smith-1884",
+       "mcgiffert-notes-1890"
+      ],
+      "who": "Nicephorus Callistus, as reported by McGiffert",
+      "when": "Byzantine; the earliest source has not been identified here"
+     }
+    ]
+   },
+   "writings": [],
+   "questions": [],
+   "notSaid": [
+    "Scripture never names Matthias in the Gospels; Peter's condition implies he had followed Jesus from John's baptism to the ascension (Acts 1:21-22).",
+    "Scripture records nothing he said or did after his choice.",
+    "Scripture does not say where he went or how he died."
+   ],
+   "passages": [
+    [
+     44001015,
+     44001026
+    ]
+   ]
+  },
+  {
+   "id": "paul-act-7-58",
+   "name": "Paul",
+   "otherNames": [
+    "Saul",
+    "Saul of Tarsus"
+   ],
+   "title": "Apostle to the Gentiles",
+   "tagline": "Persecutor of the church, called on the road to Damascus.",
+   "order": 14,
+   "home": {
+    "text": "Born a Jew in Tarsus in Cilicia, “a citizen of no mean city”, and “brought up in this city” (Jerusalem) “at the feet of Gamaliel”.",
+    "layer": "scripture",
+    "refs": [
+     [
+      44021039,
+      44021039
+     ],
+     [
+      44022003,
+      44022003
+     ],
+     [
+      44009011,
+      44009011
+     ]
+    ]
+   },
+   "trade": {
+    "text": "A tentmaker, who worked with his own hands to keep himself and those with him.",
+    "layer": "scripture",
+    "refs": [
+     [
+      44018003,
+      44018003
+     ],
+     [
+      44020034,
+      44020034
+     ],
+     [
+      46004012,
+      46004012
+     ],
+     [
+      52002009,
+      52002009
+     ]
+    ]
+   },
+   "family": [
+    {
+     "text": "An Israelite of the tribe of Benjamin, “Circumcised the eighth day”, “an Hebrew of the Hebrews”.",
+     "layer": "scripture",
+     "refs": [
+      [
+       45011001,
+       45011001
+      ],
+      [
+       50003005,
+       50003005
+      ]
+     ]
+    },
+    {
+     "text": "“I am a Pharisee, the son of a Pharisee.”",
+     "layer": "scripture",
+     "refs": [
+      [
+       44023006,
+       44023006
+      ]
+     ]
+    },
+    {
+     "text": "A Roman citizen from birth: “But I was free born.”",
+     "layer": "scripture",
+     "refs": [
+      [
+       44022025,
+       44022028
+      ],
+      [
+       44016037,
+       44016037
+      ]
+     ]
+    },
+    {
+     "text": "His sister's son in Jerusalem warned him of a plot to kill him.",
+     "layer": "scripture",
+     "refs": [
+      [
+       44023016,
+       44023022
+      ]
+     ]
+    },
+    {
+     "text": "He calls Andronicus and Junia, Herodion, and Lucius, Jason and Sosipater “my kinsmen”.",
+     "layer": "scripture",
+     "refs": [
+      [
+       45016007,
+       45016007
+      ],
+      [
+       45016011,
+       45016011
+      ],
+      [
+       45016021,
+       45016021
+      ]
+     ]
+    }
+   ],
+   "identifications": [
+    {
+     "text": "Saul and Paul are one man: “Saul, (who also is called Paul,)”.",
+     "layer": "scripture",
+     "refs": [
+      [
+       44013009,
+       44013009
+      ]
+     ]
+    },
+    {
+     "text": "The narrative of Acts calls him Saul up to Acts 13:9 and Paul from then on; his letters use only Paul.",
+     "layer": "text",
+     "refs": [
+      [
+       44013009,
+       44013009
+      ],
+      [
+       45001001,
+       45001001
+      ]
+     ]
+    },
+    {
+     "text": "He calls himself an apostle “not of men, neither by man, but by Jesus Christ”, and “the least of the apostles”; Acts calls Barnabas and Paul “the apostles”.",
+     "layer": "scripture",
+     "refs": [
+      [
+       48001001,
+       48001001
+      ],
+      [
+       46015009,
+       46015009
+      ],
+      [
+       44014014,
+       44014014
+      ]
+     ]
+    }
+   ],
+   "calling": [
+    {
+     "label": "Acts 9: Luke's account",
+     "placeId": "a69c1d4",
+     "quote": {
+      "text": "And he fell to the earth, and heard a voice saying unto him, Saul, Saul, why persecutest thou me?",
+      "span": [
+       44009004,
+       44009004
+      ]
+     },
+     "claim": {
+      "text": "Near Damascus a light from heaven shone round him and the voice said, “I am Jesus whom thou persecutest”. Blind for three days, he was baptized after Ananias laid his hands on him; the Lord told Ananias that Saul was “a chosen vessel unto me, to bear my name before the Gentiles, and kings, and the children of Israel”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        44009003,
+        44009018
+       ]
+      ]
+     }
+    },
+    {
+     "label": "Acts 22: Paul to the crowd in Jerusalem",
+     "placeId": "a69c1d4",
+     "quote": {
+      "text": "as I made my journey, and was come nigh unto Damascus about noon, suddenly there shone from heaven a great light round about me.",
+      "span": [
+       44022006,
+       44022006
+      ]
+     },
+     "claim": {
+      "text": "Speaking “in the Hebrew tongue” from the castle stairs, Paul says the voice named itself “Jesus of Nazareth”, and that Ananias told him, “arise, and be baptized, and wash away thy sins”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        44021040,
+        44021040
+       ],
+       [
+        44022006,
+        44022016
+       ]
+      ]
+     }
+    },
+    {
+     "label": "Acts 26: Paul before King Agrippa",
+     "placeId": "a69c1d4",
+     "quote": {
+      "text": "for I have appeared unto thee for this purpose, to make thee a minister and a witness",
+      "span": [
+       44026016,
+       44026016
+      ]
+     },
+     "claim": {
+      "text": "Here the voice speaks “in the Hebrew tongue”, and Jesus gives the commission himself: Paul is sent to the Gentiles “To open their eyes, and to turn them from darkness to light”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        44026012,
+        44026018
+       ]
+      ]
+     }
+    },
+    {
+     "label": "Galatians 1: in his own words",
+     "quote": {
+      "text": "But when it pleased God, who separated me from my mother’s womb, and called me by his grace,",
+      "span": [
+       48001015,
+       48001015
+      ]
+     },
+     "claim": {
+      "text": "He writes that God was pleased “To reveal his Son in me, that I might preach him among the heathen”, and that he did not then go up to Jerusalem but into Arabia.",
+      "layer": "scripture",
+      "refs": [
+       [
+        48001015,
+        48001017
+       ]
+      ]
+     }
+    }
+   ],
+   "moments": [
+    {
+     "label": "The road to Damascus",
+     "refs": [
+      [
+       44009003,
+       44009006
+      ],
+      [
+       44022006,
+       44022010
+      ],
+      [
+       44026012,
+       44026018
+      ]
+     ]
+    },
+    {
+     "label": "Seen by the risen Lord “last of all”",
+     "refs": [
+      [
+       46015008,
+       46015008
+      ],
+      [
+       46009001,
+       46009001
+      ]
+     ]
+    },
+    {
+     "label": "A trance in the temple: “Depart: for I will send thee far hence unto the Gentiles”",
+     "refs": [
+      [
+       44022017,
+       44022021
+      ]
+     ]
+    },
+    {
+     "label": "A vision at Corinth: “Be not afraid, but speak”",
+     "refs": [
+      [
+       44018009,
+       44018010
+      ]
+     ]
+    },
+    {
+     "label": "At night in Jerusalem: “so must thou bear witness also at Rome”",
+     "refs": [
+      [
+       44023011,
+       44023011
+      ]
+     ]
+    },
+    {
+     "label": "“My grace is sufficient for thee”",
+     "refs": [
+      [
+       47012007,
+       47012009
+      ]
+     ]
+    }
+   ],
+   "acts": [
+    {
+     "text": "A “young man … whose name was Saul” kept the clothes of those who stoned Stephen, and “was consenting unto his death”.",
+     "layer": "scripture",
+     "refs": [
+      [
+       44007058,
+       44007058
+      ],
+      [
+       44008001,
+       44008001
+      ],
+      [
+       44022020,
+       44022020
+      ]
+     ]
+    },
+    {
+     "text": "He “made havock of the church”, putting men and women in prison, and asked the high priest for letters to bring believers bound from Damascus.",
+     "layer": "scripture",
+     "refs": [
+      [
+       44008003,
+       44008003
+      ],
+      [
+       44009001,
+       44009002
+      ],
+      [
+       44026009,
+       44026011
+      ],
+      [
+       48001013,
+       48001013
+      ],
+      [
+       50003006,
+       50003006
+      ]
+     ]
+    },
+    {
+     "text": "After his conversion he preached in the synagogues of Damascus, went into Arabia, came back to Damascus, and escaped over the wall in a basket.",
+     "layer": "scripture",
+     "refs": [
+      [
+       44009019,
+       44009025
+      ],
+      [
+       48001017,
+       48001017
+      ],
+      [
+       47011032,
+       47011033
+      ]
+     ]
+    },
+    {
+     "text": "“After three years” he went up to Jerusalem to see Peter and stayed fifteen days; Barnabas brought him to the apostles. He was then sent to Tarsus and worked in “the regions of Syria and Cilicia”.",
+     "layer": "scripture",
+     "refs": [
+      [
+       48001018,
+       48001021
+      ],
+      [
+       44009026,
+       44009030
+      ]
+     ]
+    },
+    {
+     "text": "Barnabas brought him to Antioch, where they taught for a whole year, and the two carried famine relief to Jerusalem.",
+     "layer": "scripture",
+     "refs": [
+      [
+       44011025,
+       44011030
+      ],
+      [
+       44012025,
+       44012025
+      ]
+     ]
+    },
+    {
+     "text": "First journey: sent out from Antioch with Barnabas to Cyprus and the cities of Pisidia and Lycaonia; at Lystra he was stoned and left for dead.",
+     "layer": "scripture",
+     "refs": [
+      [
+       44013001,
+       44014028
+      ],
+      [
+       44014019,
+       44014019
+      ]
+     ]
+    },
+    {
+     "text": "At the council in Jerusalem he and Barnabas told what God had done among the Gentiles.",
+     "layer": "scripture",
+     "refs": [
+      [
+       44015001,
+       44015035
+      ],
+      [
+       48002001,
+       48002010
+      ]
+     ]
+    },
+    {
+     "text": "He parted from Barnabas over Mark and set out with Silas. Timothy joined them at Lystra; a vision called them to Macedonia; they went on to Philippi, Thessalonica, Berea and Athens, and he stayed eighteen months at Corinth.",
+     "layer": "scripture",
+     "refs": [
+      [
+       44015036,
+       44018022
+      ]
+     ]
+    },
+    {
+     "text": "Third journey: “by the space of three years” he worked from Ephesus, then went through Macedonia and Greece and said farewell to the Ephesian elders at Miletus.",
+     "layer": "scripture",
+     "refs": [
+      [
+       44018023,
+       44021017
+      ],
+      [
+       44020031,
+       44020031
+      ]
+     ]
+    },
+    {
+     "text": "Seized in the temple at Jerusalem, he was held two years at Caesarea under Felix; before Festus he appealed to Caesar, and he spoke before King Agrippa.",
+     "layer": "scripture",
+     "refs": [
+      [
+       44021027,
+       44021036
+      ],
+      [
+       44024027,
+       44024027
+      ],
+      [
+       44025011,
+       44025012
+      ],
+      [
+       44026001,
+       44026032
+      ]
+     ]
+    },
+    {
+     "text": "On the voyage to Rome the ship was wrecked at Melita (Malta). At Rome he lived two whole years in his own hired house with a soldier guarding him, receiving all who came.",
+     "layer": "scripture",
+     "refs": [
+      [
+       44027001,
+       44028031
+      ]
+     ]
+    },
+    {
+     "text": "His own list of sufferings: five times thirty-nine lashes, three beatings with rods, one stoning, three shipwrecks, “in prisons more frequent”.",
+     "layer": "scripture",
+     "refs": [
+      [
+       47011023,
+       47011027
+      ]
+     ]
+    },
+    {
+     "text": "Prisons named in Scripture: Philippi, where he and Silas were put in the stocks; Herod's judgment hall at Caesarea; and Rome. In several letters he writes as a prisoner.",
+     "layer": "scripture",
+     "refs": [
+      [
+       44016023,
+       44016024
+      ],
+      [
+       44023035,
+       44023035
+      ],
+      [
+       44028016,
+       44028016
+      ],
+      [
+       49003001,
+       49003001
+      ],
+      [
+       50001013,
+       50001013
+      ],
+      [
+       57001001,
+       57001001
+      ],
+      [
+       55001008,
+       55001008
+      ]
+     ]
+    },
+    {
+     "text": "He planned to go on from Rome to Spain.",
+     "layer": "scripture",
+     "refs": [
+      [
+       45015024,
+       45015024
+      ],
+      [
+       45015028,
+       45015028
+      ]
+     ]
+    },
+    {
+     "text": "The letters to Timothy and Titus name journeys that are hard to place in Acts: Timothy left at Ephesus when Paul went into Macedonia, Titus left in Crete, a winter planned at Nicopolis, a cloak left at Troas and Trophimus left sick at Miletum.",
+     "layer": "scripture",
+     "refs": [
+      [
+       54001003,
+       54001003
+      ],
+      [
+       56001005,
+       56001005
+      ],
+      [
+       56003012,
+       56003012
+      ],
+      [
+       55004013,
+       55004013
+      ],
+      [
+       55004020,
+       55004020
+      ]
+     ]
+    }
+   ],
+   "places": [
+    {
+     "name": "Tarsus",
+     "placeId": "a666ea0",
+     "refs": [
+      [
+       44021039,
+       44021039
+      ],
+      [
+       44022003,
+       44022003
+      ],
+      [
+       44009030,
+       44009030
+      ]
+     ],
+     "note": "His birthplace."
+    },
+    {
+     "name": "Jerusalem",
+     "placeId": "a15257a",
+     "refs": [
+      [
+       44022003,
+       44022003
+      ],
+      [
+       44009026,
+       44009026
+      ],
+      [
+       44015004,
+       44015004
+      ],
+      [
+       44021017,
+       44021017
+      ]
+     ],
+     "note": "Brought up and taught here; arrested here."
+    },
+    {
+     "name": "Damascus",
+     "placeId": "a69c1d4",
+     "refs": [
+      [
+       44009003,
+       44009003
+      ],
+      [
+       44009025,
+       44009025
+      ],
+      [
+       48001017,
+       48001017
+      ]
+     ],
+     "note": "His calling; his escape in a basket."
+    },
+    {
+     "name": "Arabia",
+     "placeId": "a0f4ea8",
+     "refs": [
+      [
+       48001017,
+       48001017
+      ]
+     ],
+     "note": "Where he went after his calling."
+    },
+    {
+     "name": "Antioch in Syria",
+     "placeId": "ae41ab4",
+     "refs": [
+      [
+       44011026,
+       44011026
+      ],
+      [
+       44013001,
+       44013001
+      ],
+      [
+       44014026,
+       44014026
+      ]
+     ],
+     "note": "The church that sent him out."
+    },
+    {
+     "name": "Salamis",
+     "placeId": "afa863b",
+     "refs": [
+      [
+       44013005,
+       44013005
+      ]
+     ]
+    },
+    {
+     "name": "Paphos",
+     "placeId": "a314765",
+     "refs": [
+      [
+       44013006,
+       44013007
+      ]
+     ]
+    },
+    {
+     "name": "Perga",
+     "placeId": "aff04b8",
+     "refs": [
+      [
+       44013013,
+       44013013
+      ]
+     ]
+    },
+    {
+     "name": "Antioch in Pisidia",
+     "placeId": "a6c704a",
+     "refs": [
+      [
+       44013014,
+       44013014
+      ]
+     ]
+    },
+    {
+     "name": "Iconium",
+     "placeId": "ae425aa",
+     "refs": [
+      [
+       44014001,
+       44014001
+      ]
+     ]
+    },
+    {
+     "name": "Lystra",
+     "placeId": "af0719d",
+     "refs": [
+      [
+       44014008,
+       44014008
+      ],
+      [
+       44014019,
+       44014019
+      ],
+      [
+       44016001,
+       44016001
+      ]
+     ],
+     "note": "Stoned here; Timothy's home."
+    },
+    {
+     "name": "Derbe",
+     "placeId": "aa401a9",
+     "refs": [
+      [
+       44014020,
+       44014020
+      ]
+     ]
+    },
+    {
+     "name": "Troas",
+     "placeId": "a91c509",
+     "refs": [
+      [
+       44016008,
+       44016009
+      ],
+      [
+       44020006,
+       44020006
+      ]
+     ],
+     "note": "The vision of the man of Macedonia."
+    },
+    {
+     "name": "Philippi",
+     "placeId": "a49e1d0",
+     "refs": [
+      [
+       44016012,
+       44016012
+      ],
+      [
+       44016023,
+       44016024
+      ]
+     ],
+     "note": "Imprisoned with Silas."
+    },
+    {
+     "name": "Thessalonica",
+     "placeId": "afa9d8e",
+     "refs": [
+      [
+       44017001,
+       44017001
+      ]
+     ]
+    },
+    {
+     "name": "Berea",
+     "placeId": "a62fe31",
+     "refs": [
+      [
+       44017010,
+       44017010
+      ]
+     ]
+    },
+    {
+     "name": "Athens",
+     "placeId": "a1fe6e7",
+     "refs": [
+      [
+       44017015,
+       44017015
+      ],
+      [
+       44017022,
+       44017022
+      ]
+     ]
+    },
+    {
+     "name": "Corinth",
+     "placeId": "a6f437a",
+     "refs": [
+      [
+       44018001,
+       44018001
+      ],
+      [
+       44018011,
+       44018011
+      ]
+     ],
+     "note": "Eighteen months."
+    },
+    {
+     "name": "Ephesus",
+     "placeId": "a5feb15",
+     "refs": [
+      [
+       44019001,
+       44019001
+      ],
+      [
+       44020031,
+       44020031
+      ]
+     ],
+     "note": "About three years."
+    },
+    {
+     "name": "Miletus",
+     "placeId": "a55027d",
+     "refs": [
+      [
+       44020015,
+       44020017
+      ]
+     ],
+     "note": "Farewell to the Ephesian elders."
+    },
+    {
+     "name": "Caesarea",
+     "placeId": "a58735e",
+     "refs": [
+      [
+       44023033,
+       44023033
+      ],
+      [
+       44024027,
+       44024027
+      ]
+     ],
+     "note": "Two years in custody."
+    },
+    {
+     "name": "Malta (Melita)",
+     "placeId": "a57835d",
+     "refs": [
+      [
+       44028001,
+       44028001
+      ]
+     ],
+     "note": "The shipwreck."
+    },
+    {
+     "name": "Rome",
+     "placeId": "afc8e7a",
+     "refs": [
+      [
+       44028016,
+       44028016
+      ],
+      [
+       44028030,
+       44028030
+      ]
+     ],
+     "note": "Two years in his own hired house."
+    },
+    {
+     "name": "Illyricum",
+     "placeId": "ac405c0",
+     "refs": [
+      [
+       45015019,
+       45015019
+      ]
+     ],
+     "note": "The limit of his preaching when he wrote Romans."
+    },
+    {
+     "name": "Crete",
+     "placeId": "a26aa94",
+     "refs": [
+      [
+       56001005,
+       56001005
+      ]
+     ]
+    },
+    {
+     "name": "Nicopolis",
+     "placeId": "af43cde",
+     "refs": [
+      [
+       56003012,
+       56003012
+      ]
+     ]
+    },
+    {
+     "name": "Spain",
+     "placeId": "a3f0f69",
+     "refs": [
+      [
+       45015024,
+       45015024
+      ]
+     ],
+     "note": "Planned (Romans 15:24); that he went is tradition (1 Clement 5; the Muratorian fragment).",
+     "tradition": true
+    }
+   ],
+   "companions": [
+    {
+     "person": {
+      "name": "Ananias of Damascus",
+      "personId": "ananias-act-9-10"
+     },
+     "claim": {
+      "text": "Sent to lay his hands on Saul, who then received his sight and was baptized.",
+      "layer": "scripture",
+      "refs": [
+       [
+        44009010,
+        44009018
+       ]
+      ]
+     }
+    },
+    {
+     "person": {
+      "name": "Gamaliel",
+      "personId": "gamaliel-act-5-34"
+     },
+     "claim": {
+      "text": "His teacher in Jerusalem.",
+      "layer": "scripture",
+      "refs": [
+       [
+        44022003,
+        44022003
+       ],
+       [
+        44005034,
+        44005034
+       ]
+      ]
+     }
+    },
+    {
+     "person": {
+      "name": "Barnabas",
+      "personId": "barnabas-act-4-36"
+     },
+     "claim": {
+      "text": "Brought him to the apostles and to Antioch; partner on the first journey; they parted over Mark.",
+      "layer": "scripture",
+      "refs": [
+       [
+        44009027,
+        44009027
+       ],
+       [
+        44011025,
+        44011026
+       ],
+       [
+        44013002,
+        44013002
+       ],
+       [
+        44015039,
+        44015039
+       ]
+      ]
+     }
+    },
+    {
+     "person": {
+      "name": "Silas",
+      "personId": "silas-act-15-22"
+     },
+     "claim": {
+      "text": "Partner on the second journey; imprisoned with him at Philippi.",
+      "layer": "scripture",
+      "refs": [
+       [
+        44015040,
+        44015040
+       ],
+       [
+        44016025,
+        44016025
+       ]
+      ]
+     }
+    },
+    {
+     "person": {
+      "name": "Timothy",
+      "personId": "timothy-act-16-1"
+     },
+     "claim": {
+      "text": "Joined him at Lystra and named with him in several letters.",
+      "layer": "scripture",
+      "refs": [
+       [
+        44016001,
+        44016003
+       ],
+       [
+        50001001,
+        50001001
+       ],
+       [
+        51001001,
+        51001001
+       ]
+      ]
+     }
+    },
+    {
+     "person": {
+      "name": "Luke",
+      "personId": "luke-2co-13-13"
+     },
+     "claim": {
+      "text": "“Luke, the beloved physician”; “Only Luke is with me”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        51004014,
+        51004014
+       ],
+       [
+        55004011,
+        55004011
+       ]
+      ]
+     }
+    },
+    {
+     "person": {
+      "name": "John Mark",
+      "personId": "mark-act-12-12"
+     },
+     "claim": {
+      "text": "Left the first journey at Perga; later with Paul again, and “profitable to me for the ministry”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        44013013,
+        44013013
+       ],
+       [
+        44015037,
+        44015039
+       ],
+       [
+        51004010,
+        51004010
+       ],
+       [
+        55004011,
+        55004011
+       ]
+      ]
+     }
+    },
+    {
+     "person": {
+      "name": "Titus",
+      "personId": "titus-2co-2-13"
+     },
+     "claim": {
+      "text": "Went up to Jerusalem with him; left in Crete.",
+      "layer": "scripture",
+      "refs": [
+       [
+        48002001,
+        48002001
+       ],
+       [
+        48002003,
+        48002003
+       ],
+       [
+        56001005,
+        56001005
+       ]
+      ]
+     }
+    },
+    {
+     "person": {
+      "name": "Aquila",
+      "personId": "aquila-act-18-2"
+     },
+     "claim": {
+      "text": "A tentmaker like Paul, with whom he lodged and worked at Corinth.",
+      "layer": "scripture",
+      "refs": [
+       [
+        44018002,
+        44018003
+       ]
+      ]
+     }
+    },
+    {
+     "person": {
+      "name": "Priscilla",
+      "personId": "priscilla-act-18-2"
+     },
+     "claim": {
+      "text": "Aquila's wife; they sailed with Paul as far as Ephesus.",
+      "layer": "scripture",
+      "refs": [
+       [
+        44018002,
+        44018002
+       ],
+       [
+        44018018,
+        44018019
+       ]
+      ]
+     }
+    },
+    {
+     "person": {
+      "name": "Aristarchus",
+      "personId": "aristarchus-act-19-29"
+     },
+     "claim": {
+      "text": "A travelling companion, seized at Ephesus, with him on the voyage, and his “fellowprisoner”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        44019029,
+        44019029
+       ],
+       [
+        44027002,
+        44027002
+       ],
+       [
+        51004010,
+        51004010
+       ]
+      ]
+     }
+    },
+    {
+     "person": {
+      "name": "Tychicus",
+      "personId": "tychicus-act-20-4"
+     },
+     "claim": {
+      "text": "Travelled with him and carried his letters.",
+      "layer": "scripture",
+      "refs": [
+       [
+        44020004,
+        44020004
+       ],
+       [
+        49006021,
+        49006021
+       ],
+       [
+        51004007,
+        51004007
+       ]
+      ]
+     }
+    },
+    {
+     "person": {
+      "name": "Trophimus",
+      "personId": "trophimus-act-20-4"
+     },
+     "claim": {
+      "text": "Travelled with him; left sick at Miletum.",
+      "layer": "scripture",
+      "refs": [
+       [
+        44020004,
+        44020004
+       ],
+       [
+        44021029,
+        44021029
+       ],
+       [
+        55004020,
+        55004020
+       ]
+      ]
+     }
+    },
+    {
+     "person": {
+      "name": "Epaphroditus",
+      "personId": "epaphroditus-php-2-25"
+     },
+     "claim": {
+      "text": "Brought the Philippians' gift to Paul in prison.",
+      "layer": "scripture",
+      "refs": [
+       [
+        50002025,
+        50002025
+       ],
+       [
+        50004018,
+        50004018
+       ]
+      ]
+     }
+    },
+    {
+     "person": {
+      "name": "Onesimus",
+      "personId": "onesimus-col-4-9"
+     },
+     "claim": {
+      "text": "“whom I have begotten in my bonds”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        57001010,
+        57001010
+       ],
+       [
+        51004009,
+        51004009
+       ]
+      ]
+     }
+    },
+    {
+     "person": {
+      "name": "Demas",
+      "personId": "demas-col-4-14"
+     },
+     "claim": {
+      "text": "A fellowlabourer of whom Paul later writes, “Demas hath forsaken me, having loved this present world”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        57001024,
+        57001024
+       ],
+       [
+        55004010,
+        55004010
+       ]
+      ]
+     }
+    }
+   ],
+   "ending": {
+    "scripture": [
+     {
+      "text": "Acts ends with Paul two whole years in his own hired house in Rome, “Preaching the kingdom of God, and teaching those things which concern the Lord Jesus Christ, with all confidence, no man forbidding him.”",
+      "layer": "scripture",
+      "refs": [
+       [
+        44028030,
+        44028031
+       ]
+      ]
+     },
+     {
+      "text": "In 2 Timothy he writes as a prisoner in Rome who has already made his “first answer” in court: “the time of my departure is at hand. I have fought a good fight, I have finished my course, I have kept the faith”.",
+      "layer": "scripture",
+      "refs": [
+       [
+        55001017,
+        55001017
+       ],
+       [
+        55004006,
+        55004007
+       ],
+       [
+        55004016,
+        55004017
+       ]
+      ]
+     },
+     {
+      "text": "Whether Paul wrote 2 Timothy is debated, as the Letters page shows; Scripture does not record his death.",
+      "layer": "scholars",
+      "cites": [
+       "rutherfurd-isbe-1915",
+       "schaff-1890"
+      ],
+      "refs": [
+       [
+        55001001,
+        55001001
+       ]
+      ]
+     }
+    ],
+    "tradition": [
+     {
+      "text": "Clement of Rome writes that Paul had been “seven times in bonds”, had “preached in the East and in the West”, reached “the farthest bounds of the West”, and when he had borne his testimony before the rulers “departed from the world”.",
+      "layer": "early-church",
+      "cites": [
+       "clement-rome-lightfoot-1891"
+      ],
+      "who": "Clement of Rome, 1 Clement 5:5-7",
+      "when": "about AD 95"
+     },
+     {
+      "text": "Dionysius, bishop of Corinth, writes that Peter and Paul taught in Italy and “suffered martyrdom at the same time”.",
+      "layer": "early-church",
+      "cites": [
+       "eusebius-npnf-1890"
+      ],
+      "who": "Dionysius of Corinth, quoted by Eusebius, Church History 2.25.8",
+      "when": "Dionysius about AD 170; Eusebius about AD 325"
+     },
+     {
+      "text": "The Muratorian fragment says Luke's Acts leaves out “the journey of Paul, when he went from the city—Rome—to Spain”.",
+      "layer": "early-church",
+      "cites": [
+       "muratorian-anf-1886"
+      ],
+      "who": "The Muratorian fragment",
+      "when": "the writer is placed in the latter half of the 2nd century"
+     },
+     {
+      "text": "Tertullian writes that at Rome “Paul wins his crown in a death like John's”: the Baptist's, that is, by beheading.",
+      "layer": "early-church",
+      "cites": [
+       "tertullian-anf-1885"
+      ],
+      "who": "Tertullian, The Prescription Against Heretics 36",
+      "when": "about AD 200"
+     },
+     {
+      "text": "Gaius, a Roman churchman, points to the apostles' “trophies” at the Vatican and on the Ostian Way.",
+      "layer": "early-church",
+      "cites": [
+       "eusebius-npnf-1890"
+      ],
+      "who": "Gaius, quoted by Eusebius, Church History 2.25.7",
+      "when": "Gaius about AD 200; Eusebius about AD 325"
+     },
+     {
+      "text": "Eusebius writes that “it is said” Paul was released, preached again, and suffered martyrdom when he came to Rome a second time, and that “Paul was beheaded in Rome itself” under Nero.",
+      "layer": "early-church",
+      "cites": [
+       "eusebius-npnf-1890"
+      ],
+      "who": "Eusebius, Church History 2.22.2 and 2.25.5",
+      "when": "about AD 325"
+     }
+    ]
+   },
+   "writings": [
+    {
+     "title": "Paul's letters",
+     "letters": "paul-letters"
+    }
+   ],
+   "questions": [
+    {
+     "id": "paul-voice",
+     "question": "Did the men with Saul hear the voice? Acts 9:7 says they were “hearing a voice”; Acts 22:9 that “they heard not the voice of him that spake to me”. (In date order.)",
+     "views": [
+      {
+       "label": "They heard a sound, not the words",
+       "holders": "Matthew Henry (early 18th century); W. J. Conybeare and J. S. Howson (1891), who also report Wordsworth and Hackett",
+       "argument": {
+        "text": "Henry: they heard “a confused noise” but did not understand what was said. Conybeare and Howson: the voice spoke articulately to Saul, but to the rest it was “a sound mysterious and indistinct”.",
+        "layer": "scholars",
+        "cites": [
+         "henry-acts",
+         "conybeare-howson-1891"
+        ],
+        "refs": [
+         [
+          44009007,
+          44009007
+         ],
+         [
+          44022009,
+          44022009
+         ]
+        ]
+       }
+      },
+      {
+       "label": "Leave the differences as they stand",
+       "holders": "W. J. Conybeare and J. S. Howson (1891)",
+       "argument": {
+        "text": "They judge it “both more prudent and more honest to leave these well-known discrepancies exactly as they are found in the Bible”, and note that readers explain them differently according to their view of inspiration.",
+        "layer": "scholars",
+        "cites": [
+         "conybeare-howson-1891"
+        ],
+        "refs": [
+         [
+          44009007,
+          44009007
+         ],
+         [
+          44022009,
+          44022009
+         ],
+         [
+          44026014,
+          44026014
+         ]
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "id": "paul-release",
+     "question": "Was Paul released after Acts 28 and imprisoned again? (Most widely held view in these sources first.)",
+     "views": [
+      {
+       "label": "Released, travelled, re-arrested, executed",
+       "holders": "Eusebius (about AD 325); Conybeare and Howson (1891); Schaff (1890), who is “disposed to admit” it; Rutherfurd, ISBE (1915)",
+       "argument": {
+        "text": "Clement's “farthest bounds of the West”, the Muratorian fragment's journey to Spain, Paul's own plan to visit Spain, and the journeys in the letters to Timothy and Titus that Acts has no room for.",
+        "layer": "scholars",
+        "cites": [
+         "eusebius-npnf-1890",
+         "conybeare-howson-1891",
+         "schaff-1890",
+         "rutherfurd-isbe-1915"
+        ],
+        "refs": [
+         [
+          45015024,
+          45015024
+         ],
+         [
+          56001005,
+          56001005
+         ],
+         [
+          55004013,
+          55004013
+         ]
+        ]
+       }
+      },
+      {
+       "label": "No release: he died at the end of the Roman custody",
+       "holders": "Wieseler and Schrader, as reported and answered by Conybeare and Howson (1891)",
+       "argument": {
+        "text": "Acts and the other early sources are silent about later travel, and “the farthest bounds of the West” may mean Rome itself.",
+        "layer": "scholars",
+        "cites": [
+         "conybeare-howson-1891"
+        ]
+       }
+      },
+      {
+       "label": "The letters to Timothy and Titus are not Paul's, so they prove nothing either way",
+       "holders": "F. C. Baur and others, as reported by Schaff (1890) and Rutherfurd (ISBE, 1915)",
+       "argument": {
+        "text": "On this view the journeys those letters mention are no evidence for a release.",
+        "layer": "scholars",
+        "cites": [
+         "schaff-1890",
+         "rutherfurd-isbe-1915"
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "id": "paul-dates",
+     "question": "When did these things happen? Scripture gives no years; two public-domain reckonings, side by side. (Older first.)",
+     "views": [
+      {
+       "label": "Ramsay (1895)",
+       "holders": "W. M. Ramsay, St. Paul the Traveller, Chronological Index",
+       "argument": {
+        "text": "Conversion AD 33; first journey from spring 47 to August 49; council winter 49-50; arrival in Jerusalem at Pentecost 57; Rome to the end of 61; second trial 67.",
+        "layer": "scholars",
+        "cites": [
+         "ramsay-1895"
+        ]
+       }
+      },
+      {
+       "label": "Robertson (1915)",
+       "holders": "A. T. Robertson, ISBE, “Paul, the Apostle”, part 3",
+       "argument": {
+        "text": "Stephen's death, and so the conversion, about 35; first journey 47-48 (or 48-49); council 49 (or 50); arrest spring 57; reaches Rome early in 60; released 63 or early 64; death by early summer 68, possibly 67. Robertson warns: “There is not a single date in the life of Paul that is beyond dispute, though several are narrowed to a fine point.”",
+        "layer": "scholars",
+        "cites": [
+         "robertson-isbe-1915"
+        ]
+       }
+      }
+     ]
+    }
+   ],
+   "notSaid": [
+    "Scripture does not record Paul's death. Acts names no emperor at his appeal, only “Caesar” (Acts 25:11); the KJV's note after 2 Timothy that names Nero is not Scripture.",
+    "Scripture does not say whether Paul ever reached Spain.",
+    "Scripture does not say whether Paul was ever married; when he wrote 1 Corinthians he was unmarried (1 Corinthians 7:7-8).",
+    "Scripture does not describe his appearance, and does not say what his “thorn in the flesh” was (2 Corinthians 12:7)."
+   ],
+   "passages": [
+    [
+     44007058,
+     44008003
+    ],
+    [
+     44009001,
+     44009031
+    ],
+    [
+     44011025,
+     44011030
+    ],
+    [
+     44012025,
+     44012025
+    ],
+    [
+     44013001,
+     44028031
+    ],
+    [
+     45015014,
+     45015033
+    ],
+    [
+     47011016,
+     47012010
+    ],
+    [
+     48001011,
+     48002014
+    ],
+    [
+     50003004,
+     50003014
+    ],
+    [
+     55004006,
+     55004022
+    ]
+   ]
+  }
+ ],
+ "citations": [
+  {
+   "id": "eusebius-npnf-1890",
+   "author": "Eusebius (trans. A. C. McGiffert, Nicene and Post-Nicene Fathers, series 2, vol. 1)",
+   "title": "Church History",
+   "year": "1890",
+   "where": "1.12.3; 1.13.4 and 10; 2.22.2; 2.23; 2.25.5-8; 3.11; 3.24.6; 3.25.6; 3.29.4; 3.32; 3.39.16",
+   "url": "https://www.ccel.org/ccel/s/schaff/npnf201/cache/npnf201.txt"
+  },
+  {
+   "id": "mcgiffert-notes-1890",
+   "author": "A. C. McGiffert",
+   "title": "Notes to Eusebius, Church History (Nicene and Post-Nicene Fathers, series 2, vol. 1)",
+   "year": "1890",
+   "where": "book 1, chapter 12, notes 207, 209 and 212",
+   "url": "https://www.ccel.org/ccel/s/schaff/npnf201/cache/npnf201.txt"
+  },
+  {
+   "id": "clement-alex-anf-1885",
+   "author": "Clement of Alexandria (trans. William Wilson, Ante-Nicene Fathers, vol. 2)",
+   "title": "Stromata",
+   "year": "1885",
+   "where": "book 4, chapter 9; book 6, chapter 13",
+   "url": "https://www.ccel.org/ccel/s/schaff/anf02/cache/anf02.txt"
+  },
+  {
+   "id": "papias-anf-1885",
+   "author": "Papias (Ante-Nicene Fathers, vol. 1)",
+   "title": "Fragments of Papias",
+   "year": "1885",
+   "where": "introductory note (dates Papias AD 70-155); fragment 3, with its notes",
+   "url": "https://www.ccel.org/ccel/s/schaff/anf01/cache/anf01.txt"
+  },
+  {
+   "id": "irenaeus-anf-1885",
+   "author": "Irenaeus (Ante-Nicene Fathers, vol. 1)",
+   "title": "Against Heresies",
+   "year": "1885",
+   "where": "3.1.1",
+   "url": "https://www.ccel.org/ccel/s/schaff/anf01/cache/anf01.txt"
+  },
+  {
+   "id": "clement-rome-lightfoot-1891",
+   "author": "Clement of Rome (trans. J. B. Lightfoot)",
+   "title": "1 Clement",
+   "year": "1891",
+   "where": "5:5-7 (checked against the 1891 printing, archive.org apostolicfathers00lighuoft)",
+   "url": "https://www.earlychristianwritings.com/text/1clement-lightfoot.html"
+  },
+  {
+   "id": "tertullian-anf-1885",
+   "author": "Tertullian (Ante-Nicene Fathers, vol. 3)",
+   "title": "The Prescription Against Heretics",
+   "year": "1885",
+   "where": "chapter 36, with note 2235",
+   "url": "https://www.ccel.org/ccel/s/schaff/anf03/cache/anf03.txt"
+  },
+  {
+   "id": "muratorian-anf-1886",
+   "author": "Unknown (Ante-Nicene Fathers, vol. 5)",
+   "title": "The Muratorian Fragment (Canon Muratorianus)",
+   "year": "1886",
+   "where": "section 2, with note 4977 (the writer placed in the latter half of the 2nd century)",
+   "url": "https://www.ccel.org/ccel/s/schaff/anf05/cache/anf05.txt"
+  },
+  {
+   "id": "jerome-npnf-1893",
+   "author": "Jerome (trans. W. H. Fremantle, Nicene and Post-Nicene Fathers, series 2, vol. 6)",
+   "title": "Against Helvidius (The Perpetual Virginity of Blessed Mary)",
+   "year": "1893",
+   "where": "editor's introduction (dates the tract about AD 383); section 15",
+   "url": "https://www.ccel.org/ccel/s/schaff/npnf206/cache/npnf206.txt"
+  },
+  {
+   "id": "socrates-npnf",
+   "author": "Socrates Scholasticus (rev. A. C. Zenos, Nicene and Post-Nicene Fathers, series 2, vol. 2)",
+   "title": "Church History",
+   "year": "1890",
+   "where": "book 1, chapter 19",
+   "url": "https://www.ccel.org/ccel/s/schaff/npnf202/cache/npnf202.txt"
+  },
+  {
+   "id": "walker-anf8-1886",
+   "author": "Alexander Walker (trans.), Ante-Nicene Fathers, vol. 8",
+   "title": "Apocrypha of the New Testament: introduction to the Apocryphal Acts; Acts of Andrew and Matthias; Acts and Martyrdom of St. Matthew; Acts of the Holy Apostle Thaddaeus",
+   "year": "1886",
+   "url": "https://www.ccel.org/ccel/s/schaff/anf08/cache/anf08.txt"
+  },
+  {
+   "id": "budge-1901",
+   "author": "E. A. Wallis Budge (trans.)",
+   "title": "The Contendings of the Apostles, vol. 2: the English translation",
+   "year": "1901",
+   "where": "preface (dates the Ethiopic version to about the early 14th century, the manuscript to the 15th); pp. 130-136, 264-266, 289-294",
+   "url": "https://archive.org/details/contendingsofapo02budguoft"
+  },
+  {
+   "id": "golden-legend-1900",
+   "author": "Jacobus de Voragine (Caxton's English of 1483, ed. F. S. Ellis)",
+   "title": "The Golden Legend, vol. 6: The Lives of SS. Simon and Jude",
+   "year": "1900",
+   "url": "https://sourcebooks.fordham.edu/basis/goldenlegend/GoldenLegend-Volume6.asp"
+  },
+  {
+   "id": "easton-1897",
+   "author": "M. G. Easton",
+   "title": "Easton's Bible Dictionary",
+   "year": "1897",
+   "where": "entries Matthew; Levi; Alphaeus; James; Thaddaeus; Lebbaeus; Jude; Simon; Canaanite; Judas",
+   "url": "https://www.ccel.org/ccel/e/easton/ebd2/cache/ebd2.txt"
+  },
+  {
+   "id": "smith-1884",
+   "author": "William Smith",
+   "title": "Smith's Bible Dictionary",
+   "year": "1884",
+   "where": "entries Simon the Canaanite; Judas Iscariot; Matthias; Alphaeus",
+   "url": "https://www.ccel.org/ccel/s/smith_w/bibledict/cache/bibledict.txt"
+  },
+  {
+   "id": "schodde-isbe-matthew-1915",
+   "author": "G. H. Schodde",
+   "title": "Matthew (International Standard Bible Encyclopedia)",
+   "year": "1915",
+   "where": "read online at internationalstandardbible.com; to be checked against a scan of the printed 1915 edition",
+   "url": "https://www.internationalstandardbible.com/M/matthew.html"
+  },
+  {
+   "id": "schodde-isbe-gospel-1915",
+   "author": "G. H. Schodde",
+   "title": "Matthew, the Gospel of (International Standard Bible Encyclopedia)",
+   "year": "1915",
+   "where": "read online at internationalstandardbible.com; to be checked against a scan of the printed 1915 edition",
+   "url": "https://www.internationalstandardbible.com/M/matthew-the-gospel-of.html"
+  },
+  {
+   "id": "fortune-isbe-alphaeus-1915",
+   "author": "A. W. Fortune",
+   "title": "Alphaeus (International Standard Bible Encyclopedia)",
+   "year": "1915",
+   "where": "read online at internationalstandardbible.com; to be checked against a scan of the printed 1915 edition",
+   "url": "https://www.internationalstandardbible.com/A/alphaeus.html"
+  },
+  {
+   "id": "kerr-isbe-james-1915",
+   "author": "C. M. Kerr",
+   "title": "James (International Standard Bible Encyclopedia)",
+   "year": "1915",
+   "where": "read online at internationalstandardbible.com; to be checked against a scan of the printed 1915 edition",
+   "url": "https://www.internationalstandardbible.com/J/james.html"
+  },
+  {
+   "id": "kerr-isbe-thaddaeus-1915",
+   "author": "C. M. Kerr",
+   "title": "Thaddaeus (International Standard Bible Encyclopedia)",
+   "year": "1915",
+   "where": "read online at internationalstandardbible.com; to be checked against a scan of the printed 1915 edition",
+   "url": "https://www.internationalstandardbible.com/T/thaddaeus.html"
+  },
+  {
+   "id": "kerr-isbe-judas-of-james-1915",
+   "author": "C. M. Kerr",
+   "title": "Judas of James (International Standard Bible Encyclopedia)",
+   "year": "1915",
+   "where": "read online at internationalstandardbible.com; to be checked against a scan of the printed 1915 edition",
+   "url": "https://www.internationalstandardbible.com/J/judas-of-james.html"
+  },
+  {
+   "id": "kerr-isbe-simon-1915",
+   "author": "C. M. Kerr",
+   "title": "Simon the Canaanite; Simon the Cananaean; Simon the Zealot (International Standard Bible Encyclopedia)",
+   "year": "1915",
+   "where": "read online at internationalstandardbible.com; to be checked against a scan of the printed 1915 edition",
+   "url": "https://www.internationalstandardbible.com/S/simon-the-canaanite-simon-the-cananaean-simon-the-zealot.html"
+  },
+  {
+   "id": "heidel-isbe-zealot-1915",
+   "author": "William Arthur Heidel",
+   "title": "Zealot; Zealots (International Standard Bible Encyclopedia)",
+   "year": "1915",
+   "where": "read online at internationalstandardbible.com; to be checked against a scan of the printed 1915 edition",
+   "url": "https://www.internationalstandardbible.com/Z/zealot-zealots.html"
+  },
+  {
+   "id": "kerr-isbe-judas-1915",
+   "author": "C. M. Kerr",
+   "title": "Judas Iscariot (International Standard Bible Encyclopedia)",
+   "year": "1915",
+   "where": "read online at internationalstandardbible.com; to be checked against a scan of the printed 1915 edition",
+   "url": "https://www.internationalstandardbible.com/J/judas-iscariot.html"
+  },
+  {
+   "id": "kerr-isbe-matthias-1915",
+   "author": "C. M. Kerr",
+   "title": "Matthias (International Standard Bible Encyclopedia)",
+   "year": "1915",
+   "where": "read online at internationalstandardbible.com; to be checked against a scan of the printed 1915 edition",
+   "url": "https://www.internationalstandardbible.com/M/matthias.html"
+  },
+  {
+   "id": "robertson-isbe-1915",
+   "author": "A. T. Robertson",
+   "title": "Paul, the Apostle (International Standard Bible Encyclopedia)",
+   "year": "1915",
+   "where": "part 3, III. Chronology of Paul's Career; read online at internationalstandardbible.com; to be checked against a scan of the printed 1915 edition",
+   "url": "https://www.internationalstandardbible.com/P/paul-the-apostle-3.html"
+  },
+  {
+   "id": "rutherfurd-isbe-1915",
+   "author": "John Rutherfurd",
+   "title": "Pastoral Epistles (International Standard Bible Encyclopedia)",
+   "year": "1915",
+   "where": "read online at internationalstandardbible.com; to be checked against a scan of the printed 1915 edition",
+   "url": "https://www.internationalstandardbible.com/P/pastoral-epistles.html"
+  },
+  {
+   "id": "henry-acts",
+   "author": "Matthew Henry",
+   "title": "Commentary on the Whole Bible, vol. 6 (Acts to Revelation)",
+   "year": "1706-1721",
+   "where": "on Acts 1:18 and Acts 9:7; Acts 22:9",
+   "url": "https://www.ccel.org/ccel/h/henry/mhc6/cache/mhc6.txt"
+  },
+  {
+   "id": "strauss-1846",
+   "author": "D. F. Strauss (trans. George Eliot)",
+   "title": "The Life of Jesus Critically Examined",
+   "year": "1846",
+   "where": "part 3, The Death of the Betrayer, pp. 662-664 of the 1902 printing",
+   "url": "https://archive.org/details/lifeofjesuscriti00straiala"
+  },
+  {
+   "id": "conybeare-howson-1891",
+   "author": "W. J. Conybeare and J. S. Howson",
+   "title": "The Life and Epistles of St. Paul, new edition (first published 1852)",
+   "year": "1891",
+   "where": "ch. III, p. 74 and its note; ch. XXVII",
+   "url": "https://archive.org/details/cu31924031189107"
+  },
+  {
+   "id": "ramsay-1895",
+   "author": "W. M. Ramsay",
+   "title": "St. Paul the Traveller and the Roman Citizen",
+   "year": "1895",
+   "where": "Chronological Index",
+   "url": "https://www.ccel.org/ccel/ramsay/paul_roman.html"
+  },
+  {
+   "id": "schaff-1890",
+   "author": "Philip Schaff",
+   "title": "History of the Christian Church, vol. 1: Apostolic Christianity (revised ed.)",
+   "year": "1890",
+   "where": "section 21, notes 236-237; section 99",
+   "url": "https://www.ccel.org/ccel/schaff/hcc1.html"
+  }
+ ]
+}

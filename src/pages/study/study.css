@@ -159,6 +159,10 @@
 @media (max-width: 1023px) { .study-contents-grid[data-count='4'] { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 639px) { .study-contents-grid[data-count='4'] { grid-template-columns: minmax(0, 1fr); } }
 .study-contents-grid > li { min-width: 0; display: flex; }
+/* Five cards (People): the two "everyone" guides as a wide pair, then the three "who served" guides. */
+.study-contents-grid[data-count='5'] { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+.study-contents-grid[data-count='5'] > li { grid-column: span 2; }
+.study-contents-grid[data-count='5'] > li:nth-child(-n+2) { grid-column: span 3; }
 .study-content-card { display: flex; flex-direction: column; width: 100%; padding: 1.25rem 1.5rem; border: 1px solid color-mix(in srgb, var(--resource-color) 20%, var(--line)); border-radius: 1rem; background: linear-gradient(155deg, color-mix(in srgb, var(--resource-color) 8%, var(--surface)), var(--surface) 65%); transition: border-color .2s, transform .2s; }
 .study-content-card:hover { transform: translateY(-3px); border-color: var(--resource-color); }
 .study-content-card:focus-visible { outline: 3px solid var(--resource-color); outline-offset: 4px; }
@@ -184,6 +188,17 @@
   .study-contents > header p { font-size: .7rem; }
   .study-section-position { gap: .5rem; }
   .study-section-position > span { font-size: .6rem; }
+}
+/* Phones: five full cards would stack to a screen and a half, so they become compact rows (drawing, title, arrow). */
+@media (max-width: 767px) {
+  .study-contents-grid[data-count='5'] { grid-template-columns: minmax(0, 1fr); gap: .5rem; }
+  .study-contents-grid[data-count='5'] > li, .study-contents-grid[data-count='5'] > li:nth-child(-n+2) { grid-column: auto; }
+  [data-count='5'] .study-content-card { grid-template-columns: 76px minmax(0, 1fr) auto; align-items: center; gap: 0 .85rem; min-height: 84px; padding: .7rem .95rem; }
+  [data-count='5'] .study-content-card .study-miniature { grid-column: 1; grid-row: 1; height: 46px; }
+  [data-count='5'] .study-content-card h3 { grid-column: 2; grid-row: 1; font-size: 1.1rem; line-height: 1.25; }
+  [data-count='5'] .study-content-meta, [data-count='5'] .study-content-card > p { display: none; }
+  [data-count='5'] .study-content-action { grid-column: 3; grid-row: 1; margin: 0; padding: 0; border: 0; font-size: 0; gap: 0; }
+  [data-count='5'] .study-content-action svg { width: 20px; height: 20px; }
 }
 @media (prefers-reduced-motion: reduce) { .study-content-card { transition: none; } .study-content-card:hover { transform: none; } }
 

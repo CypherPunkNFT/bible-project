@@ -1,5 +1,5 @@
 {
-  "about": "Corrections to TIPNR's people list for 'Everyone in the Bible' (owner, 2026-10-07). 'groups' are tribes, clans and peoples, not people: kept in the data for family links, left out of the list. 'periods' places people TIPNR gives no era, from their family line or the events they are in. Applied by scripts/build-study.py.",
+  "about": "Corrections to TIPNR's people list for 'Everyone in the Bible' (owner, 2026-10-07). 'groups' are tribes, clans and peoples, not people: kept in the data for family links, left out of the list. 'periods' places people TIPNR gives no era, from their family line or the events they are in. 'fixes' corrects STEP's text, period, other names, verses and family links, each with why and the verse that shows it; each corrected person's page data gets 'fx' (the fields this site changed), as STEP's licence asks that changes be shown. 'added' holds records STEP does not have. Ids are never removed or renamed; a duplicate is marked 'same'. Applied by scripts/build-study.py through scripts/bible/people_corrections.py; format in README.md beside this file.",
   "groups": {
     "amorites-gen-10-16": "Canaanite people group, enemies of Israel",
     "anamim-gen-10-13": "Descendants of Mizraim, son of Ham",
@@ -156,6 +156,721 @@
     "husband-of-mary-act-12-12": {
       "period": "early-church",
       "why": "John Mark's father; the church met in Mary's house (Acts 12:12)."
+    }
+  },
+  "fixes": {
+    "jabesh-2ki-15-10": {
+      "why": "STEP's text makes Jabesh the killer of Zechariah and king for a month; Scripture names him only as the father of Shallum, who did that.",
+      "evidence": "2 Kings 15:10",
+      "brief": "Father of Shallum, who killed King Zechariah of Israel",
+      "short": "Jabesh was the father of Shallum, who conspired against King Zechariah of Israel, killed him, and reigned one month in Samaria before Menahem killed him.",
+      "article": "Jabesh is named only as the father of Shallum: \"Shallum the son of Jabesh\" (2Ki.15.10, 13-14). Nothing else is told of him.\nHis son Shallum conspired against Zechariah, the son of Jeroboam II, killed him in front of the people and reigned in his place, ending the dynasty of Jehu (2Ki.15.10-12). Shallum reigned a full month in Samaria, until Menahem the son of Gadi came up from Tirzah, killed him and reigned in his place (2Ki.15.13-14)."
+    },
+    "zechariah-2ki-14-29": {
+      "why": "Zechariah was the last king of Jehu's line (2 Kgs 15:12), not the last king of Israel; Hoshea was (2 Kgs 17:6).",
+      "evidence": "2 Kings 15:12",
+      "brief": "Last king of Jehu's line in the northern kingdom of Israel",
+      "short": [
+        [
+          "was the last king of the northern kingdom of Israel",
+          "was the last king of Israel from the line of Jehu"
+        ]
+      ],
+      "article": [
+        [
+          "the last king of the northern kingdom of Israel.",
+          "the last king of Israel from the line of Jehu."
+        ]
+      ]
+    },
+    "achbor-gen-36-38": {
+      "why": "Genesis 36:38 says 'Baal-hanan the son of Achbor reigned': Achbor is the father, not a king, and not Baal-hanan's son.",
+      "evidence": "Genesis 36:38",
+      "description": "Man living at the time of the Patriarchs",
+      "brief": "Father of Baal-hanan, king of Edom",
+      "short": "Achbor was the father of Baal-hanan, who reigned as king of Edom before any king reigned over Israel.",
+      "article": "Achbor is named in the list of the kings who reigned in Edom \"before there reigned any king over the children of Israel\" (Gen.36.31), only as the father of one of them: \"Baal-hanan the son of Achbor reigned in his stead\" (Gen.36.38, 39; 1Ch.1.49). He is not said to have reigned himself, and nothing else is told of him."
+    },
+    "zerah-gen-36-33": {
+      "why": "Genesis 36:33 says 'Jobab the son of Zerah of Bozrah reigned': Zerah is the father, not said to be a king.",
+      "evidence": "Genesis 36:33",
+      "description": "Man living at the time of the Patriarchs",
+      "brief": "Father of Jobab, king of Edom",
+      "short": "Zerah of Bozrah was the father of Jobab, who reigned as king of Edom before Israel had a king.",
+      "article": "Zerah is named in the list of the kings who reigned in Edom \"before there reigned any king over the children of Israel\" (Gen.36.31), only as the father of one of them: \"Jobab the son of Zerah of Bozrah reigned in his stead\" (Gen.36.33; 1Ch.1.44). He is not said to have reigned himself. Bozrah was an important Edomite city. The Edomites were the descendants of Esau who settled in the region of Seir."
+    },
+    "nahash-2sa-17-27": {
+      "why": "2 Samuel 17:27 says it was 'Shobi the son of Nahash' who brought David supplies; Nahash himself is named only as Shobi's father.",
+      "evidence": "2 Samuel 17:27",
+      "description": "Ammonite living at the time of United Monarchy",
+      "brief": "Ammonite of Rabbah, father of Shobi who brought David supplies",
+      "short": "Nahash of Rabbah of the Ammonites was the father of Shobi, who brought supplies to David and his men at Mahanaim.",
+      "article": "Nahash is named in 2Sa.17.27 only as the father of Shobi. When David came to Mahanaim, fleeing from Absalom, \"Shobi the son of Nahash of Rabbah of the children of Ammon\", with Machir and Barzillai, brought beds, basins, earthen vessels, wheat, barley, flour, parched corn, beans, lentils, honey, butter, sheep and cheese for David and the people with him (2Sa.17.27-29).\nMany readers take this Nahash to be the Ammonite king of that name, whose son Hanun reigned after him (2Sa.10.1-2), which would make Shobi Hanun's brother; the verse itself does not say so."
+    },
+    "father-of-tahpenes-1ki-11-19": {
+      "why": "1 Kings 11:19: Pharaoh gave Hadad 'the sister of his own wife, the sister of Tahpenes the queen'; Pharaoh was Tahpenes' husband, not her father.",
+      "evidence": "1 Kings 11:19",
+      "brief": "Unnamed father of Queen Tahpenes of Egypt and of her sister",
+      "short": "The unnamed father of Tahpenes, queen of Egypt, and of her sister, whom Pharaoh gave as a wife to Hadad the Edomite.",
+      "article": [
+        [
+          "The father of Tahpenes is mentioned in 1Ki.11.19 as the Egyptian Pharaoh who showed favor to Hadad",
+          "The father of Tahpenes is not named; he is listed only to link Tahpenes, the queen of Egypt, with her sister (1Ki.11.19). It was Pharaoh, Tahpenes' husband, who showed favor to Hadad"
+        ]
+      ]
+    },
+    "talmai-num-13-22": {
+      "why": "Numbers 13:22 and Joshua 15:14 call Talmai one of 'the children of Anak' at Hebron, not a king.",
+      "evidence": "Numbers 13:22",
+      "description": "Man living at the time of Egypt and Wilderness",
+      "brief": "One of the three sons of Anak at Hebron, driven out by Caleb",
+      "short": "Talmai was one of the three sons of Anak at Hebron, driven out by Caleb and slain by the men of Judah.",
+      "article": [
+        [
+          "Talmai, along with Sheshai and Ahiman, was a king of Hebron.",
+          "Talmai, along with Sheshai and Ahiman, lived at Hebron as one of \"the children of Anak\" (Num.13.22)."
+        ],
+        [
+          "Caleb drove out these three Anakim kings",
+          "Caleb drove out these three sons of Anak"
+        ]
+      ]
+    },
+    "herod-act-12-1": {
+      "why": "Acts 12:1 calls him 'Herod the king'; he was king, not tetrarch.",
+      "evidence": "Acts 12:1",
+      "description": [
+        [
+          "Tetrarch",
+          "King"
+        ]
+      ],
+      "brief": "A king who persecuted the early church."
+    },
+    "agrippa-act-25-13": {
+      "why": "Acts 25:13 calls him 'king Agrippa'; he was king, not tetrarch.",
+      "evidence": "Acts 25:13",
+      "description": [
+        [
+          "Tetrarch",
+          "King"
+        ]
+      ],
+      "brief": "King who heard Paul's defense in Caesarea",
+      "short": [
+        [
+          "Tetrarch Agrippa heard",
+          "King Agrippa heard"
+        ]
+      ]
+    },
+    "rabshakeh-2ki-18-17": {
+      "why": "2 Kings 18:17: 'the king of Assyria sent Tartan and Rabsaris and Rab-shakeh'; he was Assyrian, not Babylonian.",
+      "evidence": "2 Kings 18:17",
+      "brief": [
+        [
+          "A Babylonian official",
+          "An Assyrian official"
+        ]
+      ],
+      "short": [
+        [
+          "a Babylonian official",
+          "an Assyrian official"
+        ]
+      ]
+    },
+    "rab-saris-2ki-18-17": {
+      "why": "2 Kings 18:17: 'the king of Assyria sent Tartan and Rabsaris and Rab-shakeh'; he was Assyrian, not Babylonian.",
+      "evidence": "2 Kings 18:17",
+      "brief": [
+        [
+          "A Babylonian official",
+          "An Assyrian official"
+        ]
+      ],
+      "short": [
+        [
+          "one of the Babylonian officials",
+          "one of the Assyrian officials"
+        ]
+      ],
+      "article": [
+        [
+          "one of the Babylonian officials",
+          "one of the Assyrian officials"
+        ]
+      ]
+    },
+    "sanballat-neh-2-10": {
+      "why": "Scripture calls Sanballat only 'the Horonite'; 'governor of Samaria' comes from a papyrus outside the Bible and is now labelled so.",
+      "evidence": "Nehemiah 2:10",
+      "brief": "Horonite leader who opposed Nehemiah's rebuilding of Jerusalem",
+      "short": "Sanballat the Horonite opposed Nehemiah's efforts to rebuild the walls of Jerusalem.",
+      "article": [
+        [
+          "Sanballat was the governor of Samaria during the time of Nehemiah, who led the rebuilding of the walls of Jerusalem (Neh.2.10, 19).",
+          "Sanballat the Horonite was a leading opponent of Nehemiah, who led the rebuilding of the walls of Jerusalem (Neh.2.10, 19). Scripture does not give his office, though he spoke \"before his brethren and the army of Samaria\" (Neh.4.2); a letter found at Elephantine in Egypt, written in 407 BC, calls Sanballat governor of Samaria."
+        ]
+      ]
+    },
+    "elah-1ki-16-6": {
+      "why": "'Son of Baasha, king of Israel' read as if only his father reigned; Elah reigned himself for two years (1 Kgs 16:8).",
+      "evidence": "1 Kings 16:8",
+      "brief": "King of Israel for two years, son of Baasha"
+    },
+    "james-luk-6-16": {
+      "why": "A typo ('an Apostles', 'know'), Luke 6:15 cited for 6:16, and the KJV of Luke 6:16 reads 'brother' where most versions read 'son'.",
+      "evidence": "Luke 6:16",
+      "brief": "Father of the apostle Judas (KJV: brother)",
+      "short": [
+        [
+          "also know as",
+          "also known as"
+        ]
+      ],
+      "article": [
+        [
+          "as recorded in Luk.6.15 and Act.1.13.",
+          "as recorded in Luk.6.16 and Act.1.13. The Greek says only \"Judas of James\": the KJV reads \"brother\", most modern versions \"son\"."
+        ]
+      ]
+    },
+    "sennacherib-2ki-18-13": {
+      "why": "STEP folds Sargon (Isa 20:1) into Sennacherib; they are two kings, and Sargon now has his own record (sargon-isa-20-1).",
+      "evidence": "Isaiah 20:1",
+      "names": {
+        "remove": [
+          "Sargon"
+        ]
+      },
+      "refs": {
+        "remove": [
+          "Isa 20:1"
+        ]
+      },
+      "short": "Sennacherib, king of Assyria, invaded Judah in the reign of King Hezekiah and besieged Jerusalem.",
+      "article": [
+        [
+          "Sennacherib and Sargon were powerful Assyrian kings who significantly impacted the kingdom of Judah. Sargon II, mentioned in Isa.20.1, was the king of Assyria who conquered Ashdod, a Philistine city. This event occurred during the reign of King Ahaz of Judah and served as a warning of the impending Assyrian threat. Sennacherib, Sargon's son and successor, is more prominently featured in the biblical narrative",
+          "Sennacherib was a powerful Assyrian king who significantly impacted the kingdom of Judah. Assyrian records make him the son and successor of Sargon II, the king named in Isa.20.1. He is prominently featured in the biblical narrative"
+        ]
+      ]
+    },
+    "ahasuerus-ezr-4-6": {
+      "why": "Daniel 9:1's Ahasuerus, father of Darius the Mede, is a different man from Esther's husband; that verse now has its own record (ahasuerus-dan-9-1).",
+      "evidence": "Daniel 9:1",
+      "refs": {
+        "remove": [
+          "Dan 9:1"
+        ]
+      },
+      "article": [
+        [
+          ", and in Dan.9.1, as the father of Darius the Mede.",
+          "."
+        ]
+      ]
+    },
+    "darius-dan-5-31": {
+      "why": "Daniel 11:1: the angel, not Darius, stood to strengthen; and STEP's merge of Daniel 9:1's Ahasuerus with Esther's husband had made Vashti his mother and Artaxerxes his brother.",
+      "evidence": "Daniel 11:1",
+      "article": [
+        [
+          "In Dan.11.1, an angelic messenger refers to the first year of Darius the Mede, indicating that he had been supporting and protecting the prince of Persia.",
+          "In Dan.11.1, the angel speaking to Daniel dates his own help by Darius: \"in the first year of Darius the Mede, even I, stood to confirm and to strengthen him\"."
+        ]
+      ],
+      "family": {
+        "parents": {
+          "remove": [
+            "ahasuerus-ezr-4-6",
+            "vashti-est-1-9"
+          ]
+        },
+        "siblings": {
+          "remove": [
+            "artaxerxes-ezr-4-7"
+          ]
+        }
+      }
+    },
+    "zerubbabel-1ch-3-19": {
+      "why": "Zerubbabel led the return (Ezra 2:2), not the exile; and his identity with Sheshbazzar is debated, not settled.",
+      "evidence": "Ezra 2:2",
+      "period": "return",
+      "short": [
+        [
+          "Zerubbabel (or Sheshbazzar), a descendant",
+          "Zerubbabel, a descendant"
+        ]
+      ],
+      "article": [
+        [
+          "Zerubbabel, also known as Sheshbazzar, was",
+          "Zerubbabel, whom some identify with Sheshbazzar (Ezr.1.8; 5.14), was"
+        ]
+      ],
+      "note": "STEP counts Sheshbazzar, \"the prince of Judah\" (Ezra 1:8, 11; 5:14, 16), as Zerubbabel, so those verses are listed here; many readers take them to be two men."
+    },
+    "jehoiachin-2ki-24-6": {
+      "why": "Jeremiah 22:11's Shallum 'reigned instead of Josiah his father': that is Josiah's son Jehoahaz, not his grandson Jehoiachin.",
+      "evidence": "Jeremiah 22:11",
+      "names": {
+        "remove": [
+          "Shallum"
+        ]
+      },
+      "refs": {
+        "remove": [
+          "Jer 22:11"
+        ]
+      },
+      "short": [
+        [
+          "also known as Jeconiah, Coniah, or Shallum,",
+          "also known as Jeconiah or Coniah,"
+        ]
+      ],
+      "article": [
+        [
+          "also referred to as Jeconiah, Coniah, or Shallum,",
+          "also referred to as Jeconiah or Coniah,"
+        ]
+      ]
+    },
+    "jehoahaz-2ki-23-30": {
+      "why": "Jeremiah 22:11's Shallum, the son of Josiah who reigned in his place, is Jehoahaz (2 Kgs 23:30).",
+      "evidence": "Jeremiah 22:11",
+      "names": {
+        "add": [
+          "Shallum"
+        ]
+      },
+      "refs": {
+        "add": [
+          "Jer 22:11"
+        ]
+      },
+      "family": {
+        "siblings": {
+          "remove": [
+            "shallum-1ch-3-15"
+          ]
+        }
+      },
+      "note": "Jeremiah 22:11 calls the son of Josiah who reigned after him Shallum, so the Shallum of 1 Chronicles 3:15 is taken to be Jehoahaz. STEP instead identifies him with Johanan, Josiah's firstborn, though Jehoahaz was younger than Jehoiakim (2 Kings 23:31, 36)."
+    },
+    "shallum-1ch-3-15": {
+      "why": "The Shallum son of Josiah who 'reigned instead of Josiah his father' (Jer 22:11) is Jehoahaz, who has his own record.",
+      "evidence": "Jeremiah 22:11",
+      "same": "jehoahaz-2ki-23-30",
+      "article": [
+        [
+          "Shallum's brothers, Jehoiakim and Zedekiah, both became kings of Judah, with Jehoiakim succeeding their father Josiah and Zedekiah being appointed by the Babylonian king Nebuchadnezzar II.",
+          "Jeremiah calls Shallum the son of Josiah \"which reigned instead of Josiah his father\" (Jer.22.11), so he is taken to be Jehoahaz, who reigned three months after Josiah (2Ki.23.30-31); his brothers Jehoiakim and Zedekiah reigned after him."
+        ]
+      ],
+      "note": "The same person as Jehoahaz, king of Judah (Jeremiah 22:11)."
+    },
+    "nahash-2sa-17-25": {
+      "why": "STEP's reading of a debated verse, shown as a view.",
+      "evidence": "2 Samuel 17:25",
+      "note": "STEP reads 2 Samuel 17:25 (\"Abigail the daughter of Nahash, sister to Zeruiah\") as making Nahash Jesse's wife and so David's mother; others take Nahash to be an earlier husband of Jesse's wife, or another name for Jesse."
+    },
+    "nahash-1sa-11-1": {
+      "why": "Whether the Ammonite kings named Nahash are one man is not settled; shown as a view.",
+      "evidence": "2 Samuel 10:2",
+      "note": "Possibly the same Ammonite king as the Nahash whose son Hanun reigned after him in David's time (2 Samuel 10:1-2); Scripture does not say."
+    },
+    "nahash-2sa-10-2": {
+      "why": "Whether the Ammonite kings named Nahash are one man is not settled; shown as a view.",
+      "evidence": "2 Samuel 10:2",
+      "note": "Possibly the same Ammonite king as the Nahash who besieged Jabesh-gilead in Saul's time (1 Samuel 11:1); Scripture does not say."
+    },
+    "abimelech-gen-20-2": {
+      "why": "STEP joins in one record two meetings decades apart; shown as a view.",
+      "evidence": "Genesis 26:1",
+      "note": "This record holds both the Abimelech of Gerar who met Abraham (Genesis 20-21) and the one who met Isaac decades later (Genesis 26); they may be one man, or a royal name used by two kings."
+    },
+    "achish-1sa-21-10": {
+      "why": "STEP joins in one record a king of David's time and one of Solomon's; shown as a view.",
+      "evidence": "1 Kings 2:39",
+      "note": "This record holds the Achish of Gath who sheltered David (1 Samuel 21; 27-29; \"the son of Maoch\", 27:2) and \"Achish son of Maachah king of Gath\" in Solomon's time (1 Kings 2:39), some forty years later; they may be one man or two."
+    },
+    "eli-1sa-1-3": {
+      "why": "Eli judged Israel forty years and died before there was a king.",
+      "evidence": "1 Samuel 4:18",
+      "period": "judges"
+    },
+    "samuel-1sa-1-20": {
+      "why": "Samuel was the last judge, before and while he anointed the first kings.",
+      "evidence": "1 Samuel 7:15",
+      "period": "judges"
+    },
+    "joshua-exo-17-9": {
+      "why": "Joshua is first named in the wilderness, but led Israel's conquest of the land.",
+      "evidence": "Joshua 1:2",
+      "period": "conquest"
+    },
+    "jeroboam-1ki-11-26": {
+      "why": "Jeroboam reigned after the kingdom split.",
+      "evidence": "1 Kings 12:20",
+      "period": "divided-kingdom"
+    },
+    "rehoboam-1ki-11-43": {
+      "why": "Rehoboam reigned over Judah after the kingdom split.",
+      "evidence": "1 Kings 12:17",
+      "period": "divided-kingdom"
+    },
+    "luke-2co-13-13": {
+      "why": "Neither 2 Corinthians 13:13 nor 13:14 names Luke; they come from the KJV's after-word to the letter ('by Titus and Lucas').",
+      "evidence": "2 Corinthians 13:13",
+      "refs": {
+        "remove": [
+          "2 Cor 13:13",
+          "2 Cor 13:14"
+        ]
+      }
+    },
+    "barnabas-act-4-36": {
+      "why": "Galatians 2:9 names James, Cephas and John as the pillars, who gave Paul and Barnabas the right hand of fellowship.",
+      "evidence": "Galatians 2:9",
+      "article": [
+        [
+          "He was recognized as a pillar of the church alongside James and Peter (Gal.2.9).",
+          "James, Cephas and John, \"who seemed to be pillars\", gave him and Paul the right hand of fellowship (Gal.2.9)."
+        ]
+      ]
+    },
+    "james-mat-10-3": {
+      "why": "STEP's story stops mid-sentence, has spelling slips, and states a traditional identification as fact. The 'James the less' verses are an identification, noted.",
+      "evidence": "Matthew 10:3",
+      "brief": "Apostle, son of Alphaeus; traditionally \"James the Less\"",
+      "short": "James son of Alphaeus, traditionally known as \"James the Less\", was one of the Twelve Apostles.",
+      "article": "James the son of Alphaeus was one of the Twelve Apostles. He is named in all four lists of the apostles (Mat.10.3; Mrk.3.18; Luk.6.15; Act.1.13), and nothing more is told of him for certain. Tradition calls him \"James the Less\", identifying him with the James whose mother Mary watched the crucifixion (Mrk.15.40), to distinguish him from James the son of Zebedee and James the Lord's brother.",
+      "note": "Matthew 27:56, Mark 15:40 and 16:1 and Luke 24:10 (Mary \"the mother of James\", \"James the less\") are listed here, with that Mary and Joses as his mother and brother, because tradition identifies that James with the son of Alphaeus; Scripture does not say so, and many distinguish them."
+    },
+    "peter-mat-4-18": {
+      "why": "Who wrote 1 and 2 Peter is debated; the story stated it as fact. Mark 16:6 does not name him (16:7 does); and his father is Jona or Jonas in the KJV.",
+      "evidence": "2 Peter 1:1",
+      "article": [
+        [
+          "He wrote two epistles, 1 and 2 Peter, to encourage and instruct believers facing persecution.",
+          "Two letters, 1 and 2 Peter, open in his name, to encourage and instruct believers facing persecution (1Pe.1.1; 2Pe.1.1); whether he wrote them himself, 2 Peter especially, is debated."
+        ],
+        [
+          "He was the son of Jonah (or John)",
+          "He was the son of Jona or Jonas (KJV; \"John\" in most modern versions of Jhn.1.42 and 21.15-17)"
+        ]
+      ],
+      "refs": {
+        "remove": [
+          "Mark 16:6"
+        ]
+      }
+    },
+    "james-mat-13-55": {
+      "why": "Who wrote the letter of James is debated; the story stated it as fact.",
+      "evidence": "James 1:1",
+      "short": [
+        [
+          "and authored the epistle of James.",
+          "and is traditionally named as the author of the epistle of James."
+        ]
+      ],
+      "article": [
+        [
+          "James authored the New Testament epistle that bears his name, in which he emphasizes practical faith and good works (Jam 1.1).",
+          "Tradition names him as the author of the New Testament letter that bears the name James, which emphasizes practical faith and good works (Jas.1.1); the letter itself names only \"James, a servant of God and of the Lord Jesus Christ\", and its author is debated."
+        ]
+      ]
+    },
+    "ahab-1ki-16-28": {
+      "why": "STEP's story stopped at 1 Kings 20; it now tells of Naboth, Micaiah and Ahab's death, and says how the kings are counted.",
+      "evidence": "1 Kings 22:37",
+      "article": [
+        [
+          "the seventh king of Israel",
+          "the seventh king of Israel (not counting Tibni, 1Ki.16.21-22)"
+        ],
+        [
+          "with the Lord granting him victories. (1Ki.20).",
+          "with the Lord granting him victories. (1Ki.20)\nWhen Naboth would not sell him his vineyard, Jezebel had Naboth put to death and Ahab took the vineyard; Elijah foretold disaster on his house, and Ahab humbled himself (1Ki.21). Against the warning of the prophet Micaiah, he went up with Jehoshaphat to fight for Ramoth-gilead, where he was struck by an arrow and died; the dogs licked up his blood, \"according unto the word of the LORD\" (1Ki.22.1-38)."
+        ]
+      ]
+    },
+    "hezekiah-2ki-16-20": {
+      "why": "Hezekiah is the 13th ruler of Judah only if Queen Athaliah's reign is counted (2 Kgs 11:3).",
+      "evidence": "2 Kings 11:3",
+      "article": [
+        [
+          "the 13th king of Judah",
+          "the 13th ruler of Judah (counting Queen Athaliah)"
+        ]
+      ]
+    },
+    "josiah-1ki-13-2": {
+      "why": "Almost all the cited verses only date a prophecy to Josiah's reign; the prophets' praise of him is Jeremiah 22:15-16, which was not cited.",
+      "evidence": "Jeremiah 22:16",
+      "article": [
+        [
+          "Josiah's reign and reforms were praised by the prophets, including Jeremiah and Zephaniah (Jer.1.2; 3.6; 22.11, 18; 25.1, 3; 26.1; 35.1; 36.1-2, 9; Zep.1.1).",
+          "Jeremiah and Zephaniah prophesied in his reign, and his name dates many of Jeremiah's prophecies (Jer.1.2; 3.6; 22.11, 18; 25.1, 3; 26.1; 35.1; 36.1-2, 9; Zep.1.1). Jeremiah held him up as a king who \"judged the cause of the poor and needy\" (Jer.22.15-16)."
+        ]
+      ]
+    },
+    "mahli-exo-6-19": {
+      "why": "STEP's story stops without its last reference or full stop.",
+      "evidence": "Numbers 3:33",
+      "article": [
+        [
+          "setup of the tabernacle",
+          "setup of the tabernacle (Num.3.33-37)."
+        ]
+      ]
+    },
+    "mary-mat-27-56": {
+      "why": "STEP's story stops mid-reference.",
+      "evidence": "Matthew 27:56",
+      "article": [
+        [
+          "(Mat.13.55",
+          "(Mat.13.55; Mat.27.56)."
+        ]
+      ]
+    },
+    "ish-bosheth-2sa-2-8": {
+      "why": "No verse names Ish-bosheth's mother: 1 Samuel 14:49-50 lists Saul's sons, Ish-bosheth not by that name, and then names his wife Ahinoam.",
+      "evidence": "1 Samuel 14:50",
+      "family": {
+        "parents": {
+          "remove": [
+            "ahinoam-1sa-14-50"
+          ]
+        }
+      },
+      "note": "Scripture does not name his mother. Some identify him with Ishui (1 Samuel 14:49), listed just before Saul's wife Ahinoam is named; STEP takes Ishui to be Abinadab."
+    },
+    "john-mat-16-17": {
+      "why": "The KJV, the site's text, calls Peter's father Jona (Matt 16:17 'Bar-jona'; John 1:42) and Jonas (John 21:15-17); STEP's story quoted only the modern reading 'John'.",
+      "evidence": "John 1:42",
+      "article": [
+        [
+          "Jesus addresses Peter as \"Simon, son of John\" on several occasions (Jhn.21.15,16,17).",
+          "Jesus addresses Peter as \"Simon, son of John\" on several occasions (Jhn.21.15,16,17; KJV \"Simon, son of Jonas\")."
+        ],
+        [
+          "Here, Simon is also identified as the son of John.",
+          "Here, Simon is also identified as the son of John (KJV \"the son of Jona\")."
+        ]
+      ],
+      "note": "The KJV reads Jona (Matthew 16:17, \"Bar-jona\"; John 1:42) and Jonas (John 21:15-17); most modern versions read John in John's Gospel, following other Greek manuscripts."
+    },
+    "john-mat-4-21": {
+      "why": "STEP files Galatians 2:9 and the John of Revelation under the apostle and calls him 'the disciple whom Jesus loved'; these are identifications, the Revelation one disputed.",
+      "evidence": "Revelation 1:9",
+      "article": [
+        [
+          "and is often referred to as \"the disciple whom Jesus loved\" (Jhn.13.23)",
+          "and is traditionally identified with \"the disciple whom Jesus loved\" (Jhn.13.23), whom that Gospel does not name"
+        ]
+      ],
+      "note": "Galatians 2:9 (John among the \"pillars\") and the verses where the John of Revelation names himself (Revelation 1:1, 4, 9; 21:2; 22:8) are listed here because STEP identifies both with the son of Zebedee. The first is widely held; the second has been disputed since the third century (Dionysius of Alexandria), and many take Revelation's John to be another man."
+    },
+    "salome-mat-20-20": {
+      "why": "STEP joins Salome with 'the mother of Zebedee's children' by comparing the women at the cross (Matt 27:56; Mark 15:40); no verse names her so.",
+      "evidence": "Mark 15:40",
+      "note": "Salome (Mark 15:40; 16:1) is joined here with \"the mother of Zebedee's children\" (Matthew 20:20; 27:56) by comparing the lists of women at the cross, which makes her Zebedee's wife and the mother of James and John; Scripture does not say so. Her listing as the sister of Jesus' mother rests on a further identification, with \"his mother's sister\" in John 19:25."
+    },
+    "barak-jdg-4-6": {
+      "why": "1 Samuel 12:11's 'Bedan' is one reading of a debated name; shown as a view.",
+      "evidence": "1 Samuel 12:11",
+      "note": "1 Samuel 12:11's \"Bedan\" is listed here because STEP takes him to be Barak, as the Greek and Syriac versions read; others take Bedan to be Abdon (Judges 12:13) or a judge not named in Judges."
+    },
+    "joel-1sa-8-2": {
+      "why": "The KJV of 1 Chronicles 6:28 names Samuel's firstborn 'Vashni'; the record holds the verse, so the reading is explained.",
+      "evidence": "1 Chronicles 6:28",
+      "note": "1 Chronicles 6:28 in the KJV reads \"the firstborn Vashni, and Abiah\"; the Hebrew vashni can mean \"and the second\", and most modern versions read Joel there, as in 1 Samuel 8:2 and 1 Chronicles 6:33."
+    },
+    "othniel-jos-15-17": {
+      "why": "Whether 'Caleb's younger brother' (Judg 1:13; 3:9) is Kenaz or Othniel is debated; shown as a view.",
+      "evidence": "Judges 1:13",
+      "note": "Joshua 15:17 and Judges 1:13; 3:9 call Othniel \"the son of Kenaz, Caleb's younger brother\". STEP reads the brother as Kenaz, which makes Othniel Caleb's nephew; others read it as Othniel himself, Caleb's younger brother, with Kenaz an earlier ancestor (Caleb too is called \"the Kenezite\", Numbers 32:12)."
+    },
+    "kenaz-num-32-12": {
+      "why": "Whether 'Caleb's younger brother' (Judg 1:13; 3:9) is Kenaz or Othniel is debated; shown as a view.",
+      "evidence": "Judges 1:13",
+      "note": "STEP makes Kenaz Caleb's brother, reading \"Othniel the son of Kenaz, Caleb's younger brother\" (Judges 1:13; 3:9) of Kenaz; others read it of Othniel, with Kenaz an earlier ancestor of the clan of the Kenezites."
+    },
+    "ehud-jdg-3-15": {
+      "why": "Judges 3:15 calls Ehud 'the son of Gera, a Benjamite' without saying which Gera; no verse makes him the son of Gera the son of Benjamin (Gen 46:21), who went down to Egypt centuries earlier.",
+      "evidence": "Judges 3:15",
+      "family": {
+        "parents": {
+          "remove": [
+            "gera-gen-46-21"
+          ]
+        }
+      },
+      "note": "Judges 3:15 calls Ehud \"the son of Gera, a Benjamite\" but does not say which Gera; STEP had linked him to Gera the son of Benjamin (Genesis 46:21), reading \"son\" as \"descendant\". Whether the Ehud whose sons are listed in 1 Chronicles 8:6-7 is the judge is likewise not said."
+    },
+    "gera-gen-46-21": {
+      "why": "STEP takes this Gera as the one named in 'Ehud the son of Gera' (Judg 3:15); Judges does not say which Gera is meant.",
+      "evidence": "Judges 3:15",
+      "note": "STEP takes this Gera as the ancestor named in \"Ehud the son of Gera\" (Judges 3:15), so that verse is listed here; Judges does not say which Gera is meant."
+    },
+    "maacah-1ki-15-2": {
+      "why": "STEP joins three named mothers of kings in one record; shown as a view.",
+      "evidence": "2 Chronicles 13:2",
+      "note": "This record joins Abijah's mother \"Maachah the daughter of Abishalom\" (1 Kings 15:2; 2 Chronicles 11:20-22), Asa's \"mother\" Maachah (1 Kings 15:10, 13; 2 Chronicles 15:16) and \"Michaiah the daughter of Uriel of Gibeah\" (2 Chronicles 13:2). Some identify them as one woman, Absalom's granddaughter through Tamar and Uriel and Asa's grandmother as queen mother, which gives her the parents shown; others distinguish them."
+    },
+    "athaliah-2ki-8-26": {
+      "why": "2 Kings 8:18 and 8:26 name her father's house ('the daughter of Ahab'; 'the daughter of Omri') but never her mother; no verse makes Jezebel her mother.",
+      "evidence": "2 Kings 8:18",
+      "brief": "Queen of Judah, daughter of Ahab",
+      "short": [
+        [
+          "the daughter of Ahab and Jezebel,",
+          "the daughter of Ahab,"
+        ]
+      ],
+      "article": [
+        [
+          "She was the daughter of King Ahab and Queen Jezebel of Israel and married Jehoram, king of Judah.",
+          "She was the daughter of King Ahab of Israel (2Ki.8.18), called \"the daughter of Omri\", Ahab's father, in 2Ki.8.26; Scripture does not name her mother. She married Jehoram, king of Judah."
+        ]
+      ],
+      "family": {
+        "parents": {
+          "remove": [
+            "jezebel-1ki-16-31"
+          ]
+        }
+      },
+      "note": "Jezebel is often taken to be her mother, as Ahab's queen; Scripture names only her father's house."
+    },
+    "alphaeus-mat-10-3": {
+      "why": "No verse makes Alphaeus the brother of Joseph or the son of Jacob (Matt 1:16); that comes from the tradition (Hegesippus, quoted by Eusebius) that Clopas was Joseph's brother, joined with the identification of Clopas with Alphaeus.",
+      "evidence": "John 19:25",
+      "article": [
+        [
+          "Alphaeus, also known as Cleopas, is mentioned",
+          "Alphaeus, whom STEP identifies with Cleopas and Clopas, is mentioned"
+        ],
+        [
+          "(an alternative spelling of Cleopas or Alphaeus)",
+          "(taken by some to be another form of Cleopas or Alphaeus)"
+        ]
+      ],
+      "family": {
+        "parents": {
+          "remove": [
+            "jacob-mat-1-15"
+          ]
+        },
+        "siblings": {
+          "remove": [
+            "joseph-mat-1-16"
+          ]
+        }
+      },
+      "note": "STEP identifies Alphaeus with Clopas, husband of a Mary at the cross (John 19:25, KJV \"Cleophas\"), and with Cleopas of Emmaus (Luke 24:18), which makes that Mary the mother of James and Joses; these are identifications from later tradition, not statements of Scripture. The tradition of Hegesippus, quoted by Eusebius, makes Clopas the brother of Joseph, Mary's husband; no verse says so, so that link is not shown."
+    },
+    "matthew-mat-9-9": {
+      "why": "No verse makes Matthew the brother of James son of Alphaeus or of Joses, or the son of Mary the mother of James and Joses; Mark 2:14 names only his father, 'Levi the son of Alphaeus'.",
+      "evidence": "Mark 2:14",
+      "family": {
+        "parents": {
+          "remove": [
+            "mary-mat-27-56"
+          ]
+        },
+        "siblings": {
+          "remove": [
+            "james-mat-10-3",
+            "joses-mat-27-56"
+          ]
+        }
+      },
+      "note": "Mark 2:14 calls Levi \"the son of Alphaeus\", as James the apostle is \"the son of Alphaeus\" (Matthew 10:3); STEP takes them to be one Alphaeus, but Scripture never calls Matthew and James brothers."
+    },
+    "ben-hadad-1ki-15-18": {
+      "why": "STEP joins in one record the Ben-hadad of Asa's day and the one who fought Ahab some forty years later; shown as a view.",
+      "evidence": "1 Kings 20:34",
+      "note": "This record holds both Ben-hadad the son of Tabrimon, whom Asa paid to attack Baasha (1 Kings 15:18-20; 2 Chronicles 16:2-4), and the Ben-hadad who fought Ahab (1 Kings 20). Scripture does not say they are one man; many take Ahab's enemy to be a later king of the same name (he speaks of \"my father\", 1 Kings 20:34)."
+    },
+    "tiglath-pileser-2ki-15-19": {
+      "why": "2 Kings 15:19 and 1 Chronicles 5:26 name 'Pul king of Assyria'; that he is Tiglath-pileser is an identification, widely held.",
+      "evidence": "2 Kings 15:19",
+      "short": [
+        [
+          "Tiglath-pileser, also known as Pul,",
+          "Tiglath-pileser, widely identified with Pul,"
+        ]
+      ],
+      "article": [
+        [
+          "Tiglath-pileser, also referred to as \"the great\" or \"Pul,\"",
+          "Tiglath-pileser, widely identified with \"Pul\" (2Ki.15.19),"
+        ]
+      ],
+      "note": "2 Kings 15:19 and 1 Chronicles 5:26 name \"Pul king of Assyria\". Pul is widely identified with Tiglath-pileser III, whom Babylonian records call Pulu, so those verses are listed here, though 1 Chronicles 5:26 names Pul and Tilgath-pilneser side by side. Hosea's \"king Jareb\" (5:13; 10:6) is a further identification."
+    }
+  },
+  "added": {
+    "sargon-isa-20-1": {
+      "why": "STEP folds Sargon into Sennacherib; Isaiah 20:1 names 'Sargon the king of Assyria', a different king.",
+      "evidence": "Isaiah 20:1",
+      "name": "Sargon",
+      "sex": "Male",
+      "description": "King living at the time of Divided Monarchy",
+      "era": "Divided Monarchy",
+      "period": "divided-kingdom",
+      "tribe": "Assyria",
+      "brief": "King of Assyria whose commander took Ashdod",
+      "short": "Sargon, king of Assyria, sent his commander (the Tartan) to fight against the Philistine city of Ashdod, which he took.",
+      "article": "Sargon is named once in the Bible: \"In the year that Tartan came unto Ashdod, (when Sargon the king of Assyria sent him,) and fought against Ashdod, and took it\" (Isa.20.1). At that time the Lord told Isaiah to walk stripped and barefoot for three years, a sign that the king of Assyria would lead the Egyptians and Ethiopians away captive, and that those who had looked to them for help would be ashamed (Isa.20.2-6).\nScripture says nothing more of him. Assyrian records know him as Sargon II, who reigned about 722-705 BC and was followed by his son Sennacherib (2Ki.18.13).",
+      "refs": [
+        "Isa 20:1"
+      ]
+    },
+    "ahasuerus-dan-9-1": {
+      "why": "Daniel 9:1's Ahasuerus, father of Darius the Mede, is not Esther's husband, with whom STEP merged him.",
+      "evidence": "Daniel 9:1",
+      "name": "Ahasuerus",
+      "sex": "Male",
+      "description": "Man living at the time of Exile and Return",
+      "era": "Exile and Return",
+      "period": "exile",
+      "brief": "Father of Darius the Mede",
+      "short": "Ahasuerus is named only as the father of Darius the Mede, who was made king over the realm of the Chaldeans.",
+      "article": "Ahasuerus is named once, in Dan.9.1: \"Darius the son of Ahasuerus, of the seed of the Medes, which was made king over the realm of the Chaldeans\". Nothing else is told of him. He is not the Ahasuerus of the book of Esther, a Persian king who reigned later.",
+      "refs": [
+        "Dan 9:1"
+      ],
+      "children": [
+        "darius-dan-5-31"
+      ]
+    },
+    "candace-act-8-27": {
+      "why": "STEP files Candace only as a title, so the queen of the Ethiopians in Acts 8:27 had no person page.",
+      "evidence": "Acts 8:27",
+      "name": "Candace",
+      "names": [
+        "Kandake"
+      ],
+      "sex": "Female",
+      "description": "Queen living at the time of the New Testament",
+      "era": "New Testament",
+      "period": "early-church",
+      "tribe": "Ethiopia",
+      "brief": "Queen of the Ethiopians, whose treasurer Philip baptized",
+      "short": "Candace, queen of the Ethiopians, is named in Acts 8:27 as the ruler whose treasurer Philip met and baptized on the road to Gaza.",
+      "article": "Candace is named once, in Act.8.27: the man Philip met on the desert road from Jerusalem to Gaza was \"an eunuch of great authority under Candace queen of the Ethiopians, who had the charge of all her treasure\". When Philip had explained to him the passage of Isaiah he was reading, he was baptized (Act.8.26-39).\n\"Candace\" (Greek Kandake) is usually taken to be a royal title, used for the queens of Meroe in the kingdom of Kush, south of Egypt, rather than a personal name.",
+      "refs": [
+        "Acts 8:27"
+      ]
     }
   }
 }

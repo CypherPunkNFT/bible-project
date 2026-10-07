@@ -1,8 +1,9 @@
 import { useMemo, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { ProphetsRiver } from "@/components/study/ProphetsRiver";
 import { cameFrom } from "@/lib/came-from";
 import { kingFinder } from "@/lib/prophet-links";
+import { rulerFor, rulerHref } from "@/lib/people-pages-index";
 import { prophetEra } from "@/lib/prophet-eras";
 import { RefLink, StudyCredits, StudyHeader } from "@/components/study/StudyParts";
 import { useCatalog } from "@/lib/catalog";
@@ -30,6 +31,10 @@ export function ProphetsContent({ embedded = false }: { embedded?: boolean }) {
   const people = useAsync(loadPeople, "people");
   const kingId = useMemo(() => (people.status === "ready" ? kingFinder(people.value) : () => undefined), [people]);
   const [kind, setKind] = useState<Prophet["kind"] | "all">("all");
+  // ?king=<id> (from a ruler's page): that king's prophets lit, the rest dimmed.
+  const [params] = useSearchParams();
+  const focusKing = params.get("king") ?? "";
+  const focusRuler = focusKing ? rulerFor(focusKing) : undefined;
 
   const shown = prophets.status === "ready" ? prophets.value.filter((p) => kind === "all" || p.kind === kind) : [];
   const eras = [...new Set(shown.map((p) => p.era))];
@@ -52,6 +57,7 @@ export function ProphetsContent({ embedded = false }: { embedded?: boolean }) {
         <>
           <div id="prophets-directory" className="study-section-anchor"><ProphetsRiver prophets={prophets.value} kingId={kingId} /></div>
           <h3 className="mt-10 font-serif text-2xl font-semibold">Every prophet, era by era</h3>
+          {focusRuler && <p className="mt-2 text-sm text-muted">Lit: the prophets Scripture places in the days of {focusRuler.name}. <Link className="underline" to={rulerHref(focusRuler.id)}>Back to the reign</Link></p>}
           <div role="group" aria-label="Show" className="mt-6 flex flex-wrap gap-1.5">
             {KINDS.map((k) => (
               <button
@@ -74,7 +80,7 @@ export function ProphetsContent({ embedded = false }: { embedded?: boolean }) {
                   {shown
                     .filter((p) => p.era === era)
                     .map((p) => (
-                      <ProphetCard key={p.id} prophet={p} kingId={kingId} />
+                      <ProphetCard key={p.id} prophet={p} kingId={kingId} dim={Boolean(focusRuler) && rulerFor(kingId(p.king) ?? "")?.id !== focusRuler?.id} />
                     ))}
                 </ol>
               </section>
@@ -96,13 +102,13 @@ export function ProphetsContent({ embedded = false }: { embedded?: boolean }) {
   );
 }
 
-function ProphetCard({ prophet, kingId }: { prophet: Prophet; kingId: (name: string) => string | undefined }) {
+function ProphetCard({ prophet, kingId, dim }: { prophet: Prophet; kingId: (name: string) => string | undefined; dim?: boolean }) {
   const catalog = useCatalog();
   const book = prophet.book ? bookByCode(catalog, prophet.book) : undefined;
   const colors = tone(KIND_TONE[prophet.kind]);
   const role = prophet.kind === "false" ? (prophet.sex === "Female" ? "False prophetess" : "False prophet") : prophet.sex === "Female" ? "Prophetess" : "Prophet";
   return (
-    <li id={`prophet-${prophet.id}`} className="relative scroll-mt-24 overflow-hidden rounded-xl border border-line bg-surface transition-colors hover:border-accent">
+    <li id={`prophet-${prophet.id}`} className={cn("relative scroll-mt-24 overflow-hidden rounded-xl border border-line bg-surface transition-colors hover:border-accent", dim && "opacity-40")}>
       {/* The kind of prophet, faded so the era bars lead (owner); the false prophets' grey is already quiet. */}
       <div className="h-1.5" style={{ background: prophet.kind === "false" ? colors.tab : `color-mix(in srgb, ${colors.tab} 40%, var(--surface))` }} aria-hidden />
       <div className="p-3">
@@ -121,7 +127,7 @@ function ProphetCard({ prophet, kingId }: { prophet: Prophet; kingId: (name: str
           {prophet.king ? (
             <>
               {prophet.king === "Moses" || prophet.king === "the judges" || prophet.king === "the exile" ? "In the time of " : "In the days of "}
-              {kingId(prophet.king) ? <Link to={`/people/${kingId(prophet.king)}`} state={cameFrom("Prophets through time")} className="relative z-10 underline decoration-line underline-offset-2 hover:text-accent">{prophet.king}</Link> : prophet.king}
+              {kingId(prophet.king) ? <Link to={rulerHref(kingId(prophet.king)!)} state={cameFrom("Prophets through time")} className="relative z-10 underline decoration-line underline-offset-2 hover:text-accent">{prophet.king}</Link> : prophet.king}
               {prophet.anchor && (
                 <>
                   {" — "}
@@ -133,6 +139,8 @@ function ProphetCard({ prophet, kingId }: { prophet: Prophet; kingId: (name: str
             "Not dated by any king in Scripture"
           )}
         </p>
+        {/* A prophet who also ruled (Deborah, Samuel) links to that page too. */}
+        {rulerFor(prophet.id) && <p className="mt-2 text-sm"><Link to={rulerHref(prophet.id)} state={cameFrom("Prophets through time")} className="relative z-10 font-semibold underline decoration-line underline-offset-2 hover:text-accent">{prophet.sex === "Female" ? "Her" : "His"} time as {rulerFor(prophet.id)!.kind === "judge" ? "judge" : "ruler"} →</Link></p>}
         {book && (
           <p className="mt-2 text-sm">
             <Link to={`/read/kjv/${book.code}/1`} className="relative z-10 font-semibold underline decoration-line underline-offset-2 hover:text-accent">

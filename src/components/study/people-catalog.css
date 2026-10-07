@@ -73,8 +73,9 @@
 }
 @media (prefers-reduced-motion: reduce) { .people-catalog-roles button { transition: none; } }
 
-/* Owner's picks for three kinds (people-roles.ts): judge white, disciple a deeper purple, family green; both themes. */
-:root { --role-judge: #ffffff; --role-disciple: #7a2fd1; --role-family: #3f8a2a; }
+/* Owner's picks for three kinds (people-roles.ts): judge white (a pale gold on the light parchment, where white could not
+   be seen; PRESENTATION.md §3.10), disciple a deeper purple, family green; both themes. */
+:root { --role-judge: #a8862f; --role-disciple: #7a2fd1; --role-family: #3f8a2a; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --role-judge: #f6f3ec; --role-disciple: #a66bff; --role-family: #86c95c; } }
 :root[data-theme="dark"] { --role-judge: #f6f3ec; --role-disciple: #a66bff; --role-family: #86c95c; }
 /* A faint ring on every dot, so the white one shows on a light page. */

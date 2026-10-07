@@ -11,6 +11,24 @@
         { "file": "src/data/letters/general-letters.json", "page": "James, Peter & Jude", "address": "/study/letters/james-peter-and-jude" },
         { "file": "src/data/letters/john-letters.json", "page": "The letters of John", "address": "/study/letters/the-letters-of-john" }
       ]
+    },
+    {
+      "id": "people-rulers",
+      "label": "People · rulers",
+      "pages": [
+        { "file": "src/data/people-pages/rulers-judges.json", "page": "Moses, Joshua and the judges", "address": "/study/people?view=rulers" },
+        { "file": "src/data/people-pages/rulers-united-kingdom.json", "page": "Saul, David and Solomon", "address": "/study/people?view=rulers" },
+        { "file": "src/data/people-pages/rulers-israel.json", "page": "The kings of Israel", "address": "/study/people?view=rulers" },
+        { "file": "src/data/people-pages/rulers-judah.json", "page": "The kings of Judah", "address": "/study/people?view=rulers" }
+      ]
+    },
+    {
+      "id": "people-apostles",
+      "label": "People · apostles",
+      "pages": [
+        { "file": "src/data/people-pages/apostles-1.json", "page": "The first called", "address": "/study/people?view=apostles" },
+        { "file": "src/data/people-pages/apostles-2.json", "page": "The rest of the Twelve, Matthias and Paul", "address": "/study/people?view=apostles" }
+      ]
     }
   ]
 }

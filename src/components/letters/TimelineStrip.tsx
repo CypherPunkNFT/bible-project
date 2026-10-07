@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import type { Timeline, TimelineEvent } from "@/data/letters/types";
 import { useKeep } from "./letter-hooks";
 import { ClaimText, CiteMarks, KeepX, Refs } from "./LetterParts";
@@ -32,9 +33,16 @@ function packRows(events: TimelineEvent[], x: (v: number) => number, minWidth: n
  * Dated events as glowing ranges on a year axis (letters stand out in the group colour), or — for "story"
  * timelines that follow the biblical narrative rather than dates — as a row of numbered steps.
  */
-export function TimelineStrip({ timeline }: { timeline: Timeline }) {
+export function TimelineStrip({ timeline, formatYear = (v) => (v < 0 ? `${-v} BC` : `AD ${v}`), onActive }: {
+  timeline: Timeline;
+  /** How a point on the axis is named (default: years BC/AD; the ruler pages use years of a reign). */
+  formatYear?: (value: number) => string;
+  /** Told whenever the pointed-at or kept event changes, so a map beside the strip can light its place. */
+  onActive?: (event: TimelineEvent | null) => void;
+}) {
   const keep = useKeep<TimelineEvent>();
   const { active } = keep;
+  useEffect(() => { onActive?.(active); }, [active, onActive]);
   const events = [...timeline.events].sort((a, b) => a.from - b.from);
   const tip = active;
   const x = keep.kept && <KeepX onRelease={keep.release} />;
@@ -63,9 +71,9 @@ export function TimelineStrip({ timeline }: { timeline: Timeline }) {
 
   return <figure>
     <div className="lg-figure">
-      <svg viewBox={`0 0 ${W} ${height}`} role="img" aria-label={`${timeline.title}, AD ${lo} to ${hi}`}>
+      <svg viewBox={`0 0 ${W} ${height}`} role="img" aria-label={`${timeline.title}, ${formatYear(lo)} to ${formatYear(hi)}`}>
         {ticks.map((t) => <g key={t}><line x1={xOf(t)} x2={xOf(t)} y1={24} y2={height - 20} stroke="var(--line)" strokeDasharray="2 4" />
-          <text x={xOf(t)} y={16} textAnchor="middle" className="lg-svg-text">{t < 0 ? `${-t} BC` : `AD ${t}`}</text></g>)}
+          <text x={xOf(t)} y={16} textAnchor="middle" className="lg-svg-text">{formatYear(t)}</text></g>)}
         {events.map((e, i) => {
           const x0 = xOf(e.from), x1 = Math.max(xOf(e.to ?? e.from), x0 + 10), y = 34 + rows[i] * ROW;
           const isLetter = Boolean(e.letter);
@@ -79,7 +87,7 @@ export function TimelineStrip({ timeline }: { timeline: Timeline }) {
         })}
       </svg>
     </div>
-    <div className="lg-tip" aria-live="polite">{tip ? <><strong>{tip.label}</strong>{x} <span className="lg-muted">· AD {tip.from}{tip.to && tip.to !== tip.from ? `–${tip.to}` : ""}</span><Refs refs={tip.refs} /><CiteMarks cites={tip.cites} /></>
+    <div className="lg-tip" aria-live="polite">{tip ? <><strong>{tip.label}</strong>{x} <span className="lg-muted">· {formatYear(tip.from)}{tip.to && tip.to !== tip.from ? `–${formatYear(tip.to).replace(/^AD /, "")}` : ""}</span><Refs refs={tip.refs} /><CiteMarks cites={tip.cites} /></>
       : <span className="lg-muted">Ranges show where the sources disagree. Letters glow in the page colour. Point at a bar for its verses; click to keep it.</span>}</div>
     <figcaption className="lg-caption"><ClaimText claim={timeline.claim} as="span" /></figcaption>
   </figure>;

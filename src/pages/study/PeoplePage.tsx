@@ -8,31 +8,38 @@ import { StudyContents } from "@/components/study/StudyContents";
 import { GenealogyExplorer } from "@/components/study/GenealogyExplorer";
 import { PeopleCatalog } from "@/components/study/PeopleCatalog";
 import { ProphetsContent } from "./ProphetsPage";
+import { ApostlesGuide } from "@/components/people-pages/ApostlesGuide";
+import { RulersGuide } from "@/components/people-pages/RulersGuide";
+import { usePeoplePageSlide } from "@/components/people-pages/usePeoplePageSlide";
 
-type View = "everyone" | "families" | "prophets";
+type View = "everyone" | "families" | "prophets" | "rulers" | "apostles";
+/** Cards whose id is also their view (the others: "everyone" is the default, "people-directory" is families). */
+const CARD_VIEWS = ["prophets", "rulers", "apostles"] as const;
 
-/** People & genealogies: three cards choose the view: everyone in the Bible (most named, then the full table), the
- *  family trees, or the prophets. Each person opens on their own page (/people/:id). */
+/** People & genealogies: five cards choose the view: everyone in the Bible (most named, then the full table), the
+ *  family trees, the prophets, the rulers or the apostles. Each person opens on their own page (/people/:id); rulers
+ *  and apostles also have a second page (/people/:id/rule, /people/:id/mission), which the guides wipe into. */
 export default function PeoplePage() {
   const [params, setParams] = useSearchParams();
   const { hash } = useLocation();
   const asked = params.get("view");
   // "#people-directory" is the People & families card's older address.
-  const view: View = asked === "prophets" ? "prophets" : asked === "families" || (!asked && hash === "#people-directory") ? "families" : "everyone";
+  const view: View = CARD_VIEWS.find((id) => id === asked) ?? (asked === "families" || (!asked && hash === "#people-directory") ? "families" : "everyone");
+  const slide = usePeoplePageSlide();
   const show = (next: View) => {
     const search = new URLSearchParams(params);
     if (next === "everyone") search.delete("view"); else search.set("view", next);
     setParams(search, { preventScrollReset: true });
   };
-  return <div className="mx-auto max-w-7xl px-4 pb-16 sm:px-6">
+  return <div className="mx-auto max-w-7xl px-4 pb-16 sm:px-6" onClickCapture={slide}><div className="people-page-slide">
     <StudyHeader eyebrow="Study · People & genealogies" title="Lives woven through Scripture."
-      lead={<p>Everyone the Bible names, in the order of its history. Open a life, follow the families, or trace the prophets through the eras Scripture gives them.</p>}
-      contents={<StudyContents selectedId={view === "families" ? "people-directory" : view === "prophets" ? "prophets" : "everyone"} onSelect={(id) => show(id === "prophets" ? "prophets" : id === "everyone" ? "everyone" : "families")} />} />
+      lead={<p>Everyone the Bible names, in the order of its history. Open a life, follow the families, or trace the prophets, the rulers and the apostles through the eras Scripture gives them.</p>}
+      contents={<StudyContents selectedId={view === "families" ? "people-directory" : view} onSelect={(id) => show(CARD_VIEWS.find((v) => v === id) ?? (id === "everyone" ? "everyone" : "families"))} />} />
     {/* The contents cards switch the view with the study's transition (components/study/study-view.ts). */}
     <div className="people-view-window"><div key={view} data-study-panel className="people-view-panel">
-      {view === "prophets" ? <ProphetsContent embedded /> : view === "families" ? <GenealogyExplorer /> : <Everyone />}
+      {view === "prophets" ? <ProphetsContent embedded /> : view === "rulers" ? <RulersGuide /> : view === "apostles" ? <ApostlesGuide /> : view === "families" ? <GenealogyExplorer /> : <Everyone />}
     </div></div>
-  </div>;
+  </div></div>;
 }
 
 function Everyone() {

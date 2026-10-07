@@ -33,10 +33,11 @@ function usePlayback() {
   return [play, setPlay] as const;
 }
 
-type Point = { name: string; x: number; y: number; layer: number; note?: string; letter?: string; refs?: MapLayer["stops"][number]["refs"] };
+type Point = { name: string; x: number; y: number; layer: number; note?: string; letter?: string; refs?: MapLayer["stops"][number]["refs"]; placeId: string; dashed?: boolean };
 
-/** Routes and pins over the land outline, zoomed to the places shown; one toggle per layer. */
-export function LetterMap({ layers, title, displayWidth = 1150 }: { layers: MapLayer[]; title: string; displayWidth?: number }) {
+/** Routes and pins over the land outline, zoomed to the places shown; one toggle per layer. `focus` (a place id) lights
+ *  that place from outside the map, e.g. a battle pointed at in a list beside it. */
+export function LetterMap({ layers, title, displayWidth = 1150, focus }: { layers: MapLayer[]; title: string; displayWidth?: number; focus?: string }) {
   const places = useAsync(loadPlaces, "places");
   // Busy maps open with their first four layers; the rest are a click away.
   const [hidden, setHidden] = useState<Set<string>>(() => new Set(layers.slice(4).map((l) => l.id)));
@@ -50,10 +51,10 @@ export function LetterMap({ layers, title, displayWidth = 1150 }: { layers: MapL
   const points: Point[][] = shown.map(({ layer, index }) => layer.stops.flatMap((stop) => {
     const place = byId.get(stop.placeId);
     const xy = place ? projection([place.lon, place.lat]) : null;
-    return xy ? [{ name: stop.name, x: xy[0], y: xy[1], layer: index, note: stop.note, letter: stop.letter, refs: stop.refs }] : [];
+    return xy ? [{ name: stop.name, x: xy[0], y: xy[1], layer: index, note: stop.note, letter: stop.letter, refs: stop.refs, placeId: stop.placeId, dashed: layer.dashed }] : [];
   }));
   const all = points.flat();
-  const active = all.find((p) => keyOf(p) === keep.active);
+  const active = all.find((p) => keyOf(p) === keep.active) ?? (focus ? all.find((p) => p.placeId === focus) : undefined);
   const xs = all.map((p) => p.x), ys = all.map((p) => p.y);
   // Frame the places with a margin, then widen (never crop) to a calm 2:1 view, at least a region wide.
   const spread = all.length ? Math.max(Math.max(...xs) - Math.min(...xs), Math.max(...ys) - Math.min(...ys)) : 0;
@@ -118,7 +119,10 @@ export function LetterMap({ layers, title, displayWidth = 1150 }: { layers: MapL
         })}
         {points.flat().map((p, i) => <g key={i} transform={`translate(${p.x},${p.y})`} style={{ cursor: "pointer" }} tabIndex={0} role="button" aria-label={p.name}
           className={keep.peek(keyOf(p)) ? "lg-peek" : undefined} {...keep.bind(keyOf(p))}>
-          <circle r={(p.letter ? 6 : 4) * scale} fill={LAYER_TONES[p.layer % LAYER_TONES.length]} stroke="var(--page)" strokeWidth={1.2 * scale} className="lg-glow" />
+          {/* Places known only from tradition are dashed pins. */}
+          {p.dashed ? <circle r={5 * scale} fill="var(--page)" stroke={LAYER_TONES[p.layer % LAYER_TONES.length]} strokeWidth={1.6 * scale} strokeDasharray={`${2 * scale} ${1.6 * scale}`} />
+            : <circle r={(p.letter ? 6 : 4) * scale} fill={LAYER_TONES[p.layer % LAYER_TONES.length]} stroke="var(--page)" strokeWidth={1.2 * scale} className="lg-glow" />}
+          {active && keyOf(active) === keyOf(p) && <circle r={10 * scale} fill="none" stroke={LAYER_TONES[p.layer % LAYER_TONES.length]} strokeWidth={1.5 * scale} className="lg-glow" />}
           {(labelAll || (active && keyOf(active) === keyOf(p)) || isCurrent(p)) && <text x={(p.x > x1 - (x1 - x0) * 0.22 ? -8 : 8) * scale} y={4 * scale} textAnchor={p.x > x1 - (x1 - x0) * 0.22 ? "end" : "start"} style={{ font: `${11 * scale}px var(--font-sans)`, fill: "var(--ink)", paintOrder: "stroke", stroke: "var(--page)", strokeWidth: 3 * scale }}>{p.name}</text>}
         </g>)}
       </svg>

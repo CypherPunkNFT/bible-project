@@ -1,0 +1,130 @@
+import { useEffect, type MouseEvent } from "react";
+import { flushSync } from "react-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { transitionTicker } from "@/components/ticker/transition-clock";
+import { apostleFor, isAspect, rulerFor, timeRank, type Aspect } from "@/lib/people-pages-index";
+
+/**
+ * The page wipe between a person page and their ruler or apostle page, between rulers, and from the two guides (the
+ * Atlas's Early Church wipe, src/pages/places/usePlacesPageSlide.ts; each collection keeps its own copy so they can
+ * change apart). The new page comes in from the side the reader is heading to: later rulers from the right, earlier
+ * ones from the left; going back, the old page wipes away. No fades. Shared navigation stays still: only the
+ * `.people-page-slide` content takes part.
+ *
+ * Links that carry router state (the "came from" for the back link) repeat it in `data-state`, because this hook
+ * navigates in place of the link (SlideLink.tsx).
+ */
+type Place = { kind: "person" | "special" | "guide" | "other"; id?: string; aspect?: Aspect };
+
+function placeOf(url: URL): Place {
+  const person = /^\/people\/([^/]+)(?:\/([a-z]+))?\/?$/.exec(url.pathname);
+  if (person) return isAspect(person[2]) ? { kind: "special", id: person[1], aspect: person[2] } : person[2] ? { kind: "other" } : { kind: "person", id: person[1] };
+  const view = url.searchParams.get("view");
+  if (url.pathname === "/study/people" && (view === "rulers" || view === "apostles")) return { kind: "guide" };
+  return { kind: "other" };
+}
+
+/** Forward = towards the right: into a special page, to a later ruler, to the next apostle. */
+function forward(from: Place, to: Place): boolean {
+  if (from.kind === "special" && to.kind === "guide") return false;
+  if (from.id && from.id === to.id) return to.kind === "special";
+  if (from.kind === "special" && to.kind === "special" && from.id && to.id) {
+    if (to.aspect === "rule" && from.aspect === "rule") {
+      const a = rulerFor(from.id), b = rulerFor(to.id);
+      return a && b ? timeRank(b) >= timeRank(a) : true;
+    }
+    if (to.aspect === "mission" && from.aspect === "mission") return (apostleFor(to.id)?.order ?? 0) >= (apostleFor(from.id)?.order ?? 0);
+  }
+  return true;
+}
+
+/** Waits until the arriving page marks itself ready (its data and code loaded), so the wipe never shows a loading frame. */
+function arrived(key: string, timeout = 900): Promise<void> {
+  return new Promise((resolve) => {
+    const start = performance.now();
+    const check = () => {
+      if (document.querySelector(`[data-people-ready="${CSS.escape(key)}"]`) || performance.now() - start > timeout) resolve();
+      else requestAnimationFrame(check);
+    };
+    check();
+  });
+}
+
+export const readyKey = (place: { kind: string; id?: string; aspect?: string; view?: string }) => `${place.kind}:${place.id ?? place.view ?? ""}:${place.aspect ?? ""}`;
+
+type Transition = { ready: Promise<void>; finished: Promise<void>; skipTransition: () => void };
+type TransitionDocument = Document & { startViewTransition?: (update: () => void | Promise<void>) => Transition };
+
+// Module state, so a page remounting inside the transition cannot cancel it.
+let generation = 0;
+let active: { transition: Transition; pathname: string } | undefined;
+
+const clearSlide = () => {
+  const data = document.documentElement.dataset;
+  delete data.peopleSlide;
+  delete data.peopleDirection;
+};
+
+/** The leaving page is drawn in the arriving page's slot; shift it back to where it was on screen. */
+function keepOldInPlace(oldTop: number | undefined) {
+  const content = document.querySelector(".people-page-slide");
+  if (oldTop === undefined || !content) return;
+  document.documentElement.style.setProperty("--people-old-shift", `${oldTop - content.getBoundingClientRect().top}px`);
+}
+
+export function usePeoplePageSlide() {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // A browser Back/Forward action during the slide supersedes the pending destination.
+    if (active && active.pathname !== location.pathname) {
+      generation++;
+      active.transition.skipTransition();
+      active = undefined;
+      clearSlide();
+    }
+  }, [location.pathname]);
+
+  return (event: MouseEvent<HTMLElement>) => {
+    if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    const link = event.target instanceof Element ? event.target.closest<HTMLAnchorElement>("a[href]") : null;
+    if (!link || link.target || link.hasAttribute("download")) return;
+    const to = new URL(link.href);
+    const here = new URL(window.location.href);
+    if (to.origin !== here.origin || (to.pathname === here.pathname && to.search === here.search)) return;
+    const from = placeOf(here), next = placeOf(to);
+    // Only journeys that involve a ruler or apostle page wipe; person to person (relatives) stays as it was.
+    if (from.kind !== "special" && next.kind !== "special") return;
+    if (from.kind === "other" || next.kind === "other") return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const doc = document as TransitionDocument;
+    if (!doc.startViewTransition) return; // unsupported browsers keep normal, immediate navigation
+
+    event.preventDefault();
+    let state: unknown;
+    try { state = link.dataset.state ? JSON.parse(link.dataset.state) : undefined; } catch { state = undefined; }
+    const run = ++generation;
+    active?.transition.skipTransition();
+    const oldTop = document.querySelector(".people-page-slide")?.getBoundingClientRect().top;
+    const data = document.documentElement.dataset;
+    data.peopleSlide = "wipe";
+    data.peopleDirection = forward(from, next) ? "forward" : "backward";
+    const view = to.searchParams.get("view") ?? undefined;
+    const transition = doc.startViewTransition(async () => {
+      if (run !== generation) return;
+      flushSync(() => navigate(`${to.pathname}${to.search}${to.hash}`, { state }));
+      await arrived(readyKey({ ...next, view }));
+      keepOldInPlace(oldTop);
+    });
+    active = { transition, pathname: to.pathname };
+    const label = next.kind === "guide" ? "Back to the guide" : `Into ${next.aspect ?? "person"} · wipe`;
+    void transition.ready.then(() => transitionTicker.attach(run, label)).catch(() => undefined);
+    void transition.finished.catch(() => undefined).then(() => {
+      transitionTicker.detach(run);
+      if (run !== generation) return;
+      active = undefined;
+      clearSlide();
+    });
+  };
+}

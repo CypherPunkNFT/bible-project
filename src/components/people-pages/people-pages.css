@@ -1,0 +1,234 @@
+/* Ruler and apostle pages (/people/:id/rule, /people/:id/mission), the person page's switch and entry card, and the
+   Rulers and Apostles guides. The look is the Letters pages' gilded glass (../letters/letters.css, lg-): --lg is the
+   page's glow colour, set per kind of ruler (kinds.ts). Classes here are prefixed pp- (people pages). */
+
+/* The judges' own pale gold, visible on the parchment as well as the night theme; the sand edge for records outside
+   the Bible. */
+:root { --pp-judge: #a8862f; --pp-sand: #b8904a; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --pp-judge: #f1dfa6; --pp-sand: #d9b97c; } }
+:root[data-theme="dark"] { --pp-judge: #f1dfa6; --pp-sand: #d9b97c; }
+
+/* ── The wipe between pages (usePeoplePageSlide.ts): only the content moves, never the site's navigation. ── */
+html[data-people-slide] .people-page-slide { view-transition-name: people-page; background: var(--page); }
+html[data-people-slide]::view-transition { pointer-events: none; }
+html[data-people-slide]::view-transition-old(root) { display: none; }
+html[data-people-slide]::view-transition-new(root) { animation: none; }
+html[data-people-slide]::view-transition-group(people-page) { animation: none; }
+html[data-people-slide]::view-transition-old(people-page) { translate: 0 var(--people-old-shift, 0px); }
+html[data-people-slide]::view-transition-old(people-page),
+html[data-people-slide]::view-transition-new(people-page) { height: auto; mix-blend-mode: normal; opacity: 1; animation-fill-mode: both; }
+/* Forward: the new page sweeps in from the right edge over the old one. Backward: the old page wipes away to the right. */
+html[data-people-slide][data-people-direction=forward]::view-transition-old(people-page) { animation: none; }
+html[data-people-slide][data-people-direction=forward]::view-transition-new(people-page) { animation: pp-wipe-from-right 620ms cubic-bezier(.65, 0, .35, 1) both; }
+html[data-people-slide][data-people-direction=backward]::view-transition-new(people-page) { animation: none; }
+html[data-people-slide][data-people-direction=backward]::view-transition-old(people-page) { z-index: 2; animation: pp-wipe-away-right 620ms cubic-bezier(.65, 0, .35, 1) both; }
+@keyframes pp-wipe-from-right { from { clip-path: inset(0 0 0 100%); } to { clip-path: inset(0 0 0 0); } }
+@keyframes pp-wipe-away-right { from { clip-path: inset(0 0 0 0); } to { clip-path: inset(0 0 0 100%); } }
+
+/* ── The person | page switch: one pill, two halves; the chosen half is filled (its own fill, no ring). ── */
+.pp-switch { display: inline-grid; grid-auto-flow: column; grid-auto-columns: 1fr; padding: 3px; border: 1px solid color-mix(in srgb, var(--lg, var(--accent)) 45%, var(--line)); border-radius: 999px; background: color-mix(in srgb, var(--lg, var(--accent)) 6%, var(--surface)); }
+.pp-switch a { padding: .45rem 1.1rem; border: 1px solid transparent; border-radius: 999px; font-size: .86rem; font-weight: 500; text-align: center; white-space: nowrap; color: var(--muted); transition: color .15s, border-color .15s, background .15s; }
+.pp-switch a:hover, .pp-switch a:focus-visible { color: var(--ink); border-color: color-mix(in srgb, var(--lg, var(--accent)) 60%, transparent); }
+.pp-switch a[aria-current="page"] { color: var(--page); background: var(--lg, var(--accent)); border-color: var(--lg, var(--accent)); font-weight: 600; }
+@media (max-width: 640px) { .pp-switch { display: grid; width: 100%; } }
+
+/* ── The entry card on a person page ── */
+.pp-entry { position: relative; display: grid; gap: .45rem; padding: 1.4rem 1.5rem 1.3rem; border: 1px solid color-mix(in srgb, var(--lg) 45%, var(--line)); border-radius: 20px; overflow: hidden; color: var(--ink);
+  background: radial-gradient(130% 120% at 100% 0%, color-mix(in srgb, var(--lg) 20%, transparent), transparent 60%), linear-gradient(160deg, color-mix(in srgb, var(--surface) 85%, transparent), color-mix(in srgb, var(--lg) 8%, var(--surface)));
+  box-shadow: inset 0 1px 0 color-mix(in srgb, #fff 8%, transparent), 0 26px 60px -38px color-mix(in srgb, var(--lg) 70%, transparent); transition: border-color .2s, transform .2s, box-shadow .2s; }
+.pp-entry:hover, .pp-entry:focus-visible { border-color: var(--lg); transform: translateY(-2px); box-shadow: inset 0 1px 0 color-mix(in srgb, #fff 8%, transparent), 0 30px 70px -36px color-mix(in srgb, var(--lg) 85%, transparent); }
+.pp-entry-icon { color: var(--lg); filter: drop-shadow(0 0 10px color-mix(in srgb, var(--lg) 60%, transparent)); }
+.pp-entry-kicker { margin-top: .35rem; font-size: .66rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--lg); }
+.pp-entry-line { font: 500 1.2rem/1.35 var(--font-serif); }
+.pp-entry-cta { display: inline-flex; align-items: center; gap: .45rem; margin-top: .35rem; font-size: .9rem; font-weight: 600; color: var(--lg); }
+
+/* ── Page frame: back link and crumbs ── */
+.pp-top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: .5rem 1rem; }
+.pp-crumbs { font-size: .66rem; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+.pp-crumbs a:hover { color: var(--ink); }
+.pp-heading { margin-top: .25rem; font: 500 .8rem var(--font-sans); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+
+/* ── Hero ── */
+.pp-hero-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: start; gap: 1rem 2rem; }
+.pp-hero h2 { margin-top: .45rem; font: 500 clamp(2.4rem, 5vw, 3.9rem)/1.04 var(--font-serif); letter-spacing: -.035em; }
+.pp-hero h2 em { display: block; margin-top: .3rem; font-size: .55em; font-weight: 400; font-style: italic; letter-spacing: -.015em; color: var(--lg); }
+.pp-badges { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: 1rem; }
+.pp-badge { display: inline-flex; align-items: center; gap: .35rem; padding: .25rem .65rem; border: 1px solid var(--lg-line); border-radius: 999px; font-size: .74rem; color: var(--muted); }
+.pp-badge:is(a):hover { color: var(--ink); border-color: var(--lg); }
+.pp-stats { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: .65rem; margin-top: 1.5rem; }
+.pp-stat { position: relative; min-width: 0; padding: .8rem .95rem; border: 1px solid var(--lg-line); border-radius: 14px; background: var(--lg-soft); }
+.pp-stat dt { font-size: .62rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--lg); }
+.pp-stat dd { margin-top: .4rem; font: 500 1.08rem/1.3 var(--font-serif); color: var(--ink); overflow-wrap: anywhere; }
+.pp-stat dd small { display: block; margin-top: .25rem; font: .74rem/1.4 var(--font-sans); color: var(--muted); }
+.pp-stat a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--lg-line); text-underline-offset: 3px; }
+.pp-stat a:hover { color: var(--lg); }
+.pp-info { display: inline-grid; place-items: center; width: 1.25rem; height: 1.25rem; margin-left: .35rem; border: 1px solid var(--lg-line); border-radius: 50%; font: 600 .66rem var(--font-sans); color: var(--lg); vertical-align: 2px; }
+.pp-info[aria-expanded="true"], .pp-info:hover { border-color: var(--lg); background: var(--lg-soft); }
+.pp-stat-note { margin-top: .5rem; font: .76rem/1.5 var(--font-sans); color: var(--muted); }
+@media (max-width: 900px) { .pp-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); } .pp-stat[data-wide] { grid-column: 1 / -1; order: 10; } }
+
+/* The thin lane under the hero: the whole line of rulers, this reign glowing. */
+.pp-lane { margin-top: 1.4rem; }
+.pp-lane-label { display: flex; justify-content: space-between; gap: 1rem; font-size: .62rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.pp-lane-track { display: flex; gap: 2px; height: 16px; margin-top: .4rem; }
+.pp-lane-track a { flex-basis: 0; min-width: 4px; border-radius: 3px; background: color-mix(in srgb, var(--lg) 22%, transparent); transition: background .15s; }
+.pp-lane-track a:hover, .pp-lane-track a:focus-visible { background: color-mix(in srgb, var(--lg) 55%, transparent); }
+.pp-lane-track a[aria-current="page"] { background: var(--lg); box-shadow: 0 0 14px var(--lg); }
+.pp-lane-tip { min-height: 1.4em; margin-top: .35rem; font-size: .78rem; color: var(--muted); }
+
+/* Section jump chips under the hero (a sideways row on phones). */
+.pp-jump { display: flex; gap: .4rem; overflow-x: auto; scrollbar-width: none; padding-bottom: .1rem; }
+.pp-jump::-webkit-scrollbar { display: none; }
+.pp-jump a { flex: 0 0 auto; padding: .35rem .8rem; border: 1px solid var(--lg-line); border-radius: 999px; font-size: .76rem; color: var(--muted); white-space: nowrap; }
+.pp-jump a:hover, .pp-jump a:focus-visible { color: var(--ink); border-color: var(--lg); }
+.pp-page .lg-glass { scroll-margin-top: 5rem; }
+
+/* ── Claims by their evidence ── */
+.pp-claim { line-height: 1.65; }
+.pp-claims { display: grid; gap: .6rem; }
+.pp-claims > li { padding-left: .9rem; position: relative; }
+.pp-claims > li::before { content: ""; position: absolute; left: 0; top: .62em; width: 5px; height: 5px; border-radius: 50%; background: var(--lg); box-shadow: 0 0 8px var(--lg); }
+.pp-layer { display: inline-block; margin-right: .5rem; padding: .05rem .5rem; border: 1px solid var(--line); border-radius: 999px; font-size: .64rem; font-weight: 600; letter-spacing: .06em; color: var(--muted); vertical-align: 1px; }
+.pp-claim[data-layer="ancient-record"] .pp-layer { border-color: var(--pp-sand); color: var(--pp-sand); }
+.pp-claim:is([data-layer="early-church"], [data-layer="tradition"]) .pp-layer { border-style: dashed; }
+.pp-claim[data-layer="scholars"] .pp-layer { border-color: var(--lg-line); color: var(--lg); }
+li.pp-claim[data-layer="ancient-record"], div.pp-claim[data-layer="ancient-record"] { border-left: 2px solid var(--pp-sand); padding-left: .8rem; }
+li.pp-claim:is([data-layer="early-church"], [data-layer="tradition"]), div.pp-claim:is([data-layer="early-church"], [data-layer="tradition"]) { border-left: 2px dashed var(--muted); padding-left: .8rem; }
+.pp-claims > li.pp-claim[data-layer]:not([data-layer="scripture"]):not([data-layer="text"])::before { display: none; }
+
+.pp-quote blockquote { font: 400 clamp(1.15rem, 2.2vw, 1.5rem)/1.5 var(--font-serif); font-style: italic; color: var(--ink); }
+.pp-quote figcaption { margin-top: .5rem; font-size: .8rem; }
+.pp-quote figcaption a { color: var(--lg); }
+.pp-quote-small blockquote { font-size: 1.02rem; }
+
+/* ── Cards inside sections ── */
+.pp-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 17rem), 1fr)); gap: .75rem; }
+.pp-card { padding: 1rem 1.1rem; border: 1px solid var(--lg-line); border-radius: 14px; background: linear-gradient(160deg, var(--lg-soft), transparent 70%); }
+.pp-card h4 { font: 600 1.05rem/1.3 var(--font-serif); }
+.pp-card p { margin-top: .35rem; font-size: .86rem; color: var(--muted); }
+.pp-card[data-outside] { border-color: color-mix(in srgb, var(--pp-sand) 55%, var(--line)); border-left: 3px solid var(--pp-sand); background: linear-gradient(160deg, color-mix(in srgb, var(--pp-sand) 10%, transparent), transparent 70%); }
+.pp-card[data-outside] .lg-kicker { color: var(--pp-sand); }
+.pp-two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .9rem; }
+@media (max-width: 760px) { .pp-two { grid-template-columns: minmax(0, 1fr); } }
+.pp-label { font-size: .64rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--lg); margin-bottom: .5rem; }
+.pp-divider { margin-block: 1.1rem; border-top: 1px solid var(--lg-line); }
+.pp-link { display: inline-flex; align-items: center; gap: .35rem; font-size: .84rem; font-weight: 600; color: var(--lg); }
+.pp-link:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+/* The verdict row: every ruler of the line, each a dot with its own shape (never colour alone). */
+.pp-verdict-row { display: flex; flex-wrap: wrap; align-items: center; gap: .3rem; }
+.pp-verdict-row a { display: grid; place-items: center; width: 1.9rem; height: 1.9rem; border: 1px solid var(--lg-line); border-radius: 50%; font-size: .8rem; color: var(--muted); }
+.pp-verdict-row a[data-tone="right"] { color: var(--lg); }
+.pp-verdict-row a:hover, .pp-verdict-row a:focus-visible { border-color: var(--lg); color: var(--ink); }
+.pp-verdict-row a[aria-current="page"] { width: 2.4rem; height: 2.4rem; border-color: var(--lg); background: var(--lg); color: var(--page); font-weight: 700; box-shadow: 0 0 18px -2px var(--lg); }
+.pp-legend { display: flex; flex-wrap: wrap; gap: .4rem 1rem; margin-top: .6rem; font-size: .74rem; color: var(--muted); }
+
+/* ── The succession strip ── */
+.pp-strip-frame { overflow-x: auto; scrollbar-width: none; border-radius: 14px; }
+.pp-strip-frame::-webkit-scrollbar { display: none; }
+.pp-strip-bar { cursor: pointer; }
+.pp-strip-bar rect { transition: opacity .15s; }
+.pp-strip-nav { display: flex; justify-content: space-between; gap: 1rem; margin-top: .6rem; }
+.pp-strip-nav a { display: inline-flex; align-items: center; gap: .4rem; padding: .45rem .9rem; border: 1px solid var(--lg-line); border-radius: 999px; font-size: .82rem; }
+.pp-strip-nav a:hover, .pp-strip-nav a:focus-visible { border-color: var(--lg); color: var(--lg); }
+.pp-hpill { position: relative; height: 10px; margin-top: .55rem; border-radius: 999px; cursor: pointer; touch-action: none; }
+.pp-hpill::before { content: ""; position: absolute; inset: 3px 0; border-radius: 999px; background: color-mix(in srgb, var(--ink) 8%, transparent); }
+.pp-hpill span { position: absolute; top: 0; bottom: 0; min-width: 2.5rem; border-radius: 999px; background: color-mix(in srgb, var(--ink) 38%, transparent); }
+.pp-hpill[hidden] { display: none; }
+
+/* The kingdom card: the words on top, the map as the bottom half. */
+.pp-kingdom { padding: 0; overflow: hidden; }
+.pp-kingdom-text { padding: clamp(1rem, 2.4vw, 1.75rem); }
+.pp-kingdom-map { border-top: 1px solid var(--lg-line); padding: .9rem clamp(.6rem, 2vw, 1.4rem) 1rem; }
+
+/* Undated events: a tray at the end of the strip, never given a guessed place. */
+.pp-tray { display: flex; flex-wrap: wrap; gap: .45rem; margin-top: .6rem; }
+.pp-tray button { display: inline-flex; align-items: center; gap: .4rem; padding: .35rem .75rem; border: 1px solid var(--lg-line); border-radius: 10px; font-size: .8rem; text-align: left; }
+.pp-tray button:hover, .pp-tray button[aria-pressed="true"] { border-color: var(--lg); background: var(--lg-soft); }
+
+/* The lens bar ("What the nation did"): the text is replaced in place, never faded. */
+.pp-lenses { display: flex; flex-wrap: wrap; gap: .35rem; padding: .4rem; border: 1px solid var(--lg-line); border-radius: 14px; background: var(--lg-soft); }
+.pp-lenses button { padding: .45rem .95rem; border: 1px solid transparent; border-radius: 10px; font-size: .84rem; color: var(--muted); }
+.pp-lenses button:hover:not(:disabled) { color: var(--ink); border-color: var(--lg-line); }
+.pp-lenses button[aria-pressed="true"] { color: var(--page); background: var(--lg); border-color: var(--lg); font-weight: 600; }
+.pp-lenses button:disabled { opacity: .4; }
+.pp-lens-body { margin-top: 1rem; }
+
+/* Prophets of the reign: medallion cards that open across their row. */
+.pp-medal { display: grid; place-items: center; flex-shrink: 0; width: 3.2rem; height: 3.2rem; border: 1.5px solid var(--tone, var(--lg)); border-radius: 999px; background: color-mix(in srgb, var(--tone, var(--lg)) 22%, var(--surface)); font: 600 .9rem var(--font-serif); color: var(--ink); }
+.pp-medal[data-dashed] { border-style: dashed; background: var(--surface); color: var(--muted); }
+.pp-prophet-head { grid-template-columns: auto minmax(0, 1fr) !important; align-items: center; }
+
+/* How the story ends: Scripture solid, tradition dashed with a sand edge. */
+.pp-ending { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.pp-ending > section { padding: 1.1rem 1.25rem; border-radius: 16px; }
+.pp-ending-scripture { border: 1px solid var(--lg); background: linear-gradient(160deg, var(--lg-soft), transparent 75%); box-shadow: 0 0 30px -18px var(--lg); }
+.pp-ending-tradition { border: 1.5px dashed color-mix(in srgb, var(--pp-sand) 75%, var(--line)); background: color-mix(in srgb, var(--pp-sand) 5%, transparent); }
+.pp-ending-tradition .pp-label { color: var(--pp-sand); }
+.pp-who { display: block; margin-top: .2rem; font-size: .76rem; color: var(--muted); }
+@media (max-width: 760px) { .pp-ending { grid-template-columns: minmax(0, 1fr); } }
+
+/* The judges' cycle: a ring with this judge's turn lit. */
+.pp-cycle { display: grid; grid-template-columns: minmax(0, 18rem) minmax(0, 1fr); gap: 1.5rem; align-items: center; }
+.pp-cycle svg { width: 100%; height: auto; }
+@media (max-width: 760px) { .pp-cycle { grid-template-columns: minmax(0, 1fr); } .pp-cycle svg { max-width: 18rem; margin-inline: auto; } }
+
+/* A chain of authority (governors, Rome) and the Herod family strip. */
+.pp-chain { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; }
+.pp-chain > span { padding: .45rem .85rem; border: 1px solid var(--lg-line); border-radius: 10px; font: 500 .95rem var(--font-serif); }
+.pp-chain > span[data-here] { border-color: var(--lg); background: var(--lg); color: var(--page); }
+.pp-chain > i { color: var(--muted); font-style: normal; }
+
+/* Every passage: a scrolling frame with the pill outside it. */
+.pp-passages { max-height: 15rem; }
+.pp-passages-list { display: flex; flex-wrap: wrap; gap: .3rem .9rem; padding: .25rem 0; font-size: .86rem; }
+.pp-passages-list a { color: var(--lg); }
+
+/* The Gospel strip and the four lists of the Twelve. */
+.pp-gospels svg, .pp-lists svg { display: block; width: 100%; min-width: 640px; height: auto; }
+.pp-dot { cursor: pointer; }
+
+@media (prefers-reduced-motion: reduce) { .pp-entry, .pp-switch a, .pp-lane-track a { transition: none; } .pp-entry:hover { transform: none; } }
+
+/* The succession strip's bars: plain links laid over the frame by percentage; the cross-dating lines over them. */
+.pp-strip { position: relative; min-width: 900px; }
+.pp-strip-lane { position: absolute; left: 0; right: 0; }
+.pp-strip-lane-label { position: absolute; left: 2px; top: 0; font-size: .62rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
+.pp-sbar { position: absolute; display: flex; align-items: center; justify-content: space-between; gap: .3rem; height: 26px; padding: 0 .45rem; overflow: hidden; border: 1px solid var(--lg-line); border-radius: 7px;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--lg) 24%, transparent), color-mix(in srgb, var(--lg) 10%, transparent)); color: var(--ink); font-size: .74rem; white-space: nowrap; transition: border-color .15s, background .15s; }
+.pp-sbar i { font-style: normal; font-size: .7rem; color: var(--muted); }
+.pp-sbar:hover, .pp-sbar:focus-visible { border-color: var(--lg); background: color-mix(in srgb, var(--lg) 32%, transparent); z-index: 2; }
+.pp-sbar[aria-current="page"] { border-color: var(--lg); background: var(--lg); color: var(--page); font-weight: 600; box-shadow: 0 0 22px -2px var(--lg); z-index: 1; }
+.pp-sbar[aria-current="page"] i { color: var(--page); }
+.pp-sbar[data-coup] { border-left: 3px double color-mix(in srgb, var(--ink) 55%, transparent); }
+.pp-strip-lines { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; z-index: 3; }
+.pp-sync { fill: none; stroke: var(--lg); stroke-width: 1.4; stroke-dasharray: 4 3; vector-effect: non-scaling-stroke; opacity: .85; }
+.pp-sync-hit { fill: none; stroke: transparent; stroke-width: 14; vector-effect: non-scaling-stroke; pointer-events: stroke; cursor: help; }
+.pp-split { fill: none; stroke: var(--lg); stroke-width: 1.6; stroke-dasharray: 2 3; vector-effect: non-scaling-stroke; opacity: .8; }
+.pp-strip-axis { position: absolute; left: 0; right: 0; height: 26px; border-top: 1px solid var(--line); }
+.pp-strip-axis span { position: absolute; top: 6px; transform: translateX(-50%); font-size: .66rem; color: var(--muted); white-space: nowrap; }
+
+/* The Gospel strip: a row per Gospel, a dot per event that names him. */
+.pp-gstrip { display: grid; gap: .55rem; min-width: 640px; padding: .3rem 0; }
+.pp-grow { display: grid; grid-template-columns: 5.5rem minmax(0, 1fr); align-items: center; gap: .75rem; }
+.pp-grow-label { font: 600 .85rem var(--font-serif); text-align: right; }
+.pp-grow-track { position: relative; height: 22px; border-radius: 999px; background: color-mix(in srgb, var(--lg) 7%, transparent); }
+.pp-grow-track::before { content: ""; position: absolute; left: 0; right: 0; top: 50%; border-top: 1px dashed var(--lg-line); }
+.pp-gdot { position: absolute; top: 50%; width: 14px; height: 14px; border: 2px solid var(--page); border-radius: 50%; background: var(--lg); transform: translate(-50%, -50%); box-shadow: 0 0 10px -1px var(--lg); transition: transform .15s; }
+.pp-gdot:hover, .pp-gdot:focus-visible, .pp-gdot[data-on] { transform: translate(-50%, -50%) scale(1.45); z-index: 2; }
+.pp-card-link { display: grid; gap: .4rem; transition: border-color .15s; }
+.pp-card-link:hover, .pp-card-link:focus-visible { border-color: var(--lg); }
+
+@media (prefers-reduced-motion: reduce) { .pp-sbar, .pp-gdot { transition: none; } }
+
+/* The judges in the order of the book (no years BC): bars as long as the years Scripture gives. */
+.pp-seq { display: flex; gap: 3px; min-width: 900px; padding-block: .2rem; }
+.pp-seq .pp-sbar { position: relative; flex-basis: 0; min-width: 3.4rem; justify-content: center; }
+.pp-seq .pp-sbar[data-unknown] { border-style: dotted; }
+.pp-places { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .9rem; }
+.pp-places li { padding: .3rem .7rem; border: 1px solid var(--lg-line); border-radius: 10px; font-size: .82rem; }
+.pp-places li[data-tradition] { border-style: dashed; border-color: color-mix(in srgb, var(--pp-sand) 70%, var(--line)); }
+.pp-places small { color: var(--muted); }
+.pp-stat dd small.pp-said { margin-top: 0; font: italic .92rem/1.45 var(--font-serif); color: var(--ink); display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+.pp-stat dd small { display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+.pp-stat dd small.pp-fact { margin-top: 0; font: 500 .95rem/1.4 var(--font-serif); color: var(--ink); }

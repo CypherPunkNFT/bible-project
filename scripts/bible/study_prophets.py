@@ -12,7 +12,7 @@ from .study_refs import Verses, parse_refs
 KINGS = ["Moses", "the judges", "Saul", "David", "Solomon", "Rehoboam", "Jeroboam I", "Abijah", "Asa", "Baasha",
          "Ahab", "Jehoshaphat", "Ahaziah", "Jehoram", "Jehu", "Joash", "Amaziah", "Jeroboam II", "Uzziah", "Jotham",
          "Pekah", "Ahaz", "Hezekiah", "Manasseh", "Josiah", "Jehoiakim", "Jehoiachin", "Zedekiah", "the exile",
-         "Darius", "Artaxerxes", "Herod", "Claudius"]
+         "Darius", "Artaxerxes", "Herod the Great", "Herod", "Claudius"]
 
 # (TIPNR id, kind, book code or "", first ruler, anchor reference)
 PROPHETS: list[tuple[str, str, str, str, str]] = [
@@ -70,7 +70,8 @@ PROPHETS: list[tuple[str, str, str, str, str]] = [
     ("nahum-nam-1-1", "writing", "NAM", "", ""),
     ("habakkuk-hab-1-1", "writing", "HAB", "", ""),
     ("malachi-mal-1-1", "writing", "MAL", "", ""),
-    ("anna-luk-2-36", "nt", "", "Herod", "Luke 2:36"),
+    # Luke 1-2's king is Herod the Great (Luke 1:5); Luke 3:1's "Herod" is Antipas, tetrarch of Galilee.
+    ("anna-luk-2-36", "nt", "", "Herod the Great", "Luke 2:36"),
     ("john-mat-3-1", "nt", "", "Herod", "Luke 3:1-2"),
     ("agabus-act-11-28", "nt", "", "Claudius", "Acts 11:28"),
     ("barnabas-act-4-36", "nt", "", "Claudius", "Acts 13:1"),

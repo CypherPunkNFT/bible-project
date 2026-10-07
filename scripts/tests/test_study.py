@@ -1,5 +1,8 @@
 """Study-resource parsers, checked against the real sources (skipped when the Bible data is not built)."""
 
+import copy
+import json
+import re
 import sys
 from pathlib import Path
 
@@ -7,6 +10,7 @@ import pytest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from bible.paths import SOURCES  # noqa: E402
+from bible.people_corrections import apply_people_corrections  # noqa: E402
 from bible.study_harmony import parse_harmony, parse_miracles, sentence_case  # noqa: E402
 from bible.study_people import parse_people, people_period, readable_name  # noqa: E402
 from bible.study_prophets import build_prophets  # noqa: E402
@@ -125,3 +129,34 @@ def test_jesus_is_in_the_life_of_christ(people):
     jesus = next(p for p in people if p["id"] == "jesus-isa-7-14")
     assert people_period(jesus["era"], jesus["refs"]) == "life-of-christ"
 
+
+def test_people_keep_every_spelling(people):
+    """The King James spellings TIPNR lists second on a name line are searchable; translated words are not names."""
+    names = {p["id"]: p["names"] for p in people}
+    assert "Abijam" in names["abijah-1ki-14-31"] and "Abia" in names["abijah-1ki-14-31"]
+    assert "Cyrenius" in names["quirinius-luk-2-2"] and "Tatnai" in names["tattenai-ezr-5-3"]
+    assert "Lucas" in names["luke-2co-13-13"] and "Marcus" in names["mark-act-12-12"]
+    assert names["tiglath-pileser-2ki-15-19"] == ["Jareb", "Pul", "Tilgath-pilneser"]  # not "great" (Hosea 5:13)
+    assert not [n for ns in names.values() for n in ns if not n[:1].isupper()]
+
+
+def test_people_corrections(people, verses):
+    corrected = copy.deepcopy(people)
+    corrections = json.loads((SITE / "content" / "people" / "catalogue-corrections.json").read_text(encoding="utf-8"))
+    apply_people_corrections(corrected, corrections, verses, re.compile(r"^[a-z0-9][a-z0-9_-]*$"))
+    by_id = {p["id"]: p for p in corrected}
+    assert {p["id"] for p in people} < set(by_id)  # no id is ever removed
+    jabesh = by_id["jabesh-2ki-15-10"]
+    assert jabesh["brief"].startswith("Father of Shallum") and jabesh["fx"] == ["brief", "short", "article"]
+    isaiah_20_1 = parse_refs("Isaiah 20:1", verses)[0][0]
+    assert isaiah_20_1 in by_id["sargon-isa-20-1"]["refs"] and by_id["sargon-isa-20-1"]["added"]
+    assert isaiah_20_1 not in by_id["sennacherib-2ki-18-13"]["refs"]
+    assert by_id["shallum-1ch-3-15"]["same"] == "jehoahaz-2ki-23-30"
+    assert by_id["darius-dan-5-31"]["parents"] == ["ahasuerus-dan-9-1"]
+    assert by_id["herod-act-12-1"]["description"].startswith("King") and "Tetrarch" not in by_id["herod-act-12-1"]["brief"]
+    assert by_id["luke-2co-13-13"]["refs"][0] == parse_refs("Colossians 4:14", verses)[0][0]
+
+
+def test_annas_herod_is_herod_the_great(people, verses):
+    anna = next(p for p in build_prophets(people, verses) if p["id"] == "anna-luk-2-36")
+    assert anna["king"] == "Herod the Great"

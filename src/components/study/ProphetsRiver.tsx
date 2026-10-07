@@ -4,6 +4,7 @@ import { useSideScroll } from "./useSideScroll";
 import { Link } from "react-router-dom";
 import { RefLink } from "@/components/study/StudyParts";
 import { cameFrom } from "@/lib/came-from";
+import { rulerHref } from "@/lib/people-pages-index";
 import { tone, type Tone } from "@/lib/sections";
 import type { Prophet } from "@/lib/study";
 import { PROPHET_ERAS } from "@/lib/prophet-eras";
@@ -90,7 +91,7 @@ export function ProphetsRiver({ prophets, kingId }: { prophets: Prophet[]; kingI
           const id = kingId(king.name);
           return <div key={`${king.name}-${king.x}`} className="pm-king" style={{ left: `${king.x}%`, "--row": i % 3 } as CSSProperties}>
             <span className="pm-king-tick" aria-hidden />
-            {id ? <Link to={`/people/${id}`} state={back()}>{king.name}</Link> : <span>{king.name}</span>}
+            {id ? <Link to={rulerHref(id)} state={back()}>{king.name}</Link> : <span>{king.name}</span>}
           </div>;
         })}
       </div>
@@ -106,7 +107,7 @@ export function ProphetsRiver({ prophets, kingId }: { prophets: Prophet[]; kingI
         {focus.brief && <p className="pm-panel-brief">{focus.brief}</p>}
         <p className="pm-panel-when">
           {focus.king ? <>{focus.king === "Moses" || focus.king === "the judges" || focus.king === "the exile" ? "In the time of " : "In the days of "}
-            {kingId(focus.king) ? <Link to={`/people/${kingId(focus.king)}`} state={back()}>{focus.king}</Link> : focus.king}</> : "Not dated by any king in Scripture"}
+            {kingId(focus.king) ? <Link to={rulerHref(kingId(focus.king)!)} state={back()}>{focus.king}</Link> : focus.king}</> : "Not dated by any king in Scripture"}
           {focus.anchor && <> · <RefLink span={focus.anchor} /></>}
         </p>
         <div className="pm-panel-actions">

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { cameFrom } from "@/lib/came-from";
 import { RefLink } from "@/components/study/StudyParts";
@@ -12,17 +12,25 @@ import { cn } from "@/lib/utils";
 const SEX = { M: "Man", F: "Woman", G: "Group", "": "" } as const;
 
 /** One person's page body: who they were, their family, where Scripture names them, their story and every verse. */
-export function PersonProfile({ person, byId, sameName }: { person: Person; byId: Map<string, PersonRow>; sameName: number }) {
+export function PersonProfile({ person, byId, sameName, switcher, entry }: { person: Person; byId: Map<string, PersonRow>; sameName: number; switcher?: ReactNode; entry?: ReactNode }) {
   const catalog = useCatalog();
   const [refsShown, setRefsShown] = useState(40);
   const [full, setFull] = useState(false);
   const facts = [SEX[person.s], person.p && periodLabel(person.p), person.t].filter(Boolean).join(" · ");
+  const story = Boolean(person.short || person.article);
   return <>
-    <header>
-      <h1 id="person-name" className="font-serif text-4xl font-semibold sm:text-5xl">{person.n}</h1>
-      {person.o.length > 0 && <p className="mt-2 text-sm text-muted">Also called {person.o.join(", ")}</p>}
-      <p className="mt-1 text-sm text-muted">{facts}{sameName > 1 && ` · one of ${sameName} people named ${person.n}`}</p>
-      {person.b && <p className="mt-4 max-w-3xl text-lg">{person.b}</p>}
+    {/* A ruler's or apostle's page is one click away: the switch under the name and, beside it, the entry card. */}
+    <header className={entry ? "grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,25rem)] lg:items-start" : undefined}>
+      <div className="min-w-0">
+        <h1 id="person-name" className="font-serif text-4xl font-semibold sm:text-5xl">{person.n}</h1>
+        {person.o.length > 0 && <p className="mt-2 text-sm text-muted">Also called {person.o.join(", ")}</p>}
+        <p className="mt-1 text-sm text-muted">{facts}{sameName > 1 && ` · one of ${sameName} people named ${person.n}`}</p>
+        {person.b && <p className="mt-4 max-w-3xl text-lg">{person.b}</p>}
+        {person.note && <p className="mt-2 max-w-3xl text-sm text-muted">{person.note}</p>}
+        {!story && <DescriptionCredit person={person} />}
+        {switcher && <div className="mt-5">{switcher}</div>}
+      </div>
+      {entry}
     </header>
     <div className="mt-8 grid gap-8 lg:grid-cols-[minmax(0,1fr)_22rem]">
       <div className="min-w-0">
@@ -30,6 +38,7 @@ export function PersonProfile({ person, byId, sameName }: { person: Person; byId
           <h2 className="text-xs font-semibold uppercase tracking-[0.16em] text-muted">Their story</h2>
           {(full ? person.article || person.short : person.short || person.article).split("\n").filter(Boolean).map((para, i) => <p key={i}>{para}</p>)}
           {person.article && person.short && <button type="button" onClick={() => setFull(!full)} className="text-sm text-accent underline">{full ? "Shorter" : "Read more"}</button>}
+          <DescriptionCredit person={person} />
         </section>}
         <h2 className="mb-1.5 mt-8 text-xs font-semibold uppercase tracking-[0.16em] text-muted">Every verse that names {person.n} · {person.refs.length}</h2>
         <p className="flex flex-wrap gap-x-3 gap-y-1 text-sm">{person.refs.slice(0, refsShown).map((ref) => <RefLink key={ref} span={[ref, ref]} label={formatRange(catalog, ref, ref)} />)}</p>
@@ -41,6 +50,14 @@ export function PersonProfile({ person, byId, sameName }: { person: Person; byId
       </aside>
     </div>
   </>;
+}
+
+/** Who wrote the description: STEP Bible's AI-adapted text (and whether this site corrected it), or this site. */
+function DescriptionCredit({ person }: { person: Person }) {
+  if (!person.b && !person.short && !person.article) return null;
+  return <p className="mt-2 text-xs text-muted" title={person.fx?.length ? `Corrected: ${person.fx.join(", ")}` : undefined}>
+    {person.added ? "Record added by this site" : <>Description adapted by STEP Bible from AI output (Claude 3 Opus, 2024){person.fx?.length ? " · corrected by this site" : ""}</>}
+  </p>;
 }
 
 /** A relative: their own page, with this person as the way back. */

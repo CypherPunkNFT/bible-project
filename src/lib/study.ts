@@ -58,6 +58,14 @@ export interface PersonDetail {
   short: string;
   article: string;
   refs: number[];
+  /** Fields this site corrected in STEP's record (brief, short, article, description, period, names, refs, family). */
+  fx?: string[];
+  /** This record duplicates another person: the person page opens that id instead. */
+  same?: string;
+  /** A one-line note written by this site, not by STEP. */
+  note?: string;
+  /** 1 when this site wrote the whole record (credited to the site, not to STEP). */
+  added?: 1;
 }
 export type Person = Omit<PersonRow, "b"> & PersonDetail;
 export interface Prophet {

@@ -30,6 +30,25 @@ export function StudySectionPreview({ kind }: { kind: StudyIllustration }) {
     {kind === "chapters" && Array.from({ length: 18 }, (_, i) => <g key={i}><rect x={44 + i % 9 * 17} y={14 + Math.floor(i / 9) * 23} width="14" height="18" rx="2" fill="currentColor" opacity={.2 + i % 5 * .13} /><text x={51 + i % 9 * 17} y={27 + Math.floor(i / 9) * 23} textAnchor="middle" fill="currentColor" fontSize="8">{i + 1}</text></g>)}
     {kind === "teaching" && <><path d="M120 18Q76 6 35 17V57Q77 46 120 58Q163 46 205 57V17Q163 6 120 18V58Z" stroke="currentColor" opacity=".7" />{[27, 36, 45].map(y => <g key={y}><path d={`M49 ${y}Q79 ${y - 7} 106 ${y}`} stroke="currentColor" opacity=".4" /><path d={`M134 ${y}Q163 ${y - 7} 192 ${y}`} stroke="currentColor" opacity=".4" /></g>)}</>}
     {kind === "harmony" && <>{[38, 92, 148, 202].map((x, i) => <g key={x}><circle cx={x} cy="13" r="4" fill="currentColor" opacity={.4 + i * .15} /><path d={`M${x} 17Q${x} 43 120 58`} stroke="currentColor" opacity={.4 + i * .15} /></g>)}<circle cx="120" cy="58" r="5" fill="currentColor" /></>}
+    {/* Rulers through time: three lanes of reigns, the top one splitting in two (the divided kingdom); one reign in king gold under a crown. */}
+    {kind === "rulers" && <>
+      {[[14, 36], [39, 64], [67, 96]].map(([a, b]) => <rect key={a} x={a} y={21} width={b - a} height={6} rx={2} fill="currentColor" opacity=".35" />)}
+      <path d="M96 24Q106 24 110 17M96 24Q106 24 110 31" stroke="currentColor" opacity=".55" />
+      {[[112, 128], [131, 152], [155, 192], [195, 228]].map(([a, b]) => <rect key={a} x={a} y={14} width={b - a} height={6} rx={2} fill={a === 155 ? "var(--epistles)" : "currentColor"} opacity={a === 155 ? 1 : .35} />)}
+      {[[112, 146], [149, 160], [163, 199], [202, 228]].map(([a, b]) => <rect key={a} x={a} y={28} width={b - a} height={6} rx={2} fill="currentColor" opacity=".35" />)}
+      <path d="M166 10L167 4L170 7L173.5 3L177 7L180 4L181 10Z" stroke="var(--epistles)" strokeLinejoin="round" />
+      {[[14, 58], [62, 84], [88, 150], [154, 228]].map(([a, b]) => <rect key={a} x={a} y={46} width={b - a} height={4} rx={2} fill="currentColor" opacity=".22" />)}
+      {[[14, 40], [44, 96], [100, 170], [174, 228]].map(([a, b]) => <rect key={a} x={a} y={58} width={b - a} height={4} rx={2} fill="currentColor" opacity=".16" />)}
+    </>}
+    {/* The apostles: twelve around a cross, one dashed (Judas), one beyond the ring on a dashed arc (Paul). */}
+    {kind === "apostles" && <>
+      <path d="M114 35H126M120 29V43" stroke="currentColor" opacity=".7" />
+      {Array.from({ length: 12 }, (_, i) => { const a = (i / 12) * Math.PI * 2 - Math.PI / 2, x = 120 + Math.cos(a) * 34, y = 35 + Math.sin(a) * 26;
+        return i === 11 ? <circle key={i} cx={x} cy={y} r="3.4" stroke="currentColor" strokeDasharray="1.6 1.6" opacity=".7" />
+          : <circle key={i} cx={x} cy={y} r="3.4" fill={i === 0 || i === 3 ? "var(--role-disciple)" : "currentColor"} opacity={i === 0 || i === 3 ? 1 : .45} />; })}
+      <path d="M157 30Q178 16 199 30" stroke="currentColor" strokeDasharray="3 3" opacity=".55" />
+      <circle cx="203" cy="33" r="4.2" fill="currentColor" opacity=".75" />
+    </>}
     {kind === "prophets" && <><path d="M18 43H222" stroke="currentColor" opacity=".3" />{[29, 61, 85, 112, 156, 184, 209].map((x, i) => <g key={x}><path d={`M${x} 43V${i % 2 ? 18 : 29}`} stroke="currentColor" /><circle cx={x} cy={i % 2 ? 18 : 29} r="4" fill="currentColor" opacity={.4 + i * .08} /></g>)}</>}
   </svg>;
 }

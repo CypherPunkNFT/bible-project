@@ -1,0 +1,106 @@
+/* The Rulers and Apostles guides (Study → People: ?view=rulers, ?view=apostles), in the people pages' gilded glass.
+   rg- = rulers guide (also the shared guide frame), ag- = apostles guide. --lg is the guide's glow colour. */
+.rg { --lg-soft: color-mix(in srgb, var(--lg) 14%, transparent); --lg-line: color-mix(in srgb, var(--lg) 32%, var(--line)); margin-top: .5rem; }
+.rg-head h2 { margin-top: .5rem; font: 500 clamp(2.2rem, 4.5vw, 3.6rem)/1.1 var(--font-serif); letter-spacing: -.035em; }
+.rg-head h2 em { color: var(--lg); font-weight: 400; }
+.rg-head > p:not(.lg-kicker) { max-width: 46rem; margin-top: .8rem; color: var(--muted); line-height: 1.7; }
+.rg-figures { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1.4rem; }
+.rg-figures > div { flex: 1 1 6.5rem; max-width: 11rem; min-width: 0; padding: .7rem .95rem; border: 1px solid var(--lg-line); border-radius: 14px; background: var(--lg-soft); }
+.rg-figures dt { font-size: .62rem; color: var(--muted); text-transform: uppercase; letter-spacing: .12em; }
+.rg-figures dd { font: 500 1.7rem/1.2 var(--font-serif); }
+.rg-tools { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem 1.2rem; margin-top: 1.4rem; }
+.rg-legend { display: flex; flex-wrap: wrap; gap: .3rem 1rem; font-size: .76rem; color: var(--muted); }
+.rg-legend span { display: inline-flex; align-items: center; gap: .35rem; }
+.rg-dotted { display: inline-block; width: 1.4rem; height: .7rem; border: 1px dotted var(--muted); border-radius: 3px; }
+
+/* The ribbon across the page: era bands behind, a lane per throne, bars as links. */
+.rg-frame { margin-top: 1rem; overflow-x: auto; scrollbar-width: none; border: 1px solid var(--lg-line); border-radius: 18px;
+  background: linear-gradient(160deg, color-mix(in srgb, var(--surface) 88%, transparent), color-mix(in srgb, var(--lg) 5%, var(--surface))); }
+.rg-frame::-webkit-scrollbar { display: none; }
+.rg-river { position: relative; }
+.rg-band { position: absolute; top: 0; bottom: 0; padding: .7rem .6rem; border-right: 1px dashed color-mix(in srgb, var(--line) 80%, transparent); border-top: 3px solid var(--era); }
+.rg-band[data-odd] { background: color-mix(in srgb, var(--ink) 3%, transparent); }
+.rg-band-label { display: block; font: 600 .92rem/1.2 var(--font-serif); white-space: nowrap; }
+.rg-band-dates { display: block; margin-top: .1rem; font-size: .62rem; color: var(--muted); white-space: nowrap; }
+.rg-frame-wrap { position: relative; }
+.rg-lane-names { position: absolute; inset: 1rem 0 0 1px; pointer-events: none; z-index: 4; }
+.rg-lane-names span { position: absolute; left: .5rem; padding: .05rem .45rem; border-radius: 6px; background: color-mix(in srgb, var(--surface) 88%, transparent); font-size: .6rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
+.rg-bar { position: absolute; display: flex; align-items: center; justify-content: space-between; gap: .2rem; height: 26px; padding: 0 .35rem; overflow: hidden; border: 1px solid color-mix(in srgb, var(--lg) 50%, var(--line)); border-radius: 7px;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--lg) 30%, transparent), color-mix(in srgb, var(--lg) 12%, transparent)); color: var(--ink); font-size: .72rem; white-space: nowrap; transition: border-color .15s, box-shadow .15s; }
+.rg-bar i { font-style: normal; font-size: .68rem; color: var(--muted); }
+.rg-bar[data-undated] { border-style: dotted; }
+.rg-bar:hover, .rg-bar:focus-visible, .rg-bar[data-focus] { border-color: var(--lg); box-shadow: 0 0 18px -3px var(--lg); z-index: 2; }
+.rg-bar[data-focus] { background: var(--lg); color: var(--page); font-weight: 600; }
+.rg-bar[data-focus] i { color: var(--page); }
+.rg-medal { position: absolute; display: grid; place-items: center; width: 1.6rem; height: 1.6rem; transform: translateX(-50%); border: 1.5px solid var(--pm); border-radius: 50%; background: color-mix(in srgb, var(--pm) 22%, var(--surface)); font: 600 .55rem var(--font-sans); color: var(--ink); }
+.rg-medal[data-kind="writing"] { background: var(--pm); color: #fff; }
+.rg-medal[data-kind="false"] { border-style: dashed; }
+.rg-medal:hover, .rg-medal:focus-visible { z-index: 3; transform: translateX(-50%) scale(1.2); }
+
+/* Down a phone screen: time runs down; Israel | Judah side by side; the empire a thin band at the left edge. */
+.rg-column { position: relative; margin-top: 1rem; }
+.rg-vband { position: absolute; left: 0; right: 0; border-top: 2px solid var(--era); background: linear-gradient(180deg, color-mix(in srgb, var(--era) 7%, transparent), transparent 40%); }
+.rg-vband span { position: absolute; left: 0; top: 0; bottom: 0; width: 12%; padding: .4rem 0; overflow: hidden; writing-mode: vertical-rl; transform: rotate(180deg); font: 600 .72rem var(--font-serif); color: var(--muted); white-space: nowrap; text-align: right; }
+.rg-column-key { margin-top: 1rem; font-size: .8rem; color: var(--muted); }
+.rg-col-head { position: absolute; font-size: .6rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.rg-vbar { position: absolute; display: flex; align-items: center; justify-content: space-between; gap: .2rem; padding: 0 .4rem; overflow: hidden; border: 1px solid color-mix(in srgb, var(--lg) 50%, var(--line)); border-radius: 7px;
+  background: linear-gradient(90deg, color-mix(in srgb, var(--lg) 28%, transparent), color-mix(in srgb, var(--lg) 10%, transparent)); color: var(--ink); font-size: .74rem; }
+.rg-vbar[data-lane="empire"] { padding: 0; border-radius: 3px; background: var(--lg); }
+.rg-vbar[data-undated] { border-style: dotted; }
+.rg-vbar i { font-style: normal; font-size: .7rem; color: var(--muted); }
+.rg-vbar:hover, .rg-vbar:focus-visible, .rg-vbar[data-focus] { border-color: var(--lg); z-index: 2; }
+
+/* The preview of the ruler pointed at. */
+.rg-preview { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 1.4rem; align-items: start; margin-top: 1.2rem; padding: 1.3rem 1.5rem; border: 1px solid var(--lg-line); border-left: 4px solid var(--lg); border-radius: 18px;
+  background: linear-gradient(120deg, color-mix(in srgb, var(--lg) 10%, var(--surface)), var(--surface) 65%); }
+.rg-preview-medal { display: grid; place-items: center; width: 4.5rem; height: 4.5rem; border-radius: 50%; background: var(--lg); color: var(--page); box-shadow: 0 0 30px -6px var(--lg); }
+.rg-preview h3 { margin-top: .3rem; font: 500 2rem/1.15 var(--font-serif); }
+.rg-preview-verdict { margin-top: .4rem; font: italic 1.02rem/1.55 var(--font-serif); }
+.rg-preview-when { margin-top: .4rem; font-size: .84rem; color: var(--muted); }
+.rg-button { display: inline-flex; align-items: center; gap: .45rem; margin-top: .9rem; padding: .55rem 1rem; border: 1px solid var(--lg); border-radius: 12px; background: var(--lg); color: var(--page); font-size: .84rem; font-weight: 600; }
+.rg-button:hover, .rg-button:focus-visible { box-shadow: 0 0 20px -4px var(--lg); }
+.rg-step { display: flex; align-items: center; gap: .5rem; font-size: .74rem; color: var(--muted); }
+.rg-step button { display: grid; place-items: center; width: 2.4rem; height: 2.4rem; border: 1px solid var(--lg-line); border-radius: 50%; }
+.rg-step button:hover, .rg-step button:focus-visible { border-color: var(--lg); color: var(--ink); }
+@media (max-width: 640px) { .rg-preview { grid-template-columns: auto minmax(0, 1fr); } .rg-step { grid-column: 1 / -1; justify-content: center; } .rg-preview-medal { width: 3.5rem; height: 3.5rem; } }
+
+/* Era by era: the list beside the picture, with the same links. */
+.rg-subtitle { margin-top: 2.5rem; font: 500 1.7rem var(--font-serif); }
+.rg-era { margin-top: 1.6rem; }
+.rg-era h4 { margin-bottom: .7rem; font: 600 1.15rem var(--font-serif); }
+.rg-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 16rem), 1fr)); gap: .7rem; margin-top: 1rem; }
+.rg-card a { display: grid; gap: .3rem; height: 100%; padding: .9rem 1rem; border: 1px solid var(--line); border-top: 2px solid var(--lg); border-radius: 14px;
+  background: linear-gradient(160deg, color-mix(in srgb, var(--lg) 8%, var(--surface)), var(--surface) 70%); transition: border-color .15s, transform .15s; }
+.rg-card a:hover, .rg-card a:focus-visible { border-color: var(--lg); transform: translateY(-2px); }
+.rg-card-top { display: flex; align-items: center; gap: .55rem; color: var(--lg); font-size: .62rem; letter-spacing: .1em; text-transform: uppercase; }
+.rg-card strong { font: 600 1.2rem/1.25 var(--font-serif); }
+.rg-card-line { font-size: .82rem; color: var(--muted); }
+.rg-card-foot { display: flex; justify-content: space-between; gap: .5rem; margin-top: .3rem; padding-top: .45rem; border-top: 1px solid var(--line); font-size: .74rem; color: var(--muted); }
+
+/* The apostles' ring. */
+.ag-stage { position: relative; aspect-ratio: 16 / 9.5; max-width: 56rem; margin: 2.5rem auto 1.5rem; }
+.ag-lines { position: absolute; inset: 0; width: 100%; height: 100%; }
+.ag-lines circle, .ag-lines path { fill: none; stroke: var(--lg-line); stroke-width: 1.2; vector-effect: non-scaling-stroke; }
+.ag-lines path, .ag-wider-ring { stroke-dasharray: 5 5; }
+.ag-centre { position: absolute; left: 42%; top: 50%; display: grid; place-items: center; width: 5rem; height: 5rem; transform: translate(-50%, -50%); border-radius: 50%; color: var(--lg); background: var(--lg-soft); box-shadow: 0 0 40px -10px var(--lg); }
+.ag-medal { position: absolute; display: grid; justify-items: center; gap: .3rem; width: 7.5rem; transform: translate(-50%, -2.1rem); text-align: center; }
+.ag-medal-disc { display: grid; place-items: center; width: 4.2rem; height: 4.2rem; border: 1.5px solid var(--lg); border-radius: 50%; background: color-mix(in srgb, var(--lg) 20%, var(--surface)); font: 600 1.05rem var(--font-serif); color: var(--ink); transition: transform .15s, box-shadow .15s; }
+.ag-medal[data-dashed] .ag-medal-disc, .ag-medal-disc[data-dashed] { border-style: dashed; background: var(--surface); color: var(--muted); }
+.ag-medal-name { font-size: .78rem; line-height: 1.25; }
+.ag-medal:hover .ag-medal-disc, .ag-medal:focus-visible .ag-medal-disc { transform: scale(1.1); box-shadow: 0 0 24px -4px var(--lg); }
+.ag-wider { position: absolute; transform: translate(-50%, -50%); padding: .2rem .6rem; border: 1px dashed var(--lg-line); border-radius: 999px; background: var(--surface); font-size: .74rem; color: var(--muted); white-space: nowrap; }
+.ag-wider:hover, .ag-wider:focus-visible { color: var(--ink); border-color: var(--lg); }
+.ag-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem .5rem; margin-top: 1rem; }
+.ag-grid .ag-medal { position: static; width: auto; transform: none; }
+.ag-wide { grid-column: 1 / -1; display: flex; align-items: center; gap: .9rem; padding: .8rem 1rem; border: 1px dashed var(--lg-line); border-radius: 16px; text-align: left; }
+.ag-wide small { display: block; color: var(--muted); font-size: .76rem; }
+.ag-preview { margin-top: 1rem; }
+.ag-preview .places-collections-back { --places-color: var(--lg); }
+.ag-preview-head { display: flex; gap: 1rem; align-items: center; margin-top: .6rem; }
+.ag-big { width: 5rem; height: 5rem; font-size: 1.3rem; box-shadow: 0 0 30px -8px var(--lg); }
+.ag-mini { display: grid; place-items: center; width: 1.6rem; height: 1.6rem; border: 1px solid var(--lg); border-radius: 50%; font-size: .6rem; color: var(--ink); }
+.ag-mini[data-dashed] { border-style: dashed; }
+.rg-wider-list { margin-top: 1rem; font-size: .84rem; color: var(--muted); }
+.rg-wider-list a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+
+@media (prefers-reduced-motion: reduce) { .rg-bar, .rg-card a, .ag-medal-disc { transition: none; } .rg-card a:hover { transform: none; } }
