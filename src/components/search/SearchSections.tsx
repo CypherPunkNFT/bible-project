@@ -13,6 +13,8 @@ import { sectionColor } from "@/lib/sections";
 import type { Place } from "@/lib/types";
 import { useAsync } from "@/lib/useAsync";
 import { formatNumber } from "@/lib/utils";
+import { markByForm, wordIndexOf } from "@/lib/search-words";
+import { Marked } from "./WordTabs";
 
 const MB = (bytes: number) => `${Math.round(bytes / 1e6)} MB`;
 
@@ -29,21 +31,24 @@ function SectionHead({ title, note, link }: { title: string; note?: string; link
 }
 
 /** Question-library studies: by meaning for real questions when switched on, otherwise by keyword. */
-export function StudiesSection({ query, meaning }: { query: string; meaning: ReturnType<typeof useMeaningResults> }) {
+export function StudiesSection({ query, meaning, words }: { query: string; meaning: ReturnType<typeof useMeaningResults>; words: string[] }) {
   const byMeaning = meaning.status === "done" && meaning.results && preferMeaning(query);
-  const keyword = searchStudies(STUDIES, query).hits.map((hit) => hit.study.id);
-  const ids = (byMeaning ? meaning.results!.studies.map((s) => s.id) : keyword).slice(0, 4);
+  const keyword = searchStudies(STUDIES, query).hits;
+  const snippets = new Map(keyword.map((hit) => [hit.study.id, hit.snippet]));
+  const ids = (byMeaning ? meaning.results!.studies.map((s) => s.id) : keyword.map((hit) => hit.study.id)).slice(0, 4);
   if (!ids.length && meaning.status !== "loading") return null;
   return (
     <section aria-labelledby="search-studies" className="mt-10">
       <div id="search-studies"><SectionHead title="Studies" note={byMeaning ? "by meaning" : "by words"} link={{ to: `/apologetics/questions?q=${encodeURIComponent(query)}`, label: "All in the question library" }} /></div>
       {meaning.status === "loading" && preferMeaning(query) ? <p className="text-sm text-muted" role="status">Finding studies by meaning…</p> : (
         <ul className="grid gap-3 sm:grid-cols-2">
-          {ids.map((id) => { const study = studyById(id); if (!study) return null; const topic = topicById(study.topic); return (
+          {ids.map((id) => { const study = studyById(id); if (!study) return null; const topic = topicById(study.topic); const snippet = byMeaning ? null : snippets.get(id); return (
             <li key={id}><Link to={studyUrl(id)} className="block h-full rounded-2xl border border-line bg-surface p-4 hover:border-accent">
               <span className="text-xs uppercase tracking-wide text-muted">{topic?.title}</span>
-              <span className="mt-1 block font-serif text-lg font-semibold">{study.title}</span>
-              <span className="mt-1 block text-sm text-muted">{study.summary}</span>
+              <span className="mt-1 block font-serif text-lg font-semibold"><Marked parts={markByForm(study.title, words)} /></span>
+              <span className="mt-1 block text-sm text-muted"><Marked parts={markByForm(study.summary, words)} /></span>
+              {/* The sentence that matched, as in the question library, so the reason for the result is visible. */}
+              {snippet && <span className="mt-3 block border-l-2 border-line pl-3 text-sm italic text-muted">…<Marked parts={snippet.map((part) => ({ text: part.text, word: part.hit ? Math.max(0, wordIndexOf(part.text, words)) : null }))} /></span>}
             </Link></li>
           ); })}
         </ul>
@@ -92,35 +97,45 @@ export function VersesSection({ query, meaning }: { query: string; meaning: Retu
   );
 }
 
-/** Atlas places whose name matches a word of the query. */
-export function PlacesSection({ query }: { query: string }) {
+/** Atlas places whose name starts with one of the search words. */
+export function PlacesSection({ words: searchWords }: { words: string[] }) {
   const places = useAsync(loadPlaces, "places");
   if (places.status !== "ready") return null;
-  const words = query.toLowerCase().split(/\s+/).filter((word) => word.length > 2);
+  const words = searchWords.filter((word) => word.length > 2);
   const hits: Place[] = places.value.filter((place) => words.some((word) => place.name.toLowerCase().split(/[\s-]+/).some((part) => part.startsWith(word)))).sort((a, b) => b.verses.length - a.verses.length).slice(0, 8);
   if (!hits.length) return null;
   return (
     <section aria-labelledby="search-places" className="mt-10">
       <div id="search-places"><SectionHead title="Places" note="on the atlas" /></div>
       <ul className="flex flex-wrap gap-2">
-        {hits.map((place) => <li key={place.id}><Link to={`/study/atlas/map?place=${place.id}`} className="inline-flex items-center gap-1.5 rounded-full border border-line bg-surface px-3 py-1.5 text-sm hover:border-accent"><MapPin size={14} className="text-accent" />{place.name}<span className="text-xs text-muted">{formatNumber(place.verses.length)} verses</span></Link></li>)}
+        {hits.map((place) => <li key={place.id}><Link to={`/study/atlas/map?place=${place.id}`} className="inline-flex items-center gap-1.5 rounded-full border border-line bg-surface px-3 py-1.5 text-sm hover:border-accent"><MapPin size={14} className="text-accent" /><Marked parts={markPlace(place.name, words)} /><span className="text-xs text-muted">{formatNumber(place.verses.length)} verses</span></Link></li>)}
       </ul>
     </section>
   );
 }
 
-/** Topics whose name matches the query (623 Torrey topics in two levels of categories). */
-export function TopicsSection({ query }: { query: string }) {
+/** Topics whose name holds the search words, each word marked in its colour. */
+export function TopicsSection({ words }: { words: string[] }) {
   const index = useAsync(loadTopicIndex, "topic-index");
   if (index.status !== "ready") return null;
-  const ids = matchTopics(index.value, query);
+  // Topics named by all the words; failing that, the best few for each word.
+  let ids = matchTopics(index.value, words.join(" "));
+  if (!ids.length && words.length > 1) ids = [...new Set(words.flatMap((word) => matchTopics(index.value, word, 4)))].slice(0, 12);
   if (!ids.length) return null;
   return (
     <section aria-labelledby="search-topics" className="mt-10">
       <div id="search-topics"><SectionHead title="Topics" note="with their verses" link={{ to: "/topics", label: "All topics" }} /></div>
       <ul className="flex flex-wrap gap-2">
-        {ids.map((id) => <li key={id}><Link to={topicUrl(id)} className="inline-flex items-baseline gap-1.5 rounded-full border border-line bg-surface px-3 py-1.5 text-sm hover:border-accent">{index.value.topics[id].title}<span className="text-xs text-muted">{formatNumber(index.value.topics[id].refs)} passages</span></Link></li>)}
+        {ids.map((id) => <li key={id}><Link to={topicUrl(id)} className="inline-flex items-baseline gap-1.5 rounded-full border border-line bg-surface px-3 py-1.5 text-sm hover:border-accent"><span><Marked parts={markByForm(index.value.topics[id].title, words)} /></span><span className="text-xs text-muted">{formatNumber(index.value.topics[id].refs)} {index.value.topics[id].refs === 1 ? "passage" : "passages"}</span></Link></li>)}
       </ul>
     </section>
   );
+}
+
+/** A place name with the start of a matching word picked out (places match by word start: "jeru" finds Jerusalem). */
+function markPlace(name: string, words: string[]) {
+  return name.split(/([\s-]+)/).map((part) => {
+    const index = words.findIndex((word) => part.toLowerCase().startsWith(word));
+    return { text: part, word: index < 0 ? null : index };
+  });
 }
