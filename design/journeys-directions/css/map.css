@@ -1,0 +1,121 @@
+/* The journey map. Everything is sized in screen pixels times --u (user units per pixel), set by journey-map.js. */
+.jm { --u: 1; --route: var(--tone, var(--accent)); display: block; width: 100%; height: 100%; user-select: none; }
+.jm-sea { fill: var(--sea); }
+.jm-g1 { stop-color: var(--land-north); } .jm-g2 { stop-color: var(--land-mid); } .jm-g3 { stop-color: var(--land-south); }
+.jm-land path { stroke: var(--coast); stroke-width: calc(.8px * var(--u)); stroke-linejoin: round; }
+.jm-land-depth, .jm-land-texture, .jm-shallows, .jm-sea-glow { display: none; }
+.jm-relief-flood { flood-color: #3a2a10; flood-opacity: .28; }
+:root[data-theme="dark"] .jm-relief-flood { flood-color: #000; flood-opacity: .5; }
+.jm-shallows path { fill: none; stroke: color-mix(in srgb, var(--sea) 55%, #fff); stroke-width: calc(16px * var(--u)); stroke-linejoin: round; opacity: .55; }
+:root[data-theme="dark"] .jm-shallows path { stroke: color-mix(in srgb, var(--sea) 60%, #6fa3c8); opacity: .45; }
+.jm-s1 { stop-color: #fff; stop-opacity: .22; } .jm-s2 { stop-color: #fff; stop-opacity: 0; }
+.jm-lakes path { fill: var(--sea); stroke: var(--coast); stroke-width: calc(.6px * var(--u)); }
+.jm-grat path { fill: none; stroke: color-mix(in srgb, var(--ink) 9%, transparent); stroke-width: calc(1px * var(--u)); }
+.jm-grat .jm-grat-major { stroke: color-mix(in srgb, var(--ink) 16%, transparent); }
+.jm-labels text { font: italic 400 calc(12px * var(--u)) var(--serif); fill: color-mix(in srgb, var(--ink) 48%, transparent); letter-spacing: calc(.4px * var(--u)); }
+.jm-label-region text { font: 600 calc(9.5px * var(--u)) var(--sans); letter-spacing: calc(2.2px * var(--u)); text-transform: uppercase; fill: color-mix(in srgb, var(--ink) 38%, transparent); }
+.jm-label-sea text { font-size: calc(17px * var(--u)); fill: color-mix(in srgb, var(--ink) 35%, transparent); }
+.jm-label-sea-sub text { font: 500 calc(8.5px * var(--u)) var(--sans); letter-spacing: calc(2.5px * var(--u)); text-transform: uppercase; fill: color-mix(in srgb, var(--ink) 28%, transparent); }
+.jm-ghost path { fill: none; stroke: color-mix(in srgb, var(--route) 30%, transparent); stroke-width: calc(1.4px * var(--u)); stroke-dasharray: calc(1px * var(--u)) calc(5px * var(--u)); stroke-linecap: round; }
+.jm-trail path { fill: none; stroke: var(--route); stroke-width: calc(2.6px * var(--u)); stroke-dasharray: calc(8px * var(--u)) calc(5px * var(--u)); stroke-linecap: round; }
+.jm-trail-glow { display: none; }
+.jm-trail-glow path { fill: none; stroke: var(--route); stroke-width: calc(6px * var(--u)); opacity: .55; }
+.jm-mask-leg { fill: none; stroke: #fff; stroke-width: calc(40px * var(--u)); stroke-linecap: butt; }
+
+/* Stops: constant size on screen; a ghost until reached, lit once reached, pulsing where the traveller stands. */
+.jm-s { transform: scale(var(--u)); }
+.jm-dot { fill: var(--surface); stroke: color-mix(in srgb, var(--route) 55%, var(--muted)); stroke-width: 1.5; transition: fill .35s, stroke .35s, r .35s; }
+.jm-dot-halo { fill: var(--route); opacity: 0; transition: opacity .4s; }
+.jm-pulse { fill: none; stroke: var(--route); stroke-width: 1.5; opacity: 0; }
+.jm-num { display: none; font: 700 7px var(--sans); fill: var(--page); }
+.jm-name text { font: 600 11.5px var(--sans); fill: var(--muted); paint-order: stroke; stroke: color-mix(in srgb, var(--page) 80%, transparent); stroke-width: 3px; stroke-linejoin: round; transition: fill .3s; }
+.jm-name-bg { display: none; }
+.jm-stop.is-reached .jm-dot { fill: var(--route); stroke: var(--surface); stroke-width: 2; }
+.jm-stop.is-reached .jm-name text { fill: var(--ink); }
+.jm-stop.is-current .jm-dot-halo { opacity: .22; }
+.jm-stop.is-current .jm-dot { r: 6px; }
+.jm-stop.is-pulse .jm-pulse { animation: jm-pulse 1.2s cubic-bezier(.16, 1, .3, 1) 2 both; }
+@keyframes jm-pulse { from { r: 6px; opacity: .9; } to { r: 26px; opacity: 0; } }
+
+/* The traveller: a dot on land, a ship at sea. */
+.jm-t-inner { transform: scale(var(--u)); }
+.jm-t-halo { fill: var(--route); opacity: .18; }
+.jm-t-ring { fill: var(--surface); stroke: var(--route); stroke-width: 2; }
+.jm-t-core { fill: var(--route); }
+.jm-ship { display: none; transform: scale(var(--flip, 1), 1); }
+.jm-ship path { fill: var(--surface); stroke: var(--route); stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+.jm-ship .jm-sail { fill: color-mix(in srgb, var(--route) 22%, var(--surface)); }
+.jm-traveller.is-sea .jm-walker { display: none; }
+.jm-traveller.is-sea .jm-ship { display: inline; }
+.jm-traveller.is-sea .jm-t-halo { opacity: .12; }
+.jm-traveller { transition: opacity .3s; }
+.is-playing .jm-t-halo { animation: jm-breathe 1.6s ease-in-out infinite; }
+@keyframes jm-breathe { 50% { opacity: .05; } }
+
+/* ── Pilgrim: the site's earth-and-sea atlas, with a soft relief and a warm dashed road. ── */
+.v-pilgrim .jm-shallows, .v-pilgrim .jm-sea-glow { display: inline; }
+.v-pilgrim .jm-sea { fill: color-mix(in srgb, var(--sea) 92%, #2a5c80); }
+.v-pilgrim .jm-land path { stroke: color-mix(in srgb, var(--coast) 70%, transparent); }
+.v-pilgrim .jm-trail path { stroke-width: calc(3px * var(--u)); }
+
+/* ── Starlight: a night chart. Land in a fine dot screen, the route a glowing thread, stops as stars. ── */
+.v-starlight { --route: var(--sl-route); }
+.v-starlight .jm-sea { fill: var(--sl-sea); }
+.v-starlight .jm-land path { fill: var(--sl-land); stroke: var(--sl-coast); stroke-width: calc(.9px * var(--u)); }
+.v-starlight .jm-land-texture { display: inline; } .v-starlight .jm-land-texture path { stroke: none; }
+.v-starlight .jm-dot-fill { fill: var(--sl-dots); }
+.v-starlight .jm-lakes path { fill: var(--sl-sea); stroke: var(--sl-coast); }
+.v-starlight .jm-labels text { fill: color-mix(in srgb, var(--sl-ink) 45%, transparent); }
+.v-starlight .jm-label-region text { fill: color-mix(in srgb, var(--sl-ink) 38%, transparent); }
+.v-starlight .jm-trail path { stroke-width: calc(2.2px * var(--u)); stroke-dasharray: calc(2px * var(--u)) calc(4px * var(--u)); }
+.v-starlight .jm-trail-glow { display: inline; }
+.v-starlight .jm-trail-glow path { stroke-width: calc(4px * var(--u)); opacity: .32; }
+.v-starlight .jm-ghost path { stroke: color-mix(in srgb, var(--sl-ink) 22%, transparent); }
+.v-starlight .jm-dot { fill: var(--sl-sea); stroke: color-mix(in srgb, var(--sl-ink) 55%, transparent); }
+.v-starlight .jm-stop.is-reached .jm-dot { fill: var(--sl-star); stroke: var(--route); stroke-width: 1.5; }
+.v-starlight .jm-dot-halo { fill: var(--sl-star); }
+.v-starlight .jm-stop.is-reached .jm-dot-halo { opacity: .25; r: 12px; }
+.v-starlight .jm-stop.is-current .jm-dot-halo { opacity: .45; r: 16px; }
+.v-starlight .jm-name text { fill: color-mix(in srgb, var(--sl-ink) 55%, transparent); stroke: var(--sl-sea); }
+.v-starlight .jm-stop.is-reached .jm-name text { fill: var(--sl-ink); }
+.v-starlight .jm-t-ring { fill: var(--sl-star); stroke: var(--route); }
+.v-starlight .jm-t-core { fill: var(--route); }
+.v-starlight .jm-t-halo { opacity: .35; }
+.v-starlight .jm-ship path { fill: var(--sl-sea); stroke: var(--sl-star); }
+.v-starlight .jm-ship .jm-sail { fill: color-mix(in srgb, var(--sl-star) 30%, var(--sl-sea)); }
+
+/* ── Voyage: layered paper land (three stacked copies), a bold route, numbered stops. ── */
+.v-voyage .jm-land-depth { display: inline; }
+.v-voyage .jm-land-depth path { fill: color-mix(in srgb, var(--coast) 30%, var(--sea)); transform: translate(0, calc(5px * var(--u))); opacity: .55; }
+.v-voyage .jm-land path { stroke: color-mix(in srgb, var(--surface) 50%, transparent); stroke-width: calc(1.2px * var(--u)); }
+.v-voyage .jm-sea { fill: color-mix(in srgb, var(--sea) 80%, var(--surface)); }
+.v-voyage .jm-trail path { stroke-width: calc(4px * var(--u)); stroke-dasharray: calc(12px * var(--u)) calc(6px * var(--u)); }
+.v-voyage .jm-ghost path { stroke-width: calc(1.6px * var(--u)); stroke: color-mix(in srgb, var(--surface) 75%, transparent); stroke-dasharray: calc(1px * var(--u)) calc(5px * var(--u)); }
+.v-voyage .jm-num { display: inline; }
+.v-voyage .jm-dot { r: 7.5px; fill: color-mix(in srgb, var(--surface) 85%, transparent); stroke: color-mix(in srgb, var(--ink) 30%, transparent); }
+.v-voyage .jm-num { fill: var(--muted); font-size: 7.5px; }
+.v-voyage .jm-stop.is-reached .jm-dot { r: 8px; fill: var(--route); stroke: var(--surface); stroke-width: 2; }
+.v-voyage .jm-stop.is-reached .jm-num { fill: var(--surface); }
+.v-voyage .jm-stop.is-current .jm-dot { r: 10px; }
+.v-voyage .jm-name-bg { display: inline; fill: color-mix(in srgb, var(--surface) 88%, transparent); stroke: color-mix(in srgb, var(--ink) 10%, transparent); stroke-width: 1; }
+.v-voyage .jm-name text { stroke: none; font-size: 11px; }
+.v-voyage .jm-stop:not(.is-reached) .jm-name { opacity: .6; }
+.v-voyage .jm-name { transform: translate(var(--nx, 4px), 0); }
+.v-voyage .jm-stop.jm-left .jm-name { --nx: -4px; }
+
+/* ── Meridian: an instrument. A graticule, flat land, a fine precise line and square stop marks. ── */
+.v-meridian .jm-sea { fill: var(--md-sea); }
+.v-meridian .jm-land path { fill: var(--md-land); stroke: color-mix(in srgb, var(--ink) 35%, transparent); stroke-width: calc(.7px * var(--u)); }
+.v-meridian .jm-lakes path { fill: var(--md-sea); }
+.v-meridian .jm-trail path { stroke-width: calc(2px * var(--u)); stroke-dasharray: calc(5px * var(--u)) calc(3px * var(--u)); }
+.v-meridian .jm-ghost path { stroke: color-mix(in srgb, var(--ink) 20%, transparent); stroke-dasharray: calc(2px * var(--u)) calc(3px * var(--u)); stroke-width: calc(1px * var(--u)); }
+.v-meridian .jm-dot { r: 4px; stroke-width: 1.25; }
+.v-meridian .jm-name text { font: 500 10.5px var(--sans); letter-spacing: .02em; }
+.v-meridian .jm-labels text { font-family: var(--sans); font-style: normal; }
+.v-meridian .jm-label-sea text { font: 300 calc(13px * var(--u)) var(--sans); letter-spacing: calc(4px * var(--u)); text-transform: uppercase; }
+
+/* Narrow maps: names only where the traveller stands (and the first stop), smaller region names. */
+.jm-compact .jm-stop:not(.is-current) .jm-name { display: none; }
+.jm-compact .jm-label-region text { font-size: calc(8px * var(--u)); letter-spacing: calc(1.5px * var(--u)); }
+.jm-compact .jm-label-sea-sub { display: none; }
+.jm-crowd:not(.is-current) .jm-name { display: none; }
