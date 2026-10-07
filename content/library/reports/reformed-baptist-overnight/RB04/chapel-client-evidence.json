@@ -1,0 +1,22 @@
+{
+  "page": {
+    "url": "https://www.chapellibrary.org/book/dolh",
+    "finalUrl": "https://www.chapellibrary.org/book/dolh",
+    "mimeType": "text/html",
+    "byteCount": 1302,
+    "sha256": "7efebe1969f51f5eaf0d2edc0f0a22b42e85b73f88da3548832df99c1a2d96c2",
+    "retrievedAt": "2026-10-07T08:26:24.401078+00:00"
+  },
+  "bundle": {
+    "url": "https://www.chapellibrary.org/static/js/main.bca834e2.js",
+    "finalUrl": "https://www.chapellibrary.org/static/js/main.bca834e2.js",
+    "mimeType": "application/javascript",
+    "byteCount": 901203,
+    "sha256": "a6080d6e046c0ba8eac5b694b54bd364fd9de5c447c64d18c443a8e2f85149da",
+    "retrievedAt": "2026-10-07T08:26:29.284540+00:00"
+  },
+  "offeredDownloadPattern": "api/books/download",
+  "publicBookDetailEndpoint": "https://www.chapellibrary.org/api/books/getdetail?code=dolh&language=EN",
+  "downloadEndpoint": "https://www.chapellibrary.org/api/books/download?code=dolh&format=epub",
+  "offerEvidence": "Public client constructs download links from code/format when epubUrl is present; public book record supplies /epub/books/dolh.epub. Publisher literature page explicitly permits free PDF/EPUB downloads."
+}

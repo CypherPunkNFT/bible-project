@@ -2,7 +2,7 @@
   "$schema": "./schema.json",
   "schemaVersion": 1,
   "kind": "source-registry",
-  "updated": "2026-10-05",
+  "updated": "2026-10-07",
   "sources": [
     {
       "id": "source-prdl",
@@ -532,6 +532,29 @@
         }
       ],
       "reviewedOn": "2026-10-05"
+    },
+    {
+      "id": "source-chapel-library",
+      "name": "Chapel Library literature",
+      "url": "https://www.chapellibrary.org/",
+      "role": "content-host",
+      "automation": "manual-only",
+      "acquisitionNote": "Individual offered free ebook downloads reviewed in RB04. Price applies to printed copies. Edition/abridgment/annotations and private-only publication limits apply; no blanket bulk automation or author approval.",
+      "evidence": [
+        {
+          "url": "https://www.chapellibrary.org/literature",
+          "locator": "Free ebook/PDF/EPUB notice",
+          "note": "Ebooks always free; public book detail and client expose offered download links. Print ordering is separate.",
+          "checkedOn": "2026-10-07"
+        },
+        {
+          "url": "https://www.chapellibrary.org/about",
+          "locator": "Doctrine and differing theological views",
+          "note": "1689 reference and explicit warning that not every author view is endorsed.",
+          "checkedOn": "2026-10-07"
+        }
+      ],
+      "reviewedOn": "2026-10-07"
     }
   ]
 }

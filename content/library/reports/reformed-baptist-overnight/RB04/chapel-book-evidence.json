@@ -1,0 +1,43 @@
+{
+  "request": {
+    "url": "https://www.chapellibrary.org/api/books/getdetail?code=dolh&language=EN",
+    "finalUrl": "https://www.chapellibrary.org/api/books/getdetail?code=dolh&language=EN",
+    "mimeType": "application/json",
+    "byteCount": 1514,
+    "sha256": "d7a092d66eb443e9c4160baf216e829795279257f109f62b058be1c7207d5d69",
+    "retrievedAt": "2026-10-07T08:27:05.114294+00:00"
+  },
+  "book": {
+    "id": "bee594d3-9299-43e0-84f2-9c23ea59e11c",
+    "code": "dolh",
+    "title": "Death of Legal Hope, The",
+    "pageCount": 64,
+    "number": null,
+    "type": "Booklets",
+    "language": "English",
+    "price": 2.33,
+    "isoLangCode": "EN",
+    "coverUrl": "/images/covers/booklets/dolh.jpg",
+    "pdfUrl": "/pdf/books/dolh.pdf",
+    "epubUrl": "/epub/books/dolh.epub",
+    "mobiUrl": "/mobi/books/dolh.mobi",
+    "audioUrl": "",
+    "hasPrintableVersion": true,
+    "courseLessonsCount": null,
+    "courseLevel": "",
+    "authors": [
+      {
+        "code": "boothabraham",
+        "name": "Abraham Booth",
+        "date": "(1734-1806)"
+      }
+    ],
+    "parent": null,
+    "courseOriginal": null,
+    "courses": [],
+    "articles": [],
+    "friendlyTitle": "death-of-legal-hope-the",
+    "children": []
+  },
+  "downloadLinksGeneratedByPublicClient": true
+}

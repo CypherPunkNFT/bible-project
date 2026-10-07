@@ -1,0 +1,50 @@
+{
+  "mission": "RB04",
+  "state": "acquisition-complete-intake-deferred",
+  "startedAt": "2026-10-07T08:08:17+00:00",
+  "finishedAt": "2026-10-07T08:50:14.650342+00:00",
+  "summary": "summary.json",
+  "manifest": "acquisition-manifest.json",
+  "allSevenTargetsAcquired": true,
+  "unresolvedAcquisitionFailures": [],
+  "rightsOrEditionQueue": [
+    {
+      "item": "John Murray commercial complete books",
+      "state": "not-acquired",
+      "nextAction": "Use author/publisher-offered complete editions or obtain authorization; existing essay/excerpts do not satisfy a whole-book gap."
+    },
+    {
+      "item": "Booth Death of Legal Hope",
+      "state": "full historical witness held; cleaner complete witness desirable",
+      "nextAction": "Use 1813 existing OCR for completeness and 2017 Chapel abridgment for reading; collate before claiming no omissions. Avoid unchanged rough OCR replacements without readability evidence."
+    }
+  ],
+  "intakeQueue": [
+    {
+      "item": "Fuller anthology and 17 components",
+      "nextAction": "Integrate component identities/locators/roles before releasing evidenceOnly; deduplicate held Gospel Worthy and separately acquired Strictures."
+    },
+    {
+      "item": "Booth mixed volume and Chapel abridgment",
+      "nextAction": "Segment complete Death with dedication/introduction; identify author vs editor notes and abridgment; retain historical/2017 identities and held Reign reuse."
+    }
+  ],
+  "resumeCommands": [
+    "python -X utf8 scripts/rb04-acquire.py acquire",
+    "python -X utf8 scripts/rb04-acquire.py verify",
+    "python -X utf8 scripts/map-rb04.py",
+    "python -X utf8 scripts/document-rb04.py",
+    "python -X utf8 scripts/verify-rb04.py"
+  ],
+  "commandLimits": "acquire skips all seven manifest URLs; no unconditional retries or new OCR. Map/document rebuild metadata and private components only. Do not rerun/overwrite final REPORT as a progress file. Verify needs SOURCES configured by bible.paths and private caches intact.",
+  "nextMission": "RB05 only when requested; read RB01-RB04 reports and reuse Dagg/Keach/Fuller before church-polity downloads.",
+  "aggregateIntake": "Owner fourteen-mission gate; all RB01-RB14 final reports/manifests, current intake finished, five quiet minutes, no active collectors. No DB/vector/graph/enrichment launch here.",
+  "priorBibleEmbeddingSnapshot": {
+    "state": "complete",
+    "total": 1901555,
+    "indexed": 1901555,
+    "remaining": 0,
+    "updatedAt": "2026-10-07T07:20:27.604174+00:00",
+    "includesNewRB04": false
+  }
+}

@@ -1,0 +1,164 @@
+{
+  "review": {
+    "date": "2026-10-07",
+    "reviewer": "Codex",
+    "kind": "ai-assisted",
+    "scope": "Bounded work/edition screening using actual source passages and earlier RB02 primary reviews; no exhaustive human review, global registry approval or Baptist-model selection."
+  },
+  "decisions": [
+    {
+      "author": "Benjamin Keach",
+      "workIds": [
+        "work-rb04-keach-marrow"
+      ],
+      "decision": "admit-scoped-historical-Baptist-study",
+      "sixAnchorBasis": {
+        "reusedReview": "RB02/admission-decisions.json",
+        "primaryEvidence": {
+          "url": "https://www.monergism.com/thethreshold/sdg/keach/A%20Short%20Confession%20of%20Faith%20-%20Benjamin%20Keach.epub",
+          "locator": "Held short confession: Trinity; Scriptures; Christ Mediator; humiliation/exaltation; justification; resurrection",
+          "finding": "Explicit six-anchor confidence, including one essence/three persons, two natures/one Christ, satisfaction in our place, third-day resurrection, faith alone and authoritative Scriptures.",
+          "checkedOn": "2026-10-07"
+        }
+      },
+      "workBodyFinding": "Two sermons reject works as the ground of justification and treat faith as receiving Christ. Postscript limits the published unit to two first sermons.",
+      "globalAuthorApproval": false,
+      "limits": [
+        "2026 editor lightly modernizes historical text; do not claim diplomatic 1692 wording.",
+        "Two offered sermons, not all sermons Keach contemplated."
+      ]
+    },
+    {
+      "author": "Abraham Booth",
+      "workIds": [
+        "work-rb04-booth-glad-tidings",
+        "work-rb04-booth-death-legal-hope"
+      ],
+      "decision": "admit-scoped-historical-Baptist-study",
+      "sixAnchorBasis": {
+        "reusedReview": "RB02/admission-decisions.json",
+        "primaryEvidence": {
+          "url": "https://www.monergism.com/thethreshold/sdg/booth/TheReignofGraceAbrahamBooth.epub",
+          "locator": "Held Reign of Grace: election discussion, chapters 6, 11, 12 and 13",
+          "finding": "Six-anchor confidence: three distinct divine persons, Scripture as only faith/practice rule, divine/human Mediator, substitution/satisfaction, resurrection and justification through Christ received by faith rather than works.",
+          "checkedOn": "2026-10-07"
+        }
+      },
+      "workBodyFinding": "Glad Tidings gives ungodly hearers a gospel warrant without qualifying holiness. Death distinguishes law as covenant from moral rule; holy obedience follows acceptance, not its purchase.",
+      "globalAuthorApproval": false,
+      "limits": [
+        "AI-assisted bounded body sampling, not exhaustive human review.",
+        "Exact edition and contributor boundaries apply; opposing quotations are not new admitted sources.",
+        "Chapel Booth witness is explicitly abridged/annotated; 1813 OCR is rough."
+      ]
+    },
+    {
+      "author": "Andrew Fuller",
+      "workIds": [
+        "work-rb04-fuller-strictures",
+        "work-rb04-fuller-collected-1846"
+      ],
+      "decision": "admit-focused-treatment-and-scoped-collected-components",
+      "globalAuthorApproval": false,
+      "sixAnchors": [
+        {
+          "anchor": "Scripture authority",
+          "witness": "asset-rb04-f9ea063dff9952ca931d",
+          "locator": "lines 143167-143373; Systematic Divinity letter VI",
+          "finding": "Divine inspiration and authority of the biblical writings defended."
+        },
+        {
+          "anchor": "Trinity",
+          "witness": "asset-rb04-f9ea063dff9952ca931d",
+          "locator": "lines 143744-144062; letter IX",
+          "finding": "Father, Son and Holy Spirit one God, distinguished beyond mere redemption roles."
+        },
+        {
+          "anchor": "Christ deity and humanity",
+          "witness": "asset-rb04-f9ea063dff9952ca931d",
+          "locator": "lines 143921-143988; 176683-176705; 177202-177260",
+          "finding": "Pre-incarnate divine Son takes human nature; Godhead/manhood and atoning suffering explicitly affirmed."
+        },
+        {
+          "anchor": "Substitutionary atonement",
+          "witness": "asset-rb04-f9ea063dff9952ca931d",
+          "locator": "Conversation II, lines 66481-66941; sermon XVII, 118558-118584",
+          "finding": "Christ redemption/righteousness grounds acceptance; atoning suffering is distinct from sinner merit."
+        },
+        {
+          "anchor": "Bodily resurrection",
+          "witness": "asset-rb04-f9ea063dff9952ca931d",
+          "locator": "lines 34108-34120; 56655-56675; 176683-176705",
+          "finding": "Resurrection of Christ as man and raising the Davidic Christ from death affirmed, not reduced to metaphor."
+        },
+        {
+          "anchor": "Grace through faith alone",
+          "witness": "asset-rb04-f9ea063dff9952ca931d",
+          "locator": "sermon XVII, 118492-119053; Strictures letter VIII",
+          "finding": "Justification freely by grace through Christ redemption; faith receives righteousness, not a meritorious substitute for it."
+        }
+      ],
+      "limits": [
+        "Andrew Fuller is distinct from held Francis Fuller. No Francis attribution imported.",
+        "1846 collected edition contains already-held Gospel Worthy and newly acquired Strictures: deduplicate at work/component level.",
+        "Three Conversations is Fuller-authored dialogue. Six letters are to Ryland about Booth. Opponent claims and editor notes remain attributed.",
+        "Nine Systematic Divinity letters are a historically unfinished series; editor omission/reference to pp.559-560 is disclosed.",
+        "Earlier imputation phrasing and later charging/reckoning phrasing remain chronologically distinct; see editor note 178779-178781.",
+        "Mixed anthology remains evidenceOnly until scoped component intake."
+      ]
+    },
+    {
+      "author": "John Murray",
+      "workIds": [
+        "work-rb04-murray-definitive-sanctification"
+      ],
+      "decision": "admit-scoped-conservative-Reformed-comparison-essay",
+      "globalAuthorApproval": false,
+      "sixAnchors": [
+        {
+          "anchor": "Scripture authority",
+          "url": "https://wm.wts.edu/read/the-reformed-faith-and-modern-substitutes",
+          "locator": "Part I: subscription and infallible rule; paragraphs beginning The root cause and These vows",
+          "finding": "Murray argues for binding biblical authority and rejects the Auburn Affirmation departures."
+        },
+        {
+          "anchor": "Trinity",
+          "url": "https://www.monergism.com/nature-union-christ",
+          "locator": "It is Spiritual: paragraph comparing kinds of union",
+          "finding": "Three divine persons in one God expressly affirmed."
+        },
+        {
+          "anchor": "Christ deity and humanity",
+          "url": "https://www.monergism.com/nature-union-christ",
+          "locator": "It is Spiritual; It is Mystical",
+          "finding": "Two natures in one person, Son becoming man, expressly affirmed."
+        },
+        {
+          "anchor": "Substitutionary atonement",
+          "url": "https://wm.wts.edu/read/the-reformed-faith-and-modern-substitutes",
+          "locator": "Part I: central tenets; Part III Purchase and Application",
+          "finding": "Substitution, debt discharge and satisfaction through Christ obedience/death defended."
+        },
+        {
+          "anchor": "Bodily resurrection",
+          "url": "https://wm.wts.edu/read/the-reformed-faith-and-modern-substitutes",
+          "locator": "Part I: central tenets; acquired essay Character section",
+          "finding": "Bodily resurrection essential; acquired essay appeals to resurrection from Joseph tomb."
+        },
+        {
+          "anchor": "Grace through faith alone",
+          "url": "https://www.monergism.com/thethreshold/articles/onsite/justification_murray.html",
+          "locator": "Free grace, imputation and final faith/works paragraphs",
+          "finding": "Christ obedience is ground; faith is instrument rather than meritorious cause; works excluded."
+        }
+      ],
+      "limits": [
+        "John Murray (1898-1975), not Andrew Murray or the American universalist namesake.",
+        "Presbyterian covenant/ordinance context remains a comparison, not Baptist default. Water/Spirit baptism interpretations must remain attributed.",
+        "Complete offered essay, not a complete Redemption Accomplished and Applied book or Collected Writings volume.",
+        "Definitive sanctification does not mean sinless perfection or erase progressive holiness; Romans 6:7 usage must remain distinguished from forensic justification.",
+        "Evidence excerpts and WTS historical polemic are read for screening, not acquired as whole commercial books."
+      ]
+    }
+  ]
+}

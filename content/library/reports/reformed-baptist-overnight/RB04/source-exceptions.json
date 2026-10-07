@@ -1,0 +1,69 @@
+{
+  "mission": "RB04",
+  "exceptions": [
+    {
+      "kind": "author-identity",
+      "status": "resolved",
+      "detail": "Two earlier Fuller records are one Andrew Fuller and one Francis Fuller. Other surname matches in audit (Philip Goodwin, Jacob Watson, Stockton Owen, Robert Murray M Cheyne) are discovery context, not target author approvals."
+    },
+    {
+      "kind": "archive-stream-format",
+      "status": "resolved",
+      "assets": [
+        "asset-rb04-301261b5901ffd76b7d8",
+        "asset-rb04-f9ea063dff9952ca931d"
+      ],
+      "detail": "Stream URLs ending djvu.txt return HTML containing OCR in pre. Corrected format/filename and private extraction; original response SHA unchanged; website navigation excluded."
+    },
+    {
+      "kind": "ocr-heading-defects",
+      "status": "retained",
+      "detail": "Fuller IT/VIIT, Booth Glad CHAPTER.17, Booth Works SectIoK It/VIL and damaged page labels remain in immutable originals. Map normalizes identities using sequence, TOC and actual body; printed numbers are not guessed from malformed OCR."
+    },
+    {
+      "kind": "booth-abridgment",
+      "status": "retained",
+      "detail": "Chapel 2017 explicitly abridgment and annotations, despite all seven sections. It is not proof of an unabridged historical witness; historical 1813 volume retained separately."
+    },
+    {
+      "kind": "download-approval-review",
+      "status": "resolved-with-primary-evidence",
+      "detail": "Initial Chapel EPUB fetch rejected automatically because public record price 2.33 appeared paid. Publisher literature page explicitly says ebooks always free and PDF/EPUB downloads free. Review then allowed offered unauthenticated EPUB; no workaround, login or purchase bypass.",
+      "evidence": [
+        "https://www.chapellibrary.org/literature",
+        "https://www.chapellibrary.org/about",
+        "chapel-book-evidence.json",
+        "chapel-client-evidence.json"
+      ]
+    },
+    {
+      "kind": "marker-validation",
+      "status": "resolved",
+      "detail": "Glad Tidings failed preliminary SECTION and THE END heuristics. Actual genre is four chapters; verified chapter IV body, printed page162 and closing text before publisher catalogue. Same cached response was validated and promoted; no repeated network hammering."
+    },
+    {
+      "kind": "murray-full-book",
+      "status": "not-acquired",
+      "detail": "Redemption Accomplished and Applied page offers purchase; Banner Collected Writings article is explicitly extracts. Neither completes a full-book gap.",
+      "evidence": [
+        "https://www.monergism.com/content/redemption-accomplished-and-applied",
+        "https://banneroftruth.org/us/resources/articles/2011/definitive-and-progressive-sanctification/"
+      ]
+    },
+    {
+      "kind": "epub-anchor",
+      "status": "source-defect",
+      "detail": "Held Sibbes Bruised Reed navigation Back To Top points to absent #top. Body member exists; this is not a missing chapter. Some held NCX labels truncate headings; exact original source label retained."
+    },
+    {
+      "kind": "mixed-witness",
+      "status": "intake-held",
+      "detail": "Fuller anthology, Booth Works I and Chapel annotated abridgment explicitly evidenceOnly until contributor/component integration. Current generic importer does not enforce full role scopes."
+    },
+    {
+      "kind": "rights",
+      "status": "private-only",
+      "detail": "No external fulltext publication authorized. Monergism reserves electronic-editor rights and prohibits external file distribution/AI-corpus republication; Chapel freely offers ebook download but retains 2017 abridgment/annotation copyright. Archive public-domain underlying editions do not license all later editorial additions."
+    }
+  ]
+}

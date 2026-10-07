@@ -1,0 +1,55 @@
+{
+  "source": {
+    "url": "https://archive.org/advancedsearch.php?q=creator%3A%22Booth%2C+Abraham%22+AND+%28title%3A%22select+works%22+OR+title%3A%22death+of+legal%22+OR+title%3A%22works+of%22%29&output=json&rows=30&fl%5B%5D=identifier%2Ctitle%2Cdate",
+    "finalUrl": "https://archive.org/advancedsearch.php?q=creator%3A%22Booth%2C+Abraham%22+AND+%28title%3A%22select+works%22+OR+title%3A%22death+of+legal%22+OR+title%3A%22works+of%22%29&output=json&rows=30&fl%5B%5D=identifier%2Ctitle%2Cdate",
+    "mimeType": "application/json",
+    "byteCount": 1527,
+    "sha256": "c22ecde97aa34265e71df5a93bb43482ff7c9f406acc3657f7ba7cea613fa7b7",
+    "retrievedAt": "2026-10-07T08:18:11.183545+00:00"
+  },
+  "result": {
+    "responseHeader": {
+      "status": 0,
+      "QTime": 30,
+      "params": {
+        "query": "creator:&quot;Booth, Abraham&quot; AND (title:&quot;select works&quot; OR title:&quot;death of legal&quot; OR title:&quot;works of&quot;)",
+        "qin": "creator:&quot;Booth, Abraham&quot; AND (title:&quot;select works&quot; OR title:&quot;death of legal&quot; OR title:&quot;works of&quot;)",
+        "fields": "identifier,title,date",
+        "wt": "json",
+        "rows": 30,
+        "start": 0
+      }
+    },
+    "response": {
+      "numFound": 5,
+      "start": 0,
+      "docs": [
+        {
+          "date": "1813-01-01T00:00:00Z",
+          "identifier": "worksabrahamboo00bootgoog",
+          "title": "Works of Abraham Booth, late pastor of the Baptist Church assembling in Little Prescot street, Goodman's Fields, London; with some account of his life and writings"
+        },
+        {
+          "date": "1794-01-01T00:00:00Z",
+          "identifier": "bim_eighteenth-century_the-death-of-legal-hope-_booth-abraham_1794",
+          "title": "The death of legal hope, the life of evangelical obedience. An essay on Galatians II.19. By Abraham Booth. 1794"
+        },
+        {
+          "date": "2006-01-01T00:00:00Z",
+          "identifier": "worksofabrahambo0000boot",
+          "title": "The works of Abraham Booth"
+        },
+        {
+          "date": "1778-01-01T00:00:00Z",
+          "identifier": "bim_eighteenth-century_the-death-of-legal-hope-_booth-abraham_1778",
+          "title": "The death of legal hope, the life of evangelical obedience. An essay on Galatians II. 19. By Abraham Booth. 1778"
+        },
+        {
+          "date": "1770-01-01T00:00:00Z",
+          "identifier": "bim_eighteenth-century_the-death-of-legal-hope-_booth-abraham_1770",
+          "title": "The death of legal hope, the life of evangelical obedience. An essay on Galatians II. 19. ... By Abraham Booth. 1770"
+        }
+      ]
+    }
+  }
+}
