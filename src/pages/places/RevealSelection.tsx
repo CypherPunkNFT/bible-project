@@ -63,7 +63,8 @@ export function RevealSelection({ expanded, selectionKey, grid, children, onBack
   }, [expanded, reduced, selectionKey]);
 
   return <div ref={stage} className="places-reveal" onKeyDown={(event) => {
-    if (event.key === "Escape" && expanded && !running.current) { event.preventDefault(); onBack(); }
+    // A nested selection handles its own Escape first; the outer one then leaves it alone.
+    if (event.key === "Escape" && !event.defaultPrevented && expanded && !running.current) { event.preventDefault(); onBack(); }
   }}>
     <div ref={list} className="places-reveal-grid" hidden={initial.current}>{grid}</div>
     <div ref={detail} className="places-reveal-detail" hidden={!initial.current}>{children}</div>

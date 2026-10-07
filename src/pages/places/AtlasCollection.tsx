@@ -4,7 +4,6 @@ import { Link, NavLink, Navigate, Route, Routes, useLocation, useSearchParams } 
 import { PlacesArtwork } from "./PlacesArtwork";
 import { CITY_COLLECTIONS } from "./city-collections";
 import { CitySelection } from "./CitySelection";
-import { CityMapExperience } from "./CityMapExperience";
 import { CityDirectory } from "./CityDirectory";
 import { HISTORY_COLLECTIONS, type HistoryId } from "./history-collections";
 import { HistoryExperience } from "./HistoryExperience";
@@ -154,26 +153,28 @@ function ExperiencePreview({ id }: { id: PreviewId }) {
   const chooseCollection = (entry: typeof CITY_COLLECTIONS[number]) => {
     const next = new URLSearchParams(search);
     next.delete("browse");
+    next.delete("view");
     next.set("collection", entry.id);
     next.set("focus", entry.cities.some((city) => city.id === choice.id) ? choice.id : entry.cities[0].id);
     setSearch(next);
   };
+  // A chosen city opens inside its collection card (Back closes it) and the card's map flies there.
   const chooseCity = (value: string) => {
-    update("focus", value);
+    const next = new URLSearchParams(search);
+    next.set("focus", value);
+    if (collection) next.set("collection", collection.id);
+    next.set("view", "city");
+    setSearch(next);
     setVisit((current) => current + 1);
-    requestAnimationFrame(() => {
-      const map = document.getElementById("city-map-experience");
-      map?.focus({ preventScroll: true });
-      map?.scrollIntoView({ block: "start", behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth" });
-    });
   };
+  const closeCity = () => { const next = new URLSearchParams(search); next.delete("view"); setSearch(next); };
   return <>
     <header className="places-destination-intro history-intro"><div><p className="places-kicker">{data.kicker}</p><h1>{data.title}</h1><p>{data.description}</p></div><PlacesArtwork kind={id} /></header>
-    {collection ? <CitySelection collection={collection} choice={choice} expanded={expanded} onCollection={chooseCollection} onCity={chooseCity} onBack={() => { const next = new URLSearchParams(search); next.set("browse", "collections"); setSearch(next); }} /> : <section className="places-choose" aria-labelledby="places-choose-title">
+    {collection ? <CitySelection collection={collection} choice={choice} expanded={expanded} cityOpen={expanded && search.get("view") === "city"} visit={visit} onCollection={chooseCollection} onCity={chooseCity} onCloseCity={closeCity} onBack={() => { const next = new URLSearchParams(search); next.set("browse", "collections"); next.delete("view"); setSearch(next); }} /> : <section className="places-choose" aria-labelledby="places-choose-title">
       <div className="places-section-heading"><h2 id="places-choose-title">{data.choose}</h2><span>Choose your starting point</span></div>
       <div className="places-choices" role="group" aria-label={data.choose}>{options.map((option, i) => <button type="button" key={option.id} aria-pressed={choice.id === option.id} onClick={() => update("focus", option.id)}><span className="places-choice-mark" aria-hidden>{String(i + 1).padStart(2, "0")}</span><span><strong>{option.title}</strong><small>{option.subtitle}</small></span></button>)}</div>
     </section>}
-    {id === "cities" ? <CityMapExperience choice={choice} visit={visit} /> : <ExperienceWorkspace id={id} choice={choice} lenses={lenses} lens={lens} onLens={(value) => update("lens", value)} />}
+    {id !== "cities" && <ExperienceWorkspace id={id} choice={choice} lenses={lenses} lens={lens} onLens={(value) => update("lens", value)} />}
   </>;
 }
 

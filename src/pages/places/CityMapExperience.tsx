@@ -10,12 +10,7 @@ import { useCatalog } from "@/lib/catalog";
 import { sectionOfNum, splitId } from "@/lib/refs";
 import type { SectionId } from "@/lib/types";
 import { CITY_COLLECTIONS, type CityChoice } from "./city-collections";
-
-/** A city's own atlas place: its pinned entry, else the most often named place of that name. */
-function cityPlace(places: MapPlace[], city: CityChoice) {
-  return places.find((place) => place.id === city.placeId)
-    ?? places.filter((place) => place.name === city.place).sort((a, b) => b.verses.length - a.verses.length)[0] ?? null;
-}
+import { resolveCityPlace as cityPlace } from "./city-places";
 
 export function CityMapExperience({ choice, visit }: { choice: CityChoice; visit: number }) {
   const raw = useAsync(loadPlaces, "places");

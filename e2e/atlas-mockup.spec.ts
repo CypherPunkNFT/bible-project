@@ -67,7 +67,8 @@ test("reveal: compact city and history selectors share the downward expansion", 
   await page.emulateMedia({ reducedMotion: "no-preference" });
   for (const [route, name] of [["cities", "The Pagan World"], ["early-church", "After the Apostles"], ["reformation", "Luther & Germany"], ["missions", "Africa"]]) {
     await page.goto(`/study/atlas/${route}`);
-    const stage = page.locator(".places-reveal");
+    // The outer selection; a city collection nests a second one (its cities) inside the open card.
+    const stage = page.locator(".places-reveal").first();
     const card = page.getByRole("button", { name, exact: true });
     await expect(card).toBeVisible();
     await page.evaluate(() => document.fonts.ready);
@@ -88,14 +89,17 @@ test("reveal: compact city and history selectors share the downward expansion", 
     });
     const frame = await stage.evaluate((element) => {
       const panel = element.querySelector<HTMLElement>(".places-reveal-detail")!;
-      return { height: element.getBoundingClientRect().height, target: panel.offsetHeight, clip: getComputedStyle(panel).clipPath, x: new DOMMatrix(getComputedStyle(panel).transform).m41 };
+      // The height the stage animates to (the card's map can still be settling, so not the panel's live height).
+      const frames = (element.getAnimations()[0]?.effect as KeyframeEffect | undefined)?.getKeyframes() ?? [];
+      const target = parseFloat(String(frames.at(-1)?.height ?? panel.offsetHeight));
+      return { height: element.getBoundingClientRect().height, target, clip: getComputedStyle(panel).clipPath, x: new DOMMatrix(getComputedStyle(panel).transform).m41 };
     });
     expect(frame.clip).toContain("50%");
     expect(frame.x).toBe(0);
     expect(Math.abs(frame.height - (before + frame.target) / 2)).toBeLessThan(1);
     await stage.evaluate((element) => element.getAnimations({ subtree: true }).forEach((animation) => animation.play()));
     await expect(stage).toHaveAttribute("data-phase", "expanded");
-    const back = stage.locator(".places-collections-back");
+    const back = stage.locator(".places-collections-back").first();
     await expect(back).toBeFocused();
     await page.keyboard.press("Escape");
     await expect(stage).toHaveAttribute("data-phase", "collapsed");
@@ -107,29 +111,33 @@ test("reveal: compact city and history selectors share the downward expansion", 
   await expect(page.locator(".motion-designs,.motion-demo-stage,.places-city-count,.history-topic-card")).toHaveCount(0);
 });
 
-test("cities: selecting a city scrolls to the map at that city", async ({ page }) => {
+test("cities: choosing a city opens it inside the card and moves the card's map there", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "no-preference", colorScheme: "dark" });
   await page.goto("/study/atlas/cities");
   await page.getByRole("button", { name: "The Pagan World", exact: true }).click();
-  await expect(page.locator(".places-reveal")).toHaveAttribute("data-phase", "expanded");
-  await expect(page.locator(".maplibregl-canvas")).toBeVisible();
-  const map = page.locator("#city-map-experience");
-  for (const name of ["Ephesus", "Athens", "Ephesus"]) {
-    await page.getByRole("group", { name: "Which city will you explore?" }).getByRole("button", { name: new RegExp(`^${name}`) }).click();
+  await expect(page.locator(".places-reveal").first()).toHaveAttribute("data-phase", "expanded");
+  await expect(page.getByText("Choose a city", { exact: true })).toHaveCount(0);
+  await expect(page.getByText("Choose a city to explore the map below.")).toHaveCount(0);
+  const map = page.locator(".places-city-card #city-map-experience");
+  await expect(map.locator(".maplibregl-canvas")).toBeVisible();
+  const cities = page.getByRole("group", { name: "Which city will you explore?" });
+  for (const name of ["Ephesus", "Athens"]) {
+    await cities.getByRole("button", { name: new RegExp(`^${name}`) }).click();
+    await expect(page).toHaveURL(/view=city/);
+    await expect(page.locator(".city-detail-heading h3")).toHaveText(name);
+    await expect(page.getByRole("button", { name: "All cities", exact: true })).toBeFocused();
     await expect(page.locator("#city-map-title")).toHaveText(name);
-    await expect(map).toBeFocused();
     await expect(map).toHaveAttribute("data-map-city", name);
-    await expect.poll(async () => Math.round((await map.boundingBox())!.y)).toBeGreaterThanOrEqual(70);
-    await expect.poll(async () => Math.round((await map.boundingBox())!.y)).toBeLessThanOrEqual(90);
+    await expect(page.locator(".city-detail-verses li").first()).toBeVisible();
+    // Escape closes only the city; the collection stays open.
+    await page.keyboard.press("Escape");
+    await expect(cities.getByRole("button", { name: new RegExp(`^${name}`) })).toBeFocused();
+    await expect(page.getByRole("button", { name: "All collections", exact: true })).toBeVisible();
   }
-  await page.waitForFunction(() => {
-    const top = document.getElementById("city-map-experience")!.getBoundingClientRect().top;
-    const state = window as unknown as { settledMapFrames?: number };
-    state.settledMapFrames = top >= 70 && top <= 90 ? (state.settledMapFrames ?? 0) + 1 : 0;
-    return state.settledMapFrames > 15;
-  });
+  await cities.getByRole("button", { name: /^Ephesus/ }).click();
   await expect(map.locator("header")).toContainText("On the atlas · 37.94° N, 27.34° E");
-  await page.screenshot({ path: `front-end capture/2026-10-06/city-selection-map-${test.info().project.name}.png` });
+  await expect(page.getByRole("link", { name: /Read Revelation 2:1–7/ })).toHaveAttribute("href", "/read/kjv/REV/2?hl=1-7");
+  await page.screenshot({ path: `front-end capture/2026-10-06/city-detail-map-${test.info().project.name}.png` });
   await page.getByRole("group", { name: "Map region" }).getByRole("button", { name: "Jerusalem", exact: true }).click();
   await expect(page.getByRole("group", { name: "Map region" }).getByRole("button", { name: "Jerusalem", exact: true })).toHaveAttribute("aria-pressed", "true");
 });
@@ -262,15 +270,15 @@ test("cities: new collections and full directory open real places", async ({ pag
   const grid = page.getByRole("group", { name: "City collections", exact: true });
   await expect(grid.getByRole("button")).toHaveCount(11);
   await expect(grid.getByRole("link", { name: "Find Your City", exact: true })).toHaveCount(1);
-  for (const [title, city, ref] of [
-    ["Patriarchs & Promises", "Haran", "Genesis 12"],
-    ["Egypt & the Exodus", "Pithom", "Exodus 1"],
-    ["Cities Warned & Spared", "Zoar", "Matthew 11"],
+  for (const [title, city] of [
+    ["Patriarchs & Promises", "Haran"],
+    ["Egypt & the Exodus", "Pithom"],
+    ["Cities Warned & Spared", "Zoar"],
   ]) {
     await grid.getByRole("button", { name: title, exact: true }).click();
     await page.getByRole("group", { name: "Which city will you explore?", exact: true }).getByRole("button", { name: new RegExp(city) }).click();
     await expect(page.locator("#city-map-title")).toContainText(city);
-    await expect(page.getByRole("link", { name: new RegExp(ref) })).toBeVisible();
+    await expect(page.locator(".city-detail-heading h3")).toHaveText(city);
     await expect(page.locator("#city-map-experience")).toHaveAttribute("data-map-city", city);
     await page.getByRole("button", { name: "All collections", exact: true }).click();
   }
@@ -358,14 +366,17 @@ test("cities: collections drill into one selection area with keyboard and histor
   await expect(back).toBeFocused();
   await expect(cities.locator("strong")).toHaveText(["Ephesus", "Smyrna", "Pergamum", "Thyatira", "Sardis", "Philadelphia", "Laodicea"]);
   await expect(page.locator(".places-city-count,.places-tier-number")).toHaveCount(0);
-  await expect(page.locator(".places-city-selector + .city-map-experience")).toHaveCount(1);
+  await expect(page.locator(".places-city-card .city-map-experience")).toHaveCount(1);
   await back.click();
   await expect(seven).toBeFocused();
   await expect(cities).toHaveCount(0);
   await collections.getByRole("button", { name: "Cities of the Apostles", exact: true }).click();
   await expect(cities.getByRole("button", { name: /^Ephesus/ })).toHaveAttribute("aria-pressed", "true");
   await cities.getByRole("button", { name: /^Corinth/ }).click();
+  await expect(page.locator(".city-detail-heading h3")).toHaveText("Corinth");
   await page.reload();
+  await expect(page.locator(".city-detail-heading h3")).toHaveText("Corinth");
+  await page.getByRole("button", { name: "All cities", exact: true }).click();
   await expect(cities.getByRole("button", { name: /^Corinth/ })).toHaveAttribute("aria-pressed", "true");
   await back.click();
   await page.reload();
@@ -385,7 +396,6 @@ test("cities: collections drill into one selection area with keyboard and histor
   await back.click();
   await collections.getByRole("button", { name: "Cities of Refuge", exact: true }).click();
   await expect(cities.locator("strong")).toHaveText(["Kedesh", "Shechem", "Hebron", "Bezer", "Ramoth-gilead", "Golan"]);
-  await expect(page.getByRole("link", { name: /Joshua 20/ })).toHaveAttribute("href", "/read/kjv/JOS/20?hl=1-9");
   await page.goto("/study/atlas/cities?focus=corinth");
   await expect(collections).toHaveCount(0);
   await expect(cities.getByRole("button", { name: /^Corinth/ })).toHaveAttribute("aria-pressed", "true");

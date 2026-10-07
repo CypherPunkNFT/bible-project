@@ -1,0 +1,20 @@
+/* An open city inside its collection card, and the collection's map as the card's bottom half. */
+.city-detail { display: grid; gap: 1rem; }
+.city-detail > .places-collections-back { justify-self: start; }
+.city-detail-heading h3 { font: 500 1.6rem/1.25 var(--font-serif); }
+.city-detail-heading p { margin-top: .3rem; font-size: .75rem; color: var(--muted); }
+.city-detail-columns { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 1.5rem; }
+.city-detail-story { display: grid; gap: 1.1rem; align-content: start; }
+.city-detail h4 { margin-bottom: .45rem; font-size: .62rem; text-transform: uppercase; letter-spacing: .14em; color: var(--places-color); }
+.city-detail-story p { max-width: 40rem; font-size: .85rem; line-height: 1.75; }
+.city-detail-story a { display: inline-flex; align-items: center; gap: .45rem; margin-top: .6rem; font-size: .72rem; color: var(--places-color); }
+.city-detail-story a:hover, .city-detail-verses a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.city-detail-verses { min-width: 0; padding: 1rem 1.1rem; border: 1px solid var(--line); border-radius: .7rem; background: var(--page); }
+.city-detail-scroll { max-height: 13rem; }
+.city-detail-verses ul { display: grid; gap: .4rem; font-size: .75rem; line-height: 1.6; }
+.city-detail-verses li strong { font-weight: 600; }
+.city-detail-verses li a { color: var(--muted); }
+.city-detail-muted { font-size: .75rem; color: var(--muted); }
+.places-city-card .city-map-experience { margin-top: 0; padding: 1.1rem 1.35rem 1.35rem; border-top: 1px solid var(--line); scroll-margin-top: 5rem; }
+.places-city-card .city-map-experience h2 { font-size: 1.35rem; }
+@media (max-width: 767px) { .city-detail-columns { grid-template-columns: 1fr; } .places-city-card .city-map-experience { padding: 1rem; } }
