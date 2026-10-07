@@ -7,7 +7,7 @@ test("the way in: the menu leads to the topic families, a family to its groups, 
   await page.goto("/");
   await page.getByRole("link", { name: "Topics", exact: true }).first().click();
   await expect(page).toHaveURL(/\/topics$/);
-  await expect(page.getByText(/5,607 topics in 55 families and \d+ groups/)).toBeVisible();
+  await expect(page.getByText(/5,603 topics in 55 families and \d+ groups/)).toBeVisible();
   await expect(page.getByRole("heading", { name: /Sin, salvation and the life to come/ })).toBeVisible();
   await page.getByRole("link", { name: "Who God is", exact: true }).click();
   await expect(page).toHaveURL(/\/topics\/c\/god$/);
@@ -52,7 +52,7 @@ test("the reader shows the topics of the chapter", async ({ page }) => {
 
 test("study and search lead to topics too", async ({ page }) => {
   await page.goto("/study");
-  await expect(page.getByRole("link", { name: /Topics/ }).filter({ hasText: "5,607 subjects" })).toBeVisible();
+  await expect(page.getByRole("link", { name: /Topics/ }).filter({ hasText: "5,603 subjects" })).toBeVisible();
   await page.goto("/search");
   const browse = page.locator("section[aria-labelledby=browse-topics]");
   await expect(browse.getByRole("heading", { name: /God and his word/ })).toBeVisible(); // the whole Topics page, on Search
@@ -101,4 +101,18 @@ test("the new cards: books with Easton's introduction, Jesus' miracles one by on
   await page.goto("/topics");
   await expect(page.locator(".topics-readings li")).toHaveCount(53);
   await expect(page.locator(".topics-readings").getByRole("link", { name: "Psalms 23:1–6" })).toBeVisible();
+});
+
+test("placement fixes (2026-10-07): contents pages say so, retired addresses forward, people on their era's card", async ({ page }) => {
+  await page.goto("/topics/c/family?group=marriage-and-family");
+  await expect(page.getByRole("link", { name: /^Family\s*Contents: 7 topics/ })).toBeVisible();
+  await page.goto("/topics/prodigal-son");
+  await expect(page).toHaveURL(/\/topics\/parable-the-prodigal-son-and-his-older-brother$/);
+  await page.goto("/topics/of-god-love-of-love");
+  await expect(page.getByRole("heading", { level: 1, name: "The Love of God" })).toBeVisible();
+  await page.goto("/topics/c/era-patriarchs?group=patriarchs-leaders");
+  await expect(page.locator(`a[href="/topics/jacob"]`)).toBeVisible();
+  await page.goto("/topics/c/christ-teaching?group=parables-and-allegories");
+  await expect(page.getByRole("heading", { level: 3, name: "Other parables & allegories" })).toBeVisible();
+  await expect(page.locator(`a[href="/topics/sower"], a[href="/topics/tares"], a[href="/topics/prodigal-son"]`)).toHaveCount(0);
 });

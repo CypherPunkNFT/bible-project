@@ -39,6 +39,11 @@ TITLE_FIXES = {"b": ("beasts", "Beasts"), "early-rising-2": ("earth", "The Earth
 # Topic-to-study scores cluster between 0.75 and 0.89 (median 0.81). At 0.845 the clear pairs stay (Afflictions -> suffering 0.845,
 # Resurrection of Christ -> resurrection 0.887, Faith -> grace 0.864) and the noise goes (Iron 0.78, Asp 0.75). Checked 2026-10-06.
 RELATED_MIN = 0.845
+# Topic addresses that were live but are no longer topics, and where they now lead (the index's aliases; the topic page
+# forwards an alias). "Prodigal Son" is Nave's own entry for the parable, the same passage (Luke 15:11-32) as the parable
+# split out of "The Parables of Christ", which is kept; "of-god-love-of-love" was Nave's link to "God, Love of", misread as a
+# sub-heading of Love (scripts/topic_extras.py TITLES). Reviewed 2026-10-07.
+FORWARDS = {"prodigal-son": "parable-the-prodigal-son-and-his-older-brother", "of-god-love-of-love": "love-of-god"}
 
 
 def clean(fragment: str) -> str:
@@ -353,6 +358,7 @@ def build() -> None:
     torrey_ids = {t["id"] for t in topics}
     naves.CHAPTER_END = chapter_end
     aliases = merge_naves(topics)
+    topics[:] = [t for t in topics if t["id"] not in FORWARDS or t["id"] in torrey_ids]
     placement = json.loads(NAVE_PLACEMENT.read_text(encoding="utf-8"))
     groups = {s["id"]: (c["id"], s) for c in taxonomy["categories"] for s in c["subcategories"]}
     unplaced = [t["id"] for t in topics if t["id"] not in torrey_ids and placement.get(t["id"]) not in groups]  # generated topics are checked below
@@ -360,7 +366,8 @@ def build() -> None:
         raise SystemExit(f"topics: {len(unplaced)} Nave topics have no group in {NAVE_PLACEMENT.name}: {unplaced[:8]}")
     # Nave's largest entries split at their sub-headings; the books of the Bible and other Easton-only topics.
     articles = easton.parse(safe_span)
-    generated = topic_extras.split_entries(topics, None)
+    forwards = dict(FORWARDS)
+    generated = topic_extras.split_entries(topics, None, forwards)
     titles = {t["title"].lower() for t in topics} | {t["title"].lower() for t in generated}
     generated += topic_extras.easton_topics(articles, BOOKS, titles)
     existing = {t["id"] for t in topics}
@@ -399,6 +406,8 @@ def build() -> None:
         refs = sum(len(p["refs"]) + sum(len(i["refs"]) for i in p.get("items", [])) for p in points)
         source = ("t" if topic["points"] else "") + ("n" if topic.get("nave") else "")
         summary[topic["id"]] = {"title": topic["title"], "points": len(points), "refs": refs, "f": shard, "s": source + ("e" if topic.get("dictionary") else "")}
+        if topic.get("parts"):  # a contents page ("Family") lists its parts: the group lists say so instead of "Dictionary article"
+            summary[topic["id"]]["parts"] = len(topic["parts"])
     (OUT / "t").mkdir(exist_ok=True)
     for stale in (OUT / "t").glob("*.json"):
         stale.unlink()
@@ -409,6 +418,11 @@ def build() -> None:
         (OUT / "books" / f"{code}.json").write_text(json.dumps(chapters, separators=(",", ":")), encoding="utf-8")
     for family in taxonomy["categories"]:  # a group can be empty (an era without prophets); it is left out
         family["subcategories"] = [group for group in family["subcategories"] if group["topics"]]
+    for old, new in forwards.items():  # retired addresses forward to a topic; any alias that named one follows it
+        if old in summary or new not in summary:
+            raise SystemExit(f"topics: forward {old} -> {new}: {old} is still a topic or {new} is not one")
+        aliases[old] = new
+    aliases = {alias: forwards.get(target, target) for alias, target in aliases.items()}
     index = {"source": taxonomy["source"], "categories": taxonomy["categories"], "topics": summary, "aliases": aliases, "readings": readings}
     (OUT / "index.json").write_text(json.dumps(index, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
     refs = sum(t["refs"] for t in summary.values())

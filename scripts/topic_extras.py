@@ -54,6 +54,9 @@ TITLES = {
     ("god", "LOVE OF, EXEMPLIFIED"): "The Love of God Exemplified", ("god", "PROVIDENCE OF, OVERRULING INTERPOSITIONS OF THE"): "The Overruling Providence of God",
     ("god", "PROVIDENCE OF, MYSTERIOUS AND MISINTERPRETED"): "The Mysterious Providence of God", ("god", "HUMAN FORMS AND APPEARANCE OF"): "God's Appearances in Human Form",
     ("god", "SYMBOLIZED"): "Symbols of God",
+    # Under LOVE, Nave's "OF GOD, LOVE OF" is a link to his "GOD, LOVE OF" (no "See", so it reads as a sub-heading): it is
+    # the Love of God topic, not a new one ("The Of God, Love of Love" until 2026-10-07).
+    ("love", "OF GOD, LOVE OF"): "The Love of God",
 }
 ADJECTIVES = {"IMMUTABLE", "IMPARTIAL", "INCOMPREHENSIBLE", "INFINITE", "INVISIBLE", "JEALOUS", "OMNIPOTENT", "OMNISCIENT", "SELF-EXISTENT", "SOVEREIGN",
               "UBIQUITOUS", "UNCHANGEABLE", "UNSEARCHABLE", "TRUTH"}
@@ -118,9 +121,13 @@ def group_for(parent: str, head: str, default: str) -> str:
     return default
 
 
-def split_entries(topics: list[dict], placed_group) -> list[dict]:
+def split_entries(topics: list[dict], placed_group, forwards: dict[str, str] | None = None) -> list[dict]:
     """Split the SPLIT parents' Nave points at their capital sub-headings. Returns the new child topics (and Jesus' miracles
-    and parables); each parent keeps its other points and gains "parts", the ids of its children in order."""
+    and parables); each parent keeps its other points and gains "parts", the ids of its children in order.
+
+    A sub-heading with nothing under it is not made a topic: "ATTRIBUTES OF" under Jesus ("see each one in its alphabetical
+    order, below") and "SYMBOLS USED IN" under Music (its terms follow as headings of their own). Its address (live until
+    2026-10-07) goes into `forwards` as id -> parent id, for the build to add to the index's aliases."""
     by_id = {t["id"]: t for t in topics}
     by_title = {t["title"].lower(): t for t in topics}
     created: list[dict] = []
@@ -182,7 +189,13 @@ def split_entries(topics: list[dict], placed_group) -> list[dict]:
                 by_id[tid] = topic
                 created.append(topic)
                 lister["parts"].append(tid)
-    return created
+    empty = {t["id"]: t["parent"] for t in created if not t["nave"] and not t.get("parts")}
+    if forwards is not None:
+        forwards.update(empty)
+    for topic in by_id.values():
+        if topic.get("parts"):
+            topic["parts"] = [part for part in topic["parts"] if part not in empty]
+    return [t for t in created if t["id"] not in empty]
 
 
 def miracle_group(title: str) -> str:

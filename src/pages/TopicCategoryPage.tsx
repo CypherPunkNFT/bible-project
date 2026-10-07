@@ -6,8 +6,13 @@ import { TopicsArtwork } from "@/pages/topics/TopicsArtwork";
 import { TopicsShell } from "@/pages/topics/TopicsShell";
 import { familyWords } from "@/pages/topics/topics-shared";
 import { FAMILY_STUDY, groupIcon, sectionOf } from "@/lib/topic-style";
-import { pointsAndPassages, topicCount, topicUrl, type TopicCategory, type TopicIndex, type TopicSubcategory } from "@/lib/topics";
+import { pointsAndPassages, topicCount, topicUrl, type TopicCategory, type TopicIndex, type TopicSubcategory, type TopicSummary } from "@/lib/topics";
 import { formatNumber } from "@/lib/utils";
+
+/** The small line under a topic. A contents page ("Family": no points or passages of its own, only the topics split out of
+ * it; `parts` in the index, scripts/build-topics.py) says so rather than "Dictionary article". */
+const topicLine = (topic: TopicSummary & { parts?: number }) =>
+  !topic.points && !topic.refs && topic.parts ? `Contents: ${topic.parts} ${topic.parts === 1 ? "topic" : "topics"}` : pointsAndPassages(topic.points, topic.refs);
 
 const passagesOf = (sub: TopicSubcategory, index: TopicIndex) => sub.topics.reduce((n, id) => n + (index.topics[id]?.refs ?? 0), 0);
 
@@ -51,7 +56,7 @@ function GroupDetail({ family, group, index, onChoose }: { family: TopicCategory
       <ul className="topics-topic-grid" aria-label={`Topics in ${group.title}`}>
         {shown.map((id) => {
           const topic = index.topics[id];
-          return topic && <li key={id}><Link to={topicUrl(id)}><span><strong>{topic.title}</strong><small>{pointsAndPassages(topic.points, topic.refs)}</small></span><ArrowRight size={14} aria-hidden /></Link></li>;
+          return topic && <li key={id}><Link to={topicUrl(id)}><span><strong>{topic.title}</strong><small>{topicLine(topic)}</small></span><ArrowRight size={14} aria-hidden /></Link></li>;
         })}
       </ul>
       {family.subcategories.length > 1 && (

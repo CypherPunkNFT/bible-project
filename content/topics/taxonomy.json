@@ -59,7 +59,8 @@
       "gifts-of-god",
       "promises-of-god",
       "protection",
-      "miracles"
+      "miracles",
+      "miracles-wrought-through-servants-of-god"
      ]
     }
    ]
@@ -177,8 +178,7 @@
      "topics": [
       "language",
       "books",
-      "sciences",
-      "music"
+      "sciences"
      ]
     }
    ]
@@ -387,7 +387,9 @@
      "id": "the-apostles",
      "title": "The apostles",
      "description": "The Twelve, Matthias and Paul.",
-     "topics": []
+     "topics": [
+      "apostles"
+     ]
     },
     {
      "id": "followers-and-friends",
@@ -1144,7 +1146,9 @@
      "id": "judges-leaders",
      "title": "Joshua, the judges & Ruth's family",
      "description": "The leaders and central figures of the era.",
-     "topics": []
+     "topics": [
+      "judges-extraordinary"
+     ]
     },
     {
      "id": "judges-holy",
@@ -1509,19 +1513,6 @@
      ]
     },
     {
-     "id": "leaders-and-servants-of-god",
-     "title": "Leaders & servants of God",
-     "description": "Kings, judges, apostles and others God raised up.",
-     "topics": [
-      "kings",
-      "judges-extraordinary",
-      "patriarchal-government",
-      "theocracy-the-or-immediate-government-by-god",
-      "apostles",
-      "miracles-wrought-through-servants-of-god"
-     ]
-    },
-    {
      "id": "lands-and-places",
      "title": "Lands & places",
      "description": "The Holy Land, its regions, cities and rivers.",
@@ -1633,7 +1624,10 @@
       "prisons",
       "homicide",
       "cities-of-refuge",
-      "oaths"
+      "oaths",
+      "patriarchal-government",
+      "theocracy-the-or-immediate-government-by-god",
+      "kings"
      ]
     },
     {
@@ -1857,7 +1851,9 @@
      "id": "music-and-instruments",
      "title": "Music & instruments",
      "description": "Songs, singers, harps, trumpets and musical terms.",
-     "topics": []
+     "topics": [
+      "music"
+     ]
     },
     {
      "id": "writing-and-learning",
