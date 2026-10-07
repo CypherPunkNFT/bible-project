@@ -193,7 +193,7 @@ li.pp-claim:is([data-layer="early-church"], [data-layer="tradition"]), div.pp-cl
 /* The succession strip's bars: plain links laid over the frame by percentage; the cross-dating lines over them. */
 .pp-strip { position: relative; min-width: 900px; }
 .pp-strip-lane { position: absolute; left: 0; right: 0; }
-.pp-strip-lane-label { position: absolute; left: 2px; top: 0; font-size: .62rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
+.pp-strip-lane-label { position: absolute; left: 14px; /* clear of the frame's 14px rounded corner */ top: 0; font-size: .62rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
 .pp-sbar { position: absolute; display: flex; align-items: center; justify-content: space-between; gap: .3rem; height: 26px; padding: 0 .45rem; overflow: hidden; border: 1px solid var(--lg-line); border-radius: 7px;
   background: linear-gradient(180deg, color-mix(in srgb, var(--lg) 24%, transparent), color-mix(in srgb, var(--lg) 10%, transparent)); color: var(--ink); font-size: .74rem; white-space: nowrap; transition: border-color .15s, background .15s; }
 .pp-sbar i { font-style: normal; font-size: .7rem; color: var(--muted); }
