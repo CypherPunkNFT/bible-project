@@ -1,5 +1,7 @@
 export type SourceLink = { url: string; sourceId: string; name?: string; held?: boolean; format?: string; edition?: string; acquired?: string };
-export type SourceEntry = { id: string; title: string; author: string; categories: string[]; kind: string; status: string; role: string; held?: boolean; links: SourceLink[] };
+/** A page of this site that cites the work (content/feature-citations.json). */
+export type CitedOn = { feature: string; page: string; address: string };
+export type SourceEntry = { id: string; title: string; author: string; categories: string[]; kind: string; status: string; role: string; held?: boolean; basis?: string; citedOn?: CitedOn[]; links: SourceLink[] };
 export type Directory = {
   collections: { id: string; label: string; definition: string }[];
   sources: { id: string; name: string; url: string; role: string }[];

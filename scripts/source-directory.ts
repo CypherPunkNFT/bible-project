@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import { readFeatureCitations, type CitedOn } from "./feature-citations.ts";
 
 // Input registries have different schemas; only the explicitly selected public fields leave this adapter.
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -7,7 +8,7 @@ type RecordData = Record<string, any>;
 const read = (file: string): RecordData => JSON.parse(fs.readFileSync(file, "utf8").replace(/^\uFEFF/, ""));
 const records = (directory: string) => fs.readdirSync(directory).filter(f => f.endsWith(".json")).sort().map(f => read(path.join(directory, f)));
 const publicUrl = (url: unknown): url is string => typeof url === "string" && /^https?:\/\//.test(url);
-type Entry = { id: string; title: string; author: string; categories: string[]; kind: string; status: string; role: string; held?: boolean; links: { url: string; sourceId: string; name?: string; held?: boolean; format?: string; edition?: string; acquired?: string }[] };
+type Entry = { id: string; title: string; author: string; categories: string[]; kind: string; status: string; role: string; held?: boolean; basis?: string; citedOn?: CitedOn[]; links: { url: string; sourceId: string; name?: string; held?: boolean; format?: string; edition?: string; acquired?: string }[] };
 
 /** Bibliographic metadata only: never export bodies, local paths, permission correspondence or private notes. */
 export function buildSourceDirectory(root: string) {
@@ -84,8 +85,20 @@ export function buildSourceDirectory(root: string) {
     role: roles.get(e.id) ?? "Collection record; inclusion is not an editorial endorsement",
     links: e.sources.map((s: RecordData) => ({ url: s.url, sourceId: "", name: s.name, held: s.held, format: s.format, edition: s.edition, acquired: s.acquired })),
   })), ...studyEntries);
+  // Works cited by the site's own pages: marked on the library record when the library already lists the same link,
+  // otherwise listed as their own "Cited on our pages" record (content/feature-citations.json names the data files).
+  const byUrl = new Map(entries.flatMap(e => e.links.map(l => [l.url, e] as const)));
+  for (const work of readFeatureCitations(root)) {
+    const existing = work.urls.map(url => byUrl.get(url)).find(Boolean);
+    if (existing) {
+      existing.citedOn = [...(existing.citedOn ?? []), ...work.citedOn.filter(c => !existing.citedOn?.some(o => o.page === c.page && o.feature === c.feature))];
+      if (!existing.categories.includes("cited")) existing.categories = [...existing.categories, "cited"];
+      continue;
+    }
+    entries.push({ id: work.id, title: work.title, author: work.author, categories: ["cited"], kind: work.year ? `Cited work · ${work.year}` : "Cited work", status: "Cited on our pages", role: "Read online for the study; not held in the library", basis: work.basis, citedOn: work.citedOn, links: work.urls.map(url => ({ url, sourceId: "" })) });
+  }
   const result = {
-    collections: [...vocabulary.collections, { id: "research", label: "Awaiting collection assignment", definition: "Additional acquired titles whose collection placement has not yet been reconciled." }],
+    collections: [...vocabulary.collections, { id: "research", label: "Awaiting collection assignment", definition: "Additional acquired titles whose collection placement has not yet been reconciled." }, { id: "cited", label: "Cited on our pages", definition: "Works the study pages cite, each with the pages that cite it and its public-domain basis." }],
     sources, entries,
     corpus: { ...corpus.snapshot, bibliographyUpdatedAt: corpus.bibliography.updatedAt, verifiedFiles: corpus.bibliography.verifiedFiles, incompleteIdentity: corpus.bibliography.incompleteIdentity },
   };

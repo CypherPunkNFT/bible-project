@@ -65,7 +65,7 @@ test("study: landing and Versions avoid reference datasets, and all collections 
   const requests: string[] = [];
   page.on("request", request => requests.push(request.url()));
   await page.goto("/study");
-  await expect(page.locator(".study-resource")).toHaveCount(9);
+  await expect(page.locator(".study-resource")).toHaveCount(10); // the nine collections plus Topics (since 2026-10-06)
   await page.goto("/study/versions#coverage");
   await expect(page.getByLabel("Inspect a book")).toBeVisible();
   expect(requests.some(url => /xref-(arcs|books)\.json/.test(url))).toBe(false);

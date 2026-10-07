@@ -1,0 +1,16 @@
+{
+  "about": "Every page whose data carries a `citations` list (author, title, year, url) is listed here. scripts/feature-citations.ts reads these files at build time and puts each cited work on the Sources page (/sources#bibliography, filter 'Cited on our pages') with the pages that cite it. To register a new feature's sources, add its data files here; nothing else changes.",
+  "features": [
+    {
+      "id": "letters",
+      "label": "Letters study",
+      "pages": [
+        { "file": "src/data/letters/overview.json", "page": "Across all twenty-one", "address": "/study/letters" },
+        { "file": "src/data/letters/paul-letters.json", "page": "Paul's letters", "address": "/study/letters/paul" },
+        { "file": "src/data/letters/hebrews.json", "page": "Hebrews", "address": "/study/letters/hebrews" },
+        { "file": "src/data/letters/general-letters.json", "page": "James, Peter & Jude", "address": "/study/letters/james-peter-and-jude" },
+        { "file": "src/data/letters/john-letters.json", "page": "The letters of John", "address": "/study/letters/the-letters-of-john" }
+      ]
+    }
+  ]
+}
