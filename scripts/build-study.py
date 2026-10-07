@@ -98,7 +98,7 @@ def people_files(people: list[dict]) -> tuple[list[dict], dict[str, dict]]:
         if not SAFE_PERSON_ID.match(p["id"]):
             raise SystemExit(f"people: id {p['id']!r} cannot be a file name")
         books = Counter(ref // 1_000_000 for ref in p["refs"])
-        period = periods[p["id"]]["period"] if p["id"] in periods else people_period(p["era"], p["refs"][0] if p["refs"] else 0)
+        period = periods[p["id"]]["period"] if p["id"] in periods else people_period(p["era"], p["refs"])
         row = {"id": p["id"], "n": p["name"], "o": p["names"], "b": p["brief"] or p["description"], "c": len(p["refs"]), "p": period}
         if p["id"] in groups:
             row["g"] = 1

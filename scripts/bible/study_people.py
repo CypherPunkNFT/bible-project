@@ -72,6 +72,40 @@ def _ref_id(ref: str, verses: Verses) -> int | None:
         return None
 
 
+ORDINALS = {"1": "First", "2": "Second", "3": "Third", "4": "Fourth"}
+UNNAMED = re.compile(r"^Unnamed#(\d+)$")
+
+
+def readable_name(raw: str) -> str:
+    """TIPNR writes descriptive names as keys: 'Mary_Magdalene' -> 'Mary Magdalene', 'a_wife_of_Lot' -> 'A wife of
+    Lot', 'motherInLaw_of_Peter' -> 'Mother-in-law of Peter', 'daughter1_of_Lot' -> 'First daughter of Lot'."""
+    if "_" not in raw:
+        return raw
+    words = raw.split("_")
+    words[0] = re.sub(r"(?<=[a-z])(?=[A-Z])", "-", words[0])
+    numbered = re.fullmatch(r"([a-z-]+)(\d)", words[0].lower())
+    if numbered and numbered.group(2) in ORDINALS:
+        words[0:1] = [ORDINALS[numbered.group(2)], numbered.group(1)]
+    elif numbered is None and "-" in words[0]:
+        words[0] = words[0].lower()
+    name = " ".join(words)
+    return name[0].upper() + name[1:]
+
+
+def _unnamed_names(records: list[dict]) -> None:
+    """'Unnamed#3' -> 'Unnamed descendant of Ithamar the son of Aaron (3 of 4)', from the record's own one-line
+    description; the count is how many unnamed people TIPNR lists at the same verse."""
+    groups = Counter(r["base"].split("@", 1)[-1] for r in records if UNNAMED.match(r["name"]))
+    for record in records:
+        match = UNNAMED.match(record["name"])
+        if not match:
+            continue
+        what = re.sub(r"^(?:an?|the) ", "", record["brief"].strip().rstrip("."), flags=re.I)
+        what = what[:1].lower() + what[1:] if what[:1].isupper() and not what[1:2].isupper() else what
+        total = groups[record["base"].split("@", 1)[-1]]
+        record["name"] = f"Unnamed {what or 'person'} ({match.group(1)} of {total})"
+
+
 def _family(field: str) -> list[str]:
     return [k.strip() for k in re.split(r"[,+]", field) if "@" in k]
 
@@ -116,7 +150,7 @@ def parse_people(source: str, verses: Verses) -> tuple[list[dict], dict]:
             "key": key,
             "base": _base_key(key),
             "id": _slug(_base_key(key)),
-            "name": key.split("@")[0].strip(),
+            "name": readable_name(key.split("@")[0].strip()),
             "names": [],
             "names_raw": names,
             "sex": head[8].strip(),
@@ -145,6 +179,7 @@ def _link(records: list[dict]) -> tuple[list[dict], dict]:
         if len(rs) > 1:  # same name + first verse: keep ids distinct with a counter
             for index, record in enumerate(rs[1:], start=2):
                 record["id"] = f"{record['id']}-{index}"
+    _unnamed_names(records)
     unresolved: Counter = Counter()
     for record in records:
         for field in ("parents", "siblings", "partners", "children"):
@@ -173,12 +208,16 @@ PERIOD_BY_ERA = {"Before the Flood": "early-world", "Patriarchs": "patriarchs", 
 RETURN_BOOKS = {15, 16, 17, 37, 38, 39}  # Ezra, Nehemiah, Esther, Haggai, Zechariah, Malachi
 
 
-def people_period(era: str, first_ref: int) -> str:
-    """One period id for a person ('' when TIPNR gives no era). first_ref is book*1e6 + chapter*1e3 + verse."""
-    book, chapter = first_ref // 1_000_000, first_ref // 1_000 % 1_000
+def people_period(era: str, refs: list[int]) -> str:
+    """One period id for a person ('' when TIPNR gives no era). refs are sorted verse ids (book*1e6 + chapter*1e3 +
+    verse). A New Testament person is placed by their first New Testament mention: Jesus is first named in Isaiah 7:14,
+    which would otherwise file him under the Early church."""
+    if era == "New Testament":
+        first_nt = next((ref for ref in refs if ref // 1_000_000 >= 40), refs[0] if refs else 0)
+        return "life-of-christ" if 40 <= first_nt // 1_000_000 <= 43 else "early-church"
+    first = refs[0] if refs else 0
+    book, chapter = first // 1_000_000, first // 1_000 % 1_000
     if era == "Exile and Return":
         return "return" if book in RETURN_BOOKS or (book == 13 and chapter == 9) else "exile"
-    if era == "New Testament":
-        return "life-of-christ" if 40 <= book <= 43 else "early-church"
     return PERIOD_BY_ERA.get(era, "")
 
