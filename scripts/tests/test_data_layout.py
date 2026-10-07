@@ -56,6 +56,8 @@ def test_places_by_book_hold_only_that_books_verses():
 
 def test_people_list_is_slim_and_each_person_has_a_file():
     people = read("study/people.json")
-    assert set(people[0]) == {"id", "n", "o", "b", "c"}
+    # p = period; g = a tribe or people, not a person (content/people/catalogue-corrections.json), only where it applies.
+    assert all({"id", "n", "o", "b", "c", "p"} <= set(row) <= {"id", "n", "o", "b", "c", "p", "g"} for row in people)
+    assert any(row.get("g") for row in people) and not any(row["p"] == "" for row in people if not row.get("g"))
     detail = read(f"study/people/{people[0]['id']}.json")
     assert {"pa", "k", "refs", "article"} <= set(detail)

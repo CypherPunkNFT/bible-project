@@ -24,8 +24,7 @@ describe("person roles", () => {
   it("does not take a relative's role for the person's", () => {
     expect(["kish", "kenaz", "mehetabel", "hamutal"].map((id) => roles.get(id))).toEqual(["family", "family", "family", "family"]);
   });
-  it("knows nations and the family line", () => {
-    expect(roleOf("Canaanite people group, enemies of Israel")).toBe("nation");
+  it("knows the family line", () => {
     expect(roleOf("Son of Peleg, ancestor of Abraham")).toBe("family");
   });
 });

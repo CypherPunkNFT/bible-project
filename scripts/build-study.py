@@ -80,18 +80,29 @@ def write_json(path: Path, value) -> int:
 
 
 SAFE_PERSON_ID = re.compile(r"^[a-z0-9][a-z0-9_-]*$")
+# Owner's corrections to TIPNR (2026-10-07): tribes and peoples flagged as groups ("g", left out of Everyone in the Bible),
+# and a period for each person TIPNR gives no era, with the evidence for it.
+PEOPLE_CORRECTIONS = SITE / "content" / "people" / "catalogue-corrections.json"
 
 
 def people_files(people: list[dict]) -> tuple[list[dict], dict[str, dict]]:
     """A slim list for the People index and search (name, other names, one line, mention count) + one small file per
     person with everything else, loaded only when that person is opened."""
+    corrections = json.loads(PEOPLE_CORRECTIONS.read_text(encoding="utf-8"))
+    groups, periods = set(corrections["groups"]), corrections["periods"]
+    unknown = (groups | set(periods)) - {p["id"] for p in people}
+    if unknown:
+        raise SystemExit(f"people corrections: {len(unknown)} ids are not in TIPNR, e.g. {sorted(unknown)[:3]} ({PEOPLE_CORRECTIONS})")
     rows, detail = [], {}
     for p in people:
         if not SAFE_PERSON_ID.match(p["id"]):
             raise SystemExit(f"people: id {p['id']!r} cannot be a file name")
         books = Counter(ref // 1_000_000 for ref in p["refs"])
-        rows.append({"id": p["id"], "n": p["name"], "o": p["names"], "b": p["brief"] or p["description"],
-                     "c": len(p["refs"]), "p": people_period(p["era"], p["refs"][0] if p["refs"] else 0)})
+        period = periods[p["id"]]["period"] if p["id"] in periods else people_period(p["era"], p["refs"][0] if p["refs"] else 0)
+        row = {"id": p["id"], "n": p["name"], "o": p["names"], "b": p["brief"] or p["description"], "c": len(p["refs"]), "p": period}
+        if p["id"] in groups:
+            row["g"] = 1
+        rows.append(row)
         detail[p["id"]] = {
             "s": p["sex"][:1], "d": p["description"], "e": p["era"], "t": p["tribe"], "b": p["brief"],
             "pa": p["parents"], "si": p["siblings"], "sp": p["partners"], "ch": p["children"],

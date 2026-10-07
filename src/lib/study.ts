@@ -38,6 +38,8 @@ export interface PersonRow {
   c: number;
   /** period id from src/lib/people-periods.ts ('' when the source gives no era) */
   p: string;
+  /** 1 = a tribe, clan or people, not a person (content/people/catalogue-corrections.json); left out of the people list */
+  g?: number;
 }
 /** Everything else about one person, in its own small file, loaded when the person is opened. */
 export interface PersonDetail {

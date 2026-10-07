@@ -15,7 +15,11 @@ const SHORT: Record<string, string> = { exodus: "Exodus", "divided-kingdom": "Tw
  *  A period button shows only that period (again to show everyone); each card opens that person's own page.
  *  The period, search and last-opened person live in the address, so the person page's back link returns to this view
  *  with that card in sight and outlined. */
-export function PeopleCatalog({ people, backLabel }: { people: PersonRow[]; backLabel: string }) {
+export function PeopleCatalog({ people: everyone, backLabel }: { people: PersonRow[]; backLabel: string }) {
+  // Tribes, clans and peoples are in the data for family links, but they are not people (owner, 2026-10-07).
+  const people = useMemo(() => everyone.filter((person) => !person.g), [everyone]);
+  // Only periods someone belongs to (no one is left without a period).
+  const periods = useMemo(() => PEOPLE_PERIODS.filter((entry) => people.some((person) => person.p === entry.id)), [people]);
   const [params, setParams] = useSearchParams();
   const { pathname } = useLocation();
   const root = useRef<HTMLElement>(null);
@@ -56,8 +60,8 @@ export function PeopleCatalog({ people, backLabel }: { people: PersonRow[]; back
     for (const person of shownPeople) map.set(person.p, (map.get(person.p) ?? 0) + 1);
     return map;
   }, [shownPeople]);
-  const groups = useMemo(() => PEOPLE_PERIODS.filter((entry) => period === null || entry.id === period)
-    .map((entry) => ({ ...entry, people: shownPeople.filter((person) => person.p === entry.id) })).filter((group) => group.people.length), [shownPeople, period]);
+  const groups = useMemo(() => periods.filter((entry) => period === null || entry.id === period)
+    .map((entry) => ({ ...entry, people: shownPeople.filter((person) => person.p === entry.id) })).filter((group) => group.people.length), [shownPeople, period, periods]);
   const shown = groups.reduce((sum, group) => sum + group.people.length, 0);
   // Back from a person: bring the catalogue into view and that card into the middle of the frame.
   useEffect(() => {
@@ -100,7 +104,7 @@ export function PeopleCatalog({ people, backLabel }: { people: PersonRow[]; back
         <input type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Name, another name, or what they did" /></label>
     </header>
     <div className="people-catalog-filters">
-      <div className="people-catalog-periods" role="group" aria-label="Show one period">{PEOPLE_PERIODS.map((entry) => {
+      <div className="people-catalog-periods" role="group" aria-label="Show one period">{periods.map((entry) => {
         const count = counts.get(entry.id) ?? 0;
         return <button key={entry.id || "none"} type="button" aria-pressed={period === entry.id} disabled={!count && period !== entry.id}
           onClick={() => setPeriod(period === entry.id ? null : entry.id)} title={entry.label}><span>{SHORT[entry.id] ?? entry.label}</span><small>{formatNumber(count)}</small></button>;

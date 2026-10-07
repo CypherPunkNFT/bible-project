@@ -1,7 +1,7 @@
 /**
  * What each person in "Everyone in the Bible" was, read from their own one-line description (the `b` field of
- * data/study/people.json): king, prophet, priest, Levite, judge, leader, warrior, disciple, a nation, or someone
- * known through their family.
+ * data/study/people.json): king, prophet, priest, Levite, judge, leader, warrior, disciple, or someone known
+ * through their family. (Tribes and peoples are not people: content/people/catalogue-corrections.json flags them.)
  *
  * Only words about the person count. "Father-in-law of King Jehoahaz" is family, not a king: a clause that opens with
  * a family word ("son of…", "wife of…") describes a relative, and "King Josiah's secretary" names the king only to
@@ -9,7 +9,7 @@
  * Othniel, a judge of Israel"), while "Son of David, king of Israel" stays the person's own. Otherwise the first role named about the person wins ("Prophet and judge" is a prophet).
  */
 
-export type PersonRole = "king" | "prophet" | "priest" | "levite" | "judge" | "leader" | "warrior" | "disciple" | "nation" | "family";
+export type PersonRole = "king" | "prophet" | "priest" | "levite" | "judge" | "leader" | "warrior" | "disciple" | "family";
 
 /** Colours from the site's palette (both themes), chosen so no two roles look alike; judge, disciple and family use their own (people-catalog.css, owner's picks). */
 export const PERSON_ROLES: { id: PersonRole; label: string; color: string; note: string }[] = [
@@ -21,7 +21,6 @@ export const PERSON_ROLES: { id: PersonRole; label: string; color: string; note:
   { id: "leader", label: "Leader", color: "var(--poetry)", note: "Patriarchs, leaders, officials and elders" },
   { id: "warrior", label: "Warrior", color: "var(--history)", note: "Warriors, commanders and mighty men" },
   { id: "disciple", label: "Disciple", color: "var(--role-disciple)", note: "Apostles, disciples and early believers" },
-  { id: "nation", label: "Nation", color: "color-mix(in srgb, var(--prophets) 40%, var(--apocrypha))", note: "Tribes, clans and peoples" },
   { id: "family", label: "Family", color: "var(--role-family)", note: "Known through their family line" },
 ];
 
@@ -37,7 +36,6 @@ const RULES: [PersonRole, RegExp][] = [
   ["warrior", /\b(warrior|mighty m[ae]n|commander|captain|soldier|army|general|fought|archer|bodyguard)s?\b/],
   ["disciple", /\b(apostle|disciple|follower of jesus|believer|christian|co-worker|coworker|fellow worker|evangelist|deacon|church)s?\b/],
   ["leader", /\b(leader|chief|head of|elder|official|officer|governor|prince|overseer|secretary|scribe|counselor|counsellor|steward|administrator|patriarch|ruler|led|spy|spies|vizier|advisor|adviser)s?\b/],
-  ["nation", /^(an? |the )?([a-z-]+ )?(people|tribe|tribes|clan|clans|nation|nations|inhabitants|kingdom|region|descendants)\b|\bpeople group\b/],
 ];
 
 const KIN = "son|sons|daughter|daughters|father|mother|wife|wives|husband|brother|sister|grandson|granddaughter|grandfather|grandmother|descendant|ancestor|uncle|aunt|nephew|niece|cousin|father-in-law|mother-in-law|son-in-law|daughter-in-law|brother-in-law|sister-in-law|firstborn|child|children|concubine|widow|heir|offspring";
