@@ -139,7 +139,7 @@ export function collectionPages(data: LettersData, chosen: Chosen): Record<strin
           part("whos-who", card("people", "acts", "users", "3 John", "Who's who in 3 John", "The elder, Gaius, Diotrephes, Demetrius and the travelling brothers.", "Gaius · Diotrephes · Demetrius", "Meet them"),
             "Everyone in 3 John, and how the letter links them.", <PeopleCards network={net("john", "third-john")} />),
           part("witnesses", card("when", "prophets", "clock", "In time", "The three heavenly witnesses", "How the words of 1 John 5:7 entered the printed Bible, witness by witness.", "AD 258 – 1883", "See the timeline"),
-            "How \"the three that bear record in heaven\" entered the printed Bible.", <TimelineStrip timeline={tl("john", "three-witnesses")} />),
+            "How the \"three that bear record in heaven\" entered the printed Bible.", <TimelineStrip timeline={tl("john", "three-witnesses")} />),
           read(data, "john")[0],
         ] },
         { id: "inside", art: "glance", tone: "prophets", picker: true, title: `Inside ${johnLetter.name}`, lead: "Choose any of the three; these four cards follow it.", parts: inside(johnLetter) },
