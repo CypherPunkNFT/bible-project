@@ -1,0 +1,29 @@
+{
+  "http": {
+    "url": "https://archive.org/advancedsearch.php?q=title%3A%28farewell+letters%29+AND+creator%3A%28Ward%29&output=json&rows=20&fl%5B%5D=identifier&fl%5B%5D=title&fl%5B%5D=creator&fl%5B%5D=date&fl%5B%5D=publisher",
+    "finalUrl": "https://archive.org/advancedsearch.php?q=title%3A%28farewell+letters%29+AND+creator%3A%28Ward%29&output=json&rows=20&fl%5B%5D=identifier&fl%5B%5D=title&fl%5B%5D=creator&fl%5B%5D=date&fl%5B%5D=publisher",
+    "mimeType": "application/json",
+    "byteCount": 712,
+    "sha256": "bdcf877a869f79b0fb27e98403389eda333ee3603996b98efe767d64a6392460",
+    "retrievedAt": "2026-10-07T10:48:23.798987+00:00"
+  },
+  "response": {
+    "numFound": 2,
+    "start": 0,
+    "docs": [
+      {
+        "creator": "Ward, William, 1769-1823",
+        "date": "1822-01-01T00:00:00Z",
+        "identifier": "MN40263ucmf_4",
+        "publisher": "Lexington, K[y] : Printed and published by Thomas T. Skillman",
+        "title": "Farewell letters to a few friends in Britain and America [microform] on returning to Bengal in 1821"
+      },
+      {
+        "creator": "Ward, William. [from old catalog]",
+        "date": "1821-01-01T00:00:00Z",
+        "identifier": "farewellletters00ward",
+        "title": "Farewell letters."
+      }
+    ]
+  }
+}

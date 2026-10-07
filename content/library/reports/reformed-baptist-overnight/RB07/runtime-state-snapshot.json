@@ -1,0 +1,174 @@
+{
+  "mission": "RB07",
+  "checkedAtUtc": "2026-10-07T11:20:02.820740+00:00",
+  "readOnly": true,
+  "schedulerChanged": false,
+  "snapshots": {
+    "embedding-progress.json": {
+      "sha256": "c7013e69b6f1e29f9e7b380f0b14220c65b7c54bfbaf9dae49e976647eb83575",
+      "snapshot": {
+        "state": "complete",
+        "total": 1901555,
+        "indexed": 1901555,
+        "remaining": 0,
+        "corpus_build": "2026-10-07T05:30:10.874999+00:00",
+        "updated_at": "2026-10-07T07:20:27.604174+00:00",
+        "seconds": 5711.2
+      }
+    },
+    "intake-completion.json": {
+      "sha256": "e9c28e588a4b59311311647aa00b1b7fdac48d9e07ec879885f81c3cd2ba53be",
+      "snapshot": {
+        "verification": {
+          "sqlite_integrity": "ok",
+          "foreign_key_errors": 0,
+          "embedding_identity_matches": true,
+          "corpus_build": "2026-10-07T05:30:10.874999+00:00",
+          "embedding_job_complete": true,
+          "chunks": 1901555,
+          "vectors": 1901555,
+          "missing_vectors": 0,
+          "stale_vectors": 0,
+          "verse_count": 1027939,
+          "duplicate_vectors": 0,
+          "new_source_files_since_snapshot": 338,
+          "changed_source_inputs_since_snapshot": 34,
+          "missing_source_inputs_since_snapshot": 0,
+          "source_files_hash_checked": 66161,
+          "reference_library": {
+            "records_by_file": {
+              "ccel/hitchcock-bible-names.xml": 2623,
+              "ccel/smith-bibledict.xml": 4561,
+              "gutenberg/josephus-antiquities-2848.txt": 1,
+              "gutenberg/josephus-apion-2849.txt": 1,
+              "gutenberg/josephus-life-2846.txt": 1,
+              "gutenberg/josephus-wars-2850.txt": 1,
+              "archive-org/fausset-bible-encyclopedia-1900.txt": 1,
+              "archive-org/thayer-lexicon-1889.txt": 1,
+              "crosswire/ISBE/modules/lexdict/zld/isbe/isbe.zdt": 9380,
+              "openscriptures/strongs/strongs-master/hebrew/StrongHebrewG.xml": 8674,
+              "openscriptures/strongs/strongs-master/greek/StrongsGreekDictionaryXML_1.4/strongsgreek.xml": 5624,
+              "openscriptures/HebrewLexicon/HebrewLexicon-master/BrownDriverBriggs.xml": 11845,
+              "openscriptures/HebrewLexicon/HebrewLexicon-master/HebrewStrong.xml": 8674,
+              "openscriptures/HebrewLexicon/HebrewLexicon-master/LexicalIndex.xml": 10221,
+              "openscriptures/HebrewLexicon/HebrewLexicon-master/AugIndex.xml": 9299,
+              "openscriptures/HebrewLexicon/HebrewLexicon-master/BDBPartsOfSpeech.xml": 135,
+              "openscriptures/HebrewLexicon/HebrewLexicon-master/PartsOfSpeech.xml": 52,
+              "openbible-topics/topic-scores.txt": 6713,
+              "theographic/theographic-bible-metadata-master/json/books.json": 66,
+              "theographic/theographic-bible-metadata-master/json/chapters.json": 1189,
+              "theographic/theographic-bible-metadata-master/json/easton.json": 6519,
+              "theographic/theographic-bible-metadata-master/json/events.json": 450,
+              "theographic/theographic-bible-metadata-master/json/people.json": 3067,
+              "theographic/theographic-bible-metadata-master/json/peopleGroups.json": 23,
+              "theographic/theographic-bible-metadata-master/json/places.json": 1274,
+              "theographic/theographic-bible-metadata-master/json/verses.json": 31102,
+              "theographic/theographic-bible-metadata-master/CSV/WordIndex.csv": 31102,
+              "theographic/theographic-bible-metadata-master/geo/pauls_journeys_all.geojson": 112,
+              "theographic/theographic-bible-metadata-master/api/README.md": 1,
+              "theographic/theographic-bible-metadata-master/docs/api-documentation.md": 1,
+              "theographic/theographic-bible-metadata-master/docs/contributing.md": 1,
+              "theographic/theographic-bible-metadata-master/docs/data-source-bibliography.md": 1,
+              "theographic/theographic-bible-metadata-master/docs/json-fields-documentation.md": 1,
+              "theographic/theographic-bible-metadata-master/docs/neo4j-graph-documentation.md": 1,
+              "theographic/theographic-bible-metadata-master/docs/other-data-formats-csv-json-etc.md": 1,
+              "theographic/theographic-bible-metadata-master/docs/querying-with-cypher-and-neo4j.md": 1,
+              "theographic/theographic-bible-metadata-master/docs/README.md": 1,
+              "theographic/theographic-bible-metadata-master/docs/view-and-export-data-with-airtable.md": 1,
+              "theographic/theographic-bible-metadata-master/LICENSE": 1,
+              "theographic/theographic-bible-metadata-master/neo4j/README.md": 1,
+              "theographic/theographic-bible-metadata-master/readme.md": 1,
+              "openscriptures/HebrewLexicon/HebrewLexicon-master/HomeFiles/readme.md": 1,
+              "openscriptures/HebrewLexicon/HebrewLexicon-master/readme.md": 1,
+              "openscriptures/HebrewLexicon/HebrewLexicon-master/sinri/README.md": 1,
+              "openscriptures/strongs/strongs-master/greek/StrongsGreekDictionaryXML_1.4/README.txt": 1,
+              "crosswire/ISBE/mods.d/isbe.conf": 1
+            },
+            "input_files": 49,
+            "records": 152729,
+            "errors": [],
+            "topics": {
+              "topics": 5607,
+              "categories": 55,
+              "bundles": 256
+            }
+          },
+          "new_library_files_since_snapshot": 416,
+          "missing_library_files_since_snapshot": 0,
+          "changed_library_ledgers_since_snapshot": 64,
+          "library": {
+            "files": 30904,
+            "statuses": {
+              "indexed": 15480,
+              "metadata_or_asset": 15418,
+              "deferred_scan": 2,
+              "duplicate": 4
+            },
+            "errors": 0,
+            "missing_catalog_files": 0
+          },
+          "complete": true,
+          "enrichment_ready": false
+        },
+        "enrichment_started": false,
+        "verified_at": "2026-10-07T07:32:38.4255932Z",
+        "state": "snapshot_complete_followup_pending"
+      }
+    },
+    "watchdog.json": {
+      "sha256": "cec01850ee8ee350c0ab636ae3eebe9d8df54b383ab8bbb3d3398207d7d42ebd",
+      "snapshot": {
+        "checked_at": "2026-10-07T11:13:16.679949+00:00",
+        "interval_minutes": 30,
+        "state": "waiting_for_acquisition",
+        "indexed": 1901555,
+        "total": 1901555,
+        "embedding_state": "complete",
+        "processes": {
+          "encoder": [
+            22536,
+            4348
+          ],
+          "embed": [],
+          "build": [],
+          "refresh": [],
+          "monitor": []
+        }
+      }
+    },
+    "acquisition-followup.json": {
+      "sha256": "6211c7b68310093a7d1d25a919c66fe244189542d16062011ff13bbd38632c61",
+      "snapshot": {
+        "state": "waiting_for_acquisition",
+        "checked_at": "2026-10-07T11:15:37.179358+00:00",
+        "gate": {
+          "ready": false,
+          "completed": [
+            "RB01",
+            "RB02",
+            "RB03",
+            "RB04",
+            "RB05",
+            "RB06"
+          ],
+          "missing": [
+            "RB07",
+            "RB08",
+            "RB09",
+            "RB10",
+            "RB11",
+            "RB12",
+            "RB13",
+            "RB14"
+          ],
+          "invalid": [],
+          "quiet": false,
+          "expected": 14
+        },
+        "active_collectors": [],
+        "busy": {}
+      }
+    }
+  },
+  "note": "Existing completed build predates RB04-RB07 acquisitions; does not prove newly acquired text is embedded. No new worker launched."
+}

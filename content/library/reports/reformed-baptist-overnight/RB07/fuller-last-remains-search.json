@@ -1,0 +1,85 @@
+{
+  "http": {
+    "url": "https://archive.org/advancedsearch.php?q=title%3A%22last+remains%22+AND+creator%3A%22Fuller%22&output=json",
+    "finalUrl": "https://archive.org/advancedsearch.php?q=title%3A%22last+remains%22+AND+creator%3A%22Fuller%22&output=json",
+    "mimeType": "application/json",
+    "byteCount": 1581,
+    "sha256": "94e82a82f68283e66e77c4cf4879bc065130b572fe43d95cb0901a99fd6b9bf8",
+    "retrievedAt": "2026-10-07T10:46:18.906445+00:00"
+  },
+  "response": {
+    "numFound": 1,
+    "start": 0,
+    "docs": [
+      {
+        "backup_location": "ia903603_12",
+        "btih": "f776b8dd8c30287894e562805f9cad7ff1723b85",
+        "call_number": "106227",
+        "collection": [
+          "Princeton",
+          "americana",
+          "fav-mlmoore57"
+        ],
+        "contributor": "Princeton Theological Seminary Library",
+        "creator": [
+          "Fuller, Andrew, 1754-1815",
+          "Morris, J. W. (John Webster), 1763-1836"
+        ],
+        "date": "1826-01-01T00:00:00Z",
+        "downloads": 655,
+        "foldoutcount": 0,
+        "format": [
+          "Abbyy GZ",
+          "Animated GIF",
+          "Archive BitTorrent",
+          "Cloth Cover Detection Log",
+          "DjVu",
+          "DjVuTXT",
+          "Djvu XML",
+          "Dublin Core",
+          "Grayscale PDF",
+          "Item Tile",
+          "MARC",
+          "MARC Binary",
+          "MARC Source",
+          "Metadata",
+          "OCR Page Index",
+          "OCR Search Text",
+          "Page Numbers JSON",
+          "Scandata",
+          "Single Page Original JP2 Tar",
+          "Single Page Processed JP2 ZIP",
+          "Text PDF",
+          "chOCR",
+          "hOCR"
+        ],
+        "identifier": "miscellaneouspie00full",
+        "imagecount": 344,
+        "indexflag": [
+          "index",
+          "nonoindex",
+          "scanned_by_ia"
+        ],
+        "item_size": 483605584,
+        "language": "eng",
+        "mediatype": "texts",
+        "month": 33,
+        "oai_updatedate": [
+          "2009-07-01T12:38:47Z",
+          "2009-07-01T12:39:12Z",
+          "2009-07-01T12:38:45Z",
+          "2025-12-02T19:26:54Z"
+        ],
+        "publicdate": "2009-07-01T12:39:12Z",
+        "publisher": "London : Wightman and Camp",
+        "subject": [
+          "Fuller, Andrew, 1754-1815",
+          "Baptists"
+        ],
+        "title": "Miscellaneous pieces on various religious subjects : being the last remains of the Rev. Andrew Fuller",
+        "week": 1,
+        "year": 1826
+      }
+    ]
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "mission": "RB07",
+  "status": "bounded-acquisition-complete-checkpointed",
+  "startedAtUtc": "2026-10-07T10:38:24+00:00",
+  "completedAtUtc": "2026-10-07T11:29:50.079130+00:00",
+  "elapsedMinutes": 51.4,
+  "budget": "Approximately 60 minutes; acquisition/report transaction bounded, Git closeout follows.",
+  "originalCount": 7,
+  "originalBytes": 4682285,
+  "readableDerivativeWords": 681476,
+  "newLogicalCoverage": "Six book/collection witnesses plus a complete 1805 Agreement in an older partial appendix witness; not seven complete books or a unique-word count.",
+  "auditInputs": 50,
+  "auditedHeldOriginals": 12,
+  "mappedWitnesses": 11,
+  "mappedUnits": 198,
+  "preparedPrivateComponents": 69,
+  "documentRecords": 29,
+  "studyPaths": 10,
+  "integrityChecks": 329,
+  "newOCR": false,
+  "imageAssetsAcquired": 0,
+  "acceptedPDFOriginals": 0,
+  "privatePDFInspectionCount": 1,
+  "downloadsComplete": true,
+  "activeMissionCollector": false,
+  "ingested": false,
+  "embedded": false,
+  "graphBuilt": false,
+  "dbTouched": false,
+  "schedulerChanged": false,
+  "aggregationGate": "Owner-directed post-RB14; existing tasks unchanged.",
+  "parentHolds": [
+    "asset-rb07-ed33666c7e7401d2dd7f",
+    "asset-rb07-802fedffc23e0ac29989",
+    "asset-rb07-d0ed9a4d3f6cf4351f4b",
+    "asset-rb07-4386dee625a23d957322",
+    "asset-rb07-d7da619ca1b2c8a12f1e",
+    "asset-rb07-b04659728ad2f727066f",
+    "asset-rb07-ed791d1c6fb58201fe52"
+  ],
+  "originalSourceRoot": "D:/FortressOfSolitude/Jarvis/Projects/BibleProject/sources",
+  "privateCache": ".local/library/run-rb07-2026-10-07",
+  "nextMission": "RB08 only if separately requested",
+  "resumeWorkingDirectory": "D:/FortressOfSolitude/Jarvis/Projects/BibleProject/Website",
+  "readFirst": [
+    "REPORT.md",
+    "INTAKE-NOTES.md",
+    "source-exceptions.json",
+    "intake-scope.json",
+    "document-map.json",
+    "work-overlaps.json"
+  ],
+  "safeVerificationCommands": [
+    "python scripts/verify-rb07.py",
+    "node scripts/validate-library.mjs"
+  ],
+  "offlineMapCommands": [
+    "python scripts/map-rb07.py",
+    "python scripts/document-rb07.py",
+    "python scripts/overlap-rb07.py"
+  ],
+  "collectorCommand": "python scripts/rb07-acquire.py acquire",
+  "collectorCheckpoint": "All seven target URLs are acquired; collector skips them. Do not rerun audit-rb07.py over the completed campaign as though its initial 12-held-file audit were a new acquisition baseline.",
+  "nextDiscoverySteps": [
+    {
+      "priority": 1,
+      "target": "Fuller Last Remains, Joseph Belcher editor, 1856",
+      "entryUrl": "https://onlinebooks.library.upenn.edu/webbin/book/lookupname?key=Belcher%2C+Joseph%2C+1794-1859",
+      "action": "Seek legitimate offered clean TXT/HTML/EPUB; current page-image route is a stop. 1826 Morris book is not the missing 1856 supplement; audit contents against held 1846 edition."
+    },
+    {
+      "priority": 2,
+      "target": "Ann Judson authored letters/reports, Knowles 1829 edition",
+      "entryUrl": "https://www.loc.gov/item/03007916/",
+      "candidateIdentifier": "memoirofmrsannhj00know_2",
+      "action": "Read offered metadata/TXT listing, audit actual held Ann quotations first, inspect contributor and transcription quality. Do not download images or treat an uninspected memoir as acquired."
+    },
+    {
+      "priority": 3,
+      "target": "Modern first publication of Fuller evening prayer notes",
+      "entryUrl": "https://www.gs.edu/journal/volume-1-issue-1-winter-2025/andrew-fullers-shorthand-notes-on-the-conduct-of-evening-prayer-meetings/",
+      "action": "Review Peter Morden / Jonathan Woods editorial and transcription rights before acquiring. No inference of public-domain modern editorial matter."
+    },
+    {
+      "priority": 4,
+      "target": "Post-RB14 source/component reconciliation",
+      "action": "Enforce contributor, rights, partial-document exclusions and underlying-work deduplication before enabling eligible text intake. Reuse unchanged vectors and verify parity; do not infer new holdings are embedded from the old completed snapshot."
+    }
+  ]
+}

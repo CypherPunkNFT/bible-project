@@ -1,0 +1,741 @@
+{
+  "mission": "RB07",
+  "paths": [
+    {
+      "question": "Why preach to everyone?",
+      "purpose": "Compare duty, gospel invitation and sovereign grace without conflating means with regeneration.",
+      "limitations": "Historical mission documents are not complete confessions; retain Fuller duty-faith distinctions and editor voices.",
+      "entries": [
+        {
+          "assetId": "asset-text-gap-carey-pg11449-txt",
+          "title": "An Enquiry into the Obligations of Christians to Use Means for the Conversion of the Heathens",
+          "originalSha256": "3c5827a8f6f054e57b8b5865a80db1227d5c8f73ad194fe8bf3208489f131652",
+          "readingUnits": [
+            {
+              "title": "Section 1. Continuing obligation of the Great Commission",
+              "locator": "derivative-lines:120-265",
+              "role": "primary-missionary-treatise",
+              "date": null,
+              "recipient": null,
+              "componentId": null
+            },
+            {
+              "title": "Section 4. Practicability of missionary means",
+              "locator": "derivative-lines:1254-1462",
+              "role": "primary-missionary-treatise",
+              "date": null,
+              "recipient": null,
+              "componentId": null
+            },
+            {
+              "title": "Section 5. Duty of prayer and organized support",
+              "locator": "derivative-lines:1463-1688",
+              "role": "primary-missionary-treatise",
+              "date": null,
+              "recipient": null,
+              "componentId": null
+            }
+          ]
+        },
+        {
+          "assetId": "asset-rb04-f9ea063dff9952ca931d",
+          "title": "The Complete Works of the Rev. Andrew Fuller, with a Memoir of His Life",
+          "originalSha256": "b6e9d8e2c7cd664b30feef68f111f33885e6c23f97132b6b3e45ea5fde312395",
+          "readingUnits": [
+            {
+              "title": "Sermon III. Danger of Delay in Religious Concerns",
+              "locator": "derivative-lines:108069-108613",
+              "role": "primary-sermon",
+              "date": "1791-04-27",
+              "recipient": null,
+              "componentId": "component-rb07-7f9c316366191e97ca27"
+            },
+            {
+              "title": "Importance of a Lively Faith in Missionary Undertakings",
+              "locator": "derivative-lines:188100-188260",
+              "role": "primary-missionary-essay",
+              "date": "1799",
+              "recipient": null,
+              "componentId": "component-rb07-293121ef5d85b4cf4b02"
+            }
+          ]
+        },
+        {
+          "assetId": "asset-rb07-4386dee625a23d957322",
+          "title": "Farewell Letters to a Few Friends in Britain and America, on Returning to Bengal in 1821",
+          "originalSha256": "68cbe6fa9d0414a92cf66dbb50dfebf6124ff8df5d9d75eb489a2ba1dc704cfa",
+          "readingUnits": [
+            {
+              "title": "Letter 2. Neglect of the command to preach to every creature",
+              "locator": "derivative-lines:478-1036",
+              "role": "primary-letter-essay-with-cultural-and-historical-claims",
+              "date": null,
+              "recipient": null,
+              "componentId": "component-rb07-fcacac5d46095ec7e30d"
+            },
+            {
+              "title": "Letter 3. Future state of the unevangelized",
+              "locator": "derivative-lines:1037-1198",
+              "role": "primary-letter-essay-with-cultural-and-historical-claims",
+              "date": null,
+              "recipient": null,
+              "componentId": "component-rb07-0d7c1b476ec2793f9868"
+            },
+            {
+              "title": "Letter 17. Final triumphs of Christianity",
+              "locator": "derivative-lines:6079-6455",
+              "role": "primary-letter-essay-with-cultural-and-historical-claims",
+              "date": null,
+              "recipient": null,
+              "componentId": "component-rb07-85610bcc21ef9d914eb7"
+            }
+          ]
+        }
+      ],
+      "inferredFromVectors": false
+    },
+    {
+      "question": "What gospel was proclaimed?",
+      "purpose": "Read sustained Baptist preaching on Christ, atonement, resurrection and justification.",
+      "limitations": "Evans is an English translation, with two translation hands; figurative preaching is not an oral transcript or an exact historical report.",
+      "entries": [
+        {
+          "assetId": "asset-rb07-b04659728ad2f727066f",
+          "title": "Sermons of Christmas Evans: A New Translation from the Welsh, with a Memoir and Portraiture",
+          "originalSha256": "3d1cbced3326180488d84fd9d224313ead3c474cd52e9c87bea9ca8f06a1789b",
+          "readingUnits": [
+            {
+              "title": "Sermon 5. ONE GOD AND ONE MEDIATOR.",
+              "locator": "derivative-lines:4251-4584",
+              "role": "translated-Baptist-sermon-with-source-scripture-quotes",
+              "date": null,
+              "recipient": null,
+              "componentId": "component-rb07-af5c3d0baaebb8af21ae"
+            },
+            {
+              "title": "Sermon 8. THE SUFFERINGS OF CHRIST.",
+              "locator": "derivative-lines:5485-5867",
+              "role": "translated-Baptist-sermon-with-source-scripture-quotes",
+              "date": null,
+              "recipient": null,
+              "componentId": "component-rb07-e7e573b80cbbdd83330c"
+            },
+            {
+              "title": "Sermon 13. THE RESURRECTION OF JESUS.",
+              "locator": "derivative-lines:7038-7368",
+              "role": "translated-Baptist-sermon-with-source-scripture-quotes",
+              "date": null,
+              "recipient": null,
+              "componentId": "component-rb07-cf99cabcb0575c7e27d7"
+            },
+            {
+              "title": "Sermon 19. JUSTIFICATION BY FAITH.",
+              "locator": "derivative-lines:9007-9325",
+              "role": "translated-Baptist-sermon-with-source-scripture-quotes",
+              "date": null,
+              "recipient": null,
+              "componentId": "component-rb07-b89cc756ab5e12d1ed3e"
+            },
+            {
+              "title": "Sermon 21. THE PARACLETE.",
+              "locator": "derivative-lines:9614-9880",
+              "role": "translated-Baptist-sermon-with-source-scripture-quotes",
+              "date": null,
+              "recipient": null,
+              "componentId": "component-rb07-433e99ed40e9f05f8152"
+            },
+            {
+              "title": "Sermon 22. THE FATHER AND SON GLORIFIED.",
+              "locator": "derivative-lines:9881-10236",
+              "role": "translated-Baptist-sermon-with-source-scripture-quotes",
+              "date": null,
+              "recipient": null,
+              "componentId": "component-rb07-f91782a845d03c8e09ef"
+            }
+          ]
+        }
+      ],
+      "inferredFromVectors": false
+    },
+    {
+      "question": "What did Carey and his colleagues promise to do?",
+      "purpose": "Study the complete 1805 Agreement: persuasion, Christ crucified, local leadership, translation and prayer.",
+      "limitations": "Older institutional transcription contains defects and lacks signatures. Appendix III ends mid-sentence and is not selected for intake.",
+      "entries": [
+        {
+          "assetId": "asset-rb07-ed791d1c6fb58201fe52",
+          "title": "Serampore Missionary Agreement (1805) and Smith Appendix I-III: Third Section Partial",
+          "originalSha256": "aa509e0a3c44607d85075ada679f3b15f16f17a09a57aa88eb374ca89dcfed53",
+          "readingUnits": [
+            {
+              "title": "Appendix I. Serampore Form of Agreement",
+              "locator": "derivative-lines:2-405",
+              "role": "primary-missionary-agreement-in-later-transcription",
+              "date": "1805-10-07",
+              "recipient": null,
+              "componentId": "component-rb07-156a57a7ad49105ec7c7"
+            }
+          ]
+        },
+        {
+          "assetId": "asset-rb07-d0ed9a4d3f6cf4351f4b",
+          "title": "The Life of William Carey, Shoemaker & Missionary",
+          "originalSha256": "eadaf0884dcc6330a9fad43272ee478c76222776674b7fc6f2950c818d5e4466",
+          "readingUnits": [
+            {
+              "title": "Chapter 5. THE NEW CRUSADE--SERAMPORE AND THE BROTHERHOOD",
+              "locator": "derivative-lines:3403-4012",
+              "role": "later-revised-biography-with-primary-extracts",
+              "date": null,
+              "recipient": null,
+              "componentId": null
+            }
+          ]
+        }
+      ],
+      "inferredFromVectors": false
+    },
+    {
+      "question": "How were local churches and leaders developed?",
+      "purpose": "Follow local preachers, church growth, trust, translation and missionary training.",
+      "limitations": "Historical terminology, colonial assumptions and reported counts require attribution; do not infer present-day policy from one mission.",
+      "entries": [
+        {
+          "assetId": "asset-rb07-802fedffc23e0ac29989",
+          "title": "Serampore Letters: William Carey and Others with John Williams, 1800-1816",
+          "originalSha256": "6c0266d611b08a5a55f45eaf0ec1e8e2d0f331c0eb7c18be2cb24aef272d2e7a",
+          "readingUnits": [
+            {
+              "title": "Native preachers and church growth",
+              "locator": "derivative-lines:4811-4913",
+              "role": "primary-correspondence-as-printed-with-OCR-artifacts",
+              "date": "1809-12-07",
+              "recipient": "John Williams",
+              "componentId": "component-rb07-92aace4eb7a7ed00aa89"
+            },
+            {
+              "title": "Local mission, translation and accounts",
+              "locator": "derivative-lines:4915-5079",
+              "role": "primary-correspondence-as-printed-with-OCR-artifacts",
+              "date": "1809-12-19",
+              "recipient": "John Williams",
+              "componentId": "component-rb07-37687c6fe8a1af5ae33b"
+            }
+          ]
+        },
+        {
+          "assetId": "asset-rb07-4386dee625a23d957322",
+          "title": "Farewell Letters to a Few Friends in Britain and America, on Returning to Bengal in 1821",
+          "originalSha256": "68cbe6fa9d0414a92cf66dbb50dfebf6124ff8df5d9d75eb489a2ba1dc704cfa",
+          "readingUnits": [
+            {
+              "title": "Letter 12. Number and character of converts",
+              "locator": "derivative-lines:4628-4877",
+              "role": "primary-letter-essay-with-cultural-and-historical-claims",
+              "date": null,
+              "recipient": null,
+              "componentId": "component-rb07-d41a5ae659e1dada830d"
+            },
+            {
+              "title": "Letter 14. Native schools",
+              "locator": "derivative-lines:5204-5469",
+              "role": "primary-letter-essay-with-cultural-and-historical-claims",
+              "date": null,
+              "recipient": null,
+              "componentId": "component-rb07-047386f6cc05d18e0f92"
+            },
+            {
+              "title": "Letter 15. Moral changes and Serampore College",
+              "locator": "derivative-lines:5470-5723",
+              "role": "primary-letter-essay-with-cultural-and-historical-claims",
+              "date": null,
+              "recipient": null,
+              "componentId": "component-rb07-669a9a57d894a38b885b"
+            },
+            {
+              "title": "Letter 18. Advice to a missionary student",
+              "locator": "derivative-lines:6456-6888",
+              "role": "primary-letter-essay-with-cultural-and-historical-claims",
+              "date": null,
+              "recipient": null,
+              "componentId": "component-rb07-9da9be9d4349db66f714"
+            }
+          ]
+        },
+        {
+          "assetId": "asset-rb07-d0ed9a4d3f6cf4351f4b",
+          "title": "The Life of William Carey, Shoemaker & Missionary",
+          "originalSha256": "eadaf0884dcc6330a9fad43272ee478c76222776674b7fc6f2950c818d5e4466",
+          "readingUnits": [
+            {
+              "title": "Chapter 6. THE FIRST NATIVE CONVERTS AND CHRISTIAN SCHOOLS",
+              "locator": "derivative-lines:4013-4828",
+              "role": "later-revised-biography-with-primary-extracts",
+              "date": null,
+              "recipient": null,
+              "componentId": null
+            },
+            {
+              "title": "Chapter 14. CAREY AS AN EDUCATOR--THE FIRST CHRISTIAN COLLEGE IN THE EAST",
+              "locator": "derivative-lines:11255-11950",
+              "role": "later-revised-biography-with-primary-extracts",
+              "date": null,
+              "recipient": null,
+              "componentId": null
+            }
+          ]
+        }
+      ],
+      "inferredFromVectors": false
+    },
+    {
+      "question": "How did churches cooperate across the Atlantic?",
+      "purpose": "Use dated correspondence to trace recommendations, travel, support and Baptist missionary responsibility.",
+      "limitations": "Letters concern particular events; quoted third-party dialogue and plate captions must not become the sender's own theological assertions.",
+      "entries": [
+        {
+          "assetId": "asset-rb07-802fedffc23e0ac29989",
+          "title": "Serampore Letters: William Carey and Others with John Williams, 1800-1816",
+          "originalSha256": "6c0266d611b08a5a55f45eaf0ec1e8e2d0f331c0eb7c18be2cb24aef272d2e7a",
+          "readingUnits": [
+            {
+              "title": "Commendation and funding for Chamberlain",
+              "locator": "derivative-lines:2758-2784",
+              "role": "primary-correspondence-as-printed-with-OCR-artifacts",
+              "date": "1802-05-08",
+              "recipient": "John Williams",
+              "componentId": "component-rb07-542be5f1f388d96d3926"
+            },
+            {
+              "title": "Arranging missionary passage",
+              "locator": "derivative-lines:2826-2887",
+              "role": "primary-correspondence-as-printed-with-OCR-artifacts",
+              "date": "1802-07-16",
+              "recipient": "John Williams",
+              "componentId": "component-rb07-b44f2f53279a562c5c10"
+            },
+            {
+              "title": "Missionary passage terms",
+              "locator": "derivative-lines:2890-2958",
+              "role": "primary-correspondence-as-printed-with-OCR-artifacts",
+              "date": "1802-07-17",
+              "recipient": "John Williams",
+              "componentId": "component-rb07-057b62b385e4e33d5539"
+            },
+            {
+              "title": "Cooperation for Judson and Rice",
+              "locator": "derivative-lines:5422-5514",
+              "role": "primary-correspondence-as-printed-with-OCR-artifacts",
+              "date": "1813-03-23",
+              "recipient": "John Williams, John Stanford, Archibald Maclay, Daniel Hatt and Cornelius Wyckoff, as printed",
+              "componentId": "component-rb07-523c6e09f1d8a68bb462"
+            },
+            {
+              "title": "Commendation of missionary families",
+              "locator": "derivative-lines:3479-3520",
+              "role": "primary-correspondence-as-printed-with-OCR-artifacts",
+              "date": "1803-12-05",
+              "recipient": "John Williams",
+              "componentId": "component-rb07-26fe6547790094b49b16"
+            },
+            {
+              "title": "Church renewal, mission and reported conversions",
+              "locator": "derivative-lines:3657-3871",
+              "role": "primary-correspondence-as-printed-with-OCR-artifacts",
+              "date": "1804-08-01",
+              "recipient": "John Williams",
+              "componentId": "component-rb07-639cb4e1b25813d8dd50"
+            }
+          ]
+        },
+        {
+          "assetId": "asset-rb04-f9ea063dff9952ca931d",
+          "title": "The Complete Works of the Rev. Andrew Fuller, with a Memoir of His Life",
+          "originalSha256": "b6e9d8e2c7cd664b30feef68f111f33885e6c23f97132b6b3e45ea5fde312395",
+          "readingUnits": [
+            {
+              "title": "Establishment of the Glasgow Missionary Society: letter to H. Muir",
+              "locator": "derivative-lines:187918-188099",
+              "role": "primary-missionary-letter",
+              "date": null,
+              "recipient": null,
+              "componentId": "component-rb07-b816ad0995dbbc494871"
+            }
+          ]
+        }
+      ],
+      "inferredFromVectors": false
+    },
+    {
+      "question": "Why did Judson seek believer baptism?",
+      "purpose": "Read the three 1812 letters and Carey's October 1812 report before later narration.",
+      "limitations": "These are edited printed witnesses, not autographs. Do not convert their baptism convictions into a complete harmonized covenant system.",
+      "entries": [
+        {
+          "assetId": "asset-rb07-ed33666c7e7401d2dd7f",
+          "title": "The Life of Adoniram Judson",
+          "originalSha256": "a8df9fa58dbc929e435abbddbc9b70bd89dbb5c2653601709c23534076f1f027",
+          "readingUnits": [
+            {
+              "title": "Letter acknowledging baptism writings",
+              "locator": "derivative-lines:1805-1816",
+              "role": "primary-letter-as-quoted-in-biography",
+              "date": "1812-08-31",
+              "recipient": "Thomas Baldwin",
+              "componentId": "component-rb07-d05e38df12b062813311"
+            },
+            {
+              "title": "Letter requesting believer baptism",
+              "locator": "derivative-lines:1818-1838",
+              "role": "primary-letter-as-quoted-in-biography",
+              "date": "1812-08-27",
+              "recipient": "Carey, Marshman and Ward",
+              "componentId": "component-rb07-3e2d9954942fd158ec2c"
+            },
+            {
+              "title": "Appeal for Baptist missionary support",
+              "locator": "derivative-lines:1880-1927",
+              "role": "primary-letter-as-quoted-in-biography",
+              "date": "1812-09-01",
+              "recipient": "Lucius Bolles",
+              "componentId": "component-rb07-872e29f46cf7aaea96e1"
+            }
+          ]
+        },
+        {
+          "assetId": "asset-rb07-802fedffc23e0ac29989",
+          "title": "Serampore Letters: William Carey and Others with John Williams, 1800-1816",
+          "originalSha256": "6c0266d611b08a5a55f45eaf0ec1e8e2d0f331c0eb7c18be2cb24aef272d2e7a",
+          "readingUnits": [
+            {
+              "title": "Judson believer baptism and support",
+              "locator": "derivative-lines:5322-5416",
+              "role": "primary-correspondence-as-printed-with-OCR-artifacts",
+              "date": "1812-10-20",
+              "recipient": "John Williams",
+              "componentId": "component-rb07-c9419fab21ded2977d98"
+            }
+          ]
+        },
+        {
+          "assetId": "asset-rb07-d7da619ca1b2c8a12f1e",
+          "title": "Memoir of Rev. Luther Rice, One of the First American Missionaries to the East",
+          "originalSha256": "50883065ca2569c9ee7c634737d18d9e72bbef6c1a5d7199600c59f1dbae7c0f",
+          "readingUnits": [
+            {
+              "title": "Chapter 6.",
+              "locator": "derivative-lines:4091-4786",
+              "role": "1840-biography-with-primary-letters-and-journals",
+              "date": null,
+              "recipient": null,
+              "componentId": null
+            }
+          ]
+        }
+      ],
+      "inferredFromVectors": false
+    },
+    {
+      "question": "What advice was given to missionary candidates?",
+      "purpose": "Compare Judson's 1832 advice, Ward's student letter and Fuller's preaching letters.",
+      "limitations": "Judson letter is June 25, 1832, not 1847; distinguish historical counsel from universally binding requirements.",
+      "entries": [
+        {
+          "assetId": "asset-rb07-ed33666c7e7401d2dd7f",
+          "title": "The Life of Adoniram Judson",
+          "originalSha256": "a8df9fa58dbc929e435abbddbc9b70bd89dbb5c2653601709c23534076f1f027",
+          "readingUnits": [
+            {
+              "title": "Appendix D. Advice to Missionary Candidates",
+              "locator": "derivative-lines:21879-22000",
+              "role": "primary-letter-in-later-edition",
+              "date": "1832-06-25",
+              "recipient": "Foreign Missionary Association, Hamilton Literary and Theological Institution, New York",
+              "componentId": "component-rb07-1f69cc64479fddeeaad3"
+            }
+          ]
+        },
+        {
+          "assetId": "asset-rb07-4386dee625a23d957322",
+          "title": "Farewell Letters to a Few Friends in Britain and America, on Returning to Bengal in 1821",
+          "originalSha256": "68cbe6fa9d0414a92cf66dbb50dfebf6124ff8df5d9d75eb489a2ba1dc704cfa",
+          "readingUnits": [
+            {
+              "title": "Letter 18. Advice to a missionary student",
+              "locator": "derivative-lines:6456-6888",
+              "role": "primary-letter-essay-with-cultural-and-historical-claims",
+              "date": null,
+              "recipient": null,
+              "componentId": "component-rb07-9da9be9d4349db66f714"
+            }
+          ]
+        },
+        {
+          "assetId": "asset-rb04-f9ea063dff9952ca931d",
+          "title": "The Complete Works of the Rev. Andrew Fuller, with a Memoir of His Life",
+          "originalSha256": "b6e9d8e2c7cd664b30feef68f111f33885e6c23f97132b6b3e45ea5fde312395",
+          "readingUnits": [
+            {
+              "title": "Thoughts on Preaching: four letters and observations",
+              "locator": "derivative-lines:144063-145319",
+              "role": "primary-ministry-letter-series",
+              "date": null,
+              "recipient": null,
+              "componentId": "component-rb07-5017d95f5238151c806b"
+            }
+          ]
+        }
+      ],
+      "inferredFromVectors": false
+    },
+    {
+      "question": "How did missionaries persevere through loss?",
+      "purpose": "Study dated missionary correspondence, captivity and affliction with identifiable narrators.",
+      "limitations": "Memoirs are retrospective and sometimes condensed; heroic narrative, editorial interpretation and firsthand evidence remain separate.",
+      "entries": [
+        {
+          "assetId": "asset-rb07-ed33666c7e7401d2dd7f",
+          "title": "The Life of Adoniram Judson",
+          "originalSha256": "a8df9fa58dbc929e435abbddbc9b70bd89dbb5c2653601709c23534076f1f027",
+          "readingUnits": [
+            {
+              "title": "Chapter 7. LIFE IN AVA AND OUNG-PEN-LA.",
+              "locator": "derivative-lines:7940-10473",
+              "role": "later-biography-with-edited-primary-extracts",
+              "date": null,
+              "recipient": null,
+              "componentId": null
+            },
+            {
+              "title": "Chapter 12. LAST YEARS.",
+              "locator": "derivative-lines:18438-20466",
+              "role": "later-biography-with-edited-primary-extracts",
+              "date": null,
+              "recipient": null,
+              "componentId": null
+            },
+            {
+              "title": "Appendix A. Autobiographical Record of Dates and Events",
+              "locator": "derivative-lines:20855-21441",
+              "role": "primary-autobiographical-record",
+              "date": null,
+              "recipient": null,
+              "componentId": "component-rb07-630a5bab5cafb1fbfa84"
+            }
+          ]
+        },
+        {
+          "assetId": "asset-rb07-802fedffc23e0ac29989",
+          "title": "Serampore Letters: William Carey and Others with John Williams, 1800-1816",
+          "originalSha256": "6c0266d611b08a5a55f45eaf0ec1e8e2d0f331c0eb7c18be2cb24aef272d2e7a",
+          "readingUnits": [
+            {
+              "title": "Restrictions on missionary labors",
+              "locator": "derivative-lines:4392-4480",
+              "role": "primary-correspondence-as-printed-with-OCR-artifacts",
+              "date": "1806-12-16",
+              "recipient": "John Williams",
+              "componentId": "component-rb07-04671f50da55ee513555"
+            },
+            {
+              "title": "Evangelism, vernacular translation and loss",
+              "locator": "derivative-lines:5081-5182",
+              "role": "primary-correspondence-as-printed-with-OCR-artifacts",
+              "date": "1812-10-28 / postscript 26th",
+              "recipient": "John Williams",
+              "componentId": "component-rb07-1d08390e28771d234420"
+            }
+          ]
+        },
+        {
+          "assetId": "asset-rb04-f9ea063dff9952ca931d",
+          "title": "The Complete Works of the Rev. Andrew Fuller, with a Memoir of His Life",
+          "originalSha256": "b6e9d8e2c7cd664b30feef68f111f33885e6c23f97132b6b3e45ea5fde312395",
+          "readingUnits": [
+            {
+              "title": "Pearce chapter IV. Final affliction",
+              "locator": "derivative-lines:148614-150246",
+              "role": "biographical-chapter-with-nested-primary-documents",
+              "date": null,
+              "recipient": null,
+              "componentId": null
+            }
+          ]
+        }
+      ],
+      "inferredFromVectors": false
+    },
+    {
+      "question": "What place did Scripture translation and prayer have?",
+      "purpose": "Read primary translation reports and prayer appeals alongside a later biography.",
+      "limitations": "Publication statistics are dated source claims; linguistic/translation quality cannot be established by a mission report alone.",
+      "entries": [
+        {
+          "assetId": "asset-rb07-802fedffc23e0ac29989",
+          "title": "Serampore Letters: William Carey and Others with John Williams, 1800-1816",
+          "originalSha256": "6c0266d611b08a5a55f45eaf0ec1e8e2d0f331c0eb7c18be2cb24aef272d2e7a",
+          "readingUnits": [
+            {
+              "title": "Missionary correspondence and translation",
+              "locator": "derivative-lines:2481-2579",
+              "role": "primary-correspondence-as-printed-with-OCR-artifacts",
+              "date": "1801-11-11",
+              "recipient": "John Williams",
+              "componentId": "component-rb07-cfd8bddb0b8015dd3918"
+            },
+            {
+              "title": "Reception of Chamberlain and Scripture work",
+              "locator": "derivative-lines:3054-3137",
+              "role": "primary-correspondence-as-printed-with-OCR-artifacts",
+              "date": "1803-03-02",
+              "recipient": "John Williams",
+              "componentId": "component-rb07-463e1a71ee4a2f1fdde8"
+            }
+          ]
+        },
+        {
+          "assetId": "asset-rb07-4386dee625a23d957322",
+          "title": "Farewell Letters to a Few Friends in Britain and America, on Returning to Bengal in 1821",
+          "originalSha256": "68cbe6fa9d0414a92cf66dbb50dfebf6124ff8df5d9d75eb489a2ba1dc704cfa",
+          "readingUnits": [
+            {
+              "title": "Letter 10. United prayer for divine influence",
+              "locator": "derivative-lines:3371-3880",
+              "role": "primary-letter-essay-with-cultural-and-historical-claims",
+              "date": null,
+              "recipient": null,
+              "componentId": "component-rb07-819380f8530802cb64d8"
+            },
+            {
+              "title": "Letter 13. Progress of translations",
+              "locator": "derivative-lines:4878-5203",
+              "role": "primary-letter-essay-with-cultural-and-historical-claims",
+              "date": null,
+              "recipient": null,
+              "componentId": "component-rb07-3186ff41739f6ee23e39"
+            },
+            {
+              "title": "Letter 26. Answers to prayer",
+              "locator": "derivative-lines:8454-8531",
+              "role": "primary-letter-essay-with-cultural-and-historical-claims",
+              "date": null,
+              "recipient": null,
+              "componentId": "component-rb07-5cd485068734d022b21d"
+            }
+          ]
+        },
+        {
+          "assetId": "asset-rb07-d0ed9a4d3f6cf4351f4b",
+          "title": "The Life of William Carey, Shoemaker & Missionary",
+          "originalSha256": "eadaf0884dcc6330a9fad43272ee478c76222776674b7fc6f2950c818d5e4466",
+          "readingUnits": [
+            {
+              "title": "Chapter 10. THE WYCLIF OF THE EAST--BIBLE TRANSLATION",
+              "locator": "derivative-lines:7286-8302",
+              "role": "later-revised-biography-with-primary-extracts",
+              "date": null,
+              "recipient": null,
+              "componentId": null
+            }
+          ]
+        }
+      ],
+      "inferredFromVectors": false
+    },
+    {
+      "question": "How were missions defended and home churches mobilized?",
+      "purpose": "Reuse Fuller's three-part Apology, Pearce memoir and Rice's account of missionary organization.",
+      "limitations": "Fuller quotes opponents and external testimonies; Rice memoir was institutionally commissioned. Denison's closing poem is not Rice autobiography.",
+      "entries": [
+        {
+          "assetId": "asset-rb04-f9ea063dff9952ca931d",
+          "title": "The Complete Works of the Rev. Andrew Fuller, with a Memoir of His Life",
+          "originalSha256": "b6e9d8e2c7cd664b30feef68f111f33885e6c23f97132b6b3e45ea5fde312395",
+          "readingUnits": [
+            {
+              "title": "Apology for Missions to India, Part I",
+              "locator": "derivative-lines:151739-153595",
+              "role": "primary-apologetic-work-with-opponent-quotes",
+              "date": null,
+              "recipient": null,
+              "componentId": "component-rb07-8b979dfdfdc50f5f1c0a"
+            },
+            {
+              "title": "Apology for Missions to India, Part II",
+              "locator": "derivative-lines:153596-155406",
+              "role": "primary-apologetic-work-with-opponent-quotes",
+              "date": null,
+              "recipient": null,
+              "componentId": "component-rb07-c4f445df7ed4718791a1"
+            },
+            {
+              "title": "Apology for Missions to India, Part III and appended testimonies",
+              "locator": "derivative-lines:155407-157649",
+              "role": "primary-apologetic-work-with-editorial-and-third-party-voices",
+              "date": null,
+              "recipient": null,
+              "componentId": "component-rb07-3f68d950625d304b2824"
+            },
+            {
+              "title": "Memoirs of Samuel Pearce: five chapters and verse",
+              "locator": "derivative-lines:145320-151738",
+              "role": "Fuller-biography-with-Pearce-primary-quotes",
+              "date": null,
+              "recipient": null,
+              "componentId": "component-rb07-e60e033a3818a558750d"
+            },
+            {
+              "title": "Pearce chapter II. Missionary desire and responsibility",
+              "locator": "derivative-lines:146090-147277",
+              "role": "biographical-chapter-with-nested-primary-documents",
+              "date": null,
+              "recipient": null,
+              "componentId": null
+            },
+            {
+              "title": "Pearce chapter III. Ministry while remaining at home",
+              "locator": "derivative-lines:147278-148613",
+              "role": "biographical-chapter-with-nested-primary-documents",
+              "date": null,
+              "recipient": null,
+              "componentId": null
+            }
+          ]
+        },
+        {
+          "assetId": "asset-rb07-d7da619ca1b2c8a12f1e",
+          "title": "Memoir of Rev. Luther Rice, One of the First American Missionaries to the East",
+          "originalSha256": "50883065ca2569c9ee7c634737d18d9e72bbef6c1a5d7199600c59f1dbae7c0f",
+          "readingUnits": [
+            {
+              "title": "Chapter 7.",
+              "locator": "derivative-lines:4787-5521",
+              "role": "1840-biography-with-primary-letters-and-journals",
+              "date": null,
+              "recipient": null,
+              "componentId": null
+            },
+            {
+              "title": "Chapter 8.",
+              "locator": "derivative-lines:5522-7004",
+              "role": "1840-biography-with-primary-letters-and-journals",
+              "date": null,
+              "recipient": null,
+              "componentId": null
+            },
+            {
+              "title": "Chapter 16.",
+              "locator": "derivative-lines:12107-12894",
+              "role": "1840-biography-with-primary-letters-and-journals",
+              "date": null,
+              "recipient": null,
+              "componentId": null
+            }
+          ]
+        }
+      ],
+      "inferredFromVectors": false
+    }
+  ],
+  "dbTouched": false
+}

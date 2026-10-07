@@ -1,0 +1,36 @@
+{
+  "http": {
+    "url": "https://archive.org/advancedsearch.php?q=title%3A%28memoir%29+AND+creator%3A%28Taylor%29+AND+Rice&output=json&rows=20&fl%5B%5D=identifier&fl%5B%5D=title&fl%5B%5D=creator&fl%5B%5D=date&fl%5B%5D=publisher",
+    "finalUrl": "https://archive.org/advancedsearch.php?q=title%3A%28memoir%29+AND+creator%3A%28Taylor%29+AND+Rice&output=json&rows=20&fl%5B%5D=identifier&fl%5B%5D=title&fl%5B%5D=creator&fl%5B%5D=date&fl%5B%5D=publisher",
+    "mimeType": "application/json",
+    "byteCount": 954,
+    "sha256": "7f0513d069b75f7e414674b62138ffe5cb3b1cf48ddef3b66cdcdcd72afdf068",
+    "retrievedAt": "2026-10-07T10:48:28.718071+00:00"
+  },
+  "response": {
+    "numFound": 3,
+    "start": 0,
+    "docs": [
+      {
+        "creator": "James B. Taylor",
+        "date": "1840-01-01T00:00:00Z",
+        "identifier": "memoirofrevluthe0000jame",
+        "title": "Memoir of Rev. Luther Rice"
+      },
+      {
+        "creator": "Taylor, James Barnett, 1804-1871",
+        "date": "1841-01-01T00:00:00Z",
+        "identifier": "memoirofrevluthe00tayl",
+        "publisher": "Nashville : Broadman",
+        "title": "Memoir of Rev. Luther Rice : one of the first American missionaries to the East"
+      },
+      {
+        "creator": "Taylor, James Barnett, 1804-1871",
+        "date": "1840-01-01T00:00:00Z",
+        "identifier": "memoirofrevluthe01tayl",
+        "publisher": "Baltimore : Armstrong and Berry",
+        "title": "Memoir of Rev. Luther Rice, one of the first American missionaries to the East"
+      }
+    ]
+  }
+}

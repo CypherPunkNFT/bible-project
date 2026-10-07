@@ -1,0 +1,77 @@
+{
+  "mission": "RB07",
+  "entries": [
+    {
+      "target": "Fuller: Last Remains (Belcher, 1856)",
+      "status": "readable-authorized-body-unverified",
+      "url": "https://onlinebooks.library.upenn.edu/webbin/book/lookupname?key=Belcher%2C+Joseph%2C+1794-1859",
+      "reason": "Catalogue route is page images; no readable offered download verified. Do not substitute Morris 1826 or launch OCR."
+    },
+    {
+      "target": "Fuller: Miscellaneous Pieces (Morris, 1826)",
+      "status": "private-text-inspected-not-promoted",
+      "url": "https://archive.org/details/miscellaneouspie00full",
+      "reason": "Substantial overlap with held 1846 works. Audit complete contents before acquisition; not Belcher 1856."
+    },
+    {
+      "target": "Wayland: Judson memoir volume 2",
+      "status": "TLS-certificate-blocked-alternative-used",
+      "url": "https://baptiststudiesonline.com/wp-content/uploads/2018/05/Judson-Adoniram-Wayland-Francis-v-2.pdf",
+      "reason": "Certificate validation failed. No insecure bypass; clean 1883 Edward Judson witness acquired instead, with condensation limits."
+    },
+    {
+      "target": "1802 ordination discourses: Sutcliff, Ryland, Fuller",
+      "status": "existing-PDF-text-layer-inspected-not-promoted",
+      "url": "https://careycenter.wmcarey.edu/ryland-fuller-sutcliffe/1802.pdf",
+      "reason": "56 pages have existing text but rough long-s OCR. Private inspection only; no image rendering/OCR. Cleaner priority material won; Fuller portion overlaps held works."
+    },
+    {
+      "target": "Judson archival correspondence",
+      "status": "facsimile-only-route-deferred",
+      "url": "https://sbhla.org/digital-resources/adoniram-judson-correspondence/",
+      "reason": "No image acquisition. Seek an offered transcription if later needed."
+    },
+    {
+      "target": "Wholesome Words: Serampore Agreement",
+      "status": "discovery-only-no-reuse-permission-assumed",
+      "url": "https://www.wholesomewords.org/missions/bcarey13.html",
+      "reason": "Personal download rules do not authorize electronic republication. Institutional historical witness acquired instead; see copyright page.",
+      "termsUrl": "https://www.wholesomewords.org/copyright.html"
+    },
+    {
+      "target": "Fuller shorthand evening prayer notes, modern first publication",
+      "status": "modern-editorial-rights-review-needed",
+      "url": "https://www.gs.edu/journal/volume-1-issue-1-winter-2025/andrew-fullers-shorthand-notes-on-the-conduct-of-evening-prayer-meetings/",
+      "reason": "Modern translation/editorial work and contributor rights require review. No modern body acquired."
+    },
+    {
+      "target": "Sutcliff: Jealousy for the Lord of Hosts (1791)",
+      "status": "catalogue-only-clean-body-unverified",
+      "url": "https://catalog.folger.edu/record/865123",
+      "reason": "Paired Fuller Danger of Delay held; Sutcliff clean offered body not verified. Do not hunt guessed private URLs."
+    },
+    {
+      "target": "Carey older Smith Appendix III",
+      "status": "retained-parent-partial-component-excluded",
+      "url": "https://careycenter.wmcarey.edu/gsmith/append.htm",
+      "reason": "1867 George Smith memorandum stops mid-sentence. Complete 1805 Agreement and separate 1885 report mapped; do not call the entire appendix complete."
+    },
+    {
+      "target": "Judson advice guessed Baptist History URL",
+      "status": "404-no-variant-hunt",
+      "url": "https://baptisthistoryhomepage.com/judson.advice.html",
+      "reason": "Complete dated 1832 advice acquired in Edward Judson Appendix D instead."
+    },
+    {
+      "target": "Ann Hasseltine Judson primary letters / James D. Knowles memoir",
+      "status": "late-discovery-not-acquired",
+      "url": "https://www.loc.gov/item/03007916/",
+      "edition": "Boston: Lincoln & Edmands, 1829; distinguish offered 1832 fifth edition elsewhere.",
+      "reason": "Institutional catalogue confirms title, editor and public-domain status, but clean offered textual body and contributor scope were not verified before closeout. Prefer Ann-authored dated documents; do not add another youthful composite biography without an overlap audit.",
+      "candidateIdentifier": "memoirofmrsannhj00know_2",
+      "nextAction": "Read offered metadata and TXT listings, audit existing Ann quotations in Edward Judson/Bonar, then acquire only useful permitted readable coverage; stop at scan-only routes."
+    }
+  ],
+  "noNewOCR": true,
+  "noImageAcquisition": true
+}

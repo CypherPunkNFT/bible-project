@@ -1,0 +1,26 @@
+{
+  "http": {
+    "url": "https://archive.org/advancedsearch.php?q=creator%3A%28Andrew+Fuller%29+AND+title%3A%28remains%29&output=json&rows=20&fl%5B%5D=identifier&fl%5B%5D=title&fl%5B%5D=creator&fl%5B%5D=date&fl%5B%5D=publisher",
+    "finalUrl": "https://archive.org/advancedsearch.php?q=creator%3A%28Andrew+Fuller%29+AND+title%3A%28remains%29&output=json&rows=20&fl%5B%5D=identifier&fl%5B%5D=title&fl%5B%5D=creator&fl%5B%5D=date&fl%5B%5D=publisher",
+    "mimeType": "application/json",
+    "byteCount": 590,
+    "sha256": "58073e3bde8176a7b7b9d671d45401334f894f1c6d05a0394e5937e345c5dd2e",
+    "retrievedAt": "2026-10-07T10:48:26.302594+00:00"
+  },
+  "response": {
+    "numFound": 1,
+    "start": 0,
+    "docs": [
+      {
+        "creator": [
+          "Fuller, Andrew, 1754-1815",
+          "Morris, J. W. (John Webster), 1763-1836"
+        ],
+        "date": "1826-01-01T00:00:00Z",
+        "identifier": "miscellaneouspie00full",
+        "publisher": "London : Wightman and Camp",
+        "title": "Miscellaneous pieces on various religious subjects : being the last remains of the Rev. Andrew Fuller"
+      }
+    ]
+  }
+}
