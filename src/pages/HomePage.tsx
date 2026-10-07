@@ -1,13 +1,12 @@
-import { ArrowDown, ArrowRight, ArrowUpRight, BookOpen, Compass, GitBranch, GraduationCap, Map, Pause, Play, ShieldCheck, Tags } from "lucide-react";
-import { useState, type CSSProperties, type ReactNode } from "react";
+import { ArrowDown, ArrowRight, ArrowUpRight, BookOpen, Compass, GitBranch, Map, Pause, Play } from "lucide-react";
+import { useLayoutEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { useCatalog } from "@/lib/catalog";
 import { lastReadPath } from "@/lib/last-read";
-import { BibleShelf, HomeArtwork, OpenBible, QuestionOrbit } from "@/components/home/HomeArtwork";
+import { BibleShelf, CollectionArtwork, HomeArtwork, OpenBible, QuestionOrbit } from "@/components/home/HomeArtwork";
 import { HOME_PATHS, HOME_PREVIEWS, HOME_STUDIES, HOME_TOPICS } from "@/components/home/collection-data";
 import "@/components/home/home-hub.css";
 
-const icons = [BookOpen, GraduationCap, ShieldCheck, Tags, Map];
 const tint = (color: string) => ({ "--home-color": `var(--${color})` } as CSSProperties);
 
 function SectionHeading({ number, label, title, children, to, action }: { number: string; label: string; title: ReactNode; children: ReactNode; to: string; action: string }) {
@@ -27,6 +26,16 @@ function PreviewMarquee() {
 }
 
 export default function HomePage() {
+  const opening = useRef<HTMLDivElement>(null);
+  useLayoutEffect(() => {
+    const header = document.querySelector("body header");
+    if (!header) return;
+    const measure = () => opening.current?.style.setProperty("--home-header-height", `${header.getBoundingClientRect().height}px`);
+    measure();
+    const observer = new ResizeObserver(measure);
+    observer.observe(header);
+    return () => observer.disconnect();
+  }, []);
   const catalog = useCatalog();
   const last = lastReadPath();
   const [, , slug, code, chapter] = last?.split("/") ?? [];
@@ -37,18 +46,18 @@ export default function HomePage() {
   const languages = new Set(catalog.translations.map((item) => item.lang)).size;
 
   return <div className="home-hub">
+    <div className="home-opening" ref={opening}>
     <section className="home-hero home-wrap" aria-labelledby="home-title">
       <div className="home-hero-copy"><p className="home-eyebrow"><span className="home-live-dot" />The Bible, open to you</p><h1 id="home-title">One Word.<br /><em>A world to<br className="home-hero-break" /> discover.</em></h1><p className="home-hero-lead">Read the Scriptures. Follow the connections.<br />Bring your questions. See the bigger story.</p><div className="home-hero-actions"><Link className="home-button" to={resume}><BookOpen size={17} aria-hidden />{resumeLabel}<ArrowRight size={17} aria-hidden /></Link><a className="home-text-link" href="#explore">Explore the collections<ArrowDown size={16} aria-hidden /></a></div><p className="home-hero-foot">Free to explore. Open to everyone.<span>{catalog.translations.length} Bible versions · {languages} languages</span></p></div>
       <div className="home-hero-art" aria-label="Scripture at the heart of the collection">
         <div className="home-art-orbit home-art-orbit-one" aria-hidden /><div className="home-art-orbit home-art-orbit-two" aria-hidden /><div className="home-art-crosshair" aria-hidden />
         <Link to="/bible" className="home-hero-book" aria-label="Explore the Bible"><OpenBible /></Link>
-        <Link to="/study/gospels" className="home-floating-card home-float-gospels" style={tint("gospels")}><span>FOUR ACCOUNTS. ONE LIFE.</span><HomeArtwork kind="gospels" /><strong>See the story together<ArrowUpRight size={13} /></strong></Link>
-        <Link to="/study/atlas/cities" className="home-floating-card home-float-cities" style={tint("poetry")}><HomeArtwork kind="cities" /><strong>Enter the biblical world<ArrowUpRight size={13} /></strong></Link>
         <span className="home-hero-coordinate home-coordinate-top" aria-hidden>READ · UNDERSTAND · EXPLORE</span><span className="home-hero-coordinate home-coordinate-bottom" aria-hidden>ONE WORD. MANY WAYS IN.</span>
       </div>
     </section>
 
-    <nav id="explore" className="home-doorways home-wrap" aria-label="Explore the five collections">{HOME_PATHS.map((item, i) => { const Icon = icons[i]; return <Link to={item.to} key={item.title} style={tint(item.color)}><Icon size={22} strokeWidth={1.4} aria-hidden /><span><strong>{item.title}</strong><small>{item.subtitle}</small></span><ArrowUpRight size={16} aria-hidden /></Link>; })}</nav>
+    <nav id="explore" className="home-doorways home-wrap" aria-label="Explore the five collections">{HOME_PATHS.map((item) => <Link to={item.to} key={item.title} style={tint(item.color)}><div className="home-doorway-art"><CollectionArtwork kind={item.title} /></div><div className="home-doorway-copy"><span><strong>{item.title}</strong><small>{item.subtitle}</small></span><ArrowUpRight size={16} aria-hidden /></div></Link>)}</nav>
+    </div>
     <PreviewMarquee />
 
     <div className="home-wrap">

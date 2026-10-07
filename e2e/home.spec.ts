@@ -12,6 +12,14 @@ test("home: illustrated collections fit both themes and all destinations exist",
     await expect(page.getByRole("heading", { level: 1 })).toHaveText("One Word.A world to discover.");
     const paths = page.getByRole("navigation", { name: "Explore the five collections" });
     await expect(paths.getByRole("link")).toHaveCount(5);
+    await expect(paths.locator(".home-doorway-art > svg")).toHaveCount(5);
+    const opening = await page.locator(".home-opening").boundingBox();
+    const cards = await paths.boundingBox();
+    const marquee = await page.locator(".home-preview-strip").boundingBox();
+    const viewportHeight = page.viewportSize()!.height;
+    expect(opening!.y + opening!.height).toBeGreaterThanOrEqual(viewportHeight - 1);
+    expect(cards!.y + cards!.height).toBeLessThanOrEqual(viewportHeight + 1);
+    expect(marquee!.y).toBeGreaterThanOrEqual(viewportHeight);
     for (const [name, url] of [["Bible", "/bible"], ["Study", "/study"], ["Apologetics", "/apologetics"], ["Topics", "/topics"], ["Atlas", "/study/atlas"]]) {
       await expect(paths.getByRole("link", { name: new RegExp(`^${name}`) })).toHaveAttribute("href", url);
     }
@@ -50,11 +58,13 @@ test("home: reading memory and preview navigation open the intended pages", asyn
   await expect(page.locator("#explore")).toBeInViewport();
 });
 
-test("home: marquee pauses for interaction and respects reduced motion", async ({ page }) => {
+test("home: marquee keeps moving on hover, supports deliberate pause and respects reduced motion", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "no-preference" });
   await page.goto("/");
   const track = page.locator(".home-marquee-track");
   await expect.poll(() => track.evaluate((el) => getComputedStyle(el).animationName)).toBe("home-marquee");
+  await page.locator(".home-marquee").hover();
+  await expect.poll(() => track.evaluate((el) => getComputedStyle(el).animationPlayState)).toBe("running");
   await page.getByRole("button", { name: "Pause collection previews" }).click();
   await expect.poll(() => track.evaluate((el) => getComputedStyle(el).animationPlayState)).toBe("paused");
   await page.getByRole("button", { name: "Play collection previews" }).click();
@@ -69,6 +79,6 @@ test("home: marquee pauses for interaction and respects reduced motion", async (
   await page.emulateMedia({ reducedMotion: "reduce" });
   await expect.poll(() => track.evaluate((el) => getComputedStyle(el).animationName)).toBe("none");
   await expect(page.locator('.home-marquee-group[aria-hidden="true"]')).toBeHidden();
-  await expect.poll(() => page.locator(".home-floating-card").first().evaluate((el) => getComputedStyle(el).animationName)).toBe("none");
+  await expect(page.locator(".home-floating-card")).toHaveCount(0);
   await expect(page.getByRole("button", { name: "Pause collection previews" })).toBeHidden();
 });
