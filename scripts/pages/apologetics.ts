@@ -5,16 +5,17 @@ import { debatesPage, explorePage, pathsPage, practicePage, worldviewsPage } fro
 import { questionsPage, reformedPage } from "./apologetics-studies";
 import { historicTextsPage } from "./apologetics-texts";
 import type { Extractor, PageContent } from "./types";
+import { LIBRARY_FILE, PAGE_FILE, wordingSection } from "./apologetics-wording";
 
-const PAGES: { folder: string; title: string; render: (data: ApologeticsData) => string }[] = [
-  { folder: "explore", title: "Apologetics: Explore", render: explorePage },
-  { folder: "questions", title: "Apologetics: Questions", render: questionsPage },
-  { folder: "reformed-theology", title: "Apologetics: Reformed theology", render: reformedPage },
-  { folder: "historic-texts", title: "Apologetics: Historic texts", render: historicTextsPage },
-  { folder: "learning-paths", title: "Apologetics: Learning paths", render: pathsPage },
-  { folder: "worldviews", title: "Apologetics: Worldviews", render: worldviewsPage },
-  { folder: "debates", title: "Apologetics: Debates", render: debatesPage },
-  { folder: "practice", title: "Apologetics: Practice", render: practicePage },
+const PAGES: { folder: string; title: string; render: (data: ApologeticsData) => string; wording: [string, string[]][] }[] = [
+  { folder: "explore", title: "Apologetics: Explore", render: explorePage, wording: [[PAGE_FILE, ["ApologeticsPage", "Hub", "SavedPage", "Missing"]]] },
+  { folder: "questions", title: "Apologetics: Questions", render: questionsPage, wording: [[PAGE_FILE, ["QuestionLibrary", "TopicPage", "StudyPage"]]] },
+  { folder: "reformed-theology", title: "Apologetics: Reformed theology", render: reformedPage, wording: [[LIBRARY_FILE, ["ReformedDoor"]]] },
+  { folder: "historic-texts", title: "Apologetics: Historic texts", render: historicTextsPage, wording: [[LIBRARY_FILE, ["ReformedLibraryPage", "WorkCard", "HistoricReading"]], [PAGE_FILE, ["SourceRoom"]]] },
+  { folder: "learning-paths", title: "Apologetics: Learning paths", render: pathsPage, wording: [[PAGE_FILE, ["PathIndex", "PathPage"]]] },
+  { folder: "worldviews", title: "Apologetics: Worldviews", render: worldviewsPage, wording: [[PAGE_FILE, ["WorldviewIndex", "WorldviewPage"]]] },
+  { folder: "debates", title: "Apologetics: Debates", render: debatesPage, wording: [[PAGE_FILE, ["DebateIndex", "DebatePage"]]] },
+  { folder: "practice", title: "Apologetics: Practice", render: practicePage, wording: [[PAGE_FILE, ["PracticePage"]]] },
 ];
 
 function areaPage(data: ApologeticsData): string {
@@ -47,6 +48,9 @@ function areaPage(data: ApologeticsData): string {
 export const extract: Extractor = async () => {
   const data = loadApologetics();
   const pages: PageContent[] = [{ dir: "Apologetics", title: "Apologetics", markdown: areaPage(data) }];
-  for (const page of PAGES) pages.push({ dir: `Apologetics/${page.folder}`, title: page.title, markdown: page.render(data) });
+  for (const page of PAGES) {
+    const wording = await Promise.all(page.wording.map(([file, functions]) => wordingSection(file, functions)));
+    pages.push({ dir: `Apologetics/${page.folder}`, title: page.title, markdown: [page.render(data), ...wording].join("\n\n") });
+  }
   return pages;
 };

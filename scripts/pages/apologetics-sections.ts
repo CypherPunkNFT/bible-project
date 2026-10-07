@@ -9,8 +9,6 @@ export function explorePage(data: ApologeticsData): string {
   return lines(
     `Address: ${address("")}. Also covered here: My study, ${address("/saved")}.`,
     "",
-    "The hero, section headings, the Christianity and Islam spotlight and the three \"from conviction to conversation\" cards are fixed wording in the page code, not in the content documents, so they are not repeated here (see README, \"Where it lives\").",
-    "",
     "## Counts shown in the hero",
     "",
     `${data.studies.length} studies · ${data.topics.length} connected fields · ${data.paths.length} learning paths`,
