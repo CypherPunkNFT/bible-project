@@ -1,9 +1,9 @@
 import { useState, type CSSProperties, type ReactNode } from "react";
 import type { Letter } from "@/data/letters/types";
 import { ClaimText } from "../LetterParts";
+import { dates } from "./builders";
 import { GROUP_TONE, type GroupKey, type LettersData } from "./data";
 
-const dates = (l: Letter) => (l.date.from ? `AD ${l.date.from}${l.date.to && l.date.to !== l.date.from ? `–${l.date.to}` : ""}` : "Not dated");
 const chipTone = (tone: string) => ({ "--chip": `var(--${tone})` }) as CSSProperties;
 
 function Pick({ letter, chosen, choose, label, tone }: { letter: Letter; chosen: Letter; choose: (code: string) => void; label?: string; tone: string }) {
@@ -44,4 +44,3 @@ export function FiguresBar({ items }: { items: [ReactNode, ReactNode, ReactNode]
   return <dl className="lb-figures lb-bar">{items.map(([dt, small, dd], i) => <div key={i}><dt>{dt}</dt><small>{small}</small><dd>{dd}</dd></div>)}</dl>;
 }
 
-export { dates };

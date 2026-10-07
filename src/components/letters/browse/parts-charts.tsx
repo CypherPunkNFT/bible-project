@@ -1,12 +1,13 @@
 import { useState, type CSSProperties } from "react";
 import { PassageText } from "@/components/study/StudyParts";
-import type { Flow, KeyWord, Letter, MapLayer, Network, Parallel, Timeline } from "@/data/letters/types";
+import type { Letter, Network, Parallel } from "@/data/letters/types";
 import { useKeep, useSpanLabel, useVerseIndex } from "../letter-hooks";
 import { KeepX, Refs } from "../LetterParts";
 import { ParallelRibbon } from "../ParallelRibbon";
 import { PeopleCards } from "../PeopleCards";
-import { GROUP_KEYS, GROUP_TONE, toneOfLetter, type LettersData } from "./data";
-import { kindTone, LetterWords } from "./parts-letter";
+import { toneOfLetter, type LettersData } from "./data";
+import { kindTone } from "./builders";
+import { LetterWords } from "./parts-letter";
 
 const chip = (tone: string) => ({ "--chip": `var(--${tone})` }) as CSSProperties;
 
@@ -80,39 +81,3 @@ export function KindBars({ data }: { data: LettersData }) {
       {l.outline.map((o, i) => <button key={i} type="button" title={o.title} aria-pressed={keep.kept === `${l.code}:${i}`} style={{ flexGrow: verses(l, i), background: o.kind ? kindTone(o.kind) : "var(--line)" }} {...keep.bind(`${l.code}:${i}`)} />)}</div><em>{l.verses}</em></div>)}</div>
     <p className="lb-tip">{kept ? <><b>{kept.title}</b>{keep.kept && <KeepX onRelease={keep.release} />} · {label(kept.span)} · {kept.kind ?? "not classed"}</> : "Each letter's parts, coloured by what they do. Click a part."}</p></div>;
 }
-
-// ── Builders for the charts that combine the four collections ─────────────────────────────
-const GROUP_NAME = { paul: "Paul's letters", hebrews: "Hebrews", general: "James, Peter & Jude", john: "The letters of John" } as const;
-export function allLettersTimeline(data: LettersData): Timeline {
-  return { id: "all-letters", title: "When the letters were written", axis: "years",
-    events: data.letters.filter((l) => l.date.from && l.date.to).map((l) => ({ label: l.name, from: l.date.from!, to: l.date.to!, letter: l.code })),
-    claim: { text: "Each bar spans the widest range of dates the sources propose. No letter states its own date; 2 John and 3 John have no proposed date in these sources." } };
-}
-export function destinationLayers(data: LettersData): MapLayer[] {
-  const ids = { paul: "letter-destinations", hebrews: "destinations", general: "first-peter-provinces", john: "ephesus" } as const;
-  return GROUP_KEYS.flatMap((k) => data.groups[k].maps.filter((m) => m.id === ids[k]).map((m) => ({ ...m, id: `${k}-${m.id}`, title: GROUP_NAME[k] })));
-}
-/** Each of Paul's letters as a two-stop route, from where it was written to where it went. */
-export function travelLayers(data: LettersData): MapLayer[] {
-  const maps = data.groups.paul.maps, from = maps.find((m) => m.id === "written-from"), to = maps.find((m) => m.id === "letter-destinations");
-  if (!from || !to) return [];
-  return data.groups.paul.letters.flatMap((l) => { const a = from.stops.find((s) => s.letter === l.code), b = to.stops.find((s) => s.letter === l.code);
-    return a && b ? [{ id: `travel-${l.code}`, title: l.name, route: true, stops: [a, b], claim: { text: `${l.name}: from ${a.name} to ${b.name}.` } }] : []; });
-}
-export function allFlow(data: LettersData): Flow {
-  const links = GROUP_KEYS.flatMap((k) => (data.groups[k].flows.find((f) => f.id === "ot-sources")?.links ?? []).map((l) => ({ ...l, target: data.groups[k].title })));
-  const merged = new Map<string, Flow["links"][number]>();
-  for (const l of links) { const key = `${l.source}→${l.target}`, p = merged.get(key); merged.set(key, p ? { ...p, value: p.value + l.value, refs: [...(p.refs ?? []), ...(l.refs ?? [])] } : l); }
-  return { id: "all-ot", title: "The Old Testament behind the letters", links: [...merged.values()],
-    claim: { text: "Every Old Testament passage the letters quote, traced from the book it comes from to the letters that quote it. The Psalms, Isaiah and the books of Moses carry most of the weight. John's letters quote no Old Testament passage; their one band is 1 John's allusion to Cain (Genesis 4:8)." } };
-}
-/** Each collection's words summed by Strong's number, one column per collection, optionally only words several share. */
-export function groupWordColumns(data: LettersData, minGroups = 1): { letters: Letter[]; columns: Record<string, string[]> } {
-  const sums = GROUP_KEYS.map((k) => { const m = new Map<string, KeyWord>();
-    for (const w of data.groups[k].letters.flatMap((l) => l.words)) { const p = m.get(w.strongs); m.set(w.strongs, p ? { ...p, count: p.count + w.count } : { ...w, byChapter: undefined, note: undefined }); }
-    return [k, m] as const; });
-  const shared = (s: string) => sums.filter(([, m]) => m.has(s)).length >= minGroups;
-  const letters = sums.map(([k, m]) => ({ ...data.groups[k].letters[0], code: k, name: data.groups[k].title, words: [...m.values()].filter((w) => shared(w.strongs)) }));
-  return { letters, columns: Object.fromEntries(GROUP_KEYS.map((k) => [k, data.groups[k].letters.map((l) => l.code)])) };
-}
-export const toneStyle = (k: keyof typeof GROUP_TONE) => ({ "--lg": `var(--${GROUP_TONE[k]})` }) as CSSProperties;

@@ -4,7 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 import type { Citation } from "@/data/letters/types";
 import { CitationProvider } from "../LetterParts";
 import { SourcesList } from "../LetterBlocks";
-import { ART } from "./art";
+import { drawing } from "./builders";
 
 export const BASE = "/study/letters";
 const ICONS = { route: Route, tent: Tent, globe: Globe2, lamp: Lamp, clock: Clock, map: MapIcon, mail: Mail, pen: PenTool, star: Star, link: LinkIcon, users: Users,
@@ -14,7 +14,7 @@ const pad2 = (n: number) => String(n).padStart(2, "0");
 const toneStyle = (tone: string) => ({ "--tone": `var(--${tone})` }) as CSSProperties;
 
 export function Art({ name, className = "lb-art" }: { name: string; className?: string }) {
-  return <svg className={className} viewBox="0 0 480 185" fill="none" strokeLinecap="round" aria-hidden="true" dangerouslySetInnerHTML={{ __html: ART[name] ?? "" }} />;
+  return <svg className={className} viewBox="0 0 480 185" fill="none" strokeLinecap="round" aria-hidden="true">{drawing(name)}</svg>;
 }
 export function Icon({ name, size = 18 }: { name: IconName; size?: number }) {
   const Glyph = ICONS[name];

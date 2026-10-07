@@ -51,10 +51,6 @@ test("study: guide contents reach their own sections instead of unrelated collec
     ["/study/miracles", "The miracles of Jesus", "who-jesus"],
     ["/study/miracles", "Moses & Aaron", "who-moses-and-aaron"],
     ["/study/miracles", "Prophets & apostles", "other-miracles"],
-    ["/study/letters", "Paul's letters", "paul-letters"],
-    ["/study/letters", "Hebrews", "hebrews"],
-    ["/study/letters", "James, Peter & Jude", "general-letters"],
-    ["/study/letters", "The letters of John", "john-letters"],
     ["/study/names", "Explore the names", "names-explorer"],
     ["/study/names", "Find a name", "names-list"],
   ]) {

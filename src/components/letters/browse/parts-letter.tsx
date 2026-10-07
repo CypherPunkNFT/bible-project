@@ -3,6 +3,7 @@ import { PassageText } from "@/components/study/StudyParts";
 import type { Letter, Named } from "@/data/letters/types";
 import { useKeep, useSpanLabel, useVerseIndex, useWordVerses } from "../letter-hooks";
 import { ClaimText, KeepX, Refs } from "../LetterParts";
+import { kindTone } from "./builders";
 
 const FACTS = [["author", "Who wrote it"], ["recipients", "To whom"], ["writtenFrom", "From where"], ["date", "When"], ["occasion", "Why"]] as const;
 type Tab = (typeof FACTS)[number][0] | "people" | "places";
@@ -19,7 +20,7 @@ export function Glance({ letter }: { letter: Letter }) {
   const [verse, setVerse] = useState(0);
   const label = useSpanLabel();
   const v = letter.keyVerses[Math.min(verse, letter.keyVerses.length - 1)];
-  const tabs: [Tab, string][] = [...FACTS, ["people", `People · ${letter.people.length}`], ["places", `Places · ${letter.places.length}`]];
+  const tabs: [Tab, string][] = [...FACTS.map(([id, name]): [Tab, string] => [id, name]), ["people", `People · ${letter.people.length}`], ["places", `Places · ${letter.places.length}`]];
   return <>
     <dl className="lb-figures">
       <div><dt>Verses</dt><dd>{letter.verses}</dd></div>
@@ -51,10 +52,6 @@ export function PeoplePlaces({ letter }: { letter: Letter }) {
     <div><p className="lb-panel-label">Places named · {letter.places.length}</p><Names list={letter.places} empty="No place named." /></div>
   </div>;
 }
-
-const KIND_TONES: Record<string, string> = { teaching: "prophets", practice: "poetry", personal: "acts", praise: "epistles", defence: "history", appeal: "acts", "church order": "gospels",
-  charge: "revelation", answer: "prophets", worship: "epistles", encouragement: "poetry", correction: "history", warning: "revelation", prayer: "gospels" };
-export const kindTone = (kind?: string) => `var(--${(kind && KIND_TONES[kind]) || "epistles"})`;
 
 /** The letter cut into its parts in our own words, each as long as it is, coloured by what it does. */
 export function OutlineBar({ letter }: { letter: Letter }) {

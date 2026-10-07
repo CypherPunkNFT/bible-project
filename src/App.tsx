@@ -84,7 +84,7 @@ export default function App() {
               <Route path="/apologetics/*" element={<ApologeticsPage />} />
               <Route path="/study/harmony" element={<StudyRedirect />} />
               <Route path="/study/miracles" element={<MiraclesPage />} />
-              <Route path="/study/letters" element={<LettersPage />} />
+              <Route path="/study/letters/*" element={<LettersPage />} />
               <Route path="/mock/genealogy-curves" element={<CurvedGenealogyPage />} />
               <Route path="/mock/genealogy-circle-2" element={<CircularGenealogyPage familyBands />} />
               <Route path="/mock/genealogy-circle" element={<CircularGenealogyPage />} />
