@@ -4,7 +4,7 @@ import { Link, useLocation, useParams } from "react-router-dom";
 import { Loading } from "@/components/charts/ChartCard";
 import { CategoryCard } from "@/components/topics/TopicCards";
 import { loadTopicIndex } from "@/lib/data";
-import { categoryStyle } from "@/lib/topic-style";
+import { categoryStyle, groupIcon } from "@/lib/topic-style";
 import { topicCount, topicUrl, type TopicIndex, type TopicSubcategory } from "@/lib/topics";
 import { useAsync } from "@/lib/useAsync";
 import { formatNumber } from "@/lib/utils";
@@ -17,11 +17,17 @@ function GroupCard({ sub, index, color, open }: { sub: TopicSubcategory; index: 
   const ordered = [...sub.topics].sort((a, b) => index.topics[b].refs - index.topics[a].refs);
   const shown = expanded ? ordered : ordered.slice(0, PREVIEW);
   const passages = sub.topics.reduce((n, id) => n + index.topics[id].refs, 0);
+  const GroupIcon = groupIcon(sub.id);
   return (
     <section id={sub.id} aria-labelledby={`${sub.id}-title`} className="scroll-mt-24 rounded-2xl border border-line bg-surface p-5" style={{ borderTop: `3px solid ${color}` }}>
-      <h2 id={`${sub.id}-title`} className="font-serif text-xl font-semibold">{sub.title}</h2>
-      <p className="mt-1 text-sm text-muted">{sub.description}</p>
-      <p className="mt-1 text-xs text-muted">{sub.topics.length} topics · {formatNumber(passages)} passages</p>
+      <div className="flex items-start gap-3">
+        <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl" style={{ background: `color-mix(in srgb, ${color} 14%, transparent)`, color }}><GroupIcon size={22} /></span>
+        <div>
+          <h2 id={`${sub.id}-title`} className="font-serif text-xl font-semibold">{sub.title}</h2>
+          <p className="mt-1 text-sm text-muted">{sub.description}</p>
+          <p className="mt-1 text-xs text-muted">{sub.topics.length} topics · {formatNumber(passages)} passages</p>
+        </div>
+      </div>
       <ul className="mt-4 flex flex-wrap gap-1.5">
         {shown.map((id) => <li key={id}><Link to={topicUrl(id)} className="inline-flex items-baseline gap-1.5 rounded-full border border-line bg-page px-3 py-1.5 text-sm hover:border-current" style={{ color: "var(--ink)" }}>{index.topics[id].title}<span className="text-[11px] text-muted">{index.topics[id].refs}</span></Link></li>)}
       </ul>
@@ -63,7 +69,7 @@ export default function TopicCategoryPage() {
             </div>
           </div>
           <nav aria-label="Groups" className="mt-6 flex flex-wrap gap-1.5">
-            {category.subcategories.map((sub) => <a key={sub.id} href={`#${sub.id}`} className="rounded-full border border-line bg-surface px-3 py-1 text-sm hover:border-current">{sub.title}</a>)}
+            {category.subcategories.map((sub) => { const GroupIcon = groupIcon(sub.id); return <a key={sub.id} href={`#${sub.id}`} className="inline-flex items-center gap-1.5 rounded-full border border-line bg-surface px-3 py-1 text-sm hover:border-current"><GroupIcon size={14} style={{ color }} aria-hidden />{sub.title}</a>; })}
           </nav>
         </div>
       </header>

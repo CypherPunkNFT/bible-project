@@ -4,14 +4,14 @@ import { Link } from "react-router-dom";
 import { Loading } from "@/components/charts/ChartCard";
 import { CategoryCard } from "@/components/topics/TopicCards";
 import { loadTopicIndex } from "@/lib/data";
-import { categoryStyle } from "@/lib/topic-style";
+import { categoryStyle, TOPIC_SECTIONS } from "@/lib/topic-style";
 import { categoryUrl, matchTopics, placeOf, topicUrl } from "@/lib/topics";
 import { useAsync } from "@/lib/useAsync";
 import { formatNumber } from "@/lib/utils";
 
 const POPULAR = ["love-of-god", "prayer", "faith", "grace", "afflictions", "christ-the-shepherd", "heaven", "holy-spirit-the-is-god"];
 
-/** Topics home: 12 category cards (two levels below them), a finder, and a few well-loved topics to start from. */
+/** Topics home: the 12 families gathered into four sections, each family a card of its groups; a finder; a few well-loved topics to start from. */
 export default function TopicsPage() {
   const index = useAsync(loadTopicIndex, "topic-index");
   const [query, setQuery] = useState("");
@@ -21,6 +21,11 @@ export default function TopicsPage() {
   const { categories, topics } = index.value;
   const subcategories = categories.reduce((n, c) => n + c.subcategories.length, 0);
   const popular = POPULAR.filter((id) => topics[id]);
+  const placed = new Set(TOPIC_SECTIONS.flatMap((section) => section.categories));
+  const sections = [
+    ...TOPIC_SECTIONS.map((section) => ({ ...section, families: section.categories.flatMap((id) => categories.filter((c) => c.id === id)) })),
+    { id: "more", title: "More topics", description: "Families not yet placed in a section.", families: categories.filter((c) => !placed.has(c.id)) },
+  ].filter((section) => section.families.length > 0);
 
   return (
     <div className="mx-auto max-w-6xl px-4 pb-20 sm:px-6">
@@ -56,9 +61,22 @@ export default function TopicsPage() {
           </ul>
         </section>
       ) : (
-        <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {categories.map((category) => <li key={category.id}><CategoryCard category={category} /></li>)}
-        </ul>
+        <div className="grid gap-14">
+          {sections.map((section, n) => (
+            <section key={section.id} id={section.id} aria-labelledby={`${section.id}-title`} className="scroll-mt-24">
+              <div className="flex items-baseline gap-3 border-b border-line pb-3">
+                <span className="font-serif text-2xl text-muted">{String(n + 1).padStart(2, "0")}</span>
+                <div>
+                  <h2 id={`${section.id}-title`} className="font-serif text-3xl font-semibold tracking-tight">{section.title}</h2>
+                  <p className="mt-1 text-sm text-muted">{section.description}</p>
+                </div>
+              </div>
+              <ul className="mt-5 grid gap-4 lg:grid-cols-2">
+                {section.families.map((category) => <li key={category.id}><CategoryCard category={category} /></li>)}
+              </ul>
+            </section>
+          ))}
+        </div>
       )}
       <p className="mt-16 text-xs text-muted">Topics, points and references: R. A. Torrey, <em>The New Topical Textbook</em> (1897), public domain. Families and groups by the Bible Project. Jump to a family: {categories.map((c, i) => <span key={c.id}>{i > 0 && " · "}<Link to={categoryUrl(c.id)} className="underline">{c.title}</Link></span>)}</p>
     </div>
