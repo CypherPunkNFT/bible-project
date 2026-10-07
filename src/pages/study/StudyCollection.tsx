@@ -3,6 +3,8 @@ import type { CSSProperties, ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { StudyMiniature } from "@/components/study/StudyArtwork";
 import type { StudyCollectionId } from "@/data/study-collections";
+import { categoryStyle } from "@/lib/topic-style";
+import { TopicsArtwork } from "@/pages/topics/TopicsArtwork";
 import "./study.css";
 
 type ResourceProps = {
@@ -88,12 +90,17 @@ function ChartPreview({ kind, note }: { kind: StudyCollectionId; note: string })
   return <div className="study-art study-chart-art"><StudyMiniature kind={kind} /><span className="study-art-note">{note}</span></div>;
 }
 
-/** The ten largest topic families' colours as chips (static: the card links to /topics). */
+// Faded topic names drifting around the drawing: [label, left %, top %, drift delay s].
+const FLOATING_TOPICS: [string, number, number, number][] = [
+  ["Grace", 9, 14, 0], ["Prayer", 77, 10, 1.6], ["Covenant", 4, 52, 3.1], ["Mercy", 84, 48, .8], ["Faith", 16, 84, 2.4],
+  ["Holiness", 70, 86, 4], ["Repentance", 36, 6, 5.2], ["Hope", 58, 4, 2.9], ["Angels", 90, 72, 1.2], ["Temple", 2, 30, 4.6],
+];
+
+/** The God family's drawing (the triangle in the radiant circle) with topic names floating faintly around it. */
 function TopicsPreview() {
-  const chips: [string, string][] = [["God", "epistles"], ["Jesus Christ", "gospels"], ["Salvation", "revelation"], ["The Christian life", "poetry"], ["Worship in Israel", "epistles"], ["Last things", "apocrypha"]];
-  return <div className="study-art flex flex-wrap content-center items-center justify-center gap-2 p-6" aria-hidden="true">
-    {chips.map(([label, tone]) => <span key={label} className="rounded-full px-3 py-1.5 text-sm font-semibold text-white" style={{ background: `var(--${tone})` }}>{label}</span>)}
-    <span className="rounded-full border border-current px-3 py-1.5 text-sm">623 topics</span>
+  return <div className="study-art study-topics-art" style={{ "--resource-color": categoryStyle("god").color } as CSSProperties} aria-hidden="true">
+    {FLOATING_TOPICS.map(([label, left, top, delay]) => <span key={label} className="study-topics-word" style={{ left: `${left}%`, top: `${top}%`, animationDelay: `-${delay}s` }}>{label}</span>)}
+    <TopicsArtwork kind="god" />
   </div>;
 }
 

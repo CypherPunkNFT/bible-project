@@ -186,3 +186,9 @@
   .study-section-position > span { font-size: .6rem; }
 }
 @media (prefers-reduced-motion: reduce) { .study-content-card { transition: none; } .study-content-card:hover { transform: none; } }
+
+/* Topics card: the God family drawing with faint topic names drifting around it. */
+.study-topics-art .topics-artwork { position: relative; z-index: 1; display: block; width: 100%; height: 175px; margin-top: 15px; }
+.study-topics-word { position: absolute; z-index: 0; font-family: var(--font-serif); font-size: .8rem; font-style: italic; white-space: nowrap; color: var(--resource-color); opacity: .22; animation: study-topics-drift 9s ease-in-out infinite alternate; }
+@keyframes study-topics-drift { from { transform: translate(0, 0); } to { transform: translate(10px, -8px); } }
+@media (prefers-reduced-motion: reduce) { .study-topics-word { animation: none; } }
