@@ -12,6 +12,14 @@ import type { PageContent } from "./types";
 const PEOPLE = "src/pages/study/PeoplePage.tsx";
 const PROPHETS = "src/pages/study/ProphetsPage.tsx";
 
+/** Every card in the catalogue, period by period and in the catalogue's own order: name · who they were · its one line · verses. */
+function everyCard(periods: { id: string; label: string; people: PersonRow[] }[], roles: ReturnType<typeof assignRoles>): string {
+  const label = (id: string) => PERSON_ROLES.find((role) => role.id === roles.get(id))?.label ?? "";
+  return blocks("### Everyone, period by period (every card in the catalogue, in its order)\n\nEach line: name · who they were (the dot) · the card's one-line description · verses naming them.",
+    ...periods.map((period) => blocks(`#### ${String(PEOPLE_PERIODS.findIndex((p) => p.id === period.id) + 1).padStart(2, "0")} ${period.label} (${n(period.people.length)} people)`,
+      period.people.map((person) => `- ${person.n} · ${label(person.id)} · ${person.b.replace(/\s+/g, " ").trim()} · ${n(person.c)}`).join("\n"))));
+}
+
 async function everyone(all: PersonRow[]): Promise<string> {
   const people = all.filter((person) => !person.g);
   const roles = assignRoles(people);
@@ -27,6 +35,7 @@ async function everyone(all: PersonRow[]): Promise<string> {
     `Who they were (read from each one-line description; legend with counts): ${roleCount(people).map(([label, count]) => `${label} ${n(count)}`).join(" · ")}. ${PERSON_ROLES.map((role) => `${role.label}: ${role.note}`).join("; ")}.`,
     table(["#", "Period", "Note", "People", "Who they were", "Most named (verses)"], periods.map((period) => [String(PEOPLE_PERIODS.indexOf(PEOPLE_PERIODS.find((p) => p.id === period.id)!) + 1).padStart(2, "0"), period.label, period.note, n(period.people.length),
       roleCount(period.people).map(([label, count]) => `${label} ${count}`).join(", "), period.people.slice(0, 12).map((person) => `${person.n} (${n(person.c)})`).join(", ")])),
+    everyCard(periods, roles),
     `Left out of the catalogue because they are tribes, clans or peoples, not people (content/people/catalogue-corrections.json; they keep their own pages for family links): ${groups.length}: ${groups.join(", ")}.`,
     `Credits under the catalogue: ${credits}`,
     `*Interface wording (PeopleCatalog.tsx):* ${(await wording("src/components/study/PeopleCatalog.tsx")).join(" · ")}`);
