@@ -102,7 +102,7 @@ Books column = Old Testament / New Testament / Apocrypha-Deuterocanon, from eBib
 | [engtnt](sources/ebible/engtnt/) | Tyndale New Testament (1534) | English | 0/27/0 | 2020-12-20 | f9ccffa0956bcad8 |
 | [engWycliffe](sources/ebible/engWycliffe/) | Wycliffe Bible — five books of Moses and the Gospels only | Middle English | 5/4/0 | 2016-11-08 | eb71616d28ddf05b |
 | [engDRA](sources/ebible/engDRA/) | Douay-Rheims (1899 American edition), Catholic, from the Latin Vulgate | English | 39/27/7 | 2022-11-03 | 2a4bbd180de4a7ca |
-| [engwebster](sources/ebible/engwebster/) | Noah Webster Bible (1833) | English | 39/27/0 | 2024-08-01 | 505370152413cdf7 |
+| [engwebster](sources/ebible/engwebster/) | Noah Webster Bible (1833) | English | 39/27/0 | 2024-08-01 | 505370352413cdf7 |
 | [engylt](sources/ebible/engylt/) | Young's Literal Translation (1898) | English | 39/27/0 | 2019-10-20 | e50e55320bd5352e |
 | [engDBY](sources/ebible/engDBY/) | Darby Translation (1890) | English | 39/27/0 | 2019-11-15 | 93fc531ac7f06d9a |
 | [eng-rv](sources/ebible/eng-rv/) | Revised Version (1895) with Apocrypha | English | 39/27/14 | 2026-10-02 | ed587388c6a1935a |
