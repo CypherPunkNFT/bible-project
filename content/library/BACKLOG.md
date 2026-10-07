@@ -1,5 +1,12 @@
 # Acquisition backlog
 
+<!-- LC01 backlog -->
+## LC01: Letters-cited works acquired
+
+- [x] All 78 public-domain works cited by the Letters study held as readable text: 41 new (45 originals, 70.5 MB, ~11.6M words; CCEL, Gutenberg, archive.org existing full text, single pages), 37 already held and reused. No scans/images/new OCR. [Works table](reports/letters-cited/LC01/WORKS.md), [manifest](reports/letters-cited/LC01/acquisition-manifest.json), [checkpoint](reports/letters-cited/LC01/checkpoint.json).
+- [ ] Next `knowledge/finish-intake.ps1` run indexes the 45 originals (not run by LC01). Then check every direct quotation on the Letters pages against these texts.
+<!-- /LC01 -->
+
 <!-- RB11 backlog -->
 ## RB11: prayer/worship acquired; aggregate intake held
 

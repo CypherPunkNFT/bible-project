@@ -1,0 +1,25 @@
+{
+  "mission": "LC01",
+  "state": "complete-private-holdings-ready-for-intake",
+  "checkpointAtUtc": "2026-10-07T18:03:52.710200+00:00",
+  "sourceRoot": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources",
+  "derivativeRun": "Website/.local/library/run-lc01-2026-10-07",
+  "worksCited": 78,
+  "worksWithLocalText": 78,
+  "worksByStatus": {
+    "acquired-new": 41,
+    "already-held": 37
+  },
+  "newOriginals": 45,
+  "newBytes": 70541851,
+  "newDerivativeWords": 11572023,
+  "failures": 0,
+  "verificationFileChecks": 83,
+  "verificationFailures": 0,
+  "manifest": {
+    "path": "acquisition-manifest.json",
+    "sha256": "4dc8c2cdb0dbeb726901ae6e485b49598225315f7628e54ad6bdc832d2d89b00"
+  },
+  "resume": "Nothing pending. Collector scripts were scratch-only; do not refetch these 45 originals — reuse this manifest.",
+  "intake": "Run knowledge/finish-intake.ps1 after checking KnowledgeBase/embedding-progress.json (owner's same-day intake policy); LC01 did not run it."
+}
