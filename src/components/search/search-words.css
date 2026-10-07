@@ -7,5 +7,7 @@
 .search-word-skipped { display: inline-flex; flex-wrap: wrap; gap: .5rem; margin-left: .25rem; font-size: .8rem; color: var(--muted); opacity: .7; animation: search-word-in 420ms cubic-bezier(.22, 1, .36, 1) both; }
 .search-word-skipped s { text-decoration-thickness: 1px; }
 .search-word-mark { border-radius: .2rem; padding: 0 .12rem; color: var(--ink); background: color-mix(in srgb, var(--word) 26%, transparent); box-shadow: inset 0 -1.5px 0 var(--word); }
+/* Topics and studies: the tabs already say which words are being looked at, so only a coloured underline. */
+.search-word-underline { background: none; color: inherit; text-decoration: underline; text-decoration-color: var(--word); text-decoration-thickness: 2px; text-underline-offset: 3px; }
 @keyframes search-word-in { from { opacity: 0; transform: translateY(8px) scale(.94); } }
 @media (prefers-reduced-motion: reduce) { .search-word-tab, .search-word-skipped { animation: none; transition: none; } }

@@ -7,7 +7,7 @@ test("a sentence breaks into its words; each word is a tab with its own results,
   await expect(tabs.getByRole("button", { name: /^cross\s*28 verses/ })).toBeVisible({ timeout: 30_000 });
   await expect(tabs).toContainText("and");
   await expect(page.getByText(/No verse has the exact words .*2 verses hold 2 of your 3 words/)).toBeVisible();
-  await expect(page.locator("mark.search-word-mark", { hasText: "cross" }).first()).toBeVisible(); // the study snippet says why
+  await expect(page.locator("mark.search-word-underline", { hasText: "cross" }).first()).toBeVisible(); // the study snippet says why
   await tabs.getByRole("button", { name: /^cross/ }).click();
   await expect(page).toHaveURL(/w=cross/);
   await expect(page.getByText(/28 verses contain “cross”/)).toBeVisible();

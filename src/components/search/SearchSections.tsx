@@ -45,10 +45,10 @@ export function StudiesSection({ query, meaning, words }: { query: string; meani
           {ids.map((id) => { const study = studyById(id); if (!study) return null; const topic = topicById(study.topic); const snippet = byMeaning ? null : snippets.get(id); return (
             <li key={id}><Link to={studyUrl(id)} className="block h-full rounded-2xl border border-line bg-surface p-4 hover:border-accent">
               <span className="text-xs uppercase tracking-wide text-muted">{topic?.title}</span>
-              <span className="mt-1 block font-serif text-lg font-semibold"><Marked parts={markByForm(study.title, words)} /></span>
-              <span className="mt-1 block text-sm text-muted"><Marked parts={markByForm(study.summary, words)} /></span>
+              <span className="mt-1 block font-serif text-lg font-semibold"><Marked underline parts={markByForm(study.title, words)} /></span>
+              <span className="mt-1 block text-sm text-muted"><Marked underline parts={markByForm(study.summary, words)} /></span>
               {/* The sentence that matched, as in the question library, so the reason for the result is visible. */}
-              {snippet && <span className="mt-3 block border-l-2 border-line pl-3 text-sm italic text-muted">…<Marked parts={snippet.map((part) => ({ text: part.text, word: part.hit ? Math.max(0, wordIndexOf(part.text, words)) : null }))} /></span>}
+              {snippet && <span className="mt-3 block border-l-2 border-line pl-3 text-sm italic text-muted">…<Marked underline parts={snippet.map((part) => ({ text: part.text, word: part.hit ? Math.max(0, wordIndexOf(part.text, words)) : null }))} /></span>}
             </Link></li>
           ); })}
         </ul>
@@ -126,7 +126,7 @@ export function TopicsSection({ words }: { words: string[] }) {
     <section aria-labelledby="search-topics" className="mt-10">
       <div id="search-topics"><SectionHead title="Topics" note="with their verses" link={{ to: "/topics", label: "All topics" }} /></div>
       <ul className="flex flex-wrap gap-2">
-        {ids.map((id) => <li key={id}><Link to={topicUrl(id)} className="inline-flex items-baseline gap-1.5 rounded-full border border-line bg-surface px-3 py-1.5 text-sm hover:border-accent"><span><Marked parts={markByForm(index.value.topics[id].title, words)} /></span><span className="text-xs text-muted">{formatNumber(index.value.topics[id].refs)} {index.value.topics[id].refs === 1 ? "passage" : "passages"}</span></Link></li>)}
+        {ids.map((id) => <li key={id}><Link to={topicUrl(id)} className="inline-flex items-baseline gap-1.5 rounded-full border border-line bg-surface px-3 py-1.5 text-sm hover:border-accent"><span><Marked underline parts={markByForm(index.value.topics[id].title, words)} /></span><span className="text-xs text-muted">{formatNumber(index.value.topics[id].refs)} {index.value.topics[id].refs === 1 ? "passage" : "passages"}</span></Link></li>)}
       </ul>
     </section>
   );

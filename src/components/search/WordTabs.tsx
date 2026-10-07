@@ -3,11 +3,11 @@ import { wordColor, type MarkedPart } from "@/lib/search-words";
 import { formatNumber } from "@/lib/utils";
 import "./search-words.css";
 
-/** Text with the search words picked out, each in its own colour, so a result shows why it is there. */
-export function Marked({ parts }: { parts: MarkedPart[] }) {
+/** Text with the search words picked out, each in its own colour, so a result shows why it is there. `underline`: a coloured underline only, no highlight. */
+export function Marked({ parts, underline = false }: { parts: MarkedPart[]; underline?: boolean }) {
   return <>{parts.map((part, i) => part.word === null
     ? <span key={i}>{part.text}</span>
-    : <mark key={i} className="search-word-mark" style={{ "--word": wordColor(part.word) } as CSSProperties}>{part.text}</mark>)}</>;
+    : <mark key={i} className={underline ? "search-word-underline" : "search-word-mark"} style={{ "--word": wordColor(part.word) } as CSSProperties}>{part.text}</mark>)}</>;
 }
 
 /**
