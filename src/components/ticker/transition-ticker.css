@@ -1,0 +1,39 @@
+/* Atlas transition ticker (debug). Fixed bottom-right; above the transition so it stays readable. */
+.transition-ticker, .transition-ticker-unfold { position: fixed; right: 20px; bottom: calc(20px + env(safe-area-inset-bottom, 0px)); z-index: 60; font: 12px/1.4 var(--font-sans); color: var(--muted); }
+.transition-ticker { width: min(460px, calc(100vw - 32px)); padding: 12px 16px 14px; border: 1px solid var(--line); border-radius: 12px; background: color-mix(in srgb, var(--surface) 96%, transparent); box-shadow: 0 12px 40px rgb(0 0 0 / 28%); }
+.transition-ticker-unfold { display: inline-flex; align-items: center; gap: 6px; padding: 7px 12px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--accent); box-shadow: 0 6px 20px rgb(0 0 0 / 18%); }
+.transition-ticker-unfold:hover { border-color: var(--accent); }
+.transition-ticker-head { display: flex; align-items: center; gap: 10px; }
+.transition-ticker-head strong { font-size: 10px; letter-spacing: .16em; color: var(--accent); }
+.transition-ticker-head span { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--ink); }
+.transition-ticker-head button { display: grid; place-items: center; width: 24px; height: 24px; border-radius: 6px; }
+.transition-ticker-head button:hover { background: var(--surface-2); color: var(--ink); }
+.transition-ticker-speed { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 8px; }
+.transition-ticker-speed button { padding: 3px 8px; border: 1px solid var(--line); border-radius: 999px; font-size: 11px; color: var(--muted); }
+.transition-ticker-speed button[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); background: color-mix(in srgb, var(--accent) 10%, transparent); }
+.transition-ticker-readout { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 14px; margin: 10px 0 8px; }
+.transition-ticker-readout b { font: 600 26px/1 ui-monospace, monospace; color: var(--ink); }
+.transition-ticker-readout b small { font-size: 13px; color: var(--muted); }
+.transition-ticker-readout span { font-family: ui-monospace, monospace; }
+.transition-ticker-status { color: var(--accent); }
+.transition-ticker-track { position: relative; height: 32px; margin: 0 8px; }
+.transition-ticker-track::before { content: ""; position: absolute; left: 0; right: 0; top: 9px; height: 4px; border-radius: 2px; background: var(--line); }
+.transition-ticker-fill { position: absolute; left: 0; top: 9px; height: 4px; border-radius: 2px; background: var(--accent); }
+.transition-ticker-mark { position: absolute; top: 3px; width: 16px; height: 28px; margin-left: -8px; display: flex; justify-content: center; cursor: pointer; }
+.transition-ticker-mark:disabled { cursor: default; }
+.transition-ticker-mark::before { content: ""; position: absolute; top: 4px; width: 2px; height: 10px; border-radius: 1px; background: color-mix(in srgb, var(--muted) 60%, transparent); }
+.transition-ticker-mark.passed::before { background: var(--accent); }
+.transition-ticker-mark span { position: absolute; top: 16px; font: 9px ui-monospace, monospace; }
+.transition-ticker-moving { min-height: 2.8em; margin: 6px 0 0; color: var(--ink); }
+.transition-ticker-controls { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.transition-ticker-controls button { display: inline-flex; align-items: center; gap: 5px; height: 30px; padding: 0 10px; border: 1px solid var(--line); border-radius: 7px; color: var(--ink); }
+.transition-ticker-controls button:hover:not(:disabled) { border-color: var(--accent); }
+.transition-ticker-controls button:disabled { opacity: .4; }
+.transition-ticker-controls button.primary { min-width: 96px; justify-content: center; border-color: var(--accent); color: var(--accent); }
+@media (max-width: 480px) { .transition-ticker { right: 16px; left: 16px; width: auto; } }
+
+/* During an Atlas transition the ticker is its own layer on top, shown live and never animated. */
+html:is([data-places-slide], [data-study-slide]) :is(.transition-ticker, .transition-ticker-unfold) { view-transition-name: places-ticker; }
+html:is([data-places-slide], [data-study-slide])::view-transition-group(places-ticker) { z-index: 10; animation: none; }
+html:is([data-places-slide], [data-study-slide])::view-transition-old(places-ticker) { display: none; }
+html:is([data-places-slide], [data-study-slide])::view-transition-new(places-ticker) { animation: none; }

@@ -1,0 +1,95 @@
+/* Layout 2: Paul's three section cards, and the parts of each section page. */
+.cards-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.cards-3 .art { height: 140px; }
+
+.part { margin-top: 2.6rem; padding-top: 1.6rem; border-top: 1px solid var(--line); scroll-margin-top: 80px; }
+.part-head { display: grid; grid-template-columns: auto minmax(0, 1fr) 220px; gap: 1.2rem; align-items: center; margin-bottom: 1rem; }
+.part-num { font: 500 2rem/1 var(--serif); color: var(--tone); opacity: .7; }
+.part-head .kicker { display: inline-flex; gap: .4rem; align-items: center; color: var(--tone); }
+.part-head h2 { margin-top: .35rem; font: 500 1.7rem/1.2 var(--serif); letter-spacing: -.02em; }
+.part-head p:not(.kicker) { margin-top: .35rem; color: var(--muted); font-size: .88rem; }
+.part-art { width: 220px; height: 84px; color: var(--tone); }
+
+.legend { display: flex; flex-wrap: wrap; gap: .4rem 1rem; margin-bottom: .8rem; font-size: .72rem; color: var(--muted); text-transform: capitalize; }
+.legend span { display: inline-flex; gap: .4rem; align-items: center; }
+.legend i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; }
+.refs { display: inline-flex; flex-wrap: wrap; gap: .25rem .6rem; margin-left: .6rem; font-size: .75rem; }
+.refs a { color: var(--tone, var(--accent)); border-bottom: 1px dotted currentColor; }
+.refs span { color: var(--muted); }
+
+.steps { display: flex; gap: .6rem; margin: 0; padding: .2rem .1rem 1rem; overflow-x: auto; list-style: none; }
+.steps li { flex: 0 0 auto; }
+.steps button { display: grid; justify-items: center; gap: .5rem; width: 9.5rem; height: 100%; padding: .8rem .6rem; border: 1px solid var(--line); border-radius: 12px;
+  background: color-mix(in srgb, var(--surface) 70%, transparent); font-size: .76rem; line-height: 1.35; text-align: center; }
+.steps button span { display: grid; place-items: center; width: 1.9rem; height: 1.9rem; border: 1px solid var(--tone); border-radius: 50%; color: var(--tone); font: 600 .75rem var(--sans); }
+.steps button:hover, .steps button[aria-pressed="true"] { border-color: var(--tone); box-shadow: 0 0 18px -6px var(--tone); }
+
+.outline { display: flex; gap: 3px; min-height: 76px; }
+.outline button { --tone: var(--epistles); display: flex; flex-basis: 0; align-items: flex-end; min-width: 8px; padding: .45rem; overflow: hidden; border: 0; border-radius: 8px;
+  background: color-mix(in srgb, var(--tone) 24%, transparent); text-align: left; transition: background .2s, box-shadow .2s; }
+.outline button span { display: -webkit-box; overflow: hidden; font-size: .68rem; line-height: 1.25; color: var(--ink); -webkit-line-clamp: 3; -webkit-box-orient: vertical; }
+.outline button:hover, .outline button[aria-pressed="true"] { background: color-mix(in srgb, var(--tone) 45%, transparent); box-shadow: 0 0 18px -4px var(--tone); }
+
+.word-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: .5rem; }
+.word-grid button { display: grid; grid-template-columns: 40px minmax(0, 1fr) auto; gap: .6rem; align-items: center; padding: .5rem .7rem; border: 1px solid var(--line); border-radius: 12px; background: none; text-align: left; }
+.word-grid svg { width: 40px; height: 40px; }
+.word-grid b { display: block; font: 500 1rem var(--serif); text-transform: capitalize; }
+.word-grid small { font-size: .7rem; color: var(--muted); }
+.word-grid em { font: normal 600 .85rem var(--sans); color: var(--gospels); }
+.word-grid button:hover, .word-grid button[aria-pressed="true"] { border-color: var(--gospels); background: color-mix(in srgb, var(--gospels) 9%, transparent); }
+
+.ot-list { margin: 0; padding: 0; list-style: none; columns: 2 22rem; column-gap: 2rem; }
+.ot-list li { margin-bottom: .6rem; break-inside: avoid; font-size: .85rem; }
+.ot-list a { color: var(--epistles); } .ot-list a + span + a { color: var(--ink); } .ot-list span { color: var(--muted); }
+.ot-list small { display: block; margin-top: .1rem; color: var(--muted); }
+
+.q-layout { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: 1.4rem; }
+.q-list { margin: 0; padding: 0; list-style: none; display: grid; gap: .35rem; align-content: start; }
+.q-list button { width: 100%; padding: .6rem .8rem; border: 1px solid var(--line); border-radius: 10px; background: none; font-size: .8rem; line-height: 1.45; text-align: left; color: var(--muted); }
+.q-list button:hover, .q-list button[aria-pressed="true"] { border-color: var(--history); color: var(--ink); background: color-mix(in srgb, var(--history) 8%, transparent); }
+.views { display: grid; gap: .8rem; }
+.views article { padding: .9rem 1rem; border: 1px solid var(--line); border-left: 2px solid var(--history); border-radius: 10px; }
+.views h4 { margin: 0 0 .4rem; font: 500 1.1rem var(--serif); }
+.views p { font-size: .84rem; line-height: 1.7; color: var(--ink); }
+.views small { display: block; margin-top: .5rem; font-size: .72rem; line-height: 1.5; color: var(--muted); }
+
+.canon-wrap { overflow-x: auto; }
+.canon { width: 100%; border-collapse: collapse; font-size: .75rem; }
+.canon th { padding: .3rem .4rem; font-weight: 500; text-align: left; white-space: nowrap; color: var(--muted); }
+.canon thead button { display: grid; gap: .1rem; min-width: 5.5rem; padding: .3rem .4rem; border: 1px solid transparent; border-radius: 8px; background: none; font-size: .7rem; line-height: 1.25; text-align: center; color: var(--muted); }
+.canon thead button b { font: 600 .8rem var(--sans); color: var(--ink); }
+.canon thead button:hover, .canon thead button[aria-pressed="true"] { border-color: var(--revelation); color: var(--ink); }
+.canon td { padding: .3rem; text-align: center; border-top: 1px solid var(--line); }
+.canon td.on { background: color-mix(in srgb, var(--revelation) 10%, transparent); }
+.canon i, .legend i { display: inline-block; width: 12px; height: 12px; border-radius: 50%; background: var(--revelation); }
+.legend i { border-radius: 3px; }
+
+@media (max-width: 1080px) { .cards-3 { grid-template-columns: 1fr; } .q-layout { grid-template-columns: 1fr; } .part-head { grid-template-columns: auto minmax(0, 1fr); } .part-art { display: none; } }
+
+/* Layout 3: a compact top, and the chosen section card lit while its parts sit below. */
+.intro.paul-top { padding-block: 1.1rem .35rem; }
+.intro.paul-top h1 { margin-block: .6rem .7rem; font-size: clamp(2.2rem, 4vw, 3.3rem); }
+.intro.paul-top .emblem svg { width: 104px; height: 104px; }
+.figures-tight { margin-bottom: .75rem; }
+.figures-tight > div { padding-block: .6rem; }
+.figures-tight dd { font-size: 1.4rem; }
+.section-cards .art { height: 80px; margin-block: .4rem .2rem; }
+.section-cards .card p { margin-block: .4rem .8rem; }
+.section-card[aria-current="page"] { border-color: var(--tone); background: linear-gradient(145deg, color-mix(in srgb, var(--tone) 14%, var(--surface)), var(--surface) 80%); box-shadow: 0 0 30px -14px var(--tone); }
+.section-head { margin-top: 1.8rem; }
+
+/* Layout 2: Paul's four groups of letters in the figures-bar style, doubling as the letter picker. */
+.intro.intro-to-groups { padding-bottom: 1rem; }
+.letter-groups { margin-bottom: .4rem; }
+.letter-groups > div { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-content: start; gap: .55rem .6rem; padding-block: .9rem 1rem; }
+.letter-groups dt { grid-area: 1 / 1; }
+.letter-groups small { grid-area: 1 / 2; align-self: baseline; font-size: .68rem; letter-spacing: .04em; color: var(--muted); white-space: nowrap; }
+.letter-groups dd, .letter-groups .chips { grid-column: 1 / -1; }
+.letter-groups dd { margin: 0; font-size: 1.45rem; }
+.letter-groups .chips { display: flex; flex-wrap: wrap; gap: .35rem; }
+/* The bar's own bottom line is the divider: the first row under it drops its line and sits closer. */
+.letter-groups + .row { margin-top: 1.1rem; }
+.letter-groups + .row .row-head { padding-top: 0; border-top: 0; }
+/* Phones: long outlines (Hebrews has 22 parts) drop their in-bar labels and shrink to fit; the line below names the part. */
+.outline { overflow: hidden; }
+@media (max-width: 640px) { .outline { gap: 2px; min-height: 44px; } .outline button { min-width: 2px; padding: 0; } .outline button span { display: none; } }

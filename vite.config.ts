@@ -86,6 +86,37 @@ const dropUnusedOrtEngine: Plugin = {
   },
 };
 
+// Design mock-ups (design/<name>/index.html) on the local preview only, at /mockups/<name>/. They live in design/, which
+// is never built or deployed, so a rebuild cannot wipe them the way a copy inside dist/ was wiped.
+const DESIGN_DIR = path.resolve(__dirname, "design");
+const MOCKUP_TYPES: Record<string, string> = {
+  ".html": "text/html; charset=utf-8", ".css": "text/css; charset=utf-8", ".js": "text/javascript; charset=utf-8",
+  ".svg": "image/svg+xml", ".woff2": "font/woff2", ".png": "image/png", ".json": "application/json; charset=utf-8",
+};
+const mockupsPlugin: Plugin = {
+  name: "design-mockups",
+  configurePreviewServer(server) {
+    server.middlewares.use((request, response, next) => {
+      const url = (request.url ?? "").split("?")[0];
+      if (!url.startsWith("/mockups/")) return next();
+      let relative = decodeURIComponent(url.slice("/mockups/".length));
+      if (relative === "" || relative.endsWith("/")) relative += "index.html";
+      const file = path.resolve(DESIGN_DIR, relative);
+      if (!file.startsWith(DESIGN_DIR + path.sep) || !MOCKUP_TYPES[path.extname(file)] || !fs.existsSync(file)) {
+        response.statusCode = 404;
+        response.setHeader("Content-Type", "text/plain; charset=utf-8");
+        response.end(`no mock-up file: design/${relative}`);
+        return;
+      }
+      response.setHeader("Content-Type", MOCKUP_TYPES[path.extname(file)]);
+      response.setHeader("Cache-Control", "no-cache");
+      pipeline(fs.createReadStream(file), response, (error) => {
+        if (error) { console.error(`mockups: could not send ${file}`, error); response.destroy(); }
+      });
+    });
+  },
+};
+
 const dataPlugin: Plugin = {
   name: "bible-data",
   configureServer(server) {
@@ -99,7 +130,7 @@ const dataPlugin: Plugin = {
 export default defineConfig({
   server: { host: "127.0.0.1", port: 8930, strictPort: true },
   preview: { host: "127.0.0.1", port: 8931, strictPort: true },
-  plugins: [studyContentPlugin(), react(), dataPlugin, atlasTilesPlugin(), testimonyApiPlugin(), dropUnusedOrtEngine],
+  plugins: [studyContentPlugin(), react(), dataPlugin, mockupsPlugin, atlasTilesPlugin(), testimonyApiPlugin(), dropUnusedOrtEngine],
   resolve: {
     alias: { "@": path.resolve(__dirname, "./src") },
   },

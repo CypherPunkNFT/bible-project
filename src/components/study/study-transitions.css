@@ -1,0 +1,47 @@
+/* Study sections: one shown at a time; switching plays the study's brush (STUDY_BRUSH in study-view.ts).
+   The leaving section always clears fast; the arriving section carries the brush. */
+html[data-study-slide] [data-study-panel] { view-transition-name: study-panel; }
+html[data-study-slide]::view-transition { pointer-events: none; }
+html[data-study-slide]::view-transition-old(root) { display: none; }
+html[data-study-slide]::view-transition-new(root) { animation: none; }
+html[data-study-slide]::view-transition-group(study-panel) { animation: none; }
+html[data-study-slide]::view-transition-old(study-panel),
+html[data-study-slide]::view-transition-new(study-panel) {
+  height: auto; mix-blend-mode: normal; opacity: 1;
+  animation-duration: 560ms; animation-timing-function: cubic-bezier(.22, 1, .36, 1); animation-fill-mode: both;
+}
+html[data-study-slide]::view-transition-old(study-panel) { animation: brush-fade-out 150ms ease-out both; }
+
+/* fade — Names */
+html[data-study-slide=fade]::view-transition-new(study-panel) { animation: brush-fade-in 380ms ease 80ms both; }
+/* rise — Shape of the Bible */
+html[data-study-slide=rise][data-study-direction=forward]::view-transition-new(study-panel) { animation-name: brush-rise-in; animation-delay: 60ms; }
+html[data-study-slide=rise][data-study-direction=backward]::view-transition-new(study-panel) { animation-name: brush-drop-in; animation-delay: 60ms; }
+/* zoom — Miracles: grows from the card you clicked */
+html[data-study-slide=zoom]::view-transition-new(study-panel) { transform-origin: var(--study-ox, 50%) 0; animation-name: brush-zoom-arrive; }
+/* reveal — Jesus & the Gospels: a circle opens from the clicked card */
+html[data-study-slide=reveal]::view-transition-new(study-panel) { animation: brush-circle-open 640ms cubic-bezier(.65, 0, .35, 1) both; }
+/* wipe — Connections: sweeps in from the side you are heading to */
+html[data-study-slide=wipe][data-study-direction=forward]::view-transition-new(study-panel) { animation: brush-wipe-from-left 620ms cubic-bezier(.65, 0, .35, 1) both; }
+html[data-study-slide=wipe][data-study-direction=backward]::view-transition-new(study-panel) { animation: brush-wipe-from-right 620ms cubic-bezier(.65, 0, .35, 1) both; }
+/* blur — Versions: comes into focus */
+html[data-study-slide=blur]::view-transition-new(study-panel) { animation: brush-blur-in 520ms ease 80ms both; }
+/* turn — Letters: swings in like a turning page */
+html[data-study-slide=turn]::view-transition-image-pair(study-panel) { perspective: 1800px; perspective-origin: 50% 30vh; }
+html[data-study-slide=turn][data-study-direction=forward]::view-transition-new(study-panel) { transform-origin: right 30vh; animation-name: brush-turn-in; animation-delay: 80ms; }
+html[data-study-slide=turn][data-study-direction=backward]::view-transition-new(study-panel) { transform-origin: left 30vh; animation-name: brush-turn-in-back; animation-delay: 80ms; }
+/* sheet — People: slides up like a sheet */
+html[data-study-slide=sheet]::view-transition-new(study-panel) { animation-name: brush-sheet-up; animation-duration: 620ms; }
+
+@keyframes brush-fade-out { to { opacity: 0; } }
+@keyframes brush-fade-in { from { opacity: 0; } }
+@keyframes brush-rise-in { from { opacity: 0; transform: translateY(36px); } }
+@keyframes brush-drop-in { from { opacity: 0; transform: translateY(-20px); } }
+@keyframes brush-zoom-arrive { from { opacity: 0; transform: scale(.92); } }
+@keyframes brush-circle-open { from { clip-path: circle(0 at var(--study-ox, 50%) var(--study-oy, 0)); } to { clip-path: circle(160vmax at var(--study-ox, 50%) var(--study-oy, 0)); } }
+@keyframes brush-wipe-from-left { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
+@keyframes brush-wipe-from-right { from { clip-path: inset(0 0 0 100%); } to { clip-path: inset(0 0 0 0); } }
+@keyframes brush-blur-in { from { opacity: 0; filter: blur(14px); } }
+@keyframes brush-turn-in { from { opacity: 0; transform: rotateY(28deg) translateX(6%); } }
+@keyframes brush-turn-in-back { from { opacity: 0; transform: rotateY(-28deg) translateX(-6%); } }
+@keyframes brush-sheet-up { from { opacity: .4; transform: translateY(70vh); } }

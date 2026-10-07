@@ -9,7 +9,7 @@ import { bookByNum, formatRange, plainLookup, splitId } from "@/lib/refs";
 import { studyRefLink, type Span } from "@/lib/study";
 import { useAsync } from "@/lib/useAsync";
 
-export function StudyHeader({ eyebrow, title, lead, children, titleId }: { eyebrow: string; title: string; lead: ReactNode; children?: ReactNode; titleId?: string }) {
+export function StudyHeader({ eyebrow, title, lead, children, titleId, contents }: { eyebrow: string; title: string; lead: ReactNode; children?: ReactNode; titleId?: string; contents?: ReactNode }) {
   return (
     <><header className="pb-6 pt-8">
       <StudyBackLink />
@@ -17,7 +17,7 @@ export function StudyHeader({ eyebrow, title, lead, children, titleId }: { eyebr
       <h1 id={titleId} className="mt-1 max-w-3xl font-serif text-4xl font-semibold tracking-tight sm:text-5xl">{title}</h1>
       <div className="mt-3 max-w-2xl text-muted">{lead}</div>
       {children}
-    </header><StudyContents /></>
+    </header>{contents ?? <StudyContents />}</>
   );
 }
 
