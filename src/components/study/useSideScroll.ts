@@ -30,28 +30,43 @@ export function useSideScroll() {
       const tall = (pill.current ?? scroller).getBoundingClientRect().bottom - section.getBoundingClientRect().top;
       return Math.min(header + 12, window.innerHeight - 20 - tall);
     };
+    // Browsers animate each wheel step, so the page can still be gliding when the stop is reached: a glide that carries
+    // the section past its stop while the timeline has further to go is pulled back to the stop.
+    const GLIDE = 450;
+    let lastWheel = 0, direction = 0;
+    const toStop = (top: number, stop: number) => { if (Math.abs(top - stop) > .5) window.scrollBy({ top: top - stop, behavior: "instant" }); };
     const onWheel = (event: WheelEvent) => {
       if (event.ctrlKey || Math.abs(event.deltaX) > Math.abs(event.deltaY)) return; // pinch zoom and sideways swipes stay native
       const reach = scroller.scrollWidth - scroller.clientWidth;
       if (reach <= 0) return;
       const dy = event.deltaMode === 1 ? event.deltaY * 16 : event.deltaMode === 2 ? event.deltaY * window.innerHeight : event.deltaY;
+      lastWheel = performance.now(); direction = Math.sign(dy);
       const stop = stopAt(), top = section.getBoundingClientRect().top;
       const forward = dy > 0 && scroller.scrollLeft < reach - .5, backward = dy < 0 && scroller.scrollLeft > .5;
       if (!forward && !backward) return; // at the end the timeline lets the page go
-      if (Math.abs(top - stop) <= 1) { event.preventDefault(); scroller.scrollLeft += dy; return; }
+      // At the stop, or just past it in the direction of travel (a glide overshot): hold the page there, move the timeline.
+      const held = forward ? top <= stop + 1 && top > stop - GLIDE : top >= stop - 1 && top < stop + GLIDE;
+      if (held) { event.preventDefault(); toStop(top, stop); scroller.scrollLeft += dy; return; }
       // Arriving at the stop within this step: scroll the page exactly to it and give the rest to the timeline.
       const crossing = forward ? top > stop && top - dy < stop : top < stop && top - dy > stop;
       if (!crossing) return;
       event.preventDefault();
-      window.scrollBy({ top: top - stop, behavior: "instant" });
+      toStop(top, stop);
       scroller.scrollLeft += dy - (top - stop);
     };
+    const onPageScroll = () => {
+      if (performance.now() - lastWheel > 600 || !direction) return; // only the glide after a wheel step, never the scrollbar or keys
+      const reach = scroller.scrollWidth - scroller.clientWidth, stop = stopAt(), top = section.getBoundingClientRect().top;
+      const past = direction > 0 ? top < stop - .5 && top > stop - GLIDE && scroller.scrollLeft < reach - .5 : top > stop + .5 && top < stop + GLIDE && scroller.scrollLeft > .5;
+      if (past) { scroller.scrollLeft += direction > 0 ? stop - top : -(top - stop); toStop(top, stop); }
+    };
+    window.addEventListener("scroll", onPageScroll, { passive: true });
     sync();
     scroller.addEventListener("scroll", sync, { passive: true });
     const observer = new ResizeObserver(sync);
     observer.observe(scroller);
     window.addEventListener("wheel", onWheel, { passive: false });
-    return () => { scroller.removeEventListener("scroll", sync); observer.disconnect(); window.removeEventListener("wheel", onWheel); };
+    return () => { scroller.removeEventListener("scroll", sync); observer.disconnect(); window.removeEventListener("wheel", onWheel); window.removeEventListener("scroll", onPageScroll); };
   }, []);
 
   /** Drag the pill, or click its track to jump there. */
