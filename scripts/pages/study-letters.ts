@@ -17,7 +17,7 @@ const FIRST: Record<Key, string> = { paul: "ROM", hebrews: "HEB", general: "JAS"
 interface CardDef { eyebrow: string; title: string; text: string; foot: string; cta: string }
 interface PartDef { id: string; card: CardDef; lead: string; body: ReactNode }
 interface SectionDef { id: string; title: string; lead: string; picker?: boolean; parts: PartDef[] }
-interface PageDef { slug: string; title: string; crumb: string; right: string; kicker: string; h1: string; em: string; intro: string; caption: string; bar: ReactNode; sections: SectionDef[]; citations: unknown[]; about?: { text: string }[] }
+interface PageDef { slug: string; title: string; crumb: string; right: string; kicker: string; h1: string; em: string; intro: string; caption: string; bar: ReactNode; sections: SectionDef[]; citations: unknown[]; about?: { text: string }[]; writers?: { id: string; name: string; intro?: { text: string }[] }[] }
 interface Data { groups: Record<Key, LetterGroup>; overview: LettersOverview; browse: BrowseData; letters: Letter[]; letter: (code: string) => Letter; groupOf: (code: string) => Key }
 
 type Props = Record<string, unknown>;
@@ -76,7 +76,7 @@ function pageMarkdown(page: PageDef, data: Data): string {
     table(["#", "Card: eyebrow · title", "Card text", "Card foot", "Button", "Part lead (on the section page)", "Shows", "Address"],
       s.parts.map((part, j) => [String(i * 4 + j + 1).padStart(2, "0"), `${part.card.eyebrow} · ${part.card.title}`, part.card.text, part.card.foot, part.card.cta, part.lead, describeBody(part.body, data), `${s.id}/${part.id}`]))));
   return blocks(`### ${page.title} (${link(`${BASE}/${page.slug}`)})`,
-    `- Top line: "Letters / ${page.crumb}" · ${page.right}\n- Kicker: ${page.kicker}\n- Title: **${page.h1}** *${page.em}*\n- Intro: ${page.intro}\n- Emblem caption: ${page.caption}${page.about?.length ? `\n- Introduction under the title (${page.about.length} paragraphs):${page.about.map((claim) => `\n  - ${claim.text}`).join("")}` : ""}\n- Figures bar: ${describeBar(page.bar, data)}\n- Foot: "Where this page comes from", ${page.citations.length} works`,
+    `- Top line: "Letters / ${page.crumb}" · ${page.right}\n- Kicker: ${page.kicker}\n- Title: **${page.h1}** *${page.em}*\n- Intro: ${page.intro}\n- Emblem caption: ${page.caption}${page.about?.length ? `\n- Introduction under the title (${page.about.length} paragraphs):${page.about.map((claim) => `\n  - ${claim.text}`).join("")}` : ""}${page.writers?.length ? `\n- Writers, each linked to their own page:${page.writers.map((w) => `\n  - **${w.name}** (${link(`/people/${w.id}`)})${(w.intro ?? []).map((claim) => `\n    - ${claim.text}`).join("")}`).join("")}` : ""}\n- Figures bar: ${describeBar(page.bar, data)}\n- Foot: "Where this page comes from", ${page.citations.length} works`,
     ...sections);
 }
 
