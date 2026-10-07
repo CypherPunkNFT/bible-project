@@ -1,4 +1,4 @@
-// Writes CONTENT.md for every major page (Study, Atlas, Topics, Apologetics) into the project's Pages/ folder,
+// Writes CONTENT.md for every major page (Study, Atlas, Topics, Apologetics, and the Site pages: home, reader, search…) into the project's Pages/ folder,
 // generated from the same data the site uses. Never edit those files by hand: change the data and rerun.
 //   bun run pages:content                 -> ../Pages/<Area>/<page>/CONTENT.md
 //   bun run pages:content -- --out <dir>  -> somewhere else (for a dry run)
@@ -10,13 +10,14 @@ import type { Extractor, PageContent } from "./pages/types";
 const root = path.resolve(import.meta.dirname, "..");
 const outFlag = process.argv.indexOf("--out");
 const out = path.resolve(outFlag > -1 ? process.argv[outFlag + 1] : path.join(root, "..", "Pages"));
-const DIR = /^(Study|Atlas|Topics|Apologetics)(\/[a-z0-9]+(-[a-z0-9]+)*){0,2}$/;
+const DIR = /^(Study|Atlas|Topics|Apologetics|Site)(\/[a-z0-9]+(-[a-z0-9]+)*){0,2}$/;
 
 const areas: Record<string, () => Promise<{ extract: Extractor }>> = {
   Study: () => import("./pages/study"),
   Atlas: () => import("./pages/atlas"),
   Topics: () => import("./pages/topics"),
   Apologetics: () => import("./pages/apologetics"),
+  Site: () => import("./pages/site"),
 };
 
 const render = (page: PageContent) =>
