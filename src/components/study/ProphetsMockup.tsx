@@ -64,9 +64,8 @@ export function ProphetsMockup({ prophets, kingId }: { prophets: Prophet[]; king
   const writers = BOOK_ORDER.flatMap((code) => prophets.filter((p) => p.book === code).slice(0, 1));
   const count = (kind: Prophet["kind"]) => prophets.filter((p) => p.kind === kind).length;
 
-  return <section className="pm" aria-labelledby="pm-title">
+  return <section ref={side.anchor} className="pm" aria-labelledby="pm-title">
     <header className="pm-head">
-      <p className="pm-kicker">Mock-up · Prophets through time</p>
       <h2 id="pm-title">Voices through <em>time.</em></h2>
       <p>From Moses to the church in Acts: every prophet Scripture names, on the river of its history, with the kings they stood before.</p>
       <dl className="pm-figures">
@@ -78,10 +77,9 @@ export function ProphetsMockup({ prophets, kingId }: { prophets: Prophet[]; king
       </dl>
     </header>
 
-    {/* Held under the header while the page scroll moves the river sideways (useSideScroll). */}
-    <div ref={side.stage} className="pm-stage"><div ref={side.box} className="pm-sticky">
-    <div className="pm-river-scroll">
-      <div ref={side.track} className="pm-river" role="list" aria-label="Prophets in time order">
+    {/* The page's scroll travels through the river once the section reaches its stop (useSideScroll). */}
+    <div ref={side.box} className="pm-river-scroll">
+      <div className="pm-river" role="list" aria-label="Prophets in time order">
         {layout.bands.map((band, i) => <div key={band.id} className="pm-band" data-odd={i % 2 ? "" : undefined} style={{ left: `${band.left}%`, width: `${band.width}%` }}>
           <span className="pm-band-label">{band.label}</span><span className="pm-band-dates">{band.dates}</span>
         </div>)}
@@ -104,8 +102,7 @@ export function ProphetsMockup({ prophets, kingId }: { prophets: Prophet[]; king
       </div>
     </div>
     <div ref={side.pill} className="pm-pill" onPointerDown={side.onPillDown} aria-hidden><span ref={side.thumb} className="pm-pill-thumb" /></div>
-    <p className="pm-river-note">Scroll down to travel through time, or drag the bar. Above the line, the prophets; below it, the kings they served. Point at a prophet to read about them; click to open their page.</p>
-    </div></div>
+
 
     <article className="pm-panel" style={{ "--pm": tone(KIND_TONE[focus.kind]).tab } as CSSProperties} aria-live="polite">
       <span className="pm-panel-medal" data-kind={focus.kind} aria-hidden>{initials(focus.name)}</span>
