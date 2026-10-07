@@ -6,6 +6,7 @@ import { useAsync } from "@/lib/useAsync";
 import { TopicFamilyPage } from "@/pages/TopicCategoryPage";
 import { TopicPage } from "@/pages/TopicPage";
 import { TopicsHome } from "@/pages/topics/TopicsHome";
+import { TopicSuperlist } from "@/pages/topics/TopicSuperlist";
 import { useTopicsPageSlide } from "@/pages/topics/useTopicsPageSlide";
 import "@/pages/topics/topics-collection.css";
 
@@ -29,6 +30,7 @@ export default function TopicsCollection() {
     <div onClickCapture={slide}>
       <Routes>
         <Route index element={<TopicsHome index={index.value} />} />
+        <Route path="superlist" element={<TopicSuperlist index={index.value} />} />
         <Route path="c/:category" element={<TopicFamilyPage index={index.value} />} />
         <Route path=":id" element={<TopicRoute index={index.value} />} />
       </Routes>
