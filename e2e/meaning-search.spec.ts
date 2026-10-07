@@ -42,5 +42,5 @@ test("meaning search is offered under searches for studies and information, not 
     await expect(page.getByRole("button", { name: /Turn on/ }).first(), path).toBeVisible();
   }
   await page.goto("/study/people");
-  await expect(page.getByText(/Search by what you mean, not just the words/)).toHaveCount(0);
+  await expect(page.getByText(/Semantic search: a small model/)).toHaveCount(0);
 });
