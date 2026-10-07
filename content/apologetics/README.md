@@ -12,10 +12,10 @@ guide, all guides on a topic, or every guide using a particular source without o
 
 | Folder | Documents | Purpose |
 | --- | ---: | --- |
-| `studies/` | 21 | Questions, answers, reasoning, objections, replies, limitations and Scripture passages |
-| `sources/` | 28 | Authors, URLs, roles and explicit limits on how each source may be used |
-| `topics/` | 6 | Topic descriptions and questions |
-| `paths/` | 4 | Learning paths and their ordered study IDs |
+| `studies/` | 25 | Questions, answers, reasoning, objections, replies, limitations and Scripture passages |
+| `sources/` | 29 | Authors, URLs, roles and explicit limits on how each source may be used |
+| `topics/` | 7 | Topic descriptions and questions |
+| `paths/` | 5 | Learning paths and their ordered study IDs |
 | `worldviews/` | 2 | Comparisons with citations for both positions |
 | `debates/` | 3 | Documentary summaries, transcript sources and reading questions |
 | `practice/` | 3 | Imagined conversations, responses and supported feedback |
