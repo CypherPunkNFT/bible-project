@@ -185,6 +185,6 @@ export function GenealogyTree({people:records,initialAccount="matthew",initialRo
     </svg>{!fullscreen && zoomControls}</div>
     {!fullscreen && <>{connectionPanel}{personPanel}</>}
     <div className="genealogy-era-legend" role="group" aria-label="Circle outline colors by era"><span className="genealogy-era-legend-title">Circle outlines: era</span>{eras.map(era => <span key={era || "unknown"} style={{ "--genealogy-era": eraColor(era) } as CSSProperties}><i aria-hidden="true" />{era || "Era not recorded"}</span>)}</div>
-    <p className="mt-4 text-xs leading-relaxed text-muted">{root===JESUS ? GOSPEL_NOTES[account] : "Recorded people and family groups from STEP Bible?s TIPNR (CC BY 4.0). Links retain the source?s identifications; biological, legal and adoptive relationships are not always distinguished."} {branch.positions.length} entries ? {branch.truncated || branch.omitted ? "More recorded family remains outside this view; choose Full branch." : "Full recorded branch in the selected direction."}</p>
+    <p className="mt-4 text-xs leading-relaxed text-muted">{root===JESUS ? GOSPEL_NOTES[account] : "Recorded people and family groups from STEP Bible's TIPNR (CC BY 4.0). Links retain the source's identifications; biological, legal and adoptive relationships are not always distinguished."} {branch.positions.length} entries · {branch.truncated || branch.omitted ? "More recorded family remains outside this view; choose Full branch." : "Full recorded branch in the selected direction."}</p>
   </section>;
 }
