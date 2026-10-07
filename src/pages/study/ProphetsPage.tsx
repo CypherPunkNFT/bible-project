@@ -103,7 +103,8 @@ function ProphetCard({ prophet, kingId }: { prophet: Prophet; kingId: (name: str
   const role = prophet.kind === "false" ? (prophet.sex === "Female" ? "False prophetess" : "False prophet") : prophet.sex === "Female" ? "Prophetess" : "Prophet";
   return (
     <li id={`prophet-${prophet.id}`} className="relative scroll-mt-24 overflow-hidden rounded-xl border border-line bg-surface transition-colors hover:border-accent">
-      <div className="h-1.5" style={{ background: colors.tab }} aria-hidden />
+      {/* The kind of prophet, faded so the era bars lead (owner); the false prophets' grey is already quiet. */}
+      <div className="h-1.5" style={{ background: prophet.kind === "false" ? colors.tab : `color-mix(in srgb, ${colors.tab} 40%, var(--surface))` }} aria-hidden />
       <div className="p-3">
         <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted">
           {role}
