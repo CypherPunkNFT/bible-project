@@ -62,7 +62,7 @@ test("letters: Paul's letters show the introduction, their own Old Testament cha
 });
 
 // Owner 2026-10-07: every collection has its introduction and a tall line drawing; the writers link to their person pages
-// (Hebrews has none: its writer is not named); James, Peter and Jude each have three paragraphs of their own.
+// (Hebrews has none: its writer is not named); James, Peter and Jude open with a short life of each.
 test("letters: each collection's introduction, line drawing and writers' own pages", async ({ page }) => {
   for (const [slug, link] of [["paul", "/people/paul-act-7-58"], ["the-letters-of-john", "/people/john-mat-4-21"], ["hebrews", null]] as const) {
     await page.goto(`/study/letters/${slug}`);
@@ -71,10 +71,11 @@ test("letters: each collection's introduction, line drawing and writers' own pag
     if (link) await expect(page.locator(".lb-person-link")).toHaveAttribute("href", link);
     else await expect(page.locator(".lb-person-link")).toHaveCount(0);
   }
+  // James, Peter and Jude open with a short life of each, his page link after it.
   await page.goto("/study/letters/james-peter-and-jude");
-  await expect(page.locator(".lb-writer")).toHaveCount(3);
-  await expect(page.locator(".lb-writer p")).toHaveCount(9);
-  await page.locator(".lb-writer", { hasText: "Peter" }).locator(".lb-person-link").click();
+  await expect(page.locator(".lb-bio")).toHaveCount(3);
+  await expect(page.locator(".lb-bio").first()).toContainText("brothers of Jesus");
+  await page.locator(".lb-bio", { hasText: "Peter was born Simon" }).locator(".lb-person-link").click();
   await expect(page).toHaveURL(/\/people\/peter-mat-4-18$/);
   await expect(page.getByText(/Back to James, Peter & Jude/)).toBeVisible();
 });

@@ -53,7 +53,8 @@ function read(data: LettersData, k: GroupKey): PartDef[] {
 export function collectionPages(data: LettersData, chosen: Chosen): Record<string, PageDef> {
   const G = data.groups;
   const extras = (k: GroupKey, collection: string): InsideExtras => ({ flow: G[k].flows.find((f) => f.id === "ot-sources"), collection, headings: true });
-  const top = (k: GroupKey) => ({ about: G[k].intro, writers: G[k].writers, tall: `tall-${k}` });
+  // James, Peter and Jude open with a short life of each writer; the others with the collection's own introduction.
+  const top = (k: GroupKey) => ({ about: G[k].writers?.some((w) => w.intro?.length) ? undefined : G[k].intro, writers: G[k].writers, tall: `tall-${k}` });
   const map = (k: GroupKey, ...ids: string[]) => ids.flatMap((id) => G[k].maps.filter((m) => m.id === id));
   const tl = (k: GroupKey, id: string) => G[k].timelines.find((t) => t.id === id)!, net = (k: GroupKey, id: string) => G[k].networks.find((n) => n.id === id)!;
   const par = (k: GroupKey, id: string) => G[k].parallels.find((p) => p.id === id)!;

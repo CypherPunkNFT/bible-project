@@ -82,22 +82,16 @@ function PersonLink({ writer, from }: { writer: Writer; from: string }) {
   return <Link className="lb-person-link" to={`/people/${writer.id}`} state={cameFrom(from)}>{writer.name}'s own page <ArrowRight size={14} aria-hidden /></Link>;
 }
 
+/** The opening paragraphs: the collection's introduction, or (James, Peter and Jude) a short life of each writer with his
+ *  page link after it; then the link to a single writer's own page. */
 function About({ page }: { page: PageDef }) {
-  const one = page.writers?.filter((w) => !w.intro?.length) ?? [];
-  if (!page.about?.length) return null;
+  const bios = page.writers?.filter((w) => w.intro?.length) ?? [], links = page.writers?.filter((w) => !w.intro?.length) ?? [];
+  if (!page.about?.length && !bios.length) return null;
   return <section className="lb-about" aria-label="About these letters">
-    {page.about.map((claim, i) => <ClaimText key={i} claim={claim} />)}
-    {one.length > 0 && <p className="lb-person-links">{one.map((w) => <PersonLink key={w.id} writer={w} from={page.title} />)}</p>}
+    {page.about?.map((claim, i) => <ClaimText key={i} claim={claim} />)}
+    {bios.map((w) => <div key={w.id} className="lb-bio">{w.intro!.map((claim, i) => <ClaimText key={i} claim={claim} />)}<PersonLink writer={w} from={page.title} /></div>)}
+    {links.length > 0 && <p className="lb-person-links">{links.map((w) => <PersonLink key={w.id} writer={w} from={page.title} />)}</p>}
   </section>;
-}
-
-/** Several writers (James, Peter and Jude): a column each across the page, with their own paragraphs and page link. */
-function Writers({ page }: { page: PageDef }) {
-  const several = page.writers?.filter((w) => w.intro?.length) ?? [];
-  if (!several.length) return null;
-  return <section className="lb-writers" aria-label="The writers">{several.map((w) => <article key={w.id} className="lb-writer">
-    <h2>{w.name}</h2>{w.intro!.map((claim, i) => <ClaimText key={i} claim={claim} />)}<PersonLink writer={w} from={page.title} />
-  </article>)}</section>;
 }
 
 /** The tall line drawing beside a collection's title and introduction. */
@@ -117,7 +111,6 @@ export function CollectionPage({ page }: { page: PageDef }) {
     {page.tall
       ? <div className="lb-top"><div className="lb-top-copy"><Hero page={page} /><About page={page} /></div><TallArt name={page.tall} caption={page.caption} /></div>
       : <><Hero page={page} /><About page={page} /></>}
-    <Writers page={page} />
     {page.bar}
     <CardRows rows={rows} compact />
     <Sources citations={page.citations} />
