@@ -4,12 +4,13 @@ import { formatYears } from "@/lib/eras";
 import { rulerHref, type RulerSummary } from "@/lib/people-pages-index";
 import type { Prophet } from "@/lib/study";
 import { tone } from "@/lib/sections";
+import type { Realm } from "@/data/people-pages/types";
 import { LANE_LABEL, VERDICT, glowFor, initials } from "./kinds";
-import { prophetPositions, ribbonLayout } from "./ribbon-layout";
+import { WORLD_LANES, prophetPositions, ribbonLayout } from "./ribbon-layout";
 import { SlideLink } from "./SlideLink";
 import { useStripPill } from "./use-strip-pill";
 
-const RIVER_W = 3600, BANDS_H = 54, LABEL_H = 26, TRACK_H = 34, LANE_GAP = 10, PROPHET_H = 64;
+const RIVER_W = 3600, BANDS_H = 54, LABEL_H = 19, TRACK_H = 30, LANE_GAP = 8, PROPHET_H = 64;
 
 const KIND_TONE = { writing: "prophets", prophet: "history", nt: "gospels", false: "apocrypha" } as const;
 
@@ -27,15 +28,19 @@ export function RulersRibbon({ rulers, prophets, focus, onFocus }: { rulers: Rul
   const eraMiddle = (era: string) => { const band = scale.bands.find((b) => b.id === era); return band && (band.x0 + band.x1) / 2; };
   const spots = prophets ? prophetPositions(prophets, rulers, middle, eraMiddle) : [];
   const back = cameFrom("Rulers through time");
+  // The world stage's lanes carry their empire's colour; a rule parts them from Israel's own lanes below.
+  const laneColour = (id: string) => (WORLD_LANES.includes(id) ? glowFor("foreign", id as Realm) : undefined);
+  const firstHome = layout.lanes.find((lane) => !WORLD_LANES.includes(lane.id));
   return <>
     {/* The lane names stay at the frame's left edge while the river scrolls under them. */}
     <div className="rg-frame-wrap">
-    <div className="rg-lane-names" aria-hidden>{layout.lanes.map((lane) => <span key={lane.id} style={{ top: laneTop.get(lane.id) }}>{LANE_LABEL[lane.id]}</span>)}{prophets && <span style={{ top: prophetTop }}>The prophets</span>}</div>
+    <div className="rg-lane-names" aria-hidden>{layout.lanes.map((lane) => <span key={lane.id} style={{ top: laneTop.get(lane.id), color: laneColour(lane.id) }}>{LANE_LABEL[lane.id]}</span>)}{prophets && <span style={{ top: prophetTop }}>The prophets</span>}</div>
     <div ref={pill.frame} className="rg-frame">
       <div className="rg-river" style={{ width: RIVER_W, height }} role="list" aria-label="Rulers in time order">
         {scale.bands.map((band, i) => <div key={band.id} className="rg-band" data-odd={i % 2 ? "" : undefined} style={{ left: band.x0, width: band.x1 - band.x0, "--era": `var(--${band.tone}-tab)` } as CSSProperties}>
           <span className="rg-band-label">{band.label}</span><span className="rg-band-dates">{band.dates}</span>
         </div>)}
+        {firstHome && firstHome !== layout.lanes[0] && <div className="rg-divider" style={{ top: laneTop.get(firstHome.id)! - LANE_GAP / 2 - 1 }} aria-hidden />}
         {layout.bars.map((bar) => {
           const r = bar.ruler, width = bar.x1 - bar.x0, fits = width > r.name.length * 7 + 22;
           return <SlideLink key={r.id} role="listitem" to={rulerHref(r.id)} state={back} className="rg-bar" data-focus={focus?.id === r.id ? "" : undefined} data-undated={bar.undated ? "" : undefined}

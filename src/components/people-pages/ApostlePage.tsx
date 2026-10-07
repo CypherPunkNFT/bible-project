@@ -8,7 +8,7 @@ import { PEOPLE_PAGES, apostleFor, personPath } from "@/lib/people-pages-index";
 import { CallingScene, Companions, JourneySection, StoryEnding, Writings } from "./ApostleSections";
 import { ClaimList, EvidenceClaim, PeopleCitations } from "./Evidence";
 import { GospelStrip, ListsOfTwelve } from "./GospelStrip";
-import { APOSTLE_GLOW } from "./kinds";
+import { APOSTLE_GLOW, pronouns } from "./kinds";
 import { APOSTLES_GUIDE, lettersHref } from "./links";
 import { PageTop, Sections } from "./PageFrame";
 import { PassagesSection, QuestionsSection, SourcesSection } from "./PageSources";
@@ -34,8 +34,12 @@ export function ApostlePage({ id }: { id: string }) {
   if (state.status === "loading") return <div className="lg-glass" style={{ minHeight: 420 }} aria-busy="true" />;
   const apostle = state.item;
   const sparse = barelyNamed(apostle);
+  const summary = apostleFor(apostle.id);
+  const { their, them } = pronouns(summary?.sex);
+  /** The wider circle (the church group files): no calling among the Twelve, writings often only tied to them. */
+  const wider = Boolean(summary?.group.startsWith("church-"));
   const sections = [
-    { id: "pp-background", title: "Background", node: (apostle.home || apostle.trade || apostle.family.length > 0) && <Section id="pp-background" kicker="Background" title="Home, trade and family" lead="What Scripture says of his life before and beside the mission, each with its verses.">
+    { id: "pp-background", title: "Background", node: (apostle.home || apostle.trade || apostle.family.length > 0) && <Section id="pp-background" kicker="Background" title="Home, trade and family" lead={`What Scripture says of ${their} life before and beside the mission, each with its verses.`}>
       <div className="pp-cards">
         {apostle.home && <div className="pp-card"><p className="pp-label">From</p><EvidenceClaim claim={apostle.home} as="div" /></div>}
         {apostle.trade && <div className="pp-card"><p className="pp-label">Trade</p><EvidenceClaim claim={apostle.trade} as="div" /></div>}
@@ -44,14 +48,14 @@ export function ApostlePage({ id }: { id: string }) {
     </Section> },
     { id: "pp-calling", title: "Calling", node: apostle.calling.length > 0 && <CallingScene apostle={apostle} /> },
     { id: "pp-gospels", title: sparse ? "The lists" : "With Jesus", node: (apostle.moments.length > 0 || sparse) && <Section id="pp-gospels" kicker={sparse ? "The lists of the Twelve" : "With Jesus"}
-      title={sparse ? "Where his name falls in each list" : "His moments with Jesus"}
+      title={sparse ? "Where his name falls in each list" : `${their.charAt(0).toUpperCase()}${their.slice(1)} moments with Jesus`}
       lead={sparse ? "Scripture tells little more of him than his place among the Twelve. The page says so plainly rather than fill the gap." : "The Gospels in the order of events (the site's harmony). Each dot is an event that names him."}>
       {sparse ? <ListsOfTwelve highlight={apostle.id} /> : <GospelStrip apostle={apostle} />}
     </Section> },
-    { id: "pp-journey", title: "Where he went", node: (apostle.places.length > 0 || apostle.acts.length > 0) && <JourneySection apostle={apostle} /> },
-    { id: "pp-companions", title: "Companions", node: apostle.companions.length > 0 && <Companions apostle={apostle} /> },
-    { id: "pp-ending", title: "How it ends", node: <StoryEnding apostle={apostle} /> },
-    { id: "pp-writings", title: "Writings", node: apostle.writings.length > 0 && <Writings apostle={apostle} /> },
+    { id: "pp-journey", title: their === "their" ? "Where they went" : "Where he went", node: (apostle.places.length > 0 || apostle.acts.length > 0) && <JourneySection apostle={apostle} their={their} /> },
+    { id: "pp-companions", title: "Companions", node: apostle.companions.length > 0 && <Companions apostle={apostle} them={them} /> },
+    { id: "pp-ending", title: "How it ends", node: <StoryEnding apostle={apostle} their={their} /> },
+    { id: "pp-writings", title: "Writings", node: apostle.writings.length > 0 && <Writings apostle={apostle} tied={wider ? them : undefined} /> },
     { id: "pp-questions", title: "Questions", node: apostle.questions.length > 0 && <QuestionsSection questions={apostle.questions} /> },
     { id: "pp-passages", title: "Passages", node: <PassagesSection passages={apostle.passages} notSaid={apostle.notSaid} identifications={apostle.identifications} /> },
     { id: "pp-sources", title: "Sources", node: <SourcesSection citations={state.group.citations} /> },
@@ -59,13 +63,13 @@ export function ApostlePage({ id }: { id: string }) {
   return <PeopleCitations citations={state.group.citations}>
     <div className="lg-page pp-page" style={{ "--lg": APOSTLE_GLOW } as CSSProperties} data-people-ready={readyKey({ kind: "special", id, aspect: "mission" })}>
       <PageTop id={apostle.id} name={apostle.name} page="The mission" fallback={APOSTLES_GUIDE} />
-      <ApostleHero apostle={apostle} />
+      <ApostleHero apostle={apostle} writingsLabel={wider ? "Writings" : "His writings"} />
       <Sections sections={sections} />
     </div>
   </PeopleCitations>;
 }
 
-function ApostleHero({ apostle }: { apostle: Apostle }) {
+function ApostleHero({ apostle, writingsLabel }: { apostle: Apostle; writingsLabel: string }) {
   const carried = useCarried();
   const order = [...PEOPLE_PAGES.apostles].sort((a, b) => a.order - b.order);
   const at = order.findIndex((a) => a.id === apostle.id);
@@ -83,7 +87,7 @@ function ApostleHero({ apostle }: { apostle: Apostle }) {
       <div className="pp-stat"><dt>From</dt><dd><small className="pp-fact">{firstSentence(apostle.home?.text) ?? "Scripture does not say"}</small></dd></div>
       <div className="pp-stat"><dt>Trade</dt><dd><small className="pp-fact">{firstSentence(apostle.trade?.text) ?? "Scripture does not say"}</small></dd></div>
       <div className="pp-stat" data-wide=""><dt>Family</dt><dd><small className="pp-fact">{apostle.family.length ? firstSentence(apostle.family[0].text) : "Scripture does not say"}</small></dd></div>
-      <div className="pp-stat"><dt>His writings</dt><dd>{apostle.writings.length ? apostle.writings.map((w, i) => <span key={w.title}>{i > 0 && " · "}{writing(w)}</span>) : "None"}</dd></div>
+      <div className="pp-stat"><dt>{writingsLabel}</dt><dd>{apostle.writings.length ? apostle.writings.map((w, i) => <span key={w.title}>{i > 0 && " · "}{writing(w)}</span>) : "None"}</dd></div>
     </dl>
     <nav className="pp-strip-nav" aria-label="Other apostles, in the guide's order">
       {before ? <SlideLink to={personPath(before.id, "mission")} state={carried} rel="prev"><ArrowLeft size={16} aria-hidden />{before.name}</SlideLink> : <span />}

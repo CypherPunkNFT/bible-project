@@ -45,7 +45,6 @@
 .rg-col-head { position: absolute; font-size: .6rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
 .rg-vbar { position: absolute; display: flex; align-items: center; justify-content: space-between; gap: .2rem; padding: 0 .4rem; overflow: hidden; border: 1px solid color-mix(in srgb, var(--lg) 50%, var(--line)); border-radius: 7px;
   background: linear-gradient(90deg, color-mix(in srgb, var(--lg) 28%, transparent), color-mix(in srgb, var(--lg) 10%, transparent)); color: var(--ink); font-size: .74rem; }
-.rg-vbar[data-lane="empire"] { padding: 0; border-radius: 3px; background: var(--lg); }
 .rg-vbar[data-undated] { border-style: dotted; }
 .rg-vbar i { font-style: normal; font-size: .7rem; color: var(--muted); }
 .rg-vbar:hover, .rg-vbar:focus-visible, .rg-vbar[data-focus] { border-color: var(--lg); z-index: 2; }
@@ -104,3 +103,16 @@
 .rg-wider-list a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
 
 @media (prefers-reduced-motion: reduce) { .rg-bar, .rg-card a, .ag-medal-disc { transition: none; } .rg-card a:hover { transform: none; } }
+
+/* Second release: the world stage's lanes above Israel's, parted by a rule; on a phone, a narrow column of its own. */
+.rg-divider { position: absolute; left: 0; right: 0; border-top: 1px dashed var(--lg-line); pointer-events: none; }
+.rg-vbar[data-world] { padding: 0 .3rem; font-size: .64rem; }
+.rg-vbar[data-world] span, .rg-vbar span { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* The wider circle on the apostles guide: the Jerusalem church and Paul's companions. */
+.ag-wider-section { margin-top: .5rem; }
+.ag-wider-lead { max-width: 46rem; margin-top: .6rem; color: var(--muted); line-height: 1.65; }
+.rg-era h4 small { margin-left: .35rem; font: 500 .8rem var(--font-sans); color: var(--muted); }
+/* The frame's top margin collapses through its wrapper, so the lane names sit level with the river's own top (1px border). */
+.rg-lane-names { inset: 1px 0 0 1px; }
+.rg-card-foot > span:last-child { white-space: nowrap; }

@@ -51,15 +51,19 @@ export function Accession({ ruler }: { ruler: Ruler }) {
   </Section>;
 }
 
-/** Governors and Romans: who held authority over whom, from the throne of the empire down to this ruler. */
+/**
+ * Governors and Romans: the power above this ruler (the first entry of the world stage: the Persian king over Nehemiah,
+ * the emperor over Pilate), then this ruler. The other powers of the day stay under "On the world stage".
+ */
 export function ChainOfAuthority({ ruler }: { ruler: Ruler }) {
   if (ruler.kind !== "governor" && ruler.kind !== "roman") return null;
-  const above = ruler.worldStage.flatMap((w) => w.rulers.slice(0, 1).map((person) => ({ person, power: w.power })));
-  if (!above.length) return null;
-  return <Section id="pp-chain" kicker="Authority" title="Under whom, over whom" lead="The chain of authority as Scripture names it.">
+  const above = ruler.worldStage[0];
+  if (!above?.rulers.length) return null;
+  return <Section id="pp-chain" kicker="Authority" title="Under whose authority" lead={`${above.power}, as Scripture names its ${above.rulers.length > 1 ? "rulers" : "ruler"} in ${ruler.name}'s time, then ${ruler.name}.`}>
     <div className="pp-chain">
-      {above.map(({ person, power }) => <Fragment key={person.name}><span><PersonName person={person} /> <small className="lg-muted">· {power}</small></span><i aria-hidden>→</i></Fragment>)}
-      <span data-here="">{ruler.name}</span>
+      <span><small className="pp-chain-power">{above.power}</small>{above.rulers.map((person, i) => <Fragment key={person.name}>{i > 0 && " · "}<PersonName person={person} /></Fragment>)}</span>
+      <i aria-hidden>→</i>
+      <span data-here=""><small className="pp-chain-power">{ruler.title}</small>{ruler.name}</span>
     </div>
   </Section>;
 }

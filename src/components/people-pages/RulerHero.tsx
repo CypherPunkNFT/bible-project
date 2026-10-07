@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import type { Ruler } from "@/data/people-pages/types";
 import { formatYears } from "@/lib/eras";
 import { personPath, rulerFor, rulerHref, rulersOfRealm, type RulerSummary } from "@/lib/people-pages-index";
-import { REALM_LABEL, VERDICT, ordinal, reignLength } from "./kinds";
+import { REALM_LABEL, VERDICT, isConsort, ordinal, reignLength } from "./kinds";
 import { atlasCityHref, eraOfYear } from "./links";
 import { AspectSwitch } from "./PersonEntry";
 import { SlideLink } from "./SlideLink";
@@ -13,9 +13,16 @@ import { useCarried } from "./use-carried";
 export function RulerHero({ ruler, summary }: { ruler: Ruler; summary: RulerSummary }) {
   const [dating, setDating] = useState(false);
   const main = summary.dates;
-  const era = main ? eraOfYear((main.from + main.to) / 2) : undefined;
+  const middle = main ? (main.from + main.to) / 2 : summary.near;
+  const era = middle !== undefined ? eraOfYear(middle) : undefined;
   const line = rulersOfRealm(ruler.realm);
+  const place = line.findIndex((r) => r.id === ruler.id) + 1;
   const judge = ruler.kind === "judge" || ruler.kind === "leader";
+  // What the first figures are called for each kind of ruler (PRESENTATION.md §3.10).
+  const held = judge ? "Led Israel" : isConsort(ruler) ? "Queen" : ruler.kind === "governor" ? "Governed" : ruler.kind === "herod" || ruler.kind === "roman" ? "Ruled" : "Reigned";
+  const seat = ruler.kind === "governor" || ruler.kind === "roman" || ruler.kind === "herod" ? "Seat" : "Capital";
+  // "3rd of 20 in Judah" only where the realm is one line of rulers, not the other nations gathered together.
+  const inLine = place > 0 && ruler.realm !== "other" ? `${ordinal(place)} of ${line.length} in ${REALM_LABEL[ruler.realm].split(" (")[0]}` : undefined;
   const tone = VERDICT[ruler.verdictTone];
   const capitalHref = atlasCityHref(ruler.capital?.name);
   const length = reignLength(ruler.reign);
@@ -32,7 +39,7 @@ export function RulerHero({ ruler, summary }: { ruler: Ruler; summary: RulerSumm
     </div>}
     <dl className="pp-stats">
       <div className="pp-stat">
-        <dt>{judge ? "Led Israel" : "Reigned"}<button type="button" className="pp-info" aria-expanded={dating} aria-controls="pp-dating-note" aria-label="How the dates are worked out" onClick={() => setDating(!dating)}>i</button></dt>
+        <dt>{held}<button type="button" className="pp-info" aria-expanded={dating} aria-controls="pp-dating-note" aria-label="How the dates are worked out" onClick={() => setDating(!dating)}>i</button></dt>
         <dd>{length || "Not given"}<small>{main ? `${formatYears(main.from, main.to, main.approx)}${ruler.dates.length > 1 ? " (dates vary)" : ""}` : length ? "No years BC in Scripture" : ruler.reign.text}</small></dd>
         {dating && <div id="pp-dating-note" className="pp-stat-note">
           {ruler.reign.text && <p>Scripture: “{ruler.reign.text}”.</p>}
@@ -41,12 +48,12 @@ export function RulerHero({ ruler, summary }: { ruler: Ruler; summary: RulerSumm
         </div>}
       </div>
       <div className="pp-stat">
-        <dt>{judge || !ruler.capital ? "Tribe" : "Capital"}</dt>
+        <dt>{judge || (!ruler.capital && ruler.tribe) ? "Tribe" : seat}</dt>
         <dd>{judge || !ruler.capital ? ruler.tribe ?? "Not stated" : capitalHref ? <Link to={capitalHref}>{ruler.capital.name}</Link> : ruler.capital.name}</dd>
       </div>
       <div className="pp-stat">
         <dt>{judge ? "In the line" : "House"}</dt>
-        <dd>{judge ? `${ordinal(ruler.order)} of ${line.length}` : ruler.house ?? "Not stated"}{!judge && <small>{ordinal(ruler.order)} of {line.length} in {REALM_LABEL[ruler.realm].split(" (")[0]}</small>}</dd>
+        <dd>{judge ? `${ordinal(place)} of ${line.length}` : ruler.house ?? "Not stated"}{!judge && inLine && <small>{inLine}</small>}</dd>
       </div>
       <div className="pp-stat" data-wide="">
         <dt>{ruler.verdictTone === "none" ? "Scripture says" : "Verdict"}</dt>

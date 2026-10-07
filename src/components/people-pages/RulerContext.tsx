@@ -5,7 +5,7 @@ import { Section } from "@/components/letters/LetterParts";
 import type { PersonRef, Ruler } from "@/data/people-pages/types";
 import { personPath, rulerHref } from "@/lib/people-pages-index";
 import { ClaimList, EvidenceClaim, QuoteText } from "./Evidence";
-import { initials } from "./kinds";
+import { initials, isConsort, isForeign } from "./kinds";
 import { prophetsForKingHref } from "./links";
 
 type LensId = keyof Ruler["nation"];
@@ -19,7 +19,10 @@ export function NationLenses({ ruler }: { ruler: Ruler }) {
   const order = lensOrder(ruler).filter((id) => ruler.nation[id]?.length);
   const [chosen, setChosen] = useState<LensId | undefined>(undefined);
   if (!order.length) return null;
-  if (ruler.kind === "foreign") return <Section id="pp-nation" kicker="Dealings" title="Dealings with God's people" lead="What Scripture records between this ruler and Israel or Judah.">
+  if (isConsort(ruler)) return <Section id="pp-nation" kicker="Her people" title="God's people in her time" lead="What Scripture records of the Jews while she was queen.">
+    <ClaimList claims={order.flatMap((id) => ruler.nation[id])} />
+  </Section>;
+  if (isForeign(ruler)) return <Section id="pp-nation" kicker="Dealings" title="Dealings with God's people" lead="What Scripture records between this ruler and Israel or Judah.">
     <ClaimList claims={order.flatMap((id) => ruler.nation[id])} />
   </Section>;
   const lens = chosen && order.includes(chosen) ? chosen : order[0];
@@ -41,8 +44,8 @@ export function PersonName({ person }: { person: PersonRef }) {
 export function ReignProphets({ ruler }: { ruler: Ruler }) {
   const [open, setOpen] = useState<number | null>(null);
   if (!ruler.prophets.length) return null;
-  const about = ruler.kind === "foreign";
-  return <Section id="pp-prophets" kicker="Prophets" title={about ? "The prophets who spoke about him" : "Prophets of the reign"}
+  const about = isForeign(ruler);
+  return <Section id="pp-prophets" kicker="Prophets" title={about ? `The prophets who spoke about ${ruler.kind === "queen" ? "her" : "him"}` : "Prophets of the reign"}
     lead={about ? "Prophets who spoke of this ruler, with their words." : "Who stood before the ruler, and what they said. Choose a card to read the exchange."}
     aside={!about && <Link className="pp-link" to={prophetsForKingHref(ruler.id)}>Prophets through time, at this {ruler.kind === "judge" ? "judge" : "reign"} <ArrowUpRight size={14} aria-hidden /></Link>}>
     <ul className="lg-themes">

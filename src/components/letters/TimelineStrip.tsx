@@ -33,17 +33,21 @@ function packRows(events: TimelineEvent[], x: (v: number) => number, minWidth: n
  * Dated events as glowing ranges on a year axis (letters stand out in the group colour), or — for "story"
  * timelines that follow the biblical narrative rather than dates — as a row of numbered steps.
  */
-export function TimelineStrip({ timeline, formatYear = (v) => (v < 0 ? `${-v} BC` : `AD ${v}`), onActive }: {
+export function TimelineStrip({ timeline, formatYear = (v) => (v < 0 ? `${-v} BC` : `AD ${v}`), onActive, lit }: {
   timeline: Timeline;
   /** How a point on the axis is named (default: years BC/AD; the ruler pages use years of a reign). */
   formatYear?: (value: number) => string;
   /** Told whenever the pointed-at or kept event changes, so a map beside the strip can light its place. */
   onActive?: (event: TimelineEvent | null) => void;
+  /** Events lit from outside the strip while nothing in it is pointed at (a place pointed at on a map beside it). */
+  lit?: (event: TimelineEvent) => boolean;
 }) {
   const keep = useKeep<TimelineEvent>();
-  const { active } = keep;
-  useEffect(() => { onActive?.(active); }, [active, onActive]);
+  useEffect(() => { onActive?.(keep.active); }, [keep.active, onActive]);
   const events = [...timeline.events].sort((a, b) => a.from - b.from);
+  const lighted = !keep.active && lit ? events.filter(lit) : [];
+  const active = keep.active ?? lighted[0] ?? null;
+  const isLit = (e: TimelineEvent) => (keep.active ? keep.active === e : lighted.includes(e));
   const tip = active;
   const x = keep.kept && <KeepX onRelease={keep.release} />;
 
@@ -80,7 +84,7 @@ export function TimelineStrip({ timeline, formatYear = (v) => (v < 0 ? `${-v} BC
           return <g key={i} style={{ cursor: "pointer" }} tabIndex={0} role="button" aria-label={`${e.label}, ${e.from}${e.to && e.to !== e.from ? `–${e.to}` : ""}`}
             className={keep.peek(e) ? "lg-peek" : undefined} {...keep.bind(e)}>
             <rect x={x0} y={y} width={x1 - x0} height={14} rx={7} fill={isLetter ? "var(--lg)" : "color-mix(in srgb, var(--ink) 30%, transparent)"}
-              opacity={active && active !== e ? 0.35 : isLetter ? 0.85 : 0.6} className={isLetter ? "lg-glow" : undefined} />
+              opacity={active && !isLit(e) ? 0.35 : isLetter ? 0.85 : 0.6} className={isLetter ? "lg-glow" : undefined} />
             {/* Labels near the right edge sit to the left of their bar. */}
             <text x={labelLeft(x1) ? x0 - 6 : x1 + 6} y={y + 11} textAnchor={labelLeft(x1) ? "end" : "start"} className={isLetter ? "lg-svg-strong" : "lg-svg-text"}>{short(e.label)}</text>
           </g>;

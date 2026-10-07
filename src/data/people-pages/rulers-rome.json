@@ -1,0 +1,5304 @@
+{
+ "id": "rulers-rome",
+ "title": "Rome: the emperors and their officials",
+ "realm": "rome",
+ "intro": [
+  {
+   "text": "Rome ruled the world of the New Testament. Scripture names three emperors, Augustus, Tiberius and Claudius, and elsewhere says only \"Caesar\"; it names the governors and officials before whom Jesus and Paul were heard.",
+   "layer": "scripture",
+   "refs": [
+    [
+     42002001,
+     42002001
+    ],
+    [
+     42003001,
+     42003001
+    ],
+    [
+     44011028,
+     44011028
+    ],
+    [
+     44025011,
+     44025011
+    ]
+   ]
+  },
+  {
+   "text": "These pages count eleven rulers in order of time: four emperors and seven officials. Nero is included because the Caesar of Paul's appeal reigned in his time; that is an identification by date, since Scripture never names him.",
+   "layer": "text",
+   "refs": [
+    [
+     44025011,
+     44025011
+    ],
+    [
+     50004022,
+     50004022
+    ]
+   ]
+  },
+  {
+   "text": "The site's person records (from STEP Bible) attach some \"Caesar\" verses to an emperor who is not named in them, and one set to an emperor who had already died. Each page says which verses name its ruler and which are attached by inference.",
+   "layer": "text",
+   "refs": [
+    [
+     40022017,
+     40022017
+    ],
+    [
+     44025011,
+     44025011
+    ],
+    [
+     50004022,
+     50004022
+    ]
+   ]
+  },
+  {
+   "text": "Years are AD unless marked BC. They come from Roman historians (Tacitus, Suetonius, Dio Cassius), from Josephus, and for the governors from Schürer (1890) and Ramsay (1895, 1898); where scholars differ, each count is shown with its holder.",
+   "layer": "scholars",
+   "cites": [
+    "suet-claudius",
+    "tacitus-annals",
+    "josephus-ant",
+    "schurer-1890",
+    "ramsay-1895",
+    "ramsay-1898"
+   ]
+  },
+  {
+   "text": "Where the Gospels tell Pilate's hearing differently, the page sets their accounts side by side and does not blend them.",
+   "layer": "text",
+   "refs": [
+    [
+     40027011,
+     40027026
+    ],
+    [
+     41015001,
+     41015015
+    ],
+    [
+     42023001,
+     42023025
+    ],
+    [
+     43018028,
+     43019016
+    ]
+   ]
+  }
+ ],
+ "rulers": [
+  {
+   "id": "augustus-luk-2-1",
+   "name": "Augustus",
+   "kind": "roman",
+   "realm": "rome",
+   "title": "Roman emperor",
+   "tagline": "The emperor whose decree sent Joseph and Mary to Bethlehem.",
+   "order": 1,
+   "records": [],
+   "verdictTone": "none",
+   "events": [
+    {
+     "label": "The decree to enrol",
+     "kind": "other",
+     "claim": {
+      "text": "A decree went out from Caesar Augustus that \"all the world should be taxed\" (enrolled).",
+      "layer": "scripture",
+      "refs": [
+       [
+        42002001,
+        42002002
+       ]
+      ]
+     },
+     "placeId": "afc8e7a"
+    },
+    {
+     "label": "Joseph and Mary go to Bethlehem",
+     "kind": "personal",
+     "claim": {
+      "text": "Joseph went up from Nazareth to Bethlehem, \"the city of David\", to be taxed with Mary; there she gave birth.",
+      "layer": "scripture",
+      "refs": [
+       [
+        42002004,
+        42002007
+       ]
+      ]
+     },
+     "placeId": "a112427"
+    }
+   ],
+   "nation": {
+    "worship": [],
+    "building": [],
+    "alliances": [
+     {
+      "text": "Matthew places Jesus' birth \"in the days of Herod the king\", and Luke opens with \"the days of Herod, the king of Judæa\". Neither says how Herod stood toward Augustus.",
+      "layer": "text",
+      "refs": [
+       [
+        40002001,
+        40002001
+       ],
+       [
+        42001005,
+        42001005
+       ]
+      ]
+     }
+    ],
+    "people": [
+     {
+      "text": "\"All went to be taxed, every one into his own city.\"",
+      "layer": "scripture",
+      "refs": [
+       [
+        42002003,
+        42002003
+       ]
+      ]
+     }
+    ]
+   },
+   "prophets": [],
+   "worldStage": [],
+   "outside": [
+    {
+     "name": "Augustus's own record of his censuses",
+     "date": "28 BC, 8 BC and AD 14",
+     "claim": {
+      "text": "In the Res Gestae, his account of his own deeds, Augustus lists three censuses of Roman citizens: 4,063,000 in his sixth consulship (28 BC), 4,233,000 in the consulship of Censorinus and Asinius (8 BC), and 4,937,000 with Tiberius as colleague (AD 14). The chapter counts Roman citizens; it says nothing of the provinces' subjects or of Judaea.",
+      "layer": "ancient-record",
+      "cites": [
+       "res-gestae-8"
+      ]
+     }
+    },
+    {
+     "name": "Suetonius on his death",
+     "date": "AD 14",
+     "claim": {
+      "text": "Suetonius: he died \"in the consulship of two Sextuses, Pompeius and Appuleius, on the fourteenth day before the Kalends of September\" (19 August, AD 14), \"just thirty-five days before his seventy-sixth birthday\".",
+      "layer": "ancient-record",
+      "cites": [
+       "suet-augustus"
+      ]
+     }
+    },
+    {
+     "name": "Josephus on the census of Judaea",
+     "date": "AD 6",
+     "claim": {
+      "text": "Josephus: after Archelaus was banished, \"Cyrenius, one that had been consul, was sent by Cæsar to take account of people's effects in Syria\"; Judaea was \"added to the province of Syria\" and its people taxed.",
+      "layer": "ancient-record",
+      "cites": [
+       "josephus-ant"
+      ]
+     }
+    }
+   ],
+   "twoAccounts": [],
+   "questions": [
+    {
+     "id": "augustus-world-census",
+     "question": "Did Augustus order one enrolment of \"all the world\"?",
+     "views": [
+      {
+       "label": "No such single census is known",
+       "holders": "E. Schürer (1890), listing Mommsen, Strauss, Keim and others who agree",
+       "argument": {
+        "text": "Schürer: \"Of such an imperial census history knows nothing.\" Augustus may have held censuses in many provinces, and Luke \"has therefore here generalized\".",
+        "layer": "scholars",
+        "refs": [
+         [
+          42002001,
+          42002001
+         ]
+        ],
+        "cites": [
+         "schurer-1890"
+        ]
+       }
+      },
+      {
+       "label": "A system of periodic enrolments begun by Augustus",
+       "holders": "W. M. Ramsay (1898)",
+       "argument": {
+        "text": "From the enrolment papyri of Egypt, Ramsay argued for enrolments by households at regular intervals under Augustus, the first in Syria falling about 8 BC and delayed in Herod's kingdom until about 6 BC.",
+        "layer": "scholars",
+        "refs": [
+         [
+          42002001,
+          42002003
+         ]
+        ],
+        "cites": [
+         "ramsay-1898"
+        ]
+       }
+      }
+     ]
+    }
+   ],
+   "notSaid": [
+    "Scripture does not say what the enrolment was for, beyond being \"taxed\" (Luke 2:1-3).",
+    "Scripture names no other act of Augustus.",
+    "Scripture does not say whether the whole empire was enrolled at the same time."
+   ],
+   "places": [
+    {
+     "name": "Rome",
+     "placeId": "afc8e7a",
+     "note": "Seat of the emperors"
+    },
+    {
+     "name": "Syria",
+     "placeId": "a890adf",
+     "refs": [
+      [
+       42002002,
+       42002002
+      ]
+     ],
+     "note": "Province of the governor Luke names"
+    },
+    {
+     "name": "Nazareth",
+     "placeId": "af5884f",
+     "refs": [
+      [
+       42002004,
+       42002004
+      ]
+     ]
+    },
+    {
+     "name": "Bethlehem",
+     "placeId": "a112427",
+     "refs": [
+      [
+       42002004,
+       42002004
+      ]
+     ],
+     "note": "Where Joseph went to be taxed"
+    },
+    {
+     "name": "Judaea",
+     "placeId": "a149f13",
+     "refs": [
+      [
+       42002004,
+       42002004
+      ]
+     ]
+    }
+   ],
+   "passages": [
+    [
+     42002001,
+     42002007
+    ]
+   ],
+   "otherNames": [
+    "Caesar Augustus"
+   ],
+   "successor": "tiberius-mat-22-17",
+   "capital": {
+    "name": "Rome",
+    "placeId": "afc8e7a",
+    "note": "Seat of the emperors; Luke 2 does not name it"
+   },
+   "identifications": [
+    {
+     "text": "Luke 2:1 is the only verse that names Augustus. The site's person record (from STEP Bible) also lists Luke 3:1, which names Tiberius Caesar, Acts 25:21 and 25, where 'Augustus' is used of the emperor reigning when Festus governed, and Acts 27:1, 'Augustus' band', the name of a cohort.",
+     "layer": "text",
+     "refs": [
+      [
+       42002001,
+       42002001
+      ],
+      [
+       42003001,
+       42003001
+      ],
+      [
+       44025021,
+       44025021
+      ],
+      [
+       44025025,
+       44025025
+      ],
+      [
+       44027001,
+       44027001
+      ]
+     ]
+    },
+    {
+     "text": "Gill (1746-48) explains 'Augustus' in Acts 25:21 as a title used of the reigning emperor, whom he takes to be Nero; Ellicott's commentary gives three explanations of the cohort's name in Acts 27:1.",
+     "layer": "scholars",
+     "refs": [
+      [
+       44025021,
+       44025021
+      ],
+      [
+       44027001,
+       44027001
+      ]
+     ],
+     "cites": [
+      "gill-acts",
+      "ellicott-acts"
+     ]
+    }
+   ],
+   "reign": {
+    "text": "Scripture gives no length of reign; it names him once, at Jesus' birth (Luke 2:1).",
+    "refs": [
+     [
+      42002001,
+      42002001
+     ]
+    ]
+   },
+   "dates": [
+    {
+     "system": "bible",
+     "label": "Scripture's numbers",
+     "note": "None. Luke names him once and gives no years (Luke 2:1)."
+    },
+    {
+     "system": "other",
+     "label": "Roman records",
+     "from": 27,
+     "to": -14,
+     "note": "Given the title Augustus by decree of the senate for what he did in his sixth and seventh consulships; Shipley dates the decree 16 January 27 BC (Res Gestae 34, with Shipley's note); died 19 August AD 14, 'just thirty-five days before his seventy-sixth birthday' (Suetonius, Augustus 100).",
+     "cites": [
+      "res-gestae-34",
+      "suet-augustus"
+     ]
+    },
+    {
+     "system": "other",
+     "label": "Josephus's count",
+     "note": "'Fifty-seven years, besides six months and two days', of which Antony ruled with him fourteen years (Antiquities 18.2.2).",
+     "cites": [
+      "josephus-ant"
+     ]
+    }
+   ],
+   "scriptureSays": [
+    {
+     "text": "\"There went out a decree from Cæsar Augustus, that all the world should be taxed.\"",
+     "layer": "scripture",
+     "refs": [
+      [
+       42002001,
+       42002001
+      ]
+     ]
+    },
+    {
+     "text": "Under that decree \"all went to be taxed, every one into his own city\", and Joseph went up from Nazareth to Bethlehem with Mary, where Jesus was born.",
+     "layer": "scripture",
+     "refs": [
+      [
+       42002003,
+       42002007
+      ]
+     ]
+    },
+    {
+     "text": "Luke dates the decree by a governor: \"this taxing was first made when Cyrenius was governor of Syria\".",
+     "layer": "scripture",
+     "refs": [
+      [
+       42002002,
+       42002002
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "quirinius-luk-2-2",
+   "name": "Quirinius",
+   "kind": "roman",
+   "realm": "rome",
+   "title": "Governor of Syria",
+   "tagline": "Named once, to date the enrolment at Jesus' birth.",
+   "order": 2,
+   "records": [],
+   "verdictTone": "none",
+   "events": [
+    {
+     "label": "The first enrolment",
+     "kind": "other",
+     "claim": {
+      "text": "\"All went to be taxed, every one into his own city\" while Cyrenius governed Syria.",
+      "layer": "scripture",
+      "refs": [
+       [
+        42002002,
+        42002003
+       ]
+      ]
+     },
+     "placeId": "a890adf"
+    }
+   ],
+   "nation": {
+    "worship": [],
+    "building": [],
+    "alliances": [],
+    "people": [
+     {
+      "text": "Acts: Judas of Galilee \"drew away much people after him\" in the days of the taxing; \"he also perished\".",
+      "layer": "scripture",
+      "refs": [
+       [
+        44005037,
+        44005037
+       ]
+      ]
+     },
+     {
+      "text": "Josephus: the Jews at first \"took the report of a taxation heinously\" but gave account of their estates, persuaded by the high priest Joazar; Judas, a Gaulonite, urged revolt, calling the taxation \"no better than an introduction to slavery\".",
+      "layer": "ancient-record",
+      "cites": [
+       "josephus-ant"
+      ]
+     }
+    ]
+   },
+   "prophets": [],
+   "worldStage": [
+    {
+     "power": "Rome",
+     "rulers": [
+      {
+       "name": "Augustus",
+       "personId": "augustus-luk-2-1"
+      }
+     ],
+     "claim": {
+      "text": "Luke places the enrolment under Quirinius within \"a decree from Cæsar Augustus\".",
+      "layer": "scripture",
+      "refs": [
+       [
+        42002001,
+        42002002
+       ]
+      ]
+     }
+    }
+   ],
+   "outside": [
+    {
+     "name": "Josephus on the census of AD 6",
+     "date": "AD 6-7",
+     "claim": {
+      "text": "Josephus: after Archelaus was banished, \"Cyrenius, one that had been consul, was sent by Cæsar to take account of people's effects in Syria\"; he \"came himself into Judea, which was now added to the province of Syria\", and the taxings ended \"in the thirty-seventh year of Cæsar's victory over Antony at Actium\".",
+      "layer": "ancient-record",
+      "refs": [
+       [
+        44005037,
+        44005037
+       ]
+      ],
+      "cites": [
+       "josephus-ant"
+      ]
+     }
+    },
+    {
+     "name": "Tacitus on his career",
+     "date": "AD 21",
+     "claim": {
+      "text": "Tacitus, recording his public funeral in AD 21: he \"won the consulship under the Divine Augustus, and subsequently the honours of a triumph for having stormed some fortresses of the Homonadenses in Cilicia\", and was adviser to Gaius Caesar in Armenia.",
+      "layer": "ancient-record",
+      "cites": [
+       "tacitus-annals"
+      ]
+     }
+    },
+    {
+     "name": "The Tivoli inscription",
+     "date": "found 1764",
+     "claim": {
+      "text": "A marble fragment found near Tivoli in 1764 records an official of Augustus who won triumphal honours, governed Asia as proconsul and \"twice governed Syria as legatus\". The name is lost. This is Ramsay's description; Schürer (1890) holds that it \"absolutely does not contain a testimony to Quirinius having been governor twice\" (see the question below).",
+      "layer": "ancient-record",
+      "cites": [
+       "ramsay-1898",
+       "schurer-1890"
+      ]
+     }
+    },
+    {
+     "name": "Justin Martyr's appeal to the registers",
+     "date": "about AD 155",
+     "claim": {
+      "text": "Justin Martyr tells the emperor that Jesus was born at Bethlehem, \"as you can ascertain also from the registers of the taxing made under Cyrenius, your first procurator in Judæa.\" He does not say he had seen them.",
+      "layer": "early-church",
+      "refs": [
+       [
+        42002002,
+        42002002
+       ]
+      ],
+      "cites": [
+       "justin-1apol"
+      ]
+     }
+    }
+   ],
+   "twoAccounts": [],
+   "questions": [
+    {
+     "id": "quirinius-census",
+     "question": "How does Luke's enrolment \"when Cyrenius was governor of Syria\" fit Josephus's census of AD 6?",
+     "views": [
+      {
+       "label": "A census under Sentius Saturninus",
+       "holders": "Tertullian, Against Marcion 4.19 (about 207)",
+       "argument": {
+        "text": "Tertullian writes that \"a census had been taken in Judæa by Sentius Saturninus\"; he does not mention Quirinius here. Schürer (1890) dates Saturninus's governorship of Syria to 9-6 BC, in Herod's last years.",
+        "layer": "early-church",
+        "refs": [
+         [
+          42002001,
+          42002002
+         ]
+        ],
+        "cites": [
+         "tertullian-marcion",
+         "schurer-1890"
+        ]
+       }
+      },
+      {
+       "label": "\"First\" means \"before\" Quirinius",
+       "holders": "G. C. Storr, F. G. Süskind and A. Tholuck (as reported by Strauss, 1846)",
+       "argument": {
+        "text": "Luke 2:2 is read to mean that this enrolment came before Quirinius governed Syria. Strauss calls this doing \"violence to grammatical construction\"; Ellicott's commentary calls it \"hardly satisfactory\".",
+        "layer": "scholars",
+        "refs": [
+         [
+          42002002,
+          42002002
+         ]
+        ],
+        "cites": [
+         "strauss-1846",
+         "ellicott-luke"
+        ]
+       }
+      },
+      {
+       "label": "An earlier command of Quirinius",
+       "holders": "W. M. Ramsay (1898); Ellicott's commentary (about 1880); A. W. Zumpt (as reported by Schürer, 1890)",
+       "argument": {
+        "text": "Ramsay holds that Quirinius commanded Syria's armies in the war against the Homonadenses about 6 BC while Varus ran the province, and that Luke's \"governor\" fits that command; the Tivoli inscription, which Mommsen and others assign to Quirinius, shows a man who twice governed Syria.",
+        "layer": "scholars",
+        "refs": [
+         [
+          42002002,
+          42002002
+         ]
+        ],
+        "cites": [
+         "ramsay-1898",
+         "ellicott-luke",
+         "schurer-1890"
+        ]
+       }
+      },
+      {
+       "label": "Luke was mistaken",
+       "holders": "D. F. Strauss (1835; English 1846); E. Schürer (1890), naming Mommsen, Keim, Hilgenfeld and others",
+       "argument": {
+        "text": "Quirinius never governed Syria in Herod's lifetime: Schürer places Sentius Saturninus (9-6 BC) and Quinctilius Varus (6-4 BC) there, and allows Quirinius an earlier term only in 3-2 BC, after Herod's death. He holds that the Tivoli inscription \"absolutely does not contain a testimony to Quirinius having been governor twice\" and concludes that Luke wrote \"trusting to imperfect information\".",
+        "layer": "scholars",
+        "refs": [
+         [
+          42002002,
+          42002002
+         ],
+         [
+          40002001,
+          40002001
+         ]
+        ],
+        "cites": [
+         "strauss-1846",
+         "schurer-1890"
+        ]
+       }
+      }
+     ]
+    }
+   ],
+   "notSaid": [
+    "Luke names Quirinius once and says nothing else about him.",
+    "Scripture does not say whether Quirinius came to Judaea in person.",
+    "Acts 5:37 does not say which governor's taxing it means."
+   ],
+   "places": [
+    {
+     "name": "Syria",
+     "placeId": "a890adf",
+     "refs": [
+      [
+       42002002,
+       42002002
+      ]
+     ]
+    },
+    {
+     "name": "Nazareth",
+     "placeId": "af5884f",
+     "refs": [
+      [
+       42002004,
+       42002004
+      ]
+     ]
+    },
+    {
+     "name": "Bethlehem",
+     "placeId": "a112427",
+     "refs": [
+      [
+       42002004,
+       42002004
+      ]
+     ]
+    },
+    {
+     "name": "Judaea",
+     "placeId": "a149f13",
+     "refs": [
+      [
+       42002004,
+       42002004
+      ]
+     ]
+    }
+   ],
+   "passages": [
+    [
+     42002001,
+     42002005
+    ],
+    [
+     44005037,
+     44005037
+    ]
+   ],
+   "otherNames": [
+    "Cyrenius",
+    "Publius Sulpicius Quirinius"
+   ],
+   "capital": {
+    "name": "Syria",
+    "placeId": "a890adf",
+    "refs": [
+     [
+      42002002,
+      42002002
+     ]
+    ],
+    "note": "The province Luke names; Scripture does not name its seat"
+   },
+   "identifications": [
+    {
+     "text": "\"Cyrenius\" is the Greek form of the Roman name Quirinius: Publius Sulpicius Quirinius, whom Tacitus calls Sulpicius Quirinus.",
+     "layer": "scholars",
+     "refs": [
+      [
+       42002002,
+       42002002
+      ]
+     ],
+     "cites": [
+      "ellicott-luke",
+      "ramsay-1898",
+      "tacitus-annals"
+     ]
+    }
+   ],
+   "reign": {
+    "text": "\"This taxing was first made when Cyrenius was governor of Syria\" (Luke 2:2); no length is given.",
+    "refs": [
+     [
+      42002002,
+      42002002
+     ]
+    ]
+   },
+   "dates": [
+    {
+     "system": "bible",
+     "label": "Scripture's numbers",
+     "note": "None. Luke ties his governorship to the enrolment of Luke 2:1-2."
+    },
+    {
+     "system": "other",
+     "label": "The governorship Josephus records (Ramsay 1898)",
+     "from": -6,
+     "to": -9,
+     "approx": true,
+     "note": "Ramsay: 'about A.D. 6 to 9'. Josephus says the taxings ended 'in the thirty-seventh year of Cæsar's victory over Antony at Actium' (Antiquities 18.2.1); Schürer puts the census 'in A.D. 6 or 7'.",
+     "cites": [
+      "ramsay-1898",
+      "josephus-ant",
+      "schurer-1890"
+     ]
+    },
+    {
+     "system": "other",
+     "label": "An earlier command in Syria (Ramsay 1898)",
+     "from": 7,
+     "to": 5,
+     "approx": true,
+     "note": "Ramsay's view: Quirinius led the war against the Homonadenses 'pretty certainly in B.C. 6' and the enrolment of Palestine fell in autumn 6 BC. A view, not a record.",
+     "cites": [
+      "ramsay-1898"
+     ]
+    }
+   ],
+   "scriptureSays": [
+    {
+     "text": "\"(And this taxing was first made when Cyrenius was governor of Syria.)\"",
+     "layer": "scripture",
+     "refs": [
+      [
+       42002002,
+       42002002
+      ]
+     ]
+    },
+    {
+     "text": "Luke ties this to \"a decree from Cæsar Augustus, that all the world should be taxed\", which took Joseph and Mary to Bethlehem.",
+     "layer": "scripture",
+     "refs": [
+      [
+       42002001,
+       42002005
+      ]
+     ]
+    },
+    {
+     "text": "In Acts, Gamaliel recalls \"Judas of Galilee in the days of the taxing\"; he names no governor.",
+     "layer": "scripture",
+     "refs": [
+      [
+       44005037,
+       44005037
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "tiberius-mat-22-17",
+   "name": "Tiberius",
+   "kind": "roman",
+   "realm": "rome",
+   "title": "Roman emperor",
+   "tagline": "Named once, to date the start of John the Baptist's preaching.",
+   "order": 3,
+   "records": [],
+   "verdictTone": "none",
+   "events": [
+    {
+     "label": "The word of God comes to John",
+     "kind": "prophecy",
+     "claim": {
+      "text": "In the fifteenth year of Tiberius the word of God came to John in the wilderness, and he preached the baptism of repentance.",
+      "layer": "scripture",
+      "refs": [
+       [
+        42003001,
+        42003003
+       ]
+      ]
+     },
+     "year": 15
+    },
+    {
+     "label": "Caesar's tribute (Caesar unnamed)",
+     "kind": "other",
+     "claim": {
+      "text": "Asked \"Is it lawful to give tribute unto Caesar, or not?\", Jesus answered, \"Render therefore unto Cæsar the things which are Cæsar's; and unto God the things that are God's.\" The verses say \"Caesar\" without a name.",
+      "layer": "scripture",
+      "refs": [
+       [
+        40022017,
+        40022021
+       ],
+       [
+        41012014,
+        41012017
+       ],
+       [
+        42020022,
+        42020025
+       ]
+      ]
+     },
+     "placeId": "a15257a"
+    },
+    {
+     "label": "\"Not Cæsar's friend\" (Caesar unnamed)",
+     "kind": "other",
+     "claim": {
+      "text": "Before Pilate the accusers said Jesus forbade \"to give tribute to Cæsar\", and cried, \"If thou let this man go, thou art not Cæsar's friend\".",
+      "layer": "scripture",
+      "refs": [
+       [
+        42023002,
+        42023002
+       ],
+       [
+        43019012,
+        43019012
+       ]
+      ]
+     },
+     "placeId": "a15257a"
+    }
+   ],
+   "nation": {
+    "worship": [],
+    "building": [
+     {
+      "text": "Josephus says Herod the tetrarch \"built a city of the same name with him, and called it Tiberias\"; John names boats \"from Tiberias\" and \"the sea of Tiberias\".",
+      "layer": "ancient-record",
+      "refs": [
+       [
+        43006023,
+        43006023
+       ],
+       [
+        43021001,
+        43021001
+       ]
+      ],
+      "cites": [
+       "josephus-ant"
+      ]
+     }
+    ],
+    "alliances": [],
+    "people": [
+     {
+      "text": "The chief priests answered Pilate, \"We have no king but Cæsar.\"",
+      "layer": "scripture",
+      "refs": [
+       [
+        43019015,
+        43019015
+       ]
+      ]
+     }
+    ]
+   },
+   "prophets": [
+    {
+     "person": {
+      "name": "John the Baptist",
+      "personId": "john-mat-3-1"
+     },
+     "claim": {
+      "text": "Luke dates the coming of the word of God to John by the fifteenth year of Tiberius.",
+      "layer": "scripture",
+      "refs": [
+       [
+        42003001,
+        42003002
+       ]
+      ]
+     },
+     "quote": {
+      "text": "the word of God came unto John the son of Zacharias in the wilderness.",
+      "span": [
+       42003002,
+       42003002
+      ]
+     }
+    }
+   ],
+   "worldStage": [],
+   "outside": [
+    {
+     "name": "Tacitus on Christus",
+     "date": "events of AD 64",
+     "claim": {
+      "text": "Tacitus, telling of the fire of Rome: \"Christus, from whom the name had its origin, suffered the extreme penalty during the reign of Tiberius at the hands of one of our procurators, Pontius Pilatus.\"",
+      "layer": "ancient-record",
+      "cites": [
+       "tacitus-annals"
+      ]
+     }
+    },
+    {
+     "name": "Suetonius on his death",
+     "date": "AD 37",
+     "claim": {
+      "text": "Suetonius: he died in the villa of Lucullus \"in the seventy-eighth year of his age and the twenty-third of his reign, on the seventeenth day before the Kalends of April\" (16 March, AD 37).",
+      "layer": "ancient-record",
+      "cites": [
+       "suet-tiberius"
+      ]
+     }
+    },
+    {
+     "name": "Josephus on his governors",
+     "date": "AD 14-37",
+     "claim": {
+      "text": "Josephus: on Augustus's death \"Tiberius Nero, his wife Julia's son, succeeded\"; he sent Valerius Gratus to govern Judaea, and after Gratus's eleven years \"Pontius Pilate came as his successor\".",
+      "layer": "ancient-record",
+      "cites": [
+       "josephus-ant"
+      ]
+     }
+    },
+    {
+     "name": "Philo on Tiberius and Pilate's shields",
+     "date": "embassy of AD 39-40",
+     "claim": {
+      "text": "Philo gives a letter he says Agrippa I wrote to Gaius: during \"the three and twenty years that he was emperor\" Tiberius kept the temple's worship unaltered, and when Pilate hung gilt shields in Herod's palace at Jerusalem, Tiberius wrote at once ordering them taken to Caesarea.",
+      "layer": "ancient-record",
+      "cites": [
+       "philo-legatio"
+      ]
+     }
+    },
+    {
+     "name": "Tertullian's story of Tiberius and the senate",
+     "date": "about AD 197",
+     "claim": {
+      "text": "A later tradition, first found in Tertullian's Apology about 197, says Tiberius received news from Palestine about Christ and \"brought the matter before the senate, with his own decision in favour of Christ\", and the senate rejected it. Eusebius repeats it with \"They say\".",
+      "layer": "tradition",
+      "cites": [
+       "tertullian-apol",
+       "eusebius-2"
+      ]
+     }
+    }
+   ],
+   "twoAccounts": [],
+   "questions": [
+    {
+     "id": "tiberius-fifteenth-year",
+     "question": "Which year is \"the fifteenth year of the reign of Tiberius\"?",
+     "views": [
+      {
+       "label": "Counted from Augustus's death: AD 28-29",
+       "holders": "Ellicott's commentary (about 1880: \"A.D. 29\"); A. Plummer (1896), citing Keim and Lewin",
+       "argument": {
+        "text": "Plummer: \"No instance is known of reckoning the reign of Tiberius from his association with Augustus\"; fifteen years from Augustus's death \"would be A.D. 29\".",
+        "layer": "scholars",
+        "refs": [
+         [
+          42003001,
+          42003001
+         ]
+        ],
+        "cites": [
+         "plummer-1896",
+         "ellicott-luke"
+        ]
+       }
+      },
+      {
+       "label": "Counted from his shared rule in the provinces: AD 25-26",
+       "holders": "W. M. Ramsay (1898); A. W. Zumpt, K. Wieseler and B. Weiss (as reported by Plummer, 1896)",
+       "argument": {
+        "text": "Tiberius received power equal to Augustus's in the provinces before the end of AD 11; counted from then, the fifteenth year is AD 25-26. Ramsay grants that this count \"is never employed elsewhere in reckoning the reign of that emperor\".",
+        "layer": "scholars",
+        "refs": [
+         [
+          42003001,
+          42003001
+         ]
+        ],
+        "cites": [
+         "ramsay-1898",
+         "plummer-1896"
+        ]
+       }
+      }
+     ]
+    }
+   ],
+   "notSaid": [
+    "Scripture never says Tiberius knew of Jesus or of John.",
+    "In the tribute question and at the trial Scripture says \"Caesar\", not Tiberius.",
+    "Scripture says nothing of his death or his successor."
+   ],
+   "places": [
+    {
+     "name": "Rome",
+     "placeId": "afc8e7a",
+     "note": "Seat of the emperors"
+    },
+    {
+     "name": "Judaea",
+     "placeId": "a149f13",
+     "refs": [
+      [
+       42003001,
+       42003001
+      ]
+     ],
+     "note": "Governed by Pilate"
+    },
+    {
+     "name": "Galilee",
+     "placeId": "a9cf1e8",
+     "refs": [
+      [
+       42003001,
+       42003001
+      ]
+     ],
+     "note": "Herod's tetrarchy"
+    },
+    {
+     "name": "Ituraea",
+     "placeId": "aa9e265",
+     "refs": [
+      [
+       42003001,
+       42003001
+      ]
+     ],
+     "note": "Philip's tetrarchy"
+    },
+    {
+     "name": "Trachonitis",
+     "placeId": "a85a60a",
+     "refs": [
+      [
+       42003001,
+       42003001
+      ]
+     ],
+     "note": "Philip's tetrarchy"
+    },
+    {
+     "name": "Abilene",
+     "placeId": "a498faa",
+     "refs": [
+      [
+       42003001,
+       42003001
+      ]
+     ],
+     "note": "Lysanias's tetrarchy"
+    }
+   ],
+   "passages": [
+    [
+     42003001,
+     42003003
+    ],
+    [
+     40022015,
+     40022022
+    ],
+    [
+     41012013,
+     41012017
+    ],
+    [
+     42020020,
+     42020026
+    ],
+    [
+     42023002,
+     42023002
+    ],
+    [
+     43019012,
+     43019015
+    ]
+   ],
+   "otherNames": [
+    "Tiberius Caesar"
+   ],
+   "predecessor": "augustus-luk-2-1",
+   "capital": {
+    "name": "Rome",
+    "placeId": "afc8e7a",
+    "note": "Seat of the emperors"
+   },
+   "identifications": [
+    {
+     "text": "Luke 3:1 is the only verse that names Tiberius. The site's person record also gives him the 'Caesar' of the tribute question and of the trial before Pilate. Those events fall in his reign by Luke's own dating, but the verses say only 'Caesar'.",
+     "layer": "text",
+     "refs": [
+      [
+       42003001,
+       42003001
+      ],
+      [
+       40022017,
+       40022021
+      ],
+      [
+       41012014,
+       41012017
+      ],
+      [
+       42020022,
+       42020025
+      ],
+      [
+       42023002,
+       42023002
+      ],
+      [
+       43019012,
+       43019012
+      ],
+      [
+       43019015,
+       43019015
+      ]
+     ]
+    }
+   ],
+   "reign": {
+    "text": "Scripture gives no length of reign; Luke dates John's preaching to \"the fifteenth year of the reign of Tiberius Cæsar\" (Luke 3:1).",
+    "refs": [
+     [
+      42003001,
+      42003001
+     ]
+    ]
+   },
+   "dates": [
+    {
+     "system": "bible",
+     "label": "Scripture's numbers",
+     "note": "Luke counts at least fifteen years of his reign (Luke 3:1)."
+    },
+    {
+     "system": "other",
+     "label": "Roman records",
+     "from": -14,
+     "to": -37,
+     "note": "Succeeded Augustus in August AD 14; died on 16 March AD 37, 'in the seventy-eighth year of his age and the twenty-third of his reign' (Suetonius, Tiberius 73).",
+     "cites": [
+      "suet-tiberius",
+      "suet-augustus"
+     ]
+    },
+    {
+     "system": "other",
+     "label": "Counted from his shared rule (Ramsay 1898)",
+     "from": -11,
+     "to": -37,
+     "note": "Ramsay counts from the grant of power equal to Augustus's in the provinces, at the end of AD 11, which makes the fifteenth year AD 25-26.",
+     "cites": [
+      "ramsay-1898"
+     ]
+    }
+   ],
+   "scriptureSays": [
+    {
+     "text": "\"Now in the fifteenth year of the reign of Tiberius Cæsar ... the word of God came unto John the son of Zacharias in the wilderness.\"",
+     "layer": "scripture",
+     "refs": [
+      [
+       42003001,
+       42003002
+      ]
+     ]
+    },
+    {
+     "text": "Luke sets beside him Pontius Pilate governing Judaea, Herod tetrarch of Galilee, Philip tetrarch of Ituraea and Trachonitis, and Lysanias tetrarch of Abilene.",
+     "layer": "scripture",
+     "refs": [
+      [
+       42003001,
+       42003001
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "pilate-mat-27-2",
+   "name": "Pontius Pilate",
+   "kind": "roman",
+   "realm": "rome",
+   "title": "Governor of Judaea",
+   "tagline": "The governor who gave sentence on Jesus, told in all four Gospels.",
+   "order": 4,
+   "records": [],
+   "verdictTone": "none",
+   "events": [
+    {
+     "label": "Jesus delivered to Pilate",
+     "kind": "other",
+     "claim": {
+      "text": "In the morning the chief priests bound Jesus and delivered him to Pilate.",
+      "layer": "scripture",
+      "refs": [
+       [
+        40027001,
+        40027002
+       ],
+       [
+        41015001,
+        41015001
+       ],
+       [
+        42023001,
+        42023001
+       ],
+       [
+        43018028,
+        43018028
+       ]
+      ]
+     },
+     "placeId": "a15257a"
+    },
+    {
+     "label": "\"Art thou the King of the Jews?\"",
+     "kind": "other",
+     "claim": {
+      "text": "Pilate questioned Jesus about the charge of kingship; in Matthew and Mark, Jesus answered his accusers nothing.",
+      "layer": "scripture",
+      "refs": [
+       [
+        40027011,
+        40027014
+       ],
+       [
+        41015002,
+        41015005
+       ],
+       [
+        42023002,
+        42023004
+       ],
+       [
+        43018033,
+        43018038
+       ]
+      ]
+     },
+     "placeId": "a15257a"
+    },
+    {
+     "label": "Sent to Herod (Luke only)",
+     "kind": "other",
+     "claim": {
+      "text": "Hearing he was a Galilean, Pilate sent Jesus to Herod, who mocked him and sent him back.",
+      "layer": "scripture",
+      "refs": [
+       [
+        42023006,
+        42023012
+       ]
+      ]
+     },
+     "placeId": "a15257a"
+    },
+    {
+     "label": "Barabbas or Jesus",
+     "kind": "other",
+     "claim": {
+      "text": "At the feast Pilate offered to release a prisoner; the crowd asked for Barabbas and cried, \"Crucify him\".",
+      "layer": "scripture",
+      "refs": [
+       [
+        40027015,
+        40027023
+       ],
+       [
+        41015006,
+        41015014
+       ],
+       [
+        42023017,
+        42023023
+       ],
+       [
+        43018039,
+        43018040
+       ]
+      ]
+     },
+     "placeId": "a15257a"
+    },
+    {
+     "label": "His wife's message (Matthew only)",
+     "kind": "personal",
+     "claim": {
+      "text": "His wife sent word: \"Have thou nothing to do with that just man\".",
+      "layer": "scripture",
+      "refs": [
+       [
+        40027019,
+        40027019
+       ]
+      ]
+     },
+     "placeId": "a15257a"
+    },
+    {
+     "label": "Hands washed (Matthew only)",
+     "kind": "other",
+     "claim": {
+      "text": "He washed his hands before the multitude: \"I am innocent of the blood of this just person: see ye to it.\"",
+      "layer": "scripture",
+      "refs": [
+       [
+        40027024,
+        40027024
+       ]
+      ]
+     },
+     "placeId": "a15257a"
+    },
+    {
+     "label": "\"Behold the man!\" (John only)",
+     "kind": "other",
+     "claim": {
+      "text": "After the scourging Pilate brought Jesus out in the crown of thorns and purple robe.",
+      "layer": "scripture",
+      "refs": [
+       [
+        43019004,
+        43019005
+       ]
+      ]
+     },
+     "placeId": "a15257a"
+    },
+    {
+     "label": "Sentence at Gabbatha",
+     "kind": "other",
+     "claim": {
+      "text": "Pilate sat in the judgment seat at the Pavement, Gabbatha, and delivered Jesus to be crucified; Luke: \"Pilate gave sentence that it should be as they required.\"",
+      "layer": "scripture",
+      "refs": [
+       [
+        43019013,
+        43019016
+       ],
+       [
+        42023024,
+        42023025
+       ]
+      ]
+     },
+     "placeId": "aec23b1"
+    },
+    {
+     "label": "The title on the cross",
+     "kind": "other",
+     "claim": {
+      "text": "A written charge was set over the cross; John says Pilate wrote it and would not change it.",
+      "layer": "scripture",
+      "refs": [
+       [
+        40027037,
+        40027037
+       ],
+       [
+        41015026,
+        41015026
+       ],
+       [
+        42023038,
+        42023038
+       ],
+       [
+        43019019,
+        43019022
+       ]
+      ]
+     },
+     "placeId": "a631d35"
+    },
+    {
+     "label": "The body given to Joseph",
+     "kind": "other",
+     "claim": {
+      "text": "Joseph of Arimathaea asked Pilate for the body, and Pilate gave it.",
+      "layer": "scripture",
+      "refs": [
+       [
+        40027057,
+        40027058
+       ],
+       [
+        41015043,
+        41015045
+       ],
+       [
+        42023050,
+        42023052
+       ],
+       [
+        43019038,
+        43019038
+       ]
+      ]
+     },
+     "placeId": "a15257a"
+    },
+    {
+     "label": "The guard at the tomb (Matthew only)",
+     "kind": "other",
+     "claim": {
+      "text": "The chief priests and Pharisees asked for the tomb to be made sure; Pilate said, \"Ye have a watch: go your way, make it as sure as ye can.\"",
+      "layer": "scripture",
+      "refs": [
+       [
+        40027062,
+        40027066
+       ]
+      ]
+     },
+     "placeId": "a15257a"
+    },
+    {
+     "label": "The Galileans' blood",
+     "kind": "other",
+     "claim": {
+      "text": "Galileans \"whose blood Pilate had mingled with their sacrifices\"; Luke gives no time or reason.",
+      "layer": "scripture",
+      "refs": [
+       [
+        42013001,
+        42013002
+       ]
+      ]
+     }
+    }
+   ],
+   "nation": {
+    "worship": [
+     {
+      "text": "Galileans \"whose blood Pilate had mingled with their sacrifices\".",
+      "layer": "scripture",
+      "refs": [
+       [
+        42013001,
+        42013001
+       ]
+      ]
+     }
+    ],
+    "building": [
+     {
+      "text": "Josephus: Pilate brought water to Jerusalem by an aqueduct paid for with \"the sacred money\".",
+      "layer": "ancient-record",
+      "cites": [
+       "josephus-ant"
+      ]
+     }
+    ],
+    "alliances": [
+     {
+      "text": "\"The same day Pilate and Herod were made friends together: for before they were at enmity between themselves.\"",
+      "layer": "scripture",
+      "refs": [
+       [
+        42023012,
+        42023012
+       ]
+      ]
+     }
+    ],
+    "people": [
+     {
+      "text": "The chief priests: \"We have no king but Cæsar.\"",
+      "layer": "scripture",
+      "refs": [
+       [
+        43019015,
+        43019015
+       ]
+      ]
+     },
+     {
+      "text": "Mark: Pilate was \"willing to content the people\".",
+      "layer": "scripture",
+      "refs": [
+       [
+        41015015,
+        41015015
+       ]
+      ]
+     }
+    ]
+   },
+   "prophets": [],
+   "worldStage": [
+    {
+     "power": "Rome",
+     "rulers": [
+      {
+       "name": "Tiberius",
+       "personId": "tiberius-mat-22-17"
+      }
+     ],
+     "claim": {
+      "text": "Luke dates Pilate's governorship by the fifteenth year of Tiberius Caesar.",
+      "layer": "scripture",
+      "refs": [
+       [
+        42003001,
+        42003001
+       ]
+      ]
+     }
+    },
+    {
+     "power": "Syria",
+     "rulers": [
+      {
+       "name": "Vitellius, governor of Syria"
+      }
+     ],
+     "claim": {
+      "text": "Josephus: Vitellius \"ordered Pilate to go to Rome, to answer before the emperor to the accusations of the Jews\".",
+      "layer": "ancient-record",
+      "cites": [
+       "josephus-ant"
+      ]
+     }
+    }
+   ],
+   "outside": [
+    {
+     "name": "The Pilate stone, Caesarea",
+     "date": "found 1961; AD 26-36",
+     "claim": {
+      "text": "A limestone block found in 1961, reused in a staircase of the Roman theatre at Caesarea, carries part of a Latin dedication. The Israel Museum reconstructs the broken lines as \"[... building in honor of] Tiberius ... [Pon]tius Pilate ... [Praef]ect of Judea\" (IAA 1961-529); in that reconstruction his title is prefect, though the first letters of the word are restored (the catalogue's own heading calls him \"procurator\"). The stone gives his name and rank; it says nothing of his acts.",
+      "layer": "ancient-record",
+      "cites": [
+       "imj-pilate"
+      ]
+     }
+    },
+    {
+     "name": "Josephus: the standards",
+     "date": "AD 26-36",
+     "claim": {
+      "text": "Josephus: Pilate \"introduced Cæsar's effigies, which were upon the ensigns\" into Jerusalem by night. After protesters at Caesarea \"laid their necks bare\" rather than see their laws broken, he \"commanded the images to be carried back\".",
+      "layer": "ancient-record",
+      "cites": [
+       "josephus-ant",
+       "josephus-war"
+      ]
+     }
+    },
+    {
+     "name": "Josephus: the aqueduct",
+     "date": "AD 26-36",
+     "claim": {
+      "text": "Josephus: Pilate built an aqueduct with \"the sacred money\" (in the Jewish War, \"that sacred treasure which is called Corban\"); soldiers in disguise beat the protesters and many died. The Antiquities give the distance as two hundred furlongs, the Jewish War as four hundred.",
+      "layer": "ancient-record",
+      "cites": [
+       "josephus-ant",
+       "josephus-war"
+      ]
+     }
+    },
+    {
+     "name": "Philo: the gilt shields",
+     "date": "embassy of AD 39-40",
+     "claim": {
+      "text": "Philo gives a letter he says Agrippa I wrote to Gaius: Pilate hung gilt shields in Herod's palace at Jerusalem, and Tiberius ordered them moved to Caesarea. The letter, written to persuade Gaius, calls Pilate \"a man of a very inflexible disposition, and very merciless as well as very obstinate\".",
+      "layer": "ancient-record",
+      "cites": [
+       "philo-legatio"
+      ]
+     }
+    },
+    {
+     "name": "Josephus: the Samaritans and his recall",
+     "date": "about AD 36",
+     "claim": {
+      "text": "Josephus: Pilate's horsemen and foot fell on Samaritans gathered at Tirathaba; the Samaritan senate accused him to Vitellius, who sent him to Rome. \"So Pilate, when he had tarried ten years in Judea, made haste to Rome ... but before he could get to Rome Tiberius was dead.\"",
+      "layer": "ancient-record",
+      "cites": [
+       "josephus-ant"
+      ]
+     }
+    },
+    {
+     "name": "Tacitus on Christus",
+     "date": "events of AD 64",
+     "claim": {
+      "text": "Tacitus: \"Christus, from whom the name had its origin, suffered the extreme penalty during the reign of Tiberius at the hands of one of our procurators, Pontius Pilatus.\"",
+      "layer": "ancient-record",
+      "cites": [
+       "tacitus-annals"
+      ]
+     }
+    },
+    {
+     "name": "The passage on Jesus in Josephus",
+     "date": "Antiquities 18.3.3",
+     "claim": {
+      "text": "The text of Josephus as printed says that \"when Pilate, at the suggestion of the principal men amongst us, had condemned him to the cross, those that loved him at the first did not forsake him\". Whether Josephus wrote this passage is disputed (see the questions below).",
+      "layer": "ancient-record",
+      "cites": [
+       "josephus-ant",
+       "schurer-1890"
+      ]
+     }
+    },
+    {
+     "name": "Justin and the \"Acts of Pontius Pilate\"",
+     "date": "about AD 155",
+     "claim": {
+      "text": "Justin Martyr tells the emperor that the crucifixion \"you can ascertain from the Acts of Pontius Pilate\", and the healings \"you can learn\" from them. He does not quote them.",
+      "layer": "early-church",
+      "cites": [
+       "justin-1apol"
+      ]
+     }
+    },
+    {
+     "name": "Tertullian: Pilate's report",
+     "date": "about AD 197",
+     "claim": {
+      "text": "A later tradition, first found in Tertullian about 197, says Pilate, \"now in fact a Christian in his own convictions\", sent word of Christ to Tiberius.",
+      "layer": "tradition",
+      "cites": [
+       "tertullian-apol"
+      ]
+     }
+    },
+    {
+     "name": "Eusebius: Pilate's end",
+     "date": "about AD 325",
+     "claim": {
+      "text": "Eusebius: Pilate \"is reported to have fallen into such misfortunes under Caius\" that he took his own life; he credits this to \"those Greek historians who have recorded the Olympiads\" and names none of them. He also says forged \"Acts of Pilate\" were posted by order of the emperor Maximinus.",
+      "layer": "tradition",
+      "cites": [
+       "eusebius-2",
+       "eusebius-9"
+      ]
+     }
+    }
+   ],
+   "twoAccounts": [
+    {
+     "topic": "What Pilate asked, and what he heard",
+     "first": {
+      "text": "Matthew, Mark and Luke: Pilate asks, \"Art thou the King of the Jews?\", and Jesus answers \"Thou sayest\" (Mark and Luke: \"Thou sayest it\"). In Matthew and Mark, Pilate asks again why he does not answer his accusers; Jesus answers nothing, and Pilate \"marvelled\".",
+      "layer": "scripture",
+      "refs": [
+       [
+        40027011,
+        40027014
+       ],
+       [
+        41015002,
+        41015005
+       ],
+       [
+        42023003,
+        42023003
+       ]
+      ]
+     },
+     "second": {
+      "text": "John: the same question opens a longer exchange inside the judgment hall: \"My kingdom is not of this world\" and Pilate's \"What is truth?\"; later \"Whence art thou?\", which Jesus does not answer, and \"Thou couldest have no power at all against me, except it were given thee from above\".",
+      "layer": "scripture",
+      "refs": [
+       [
+        43018033,
+        43018038
+       ],
+       [
+        43019009,
+        43019011
+       ]
+      ]
+     }
+    },
+    {
+     "topic": "Herod Antipas",
+     "first": {
+      "text": "Luke alone: Pilate sends Jesus to Herod, who mocks him and sends him back, and \"the same day Pilate and Herod were made friends together\".",
+      "layer": "scripture",
+      "refs": [
+       [
+        42023006,
+        42023012
+       ]
+      ]
+     },
+     "second": {
+      "text": "Matthew, Mark and John say nothing of Herod at the trial.",
+      "layer": "text",
+      "refs": [
+       [
+        40027011,
+        40027026
+       ],
+       [
+        41015001,
+        41015015
+       ],
+       [
+        43018028,
+        43019016
+       ]
+      ]
+     }
+    },
+    {
+     "topic": "When Jesus was scourged",
+     "first": {
+      "text": "Matthew and Mark: Pilate released Barabbas, and \"when he had scourged Jesus, he delivered him to be crucified\".",
+      "layer": "scripture",
+      "refs": [
+       [
+        40027026,
+        40027026
+       ],
+       [
+        41015015,
+        41015015
+       ]
+      ]
+     },
+     "second": {
+      "text": "John: Pilate scourged him first, brought him out (\"Behold the man!\") and still sought to release him. Luke tells of no scourging; Pilate twice offers to chastise him and let him go: \"I will therefore chastise him, and release him\".",
+      "layer": "scripture",
+      "refs": [
+       [
+        43019001,
+        43019005
+       ],
+       [
+        43019012,
+        43019012
+       ],
+       [
+        42023016,
+        42023016
+       ],
+       [
+        42023022,
+        42023022
+       ]
+      ]
+     }
+    },
+    {
+     "topic": "No fault found",
+     "first": {
+      "text": "Luke: three times Pilate says he finds no fault or \"no cause of death\" in him, and adds, \"No, nor yet Herod\". John: three times Pilate says he finds no fault in him.",
+      "layer": "scripture",
+      "refs": [
+       [
+        42023004,
+        42023004
+       ],
+       [
+        42023014,
+        42023015
+       ],
+       [
+        42023022,
+        42023022
+       ],
+       [
+        43018038,
+        43018038
+       ],
+       [
+        43019004,
+        43019004
+       ],
+       [
+        43019006,
+        43019006
+       ]
+      ]
+     },
+     "second": {
+      "text": "Matthew and Mark: Pilate does not say he finds no fault; he asks, \"Why, what evil hath he done?\" (Luke has the same question). Matthew alone adds the washing of hands: \"I am innocent of the blood of this just person\".",
+      "layer": "scripture",
+      "refs": [
+       [
+        40027023,
+        40027024
+       ],
+       [
+        41015014,
+        41015014
+       ]
+      ]
+     }
+    },
+    {
+     "topic": "The hour",
+     "first": {
+      "text": "Mark: \"it was the third hour, and they crucified him\".",
+      "layer": "scripture",
+      "refs": [
+       [
+        41015025,
+        41015025
+       ]
+      ]
+     },
+     "second": {
+      "text": "John: Pilate sat at Gabbatha on \"the preparation of the passover, and about the sixth hour\".",
+      "layer": "scripture",
+      "refs": [
+       [
+        43019014,
+        43019014
+       ]
+      ]
+     }
+    },
+    {
+     "topic": "The words over the cross",
+     "first": {
+      "text": "Matthew: \"THIS IS JESUS THE KING OF THE JEWS\". Mark: \"THE KING OF THE JEWS\". Luke: \"THIS IS THE KING OF THE JEWS\", which the King James text says was written \"in letters of Greek, and Latin, and Hebrew\".",
+      "layer": "scripture",
+      "refs": [
+       [
+        40027037,
+        40027037
+       ],
+       [
+        41015026,
+        41015026
+       ],
+       [
+        42023038,
+        42023038
+       ]
+      ]
+     },
+     "second": {
+      "text": "John: Pilate wrote \"JESUS OF NAZARETH THE KING OF THE JEWS\" in Hebrew, Greek and Latin, and refused to change it: \"What I have written I have written.\"",
+      "layer": "scripture",
+      "refs": [
+       [
+        43019019,
+        43019022
+       ]
+      ]
+     }
+    },
+    {
+     "topic": "Told by one Gospel only",
+     "first": {
+      "text": "Matthew alone: the dream of Pilate's wife, the washing of hands, the people's cry \"His blood be on us, and on our children\", and the sealed tomb with a watch.",
+      "layer": "scripture",
+      "refs": [
+       [
+        40027019,
+        40027019
+       ],
+       [
+        40027024,
+        40027025
+       ],
+       [
+        40027062,
+        40027066
+       ]
+      ]
+     },
+     "second": {
+      "text": "Mark alone: \"Pilate marvelled if he were already dead\" and asked the centurion before he gave the body to Joseph.",
+      "layer": "scripture",
+      "refs": [
+       [
+        41015044,
+        41015045
+       ]
+      ]
+     }
+    }
+   ],
+   "questions": [
+    {
+     "id": "pilate-josephus-passage",
+     "question": "Did Josephus write the passage about Jesus and Pilate (Antiquities 18.3.3)?",
+     "views": [
+      {
+       "label": "Genuine, perhaps with small changes",
+       "holders": "K. G. Bretschneider (1812), Böhmert (1823), Langen (1865), Mensinga (1889) and others (as listed by Schürer, 1890)",
+       "argument": {
+        "text": "These writers defended the passage as Josephus's own, Mensinga allowing for changes to the text not yet proved.",
+        "layer": "scholars",
+        "cites": [
+         "schurer-1890"
+        ]
+       }
+      },
+      {
+       "label": "Genuine at its core but reworked by Christian hands",
+       "holders": "Gieseler, Hase, Ewald, Paret, Wieseler and others (as listed by Schürer, 1890)",
+       "argument": {
+        "text": "Phrases such as \"He was [the] Christ\" are Christian additions to something Josephus wrote.",
+        "layer": "scholars",
+        "cites": [
+         "schurer-1890"
+        ]
+       }
+      },
+      {
+       "label": "Wholly inserted later",
+       "holders": "Eichstädt, T. Keim and others; E. Schürer (1890) leans this way",
+       "argument": {
+        "text": "Schürer: \"the words, as we have them now, were not written by Josephus\"; Origen shows no knowledge of the passage, and Schürer thinks it \"more reasonable to recognise the utter spuriousness of the passage\".",
+        "layer": "scholars",
+        "cites": [
+         "schurer-1890"
+        ]
+       }
+      }
+     ]
+    }
+   ],
+   "notSaid": [
+    "Scripture does not tell how Pilate's governorship ended or how he died.",
+    "Scripture does not name Pilate's wife.",
+    "Luke does not say when or why Pilate shed the Galileans' blood.",
+    "Scripture does not say that Pilate reported the trial to Tiberius."
+   ],
+   "places": [
+    {
+     "name": "Jerusalem",
+     "placeId": "a15257a",
+     "refs": [
+      [
+       40027001,
+       40027002
+      ]
+     ],
+     "note": "Where Jesus was tried"
+    },
+    {
+     "name": "Gabbatha",
+     "placeId": "aec23b1",
+     "refs": [
+      [
+       43019013,
+       43019013
+      ]
+     ],
+     "note": "The Pavement, where Pilate sat in judgment"
+    },
+    {
+     "name": "Golgotha",
+     "placeId": "a631d35",
+     "refs": [
+      [
+       43019017,
+       43019017
+      ]
+     ]
+    },
+    {
+     "name": "Galilee",
+     "placeId": "a9cf1e8",
+     "refs": [
+      [
+       42013001,
+       42013001
+      ],
+      [
+       42023006,
+       42023006
+      ]
+     ]
+    },
+    {
+     "name": "Caesarea",
+     "placeId": "a58735e",
+     "note": "The governor's base in Josephus"
+    }
+   ],
+   "passages": [
+    [
+     42003001,
+     42003001
+    ],
+    [
+     42013001,
+     42013002
+    ],
+    [
+     40027001,
+     40027002
+    ],
+    [
+     40027011,
+     40027026
+    ],
+    [
+     40027057,
+     40027066
+    ],
+    [
+     40028014,
+     40028014
+    ],
+    [
+     41015001,
+     41015015
+    ],
+    [
+     41015042,
+     41015045
+    ],
+    [
+     42023001,
+     42023025
+    ],
+    [
+     42023050,
+     42023052
+    ],
+    [
+     43018028,
+     43019022
+    ],
+    [
+     43019031,
+     43019031
+    ],
+    [
+     43019038,
+     43019038
+    ],
+    [
+     44003013,
+     44003013
+    ],
+    [
+     44004027,
+     44004027
+    ],
+    [
+     44013028,
+     44013028
+    ],
+    [
+     54006013,
+     54006013
+    ]
+   ],
+   "otherNames": [
+    "Pilate"
+   ],
+   "capital": {
+    "name": "Caesarea",
+    "placeId": "a58735e",
+    "note": "The governor's base in Josephus (Antiquities 18.3.1); the Gospels show him at Jerusalem"
+   },
+   "reign": {
+    "text": "Governor of Judaea in the fifteenth year of Tiberius (Luke 3:1); no length is given.",
+    "refs": [
+     [
+      42003001,
+      42003001
+     ]
+    ]
+   },
+   "dates": [
+    {
+     "system": "bible",
+     "label": "Scripture's numbers",
+     "note": "None beyond Luke 3:1."
+    },
+    {
+     "system": "other",
+     "label": "Schürer (1890), from Josephus",
+     "from": -26,
+     "to": -36,
+     "approx": true,
+     "note": "Pilate followed Valerius Gratus and 'tarried ten years in Judea'; ordered to Rome by Vitellius, he arrived after Tiberius had died (Antiquities 18.2.2; 18.4.2).",
+     "cites": [
+      "schurer-1890",
+      "josephus-ant"
+     ]
+    }
+   ],
+   "scriptureSays": [
+    {
+     "text": "Matthew: they \"delivered him to Pontius Pilate the governor\".",
+     "layer": "scripture",
+     "refs": [
+      [
+       40027002,
+       40027002
+      ]
+     ]
+    },
+    {
+     "text": "All four Gospels have Pilate ask Jesus, \"Art thou the King of the Jews?\"",
+     "layer": "scripture",
+     "refs": [
+      [
+       40027011,
+       40027011
+      ],
+      [
+       41015002,
+       41015002
+      ],
+      [
+       42023003,
+       42023003
+      ],
+      [
+       43018033,
+       43018033
+      ]
+     ]
+    },
+    {
+     "text": "Pilate said he found no fault in him, yet released Barabbas and delivered Jesus to be crucified.",
+     "layer": "scripture",
+     "refs": [
+      [
+       42023004,
+       42023004
+      ],
+      [
+       42023024,
+       42023025
+      ],
+      [
+       43018038,
+       43018038
+      ],
+      [
+       43019016,
+       43019016
+      ],
+      [
+       40027026,
+       40027026
+      ],
+      [
+       41015015,
+       41015015
+      ]
+     ]
+    },
+    {
+     "text": "Luke: some told Jesus \"of the Galilæans, whose blood Pilate had mingled with their sacrifices\".",
+     "layer": "scripture",
+     "refs": [
+      [
+       42013001,
+       42013001
+      ]
+     ]
+    },
+    {
+     "text": "Acts: Jesus was denied \"in the presence of Pilate, when he was determined to let him go\"; Herod and Pontius Pilate \"were gathered together\" against him.",
+     "layer": "scripture",
+     "refs": [
+      [
+       44003013,
+       44003013
+      ],
+      [
+       44004027,
+       44004027
+      ],
+      [
+       44013028,
+       44013028
+      ]
+     ]
+    },
+    {
+     "text": "1 Timothy: Christ Jesus \"before Pontius Pilate witnessed a good confession\".",
+     "layer": "scripture",
+     "refs": [
+      [
+       54006013,
+       54006013
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "lysanias-luk-3-1",
+   "name": "Lysanias",
+   "kind": "roman",
+   "realm": "rome",
+   "title": "Tetrarch of Abilene",
+   "tagline": "One name in Luke's list of rulers; Scripture says no more.",
+   "order": 5,
+   "records": [],
+   "verdictTone": "none",
+   "events": [],
+   "nation": {
+    "worship": [],
+    "building": [],
+    "alliances": [],
+    "people": []
+   },
+   "prophets": [],
+   "worldStage": [
+    {
+     "power": "Rome",
+     "rulers": [
+      {
+       "name": "Tiberius",
+       "personId": "tiberius-mat-22-17"
+      }
+     ],
+     "claim": {
+      "text": "Luke dates by Tiberius and then names Pilate, Herod, Philip and Lysanias.",
+      "layer": "scripture",
+      "refs": [
+       [
+        42003001,
+        42003001
+       ]
+      ]
+     }
+    }
+   ],
+   "outside": [
+    {
+     "name": "Josephus: an earlier Lysanias",
+     "date": "killed about 36 BC",
+     "claim": {
+      "text": "Josephus: Antony, urged by Cleopatra, \"slew Lysanias, the son of Ptolemy\". Schürer puts this Lysanias's rule about 40-36 BC.",
+      "layer": "ancient-record",
+      "cites": [
+       "josephus-ant",
+       "schurer-1890"
+      ]
+     }
+    },
+    {
+     "name": "Josephus: \"the tetrarchy of Lysanias\"",
+     "date": "AD 37-53",
+     "claim": {
+      "text": "Josephus: Gaius gave Agrippa I \"the tetrarchy of Lysanias\"; Claudius gave him \"Abila of Lysanias\"; later Agrippa II received \"Abila; which last had been the tetrarchy of Lysanias\".",
+      "layer": "ancient-record",
+      "cites": [
+       "josephus-ant"
+      ]
+     }
+    },
+    {
+     "name": "The inscription at Abila",
+     "date": "reign of Tiberius or later",
+     "claim": {
+      "text": "A Greek inscription from Abila records a road built by Nymphaeus, a freedman of Lysanias the tetrarch, for the safety of the lords Augusti (our rendering of the Greek). Schürer argues the plural Augusti cannot be earlier than Tiberius's reign.",
+      "layer": "ancient-record",
+      "cites": [
+       "schurer-1890",
+       "plummer-1896"
+      ]
+     }
+    }
+   ],
+   "twoAccounts": [],
+   "questions": [
+    {
+     "id": "lysanias-which",
+     "question": "Which Lysanias does Luke mean?",
+     "views": [
+      {
+       "label": "A later Lysanias, tetrarch in Tiberius's time",
+       "holders": "E. Schürer (1890); A. Plummer (1896); W. Whiston (1737, in his notes on Josephus)",
+       "argument": {
+        "text": "The district called \"the tetrarchy of Lysanias\" was small, unlike the earlier Lysanias's kingdom at Chalcis, and the Abila inscription names a freedman of a tetrarch Lysanias after Tiberius's accession. Schürer: Luke \"is thoroughly correct\".",
+        "layer": "scholars",
+        "refs": [
+         [
+          42003001,
+          42003001
+         ]
+        ],
+        "cites": [
+         "schurer-1890",
+         "plummer-1896",
+         "whiston-notes"
+        ]
+       }
+      },
+      {
+       "label": "Luke confused him with the Lysanias killed about 36 BC",
+       "holders": "D. F. Strauss, A. F. Gfrörer, B. Bauer, A. Hilgenfeld, T. Keim and H. J. Holtzmann (as reported by Plummer, 1896)",
+       "argument": {
+        "text": "Josephus names no Lysanias after the one Antony killed, so these critics held that Luke placed an earlier ruler some sixty years too late.",
+        "layer": "scholars",
+        "refs": [
+         [
+          42003001,
+          42003001
+         ]
+        ],
+        "cites": [
+         "plummer-1896"
+        ]
+       }
+      }
+     ]
+    }
+   ],
+   "notSaid": [
+    "Scripture says nothing of Lysanias beyond his title and region.",
+    "Scripture does not say whose son he was or how long he ruled."
+   ],
+   "places": [
+    {
+     "name": "Abilene",
+     "placeId": "a498faa",
+     "refs": [
+      [
+       42003001,
+       42003001
+      ]
+     ]
+    },
+    {
+     "name": "Ituraea",
+     "placeId": "aa9e265",
+     "refs": [
+      [
+       42003001,
+       42003001
+      ]
+     ],
+     "note": "Philip's tetrarchy, named beside his"
+    },
+    {
+     "name": "Trachonitis",
+     "placeId": "a85a60a",
+     "refs": [
+      [
+       42003001,
+       42003001
+      ]
+     ]
+    }
+   ],
+   "passages": [
+    [
+     42003001,
+     42003001
+    ]
+   ],
+   "capital": {
+    "name": "Abilene",
+    "placeId": "a498faa",
+    "refs": [
+     [
+      42003001,
+      42003001
+     ]
+    ],
+    "note": "The region Luke names"
+   },
+   "reign": {
+    "text": "Tetrarch of Abilene in the fifteenth year of Tiberius (Luke 3:1); no length is given.",
+    "refs": [
+     [
+      42003001,
+      42003001
+     ]
+    ]
+   },
+   "dates": [
+    {
+     "system": "bible",
+     "label": "Scripture's numbers",
+     "note": "Luke places him in the fifteenth year of Tiberius (Luke 3:1). No outside record gives the years of his rule."
+    }
+   ],
+   "scriptureSays": [
+    {
+     "text": "\"Lysanias the tetrarch of Abilene\" is the last ruler in Luke's list for the fifteenth year of Tiberius.",
+     "layer": "scripture",
+     "refs": [
+      [
+       42003001,
+       42003001
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "claudius-act-11-28",
+   "name": "Claudius",
+   "kind": "roman",
+   "realm": "rome",
+   "title": "Roman emperor",
+   "tagline": "Named twice: a great famine, and Jews ordered out of Rome.",
+   "order": 6,
+   "records": [],
+   "verdictTone": "none",
+   "events": [
+    {
+     "label": "Relief for Judaea",
+     "kind": "other",
+     "claim": {
+      "text": "The disciples at Antioch sent relief to the brethren in Judaea \"by the hands of Barnabas and Saul\".",
+      "layer": "scripture",
+      "refs": [
+       [
+        44011029,
+        44011030
+       ]
+      ]
+     },
+     "placeId": "ae41ab4"
+    },
+    {
+     "label": "Jews ordered out of Rome",
+     "kind": "other",
+     "claim": {
+      "text": "\"Claudius had commanded all Jews to depart from Rome\"; Aquila and Priscilla came to Corinth.",
+      "layer": "scripture",
+      "refs": [
+       [
+        44018002,
+        44018002
+       ]
+      ]
+     },
+     "placeId": "afc8e7a"
+    }
+   ],
+   "nation": {
+    "worship": [],
+    "building": [],
+    "alliances": [],
+    "people": [
+     {
+      "text": "The disciples sent relief \"every man according to his ability\".",
+      "layer": "scripture",
+      "refs": [
+       [
+        44011029,
+        44011029
+       ]
+      ]
+     },
+     {
+      "text": "Aquila, \"born in Pontus\", and his wife Priscilla were among the Jews who left Rome.",
+      "layer": "scripture",
+      "refs": [
+       [
+        44018002,
+        44018002
+       ]
+      ]
+     }
+    ]
+   },
+   "prophets": [
+    {
+     "person": {
+      "name": "Agabus",
+      "personId": "agabus-act-11-28"
+     },
+     "claim": {
+      "text": "A prophet from Jerusalem at Antioch, he foretold the famine that Luke dates to the days of Claudius.",
+      "layer": "scripture",
+      "refs": [
+       [
+        44011027,
+        44011028
+       ]
+      ]
+     },
+     "quote": {
+      "text": "there should be great dearth throughout all the world",
+      "span": [
+       44011028,
+       44011028
+      ]
+     }
+    }
+   ],
+   "worldStage": [],
+   "outside": [
+    {
+     "name": "Suetonius on the expulsion",
+     "date": "reign of Claudius, AD 41-54 (no year given)",
+     "claim": {
+      "text": "Suetonius: \"Since the Jews constantly made disturbances at the instigation of Chrestus, he expelled them from Rome.\"",
+      "layer": "ancient-record",
+      "refs": [
+       [
+        44018002,
+        44018002
+       ]
+      ],
+      "cites": [
+       "suet-claudius"
+      ]
+     }
+    },
+    {
+     "name": "Dio Cassius on the Jews of Rome",
+     "date": "placed by Dio early in the reign",
+     "claim": {
+      "text": "Dio: the Jews had \"again increased so greatly\" that Claudius \"did not drive them out, but ordered them, while continuing their traditional mode of life, not to hold meetings.\"",
+      "layer": "ancient-record",
+      "refs": [
+       [
+        44018002,
+        44018002
+       ]
+      ],
+      "cites": [
+       "dio-60"
+      ]
+     }
+    },
+    {
+     "name": "Orosius's date for the expulsion",
+     "date": "written about 417",
+     "claim": {
+      "text": "Orosius, a Christian historian of the early fifth century, puts the expulsion in Claudius's ninth year (25 January 49 to January 50, as Deissmann reckons it) and cites Josephus for it (as reported by Deissmann, 1912). Schürer (1885) notes that Josephus \"makes no mention at all of the matter\".",
+      "layer": "early-church",
+      "refs": [
+       [
+        44018002,
+        44018002
+       ]
+      ],
+      "cites": [
+       "deissmann-1912",
+       "schurer-1885"
+      ]
+     }
+    },
+    {
+     "name": "Famines in Claudius's reign",
+     "date": "AD 41-54",
+     "claim": {
+      "text": "Suetonius tells of \"a scarcity of grain because of long-continued droughts\" at Rome; Tacitus records \"scanty crops, too, and consequent famine\" at Rome in AD 51; Josephus describes \"a great famine\" in Judaea under the governors Fadus and Tiberius Alexander, when Queen Helena of Adiabene bought grain in Egypt. None of them speaks of one famine over all the world.",
+      "layer": "ancient-record",
+      "refs": [
+       [
+        44011028,
+        44011028
+       ]
+      ],
+      "cites": [
+       "suet-claudius",
+       "tacitus-annals",
+       "josephus-ant"
+      ]
+     }
+    },
+    {
+     "name": "His letter to Delphi naming Gallio",
+     "date": "AD 52",
+     "claim": {
+      "text": "An inscription at Delphi preserves a letter of Claudius that names Gallio as proconsul; its date places Gallio in Achaia in AD 51-52 (Deissmann, 1912).",
+      "layer": "ancient-record",
+      "refs": [
+       [
+        44018012,
+        44018012
+       ]
+      ],
+      "cites": [
+       "deissmann-1912"
+      ]
+     }
+    }
+   ],
+   "twoAccounts": [],
+   "questions": [
+    {
+     "id": "claudius-chrestus",
+     "question": "Who was the \"Chrestus\" of Suetonius?",
+     "views": [
+      {
+       "label": "Christ, under a common misspelling",
+       "holders": "E. H. Plumptre (Ellicott's commentary, about 1880); A. C. Hervey (Pulpit Commentary, 1884); R. J. Knowling (1900); J. C. Rolfe (1914); E. Schürer (1885) allows the inference",
+       "argument": {
+        "text": "Chrestus is taken as Christus: the disturbances arose among Rome's Jews over preaching about Christ, like those Acts records at Antioch in Pisidia and Thessalonica. Rolfe calls Chrestus \"another form of Christus\" and thinks it probable that Suetonius erred in his chronology.",
+        "layer": "scholars",
+        "refs": [
+         [
+          44018002,
+          44018002
+         ],
+         [
+          44013050,
+          44013050
+         ],
+         [
+          44017005,
+          44017005
+         ]
+        ],
+        "cites": [
+         "ellicott-acts",
+         "pulpit-acts",
+         "knowling-1900",
+         "suet-claudius",
+         "schurer-1885"
+        ]
+       }
+      },
+      {
+       "label": "A Jewish agitator named Chrestus",
+       "holders": "H. A. W. Meyer (English translation 1877-80), after Wieseler and Ernesti",
+       "argument": {
+        "text": "Meyer: \"Chrestus was actually a current Greek and Roman name\", so the phrase should be read as naming a Jewish agitator at Rome. Rolfe also leaves open that Suetonius means \"some Jew of that name\".",
+        "layer": "scholars",
+        "refs": [
+         [
+          44018002,
+          44018002
+         ]
+        ],
+        "cites": [
+         "meyer-acts",
+         "suet-claudius"
+        ]
+       }
+      },
+      {
+       "label": "It cannot be decided",
+       "holders": "J. R. Lumby (Cambridge Bible, 1885)",
+       "argument": {
+        "text": "Lumby sets out both readings and a third, a movement of Jews against Christians, and says \"we cannot tell\".",
+        "layer": "scholars",
+        "refs": [
+         [
+          44018002,
+          44018002
+         ]
+        ],
+        "cites": [
+         "lumby-acts"
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "id": "claudius-expulsion",
+     "question": "Was there one measure against the Jews of Rome or two, and when?",
+     "views": [
+      {
+       "label": "One expulsion, in AD 49",
+       "holders": "Orosius (about 417); A. Deissmann (1912)",
+       "argument": {
+        "text": "Orosius dates it to Claudius's ninth year; Deissmann accepts the date and uses it to time Paul's arrival at Corinth.",
+        "layer": "scholars",
+        "refs": [
+         [
+          44018001,
+          44018002
+         ]
+        ],
+        "cites": [
+         "deissmann-1912"
+        ]
+       }
+      },
+      {
+       "label": "One measure, a ban on meetings, late in the reign",
+       "holders": "E. Schürer (1885)",
+       "argument": {
+        "text": "Schürer calls Dio's account \"evidently more accurate\": the expulsion was intended but given up, and the Jews were forbidden to meet. He thinks Orosius's date \"probably unreliable\" and, from Acts' \"lately\", puts the edict about AD 50-52.",
+        "layer": "scholars",
+        "refs": [
+         [
+          44018002,
+          44018002
+         ]
+        ],
+        "cites": [
+         "schurer-1885"
+        ]
+       }
+      },
+      {
+       "label": "Two measures: a ban in AD 41, an expulsion later",
+       "holders": "J. C. M. Laurent (as reported by Meyer, 1877-80)",
+       "argument": {
+        "text": "Dio's ban belongs to Claudius's first year, AD 41; the expulsion of Suetonius and Acts came later, in AD 49.",
+        "layer": "scholars",
+        "refs": [
+         [
+          44018002,
+          44018002
+         ]
+        ],
+        "cites": [
+         "meyer-acts"
+        ]
+       }
+      }
+     ]
+    }
+   ],
+   "notSaid": [
+    "Acts does not say why Claudius ordered the Jews out of Rome.",
+    "Acts does not say whether Aquila and Priscilla were already Christians when Paul met them.",
+    "Scripture says nothing of Claudius's death or of who followed him."
+   ],
+   "places": [
+    {
+     "name": "Rome",
+     "placeId": "afc8e7a",
+     "refs": [
+      [
+       44018002,
+       44018002
+      ]
+     ]
+    },
+    {
+     "name": "Italy",
+     "placeId": "a7184a7",
+     "refs": [
+      [
+       44018002,
+       44018002
+      ]
+     ]
+    },
+    {
+     "name": "Corinth",
+     "placeId": "a6f437a",
+     "refs": [
+      [
+       44018001,
+       44018001
+      ]
+     ],
+     "note": "Where Paul met Aquila and Priscilla"
+    },
+    {
+     "name": "Antioch",
+     "placeId": "ae41ab4",
+     "refs": [
+      [
+       44011027,
+       44011027
+      ]
+     ],
+     "note": "Where Agabus prophesied"
+    },
+    {
+     "name": "Judaea",
+     "placeId": "a149f13",
+     "refs": [
+      [
+       44011029,
+       44011029
+      ]
+     ],
+     "note": "Where the relief was sent"
+    },
+    {
+     "name": "Pontus",
+     "placeId": "a83a43e",
+     "refs": [
+      [
+       44018002,
+       44018002
+      ]
+     ],
+     "note": "Aquila's birthplace"
+    }
+   ],
+   "passages": [
+    [
+     44011027,
+     44011030
+    ],
+    [
+     44012025,
+     44012025
+    ],
+    [
+     44018001,
+     44018003
+    ]
+   ],
+   "otherNames": [
+    "Claudius Caesar"
+   ],
+   "successor": "nero-php-4-22",
+   "capital": {
+    "name": "Rome",
+    "placeId": "afc8e7a",
+    "refs": [
+     [
+      44018002,
+      44018002
+     ]
+    ],
+    "note": "The city he ordered the Jews to leave"
+   },
+   "identifications": [
+    {
+     "text": "Acts names Claudius twice (Acts 11:28; 18:2). The site's person record also gives him \"the decrees of Cæsar\" at Thessalonica, which fall in his reign by date but name no emperor, and the \"Caesar\" of Paul's appeal in Acts 25-28.",
+     "layer": "text",
+     "refs": [
+      [
+       44011028,
+       44011028
+      ],
+      [
+       44018002,
+       44018002
+      ],
+      [
+       44017007,
+       44017007
+      ],
+      [
+       44025011,
+       44025011
+      ]
+     ]
+    },
+    {
+     "text": "Josephus says Porcius Festus, who heard Paul's appeal, \"was sent as successor to Felix by Nero\", so the Caesar of Acts 25-28 reigned after Claudius.",
+     "layer": "ancient-record",
+     "refs": [
+      [
+       44025011,
+       44025012
+      ]
+     ],
+     "cites": [
+      "josephus-ant"
+     ]
+    }
+   ],
+   "reign": {
+    "text": "Scripture gives no length of reign; it names \"the days of Claudius Cæsar\" (Acts 11:28).",
+    "refs": [
+     [
+      44011028,
+      44011028
+     ]
+    ]
+   },
+   "dates": [
+    {
+     "system": "bible",
+     "label": "Scripture's numbers",
+     "note": "None (Acts 11:28; 18:2)."
+    },
+    {
+     "system": "other",
+     "label": "Roman records",
+     "from": -41,
+     "to": -54,
+     "note": "Began to reign 25 January AD 41 (Rolfe's note); died 13 October AD 54, 'in the sixty-fourth year of his age and the fourteenth of his reign' (Suetonius, Claudius 45).",
+     "cites": [
+      "suet-claudius"
+     ]
+    },
+    {
+     "system": "other",
+     "label": "Josephus's count",
+     "note": "\"Thirteen years, eight months, and twenty days\" (Antiquities 20.8.1).",
+     "cites": [
+      "josephus-ant"
+     ]
+    }
+   ],
+   "scriptureSays": [
+    {
+     "text": "Agabus \"signified by the Spirit that there should be great dearth throughout all the world: which came to pass in the days of Claudius Cæsar.\"",
+     "layer": "scripture",
+     "refs": [
+      [
+       44011028,
+       44011028
+      ]
+     ]
+    },
+    {
+     "text": "At Corinth Paul found Aquila and Priscilla, \"lately come from Italy ... because that Claudius had commanded all Jews to depart from Rome\".",
+     "layer": "scripture",
+     "refs": [
+      [
+       44018002,
+       44018002
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "sergius-paulus-act-13-7",
+   "name": "Sergius Paulus",
+   "kind": "roman",
+   "realm": "rome",
+   "title": "Proconsul of Cyprus",
+   "tagline": "The proconsul of Cyprus who \"believed\" at Paphos.",
+   "order": 7,
+   "records": [],
+   "verdictTone": "none",
+   "events": [
+    {
+     "label": "Barnabas and Saul summoned",
+     "kind": "other",
+     "claim": {
+      "text": "Having gone through the island to Paphos, they found the sorcerer Bar-jesus with the proconsul, who called for them to hear the word of God.",
+      "layer": "scripture",
+      "refs": [
+       [
+        44013006,
+        44013007
+       ]
+      ]
+     },
+     "placeId": "a314765"
+    },
+    {
+     "label": "Elymas struck blind",
+     "kind": "other",
+     "claim": {
+      "text": "Saul, \"filled with the Holy Ghost\", rebuked Elymas, and \"there fell on him a mist and a darkness\".",
+      "layer": "scripture",
+      "refs": [
+       [
+        44013008,
+        44013011
+       ]
+      ]
+     },
+     "placeId": "a314765"
+    },
+    {
+     "label": "The proconsul believes",
+     "kind": "worship",
+     "claim": {
+      "text": "Seeing what was done, the proconsul \"believed, being astonished at the doctrine of the Lord\".",
+      "layer": "scripture",
+      "refs": [
+       [
+        44013012,
+        44013012
+       ]
+      ]
+     },
+     "placeId": "a314765"
+    }
+   ],
+   "nation": {
+    "worship": [
+     {
+      "text": "At Salamis Barnabas and Saul \"preached the word of God in the synagogues of the Jews\".",
+      "layer": "scripture",
+      "refs": [
+       [
+        44013005,
+        44013005
+       ]
+      ]
+     }
+    ],
+    "building": [],
+    "alliances": [],
+    "people": [
+     {
+      "text": "A Jewish sorcerer and false prophet, Bar-jesus, called Elymas, \"was with the deputy\".",
+      "layer": "scripture",
+      "refs": [
+       [
+        44013006,
+        44013008
+       ]
+      ]
+     }
+    ]
+   },
+   "prophets": [],
+   "worldStage": [
+    {
+     "power": "Rome",
+     "rulers": [
+      {
+       "name": "Claudius",
+       "personId": "claudius-act-11-28"
+      }
+     ],
+     "claim": {
+      "text": "Acts names no emperor here. By the dates scholars give for the first journey (about AD 47), Claudius reigned.",
+      "layer": "scholars",
+      "refs": [
+       [
+        44013004,
+        44013012
+       ]
+      ],
+      "cites": [
+       "ramsay-1895",
+       "suet-claudius"
+      ]
+     }
+    }
+   ],
+   "outside": [
+    {
+     "name": "The \"Paulus\" inscription from Cyprus",
+     "date": "published by Cesnola",
+     "claim": {
+      "text": "A damaged Greek inscription from Cyprus, published by General Cesnola, is dated \"in the proconsulship of Paulus\". Cesnola suggested this \"may be the Sergius Paulus of the Acts\"; Lightfoot (1889) agreed.",
+      "layer": "ancient-record",
+      "cites": [
+       "lightfoot-1889"
+      ]
+     }
+    },
+    {
+     "name": "A Sergius Paulus in Pliny",
+     "date": "1st century AD",
+     "claim": {
+      "text": "Pliny the Elder's list of authorities names a Sergius Paulus for books 2 and 18 of his Natural History, both of which say something of Cyprus. Lightfoot (1889) suggests he may be the proconsul; it is a suggestion, not a record.",
+      "layer": "scholars",
+      "cites": [
+       "lightfoot-1889"
+      ]
+     }
+    },
+    {
+     "name": "An inscription at Pisidian Antioch",
+     "date": "copied 1912; letters of about AD 60-100",
+     "claim": {
+      "text": "Ramsay and J. G. C. Anderson copied an inscription honouring \"Lucius Sergius Paullus the younger\", son of Lucius. Ramsay and H. Dessau take him for the proconsul's son.",
+      "layer": "ancient-record",
+      "cites": [
+       "ramsay-1915"
+      ]
+     }
+    }
+   ],
+   "twoAccounts": [],
+   "questions": [
+    {
+     "id": "sergius-paulus-faith",
+     "question": "Did the proconsul's family follow him in the faith Acts says he believed?",
+     "views": [
+      {
+       "label": "Possibly: some of the family leaned toward Christianity",
+       "holders": "W. M. Ramsay (1915)",
+       "argument": {
+        "text": "From inscriptions of the family at Pisidian Antioch, Ramsay asks whether the proconsul and his daughter Sergia Paulla were \"either Christian or half-way on the road towards Christianity\" while other relatives stayed pagan.",
+        "layer": "scholars",
+        "refs": [
+         [
+          44013012,
+          44013012
+         ]
+        ],
+        "cites": [
+         "ramsay-1915"
+        ]
+       }
+      },
+      {
+       "label": "No member of the family is known to have been Christian",
+       "holders": "H. Dessau (as reported by Ramsay, 1915)",
+       "argument": {
+        "text": "Dessau, the editor of the register of Roman officials, wrote that \"evidently no member of this family was Christian\"; Ramsay agreed for the family's well-known members.",
+        "layer": "scholars",
+        "cites": [
+         "ramsay-1915"
+        ]
+       }
+      }
+     ]
+    }
+   ],
+   "notSaid": [
+    "Acts says nothing of Sergius Paulus after Paul and Barnabas left Paphos.",
+    "Acts does not say that he was baptized.",
+    "Acts gives no year and no length for his proconsulship."
+   ],
+   "places": [
+    {
+     "name": "Paphos",
+     "placeId": "a314765",
+     "refs": [
+      [
+       44013006,
+       44013006
+      ]
+     ]
+    },
+    {
+     "name": "Cyprus",
+     "placeId": "a2e7601",
+     "refs": [
+      [
+       44013004,
+       44013004
+      ]
+     ]
+    },
+    {
+     "name": "Salamis",
+     "placeId": "afa863b",
+     "refs": [
+      [
+       44013005,
+       44013005
+      ]
+     ]
+    },
+    {
+     "name": "Seleucia",
+     "placeId": "a6d306d",
+     "refs": [
+      [
+       44013004,
+       44013004
+      ]
+     ],
+     "note": "Where they set sail"
+    },
+    {
+     "name": "Perga",
+     "placeId": "aff04b8",
+     "refs": [
+      [
+       44013013,
+       44013013
+      ]
+     ],
+     "note": "Where they went next"
+    }
+   ],
+   "passages": [
+    [
+     44013004,
+     44013013
+    ]
+   ],
+   "capital": {
+    "name": "Paphos",
+    "placeId": "a314765",
+    "refs": [
+     [
+      44013006,
+      44013007
+     ]
+    ],
+    "note": "Where Paul and Barnabas found him"
+   },
+   "identifications": [
+    {
+     "text": "The King James \"deputy\" stands for the Greek title of a proconsul, the governor of a province under the senate. Lightfoot (1889) shows from Dio Cassius and the inscriptions that Cyprus was then governed by proconsuls, so the title Luke uses is the right one.",
+     "layer": "scholars",
+     "refs": [
+      [
+       44013007,
+       44013007
+      ]
+     ],
+     "cites": [
+      "lightfoot-1889"
+     ]
+    }
+   ],
+   "reign": {
+    "text": "\"The deputy of the country\" at Paphos when Barnabas and Saul came (Acts 13:7); no length is given.",
+    "refs": [
+     [
+      44013007,
+      44013007
+     ]
+    ]
+   },
+   "dates": [
+    {
+     "system": "bible",
+     "label": "Scripture's numbers",
+     "note": "None. Acts gives no year for the visit to Cyprus."
+    },
+    {
+     "system": "other",
+     "label": "Paul's visit (Ramsay 1895)",
+     "from": -47,
+     "to": -47,
+     "approx": true,
+     "note": "Ramsay dates the first journey from spring 47; this dates Paul's visit, not the length of the proconsulship.",
+     "cites": [
+      "ramsay-1895"
+     ]
+    },
+    {
+     "system": "other",
+     "label": "Paul's visit (Robertson 1915)",
+     "from": -47,
+     "to": -48,
+     "approx": true,
+     "note": "Robertson: the first journey in 47-48 (or 48-49).",
+     "cites": [
+      "robertson-isbe-1915"
+     ]
+    }
+   ],
+   "scriptureSays": [
+    {
+     "text": "\"The deputy of the country, Sergius Paulus, a prudent man; who called for Barnabas and Saul, and desired to hear the word of God.\"",
+     "layer": "scripture",
+     "refs": [
+      [
+       44013007,
+       44013007
+      ]
+     ]
+    },
+    {
+     "text": "Elymas the sorcerer withstood them, \"seeking to turn away the deputy from the faith\".",
+     "layer": "scripture",
+     "refs": [
+      [
+       44013008,
+       44013008
+      ]
+     ]
+    },
+    {
+     "text": "\"Then the deputy, when he saw what was done, believed, being astonished at the doctrine of the Lord.\"",
+     "layer": "scripture",
+     "refs": [
+      [
+       44013012,
+       44013012
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "gallio-act-18-12",
+   "name": "Gallio",
+   "kind": "roman",
+   "realm": "rome",
+   "title": "Proconsul of Achaia",
+   "tagline": "The proconsul who would not judge Paul's case at Corinth.",
+   "order": 8,
+   "records": [],
+   "verdictTone": "none",
+   "events": [
+    {
+     "label": "Paul accused",
+     "kind": "other",
+     "claim": {
+      "text": "The charge: \"This fellow persuadeth men to worship God contrary to the law.\"",
+      "layer": "scripture",
+      "refs": [
+       [
+        44018012,
+        44018013
+       ]
+      ]
+     },
+     "placeId": "a6f437a"
+    },
+    {
+     "label": "Case dismissed",
+     "kind": "other",
+     "claim": {
+      "text": "Before Paul could speak, Gallio ruled that it was no matter of wrong or crime but a question of their law, and drove them from the judgment seat.",
+      "layer": "scripture",
+      "refs": [
+       [
+        44018014,
+        44018016
+       ]
+      ]
+     },
+     "placeId": "a6f437a"
+    },
+    {
+     "label": "Sosthenes beaten",
+     "kind": "other",
+     "claim": {
+      "text": "Sosthenes, the chief ruler of the synagogue, was beaten before the judgment seat, \"and Gallio cared for none of those things\".",
+      "layer": "scripture",
+      "refs": [
+       [
+        44018017,
+        44018017
+       ]
+      ]
+     },
+     "placeId": "a6f437a"
+    }
+   ],
+   "nation": {
+    "worship": [
+     {
+      "text": "Gallio set the dispute aside as \"a question of words and names, and of your law\".",
+      "layer": "scripture",
+      "refs": [
+       [
+        44018015,
+        44018015
+       ]
+      ]
+     }
+    ],
+    "building": [],
+    "alliances": [],
+    "people": [
+     {
+      "text": "After the hearing Paul \"tarried there yet a good while\" before sailing from Cenchrea.",
+      "layer": "scripture",
+      "refs": [
+       [
+        44018018,
+        44018018
+       ]
+      ]
+     }
+    ]
+   },
+   "prophets": [],
+   "worldStage": [
+    {
+     "power": "Rome",
+     "rulers": [
+      {
+       "name": "Claudius",
+       "personId": "claudius-act-11-28"
+      }
+     ],
+     "claim": {
+      "text": "The Delphi inscription is a letter of Claudius naming Gallio as proconsul (Deissmann, 1912); Acts mentions Claudius's order against the Jews of Rome just before Paul reached Corinth.",
+      "layer": "ancient-record",
+      "refs": [
+       [
+        44018002,
+        44018002
+       ]
+      ],
+      "cites": [
+       "deissmann-1912"
+      ]
+     }
+    }
+   ],
+   "outside": [
+    {
+     "name": "The Delphi inscription",
+     "date": "AD 52",
+     "claim": {
+      "text": "Four fragments of a letter from the emperor Claudius to the city of Delphi, found at Delphi and kept in its museum, name \"[Lucius Ju]nius Gallio, my [friend] and [procon]sul\" (our own English rendering of the Greek as Deissmann restores it; square brackets mark restored letters). Claudius's twenty-sixth acclamation as imperator, in line 2, dates the letter between the end of 51 or, more probably, the beginning of 52 and 1 August 52.",
+      "layer": "ancient-record",
+      "refs": [
+       [
+        44018012,
+        44018012
+       ]
+      ],
+      "cites": [
+       "deissmann-1912"
+      ]
+     }
+    },
+    {
+     "name": "Seneca on his brother",
+     "date": "Seneca, Letter 104",
+     "claim": {
+      "text": "Seneca recalls \"my master Gallio's words, when he began to develop a fever in Achaia and took ship at once, insisting that the disease was not of the body but of the place.\"",
+      "layer": "ancient-record",
+      "cites": [
+       "gummere-1925"
+      ]
+     }
+    },
+    {
+     "name": "Tacitus on his danger after Seneca's death",
+     "date": "AD 65",
+     "claim": {
+      "text": "Tacitus: after Seneca's death a senator denounced \"Junius Gallio, who was terror-stricken at his brother Seneca's death and was pleading for his life\"; the senate silenced the accuser.",
+      "layer": "ancient-record",
+      "cites": [
+       "tacitus-annals"
+      ]
+     }
+    }
+   ],
+   "twoAccounts": [],
+   "questions": [],
+   "notSaid": [
+    "Acts does not say how long Gallio held office or what became of him.",
+    "Acts does not say what Gallio thought of Paul's teaching, only that he would not judge it.",
+    "Acts does not say who \"all the Greeks\" were or why they beat Sosthenes."
+   ],
+   "places": [
+    {
+     "name": "Corinth",
+     "placeId": "a6f437a",
+     "refs": [
+      [
+       44018001,
+       44018001
+      ]
+     ]
+    },
+    {
+     "name": "Achaia",
+     "placeId": "aef4242",
+     "refs": [
+      [
+       44018012,
+       44018012
+      ]
+     ],
+     "note": "The province he governed"
+    },
+    {
+     "name": "Cenchreae",
+     "placeId": "aa31dd3",
+     "refs": [
+      [
+       44018018,
+       44018018
+      ]
+     ],
+     "note": "Corinth's port, where Paul sailed"
+    }
+   ],
+   "passages": [
+    [
+     44018001,
+     44018018
+    ]
+   ],
+   "otherNames": [
+    "Lucius Junius Gallio"
+   ],
+   "capital": {
+    "name": "Corinth",
+    "placeId": "a6f437a",
+    "refs": [
+     [
+      44018001,
+      44018001
+     ],
+     [
+      44018012,
+      44018012
+     ]
+    ],
+    "note": "Where Paul was brought to his judgment seat"
+   },
+   "identifications": [
+    {
+     "text": "Gallio was the elder brother of the philosopher Seneca, born Annaeus Novatus and renamed on his adoption by Lucius Junius Gallio. Church and Brodribb and Gummere both identify him with the Gallio of Acts 18:12.",
+     "layer": "scholars",
+     "refs": [
+      [
+       44018012,
+       44018012
+      ]
+     ],
+     "cites": [
+      "gummere-1925",
+      "tacitus-annals"
+     ]
+    }
+   ],
+   "reign": {
+    "text": "\"When Gallio was the deputy of Achaia\" (Acts 18:12); no length is given.",
+    "refs": [
+     [
+      44018012,
+      44018012
+     ]
+    ]
+   },
+   "dates": [
+    {
+     "system": "bible",
+     "label": "Scripture's numbers",
+     "note": "None. Acts gives Paul's eighteen months at Corinth (Acts 18:11), not Gallio's term."
+    },
+    {
+     "system": "other",
+     "label": "Deissmann (1912), from the Delphi letter",
+     "from": -51,
+     "to": -52,
+     "approx": true,
+     "note": "Gallio probably took office about midsummer 51 for one year; the emperor's letter naming him falls between (the end of 51 or, more probably) the beginning of 52 and 1 August 52.",
+     "cites": [
+      "deissmann-1912"
+     ]
+    },
+    {
+     "system": "other",
+     "label": "Gummere (1925)",
+     "from": -51,
+     "to": -52,
+     "note": "Governor of Achaia from 1 July 51 to 1 July 52.",
+     "cites": [
+      "gummere-1925"
+     ]
+    },
+    {
+     "system": "other",
+     "label": "Ramsay (1895)",
+     "from": -52,
+     "to": -53,
+     "approx": true,
+     "note": "Ramsay, writing before the Delphi letter was published, has Gallio arrive in July 52.",
+     "cites": [
+      "ramsay-1895"
+     ]
+    }
+   ],
+   "scriptureSays": [
+    {
+     "text": "\"When Gallio was the deputy of Achaia, the Jews made insurrection with one accord against Paul, and brought him to the judgment seat.\"",
+     "layer": "scripture",
+     "refs": [
+      [
+       44018012,
+       44018012
+      ]
+     ]
+    },
+    {
+     "text": "Gallio: \"if it be a question of words and names, and of your law, look ye to it; for I will be no judge of such matters.\" \"And he drave them from the judgment seat.\"",
+     "layer": "scripture",
+     "refs": [
+      [
+       44018015,
+       44018016
+      ]
+     ]
+    },
+    {
+     "text": "\"Then all the Greeks took Sosthenes, the chief ruler of the synagogue, and beat him before the judgment seat. And Gallio cared for none of those things.\"",
+     "layer": "scripture",
+     "refs": [
+      [
+       44018017,
+       44018017
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "felix-act-23-24",
+   "name": "Felix",
+   "kind": "roman",
+   "realm": "rome",
+   "title": "Governor of Judaea",
+   "tagline": "He heard Paul at Caesarea and left him bound for two years.",
+   "order": 9,
+   "records": [],
+   "verdictTone": "none",
+   "events": [
+    {
+     "label": "Paul brought to Caesarea",
+     "kind": "other",
+     "claim": {
+      "text": "Paul came under guard by way of Antipatris to Caesarea and was kept \"in Herod's judgment hall\".",
+      "layer": "scripture",
+      "refs": [
+       [
+        44023031,
+        44023035
+       ]
+      ]
+     },
+     "placeId": "a58735e"
+    },
+    {
+     "label": "The hearing with Tertullus",
+     "kind": "other",
+     "claim": {
+      "text": "Ananias the high priest came with the elders and the orator Tertullus; Paul answered the charges, and Felix deferred judgment.",
+      "layer": "scripture",
+      "refs": [
+       [
+        44024001,
+        44024022
+       ]
+      ]
+     },
+     "placeId": "a58735e"
+    },
+    {
+     "label": "Paul before Felix and Drusilla",
+     "kind": "personal",
+     "claim": {
+      "text": "Felix and his wife Drusilla, \"which was a Jewess\", heard Paul \"concerning the faith in Christ\".",
+      "layer": "scripture",
+      "refs": [
+       [
+        44024024,
+        44024025
+       ]
+      ]
+     },
+     "placeId": "a58735e"
+    },
+    {
+     "label": "Two years in custody",
+     "kind": "other",
+     "claim": {
+      "text": "Felix often sent for Paul, hoping for money; after two years Festus succeeded him and Paul was still bound.",
+      "layer": "scripture",
+      "refs": [
+       [
+        44024026,
+        44024027
+       ]
+      ]
+     },
+     "placeId": "a58735e"
+    }
+   ],
+   "nation": {
+    "worship": [
+     {
+      "text": "Paul to Felix: \"after the way which they call heresy, so worship I the God of my fathers\".",
+      "layer": "scripture",
+      "refs": [
+       [
+        44024014,
+        44024014
+       ]
+      ]
+     }
+    ],
+    "building": [],
+    "alliances": [
+     {
+      "text": "Felix's wife was Drusilla, \"a Jewess\"; Josephus says she was a sister of Agrippa II whom Felix persuaded to leave her husband Azizus, king of Emesa.",
+      "layer": "ancient-record",
+      "refs": [
+       [
+        44024024,
+        44024024
+       ]
+      ],
+      "cites": [
+       "josephus-ant"
+      ]
+     }
+    ],
+    "people": [
+     {
+      "text": "Paul told Felix he \"came to bring alms to my nation, and offerings\".",
+      "layer": "scripture",
+      "refs": [
+       [
+        44024017,
+        44024017
+       ]
+      ]
+     }
+    ]
+   },
+   "prophets": [],
+   "worldStage": [
+    {
+     "power": "Rome",
+     "rulers": [
+      {
+       "name": "Claudius",
+       "personId": "claudius-act-11-28"
+      },
+      {
+       "name": "Nero",
+       "personId": "nero-php-4-22"
+      }
+     ],
+     "claim": {
+      "text": "Josephus: \"Claudius sent Felix, the brother of Pallas, to take care of the affairs of Judea\"; Suetonius says Claudius gave him \"the province of Judaea\". Josephus tells most of his acts under Nero, who sent Festus to succeed him.",
+      "layer": "ancient-record",
+      "cites": [
+       "josephus-ant",
+       "suet-claudius"
+      ]
+     }
+    }
+   ],
+   "outside": [
+    {
+     "name": "Tacitus on Felix",
+     "date": "AD 52 and after",
+     "claim": {
+      "text": "Tacitus: Antonius Felix, \"indulging in every kind of barbarity and lust, exercised the power of a king in the spirit of a slave\"; he married a granddaughter of Antony and Cleopatra. Suetonius calls him \"the husband of three queens\".",
+      "layer": "ancient-record",
+      "cites": [
+       "tacitus-histories",
+       "suet-claudius"
+      ]
+     }
+    },
+    {
+     "name": "Josephus on his rule",
+     "date": "about AD 52-60",
+     "claim": {
+      "text": "Josephus: Felix put many robbers and impostors to death; he had the high priest Jonathan murdered by bribing his friend Doras; and he armed his soldiers against the Jews of Caesarea in their quarrel with the Syrians there.",
+      "layer": "ancient-record",
+      "cites": [
+       "josephus-ant"
+      ]
+     }
+    },
+    {
+     "name": "Josephus on \"the Egyptian\"",
+     "date": "under Felix",
+     "claim": {
+      "text": "Acts has the tribune ask Paul, \"Art not thou that Egyptian\" who led \"four thousand men that were murderers\" into the wilderness. Josephus tells of an Egyptian prophet routed by Felix: in the Antiquities four hundred were slain and two hundred taken alive; in the Jewish War he had gathered thirty thousand. The Egyptian himself escaped.",
+      "layer": "ancient-record",
+      "refs": [
+       [
+        44021038,
+        44021038
+       ]
+      ],
+      "cites": [
+       "josephus-ant",
+       "josephus-war"
+      ]
+     }
+    },
+    {
+     "name": "Josephus on his recall",
+     "date": "about AD 60",
+     "claim": {
+      "text": "Josephus: when Nero sent Festus, the leading Jews of Caesarea went to Rome to accuse Felix, and he would have been punished \"unless Nero had yielded to the importunate solicitations of his brother Pallas\".",
+      "layer": "ancient-record",
+      "cites": [
+       "josephus-ant"
+      ]
+     }
+    }
+   ],
+   "twoAccounts": [],
+   "questions": [
+    {
+     "id": "felix-start",
+     "question": "When did Felix's governorship begin?",
+     "views": [
+      {
+       "label": "When Cumanus was deposed, AD 52",
+       "holders": "Josephus; E. Schürer (1890), who prefers him",
+       "argument": {
+        "text": "Josephus has Claudius send Felix after Cumanus was banished; Schürer holds the \"very detailed narrative of Josephus deserves to be preferred\".",
+        "layer": "scholars",
+        "refs": [
+         [
+          44024010,
+          44024010
+         ]
+        ],
+        "cites": [
+         "josephus-ant",
+         "schurer-1890"
+        ]
+       }
+      },
+      {
+       "label": "Earlier, over Samaria while Cumanus held Galilee",
+       "holders": "Tacitus; K. Nipperdey and H. Grätz (as reported by Schürer, 1890)",
+       "argument": {
+        "text": "Tacitus says Felix \"had for some time been governor of Judaea\" and that the province \"was so divided that Galilea was governed by Cumanus, Samaria by Felix\".",
+        "layer": "scholars",
+        "refs": [
+         [
+          44024010,
+          44024010
+         ]
+        ],
+        "cites": [
+         "tacitus-annals",
+         "schurer-1890"
+        ]
+       }
+      }
+     ]
+    }
+   ],
+   "notSaid": [
+    "Acts does not say how Felix's governorship ended, beyond Festus coming \"into Felix' room\".",
+    "Acts does not say that Paul paid Felix anything.",
+    "Acts does not say what Felix came to believe."
+   ],
+   "places": [
+    {
+     "name": "Caesarea",
+     "placeId": "a58735e",
+     "refs": [
+      [
+       44023033,
+       44023033
+      ]
+     ]
+    },
+    {
+     "name": "Jerusalem",
+     "placeId": "a15257a",
+     "refs": [
+      [
+       44024011,
+       44024011
+      ]
+     ]
+    },
+    {
+     "name": "Cilicia",
+     "placeId": "ad63819",
+     "refs": [
+      [
+       44023034,
+       44023034
+      ]
+     ],
+     "note": "Paul's province, which Felix asked"
+    }
+   ],
+   "passages": [
+    [
+     44021037,
+     44021038
+    ],
+    [
+     44023023,
+     44023035
+    ],
+    [
+     44024001,
+     44024027
+    ],
+    [
+     44025014,
+     44025014
+    ]
+   ],
+   "otherNames": [
+    "Antonius Felix"
+   ],
+   "successor": "festus-act-24-27",
+   "capital": {
+    "name": "Caesarea",
+    "placeId": "a58735e",
+    "refs": [
+     [
+      44023023,
+      44023023
+     ],
+     [
+      44023033,
+      44023033
+     ]
+    ],
+    "note": "Where Paul was sent to him"
+   },
+   "identifications": [
+    {
+     "text": "Tacitus calls him Antonius Felix and Josephus \"the brother of Pallas\", the freedman powerful under Claudius.",
+     "layer": "ancient-record",
+     "refs": [
+      [
+       44023024,
+       44023024
+      ]
+     ],
+     "cites": [
+      "tacitus-histories",
+      "josephus-ant"
+     ]
+    },
+    {
+     "text": "Tacitus says Felix married a granddaughter of Antony and Cleopatra and calls her Drusilla. Schürer (1890) holds that she was a different wife and that \"the name Drusilla is introduced through a confusion with the other wife of Felix\", the Jewish Drusilla of Acts 24:24. Rolfe (1914) instead takes two of Felix's royal wives to have been named Drusilla, a daughter of Juba II of Mauretania and a daughter of Agrippa I.",
+     "layer": "scholars",
+     "refs": [
+      [
+       44024024,
+       44024024
+      ]
+     ],
+     "cites": [
+      "schurer-1890",
+      "tacitus-histories",
+      "suet-claudius"
+     ]
+    }
+   ],
+   "reign": {
+    "text": "\"Of many years a judge unto this nation\", in Paul's words (Acts 24:10); Festus followed him \"after two years\" of Paul's custody (Acts 24:27).",
+    "refs": [
+     [
+      44024010,
+      44024010
+     ],
+     [
+      44024027,
+      44024027
+     ]
+    ]
+   },
+   "dates": [
+    {
+     "system": "bible",
+     "label": "Scripture's numbers",
+     "note": "Paul says Felix had been 'of many years a judge unto this nation' (Acts 24:10); Paul was held 'two years' before Festus came (Acts 24:27)."
+    },
+    {
+     "system": "other",
+     "label": "Schürer (1890)",
+     "from": -52,
+     "to": -60,
+     "approx": true,
+     "note": "Sent by Claudius in 52, after Cumanus was deposed; recalled 'probably in A.D. 60'.",
+     "cites": [
+      "schurer-1890"
+     ]
+    },
+    {
+     "system": "other",
+     "label": "Ramsay (1895)",
+     "note": "Festus replaced Felix in 59; Paul was held at Caesarea from June 57 to July 59.",
+     "cites": [
+      "ramsay-1895"
+     ]
+    }
+   ],
+   "scriptureSays": [
+    {
+     "text": "The tribune Claudius Lysias sent Paul by night with soldiers to \"Felix the governor\", writing to \"the most excellent governor Felix\".",
+     "layer": "scripture",
+     "refs": [
+      [
+       44023023,
+       44023026
+      ]
+     ]
+    },
+    {
+     "text": "Tertullus began: \"Seeing that by thee we enjoy great quietness, and that very worthy deeds are done unto this nation by thy providence\".",
+     "layer": "scripture",
+     "refs": [
+      [
+       44024002,
+       44024002
+      ]
+     ]
+    },
+    {
+     "text": "Felix, \"having more perfect knowledge of that way\", put off the case until Lysias should come.",
+     "layer": "scripture",
+     "refs": [
+      [
+       44024022,
+       44024022
+      ]
+     ]
+    },
+    {
+     "text": "\"As he reasoned of righteousness, temperance, and judgment to come, Felix trembled.\"",
+     "layer": "scripture",
+     "refs": [
+      [
+       44024025,
+       44024025
+      ]
+     ]
+    },
+    {
+     "text": "\"He hoped also that money should have been given him of Paul, that he might loose him.\"",
+     "layer": "scripture",
+     "refs": [
+      [
+       44024026,
+       44024026
+      ]
+     ]
+    },
+    {
+     "text": "\"Felix, willing to shew the Jews a pleasure, left Paul bound.\"",
+     "layer": "scripture",
+     "refs": [
+      [
+       44024027,
+       44024027
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "nero-php-4-22",
+   "name": "Nero",
+   "kind": "roman",
+   "realm": "rome",
+   "title": "Roman emperor (never named in Scripture)",
+   "tagline": "The \"Caesar\" of Paul's appeal, by date; Scripture never names him.",
+   "order": 10,
+   "records": [],
+   "verdictTone": "none",
+   "events": [
+    {
+     "label": "The appeal to Caesar",
+     "kind": "other",
+     "claim": {
+      "text": "Before Festus at Caesarea Paul refused to be judged at Jerusalem and appealed to Caesar.",
+      "layer": "scripture",
+      "refs": [
+       [
+        44025009,
+        44025012
+       ]
+      ]
+     },
+     "placeId": "a58735e"
+    },
+    {
+     "label": "Sent to Italy",
+     "kind": "other",
+     "claim": {
+      "text": "Paul and other prisoners were handed to Julius, \"a centurion of Augustus' band\", to sail for Italy.",
+      "layer": "scripture",
+      "refs": [
+       [
+        44027001,
+        44027001
+       ]
+      ]
+     },
+     "placeId": "a7184a7"
+    },
+    {
+     "label": "Two years at Rome",
+     "kind": "other",
+     "claim": {
+      "text": "At Rome Paul lived under guard \"with a soldier that kept him\", \"two whole years in his own hired house\".",
+      "layer": "scripture",
+      "refs": [
+       [
+        44028016,
+        44028016
+       ],
+       [
+        44028030,
+        44028031
+       ]
+      ]
+     },
+     "placeId": "afc8e7a"
+    }
+   ],
+   "nation": {
+    "worship": [],
+    "building": [],
+    "alliances": [],
+    "people": [
+     {
+      "text": "Paul's bonds were \"manifest in all the palace\", and some \"of Caesar's household\" sent greetings.",
+      "layer": "scripture",
+      "refs": [
+       [
+        50001013,
+        50001013
+       ],
+       [
+        50004022,
+        50004022
+       ]
+      ]
+     }
+    ]
+   },
+   "prophets": [],
+   "worldStage": [],
+   "outside": [
+    {
+     "name": "Josephus: Nero sends Festus",
+     "date": "about AD 60",
+     "claim": {
+      "text": "Josephus: \"Porcius Festus was sent as successor to Felix by Nero\"; the Jews of Caesarea accused Felix at Rome, and he escaped only because Nero \"yielded to the importunate solicitations of his brother Pallas\".",
+      "layer": "ancient-record",
+      "refs": [
+       [
+        44024027,
+        44024027
+       ]
+      ],
+      "cites": [
+       "josephus-ant"
+      ]
+     }
+    },
+    {
+     "name": "Josephus: the temple wall",
+     "date": "under Festus",
+     "claim": {
+      "text": "Josephus: when Festus ordered a new temple wall pulled down, the Jews sent envoys to Nero, who let the wall stand \"in order to gratify Poppea, Nero's wife, who was a religious woman\".",
+      "layer": "ancient-record",
+      "cites": [
+       "josephus-ant"
+      ]
+     }
+    },
+    {
+     "name": "Tacitus on the Christians after the fire",
+     "date": "AD 64",
+     "claim": {
+      "text": "Tacitus: after the fire of Rome \"Nero fastened the guilt and inflicted the most exquisite tortures on a class hated for their abominations, called Christians by the populace.\"",
+      "layer": "ancient-record",
+      "cites": [
+       "tacitus-annals"
+      ]
+     }
+    },
+    {
+     "name": "Suetonius on the Christians",
+     "date": "reign of Nero",
+     "claim": {
+      "text": "Suetonius, in a list of Nero's measures: \"Punishment was inflicted on the Christians, a class of men given to a new and mischievous superstition.\"",
+      "layer": "ancient-record",
+      "cites": [
+       "suet-nero"
+      ]
+     }
+    },
+    {
+     "name": "The early church on Nero",
+     "date": "about AD 197 and about 325",
+     "claim": {
+      "text": "Tertullian (about 197): \"Nero was the first who assailed with the imperial sword the Christian sect\". Eusebius (about 325): \"It is, therefore, recorded that Paul was beheaded in Rome itself, and that Peter likewise was crucified under Nero.\"",
+      "layer": "early-church",
+      "cites": [
+       "tertullian-apol",
+       "eusebius-2"
+      ]
+     }
+    }
+   ],
+   "twoAccounts": [],
+   "questions": [
+    {
+     "id": "nero-caesars-household",
+     "question": "Who were \"they that are of Caesar's household\" (Philippians 4:22)?",
+     "views": [
+      {
+       "label": "Members of the imperial household at Rome",
+       "holders": "J. B. Lightfoot (1868; 4th ed. 1878), with the oldest tradition and most writers of his day",
+       "argument": {
+        "text": "Lightfoot: the household \"includes the whole of the imperial household, the meanest slaves as well as the most powerful courtiers\", so the phrase need not mean high officials or the emperor's relatives; he dates Philippians from Rome.",
+        "layer": "scholars",
+        "refs": [
+         [
+          50004022,
+          50004022
+         ],
+         [
+          50001013,
+          50001013
+         ]
+        ],
+        "cites": [
+         "lightfoot-1878"
+        ]
+       }
+      },
+      {
+       "label": "Imperial servants at Caesarea",
+       "holders": "H. E. G. Paulus (1799), Böttger and Thiersch (as reported by Lightfoot, 1878)",
+       "argument": {
+        "text": "These writers dated Philippians from Paul's custody at Caesarea. Lightfoot answers that \"Caesar's household\" cannot without much straining be applied there, though he grants the household included imperial servants \"in Italy and even in the provinces\".",
+        "layer": "scholars",
+        "refs": [
+         [
+          50004022,
+          50004022
+         ],
+         [
+          44023035,
+          44023035
+         ]
+        ],
+        "cites": [
+         "lightfoot-1878"
+        ]
+       }
+      }
+     ]
+    }
+   ],
+   "notSaid": [
+    "Scripture never names Nero.",
+    "Acts does not say whether Paul's appeal was ever heard, or by whom.",
+    "Scripture does not mention the fire of Rome or Nero's punishment of the Christians."
+   ],
+   "places": [
+    {
+     "name": "Rome",
+     "placeId": "afc8e7a",
+     "refs": [
+      [
+       44028016,
+       44028016
+      ]
+     ]
+    },
+    {
+     "name": "Caesarea",
+     "placeId": "a58735e",
+     "refs": [
+      [
+       44025006,
+       44025006
+      ]
+     ],
+     "note": "Where Paul appealed"
+    },
+    {
+     "name": "Italy",
+     "placeId": "a7184a7",
+     "refs": [
+      [
+       44027001,
+       44027001
+      ]
+     ]
+    },
+    {
+     "name": "Puteoli",
+     "placeId": "a4488e9",
+     "refs": [
+      [
+       44028013,
+       44028013
+      ]
+     ],
+     "note": "Where Paul landed in Italy"
+    },
+    {
+     "name": "Philippi",
+     "placeId": "a49e1d0",
+     "refs": [
+      [
+       50001001,
+       50001001
+      ]
+     ],
+     "note": "Where the greeting of Caesar's household was sent"
+    }
+   ],
+   "passages": [
+    [
+     44025008,
+     44025012
+    ],
+    [
+     44025021,
+     44025021
+    ],
+    [
+     44025025,
+     44025026
+    ],
+    [
+     44026032,
+     44026032
+    ],
+    [
+     44027001,
+     44027001
+    ],
+    [
+     44027024,
+     44027024
+    ],
+    [
+     44028016,
+     44028019
+    ],
+    [
+     44028030,
+     44028031
+    ],
+    [
+     50001013,
+     50001013
+    ],
+    [
+     50004022,
+     50004022
+    ]
+   ],
+   "predecessor": "claudius-act-11-28",
+   "capital": {
+    "name": "Rome",
+    "placeId": "afc8e7a",
+    "refs": [
+     [
+      44028016,
+      44028016
+     ]
+    ],
+    "note": "Where Paul was taken to await Caesar"
+   },
+   "identifications": [
+    {
+     "text": "Scripture never names Nero. The site's person record attaches him to Philippians 4:22 (\"Caesar's household\") and to 2 Timothy 4:22, where his name stands only in the note printed after the letter in the King James Bible, which is not Scripture.",
+     "layer": "text",
+     "refs": [
+      [
+       50004022,
+       50004022
+      ],
+      [
+       55004022,
+       55004022
+      ]
+     ]
+    },
+    {
+     "text": "Josephus: \"Porcius Festus was sent as successor to Felix by Nero.\" The Caesar to whom Paul appealed before Festus was therefore, by date, Nero.",
+     "layer": "ancient-record",
+     "refs": [
+      [
+       44025011,
+       44025012
+      ]
+     ],
+     "cites": [
+      "josephus-ant"
+     ]
+    },
+    {
+     "text": "Gill (1746-48) reads \"Augustus\" in Acts 25:21 as the title of \"the Roman Emperor Nero\".",
+     "layer": "scholars",
+     "refs": [
+      [
+       44025021,
+       44025021
+      ]
+     ],
+     "cites": [
+      "gill-acts"
+     ]
+    }
+   ],
+   "reign": {
+    "text": "Scripture gives no reign; it speaks of \"Cæsar\" and \"Augustus\" (Acts 25:11, 21).",
+    "refs": [
+     [
+      44025011,
+      44025011
+     ],
+     [
+      44025021,
+      44025021
+     ]
+    ]
+   },
+   "dates": [
+    {
+     "system": "bible",
+     "label": "Scripture's numbers",
+     "note": "None. Scripture does not name him."
+    },
+    {
+     "system": "other",
+     "label": "Roman records",
+     "from": -54,
+     "to": -68,
+     "note": "Succeeded Claudius, who died 13 October AD 54 (Suetonius, Claudius 45); died 'in the thirty-second year of his age' (Suetonius, Nero 57), on 9 June AD 68 (Schürer).",
+     "cites": [
+      "suet-claudius",
+      "suet-nero",
+      "schurer-1890"
+     ]
+    }
+   ],
+   "scriptureSays": [
+    {
+     "text": "Paul to Festus: \"I stand at Cæsar's judgment seat ... I appeal unto Cæsar.\" Festus: \"unto Cæsar shalt thou go.\"",
+     "layer": "scripture",
+     "refs": [
+      [
+       44025010,
+       44025012
+      ]
+     ]
+    },
+    {
+     "text": "Festus speaks of \"the hearing of Augustus\" and has \"no certain thing to write unto my lord\".",
+     "layer": "scripture",
+     "refs": [
+      [
+       44025021,
+       44025021
+      ],
+      [
+       44025026,
+       44025026
+      ]
+     ]
+    },
+    {
+     "text": "Agrippa: \"This man might have been set at liberty, if he had not appealed unto Cæsar.\"",
+     "layer": "scripture",
+     "refs": [
+      [
+       44026032,
+       44026032
+      ]
+     ]
+    },
+    {
+     "text": "In the storm an angel told Paul, \"thou must be brought before Cæsar\".",
+     "layer": "scripture",
+     "refs": [
+      [
+       44027024,
+       44027024
+      ]
+     ]
+    },
+    {
+     "text": "At Rome Paul \"dwelt two whole years in his own hired house\"; Acts ends without telling the outcome of the appeal.",
+     "layer": "text",
+     "refs": [
+      [
+       44028016,
+       44028016
+      ],
+      [
+       44028030,
+       44028031
+      ]
+     ]
+    },
+    {
+     "text": "Philippians closes: \"All the saints salute you, chiefly they that are of Caesar's household.\"",
+     "layer": "scripture",
+     "refs": [
+      [
+       50004022,
+       50004022
+      ]
+     ]
+    },
+    {
+     "text": "Romans tells believers to \"be subject unto the higher powers\", and 1 Peter to submit \"to the king, as supreme\" and to \"Honour the king\"; neither names the emperor.",
+     "layer": "text",
+     "refs": [
+      [
+       45013001,
+       45013001
+      ],
+      [
+       60002013,
+       60002013
+      ],
+      [
+       60002017,
+       60002017
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "festus-act-24-27",
+   "name": "Porcius Festus",
+   "kind": "roman",
+   "realm": "rome",
+   "title": "Governor of Judaea",
+   "tagline": "He heard Paul with King Agrippa and sent him to Caesar.",
+   "order": 11,
+   "records": [],
+   "verdictTone": "none",
+   "events": [
+    {
+     "label": "Up to Jerusalem",
+     "kind": "other",
+     "claim": {
+      "text": "The high priest and the chief of the Jews asked him to bring Paul to Jerusalem, \"laying wait in the way to kill him\"; Festus kept Paul at Caesarea.",
+      "layer": "scripture",
+      "refs": [
+       [
+        44025001,
+        44025005
+       ]
+      ]
+     },
+     "placeId": "a15257a"
+    },
+    {
+     "label": "Hearing and appeal",
+     "kind": "other",
+     "claim": {
+      "text": "At Caesarea, from the judgment seat, he heard the charges; when he proposed a trial at Jerusalem, Paul appealed to Caesar.",
+      "layer": "scripture",
+      "refs": [
+       [
+        44025006,
+        44025012
+       ]
+      ]
+     },
+     "placeId": "a58735e"
+    },
+    {
+     "label": "Agrippa and Bernice",
+     "kind": "alliance",
+     "claim": {
+      "text": "King Agrippa and Bernice came \"to salute Festus\", and Festus laid Paul's case before the king.",
+      "layer": "scripture",
+      "refs": [
+       [
+        44025013,
+        44025022
+       ]
+      ]
+     },
+     "placeId": "a58735e"
+    },
+    {
+     "label": "Paul before Agrippa",
+     "kind": "other",
+     "claim": {
+      "text": "In \"the place of hearing\", with great pomp, Paul spoke before Agrippa, Bernice and Festus.",
+      "layer": "scripture",
+      "refs": [
+       [
+        44025023,
+        44026032
+       ]
+      ]
+     },
+     "placeId": "a58735e"
+    },
+    {
+     "label": "Paul sent to Italy",
+     "kind": "other",
+     "claim": {
+      "text": "\"It was determined that we should sail into Italy\"; Paul was handed to the centurion Julius.",
+      "layer": "scripture",
+      "refs": [
+       [
+        44027001,
+        44027001
+       ]
+      ]
+     },
+     "placeId": "a7184a7"
+    }
+   ],
+   "nation": {
+    "worship": [
+     {
+      "text": "Festus called the dispute \"certain questions against him of their own superstition, and of one Jesus\".",
+      "layer": "scripture",
+      "refs": [
+       [
+        44025019,
+        44025019
+       ]
+      ]
+     }
+    ],
+    "building": [],
+    "alliances": [
+     {
+      "text": "\"King Agrippa and Bernice came unto Cæsarea to salute Festus.\"",
+      "layer": "scripture",
+      "refs": [
+       [
+        44025013,
+        44025013
+       ]
+      ]
+     }
+    ],
+    "people": [
+     {
+      "text": "Festus: \"all the multitude of the Jews have dealt with me, both at Jerusalem, and also here, crying that he ought not to live any longer\".",
+      "layer": "scripture",
+      "refs": [
+       [
+        44025024,
+        44025024
+       ]
+      ]
+     }
+    ]
+   },
+   "prophets": [],
+   "worldStage": [
+    {
+     "power": "Rome",
+     "rulers": [
+      {
+       "name": "Nero (Acts says \"Caesar\")",
+       "personId": "nero-php-4-22"
+      }
+     ],
+     "claim": {
+      "text": "Josephus: \"Porcius Festus was sent as successor to Felix by Nero.\" Acts names only \"Caesar\" and \"Augustus\".",
+      "layer": "ancient-record",
+      "refs": [
+       [
+        44025012,
+        44025012
+       ],
+       [
+        44025021,
+        44025021
+       ]
+      ],
+      "cites": [
+       "josephus-ant"
+      ]
+     }
+    }
+   ],
+   "outside": [
+    {
+     "name": "Josephus on his governorship",
+     "date": "about AD 60-62",
+     "claim": {
+      "text": "Josephus: Festus found Judaea \"afflicted by the robbers\" and the sicarii; he sent horse and foot against an impostor's followers in the wilderness; he ordered a new temple wall pulled down, and Nero let it stand. The Jewish War says he \"caught the greatest part of the robbers\".",
+      "layer": "ancient-record",
+      "cites": [
+       "josephus-ant",
+       "josephus-war"
+      ]
+     }
+    },
+    {
+     "name": "Josephus on the interval after his death",
+     "date": "AD 62",
+     "claim": {
+      "text": "Josephus: \"Festus was now dead, and Albinus was but upon the road\", when the high priest Ananus brought before the sanhedrim \"the brother of Jesus, who was called Christ, whose name was James\", and had him stoned.",
+      "layer": "ancient-record",
+      "cites": [
+       "josephus-ant"
+      ]
+     }
+    }
+   ],
+   "twoAccounts": [],
+   "questions": [
+    {
+     "id": "festus-arrival",
+     "question": "In which year did Festus succeed Felix?",
+     "views": [
+      {
+       "label": "AD 60",
+       "holders": "E. Schürer (1890), with Wurm, Anger, Wieseler, Lewin and others",
+       "argument": {
+        "text": "Felix left in a summer no later than 60: Festus needs more than one year for all Josephus tells of him before Albinus came in 62.",
+        "layer": "scholars",
+        "refs": [
+         [
+          44024027,
+          44024027
+         ]
+        ],
+        "cites": [
+         "schurer-1890"
+        ]
+       }
+      },
+      {
+       "label": "AD 59",
+       "holders": "W. M. Ramsay (1895); A. T. Robertson (1915, following Erbes and Ramsay); H. Grätz (as reported by Schürer, 1890)",
+       "argument": {
+        "text": "Paul reached Rome early in 60, after sailing from Caesarea in the late summer of 59.",
+        "layer": "scholars",
+        "refs": [
+         [
+          44024027,
+          44024027
+         ],
+         [
+          44027001,
+          44027001
+         ]
+        ],
+        "cites": [
+         "ramsay-1895",
+         "robertson-isbe-1915",
+         "schurer-1890"
+        ]
+       }
+      },
+      {
+       "label": "AD 58",
+       "holders": "H. Lehmann (as reported by Schürer, 1890)",
+       "argument": {
+        "text": "Lehmann places Felix's recall in 58.",
+        "layer": "scholars",
+        "refs": [
+         [
+          44024027,
+          44024027
+         ]
+        ],
+        "cites": [
+         "schurer-1890"
+        ]
+       }
+      },
+      {
+       "label": "Early in Nero's reign, 54 or 55",
+       "holders": "Kellner (1888) and V. Weber (1889), as reported by Schürer (1890)",
+       "argument": {
+        "text": "They follow Eusebius's Chronicle, which puts Felix's recall in 54 (Armenian text) or Nero's second year (Jerome), and Pallas's fall from favour in 55. Schürer answers that Josephus puts almost all of Felix's acts under Nero.",
+        "layer": "scholars",
+        "refs": [
+         [
+          44024027,
+          44024027
+         ]
+        ],
+        "cites": [
+         "schurer-1890"
+        ]
+       }
+      }
+     ]
+    }
+   ],
+   "notSaid": [
+    "Acts does not say how long Festus governed or how he died.",
+    "Acts does not give the letter Festus sent with Paul to Caesar."
+   ],
+   "places": [
+    {
+     "name": "Caesarea",
+     "placeId": "a58735e",
+     "refs": [
+      [
+       44025001,
+       44025001
+      ]
+     ]
+    },
+    {
+     "name": "Jerusalem",
+     "placeId": "a15257a",
+     "refs": [
+      [
+       44025001,
+       44025001
+      ]
+     ]
+    },
+    {
+     "name": "Italy",
+     "placeId": "a7184a7",
+     "refs": [
+      [
+       44027001,
+       44027001
+      ]
+     ]
+    },
+    {
+     "name": "Rome",
+     "placeId": "afc8e7a",
+     "refs": [
+      [
+       44028016,
+       44028016
+      ]
+     ],
+     "note": "Where Paul was sent"
+    }
+   ],
+   "passages": [
+    [
+     44024027,
+     44024027
+    ],
+    [
+     44025001,
+     44025027
+    ],
+    [
+     44026001,
+     44026032
+    ],
+    [
+     44027001,
+     44027001
+    ]
+   ],
+   "otherNames": [
+    "Festus"
+   ],
+   "predecessor": "felix-act-23-24",
+   "capital": {
+    "name": "Caesarea",
+    "placeId": "a58735e",
+    "refs": [
+     [
+      44025001,
+      44025001
+     ],
+     [
+      44025006,
+      44025006
+     ]
+    ],
+    "note": "Where he held Paul's hearings"
+   },
+   "reign": {
+    "text": "He came \"into Felix' room\" after Paul's two years in custody (Acts 24:27); no length is given.",
+    "refs": [
+     [
+      44024027,
+      44024027
+     ]
+    ]
+   },
+   "dates": [
+    {
+     "system": "bible",
+     "label": "Scripture's numbers",
+     "note": "None. Acts dates his arrival only by Paul's 'two years' (Acts 24:27)."
+    },
+    {
+     "system": "other",
+     "label": "Schürer (1890)",
+     "from": -60,
+     "to": -62,
+     "approx": true,
+     "note": "Sent by Nero, probably in 60; died in office, and his successor Albinus reached Judaea late in the summer of 62 (Antiquities 20.9.1).",
+     "cites": [
+      "schurer-1890",
+      "josephus-ant"
+     ]
+    },
+    {
+     "system": "other",
+     "label": "Ramsay (1895)",
+     "from": -59,
+     "note": "Ramsay's date for his arrival: 59. Robertson (1915) follows it.",
+     "cites": [
+      "ramsay-1895",
+      "robertson-isbe-1915"
+     ]
+    }
+   ],
+   "scriptureSays": [
+    {
+     "text": "Three days after he came into the province he went up to Jerusalem; he refused to send for Paul there and said the case would be heard at Caesarea.",
+     "layer": "scripture",
+     "refs": [
+      [
+       44025001,
+       44025005
+      ]
+     ]
+    },
+    {
+     "text": "\"Willing to do the Jews a pleasure\", he asked Paul, \"Wilt thou go up to Jerusalem, and there be judged of these things before me?\"",
+     "layer": "scripture",
+     "refs": [
+      [
+       44025009,
+       44025009
+      ]
+     ]
+    },
+    {
+     "text": "To Agrippa: \"It is not the manner of the Romans to deliver any man to die, before that he which is accused have the accusers face to face\".",
+     "layer": "scripture",
+     "refs": [
+      [
+       44025016,
+       44025016
+      ]
+     ]
+    },
+    {
+     "text": "He found the dispute was about \"one Jesus, which was dead, whom Paul affirmed to be alive\".",
+     "layer": "scripture",
+     "refs": [
+      [
+       44025019,
+       44025019
+      ]
+     ]
+    },
+    {
+     "text": "\"Paul, thou art beside thyself; much learning doth make thee mad.\"",
+     "layer": "scripture",
+     "refs": [
+      [
+       44026024,
+       44026024
+      ]
+     ]
+    },
+    {
+     "text": "He, Agrippa, Bernice and those who sat with them agreed: \"This man doeth nothing worthy of death or of bonds.\"",
+     "layer": "scripture",
+     "refs": [
+      [
+       44026030,
+       44026032
+      ]
+     ]
+    }
+   ]
+  }
+ ],
+ "citations": [
+  {
+   "id": "deissmann-1912",
+   "author": "A. Deissmann, tr. L. R. M. Strachan",
+   "title": "St. Paul: A Study in Social and Religious History",
+   "year": "1912",
+   "where": "Appendix I, The Proconsulate of L. Junius Gallio, pp. 235-260 (Orosius on p. 257)",
+   "url": "https://archive.org/details/stpaulstudyinsoc12deis"
+  },
+  {
+   "id": "dio-60",
+   "author": "Cassius Dio, tr. E. Cary",
+   "title": "Roman History, book 60 (Loeb Classical Library, vol. 7)",
+   "year": "1924",
+   "where": "60.6.6",
+   "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Cassius_Dio/60*.html"
+  },
+  {
+   "id": "ellicott-acts",
+   "author": "E. H. Plumptre, in C. J. Ellicott (ed.), A New Testament Commentary for English Readers",
+   "title": "Notes on Acts 18:2 and 27:1",
+   "year": "about 1880",
+   "where": "read on Bible Hub",
+   "url": "https://biblehub.com/commentaries/acts/18-2.htm"
+  },
+  {
+   "id": "ellicott-luke",
+   "author": "E. H. Plumptre, in C. J. Ellicott (ed.), A New Testament Commentary for English Readers",
+   "title": "Notes on Luke 2:2 and 3:1",
+   "year": "about 1880",
+   "where": "read on Bible Hub",
+   "url": "https://biblehub.com/commentaries/luke/2-2.htm"
+  },
+  {
+   "id": "eusebius-2",
+   "author": "Eusebius, tr. A. C. McGiffert",
+   "title": "Church History, book 2 (Nicene and Post-Nicene Fathers, series 2, vol. 1)",
+   "year": "1890",
+   "where": "2.2.1-2; 2.6.3-7; 2.7; 2.8.1; 2.25.5",
+   "url": "https://www.newadvent.org/fathers/250102.htm"
+  },
+  {
+   "id": "eusebius-9",
+   "author": "Eusebius, tr. A. C. McGiffert",
+   "title": "Church History, book 9 (Nicene and Post-Nicene Fathers, series 2, vol. 1)",
+   "year": "1890",
+   "where": "9.5.1",
+   "url": "https://www.newadvent.org/fathers/250109.htm"
+  },
+  {
+   "id": "gill-acts",
+   "author": "John Gill",
+   "title": "Exposition of the New Testament, note on Acts 25:21",
+   "year": "1746-48",
+   "where": "read on Bible Hub",
+   "url": "https://biblehub.com/commentaries/acts/25-21.htm"
+  },
+  {
+   "id": "gummere-1925",
+   "author": "Seneca, tr. R. M. Gummere",
+   "title": "Moral Letters to Lucilius, Letter 104 (Loeb Classical Library, vol. 3)",
+   "year": "1925",
+   "where": "104.1 and Gummere's note 2",
+   "url": "https://en.wikisource.org/wiki/Moral_letters_to_Lucilius/Letter_104"
+  },
+  {
+   "id": "imj-pilate",
+   "author": "The Israel Museum, Jerusalem",
+   "title": "Latin dedicatory inscription mentioning Pontius Pilate (IAA 1961-529), collection catalogue entry (facts only)",
+   "year": "online catalogue, read 2026",
+   "where": "findspot, date range, material, number, catalogue heading and the museum's English reconstruction of the text (checked by web search 2026-10-07; the Latin letters were not checked)",
+   "url": "https://www.imj.org.il/en/collections/395572"
+  },
+  {
+   "id": "josephus-ant",
+   "author": "Flavius Josephus, tr. William Whiston",
+   "title": "The Antiquities of the Jews",
+   "year": "1737",
+   "where": "15.4.1; 17.13.5; 18.1.1; 18.2.1-3; 18.3.1-3; 18.4.1-2; 18.6.10; 19.5.1; 20.2.5; 20.5.2; 20.7.1-2; 20.8.1, 5-11; 20.9.1 (book.chapter.section as printed in the Project Gutenberg text)",
+   "url": "https://www.gutenberg.org/ebooks/2848"
+  },
+  {
+   "id": "josephus-war",
+   "author": "Flavius Josephus, tr. William Whiston",
+   "title": "The Wars of the Jews",
+   "year": "1737",
+   "where": "2.9.2-4; 2.12.8; 2.13.5; 2.14.1",
+   "url": "https://www.gutenberg.org/ebooks/2850"
+  },
+  {
+   "id": "justin-1apol",
+   "author": "Justin Martyr, tr. M. Dods and G. Reith",
+   "title": "The First Apology (Ante-Nicene Fathers, vol. 1)",
+   "year": "1885",
+   "where": "chs. 34, 35, 48",
+   "url": "https://www.newadvent.org/fathers/0126.htm"
+  },
+  {
+   "id": "knowling-1900",
+   "author": "R. J. Knowling",
+   "title": "The Acts of the Apostles (Expositor's Greek Testament, vol. 2), on Acts 18:2",
+   "year": "1900",
+   "where": "read on Bible Hub",
+   "url": "https://biblehub.com/commentaries/egt/acts/18.htm"
+  },
+  {
+   "id": "lightfoot-1878",
+   "author": "J. B. Lightfoot",
+   "title": "Saint Paul's Epistle to the Philippians, 4th ed.",
+   "year": "1878",
+   "where": "p. 30 note 1; detached essay 'Caesar's Household', pp. 171 ff.",
+   "url": "https://archive.org/details/saintpaulsepistl00ligh"
+  },
+  {
+   "id": "lightfoot-1889",
+   "author": "J. B. Lightfoot",
+   "title": "Essays on the Work Entitled Supernatural Religion",
+   "year": "1889",
+   "where": "Appendix, pp. 292-296 (the proconsul of Cyprus)",
+   "url": "https://archive.org/details/essaysontheworke00lighuoft"
+  },
+  {
+   "id": "lumby-acts",
+   "author": "J. R. Lumby",
+   "title": "The Acts of the Apostles (Cambridge Bible for Schools and Colleges), on Acts 18:2",
+   "year": "1885",
+   "where": "read on Bible Hub",
+   "url": "https://biblehub.com/commentaries/cambridge/acts/18.htm"
+  },
+  {
+   "id": "meyer-acts",
+   "author": "H. A. W. Meyer (English translation)",
+   "title": "Critical and Exegetical Handbook to the Acts of the Apostles, on Acts 18:2",
+   "year": "1877-80",
+   "where": "note on Acts 18:2 with notes 73 and 75; read on Bible Hub",
+   "url": "https://biblehub.com/commentaries/meyer/acts/18.htm"
+  },
+  {
+   "id": "philo-legatio",
+   "author": "Philo, tr. C. D. Yonge",
+   "title": "On the Virtues and Office of Ambassadors (the Embassy to Gaius), The Works of Philo Judaeus vol. 4",
+   "year": "1855",
+   "where": "chapters 37-38 (Yonge's numbering), pp. 164-166",
+   "url": "https://archive.org/details/worksphilojudaeu04philuoft"
+  },
+  {
+   "id": "plummer-1896",
+   "author": "A. Plummer",
+   "title": "A Critical and Exegetical Commentary on the Gospel according to S. Luke (International Critical Commentary)",
+   "year": "1896",
+   "where": "on Luke 3:1, pp. 81-84",
+   "url": "https://archive.org/details/acriticalandexeg00plumuoft"
+  },
+  {
+   "id": "pulpit-acts",
+   "author": "A. C. Hervey",
+   "title": "Acts (Pulpit Commentary), on Acts 18:2",
+   "year": "1884",
+   "where": "read on Bible Hub",
+   "url": "https://biblehub.com/commentaries/pulpit/acts/18.htm"
+  },
+  {
+   "id": "ramsay-1895",
+   "author": "W. M. Ramsay",
+   "title": "St. Paul the Traveller and the Roman Citizen",
+   "year": "1895",
+   "where": "Chronological Index (as tabulated in the Letters research, pauls-letters-part1.md section 1.2)",
+   "url": "https://www.ccel.org/ccel/ramsay/paul_roman.html"
+  },
+  {
+   "id": "ramsay-1898",
+   "author": "W. M. Ramsay",
+   "title": "Was Christ Born at Bethlehem? A Study on the Credibility of St. Luke",
+   "year": "1898",
+   "where": "chs. VII-VIII (pp. 131-173); ch. X, pp. 199-202 and note I, p. 221; ch. XI, pp. 227-245",
+   "url": "https://archive.org/details/waschristbornatb00ramsuoft"
+  },
+  {
+   "id": "ramsay-1915",
+   "author": "W. M. Ramsay",
+   "title": "The Bearing of Recent Discovery on the Trustworthiness of the New Testament",
+   "year": "1915",
+   "where": "ch. XII, pp. 150-162",
+   "url": "https://archive.org/details/cu31924029303760"
+  },
+  {
+   "id": "res-gestae-34",
+   "author": "Augustus, tr. F. W. Shipley",
+   "title": "Res Gestae Divi Augusti (Loeb Classical Library)",
+   "year": "1924",
+   "where": "chapter 34",
+   "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Augustus/Res_Gestae/6*.html"
+  },
+  {
+   "id": "res-gestae-8",
+   "author": "Augustus, tr. F. W. Shipley",
+   "title": "Res Gestae Divi Augusti (Loeb Classical Library)",
+   "year": "1924",
+   "where": "chapter 8",
+   "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Augustus/Res_Gestae/2*.html"
+  },
+  {
+   "id": "robertson-isbe-1915",
+   "author": "A. T. Robertson",
+   "title": "Paul, the Apostle (International Standard Bible Encyclopedia)",
+   "year": "1915",
+   "where": "part 3, III. Chronology of Paul's Career; read online, not yet checked against a scan",
+   "url": "https://www.internationalstandardbible.com/P/paul-the-apostle-3.html"
+  },
+  {
+   "id": "schurer-1885",
+   "author": "E. Schürer, tr. S. Taylor and P. Christie",
+   "title": "A History of the Jewish People in the Time of Jesus Christ, Division 2, vol. 2",
+   "year": "1885",
+   "where": "section 31, pp. 236-238 with notes 67-70",
+   "url": "https://archive.org/details/p2historyofjewishp02schuoft"
+  },
+  {
+   "id": "schurer-1890",
+   "author": "E. Schürer, tr. J. Macpherson",
+   "title": "A History of the Jewish People in the Time of Jesus Christ, Division 1, vol. 2",
+   "year": "1890",
+   "where": "pp. 80-81 (procurators; Quirinius A.D. 6 or 7); 105-143 (Excursus I, the census of Quirinius, esp. 107, 112-113, 137-142); 143-149 (Excursus II, the testimony of Josephus); 174-176, 182-184 (Felix and Festus); 200 (death of Nero); 337-338 (Appendix I, Lysanias)",
+   "url": "https://archive.org/details/s1historyofjewis02schuoft"
+  },
+  {
+   "id": "strauss-1846",
+   "author": "D. F. Strauss, tr. George Eliot",
+   "title": "The Life of Jesus Critically Examined, vol. 1 (1860 printing of the 1846 translation)",
+   "year": "1846",
+   "where": "section 32, The Census, pp. 147-149",
+   "url": "https://archive.org/details/lifeofjesuscriti01stra"
+  },
+  {
+   "id": "suet-augustus",
+   "author": "Suetonius, tr. J. C. Rolfe",
+   "title": "The Life of Augustus (Loeb Classical Library)",
+   "year": "1914",
+   "where": "100.1",
+   "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Suetonius/12Caesars/Augustus*.html"
+  },
+  {
+   "id": "suet-claudius",
+   "author": "Suetonius, tr. J. C. Rolfe",
+   "title": "The Life of Claudius (Loeb Classical Library)",
+   "year": "1914",
+   "where": "18.2; 25.4 with Rolfe's note 75; 28; 45; Rolfe's note 79 (accession 25 January 41); note 81 (Felix's wives)",
+   "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Suetonius/12Caesars/Claudius*.html"
+  },
+  {
+   "id": "suet-nero",
+   "author": "Suetonius, tr. J. C. Rolfe",
+   "title": "The Life of Nero (Loeb Classical Library)",
+   "year": "1914",
+   "where": "16.2; 57.1",
+   "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Suetonius/12Caesars/Nero*.html"
+  },
+  {
+   "id": "suet-tiberius",
+   "author": "Suetonius, tr. J. C. Rolfe",
+   "title": "The Life of Tiberius (Loeb Classical Library)",
+   "year": "1914",
+   "where": "73.1",
+   "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Suetonius/12Caesars/Tiberius*.html"
+  },
+  {
+   "id": "tacitus-annals",
+   "author": "Tacitus, tr. A. J. Church and W. J. Brodribb",
+   "title": "The Annals of Tacitus",
+   "year": "1884",
+   "where": "3.48; 12.43; 12.54; 15.44; 15.73, with the translators' notes (1884 printing; first published 1876)",
+   "url": "https://archive.org/details/annalstranslated00taci"
+  },
+  {
+   "id": "tacitus-histories",
+   "author": "Tacitus, tr. A. J. Church and W. J. Brodribb",
+   "title": "The History of Tacitus",
+   "year": "1888",
+   "where": "5.9 (1888 printing; first published 1864)",
+   "url": "https://archive.org/details/church-and-brodribb-histories-1888-en"
+  },
+  {
+   "id": "tertullian-apol",
+   "author": "Tertullian, tr. S. Thelwall",
+   "title": "Apology (Ante-Nicene Fathers, vol. 3)",
+   "year": "1885",
+   "where": "chs. 5 and 21",
+   "url": "https://www.newadvent.org/fathers/0301.htm"
+  },
+  {
+   "id": "tertullian-marcion",
+   "author": "Tertullian, tr. P. Holmes",
+   "title": "Against Marcion (Ante-Nicene Fathers, vol. 3)",
+   "year": "1885",
+   "where": "4.19",
+   "url": "https://www.newadvent.org/fathers/03124.htm"
+  },
+  {
+   "id": "whiston-notes",
+   "author": "William Whiston",
+   "title": "Notes to his translation of Josephus, Antiquities",
+   "year": "1737",
+   "where": "note 22 on 17.13.5 (quoting Grotius); note 16 on 19.5.1",
+   "url": "https://www.gutenberg.org/ebooks/2848"
+  }
+ ]
+}

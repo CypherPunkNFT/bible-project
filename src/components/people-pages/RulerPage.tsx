@@ -3,7 +3,7 @@ import type { Ruler } from "@/data/people-pages/types";
 import { rulerFor } from "@/lib/people-pages-index";
 import { useRuler } from "@/lib/people-pages";
 import { PeopleCitations } from "./Evidence";
-import { glowFor, pageHeading } from "./kinds";
+import { glowFor, isConsort, isForeign, pageHeading } from "./kinds";
 import { RULERS_GUIDE } from "./links";
 import { PageTop, Sections, type PageSection } from "./PageFrame";
 import { DatingSection, PassagesSection, SourcesSection } from "./PageSources";
@@ -28,10 +28,13 @@ export function RulerPage({ id, sex }: { id: string; sex: Sex }) {
   const state = useRuler(id);
   const summary = rulerFor(id);
   const [placeFocus, setPlaceFocus] = useState<string | undefined>();
+  // A pin pointed at on the kingdom map lights the events that happened there.
+  const [mapPlace, setMapPlace] = useState<string | undefined>();
   if (!summary || state.status === "missing") return <p className="lg-glass lg-muted">This ruler's page is still being prepared.</p>;
   if (state.status === "loading") return <div className="lg-glass" style={{ minHeight: 420 }} aria-busy="true" />;
   const ruler = state.item;
-  const heading = pageHeading(ruler.kind, sex);
+  const heading = pageHeading(ruler, sex);
+  const foreign = isForeign(ruler);
   const possessive = sex === "F" ? "her" : "him";
   const sections: Record<string, PageSection> = {
     cycle: { id: "pp-cycle", title: "The cycle", node: <JudgeCycle ruler={ruler} /> },
@@ -40,9 +43,9 @@ export function RulerPage({ id, sex }: { id: string; sex: Sex }) {
     accession: { id: "pp-accession", title: ruler.accession?.some((c) => /anoint/i.test(c.text)) ? "Anointing" : "Accession", node: <Accession ruler={ruler} /> },
     succession: { id: "pp-succession", title: "Succession", node: <SuccessionStrip ruler={ruler} summary={summary} intro={ruler.realm === "tribes" ? state.group.intro : undefined} /> },
     verdict: { id: "pp-verdict", title: ruler.records.some((r) => r.verdict) ? "Verdict" : "Scripture says", node: <VerdictCard ruler={ruler} possessive={possessive} /> },
-    kingdom: { id: "pp-kingdom", title: ruler.kind === "foreign" ? "The empire" : "The kingdom", node: <KingdomCard ruler={ruler} focus={placeFocus} /> },
-    events: { id: "pp-events", title: "Events", node: <ReignEvents ruler={ruler} onFocus={setPlaceFocus} /> },
-    nation: { id: "pp-nation", title: ruler.kind === "foreign" ? "Dealings" : "The nation", node: <NationLenses ruler={ruler} /> },
+    kingdom: { id: "pp-kingdom", title: foreign ? "The realm" : ruler.kind === "roman" ? "The seat" : "The kingdom", node: <KingdomCard ruler={ruler} focus={placeFocus} onPoint={setMapPlace} /> },
+    events: { id: "pp-events", title: ruler.kind === "roman" ? "Hearings" : "Events", node: <ReignEvents ruler={ruler} onFocus={setPlaceFocus} mapPlace={mapPlace} /> },
+    nation: { id: "pp-nation", title: isConsort(ruler) ? "Her people" : foreign ? "Dealings" : "The nation", node: <NationLenses ruler={ruler} /> },
     prophets: { id: "pp-prophets", title: "Prophets", node: <ReignProphets ruler={ruler} /> },
     world: { id: "pp-world", title: "World stage", node: <WorldStage ruler={ruler} /> },
     accounts: { id: "pp-accounts", title: "Two accounts", node: <TwoAccounts ruler={ruler} /> },
@@ -50,7 +53,7 @@ export function RulerPage({ id, sex }: { id: string; sex: Sex }) {
     passages: { id: "pp-passages", title: "Passages", node: <PassagesSection passages={ruler.passages} notSaid={ruler.notSaid} identifications={ruler.identifications} /> },
     sources: { id: "pp-sources", title: "Sources", node: <SourcesSection citations={state.group.citations} /> },
   };
-  const order = ruler.kind === "foreign"
+  const order = foreign
     ? ["world", "succession", "kingdom", "verdict", "nation", "events", "prophets", "accounts", "dating", "passages", "sources"]
     : ruler.kind === "judge" || ruler.kind === "leader"
       ? ["cycle", "accession", "succession", "verdict", "events", "kingdom", "nation", "prophets", "world", "dating", "passages", "sources"]
@@ -68,7 +71,7 @@ export function RulerPage({ id, sex }: { id: string; sex: Sex }) {
 function hasContent(key: string, ruler: Ruler): boolean {
   switch (key) {
     case "cycle": return Boolean(ruler.cycle);
-    case "chain": return (ruler.kind === "governor" || ruler.kind === "roman") && ruler.worldStage.some((w) => w.rulers.length);
+    case "chain": return (ruler.kind === "governor" || ruler.kind === "roman") && Boolean(ruler.worldStage[0]?.rulers.length);
     case "herods": return ruler.kind === "herod";
     case "accession": return Boolean(ruler.accession?.length);
     case "verdict": return ruler.records.some((r) => r.verdict) || Boolean(ruler.scriptureSays?.length);

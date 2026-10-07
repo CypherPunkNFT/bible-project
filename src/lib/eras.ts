@@ -14,6 +14,10 @@ export interface Era extends ProphetEra {
   from: number;
   to: number;
   compressed?: boolean;
+  /** A compressed era's last years drawn at full scale (Herod's reign, just before the New Testament). */
+  tail?: number;
+  /** Full-scale years drawn this many times wider (a crowded era: the Herods and Rome). */
+  stretch?: number;
 }
 
 /** Where each era starts and ends on the scale. The bands touch, so every year falls in one. */
@@ -60,7 +64,14 @@ export interface TimeScale {
 export function eraScale(width: number, first = ERAS[0].from, last = ERAS[ERAS.length - 1].to, eras: Era[] = ERAS): TimeScale {
   const shown = eras.filter((era) => era.to < first && era.from > last);
   const segments = shown.map((era, i) => ({ ...era, from: i === 0 ? first : era.from, to: i === shown.length - 1 ? last : shown[i + 1].from }));
-  const weights = segments.map((s) => (s.compressed ? Math.min(COMPRESSED_YEARS, s.from - s.to) : Math.max(1, s.from - s.to)));
+  // Each segment: a squeezed part (compressed eras) then a full-scale part (`tail` years, or the whole era), times `stretch`.
+  const parts = segments.map((s) => {
+    const years = Math.max(1, s.from - s.to), stretch = s.stretch ?? 1;
+    if (!s.compressed) return { squeezedYears: 0, squeezed: 0, full: years * stretch, years };
+    const tail = Math.min(s.tail ?? 0, years);
+    return { squeezedYears: years - tail, squeezed: Math.min(COMPRESSED_YEARS, years - tail), full: tail * stretch, years };
+  });
+  const weights = parts.map((p) => p.squeezed + p.full);
   const total = weights.reduce((a, b) => a + b, 0) || 1;
   const starts = weights.map((_, i) => weights.slice(0, i).reduce((a, b) => a + b, 0));
   const x = (year: number) => {
@@ -68,8 +79,10 @@ export function eraScale(width: number, first = ERAS[0].from, last = ERAS[ERAS.l
     if (year >= segments[0].from) return 0;
     if (year <= segments[segments.length - 1].to) return width;
     const index = segments.findIndex((s) => year <= s.from && year >= s.to);
-    const s = segments[index];
-    return ((starts[index] + ((s.from - year) / Math.max(1, s.from - s.to)) * weights[index]) / total) * width;
+    const s = segments[index], p = parts[index], into = s.from - year;
+    const at = into <= p.squeezedYears ? (p.squeezedYears ? (into / p.squeezedYears) * p.squeezed : 0)
+      : p.squeezed + ((into - p.squeezedYears) / Math.max(1, p.years - p.squeezedYears)) * p.full;
+    return ((starts[index] + at) / total) * width;
   };
   return { x, width, bands: segments.map((s) => ({ ...s, x0: x(s.from), x1: x(s.to) })) };
 }

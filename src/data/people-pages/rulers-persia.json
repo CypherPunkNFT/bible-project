@@ -1,0 +1,7256 @@
+{
+ "id": "rulers-persia",
+ "title": "Persia and the governors after the exile",
+ "realm": "persia",
+ "intro": [
+  {
+   "text": "These pages cover the rulers of the return from exile: the kings Scripture names from the fall of Babylon to Nehemiah (Darius the Mede, Cyrus, Darius, Ahasuerus and Artaxerxes); Vashti and Esther, queens beside the king who did not reign; and the governors of Judah, Gedaliah under Babylon and Zerubbabel and Nehemiah under Persia.",
+   "layer": "text",
+   "refs": [
+    [
+     27005031,
+     27005031
+    ],
+    [
+     15001001,
+     15001001
+    ],
+    [
+     15004005,
+     15004007
+    ],
+    [
+     17002017,
+     17002017
+    ],
+    [
+     12025022,
+     12025022
+    ],
+    [
+     37001001,
+     37001001
+    ],
+    [
+     16005014,
+     16005014
+    ]
+   ]
+  },
+  {
+   "text": "Scripture dates these years by the king's reign (\"the second year of Darius\", \"the twentieth year of Artaxerxes\") and never gives a Persian king's length of reign.",
+   "layer": "text",
+   "refs": [
+    [
+     37001001,
+     37001001
+    ],
+    [
+     16002001,
+     16002001
+    ],
+    [
+     15006015,
+     15006015
+    ]
+   ]
+  },
+  {
+   "text": "The BC dates for the Persian reigns come from the dated Babylonian business tablets as tabulated by Parker and Dubberstein (1942), cited for facts only; older reckonings are shown beside them.",
+   "layer": "scholars",
+   "cites": [
+    "pd-1942"
+   ]
+  },
+  {
+   "text": "Which Persian king Scripture means by Darius, Ahasuerus or Artaxerxes is a question of identification, not a statement of the text. Each page says which identification it relies on and shows the other views with their holders.",
+   "layer": "scholars",
+   "cites": [
+    "isbe-darius",
+    "je-ahasuerus",
+    "isbe-artaxerxes"
+   ]
+  },
+  {
+   "text": "Ezra 4 names the kings in the order Cyrus, Darius, Ahasuerus, Artaxerxes, then returns to \"the second year of the reign of Darius\"; the letter to Artaxerxes in verses 11–16 speaks of the walls of the city.",
+   "layer": "text",
+   "refs": [
+    [
+     15004005,
+     15004007
+    ],
+    [
+     15004012,
+     15004012
+    ],
+    [
+     15004024,
+     15004024
+    ]
+   ]
+  },
+  {
+   "text": "No page is given to Sheshbazzar (he has no person record of his own; he appears on Zerubbabel's page), to the Ahasuerus of Daniel 9:1 (named once, as a father), or to \"Darius the Persian\" (one verse).",
+   "layer": "text",
+   "refs": [
+    [
+     15005014,
+     15005014
+    ],
+    [
+     27009001,
+     27009001
+    ],
+    [
+     16012022,
+     16012022
+    ]
+   ]
+  }
+ ],
+ "rulers": [
+  {
+   "id": "darius-dan-5-31",
+   "name": "Darius the Mede",
+   "otherNames": [
+    "Darius the Median"
+   ],
+   "kind": "foreign",
+   "realm": "persia",
+   "title": "King over the realm of the Chaldeans (Daniel)",
+   "tagline": "Took the kingdom at about sixty-two; known only from Daniel.",
+   "order": 1,
+   "predecessor": "belshazzar-dan-5-1",
+   "successor": "cyrus-2ch-36-22",
+   "house": "Of the seed of the Medes (Dan 9:1)",
+   "capital": {
+    "name": "Babylon",
+    "placeId": "a217d18",
+    "refs": [
+     [
+      27005030,
+      27005030
+     ]
+    ],
+    "note": "Daniel places his reign after Belshazzar was slain in Babylon; it does not name his seat."
+   },
+   "identifications": [
+    {
+     "text": "Daniel's Darius is kept apart from the Darius of Ezra, Haggai and Zechariah, whom Ezra calls \"Darius king of Persia\". Daniel calls this one \"Darius the Median\" and \"Darius the Mede\".",
+     "layer": "text",
+     "refs": [
+      [
+       27005031,
+       27005031
+      ],
+      [
+       27011001,
+       27011001
+      ],
+      [
+       15004024,
+       15004024
+      ]
+     ]
+    },
+    {
+     "text": "Daniel names his father: \"Darius the son of Ahasuerus, of the seed of the Medes\". That Ahasuerus is named nowhere else and has his own person record, apart from the king of Esther.",
+     "layer": "text",
+     "refs": [
+      [
+       27009001,
+       27009001
+      ]
+     ]
+    },
+    {
+     "text": "R. Dick Wilson (1915) took Daniel's Ahasuerus to be the Median king whom Herodotus calls Cyaxares; this is one reading among several.",
+     "layer": "scholars",
+     "cites": [
+      "isbe-ahasuerus"
+     ],
+     "refs": [
+      [
+       27009001,
+       27009001
+      ]
+     ]
+    }
+   ],
+   "records": [],
+   "reign": {
+    "text": "Not given. Daniel says he took the kingdom \"being about threescore and two years old\" and dates by his \"first year\" only (Dan 5:31; 9:1; 11:1).",
+    "refs": [
+     [
+      27005031,
+      27005031
+     ],
+     [
+      27009001,
+      27009001
+     ],
+     [
+      27011001,
+      27011001
+     ]
+    ]
+   },
+   "dates": [
+    {
+     "system": "bible",
+     "label": "Scripture's numbers",
+     "note": "Daniel gives his age (about 62) and his first year, never a length of reign or a BC year."
+    },
+    {
+     "system": "other",
+     "label": "Keil (1872): first year 538 BC, two years before Cyrus reigned alone",
+     "from": 538,
+     "to": 536,
+     "approx": true,
+     "note": "Keil counts Darius the Mede's first year over the Chaldean kingdom as 538 BC and deducts two years from Cyrus's nine at Babylon, so that Cyrus reigns alone from 536.",
+     "cites": [
+      "keil-dan-9-1"
+     ]
+    },
+    {
+     "system": "other",
+     "label": "The Babylonian tablets (Parker and Dubberstein, 1942)",
+     "note": "Babylon fell on 13 October 539 BC; from then the Babylonian business tablets are dated by Cyrus. They give no year to a king Darius at this time.",
+     "cites": [
+      "pd-1942"
+     ]
+    }
+   ],
+   "verdictTone": "none",
+   "scriptureSays": [
+    {
+     "text": "\"Darius the Median took the kingdom, being about threescore and two years old\", after Belshazzar was slain that night.",
+     "layer": "scripture",
+     "refs": [
+      [
+       27005030,
+       27005031
+      ]
+     ]
+    },
+    {
+     "text": "Daniel calls him \"Darius the son of Ahasuerus, of the seed of the Medes, which was made king over the realm of the Chaldeans\".",
+     "layer": "scripture",
+     "refs": [
+      [
+       27009001,
+       27009001
+      ]
+     ]
+    },
+    {
+     "text": "He set 120 princes over the kingdom and three presidents over them, Daniel first, and \"thought to set him over the whole realm\".",
+     "layer": "scripture",
+     "refs": [
+      [
+       27006001,
+       27006003
+      ]
+     ]
+    },
+    {
+     "text": "When Daniel came out of the den unhurt, Darius wrote to \"all people, nations, and languages\" that men should \"tremble and fear before the God of Daniel: for he is the living God\".",
+     "layer": "scripture",
+     "refs": [
+      [
+       27006025,
+       27006027
+      ]
+     ]
+    },
+    {
+     "text": "\"So this Daniel prospered in the reign of Darius, and in the reign of Cyrus the Persian.\"",
+     "layer": "scripture",
+     "refs": [
+      [
+       27006028,
+       27006028
+      ]
+     ]
+    },
+    {
+     "text": "The angel who speaks to Daniel says: \"in the first year of Darius the Mede, even I, stood to confirm and to strengthen him.\"",
+     "layer": "scripture",
+     "refs": [
+      [
+       27011001,
+       27011001
+      ]
+     ]
+    }
+   ],
+   "events": [
+    {
+     "label": "Takes the kingdom",
+     "kind": "other",
+     "claim": {
+      "text": "On the night Belshazzar was slain, Darius the Median took the kingdom, as the writing on the wall had said: \"Thy kingdom is divided, and given to the Medes and Persians.\"",
+      "layer": "scripture",
+      "refs": [
+       [
+        27005028,
+        27005031
+       ]
+      ]
+     },
+     "placeId": "a217d18"
+    },
+    {
+     "label": "Princes and presidents",
+     "kind": "other",
+     "claim": {
+      "text": "He set 120 princes over the kingdom and three presidents over them, of whom Daniel was first.",
+      "layer": "scripture",
+      "refs": [
+       [
+        27006001,
+        27006003
+       ]
+      ]
+     }
+    },
+    {
+     "label": "The thirty-day decree",
+     "kind": "worship",
+     "claim": {
+      "text": "The presidents and princes asked him to sign a decree that anyone who asked a petition of any god or man but the king for thirty days be cast into the den of lions; \"king Darius signed the writing and the decree\".",
+      "layer": "scripture",
+      "refs": [
+       [
+        27006006,
+        27006009
+       ]
+      ]
+     }
+    },
+    {
+     "label": "Daniel in the lions' den",
+     "kind": "personal",
+     "claim": {
+      "text": "Bound by \"the law of the Medes and Persians, which altereth not\", he had Daniel cast into the den, fasted that night, and at dawn found him unhurt.",
+      "layer": "scripture",
+      "refs": [
+       [
+        27006012,
+        27006023
+       ]
+      ]
+     }
+    },
+    {
+     "label": "The accusers punished",
+     "kind": "other",
+     "claim": {
+      "text": "He had the men who accused Daniel cast into the den with their families.",
+      "layer": "scripture",
+      "refs": [
+       [
+        27006024,
+        27006024
+       ]
+      ]
+     }
+    },
+    {
+     "label": "Decree for the God of Daniel",
+     "kind": "worship",
+     "claim": {
+      "text": "He wrote to all peoples that in every dominion of his kingdom men should fear the God of Daniel.",
+      "layer": "scripture",
+      "refs": [
+       [
+        27006025,
+        27006027
+       ]
+      ]
+     }
+    },
+    {
+     "label": "Daniel's prayer and the seventy weeks",
+     "kind": "prophecy",
+     "claim": {
+      "text": "In his first year Daniel \"understood by books\" the seventy years of Jerusalem's desolation foretold by Jeremiah, prayed, and was given the word of the seventy weeks.",
+      "layer": "scripture",
+      "refs": [
+       [
+        27009001,
+        27009002
+       ],
+       [
+        27009020,
+        27009024
+       ]
+      ]
+     },
+     "year": 1
+    },
+    {
+     "label": "An angel's word on his first year",
+     "kind": "prophecy",
+     "claim": {
+      "text": "The angel tells Daniel that \"in the first year of Darius the Mede\" he \"stood to confirm and to strengthen him\"; Michael has just been named (Dan 10:21), and the verse does not make plain whom \"him\" means.",
+      "layer": "scripture",
+      "refs": [
+       [
+        27010021,
+        27011001
+       ]
+      ]
+     },
+     "year": 1
+    }
+   ],
+   "nation": {
+    "worship": [
+     {
+      "text": "He signed a decree forbidding prayer to any god but the king for thirty days, then later decreed that all should fear the God of Daniel.",
+      "layer": "scripture",
+      "refs": [
+       [
+        27006007,
+        27006009
+       ],
+       [
+        27006026,
+        27006026
+       ]
+      ]
+     }
+    ],
+    "building": [],
+    "alliances": [],
+    "people": [
+     {
+      "text": "Daniel, \"which is of the children of the captivity of Judah\", was first of his three presidents.",
+      "layer": "scripture",
+      "refs": [
+       [
+        27006002,
+        27006002
+       ],
+       [
+        27006013,
+        27006013
+       ]
+      ]
+     }
+    ]
+   },
+   "prophets": [
+    {
+     "person": {
+      "name": "Daniel",
+      "personId": "daniel-ezk-14-14"
+     },
+     "claim": {
+      "text": "He served as first of Darius's presidents, was cast to the lions under Darius's decree, and dated a prayer and a vision by Darius's first year.",
+      "layer": "scripture",
+      "refs": [
+       [
+        27006002,
+        27006002
+       ],
+       [
+        27006016,
+        27006022
+       ],
+       [
+        27009001,
+        27009002
+       ]
+      ]
+     },
+     "quote": {
+      "text": "My God hath sent his angel, and hath shut the lions’ mouths, that they have not hurt me",
+      "span": [
+       27006022,
+       27006022
+      ]
+     }
+    }
+   ],
+   "worldStage": [
+    {
+     "power": "Babylon (the Chaldeans)",
+     "rulers": [
+      {
+       "name": "Belshazzar",
+       "personId": "belshazzar-dan-5-1"
+      }
+     ],
+     "claim": {
+      "text": "Darius took the kingdom after \"Belshazzar the king of the Chaldeans\" was slain.",
+      "layer": "scripture",
+      "refs": [
+       [
+        27005030,
+        27005031
+       ]
+      ]
+     }
+    },
+    {
+     "power": "Persia",
+     "rulers": [
+      {
+       "name": "Cyrus",
+       "personId": "cyrus-2ch-36-22"
+      }
+     ],
+     "claim": {
+      "text": "Daniel names Cyrus the Persian after him.",
+      "layer": "scripture",
+      "refs": [
+       [
+        27006028,
+        27006028
+       ]
+      ]
+     }
+    }
+   ],
+   "outside": [
+    {
+     "name": "The Nabonidus Chronicle",
+     "date": "539 BC events",
+     "claim": {
+      "text": "The Babylonian chronicle says that on the sixteenth day \"Gobryas, the governor of Gutium, and the troops of Cyrus entered Babylon without battle\", that Cyrus entered on the third of Marcheshvan, and that \"He appointed Gobryas, his governor, governor in Babylon\". It names no Darius.",
+      "layer": "ancient-record",
+      "cites": [
+       "harper-nabonidus",
+       "pd-1942"
+      ]
+     }
+    },
+    {
+     "name": "Josephus, Antiquities 10.11.4",
+     "date": "about AD 93",
+     "claim": {
+      "text": "Josephus, retelling Daniel, says Babylon was taken by Darius with \"his kinsman Cyrus\", that Darius was sixty-two, and that \"He was the son of Astyages, and had another name among the Greeks\". He does not give the Greek name.",
+      "layer": "ancient-record",
+      "cites": [
+       "jos-10-11"
+      ]
+     }
+    },
+    {
+     "name": "No record of a king of this name",
+     "date": "—",
+     "claim": {
+      "text": "Writers on both sides of the question below agree that no record outside Daniel names a king \"Darius the Mede\"; R. Dick Wilson (1915) and S. R. Driver (1900) both say so.",
+      "layer": "scholars",
+      "cites": [
+       "isbe-darius",
+       "driver-dan-5-31"
+      ]
+     }
+    }
+   ],
+   "twoAccounts": [],
+   "questions": [
+    {
+     "id": "darius-mede-who",
+     "question": "Who was Darius the Mede? (Views in roughly the order they arose.)",
+     "views": [
+      {
+       "label": "Cyrus himself",
+       "holders": "the Greek (Theodotion) text of Bel and the Dragon, as reported by the Pulpit Commentary (1897)",
+       "argument": {
+        "text": "The Greek addition to Daniel has Cyrus receive the kingdom where Daniel has Darius; the Pulpit Commentary notes that the two names could be confused in the Aramaic script of about 100 BC.",
+        "layer": "scholars",
+        "cites": [
+         "pulpit-dan-6-28"
+        ]
+       }
+      },
+      {
+       "label": "A Median prince, son of Astyages (Xenophon's Cyaxares)",
+       "holders": "Josephus (about AD 93); W. Whiston's note (1737) points to Xenophon's history",
+       "argument": {
+        "text": "Josephus calls Darius the son of Astyages and a kinsman of Cyrus, known to the Greeks by another name; Whiston's note says Josephus had not read Xenophon, \"the best history of this period\". The Pulpit Commentary (1897) rejects this king as unknown to the Babylonian records.",
+        "layer": "scholars",
+        "cites": [
+         "jos-10-11",
+         "pulpit-dan-6-28"
+        ]
+       }
+      },
+      {
+       "label": "Astyages",
+       "holders": "Eusebius, Chronicle (about AD 325), as reported by the Pulpit Commentary (1897)",
+       "argument": {
+        "text": "Eusebius made Darius the Mede the last Median king, Astyages; the Pulpit Commentary finds nothing to support it.",
+        "layer": "scholars",
+        "cites": [
+         "pulpit-dan-6-28"
+        ]
+       }
+      },
+      {
+       "label": "Gubaru (Gobryas), Cyrus's governor of Babylon",
+       "holders": "T. G. Pinches, as reported by the Pulpit Commentary (1897), which favours it; R. Dick Wilson (1915)",
+       "argument": {
+        "text": "The Nabonidus Chronicle has Gobryas enter Babylon and Cyrus appoint him governor there, and Daniel's Darius \"received\" the kingdom and set princes over it. Wilson argues that a provincial ruler could be called \"king\" and that Daniel never calls Darius king of Media or Persia.",
+        "layer": "scholars",
+        "cites": [
+         "pulpit-dan-6-28",
+         "isbe-darius",
+         "harper-nabonidus"
+        ],
+        "refs": [
+         [
+          27005031,
+          27005031
+         ],
+         [
+          27009001,
+          27009001
+         ]
+        ]
+       }
+      },
+      {
+       "label": "Not a king known to history: a confusion in the tradition",
+       "holders": "S. R. Driver (1900); A. A. Bevan (as reported by the Pulpit Commentary, 1897), who took Darius son of Hystaspes to be meant",
+       "argument": {
+        "text": "Driver holds that the records leave no room for a king between Babylon's capture and Cyrus's reign, and suggests the figure combines Gubaru with Darius son of Hystaspes. The Pulpit Commentary answers that Daniel 11 shows the writer knew the Persian kings came after Cyrus.",
+        "layer": "scholars",
+        "cites": [
+         "driver-dan-5-31",
+         "pulpit-dan-6-28"
+        ]
+       }
+      }
+     ]
+    }
+   ],
+   "notSaid": [
+    "Scripture does not say how long Darius the Mede reigned; Daniel mentions only his \"first year\".",
+    "Scripture does not say how he died, or how the kingdom passed to Cyrus; Daniel 6:28 names the two reigns one after the other.",
+    "Daniel never calls him king of Media or of Persia; he is \"made king over the realm of the Chaldeans\" (Dan 9:1)."
+   ],
+   "places": [
+    {
+     "name": "Babylon",
+     "placeId": "a217d18",
+     "refs": [
+      [
+       27005030,
+       27005030
+      ]
+     ],
+     "note": "Belshazzar slain; Darius takes the kingdom"
+    },
+    {
+     "name": "Media",
+     "placeId": "ad2fadf",
+     "refs": [
+      [
+       27009001,
+       27009001
+      ]
+     ],
+     "note": "\"of the seed of the Medes\""
+    }
+   ],
+   "passages": [
+    [
+     27005028,
+     27005031
+    ],
+    [
+     27006001,
+     27006028
+    ],
+    [
+     27009001,
+     27009002
+    ],
+    [
+     27011001,
+     27011001
+    ]
+   ]
+  },
+  {
+   "id": "cyrus-2ch-36-22",
+   "name": "Cyrus",
+   "kind": "foreign",
+   "realm": "persia",
+   "title": "King of Persia",
+   "tagline": "The king who let the captives go home.",
+   "order": 2,
+   "predecessor": "darius-dan-5-31",
+   "successor": "darius-ezr-4-5",
+   "house": "Line of Teispes (Cyrus Cylinder)",
+   "capital": {
+    "name": "Babylon",
+    "placeId": "a217d18",
+    "refs": [
+     [
+      15005013,
+      15005013
+     ]
+    ],
+    "note": "Ezra calls him \"Cyrus the king of Babylon\"; his decree was later found at Achmetha (Ecbatana) in Media (Ezra 6:2)."
+   },
+   "identifications": [
+    {
+     "text": "Scripture calls him \"Cyrus king of Persia\" and \"Cyrus the Persian\", and Isaiah names him twice. This page treats the Cyrus of Isaiah, Chronicles, Ezra and Daniel as one king.",
+     "layer": "text",
+     "refs": [
+      [
+       14036022,
+       14036022
+      ],
+      [
+       15001001,
+       15001001
+      ],
+      [
+       27006028,
+       27006028
+      ],
+      [
+       23044028,
+       23044028
+      ],
+      [
+       23045001,
+       23045001
+      ]
+     ]
+    },
+    {
+     "text": "Isaiah's \"righteous man from the east\" and \"ravenous bird from the east\" do not name him; that they mean Cyrus is an interpretation, held for example by G. L. Robinson (1915).",
+     "layer": "scholars",
+     "cites": [
+      "isbe-isaiah"
+     ],
+     "refs": [
+      [
+       23041002,
+       23041002
+      ],
+      [
+       23046011,
+       23046011
+      ]
+     ]
+    }
+   ],
+   "records": [],
+   "reign": {
+    "text": "Not given in Scripture. Chronicles and Ezra date his proclamation to \"the first year of Cyrus king of Persia\"; Daniel mentions his first and third years (Dan 1:21; 10:1).",
+    "refs": [
+     [
+      14036022,
+      14036022
+     ],
+     [
+      15001001,
+      15001001
+     ],
+     [
+      27001021,
+      27001021
+     ],
+     [
+      27010001,
+      27010001
+     ]
+    ]
+   },
+   "dates": [
+    {
+     "system": "bible",
+     "label": "Scripture's numbers",
+     "note": "Scripture gives his first and third years only."
+    },
+    {
+     "system": "other",
+     "label": "King of Babylon, October 539 – August 530 BC (Parker and Dubberstein, 1942)",
+     "from": 539,
+     "to": 530,
+     "approx": true,
+     "note": "Babylon fell on 13 October 539 and Cyrus entered on 29 October (the Nabonidus Chronicle); the last tablets of his ninth year date to August 530, when his death seems to have been reported. His first full year at Babylon began in spring 538.",
+     "cites": [
+      "pd-1942"
+     ]
+    },
+    {
+     "system": "other",
+     "label": "Herodotus: 29 years in all (about 559–530 BC)",
+     "from": 559,
+     "to": 530,
+     "approx": true,
+     "note": "Herodotus says he reigned \"thirty years wanting one\"; T. G. Pinches (1915) gives the same 29 years and adds that Cyrus ruled Media for 11 of them and Babylonia for 9. Counting back from 530 gives about 559.",
+     "cites": [
+      "herod-1",
+      "isbe-cyrus",
+      "pd-1942"
+     ]
+    },
+    {
+     "system": "other",
+     "label": "Keil (1872): reigned alone at Babylon from 536 BC",
+     "from": 536,
+     "to": 529,
+     "approx": true,
+     "note": "Keil gives two years to Darius the Mede first and puts Cyrus's death in 529.",
+     "cites": [
+      "keil-dan-9-1"
+     ]
+    }
+   ],
+   "verdictTone": "none",
+   "scriptureSays": [
+    {
+     "text": "The LORD \"saith of Cyrus, He is my shepherd, and shall perform all my pleasure: even saying to Jerusalem, Thou shalt be built; and to the temple, Thy foundation shall be laid.\"",
+     "layer": "scripture",
+     "refs": [
+      [
+       23044028,
+       23044028
+      ]
+     ]
+    },
+    {
+     "text": "\"Thus saith the LORD to his anointed, to Cyrus, whose right hand I have holden, to subdue nations before him\"; \"I have surnamed thee, though thou hast not known me.\"",
+     "layer": "scripture",
+     "refs": [
+      [
+       23045001,
+       23045001
+      ],
+      [
+       23045004,
+       23045004
+      ]
+     ]
+    },
+    {
+     "text": "\"He shall build my city, and he shall let go my captives, not for price nor reward, saith the LORD of hosts.\"",
+     "layer": "scripture",
+     "refs": [
+      [
+       23045013,
+       23045013
+      ]
+     ]
+    },
+    {
+     "text": "\"The LORD stirred up the spirit of Cyrus king of Persia\", that the word spoken by Jeremiah might be fulfilled.",
+     "layer": "scripture",
+     "refs": [
+      [
+       14036022,
+       14036022
+      ],
+      [
+       15001001,
+       15001001
+      ]
+     ]
+    },
+    {
+     "text": "His proclamation: \"The LORD God of heaven hath given me all the kingdoms of the earth; and he hath charged me to build him an house at Jerusalem, which is in Judah.\"",
+     "layer": "scripture",
+     "refs": [
+      [
+       15001002,
+       15001002
+      ]
+     ]
+    }
+   ],
+   "events": [
+    {
+     "label": "Proclamation to rebuild",
+     "kind": "building",
+     "claim": {
+      "text": "In his first year he proclaimed throughout his kingdom, in writing, that any of the LORD's people might go up to Jerusalem to build the house of the LORD, and that their neighbours should help them with silver, gold, goods and beasts.",
+      "layer": "scripture",
+      "refs": [
+       [
+        15001001,
+        15001004
+       ],
+       [
+        14036022,
+        14036023
+       ]
+      ]
+     },
+     "year": 1
+    },
+    {
+     "label": "Decree recorded at Achmetha",
+     "kind": "building",
+     "claim": {
+      "text": "A record later found at Achmetha says that in his first year Cyrus ordered the house built, threescore cubits high and broad, with its expenses \"given out of the king’s house\", and the vessels restored.",
+      "layer": "scripture",
+      "refs": [
+       [
+        15006002,
+        15006005
+       ]
+      ]
+     },
+     "year": 1,
+     "placeId": "a212ef7"
+    },
+    {
+     "label": "The temple vessels returned",
+     "kind": "worship",
+     "claim": {
+      "text": "Cyrus brought out the vessels Nebuchadnezzar had taken, by the hand of Mithredath the treasurer, and numbered them to Sheshbazzar, the prince of Judah: 5,400 vessels of gold and silver.",
+      "layer": "scripture",
+      "refs": [
+       [
+        15001007,
+        15001011
+       ]
+      ]
+     }
+    },
+    {
+     "label": "The first return",
+     "kind": "other",
+     "claim": {
+      "text": "The children of the province came up from Babylon with Zerubbabel, Jeshua and others: 42,360 besides servants.",
+      "layer": "scripture",
+      "refs": [
+       [
+        15002001,
+        15002002
+       ],
+       [
+        15002064,
+        15002065
+       ]
+      ]
+     },
+     "placeId": "a15257a"
+    },
+    {
+     "label": "Cedar from Lebanon",
+     "kind": "building",
+     "claim": {
+      "text": "The builders paid Sidon and Tyre to bring cedar from Lebanon to the sea of Joppa, \"according to the grant that they had of Cyrus king of Persia\".",
+      "layer": "scripture",
+      "refs": [
+       [
+        15003007,
+        15003007
+       ]
+      ]
+     },
+     "placeId": "a730058"
+    },
+    {
+     "label": "Opposition all his days",
+     "kind": "other",
+     "claim": {
+      "text": "The people of the land hired counsellors against the builders \"all the days of Cyrus king of Persia, even until the reign of Darius\".",
+      "layer": "scripture",
+      "refs": [
+       [
+        15004004,
+        15004005
+       ]
+      ]
+     }
+    },
+    {
+     "label": "Daniel continues",
+     "kind": "other",
+     "claim": {
+      "text": "\"And Daniel continued even unto the first year of king Cyrus.\"",
+      "layer": "scripture",
+      "refs": [
+       [
+        27001021,
+        27001021
+       ]
+      ]
+     },
+     "year": 1
+    },
+    {
+     "label": "Daniel's last vision",
+     "kind": "prophecy",
+     "claim": {
+      "text": "\"In the third year of Cyrus king of Persia a thing was revealed unto Daniel.\"",
+      "layer": "scripture",
+      "refs": [
+       [
+        27010001,
+        27010001
+       ]
+      ]
+     },
+     "year": 3
+    }
+   ],
+   "nation": {
+    "worship": [
+     {
+      "text": "He returned the vessels of the house of the LORD that Nebuchadnezzar had put in the house of his gods.",
+      "layer": "scripture",
+      "refs": [
+       [
+        15001007,
+        15001007
+       ]
+      ]
+     },
+     {
+      "text": "Ezra's record says the house was to be built at \"the place where they offered sacrifices\", its expenses \"given out of the king’s house\".",
+      "layer": "scripture",
+      "refs": [
+       [
+        15006003,
+        15006004
+       ]
+      ]
+     }
+    ],
+    "building": [
+     {
+      "text": "He charged the people to build the house at Jerusalem and granted materials from Lebanon.",
+      "layer": "scripture",
+      "refs": [
+       [
+        15001002,
+        15001003
+       ],
+       [
+        15003007,
+        15003007
+       ]
+      ]
+     }
+    ],
+    "alliances": [
+     {
+      "text": "Zerubbabel and Jeshua refused the help of their neighbours, saying \"we ourselves together will build unto the LORD God of Israel, as king Cyrus the king of Persia hath commanded us\".",
+      "layer": "scripture",
+      "refs": [
+       [
+        15004003,
+        15004003
+       ]
+      ]
+     }
+    ],
+    "people": [
+     {
+      "text": "\"Who is there among you of all his people? his God be with him, and let him go up to Jerusalem.\"",
+      "layer": "scripture",
+      "refs": [
+       [
+        15001003,
+        15001003
+       ]
+      ]
+     },
+     {
+      "text": "Chronicles says the exiles served the king of Babylon \"until the reign of the kingdom of Persia\".",
+      "layer": "scripture",
+      "refs": [
+       [
+        14036020,
+        14036020
+       ]
+      ]
+     }
+    ]
+   },
+   "prophets": [
+    {
+     "person": {
+      "name": "Isaiah",
+      "personId": "isaiah-2ki-19-2"
+     },
+     "claim": {
+      "text": "Isaiah names Cyrus as the LORD's shepherd and anointed, who would subdue nations and let the captives go.",
+      "layer": "scripture",
+      "refs": [
+       [
+        23044028,
+        23044028
+       ],
+       [
+        23045001,
+        23045013
+       ]
+      ]
+     },
+     "quote": {
+      "text": "He is my shepherd, and shall perform all my pleasure",
+      "span": [
+       23044028,
+       23044028
+      ]
+     }
+    },
+    {
+     "person": {
+      "name": "Jeremiah",
+      "personId": "jeremiah-2ch-35-25"
+     },
+     "claim": {
+      "text": "Chronicles and Ezra say Cyrus's proclamation fulfilled \"the word of the LORD by the mouth of Jeremiah\", the seventy years of Babylon. Jeremiah himself does not name Cyrus.",
+      "layer": "scripture",
+      "refs": [
+       [
+        14036021,
+        14036022
+       ],
+       [
+        24025011,
+        24025012
+       ],
+       [
+        24029010,
+        24029010
+       ]
+      ]
+     }
+    },
+    {
+     "person": {
+      "name": "Daniel",
+      "personId": "daniel-ezk-14-14"
+     },
+     "claim": {
+      "text": "Daniel continued into Cyrus's first year and dated a vision to his third year.",
+      "layer": "scripture",
+      "refs": [
+       [
+        27001021,
+        27001021
+       ],
+       [
+        27010001,
+        27010001
+       ]
+      ]
+     },
+     "quote": {
+      "text": "In the third year of Cyrus king of Persia a thing was revealed unto Daniel",
+      "span": [
+       27010001,
+       27010001
+      ]
+     }
+    }
+   ],
+   "worldStage": [
+    {
+     "power": "Babylon",
+     "rulers": [
+      {
+       "name": "Belshazzar",
+       "personId": "belshazzar-dan-5-1"
+      }
+     ],
+     "claim": {
+      "text": "Daniel tells of Belshazzar's last night and the kingdom \"given to the Medes and Persians\".",
+      "layer": "scripture",
+      "refs": [
+       [
+        27005028,
+        27005030
+       ]
+      ]
+     }
+    },
+    {
+     "power": "The Medes",
+     "rulers": [
+      {
+       "name": "Darius the Mede",
+       "personId": "darius-dan-5-31"
+      }
+     ],
+     "claim": {
+      "text": "Daniel names the reign of Darius before \"the reign of Cyrus the Persian\".",
+      "layer": "scripture",
+      "refs": [
+       [
+        27006028,
+        27006028
+       ]
+      ]
+     }
+    },
+    {
+     "power": "Persia after him",
+     "rulers": [
+      {
+       "name": "Darius",
+       "personId": "darius-ezr-4-5"
+      }
+     ],
+     "claim": {
+      "text": "Ezra passes from \"all the days of Cyrus\" to \"the reign of Darius king of Persia\".",
+      "layer": "scripture",
+      "refs": [
+       [
+        15004005,
+        15004005
+       ]
+      ]
+     }
+    }
+   ],
+   "outside": [
+    {
+     "name": "The Cyrus Cylinder",
+     "date": "after 539 BC",
+     "claim": {
+      "text": "Cyrus's own clay cylinder from Babylon says Marduk \"sought a righteous prince\" and called \"Cyrus, king of Anshan\" by name, let him enter Babylon \"Without battle and conflict\", and that Cyrus brought back to their places the gods of cities as far as Asshur, Susa and the land of Gutium: \"All their inhabitants I collected and restored them to their dwelling places.\" It names neither the Jews nor Jerusalem.",
+      "layer": "ancient-record",
+      "cites": [
+       "rogers-cylinder"
+      ]
+     }
+    },
+    {
+     "name": "The Nabonidus Chronicle",
+     "date": "539 BC",
+     "claim": {
+      "text": "The chronicle records Sippar taken \"without battle\", Gobryas and the troops of Cyrus entering Babylon \"without battle\" on the sixteenth day, and Cyrus entering on the third of Marcheshvan, when he \"proclaimed peace to all Babylon\"; from Kislev to Adar the gods Nabonidus had brought into Babylon went back to their own cities. Parker and Dubberstein date these days to 13 and 29 October 539 BC.",
+      "layer": "ancient-record",
+      "cites": [
+       "harper-nabonidus",
+       "pd-1942"
+      ]
+     }
+    },
+    {
+     "name": "Herodotus",
+     "date": "about 430 BC",
+     "claim": {
+      "text": "Herodotus says Cyrus took Babylon by turning the Euphrates aside, while the people in the middle of the city, who \"chanced to be holding a festival\", did not know it was taken, and that he died fighting the Massagetai after reigning \"thirty years wanting one\"; he adds that \"there are many tales told\" of his end.",
+      "layer": "ancient-record",
+      "cites": [
+       "herod-1"
+      ]
+     }
+    },
+    {
+     "name": "Josephus on Cyrus and Isaiah",
+     "date": "about AD 93",
+     "claim": {
+      "text": "A later tradition, first found in Josephus (about AD 93), says Cyrus learned of himself \"by his reading the book which Isaiah left behind him\" and was moved to fulfil it.",
+      "layer": "tradition",
+      "cites": [
+       "jos-11-1"
+      ]
+     }
+    }
+   ],
+   "twoAccounts": [
+    {
+     "topic": "The proclamation",
+     "first": {
+      "text": "Chronicles ends the proclamation at \"The LORD his God be with him, and let him go up.\"",
+      "layer": "scripture",
+      "refs": [
+       [
+        14036023,
+        14036023
+       ]
+      ]
+     },
+     "second": {
+      "text": "Ezra gives it in full: go up \"to Jerusalem, which is in Judah, and build the house of the LORD\", with help from the neighbours in silver, gold, goods and beasts.",
+      "layer": "scripture",
+      "refs": [
+       [
+        15001002,
+        15001004
+       ]
+      ]
+     }
+    },
+    {
+     "topic": "The decree as Ezra gives it twice",
+     "first": {
+      "text": "Ezra 1: a proclamation in Hebrew to the people, to go up and build, with freewill offerings.",
+      "layer": "scripture",
+      "refs": [
+       [
+        15001002,
+        15001004
+       ]
+      ]
+     },
+     "second": {
+      "text": "Ezra 6: an Aramaic record from Achmetha, giving the house's size, its cost from the king's house, and the return of the vessels.",
+      "layer": "scripture",
+      "refs": [
+       [
+        15006003,
+        15006005
+       ]
+      ]
+     }
+    }
+   ],
+   "questions": [
+    {
+     "id": "cyrus-isaiah",
+     "question": "Did Isaiah name Cyrus long before his time?",
+     "views": [
+      {
+       "label": "Yes: Isaiah son of Amoz foretold him by name",
+       "holders": "Josephus (about AD 93); Albert Barnes (1840); G. L. Robinson (1915); the Pulpit Commentary",
+       "argument": {
+        "text": "Josephus says Isaiah foretold it \"one hundred and forty years before the temple was demolished\"; Barnes counts about 150 years before Cyrus's reign. The Pulpit Commentary compares Josiah, named three centuries ahead in 1 Kings 13:2.",
+        "layer": "scholars",
+        "cites": [
+         "jos-11-1",
+         "barnes-isa-44-28",
+         "isbe-isaiah",
+         "pulpit-isa-44-28"
+        ],
+        "refs": [
+         [
+          11013002,
+          11013002
+         ]
+        ]
+       }
+      },
+      {
+       "label": "No: chapters 40–66 come from a prophet of the exile, writing when Cyrus was already rising",
+       "holders": "the critical scholars of the 18th and 19th centuries, as described by G. L. Robinson (1915) and the Pulpit Commentary",
+       "argument": {
+        "text": "On this view a prophet in Babylonia about 550–538 BC wrote of Cyrus; Robinson reports that by 1915 many critics further divided these chapters among later writers. The naming of Cyrus is, the Pulpit Commentary says, one of the main grounds of the view.",
+        "layer": "scholars",
+        "cites": [
+         "isbe-isaiah",
+         "pulpit-isa-44-28"
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "id": "cyrus-first-year",
+     "question": "When was \"the first year of Cyrus\" of Ezra 1:1?",
+     "views": [
+      {
+       "label": "538 BC, his first full year as king of Babylon",
+       "holders": "dated from the Babylonian tablets (Parker and Dubberstein, 1942)",
+       "argument": {
+        "text": "Babylon fell in October 539; the year that followed his accession began in spring 538.",
+        "layer": "scholars",
+        "cites": [
+         "pd-1942"
+        ]
+       }
+      },
+      {
+       "label": "536 BC, after two years of Darius the Mede",
+       "holders": "C. F. Keil (1872)",
+       "argument": {
+        "text": "Keil reckons Cyrus's own reign over Babylon from 536, the year in which he counts the seventy years of exile as complete.",
+        "layer": "scholars",
+        "cites": [
+         "keil-dan-9-1"
+        ]
+       }
+      }
+     ]
+    }
+   ],
+   "notSaid": [
+    "Scripture does not tell how Cyrus took Babylon, how long he reigned, or how he died.",
+    "Scripture does not name Cambyses, the son who reigned after him (the Cyrus Cylinder names him).",
+    "Scripture never says Cyrus worshipped the LORD; Isaiah says \"thou hast not known me\" (Isa 45:4)."
+   ],
+   "places": [
+    {
+     "name": "Persia",
+     "placeId": "ab9696f",
+     "refs": [
+      [
+       15001001,
+       15001001
+      ]
+     ],
+     "note": "His kingdom"
+    },
+    {
+     "name": "Babylon",
+     "placeId": "a217d18",
+     "refs": [
+      [
+       15005013,
+       15005013
+      ]
+     ],
+     "note": "\"Cyrus the king of Babylon\"; the vessels taken from its temple"
+    },
+    {
+     "name": "Jerusalem",
+     "placeId": "a15257a",
+     "refs": [
+      [
+       15001002,
+       15001002
+      ]
+     ],
+     "note": "The house he charged them to build"
+    },
+    {
+     "name": "Ecbatana",
+     "placeId": "a212ef7",
+     "refs": [
+      [
+       15006002,
+       15006002
+      ]
+     ],
+     "note": "Achmetha, where the record of his decree was found"
+    },
+    {
+     "name": "Media",
+     "placeId": "ad2fadf",
+     "refs": [
+      [
+       15006002,
+       15006002
+      ]
+     ],
+     "note": "\"the province of the Medes\""
+    },
+    {
+     "name": "Lebanon",
+     "placeId": "a730058",
+     "refs": [
+      [
+       15003007,
+       15003007
+      ]
+     ],
+     "note": "Cedar by his grant"
+    },
+    {
+     "name": "Tyre",
+     "placeId": "a160272",
+     "refs": [
+      [
+       15003007,
+       15003007
+      ]
+     ]
+    },
+    {
+     "name": "Sidon",
+     "placeId": "a98e4d7",
+     "refs": [
+      [
+       15003007,
+       15003007
+      ]
+     ]
+    },
+    {
+     "name": "Joppa",
+     "placeId": "ae023a9",
+     "refs": [
+      [
+       15003007,
+       15003007
+      ]
+     ],
+     "note": "The cedar's port"
+    }
+   ],
+   "passages": [
+    [
+     14036020,
+     14036023
+    ],
+    [
+     15001001,
+     15001011
+    ],
+    [
+     15003007,
+     15003007
+    ],
+    [
+     15004003,
+     15004005
+    ],
+    [
+     15005013,
+     15005017
+    ],
+    [
+     15006003,
+     15006005
+    ],
+    [
+     15006014,
+     15006014
+    ],
+    [
+     23044024,
+     23044028
+    ],
+    [
+     23045001,
+     23045013
+    ],
+    [
+     27001021,
+     27001021
+    ],
+    [
+     27006028,
+     27006028
+    ],
+    [
+     27010001,
+     27010001
+    ]
+   ]
+  },
+  {
+   "id": "zerubbabel-1ch-3-19",
+   "name": "Zerubbabel",
+   "otherNames": [
+    "Zorobabel"
+   ],
+   "kind": "governor",
+   "realm": "persia",
+   "title": "Governor of Judah",
+   "tagline": "Led the first return and rebuilt the house of the LORD.",
+   "order": 3,
+   "house": "House of David (1 Chr 3:19; Matt 1:12)",
+   "tribe": "Judah",
+   "capital": {
+    "name": "Jerusalem",
+    "placeId": "a15257a",
+    "refs": [
+     [
+      15003008,
+      15003008
+     ]
+    ]
+   },
+   "identifications": [
+    {
+     "text": "Ezra, Nehemiah and Haggai call him \"the son of Shealtiel\"; 1 Chronicles lists him among \"the sons of Pedaiah\"; Matthew has \"Salathiel begat Zorobabel\".",
+     "layer": "text",
+     "refs": [
+      [
+       15003002,
+       15003002
+      ],
+      [
+       16012001,
+       16012001
+      ],
+      [
+       37001001,
+       37001001
+      ],
+      [
+       13003019,
+       13003019
+      ],
+      [
+       40001012,
+       40001012
+      ]
+     ]
+    },
+    {
+     "text": "Luke's genealogy also names \"Zorobabel, which was the son of Salathiel\"; the site keeps that verse on a separate person record.",
+     "layer": "text",
+     "refs": [
+      [
+       42003027,
+       42003027
+      ]
+     ]
+    },
+    {
+     "text": "The site's record for him also holds Sheshbazzar's verses, following one view; this page shows that question as views, below.",
+     "layer": "text",
+     "refs": [
+      [
+       15001008,
+       15001008
+      ],
+      [
+       15005014,
+       15005014
+      ]
+     ]
+    }
+   ],
+   "records": [],
+   "reign": {
+    "text": "Not given. Haggai calls him \"governor of Judah\" in the second year of Darius; he is first among the leaders of the return under Cyrus (Ezra 2:2; Hag 1:1).",
+    "refs": [
+     [
+      15002002,
+      15002002
+     ],
+     [
+      37001001,
+      37001001
+     ]
+    ]
+   },
+   "dates": [
+    {
+     "system": "bible",
+     "label": "Scripture's numbers",
+     "note": "He is named from the first return under Cyrus to the work of Darius's second year; Scripture gives no term of office."
+    },
+    {
+     "system": "other",
+     "label": "From the return (538 BC or soon after) to the temple's completion (515 BC), on Parker and Dubberstein's tables",
+     "from": 538,
+     "to": 515,
+     "approx": true,
+     "note": "These are the bounds of the events Scripture names: Cyrus's first year at Babylon began in 538, and Darius's sixth year ended early in 515. Zerubbabel is not named at the completion itself.",
+     "cites": [
+      "pd-1942"
+     ]
+    },
+    {
+     "system": "other",
+     "label": "Keil (1872): the return in 536 BC",
+     "from": 536,
+     "to": 515,
+     "approx": true,
+     "note": "Keil dates Cyrus's first year, and so the return, to 536; the end-point is Parker and Dubberstein's.",
+     "cites": [
+      "keil-dan-9-1",
+      "pd-1942"
+     ]
+    }
+   ],
+   "verdictTone": "none",
+   "scriptureSays": [
+    {
+     "text": "\"The LORD stirred up the spirit of Zerubbabel the son of Shealtiel, governor of Judah\", and the people came and worked on the house.",
+     "layer": "scripture",
+     "refs": [
+      [
+       37001014,
+       37001014
+      ]
+     ]
+    },
+    {
+     "text": "\"Yet now be strong, O Zerubbabel, saith the LORD.\"",
+     "layer": "scripture",
+     "refs": [
+      [
+       37002004,
+       37002004
+      ]
+     ]
+    },
+    {
+     "text": "\"In that day, saith the LORD of hosts, will I take thee, O Zerubbabel, my servant, the son of Shealtiel, saith the LORD, and will make thee as a signet: for I have chosen thee\"",
+     "layer": "scripture",
+     "refs": [
+      [
+       37002023,
+       37002023
+      ]
+     ]
+    },
+    {
+     "text": "\"Not by might, nor by power, but by my spirit, saith the LORD of hosts\"; \"The hands of Zerubbabel have laid the foundation of this house; his hands shall also finish it.\"",
+     "layer": "scripture",
+     "refs": [
+      [
+       38004006,
+       38004006
+      ],
+      [
+       38004009,
+       38004009
+      ]
+     ]
+    }
+   ],
+   "synchronisms": [
+    {
+     "quote": {
+      "text": "In the second year of Darius the king, in the sixth month, in the first day of the month, came the word of the LORD by Haggai the prophet unto Zerubbabel the son of Shealtiel, governor of Judah",
+      "span": [
+       37001001,
+       37001001
+      ]
+     },
+     "otherRulerId": "darius-ezr-4-5"
+    },
+    {
+     "quote": {
+      "text": "In the four and twentieth day of the sixth month, in the second year of Darius the king",
+      "span": [
+       37001015,
+       37001015
+      ]
+     },
+     "otherRulerId": "darius-ezr-4-5"
+    },
+    {
+     "quote": {
+      "text": "And this house was finished on the third day of the month Adar, which was in the sixth year of the reign of Darius the king",
+      "span": [
+       15006015,
+       15006015
+      ]
+     },
+     "otherRulerId": "darius-ezr-4-5"
+    }
+   ],
+   "events": [
+    {
+     "label": "Leads the return",
+     "kind": "other",
+     "claim": {
+      "text": "The children of the province came up from Babylon \"with Zerubbabel\" and the other leaders, 42,360 besides servants.",
+      "layer": "scripture",
+      "refs": [
+       [
+        15002001,
+        15002002
+       ],
+       [
+        15002064,
+        15002065
+       ]
+      ]
+     },
+     "placeId": "a15257a"
+    },
+    {
+     "label": "The altar rebuilt",
+     "kind": "worship",
+     "claim": {
+      "text": "In the seventh month Jeshua and Zerubbabel built the altar, offered burnt offerings and kept the feast of tabernacles.",
+      "layer": "scripture",
+      "refs": [
+       [
+        15003001,
+        15003004
+       ]
+      ]
+     }
+    },
+    {
+     "label": "The foundation laid",
+     "kind": "building",
+     "claim": {
+      "text": "In the second month of the second year after their coming, Zerubbabel and Jeshua set the Levites over the work; when the foundation was laid the people shouted and the old men wept.",
+      "layer": "scripture",
+      "refs": [
+       [
+        15003008,
+        15003013
+       ]
+      ]
+     }
+    },
+    {
+     "label": "Help refused",
+     "kind": "alliance",
+     "claim": {
+      "text": "He and Jeshua refused the neighbours' offer to build with them: \"Ye have nothing to do with us to build an house unto our God.\"",
+      "layer": "scripture",
+      "refs": [
+       [
+        15004001,
+        15004003
+       ]
+      ]
+     }
+    },
+    {
+     "label": "The work stops",
+     "kind": "other",
+     "claim": {
+      "text": "The people of the land troubled the builders, and the work ceased \"unto the second year of the reign of Darius king of Persia\".",
+      "layer": "scripture",
+      "refs": [
+       [
+        15004004,
+        15004005
+       ],
+       [
+        15004024,
+        15004024
+       ]
+      ]
+     }
+    },
+    {
+     "label": "Haggai's first word",
+     "kind": "prophecy",
+     "claim": {
+      "text": "On the first day of the sixth month of Darius's second year Haggai spoke to Zerubbabel and Joshua: \"Go up to the mountain, and bring wood, and build the house.\"",
+      "layer": "scripture",
+      "refs": [
+       [
+        37001001,
+        37001008
+       ]
+      ]
+     },
+     "year": 2
+    },
+    {
+     "label": "Building resumed",
+     "kind": "building",
+     "claim": {
+      "text": "On the twenty-fourth day of that month Zerubbabel, Joshua and the remnant began to work.",
+      "layer": "scripture",
+      "refs": [
+       [
+        37001012,
+        37001015
+       ],
+       [
+        15005001,
+        15005002
+       ]
+      ]
+     },
+     "year": 2,
+     "placeId": "a15257a"
+    },
+    {
+     "label": "\"Be strong, O Zerubbabel\"",
+     "kind": "prophecy",
+     "claim": {
+      "text": "On the twenty-first day of the seventh month Haggai told him the glory of this house would be greater than the former.",
+      "layer": "scripture",
+      "refs": [
+       [
+        37002001,
+        37002009
+       ]
+      ]
+     },
+     "year": 2
+    },
+    {
+     "label": "Tatnai's inquiry",
+     "kind": "other",
+     "claim": {
+      "text": "Tatnai asked who had commanded the building; the elders answered with Cyrus's decree, and the matter went to Darius.",
+      "layer": "scripture",
+      "refs": [
+       [
+        15005003,
+        15005017
+       ]
+      ]
+     }
+    },
+    {
+     "label": "The signet promise",
+     "kind": "prophecy",
+     "claim": {
+      "text": "On the twenty-fourth day of the ninth month Haggai spoke to him: \"will I take thee, O Zerubbabel… and will make thee as a signet\"",
+      "layer": "scripture",
+      "refs": [
+       [
+        37002020,
+        37002023
+       ]
+      ]
+     },
+     "year": 2
+    },
+    {
+     "label": "Zechariah's word to him",
+     "kind": "prophecy",
+     "claim": {
+      "text": "Among the visions of the twenty-fourth day of the eleventh month came the word: \"Not by might, nor by power, but by my spirit.\"",
+      "layer": "scripture",
+      "refs": [
+       [
+        38001007,
+        38001007
+       ],
+       [
+        38004006,
+        38004010
+       ]
+      ]
+     },
+     "year": 2
+    },
+    {
+     "label": "The temple finished",
+     "kind": "building",
+     "claim": {
+      "text": "The house was finished on the third day of Adar in Darius's sixth year and dedicated with joy; Ezra names \"the elders of the Jews\" as its builders here.",
+      "layer": "scripture",
+      "refs": [
+       [
+        15006014,
+        15006017
+       ]
+      ]
+     },
+     "year": 6,
+     "placeId": "a15257a"
+    }
+   ],
+   "nation": {
+    "worship": [
+     {
+      "text": "They kept the feast of tabernacles and set the Levites in their courses; later the returned exiles kept the Passover.",
+      "layer": "scripture",
+      "refs": [
+       [
+        15003004,
+        15003004
+       ],
+       [
+        15006018,
+        15006022
+       ]
+      ]
+     }
+    ],
+    "building": [
+     {
+      "text": "Under him and Jeshua the altar was set up, the foundation laid, and the house finished.",
+      "layer": "scripture",
+      "refs": [
+       [
+        15003002,
+        15003002
+       ],
+       [
+        15003008,
+        15003010
+       ],
+       [
+        15006015,
+        15006015
+       ]
+      ]
+     }
+    ],
+    "alliances": [
+     {
+      "text": "He refused the help of those whom Esar-haddon had brought into the land, and the work was then hindered.",
+      "layer": "scripture",
+      "refs": [
+       [
+        15004002,
+        15004004
+       ]
+      ]
+     }
+    ],
+    "people": [
+     {
+      "text": "\"All Israel in the days of Zerubbabel, and in the days of Nehemiah, gave the portions of the singers and the porters.\"",
+      "layer": "scripture",
+      "refs": [
+       [
+        16012047,
+        16012047
+       ]
+      ]
+     }
+    ]
+   },
+   "prophets": [
+    {
+     "person": {
+      "name": "Haggai",
+      "personId": "haggai-ezr-5-1"
+     },
+     "claim": {
+      "text": "Three of his four dated words in Darius's second year were addressed to Zerubbabel, two of them with Joshua the high priest; they urged the building of the house and ended with the promise of the signet.",
+      "layer": "scripture",
+      "refs": [
+       [
+        37001001,
+        37001001
+       ],
+       [
+        37002002,
+        37002002
+       ],
+       [
+        37002021,
+        37002023
+       ]
+      ]
+     },
+     "quote": {
+      "text": "will I take thee, O Zerubbabel, my servant, the son of Shealtiel, saith the LORD, and will make thee as a signet",
+      "span": [
+       37002023,
+       37002023
+      ]
+     }
+    },
+    {
+     "person": {
+      "name": "Zechariah",
+      "personId": "zechariah-ezr-5-1"
+     },
+     "claim": {
+      "text": "He promised that Zerubbabel's hands, which laid the foundation, would finish the house.",
+      "layer": "scripture",
+      "refs": [
+       [
+        38004006,
+        38004010
+       ]
+      ]
+     },
+     "quote": {
+      "text": "Not by might, nor by power, but by my spirit, saith the LORD of hosts",
+      "span": [
+       38004006,
+       38004006
+      ]
+     }
+    }
+   ],
+   "worldStage": [
+    {
+     "power": "Persia",
+     "rulers": [
+      {
+       "name": "Darius",
+       "personId": "darius-ezr-4-5"
+      },
+      {
+       "name": "Cyrus",
+       "personId": "cyrus-2ch-36-22"
+      }
+     ],
+     "claim": {
+      "text": "Under Cyrus he led the return, and the building began by Cyrus's command and grant; Haggai calls him \"governor of Judah\" in \"the second year of Darius the king\".",
+      "layer": "scripture",
+      "refs": [
+       [
+        15002002,
+        15002002
+       ],
+       [
+        15003007,
+        15003007
+       ],
+       [
+        15004003,
+        15004003
+       ],
+       [
+        37001001,
+        37001001
+       ]
+      ]
+     }
+    },
+    {
+     "power": "Beyond the River (a Persian province)",
+     "rulers": [
+      {
+       "name": "Tatnai",
+       "personId": "tattenai-ezr-5-3"
+      }
+     ],
+     "claim": {
+      "text": "Tatnai was \"governor on this side the river\", the region in which lay \"the province of Judea\"; Darius ordered him to let \"the governor of the Jews\" build.",
+      "layer": "scripture",
+      "refs": [
+       [
+        15005003,
+        15005003
+       ],
+       [
+        15005008,
+        15005008
+       ],
+       [
+        15006006,
+        15006007
+       ]
+      ]
+     }
+    }
+   ],
+   "outside": [
+    {
+     "name": "Josephus, Antiquities 11.1.3",
+     "date": "about AD 93",
+     "claim": {
+      "text": "Josephus, retelling Ezra, has Cyrus give the vessels to \"Sanabassar\" and, in Cyrus's letter, to \"Zorobabel, the governor of the Jews\".",
+      "layer": "ancient-record",
+      "cites": [
+       "jos-11-1"
+      ]
+     }
+    },
+    {
+     "name": "1 Esdras and Josephus: the contest before Darius",
+     "date": "before AD 93",
+     "claim": {
+      "text": "A later story, found in the Greek book 1 Esdras (chapters 3–4) and retold by Josephus, makes Zerubbabel one of Darius's bodyguards who won the king's favour in a contest about the strongest thing, wine, the king, women or truth. Ezra and Haggai do not have it.",
+      "layer": "tradition",
+      "cites": [
+       "jos-11-3",
+       "isbe-zerubbabel"
+      ],
+      "refs": [
+       [
+        67003001,
+        67004063
+       ]
+      ]
+     }
+    }
+   ],
+   "twoAccounts": [
+    {
+     "topic": "His father",
+     "first": {
+      "text": "Ezra and Haggai: \"Zerubbabel the son of Shealtiel\" (so also Matthew).",
+      "layer": "scripture",
+      "refs": [
+       [
+        15003002,
+        15003002
+       ],
+       [
+        37001001,
+        37001001
+       ],
+       [
+        40001012,
+        40001012
+       ]
+      ]
+     },
+     "second": {
+      "text": "1 Chronicles: \"the sons of Pedaiah were, Zerubbabel, and Shimei\"; Pedaiah and Salathiel are both sons of Jeconiah.",
+      "layer": "scripture",
+      "refs": [
+       [
+        13003017,
+        13003019
+       ]
+      ]
+     }
+    },
+    {
+     "topic": "Who laid the foundation",
+     "first": {
+      "text": "Ezra 3 and Zechariah: Zerubbabel and Jeshua set the work forward and \"the hands of Zerubbabel have laid the foundation of this house\".",
+      "layer": "scripture",
+      "refs": [
+       [
+        15003008,
+        15003010
+       ],
+       [
+        38004009,
+        38004009
+       ]
+      ]
+     },
+     "second": {
+      "text": "The elders' answer in Ezra 5: \"Then came the same Sheshbazzar, and laid the foundation of the house of God which is in Jerusalem.\"",
+      "layer": "scripture",
+      "refs": [
+       [
+        15005016,
+        15005016
+       ]
+      ]
+     }
+    },
+    {
+     "topic": "The list of those who returned",
+     "first": {
+      "text": "Ezra 2: \"two hundred singing men and singing women\".",
+      "layer": "scripture",
+      "refs": [
+       [
+        15002065,
+        15002065
+       ]
+      ]
+     },
+     "second": {
+      "text": "Nehemiah 7: \"two hundred forty and five singing men and singing women\".",
+      "layer": "scripture",
+      "refs": [
+       [
+        16007067,
+        16007067
+       ]
+      ]
+     }
+    }
+   ],
+   "questions": [
+    {
+     "id": "sheshbazzar",
+     "question": "Were Sheshbazzar and Zerubbabel one man?",
+     "views": [
+      {
+       "label": "Yes: Sheshbazzar was Zerubbabel's Babylonian name",
+       "holders": "C. F. Keil (1873); H. E. Ryle (1893)",
+       "argument": {
+        "text": "Sheshbazzar is the governor Cyrus appointed, who led the return and laid the foundation (Ezra 1:11; 5:14–16), the work Ezra 3 and Zechariah give to Zerubbabel. Keil compares the Babylonian names given to Daniel and his friends.",
+        "layer": "scholars",
+        "cites": [
+         "keil-ezra-1-8",
+         "ryle-ezra-1-8"
+        ],
+        "refs": [
+         [
+          15001008,
+          15001008
+         ],
+         [
+          15005014,
+          15005016
+         ],
+         [
+          15003008,
+          15003008
+         ]
+        ]
+       }
+      },
+      {
+       "label": "No: Sheshbazzar governed under Cyrus, Zerubbabel under Darius",
+       "holders": "E. Schrader and T. Nöldeke (as reported by Keil, 1873); R. Dick Wilson (1915)",
+       "argument": {
+        "text": "Wilson thinks it more probable that Sheshbazzar laid the foundations under Cyrus and Zerubbabel finished the temple under Darius. Josephus too uses both names, Sanabassar and Zorobabel, without saying they are one man.",
+        "layer": "scholars",
+        "cites": [
+         "keil-ezra-1-8",
+         "isbe-sheshbazzar",
+         "jos-11-1"
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "id": "zerubbabel-father",
+     "question": "Son of Shealtiel or of Pedaiah?",
+     "views": [
+      {
+       "label": "Shealtiel's heir by adoption",
+       "holders": "Ellicott's Commentary (Chronicles); R. Dick Wilson (1915), as one possibility",
+       "argument": {
+        "text": "Chronicles is taken as exact: Zerubbabel was Pedaiah's son and Shealtiel's nephew, adopted as his heir.",
+        "layer": "scholars",
+        "cites": [
+         "ellicott-1ch-3-19",
+         "isbe-zerubbabel"
+        ]
+       }
+      },
+      {
+       "label": "Shealtiel's son by levirate marriage",
+       "holders": "C. F. Keil (1872)",
+       "argument": {
+        "text": "Keil supposes Shealtiel died without a son and his brother Pedaiah raised up seed to him (Deut 25:5–10), so Zerubbabel was counted Shealtiel's son.",
+        "layer": "scholars",
+        "cites": [
+         "keil-1ch-3-19"
+        ],
+        "refs": [
+         [
+          5025005,
+          5025006
+         ]
+        ]
+       }
+      }
+     ]
+    }
+   ],
+   "notSaid": [
+    "Scripture does not say when Zerubbabel's governorship began or ended, or how he died.",
+    "Ezra does not name him at the temple's completion and dedication (Ezra 6:14–18).",
+    "Scripture does not say whether he was the unnamed \"Tirshatha\" of Ezra 2:63 and Nehemiah 7:65, 70."
+   ],
+   "places": [
+    {
+     "name": "Jerusalem",
+     "placeId": "a15257a",
+     "refs": [
+      [
+       15003008,
+       15003008
+      ]
+     ],
+     "note": "The altar and the house"
+    },
+    {
+     "name": "Babylon",
+     "placeId": "a217d18",
+     "refs": [
+      [
+       15002001,
+       15002001
+      ]
+     ],
+     "note": "Whence the return came"
+    },
+    {
+     "name": "Lebanon",
+     "placeId": "a730058",
+     "refs": [
+      [
+       15003007,
+       15003007
+      ]
+     ],
+     "note": "Cedar for the house"
+    },
+    {
+     "name": "Joppa",
+     "placeId": "ae023a9",
+     "refs": [
+      [
+       15003007,
+       15003007
+      ]
+     ]
+    }
+   ],
+   "passages": [
+    [
+     13003017,
+     13003019
+    ],
+    [
+     15002001,
+     15002002
+    ],
+    [
+     15003001,
+     15003013
+    ],
+    [
+     15004001,
+     15004005
+    ],
+    [
+     15004024,
+     15005017
+    ],
+    [
+     15006001,
+     15006022
+    ],
+    [
+     16007007,
+     16007007
+    ],
+    [
+     16012001,
+     16012001
+    ],
+    [
+     16012047,
+     16012047
+    ],
+    [
+     37001001,
+     37002023
+    ],
+    [
+     38004006,
+     38004010
+    ],
+    [
+     40001012,
+     40001013
+    ]
+   ]
+  },
+  {
+   "id": "darius-ezr-4-5",
+   "name": "Darius",
+   "otherNames": [
+    "Darius I, son of Hystaspes (scholars' identification)"
+   ],
+   "kind": "foreign",
+   "realm": "persia",
+   "title": "King of Persia",
+   "tagline": "The king who let the temple be finished.",
+   "order": 4,
+   "predecessor": "cyrus-2ch-36-22",
+   "successor": "ahasuerus-ezr-4-6",
+   "house": "Achaemenian (his own inscription)",
+   "capital": {
+    "name": "Babylon",
+    "placeId": "a217d18",
+    "refs": [
+     [
+      15006001,
+      15006001
+     ]
+    ],
+    "note": "His archives were searched in Babylon and the roll found at Achmetha (Ezra 6:1–2); Scripture names no seat for him."
+   },
+   "identifications": [
+    {
+     "text": "This is the Darius of Ezra 4–6, Haggai and Zechariah, \"Darius king of Persia\". He is kept apart from Darius the Mede (Daniel) and from \"Darius the Persian\" (Neh 12:22), who have their own records.",
+     "layer": "text",
+     "refs": [
+      [
+       15004024,
+       15004024
+      ],
+      [
+       37001001,
+       37001001
+      ],
+      [
+       38001001,
+       38001001
+      ],
+      [
+       27005031,
+       27005031
+      ],
+      [
+       16012022,
+       16012022
+      ]
+     ]
+    },
+    {
+     "text": "Scholars identify him with Darius I, son of Hystaspes, who reigned 522–486 BC.",
+     "layer": "scholars",
+     "cites": [
+      "isbe-darius",
+      "pd-1942"
+     ]
+    }
+   ],
+   "records": [],
+   "reign": {
+    "text": "Not given. Ezra, Haggai and Zechariah date by his second, fourth and sixth years (Ezra 4:24; Zech 7:1; Ezra 6:15).",
+    "refs": [
+     [
+      15004024,
+      15004024
+     ],
+     [
+      37001001,
+      37001001
+     ],
+     [
+      38007001,
+      38007001
+     ],
+     [
+      15006015,
+      15006015
+     ]
+    ]
+   },
+   "dates": [
+    {
+     "system": "bible",
+     "label": "Scripture's numbers",
+     "note": "Second, fourth and sixth years named; no length of reign."
+    },
+    {
+     "system": "other",
+     "label": "Late 522 – November 486 BC (Parker and Dubberstein, 1942)",
+     "from": 522,
+     "to": 486,
+     "approx": true,
+     "note": "On their tables his second year began on 3 April 520 BC, so Haggai's \"sixth month, in the first day\" (Hag 1:1) fell about 29 August 520; the twelfth month of his sixth year (Ezra 6:15) fell early in 515.",
+     "cites": [
+      "pd-1942"
+     ]
+    },
+    {
+     "system": "other",
+     "label": "Herodotus: \"king in all six-and-thirty years\"",
+     "from": 522,
+     "to": 486,
+     "approx": true,
+     "note": "Herodotus gives 36 years; the end-points here are Parker and Dubberstein's.",
+     "cites": [
+      "herod-7",
+      "pd-1942"
+     ]
+    }
+   ],
+   "verdictTone": "none",
+   "scriptureSays": [
+    {
+     "text": "\"Let the work of this house of God alone; let the governor of the Jews and the elders of the Jews build this house of God in his place.\"",
+     "layer": "scripture",
+     "refs": [
+      [
+       15006007,
+       15006007
+      ]
+     ]
+    },
+    {
+     "text": "He ordered the costs paid from \"the tribute beyond the river\", and sacrifices supplied, \"that they may offer sacrifices of sweet savours unto the God of heaven, and pray for the life of the king, and of his sons\".",
+     "layer": "scripture",
+     "refs": [
+      [
+       15006008,
+       15006010
+      ]
+     ]
+    },
+    {
+     "text": "\"And the God that hath caused his name to dwell there destroy all kings and people, that shall put to their hand to alter and to destroy this house of God which is at Jerusalem. I Darius have made a decree; let it be done with speed.\"",
+     "layer": "scripture",
+     "refs": [
+      [
+       15006012,
+       15006012
+      ]
+     ]
+    },
+    {
+     "text": "After the Passover Ezra says the LORD had \"turned the heart of the king of Assyria unto them, to strengthen their hands in the work of the house of God\".",
+     "layer": "scripture",
+     "refs": [
+      [
+       15006022,
+       15006022
+      ]
+     ]
+    }
+   ],
+   "synchronisms": [
+    {
+     "quote": {
+      "text": "In the second year of Darius the king, in the sixth month, in the first day of the month, came the word of the LORD by Haggai the prophet unto Zerubbabel",
+      "span": [
+       37001001,
+       37001001
+      ]
+     },
+     "otherRulerId": "zerubbabel-1ch-3-19"
+    }
+   ],
+   "events": [
+    {
+     "label": "Haggai and Zechariah prophesy",
+     "kind": "prophecy",
+     "claim": {
+      "text": "In his second year Haggai, and in the eighth month Zechariah, began to speak; Ezra says the work had ceased \"unto the second year of the reign of Darius\".",
+      "layer": "scripture",
+      "refs": [
+       [
+        15004024,
+        15005001
+       ],
+       [
+        37001001,
+        37001001
+       ],
+       [
+        38001001,
+        38001001
+       ]
+      ]
+     },
+     "year": 2
+    },
+    {
+     "label": "Building resumes",
+     "kind": "building",
+     "claim": {
+      "text": "On the twenty-fourth day of the sixth month of his second year Zerubbabel, Joshua and the people began to work on the house.",
+      "layer": "scripture",
+      "refs": [
+       [
+        37001014,
+        37001015
+       ]
+      ]
+     },
+     "year": 2,
+     "placeId": "a15257a"
+    },
+    {
+     "label": "Tatnai's letter",
+     "kind": "other",
+     "claim": {
+      "text": "Tatnai, governor on this side the river, asked who had commanded the building and wrote to Darius asking that the records at Babylon be searched for Cyrus's decree.",
+      "layer": "scripture",
+      "refs": [
+       [
+        15005003,
+        15005017
+       ]
+      ]
+     }
+    },
+    {
+     "label": "The record found at Achmetha",
+     "kind": "other",
+     "claim": {
+      "text": "Darius had the archives searched; the roll of Cyrus's decree was found at Achmetha, in the palace in the province of the Medes.",
+      "layer": "scripture",
+      "refs": [
+       [
+        15006001,
+        15006005
+       ]
+      ]
+     },
+     "placeId": "a212ef7"
+    },
+    {
+     "label": "Decree to finish the house",
+     "kind": "building",
+     "claim": {
+      "text": "He ordered Tatnai to let the work alone and to pay its costs and the sacrifices from the king's revenue.",
+      "layer": "scripture",
+      "refs": [
+       [
+        15006006,
+        15006012
+       ]
+      ]
+     }
+    },
+    {
+     "label": "Zechariah on the fasts",
+     "kind": "prophecy",
+     "claim": {
+      "text": "In his fourth year, on the fourth day of Chisleu, the word came to Zechariah about the fasts of the fifth and seventh months.",
+      "layer": "scripture",
+      "refs": [
+       [
+        38007001,
+        38007005
+       ]
+      ]
+     },
+     "year": 4
+    },
+    {
+     "label": "The temple finished",
+     "kind": "building",
+     "claim": {
+      "text": "\"And this house was finished on the third day of the month Adar, which was in the sixth year of the reign of Darius the king.\"",
+      "layer": "scripture",
+      "refs": [
+       [
+        15006015,
+        15006015
+       ]
+      ]
+     },
+     "year": 6,
+     "placeId": "a15257a"
+    },
+    {
+     "label": "Dedication and Passover",
+     "kind": "worship",
+     "claim": {
+      "text": "The house was dedicated with joy and the Passover kept on the fourteenth day of the first month.",
+      "layer": "scripture",
+      "refs": [
+       [
+        15006016,
+        15006022
+       ]
+      ]
+     }
+    }
+   ],
+   "nation": {
+    "worship": [
+     {
+      "text": "He supplied bullocks, rams, lambs, wheat, salt, wine and oil for the burnt offerings \"day by day without fail\".",
+      "layer": "scripture",
+      "refs": [
+       [
+        15006009,
+        15006010
+       ]
+      ]
+     }
+    ],
+    "building": [
+     {
+      "text": "He confirmed Cyrus's decree and paid the building costs from the tribute beyond the river.",
+      "layer": "scripture",
+      "refs": [
+       [
+        15006006,
+        15006008
+       ]
+      ]
+     }
+    ],
+    "alliances": [
+     {
+      "text": "He set a penalty on anyone who altered his word: timber pulled from his house and he hanged on it.",
+      "layer": "scripture",
+      "refs": [
+       [
+        15006011,
+        15006011
+       ]
+      ]
+     }
+    ],
+    "people": [
+     {
+      "text": "\"And the elders of the Jews builded, and they prospered through the prophesying of Haggai the prophet and Zechariah the son of Iddo.\"",
+      "layer": "scripture",
+      "refs": [
+       [
+        15006014,
+        15006014
+       ]
+      ]
+     }
+    ]
+   },
+   "prophets": [
+    {
+     "person": {
+      "name": "Haggai",
+      "personId": "haggai-ezr-5-1"
+     },
+     "claim": {
+      "text": "He dated his words by the day and month in \"the second year of Darius the king\" and urged the people to build.",
+      "layer": "scripture",
+      "refs": [
+       [
+        37001001,
+        37001004
+       ],
+       [
+        37002010,
+        37002010
+       ]
+      ]
+     },
+     "quote": {
+      "text": "Is it time for you, O ye, to dwell in your cieled houses, and this house lie waste?",
+      "span": [
+       37001004,
+       37001004
+      ]
+     }
+    },
+    {
+     "person": {
+      "name": "Zechariah",
+      "personId": "zechariah-ezr-5-1"
+     },
+     "claim": {
+      "text": "He dated his visions and words by Darius's second and fourth years.",
+      "layer": "scripture",
+      "refs": [
+       [
+        38001001,
+        38001001
+       ],
+       [
+        38001007,
+        38001007
+       ],
+       [
+        38007001,
+        38007001
+       ]
+      ]
+     },
+     "quote": {
+      "text": "In the eighth month, in the second year of Darius, came the word of the LORD unto Zechariah",
+      "span": [
+       38001001,
+       38001001
+      ]
+     }
+    }
+   ],
+   "worldStage": [
+    {
+     "power": "Persia",
+     "rulers": [
+      {
+       "name": "Cyrus",
+       "personId": "cyrus-2ch-36-22"
+      }
+     ],
+     "claim": {
+      "text": "Ezra passes from Cyrus to Darius: opposition lasted \"all the days of Cyrus king of Persia, even until the reign of Darius king of Persia\".",
+      "layer": "scripture",
+      "refs": [
+       [
+        15004005,
+        15004005
+       ]
+      ]
+     }
+    },
+    {
+     "power": "Beyond the River (a Persian province)",
+     "rulers": [
+      {
+       "name": "Tatnai",
+       "personId": "tattenai-ezr-5-3"
+      },
+      {
+       "name": "Shethar-boznai",
+       "personId": "shethar-bozenai-ezr-5-3"
+      }
+     ],
+     "claim": {
+      "text": "Tatnai, \"governor on this side the river\", and Shethar-boznai questioned the building and wrote to Darius, then did \"speedily\" what he commanded.",
+      "layer": "scripture",
+      "refs": [
+       [
+        15005003,
+        15005006
+       ],
+       [
+        15006013,
+        15006013
+       ]
+      ]
+     }
+    }
+   ],
+   "outside": [
+    {
+     "name": "The Behistun inscription",
+     "date": "reign of Darius I (522–486 BC)",
+     "claim": {
+      "text": "Carved on a cliff in Persia, it opens: \"I am Darius, the great king, the king of kings, the king of Persia, the king of the provinces, the son of Hystaspes, the grandson of Arsames, the Achaemenian.\" Darius says Cambyses had secretly slain his brother Smerdis, that \"a Magian, Gaumata by name\" claimed to be Smerdis and seized the kingdom, and that he, Darius, slew him. It says nothing of Judah.",
+      "layer": "ancient-record",
+      "cites": [
+       "behistun"
+      ]
+     }
+    },
+    {
+     "name": "Herodotus, Book III",
+     "date": "about 430 BC",
+     "claim": {
+      "text": "Herodotus tells how \"Dareios the son of Hystaspes\" was declared king after the Magian's death, and that he married Atossa and Artystone, daughters of Cyrus.",
+      "layer": "ancient-record",
+      "cites": [
+       "herod-3-88"
+      ]
+     }
+    },
+    {
+     "name": "Josephus, Antiquities 11.3",
+     "date": "about AD 93",
+     "claim": {
+      "text": "Josephus, retelling Ezra, says the seven families of the Persians made \"Darius, the son of Hystaspes\" king after the slaughter of the Magi, and places Zerubbabel at his court (see Zerubbabel's page).",
+      "layer": "ancient-record",
+      "cites": [
+       "jos-11-3"
+      ]
+     }
+    }
+   ],
+   "twoAccounts": [
+    {
+     "topic": "When the foundation was laid",
+     "first": {
+      "text": "Ezra: in the second year after the return under Cyrus, \"the builders laid the foundation of the temple of the LORD\".",
+      "layer": "scripture",
+      "refs": [
+       [
+        15003008,
+        15003011
+       ]
+      ]
+     },
+     "second": {
+      "text": "Haggai: \"from the four and twentieth day of the ninth month, even from the day that the foundation of the LORD’s temple was laid\", in Darius's second year.",
+      "layer": "scripture",
+      "refs": [
+       [
+        37002010,
+        37002010
+       ],
+       [
+        37002018,
+        37002018
+       ]
+      ]
+     }
+    }
+   ],
+   "questions": [
+    {
+     "id": "darius-artaxerxes-6-14",
+     "question": "Who is the \"Artaxerxes king of Persia\" named with Cyrus and Darius in Ezra 6:14?",
+     "views": [
+      {
+       "label": "Artaxerxes I, named for his later gifts to the house",
+       "holders": "C. F. Keil (1873), following Clericus and J. H. Michaelis",
+       "argument": {
+        "text": "Keil holds that only Artaxerxes Longimanus can be meant, though he reigned long after the temple was finished, because his edict (Ezra 7:15, 21) later supported its upkeep.",
+        "layer": "scholars",
+        "cites": [
+         "keil-ezra-6-14"
+        ],
+        "refs": [
+         [
+          15006014,
+          15006014
+         ],
+         [
+          15007015,
+          15007015
+         ],
+         [
+          15007021,
+          15007021
+         ]
+        ]
+       }
+      },
+      {
+       "label": "Artaphernes, one of the seven Persian nobles who shared power with Darius",
+       "holders": "James Ussher (1658)",
+       "argument": {
+        "text": "Ussher thought it \"hard to understand any other than Artaphernes\", taking the name as that of a partner in Darius's kingdom.",
+        "layer": "scholars",
+        "cites": [
+         "ussher-persia"
+        ],
+        "refs": [
+         [
+          15006014,
+          15006014
+         ]
+        ]
+       }
+      }
+     ]
+    }
+   ],
+   "notSaid": [
+    "Scripture does not tell how Darius came to the throne; his own inscription tells of the Magian Gaumata.",
+    "Scripture does not name Cambyses or the Magian who reigned between Cyrus and Darius, unless Ezra 4:6–7 refers to them (see the Ahasuerus and Artaxerxes pages).",
+    "Scripture does not say how long Darius reigned or that he ever saw Jerusalem."
+   ],
+   "places": [
+    {
+     "name": "Babylon",
+     "placeId": "a217d18",
+     "refs": [
+      [
+       15006001,
+       15006001
+      ]
+     ],
+     "note": "The house of the rolls searched"
+    },
+    {
+     "name": "Ecbatana",
+     "placeId": "a212ef7",
+     "refs": [
+      [
+       15006002,
+       15006002
+      ]
+     ],
+     "note": "Achmetha, where Cyrus's roll was found"
+    },
+    {
+     "name": "Media",
+     "placeId": "ad2fadf",
+     "refs": [
+      [
+       15006002,
+       15006002
+      ]
+     ]
+    },
+    {
+     "name": "Jerusalem",
+     "placeId": "a15257a",
+     "refs": [
+      [
+       15006015,
+       15006015
+      ]
+     ],
+     "note": "The temple finished"
+    },
+    {
+     "name": "Persia",
+     "placeId": "ab9696f",
+     "refs": [
+      [
+       15004024,
+       15004024
+      ]
+     ]
+    },
+    {
+     "name": "Euphrates",
+     "placeId": "a62dec4",
+     "refs": [
+      [
+       15006006,
+       15006006
+      ]
+     ],
+     "note": "\"Beyond the river\": the province west of the Euphrates"
+    }
+   ],
+   "passages": [
+    [
+     15004005,
+     15004005
+    ],
+    [
+     15004024,
+     15006022
+    ],
+    [
+     37001001,
+     37002023
+    ],
+    [
+     38001001,
+     38001001
+    ],
+    [
+     38001007,
+     38001007
+    ],
+    [
+     38007001,
+     38007001
+    ]
+   ]
+  },
+  {
+   "id": "ahasuerus-ezr-4-6",
+   "name": "Ahasuerus",
+   "kind": "foreign",
+   "realm": "persia",
+   "title": "King of Persia and Media (Esther)",
+   "tagline": "Reigned from India to Ethiopia over 127 provinces.",
+   "order": 5,
+   "predecessor": "darius-ezr-4-5",
+   "successor": "artaxerxes-ezr-4-7",
+   "capital": {
+    "name": "Susa",
+    "placeId": "a033b84",
+    "refs": [
+     [
+      17001002,
+      17001002
+     ]
+    ],
+    "note": "\"Shushan the palace\""
+   },
+   "identifications": [
+    {
+     "text": "This page covers the Ahasuerus of Esther and of Ezra 4:6; whether they are the same king is a question below. The Ahasuerus of Daniel 9:1, father of Darius the Mede, is a different man with his own record.",
+     "layer": "text",
+     "refs": [
+      [
+       17001001,
+       17001001
+      ],
+      [
+       15004006,
+       15004006
+      ],
+      [
+       27009001,
+       27009001
+      ]
+     ]
+    },
+    {
+     "text": "Most scholars since the 19th century identify him with Xerxes I (486–465 BC): \"Ahasuerus\" renders the Persian name Khshayarsha, which the Greeks wrote Xerxes.",
+     "layer": "scholars",
+     "cites": [
+      "je-ahasuerus",
+      "isbe-ahasuerus",
+      "isbe-xerxes"
+     ]
+    }
+   ],
+   "records": [],
+   "reign": {
+    "text": "Not given. Esther dates by his third, seventh and twelfth years (Esth 1:3; 2:16; 3:7).",
+    "refs": [
+     [
+      17001003,
+      17001003
+     ],
+     [
+      17002016,
+      17002016
+     ],
+     [
+      17003007,
+      17003007
+     ]
+    ]
+   },
+   "dates": [
+    {
+     "system": "bible",
+     "label": "Scripture's numbers",
+     "note": "Third, seventh and twelfth years named; no length of reign."
+    },
+    {
+     "system": "other",
+     "label": "If Xerxes I: December 486 – 465 BC (Parker and Dubberstein, 1942)",
+     "from": 486,
+     "to": 465,
+     "approx": true,
+     "note": "On this identification his third year was 483/482, his seventh 479/478 and his twelfth 474/473 BC. An Elephantine papyrus dated \"year 21\", when \"King Artaxerxes sat on his throne\", shows Xerxes' reign had ended by early 464 BC.",
+     "cites": [
+      "pd-1942",
+      "cowley-6"
+     ]
+    },
+    {
+     "system": "other",
+     "label": "If Xerxes I: 485–465 BC (Easton, 1915)",
+     "from": 485,
+     "to": 465,
+     "approx": true,
+     "note": "The older reckoning in the 1915 encyclopedia.",
+     "cites": [
+      "isbe-xerxes"
+     ]
+    }
+   ],
+   "verdictTone": "none",
+   "scriptureSays": [
+    {
+     "text": "\"This is Ahasuerus which reigned, from India even unto Ethiopia, over an hundred and seven and twenty provinces.\"",
+     "layer": "scripture",
+     "refs": [
+      [
+       17001001,
+       17001001
+      ]
+     ]
+    },
+    {
+     "text": "He \"set the royal crown upon her head, and made her queen instead of Vashti\".",
+     "layer": "scripture",
+     "refs": [
+      [
+       17002017,
+       17002017
+      ]
+     ]
+    },
+    {
+     "text": "He gave his ring to Haman to seal the decree against the Jews, and later to Mordecai: \"the writing which is written in the king’s name, and sealed with the king’s ring, may no man reverse\".",
+     "layer": "scripture",
+     "refs": [
+      [
+       17003010,
+       17003012
+      ],
+      [
+       17008002,
+       17008002
+      ],
+      [
+       17008008,
+       17008008
+      ]
+     ]
+    },
+    {
+     "text": "\"And the king Ahasuerus laid a tribute upon the land, and upon the isles of the sea.\" His acts are \"written in the book of the chronicles of the kings of Media and Persia\".",
+     "layer": "scripture",
+     "refs": [
+      [
+       17010001,
+       17010002
+      ]
+     ]
+    },
+    {
+     "text": "Ezra: \"in the reign of Ahasuerus, in the beginning of his reign, wrote they unto him an accusation against the inhabitants of Judah and Jerusalem.\"",
+     "layer": "scripture",
+     "refs": [
+      [
+       15004006,
+       15004006
+      ]
+     ]
+    }
+   ],
+   "events": [
+    {
+     "label": "The great feast",
+     "kind": "other",
+     "claim": {
+      "text": "In his third year he feasted his princes for 180 days and then all the people in Shushan for seven days.",
+      "layer": "scripture",
+      "refs": [
+       [
+        17001003,
+        17001005
+       ]
+      ]
+     },
+     "year": 3,
+     "placeId": "a033b84"
+    },
+    {
+     "label": "Vashti refuses and is removed",
+     "kind": "personal",
+     "claim": {
+      "text": "On the seventh day of that feast he sent for Queen Vashti; she refused, and on Memucan's counsel he decreed that she \"come no more before king Ahasuerus\".",
+      "layer": "scripture",
+      "refs": [
+       [
+        17001010,
+        17001022
+       ]
+      ]
+     },
+     "year": 3
+    },
+    {
+     "label": "Esther made queen",
+     "kind": "personal",
+     "claim": {
+      "text": "Esther was taken to him in the tenth month, Tebeth, of his seventh year, and he made her queen.",
+      "layer": "scripture",
+      "refs": [
+       [
+        17002016,
+        17002018
+       ]
+      ]
+     },
+     "year": 7
+    },
+    {
+     "label": "A plot uncovered",
+     "kind": "other",
+     "claim": {
+      "text": "Mordecai uncovered the plot of the chamberlains Bigthan and Teresh; it was written in the king's chronicles.",
+      "layer": "scripture",
+      "refs": [
+       [
+        17002021,
+        17002023
+       ]
+      ]
+     }
+    },
+    {
+     "label": "Haman's decree",
+     "kind": "other",
+     "claim": {
+      "text": "In the first month of his twelfth year the lot was cast before Haman; the king gave Haman his ring, and letters went out to destroy all Jews on the thirteenth of Adar.",
+      "layer": "scripture",
+      "refs": [
+       [
+        17003007,
+        17003015
+       ]
+      ]
+     },
+     "year": 12
+    },
+    {
+     "label": "Esther comes unbidden",
+     "kind": "personal",
+     "claim": {
+      "text": "On the third day of the fast Esther stood in the inner court; the king held out the golden sceptre.",
+      "layer": "scripture",
+      "refs": [
+       [
+        17005001,
+        17005003
+       ]
+      ]
+     }
+    },
+    {
+     "label": "A sleepless night",
+     "kind": "personal",
+     "claim": {
+      "text": "On a night he could not sleep he had the chronicles read, learned that nothing had been done for Mordecai for reporting the plot, and had Haman lead Mordecai through the city in royal apparel.",
+      "layer": "scripture",
+      "refs": [
+       [
+        17006001,
+        17006011
+       ]
+      ]
+     }
+    },
+    {
+     "label": "Haman hanged",
+     "kind": "other",
+     "claim": {
+      "text": "At Esther's second banquet she named Haman; the king had him hanged on the gallows he had made for Mordecai.",
+      "layer": "scripture",
+      "refs": [
+       [
+        17007001,
+        17007010
+       ]
+      ]
+     }
+    },
+    {
+     "label": "The counter-decree",
+     "kind": "other",
+     "claim": {
+      "text": "On the twenty-third day of Sivan letters went out in the king's name allowing the Jews to stand for their lives.",
+      "layer": "scripture",
+      "refs": [
+       [
+        17008009,
+        17008014
+       ]
+      ]
+     }
+    },
+    {
+     "label": "Purim",
+     "kind": "worship",
+     "claim": {
+      "text": "After the thirteenth and fourteenth of Adar, Mordecai and Esther wrote to all the Jews in his provinces to keep the days of Purim.",
+      "layer": "scripture",
+      "refs": [
+       [
+        17009020,
+        17009032
+       ]
+      ]
+     }
+    },
+    {
+     "label": "Tribute laid",
+     "kind": "other",
+     "claim": {
+      "text": "He laid a tribute upon the land and the isles of the sea.",
+      "layer": "scripture",
+      "refs": [
+       [
+        17010001,
+        17010001
+       ]
+      ]
+     }
+    },
+    {
+     "label": "An accusation from Judah's enemies",
+     "kind": "other",
+     "claim": {
+      "text": "\"In the beginning of his reign\" the enemies of Judah wrote him an accusation.",
+      "layer": "scripture",
+      "refs": [
+       [
+        15004006,
+        15004006
+       ]
+      ]
+     }
+    }
+   ],
+   "nation": {
+    "worship": [
+     {
+      "text": "Purim was confirmed by letters \"to the hundred twenty and seven provinces of the kingdom of Ahasuerus\".",
+      "layer": "scripture",
+      "refs": [
+       [
+        17009030,
+        17009032
+       ]
+      ]
+     }
+    ],
+    "building": [],
+    "alliances": [
+     {
+      "text": "Judah's enemies wrote to him against the inhabitants of Judah and Jerusalem.",
+      "layer": "scripture",
+      "refs": [
+       [
+        15004006,
+        15004006
+       ]
+      ]
+     }
+    ],
+    "people": [
+     {
+      "text": "He sealed Haman's decree to destroy the Jews, then a second decree letting them defend themselves.",
+      "layer": "scripture",
+      "refs": [
+       [
+        17003013,
+        17003013
+       ],
+       [
+        17008011,
+        17008011
+       ]
+      ]
+     },
+     {
+      "text": "\"Mordecai the Jew was next unto king Ahasuerus, and great among the Jews.\"",
+      "layer": "scripture",
+      "refs": [
+       [
+        17010003,
+        17010003
+       ]
+      ]
+     }
+    ]
+   },
+   "prophets": [],
+   "worldStage": [
+    {
+     "power": "Persia",
+     "rulers": [
+      {
+       "name": "Darius",
+       "personId": "darius-ezr-4-5"
+      },
+      {
+       "name": "Artaxerxes",
+       "personId": "artaxerxes-ezr-4-7"
+      }
+     ],
+     "claim": {
+      "text": "Ezra 4 names the Persian kings in the order Cyrus, Darius, Ahasuerus, Artaxerxes.",
+      "layer": "scripture",
+      "refs": [
+       [
+        15004005,
+        15004007
+       ]
+      ]
+     }
+    }
+   ],
+   "outside": [
+    {
+     "name": "Herodotus on Xerxes' queen",
+     "date": "about 430 BC",
+     "claim": {
+      "text": "Herodotus names Xerxes' wife as Amestris, daughter of Otanes, and tells of her in his later books. He names neither Vashti nor Esther.",
+      "layer": "ancient-record",
+      "cites": [
+       "herod-7"
+      ]
+     }
+    },
+    {
+     "name": "The Greek book of Esther",
+     "date": "before AD 93 (Josephus follows it)",
+     "claim": {
+      "text": "The Greek text of Esther, with its additions, calls the king Artaxerxes: \"In the second year of the reign of Artexerxes the great\" (KJV Apocrypha).",
+      "layer": "ancient-record",
+      "cites": [
+       "isbe-artaxerxes"
+      ],
+      "refs": [
+       [
+        71011002,
+        71011002
+       ]
+      ]
+     }
+    },
+    {
+     "name": "Josephus, Antiquities 11.6.1",
+     "date": "about AD 93",
+     "claim": {
+      "text": "Josephus tells Esther's story under \"Cyrus, whom the Greeks called Artaxerxes\", the son of Xerxes.",
+      "layer": "ancient-record",
+      "cites": [
+       "jos-11-6"
+      ]
+     }
+    },
+    {
+     "name": "Elephantine papyrus (Cowley No. 6)",
+     "date": "465/464 BC",
+     "claim": {
+      "text": "A deed from Elephantine in Egypt is dated \"year 21\", at \"the beginning of the reign when\" King Artaxerxes \"sat on his throne\". It does not name Xerxes: Cowley (1923) reads year 21 as Xerxes' last year and dates the deed to 465 BC; Parker and Dubberstein date it to 3 January 464 BC.",
+      "layer": "ancient-record",
+      "cites": [
+       "cowley-6",
+       "pd-1942"
+      ]
+     }
+    }
+   ],
+   "twoAccounts": [
+    {
+     "topic": "The king's name",
+     "first": {
+      "text": "The Hebrew book (KJV): \"Now it came to pass in the days of Ahasuerus\".",
+      "layer": "scripture",
+      "refs": [
+       [
+        17001001,
+        17001001
+       ]
+      ]
+     },
+     "second": {
+      "text": "The Greek book: \"In the second year of the reign of Artexerxes the great\".",
+      "layer": "ancient-record",
+      "cites": [
+       "isbe-artaxerxes"
+      ],
+      "refs": [
+       [
+        71011002,
+        71011002
+       ]
+      ]
+     }
+    }
+   ],
+   "questions": [
+    {
+     "id": "ahasuerus-who",
+     "question": "Which Persian king is the Ahasuerus of Esther? (The ancient Greek reading first, then Ussher's, then the view most held today.)",
+     "views": [
+      {
+       "label": "Artaxerxes",
+       "holders": "the Greek Esther; Josephus (about AD 93)",
+       "argument": {
+        "text": "The Greek translation renders the name Artaxerxes, and Josephus follows it, meaning the son of Xerxes. R. Dick Wilson (1915) notes there is no evidence that Artaxerxes was ever called Xerxes.",
+        "layer": "scholars",
+        "cites": [
+         "jos-11-6",
+         "isbe-artaxerxes"
+        ],
+        "refs": [
+         [
+          71011002,
+          71011002
+         ]
+        ]
+       }
+      },
+      {
+       "label": "Darius I, son of Hystaspes",
+       "holders": "James Ussher (1658)",
+       "argument": {
+        "text": "Ussher identified Ahasuerus with Darius, Vashti with Atossa and Esther with Artystone, Darius's wives in Herodotus; he saw the tribute \"upon the isles of the sea\" (Esth 10:1) as fitting Darius, who first laid a fixed tribute on his subjects.",
+        "layer": "scholars",
+        "cites": [
+         "ussher-persia",
+         "herod-3-88"
+        ],
+        "refs": [
+         [
+          17010001,
+          17010001
+         ]
+        ]
+       }
+      },
+      {
+       "label": "Xerxes I",
+       "holders": "the Jewish Encyclopedia (1901), listing Keil, Bertheau, Ryssel, Wildeboer, Sayce and Schrader; R. Dick Wilson (1915)",
+       "argument": {
+        "text": "The Hebrew name is the Persian Khshayarsha, which the Greeks wrote Xerxes. The Jewish Encyclopedia adds that between his third and seventh years Ahasuerus \"is lost to view\" in Esther, the years when Xerxes invaded Greece.",
+        "layer": "scholars",
+        "cites": [
+         "je-ahasuerus",
+         "isbe-ahasuerus"
+        ],
+        "refs": [
+         [
+          17001003,
+          17001003
+         ],
+         [
+          17002016,
+          17002016
+         ]
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "id": "ahasuerus-ezra-4-6",
+     "question": "Is the Ahasuerus of Ezra 4:6 the same king?",
+     "views": [
+      {
+       "label": "No: Cambyses, son of Cyrus",
+       "holders": "Josephus (about AD 93), who has the letter sent to Cambyses; H. Ewald (as reported by R. Dick Wilson, 1915)",
+       "argument": {
+        "text": "Josephus sets the enemies' letter in the reign of Cambyses; Ewald took Ezra's Ahasuerus to be Cambyses.",
+        "layer": "scholars",
+        "cites": [
+         "jos-11-2",
+         "isbe-ahasuerus"
+        ]
+       }
+      },
+      {
+       "label": "Yes: Xerxes, followed by Artaxerxes I in verse 7",
+       "holders": "R. Dick Wilson (1915)",
+       "argument": {
+        "text": "Wilson argues that the next verse names Artaxerxes, Xerxes' son, and that there is no evidence Cambyses was ever called Ahasuerus.",
+        "layer": "scholars",
+        "cites": [
+         "isbe-ahasuerus"
+        ],
+        "refs": [
+         [
+          15004006,
+          15004007
+         ]
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "id": "ahasuerus-mordecai-age",
+     "question": "\"Who had been carried away from Jerusalem\" with Jeconiah (Esth 2:6): Mordecai, or his ancestor Kish?",
+     "views": [
+      {
+       "label": "Kish, his great-grandfather",
+       "holders": "the Pulpit Commentary; John Gill (reporting \"some\")",
+       "argument": {
+        "text": "The Pulpit Commentary takes Kish as the antecedent and says that if Mordecai is meant, the identification of Ahasuerus with Xerxes must be given up; Gill notes Mordecai would otherwise be very old.",
+        "layer": "scholars",
+        "cites": [
+         "pulpit-est-2-6",
+         "gill-est-2-6"
+        ],
+        "refs": [
+         [
+          17002005,
+          17002006
+         ]
+        ]
+       }
+      },
+      {
+       "label": "Mordecai himself, as the grammar reads",
+       "holders": "A. W. Streane (1907)",
+       "argument": {
+        "text": "Streane holds that the Hebrew refers the words to Mordecai, which would make him about 120 under Xerxes, and that the writer did not notice the difficulty.",
+        "layer": "scholars",
+        "cites": [
+         "streane-est-2-6"
+        ],
+        "refs": [
+         [
+          17002006,
+          17002006
+         ]
+        ]
+       }
+      }
+     ]
+    }
+   ],
+   "notSaid": [
+    "Scripture does not say how long Ahasuerus reigned or how he died.",
+    "Esther gives no verdict on him, and no prophet is named in his reign.",
+    "The book of Esther, as the KJV translates the Hebrew, never uses the name God or LORD (our search of the text)."
+   ],
+   "places": [
+    {
+     "name": "Susa",
+     "placeId": "a033b84",
+     "refs": [
+      [
+       17001002,
+       17001002
+      ]
+     ],
+     "note": "\"Shushan the palace\", his throne"
+    },
+    {
+     "name": "India",
+     "placeId": "a878481",
+     "refs": [
+      [
+       17001001,
+       17001001
+      ]
+     ],
+     "note": "The eastern edge of his provinces"
+    },
+    {
+     "name": "Ethiopia",
+     "placeId": "ab45bd3",
+     "refs": [
+      [
+       17001001,
+       17001001
+      ]
+     ],
+     "note": "The southern edge of his provinces"
+    },
+    {
+     "name": "Persia",
+     "placeId": "ab9696f",
+     "refs": [
+      [
+       17001003,
+       17001003
+      ]
+     ]
+    },
+    {
+     "name": "Media",
+     "placeId": "ad2fadf",
+     "refs": [
+      [
+       17001003,
+       17001003
+      ]
+     ]
+    },
+    {
+     "name": "Jerusalem",
+     "placeId": "a15257a",
+     "refs": [
+      [
+       15004006,
+       15004006
+      ]
+     ],
+     "note": "The accusation against its inhabitants"
+    }
+   ],
+   "passages": [
+    [
+     15004006,
+     15004006
+    ],
+    [
+     17001001,
+     17010003
+    ]
+   ]
+  },
+  {
+   "id": "vashti-est-1-9",
+   "name": "Vashti",
+   "kind": "queen",
+   "realm": "persia",
+   "title": "Queen of Persia, wife of King Ahasuerus",
+   "tagline": "The queen who would not come; she did not reign.",
+   "order": 6,
+   "capital": {
+    "name": "Susa",
+    "placeId": "a033b84",
+    "refs": [
+     [
+      17001009,
+      17001009
+     ]
+    ],
+    "note": "\"the royal house which belonged to king Ahasuerus\""
+   },
+   "identifications": [
+    {
+     "text": "Esther calls her \"Vashti the queen\" and \"the queen Vashti\", the wife of King Ahasuerus; it names no parents or children.",
+     "layer": "text",
+     "refs": [
+      [
+       17001009,
+       17001009
+      ],
+      [
+       17001012,
+       17001012
+      ]
+     ]
+    }
+   ],
+   "records": [],
+   "reign": {
+    "text": "She did not reign. Esther calls her \"the queen\" until the king's decree that she \"come no more before king Ahasuerus\" (Esth 1:19).",
+    "refs": [
+     [
+      17001009,
+      17001009
+     ],
+     [
+      17001019,
+      17001019
+     ]
+    ]
+   },
+   "dates": [
+    {
+     "system": "bible",
+     "label": "Scripture's numbers",
+     "note": "The feast at which she refused the king was in his third year (Esth 1:3)."
+    },
+    {
+     "system": "other",
+     "label": "If Ahasuerus is Xerxes I: his third year, 483/482 BC",
+     "from": 483,
+     "to": 482,
+     "approx": true,
+     "note": "Reckoned from Parker and Dubberstein's dates for Xerxes; the identification is a view (see the Ahasuerus page).",
+     "cites": [
+      "pd-1942",
+      "je-ahasuerus"
+     ]
+    }
+   ],
+   "verdictTone": "none",
+   "scriptureSays": [
+    {
+     "text": "\"Also Vashti the queen made a feast for the women in the royal house which belonged to king Ahasuerus.\"",
+     "layer": "scripture",
+     "refs": [
+      [
+       17001009,
+       17001009
+      ]
+     ]
+    },
+    {
+     "text": "The king sent seven chamberlains \"to bring Vashti the queen before the king with the crown royal, to shew the people and the princes her beauty: for she was fair to look on\".",
+     "layer": "scripture",
+     "refs": [
+      [
+       17001010,
+       17001011
+      ]
+     ]
+    },
+    {
+     "text": "\"But the queen Vashti refused to come at the king’s commandment by his chamberlains: therefore was the king very wroth.\"",
+     "layer": "scripture",
+     "refs": [
+      [
+       17001012,
+       17001012
+      ]
+     ]
+    },
+    {
+     "text": "The decree: \"That Vashti come no more before king Ahasuerus; and let the king give her royal estate unto another that is better than she.\"",
+     "layer": "scripture",
+     "refs": [
+      [
+       17001019,
+       17001019
+      ]
+     ]
+    },
+    {
+     "text": "She was queen as the king's wife. Scripture never says she ruled: her \"royal estate\" was the king's to give to another, and Esther was made queen \"instead of Vashti\".",
+     "layer": "text",
+     "refs": [
+      [
+       17001019,
+       17001019
+      ],
+      [
+       17002017,
+       17002017
+      ]
+     ]
+    }
+   ],
+   "events": [
+    {
+     "label": "The feast for the women",
+     "kind": "other",
+     "claim": {
+      "text": "While the king feasted in Shushan, Vashti made a feast for the women in the royal house.",
+      "layer": "scripture",
+      "refs": [
+       [
+        17001009,
+        17001009
+       ]
+      ]
+     },
+     "year": 3,
+     "placeId": "a033b84"
+    },
+    {
+     "label": "She refuses the king's summons",
+     "kind": "personal",
+     "claim": {
+      "text": "On the seventh day, when the king's heart was \"merry with wine\", he sent for her; she refused to come.",
+      "layer": "scripture",
+      "refs": [
+       [
+        17001010,
+        17001012
+       ]
+      ]
+     },
+     "year": 3
+    },
+    {
+     "label": "Removed by decree",
+     "kind": "other",
+     "claim": {
+      "text": "On the counsel of Memucan and the seven princes, a royal decree \"written among the laws of the Persians and the Medes\" removed her, and letters went to every province.",
+      "layer": "scripture",
+      "refs": [
+       [
+        17001013,
+        17001022
+       ]
+      ]
+     },
+     "year": 3
+    },
+    {
+     "label": "Remembered",
+     "kind": "personal",
+     "claim": {
+      "text": "When his wrath was appeased the king \"remembered Vashti, and what she had done, and what was decreed against her\".",
+      "layer": "scripture",
+      "refs": [
+       [
+        17002001,
+        17002001
+       ]
+      ]
+     }
+    },
+    {
+     "label": "Esther made queen in her place",
+     "kind": "other",
+     "claim": {
+      "text": "In the king's seventh year Esther was made queen \"instead of Vashti\".",
+      "layer": "scripture",
+      "refs": [
+       [
+        17002016,
+        17002017
+       ]
+      ]
+     },
+     "year": 7
+    }
+   ],
+   "nation": {
+    "worship": [],
+    "building": [],
+    "alliances": [],
+    "people": [
+     {
+      "text": "Memucan argued that her refusal would make all women \"despise their husbands\"; the letters said \"that every man should bear rule in his own house\".",
+      "layer": "scripture",
+      "refs": [
+       [
+        17001016,
+        17001022
+       ]
+      ]
+     }
+    ]
+   },
+   "prophets": [],
+   "worldStage": [
+    {
+     "power": "Persia",
+     "rulers": [
+      {
+       "name": "Ahasuerus",
+       "personId": "ahasuerus-ezr-4-6"
+      }
+     ],
+     "claim": {
+      "text": "She was the wife of King Ahasuerus, who removed her by decree.",
+      "layer": "scripture",
+      "refs": [
+       [
+        17001009,
+        17001009
+       ],
+       [
+        17001019,
+        17001021
+       ]
+      ]
+     }
+    }
+   ],
+   "outside": [
+    {
+     "name": "Not named outside Esther",
+     "date": "—",
+     "claim": {
+      "text": "John Urquhart (1915): \"There is no known reference to Vashti outside of Esther.\" Herodotus names Xerxes' wife as Amestris, daughter of Otanes.",
+      "layer": "scholars",
+      "cites": [
+       "isbe-vashti",
+       "herod-7"
+      ]
+     }
+    }
+   ],
+   "twoAccounts": [],
+   "questions": [
+    {
+     "id": "vashti-who",
+     "question": "Is Vashti named in any other record?",
+     "views": [
+      {
+       "label": "Yes: Atossa, daughter of Cyrus and wife of Darius I",
+       "holders": "James Ussher (1658), who took Ahasuerus to be Darius",
+       "argument": {
+        "text": "Ussher held that Darius's chief wife Atossa \"was none other than Vashti\".",
+        "layer": "scholars",
+        "cites": [
+         "ussher-persia",
+         "herod-3-88"
+        ]
+       }
+      },
+      {
+       "label": "No: she is known only from Esther",
+       "holders": "John Urquhart (1915)",
+       "argument": {
+        "text": "Urquhart also rejects the suggestion that she was a lesser wife: Esther always calls her \"queen\" and she presided at the women's feast.",
+        "layer": "scholars",
+        "cites": [
+         "isbe-vashti"
+        ],
+        "refs": [
+         [
+          17001009,
+          17001009
+         ]
+        ]
+       }
+      }
+     ]
+    }
+   ],
+   "notSaid": [
+    "Scripture does not say why Vashti refused to come.",
+    "Scripture does not say what became of her after the decree.",
+    "Scripture does not name her family or any children."
+   ],
+   "places": [
+    {
+     "name": "Susa",
+     "placeId": "a033b84",
+     "refs": [
+      [
+       17001009,
+       17001009
+      ]
+     ],
+     "note": "The royal house where she made her feast"
+    }
+   ],
+   "passages": [
+    [
+     17001009,
+     17001022
+    ],
+    [
+     17002001,
+     17002004
+    ],
+    [
+     17002017,
+     17002017
+    ]
+   ]
+  },
+  {
+   "id": "esther-est-2-7",
+   "name": "Esther",
+   "otherNames": [
+    "Hadassah"
+   ],
+   "kind": "queen",
+   "realm": "persia",
+   "title": "Queen of Persia, wife of King Ahasuerus",
+   "tagline": "Queen beside the king; she did not reign, yet wrote \"with all authority\".",
+   "order": 7,
+   "house": "Daughter of Abihail (Esth 2:15)",
+   "capital": {
+    "name": "Susa",
+    "placeId": "a033b84",
+    "refs": [
+     [
+      17002008,
+      17002008
+     ]
+    ],
+    "note": "\"Shushan the palace\""
+   },
+   "identifications": [
+    {
+     "text": "\"Hadassah, that is, Esther, his uncle’s daughter\": Mordecai, a Benjamite, raised her as his own daughter. Her father was Abihail, Mordecai's uncle.",
+     "layer": "text",
+     "refs": [
+      [
+       17002005,
+       17002005
+      ],
+      [
+       17002007,
+       17002007
+      ],
+      [
+       17002015,
+       17002015
+      ]
+     ]
+    }
+   ],
+   "records": [],
+   "reign": {
+    "text": "She did not reign. In his seventh year the king \"set the royal crown upon her head, and made her queen instead of Vashti\" (Esth 2:16–17); Scripture does not say how long she was queen.",
+    "refs": [
+     [
+      17002016,
+      17002017
+     ]
+    ]
+   },
+   "dates": [
+    {
+     "system": "bible",
+     "label": "Scripture's numbers",
+     "note": "Made queen in the tenth month of the king's seventh year (Esth 2:16)."
+    },
+    {
+     "system": "other",
+     "label": "If Ahasuerus is Xerxes I: his seventh year, 479/478 BC",
+     "from": 479,
+     "to": 478,
+     "approx": true,
+     "note": "The tenth month, Tebeth, would fall about the turn of 479/478 BC on Parker and Dubberstein's tables; the identification is a view.",
+     "cites": [
+      "pd-1942",
+      "je-ahasuerus"
+     ]
+    }
+   ],
+   "verdictTone": "none",
+   "scriptureSays": [
+    {
+     "text": "Esther was queen as the king's wife, not as a reigning monarch: he \"made her queen instead of Vashti\", and the decrees went out \"in the king’s name\", sealed with his ring.",
+     "layer": "text",
+     "refs": [
+      [
+       17002017,
+       17002017
+      ],
+      [
+       17008008,
+       17008010
+      ]
+     ]
+    },
+    {
+     "text": "Mordecai to Esther: \"who knoweth whether thou art come to the kingdom for such a time as this?\"",
+     "layer": "scripture",
+     "refs": [
+      [
+       17004014,
+       17004014
+      ]
+     ]
+    },
+    {
+     "text": "\"And so will I go in unto the king, which is not according to the law: and if I perish, I perish.\"",
+     "layer": "scripture",
+     "refs": [
+      [
+       17004016,
+       17004016
+      ]
+     ]
+    },
+    {
+     "text": "\"Let my life be given me at my petition, and my people at my request.\"",
+     "layer": "scripture",
+     "refs": [
+      [
+       17007003,
+       17007003
+      ]
+     ]
+    },
+    {
+     "text": "\"Then Esther the queen, the daughter of Abihail, and Mordecai the Jew, wrote with all authority, to confirm this second letter of Purim\"; \"the decree of Esther confirmed these matters of Purim; and it was written in the book.\"",
+     "layer": "scripture",
+     "refs": [
+      [
+       17009029,
+       17009029
+      ],
+      [
+       17009032,
+       17009032
+      ]
+     ]
+    }
+   ],
+   "events": [
+    {
+     "label": "Taken to the palace",
+     "kind": "personal",
+     "claim": {
+      "text": "She was gathered with the young women into the custody of Hegai and, on Mordecai's charge, did not show her people or kindred.",
+      "layer": "scripture",
+      "refs": [
+       [
+        17002008,
+        17002011
+       ]
+      ]
+     },
+     "placeId": "a033b84"
+    },
+    {
+     "label": "Made queen",
+     "kind": "personal",
+     "claim": {
+      "text": "In the tenth month, Tebeth, of the king's seventh year he loved her above all the women and made her queen; he held \"Esther’s feast\".",
+      "layer": "scripture",
+      "refs": [
+       [
+        17002016,
+        17002018
+       ]
+      ]
+     },
+     "year": 7
+    },
+    {
+     "label": "A plot reported",
+     "kind": "other",
+     "claim": {
+      "text": "She told the king of Bigthan and Teresh's plot \"in Mordecai’s name\".",
+      "layer": "scripture",
+      "refs": [
+       [
+        17002021,
+        17002023
+       ]
+      ]
+     }
+    },
+    {
+     "label": "Haman's decree",
+     "kind": "other",
+     "claim": {
+      "text": "In the first month of the king's twelfth year the lot was cast and letters went out to destroy all Jews on the thirteenth of Adar.",
+      "layer": "scripture",
+      "refs": [
+       [
+        17003007,
+        17003013
+       ]
+      ]
+     },
+     "year": 12
+    },
+    {
+     "label": "The three-day fast",
+     "kind": "worship",
+     "claim": {
+      "text": "She asked the Jews in Shushan to fast for her three days, she and her maidens likewise.",
+      "layer": "scripture",
+      "refs": [
+       [
+        17004015,
+        17004017
+       ]
+      ]
+     }
+    },
+    {
+     "label": "Before the king unbidden",
+     "kind": "personal",
+     "claim": {
+      "text": "On the third day she stood in the inner court; the king held out the golden sceptre and she touched its top.",
+      "layer": "scripture",
+      "refs": [
+       [
+        17005001,
+        17005002
+       ]
+      ]
+     }
+    },
+    {
+     "label": "Two banquets",
+     "kind": "personal",
+     "claim": {
+      "text": "She invited the king and Haman to two banquets, and at the second named \"this wicked Haman\" as the enemy of her people.",
+      "layer": "scripture",
+      "refs": [
+       [
+        17005004,
+        17005008
+       ],
+       [
+        17007001,
+        17007006
+       ]
+      ]
+     }
+    },
+    {
+     "label": "Haman hanged",
+     "kind": "other",
+     "claim": {
+      "text": "Haman was hanged on the gallows he had made for Mordecai; the king gave Esther the house of Haman.",
+      "layer": "scripture",
+      "refs": [
+       [
+        17007009,
+        17007010
+       ],
+       [
+        17008001,
+        17008001
+       ]
+      ]
+     }
+    },
+    {
+     "label": "Pleads for her people",
+     "kind": "personal",
+     "claim": {
+      "text": "She fell at the king's feet and asked that Haman's letters be reversed: \"how can I endure to see the evil that shall come unto my people?\"",
+      "layer": "scripture",
+      "refs": [
+       [
+        17008003,
+        17008006
+       ]
+      ]
+     }
+    },
+    {
+     "label": "The counter-decree",
+     "kind": "other",
+     "claim": {
+      "text": "On the twenty-third day of Sivan letters went out in the king's name allowing the Jews to defend themselves.",
+      "layer": "scripture",
+      "refs": [
+       [
+        17008009,
+        17008014
+       ]
+      ]
+     }
+    },
+    {
+     "label": "A second day in Shushan",
+     "kind": "battle",
+     "claim": {
+      "text": "At her request the Jews in Shushan were allowed a second day, the fourteenth of Adar, and Haman's ten sons were hanged.",
+      "layer": "scripture",
+      "refs": [
+       [
+        17009012,
+        17009015
+       ]
+      ]
+     }
+    },
+    {
+     "label": "Purim confirmed",
+     "kind": "worship",
+     "claim": {
+      "text": "She and Mordecai wrote \"with all authority\" to confirm the days of Purim.",
+      "layer": "scripture",
+      "refs": [
+       [
+        17009029,
+        17009032
+       ]
+      ]
+     }
+    }
+   ],
+   "nation": {
+    "worship": [
+     {
+      "text": "The Jews fasted with her before she went to the king.",
+      "layer": "scripture",
+      "refs": [
+       [
+        17004016,
+        17004016
+       ]
+      ]
+     },
+     {
+      "text": "Purim was confirmed by her decree \"and it was written in the book\".",
+      "layer": "scripture",
+      "refs": [
+       [
+        17009031,
+        17009032
+       ]
+      ]
+     }
+    ],
+    "building": [],
+    "alliances": [],
+    "people": [
+     {
+      "text": "\"The Jews had light, and gladness, and joy, and honour\"; many of the people of the land \"became Jews\".",
+      "layer": "scripture",
+      "refs": [
+       [
+        17008016,
+        17008017
+       ]
+      ]
+     },
+     {
+      "text": "The Jews \"stood for their lives, and had rest from their enemies\" on the thirteenth of Adar.",
+      "layer": "scripture",
+      "refs": [
+       [
+        17009016,
+        17009017
+       ]
+      ]
+     }
+    ]
+   },
+   "prophets": [],
+   "worldStage": [
+    {
+     "power": "Persia",
+     "rulers": [
+      {
+       "name": "Ahasuerus",
+       "personId": "ahasuerus-ezr-4-6"
+      }
+     ],
+     "claim": {
+      "text": "She was the wife of King Ahasuerus, who \"reigned, from India even unto Ethiopia\".",
+      "layer": "scripture",
+      "refs": [
+       [
+        17001001,
+        17001001
+       ],
+       [
+        17002017,
+        17002017
+       ]
+      ]
+     }
+    }
+   ],
+   "outside": [
+    {
+     "name": "Not named outside Esther",
+     "date": "—",
+     "claim": {
+      "text": "John Urquhart (1915): \"Nothing more is known of her than is recorded in the book\". Herodotus names Xerxes' queen as Amestris, daughter of Otanes, while Esther's father is Abihail.",
+      "layer": "scholars",
+      "cites": [
+       "isbe-esther",
+       "herod-7"
+      ],
+      "refs": [
+       [
+        17002015,
+        17002015
+       ]
+      ]
+     }
+    }
+   ],
+   "twoAccounts": [],
+   "questions": [
+    {
+     "id": "esther-who",
+     "question": "Is Esther named in any other record?",
+     "views": [
+      {
+       "label": "Amestris, Xerxes' queen in Herodotus",
+       "holders": "R. Dick Wilson (1915), as a possibility",
+       "argument": {
+        "text": "Wilson suggests that if \"Esther\" answers to Ishtar, she \"may well be the same as the Amestris of Herodotus\". Herodotus makes Amestris the daughter of Otanes; Esther names her father Abihail.",
+        "layer": "scholars",
+        "cites": [
+         "isbe-ahasuerus",
+         "herod-7"
+        ],
+        "refs": [
+         [
+          17002015,
+          17002015
+         ]
+        ]
+       }
+      },
+      {
+       "label": "Artystone, wife of Darius I",
+       "holders": "James Ussher (1658), who took Ahasuerus to be Darius",
+       "argument": {
+        "text": "Ussher held that Esther was the woman Herodotus calls the virgin Artystone, whom Darius loved above all his wives, though he admits Herodotus makes her a daughter of Cyrus.",
+        "layer": "scholars",
+        "cites": [
+         "ussher-persia",
+         "herod-3-88"
+        ]
+       }
+      },
+      {
+       "label": "No: she is known only from Esther",
+       "holders": "John Urquhart (1915)",
+       "argument": {
+        "text": "Urquhart: \"Nothing more is known of her than is recorded in the book which Jewish gratitude has made to bear her name.\"",
+        "layer": "scholars",
+        "cites": [
+         "isbe-esther"
+        ]
+       }
+      }
+     ]
+    }
+   ],
+   "notSaid": [
+    "Scripture does not say that Esther reigned or ruled in her own right; her writing \"with all authority\" was with Mordecai, about Purim.",
+    "Scripture does not say when or where she died, or whether she had children.",
+    "Scripture does not say how long she remained queen."
+   ],
+   "places": [
+    {
+     "name": "Susa",
+     "placeId": "a033b84",
+     "refs": [
+      [
+       17002008,
+       17002008
+      ]
+     ],
+     "note": "\"Shushan the palace\""
+    }
+   ],
+   "passages": [
+    [
+     17002005,
+     17002023
+    ],
+    [
+     17004001,
+     17009032
+    ]
+   ]
+  },
+  {
+   "id": "artaxerxes-ezr-4-7",
+   "name": "Artaxerxes",
+   "kind": "foreign",
+   "realm": "persia",
+   "title": "King of Persia",
+   "tagline": "Stopped the building of the walls, then sent Ezra and Nehemiah.",
+   "order": 8,
+   "predecessor": "ahasuerus-ezr-4-6",
+   "capital": {
+    "name": "Susa",
+    "placeId": "a033b84",
+    "refs": [
+     [
+      16001001,
+      16001001
+     ]
+    ],
+    "note": "Nehemiah served him at \"Shushan the palace\"; Nehemiah 13:6 calls him \"Artaxerxes king of Babylon\"."
+   },
+   "identifications": [
+    {
+     "text": "Ezra 4:7–23, Ezra 7–8 and Nehemiah 2, 5 and 13 all name \"Artaxerxes\"; whether one king is meant in all of them is a question below.",
+     "layer": "text",
+     "refs": [
+      [
+       15004007,
+       15004007
+      ],
+      [
+       15007001,
+       15007001
+      ],
+      [
+       16002001,
+       16002001
+      ]
+     ]
+    },
+    {
+     "text": "Scholars identify Nehemiah's Artaxerxes with Artaxerxes I, who reigned 465–424 BC; A. Cowley (1923) argued from an Elephantine letter of 408 BC that Nehemiah's \"two and thirtieth year of Artaxerxes\" was 433 BC.",
+     "layer": "scholars",
+     "cites": [
+      "isbe-artaxerxes",
+      "cowley-30",
+      "ryle-neh-2-1"
+     ]
+    }
+   ],
+   "records": [],
+   "reign": {
+    "text": "Not given. Ezra dates by his seventh year (Ezra 7:7); Nehemiah by his twentieth and thirty-second (Neh 2:1; 5:14; 13:6).",
+    "refs": [
+     [
+      15007007,
+      15007007
+     ],
+     [
+      16002001,
+      16002001
+     ],
+     [
+      16005014,
+      16005014
+     ],
+     [
+      16013006,
+      16013006
+     ]
+    ]
+   },
+   "dates": [
+    {
+     "system": "bible",
+     "label": "Scripture's numbers",
+     "note": "Seventh, twentieth and thirty-second years named; no length of reign."
+    },
+    {
+     "system": "other",
+     "label": "Artaxerxes I: late 465 – December 424 BC (Parker and Dubberstein, 1942)",
+     "from": 465,
+     "to": 424,
+     "approx": true,
+     "note": "On this identification his seventh year was 458/457, his twentieth 445/444 and his thirty-second 433/432 BC.",
+     "cites": [
+      "pd-1942"
+     ]
+    },
+    {
+     "system": "other",
+     "label": "Artaxerxes I: 465–424 BC (Ryle, 1893)",
+     "from": 465,
+     "to": 424,
+     "approx": true,
+     "note": "Ryle: \"Artaxerxes reigned 41 years (465–424 b.c.)\"; the twentieth year, 445 BC.",
+     "cites": [
+      "ryle-neh-2-1"
+     ]
+    },
+    {
+     "system": "other",
+     "label": "Artaxerxes II: 404–358 BC (for one view of Ezra)",
+     "from": 404,
+     "to": 358,
+     "approx": true,
+     "note": "Cowley's dates for Artaxerxes II; on this view Ezra's seventh year would be 398/397 BC.",
+     "cites": [
+      "cowley-30",
+      "je-ezra-book"
+     ]
+    }
+   ],
+   "verdictTone": "none",
+   "scriptureSays": [
+    {
+     "text": "To Rehum and Shimshai: \"Give ye now commandment to cause these men to cease, and that this city be not builded, until another commandment shall be given from me.\"",
+     "layer": "scripture",
+     "refs": [
+      [
+       15004021,
+       15004021
+      ]
+     ]
+    },
+    {
+     "text": "\"Artaxerxes, king of kings, unto Ezra the priest, a scribe of the law of the God of heaven, perfect peace\"; \"for why should there be wrath against the realm of the king and his sons?\"",
+     "layer": "scripture",
+     "refs": [
+      [
+       15007012,
+       15007012
+      ],
+      [
+       15007023,
+       15007023
+      ]
+     ]
+    },
+    {
+     "text": "Ezra: \"Blessed be the LORD God of our fathers, which hath put such a thing as this in the king’s heart, to beautify the house of the LORD which is in Jerusalem.\"",
+     "layer": "scripture",
+     "refs": [
+      [
+       15007027,
+       15007027
+      ]
+     ]
+    },
+    {
+     "text": "Nehemiah: \"And the king granted me, according to the good hand of my God upon me.\"",
+     "layer": "scripture",
+     "refs": [
+      [
+       16002008,
+       16002008
+      ]
+     ]
+    }
+   ],
+   "synchronisms": [
+    {
+     "quote": {
+      "text": "in the month Nisan, in the twentieth year of Artaxerxes the king",
+      "span": [
+       16002001,
+       16002001
+      ]
+     },
+     "otherRulerId": "nehemiah-neh-1-1"
+    },
+    {
+     "quote": {
+      "text": "from the twentieth year even unto the two and thirtieth year of Artaxerxes the king, that is, twelve years",
+      "span": [
+       16005014,
+       16005014
+      ]
+     },
+     "otherRulerId": "nehemiah-neh-1-1"
+    },
+    {
+     "quote": {
+      "text": "in the two and thirtieth year of Artaxerxes king of Babylon came I unto the king",
+      "span": [
+       16013006,
+       16013006
+      ]
+     },
+     "otherRulerId": "nehemiah-neh-1-1"
+    }
+   ],
+   "events": [
+    {
+     "label": "Letters against Jerusalem",
+     "kind": "other",
+     "claim": {
+      "text": "Bishlam, Mithredath and Tabeel, then Rehum the chancellor and Shimshai the scribe, wrote to him that Jerusalem was \"the rebellious and the bad city\" and its walls were being set up.",
+      "layer": "scripture",
+      "refs": [
+       [
+        15004007,
+        15004016
+       ]
+      ]
+     }
+    },
+    {
+     "label": "The building stopped",
+     "kind": "other",
+     "claim": {
+      "text": "He answered that the records showed the city had rebelled of old, and ordered the work to cease; they \"made them to cease by force and power\".",
+      "layer": "scripture",
+      "refs": [
+       [
+        15004017,
+        15004023
+       ]
+      ]
+     },
+     "placeId": "a15257a"
+    },
+    {
+     "label": "Ezra sent",
+     "kind": "worship",
+     "claim": {
+      "text": "In his seventh year Ezra went up from Babylon with the king's letter, leaving on the first day of the first month and arriving on the first day of the fifth.",
+      "layer": "scripture",
+      "refs": [
+       [
+        15007006,
+        15007009
+       ],
+       [
+        15007011,
+        15007026
+       ]
+      ]
+     },
+     "year": 7,
+     "placeId": "a15257a"
+    },
+    {
+     "label": "Nehemiah's request",
+     "kind": "personal",
+     "claim": {
+      "text": "In Nisan of his twentieth year his cupbearer Nehemiah asked to be sent to build Jerusalem; \"the queen also sitting by him\", he agreed and set a time.",
+      "layer": "scripture",
+      "refs": [
+       [
+        16002001,
+        16002008
+       ]
+      ]
+     },
+     "year": 20,
+     "placeId": "a033b84"
+    },
+    {
+     "label": "Nehemiah made governor",
+     "kind": "other",
+     "claim": {
+      "text": "Nehemiah was appointed governor of Judah from the king's twentieth year, with captains and horsemen sent with him.",
+      "layer": "scripture",
+      "refs": [
+       [
+        16005014,
+        16005014
+       ],
+       [
+        16002009,
+        16002009
+       ]
+      ]
+     },
+     "year": 20
+    },
+    {
+     "label": "Nehemiah returns to him",
+     "kind": "other",
+     "claim": {
+      "text": "In his thirty-second year Nehemiah came back to the king, and \"after certain days\" obtained leave again.",
+      "layer": "scripture",
+      "refs": [
+       [
+        16013006,
+        16013006
+       ]
+      ]
+     },
+     "year": 32
+    }
+   ],
+   "nation": {
+    "worship": [
+     {
+      "text": "His letter to Ezra gave silver and gold for offerings, vessels for the house, supplies from the treasurers beyond the river, and freedom from toll for priests and Levites.",
+      "layer": "scripture",
+      "refs": [
+       [
+        15007015,
+        15007024
+       ]
+      ]
+     }
+    ],
+    "building": [
+     {
+      "text": "He first halted the building of the city; later he gave Nehemiah letters for timber \"for the gates of the palace\" and \"for the wall of the city\".",
+      "layer": "scripture",
+      "refs": [
+       [
+        15004021,
+        15004021
+       ],
+       [
+        16002008,
+        16002008
+       ]
+      ]
+     }
+    ],
+    "alliances": [
+     {
+      "text": "He sent letters to \"the governors beyond the river\", and Ezra delivered \"the king’s commissions unto the king’s lieutenants\".",
+      "layer": "scripture",
+      "refs": [
+       [
+        16002007,
+        16002009
+       ],
+       [
+        15008036,
+        15008036
+       ]
+      ]
+     }
+    ],
+    "people": [
+     {
+      "text": "He told Ezra to set magistrates and judges for all the people beyond the river who knew the law of his God, and to teach those who did not.",
+      "layer": "scripture",
+      "refs": [
+       [
+        15007025,
+        15007026
+       ]
+      ]
+     }
+    ]
+   },
+   "prophets": [],
+   "worldStage": [
+    {
+     "power": "Persia",
+     "rulers": [
+      {
+       "name": "Ahasuerus",
+       "personId": "ahasuerus-ezr-4-6"
+      }
+     ],
+     "claim": {
+      "text": "Ezra 4 names Artaxerxes after Ahasuerus.",
+      "layer": "scripture",
+      "refs": [
+       [
+        15004006,
+        15004007
+       ]
+      ]
+     }
+    },
+    {
+     "power": "Beyond the River (a Persian province)",
+     "rulers": [
+      {
+       "name": "Rehum",
+       "personId": "rehum-ezr-4-8"
+      },
+      {
+       "name": "Shimshai",
+       "personId": "shimshai-ezr-4-8"
+      }
+     ],
+     "claim": {
+      "text": "Rehum the chancellor and Shimshai the scribe wrote to him from Samaria and beyond the river, and carried out his order to stop the work.",
+      "layer": "scripture",
+      "refs": [
+       [
+        15004008,
+        15004023
+       ]
+      ]
+     }
+    }
+   ],
+   "outside": [
+    {
+     "name": "Elephantine papyrus (Cowley No. 6)",
+     "date": "465/464 BC",
+     "claim": {
+      "text": "A deed is dated \"year 21\", when \"King Artaxerxes sat on his throne\"; Parker and Dubberstein take it to show that Artaxerxes I had succeeded Xerxes before the end of 465 BC.",
+      "layer": "ancient-record",
+      "cites": [
+       "cowley-6",
+       "pd-1942"
+      ]
+     }
+    },
+    {
+     "name": "Elephantine papyrus (Cowley No. 30)",
+     "date": "408 BC",
+     "claim": {
+      "text": "A petition dated in the seventeenth year of Darius II is addressed to Bigvai, governor of Judaea, and mentions \"Johanan the high priest\" and \"Delaiah and Shelemiah the sons of Sanballat governor of Samaria\". Cowley concludes that Nehemiah's \"two and thirtieth year of Artaxerxes\" must be Artaxerxes I's, 433 BC.",
+      "layer": "ancient-record",
+      "cites": [
+       "cowley-30"
+      ],
+      "refs": [
+       [
+        16013006,
+        16013006
+       ]
+      ]
+     }
+    },
+    {
+     "name": "Josephus, Antiquities 11.5",
+     "date": "about AD 93",
+     "claim": {
+      "text": "Josephus puts both Ezra and Nehemiah in the reign of Xerxes, not Artaxerxes.",
+      "layer": "ancient-record",
+      "cites": [
+       "jos-11-5"
+      ]
+     }
+    }
+   ],
+   "twoAccounts": [],
+   "questions": [
+    {
+     "id": "artaxerxes-ezra-4",
+     "question": "Is the Artaxerxes of Ezra 4:7–23 the king of Ezra 7 and Nehemiah?",
+     "views": [
+      {
+       "label": "No: Cambyses",
+       "holders": "Josephus (about AD 93)",
+       "argument": {
+        "text": "Josephus has the letter of \"Rathumus\" and \"Semellius\" (Rehum and Shimshai) sent to Cambyses, son of Cyrus.",
+        "layer": "scholars",
+        "cites": [
+         "jos-11-2"
+        ]
+       }
+      },
+      {
+       "label": "No: the Magian who reigned between Cambyses and Darius",
+       "holders": "James Ussher (1658); H. Ewald (as reported by R. Dick Wilson, 1915)",
+       "argument": {
+        "text": "Ussher identified this \"Artachshashta\" with the Magian usurper who called himself Smerdis, so that the work stopped until Darius's second year (Ezra 4:24).",
+        "layer": "scholars",
+        "cites": [
+         "ussher-persia",
+         "isbe-artaxerxes"
+        ],
+        "refs": [
+         [
+          15004024,
+          15004024
+         ]
+        ]
+       }
+      },
+      {
+       "label": "Yes: Artaxerxes I",
+       "holders": "R. Dick Wilson (1915)",
+       "argument": {
+        "text": "Wilson notes there is no evidence that the Magian was ever called Artaxerxes, holds that Artaxerxes I is meant, and says the other view \"would never have been thought of had it not been for the difficulty of explaining the reference to him in this place\".",
+        "layer": "scholars",
+        "cites": [
+         "isbe-artaxerxes"
+        ],
+        "refs": [
+         [
+          15004012,
+          15004012
+         ]
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "id": "artaxerxes-ezra-7",
+     "question": "Which Artaxerxes sent Ezra?",
+     "views": [
+      {
+       "label": "Artaxerxes I, in his seventh year, 458 BC: Ezra before Nehemiah",
+       "holders": "E. G. Hirsch and I. Broydé (Jewish Encyclopedia, 1903); R. Dick Wilson (1915)",
+       "argument": {
+        "text": "The traditional order of the books: Ezra in 458, Nehemiah in 445. Hirsch and Broydé call the later date \"untenable\".",
+        "layer": "scholars",
+        "cites": [
+         "je-ezra-scribe",
+         "isbe-nehemiah"
+        ],
+        "refs": [
+         [
+          15007007,
+          15007007
+         ],
+         [
+          16002001,
+          16002001
+         ]
+        ]
+       }
+      },
+      {
+       "label": "Artaxerxes II, in 398/397 BC: Ezra after Nehemiah",
+       "holders": "A. van Hoonacker (from 1890), as reported by the Jewish Encyclopedia (1903); J. Jacobs and others (Jewish Encyclopedia, 1903)",
+       "argument": {
+        "text": "Jacobs and his co-authors write that \"supposing the king to have been Artaxerxes II., Ezra's arrival in Palestine may be considered to have taken place in 397 B.C.\"",
+        "layer": "scholars",
+        "cites": [
+         "je-ezra-book",
+         "je-ezra-scribe"
+        ]
+       }
+      },
+      {
+       "label": "Xerxes",
+       "holders": "Josephus (about AD 93)",
+       "argument": {
+        "text": "Josephus names Xerxes as the king who wrote to \"Esdras\".",
+        "layer": "scholars",
+        "cites": [
+         "jos-11-5"
+        ]
+       }
+      }
+     ]
+    }
+   ],
+   "notSaid": [
+    "Scripture does not say which Persian Artaxerxes is meant, or whether one king is meant throughout.",
+    "Nehemiah 2:6 does not name the queen who sat by the king.",
+    "Scripture records no separate decree lifting the halt of Ezra 4:21; the next word of the king on the walls is Nehemiah's letters (Neh 2:7–8)."
+   ],
+   "places": [
+    {
+     "name": "Susa",
+     "placeId": "a033b84",
+     "refs": [
+      [
+       16001001,
+       16001001
+      ]
+     ],
+     "note": "\"Shushan the palace\", where Nehemiah served him"
+    },
+    {
+     "name": "Babylon",
+     "placeId": "a217d18",
+     "refs": [
+      [
+       15007006,
+       15007006
+      ]
+     ],
+     "note": "Ezra set out from Babylon"
+    },
+    {
+     "name": "Ahava",
+     "placeId": "a6c3859",
+     "refs": [
+      [
+       15008031,
+       15008031
+      ]
+     ],
+     "note": "Ezra's company gathered by the river of Ahava"
+    },
+    {
+     "name": "Samaria",
+     "placeId": "a041bb3",
+     "refs": [
+      [
+       15004017,
+       15004017
+      ]
+     ],
+     "note": "Rehum and Shimshai wrote from Samaria"
+    },
+    {
+     "name": "Jerusalem",
+     "placeId": "a15257a",
+     "refs": [
+      [
+       15007008,
+       15007008
+      ]
+     ]
+    },
+    {
+     "name": "Persia",
+     "placeId": "ab9696f",
+     "refs": [
+      [
+       15007001,
+       15007001
+      ]
+     ]
+    }
+   ],
+   "passages": [
+    [
+     15004007,
+     15004023
+    ],
+    [
+     15006014,
+     15006014
+    ],
+    [
+     15007001,
+     15007028
+    ],
+    [
+     15008001,
+     15008001
+    ],
+    [
+     15008036,
+     15008036
+    ],
+    [
+     16001001,
+     16001001
+    ],
+    [
+     16002001,
+     16002009
+    ],
+    [
+     16005014,
+     16005014
+    ],
+    [
+     16013006,
+     16013006
+    ]
+   ]
+  },
+  {
+   "id": "nehemiah-neh-1-1",
+   "name": "Nehemiah",
+   "kind": "governor",
+   "realm": "persia",
+   "title": "Governor of Judah",
+   "tagline": "Twelve years governor; the wall rebuilt in fifty-two days.",
+   "order": 9,
+   "house": "Son of Hachaliah (Neh 1:1)",
+   "capital": {
+    "name": "Jerusalem",
+    "placeId": "a15257a",
+    "refs": [
+     [
+      16002011,
+      16002011
+     ]
+    ]
+   },
+   "identifications": [
+    {
+     "text": "Nehemiah son of Hachaliah is a different man from the Nehemiah who came up with Zerubbabel and from Nehemiah son of Azbuk.",
+     "layer": "text",
+     "refs": [
+      [
+       16001001,
+       16001001
+      ],
+      [
+       15002002,
+       15002002
+      ],
+      [
+       16003016,
+       16003016
+      ]
+     ]
+    },
+    {
+     "text": "He calls himself governor, and the book calls him \"Nehemiah the governor\" and \"Nehemiah, which is the Tirshatha\".",
+     "layer": "text",
+     "refs": [
+      [
+       16005014,
+       16005014
+      ],
+      [
+       16012026,
+       16012026
+      ],
+      [
+       16008009,
+       16008009
+      ],
+      [
+       16010001,
+       16010001
+      ]
+     ]
+    },
+    {
+     "text": "\"Tirshatha\" is a Persian-era title; R. Dick Wilson (1915) notes it stands beside pechah, \"governor\", for the same men.",
+     "layer": "scholars",
+     "cites": [
+      "isbe-tirshatha"
+     ]
+    }
+   ],
+   "records": [],
+   "reign": {
+    "years": 12,
+    "text": "Twelve years, \"from the twentieth year even unto the two and thirtieth year of Artaxerxes the king\" (Neh 5:14); afterwards a second stay (Neh 13:6–7).",
+    "refs": [
+     [
+      16005014,
+      16005014
+     ],
+     [
+      16013006,
+      16013007
+     ]
+    ]
+   },
+   "dates": [
+    {
+     "system": "bible",
+     "label": "Scripture's numbers",
+     "note": "From Artaxerxes' twentieth year to his thirty-second: 12 years (Neh 5:14)."
+    },
+    {
+     "system": "other",
+     "label": "If Artaxerxes I: 445–433 BC (Parker and Dubberstein, 1942)",
+     "from": 445,
+     "to": 433,
+     "approx": true,
+     "note": "Artaxerxes I's twentieth year began in spring 445 and his thirty-second in spring 433.",
+     "cites": [
+      "pd-1942"
+     ]
+    },
+    {
+     "system": "other",
+     "label": "445–433 BC (Ryle, 1893; Cowley, 1923)",
+     "from": 445,
+     "to": 433,
+     "approx": true,
+     "note": "Ryle: the twentieth year is 445 BC; Cowley, from the Elephantine letter, concludes that the thirty-second year was 433 BC.",
+     "cites": [
+      "ryle-neh-2-1",
+      "cowley-30"
+     ]
+    }
+   ],
+   "verdictTone": "none",
+   "scriptureSays": [
+    {
+     "text": "\"The former governors that had been before me were chargeable unto the people… but so did not I, because of the fear of God.\"",
+     "layer": "scripture",
+     "refs": [
+      [
+       16005015,
+       16005015
+      ]
+     ]
+    },
+    {
+     "text": "\"Think upon me, my God, for good, according to all that I have done for this people.\"",
+     "layer": "scripture",
+     "refs": [
+      [
+       16005019,
+       16005019
+      ]
+     ]
+    },
+    {
+     "text": "\"Should such a man as I flee? and who is there, that, being as I am, would go into the temple to save his life? I will not go in.\"",
+     "layer": "scripture",
+     "refs": [
+      [
+       16006011,
+       16006011
+      ]
+     ]
+    },
+    {
+     "text": "\"These were in the days of Joiakim the son of Jeshua… and in the days of Nehemiah the governor, and of Ezra the priest, the scribe.\"",
+     "layer": "scripture",
+     "refs": [
+      [
+       16012026,
+       16012026
+      ]
+     ]
+    },
+    {
+     "text": "His last words in the book: \"Remember me, O my God, for good.\"",
+     "layer": "scripture",
+     "refs": [
+      [
+       16013031,
+       16013031
+      ]
+     ]
+    }
+   ],
+   "synchronisms": [
+    {
+     "quote": {
+      "text": "And it came to pass in the month Nisan, in the twentieth year of Artaxerxes the king",
+      "span": [
+       16002001,
+       16002001
+      ]
+     },
+     "otherRulerId": "artaxerxes-ezr-4-7"
+    },
+    {
+     "quote": {
+      "text": "from the twentieth year even unto the two and thirtieth year of Artaxerxes the king",
+      "span": [
+       16005014,
+       16005014
+      ]
+     },
+     "otherRulerId": "artaxerxes-ezr-4-7"
+    },
+    {
+     "quote": {
+      "text": "for in the two and thirtieth year of Artaxerxes king of Babylon came I unto the king",
+      "span": [
+       16013006,
+       16013006
+      ]
+     },
+     "otherRulerId": "artaxerxes-ezr-4-7"
+    }
+   ],
+   "events": [
+    {
+     "label": "News from Jerusalem",
+     "kind": "personal",
+     "claim": {
+      "text": "In Chisleu \"in the twentieth year\", in Shushan, Hanani told him that the wall of Jerusalem was broken down; he wept, fasted and prayed.",
+      "layer": "scripture",
+      "refs": [
+       [
+        16001001,
+        16001004
+       ]
+      ]
+     },
+     "year": 20,
+     "placeId": "a033b84"
+    },
+    {
+     "label": "Request to the king",
+     "kind": "personal",
+     "claim": {
+      "text": "In Nisan of Artaxerxes' twentieth year the king's cupbearer asked to be sent to build the city of his fathers' sepulchres.",
+      "layer": "scripture",
+      "refs": [
+       [
+        16001011,
+        16002008
+       ]
+      ]
+     },
+     "year": 20,
+     "placeId": "a033b84"
+    },
+    {
+     "label": "Appointed governor",
+     "kind": "other",
+     "claim": {
+      "text": "He was appointed governor of Judah from the king's twentieth year.",
+      "layer": "scripture",
+      "refs": [
+       [
+        16005014,
+        16005014
+       ]
+      ]
+     },
+     "year": 20
+    },
+    {
+     "label": "Journey with letters and escort",
+     "kind": "other",
+     "claim": {
+      "text": "He came with the king's letters to the governors beyond the river, with captains and horsemen; Sanballat and Tobiah were grieved.",
+      "layer": "scripture",
+      "refs": [
+       [
+        16002007,
+        16002010
+       ]
+      ]
+     }
+    },
+    {
+     "label": "Night inspection",
+     "kind": "building",
+     "claim": {
+      "text": "Three days after arriving he viewed the broken walls and burned gates by night.",
+      "layer": "scripture",
+      "refs": [
+       [
+        16002011,
+        16002016
+       ]
+      ]
+     },
+     "placeId": "a15257a"
+    },
+    {
+     "label": "The building begins",
+     "kind": "building",
+     "claim": {
+      "text": "\"Let us rise up and build\"; Eliashib the high priest and his brethren built the sheep gate, and every family its section.",
+      "layer": "scripture",
+      "refs": [
+       [
+        16002017,
+        16002018
+       ],
+       [
+        16003001,
+        16003001
+       ]
+      ]
+     }
+    },
+    {
+     "label": "Mockery and threats",
+     "kind": "other",
+     "claim": {
+      "text": "Sanballat, Tobiah and Geshem laughed them to scorn; they conspired \"to come and to fight against Jerusalem\".",
+      "layer": "scripture",
+      "refs": [
+       [
+        16002019,
+        16002020
+       ],
+       [
+        16004001,
+        16004008
+       ]
+      ]
+     }
+    },
+    {
+     "label": "Builders armed",
+     "kind": "battle",
+     "claim": {
+      "text": "He set the people by families with swords, spears and bows; the builders worked with one hand and held a weapon with the other.",
+      "layer": "scripture",
+      "refs": [
+       [
+        16004013,
+        16004018
+       ]
+      ]
+     }
+    },
+    {
+     "label": "Debts and bondage released",
+     "kind": "reform",
+     "claim": {
+      "text": "At the cry of the poor he rebuked the nobles for usury; they restored lands and houses and swore to it.",
+      "layer": "scripture",
+      "refs": [
+       [
+        16005001,
+        16005013
+       ]
+      ]
+     }
+    },
+    {
+     "label": "Plots at Ono",
+     "kind": "other",
+     "claim": {
+      "text": "Sanballat and Geshem asked him four times to meet in the plain of Ono; the fifth time an open letter accused him of wanting to be king.",
+      "layer": "scripture",
+      "refs": [
+       [
+        16006001,
+        16006009
+       ]
+      ]
+     },
+     "placeId": "ae6bfe2"
+    },
+    {
+     "label": "The hired prophet",
+     "kind": "prophecy",
+     "claim": {
+      "text": "Shemaiah urged him to hide in the temple; he perceived that \"Tobiah and Sanballat had hired him\".",
+      "layer": "scripture",
+      "refs": [
+       [
+        16006010,
+        16006014
+       ]
+      ]
+     }
+    },
+    {
+     "label": "The wall finished",
+     "kind": "building",
+     "claim": {
+      "text": "\"So the wall was finished in the twenty and fifth day of the month Elul, in fifty and two days.\"",
+      "layer": "scripture",
+      "refs": [
+       [
+        16006015,
+        16006015
+       ]
+      ]
+     }
+    },
+    {
+     "label": "The genealogy",
+     "kind": "other",
+     "claim": {
+      "text": "He set Hanani and Hananiah over Jerusalem and found the register of those who came up at the first.",
+      "layer": "scripture",
+      "refs": [
+       [
+        16007001,
+        16007005
+       ]
+      ]
+     }
+    },
+    {
+     "label": "The law read",
+     "kind": "worship",
+     "claim": {
+      "text": "On the first day of the seventh month Ezra read the law; Nehemiah, \"which is the Tirshatha\", Ezra and the Levites told the weeping people: \"This day is holy unto the LORD your God; mourn not, nor weep.\"",
+      "layer": "scripture",
+      "refs": [
+       [
+        16008001,
+        16008002
+       ],
+       [
+        16008009,
+        16008009
+       ]
+      ]
+     }
+    },
+    {
+     "label": "The covenant sealed",
+     "kind": "reform",
+     "claim": {
+      "text": "He was first to seal the covenant to keep the law, the sabbath and the offerings.",
+      "layer": "scripture",
+      "refs": [
+       [
+        16009038,
+        16010001
+       ],
+       [
+        16010028,
+        16010039
+       ]
+      ]
+     }
+    },
+    {
+     "label": "One in ten to Jerusalem",
+     "kind": "other",
+     "claim": {
+      "text": "Lots were cast to bring one in ten to live in Jerusalem.",
+      "layer": "scripture",
+      "refs": [
+       [
+        16011001,
+        16011002
+       ]
+      ]
+     }
+    },
+    {
+     "label": "The wall dedicated",
+     "kind": "worship",
+     "claim": {
+      "text": "Two great companies of thanksgiving went round on the wall and stood in the house of God.",
+      "layer": "scripture",
+      "refs": [
+       [
+        16012027,
+        16012027
+       ],
+       [
+        16012031,
+        16012031
+       ],
+       [
+        16012038,
+        16012040
+       ]
+      ]
+     }
+    },
+    {
+     "label": "Back to the king",
+     "kind": "other",
+     "claim": {
+      "text": "In Artaxerxes' thirty-second year he went to the king, and after certain days returned.",
+      "layer": "scripture",
+      "refs": [
+       [
+        16013006,
+        16013007
+       ]
+      ]
+     },
+     "year": 32
+    },
+    {
+     "label": "Tobiah cast out",
+     "kind": "reform",
+     "claim": {
+      "text": "He threw Tobiah's goods out of the temple chamber that Eliashib had prepared for him, and had the chambers cleansed.",
+      "layer": "scripture",
+      "refs": [
+       [
+        16013004,
+        16013009
+       ]
+      ]
+     }
+    },
+    {
+     "label": "Levites' portions restored",
+     "kind": "reform",
+     "claim": {
+      "text": "He gathered the Levites back and made treasurers over the tithes.",
+      "layer": "scripture",
+      "refs": [
+       [
+        16013010,
+        16013013
+       ]
+      ]
+     }
+    },
+    {
+     "label": "Sabbath trade stopped",
+     "kind": "reform",
+     "claim": {
+      "text": "He had the gates shut before the sabbath and drove the merchants from the walls.",
+      "layer": "scripture",
+      "refs": [
+       [
+        16013015,
+        16013022
+       ]
+      ]
+     }
+    },
+    {
+     "label": "Mixed marriages",
+     "kind": "reform",
+     "claim": {
+      "text": "He contended with Jews who had married wives of Ashdod, Ammon and Moab, and chased away a grandson of Eliashib who was son-in-law to Sanballat.",
+      "layer": "scripture",
+      "refs": [
+       [
+        16013023,
+        16013028
+       ]
+      ]
+     }
+    }
+   ],
+   "nation": {
+    "worship": [
+     {
+      "text": "The law was read, the feast kept, the covenant sealed, and the Levites, singers and porters set in their wards.",
+      "layer": "scripture",
+      "refs": [
+       [
+        16008001,
+        16008018
+       ],
+       [
+        16010028,
+        16010039
+       ],
+       [
+        16012044,
+        16012045
+       ]
+      ]
+     }
+    ],
+    "building": [
+     {
+      "text": "The wall and its gates were rebuilt by families, each over against its house, and finished in fifty-two days.",
+      "layer": "scripture",
+      "refs": [
+       [
+        16003001,
+        16003001
+       ],
+       [
+        16006015,
+        16006015
+       ],
+       [
+        16007001,
+        16007001
+       ]
+      ]
+     }
+    ],
+    "alliances": [
+     {
+      "text": "Sanballat the Horonite, Tobiah the Ammonite and Geshem the Arabian opposed the work; many in Judah were \"sworn unto\" Tobiah, and Eliashib the priest was \"allied unto\" him.",
+      "layer": "scripture",
+      "refs": [
+       [
+        16002019,
+        16002019
+       ],
+       [
+        16006017,
+        16006019
+       ],
+       [
+        16013004,
+        16013004
+       ]
+      ]
+     }
+    ],
+    "people": [
+     {
+      "text": "He refused the governor's bread for twelve years, fed 150 Jews and rulers at his table, and released the people from usury.",
+      "layer": "scripture",
+      "refs": [
+       [
+        16005010,
+        16005018
+       ]
+      ]
+     },
+     {
+      "text": "The people cast lots to bring one in ten to dwell in Jerusalem.",
+      "layer": "scripture",
+      "refs": [
+       [
+        16011001,
+        16011001
+       ]
+      ]
+     }
+    ]
+   },
+   "prophets": [
+    {
+     "person": {
+      "name": "Shemaiah son of Delaiah",
+      "personId": "shemaiah-neh-6-10"
+     },
+     "claim": {
+      "text": "A prophet hired by Tobiah and Sanballat, who urged Nehemiah to shut himself in the temple.",
+      "layer": "scripture",
+      "refs": [
+       [
+        16006010,
+        16006013
+       ]
+      ]
+     },
+     "quote": {
+      "text": "God had not sent him; but that he pronounced this prophecy against me: for Tobiah and Sanballat had hired him",
+      "span": [
+       16006012,
+       16006012
+      ]
+     }
+    },
+    {
+     "person": {
+      "name": "Noadiah",
+      "personId": "noadiah-neh-6-14"
+     },
+     "claim": {
+      "text": "\"The prophetess Noadiah, and the rest of the prophets, that would have put me in fear.\"",
+      "layer": "scripture",
+      "refs": [
+       [
+        16006014,
+        16006014
+       ]
+      ]
+     }
+    }
+   ],
+   "worldStage": [
+    {
+     "power": "Persia",
+     "rulers": [
+      {
+       "name": "Artaxerxes",
+       "personId": "artaxerxes-ezr-4-7"
+      }
+     ],
+     "claim": {
+      "text": "He was the king's cupbearer, sent by Artaxerxes and appointed governor from the king's twentieth year.",
+      "layer": "scripture",
+      "refs": [
+       [
+        16001011,
+        16001011
+       ],
+       [
+        16002001,
+        16002008
+       ],
+       [
+        16005014,
+        16005014
+       ]
+      ]
+     }
+    }
+   ],
+   "outside": [
+    {
+     "name": "Elephantine papyrus (Cowley No. 30)",
+     "date": "408 BC",
+     "claim": {
+      "text": "A petition from the Jews of Elephantine to \"Bigvai, governor of Judaea\" mentions \"Johanan the high priest\" (compare Neh 12:22–23) and \"Delaiah and Shelemiah the sons of Sanballat governor of Samaria\". Cowley concludes that Nehemiah was dead or replaced by 408 and that his thirty-second year of Artaxerxes was 433 BC.",
+      "layer": "ancient-record",
+      "cites": [
+       "cowley-30"
+      ],
+      "refs": [
+       [
+        16012022,
+        16012023
+       ]
+      ]
+     }
+    },
+    {
+     "name": "Josephus, Antiquities 11.5.6–8",
+     "date": "about AD 93",
+     "claim": {
+      "text": "Josephus makes Nehemiah cupbearer to Xerxes, says the wall took \"two years and four months\" and was built \"in the twenty-eighth year of the reign of Xerxes\", and adds that Nehemiah \"came to a great age, and then died\".",
+      "layer": "ancient-record",
+      "cites": [
+       "jos-11-5"
+      ]
+     }
+    }
+   ],
+   "twoAccounts": [
+    {
+     "topic": "How long the wall took",
+     "first": {
+      "text": "Nehemiah: \"So the wall was finished… in fifty and two days.\"",
+      "layer": "scripture",
+      "refs": [
+       [
+        16006015,
+        16006015
+       ]
+      ]
+     },
+     "second": {
+      "text": "Josephus: \"this trouble he underwent for two years and four months\".",
+      "layer": "ancient-record",
+      "cites": [
+       "jos-11-5"
+      ]
+     }
+    },
+    {
+     "topic": "Under which king",
+     "first": {
+      "text": "Nehemiah: \"in the twentieth year of Artaxerxes the king\".",
+      "layer": "scripture",
+      "refs": [
+       [
+        16002001,
+        16002001
+       ]
+      ]
+     },
+     "second": {
+      "text": "Josephus: \"cup-bearer to king Xerxes\".",
+      "layer": "ancient-record",
+      "cites": [
+       "jos-11-5"
+      ]
+     }
+    }
+   ],
+   "questions": [
+    {
+     "id": "nehemiah-king",
+     "question": "Which Persian king sent Nehemiah?",
+     "views": [
+      {
+       "label": "Artaxerxes I",
+       "holders": "H. E. Ryle (1893); R. Dick Wilson (1915); A. Cowley (1923)",
+       "argument": {
+        "text": "Sanballat's sons and the high priest Johanan appear in an Elephantine letter of 408 BC, which fits Sanballat as Nehemiah's opponent about 445 and makes Nehemiah's king Artaxerxes I, not II.",
+        "layer": "scholars",
+        "cites": [
+         "ryle-neh-2-1",
+         "isbe-nehemiah",
+         "cowley-30"
+        ],
+        "refs": [
+         [
+          16002010,
+          16002010
+         ],
+         [
+          16012022,
+          16012022
+         ]
+        ]
+       }
+      },
+      {
+       "label": "Xerxes",
+       "holders": "Josephus (about AD 93)",
+       "argument": {
+        "text": "Josephus places Nehemiah and the wall in the reign of Xerxes.",
+        "layer": "scholars",
+        "cites": [
+         "jos-11-5"
+        ]
+       }
+      }
+     ]
+    }
+   ],
+   "notSaid": [
+    "Scripture does not say how long his second stay lasted, or when and where he died.",
+    "Scripture does not name the governors between Zerubbabel and Nehemiah; he speaks only of \"the former governors that had been before me\" (Neh 5:15).",
+    "Nehemiah 1:1 dates the news to Chisleu \"in the twentieth year\" and 2:1 his audience to Nisan of Artaxerxes' twentieth year; Scripture does not explain how the two months fall in one year.",
+    "Scripture calls Sanballat only \"the Horonite\"; the title \"governor of Samaria\" comes from the Elephantine letter."
+   ],
+   "places": [
+    {
+     "name": "Susa",
+     "placeId": "a033b84",
+     "refs": [
+      [
+       16001001,
+       16001001
+      ]
+     ],
+     "note": "\"Shushan the palace\", where he served the king"
+    },
+    {
+     "name": "Jerusalem",
+     "placeId": "a15257a",
+     "refs": [
+      [
+       16002011,
+       16002011
+      ]
+     ],
+     "note": "The wall he rebuilt"
+    },
+    {
+     "name": "Ono",
+     "placeId": "ae6bfe2",
+     "refs": [
+      [
+       16006002,
+       16006002
+      ]
+     ],
+     "note": "Where his enemies asked him to meet"
+    },
+    {
+     "name": "Samaria",
+     "placeId": "a041bb3",
+     "refs": [
+      [
+       16004002,
+       16004002
+      ]
+     ],
+     "note": "\"the army of Samaria\""
+    },
+    {
+     "name": "Babylon",
+     "placeId": "a217d18",
+     "refs": [
+      [
+       16013006,
+       16013006
+      ]
+     ],
+     "note": "\"Artaxerxes king of Babylon\""
+    }
+   ],
+   "passages": [
+    [
+     16001001,
+     16007005
+    ],
+    [
+     16007065,
+     16007070
+    ],
+    [
+     16008001,
+     16008012
+    ],
+    [
+     16009038,
+     16010039
+    ],
+    [
+     16011001,
+     16011002
+    ],
+    [
+     16012026,
+     16012047
+    ],
+    [
+     16013001,
+     16013031
+    ]
+   ]
+  },
+  {
+   "id": "gedaliah-2ki-25-22",
+   "name": "Gedaliah",
+   "kind": "governor",
+   "realm": "babylon",
+   "title": "Governor of Judah under Babylon",
+   "tagline": "Governor at Mizpah over the poor of the land; murdered in the seventh month.",
+   "order": 3,
+   "house": "Son of Ahikam, son of Shaphan",
+   "capital": {
+    "name": "Mizpah",
+    "placeId": "a736f6c",
+    "refs": [
+     [
+      24040006,
+      24040006
+     ]
+    ],
+    "note": "\"I will dwell at Mizpah to serve the Chaldeans\" (Jer 40:10)"
+   },
+   "identifications": [
+    {
+     "text": "\"Gedaliah the son of Ahikam, the son of Shaphan\"; his father Ahikam had kept Jeremiah from being put to death.",
+     "layer": "text",
+     "refs": [
+      [
+       12025022,
+       12025022
+      ],
+      [
+       24039014,
+       24039014
+      ],
+      [
+       24026024,
+       24026024
+      ]
+     ]
+    },
+    {
+     "text": "Kings calls him first \"ruler\" and then \"governor\"; Jeremiah calls him the man \"whom the king of Babylon hath made governor over the cities of Judah\".",
+     "layer": "text",
+     "refs": [
+      [
+       12025022,
+       12025023
+      ],
+      [
+       24040005,
+       24040005
+      ]
+     ]
+    }
+   ],
+   "records": [],
+   "reign": {
+    "text": "Not given. He was made governor after Jerusalem fell in Nebuchadnezzar's nineteenth year (2 Kgs 25:8, 22) and was killed \"in the seventh month\"; Scripture does not say of which year (2 Kgs 25:25; Jer 41:1).",
+    "refs": [
+     [
+      12025008,
+      12025008
+     ],
+     [
+      12025022,
+      12025022
+     ],
+     [
+      12025025,
+      12025025
+     ],
+     [
+      24041001,
+      24041001
+     ]
+    ]
+   },
+   "dates": [
+    {
+     "system": "bible",
+     "label": "Scripture's numbers",
+     "note": "Appointed after the burning of Jerusalem in the fifth month of Nebuchadnezzar's nineteenth year; killed in a seventh month."
+    },
+    {
+     "system": "thiele-mcfall",
+     "label": "After Jerusalem's fall in 586 BC (McFall, 1991)",
+     "from": 586,
+     "to": 586,
+     "approx": true,
+     "note": "If he was killed in the seventh month of the same year, about two months after the burning (see the question below).",
+     "cites": [
+      "mcfall-1991"
+     ]
+    },
+    {
+     "system": "albright",
+     "label": "After Jerusalem's fall in 587 BC (Albright, 1945)",
+     "from": 587,
+     "to": 587,
+     "approx": true,
+     "note": "Albright dates the city's fall a year earlier.",
+     "cites": [
+      "albright-1945"
+     ]
+    },
+    {
+     "system": "other",
+     "label": "To about 582 BC, if his death came with the deportation of Nebuchadnezzar's twenty-third year (Graetz)",
+     "from": 586,
+     "to": 582,
+     "approx": true,
+     "note": "H. Graetz's view, as reported by the Pulpit Commentary: some five years of rule, linking his death to Jeremiah 52:30.",
+     "cites": [
+      "pulpit-jer-41-1"
+     ]
+    }
+   ],
+   "verdictTone": "none",
+   "scriptureSays": [
+    {
+     "text": "He swore to the captains: \"Fear not to be the servants of the Chaldees: dwell in the land, and serve the king of Babylon; and it shall be well with you.\"",
+     "layer": "scripture",
+     "refs": [
+      [
+       12025024,
+       12025024
+      ]
+     ]
+    },
+    {
+     "text": "\"As for me, behold, I will dwell at Mizpah to serve the Chaldeans, which will come unto us: but ye, gather ye wine, and summer fruits, and oil.\"",
+     "layer": "scripture",
+     "refs": [
+      [
+       24040010,
+       24040010
+      ]
+     ]
+    },
+    {
+     "text": "Warned that Ishmael meant to kill him, \"Gedaliah the son of Ahikam believed them not\", and forbade Johanan to strike first: \"thou speakest falsely of Ishmael\".",
+     "layer": "scripture",
+     "refs": [
+      [
+       24040014,
+       24040016
+      ]
+     ]
+    },
+    {
+     "text": "Ishmael \"smote Gedaliah the son of Ahikam the son of Shaphan with the sword, and slew him, whom the king of Babylon had made governor over the land\".",
+     "layer": "scripture",
+     "refs": [
+      [
+       24041002,
+       24041002
+      ]
+     ]
+    }
+   ],
+   "synchronisms": [
+    {
+     "quote": {
+      "text": "which is the nineteenth year of king Nebuchadnezzar king of Babylon",
+      "span": [
+       12025008,
+       12025008
+      ]
+     },
+     "otherRulerId": "nebuchadnezzar-2ki-24-1"
+    }
+   ],
+   "events": [
+    {
+     "label": "Made governor",
+     "kind": "other",
+     "claim": {
+      "text": "Nebuchadnezzar set Gedaliah over the people left in the land of Judah, \"men, and women, and children, and of the poor of the land\".",
+      "layer": "scripture",
+      "refs": [
+       [
+        12025022,
+        12025022
+       ],
+       [
+        24040007,
+        24040007
+       ]
+      ]
+     }
+    },
+    {
+     "label": "Jeremiah committed to him",
+     "kind": "personal",
+     "claim": {
+      "text": "The Babylonian princes took Jeremiah from the court of the prison and committed him to Gedaliah; Jeremiah went to him at Mizpah.",
+      "layer": "scripture",
+      "refs": [
+       [
+        24039013,
+        24039014
+       ],
+       [
+        24040005,
+        24040006
+       ]
+      ]
+     },
+     "placeId": "a736f6c"
+    },
+    {
+     "label": "The captains come to Mizpah",
+     "kind": "alliance",
+     "claim": {
+      "text": "Ishmael, Johanan, Seraiah, Jaazaniah and their men came to him; he swore to them that it would be well with them if they served the king of Babylon.",
+      "layer": "scripture",
+      "refs": [
+       [
+        12025023,
+        12025024
+       ],
+       [
+        24040007,
+        24040010
+       ]
+      ]
+     },
+     "placeId": "a736f6c"
+    },
+    {
+     "label": "The scattered return",
+     "kind": "other",
+     "claim": {
+      "text": "Jews from Moab, Ammon, Edom and other lands returned to him and gathered \"wine and summer fruits very much\".",
+      "layer": "scripture",
+      "refs": [
+       [
+        24040011,
+        24040012
+       ]
+      ]
+     }
+    },
+    {
+     "label": "A warning refused",
+     "kind": "personal",
+     "claim": {
+      "text": "Johanan told him that Baalis king of the Ammonites had sent Ishmael to kill him, and offered to kill Ishmael secretly; Gedaliah refused.",
+      "layer": "scripture",
+      "refs": [
+       [
+        24040013,
+        24040016
+       ]
+      ]
+     }
+    },
+    {
+     "label": "Murdered at Mizpah",
+     "kind": "other",
+     "claim": {
+      "text": "In the seventh month Ishmael son of Nethaniah, \"of the seed royal\", came with ten men, ate bread with him, and killed him with the Jews and Chaldeans who were with him.",
+      "layer": "scripture",
+      "refs": [
+       [
+        12025025,
+        12025025
+       ],
+       [
+        24041001,
+        24041003
+       ]
+      ]
+     },
+     "placeId": "a736f6c"
+    },
+    {
+     "label": "The pilgrims and the captives",
+     "kind": "other",
+     "claim": {
+      "text": "Ishmael killed most of eighty men coming with offerings for the house of the LORD and carried the people of Mizpah, the king's daughters among them, toward the Ammonites.",
+      "layer": "scripture",
+      "refs": [
+       [
+        24041004,
+        24041010
+       ]
+      ]
+     }
+    },
+    {
+     "label": "Pursuit at Gibeon",
+     "kind": "battle",
+     "claim": {
+      "text": "Johanan overtook Ishmael \"by the great waters that are in Gibeon\"; the captives turned back, and Ishmael escaped with eight men.",
+      "layer": "scripture",
+      "refs": [
+       [
+        24041011,
+        24041015
+       ]
+      ]
+     },
+     "placeId": "aede336"
+    },
+    {
+     "label": "Flight to Egypt",
+     "kind": "other",
+     "claim": {
+      "text": "Afraid of the Chaldeans, the remnant went to Egypt, taking \"every person that Nebuzar-adan the captain of the guard had left with Gedaliah\", and Jeremiah with them.",
+      "layer": "scripture",
+      "refs": [
+       [
+        12025026,
+        12025026
+       ],
+       [
+        24041016,
+        24041018
+       ],
+       [
+        24043005,
+        24043007
+       ]
+      ]
+     },
+     "placeId": "adb008c"
+    }
+   ],
+   "nation": {
+    "worship": [
+     {
+      "text": "Two days after his death eighty men from Shechem, Shiloh and Samaria came mourning \"with offerings and incense in their hand, to bring them to the house of the LORD\".",
+      "layer": "scripture",
+      "refs": [
+       [
+        24041004,
+        24041005
+       ]
+      ]
+     },
+     {
+      "text": "Joseph Benson (about 1815) and James Crichton (1915) connect the \"fast of the seventh month\" in Zechariah with Gedaliah's murder; Zechariah does not name him.",
+      "layer": "scholars",
+      "cites": [
+       "benson-jer-41-1",
+       "isbe-gedaliah"
+      ],
+      "refs": [
+       [
+        38007005,
+        38007005
+       ],
+       [
+        38008019,
+        38008019
+       ]
+      ]
+     }
+    ],
+    "building": [],
+    "alliances": [
+     {
+      "text": "He bound the people by oath to serve the king of Babylon; Baalis king of Ammon sent Ishmael against him.",
+      "layer": "scripture",
+      "refs": [
+       [
+        24040009,
+        24040009
+       ],
+       [
+        24040014,
+        24040014
+       ]
+      ]
+     }
+    ],
+    "people": [
+     {
+      "text": "He was given charge of \"the poor of the land, of them that were not carried away captive to Babylon\", and the scattered Jews returned to him.",
+      "layer": "scripture",
+      "refs": [
+       [
+        24040007,
+        24040007
+       ],
+       [
+        24040011,
+        24040012
+       ]
+      ]
+     }
+    ]
+   },
+   "prophets": [
+    {
+     "person": {
+      "name": "Jeremiah",
+      "personId": "jeremiah-2ch-35-25"
+     },
+     "claim": {
+      "text": "Jeremiah lived with Gedaliah at Mizpah \"among the people that were left in the land\"; after his murder he warned the remnant not to go to Egypt.",
+      "layer": "scripture",
+      "refs": [
+       [
+        24040006,
+        24040006
+       ],
+       [
+        24042019,
+        24042019
+       ]
+      ]
+     },
+     "quote": {
+      "text": "O ye remnant of Judah; Go ye not into Egypt",
+      "span": [
+       24042019,
+       24042019
+      ]
+     }
+    }
+   ],
+   "worldStage": [
+    {
+     "power": "Babylon",
+     "rulers": [
+      {
+       "name": "Nebuchadnezzar",
+       "personId": "nebuchadnezzar-2ki-24-1"
+      }
+     ],
+     "claim": {
+      "text": "\"The king of Babylon had made Gedaliah governor\".",
+      "layer": "scripture",
+      "refs": [
+       [
+        12025023,
+        12025023
+       ],
+       [
+        24040007,
+        24040007
+       ]
+      ]
+     }
+    },
+    {
+     "power": "Babylon's captain of the guard",
+     "rulers": [
+      {
+       "name": "Nebuzar-adan",
+       "personId": "nebuzaradan-2ki-25-8"
+      }
+     ],
+     "claim": {
+      "text": "Nebuzar-adan sent Jeremiah to Gedaliah and had committed the people of Mizpah to him.",
+      "layer": "scripture",
+      "refs": [
+       [
+        24040005,
+        24040005
+       ],
+       [
+        24041010,
+        24041010
+       ]
+      ]
+     }
+    }
+   ],
+   "outside": [
+    {
+     "name": "Josephus, Antiquities 10.9",
+     "date": "about AD 93",
+     "claim": {
+      "text": "Josephus, retelling Kings and Jeremiah, says Nebuzaradan made Gedaliah governor and commanded the people to \"pay an appointed tribute to the king\"; he also says Nebuchadnezzar came again \"on the fifth year after the destruction of Jerusalem, which was the twenty-third of the reign of Nebuchadnezzar\".",
+      "layer": "ancient-record",
+      "cites": [
+       "jos-10-9"
+      ]
+     }
+    }
+   ],
+   "twoAccounts": [
+    {
+     "topic": "What each book tells",
+     "first": {
+      "text": "Kings tells his appointment, his oath, his murder in the seventh month and the flight to Egypt in five verses.",
+      "layer": "scripture",
+      "refs": [
+       [
+        12025022,
+        12025026
+       ]
+      ]
+     },
+     "second": {
+      "text": "Jeremiah tells it at length: Jeremiah sent to him, the returning Jews, the warning he refused, the pilgrims, the pursuit at Gibeon and the flight.",
+      "layer": "scripture",
+      "refs": [
+       [
+        24040001,
+        24041018
+       ]
+      ]
+     }
+    },
+    {
+     "topic": "Who left the people with him",
+     "first": {
+      "text": "Kings: the people \"whom Nebuchadnezzar king of Babylon had left\".",
+      "layer": "scripture",
+      "refs": [
+       [
+        12025022,
+        12025022
+       ]
+      ]
+     },
+     "second": {
+      "text": "Jeremiah: the people \"whom Nebuzar-adan the captain of the guard had committed to Gedaliah\".",
+      "layer": "scripture",
+      "refs": [
+       [
+        24041010,
+        24041010
+       ]
+      ]
+     }
+    }
+   ],
+   "questions": [
+    {
+     "id": "gedaliah-how-long",
+     "question": "How long did Gedaliah govern?",
+     "views": [
+      {
+       "label": "About two months: he was killed in the seventh month of the year Jerusalem fell",
+       "holders": "C. F. Keil (1880); A. W. Streane (1881); Joseph Benson (about 1815)",
+       "argument": {
+        "text": "They read Jeremiah 41:1's \"seventh month\" as two months after the burning in the fifth month.",
+        "layer": "scholars",
+        "cites": [
+         "keil-jer-41-1",
+         "streane-jer-41-1",
+         "benson-jer-41-1"
+        ],
+        "refs": [
+         [
+          24041001,
+          24041001
+         ],
+         [
+          12025008,
+          12025008
+         ]
+        ]
+       }
+      },
+      {
+       "label": "About five years, ending with the deportation of Nebuchadnezzar's twenty-third year",
+       "holders": "H. Graetz, as reported by the Pulpit Commentary",
+       "argument": {
+        "text": "Graetz thought the events of Jeremiah 40–41 needed more than two months, and tied Gedaliah's death to the 745 people taken \"in the three and twentieth year of Nebuchadrezzar\".",
+        "layer": "scholars",
+        "cites": [
+         "pulpit-jer-41-1"
+        ],
+        "refs": [
+         [
+          24052030,
+          24052030
+         ]
+        ]
+       }
+      }
+     ]
+    }
+   ],
+   "notSaid": [
+    "Scripture does not give the year of Gedaliah's death, only \"the seventh month\".",
+    "Scripture does not say what became of Ishmael after he fled to the Ammonites.",
+    "Scripture names no successor to Gedaliah as governor."
+   ],
+   "places": [
+    {
+     "name": "Mizpah",
+     "placeId": "a736f6c",
+     "refs": [
+      [
+       24040006,
+       24040006
+      ]
+     ],
+     "note": "His seat; where he was killed"
+    },
+    {
+     "name": "Jerusalem",
+     "placeId": "a15257a",
+     "refs": [
+      [
+       12025008,
+       12025008
+      ]
+     ],
+     "note": "Burned before his appointment"
+    },
+    {
+     "name": "Gibeon",
+     "placeId": "aede336",
+     "refs": [
+      [
+       24041012,
+       24041012
+      ]
+     ],
+     "note": "\"the great waters that are in Gibeon\""
+    },
+    {
+     "name": "Bethlehem",
+     "placeId": "a112427",
+     "refs": [
+      [
+       24041017,
+       24041017
+      ]
+     ],
+     "note": "\"the habitation of Chimham, which is by Beth-lehem\""
+    },
+    {
+     "name": "Ammon",
+     "placeId": "a6046fa",
+     "refs": [
+      [
+       24041015,
+       24041015
+      ]
+     ],
+     "note": "Ishmael's refuge"
+    },
+    {
+     "name": "Tahpanhes",
+     "placeId": "adb008c",
+     "refs": [
+      [
+       24043007,
+       24043007
+      ]
+     ],
+     "note": "Where the remnant went in Egypt"
+    }
+   ],
+   "passages": [
+    [
+     12025022,
+     12025026
+    ],
+    [
+     24039011,
+     24039014
+    ],
+    [
+     24040001,
+     24041018
+    ],
+    [
+     24042001,
+     24042001
+    ],
+    [
+     24043005,
+     24043007
+    ]
+   ]
+  }
+ ],
+ "citations": [
+  {
+   "id": "rogers-cylinder",
+   "author": "R. W. Rogers",
+   "title": "Cuneiform Parallels to the Old Testament",
+   "year": "1912",
+   "where": "pp. 380–384 (the Cylinder of Cyrus, lines 12–35)",
+   "url": "https://archive.org/details/cuneiformparalle00rogerich"
+  },
+  {
+   "id": "harper-nabonidus",
+   "author": "R. F. Harper (ed.)",
+   "title": "Assyrian and Babylonian Literature: Selected Translations",
+   "year": "1901",
+   "where": "pp. 168–171 (\"The Annals of Nabonidus\")",
+   "url": "https://archive.org/details/cu31924083983944"
+  },
+  {
+   "id": "pd-1942",
+   "author": "R. A. Parker and W. H. Dubberstein",
+   "title": "Babylonian Chronology 626 B.C.–A.D. 45 (Studies in Ancient Oriental Civilization 24; dates cited as facts only)",
+   "year": "1942",
+   "where": "pp. 11–15 (kings' reigns) and the tables of years",
+   "url": "https://archive.org/details/saoc-24.-babylonian-chronology-626-b.-c.-a.-d.-45"
+  },
+  {
+   "id": "behistun",
+   "author": "L. W. King and R. C. Thompson",
+   "title": "The Sculptures and Inscription of Darius the Great on the Rock of Behistûn in Persia",
+   "year": "1907",
+   "where": "Persian text, §§ I–IV and X–XIII, pp. 1–13",
+   "url": "https://archive.org/details/sculpturesinscri00brituoft"
+  },
+  {
+   "id": "cowley-6",
+   "author": "A. Cowley",
+   "title": "Aramaic Papyri of the Fifth Century B.C.",
+   "year": "1923",
+   "where": "No. 6, pp. 15–16 (introduction and translation)",
+   "url": "https://archive.org/details/aramaicpapyrioff00ahikuoft"
+  },
+  {
+   "id": "cowley-30",
+   "author": "A. Cowley",
+   "title": "Aramaic Papyri of the Fifth Century B.C.",
+   "year": "1923",
+   "where": "No. 30, pp. 108–114 (introduction and translation)",
+   "url": "https://archive.org/details/aramaicpapyrioff00ahikuoft"
+  },
+  {
+   "id": "herod-1",
+   "author": "Herodotus, tr. G. C. Macaulay",
+   "title": "The History of Herodotus, vol. 1",
+   "year": "1890",
+   "where": "Book I §§191, 214",
+   "url": "https://www.gutenberg.org/ebooks/2707"
+  },
+  {
+   "id": "herod-3-88",
+   "author": "Herodotus, tr. G. C. Macaulay",
+   "title": "The History of Herodotus, vol. 1",
+   "year": "1890",
+   "where": "Book III §88",
+   "url": "https://www.gutenberg.org/ebooks/2707"
+  },
+  {
+   "id": "herod-7",
+   "author": "Herodotus, tr. G. C. Macaulay",
+   "title": "The History of Herodotus, vol. 2",
+   "year": "1890",
+   "where": "Book VII §§4, 61, 114; Book IX §§109–112",
+   "url": "https://www.gutenberg.org/ebooks/2456"
+  },
+  {
+   "id": "jos-10-9",
+   "author": "Flavius Josephus, tr. William Whiston",
+   "title": "The Antiquities of the Jews",
+   "year": "1737",
+   "where": "10.9.1–7",
+   "url": "https://www.gutenberg.org/ebooks/2848"
+  },
+  {
+   "id": "jos-10-11",
+   "author": "Flavius Josephus, tr. William Whiston",
+   "title": "The Antiquities of the Jews",
+   "year": "1737",
+   "where": "10.11.4, with Whiston's note 23",
+   "url": "https://www.gutenberg.org/ebooks/2848"
+  },
+  {
+   "id": "jos-11-1",
+   "author": "Flavius Josephus, tr. William Whiston",
+   "title": "The Antiquities of the Jews",
+   "year": "1737",
+   "where": "11.1.1–3",
+   "url": "https://www.gutenberg.org/ebooks/2848"
+  },
+  {
+   "id": "jos-11-2",
+   "author": "Flavius Josephus, tr. William Whiston",
+   "title": "The Antiquities of the Jews",
+   "year": "1737",
+   "where": "11.2.1–2",
+   "url": "https://www.gutenberg.org/ebooks/2848"
+  },
+  {
+   "id": "jos-11-3",
+   "author": "Flavius Josephus, tr. William Whiston",
+   "title": "The Antiquities of the Jews",
+   "year": "1737",
+   "where": "11.3.1–9 and 11.4.4",
+   "url": "https://www.gutenberg.org/ebooks/2848"
+  },
+  {
+   "id": "jos-11-5",
+   "author": "Flavius Josephus, tr. William Whiston",
+   "title": "The Antiquities of the Jews",
+   "year": "1737",
+   "where": "11.5.1, 11.5.6–8",
+   "url": "https://www.gutenberg.org/ebooks/2848"
+  },
+  {
+   "id": "jos-11-6",
+   "author": "Flavius Josephus, tr. William Whiston",
+   "title": "The Antiquities of the Jews",
+   "year": "1737",
+   "where": "11.6.1",
+   "url": "https://www.gutenberg.org/ebooks/2848"
+  },
+  {
+   "id": "isbe-darius",
+   "author": "R. Dick Wilson",
+   "title": "\"Darius\", International Standard Bible Encyclopaedia",
+   "year": "1915",
+   "where": "sections (1)–(3)",
+   "url": "https://www.internationalstandardbible.com/D/darius.html"
+  },
+  {
+   "id": "isbe-ahasuerus",
+   "author": "R. Dick Wilson",
+   "title": "\"Ahasuerus\", International Standard Bible Encyclopaedia",
+   "year": "1915",
+   "where": "sections 1, 2 and 4",
+   "url": "https://biblehub.com/topical/a/ahasuerus.htm"
+  },
+  {
+   "id": "isbe-artaxerxes",
+   "author": "R. Dick Wilson",
+   "title": "\"Artaxerxes\", International Standard Bible Encyclopaedia",
+   "year": "1915",
+   "where": "sections (1)–(3)",
+   "url": "https://www.internationalstandardbible.com/A/artaxerxes.html"
+  },
+  {
+   "id": "isbe-cyrus",
+   "author": "T. G. Pinches",
+   "title": "\"Cyrus\", International Standard Bible Encyclopaedia",
+   "year": "1915",
+   "where": "sections 9, 10, 12 and 14",
+   "url": "https://www.internationalstandardbible.com/C/cyrus.html"
+  },
+  {
+   "id": "isbe-xerxes",
+   "author": "Burton Scott Easton",
+   "title": "\"Xerxes\", International Standard Bible Encyclopaedia",
+   "year": "1915",
+   "url": "https://www.internationalstandardbible.com/X/xerxes.html"
+  },
+  {
+   "id": "isbe-sheshbazzar",
+   "author": "R. Dick Wilson",
+   "title": "\"Sheshbazzar\", International Standard Bible Encyclopaedia",
+   "year": "1915",
+   "url": "https://www.internationalstandardbible.com/S/sheshbazzar.html"
+  },
+  {
+   "id": "isbe-zerubbabel",
+   "author": "R. Dick Wilson",
+   "title": "\"Zerubbabel\", International Standard Bible Encyclopaedia",
+   "year": "1915",
+   "where": "sections 1, 3 and 4",
+   "url": "https://www.internationalstandardbible.com/Z/zerubbabel.html"
+  },
+  {
+   "id": "isbe-tirshatha",
+   "author": "R. Dick Wilson",
+   "title": "\"Tirshatha\", International Standard Bible Encyclopaedia",
+   "year": "1915",
+   "url": "https://www.internationalstandardbible.com/T/tirshatha.html"
+  },
+  {
+   "id": "isbe-nehemiah",
+   "author": "R. Dick Wilson",
+   "title": "\"Nehemiah\", International Standard Bible Encyclopaedia",
+   "year": "1915",
+   "where": "sections 3 and 5",
+   "url": "https://www.internationalstandardbible.com/N/nehemiah.html"
+  },
+  {
+   "id": "isbe-gedaliah",
+   "author": "James Crichton",
+   "title": "\"Gedaliah\", International Standard Bible Encyclopaedia",
+   "year": "1915",
+   "where": "(1), sections 2–3",
+   "url": "https://www.internationalstandardbible.com/G/gedaliah.html"
+  },
+  {
+   "id": "isbe-vashti",
+   "author": "John Urquhart",
+   "title": "\"Vashti\", International Standard Bible Encyclopaedia",
+   "year": "1915",
+   "url": "https://www.internationalstandardbible.com/V/vashti.html"
+  },
+  {
+   "id": "isbe-esther",
+   "author": "John Urquhart",
+   "title": "\"Esther\", International Standard Bible Encyclopaedia",
+   "year": "1915",
+   "url": "https://www.internationalstandardbible.com/E/esther.html"
+  },
+  {
+   "id": "isbe-isaiah",
+   "author": "George L. Robinson",
+   "title": "\"Isaiah\", International Standard Bible Encyclopaedia",
+   "year": "1915",
+   "where": "the sections on chapters 40–66 and on the critical view",
+   "url": "https://biblehub.com/topical/i/isaiah.htm"
+  },
+  {
+   "id": "je-ahasuerus",
+   "author": "Gerson B. Levi, Kaufmann Kohler and George A. Barton",
+   "title": "\"Ahasuerus\", Jewish Encyclopedia vol. 1",
+   "year": "1901",
+   "where": "biblical data and critical view",
+   "url": "https://www.jewishencyclopedia.com/articles/967-ahasuerus"
+  },
+  {
+   "id": "je-ezra-scribe",
+   "author": "Emil G. Hirsch and Isaac Broydé",
+   "title": "\"Ezra the Scribe\", Jewish Encyclopedia vol. 5",
+   "year": "1903",
+   "url": "https://www.jewishencyclopedia.com/articles/5967-ezra-the-scribe"
+  },
+  {
+   "id": "je-ezra-book",
+   "author": "Joseph Jacobs, M. Seligsohn, Morris Jastrow Jr. and D. S. Margoliouth",
+   "title": "\"Ezra, Book of\", Jewish Encyclopedia vol. 5",
+   "year": "1903",
+   "url": "https://www.jewishencyclopedia.com/articles/5968-ezra-book-of"
+  },
+  {
+   "id": "ussher-persia",
+   "author": "James Ussher",
+   "title": "The Annals of the World (English translation of the Annales)",
+   "year": "1658",
+   "where": "The sixth Age of the World, pp. 108–112 and 118 (read from the page scans, leaves 59–64)",
+   "url": "https://archive.org/details/TheAnnalsOfTheWorld1658EditionPartOne4004To176BC"
+  },
+  {
+   "id": "mcfall-1991",
+   "author": "L. McFall",
+   "title": "\"A Translation Guide to the Chronological Data in Kings and Chronicles\", Bibliotheca Sacra 148 (facts only)",
+   "year": "1991",
+   "where": "numbered texts 1–68; page numbers of the author's PDF",
+   "url": "https://lmf12.files.wordpress.com/2012/11/transguide.pdf"
+  },
+  {
+   "id": "albright-1945",
+   "author": "W. F. Albright",
+   "title": "\"The Chronology of the Divided Monarchy of Israel\", Bulletin of the American Schools of Oriental Research 100 (facts only)",
+   "year": "1945",
+   "where": "Chronological table, pp. 20–22",
+   "url": "https://archive.org/details/sim_bulletin-of-the-american-schools-of-oriental-research_1945-12_100"
+  },
+  {
+   "id": "keil-dan-9-1",
+   "author": "C. F. Keil, tr. M. G. Easton",
+   "title": "Biblical Commentary on the Book of Daniel (Keil and Delitzsch)",
+   "year": "1872",
+   "where": "note on Dan 9:1 (read on Bible Hub)",
+   "url": "https://biblehub.com/commentaries/daniel/9-1.htm"
+  },
+  {
+   "id": "keil-ezra-1-8",
+   "author": "C. F. Keil, tr. S. Taylor",
+   "title": "The Books of Ezra, Nehemiah and Esther (Keil and Delitzsch)",
+   "year": "1873",
+   "where": "note on Ezra 1:8 (read on Bible Hub)",
+   "url": "https://biblehub.com/commentaries/ezra/1-8.htm"
+  },
+  {
+   "id": "keil-ezra-6-14",
+   "author": "C. F. Keil, tr. S. Taylor",
+   "title": "The Books of Ezra, Nehemiah and Esther (Keil and Delitzsch)",
+   "year": "1873",
+   "where": "note on Ezra 6:14 (read on Bible Hub)",
+   "url": "https://biblehub.com/commentaries/ezra/6-14.htm"
+  },
+  {
+   "id": "keil-1ch-3-19",
+   "author": "C. F. Keil, tr. A. Harper",
+   "title": "The Books of the Chronicles (Keil and Delitzsch)",
+   "year": "1872",
+   "where": "note on 1 Chr 3:17–19 (read on Bible Hub)",
+   "url": "https://biblehub.com/commentaries/1_chronicles/3-19.htm"
+  },
+  {
+   "id": "keil-jer-41-1",
+   "author": "C. F. Keil, tr. D. Patrick",
+   "title": "The Prophecies of Jeremiah (Keil and Delitzsch)",
+   "year": "1880",
+   "where": "note on Jer 41:1 (read on Bible Hub)",
+   "url": "https://biblehub.com/commentaries/jeremiah/41-1.htm"
+  },
+  {
+   "id": "ryle-ezra-1-8",
+   "author": "H. E. Ryle",
+   "title": "The Books of Ezra and Nehemiah (Cambridge Bible for Schools and Colleges)",
+   "year": "1893",
+   "where": "note on Ezra 1:8 (read on Bible Hub)",
+   "url": "https://biblehub.com/commentaries/ezra/1-8.htm"
+  },
+  {
+   "id": "ryle-neh-2-1",
+   "author": "H. E. Ryle",
+   "title": "The Books of Ezra and Nehemiah (Cambridge Bible for Schools and Colleges)",
+   "year": "1893",
+   "where": "note on Neh 2:1 (read on Bible Hub)",
+   "url": "https://biblehub.com/commentaries/nehemiah/2-1.htm"
+  },
+  {
+   "id": "ellicott-1ch-3-19",
+   "author": "C. J. Ellicott (ed.)",
+   "title": "Ellicott's Commentary for English Readers: 1 Chronicles",
+   "year": "c. 1878–1884",
+   "where": "note on 1 Chr 3:19 (read on Bible Hub)",
+   "url": "https://biblehub.com/commentaries/1_chronicles/3-19.htm"
+  },
+  {
+   "id": "driver-dan-5-31",
+   "author": "S. R. Driver",
+   "title": "The Book of Daniel (Cambridge Bible for Schools and Colleges)",
+   "year": "1900",
+   "where": "note on Dan 5:31 (read on Bible Hub)",
+   "url": "https://biblehub.com/commentaries/daniel/5-31.htm"
+  },
+  {
+   "id": "pulpit-dan-6-28",
+   "author": "H. D. M. Spence and J. S. Exell (eds.)",
+   "title": "Pulpit Commentary: Daniel",
+   "year": "1880–1897",
+   "where": "note on Dan 6:28 and the \"Excursus on Darius the Mede\" (read on Bible Hub)",
+   "url": "https://biblehub.com/commentaries/daniel/6-28.htm"
+  },
+  {
+   "id": "pulpit-est-2-6",
+   "author": "H. D. M. Spence and J. S. Exell (eds.)",
+   "title": "Pulpit Commentary: Esther",
+   "year": "1880–1897",
+   "where": "note on Esth 2:6 (read on Bible Hub)",
+   "url": "https://biblehub.com/commentaries/esther/2-6.htm"
+  },
+  {
+   "id": "streane-est-2-6",
+   "author": "A. W. Streane",
+   "title": "The Book of Esther (Cambridge Bible for Schools and Colleges)",
+   "year": "1907",
+   "where": "note on Esth 2:6 (read on Bible Hub)",
+   "url": "https://biblehub.com/commentaries/esther/2-6.htm"
+  },
+  {
+   "id": "gill-est-2-6",
+   "author": "John Gill",
+   "title": "Exposition of the Entire Bible",
+   "year": "1748–1763",
+   "where": "note on Esth 2:6 (read on Bible Hub)",
+   "url": "https://biblehub.com/commentaries/esther/2-6.htm"
+  },
+  {
+   "id": "pulpit-jer-41-1",
+   "author": "H. D. M. Spence and J. S. Exell (eds.)",
+   "title": "Pulpit Commentary: Jeremiah",
+   "year": "1880–1897",
+   "where": "note on Jer 41:1, reporting H. Graetz (read on Bible Hub)",
+   "url": "https://biblehub.com/commentaries/jeremiah/41-1.htm"
+  },
+  {
+   "id": "streane-jer-41-1",
+   "author": "A. W. Streane",
+   "title": "The Book of the Prophet Jeremiah (Cambridge Bible for Schools and Colleges)",
+   "year": "1881",
+   "where": "note on Jer 41:1 (read on Bible Hub)",
+   "url": "https://biblehub.com/commentaries/jeremiah/41-1.htm"
+  },
+  {
+   "id": "benson-jer-41-1",
+   "author": "Joseph Benson",
+   "title": "Commentary on the Old and New Testaments",
+   "year": "1811–1818",
+   "where": "note on Jer 41:1 (read on Bible Hub)",
+   "url": "https://biblehub.com/commentaries/jeremiah/41-1.htm"
+  },
+  {
+   "id": "barnes-isa-44-28",
+   "author": "Albert Barnes",
+   "title": "Notes on the Bible: Isaiah",
+   "year": "1840",
+   "where": "note on Isa 44:28 (read on Bible Hub)",
+   "url": "https://biblehub.com/commentaries/isaiah/44-28.htm"
+  },
+  {
+   "id": "pulpit-isa-44-28",
+   "author": "H. D. M. Spence and J. S. Exell (eds.)",
+   "title": "Pulpit Commentary: Isaiah",
+   "year": "1880–1897",
+   "where": "note on Isa 44:28 (read on Bible Hub)",
+   "url": "https://biblehub.com/commentaries/isaiah/44-28.htm"
+  }
+ ]
+}

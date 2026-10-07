@@ -1,10 +1,12 @@
 import { Section } from "@/components/letters/LetterParts";
 import { ParallelRibbon } from "@/components/letters/ParallelRibbon";
 import type { Parallel, Span } from "@/data/letters/types";
-import type { RegnalRecord, Ruler } from "@/data/people-pages/types";
+import type { Claim, RegnalRecord, Ruler } from "@/data/people-pages/types";
+import { useCatalog } from "@/lib/catalog";
+import { bookByNum } from "@/lib/refs";
 import { rulerHref, rulersOfRealm } from "@/lib/people-pages-index";
 import { ClaimList, EvidenceClaim, QuoteText } from "./Evidence";
-import { REALM_LABEL, VERDICT } from "./kinds";
+import { REALM_LABEL, VERDICT, accountsHeading } from "./kinds";
 import { SlideLink } from "./SlideLink";
 import { useCarried } from "./use-carried";
 
@@ -56,24 +58,41 @@ function railOf(passages: Span[], books: number[]): Span | undefined {
   return inBooks.length ? [Math.min(...inBooks.map((s) => s[0])), Math.max(...inBooks.map((s) => s[1]))] : undefined;
 }
 
-/** Where Kings (or Samuel) and Chronicles tell the reign differently: side by side, never merged. */
+const LAYER_SOURCE: Partial<Record<Claim["layer"], string>> = { "ancient-record": "Outside the Bible", "early-church": "Early church", tradition: "Tradition", scholars: "Scholars" };
+
+/** Whose telling a claim is: the books of its verses ("Matthew · Mark"), or the kind of record outside Scripture. */
+function useSourceOf() {
+  const catalog = useCatalog();
+  return (claim: Claim, fallback: string) => {
+    const books = [...new Set((claim.refs ?? []).map((span) => Math.floor(span[0] / 1_000_000)))].map((num) => bookByNum(catalog, num)?.name).filter(Boolean);
+    const outside = LAYER_SOURCE[claim.layer];
+    return outside ?? (books.length ? books.slice(0, 3).join(" · ") + (books.length > 3 ? " …" : "") : fallback);
+  };
+}
+
+/**
+ * Where the tellings of a reign differ, side by side and never merged: Kings (or Samuel) and Chronicles for Israel's
+ * kings; the Gospels, Acts and Josephus for the Herods and Rome; Scripture and outside records for other nations.
+ */
 export function TwoAccounts({ ruler }: { ruler: Ruler }) {
+  const sourceOf = useSourceOf();
   if (!ruler.twoAccounts.length) return null;
-  const left = railOf(ruler.passages, [9, 10, 11, 12]), right = railOf(ruler.passages, [13, 14]);
+  const heading = accountsHeading(ruler);
+  const left = heading.rails && railOf(ruler.passages, [9, 10, 11, 12]), right = heading.rails && railOf(ruler.passages, [13, 14]);
   const pairs = ruler.twoAccounts.flatMap((t) => (t.first.refs?.[0] && t.second.refs?.[0] ? [{ left: t.first.refs[0], right: t.second.refs[0], note: t.topic }] : []))
     .filter((p) => left && right && p.left[0] >= left[0] && p.left[1] <= left[1] && p.right[0] >= right[0] && p.right[1] <= right[1]);
   const parallel: Parallel | undefined = left && right && pairs.length ? {
-    id: `${ruler.id}-accounts`, title: "Kings and Chronicles", left: { label: "Samuel–Kings", span: left }, right: { label: "Chronicles", span: right }, pairs,
+    id: `${ruler.id}-accounts`, title: `${heading.rails![0]} and ${heading.rails![1]}`, left: { label: heading.rails![0], span: left }, right: { label: heading.rails![1], span: right }, pairs,
     claim: { text: "Each ribbon joins the two accounts of one matter, passage to passage." },
   } : undefined;
-  return <Section id="pp-accounts" kicker="Two accounts" title="Where Kings and Chronicles differ" lead="The two histories are shown side by side and never blended. Neither is corrected by the other.">
+  return <Section id="pp-accounts" kicker="Two accounts" title={heading.title} lead={heading.lead}>
     {parallel && <ParallelRibbon parallel={parallel} weightLabel="" />}
     <div style={{ display: "grid", gap: "1rem", marginTop: parallel ? "1rem" : 0 }}>
       {ruler.twoAccounts.map((t) => <article key={t.topic}>
         <h4 className="lg-title" style={{ fontSize: "1.1rem" }}>{t.topic}</h4>
         <div className="pp-two" style={{ marginTop: ".6rem" }}>
-          <div className="pp-card"><p className="pp-label">First account</p><EvidenceClaim claim={t.first} as="div" /></div>
-          <div className="pp-card"><p className="pp-label">Second account</p><EvidenceClaim claim={t.second} as="div" /></div>
+          <div className="pp-card"><p className="pp-label">{sourceOf(t.first, "First account")}</p><EvidenceClaim claim={t.first} as="div" /></div>
+          <div className="pp-card"><p className="pp-label">{sourceOf(t.second, "Second account")}</p><EvidenceClaim claim={t.second} as="div" /></div>
         </div>
       </article>)}
     </div>

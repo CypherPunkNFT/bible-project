@@ -36,8 +36,8 @@ export const STUDY_SECTIONS: Record<StudyCollectionId, StudySection[]> = {
     { id: "everyone", title: "Everyone in the Bible", description: "Every person Scripture names, in the order of its history, and who each one was.", kind: "Guide", illustration: "everyone", to: "/study/people" },
     { id: "people-directory", title: "People & families", description: "Find a person, follow their family, and read the verses that name them.", kind: "Guide", illustration: "people", to: "/study/people#people-directory" },
     { id: "prophets", title: "Prophets through time", description: "Follow the prophets by era and the kings Scripture names beside them.", kind: "Guide", illustration: "prophets", to: "/study/prophets" },
-    { id: "rulers", title: "Rulers through time", description: "Judges, kings, queens and emperors in the order of their reigns, with the prophets who stood before them.", kind: "Guide", illustration: "rulers", to: "/study/rulers" },
-    { id: "apostles", title: "The apostles", description: "The Twelve and Paul: where each was called, where they went, and how their stories end.", kind: "Guide", illustration: "apostles", to: "/study/apostles" },
+    { id: "rulers", title: "Rulers through time", description: "Judges, kings, queens, governors and emperors in the order of their reigns, beside the empires of the day, with the prophets who stood before them.", kind: "Guide", illustration: "rulers", to: "/study/rulers" },
+    { id: "apostles", title: "The apostles", description: "The Twelve, Paul and the wider circle of the first church: where each was called, where they went, and how their stories end.", kind: "Guide", illustration: "apostles", to: "/study/apostles" },
   ],
   places: [
     { id: "places-map", title: "Explore the atlas", description: "Find biblical places on the map, from the whole biblical world down close to each place; filter by section or book.", kind: "Map", illustration: "places" },

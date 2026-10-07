@@ -27,6 +27,11 @@ export interface RulerSummary {
   days?: number;
   /** The reign in the main dating system: BC positive, AD negative. */
   dates?: { from: number; to: number; label: string; approx?: boolean };
+  /**
+   * Undated rulers only: where they are drawn on the time lines (BC positive), from the dated rulers Scripture names
+   * beside them. Never shown as a date; the bar is dotted. Absent for the judges, who follow the story's order.
+   */
+  near?: number;
   verdict?: string;
   predecessor?: string;
   successor?: string;
@@ -43,6 +48,8 @@ export interface ApostleSummary {
   title: string;
   tagline: string;
   order: number;
+  /** "G" when the page covers a couple (Priscilla and Aquila): "their". */
+  sex?: "M" | "F" | "G" | "";
   personIds?: string[];
   home?: string;
   trade?: string;
@@ -82,13 +89,42 @@ export const isAspect = (value: string | undefined): value is Aspect => value ==
 /** The person's page address, or one of their special pages. */
 export const personPath = (id: string, aspect?: Aspect) => (aspect ? `/people/${id}/${aspect}` : `/people/${id}`);
 
-/** Rulers of one realm, in order. */
-export const rulersOfRealm = (realm: Realm): RulerSummary[] => PEOPLE_PAGES.rulers.filter((r) => r.realm === realm).sort((a, b) => a.order - b.order);
+/**
+ * Rulers in the order of their reigns: by their years where they have them, an undated ruler by the dated neighbour in
+ * their own group's story order (Joseph's Pharaoh before Shishak; Lysanias after Pilate). Ties fall back to the group,
+ * then its order, so two groups that share a realm (the Herods and the Romans; Gedaliah among Babylon's kings) never
+ * interleave out of turn.
+ */
+export function inLineOrder(rulers: RulerSummary[]): RulerSummary[] {
+  const year = new Map<string, number>();
+  const groups = new Map<string, RulerSummary[]>();
+  for (const r of rulers) groups.set(`${r.group}|${r.realm}`, [...(groups.get(`${r.group}|${r.realm}`) ?? []), r]);
+  for (const list of groups.values()) {
+    list.sort((a, b) => a.order - b.order);
+    const own = list.map((r) => r.dates?.from);
+    list.forEach((r, i) => {
+      let found = own[i];
+      for (let j = i - 1; found === undefined && j >= 0; j--) found = own[j];
+      for (let j = i + 1; found === undefined && j < list.length; j++) found = own[j];
+      if (found !== undefined) year.set(r.id, found);
+    });
+  }
+  return [...rulers].sort((a, b) => {
+    const ya = year.get(a.id) ?? Infinity, yb = year.get(b.id) ?? Infinity;
+    if (ya !== yb) return yb > ya ? 1 : -1;
+    if (a.group !== b.group) return a.group < b.group ? -1 : 1;
+    return a.order - b.order;
+  });
+}
+
+/** Rulers of one realm, in the order of their reigns (inLineOrder). */
+export const rulersOfRealm = (realm: Realm): RulerSummary[] => inLineOrder(PEOPLE_PAGES.rulers.filter((r) => r.realm === realm));
 
 /** The middle year of a reign (BC positive), or undefined when no dates are given. */
 export const reignMiddle = (ruler: RulerSummary): number | undefined => (ruler.dates ? (ruler.dates.from + ruler.dates.to) / 2 : undefined);
 
 /** The order for wiping between two rulers: earlier reigns first (larger BC years), then the order in their line. */
 export function timeRank(ruler: RulerSummary): number {
-  return ruler.dates ? -ruler.dates.from + ruler.order / 1000 : ruler.order;
+  const year = ruler.dates?.from ?? ruler.near;
+  return year !== undefined ? -year + ruler.order / 1000 : ruler.order;
 }

@@ -63,6 +63,38 @@ def sex_of(person_id: str) -> str:
     return json.loads(file.read_text(encoding="utf-8")).get("s", "")
 
 
+def sex_of_page(ids: list[str]) -> str:
+    """The page's "his", "her" or "their": "G" when one page covers people of both sexes (Priscilla and Aquila)."""
+    found = {sex_of(i) for i in ids} - {""}
+    return "G" if len(found) > 1 else sex_of(ids[0])
+
+
+def middle(dates: dict) -> float:
+    return (dates["from"] + dates["to"]) / 2
+
+
+def place_near(ruler: dict, dated: dict[str, dict], passages: dict[str, list]) -> float | None:
+    """Where an undated ruler is drawn on the time lines (never shown as a date): the middle of the dated rulers Scripture
+    names beside them on the world stage; failing that, outside the time of the judges, beside the dated ruler whose
+    passages sit nearest theirs in the same book (Candace, by Acts). None leaves them in story order (the judges)."""
+    near = [middle(dated[p["personId"]]) for w in ruler.get("worldStage") or [] for p in w.get("rulers") or []
+            if p.get("personId") in dated and p["personId"] != ruler["id"]]
+    if near:
+        return round(sum(near) / len(near), 1)
+    if ruler.get("realm") == "tribes" or not ruler.get("passages"):
+        return None
+    first = ruler["passages"][0][0]
+    book = first // 1_000_000
+    best = None
+    for other, spans in passages.items():
+        if other == ruler["id"] or other not in dated:
+            continue
+        for span in spans[:1]:  # where their own story is told, not a later mention (Moses in Acts 7)
+            if span[0] // 1_000_000 == book and (best is None or abs(span[0] - first) < best[0]):
+                best = (abs(span[0] - first), other)
+    return middle(dated[best[1]]) if best else None
+
+
 def ruler_summary(ruler: dict, group: str) -> dict:
     reign = ruler.get("reign") or {}
     out = {
@@ -91,6 +123,7 @@ def apostle_summary(apostle: dict, group: str) -> dict:
     out = {
         "id": apostle["id"], "group": group, "name": apostle["name"], "otherNames": apostle.get("otherNames") or [],
         "title": apostle["title"], "tagline": apostle.get("tagline", ""), "order": apostle["order"],
+        "sex": sex_of_page([apostle["id"], *(apostle.get("personIds") or [])]),
     }
     ending = apostle.get("ending") or {}
     optional = {
@@ -108,6 +141,7 @@ def apostle_summary(apostle: dict, group: str) -> dict:
 def build(problems: list[str]) -> dict:
     rulers: list[dict] = []
     apostles: list[dict] = []
+    full_rulers: dict[str, dict] = {}
     groups: list[dict] = []
     for file in sorted(PAGES.glob("*.json")):
         if file == INDEX:
@@ -120,6 +154,8 @@ def build(problems: list[str]) -> dict:
             continue
         group = file.stem
         found_r = [ruler_summary(r, group) for r in data.get("rulers") or []]
+        for r in data.get("rulers") or []:
+            full_rulers.setdefault(r["id"], r)
         found_a = [apostle_summary(a, group) for a in data.get("apostles") or []]
         if not found_r and not found_a:
             print(f"{file.name}: no 'rulers' or 'apostles' list; skipped")
@@ -134,6 +170,16 @@ def build(problems: list[str]) -> dict:
         seen: set[str] = set()
         rulers = [r for r in rulers if not (r["id"] in seen or seen.add(r["id"]))]
         apostles = [a for a in apostles if not (a["id"] in seen or seen.add(a["id"]))]
+    dated = {r["id"]: r["dates"] for r in rulers if r.get("dates")}
+    for r in rulers:
+        for other in r.get("personIds") or []:
+            if r["id"] in dated:
+                dated.setdefault(other, dated[r["id"]])
+    for r in rulers:
+        if "dates" not in r:
+            near = place_near(full_rulers[r["id"]], dated, {i: full_rulers[i].get("passages") or [] for i in full_rulers})
+            if near is not None:
+                r["near"] = near
     rulers.sort(key=lambda r: (r["realm"], r["order"]))
     apostles.sort(key=lambda a: a["order"])
     return {"groups": groups, "rulers": rulers, "apostles": apostles}

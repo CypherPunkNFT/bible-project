@@ -19,15 +19,23 @@
         { "file": "src/data/people-pages/rulers-judges.json", "page": "Moses, Joshua and the judges", "address": "/study/people?view=rulers" },
         { "file": "src/data/people-pages/rulers-united-kingdom.json", "page": "Saul, David and Solomon", "address": "/study/people?view=rulers" },
         { "file": "src/data/people-pages/rulers-israel.json", "page": "The kings of Israel", "address": "/study/people?view=rulers" },
-        { "file": "src/data/people-pages/rulers-judah.json", "page": "The kings of Judah", "address": "/study/people?view=rulers" }
+        { "file": "src/data/people-pages/rulers-judah.json", "page": "The kings of Judah", "address": "/study/people?view=rulers" },
+        { "file": "src/data/people-pages/rulers-egypt.json", "page": "Egypt and Cush", "address": "/study/people?view=rulers" },
+        { "file": "src/data/people-pages/rulers-assyria-babylon.json", "page": "Assyria and Babylon", "address": "/study/people?view=rulers" },
+        { "file": "src/data/people-pages/rulers-persia.json", "page": "Persia and the governors", "address": "/study/people?view=rulers" },
+        { "file": "src/data/people-pages/rulers-neighbours.json", "page": "Israel's neighbours", "address": "/study/people?view=rulers" },
+        { "file": "src/data/people-pages/rulers-herods.json", "page": "The Herods", "address": "/study/people?view=rulers" },
+        { "file": "src/data/people-pages/rulers-rome.json", "page": "Rome", "address": "/study/people?view=rulers" }
       ]
     },
     {
       "id": "people-apostles",
-      "label": "People · apostles",
+      "label": "People · apostles and the early church",
       "pages": [
         { "file": "src/data/people-pages/apostles-1.json", "page": "The first called", "address": "/study/people?view=apostles" },
-        { "file": "src/data/people-pages/apostles-2.json", "page": "The rest of the Twelve, Matthias and Paul", "address": "/study/people?view=apostles" }
+        { "file": "src/data/people-pages/apostles-2.json", "page": "The rest of the Twelve, Matthias and Paul", "address": "/study/people?view=apostles" },
+        { "file": "src/data/people-pages/church-jerusalem.json", "page": "The Jerusalem church", "address": "/study/people?view=apostles" },
+        { "file": "src/data/people-pages/church-pauls-circle.json", "page": "Paul's companions", "address": "/study/people?view=apostles" }
       ]
     }
   ]

@@ -11,7 +11,19 @@ const EMPIRE_GLOW: Partial<Record<Realm, string>> = {
   egypt: "var(--history)", aram: "var(--acts)", assyria: "var(--prophets)", babylon: "var(--gospels)", persia: "var(--poetry)", rome: "var(--apocrypha)", other: "var(--history)",
 };
 
+/** The realms beyond Israel: each has its own lane on the time lines (Rome, shared with the Herods, is apart). */
+export const WORLD_REALMS: Realm[] = ["egypt", "aram", "assyria", "babylon", "persia", "other"];
+
+type RulerLike = { kind: RulerKind; realm: Realm; title: string };
+
+/** A king or reigning queen of another nation (the queen of Sheba, Candace, the queens of Persia); not Athaliah. */
+export const isForeign = (r: Pick<RulerLike, "kind" | "realm">) => r.kind === "foreign" || (r.kind === "queen" && WORLD_REALMS.includes(r.realm));
+
+/** A king's wife who did not reign (Esther, Vashti), as the data's own title says ("wife of King Ahasuerus"). */
+export const isConsort = (r: Pick<RulerLike, "kind" | "title">) => r.kind === "queen" && /\bwife of\b/i.test(r.title);
+
 export function glowFor(kind: RulerKind, realm: Realm): string {
+  if (kind === "queen" && WORLD_REALMS.includes(realm)) return EMPIRE_GLOW[realm] ?? "var(--history)";
   switch (kind) {
     case "judge": return "var(--pp-judge)";
     case "foreign": return EMPIRE_GLOW[realm] ?? "var(--history)";
@@ -26,14 +38,21 @@ export const APOSTLE_GLOW = "var(--role-disciple)";
 
 type Sex = "M" | "F" | "G" | "";
 
+/** "his", "her" or "their" (a page about a couple), and the matching object word. */
+export const pronouns = (sex: Sex | undefined) => (sex === "G" ? { their: "their", them: "them" } : sex === "F" ? { their: "her", them: "her" } : { their: "his", them: "him" });
+
 /** The second half of the person ↔ page switch. */
-export function aspectLabel(kind: RulerKind): string {
+export function aspectLabel(ruler: Pick<RulerLike, "kind" | "title">): string {
+  const { kind } = ruler;
+  if (isConsort(ruler)) return "As queen";
   return kind === "judge" ? "As judge" : kind === "leader" ? "As leader" : kind === "governor" ? "As governor" : kind === "herod" || kind === "roman" ? "The rule" : "The reign";
 }
 
-/** The page's own heading: "The reign", "Her time as judge", "His governorship". */
-export function pageHeading(kind: RulerKind, sex: Sex): string {
+/** The page's own heading: "The reign", "Her time as judge", "His governorship", "Her time as queen". */
+export function pageHeading(ruler: Pick<RulerLike, "kind" | "title">, sex: Sex): string {
+  const { kind } = ruler;
   const their = sex === "F" ? "Her" : "His";
+  if (isConsort(ruler)) return `${their} time as queen`;
   if (kind === "judge") return `${their} time as judge`;
   if (kind === "leader") return `${their} time as leader`;
   if (kind === "governor") return `${their} governorship`;
@@ -48,16 +67,18 @@ export const REALM_LABEL: Record<Realm, string> = {
 
 /** Short lane names for the ribbons. */
 export const LANE_LABEL: Record<string, string> = {
-  empire: "Empire of the day", tribes: "Leaders & judges", united: "United kingdom", israel: "Israel", judah: "Judah", governors: "Governors", rome: "Herods & Rome",
+  egypt: "Egypt", aram: "Aram", assyria: "Assyria", babylon: "Babylon", persia: "Persia", other: "Other nations",
+  tribes: "Leaders & judges", united: "United kingdom", israel: "Israel", judah: "Judah", governors: "Governors", rome: "Herods & Rome",
 };
 
-/** The lane a ruler sits in on the guide's ribbon. */
-export function laneOf(ruler: Pick<RulerSummary, "kind" | "realm">): keyof typeof LANE_LABEL {
-  if (ruler.kind === "foreign") return "empire";
+/**
+ * The lane a ruler sits in on the time lines: their realm's own lane (a queen in her realm's, Athaliah in Judah's), the
+ * governors after the exile together, and the Herods with the Romans.
+ */
+export function laneOf(ruler: Pick<RulerSummary, "kind" | "realm">): string {
   if (ruler.kind === "governor") return "governors";
   if (ruler.kind === "herod" || ruler.kind === "roman" || ruler.realm === "rome") return "rome";
-  if (ruler.realm === "united" || ruler.realm === "israel" || ruler.realm === "judah") return ruler.realm;
-  return "tribes";
+  return ruler.realm;
 }
 
 export const VERDICT: Record<Ruler["verdictTone"], { symbol: string; label: string; spoken: string }> = {
@@ -83,6 +104,20 @@ export function ordinal(n: number): string {
 export function reignLength(r: { years?: number; months?: number; days?: number }): string {
   const parts = [r.years && `${r.years} ${r.years === 1 ? "year" : "years"}`, r.months && `${r.months} ${r.months === 1 ? "month" : "months"}`, r.days && `${r.days} ${r.days === 1 ? "day" : "days"}`];
   return parts.filter(Boolean).join(" ");
+}
+
+/**
+ * The "Two accounts" heading, by the kind of ruler: Kings and Chronicles for the kings of the two kingdoms; Samuel–Kings
+ * and Chronicles for the united kingdom; for the Herods and Rome, the Gospels, Acts and Josephus; for other nations,
+ * Scripture and the records outside it.
+ */
+export function accountsHeading(ruler: Pick<RulerLike, "kind" | "realm">): { title: string; lead: string; rails?: [string, string] } {
+  const apart = "Shown side by side and never blended. Neither is corrected by the other.";
+  if (ruler.realm === "united") return { title: "Where Samuel–Kings and Chronicles differ", lead: `The two histories of the kingdom. ${apart}`, rails: ["Samuel–Kings", "Chronicles"] };
+  if (ruler.realm === "israel" || ruler.realm === "judah") return { title: "Where Kings and Chronicles differ", lead: `The two histories of the kingdoms. ${apart}`, rails: ["Kings", "Chronicles"] };
+  if (ruler.kind === "herod" || ruler.kind === "roman" || ruler.realm === "rome") return { title: "Where the accounts differ", lead: `The Gospels, Acts and Josephus. ${apart}` };
+  if (isForeign(ruler) || ruler.kind === "governor") return { title: "Where the accounts differ", lead: `Scripture and the records outside it. ${apart}` };
+  return { title: "Where the accounts differ", lead: `Two tellings of the same events. ${apart}` };
 }
 
 /** The two letters on a medallion, as on the prophets' medallions (ProphetsMockup.tsx). */

@@ -232,3 +232,13 @@ li.pp-claim:is([data-layer="early-church"], [data-layer="tradition"]), div.pp-cl
 .pp-stat dd small.pp-said { margin-top: 0; font: italic .92rem/1.45 var(--font-serif); color: var(--ink); display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
 .pp-stat dd small { display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
 .pp-stat dd small.pp-fact { margin-top: 0; font: 500 .95rem/1.4 var(--font-serif); color: var(--ink); }
+
+/* Second release: undated rulers (dotted), lines under the bars, the chain's labels, map-lit events. */
+.pp-strip .pp-sbar { z-index: 1; }
+.pp-strip .pp-sbar:hover, .pp-strip .pp-sbar:focus-visible { z-index: 3; }
+.pp-strip .pp-sbar[aria-current="page"] { z-index: 2; }
+.pp-strip .pp-strip-lines { z-index: 0; }
+.pp-sbar[data-undated] { border-style: dotted; }
+.pp-chain-power { display: block; margin-bottom: .15rem; font: 600 .58rem/1.2 var(--font-sans); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.pp-chain > span[data-here] .pp-chain-power { color: color-mix(in srgb, var(--page) 78%, transparent); }
+.pp-tray button[data-lit] { border-color: var(--lg); background: var(--lg-soft); box-shadow: 0 0 16px -6px var(--lg); }

@@ -35,9 +35,16 @@ function usePlayback() {
 
 type Point = { name: string; x: number; y: number; layer: number; note?: string; letter?: string; refs?: MapLayer["stops"][number]["refs"]; placeId: string; dashed?: boolean };
 
+/** Tells the page which place is pointed at or kept on the map (a place id, or undefined when none). */
+function ReportPointed({ placeId, onActive }: { placeId?: string; onActive?: (placeId?: string) => void }) {
+  useEffect(() => { onActive?.(placeId); }, [placeId, onActive]);
+  return null;
+}
+
 /** Routes and pins over the land outline, zoomed to the places shown; one toggle per layer. `focus` (a place id) lights
- *  that place from outside the map, e.g. a battle pointed at in a list beside it. */
-export function LetterMap({ layers, title, displayWidth = 1150, focus }: { layers: MapLayer[]; title: string; displayWidth?: number; focus?: string }) {
+ *  that place from outside the map, e.g. a battle pointed at in a list beside it; `onActive` reports the place the
+ *  reader points at on the map, so a list beside it can light its entries. */
+export function LetterMap({ layers, title, displayWidth = 1150, focus, onActive }: { layers: MapLayer[]; title: string; displayWidth?: number; focus?: string; onActive?: (placeId?: string) => void }) {
   const places = useAsync(loadPlaces, "places");
   // Busy maps open with their first four layers; the rest are a click away.
   const [hidden, setHidden] = useState<Set<string>>(() => new Set(layers.slice(4).map((l) => l.id)));
@@ -78,6 +85,7 @@ export function LetterMap({ layers, title, displayWidth = 1150, focus }: { layer
   const routes = layers.filter((l) => l.route);
 
   return <figure>
+    {onActive && <ReportPointed placeId={all.find((p) => keyOf(p) === keep.active)?.placeId} onActive={onActive} />}
     <div className="lg-tabs" role="group" aria-label={`${title}: layers`}>
       {layers.map((layer, i) => <button key={layer.id} type="button" className="lg-tab" aria-pressed={!hidden.has(layer.id)}
         style={{ borderColor: hidden.has(layer.id) ? undefined : LAYER_TONES[i % LAYER_TONES.length] }}
