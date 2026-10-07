@@ -106,7 +106,43 @@ test("home: marquee keeps moving on hover, supports deliberate pause and respect
   await page.goto("/");
   await page.emulateMedia({ reducedMotion: "reduce" });
   await expect.poll(() => track.evaluate((el) => getComputedStyle(el).animationName)).toBe("none");
-  await expect(page.locator('.home-marquee-group[aria-hidden="true"]')).toBeHidden();
+  await expect(page.locator('.home-marquee-group[aria-hidden="true"]').first()).toBeHidden();
   await expect(page.locator(".home-floating-card")).toHaveCount(0);
   await expect(page.getByRole("button", { name: "Pause collection previews" })).toBeHidden();
+});
+
+test("home: glimpse band covers wide screens through the loop seam and after resizing", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== "desktop", "Wide-screen coverage uses the desktop browser");
+  await page.emulateMedia({ reducedMotion: "no-preference" });
+  await page.goto("/");
+  const frame = page.locator(".home-marquee");
+  for (const width of [1440, 2552, 3840, 1440]) {
+    await page.setViewportSize({ width, height: 900 });
+    await expect.poll(() => frame.evaluate((el) => {
+      const group = el.querySelector(".home-marquee-group")!;
+      return el.querySelectorAll(".home-marquee-group").length >= Math.ceil(el.clientWidth / group.getBoundingClientRect().width) + 1;
+    })).toBe(true);
+    const coverage = await frame.evaluate((el) => {
+      const track = el.querySelector(".home-marquee-track")!;
+      const animation = track.getAnimations()[0];
+      animation.pause();
+      const duration = Number(animation.effect!.getTiming().duration);
+      const cards = [...el.querySelectorAll(".home-preview")];
+      const frame = el.getBoundingClientRect();
+      const phases = [0, .5, .9999, 1, 1.0001].map((phase) => {
+        animation.currentTime = phase * duration;
+        const bounds = cards.map((card) => card.getBoundingClientRect());
+        return { left: bounds[0].left - frame.left, right: bounds.at(-1)!.right - frame.right };
+      });
+      return phases;
+    });
+    for (const phase of coverage) {
+      expect(phase.left).toBeLessThanOrEqual(1);
+      expect(phase.right).toBeGreaterThanOrEqual(-16);
+    }
+    if (width === 2552) {
+      await frame.scrollIntoViewIfNeeded();
+      await page.screenshot({ path: "front-end capture/2026-10-07/home-marquee-wide.png" });
+    }
+  }
 });

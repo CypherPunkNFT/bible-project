@@ -142,7 +142,7 @@
 .home-final > svg { margin-inline: auto; }
 .home-final p { font-family: Literata, Georgia, serif; font-size: 20px; line-height: 1.7; color: var(--ink); margin: 18px 0 12px; }
 .home-final a { display: inline-flex; gap: 7px; align-items: center; font-size: 10px; }
-@keyframes home-marquee { to { transform: translateX(-50%); } }
+@keyframes home-marquee { to { transform: translateX(var(--home-marquee-shift, -50%)); } }
 @media (max-width: 1050px) {
   .home-hero { gap: 0; padding-top: 48px; }
   .home-hero-art { height: 460px; }

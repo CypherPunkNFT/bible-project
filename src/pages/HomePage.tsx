@@ -16,10 +16,30 @@ function SectionHeading({ number, label, title, children, to, action }: { number
 
 function PreviewMarquee() {
   const [paused, setPaused] = useState(false);
+  const [copies, setCopies] = useState(2);
+  const viewport = useRef<HTMLDivElement>(null);
+  const firstGroup = useRef<HTMLDivElement>(null);
+  useLayoutEffect(() => {
+    const frame = viewport.current;
+    const group = firstGroup.current;
+    if (!frame || !group) return;
+    const measure = () => {
+      const width = group.getBoundingClientRect().width;
+      if (!width) return;
+      // Keep one complete sequence beyond the visible width at every animation phase.
+      setCopies(Math.max(2, Math.ceil(frame.clientWidth / width) + 1));
+      frame.style.setProperty("--home-marquee-shift", `${-width}px`);
+    };
+    measure();
+    const observer = new ResizeObserver(measure);
+    observer.observe(frame);
+    observer.observe(group);
+    return () => observer.disconnect();
+  }, []);
   return <section className="home-preview-strip" aria-label="A glimpse of the collections">
     <div className="home-strip-heading"><span>A glimpse of what awaits</span><button type="button" onClick={() => setPaused(!paused)} aria-pressed={paused} aria-label={paused ? "Play collection previews" : "Pause collection previews"}>{paused ? <Play size={13} /> : <Pause size={13} />}<span>{paused ? "Play" : "Pause"}</span></button></div>
-    <div className="home-marquee" data-paused={paused}><div className="home-marquee-track">
-      {[0, 1].map((copy) => <div className="home-marquee-group" key={copy} aria-hidden={copy === 1 ? true : undefined}>
+    <div className="home-marquee" ref={viewport} data-paused={paused}><div className="home-marquee-track">
+      {Array.from({ length: copies }, (_, copy) => <div className="home-marquee-group" ref={copy === 0 ? firstGroup : undefined} key={copy} aria-hidden={copy > 0 ? true : undefined}>
         {HOME_PREVIEWS.map((item) => <Link key={item.to} to={item.to} tabIndex={copy ? -1 : undefined} className="home-preview" style={tint(item.color)} aria-label={item.label}><div><HomeArtwork kind={item.art} /></div><p>{item.label}<ArrowUpRight size={13} aria-hidden /></p><strong>{item.title}</strong></Link>)}
       </div>)}
     </div></div>

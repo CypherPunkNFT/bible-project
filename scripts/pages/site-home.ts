@@ -38,7 +38,7 @@ async function home(): Promise<PageContent> {
     table(["Collection", "Invitation", "Opens"], HOME_PATHS.map((item) => [item.title, item.subtitle, link(item.to)])),
     "## Moving illustrated previews",
     table(["Collection", "Title", "Opens"], HOME_PREVIEWS.map((item) => [item.label, item.title, link(item.to)])),
-    "The strip keeps moving on hover, pauses on keyboard focus or its Pause button, and becomes a static horizontally scrollable strip with reduced motion. Visual duplicates are hidden from assistive technology and tab order. All cards open real destinations.",
+    "The strip repeats enough sequences to fill the current viewport and loops by exactly one sequence width, including on ultrawide screens and after resizing. It keeps moving on hover, pauses on keyboard focus or its Pause button, and becomes a static horizontally scrollable strip with reduced motion. Visual duplicates are hidden from assistive technology and tab order. All cards open real destinations.",
     "## Study previews",
     table(["Study", "Text", "Contents", "Opens"], HOME_STUDIES.map((item) => [item.title, item.text, item.note, link(item.to)])),
     "His names now previews the dedicated Names of God study; the full explorer is unchanged on /study/names.",
