@@ -1,0 +1,258 @@
+.home-hub { --home-color: var(--accent); overflow: clip; }
+.home-wrap { width: min(100% - 48px, 1232px); margin-inline: auto; }
+.home-hub a, .home-hub button { -webkit-tap-highlight-color: transparent; }
+.home-hub a:focus-visible, .home-hub button:focus-visible { outline: 2px solid var(--home-color); outline-offset: 6px; }
+.home-hub h1, .home-hub h2, .home-hub h3, .home-hub blockquote { font-family: Literata, Georgia, serif; font-weight: 500; letter-spacing: -.04em; }
+.home-hub em { color: var(--home-color); font-weight: 400; }
+.home-eyebrow { display: flex; align-items: center; gap: 12px; color: var(--home-color); font-size: 10px; font-weight: 600; letter-spacing: .19em; text-transform: uppercase; }
+.home-eyebrow > span:not(.home-live-dot) { opacity: .55; font-size: 10px; }
+.home-live-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 5px color-mix(in srgb, var(--accent) 9%, transparent); }
+.home-hero { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 24px; padding-block: 68px 58px; }
+.home-hero-copy { position: relative; z-index: 2; }
+.home-hero h1 { font-size: clamp(54px, 5.6vw, 82px); line-height: 1.1; margin: 24px 0; letter-spacing: -.06em; }
+.home-hero-lead { color: var(--muted); font-size: 16px; line-height: 1.9; }
+.home-hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 22px; margin-top: 28px; }
+.home-button { display: inline-flex; align-items: center; justify-content: center; gap: 10px; border-radius: 7px; background: var(--accent); color: var(--page); padding: 14px 19px; font-size: 13px; font-weight: 600; transition: transform .25s, box-shadow .25s; }
+.home-button:hover { transform: translateY(-2px); box-shadow: 0 6px 24px color-mix(in srgb, var(--accent) 15%, transparent); }
+.home-text-link { display: inline-flex; gap: 12px; align-items: center; font-size: 12px; font-weight: 500; }
+.home-text-link:hover { color: var(--home-color); }
+.home-hero-foot { margin-top: 28px; font-size: 11px; line-height: 1.9; color: var(--muted); }
+.home-hero-foot span { display: block; color: var(--accent); }
+.home-hero-art { height: 500px; position: relative; isolation: isolate; }
+.home-hero-art::before { content: ''; position: absolute; inset: 5%; background: radial-gradient(ellipse, color-mix(in srgb, var(--accent) 10%, transparent), transparent 68%); z-index: -1; }
+.home-art-orbit { position: absolute; border: 1px solid color-mix(in srgb, var(--accent) 18%, transparent); border-radius: 50%; pointer-events: none; }
+.home-art-orbit-one { inset: 5% 4%; transform: rotate(-28deg); }
+.home-art-orbit-two { inset: 20% -2%; transform: rotate(-28deg); border-style: dashed; opacity: .8; }
+.home-art-crosshair { position: absolute; inset: 0; background: linear-gradient(transparent 49.8%, color-mix(in srgb, var(--accent) 12%, transparent) 50%, transparent 50.2%), linear-gradient(90deg, transparent 49.8%, color-mix(in srgb, var(--accent) 10%, transparent) 50%, transparent 50.2%); }
+.home-hero-book { position: absolute; top: 27%; left: 10%; width: 83%; transform: rotate(-9deg); z-index: 2; transition: transform .5s; }
+.home-hero-book:hover { transform: rotate(-5deg) translateY(-5px); }
+.home-open-bible { display: grid; grid-template-columns: 1fr 1fr; min-height: 260px; border: 1px solid color-mix(in srgb, var(--accent) 30%, var(--line)); border-radius: 8px 15px 15px 8px; background: var(--surface); box-shadow: 0 7px 0 -1px var(--surface-2), 0 8px 0 var(--line), 0 22px 45px #0002; }
+.home-open-bible > div { padding: 28px 22px 19px; }
+.home-book-left { border-right: 1px solid var(--line); background: linear-gradient(90deg, transparent 80%, #0001); border-radius: 8px 0 0 8px; }
+.home-open-bible small { display: block; font-size: 6px; letter-spacing: .09em; color: var(--accent); }
+.home-open-bible b { display: block; margin: 7px 0 17px; font-family: Literata, Georgia, serif; font-size: 29px; line-height: 1; font-weight: 400; }
+.home-book-left > span { font-family: Literata, Georgia, serif; color: var(--accent); font-size: 18px; }
+.home-book-left p { font-family: Literata, Georgia, serif; font-size: 11px; line-height: 1.8; margin: 7px 0 11px; }
+.home-open-bible i { display: block; height: 1px; background: var(--line); margin-top: 9px; }
+.home-open-bible i:nth-of-type(3n) { width: 68%; }
+.home-open-bible .home-book-ref { margin-top: 15px; font-size: 5px; }
+.home-book-right { position: relative; }
+.home-book-right > small { margin-bottom: 26px; font-size: 6px; }
+.home-ribbon { position: absolute; top: -1px; right: 27px; width: 16px; height: 87px; background: var(--accent); clip-path: polygon(0 0,100% 0,100% 100%,50% 86%,0 100%); }
+.home-book-seal { display: flex; align-items: center; justify-content: center; gap: 15px; margin-top: 33px; color: var(--accent); font-family: Georgia, serif; font-size: 22px; opacity: .6; }
+.home-book-seal span { font-size: 12px; }
+.home-floating-card { position: absolute; width: 205px; padding: 16px; border: 1px solid color-mix(in srgb, var(--home-color) 35%, var(--line)); border-radius: 10px; background: color-mix(in srgb, var(--home-color) 5%, var(--surface)); color: var(--home-color); z-index: 3; box-shadow: 0 10px 30px #0002; animation: home-drift 8s ease-in-out infinite alternate; }
+.home-floating-card > span { font-size: 7px; letter-spacing: .16em; }
+.home-floating-card svg { width: 100%; height: auto; }
+.home-floating-card strong { font-size: 9px; display: flex; justify-content: space-between; align-items: center; font-weight: 400; color: var(--ink); }
+.home-floating-card strong svg { width: 13px; }
+.home-float-gospels { right: 0; top: 3%; transform: rotate(7deg); }
+.home-float-cities { left: 0; bottom: 0; width: 220px; transform: rotate(-5deg); animation-delay: -4s; }
+.home-hero-coordinate { position: absolute; font-size: 7px; letter-spacing: .22em; color: var(--muted); }
+.home-coordinate-top { left: 0; top: 13%; writing-mode: vertical-rl; }
+.home-coordinate-bottom { bottom: 7%; right: 0; }
+.home-doorways { display: grid; grid-template-columns: repeat(5, 1fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); scroll-margin-top: 90px; }
+.home-doorways > a { display: flex; gap: 14px; align-items: center; padding: 23px 16px; border-right: 1px solid var(--line); transition: background .25s; }
+.home-doorways > a:first-child { padding-left: 0; }
+.home-doorways > a:last-child { border-right: 0; }
+.home-doorways > a:hover { background: color-mix(in srgb, var(--home-color) 6%, transparent); }
+.home-doorways svg { color: var(--home-color); flex-shrink: 0; }
+.home-doorways svg:last-child { margin-left: auto; width: 13px; opacity: .7; }
+.home-doorways strong { font-size: 14px; font-weight: 500; display: block; }
+.home-doorways small { display: block; color: var(--muted); font-size: 10px; margin-top: 5px; }
+.home-preview-strip { margin: 38px 0 0; }
+.home-strip-heading { max-width: 1232px; width: calc(100% - 48px); margin: 0 auto 15px; display: flex; justify-content: space-between; align-items: center; color: var(--muted); font-size: 9px; text-transform: uppercase; letter-spacing: .15em; }
+.home-strip-heading button { display: flex; align-items: center; gap: 6px; padding: 6px 9px; border: 1px solid var(--line); border-radius: 4px; font-size: 10px; text-transform: none; letter-spacing: 0; }
+.home-marquee { overflow: hidden; padding: 5px 0 14px; mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent); }
+.home-marquee-track { display: flex; width: max-content; animation: home-marquee 65s linear infinite; }
+.home-marquee-group { display: flex; gap: 16px; padding-right: 16px; flex-shrink: 0; }
+.home-preview { width: 252px; padding: 16px 20px 20px; border: 1px solid var(--line); border-top-color: color-mix(in srgb, var(--home-color) 70%, var(--line)); border-radius: 9px; background: linear-gradient(125deg, color-mix(in srgb, var(--home-color) 6%, var(--surface)), var(--surface)); transition: border-color .2s; }
+.home-preview:hover { border-color: var(--home-color); }
+.home-preview > div { height: 87px; color: var(--home-color); }
+.home-preview > div > svg { width: 100%; height: 100%; }
+.home-preview p { margin-top: 7px; color: var(--home-color); font-size: 9px; display: flex; justify-content: space-between; }
+.home-preview strong { display: block; font-family: Literata, Georgia, serif; font-size: 14px; font-weight: 400; margin-top: 9px; }
+.home-marquee[data-paused="true"] .home-marquee-track, .home-marquee:hover .home-marquee-track, .home-marquee:focus-within .home-marquee-track { animation-play-state: paused; }
+.home-marquee:focus-within { overflow-x: auto; mask-image: none; }
+.home-section { padding-top: 88px; }
+.home-section-heading { display: flex; gap: 24px; justify-content: space-between; align-items: flex-end; margin-bottom: 30px; }
+.home-hub h2 { font-size: clamp(30px, 3.3vw, 47px); line-height: 1.2; margin: 16px 0; }
+.home-section-heading > div > p:last-child, .home-apologetics > div > p:not(.home-eyebrow), .home-about-band > div > p:not(.home-eyebrow) { color: var(--muted); font-size: 14px; line-height: 1.85; max-width: 620px; }
+.home-section-heading > a { flex-shrink: 0; margin-bottom: 4px; color: var(--home-color); }
+.home-bible-grid { display: grid; grid-template-columns: 1.25fr 1fr; gap: 20px; }
+.home-reading-card, .home-library-card, .home-study-card, .home-topic-card, .home-map-card, .home-atlas-side > a { border: 1px solid var(--line); border-radius: 13px; background: linear-gradient(145deg, color-mix(in srgb, var(--home-color) 6%, var(--surface)), var(--surface)); transition: border-color .25s, transform .25s; }
+.home-reading-card:hover, .home-library-card:hover, .home-study-card:hover, .home-topic-card:hover, .home-map-card:hover, .home-atlas-side > a:hover { border-color: color-mix(in srgb, var(--home-color) 65%, var(--line)); transform: translateY(-3px); }
+.home-reading-card { padding: 30px; display: flex; flex-direction: column; justify-content: space-between; }
+.home-card-meta { display: flex; align-items: center; gap: 10px; color: var(--home-color); font-size: 9px; text-transform: uppercase; letter-spacing: .12em; }
+.home-card-meta svg:last-child { margin-left: auto; }
+.home-reading-card blockquote { font-size: clamp(22px, 2.5vw, 32px); line-height: 1.6; max-width: 520px; margin: 35px 0; }
+.home-reading-card cite { display: block; font-family: Archivo, sans-serif; font-style: normal; font-size: 9px; letter-spacing: .12em; color: var(--home-color); margin-top: 20px; }
+.home-card-bottom { display: flex; justify-content: space-between; align-items: center; gap: 15px; padding-top: 19px; border-top: 1px solid var(--line); color: var(--muted); font-size: 10px; line-height: 1.7; }
+.home-card-bottom strong, .home-card-action { color: var(--home-color); display: inline-flex; align-items: center; gap: 10px; font-size: 11px; font-weight: 500; }
+.home-card-bottom strong { flex-shrink: 0; }
+.home-library-card { padding: 28px; --home-color: var(--poetry); }
+.home-bible-shelf { height: 195px; display: flex; align-items: flex-end; justify-content: center; gap: 7px; border-bottom: 1px solid var(--line); margin-bottom: 25px; }
+.home-bible-shelf > div { width: 37px; border: 1px solid; border-radius: 4px 6px 0 0; display: grid; place-items: center; }
+.home-bible-shelf span { writing-mode: vertical-rl; font-family: Literata, Georgia, serif; font-size: 12px; }
+.home-hub h3 { font-size: 24px; line-height: 1.3; }
+.home-library-card h3 { margin: 12px 0; }
+.home-library-card p:not(.home-eyebrow) { font-size: 12px; color: var(--muted); }
+.home-library-card .home-card-action { margin-top: 18px; }
+.home-study-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.home-study-card { padding: 23px; display: flex; flex-direction: column; border-top: 2px solid color-mix(in srgb, var(--home-color) 65%, var(--line)); }
+.home-study-art { height: 132px; color: var(--home-color); display: grid; place-items: center; }
+.home-study-art svg { width: 100%; height: 100%; }
+.home-study-card h3 { font-size: 23px; margin: 8px 0 12px; }
+.home-study-card > p { font-size: 12px; color: var(--muted); line-height: 1.85; margin-bottom: 28px; }
+.home-study-card .home-card-bottom { margin-top: auto; font-size: 9px; }
+.home-study-card .home-card-bottom svg { flex-shrink: 0; color: var(--home-color); }
+.home-apologetics { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; padding: 60px 0; margin-top: 88px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.home-apologetics h2 { font-size: clamp(32px, 3.7vw, 53px); }
+.home-apologetics .home-button { margin: 26px 0 20px; }
+.home-question-links { display: flex; flex-direction: column; }
+.home-question-links a { display: flex; justify-content: space-between; border-bottom: 1px solid var(--line); font-family: Literata, Georgia, serif; padding: 13px 0; font-size: 14px; }
+.home-question-links a:hover { color: var(--accent); }
+.home-question-links svg { color: var(--accent); }
+.home-apologetics-visual { display: flex; flex-direction: column; justify-content: center; color: var(--accent); }
+.home-question-orbit { width: 100%; height: auto; }
+.home-apologetics-paths { display: flex; flex-wrap: wrap; justify-content: center; gap: 9px; margin-top: 30px; }
+.home-apologetics-paths a { border: 1px solid var(--line); padding: 10px; border-radius: 5px; display: flex; align-items: center; gap: 8px; font-size: 10px; }
+.home-apologetics-paths a:hover { border-color: var(--accent); }
+.home-topics-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.home-topic-card { padding: 26px; color: var(--home-color); }
+.home-topic-card > svg { height: 170px; width: 100%; }
+.home-topic-card > div { position: relative; padding-right: 25px; }
+.home-topic-card h3 { color: var(--ink); }
+.home-topic-card p { font-size: 12px; margin-top: 10px; color: var(--muted); line-height: 1.8; }
+.home-topic-card > div > svg { position: absolute; right: 0; top: 5px; }
+.home-topic-trail { display: flex; flex-wrap: wrap; align-items: center; gap: 9px; margin-top: 25px; }
+.home-topic-trail > span { font-size: 11px; color: var(--muted); margin-right: 12px; }
+.home-topic-trail a { display: flex; align-items: center; gap: 14px; padding: 8px 13px; border: 1px solid var(--line); border-radius: 30px; font-size: 11px; }
+.home-topic-trail a:hover { border-color: var(--prophets); color: var(--prophets); }
+.home-atlas-grid { display: grid; grid-template-columns: 1.6fr 1fr; gap: 18px; }
+.home-map-card { position: relative; isolation: isolate; overflow: hidden; padding: 30px; color: var(--poetry); }
+.home-map-grid { position: absolute; inset: 0; z-index: -1; background-image: linear-gradient(color-mix(in srgb, var(--poetry) 8%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in srgb, var(--poetry) 8%, transparent) 1px, transparent 1px); background-size: 48px 48px; mask-image: linear-gradient(#000, transparent 90%); }
+.home-map-label { display: flex; align-items: center; gap: 10px; font-size: 9px; letter-spacing: .14em; }
+.home-map-label svg:last-child { margin-left: auto; }
+.home-map-art { height: 240px; display: grid; place-items: center; }
+.home-map-art > svg { width: 100%; height: 100%; }
+.home-map-copy { position: relative; padding-right: 60px; }
+.home-map-copy h3 { color: var(--ink); font-size: 29px; }
+.home-map-copy p { font-size: 12px; color: var(--muted); margin: 12px 0 22px; }
+.home-map-compass { position: absolute; right: 28px; bottom: 28px; opacity: .5; }
+.home-atlas-side { display: grid; gap: 18px; }
+.home-atlas-side > a { color: var(--home-color); position: relative; padding: 20px 24px; }
+.home-atlas-side > a > svg:first-child { width: 100%; height: 108px; }
+.home-atlas-side h3 { color: var(--ink); font-size: 22px; }
+.home-atlas-side p { font-size: 11px; color: var(--muted); margin-top: 6px; }
+.home-atlas-side > a > svg:last-child { position: absolute; bottom: 35px; right: 24px; }
+.home-atlas-side > a > div { padding-right: 26px; }
+.home-about-band { display: grid; grid-template-columns: 1.4fr 1fr; gap: 80px; padding-top: 72px; margin-top: 85px; border-top: 1px solid var(--line); scroll-margin-top: 90px; }
+.home-about-links { display: flex; flex-wrap: wrap; gap: 25px; margin-top: 24px; }
+.home-about-links a { display: flex; align-items: center; gap: 8px; color: var(--accent); font-size: 11px; }
+.home-testimonies { padding: 26px 30px; border-left: 1px solid var(--line); background: linear-gradient(90deg, color-mix(in srgb, var(--accent) 4%, transparent), transparent); }
+.home-testimonies > svg { color: var(--accent); margin-bottom: 20px; }
+.home-testimonies h3 { margin: 12px 0; }
+.home-testimonies p { font-size: 12px; line-height: 1.8; color: var(--muted); margin-bottom: 22px; }
+.home-final { padding: 65px 0; text-align: center; color: var(--accent); }
+.home-final > svg { margin-inline: auto; }
+.home-final p { font-family: Literata, Georgia, serif; font-size: 20px; line-height: 1.7; color: var(--ink); margin: 18px 0 12px; }
+.home-final a { display: inline-flex; gap: 7px; align-items: center; font-size: 10px; }
+@keyframes home-marquee { to { transform: translateX(-50%); } }
+@keyframes home-drift { to { translate: 0 -9px; } }
+@media (max-width: 1050px) {
+  .home-hero { gap: 0; padding-top: 48px; }
+  .home-hero-art { height: 460px; }
+  .home-hero-book { left: 4%; width: 92%; }
+  .home-open-bible > div { padding: 22px 16px 18px; }
+  .home-floating-card { width: 173px; }
+  .home-float-cities { width: 190px; bottom: 1%; }
+  .home-open-bible { min-height: 240px; }
+  .home-hero-actions { gap: 17px; }
+  .home-doorways > a { padding-inline: 12px; gap: 9px; }
+  .home-doorways svg:last-child { display: none; }
+  .home-study-grid { grid-template-columns: repeat(2, 1fr); }
+  .home-study-art { height: 150px; }
+  .home-apologetics { gap: 30px; }
+  .home-bible-grid { grid-template-columns: 1fr 1fr; }
+  .home-card-bottom { flex-wrap: wrap; }
+  .home-bible-shelf { gap: 5px; }
+  .home-bible-shelf > div { width: 30px; }
+}
+@media (max-width: 700px) {
+  .home-wrap { width: calc(100% - 36px); }
+  .home-hero { grid-template-columns: 1fr; padding-block: 38px 35px; }
+  .home-hero h1 { font-size: clamp(46px, 10.5vw, 67px); margin-block: 19px; }
+  .home-hero-break { display: none; }
+  .home-hero-lead { font-size: 14px; }
+  .home-hero-actions { margin-top: 23px; }
+  .home-hero-foot { margin-top: 20px; }
+  .home-hero-art { max-width: 470px; width: 100%; height: 390px; margin: 32px auto 0; }
+  .home-hero-book { width: 80%; left: 11%; top: 23%; }
+  .home-open-bible { min-height: 223px; }
+  .home-open-bible > div { padding: 20px 14px 14px; }
+  .home-open-bible b { font-size: 25px; margin-bottom: 11px; }
+  .home-book-left p { font-size: 9px; }
+  .home-book-left > small { font-size: 5px; }
+  .home-open-bible .home-book-ref { font-size: 4px; }
+  .home-book-right > small { font-size: 5px; }
+  .home-float-gospels { width: 150px; padding: 12px; top: 0; right: 2px; }
+  .home-float-cities { width: 175px; padding: 12px; bottom: 0; }
+  .home-floating-card strong { font-size: 8px; }
+  .home-floating-card > span { font-size: 6px; }
+  .home-coordinate-bottom { font-size: 6px; bottom: 7%; }
+  .home-doorways { grid-template-columns: repeat(2, 1fr); }
+  .home-doorways > a, .home-doorways > a:first-child { padding: 17px 12px; border-bottom: 1px solid var(--line); }
+  .home-doorways > a:nth-child(2n) { border-right: 0; }
+  .home-doorways > a:last-child { grid-column: 1 / -1; border-bottom: 0; }
+  .home-doorways > a:last-child svg:last-child { display: block; }
+  .home-preview-strip { margin-top: 25px; }
+  .home-strip-heading { width: calc(100% - 36px); }
+  .home-preview { width: 225px; }
+  .home-section { padding-top: 56px; }
+  .home-section-heading { flex-direction: column; align-items: flex-start; gap: 17px; margin-bottom: 24px; }
+  .home-section-heading > div > p:last-child { font-size: 13px; }
+  .home-bible-grid, .home-topics-grid, .home-atlas-grid, .home-apologetics, .home-about-band { grid-template-columns: 1fr; }
+  .home-reading-card { padding: 25px; }
+  .home-reading-card blockquote { font-size: 25px; margin-block: 25px; }
+  .home-library-card { padding: 25px; }
+  .home-bible-shelf { height: 190px; }
+  .home-bible-shelf > div { width: 33px; }
+  .home-study-grid { gap: 12px; }
+  .home-study-card { padding: 17px 14px; }
+  .home-study-card .home-card-meta { font-size: 7px; letter-spacing: .05em; gap: 4px; }
+  .home-study-card h3 { font-size: 20px; letter-spacing: -.04em; }
+  .home-study-card > p { font-size: 11px; margin-bottom: 20px; }
+  .home-study-art { height: 96px; }
+  .home-study-card .home-card-bottom { font-size: 8px; padding-top: 14px; flex-wrap: nowrap; }
+  .home-apologetics { margin-top: 56px; padding: 38px 0; gap: 24px; }
+  .home-apologetics h2 { font-size: 36px; }
+  .home-apologetics-paths { margin-top: 10px; }
+  .home-topic-card { display: grid; grid-template-columns: 110px 1fr; padding: 20px 16px; gap: 10px; align-items: center; }
+  .home-topic-card > svg { height: 112px; }
+  .home-topic-card h3 { font-size: 22px; }
+  .home-topic-card > div { padding-right: 17px; }
+  .home-topic-card p { font-size: 11px; }
+  .home-topic-card > div > svg { width: 14px; }
+  .home-topic-trail > span { width: 100%; margin-bottom: 5px; }
+  .home-map-card { padding: 23px; }
+  .home-map-art { height: 185px; }
+  .home-map-copy h3 { font-size: 26px; }
+  .home-map-compass { width: 48px; right: 19px; }
+  .home-atlas-side { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .home-atlas-side > a { padding: 14px; }
+  .home-atlas-side > a > svg:first-child { height: 80px; }
+  .home-atlas-side > a > div { padding-right: 0; }
+  .home-atlas-side > a > svg:last-child { position: static; margin-top: 14px; }
+  .home-atlas-side h3 { font-size: 21px; }
+  .home-about-band { margin-top: 56px; padding-top: 38px; gap: 30px; }
+  .home-testimonies { border-left: 0; border-top: 1px solid var(--line); padding: 25px 0; }
+  .home-final { padding-block: 28px 48px; }
+  .home-final p { font-size: 18px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-hub *, .home-hub *::before { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  .home-marquee { overflow-x: auto; mask-image: none; }
+  .home-marquee-group[aria-hidden="true"] { display: none; }
+  .home-strip-heading button { display: none; }
+}

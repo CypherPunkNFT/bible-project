@@ -1,22 +1,16 @@
 // CONTENT for two Site pages: Home (/) and the library (/library). Read from the page files and the site's data.
-import { readFile } from "node:fs/promises";
-import path from "node:path";
-import { nameGroups } from "../../src/data/faith-name-order";
+import { HOME_PATHS, HOME_PREVIEWS, HOME_STUDIES, HOME_TOPICS } from "../../src/components/home/collection-data";
 import { groupVersions, VERSION_GROUPS } from "../../src/lib/languages";
 import { SECTIONS } from "../../src/lib/sections";
-import type { HomeData } from "../../src/lib/study";
 import type { Catalog, Stats, Translation } from "../../src/lib/types";
-import { blocks, link, loadCatalog, n, readJson, table, WEBSITE } from "./study-lib";
-import { byClass, byTag, findAll, first, jsxRoots } from "./study-source";
-import { componentProps, fill, looseConstant, readableText, wordingList } from "./site-source";
+import { blocks, link, loadCatalog, n, readJson, table } from "./study-lib";
+import { byTag, findAll, first, jsxRoots } from "./study-source";
+import { componentProps, fill, readableText, wordingList } from "./site-source";
 import type { PageContent } from "./types";
 
 const HOME = "src/pages/HomePage.tsx";
-const LANDING = "src/components/home/HomeLanding.tsx";
-const ABOUT = "src/components/home/HomeAbout.tsx";
 const LIBRARY = "src/pages/LibraryPage.tsx";
 
-interface Tile { to: string; title: string; text: string }
 const bullets = (lines: string[]) => lines.map((line) => `- ${line}`).join("\n");
 const isNewTestament = (section: string) => ["gospels", "epistles", "revelation"].includes(section);
 
@@ -30,38 +24,28 @@ export function testaments(catalog: Catalog, version: Translation): { ot: number
 }
 
 async function home(): Promise<PageContent> {
-  const [catalog, data] = await Promise.all([loadCatalog(), readJson<HomeData>("data/study/home.json")]);
-  const versions = catalog.translations.length;
-  const landing = await jsxRoots(LANDING, "HomeLanding");
-  const watermarks = findAll(landing, byClass("home-watermark")).map((node) => node.text);
-  const buttonTexts = new Set(findAll(landing, byTag("Link")).map((node) => node.text));
-  const buttons = findAll(landing, byTag("Link")).map((node) => `"${node.text}" → ${node.attrs.to.startsWith("/") ? link(node.attrs.to) : "the chapter this visitor last read"}`);
-  const quote = data.hero.word.text.replace(/^In the beginning was the Word,\s*/, "");
-  const homeSource = await readFile(path.join(WEBSITE, ...HOME.split("/")), "utf8");
-  const storyShown = homeSource.includes("HomeStory");
-  const points = await looseConstant<{ title: string; text: string }[]>(ABOUT, "POINTS");
-  const repository = await looseConstant<string>(ABOUT, "REPOSITORY");
-  const tiles = await looseConstant<Tile[]>(HOME, "TILES");
+  const catalog = await loadCatalog();
   const roots = await jsxRoots(HOME, "HomePage");
-  const hint = first(roots, byClass("home-names-hint"));
-  const titles = ["Abba Father", "Jesus Christ", "Holy Spirit"];
+  const destinations = findAll(roots, byTag("Link")).filter((node) => node.attrs.to?.startsWith("/"));
   return { dir: "Site/home", title: "Home", markdown: blocks(
-    `**Address:** ${link("/")} (the "Bible Project" name and logo at the left of the header open it)`,
-    "## Opening screen",
-    bullets((await readableText(LANDING, "HomeLanding")).filter((line) => !buttonTexts.has(line)).map((line) => (line.includes("free versions") ? fill(line, versions) : line))),
-    `Under the title, once the verses load: “…${quote}” — ${data.hero.word.ref}. Behind the words, faint and large: ${watermarks.join(" (Hebrew, Genesis 1:1) and ")} (Greek, John 1:1), and a slow light.`,
-    `Buttons: ${buttons.join(" · ")}. "Continue: <book chapter>" replaces "Begin with John 1" once this browser has read a chapter.`,
-    `At the foot of the screen, a horizon in the reading chart's colours, Genesis to Revelation (the last three lines above sit under it; "One story" is a link): ${SECTIONS.filter((s) => s.id !== "apocrypha").map((s) => s.name).join(" · ")}.`,
-    storyShown ? "" : `Checked: the "One story" link at the foot points to #one-story, but nothing on the home page has that id. The section it was written for (HomeStory.tsx, "One story" in ${data.movements.length} movements from data/study/home.json) is not shown on the page, so the link does nothing.`,
-    "## About this site",
-    bullets((await readableText(ABOUT, "HomeAbout")).map((line) => (line.startsWith("…versions") ? fill(line, versions) : line))),
-    table(["Card", "Text"], points.map((point) => [point.title, point.text])),
-    `Links: "Get the code on GitHub" → ${repository} · "Every source and its licence" → ${link("/versions")}`,
-    "## His names",
-    `**${first(roots, byTag("h2")).text}** · ${hint.text.replace(/\s*Every name$/, "")} Link: "Every name" → ${link("/study/names")}`,
-    `The names explorer: three large words, ${titles.map((title) => title.toUpperCase()).join(" · ")}, holding ${nameGroups.map((group, i) => `${group.length} names of the ${["Father", "Son", "Holy Spirit"][i]}`).join(", ")}. It is the same explorer as on the Names of God study; its names are listed in [that page's content](../../Study/names-and-descriptions-of-god/CONTENT.md).`,
-    "## Ways in (four cards at the foot)",
-    table(["Card", "Text", "Opens"], tiles.map((tile) => [tile.title, tile.text, link(tile.to)])),
+    `**Address:** ${link("/")}`,
+    "## Opening and page copy",
+    bullets(await readableText(HOME, "HomePage")),
+    `Catalogue figures: ${catalog.translations.length} Bible versions; ${new Set(catalog.translations.map((v) => v.lang)).size} language codes, using the same count as the Bible hub.`,
+    `An illustrated open Bible quotes John 1:1 (KJV). Floating Gospel and city cards link into their collections. The reading button opens John 1 or the last valid saved chapter. Explore the collections scrolls to #explore.`,
+    "## Five collection doorways",
+    table(["Collection", "Invitation", "Opens"], HOME_PATHS.map((item) => [item.title, item.subtitle, link(item.to)])),
+    "## Moving illustrated previews",
+    table(["Collection", "Title", "Opens"], HOME_PREVIEWS.map((item) => [item.label, item.title, link(item.to)])),
+    "The strip moves continuously, pauses on hover, focus or its Pause button, and becomes a static horizontally scrollable strip with reduced motion. Visual duplicates are hidden from assistive technology and tab order. All cards open real destinations.",
+    "## Study previews",
+    table(["Study", "Text", "Contents", "Opens"], HOME_STUDIES.map((item) => [item.title, item.text, item.note, link(item.to)])),
+    "His names now previews the dedicated Names of God study; the full explorer is unchanged on /study/names.",
+    "## Topic previews",
+    table(["Family", "Text", "Opens"], HOME_TOPICS.map((item) => [item.title, item.text, link(item.to)])),
+    "## Other direct links on the page",
+    table(["Label", "Opens"], destinations.map((node) => [node.text, link(node.attrs.to)])),
+    "The five numbered sections preview Bible, Study, Apologetics, Topics and Atlas. The final invitation includes Testimonies, Sources & references, the public source-code repository and Psalm 119:105 (KJV). Legacy HomeLanding, HomeAbout and HomeStory components are no longer rendered.",
   ) };
 }
 

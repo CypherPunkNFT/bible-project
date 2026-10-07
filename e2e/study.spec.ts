@@ -235,10 +235,10 @@ test("names: the Faith page's three words unfold and a name opens its Scripture"
   await expect(reading.getByRole("link", { name: /Read in context/ })).toHaveAttribute("href", "/read/kjv/MRK/14?hl=36-36");
 });
 
-test("home page shows the Names of God", async ({ page }) => {
+test("home page previews the Names of God study", async ({ page }) => {
   await page.goto("/");
   await expect(page.getByRole("heading", { name: /^His names.?$/ })).toBeVisible({ timeout: 10_000 });
-  await expect(page.getByRole("button", { name: "Expand JESUS CHRIST names" })).toBeVisible();
+  await expect(page.locator(".home-study-card").filter({ hasText: "His names" })).toHaveAttribute("href", "/study/names");
 });
 
 test("harmony: a long passage across chapters ends with 'read on' (the Sermon on the Mount)", async ({ page }) => {
@@ -251,17 +251,17 @@ test("harmony: a long passage across chapters ends with 'read on' (the Sermon on
 });
 
 test("home: the landing opens with John 1:1", async ({ page }) => {
-  // The "One story" section was replaced by "About this site" (78bdbfd); the landing itself is unchanged.
+  // The illustrated collection landing keeps John 1:1 in the Bible preview.
   await page.goto("/");
-  await expect(page.getByRole("heading", { level: 1 })).toContainText("In the beginning");
-  await expect(page.locator("#home-title").locator("..")).toContainText("and the Word was with God");
+  await expect(page.getByRole("heading", { level: 1 })).toContainText("One Word.");
+  await expect(page.locator(".home-reading-card")).toContainText("and the Word was with God");
 });
 
-test("home: the glow stops for readers who reduce motion", async ({ browser }) => {
+test("home: the marquee stops for readers who reduce motion", async ({ browser }) => {
   const context = await browser.newContext({ reducedMotion: "reduce" });
   const page = await context.newPage();
   await page.goto("http://127.0.0.1:8933/");
-  const animation = await page.locator(".home-glow").evaluate((el) => getComputedStyle(el).animationName);
+  const animation = await page.locator(".home-marquee-track").evaluate((el) => getComputedStyle(el).animationName);
   expect(animation).toBe("none");
   await context.close();
 });

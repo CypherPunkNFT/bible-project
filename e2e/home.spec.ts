@@ -1,0 +1,74 @@
+import { expect, test } from "@playwright/test";
+import { readFileSync } from "node:fs";
+
+test("home: illustrated collections fit both themes and all destinations exist", async ({ page }) => {
+  const errors: string[] = [];
+  page.on("pageerror", (error) => errors.push(error.message));
+  const index = JSON.parse(readFileSync("data/topics/index.json", "utf8"));
+  for (const theme of ["dark", "light"] as const) {
+    await page.emulateMedia({ colorScheme: theme });
+    await page.goto("/");
+    await page.evaluate(() => document.fonts.ready);
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText("One Word.A world to discover.");
+    const paths = page.getByRole("navigation", { name: "Explore the five collections" });
+    await expect(paths.getByRole("link")).toHaveCount(5);
+    for (const [name, url] of [["Bible", "/bible"], ["Study", "/study"], ["Apologetics", "/apologetics"], ["Topics", "/topics"], ["Atlas", "/study/atlas"]]) {
+      await expect(paths.getByRole("link", { name: new RegExp(`^${name}`) })).toHaveAttribute("href", url);
+    }
+    const links = await page.locator('.home-hub a[href^="/topics/"]').evaluateAll((elements) => elements.map((el) => el.getAttribute("href")!));
+    for (const href of links) {
+      const id = href.split("/").at(-1);
+      expect(href.includes("/c/") ? index.categories.some((category: { id: string }) => category.id === id) : Boolean(index.topics[id!]), href).toBe(true);
+    }
+    expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(1);
+    await page.screenshot({ path: `front-end capture/2026-10-07/home-${theme}-${test.info().project.name}.png`, fullPage: true });
+    await page.screenshot({ path: `front-end capture/2026-10-07/home-hero-${theme}-${test.info().project.name}.png` });
+  }
+  expect(errors).toEqual([]);
+});
+
+test("home: reading memory and preview navigation open the intended pages", async ({ page }) => {
+  await page.goto("/");
+  await expect(page.locator(".home-hero-actions").getByRole("link", { name: "Begin with John 1" })).toHaveAttribute("href", "/read/kjv/JHN/1");
+  await page.evaluate(() => localStorage.setItem("bp-last-read", "/read/kjv/ROM/8"));
+  await page.reload();
+  const resume = page.locator(".home-hero-actions").getByRole("link", { name: "Continue: Romans 8" });
+  await expect(resume).toHaveAttribute("href", "/read/kjv/ROM/8");
+  await resume.click();
+  await expect(page).toHaveURL(/\/read\/kjv\/ROM\/8$/);
+  await page.goBack();
+  await page.locator(".home-study-card").filter({ hasText: "His names" }).click();
+  await expect(page).toHaveURL(/\/study\/names$/);
+  await expect(page.getByRole("button", { name: "Expand JESUS CHRIST names" })).toBeVisible();
+  for (const [name, heading] of [["Who is Jesus?", "Jesus"], ["Can I trust Scripture?", "Bible"], ["What do I do with doubt?", "Doubt"]]) {
+    await page.goto("/");
+    await page.getByRole("link", { name, exact: true }).click();
+    await expect(page.getByRole("heading", { level: 1 })).toContainText(new RegExp(heading, "i"));
+  }
+  await page.goto("/");
+  await page.getByRole("link", { name: "Explore the collections", exact: true }).click();
+  await expect(page.locator("#explore")).toBeInViewport();
+});
+
+test("home: marquee pauses for interaction and respects reduced motion", async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: "no-preference" });
+  await page.goto("/");
+  const track = page.locator(".home-marquee-track");
+  await expect.poll(() => track.evaluate((el) => getComputedStyle(el).animationName)).toBe("home-marquee");
+  await page.getByRole("button", { name: "Pause collection previews" }).click();
+  await expect.poll(() => track.evaluate((el) => getComputedStyle(el).animationPlayState)).toBe("paused");
+  await page.getByRole("button", { name: "Play collection previews" }).click();
+  await page.mouse.move(0, 0);
+  await expect.poll(() => track.evaluate((el) => getComputedStyle(el).animationPlayState)).toBe("running");
+  const first = page.locator(".home-marquee-group").first().getByRole("link").first();
+  await first.focus();
+  await expect.poll(() => track.evaluate((el) => getComputedStyle(el).animationPlayState)).toBe("paused");
+  await page.keyboard.press("Enter");
+  await expect(page).toHaveURL(/\/study\/gospels$/);
+  await page.goto("/");
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await expect.poll(() => track.evaluate((el) => getComputedStyle(el).animationName)).toBe("none");
+  await expect(page.locator('.home-marquee-group[aria-hidden="true"]')).toBeHidden();
+  await expect.poll(() => page.locator(".home-floating-card").first().evaluate((el) => getComputedStyle(el).animationName)).toBe("none");
+  await expect(page.getByRole("button", { name: "Pause collection previews" })).toBeHidden();
+});
