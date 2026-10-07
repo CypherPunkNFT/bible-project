@@ -1,6 +1,6 @@
 import type { StudyCollectionId } from "./study-collections";
 
-export type StudyIllustration = "arcs" | "matrix" | "sections" | "sizes" | "chapters" | "teaching" | "speech" | "harmony" | "portraits" | "timeline" | "coverage" | "people" | "prophets" | "places" | "miracles" | "letters" | "names";
+export type StudyIllustration = "arcs" | "matrix" | "sections" | "sizes" | "chapters" | "teaching" | "speech" | "harmony" | "portraits" | "timeline" | "coverage" | "people" | "everyone" | "prophets" | "places" | "miracles" | "letters" | "names";
 export type StudySection = {
   id: string;
   title: string;
@@ -33,6 +33,7 @@ export const STUDY_SECTIONS: Record<StudyCollectionId, StudySection[]> = {
     { id: "library", title: "Choose an edition", description: "Browse the library by language and choose a version to read.", kind: "Library", illustration: "letters", to: "/library" },
   ],
   people: [
+    { id: "everyone", title: "Everyone in the Bible", description: "Every person Scripture names, in the order of its history, and who each one was.", kind: "Guide", illustration: "everyone", to: "/study/people" },
     { id: "people-directory", title: "People & families", description: "Find a person, follow their family, and read the verses that name them.", kind: "Guide", illustration: "people", to: "/study/people#people-directory" },
     { id: "prophets", title: "Prophets through time", description: "Follow the prophets by era and the kings Scripture names beside them.", kind: "Guide", illustration: "prophets", to: "/study/prophets" },
   ],

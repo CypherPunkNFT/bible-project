@@ -1,4 +1,3 @@
-import { ArrowLeft } from "lucide-react";
 import { Link, useLocation, useSearchParams } from "react-router-dom";
 import { cameFrom } from "@/lib/came-from";
 import { StudyCredits, StudyHeader } from "@/components/study/StudyParts";
@@ -12,8 +11,8 @@ import { ProphetsContent } from "./ProphetsPage";
 
 type View = "everyone" | "families" | "prophets";
 
-/** People & genealogies: everyone in the Bible (most named, then the full table) until a card opens the family trees
- *  or the prophets. Each person opens on their own page (/people/:id). */
+/** People & genealogies: three cards choose the view: everyone in the Bible (most named, then the full table), the
+ *  family trees, or the prophets. Each person opens on their own page (/people/:id). */
 export default function PeoplePage() {
   const [params, setParams] = useSearchParams();
   const { hash } = useLocation();
@@ -28,8 +27,7 @@ export default function PeoplePage() {
   return <div className="mx-auto max-w-7xl px-4 pb-16 sm:px-6">
     <StudyHeader eyebrow="Study · People & genealogies" title="Lives woven through Scripture."
       lead={<p>Everyone the Bible names, in the order of its history. Open a life, follow the families, or trace the prophets through the eras Scripture gives them.</p>}
-      contents={<StudyContents selectedId={view === "families" ? "people-directory" : view === "prophets" ? "prophets" : undefined} onSelect={(id) => show(id === "prophets" ? "prophets" : "families")} />} />
-    {view !== "everyone" && <button type="button" onClick={() => show("everyone")} className="mb-4 inline-flex items-center gap-2 text-sm text-muted hover:text-accent"><ArrowLeft size={15} aria-hidden />Everyone in the Bible</button>}
+      contents={<StudyContents selectedId={view === "families" ? "people-directory" : view === "prophets" ? "prophets" : "everyone"} onSelect={(id) => show(id === "prophets" ? "prophets" : id === "everyone" ? "everyone" : "families")} />} />
     {/* The contents cards switch the view with the study's transition (components/study/study-view.ts). */}
     <div className="people-view-window"><div key={view} data-study-panel className="people-view-panel">
       {view === "prophets" ? <ProphetsContent embedded /> : view === "families" ? <GenealogyExplorer /> : <Everyone />}
