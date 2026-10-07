@@ -488,7 +488,8 @@
         "editionNote": "Monergism EPUB of ANF vol. 1 (1885 American edition, the translation the page cites); held since the modern-texts run. Its text file keeps the book's line wrapping, so search with whitespace normalized.",
         "textKind": "Ready-made transcription already held"
       }
-    ]
+    ],
+    "seeAlso": "cited-lightfoot-1-clement-1891"
   },
   {
     "id": "cited-rome-first-epistle-to-the-corinthians",
@@ -908,7 +909,8 @@
         "editionNote": "Monergism EPUB of ANF vol. 1 (1885 American edition, the translation the page cites); held since the modern-texts run. Its text file keeps the book's line wrapping, so search with whitespace normalized.",
         "textKind": "Ready-made transcription already held"
       }
-    ]
+    ],
+    "seeAlso": "cited-lightfoot-ignatius-1891"
   },
   {
     "id": "cited-ignatius-to-the-ephesians",
@@ -935,7 +937,8 @@
         "editionNote": "Monergism EPUB of ANF vol. 1 (1885 American edition, the translation the page cites); held since the modern-texts run. Its text file keeps the book's line wrapping, so search with whitespace normalized.",
         "textKind": "Ready-made transcription already held"
       }
-    ]
+    ],
+    "seeAlso": "cited-lightfoot-ignatius-1891"
   },
   {
     "id": "cited-irenaeus-against-heresies",
@@ -2147,6 +2150,74 @@
         "editionNote": "Smith's Bible Dictionary entry extracted from the held CCEL XML; the page cites the abridged edition text, which is this one-volume dictionary",
         "textKind": "Ready-made transcription already held; per-article extract written locally, nothing downloaded",
         "authorSignatureFound": null
+      }
+    ]
+  },
+  {
+    "id": "cited-lightfoot-1-clement-1891",
+    "title": "The First Epistle of Clement to the Corinthians",
+    "author": "Clement of Rome (trans. J. B. Lightfoot)",
+    "year": "1891",
+    "citedUrls": [
+      "https://www.earlychristianwritings.com/text/1clement-lightfoot.html"
+    ],
+    "citedOn": [
+      "/study/letters/paul"
+    ],
+    "status": "acquired-new",
+    "addendum": "2026-10-07 addendum",
+    "localFiles": [
+      {
+        "role": "new-original",
+        "original": "sources/library/source-early-christian-writings/asset-lc01-0dfcd55ad358921a3184/original.html",
+        "originalSha256": "50a953f1ea5bbfd0e07f88f8685c6fc831fe67805db594b15dc3556e33ab4d22",
+        "text": "Website/.local/library/run-lc01-2026-10-07/text/asset-lc01-0dfcd55ad358921a3184.txt",
+        "textSha256": "09113d0317cf8ba5e53485b741f7371494d54f843388bbd183e0fc518191c0ca",
+        "sourceUrl": "https://www.earlychristianwritings.com/text/1clement-lightfoot.html",
+        "assetId": "asset-lc01-0dfcd55ad358921a3184",
+        "textKind": "Ready-made transcription (HTML/TXT/JSON); text extracted without OCR",
+        "editionNote": null,
+        "iaDate": null
+      }
+    ]
+  },
+  {
+    "id": "cited-lightfoot-ignatius-1891",
+    "title": "The Epistles of Ignatius (To the Ephesians; To the Smyrnaeans)",
+    "author": "Ignatius (trans. J. B. Lightfoot)",
+    "year": "1891",
+    "citedUrls": [
+      "https://www.earlychristianwritings.com/text/ignatius-ephesians-lightfoot.html"
+    ],
+    "citedOn": [
+      "/study/letters/paul"
+    ],
+    "status": "acquired-new",
+    "addendum": "2026-10-07 addendum",
+    "localFiles": [
+      {
+        "role": "new-original",
+        "original": "sources/library/source-early-christian-writings/asset-lc01-de4e710212a667def358/original.html",
+        "originalSha256": "3e65c88d1b38353403c6ba218d366e8e10b72281f7190cc216f939389df63f3e",
+        "text": "Website/.local/library/run-lc01-2026-10-07/text/asset-lc01-de4e710212a667def358.txt",
+        "textSha256": "1a7ad7127cb8dc4c6987a44c7c575f818b79c05755cd9b12c70ce16cc1b843c4",
+        "sourceUrl": "https://www.earlychristianwritings.com/text/ignatius-ephesians-lightfoot.html",
+        "assetId": "asset-lc01-de4e710212a667def358",
+        "textKind": "Ready-made transcription (HTML/TXT/JSON); text extracted without OCR",
+        "editionNote": null,
+        "iaDate": null
+      },
+      {
+        "role": "new-original",
+        "original": "sources/library/source-early-christian-writings/asset-lc01-2449cec02a8da9fff131/original.html",
+        "originalSha256": "3848919969a01aa11ed974cead92305c1d7ab43cbc9a91a10ffa28c9277e45f7",
+        "text": "Website/.local/library/run-lc01-2026-10-07/text/asset-lc01-2449cec02a8da9fff131.txt",
+        "textSha256": "7065a3091cc47c0968b8c3a21f8298c0bbe0ca5ff36b0623c034bf0de6336b48",
+        "sourceUrl": "https://www.earlychristianwritings.com/text/ignatius-smyrnaeans-lightfoot.html",
+        "assetId": "asset-lc01-2449cec02a8da9fff131",
+        "textKind": "Ready-made transcription (HTML/TXT/JSON); text extracted without OCR",
+        "editionNote": null,
+        "iaDate": null
       }
     ]
   }

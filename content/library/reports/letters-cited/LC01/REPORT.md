@@ -52,3 +52,24 @@ as private local text (check `KnowledgeBase/embedding-progress.json` first). A r
 ## Next
 
 These texts are for checking every direct quotation on the Letters pages against the real words (owner, 2026-10-07).
+
+## Addendum (2026-10-07)
+
+The quotation check found three quotations taken from J. B. Lightfoot's 1891 translations (*The Apostolic Fathers*, ed.
+J. R. Harmer), which the Sources page had merged into the Ante-Nicene Fathers entries. Both are now held as readable text
+from the Early Christian Writings pages the citations link (the same site and method as Lightfoot's Polycarp above):
+
+| Work | Page | Local text |
+|---|---|---|
+| The First Epistle of Clement to the Corinthians (whole letter, chs. 1–65) | `1clement-lightfoot.html` | `asset-lc01-0dfcd55ad358921a3184.txt` |
+| Ignatius, To the Ephesians (whole letter) | `ignatius-ephesians-lightfoot.html` | `asset-lc01-de4e710212a667def358.txt` |
+| Ignatius, To the Smyrnaeans (whole letter) | `ignatius-smyrnaeans-lightfoot.html` | `asset-lc01-2449cec02a8da9fff131.txt` |
+
+Originals under `sources/library/source-early-christian-writings/<asset>/original.html`; text under
+`Website/.local/library/run-lc01-2026-10-07/text/`. Three files, 202,699 bytes, 20,107 words; requests one at a time,
+6 s apart. All three pass the fingerprint check, and key phrases confirm the quoted words are there: "take up the epistle of
+the blessed Paul" and "the farthest bounds of the West" (Clement), "Where is the wise? Where is the disputer?" (Ephesians),
+"suffered in semblance" (Smyrnaeans). **Totals now:** 80 works with readable text, 43 downloaded in LC01 as 48 files, 86
+file checks, no failures. Recorded in [WORKS.md](WORKS.md) (rows 79–80), [works.json](works.json),
+[acquisition-manifest.json](acquisition-manifest.json), [verification.json](verification.json) and
+[checkpoint.json](checkpoint.json).

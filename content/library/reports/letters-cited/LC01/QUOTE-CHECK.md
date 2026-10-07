@@ -95,7 +95,7 @@ in line with the earlier ISBE check (commit `a25e76bf`).
 
 - **Lightfoot's 1891 translations of 1 Clement and Ignatius are not in the library.** The works table maps both citations to
   the Ante-Nicene Fathers volume, whose wording differs. The three quotations from them were checked against the
-  earlychristianwritings.com transcriptions the page links (read, not stored). A library run should add those two pages.
+  earlychristianwritings.com transcriptions the page links (read, not stored). **Closed 2026-10-07:** both are now held (1 Clement, To the Ephesians and To the Smyrnaeans; [REPORT.md](REPORT.md#addendum-2026-10-07), WORKS.md rows 79-80).
 - The card lead "How "the three that bear record in heaven" entered the printed Bible" in
   [pages-collections.tsx](../../../../../src/components/letters/browse/pages-collections.tsx) has the same small slip as fix 10;
   it is page code, not data, and was left for the next page change.

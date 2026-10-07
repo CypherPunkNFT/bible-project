@@ -2093,6 +2093,134 @@
         "method": "Existing source text (TXT as-is; HTML tags stripped; JSON text fields joined); no OCR, no model calls",
         "quality": "structural checks and marker phrases only; not collated"
       }
+    },
+    {
+      "url": "https://www.earlychristianwritings.com/text/1clement-lightfoot.html",
+      "finalUrl": "https://www.earlychristianwritings.com/text/1clement-lightfoot.html",
+      "iaIdentifier": null,
+      "iaMetadata": null,
+      "mimeType": "text/html",
+      "byteCount": 116750,
+      "sha256": "50a953f1ea5bbfd0e07f88f8685c6fc831fe67805db594b15dc3556e33ab4d22",
+      "retrievedAt": "2026-10-07T19:02:03.533274+00:00",
+      "workId": "cited-lightfoot-1-clement-1891",
+      "citedWorkIds": [
+        "cited-lightfoot-1-clement-1891",
+        "cited-rome-1-clement"
+      ],
+      "title": "The First Epistle of Clement to the Corinthians (Lightfoot translation)",
+      "author": "Clement of Rome, tr. J. B. Lightfoot",
+      "format": "html",
+      "sourceId": "source-early-christian-writings",
+      "edition": "Early Christian Writings transcription of Lightfoot's 1891 translation (The Apostolic Fathers, ed. J. R. Harmer). Same translation the page cites.",
+      "editionDifference": null,
+      "completeness": "Complete offered file (whole volume/book/page as published by the host)",
+      "textKind": "Ready-made transcription (HTML/TXT/JSON); text extracted without OCR",
+      "quality": "plain-word ratio 0.943; not proofread",
+      "evidenceOnly": false,
+      "theologicalScope": "Cited source for the Letters study; held so direct quotations can be checked. Citation is not endorsement.",
+      "rightsCategory": "public-domain",
+      "rightsEvidence": "Public-domain translation (Lightfoot, The Apostolic Fathers, ed. J. R. Harmer, 1891) transcribed by Early Christian Writings.",
+      "assetId": "asset-lc01-0dfcd55ad358921a3184",
+      "relativePath": "library/source-early-christian-writings/asset-lc01-0dfcd55ad358921a3184/original.html",
+      "useScope": "private-local-study",
+      "publicHostingAllowed": false,
+      "publicFullTextIndexAllowed": false,
+      "privateLocalIndexAuthorized": true,
+      "status": "downloaded-readable",
+      "addendum": "2026-10-07 addendum",
+      "derivedText": {
+        "path": ".local/library/run-lc01-2026-10-07/text/asset-lc01-0dfcd55ad358921a3184.txt",
+        "wordCount": 14598,
+        "sha256": "09113d0317cf8ba5e53485b741f7371494d54f843388bbd183e0fc518191c0ca",
+        "method": "Existing source text (TXT as-is; HTML tags stripped; JSON text fields joined); no OCR, no model calls",
+        "quality": "structural checks and marker phrases only; not collated"
+      }
+    },
+    {
+      "url": "https://www.earlychristianwritings.com/text/ignatius-ephesians-lightfoot.html",
+      "finalUrl": "https://www.earlychristianwritings.com/text/ignatius-ephesians-lightfoot.html",
+      "iaIdentifier": null,
+      "iaMetadata": null,
+      "mimeType": "text/html",
+      "byteCount": 46042,
+      "sha256": "3e65c88d1b38353403c6ba218d366e8e10b72281f7190cc216f939389df63f3e",
+      "retrievedAt": "2026-10-07T19:02:09.841979+00:00",
+      "workId": "cited-lightfoot-ignatius-1891",
+      "citedWorkIds": [
+        "cited-lightfoot-ignatius-1891",
+        "cited-ignatius-to-the-ephesians"
+      ],
+      "title": "Ignatius to the Ephesians (Lightfoot translation)",
+      "author": "Ignatius of Antioch, tr. J. B. Lightfoot",
+      "format": "html",
+      "sourceId": "source-early-christian-writings",
+      "edition": "Early Christian Writings transcription of Lightfoot's 1891 translation (The Apostolic Fathers, ed. J. R. Harmer). Same translation the page cites.",
+      "editionDifference": null,
+      "completeness": "Complete offered file (whole volume/book/page as published by the host)",
+      "textKind": "Ready-made transcription (HTML/TXT/JSON); text extracted without OCR",
+      "quality": "plain-word ratio 0.958; not proofread",
+      "evidenceOnly": false,
+      "theologicalScope": "Cited source for the Letters study; held so direct quotations can be checked. Citation is not endorsement.",
+      "rightsCategory": "public-domain",
+      "rightsEvidence": "Public-domain translation (Lightfoot and Harmer, The Apostolic Fathers, 1891) transcribed by Early Christian Writings.",
+      "assetId": "asset-lc01-de4e710212a667def358",
+      "relativePath": "library/source-early-christian-writings/asset-lc01-de4e710212a667def358/original.html",
+      "useScope": "private-local-study",
+      "publicHostingAllowed": false,
+      "publicFullTextIndexAllowed": false,
+      "privateLocalIndexAuthorized": true,
+      "status": "downloaded-readable",
+      "addendum": "2026-10-07 addendum",
+      "derivedText": {
+        "path": ".local/library/run-lc01-2026-10-07/text/asset-lc01-de4e710212a667def358.txt",
+        "wordCount": 3298,
+        "sha256": "1a7ad7127cb8dc4c6987a44c7c575f818b79c05755cd9b12c70ce16cc1b843c4",
+        "method": "Existing source text (TXT as-is; HTML tags stripped; JSON text fields joined); no OCR, no model calls",
+        "quality": "structural checks and marker phrases only; not collated"
+      }
+    },
+    {
+      "url": "https://www.earlychristianwritings.com/text/ignatius-smyrnaeans-lightfoot.html",
+      "finalUrl": "https://www.earlychristianwritings.com/text/ignatius-smyrnaeans-lightfoot.html",
+      "iaIdentifier": null,
+      "iaMetadata": null,
+      "mimeType": "text/html",
+      "byteCount": 39907,
+      "sha256": "3848919969a01aa11ed974cead92305c1d7ab43cbc9a91a10ffa28c9277e45f7",
+      "retrievedAt": "2026-10-07T19:02:16.069853+00:00",
+      "workId": "cited-lightfoot-ignatius-1891",
+      "citedWorkIds": [
+        "cited-lightfoot-ignatius-1891"
+      ],
+      "title": "Ignatius to the Smyrnaeans (Lightfoot translation)",
+      "author": "Ignatius of Antioch, tr. J. B. Lightfoot",
+      "format": "html",
+      "sourceId": "source-early-christian-writings",
+      "edition": "Early Christian Writings transcription of Lightfoot's 1891 translation (The Apostolic Fathers, ed. J. R. Harmer). Same translation the page cites.",
+      "editionDifference": null,
+      "completeness": "Complete offered file (whole volume/book/page as published by the host)",
+      "textKind": "Ready-made transcription (HTML/TXT/JSON); text extracted without OCR",
+      "quality": "plain-word ratio 0.957; not proofread",
+      "evidenceOnly": false,
+      "theologicalScope": "Cited source for the Letters study; held so direct quotations can be checked. Citation is not endorsement.",
+      "rightsCategory": "public-domain",
+      "rightsEvidence": "Public-domain translation (Lightfoot and Harmer, The Apostolic Fathers, 1891) transcribed by Early Christian Writings.",
+      "assetId": "asset-lc01-2449cec02a8da9fff131",
+      "relativePath": "library/source-early-christian-writings/asset-lc01-2449cec02a8da9fff131/original.html",
+      "useScope": "private-local-study",
+      "publicHostingAllowed": false,
+      "publicFullTextIndexAllowed": false,
+      "privateLocalIndexAuthorized": true,
+      "status": "downloaded-readable",
+      "addendum": "2026-10-07 addendum",
+      "derivedText": {
+        "path": ".local/library/run-lc01-2026-10-07/text/asset-lc01-2449cec02a8da9fff131.txt",
+        "wordCount": 2211,
+        "sha256": "7065a3091cc47c0968b8c3a21f8298c0bbe0ca5ff36b0623c034bf0de6336b48",
+        "method": "Existing source text (TXT as-is; HTML tags stripped; JSON text fields joined); no OCR, no model calls",
+        "quality": "structural checks and marker phrases only; not collated"
+      }
     }
   ],
   "heldReused": [
@@ -2442,6 +2570,17 @@
     {
       "url": "https://www.gutenberg.org/ebooks/36548",
       "reason": "Scrivener vol. I; the page links vol. II only."
+    }
+  ],
+  "addenda": [
+    {
+      "date": "2026-10-07",
+      "note": "Lightfoot's 1891 translations of 1 Clement and of Ignatius (To the Ephesians, To the Smyrnaeans), which the Letters pages quote and link; the Sources page had merged them into the Ante-Nicene Fathers entries.",
+      "assetIds": [
+        "asset-lc01-0dfcd55ad358921a3184",
+        "asset-lc01-de4e710212a667def358",
+        "asset-lc01-2449cec02a8da9fff131"
+      ]
     }
   ]
 }
