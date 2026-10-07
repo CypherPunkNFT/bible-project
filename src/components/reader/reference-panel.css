@@ -1,4 +1,4 @@
-@media (min-width: 1024px) {
-  .reader-reference-panel { width: calc(100% + 14px); padding-right: 8px; }
-  .reader-reference-box { min-height: 100%; }
+/* On phones the panel spans the screen, so its scrollbar sits inside the right padding instead of beyond it. */
+@media (max-width: 1023.98px) {
+  .reader-reference-panel .outside-scrollbar { right: 2px; }
 }

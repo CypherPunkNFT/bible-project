@@ -101,7 +101,7 @@ for (const table of [
 }
 
 for (const view of ["verse references", "every version", "chapter references"]) {
-  test(`reader ${view}: scrolling continues onto the page at both ends`, async ({ page }) => {
+  test(`reader ${view}: header and footer stay put, the list scrolls and hands off to the page at both ends`, async ({ page }) => {
     await page.goto(view === "chapter references" ? "/read/kjv/1CO/15" : "/read/kjv/1CO/5?v=4");
     await expect(page.locator(".scripture")).toBeVisible();
     const panel = page.locator(".reader-reference-panel");
@@ -112,28 +112,41 @@ for (const view of ["verse references", "every version", "chapter references"]) 
     await expect(panel).toBeVisible();
     await page.waitForLoadState("networkidle");
     await page.evaluate(() => document.fonts.ready);
-    await expect.poll(() => panel.evaluate((el) => el.scrollHeight - el.clientHeight)).toBeGreaterThan(300);
+    const list = panel.getByRole("region");
+    const bar = panel.locator(".outside-scrollbar");
+    const title = panel.getByRole("heading", { level: 2 });
+    const credit = panel.getByText(/Cross references from OpenBible\.info, CC-BY\./);
+    await expect.poll(() => list.evaluate((el) => el.scrollHeight - el.clientHeight)).toBeGreaterThan(300);
+    // The panel itself never scrolls; only the list inside it does.
+    expect(await panel.evaluate((el) => el.scrollHeight - el.clientHeight)).toBeLessThanOrEqual(1);
     const placePage = () => page.evaluate(() => window.scrollTo(0, Math.min(400, (document.documentElement.scrollHeight - innerHeight) / 2)));
     await placePage();
-    await panel.evaluate((el) => { el.scrollTop = 100; });
-    await panel.hover();
+    const titleTop = (await title.boundingBox())!.y;
+    await list.evaluate((el) => { el.scrollTop = 100; });
+    await list.hover();
     const initialPageY = await page.evaluate(() => scrollY);
     await page.mouse.wheel(0, 100);
-    await expect.poll(() => panel.evaluate((el) => el.scrollTop)).toBeGreaterThan(150);
+    await expect.poll(() => list.evaluate((el) => el.scrollTop)).toBeGreaterThan(150);
     expect(await page.evaluate(() => scrollY)).toBe(initialPageY);
+    expect((await title.boundingBox())!.y).toBeCloseTo(titleTop, 0);
+    await expect(title).toBeInViewport();
+    await expect(credit).toBeInViewport();
+    if (view === "verse references") await expect(panel.getByRole("heading", { level: 3, name: /Cross-references/ })).toBeInViewport();
 
-    for (const overScrollbar of [false, true]) {
+    for (const target of [list, bar]) {
       for (const direction of [-1, 1]) {
         await placePage();
-        await panel.evaluate((el, down) => { el.scrollTop = down ? el.scrollHeight : 0; }, direction > 0);
-        const box = (await panel.boundingBox())!;
-        await page.mouse.move(box.x + (overScrollbar ? box.width - 3 : box.width / 2), box.y + box.height / 2);
+        await list.evaluate((el, down) => { el.scrollTop = down ? el.scrollHeight : 0; }, direction > 0);
+        await expect.poll(async () => Math.abs(await list.evaluate((el) => el.scrollTop) - await bar.evaluate((el) => el.scrollTop))).toBeLessThanOrEqual(1);
+        await target.evaluate((el, down) => { el.scrollTop = down ? el.scrollHeight : 0; }, direction > 0);
+        const box = (await target.boundingBox())!;
+        await page.mouse.move(box.x + (target === bar ? box.width - 3 : box.width / 2), box.y + box.height / 2);
         const before = await page.evaluate(() => scrollY);
         await expect.poll(async () => {
           await page.mouse.wheel(0, direction * 100);
           return (await page.evaluate(() => scrollY) - before) * direction;
-        }, { message: `${view}: ${overScrollbar ? "scrollbar" : "content"}, ${direction > 0 ? "bottom" : "top"}` }).toBeGreaterThan(20);
-        await expect.poll(() => panel.evaluate((el, down) => down ? el.scrollHeight - el.clientHeight - el.scrollTop : el.scrollTop, direction > 0)).toBeLessThanOrEqual(1);
+        }, { message: `${view}: ${target === bar ? "scrollbar" : "content"}, ${direction > 0 ? "bottom" : "top"}` }).toBeGreaterThan(20);
+        await expect.poll(() => list.evaluate((el, down) => down ? el.scrollHeight - el.clientHeight - el.scrollTop : el.scrollTop, direction > 0)).toBeLessThanOrEqual(1);
       }
     }
   });

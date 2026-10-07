@@ -58,27 +58,39 @@ export function VersePanel({ translation, bookCode, chapter, label, onClose }: P
   }, [onClose]);
 
   return (
-    <ReferencePanel labelledBy="verse-panel-title">
-      <div className="mb-3 flex items-start justify-between gap-2">
-        <h2 id="verse-panel-title" ref={heading} tabIndex={-1} className="font-serif text-xl font-semibold outline-none">
-          {bookName} {chapter}:{label}
-        </h2>
-        <button type="button" onClick={onClose} className="rounded-full p-1.5 hover:bg-surface-2" aria-label="Close the verse panel">
-          <X className="h-5 w-5" />
-        </button>
-      </div>
-
-      <button
-        type="button"
-        onClick={() => setCompare((value) => !value)}
-        aria-expanded={compare}
-        className="mb-4 flex w-full items-center gap-2 rounded-lg border border-line px-3 py-2 text-sm hover:bg-surface-2"
-      >
-        <Layers className="h-4 w-4 text-accent" aria-hidden /> {compare ? "Hide" : "Show"} this verse in every version
-      </button>
+    <ReferencePanel
+      labelledBy="verse-panel-title"
+      scrollLabel={`Cross-references for ${bookName} ${chapter}:${label}`}
+      header={
+        <>
+          <div className="mb-3 flex items-start justify-between gap-2">
+            <h2 id="verse-panel-title" ref={heading} tabIndex={-1} className="font-serif text-xl font-semibold outline-none">
+              {bookName} {chapter}:{label}
+            </h2>
+            <button type="button" onClick={onClose} className="rounded-full p-1.5 hover:bg-surface-2" aria-label="Close the verse panel">
+              <X className="h-5 w-5" />
+            </button>
+          </div>
+          <button
+            type="button"
+            onClick={() => setCompare((value) => !value)}
+            aria-expanded={compare}
+            className="mb-2 flex w-full items-center gap-2 rounded-lg border border-line px-3 py-2 text-sm hover:bg-surface-2"
+          >
+            <Layers className="h-4 w-4 text-accent" aria-hidden /> {compare ? "Hide" : "Show"} this verse in every version
+          </button>
+        </>
+      }
+      footer={
+        <p className="text-[11px] text-muted">
+          Ordered by OpenBible.info readers' votes ({list.length ? "strongest first" : "none here"}). Cross references from OpenBible.info, CC-BY.
+        </p>
+      }
+    >
       {compare && <EveryVersion bookCode={bookCode} chapter={Number(chapter)} verse={verse} />}
 
-      <h3 className="mb-2 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-muted">
+      {/* Stays at the top of the scrolling list once the versions above it have scrolled away. */}
+      <h3 className="sticky top-0 z-10 -mx-4 mb-1 flex items-center gap-2 bg-surface px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-muted">
         <Link2 className="h-3.5 w-3.5" aria-hidden /> Cross-references {list.length > 0 && `· ${formatNumber(list.length)}`}
       </h3>
       {!inCanon && <p className="text-sm text-muted">The open cross-reference set covers the 66 books only, not the Apocrypha.</p>}
@@ -104,9 +116,7 @@ export function VersePanel({ translation, bookCode, chapter, label, onClose }: P
           Show more ({formatNumber(list.length - shown)} left)
         </button>
       )}
-      <p className="mt-4 text-[11px] text-muted">
-        Ordered by OpenBible.info readers' votes ({list.length ? "strongest first" : "none here"}). Cross references from OpenBible.info, CC-BY.
-      </p>
+      <div className="h-4" aria-hidden />
     </ReferencePanel>
   );
 }
