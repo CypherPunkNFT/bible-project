@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { categoryStyle, FAMILY_EYEBROW, groupIcon, TOPIC_SECTIONS } from "@/lib/topic-style";
 import { categoryUrl, matchTopics, placeOf, topicUrl, type TopicCategory, type TopicIndex } from "@/lib/topics";
 import { formatNumber } from "@/lib/utils";
+import { MeaningPrompt } from "@/components/search/MeaningPrompt";
 import { TopicsArtwork } from "./TopicsArtwork";
 import { useEqualCardHeights } from "./useEqualCardHeights";
 import { morph, orderedFamilies, tint } from "./topics-shared";
@@ -78,6 +79,7 @@ export function TopicsHome({ index }: { index: TopicIndex }) {
             <h1>Every subject.<br /><em>Every verse.</em></h1>
             <p>{formatNumber(Object.keys(topics).length)} topics in {categories.length} families and {groups} groups, each with the passages that speak to it.</p>
             <label className="topics-finder"><Search size={18} aria-hidden /><span className="sr-only">Find a topic</span><input value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Find a topic: grace, prayer, the Sabbath, lions…" /></label>
+            <MeaningPrompt query={query} className="mt-3 max-w-[34rem]" />
             {!query && popular.length > 0 && <p className="topics-popular"><span>Popular</span>{popular.map((id) => <Link key={id} to={topicUrl(id)}>{topics[id].title}</Link>)}</p>}
           </div>
           <div className="topics-intro-emblem" aria-hidden><BookOpenText strokeWidth={.65} /><span>SUBJECT · PASSAGE · VERSE</span></div>
