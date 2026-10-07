@@ -16,6 +16,20 @@ const foundational = [
   ["OpenStreetMap contributors", "Atlas map", "Land, water, rivers and borders of the atlas, from OpenStreetMap data (ODbL) packaged by Protomaps; modern roads and towns are left out.", "https://www.openstreetmap.org/copyright"],
   ["NASA & Natural Earth", "Atlas preview imagery & outlines", "Blue Marble imagery and public-domain map outlines used in atlas previews.", "https://earthobservatory.nasa.gov/features/BlueMarble"],
 ];
+// Downloaded 2026-10-07 and listed in SOURCES.md ("Reference library"); each use is planned in REFERENCE_LIBRARY.md.
+// [name, kind, planned use, licence, publisher link]
+const referenceLibrary = [
+  ["James Orr (ed.)", "International Standard Bible Encyclopedia · 1915", "About 9,000 scholarly articles: the in-depth article planned for person, place and topic pages.", "Public domain · CrossWire edition", "https://www.crosswire.org/sword/modules/ModInfo.jsp?modName=ISBE"],
+  ["Robert Rouse", "Theographic Bible Metadata", "People, places, events, periods and dates linked to verses: dates and events for person pages and a timeline.", "CC BY-SA 4.0 · credit and share alike", "https://github.com/robertrouse/theographic-bible-metadata"],
+  ["Roswell D. Hitchcock", "Bible Names Dictionary · 1869", "The meanings of about 2,500 Bible names, for person and place pages.", "Public domain · CCEL edition", "https://ccel.org/ccel/hitchcock/bible_names"],
+  ["OpenBible.info", "Topical Bible", "Modern topics with verses ranked by reader votes, beside Torrey's and Nave's headings. Verse references only.", "CC BY · credit OpenBible.info", "https://www.openbible.info/topics/"],
+  ["William Smith", "Smith's Bible Dictionary · 1863/1884", "A second classic dictionary voice on person, place and topic pages.", "Public domain · CCEL edition", "https://ccel.org/ccel/smith_w/bibledict"],
+  ["A. R. Fausset", "Bible Encyclopaedia and Dictionary · 1900", "A third classic dictionary voice, once its scanned text is cleaned.", "Public domain · Internet Archive scan", "https://archive.org/details/bibleencyclopedi0000arfa_c4x1"],
+  ["James Strong", "Hebrew & Greek dictionaries", "Word studies keyed to the Strong's numbers in the King James text.", "Public domain · Open Scriptures edition", "https://github.com/openscriptures/strongs"],
+  ["Brown, Driver & Briggs", "Hebrew and English Lexicon · 1906", "Hebrew word studies, keyed to Strong's numbers.", "Text public domain · edition CC BY 4.0, Open Scriptures", "https://github.com/openscriptures/HebrewLexicon"],
+  ["Joseph Henry Thayer", "Greek-English Lexicon of the New Testament · 1889", "Greek word studies, once its scanned text is cleaned.", "Public domain · Internet Archive scan", "https://archive.org/details/thayer-lexicon"],
+  ["Flavius Josephus", "Antiquities · Wars · Life · Against Apion (tr. Whiston)", "First-century history beside person and place pages, labelled as history, not Scripture.", "Public domain in the US · Project Gutenberg", "https://www.gutenberg.org/ebooks/2848"],
+];
 const research = [
   ["Spurgeon’s published sermons", "spurgeon"], ["Reformation & Puritan preaching", "puritan-sermons"],
   ["Historic preaching", "historic-preaching"], ["Modern preaching", "modern-preaching"],
@@ -65,12 +79,14 @@ export function SourceDirectory({ scriptureCount }: { scriptureCount: number }) 
     </header>
 
     <nav aria-label="Source directory" className="my-7 flex flex-wrap gap-2 text-sm">
-      {[["scriptures", "Scriptures"], ["collections", "Collections"], ["foundations", "Study & atlas"], ["bibliography", "Bibliography"], ["research", "Research guides"], ["repositories", "Libraries & ministries"]].map(([id, label]) => <a key={id} href={`#${id}`} className="rounded-full border border-line px-4 py-2 hover:border-accent hover:text-accent">{label}</a>)}
+      {[["scriptures", "Scriptures"], ["collections", "Collections"], ["foundations", "Study & atlas"], ["reference-library", "Reference library"], ["bibliography", "Bibliography"], ["research", "Research guides"], ["repositories", "Libraries & ministries"]].map(([id, label]) => <a key={id} href={`#${id}`} className="rounded-full border border-line px-4 py-2 hover:border-accent hover:text-accent">{label}</a>)}
     </nav>
 
     <CorpusDashboard directory={directory} />
 
     <section id="foundations" className="scroll-mt-24 py-8"><h2 className="font-serif text-3xl">Behind the reader, study tables & atlas.</h2><div className="mt-6 grid gap-x-8 sm:grid-cols-2 lg:grid-cols-3">{foundational.map(([name, kind, description, url]) => <article key={name} className="border-t border-line py-5"><p className="text-[11px] uppercase tracking-widest text-accent">{kind}</p><h3 className="mt-2 font-serif text-xl"><a href={url} className="hover:underline">{name} <ArrowUpRight className="inline h-3.5 w-3.5" aria-hidden /></a></h3><p className="mt-2 text-sm leading-relaxed text-muted">{description}</p></article>)}</div><p className="text-sm text-muted">The Gospel portraits, reading-chart groupings and approved Names of God selection also include original editorial work by this project. <a href={`${repo}SOURCES.md`} className="text-accent underline">Detailed credits, editions & source ledger</a></p></section>
+
+    <section id="reference-library" className="scroll-mt-24 py-8"><h2 className="font-serif text-3xl">The reference library.</h2><p className="mt-2 max-w-3xl text-sm leading-relaxed text-muted">Respected reference works gathered for the person, place, topic and word pages to come. Each is held as downloaded, with its licence and checksum in the source ledger, and will be credited on every page that uses it.</p><div className="mt-6 grid gap-x-8 sm:grid-cols-2 lg:grid-cols-3">{referenceLibrary.map(([name, kind, use, licence, url]) => <article key={kind} className="border-t border-line py-5"><p className="text-[11px] uppercase tracking-widest text-accent">{kind}</p><h3 className="mt-2 font-serif text-xl"><a href={url} className="hover:underline">{name} <ArrowUpRight className="inline h-3.5 w-3.5" aria-hidden /></a></h3><p className="mt-2 text-sm leading-relaxed text-muted">{use}</p><p className="mt-2 text-xs text-muted">{licence}</p></article>)}</div><p className="text-sm text-muted">Planned, not yet shown on the site. <a href={`${repo}SOURCES.md`} className="text-accent underline">Source ledger: editions, licences & checksums</a></p></section>
 
     <section id="bibliography" className="scroll-mt-24 py-8">
       <div className="flex flex-wrap items-baseline justify-between gap-3"><h2 className="font-serif text-3xl">The bibliography.</h2><span className="text-sm text-muted">{matches.length.toLocaleString()} matching records</span></div>
