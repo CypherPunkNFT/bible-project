@@ -42,10 +42,11 @@ const STYLE: Record<string, { icon: LucideIcon; tone: string }> = {
 
 /** The families gathered into sections for the Topics home, in reading order. */
 export const TOPIC_SECTIONS: { id: string; title: string; description: string; categories: string[] }[] = [
-  { id: "god-and-his-word", title: "God and his word", description: "Who God is, the person and work of Christ, the Scriptures, and the people he gathers.", categories: ["god", "christ", "scripture", "church"] },
+  { id: "god-and-his-word", title: "God and his word", description: "Who God is, how he speaks in Scripture, and the pictures and patterns that point to Christ.", categories: ["god", "scripture", "symbols"] },
+  { id: "jesus-and-his-church", title: "Jesus and his church", description: "The person and work of Christ, the people around him and the first believers, and the church he gathers.", categories: ["christ", "people-nt", "church"] },
   { id: "sin-and-salvation", title: "Sin, salvation and the life to come", description: "What went wrong, how God puts it right, how the saved now live, and what lies beyond death.", categories: ["sin", "salvation", "christian-life", "last-things"] },
-  { id: "worship-and-religion", title: "Worship, symbols and other gods", description: "The worship God gave Israel, the pictures that point to Christ, and the gods of the nations.", categories: ["worship-in-israel", "symbols", "religions"] },
-  { id: "people-of-the-bible", title: "People of the Bible", description: "Patriarchs, kings, prophets, apostles and women of faith, and every name in the family lists.", categories: ["people-early", "people-kings", "people-prophets", "people-nt", "people-women", "people-nations", "people-genealogies"] },
+  { id: "worship-and-religion", title: "Worship and other gods", description: "The worship God gave Israel, and the gods and practices of the nations.", categories: ["worship-in-israel", "religions"] },
+  { id: "people-of-the-bible", title: "People of the Bible", description: "Patriarchs, kings, prophets and women of faith, the rulers of the nations, and every name in the family lists.", categories: ["people-early", "people-kings", "people-prophets", "people-women", "people-nations", "people-genealogies"] },
   { id: "places-of-the-bible", title: "Places of the Bible", description: "The nations and tribes, every city and town, and the mountains, waters and wildernesses of the story.", categories: ["peoples", "places-cities", "places-landscape"] },
   { id: "life-in-the-world", title: "Life in the Bible's world", description: "Home, work and government, war and health, music and learning, and the creatures of everyday life.", categories: ["society", "home-life", "trades", "war", "health", "learning", "creation"] },
 ];

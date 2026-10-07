@@ -49,7 +49,6 @@ export function TopicsHome({ index }: { index: TopicIndex }) {
   ].filter((row) => row.families.length > 0);
   const order = orderedFamilies(index).map((c) => c.id);
   const startOf = (row: Row) => order.indexOf(row.families[0].id) + 1;
-  const wide = rows.filter((row) => row.families.length > 2), pairs = rows.filter((row) => row.families.length <= 2);
 
   return (
     <div className="topics-collection mx-auto max-w-7xl px-4 sm:px-6">
@@ -86,8 +85,7 @@ export function TopicsHome({ index }: { index: TopicIndex }) {
           </section>
         ) : (
           <div className="topics-rows">
-            {wide.map((row) => <SectionRow key={row.id} row={row} number={rows.indexOf(row) + 1} start={startOf(row)} index={index} />)}
-            {pairs.length > 0 && <div className="topics-pair-row">{pairs.map((row) => <SectionRow key={row.id} row={row} number={rows.indexOf(row) + 1} start={startOf(row)} index={index} />)}</div>}
+            {rows.map((row, i) => <SectionRow key={row.id} row={row} number={i + 1} start={startOf(row)} index={index} />)}
           </div>
         )}
 

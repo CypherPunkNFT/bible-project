@@ -11,8 +11,8 @@ test("the way in: the menu leads to the topic families, a family to its groups, 
   await expect(page.getByRole("heading", { name: /Sin, salvation and the life to come/ })).toBeVisible();
   await page.getByRole("link", { name: "God", exact: true }).click();
   await expect(page).toHaveURL(/\/topics\/c\/god$/);
-  await expect(page.getByRole("navigation", { name: "Topic sections" }).getByRole("link")).toHaveCount(6);
-  await expect(page.getByRole("navigation", { name: "Families in God and his word" }).getByRole("link")).toHaveCount(4);
+  await expect(page.getByRole("navigation", { name: "Topic sections" }).getByRole("link")).toHaveCount(7);
+  await expect(page.getByRole("navigation", { name: "Families in God and his word" }).getByRole("link")).toHaveCount(3);
   await page.getByRole("button", { name: "Attributes of God" }).click();
   await expect(page).toHaveURL(/group=attributes-of-god/);
   await page.getByRole("link", { name: /^The Love of God/ }).click();
