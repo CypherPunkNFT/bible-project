@@ -33,6 +33,29 @@ function SectionRow({ row, number, start }: { row: Row; number: number; start: n
   );
 }
 
+function sectionRows(categories: TopicCategory[]): Row[] {
+  const byId = new Map(categories.map((c) => [c.id, c]));
+  const placed = new Set(TOPIC_SECTIONS.flatMap((s) => s.categories));
+  return [
+    ...TOPIC_SECTIONS.map((s) => ({ ...s, families: s.categories.flatMap((id) => byId.get(id) ?? []) })),
+    { id: "more", title: "More topics", description: "Families not yet placed in a section.", families: categories.filter((c) => !placed.has(c.id)) },
+  ].filter((row) => row.families.length > 0);
+}
+
+/** The topic sections and their families as illustrated cards: the body of the Topics home, and shown on the Search page too. */
+export function TopicSectionRows({ index }: { index: TopicIndex }) {
+  const rows = sectionRows(index.categories);
+  const order = orderedFamilies(index).map((c) => c.id);
+  const startOf = (row: Row) => order.indexOf(row.families[0].id) + 1;
+  const wide = rows.filter((row) => row.families.length > 2), pairs = rows.filter((row) => row.families.length <= 2);
+  return (
+    <div className="topics-rows">
+      {wide.map((row) => <SectionRow key={row.id} row={row} number={rows.indexOf(row) + 1} start={startOf(row)} />)}
+      {pairs.length > 0 && <div className="topics-pair-row">{pairs.map((row) => <SectionRow key={row.id} row={row} number={rows.indexOf(row) + 1} start={startOf(row)} />)}</div>}
+    </div>
+  );
+}
+
 /** Topics home, in the Atlas collection's style: the twelve families as illustrated cards in four sections. */
 export function TopicsHome({ index }: { index: TopicIndex }) {
   const [query, setQuery] = useState("");
@@ -41,15 +64,6 @@ export function TopicsHome({ index }: { index: TopicIndex }) {
   const groups = categories.reduce((n, c) => n + c.subcategories.length, 0);
   const popular = POPULAR.filter((id) => topics[id]);
 
-  const byId = new Map(categories.map((c) => [c.id, c]));
-  const placed = new Set(TOPIC_SECTIONS.flatMap((s) => s.categories));
-  const rows: Row[] = [
-    ...TOPIC_SECTIONS.map((s) => ({ ...s, families: s.categories.flatMap((id) => byId.get(id) ?? []) })),
-    { id: "more", title: "More topics", description: "Families not yet placed in a section.", families: categories.filter((c) => !placed.has(c.id)) },
-  ].filter((row) => row.families.length > 0);
-  const order = orderedFamilies(index).map((c) => c.id);
-  const startOf = (row: Row) => order.indexOf(row.families[0].id) + 1;
-  const wide = rows.filter((row) => row.families.length > 2), pairs = rows.filter((row) => row.families.length <= 2);
 
   return (
     <div className="topics-collection mx-auto max-w-7xl px-4 sm:px-6">
@@ -78,10 +92,7 @@ export function TopicsHome({ index }: { index: TopicIndex }) {
             </ul>
           </section>
         ) : (
-          <div className="topics-rows">
-            {wide.map((row) => <SectionRow key={row.id} row={row} number={rows.indexOf(row) + 1} start={startOf(row)} />)}
-            {pairs.length > 0 && <div className="topics-pair-row">{pairs.map((row) => <SectionRow key={row.id} row={row} number={rows.indexOf(row) + 1} start={startOf(row)} />)}</div>}
-          </div>
+          <TopicSectionRows index={index} />
         )}
 
         <div className="topics-note"><span><BookOpen size={16} aria-hidden />Topics, points and references: R. A. Torrey, The New Topical Textbook (1897), public domain. Families and groups by the Bible Project.</span><Link to="/search">Search everything <ArrowUpRight size={14} aria-hidden /></Link></div>
