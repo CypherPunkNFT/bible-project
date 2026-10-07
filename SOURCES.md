@@ -246,3 +246,142 @@ The [ready-text batch report](content/library/reports/historical-text-corpora/RE
 **Library-wide follow-up:** [Verified text-source audit](content/library/reports/text-backlog/REPORT.md) replaces the format-only transcription queue. Seventy-six of 77 PDF candidates have substantial existing text in sampled pages; the other has an existing alternate-edition transcription. Sixty-three complete, source-offered CCEL ThML files were acquired with original hashes and restricted-license asset records, including all 45 Calvin commentary volumes. [Manifest](content/library/reports/text-backlog/ready-text-acquisition-manifest.json) and [source decisions](content/library/reports/text-backlog/text-resolutions.json) retain direct text URLs, edition cautions, partial-source findings and unresolved authorized free-text access. No new OCR or public republication occurred.
 
 Seven complete CCEL ThML transcriptions acquired: Owen's *Mortification* and *Temptation*, Ryle's *Holiness*, Watson's *Lord's Prayer*, Boston's *Crook in the Lot*, Flavel's *Keeping the Heart*, and Gill's *Practical Divinity*. See [bibliography and reading index](content/library/reports/pastoral-care/REPORT.md) and [immutable acquisition manifest](content/library/reports/pastoral-care/acquisition-manifest.json). CCEL's [permissions](https://www.ccel.org/about/copyright.html) govern electronic packaging; personal/educational acquisition is not public redistribution clearance. Six prior work/edition identities are reused. The previously acquired 1813 Flavel *Token for Mourners* PDF/OCR is [deferred](content/library/reports/pastoral-care/deferred-pdfs.json), not counted as a reliable transcription. Prioritize existing readable text; avoid further OCR/scan processing unless requested.
+
+<!-- RB01 sources:start -->
+
+## RB01 Baptist doctrinal and confessional acquisition (2026-10-07)
+
+**Actual private holdings:** 121 verified originals (103 HTML, 17 PDF, one JSON); six wholly new historical works, completion of Dagg Part I, 18 selected Founders issue records, one editorial comparison document. [Mission report](content/library/reports/reformed-baptist-overnight/RB01/REPORT.md), [full provenance/hash ledger](content/library/reports/reformed-baptist-overnight/RB01/acquisition-manifest.json), [32-chapter explanation map](content/library/reports/reformed-baptist-overnight/RB01/exposition-coverage.json), [admission decisions](content/library/reports/reformed-baptist-overnight/RB01/admission-decisions.json), [rights and intake scope](content/library/reports/reformed-baptist-overnight/RB01/intake-scope.json). Downloaded and readable, not newly embedded.
+
+Dagg: complete offered Part I and Church Order. New Philadelphia (34 chapters), distinct First London witnesses, Cox appendix, Beddome exposition (114 units / 2,611 nested Q&A), Collins Orthodox Catechism (152 questions). Founders: 16 full offered PDFs plus complete HTML article sets for 117/119; not 18 complete print issues. Boyce, Gill and existing 1689/Baptist Catechism holdings reused. Editorial composites, uncertain dates, modern chapter expansions and incidental reviews retain their labels. Historic text/public reading does not imply public republication clearance; no raw bodies hosted.
+
+<details>
+<summary>Every acquired original and its source (121 files)</summary>
+
+| Work/component as acquired | Exact source URL | Format / completeness |
+|---|---|---|
+| Manual of Theology, Part I: Preface | [Source](https://www.reformedreader.org/rbb/dagg/motp.htm) | html · component-of-complete-offered-witness |
+| Manual of Theology, Part I: The Obligation | [Source](https://www.reformedreader.org/rbb/dagg/motb1c1.htm) | html · component-of-complete-offered-witness |
+| Manual of Theology, Part I: Sources of Knowledge | [Source](https://www.reformedreader.org/rbb/dagg/motb1c2.htm) | html · component-of-complete-offered-witness |
+| Manual of Theology, Part I: Appendix-Origin and Authority of the Bible | [Source](https://www.reformedreader.org/rbb/dagg/motb1ap.htm) | html · component-of-complete-offered-witness |
+| Manual of Theology, Part I: Duty of Love to God | [Source](https://www.reformedreader.org/rbb/dagg/motb2i.htm) | html · component-of-complete-offered-witness |
+| Manual of Theology, Part I: Existence of God | [Source](https://www.reformedreader.org/rbb/dagg/motb2c1.htm) | html · component-of-complete-offered-witness |
+| Manual of Theology, Part I: Attributes of God | [Source](https://www.reformedreader.org/rbb/dagg/motb2c2.htm) | html · component-of-complete-offered-witness |
+| Manual of Theology, Part I: Conclusion | [Source](https://www.reformedreader.org/rbb/dagg/motb2c.htm) | html · component-of-complete-offered-witness |
+| Manual of Theology, Part I: Duty of Delighting in the Will and Works of God | [Source](https://www.reformedreader.org/rbb/dagg/motb3i.htm) | html · component-of-complete-offered-witness |
+| Manual of Theology, Part I: Will of God | [Source](https://www.reformedreader.org/rbb/dagg/motb3c1.htm) | html · component-of-complete-offered-witness |
+| Manual of Theology, Part I: Creation | [Source](https://www.reformedreader.org/rbb/dagg/motb3c2.htm) | html · component-of-complete-offered-witness |
+| Manual of Theology, Part I: Providence | [Source](https://www.reformedreader.org/rbb/dagg/motb3c3.htm) | html · component-of-complete-offered-witness |
+| Manual of Theology, Part I: Conclusion | [Source](https://www.reformedreader.org/rbb/dagg/motb3c.htm) | html · component-of-complete-offered-witness |
+| Manual of Theology, Part I: Duty of Repentance | [Source](https://www.reformedreader.org/rbb/dagg/motb4i.htm) | html · component-of-complete-offered-witness |
+| Manual of Theology, Part I: Original State of Man | [Source](https://www.reformedreader.org/rbb/dagg/motb4c1.htm) | html · component-of-complete-offered-witness |
+| Manual of Theology, Part I: The Fall | [Source](https://www.reformedreader.org/rbb/dagg/motb4c2.htm) | html · component-of-complete-offered-witness |
+| Manual of Theology, Part I: Man's Present State | [Source](https://www.reformedreader.org/rbb/dagg/motb4c3.htm) | html · component-of-complete-offered-witness |
+| Manual of Theology, Part I: Conclusion | [Source](https://www.reformedreader.org/rbb/dagg/motb4c.htm) | html · component-of-complete-offered-witness |
+| Manual of Theology, Part I: Duty of Believing in Jesus Christ | [Source](https://www.reformedreader.org/rbb/dagg/motb5i.htm) | html · component-of-complete-offered-witness |
+| Manual of Theology, Part I: Person of Christ | [Source](https://www.reformedreader.org/rbb/dagg/motb5c1.htm) | html · component-of-complete-offered-witness |
+| Manual of Theology, Part I: States of Christ | [Source](https://www.reformedreader.org/rbb/dagg/motb5c2.htm) | html · component-of-complete-offered-witness |
+| Manual of Theology, Part I: Offices of Christ | [Source](https://www.reformedreader.org/rbb/dagg/motb5c3.htm) | html · component-of-complete-offered-witness |
+| Manual of Theology, Part I: Conclusion | [Source](https://www.reformedreader.org/rbb/dagg/motb5c.htm) | html · component-of-complete-offered-witness |
+| Manual of Theology, Part I: Duty of Living and Walking in the Holy Spirit | [Source](https://www.reformedreader.org/rbb/dagg/motb6i.htm) | html · component-of-complete-offered-witness |
+| Manual of Theology, Part I: Personality of the Holy Spirit | [Source](https://www.reformedreader.org/rbb/dagg/motb6c1.htm) | html · component-of-complete-offered-witness |
+| Manual of Theology, Part I: The Divinity of the Holy Spirit | [Source](https://www.reformedreader.org/rbb/dagg/motb6c2.htm) | html · component-of-complete-offered-witness |
+| Manual of Theology, Part I: Office of the Holy Spirit | [Source](https://www.reformedreader.org/rbb/dagg/motb6c3.htm) | html · component-of-complete-offered-witness |
+| Manual of Theology, Part I: Conclusion | [Source](https://www.reformedreader.org/rbb/dagg/motb6c.htm) | html · component-of-complete-offered-witness |
+| Manual of Theology, Part I: Duty of Gratitute for Divine Grace | [Source](https://www.reformedreader.org/rbb/dagg/motb7i.htm) | html · component-of-complete-offered-witness |
+| Manual of Theology, Part I: The Trinity | [Source](https://www.reformedreader.org/rbb/dagg/motb7c1.htm) | html · component-of-complete-offered-witness |
+| Manual of Theology, Part I: Covenant of Grace | [Source](https://www.reformedreader.org/rbb/dagg/motb7c2.htm) | html · component-of-complete-offered-witness |
+| Manual of Theology, Part I: Blessings of Grace | [Source](https://www.reformedreader.org/rbb/dagg/motb7c3.htm) | html · component-of-complete-offered-witness |
+| Manual of Theology, Part I: Sovereignty of Grace | [Source](https://www.reformedreader.org/rbb/dagg/motb7c4.htm) | html · component-of-complete-offered-witness |
+| Manual of Theology, Part I: Conclusion | [Source](https://www.reformedreader.org/rbb/dagg/motb7c.htm) | html · component-of-complete-offered-witness |
+| Manual of Theology, Part I: Duty of Preparing for the Future World | [Source](https://www.reformedreader.org/rbb/dagg/motb8i.htm) | html · component-of-complete-offered-witness |
+| Manual of Theology, Part I: Immortality and Separate State of the Soul | [Source](https://www.reformedreader.org/rbb/dagg/motb8c1.htm) | html · component-of-complete-offered-witness |
+| Manual of Theology, Part I: Resurrection | [Source](https://www.reformedreader.org/rbb/dagg/motb8c2.htm) | html · component-of-complete-offered-witness |
+| Manual of Theology, Part I: The Last Judgment | [Source](https://www.reformedreader.org/rbb/dagg/motb8c3.htm) | html · component-of-complete-offered-witness |
+| Manual of Theology, Part I: Heaven | [Source](https://www.reformedreader.org/rbb/dagg/motb8c4.htm) | html · component-of-complete-offered-witness |
+| Manual of Theology, Part I: Hell | [Source](https://www.reformedreader.org/rbb/dagg/motb8c5.htm) | html · component-of-complete-offered-witness |
+| Manual of Theology, Part I: Conclusion | [Source](https://www.reformedreader.org/rbb/dagg/motb8c.htm) | html · component-of-complete-offered-witness |
+| Philadelphia Confession: Of the Holy Scriptures | [Source](https://www.reformedreader.org/ccc/pc01.htm) | html · component-of-complete-offered-witness |
+| Philadelphia Confession: Of God and the Holy Trinity | [Source](https://www.reformedreader.org/ccc/pc02.htm) | html · component-of-complete-offered-witness |
+| Philadelphia Confession: Of God's Decree | [Source](https://www.reformedreader.org/ccc/pc03.htm) | html · component-of-complete-offered-witness |
+| Philadelphia Confession: Of Creation | [Source](https://www.reformedreader.org/ccc/pc04.htm) | html · component-of-complete-offered-witness |
+| Philadelphia Confession: Of Divine Providence | [Source](https://www.reformedreader.org/ccc/pc05.htm) | html · component-of-complete-offered-witness |
+| Philadelphia Confession: Of the Fall of Man, of Sin, and of the Punishment Thereof | [Source](https://www.reformedreader.org/ccc/pc06.htm) | html · component-of-complete-offered-witness |
+| Philadelphia Confession: Of God's Covenant | [Source](https://www.reformedreader.org/ccc/pc07.htm) | html · component-of-complete-offered-witness |
+| Philadelphia Confession: Of Christ the Mediator | [Source](https://www.reformedreader.org/ccc/pc08.htm) | html · component-of-complete-offered-witness |
+| Philadelphia Confession: Of Free Will | [Source](https://www.reformedreader.org/ccc/pc09.htm) | html · component-of-complete-offered-witness |
+| Philadelphia Confession: Of Effectual Calling | [Source](https://www.reformedreader.org/ccc/pc10.htm) | html · component-of-complete-offered-witness |
+| Philadelphia Confession: Of Justification | [Source](https://www.reformedreader.org/ccc/pc11.htm) | html · component-of-complete-offered-witness |
+| Philadelphia Confession: Of Adoption | [Source](https://www.reformedreader.org/ccc/pc12.htm) | html · component-of-complete-offered-witness |
+| Philadelphia Confession: Of Sanctification | [Source](https://www.reformedreader.org/ccc/pc13.htm) | html · component-of-complete-offered-witness |
+| Philadelphia Confession: Of Saving Faith | [Source](https://www.reformedreader.org/ccc/pc14.htm) | html · component-of-complete-offered-witness |
+| Philadelphia Confession: Of Repentance Unto Life and Salvation | [Source](https://www.reformedreader.org/ccc/pc15.htm) | html · component-of-complete-offered-witness |
+| Philadelphia Confession: Of Good Works | [Source](https://www.reformedreader.org/ccc/pc16.htm) | html · component-of-complete-offered-witness |
+| Philadelphia Confession: Of the Perseverance of the Saints | [Source](https://www.reformedreader.org/ccc/pc17.htm) | html · component-of-complete-offered-witness |
+| Philadelphia Confession: Of the Assurance of Grace and Salvation | [Source](https://www.reformedreader.org/ccc/pc18.htm) | html · component-of-complete-offered-witness |
+| Philadelphia Confession: Of the Law of God | [Source](https://www.reformedreader.org/ccc/pc19.htm) | html · component-of-complete-offered-witness |
+| Philadelphia Confession: Of the Gospel and of the Extent of the Grace Thereof | [Source](https://www.reformedreader.org/ccc/pc20.htm) | html · component-of-complete-offered-witness |
+| Philadelphia Confession: Of Christian Liberty, and Liberty of Conscience | [Source](https://www.reformedreader.org/ccc/pc21.htm) | html · component-of-complete-offered-witness |
+| Philadelphia Confession: Of Religious Worship and the Sabbath Day | [Source](https://www.reformedreader.org/ccc/pc22.htm) | html · component-of-complete-offered-witness |
+| Philadelphia Confession: Of Singing of Psalms & etc. | [Source](https://www.reformedreader.org/ccc/pc23.htm) | html · component-of-complete-offered-witness |
+| Philadelphia Confession: Of Lawful Oaths and Vows | [Source](https://www.reformedreader.org/ccc/pc24.htm) | html · component-of-complete-offered-witness |
+| Philadelphia Confession: Of the Civil Magistrate | [Source](https://www.reformedreader.org/ccc/pc25.htm) | html · component-of-complete-offered-witness |
+| Philadelphia Confession: Of Marriage | [Source](https://www.reformedreader.org/ccc/pc26.htm) | html · component-of-complete-offered-witness |
+| Philadelphia Confession: Of the Church | [Source](https://www.reformedreader.org/ccc/pc27.htm) | html · component-of-complete-offered-witness |
+| Philadelphia Confession: Of the Communion of Saints | [Source](https://www.reformedreader.org/ccc/pc28.htm) | html · component-of-complete-offered-witness |
+| Philadelphia Confession: Of Baptism and the Lord's Supper | [Source](https://www.reformedreader.org/ccc/pc29.htm) | html · component-of-complete-offered-witness |
+| Philadelphia Confession: Of Baptism | [Source](https://www.reformedreader.org/ccc/pc30.htm) | html · component-of-complete-offered-witness |
+| Philadelphia Confession: Of Laying On of Hands | [Source](https://www.reformedreader.org/ccc/pc31.htm) | html · component-of-complete-offered-witness |
+| Philadelphia Confession: Of the Lord's Supper | [Source](https://www.reformedreader.org/ccc/pc32.htm) | html · component-of-complete-offered-witness |
+| Philadelphia Confession: Of the State of Man After Death, and of the Resurrection of the Dead | [Source](https://www.reformedreader.org/ccc/pc33.htm) | html · component-of-complete-offered-witness |
+| Philadelphia Confession: Of the Last Judgment | [Source](https://www.reformedreader.org/ccc/pc34.htm) | html · component-of-complete-offered-witness |
+| First London Confession (1644) | [Source](https://www.reformedreader.org/ccc/h.htm) | html · component-of-complete-offered-witness |
+| Baptist catechism data: Beddome exposition and Collins Orthodox Catechism | [Source](https://baptistcatechism.org/baptistcatechism-data.json) | json · complete-numbered-witnesses |
+| Appendix to a Confession of Faith (1646) | [Source](https://www.reformedreader.org/ccc/appendix.htm) | html · complete-offered-appendix |
+| First London Confession, second edition (1646) | [Source](https://www.romans45.org/creeds/bc1646.htm) | html · complete-offered-witness |
+| First London Comprehensive Edition: documentation of editorial decisions | [Source](https://www.london1644.info/documents/1LCF-EN-CompEd-Documentation-A4-Paper.pdf) | pdf · complete-offered-editorial-document |
+| A Scriptural Exposition of the Baptist Catechism (including preface) | [Source](https://baptistcatechism.org/beddome/) | html · complete-offered-witness |
+| Manual of Church Order – Appendix | [Source](https://founders.org/library/appendix/) | html · component-of-complete-offered-witness |
+| Manual of Church Order – Ch. 1 | [Source](https://founders.org/library/ch-1/) | html · component-of-complete-offered-witness |
+| Manual of Church Order – Ch. 10 | [Source](https://founders.org/library/ch-10/) | html · component-of-complete-offered-witness |
+| Manual of Church Order – Ch. 2 | [Source](https://founders.org/library/ch-2/) | html · component-of-complete-offered-witness |
+| Manual of Church Order – Ch. 3 | [Source](https://founders.org/library/ch-3/) | html · component-of-complete-offered-witness |
+| Manual of Church Order – Ch. 4 | [Source](https://founders.org/library/ch-4/) | html · component-of-complete-offered-witness |
+| Manual of Church Order – Ch. 5 | [Source](https://founders.org/library/ch-5/) | html · component-of-complete-offered-witness |
+| Manual of Church Order – Ch. 6 | [Source](https://founders.org/library/ch-6/) | html · component-of-complete-offered-witness |
+| Manual of Church Order – Ch. 7 | [Source](https://founders.org/library/ch-7/) | html · component-of-complete-offered-witness |
+| Manual of Church Order – Ch. 8 | [Source](https://founders.org/library/ch-8/) | html · component-of-complete-offered-witness |
+| Manual of Church Order – Ch. 9 | [Source](https://founders.org/library/ch-9/) | html · component-of-complete-offered-witness |
+| Manual of Church Order – Conclusion | [Source](https://founders.org/library/conclusion/) | html · component-of-complete-offered-witness |
+| Manual of Church Order – Introduction | [Source](https://founders.org/library/introduction/) | html · component-of-complete-offered-witness |
+| Manual of Church Order – Preface | [Source](https://founders.org/library/preface/) | html · component-of-complete-offered-witness |
+| Founders Journal: Scripture (Issue 104) Spring 2016 | [Source](https://founders.org/wp-content/uploads/2017/06/FoundersJournal104.pdf) | pdf · complete-offered-issue-file |
+| Founders Journal: Trinity (Issue 105) Summer 2016 | [Source](https://founders.org/wp-content/uploads/2016/10/FoundersJournal105.pdf) | pdf · complete-offered-issue-file |
+| Founders Journal: Decrees (Issue 106) Fall 2016 | [Source](https://founders.org/wp-content/uploads/2017/10/FoundersJournal106r.pdf) | pdf · complete-offered-issue-file |
+| Founders Journal: Creation and the Fall (107) Winter 2017 | [Source](https://founders.org/wp-content/uploads/2017/03/FoundersJournal107.pdf) | pdf · complete-offered-issue-file |
+| Founders Journal: Of Covenants and Mediators (Issue 108) Spring 2017 | [Source](https://founders.org/wp-content/uploads/2017/12/FoundersJournal108N.pdf) | pdf · complete-offered-issue-file |
+| Founders Journal: Freedom of the Will and Effectual Calling (Issue 109) Summer 2017 | [Source](https://founders.org/wp-content/uploads/2017/12/FoundersJournal109N.pdf) | pdf · complete-offered-issue-file |
+| Founders Journal: Justification (Issue 110) Fall 2017 | [Source](https://founders.org/wp-content/uploads/2017/10/FoundersJournal110.pdf) | pdf · complete-offered-issue-file |
+| Founders Journal: Adoption and Sanctification (Issue 111) Winter 2018 | [Source](https://founders.org/wp-content/uploads/2018/03/FoundersJournal111.pdf) | pdf · complete-offered-issue-file |
+| Founders Journal: Faith, Repentance, and Works (Issue 112) Spring 2018 | [Source](https://founders.org/wp-content/uploads/2018/06/FoundersJournal112.pdf) | pdf · complete-offered-issue-file |
+| Founders Journal: Perseverance of the Saints (Issue 113) Summer 2018 | [Source](https://founders.org/wp-content/uploads/2018/09/FoundersJournal113.pdf) | pdf · complete-offered-issue-file |
+| Founders Journal: Assurance of Grace and Salvation (Issue 114) Fall 2018 | [Source](https://founders.org/wp-content/uploads/2018/12/FoundersJournal109.pdf) | pdf · complete-offered-issue-file |
+| Founders Journal: Of the Law of God (Issue 115) Winter 2019 | [Source](https://founders.org/wp-content/uploads/2019/04/FoundersJournal115.pdf) | pdf · complete-offered-issue-file |
+| Founders Journal: The Gospel and Its Extent (Issue 116) Spring 2019 | [Source](https://founders.org/wp-content/uploads/2019/06/FoundersJournal116.pdf) | pdf · complete-offered-issue-file |
+| “By That Glorious and Dreadful Name” | [Source](https://founders.org/articles/by-that-glorious-and-dreadful-name/) | html · complete-offered-article |
+| Chapter 22: Biblically-Regulated Religious Worship | [Source](https://founders.org/articles/chapter-22-biblically-regulated-religious-worship/) | html · complete-offered-article |
+| Of Christian Liberty and Liberty of Conscience | [Source](https://founders.org/articles/of-christian-liberty-and-liberty-of-conscience/) | html · complete-offered-article |
+| The Puritans: A Transatlantic History | [Source](https://founders.org/articles/the-puritans-a-transatlantic-history/) | html · complete-offered-article |
+| Of Marriage: The 1689 Baptist Confession | [Source](https://founders.org/articles/of-marriage-the-1689-baptist-confession/) | html · complete-offered-article |
+| Religious Liberty: The Glory of Baptists | [Source](https://founders.org/articles/religious-liberty-the-glory-of-baptists/) | html · complete-offered-article |
+| Of the Civil Magistrate | [Source](https://founders.org/articles/of-the-civil-magistrate/) | html · complete-offered-article |
+| Founders Journal: Reforming Churches (Issue 121) Summer 2020 | [Source](https://founders.org/wp-content/uploads/2021/04/Founders-Journal-Issue-121-2020-Summer.pdf) | pdf · complete-offered-issue-file |
+| Founders Journal: Baptism and The Lord's Supper (Issue 122) Fall 2020 | [Source](https://founders.org/wp-content/uploads/2021/08/Founders-Journal-FULL-PLATE-2020-Fall-.pdf) | pdf · complete-offered-issue-file |
+| Founders Journal: Death, Resurrection and Judgment (Issue 123) Winter 2021 | [Source](https://founders.org/wp-content/uploads/2022/02/Founders-Journal-FULL-PLATE-2021-Winter.pdf) | pdf · complete-offered-issue-file |
+| First London Confession (1644), with preface and signatures | [Source](https://www.romans45.org/creeds/bc1644.htm) | html · complete-offered-witness |
+| Introduction to Summer Issue 2019 | [Source](https://founders.org/articles/introduction-to-summer-issue-2019/) | html · complete-offered-article |
+| Introduction: Of The Civil Magistrate and Religious Liberty | [Source](https://founders.org/articles/introduction-of-the-civil-magistrate-and-religious-liberty/) | html · complete-offered-article |
+
+</details>
+
+<!-- RB01 sources:end -->

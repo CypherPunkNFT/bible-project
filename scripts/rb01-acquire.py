@@ -29,7 +29,7 @@ UA = 'BibleProjectLibrary/1.0 (noncommercial personal research; source-preservin
 def write(path, value):
     path.parent.mkdir(parents=True, exist_ok=True)
     tmp = path.with_suffix(path.suffix + '.tmp')
-    tmp.write_text(json.dumps(value, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+    tmp.write_text(json.dumps(value, ensure_ascii=False, indent=2) + '\n', encoding='utf-8', newline='\n')
     tmp.replace(path)
 
 
@@ -79,7 +79,12 @@ def fetch(url, policy=False):
 
 
 def soup(raw):
-    return BeautifulSoup(raw, 'html.parser')
+    # Modern publishers can omit a charset declaration. Prefer valid UTF-8
+    # rather than letting the detector misread curly quotes as Windows-1252.
+    try:
+        return BeautifulSoup(raw.decode('utf-8'), 'html.parser')
+    except UnicodeDecodeError:
+        return BeautifulSoup(raw, 'html.parser')
 
 
 def extract(raw, target):
@@ -92,8 +97,8 @@ def extract(raw, target):
             el.decompose()
         text = node.get_text('\n', strip=True)
     elif target['format'] == 'pdf':
-        import fitz
-        with fitz.open(stream=raw, filetype='pdf') as doc:
+        import pymupdf
+        with pymupdf.open(stream=raw, filetype='pdf') as doc:
             text = '\n'.join(p.get_text() for p in doc)
     elif target['format'] == 'json' and target.get('includedPrefixes'):
         records = json.loads(raw)
@@ -186,10 +191,39 @@ def acquire():
 def verify():
     manifest = json.loads((REPORT / 'acquisition-manifest.json').read_text(encoding='utf-8'))
     for a in manifest['files']:
-        assert digest((SOURCES / a['relativePath']).read_bytes()) == a['sha256'], a['url']
+        original = SOURCES / a['relativePath']
+        assert digest(original.read_bytes()) == a['sha256'], a['url']
+        provenance = json.loads(original.with_name('provenance.json').read_text(encoding='utf-8'))
+        for field in ('url', 'finalUrl', 'sha256', 'byteCount', 'retrievedAt', 'title', 'author',
+                      'format', 'edition', 'completeness', 'rightsEvidence'):
+            assert provenance[field] == a[field], (a['url'], field)
         d = a['derivedText']
         assert digest((SITE / d['path']).read_bytes()) == d['sha256'], a['url']
+        assert provenance['derivedText']['sha256'] == d['sha256'], a['url']
     print('VERIFIED', len(manifest['files']), 'immutable originals and derivatives')
+
+
+def reextract():
+    """Rebuild private derivatives from unchanged originals; never fetch or rewrite bodies."""
+    path = REPORT / 'acquisition-manifest.json'
+    manifest = json.loads(path.read_text(encoding='utf-8'))
+    targets = {t['url']: t for t in json.loads((REPORT / 'targets.json').read_text(encoding='utf-8'))}
+    changed = 0
+    for a in manifest['files']:
+        original = SOURCES / a['relativePath']
+        raw = original.read_bytes()
+        assert digest(raw) == a['sha256'], a['url']
+        text = extract(raw, targets[a['url']])
+        output = SITE / a['derivedText']['path']
+        if output.read_text(encoding='utf-8') != text:
+            output.write_text(text, encoding='utf-8')
+            a['derivedText'].update(sha256=digest(output.read_bytes()),
+                                   wordCount=len(re.findall(r'\b[\w\x27-]+\b', text)))
+            a['derivedText']['quality'] = 'UTF-8 preferred, structural checks; not critical-edition collation'
+            write(original.with_name('provenance.json'), a)
+            changed += 1
+    write(path, manifest)
+    print('REEXTRACTED', changed, 'derivatives; all original hashes unchanged')
 
 
 def journals():
@@ -218,6 +252,8 @@ if __name__ == '__main__':
         acquire()
     elif sys.argv[1] == 'verify':
         verify()
+    elif sys.argv[1] == 'reextract':
+        reextract()
     elif sys.argv[1] == 'journals':
         journals()
     elif sys.argv[1] == 'inspect':

@@ -1,0 +1,31 @@
+{
+  "mission": "RB01",
+  "state": "bounded-acquisition-complete",
+  "closedAt": "2026-10-07T06:12:59.925023+00:00",
+  "clockAuditStart": "2026-10-07T05:21:24Z",
+  "timingNote": "Orientation/audit was already underway at first clock reading; approximately one hour including final review/documentation.",
+  "actualOriginalFiles": 121,
+  "logicalBibliographicRecords": 26,
+  "whollyNewHistoricWorks": 6,
+  "completedPreviouslyPartialWorks": [
+    "work-rb01-dagg-manual-theology"
+  ],
+  "pendingUrls": [],
+  "activeRB01Collector": false,
+  "imported": false,
+  "embedded": false,
+  "sourceRoot": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources",
+  "derivativeRoot": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\library\\run-rb01-2026-10-07\\text",
+  "exactNextActions": [
+    "RB02: read RB01 REPORT, bibliography, admission decisions and intake scopes before fetching. Reuse acquired Dagg Church Order, Cox appendix and 1689 ordinance exposition; reuse existing Coxe, Pink and Gill. Audit new Booth/Keach gaps.",
+    "If resuming RB01 itself, run the verification commands below first. There are no unfinished approved URLs to retry. New candidates need explicit reviewed targets and source policies.",
+    "Remaining RB01 research: authorized complete modern Waldron/Renihan explanations, exact printed-edition collation, independent source/contributor review and paragraph-level coverage (including justification 11:4-5).",
+    "After all 14 owner-authorized missions, follow the newer HANDOFF / knowledge/ACQUISITION-FOLLOWUP.md gate. Reconcile source-first identities and scopes before aggregate DB/vector import. This run did not start that import."
+  ],
+  "commands": [
+    "python -u -X utf8 scripts/rb01-acquire.py verify",
+    "python -u -X utf8 scripts/report-rb01.py",
+    "python -u -X utf8 scripts/rb01-acquire.py acquire"
+  ],
+  "commandNote": "Run from Website. Acquire is idempotent and currently has zero pending targets; it does not launch OCR or embedding."
+}

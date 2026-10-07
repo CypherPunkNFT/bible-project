@@ -1,0 +1,89 @@
+[
+  {
+    "assetId": "asset-l08-lbc-json",
+    "url": "https://raw.githubusercontent.com/NonlinearFruit/Creeds.json/2ae21a4c5387ecc91f474c9d3d67c826d2a6b9d5/creeds/london_baptist_1689.json",
+    "relativePath": "library/source-creeds-json/asset-l08-lbc-json/london_baptist_1689.json",
+    "sha256": "c0c499ff2b04e9bb34a9fd26127e79186ed87c24b941d9cc091a4ed7a3c5bf83",
+    "key": "lbc",
+    "verifiedExists": true,
+    "topLevelKeys": [
+      "Metadata",
+      "Data"
+    ],
+    "numberedUnits": 32
+  },
+  {
+    "assetId": "asset-l08-baptist-json",
+    "url": "https://raw.githubusercontent.com/NonlinearFruit/Creeds.json/2ae21a4c5387ecc91f474c9d3d67c826d2a6b9d5/creeds/1695_baptist_catechism.json",
+    "relativePath": "library/source-creeds-json/asset-l08-baptist-json/1695_baptist_catechism.json",
+    "sha256": "5e5c2416978b15f2a0605e1b1daa01420a5b101f823bbd13a0976299c66214d1",
+    "key": "baptist",
+    "verifiedExists": true,
+    "topLevelKeys": [
+      "Metadata",
+      "Data"
+    ],
+    "numberedUnits": 114
+  },
+  {
+    "assetId": "asset-l08-lbc-cc0-lbcf-json",
+    "url": "https://raw.githubusercontent.com/lwalen/lbcf/235da776742a7956ebb678ec236382813dbe2c33/lbcf.json",
+    "relativePath": "library/source-lwalen-lbcf/asset-l08-lbc-cc0-lbcf-json/lbcf.json",
+    "sha256": "7898f1dff259ee22d5e29cbcd19dd8374d26e6d138ea73db79c9a337ad071cef",
+    "key": "lbc-cc0-lbcf-json",
+    "verifiedExists": true,
+    "topLevelKeys": [
+      "title",
+      "chapters"
+    ],
+    "numberedUnits": 32
+  },
+  {
+    "assetId": "asset-l08-lbc-cc0-lbcf-with-scripture-refs-md",
+    "url": "https://raw.githubusercontent.com/lwalen/lbcf/235da776742a7956ebb678ec236382813dbe2c33/lbcf_with_scripture_refs.md",
+    "relativePath": "library/source-lwalen-lbcf/asset-l08-lbc-cc0-lbcf-with-scripture-refs-md/lbcf_with_scripture_refs.md",
+    "sha256": "5940782e930cd05230f240b7568a980f2cf34920629044d16eab8e7086afd301",
+    "key": "lbc-cc0-lbcf-with-scripture-refs-md",
+    "verifiedExists": true,
+    "chapterHeadings": 33
+  },
+  {
+    "assetId": "asset-expanded-986603d125b04ec6fc5b",
+    "title": "Second London Baptist Confession (existing Monergism EPUB)",
+    "relativePath": "library/source-monergism-library/asset-expanded-986603d125b04ec6fc5b/original.epub",
+    "sha256": "7e9cc3f427c5fdf85360872bc4317eeb65bf6e8267bd80aa9c19947a36d83db3",
+    "verifiedExists": true,
+    "epubMembers": [
+      {
+        "member": "OEBPS/Text/LBCF_split_000.htm",
+        "headings": []
+      },
+      {
+        "member": "OEBPS/Text/LBCF_split_001.htm",
+        "headings": []
+      },
+      {
+        "member": "OEBPS/Text/LBCF_split_002.htm",
+        "headings": []
+      },
+      {
+        "member": "OEBPS/Text/LBCF_split_003.htm",
+        "headings": []
+      },
+      {
+        "member": "titlepage.xhtml",
+        "headings": []
+      }
+    ],
+    "review": {
+      "forewordPresent": true,
+      "appendixPresent": true,
+      "baptismAppendixPresent": true,
+      "signatoriesPresent": true,
+      "concludingFinisPresent": true,
+      "decision": "Reuse existing complete offered witness; do not acquire appendix/signatures again."
+    },
+    "url": "https://www.monergism.com/thethreshold/sdg/baptists/London%20Baptist%20Confession.epub",
+    "sourcePage": "https://www.monergism.com/london-baptist-confession-faith-1689-ebook"
+  }
+]

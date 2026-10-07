@@ -1,5 +1,7 @@
 # Acquisition backlog
 
+**RB01 executed (2026-10-07):** [Verified acquisition and exact checkpoint](reports/reformed-baptist-overnight/RB01/REPORT.md): 121 readable originals, six new historical works, completed Dagg Part I, 18 selected Founders issue records and one editorial comparison. Boyce/Gill/1689 duplicates avoided. All chapter topics located; paragraph/edition/contributor review remains. No RB01 DB/embedding launch. RB02 should reuse Dagg Church Order, Cox appendix and ordinance explanations. Follow newer 14-mission aggregate-intake gate.
+
 **Recent-preacher book priorities (2026-10-05):** [65 missing-book tasks, five per author](reports/modern-texts/PRIORITY-MISSING-BOOKS.md), checked against actual held files, plus [nine bulk-source follow-ups](reports/modern-texts/BULK-TEXT-SOURCES.md). This extends L04/L07 and preserves existing mission states. Existing readable editions first; samples and same-title sermons do not complete a book task. These are planned acquisitions, not new downloaded books.
 
 **Latest ready-text gap batch (2026-10-05):** [Carey, Charnock and Hodge acquired as complete text; three existing Zwemer text layers extracted](reports/text-gap-batch/REPORT.md). Reuses the 63 acquired CCEL texts; no new OCR. Consult this manifest as well as the master inventory before repeating downloads.

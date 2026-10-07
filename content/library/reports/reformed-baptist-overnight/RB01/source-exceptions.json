@@ -1,0 +1,71 @@
+{
+  "reviewedAt": "2026-10-07T06:12:59.925023+00:00",
+  "issues": [
+    {
+      "id": "dagg-anchor",
+      "url": "https://www.reformedreader.org/rbb/dagg/motb3c3.htm#sec4",
+      "finding": "TOC anchor sec4 is missing; the body contains Moral Government under a duplicated sec3 anchor.",
+      "action": "Use the Book III/chapter III/section heading locator; never change original bytes."
+    },
+    {
+      "id": "first-london-rr-date",
+      "url": "https://www.reformedreader.org/ccc/h.htm",
+      "finding": "Page title calls this 1644, printed heading says 1646, and wording/omitted front matter do not establish a pure dated witness.",
+      "action": "Evidence-only uncertain witness. Use the distinct Romans45 1644 and 1646 transcriptions for dated comparisons."
+    },
+    {
+      "id": "first-london-1644-number",
+      "url": "https://www.romans45.org/creeds/bc1644.htm",
+      "finding": "All 52 article positions are present, but position 36 is labelled XXVI instead of XXXVI; article 43 also lacks the usual trailing period.",
+      "action": "Preserve the offered transcription. Use position plus heading/body locator and flag the numbering typo in comparisons."
+    },
+    {
+      "id": "first-london-composite",
+      "url": "https://www.london1644.info/documents/1LCF-EN-CompEd-Documentation-A4-Paper.pdf",
+      "finding": "2022 editorial composite and documentation combine historical versions and include an additional Lord's Supper article.",
+      "action": "Editorial comparison only; not an untouched 1644/1646 confession or the project's working doctrinal standard."
+    },
+    {
+      "id": "founders-106-toc",
+      "url": "https://founders.org/wp-content/uploads/2017/10/FoundersJournal106r.pdf",
+      "finding": "Contents labels Decree of God as chapter 7; editor introduction identifies chapters 3 and 5. Original 1689 chapter 7 is covenant.",
+      "action": "Map decree to 3 and providence to 5, retaining publisher typo as source evidence."
+    },
+    {
+      "id": "founders-113-cover",
+      "url": "https://founders.org/wp-content/uploads/2018/09/FoundersJournal113.pdf",
+      "finding": "Cover prints ISSUE 112 although publisher issue page and offered filename identify 113. Summer 2018 and perseverance contents differ from true Spring 2018 issue 112.",
+      "action": "Record publisher identity 113 with cover-number conflict; do not silently rewrite the cover."
+    },
+    {
+      "id": "founders-114-filename",
+      "url": "https://founders.org/wp-content/uploads/2018/12/FoundersJournal109.pdf",
+      "finding": "Offered filename is FoundersJournal109.pdf; cover and body identify Fall 2018, issue 114, Assurance.",
+      "action": "Keep exact source URL; catalogue as 114 with filename warning, not a duplicate of true issue 109."
+    },
+    {
+      "id": "founders-110-limits",
+      "url": "https://founders.org/wp-content/uploads/2017/10/FoundersJournal110.pdf",
+      "finding": "Editor explicitly omits separate discussion of justification paragraphs 4 and 5.",
+      "action": "Chapter coverage is substantial, not exhaustive paragraph coverage."
+    },
+    {
+      "id": "founders-117-119-format",
+      "url": "https://founders.org/journal/journal-22414/",
+      "finding": "No offered PDF found on reviewed issue 117/119 pages. Complete offered HTML articles acquired instead (4 and 5 respectively).",
+      "action": "Do not claim complete print issues; issue 119 includes one incidental book review, not a new complete book."
+    },
+    {
+      "id": "pdf-text-layer",
+      "url": "https://www.london1644.info/documents/1LCF-EN-CompEd-Documentation-A4-Paper.pdf",
+      "finding": "MuPDF warns about missing graphics resource a0; all 34 pages have substantial readable text. Other short pages are covers or final blank/header page.",
+      "action": "No OCR needed for this batch; graphics fidelity is not certified."
+    },
+    {
+      "id": "html-encoding",
+      "url": "https://founders.org/",
+      "finding": "Automatic charset detection misread some valid UTF-8. Private derivatives rebuilt from identical originals, preferring valid UTF-8.",
+      "action": "Final derivative hashes and word counts are in the manifest; original hashes remain unchanged."
+    }
+  ]
+}

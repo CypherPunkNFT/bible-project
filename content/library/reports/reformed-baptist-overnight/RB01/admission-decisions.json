@@ -1,0 +1,271 @@
+{
+  "review": {
+    "date": "2026-10-07",
+    "reviewer": "Codex",
+    "kind": "ai-assisted",
+    "scope": "Bounded acquisition/work-level admission; no global author-registry approval or independent human theological review"
+  },
+  "decisions": [
+    {
+      "author": "John Leadley Dagg",
+      "workIds": [
+        "work-rb01-dagg-manual-theology",
+        "work-rb01-dagg-church-order"
+      ],
+      "decision": "admit-selected-historical-Baptist-teaching",
+      "evidence": [
+        {
+          "url": "https://www.reformedreader.org/rbb/dagg/motb1c2.htm",
+          "locator": "Book I, chapter II",
+          "finding": "Scripture as the authoritative source of religious knowledge",
+          "checkedOn": "2026-10-07"
+        },
+        {
+          "url": "https://www.reformedreader.org/rbb/dagg/motb7c1.htm",
+          "locator": "Book VII, chapter I",
+          "finding": "Father, Son and Holy Spirit: distinct persons, one divine essence",
+          "checkedOn": "2026-10-07"
+        },
+        {
+          "url": "https://www.reformedreader.org/rbb/dagg/motb5c1.htm",
+          "locator": "Book V, chapter I, sections 1-3",
+          "finding": "Christ is truly human and divine, united in one person",
+          "checkedOn": "2026-10-07"
+        },
+        {
+          "url": "https://www.reformedreader.org/rbb/dagg/motb5c3.htm",
+          "locator": "Book V, chapter III, Priest",
+          "finding": "Christ sacrifices himself and satisfies divine justice",
+          "checkedOn": "2026-10-07"
+        },
+        {
+          "url": "https://www.reformedreader.org/rbb/dagg/motb7c3.htm#sec2",
+          "locator": "Book VII, chapter III, Justification",
+          "finding": "Grace, Christ's righteousness and justification received by faith",
+          "checkedOn": "2026-10-07"
+        },
+        {
+          "url": "https://www.reformedreader.org/rbb/dagg/motb8c2.htm",
+          "locator": "Book VIII, chapter II",
+          "finding": "Resurrection of the body",
+          "checkedOn": "2026-10-07"
+        }
+      ],
+      "limits": [
+        "Part I (1857) and Part II (1858) remain distinct works/parts.",
+        "Historic church-order conclusions and communion boundaries are not automatically identical to every modern 1689 Baptist church.",
+        "Initial work-level doctrinal sampling and structural coverage, not exhaustive independent theological review."
+      ]
+    },
+    {
+      "author": "Benjamin Beddome",
+      "workIds": [
+        "work-rb01-beddome-exposition"
+      ],
+      "decision": "admit-selected-historical-Baptist-catechetical-explanation",
+      "evidence": [
+        {
+          "url": "https://baptistcatechism.org/beddome/",
+          "locator": "Exposition of questions 4, 9, 24-25, 28, 31, 36, 41 and 91",
+          "finding": "Scripture authority; Trinity; divine/human Christ; sacrificial satisfaction; resurrection; grace and faith-alone justification",
+          "checkedOn": "2026-10-07"
+        },
+        {
+          "url": "https://svrbc.org/beliefs/",
+          "locator": "Our standards and five solas",
+          "finding": "Transcription publisher states Scripture authority and Second London confession subscription",
+          "checkedOn": "2026-10-07"
+        }
+      ],
+      "limits": [
+        "114 top-level exposition units contain 2,611 nested questions in this witness; no invented 3,000-question claim.",
+        "Historical print impression behind this digital transcription remains uncollated.",
+        "Existing catechism question headings: 109 normalized matches, five minor wording variants reviewed separately. William Collins attribution of the held 1695 catechism is not transferred to Hercules Collins."
+      ]
+    },
+    {
+      "author": "Hercules Collins",
+      "workIds": [
+        "work-rb01-collins-orthodox-catechism"
+      ],
+      "decision": "admit-historical-confessional-comparison-with-explicit-differences",
+      "evidence": [
+        {
+          "url": "https://baptistcatechism.org/baptistcatechism-data.json",
+          "locator": "aoc1680 questions 17-24, 39, 44, 56, 60 and 70",
+          "finding": "God/man mediator; scriptural gospel; Trinity; satisfaction; bodily resurrection; faith-only righteousness; believer's baptism",
+          "checkedOn": "2026-10-07"
+        }
+      ],
+      "limits": [
+        "Adapted Heidelberg catechism, not the Baptist Catechism attributed to William Collins.",
+        "Questions 79-82 prescribe laying on of hands after baptism; Q81 treats it as a duty. This is not silently imported into the 1689 working standard.",
+        "Heidelberg-derived sacramental/atonement wording is preserved; the witness is not harmonized to Dagg or the 1689.",
+        "Catholick in the universal-church question is historic Protestant usage, not admission of Roman Catholic teaching."
+      ]
+    },
+    {
+      "author": "Benjamin Cox",
+      "workIds": [
+        "work-rb01-cox-appendix"
+      ],
+      "decision": "admit-historical-confessional-explanation",
+      "evidence": [
+        {
+          "url": "https://www.reformedreader.org/ccc/appendix.htm",
+          "locator": "Declaration I-VI, IX-XIV and XXII",
+          "finding": "Eternal judgment, electing/particular redeeming grace, gospel proclamation, holiness and resurrection; read alongside First London confession",
+          "checkedOn": "2026-10-07"
+        }
+      ],
+      "limits": [
+        "Benjamin Cox is not Nehemiah Coxe.",
+        "22 declarations; law/covenant language remains historically distinct from later standards."
+      ]
+    },
+    {
+      "author": "Seven Particular Baptist congregations; Philadelphia Baptist Association",
+      "workIds": [
+        "work-rb01-first-london-confession",
+        "work-rb01-philadelphia-confession"
+      ],
+      "decision": "admit-distinct-historical-confessional-witnesses",
+      "evidence": [
+        {
+          "url": "https://www.romans45.org/creeds/bc1644.htm",
+          "locator": "Articles II, V, VII, IX, XVII, XXVIII and LI",
+          "finding": "Trinity; grace; Scripture rule; incarnate Son; sacrificial reconciliation; justification and resurrection",
+          "checkedOn": "2026-10-07"
+        },
+        {
+          "url": "https://www.romans45.org/creeds/bc1646.htm",
+          "locator": "Articles II, VI, VIII, IX, XVII, XXVIII and LI",
+          "finding": "Corrected/enlarged historical statement of the same doctrinal foundations",
+          "checkedOn": "2026-10-07"
+        },
+        {
+          "url": "https://www.reformedreader.org/ccc/pctoc.htm",
+          "locator": "Chapters 1, 2, 8, 11, 14, 30, 31, 33 and 34",
+          "finding": "Scripture, Trinity, mediator, grace/faith, ordinances and resurrection/judgment",
+          "checkedOn": "2026-10-07"
+        }
+      ],
+      "limits": [
+        "First London witnesses have 52 numbered articles; transcription is not critical-edition certification.",
+        "Reformed Reader h.htm says 1644 in its heading but 1646 inside; evidence-only date-conflicted witness, not trusted as a pure dated edition.",
+        "Philadelphia has 34 chapters, including singing (23) and laying on of hands (31); preserve differences from 32-chapter Second London."
+      ]
+    },
+    {
+      "author": "Founders Ministries and named contributors",
+      "workIds": [
+        "work-rb01-founders-journal-104",
+        "work-rb01-founders-journal-105",
+        "work-rb01-founders-journal-106",
+        "work-rb01-founders-journal-107",
+        "work-rb01-founders-journal-108",
+        "work-rb01-founders-journal-109",
+        "work-rb01-founders-journal-110",
+        "work-rb01-founders-journal-111",
+        "work-rb01-founders-journal-112",
+        "work-rb01-founders-journal-113",
+        "work-rb01-founders-journal-114",
+        "work-rb01-founders-journal-115",
+        "work-rb01-founders-journal-116",
+        "work-rb01-founders-journal-117",
+        "work-rb01-founders-journal-119",
+        "work-rb01-founders-journal-121",
+        "work-rb01-founders-journal-122",
+        "work-rb01-founders-journal-123"
+      ],
+      "decision": "admit-selected-confessional-exposition-for-private-study; contributor-indexing-provisional",
+      "evidence": [
+        {
+          "url": "https://founders.org/about/",
+          "locator": "About Founders",
+          "finding": "Publisher explicitly identifies Second London 1689 and Abstract of Principles as faithful doctrinal summaries",
+          "checkedOn": "2026-10-07"
+        },
+        {
+          "url": "https://founders.org/wp-json/wp/v2/journal?per_page=100&page=1",
+          "locator": "Public journal issue inventory",
+          "finding": "Exact issue identities and source URLs; not a blanket license to mirror the site",
+          "checkedOn": "2026-10-07"
+        },
+        {
+          "url": "https://founders.org/wp-content/uploads/2017/06/FoundersJournal104.pdf",
+          "locator": "Tom Nettles, introduction, printed page 4",
+          "finding": "Scripture is the supreme judge, with final authority for faith.",
+          "checkedOn": "2026-10-07",
+          "evidenceType": "actual-acquired-text-body-review"
+        },
+        {
+          "url": "https://founders.org/wp-content/uploads/2016/10/FoundersJournal105.pdf",
+          "locator": "Tom Nettles, God and the Holy Trinity, printed page 17",
+          "finding": "Three persons/subsistences, one undivided divine essence; exposition continues through pages 34-36.",
+          "checkedOn": "2026-10-07",
+          "evidenceType": "actual-acquired-text-body-review"
+        },
+        {
+          "url": "https://founders.org/wp-content/uploads/2017/12/FoundersJournal108N.pdf",
+          "locator": "Justin McLendon, Jesus Christ: Prophet, Priest and King, printed pages 30 and 33",
+          "finding": "Full humanity and deity joined in one Christ; Christological errors rejected.",
+          "checkedOn": "2026-10-07",
+          "evidenceType": "actual-acquired-text-body-review"
+        },
+        {
+          "url": "https://founders.org/wp-content/uploads/2017/12/FoundersJournal108N.pdf",
+          "locator": "Justin McLendon, Accomplishments of Christ the Mediator, printed pages 37-38",
+          "finding": "Christ bears the punishment due to sinners; sacrifice satisfies divine justice.",
+          "checkedOn": "2026-10-07",
+          "evidenceType": "actual-acquired-text-body-review"
+        },
+        {
+          "url": "https://founders.org/wp-content/uploads/2017/10/FoundersJournal110.pdf",
+          "locator": "Roger Duke, Most Important Question, printed pages 23 and 26; Tom Nettles, Full Satisfaction, pages 32-33",
+          "finding": "Imputed righteousness, justification through faith as instrument, grace and penal satisfaction distinguished from infusion.",
+          "checkedOn": "2026-10-07",
+          "evidenceType": "actual-acquired-text-body-review"
+        },
+        {
+          "url": "https://founders.org/wp-content/uploads/2022/02/Founders-Journal-FULL-PLATE-2021-Winter.pdf",
+          "locator": "Eric C. Smith, Resurrection of the Body, printed pages 13-14",
+          "finding": "Bodily resurrection: the same bodies raised, with resurrection hope grounded in Christ.",
+          "checkedOn": "2026-10-07",
+          "evidenceType": "actual-acquired-text-body-review"
+        }
+      ],
+      "limits": [
+        "Issue/PDF identities and substantive chapter coverage reviewed separately in exposition-coverage.json.",
+        "A journal is not a single-author commentary book. Article writers and historical quotations retain separate attribution.",
+        "Book reviews and incidental material are package context, not independently admitted teaching works.",
+        "No blanket author approval, modern copyright remains reserved, and no public full-text hosting is authorized."
+      ]
+    },
+    {
+      "author": "London1644.info editors",
+      "workIds": [
+        "work-rb01-first-london-editorial-documentation"
+      ],
+      "decision": "admit-editorial-comparison-evidence-only",
+      "evidence": [
+        {
+          "url": "https://www.london1644.info/en/downloads_en.html",
+          "locator": "Editorial documentation download",
+          "finding": "Explicit unchanged-download/distribution offer",
+          "checkedOn": "2026-10-07"
+        },
+        {
+          "url": "https://www.london1644.info/en/fulltext.html",
+          "locator": "Comprehensive Edition introduction",
+          "finding": "Composite uses 1644, 1646 and 1651/1652 variants and editorial amendments",
+          "checkedOn": "2026-10-07"
+        }
+      ],
+      "limits": [
+        "2022 composite with editorial documentation, not a pure 1644 or 1646 witness.",
+        "Includes an added Lord's Supper article and interpretive choices; these are not the project's normative confessional standard."
+      ]
+    }
+  ]
+}
