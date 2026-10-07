@@ -168,3 +168,5 @@ html[data-topics-slide][data-topics-direction=backward]::view-transition-new(.to
 @keyframes topics-wipe-in { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
 @keyframes topics-morph-out { 0% { opacity: 1; } 30%, 100% { opacity: 0; } }
 @keyframes topics-morph-in { 0%, 45% { opacity: 0; } 100% { opacity: 1; } }
+/* All family cards as tall as the tallest (useEqualCardHeights.ts sets the height). */
+.topics-rows .topics-family-card { min-height: var(--topics-card-h, auto); }

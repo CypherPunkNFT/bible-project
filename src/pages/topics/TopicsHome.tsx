@@ -1,10 +1,11 @@
 import { ArrowLeft, ArrowRight, ArrowUpRight, BookOpen, BookOpenText, Search } from "lucide-react";
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { categoryStyle, FAMILY_EYEBROW, groupIcon, TOPIC_SECTIONS } from "@/lib/topic-style";
 import { categoryUrl, matchTopics, placeOf, topicUrl, type TopicCategory, type TopicIndex } from "@/lib/topics";
 import { formatNumber } from "@/lib/utils";
 import { TopicsArtwork } from "./TopicsArtwork";
+import { useEqualCardHeights } from "./useEqualCardHeights";
 import { morph, orderedFamilies, tint } from "./topics-shared";
 
 const POPULAR = ["love-of-god", "prayer", "faith", "grace", "afflictions", "christ-the-shepherd", "heaven", "holy-spirit-the-is-god"];
@@ -44,12 +45,14 @@ function sectionRows(categories: TopicCategory[]): Row[] {
 
 /** The topic sections and their families as illustrated cards: the body of the Topics home, and shown on the Search page too. */
 export function TopicSectionRows({ index }: { index: TopicIndex }) {
+  const box = useRef<HTMLDivElement>(null);
+  useEqualCardHeights(box);
   const rows = sectionRows(index.categories);
   const order = orderedFamilies(index).map((c) => c.id);
   const startOf = (row: Row) => order.indexOf(row.families[0].id) + 1;
   const wide = rows.filter((row) => row.families.length > 2), pairs = rows.filter((row) => row.families.length <= 2);
   return (
-    <div className="topics-rows">
+    <div className="topics-rows" ref={box}>
       {wide.map((row) => <SectionRow key={row.id} row={row} number={rows.indexOf(row) + 1} start={startOf(row)} />)}
       {pairs.length > 0 && <div className="topics-pair-row">{pairs.map((row) => <SectionRow key={row.id} row={row} number={rows.indexOf(row) + 1} start={startOf(row)} />)}</div>}
     </div>
