@@ -1,0 +1,92 @@
+{
+  "mission": "RB02",
+  "status": "completed-acquisition-awaiting-aggregate-intake",
+  "startedAt": "2026-10-07T06:15:37+00:00",
+  "finishedAt": "2026-10-07T07:09:29.875285+00:00",
+  "elapsedWallMinutes": 53.88,
+  "originalSourceRoot": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources",
+  "siteRoot": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website",
+  "cacheRoot": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\.local\\library\\run-rb02-2026-10-07",
+  "reportRoot": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB02",
+  "completedTargetCount": 15,
+  "pendingDownloadCount": 0,
+  "activeMissionCollectors": [],
+  "coverage": {
+    "mission": "RB02",
+    "originalFiles": 15,
+    "formats": {
+      "html": 8,
+      "pdf": 3,
+      "txt": 3,
+      "xml": 1
+    },
+    "logicalWorks": 10,
+    "newHistoricalWorks": 4,
+    "newModernWorksOrSeries": 6,
+    "originalBytes": 7944534,
+    "extractedWords": 717709,
+    "studyUnits": 184,
+    "newWitnessUnits": 120,
+    "reusedWitnessUnits": 64,
+    "heldOriginalsAudited": 36,
+    "keachChapterWitnesses": {
+      "pdf": 14,
+      "tcp": 14
+    },
+    "boothVolumes": [
+      1,
+      2,
+      3
+    ],
+    "waldronLessonParts": [
+      1,
+      2,
+      3
+    ],
+    "ingested": false,
+    "embedded": false,
+    "note": "Extraction counts include overlapping witnesses, headers, quotations, OCR errors and derivative page/gap labels; not unique doctrinal words or exposure percentage."
+  },
+  "ingested": false,
+  "embedded": false,
+  "workerAction": "None; pre-existing Bible and Fortress embedding processes left unchanged",
+  "nextMission": "RB03",
+  "intakeGate": "All fourteen final mission REPORT.md + acquisition-manifest.json files, five quiet minutes, no collectors, existing intake finished",
+  "nextCommands": [
+    "python -X utf8 scripts/rb02-acquire.py verify",
+    "python -X utf8 scripts/verify-rb02.py",
+    "python -X utf8 scripts/rb02-study-map.py"
+  ],
+  "reopenQueue": [
+    {
+      "candidate": "SBTS Lucas/Renihan complete comparison articles",
+      "state": "link-only: collector access/policy HTTP403",
+      "action": "Fresh source-offered access and policy check; no bypass/hammering"
+    },
+    {
+      "candidate": "Complete modern Waldron/Renihan/Barcellos books",
+      "state": "authorized-complete-source gap",
+      "action": "Acquire only if publisher/author offers eligible full text; do not substitute samples"
+    },
+    {
+      "candidate": "Keach original versus modern edited witness",
+      "state": "both acquired; gaps/omissions disclosed",
+      "action": "Edition-aware review as needed; do not invent missing footnotes or damaged text"
+    }
+  ],
+  "scopeContract": "intake-scope.json; current importer enforcement not claimed",
+  "sourceLedger": "SOURCES.md RB02 section",
+  "reviewLimits": "Bounded AI-assisted doctrinal sampling and structural completeness checks; no exhaustive human review, new OCR or critical collation",
+  "verification": {
+    "originalsAndDerivatives": 15,
+    "crosswalkChecks": 24,
+    "supplementalChecks": 6,
+    "sharedCollectorRB01OriginalsAndDerivatives": 121,
+    "scriptsCompiled": 5,
+    "gitWhitespace": "passed"
+  },
+  "localProjectDocs": [
+    "../TODO.md",
+    "../HANDOFF.md"
+  ]
+}

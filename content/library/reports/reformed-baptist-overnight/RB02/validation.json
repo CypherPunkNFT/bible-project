@@ -1,0 +1,105 @@
+{
+  "mission": "RB02",
+  "checkedAt": "2026-10-07T07:08:06.332496+00:00",
+  "result": "passed",
+  "checks": [
+    {
+      "name": "RB02 identity and unique originals",
+      "passed": true
+    },
+    {
+      "name": "Target/manifest source parity",
+      "passed": true
+    },
+    {
+      "name": "Ten logical works and exact asset coverage",
+      "passed": true
+    },
+    {
+      "name": "Fifteen exact intake scopes",
+      "passed": true
+    },
+    {
+      "name": "Work-specific decisions cover every acquired work",
+      "passed": true
+    },
+    {
+      "name": "No public hosting or premature ingestion/embedding",
+      "passed": true
+    },
+    {
+      "name": "Original asset-rb02-bc29fceace7550d9bb93",
+      "passed": true
+    },
+    {
+      "name": "Original asset-rb02-d13851e68f1149aaafc8",
+      "passed": true
+    },
+    {
+      "name": "Original asset-rb02-18e3e10712fca5982467",
+      "passed": true
+    },
+    {
+      "name": "Original asset-rb02-d506eade03827f9e04d1",
+      "passed": true
+    },
+    {
+      "name": "Original asset-rb02-662ec08976b9ddf6480d",
+      "passed": true
+    },
+    {
+      "name": "Original asset-rb02-d5e3c239c57b410d65f6",
+      "passed": true
+    },
+    {
+      "name": "Original asset-rb02-d51e24c776833ff450e5",
+      "passed": true
+    },
+    {
+      "name": "Original asset-rb02-62d3221b8974376a9387",
+      "passed": true
+    },
+    {
+      "name": "Original asset-rb02-f1e6032403cad928c5fc",
+      "passed": true
+    },
+    {
+      "name": "Original asset-rb02-42114c0bd7655af3e356",
+      "passed": true
+    },
+    {
+      "name": "Original asset-rb02-bea7ef4a00370e53d619",
+      "passed": true
+    },
+    {
+      "name": "Original asset-rb02-b3953dd2c44e946e6574",
+      "passed": true
+    },
+    {
+      "name": "Original asset-rb02-b28347cdf033a0f21214",
+      "passed": true
+    },
+    {
+      "name": "Original asset-rb02-47173184c3fb51193c28",
+      "passed": true
+    },
+    {
+      "name": "Original asset-rb02-a211a0ee74a13d069fe8",
+      "passed": true
+    },
+    {
+      "name": "184 source-hashed study locations, 120 new and 64 reused",
+      "passed": true
+    },
+    {
+      "name": "Every acquired asset has reading locations",
+      "passed": true
+    },
+    {
+      "name": "Valid local links in study/comparison tables",
+      "passed": true
+    }
+  ],
+  "collectorVerification": "15 immutable originals, provenance and private derivative hashes verified",
+  "reviewLimit": "Structural/hash checks and bounded doctrinal sampling; not exhaustive human review or OCR collation."
+}

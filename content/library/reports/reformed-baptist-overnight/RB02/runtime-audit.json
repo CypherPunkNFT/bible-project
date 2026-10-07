@@ -1,0 +1,24 @@
+{
+  "mission": "RB02",
+  "observedAt": "2026-10-07T07:09:57.0213046Z",
+  "method": "Read-only Win32_Process inventory; existence is not embedding progress or parity",
+  "activeRBCollectors": [],
+  "processes": [
+    {
+      "ProcessId": 34344,
+      "Name": "python.exe",
+      "CommandLine": "\"D:\\FortressOfSolitude\\HyperVault\\KnowledgeBase\\.venv\\Scripts\\python.exe\"  \"D:\\FortressOfSolitude\\HyperVault\\KnowledgeBase\\tools\\embed-daemon.py\" "
+    },
+    {
+      "ProcessId": 82752,
+      "Name": "python.exe",
+      "CommandLine": "\"D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\KnowledgeBase\\.venv\\Scripts\\python.exe\" -u -m knowledge embed "
+    },
+    {
+      "ProcessId": 57944,
+      "Name": "python.exe",
+      "CommandLine": "\"D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\KnowledgeBase\\.venv\\Scripts\\python.exe\" -u -m knowledge embed "
+    }
+  ],
+  "action": "None; existing workers left unchanged"
+}

@@ -385,3 +385,33 @@ Dagg: complete offered Part I and Church Order. New Philadelphia (34 chapters), 
 </details>
 
 <!-- RB01 sources:end -->
+
+<!-- RB02 sources:start -->
+
+## 2026-10-07: RB02 Baptist covenants and ordinances
+
+15 immutable readable originals represent **four new historical works and six modern works/series**. Multiple Keach witnesses and Booth volumes are counted by work, not by file. Audited and reused Coxe, Pink, Gill, Dagg and Founders explanations; no new DB import, embedding or public text hosting.
+
+[Acquisition report](content/library/reports/reformed-baptist-overnight/RB02/REPORT.md) | [Source-first bibliography](content/library/reports/reformed-baptist-overnight/RB02/bibliography.json) | [Manifest and hashes](content/library/reports/reformed-baptist-overnight/RB02/acquisition-manifest.json) | [184 chapter/section locations](content/library/reports/reformed-baptist-overnight/RB02/READING-MAP.md) | [Covenant and ordinance distinctions](content/library/reports/reformed-baptist-overnight/RB02/COVENANT-MODELS.md) | [Rights/edition exceptions](content/library/reports/reformed-baptist-overnight/RB02/source-exceptions.json) | [Intake scopes](content/library/reports/reformed-baptist-overnight/RB02/intake-scope.json).
+
+Historic edited witnesses, source gaps, existing OCR, quoted opponents and contributor/publisher material retain distinct roles. Modern articles are complete offered articles, not the authors' complete commercial books. Copyright remains with the respective publishers; private acquisitions do not authorize republication. Intake follows the newer fourteen-mission gate.
+
+| Acquired work/witness | Source of acquisition | Format and completeness |
+|---|---|---|
+| Gold Refin’d; or, Baptism in its Primitive Purity | [Offered source](<https://thecalvinist.net/files/books/Benjamin%20Keach%20-%20Gold%20Refin%e2%80%99d;%20or,%20Baptism%20in%20its%20Primitive%20Purity%20(1689).pdf>) | pdf / complete-offered-edited-work-with-disclosed-footnote-omissions |
+| An Apology for the Baptists | [Offered source](<https://www.reformedontheweb.com/baptists/an-apology-for-baptists-abraham-booth.pdf>) | pdf / complete-offered-work |
+| A Treatise Concerning the Lawfull Subject of Baptism | [Offered source](<https://www.reformedontheweb.com/baptists/a-treatise-concerning-the-lawfull-subject-of-baptism-spilsbery.pdf>) | pdf / complete-offered-work |
+| Covenant Theology, the 2LBC & CBTS | [Offered source](<https://content.cbtseminary.org/covenant-theology-the-2lbc-cbts/>) | html / complete-offered-article |
+| The 2LBC & the Covenant of Works | [Offered source](<https://content.cbtseminary.org/the-2lbc-the-covenant-of-works/>) | html / complete-offered-article |
+| 1689 Baptist Covenant Theology | [Offered source](<https://content.cbtseminary.org/1689-baptist-covenant-theology-sam-waldron/>) | html / complete-offered-article |
+| The Supper tells everyone who has faith in Christ, “All that He is for sinners, He is for you!” | [Offered source](<https://content.cbtseminary.org/supper-as-means-of-grace/>) | html / complete-offered-article |
+| Progressive Covenantalism and the “1689” | [Offered source](<https://www.baptistdogmatics.com/articles/progressive-covenantalism-and-the-1689>) | html / complete-offered-article |
+| Shall We Baptize Children? Part 1: Initial Reflections | [Offered source](<https://content.cbtseminary.org/shall-we-baptize-children-pt-1-sam-waldron/>) | html / component-of-complete-three-part-offered-series |
+| Shall We Baptize Children? Part 2: Scriptural Foundations | [Offered source](<https://content.cbtseminary.org/shall-we-baptize-children-part-2-scriptural-foundations-sam-waldron/>) | html / component-of-complete-three-part-offered-series |
+| Shall We Baptize Children? Part 3: Practical Conclusions | [Offered source](<https://content.cbtseminary.org/shall-we-baptize-children-part-3-practical-conclusions-sam-waldron/>) | html / component-of-complete-three-part-offered-series |
+| Paedobaptism Examined, with Replies: Volume 1 | [Offered source](<https://archive.org/download/pdobaptismexamin01boot/pdobaptismexamin01boot_djvu.txt>) | txt / complete-offered-volume-of-three-volume-edition |
+| Paedobaptism Examined, with Replies: Volume 2 | [Offered source](<https://archive.org/download/pdobaptismexamin02boot/pdobaptismexamin02boot_djvu.txt>) | txt / complete-offered-volume-of-three-volume-edition |
+| Paedobaptism Examined, with Replies: Volume 3 | [Offered source](<https://archive.org/download/pdobaptismexamin03boot/pdobaptismexamin03boot_djvu.txt>) | txt / complete-offered-volume-of-three-volume-edition |
+| Gold refin'd, or, Baptism in its primitive purity (TCP original-spelling witness) | [Offered source](<https://raw.githubusercontent.com/textcreationpartnership/A47535/master/A47535.xml>) | xml / complete-offered-diplomatic-transcription-with-encoded-source-gaps |
+
+<!-- RB02 sources:end -->

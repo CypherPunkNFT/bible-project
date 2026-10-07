@@ -1,0 +1,29 @@
+{
+  "request": {
+    "url": "https://archive.org/advancedsearch.php?q=creator%3A%28Booth+Abraham%29+AND+title%3A%28baptism+examined%29&output=json&rows=30&fl%5B%5D=identifier%2Ctitle%2Cdate%2Cvolume",
+    "finalUrl": "https://archive.org/advancedsearch.php?q=creator%3A%28Booth+Abraham%29+AND+title%3A%28baptism+examined%29&output=json&rows=30&fl%5B%5D=identifier%2Ctitle%2Cdate%2Cvolume",
+    "mimeType": "application/json",
+    "byteCount": 295,
+    "sha256": "404263e2ce165ef021a668e3503290fc57b28f2eeaaf2e7dc66ec506c680d54c",
+    "retrievedAt": "2026-10-07T06:32:01.736070+00:00"
+  },
+  "response": {
+    "responseHeader": {
+      "status": 0,
+      "QTime": 30,
+      "params": {
+        "query": "creator:(Booth Abraham) AND title:(baptism examined)",
+        "qin": "creator:(Booth Abraham) AND title:(baptism examined)",
+        "fields": "identifier,title,date,volume",
+        "wt": "json",
+        "rows": 30,
+        "start": 0
+      }
+    },
+    "response": {
+      "numFound": 0,
+      "start": 0,
+      "docs": []
+    }
+  }
+}

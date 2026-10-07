@@ -1,0 +1,81 @@
+{
+  "request": {
+    "url": "https://archive.org/advancedsearch.php?q=creator%3ABooth+AND+title%3Aexamined&output=json&rows=40&fl%5B%5D=identifier%2Ctitle%2Cdate%2Cvolume",
+    "finalUrl": "https://archive.org/advancedsearch.php?q=creator%3ABooth+AND+title%3Aexamined&output=json&rows=40&fl%5B%5D=identifier%2Ctitle%2Cdate%2Cvolume",
+    "mimeType": "application/json",
+    "byteCount": 1878,
+    "sha256": "358609073d4c02f61f821e6d08ac4a5d3be67ba0b94f789b1c70dfe80019d1ec",
+    "retrievedAt": "2026-10-07T06:32:29.367352+00:00"
+  },
+  "response": {
+    "responseHeader": {
+      "status": 0,
+      "QTime": 20,
+      "params": {
+        "query": "creator:Booth AND title:examined",
+        "qin": "creator:Booth AND title:examined",
+        "fields": "identifier,title,date,volume",
+        "wt": "json",
+        "rows": 40,
+        "start": 0
+      }
+    },
+    "response": {
+      "numFound": 9,
+      "start": 0,
+      "docs": [
+        {
+          "date": "1829-01-01T00:00:00Z",
+          "identifier": "pdobaptismexamin03boot",
+          "title": "Pædobaptism examined : with replies to the arguments and objections of Dr. Williams and Mr. Peter Edwards",
+          "volume": "v.3"
+        },
+        {
+          "date": "1829-01-01T00:00:00Z",
+          "identifier": "paedobaptismexa00bootgoog",
+          "title": "Paedobaptism Examined: With Replies to the Arguments and Objections of Dr ...",
+          "volume": "2"
+        },
+        {
+          "date": "1829-01-01T00:00:00Z",
+          "identifier": "pdobaptismexamin01boot",
+          "title": "Pædobaptism examined : with replies to the arguments and objections of Dr. Williams and Mr. Peter Edwards",
+          "volume": "v.1"
+        },
+        {
+          "date": "1784-01-01T00:00:00Z",
+          "identifier": "bim_eighteenth-century_pdobaptism-examined-on_booth-abraham_1784",
+          "title": "Pædobaptism examined, on the principles, concessions, and reasonings, of the most learned Pædobaptists. By Abraham Booth. 1784"
+        },
+        {
+          "date": "1829-01-01T00:00:00Z",
+          "identifier": "paedobaptismexa01bootgoog",
+          "title": "Paedobaptism Examined: With Replies to the Arguments and Objections of Dr ...",
+          "volume": "3"
+        },
+        {
+          "date": "1792-01-01T00:00:00Z",
+          "identifier": "in.ernet.dli.2015.23751",
+          "title": "Defence Of Paedobaptism Examined"
+        },
+        {
+          "date": "1792-01-01T00:00:00Z",
+          "identifier": "dli.bengal.10689.856",
+          "title": "Defence Of Paedobaptism Examined"
+        },
+        {
+          "date": "1829-01-01T00:00:00Z",
+          "identifier": "paedobaptismexa02bootgoog",
+          "title": "Paedobaptism Examined: With Replies to the Arguments and Objections of Dr ...",
+          "volume": "1"
+        },
+        {
+          "date": "1829-01-01T00:00:00Z",
+          "identifier": "pdobaptismexamin02boot",
+          "title": "Pædobaptism examined : with replies to the arguments and objections of Dr. Williams and Mr. Peter Edwards",
+          "volume": "v.2"
+        }
+      ]
+    }
+  }
+}

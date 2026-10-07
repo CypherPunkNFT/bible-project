@@ -78,3 +78,7 @@ Audit Scripture authority, canon/transmission, Trinity, Christ's deity/resurrect
 ## End-of-campaign report
 
 After RB08, summarize all eight manifests: genuinely new readable works/editions, duplicate holdings avoided, theological decisions, access failures and remaining gaps. Prepare one aggregate intake manifest for the separate DB refresh. Do not claim the new holdings are embedded until that later import/vector verification passes.
+
+## 2026-10-07: RB02 completed — RB03 next
+
+15 readable originals represent four new historical works and six modern works/series: Keach's *Gold Refin'd* in two witnesses, Booth's *Apology* and complete three-volume *Paedobaptism Examined with Replies*, Spilsbury's enlarged treatise, and eight modern confessional articles. Audited 36 held originals first and reused Coxe/Pink/Gill, Dagg and Founders. [Report](reports/reformed-baptist-overnight/RB02/REPORT.md), [184 exact reading locations](reports/reformed-baptist-overnight/RB02/READING-MAP.md), [covenant/ordinance distinctions](reports/reformed-baptist-overnight/RB02/COVENANT-MODELS.md), [checkpoint](reports/reformed-baptist-overnight/RB02/checkpoint.json). New files await the newer **fourteen-mission** aggregate intake gate documented in HANDOFF; the older RB08 end-of-campaign paragraph is superseded. No DB/vector/enrichment launch during RB02.

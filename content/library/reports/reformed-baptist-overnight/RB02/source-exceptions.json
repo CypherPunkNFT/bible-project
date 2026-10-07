@@ -1,0 +1,81 @@
+{
+  "reviewedAt": "2026-10-07T06:59:23.095172+00:00",
+  "issues": [
+    {
+      "id": "malone-explicit-no-copy",
+      "url": "https://founders.org/library/a-string-of-pearls-unstrung/",
+      "disposition": "link-only-no-original-acquired",
+      "finding": "1998 Founders page explicitly says Do not duplicate or redistribute in any form. Full preliminary HTTP research body removed from mission cache; metadata and brief rights evidence retained.",
+      "researchBodyRemoved": true
+    },
+    {
+      "id": "sbts-collector-access",
+      "urls": [
+        "https://cf.sbts.edu/equip/uploads/2023/02/SBJT-26.1-Past-and-Future-of-Baptist-Covenantal-Theology-R.-Lucas.pdf",
+        "https://sbts-wordpress-uploads.s3.amazonaws.com/equip/uploads/2023/02/SBJT-26.1-17th-Century-Particular-Baptist-Cov-Theology-S.-Renihan.pdf"
+      ],
+      "disposition": "link-only-current-collector-HTTP403",
+      "finding": "Policy/transport request returned HTTP403. No PDF original promoted; do not treat public article discovery as completed acquisition or infer a paywall. Exact source-offered URLs and article landing evidence retained."
+    },
+    {
+      "id": "keach-witnesses",
+      "workId": "work-rb02-keach-gold-refined",
+      "finding": "Modern PDF complete as edited, not unabridged: spelling/headings/references changed and some notes omitted. TCP complete offered diplomatic structure has 225 encoded gaps and damaged/substitute filmed pages. Two editions of one work; no critical-edition claim."
+    },
+    {
+      "id": "tcp-keyboarding-description",
+      "workId": "work-rb02-keach-gold-refined",
+      "finding": "PDF foreword says automatic transcription; TCP header/README says keyed, sampled, proofread and reviewed in 2005. Preserve both statements and distinguish publisher methodology from our extraction. We ran no OCR, transcription or LLM calls."
+    },
+    {
+      "id": "booth-volume-completeness",
+      "url": "https://hiddenhillssovereigngracebaptistchurch.org/Books%20and%20Articles/More%20Articles%20by%20Subject/Booth%2C%20Abraham/Pedobaptism%20Examined%20with%20Replies.pdf",
+      "disposition": "research-only-redundant-volume-I-scan",
+      "finding": "Offered file is volume I of 1829 three-volume edition, despite broad filename. All three archive text volumes acquired instead. No new scan original or OCR job."
+    },
+    {
+      "id": "booth-server-retry",
+      "workId": "work-rb02-booth-paedobaptism-1829",
+      "disposition": "resolved",
+      "finding": "Volume II offered text initially returned HTTP500; one bounded later retry succeeded. All three texts match archive MD5 in addition to our SHA256."
+    },
+    {
+      "id": "booth-ocr-and-contributors",
+      "workIds": [
+        "work-rb02-booth-paedobaptism-1829",
+        "work-rb02-booth-apology"
+      ],
+      "finding": "1829 edition includes replies, a James Dore preface, advertisement, index and publisher catalogue; these have separate roles. Volume III chapter VI reads CHATTER VI, original line10456. Modern Apology footnote130 is expressly an editor addition. Do not merge opponent quotations with Booth assertions."
+    },
+    {
+      "id": "spilsbury-offer-and-polemic",
+      "workId": "work-rb02-spilsbury-baptism",
+      "finding": "1652 enlarged edition, modern spelling; historic Spilsbery author spelling retained in original. Personal confession article7 rejects a generalized offer; flag for Dagg/Fuller comparison, not default evangelism. Historical Antichrist/restoration claims need contextual review."
+    },
+    {
+      "id": "waldron-professing-child-policy",
+      "workId": "work-rb02-waldron-baptize-children",
+      "finding": "Publisher says not uniform CBTS professor position or official seminary view. Ordinary maturity policy differs from simply allowing every credible professing minor; children can be saved in this account. Dated legal/cultural examples are not current law advice."
+    },
+    {
+      "id": "progressive-covenantalism-label",
+      "workId": "work-rb02-scheiderer-progressive-1689",
+      "finding": "Conservative Baptist covenant model, distinct from progressive/liberal denominational teaching excluded by campaign. Collected confessional critique is not a primary first-person defence or owner-adopted model."
+    },
+    {
+      "id": "gill-legacy-provenance",
+      "relativePath": "library/source-ccel/asset-l11-gill-practical-xml/practical.xml",
+      "finding": "Held complete XML hash verified against older L11/RB01 evidence. This older folder has no individual provenance.json; reuse ledger-level provenance, do not invent a new retrieval date or count as RB02 acquisition."
+    },
+    {
+      "id": "archive-policy-shell",
+      "url": "https://archive.org/about/terms",
+      "finding": "Current terms response is JavaScript shell; recorded rather than represented as read legal terms. 1829 imprint, Princeton metadata, unrestricted offered TXT endpoints and checked robots support bounded historical private intake; no public rehosting permission asserted."
+    },
+    {
+      "id": "newsletter-extraction",
+      "workId": "work-rb02-waldron-covenant-theology",
+      "finding": "Newsletter heading removed only from private derivative and section map through explicit selector. Original HTML remains byte-identical; author biographies/headers contribute to reported extraction counts."
+    }
+  ]
+}

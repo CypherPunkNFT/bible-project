@@ -24,6 +24,8 @@ SITE = Path(__file__).resolve().parents[1]
 REPORT = SITE / 'content/library/reports/reformed-baptist-overnight/RB01'
 CACHE = SITE / '.local/library/run-rb01-2026-10-07'
 UA = 'BibleProjectLibrary/1.0 (noncommercial personal research; source-preserving)'
+MISSION = 'RB01'
+ASSET_PREFIX = 'asset-rb01-'
 
 
 def write(path, value):
@@ -95,6 +97,9 @@ def extract(raw, target):
             raise ValueError('Missing selected body: ' + target['url'])
         for el in node.select('script,style,nav,header,footer'):
             el.decompose()
+        for selector in target.get('excludeSelectors', []):
+            for el in node.select(selector):
+                el.decompose()
         text = node.get_text('\n', strip=True)
     elif target['format'] == 'pdf':
         import pymupdf
@@ -130,7 +135,7 @@ def extract(raw, target):
 def acquire():
     manifest_path = REPORT / 'acquisition-manifest.json'
     manifest = json.loads(manifest_path.read_text(encoding='utf-8')) if manifest_path.exists() else {
-        'mission': 'RB01', 'schemaVersion': 1, 'files': [], 'failures': [],
+        'mission': MISSION, 'schemaVersion': 1, 'files': [], 'failures': [],
         'publicHostingAllowed': False, 'ingested': False, 'embedded': False}
     targets = json.loads((REPORT / 'targets.json').read_text(encoding='utf-8'))
     if len(sys.argv) > 2:
@@ -150,7 +155,7 @@ def acquire():
             for marker in target.get('requiredMarkers', []):
                 if not re.search(marker, text, re.I):
                     raise ValueError('Missing coverage marker: ' + marker)
-            aid = 'asset-rb01-' + digest(target['url'].encode())[:20]
+            aid = ASSET_PREFIX + digest(target['url'].encode())[:20]
             folder = SOURCES / 'library' / target['sourceId'] / aid
             original = folder / ('original.' + target['format'])
             folder.mkdir(parents=True, exist_ok=True)
