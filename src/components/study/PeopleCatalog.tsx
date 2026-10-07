@@ -8,6 +8,9 @@ import type { PersonRow } from "@/lib/study";
 import { formatNumber } from "@/lib/utils";
 import "./people-catalog.css";
 
+/** Short period names, so the twelve buttons fit two rows beside the legend; the full name shows on hover. */
+const SHORT: Record<string, string> = { exodus: "Exodus", "divided-kingdom": "Two kingdoms", "": "Undated" };
+
 /** Everyone in the Bible as cards, grouped by period in the order of biblical history, scrolling in their own frame.
  *  A period button shows only that period (again to show everyone); each card opens that person's own page.
  *  The period, search and last-opened person live in the address, so the person page's back link returns to this view
@@ -100,15 +103,15 @@ export function PeopleCatalog({ people, backLabel }: { people: PersonRow[]; back
       <div className="people-catalog-periods" role="group" aria-label="Show one period">{PEOPLE_PERIODS.map((entry) => {
         const count = counts.get(entry.id) ?? 0;
         return <button key={entry.id || "none"} type="button" aria-pressed={period === entry.id} disabled={!count && period !== entry.id}
-          onClick={() => setPeriod(period === entry.id ? null : entry.id)}><span>{entry.label}</span><small>{formatNumber(count)}</small></button>;
+          onClick={() => setPeriod(period === entry.id ? null : entry.id)} title={entry.label}><span>{SHORT[entry.id] ?? entry.label}</span><small>{formatNumber(count)}</small></button>;
       })}</div>
       {/* The kinds of people: a dot each, no boxes; a dot shows only that kind (again to show everyone). */}
       <div className="people-catalog-roles" role="group" aria-label="Show one kind of person" data-choosing={role ? "" : undefined}>
         {PERSON_ROLES.map((entry) => {
           const count = roleCounts.get(entry.id) ?? 0;
-          return <button key={entry.id} type="button" title={entry.note} aria-pressed={role === entry.id} disabled={!count && role !== entry.id}
+          return <button key={entry.id} type="button" title={`${entry.note} · ${formatNumber(count)} ${count === 1 ? "person" : "people"}`} aria-pressed={role === entry.id} disabled={!count && role !== entry.id}
             onClick={() => setRole(role === entry.id ? null : entry.id)} style={{ "--role": roleColor(entry.id) } as CSSProperties}>
-            <span className="people-role-dot" aria-hidden />{entry.label}<small>{formatNumber(count)}</small></button>;
+            <span className="people-role-dot" aria-hidden />{entry.label}</button>;
         })}
       </div>
     </div>

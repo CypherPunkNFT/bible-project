@@ -50,8 +50,9 @@
 /* Who they were: the period filters kept short on the left, and the kinds of people as a small dot legend in the space
    beside them (no boxes). A dot shows only that kind; the same dot and name sit on every card. */
 .people-catalog-filters { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: start; gap: 1rem 2.2rem; padding: 0 1.4rem 1.1rem; }
-.people-catalog-filters .people-catalog-periods { grid-template-columns: repeat(4, minmax(0, 1fr)); padding: 0; }
-.people-catalog-roles { display: grid; grid-auto-flow: column; grid-template-rows: repeat(5, auto); gap: .05rem 1.5rem; align-content: start; }
+.people-catalog-filters .people-catalog-periods { grid-template-columns: repeat(6, minmax(0, 1fr)); padding: 0; }
+.people-catalog-filters .people-catalog-periods button { gap: .3rem; padding: .45rem .5rem; font-size: .72rem; }
+.people-catalog-roles { display: grid; grid-template-columns: repeat(5, auto); gap: .55rem 1.1rem; align-content: center; height: 100%; }
 .people-catalog-roles button { display: inline-flex; align-items: center; gap: .45rem; padding: .2rem 0; border: 0; background: none; color: var(--ink); font-size: .74rem; text-align: left; transition: opacity .15s; }
 .people-catalog-roles button small { font-size: .62rem; color: var(--muted); font-variant-numeric: tabular-nums; }
 .people-catalog-roles[data-choosing] button:not([aria-pressed="true"]) { opacity: .45; }
@@ -61,8 +62,9 @@
 .people-catalog-roles button:disabled { opacity: .3; }
 .people-role-dot { width: .55rem; height: .55rem; flex-shrink: 0; border-radius: 999px; background: var(--role); }
 .people-card-role { display: inline-flex; align-items: center; gap: .35rem; color: var(--ink); }
+@media (max-width: 1100px) { .people-catalog-filters { grid-template-columns: 1fr; } .people-catalog-roles { height: auto; justify-content: start; } }
 @media (max-width: 860px) {
-  .people-catalog-filters { grid-template-columns: 1fr; }
+  .people-catalog-filters .people-catalog-periods { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .people-catalog-roles { display: flex; flex-wrap: wrap; gap: .1rem 1.1rem; }
 }
 @media (max-width: 640px) {
@@ -70,3 +72,10 @@
   .people-catalog-filters .people-catalog-periods { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (prefers-reduced-motion: reduce) { .people-catalog-roles button { transition: none; } }
+
+/* Owner's picks for three kinds (people-roles.ts): judge white, disciple a deeper purple, family green; both themes. */
+:root { --role-judge: #ffffff; --role-disciple: #7a2fd1; --role-family: #3f8a2a; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --role-judge: #f6f3ec; --role-disciple: #a66bff; --role-family: #86c95c; } }
+:root[data-theme="dark"] { --role-judge: #f6f3ec; --role-disciple: #a66bff; --role-family: #86c95c; }
+/* A faint ring on every dot, so the white one shows on a light page. */
+.people-role-dot { box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ink) 22%, transparent); }

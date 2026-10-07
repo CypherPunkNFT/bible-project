@@ -11,18 +11,18 @@
 
 export type PersonRole = "king" | "prophet" | "priest" | "levite" | "judge" | "leader" | "warrior" | "disciple" | "nation" | "family";
 
-/** Colours from the site's palette (both themes), chosen so no two roles look alike. */
+/** Colours from the site's palette (both themes), chosen so no two roles look alike; judge, disciple and family use their own (people-catalog.css, owner's picks). */
 export const PERSON_ROLES: { id: PersonRole; label: string; color: string; note: string }[] = [
   { id: "king", label: "King", color: "var(--epistles)", note: "Kings, queens and emperors" },
   { id: "prophet", label: "Prophet", color: "var(--prophets)", note: "Prophets, prophetesses and seers" },
   { id: "priest", label: "Priest", color: "var(--acts)", note: "Priests and high priests" },
   { id: "levite", label: "Levite", color: "var(--revelation)", note: "Levites, singers, gatekeepers and temple servants" },
-  { id: "judge", label: "Judge", color: "var(--coast)", note: "The judges of Israel" },
+  { id: "judge", label: "Judge", color: "var(--role-judge)", note: "The judges of Israel" },
   { id: "leader", label: "Leader", color: "var(--poetry)", note: "Patriarchs, leaders, officials and elders" },
   { id: "warrior", label: "Warrior", color: "var(--history)", note: "Warriors, commanders and mighty men" },
-  { id: "disciple", label: "Disciple", color: "var(--gospels)", note: "Apostles, disciples and early believers" },
+  { id: "disciple", label: "Disciple", color: "var(--role-disciple)", note: "Apostles, disciples and early believers" },
   { id: "nation", label: "Nation", color: "color-mix(in srgb, var(--prophets) 40%, var(--apocrypha))", note: "Tribes, clans and peoples" },
-  { id: "family", label: "Family", color: "var(--apocrypha)", note: "Known through their family line" },
+  { id: "family", label: "Family", color: "var(--role-family)", note: "Known through their family line" },
 ];
 
 export const roleColor = (role: PersonRole) => PERSON_ROLES.find((r) => r.id === role)?.color ?? "var(--apocrypha)";
