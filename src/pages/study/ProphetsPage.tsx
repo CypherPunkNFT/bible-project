@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
-import { Link, useSearchParams } from "react-router-dom";
-import { ProphetsMockup } from "@/components/study/ProphetsMockup";
+import { Link } from "react-router-dom";
+import { ProphetsRiver } from "@/components/study/ProphetsRiver";
 import { cameFrom } from "@/lib/came-from";
 import { kingFinder } from "@/lib/prophet-links";
 import { prophetEra } from "@/lib/prophet-eras";
@@ -30,9 +30,6 @@ export function ProphetsContent({ embedded = false }: { embedded?: boolean }) {
   const people = useAsync(loadPeople, "people");
   const kingId = useMemo(() => (people.status === "ready" ? kingFinder(people.value) : () => undefined), [people]);
   const [kind, setKind] = useState<Prophet["kind"] | "all">("all");
-  const [params, setParams] = useSearchParams();
-  const design = params.get("design") === "mockup" ? "mockup" : "";
-  const setDesign = (id: string) => { const next = new URLSearchParams(params); if (id) next.set("design", id); else next.delete("design"); setParams(next, { replace: true, preventScrollReset: true }); };
 
   const shown = prophets.status === "ready" ? prophets.value.filter((p) => kind === "all" || p.kind === kind) : [];
   const eras = [...new Set(shown.map((p) => p.era))];
@@ -49,17 +46,12 @@ export function ProphetsContent({ embedded = false }: { embedded?: boolean }) {
           </p>
         }
       />}
-      {embedded && <div className="mb-4 inline-flex rounded-full border border-line p-1 text-sm" role="group" aria-label="Design">
-        {/* MOCK-UP switch (owner, 2026-10-07): compare the current view with the river-of-time design. */}
-        {[["", "Current view"], ["mockup", "Mock-up"]].map(([id, label]) => <button key={id} type="button" aria-pressed={design === id} onClick={() => setDesign(id)} className={cn("rounded-full px-3 py-1", design === id ? "bg-ink font-semibold text-page" : "text-muted hover:text-ink")}>{label}</button>)}
-      </div>}
-      {embedded && design !== "mockup" && <div className="mb-6"><h2 className="font-serif text-3xl font-semibold">Prophets through time.</h2><p className="mt-2 max-w-3xl text-muted">Follow the prophets and prophetesses through the eras of Scripture. Explore their lives, the kings they served under, and the passages that place them in history.</p></div>}
       {prophets.status === "loading" && <div className="h-64 animate-pulse rounded-2xl bg-surface-2" />}
       {prophets.status === "error" && <p className="text-muted">The prophets could not be loaded.</p>}
       {prophets.status === "ready" && (
         <>
-          <div id="prophets-directory" className="study-section-anchor">{design === "mockup" ? <ProphetsMockup prophets={prophets.value} kingId={kingId} /> : <Timeline prophets={prophets.value} active={kind} />}</div>
-          {design === "mockup" && <h3 className="mt-10 font-serif text-2xl font-semibold">Every prophet, era by era</h3>}
+          <div id="prophets-directory" className="study-section-anchor"><ProphetsRiver prophets={prophets.value} kingId={kingId} /></div>
+          <h3 className="mt-10 font-serif text-2xl font-semibold">Every prophet, era by era</h3>
           <div role="group" aria-label="Show" className="mt-6 flex flex-wrap gap-1.5">
             {KINDS.map((k) => (
               <button
@@ -101,51 +93,6 @@ export function ProphetsContent({ embedded = false }: { embedded?: boolean }) {
         </>
       )}
     </div>
-  );
-}
-
-/** Era bands left to right, one dot per prophet, coloured by kind. */
-function Timeline({ prophets, active }: { prophets: Prophet[]; active: Prophet["kind"] | "all" }) {
-  const eras = [...new Set(prophets.map((p) => p.era))];
-  const [hover, setHover] = useState<Prophet | null>(null);
-  return (
-    <figure className="rounded-2xl border border-line bg-surface p-4">
-      <div className="flex gap-1 overflow-x-auto pb-1">
-        {eras.map((era) => {
-          const here = prophets.filter((p) => p.era === era);
-          return (
-            <div key={era} className="min-w-[3.5rem]" style={{ flexGrow: here.length, flexBasis: 0 }}>
-              <div className="flex min-h-[3.25rem] flex-wrap content-end gap-1 rounded-t-lg bg-surface-2 p-1.5">
-                {here.map((p) => (
-                  <Link
-                    key={p.id}
-                    to={`/people/${p.id}`}
-                    state={cameFrom("Prophets through time")}
-                    aria-label={`${p.name}, ${p.kind === "false" ? "false prophet" : "prophet"}`}
-                    onMouseEnter={() => setHover(p)}
-                    onFocus={() => setHover(p)}
-                    className={cn("h-3.5 w-3.5 rounded-full ring-offset-1 hover:ring-2 hover:ring-ink", active !== "all" && active !== p.kind && "opacity-20")}
-                    style={{ background: tone(KIND_TONE[p.kind]).tab }}
-                  />
-                ))}
-              </div>
-              <p className="truncate border-t-2 pt-1 text-center text-[11px] text-muted" style={{ borderColor: tone(prophetEra(era).tone).tab }}>{prophetEra(era).label}</p>
-            </div>
-          );
-        })}
-      </div>
-      <figcaption className="mt-2 flex flex-wrap items-center justify-between gap-x-4 gap-y-1 text-xs text-muted">
-        <span className="min-h-[1.25rem]">{hover ? `${hover.name} — ${hover.brief || hover.era}` : "Each dot is one prophet, in time order. Point at one; click to open their page."}</span>
-        <span className="flex flex-wrap gap-3">
-          {KINDS.filter((k) => k.id !== "all").map((k) => (
-            <span key={k.id} className="flex items-center gap-1">
-              <span className="h-2.5 w-2.5 rounded-full" style={{ background: tone(KIND_TONE[k.id as Prophet["kind"]]).tab }} aria-hidden />
-              {k.label}
-            </span>
-          ))}
-        </span>
-      </figcaption>
-    </figure>
   );
 }
 

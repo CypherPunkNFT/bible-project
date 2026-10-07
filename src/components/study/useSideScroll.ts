@@ -40,6 +40,7 @@ export function useSideScroll() {
       return window.scrollY + top - Math.min(header + 12, window.innerHeight - 20 - tall);
     };
 
+    let lastWheel = -Infinity; // when the wheel last moved, to tell its glide from other scrolling
     let done = false; // the timeline has been travelled: from now on the page scrolls normally
     // One path for page and timeline: positions up to P are the page, the next stretch is the timeline from where it
     // already is (B) to its end (R), then the page again.
@@ -64,6 +65,7 @@ export function useSideScroll() {
     const onWheel = (event: WheelEvent) => {
       if (event.ctrlKey || Math.abs(event.deltaX) > Math.abs(event.deltaY)) return; // pinch zoom and sideways swipes stay native
       const dy = event.deltaMode === 1 ? event.deltaY * 16 : event.deltaMode === 2 ? event.deltaY * window.innerHeight : event.deltaY;
+      lastWheel = performance.now();
       if (dy <= 0) { halt(); return; } // up: always the page, as usual
       if (done && !frame) return;
       if (!frame) {
@@ -77,12 +79,13 @@ export function useSideScroll() {
       target = Math.min(end, target > current && frame ? target + dy : current + dy);
       if (!frame) frame = requestAnimationFrame(ease);
     };
-    // A scroll the hook did not start (scrollbar, keys, a glide already under way) is left alone, except that a downward
-    // glide is not allowed to run past the stop before the timeline has been travelled: it stops there.
+    // A scroll the hook did not start is left alone, except that the browser's downward glide after a wheel step is not
+    // allowed to run past the stop before the timeline has been travelled: it stops there.
     let lastY = window.scrollY;
     const onPageScroll = () => {
       const y = window.scrollY;
-      if (!frame && !done && y > lastY) {
+      // Only the browser's glide straight after a wheel step; touch, keys, the scrollbar and links pass freely.
+      if (!frame && !done && y > lastY && performance.now() - lastWheel < 600) {
         const stop = pageAtStop();
         if (lastY <= stop + .5 && y > stop + .5 && reachOf() > 0) window.scrollTo({ top: stop, behavior: "instant" });
       }

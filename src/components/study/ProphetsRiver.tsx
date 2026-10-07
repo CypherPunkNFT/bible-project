@@ -7,10 +7,10 @@ import { cameFrom } from "@/lib/came-from";
 import { tone, type Tone } from "@/lib/sections";
 import type { Prophet } from "@/lib/study";
 import { PROPHET_ERAS } from "@/lib/prophet-eras";
-import "./prophets-mockup.css";
+import "./prophets-river.css";
 
 /**
- * MOCK-UP (owner, 2026-10-07): a more illustrative prophets view. A river of time across the eras with every prophet as
+ * The prophets view (owner's mock-up, approved 2026-10-07). A river of time across the eras with every prophet as
  * a medallion, the kings they served on a ribbon beneath, a preview panel, and the sixteen prophetic books as a shelf.
  * Pointing at a prophet previews them; clicking opens their own page.
  */
@@ -27,7 +27,7 @@ const initials = (name: string) => name.replace(/[^A-Za-z]/g, "").slice(0, 2);
 const roleOf = (p: Prophet) => (p.kind === "false" ? (p.sex === "Female" ? "False prophetess" : "False prophet") : p.sex === "Female" ? "Prophetess" : "Prophet");
 const back = () => cameFrom("Prophets through time");
 
-export function ProphetsMockup({ prophets, kingId }: { prophets: Prophet[]; kingId: (name: string) => string | undefined }) {
+export function ProphetsRiver({ prophets, kingId }: { prophets: Prophet[]; kingId: (name: string) => string | undefined }) {
   const eras = ERAS.filter((era) => prophets.some((p) => p.era === era.id));
   // Each era is as wide as its prophets need (a minimum for the short ones); prophets spread evenly inside it.
   const layout = useMemo(() => {
@@ -124,7 +124,7 @@ export function ProphetsMockup({ prophets, kingId }: { prophets: Prophet[]; king
     <section className="pm-shelf" aria-labelledby="pm-shelf-title">
       <div className="pm-shelf-head"><h3 id="pm-shelf-title">The sixteen who wrote</h3><p>Isaiah to Malachi, each spine as tall as its book is long. Point at one; click to meet the prophet.</p></div>
       <ol className="pm-books">
-        {writers.map((p, i) => <li key={p.id} style={{ "--h": `${7.5 + CHAPTERS[p.book!] * .12}rem`, "--pm": tone(i < 4 ? "prophets" : "poetry").tab } as CSSProperties}>
+        {writers.map((p, i) => <li key={p.id} style={{ "--h": `${7.5 + CHAPTERS[p.book!] * .12}rem`, "--chars": p.name.length, "--pm": tone(i < 4 ? "prophets" : "poetry").tab } as CSSProperties}>
           <Link to={`/people/${p.id}`} state={back()} onMouseEnter={() => setFocus(p)} onFocus={() => setFocus(p)} title={`${p.name} · ${CHAPTERS[p.book!]} chapters${p.king ? ` · in the days of ${p.king}` : ""}`}>
             <span>{p.name}</span><small>{CHAPTERS[p.book!]}</small>
           </Link>

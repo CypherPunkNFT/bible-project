@@ -1,4 +1,4 @@
-/* MOCK-UP: the prophets as a river of time (ProphetsMockup.tsx). --pm is a prophet's or figure's colour. */
+/* The prophets as a river of time (ProphetsRiver.tsx). --pm is a prophet's or figure's colour. */
 .pm { margin-top: .5rem; }
 .pm-kicker { font-size: .65rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--pm, var(--accent)); }
 .pm-head h2 { margin-top: .5rem; font: 500 clamp(2.2rem, 4.5vw, 3.6rem)/1.1 var(--font-serif); letter-spacing: -.035em; }
@@ -52,9 +52,10 @@
 .pm-shelf-head p { margin-top: .25rem; font-size: .82rem; color: var(--muted); }
 .pm-books { display: flex; align-items: flex-end; gap: .35rem; margin-top: 1rem; padding: 1rem 1rem 0; border-bottom: 6px solid color-mix(in srgb, var(--ink) 35%, transparent); border-radius: .6rem .6rem 0 0; background: linear-gradient(transparent 60%, color-mix(in srgb, var(--ink) 5%, transparent)); overflow-x: auto; }
 .pm-books li { flex: 1 0 2.3rem; }
-.pm-books a { display: flex; flex-direction: column; align-items: center; justify-content: space-between; height: var(--h); padding: .55rem 0 .4rem; border-radius: .3rem .3rem 0 0; background: linear-gradient(90deg, color-mix(in srgb, var(--pm) 80%, #000), var(--pm) 35%, color-mix(in srgb, var(--pm) 85%, #fff)); color: #fff; transition: transform .18s; }
+.pm-books a { container-type: size; display: flex; flex-direction: column; align-items: center; justify-content: space-between; height: var(--h); padding: .55rem 0 .4rem; border-radius: .3rem .3rem 0 0; background: linear-gradient(90deg, color-mix(in srgb, var(--pm) 80%, #000), var(--pm) 35%, color-mix(in srgb, var(--pm) 85%, #fff)); color: #fff; transition: transform .18s; }
 .pm-books a:hover, .pm-books a:focus-visible { transform: translateY(-.5rem); }
-.pm-books a span { writing-mode: vertical-rl; transform: rotate(180deg); font: 600 .78rem var(--font-serif); letter-spacing: .04em; }
+/* Each name as large as its spine allows: no wider than the spine, no longer than its height (less the chapter count). */
+.pm-books a span { writing-mode: vertical-rl; transform: rotate(180deg); font: 600 min(58cqw, calc((100cqh - 2.4rem) / (var(--chars) * .56))) / 1 var(--font-serif); letter-spacing: .01em; white-space: nowrap; }
 .pm-books a small { font-size: .58rem; opacity: .85; }
 .pm-shelf-foot { display: flex; gap: 1.2rem; margin-top: .6rem; font-size: .72rem; color: var(--muted); }
 .pm-shelf-foot span { display: inline-flex; align-items: center; gap: .4rem; }
