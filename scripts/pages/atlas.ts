@@ -7,6 +7,7 @@ import { ATLAS_BASE, atlasDestination } from "../../src/pages/places/routes";
 import { codeLink, experienceMarkdown, siteLink, table, wordingSection, type Destination, type Experience, type HistoryCollection, type HistoryTopic } from "./atlas-md";
 import { atlasHasPlace } from "../../src/pages/places/atlas-find";
 import { citiesMarkdown, loadPlacesData, mapMarkdown, type PlacesData } from "./atlas-places";
+import { paulJourneyMarkdown } from "./atlas-journey";
 import { loadConstants, WEBSITE } from "./atlas-source";
 import type { Extractor, PageContent } from "./types";
 
@@ -141,7 +142,7 @@ export const extract: Extractor = async () => {
   const pages: PageContent[] = [
     { dir: "Atlas", title: "Atlas", markdown: [homeMarkdown(DESTINATIONS, ticker), await wordingSection([{ file: "src/pages/places/AtlasCollection.tsx", functions: ["CollectionHome", "DestinationShell"] }], 1)].join("\n") },
     page("atlas", await mapMarkdown(placesData)),
-    page("journeys", [experienceMarkdown(EXPERIENCES.journeys, { placeColumn: "Starts at (map link)", lensNote: "The Letters lens appears only for Paul and Peter." }), "", await wordingSection(workspace, DEPTH)].join("\n")),
+    page("journeys", [experienceMarkdown(EXPERIENCES.journeys, { placeColumn: "Starts at (map link)", lensNote: "The Letters lens appears only for Paul and Peter." }), "", await paulJourneyMarkdown(), "", await wordingSection(workspace, DEPTH)].join("\n")),
     page("cities", await citiesMarkdown(placesData, EXPERIENCES.cities)),
     page("gospels", [
       experienceMarkdown(EXPERIENCES.gospels, { placeColumn: "Starts at (map link)" }),
