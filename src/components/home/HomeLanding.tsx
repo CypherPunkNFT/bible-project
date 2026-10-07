@@ -89,7 +89,7 @@ export function HomeLanding({ home }: { home: HomeData | null }) {
         </div>
         <div className="mt-2 flex items-center justify-center text-xs text-muted sm:justify-between">
           <span className="hidden sm:inline">In the beginning God created</span>
-          <a href="#one-story" className="inline-flex items-center gap-1 font-semibold text-ink hover:text-accent">
+          <a href="#about" className="inline-flex items-center gap-1 font-semibold text-ink hover:text-accent">
             One story <ArrowDown className="h-3.5 w-3.5" aria-hidden />
           </a>
           <span className="hidden sm:inline">Behold, I make all things new</span>

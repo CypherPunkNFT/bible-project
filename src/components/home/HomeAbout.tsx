@@ -35,7 +35,7 @@ function GithubMark() {
 export function HomeAbout() {
   const catalog = useCatalog();
   return (
-    <section aria-labelledby="home-about" className="py-14">
+    <section id="about" aria-labelledby="home-about" className="scroll-mt-20 py-14">
       <div className="max-w-3xl">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">About this site</p>
         <h2 id="home-about" className="mt-2 font-serif text-3xl font-semibold tracking-tight sm:text-4xl">
