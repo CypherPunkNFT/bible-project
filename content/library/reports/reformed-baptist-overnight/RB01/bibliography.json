@@ -55,7 +55,6 @@
         "asset-rb01-371bc7b573cb207c3e35",
         "asset-rb01-3b19d207e98375a1297e",
         "asset-rb01-eeb8cdacd6df9d81e92d",
-        "asset-rb01-9d92196f59fd67117d4a",
         "asset-rb01-e722e3b1e29a9c59c1bd"
       ],
       "sourceUrls": [
@@ -71,10 +70,10 @@
         "https://founders.org/library/ch-8/",
         "https://founders.org/library/ch-9/",
         "https://founders.org/library/conclusion/",
-        "https://founders.org/library/introduction/",
         "https://founders.org/library/preface/"
       ],
-      "scope": "Source-first acquisition identity; see admission-decisions.json for teaching scope."
+      "scope": "RB05 correction: 13 historical components held here; modern Introduction removed. Historical missing introduction recovered in RB05. See RB05/REPORT.md.",
+      "contributorNote": "Preface credits G. W. Samson with chief Appendix article; that component remains evidenceOnly pending attribution/quotation integration. RB05 supplies the missing historical Introduction; the old Founders Introduction is Stan Reeves."
     },
     {
       "workId": "work-rb01-dagg-manual-theology",
@@ -503,6 +502,18 @@
         "https://www.reformedreader.org/ccc/pc34.htm"
       ],
       "scope": "Source-first acquisition identity; see admission-decisions.json for teaching scope."
+    },
+    {
+      "workId": "work-rb05-reeves-confession-introduction-correction",
+      "title": "Introduction to the 1689 Baptist Confession in Modern English",
+      "author": "Stan Reeves",
+      "assetIds": [
+        "asset-rb01-9d92196f59fd67117d4a"
+      ],
+      "sourceUrls": [
+        "https://founders.org/library/introduction/"
+      ],
+      "scope": "Misattributed in RB01 as Dagg Church Order introduction. Modern confessional editorial article; hold metadata-only pending its own edition/contributor review. Not part of historical Dagg text."
     }
   ]
 }

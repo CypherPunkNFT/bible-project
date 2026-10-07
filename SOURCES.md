@@ -253,7 +253,7 @@ Seven complete CCEL ThML transcriptions acquired: Owen's *Mortification* and *Te
 
 **Actual private holdings:** 121 verified originals (103 HTML, 17 PDF, one JSON); six wholly new historical works, completion of Dagg Part I, 18 selected Founders issue records, one editorial comparison document. [Mission report](content/library/reports/reformed-baptist-overnight/RB01/REPORT.md), [full provenance/hash ledger](content/library/reports/reformed-baptist-overnight/RB01/acquisition-manifest.json), [32-chapter explanation map](content/library/reports/reformed-baptist-overnight/RB01/exposition-coverage.json), [admission decisions](content/library/reports/reformed-baptist-overnight/RB01/admission-decisions.json), [rights and intake scope](content/library/reports/reformed-baptist-overnight/RB01/intake-scope.json). Downloaded and readable, not newly embedded.
 
-Dagg: complete offered Part I and Church Order. New Philadelphia (34 chapters), distinct First London witnesses, Cox appendix, Beddome exposition (114 units / 2,611 nested Q&A), Collins Orthodox Catechism (152 questions). Founders: 16 full offered PDFs plus complete HTML article sets for 117/119; not 18 complete print issues. Boyce, Gill and existing 1689/Baptist Catechism holdings reused. Editorial composites, uncertain dates, modern chapter expansions and incidental reviews retain their labels. Historic text/public reading does not imply public republication clearance; no raw bodies hosted.
+Dagg: complete offered Part I; Church Order’s misidentified Introduction was corrected and its missing historical text recovered in RB05 (see the RB05 correction below). New Philadelphia (34 chapters), distinct First London witnesses, Cox appendix, Beddome exposition (114 units / 2,611 nested Q&A), Collins Orthodox Catechism (152 questions). Founders: 16 full offered PDFs plus complete HTML article sets for 117/119; not 18 complete print issues. Boyce, Gill and existing 1689/Baptist Catechism holdings reused. Editorial composites, uncertain dates, modern chapter expansions and incidental reviews retain their labels. Historic text/public reading does not imply public republication clearance; no raw bodies hosted.
 
 <details>
 <summary>Every acquired original and its source (121 files)</summary>
@@ -353,7 +353,7 @@ Dagg: complete offered Part I and Church Order. New Philadelphia (34 chapters), 
 | Manual of Church Order – Ch. 8 | [Source](https://founders.org/library/ch-8/) | html · component-of-complete-offered-witness |
 | Manual of Church Order – Ch. 9 | [Source](https://founders.org/library/ch-9/) | html · component-of-complete-offered-witness |
 | Manual of Church Order – Conclusion | [Source](https://founders.org/library/conclusion/) | html · component-of-complete-offered-witness |
-| Manual of Church Order – Introduction | [Source](https://founders.org/library/introduction/) | html · component-of-complete-offered-witness |
+| Stan Reeves: Introduction to the 1689 Confession in Modern English (RB05 attribution correction; not Dagg) | [Source](https://founders.org/library/introduction/) | html · modern editorial; evidence-only |
 | Manual of Church Order – Preface | [Source](https://founders.org/library/preface/) | html · component-of-complete-offered-witness |
 | Founders Journal: Scripture (Issue 104) Spring 2016 | [Source](https://founders.org/wp-content/uploads/2017/06/FoundersJournal104.pdf) | pdf · complete-offered-issue-file |
 | Founders Journal: Trinity (Issue 105) Summer 2016 | [Source](https://founders.org/wp-content/uploads/2016/10/FoundersJournal105.pdf) | pdf · complete-offered-issue-file |
@@ -840,3 +840,30 @@ Chapel Library 2017 explicitly labels its Booth edition an **abridgment and anno
 Fuller and Booth's actual disagreements, the chronology of imputation wording, and Murray's definitive/progressive sanctification distinction remain attributed. Three mixed/annotated witnesses are explicitly metadata-only for the current importer pending segmented intake; seventeen exact private Fuller components are prepared. Do not start DB/vector/graph/enrichment work during this mission; aggregate intake follows the newer post-RB14 gate.
 
 <!-- RB04 sources:end -->
+
+<!-- RB05 sources:start -->
+
+## RB05: church membership, polity, discipline and ministry (7 October 2026)
+
+Eight immutable originals (seven journal PDFs and one missing Dagg introduction), **21,171,393 bytes**. These are seven new issue witnesses plus completion of a held work, not eight new complete books. Priority Keach, Spurgeon and Broadus books were already held. No new DB intake or embeddings.
+
+[Report](content/library/reports/reformed-baptist-overnight/RB05/REPORT.md) | [Manifest and hashes](content/library/reports/reformed-baptist-overnight/RB05/acquisition-manifest.json) | [Reading map](content/library/reports/reformed-baptist-overnight/RB05/READING-MAP.md) | [Theological distinctions](content/library/reports/reformed-baptist-overnight/RB05/THEOLOGICAL-DISTINCTIONS.md) | [Intake requirements](content/library/reports/reformed-baptist-overnight/RB05/INTAKE-NOTES.md).
+
+| Work / issue or component | Actual acquired source | Verified extent and intake scope |
+|---|---|---|
+| 9Marks Journal: Living as a Church | [Offered source](https://www.9marks.org/wp-content/uploads/2008/04/ejournal200853mayjun.pdf) | pdf; May/June 2008, volume 5 issue 3; mixed issue parent evidence-only pending article/contributor/rights integration |
+| 9Marks Journal: Church Discipline, Part II | [Offered source](https://www.9marks.org/wp-content/uploads/2009/10/eJournal200966novdec.pdf) | pdf; November/December 2009, volume 6 issue 6; mixed issue parent evidence-only pending article/contributor/rights integration |
+| 9Marks Journal: Deacons | [Offered source](https://www.9marks.org/wp-content/uploads/2019/04/9Marks_Journal_2010_May-Jun_Deacons.pdf) | pdf; May/June 2010, publisher PDF reoffered 2019; mixed issue parent evidence-only pending article/contributor/rights integration |
+| 9Marks Journal: Lay Elders, Part I | [Offered source](https://www.9marks.org/wp-content/uploads/2012/11/ejournal201296novdec.pdf) | pdf; November/December 2012; mixed issue parent evidence-only pending article/contributor/rights integration |
+| Founders Journal: Church Purity (Issue 73) | [Offered source](https://founders.org/wp-content/uploads/2026/07/FoundersJournal73.pdf) | pdf; Summer 2008; exact publisher-offered issue PDF; mixed issue parent evidence-only pending article/contributor/rights integration |
+| Founders Journal: Singing in the Church (Issue 90) | [Offered source](https://founders.org/wp-content/uploads/2016/10/FoundersJournal90.pdf) | pdf; Fall 2012; exact publisher-offered issue PDF; mixed issue parent evidence-only pending article/contributor/rights integration |
+| Founders Journal: Baptists, Puritans, and Preaching (Issue 129) | [Offered source](https://founders.org/wp-content/uploads/2026/04/Founders-Journal-FULL-2025-FAll-.pdf) | pdf; Fall 2025; exact publisher-offered issue PDF; mixed issue parent evidence-only pending article/contributor/rights integration |
+| A Treatise on Church Order: Introduction - Obedience to Christ | [Offered source](https://www.sermonindex.net/books/writings-of-j-l-dagg/121/) | html; 1858 historical work; SermonIndex offered e-Sword-derived transcription, exact source spelling retained; complete selected missing Introduction; duplicate preface/TOC excluded |
+
+All original and derivative SHA values, final URLs, retrieval dates, exact rights notices and immutable paths are in the manifest. **172,438 total derivative words include excluded issue material and quotations**, not unique endorsed coverage. Forty-eight selected journal lessons/articles and five additional Fuller components are mapped privately; the Fuller volume was acquired in RB04, not downloaded again.
+
+RB05 corrected a real RB01 identity error: the held Founders Introduction is **Stan Reeves**, not Dagg. The historical Obedience to Christ introduction is now held from SermonIndex, completing thirteen correct earlier Church Order components. Dagg’s preface credits **G. W. Samson** with the chief Appendix article; that prior component now has an attribution hold. [Correction evidence](content/library/reports/reformed-baptist-overnight/RB05/identity-corrections.json); no original bytes or DB rows were changed.
+
+Four historical 9Marks issues explicitly permit unchanged, credited, cost-only distribution within their stated conditions; course teaching adaptation is separately permitted. This does not license all 9Marks works. A 2025 guide explicitly restricts retrieval-system storage and was not promoted to acquisition. Founders currently offers the three exact issue PDFs; broader indexing/republication remains a rights-review step. No public full-text hosting, commercial-book bypass, new OCR/audio/video, or deliberately targeted Catholic/progressive teaching/opposition acquisition.
+
+<!-- RB05 sources:end -->

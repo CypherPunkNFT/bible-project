@@ -735,11 +735,12 @@
     {
       "assetId": "asset-rb01-b0316e24a0234138ae8c",
       "url": "https://founders.org/library/appendix/",
-      "role": "selected-historical-Baptist-teaching",
+      "role": "historical-appendix-with-contributor-roles",
       "includedPrefixes": null,
       "publicHostingAllowed": false,
-      "review": "admission-decisions.json; source-exceptions.json",
-      "componentReviewRequired": false
+      "review": "../RB05/INTAKE-NOTES.md",
+      "componentReviewRequired": true,
+      "evidenceOnly": true
     },
     {
       "assetId": "asset-rb01-3416d8f264fb672a6167",
@@ -843,11 +844,12 @@
     {
       "assetId": "asset-rb01-9d92196f59fd67117d4a",
       "url": "https://founders.org/library/introduction/",
-      "role": "selected-historical-Baptist-teaching",
+      "role": "modern-confession-editorial-misattribution-corrected",
       "includedPrefixes": null,
       "publicHostingAllowed": false,
-      "review": "admission-decisions.json; source-exceptions.json",
-      "componentReviewRequired": false
+      "review": "../RB05/identity-corrections.json",
+      "componentReviewRequired": true,
+      "evidenceOnly": true
     },
     {
       "assetId": "asset-rb01-e722e3b1e29a9c59c1bd",

@@ -1,0 +1,28 @@
+{
+  "correctedAt": "2026-10-07T09:10:40.295482+00:00",
+  "assetId": "asset-rb01-9d92196f59fd67117d4a",
+  "previousIdentity": {
+    "title": "Manual of Church Order – Introduction",
+    "author": "John Leadley Dagg",
+    "workId": "work-rb01-dagg-church-order",
+    "completeness": "component-of-complete-offered-witness",
+    "edition": "1858 second part of Manual of Theology; Founders HTML witness"
+  },
+  "correctedIdentity": {
+    "title": "Introduction to the 1689 Baptist Confession in Modern English",
+    "author": "Stan Reeves",
+    "workId": "work-rb05-reeves-confession-introduction-correction",
+    "completeness": "complete-offered-modern-introduction-not-Dagg",
+    "edition": "Modern confession introduction; signed Stan Reeves, Auburn, Alabama; exact publication date unresolved",
+    "evidenceOnly": true,
+    "rightsCategory": "modern-editorial-rights-reserved",
+    "rightsEvidence": "Modern Stan Reeves confession editorial offered for reading; no public-domain claim for its wording. Metadata-only hold pending edition/contributor and acquisition/indexing permissions review. Prior historic-Dagg rights label was a misattribution.",
+    "sourcePage": "https://founders.org/library/introduction/"
+  },
+  "originalSha256": "e2948707e608d0a865d13bfa837ca0ac39ae4b6e452c52d292b60295749ad918",
+  "originalBytesUnchanged": true,
+  "priorReportScope": "Historical RB01 completeness assertion superseded for this introduction by RB05; original acquisition counts remain historical.",
+  "dbCorrectionApplied": false,
+  "nextIntake": "Remove/relabel any earlier Dagg attribution if already imported; original document identity retained, not silently replaced.",
+  "previousRightsLabel": "historic-text-host-packaging-reserved; wrongly claimed underlying historic public-domain work"
+}

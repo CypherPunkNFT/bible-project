@@ -1,0 +1,32 @@
+{
+  "mission": "RB05",
+  "state": "bounded-acquisition-complete",
+  "startedAtUtc": "2026-10-07T08:57:21Z",
+  "acquisitionCheckpointUtc": "2026-10-07T09:41:09.734002+00:00",
+  "downloadsFinished": true,
+  "activeDownloadSessions": [],
+  "originalsAcquired": 8,
+  "pendingTargetUrls": [],
+  "failedAcquisitionTransactions": [],
+  "verification": "verification.json:457 passed checks and8extraction replays",
+  "resumptionCommands": [
+    "python -u -X utf8 scripts/rb05-acquire.py verify",
+    "python -u -X utf8 scripts/verify-rb05.py",
+    "node scripts/validate-library.mjs",
+    "git diff --check"
+  ],
+  "rerunPolicy": "acquire skips all eight already acquired URLs. Do not rerun prior historical report writers over the RB05 attribution correction. Mapping scripts are offline; no extraction/OCR/model/DB/embedding job is authorized by this checkpoint.",
+  "nextActions": [
+    "At owner-directed post-RB14 intake, reconcile asset-rb01-9d92196f59fd67117d4a as Stan Reeves, not Dagg; remove/relabel any old DB/FTS attribution. Originals unchanged.",
+    "Retain Samson contributor hold on asset-rb01-b0316e24a0234138ae8c. Combine13correct RB01 Church Order components with recovered RB05 asset-rb05-20bf4bdf56c07737c44b; do not duplicate host preface/TOC.",
+    "Integrate48journal and five reused Fuller exact private components; require per-contributor theological/rights/quotation scopes before releasing7journal/anthology parent holds. See INTAKE-NOTES.md and theological-evidence.json.",
+    "For later RB05 extension, resolve remaining contributor faith links and specific Founders private-indexing permission.9Marks2025guide remains permission-dependent, not a solved complete-book gap. Deferred2017discipline issue is not acquired.",
+    "RB06 is next only on explicit request. Reuse held pastoral/prayer works and discovery-only9MarksCounseling/Founders83,85 context; do not automatically launch next mission or embeddings."
+  ],
+  "dbIngested": false,
+  "embedded": false,
+  "graphOrEnrichmentStarted": false,
+  "schedulerChanged": false,
+  "publicFullTextHosted": false,
+  "notes": "Checkpoint written after source acquisition, exact maps, corrections, integrity checks and documentation. Commit/push closeout follows within approximate60-minute mission budget."
+}

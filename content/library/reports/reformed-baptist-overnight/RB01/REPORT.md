@@ -1,3 +1,5 @@
+> **RB05 correction (7 October 2026):** the held Founders Introduction is signed Stan Reeves and discusses the modern 1689 confession; it is not Dagg's historical introduction. Its identity and metadata-only intake hold are corrected. RB05 acquired the missing *Obedience to Christ* introduction; combine it with the 13 historical RB01 components. [Correction evidence](../RB05/identity-corrections.json), [RB05 report](../RB05/REPORT.md). Dagg’s preface also credits G. W. Samson with the chief Appendix article; that component now has a contributor-aware intake hold. The original report below is the earlier acquisition snapshot.
+
 # RB01 — Baptist doctrinal foundation and confessional explanation
 
 **Closed:** 2026-10-07T06:12:59.925023+00:00. **State:** bounded acquisition complete; further research remains. Approximately one hour of audit, acquisition, review and documentation. No RB01 download worker remains. First clock audit: 05:21:24 UTC; orientation/audit was already underway. This is not a claim that every possible Baptist doctrinal work has been found.

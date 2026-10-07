@@ -555,6 +555,40 @@
         }
       ],
       "reviewedOn": "2026-10-07"
+    },
+    {
+      "id": "source-9marks",
+      "name": "9Marks",
+      "url": "https://www.9marks.org/",
+      "role": "publisher",
+      "automation": "unreviewed",
+      "acquisitionNote": "Work-specific permission only. Four historical journals have explicit conditional reproduction notices. Modern books can prohibit retrieval-system storage; offered access is not a publisher-wide acquisition/indexing grant.",
+      "evidence": [
+        {
+          "url": "https://www.9marks.org/wp-content/uploads/2008/04/ejournal200853mayjun.pdf",
+          "locator": "Publisher-offered issue file / rights notice",
+          "note": "Work-specific permission only. Four historical journals have explicit conditional reproduction notices. Modern books can prohibit retrieval-system storage; offered access is not a publisher-wide acquisition/indexing grant.",
+          "checkedOn": "2026-10-07"
+        }
+      ],
+      "reviewedOn": "2026-10-07"
+    },
+    {
+      "id": "source-founders",
+      "name": "Founders Ministries",
+      "url": "https://founders.org/",
+      "role": "publisher",
+      "automation": "unreviewed",
+      "acquisitionNote": "Offered issue PDFs and historic HTML witnesses retained privately. Verify each contributor, edition and rights; no general full-text republication or AI-corpus permission inferred.",
+      "evidence": [
+        {
+          "url": "https://founders.org/journal/issue-73-summer-2008/",
+          "locator": "Publisher-offered issue file / rights notice",
+          "note": "Offered issue PDFs and historic HTML witnesses retained privately. Verify each contributor, edition and rights; no general full-text republication or AI-corpus permission inferred.",
+          "checkedOn": "2026-10-07"
+        }
+      ],
+      "reviewedOn": "2026-10-07"
     }
   ]
 }

@@ -1184,7 +1184,7 @@
     "url": "https://founders.org/library/appendix/",
     "title": "Manual of Church Order – Appendix",
     "workId": "work-rb01-dagg-church-order",
-    "author": "John Leadley Dagg",
+    "author": "John Leadley Dagg; G. W. Samson contributor; quoted historical witnesses",
     "sourceId": "source-founders",
     "format": "html",
     "edition": "1858 second part of Manual of Theology; Founders HTML witness",
@@ -1194,7 +1194,13 @@
     "rightsCategory": "historic-text-host-packaging-reserved",
     "rightsEvidence": "Historic public-domain work offered for reading by confessional Baptist publisher; private research copy of packaging, no public republication clearance. robots crawl-delay 30 seconds honored.",
     "policyUrl": "https://founders.org/privacy-policy/",
-    "minimumWords": 120
+    "minimumWords": 120,
+    "evidenceOnly": true,
+    "intakeScope": "Mixed Appendix: Dagg preface credits G. W. Samson with the chief article. Segment contributor and quoted geography before teaching-text intake.",
+    "contributorEvidence": {
+      "url": "https://founders.org/library/preface/",
+      "locator": "last paragraph; July 31, 1858"
+    }
   },
   {
     "url": "https://founders.org/library/ch-1/",
@@ -1374,19 +1380,33 @@
   },
   {
     "url": "https://founders.org/library/introduction/",
-    "title": "Manual of Church Order – Introduction",
-    "workId": "work-rb01-dagg-church-order",
-    "author": "John Leadley Dagg",
+    "title": "Introduction to the 1689 Baptist Confession in Modern English",
+    "workId": "work-rb05-reeves-confession-introduction-correction",
+    "author": "Stan Reeves",
     "sourceId": "source-founders",
     "format": "html",
-    "edition": "1858 second part of Manual of Theology; Founders HTML witness",
+    "edition": "Modern confession introduction; signed Stan Reeves, Auburn, Alabama; exact publication date unresolved",
     "selector": ".elementor-widget-theme-post-content",
-    "completeness": "component-of-complete-offered-witness",
-    "sourcePage": "https://founders.org/library-book/a-treatise-on-church-order/",
-    "rightsCategory": "historic-text-host-packaging-reserved",
-    "rightsEvidence": "Historic public-domain work offered for reading by confessional Baptist publisher; private research copy of packaging, no public republication clearance. robots crawl-delay 30 seconds honored.",
+    "completeness": "complete-offered-modern-introduction-not-Dagg",
+    "sourcePage": "https://founders.org/library/introduction/",
+    "rightsCategory": "modern-editorial-rights-reserved",
+    "rightsEvidence": "Modern Stan Reeves confession editorial offered for reading; no public-domain claim for its wording. Metadata-only hold pending edition/contributor and acquisition/indexing permissions review. Prior historic-Dagg rights label was a misattribution.",
     "policyUrl": "https://founders.org/privacy-policy/",
-    "minimumWords": 120
+    "minimumWords": 120,
+    "evidenceOnly": true,
+    "intakeScope": "Misattributed in RB01 as Dagg Church Order introduction. Modern confessional editorial article; hold metadata-only pending its own edition/contributor review. Not part of historical Dagg text.",
+    "identityCorrection": {
+      "mission": "RB05",
+      "previousIdentity": {
+        "title": "Manual of Church Order – Introduction",
+        "author": "John Leadley Dagg",
+        "workId": "work-rb01-dagg-church-order",
+        "completeness": "component-of-complete-offered-witness",
+        "edition": "1858 second part of Manual of Theology; Founders HTML witness"
+      },
+      "originalBytesUnchanged": true,
+      "evidence": "Modern 1689 discussion and signed Stan Reeves; source-current body matches held original."
+    }
   },
   {
     "url": "https://founders.org/library/preface/",

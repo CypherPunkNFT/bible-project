@@ -1,0 +1,73 @@
+{
+  "mission": "RB05",
+  "exceptions": [
+    {
+      "kind": "prior-misattribution",
+      "status": "corrected-metadata-only",
+      "detail": "RB01 Founders Introduction is Stan Reeves modern1689 editorial, not Dagg. Original SHA retained; old DB attribution requires later reconciliation.",
+      "evidence": "identity-corrections.json"
+    },
+    {
+      "kind": "mixed-appendix-authorship",
+      "status": "intake-held",
+      "detail": "Dagg preface credits Samson with chief Appendix article; author field and evidenceOnly hold corrected without changing bytes."
+    },
+    {
+      "kind": "priority-duplicates",
+      "status": "avoided",
+      "detail": "Keach Glory, Spurgeon Lectures/ministry/prayer/evangelism and Broadus preaching treatise already readable. No duplicate acquisition."
+    },
+    {
+      "kind": "edition",
+      "status": "disclosed",
+      "detail": "Keach2024 edited CC BY-NC-ND; Broadus1898 Dargan edition; Spurgeon combined28lectures/twointroductions; no first-edition/diplomatic claims."
+    },
+    {
+      "kind": "dagg-transcription",
+      "status": "retained",
+      "detail": "SermonIndex page contains preface/TOC and reformat footer; selected derivative keeps only missing Introduction and notes. Transcription errors retained; no new OCR."
+    },
+    {
+      "kind": "modern-whole-book",
+      "status": "not-promoted-to-acquisition",
+      "url": "https://www.9marks.org/wp-content/uploads/2025/04/HC_ABG.pdf",
+      "detail": "Healthy Churches Beginner Guide2025 PDF2 explicitly restricts retrieval-system storage without permission. Discovery-only private inspection cache, not acquired manifest or indexed."
+    },
+    {
+      "kind": "newer-discipline-issue",
+      "status": "deferred",
+      "url": "https://www.9marks.org/wp-content/uploads/2018/01/9M-Winter-2017-online.pdf",
+      "detail": "122-page issue inspected; explicit storage/index permission unresolved and overlap with2009issue. No login/email registration or link bypass; not promoted."
+    },
+    {
+      "kind": "adjacent-missions",
+      "status": "deferred",
+      "detail": "9Marks2008Counseling; Founders83MinistryDiscipleship/85KeepCloseWatch privately inspected only; not new originals. Consider only under later missions after overlap/rights review."
+    },
+    {
+      "kind": "mixed-issue",
+      "status": "seven-parent-holds",
+      "detail": "48exact church-study units selected; parents metadata-only pending contributor/rights/quotation integration. Reviews, advertisements/news and incidental Catholic/progressive reviewed books excluded."
+    },
+    {
+      "kind": "publisher-permission",
+      "status": "work-specific",
+      "detail": "Four historical9Marks issues include explicit conditional reproduction notices. Founders currently offers the three exact PDFs; freePDF permission not blanket external republication or AI-corpus grant."
+    },
+    {
+      "kind": "discovery-404",
+      "status": "recorded",
+      "detail": "Guessed SEBTSfaculty/Merkle and nestedSouthShorebeliefs URLs returned404; actualfaculty/linkedbeliefs pages found. No failed acquisition transactions or retry hammering."
+    },
+    {
+      "kind": "duplicate-work-count",
+      "status": "preserved",
+      "detail": "Seven journal-issue witnesses plus one recovered intro; not eight new full books or48new books. Total derivative words include quotations and excluded issue material."
+    },
+    {
+      "kind": "pdf-text-layer",
+      "status": "readable-not-OCR",
+      "detail": "Seven full offered issue files contain existing text layers;102,42,34,40,36,47,71 filepages respectively. Image-only covers and intentional blank pages are retained; no new OCR or claim that every cover has text. Header hyphenation and occasional damaged TOC glyphs preserved; body bylines identify Reagan Marsh."
+    }
+  ]
+}
