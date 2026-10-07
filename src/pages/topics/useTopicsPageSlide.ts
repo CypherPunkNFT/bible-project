@@ -20,7 +20,26 @@ const clearSlide = () => {
   delete data.topicsSlide;
   delete data.topicsDirection;
   delete data.topicsMorph;
+  document.body.style.removeProperty("padding-bottom");
 };
+
+/** Scroll smoothly until the clicked card sits just under the site header, then continue (immediately if it already does). */
+function bringToTop(card: Element, then: () => void) {
+  const headerBottom = document.querySelector("header.sticky")?.getBoundingClientRect().bottom ?? 0;
+  const offset = card.getBoundingClientRect().top - Math.max(headerBottom, 0) - 16;
+  const target = Math.max(0, window.scrollY + offset);
+  // A card on the last row can sit below the furthest scroll; lend the page room until the slide clears it.
+  const room = target - (document.documentElement.scrollHeight - innerHeight);
+  if (room > 0) document.body.style.paddingBottom = `${Math.ceil(room)}px`;
+  if (Math.abs(target - window.scrollY) < 8) { then(); return; }
+  let done = false;
+  const finish = () => { if (done) return; done = true; window.removeEventListener("scrollend", arrived); clearTimeout(timer); then(); };
+  // Only a scroll that ends at the target counts (an earlier scroll can still report its end); the timer covers the rest.
+  const arrived = () => { if (Math.abs(window.scrollY - target) < 4) finish(); };
+  const timer = window.setTimeout(finish, 1200);
+  window.addEventListener("scrollend", arrived);
+  window.scrollTo({ top: target, behavior: "smooth" });
+}
 
 /** The leaving page is drawn in the arriving page's slot; shift it back to where it was on screen. */
 function keepOldInPlace(oldTop: number | undefined) {
@@ -59,21 +78,32 @@ export function useTopicsPageSlide() {
     event.preventDefault();
     const run = ++generation;
     active?.transition.skipTransition();
-    const oldTop = document.querySelector(".topics-page-slide")?.getBoundingClientRect().top;
-    const data = document.documentElement.dataset;
-    data.topicsSlide = "wipe";
-    data.topicsDirection = next >= from ? "forward" : "backward";
-    if (from === 0 || next === 0) data.topicsMorph = "";
-    const transition = doc.startViewTransition(() => {
-      if (run !== generation) return;
-      flushSync(() => navigate(`${to.pathname}${to.search}${to.hash}`));
-      keepOldInPlace(oldTop);
+    // From the home page, the clicked card first rises to the top, so its fold into the tile row is a short move.
+    const card = from === 0 ? link.closest("[data-topics-morph]") : null;
+    const fromPath = location.pathname;
+    if (card) bringToTop(card, () => {
+      if (run === generation && window.location.pathname === fromPath) start(run, to, from, next, doc, navigate);
+      else if (run === generation) document.body.style.removeProperty("padding-bottom");
     });
-    active = { transition, pathname: to.pathname };
-    void transition.finished.catch(() => undefined).then(() => {
-      if (run !== generation) return;
-      active = undefined;
-      clearSlide();
-    });
+    else start(run, to, from, next, doc, navigate);
   };
+}
+
+function start(run: number, to: URL, from: number, next: number, doc: TransitionDocument, navigate: ReturnType<typeof useNavigate>) {
+  const oldTop = document.querySelector(".topics-page-slide")?.getBoundingClientRect().top;
+  const data = document.documentElement.dataset;
+  data.topicsSlide = "wipe";
+  data.topicsDirection = next >= from ? "forward" : "backward";
+  if (from === 0 || next === 0) data.topicsMorph = "";
+  const transition = doc.startViewTransition(() => {
+    if (run !== generation) return;
+    flushSync(() => navigate(`${to.pathname}${to.search}${to.hash}`));
+    keepOldInPlace(oldTop);
+  });
+  active = { transition, pathname: to.pathname };
+  void transition.finished.catch(() => undefined).then(() => {
+    if (run !== generation) return;
+    active = undefined;
+    clearSlide();
+  });
 }
