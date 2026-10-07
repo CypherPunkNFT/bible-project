@@ -142,8 +142,8 @@ information. **None is used on the site yet.** Each "Planned use" is a to-do, an
 | [josephus-life](sources/gutenberg/josephus-life-2846.txt) | Josephus, *The Life of Flavius Josephus*, tr. Whiston, Project Gutenberg #2846 · as above | as above | 7c4408526f781f67 |
 | [josephus-apion](sources/gutenberg/josephus-apion-2849.txt) | Josephus, *Against Apion*, tr. Whiston, Project Gutenberg #2849 · as above | as above | b6791c018b1033ea |
 
-Nave's *Topical Bible* (above, `nave-xml`) was downloaded on 2026-10-03 but is not used yet. Its planned use is the
-Topics expansion (about 14 super-categories), merged with Torrey's.
+Nave's *Topical Bible* (above, `nave-xml`) and Easton's articles feed the expanded Topics (5,084 topics, 28 families;
+see `content/topics/naves-placement.json`).
 
 **Not used, on purpose:** the Thompson Chain-Reference Bible and modern study Bibles (ESV, NIV) are under copyright,
 and Vine's *Expository Dictionary* has an unclear copyright status.
