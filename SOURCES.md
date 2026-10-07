@@ -161,6 +161,22 @@ The site serves copies from `public/atlas/` and never calls NASA at run time. **
 considered and refused**: its terms forbid downloading or storing it, and the only permitted route (Google's Map
 Tiles API) is billed per use and needs Google online every time the map loads.
 
+## Atlas street map — OpenStreetMap data via Protomaps, licence ODbL
+
+| Folder | What | Checksum |
+|---|---|---|
+| [AtlasTiles/build](../AtlasTiles/README.md) | The atlas map at [/study/atlas/map](https://bibleproject.io/study/atlas/map): land, green areas, water, rivers and borders of the biblical world (12°W–73°E, 8°N–49°N) at zoom 0–8, plus zoom 9–15 within 50 km of every Bible place, with roads, buildings and icons removed so it reads as the ancient world. **© OpenStreetMap contributors, ODbL** (Open Database Licence 1.0), packaged by **Protomaps** as daily build `20261005` (OpenStreetMap as of 2026-10-05 04:00 UTC; basemap schema 4.15.2). Two extracts were downloaded: `world-biblical-z0-8.pmtiles` (105 MB) and `places-50km-z9-15.pmtiles` (1.9 GB); they are merged and stripped into `bible-atlas-ancient.pmtiles` (867,388,966 bytes), which the site serves as 35 pieces of 24 MiB from `AtlasTiles/site/e0453082e07b/` (the folder name is the start of the file's SHA-256) | served map e0453082e07bc44b · biblical world z0–8 bc42bd884cb63b7f · places 50 km z9–15 ed581932f0046428 · patch outline `region_50km.geojson` 196906262859fe42 |
+| [AtlasTiles/site/fonts, sprites](../AtlasTiles/README.md) | Map label fonts (Noto Sans Regular, Medium and Italic; **SIL Open Font License**) and map icons (derived from tangrams/icons, **MIT**), from Protomaps' basemaps-assets (`main` branch, downloaded 2026-10-05 as `assets.zip`) | assets.zip c02634724bee074a |
+
+Downloaded 2026-10-05/06 with the free `pmtiles extract` tool from `https://build.protomaps.com/20261005.pmtiles`
+and built by `scripts/build-street-atlas.py` (steps and sizes in [AtlasTiles/README.md](../AtlasTiles/README.md) and
+[STREET_ATLAS.md](../STREET_ATLAS.md)). **ODbL means the map must show the credit "© OpenStreetMap"** — done in the
+credit line under the map, with a link to openstreetmap.org/copyright, beside "Protomaps". The map style code
+(`@protomaps/basemaps` 5.7.2) and the map libraries (`maplibre-gl` 6.12.0, `pmtiles` 4.5.0) are BSD-3-Clause npm
+packages. The site serves its own copy inside each release and never calls OpenStreetMap or Protomaps at run time;
+$0, no paid storage. In use on the map page and on Ancient Cities' city maps ([/study/atlas/cities](https://bibleproject.io/study/atlas/cities)). Planned use: the same map under Paul's guided journey, the Jerusalem and Corinth city guides and
+the Gospel events on the Atlas pages.
+
 ## Study resources — downloaded 2026-10-03 for the Study pages (TODO section G)
 
 Only facts (event names, topic names, verse references, names and family links) are taken from these. STEP
