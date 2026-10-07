@@ -1,90 +1,92 @@
-import { ArrowLeft, ChevronDown } from "lucide-react";
-import { useEffect, useState } from "react";
-import { Link, useLocation, useParams } from "react-router-dom";
-import { Loading } from "@/components/charts/ChartCard";
-import { CategoryCard } from "@/components/topics/TopicCards";
-import { loadTopicIndex } from "@/lib/data";
-import { categoryStyle, groupIcon } from "@/lib/topic-style";
-import { topicCount, topicUrl, type TopicIndex, type TopicSubcategory } from "@/lib/topics";
-import { useAsync } from "@/lib/useAsync";
+import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
+import { useState } from "react";
+import { Link, useLocation, useParams, useSearchParams } from "react-router-dom";
+import { RevealSelection } from "@/pages/places/RevealSelection";
+import { TopicsArtwork } from "@/pages/topics/TopicsArtwork";
+import { TopicsShell } from "@/pages/topics/TopicsShell";
+import { groupIcon, sectionOf } from "@/lib/topic-style";
+import { topicCount, topicUrl, type TopicCategory, type TopicIndex, type TopicSubcategory } from "@/lib/topics";
 import { formatNumber } from "@/lib/utils";
 
-const PREVIEW = 8;
+const passagesOf = (sub: TopicSubcategory, index: TopicIndex) => sub.topics.reduce((n, id) => n + (index.topics[id]?.refs ?? 0), 0);
 
-/** One group: its topics as chips, the most-cited first; expands to show them all. */
-function GroupCard({ sub, index, color, open }: { sub: TopicSubcategory; index: TopicIndex; color: string; open: boolean }) {
-  const [expanded, setExpanded] = useState(open);
-  const ordered = [...sub.topics].sort((a, b) => index.topics[b].refs - index.topics[a].refs);
-  const shown = expanded ? ordered : ordered.slice(0, PREVIEW);
-  const passages = sub.topics.reduce((n, id) => n + index.topics[id].refs, 0);
-  const GroupIcon = groupIcon(sub.id);
+/** One group opened: its topics as small cards, most-cited first, and the way on to the other groups. */
+function GroupDetail({ family, group, index, onChoose }: { family: TopicCategory; group: TopicSubcategory; index: TopicIndex; onChoose: (id?: string) => void }) {
+  const Icon = groupIcon(group.id);
+  const ordered = [...group.topics].sort((a, b) => (index.topics[b]?.refs ?? 0) - (index.topics[a]?.refs ?? 0));
   return (
-    <section id={sub.id} aria-labelledby={`${sub.id}-title`} className="scroll-mt-24 rounded-2xl border border-line bg-surface p-5" style={{ borderTop: `3px solid ${color}` }}>
-      <div className="flex items-start gap-3">
-        <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl" style={{ background: `color-mix(in srgb, ${color} 14%, transparent)`, color }}><GroupIcon size={22} /></span>
-        <div>
-          <h2 id={`${sub.id}-title`} className="font-serif text-xl font-semibold">{sub.title}</h2>
-          <p className="mt-1 text-sm text-muted">{sub.description}</p>
-          <p className="mt-1 text-xs text-muted">{sub.topics.length} topics · {formatNumber(passages)} passages</p>
-        </div>
+    <article className="topics-group-detail">
+      <div className="topics-detail-nav"><button type="button" className="topics-back places-collections-back" onClick={() => onChoose()}><ArrowLeft size={16} aria-hidden />All groups</button><span aria-hidden>/</span><span>{group.title}</span></div>
+      <div className="topics-detail-heading">
+        <Icon size={36} strokeWidth={1.35} aria-hidden />
+        <div><h3>{group.title}</h3><p>{group.description}</p></div>
+        <span className="topics-detail-count">{group.topics.length} topics · {formatNumber(passagesOf(group, index))} passages</span>
       </div>
-      <ul className="mt-4 flex flex-wrap gap-1.5">
-        {shown.map((id) => <li key={id}><Link to={topicUrl(id)} className="inline-flex items-baseline gap-1.5 rounded-full border border-line bg-page px-3 py-1.5 text-sm hover:border-current" style={{ color: "var(--ink)" }}>{index.topics[id].title}<span className="text-[11px] text-muted">{index.topics[id].refs}</span></Link></li>)}
+      <ul className="topics-topic-grid" aria-label={`Topics in ${group.title}`}>
+        {ordered.map((id) => {
+          const topic = index.topics[id];
+          return topic && <li key={id}><Link to={topicUrl(id)}><span><strong>{topic.title}</strong><small>{topic.points} points · {formatNumber(topic.refs)} passages</small></span><ArrowRight size={14} aria-hidden /></Link></li>;
+        })}
       </ul>
-      {ordered.length > PREVIEW && (
-        <button type="button" aria-expanded={expanded} onClick={() => setExpanded((v) => !v)} className="mt-3 inline-flex items-center gap-1 text-sm font-semibold" style={{ color }}>
-          {expanded ? "Show fewer" : `Show all ${ordered.length}`} <ChevronDown size={15} className={expanded ? "rotate-180 transition" : "transition"} />
-        </button>
+      {family.subcategories.length > 1 && (
+        <nav className="topics-detail-next" aria-label="Other groups">
+          <span>More in {family.title}</span>
+          {family.subcategories.filter((sub) => sub.id !== group.id).map((sub) => { const SubIcon = groupIcon(sub.id); return <button type="button" key={sub.id} onClick={() => onChoose(sub.id)}><SubIcon size={14} aria-hidden />{sub.title}</button>; })}
+        </nav>
       )}
-    </section>
+    </article>
   );
 }
 
-/** A topic family: coloured header, its groups as expandable cards, and the other families. */
-export default function TopicCategoryPage() {
+/** A topic family, in the Atlas collection's style: its groups as cards that roll open into their topics. */
+export function TopicFamilyPage({ index }: { index: TopicIndex }) {
   const { category: id = "" } = useParams();
+  const [search, setSearch] = useSearchParams();
   const { hash } = useLocation();
-  const index = useAsync(loadTopicIndex, "topic-index");
-  useEffect(() => {
-    if (index.status === "ready" && hash) document.getElementById(decodeURIComponent(hash.slice(1)))?.scrollIntoView({ block: "start" });
-  }, [index.status, hash]);
+  const family = index.categories.find((c) => c.id === id);
+  // Older links point at a group with #group; ?group= is the current form.
+  const requested = search.get("group") ?? (hash ? decodeURIComponent(hash.slice(1)) : null);
+  const active = family?.subcategories.find((sub) => sub.id === requested);
+  const [last, setLast] = useState<TopicSubcategory | undefined>(active);
+  if (active && active !== last) setLast(active);
 
-  if (index.status !== "ready") return <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6"><Loading height={400} /></div>;
-  const category = index.value.categories.find((c) => c.id === id);
-  if (!category) return <div className="mx-auto max-w-3xl px-4 py-16"><h1 className="font-serif text-3xl">No such topic family.</h1><Link to="/topics" className="mt-4 inline-block text-accent underline">All topics</Link></div>;
-  const { Icon, color, box } = categoryStyle(category.id);
-  const target = hash ? decodeURIComponent(hash.slice(1)) : "";
+  if (!family) {
+    return <TopicsShell index={index} current="" back={<Link to="/topics"><ArrowLeft size={15} aria-hidden />All topics</Link>}>
+      <div className="py-16"><h1 className="font-serif text-3xl">No such topic family.</h1><Link to="/topics" className="mt-4 inline-block underline">All topics</Link></div>
+    </TopicsShell>;
+  }
+  const selected = active ?? (last && family.subcategories.includes(last) ? last : family.subcategories[0]);
+  const choose = (group?: string) => {
+    const next = new URLSearchParams(search);
+    if (group) next.set("group", group); else next.delete("group");
+    setSearch(next);
+  };
 
   return (
-    <div className="pb-20">
-      <header className="relative overflow-hidden border-b border-line" style={{ background: `color-mix(in srgb, ${box} 35%, var(--page))` }}>
-        <span aria-hidden className="absolute -right-16 -top-16 h-72 w-72 rounded-full opacity-30" style={{ background: box }} />
-        <div className="relative mx-auto max-w-6xl px-4 py-10 sm:px-6">
-          <Link to="/topics" className="inline-flex items-center gap-1 text-sm text-muted hover:text-ink"><ArrowLeft size={15} /> All topics</Link>
-          <div className="mt-5 flex items-center gap-4">
-            <span className="grid h-14 w-14 shrink-0 place-items-center rounded-2xl text-white" style={{ background: color }}><Icon size={28} /></span>
-            <div>
-              <h1 className="font-serif text-4xl font-semibold tracking-tight sm:text-5xl">{category.title}</h1>
-              <p className="mt-1 text-muted">{category.description} {topicCount(category)} topics in {category.subcategories.length} groups.</p>
-            </div>
-          </div>
-          <nav aria-label="Groups" className="mt-6 flex flex-wrap gap-1.5">
-            {category.subcategories.map((sub) => { const GroupIcon = groupIcon(sub.id); return <a key={sub.id} href={`#${sub.id}`} className="inline-flex items-center gap-1.5 rounded-full border border-line bg-surface px-3 py-1 text-sm hover:border-current"><GroupIcon size={14} style={{ color }} aria-hidden />{sub.title}</a>; })}
-          </nav>
+    <TopicsShell index={index} current={family.id} back={<Link to="/topics"><ArrowLeft size={15} aria-hidden />All topics</Link>}>
+      <header className="topics-family-intro">
+        <div>
+          <p className="topics-kicker">{sectionOf(family.id)?.title ?? "Topics"} · {topicCount(family)} topics</p>
+          <h1>{family.title}</h1>
+          <p>{family.description} {family.subcategories.length} groups; open one to see its topics.</p>
         </div>
+        <TopicsArtwork kind={family.id} />
       </header>
-
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="mt-8 grid gap-4 lg:grid-cols-2">
-          {category.subcategories.map((sub) => <GroupCard key={sub.id} sub={sub} index={index.value} color={color} open={sub.id === target} />)}
-        </div>
-        <section aria-labelledby="other-families" className="mt-16">
-          <h2 id="other-families" className="font-serif text-2xl font-semibold">Other families</h2>
-          <ul className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            {index.value.categories.filter((c) => c.id !== category.id).map((c) => <li key={c.id}><CategoryCard category={c} compact /></li>)}
-          </ul>
-        </section>
-      </div>
-    </div>
+      <section key={family.id} aria-labelledby="topics-groups-title">
+        <div className="topics-section-heading"><h2 id="topics-groups-title">{active ? selected.title : "Choose a group"}</h2><span>{active ? family.title : "Every group opens onto its topics"}</span></div>
+        <RevealSelection expanded={!!active} selectionKey={selected.id} onBack={() => choose()} grid={
+          <div className="topics-group-grid" role="group" aria-label={`Groups in ${family.title}`}>
+            {family.subcategories.map((sub) => {
+              const Icon = groupIcon(sub.id);
+              return <button key={sub.id} type="button" data-selection-key={sub.id} className="topics-compact-card" onClick={() => choose(sub.id)} aria-label={sub.title}>
+                <Icon size={34} strokeWidth={1.35} aria-hidden /><span><strong>{sub.title}</strong><small>{sub.topics.length} topics · {sub.description}</small></span><ArrowUpRight size={15} aria-hidden />
+              </button>;
+            })}
+          </div>
+        }>
+          <GroupDetail family={family} group={selected} index={index} onChoose={choose} />
+        </RevealSelection>
+      </section>
+    </TopicsShell>
   );
 }

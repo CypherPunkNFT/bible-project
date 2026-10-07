@@ -14,7 +14,7 @@ export interface Topic { id: string; title: string; category: string; subcategor
 export type ChapterTopics = Record<string, [string, number][]>;
 
 export const topicUrl = (id: string) => `/topics/${id}`;
-export const categoryUrl = (category: string, subcategory?: string) => `/topics/c/${category}${subcategory ? `#${subcategory}` : ""}`;
+export const categoryUrl = (category: string, subcategory?: string) => `/topics/c/${category}${subcategory ? `?group=${subcategory}` : ""}`;
 
 export const topicCount = (category: TopicCategory) => category.subcategories.reduce((n, sub) => n + sub.topics.length, 0);
 

@@ -56,3 +56,12 @@ export function categoryStyle(id: string): { Icon: LucideIcon; color: string; ta
 }
 
 export const groupIcon = (id: string): LucideIcon => GROUP_ICON[id] ?? BookOpen;
+
+/** The short line above each family's name on its card. */
+export const FAMILY_EYEBROW: Record<string, string> = {
+  god: "Who God is", christ: "The Son", scripture: "God speaks", church: "His people gathered",
+  sin: "What went wrong", salvation: "Made right", "christian-life": "Walking in faith", "last-things": "What lies ahead",
+  "worship-in-israel": "Tabernacle & temple", peoples: "Tribes & empires", society: "Home & community", creation: "The world he made",
+};
+
+export const sectionOf = (categoryId: string) => TOPIC_SECTIONS.find((section) => section.categories.includes(categoryId));

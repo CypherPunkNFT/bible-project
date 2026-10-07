@@ -1,84 +1,37 @@
-import { Search } from "lucide-react";
-import { useMemo, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Route, Routes, useParams } from "react-router-dom";
 import { Loading } from "@/components/charts/ChartCard";
-import { CategoryCard } from "@/components/topics/TopicCards";
 import { loadTopicIndex } from "@/lib/data";
-import { categoryStyle, TOPIC_SECTIONS } from "@/lib/topic-style";
-import { categoryUrl, matchTopics, placeOf, topicUrl } from "@/lib/topics";
+import type { TopicIndex } from "@/lib/topics";
 import { useAsync } from "@/lib/useAsync";
-import { formatNumber } from "@/lib/utils";
+import { TopicFamilyPage } from "@/pages/TopicCategoryPage";
+import { TopicPage } from "@/pages/TopicPage";
+import { TopicsHome } from "@/pages/topics/TopicsHome";
+import { useTopicsPageSlide } from "@/pages/topics/useTopicsPageSlide";
+import "@/pages/topics/topics-collection.css";
 
-const POPULAR = ["love-of-god", "prayer", "faith", "grace", "afflictions", "christ-the-shepherd", "heaven", "holy-spirit-the-is-god"];
+/** A fresh page (folds closed, scroll state) for every topic. */
+function TopicRoute({ index }: { index: TopicIndex }) {
+  const { id = "" } = useParams();
+  return <TopicPage key={id} index={index} />;
+}
 
-/** Topics home: the 12 families gathered into four sections, each family a card of its groups; a finder; a few well-loved topics to start from. */
-export default function TopicsPage() {
+/**
+ * The Topics collection, built like the Atlas collection: one mounted frame for home, families and topics,
+ * so the topic index loads once and links between them can play the wipe-and-fold transition.
+ */
+export default function TopicsCollection() {
+  const slide = useTopicsPageSlide();
   const index = useAsync(loadTopicIndex, "topic-index");
-  const [query, setQuery] = useState("");
-  const found = useMemo(() => (index.status === "ready" && query.trim() ? matchTopics(index.value, query, 60) : []), [index, query]);
 
-  if (index.status !== "ready") return <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6"><Loading height={400} /></div>;
-  const { categories, topics } = index.value;
-  const subcategories = categories.reduce((n, c) => n + c.subcategories.length, 0);
-  const popular = POPULAR.filter((id) => topics[id]);
-  const placed = new Set(TOPIC_SECTIONS.flatMap((section) => section.categories));
-  const sections = [
-    ...TOPIC_SECTIONS.map((section) => ({ ...section, families: section.categories.flatMap((id) => categories.filter((c) => c.id === id)) })),
-    { id: "more", title: "More topics", description: "Families not yet placed in a section.", families: categories.filter((c) => !placed.has(c.id)) },
-  ].filter((section) => section.families.length > 0);
-
+  if (index.status === "error") return <div className="mx-auto max-w-3xl px-4 py-16"><h1 className="font-serif text-3xl">The topics could not be loaded.</h1><Link to="/" className="mt-4 inline-block underline">Home</Link></div>;
+  if (index.status !== "ready") return <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6"><Loading height={400} /></div>;
   return (
-    <div className="mx-auto max-w-6xl px-4 pb-20 sm:px-6">
-      <header className="pb-8 pt-10">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">Topics</p>
-        <h1 className="mt-1 font-serif text-4xl font-semibold tracking-tight sm:text-6xl">Every subject, every verse.</h1>
-        <p className="mt-3 max-w-3xl text-lg text-muted">{formatNumber(Object.keys(topics).length)} topics in {categories.length} families and {subcategories} groups, each with the passages that speak to it.</p>
-        <label className="relative mt-6 block max-w-2xl">
-          <span className="sr-only">Find a topic</span>
-          <Search className="pointer-events-none absolute left-4 top-4 h-5 w-5 text-muted" aria-hidden />
-          <input value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Find a topic: grace, prayer, the Sabbath, lions…" className="h-14 w-full rounded-2xl border border-line bg-surface pl-12 pr-4 text-lg shadow-sm" />
-        </label>
-        {!query && popular.length > 0 && (
-          <p className="mt-4 flex flex-wrap items-center gap-2 text-sm"><span className="text-muted">Popular:</span>{popular.map((id) => <Link key={id} to={topicUrl(id)} className="rounded-full border border-line bg-surface px-3 py-1 hover:border-accent">{topics[id].title}</Link>)}</p>
-        )}
-      </header>
-
-      {query.trim() ? (
-        <section aria-live="polite">
-          <p className="text-sm text-muted">{found.length ? `${found.length} topics` : `No topic is named “${query}”.`} {!found.length && <Link to={`/search?q=${encodeURIComponent(query)}`} className="text-accent underline">Try the full search</Link>}</p>
-          <ul className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {found.map((id) => {
-              const place = placeOf(index.value, id);
-              const color = place ? categoryStyle(place.category.id).color : "var(--accent)";
-              return (
-                <li key={id}><Link to={topicUrl(id)} className="block h-full rounded-2xl border border-line bg-surface p-4 hover:border-accent" style={{ borderLeft: `4px solid ${color}` }}>
-                  <span className="block font-serif text-lg font-semibold">{topics[id].title}</span>
-                  {place && <span className="mt-0.5 block text-xs text-muted">{place.category.title} › {place.subcategory.title}</span>}
-                  <span className="mt-2 block text-xs text-muted">{topics[id].points} points · {formatNumber(topics[id].refs)} passages</span>
-                </Link></li>
-              );
-            })}
-          </ul>
-        </section>
-      ) : (
-        <div className="grid gap-14">
-          {sections.map((section, n) => (
-            <section key={section.id} id={section.id} aria-labelledby={`${section.id}-title`} className="scroll-mt-24">
-              <div className="flex items-baseline gap-3 border-b border-line pb-3">
-                <span className="font-serif text-2xl text-muted">{String(n + 1).padStart(2, "0")}</span>
-                <div>
-                  <h2 id={`${section.id}-title`} className="font-serif text-3xl font-semibold tracking-tight">{section.title}</h2>
-                  <p className="mt-1 text-sm text-muted">{section.description}</p>
-                </div>
-              </div>
-              <ul className="mt-5 grid gap-4 lg:grid-cols-2">
-                {section.families.map((category) => <li key={category.id}><CategoryCard category={category} /></li>)}
-              </ul>
-            </section>
-          ))}
-        </div>
-      )}
-      <p className="mt-16 text-xs text-muted">Topics, points and references: R. A. Torrey, <em>The New Topical Textbook</em> (1897), public domain. Families and groups by the Bible Project. Jump to a family: {categories.map((c, i) => <span key={c.id}>{i > 0 && " · "}<Link to={categoryUrl(c.id)} className="underline">{c.title}</Link></span>)}</p>
+    <div onClickCapture={slide}>
+      <Routes>
+        <Route index element={<TopicsHome index={index.value} />} />
+        <Route path="c/:category" element={<TopicFamilyPage index={index.value} />} />
+        <Route path=":id" element={<TopicRoute index={index.value} />} />
+      </Routes>
     </div>
   );
 }
