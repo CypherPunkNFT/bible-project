@@ -14,6 +14,7 @@ export function useSideScroll() {
   const box = useRef<HTMLDivElement>(null);
   const pill = useRef<HTMLDivElement>(null);
   const thumb = useRef<HTMLSpanElement>(null);
+  const stopGlide = useRef(() => {});
 
   useEffect(() => {
     const scroller = box.current, section = anchor.current;
@@ -34,6 +35,24 @@ export function useSideScroll() {
     // the section past its stop while the timeline has further to go is pulled back to the stop.
     const GLIDE = 450;
     let lastWheel = 0, direction = 0;
+    // The timeline glides: each wheel step moves a target, and the timeline eases a fifth of the way there each frame,
+    // so steps run together into one smooth movement instead of jumping 100 px at a time.
+    let target = scroller.scrollLeft, frame = 0;
+    const ease = () => {
+      const from = scroller.scrollLeft, gap = target - from;
+      // Browsers may keep scrollLeft in whole pixels: finish within a pixel, and move at least one pixel a frame.
+      if (Math.abs(gap) <= 1) { scroller.scrollLeft = target; frame = 0; return; }
+      scroller.scrollLeft = from + Math.sign(gap) * Math.max(1, Math.abs(gap) * .2);
+      if (scroller.scrollLeft === from) { frame = 0; return; } // cannot move further (an edge): stop
+      frame = requestAnimationFrame(ease);
+    };
+    /** Where the timeline is heading: the target while gliding, else where it is. */
+    const heading = () => (frame ? target : scroller.scrollLeft);
+    const glide = (by: number) => {
+      target = Math.min(scroller.scrollWidth - scroller.clientWidth, Math.max(0, heading() + by));
+      if (!frame) frame = requestAnimationFrame(ease);
+    };
+    stopGlide.current = () => { cancelAnimationFrame(frame); frame = 0; };
     const toStop = (top: number, stop: number) => { if (Math.abs(top - stop) > .5) window.scrollBy({ top: top - stop, behavior: "instant" }); };
     const onWheel = (event: WheelEvent) => {
       if (event.ctrlKey || Math.abs(event.deltaX) > Math.abs(event.deltaY)) return; // pinch zoom and sideways swipes stay native
@@ -42,23 +61,23 @@ export function useSideScroll() {
       const dy = event.deltaMode === 1 ? event.deltaY * 16 : event.deltaMode === 2 ? event.deltaY * window.innerHeight : event.deltaY;
       lastWheel = performance.now(); direction = Math.sign(dy);
       const stop = stopAt(), top = section.getBoundingClientRect().top;
-      const forward = dy > 0 && scroller.scrollLeft < reach - .5, backward = dy < 0 && scroller.scrollLeft > .5;
+      const forward = dy > 0 && heading() < reach - .5, backward = dy < 0 && heading() > .5;
       if (!forward && !backward) return; // at the end the timeline lets the page go
       // At the stop, or just past it in the direction of travel (a glide overshot): hold the page there, move the timeline.
       const held = forward ? top <= stop + 1 && top > stop - GLIDE : top >= stop - 1 && top < stop + GLIDE;
-      if (held) { event.preventDefault(); toStop(top, stop); scroller.scrollLeft += dy; return; }
+      if (held) { event.preventDefault(); toStop(top, stop); glide(dy); return; }
       // Arriving at the stop within this step: scroll the page exactly to it and give the rest to the timeline.
       const crossing = forward ? top > stop && top - dy < stop : top < stop && top - dy > stop;
       if (!crossing) return;
       event.preventDefault();
       toStop(top, stop);
-      scroller.scrollLeft += dy - (top - stop);
+      glide(dy - (top - stop));
     };
     const onPageScroll = () => {
       if (performance.now() - lastWheel > 600 || !direction) return; // only the glide after a wheel step, never the scrollbar or keys
       const reach = scroller.scrollWidth - scroller.clientWidth, stop = stopAt(), top = section.getBoundingClientRect().top;
-      const past = direction > 0 ? top < stop - .5 && top > stop - GLIDE && scroller.scrollLeft < reach - .5 : top > stop + .5 && top < stop + GLIDE && scroller.scrollLeft > .5;
-      if (past) { scroller.scrollLeft += direction > 0 ? stop - top : -(top - stop); toStop(top, stop); }
+      const past = direction > 0 ? top < stop - .5 && top > stop - GLIDE && heading() < reach - .5 : top > stop + .5 && top < stop + GLIDE && heading() > .5;
+      if (past) { glide(direction > 0 ? stop - top : -(top - stop)); toStop(top, stop); }
     };
     window.addEventListener("scroll", onPageScroll, { passive: true });
     sync();
@@ -66,7 +85,7 @@ export function useSideScroll() {
     const observer = new ResizeObserver(sync);
     observer.observe(scroller);
     window.addEventListener("wheel", onWheel, { passive: false });
-    return () => { scroller.removeEventListener("scroll", sync); observer.disconnect(); window.removeEventListener("wheel", onWheel); window.removeEventListener("scroll", onPageScroll); };
+    return () => { cancelAnimationFrame(frame); scroller.removeEventListener("scroll", sync); observer.disconnect(); window.removeEventListener("wheel", onWheel); window.removeEventListener("scroll", onPageScroll); };
   }, []);
 
   /** Drag the pill, or click its track to jump there. */
@@ -74,6 +93,7 @@ export function useSideScroll() {
     const scroller = box.current, bar = pill.current?.getBoundingClientRect(), knob = thumb.current?.getBoundingClientRect();
     if (!scroller || !bar || !knob || !pill.current) return;
     const reach = scroller.scrollWidth - scroller.clientWidth, room = Math.max(1, bar.width - knob.width);
+    stopGlide.current(); // the pill moves the timeline directly
     const goTo = (at: number) => { scroller.scrollLeft = Math.min(1, Math.max(0, at)) * reach; };
     const jump = event.target !== thumb.current ? (event.clientX - bar.left - knob.width / 2) / room : null;
     if (jump !== null) goTo(jump);
