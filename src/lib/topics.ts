@@ -8,10 +8,15 @@ export interface TopicIndex { source: string; categories: TopicCategory[]; topic
 
 export interface TopicItem { text: string; refs: Span[] }
 export interface TopicPoint extends TopicItem { see: string[]; items?: TopicItem[] }
-export interface Topic { id: string; title: string; category: string; subcategory: string; points: TopicPoint[]; relatedStudies: string[] }
+export interface KeyVerse { span: Span; text: string; point: string }
+export interface Topic { id: string; title: string; category: string; subcategory: string; points: TopicPoint[]; relatedStudies: string[]; keyVerses: KeyVerse[] }
+/** Per book (scripts/build-topics.py): chapter -> [[topic id, passages cited], ...], most cited first. */
+export type ChapterTopics = Record<string, [string, number][]>;
 
 export const topicUrl = (id: string) => `/topics/${id}`;
-export const categoryUrl = (category: string, subcategory?: string) => `/topics#${subcategory ?? category}`;
+export const categoryUrl = (category: string, subcategory?: string) => `/topics/c/${category}${subcategory ? `#${subcategory}` : ""}`;
+
+export const topicCount = (category: TopicCategory) => category.subcategories.reduce((n, sub) => n + sub.topics.length, 0);
 
 /** Where a topic sits: its category and subcategory. */
 export function placeOf(index: TopicIndex, topicId: string): { category: TopicCategory; subcategory: TopicSubcategory } | null {

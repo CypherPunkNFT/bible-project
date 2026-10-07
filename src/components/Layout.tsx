@@ -1,4 +1,4 @@
-import { BookOpen, GitBranch, GraduationCap, Map, Moon, Search, ShieldCheck, Sun } from "lucide-react";
+import { BookOpen, GitBranch, GraduationCap, Map, Moon, Search, ShieldCheck, Sun, Tags } from "lucide-react";
 import { useEffect, type ReactNode } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { SectionStrip } from "@/components/SectionStrip";
@@ -11,6 +11,7 @@ const NAV = [
   { to: "/study", label: "Study", icon: GraduationCap, end: false },
   { to: "/testimonies", label: "Testimonies", icon: GitBranch, end: false },
   { to: "/apologetics", label: "Apologetics", icon: ShieldCheck, end: false },
+  { to: "/topics", label: "Topics", icon: Tags, end: false },
   { to: "/study/atlas", label: "Atlas", icon: Map, end: false },
   { to: "/search", label: "Search", icon: Search, end: false },
 ];

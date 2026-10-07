@@ -14,7 +14,7 @@ function Resource({ to, title, description, source, number, category, color, cla
   return (
     <li className={`study-resource ${className}`} style={{ "--resource-color": `var(--${color})` } as CSSProperties}>
       <Link to={to} className="study-resource-link" aria-labelledby={`study-title-${number}`}>
-        <div className="study-card-top"><span>{category}</span><span className="study-card-number">{number} / 09</span></div>
+        <div className="study-card-top"><span>{category}</span><span className="study-card-number">{number} / 10</span></div>
         {children}
         <div className="study-card-copy">
           <h2 id={`study-title-${number}`}>{title}</h2>
@@ -88,6 +88,15 @@ function ChartPreview({ kind, note }: { kind: StudyCollectionId; note: string })
   return <div className="study-art study-chart-art"><StudyMiniature kind={kind} /><span className="study-art-note">{note}</span></div>;
 }
 
+/** The ten largest topic families' colours as chips (static: the card links to /topics). */
+function TopicsPreview() {
+  const chips: [string, string][] = [["God", "epistles"], ["Jesus Christ", "gospels"], ["Salvation", "revelation"], ["The Christian life", "poetry"], ["Worship in Israel", "epistles"], ["Last things", "apocrypha"]];
+  return <div className="study-art flex flex-wrap content-center items-center justify-center gap-2 p-6" aria-hidden="true">
+    {chips.map(([label, tone]) => <span key={label} className="rounded-full px-3 py-1.5 text-sm font-semibold text-white" style={{ background: `var(--${tone})` }}>{label}</span>)}
+    <span className="rounded-full border border-current px-3 py-1.5 text-sm">623 topics</span>
+  </div>;
+}
+
 function NamesPreview() {
   return <div className="study-art study-names-art" aria-hidden="true">
     <span>Abba Father</span><span>Jesus Christ</span><span>Holy Spirit</span><div className="study-name-orbit" />
@@ -113,7 +122,7 @@ export default function StudyCollection() {
         </div>
         <div className="study-intro-aside">
           <BookOpen size={28} strokeWidth={1.1} aria-hidden="true" />
-          <p>Nine ways to explore.<br /><span>Every path leads to Scripture.</span></p>
+          <p>Ten ways to explore.<br /><span>Every path leads to Scripture.</span></p>
           <a href="#study-collection">Find your starting point <ArrowDown size={16} aria-hidden="true" /></a>
         </div>
       </header>
@@ -128,6 +137,7 @@ export default function StudyCollection() {
         <Resource to="/study/atlas" title="Places & journeys" description="Find 1,252 biblical places on a map of the ancient world. Explore the settings of the story, compare places by book, and open their passages." source="OpenBible.info · OpenStreetMap" number="07" category="The world of the Bible" color="poetry" className="study-map-feature"><PlacesPreview /></Resource>
         <Resource to="/study/names" title="Names & descriptions of God" description="302 names and titles of the Father, the Son and the Holy Spirit. Unfold each name to discover the passages behind it." source="The Faith-page collection" number="08" category="His character, revealed" color="revelation" className="study-wide"><NamesPreview /></Resource>
         <Resource to="/study/versions" title="Versions & languages" description="Which edition are you reading? Place the library's versions in time, compare their actual book collections, and choose one to read." source="Edition timeline · Book coverage · Library" number="09" category="Editions & contents" color="acts" className="study-wide"><ChartPreview kind="versions" note="The texts in your hands" /></Resource>
+        <Resource to="/topics" title="Topics" description="623 subjects, from the love of God to the tribes of Israel, in twelve families. Each gathers every passage that speaks to it, with key verses quoted in full." source="Torrey's New Topical Textbook" number="10" category="Every subject, every verse" color="epistles" className="study-wide"><TopicsPreview /></Resource>
       </ul>
       <div className="study-source-note"><BookOpen size={20} strokeWidth={1.4} aria-hidden="true" /><p>Made for an open Bible.<span>Built from public-domain reference books and openly licensed data. Every passage links to the reader.</span></p><Link to="/versions">Meet the sources <ArrowUpRight size={16} aria-hidden="true" /></Link></div>
     </div>

@@ -1,5 +1,5 @@
 import type { ArcData, BookPlace, Catalog, Chapter, CrossRefBook, PlainBook, Place, Run, Stats } from "./types";
-import type { Topic, TopicIndex } from "./topics";
+import type { ChapterTopics, Topic, TopicIndex } from "./topics";
 
 /** A data file that is missing or malformed. The reader turns this into "not in this version". */
 export class DataUnavailable extends Error {
@@ -100,3 +100,4 @@ export const loadPlaces = () => load<Place[]>("places.json", Array.isArray);
 /** Topics: Torrey's New Topical Textbook in a two-level taxonomy (scripts/build-topics.py). */
 export const loadTopicIndex = () => load<TopicIndex>("topics/index.json", (v) => isObject(v) && Array.isArray(v.categories) && isObject(v.topics));
 export const loadTopic = (id: string) => load<Topic>(`topics/${id}.json`, (v) => isObject(v) && Array.isArray(v.points));
+export const loadChapterTopics = (code: string) => load<ChapterTopics>(`topics/books/${code}.json`, isObject);

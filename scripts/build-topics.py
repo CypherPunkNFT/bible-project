@@ -18,7 +18,7 @@ import numpy as np
 
 WEBSITE = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(WEBSITE / "scripts"))
-from bible.books import OSIS_TO_CODE, verse_id  # noqa: E402
+from bible.books import BOOK_NUMBER, OSIS_TO_CODE, verse_id  # noqa: E402
 
 TORREY = WEBSITE.parent / "sources" / "ccel" / "ttt.xml"
 TAXONOMY = WEBSITE / "content" / "topics" / "taxonomy.json"
@@ -159,17 +159,14 @@ def plain(value) -> str:
     return ""
 
 
-def related_studies(topics: list[dict]) -> None:
+def related_studies(topics: list[dict], model) -> None:
     """Each topic's closest published studies by meaning (same model as meaning search), above RELATED_MIN."""
-    from sentence_transformers import SentenceTransformer
-
     studies = []
     for path in sorted(STUDIES.glob("*.json")):
         record = json.loads(path.read_text(encoding="utf-8"))
         if record.get("publication") == "published":
             content = record["content"]
             studies.append((record["id"], "\n".join(plain(content[k]) for k in ("title", "summary", "answer", "reasoning", "conclusion"))))
-    model = SentenceTransformer(MODEL)
     study_vectors = model.encode([text for _, text in studies], normalize_embeddings=True)
     topic_texts = [t["title"] + ". " + "; ".join(p["text"] for p in t["points"][:20]) for t in topics]
     topic_vectors = model.encode(topic_texts, normalize_embeddings=True, batch_size=64)
@@ -177,6 +174,61 @@ def related_studies(topics: list[dict]) -> None:
     for topic, row in zip(topics, scores):
         order = np.argsort(-row)[:2]
         topic["relatedStudies"] = [studies[j][0] for j in order if row[j] >= RELATED_MIN]
+
+
+BIBLE_WEB = WEBSITE / "data" / "plain" / "web"
+CODE_BY_NUMBER = {number: code for code, number in BOOK_NUMBER.items()}
+
+
+def verse_parts(verse: int) -> tuple[str, int, int]:
+    return CODE_BY_NUMBER[verse // 1_000_000], verse // 1000 % 1000, verse % 1000
+
+
+def key_verses(topics: list[dict], model) -> None:
+    """Up to four verses per topic quoted in full (World English Bible). For each early point, the meaning model picks, among
+    Torrey's verses for it, the one that best fits "<topic>: <point>" (so "The Love of God: is a part of his character" gets
+    1 John 4:8, "God is love", not simply the first reference listed)."""
+    books: dict[str, dict] = {}
+
+    def text_of(verse: int) -> str | None:
+        code, chapter, number = verse_parts(verse)
+        if code not in books:
+            path = BIBLE_WEB / f"{code}.json"
+            books[code] = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
+        return books[code].get(f"{chapter}:{number}")
+
+    for topic in topics:
+        candidates = []  # (point index, span, text)
+        for index, point in enumerate(topic["points"][:8]):
+            refs = point["refs"] or [r for item in point.get("items", []) for r in item["refs"]]
+            for ref in refs[:10]:
+                if text := text_of(ref[0]):
+                    candidates.append((index, ref, text))
+        if not candidates:
+            topic["keyVerses"] = []
+            continue
+        points = sorted({c[0] for c in candidates})[:4]
+        queries = model.encode([f"{topic['title']}: {topic['points'][i]['text']}" for i in points], normalize_embeddings=True)
+        verses = model.encode([c[2] for c in candidates], normalize_embeddings=True, batch_size=64)
+        chosen = []
+        for query, point_index in zip(queries, points):
+            mine = [k for k, c in enumerate(candidates) if c[0] == point_index]
+            best = max(mine, key=lambda k: float(verses[k] @ query))
+            _, ref, text = candidates[best]
+            chosen.append({"span": ref, "text": text + (" …" if ref[1] != ref[0] else ""), "point": topic["points"][point_index]["text"]})
+        topic["keyVerses"] = chosen
+
+
+def chapter_index(topics: list[dict]) -> dict[str, dict[str, list]]:
+    """Per book: chapter -> [[topic id, passages cited], ...], most cited first (the reader's "Topics in this chapter")."""
+    counts: dict[str, dict[int, dict[str, int]]] = {}
+    for topic in topics:
+        for point in topic["points"]:
+            for ref in point["refs"] + [r for item in point.get("items", []) for r in item["refs"]]:
+                code, chapter, _ = verse_parts(ref[0])
+                chapters = counts.setdefault(code, {}).setdefault(chapter, {})
+                chapters[topic["id"]] = chapters.get(topic["id"], 0) + 1
+    return {code: {str(ch): sorted(([t, n] for t, n in found.items()), key=lambda x: -x[1]) for ch, found in chapters.items()} for code, chapters in counts.items()}
 
 
 def build() -> None:
@@ -188,7 +240,11 @@ def build() -> None:
     unknown = sorted(set(placed) - {t["id"] for t in topics})
     if missing or unknown:
         raise SystemExit(f"topics: taxonomy mismatch: {len(missing)} topics not placed {missing[:5]}, {len(unknown)} unknown ids {unknown[:5]}")
-    related_studies(topics)
+    from sentence_transformers import SentenceTransformer
+
+    model = SentenceTransformer(MODEL)
+    related_studies(topics, model)
+    key_verses(topics, model)
     OUT.mkdir(parents=True, exist_ok=True)
     summary = {}
     for topic in topics:
@@ -197,6 +253,9 @@ def build() -> None:
         (OUT / f"{topic['id']}.json").write_text(json.dumps(topic, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
         refs = sum(len(p["refs"]) + sum(len(i["refs"]) for i in p.get("items", [])) for p in topic["points"])
         summary[topic["id"]] = {"title": topic["title"], "points": len(topic["points"]), "refs": refs}
+    (OUT / "books").mkdir(exist_ok=True)
+    for code, chapters in chapter_index(topics).items():
+        (OUT / "books" / f"{code}.json").write_text(json.dumps(chapters, separators=(",", ":")), encoding="utf-8")
     index = {"source": taxonomy["source"], "categories": taxonomy["categories"], "topics": summary}
     (OUT / "index.json").write_text(json.dumps(index, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
     refs = sum(t["refs"] for t in summary.values())
