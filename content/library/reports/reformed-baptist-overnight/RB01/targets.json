@@ -1437,5 +1437,25 @@
     "rightsEvidence": "Download page explicitly permits downloading and distributing unchanged digital files. Other uses require license. Private research extraction only; no public body hosting.",
     "policyUrl": "https://www.london1644.info/en/downloads_en.html",
     "minimumWords": 1000
+  },
+  {
+    "url": "https://baptistcatechism.org/beddome/",
+    "title": "A Scriptural Exposition of the Baptist Catechism (including preface)",
+    "workId": "work-rb01-beddome-exposition",
+    "author": "Benjamin Beddome",
+    "sourceId": "source-svrbc-symbolics",
+    "format": "html",
+    "edition": "SVRBC historic-text digital presentation, companion to offered structured JSON",
+    "completeness": "complete-offered-witness",
+    "sourcePage": "https://baptistcatechism.org/beddome/",
+    "rightsCategory": "CC0-with-third-party-exceptions",
+    "rightsEvidence": "Publisher CC0 declaration covers its own text/data; Scripture/music exceptions retained. Acquire readable historic exposition and preface only, no music or ESV bodies.",
+    "policyUrl": "https://baptistcatechism.org/copyright",
+    "selector": "main",
+    "minimumWords": 50000,
+    "requiredMarkers": [
+      "Preface",
+      "114"
+    ]
   }
 ]
