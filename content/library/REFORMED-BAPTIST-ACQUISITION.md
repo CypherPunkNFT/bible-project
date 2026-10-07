@@ -1,0 +1,80 @@
+# Eight overnight acquisition missions: Reformed theology with Baptist confidence
+
+Owner direction recorded **7 October 2026**. These are eight sequential source-discovery and acquisition prompts, not a claim that their targets are missing or that every named author's work is approved. The goal is maximum useful new readable coverage for Scripture study, doctrinal understanding, church life and future evidence tables.
+
+## Shared execution protocol — applies to every mission
+
+1. Read `BibleProject/HANDOFF.md`, `Website/SOURCES.md`, this document, the author registry, existing acquisition ledgers and all earlier RB mission reports before downloading. Resolve the configured original-source root; use existing collectors/storage conventions. Check active collectors and do not launch duplicates.
+2. The selection anchor is Scripture's authority and orthodox Reformed salvation doctrine, with the 1689 Second London Baptist Confession as the working Baptist reference. Require source-supported confidence in Trinity, Christ's deity and humanity, substitutionary atonement, bodily resurrection, salvation by grace through faith alone and Scripture's authority. Prefer confessional Reformed Baptist sources. Non-Baptist conservative Reformed authors can be useful within an explicitly identified scope; preserve differences on baptism, covenants and church government. Do not silently replace the project's existing doctrinal documents or pretend all Baptists hold identical positions.
+3. Exclude Roman Catholic teaching sources and progressive/liberal doctrinal sources from this campaign. Do not collect them as opposing-position material here. A repository, author name or Baptist affiliation is not a blanket theological approval: screen the particular work, edition, contributors and intended use. Leave uncertain candidates in a decision queue rather than approve them automatically. Prefer each ministry's own doctrinal statement and the actual source text over third-party descriptions.
+4. Audit actual holdings first: work/edition/asset catalogues, reconciled bibliography, current manifests, original files and derivatives. A formal catalogue gap is not proof of a download gap. Existing snapshots show held Bunyan, Pink, Keach, Coxe and other books that are absent from the formal catalogue. Distinguish whole works from excerpts, abridgments, individual chapters and same-title sermons. Avoid counting multiple formats and modernized versions as multiple new works.
+5. Acquire actual eligible texts through offered HTML/TXT/EPUB/PDF downloads. Prefer clean existing text over scans; inspect PDF text layers and completeness. No new OCR, transcription or audio/video acquisition. Check current site access rules, use conservative concurrency, honor rate limits, and checkpoint instead of hammering failing sources. Do not bypass logins/paywalls, guess private URLs or acquire pirated modern books. A freely readable page is not necessarily permission for systematic acquisition: record the applicable source terms. If access is blocked, pursue a legitimate alternative or record the blocker and continue independent targets.
+6. Preserve immutable originals in the configured Bible source tree with source URL, final URL, title/author, edition, retrieved date, SHA-256, format, scope, access/rights evidence and partial/full status. Derivatives belong in the existing separate extraction/cache convention. No public text hosting is authorized by these missions. Acquisition metadata may identify a public source without granting republication rights.
+7. Use a mission budget of approximately **60 minutes of active work**, then finish transactions and write an exact resumable checkpoint. It is a work boundary, not permission to ignore a user interruption. Continue across independent eligible targets when a source blocks; never spend the entire mission on one unavailable commercial book. Make meaningful acquisitions, not just a list of links, wherever source terms permit.
+8. Create `Website/content/library/reports/reformed-baptist-overnight/RB0N/REPORT.md` and a machine-readable acquisition manifest using the established field conventions. Include unique new works, editions, actual original files, readable/partial/scan-only state, existing holdings skipped, theological scope/limitations, failures, checksums and next actions. Update the relevant catalogue only when identity and evidence are sufficient; source-first ingestion can retain unassigned records. List every acquired source in `Website/SOURCES.md` with the mission ledger link. Update BACKLOG/TODO/HANDOFF with actual results; stage only this mission's metadata/code, never private bodies or unrelated work.
+9. Do not rebuild the entire knowledge database or launch a fresh embedding worker during each mission. This campaign changes holdings first. After all missions, reconcile the aggregate intake, import the eligible text delta, reuse unchanged vectors, and verify parity in one dedicated ingestion task. The existing watchdog must not accidentally start overlapping enrichment or embedding jobs.
+
+## Why these priorities
+
+The reconciled holdings snapshot already includes 42 Bunyan records, 52 Pink records, 12 Keach records, one Coxe record, two Fuller records, a Dagg *Doctrine of God* record, Boyce's *Abstract of Systematic Theology* and Broadus's preaching treatise. These are recorded holdings, not a fresh completeness audit. They make blind author-wide recollection low value; inspect missing volumes, complete texts and underrepresented study questions instead.
+
+Verified starting sources on 7 October:
+
+- [Chapel Library's stated doctrinal guide](https://www.chapellibrary.org/about) includes the 1689 confession; its [literature desk](https://www.chapellibrary.org/literature) offers PDF/EPUB material. Review individual editions and current access rules.
+- [Founders Library](https://founders.org/library), [Baptist Catechism](https://founders.org/library-book/the-baptist-catechism/) and [Founders Journal](https://founders.org/journal/journal-6111/) offer useful confessional/library entry points. Print purchase and web reading are distinct routes.
+- [The Reformed Reader](https://www.reformedreader.org/rbb/rbbindex.htm) organizes Baptist/Reformed texts; [Dagg's Manual of Theology](https://www.reformedreader.org/rbb/dagg/mottoc.htm) is a concrete completeness target.
+- [Monergism's ebook index](https://www.monergism.com/topics/free-ebooks) includes historical Baptist works; offered editions of [Coxe on covenants](https://www.monergism.com/thethreshold/sdg/coxe/DiscourseonCovenantsNehemiahCoxe.pdf) and [Keach on parables](https://www.monergism.com/thethreshold/sdg/keach/An%20Exposition%20of%20the%20Parablesv1%2C%20-%20Benjamin%20Keach.pdf) are starting evidence, not proof we need to acquire them again. Confirm any advertised bulk bundle is actually available and useful before fetching.
+- [9Marks resources](https://www.9marks.org/books/) provide a modern church-life discovery route. Whole-book links may be commercial; journals, articles and offered translations need their own format/rights checks.
+- [Desiring God's book desk](https://www.desiringgod.org/books/reading-the-bible-supernaturally) provides concrete author-offered downloads; preserve work-specific theological and editorial scope.
+
+## RB01 — Baptist doctrinal foundation and confessional explanation
+
+**Benefit:** a reliable doctrinal reference spine, suitable for definitions and future comparisons.
+
+Audit the 1644/1646 First London and 1677/1689 Second London confessions, Baptist Catechism, Philadelphia Confession and Abstract of Principles. Acquire missing readable witnesses and substantial confessional explanations, not redundant copies of already complete texts. Seek full Dagg *Manual of Theology*, including all parts; check Boyce's existing full-text coverage before filling holes. Discover eligible free explanatory works by confessional Baptist ministries, and examine historic Gill/Keach texts where they add missing substantial treatment. Start with Founders, The Reformed Reader, Chapel Library and Monergism. Keep originals, modernizations, proof texts and editorial commentary distinct. Modern copyrighted books such as Sam Waldron's exposition are discovery candidates only unless an authorized complete download is actually offered. Deliver chapter/section coverage and explicit admission decisions for new authors/works.
+
+## RB02 — Baptist covenants, baptism and the ordinances
+
+**Benefit:** strengthen the area where generic Reformed collections may differ most from Baptist theology.
+
+Seek substantial readable works on covenant/redemptive history, believer's baptism, the Lord's Supper and continuity/discontinuity across the Testaments. Audit the already held Coxe *Discourse of the Covenants*, Pink *The Divine Covenants* and Gill before downloading. Hunt missing Keach, Abraham Booth and other verified Particular Baptist treatments, with modern confessional articles/explanations from Founders and other primary ministries. Keep competing Baptist covenant models identified; the campaign must not declare one modern model the only Baptist position without an owner decision. Non-Baptist Owen passages can supply carefully scoped exegesis; do not present infant-baptism arguments as our default teaching. Acquire offered full texts where possible and locate the actual chapters addressing each ordinance/covenant question.
+
+## RB03 — Commentary and biblical-theology coverage gaps
+
+**Benefit:** directly improve passage study and the future passage-to-library table.
+
+Read the current Scripture/sermon coverage reports, then select the largest genuine readable commentary gaps. Begin with underrepresented OT books and sections, minor prophets, wisdom, Hebrews and James only where the audit confirms a gap. Seek complete Baptist expositions from Gill, Keach and Pink after checking existing coverage; broaden to doctrinally scoped Calvin, Matthew Henry, Ryle, Charles Bridges and other vetted conservative Protestant commentators. Add exegetical/biblical-theological works from author/publisher-offered sources, including Piper's Bible-reading works if incomplete or absent. Prefer sustained exegesis over hundreds of generic sermon duplicates. Existing dictionaries, lexicons and Josephus acquired on 7 October are not new commentary acquisitions. Return a book/chapter coverage table and original locators for newly acquired material.
+
+## RB04 — Salvation, justification, assurance and sanctification
+
+**Benefit:** deepen the doctrinal and pastoral subjects most useful for confident Christian study.
+
+Hunt complete works and substantial sections on justification/imputation, regeneration, saving faith, repentance, adoption, union with Christ, assurance, perseverance and holiness. Prioritize missing Andrew Fuller works, Keach's *Marrow of True Justification*, Abraham Booth's *Reign of Grace* and Baptist treatments vetted from actual sources. Audit held Bunyan, Pink and Spurgeon before expanding them. Supplement with scoped Owen, Thomas Goodwin, Sibbes, Watson and John Murray texts where an authorized readable edition is available. Preserve distinctions between legal justification, sanctification and assurance; an author identity does not settle every statement. Add exact chapter titles and source evidence for topical classification. A same-title sermon or sample cannot satisfy a complete-book gap.
+
+## RB05 — Church membership, polity, discipline and ministry
+
+**Benefit:** practical resources for local churches that align with Baptist ordinances and membership.
+
+Prioritize the full Dagg *Treatise on Church Order*, Benjamin Keach's *Glory of a True Church* and other source-verified historic Baptist polity works. Discover current 9Marks/Founders journals, substantial articles and offered texts on regenerate membership, elders/deacons, discipline/restoration, worship, preaching and pastoral accountability. Audit Spurgeon's *Lectures to My Students*, Broadus and existing ministry collections to fill missing full-text sections instead of repeating holdings. Verify each author/work's core doctrine and polity from primary sources; do not assume every Baptist manual fits the Reformed selection. Identify original publication, editor introductions and later commentary separately. Record whether each item treats baptism, communion boundaries or government differently from the working confessional reference.
+
+## RB06 — Christian life, prayer, family and pastoral care
+
+**Benefit:** turn the library into useful reading paths for real needs, beyond systematic theology.
+
+Audit the current pastoral-care concern map and hunt the largest gaps: bereavement, suffering, doubt/assurance, temptation, repentance, prayer, family worship, marriage, parenting, contentment and vocation. Start with Chapel Library's offered texts and carefully scoped Bunyan, Pink, Spurgeon, Ryle, Flavel, Sibbes, Watson and Charles Bridges; inspect existing complete holdings first. Add modern confessional Baptist ministry resources only when theological fit and acquisition access are supported. Seek complete works and substantial contextual treatments, not tiny quotations or generic advice. Preserve historic context and modern-editor additions. Produce a concern-to-work/chapter table with helpful starting points and explicit limits; do not infer that practical advice is universally applicable merely from a topic tag.
+
+## RB07 — Baptist missions, evangelical preaching and historical witnesses
+
+**Benefit:** add primary historical substance and gospel proclamation where our preacher coverage is concentrated.
+
+Prioritize missing complete Andrew Fuller works and essays, Carey primary writings, Judson letters/biographical witnesses and other source-verified Particular Baptist missions material. Audit existing Fuller *Gospel Worthy of All Acceptation*, Carey *Enquiry* and the current biographies before acquiring. Hunt historic Baptist primary documents about evangelism, the free gospel offer, missionary responsibility and church planting, with well-attributed sermons from underrepresented verified authors. Distinguish author-written primary documents from later biography and historical scholarship. Preserve dated letters, volume identities, editorial framing and contested interpretations; do not turn a historical author's every opinion into endorsed teaching. Finish with chronological/document tables and genuine new-author or new-work coverage rather than duplicate Spurgeon sermons.
+
+## RB08 — Scripture authority and focused apologetic scholarship
+
+**Benefit:** strengthen answers and interpretation with substantial evidence, especially where the current bibliography has only links.
+
+Audit Scripture authority, canon/transmission, Trinity, Christ's deity/resurrection, atonement, evil/suffering and Christianity/Islam against the held-body catalogue. Hunt source-verified Baptist/conservative Reformed texts and scholarly essays: use author/ministry-offered works from James White/Alpha and Omega Ministries, Founders, Desiring God, eligible Carson publications and scoped Warfield/Owen historical texts. Resolve provisional author/work decisions before admitting material as core teaching. Modern commercial books remain gaps when no authorized complete download exists; acquire eligible substantial essays instead. Exclude Catholic/progressive teaching sources in this campaign, and do not expand into Muslim primary-text acquisition under this prompt. Prefer sourced argument and exegesis to short polemical snippets. Produce question-to-work/section entries with Scripture citations, source locators and the author's actual claims.
+
+## End-of-campaign report
+
+After RB08, summarize all eight manifests: genuinely new readable works/editions, duplicate holdings avoided, theological decisions, access failures and remaining gaps. Prepare one aggregate intake manifest for the separate DB refresh. Do not claim the new holdings are embedded until that later import/vector verification passes.
