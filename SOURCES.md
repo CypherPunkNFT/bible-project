@@ -177,6 +177,26 @@ packages. The site serves its own copy inside each release and never calls OpenS
 $0, no paid storage. In use on the map page and on Ancient Cities' city maps ([/study/atlas/cities](https://bibleproject.io/study/atlas/cities)). Planned use: the same map under Paul's guided journey, the Jerusalem and Corinth city guides and
 the Gospel events on the Atlas pages.
 
+## Meaning search model and engine — Apache 2.0 and MIT (added 2026-10-07)
+
+| Folder | What | Checksum |
+|---|---|---|
+| [MeaningPack/site/9db35ceaa8c9/model](../MeaningPack/) | The model that turns a visitor's question into numbers in their own browser, on [/search/meaning](https://bibleproject.io/search/meaning): **IBM granite-embedding-small-english-r2**, **Apache 2.0**. The browser copy is the int8 ONNX build `onnx-community/granite-embedding-small-english-r2-ONNX` at revision `1dc7835ba0cb9c76a3618d0bf0c427c97671b3c8`, from Hugging Face; the studies and Bible verses were encoded once with the full model `ibm-granite/granite-embedding-small-english-r2`. The 50 MB weights are split into three parts for Cloudflare's 25 MiB file limit | model_quantized.onnx a3fad524afc3f060 · data parts 21edfff1895166a7, 4bc307b842ec1032, 9dc9a82346eb8f58 |
+| [MeaningPack/site/9db35ceaa8c9/engine](../MeaningPack/) | The engine that runs the model in the browser: **ONNX Runtime Web** (`onnxruntime-web` 1.31.0-dev.20260914, CPU build), **MIT**, copied from the npm package | ort-wasm-simd-threaded.wasm 06ba057753da3847 |
+| npm package | **Transformers.js** (`@huggingface/transformers` 4.3.1), **Apache 2.0**: reads the model's tokenizer and runs it through the engine | (npm lockfile) |
+
+Built by [scripts/build-meaning-pack.py](scripts/build-meaning-pack.py); sizes, speed and the model comparison are in
+[MEANING_SEARCH.md](../MEANING_SEARCH.md). Visitors download the pack only when they turn meaning search on; nothing is
+sent to any service. In use: Search's meaning search and the meaning prompts under the studies and Apologetics questions.
+
+## Testimonies world map outlines — Natural Earth, public domain (added 2026-10-07)
+
+| Folder | What | Checksum |
+|---|---|---|
+| [src/data/world-map.json](src/data/world-map.json) | Land and country outlines for the world map on [/testimonies](https://bibleproject.io/testimonies), pre-drawn once by [scripts/build-world-map.mjs](scripts/build-world-map.mjs) from **Natural Earth** 1:50m land and countries (**public domain**), as packaged in the npm package `world-atlas` 2.0.2 (**ISC** licence) | world-map.json 0e76b37898c815ec · land-50m.json 619477ff690c0868 · countries-50m.json 04342cdc1e3016bc |
+
+The same package's 1:10m land file (land-10m.json 9b9f584709c119d6) is drawn by [scripts/build-map.mjs](scripts/build-map.mjs) into [src/data/atlas-map.json](src/data/atlas-map.json), the land outline on the Letters study's maps.
+
 ## Study resources — downloaded 2026-10-03 for the Study pages (TODO section G)
 
 Only facts (event names, topic names, verse references, names and family links) are taken from these. STEP
