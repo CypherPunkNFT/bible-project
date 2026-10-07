@@ -10,8 +10,8 @@
 .pm-figures dd { font: 500 1.7rem/1.2 var(--font-serif); }
 
 /* The river: era bands, a time line, prophets above it on four lanes, kings below on two rows. */
-.pm-river-scroll { margin-top: 1.6rem; overflow-x: auto; border: 1px solid var(--line); border-radius: 1rem; background: var(--surface); }
-.pm-river { position: relative; min-width: 1400px; height: 26.5rem; }
+.pm-river-scroll { overflow: hidden; border: 1px solid var(--line); border-radius: 1rem; background: var(--surface); }
+.pm-river { position: relative; width: max(2600px, 100%); height: 26.5rem; will-change: transform; }
 .pm-band { position: absolute; top: 0; bottom: 0; padding: .8rem .7rem; border-right: 1px dashed color-mix(in srgb, var(--line) 80%, transparent); }
 .pm-band[data-odd] { background: color-mix(in srgb, var(--ink) 3%, transparent); }
 .pm-band-label { display: block; font: 600 .95rem/1.2 var(--font-serif); }
@@ -65,3 +65,16 @@
   .pm-panel-medal { width: 3.5rem; height: 3.5rem; font-size: 1rem; }
 }
 @media (prefers-reduced-motion: reduce) { .pm-medal, .pm-books a, .pm-name { transition: none; } }
+
+/* Sideways travel (useSideScroll.ts): the stage is as tall as the held box plus the river's extra width; the box is held
+   under the site header while the page scroll moves the river. The people view's window must clip, not hide, or the
+   box could not be held. */
+.people-view-window:has(.pm-stage) { overflow: clip; overflow-clip-margin: 1rem; }
+.pm-stage { margin-top: 1.6rem; }
+.pm-sticky { position: sticky; top: 4.5rem; padding-bottom: .4rem; background: var(--page); }
+/* The pill: no arrows, just the bar, as beside the tables. Drag it, or click the track to jump. */
+.pm-pill { position: relative; height: 10px; margin-top: .55rem; border-radius: 999px; cursor: pointer; touch-action: none; }
+.pm-pill::before { content: ""; position: absolute; inset: 3px 0; border-radius: 999px; background: color-mix(in srgb, var(--ink) 8%, transparent); }
+.pm-pill-thumb { position: absolute; top: 0; bottom: 0; min-width: 2.5rem; border-radius: 999px; background: color-mix(in srgb, var(--ink) 38%, transparent); cursor: grab; transition: background .15s; }
+.pm-pill:hover .pm-pill-thumb, .pm-pill:active .pm-pill-thumb { background: color-mix(in srgb, var(--ink) 58%, transparent); }
+.pm-pill:active .pm-pill-thumb { cursor: grabbing; }

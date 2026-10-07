@@ -1,5 +1,6 @@
 import { ArrowLeft, ArrowRight, ArrowUpRight, BookOpen } from "lucide-react";
 import { useMemo, useState, type CSSProperties } from "react";
+import { useSideScroll } from "./useSideScroll";
 import { Link } from "react-router-dom";
 import { RefLink } from "@/components/study/StudyParts";
 import { cameFrom } from "@/lib/came-from";
@@ -56,6 +57,7 @@ export function ProphetsMockup({ prophets, kingId }: { prophets: Prophet[]; king
     for (const king of kings) king.x = king.xs.reduce((a, b) => a + b, 0) / king.xs.length;
     return { bands: drawn, placed, kings };
   }, [eras, prophets]);
+  const side = useSideScroll();
   const [focus, setFocus] = useState<Prophet>(() => prophets.find((p) => p.name === "Isaiah") ?? prophets[0]);
   const order = layout.placed.map((spot) => spot.prophet);
   const step = (by: number) => setFocus(order[(order.indexOf(focus) + by + order.length) % order.length]);
@@ -76,8 +78,10 @@ export function ProphetsMockup({ prophets, kingId }: { prophets: Prophet[]; king
       </dl>
     </header>
 
+    {/* Held under the header while the page scroll moves the river sideways (useSideScroll). */}
+    <div ref={side.stage} className="pm-stage"><div ref={side.box} className="pm-sticky">
     <div className="pm-river-scroll">
-      <div className="pm-river" role="list" aria-label="Prophets in time order">
+      <div ref={side.track} className="pm-river" role="list" aria-label="Prophets in time order">
         {layout.bands.map((band, i) => <div key={band.id} className="pm-band" data-odd={i % 2 ? "" : undefined} style={{ left: `${band.left}%`, width: `${band.width}%` }}>
           <span className="pm-band-label">{band.label}</span><span className="pm-band-dates">{band.dates}</span>
         </div>)}
@@ -99,7 +103,9 @@ export function ProphetsMockup({ prophets, kingId }: { prophets: Prophet[]; king
         })}
       </div>
     </div>
-    <p className="pm-river-note">Above the line, the prophets; below it, the kings they served. Point at a prophet to read about them; click to open their page.</p>
+    <div ref={side.pill} className="pm-pill" onPointerDown={side.onPillDown} aria-hidden><span ref={side.thumb} className="pm-pill-thumb" /></div>
+    <p className="pm-river-note">Scroll down to travel through time, or drag the bar. Above the line, the prophets; below it, the kings they served. Point at a prophet to read about them; click to open their page.</p>
+    </div></div>
 
     <article className="pm-panel" style={{ "--pm": tone(KIND_TONE[focus.kind]).tab } as CSSProperties} aria-live="polite">
       <span className="pm-panel-medal" data-kind={focus.kind} aria-hidden>{initials(focus.name)}</span>
