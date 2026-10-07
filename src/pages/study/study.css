@@ -207,3 +207,12 @@
 .study-topics-word { position: absolute; z-index: 0; font-family: var(--font-serif); font-size: .8rem; font-style: italic; white-space: nowrap; color: var(--resource-color); opacity: .22; animation: study-topics-drift 9s ease-in-out infinite alternate; }
 @keyframes study-topics-drift { from { transform: translate(0, 0); } to { transform: translate(10px, -8px); } }
 @media (prefers-reduced-motion: reduce) { .study-topics-word { animation: none; } }
+
+/* Back to Study as a small link at the end of the eyebrow line (StudyBackLink inline, People & genealogies). */
+.study-back-inline { display: inline-flex; align-items: center; gap: .35rem; font-size: .78rem; color: var(--muted); }
+.study-back-inline:hover { color: var(--ink); }
+/* Bare cards (no "Explore below" line): no room kept for that line, smaller drawings, so the page sits higher. */
+.study-contents[data-bare] { margin-bottom: 1.75rem; }
+.study-contents[data-bare] .study-content-card { padding-bottom: 1.1rem; }
+.study-contents[data-bare] .study-content-card .study-miniature { height: 58px; margin: .6rem 0 .7rem; }
+.study-contents[data-bare] .study-content-card > p { margin-bottom: 0; }

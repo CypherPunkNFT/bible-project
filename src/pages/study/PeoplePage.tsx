@@ -32,9 +32,9 @@ export default function PeoplePage() {
     setParams(search, { preventScrollReset: true });
   };
   return <div className="mx-auto max-w-7xl px-4 pb-16 sm:px-6" onClickCapture={slide}><div className="people-page-slide">
-    <StudyHeader eyebrow="Study · People & genealogies" title="Lives woven through Scripture."
+    <StudyHeader compact eyebrow="Study · People & genealogies" title="Lives woven through Scripture."
       lead={<p>Everyone the Bible names, in the order of its history. Open a life, follow the families, or trace the prophets, the rulers and the apostles through the eras Scripture gives them.</p>}
-      contents={<StudyContents selectedId={view === "families" ? "people-directory" : view} onSelect={(id) => show(CARD_VIEWS.find((v) => v === id) ?? (id === "everyone" ? "everyone" : "families"))} />} />
+      contents={<StudyContents bare selectedId={view === "families" ? "people-directory" : view} onSelect={(id) => show(CARD_VIEWS.find((v) => v === id) ?? (id === "everyone" ? "everyone" : "families"))} />} />
     {/* The contents cards switch the view with the study's transition (components/study/study-view.ts). */}
     <div className="people-view-window"><div key={view} data-study-panel className="people-view-panel">
       {view === "prophets" ? <ProphetsContent embedded /> : view === "rulers" ? <RulersGuide /> : view === "apostles" ? <ApostlesGuide /> : view === "families" ? <GenealogyExplorer /> : <Everyone />}

@@ -8,7 +8,8 @@ import { runStudyTransition, selectStudySection, studyTabs, useForgetStudyViewOn
 import { TransitionTicker } from "@/components/ticker/TransitionTicker";
 import "@/pages/study/study.css";
 
-export function StudyContents({ selectedId, onSelect }: { selectedId?: string; onSelect?: (id: string) => void } = {}) {
+/** `bare`: cards end at their sentence, without the "Explore below" line (People & genealogies). */
+export function StudyContents({ selectedId, onSelect, bare = false }: { selectedId?: string; onSelect?: (id: string) => void; bare?: boolean } = {}) {
   const location = useLocation();
   const slug = location.pathname.split("/")[2];
   const collection = STUDY_COLLECTIONS.find((item) => item.id === (slug === "prophets" || slug === "rulers" || slug === "apostles" ? "people" : slug)) ?? STUDY_COLLECTIONS[0];
@@ -42,7 +43,7 @@ export function StudyContents({ selectedId, onSelect }: { selectedId?: string; o
     return () => observer.disconnect();
   }, [location.hash, location.pathname, sections, onSelect, tabbed]);
 
-  return <section id="collection-contents" className="study-contents" style={{ "--resource-color": `var(--${collection.color})` } as CSSProperties} aria-labelledby="collection-contents-title">
+  return <section id="collection-contents" className="study-contents" data-bare={bare ? "" : undefined} style={{ "--resource-color": `var(--${collection.color})` } as CSSProperties} aria-labelledby="collection-contents-title">
     <header><h2 id="collection-contents-title">In this collection</h2><p>Choose a starting point. Explore in any order.</p></header>
     <nav aria-label="Collection contents"><ol className="study-contents-grid" data-count={sections.length}>{sections.map((item, i) => {
       const to = location.pathname === "/study/prophets" && item.id === "prophets" ? "/study/prophets#prophets-directory" : item.to ?? `${collection.path}#${item.id}`;
@@ -52,7 +53,7 @@ export function StudyContents({ selectedId, onSelect }: { selectedId?: string; o
         <div className="study-content-meta"><span>{item.kind}</span><span>{String(i + 1).padStart(2, "0")} / {String(sections.length).padStart(2, "0")}</span></div>
         <StudySectionPreview kind={item.illustration} />
         <h3 id={`contents-${item.id}`}>{item.title}</h3><p>{item.description}</p>
-        <span className="study-content-action">{switches ? (current === item.id ? "Now exploring" : "Explore below") : externalPage ? (item.kind === "Library" ? "Open the library" : "Open the guide") : `Explore ${item.kind === "Chart" ? "the chart" : item.kind === "Map" ? "the map" : "the guide"}`}{externalPage && !switches ? <ArrowUpRight size={16} aria-hidden="true" /> : <ArrowDown size={16} aria-hidden="true" />}</span>
+        {!bare && <span className="study-content-action">{switches ? (current === item.id ? "Now exploring" : "Explore below") : externalPage ? (item.kind === "Library" ? "Open the library" : "Open the guide") : `Explore ${item.kind === "Chart" ? "the chart" : item.kind === "Map" ? "the map" : "the guide"}`}{externalPage && !switches ? <ArrowUpRight size={16} aria-hidden="true" /> : <ArrowDown size={16} aria-hidden="true" />}</span>}
       </Link></li>;
     })}</ol></nav>
     <TransitionTicker />

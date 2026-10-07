@@ -9,11 +9,13 @@ import { bookByNum, formatRange, plainLookup, splitId } from "@/lib/refs";
 import { studyRefLink, type Span } from "@/lib/study";
 import { useAsync } from "@/lib/useAsync";
 
-export function StudyHeader({ eyebrow, title, lead, children, titleId, contents }: { eyebrow: string; title: string; lead: ReactNode; children?: ReactNode; titleId?: string; contents?: ReactNode }) {
+/** `compact` (People & genealogies): Back to Study sits small at the right of the eyebrow line, and the header is tighter. */
+export function StudyHeader({ eyebrow, title, lead, children, titleId, contents, compact = false }: { eyebrow: string; title: string; lead: ReactNode; children?: ReactNode; titleId?: string; contents?: ReactNode; compact?: boolean }) {
   return (
-    <><header className="pb-6 pt-8">
+    <><header className={compact ? "pb-4 pt-5" : "pb-6 pt-8"}>
+      {compact ? <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1"><p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">{eyebrow}</p><StudyBackLink inline /></div> : <>
       <StudyBackLink />
-      <p className="mt-4 text-xs font-semibold uppercase tracking-[0.2em] text-accent">{eyebrow}</p>
+      <p className="mt-4 text-xs font-semibold uppercase tracking-[0.2em] text-accent">{eyebrow}</p></>}
       <h1 id={titleId} className="mt-1 max-w-3xl font-serif text-4xl font-semibold tracking-tight sm:text-5xl">{title}</h1>
       <div className="mt-3 max-w-2xl text-muted">{lead}</div>
       {children}
