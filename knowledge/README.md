@@ -1,5 +1,7 @@
 # Bible Project local knowledge library
 
+**Automatic campaign follow-up:** [Refresh after all fourteen acquisition missions](ACQUISITION-FOLLOWUP.md). Installed Windows task checks every five minutes; the earlier 5 AM condition is superseded. Current snapshot finishes first, then new campaign holdings wait for all fourteen completion reports.
+
 **New-input refresh (2026-10-07):** The October 6 completion below is a historical snapshot, not coverage of later downloads. The new reference adapters and full content-hash audit are documented in [REFERENCE-INTAKE.md](REFERENCE-INTAKE.md). See runtime `intake-completion.json`, `embedding-progress.json` and `source-drift.json` for the current run.
 
 **STUDY MAP — TABLES FIRST:** [Actual relationships, all collections, all 110 topics and catalogue facets](STUDY-MAP.md). Rebuild with `python -m knowledge.study_map`. The [study-table specification](STUDY-TABLES.md) makes sortable evidence tables and comparisons the primary study surface; graph visualization is secondary. Inventory/specification are complete; the interactive table UI remains planned.

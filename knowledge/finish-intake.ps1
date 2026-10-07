@@ -46,6 +46,15 @@ try {
         if ($verification.missing_library_files_since_snapshot -gt 0) { throw 'Previously imported originals are missing. Inspect the source collection before refreshing.' }
         if ($verification.missing_source_inputs_since_snapshot -gt 0) { throw 'Previously indexed source inputs are missing. Inspect source-drift.json before refreshing.' }
         if ($verification.new_library_files_since_snapshot -gt 0 -or $verification.changed_library_ledgers_since_snapshot -gt 0 -or $verification.new_source_files_since_snapshot -gt 0 -or $verification.changed_source_inputs_since_snapshot -gt 0) {
+            $followupPath = Join-Path $bibleState 'acquisition-followup.json'
+            if (Test-Path -LiteralPath $followupPath) {
+                $followup = Get-Content -LiteralPath $followupPath -Raw | ConvertFrom-Json
+                if ($followup.state -in @('waiting_for_acquisition','waiting_for_current_intake')) {
+                    Write-Completion @{state='snapshot_complete_followup_pending'; verified_at=[DateTime]::UtcNow.ToString('o'); verification=$verification; enrichment_started=$false}
+                    Write-Output 'Current snapshot embeddings verified. Later acquisitions are reserved for the installed post-campaign refresh; no early rebuild.'
+                    break
+                }
+            }
             Write-Output "Found $($verification.new_library_files_since_snapshot) later acquisition files and $($verification.changed_library_ledgers_since_snapshot) changed ledgers. Refreshing and reusing saved vectors."
             Write-Output "Full source audit: $($verification.new_source_files_since_snapshot) new files; $($verification.changed_source_inputs_since_snapshot) changed inputs. See source-drift.json."
             Write-Completion @{state='refreshing_late_acquisitions'; pid=$PID; verification=$verification}

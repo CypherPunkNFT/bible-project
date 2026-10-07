@@ -31,6 +31,8 @@ def decide(progress, completion, processes, now, paused=False):
         return "healthy" if processes["monitor"] else "attach_monitor"
     if completion.get("state") == "complete" and progress.get("state") == "complete":
         return "complete"
+    if completion.get("state") == "snapshot_complete_followup_pending" and progress.get("state") == "complete":
+        return "waiting_for_acquisition"
     # Allow the monitor time to verify the last batch and enter a late-source refresh.
     if processes["monitor"] and age(progress, now) < 300 and progress.get("state") not in ("interrupted", "stalled"):
         return "verifying"
@@ -51,7 +53,8 @@ def inventory(config):
     python = re.escape(str(config["state_dir"] / ".venv/Scripts/python.exe"))
     pattern = re.compile(r'^"?' + python + r'"?\s+(?:-u\s+)?-m\s+knowledge\s+(encoder|embed|build)\s*$', re.I)
     result = {key: [] for key in ("encoder", "embed", "build", "refresh", "monitor")}
-    scripts = [("monitor", "finish-intake.ps1"), ("monitor", "watchdog-resume.ps1"), ("refresh", "start.ps1")]
+    scripts = [("monitor", "finish-intake.ps1"), ("monitor", "watchdog-resume.ps1"),
+               ("monitor", "acquisition-followup-run.ps1"), ("refresh", "start.ps1")]
     for row in rows:
         command = row.get("CommandLine") or ""
         match = pattern.match(command)
