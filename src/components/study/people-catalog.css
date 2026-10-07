@@ -1,6 +1,7 @@
 /* Everyone in the Bible: search, period filters in two rows, and person cards grouped by period in their own scroll frame. */
 /* Not clipped: the scrollbar sits just outside the right edge, like the reader's. */
-.people-catalog { margin-top: 2rem; border: 1px solid var(--line); border-radius: 1rem; background: var(--surface); }
+/* Exactly one screen tall below the site header, with a strip of page beneath it, so its bottom edge always shows. */
+.people-catalog { display: flex; flex-direction: column; height: calc(100dvh - 6rem); min-height: 30rem; margin-top: 2rem; border: 1px solid var(--line); border-radius: 1rem; background: var(--surface); scroll-margin-top: 4.75rem; }
 .people-catalog-header { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 1rem; padding: 1.25rem 1.4rem 1rem; }
 .people-catalog-header h2 { font: 500 1.5rem/1.25 var(--font-serif); }
 .people-catalog-header p { margin-top: .3rem; font-size: .78rem; color: var(--muted); }
@@ -14,7 +15,12 @@
 .people-catalog-periods button[aria-pressed="true"] { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 14%, var(--surface)); }
 .people-catalog-periods button:disabled { opacity: .4; }
 .people-catalog-frame { border-top: 1px solid var(--line); border-radius: 0 0 1rem 1rem; }
-.people-catalog-viewport { max-height: min(72vh, 720px); overscroll-behavior: contain; padding: 0 1.4rem 1.4rem; }
+.people-catalog-scroll { flex: 1; min-height: 0; }
+/* The wheel over the cards scrolls the cards only; over the page it scrolls the page. */
+.people-catalog-viewport { overscroll-behavior: contain; padding: 0 1.4rem 1.4rem; }
+.people-catalog .outside-scrollbar { overscroll-behavior: contain; }
+/* 3,000 people make a very long list: keep the pill big enough to see and grab. */
+.people-catalog .outside-scrollbar::-webkit-scrollbar-thumb { min-height: 3rem; }
 /* The period band: gold, flush with the frame's top while its cards scroll beneath it. */
 .people-catalog-group h3 { position: sticky; top: 0; z-index: 1; display: flex; align-items: center; gap: .9rem; margin: 0 -1.4rem .75rem; padding: .7rem 1.4rem; background: linear-gradient(90deg, var(--epistles-tab), color-mix(in srgb, var(--epistles-tab) 55%, #f5c518)); color: var(--epistles-tab-ink); box-shadow: 0 6px 14px -10px #00000080; }
 .people-catalog-number { font: 600 .7rem var(--font-sans); letter-spacing: .12em; opacity: .7; }
