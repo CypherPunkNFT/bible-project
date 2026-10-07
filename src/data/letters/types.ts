@@ -166,6 +166,14 @@ export interface Ladder {
   claim: Claim;
 }
 
+/** A person at the heart of a collection, linked to their own person page (/people/<id>). `intro` when the collection
+ *  introduces each writer in turn (James, Peter and Jude); otherwise the collection's own intro speaks for them. */
+export interface Writer {
+  id: string;
+  name: string;
+  intro?: Claim[];
+}
+
 export interface LetterGroup {
   id: "paul-letters" | "hebrews" | "general-letters" | "john-letters";
   title: string;
@@ -183,6 +191,8 @@ export interface LetterGroup {
   ladders: Ladder[];
   /** Group-wide groupings, e.g. Paul's early / major / prison / pastoral letters. */
   groupings?: { label: string; letters: string[]; claim: Claim }[];
+  /** The writers, each linked to their person page. Hebrews has none: its writer is not named. */
+  writers?: Writer[];
   citations: Citation[];
 }
 

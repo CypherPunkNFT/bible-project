@@ -1,7 +1,8 @@
 import { ArrowLeft, ArrowRight, ArrowUpRight, BookOpen, CircleCheck, Clock, Cross, Globe2, GitCompare, Lamp, Link as LinkIcon, Mail, Map as MapIcon, PenTool, Route, Split, Star, Tags, Tent, Users, AlignLeft, type LucideIcon } from "lucide-react";
 import type { CSSProperties, ReactNode } from "react";
 import { Link, useLocation } from "react-router-dom";
-import type { Citation, Claim } from "@/data/letters/types";
+import type { Citation, Claim, Writer } from "@/data/letters/types";
+import { cameFrom } from "@/lib/came-from";
 import { CitationProvider, ClaimText } from "../LetterParts";
 import { SourcesList } from "../LetterBlocks";
 import { drawing } from "./builders";
@@ -30,6 +31,10 @@ export interface PageDef {
   emblem: IconName; caption: string; bar: ReactNode; sections: SectionDef[]; citations: Citation[];
   /** The collection's introduction (3–4 paragraphs with source marks), shown under the title. */
   about?: Claim[];
+  /** The writers, each linked to their own person page; with paragraphs of their own when the collection has several. */
+  writers?: Writer[];
+  /** A tall line drawing (art.ts "tall-…") beside the title and introduction, in place of the small emblem. */
+  tall?: string;
 }
 
 export function Card({ card, n, to }: { card: CardDef; n: number; to: string }) {
@@ -68,13 +73,39 @@ function Sources({ citations }: { citations: Citation[] }) {
 function Hero({ page }: { page: PageDef }) {
   return <header className="lb-intro to-bar" style={toneStyle(page.tone)}>
     <div className="lb-intro-copy"><p className="lb-kicker">{page.kicker}</p><h1>{page.h1}<br /><em>{page.em}</em></h1><p>{page.intro}</p></div>
-    <div className="lb-emblem" aria-hidden="true"><Icon name={page.emblem} size={120} /><span>{page.caption}</span></div>
+    {!page.tall && <div className="lb-emblem" aria-hidden="true"><Icon name={page.emblem} size={120} /><span>{page.caption}</span></div>}
   </header>;
 }
 
-function About({ claims }: { claims?: Claim[] }) {
-  if (!claims?.length) return null;
-  return <section className="lb-about" aria-label="About these letters">{claims.map((claim, i) => <ClaimText key={i} claim={claim} />)}</section>;
+/** "Paul's own page →": the way from a collection to the person at its heart. */
+function PersonLink({ writer, from }: { writer: Writer; from: string }) {
+  return <Link className="lb-person-link" to={`/people/${writer.id}`} state={cameFrom(from)}>{writer.name}'s own page <ArrowRight size={14} aria-hidden /></Link>;
+}
+
+function About({ page }: { page: PageDef }) {
+  const one = page.writers?.filter((w) => !w.intro?.length) ?? [];
+  if (!page.about?.length) return null;
+  return <section className="lb-about" aria-label="About these letters">
+    {page.about.map((claim, i) => <ClaimText key={i} claim={claim} />)}
+    {one.length > 0 && <p className="lb-person-links">{one.map((w) => <PersonLink key={w.id} writer={w} from={page.title} />)}</p>}
+  </section>;
+}
+
+/** Several writers (James, Peter and Jude): a column each across the page, with their own paragraphs and page link. */
+function Writers({ page }: { page: PageDef }) {
+  const several = page.writers?.filter((w) => w.intro?.length) ?? [];
+  if (!several.length) return null;
+  return <section className="lb-writers" aria-label="The writers">{several.map((w) => <article key={w.id} className="lb-writer">
+    <h2>{w.name}</h2>{w.intro!.map((claim, i) => <ClaimText key={i} claim={claim} />)}<PersonLink writer={w} from={page.title} />
+  </article>)}</section>;
+}
+
+/** The tall line drawing beside a collection's title and introduction. */
+function TallArt({ name, caption }: { name: string; caption: string }) {
+  return <figure className="lb-tall" aria-hidden="true">
+    <svg viewBox="0 0 240 560" fill="none" strokeLinecap="round">{drawing(name)}</svg>
+    <figcaption>{caption}</figcaption>
+  </figure>;
 }
 
 /** A collection or way-in page: title, its bar, and three rows of cards; each card opens its section at its part. */
@@ -83,8 +114,10 @@ export function CollectionPage({ page }: { page: PageDef }) {
   const rows = page.sections.map((s) => ({ id: s.id, title: s.title, lead: s.lead, cards: s.parts.map((p) => ({ card: p.card, to: `${BASE}/${page.slug}/${s.id}/${p.id}${search}` })) }));
   return <CitationProvider citations={page.citations}><div className="lb" style={toneStyle(page.tone)}>
     <Crumbs parts={[page.crumb]} right={page.right} />
-    <Hero page={page} />
-    <About claims={page.about} />
+    {page.tall
+      ? <div className="lb-top"><div className="lb-top-copy"><Hero page={page} /><About page={page} /></div><TallArt name={page.tall} caption={page.caption} /></div>
+      : <><Hero page={page} /><About page={page} /></>}
+    <Writers page={page} />
     {page.bar}
     <CardRows rows={rows} compact />
     <Sources citations={page.citations} />

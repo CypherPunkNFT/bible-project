@@ -51,7 +51,7 @@ test("letters: every page has its sources and no page scrolls sideways", async (
 // Bible's section headings beside the outline. The other three collections keep the short tagline for now.
 test("letters: Paul's letters show the introduction, their own Old Testament chart and headings beside the outline", async ({ page }) => {
   await page.goto("/study/letters/paul");
-  await expect(page.locator(".lb-about p")).toHaveCount(3);
+  await expect(page.locator(".lb-about > p:not(.lb-person-links)")).toHaveCount(3);
   await expect(page.locator(".lb-about")).toContainText("Tarsus");
   await page.goto("/study/letters/paul/inside/shape?letter=ROM");
   await expect(page.locator(".lb-beside-row")).toHaveCount(10);
@@ -59,6 +59,22 @@ test("letters: Paul's letters show the introduction, their own Old Testament cha
   await page.goto("/study/letters/paul/inside/ot?letter=ROM");
   await expect(page.locator("#part-ot")).toContainText("Isaiah");
   await expect(page.locator("#part-ot .lb-ot-list li").first()).toBeVisible();
-  await page.goto("/study/letters/hebrews");
-  await expect(page.locator(".lb-about")).toHaveCount(0);
+});
+
+// Owner 2026-10-07: every collection has its introduction and a tall line drawing; the writers link to their person pages
+// (Hebrews has none: its writer is not named); James, Peter and Jude each have three paragraphs of their own.
+test("letters: each collection's introduction, line drawing and writers' own pages", async ({ page }) => {
+  for (const [slug, link] of [["paul", "/people/paul-act-7-58"], ["the-letters-of-john", "/people/john-mat-4-21"], ["hebrews", null]] as const) {
+    await page.goto(`/study/letters/${slug}`);
+    await expect(page.locator(".lb-about > p").first()).toBeVisible();
+    await expect(page.locator(".lb-tall svg")).toBeAttached();
+    if (link) await expect(page.locator(".lb-person-link")).toHaveAttribute("href", link);
+    else await expect(page.locator(".lb-person-link")).toHaveCount(0);
+  }
+  await page.goto("/study/letters/james-peter-and-jude");
+  await expect(page.locator(".lb-writer")).toHaveCount(3);
+  await expect(page.locator(".lb-writer p")).toHaveCount(9);
+  await page.locator(".lb-writer", { hasText: "Peter" }).locator(".lb-person-link").click();
+  await expect(page).toHaveURL(/\/people\/peter-mat-4-18$/);
+  await expect(page.getByText(/Back to James, Peter & Jude/)).toBeVisible();
 });

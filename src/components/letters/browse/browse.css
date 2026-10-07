@@ -85,9 +85,24 @@
 .lb-panel + .lb-panel { margin-top: 1rem; }
 .lb-panel-label { margin-bottom: .7rem; font-size: .6rem; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
 /* A collection's introduction under its title; the Bible's section headings beside the outline. */
-.lb-about { max-width: 72ch; margin: .2rem 0 1.8rem; }
+.lb-about { margin: .2rem 0 1.8rem; }
+.lb-about > p { max-width: 72ch; }
 .lb-about p { font: 400 1.02rem/1.8 var(--font-serif); color: var(--ink); }
 .lb-about p + p { margin-top: .9rem; }
+/* A collection's top: title and introduction on the left, a tall line drawing on the right. */
+.lb-top { display: grid; grid-template-columns: minmax(0, 1fr) 15rem; gap: 3rem; }
+.lb-top-copy { min-width: 0; }
+.lb-tall { display: flex; flex-direction: column; align-items: center; margin: 2.2rem 0 1.8rem; color: var(--tone); }
+.lb-tall svg { flex: 1; width: 100%; max-height: 40rem; opacity: .75; }
+.lb-tall figcaption { margin-top: .8rem; font-size: .55rem; letter-spacing: .24em; opacity: .75; text-align: center; }
+.lb-person-links { display: flex; flex-wrap: wrap; gap: 1.2rem; margin-top: 1.1rem; }
+.lb .lb-person-link { display: inline-flex; align-items: center; gap: .35rem; font: 600 .82rem/1.4 var(--font-sans, inherit); color: var(--tone); }
+.lb .lb-person-link:hover { text-decoration: underline; text-underline-offset: 3px; }
+.lb-writers { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2.4rem; margin: .4rem 0 2.4rem; padding-top: 1.6rem; border-top: 1px solid var(--line); }
+.lb-writer h2 { margin-bottom: .6rem; font: 500 1.5rem/1.2 var(--font-serif); letter-spacing: -.02em; }
+.lb-writer p { font: 400 .98rem/1.75 var(--font-serif); color: var(--ink); }
+.lb-writer p + p { margin-top: .9rem; }
+.lb-writer .lb-person-link { margin-top: .9rem; }
 .lb-beside { margin-top: 1.2rem; border-top: 1px solid var(--line); }
 .lb-beside-head, .lb-beside-row { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: 1.2rem; }
 .lb-beside-head { padding-block: .8rem .4rem; font-size: .6rem; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
@@ -194,6 +209,7 @@
 .lb-gathered p { margin-bottom: .7rem; font-size: .88rem; line-height: 1.8; color: var(--muted); }
 
 @media (max-width: 1080px) {
+  .lb-top { grid-template-columns: minmax(0, 1fr) 11rem; gap: 2rem; }
   .lb-cards, .lb-figures { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .lb-figures > div:nth-child(3) { padding-left: 0; border-left: 0; }
   .lb-chapter-head { grid-template-columns: 1fr; } .lb-chapter-head .lb-art { display: none; }
@@ -201,6 +217,7 @@
   .lb-part-head { grid-template-columns: auto minmax(0, 1fr); } .lb-part-art { display: none; }
 }
 @media (max-width: 640px) {
+  .lb-top { grid-template-columns: 1fr; } .lb-tall { display: none; } .lb-writers { grid-template-columns: 1fr; gap: 1.6rem; }
   .lb-beside-head, .lb-beside-row { grid-template-columns: 1fr; gap: .4rem; }
   .lb-cards, .lb-pager, .lb-hands { grid-template-columns: 1fr; }
   .lb-emblem { display: none; }

@@ -33,8 +33,8 @@ function inside(l: Letter, fourth: "ot" | "names" = "ot", extras: InsideExtras =
       "Its key Greek words, counted in the Greek text. Click one to list every verse it appears in.", <LetterWords key={l.code} letter={l} />),
     fourth === "names"
       ? part("names", card("people", "poetry", "users", "Who and where", `People and places in ${l.name}`, "Everyone the letter names, and every place, with where it names them.", "People · Places", "See the names"), "Everyone and everywhere the letter names.", <PeoplePlaces letter={l} />)
-      : part("ot", card("ot", "epistles", "book", "Old Testament", `The Old Testament behind ${l.name}`, flow ? `Where ${collection}'s quotations come from, then each one in ${l.name}.` : "Each quotation linked to the passage it comes from.", "Psalms · Isaiah · More", "Follow the quotations"),
-        flow ? `Where the quotations in ${collection} come from, book by book. Click a book or a letter to keep it. Below, each quotation in ${l.name}, linked to the passage it comes from.` : "Each quotation, linked to the passage it comes from.",
+      : part("ot", card("ot", "epistles", "book", "Old Testament", `The Old Testament behind ${l.name}`, flow ? (collection === l.name ? `The Old Testament books ${l.name} quotes, then each quotation.` : `Where the quotations in ${collection} come from, then each one in ${l.name}.`) : "Each quotation linked to the passage it comes from.", "Psalms · Isaiah · More", "Follow the quotations"),
+        flow ? `Where the quotations in ${collection} come from, book by book. Click a book or ${collection === l.name ? "a chapter" : "a letter"} to keep it. Below, each quotation in ${l.name}, linked to the passage it comes from.` : "Each quotation, linked to the passage it comes from.",
         <>{flow && <FlowChart flow={flow} />}<OtList key={l.code} letter={l} /></>),
   ];
 }
@@ -51,14 +51,17 @@ function read(data: LettersData, k: GroupKey): PartDef[] {
 }
 
 export function collectionPages(data: LettersData, chosen: Chosen): Record<string, PageDef> {
-  const G = data.groups, map = (k: GroupKey, ...ids: string[]) => ids.flatMap((id) => G[k].maps.filter((m) => m.id === id));
+  const G = data.groups;
+  const extras = (k: GroupKey, collection: string): InsideExtras => ({ flow: G[k].flows.find((f) => f.id === "ot-sources"), collection, headings: true });
+  const top = (k: GroupKey) => ({ about: G[k].intro, writers: G[k].writers, tall: `tall-${k}` });
+  const map = (k: GroupKey, ...ids: string[]) => ids.flatMap((id) => G[k].maps.filter((m) => m.id === id));
   const tl = (k: GroupKey, id: string) => G[k].timelines.find((t) => t.id === id)!, net = (k: GroupKey, id: string) => G[k].networks.find((n) => n.id === id)!;
   const par = (k: GroupKey, id: string) => G[k].parallels.find((p) => p.id === id)!;
   const common = (k: GroupKey) => ({ crumb: "The four collections", citations: G[k].citations, intro: G[k].tagline });
   const [paulLetter, choosePaul] = chosen.paul, [genLetter, chooseGen] = chosen.general, [johnLetter, chooseJohn] = chosen.john;
   const heb = G.hebrews.letters[0];
   return {
-    paul: { ...common("paul"), about: G.paul.intro, slug: "paul", title: "Paul's letters", right: "PAUL'S LETTERS", tone: "epistles", kicker: "Thirteen letters · Paul", h1: "Paul's letters.", em: "Written on the road.",
+    paul: { ...common("paul"), ...top("paul"), slug: "paul", title: "Paul's letters", right: "PAUL'S LETTERS", tone: "epistles", kicker: "Thirteen letters · Paul", h1: "Paul's letters.", em: "Written on the road.",
       intro: "Letters to young churches and to friends, from his first visit to Thessalonica to his last days in Rome. Choose a letter, then a card.",
       emblem: "route", caption: "EARLY · MAJOR · PRISON · PASTORAL", bar: <GroupsBar data={data} group="paul" chosen={paulLetter} choose={choosePaul} />,
       sections: [
@@ -73,7 +76,7 @@ export function collectionPages(data: LettersData, chosen: Chosen): Record<strin
             "A runaway sent home with a letter, from Paul's prison to Philemon's house.", <TimelineStrip timeline={tl("paul", "onesimus")} />),
         ] },
         { id: "inside", art: "glance", tone: "prophets", picker: true, title: `Inside ${paulLetter.name}`, lead: "Choose any of the thirteen; these four cards follow it.",
-          parts: inside(paulLetter, "ot", { flow: G.paul.flows.find((f) => f.id === "ot-sources"), collection: "Paul's letters", headings: true }) },
+          parts: inside(paulLetter, "ot", extras("paul", "Paul's letters")) },
         { id: "side", art: "compare", tone: "poetry", title: "Side by side, and how they were read", lead: "Pairs of letters, the people Paul greets, and how the church received them.", parts: [
           part("ephcol", card("compare", "prophets", "compare", "Twin letters", "Ephesians and Colossians", "Two letters written close together, passage against passage.", "31 paired passages", "Compare them"),
             "Thirty-one passages that run in parallel. Click a ribbon to keep it.", <ParallelRibbon parallel={par("paul", "ephesians-colossians")} />),
@@ -82,7 +85,7 @@ export function collectionPages(data: LettersData, chosen: Chosen): Record<strin
           ...read(data, "paul"),
         ] },
       ] },
-    hebrews: { ...common("hebrews"), slug: "hebrews", title: "Hebrews", right: "HEBREWS", tone: "gospels", kicker: "One long sermon · Hebrews", h1: "Hebrews.", em: "A better covenant.",
+    hebrews: { ...common("hebrews"), ...top("hebrews"), slug: "hebrews", title: "Hebrews", right: "HEBREWS", tone: "gospels", kicker: "One long sermon · Hebrews", h1: "Hebrews.", em: "A better covenant.",
       emblem: "tent", caption: "SERMON · LETTER · UNSIGNED",
       bar: <FiguresBar items={[["Length", `${heb.outline.length} parts`, `${heb.verses} verses`], ["Old Testament", "quotations", heb.otQuotes.length], ["Key verses", `${heb.themes.length} themes`, heb.keyVerses.length], ["Written", "widest range proposed", dates(heb)]]} />,
       sections: [
@@ -90,7 +93,7 @@ export function collectionPages(data: LettersData, chosen: Chosen): Record<strin
           part("better", card("hebrews", "gospels", "tent", "Step by step", "Better than…", "Ten steps up the argument: better than prophets, angels, Moses and the old priesthood.", "10 steps", "Climb the steps"),
             "Each step of the argument, and what it is better than.", <BetterLadder ladder={G.hebrews.ladders[0]} />),
           part("shape", card("shape", "history", "bars", "Its shape", "How it is built", "Teaching, warning and encouragement, part by part.", `${heb.outline.length} parts`, "See the outline"),
-            "The sermon cut into its parts, coloured by teaching, warning and encouragement.", <OutlineBar letter={heb} />),
+            "The sermon cut into its parts, coloured by teaching, warning and encouragement; beneath, each part beside the Bible's section headings inside it.", <OutlineBar letter={heb} headings />),
           part("atonement", card("compare", "prophets", "compare", "Side by side", "The Day of Atonement and Hebrews 9", "Leviticus 16 read beside the high priest's single entry with his own blood.", `${par("hebrews", "day-of-atonement").pairs.length} paired passages`, "Compare them"),
             "Leviticus 16 beside Hebrews 9. Click a ribbon to keep it.", <ParallelRibbon parallel={par("hebrews", "day-of-atonement")} />),
           part("melchizedek", card("compare", "acts", "compare", "Side by side", "Melchizedek", "Genesis 14 and Hebrews 7: the priest-king without beginning or end.", `${par("hebrews", "melchizedek").pairs.length} paired passages`, "Compare them"),
@@ -100,7 +103,7 @@ export function collectionPages(data: LettersData, chosen: Chosen): Record<strin
           inside(heb)[0],
           part("faith", card("life", "poetry", "clock", "Hebrews 11", "The hall of faith", "From Abel to the prophets, each example in the order of the story.", `${tl("hebrews", "hall-of-faith").events.length} examples`, "Walk the hall"),
             "Each example of faith, in the order of the Old Testament story.", <TimelineStrip timeline={tl("hebrews", "hall-of-faith")} />),
-          inside(heb)[2], inside(heb)[3],
+          inside(heb)[2], inside(heb, "ot", extras("hebrews", "Hebrews"))[3],
         ] },
         { id: "read", art: "questions", tone: "history", title: "Its readers, and how it was read", lead: "Where the first readers may have lived, who is named, and how the church received the letter.", parts: [
           part("readers", card("where", "poetry", "map", "On the map", "Where the first readers may have lived", "Five places proposed, each with the people who proposed it.", "Jerusalem · Rome · More", "Open the map"),
@@ -108,7 +111,7 @@ export function collectionPages(data: LettersData, chosen: Chosen): Record<strin
           inside(heb, "names")[3], ...read(data, "hebrews"),
         ] },
       ] },
-    general: { ...common("general"), slug: "james-peter-and-jude", title: "James, Peter & Jude", right: "JAMES, PETER & JUDE", tone: "acts", kicker: "Four letters · James, Peter & Jude", h1: "James, Peter & Jude.", em: "To believers far from home.",
+    general: { ...common("general"), ...top("general"), slug: "james-peter-and-jude", title: "James, Peter & Jude", right: "JAMES, PETER & JUDE", tone: "acts", kicker: "Four letters · James, Peter & Jude", h1: "James, Peter & Jude.", em: "To believers far from home.",
       emblem: "globe", caption: "JAMES · 1 PETER · 2 PETER · JUDE", bar: <LettersBar data={data} group="general" chosen={genLetter} choose={chooseGen} />,
       sections: [
         { id: "writers", art: "general", tone: "acts", title: "The writers and their readers", lead: "Two brothers of Jesus and an apostle, and the scattered believers they wrote to.", parts: [
@@ -121,7 +124,7 @@ export function collectionPages(data: LettersData, chosen: Chosen): Record<strin
           part("babylon", card("paul", "epistles", "route", "On the map", "Babylon, and Silvanus's road", "Two candidates for the \"Babylon\" Peter writes from, and the road the letter may have taken.", "Rome or Mesopotamia · Hort's route", "Open the map"),
             "Where \"Babylon\" may be, and the route Hort suggested for the letter.", <LetterMap layers={map("general", "silvanus-route", "babylon")} title="Babylon, and Silvanus's road" />),
         ] },
-        { id: "inside", art: "glance", tone: "prophets", picker: true, title: `Inside ${genLetter.name}`, lead: "Choose any of the four; these four cards follow it.", parts: inside(genLetter) },
+        { id: "inside", art: "glance", tone: "prophets", picker: true, title: `Inside ${genLetter.name}`, lead: "Choose any of the four; these four cards follow it.", parts: inside(genLetter, "ot", extras("general", "James, Peter & Jude")) },
         { id: "side", art: "compare", tone: "poetry", title: "Side by side, and how they were read", lead: "The passages they share, the questions readers have asked, and how the church received them.", parts: [
           part("jude2pe", card("compare", "prophets", "compare", "Twin letters", "Jude and 2 Peter", "A run of the same material, passage against passage.", `${par("general", "jude-second-peter").pairs.length} paired passages`, "Compare them"),
             "Jude beside 2 Peter. Click a ribbon to keep it.", <ParallelRibbon parallel={par("general", "jude-second-peter")} />),
@@ -130,7 +133,7 @@ export function collectionPages(data: LettersData, chosen: Chosen): Record<strin
           ...read(data, "general"),
         ] },
       ] },
-    john: { ...common("john"), slug: "the-letters-of-john", title: "The letters of John", right: "THE LETTERS OF JOHN", tone: "revelation", kicker: "Three letters · John", h1: "The letters of John.", em: "Light, love and truth.",
+    john: { ...common("john"), ...top("john"), slug: "the-letters-of-john", title: "The letters of John", right: "THE LETTERS OF JOHN", tone: "revelation", kicker: "Three letters · John", h1: "The letters of John.", em: "Light, love and truth.",
       emblem: "lamp", caption: "1 JOHN · 2 JOHN · 3 JOHN", bar: <LettersBar data={data} group="john" chosen={johnLetter} choose={chooseJohn} />,
       sections: [
         { id: "elder", art: "john", tone: "revelation", title: "The elder and his churches", lead: "Where the letters were read, who 3 John names, and the questions readers still ask.", parts: [
@@ -142,7 +145,7 @@ export function collectionPages(data: LettersData, chosen: Chosen): Record<strin
             "How the \"three that bear record in heaven\" entered the printed Bible.", <TimelineStrip timeline={tl("john", "three-witnesses")} />),
           read(data, "john")[0],
         ] },
-        { id: "inside", art: "glance", tone: "prophets", picker: true, title: `Inside ${johnLetter.name}`, lead: "Choose any of the three; these four cards follow it.", parts: inside(johnLetter) },
+        { id: "inside", art: "glance", tone: "prophets", picker: true, title: `Inside ${johnLetter.name}`, lead: "Choose any of the three; these four cards follow it.", parts: inside(johnLetter, "ot", extras("john", "John's letters")) },
         { id: "side", art: "compare", tone: "poetry", title: "Side by side, and how they were received", lead: "The letters beside the Gospel and beside each other, and how the church received them.", parts: [
           part("gospel", card("compare", "prophets", "compare", "Beside the Gospel", "1 John and the Gospel of John", "The same words and ideas, passage against passage.", `${par("john", "gospel-bridge").pairs.length} paired passages`, "Compare them"),
             "1 John beside the Gospel of John. Click a ribbon to keep it.", <ParallelRibbon parallel={par("john", "gospel-bridge")} />),

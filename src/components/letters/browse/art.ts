@@ -145,4 +145,40 @@ export const ART: Record<string, string> = {
     <path d="M240 40V168" stroke="currentColor" stroke-opacity=".4"/>
     <g stroke="currentColor" opacity=".45">${range(7).map((i) => `<path d="M138 ${56 + i * 14}H${i === 3 ? 200 : 222}M258 ${56 + i * 14}H${i % 3 === 1 ? 312 : 342}"/>`).join("")}</g>
     <rect x="254" y="92" width="94" height="14" rx="3" fill="currentColor" fill-opacity=".3"/>${dots([[80, 50], [400, 50], [90, 150], [392, 150]])}`,
+  // ── Tall line drawings beside a collection's introduction (240x560; same style as the cards) ──────────────────
+  // Paul's letters: his road from Tarsus to Rome, top to bottom, across the sea, ending in a sealed letter.
+  "tall-paul": `
+    <g stroke="currentColor" opacity=".12"><path d="M8 318Q60 306 112 320T232 314"/><path d="M8 344Q70 332 128 346T232 340"/><path d="M8 370Q56 360 104 372T232 366"/><path d="M8 396Q66 386 124 398T232 392"/></g>
+    <path d="M44 48C44 90 118 80 118 122S48 160 48 196S120 232 120 272S50 310 50 348S122 386 122 424S70 470 70 500" stroke="currentColor" stroke-dasharray="4 5" opacity=".7"/>
+    ${[[44, 48, "TARSUS"], [118, 122, "DAMASCUS"], [48, 196, "ANTIOCH"], [120, 272, "EPHESUS"], [50, 348, "CORINTH"], [122, 424, "JERUSALEM"], [70, 500, "ROME"]].map(([x, y, name]) => `<circle cx="${x}" cy="${y}" r="7" fill="${S}" stroke="currentColor" stroke-opacity=".5"/><circle cx="${x}" cy="${y}" r="2.8" fill="currentColor"/><text x="${Number(x) + 15}" y="${Number(y) - 5}" fill="currentColor" opacity=".6" font-size="8.5" letter-spacing="1.6">${name}</text>`).join("")}
+    <g transform="translate(150 488)"><rect width="40" height="28" rx="3" fill="${S}" stroke="currentColor"/><path d="M0 2L20 16 40 2" stroke="currentColor" stroke-opacity=".6"/><circle cx="20" cy="20" r="5" fill="currentColor" fill-opacity=".85"/></g>
+    ${dots([[200, 74], [212, 190], [24, 268], [204, 352], [30, 446], [214, 538]])}`,
+  // Hebrews: steps climbing to the tabernacle, its veil drawn back and light coming through.
+  "tall-hebrews": `
+    <path d="M24 542H216" stroke="currentColor" opacity=".22"/>
+    <path d="M30 532H52V506H74V480H96V454H118V428H140V402H162V376H184V350H206V324" stroke="currentColor" stroke-opacity=".55"/>
+    <path d="M206 316C206 262 120 270 120 206" stroke="currentColor" stroke-dasharray="3 5" opacity=".5"/>
+    <g stroke="currentColor" opacity=".45">${range(14).map((i) => `<path d="${ray(120, 120, 26, i % 2 ? 48 : 62, 180 + i * 13.8)}"/>`).join("")}</g>
+    <path d="M52 196V48H188V196" stroke="currentColor" stroke-opacity=".6"/>
+    <path d="M52 48Q74 110 66 196M52 48Q88 102 88 196" fill="currentColor" fill-opacity=".08" stroke="currentColor"/>
+    <path d="M188 48Q166 110 174 196M188 48Q152 102 152 196" fill="currentColor" fill-opacity=".08" stroke="currentColor"/>
+    <rect x="106" y="160" width="28" height="22" rx="2" fill="${S}" stroke="currentColor"/><path d="M109 160V153H131V160" stroke="currentColor" stroke-opacity=".6"/>
+    <path d="M44 42H196" stroke="currentColor" stroke-width="3"/>${dots([[22, 90], [218, 96], [24, 300], [214, 470], [40, 420]])}`,
+  // James, Peter & Jude: a word sent out from Jerusalem to believers scattered far and wide.
+  "tall-general": `
+    <g stroke="currentColor" opacity=".12"><ellipse cx="120" cy="310" rx="112" ry="228"/><ellipse cx="120" cy="310" rx="70" ry="150"/></g>
+    <g stroke="currentColor" stroke-dasharray="3 5" opacity=".5">${[[36, 176], [196, 150], [74, 266], [178, 304], [44, 392], [204, 424], [120, 512]].map(([x, y]) => `<path d="M120 76L${x} ${y}"/>`).join("")}</g>
+    ${[[36, 176], [196, 150], [74, 266], [178, 304], [44, 392], [204, 424], [120, 512]].map(([x, y]) => `<circle cx="${x}" cy="${y}" r="5" fill="${S}" stroke="currentColor"/>`).join("")}
+    <circle cx="120" cy="76" r="24" fill="${S}" stroke="currentColor"/><path d="M107 69H133M107 76H133M107 83H125" stroke="currentColor" stroke-opacity=".7"/>
+    <text x="120" y="122" text-anchor="middle" fill="currentColor" opacity=".6" font-size="8.5" letter-spacing="1.6">JERUSALEM</text>
+    ${dots([[24, 56], [214, 70], [130, 210], [118, 400], [26, 520], [214, 530]])}`,
+  // The letters of John: a lamp on its stand, and its light in three rings.
+  "tall-john": `
+    <path d="M30 540H210" stroke="currentColor" opacity=".18"/>
+    <path d="M120 330V520M92 520H148M104 520Q120 500 136 520" stroke="currentColor" stroke-opacity=".55"/>
+    <g stroke="currentColor">${[36, 62, 90].map((r, i) => `<circle cx="120" cy="300" r="${r}" opacity="${.5 - i * .14}" ${i ? 'stroke-dasharray="2 5"' : ""}/>`).join("")}</g>
+    <g stroke="currentColor" opacity=".35">${range(16).map((i) => `<path d="${ray(120, 300, 98, i % 2 ? 108 : 118, i * 22.5)}"/>`).join("")}</g>
+    <path d="M94 318Q120 332 146 318L138 310H102Z" fill="${S}" stroke="currentColor"/><path d="M146 318Q160 314 164 304" stroke="currentColor"/>
+    <path d="M120 308Q112 294 120 278Q128 294 120 308Z" fill="currentColor" fill-opacity=".85"/>
+    <g stroke="currentColor" opacity=".12"><path d="M40 160Q120 150 200 160"/><path d="M50 182Q120 174 190 182"/></g>${dots([[30, 60], [210, 70], [36, 470], [204, 460], [120, 110]])}`,
 };
