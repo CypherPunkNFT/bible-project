@@ -125,6 +125,6 @@
   .review-thumb { height: 9rem; }
   .review-thumb[data-width="phone"] { height: 12rem; }
   .review-decide-actions { margin-left: 0; }
-  .review-bar { top: calc(env(safe-area-inset-top, 0px) + 3.4rem); }
+  .review-bar { position: static; } /* three wrapped rows would cover too much of a phone screen */
   .review-template > header, .review-variant { padding-inline: .9rem; }
 }
