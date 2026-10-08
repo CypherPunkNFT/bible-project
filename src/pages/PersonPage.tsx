@@ -47,10 +47,13 @@ export default function PersonPage() {
   if (detail.status === "ready" && detail.value.same) return <Navigate to={personPath(detail.value.same, aspect)} replace state={state} />;
 
   const sex = detail.status === "ready" ? detail.value.s : "";
-  if (special && aspect) return <div className="mx-auto max-w-7xl px-4 pb-16 pt-6 sm:px-6" onClickCapture={slide}>
+  // The Twelve, Matthias and Paul have the full-width apostle page (components/apostle-page); the wider circle keeps theirs.
+  const twelve = special?.aspect === "mission" && special.summary.group.startsWith("apostles-");
+  if (special && aspect) return <div className={twelve ? undefined : "mx-auto max-w-7xl px-4 pb-16 pt-6 sm:px-6"} onClickCapture={slide}>
     <div className="people-page-slide">
       {!pages ? <div className="h-96 animate-pulse rounded-2xl bg-surface-2" role="status" aria-label="Loading" />
-        : aspect === "rule" ? <pages.RulerPage id={special.id} sex={sex} /> : aspect === "mission" ? <pages.ApostlePage id={special.id} /> : <pages.ProphetPage id={special.id} sex={sex} />}
+        : aspect === "rule" ? <pages.RulerPage id={special.id} sex={sex} /> : twelve ? <pages.ApostleMissionPage id={special.id} />
+        : aspect === "mission" ? <pages.ApostlePage id={special.id} /> : <pages.ProphetPage id={special.id} sex={sex} />}
     </div>
   </div>;
 

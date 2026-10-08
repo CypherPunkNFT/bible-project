@@ -1,0 +1,258 @@
+{
+  "about": "The apostle pages (/people/:id/mission for the Twelve, Matthias and Paul): how each reviewed apostle record in src/data/people-pages/apostles-1.json and apostles-2.json is presented. Short titles for the facts and the Acts records, the cinema chapters and the drawing each scene uses, the landing's drawing and its one KJV line, and which reviewed questions from the church and Letters data belong on the page. Nothing here adds a fact: titles shorten records already in the data, every quoted line is checked against the KJV word for word by scripts/build-apostle-pages.py (the build fails on a mismatch), and every question comes from reviewed data. Slides: { e: entry key, art: scene name, v: verse to quote (must lie in the entry) }; entry keys are fact.home, fact.trade, fact.family.N, mN (moments), aN (Acts and the letters). periodOf (Paul) lists the records placed in parts I and II; facts are always I and tradition IV. notWith drops a companion a verse names only to say it is not he (John 14:22 names Iscariot to say this Judas is not he). The design: design/apostle-merged/ (approved 2026-10-08).",
+  "people": {
+    "peter": ["peter-mat-4-18", "Peter"],
+    "andrew": ["andrew-mat-4-18", "Andrew"],
+    "jamesz": ["james-mat-4-21", "James son of Zebedee"],
+    "johnz": ["john-mat-4-21", "John son of Zebedee"],
+    "philip": ["philip-mat-10-3", "Philip"],
+    "bartholomew": ["bartholomew-mat-10-3", "Bartholomew"],
+    "thomas": ["thomas-mat-10-3", "Thomas"],
+    "matthew": ["matthew-mat-9-9", "Matthew"],
+    "jamesa": ["james-mat-10-3", "James son of Alphaeus"],
+    "thaddaeus": ["judas-mat-10-3", "Thaddaeus"],
+    "simonz": ["simon-mat-10-4", "Simon the Zealot"],
+    "iscariot": ["judas-mat-10-4", "Judas Iscariot"],
+    "matthias": ["matthias-act-1-23", "Matthias"],
+    "paul": ["paul-act-7-58", "Paul"],
+    "nathanael": ["nathanael-jhn-1-45", "Nathanael"],
+    "baptist": ["john-mat-3-1", "John the Baptist"],
+    "zebedee": ["zebedee-mat-4-21", "Zebedee"],
+    "zmother": ["salome-mat-20-20", "The mother of Zebedee’s children"],
+    "mary": ["mary-mat-1-16", "Mary, the mother of Jesus"],
+    "magdalene": ["mary-magdalene-mat-27-56", "Mary Magdalene"],
+    "lazarus": ["lazarus-jhn-11-1", "Lazarus"],
+    "martha": ["martha-luk-10-38", "Martha"],
+    "marybethany": ["mary-luk-10-39", "Mary of Bethany"],
+    "simonfather": ["simon-jhn-6-71", "Simon, father of Judas"],
+    "caiaphas": ["caiaphas-mat-26-3", "Caiaphas"],
+    "malchus": ["malchus-jhn-18-10", "Malchus"],
+    "herod": ["herod-act-12-1", "Herod (Agrippa I)"],
+    "barsabas": ["joseph-act-1-23", "Joseph called Barsabas"],
+    "alphaeus": ["alphaeus-mat-10-3", "Alphaeus"],
+    "barnabas": ["barnabas-act-4-36", "Barnabas"],
+    "silas": ["silas-act-15-22", "Silas (Silvanus)"],
+    "timothy": ["timothy-act-16-1", "Timothy"],
+    "luke": ["luke-2co-13-13", "Luke"],
+    "mark": ["mark-act-12-12", "John Mark"],
+    "titus": ["titus-2co-2-13", "Titus"],
+    "aquila": ["aquila-act-18-2", "Aquila"],
+    "priscilla": ["priscilla-act-18-2", "Priscilla"],
+    "aristarchus": ["aristarchus-act-19-29", "Aristarchus"],
+    "tychicus": ["tychicus-act-20-4", "Tychicus"],
+    "trophimus": ["trophimus-act-20-4", "Trophimus"],
+    "epaphroditus": ["epaphroditus-php-2-25", "Epaphroditus"],
+    "onesimus": ["onesimus-col-4-9", "Onesimus"],
+    "demas": ["demas-col-4-14", "Demas"],
+    "ananias": ["ananias-act-9-10", "Ananias of Damascus"],
+    "gamaliel": ["gamaliel-act-5-34", "Gamaliel"],
+    "stephen": ["stephen-act-6-5", "Stephen"],
+    "jameslord": ["james-mat-13-55", "James, the Lord’s brother"],
+    "apollos": ["apollos-act-18-24", "Apollos"],
+    "cornelius": ["cornelius-act-10-1", "Cornelius"],
+    "lydia": ["lydia-act-16-14", "Lydia"],
+    "agabus": ["agabus-act-11-28", "Agabus"],
+    "philipev": ["philip-act-6-5", "Philip the evangelist"]
+  },
+  "order": ["peter", "andrew", "jamesz", "johnz", "philip", "bartholomew", "thomas", "matthew", "jamesa", "thaddaeus", "simonz", "iscariot", "matthias", "paul"],
+  "gospelPool": ["nathanael", "baptist", "zebedee", "zmother", "mary", "magdalene", "lazarus", "martha", "marybethany", "simonfather", "caiaphas", "malchus", "alphaeus"],
+  "actsPool": ["herod", "barsabas", "cornelius", "silas", "mark", "jameslord", "barnabas", "stephen", "philipev"],
+  "paulPool": ["barnabas", "silas", "timothy", "luke", "mark", "titus", "aquila", "priscilla", "aristarchus", "tychicus", "trophimus", "epaphroditus", "onesimus", "demas", "ananias", "gamaliel", "stephen", "peter", "johnz", "jameslord", "apollos", "lydia", "agabus", "philipev"],
+  "iconRules": [
+    ["tradition", "tradition"],
+    ["lot|numbered with", "list"],
+    ["called|follow|calling|tax office|nets|first meeting|brings his brother|finds Nathanael", "net"],
+    ["chosen as one|sent out|named .* list|lists|upper room|never named again", "list"],
+    ["deni|rebuk|asleep|sink|object|fire on|forbad|absent|not all|devil|silver|kiss|betray|lost", "wave"],
+    ["risen|tomb|appears|my god|it is the lord|outruns", "sunrise"],
+    ["sword|prison|arrest|chains|council|killed", "chain"],
+    ["samaria|lydda|joppa|caesarea|journey|patmos", "route"],
+    ["pillars|letter|cephas|babylon|another james", "scroll"],
+    ["“|question|asks|says|shew us", "quote"]
+  ],
+  "placeKind": {"a562fcc": "lake", "a91b732": "town", "af2161c": "town", "ab7bf48": "town", "a2c5cc7": "town", "ae023a9": "port", "a58735e": "port", "a282dce": "region", "a83a43e": "region", "a0f4ea8": "region", "afa863b": "port", "a314765": "port", "aff04b8": "town", "a91c509": "port", "a55027d": "port", "a57835d": "island", "ac405c0": "region", "a26aa94": "island", "a3f0f69": "region", "ab9696f": "region", "ae425aa": "town", "af0719d": "town", "aa401a9": "town", "a62fe31": "town", "a8f60f3": "island", "a031bda": "town", "a4f35bc": "town", "a878481": "region", "a43f60f": "region", "ab45bd3": "region", "af301ca": "region", "aef4242": "region", "af66926": "town", "a42418f": "town", "a040ba5": "town"},
+  "persons": {
+    "peter": {
+      "names": ["Simon", "Peter", "Cephas", "Simeon", "Bar-jona"],
+      "facts": {"home": "From Bethsaida; a house at Capernaum", "trade": "A fisherman with Andrew", "family.0": "Andrew’s brother", "family.1": "The son of Jona", "family.2": "A married man", "family.3": "Children, says Clement"},
+      "acts": ["Choosing a twelfth apostle", "Pentecost", "The lame man at the temple gate", "Arrested with John", "Ananias and Sapphira; the council", "Sent to Samaria", "Lydda and Joppa", "Cornelius at Caesarea", "Prison, and the angel", "The council at Jerusalem", "Paul stays fifteen days; the pillars", "Withstood at Antioch", "A wife on his travels; “I of Cephas”", "“By Silvanus … at Babylon”"],
+      "landing": {"art": "peter", "line": [40016019, "I will give unto thee the keys of the kingdom of heaven"], "also": [40004018, "casting a net into the sea: for they were fishers"]},
+      "chapters": [
+        {"title": "A fisherman of Bethsaida", "slides": [{"e": "fact.trade", "art": "nets"}, {"e": "fact.home", "art": "house"}]},
+        {"title": "Three years beside Jesus", "slides": [{"e": "m1", "art": "catch", "v": 42005006}, {"e": "m8", "art": "rock"}, {"e": "m22", "art": "firecock"}, {"e": "m26", "art": "shore", "v": 43021009}]},
+        {"title": "Jerusalem to Caesarea", "slides": [{"e": "a1", "art": "tongues"}, {"e": "a2", "art": "gate"}, {"e": "a7", "art": "sheet", "v": 44010011}, {"e": "a8", "art": "chains", "v": 44012007}]}
+      ],
+      "accounts": ["call", "m8", "m10", "m22"],
+      "ids": ["Simon, Cephas, Peter: why three names?", "Jona, Jonas or John: who was his father?", "Is the “Simeon” of Acts 15:14 Peter?"],
+      "extra": [{"src": "church", "file": "church-jerusalem", "person": "mark-act-12-12", "id": "mark-gospel-peter"}, {"src": "letters", "file": "general-letters", "id": "second-peter-authorship"}, {"src": "letters", "file": "general-letters", "id": "babylon"}, {"src": "letters", "file": "general-letters", "id": "silvanus"}, {"src": "letters", "file": "general-letters", "id": "jude-or-peter-first"}, {"src": "letters", "file": "general-letters", "id": "dates"}]
+    },
+    "andrew": {
+      "names": ["Andrew"],
+      "facts": {"home": "From Bethsaida; a house at Capernaum", "trade": "A fisherman with Simon", "family.0": "Simon Peter’s brother"},
+      "acts": ["In the upper room"],
+      "landing": {"art": "andrew", "line": [43006009, "There is a lad here, which hath five barley loaves, and two small fishes"], "also": [43001041, "He first findeth his own brother Simon"]},
+      "chapters": [
+        {"title": "A fisherman of Bethsaida", "slides": [{"e": "fact.trade", "art": "nets"}, {"e": "fact.family.0", "art": "dwell"}]},
+        {"title": "The first to follow", "slides": [{"e": "m0", "art": "dwell", "v": 43001039}, {"e": "m1", "art": "lake"}, {"e": "m5", "art": "loaves", "v": 43006009}, {"e": "m6", "art": "greeks", "v": 43012022}]},
+        {"title": "One verse in Acts", "slides": [{"e": "a0", "art": "upper"}]}
+      ],
+      "ids": ["Who was the other disciple with Andrew?"]
+    },
+    "jamesz": {
+      "names": ["James"],
+      "facts": {"home": "Fishing near Capernaum", "trade": "In his father’s boat", "family.0": "Son of Zebedee", "family.1": "His mother’s request", "family.2": "Salome? An inference", "family.3": "Cousins of Jesus? A view", "family.4": "John’s brother"},
+      "acts": ["In the upper room", "Killed with the sword"],
+      "landing": {"art": "jamesz", "line": [41003017, "Boanerges, which is, The sons of thunder"], "also": [44012002, "he killed James the brother of John with the sword"]},
+      "chapters": [
+        {"title": "Zebedee’s boat", "slides": [{"e": "fact.trade", "art": "mending"}, {"e": "fact.family.1", "art": "cup"}]},
+        {"title": "One of the three", "slides": [{"e": "m2", "art": "thunder", "v": 41003017}, {"e": "m5", "art": "mountain"}, {"e": "m7", "art": "cup", "v": 40020022}, {"e": "m9", "art": "garden"}]},
+        {"title": "The first of the Twelve to die", "slides": [{"e": "a1", "art": "sword", "v": 44012002}]}
+      ],
+      "ids": ["Which James is this?", "Why “James the Greater”?", "What does “Boanerges” mean?"]
+    },
+    "johnz": {
+      "names": ["John"],
+      "facts": {"home": "Fishing near Capernaum", "trade": "In his father’s boat", "family.0": "Son of Zebedee", "family.1": "His mother’s request", "family.2": "Salome? An inference", "family.3": "Cousins of Jesus? A view", "family.4": "James’s brother"},
+      "acts": ["In the upper room", "The lame man at the temple gate", "Before the council", "Sent to Samaria", "“Pillars” at Jerusalem", "Patmos"],
+      "landing": {"art": "johnz", "line": [43020004, "the other disciple did outrun Peter, and came first to the sepulchre"], "also": [43019027, "Behold thy mother"]},
+      "chapters": [
+        {"title": "Zebedee’s boat", "slides": [{"e": "fact.trade", "art": "mending"}]},
+        {"title": "The disciple at the supper", "slides": [{"e": "m5", "art": "mountain"}, {"e": "m11", "art": "lamp", "v": 43013023}, {"e": "m13", "art": "cross", "v": 43019027}, {"e": "m14", "art": "tomb", "v": 43020004}, {"e": "m15", "art": "shore", "v": 43021007}]},
+        {"title": "With Peter in Jerusalem", "slides": [{"e": "a1", "art": "gate"}, {"e": "a3", "art": "villages", "v": 44008025}, {"e": "a5", "art": "island", "v": 66001009}]}
+      ],
+      "ids": ["Is John the “disciple whom Jesus loved”?", "Do the early writers name the beloved disciple?", "Was John the unnamed disciple with Andrew?", "The John of Galatians and of Revelation"],
+      "extra": [{"src": "letters", "file": "john-letters", "id": "authorship"}, {"src": "letters", "file": "john-letters", "id": "date"}]
+    },
+    "philip": {
+      "names": ["Philip"],
+      "facts": {"home": "Of Bethsaida", "family.0": "No family named", "family.1": "Married, says Clement"},
+      "acts": ["In the upper room"],
+      "landing": {"art": "philip", "line": [43012021, "Sir, we would see Jesus"], "also": [43001046, "Come and see"]},
+      "chapters": [
+        {"title": "Of Bethsaida", "slides": [{"e": "fact.home", "art": "town"}]},
+        {"title": "“Come and see”", "slides": [{"e": "m0", "art": "comesee", "v": 43001046}, {"e": "m3", "art": "loaves", "v": 43006007}, {"e": "m4", "art": "greeks", "v": 43012021}, {"e": "m5", "art": "lamp", "v": 43014008}]},
+        {"title": "One verse in Acts", "slides": [{"e": "a0", "art": "upper"}]}
+      ],
+      "ids": ["Which Philip is this?", "Did the apostle preach in Samaria?"]
+    },
+    "bartholomew": {
+      "names": ["Bartholomew", "Nathanael"],
+      "facts": {"home": "No home given; Nathanael of Cana", "family.0": "“Son of Talmai”"},
+      "acts": ["In the upper room"],
+      "landing": {"art": "bartholomew", "line": [43001048, "when thou wast under the fig tree, I saw thee"], "note": "Nathanael’s fig tree: on this page only if Bartholomew is Nathanael, an identification first written down about 850."},
+      "chapters": [
+        {"title": "A name, and a town", "slides": [{"e": "fact.family.0", "art": "scroll"}, {"e": "fact.home", "art": "town"}]},
+        {"title": "Bartholomew, and perhaps Nathanael", "slides": [{"e": "m0", "art": "figtree", "v": 43001048}, {"e": "m1", "art": "scroll"}, {"e": "m3", "art": "shore", "v": 43021002}]},
+        {"title": "One verse in Acts", "slides": [{"e": "a0", "art": "upper"}]}
+      ],
+      "ids": ["Where does each name appear?", "Why does Bartholomew stand beside Philip?", "Who first made the two one man?"]
+    },
+    "thomas": {
+      "names": ["Thomas", "Didymus"],
+      "facts": {"family.0": "Called Didymus, “twin”"},
+      "acts": ["In the upper room"],
+      "landing": {"art": "thomas", "line": [43020027, "Reach hither thy finger, and behold my hands"], "also": [43020028, "My Lord and my God"]},
+      "chapters": [
+        {"title": "Called Didymus", "slides": [{"e": "fact.family.0", "art": "scroll"}]},
+        {"title": "“Except I shall see”", "slides": [{"e": "m2", "art": "bethany", "v": 43011016}, {"e": "m3", "art": "lamp", "v": 43014005}, {"e": "m5", "art": "door", "v": 43020026}, {"e": "m6", "art": "shore", "v": 43021002}]},
+        {"title": "One verse in Acts", "slides": [{"e": "a0", "art": "upper"}]}
+      ],
+      "ids": ["“Judas Thomas”: another name?"]
+    },
+    "matthew": {
+      "names": ["Matthew", "Levi"],
+      "facts": {"home": "A tax office near Capernaum", "trade": "A publican", "family.0": "Son of Alphaeus", "family.1": "“The son” is supplied"},
+      "acts": ["In the upper room", "Never named again"],
+      "landing": {"art": "matthew", "line": [40009009, "sitting at the receipt of custom"], "also": [40009009, "Follow me"]},
+      "chapters": [
+        {"title": "At the receipt of custom", "slides": [{"e": "fact.trade", "art": "receipt"}, {"e": "fact.home", "art": "lake"}]},
+        {"title": "“Follow me”", "slides": [{"e": "m0", "art": "road", "v": 40009009}, {"e": "m1", "art": "feast", "v": 40009010}, {"e": "m3", "art": "sandals"}]},
+        {"title": "One verse in Acts", "slides": [{"e": "a0", "art": "upper"}, {"e": "a1", "art": "silence"}]}
+      ],
+      "ids": ["Is Matthew the Levi of Mark and Luke?", "Matthew in one Gospel, Levi in two", "Brother of James son of Alphaeus?"]
+    },
+    "jamesa": {
+      "names": ["James"],
+      "facts": {"family.0": "Son of Alphaeus", "family.1": "“The son” is supplied"},
+      "acts": ["In the upper room", "Never named again", "Another James leads at Jerusalem"],
+      "landing": {"art": "jamesa", "line": [40010003, "James the son of Alphaeus"]},
+      "chapters": [
+        {"title": "A name, and a father", "slides": [{"e": "fact.family.0", "art": "scroll"}]},
+        {"title": "Ninth in every list", "slides": [{"e": "m0", "art": "scroll"}, {"e": "m1", "art": "sandals"}]},
+        {"title": "One verse in Acts", "slides": [{"e": "a0", "art": "upper"}, {"e": "a2", "art": "temple"}]}
+      ],
+      "ids": ["Which James is this page about?", "Is he “James the less”?"],
+      "extra": [{"src": "church", "file": "church-jerusalem", "person": "james-mat-13-55", "id": "james-apostle"}, {"src": "church", "file": "church-jerusalem", "person": "james-mat-13-55", "id": "brothers-of-the-lord"}, {"src": "letters", "file": "general-letters", "id": "which-james"}]
+    },
+    "thaddaeus": {
+      "names": ["Thaddaeus", "Lebbaeus", "Judas"],
+      "notWith": {"m2": ["iscariot"]},
+      "facts": {"family.0": "“Judas of James”"},
+      "acts": ["In the upper room", "Never named again"],
+      "landing": {"art": "thaddaeus", "line": [43014022, "Lord, how is it that thou wilt manifest thyself unto us, and not unto the world?"]},
+      "chapters": [
+        {"title": "A name, and a relation", "slides": [{"e": "fact.family.0", "art": "scroll"}]},
+        {"title": "One question", "slides": [{"e": "m0", "art": "scroll"}, {"e": "m1", "art": "sandals"}, {"e": "m2", "art": "lamp", "v": 43014022}]},
+        {"title": "One verse in Acts", "slides": [{"e": "a0", "art": "upper"}, {"e": "a1", "art": "silence"}]}
+      ],
+      "ids": ["Why two names in the lists?", "Is “Judas not Iscariot” this man?", "Lebbaeus, Thaddaeus, or both?"],
+      "extra": [{"src": "letters", "file": "general-letters", "id": "jude-identity"}]
+    },
+    "simonz": {
+      "names": ["Simon"],
+      "facts": {},
+      "acts": ["In the upper room", "Never named again"],
+      "landing": {"art": "simonz", "line": [42006015, "Simon called Zelotes"], "also": [40010004, "Simon the Canaanite"]},
+      "chapters": [
+        {"title": "Two names for one word", "slides": []},
+        {"title": "In the lists", "slides": [{"e": "m0", "art": "scroll"}, {"e": "m1", "art": "sandals"}]},
+        {"title": "One verse in Acts", "slides": [{"e": "a0", "art": "upper"}, {"e": "a1", "art": "silence"}]}
+      ],
+      "ids": ["What does “Canaanite” mean here?", "Was he one of the Zealot party?", "Kananitēs or Kananaios?"]
+    },
+    "iscariot": {
+      "names": ["Judas", "Iscariot"],
+      "facts": {"home": "“Iscariot”: of Kerioth?", "trade": "He had the bag", "family.0": "Son of Simon", "family.1": "Whose name is Iscariot?"},
+      "acts": ["“Guide to them that took Jesus”", "“His own place”"],
+      "landing": {"art": "iscariot", "line": [43012006, "was a thief, and had the bag"], "also": [40026015, "they covenanted with him for thirty pieces of silver"]},
+      "chapters": [
+        {"title": "The son of Simon", "slides": [{"e": "fact.trade", "art": "bag", "v": 43012006}, {"e": "fact.home", "art": "hills"}]},
+        {"title": "One of the Twelve", "slides": [{"e": "m3", "art": "ointment", "v": 43012005}, {"e": "m4", "art": "coins", "v": 40026015}, {"e": "m8", "art": "garden"}, {"e": "m9", "art": "field", "v": 40027007}]},
+        {"title": "His place filled", "slides": [{"e": "a0", "art": "upper"}, {"e": "a1", "art": "lots"}]}
+      ],
+      "ids": ["Why is he always named with the betrayal?"]
+    },
+    "matthias": {
+      "names": ["Matthias"],
+      "facts": {},
+      "acts": ["Numbered with the eleven", "Never named again"],
+      "landing": {"art": "matthias", "line": [44001026, "the lot fell upon Matthias"]},
+      "chapters": [
+        {"title": "Before Acts 1", "slides": []},
+        {"title": "The condition he met", "slides": [{"e": "m0", "art": "river", "v": 44001022}]},
+        {"title": "Chosen by lot", "slides": [{"e": "a0", "art": "lots", "v": 44001026}, {"e": "a1", "art": "silence"}]}
+      ],
+      "periods": {"2": {"title": "With Jesus", "sub": "Only the condition Peter set (Acts 1:21–22)"}},
+      "ids": ["Was Matthias Nathanael?"]
+    },
+    "paul": {
+      "names": ["Saul", "Paul"],
+      "facts": {"home": "Born at Tarsus, brought up in Jerusalem", "trade": "A tentmaker", "family.0": "Of the tribe of Benjamin", "family.1": "A Pharisee, son of a Pharisee", "family.2": "A Roman citizen from birth", "family.3": "His sister’s son", "family.4": "“My kinsmen”"},
+      "acts": ["At Stephen’s stoning", "Making havock of the church", "Damascus, Arabia, the basket", "Fifteen days with Peter", "A year at Antioch", "The first journey", "The council at Jerusalem", "The second journey", "Three years at Ephesus", "Seized, held, heard", "Shipwreck, and Rome", "His own list of sufferings", "The prisons", "Plans for Spain", "Journeys in the letters"],
+      "order": ["fact.home", "fact.trade", "fact.family.0", "fact.family.1", "fact.family.2", "fact.family.3", "fact.family.4", "a0", "a1", "m0", "m1", "a2", "a3", "m2", "a4", "a5", "a6", "a7", "m3", "a8", "a9", "m4", "a10", "a11", "m5", "a12", "a13", "a14"],
+      "periods": {"1": {"title": "Before the call", "sub": "Tarsus, Jerusalem, the persecutor"}, "2": {"title": "The call", "sub": "Damascus, Arabia, Jerusalem, Tarsus"}, "3": {"title": "The church in Acts", "sub": "Three journeys, arrest, Rome; the letters"}},
+      "pool": "paul",
+      "landing": {"art": "paul", "line": [44009003, "there shined round about him a light from heaven"]},
+      "chapters": [
+        {"title": "Saul of Tarsus", "slides": [{"e": "fact.home", "art": "city"}, {"e": "a0", "art": "garments", "v": 44007058}, {"e": "a1", "art": "letters", "v": 44009002}]},
+        {"title": "The road to Damascus", "slides": [{"e": "m0", "art": "light"}, {"e": "a2", "art": "basket", "v": 44009025}]},
+        {"title": "Journeys, chains, letters", "slides": [{"e": "a5", "art": "ship", "v": 44013004}, {"e": "a7", "art": "tents", "v": 44018003}, {"e": "a10", "art": "storm", "v": 44027020}, {"e": "a12", "art": "chains"}, {"e": "a14", "art": "parchments", "v": 55004013}]}
+      ],
+      "accounts": ["call", "a2", "a3", "a6"],
+      "ids": ["Saul and Paul: one man?", "When does Saul become Paul?", "An apostle, but not of the Twelve?"],
+      "extra": [{"src": "letters", "file": "paul-letters", "id": "authorship-disputed"}, {"src": "letters", "file": "paul-letters", "id": "release"}, {"src": "letters", "file": "paul-letters", "id": "imprisonment"}, {"src": "letters", "file": "paul-letters", "id": "second-thessalonians"}, {"src": "letters", "file": "paul-letters", "id": "corinthian-letters"}, {"src": "letters", "file": "paul-letters", "id": "romans-16"}, {"src": "letters", "file": "paul-letters", "id": "ephesians-destination"}, {"src": "letters", "file": "paul-letters", "id": "galatia-north-south"}, {"src": "letters", "file": "hebrews", "id": "authorship"}, {"src": "letters", "file": "overview", "id": "earliest"}, {"src": "church", "file": "church-pauls-circle", "person": "titus-2co-2-13", "id": "titus-visit"}, {"src": "church", "file": "church-pauls-circle", "person": "titus-2co-2-13", "id": "titus-circumcised"}, {"src": "church", "file": "church-pauls-circle", "person": "priscilla-act-18-2", "id": "pa-vow"}, {"src": "church", "file": "church-jerusalem", "person": "mark-act-12-12", "id": "mark-perga"}],
+      "periodOf": {"1": ["a0", "a1"], "2": ["m0", "m1", "a2", "a3", "m2"]}
+    }
+  },
+  "questionGroups": {"peter-rome": "ended", "peter-antioch": "happened", "andrew-field": "ended", "james-spain": "ended", "john-death": "ended", "john-revelation": "writings", "philip-hierapolis": "ended", "bartholomew-nathanael": "who", "thomas-field": "ended", "matthew-levi": "who", "matthew-james-brothers": "who", "matthew-gospel": "writings", "james-lords-brother": "who", "alphaeus-clopas": "who", "thaddaeus-judas": "who", "judas-brother-or-son": "who", "judas-jude": "writings", "simon-identity": "who", "judas-death": "ended", "judas-field": "happened", "paul-voice": "happened", "paul-release": "ended", "paul-dates": "happened", "mark-gospel-peter": "writings", "james-apostle": "who", "brothers-of-the-lord": "who", "titus-visit": "happened", "titus-circumcised": "happened", "pa-vow": "happened", "mark-perga": "happened", "release": "ended"}
+}

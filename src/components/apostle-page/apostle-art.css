@@ -1,0 +1,57 @@
+/* The apostle pages' line art (art/kit.ts). Ported from the approved mock-up (design/apostle-merged/css/), every rule scoped to .ap (the page, its tooltip and
+   its reading sheet) so nothing reaches the rest of the site. */
+/* The line art: strokes plot themselves once (each after its own delay --d), then the drawing keeps living through slow
+   loops on groups. Stroke weights follow the Moses cabinet: one firm key line, finer detail lines, a brass accent. */
+.ap .art { display: block; width: 100%; height: auto; overflow: visible; --ink-k: color-mix(in srgb, var(--ink) 80%, transparent); --ink-m: color-mix(in srgb, var(--ink) 58%, transparent);
+  --ink-f: color-mix(in srgb, var(--ink) 34%, transparent); --ink-g: color-mix(in srgb, var(--ink) 17%, transparent); --brass: var(--accent); --water: color-mix(in srgb, var(--poetry) 55%, var(--ink) 25%); }
+:root[data-theme="dark"] .ap .art { --ink-k: color-mix(in srgb, var(--ink) 86%, transparent); --ink-m: color-mix(in srgb, var(--ink) 60%, transparent); --ink-f: color-mix(in srgb, var(--ink) 34%, transparent); --ink-g: color-mix(in srgb, var(--ink) 16%, transparent); --water: color-mix(in srgb, var(--poetry) 60%, var(--ink) 20%); }
+.ap .art :is(path, ellipse, circle, line, polyline) { fill: none; }
+.ap .art.scene { --sw: .72; overflow: hidden; }
+.ap .art .k { stroke: var(--ink-k); stroke-width: calc(1.6px * var(--sw, 1)); } .ap .art .m { stroke: var(--ink-m); stroke-width: calc(1.15px * var(--sw, 1)); } .ap .art .f { stroke: var(--ink-f); stroke-width: calc(.9px * var(--sw, 1)); }
+.ap .art .g { stroke: var(--ink-g); stroke-width: calc(.8px * var(--sw, 1)); } .ap .art .t { stroke: var(--brass); stroke-width: calc(1.5px * var(--sw, 1)); } .ap .art .tf { stroke: color-mix(in srgb, var(--brass) 62%, transparent); stroke-width: calc(.9px * var(--sw, 1)); }
+.ap .art .w { stroke: var(--water); stroke-width: calc(1px * var(--sw, 1)); } .ap .art .w.wf { stroke-width: calc(.7px * var(--sw, 1)); opacity: .7; }
+.ap .art .dash { stroke: var(--brass); stroke-width: calc(1.1px * var(--sw, 1)); stroke-dasharray: 5 6; }
+.ap .art .star { fill: var(--ink-f); stroke: none; }
+.ap .art .sunfill { fill: color-mix(in srgb, var(--brass) 9%, transparent); stroke: none; }
+.ap .art .fill-t { fill: color-mix(in srgb, var(--brass) 10%, transparent); }
+.ap .art .fill-p { fill: var(--page); }
+.ap .art .lbl { fill: var(--ink-f); stroke: none; font: 600 11px var(--sans); letter-spacing: .18em; }
+.ap .art .lbl-t { fill: var(--brass); stroke: none; font: italic 400 15px var(--serif); }
+.ap .art .lbl-big { fill: var(--ink-m); stroke: none; font: 400 22px var(--serif); }
+
+/* Plotting once */
+.ap .art.plot :is(path, ellipse, circle):not(.dash):not(.star):not(.sunfill) { stroke-dasharray: 1 1; stroke-dashoffset: 1; animation: art-plot 2.4s cubic-bezier(.55, 0, .3, 1) calc(var(--d, 0) * 2.2s) forwards; }
+.ap .art.plot :is(.dash, .star, .sunfill, text) { opacity: 0; animation: art-fade 1.6s ease calc(var(--d, 0) * 2.2s + .4s) forwards; }
+@keyframes art-plot { to { stroke-dashoffset: 0; } }
+@keyframes art-fade { to { opacity: 1; } }
+
+/* Living loops (never stop, never depend on scrolling) */
+.ap .art .lp-drift { animation: lp-drift var(--dur, 9s) ease-in-out infinite alternate; }
+@keyframes lp-drift { to { transform: translateX(var(--dx, 8px)); } }
+.ap .art .lp-sway { transform-box: fill-box; transform-origin: 50% 100%; animation: lp-sway var(--dur, 7s) ease-in-out infinite alternate; }
+@keyframes lp-sway { from { transform: rotate(calc(var(--rot, 1deg) * -1)); } to { transform: rotate(var(--rot, 1deg)); } }
+.ap .art .lp-bob { transform-box: fill-box; transform-origin: 50% 70%; animation: lp-bob var(--dur, 6s) ease-in-out infinite; }
+@keyframes lp-bob { 0%, 100% { transform: translateY(0) rotate(-.8deg); } 50% { transform: translateY(var(--dy, 4px)) rotate(.8deg); } }
+.ap .art .lp-twinkle circle { animation: lp-tw 5s ease-in-out infinite; animation-delay: calc(var(--tw, 0s) * -1); }
+.ap .art.plot .lp-twinkle circle { animation: art-fade 1.6s ease calc(var(--d, 0) * 2.2s) backwards, lp-tw 5s ease-in-out calc(var(--tw, 0s) * -1) infinite; }
+@keyframes lp-tw { 50% { opacity: .25; } }
+.ap .art .lp-breathe { animation: lp-breathe 6s ease-in-out infinite; }
+@keyframes lp-breathe { 50% { opacity: .35; } }
+.ap .art .lp-flicker { transform-box: fill-box; transform-origin: 50% 100%; animation: lp-flicker 3.2s ease-in-out infinite; }
+@keyframes lp-flicker { 0%, 100% { transform: scale(1, 1) skewX(0); } 30% { transform: scale(.94, 1.07) skewX(-3deg); } 62% { transform: scale(1.03, .96) skewX(2deg); } }
+.ap .art .lp-glide { animation: lp-glide 16s ease-in-out infinite alternate; }
+@keyframes lp-glide { to { transform: translate(40px, -10px); } }
+.ap .art .lp-flash { animation: lp-flash 7s linear infinite; }
+@keyframes lp-flash { 0%, 61%, 66%, 69%, 100% { opacity: .18; } 63%, 67.5% { opacity: 1; } }
+.ap .art .lp-swim { animation: lp-swim var(--dur, 14s) ease-in-out infinite alternate; }
+@keyframes lp-swim { to { transform: translateX(var(--dx, 30px)); } }
+.ap .art .lp-glint { animation: lp-glint 5.5s ease-in-out infinite; animation-delay: var(--gd, 0s); }
+@keyframes lp-glint { 0%, 70%, 100% { opacity: .55; } 80% { opacity: 1; } }
+.ap .art .lp-fall { transform-box: fill-box; transform-origin: center; animation: lp-fall 7s cubic-bezier(.5, 0, .7, 1) infinite; }
+@keyframes lp-fall { 0%, 15% { transform: translate(0, -46px) rotate(-14deg); opacity: 0; } 22% { opacity: 1; } 52% { transform: translate(0, 0) rotate(0); } 56% { transform: translate(0, -5px) rotate(3deg); } 60%, 88% { transform: none; opacity: 1; } 100% { transform: none; opacity: 0; } }
+.ap .art .lp-walk { animation: lp-walk 6s ease-in-out infinite; animation-delay: var(--wd, 0s); }
+@keyframes lp-walk { 0%, 100% { opacity: .15; } 30%, 60% { opacity: 1; } }
+.ap .art .lp-pulse { transform-box: fill-box; transform-origin: center; animation: lp-pulse 5s ease-in-out infinite; }
+@keyframes lp-pulse { 50% { transform: scale(1.06); opacity: .6; } }
+.ap .art .lp-travel { animation: lp-travel 9s linear infinite; offset-rotate: 0deg; }
+@media (prefers-reduced-motion: reduce) { .ap .art * { animation: none !important; stroke-dashoffset: 0 !important; opacity: 1 !important; } }

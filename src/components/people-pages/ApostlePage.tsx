@@ -7,7 +7,7 @@ import { useApostle } from "@/lib/people-pages";
 import { PEOPLE_PAGES, apostleFor, personPath } from "@/lib/people-pages-index";
 import { CallingScene, Companions, JourneySection, StoryEnding, Writings } from "./ApostleSections";
 import { ClaimList, EvidenceClaim, PeopleCitations } from "./Evidence";
-import { GospelStrip, ListsOfTwelve } from "./GospelStrip";
+import { GospelStrip } from "./GospelStrip";
 import { APOSTLE_GLOW, pronouns } from "./kinds";
 import { APOSTLES_GUIDE, lettersHref } from "./links";
 import { PageTop, Sections } from "./PageFrame";
@@ -19,25 +19,22 @@ import { readyKey } from "./usePeoplePageSlide";
 import "@/components/letters/letters.css";
 import "./people-pages.css";
 
-/** Apostles Scripture barely names get the four lists of the Twelve in place of the Gospel strip (PRESENTATION.md §4.3). */
-const barelyNamed = (apostle: Apostle) => apostle.moments.length <= 3 && Boolean(apostle.lists?.length);
 /** The hero gives the first sentence of a fact; the whole of it, with its verses, is under "Background". */
 const firstSentence = (text?: string) => text?.split(/(?<=[.!?”])\s+(?=[A-Z“])/)[0];
 
 /**
- * An apostle's page (/people/:id/mission): the calling, his moments with Jesus, where he went, his companions, how
- * the story ends (Scripture beside tradition) and links to his writings.
+ * A mission page of the wider circle of the first church (/people/:id/mission: James and Jude, the Seven, Barnabas, Mark,
+ * Paul's companions): the calling, any moments with Jesus, where they went, companions, how the story ends (Scripture
+ * beside tradition) and links to the writings tied to them. The Twelve, Matthias and Paul have their own page
+ * (src/components/apostle-page/ApostleMission.tsx).
  */
 export function ApostlePage({ id }: { id: string }) {
   const state = useApostle(id);
   if (state.status === "missing") return <p className="lg-glass lg-muted">This apostle's page is still being prepared.</p>;
   if (state.status === "loading") return <div className="lg-glass" style={{ minHeight: 420 }} aria-busy="true" />;
   const apostle = state.item;
-  const sparse = barelyNamed(apostle);
   const summary = apostleFor(apostle.id);
   const { their, them } = pronouns(summary?.sex);
-  /** The wider circle (the church group files): no calling among the Twelve, writings often only tied to them. */
-  const wider = Boolean(summary?.group.startsWith("church-"));
   const sections = [
     { id: "pp-background", title: "Background", node: (apostle.home || apostle.trade || apostle.family.length > 0) && <Section id="pp-background" kicker="Background" title="Home, trade and family" lead={`What Scripture says of ${their} life before and beside the mission, each with its verses.`}>
       <div className="pp-cards">
@@ -47,15 +44,14 @@ export function ApostlePage({ id }: { id: string }) {
       </div>
     </Section> },
     { id: "pp-calling", title: "Calling", node: apostle.calling.length > 0 && <CallingScene apostle={apostle} /> },
-    { id: "pp-gospels", title: sparse ? "The lists" : "With Jesus", node: (apostle.moments.length > 0 || sparse) && <Section id="pp-gospels" kicker={sparse ? "The lists of the Twelve" : "With Jesus"}
-      title={sparse ? "Where his name falls in each list" : `${their.charAt(0).toUpperCase()}${their.slice(1)} moments with Jesus`}
-      lead={sparse ? "Scripture tells little more of him than his place among the Twelve. The page says so plainly rather than fill the gap." : "The Gospels in the order of events (the site's harmony). Each dot is an event that names him."}>
-      {sparse ? <ListsOfTwelve highlight={apostle.id} /> : <GospelStrip apostle={apostle} />}
+    { id: "pp-gospels", title: "With Jesus", node: apostle.moments.length > 0 && <Section id="pp-gospels" kicker="With Jesus"
+      title={`${their.charAt(0).toUpperCase()}${their.slice(1)} moments with Jesus`} lead="The Gospels in the order of events (the site's harmony). Each dot is an event that names him.">
+      <GospelStrip apostle={apostle} />
     </Section> },
     { id: "pp-journey", title: their === "their" ? "Where they went" : "Where he went", node: (apostle.places.length > 0 || apostle.acts.length > 0) && <JourneySection apostle={apostle} their={their} /> },
     { id: "pp-companions", title: "Companions", node: apostle.companions.length > 0 && <Companions apostle={apostle} them={them} /> },
     { id: "pp-ending", title: "How it ends", node: <StoryEnding apostle={apostle} their={their} /> },
-    { id: "pp-writings", title: "Writings", node: apostle.writings.length > 0 && <Writings apostle={apostle} tied={wider ? them : undefined} /> },
+    { id: "pp-writings", title: "Writings", node: apostle.writings.length > 0 && <Writings apostle={apostle} tied={them} /> },
     { id: "pp-questions", title: "Questions", node: apostle.questions.length > 0 && <QuestionsSection questions={apostle.questions} /> },
     { id: "pp-passages", title: "Passages", node: <PassagesSection passages={apostle.passages} notSaid={apostle.notSaid} identifications={apostle.identifications} /> },
     { id: "pp-sources", title: "Sources", node: <SourcesSection citations={state.group.citations} /> },
@@ -63,7 +59,7 @@ export function ApostlePage({ id }: { id: string }) {
   return <PeopleCitations citations={state.group.citations}>
     <div className="lg-page pp-page" style={{ "--lg": APOSTLE_GLOW } as CSSProperties} data-people-ready={readyKey({ kind: "special", id, aspect: "mission" })}>
       <PageTop id={apostle.id} name={apostle.name} page="The mission" fallback={APOSTLES_GUIDE} />
-      <ApostleHero apostle={apostle} writingsLabel={wider ? "Writings" : "His writings"} />
+      <ApostleHero apostle={apostle} writingsLabel="Writings" />
       <Sections sections={sections} />
     </div>
   </PeopleCitations>;
