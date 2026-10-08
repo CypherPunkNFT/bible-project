@@ -2,6 +2,9 @@ import { useState } from "react";
 import type { Citation, KeyWord, Ladder, Letter, OpenQuestion } from "@/data/letters/types";
 import { ClaimText, Refs } from "./LetterParts";
 import { useWordVerses } from "./letter-hooks";
+import { StableTip } from "@/components/StableTip";
+
+const starResting = <span className="lg-muted">Choose a star to see every verse where that word stands behind the text.</span>;
 
 /** One letter's key Greek words as glowing bars, each with a strip showing which chapters it lives in. */
 export function WordBars({ words }: { words: KeyWord[] }) {
@@ -73,7 +76,7 @@ export function WordConstellation({ letters, columns }: { letters: Letter[]; col
       </svg>
     </div>
     {chosen ? <WordVerses word={chosen.word} label={chosen.column.name} count={chosen.count} codes={columns?.[chosen.column.code] ?? [chosen.column.code]} onClose={() => setChosen(null)} />
-      : <p className="lg-tip lg-muted">Choose a star to see every verse where that word stands behind the text.</p>}
+      : <StableTip show={starResting} options={[starResting]} />}
   </div>;
 }
 
