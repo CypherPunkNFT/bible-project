@@ -1,0 +1,65 @@
+/* Direction D, "Who is like God?": the name as the centrepiece, the whole Bible as one luminous spine. */
+.dir-name { --tone: var(--accent); --n-a: #b9a37a; --n-b: #8f7fb8; --n-gold: #a86f00; }
+:root[data-theme="dark"] .dir-name { --n-a: #6d5f45; --n-b: #5b5180; --n-gold: #f2c96a; }
+
+.n-hero { position: relative; overflow: hidden; border-bottom: 1px solid var(--line);
+  background: radial-gradient(60% 70% at 50% 45%, color-mix(in srgb, var(--n-gold) 14%, transparent), transparent 70%), var(--page); }
+.n-hero::before { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .5;
+  background: repeating-radial-gradient(circle at 50% 46%, transparent 0 46px, color-mix(in srgb, var(--n-gold) 10%, transparent) 46px 47px); -webkit-mask: radial-gradient(closest-side, #000, transparent); mask: radial-gradient(closest-side, #000, transparent); }
+.n-name { position: relative; display: grid; justify-items: center; padding: clamp(1.6rem, 5vh, 3.4rem) 0 clamp(2rem, 6vh, 3.6rem); text-align: center; }
+.n-name > .kicker { color: var(--n-gold); }
+.n-he { display: flex; justify-content: center; gap: clamp(.2rem, 1.6vw, 1.4rem); margin-top: 1.2rem; }
+.n-part { --on: 0; display: inline-grid; justify-items: center; gap: .4rem; }
+.n-part b { font: 400 clamp(5.2rem, 17vw, 13rem)/1 var(--hebrew); color: color-mix(in srgb, var(--ink) calc(22% + var(--on) * 78%), transparent);
+  text-shadow: 0 0 calc(var(--on) * var(--glow) * 40px) color-mix(in srgb, var(--n-gold) 70%, transparent); transition: color .2s; }
+.n-part small { display: inline-flex; flex-direction: column; gap: .1rem; font: 600 clamp(.8rem, 1.6vw, 1rem) var(--sans); letter-spacing: .02em; color: var(--n-gold);
+  transform: translateY(calc((1 - var(--on)) * 12px)); opacity: var(--on); }
+.n-part small i { font: italic 400 .8em var(--serif); color: var(--muted); }
+.n-rtl { display: inline-flex; align-items: center; gap: .35rem; margin-top: .9rem; font: .68rem var(--mono); color: var(--muted); }
+.n-q { margin-top: 1rem; font: 500 clamp(2.4rem, 6.5vw, 4.8rem)/1 var(--serif); letter-spacing: -.035em; }
+.n-q span { display: inline-block; transform: translateY(calc((1 - var(--q, 0)) * 16px)); opacity: calc(.15 + var(--q, 0) * .85); }
+.n-q span:nth-child(2) { color: var(--n-gold); font-style: italic; }
+.n-also { display: flex; flex-wrap: wrap; justify-content: center; gap: .5rem; margin-top: 1.3rem; }
+.n-also span { display: inline-flex; align-items: baseline; gap: .5rem; padding: .4rem .8rem; border-radius: 999px; border: 1px solid var(--line); background: color-mix(in srgb, var(--surface) 70%, transparent); font: 500 1rem var(--serif); }
+.n-also em { font: 600 .6rem var(--mono); font-style: normal; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.n-lex { margin-top: .9rem; font-size: .76rem; color: var(--muted); }
+
+/* The spine */
+.n-spine { margin-top: .4rem; }
+.n-spine-svg { display: block; width: 100%; height: auto; overflow: visible; }
+.n-spine-svg.is-vertical { max-width: 420px; margin: 0 auto; }
+.n-book { stroke: var(--n-a); stroke-width: 12; stroke-linecap: butt; opacity: .7; } .n-book.is-nt { stroke: var(--n-b); }
+.n-sweep { fill: none; stroke: var(--n-gold); stroke-width: 2; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: calc(1 - var(--sweep, 0)); filter: drop-shadow(0 0 calc(3px + var(--glow) * 8px) var(--n-gold)); }
+.n-tick { fill: var(--muted); font: 600 12px var(--mono); }
+.n-light { cursor: pointer; outline: none; }
+.n-lead { fill: none; stroke: var(--muted); stroke-width: 1; stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset .6s cubic-bezier(.16, 1, .3, 1), stroke .3s; }
+.n-light.is-lit .n-lead { stroke-dashoffset: 0; }
+.n-glow { fill: var(--n-gold); opacity: 0; transition: opacity .4s, r .4s; }
+.n-light.is-lit .n-glow { opacity: .22; } .n-light.is-on .n-glow { opacity: .4; }
+.n-dot { fill: var(--surface); stroke: var(--n-gold); stroke-width: 2; transition: fill .3s; }
+.is-pass.is-lit .n-dot { fill: var(--n-gold); }
+.is-echo .n-dot { fill: var(--surface); stroke-dasharray: 2 2; }
+.n-tag rect { fill: var(--surface); stroke: color-mix(in srgb, var(--n-gold) 45%, var(--line)); stroke-width: 1; transition: fill .25s, stroke .25s; }
+.is-echo .n-tag rect { stroke: var(--line); stroke-dasharray: 3 3; }
+.n-tag text { fill: var(--ink); font: 600 13px var(--sans); }
+.n-tag { opacity: .35; transition: opacity .4s; } .n-light.is-lit .n-tag { opacity: 1; }
+.n-light:hover .n-tag rect { stroke: var(--n-gold); }
+.n-light.is-on .n-tag rect { fill: var(--n-gold); stroke: var(--n-gold); } .n-light.is-on .n-tag text { fill: var(--page); }
+.n-light.is-on .n-lead { stroke: var(--n-gold); stroke-width: 1.6; }
+
+.n-scene { --tone: var(--n-gold); margin-top: 1.2rem; padding: 1.4rem 1.5rem 1.5rem; overflow: hidden; }
+.n-slide { animation: n-slide .5s cubic-bezier(.16, 1, .3, 1) both; } @keyframes n-slide { from { transform: translateX(28px); } to { transform: none; } }
+.n-scene .kicker { color: var(--n-gold); }
+.n-scene h3 { margin-top: .5rem; font: 500 clamp(1.5rem, 3vw, 2.2rem)/1.15 var(--serif); letter-spacing: -.02em; }
+.n-where { margin: .3rem 0 1rem; font: .74rem var(--mono); color: var(--muted); }
+.n-scene-grid { display: grid; gap: 1.2rem 2rem; } @media (min-width: 900px) { .n-scene-grid { grid-template-columns: 1.3fr 1fr; } }
+.n-note { margin-top: 1rem; }
+
+.n-lexicons .n-entry { padding: 1.1rem 1.2rem; border-radius: 18px; border: 1px solid color-mix(in srgb, var(--n-gold) 25%, var(--line)); background: color-mix(in srgb, var(--surface) 80%, transparent); }
+.n-lexicons .claim > p { font: 500 1.08rem/1.5 var(--serif); }
+.n-outlier { display: flex; gap: .8rem; align-items: flex-start; margin-top: 1rem; padding: 1rem 1.2rem; border-radius: 18px; border: 1px dashed var(--line); }
+.n-outlier > .ico { flex-shrink: 0; margin-top: .2rem; color: var(--muted); }
+.n-panel { --tone: var(--n-gold); padding: 1.3rem; } .n-h3 { display: flex; gap: .5rem; align-items: center; margin-bottom: .8rem; font: 500 1.15rem var(--serif); }
+.dir-name .ctx { --tone: var(--n-gold); } .dir-name .view[data-side="0"] { --tone: var(--n-gold); }
+.dir-name .rule { margin-bottom: 1rem; }
+@media (max-width: 760px) { .n-tick { font-size: 13px; paint-order: stroke; stroke: var(--page); stroke-width: 4px; text-anchor: middle; } .n-tag text { font-size: 15px; } }

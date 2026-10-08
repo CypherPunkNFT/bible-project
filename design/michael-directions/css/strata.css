@@ -1,0 +1,112 @@
+/* Direction C, strata: the evidence as a geological cross-section, surface to bedrock. */
+.dir-strata { --tone: var(--gold);
+  --l-scholars: var(--prophets); --l-later: var(--revelation); --l-church: var(--gospels); --l-jewish: var(--history); --l-scripture: var(--gold); }
+.s-hero { display: grid; gap: 1rem 3rem; align-items: end; padding: 1.6rem 0 1.6rem; }
+@media (min-width: 960px) { .s-hero { grid-template-columns: auto 1fr; } }
+.s-hero h1 { margin-top: .5rem; font: 500 clamp(3.2rem, 9vw, 6rem)/.9 var(--serif); letter-spacing: -.045em; }
+.s-sub { margin-top: .4rem; font: italic 1.3rem var(--serif); color: var(--muted); }
+.s-lede { max-width: 38rem; font-size: .98rem; line-height: 1.7; }
+
+.s-section { display: grid; grid-template-columns: 1.6rem minmax(0, 1fr) minmax(0, 400px); gap: 0 1.2rem; align-items: start; }
+.s-axis { position: relative; align-self: stretch; border-right: 1px dashed var(--line); }
+.s-axis span { position: absolute; left: 50%; font: 600 .62rem var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); white-space: nowrap; writing-mode: vertical-rl; transform: translateX(-50%) rotate(180deg); }
+.s-surface { top: 0; } .s-bed { bottom: 0; }
+
+.s-stack { position: relative; border-radius: 26px; overflow: hidden; box-shadow: var(--shadow-2); border: 1px solid var(--line); }
+.s-band { --c: var(--l-scholars); position: relative; z-index: calc(10 - var(--i)); margin-top: -18px; padding: 2.1rem 1.2rem 1.4rem 3.6rem;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--c) 13%, var(--surface)), color-mix(in srgb, var(--c) 22%, var(--surface)));
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 20' preserveAspectRatio='none'%3E%3Cpath d='M0 12 C 150 2 300 18 450 10 S 750 2 900 12 S 1100 18 1200 8 V20 H0Z'/%3E%3C/svg%3E") top / 100% 20px no-repeat, linear-gradient(#000 0 0) 0 19px / 100% calc(100% - 19px) no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 20' preserveAspectRatio='none'%3E%3Cpath d='M0 12 C 150 2 300 18 450 10 S 750 2 900 12 S 1100 18 1200 8 V20 H0Z'/%3E%3C/svg%3E") top / 100% 20px no-repeat, linear-gradient(#000 0 0) 0 19px / 100% calc(100% - 19px) no-repeat; }
+.s-band:first-child { margin-top: 0; -webkit-mask: none; mask: none; padding-top: 1.4rem; }
+.s-band[data-layer="later"] { --c: var(--l-later); } .s-band[data-layer="church"] { --c: var(--l-church); } .s-band[data-layer="jewish"] { --c: var(--l-jewish); }
+.s-band[data-layer="scripture"] { --c: var(--l-scripture); padding-bottom: 2rem; background: linear-gradient(180deg, color-mix(in srgb, var(--c) 22%, var(--surface)), color-mix(in srgb, var(--c) 34%, var(--surface-2))); }
+/* Each layer's texture: topsoil, folded bands, hatching, stipple, crystal facets. */
+.s-band::after { content: ""; position: absolute; inset: 0; z-index: -1; background: var(--c); opacity: .22; pointer-events: none;
+  -webkit-mask: var(--tex) repeat; mask: var(--tex) repeat; }
+.s-band[data-layer="scholars"] { --tex: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22'%3E%3Ccircle cx='4' cy='5' r='1.1'/%3E%3Ccircle cx='15' cy='12' r='.8'/%3E%3Ccircle cx='9' cy='18' r='1.3'/%3E%3C/svg%3E"); }
+.s-band[data-layer="later"] { --tex: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='14'%3E%3Cpath d='M0 7 Q15 1 30 7 T60 7' fill='none' stroke='%23000' stroke-width='1.2'/%3E%3C/svg%3E"); }
+.s-band[data-layer="church"] { --tex: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10'%3E%3Cpath d='M0 10L10 0' stroke='%23000' stroke-width='1'/%3E%3C/svg%3E"); }
+.s-band[data-layer="jewish"] { --tex: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14'%3E%3Ccircle cx='3' cy='3' r='1'/%3E%3Ccircle cx='10' cy='9' r='1.4'/%3E%3Ccircle cx='6' cy='12' r='.7'/%3E%3C/svg%3E"); }
+.s-band[data-layer="scripture"] { --tex: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='60'%3E%3Cpath d='M0 20L20 0L45 15L80 5M45 15L40 45L80 40M40 45L0 50M20 0L0 20L40 45M45 15L80 40' fill='none' stroke='%23000' stroke-width='1'/%3E%3C/svg%3E"); }
+.s-band::before { content: ""; position: absolute; left: 1.1rem; top: 0; bottom: 0; width: 16px; border-inline: 1px solid color-mix(in srgb, var(--c) 40%, transparent);
+  background: linear-gradient(var(--c), var(--c)) top / 100% calc(var(--fill, 0) * 100%) no-repeat; box-shadow: 0 0 calc(var(--glow) * 12px) color-mix(in srgb, var(--c) calc(var(--fill, 0) * 60%), transparent); }
+.s-band-head { display: flex; align-items: center; gap: .8rem; }
+.s-band-head .badge { --tone: var(--c); }
+.s-band-head b { display: block; font: 500 1.15rem/1.2 var(--serif); } .s-band-head small { font: .68rem var(--mono); color: var(--muted); }
+.s-band-head em { margin-left: auto; font: 600 .66rem var(--mono); font-style: normal; color: var(--c); white-space: nowrap; }
+.s-finds { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .9rem; }
+.s-find { --c2: var(--c); display: inline-flex; align-items: center; gap: .55rem; padding: .4rem .75rem .4rem .4rem; border-radius: 14px; text-align: left;
+  background: color-mix(in srgb, var(--surface) 82%, transparent); border: 1px solid color-mix(in srgb, var(--c2) 30%, transparent);
+  transform: translateY(6px) scale(.97); opacity: .45; transition: transform .5s cubic-bezier(.16, 1, .3, 1), opacity .4s, box-shadow .25s, border-color .25s; }
+.s-band.is-reached .s-find { transform: none; opacity: 1; }
+.s-find:hover { border-color: var(--c2); box-shadow: 0 6px 22px -10px var(--c2); }
+.s-find.is-on { border-color: var(--c2); background: color-mix(in srgb, var(--c2) 16%, var(--surface)); box-shadow: 0 0 0 1px var(--c2), 0 10px 28px -12px var(--c2); }
+.s-spec { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 10px; color: var(--c2); background: color-mix(in srgb, var(--c2) 14%, transparent); }
+.s-find[data-layer="scripture"] { padding: .6rem 1rem .6rem .6rem; border-radius: 18px; }
+.s-find[data-layer="scripture"] .s-spec { width: 48px; height: 48px; clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%); border-radius: 0; background: color-mix(in srgb, var(--c2) 26%, transparent); }
+.s-find-t b { display: block; font: 600 .84rem/1.2 var(--sans); } .s-find-t small { font: .64rem var(--mono); color: var(--muted); }
+.s-find[data-layer="scripture"] .s-find-t b { font: 500 1rem var(--serif); }
+.s-shaft { position: absolute; z-index: 20; left: calc(1.1rem + 7px); top: 0; width: 2px; height: var(--bit, 0); background: var(--ink); opacity: .6; }
+.s-bit { position: absolute; z-index: 21; left: calc(1.1rem + 8px); top: var(--bit, 0); display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; transform: translate(-50%, -60%);
+  background: var(--ink); color: var(--page); box-shadow: 0 0 0 4px color-mix(in srgb, var(--ink) 15%, transparent), 0 0 calc(var(--glow) * 18px) var(--gold); }
+
+.s-panel { --tone: var(--gold); position: sticky; top: calc(58px + 1rem); max-height: calc(100dvh - 58px - 2rem); overflow: auto; padding: 1.3rem 1.3rem 1.4rem; scrollbar-width: thin; }
+.s-slide { animation: s-slide .45s cubic-bezier(.16, 1, .3, 1) both; } @keyframes s-slide { from { transform: translateX(22px); } to { transform: none; } }
+.s-panel h3 { margin: .55rem 0 .3rem; font: 500 1.45rem/1.2 var(--serif); letter-spacing: -.015em; }
+.s-panel p { font-size: .9rem; line-height: 1.65; } .s-when, .s-where { margin-top: .5rem; font: .72rem var(--mono); color: var(--muted); }
+.s-where { margin-bottom: .8rem; }
+.s-quote { margin: .7rem 0 0; padding: .1rem 0 .1rem .9rem; border-left: 2px solid var(--tone); font: italic .98rem/1.6 var(--serif); }
+.s-foot { display: flex; flex-wrap: wrap; gap: .2rem; margin-top: .6rem; }
+.s-item { margin-top: 1rem; padding-top: .9rem; border-top: 1px solid var(--line); } .s-item > small { font: .7rem/1.4 var(--mono); color: var(--muted); }
+.s-note { margin-top: .4rem; font-size: .78rem !important; color: var(--muted); }
+.s-warn { display: flex; gap: .45rem; margin-top: 1rem; padding: .6rem .75rem; border-radius: 12px; border: 1px dashed color-mix(in srgb, var(--revelation) 45%, transparent); font-size: .78rem !important; }
+.s-says { margin-top: 1rem; }
+.s-empty { display: grid; justify-items: start; gap: .4rem; color: var(--muted); } .s-empty .ico { color: var(--gold); }
+
+.s-law { display: flex; gap: .8rem; align-items: flex-start; max-width: 54rem; margin: 2rem auto 0; padding: 1rem 1.2rem; border-radius: 18px; background: color-mix(in srgb, var(--gold) 9%, transparent); border: 1px solid color-mix(in srgb, var(--gold) 30%, transparent); font-size: .95rem; line-height: 1.6; }
+.s-law .ico { flex-shrink: 0; color: var(--gold); margin-top: .15rem; }
+
+.s-bedrock { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); gap: 1rem; }
+.s-crystal { position: relative; padding: 1.3rem 1.3rem 1.4rem; border-radius: 6px 26px 6px 26px; background: linear-gradient(160deg, color-mix(in srgb, var(--gold) 12%, var(--surface)), var(--surface)); border: 1px solid color-mix(in srgb, var(--gold) 35%, var(--line)); box-shadow: var(--shadow-1); }
+.s-crystal h3 { font: 500 1.5rem var(--serif); } .s-crystal .claim { margin-top: .9rem; }
+.s-facet { position: absolute; right: 1.1rem; top: 1rem; display: grid; place-items: center; width: 40px; height: 44px; clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%); background: var(--gold); color: var(--page); font: 700 .95rem var(--mono); }
+.s-plate { padding: 1.3rem; } .s-h3 { display: flex; gap: .5rem; align-items: center; margin-bottom: .8rem; font: 500 1.15rem var(--serif); }
+.s-vcore { display: inline-flex; flex-direction: column; gap: 2px; margin-left: auto; padding: 3px; border-radius: 6px; border: 1px solid var(--line); }
+.s-vcore i { width: 22px; height: 5px; border-radius: 2px; background: color-mix(in srgb, var(--muted) 18%, transparent); }
+.s-vcore i.on[data-layer="scholars"] { background: var(--l-scholars); } .s-vcore i.on[data-layer="later"] { background: var(--l-later); } .s-vcore i.on[data-layer="church"] { background: var(--l-church); }
+.s-vcore i.on[data-layer="jewish"] { background: var(--l-jewish); } .s-vcore i.on[data-layer="scripture"] { background: var(--l-scripture); }
+.dir-strata .view[data-side="0"] { --tone: var(--l-scholars); } .dir-strata .view[data-side="1"] { --tone: var(--l-later); }
+.dir-strata .ctx { --tone: var(--gold); }
+
+@media (max-width: 1000px) { .s-section { grid-template-columns: minmax(0, 1fr); gap: 1rem; } .s-axis { display: none; } .s-panel { position: relative; top: auto; max-height: none; } }
+@media (max-width: 560px) { .s-band { padding: 2rem .8rem 1.2rem 2.6rem; } .s-band::before { left: .7rem; width: 12px; } .s-shaft { left: calc(.7rem + 5px); } .s-bit { left: calc(.7rem + 6px); width: 28px; height: 28px; }
+  .s-band-head .badge { display: none; } .s-band-head { flex-wrap: wrap; } .s-band-head em { margin-left: 0; } .s-find-t b { font-size: .78rem; } }
+
+/* Wide screens: the whole section in one view. Layer names on the left, the finds packed on the right. */
+@media (min-width: 1001px) {
+  .s-band { display: grid; grid-template-columns: 13.5rem minmax(0, 1fr); gap: .4rem 1.2rem; align-items: center; padding: 1.7rem 1.1rem 1.1rem 3.4rem; }
+  .s-band:first-child { padding-top: 1.1rem; }
+  .s-band-head { flex-wrap: wrap; align-items: flex-start; gap: .5rem .6rem; }
+  .s-band-head .badge { width: 40px; height: 40px; border-radius: 12px; }
+  .s-band-head > div { flex: 1 1 8rem; } .s-band-head b { font-size: 1.02rem; } .s-band-head small { display: block; margin-top: .15rem; font-size: .62rem; line-height: 1.4; }
+  .s-band-head em { margin-left: 0; flex-basis: 100%; padding-left: 48px; }
+  .s-finds { margin-top: 0; gap: .35rem; }
+  .s-find { padding: .28rem .6rem .28rem .28rem; border-radius: 11px; gap: .45rem; }
+  .s-spec { width: 28px; height: 28px; border-radius: 8px; } .s-spec .ico { width: 16px; height: 16px; }
+  .s-find-t b { font-size: .78rem; } .s-find-t small { font-size: .6rem; }
+  .s-find[data-layer="scripture"] .s-spec { width: 42px; height: 42px; } .s-find[data-layer="scripture"] .s-spec .ico { width: 22px; height: 22px; }
+  .s-band[data-layer="scripture"] { padding-bottom: 1.4rem; }
+}
+@media (max-width: 560px) { .s-find:not([data-layer="scripture"]) .s-spec { display: none; } .s-find:not([data-layer="scripture"]) { padding: .35rem .6rem; border-radius: 10px; } .s-finds { gap: .35rem; } }
+.s-trad-layer { --c: var(--l-later); margin-top: 1.4rem; padding-left: 1rem; border-left: 4px solid var(--c); }
+.s-trad-layer[data-layer="jewish"] { --c: var(--l-jewish); } .s-trad-layer[data-layer="church"] { --c: var(--l-church); }
+.s-trad-layer h3 { margin-bottom: .7rem; font: 500 1.2rem var(--serif); } .s-trad-layer h3 small { font: .7rem var(--mono); color: var(--muted); }
+.dir-strata .rule { margin-bottom: .4rem; }
+/* Only the bedrock's finds carry a crystal; the upper layers' finds are compact labelled chips. */
+.s-find:not([data-layer="scripture"]) .s-spec { display: none; }
+.s-find:not([data-layer="scripture"]) { padding: .32rem .7rem .32rem .6rem; border-radius: 10px; }
+.s-find:not([data-layer="scripture"])::before { content: ""; flex-shrink: 0; width: 7px; height: 7px; border-radius: 2px; transform: rotate(45deg); background: var(--c2); }
+.s-hero { padding: 1.1rem 0 1.2rem; } .s-hero h1 { font-size: clamp(3rem, 7vw, 4.6rem); }
+@media (min-width: 1001px) { .s-band { padding-top: 1.45rem; padding-bottom: .9rem; } .s-band:first-child { padding-top: .9rem; } }
+@media (min-width: 1001px) { .s-find:not([data-layer="scripture"]) .s-find-t { display: inline-flex; align-items: baseline; gap: .45rem; } .s-find:not([data-layer="scripture"]) .s-find-t b { display: inline; }
+  .s-band-head small { display: none; } .s-band-head b::after { content: attr(data-dates); display: block; margin-top: .15rem; font: .62rem var(--mono); color: var(--muted); } }

@@ -1,0 +1,77 @@
+/* Direction B, war in heaven: Revelation 12 as a chart of the night sky in fine line. */
+.dir-war { --tone: var(--w-gold);
+  --w-bg1: #f2f4fa; --w-bg2: #dfe5f1; --w-ink: #1d2a55; --w-faint: rgb(29 42 85 / 14%); --w-gold: #a26a00; --w-red: #b3263c; --w-star: #1d2a55; }
+:root[data-theme="dark"] .dir-war { --w-bg1: #0b1024; --w-bg2: #03050d; --w-ink: #dfe6ff; --w-faint: rgb(223 230 255 / 10%); --w-gold: #f2c96a; --w-red: #ef7a8c; --w-star: #f4f1e6; }
+
+.w-hero { position: relative; color: var(--w-ink); background: radial-gradient(120% 100% at 50% 0%, var(--w-bg1), var(--w-bg2)); border-bottom: 1px solid var(--line); }
+.w-frame { position: relative; height: clamp(480px, calc(100dvh - 58px - 150px), 780px); overflow: hidden; }
+.w-sky { position: absolute; inset: 0; width: 100%; height: 100%; }
+.w-grid { fill: none; stroke: var(--w-faint); stroke-width: 1; }
+.w-star { fill: var(--w-star); opacity: .75; } .w-star.is-third { opacity: calc(.75 - var(--w3, 0) * 0); }
+.w-throne circle:not([fill]) { fill: none; stroke: var(--w-gold); stroke-width: 1.4; } .w-throne .w-ring { stroke-dasharray: 3 5; animation: w-turn 40s linear infinite; transform-origin: center; }
+@keyframes w-turn { to { transform: rotate(360deg); } }
+.w-sky text { fill: var(--w-ink); font: 600 13px var(--mono); letter-spacing: .03em; }
+.w-woman { opacity: calc(.15 + var(--w1, 0) * .85); }
+.w-woman .w-sun { fill: color-mix(in srgb, var(--w-gold) 10%, transparent); stroke: var(--w-gold); stroke-width: 1.6; }
+.w-woman .w-sun-in { fill: none; stroke: var(--w-gold); stroke-width: .8; stroke-dasharray: 2 4; }
+.w-rays path { stroke: var(--w-gold); stroke-width: 1.2; stroke-linecap: round; }
+.w-moon { fill: none; stroke: var(--w-ink); stroke-width: 1.4; }
+.w-twelve { fill: var(--w-gold); filter: drop-shadow(0 0 calc(var(--glow) * 5px) var(--w-gold)); }
+.w-child-path { fill: none; stroke: var(--w-gold); stroke-width: 1.2; stroke-dasharray: 1; stroke-dashoffset: 1; opacity: .7; }
+.w-child { fill: var(--w-gold); filter: drop-shadow(0 0 6px var(--w-gold)); }
+.w-wild path { fill: color-mix(in srgb, var(--w-ink) 4%, transparent); stroke: var(--w-ink); stroke-width: 1; stroke-dasharray: 4 6; opacity: .7; }
+.w-dragon { opacity: calc(.08 + var(--w3, 0) * .92); }
+.w-spine, .w-neck { fill: none; stroke: var(--w-red); stroke-width: 1.6; stroke-linecap: round; }
+.w-spine { stroke-dasharray: 1; stroke-dashoffset: calc(1 - var(--w3, 0)); }
+.w-node, .w-head { fill: var(--w-red); } .w-horn { stroke: var(--w-red); stroke-width: 1.2; stroke-linecap: round; }
+.w-crown { fill: none; stroke: var(--w-red); stroke-width: 1.1; stroke-linejoin: round; }
+.w-sky .w-dlabel { fill: var(--w-red); } .w-sky .w-dname { fill: var(--w-red); opacity: calc(var(--w8, 0)); font-style: italic; }
+.w-place { fill: none; stroke: var(--w-red); stroke-width: 1; stroke-dasharray: .012 .012; opacity: calc(var(--w3, 0) * (1 - var(--w8, 0)) * .6); }
+.w-foe { fill: none; stroke: var(--w-red); stroke-width: 1.4; opacity: calc(var(--w7, 0) * .9); }
+.w-host { opacity: calc(.1 + var(--w7, 0) * .9); } .w-host text { fill: var(--w-gold); }
+.w-angel { fill: var(--w-gold); filter: drop-shadow(0 0 calc(var(--glow) * 4px) var(--w-gold)); }
+.w-michael { fill: var(--w-gold); stroke: var(--w-bg1); stroke-width: 2; filter: drop-shadow(0 0 calc(4px + var(--glow) * 8px) var(--w-gold)); }
+.w-clash { fill: none; stroke: var(--w-gold); stroke-width: 1; stroke-dasharray: 1; stroke-dashoffset: calc(1 - var(--w7, 0)); opacity: calc(var(--w7, 0) * (1 - var(--w8, 0)) * .8); }
+.w-earth { fill: none; stroke: var(--w-ink); stroke-width: 1.6; opacity: .5; } .w-sky .w-earth-l { font-size: 12px; opacity: .7; }
+
+.w-title { position: absolute; left: 0; right: 0; top: clamp(1.2rem, 4vh, 2.6rem); pointer-events: none; }
+.w-title .kicker { color: var(--w-gold); }
+.w-title h1 { margin-top: .4rem; font: 500 clamp(3rem, 8vw, 5.6rem)/.9 var(--serif); letter-spacing: -.045em; }
+.w-title p { margin-top: .4rem; font: italic 1.2rem var(--serif); opacity: .8; }
+.w-cap { --tone: var(--w-gold); position: relative; z-index: 2; max-width: 78rem; margin: -2.6rem auto 0; padding: 1rem 1.2rem; color: var(--ink); }
+@media (min-width: 761px) { .w-cap { width: calc(100% - 3rem); } .w-cap-verse { display: grid; grid-template-columns: 15rem 1fr auto; gap: .4rem 1.4rem; align-items: center; } .w-cap p { margin: 0; } }
+.w-cap .kicker { color: var(--accent); letter-spacing: .1em; }
+.w-cap p { margin: .5rem 0 .7rem; font: 400 1.08rem/1.6 var(--serif); }
+.w-rail { display: flex; gap: .3rem; overflow-x: auto; padding-block: .9rem; scrollbar-width: none; } .w-rail::-webkit-scrollbar { display: none; }
+.w-rail [data-wv] { display: flex; flex: 1 0 auto; flex-direction: column; align-items: flex-start; gap: .15rem; min-width: 5.5rem; max-width: 9rem; padding: .5rem .6rem; border-radius: 12px; border: 1px solid var(--w-faint); text-align: left; transition: background .25s, border-color .25s; }
+.w-rail [data-wv] b { font: 600 .9rem var(--mono); } .w-rail [data-wv] span { font-size: .64rem; line-height: 1.25; opacity: .75; }
+.w-rail [data-wv].is-past { border-color: color-mix(in srgb, var(--w-gold) 45%, transparent); }
+.w-rail [data-wv].is-on { background: var(--w-gold); color: var(--w-bg2); border-color: var(--w-gold); }
+.w-play { display: inline-flex; flex-shrink: 0; align-items: center; gap: .3rem; padding: .5rem .9rem; border-radius: 999px; background: var(--w-ink); color: var(--w-bg2); font-size: .78rem; font-weight: 600; align-self: center; }
+.w-note { display: flex; gap: .5rem; align-items: center; padding-bottom: 1.1rem; font-size: .76rem; opacity: .75; }
+@media (max-width: 760px) {
+  .w-frame { height: auto; min-height: 0; display: flex; flex-direction: column; }
+  .w-title { position: static; order: -1; padding-top: 1.2rem; padding-bottom: .4rem; }
+  .w-sky { position: relative; display: block; height: 56vh; min-height: 380px; }
+  .w-cap { margin: -1.6rem .75rem 0; }
+  .w-title h1 { font-size: 3rem; } .w-title p { font-size: 1rem; }
+  .w-sky text { font-size: 13px; }
+}
+
+/* Five passages as sky cards */
+.w-passes { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); gap: .9rem; }
+.w-pass { --tone: var(--w-gold); position: relative; padding: 1.2rem 1.2rem 1.25rem; border-radius: 22px; color: var(--w-ink); background: radial-gradient(130% 120% at 0 0, var(--w-bg1), var(--w-bg2)); border: 1px solid var(--w-faint); box-shadow: var(--shadow-2); }
+.w-pass.is-wide { grid-column: 1 / -1; }
+.w-pass .claim > p, .w-pass .run { color: var(--w-ink); } .w-pass .ref { color: var(--w-gold); }
+.w-glyph { width: 96px; height: 67px; fill: none; stroke: var(--w-ink); stroke-width: 1.2; }
+.w-glyph circle { fill: var(--w-ink); stroke: none; } .w-glyph .g-m { fill: var(--w-gold); filter: drop-shadow(0 0 calc(var(--glow) * 5px) var(--w-gold)); } .w-glyph .g-b { fill: var(--w-red); }
+.w-pass-ref { display: block; margin-top: .5rem; font: 600 .72rem var(--mono); color: var(--w-gold); }
+.w-pass h3 { margin: .3rem 0 .2rem; font: 500 1.35rem/1.2 var(--serif); }
+.w-where { margin-bottom: .8rem; font-size: .76rem; opacity: .7; }
+.w-panel { --tone: var(--w-gold); padding: 1.3rem; } .w-h3 { display: flex; gap: .5rem; align-items: center; margin-bottom: .8rem; font: 500 1.15rem var(--serif); }
+.dir-war .ctx { --tone: var(--w-gold); }
+.dir-war .view[data-side="0"] { --tone: var(--w-gold); } .dir-war .view[data-side="1"] { --tone: var(--w-red); }
+.dir-war .rule { margin-bottom: 1rem; }
+.w-cat { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); gap: .8rem; margin: 0; padding: 0; list-style: none; counter-reset: cat; }
+.w-cat li { counter-increment: cat; position: relative; }
+.w-trad { padding-left: 3.4rem; } .w-cat li::before { content: counter(cat, decimal-leading-zero); position: absolute; left: 1rem; top: 1rem; font: 600 1.1rem var(--mono); color: color-mix(in srgb, var(--w-gold) 70%, var(--muted)); }
