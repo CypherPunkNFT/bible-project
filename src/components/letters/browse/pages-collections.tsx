@@ -1,6 +1,7 @@
 import type { Letter, LetterGroup } from "@/data/letters/types";
 import { CanonLanes } from "../CanonLanes";
-import { BetterLadder, OpenQuestions } from "../LetterBlocks";
+import { BetterLadder, OpenQuestions, WordConstellation } from "../LetterBlocks";
+import { CompareLetters } from "../CompareLetters";
 import { FlowChart } from "../FlowChart";
 import { LetterMap } from "../LetterMap";
 import { ParallelRibbon } from "../ParallelRibbon";
@@ -11,7 +12,7 @@ import { dates } from "./builders";
 import type { GroupKey, LettersData } from "./data";
 import { BASE, type CardDef, type PageDef, type PartDef } from "./frame";
 import { Glance, LetterWords, OtList, OutlineBar, PeoplePlaces } from "./parts-letter";
-import { NetworkChooser, RibbonChooser } from "./parts-charts";
+import { NetworkChooser } from "./parts-charts";
 import { CollectionOt, LettersLook, WriterLife } from "./parts-writers";
 
 export type Chosen = Record<GroupKey, [Letter, (code: string) => void]>;
@@ -119,7 +120,7 @@ export function collectionPages(data: LettersData, chosen: Chosen): Record<strin
     // deeper look inside each letter, and the Old Testament behind all four; then the letters side by side.
     general: { ...common("general"), ...top("general"), slug: "james-peter-and-jude", title: "James, Peter & Jude", right: "JAMES, PETER & JUDE", tone: "acts", kicker: "Four letters · James, Peter & Jude", h1: "James, Peter & Jude.", em: "To believers far from home.",
       emblem: "globe", caption: "JAMES · 1 PETER · 2 PETER · JUDE",
-      bar: <LettersLinkBar data={data} group="general" to={(code) => ({ JAS: { path: `${GEN}/inside/james`, label: "James at a glance" }, "1PE": { path: `${GEN}/inside/peter`, label: "Peter at a glance" }, "2PE": { path: `${GEN}/inside/peter`, label: "Peter at a glance" }, JUD: { path: `${GEN}/inside/jude`, label: "Jude at a glance" } })[code] ?? { path: `${GEN}/inside`, label: "Inside the letters" }} />,
+      bar: <LettersLinkBar data={data} group="general" to={(code) => ({ JAS: { path: `${GEN}/inside/james`, label: "James at a glance" }, "1PE": { path: `${GEN}/inside/peter`, label: "1 Peter at a glance" }, "2PE": { path: `${GEN}/inside/peter`, label: "2 Peter at a glance" }, JUD: { path: `${GEN}/inside/jude`, label: "Jude at a glance" } })[code] ?? { path: `${GEN}/inside`, label: "Inside the letters" }} />,
       sections: [
         { id: "writers", art: "general", tone: "acts", title: "The writers", lead: "Who wrote them: James and Jude, brothers of Jesus, and the apostle Peter; then the family they came from.", parts: [
           part("james", card("life", "prophets", "users", "The writer", "James, the Lord's brother", "From unbelief to leading the church at Jerusalem, step by step.", `${tl("general", "jesus-family").events.length} steps · his own page`, "Follow his life"),
@@ -145,10 +146,11 @@ export function collectionPages(data: LettersData, chosen: Chosen): Record<strin
             <CollectionOt flow={G.general.flows.find((f) => f.id === "ot-sources")!} letters={G.general.letters} />),
         ] },
         { id: "side", art: "compare", tone: "poetry", title: "Side by side, and how they were read", lead: "The passages they share, the questions readers have asked, and how the church received them.", parts: [
-          part("jude2pe", card("compare", "prophets", "compare", "Side by side", "Jude and 2 Peter", "A run of the same material, passage against passage.", `${par("general", "jude-second-peter").pairs.length} paired passages`, "Compare them"),
-            "Jude beside 2 Peter. Click a ribbon to keep it.", <ParallelRibbon parallel={par("general", "jude-second-peter")} />),
-          part("james-echoes", card("compare", "acts", "compare", "Side by side", "James beside Jesus and Peter", "James and the Sermon on the Mount, and the material James shares with 1 Peter.", "Sermon on the Mount · 1 Peter", "Compare them"),
-            "James beside the Sermon on the Mount, or beside 1 Peter.", <RibbonChooser parallels={[par("general", "james-sermon"), par("general", "james-first-peter")]} />),
+          part("compare", card("compare", "prophets", "compare", "Side by side", "Any two, side by side", "Pick two of the four letters, or James and Matthew's Gospel: every link between them, and the passages scholars pair.", "Jude and 2 Peter · James and 1 Peter · James and the Sermon on the Mount", "Choose two"),
+            "Click two to compare them; click one again to let it go, or a third to swap it in. Where scholars pair passages (Jude and 2 Peter, James and 1 Peter, James and the Sermon on the Mount), those pairs appear under the chart.",
+            <CompareLetters initial={["JUD", "2PE"]} curated={G.general.parallels} choices={[...G.general.letters.map((l) => ({ code: l.code })), { code: "MAT", label: "Matthew (the Sermon on the Mount)", tone: "gospels" }]} />),
+          part("words", card("words", "gospels", "star", "Greek words", "The words they lean on, side by side", "Each letter's key Greek words in one chart: which words they share and which belong to one alone.", "James · 1 Peter · 2 Peter · Jude", "See the words"),
+            "The key Greek words of all four letters together, a column for each. Choose a star to see every verse behind it.", <WordConstellation letters={G.general.letters} />),
           ...read(data, "general"),
         ] },
       ] },

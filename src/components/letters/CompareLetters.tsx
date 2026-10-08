@@ -14,7 +14,10 @@ type Link = { left: Span; right: Span; votes: number };
  * Any two letters side by side, joined wherever the site's cross-references link a verse in one to a verse in the
  * other (OpenBible.info, weighted by readers' votes), plus any scholar-paired passages the guides already hold.
  */
-export function CompareLetters({ initial, curated = [] }: { initial: [string, string]; curated?: Parallel[] }) {
+/** One book the reader can pick: a letter by default; a collection can offer its own few (and a Gospel). */
+export interface CompareChoice { code: string; label?: string; tone?: string }
+
+export function CompareLetters({ initial, curated = [], choices }: { initial: [string, string]; curated?: Parallel[]; choices?: CompareChoice[] }) {
   const catalog = useCatalog();
   const stats = useAsync(loadStats, "stats");
   // One row of letters: the first chosen is the top rail, the second the bottom. Clicking a chosen letter unchooses
@@ -75,8 +78,8 @@ export function CompareLetters({ initial, curated = [] }: { initial: [string, st
   };
   return <div>
     <div className="lg-compare-bar">
-      <div className="lg-compare-letters" role="group" aria-label="Letters to compare">{ALL_LETTERS.map((c) => <button key={c} type="button" aria-pressed={chosen.includes(c)}
-        className="lg-compare-letter" style={{ "--tone": `var(--${LETTER_TONE(c)})` } as CSSProperties} onClick={() => toggle(c)}>{name(c)}</button>)}</div>
+      <div className="lg-compare-letters" role="group" aria-label="Letters to compare">{(choices ?? ALL_LETTERS.map((code): CompareChoice => ({ code }))).map((c) => <button key={c.code} type="button" aria-pressed={chosen.includes(c.code)}
+        className="lg-compare-letter" style={{ "--tone": `var(--${c.tone ?? LETTER_TONE(c.code)})` } as CSSProperties} onClick={() => toggle(c.code)}>{c.label ?? name(c.code)}</button>)}</div>
       {chosen.length === 2 && <button type="button" className="lg-tab lg-compare-swap" onClick={() => setChosen([right, left])}>⇅ Swap top and bottom</button>}
     </div>
     {chosen.length < 2 ? <p className="lg-muted" style={{ marginTop: "1rem" }}>{chosen.length ? `${name(left)} chosen. Choose one more letter to compare it with.` : "Choose two letters to compare."}</p>

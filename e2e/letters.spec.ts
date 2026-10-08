@@ -36,13 +36,30 @@ test("letters: choosing a letter makes the Inside cards follow it", async ({ pag
 test("letters: James, Peter & Jude has the writers, each letter at a glance, and the Old Testament behind all four", async ({ page }) => {
   await page.goto("/study/letters/james-peter-and-jude");
   for (const title of ["James, the Lord's brother", "Peter, the apostle", "Jude, the Lord's brother", "The family of Jesus",
-    "James at a glance", "Peter at a glance", "Jude at a glance", "The Old Testament behind James, Peter & Jude"]) {
+    "James at a glance", "Peter at a glance", "Jude at a glance", "The Old Testament behind James, Peter & Jude",
+    "Any two, side by side", "The words they lean on, side by side"]) {
     await expect(page.locator(".lb-card", { hasText: title })).toHaveCount(1);
   }
   await page.getByRole("link", { name: "Jude at a glance" }).first().click();
   await expect(page).toHaveURL(/\/james-peter-and-jude\/inside\/jude$/);
   await expect(page.locator("#part-peter .lb-look-title")).toHaveText(["1 Peter", "2 Peter"]);
   await expect(page.locator("#part-peter")).toContainText("Where his readers lived");
+  await expect(page.locator("#part-ot .lb-ot-summary dt")).toHaveText(["James", "1 Peter", "2 Peter", "Jude"]);
+  await expect(page.locator("#part-ot")).toContainText("Every one of these letters draws on Genesis and Isaiah");
+  // The bar names each letter; the merged comparison chooses two and lets one go again.
+  await page.goto("/study/letters/james-peter-and-jude");
+  await expect(page.getByRole("link", { name: "1 Peter at a glance" })).toBeVisible();
+  await expect(page.getByRole("link", { name: "2 Peter at a glance" })).toBeVisible();
+  await page.goto("/study/letters/james-peter-and-jude/side/compare");
+  const picks = page.locator("#part-compare").getByRole("group", { name: "Letters to compare" });
+  await expect(picks.getByRole("button")).toHaveCount(5);
+  await expect(picks.getByRole("button", { name: "Jude" })).toHaveAttribute("aria-pressed", "true");
+  await picks.getByRole("button", { name: "Jude" }).click();
+  await expect(picks.getByRole("button", { name: "Jude" })).toHaveAttribute("aria-pressed", "false");
+  await picks.getByRole("button", { name: "2 Peter" }).click();
+  await picks.getByRole("button", { name: "James" }).click();
+  await picks.getByRole("button", { name: /Matthew/ }).click();
+  await expect(page.locator("#part-compare")).toContainText("Paired by scholars");
 });
 
 test("letters: the old group addresses open their collection", async ({ page }) => {
