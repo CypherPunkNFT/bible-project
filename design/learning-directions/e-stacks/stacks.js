@@ -2,7 +2,7 @@
 // a door opens A's stack for that age in place beneath the doors (the books lying flat, grouped by subject, with A's
 // panel beside them), and under the stack B's "What it is built from" ring for the same age. Choosing another door
 // slides to its stack; choosing the open door again closes it. The address keeps the age (#e/children) without
-// redrawing the page. Below: B's subject lanes and Moses behind every door, then A's series and A's four steps.
+// redrawing the page. Below: B's subject lanes, then A's series (Moses at every age is one of them) and A's four steps.
 // Nothing is open until the reader picks a door, so the landing keeps its moment.
 (() => {
   const { esc, icon, plural } = Frame;
@@ -68,7 +68,6 @@
     const ages = AUDIENCES.filter((a) => !a.setting), settings = AUDIENCES.filter((a) => a.setting);
     const steps = [["Choose the pages", "Only the site's reviewed pages: a person's story, a study, a Topics category."], ["Write from them", "Summaries in plain words, questions whose answers are in the verses they name."],
       ["Check every word", "Every reference must exist and every quotation must match the King James text, or nothing is built."], ["Print and shelve", "A4 and US Letter with the same page numbers, a cover, and a row in the catalogue."]];
-    const moses = LEARN.inSeries("moses");
     wrap.innerHTML = `${Frame.crumbs("Direction E · Doors and stacks")}
       <section class="dr-land ed-land"><div class="dr-sky" aria-hidden="true"></div>
         <div class="dr-head"><p class="kicker">Resources · Learning materials</p><h1>Choose <em>a door.</em></h1><p>Five doors by age and two for those who use them together. Open one to see its stack, every title written from the site's reviewed pages.</p></div>
@@ -78,8 +77,6 @@
       </section>
       <div class="ed-drawer" hidden><div class="ed-stage"></div></div>
       <div data-lanes></div>
-      <section class="sec"><div class="sec-head"><span class="sec-num"></span><div><h2>The same story <em>behind every door</em></h2><p>Moses at every age: one reviewed story, told for each reader. Only the adults' workbook is written; the others are planned.</p></div></div>
-        <div class="dr-mini">${moses.map((m) => DIRS.b.door(LEARN.A[m.audience], `#e/item/${m.id}`, `<span class="n">${esc(m.title)}<br>${m.status === "ready" ? "Ready" : "Planned"}</span>`)).join("")}</div></section>
       <section class="sec"><div class="sec-head"><span class="sec-num"></span><div><h2>Series that <em>cross the ages</em></h2><p>Some titles belong together: one subject told at every age, or a path to follow in order. The filled point is the one ready today.</p></div></div>
         <div class="sh-series">${SERIES.map((s) => DIRS.a.seriesBlock(s.id)).join("")}</div></section>
       <section class="sec"><div class="sec-head"><span class="sec-num"></span><div><h2>How a title <em>reaches the shelf</em></h2><p>The same four steps made the Moses workbook. A planned title becomes ready only after all four.</p></div></div>
@@ -91,8 +88,20 @@
 
   function wireDoors(wrap) {
     const doors = wrap.querySelector(".doors"), drawer = wrap.querySelector(".ed-drawer"), stage = wrap.querySelector(".ed-stage"), hint = wrap.querySelector("[data-door]");
-    const restHint = () => (age ? `<b>${LEARN.A[age].name}</b> is open below. <span class="muted">Choose another door to slide to its stack, or this one again to close it.</span>` : "Choose a door to open its stack.");
+    const restFor = (id) => (id ? `<b>${LEARN.A[id].name}</b> is open below. <span class="muted">Choose another door to slide to its stack, or this one again to close it.</span>` : "Choose a door to open its stack.");
+    const restHint = () => restFor(age);
     let age = null, kind = null, slide = null, opening = null;
+
+    // The line under the doors never changes height: it is as tall as the tallest thing it can say, at this width.
+    const reserveHint = () => {
+      const options = [restFor(null), ...order.map(restFor), ...order.map((id) => DIRS.b.doorHint(LEARN.A[id]))];
+      const shown = hint.innerHTML;
+      hint.style.minHeight = "0px";
+      let tallest = 0;
+      for (const html of options) { hint.innerHTML = html; tallest = Math.max(tallest, hint.getBoundingClientRect().height); }
+      hint.innerHTML = shown;
+      hint.style.minHeight = `${Math.ceil(tallest)}px`;
+    };
 
     // Section numbers follow what is open: 01 and 02 belong to the open stack, the rest count on from there.
     const renumber = () => { let n = 0; wrap.querySelectorAll(".sec-num").forEach((el) => { if (!el.closest("[hidden], .is-outgoing")) el.textContent = String(++n).padStart(2, "0"); }); };
@@ -239,13 +248,14 @@
       if (e.key === "ArrowLeft") { e.preventDefault(); choose(order[(i - 1 + order.length) % order.length]); }
     };
     addEventListener("keydown", onKey);
-    const onResize = () => { if (!wrap.isConnected) { removeEventListener("resize", onResize); return; } const v = stage.querySelector(".ed-view:last-child"); if (v?.kept) lead(v, v.querySelector(".bk.is-on") ?? v.kept); };
+    const onResize = () => { if (!wrap.isConnected) { removeEventListener("resize", onResize); return; } reserveHint(); const v = stage.querySelector(".ed-view:last-child"); if (v?.kept) lead(v, v.querySelector(".bk.is-on") ?? v.kept); };
     addEventListener("resize", onResize);
     document.fonts?.ready.then(onResize);
 
     // An address with an age (#e/children) opens that door straight away, without the opening motion.
     const first = location.hash.replace(/^#/, "").split("/")[1];
     if (LEARN.A[first]) openDrawer(first, false); else { hint.innerHTML = restHint(); renumber(); }
+    reserveHint();
   }
 
   DIRS.e = { name: "Doors and stacks", ageNote: "Ages open on the front", defaultAge: "adults", front, retarget };

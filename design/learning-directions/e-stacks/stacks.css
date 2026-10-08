@@ -14,7 +14,8 @@
 .dir-e .door.is-chosen b { color: var(--tone); }
 .dir-e .doors .door::after { content: ""; position: absolute; left: 50%; top: 100%; width: 1.5px; height: 0; margin-top: .35rem; background: var(--tone); transition: height .45s cubic-bezier(.2, .9, .3, 1); }
 .dir-e .doors .door.is-chosen::after { height: 1.4rem; }
-.dir-e .dr-hint { min-height: 1.7em; margin-top: 1.9rem; }
+/* One line across the full width of the doors; its height is reserved in stacks.js (reserveHint), so it never jumps. */
+.dir-e .dr-hint { max-width: none; margin-top: 1.9rem; }
 /* Once a door is open the landing's figures fold away, so the stack sits close under the doors. */
 /* The page scrolls the doors to the top as the drawer opens, which hides this change of layout inside the motion. */
 .dir-e .ed-land.is-open { min-height: 0; padding-bottom: 0; }
