@@ -1,6 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
 import { BackLink } from "@/components/BackLink";
-import { AspectSwitch } from "@/components/people-pages/PersonEntry";
 import { APOSTLES_GUIDE } from "@/components/people-pages/links";
 import { svg } from "./art/kit";
 import type { Landing as Draw } from "./art/landing/shared";
@@ -22,8 +21,8 @@ function useNarrow(width = 760) {
 
 /**
  * The full-screen landing, unique for each apostle: his own drawing across the whole first screen, the name, one KJV
- * line (the verse the drawing shows), and the key figures as one thin bar beneath. The way back and the person | mission
- * switch sit at the top left; the counter (Counter.tsx) floats at the top right.
+ * line (the verse the drawing shows), and the key figures as one thin bar beneath. The way back sits at the top left (this is the
+ * person's one page: no person | mission switch); the counter (Counter.tsx) floats at the top right.
  */
 export function Landing({ d, draw }: { d: Apostle; draw: Draw }) {
   const narrow = useNarrow();
@@ -40,7 +39,6 @@ export function Landing({ d, draw }: { d: Apostle; draw: Draw }) {
     <div className="land-veil" aria-hidden="true" />
     <div className="land-top">
       <BackLink fallback={APOSTLES_GUIDE} />
-      <AspectSwitch id={d.id} name={d.name} current="mission" />
     </div>
     <div className="land-text">
       <p className="kicker rule">{d.title}</p>

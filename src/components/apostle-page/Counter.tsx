@@ -7,9 +7,9 @@ import { rememberPlace } from "./place";
 import { Icon } from "./ui";
 
 /**
- * Which apostle this is: "5 / 12" in the serif of his name, with the previous and next apostle either side; a click
- * opens the list of the Twelve (Matthew 10's order), then Matthias and Paul below a divider (they read as their names,
- * not as a thirteenth and fourteenth). It floats just below the site's header the whole length of the page, so the
+ * Which apostle this is, as the mock-up's pill: the previous and next apostle either side, and in the middle "3 / 12" in
+ * the serif of his name, his name, and a chevron; a click opens the list of the Twelve (Matthew 10's order), then
+ * Matthias and Paul below a divider (they read "Chosen by lot" and "Apostle to the Gentiles", not 13 and 14). It floats just below the site's header the whole length of the page, so the
  * reader can switch apostle from anywhere; the switch is the people pages' wipe (SlideLink, usePeoplePageSlide), and the
  * new page opens at the same section the reader was in.
  */
@@ -58,8 +58,8 @@ export function Counter({ id }: { id: string }) {
           aria-label={`${here.name}${twelve ? `, ${at + 1} of the Twelve` : ""}. Choose an apostle`}
           onClick={(e) => (open ? setOpen(false) : openMenu(e.detail === 0))}
           onKeyDown={(e) => { if (e.key === "ArrowDown") { e.preventDefault(); openMenu(true); } }}>
-          {twelve ? <><span className="ap-count-n">{at + 1}</span><span className="ap-count-of"> / 12</span></>
-            : <><span className="ap-count-k">After the Twelve</span><span className="ap-count-name">{here.short}</span></>}
+          <span className="ap-count-of">{twelve ? `${at + 1} / 12` : here.key === "matthias" ? "Chosen by lot" : "Apostle to the Gentiles"}</span>
+          <b className="ap-count-name">{here.short}</b><Icon name="chevronDown" size={14} />
         </button>
         <SlideLink className="ap-count-step" to={personPath(next.id, "mission")} state={carried} onClick={keep} rel="next" aria-label={`Next: ${next.name}`}><Icon name="chevronRight" size={18} /></SlideLink>
         <div ref={menu} id={menuId} className={`ap-count-menu${open ? " open" : ""}`} onKeyDown={onMenuKey}>

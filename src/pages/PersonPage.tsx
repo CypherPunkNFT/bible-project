@@ -6,7 +6,7 @@ import { readyKey, usePeoplePageSlide } from "@/components/people-pages/usePeopl
 import { PersonProfile } from "@/components/study/PersonProfile";
 import { StudyCredits } from "@/components/study/StudyParts";
 import { useCachedLoad } from "@/lib/people-pages";
-import { isAspect, personPath, specialPageOf, type Aspect } from "@/lib/people-pages-index";
+import { isApostleEndpoint, isAspect, personPath, specialPageOf, type Aspect } from "@/lib/people-pages-index";
 import { loadPeople, loadPersonDetail } from "@/lib/study";
 
 type SpecialPages = typeof import("@/components/people-pages/SpecialPages");
@@ -31,7 +31,10 @@ function useSpecialPages(wanted: boolean): SpecialPages | undefined {
 export default function PersonPage() {
   const { id = "", aspect: asked } = useParams();
   const { state } = useLocation();
-  const aspect: Aspect | undefined = isAspect(asked) ? asked : undefined;
+  const askedAspect: Aspect | undefined = isAspect(asked) ? asked : undefined;
+  // The Twelve, Matthias and Paul: their person address is their one page (the apostle page).
+  const endpoint = isApostleEndpoint(id);
+  const aspect: Aspect | undefined = endpoint && !asked ? "mission" : askedAspect;
   const slide = usePeoplePageSlide();
   const people = useCachedLoad("people", loadPeople);
   const detail = useCachedLoad(`person:${id}`, () => loadPersonDetail(id));
@@ -42,7 +45,8 @@ export default function PersonPage() {
   const sameName = useMemo(() => people.status === "ready" && row ? people.value.filter((p) => p.n === row.n).length : 1, [people, row]);
 
   // An address with no such page goes to the person page; another record of the same person goes to the main one.
-  if ((asked && !aspect) || (aspect && !special)) return <Navigate to={personPath(id)} replace state={state} />;
+  if ((asked && !askedAspect) || (aspect && !special)) return <Navigate to={personPath(id)} replace state={state} />;
+  if (endpoint && askedAspect === "mission") return <Navigate to={personPath(id)} replace state={state} />;
   if (special && special.id !== id) return <Navigate to={personPath(special.id, aspect)} replace state={state} />;
   if (detail.status === "ready" && detail.value.same) return <Navigate to={personPath(detail.value.same, aspect)} replace state={state} />;
 

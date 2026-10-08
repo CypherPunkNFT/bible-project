@@ -112,15 +112,27 @@ export function rulerHref(personId: string): string {
  *  mission page; else their person page. */
 export function prophetHref(personId: string): string {
   const page = prophetFor(personId) ?? apostleFor(personId);
-  return page ? `/people/${page.id}/${prophetFor(personId) ? "word" : "mission"}` : `/people/${personId}`;
+  return page ? personPath(page.id, prophetFor(personId) ? "word" : "mission") : `/people/${personId}`;
 }
 
 export type Aspect = "rule" | "mission" | "word";
 export const ASPECTS: Aspect[] = ["rule", "mission", "word"];
 export const isAspect = (value: string | undefined): value is Aspect => ASPECTS.includes(value as Aspect);
 
-/** The person's page address, or one of their special pages. */
-export const personPath = (id: string, aspect?: Aspect) => (aspect ? `/people/${id}/${aspect}` : `/people/${id}`);
+/**
+ * The Twelve, Matthias and Paul (the apostles-1 and apostles-2 groups) have ONE page, the apostle page, at their person
+ * address (/people/<id>): it is the endpoint for that person from anywhere on the site, with no separate person page and
+ * no person | mission switch (owner, 2026-10-08). Only the apostle's own main record: other records named with him
+ * (Nathanael beside Bartholomew) keep their own person pages. The wider circle keeps person + mission pages.
+ */
+export const isApostleEndpoint = (id: string): boolean => {
+  const apostle = apostleFor(id);
+  return Boolean(apostle && apostle.id === id && apostle.group.startsWith("apostles-"));
+};
+
+/** The person's page address, or one of their special pages (an apostle's "mission" is his person address). */
+export const personPath = (id: string, aspect?: Aspect) =>
+  aspect === "mission" && isApostleEndpoint(apostleFor(id)?.id ?? "") ? `/people/${apostleFor(id)!.id}` : aspect ? `/people/${id}/${aspect}` : `/people/${id}`;
 
 export type SpecialPage =
   | { aspect: "rule"; id: string; summary: RulerSummary }

@@ -2,7 +2,7 @@ import { useEffect, type MouseEvent } from "react";
 import { flushSync } from "react-dom";
 import { useLocation, useNavigate } from "react-router-dom";
 import { transitionTicker } from "@/components/ticker/transition-clock";
-import { ASPECTS, apostleFor, isAspect, prophetFor, rulerFor, timeRank, type Aspect } from "@/lib/people-pages-index";
+import { ASPECTS, apostleFor, isApostleEndpoint, isAspect, prophetFor, rulerFor, timeRank, type Aspect } from "@/lib/people-pages-index";
 import type { ProphetEra } from "@/data/people-pages/types";
 
 /**
@@ -20,7 +20,8 @@ type Place = { kind: "person" | "special" | "guide" | "other"; id?: string; aspe
 
 function placeOf(url: URL): Place {
   const person = /^\/people\/([^/]+)(?:\/([a-z]+))?\/?$/.exec(url.pathname);
-  if (person) return isAspect(person[2]) ? { kind: "special", id: person[1], aspect: person[2] } : person[2] ? { kind: "other" } : { kind: "person", id: person[1] };
+  if (person) return isAspect(person[2]) ? { kind: "special", id: person[1], aspect: person[2] } : person[2] ? { kind: "other" }
+    : isApostleEndpoint(person[1]) ? { kind: "special", id: person[1], aspect: "mission" } : { kind: "person", id: person[1] };
   const view = url.searchParams.get("view");
   if (url.pathname === "/study/people" && (view === "rulers" || view === "apostles" || view === "prophets")) return { kind: "guide" };
   return { kind: "other" };

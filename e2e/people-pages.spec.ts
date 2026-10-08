@@ -53,7 +53,7 @@ test("people pages: /study/apostles shows the Twelve and opens a preview in plac
   await page.getByRole("button", { name: /^Peter:/ }).click();
   await expect(page.getByRole("link", { name: /Open his mission/ })).toBeVisible();
   await page.getByRole("link", { name: /Open his mission/ }).click();
-  await expect(page).toHaveURL(/\/people\/peter-mat-4-18\/mission$/);
+  await expect(page).toHaveURL(/\/people\/peter-mat-4-18$/);
   await expect(page.getByRole("heading", { name: "Peter", level: 1 })).toBeVisible();
   await noSideScroll(page);
 });
@@ -64,7 +64,7 @@ test("people pages: an address with no such page goes back to the person", async
 });
 
 test("people pages: no page scrolls sideways", async ({ page }) => {
-  for (const path of ["/people/david-rut-4-17", "/people/asa-1ki-15-8/rule", "/people/deborah-jdg-4-4/rule", "/people/athaliah-2ki-8-26/rule", "/people/paul-act-7-58/mission", "/people/judas-mat-10-3/mission"]) {
+  for (const path of ["/people/david-rut-4-17", "/people/asa-1ki-15-8/rule", "/people/deborah-jdg-4-4/rule", "/people/athaliah-2ki-8-26/rule", "/people/paul-act-7-58", "/people/judas-mat-10-3/mission"]) {
     await page.goto(path);
     await expect(page.locator(".pp-page, .ap-page, .pp-entry, #person-name").first()).toBeVisible();
     await noSideScroll(page);
