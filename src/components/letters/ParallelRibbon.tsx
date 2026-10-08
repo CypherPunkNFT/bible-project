@@ -25,10 +25,30 @@ function stretch(curve: Cubic, u: number, v: number): Cubic {
   return split(after, u >= 1 ? 0 : (v - u) / (1 - u))[0];
 }
 const pt = ([x, y]: Pt) => `${x.toFixed(1)},${y.toFixed(1)}`;
-/** The part of a ribbon between u and v along its two edges (0 = top rail, 1 = bottom rail), as a closed band. */
+/** A rounded tip across a ribbon's loose end, bulging the way the ribbon is travelling (from `inner` towards `end`). */
+function tip(endL: Pt, endR: Pt, innerL: Pt, innerR: Pt): string {
+  const mid = lerp(endL, endR, 0.5), width = Math.hypot(endR[0] - endL[0], endR[1] - endL[1]);
+  const dx = endL[0] - innerL[0] + endR[0] - innerR[0], dy = endL[1] - innerL[1] + endR[1] - innerR[1], len = Math.hypot(dx, dy) || 1;
+  const bulge = Math.min(width * 0.9, 12); // a wide ribbon keeps a gentle tip rather than a dome
+  return pt([mid[0] + (dx / len) * bulge, mid[1] + (dy / len) * bulge]);
+}
+/**
+ * The part of a ribbon between u and v along its two edges (0 = top rail, 1 = bottom rail), as a closed band. A loose
+ * end (one that does not sit on a rail) is drawn as a rounded tip, so a growing or retracting ribbon reads as a tentacle.
+ */
 function band(leftEdge: Cubic, rightEdge: Cubic, u: number, v: number): string {
   const l = stretch(leftEdge, u, v), r = stretch(rightEdge, u, v);
-  return `M${pt(l[0])} C${pt(l[1])} ${pt(l[2])} ${pt(l[3])} L${pt(r[3])} C${pt(r[2])} ${pt(r[1])} ${pt(r[0])} Z`;
+  const endTip = v < 0.999 ? `Q${tip(l[3], r[3], l[2], r[2])} ${pt(r[3])}` : `L${pt(r[3])}`;
+  const startTip = u > 0.001 ? `Q${tip(r[0], l[0], r[1], l[1])} ${pt(l[0])}` : "";
+  return `M${pt(l[0])} C${pt(l[1])} ${pt(l[2])} ${pt(l[3])} ${endTip} C${pt(r[2])} ${pt(r[1])} ${pt(r[0])} ${startTip} Z`;
+}
+
+const STAGGER = 0.6; // how far apart the ribbons start and finish, as a share of the whole movement
+/** One ribbon's own share of a shared reveal: each starts and finishes at its own moment (spread by the golden ratio),
+ *  so the tips never move in a line like a wipe. `whole` is the reveal's full value (0.5 from each rail, or 1 from one). */
+function ownShare(value: number, whole: number, index: number): number {
+  const offset = (index * 0.6180339887) % 1;
+  return Math.min(1, Math.max(0, (value / whole) * (1 + STAGGER) - STAGGER * offset)) * whole;
 }
 
 /** How much of every ribbon shows, as a share of its own length along its curve, grown from the top rail and from the
@@ -87,10 +107,11 @@ export function ParallelRibbon({ parallel, weightLabel = "shared Greek words", r
           const [b0, b1] = segment(xBottom, p.right);
           const mid = (TOP + BOTTOM) / 2;
           const leftEdge: Cubic = [[a0, TOP], [a0, mid], [b0, mid], [b0, BOTTOM]], rightEdge: Cubic = [[a1, TOP], [a1, mid], [b1, mid], [b1, BOTTOM]];
-          // Whole, or only the stretches grown out from each rail along the ribbon's own curve.
-          const whole = !reveal || reveal.top + reveal.bottom >= 0.999;
-          const d = whole ? band(leftEdge, rightEdge, 0, 1)
-            : [reveal.top > 0.001 && band(leftEdge, rightEdge, 0, reveal.top), reveal.bottom > 0.001 && band(leftEdge, rightEdge, 1 - reveal.bottom, 1)].filter(Boolean).join(" ") || "M0,0";
+          // Whole, or only the stretches grown out from each rail along the ribbon's own curve, each on its own timing.
+          const span = reveal && reveal.top > 0 && reveal.bottom > 0 ? 0.5 : 1;
+          const fromTop = reveal ? ownShare(reveal.top, span, i) : 1, fromBottom = reveal ? ownShare(reveal.bottom, span, i) : 0;
+          const d = !reveal || fromTop + fromBottom >= 0.999 ? band(leftEdge, rightEdge, 0, 1)
+            : [fromTop > 0.001 && band(leftEdge, rightEdge, 0, fromTop), fromBottom > 0.001 && band(leftEdge, rightEdge, 1 - fromBottom, 1)].filter(Boolean).join(" ") || "M0,0";
           return <path key={i} d={d} fill={`url(#rib-${parallel.id})`} opacity={opacityOf(i)} className={active === i ? "lg-glow" : undefined}
             style={{ transition: "opacity .25s", cursor: "pointer" }} tabIndex={0} role="button"
             aria-label={`${label(p.left)} with ${label(p.right)}`}

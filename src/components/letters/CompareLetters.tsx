@@ -7,8 +7,8 @@ import { ALL_LETTERS, LETTER_TONE } from "./letter-hooks";
 import { ParallelRibbon, type RibbonReveal } from "./ParallelRibbon";
 
 const SHOWN = 60; // strongest links drawn; the rest would only be noise at this size
-const GROW_MS = 750; // ribbons growing out from both rails to meet
-const RETRACT_MS = 650; // ribbons shrinking back into the rail that is still chosen
+const GROW_MS = 1100; // ribbons growing out from both rails to meet, each on its own timing
+const RETRACT_MS = 950; // ribbons drawing back into the rail that is still chosen, one after another
 const NONE: RibbonReveal = { top: 0, bottom: 0 };
 const WHOLE: RibbonReveal = { top: 0.5, bottom: 0.5 };
 
