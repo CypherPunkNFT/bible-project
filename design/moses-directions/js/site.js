@@ -1,6 +1,9 @@
 // The site's frame (header, footer), the theme switch, the ticker, and the switcher between the directions.
 (() => {
-  const ORDER = ["road", "forties", "cinema", "constellation", "voices", "objects", "memory"];
+  const ORDER = ["merged", "road", "forties", "cinema", "constellation", "voices", "objects", "memory"]; // the switcher: H first, the newest
+  const PAGES = [...ORDER, "merged-more"]; // H's second page shares H's button
+  const LETTER = { merged: "H", road: "A", forties: "B", cinema: "C", constellation: "D", voices: "E", objects: "F", memory: "G" };
+  const FIRST = "road"; // the page with no #hash
   window.DIRECTIONS = {};
   function savedTheme() {
     try { const v = localStorage.getItem("bp-theme"); if (v === "dark" || v === "light") return v; } catch (error) { console.warn("theme: localStorage unavailable", error); }
@@ -30,17 +33,17 @@
       <nav class="foot-nav" aria-label="Footer">${paths.map(([title, links]) => `<div><h3>${title}</h3><ul>${links.map(([l, to]) => `<li><a href="${to}">${l}</a></li>`).join("")}</ul></div>`).join("")}</nav>
     </div></div></footer>`;
   };
-  const switcher = () => `<nav class="switcher" aria-label="Design directions">${ORDER.map((id, i) => `<button type="button" data-dir="${id}" style="--sw: ${DIRECTIONS[id].swatch}"><i></i><span class="sw-l">${"ABCDEFG"[i]}</span><span class="sw-n">${DIRECTIONS[id].name}</span></button>`).join("")}</nav>`;
+  const switcher = () => `<nav class="switcher" aria-label="Design directions">${ORDER.map((id) => `<button type="button" data-dir="${id}" style="--sw: ${DIRECTIONS[id].swatch}"><i></i><span class="sw-l">${LETTER[id]}</span><span class="sw-n">${DIRECTIONS[id].name}</span>${id === "merged" ? '<em class="sw-new">New</em>' : ""}</button>`).join("")}</nav>`;
   // The breadcrumb every direction shares: back to People, and the page's own three old views now merged.
   window.topline = () => `<div class="topline"><a href="/study/people">${icon("arrowLeft", 15)}Back to People &amp; genealogies</a><span>Person · leader · prophet, one page</span></div>`;
 
   let teardown = null;
   function show() {
-    const id = ORDER.includes(location.hash.slice(1)) ? location.hash.slice(1) : ORDER[0];
+    const id = PAGES.includes(location.hash.slice(1)) ? location.hash.slice(1) : FIRST;
     teardown?.();
     Clock.stop();
     document.body.dataset.dir = id;
-    document.querySelectorAll(".switcher button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.dir === id)));
+    document.querySelectorAll(".switcher button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.dir === id || (id === "merged-more" && b.dataset.dir === "merged"))));
     const main = document.getElementById("main");
     main.className = `dir-${id} dir-enter`;
     main.innerHTML = "";

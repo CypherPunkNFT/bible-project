@@ -60,6 +60,7 @@
 
   DIRECTIONS.forties = {
     name: "Three forties", swatch: "#22599f",
+    ring, // reused as the header of H (the merged page)
     mount(main) {
       const p = M.person;
       main.innerHTML = `

@@ -52,7 +52,7 @@
         <pattern id="${id}-dots" width="7" height="7" patternUnits="userSpaceOnUse"><circle cx="1.5" cy="1.5" r=".75" class="mm-dotfill"/></pattern>
         <filter id="${id}-soft" x="-10%" y="-10%" width="120%" height="120%"><feGaussianBlur stdDeviation="5"/></filter>
         <filter id="${id}-glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3.2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-        ${acts.map((a) => `<mask id="${id}-m${a.act}" maskUnits="userSpaceOnUse"><path class="mm-mask" data-act="${a.act}" d="${a.d}" pathLength="${a.len.toFixed(1)}" stroke-dasharray="${a.len.toFixed(1)} ${a.len.toFixed(1)}" stroke-dashoffset="${a.len.toFixed(1)}"/></mask>`).join("")}
+        ${acts.map((a) => `<mask id="${id}-m${a.act}" maskUnits="userSpaceOnUse" x="-2000" y="-2000" width="5000" height="5000"><path class="mm-mask" data-act="${a.act}" d="${a.d}" pathLength="${a.len.toFixed(1)}" stroke-dasharray="${a.len.toFixed(1)} ${a.len.toFixed(1)}" stroke-dashoffset="${a.len.toFixed(1)}"/></mask>`).join("")}
       </defs>
       <rect x="-1200" y="-900" width="${map.w + 2400}" height="${map.h + 1800}" fill="url(#${id}-sea)"/>
       <path class="mm-grat" d="${grat.join("")}" vector-effect="non-scaling-stroke"/>
@@ -89,6 +89,8 @@
         acts.forEach((a, k) => {
           let lit = 0;
           for (const l of L.filter((x) => x.act === a.act)) lit += l.len * clamp01(t - l.i);
+          masks[k].style.strokeLinecap = "";
+          masks[k].setAttribute("stroke-dasharray", `${a.len.toFixed(1)} ${a.len.toFixed(1)}`);
           masks[k].setAttribute("stroke-dashoffset", (a.len - lit).toFixed(2));
         });
         const i = Math.min(n - 1, Math.floor(t)), f = t - i, pt = along(L[i], f);
@@ -98,6 +100,27 @@
           const idx = el.dataset.idx.split(" ").map(Number);
           el.classList.toggle("is-reached", idx.some((x) => x <= t + .02));
           el.classList.toggle("is-current", idx.includes(cur) && Math.abs(t - cur) < .35);
+        });
+        svg.dataset.act = String(map.route[cur].act);
+      },
+      // Lights only the stretch of road from t0 to t1 (stop units); the walker stands at t1.
+      setRange(t0, t1) {
+        const n = map.route.length - 1; t0 = Math.max(0, Math.min(n, t0)); t1 = Math.max(t0, Math.min(n, t1));
+        acts.forEach((a, k) => {
+          const litAt = (t) => L.filter((x) => x.act === a.act).reduce((s, l) => s + l.len * clamp01(t - l.i), 0);
+          const s0 = litAt(t0), s1 = litAt(t1);
+          // One dash from s0 to s1; square ends, so an empty stretch leaves no round dot behind.
+          masks[k].style.strokeLinecap = "butt";
+          masks[k].setAttribute("stroke-dasharray", `${Math.max(0, s1 - s0).toFixed(2)} ${(a.len * 2).toFixed(1)}`);
+          masks[k].setAttribute("stroke-dashoffset", (-s0).toFixed(2));
+        });
+        const i = Math.min(n - 1, Math.floor(t1)), pt = along(L[i], t1 - i);
+        walker.setAttribute("transform", `translate(${pt[0].toFixed(1)} ${pt[1].toFixed(1)})`);
+        const cur = Math.round(t1);
+        stopsEl.forEach((el) => {
+          const idx = el.dataset.idx.split(" ").map(Number);
+          el.classList.toggle("is-reached", idx.some((x) => x >= t0 - .02 && x <= t1 + .02));
+          el.classList.toggle("is-current", idx.includes(cur) && Math.abs(t1 - cur) < .35);
         });
         svg.dataset.act = String(map.route[cur].act);
       },

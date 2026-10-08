@@ -60,6 +60,7 @@
         return m;
       });
       const state = new Map(); // chapter -> index
+      let finishPending = null;
       // Sliding to a scene: the track moves sideways and the new scene's drawing draws itself, on the clock.
       const slideTo = (ch, to, animate = true) => {
         const track = ch.querySelector(".cn-track"), slides = [...track.children], from = state.get(ch) ?? 0;
@@ -71,17 +72,18 @@
         const label = slides[to].querySelector(".cn-title")?.textContent ?? "";
         if (!animate) { track.style.setProperty("--x", String(to)); target?.style.setProperty("--draw", "1"); return; }
         target?.style.setProperty("--draw", "0");
-        Clock.run({ label: `Slide to "${label}"`, duration: from === to ? 1600 : 2200,
+        finishPending?.(); // a drawing the clock was still playing is finished, not left half-drawn
+        finishPending = () => { track.style.setProperty("--x", String(to)); target?.style.setProperty("--draw", "1"); };
+        Clock.run({ label: `Slide to "${label}"`, duration: from === to ? 1600 : 2200, done: () => { finishPending = null; },
           frame: (q) => { track.style.setProperty("--x", (from + (to - from) * easeInOut(span(q, 0, .45))).toFixed(4)); target?.style.setProperty("--draw", span(q, .3, 1).toFixed(3)); },
           moving: (q) => [from !== to && q < .45 && "scenes sliding sideways", target && q > .3 && q < 1 && "line drawing drawing itself"].filter(Boolean) });
       };
       main.querySelectorAll(".cn-slide .art").forEach((a) => a.style.setProperty("--draw", "0"));
-      const seen = new WeakSet();
       const io = new IntersectionObserver((entries) => entries.forEach((e) => {
         if (!e.isIntersecting) return;
         const id = e.target.dataset.chapter;
         main.querySelectorAll(".cn-rail a").forEach((a) => a.toggleAttribute("aria-current", a.dataset.jump === id));
-        if (!seen.has(e.target)) { seen.add(e.target); slideTo(e.target, state.get(e.target) ?? 0); }
+        slideTo(e.target, state.get(e.target) ?? 0); // every return draws the scene again
       }), { threshold: .45 });
       main.querySelectorAll(".cn-chapter").forEach((c) => io.observe(c));
 

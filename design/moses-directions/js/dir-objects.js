@@ -30,8 +30,33 @@
     return `<div class="fo-time" data-time>
       <div class="fo-time-books">${Object.entries(seg).map(([n, s]) => `<span style="left:${pc(s.x0)};width:${pc(s.w)}" class="${Number(n) >= 2 && Number(n) <= 5 ? "is-life" : ""}" title="${esc(s.name)}"><b>${esc(s.code.charAt(0) + s.code.slice(1).toLowerCase())}</b></span>`).join("")}</div>
       ${O.objects.map((o) => { const a = tx(seg, o.time[0]), b = tx(seg, lastSeen(o)); return `<button type="button" class="fo-lane" data-open="${o.id}"><span class="fo-lane-name"><i>${no(o)}</i>${esc(o.name)}</span>
-        <span class="fo-lane-track"><span class="fo-lane-line" style="left:${pc(a)};width:${pc(Math.max(b - a, .002))}"></span>${o.time.map((t) => `<span class="fo-pt ${t === o.first.ref[0] ? "is-first" : ""}" style="left:${pc(tx(seg, t))}" data-t="${tx(seg, t).toFixed(4)}" title="${esc(refText([t]))}"></span>`).join("")}</span></button>`; }).join("")}
-      <i class="fo-time-head" aria-hidden="true"></i></div>`;
+        <span class="fo-lane-track"><span class="fo-lane-line" style="left:${pc(a)};width:${pc(Math.max(b - a, .002))}"></span>${o.time.map((t) => `<span class="fo-pt ${t === o.first.ref[0] ? "is-first" : ""}" style="left:${pc(tx(seg, t))}" data-t="${tx(seg, t).toFixed(4)}" data-v="${t}" data-obj="${o.id}"></span>`).join("")}</span></button>`; }).join("")}
+      <i class="fo-time-head" aria-hidden="true"></i></div>
+      <p class="fo-tline" data-tline aria-live="polite"><span class="fo-tline-hint">Point at any dot to read what happens there.</span></p>`;
+  };
+  // What happens at one dot: the quoted passage that covers the verse, or the verse itself (data/objects.json "verses").
+  const textAt = (o, v) => {
+    if (o.first.ref[0] <= v && v <= o.first.ref[1]) return { ref: o.first.ref, text: o.first.text };
+    for (const s of o.sections) for (const q of s.quotes) if (q.ref[0] <= v && v <= q.ref[1]) return { ref: q.ref, text: q.text };
+    return O.verses?.[v] ? { ref: [v, v], text: O.verses[v] } : null;
+  };
+  // Through time is interactive: pointing at a dot writes its verse on the line below the lanes, under the dot.
+  window.wireTimeline = (root) => {
+    const line = root.querySelector("[data-tline]"), time = root.querySelector("[data-time]");
+    if (!line || !time) return () => {};
+    let on = null;
+    const show = (pt) => {
+      if (pt === on) return;
+      on?.classList.remove("is-hover"); on = pt; pt.classList.add("is-hover");
+      const o = O.objects.find((x) => x.id === pt.dataset.obj), v = Number(pt.dataset.v), hit = textAt(o, v);
+      const box = time.getBoundingClientRect(), x = pt.getBoundingClientRect().left + 4.5 - box.left;
+      line.style.setProperty("--x", `${Math.max(8, Math.min(box.width - 8, x)).toFixed(1)}px`);
+      line.innerHTML = `<span class="fo-tline-ref"><b>${esc(o.name)}</b>${refLink([v, v])}${hit && hit.ref[0] !== hit.ref[1] ? `<small>in ${esc(refText(hit.ref))}</small>` : ""}</span>
+        <span class="fo-tline-text">${hit ? `“${esc(hit.text)}”<small> KJV</small>` : "This verse names it."}</span>`;
+    };
+    const onOver = (e) => { const pt = e.target.closest(".fo-pt"); if (pt) show(pt); };
+    time.addEventListener("pointerover", onOver);
+    return () => time.removeEventListener("pointerover", onOver);
   };
 
   // The one object Scripture measures: the ark of the covenant (Exodus 25:10), drawn to scale beside a standing figure.
@@ -133,6 +158,7 @@
         };
         const onKey = (e) => { if (current < 0) return; if (e.key === "Escape") close(); else if (e.key === "ArrowRight") open(current + 1); else if (e.key === "ArrowLeft") open(current - 1); };
         main.addEventListener("click", onClick); addEventListener("keydown", onKey);
+        off.push(wireTimeline(main));
         off.push(() => { main.removeEventListener("click", onClick); removeEventListener("keydown", onKey); document.documentElement.classList.remove("fo-locked"); });
         lightUp();
       }
