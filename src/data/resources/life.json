@@ -1,0 +1,2381 @@
+{
+  "checked": "2026-10-08",
+  "groups": [
+    {
+      "id": "crisis",
+      "title": "Crisis — help right now",
+      "entries": [
+        {
+          "id": "emergency-911",
+          "name": "911 (emergency)",
+          "summary": "For any emergency that needs police, fire or an ambulance right now. Stay on the line until the call-taker says you can hang up. Texting 911 works only in some places; a voice call is the most reliable.",
+          "faith": false,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "911"
+            },
+            {
+              "kind": "text",
+              "value": "911",
+              "note": "Only where your local 911 centre accepts texts; if not, you get a bounce-back message. Call if you can."
+            },
+            {
+              "kind": "web",
+              "value": "https://www.fcc.gov/consumers/guides/what-you-need-know-about-text-911",
+              "note": "Where texting 911 works (FCC guide)"
+            }
+          ],
+          "hours": "24/7",
+          "source": "https://www.911.gov/calling-911/",
+          "checked": "2026-10-08"
+        },
+        {
+          "id": "988-lifeline",
+          "name": "988 Suicide & Crisis Lifeline",
+          "summary": "Trained counsellors for anyone in emotional distress, thoughts of suicide, a mental-health or substance-use crisis, or worried about someone else. Text and chat are also offered in Spanish.",
+          "faith": false,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "988"
+            },
+            {
+              "kind": "text",
+              "value": "988"
+            },
+            {
+              "kind": "chat",
+              "value": "https://chat.988lifeline.org/"
+            },
+            {
+              "kind": "web",
+              "value": "https://988lifeline.org/"
+            }
+          ],
+          "hours": "24/7/365",
+          "cost": "Free and confidential",
+          "source": "https://988lifeline.org/",
+          "checked": "2026-10-08"
+        },
+        {
+          "id": "veterans-crisis-line",
+          "name": "Veterans Crisis Line",
+          "summary": "Crisis support for Veterans, service members, National Guard and Reserve members, and the people who support them. You do not need to be enrolled in VA benefits or health care.",
+          "faith": false,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "988",
+              "note": "Dial 988 then press 1"
+            },
+            {
+              "kind": "text",
+              "value": "838255"
+            },
+            {
+              "kind": "chat",
+              "value": "https://www.veteranscrisisline.net/get-help-now/chat/"
+            }
+          ],
+          "hours": "24/7/365",
+          "cost": "Free and confidential",
+          "source": "https://www.veteranscrisisline.net/",
+          "checked": "2026-10-08"
+        },
+        {
+          "id": "crisis-text-line",
+          "name": "Crisis Text Line",
+          "summary": "Text with a live, trained volunteer crisis counsellor about anything that feels too heavy: anxiety, grief, self-harm, suicide, relationships and more.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "text",
+              "value": "741741",
+              "note": "Text HOME to 741741"
+            },
+            {
+              "kind": "chat",
+              "value": "https://connect.crisistextline.org/chat"
+            }
+          ],
+          "hours": "24/7",
+          "cost": "Free",
+          "source": "https://www.crisistextline.org/",
+          "checked": "2026-10-08"
+        },
+        {
+          "id": "domestic-violence-hotline",
+          "name": "National Domestic Violence Hotline",
+          "summary": "Advocates for anyone experiencing abuse in a relationship, or worried about someone who is. The site also has an automated chat; ask for a live advocate if you want a person.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "1-800-799-7233",
+              "note": "1-800-799-SAFE"
+            },
+            {
+              "kind": "text",
+              "value": "88788",
+              "note": "Text START to 88788"
+            },
+            {
+              "kind": "chat",
+              "value": "https://www.thehotline.org/"
+            }
+          ],
+          "hours": "24/7",
+          "cost": "Free and confidential",
+          "source": "https://www.thehotline.org/",
+          "checked": "2026-10-08"
+        },
+        {
+          "id": "childhelp-hotline",
+          "name": "Childhelp National Child Abuse Hotline",
+          "summary": "A safe, non-judgemental place for anyone concerned about or affected by child abuse. It is not a reporting line and is not connected to 911; to make a report, use your state's child-abuse reporting number.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "1-800-422-4453"
+            },
+            {
+              "kind": "text",
+              "value": "1-800-422-4453",
+              "note": "Text \"GO\""
+            },
+            {
+              "kind": "chat",
+              "value": "https://www.childhelphotline.org/"
+            }
+          ],
+          "source": "https://www.childhelphotline.org/",
+          "checked": "2026-10-08"
+        },
+        {
+          "id": "human-trafficking-hotline",
+          "name": "National Human Trafficking Hotline",
+          "summary": "Confidential help and tips for anyone who is, or knows someone who is, being forced or coerced into work or sex. Its website is also in Spanish.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "1-888-373-7888",
+              "note": "TTY: 711"
+            },
+            {
+              "kind": "text",
+              "value": "233733"
+            },
+            {
+              "kind": "chat",
+              "value": "https://humantraffickinghotline.org/en/chat",
+              "note": "Live chat is not always open; the phone line is 24/7"
+            }
+          ],
+          "hours": "24/7",
+          "cost": "Confidential",
+          "source": "https://humantraffickinghotline.org/en",
+          "checked": "2026-10-08"
+        },
+        {
+          "id": "rainn-hotline",
+          "name": "RAINN National Sexual Assault Hotline",
+          "summary": "Support for survivors of sexual violence and the people who love them, by phone, chat or text, in English and Spanish.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "1-800-656-4673",
+              "note": "800.656.HOPE"
+            },
+            {
+              "kind": "text",
+              "value": "64673",
+              "note": "Text \"HOPE\" to 64673"
+            },
+            {
+              "kind": "chat",
+              "value": "https://rainn.org/hotline"
+            }
+          ],
+          "hours": "24/7",
+          "cost": "Free and confidential",
+          "source": "https://rainn.org/",
+          "checked": "2026-10-08"
+        },
+        {
+          "id": "samhsa-helpline",
+          "name": "SAMHSA National Helpline",
+          "summary": "A U.S. government information and referral line for people and families facing mental-health or substance-use problems: local treatment, support groups and community services, in English and Spanish.",
+          "faith": false,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "1-800-662-4357",
+              "note": "1-800-662-HELP"
+            },
+            {
+              "kind": "phone",
+              "value": "1-800-487-4889",
+              "note": "TTY"
+            },
+            {
+              "kind": "text",
+              "value": "435748",
+              "note": "Text your 5-digit ZIP code to 435748 (HELP4U)"
+            }
+          ],
+          "hours": "24/7/365",
+          "cost": "Free and confidential",
+          "locator": "https://findtreatment.gov/",
+          "source": "https://www.samhsa.gov/find-help/helplines/national-helpline",
+          "checked": "2026-10-08"
+        },
+        {
+          "id": "211-united-way",
+          "name": "211 (United Way)",
+          "summary": "One number for local help of every kind: food, housing, bills, health and crisis services. Calls are confidential. In a few places the local 211 is not open around the clock; see the city pages.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "211"
+            },
+            {
+              "kind": "web",
+              "value": "https://www.211.org/"
+            }
+          ],
+          "locator": "https://www.211.org/",
+          "source": "https://www.211.org/",
+          "checked": "2026-10-08"
+        }
+      ]
+    },
+    {
+      "id": "pregnancy",
+      "title": "Pregnancy help",
+      "entries": [
+        {
+          "id": "option-line",
+          "name": "Option Line",
+          "summary": "Pregnancy help by phone, text and live chat for anyone facing an unplanned pregnancy, with a finder for a pregnancy help centre near you. Listed by Heartbeat International as part of its work.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "1-800-712-4357"
+            },
+            {
+              "kind": "text",
+              "value": "1-800-712-4357"
+            },
+            {
+              "kind": "chat",
+              "value": "https://optionline.org/"
+            }
+          ],
+          "locator": "https://optionline.org/center-locator/",
+          "source": "https://optionline.org/",
+          "checked": "2026-10-08"
+        },
+        {
+          "id": "heartbeat-directory",
+          "name": "Heartbeat International — Worldwide Directory of Pregnancy Help",
+          "summary": "A searchable directory of pregnancy help centres, run by Heartbeat International.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "web",
+              "value": "https://www.heartbeatservices.org/worldwide-directory"
+            }
+          ],
+          "locator": "https://www.heartbeatservices.org/worldwide-directory",
+          "source": "https://www.heartbeatservices.org/worldwide-directory",
+          "checked": "2026-10-08"
+        },
+        {
+          "id": "care-net-pregnancy-decision-line",
+          "name": "Care Net — Pregnancy Decision Line",
+          "summary": "Care Net's helpline for anyone facing an unexpected pregnancy decision, whether considering abortion, adoption or parenting. It also links to Care Net pregnancy centres, which it says number more than 1,350 across North America.",
+          "faith": true,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "1-866-406-9327"
+            },
+            {
+              "kind": "web",
+              "value": "https://pregnancydecisionline.org/"
+            }
+          ],
+          "hours": "Mon–Thu 9am–5pm, Fri 9am–4pm (Eastern)",
+          "cost": "Free and confidential",
+          "locator": "https://www.care-net.org/find-a-pregnancy-center",
+          "source": "https://pregnancydecisionline.org/",
+          "checked": "2026-10-08"
+        },
+        {
+          "id": "abortion-pill-rescue",
+          "name": "Abortion Pill Rescue Network (Abortion Pill Reversal)",
+          "summary": "For a woman who has started a medication (pill) abortion and regrets it: the helpline connects her with a medical professional nearby. The site says the outcome of any reversal attempt cannot be guaranteed.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "1-877-558-0333",
+              "note": "24/7 helpline"
+            },
+            {
+              "kind": "phone",
+              "value": "614-885-7577",
+              "note": "Non-urgent inquiries"
+            },
+            {
+              "kind": "email",
+              "value": "info@apr.life"
+            }
+          ],
+          "hours": "24/7 helpline",
+          "source": "https://www.abortionpillreversal.com/",
+          "checked": "2026-10-08"
+        },
+        {
+          "id": "standing-with-you",
+          "name": "Standing With You",
+          "summary": "Help for pregnant and parenting women, including students and workers: talk with a person by phone or text and search a directory of local pregnancy resources. It says it is a directory and is not affiliated with every resource it lists.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "1-877-910-0096",
+              "note": "Call or text"
+            },
+            {
+              "kind": "text",
+              "value": "1-877-910-0096"
+            },
+            {
+              "kind": "email",
+              "value": "pregnancyresources@standingwithyou.org"
+            }
+          ],
+          "source": "https://www.standingwithyou.org/",
+          "checked": "2026-10-08"
+        }
+      ]
+    },
+    {
+      "id": "after-abortion",
+      "title": "After an abortion — healing",
+      "entries": [
+        {
+          "id": "support-after-abortion",
+          "name": "Support After Abortion",
+          "summary": "Compassionate, non-judgemental support for women and men affected by abortion, and a network of healing providers.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "1-844-289-4673",
+              "note": "After Abortion Line (844-289-HOPE)"
+            },
+            {
+              "kind": "email",
+              "value": "hello@supportafterabortion.com"
+            },
+            {
+              "kind": "web",
+              "value": "https://supportafterabortion.com/search-our-provider-network/",
+              "note": "Find a healing provider"
+            }
+          ],
+          "hours": "Mon–Fri 9am–5pm (Eastern)",
+          "locator": "https://supportafterabortion.com/search-our-provider-network/",
+          "source": "https://supportafterabortion.com/about/contact-us/",
+          "checked": "2026-10-08"
+        },
+        {
+          "id": "rachels-vineyard",
+          "name": "Rachel's Vineyard",
+          "summary": "Weekend retreats for women and men hurting after abortion, held in more than 375 locations. Retreats are Catholic, and its listings say all faiths are welcome.",
+          "faith": true,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "1-877-467-3463",
+              "note": "(877) HOPE-4-ME"
+            },
+            {
+              "kind": "phone",
+              "value": "1-866-721-7881",
+              "note": "H3LPLINE"
+            }
+          ],
+          "locator": "https://www.rachelsvineyard.org/weekend/sites.aspx",
+          "source": "https://www.rachelsvineyard.org/",
+          "checked": "2026-10-08"
+        },
+        {
+          "id": "surrendering-the-secret",
+          "name": "Surrendering the Secret",
+          "summary": "An eight-part Bible study for healing after abortion, for women and men. It can connect you with one of more than 6,000 certified leaders by phone, email, online or in person.",
+          "faith": true,
+          "contact": [
+            {
+              "kind": "web",
+              "value": "https://surrenderingthesecret.com/contact/",
+              "note": "Ask to be connected with a leader"
+            }
+          ],
+          "source": "https://surrenderingthesecret.com/find-help/",
+          "checked": "2026-10-08"
+        },
+        {
+          "id": "project-rachel",
+          "name": "Project Rachel (HopeAfterAbortion.org)",
+          "summary": "A Church ministry of healing after abortion. Choose your state to find someone near you; some local ministries also answer a national toll-free line.",
+          "faith": true,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "1-888-456-4673",
+              "note": "888-456-HOPE; connects to a participating local ministry"
+            }
+          ],
+          "locator": "https://hopeafterabortion.com/?page_id=88",
+          "source": "https://hopeafterabortion.com/?page_id=1161",
+          "checked": "2026-10-08"
+        }
+      ]
+    },
+    {
+      "id": "children-families",
+      "title": "Babies, children and families",
+      "entries": [
+        {
+          "id": "safe-haven-baby-boxes",
+          "name": "Safe Haven Baby Boxes",
+          "summary": "For a parent in crisis who cannot care for a newborn: a 24-hour hotline, and boxes in fire stations and hospitals where a newborn can be surrendered safely and anonymously under the Safe Haven law.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "1-866-992-2291",
+              "note": "1-866-99BABY1; call or text"
+            },
+            {
+              "kind": "text",
+              "value": "1-866-992-2291"
+            }
+          ],
+          "hours": "24-hour hotline",
+          "source": "https://www.shbb.org/parents-in-crisis",
+          "checked": "2026-10-08"
+        },
+        {
+          "id": "national-safe-haven-alliance",
+          "name": "National Safe Haven Alliance",
+          "summary": "A crisis helpline for parents considering giving up an infant under their state's Safe Haven law, with help to parent, to plan an adoption, or to find a safe haven location. In an emergency, call 911.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "1-888-510-2229",
+              "note": "1-888-510-BABY; call or text"
+            },
+            {
+              "kind": "text",
+              "value": "1-888-510-2229"
+            }
+          ],
+          "hours": "24/7",
+          "locator": "https://www.nationalsafehavenalliance.org/find-a-safe-haven",
+          "source": "https://www.nationalsafehavenalliance.org/",
+          "checked": "2026-10-08"
+        },
+        {
+          "id": "one-more-child",
+          "name": "One More Child",
+          "summary": "Christ-centred services for single moms, hungry children, trafficked children, foster children and struggling families. Headquarters in Lakeland, Florida.",
+          "faith": true,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "863-687-8811",
+              "note": "Headquarters"
+            },
+            {
+              "kind": "email",
+              "value": "singlemoms@onemorechild.org",
+              "note": "Single moms"
+            },
+            {
+              "kind": "email",
+              "value": "familysupport@onemorechild.org",
+              "note": "Family support"
+            },
+            {
+              "kind": "web",
+              "value": "https://onemorechild.org/need-help/"
+            }
+          ],
+          "source": "https://onemorechild.org/contact/",
+          "checked": "2026-10-08"
+        },
+        {
+          "id": "lifeline-childrens-services",
+          "name": "Lifeline Children's Services",
+          "summary": "Christian adoption, foster care and family support, and free, confidential, no-pressure counselling for a mother deciding whether adoption is right for her.",
+          "faith": true,
+          "contact": [
+            {
+              "kind": "web",
+              "value": "https://lifelinechild.org/"
+            },
+            {
+              "kind": "web",
+              "value": "https://optionsinadoption.com/",
+              "note": "For a pregnant mother considering adoption"
+            }
+          ],
+          "locator": "https://lifelinechild.org/where-we-serve/",
+          "source": "https://lifelinechild.org/",
+          "checked": "2026-10-08"
+        }
+      ]
+    },
+    {
+      "id": "food",
+      "title": "Food",
+      "entries": [
+        {
+          "id": "feeding-america-locator",
+          "name": "Feeding America — find your local food bank",
+          "summary": "Enter your ZIP code to find the food bank that serves your area; the food bank can point you to pantries and meal sites near you.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "web",
+              "value": "https://www.feedingamerica.org/find-your-local-foodbank"
+            }
+          ],
+          "locator": "https://www.feedingamerica.org/find-your-local-foodbank",
+          "source": "https://www.feedingamerica.org/find-your-local-foodbank",
+          "checked": "2026-10-08"
+        },
+        {
+          "id": "usda-national-hunger-hotline",
+          "name": "USDA National Hunger Hotline",
+          "summary": "Staff find food near you: meal sites, food banks, government programmes and other services. Operated by Hunger Free America for the USDA.",
+          "faith": false,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "1-866-348-6479",
+              "note": "1-866-3-HUNGRY"
+            },
+            {
+              "kind": "text",
+              "value": "914-342-7744",
+              "note": "Automated; text a word such as \"food\" with your address or ZIP code"
+            }
+          ],
+          "hours": "Mon–Fri 8am–8pm (Eastern)",
+          "cost": "Free",
+          "source": "https://www.fna.usda.gov/national-hunger-hotline",
+          "checked": "2026-10-08"
+        },
+        {
+          "id": "salvation-army-locator",
+          "name": "The Salvation Army — location finder",
+          "summary": "Find the nearest Salvation Army centre and the services it offers, such as food, shelter and emergency help.",
+          "faith": true,
+          "contact": [
+            {
+              "kind": "web",
+              "value": "https://www.salvationarmyusa.org/location-finder/"
+            }
+          ],
+          "locator": "https://www.salvationarmyusa.org/location-finder/",
+          "source": "https://www.salvationarmyusa.org/location-finder/",
+          "checked": "2026-10-08"
+        }
+      ]
+    },
+    {
+      "id": "grief",
+      "title": "Grief",
+      "entries": [
+        {
+          "id": "griefshare",
+          "name": "GriefShare",
+          "summary": "Weekly support groups, in person and online, for people grieving the death of a family member or friend. Each meeting has a video, discussion and a participant guide; groups are hosted by churches, and the guide costs from nothing to about $25. If grief turns into a crisis, call or text 988.",
+          "faith": true,
+          "contact": [
+            {
+              "kind": "web",
+              "value": "https://find.griefshare.org/find",
+              "note": "Find a group"
+            }
+          ],
+          "locator": "https://find.griefshare.org/find",
+          "source": "https://www.griefshare.org/",
+          "checked": "2026-10-08"
+        }
+      ]
+    },
+    {
+      "id": "recovery",
+      "title": "Addiction and recovery",
+      "entries": [
+        {
+          "id": "celebrate-recovery",
+          "name": "Celebrate Recovery",
+          "summary": "A biblically based recovery ministry, hosted by churches, for anyone seeking healing from hurts, hang-ups and habits, with a weekly online meeting (Wednesdays 12pm Pacific). Its help page says: if you are in danger of hurting yourself or someone else, call 911, or call or text 988.",
+          "faith": true,
+          "contact": [
+            {
+              "kind": "web",
+              "value": "https://crlocator.com/",
+              "note": "Find a group"
+            },
+            {
+              "kind": "web",
+              "value": "https://celebraterecovery.com/weekly-online-recovery-meetings/",
+              "note": "Weekly online meeting"
+            }
+          ],
+          "locator": "https://crlocator.com/",
+          "source": "https://celebraterecovery.com/find-help-2/",
+          "checked": "2026-10-08"
+        },
+        {
+          "id": "findtreatment-gov",
+          "name": "FindTreatment.gov (SAMHSA)",
+          "summary": "The U.S. government's locator for treatment of substance use and mental-health conditions. For a person on the phone, call the SAMHSA National Helpline (1-800-662-4357).",
+          "faith": false,
+          "contact": [
+            {
+              "kind": "web",
+              "value": "https://findtreatment.gov/"
+            }
+          ],
+          "locator": "https://findtreatment.gov/",
+          "source": "https://www.samhsa.gov/find-help/helplines/national-helpline",
+          "checked": "2026-10-08"
+        }
+      ]
+    }
+  ],
+  "cities": [
+    {
+      "id": "jacksonville-fl",
+      "name": "Jacksonville, Florida",
+      "lat": 30.329675,
+      "lon": -81.658801,
+      "centre": "City hall address (117 W Duval St, Jacksonville, FL 32202) via US Census Bureau geocoder (onelineaddress, Public_AR_Current); used only to centre the map",
+      "entries": [
+        {
+          "id": "jax-womens-center",
+          "name": "Women's Center of Jacksonville (rape crisis)",
+          "summary": "Rape recovery services for people of all genders in Duval, Baker and Nassau counties, plus counselling and support groups.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "904-721-7273",
+              "note": "24-hour rape crisis hotline"
+            },
+            {
+              "kind": "phone",
+              "value": "904-722-3000",
+              "note": "Office; counselling ext. 215"
+            },
+            {
+              "kind": "email",
+              "value": "counseling@thewcj.org"
+            }
+          ],
+          "hours": "Hotline 24/7; office Mon–Fri 9am–5pm",
+          "source": "https://thewcj.org/contact-the-wcj/",
+          "checked": "2026-10-08",
+          "category": "abuse",
+          "address": "5644 Colcord Ave, Jacksonville, FL 32211",
+          "lat": 30.326594,
+          "lon": -81.603687,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "jax-fcws-mandarin",
+          "name": "First Coast Women's Services — Mandarin",
+          "summary": "Free, confidential pregnancy testing, ultrasound confirmation, a nurse to talk with, pregnancy and parenting support, and abortion after-care.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "904-262-6300"
+            },
+            {
+              "kind": "text",
+              "value": "904-877-9470"
+            }
+          ],
+          "hours": "Mon 10am–4pm & 6–8pm; Tue 10am–1pm, 2–5pm & 6–8pm; Wed 10am–1pm (closed 1st Wed); Thu 10am–1pm, 2–5pm & 6–8pm; Fri 10am–1pm",
+          "cost": "Free",
+          "source": "https://www.fcws.org/",
+          "checked": "2026-10-08",
+          "category": "pregnancy",
+          "address": "11215 San Jose Blvd, Jacksonville, FL 32223",
+          "lat": 30.170702,
+          "lon": -81.629437,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "jax-fcws-kernan",
+          "name": "First Coast Women's Services — Kernan",
+          "summary": "Free, confidential pregnancy testing, ultrasound confirmation, a nurse to talk with, pregnancy and parenting support, and abortion after-care.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "904-246-7378"
+            },
+            {
+              "kind": "text",
+              "value": "904-877-9470"
+            }
+          ],
+          "hours": "Mon 10am–4pm & 6–8pm; Tue 10am–1pm, 2–5pm & 6–8pm; Wed 10am–1pm (closed 1st Wed); Thu 10am–4pm; Fri 10am–1pm",
+          "cost": "Free",
+          "source": "https://www.fcws.org/",
+          "checked": "2026-10-08",
+          "category": "pregnancy",
+          "address": "3475 Kernan Blvd S, Jacksonville, FL 32224",
+          "lat": 30.285801,
+          "lon": -81.489272,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "jax-fcws-northside",
+          "name": "First Coast Women's Services — Northside",
+          "summary": "Free, confidential pregnancy testing, ultrasound confirmation, a nurse to talk with, pregnancy and parenting support, and abortion after-care.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "904-549-6122"
+            },
+            {
+              "kind": "text",
+              "value": "904-877-9470"
+            }
+          ],
+          "hours": "Mon 10am–1pm; Tue 10am–1pm & 2–6pm; Wed 10am–1pm & 2–5pm (closed 1st Wed); Thu 10am–1pm, 2–4pm & 5–8pm; Fri 10am–1pm",
+          "cost": "Free",
+          "source": "https://www.fcws.org/",
+          "checked": "2026-10-08",
+          "category": "pregnancy",
+          "address": "404 Owens Rd, Jacksonville, FL 32218",
+          "lat": 30.489709,
+          "lon": -81.632263,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "jax-womens-help-southside",
+          "name": "Women's Help Center — Southside",
+          "summary": "Free reproductive help centre: pregnancy testing, ultrasound confirmation, nurse consultations, information on abortion pills and procedures, and after-abortion care. It does not perform or refer for abortion.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "904-398-5143"
+            },
+            {
+              "kind": "text",
+              "value": "904-885-8864"
+            }
+          ],
+          "hours": "Mon, Tue, Thu, Fri 8am–3:30pm; Wed 8:30am–3:30pm; Sat 8am–12pm",
+          "cost": "Free",
+          "source": "https://pregnancyjacksonville.com/",
+          "checked": "2026-10-08",
+          "category": "pregnancy",
+          "address": "4209 University Blvd S, Jacksonville, FL 32216",
+          "lat": 30.28082,
+          "lon": -81.602645,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "jax-womens-help-westside",
+          "name": "Women's Help Center — Westside",
+          "summary": "Free reproductive help centre: pregnancy testing, ultrasound confirmation, nurse consultations, information on abortion pills and procedures, and after-abortion care. It does not perform or refer for abortion.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "904-503-2964"
+            },
+            {
+              "kind": "text",
+              "value": "904-566-3972"
+            }
+          ],
+          "hours": "Mon, Wed, Thu, Fri 8:30am–3pm",
+          "cost": "Free",
+          "source": "https://pregnancyjacksonville.com/",
+          "checked": "2026-10-08",
+          "category": "pregnancy",
+          "address": "4116 Blanding Blvd, Jacksonville, FL 32210",
+          "lat": 30.264909,
+          "lon": -81.738708,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "jax-womens-help-arlington",
+          "name": "Women's Help Center — Arlington",
+          "summary": "Free reproductive help centre: pregnancy testing, ultrasound confirmation, nurse consultations, information on abortion pills and procedures, and after-abortion care. It does not perform or refer for abortion.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "904-446-9009"
+            },
+            {
+              "kind": "text",
+              "value": "904-708-3733"
+            }
+          ],
+          "hours": "Mon, Wed, Fri 9am–2pm",
+          "cost": "Free",
+          "source": "https://pregnancyjacksonville.com/",
+          "checked": "2026-10-08",
+          "category": "pregnancy",
+          "address": "6903 Merrill Rd, Jacksonville, FL 32277",
+          "lat": 30.351999,
+          "lon": -81.583313,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "jax-lifeline-resources",
+          "name": "Lifeline Resources",
+          "summary": "Free, confidential pregnancy tests (walk in, no appointment), consultation, and free limited ultrasounds on Wednesdays by appointment (7–20 weeks). Look for the \"Pregnant?\" sign.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "904-642-9000"
+            },
+            {
+              "kind": "email",
+              "value": "LifelineResourcesInc@gmail.com"
+            }
+          ],
+          "hours": "Mon, Wed, Fri 10am–1pm",
+          "source": "https://www.lifelineresourcesjax.com/contact",
+          "checked": "2026-10-08",
+          "category": "pregnancy",
+          "address": "3733 Southside Blvd, Suite 8, Jacksonville, FL 32216",
+          "lat": 30.279035,
+          "lon": -81.559194,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "jax-catholic-charities-pregnancy",
+          "name": "Catholic Charities Jacksonville — Adoptions and Pregnancy Assistance",
+          "summary": "Life-affirming pregnancy counselling with education and referrals, adoption services, and lifetime counselling for birth mothers.",
+          "faith": true,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "904-354-4846",
+              "note": "Office"
+            },
+            {
+              "kind": "phone",
+              "value": "1-866-901-9647",
+              "note": "Caring Choices (pregnancy and adoption)"
+            },
+            {
+              "kind": "email",
+              "value": "info@ccbjax.org"
+            }
+          ],
+          "hours": "Office Mon–Fri 9am–3pm",
+          "source": "https://www.ccbjax.org/adoptions-and-pregnancy-assistance",
+          "checked": "2026-10-08",
+          "category": "pregnancy",
+          "address": "6 E. Bay St., Suite 500, Jacksonville, FL 32202",
+          "lat": 30.326141,
+          "lon": -81.657823,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "jax-feeding-nefl",
+          "name": "Feeding Northeast Florida",
+          "summary": "The regional food bank. Groceries are given out only at local partner pantries, not at its warehouse; use its map to find one of nearly 500 partner agencies near you.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "904-513-1333"
+            },
+            {
+              "kind": "web",
+              "value": "https://feedingnefl.org/find-food-now/",
+              "note": "Find a pantry"
+            }
+          ],
+          "hours": "Office 8am–4pm",
+          "locator": "https://feedingnefl.org/find-food-now/",
+          "source": "https://feedingnefl.org/contact/",
+          "checked": "2026-10-08",
+          "category": "food",
+          "address": "5245 Old Kings Road, Jacksonville, FL 32254",
+          "lat": 30.363343,
+          "lon": -81.734876,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "jax-clara-white",
+          "name": "Clara White Mission",
+          "summary": "Breakfast and Meals 2 Go, a food pantry, and transitional housing (priority to veterans).",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "904-354-4162"
+            }
+          ],
+          "hours": "Meals Mon–Fri 8:30–10:30am; pantry Tue–Thu 9–10:30am; also 3rd Wednesdays 3–6pm at 4850 Moncrief Rd",
+          "source": "https://clarawhitemission.org/programs",
+          "checked": "2026-10-08",
+          "category": "food",
+          "address": "613 W. Ashley Street, Jacksonville, FL 32202",
+          "lat": 30.332439,
+          "lon": -81.664181,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "jax-desc",
+          "name": "Downtown Ecumenical Services Council (DESC)",
+          "summary": "Groceries (bring proof of housing such as a JEA bill or lease), clothing, a Help Hub, and work boots. Financial assistance appointments go through 211.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "904-358-7955"
+            }
+          ],
+          "hours": "Groceries and clothing Mon, Wed, Fri 9am–12pm",
+          "source": "https://descjax.org/assistance-services/",
+          "checked": "2026-10-08",
+          "category": "food",
+          "address": "215 N. Ocean Street, Jacksonville, FL 32202",
+          "lat": 30.327636,
+          "lon": -81.656197,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "jax-catholic-charities-food",
+          "name": "Catholic Charities Jacksonville — drive-thru food pantry",
+          "summary": "Serves people of all faiths. Tickets from 8am for up to 60 households; one ticket per household; food from 10:30am.",
+          "faith": true,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "904-354-4846"
+            }
+          ],
+          "hours": "Wednesdays and Fridays (arrive about 8am)",
+          "source": "https://www.ccbjax.org/food-assistance",
+          "checked": "2026-10-08",
+          "category": "food",
+          "address": "1430 Bernita St, Jacksonville, FL 32211",
+          "lat": 30.335126,
+          "lon": -81.599447,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "jax-lutheran-social-services",
+          "name": "Lutheran Social Services of Northeast Florida",
+          "summary": "Food pantry by appointment, plus refugee services, HIV care and financial coaching.",
+          "faith": true,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "904-448-5995"
+            },
+            {
+              "kind": "email",
+              "value": "contact@lssjax.org"
+            }
+          ],
+          "source": "https://www.lssjax.org/",
+          "checked": "2026-10-08",
+          "category": "food",
+          "address": "4615 Philips Highway, Jacksonville, FL 32207",
+          "lat": 30.275462,
+          "lon": -81.624862,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "jax-jfcs",
+          "name": "Jewish Family & Community Services (LJD JFCS)",
+          "summary": "Counselling, the Max Block Food Pantry, financial assistance and family services, available to all in Northeast Florida. The map point is the food pantry; the main office is at 8540 Baycenter Rd (Mon–Fri 8:30am–5pm).",
+          "faith": true,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "904-448-1933"
+            },
+            {
+              "kind": "email",
+              "value": "info@jfcsjax.org"
+            }
+          ],
+          "source": "https://jfcsjax.org/",
+          "checked": "2026-10-08",
+          "category": "food",
+          "address": "6261 Dupont Station Ct E, Jacksonville, FL 32217",
+          "lat": 30.256344,
+          "lon": -81.622614,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)",
+          "hours": "Food pantry Tue & Thu 10am–12pm"
+        },
+        {
+          "id": "jax-city-rescue-mission",
+          "name": "City Rescue Mission — Shelter Care",
+          "summary": "Emergency meals and shelter, and the way into its LifeBuilders addiction-recovery programme. Anyone in need may come for dinner.",
+          "faith": true,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "904-421-5161"
+            },
+            {
+              "kind": "phone",
+              "value": "904-387-4357",
+              "note": "Administrative office (904-387-HELP), 426 S. McDuff Ave."
+            }
+          ],
+          "hours": "Dinner for guests not staying overnight 4:30–5:30pm",
+          "source": "https://www.crmjax.org/services/get-help/",
+          "checked": "2026-10-08",
+          "category": "shelter",
+          "address": "234 W. State St., Jacksonville, FL 32202",
+          "lat": 30.333686,
+          "lon": -81.659482,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "jax-trinity-rescue",
+          "name": "Trinity Rescue Mission",
+          "summary": "Emergency services downtown: meals, shelter, showers, clothing and hygiene kits, and help into programmes to end homelessness.",
+          "faith": true,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "904-355-1205"
+            }
+          ],
+          "source": "https://trinityrescue.org/emergency-services/",
+          "checked": "2026-10-08",
+          "category": "shelter",
+          "address": "622 West Union Street, Jacksonville, FL 32202",
+          "lat": 30.333819,
+          "lon": -81.663877,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "jax-sulzbacher-downtown",
+          "name": "Sulzbacher — Downtown Campus (men)",
+          "summary": "Short-term housing for men, daily meals, health care (Duval Family Health) and an Urban Rest Stop; community lunch and dinner are open to anyone. Walk-in requirements: state ID and a free shelter clearance card from the Duval County Health Department (515 W. 6th St, 904-630-3300).",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "904-394-1356",
+              "note": "Housing walk-in"
+            },
+            {
+              "kind": "phone",
+              "value": "904-359-0457",
+              "note": "Administration"
+            },
+            {
+              "kind": "phone",
+              "value": "904-647-4083",
+              "note": "Urban Rest Stop"
+            }
+          ],
+          "hours": "Housing walk-in Mon–Fri 9:30am–3pm; community lunch daily 12–1pm, dinner 5–5:30pm; Urban Rest Stop 9:30am–5:30pm daily",
+          "source": "https://www.sulzbacherjax.org/short-term-housing",
+          "checked": "2026-10-08",
+          "category": "shelter",
+          "address": "611 E. Adams Street, Jacksonville, FL 32202",
+          "lat": 30.326144,
+          "lon": -81.649875,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "jax-sulzbacher-village",
+          "name": "Sulzbacher Village (women and families)",
+          "summary": "Short-term housing for women and families. Bring birth certificates and Social Security cards for all family members.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "904-394-4950"
+            }
+          ],
+          "hours": "Walk-in Mon–Thu 8–11am",
+          "source": "https://www.sulzbacherjax.org/short-term-housing",
+          "checked": "2026-10-08",
+          "category": "shelter",
+          "address": "5455 Springfield Blvd, Jacksonville, FL 32208",
+          "lat": 30.375169,
+          "lon": -81.658875,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "jax-salvation-army",
+          "name": "The Salvation Army — Jacksonville Social Services / Red Shield Lodge",
+          "summary": "Social services and the Red Shield Lodge at the same address. Call for current hours and help available.",
+          "faith": true,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "904-356-8641"
+            }
+          ],
+          "source": "https://www.salvationarmyusa.org/fl/jacksonville/",
+          "checked": "2026-10-08",
+          "category": "shelter",
+          "address": "900 W Adams St, Jacksonville, FL 32204",
+          "lat": 30.330176,
+          "lon": -81.668625,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "jax-community-hospice-grief",
+          "name": "Community Hospice & Palliative Care — Grief and Bereavement",
+          "summary": "Individual, family and children's grief counselling, support groups, and workshops. Free to hospice families for 13 months; selected services free to the whole community.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "1-866-253-6681",
+              "note": "Answered 24/7"
+            }
+          ],
+          "source": "https://www.communityhospice.com/grief-and-loss-support/",
+          "checked": "2026-10-08",
+          "category": "grief",
+          "address": "4266 Sunbeam Road, Jacksonville, FL 32257",
+          "lat": 30.205799,
+          "lon": -81.605128,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        }
+      ],
+      "lines": [
+        {
+          "id": "jax-211",
+          "name": "United Way 211 (Northeast Florida)",
+          "summary": "Information and referral to local health, human and social services, crisis intervention, and care coordination for Veterans.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "211"
+            },
+            {
+              "kind": "phone",
+              "value": "904-632-0600"
+            },
+            {
+              "kind": "text",
+              "value": "211904",
+              "note": "Text \"Hello\" to 211904"
+            }
+          ],
+          "hours": "24/7",
+          "cost": "Free",
+          "source": "https://unitedwaynefl.org/get-help/",
+          "checked": "2026-10-08",
+          "category": "crisis",
+          "address": "No walk-in address listed (phone service); reach it by phone, text or online"
+        },
+        {
+          "id": "jax-988-florida",
+          "name": "988 Florida Lifeline (run locally by United Way of Northeast Florida)",
+          "summary": "Local trained crisis specialists for emotional distress, thoughts of suicide or a substance-use crisis, for yourself or someone you are worried about.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "988"
+            },
+            {
+              "kind": "text",
+              "value": "988"
+            },
+            {
+              "kind": "chat",
+              "value": "https://988lifeline.org/chat"
+            }
+          ],
+          "hours": "24/7/365",
+          "cost": "Free",
+          "source": "https://unitedwaynefl.org/988lifeline/",
+          "checked": "2026-10-08",
+          "category": "crisis",
+          "address": "No walk-in address listed (phone service); reach it by phone, text or online"
+        },
+        {
+          "id": "jax-hubbard-house",
+          "name": "Hubbard House (domestic violence)",
+          "summary": "Domestic-violence help: hotline advocates help with safety planning, shelter, court advocacy and children's counselling, for victims and for people worried about them.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "904-354-3114",
+              "note": "24-hour hotline"
+            },
+            {
+              "kind": "text",
+              "value": "904-210-3698",
+              "note": "24-hour textline"
+            }
+          ],
+          "hours": "24/7",
+          "cost": "Free",
+          "source": "https://www.hubbardhouse.org/domestic-violence-hotline/",
+          "checked": "2026-10-08",
+          "category": "abuse",
+          "address": "No walk-in address listed (shelter location is confidential); reach it by phone, text or online"
+        },
+        {
+          "id": "jax-florida-abuse-hotline",
+          "name": "Florida Abuse Hotline (Department of Children and Families)",
+          "summary": "The state line for reporting known or suspected abuse, neglect or abandonment of a child, or abuse, neglect or exploitation of a vulnerable adult. If someone is in immediate danger, call 911.",
+          "faith": false,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "1-800-962-2873"
+            },
+            {
+              "kind": "web",
+              "value": "https://reportabuse.myflfamilies.com/s/",
+              "note": "Report online"
+            },
+            {
+              "kind": "phone",
+              "value": "1-800-500-1119",
+              "note": "Florida domestic violence hotline"
+            }
+          ],
+          "cost": "Free",
+          "source": "https://www.myflfamilies.com/services/abuse/abuse-hotline",
+          "checked": "2026-10-08",
+          "category": "abuse",
+          "address": "No walk-in address listed (statewide phone service); reach it by phone, text or online",
+          "hours": "24/7"
+        },
+        {
+          "id": "jax-sheriff",
+          "name": "Jacksonville Sheriff's Office",
+          "summary": "Emergency 911; non-emergency line for police help that is not urgent.",
+          "faith": false,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "911",
+              "note": "Emergency"
+            },
+            {
+              "kind": "phone",
+              "value": "904-630-0500",
+              "note": "Non-emergency"
+            }
+          ],
+          "source": "https://www.jaxsheriff.org/",
+          "checked": "2026-10-08",
+          "category": "crisis",
+          "address": "No walk-in address listed (phone service); reach it by phone, text or online"
+        },
+        {
+          "id": "jax-rachels-vineyard",
+          "name": "Rachel's Vineyard — Jacksonville / St. Augustine",
+          "summary": "Local contact for Rachel's Vineyard weekend retreats for healing after abortion. Catholic retreat; all faiths welcome.",
+          "faith": true,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "904-221-3232",
+              "note": "Mary Huston"
+            },
+            {
+              "kind": "email",
+              "value": "Rachelsvineyardjax@yahoo.com"
+            }
+          ],
+          "source": "https://www.rachelsvineyard.org/weekend/sites.aspx",
+          "checked": "2026-10-08",
+          "category": "after-abortion",
+          "address": "No walk-in address listed (retreat location not published); reach it by phone, text or online"
+        },
+        {
+          "id": "jax-changing-homelessness",
+          "name": "Changing Homelessness (homeless services lead agency)",
+          "summary": "If you are experiencing homelessness, call for help; after hours leave a message. Services for veterans and their families.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "904-354-1100"
+            },
+            {
+              "kind": "email",
+              "value": "outreach@changinghomelessness.org"
+            }
+          ],
+          "hours": "Mon–Fri 8am–4pm",
+          "source": "https://www.changinghomelessness.org/",
+          "checked": "2026-10-08",
+          "category": "shelter",
+          "address": "No walk-in address listed (phone service); reach it by phone, text or online"
+        }
+      ],
+      "verified": true
+    },
+    {
+      "id": "miami-fl",
+      "name": "Miami, Florida",
+      "lat": 25.728662,
+      "lon": -80.234994,
+      "centre": "City hall address (3500 Pan American Dr, Miami, FL 33133) via US Census Bureau geocoder (onelineaddress, Public_AR_Current); used only to centre the map",
+      "entries": [
+        {
+          "id": "mia-cvac",
+          "name": "Coordinated Victims Assistance Center (CVAC)",
+          "summary": "Miami-Dade County's victim assistance centre, listed on the county's violence prevention page.",
+          "faith": false,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "305-285-5900"
+            }
+          ],
+          "hours": "Mon–Fri 8am–5pm",
+          "source": "https://wwwx.miamidade.gov/global/service.page?Mduid_service=ser1502483183449106",
+          "checked": "2026-10-08",
+          "category": "abuse",
+          "address": "2400 South Dixie Highway, Miami, FL 33133",
+          "lat": 25.740891,
+          "lon": -80.234452,
+          "geocode": "OpenStreetMap Nominatim (Census geocoder found no match)"
+        },
+        {
+          "id": "mia-rape-treatment-center",
+          "name": "Roxcy Bolton Rape Treatment Center (Jackson Health)",
+          "summary": "Miami-Dade's comprehensive rape treatment centre for victims 12 and older and their non-offending family members: crisis help, exams, counselling and support groups.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "305-585-7273",
+              "note": "305-585-RAPE, 24/7 helpline"
+            },
+            {
+              "kind": "phone",
+              "value": "1-800-955-8771",
+              "note": "Florida Relay (TTY)"
+            }
+          ],
+          "hours": "24/7",
+          "cost": "Free and confidential",
+          "source": "https://jacksonhealth.org/services/rape-treatment/",
+          "checked": "2026-10-08",
+          "category": "abuse",
+          "address": "1611 N.W. 12th Ave., first floor, room 116A, Miami, FL 33136",
+          "lat": 25.790604,
+          "lon": -80.214984,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "mia-camillus-house",
+          "name": "Camillus House — Day Center",
+          "summary": "Hot meals and help for people who are homeless or at risk, and an access point for young adults 18–24. Its page says meal times may change.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "1-877-994-4357",
+              "note": "Homeless Helpline for shelter"
+            },
+            {
+              "kind": "phone",
+              "value": "305-374-1065",
+              "note": "Treatment programme admissions (ext. 509 or 555)"
+            }
+          ],
+          "hours": "Meals Mon–Fri 8:30am; Tue and Thu 12:30pm",
+          "source": "https://www.camillus.org/need-help/",
+          "checked": "2026-10-08",
+          "category": "shelter",
+          "address": "1603 NW 7th Avenue, Miami, FL 33136",
+          "lat": 25.790668,
+          "lon": -80.206897,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "mia-south-dade-phc",
+          "name": "South Dade Pregnancy Help Center (Archdiocese of Miami Respect Life)",
+          "summary": "Confidential, non-judgemental, life-affirming help for families facing a pregnancy, run by the Church; all client services are free.",
+          "faith": true,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "305-273-8507"
+            },
+            {
+              "kind": "phone",
+              "value": "954-395-7698",
+              "note": "Mobile centre (Miami-Dade)"
+            }
+          ],
+          "hours": "Mon–Wed & Sat 9am–3pm; Thu 11am–7pm",
+          "cost": "Free",
+          "source": "https://respectlifemiami.org/pregnancy-help-centers",
+          "checked": "2026-10-08",
+          "category": "pregnancy",
+          "address": "7385 SW 87th Ave, Suite 300, Miami, FL 33173",
+          "lat": 25.701024,
+          "lon": -80.334019,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "mia-childrens-bereavement-center",
+          "name": "Children's Bereavement Center / Lift From Loss",
+          "summary": "Free grief support groups for children, teens, young adults and adults, including child loss and perinatal and infant loss; groups also in Spanish.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "888-988-5438"
+            },
+            {
+              "kind": "email",
+              "value": "info@childbereavement.org"
+            }
+          ],
+          "cost": "Free",
+          "source": "https://childbereavement.org/",
+          "checked": "2026-10-08",
+          "category": "grief",
+          "address": "6619 S. Dixie Highway, #302, Miami, FL 33143",
+          "lat": 25.694582,
+          "lon": -80.300376,
+          "geocode": "OpenStreetMap Nominatim (Census geocoder found no match)"
+        }
+      ],
+      "lines": [
+        {
+          "id": "mia-211",
+          "name": "211 Miami",
+          "summary": "Confidential help line for Miami-Dade and Monroe counties: emotional support, crisis counselling and connection to community resources, in any language.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "211"
+            },
+            {
+              "kind": "phone",
+              "value": "305-631-4211",
+              "note": "If 211 does not connect (e.g. on Wi-Fi calling)"
+            },
+            {
+              "kind": "text",
+              "value": "898211",
+              "note": "Text your ZIP code"
+            }
+          ],
+          "hours": "24/7",
+          "cost": "Free, anonymous, confidential",
+          "source": "https://211miami.org/contact/",
+          "checked": "2026-10-08",
+          "category": "crisis",
+          "address": "No walk-in address listed (phone service); reach it by phone, text or online"
+        },
+        {
+          "id": "mia-safespace-hotline",
+          "name": "Miami-Dade Advocates for Victims / Safespace hotline",
+          "summary": "Miami-Dade County's hotline for its certified domestic-violence shelters: safety planning, shelter, information and referrals. Texting works if calling is not safe.",
+          "faith": false,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "305-679-0303",
+              "note": "Call or text"
+            }
+          ],
+          "hours": "24/7",
+          "source": "https://wwwx.miamidade.gov/global/service.page?Mduid_service=ser1502483183449106",
+          "checked": "2026-10-08",
+          "category": "abuse",
+          "address": "No walk-in address listed (shelter locations are confidential); reach it by phone, text or online"
+        },
+        {
+          "id": "mia-homeless-helpline",
+          "name": "Miami-Dade Homeless Trust — Homeless Helpline",
+          "summary": "The way into shelter in Miami-Dade (shelters do not take walk-ins), and help if you are about to lose your home.",
+          "faith": false,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "1-877-994-4357"
+            }
+          ],
+          "source": "https://www.homelesstrust.org/homeless-trust/home.page",
+          "checked": "2026-10-08",
+          "category": "shelter",
+          "address": "No walk-in address listed (phone service); reach it by phone, text or online"
+        },
+        {
+          "id": "mia-catholic-hospice-grief",
+          "name": "Catholic Hospice — Bereavement",
+          "summary": "Grief support for up to 13 months after a loss, open to the whole community, plus free adult support groups and a free camp for grieving children and teens.",
+          "faith": true,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "305-351-7025",
+              "note": "Bereavement hotline"
+            }
+          ],
+          "cost": "Free groups",
+          "source": "https://www.catholichealthservices.org/hospice/grief-support/",
+          "checked": "2026-10-08",
+          "category": "grief",
+          "address": "No walk-in address listed (groups meet at several sites); reach it by phone, text or online"
+        }
+      ],
+      "verified": false
+    },
+    {
+      "id": "orlando-fl",
+      "name": "Orlando, Florida",
+      "lat": 28.538316,
+      "lon": -81.37896,
+      "centre": "City hall address (400 S Orange Ave, Orlando, FL 32801) via US Census Bureau geocoder (onelineaddress, Public_AR_Current); used only to centre the map",
+      "entries": [
+        {
+          "id": "orl-victim-service-center",
+          "name": "Victim Service Center of Central Florida",
+          "summary": "The certified rape crisis centre for Orange, Osceola and Seminole counties: free, confidential crisis help, therapy and advocacy for victims of sexual assault, violent crime and trauma.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "407-500-4325",
+              "note": "407-500-HEAL, 24/7 helpline"
+            },
+            {
+              "kind": "phone",
+              "value": "407-254-9415",
+              "note": "Office"
+            }
+          ],
+          "hours": "Helpline 24/7; office Mon–Fri 8am–5pm",
+          "source": "https://victimservicecenter.org/our-services/sexual-assault-services/",
+          "checked": "2026-10-08",
+          "category": "abuse",
+          "address": "2111 East Michigan Street, Suite 210, Orlando, FL 32806",
+          "lat": 28.513215,
+          "lon": -81.355768,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "orl-jmj",
+          "name": "JMJ Pregnancy Center — Orlando",
+          "summary": "Pregnancy testing at no cost, limited diagnostic ultrasounds and a consultation about your options; all services confidential and free.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "407-839-0620"
+            },
+            {
+              "kind": "phone",
+              "value": "407-201-5085",
+              "note": "Kissimmee centre"
+            }
+          ],
+          "hours": "Mon, Wed, Fri 10am–2pm",
+          "cost": "Free",
+          "source": "https://jmjpc.org/",
+          "checked": "2026-10-08",
+          "category": "pregnancy",
+          "address": "1401 W Colonial Dr, Orlando, FL 32804",
+          "lat": 28.552985,
+          "lon": -81.400079,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "orl-first-life",
+          "name": "First Life Center for Pregnancy",
+          "summary": "Free pregnancy tests and ultrasounds; all services free and confidential. It does not offer or refer for abortion.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "407-514-4517"
+            },
+            {
+              "kind": "text",
+              "value": "1-800-712-4357"
+            }
+          ],
+          "cost": "Free",
+          "source": "https://pregnancyanswers.org/contact",
+          "checked": "2026-10-08",
+          "category": "pregnancy",
+          "address": "3125 Bruton Blvd, Suite B, Orlando, FL 32805",
+          "lat": 28.509811,
+          "lon": -81.425873,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "orl-second-harvest",
+          "name": "Second Harvest Food Bank of Central Florida",
+          "summary": "The regional food bank; its Food Finder lists partner pantries with days, hours and phone numbers.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "407-295-1066"
+            },
+            {
+              "kind": "web",
+              "value": "https://feedhopenow.org/find-help/food-finder/",
+              "note": "Food Finder"
+            }
+          ],
+          "locator": "https://feedhopenow.org/find-help/food-finder/",
+          "source": "https://feedhopenow.org/",
+          "checked": "2026-10-08",
+          "category": "food",
+          "address": "411 Mercy Drive, Orlando, FL 32805",
+          "lat": 28.549132,
+          "lon": -81.430298,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "orl-coalition",
+          "name": "Coalition for the Homeless of Central Florida",
+          "summary": "Low-barrier shelter focused on housing; a free community dinner every night for anyone in need; drop-in diversion services at the Intake Center, 11 Paramore Ave (407-652-5310).",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "407-652-5300"
+            },
+            {
+              "kind": "phone",
+              "value": "407-652-5310",
+              "note": "Intake Center"
+            }
+          ],
+          "hours": "Dinner daily 6:45pm (front gate); Intake Center Mon–Fri 7:30am–3:30pm",
+          "source": "https://www.centralfloridahomeless.org/drop-in-services",
+          "checked": "2026-10-08",
+          "category": "shelter",
+          "address": "18 North Terry Avenue, Orlando, FL 32801",
+          "lat": 28.54262,
+          "lon": -81.387069,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "orl-ourm-project-hope",
+          "name": "Orlando Union Rescue Mission — Project Hope (men)",
+          "summary": "Emergency shelter for single men (48 beds a night) with a warm meal, shower and laundry, and a long-term Christ-centred recovery programme.",
+          "faith": true,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "407-422-4855",
+              "note": "Administration office"
+            }
+          ],
+          "hours": "Shelter check-in begins 2pm",
+          "source": "https://ourm.org/project-hope-ak/",
+          "checked": "2026-10-08",
+          "category": "shelter",
+          "address": "3300 W. Colonial Drive, Orlando, FL 32808",
+          "lat": 28.552601,
+          "lon": -81.417061,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "orl-ourm-family-home",
+          "name": "Orlando Union Rescue Mission — Family Home",
+          "summary": "Long-term housing and Christ-centred care for single women, single parents with children, and married couples with children.",
+          "faith": true,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "407-423-2131",
+              "note": "Admissions"
+            }
+          ],
+          "source": "https://ourm.org/our-locations/",
+          "checked": "2026-10-08",
+          "category": "shelter",
+          "address": "1525 W Washington Street, Orlando, FL 32805",
+          "lat": 28.543938,
+          "lon": -81.401632,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        }
+      ],
+      "lines": [
+        {
+          "id": "orl-211",
+          "name": "Heart of Florida United Way 211",
+          "summary": "Information and referral for food, housing, mental health, family support and more, with free translation.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "211"
+            },
+            {
+              "kind": "phone",
+              "value": "407-839-4357"
+            },
+            {
+              "kind": "text",
+              "value": "898211",
+              "note": "Text your ZIP code"
+            },
+            {
+              "kind": "chat",
+              "value": "https://www.hfuw.org/chat/"
+            }
+          ],
+          "hours": "24/7/365",
+          "cost": "Free and confidential",
+          "source": "https://www.hfuw.org/get-help/211-help/",
+          "checked": "2026-10-08",
+          "category": "crisis",
+          "address": "No walk-in address listed (phone service); reach it by phone, text or online"
+        },
+        {
+          "id": "orl-harbor-house",
+          "name": "Harbor House of Central Florida (domestic violence)",
+          "summary": "Domestic-violence shelter and help line.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "407-886-2856",
+              "note": "24-hour confidential crisis hotline"
+            }
+          ],
+          "hours": "24/7",
+          "source": "https://www.harborhousefl.com/",
+          "checked": "2026-10-08",
+          "category": "abuse",
+          "address": "No walk-in address listed (shelter location is confidential); reach it by phone, text or online"
+        }
+      ],
+      "verified": false
+    },
+    {
+      "id": "atlanta-ga",
+      "name": "Atlanta, Georgia",
+      "lat": 33.747923,
+      "lon": -84.39028,
+      "centre": "City hall address (55 Trinity Ave SW, Atlanta, GA 30303) via US Census Bureau geocoder (onelineaddress, Public_AR_Current); used only to centre the map",
+      "entries": [
+        {
+          "id": "atl-grady-safe",
+          "name": "Grady SAFE & Rape Crisis Center (Grady Memorial Hospital)",
+          "summary": "Confidential care for anyone affected by sexual violence: crisis line, information, support and referrals.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "404-616-4861",
+              "note": "24/7 crisis line"
+            },
+            {
+              "kind": "email",
+              "value": "gradyrapecrisiscenter@gmh.edu"
+            }
+          ],
+          "hours": "24/7",
+          "source": "https://www.gradyhealth.org/services/trauma-and-er-rape-crisis-center/",
+          "checked": "2026-10-08",
+          "category": "abuse",
+          "address": "80 Jesse Hill Jr Drive SE, Atlanta, GA 30303",
+          "lat": 33.754209,
+          "lon": -84.380393,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "atl-care-center",
+          "name": "Atlanta Care Center",
+          "summary": "Free pregnancy tests, free limited ultrasounds and a support care plan, since 1982. Appointments are confidential, even for minors. It does not offer or refer for abortion.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "404-870-0788"
+            },
+            {
+              "kind": "text",
+              "value": "404-492-6187"
+            }
+          ],
+          "cost": "Free",
+          "source": "https://www.atlantacare.com/",
+          "checked": "2026-10-08",
+          "category": "pregnancy",
+          "address": "1801 Peachtree St., Suite 225, Atlanta, GA 30309",
+          "lat": 33.803516,
+          "lon": -84.393002,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "atl-pac",
+          "name": "Pregnancy Aid Clinic (PAC) — Atlanta",
+          "summary": "Free, confidential pregnancy testing and ultrasound, with medical staff on site. Other clinics in Forest Park and Roswell.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "404-763-4357",
+              "note": "Atlanta clinic: ext. 2"
+            }
+          ],
+          "hours": "Mon–Fri 9am–5pm",
+          "cost": "Free",
+          "source": "https://pac-woman.com/",
+          "checked": "2026-10-08",
+          "category": "pregnancy",
+          "address": "440 Ralph McGill Blvd. NE, Atlanta, GA 30312",
+          "lat": 33.764033,
+          "lon": -84.373594,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "atl-shepherds-inn",
+          "name": "Atlanta Mission — The Shepherd's Inn (men)",
+          "summary": "Shelter and programmes for men. In-person intake: pre-screening at the Mills Street gate; arrive by 7:30am is recommended.",
+          "faith": true,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "404-367-2493"
+            },
+            {
+              "kind": "phone",
+              "value": "404-588-4000",
+              "note": "Atlanta Mission main"
+            }
+          ],
+          "hours": "Intake Mon–Fri 8:30–11:30am",
+          "source": "https://atlantamission.org/shepherds-inn/",
+          "checked": "2026-10-08",
+          "category": "shelter",
+          "address": "165 Ivan Allen Jr Blvd NW, Atlanta, GA 30313",
+          "lat": 33.76469,
+          "lon": -84.394405,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "atl-my-sisters-house",
+          "name": "Atlanta Mission — My Sister's House (women and children)",
+          "summary": "Overnight shelter for women and children experiencing homelessness. Admissions take place at Atlanta Mission's Restoration House.",
+          "faith": true,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "404-367-2465"
+            }
+          ],
+          "source": "https://atlantamission.org/my-sisters-house/",
+          "checked": "2026-10-08",
+          "category": "shelter",
+          "address": "921 Howell Mill Road, Atlanta, GA 30318",
+          "lat": 33.78014,
+          "lon": -84.410388,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        }
+      ],
+      "lines": [
+        {
+          "id": "atl-211",
+          "name": "United Way of Greater Atlanta 211",
+          "summary": "Bilingual specialists connect you with services and programmes; search online at any time.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "211"
+            },
+            {
+              "kind": "text",
+              "value": "898211",
+              "note": "Text your ZIP code and need"
+            },
+            {
+              "kind": "web",
+              "value": "https://211online.unitedwayatlanta.org/"
+            }
+          ],
+          "hours": "Phone Mon–Fri 8am–5pm; online, text and app anytime",
+          "source": "https://unitedwayatlanta.org/about-211/",
+          "checked": "2026-10-08",
+          "category": "crisis",
+          "address": "No walk-in address listed (phone service); reach it by phone, text or online"
+        },
+        {
+          "id": "atl-padv",
+          "name": "Partnership Against Domestic Violence (PADV)",
+          "summary": "Metro Atlanta crisis line for anyone experiencing domestic violence, or helping someone who is.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "404-873-1766",
+              "note": "24/7 metro Atlanta crisis line"
+            }
+          ],
+          "hours": "24/7",
+          "source": "https://padv.org/",
+          "checked": "2026-10-08",
+          "category": "abuse",
+          "address": "No walk-in address listed (shelter location is confidential); reach it by phone, text or online"
+        },
+        {
+          "id": "atl-rachels-vineyard",
+          "name": "Rachel's Vineyard — Atlanta",
+          "summary": "Local contact for Rachel's Vineyard retreats for healing after abortion.",
+          "faith": true,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "404-717-5557",
+              "note": "Liz Youngs"
+            },
+            {
+              "kind": "email",
+              "value": "programdirector@pathatl.com"
+            }
+          ],
+          "source": "https://www.rachelsvineyard.org/weekend/sites.aspx",
+          "checked": "2026-10-08",
+          "category": "after-abortion",
+          "address": "No walk-in address listed (retreat location not published); reach it by phone, text or online"
+        },
+        {
+          "id": "atl-food-bank",
+          "name": "Atlanta Community Food Bank",
+          "summary": "Find a food pantry on its map or by text, book an appointment at a Community Food Center, or get help applying for SNAP and Medicaid.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "text",
+              "value": "888-976-2232",
+              "note": "Text FINDFOOD (or COMIDA)"
+            },
+            {
+              "kind": "phone",
+              "value": "404-892-3333"
+            }
+          ],
+          "locator": "https://www.acfb.org/get-help/",
+          "source": "https://www.acfb.org/get-help/",
+          "checked": "2026-10-08",
+          "category": "food",
+          "address": "No walk-in address listed (food is given at partner pantries, not the warehouse); reach it by phone, text or online"
+        }
+      ],
+      "verified": false
+    },
+    {
+      "id": "charlotte-nc",
+      "name": "Charlotte, North Carolina",
+      "lat": 35.222019,
+      "lon": -80.839213,
+      "centre": "City hall address (600 E 4th St, Charlotte, NC 28202) via US Census Bureau geocoder (onelineaddress, Public_AR_Current); used only to centre the map",
+      "entries": [
+        {
+          "id": "clt-roof-above-day",
+          "name": "Roof Above — Day Services Center",
+          "summary": "A hub for basic needs open to anyone, with a soup kitchen serving meals to anyone at the door; Coordinated Entry sign-ups.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "704-347-0278"
+            }
+          ],
+          "hours": "Coordinated Entry sign-ups Mon–Fri 8:30am and 1:30pm",
+          "source": "https://www.roofabove.org/get-help/",
+          "checked": "2026-10-08",
+          "category": "shelter",
+          "address": "945 North College Street, Charlotte, NC 28206",
+          "lat": 35.233511,
+          "lon": -80.832324,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "clt-roof-above-tryon",
+          "name": "Roof Above — Tryon Street Campus",
+          "summary": "Year-round emergency shelter (no photo ID needed) and Coordinated Entry.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "704-334-3187"
+            }
+          ],
+          "hours": "Coordinated Entry Mon–Fri 8am–4pm",
+          "source": "https://www.roofabove.org/get-help/",
+          "checked": "2026-10-08",
+          "category": "shelter",
+          "address": "1210 North Tryon Street, Charlotte, NC 28206",
+          "lat": 35.236401,
+          "lon": -80.83051,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "clt-salvation-army-center-of-hope",
+          "name": "Salvation Army Center of Hope (Coordinated Entry site)",
+          "summary": "Listed by Roof Above as one of Charlotte's three Coordinated Entry sites for shelter and housing.",
+          "faith": true,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "704-348-2560"
+            }
+          ],
+          "hours": "Coordinated Entry Mon–Fri 8am–5pm",
+          "source": "https://www.roofabove.org/get-help/",
+          "checked": "2026-10-08",
+          "category": "shelter",
+          "address": "534 Spratt Street, Charlotte, NC 28206",
+          "lat": 35.239753,
+          "lon": -80.837716,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "clt-charlotte-rescue-mission",
+          "name": "Charlotte Rescue Mission",
+          "summary": "Free, faith-based residential recovery for people facing homelessness and addiction: a men's programme and one for women and their children.",
+          "faith": true,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "704-333-4673",
+              "note": "(704) 333-HOPE"
+            }
+          ],
+          "source": "https://charlotterescuemission.org/about-us/contact/",
+          "checked": "2026-10-08",
+          "category": "shelter",
+          "address": "915 W. 1st Street, Charlotte, NC 28202",
+          "lat": 35.229642,
+          "lon": -80.855292,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "clt-second-harvest",
+          "name": "Second Harvest Food Bank of Metrolina",
+          "summary": "The regional food bank; its Find Food Near You page lists partner pantries.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "704-376-1785"
+            }
+          ],
+          "locator": "https://www.secondharvestmetrolina.org/need-food/find-food-near-you",
+          "source": "https://www.secondharvestmetrolina.org/need-food/find-food-near-you",
+          "checked": "2026-10-08",
+          "category": "food",
+          "address": "500-B Spratt Street, Charlotte, NC 28206",
+          "lat": 35.239402,
+          "lon": -80.837879,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "clt-queen-city-prc",
+          "name": "Queen City Pregnancy Resource Center",
+          "summary": "Pregnancy testing, education and limited obstetrical ultrasounds by licensed staff, all at no cost. It does not offer or refer for abortion or birth control. ASL interpreters on request.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "980-291-9880"
+            },
+            {
+              "kind": "text",
+              "value": "980-983-1719"
+            },
+            {
+              "kind": "email",
+              "value": "appointments@myqcprc.com"
+            }
+          ],
+          "hours": "Mon 9am–6pm; Tue 10am–7pm; Wed 9am–4pm; Thu 9am–6pm; Fri 9am–3pm",
+          "cost": "Free",
+          "source": "https://myqcprc.com/",
+          "checked": "2026-10-08",
+          "category": "pregnancy",
+          "address": "1508 E. 4th Street, Charlotte, NC 28204",
+          "lat": 35.213694,
+          "lon": -80.828769,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        }
+      ],
+      "lines": [
+        {
+          "id": "clt-nc211",
+          "name": "NC 211",
+          "summary": "United Way of North Carolina's free, confidential information and referral line for health and human services.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "211"
+            },
+            {
+              "kind": "phone",
+              "value": "1-888-892-1162"
+            }
+          ],
+          "cost": "Free and confidential",
+          "source": "https://nc211.org/",
+          "checked": "2026-10-08",
+          "category": "crisis",
+          "address": "No walk-in address listed (phone service); reach it by phone, text or online"
+        },
+        {
+          "id": "clt-safe-alliance",
+          "name": "Safe Alliance — Greater Charlotte Hope Line",
+          "summary": "For anyone in Mecklenburg County affected by domestic violence, sexual assault or human trafficking, and parents needing support.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "980-771-4673",
+              "note": "24/7"
+            },
+            {
+              "kind": "chat",
+              "value": "https://www.safealliance.org/programs/greater-charlotte-hope-line/",
+              "note": "Live chat Mon–Fri 7am–11pm"
+            }
+          ],
+          "hours": "24/7 phone",
+          "cost": "Free and confidential",
+          "source": "https://www.safealliance.org/programs/greater-charlotte-hope-line/",
+          "checked": "2026-10-08",
+          "category": "abuse",
+          "address": "No walk-in address listed (shelter location is confidential); reach it by phone, text or online"
+        },
+        {
+          "id": "clt-coordinated-entry",
+          "name": "Mecklenburg County Coordinated Entry (shelter and housing)",
+          "summary": "The way into shelter and housing help if you are homeless or about to be: a phone assessment, or walk in at a Coordinated Entry site (see Roof Above and the Salvation Army Center of Hope).",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "704-284-9665"
+            }
+          ],
+          "source": "https://www.roofabove.org/get-help/",
+          "checked": "2026-10-08",
+          "category": "shelter",
+          "address": "No walk-in address listed (phone service); reach it by phone, text or online"
+        }
+      ],
+      "verified": false
+    },
+    {
+      "id": "savannah-ga",
+      "name": "Savannah, Georgia",
+      "lat": 32.080955,
+      "lon": -81.091148,
+      "centre": "City hall address (2 E Bay St, Savannah, GA 31401) via US Census Bureau geocoder (onelineaddress, Public_AR_Current); used only to centre the map",
+      "entries": [
+        {
+          "id": "sav-care-center",
+          "name": "Savannah Care Center",
+          "summary": "Free, confidential pregnancy testing, ultrasounds, guidance, parenting education and baby supplies, and post-abortion support.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "912-236-0916"
+            },
+            {
+              "kind": "email",
+              "value": "info@savannahcarecenter.org"
+            }
+          ],
+          "cost": "Free",
+          "source": "https://savannahcarecenter.org/",
+          "checked": "2026-10-08",
+          "category": "pregnancy",
+          "address": "105 East 34th Street, Savannah, GA 31401",
+          "lat": 32.059242,
+          "lon": -81.097946,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "sav-second-harvest",
+          "name": "America's Second Harvest of Coastal Georgia",
+          "summary": "The regional food bank (main branch).",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "912-236-6750"
+            }
+          ],
+          "source": "https://helpendhunger.org/",
+          "checked": "2026-10-08",
+          "category": "food",
+          "address": "1380 Chatham Parkway, Savannah, GA 31405",
+          "lat": 32.058996,
+          "lon": -81.161419,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "sav-union-mission",
+          "name": "Union Mission",
+          "summary": "Housing programmes (Parker's House, Grace House, Magdalene House), a resource centre, permanent supportive housing and mental-health counselling.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "912-238-2777"
+            },
+            {
+              "kind": "email",
+              "value": "info@unionmission.org"
+            }
+          ],
+          "source": "https://www.unionmission.org/",
+          "checked": "2026-10-08",
+          "category": "shelter",
+          "address": "120 Fahm Street, Savannah, GA 31401",
+          "lat": 32.080646,
+          "lon": -81.100373,
+          "geocode": "US Census Bureau geocoder (onelineaddress, Public_AR_Current)"
+        },
+        {
+          "id": "sav-salvation-army",
+          "name": "The Salvation Army — Savannah Corps",
+          "summary": "Local Salvation Army centre. Call to ask what help is available.",
+          "faith": true,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "912-651-7420"
+            }
+          ],
+          "hours": "Mon–Fri 8:30am–4:30pm",
+          "source": "https://www.salvationarmyusa.org/ga/savannah/",
+          "checked": "2026-10-08",
+          "category": "shelter",
+          "address": "3100 Montgomery St, Savannah, GA 31405",
+          "lat": 32.051144,
+          "lon": -81.107522,
+          "geocode": "OpenStreetMap Nominatim (Census geocoder found no match)"
+        }
+      ],
+      "lines": [
+        {
+          "id": "sav-211",
+          "name": "United Way of the Coastal Empire 211",
+          "summary": "Referrals for food, health care, housing, utility bills, childcare and more for Savannah and Bryan, Chatham, Effingham, Liberty and Long counties. Not a 24-hour line and no walk-ins; allow 24–48 business hours for a reply.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "211"
+            },
+            {
+              "kind": "email",
+              "value": "211@uwce.org"
+            }
+          ],
+          "hours": "Mon–Thu 8:30am–5pm",
+          "source": "https://uwce.org/211-2/",
+          "checked": "2026-10-08",
+          "category": "crisis",
+          "address": "No walk-in address listed (phone service); reach it by phone, text or online"
+        },
+        {
+          "id": "sav-safe-shelter",
+          "name": "SAFE Shelter (domestic violence)",
+          "summary": "Confidential emergency shelter for victims of domestic violence and their children, a 24-hour hotline, and legal advocacy (outreach office 7373 Hodgson Memorial Dr., Bldg. 6, Suite 1, 912-651-0004).",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "912-629-8888",
+              "note": "24-hour crisis line"
+            },
+            {
+              "kind": "phone",
+              "value": "912-651-0004",
+              "note": "Outreach and legal advocacy"
+            }
+          ],
+          "hours": "24/7",
+          "source": "https://safeshelter.org/get-help/",
+          "checked": "2026-10-08",
+          "category": "abuse",
+          "address": "No walk-in address listed (shelter location is confidential); reach it by phone, text or online"
+        },
+        {
+          "id": "sav-marys-place",
+          "name": "Mary's Place Sexual Assault Center of the Coastal Empire",
+          "summary": "Sexual-assault crisis line and support for survivors and their families.",
+          "faith": null,
+          "contact": [
+            {
+              "kind": "phone",
+              "value": "912-233-7273",
+              "note": "24/7 crisis line"
+            },
+            {
+              "kind": "phone",
+              "value": "912-233-3000",
+              "note": "Office"
+            }
+          ],
+          "hours": "24/7",
+          "source": "https://marysplacega.org/",
+          "checked": "2026-10-08",
+          "category": "abuse",
+          "address": "No walk-in address listed (address not published on the site); reach it by phone, text or online"
+        }
+      ],
+      "verified": false
+    }
+  ]
+}

@@ -256,6 +256,12 @@ sent to any service. In use: Search's meaning search and the meaning prompts und
 
 The same package's 1:10m land file (land-10m.json 9b9f584709c119d6) is drawn by [scripts/build-map.mjs](scripts/build-map.mjs) into [src/data/atlas-map.json](src/data/atlas-map.json), the land outline on the Letters study's maps.
 
+
+## Resources USA map outline — Natural Earth, public domain (added 2026-10-08)
+
+| File | What | Licence | Checksum |
+|---|---|---|---|
+| [ne_50m_admin_1_states_provinces_lakes.geojson](../sources/natural-earth/ne_50m_admin_1_states_provinces_lakes.geojson) | **Natural Earth** 1:50m admin-1 states and provinces (with lakes), v5.1.2, downloaded 2026-10-08 from the Natural Earth repository (`https://raw.githubusercontent.com/nvkelso/natural-earth-vector/v5.1.2/geojson/ne_50m_admin_1_states_provinces_lakes.geojson`). Only the 50 US states and DC are kept; [scripts/build-us-states.mjs](scripts/build-us-states.mjs) checks the checksum and pre-draws them on an Albers USA projection into [src/data/resources/us-states.json](src/data/resources/us-states.json), the outline of the USA map on [/resources/life](https://bibleproject.io/resources/life) | **Public domain** ([terms](https://www.naturalearthdata.com/about/terms-of-use/)); credit Natural Earth | sha256 b92c3f709b691240 |
 ## Study resources — downloaded 2026-10-03 for the Study pages (TODO section G)
 
 Only facts (event names, topic names, verse references, names and family links) are taken from these. STEP
