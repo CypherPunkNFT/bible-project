@@ -81,9 +81,7 @@ html[data-people-slide][data-people-direction=backward]::view-transition-old(peo
 .pp-lane-track a { flex-basis: 0; min-width: 4px; border-radius: 3px; background: color-mix(in srgb, var(--lg) 22%, transparent); transition: background .15s; }
 .pp-lane-track a:hover, .pp-lane-track a:focus-visible { background: color-mix(in srgb, var(--lg) 55%, transparent); }
 .pp-lane-track a[aria-current="page"] { background: var(--lg); box-shadow: 0 0 14px var(--lg); }
-.pp-lane-tip { display: grid; min-height: 1.4em; margin-top: .35rem; font-size: .78rem; color: var(--muted); }
-.pp-lane-tip > span { grid-area: 1 / 1; }
-.pp-lane-tip-sizer { visibility: hidden; }
+.pp-lane-tip { min-height: 1.4em; margin-top: .35rem; font-size: .78rem; color: var(--muted); } /* height kept by StableTip */
 
 /* Section jump chips under the hero (a sideways row on phones). */
 .pp-jump { display: flex; gap: .4rem; overflow-x: auto; scrollbar-width: none; padding-bottom: .1rem; }

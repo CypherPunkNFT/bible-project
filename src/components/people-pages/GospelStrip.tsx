@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { Refs } from "@/components/letters/LetterParts";
+import { StableTip } from "@/components/StableTip";
 import type { Apostle } from "@/data/people-pages/types";
 import { PEOPLE_PAGES, type ApostleSummary } from "@/lib/people-pages-index";
 import { useCachedLoad } from "@/lib/people-pages";
@@ -30,6 +31,8 @@ export function GospelStrip({ apostle }: { apostle: Apostle }) {
   }, [harmony, apostle]);
   if (!layout) return <div className="lg-figure" style={{ minHeight: 180 }} />;
   const unplaced = apostle.moments.filter((m) => !layout.dots.some((d) => d.moment === m));
+  const resting = <span className="lg-muted">Each dot is an event in which he is named, in the order of the harmony's {layout.total} events. Choose one to open it.</span>;
+  const dotTip = (d: (typeof layout.dots)[number]) => <><strong>{d.moment.label}</strong> <span className="lg-muted">· harmony event {d.section.n}: {d.section.title}</span><Refs refs={d.moment.refs} /></>;
   return <figure>
     <div className="lg-figure pp-gospels">
       <div className="pp-gstrip" role="list" aria-label={`${apostle.name} in the Gospels, in the order of the harmony`}>
@@ -43,8 +46,7 @@ export function GospelStrip({ apostle }: { apostle: Apostle }) {
         </div>)}
       </div>
     </div>
-    <div className="lg-tip" aria-live="polite">{tip ? <><strong>{tip.moment.label}</strong> <span className="lg-muted">· harmony event {tip.section.n}: {tip.section.title}</span><Refs refs={tip.moment.refs} /></>
-      : <span className="lg-muted">Each dot is an event in which he is named, in the order of the harmony's {layout.total} events. Choose one to open it.</span>}</div>
+    <StableTip show={tip ? dotTip(tip) : resting} options={[resting, ...layout.dots.map(dotTip)]} />
     {unplaced.length > 0 && <p className="lg-caption">Also: {unplaced.map((m, i) => <span key={m.label}>{i > 0 && " · "}{m.label}<Refs refs={m.refs} limit={2} /></span>)}</p>}
   </figure>;
 }

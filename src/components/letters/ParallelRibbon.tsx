@@ -1,4 +1,5 @@
-import { useLayoutEffect, useMemo, useRef, useState } from "react";
+import { useLayoutEffect, useMemo, useRef, useState, type ReactNode } from "react";
+import { StableTip } from "@/components/StableTip";
 import type { Parallel, Span } from "@/data/letters/types";
 import { ClaimText, KeepX, Refs } from "./LetterParts";
 import { useKeep, useSpanLabel, useVerseIndex } from "./letter-hooks";
@@ -141,6 +142,13 @@ export function ParallelRibbon({ parallel, weightLabel = "shared Greek words", m
   const kinds = [...new Set(parallel.pairs.map((p) => p.kind).filter(Boolean))] as string[];
   const opacityOf = (i: number) => (active === null ? 0.32 : active === i ? 0.9 : keep.peek(i) ? 0.22 : 0.08);
   const pair = active !== null ? parallel.pairs[active] : undefined;
+  // Hidden sizing copies carry the "let go" mark too, so keeping an item never makes the box grow.
+  const keptMark = <KeepX onRelease={() => undefined} />;
+  const ribbonResting = hint ? <span className="lg-muted">{hint}</span>
+    : <span className="lg-muted">{parallel.pairs.length} parallel passages{kinds.length ? ` · ${kinds.join(" · ")}` : ""}. Point at a ribbon to read both ends; click to keep it.</span>;
+  const pairTip = (p: Parallel["pairs"][number], mark: ReactNode) => <><strong>{label(p.left)}</strong> <span className="lg-muted">with</span> <strong>{label(p.right)}</strong>{mark}
+    {p.kind && <span className="lg-muted"> · {p.kind}</span>}{p.weight !== undefined && <span className="lg-muted"> · {p.weight} {weightLabel}</span>}
+    {p.note && <span className="lg-muted"> · {p.note}</span>}<Refs refs={[p.left, p.right]} /></>;
   const reveal = current.current;
   // On a rail the ribbons have left (or not reached yet), the passage marks fade with them.
   const showTop = !reveal || reveal.top > 0.02, showBottom = !reveal || reveal.bottom > 0.02;
@@ -168,13 +176,8 @@ export function ParallelRibbon({ parallel, weightLabel = "shared Greek words", m
         </g>)}
       </svg>
     </div>
-    <div className="lg-tip" aria-live="polite">
-      {pair ? <><strong>{label(pair.left)}</strong> <span className="lg-muted">with</span> <strong>{label(pair.right)}</strong>{keep.kept !== null && <KeepX onRelease={keep.release} />}
-        {pair.kind && <span className="lg-muted"> · {pair.kind}</span>}{pair.weight !== undefined && <span className="lg-muted"> · {pair.weight} {weightLabel}</span>}
-        {pair.note && <span className="lg-muted"> · {pair.note}</span>}<Refs refs={[pair.left, pair.right]} /></>
-        : hint ? <span className="lg-muted">{hint}</span>
-        : <span className="lg-muted">{parallel.pairs.length} parallel passages{kinds.length ? ` · ${kinds.join(" · ")}` : ""}. Point at a ribbon to read both ends; click to keep it.</span>}
-    </div>
+    <StableTip show={pair ? pairTip(pair, keep.kept !== null && <KeepX onRelease={keep.release} />) : ribbonResting}
+      options={[ribbonResting, ...parallel.pairs.map((p) => pairTip(p, keptMark))]} cap="12rem" />
     <figcaption className="lg-caption"><ClaimText claim={parallel.claim} as="span" /></figcaption>
   </figure>;
 }

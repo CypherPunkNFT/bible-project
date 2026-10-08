@@ -1,4 +1,5 @@
-import type { MouseEvent } from "react";
+import type { MouseEvent, ReactNode } from "react";
+import { StableTip } from "@/components/StableTip";
 import type { Flow } from "@/data/letters/types";
 import { useKeep } from "./letter-hooks";
 import { ClaimText, KeepX, Refs } from "./LetterParts";
@@ -37,7 +38,16 @@ export function FlowChart({ flow }: { flow: Flow }) {
   const left = stack(sources, unit), right = stack(targets, unit);
   const height = Math.max(...[...left.values(), ...right.values()].map((n) => n.y + n.h)) + 20;
   const usedL = new Map<string, number>(), usedR = new Map<string, number>();
-  const focus = active ? flow.links.filter((l) => l.source === active || l.target === active).sort((a, b) => b.value - a.value) : [];
+  const focusOf = (name: string) => flow.links.filter((l) => l.source === name || l.target === name).sort((a, b) => b.value - a.value);
+  // Hidden sizing copies carry the "let go" mark too, so keeping an item never makes the box grow.
+  const keptMark = <KeepX onRelease={() => undefined} />;
+  const flowResting = <span className="lg-muted">{total} quotations. Point at a book or a chapter to see the passages; click one to keep them open.</span>;
+  const flowTip = (name: string, isKept: boolean, mark: ReactNode) => <>
+    <strong>{name}</strong> <span className="lg-muted">· {focusOf(name).reduce((s, l) => s + l.value, 0)}{isKept ? "" : " · click to keep these open"}</span>{mark}
+    <ul className="lg-flow-list">{focusOf(name).map((l) => <li key={`${l.source}→${l.target}`}>
+      <b>{l.source === name ? l.target : l.source} · {l.value}</b><Refs refs={l.refs} limit={Infinity} />
+    </li>)}</ul>
+  </>;
   const node = (name: string) => ({
     className: keep.peek(name) ? "lg-peek" : undefined, style: { cursor: "pointer" }, tabIndex: 0, role: "button", "aria-pressed": kept === name,
     ...keep.bind(name),
@@ -68,12 +78,8 @@ export function FlowChart({ flow }: { flow: Flow }) {
         </g>)}
       </svg>
     </div>
-    <div className="lg-tip" aria-live="polite">{active ? <>
-      <strong>{active}</strong> <span className="lg-muted">· {focus.reduce((s, l) => s + l.value, 0)}{kept ? "" : " · click to keep these open"}</span>{kept && <KeepX onRelease={keep.release} />}
-      <ul className="lg-flow-list">{focus.map((l) => <li key={`${l.source}→${l.target}`}>
-        <b>{l.source === active ? l.target : l.source} · {l.value}</b><Refs refs={l.refs} limit={Infinity} />
-      </li>)}</ul>
-    </> : <span className="lg-muted">{total} quotations. Point at a book or a chapter to see the passages; click one to keep them open.</span>}</div>
+    <StableTip show={active ? flowTip(active, Boolean(kept), kept && <KeepX onRelease={keep.release} />) : flowResting}
+      options={[flowResting, ...[...sources.keys(), ...targets.keys()].map((name) => flowTip(name, false, keptMark))]} cap="14rem" />
     <figcaption className="lg-caption"><ClaimText claim={flow.claim} as="span" /></figcaption>
   </figure>;
 }

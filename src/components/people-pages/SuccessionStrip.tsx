@@ -1,6 +1,7 @@
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useMemo, useState, type KeyboardEvent } from "react";
 import { Section, Refs } from "@/components/letters/LetterParts";
+import { StableTip } from "@/components/StableTip";
 import type { Claim, Quote, Ruler } from "@/data/people-pages/types";
 import { formatYears } from "@/lib/eras";
 import { PEOPLE_PAGES, rulerFor, rulerHref, rulersOfRealm, type RulerSummary } from "@/lib/people-pages-index";
@@ -38,6 +39,16 @@ function windowFor(summary: RulerSummary): [number, number] {
 
 type Tip = { bar: StripBar } | { quote: Quote; other?: RulerSummary } | null;
 
+/** The strip's tip for one bar, for one cross-dating line, and at rest (StableTip keeps the box at the tallest). */
+function barTip(bar: StripBar) {
+  const r = bar.ruler;
+  return <><strong>{r.name}</strong> <span className="lg-muted">· {r.title} · {r.reignText}{r.dates && ` · ${formatYears(r.dates.from, r.dates.to, r.dates.approx)}`} · {VERDICT[r.verdictTone].symbol} {VERDICT[r.verdictTone].label}</span></>;
+}
+
+function quoteTip(quote: Quote) {
+  return <><span>“{quote.text}”</span><Refs refs={[quote.span]} /></>;
+}
+
 /** The signature picture: this reign among its neighbours, both kingdoms at once, joined by Scripture's cross-dating. */
 export function SuccessionStrip({ ruler, summary, intro }: { ruler: Ruler; summary: RulerSummary; intro?: Claim[] }) {
   const carried = useCarried();
@@ -62,6 +73,8 @@ export function SuccessionStrip({ ruler, summary, intro }: { ruler: Ruler; summa
   const after = summary.successor ? rulerFor(summary.successor) : undefined;
   const powers = ruler.worldStage.map((w) => w.power);
   const worldShown = strip?.layout.lanes.some((l) => WORLD_REALMS.includes(l.id as Ruler["realm"]));
+
+  const resting = strip && <span className="lg-muted">{ruler.synchronisms?.length ? "Point at a line to read the verse that dates one reign by the other. " : ""}Point at a bar to name the reign. Bars use {summary.dates?.label || "the main dating"}; other systems are under “Dates differ”.{strip.layout.bars.some((b) => b.undated) ? " A dotted bar has no years of its own: it stands beside the rulers Scripture names with it." : ""}</span>;
 
   const lead = ruler.realm === "united" ? "One lane for the united kingdom, which splits in two at Rehoboam. Each bar is a reign; choose one to open it."
     : ruler.realm === "israel" || ruler.realm === "judah" ? "Both thrones at once. The lines are Scripture's own cross-dating between the two kingdoms. Each bar is a reign; choose one to open it."
@@ -94,9 +107,8 @@ export function SuccessionStrip({ ruler, summary, intro }: { ruler: Ruler; summa
         </div>
       </div>
       <div ref={pill.pill} className="pp-hpill" onPointerDown={pill.onPillDown} aria-hidden><span ref={pill.thumb} /></div>
-      <div className="lg-tip" aria-live="polite">{tip && "bar" in tip ? <><strong>{tip.bar.ruler.name}</strong> <span className="lg-muted">· {tip.bar.ruler.title} · {tip.bar.ruler.reignText}{tip.bar.ruler.dates && ` · ${formatYears(tip.bar.ruler.dates.from, tip.bar.ruler.dates.to, tip.bar.ruler.dates.approx)}`} · {VERDICT[tip.bar.ruler.verdictTone].symbol} {VERDICT[tip.bar.ruler.verdictTone].label}</span></>
-        : tip ? <><span>“{tip.quote.text}”</span><Refs refs={[tip.quote.span]} /></>
-          : <span className="lg-muted">{ruler.synchronisms?.length ? "Point at a line to read the verse that dates one reign by the other. " : ""}Point at a bar to name the reign. Bars use {summary.dates?.label || "the main dating"}; other systems are under “Dates differ”.{strip.layout.bars.some((b) => b.undated) ? " A dotted bar has no years of its own: it stands beside the rulers Scripture names with it." : ""}</span>}</div>
+      <StableTip show={tip && "bar" in tip ? barTip(tip.bar) : tip ? quoteTip(tip.quote) : resting}
+        options={[resting, ...strip.layout.bars.map(barTip), ...(ruler.synchronisms ?? []).map((s) => quoteTip(s.quote))]} />
     </>}
     <CrossDating ruler={ruler} />
     <nav className="pp-strip-nav" aria-label="Neighbouring reigns">
@@ -116,6 +128,7 @@ function SequenceStrip({ summary, intro }: { summary: RulerSummary; intro?: Clai
   const at = line.findIndex((r) => r.id === summary.id);
   const pill = useStripPill(line.length ? (at + 0.5) / line.length : undefined);
   const [tip, setTip] = useState<RulerSummary | null>(null);
+  const seqResting = <span className="lg-muted">{summary.realm === "tribes" ? "In the order of the book. Each bar is as long as the years Scripture gives; a dotted bar means Scripture gives no number. No year BC is given for any of them." : "In the order of the story. A dotted bar means Scripture gives no length; none of these has years of its own in Scripture."}</span>;
   return <>
     <div ref={pill.frame} className="pp-strip-frame">
       <nav className="pp-seq" aria-label={`The line in order: ${line.length}`}>
@@ -125,10 +138,13 @@ function SequenceStrip({ summary, intro }: { summary: RulerSummary; intro?: Clai
       </nav>
     </div>
     <div ref={pill.pill} className="pp-hpill" onPointerDown={pill.onPillDown} aria-hidden><span ref={pill.thumb} /></div>
-    <div className="lg-tip" aria-live="polite">{tip ? <><strong>{tip.name}</strong> <span className="lg-muted">· {tip.title} · {tip.reignText}</span></>
-      : <span className="lg-muted">{summary.realm === "tribes" ? "In the order of the book. Each bar is as long as the years Scripture gives; a dotted bar means Scripture gives no number. No year BC is given for any of them." : "In the order of the story. A dotted bar means Scripture gives no length; none of these has years of its own in Scripture."}</span>}</div>
+    <StableTip show={tip ? seqTip(tip) : seqResting} options={[seqResting, ...line.map(seqTip)]} />
     {intro?.length ? <details className="lg-more"><summary>How long was the time of the judges? Scripture's own numbers</summary><ClaimList claims={intro} /></details> : null}
   </>;
+}
+
+function seqTip(r: RulerSummary) {
+  return <><strong>{r.name}</strong> <span className="lg-muted">· {r.title} · {r.reignText}</span></>;
 }
 
 /** Every cross-dating verse of this reign, each naming the other ruler (their reign, or their person page). */

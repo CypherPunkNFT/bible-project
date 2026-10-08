@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { StableTip } from "@/components/StableTip";
 import type { Ruler } from "@/data/people-pages/types";
 import { formatYears } from "@/lib/eras";
 import { prophetFor, prophetHref, rulerFor, rulerHref, rulersOfRealm, type RulerSummary } from "@/lib/people-pages-index";
@@ -83,12 +84,7 @@ function RealmLane({ line, current }: { line: RulerSummary[]; current: string })
         style={{ flexGrow: r.years ?? 12 }} aria-label={`${r.name}, ${r.title}${r.years ? `, ${r.years} years` : ""}`}
         onMouseEnter={() => setTip(r)} onMouseLeave={() => setTip(null)} onFocus={() => setTip(r)} onBlur={() => setTip(null)} />)}
     </nav>
-    {/* Every line the tip can show sits in one grid cell, hidden but measured, so the box is always as tall as the
-        longest and never jumps when a two-line name is pointed at. */}
-    <div className="pp-lane-tip">
-      {[resting, ...line.map(laneTip)].map((text, i) => <span key={i} className="pp-lane-tip-sizer" aria-hidden="true">{text}</span>)}
-      <span aria-live="polite">{tip ? laneTip(tip) : resting}</span>
-    </div>
+    <StableTip className="pp-lane-tip" show={tip ? laneTip(tip) : resting} options={[resting, ...line.map(laneTip)]} />
   </div>;
 }
 

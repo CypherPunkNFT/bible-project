@@ -1,6 +1,8 @@
 import type { CanonEvent, Letter } from "@/data/letters/types";
 import { useKeep } from "./letter-hooks";
+import type { ReactNode } from "react";
 import { ClaimText, KeepX } from "./LetterParts";
+import { StableTip } from "@/components/StableTip";
 
 const W = 1000;
 const LANE = 34;
@@ -22,6 +24,12 @@ export function CanonLanes({ events, letters }: { events: CanonEvent[]; letters:
   const { active } = keep; // a year
   if (!events.length) return null;
   const sorted = [...events].sort((a, b) => a.year - b.year);
+  // Hidden sizing copies carry the "let go" mark too, so keeping an item never makes the box grow.
+  const keptMark = <KeepX onRelease={() => undefined} />;
+  const canonResting = <span className="lg-muted">Point at a year or a mark to read what the witnesses of that year say; click to keep it.</span>;
+  const yearTip = (year: number, mark: ReactNode) => <>{sorted.filter((e) => e.year === year).map((e, i) => <div key={i}>
+    <strong>{e.label}</strong>{i === 0 && mark} <span className="lg-muted">· about AD {e.year} · {e.who}</span><ClaimText claim={e.claim} />
+  </div>)}</>;
   const lo = sorted[0].year, hi = sorted[sorted.length - 1].year;
   // Years follow time, but no two marks sit closer than MIN_GAP (110, 115 and 120 would collide); a long run of
   // witnesses makes the strip wider than the panel and it scrolls inside it rather than squeezing.
@@ -69,9 +77,7 @@ export function CanonLanes({ events, letters }: { events: CanonEvent[]; letters:
       {Object.values(STATUS).map((s) => <span key={s.label} className="lg-muted" style={{ fontSize: ".72rem", display: "inline-flex", alignItems: "center", gap: ".35rem", marginRight: ".8rem" }}>
         <svg width="12" height="12"><circle cx="6" cy="6" r="4.5" fill={s.fill} stroke={s.fill === "transparent" ? "var(--lg)" : "none"} strokeWidth="1.5" /></svg>{s.label}</span>)}
     </div>
-    <div className="lg-tip" aria-live="polite">{active !== null ? sorted.filter((e) => e.year === active).map((e, i) => <div key={i}>
-        <strong>{e.label}</strong>{i === 0 && keep.kept !== null && <KeepX onRelease={keep.release} />} <span className="lg-muted">· about AD {e.year} · {e.who}</span><ClaimText claim={e.claim} />
-      </div>)
-      : <span className="lg-muted">Point at a year or a mark to read what the witnesses of that year say; click to keep it.</span>}</div>
+    <StableTip show={active !== null ? yearTip(active, keep.kept !== null && <KeepX onRelease={keep.release} />) : canonResting}
+      options={[canonResting, ...[...new Set(sorted.map((e) => e.year))].map((year) => yearTip(year, keptMark))]} cap="16rem" />
   </figure>;
 }

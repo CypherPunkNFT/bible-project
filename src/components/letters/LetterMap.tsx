@@ -1,11 +1,12 @@
 import { geoMercator } from "d3-geo";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, type ReactNode } from "react";
 import atlasMap from "@/data/atlas-map.json";
 import { loadPlaces } from "@/lib/data";
 import { useAsync } from "@/lib/useAsync";
 import type { MapLayer } from "@/data/letters/types";
 import { useKeep } from "./letter-hooks";
 import { ClaimText, KeepX, Refs } from "./LetterParts";
+import { StableTip } from "@/components/StableTip";
 
 // The Atlas's own projection and land outline (src/data/atlas-map.json), so places sit exactly where the Atlas puts them.
 const projection = geoMercator().scale(atlasMap.scale).translate(atlasMap.translate as [number, number]);
@@ -39,6 +40,13 @@ type Point = { name: string; x: number; y: number; layer: number; note?: string;
 function ReportPointed({ placeId, onActive }: { placeId?: string; onActive?: (placeId?: string) => void }) {
   useEffect(() => { onActive?.(placeId); }, [placeId, onActive]);
   return null;
+}
+
+const mapResting = <span className="lg-muted">Point at a place; click to keep it. Places from OpenBible.info (CC BY); land outline from Natural Earth.</span>;
+
+/** The map's tip for one place (StableTip keeps the box at the tallest of these). */
+function placeTip(p: Point, mark: ReactNode) {
+  return <><strong>{p.name}</strong>{mark}{p.letter && <span className="lg-muted"> · letter: {p.letter}</span>}{p.note && <span className="lg-muted"> · {p.note}</span>}<Refs refs={p.refs} /></>;
 }
 
 /** Routes and pins over the land outline, zoomed to the places shown; one toggle per layer. `focus` (a place id) lights
@@ -135,10 +143,8 @@ export function LetterMap({ layers, title, displayWidth = 1150, focus, onActive 
         </g>)}
       </svg>
     </div>
-    <div className="lg-tip" aria-live="polite">
-      {active ? <><strong>{active.name}</strong>{keep.kept && <KeepX onRelease={keep.release} />}{active.letter && <span className="lg-muted"> · letter: {active.letter}</span>}{active.note && <span className="lg-muted"> · {active.note}</span>}<Refs refs={active.refs} /></>
-        : <span className="lg-muted">Point at a place; click to keep it. Places from OpenBible.info (CC BY); land outline from Natural Earth.</span>}
-    </div>
+    <StableTip show={active ? placeTip(active, keep.kept && <KeepX onRelease={keep.release} />) : mapResting}
+      options={[mapResting, ...all.map((p) => placeTip(p, <KeepX onRelease={() => undefined} />))]} />
     {shown.map(({ layer }) => <ClaimText key={layer.id} claim={layer.claim} className="lg-caption" />)}
   </figure>;
 }

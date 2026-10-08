@@ -1,4 +1,5 @@
-import type { CSSProperties } from "react";
+import type { CSSProperties, ReactNode } from "react";
+import { StableTip } from "@/components/StableTip";
 import { Link } from "react-router-dom";
 import { useCatalog } from "@/lib/catalog";
 import { loadLetters, studyRefLink, type Letter as LetterSections } from "@/lib/study";
@@ -32,6 +33,10 @@ export function LetterShape({ letters, selected, onSelect, outline = true }: { l
   for (const l of letters) for (const s of byCode.get(l.code)?.sections ?? []) info.set(`s${s.start}`, { title: s.title, span: [s.start, s.end] });
   for (const part of chosen.outline) info.set(`o${part.span[0]}`, { title: part.title, span: part.span, kind: part.kind });
   const hover = keep.active ? info.get(keep.active) : undefined;
+  // Hidden sizing copies carry the "let go" mark too, so keeping an item never makes the box grow.
+  const keptMark = <KeepX onRelease={() => undefined} />;
+  const shapeResting = <span className="lg-muted">Section headings from the Berean Standard Bible (public domain). Point at a segment; click to keep it, then open its passage below.</span>;
+  const infoTip = (i: Info, mark: ReactNode) => <><strong>{i.title}</strong>{mark}{i.kind && <span className="lg-muted"> · {i.kind}</span>}<Refs refs={[i.span]} /></>;
   const marks = (key: string) => ({ "data-kept": keep.kept === key || undefined, ...keep.bind(key) });
 
   return <div>
@@ -51,8 +56,8 @@ export function LetterShape({ letters, selected, onSelect, outline = true }: { l
         </div>;
       })}
     </div>
-    <div className="lg-tip" aria-live="polite">{hover ? <><strong>{hover.title}</strong>{keep.kept && <KeepX onRelease={keep.release} />}{hover.kind && <span className="lg-muted"> · {hover.kind}</span>}<Refs refs={[hover.span]} /></>
-      : <span className="lg-muted">Section headings from the Berean Standard Bible (public domain). Point at a segment; click to keep it, then open its passage below.</span>}</div>
+    <StableTip show={hover ? infoTip(hover, keep.kept && <KeepX onRelease={keep.release} />) : shapeResting}
+      options={[shapeResting, ...[...info.values()].map((i) => infoTip(i, keptMark))]} />
 
     {outline && chosen.outline.length > 0 && <div style={{ marginTop: "1.25rem" }}>
       <p className="lg-subhead">{chosen.name} · outline in our own words{kinds.length ? ` · coloured by ${kinds.join(" / ")}` : ""}</p>

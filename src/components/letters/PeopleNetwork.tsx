@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { StableTip } from "@/components/StableTip";
 import type { Network } from "@/data/letters/types";
 import { ClaimText, Refs } from "./LetterParts";
 
@@ -38,7 +39,13 @@ export function PeopleNetwork({ network }: { network: Network }) {
   const at = new Map(nodes.map((n) => [n.id, n]));
   const linked = new Set(active ? network.edges.flatMap((e) => (e.from === active || e.to === active ? [e.from, e.to] : [])) : []);
   const node = active ? at.get(active) : undefined;
-  const edges = active ? network.edges.filter((e) => e.from === active || e.to === active) : [];
+  const edgesOf = (id: string) => network.edges.filter((e) => e.from === id || e.to === id);
+  const netResting = <span className="lg-muted">Point at a name to see who they are linked to, and where.</span>;
+  const nodeTip = (n: Placed) => {
+    const es = edgesOf(n.id);
+    return <><strong>{n.label}</strong>{n.note && <span className="lg-muted"> · {n.note}</span>}<Refs refs={[...(n.refs ?? []), ...es.flatMap((e) => e.refs ?? [])]} />
+      {es.some((e) => e.label) && <span className="lg-muted"> · {es.map((e) => e.label).filter(Boolean).slice(0, 4).join(" · ")}</span>}</>;
+  };
   const groups = [...new Set(network.nodes.map((n) => n.group).filter(Boolean))];
   const tone = (group?: string) => (group === "letter" ? "var(--lg)" : ["var(--poetry)", "var(--prophets)", "var(--acts)", "var(--history)"][Math.max(0, groups.indexOf(group)) % 4]);
 
@@ -62,9 +69,7 @@ export function PeopleNetwork({ network }: { network: Network }) {
         })}
       </svg>
     </div>
-    <div className="lg-tip" aria-live="polite">{node ? <><strong>{node.label}</strong>{node.note && <span className="lg-muted"> · {node.note}</span>}<Refs refs={[...(node.refs ?? []), ...edges.flatMap((e) => e.refs ?? [])]} />
-      {edges.some((e) => e.label) && <span className="lg-muted"> · {edges.map((e) => e.label).filter(Boolean).slice(0, 4).join(" · ")}</span>}</>
-      : <span className="lg-muted">Point at a name to see who they are linked to, and where.</span>}</div>
+    <StableTip show={node ? nodeTip(node) : netResting} options={[netResting, ...nodes.map(nodeTip)]} cap="10rem" />
     <figcaption className="lg-caption"><ClaimText claim={network.claim} as="span" /></figcaption>
   </figure>;
 }

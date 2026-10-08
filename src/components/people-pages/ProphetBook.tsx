@@ -1,5 +1,6 @@
 import { useState, type CSSProperties } from "react";
 import { Link } from "react-router-dom";
+import { StableTip } from "@/components/StableTip";
 import { FlowChart } from "@/components/letters/FlowChart";
 import { useVerseIndex } from "@/components/letters/letter-hooks";
 import { Section } from "@/components/letters/LetterParts";
@@ -72,6 +73,8 @@ function OutlineBars({ book }: { book: Book }) {
   const total = Math.max(1, index(book.outline[book.outline.length - 1].span[1]) - start + 1);
   const ticks = book.quotedInNT.map((q) => ({ at: q.at, x: ((index(q.from[0]) - start) / total) * 100 })).filter((t) => t.x >= 0 && t.x <= 100);
   const part = lit !== null ? book.outline[lit] : undefined;
+  const outlineResting = `${book.outline.length} parts. Point at one to name it; choose it to read.`;
+  const partTip = (o: (typeof book.outline)[number]) => <><strong>{o.title}</strong> · {formatRange(catalog, o.span[0], o.span[1])}</>;
   return <div className="pp-outline">
     {ticks.length > 0 && <div className="pp-outline-ticks" aria-hidden>{ticks.map((t, i) => <i key={i} style={{ left: `${t.x}%` }} />)}</div>}
     {/* The Letters pages' outline bars (letters.css lg-outline): the in-bar names drop on phones; the list names them. */}
@@ -80,7 +83,7 @@ function OutlineBars({ book }: { book: Book }) {
         aria-label={`${i + 1}. ${o.title}, ${formatRange(catalog, o.span[0], o.span[1])}`}
         onMouseEnter={() => setLit(i)} onMouseLeave={() => setLit(null)} onFocus={() => setLit(i)} onBlur={() => setLit(null)}><span>{i + 1} · {o.title}</span></Link>)}
     </nav>
-    <p className="pp-outline-tip" aria-live="polite">{part ? <><strong>{part.title}</strong> · {formatRange(catalog, part.span[0], part.span[1])}</> : `${book.outline.length} parts. Point at one to name it; choose it to read.`}</p>
+    <StableTip className="pp-outline-tip" show={part ? partTip(part) : outlineResting} options={[outlineResting, ...book.outline.map(partTip)]} />
     <ol className="pp-outline-list">{book.outline.map((o, i) => <li key={o.title + i} data-lit={lit === i ? "" : undefined} onMouseEnter={() => setLit(i)} onMouseLeave={() => setLit(null)}>
       <span className="pp-outline-n">{i + 1}</span><span>{o.title}</span><Link to={studyRefLink(catalog, o.span)}>{formatRange(catalog, o.span[0], o.span[1])}</Link>
     </li>)}</ol>

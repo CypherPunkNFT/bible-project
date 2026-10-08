@@ -1,7 +1,8 @@
-import { useEffect } from "react";
+import { useEffect, type ReactNode } from "react";
 import type { Timeline, TimelineEvent } from "@/data/letters/types";
 import { useKeep } from "./letter-hooks";
 import { ClaimText, CiteMarks, KeepX, Refs } from "./LetterParts";
+import { StableTip } from "@/components/StableTip";
 
 const W = 1000;
 const ROW = 22;
@@ -50,6 +51,12 @@ export function TimelineStrip({ timeline, formatYear = (v) => (v < 0 ? `${-v} BC
   const isLit = (e: TimelineEvent) => (keep.active ? keep.active === e : lighted.includes(e));
   const tip = active;
   const x = keep.kept && <KeepX onRelease={keep.release} />;
+  // The tip's hidden sizing copies carry the "let go" mark too, so keeping an event never makes the box grow.
+  const keptMark = <KeepX onRelease={() => undefined} />;
+  const stepResting = <span className="lg-muted">Point at a step to see its verses; click to keep it.</span>;
+  const stepTip = (e: TimelineEvent, mark: ReactNode) => <><strong>{e.label}</strong>{mark}{e.kind && <span className="lg-muted"> · {e.kind}</span>}<Refs refs={e.refs} /><CiteMarks cites={e.cites} /></>;
+  const barResting = <span className="lg-muted">Ranges show where the sources disagree. Letters glow in the page colour. Point at a bar for its verses; click to keep it.</span>;
+  const barTip = (e: TimelineEvent, mark: ReactNode) => <><strong>{e.label}</strong>{mark} <span className="lg-muted">· {formatYear(e.from)}{e.to && e.to !== e.from ? `–${formatYear(e.to).replace(/^AD /, "")}` : ""}</span><Refs refs={e.refs} /><CiteMarks cites={e.cites} /></>;
 
   if (timeline.axis === "story") return <figure>
     <ol className="lg-story" aria-label={timeline.title}>
@@ -59,7 +66,7 @@ export function TimelineStrip({ timeline, formatYear = (v) => (v < 0 ? `${-v} BC
         </button>
       </li>)}
     </ol>
-    <div className="lg-tip" aria-live="polite">{tip ? <><strong>{tip.label}</strong>{x}{tip.kind && <span className="lg-muted"> · {tip.kind}</span>}<Refs refs={tip.refs} /><CiteMarks cites={tip.cites} /></> : <span className="lg-muted">Point at a step to see its verses; click to keep it.</span>}</div>
+    <StableTip show={tip ? stepTip(tip, x) : stepResting} options={[stepResting, ...events.map((e) => stepTip(e, keptMark))]} />
     <figcaption className="lg-caption"><ClaimText claim={timeline.claim} as="span" /></figcaption>
   </figure>;
 
@@ -91,8 +98,7 @@ export function TimelineStrip({ timeline, formatYear = (v) => (v < 0 ? `${-v} BC
         })}
       </svg>
     </div>
-    <div className="lg-tip" aria-live="polite">{tip ? <><strong>{tip.label}</strong>{x} <span className="lg-muted">· {formatYear(tip.from)}{tip.to && tip.to !== tip.from ? `–${formatYear(tip.to).replace(/^AD /, "")}` : ""}</span><Refs refs={tip.refs} /><CiteMarks cites={tip.cites} /></>
-      : <span className="lg-muted">Ranges show where the sources disagree. Letters glow in the page colour. Point at a bar for its verses; click to keep it.</span>}</div>
+    <StableTip show={tip ? barTip(tip, x) : barResting} options={[barResting, ...events.map((e) => barTip(e, keptMark))]} />
     <figcaption className="lg-caption"><ClaimText claim={timeline.claim} as="span" /></figcaption>
   </figure>;
 }

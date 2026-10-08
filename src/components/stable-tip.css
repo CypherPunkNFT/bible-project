@@ -1,0 +1,7 @@
+/* StableTip: every possible content shares one grid cell, so the box keeps the height of the tallest. */
+.stable-tip { display: grid; }
+.stable-tip > * { grid-area: 1 / 1; min-width: 0; }
+.stable-tip-sizer { visibility: hidden; pointer-events: none; }
+/* Capped: the box is min(tallest, cap); a longer content scrolls inside the fixed box. */
+.stable-tip[data-capped] { max-height: var(--stable-tip-cap); overflow: hidden; }
+.stable-tip[data-capped] > .stable-tip-live { max-height: var(--stable-tip-cap); overflow-y: auto; overscroll-behavior: contain; }
