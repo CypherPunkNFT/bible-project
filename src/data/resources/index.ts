@@ -6,6 +6,26 @@ import { useEffect, useState } from "react";
 export interface Workbook {
   id: string; title: string; kind: string; sessions: number; pages: number; summary: string;
   pdf: { a4: string; letter: string }; cover: string; builtFrom: string[]; checked: string;
+  /** Every page of the A4 edition as an image, in order (scripts/build-learning.mjs). */
+  pageImages?: string[];
+  outline?: WorkbookOutline;
+}
+/** [tag, attributes] pairs of one of the workbook's own line drawings (content/learning/art). */
+export type ArtShape = [string, Record<string, string>];
+export interface WorkbookSession {
+  n: number; part: number; art: string; title: string; read: string; page: number; end: number; questionsPage: number;
+  brief: string; briefRefs: string; key: { ref: string; text: string };
+  questions: { observe: number; interpret: number; reflect: number }; keyVerses: number;
+}
+/** What the site shows of a built workbook besides its files: parts, sessions and the pages they open on, and counts. */
+export interface WorkbookOutline {
+  parts: { part: number; label: string; place: string; ref: string }[];
+  sessions: WorkbookSession[];
+  /** The title of the introduction ("The three forties"). */
+  intro: string;
+  pages: { contents: number; use: number; intro: number; sources: number };
+  questions: number; keyVerses: number;
+  art: Record<string, ArtShape[]>;
 }
 export interface LearningData { items: Workbook[] }
 

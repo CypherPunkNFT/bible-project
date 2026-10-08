@@ -3,7 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
-// The three Resources section pages (2026-10-08): the workbook shelf, the fellowships, and help for life (the owner's
+// The three Resources section pages (2026-10-08): the learning division, the fellowships, and help for life (the owner's
 // approved direction E: crisis strip, the national lines as a directory, Jacksonville with its two zoomable maps).
 // Each is built from src/data/resources/<name>.json; a section without its file returns to /resources.
 
@@ -21,24 +21,7 @@ test("the station's doorways link to the sections that have data", async ({ page
   await expect(doors).toHaveCount(["learning", "fellowships", "life"].filter(has).length);
 });
 
-test("learning: the shelf shows each workbook with downloads that point at PDFs that exist", async ({ page, request }) => {
-  await page.goto("/resources/learning");
-  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Learning materials");
-  await expect(page.getByRole("heading", { name: "Moses: three forties" })).toBeVisible();
-  const downloads = page.locator(".rs-downloads a");
-  await expect(downloads).toHaveCount(2);
-  for (const link of await downloads.all()) {
-    const href = await link.getAttribute("href");
-    expect(href).toMatch(/^\/learning\/.+\.pdf$/);
-    await expect(link).toHaveAttribute("download", /\.pdf$/);
-    await expect(link).toHaveAttribute("target", "_blank");
-    const response = await request.get(href!);
-    expect(response.status()).toBe(200);
-    expect(response.headers()["content-type"]).toContain("pdf");
-  }
-  await expect(page.locator(".rs-built a")).toHaveCount(3);
-  await noSidewaysScroll(page);
-});
+// Learning materials has its own checks: e2e/learning.spec.ts.
 
 test("fellowships: the list loads, filters by who it is for, and a row opens its links", async ({ page }) => {
   test.skip(!has("fellowships"), "fellowships.json not written yet");

@@ -1,12 +1,14 @@
 // Builds the learning materials: each workbook source in content/learning/<id>.json becomes a print-quality PDF in
 // A4 and US Letter (public/learning/<id>-a4.pdf, <id>-letter.pdf), a cover picture (public/learning/<id>.png), and a
 // row in src/data/resources/learning.json. Local and free: an HTML print template rendered by Playwright's page.pdf()
-// in Edge. The text block is the same size on both papers, so both editions have the same page numbers.
+// in Edge. The text block is the same size on both papers, so both editions have the same page numbers. Every page of
+// the A4 edition is also saved as a JPEG about 1000 px wide (public/learning/<id>/pages/pNN.jpg) for the site's page
+// viewer, and the row records them with the workbook's outline (parts, sessions and the page each one opens on).
 //   node scripts/build-learning.mjs          -> every workbook
 //   node scripts/build-learning.mjs <id>     -> one workbook
 // It runs scripts/check-learning.mjs first and stops if the check fails. How to add a workbook:
 // Research/Resources/LEARNING.md.
-import { mkdirSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
+import { mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { chromium } from "playwright";
 import { CONTENT, SITE, checkWorkbook, codesIn, formatRef, loadCatalog, loadKjv, loadWorkbooks, refVerses } from "./check-learning.mjs";
@@ -18,6 +20,8 @@ const BOX = { w: 146, h: 226 }; // the text block in mm; fits inside both papers
 const LINES = { observe: 3, interpret: 4, reflect: 5 }; // ruled lines under each question, by kind
 const KIND = { observe: "Observe", interpret: "Interpret", reflect: "Reflect" };
 const PART_NAMES = { 1: "Part one", 2: "Part two", 3: "Part three" };
+const SHOT_WIDTH = 1000; // px: the page images for the site's page viewer
+const SHOT_QUALITY = 80; // JPEG quality: text stays crisp at a small size
 
 const font = (pkg, file) => readFileSync(path.join(SITE, "node_modules", "@fontsource-variable", pkg, "files", file)).toString("base64");
 const art = (name) => readFileSync(path.join(CONTENT, "art", `${name}.svg`), "utf8").trim();
@@ -184,7 +188,8 @@ function sessionBlocks(book, s, catalog) {
     const head = i === 0 ? `<div class="qhead"><h3 class="label">Questions written by this site</h3><div class="note">Each answer is in the verses named under the question.</div></div>` : "";
     const lines = "<div></div>".repeat(LINES[q.kind]);
     const last = i === s.questions.length - 1 ? ` data-notes="1"` : "";
-    blocks.push(`<div class="block"${last}>${head}<div class="q"><div class="top"><span class="qn">${i + 1}</span><span class="text">${prose(q.text)}<span class="kind">${KIND[q.kind]}</span></span></div><div class="refs">${esc(refList(q.refs, catalog))}</div><div class="lines">${lines}</div></div></div>`);
+    const first = i === 0 ? ` data-toc="q${s.number}"` : ""; // the page where a session's questions start
+    blocks.push(`<div class="block"${last}${first}>${head}<div class="q"><div class="top"><span class="qn">${i + 1}</span><span class="text">${prose(q.text)}<span class="kind">${KIND[q.kind]}</span></span></div><div class="refs">${esc(refList(q.refs, catalog))}</div><div class="lines">${lines}</div></div></div>`);
   });
   return blocks;
 }
@@ -276,7 +281,8 @@ function paginate(workbookTitle) {
     const target = document.querySelector(`[data-toc="${cell.dataset.tocFor}"]`);
     cell.textContent = target?.closest(".page")?.dataset.n ?? "?";
   }
-  return all.length;
+  const toc = Object.fromEntries([...document.querySelectorAll("#pages [data-toc]")].map((el) => [el.dataset.toc, Number(el.closest(".page").dataset.n)]));
+  return { count: all.length, toc };
 }
 
 function html(book, paper) {
@@ -289,11 +295,14 @@ let CATALOG, KJV;
 
 async function build(browser, book) {
   const counts = {};
+  let toc = {};
   for (const [key, paper] of Object.entries(PAPER)) {
     const page = await browser.newPage({ viewport: { width: 1000, height: 1200 } });
     await page.setContent(html(book, paper), { waitUntil: "load" });
     await page.evaluate(() => document.fonts.ready);
-    counts[key] = await page.evaluate(paginate, `${book.title} · ${book.subtitle}`);
+    const laid = await page.evaluate(paginate, `${book.title} · ${book.subtitle}`);
+    counts[key] = laid.count;
+    if (key === "a4") toc = laid.toc;
     await page.emulateMedia({ media: "print" });
     await page.pdf({ path: path.join(OUT, `${book.id}-${key}.pdf`), preferCSSPageSize: true, printBackground: true });
     if (key === "a4") {
@@ -303,7 +312,65 @@ async function build(browser, book) {
     await page.close();
   }
   if (counts.a4 !== counts.letter) throw new Error(`${book.id}: A4 has ${counts.a4} pages but Letter has ${counts.letter}; they should match`);
-  return counts.a4;
+  const images = await pageImages(browser, book);
+  if (images.length !== counts.a4) throw new Error(`${book.id}: ${images.length} page images for ${counts.a4} pages; they should match`);
+  return { pages: counts.a4, toc, images };
+}
+
+/** Every page of the A4 edition as a JPEG about SHOT_WIDTH px wide, in public/learning/<id>/pages/ (emptied first). */
+async function pageImages(browser, book) {
+  const dir = path.join(OUT, book.id, "pages");
+  rmSync(dir, { recursive: true, force: true });
+  mkdirSync(dir, { recursive: true });
+  const scale = SHOT_WIDTH / ((PAPER.a4.w * 96) / 25.4);
+  const page = await browser.newPage({ viewport: { width: 1000, height: 1200 }, deviceScaleFactor: scale });
+  try {
+    await page.setContent(html(book, PAPER.a4), { waitUntil: "load" });
+    await page.evaluate(() => document.fonts.ready);
+    await page.evaluate(paginate, `${book.title} · ${book.subtitle}`);
+    const files = [];
+    for (const [i, sheet] of (await page.locator("#pages > .page").all()).entries()) {
+      const name = `p${String(i + 1).padStart(2, "0")}.jpg`;
+      await sheet.screenshot({ path: path.join(dir, name), type: "jpeg", quality: SHOT_QUALITY });
+      files.push(`/learning/${book.id}/pages/${name}`);
+    }
+    return files;
+  } finally {
+    await page.close();
+  }
+}
+
+/** Our prose as plain text for the site (no HTML): typographic quotes, apostrophes and dashes; emphasis marks dropped. */
+const plain = (text) => text.replace(/"([^"]+)"/g, "\u201c$1\u201d").replace(/'/g, "\u2019").replace(/\*\*?([^*]+)\*\*?/g, "$1").replace(/(\d)-(\d)/g, "$1\u2013$2");
+
+/** A drawing from content/learning/art as [tag, attributes] pairs, so the site draws it without raw markup. */
+function artShapes(name) {
+  return [...art(name).matchAll(/<(path|circle|ellipse|rect|line|polyline|polygon)\s([^>]*?)\/?>/g)].map(([, tag, attrs]) =>
+    [tag, Object.fromEntries([...attrs.matchAll(/([a-z-]+)="([^"]*)"/g)].map(([, k, v]) => [k, v]))]);
+}
+
+/** What the site shows of a built workbook beyond its files: parts, sessions (with the pages each one spans) and counts. */
+function outline(book, toc, pages) {
+  const sessions = book.sessions.map((s, i) => {
+    const next = i + 1 < book.sessions.length ? toc[`s${s.number + 1}`] : toc.sources;
+    const count = (kind) => s.questions.filter((q) => q.kind === kind).length;
+    return {
+      n: s.number, part: s.part, art: s.art, title: s.title, read: refList(s.read, CATALOG),
+      page: toc[`s${s.number}`], end: (next ?? pages + 1) - 1, questionsPage: toc[`q${s.number}`],
+      brief: plain(s.summary[0].text), briefRefs: refList(s.summary[0].refs, CATALOG),
+      key: { ref: formatRef(s.keyVerses[0].ref, CATALOG), text: s.keyVerses[0].text.replace(/¶\s*/g, "").replace(/'/g, "\u2019") },
+      questions: { observe: count("observe"), interpret: count("interpret"), reflect: count("reflect") }, keyVerses: s.keyVerses.length,
+    };
+  });
+  return {
+    parts: book.parts.map((p) => ({ part: p.part, label: p.label, place: p.place, ref: formatRef(p.ref, CATALOG) })),
+    sessions,
+    intro: book.intro.title,
+    pages: { contents: 2, use: toc.use, intro: toc.intro, sources: toc.sources },
+    questions: book.sessions.reduce((n, s) => n + s.questions.length, 0),
+    keyVerses: book.sessions.reduce((n, s) => n + s.keyVerses.length, 0) + book.intro.keyVerses.length,
+    art: Object.fromEntries([...new Set(book.sessions.map((s) => s.art))].map((name) => [name, artShapes(name)])),
+  };
 }
 
 async function main() {
@@ -321,15 +388,16 @@ async function main() {
   const browser = await chromium.launch({ channel: "msedge" });
   try {
     for (const { book } of books) {
-      const pages = await build(browser, book);
+      const { pages, toc, images } = await build(browser, book);
       items.set(book.id, {
         id: book.id, title: `${book.title}: ${book.subtitle.toLowerCase()}`, kind: book.kind, sessions: book.sessions.length, pages,
         summary: book.summary,
         pdf: { a4: `/learning/${book.id}-a4.pdf`, letter: `/learning/${book.id}-letter.pdf` },
         cover: `/learning/${book.id}.png`,
         builtFrom: book.builtFrom.map((p) => p.path), checked: book.checked,
+        pageImages: images, outline: outline(book, toc, pages),
       });
-      console.log(`${book.id}: ${pages} pages -> public/learning/${book.id}-a4.pdf, ${book.id}-letter.pdf, ${book.id}.png`);
+      console.log(`${book.id}: ${pages} pages -> public/learning/${book.id}-a4.pdf, ${book.id}-letter.pdf, ${book.id}.png, ${images.length} page images in ${book.id}/pages/`);
     }
   } finally {
     await browser.close();

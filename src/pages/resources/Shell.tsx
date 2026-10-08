@@ -16,16 +16,21 @@ export function ResourceShell({ slug, lead, stats, note, top, children }: ShellP
   useEffect(() => { document.title = `${info.title} · Resources · Bible Project`; return () => { document.title = "Bible Project"; }; }, [info.title]);
   return <div className="tl-page rs-page mx-auto max-w-7xl px-4 sm:px-6" style={{ "--door": `var(--${info.color})` } as CSSProperties}>
     {top}
-    <nav className="tl-crumbs" aria-label="Resources sections">
-      <Link to="/resources"><ArrowLeft size={14} aria-hidden="true" />Resources</Link>
-      {RESOURCE_SECTIONS.filter((s) => sectionReady(s.slug)).map((s) => <Link key={s.slug} to={`/resources/${s.slug}`} aria-current={s.slug === slug ? "page" : undefined}>{s.title}</Link>)}
-    </nav>
+    <ResourceCrumbs slug={slug} />
     <header className="st-hero tl-hero">
       <div><p className="st-kick">Resources · {String(RESOURCE_SECTIONS.indexOf(info) + 1).padStart(2, "0")}</p><div className="tl-title-row"><h1>{info.title}</h1><span className="tl-hero-art"><StationArt kind={info.art} /></span></div></div>
       <div className="st-side"><p>{lead}</p>{stats && <StationStats items={stats} />}{note && <p className="tl-rule">{note}</p>}</div>
     </header>
     {children}
   </div>;
+}
+
+/** The way back to the station and across to the sister sections (also used alone by the Learning division's doors). */
+export function ResourceCrumbs({ slug }: { slug: ResourceSection["slug"] }) {
+  return <nav className="tl-crumbs" aria-label="Resources sections">
+    <Link to="/resources"><ArrowLeft size={14} aria-hidden="true" />Resources</Link>
+    {RESOURCE_SECTIONS.filter((s) => sectionReady(s.slug)).map((s) => <Link key={s.slug} to={`/resources/${s.slug}`} aria-current={s.slug === slug ? "page" : undefined}>{s.title}</Link>)}
+  </nav>;
 }
 
 /** "Checked 2026-10-08 on example.org", linking to the page that was read. */

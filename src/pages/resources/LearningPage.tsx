@@ -1,60 +1,65 @@
-// /resources/learning: the workbook shelf. Each workbook from learning.json (written by scripts/build-learning.mjs) is a
-// row: its cover, what it holds, the two PDFs (A4 and US Letter, same page numbers) and the site pages it was built from.
-import { ArrowDownToLine, ArrowUpRight } from "lucide-react";
-import { Link } from "react-router-dom";
-import type { LearningData, Workbook } from "@/data/resources";
-import { isAspect, specialPagesOf } from "@/lib/people-pages-index";
-import { aspectLabel } from "@/components/people-pages/kinds";
-import { ResourceShell } from "./Shell";
-
-const plural = (n: number, one: string, many = `${one}s`) => `${n.toLocaleString("en-US")} ${n === 1 ? one : many}`;
-
-/** "Moses · The person", "Moses · As leader", "Moses · The word" for a /people/<id>[/<aspect>] address. */
-function builtFromLabel(address: string) {
-  const [, kind, id, asked] = address.split("/");
-  if (kind !== "people" || !id) return address;
-  const pages = specialPagesOf(id);
-  const name = pages[0]?.summary.name ?? id.split("-")[0].replace(/^./, (c) => c.toUpperCase());
-  if (!asked) return `${name} · The person`;
-  const page = isAspect(asked) ? pages.find((p) => p.aspect === asked) : undefined;
-  if (!page) return name;
-  return `${name} · ${page.aspect === "rule" ? aspectLabel(page.summary) : page.aspect === "mission" ? "The mission" : "The word"}`;
-}
+// /resources/learning: the Learning materials division, as the owner approved it (mock-up E, "Doors and stacks",
+// 2026-10-08; plan: Research/Resources/LEARNING.md section 6). "Choose a door." on top; a door opens that reader's stack
+// beneath it (the books lying flat, grouped by subject, with the panel beside them) and, under the stack, what its
+// titles are built from. ?for=<reader> opens that door; the address follows the open door without redrawing the page.
+// Below: every subject through every door, the series that cross the ages, and how a title reaches the shelf.
+// A title is ready only when scripts/build-learning.mjs has built it (learning.json); every other title is planned.
+import { useCallback, useEffect, useMemo, useState } from "react";
+import type { LearningData } from "@/data/resources";
+import { CATALOGUE, buildDivision } from "@/data/resources/learning-catalogue";
+import { Doors } from "./learning/Doors";
+import { Drawer } from "./learning/Drawer";
+import { SeriesBlocks } from "./learning/SeriesBlocks";
+import { Steps } from "./learning/Steps";
+import { SubjectLanes } from "./learning/SubjectLanes";
+import { ResourceCrumbs } from "./Shell";
+import "./learning/learning.css";
 
 export default function LearningPage({ data }: { data: LearningData }) {
-  const items = data.items;
-  const sessions = items.reduce((n, w) => n + w.sessions, 0), pages = items.reduce((n, w) => n + w.pages, 0);
-  return <ResourceShell slug="learning"
-    lead="Workbooks we write from the site’s own reviewed pages, to print for a group or keep beside your Bible. Each comes in A4 and US Letter with the same page numbers, so a group on either paper can say “page 14” together."
-    stats={[["Workbooks", items.length], ["Sessions", sessions], ["Pages", pages], ["Paper sizes", 2]]}
-    note="How these are made: before a PDF is built, every verse reference and every quotation in it is checked word for word against the site’s King James text.">
-    <section className="rs-shelf" aria-label="Workbooks">
-      <p className="tl-status">{plural(items.length, "workbook")} on the shelf</p>
-      <ol>{items.map((w, i) => <WorkbookRow key={w.id} workbook={w} index={i + 1} />)}</ol>
-    </section>
-  </ResourceShell>;
-}
+  const division = useMemo(() => buildDivision(CATALOGUE, data.items), [data]);
+  const [age, setAge] = useState<string | null>(() => {
+    const asked = new URLSearchParams(window.location.search).get("for");
+    return asked && division.audience[asked] ? asked : null;
+  });
+  const [kind, setKind] = useState<string | null>(null);
+  const [shown, setShown] = useState(age !== null);
 
-function WorkbookRow({ workbook: w, index }: { workbook: Workbook; index: number }) {
-  const file = (size: string) => `${w.id}-${size}.pdf`;
-  return <li className="rs-book" aria-labelledby={`wb-${w.id}`}>
-    <a className="rs-cover" href={w.pdf.letter} target="_blank" rel="noreferrer" aria-label={`Open ${w.title} (US Letter PDF)`}>
-      <img src={w.cover} alt={`Cover of ${w.title}`} width={794} height={1123} loading="lazy" />
-    </a>
-    <div className="rs-book-text">
-      <p className="rs-book-kick"><span>{String(index).padStart(2, "0")}</span>{w.kind} · {plural(w.sessions, "session")} · {plural(w.pages, "page")}</p>
-      <h2 id={`wb-${w.id}`}>{w.title}</h2>
-      <p className="rs-book-sum">{w.summary}</p>
-      <div className="rs-downloads">
-        <a href={w.pdf.a4} target="_blank" rel="noreferrer" download={file("a4")}><ArrowDownToLine size={16} aria-hidden="true" /><span>Download <small>(A4)</small></span></a>
-        <a href={w.pdf.letter} target="_blank" rel="noreferrer" download={file("letter")}><ArrowDownToLine size={16} aria-hidden="true" /><span>Download <small>(US Letter)</small></span></a>
-      </div>
-      <div className="rs-built">
-        <h3>Built from</h3>
-        <ul>{w.builtFrom.map((address) => <li key={address}><Link to={address}>{builtFromLabel(address)}<ArrowUpRight size={12} aria-hidden="true" /></Link></li>)}</ul>
-      </div>
-      <p className="rs-checked">Checked {w.checked} against the King James text</p>
-    </div>
-  </li>;
-}
+  useEffect(() => { document.title = "Learning materials · Resources · Bible Project"; return () => { document.title = "Bible Project"; }; }, []);
 
+  // Another door clears the kind lit in the last one (owner, 2026-10-08); the open door again closes it.
+  const choose = useCallback((id: string) => { setKind(null); setAge((open) => (open === id ? null : id)); }, []);
+
+  // The address keeps the open door (?for=children) without a new history entry or a redraw.
+  useEffect(() => {
+    const url = new URL(window.location.href);
+    if (age) url.searchParams.set("for", age); else url.searchParams.delete("for");
+    if (url.href !== window.location.href) window.history.replaceState(window.history.state, "", `${url.pathname}${url.search}${url.hash}`);
+  }, [age]);
+
+  // With a door open, the left and right keys move to the next door.
+  useEffect(() => {
+    if (!age) return;
+    const order = division.audiences.map((a) => a.id);
+    const key = (e: KeyboardEvent) => {
+      if (e.altKey || e.ctrlKey || e.metaKey || e.defaultPrevented || document.querySelector(".lm-viewer")) return;
+      if (e.target instanceof HTMLElement && /^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName)) return;
+      const i = order.indexOf(age);
+      if (e.key === "ArrowRight") { e.preventDefault(); choose(order[(i + 1) % order.length]); }
+      if (e.key === "ArrowLeft") { e.preventDefault(); choose(order[(i - 1 + order.length) % order.length]); }
+    };
+    addEventListener("keydown", key);
+    return () => removeEventListener("keydown", key);
+  }, [age, choose, division]);
+
+  // Section numbers follow what is open: 01 and 02 belong to the open stack, the rest count on from there.
+  const num = (n: number) => String(n + (shown ? 2 : 0)).padStart(2, "0");
+  const back = { path: `/resources/learning${age ? `?for=${age}` : ""}`, label: "Learning materials" };
+  return <div className="lm tl-page mx-auto max-w-7xl px-4 sm:px-6">
+    <ResourceCrumbs slug="learning" />
+    <Doors division={division} age={age} onChoose={choose} />
+    <Drawer division={division} age={age} kind={kind} onKind={setKind} onShown={setShown} />
+    <SubjectLanes division={division} num={num(1)} back={back} />
+    <SeriesBlocks division={division} num={num(2)} back={back} />
+    <Steps num={num(3)} />
+  </div>;
+}

@@ -6,10 +6,12 @@ import { lazy, Suspense, useEffect, type ComponentType, type CSSProperties } fro
 import { Navigate, Route, Routes } from "react-router-dom";
 import { StationDoor } from "@/components/stations/Station";
 import { useResource, type FellowshipsData, type LearningData, type LifeData } from "@/data/resources";
+import { divisionCounts } from "@/data/resources/learning-catalogue";
 import { RESOURCE_SECTIONS, sectionReady } from "./resources/sections";
 import { Loading } from "./resources/Shell";
 
 const LearningPage = lazy(() => import("./resources/LearningPage"));
+const LearningTitlePage = lazy(() => import("./resources/learning/TitlePage"));
 const FellowshipsPage = lazy(() => import("./resources/FellowshipsPage"));
 const LifePage = lazy(() => import("./resources/LifePage"));
 
@@ -17,6 +19,7 @@ export default function ResourcesPage() {
   return <Routes>
     <Route index element={<Station />} />
     <Route path="learning" element={<Section name="learning" Page={LearningPage} />} />
+    <Route path="learning/:titleId" element={<Section name="learning" Page={LearningTitlePage} />} />
     <Route path="fellowships" element={<Section name="fellowships" Page={FellowshipsPage} />} />
     <Route path="life" element={<Section name="life" Page={LifePage} />} />
     <Route path="*" element={<Navigate replace to="/resources" />} />
@@ -32,6 +35,12 @@ function Section<K extends keyof Data>({ name, Page }: { name: K; Page: Componen
   return <Suspense fallback={<Loading />}><Page data={data as Data[K]} /></Suspense>;
 }
 
+/** "1 ready · 40 planned · 7 readers": the Learning division at a glance (learning-catalogue.json). */
+function learningNote() {
+  const { ready, planned, readers } = divisionCounts();
+  return `${ready} ready · ${planned} planned · ${readers} readers`;
+}
+
 function Station() {
   useEffect(() => { document.title = "Resources · Bible Project"; return () => { document.title = "Bible Project"; }; }, []);
   return <div className="st-page mx-auto max-w-7xl px-4 sm:px-6">
@@ -44,7 +53,7 @@ function Station() {
     </header>
     <nav className="st-doors" aria-label="Resources">
       {RESOURCE_SECTIONS.map((s, i) => <StationDoor key={s.slug} index={i + 1} art={s.art} title={s.title} text={s.text} color={s.color}
-        {...(sectionReady(s.slug) ? { to: `/resources/${s.slug}`, note: "Ready to explore", action: "Open" } : { note: "Not yet published", action: "In preparation" })} />)}
+        {...(sectionReady(s.slug) ? { to: `/resources/${s.slug}`, note: s.slug === "learning" ? learningNote() : "Ready to explore", action: "Open" } : { note: "Not yet published", action: "In preparation" })} />)}
     </nav>
   </div>;
 }

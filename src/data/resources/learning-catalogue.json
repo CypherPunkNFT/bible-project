@@ -1,0 +1,1094 @@
+{
+  "about": "The Learning materials division (Research/Resources/LEARNING.md section 6): who each title is for, what kind it is, what it is about, its series, and the site pages it is written from. \"status\" says what is true today; the site counts a title as ready only when scripts/build-learning.mjs has built its PDFs (learning.json), and a unit test keeps the two in step.",
+  "audiences": [
+    {
+      "id": "little",
+      "name": "Little ones",
+      "age": "3–5",
+      "how": "Read aloud by a grown-up",
+      "art": "hand",
+      "tone": "poetry",
+      "line": "One passage, told simply, with large drawings and a single verse."
+    },
+    {
+      "id": "children",
+      "name": "Children",
+      "age": "6–11",
+      "how": "With a leader or a parent",
+      "art": "backpack",
+      "tone": "history",
+      "line": "Lessons, activity pages and maps that keep every answer in a verse."
+    },
+    {
+      "id": "teens",
+      "name": "Teens",
+      "age": "12–17",
+      "how": "Alone or in a youth group",
+      "art": "compass",
+      "tone": "prophets",
+      "line": "Short series that take real questions seriously and read the text closely."
+    },
+    {
+      "id": "young",
+      "name": "Young adults",
+      "age": "18–25",
+      "how": "Alone, with friends, on campus",
+      "art": "lamp",
+      "tone": "gospels",
+      "line": "Reading plans and workbooks for building a life on the word."
+    },
+    {
+      "id": "adults",
+      "name": "Adults",
+      "age": "18 and up",
+      "how": "Alone or in a group",
+      "art": "book",
+      "tone": "epistles",
+      "line": "Workbooks with space to write, built from the site's reviewed pages."
+    },
+    {
+      "id": "families",
+      "name": "Families",
+      "age": "Together",
+      "how": "At home, across ages",
+      "art": "house",
+      "tone": "acts",
+      "setting": true,
+      "line": "Evenings at the table: a passage, a few questions, verses to learn together."
+    },
+    {
+      "id": "leaders",
+      "name": "Leaders",
+      "age": "Who teach",
+      "how": "Sunday school, youth, small groups",
+      "art": "staff",
+      "tone": "revelation",
+      "setting": true,
+      "line": "Every leader guide, and every item that comes with one."
+    }
+  ],
+  "kinds": [
+    {
+      "id": "story",
+      "name": "Read-aloud story",
+      "plural": "Read-aloud stories",
+      "glyph": "story"
+    },
+    {
+      "id": "activity",
+      "name": "Activity pages",
+      "plural": "Activity pages",
+      "glyph": "activity"
+    },
+    {
+      "id": "cards",
+      "name": "Memory-verse cards",
+      "plural": "Memory-verse cards",
+      "glyph": "cards"
+    },
+    {
+      "id": "lesson",
+      "name": "Lessons",
+      "plural": "Lessons",
+      "glyph": "lesson"
+    },
+    {
+      "id": "workbook",
+      "name": "Workbook",
+      "plural": "Workbooks",
+      "glyph": "workbook"
+    },
+    {
+      "id": "plan",
+      "name": "Reading plan",
+      "plural": "Reading plans",
+      "glyph": "plan"
+    },
+    {
+      "id": "devotional",
+      "name": "Family devotional",
+      "plural": "Family devotionals",
+      "glyph": "devotional"
+    },
+    {
+      "id": "maps",
+      "name": "Charts and maps",
+      "plural": "Charts and maps",
+      "glyph": "maps"
+    },
+    {
+      "id": "guide",
+      "name": "Leader guide",
+      "plural": "Leader guides",
+      "glyph": "guide"
+    }
+  ],
+  "tracks": [
+    {
+      "id": "people",
+      "name": "People of the Bible",
+      "short": "People",
+      "from": "The person pages and their sourced stories",
+      "path": "/study/people"
+    },
+    {
+      "id": "books",
+      "name": "Books of the Bible",
+      "short": "Books",
+      "from": "Bible structure and the reader",
+      "path": "/study/structure"
+    },
+    {
+      "id": "story",
+      "name": "The big story",
+      "short": "Big story",
+      "from": "The Topics eras, from the beginning to the return",
+      "path": "/topics"
+    },
+    {
+      "id": "jesus",
+      "name": "Jesus",
+      "short": "Jesus",
+      "from": "The Gospel harmony, the miracles, the life of Jesus",
+      "path": "/study/gospels#harmony"
+    },
+    {
+      "id": "places",
+      "name": "Places",
+      "short": "Places",
+      "from": "The Atlas and its journeys",
+      "path": "/study/atlas"
+    },
+    {
+      "id": "letters",
+      "name": "Letters",
+      "short": "Letters",
+      "from": "The Letters study",
+      "path": "/study/letters"
+    },
+    {
+      "id": "defend",
+      "name": "Defending the faith",
+      "short": "Defending",
+      "from": "Apologetics studies and paths (teens and up)",
+      "path": "/apologetics"
+    },
+    {
+      "id": "teachers",
+      "name": "Teachers of the church",
+      "short": "Teachers",
+      "from": "The Teachers page and the library",
+      "path": "/teachers"
+    },
+    {
+      "id": "life",
+      "name": "Life and faith",
+      "short": "Life & faith",
+      "from": "Topics: prayer, trials, family and more",
+      "path": "/topics"
+    }
+  ],
+  "series": [
+    {
+      "id": "moses",
+      "name": "Moses at every age",
+      "type": "One subject, every age",
+      "line": "The same reviewed story of Moses, told at each age: a story to hear, pages to colour, lessons, the workbook, evenings at home."
+    },
+    {
+      "id": "year",
+      "name": "A year through the Bible",
+      "type": "An ordered path",
+      "line": "Fifty-two children's lessons in four quarters, in the order of the Topics eras, then Jesus and his church."
+    },
+    {
+      "id": "lives",
+      "name": "Lives",
+      "type": "A shelf of workbooks",
+      "line": "Workbooks on single lives, each shaped the way Scripture shapes that life."
+    },
+    {
+      "id": "jesus",
+      "name": "Following Jesus",
+      "type": "An ordered path",
+      "line": "From his birth at the family table to all 185 events of the harmony, one step per age."
+    },
+    {
+      "id": "questions",
+      "name": "Questions, step by step",
+      "type": "Apologetics paths as group courses",
+      "line": "The site's apologetics paths, turned into sessions a group can lead."
+    }
+  ],
+  "items": [
+    {
+      "id": "moses-three-forties",
+      "status": "ready",
+      "title": "Moses: three forties",
+      "sub": "An eight-session study of his life, from the river to mount Nebo",
+      "audience": "adults",
+      "kind": "workbook",
+      "track": "people",
+      "series": [
+        {
+          "id": "moses",
+          "step": 4
+        },
+        {
+          "id": "lives",
+          "step": 2
+        }
+      ],
+      "sessions": 8,
+      "minutes": 60,
+      "guide": false,
+      "builtFrom": [
+        {
+          "path": "/people/moses-exo-2-10",
+          "title": "Moses: his story"
+        },
+        {
+          "path": "/people/moses-exo-2-10/rule",
+          "title": "Moses: leader of Israel"
+        },
+        {
+          "path": "/people/moses-exo-2-10/word",
+          "title": "Moses: the prophet"
+        }
+      ]
+    },
+    {
+      "id": "moses-basket",
+      "status": "planned",
+      "title": "Drawn out of the water",
+      "sub": "The baby in the basket, read aloud",
+      "audience": "little",
+      "kind": "story",
+      "track": "people",
+      "series": [
+        {
+          "id": "moses",
+          "step": 1
+        }
+      ],
+      "builtFrom": [
+        {
+          "path": "/people/moses-exo-2-10",
+          "title": "Moses: his story (Exodus 2:1–10)"
+        }
+      ]
+    },
+    {
+      "id": "noah-ark",
+      "status": "planned",
+      "title": "Noah builds the ark",
+      "sub": "A read-aloud story with one verse",
+      "audience": "little",
+      "kind": "story",
+      "track": "story",
+      "builtFrom": [
+        {
+          "path": "/people/noah-gen-5-29",
+          "title": "Noah: his story"
+        },
+        {
+          "path": "/topics/c/era-beginning",
+          "title": "Topics: In the beginning"
+        }
+      ]
+    },
+    {
+      "id": "every-living-thing",
+      "status": "planned",
+      "title": "Every living thing",
+      "sub": "Animals, birds and trees to colour, each with its verse",
+      "audience": "little",
+      "kind": "activity",
+      "track": "life",
+      "builtFrom": [
+        {
+          "path": "/topics/c/creation",
+          "title": "Topics: Creation and nature"
+        }
+      ]
+    },
+    {
+      "id": "first-verses",
+      "status": "planned",
+      "title": "First verses",
+      "sub": "Short verses to say together",
+      "audience": "little",
+      "kind": "cards",
+      "track": "life",
+      "builtFrom": [
+        {
+          "path": "/topics/c/devotion",
+          "title": "Topics: Prayer and devotion"
+        }
+      ]
+    },
+    {
+      "id": "year-q1",
+      "status": "planned",
+      "title": "In the beginning",
+      "sub": "Quarter 1: Adam to Joseph",
+      "audience": "children",
+      "kind": "lesson",
+      "track": "story",
+      "series": [
+        {
+          "id": "year",
+          "step": 1
+        }
+      ],
+      "sessions": 13,
+      "minutes": 30,
+      "guide": true,
+      "builtFrom": [
+        {
+          "path": "/topics/c/era-beginning",
+          "title": "Topics: In the beginning"
+        },
+        {
+          "path": "/topics/c/era-patriarchs",
+          "title": "Topics: The patriarchs"
+        }
+      ]
+    },
+    {
+      "id": "year-q2",
+      "status": "planned",
+      "title": "Out of Egypt",
+      "sub": "Quarter 2: Moses to the judges",
+      "audience": "children",
+      "kind": "lesson",
+      "track": "story",
+      "series": [
+        {
+          "id": "year",
+          "step": 2
+        }
+      ],
+      "sessions": 13,
+      "minutes": 30,
+      "guide": true,
+      "builtFrom": [
+        {
+          "path": "/topics/c/era-exodus",
+          "title": "Topics: Exodus and wilderness"
+        },
+        {
+          "path": "/topics/c/era-judges",
+          "title": "Topics: Joshua and the judges"
+        }
+      ]
+    },
+    {
+      "id": "year-q3",
+      "status": "planned",
+      "title": "Kings and prophets",
+      "sub": "Quarter 3: Samuel to the return",
+      "audience": "children",
+      "kind": "lesson",
+      "track": "story",
+      "series": [
+        {
+          "id": "year",
+          "step": 3
+        }
+      ],
+      "sessions": 13,
+      "minutes": 30,
+      "guide": true,
+      "builtFrom": [
+        {
+          "path": "/topics/c/era-kingdom",
+          "title": "Topics: The united kingdom"
+        },
+        {
+          "path": "/topics/c/era-kings",
+          "title": "Topics: Kings of Israel and Judah"
+        },
+        {
+          "path": "/topics/c/era-exile",
+          "title": "Topics: Exile and return"
+        }
+      ]
+    },
+    {
+      "id": "year-q4",
+      "status": "planned",
+      "title": "Jesus and his church",
+      "sub": "Quarter 4: the Gospels and Acts",
+      "audience": "children",
+      "kind": "lesson",
+      "track": "story",
+      "series": [
+        {
+          "id": "year",
+          "step": 4
+        }
+      ],
+      "sessions": 13,
+      "minutes": 30,
+      "guide": true,
+      "builtFrom": [
+        {
+          "path": "/people/jesus-isa-7-14",
+          "title": "Jesus: his life"
+        },
+        {
+          "path": "/study/people?view=apostles",
+          "title": "The apostles"
+        }
+      ]
+    },
+    {
+      "id": "moses-activity",
+      "status": "planned",
+      "title": "Moses: three forties activity pack",
+      "sub": "Colour the three forties, trace the road, match the signs",
+      "audience": "children",
+      "kind": "activity",
+      "track": "people",
+      "series": [
+        {
+          "id": "moses",
+          "step": 2
+        }
+      ],
+      "builtFrom": [
+        {
+          "path": "/people/moses-exo-2-10",
+          "title": "Moses: his story"
+        },
+        {
+          "path": "/study/miracles",
+          "title": "Miracles: Moses and Aaron"
+        }
+      ]
+    },
+    {
+      "id": "miracles-cards",
+      "status": "planned",
+      "title": "The miracles of Jesus",
+      "sub": "Thirty-five miracles, one page each",
+      "audience": "children",
+      "kind": "activity",
+      "track": "jesus",
+      "series": [
+        {
+          "id": "jesus",
+          "step": 2
+        }
+      ],
+      "builtFrom": [
+        {
+          "path": "/study/miracles",
+          "title": "The miracles of Jesus (35)"
+        }
+      ]
+    },
+    {
+      "id": "elijah-elisha",
+      "status": "planned",
+      "title": "Elijah and Elisha",
+      "sub": "Lessons on two prophets of the north",
+      "audience": "children",
+      "kind": "lesson",
+      "track": "people",
+      "guide": true,
+      "builtFrom": [
+        {
+          "path": "/people/elijah-1ki-17-1",
+          "title": "Elijah: his story"
+        },
+        {
+          "path": "/people/elisha-1ki-19-16",
+          "title": "Elisha: his story"
+        }
+      ]
+    },
+    {
+      "id": "who-judged",
+      "status": "planned",
+      "title": "Who judged Israel?",
+      "sub": "A wall chart from Othniel to Samuel",
+      "audience": "children",
+      "kind": "maps",
+      "track": "people",
+      "builtFrom": [
+        {
+          "path": "/study/people?view=rulers",
+          "title": "Rulers: the judges"
+        }
+      ]
+    },
+    {
+      "id": "sixty-six",
+      "status": "planned",
+      "title": "The sixty-six books in order",
+      "sub": "Cards to learn the books by their sections",
+      "audience": "children",
+      "kind": "cards",
+      "track": "books",
+      "builtFrom": [
+        {
+          "path": "/study/structure",
+          "title": "Bible structure"
+        }
+      ]
+    },
+    {
+      "id": "where-jesus-walked",
+      "status": "planned",
+      "title": "Where Jesus walked",
+      "sub": "Maps of Galilee and Judea to colour",
+      "audience": "children",
+      "kind": "maps",
+      "track": "places",
+      "builtFrom": [
+        {
+          "path": "/study/atlas",
+          "title": "Atlas"
+        },
+        {
+          "path": "/topics/c/samaria-galilee",
+          "title": "Topics: Samaria and Galilee"
+        }
+      ]
+    },
+    {
+      "id": "moses-who-am-i",
+      "status": "planned",
+      "title": "Moses: “Who am I?”",
+      "sub": "Four lessons on the first two forties",
+      "audience": "teens",
+      "kind": "lesson",
+      "track": "people",
+      "series": [
+        {
+          "id": "moses",
+          "step": 3
+        }
+      ],
+      "sessions": 4,
+      "minutes": 45,
+      "guide": true,
+      "builtFrom": [
+        {
+          "path": "/people/moses-exo-2-10",
+          "title": "Moses: his story"
+        },
+        {
+          "path": "/people/moses-exo-2-10/word",
+          "title": "Moses: the prophet"
+        }
+      ]
+    },
+    {
+      "id": "honest-questions",
+      "status": "planned",
+      "title": "Honest questions",
+      "sub": "Suffering, silence, harm done, the resurrection",
+      "audience": "teens",
+      "kind": "lesson",
+      "track": "defend",
+      "series": [
+        {
+          "id": "questions",
+          "step": 1
+        }
+      ],
+      "sessions": 5,
+      "minutes": 45,
+      "guide": true,
+      "builtFrom": [
+        {
+          "path": "/apologetics/paths/honest-questions",
+          "title": "Path: Walk through honest doubt"
+        }
+      ]
+    },
+    {
+      "id": "bible-changed",
+      "status": "planned",
+      "title": "Has the Bible been changed?",
+      "sub": "One session on the manuscripts",
+      "audience": "teens",
+      "kind": "lesson",
+      "track": "defend",
+      "sessions": 1,
+      "minutes": 45,
+      "guide": true,
+      "builtFrom": [
+        {
+          "path": "/apologetics/study/manuscripts",
+          "title": "Study: Has the Bible been changed beyond recognition?"
+        }
+      ]
+    },
+    {
+      "id": "parables",
+      "status": "planned",
+      "title": "The parables of Jesus",
+      "sub": "What he told, and to whom",
+      "audience": "teens",
+      "kind": "workbook",
+      "track": "jesus",
+      "series": [
+        {
+          "id": "jesus",
+          "step": 3
+        }
+      ],
+      "builtFrom": [
+        {
+          "path": "/topics/c/christ-teaching",
+          "title": "Topics: Parables and teaching"
+        }
+      ]
+    },
+    {
+      "id": "david",
+      "status": "planned",
+      "title": "David",
+      "sub": "Shepherd, king and psalmist",
+      "audience": "teens",
+      "kind": "workbook",
+      "track": "people",
+      "series": [
+        {
+          "id": "lives",
+          "step": 3
+        }
+      ],
+      "builtFrom": [
+        {
+          "path": "/people/david-rut-4-17",
+          "title": "David: his story"
+        },
+        {
+          "path": "/people/david-rut-4-17/rule",
+          "title": "David: his reign"
+        }
+      ]
+    },
+    {
+      "id": "pauls-journeys",
+      "status": "planned",
+      "title": "Paul's journeys",
+      "sub": "His roads as printable maps, with the letters he wrote",
+      "audience": "teens",
+      "kind": "maps",
+      "track": "places",
+      "builtFrom": [
+        {
+          "path": "/study/atlas/journeys?focus=paul",
+          "title": "Atlas: Paul's journeys"
+        }
+      ]
+    },
+    {
+      "id": "harmony-plan",
+      "status": "planned",
+      "title": "Jesus in 185 events",
+      "sub": "The four Gospels side by side, in order",
+      "audience": "young",
+      "kind": "plan",
+      "track": "jesus",
+      "series": [
+        {
+          "id": "jesus",
+          "step": 4
+        }
+      ],
+      "builtFrom": [
+        {
+          "path": "/study/gospels#harmony",
+          "title": "Gospel harmony (185 events)"
+        }
+      ]
+    },
+    {
+      "id": "twenty-one-letters",
+      "status": "planned",
+      "title": "Twenty-one letters",
+      "sub": "Who wrote them, to whom, and why",
+      "audience": "young",
+      "kind": "workbook",
+      "track": "letters",
+      "builtFrom": [
+        {
+          "path": "/study/letters",
+          "title": "The letters of the New Testament"
+        }
+      ]
+    },
+    {
+      "id": "read-evidence",
+      "status": "planned",
+      "title": "Learn to examine the evidence",
+      "sub": "Scripture, manuscripts, canon, miracles, resurrection",
+      "audience": "young",
+      "kind": "lesson",
+      "track": "defend",
+      "series": [
+        {
+          "id": "questions",
+          "step": 2
+        }
+      ],
+      "sessions": 6,
+      "minutes": 50,
+      "guide": true,
+      "builtFrom": [
+        {
+          "path": "/apologetics/paths/read-evidence",
+          "title": "Path: Learn to examine the evidence"
+        }
+      ]
+    },
+    {
+      "id": "apostles",
+      "status": "planned",
+      "title": "The apostles",
+      "sub": "Fourteen lives, from the nets to the ends of the earth",
+      "audience": "young",
+      "kind": "workbook",
+      "track": "people",
+      "series": [
+        {
+          "id": "lives",
+          "step": 4
+        }
+      ],
+      "builtFrom": [
+        {
+          "path": "/study/people?view=apostles",
+          "title": "The apostles"
+        },
+        {
+          "path": "/people/peter-mat-4-18",
+          "title": "Peter: his story"
+        }
+      ]
+    },
+    {
+      "id": "voices-plan",
+      "status": "planned",
+      "title": "Five centuries of voices",
+      "sub": "A year of reading with the teachers in the library",
+      "audience": "young",
+      "kind": "plan",
+      "track": "teachers",
+      "builtFrom": [
+        {
+          "path": "/teachers",
+          "title": "Teachers"
+        }
+      ]
+    },
+    {
+      "id": "patriarchs",
+      "status": "planned",
+      "title": "Abraham, Isaac and Jacob",
+      "sub": "Three lives and one promise",
+      "audience": "adults",
+      "kind": "workbook",
+      "track": "people",
+      "series": [
+        {
+          "id": "lives",
+          "step": 1
+        }
+      ],
+      "builtFrom": [
+        {
+          "path": "/people/abraham-gen-11-26",
+          "title": "Abraham: his story"
+        },
+        {
+          "path": "/people/isaac-gen-17-19",
+          "title": "Isaac: his story"
+        },
+        {
+          "path": "/people/israel-gen-25-26",
+          "title": "Jacob (Israel): his story"
+        }
+      ]
+    },
+    {
+      "id": "muslim-neighbour",
+      "status": "planned",
+      "title": "Talk with a Muslim neighbour",
+      "sub": "Six sessions for a group",
+      "audience": "adults",
+      "kind": "lesson",
+      "track": "defend",
+      "series": [
+        {
+          "id": "questions",
+          "step": 3
+        }
+      ],
+      "sessions": 6,
+      "minutes": 60,
+      "guide": true,
+      "builtFrom": [
+        {
+          "path": "/apologetics/paths/muslim-neighbour",
+          "title": "Path: Talk with a Muslim neighbour"
+        }
+      ]
+    },
+    {
+      "id": "bible-in-a-year",
+      "status": "planned",
+      "title": "The whole Bible in a year",
+      "sub": "Every chapter, with a box to tick",
+      "audience": "adults",
+      "kind": "plan",
+      "track": "books",
+      "builtFrom": [
+        {
+          "path": "/library",
+          "title": "Books and reading progress"
+        },
+        {
+          "path": "/study/structure",
+          "title": "Bible structure"
+        }
+      ]
+    },
+    {
+      "id": "kings-chart",
+      "status": "planned",
+      "title": "Kings of Israel and Judah",
+      "sub": "Every reign on one printable chart",
+      "audience": "adults",
+      "kind": "maps",
+      "track": "people",
+      "builtFrom": [
+        {
+          "path": "/study/people?view=rulers",
+          "title": "Rulers"
+        }
+      ]
+    },
+    {
+      "id": "atlas-pack",
+      "status": "planned",
+      "title": "Maps of the Bible lands",
+      "sub": "The Atlas's maps, ready to print",
+      "audience": "adults",
+      "kind": "maps",
+      "track": "places",
+      "builtFrom": [
+        {
+          "path": "/study/atlas",
+          "title": "Atlas"
+        }
+      ]
+    },
+    {
+      "id": "trials-comfort",
+      "status": "planned",
+      "title": "Trials and comfort",
+      "sub": "What Scripture says to the afflicted",
+      "audience": "adults",
+      "kind": "workbook",
+      "track": "life",
+      "builtFrom": [
+        {
+          "path": "/topics/c/trials",
+          "title": "Topics: Trials and comfort"
+        }
+      ]
+    },
+    {
+      "id": "reformed-foundations",
+      "status": "planned",
+      "title": "Explore the Reformed faith",
+      "sub": "With the historic writers beside the text",
+      "audience": "adults",
+      "kind": "lesson",
+      "track": "teachers",
+      "sessions": 6,
+      "minutes": 60,
+      "guide": true,
+      "builtFrom": [
+        {
+          "path": "/apologetics/paths/reformed-foundations",
+          "title": "Path: Explore the Reformed faith"
+        },
+        {
+          "path": "/teachers",
+          "title": "Teachers"
+        }
+      ]
+    },
+    {
+      "id": "moses-evenings",
+      "status": "planned",
+      "title": "Moses: eight evenings",
+      "sub": "One evening for each session of the workbook",
+      "audience": "families",
+      "kind": "devotional",
+      "track": "people",
+      "series": [
+        {
+          "id": "moses",
+          "step": 5
+        }
+      ],
+      "builtFrom": [
+        {
+          "path": "/people/moses-exo-2-10",
+          "title": "Moses: his story"
+        },
+        {
+          "path": "/resources/learning/moses-three-forties",
+          "title": "Moses: three forties (workbook)"
+        }
+      ]
+    },
+    {
+      "id": "birth-of-jesus",
+      "status": "planned",
+      "title": "The birth of Jesus",
+      "sub": "Evenings from the Gospels for the weeks before Christmas",
+      "audience": "families",
+      "kind": "devotional",
+      "track": "jesus",
+      "series": [
+        {
+          "id": "jesus",
+          "step": 1
+        }
+      ],
+      "builtFrom": [
+        {
+          "path": "/people/jesus-isa-7-14",
+          "title": "Jesus: his life"
+        },
+        {
+          "path": "/study/gospels#harmony",
+          "title": "Gospel harmony"
+        }
+      ]
+    },
+    {
+      "id": "praying-together",
+      "status": "planned",
+      "title": "Praying together",
+      "sub": "What Scripture teaches about prayer, for the table",
+      "audience": "families",
+      "kind": "devotional",
+      "track": "life",
+      "builtFrom": [
+        {
+          "path": "/topics/c/devotion",
+          "title": "Topics: Prayer and devotion"
+        }
+      ]
+    },
+    {
+      "id": "table-verses",
+      "status": "planned",
+      "title": "Verses for the table",
+      "sub": "Cards to learn together, one a week",
+      "audience": "families",
+      "kind": "cards",
+      "track": "life",
+      "builtFrom": [
+        {
+          "path": "/topics/c/family",
+          "title": "Topics: Marriage and family"
+        }
+      ]
+    },
+    {
+      "id": "moses-leader",
+      "status": "planned",
+      "title": "Moses: leader guide",
+      "sub": "For the teen lessons and the workbook in a group",
+      "audience": "leaders",
+      "kind": "guide",
+      "track": "people",
+      "series": [
+        {
+          "id": "moses",
+          "step": 6
+        }
+      ],
+      "builtFrom": [
+        {
+          "path": "/people/moses-exo-2-10",
+          "title": "Moses: his story"
+        },
+        {
+          "path": "/resources/learning/moses-three-forties",
+          "title": "Moses: three forties (workbook)"
+        }
+      ]
+    },
+    {
+      "id": "year-leader",
+      "status": "planned",
+      "title": "A year through the Bible: leader guide",
+      "sub": "Aims, timings and answers for all 52 lessons",
+      "audience": "leaders",
+      "kind": "guide",
+      "track": "story",
+      "series": [
+        {
+          "id": "year",
+          "step": 5
+        }
+      ],
+      "builtFrom": [
+        {
+          "path": "/topics",
+          "title": "Topics: the eras"
+        }
+      ]
+    },
+    {
+      "id": "asking-questions",
+      "status": "planned",
+      "title": "Asking good questions",
+      "sub": "Observe, interpret, reflect: how every question here is made",
+      "audience": "leaders",
+      "kind": "guide",
+      "track": "books",
+      "builtFrom": [
+        {
+          "path": "/resources/learning/moses-three-forties",
+          "title": "Moses: three forties, “How to use this workbook”"
+        }
+      ]
+    },
+    {
+      "id": "questions-leader",
+      "status": "planned",
+      "title": "Leading hard conversations",
+      "sub": "For the apologetics courses",
+      "audience": "leaders",
+      "kind": "guide",
+      "track": "defend",
+      "series": [
+        {
+          "id": "questions",
+          "step": 4
+        }
+      ],
+      "builtFrom": [
+        {
+          "path": "/apologetics/study/conversation",
+          "title": "Study: How do we defend the faith without becoming combative?"
+        }
+      ]
+    }
+  ]
+}
