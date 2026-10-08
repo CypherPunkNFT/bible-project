@@ -44,6 +44,9 @@ try {
   for (const id of ids) {
     await page.goto(`${base}?design=${id}`, { waitUntil: "networkidle" });
     await page.evaluate(() => document.fonts.ready);
+    await page.waitForTimeout(300); // let any fitted text settle after the fonts load
+    const report = await page.evaluate(() => [...document.querySelectorAll("[data-fitted]")].map((el) => { const r = el.getBoundingClientRect(), card = document.querySelector("[data-og]").getBoundingClientRect(); return `fitted text: ${Math.round(r.left - card.left)} to ${Math.round(r.right - card.left)} px, ${getComputedStyle(el).fontSize}`; }));
+    report.forEach((line) => console.log(`  ${line}`));
     const card = page.locator(`[data-og="${id}"]`);
     if (!(await card.count())) throw new Error(`no design called "${id}"`);
     const box = await card.boundingBox();

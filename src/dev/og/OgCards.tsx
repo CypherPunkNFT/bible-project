@@ -2,6 +2,7 @@
 // Development only (og.html); the chosen one is photographed at 1× into public/ by scripts/og-image.mjs.
 // Round 2 (owner 2026-10-08): for texts, "Bible Project" really big and one striking drawing: the God family drawing
 // from the Study page's Topics card (two orbits, the sun's rays, the Trinity triangle), without the floating words.
+import { useLayoutEffect, useRef } from "react";
 import { TopicsArtwork } from "@/pages/topics/TopicsArtwork";
 
 export const OG_DESIGNS = [
@@ -33,13 +34,33 @@ function Beside() {
   </div>;
 }
 
-/** The name, the drawing between, and the line "The whole Bible, free and open to all." */
+/** The line's font size set so it spans the card's width less 72 px each side (owner: "as wide as it can possibly be,
+ * without touching the edges"), measured once the site's fonts have loaded. */
+const LINE_WIDTH = 1200 - 2 * 72;
+function useFitWidth<T extends HTMLElement>() {
+  const ref = useRef<T>(null);
+  useLayoutEffect(() => {
+    const fit = () => {
+      const el = ref.current;
+      if (!el) return;
+      el.style.fontSize = "100px";
+      el.style.fontSize = `${Math.floor((100 * LINE_WIDTH) / el.scrollWidth * 10) / 10}px`;
+      el.dataset.fitted = "true";
+    };
+    fit();
+    document.fonts.ready.then(fit).catch((error) => console.error("og: fonts did not load", error));
+  }, []);
+  return ref;
+}
+
+/** The name, the drawing between, and the line "The whole Bible, free and open to all." across the full width. */
 function FreeOpen() {
+  const line = useFitWidth<HTMLParagraphElement>();
   return <div className="og-card og-free">
     <div className="og-glow" />
     <div className="og-f-name"><Logo /><h1>Bible Project</h1></div>
     <div className="og-f-art"><Sun /></div>
-    <p className="og-f-line">The whole Bible, <em>free and open to all.</em></p>
+    <p className="og-f-line" ref={line}>The whole Bible, <em>free and open to all.</em></p>
   </div>;
 }
 
