@@ -17,10 +17,13 @@ export function CitationProvider({ citations, children }: { citations: Citation[
 export function Refs({ refs, limit = 6 }: { refs?: Span[]; limit?: number }) {
   const catalog = useCatalog();
   if (!refs?.length) return null;
-  const shown = refs.slice(0, limit);
+  // The same passage is listed once: callers often merge lists (a person's verses and the verses of the line joining
+  // them), and a repeated passage gave two links one React key, so stale links piled up on every re-render.
+  const unique = refs.filter((span, i) => refs.findIndex((other) => other[0] === span[0] && other[1] === span[1]) === i);
+  const shown = unique.slice(0, limit);
   return <span className="lg-refs">
     {shown.map((span) => <Link key={span.join("-")} to={studyRefLink(catalog, span)}>{formatRange(catalog, span[0], span[1])}</Link>)}
-    {refs.length > limit && <span className="lg-muted">+{refs.length - limit} more</span>}
+    {unique.length > limit && <span className="lg-muted">+{unique.length - limit} more</span>}
   </span>;
 }
 
