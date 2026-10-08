@@ -1,0 +1,114 @@
+/* Eight drawings, 4 × 2 on a desktop, 2 × 4 on a tablet, one column on a phone. Hairlines only: no cards, no glow. */
+.head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: .8rem 3.5rem; align-items: end; padding: 2rem 0 1.6rem; }
+.kick { grid-column: 1 / -1; display: flex; align-items: center; gap: .6rem; color: var(--door); font: 600 .6rem/1.2 var(--mono); letter-spacing: .18em; text-transform: uppercase; }
+.kick::before { content: ""; width: 1.6rem; height: 1px; background: currentColor; }
+.head h1 { font: 400 clamp(2.2rem, 5vw, 3.8rem)/1 var(--serif); letter-spacing: -.035em; }
+.head h1 em { display: block; color: var(--door); }
+.lead { max-width: 34rem; color: color-mix(in srgb, var(--ink) 76%, transparent); font-size: .95rem; line-height: 1.7; }
+
+.grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0 2rem; border-top: 1px solid var(--line); }
+.cell { display: flex; flex-direction: column; padding: 1.1rem 0 1.6rem; border-bottom: 1px solid var(--line); }
+.label { display: flex; align-items: center; gap: .6rem; font: 600 .62rem/1 var(--mono); letter-spacing: .18em; text-transform: uppercase; color: var(--muted); }
+.label b { display: grid; place-items: center; width: 1.5rem; height: 1.5rem; border: 1.5px solid var(--c); border-radius: 50%; color: var(--c); font: 700 .7rem var(--sans); letter-spacing: 0; }
+.label span { color: var(--ink); }
+.draw { display: flex; flex: 1; flex-direction: column; margin: .6rem 0 0; }
+.draw figcaption { margin-top: .5rem; }
+.draw q { display: block; quotes: "“" "”"; color: color-mix(in srgb, var(--ink) 84%, transparent); font: italic 400 .98rem/1.55 var(--serif); }
+.draw cite { display: block; margin-top: .35rem; color: var(--c); font: 600 .74rem var(--sans); font-style: normal; letter-spacing: .01em; }
+.draw small { display: block; margin-top: .2rem; color: var(--muted); font-size: .74rem; line-height: 1.45; }
+.use { margin-top: .9rem; padding-top: .55rem; border-top: 1px dotted var(--line); color: var(--muted); font-size: .76rem; }
+.foot-note { max-width: 60rem; margin-top: 1.4rem; color: var(--muted); font-size: .76rem; line-height: 1.7; }
+@media (max-width: 1100px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 2.4rem; } }
+@media (max-width: 640px) {
+  .head { grid-template-columns: minmax(0, 1fr); padding-top: 1.4rem; }
+  .grid { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* ── The drawings ────────────────────────────────────────────────────────────────────────────────────────── */
+.art { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; overflow: visible; color: color-mix(in srgb, var(--ink) 66%, var(--page)); }
+.art .t { stroke: var(--c); }
+.art .f { opacity: .42; }
+.art .ft { stroke: var(--c); opacity: .5; }
+.art .pf { fill: var(--page); stroke: none; }
+.art .chick, .art .wool { fill: var(--page); }
+.art .star { fill: currentColor; stroke: none; opacity: .5; animation: twinkle 5.5s ease-in-out infinite alternate; animation-delay: calc(var(--i) * -1.3s); }
+.art .tuft { transform-box: fill-box; transform-origin: 50% 100%; animation: sway 6s ease-in-out infinite alternate; }
+.art .tuft:nth-of-type(odd) { animation-duration: 7.4s; animation-delay: -2s; }
+.art .lf { animation: leaf 6.5s ease-in-out infinite alternate; }
+.art .lf.late { animation-delay: -3.1s; animation-duration: 7.6s; }
+.art .ripple { animation: drift-x 9s ease-in-out infinite alternate; }
+.art .ripple:nth-child(odd) { animation-duration: 11.5s; animation-delay: -4s; }
+@keyframes twinkle { from { opacity: .15; } to { opacity: .7; } }
+@keyframes sway { from { transform: rotate(-3deg); } to { transform: rotate(3deg); } }
+@keyframes leaf { from { transform: rotate(-4deg); } to { transform: rotate(4deg); } }
+@keyframes drift-x { from { transform: translateX(0); } to { transform: translateX(var(--dx, 24px)); } }
+@keyframes breathe { from { transform: translateY(0); } to { transform: translateY(-1.4px); } }
+@keyframes soft { from { opacity: .4; } to { opacity: 1; } }
+
+.draw-waters .water { stroke-width: 1.1; opacity: .75; }
+/* 1 · Waters: the water lines drift, the light on the water shimmers, the dove glides and beats slowly, the reeds lean. */
+.draw-waters .shimmer { animation: soft 4.5s ease-in-out infinite alternate; }
+.draw-waters .pad { animation: breathe 5s ease-in-out infinite alternate; }
+.draw-waters .glide { animation: glide 26s ease-in-out infinite alternate; }
+@keyframes glide { 0% { transform: translate(0, 0); } 50% { transform: translate(44px, -10px); } 100% { transform: translate(92px, 2px); } }
+.draw-waters .wing { transform-box: fill-box; transform-origin: 30% 100%; animation: beat 3.8s ease-in-out infinite alternate; }
+@keyframes beat { from { transform: scaleY(1); } to { transform: scaleY(.6); } }
+.draw-waters .reeds { transform-box: fill-box; transform-origin: 50% 100%; animation: sway 8s ease-in-out infinite alternate; }
+
+/* 2 · Shepherd: clouds drift, the flock grazes, the lamb rests and breathes. */
+.draw-shepherd .cloud { --dx: 30px; animation: drift-x 26s ease-in-out infinite alternate; }
+.draw-shepherd .cloud.slow { --dx: 22px; animation-duration: 34s; }
+.draw-shepherd .graze { transform-box: fill-box; transform-origin: 0% 10%; animation: graze 5.5s ease-in-out infinite; }
+.draw-shepherd .late .graze { animation-delay: -2.4s; animation-duration: 6.8s; }
+@keyframes graze { 0%, 40%, 100% { transform: rotate(0deg); } 60%, 80% { transform: rotate(12deg); } }
+.draw-shepherd .held { animation: breathe 5s ease-in-out infinite alternate; }
+
+/* 3 · Lamp: the flame breathes, its light swells on the ground, the stones of the path light one after another. */
+.draw-lamp .flame { transform-box: fill-box; transform-origin: 50% 100%; animation: flame 2.8s ease-in-out infinite alternate; }
+@keyframes flame { 0% { transform: scale(1, 1) skewX(0deg); } 50% { transform: scale(.95, 1.08) skewX(-2deg); } 100% { transform: scale(1.02, .96) skewX(1.5deg); } }
+.draw-lamp .ring { transform-box: fill-box; transform-origin: 50% 50%; animation: swell 6s ease-in-out infinite alternate; }
+.draw-lamp .ring.late { animation-delay: -3s; }
+@keyframes swell { from { transform: scale(.94); opacity: .3; } to { transform: scale(1.04); opacity: 1; } }
+.draw-lamp .rays { animation: soft 2.8s ease-in-out infinite alternate; }
+.draw-lamp .stone { stroke-width: 1.1; opacity: .2; animation: lit 8s ease-in-out infinite; animation-delay: calc(var(--i) * .55s); }
+@keyframes lit { 0%, 100% { opacity: .2; } 20%, 45% { opacity: 1; } }
+
+/* 4 · Wings: the wing over the young rises and settles, the chicks stir, the leaves sway. */
+.draw-wings .shelter { transform-origin: 142px 104px; animation: shelter 7s ease-in-out infinite alternate; }
+@keyframes shelter { from { transform: rotate(0deg); } to { transform: rotate(-3deg); } }
+.draw-wings .chicks { animation: breathe 2.6s ease-in-out infinite alternate; }
+
+/* 5 · Door: the light falling out breathes, small motes rise slowly in it, the tree stirs. */
+.draw-door .spill, .draw-door .lit { animation: soft 7s ease-in-out infinite alternate; }
+.draw-door .mote { opacity: 0; color: var(--c); animation: mote 9s linear infinite; animation-delay: calc(var(--i) * -1.3s); }
+@keyframes mote { 0% { transform: translateY(0); opacity: 0; } 20% { opacity: .8; } 80% { opacity: .5; } 100% { transform: translateY(-46px); opacity: 0; } }
+
+/* 6 · Rock: the beam sweeps slowly, the sea runs, the surf breathes, the boat rides the swell, the gulls glide. */
+.draw-rock .beam { transform-origin: 222px 58px; animation: sweep 9s ease-in-out infinite alternate; }
+@keyframes sweep { 0% { transform: rotate(-7deg); opacity: .4; } 50% { opacity: 1; } 100% { transform: rotate(7deg); opacity: .4; } }
+.draw-rock .lamp-light { fill: var(--c); animation: soft 4.5s ease-in-out infinite alternate; }
+.draw-rock .surf { animation: soft 4s ease-in-out infinite alternate; }
+.draw-rock .boat { transform-box: fill-box; transform-origin: 50% 100%; animation: ride 4.4s ease-in-out infinite alternate; }
+@keyframes ride { from { transform: translateY(0) rotate(-2.5deg); } to { transform: translateY(-2px) rotate(2.5deg); } }
+.draw-rock .gull { --dx: 46px; animation: drift-x 20s ease-in-out infinite alternate; }
+
+/* 7 · Morning: the sun rises and settles, its rays turn, mist drifts in the valleys, birds cross, the flowers nod. */
+.draw-morning .sunrise { animation: rise 18s ease-in-out infinite alternate; }
+@keyframes rise { from { transform: translateY(16px); } to { transform: translateY(-4px); } }
+.draw-morning .rays { transform-origin: 160px 146px; animation: turn 120s linear infinite; }
+@keyframes turn { to { transform: rotate(360deg); } }
+.draw-morning .mist { --dx: 26px; animation: drift-x 16s ease-in-out infinite alternate; }
+.draw-morning .mist.slow { --dx: -22px; animation-duration: 21s; }
+.draw-morning .birds { animation: cross 34s linear infinite; }
+@keyframes cross { from { transform: translate(-50px, 86px); } to { transform: translate(350px, 52px); } }
+.draw-morning .bloom { animation: sway 6s ease-in-out infinite alternate; animation-delay: calc(var(--i) * -1.7s); }
+
+/* 8 · Mending: the shoot sways, its leaves lift, the cloth ends stir, a drop gathers on a leaf tip and falls. */
+.draw-sprout .shoot { transform-origin: 172px 154px; animation: lean 7s ease-in-out infinite alternate; }
+@keyframes lean { from { transform: rotate(-1.4deg); } to { transform: rotate(1.4deg); } }
+.draw-sprout .tails { transform-origin: 182px 158px; animation: leaf 3.6s ease-in-out infinite alternate; }
+.draw-sprout .drop { transform-box: fill-box; transform-origin: 50% 0%; animation: drop 7s ease-in infinite; }
+@keyframes drop { 0% { transform: scale(.3); opacity: 0; } 10% { opacity: 1; } 62% { transform: scale(1); opacity: 1; } 84% { transform: translateY(74px) scale(1); opacity: 0; } 100% { transform: translateY(74px); opacity: 0; } }
+.draw-sprout .halo { animation: soft 8s ease-in-out infinite alternate; }
+
+@media (prefers-reduced-motion: reduce) { .art, .art * { animation: none !important; } .draw-door .mote { opacity: .6; } .draw-lamp .stone { opacity: .7; } }
