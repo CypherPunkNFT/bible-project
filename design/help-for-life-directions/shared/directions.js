@@ -2,7 +2,9 @@
 // shared city section. The crisis lines keep their call/text buttons on the closed row in every direction.
 (() => {
   const { LIFE, esc, plural, cat, tone, rowHtml, wireRows, setOpen, groupStats, sectionHead, subtitle, firstSentence, detailHtml, quickHtml, WAY_WORD } = window.Life;
-  const groups = LIFE.groups;
+  // 911 and 988 already lead the page in the crisis strip, so the Crisis list leaves them out (owner, 2026-10-08).
+  const IN_STRIP = new Set(["emergency-911", "988-lifeline"]);
+  const groups = LIFE.groups.map((g) => (g.id === "crisis" ? { ...g, entries: g.entries.filter((e) => !IN_STRIP.has(e.id)) } : g));
   const waysWords = (s) => s.ways.map((w) => WAY_WORD[w]).join(" · ");
   const roundClock = (s) => (s.always === s.n ? (s.n === 1 ? "Answers around the clock" : "All around the clock") : s.always ? `${s.always} around the clock` : "Set hours");
   const rowsFor = (g, extra = {}) => g.entries.map((e) => rowHtml(e, { cat: g.id, quick: g.id === "crisis" || extra.quickAll, quickMax: extra.quickAll && g.id !== "crisis" ? 1 : 2, ...extra })).join("");
