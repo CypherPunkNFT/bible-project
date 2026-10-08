@@ -1,9 +1,9 @@
 {
  "schema": 1,
- "commit": "9d5945ca",
+ "commit": "4f78e12a",
  "startedAt": "2026-10-08T03:26:04.125Z",
- "finishedAt": "2026-10-08T05:09:07.329Z",
- "base": "http://127.0.0.1:8934",
+ "finishedAt": "2026-10-08T05:14:24.923Z",
+ "base": "http://127.0.0.1:8937",
  "checks": [
   {
    "id": "loads",
@@ -731,23 +731,8 @@
    "instances": 12,
    "checked": 12,
    "coverage": "",
-   "failed": {
-    "jumps": 1
-   },
-   "failures": [
-    {
-     "url": "/study/letters/james-peter-and-jude/side",
-     "width": 400,
-     "check": "jumps",
-     "detail": "1 hover line(s) not built with the shared StableTip"
-    },
-    {
-     "url": "/study/letters/james-peter-and-jude/side",
-     "width": 1440,
-     "check": "jumps",
-     "detail": "1 hover line(s) not built with the shared StableTip"
-    }
-   ]
+   "failed": {},
+   "failures": []
   },
   {
    "template": "letters-section",
@@ -755,23 +740,8 @@
    "instances": 12,
    "checked": 12,
    "coverage": "",
-   "failed": {
-    "jumps": 1
-   },
-   "failures": [
-    {
-     "url": "/study/letters/what-runs-through-them/words",
-     "width": 400,
-     "check": "jumps",
-     "detail": "2 hover line(s) not built with the shared StableTip"
-    },
-    {
-     "url": "/study/letters/what-runs-through-them/words",
-     "width": 1440,
-     "check": "jumps",
-     "detail": "2 hover line(s) not built with the shared StableTip"
-    }
-   ]
+   "failed": {},
+   "failures": []
   },
   {
    "template": "letters-section",
