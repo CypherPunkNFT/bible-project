@@ -62,17 +62,17 @@
       ${tuft(40, 198)}${tuft(58, 197, .7)}${tuft(214, 197, .7)}${tuft(276, 198)}${tuft(292, 197, .6)}`),
 
     // 11 · The loaves and fishes (John 6:11): five loaves in a woven basket, two fish across its rim, warmth rising.
-    loaves: () => svg("Line drawing: five round loaves in a woven basket on the grass, two fish lying across its rim, warmth rising from the bread", `
+    loaves: () => svg("Line drawing: five round loaves in a woven basket on the grass, two fish lying on the bread, warmth rising from the bread", `
       <path class="f" d="M0 116C40 104 90 100 140 108C190 116 240 102 320 106"/>
       <path class="f" d="M30 136C70 130 110 130 140 134M200 132C240 128 280 128 310 132"/>
       <path d="M8 202C80 198 240 198 312 202"/>
       <g class="steam ft"><path style="--i:0" d="M136 100C132 94 140 88 136 82C132 76 140 70 136 64"/><path style="--i:1" d="M160 94C156 88 164 82 160 76C156 70 164 64 160 58"/><path style="--i:2" d="M186 100C182 94 190 88 186 82C182 76 190 70 186 64"/></g>
       <path d="M88 132C90 120 130 118 160 118C190 118 230 120 232 132"/>
       ${loaf(122, 134, 20, 16)}${loaf(198, 134, 20, 16)}${loaf(160, 132, 22, 19)}${loaf(140, 141, 19, 14)}${loaf(181, 141, 19, 14)}
+      <g class="t">${fish(110, 128, -14, .84)}${fish(158, 126, 12, .84)}</g>
       <path class="pf" d="M88 132C90 172 120 198 160 198C200 198 230 172 232 132C230 146 190 148 160 148C130 148 90 146 88 132Z"/>
       <path d="M88 132C90 172 120 198 160 198C200 198 230 172 232 132"/><path d="M88 132C90 146 130 148 160 148C190 148 230 146 232 132"/>
       <path class="f" d="M92 140C104 152 216 152 228 140"/><path class="f" d="${weave(160, 154, 192, 68, 38, 3, 11)}"/>
-      <g class="t">${fish(98, 150, -10, .95)}${fish(156, 158, 8, .95)}</g>
       ${tuft(50, 202)}${tuft(66, 201, .7)}${tuft(248, 201, .8)}${tuft(270, 202)}${tuft(30, 203, .6)}${tuft(292, 202, .6)}`),
 
     // 12 · An anchor of the soul (Hebrews 6:19): an anchor resting on the sea floor, light from above, fish passing, weed swaying.

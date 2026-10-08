@@ -1,4 +1,4 @@
-// The page: a short head, then sixteen drawings in two 4 × 2 grids, each with its number, name, verse and a "Use this"
+// The page: a short head, then twenty-four drawings in three 4 × 2 grids, each with its number, name, verse and a "Use this"
 // note. Verses are the King James text word for word (checked against data/text/kjv/<BOOK>/*.json, 2026-10-08).
 (() => {
   const ITEMS = [
@@ -18,6 +18,14 @@
     { key: "valley", name: "Valley", tone: "history", verse: "Yea, though I walk through the valley of the shadow of death, I will fear no evil: for thou art with me; thy rod and thy staff they comfort me.", ref: "Psalm 23:4" },
     { key: "olive", name: "Olive leaf", tone: "poetry", verse: "And the dove came in to him in the evening; and, lo, in her mouth was an olive leaf pluckt off …", ref: "Genesis 8:11" },
     { key: "eagle", name: "Eagle", tone: "accent", verse: "But they that wait upon the LORD shall renew their strength; they shall mount up with wings as eagles; they shall run, and not be weary; and they shall walk, and not faint.", ref: "Isaiah 40:31" },
+    { key: "mustard", name: "Mustard tree", tone: "poetry", verse: "Which indeed is the least of all seeds: but when it is grown, it is the greatest among herbs, and becometh a tree, so that the birds of the air come and lodge in the branches thereof.", ref: "Matthew 13:32" },
+    { key: "tent", name: "Stars", tone: "accent", verse: "And he brought him forth abroad, and said, Look now toward heaven, and tell the stars, if thou be able to number them …", ref: "Genesis 15:5" },
+    { key: "rainbow", name: "Rainbow", tone: "prophets", verse: "I do set my bow in the cloud, and it shall be for a token of a covenant between me and the earth.", ref: "Genesis 9:13" },
+    { key: "sheaves", name: "Sheaves", tone: "epistles", verse: "They that sow in tears shall reap in joy.", ref: "Psalm 126:5" },
+    { key: "lily", name: "Lilies", tone: "history", verse: "… Consider the lilies of the field, how they grow; they toil not, neither do they spin …", ref: "Matthew 6:28" },
+    { key: "river", name: "River tree", tone: "poetry", verse: "And he shall be like a tree planted by the rivers of water, that bringeth forth his fruit in his season; his leaf also shall not wither …", ref: "Psalm 1:3" },
+    { key: "window", name: "Window", tone: "accent", verse: "I will both lay me down in peace, and sleep: for thou, LORD, only makest me dwell in safety.", ref: "Psalm 4:8" },
+    { key: "city", name: "City", tone: "epistles", verse: "Ye are the light of the world. A city that is set on an hill cannot be hid.", ref: "Matthew 5:14" },
   ];
   const cell = (it, i) => `<li class="cell" id="${it.key}" style="--c: var(--${it.tone})">
         <p class="label"><b>${i + 1}</b><span>${esc(it.name)}</span></p>
@@ -31,12 +39,14 @@
   main.innerHTML = `<div class="wrap">
     <header class="head">
       <p class="kick">Help for life · the hero drawing</p>
-      <h1>Sixteen drawings <em>to choose from</em></h1>
+      <h1>Twenty-four drawings <em>to choose from</em></h1>
       <p class="lead">One of these sits beside the title at the top of the Help for life page, where the still-waters drawing is now. Each one moves slowly and never stops; with reduced motion turned on, each one stays still. Say the number to choose.</p>
     </header>
     <ol class="grid">${ITEMS.slice(0, 8).map((it, i) => cell(it, i)).join("")}</ol>
     <p class="grid-head"><span>9–16</span>Eight more</p>
-    <ol class="grid" start="9">${ITEMS.slice(8).map((it, i) => cell(it, i + 8)).join("")}</ol>
+    <ol class="grid" start="9">${ITEMS.slice(8, 16).map((it, i) => cell(it, i + 8)).join("")}</ol>
+    <p class="grid-head"><span>17–24</span>And eight more</p>
+    <ol class="grid" start="17">${ITEMS.slice(16).map((it, i) => cell(it, i + 16)).join("")}</ol>
     <p class="foot-note">Every verse is the King James text, word for word. Where a verse goes on, it is shortened and marked …. The drawings are this site's own, drawn as lines; no person in them has a face, and none is a picture of God.</p>
   </div>`;
 })();
