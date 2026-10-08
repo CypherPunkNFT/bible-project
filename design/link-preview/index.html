@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Link preview · Bible Project</title>
+<link rel="icon" href="../journeys-directions/favicon.svg">
+<link rel="stylesheet" href="../_gallery/gallery.css">
+<script>try { const t = localStorage.getItem("bp-theme"); document.documentElement.dataset.theme = t === "dark" || t === "light" ? t : (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"); } catch { document.documentElement.dataset.theme = "light"; }</script>
+<style>
+  .lp { display: grid; gap: 3rem; margin-top: 1.5rem; }
+  .lp-design { scroll-margin-top: 5rem; }
+  .lp-design h2 { margin: 0 0 .3rem; font: 600 1.6rem var(--serif); }
+  .lp-design > p { margin: 0 0 1rem; color: var(--muted); }
+  .lp-full { display: block; width: 100%; max-width: 1200px; height: auto; border-radius: 12px; box-shadow: var(--shadow-2); }
+  .lp-small { display: flex; flex-wrap: wrap; gap: 1.5rem; margin-top: 1.2rem; align-items: start; }
+  .lp-chat { width: 340px; max-width: 100%; overflow: hidden; border: 1px solid var(--line); border-radius: 14px; background: var(--surface); font-size: .85rem; }
+  .lp-chat img { display: block; width: 100%; height: auto; }
+  .lp-chat div { padding: .6rem .8rem; } .lp-chat b { display: block; } .lp-chat span { color: var(--muted); }
+  .lp-tiny { width: 150px; border-radius: 8px; border: 1px solid var(--line); }
+  .lp-square { width: 120px; height: 120px; object-fit: cover; border-radius: 8px; border: 1px solid var(--line); }
+  .lp-small figcaption { margin-top: .35rem; color: var(--muted); font-size: .8rem; }
+  .lp-small figure { margin: 0; }
+</style>
+</head>
+<body>
+<header class="g-header"><div class="g-strip" aria-hidden="true"><span style="background: var(--history)"></span><span style="background: var(--poetry)"></span><span style="background: var(--prophets)"></span><span style="background: var(--gospels)"></span><span style="background: var(--epistles)"></span><span style="background: var(--revelation)"></span></div>
+  <div class="g-bar"><a class="g-logo" href="../"><img src="../journeys-directions/favicon.svg" alt=""><span>Bible Project</span></a><span class="g-crumb">Design gallery · Link preview</span></div></header>
+<main class="g-main">
+  <section class="g-hero"><p class="g-kicker">The picture shown when someone shares a link</p><h1>Link preview</h1>
+    <p class="g-lead">Three designs at the real size (1200 × 630), then as a chat app shows them, small, and cropped square (some apps do). Built from the site's own fonts, colours and artwork.</p></section>
+  <div class="lp" id="lp"></div>
+</main>
+<script>
+  const DESIGNS = [
+    ["open-word", "1 · The open Word", "Dark, with the home page's open book of John."],
+    ["five-ways", "2 · Five ways in", "Light, with the five collection drawings from the home page and the key figures."],
+    ["journeys", "3 · Walk it", "Dark, with the Journeys route drawing glowing."],
+  ];
+  const only = location.hash.slice(1);
+  document.getElementById("lp").innerHTML = DESIGNS.filter(([id]) => !only || id === only).map(([id, name, line]) => `<section class="lp-design" id="${id}">
+    <h2>${name}</h2><p>${line}</p><img class="lp-full" src="${id}.png" width="1200" height="630" alt="${name}">
+    <div class="lp-small"><figure class="lp-chat"><img src="${id}.png" alt=""><div><b>Bible Project</b><span>bibleproject.io</span></div></figure>
+      <figure><img class="lp-tiny" src="${id}.png" alt=""><figcaption>Small (150 px)</figcaption></figure>
+      <figure><img class="lp-square" src="${id}.png" alt=""><figcaption>Square crop</figcaption></figure></div></section>`).join("");
+</script>
+</body>
+</html>
