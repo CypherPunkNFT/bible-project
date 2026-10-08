@@ -262,6 +262,30 @@ The same package's 1:10m land file (land-10m.json 9b9f584709c119d6) is drawn by 
 | File | What | Licence | Checksum |
 |---|---|---|---|
 | [ne_50m_admin_1_states_provinces_lakes.geojson](../sources/natural-earth/ne_50m_admin_1_states_provinces_lakes.geojson) | **Natural Earth** 1:50m admin-1 states and provinces (with lakes), v5.1.2, downloaded 2026-10-08 from the Natural Earth repository (`https://raw.githubusercontent.com/nvkelso/natural-earth-vector/v5.1.2/geojson/ne_50m_admin_1_states_provinces_lakes.geojson`). Only the 50 US states and DC are kept; [scripts/build-us-states.mjs](scripts/build-us-states.mjs) checks the checksum and pre-draws them on an Albers USA projection into [src/data/resources/us-states.json](src/data/resources/us-states.json), the outline of the USA map on [/resources/life](https://bibleproject.io/resources/life) | **Public domain** ([terms](https://www.naturalearthdata.com/about/terms-of-use/)); credit Natural Earth | sha256 b92c3f709b691240 |
+
+<a id="source-census-jacksonville"></a>
+### US Census Bureau TIGER/Line and population estimates (Jacksonville)
+
+**Official channel:** [https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html](https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html) and [https://www.census.gov/programs-surveys/popest.html](https://www.census.gov/programs-surveys/popest.html). **Held formats:** zipped shapefiles (TIGER/Line 2026, cartographic boundary 2025) and CSV (Vintage 2025 estimates), downloaded 2026-10-08.
+**Licence/terms and credit:** US Government work, public domain; credit "US Census Bureau". Used on the Help for life page (/resources/life): the zoomable Jacksonville (Duval County) map (land, water, roads, town labels) and the sourced facts beside the USA map (the county, Duval County and Jacksonville city population for July 1, 2025, land and water area). Built by [scripts/build-jax-map.py](scripts/build-jax-map.py) into src/data/resources/jax-map.json and jax-facts.json; the script refuses any file whose sha256 differs from the table below.
+**Evidence:** sha256 of each file read:
+
+| File | What it is | sha256 |
+|---|---|---|
+| [cb_2025_us_county_500k.zip](https://www2.census.gov/geo/tiger/GENZ2025/shp/cb_2025_us_county_500k.zip) | Cartographic Boundary File 2025, counties 1:500,000 (shoreline-clipped) | `aa976c00b181939755d0da757f4c7c2dc0103c3b3b4530fb2a91c2bb62fc777c` |
+| [tl_2026_12_prisecroads.zip](https://www2.census.gov/geo/tiger/TIGER2026/PRISECROADS/tl_2026_12_prisecroads.zip) | TIGER/Line 2026, primary and secondary roads, Florida | `05d6fbc00795555ce9b909a10a3f05d83067f449ffab6d5210a46b97319ab324` |
+| [tl_2026_12031_roads.zip](https://www2.census.gov/geo/tiger/TIGER2026/ROADS/tl_2026_12031_roads.zip) | TIGER/Line 2026, all roads, Duval County | `8d29fc4a6f40f7d6246aa351239325ac0e10c02cc858fb8e0f400e75cecb7577` |
+| [tl_2026_12_place.zip](https://www2.census.gov/geo/tiger/TIGER2026/PLACE/tl_2026_12_place.zip) | TIGER/Line 2026, places, Florida (town labels) | `38a86feeb17300f9991d5c89b5fb1d61c42823cc4bacb1f7f0738605a22ed8ec` |
+| [tl_2026_12031_areawater.zip](https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_12031_areawater.zip) | TIGER/Line 2026, area water, Duval County | `bbb7f8b5f0f8d52d1585e7b0fdf28064907bb64242f70123416d64aba2c5e8d3` |
+| [tl_2026_12089_areawater.zip](https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_12089_areawater.zip) | TIGER/Line 2026, area water, Nassau County | `9cd005ef5b1f581296d8301054d789a989b333845d73bd3d8c7b25bfe8a89ec7` |
+| [tl_2026_12003_areawater.zip](https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_12003_areawater.zip) | TIGER/Line 2026, area water, Baker County | `9be0c494112ae281a82c463df738050ebcbbfbf4afba19293914ff98bc876a95` |
+| [tl_2026_12019_areawater.zip](https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_12019_areawater.zip) | TIGER/Line 2026, area water, Clay County | `52bf3a5a92dfbaa75c2360d2caa7589977457625b43a79755340a31b4685fd94` |
+| [tl_2026_12109_areawater.zip](https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_12109_areawater.zip) | TIGER/Line 2026, area water, St. Johns County | `dfcfa9924dbc721a4dc0ce1eca8f533a5c00df41396855c3880f00dafec5d2b6` |
+| [co-est2025-alldata.csv](https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/counties/totals/co-est2025-alldata.csv) | Vintage 2025 county population estimates | `4f5a499d851e2cb48fd7a5405e5a9235453a8a66933657aacd10df0e264f35d5` |
+| [sub-est2025_12.csv](https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025_12.csv) | Vintage 2025 city and town population estimates, Florida | `7742b3514362d7b2a7c5301cb9e6e722eec40d8a76a817ba6e12ab073f21dab9` |
+
+**Held at:** [sources/census/](../sources/census/) (the 11 files, kept so [scripts/build-jax-map.py](scripts/build-jax-map.py) can rebuild the map).
+
 ## Study resources — downloaded 2026-10-03 for the Study pages (TODO section G)
 
 Only facts (event names, topic names, verse references, names and family links) are taken from these. STEP

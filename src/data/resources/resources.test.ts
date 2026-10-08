@@ -2,7 +2,8 @@
 import fs from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
-import type { FellowshipsData, Help, LearningData, LifeData, UsStates } from "./index";
+import { CITY_FILES } from "@/pages/resources/life/format";
+import type { CityFacts, CityMap, FellowshipsData, Help, LearningData, LifeData, UsStates } from "./index";
 
 const DIR = path.resolve(__dirname);
 const PUBLIC = path.resolve(__dirname, "../../../public");
@@ -84,5 +85,23 @@ describe("us-states.json", () => {
     expect(data.scale).toBeGreaterThan(0);
     expect(data.translate).toHaveLength(2);
     for (const s of data.states) expect(s.d, s.id).toMatch(/^M/);
+  });
+});
+
+describe("city maps and facts (scripts/build-jax-map.py)", () => {
+  const life = read<LifeData>("life");
+  it.skipIf(!life)("every verified city has its map and its sourced facts, so none is silently left off the page", () => {
+    for (const city of life!.cities.filter((c) => c.verified === true)) {
+      const files = (CITY_FILES as Record<string, { map: string; facts: string }>)[city.id];
+      expect(files, `${city.id}: add it to CITY_FILES and build its map`).toBeTruthy();
+      const map = read<CityMap>(files.map), facts = read<CityFacts>(files.facts);
+      expect(map?.city, files.map).toBe(city.id);
+      expect(facts?.city, files.facts).toBe(city.id);
+      for (const d of [map!.land.duval, map!.land.around, map!.water, map!.roads.primary, map!.roads.secondary, map!.roads.streets]) expect(d).toMatch(/^M/);
+      expect(map!.width).toBeGreaterThan(0);
+      for (const s of map!.sources) { expect(s.url).toMatch(URL_RE); expect(s.sha256).toMatch(/^[0-9a-f]{64}$/); }
+      expect(facts!.facts.length).toBeGreaterThan(0);
+      for (const f of facts!.facts) { expect(f.source, f.id).toMatch(URL_RE); expect(f.checked, f.id).toMatch(DATE); expect(f.by, f.id).toBeTruthy(); }
+    }
   });
 });

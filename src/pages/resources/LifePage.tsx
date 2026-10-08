@@ -1,68 +1,62 @@
-// /resources/life: help for people who may be in crisis, from life.json. First a plain strip with the emergency and
-// crisis numbers (taken from the data, never typed here), then the national lines as kinds you choose between, then the
-// USA map of the researched cities and their places.
-import { Baby, HandHeart, HeartHandshake, LifeBuoy, MessageSquareText, Phone, Sprout, Users, Wheat, Flower2, type LucideIcon } from "lucide-react";
-import { useState } from "react";
-import { useResource, type Help, type LifeData } from "@/data/resources";
-import { HelpEntry } from "./Contacts";
-import { dialable, smsHref, wayOf } from "./contact-links";
-import { LifeMap } from "./LifeMap";
-import { ResourceShell } from "./Shell";
+// /resources/life, as the owner approved it (design/help-for-life-directions, direction E, 2026-10-08): the crisis strip
+// first; the title with its words and four numbers, still-waters line art beside it; the national lines as a directory;
+// then each researched city (only cities with verified: true) with its USA map, sourced facts and its own map of places;
+// and how the list is made. No section links: this page stands on its own. Every word and number comes from the data.
+import { MessageSquareText, Phone } from "lucide-react";
+import { useEffect, type CSSProperties } from "react";
+import type { Help, LifeData } from "@/data/resources";
+import { dialable, smsHref } from "./contact-links";
+import { CitySection } from "./life/CitySection";
+import { hasCityFiles, kindOf, kindsIn, listOf, wayOf } from "./life/format";
+import { NationalLines } from "./life/NationalLines";
+import { StillWaters } from "./life/StillWaters";
+import { RESOURCE_SECTIONS, sectionBySlug } from "./sections";
+import "./life/life.css";
 
-const plural = (n: number, one: string, many = `${one}s`) => `${n.toLocaleString("en-US")} ${n === 1 ? one : many}`;
-const listOf = (words: string[]) => (words.length < 2 ? words.join("") : `${words.slice(0, -1).join(", ")} and ${words.at(-1)}`);
-
-const KIND_ICONS: [RegExp, LucideIcon][] = [
-  [/crisis|suicide|danger/, LifeBuoy], [/after|abortion|heal/, HeartHandshake], [/pregnan/, Baby], [/child|famil|parent/, Users],
-  [/food|hunger|meal/, Wheat], [/grief|loss|bereave/, Flower2], [/recover|addict/, Sprout],
-];
-const iconFor = (id: string, title: string) => KIND_ICONS.find(([re]) => re.test(`${id} ${title}`.toLowerCase()))?.[1] ?? HandHeart;
-
-/** Every way to reach a number across the national lines: is 988 a call line, a text line, or both? */
-function waysTo(groups: LifeData["groups"], number: string) {
-  const ways = new Set<string>();
-  for (const e of groups.flatMap((g) => g.entries)) for (const c of e.contact) {
-    const way = wayOf(c.kind);
-    if ((way === "call" || way === "text") && dialable(c.value) === number) ways.add(way);
-  }
-  return ways;
-}
+/** The two lines the crisis strip carries; the Crisis list leaves them out, as they already lead the page (owner, 2026-10-08). */
+const IN_STRIP = { danger: "emergency-911", crisis: "988-lifeline" };
+const answersAlways = (e?: Help) => /24\s*\/\s*7/.test(e?.hours ?? "");
 
 function CrisisStrip({ groups }: { groups: LifeData["groups"] }) {
-  const danger = waysTo(groups, "911"), crisis = waysTo(groups, "988");
-  if (!danger.size && !crisis.size) return null;
-  return <aside className="rs-crisis" aria-label="Help right now">
-    {danger.has("call") && <p><span>In danger now?</span><a href="tel:911"><Phone size={18} aria-hidden="true" />Call 911</a></p>}
-    {crisis.size > 0 && <p><span>Thinking of suicide or in crisis?</span>
-      <span className="rs-crisis-ways">{crisis.has("call") && <a href="tel:988"><Phone size={18} aria-hidden="true" />{crisis.has("text") ? "Call" : "Call 988"}</a>}
-      {crisis.has("call") && crisis.has("text") && <span>or</span>}
-      {crisis.has("text") && <a href={smsHref("988")}><MessageSquareText size={18} aria-hidden="true" />{crisis.has("call") ? "text 988" : "Text 988"}</a>}</span>
-    </p>}
+  const all = groups.flatMap((g) => g.entries);
+  const danger = all.find((e) => e.id === IN_STRIP.danger), crisis = all.find((e) => e.id === IN_STRIP.crisis);
+  const ways = (e: Help | undefined, number: string, way: "call" | "text") => !!e?.contact.some((c) => wayOf(c.kind) === way && dialable(c.value) === number);
+  const call911 = ways(danger, "911", "call"), call988 = ways(crisis, "988", "call"), text988 = ways(crisis, "988", "text");
+  if (!call911 && !call988 && !text988) return null;
+  return <aside className="lf-crisis" aria-label="Help right now">
+    {call911 && <p><span>In danger now?</span><a href="tel:911"><Phone size={18} strokeWidth={1.6} aria-hidden="true" />Call 911</a></p>}
+    {(call988 || text988) && <p><span>Thinking of suicide or in crisis?</span>
+      {call988 && <a href="tel:988"><Phone size={18} strokeWidth={1.6} aria-hidden="true" />Call 988</a>}
+      {call988 && text988 && <span>or</span>}
+      {text988 && <a href={smsHref("988")}><MessageSquareText size={18} strokeWidth={1.6} aria-hidden="true" />Text 988</a>}</p>}
+    {call911 && answersAlways(danger) && (call988 || text988) && answersAlways(crisis) && <p className="lf-crisis-note">Both answer 24 hours a day.</p>}
   </aside>;
 }
 
 export default function LifePage({ data }: { data: LifeData }) {
-  const states = useResource("us-states");
-  const [kind, setKind] = useState(data.groups[0]?.id ?? "");
-  const group = data.groups.find((g) => g.id === kind) ?? data.groups[0];
+  const info = sectionBySlug("life");
+  useEffect(() => { document.title = `${info.title} · Resources · Bible Project`; return () => { document.title = "Bible Project"; }; }, [info.title]);
+  const groups = data.groups.map((g) => (g.id === "crisis" ? { ...g, entries: g.entries.filter((e) => e.id !== IN_STRIP.danger && e.id !== IN_STRIP.crisis) } : g));
   const national = data.groups.reduce((n, g) => n + g.entries.length, 0);
-  const cities = data.cities.filter((c) => c.verified === true && c.entries.length > 0);
-  const where = cities.length <= 3 ? listOf(cities.map((c) => c.name)) : plural(cities.length, "city", "cities");
-  const local = cities.reduce((n, c) => n + c.entries.length, 0);
-  return <ResourceShell slug="life" top={<CrisisStrip groups={data.groups} />}
-    lead={`Free national lines for the hardest moments, ${cities.length ? `and places in ${where} that help with ${listOf([...new Set(cities.flatMap((c) => c.entries.map((e) => e.category)))].sort())}` : ""}. Every number can be tapped to call or text.`}
-    stats={[["National lines", national], ["Local places", local], ...(cities.length ? [["Cities", cities.length] as [string, number]] : []), ["Checked", data.checked]]}
-    note="How this list is made: every number, address and hour is copied from the organisation’s own page, and each entry links to the page it was checked on. Numbers change; if one fails, the organisation’s page is the place to look.">
-    <div className="rs-section-head"><span>01</span><h2>National lines</h2><p>Choose what you need. Each line shows its hours, its cost and the ways to reach it.</p></div>
-    <div className="rs-kinds" role="group" aria-label="Kind of help">
-      {data.groups.map((g) => { const Icon = iconFor(g.id, g.title); return <button key={g.id} type="button" className="rs-kind" aria-pressed={g.id === group?.id} onClick={() => setKind(g.id)}>
-        <Icon size={22} aria-hidden="true" /><span>{g.title}</span><small>{plural(g.entries.length, "line")}</small>
-      </button>; })}
-    </div>
-    {group && <ol className="rs-help" aria-label={group.title} style={{ borderTop: 0 }}>{group.entries.map((e: Help) => <HelpEntry key={e.id} entry={e} />)}</ol>}
-    {cities.length > 0 && <>
-      <div className="rs-section-head"><span>02</span><h2>Places across the USA</h2><p>{cities.length === 1 ? `${cities[0].name} so far: its places on a small map, with addresses and how to reach each, and its phone lines.` : `${where} so far. Choose one to see its places on a small map, with addresses and how to reach each.`}</p></div>
-      {typeof states === "object" ? <LifeMap states={states} cities={cities} /> : <p className="tl-status">{states === "loading" ? "Loading the map…" : "The map outline is missing."}</p>}
-    </>}
-  </ResourceShell>;
+  // Only verified cities, and only once their map and facts have been built (scripts/build-jax-map.py).
+  const cities = data.cities.filter((c) => c.verified === true && c.entries.length > 0).flatMap((c) => (hasCityFiles(c.id) ? [{ ...c, id: c.id }] : []));
+  const places = cities.reduce((n, c) => n + c.entries.length, 0), lines = cities.reduce((n, c) => n + (c.lines?.length ?? 0), 0);
+  const helpsWith = listOf([...new Set(cities.flatMap((c) => kindsIn(c).map(([k]) => kindOf(k).short.toLowerCase())))]);
+  const stats: [string, string | number][] = [["National lines", national], ...(cities.length ? [["Places", places], ["Local lines", lines]] as [string, number][] : []), ["Checked", data.checked]];
+  const titleWords = info.title.split(" "), lastWord = titleWords.pop();
+  return <div className="lf-page mx-auto max-w-7xl px-4 sm:px-6" style={{ "--door": `var(--${info.color})` } as CSSProperties}>
+    <CrisisStrip groups={data.groups} />
+    <header className="lf-hero">
+      <div>
+        <p className="lf-kick">Resources · {String(RESOURCE_SECTIONS.indexOf(info) + 1).padStart(2, "0")}</p>
+        <h1>{titleWords.join(" ")} <em>{lastWord}</em></h1>
+        <p className="lf-lead">Free national lines for the hardest moments{cities.length ? `, and places in ${listOf(cities.map((c) => c.name))} that help with ${helpsWith}` : ""}. Every number can be tapped to call or text.</p>
+        <dl className="lf-stats">{stats.map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{typeof value === "number" ? value.toLocaleString("en-US") : value}</dd></div>)}</dl>
+      </div>
+      <StillWaters />
+    </header>
+    <NationalLines groups={groups} />
+    {cities.map((c) => <CitySection key={c.id} city={c} checked={data.checked} />)}
+    <section className="lf-how"><p>How this list is made: every number, address and hour is copied from the organisation’s own page, and each entry links to the page it was checked on. Numbers change; if one fails, the organisation’s page is the place to look.{cities.length > 0 && ` The ${listOf(cities.map((c) => c.name.split(",")[0]))} map is drawn from the US Census Bureau’s TIGER/Line 2026 files; each place is located from its address by the Census Bureau geocoder.`}</p></section>
+  </div>;
 }

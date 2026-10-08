@@ -1,0 +1,43 @@
+{
+  "city": "jacksonville-fl",
+  "checked": "2026-10-08",
+  "facts": [
+    {
+      "id": "county",
+      "label": "County",
+      "value": "Duval County",
+      "note": "Florida · FIPS 12031",
+      "source": "https://www2.census.gov/geo/tiger/GENZ2025/shp/cb_2025_us_county_500k.zip",
+      "by": "US Census Bureau, cartographic boundary file 2025 (GEOID 12031)",
+      "checked": "2026-10-08"
+    },
+    {
+      "id": "county-population",
+      "label": "Duval County population",
+      "value": 1062963,
+      "note": "estimate for July 1, 2025",
+      "source": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/counties/totals/co-est2025-alldata.csv",
+      "by": "US Census Bureau, Vintage 2025 population estimates",
+      "checked": "2026-10-08"
+    },
+    {
+      "id": "city-population",
+      "label": "Jacksonville city population",
+      "value": 1017689,
+      "note": "estimate for July 1, 2025",
+      "source": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025_12.csv",
+      "by": "US Census Bureau, Vintage 2025 population estimates",
+      "checked": "2026-10-08"
+    },
+    {
+      "id": "land-area",
+      "label": "Land area",
+      "value": 762.7,
+      "unit": "sq mi",
+      "note": "plus 155.8 sq mi of water",
+      "source": "https://www2.census.gov/geo/tiger/GENZ2025/shp/cb_2025_us_county_500k.zip",
+      "by": "US Census Bureau, cartographic boundary file 2025 (ALAND, AWATER)",
+      "checked": "2026-10-08"
+    }
+  ]
+}

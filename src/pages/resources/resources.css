@@ -1,5 +1,5 @@
 /* The three Resources section pages. They borrow the Teachers lists' crumbs, hero, chips and rows (teachers.css) and
-   add: the workbook shelf, the fellowship facts, the crisis strip, the help groups and the USA map. Words between
+   add the workbook shelf and the fellowship facts (Help for life has its own life/life.css). Words between
    hairlines, no cards; --door is the section's colour. */
 .rs-mono { font: 600 .56rem/1.2 "JetBrains Mono Variable", ui-monospace, monospace; letter-spacing: .16em; text-transform: uppercase; }
 .rs-checked { margin-top: .8rem; color: var(--muted); font-size: .72rem; line-height: 1.6; }
@@ -53,113 +53,15 @@
 .rs-actions a:first-child { border-bottom-color: var(--door); }
 .rs-actions a:hover { border-bottom-color: var(--door); }
 
-/* Help for life: the crisis strip comes before everything else. Plain, steady, no alarm colours flashing. */
-.rs-crisis { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem 2.4rem; margin-bottom: 1.8rem; padding: 1rem 0 1rem 1.1rem; border-left: 3px solid var(--door); border-bottom: 1px solid var(--line); }
-.rs-crisis p { display: flex; flex-wrap: wrap; align-items: baseline; gap: .2rem .7rem; font-size: 1.02rem; line-height: 1.5; }
-.rs-crisis p > span { color: color-mix(in srgb, var(--ink) 78%, transparent); }
-.rs-crisis a { display: inline-flex; align-items: center; gap: .4rem; min-height: 2.75rem; padding-inline: .1rem; color: var(--ink); font-weight: 600; font-size: 1.12rem; border-bottom: 2px solid var(--door); }
-.rs-crisis a svg { color: var(--door); }
-.rs-crisis-ways { display: inline-flex; align-items: baseline; gap: .7rem; }
-.rs-crisis a:hover { color: var(--door); }
-
-.rs-kinds { display: grid; grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr)); gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-.rs-kind { position: relative; display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: .15rem .7rem; padding: .95rem .9rem .95rem 0; text-align: left; color: var(--muted); transition: color .2s; }
-.rs-kind::before { content: ""; position: absolute; left: 0; top: -1px; width: 0; height: 2px; background: var(--door); transition: width .45s cubic-bezier(.16, 1, .3, 1); }
-.rs-kind svg { grid-row: span 2; }
-.rs-kind span { font-size: .86rem; line-height: 1.25; color: inherit; }
-.rs-kind small { color: var(--muted); font-size: .68rem; font-variant-numeric: tabular-nums; }
-.rs-kind:hover { color: var(--ink); }
-.rs-kind[aria-pressed="true"] { color: var(--ink); }
-.rs-kind[aria-pressed="true"]::before { width: 2.4rem; }
-.rs-kind[aria-pressed="true"] svg { color: var(--door); }
-
-.rs-help { border-top: 1px solid var(--line); }
-.rs-entry { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 1rem 3rem; padding-block: 1.5rem; border-bottom: 1px solid var(--line); }
-.rs-entry h3 { font-family: var(--font-serif); font-size: 1.25rem; line-height: 1.25; letter-spacing: -.01em; }
-.rs-entry-sum { margin-top: .5rem; color: color-mix(in srgb, var(--ink) 80%, transparent); font-size: .88rem; line-height: 1.7; }
-.rs-entry-meta { display: grid; gap: .25rem; margin-top: .7rem; color: var(--muted); font-size: .78rem; line-height: 1.55; }
-.rs-entry-meta b { color: var(--ink); font-weight: 500; }
-.rs-contacts { display: grid; grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr)); align-content: start; align-items: start; gap: .1rem 1.6rem; }
-.rs-contacts > .rs-hours { grid-column: 1 / -1; }
-.rs-contact { display: grid; grid-template-columns: 1.4rem minmax(0, 1fr); align-items: center; gap: .1rem .7rem; min-height: 2.9rem; padding-block: .3rem; border-bottom: 1px dotted var(--line); color: var(--ink); }
-.rs-contact svg { color: var(--door); }
-.rs-contact strong { font-size: 1.12rem; font-weight: 500; letter-spacing: .01em; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
-.rs-contact small { grid-column: 2; color: var(--muted); font-size: .72rem; line-height: 1.4; }
-a.rs-contact:hover strong { color: var(--door); }
-.rs-contact[data-plain] strong { font-size: .92rem; font-weight: 400; }
-.rs-hours { display: grid; grid-template-columns: 1.4rem minmax(0, 1fr); align-items: center; gap: .7rem; padding: .35rem 0 .5rem; border-bottom: 1px solid var(--line); color: var(--ink); font-size: .95rem; font-weight: 500; line-height: 1.4; }
-.rs-hours svg { color: var(--muted); justify-self: center; }
-.rs-faith { justify-self: start; color: var(--door); font: 600 .56rem/1.4 "JetBrains Mono Variable", ui-monospace, monospace; letter-spacing: .14em; text-transform: uppercase; }
-.rs-geocode { margin-top: .5rem; color: var(--muted); font-size: .7rem; line-height: 1.55; }
-.rs-lines-title { display: flex; align-items: baseline; gap: .7rem; margin-top: 1.8rem; padding-bottom: .5rem; border-bottom: 1px solid var(--line); font-family: var(--font-serif); font-size: 1.2rem; font-weight: 400; }
-.rs-lines-title small { color: var(--muted); font: 600 .56rem "JetBrains Mono Variable", ui-monospace, monospace; letter-spacing: .14em; text-transform: uppercase; }
-.rs-local-entry.rs-line > b { width: .9rem; height: 1px; margin-top: .75rem; border: 0; border-radius: 0; background: var(--door); }
-
-/* The USA map: states as a quiet outline, cities as points; the chosen city opens beside it. */
-.rs-atlas { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr); gap: 1.6rem 3rem; align-items: start; }
-.rs-usa { position: relative; min-width: 0; }
-@media (min-width: 901px) { .rs-usa { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 5rem); } }
-.rs-usa svg { display: block; width: 100%; height: auto; }
-.rs-state { fill: color-mix(in srgb, var(--line) 30%, transparent); stroke: color-mix(in srgb, var(--muted) 55%, transparent); stroke-width: .6; vector-effect: non-scaling-stroke; }
-.rs-city { cursor: pointer; }
-.rs-city circle.rs-dot { fill: var(--door); stroke: var(--page); stroke-width: 1.5; transition: r .3s cubic-bezier(.16, 1, .3, 1); }
-.rs-city circle.rs-halo { fill: none; stroke: var(--door); stroke-width: 1; opacity: 0; transition: opacity .3s; }
-.rs-city text { fill: var(--ink); font: 500 11px var(--font-sans); paint-order: stroke; stroke: var(--page); stroke-width: 3px; stroke-linejoin: round; opacity: .85; pointer-events: none; }
-.rs-city:hover circle.rs-halo, .rs-city[data-on] circle.rs-halo { opacity: .7; }
-.rs-city[data-on] text { opacity: 1; font-weight: 700; }
-.rs-city:focus { outline: none; }
-.rs-city-list { display: flex; flex-wrap: wrap; gap: .1rem 1.1rem; margin-top: .9rem; padding-top: .7rem; border-top: 1px solid var(--line); }
-.rs-city-list button { min-height: 2.2rem; padding: .2rem 0; color: var(--muted); font-size: .84rem; border-bottom: 1px solid transparent; }
-.rs-city-list button:hover { color: var(--ink); }
-.rs-city-list button[aria-pressed="true"] { color: var(--ink); border-bottom-color: var(--door); }
-.rs-city-list small { margin-left: .3rem; color: var(--muted); font-size: .68rem; font-variant-numeric: tabular-nums; }
-
-.rs-local { min-width: 0; padding-left: 1.4rem; border-left: 2px solid var(--door); animation: tl-open .35s cubic-bezier(.16, 1, .3, 1); }
-.rs-local > h3 { font-family: var(--font-serif); font-size: 1.7rem; letter-spacing: -.02em; line-height: 1.1; }
-.rs-local > p { margin-top: .35rem; color: var(--muted); font-size: .8rem; }
-.rs-local .tl-chips { margin-top: .9rem; }
-.rs-local .tl-chips > span { width: auto; margin-right: .3rem; }
-.rs-mini { display: block; width: 100%; max-width: 22rem; height: auto; margin: .6rem auto 0; }
-.rs-ring { fill: none; stroke: var(--line); stroke-width: 1; stroke-dasharray: 2 3; }
-.rs-ring-label { fill: var(--muted); font: 600 8px "JetBrains Mono Variable", ui-monospace, monospace; letter-spacing: .08em; }
-.rs-centre { fill: var(--muted); }
-.rs-pin { cursor: pointer; }
-.rs-pin circle { fill: var(--page); stroke: var(--door); stroke-width: 1.4; transition: fill .2s; }
-.rs-pin text { fill: var(--door); font: 700 8.5px var(--font-sans); text-anchor: middle; dominant-baseline: central; pointer-events: none; }
-.rs-pin[data-on] circle { fill: var(--door); }
-.rs-pin[data-on] text { fill: var(--page); }
-.rs-local-list { margin-top: .4rem; }
-.rs-local-entry { display: grid; grid-template-columns: 1.6rem minmax(0, 1fr); gap: .2rem .7rem; padding-block: 1rem; border-bottom: 1px solid var(--line); transition: background-color .2s; }
-.rs-local-entry > b { display: grid; place-items: center; width: 1.35rem; height: 1.35rem; margin-top: .1rem; border: 1.4px solid var(--door); border-radius: 50%; color: var(--door); font-size: .62rem; font-weight: 700; }
-.rs-local-entry[data-on] > b { background: var(--door); color: var(--page); }
-.rs-local-entry h4 { font-family: var(--font-serif); font-size: 1.05rem; line-height: 1.3; }
-.rs-local-entry address { margin-top: .2rem; color: var(--muted); font-size: .78rem; font-style: normal; line-height: 1.5; }
-.rs-local-entry .rs-entry-sum { font-size: .82rem; }
-.rs-local-entry .rs-contacts { margin-top: .4rem; }
-.rs-pick { padding: 2.4rem 0; color: var(--muted); font-size: .9rem; line-height: 1.7; }
-.rs-pick strong { display: block; color: var(--ink); font-family: var(--font-serif); font-size: 1.4rem; font-weight: 400; }
-
-/* The chosen city's local map sits under the USA map; the USA map gives up height so both stay in view while the list
-   beside them scrolls. */
-.rs-atlas[data-city] .rs-usa > svg { max-height: 34vh; }
-.rs-mini-wrap { margin-top: 1.2rem; padding-bottom: .4rem; border-bottom: 1px solid var(--line); }
-.rs-mini-cap { color: var(--door); font: 600 .6rem "JetBrains Mono Variable", ui-monospace, monospace; letter-spacing: .16em; text-transform: uppercase; }
-.rs-true line { stroke: var(--door); stroke-width: .8; opacity: .55; }
-.rs-true circle { fill: var(--door); }
-
 @media (max-width: 900px) {
   .rs-book { grid-template-columns: minmax(0, 1fr); }
   .rs-cover { max-width: 13rem; }
   .rs-fhead { grid-template-columns: minmax(0, 1fr) 1.2rem; }
   .rs-fhead .tl-trad, .rs-fhead .tl-sum { grid-column: 1; }
-  .rs-entry { grid-template-columns: minmax(0, 1fr); }
-  .rs-atlas { grid-template-columns: minmax(0, 1fr); }
-  .rs-local { padding-left: .9rem; }
 }
 @media (max-width: 480px) {
   .rs-facts > div { grid-template-columns: 1fr; gap: 0; }
-  .rs-crisis { padding-left: .8rem; }
   .rs-section-head { grid-template-columns: 1fr; }
   .rs-section-head p { grid-column: 1; }
 }
-@media (prefers-reduced-motion: reduce) { .rs-cover img, .rs-cover::before, .rs-cover::after, .rs-local { transition: none; animation: none; } }
+@media (prefers-reduced-motion: reduce) { .rs-cover img, .rs-cover::before, .rs-cover::after { transition: none; animation: none; } }
