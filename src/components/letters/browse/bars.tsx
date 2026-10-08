@@ -1,4 +1,5 @@
 import { useState, type CSSProperties, type ReactNode } from "react";
+import { Link, useLocation } from "react-router-dom";
 import type { Letter } from "@/data/letters/types";
 import { ClaimText } from "../LetterParts";
 import { dates } from "./builders";
@@ -37,6 +38,16 @@ export function LettersBar({ data, group, chosen, choose }: { data: LettersData;
     <dt>{l.name}</dt><small>{l.verses} verses</small><dd>{dates(l)}</dd>
     <div className="lb-chips"><Pick letter={l} chosen={chosen} choose={choose} label={`Inside ${l.name}`} tone={GROUP_TONE[group]} /></div>
   </div>)}</dl>;
+}
+
+/** One column per letter (James–Jude) whose button opens that letter's deeper look, where every letter has its own card. */
+export function LettersLinkBar({ data, group, to }: { data: LettersData; group: GroupKey; to: (code: string) => { path: string; label: string } }) {
+  const { search } = useLocation();
+  return <dl className="lb-figures lb-bar">{data.groups[group].letters.map((l) => { const target = to(l.code);
+    return <div key={l.code}>
+      <dt>{l.name}</dt><small>{l.verses} verses</small><dd>{dates(l)}</dd>
+      <div className="lb-chips"><Link className="lb-chip" style={chipTone(GROUP_TONE[group])} to={`${target.path}${search}`}>{target.label}</Link></div>
+    </div>; })}</dl>;
 }
 
 /** Four figures in the same bar style (Hebrews, and the four ways in). */

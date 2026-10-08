@@ -91,6 +91,10 @@
 .lb-bio .lb-person-link { margin-top: .45rem; }
 .lb-about p { font: 400 1.02rem/1.8 var(--font-serif); color: var(--ink); }
 .lb-about p + p { margin-top: .9rem; }
+/* A deeper look at a letter: its parts one under another, each under a small heading. */
+.lb-look-head { margin: 1.8rem 0 .7rem; font-size: .62rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+.lb-look-letter + .lb-look-letter { margin-top: 2.6rem; padding-top: 1.6rem; border-top: 1px solid var(--line); }
+.lb-look-title { margin-bottom: 1rem; font: 500 1.6rem/1.2 var(--font-serif); letter-spacing: -.02em; }
 /* A collection's top: title and introduction on the left, a tall line drawing on the right. */
 .lb-top { display: grid; grid-template-columns: minmax(0, 1fr) 15rem; gap: 3rem; }
 .lb-top-copy { min-width: 0; }

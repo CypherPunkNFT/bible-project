@@ -5516,6 +5516,276 @@
           "mayor-1892"
         ]
       }
+    },
+    {
+      "id": "peter-life",
+      "title": "Peter, in the story",
+      "axis": "story",
+      "events": [
+        {
+          "label": "A Bethsaida fisherman, brought to Jesus by Andrew and named Cephas",
+          "from": 1,
+          "refs": [
+            [
+              43001040,
+              43001042
+            ],
+            [
+              43001044,
+              43001044
+            ]
+          ],
+          "kind": "gospels"
+        },
+        {
+          "label": "Called from his nets to become a fisher of men",
+          "from": 2,
+          "refs": [
+            [
+              41001016,
+              41001018
+            ],
+            [
+              42005001,
+              42005011
+            ]
+          ],
+          "kind": "gospels"
+        },
+        {
+          "label": "Confesses Jesus as the Christ, the Son of the living God",
+          "from": 3,
+          "refs": [
+            [
+              40016013,
+              40016018
+            ],
+            [
+              41008027,
+              41008029
+            ]
+          ],
+          "kind": "gospels"
+        },
+        {
+          "label": "With James and John at the Transfiguration",
+          "from": 4,
+          "refs": [
+            [
+              41009002,
+              41009006
+            ],
+            [
+              61001016,
+              61001018
+            ]
+          ],
+          "kind": "gospels"
+        },
+        {
+          "label": "Denies knowing Jesus three times",
+          "from": 5,
+          "refs": [
+            [
+              41014066,
+              41014072
+            ],
+            [
+              42022054,
+              42022062
+            ]
+          ],
+          "kind": "gospels"
+        },
+        {
+          "label": "The risen Lord appears to him, then bids him: \"Feed my sheep\"",
+          "from": 6,
+          "refs": [
+            [
+              42024034,
+              42024034
+            ],
+            [
+              46015005,
+              46015005
+            ],
+            [
+              43021015,
+              43021017
+            ]
+          ],
+          "kind": "resurrection"
+        },
+        {
+          "label": "Preaches to the crowds at Pentecost",
+          "from": 7,
+          "refs": [
+            [
+              44002014,
+              44002041
+            ]
+          ],
+          "kind": "acts"
+        },
+        {
+          "label": "Brings the gospel to the centurion Cornelius and his household",
+          "from": 8,
+          "refs": [
+            [
+              44010001,
+              44010048
+            ],
+            [
+              44011001,
+              44011018
+            ]
+          ],
+          "kind": "acts"
+        },
+        {
+          "label": "Paul names him a pillar, then opposes him at Antioch",
+          "from": 9,
+          "refs": [
+            [
+              48002009,
+              48002009
+            ],
+            [
+              48002011,
+              48002014
+            ]
+          ],
+          "kind": "paul"
+        },
+        {
+          "label": "Writes to believers scattered across Asia Minor",
+          "from": 10,
+          "refs": [
+            [
+              60001001,
+              60001001
+            ]
+          ],
+          "kind": "letter",
+          "letter": "1PE"
+        },
+        {
+          "label": "By tradition, crucified at Rome under Nero",
+          "from": 11,
+          "refs": [
+            [
+              43021018,
+              43021019
+            ]
+          ],
+          "cites": [
+            "eusebius-2",
+            "eusebius-3"
+          ],
+          "kind": "death"
+        }
+      ],
+      "claim": {
+        "text": "The steps follow the order of the New Testament story, not dates, from the Galilean fisherman to the letter to Asia Minor; Jesus foretells the manner of Peter's death (John 21:18–19), but that it came at Rome under Nero is later tradition, as Eusebius reports it, and is labelled so.",
+        "refs": [
+          [
+            43021018,
+            43021019
+          ]
+        ],
+        "cites": [
+          "eusebius-2",
+          "eusebius-3"
+        ]
+      }
+    },
+    {
+      "id": "jude-life",
+      "title": "Jude, the Lord's brother, in the story",
+      "axis": "story",
+      "events": [
+        {
+          "label": "Named among Jesus' brothers at Nazareth",
+          "from": 1,
+          "refs": [
+            [
+              41006003,
+              41006003
+            ],
+            [
+              40013055,
+              40013055
+            ]
+          ],
+          "kind": "gospels"
+        },
+        {
+          "label": "The brothers do not yet believe in him",
+          "from": 2,
+          "refs": [
+            [
+              43007005,
+              43007005
+            ]
+          ],
+          "kind": "gospels"
+        },
+        {
+          "label": "The brothers gather in prayer with the apostles",
+          "from": 3,
+          "refs": [
+            [
+              44001014,
+              44001014
+            ]
+          ],
+          "kind": "acts"
+        },
+        {
+          "label": "The Lord's brothers travel with their wives; Mayor counts Jude among them",
+          "from": 4,
+          "refs": [
+            [
+              46009005,
+              46009005
+            ]
+          ],
+          "cites": [
+            "mayor-1907"
+          ],
+          "kind": "paul"
+        },
+        {
+          "label": "Writes as \"brother of James\" (Mayor, Bigg and the ISBE take him for the Lord's brother; others doubt it)",
+          "from": 5,
+          "refs": [
+            [
+              65001001,
+              65001001
+            ]
+          ],
+          "cites": [
+            "mayor-1907",
+            "bigg-1901",
+            "isbe-jude"
+          ],
+          "kind": "letter",
+          "letter": "JUD"
+        },
+        {
+          "label": "By tradition, his grandsons are questioned by the emperor Domitian",
+          "from": 6,
+          "cites": [
+            "eusebius-3"
+          ]
+        }
+      ],
+      "claim": {
+        "text": "The steps follow the order of the New Testament story, not dates, and most speak of the Lord's brothers as a group; the last comes from Hegesippus as Eusebius reports it, and is labelled as tradition.",
+        "cites": [
+          "eusebius-3"
+        ]
+      }
     }
   ],
   "maps": [

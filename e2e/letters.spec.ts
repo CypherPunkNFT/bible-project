@@ -23,13 +23,26 @@ test("letters: a card opens its section page at its own part", async ({ page }) 
 });
 
 test("letters: choosing a letter makes the Inside cards follow it", async ({ page }) => {
+  await page.goto("/study/letters/the-letters-of-john");
+  await page.getByRole("button", { name: "Inside 3 John" }).click();
+  await expect(page).toHaveURL(/letter=3JN/);
+  await expect(page.getByRole("heading", { name: /Inside 3 John/ })).toBeVisible();
+  await page.locator(".lb-card", { hasText: "3 John at a glance" }).click();
+  await expect(page).toHaveURL(/\/inside\/glance\?letter=3JN$/);
+  await expect(page.locator("#part-glance").getByRole("heading", { name: "3 John at a glance" })).toBeVisible();
+});
+
+// James, Peter & Jude (owner, 2026-10-07): the writers first, then each letter at a glance, then side by side.
+test("letters: James, Peter & Jude has the writers, each letter at a glance, and the Old Testament behind all four", async ({ page }) => {
   await page.goto("/study/letters/james-peter-and-jude");
-  await page.getByRole("button", { name: "Inside Jude" }).click();
-  await expect(page).toHaveURL(/letter=JUD/);
-  await expect(page.getByRole("heading", { name: /Inside Jude/ })).toBeVisible();
-  await page.locator(".lb-card", { hasText: "Jude at a glance" }).click();
-  await expect(page).toHaveURL(/\/inside\/glance\?letter=JUD$/);
-  await expect(page.locator("#part-glance").getByRole("heading", { name: "Jude at a glance" })).toBeVisible();
+  for (const title of ["James, the Lord's brother", "Peter, the apostle", "Jude, the Lord's brother", "The family of Jesus",
+    "James at a glance", "Peter at a glance", "Jude at a glance", "The Old Testament behind James, Peter & Jude"]) {
+    await expect(page.locator(".lb-card", { hasText: title })).toHaveCount(1);
+  }
+  await page.getByRole("link", { name: "Jude at a glance" }).first().click();
+  await expect(page).toHaveURL(/\/james-peter-and-jude\/inside\/jude$/);
+  await expect(page.locator("#part-peter .lb-look-title")).toHaveText(["1 Peter", "2 Peter"]);
+  await expect(page.locator("#part-peter")).toContainText("Where his readers lived");
 });
 
 test("letters: the old group addresses open their collection", async ({ page }) => {

@@ -78,7 +78,7 @@ function Hero({ page }: { page: PageDef }) {
 }
 
 /** "Paul's own page →": the way from a collection to the person at its heart. */
-function PersonLink({ writer, from }: { writer: Writer; from: string }) {
+export function PersonLink({ writer, from }: { writer: Writer; from: string }) {
   return <Link className="lb-person-link" to={`/people/${writer.id}`} state={cameFrom(from)}>{writer.name}'s own page <ArrowRight size={14} aria-hidden /></Link>;
 }
 

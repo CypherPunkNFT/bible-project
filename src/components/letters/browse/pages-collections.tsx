@@ -6,12 +6,13 @@ import { LetterMap } from "../LetterMap";
 import { ParallelRibbon } from "../ParallelRibbon";
 import { PeopleCards } from "../PeopleCards";
 import { TimelineStrip } from "../TimelineStrip";
-import { FiguresBar, GroupsBar, LettersBar } from "./bars";
+import { FiguresBar, GroupsBar, LettersBar, LettersLinkBar } from "./bars";
 import { dates } from "./builders";
 import type { GroupKey, LettersData } from "./data";
-import type { CardDef, PageDef, PartDef } from "./frame";
+import { BASE, type CardDef, type PageDef, type PartDef } from "./frame";
 import { Glance, LetterWords, OtList, OutlineBar, PeoplePlaces } from "./parts-letter";
 import { NetworkChooser, RibbonChooser } from "./parts-charts";
+import { CollectionOt, LettersLook, WriterLife } from "./parts-writers";
 
 export type Chosen = Record<GroupKey, [Letter, (code: string) => void]>;
 const card = (art: string, tone: string, icon: CardDef["icon"], eyebrow: string, title: string, text: string, foot: string, cta: string): CardDef => ({ art, tone, icon, eyebrow, title, text, foot, cta });
@@ -59,7 +60,9 @@ export function collectionPages(data: LettersData, chosen: Chosen): Record<strin
   const tl = (k: GroupKey, id: string) => G[k].timelines.find((t) => t.id === id)!, net = (k: GroupKey, id: string) => G[k].networks.find((n) => n.id === id)!;
   const par = (k: GroupKey, id: string) => G[k].parallels.find((p) => p.id === id)!;
   const common = (k: GroupKey) => ({ crumb: "The four collections", citations: G[k].citations, intro: G[k].tagline });
-  const [paulLetter, choosePaul] = chosen.paul, [genLetter, chooseGen] = chosen.general, [johnLetter, chooseJohn] = chosen.john;
+  const [paulLetter, choosePaul] = chosen.paul, [johnLetter, chooseJohn] = chosen.john;
+  const GEN = `${BASE}/james-peter-and-jude`, GEN_TITLE = "James, Peter & Jude";
+  const writer = (k: GroupKey, id: string) => G[k].writers!.find((w) => w.id === id)!;
   const heb = G.hebrews.letters[0];
   return {
     paul: { ...common("paul"), ...top("paul"), slug: "paul", title: "Paul's letters", right: "PAUL'S LETTERS", tone: "epistles", kicker: "Thirteen letters · Paul", h1: "Paul's letters.", em: "Written on the road.",
@@ -112,24 +115,39 @@ export function collectionPages(data: LettersData, chosen: Chosen): Record<strin
           inside(heb, "names")[3], ...read(data, "hebrews"),
         ] },
       ] },
+    // James, Peter & Jude (owner, 2026-10-07): the writers first, one card each, then the family they came from; then a
+    // deeper look inside each letter, and the Old Testament behind all four; then the letters side by side.
     general: { ...common("general"), ...top("general"), slug: "james-peter-and-jude", title: "James, Peter & Jude", right: "JAMES, PETER & JUDE", tone: "acts", kicker: "Four letters · James, Peter & Jude", h1: "James, Peter & Jude.", em: "To believers far from home.",
-      emblem: "globe", caption: "JAMES · 1 PETER · 2 PETER · JUDE", bar: <LettersBar data={data} group="general" chosen={genLetter} choose={chooseGen} />,
+      emblem: "globe", caption: "JAMES · 1 PETER · 2 PETER · JUDE",
+      bar: <LettersLinkBar data={data} group="general" to={(code) => ({ JAS: { path: `${GEN}/inside/james`, label: "James at a glance" }, "1PE": { path: `${GEN}/inside/peter`, label: "Peter at a glance" }, "2PE": { path: `${GEN}/inside/peter`, label: "Peter at a glance" }, JUD: { path: `${GEN}/inside/jude`, label: "Jude at a glance" } })[code] ?? { path: `${GEN}/inside`, label: "Inside the letters" }} />,
       sections: [
-        { id: "writers", art: "general", tone: "acts", title: "The writers and their readers", lead: "Two brothers of Jesus and an apostle, and the scattered believers they wrote to.", parts: [
-          part("family", card("people", "poetry", "users", "The family", "The family of Jesus", "James and Jude, named among the brothers of Jesus, and the family around them.", "James · Joses · Juda · Simon", "Meet them"),
+        { id: "writers", art: "general", tone: "acts", title: "The writers", lead: "Who wrote them: James and Jude, brothers of Jesus, and the apostle Peter; then the family they came from.", parts: [
+          part("james", card("life", "prophets", "users", "The writer", "James, the Lord's brother", "From unbelief to leading the church at Jerusalem, step by step.", `${tl("general", "jesus-family").events.length} steps · his own page`, "Follow his life"),
+            "James's life in the story, step by step. His own page has the rest.", <WriterLife writer={writer("general", "james-mat-13-55")} timeline={tl("general", "jesus-family")} from={GEN_TITLE} />),
+          part("peter", card("life", "acts", "users", "The writer", "Peter, the apostle", "From fisherman to the first preacher of the church, step by step.", `${tl("general", "peter-life").events.length} steps · his own page`, "Follow his life"),
+            "Peter's life in the story, step by step. His own page has the rest.", <WriterLife writer={writer("general", "peter-mat-4-18")} timeline={tl("general", "peter-life")} from={GEN_TITLE} />),
+          part("jude", card("life", "poetry", "users", "The writer", "Jude, the Lord's brother", "The youngest brother, who came to faith after the resurrection, step by step.", `${tl("general", "jude-life").events.length} steps · his own page`, "Follow his life"),
+            "Jude's life in the story, step by step. His own page has the rest.", <WriterLife writer={writer("general", "jude-mat-13-55")} timeline={tl("general", "jude-life")} from={GEN_TITLE} />),
+          part("family", card("people", "history", "users", "The family", "The family of Jesus", "James and Jude, named among the brothers of Jesus, and the family around them.", "James · Joses · Juda · Simon", "Meet them"),
             "The family of Jesus, as the Gospels and the letters name them.", <PeopleCards network={net("general", "jesus-family")} />),
-          part("james", card("life", "prophets", "clock", "A life in steps", "James, the Lord's brother", "From unbelief to leading the church at Jerusalem, step by step.", `${tl("general", "jesus-family").events.length} steps`, "Follow his story"),
-            "James, the Lord's brother, through the story.", <TimelineStrip timeline={tl("general", "jesus-family")} />),
-          part("provinces", card("where", "acts", "map", "On the map", "The five regions of 1 Peter", "Pontus, Galatia, Cappadocia, Asia and Bithynia: where Peter's readers lived.", "5 regions", "Open the map"),
-            "The five regions 1 Peter is written to.", <LetterMap layers={map("general", "first-peter-provinces")} title="The five regions of 1 Peter's readers" />),
-          part("babylon", card("paul", "epistles", "route", "On the map", "Babylon, and Silvanus's road", "Two candidates for the \"Babylon\" Peter writes from, and the road the letter may have taken.", "Rome or Mesopotamia · Hort's route", "Open the map"),
-            "Where \"Babylon\" may be, and the route Hort suggested for the letter.", <LetterMap layers={map("general", "silvanus-route", "babylon")} title="Babylon, and Silvanus's road" />),
         ] },
-        { id: "inside", art: "glance", tone: "prophets", picker: true, title: `Inside ${genLetter.name}`, lead: "Choose any of the four; these four cards follow it.", parts: inside(genLetter, "ot", extras("general", "James, Peter & Jude")) },
+        { id: "inside", art: "glance", tone: "prophets", title: "Inside the letters", lead: "A deeper look at each: who wrote it and to whom, how it is built, the words it leans on and the Old Testament behind it.", parts: [
+          part("james", card("glance", "epistles", "book", "At a glance", "James at a glance", "Who wrote it and to whom, how it is built, its key words and its Old Testament quotations.", "Faith that works", "Look inside"),
+            "James, all in one place: the letter at a glance, how it is built, the words it leans on and the Old Testament behind it.", <LettersLook letters={G.general.letters.filter((l) => l.code === "JAS")} />),
+          part("peter", card("glance", "acts", "book", "At a glance", "Peter at a glance", "1 Peter and 2 Peter, each in full, with where his readers lived and where he wrote from.", "1 Peter · 2 Peter · the map", "Look inside"),
+            "1 Peter and 2 Peter, each in full; then where Peter's readers lived, and the \"Babylon\" he wrote from.", <LettersLook letters={G.general.letters.filter((l) => l.code === "1PE" || l.code === "2PE")}
+              after={<><h3 className="lb-look-head">Where his readers lived</h3><LetterMap layers={map("general", "first-peter-provinces")} title="The five regions of 1 Peter's readers" />
+                <h3 className="lb-look-head">Where he wrote from, and how the letter travelled</h3><LetterMap layers={map("general", "silvanus-route", "babylon")} title={"\"Babylon\" and the road the letter may have taken"} /></>} />),
+          part("jude", card("glance", "poetry", "book", "At a glance", "Jude at a glance", "Who wrote it and to whom, how it is built, its key words and its Old Testament quotations.", "Contend for the faith", "Look inside"),
+            "Jude, all in one place: the letter at a glance, how it is built, the words it leans on and the Old Testament behind it.", <LettersLook letters={G.general.letters.filter((l) => l.code === "JUD")} />),
+          part("ot", card("ot", "epistles", "book", "Old Testament", "The Old Testament behind James, Peter & Jude", "Where all four letters' quotations come from, then each one, letter by letter.", "Psalms · Isaiah · More", "Follow the quotations"),
+            "Where the quotations in all four letters come from, book by book; click a book or a letter to keep it. Then every quotation, letter by letter.",
+            <CollectionOt flow={G.general.flows.find((f) => f.id === "ot-sources")!} letters={G.general.letters} />),
+        ] },
         { id: "side", art: "compare", tone: "poetry", title: "Side by side, and how they were read", lead: "The passages they share, the questions readers have asked, and how the church received them.", parts: [
-          part("jude2pe", card("compare", "prophets", "compare", "Twin letters", "Jude and 2 Peter", "A run of the same material, passage against passage.", `${par("general", "jude-second-peter").pairs.length} paired passages`, "Compare them"),
+          part("jude2pe", card("compare", "prophets", "compare", "Side by side", "Jude and 2 Peter", "A run of the same material, passage against passage.", `${par("general", "jude-second-peter").pairs.length} paired passages`, "Compare them"),
             "Jude beside 2 Peter. Click a ribbon to keep it.", <ParallelRibbon parallel={par("general", "jude-second-peter")} />),
-          part("james-echoes", card("compare", "acts", "compare", "Echoes", "James beside Jesus and Peter", "James and the Sermon on the Mount, and the material James shares with 1 Peter.", "Sermon on the Mount · 1 Peter", "Compare them"),
+          part("james-echoes", card("compare", "acts", "compare", "Side by side", "James beside Jesus and Peter", "James and the Sermon on the Mount, and the material James shares with 1 Peter.", "Sermon on the Mount · 1 Peter", "Compare them"),
             "James beside the Sermon on the Mount, or beside 1 Peter.", <RibbonChooser parallels={[par("general", "james-sermon"), par("general", "james-first-peter")]} />),
           ...read(data, "general"),
         ] },
