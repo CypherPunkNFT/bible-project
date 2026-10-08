@@ -1,0 +1,1818 @@
+{
+  "about": "Hand-entered for the Authors mock-ups (2026-10-08): life years, the places each person lived and served (first = birthplace, unless birthplaceKnown is false, when the first place is simply the earliest known; year = when they arrived, approximate), a one-line description, and documented links between people. Not yet checked against sources: verify every line before the real page is built. Counts of works and Bible passages come from the library catalogue (build-data.mjs), not from here.",
+  "people": {
+    "author-john-calvin": {
+      "short": "Calvin",
+      "born": 1509,
+      "died": 1564,
+      "line": "French reformer who taught and preached in Geneva; author of the Institutes and commentaries on most of the Bible.",
+      "places": [
+        [
+          "Noyon",
+          49.58,
+          3.0,
+          1509
+        ],
+        [
+          "Paris",
+          48.857,
+          2.352,
+          1523
+        ],
+        [
+          "Strasbourg",
+          48.58,
+          7.75,
+          1538
+        ],
+        [
+          "Geneva",
+          46.204,
+          6.143,
+          1541
+        ]
+      ],
+      "known": [
+        [
+          "Institutes of the Christian Religion",
+          1559
+        ],
+        [
+          "Commentaries",
+          1540
+        ]
+      ]
+    },
+    "author-heinrich-bullinger": {
+      "short": "Bullinger",
+      "born": 1504,
+      "died": 1575,
+      "line": "Zwingli's successor in Zürich for 44 years; his Decades of sermons were read across Europe.",
+      "places": [
+        [
+          "Bremgarten",
+          47.35,
+          8.34,
+          1504
+        ],
+        [
+          "Zürich",
+          47.377,
+          8.54,
+          1531
+        ]
+      ],
+      "known": [
+        [
+          "The Decades",
+          1549
+        ],
+        [
+          "Second Helvetic Confession",
+          1566
+        ]
+      ]
+    },
+    "author-john-knox": {
+      "short": "Knox",
+      "born": 1514,
+      "died": 1572,
+      "circa": true,
+      "line": "Scottish reformer; pastor to the English exiles in Geneva, then preacher at St Giles', Edinburgh.",
+      "places": [
+        [
+          "Haddington",
+          55.956,
+          -2.78,
+          1514
+        ],
+        [
+          "Geneva",
+          46.204,
+          6.143,
+          1556
+        ],
+        [
+          "Edinburgh",
+          55.953,
+          -3.19,
+          1559
+        ]
+      ],
+      "known": [
+        [
+          "A Treatise on Prayer",
+          1554
+        ],
+        [
+          "History of the Reformation in Scotland",
+          1587
+        ]
+      ]
+    },
+    "author-zacharias-ursinus": {
+      "short": "Ursinus",
+      "born": 1534,
+      "died": 1583,
+      "line": "Professor at Heidelberg and the main writer of the Heidelberg Catechism (1563).",
+      "places": [
+        [
+          "Breslau",
+          51.11,
+          17.03,
+          1534
+        ],
+        [
+          "Wittenberg",
+          51.866,
+          12.646,
+          1550
+        ],
+        [
+          "Heidelberg",
+          49.41,
+          8.69,
+          1561
+        ],
+        [
+          "Neustadt",
+          49.35,
+          8.14,
+          1578
+        ]
+      ],
+      "known": [
+        [
+          "Heidelberg Catechism",
+          1563
+        ],
+        [
+          "Commentary on the Heidelberg Catechism",
+          1591
+        ]
+      ]
+    },
+    "author-william-perkins": {
+      "short": "Perkins",
+      "born": 1558,
+      "died": 1602,
+      "line": "Cambridge preacher and teacher whose plain-style sermons shaped a generation of Puritans.",
+      "places": [
+        [
+          "Marston Jabbett",
+          52.5,
+          -1.43,
+          1558
+        ],
+        [
+          "Cambridge",
+          52.205,
+          0.119,
+          1577
+        ]
+      ],
+      "known": [
+        [
+          "A Golden Chain",
+          1590
+        ],
+        [
+          "The Art of Prophesying",
+          1592
+        ]
+      ]
+    },
+    "author-william-ames": {
+      "short": "Ames",
+      "born": 1576,
+      "died": 1633,
+      "line": "English Puritan exiled to the Netherlands; professor at Franeker and author of The Marrow of Theology.",
+      "places": [
+        [
+          "Ipswich",
+          52.06,
+          1.15,
+          1576
+        ],
+        [
+          "Cambridge",
+          52.205,
+          0.119,
+          1593
+        ],
+        [
+          "Franeker",
+          53.19,
+          5.54,
+          1622
+        ]
+      ],
+      "known": [
+        [
+          "The Marrow of Theology",
+          1623
+        ],
+        [
+          "Conscience with the Power and Cases Thereof",
+          1630
+        ]
+      ]
+    },
+    "author-richard-sibbes": {
+      "short": "Sibbes",
+      "born": 1577,
+      "died": 1635,
+      "line": "Preacher at Gray's Inn, London, and master of St Catharine's, Cambridge; known for The Bruised Reed.",
+      "places": [
+        [
+          "Tostock",
+          52.24,
+          0.87,
+          1577
+        ],
+        [
+          "Cambridge",
+          52.205,
+          0.119,
+          1595
+        ],
+        [
+          "London",
+          51.518,
+          -0.113,
+          1617
+        ]
+      ],
+      "known": [
+        [
+          "The Bruised Reed",
+          1630
+        ],
+        [
+          "The Soul's Conflict",
+          1635
+        ]
+      ]
+    },
+    "author-thomas-goodwin": {
+      "short": "Goodwin",
+      "born": 1600,
+      "died": 1680,
+      "line": "Puritan preacher, member of the Westminster Assembly and president of Magdalen College, Oxford.",
+      "places": [
+        [
+          "Rollesby",
+          52.69,
+          1.62,
+          1600
+        ],
+        [
+          "Cambridge",
+          52.205,
+          0.119,
+          1613
+        ],
+        [
+          "Oxford",
+          51.752,
+          -1.258,
+          1650
+        ],
+        [
+          "London",
+          51.515,
+          -0.09,
+          1660
+        ]
+      ],
+      "known": [
+        [
+          "The Heart of Christ in Heaven",
+          1651
+        ],
+        [
+          "Christ Set Forth",
+          1642
+        ]
+      ]
+    },
+    "author-l13-samuel-rutherford": {
+      "short": "Rutherford",
+      "born": 1600,
+      "died": 1661,
+      "circa": true,
+      "line": "Scottish minister of Anwoth whose letters, many written in exile in Aberdeen, are still read today.",
+      "places": [
+        [
+          "Nisbet",
+          55.53,
+          -2.53,
+          1600
+        ],
+        [
+          "Anwoth",
+          54.88,
+          -4.21,
+          1627
+        ],
+        [
+          "Aberdeen",
+          57.15,
+          -2.09,
+          1636
+        ],
+        [
+          "St Andrews",
+          56.34,
+          -2.8,
+          1639
+        ]
+      ],
+      "known": [
+        [
+          "Letters",
+          1664
+        ],
+        [
+          "Lex, Rex",
+          1644
+        ]
+      ]
+    },
+    "author-john-owen": {
+      "short": "Owen",
+      "born": 1616,
+      "died": 1683,
+      "line": "Puritan theologian, dean of Christ Church, Oxford; wrote on sin, the Spirit and Hebrews.",
+      "places": [
+        [
+          "Stadhampton",
+          51.68,
+          -1.13,
+          1616
+        ],
+        [
+          "Coggeshall",
+          51.87,
+          0.69,
+          1646
+        ],
+        [
+          "Oxford",
+          51.75,
+          -1.256,
+          1651
+        ],
+        [
+          "London",
+          51.52,
+          -0.1,
+          1660
+        ]
+      ],
+      "known": [
+        [
+          "The Mortification of Sin",
+          1656
+        ],
+        [
+          "Communion with God",
+          1657
+        ],
+        [
+          "The Death of Death in the Death of Christ",
+          1647
+        ]
+      ]
+    },
+    "author-thomas-watson": {
+      "short": "Watson",
+      "born": 1620,
+      "died": 1686,
+      "circa": true,
+      "line": "Puritan pastor of St Stephen Walbrook, London; author of A Body of Divinity.",
+      "places": [
+        [
+          "London",
+          51.512,
+          -0.09,
+          1646
+        ]
+      ],
+      "known": [
+        [
+          "A Body of Divinity",
+          1692
+        ],
+        [
+          "The Ten Commandments",
+          1692
+        ],
+        [
+          "The Lord's Prayer",
+          1692
+        ]
+      ],
+      "birthplaceKnown": false
+    },
+    "author-francis-turretin": {
+      "short": "Turretin",
+      "born": 1623,
+      "died": 1687,
+      "line": "Professor at Geneva; his Institutes of Elenctic Theology became the textbook at Princeton.",
+      "places": [
+        [
+          "Geneva",
+          46.204,
+          6.143,
+          1623
+        ]
+      ],
+      "known": [
+        [
+          "Institutes of Elenctic Theology",
+          1679
+        ]
+      ]
+    },
+    "author-john-flavel": {
+      "short": "Flavel",
+      "born": 1627,
+      "died": 1691,
+      "circa": true,
+      "line": "Puritan pastor in the port town of Dartmouth; wrote on providence and the heart.",
+      "places": [
+        [
+          "Bromsgrove",
+          52.34,
+          -2.06,
+          1627
+        ],
+        [
+          "Dartmouth",
+          50.35,
+          -3.58,
+          1656
+        ]
+      ],
+      "known": [
+        [
+          "Keeping the Heart",
+          1668
+        ],
+        [
+          "The Mystery of Providence",
+          1678
+        ],
+        [
+          "The Fountain of Life",
+          1673
+        ]
+      ]
+    },
+    "author-stephen-charnock": {
+      "short": "Charnock",
+      "born": 1628,
+      "died": 1680,
+      "line": "Puritan preacher in London; best known for The Existence and Attributes of God.",
+      "places": [
+        [
+          "London",
+          51.507,
+          -0.127,
+          1628
+        ],
+        [
+          "Dublin",
+          53.35,
+          -6.26,
+          1656
+        ],
+        [
+          "London",
+          51.513,
+          -0.08,
+          1660
+        ]
+      ],
+      "known": [
+        [
+          "The Existence and Attributes of God",
+          1682
+        ]
+      ]
+    },
+    "author-john-bunyan": {
+      "short": "Bunyan",
+      "born": 1628,
+      "died": 1688,
+      "line": "Tinker and preacher of Bedford, jailed twelve years for preaching; wrote The Pilgrim's Progress.",
+      "places": [
+        [
+          "Elstow",
+          52.11,
+          -0.47,
+          1628
+        ],
+        [
+          "Bedford",
+          52.136,
+          -0.467,
+          1655
+        ]
+      ],
+      "known": [
+        [
+          "The Pilgrim's Progress",
+          1678
+        ],
+        [
+          "Grace Abounding to the Chief of Sinners",
+          1666
+        ]
+      ]
+    },
+    "author-herman-witsius": {
+      "short": "Witsius",
+      "born": 1636,
+      "died": 1708,
+      "line": "Dutch professor at Franeker, Utrecht and Leiden; wrote The Economy of the Covenants.",
+      "places": [
+        [
+          "Enkhuizen",
+          52.7,
+          5.29,
+          1636
+        ],
+        [
+          "Franeker",
+          53.19,
+          5.54,
+          1675
+        ],
+        [
+          "Utrecht",
+          52.09,
+          5.12,
+          1680
+        ],
+        [
+          "Leiden",
+          52.16,
+          4.49,
+          1698
+        ]
+      ],
+      "known": [
+        [
+          "The Economy of the Covenants",
+          1677
+        ]
+      ]
+    },
+    "author-thomas-boston": {
+      "short": "Boston",
+      "born": 1676,
+      "died": 1732,
+      "line": "Scottish minister of Ettrick; wrote Human Nature in its Fourfold State.",
+      "places": [
+        [
+          "Duns",
+          55.78,
+          -2.34,
+          1676
+        ],
+        [
+          "Simprin",
+          55.73,
+          -2.25,
+          1699
+        ],
+        [
+          "Ettrick",
+          55.41,
+          -3.08,
+          1707
+        ]
+      ],
+      "known": [
+        [
+          "Human Nature in its Fourfold State",
+          1720
+        ],
+        [
+          "The Crook in the Lot",
+          1737
+        ]
+      ]
+    },
+    "author-john-gill": {
+      "short": "Gill",
+      "born": 1697,
+      "died": 1771,
+      "line": "Baptist pastor in Southwark for 51 years; wrote a verse-by-verse commentary on the whole Bible.",
+      "places": [
+        [
+          "Kettering",
+          52.4,
+          -0.73,
+          1697
+        ],
+        [
+          "London",
+          51.5,
+          -0.08,
+          1719
+        ]
+      ],
+      "known": [
+        [
+          "Exposition of the Old and New Testaments",
+          1763
+        ],
+        [
+          "A Body of Doctrinal Divinity",
+          1769
+        ]
+      ]
+    },
+    "author-jonathan-edwards": {
+      "short": "Edwards",
+      "born": 1703,
+      "died": 1758,
+      "line": "Pastor at Northampton, Massachusetts, during the Great Awakening; philosopher and theologian.",
+      "places": [
+        [
+          "East Windsor",
+          41.86,
+          -72.62,
+          1703
+        ],
+        [
+          "Northampton",
+          42.325,
+          -72.64,
+          1727
+        ],
+        [
+          "Stockbridge",
+          42.28,
+          -73.31,
+          1751
+        ],
+        [
+          "Princeton",
+          40.35,
+          -74.66,
+          1758
+        ]
+      ],
+      "known": [
+        [
+          "Religious Affections",
+          1746
+        ],
+        [
+          "Freedom of the Will",
+          1754
+        ],
+        [
+          "Sinners in the Hands of an Angry God",
+          1741
+        ]
+      ]
+    },
+    "author-george-whitefield": {
+      "short": "Whitefield",
+      "born": 1714,
+      "died": 1770,
+      "line": "Open-air preacher of the Great Awakening who crossed the Atlantic thirteen times.",
+      "places": [
+        [
+          "Gloucester",
+          51.86,
+          -2.24,
+          1714
+        ],
+        [
+          "London",
+          51.52,
+          -0.09,
+          1737
+        ],
+        [
+          "Savannah",
+          32.08,
+          -81.09,
+          1738
+        ],
+        [
+          "London",
+          51.523,
+          -0.088,
+          1741
+        ],
+        [
+          "Newburyport",
+          42.81,
+          -70.88,
+          1770
+        ]
+      ],
+      "known": [
+        [
+          "Sermons",
+          1771
+        ],
+        [
+          "Journals",
+          1738
+        ]
+      ]
+    },
+    "author-l13-david-brainerd": {
+      "short": "Brainerd",
+      "born": 1718,
+      "died": 1747,
+      "line": "Missionary to the Delaware people; his diary, edited by Edwards, has never gone out of print.",
+      "places": [
+        [
+          "Haddam",
+          41.48,
+          -72.51,
+          1718
+        ],
+        [
+          "Crossweeksung",
+          40.31,
+          -74.51,
+          1745
+        ],
+        [
+          "Northampton",
+          42.325,
+          -72.64,
+          1747
+        ]
+      ],
+      "known": [
+        [
+          "Diary and Journal",
+          1749
+        ]
+      ]
+    },
+    "author-john-newton": {
+      "short": "Newton",
+      "born": 1725,
+      "died": 1807,
+      "line": "Former slave-ship captain turned pastor of Olney and London; wrote Amazing Grace and many letters.",
+      "places": [
+        [
+          "London",
+          51.507,
+          -0.06,
+          1725
+        ],
+        [
+          "Liverpool",
+          53.41,
+          -2.98,
+          1755
+        ],
+        [
+          "Olney",
+          52.15,
+          -0.7,
+          1764
+        ],
+        [
+          "London",
+          51.513,
+          -0.088,
+          1780
+        ]
+      ],
+      "known": [
+        [
+          "Olney Hymns",
+          1779
+        ],
+        [
+          "Cardiphonia",
+          1781
+        ],
+        [
+          "An Authentic Narrative",
+          1764
+        ]
+      ]
+    },
+    "author-william-carey": {
+      "short": "Carey",
+      "born": 1761,
+      "died": 1834,
+      "line": "Shoemaker turned missionary; translated the Bible into Bengali and other languages of India.",
+      "places": [
+        [
+          "Paulerspury",
+          52.1,
+          -0.96,
+          1761
+        ],
+        [
+          "Leicester",
+          52.63,
+          -1.13,
+          1789
+        ],
+        [
+          "Serampore",
+          22.75,
+          88.34,
+          1800
+        ]
+      ],
+      "known": [
+        [
+          "An Enquiry into the Obligations of Christians",
+          1792
+        ],
+        [
+          "The Bengali Bible",
+          1809
+        ]
+      ]
+    },
+    "author-archibald-alexander": {
+      "short": "Alexander",
+      "born": 1772,
+      "died": 1851,
+      "line": "First professor of Princeton Theological Seminary (1812).",
+      "places": [
+        [
+          "Lexington, Virginia",
+          37.78,
+          -79.44,
+          1772
+        ],
+        [
+          "Philadelphia",
+          39.95,
+          -75.16,
+          1807
+        ],
+        [
+          "Princeton",
+          40.35,
+          -74.66,
+          1812
+        ]
+      ],
+      "known": [
+        [
+          "Thoughts on Religious Experience",
+          1841
+        ],
+        [
+          "The Canon of the Old and New Testaments",
+          1826
+        ]
+      ]
+    },
+    "author-charles-hodge": {
+      "short": "C. Hodge",
+      "born": 1797,
+      "died": 1878,
+      "line": "Taught some 3,000 students at Princeton Seminary over 56 years; wrote a three-volume Systematic Theology.",
+      "places": [
+        [
+          "Philadelphia",
+          39.95,
+          -75.16,
+          1797
+        ],
+        [
+          "Princeton",
+          40.35,
+          -74.66,
+          1820
+        ]
+      ],
+      "known": [
+        [
+          "Systematic Theology",
+          1872
+        ],
+        [
+          "Commentary on Romans",
+          1835
+        ]
+      ]
+    },
+    "author-l13-andrew-bonar": {
+      "short": "Bonar",
+      "born": 1810,
+      "died": 1892,
+      "line": "Scottish minister and friend of McCheyne, whose memoir and sermons he published.",
+      "places": [
+        [
+          "Edinburgh",
+          55.953,
+          -3.19,
+          1810
+        ],
+        [
+          "Collace",
+          56.47,
+          -3.3,
+          1838
+        ],
+        [
+          "Glasgow",
+          55.864,
+          -4.252,
+          1856
+        ]
+      ],
+      "known": [
+        [
+          "Memoir and Remains of R. M. M'Cheyne",
+          1844
+        ]
+      ]
+    },
+    "author-l13-robert-murray-mcheyne": {
+      "short": "M'Cheyne",
+      "born": 1813,
+      "died": 1843,
+      "line": "Minister of St Peter's, Dundee, who died at 29; his Bible reading plan is still widely used.",
+      "places": [
+        [
+          "Edinburgh",
+          55.953,
+          -3.19,
+          1813
+        ],
+        [
+          "Dundee",
+          56.462,
+          -2.97,
+          1836
+        ]
+      ],
+      "known": [
+        [
+          "Bible reading calendar",
+          1842
+        ]
+      ]
+    },
+    "author-j-c-ryle": {
+      "short": "Ryle",
+      "born": 1816,
+      "died": 1900,
+      "line": "Evangelical Anglican writer and the first bishop of Liverpool; wrote Holiness and gospel commentaries.",
+      "places": [
+        [
+          "Macclesfield",
+          53.26,
+          -2.13,
+          1816
+        ],
+        [
+          "Helmingham",
+          52.17,
+          1.2,
+          1844
+        ],
+        [
+          "Stradbroke",
+          52.32,
+          1.27,
+          1861
+        ],
+        [
+          "Liverpool",
+          53.41,
+          -2.98,
+          1880
+        ]
+      ],
+      "known": [
+        [
+          "Holiness",
+          1877
+        ],
+        [
+          "Expository Thoughts on the Gospels",
+          1856
+        ],
+        [
+          "Christian Leaders of the Last Century",
+          1869
+        ]
+      ]
+    },
+    "author-a-a-hodge": {
+      "short": "A. A. Hodge",
+      "born": 1823,
+      "died": 1886,
+      "line": "Charles Hodge's son; missionary to India, then his father's successor at Princeton.",
+      "places": [
+        [
+          "Princeton",
+          40.35,
+          -74.66,
+          1823
+        ],
+        [
+          "Allahabad",
+          25.44,
+          81.85,
+          1847
+        ],
+        [
+          "Princeton",
+          40.35,
+          -74.66,
+          1877
+        ]
+      ],
+      "known": [
+        [
+          "Outlines of Theology",
+          1860
+        ],
+        [
+          "Commentary on the Confession of Faith",
+          1869
+        ]
+      ]
+    },
+    "author-l13-john-g-paton": {
+      "short": "Paton",
+      "born": 1824,
+      "died": 1907,
+      "line": "Scottish missionary to the New Hebrides (now Vanuatu); his autobiography was a 19th-century best-seller.",
+      "places": [
+        [
+          "Kirkmahoe",
+          55.1,
+          -3.56,
+          1824
+        ],
+        [
+          "Glasgow",
+          55.864,
+          -4.252,
+          1847
+        ],
+        [
+          "Aniwa",
+          -19.26,
+          169.6,
+          1866
+        ],
+        [
+          "Melbourne",
+          -37.81,
+          144.96,
+          1881
+        ]
+      ],
+      "known": [
+        [
+          "Missionary to the New Hebrides: An Autobiography",
+          1889
+        ]
+      ]
+    },
+    "author-charles-spurgeon": {
+      "short": "Spurgeon",
+      "born": 1834,
+      "died": 1892,
+      "line": "Baptist pastor of the Metropolitan Tabernacle, London, for 38 years; the most widely read preacher of his age.",
+      "places": [
+        [
+          "Kelvedon",
+          51.84,
+          0.7,
+          1834
+        ],
+        [
+          "Waterbeach",
+          52.27,
+          0.19,
+          1851
+        ],
+        [
+          "London",
+          51.494,
+          -0.1,
+          1854
+        ]
+      ],
+      "known": [
+        [
+          "The Metropolitan Tabernacle Pulpit",
+          1855
+        ],
+        [
+          "The Treasury of David",
+          1885
+        ],
+        [
+          "Morning and Evening",
+          1869
+        ],
+        [
+          "Lectures to My Students",
+          1875
+        ]
+      ]
+    },
+    "author-abraham-kuyper": {
+      "short": "Kuyper",
+      "born": 1837,
+      "died": 1920,
+      "line": "Dutch theologian, founder of the Free University of Amsterdam and prime minister of the Netherlands.",
+      "places": [
+        [
+          "Maassluis",
+          51.92,
+          4.25,
+          1837
+        ],
+        [
+          "Amsterdam",
+          52.37,
+          4.9,
+          1870
+        ]
+      ],
+      "known": [
+        [
+          "Lectures on Calvinism",
+          1898
+        ],
+        [
+          "The Work of the Holy Spirit",
+          1888
+        ]
+      ]
+    },
+    "author-b-b-warfield": {
+      "short": "Warfield",
+      "born": 1851,
+      "died": 1921,
+      "line": "Princeton professor for 34 years; wrote on the inspiration of Scripture and the person of Christ.",
+      "places": [
+        [
+          "Lexington, Kentucky",
+          38.04,
+          -84.5,
+          1851
+        ],
+        [
+          "Allegheny",
+          40.45,
+          -80.01,
+          1878
+        ],
+        [
+          "Princeton",
+          40.35,
+          -74.66,
+          1887
+        ]
+      ],
+      "known": [
+        [
+          "The Inspiration and Authority of the Bible",
+          1948
+        ],
+        [
+          "The Person and Work of Christ",
+          1950
+        ]
+      ]
+    },
+    "author-herman-bavinck": {
+      "short": "Bavinck",
+      "born": 1854,
+      "died": 1921,
+      "line": "Dutch theologian at Kampen and Amsterdam; wrote the four-volume Reformed Dogmatics.",
+      "places": [
+        [
+          "Hoogeveen",
+          52.72,
+          6.48,
+          1854
+        ],
+        [
+          "Kampen",
+          52.55,
+          5.91,
+          1883
+        ],
+        [
+          "Amsterdam",
+          52.37,
+          4.9,
+          1902
+        ]
+      ],
+      "known": [
+        [
+          "Reformed Dogmatics",
+          1895
+        ],
+        [
+          "The Doctrine of God",
+          1895
+        ]
+      ]
+    },
+    "author-geerhardus-vos": {
+      "short": "Vos",
+      "born": 1862,
+      "died": 1949,
+      "line": "Dutch-born professor at Princeton who founded the discipline of biblical theology in the Reformed tradition.",
+      "places": [
+        [
+          "Heerenveen",
+          52.96,
+          5.92,
+          1862
+        ],
+        [
+          "Grand Rapids",
+          42.96,
+          -85.67,
+          1881
+        ],
+        [
+          "Princeton",
+          40.35,
+          -74.66,
+          1893
+        ]
+      ],
+      "known": [
+        [
+          "Biblical Theology",
+          1948
+        ],
+        [
+          "The Pauline Eschatology",
+          1930
+        ]
+      ]
+    },
+    "author-samuel-m-zwemer": {
+      "short": "Zwemer",
+      "born": 1867,
+      "died": 1952,
+      "line": "Missionary to Arabia and Egypt, called the Apostle to Islam; later professor at Princeton.",
+      "places": [
+        [
+          "Vriesland",
+          42.93,
+          -85.93,
+          1867
+        ],
+        [
+          "Bahrain",
+          26.22,
+          50.58,
+          1892
+        ],
+        [
+          "Cairo",
+          30.04,
+          31.24,
+          1913
+        ],
+        [
+          "Princeton",
+          40.35,
+          -74.66,
+          1929
+        ]
+      ],
+      "known": [
+        [
+          "Islam: A Challenge to Faith",
+          1907
+        ],
+        [
+          "The Moslem Doctrine of God",
+          1905
+        ]
+      ]
+    },
+    "author-louis-berkhof": {
+      "short": "Berkhof",
+      "born": 1873,
+      "died": 1957,
+      "line": "Dutch-American professor at Calvin Seminary; his Systematic Theology is still a standard textbook.",
+      "places": [
+        [
+          "Emmen",
+          52.79,
+          6.9,
+          1873
+        ],
+        [
+          "Grand Rapids",
+          42.96,
+          -85.67,
+          1882
+        ]
+      ],
+      "known": [
+        [
+          "Systematic Theology",
+          1932
+        ]
+      ]
+    },
+    "author-j-gresham-machen": {
+      "short": "Machen",
+      "born": 1881,
+      "died": 1937,
+      "line": "Princeton New Testament scholar who founded Westminster Seminary; wrote Christianity and Liberalism.",
+      "places": [
+        [
+          "Baltimore",
+          39.29,
+          -76.61,
+          1881
+        ],
+        [
+          "Princeton",
+          40.35,
+          -74.66,
+          1906
+        ],
+        [
+          "Philadelphia",
+          40.06,
+          -75.16,
+          1929
+        ]
+      ],
+      "known": [
+        [
+          "Christianity and Liberalism",
+          1923
+        ],
+        [
+          "The Virgin Birth of Christ",
+          1930
+        ]
+      ]
+    },
+    "author-john-murray": {
+      "short": "Murray",
+      "born": 1898,
+      "died": 1975,
+      "line": "Scottish theologian who taught at Westminster Seminary for 36 years; wrote Redemption Accomplished and Applied.",
+      "places": [
+        [
+          "Badbea",
+          58.1,
+          -3.9,
+          1898
+        ],
+        [
+          "Princeton",
+          40.35,
+          -74.66,
+          1924
+        ],
+        [
+          "Philadelphia",
+          40.1,
+          -75.15,
+          1930
+        ],
+        [
+          "Badbea",
+          58.1,
+          -3.9,
+          1966
+        ]
+      ],
+      "known": [
+        [
+          "Redemption Accomplished and Applied",
+          1955
+        ],
+        [
+          "Commentary on Romans",
+          1959
+        ]
+      ]
+    },
+    "author-martyn-lloyd-jones": {
+      "short": "Lloyd-Jones",
+      "born": 1899,
+      "died": 1981,
+      "line": "Physician turned preacher; minister of Westminster Chapel, London, for thirty years.",
+      "places": [
+        [
+          "Cardiff",
+          51.48,
+          -3.18,
+          1899
+        ],
+        [
+          "Aberavon",
+          51.59,
+          -3.81,
+          1927
+        ],
+        [
+          "London",
+          51.498,
+          -0.137,
+          1939
+        ]
+      ],
+      "known": [
+        [
+          "Studies in the Sermon on the Mount",
+          1959
+        ],
+        [
+          "Preaching and Preachers",
+          1971
+        ]
+      ]
+    },
+    "author-j-i-packer": {
+      "short": "Packer",
+      "born": 1926,
+      "died": 2020,
+      "line": "English theologian who taught at Regent College, Vancouver; wrote Knowing God.",
+      "places": [
+        [
+          "Gloucester",
+          51.86,
+          -2.24,
+          1926
+        ],
+        [
+          "Oxford",
+          51.752,
+          -1.258,
+          1944
+        ],
+        [
+          "Bristol",
+          51.45,
+          -2.59,
+          1955
+        ],
+        [
+          "Vancouver",
+          49.26,
+          -123.25,
+          1979
+        ]
+      ],
+      "known": [
+        [
+          "Knowing God",
+          1973
+        ],
+        [
+          "A Quest for Godliness",
+          1990
+        ]
+      ]
+    },
+    "author-r-c-sproul": {
+      "short": "Sproul",
+      "born": 1939,
+      "died": 2017,
+      "line": "Teacher and founder of Ligonier Ministries; wrote The Holiness of God.",
+      "places": [
+        [
+          "Pittsburgh",
+          40.44,
+          -79.99,
+          1939
+        ],
+        [
+          "Ligonier",
+          40.24,
+          -79.24,
+          1971
+        ],
+        [
+          "Sanford",
+          28.8,
+          -81.27,
+          1984
+        ]
+      ],
+      "known": [
+        [
+          "The Holiness of God",
+          1985
+        ],
+        [
+          "Chosen by God",
+          1986
+        ]
+      ]
+    },
+    "author-d-a-carson": {
+      "short": "Carson",
+      "born": 1946,
+      "died": null,
+      "line": "New Testament scholar at Trinity Evangelical Divinity School and co-founder of The Gospel Coalition.",
+      "places": [
+        [
+          "Montreal",
+          45.5,
+          -73.57,
+          1946
+        ],
+        [
+          "Deerfield",
+          42.17,
+          -87.85,
+          1978
+        ]
+      ],
+      "known": [
+        [
+          "The Gospel According to John",
+          1991
+        ],
+        [
+          "Exegetical Fallacies",
+          1984
+        ]
+      ]
+    },
+    "author-john-piper": {
+      "short": "Piper",
+      "born": 1946,
+      "died": null,
+      "line": "Pastor of Bethlehem Baptist Church, Minneapolis, for 33 years; founder of Desiring God.",
+      "places": [
+        [
+          "Chattanooga",
+          35.05,
+          -85.31,
+          1946
+        ],
+        [
+          "Minneapolis",
+          44.98,
+          -93.27,
+          1980
+        ]
+      ],
+      "known": [
+        [
+          "Desiring God",
+          1986
+        ],
+        [
+          "The Pleasures of God",
+          1991
+        ]
+      ]
+    },
+    "author-sinclair-ferguson": {
+      "short": "Ferguson",
+      "born": 1948,
+      "died": null,
+      "line": "Scottish pastor and theologian; teaching fellow of Ligonier Ministries.",
+      "places": [
+        [
+          "Glasgow",
+          55.864,
+          -4.252,
+          1948
+        ],
+        [
+          "Columbia, South Carolina",
+          34.0,
+          -81.03,
+          2005
+        ]
+      ],
+      "known": [
+        [
+          "The Holy Spirit",
+          1996
+        ],
+        [
+          "The Whole Christ",
+          2016
+        ]
+      ]
+    },
+    "author-alistair-begg": {
+      "short": "Begg",
+      "born": 1952,
+      "died": null,
+      "line": "Scottish-born pastor of Parkside Church near Cleveland, Ohio; heard daily on Truth For Life.",
+      "places": [
+        [
+          "Glasgow",
+          55.864,
+          -4.252,
+          1952
+        ],
+        [
+          "Hamilton",
+          55.78,
+          -4.04,
+          1978
+        ],
+        [
+          "Cleveland",
+          41.43,
+          -81.39,
+          1983
+        ]
+      ],
+      "known": [
+        [
+          "Made for His Pleasure",
+          1996
+        ]
+      ]
+    },
+    "author-james-r-white": {
+      "short": "White",
+      "born": 1962,
+      "died": null,
+      "line": "Apologist and director of Alpha and Omega Ministries; known for public debates.",
+      "places": [
+        [
+          "Phoenix",
+          33.45,
+          -112.07,
+          1983
+        ]
+      ],
+      "known": [
+        [
+          "The King James Only Controversy",
+          1995
+        ],
+        [
+          "The Potter's Freedom",
+          2000
+        ]
+      ],
+      "birthplaceKnown": false
+    }
+  },
+  "links": [
+    [
+      "author-john-calvin",
+      "author-heinrich-bullinger",
+      "Agreed the Zürich Consensus on the Lord's Supper together in 1549."
+    ],
+    [
+      "author-john-calvin",
+      "author-john-knox",
+      "Knox pastored the English congregation in Calvin's Geneva, 1556–59."
+    ],
+    [
+      "author-john-calvin",
+      "author-francis-turretin",
+      "Turretin taught at the Geneva Academy that Calvin founded."
+    ],
+    [
+      "author-william-perkins",
+      "author-william-ames",
+      "Ames studied at Cambridge under Perkins's preaching."
+    ],
+    [
+      "author-thomas-goodwin",
+      "author-john-owen",
+      "Colleagues at Oxford in the 1650s: Owen at Christ Church, Goodwin at Magdalen."
+    ],
+    [
+      "author-richard-sibbes",
+      "author-thomas-goodwin",
+      "Sibbes and Goodwin edited John Preston's sermons together."
+    ],
+    [
+      "author-john-owen",
+      "author-j-i-packer",
+      "Packer said reading Owen on sin rescued his Christian life as a student."
+    ],
+    [
+      "author-george-whitefield",
+      "author-jonathan-edwards",
+      "Whitefield preached from Edwards's Northampton pulpit in 1740."
+    ],
+    [
+      "author-jonathan-edwards",
+      "author-l13-david-brainerd",
+      "Edwards edited Brainerd's diary; Brainerd died in Edwards's home in 1747."
+    ],
+    [
+      "author-george-whitefield",
+      "author-john-newton",
+      "Newton heard Whitefield preach and was nicknamed 'young Whitefield'."
+    ],
+    [
+      "author-george-whitefield",
+      "author-j-c-ryle",
+      "Ryle wrote Whitefield's life in Christian Leaders of the Last Century."
+    ],
+    [
+      "author-john-gill",
+      "author-charles-spurgeon",
+      "Spurgeon pastored the same London congregation Gill had served a century earlier."
+    ],
+    [
+      "author-john-bunyan",
+      "author-charles-spurgeon",
+      "Spurgeon said he had read The Pilgrim's Progress more than a hundred times."
+    ],
+    [
+      "author-archibald-alexander",
+      "author-charles-hodge",
+      "Hodge studied under Alexander at Princeton Seminary."
+    ],
+    [
+      "author-charles-hodge",
+      "author-a-a-hodge",
+      "Father and son; A. A. succeeded him at Princeton in 1878."
+    ],
+    [
+      "author-charles-hodge",
+      "author-b-b-warfield",
+      "Warfield studied under Hodge at Princeton Seminary."
+    ],
+    [
+      "author-francis-turretin",
+      "author-charles-hodge",
+      "Hodge taught from Turretin's Institutes at Princeton."
+    ],
+    [
+      "author-b-b-warfield",
+      "author-j-gresham-machen",
+      "Machen studied under Warfield and later taught beside him."
+    ],
+    [
+      "author-geerhardus-vos",
+      "author-john-murray",
+      "Murray studied under Vos at Princeton."
+    ],
+    [
+      "author-j-gresham-machen",
+      "author-john-murray",
+      "Murray taught at Westminster Seminary, which Machen founded in 1929."
+    ],
+    [
+      "author-abraham-kuyper",
+      "author-herman-bavinck",
+      "Bavinck succeeded Kuyper as professor at the Free University of Amsterdam."
+    ],
+    [
+      "author-herman-bavinck",
+      "author-louis-berkhof",
+      "Berkhof's Systematic Theology closely follows Bavinck's."
+    ],
+    [
+      "author-geerhardus-vos",
+      "author-louis-berkhof",
+      "Berkhof studied under Vos at Princeton."
+    ],
+    [
+      "author-martyn-lloyd-jones",
+      "author-j-i-packer",
+      "Together they ran the Puritan Conference in London from 1950."
+    ],
+    [
+      "author-jonathan-edwards",
+      "author-john-piper",
+      "Piper names Edwards as the deepest influence on his thinking."
+    ],
+    [
+      "author-r-c-sproul",
+      "author-sinclair-ferguson",
+      "Ferguson is a teaching fellow of Sproul's Ligonier Ministries."
+    ],
+    [
+      "author-l13-robert-murray-mcheyne",
+      "author-l13-andrew-bonar",
+      "Close friends who travelled to Palestine together in 1839; Bonar wrote M'Cheyne's memoir."
+    ]
+  ]
+}

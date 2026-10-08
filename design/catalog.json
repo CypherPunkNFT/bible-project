@@ -2,6 +2,46 @@
   "about": "Every design mock-up, by section, for the gallery at /mockups/ (design/index.html). Add a card here whenever a new mock-up folder lands in design/; `node scripts/mockup-gallery.mjs` refreshes the thumbnails and fails if a folder is missing from this list. Optional `shot`: the address the gallery picture is taken from, when the mock-up's difference is not on its first page.",
   "sections": [
     {
+      "id": "authors",
+      "title": "Authors",
+      "line": "The new top-menu page for the preachers and writers in the library (replacing Topics in the menu bar): four directions built on the library catalogue. Life years and places are hand-entered for now.",
+      "page": "/",
+      "cards": [
+        {
+          "id": "authors-lifelines",
+          "title": "A · Lifelines",
+          "url": "/mockups/authors-directions/lifelines/",
+          "date": "2026-10-08",
+          "status": "option",
+          "line": "Five centuries of lives on one timeline: drag a year cursor and the people alive light up on a small map; compare two lives; follow who taught whom; Spurgeon's dated sermons as a calendar."
+        },
+        {
+          "id": "authors-their-world",
+          "title": "B · Their world",
+          "url": "/mockups/authors-directions/their-world/",
+          "date": "2026-10-08",
+          "status": "option",
+          "line": "The map is the page: a year slider plays every life across Europe and America, cities gather their people, and the missionaries' journeys cross the world."
+        },
+        {
+          "id": "authors-preached-bible",
+          "title": "C · The preached Bible",
+          "url": "/mockups/authors-directions/preached-bible/",
+          "date": "2026-10-08",
+          "status": "option",
+          "line": "All 1,189 chapters lit by the library's sermons on them; pick a preacher to repaint the Bible, compare voices on one chapter, see the quiet chapters."
+        },
+        {
+          "id": "authors-rearrange",
+          "title": "D · Rearrange",
+          "url": "/mockups/authors-directions/rearrange/",
+          "date": "2026-10-08",
+          "status": "option",
+          "line": "One set of 47 people that rearranges itself: by century, by tradition, by how much they left, preacher or writer, and who knew whom."
+        }
+      ]
+    },
+    {
       "id": "people",
       "title": "Study · People",
       "line": "The people pages' visual overhaul, Moses first: one Moses told as three forties (Acts 7:23, 7:30, 7:36), with the journey map and the timeline as the spine. Brief: Research/People/OVERHAUL.md.",
