@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Build src/data/people-pages/index.json: a small summary of every ruler and apostle in the group files beside it
-(rulers-*.json, apostles-*.json), for the pages that need all of them at once without loading every group: the person
-page's entry card, the Rulers and Apostles guides, and the succession arrows. The group files themselves are loaded
-only when a ruler or apostle page opens (src/lib/people-pages.ts).
+"""Build src/data/people-pages/index.json: a small summary of every ruler, apostle and prophet in the group files
+beside it (rulers-*.json, apostles-*.json, church-*.json, prophets-*.json), for the pages that need all of them at once
+without loading every group: the person page's entry cards and switch, the guides, and the succession arrows. The
+group files themselves are loaded only when a ruler, apostle or prophet page opens (src/lib/people-pages.ts).
 
     D:/Python/python.exe scripts/build-people-pages-index.py          # writes index.json
     D:/Python/python.exe scripts/build-people-pages-index.py --check  # exit 1 if index.json is out of date
@@ -138,9 +138,39 @@ def apostle_summary(apostle: dict, group: str) -> dict:
     return out
 
 
+# The eras of Prophets through time, in order (ProphetEra in src/data/people-pages/types.ts).
+PROPHET_ERA_ORDER = ["wilderness", "judges", "united", "divided", "exile", "nt"]
+
+
+def prophet_summary(prophet: dict, group: str) -> dict:
+    """A prophet page ("the word", /people/<id>/word): enough for the switch, the entry card and the era's arrows."""
+    out = {
+        "id": prophet["id"], "group": group, "name": prophet["name"], "kind": prophet["kind"], "era": prophet["era"],
+        "order": prophet["order"], "title": prophet["title"], "tagline": prophet.get("tagline", ""),
+        "kings": list(dict.fromkeys(k["person"]["personId"] for k in prophet.get("kings") or [] if (k.get("person") or {}).get("personId"))),
+        "books": [b["code"] for b in prophet.get("books") or [] if b.get("code")],
+        "sex": sex_of_page([prophet["id"], *(prophet.get("personIds") or [])]),
+    }
+    optional = {"personIds": prophet.get("personIds") or None, "otherNames": prophet.get("otherNames") or None}
+    out.update({key: value for key, value in optional.items() if value not in (None, "", [])})
+    return out
+
+
+def unique(items: list[dict], what: str, problems: list[str]) -> list[dict]:
+    """One page per person in each kind of page: a repeated id keeps the first and is reported."""
+    ids = [item["id"] for item in items]
+    duplicates = sorted({i for i in ids if ids.count(i) > 1})
+    if not duplicates:
+        return items
+    problems.append(f"the same {what} id is in more than one place: {', '.join(duplicates)}; each person has one page (the first is kept)")
+    seen: set[str] = set()
+    return [item for item in items if not (item["id"] in seen or seen.add(item["id"]))]
+
+
 def build(problems: list[str]) -> dict:
     rulers: list[dict] = []
     apostles: list[dict] = []
+    prophets: list[dict] = []
     full_rulers: dict[str, dict] = {}
     groups: list[dict] = []
     for file in sorted(PAGES.glob("*.json")):
@@ -157,12 +187,19 @@ def build(problems: list[str]) -> dict:
         for r in data.get("rulers") or []:
             full_rulers.setdefault(r["id"], r)
         found_a = [apostle_summary(a, group) for a in data.get("apostles") or []]
-        if not found_r and not found_a:
-            print(f"{file.name}: no 'rulers' or 'apostles' list; skipped")
+        try:
+            found_p = [prophet_summary(p, group) for p in data.get("prophets") or []]
+        except (KeyError, TypeError) as error:
+            # A prophets file still being written must not stop the build; --check reports it.
+            problems.append(f"{file.name}: a prophet is missing a required field ({error}); file left out of the index")
+            continue
+        if not found_r and not found_a and not found_p:
+            print(f"{file.name}: no 'rulers', 'apostles' or 'prophets' list; skipped")
             continue
         rulers += found_r
         apostles += found_a
-        groups.append({"id": group, "title": data.get("title", group), "rulers": len(found_r), "apostles": len(found_a)})
+        prophets += found_p
+        groups.append({"id": group, "title": data.get("title", group), "rulers": len(found_r), "apostles": len(found_a), "prophets": len(found_p)})
     ids = [r["id"] for r in rulers] + [a["id"] for a in apostles]
     duplicates = sorted({i for i in ids if ids.count(i) > 1})
     if duplicates:
@@ -182,7 +219,10 @@ def build(problems: list[str]) -> dict:
                 r["near"] = near
     rulers.sort(key=lambda r: (r["realm"], r["order"]))
     apostles.sort(key=lambda a: a["order"])
-    return {"groups": groups, "rulers": rulers, "apostles": apostles}
+    # A prophet page may share its person with a ruler page (Moses, Samuel, Deborah): the word beside the rule.
+    prophets = unique(prophets, "prophet", problems)
+    prophets.sort(key=lambda p: (PROPHET_ERA_ORDER.index(p["era"]) if p["era"] in PROPHET_ERA_ORDER else 99, p["order"], p["id"]))
+    return {"groups": groups, "rulers": rulers, "apostles": apostles, "prophets": prophets}
 
 
 def main() -> int:
@@ -201,7 +241,7 @@ def main() -> int:
         return 0
     INDEX.write_text(text, encoding="utf-8", newline="\n")
     data = json.loads(text)
-    print(f"Wrote {INDEX.relative_to(SITE)}: {len(data['rulers'])} rulers, {len(data['apostles'])} apostles from {len(data['groups'])} files")
+    print(f"Wrote {INDEX.relative_to(SITE)}: {len(data['rulers'])} rulers, {len(data['apostles'])} apostles, {len(data['prophets'])} prophets from {len(data['groups'])} files")
     return 0
 
 

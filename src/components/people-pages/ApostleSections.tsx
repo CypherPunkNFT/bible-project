@@ -93,8 +93,9 @@ export function Companions({ apostle, them = "him" }: { apostle: Apostle; them?:
   </Section>;
 }
 
-/** How the story ends: Scripture beside tradition, never blended; every tradition names who said it and when. */
-export function StoryEnding({ apostle, their = "his" }: { apostle: Apostle; their?: string }) {
+/** How the story ends: Scripture beside tradition, never blended; every tradition names who said it and when. Shared by
+ *  the apostle and prophet pages. */
+export function StoryEnding({ apostle, their = "his" }: { apostle: Pick<Apostle, "ending">; their?: string }) {
   const { scripture, tradition } = apostle.ending;
   if (!scripture.length && !tradition.length) return null;
   return <Section id="pp-ending" kicker="How the story ends" title="Scripture says, tradition says" lead="Scripture in solid glass; later tradition in a dashed frame, each line with who said it and when. The two are never blended.">

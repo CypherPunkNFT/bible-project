@@ -1,0 +1,5543 @@
+{
+  "id": "prophets-new-testament",
+  "title": "Prophets of the New Testament",
+  "era": "nt",
+  "intro": [
+    {
+      "text": "Jesus said, “The law and the prophets were until John”. John the Baptist stands at the turn: Luke tells his call in the words of the old prophets, and Jesus called him “more than a prophet”.",
+      "layer": "scripture",
+      "refs": [
+        [
+          42016016,
+          42016016
+        ],
+        [
+          42003002,
+          42003002
+        ],
+        [
+          40011009,
+          40011009
+        ]
+      ]
+    },
+    {
+      "text": "At Pentecost Peter quoted Joel: “your sons and your daughters shall prophesy”. Acts and the letters then speak of prophets in the churches, set “secondarily” after the apostles.",
+      "layer": "scripture",
+      "refs": [
+        [
+          44002016,
+          44002018
+        ],
+        [
+          44011027,
+          44011027
+        ],
+        [
+          44013001,
+          44013001
+        ],
+        [
+          46012028,
+          46012028
+        ],
+        [
+          49004011,
+          49004011
+        ]
+      ]
+    },
+    {
+      "text": "Some speak a word only once in Scripture. Zacharias “was filled with the Holy Ghost, and prophesied” at John’s naming; his song is on John’s page. Philip the evangelist “had four daughters, virgins, which did prophesy”; Scripture gives neither their names nor their words, so they have no page of their own.",
+      "layer": "scripture",
+      "refs": [
+        [
+          42001067,
+          42001079
+        ],
+        [
+          44021008,
+          44021009
+        ]
+      ]
+    },
+    {
+      "text": "Simeon of Jerusalem is here though Luke does not call him a prophet: the Holy Ghost was upon him, and he spoke of the child by what had been revealed to him. Anna, beside him, is “a prophetess”.",
+      "layer": "text",
+      "refs": [
+        [
+          42002025,
+          42002038
+        ]
+      ]
+    },
+    {
+      "text": "Barnabas and Saul were among the “prophets and teachers” at Antioch, and Silas was one of those “being prophets also themselves”. Paul, Barnabas and Silas have mission pages, which tell their work.",
+      "layer": "scripture",
+      "refs": [
+        [
+          44013001,
+          44013001
+        ],
+        [
+          44015032,
+          44015032
+        ]
+      ]
+    },
+    {
+      "text": "Jesus warned, “Beware of false prophets”. Acts calls one man “a false prophet”, Bar-jesus at Paphos, and his page uses Acts’ own words. Revelation speaks of “that woman Jezebel, which calleth herself a prophetess”; she has no page here.",
+      "layer": "scripture",
+      "refs": [
+        [
+          40007015,
+          40007015
+        ],
+        [
+          44013006,
+          44013006
+        ],
+        [
+          66002020,
+          66002020
+        ]
+      ]
+    }
+  ],
+  "prophets": [
+    {
+      "id": "john-mat-3-1",
+      "name": "John the Baptist",
+      "otherNames": [
+        "John the son of Zacharias (Luke 3:2)",
+        "John Baptist (Matthew 14:8)"
+      ],
+      "kind": "nt",
+      "era": "nt",
+      "title": "“The prophet of the Highest” (Luke 1:76); in Jesus’ words, “a prophet … and more than a prophet” (Matthew 11:9)",
+      "tagline": "The voice crying in the wilderness: he preached repentance, baptized in Jordan, and pointed to the one coming after him.",
+      "order": 1,
+      "kings": [
+        {
+          "person": {
+            "name": "Herod the Great",
+            "personId": "herod-mat-2-1"
+          },
+          "claim": {
+            "text": "Luke sets the promise of John’s birth “in the days of Herod, the king of Judæa”, when an angel appeared to Zacharias in the temple.",
+            "layer": "scripture",
+            "refs": [
+              [
+                42001005,
+                42001013
+              ]
+            ]
+          },
+          "quote": {
+            "text": "There was in the days of Herod, the king of Judæa, a certain priest named Zacharias",
+            "span": [
+              42001005,
+              42001005
+            ]
+          }
+        },
+        {
+          "person": {
+            "name": "Tiberius",
+            "personId": "tiberius-mat-22-17"
+          },
+          "claim": {
+            "text": "Luke dates the coming of the word of God to John by the emperor’s reign, then by four rulers in the land and two high priests, Annas and Caiaphas.",
+            "layer": "scripture",
+            "refs": [
+              [
+                42003001,
+                42003002
+              ]
+            ]
+          },
+          "quote": {
+            "text": "Now in the fifteenth year of the reign of Tiberius Cæsar",
+            "span": [
+              42003001,
+              42003001
+            ]
+          }
+        },
+        {
+          "person": {
+            "name": "Pontius Pilate",
+            "personId": "pilate-mat-27-2"
+          },
+          "claim": {
+            "text": "Named in the same dating, “Pontius Pilate being governor of Judæa”. The Gospels record no meeting between Pilate and John.",
+            "layer": "text",
+            "refs": [
+              [
+                42003001,
+                42003001
+              ]
+            ]
+          }
+        },
+        {
+          "person": {
+            "name": "Philip the tetrarch",
+            "personId": "philip-luk-3-1"
+          },
+          "claim": {
+            "text": "Named in the same dating: “his brother Philip tetrarch of Ituraea and of the region of Trachonitis”.",
+            "layer": "scripture",
+            "refs": [
+              [
+                42003001,
+                42003001
+              ]
+            ]
+          }
+        },
+        {
+          "person": {
+            "name": "Lysanias",
+            "personId": "lysanias-luk-3-1"
+          },
+          "claim": {
+            "text": "Named last among the rulers in the same dating: “Lysanias the tetrarch of Abilene”.",
+            "layer": "scripture",
+            "refs": [
+              [
+                42003001,
+                42003001
+              ]
+            ]
+          }
+        },
+        {
+          "person": {
+            "name": "Herod Antipas",
+            "personId": "herod-mat-14-1"
+          },
+          "claim": {
+            "text": "Luke says John reproved “Herod the tetrarch” “for Herodias his brother Philip’s wife, and for all the evils which Herod had done”, and Herod “shut up John in prison”. Mark adds that Herod “feared John, knowing that he was a just man and an holy”, and “heard him gladly”. Herod at last had John beheaded; the supper and the oath are told on Herod Antipas’s page.",
+            "layer": "scripture",
+            "refs": [
+              [
+                42003019,
+                42003020
+              ],
+              [
+                41006017,
+                41006020
+              ],
+              [
+                40014003,
+                40014010
+              ]
+            ]
+          },
+          "quote": {
+            "text": "It is not lawful for thee to have her.",
+            "span": [
+              40014004,
+              40014004
+            ]
+          }
+        }
+      ],
+      "call": [
+        {
+          "label": "Luke 1 · Promised before his birth",
+          "quote": {
+            "text": "thy wife Elisabeth shall bear thee a son, and thou shalt call his name John.",
+            "span": [
+              42001013,
+              42001013
+            ]
+          },
+          "claim": {
+            "text": "As Zacharias burned incense in the temple, the angel Gabriel told him that the child would be “filled with the Holy Ghost, even from his mother’s womb”, and would “go before him in the spirit and power of Elias … to make ready a people prepared for the Lord.”",
+            "layer": "scripture",
+            "refs": [
+              [
+                42001008,
+                42001019
+              ]
+            ]
+          },
+          "placeId": "a15257a"
+        },
+        {
+          "label": "Luke 1 · His father’s song",
+          "quote": {
+            "text": "And thou, child, shalt be called the prophet of the Highest: for thou shalt go before the face of the Lord to prepare his ways;",
+            "span": [
+              42001076,
+              42001076
+            ]
+          },
+          "claim": {
+            "text": "When the child was named John, his father Zacharias “was filled with the Holy Ghost, and prophesied”; the song ends with these words to his son.",
+            "layer": "scripture",
+            "refs": [
+              [
+                42001059,
+                42001079
+              ]
+            ]
+          }
+        },
+        {
+          "label": "Luke 3 · The word of God comes",
+          "quote": {
+            "text": "the word of God came unto John the son of Zacharias in the wilderness.",
+            "span": [
+              42003002,
+              42003002
+            ]
+          },
+          "claim": {
+            "text": "Then John “came into all the country about Jordan, preaching the baptism of repentance for the remission of sins”.",
+            "layer": "scripture",
+            "refs": [
+              [
+                42003002,
+                42003003
+              ]
+            ]
+          }
+        },
+        {
+          "label": "John 1 · A man sent from God",
+          "quote": {
+            "text": "There was a man sent from God, whose name was John.",
+            "span": [
+              43001006,
+              43001006
+            ]
+          },
+          "claim": {
+            "text": "John’s Gospel tells no scene of calling. John himself says that “he that sent me to baptize with water” told him the sign by which he would know the one who “baptizeth with the Holy Ghost”.",
+            "layer": "scripture",
+            "refs": [
+              [
+                43001006,
+                43001008
+              ],
+              [
+                43001033,
+                43001033
+              ]
+            ]
+          }
+        }
+      ],
+      "how": [
+        {
+          "text": "Luke tells the call in words like those that open the books of the old prophets: “the word of God came unto John”, as “the word of the LORD came” to Jeremiah and to Hosea.",
+          "layer": "text",
+          "refs": [
+            [
+              42003002,
+              42003002
+            ],
+            [
+              24001002,
+              24001002
+            ],
+            [
+              28001001,
+              28001001
+            ]
+          ]
+        },
+        {
+          "text": "Matthew and Mark tell no call; their accounts of John open with him already preaching in the wilderness.",
+          "layer": "text",
+          "refs": [
+            [
+              40003001,
+              40003002
+            ],
+            [
+              41001004,
+              41001004
+            ]
+          ]
+        },
+        {
+          "text": "Before his birth he was to be “filled with the Holy Ghost, even from his mother’s womb”; when Mary greeted Elisabeth, “the babe leaped in her womb”.",
+          "layer": "scripture",
+          "refs": [
+            [
+              42001015,
+              42001015
+            ],
+            [
+              42001041,
+              42001044
+            ]
+          ]
+        },
+        {
+          "text": "He “was in the deserts till the day of his shewing unto Israel.”",
+          "layer": "scripture",
+          "refs": [
+            [
+              42001080,
+              42001080
+            ]
+          ]
+        },
+        {
+          "text": "Matthew says he wore “raiment of camel’s hair, and a leathern girdle about his loins” and ate “locusts and wild honey”; Mark has “a girdle of a skin”. Jesus said John came “neither eating bread nor drinking wine”; before his birth the angel had said he would “drink neither wine nor strong drink”.",
+          "layer": "scripture",
+          "refs": [
+            [
+              40003004,
+              40003004
+            ],
+            [
+              41001006,
+              41001006
+            ],
+            [
+              42007033,
+              42007033
+            ],
+            [
+              42001015,
+              42001015
+            ]
+          ]
+        },
+        {
+          "text": "Kings describes Elijah as “an hairy man, and girt with a girdle of leather about his loins”. The Gospels do not draw this comparison with John’s girdle themselves.",
+          "layer": "text",
+          "refs": [
+            [
+              12001008,
+              12001008
+            ],
+            [
+              40003004,
+              40003004
+            ]
+          ]
+        },
+        {
+          "text": "Ellicott’s commentary holds that the dress “was probably deliberately adopted by the Baptist as reviving the outward appearance of Elijah”; Jamieson, Fausset and Brown call the girdle “the prophetic dress of Elijah”.",
+          "layer": "scholars",
+          "refs": [
+            [
+              40003004,
+              40003004
+            ]
+          ],
+          "cites": [
+            "ellicott-mat-3-4",
+            "jfb-mat-3-4"
+          ]
+        },
+        {
+          "text": "He preached and baptized; people came out from Jerusalem, Judaea and the region round about Jordan “and were baptized of him in Jordan, confessing their sins.”",
+          "layer": "scripture",
+          "refs": [
+            [
+              40003005,
+              40003006
+            ],
+            [
+              41001004,
+              41001005
+            ]
+          ]
+        },
+        {
+          "text": "He had disciples: they “used to fast”, he taught them to pray, and some of them carried his question to Jesus.",
+          "layer": "scripture",
+          "refs": [
+            [
+              41002018,
+              41002018
+            ],
+            [
+              42011001,
+              42011001
+            ],
+            [
+              40011002,
+              40011003
+            ]
+          ]
+        },
+        {
+          "text": "The people held him to be a prophet: Herod “feared the multitude, because they counted him as a prophet”, and the chief priests feared the people, “for all hold John as a prophet.” Jesus said of him, “He was a burning and a shining light”.",
+          "layer": "scripture",
+          "refs": [
+            [
+              40014005,
+              40014005
+            ],
+            [
+              40021025,
+              40021026
+            ],
+            [
+              43005035,
+              43005035
+            ]
+          ]
+        },
+        {
+          "text": "Beyond Jordan, where John had first baptized, many said: “John did no miracle: but all things that John spake of this man were true.”",
+          "layer": "scripture",
+          "refs": [
+            [
+              43010040,
+              43010042
+            ]
+          ]
+        }
+      ],
+      "message": [
+        {
+          "theme": "In Matthew: “Repent ye”",
+          "claim": {
+            "text": "Matthew gives his preaching in one line. To the Pharisees and Sadducees who came to his baptism he spoke of the axe laid to the root of the trees, and of one mightier coming after him who would baptize “with the Holy Ghost, and with fire”, gather the wheat and burn the chaff.",
+            "layer": "scripture",
+            "refs": [
+              [
+                40003001,
+                40003012
+              ]
+            ]
+          },
+          "quotes": [
+            {
+              "text": "Repent ye: for the kingdom of heaven is at hand.",
+              "span": [
+                40003002,
+                40003002
+              ]
+            },
+            {
+              "text": "he that cometh after me is mightier than I, whose shoes I am not worthy to bear:",
+              "span": [
+                40003011,
+                40003011
+              ]
+            }
+          ]
+        },
+        {
+          "theme": "In Mark: the baptism of repentance",
+          "claim": {
+            "text": "Mark sums up his preaching as “the baptism of repentance for the remission of sins” and gives one saying of his: one mightier is coming, who “shall baptize you with the Holy Ghost.” Mark has no warning of the axe or the fire.",
+            "layer": "text",
+            "refs": [
+              [
+                41001004,
+                41001008
+              ]
+            ]
+          },
+          "quotes": [
+            {
+              "text": "There cometh one mightier than I after me, the latchet of whose shoes I am not worthy to stoop down and unloose.",
+              "span": [
+                41001007,
+                41001007
+              ]
+            }
+          ]
+        },
+        {
+          "theme": "In Luke: “What shall we do then?”",
+          "claim": {
+            "text": "Luke gives the warning to “the multitude”, and alone gives John’s answers to the people, to publicans and to soldiers. When all men mused whether he were the Christ, he answered that one mightier was coming. “And many other things in his exhortation preached he unto the people.”",
+            "layer": "scripture",
+            "refs": [
+              [
+                42003007,
+                42003018
+              ]
+            ]
+          },
+          "quotes": [
+            {
+              "text": "He that hath two coats, let him impart to him that hath none; and he that hath meat, let him do likewise.",
+              "span": [
+                42003011,
+                42003011
+              ]
+            }
+          ]
+        },
+        {
+          "theme": "In John: “Behold the Lamb of God”",
+          "claim": {
+            "text": "In John’s Gospel John never speaks of repentance; he bears witness. He says he is not the Christ, points to Jesus as “the Lamb of God”, bears record “that this is the Son of God”, and tells his own disciples that his joy is fulfilled.",
+            "layer": "text",
+            "refs": [
+              [
+                43001019,
+                43001034
+              ],
+              [
+                43003026,
+                43003030
+              ]
+            ]
+          },
+          "quotes": [
+            {
+              "text": "Behold the Lamb of God, which taketh away the sin of the world.",
+              "span": [
+                43001029,
+                43001029
+              ]
+            },
+            {
+              "text": "He must increase, but I must decrease.",
+              "span": [
+                43003030,
+                43003030
+              ]
+            }
+          ]
+        },
+        {
+          "theme": "The one who comes after him, in four tellings",
+          "claim": {
+            "text": "All four Gospels give his saying that he is not worthy of the shoes of the one coming after him, each in its own words: Matthew “not worthy to bear”; Mark “to stoop down and unloose” the latchet; Luke “to unloose” it; John “whose shoe’s latchet I am not worthy to unloose.” Matthew and Luke have “with the Holy Ghost, and with fire”; Mark and John speak of the Holy Ghost only. Paul gives the saying again at Antioch in Pisidia.",
+            "layer": "text",
+            "refs": [
+              [
+                40003011,
+                40003011
+              ],
+              [
+                41001007,
+                41001008
+              ],
+              [
+                42003016,
+                42003016
+              ],
+              [
+                43001027,
+                43001027
+              ],
+              [
+                43001033,
+                43001033
+              ],
+              [
+                44013014,
+                44013014
+              ],
+              [
+                44013025,
+                44013025
+              ]
+            ]
+          }
+        }
+      ],
+      "words": [
+        {
+          "to": "The Pharisees and Sadducees (Matthew); the multitude (Luke)",
+          "placeId": "ae686c9",
+          "quote": {
+            "text": "O generation of vipers, who hath warned you to flee from the wrath to come?",
+            "span": [
+              40003007,
+              40003007
+            ]
+          },
+          "claim": {
+            "text": "Matthew says he spoke this when he saw many of the Pharisees and Sadducees come to his baptism; Luke gives the same words “to the multitude that came forth to be baptized of him”.",
+            "layer": "scripture",
+            "refs": [
+              [
+                40003007,
+                40003007
+              ],
+              [
+                42003007,
+                42003007
+              ]
+            ]
+          }
+        },
+        {
+          "to": "The publicans",
+          "quote": {
+            "text": "Exact no more than that which is appointed you.",
+            "span": [
+              42003013,
+              42003013
+            ]
+          }
+        },
+        {
+          "to": "The soldiers",
+          "quote": {
+            "text": "Do violence to no man, neither accuse any falsely; and be content with your wages.",
+            "span": [
+              42003014,
+              42003014
+            ]
+          }
+        },
+        {
+          "to": "Jesus, at the Jordan",
+          "person": {
+            "name": "Jesus",
+            "personId": "jesus-isa-7-14"
+          },
+          "placeId": "ae686c9",
+          "quote": {
+            "text": "I have need to be baptized of thee, and comest thou to me?",
+            "span": [
+              40003014,
+              40003014
+            ]
+          },
+          "claim": {
+            "text": "Only Matthew tells that John “forbad him” at first; Jesus answered, “Suffer it to be so now”.",
+            "layer": "scripture",
+            "refs": [
+              [
+                40003014,
+                40003015
+              ]
+            ]
+          }
+        },
+        {
+          "to": "The priests and Levites sent from Jerusalem",
+          "placeId": "a6e060d",
+          "quote": {
+            "text": "I am the voice of one crying in the wilderness, Make straight the way of the Lord, as said the prophet Esaias.",
+            "span": [
+              43001023,
+              43001023
+            ]
+          },
+          "claim": {
+            "text": "Asked “Who art thou?”, he “confessed, I am not the Christ”, and said he was not Elias and not “that prophet”. These things were done “in Bethabara beyond Jordan”.",
+            "layer": "scripture",
+            "refs": [
+              [
+                43001019,
+                43001028
+              ]
+            ]
+          }
+        },
+        {
+          "to": "Two of his disciples",
+          "person": {
+            "name": "Andrew",
+            "personId": "andrew-mat-4-18"
+          },
+          "quote": {
+            "text": "Behold the Lamb of God!",
+            "span": [
+              43001036,
+              43001036
+            ]
+          },
+          "claim": {
+            "text": "The two heard him and followed Jesus; one of them was Andrew, Simon Peter’s brother.",
+            "layer": "scripture",
+            "refs": [
+              [
+                43001035,
+                43001040
+              ]
+            ]
+          }
+        },
+        {
+          "to": "His disciples, at Ænon",
+          "placeId": "a112fe3",
+          "quote": {
+            "text": "He must increase, but I must decrease.",
+            "span": [
+              43003030,
+              43003030
+            ]
+          },
+          "claim": {
+            "text": "John was then baptizing in Ænon near to Salim; his disciples had told him that all men were going to Jesus.",
+            "layer": "scripture",
+            "refs": [
+              [
+                43003023,
+                43003030
+              ]
+            ]
+          }
+        },
+        {
+          "to": "Herod the tetrarch",
+          "person": {
+            "name": "Herod Antipas",
+            "personId": "herod-mat-14-1"
+          },
+          "quote": {
+            "text": "It is not lawful for thee to have her.",
+            "span": [
+              40014004,
+              40014004
+            ]
+          },
+          "claim": {
+            "text": "Mark gives it as “It is not lawful for thee to have thy brother’s wife.”",
+            "layer": "scripture",
+            "refs": [
+              [
+                41006018,
+                41006018
+              ]
+            ]
+          }
+        },
+        {
+          "to": "Jesus, from prison",
+          "person": {
+            "name": "Jesus",
+            "personId": "jesus-isa-7-14"
+          },
+          "quote": {
+            "text": "Art thou he that should come, or do we look for another?",
+            "span": [
+              40011003,
+              40011003
+            ]
+          },
+          "claim": {
+            "text": "He sent two of his disciples with the question; Luke gives it as “Art thou he that should come? or look we for another?” Jesus sent back word of what they had seen and heard.",
+            "layer": "scripture",
+            "refs": [
+              [
+                40011002,
+                40011006
+              ],
+              [
+                42007018,
+                42007023
+              ]
+            ]
+          }
+        }
+      ],
+      "signs": [
+        {
+          "label": "Zacharias struck dumb",
+          "kind": "wonder",
+          "claim": {
+            "text": "Because Zacharias did not believe the angel’s words, he was “dumb, and not able to speak, until the day that these things shall be performed”; he came out of the temple beckoning, and the people perceived “that he had seen a vision”.",
+            "layer": "scripture",
+            "refs": [
+              [
+                42001018,
+                42001022
+              ]
+            ]
+          },
+          "placeId": "a15257a"
+        },
+        {
+          "label": "The babe leaped in the womb",
+          "kind": "other",
+          "claim": {
+            "text": "When Elisabeth heard Mary’s greeting, “the babe leaped in her womb” and Elisabeth “was filled with the Holy Ghost”; she said it leaped “for joy”.",
+            "layer": "scripture",
+            "refs": [
+              [
+                42001039,
+                42001044
+              ]
+            ]
+          }
+        },
+        {
+          "label": "“His name is John”",
+          "kind": "wonder",
+          "claim": {
+            "text": "On the eighth day the neighbours would have named him Zacharias. Elisabeth said “he shall be called John”; Zacharias wrote “His name is John”, and “his mouth was opened immediately”.",
+            "layer": "scripture",
+            "refs": [
+              [
+                42001059,
+                42001064
+              ]
+            ]
+          }
+        },
+        {
+          "label": "The baptism of Jesus · Matthew",
+          "kind": "wonder",
+          "placeId": "ae686c9",
+          "claim": {
+            "text": "Jesus came from Galilee to be baptized; John forbade him, then “suffered him”. Coming up out of the water Jesus “saw the Spirit of God descending like a dove”, and a voice said, “This is my beloved Son, in whom I am well pleased.”",
+            "layer": "scripture",
+            "refs": [
+              [
+                40003013,
+                40003017
+              ]
+            ]
+          }
+        },
+        {
+          "label": "The baptism of Jesus · Mark",
+          "kind": "wonder",
+          "placeId": "ae686c9",
+          "claim": {
+            "text": "Jesus “was baptized of John in Jordan”; coming up out of the water “he saw the heavens opened, and the Spirit like a dove descending upon him”, and the voice said, “Thou art my beloved Son, in whom I am well pleased.”",
+            "layer": "scripture",
+            "refs": [
+              [
+                41001009,
+                41001011
+              ]
+            ]
+          }
+        },
+        {
+          "label": "The baptism of Jesus · Luke",
+          "kind": "wonder",
+          "claim": {
+            "text": "Luke tells of John’s imprisonment first and does not name who baptized Jesus. While Jesus prayed, “the Holy Ghost descended in a bodily shape like a dove upon him”, and the voice said, “Thou art my beloved Son; in thee I am well pleased.”",
+            "layer": "text",
+            "refs": [
+              [
+                42003019,
+                42003022
+              ]
+            ]
+          }
+        },
+        {
+          "label": "The sign John was given · John’s Gospel",
+          "kind": "vision",
+          "placeId": "a6e060d",
+          "claim": {
+            "text": "John’s Gospel does not tell the baptism itself. It gives John’s own witness: “I saw the Spirit descending from heaven like a dove, and it abode upon him”, the sign he had been told to look for.",
+            "layer": "text",
+            "refs": [
+              [
+                43001032,
+                43001034
+              ]
+            ]
+          }
+        }
+      ],
+      "fulfilment": [
+        {
+          "word": {
+            "text": "Isaiah: “The voice of him that crieth in the wilderness, Prepare ye the way of the LORD, make straight in the desert a highway for our God.”",
+            "layer": "scripture",
+            "refs": [
+              [
+                23040003,
+                23040005
+              ]
+            ]
+          },
+          "reported": {
+            "text": "Matthew: “this is he that was spoken of by the prophet Esaias”. Mark and Luke bring in John with “As it is written”, and Luke quotes on to “all flesh shall see the salvation of God.” In John’s Gospel John says of himself, “I am the voice of one crying in the wilderness”.",
+            "layer": "scripture",
+            "refs": [
+              [
+                40003003,
+                40003003
+              ],
+              [
+                41001002,
+                41001004
+              ],
+              [
+                42003003,
+                42003006
+              ],
+              [
+                43001023,
+                43001023
+              ]
+            ]
+          }
+        },
+        {
+          "word": {
+            "text": "Malachi: “Behold, I will send my messenger, and he shall prepare the way before me”.",
+            "layer": "scripture",
+            "refs": [
+              [
+                39003001,
+                39003001
+              ]
+            ]
+          },
+          "reported": {
+            "text": "Jesus says of John, “this is he, of whom it is written, Behold, I send my messenger before thy face, which shall prepare thy way before thee” (Matthew and Luke); Mark sets the same words at the head of his account. The Gospels read “before thy face” and “thy way” where Malachi has “before me”.",
+            "layer": "scripture",
+            "refs": [
+              [
+                40011010,
+                40011010
+              ],
+              [
+                42007027,
+                42007027
+              ],
+              [
+                41001002,
+                41001002
+              ],
+              [
+                39003001,
+                39003001
+              ]
+            ]
+          }
+        },
+        {
+          "word": {
+            "text": "Malachi: “Behold, I will send you Elijah the prophet before the coming of the great and dreadful day of the LORD: And he shall turn the heart of the fathers to the children”.",
+            "layer": "scripture",
+            "refs": [
+              [
+                39004005,
+                39004006
+              ]
+            ]
+          },
+          "reported": {
+            "text": "The angel says John will go “in the spirit and power of Elias, to turn the hearts of the fathers to the children”. Jesus says, “if ye will receive it, this is Elias, which was for to come”, and after the transfiguration, “Elias is come already”, and “the disciples understood that he spake unto them of John the Baptist.” Mark: “Elias is indeed come”. Beside these stands John’s own answer, “I am not” (see the open questions).",
+            "layer": "scripture",
+            "refs": [
+              [
+                42001017,
+                42001017
+              ],
+              [
+                40011014,
+                40011014
+              ],
+              [
+                40017010,
+                40017013
+              ],
+              [
+                41009011,
+                41009013
+              ],
+              [
+                43001021,
+                43001021
+              ]
+            ]
+          }
+        },
+        {
+          "word": {
+            "text": "John’s witness to Jesus: “Behold the Lamb of God”; “this is the Son of God”.",
+            "layer": "scripture",
+            "refs": [
+              [
+                43001029,
+                43001034
+              ]
+            ]
+          },
+          "reported": {
+            "text": "Where John had first baptized, beyond Jordan, many said, “John did no miracle: but all things that John spake of this man were true.” And many believed on him there.",
+            "layer": "scripture",
+            "refs": [
+              [
+                43010040,
+                43010042
+              ]
+            ]
+          }
+        }
+      ],
+      "books": [],
+      "companions": [
+        {
+          "person": {
+            "name": "Zacharias, his father",
+            "personId": "zechariah-luk-1-5"
+          },
+          "claim": {
+            "text": "“A certain priest named Zacharias, of the course of Abia”; he and Elisabeth “were both righteous before God”.",
+            "layer": "scripture",
+            "refs": [
+              [
+                42001005,
+                42001006
+              ]
+            ]
+          }
+        },
+        {
+          "person": {
+            "name": "Elisabeth, his mother",
+            "personId": "elizabeth-luk-1-5"
+          },
+          "claim": {
+            "text": "She was “of the daughters of Aaron” and had been barren; at his circumcision she said, “Not so; but he shall be called John.”",
+            "layer": "scripture",
+            "refs": [
+              [
+                42001005,
+                42001007
+              ],
+              [
+                42001060,
+                42001060
+              ]
+            ]
+          }
+        },
+        {
+          "person": {
+            "name": "Mary",
+            "personId": "mary-mat-1-16"
+          },
+          "claim": {
+            "text": "The angel called Elisabeth Mary’s “cousin”. Mary abode with Elisabeth about three months and returned home; then Elisabeth brought forth her son.",
+            "layer": "scripture",
+            "refs": [
+              [
+                42001036,
+                42001036
+              ],
+              [
+                42001056,
+                42001057
+              ]
+            ]
+          }
+        },
+        {
+          "person": {
+            "name": "Jesus",
+            "personId": "jesus-isa-7-14"
+          },
+          "claim": {
+            "text": "He came from Galilee to be baptized of John. Later he said to the people, “Among them that are born of women there hath not risen a greater than John the Baptist: notwithstanding he that is least in the kingdom of heaven is greater than he.”",
+            "layer": "scripture",
+            "refs": [
+              [
+                40003013,
+                40003013
+              ],
+              [
+                40011011,
+                40011011
+              ]
+            ]
+          }
+        },
+        {
+          "person": {
+            "name": "Andrew",
+            "personId": "andrew-mat-4-18"
+          },
+          "claim": {
+            "text": "One of the two disciples of John who heard him say “Behold the Lamb of God!” and followed Jesus.",
+            "layer": "scripture",
+            "refs": [
+              [
+                43001035,
+                43001040
+              ]
+            ]
+          }
+        },
+        {
+          "person": {
+            "name": "His disciples"
+          },
+          "claim": {
+            "text": "They fasted, were taught to pray, carried his question to Jesus, and after his death took up his body and buried it.",
+            "layer": "scripture",
+            "refs": [
+              [
+                41002018,
+                41002018
+              ],
+              [
+                42011001,
+                42011001
+              ],
+              [
+                40011002,
+                40011002
+              ],
+              [
+                40014012,
+                40014012
+              ]
+            ]
+          }
+        },
+        {
+          "person": {
+            "name": "Herodias",
+            "personId": "herodias-mat-14-3"
+          },
+          "claim": {
+            "text": "“Herodias had a quarrel against him, and would have killed him; but she could not”; she told her daughter to ask for his head.",
+            "layer": "scripture",
+            "refs": [
+              [
+                41006019,
+                41006019
+              ],
+              [
+                41006024,
+                41006024
+              ]
+            ]
+          }
+        },
+        {
+          "person": {
+            "name": "The Pharisees and lawyers"
+          },
+          "claim": {
+            "text": "They “rejected the counsel of God against themselves, being not baptized of him”, while the people and the publicans “justified God, being baptized with the baptism of John.”",
+            "layer": "scripture",
+            "refs": [
+              [
+                42007029,
+                42007030
+              ]
+            ]
+          }
+        },
+        {
+          "person": {
+            "name": "Apollos",
+            "personId": "apollos-act-18-24"
+          },
+          "claim": {
+            "text": "Years later, at Ephesus, Apollos taught diligently, “knowing only the baptism of John”; Paul there met about twelve disciples baptized “Unto John’s baptism”.",
+            "layer": "scripture",
+            "refs": [
+              [
+                44018024,
+                44018026
+              ],
+              [
+                44019001,
+                44019007
+              ]
+            ]
+          }
+        }
+      ],
+      "places": [
+        {
+          "name": "Judaea: the hill country and the wilderness",
+          "placeId": "a149f13",
+          "refs": [
+            [
+              42001039,
+              42001040
+            ],
+            [
+              42001065,
+              42001065
+            ],
+            [
+              40003001,
+              40003001
+            ]
+          ],
+          "note": "Luke names his parents’ home only as “a city of Juda” in the hill country; Matthew puts his preaching in “the wilderness of Judaea”."
+        },
+        {
+          "name": "Jerusalem, the temple",
+          "placeId": "a15257a",
+          "refs": [
+            [
+              42001008,
+              42001011
+            ]
+          ],
+          "note": "Where the angel appeared to Zacharias"
+        },
+        {
+          "name": "The Jordan",
+          "placeId": "ae686c9",
+          "refs": [
+            [
+              40003005,
+              40003006
+            ],
+            [
+              40003013,
+              40003013
+            ],
+            [
+              41001005,
+              41001005
+            ],
+            [
+              41001009,
+              41001009
+            ],
+            [
+              42003003,
+              42003003
+            ]
+          ],
+          "note": "Where he baptized, and where Jesus came to him"
+        },
+        {
+          "name": "Bethabara beyond Jordan",
+          "placeId": "a6e060d",
+          "refs": [
+            [
+              43001028,
+              43001028
+            ],
+            [
+              43010040,
+              43010040
+            ]
+          ],
+          "note": "The atlas names this pin Bethany (the ford), after the texts that read “Bethany beyond Jordan”; see the open question"
+        },
+        {
+          "name": "Ænon near to Salim",
+          "placeId": "a112fe3",
+          "refs": [
+            [
+              43003023,
+              43003023
+            ]
+          ],
+          "note": "“Because there was much water there”"
+        },
+        {
+          "name": "Machaerus (not in the atlas)",
+          "note": "Josephus names it as John’s prison and the place of his death (Antiquities 18.5.2); the Gospels do not name the prison"
+        },
+        {
+          "name": "Samaria (Sebaste)",
+          "placeId": "a041bb3",
+          "note": "Jerome (AD 404) says John lies here; Theodoret says his tomb here was opened in the reign of Julian",
+          "tradition": true
+        },
+        {
+          "name": "Ephesus",
+          "placeId": "a5feb15",
+          "refs": [
+            [
+              44018024,
+              44018025
+            ],
+            [
+              44019001,
+              44019003
+            ]
+          ],
+          "note": "Where Apollos and some disciples knew only the baptism of John"
+        }
+      ],
+      "ending": {
+        "scripture": [
+          {
+            "text": "Herod laid hold on John, bound him and put him in prison “for Herodias’ sake, his brother Philip’s wife”.",
+            "layer": "scripture",
+            "refs": [
+              [
+                40014003,
+                40014003
+              ],
+              [
+                41006017,
+                41006017
+              ],
+              [
+                42003019,
+                42003020
+              ]
+            ]
+          },
+          {
+            "text": "Matthew and Mark tell that he was beheaded in the prison at Herod’s command, after Herod’s birthday oath to the daughter of Herodias (told on Herod Antipas’s page).",
+            "layer": "scripture",
+            "refs": [
+              [
+                40014006,
+                40014011
+              ],
+              [
+                41006021,
+                41006028
+              ]
+            ]
+          },
+          {
+            "text": "Luke does not tell the death; he has Herod say, “John have I beheaded”.",
+            "layer": "text",
+            "refs": [
+              [
+                42009007,
+                42009009
+              ]
+            ]
+          },
+          {
+            "text": "His disciples took up the body and buried it. Matthew adds that they “went and told Jesus”; Mark that they “laid it in a tomb”.",
+            "layer": "scripture",
+            "refs": [
+              [
+                40014012,
+                40014012
+              ],
+              [
+                41006029,
+                41006029
+              ]
+            ]
+          },
+          {
+            "text": "Hearing of Jesus, Herod said, “It is John, whom I beheaded: he is risen from the dead.”",
+            "layer": "scripture",
+            "refs": [
+              [
+                41006014,
+                41006016
+              ],
+              [
+                40014001,
+                40014002
+              ]
+            ]
+          }
+        ],
+        "tradition": [
+          {
+            "text": "In this passage Josephus does not mention Herodias; he says Herod feared that John’s “great influence” over the people might lead to a rebellion; John “was sent a prisoner, out of Herod's suspicious temper, to Macherus, the castle I before mentioned, and was there put to death.” Some of the Jews, he says, thought the later defeat of Herod’s army “came from God”, as “a punishment of what he did against John, that was called the Baptist”.",
+            "layer": "ancient-record",
+            "cites": [
+              "jos-ant-john"
+            ],
+            "who": "Josephus, Antiquities 18.5.2 (an outside record, shown beside the Gospels, not merged with them)",
+            "when": "the Antiquities were finished, Josephus says, in the thirteenth year of Domitian (20.11.3)"
+          },
+          {
+            "text": "Of Paula’s visit to Samaria, which Herod had renamed Sebaste: “There lie the prophets Elisha and Obadiah and John the Baptist”.",
+            "layer": "tradition",
+            "cites": [
+              "jerome-108"
+            ],
+            "who": "Jerome, Letter 108.13",
+            "when": "AD 404"
+          },
+          {
+            "text": "Under the emperor Julian, “At Sebaste … the coffin of John the Baptist was opened, his bones burnt, and the ashes scattered abroad.”",
+            "layer": "tradition",
+            "cites": [
+              "theodoret-3"
+            ],
+            "who": "Theodoret, Ecclesiastical History 3.3",
+            "when": "5th century, of events under Julian"
+          }
+        ]
+      },
+      "questions": [
+        {
+          "id": "john-elijah",
+          "question": "Was John Elijah? He said “I am not”; Jesus said “this is Elias”.",
+          "views": [
+            {
+              "label": "Not Elijah in person, but the Elijah Malachi meant",
+              "holders": "Albert Barnes (1832–1851); John Gill (1746–1748); H. A. W. Meyer (English 1874–1875); A. Plummer (Cambridge Bible, 1880)",
+              "argument": {
+                "text": "John denied being Elijah returned in person, the sense in which he was asked; he came “in the spirit and power of Elias” (Luke 1:17). Plummer: “Christ is there speaking figuratively … John is here speaking literally.”",
+                "layer": "scholars",
+                "refs": [
+                  [
+                    43001021,
+                    43001021
+                  ],
+                  [
+                    40011014,
+                    40011014
+                  ],
+                  [
+                    42001017,
+                    42001017
+                  ]
+                ],
+                "cites": [
+                  "barnes-jhn-1-21",
+                  "gill-jhn-1-21",
+                  "meyer-jhn-1-21",
+                  "cambridge-jhn-1-21"
+                ]
+              }
+            },
+            {
+              "label": "Elijah himself is still to come, before the second coming",
+              "holders": "Hilary, Chrysostom, Augustine and Theophylact (as reported by Meyer, 1879); the Pulpit Commentary on Matthew",
+              "argument": {
+                "text": "Matthew 17:11 (“Elias truly shall first come, and restore all things”) is read as a coming still future: the Pulpit Commentary holds that the second coming “shall be preceded by the appearance of Elijah in person”. Ellicott reports that the words have been taken so “by very many both in earlier and later times”, before weighing that reading against the next verse.",
+                "layer": "scholars",
+                "refs": [
+                  [
+                    40017011,
+                    40017012
+                  ]
+                ],
+                "cites": [
+                  "meyer-mat-17-11",
+                  "pulpit-mat-17-11",
+                  "ellicott-mat-17-11"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "john-question-prison",
+          "question": "Why did John send from prison to ask, “Art thou he that should come?”",
+          "views": [
+            {
+              "label": "For his disciples’ sake, not his own",
+              "holders": "The church fathers except Tertullian (as reported by A. B. Bruce, 1897); John Gill (1746–1748); Matthew Poole (1683–1685)",
+              "argument": {
+                "text": "Gill: the question was put “not upon his own account, but his disciples”, so that they might have a full answer from Christ himself.",
+                "layer": "scholars",
+                "refs": [
+                  [
+                    40011002,
+                    40011003
+                  ]
+                ],
+                "cites": [
+                  "egt-mat-11-3",
+                  "gill-mat-11-3",
+                  "poole-mat-11-3"
+                ]
+              }
+            },
+            {
+              "label": "From doubt or wavering in John himself",
+              "holders": "Tertullian (as cited by Bruce and the Pulpit Commentary); E. H. Plumptre (Ellicott’s commentary, about 1878); A. Carr (Cambridge Bible, 1878); A. B. Bruce (1897)",
+              "argument": {
+                "text": "The question came from John, and the answer was sent back to him. Carr: “In the weariness and misery of the prison the faith of the strongest fails for a moment. It is not doubt, but faith wavering”.",
+                "layer": "scholars",
+                "refs": [
+                  [
+                    40011002,
+                    40011006
+                  ]
+                ],
+                "cites": [
+                  "ellicott-mat-11-3",
+                  "cambridge-mat-11-3",
+                  "egt-mat-11-3",
+                  "pulpit-mat-11-3"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "john-fifteenth-year",
+          "question": "Which year is “the fifteenth year of the reign of Tiberius”?",
+          "views": [
+            {
+              "label": "Counted from Augustus’s death: AD 28–29",
+              "holders": "Ellicott’s commentary (about 1880); A. Plummer (1896), citing Keim and Lewin",
+              "argument": {
+                "text": "Plummer: “No instance is known of reckoning the reign of Tiberius from his association with Augustus”; fifteen years from Augustus’s death “would be A.D. 29”.",
+                "layer": "scholars",
+                "refs": [
+                  [
+                    42003001,
+                    42003001
+                  ]
+                ],
+                "cites": [
+                  "plummer-1896",
+                  "ellicott-luke"
+                ]
+              }
+            },
+            {
+              "label": "Counted from his shared rule in the provinces: AD 25–26",
+              "holders": "W. M. Ramsay (1898); A. W. Zumpt, K. Wieseler and B. Weiss (as reported by Plummer, 1896)",
+              "argument": {
+                "text": "Tiberius received power equal to Augustus’s in the provinces before the end of AD 11; counted from then, the fifteenth year is AD 25–26. Ramsay grants that this count “is never employed elsewhere in reckoning the reign of that emperor”.",
+                "layer": "scholars",
+                "refs": [
+                  [
+                    42003001,
+                    42003001
+                  ]
+                ],
+                "cites": [
+                  "ramsay-1898",
+                  "plummer-1896"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "john-death-why",
+          "question": "Why was John killed? The Gospels and Josephus give different reasons.",
+          "views": [
+            {
+              "label": "Matthew and Mark",
+              "holders": "Scripture",
+              "argument": {
+                "text": "John had told Herod that his marriage to his brother’s wife was unlawful. Matthew says Herod would have put him to death but “feared the multitude, because they counted him as a prophet”; Mark says it was Herodias who “would have killed him”, while Herod “feared John”. In both, Herod’s birthday oath to the daughter of Herodias brought his death.",
+                "layer": "scripture",
+                "refs": [
+                  [
+                    40014003,
+                    40014011
+                  ],
+                  [
+                    41006017,
+                    41006028
+                  ]
+                ]
+              }
+            },
+            {
+              "label": "Josephus",
+              "holders": "Josephus, Antiquities 18.5.2",
+              "argument": {
+                "text": "Herod feared that John’s influence over the crowds might raise a rebellion, and put him to death at Machaerus to prevent it. Josephus does not mention Herodias in this passage.",
+                "layer": "ancient-record",
+                "cites": [
+                  "jos-ant-john"
+                ]
+              }
+            },
+            {
+              "label": "Both may be true",
+              "holders": "E. Schürer (1890)",
+              "argument": {
+                "text": "Schürer thinks it “highly probable” that the real occasion of John’s imprisonment was fear of political trouble, “just as Josephus states”, yet “the evangelists may be right”: “The two statements are not inconsistent with one another.” He uses Josephus’s account “if it really belongs originally to him”, and says that, because Josephus was elsewhere altered by Christian copyists, “we cannot be here perfectly confident regarding its genuineness.”",
+                "layer": "scholars",
+                "refs": [
+                  [
+                    40014003,
+                    40014004
+                  ]
+                ],
+                "cites": [
+                  "schurer-2-21"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "john-mark-1-2",
+          "question": "Mark 1:2: “in the prophets” or “in Isaiah the prophet”?",
+          "views": [
+            {
+              "label": "“In Isaiah the prophet” is what Mark wrote",
+              "holders": "J. A. Bengel (1742); the Pulpit Commentary on Mark",
+              "argument": {
+                "text": "Many old manuscripts read “in Isaiah the prophet”, though Malachi is quoted first; the Pulpit Commentary finds “the weight of evidence” on that side. Bengel explains that Mark names only Isaiah, who is “more copious and better known”; the Pulpit Commentary, that “the voice of Isaiah is the more powerful of the two.”",
+                "layer": "scholars",
+                "refs": [
+                  [
+                    41001002,
+                    41001003
+                  ]
+                ],
+                "cites": [
+                  "bengel-mrk-1-2",
+                  "pulpit-mrk-1-2"
+                ]
+              }
+            },
+            {
+              "label": "“In the prophets”, as the KJV reads",
+              "holders": "E. H. Plumptre (Ellicott’s commentary, about 1878)",
+              "argument": {
+                "text": "Plumptre grants that “the better MSS.” read “in Esaias the prophet”, but thinks it “more probable that the general reference should have been specialised by a transcriber than the reverse.”",
+                "layer": "scholars",
+                "refs": [
+                  [
+                    41001002,
+                    41001002
+                  ]
+                ],
+                "cites": [
+                  "ellicott-mrk-1-2"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "john-bethabara",
+          "question": "John 1:28: Bethabara or Bethany beyond Jordan?",
+          "views": [
+            {
+              "label": "Bethabara",
+              "holders": "Origen (Commentary on John 6.24, first half of the 3rd century), “followed by the Fathers generally” (H. W. Watkins, Ellicott’s commentary)",
+              "argument": {
+                "text": "Origen knew “the reading which is found in almost all the copies”, Bethany, but chose Bethabara: the only Bethany he knew was near Jerusalem, and “they say that Bethabara is pointed out on the banks of the Jordan”.",
+                "layer": "early-church",
+                "refs": [
+                  [
+                    43001028,
+                    43001028
+                  ]
+                ],
+                "cites": [
+                  "origen-john",
+                  "ellicott-jhn-1-28"
+                ]
+              }
+            },
+            {
+              "label": "Bethany beyond Jordan",
+              "holders": "The copies Origen saw; Albert Barnes; Jamieson, Fausset and Brown (1871); Watkins (Ellicott’s commentary)",
+              "argument": {
+                "text": "Barnes: “Almost all the ancient manuscripts and versions, instead of ‘Bethabara’ here, have ‘Bethany’”; Jamieson, Fausset and Brown take it as another Bethany, “distinguished from it as lying ‘beyond Jordan’”.",
+                "layer": "scholars",
+                "refs": [
+                  [
+                    43001028,
+                    43001028
+                  ]
+                ],
+                "cites": [
+                  "barnes-jhn-1-28",
+                  "jfb-jhn-1-28",
+                  "ellicott-jhn-1-28"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "john-knew-him-not",
+          "question": "“I knew him not” (John 1:31, 33), yet in Matthew John says, “I have need to be baptized of thee”.",
+          "views": [
+            {
+              "label": "John had not known Jesus personally",
+              "holders": "Albert Barnes (1832–1851)",
+              "argument": {
+                "text": "Barnes: “John was not personally acquainted with Jesus.”",
+                "layer": "scholars",
+                "refs": [
+                  [
+                    43001031,
+                    43001031
+                  ]
+                ],
+                "cites": [
+                  "barnes-jhn-1-31"
+                ]
+              }
+            },
+            {
+              "label": "He did not know him as the Messiah until the sign",
+              "holders": "H. A. W. Meyer (English 1874–1875); A. Plummer (Cambridge Bible, 1880)",
+              "argument": {
+                "text": "Meyer: “that is, as the Messiah”; the sign of the dove made it known. Plummer: “There is no contradiction between this and Matthew 3:14”, since John’s words there show Jesus “only as superior to himself”.",
+                "layer": "scholars",
+                "refs": [
+                  [
+                    43001031,
+                    43001034
+                  ],
+                  [
+                    40003014,
+                    40003014
+                  ]
+                ],
+                "cites": [
+                  "meyer-jhn-1-31",
+                  "cambridge-jhn-1-31"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "john-3-31",
+          "question": "Are John 3:31–36 the Baptist’s words or the evangelist’s?",
+          "views": [
+            {
+              "label": "Still the Baptist speaking",
+              "holders": "H. A. W. Meyer (English 1874–1875); Albert Barnes; A. Plummer (Cambridge Bible, 1880)",
+              "argument": {
+                "text": "The Gospel gives no sign of a change of speaker; Barnes calls this “the more probable opinion, but it is difficult to decide it”.",
+                "layer": "scholars",
+                "refs": [
+                  [
+                    43003027,
+                    43003036
+                  ]
+                ],
+                "cites": [
+                  "meyer-jhn-3-31",
+                  "barnes-jhn-3-31",
+                  "cambridge-jhn-3-31"
+                ]
+              }
+            },
+            {
+              "label": "The evangelist’s own reflection",
+              "holders": "J. A. Bengel (1742); De Wette, Westcott, Moulton and Edersheim (as listed by the Pulpit Commentary)",
+              "argument": {
+                "text": "Bengel: “the Evangelist seems to have appended” these verses, in keeping with the Baptist’s feeling.",
+                "layer": "scholars",
+                "refs": [
+                  [
+                    43003031,
+                    43003036
+                  ]
+                ],
+                "cites": [
+                  "bengel-jhn-3-31",
+                  "pulpit-jhn-3-31"
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "notSaid": [
+        "Scripture names his parents’ home only as “a city of Juda” in the hill country (Luke 1:39).",
+        "Scripture does not say how old John was when the word of God came to him.",
+        "Luke calls Elisabeth Mary’s “cousin” (Luke 1:36); Scripture does not say more exactly how they were related.",
+        "Scripture records no miracle by John; the people beyond Jordan said, “John did no miracle” (John 10:41).",
+        "The Gospels do not name the prison where he was held and killed; Josephus does.",
+        "Scripture does not say where his disciples buried him."
+      ],
+      "passages": [
+        [
+          39003001,
+          39003001
+        ],
+        [
+          39004005,
+          39004006
+        ],
+        [
+          23040003,
+          23040005
+        ],
+        [
+          42001005,
+          42001025
+        ],
+        [
+          42001039,
+          42001045
+        ],
+        [
+          42001057,
+          42001080
+        ],
+        [
+          40003001,
+          40003017
+        ],
+        [
+          41001001,
+          41001014
+        ],
+        [
+          42003001,
+          42003022
+        ],
+        [
+          43001006,
+          43001042
+        ],
+        [
+          43003022,
+          43003036
+        ],
+        [
+          40009014,
+          40009015
+        ],
+        [
+          40011002,
+          40011019
+        ],
+        [
+          42007018,
+          42007035
+        ],
+        [
+          40014001,
+          40014013
+        ],
+        [
+          41006014,
+          41006029
+        ],
+        [
+          42009007,
+          42009009
+        ],
+        [
+          40017010,
+          40017013
+        ],
+        [
+          41009011,
+          41009013
+        ],
+        [
+          40021023,
+          40021032
+        ],
+        [
+          42016016,
+          42016016
+        ],
+        [
+          43005033,
+          43005036
+        ],
+        [
+          43010040,
+          43010042
+        ],
+        [
+          44001005,
+          44001005
+        ],
+        [
+          44001021,
+          44001022
+        ],
+        [
+          44013024,
+          44013025
+        ],
+        [
+          44018024,
+          44018026
+        ],
+        [
+          44019001,
+          44019007
+        ]
+      ]
+    },
+    {
+      "id": "simeon-luk-2-25",
+      "name": "Simeon",
+      "kind": "nt",
+      "era": "nt",
+      "title": "“Just and devout … and the Holy Ghost was upon him” (Luke 2:25); Luke does not call him a prophet",
+      "tagline": "The man in the temple who took the child Jesus in his arms, blessed God, and spoke to Mary of what was to come.",
+      "order": 2,
+      "kings": [
+        {
+          "person": {
+            "name": "Augustus",
+            "personId": "augustus-luk-2-1"
+          },
+          "claim": {
+            "text": "Luke dates the birth of Jesus by “a decree from Cæsar Augustus, that all the world should be taxed”; the temple scene follows “when the days of her purification according to the law of Moses were accomplished”.",
+            "layer": "scripture",
+            "refs": [
+              [
+                42002001,
+                42002001
+              ],
+              [
+                42002022,
+                42002022
+              ]
+            ]
+          }
+        },
+        {
+          "person": {
+            "name": "Herod the Great",
+            "personId": "herod-mat-2-1"
+          },
+          "claim": {
+            "text": "Matthew says Jesus was born “in the days of Herod the king”. Luke names no ruler in the temple scene, and Scripture records no meeting with Herod.",
+            "layer": "text",
+            "refs": [
+              [
+                40002001,
+                40002001
+              ],
+              [
+                42002022,
+                42002038
+              ]
+            ]
+          }
+        }
+      ],
+      "call": [
+        {
+          "label": "Luke 2 · The promise",
+          "quote": {
+            "text": "And it was revealed unto him by the Holy Ghost, that he should not see death, before he had seen the Lord’s Christ.",
+            "span": [
+              42002026,
+              42002026
+            ]
+          },
+          "claim": {
+            "text": "Luke tells no call. He says only that Simeon was “waiting for the consolation of Israel”, that the Holy Ghost was upon him, and that this had been revealed to him.",
+            "layer": "scripture",
+            "refs": [
+              [
+                42002025,
+                42002026
+              ]
+            ]
+          },
+          "placeId": "a15257a"
+        }
+      ],
+      "how": [
+        {
+          "text": "He “came by the Spirit into the temple” when the parents brought in the child.",
+          "layer": "scripture",
+          "refs": [
+            [
+              42002027,
+              42002027
+            ]
+          ]
+        },
+        {
+          "text": "“Then took he him up in his arms, and blessed God”, and spoke the words Luke gives.",
+          "layer": "scripture",
+          "refs": [
+            [
+              42002028,
+              42002032
+            ]
+          ]
+        },
+        {
+          "text": "Luke gives Simeon no title; just after him he calls Anna “a prophetess”.",
+          "layer": "text",
+          "refs": [
+            [
+              42002025,
+              42002025
+            ],
+            [
+              42002036,
+              42002036
+            ]
+          ]
+        }
+      ],
+      "message": [
+        {
+          "theme": "Salvation seen, for all people",
+          "claim": {
+            "text": "He blessed God that he could now depart in peace, for he had seen God’s salvation, prepared “before the face of all people”: a light for the Gentiles and the glory of Israel.",
+            "layer": "scripture",
+            "refs": [
+              [
+                42002029,
+                42002032
+              ]
+            ]
+          },
+          "quotes": [
+            {
+              "text": "For mine eyes have seen thy salvation,",
+              "span": [
+                42002030,
+                42002030
+              ]
+            },
+            {
+              "text": "A light to lighten the Gentiles, and the glory of thy people Israel.",
+              "span": [
+                42002032,
+                42002032
+              ]
+            }
+          ]
+        },
+        {
+          "theme": "A sign spoken against",
+          "claim": {
+            "text": "To Mary he said that the child was set for the fall and rising again of many in Israel, and for a sign spoken against, so that the thoughts of many hearts might be revealed; and that a sword would pierce through her own soul.",
+            "layer": "scripture",
+            "refs": [
+              [
+                42002034,
+                42002035
+              ]
+            ]
+          },
+          "quotes": [
+            {
+              "text": "Behold, this child is set for the fall and rising again of many in Israel; and for a sign which shall be spoken against;",
+              "span": [
+                42002034,
+                42002034
+              ]
+            },
+            {
+              "text": "Yea, a sword shall pierce through thy own soul also,",
+              "span": [
+                42002035,
+                42002035
+              ]
+            }
+          ]
+        }
+      ],
+      "words": [
+        {
+          "to": "God",
+          "placeId": "a15257a",
+          "quote": {
+            "text": "Lord, now lettest thou thy servant depart in peace, according to thy word:",
+            "span": [
+              42002029,
+              42002029
+            ]
+          }
+        },
+        {
+          "to": "Mary, the child’s mother",
+          "person": {
+            "name": "Mary",
+            "personId": "mary-mat-1-16"
+          },
+          "quote": {
+            "text": "Behold, this child is set for the fall and rising again of many in Israel; and for a sign which shall be spoken against;",
+            "span": [
+              42002034,
+              42002034
+            ]
+          },
+          "claim": {
+            "text": "He “blessed them”, then spoke to Mary.",
+            "layer": "scripture",
+            "refs": [
+              [
+                42002034,
+                42002034
+              ]
+            ]
+          }
+        }
+      ],
+      "signs": [],
+      "fulfilment": [
+        {
+          "word": {
+            "text": "“It was revealed unto him by the Holy Ghost, that he should not see death, before he had seen the Lord’s Christ.”",
+            "layer": "scripture",
+            "refs": [
+              [
+                42002026,
+                42002026
+              ]
+            ]
+          },
+          "reported": {
+            "text": "Simeon himself says it has come to pass: “Lord, now lettest thou thy servant depart in peace, according to thy word: For mine eyes have seen thy salvation”.",
+            "layer": "scripture",
+            "refs": [
+              [
+                42002029,
+                42002030
+              ]
+            ]
+          }
+        }
+      ],
+      "books": [],
+      "companions": [
+        {
+          "person": {
+            "name": "Jesus",
+            "personId": "jesus-isa-7-14"
+          },
+          "claim": {
+            "text": "The child he took up in his arms.",
+            "layer": "scripture",
+            "refs": [
+              [
+                42002027,
+                42002028
+              ]
+            ]
+          }
+        },
+        {
+          "person": {
+            "name": "Mary",
+            "personId": "mary-mat-1-16"
+          },
+          "claim": {
+            "text": "He spoke to her of the child and of the sword that would pierce her soul.",
+            "layer": "scripture",
+            "refs": [
+              [
+                42002034,
+                42002035
+              ]
+            ]
+          }
+        },
+        {
+          "person": {
+            "name": "Joseph",
+            "personId": "joseph-mat-1-16"
+          },
+          "claim": {
+            "text": "“Joseph and his mother marvelled at those things which were spoken of him”, and Simeon blessed them.",
+            "layer": "scripture",
+            "refs": [
+              [
+                42002033,
+                42002034
+              ]
+            ]
+          }
+        },
+        {
+          "person": {
+            "name": "Anna",
+            "personId": "anna-luk-2-36"
+          },
+          "claim": {
+            "text": "The prophetess who came in “that instant” and gave thanks likewise.",
+            "layer": "scripture",
+            "refs": [
+              [
+                42002036,
+                42002038
+              ]
+            ]
+          }
+        }
+      ],
+      "places": [
+        {
+          "name": "Jerusalem, the temple",
+          "placeId": "a15257a",
+          "refs": [
+            [
+              42002022,
+              42002027
+            ]
+          ],
+          "note": "“There was a man in Jerusalem, whose name was Simeon”"
+        }
+      ],
+      "ending": {
+        "scripture": [
+          {
+            "text": "Luke says nothing more of him. It had been revealed that he would not see death before he had seen the Lord’s Christ, and he asked to “depart in peace”; Scripture does not record his death.",
+            "layer": "text",
+            "refs": [
+              [
+                42002026,
+                42002026
+              ],
+              [
+                42002029,
+                42002029
+              ]
+            ]
+          }
+        ],
+        "tradition": [
+          {
+            "text": "An apocryphal gospel makes Simeon the priest chosen by lot in place of Zacharias after Zacharias was murdered: “the lot fell upon Simeon. For it was he who had been warned by the Holy Spirit that he should not see death until he should see the Christ in the flesh.”",
+            "layer": "tradition",
+            "cites": [
+              "protev",
+              "ce-apocrypha"
+            ],
+            "who": "The Protevangelium of James 24 (apocryphal)",
+            "when": "ascribed to the 2nd century; known to Origen (Catholic Encyclopedia, 1907)"
+          }
+        ]
+      },
+      "questions": [
+        {
+          "id": "simeon-who",
+          "question": "Who was Simeon?",
+          "views": [
+            {
+              "label": "Rabban Simeon, son of Hillel and father of Gamaliel",
+              "holders": "Michaelis, Paulus and older commentators (as reported by Meyer, 1880); J. Lightfoot answered objections to it (as reported by Gill)",
+              "argument": {
+                "text": "The famous teacher Simeon son of Hillel lived at this time, and the Mishna passes over him; some have guessed that this was because he believed in Jesus. Gill sets out the case and leaves it “uncertain and undetermined who he was”.",
+                "layer": "scholars",
+                "refs": [
+                  [
+                    42002025,
+                    42002025
+                  ]
+                ],
+                "cites": [
+                  "meyer-luk-2-25",
+                  "gill-luk-2-25",
+                  "ellicott-luk-2-25"
+                ]
+              }
+            },
+            {
+              "label": "An unknown man",
+              "holders": "H. A. W. Meyer (English 1880); Matthew Poole (1683–1685), with Calvin and Brentius; F. W. Farrar (Cambridge Bible, 1880); E. H. Plumptre (Ellicott’s commentary)",
+              "argument": {
+                "text": "Meyer: who he was “is utterly unknown”; Luke’s picture of an aged man does not fit Hillel’s son, and the name was very common. Farrar: a famous rabbi “would hardly have been spoken of so slightly”. Plumptre: “all conjectures are very precarious.”",
+                "layer": "scholars",
+                "refs": [
+                  [
+                    42002025,
+                    42002029
+                  ]
+                ],
+                "cites": [
+                  "meyer-luk-2-25",
+                  "poole-luk-2-25",
+                  "cambridge-luk-2-25",
+                  "ellicott-luk-2-25"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "simeon-prophet",
+          "question": "Was Simeon a prophet?",
+          "views": [
+            {
+              "label": "A prophet in all but name",
+              "holders": "J. A. Bengel (1742); Joseph Benson (1811–1818)",
+              "argument": {
+                "text": "Bengel calls him “the first prophet who said that Christ had come”, and reads “upon him” as “as a prophet”; Benson: the Holy Ghost was upon him, “That is, as the word here signifies, he was a prophet.”",
+                "layer": "scholars",
+                "refs": [
+                  [
+                    42002025,
+                    42002026
+                  ]
+                ],
+                "cites": [
+                  "bengel-luk-2-25",
+                  "benson-luk-2-25"
+                ]
+              }
+            },
+            {
+              "label": "A moment of inspiration",
+              "holders": "E. H. Plumptre (Ellicott’s commentary, about 1878)",
+              "argument": {
+                "text": "Plumptre reads “The Holy Ghost was upon him” as pointing “to a special moment of inspiration, rather than a continuous guidance.”",
+                "layer": "scholars",
+                "refs": [
+                  [
+                    42002025,
+                    42002025
+                  ]
+                ],
+                "cites": [
+                  "ellicott-luk-2-25"
+                ]
+              }
+            },
+            {
+              "label": "Luke’s own words",
+              "holders": "From the text",
+              "argument": {
+                "text": "Luke calls Anna “a prophetess” in the next verse but gives Simeon no title.",
+                "layer": "text",
+                "refs": [
+                  [
+                    42002025,
+                    42002036
+                  ]
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "notSaid": [
+        "Luke never calls Simeon a prophet or a priest.",
+        "Luke does not give his age; that he was old is read from his words “now lettest thou thy servant depart” (Luke 2:29).",
+        "Scripture says nothing of his family or of his death."
+      ],
+      "passages": [
+        [
+          42002022,
+          42002035
+        ]
+      ]
+    },
+    {
+      "id": "anna-luk-2-36",
+      "name": "Anna",
+      "kind": "prophetess",
+      "era": "nt",
+      "title": "“A prophetess, the daughter of Phanuel, of the tribe of Aser” (Luke 2:36)",
+      "tagline": "A widow who served God in the temple night and day, and spoke of the child to all who looked for redemption.",
+      "order": 3,
+      "kings": [
+        {
+          "person": {
+            "name": "Augustus",
+            "personId": "augustus-luk-2-1"
+          },
+          "claim": {
+            "text": "Luke dates the birth of Jesus by “a decree from Cæsar Augustus, that all the world should be taxed”; the temple scene follows “when the days of her purification according to the law of Moses were accomplished”.",
+            "layer": "scripture",
+            "refs": [
+              [
+                42002001,
+                42002001
+              ],
+              [
+                42002022,
+                42002022
+              ]
+            ]
+          }
+        },
+        {
+          "person": {
+            "name": "Herod the Great",
+            "personId": "herod-mat-2-1"
+          },
+          "claim": {
+            "text": "Matthew says Jesus was born “in the days of Herod the king”. Luke names no ruler in the temple scene, and Scripture records no meeting with Herod.",
+            "layer": "text",
+            "refs": [
+              [
+                40002001,
+                40002001
+              ],
+              [
+                42002022,
+                42002038
+              ]
+            ]
+          }
+        }
+      ],
+      "call": [],
+      "how": [
+        {
+          "text": "Luke calls her “a prophetess” but records none of her words.",
+          "layer": "text",
+          "refs": [
+            [
+              42002036,
+              42002038
+            ]
+          ]
+        },
+        {
+          "text": "She had lived with a husband seven years, and was a widow who “departed not from the temple, but served God with fastings and prayers night and day.”",
+          "layer": "scripture",
+          "refs": [
+            [
+              42002036,
+              42002037
+            ]
+          ]
+        },
+        {
+          "text": "Coming in at the same moment as Simeon spoke, she “gave thanks likewise unto the Lord”.",
+          "layer": "scripture",
+          "refs": [
+            [
+              42002038,
+              42002038
+            ]
+          ]
+        }
+      ],
+      "message": [
+        {
+          "theme": "Redemption in Jerusalem",
+          "claim": {
+            "text": "Luke gives the subject of her speaking, not her words: she spoke of the child to all who were waiting for redemption.",
+            "layer": "text",
+            "refs": [
+              [
+                42002038,
+                42002038
+              ]
+            ]
+          },
+          "quotes": [
+            {
+              "text": "spake of him to all them that looked for redemption in Jerusalem.",
+              "span": [
+                42002038,
+                42002038
+              ]
+            }
+          ]
+        }
+      ],
+      "words": [
+        {
+          "to": "All who looked for redemption in Jerusalem",
+          "placeId": "a15257a",
+          "quote": {
+            "text": "spake of him to all them that looked for redemption in Jerusalem.",
+            "span": [
+              42002038,
+              42002038
+            ]
+          },
+          "claim": {
+            "text": "Luke does not record what she said.",
+            "layer": "text",
+            "refs": [
+              [
+                42002038,
+                42002038
+              ]
+            ]
+          }
+        }
+      ],
+      "signs": [],
+      "fulfilment": [],
+      "books": [],
+      "companions": [
+        {
+          "person": {
+            "name": "Phanuel, her father",
+            "personId": "phanuel-luk-2-36"
+          },
+          "claim": {
+            "text": "“The daughter of Phanuel, of the tribe of Aser”.",
+            "layer": "scripture",
+            "refs": [
+              [
+                42002036,
+                42002036
+              ]
+            ]
+          }
+        },
+        {
+          "person": {
+            "name": "Simeon",
+            "personId": "simeon-luk-2-25"
+          },
+          "claim": {
+            "text": "She came in “in that instant”, as Simeon spoke to Mary, and gave thanks “likewise”.",
+            "layer": "scripture",
+            "refs": [
+              [
+                42002034,
+                42002038
+              ]
+            ]
+          }
+        },
+        {
+          "person": {
+            "name": "Jesus",
+            "personId": "jesus-isa-7-14"
+          },
+          "claim": {
+            "text": "The child of whom she spoke.",
+            "layer": "scripture",
+            "refs": [
+              [
+                42002038,
+                42002038
+              ]
+            ]
+          }
+        },
+        {
+          "person": {
+            "name": "Mary",
+            "personId": "mary-mat-1-16"
+          },
+          "claim": {
+            "text": "Mary and Joseph had brought the child to present him to the Lord.",
+            "layer": "scripture",
+            "refs": [
+              [
+                42002022,
+                42002022
+              ]
+            ]
+          }
+        }
+      ],
+      "places": [
+        {
+          "name": "Jerusalem, the temple",
+          "placeId": "a15257a",
+          "refs": [
+            [
+              42002037,
+              42002038
+            ]
+          ],
+          "note": "She “departed not from the temple”"
+        }
+      ],
+      "ending": {
+        "scripture": [
+          {
+            "text": "Luke says no more of her after the temple scene.",
+            "layer": "text",
+            "refs": [
+              [
+                42002038,
+                42002039
+              ]
+            ]
+          }
+        ],
+        "tradition": []
+      },
+      "questions": [
+        {
+          "id": "anna-age",
+          "question": "“A widow of about fourscore and four years”: was she 84, or a widow for 84 years?",
+          "views": [
+            {
+              "label": "She was about 84 years old",
+              "holders": "Albert Barnes; J. A. Bengel (1742); most, according to A. B. Bruce (1897)",
+              "argument": {
+                "text": "Barnes: “she was about 84 years of age. It does not mean that she had been a widow for that long time.” Bengel: “These were the years of her whole life, not of her widowhood only.”",
+                "layer": "scholars",
+                "refs": [
+                  [
+                    42002037,
+                    42002037
+                  ]
+                ],
+                "cites": [
+                  "barnes-luk-2-37",
+                  "bengel-luk-2-37",
+                  "egt-luk-2-37"
+                ]
+              }
+            },
+            {
+              "label": "She had been a widow for 84 years",
+              "holders": "John Gill (1746–1748); E. H. Plumptre (Ellicott’s commentary, about 1878); Godet (as reported by Bruce, 1897)",
+              "argument": {
+                "text": "Gill: the number is “not the date of her whole age … but of her widowhood state”. Plumptre follows the manuscripts that read “up to the point of fourscore and four years” and, supposing her married at fifteen, reckons her age at 106. Vincent (1887) notes that “the best texts” read “until” where the KJV has “about”, which makes the number her years as a widow.",
+                "layer": "scholars",
+                "refs": [
+                  [
+                    42002036,
+                    42002037
+                  ]
+                ],
+                "cites": [
+                  "gill-luk-2-37",
+                  "ellicott-luk-2-37",
+                  "egt-luk-2-37",
+                  "vincent-luk-2-37"
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "notSaid": [
+        "Luke records none of Anna’s words.",
+        "Scripture does not name her husband or say how he died."
+      ],
+      "passages": [
+        [
+          42002036,
+          42002039
+        ]
+      ]
+    },
+    {
+      "id": "agabus-act-11-28",
+      "name": "Agabus",
+      "kind": "nt",
+      "era": "nt",
+      "title": "“A certain prophet, named Agabus” (Acts 21:10)",
+      "tagline": "A prophet from Judaea who foretold a great dearth, and bound his own hands and feet with Paul’s girdle.",
+      "order": 4,
+      "kings": [
+        {
+          "person": {
+            "name": "Claudius",
+            "personId": "claudius-act-11-28"
+          },
+          "claim": {
+            "text": "Acts says the dearth Agabus foretold “came to pass in the days of Claudius Cæsar.”",
+            "layer": "scripture",
+            "refs": [
+              [
+                44011028,
+                44011028
+              ]
+            ]
+          },
+          "quote": {
+            "text": "which came to pass in the days of Claudius Cæsar.",
+            "span": [
+              44011028,
+              44011028
+            ]
+          }
+        }
+      ],
+      "call": [],
+      "how": [
+        {
+          "text": "He came with other prophets “from Jerusalem unto Antioch”, stood up, and “signified by the Spirit”.",
+          "layer": "scripture",
+          "refs": [
+            [
+              44011027,
+              44011028
+            ]
+          ]
+        },
+        {
+          "text": "In Acts 21 “a certain prophet, named Agabus” “came down from Judæa” to Caesarea, took Paul’s girdle, bound his own hands and feet, and spoke with the words “Thus saith the Holy Ghost”.",
+          "layer": "scripture",
+          "refs": [
+            [
+              44021010,
+              44021011
+            ]
+          ]
+        },
+        {
+          "text": "Acts tells no call and gives him no home town beyond these journeys.",
+          "layer": "text",
+          "refs": [
+            [
+              44011027,
+              44011028
+            ],
+            [
+              44021010,
+              44021010
+            ]
+          ]
+        }
+      ],
+      "message": [
+        {
+          "theme": "A great dearth",
+          "claim": {
+            "text": "At Antioch he foretold a famine over all the world; the disciples there decided to send relief to the brethren in Judaea, and sent it to the elders by Barnabas and Saul.",
+            "layer": "scripture",
+            "refs": [
+              [
+                44011028,
+                44011030
+              ]
+            ]
+          },
+          "quotes": [
+            {
+              "text": "there should be great dearth throughout all the world:",
+              "span": [
+                44011028,
+                44011028
+              ]
+            }
+          ]
+        },
+        {
+          "theme": "Bonds at Jerusalem",
+          "claim": {
+            "text": "At Caesarea he foretold that the Jews at Jerusalem would bind the owner of the girdle and deliver him to the Gentiles. Paul’s company and the people of the place begged Paul not to go up; he answered that he was ready “also to die at Jerusalem for the name of the Lord Jesus.”",
+            "layer": "scripture",
+            "refs": [
+              [
+                44021011,
+                44021014
+              ]
+            ]
+          },
+          "quotes": [
+            {
+              "text": "Thus saith the Holy Ghost, So shall the Jews at Jerusalem bind the man that owneth this girdle, and shall deliver him into the hands of the Gentiles.",
+              "span": [
+                44021011,
+                44021011
+              ]
+            }
+          ]
+        }
+      ],
+      "words": [
+        {
+          "to": "The church at Antioch",
+          "placeId": "ae41ab4",
+          "quote": {
+            "text": "there should be great dearth throughout all the world:",
+            "span": [
+              44011028,
+              44011028
+            ]
+          }
+        },
+        {
+          "to": "Paul, at Caesarea",
+          "person": {
+            "name": "Paul",
+            "personId": "paul-act-7-58"
+          },
+          "placeId": "a58735e",
+          "quote": {
+            "text": "So shall the Jews at Jerusalem bind the man that owneth this girdle, and shall deliver him into the hands of the Gentiles.",
+            "span": [
+              44021011,
+              44021011
+            ]
+          }
+        }
+      ],
+      "signs": [
+        {
+          "label": "Paul’s girdle",
+          "kind": "sign-act",
+          "placeId": "a58735e",
+          "claim": {
+            "text": "“He took Paul’s girdle, and bound his own hands and feet”, and then gave the word it stood for.",
+            "layer": "scripture",
+            "refs": [
+              [
+                44021011,
+                44021011
+              ]
+            ]
+          }
+        }
+      ],
+      "fulfilment": [
+        {
+          "word": {
+            "text": "Agabus “signified by the Spirit that there should be great dearth throughout all the world”.",
+            "layer": "scripture",
+            "refs": [
+              [
+                44011028,
+                44011028
+              ]
+            ]
+          },
+          "reported": {
+            "text": "Acts adds at once: “which came to pass in the days of Claudius Cæsar.” The disciples at Antioch sent relief to Judaea by Barnabas and Saul.",
+            "layer": "scripture",
+            "refs": [
+              [
+                44011028,
+                44011030
+              ]
+            ]
+          }
+        }
+      ],
+      "books": [],
+      "companions": [
+        {
+          "person": {
+            "name": "Paul",
+            "personId": "paul-act-7-58"
+          },
+          "claim": {
+            "text": "Paul carried the relief from Antioch with Barnabas, and later heard Agabus’s word at Caesarea and went up to Jerusalem.",
+            "layer": "scripture",
+            "refs": [
+              [
+                44011030,
+                44011030
+              ],
+              [
+                44021010,
+                44021015
+              ]
+            ]
+          }
+        },
+        {
+          "person": {
+            "name": "Barnabas",
+            "personId": "barnabas-act-4-36"
+          },
+          "claim": {
+            "text": "Sent with Saul to carry the relief to the elders in Judaea.",
+            "layer": "scripture",
+            "refs": [
+              [
+                44011030,
+                44011030
+              ]
+            ]
+          }
+        },
+        {
+          "person": {
+            "name": "Philip the evangelist",
+            "personId": "philip-act-6-5"
+          },
+          "claim": {
+            "text": "Paul’s company were staying in Philip’s house at Caesarea, “and the same man had four daughters, virgins, which did prophesy”, when Agabus came down.",
+            "layer": "scripture",
+            "refs": [
+              [
+                44021008,
+                44021010
+              ]
+            ]
+          }
+        },
+        {
+          "person": {
+            "name": "The prophets from Jerusalem"
+          },
+          "claim": {
+            "text": "“In these days came prophets from Jerusalem unto Antioch”; Agabus was “one of them”.",
+            "layer": "scripture",
+            "refs": [
+              [
+                44011027,
+                44011028
+              ]
+            ]
+          }
+        }
+      ],
+      "places": [
+        {
+          "name": "Jerusalem",
+          "placeId": "a15257a",
+          "refs": [
+            [
+              44011027,
+              44011027
+            ]
+          ],
+          "note": "Where the prophets came from"
+        },
+        {
+          "name": "Antioch",
+          "placeId": "ae41ab4",
+          "refs": [
+            [
+              44011027,
+              44011028
+            ]
+          ],
+          "note": "Where he foretold the dearth"
+        },
+        {
+          "name": "Judaea",
+          "placeId": "a149f13",
+          "refs": [
+            [
+              44011029,
+              44011029
+            ],
+            [
+              44021010,
+              44021010
+            ]
+          ],
+          "note": "Where the relief was sent, and whence he came down to Caesarea"
+        },
+        {
+          "name": "Caesarea",
+          "placeId": "a58735e",
+          "refs": [
+            [
+              44021008,
+              44021011
+            ]
+          ],
+          "note": "Philip’s house, where he bound himself with Paul’s girdle"
+        }
+      ],
+      "ending": {
+        "scripture": [
+          {
+            "text": "Acts names him no more after Caesarea. Scripture gives no account of his death.",
+            "layer": "text",
+            "refs": [
+              [
+                44021010,
+                44021011
+              ]
+            ]
+          }
+        ],
+        "tradition": [
+          {
+            "text": "A list of the Seventy, printed under Hippolytus' name among the “dubious and spurious pieces” in the Ante-Nicene Fathers, has “Agabus the prophet” at number 32.",
+            "layer": "tradition",
+            "cites": [
+              "pseudo-hippolytus"
+            ],
+            "who": "“On the Seventy Apostles”, ascribed to Hippolytus (printed as dubious or spurious)",
+            "when": "date not known"
+          }
+        ]
+      },
+      "questions": [
+        {
+          "id": "agabus-same",
+          "question": "Is the Agabus of Acts 21 the man of Acts 11?",
+          "views": [
+            {
+              "label": "The same man",
+              "holders": "Jamieson, Fausset and Brown (1871); H. A. W. Meyer (English 1877–1879); John Gill (1746–1748)",
+              "argument": {
+                "text": "Jamieson, Fausset and Brown: “no doubt the same as in Ac 11:28”; Meyer sees “no reason against” it; Gill reckons sixteen or seventeen years between the two scenes.",
+                "layer": "scholars",
+                "refs": [
+                  [
+                    44011028,
+                    44011028
+                  ],
+                  [
+                    44021010,
+                    44021010
+                  ]
+                ],
+                "cites": [
+                  "jfb-act-21-10",
+                  "meyer-act-21-10",
+                  "gill-act-21-10"
+                ]
+              }
+            },
+            {
+              "label": "Acts does not say",
+              "holders": "From the text",
+              "argument": {
+                "text": "Acts 21:10 brings him in as “a certain prophet, named Agabus”, without referring back to Acts 11. The site’s person record joins the two.",
+                "layer": "text",
+                "refs": [
+                  [
+                    44021010,
+                    44021010
+                  ]
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "agabus-binding",
+          "question": "What came of the word about the girdle?",
+          "views": [
+            {
+              "label": "It came to pass, with the Jews as the cause",
+              "holders": "Jamieson, Fausset and Brown (1871); John Gill (1746–1748); Albert Barnes",
+              "argument": {
+                "text": "Barnes: “This was fulfilled.” Jamieson, Fausset and Brown: “though the Romans did it, it was at the Jews’ instigation”.",
+                "layer": "scholars",
+                "refs": [
+                  [
+                    44021027,
+                    44021033
+                  ],
+                  [
+                    44028017,
+                    44028017
+                  ]
+                ],
+                "cites": [
+                  "jfb-act-21-11",
+                  "gill-act-21-11",
+                  "barnes-act-21-11"
+                ]
+              }
+            },
+            {
+              "label": "What Acts itself tells",
+              "holders": "From the text",
+              "argument": {
+                "text": "Jews from Asia laid hands on Paul in the temple and went about to kill him; the chief captain “commanded him to be bound with two chains”. Paul later said he was “delivered prisoner from Jerusalem into the hands of the Romans.” Acts does not refer back to Agabus’s word.",
+                "layer": "text",
+                "refs": [
+                  [
+                    44021027,
+                    44021033
+                  ],
+                  [
+                    44028017,
+                    44028017
+                  ]
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "agabus-famine",
+          "question": "What famine was it?",
+          "views": [
+            {
+              "label": "Famine over the Roman world, worst in Judaea",
+              "holders": "E. H. Plumptre (Ellicott’s commentary, about 1880); Jamieson, Fausset and Brown (1871); J. R. Lumby (Cambridge Bible, 1885); Albert Barnes",
+              "argument": {
+                "text": "They read “all the world” as the Roman empire and point to the frequent famines of Claudius’s reign. Outside writers record such famines: Suetonius “a scarcity of grain because of long-continued droughts” at Rome; Tacitus “scanty crops, too, and consequent famine”; Josephus “that great famine” in Judaea under the governors Fadus and Tiberius Alexander, when Queen Helena bought grain in Egypt. None of them speaks of one famine over all the world.",
+                "layer": "scholars",
+                "refs": [
+                  [
+                    44011028,
+                    44011028
+                  ]
+                ],
+                "cites": [
+                  "ellicott-act-11-28",
+                  "jfb-act-11-28",
+                  "cambridge-act-11-28",
+                  "barnes-act-11-28",
+                  "suet-claudius",
+                  "tacitus-annals",
+                  "jos-ant-famine"
+                ]
+              }
+            },
+            {
+              "label": "The famine of Judaea only",
+              "holders": "N. Lardner (as reported by Barnes)",
+              "argument": {
+                "text": "Barnes reports that Lardner “attempted to show that the prophecy had reference only to the land of Judea”; Barnes himself holds that it “extended much further”.",
+                "layer": "scholars",
+                "refs": [
+                  [
+                    44011028,
+                    44011029
+                  ]
+                ],
+                "cites": [
+                  "barnes-act-11-28"
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "notSaid": [
+        "Acts does not say that the Agabus of Acts 21 is the Agabus of Acts 11. This page follows the site’s person record, which joins them, as many commentators do (see the open question).",
+        "Acts does not say in so many words that the girdle word was fulfilled; it tells what happened at Jerusalem without referring back to it.",
+        "Scripture gives no family, home town or death for Agabus."
+      ],
+      "passages": [
+        [
+          44011027,
+          44011030
+        ],
+        [
+          44021008,
+          44021015
+        ]
+      ]
+    },
+    {
+      "id": "simeon-act-13-1",
+      "name": "Simeon called Niger",
+      "kind": "nt",
+      "era": "nt",
+      "title": "One of the “prophets and teachers” in the church at Antioch (Acts 13:1)",
+      "tagline": "Named second among the prophets and teachers at Antioch when Barnabas and Saul were sent out; Scripture says no more of him.",
+      "order": 5,
+      "kings": [],
+      "call": [],
+      "how": [
+        {
+          "text": "At Antioch, “As they ministered to the Lord, and fasted, the Holy Ghost said, Separate me Barnabas and Saul for the work whereunto I have called them.” After fasting and prayer they laid hands on the two and sent them away. Acts does not say through which of the prophets the Holy Ghost spoke.",
+          "layer": "text",
+          "refs": [
+            [
+              44013001,
+              44013003
+            ]
+          ]
+        }
+      ],
+      "message": [
+        {
+          "theme": "The sending of Barnabas and Saul",
+          "claim": {
+            "text": "The only word Acts gives from the prophets and teachers at Antioch is the Holy Ghost’s command to set apart Barnabas and Saul.",
+            "layer": "text",
+            "refs": [
+              [
+                44013002,
+                44013003
+              ]
+            ]
+          },
+          "quotes": [
+            {
+              "text": "Separate me Barnabas and Saul for the work whereunto I have called them.",
+              "span": [
+                44013002,
+                44013002
+              ]
+            }
+          ]
+        }
+      ],
+      "words": [],
+      "signs": [
+        {
+          "label": "Hands laid on Barnabas and Saul",
+          "kind": "other",
+          "placeId": "ae41ab4",
+          "claim": {
+            "text": "“When they had fasted and prayed, and laid their hands on them, they sent them away.”",
+            "layer": "scripture",
+            "refs": [
+              [
+                44013003,
+                44013003
+              ]
+            ]
+          }
+        }
+      ],
+      "fulfilment": [],
+      "books": [],
+      "companions": [
+        {
+          "person": {
+            "name": "Barnabas",
+            "personId": "barnabas-act-4-36"
+          },
+          "claim": {
+            "text": "Named first of the five, and sent out with Saul.",
+            "layer": "scripture",
+            "refs": [
+              [
+                44013001,
+                44013003
+              ]
+            ]
+          }
+        },
+        {
+          "person": {
+            "name": "Saul (Paul)",
+            "personId": "paul-act-7-58"
+          },
+          "claim": {
+            "text": "Named last of the five, and sent out with Barnabas.",
+            "layer": "scripture",
+            "refs": [
+              [
+                44013001,
+                44013003
+              ]
+            ]
+          }
+        },
+        {
+          "person": {
+            "name": "Lucius of Cyrene",
+            "personId": "lucius-act-13-1"
+          },
+          "claim": {
+            "text": "Named after him in the list.",
+            "layer": "scripture",
+            "refs": [
+              [
+                44013001,
+                44013001
+              ]
+            ]
+          }
+        },
+        {
+          "person": {
+            "name": "Manaen",
+            "personId": "manaen-act-13-1"
+          },
+          "claim": {
+            "text": "Named in the same list.",
+            "layer": "scripture",
+            "refs": [
+              [
+                44013001,
+                44013001
+              ]
+            ]
+          }
+        }
+      ],
+      "places": [
+        {
+          "name": "Antioch",
+          "placeId": "ae41ab4",
+          "refs": [
+            [
+              44013001,
+              44013003
+            ]
+          ],
+          "note": "“The church that was at Antioch”"
+        }
+      ],
+      "ending": {
+        "scripture": [
+          {
+            "text": "Acts names Simeon only here.",
+            "layer": "text",
+            "refs": [
+              [
+                44013001,
+                44013001
+              ]
+            ]
+          }
+        ],
+        "tradition": []
+      },
+      "questions": [
+        {
+          "id": "antioch-prophets-teachers",
+          "question": "Which of the five were prophets, and which teachers?",
+          "views": [
+            {
+              "label": "Barnabas, Simeon and Lucius prophets; Manaen and Saul teachers",
+              "holders": "H. A. W. Meyer (English 1877–1879); Alford (as reported by Hervey, 1884); Ramsay, Weiss, Harnack and others (as listed by Knowling, 1900)",
+              "argument": {
+                "text": "Meyer reads the Greek joining words as making two groups, “the three first named are to be considered as prophets, and the other two as teachers.”",
+                "layer": "scholars",
+                "refs": [
+                  [
+                    44013001,
+                    44013001
+                  ]
+                ],
+                "cites": [
+                  "meyer-act-13-1",
+                  "pulpit-act-13-1",
+                  "egt-act-13-1"
+                ]
+              }
+            },
+            {
+              "label": "All five were prophets and teachers",
+              "holders": "Albert Barnes; Wendt, Hort, Gore and Page (as listed by Knowling, 1900)",
+              "argument": {
+                "text": "Barnes: “It is probable that those mentioned here as prophets were the same persons as the teachers.” Against the two-group reading, Wendt and others point out that Paul himself later claims the prophetic gift (as reported by Knowling).",
+                "layer": "scholars",
+                "refs": [
+                  [
+                    44013001,
+                    44013001
+                  ]
+                ],
+                "cites": [
+                  "barnes-act-13-1",
+                  "egt-act-13-1"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "niger-name",
+          "question": "Why was he called Niger?",
+          "views": [
+            {
+              "label": "For a dark complexion",
+              "holders": "John Gill (1746–1748); J. R. Lumby (Cambridge Bible, 1885); E. H. Plumptre (Ellicott’s commentary)",
+              "argument": {
+                "text": "“Niger” is Latin for black; Lumby: a name that “may have been assumed, or given to him, as a name from his dark complexion.” Plumptre adds that it may have served to tell him apart from others named Simeon.",
+                "layer": "scholars",
+                "refs": [
+                  [
+                    44013001,
+                    44013001
+                  ]
+                ],
+                "cites": [
+                  "gill-act-13-1",
+                  "cambridge-act-13-1",
+                  "ellicott-act-13-1"
+                ]
+              }
+            },
+            {
+              "label": "Not known",
+              "holders": "Albert Barnes",
+              "argument": {
+                "text": "Barnes: “‘Niger’ is a Latin name meaning ‘black.’ Why the name was given is not known.”",
+                "layer": "scholars",
+                "refs": [
+                  [
+                    44013001,
+                    44013001
+                  ]
+                ],
+                "cites": [
+                  "barnes-act-13-1"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "niger-cyrene",
+          "question": "Was he Simon of Cyrene, who carried the cross?",
+          "views": [
+            {
+              "label": "Perhaps the same man",
+              "holders": "F. Spitta (as reported by Knowling, 1900)",
+              "argument": {
+                "text": "Spitta would identify him with Simon of Cyrene (Matthew 27:32); Lucius, named next, was also “of Cyrene”.",
+                "layer": "scholars",
+                "refs": [
+                  [
+                    44013001,
+                    44013001
+                  ],
+                  [
+                    40027032,
+                    40027032
+                  ],
+                  [
+                    41015021,
+                    41015021
+                  ]
+                ],
+                "cites": [
+                  "egt-act-13-1"
+                ]
+              }
+            },
+            {
+              "label": "Nothing is known of him",
+              "holders": "R. J. Knowling (1900); Albert Barnes; E. H. Plumptre (Ellicott’s commentary)",
+              "argument": {
+                "text": "Knowling: “nothing is known of him”; the name Niger may have been given to tell him apart from others of the same name, “possibly from the Simon to whom Spitta refers.”",
+                "layer": "scholars",
+                "refs": [
+                  [
+                    44013001,
+                    44013001
+                  ]
+                ],
+                "cites": [
+                  "egt-act-13-1",
+                  "barnes-act-13-1",
+                  "ellicott-act-13-1"
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "notSaid": [
+        "Scripture does not say where Simeon came from, or why he was called Niger.",
+        "Acts does not say which of the five spoke the Holy Ghost’s word."
+      ],
+      "passages": [
+        [
+          44011019,
+          44011030
+        ],
+        [
+          44013001,
+          44013004
+        ]
+      ],
+      "otherNames": [
+        "Niger"
+      ]
+    },
+    {
+      "id": "lucius-act-13-1",
+      "name": "Lucius of Cyrene",
+      "kind": "nt",
+      "era": "nt",
+      "title": "One of the “prophets and teachers” in the church at Antioch (Acts 13:1)",
+      "tagline": "A man of Cyrene among the prophets and teachers at Antioch when Barnabas and Saul were sent out.",
+      "order": 6,
+      "kings": [],
+      "call": [],
+      "how": [
+        {
+          "text": "At Antioch, “As they ministered to the Lord, and fasted, the Holy Ghost said, Separate me Barnabas and Saul for the work whereunto I have called them.” After fasting and prayer they laid hands on the two and sent them away. Acts does not say through which of the prophets the Holy Ghost spoke.",
+          "layer": "text",
+          "refs": [
+            [
+              44013001,
+              44013003
+            ]
+          ]
+        }
+      ],
+      "message": [
+        {
+          "theme": "The sending of Barnabas and Saul",
+          "claim": {
+            "text": "The only word Acts gives from the prophets and teachers at Antioch is the Holy Ghost’s command to set apart Barnabas and Saul.",
+            "layer": "text",
+            "refs": [
+              [
+                44013002,
+                44013003
+              ]
+            ]
+          },
+          "quotes": [
+            {
+              "text": "Separate me Barnabas and Saul for the work whereunto I have called them.",
+              "span": [
+                44013002,
+                44013002
+              ]
+            }
+          ]
+        }
+      ],
+      "words": [],
+      "signs": [
+        {
+          "label": "Hands laid on Barnabas and Saul",
+          "kind": "other",
+          "placeId": "ae41ab4",
+          "claim": {
+            "text": "“When they had fasted and prayed, and laid their hands on them, they sent them away.”",
+            "layer": "scripture",
+            "refs": [
+              [
+                44013003,
+                44013003
+              ]
+            ]
+          }
+        }
+      ],
+      "fulfilment": [],
+      "books": [],
+      "companions": [
+        {
+          "person": {
+            "name": "Barnabas",
+            "personId": "barnabas-act-4-36"
+          },
+          "claim": {
+            "text": "Named first of the five, and sent out with Saul.",
+            "layer": "scripture",
+            "refs": [
+              [
+                44013001,
+                44013003
+              ]
+            ]
+          }
+        },
+        {
+          "person": {
+            "name": "Saul (Paul)",
+            "personId": "paul-act-7-58"
+          },
+          "claim": {
+            "text": "Named last of the five, and sent out with Barnabas.",
+            "layer": "scripture",
+            "refs": [
+              [
+                44013001,
+                44013003
+              ]
+            ]
+          }
+        },
+        {
+          "person": {
+            "name": "Simeon called Niger",
+            "personId": "simeon-act-13-1"
+          },
+          "claim": {
+            "text": "Named before him in the list.",
+            "layer": "scripture",
+            "refs": [
+              [
+                44013001,
+                44013001
+              ]
+            ]
+          }
+        },
+        {
+          "person": {
+            "name": "Manaen",
+            "personId": "manaen-act-13-1"
+          },
+          "claim": {
+            "text": "Named after him in the list.",
+            "layer": "scripture",
+            "refs": [
+              [
+                44013001,
+                44013001
+              ]
+            ]
+          }
+        }
+      ],
+      "places": [
+        {
+          "name": "Antioch",
+          "placeId": "ae41ab4",
+          "refs": [
+            [
+              44013001,
+              44013003
+            ]
+          ],
+          "note": "“The church that was at Antioch”"
+        },
+        {
+          "name": "Cyrene",
+          "placeId": "a81cdb5",
+          "refs": [
+            [
+              44013001,
+              44013001
+            ],
+            [
+              44011020,
+              44011020
+            ]
+          ],
+          "note": "“Lucius of Cyrene”; men “of Cyprus and Cyrene” had preached to the Grecians at Antioch"
+        }
+      ],
+      "ending": {
+        "scripture": [
+          {
+            "text": "Acts names Lucius only here.",
+            "layer": "text",
+            "refs": [
+              [
+                44013001,
+                44013001
+              ]
+            ]
+          }
+        ],
+        "tradition": [
+          {
+            "text": "The same list of the Seventy, printed under Hippolytus' name as a dubious or spurious piece, has “Lucius, bishop of Laodicea in Syria” at number 44; it does not say which Lucius it means.",
+            "layer": "tradition",
+            "cites": [
+              "pseudo-hippolytus"
+            ],
+            "who": "“On the Seventy Apostles”, ascribed to Hippolytus (printed as dubious or spurious)",
+            "when": "date not known"
+          }
+        ]
+      },
+      "questions": [
+        {
+          "id": "antioch-prophets-teachers",
+          "question": "Which of the five were prophets, and which teachers?",
+          "views": [
+            {
+              "label": "Barnabas, Simeon and Lucius prophets; Manaen and Saul teachers",
+              "holders": "H. A. W. Meyer (English 1877–1879); Alford (as reported by Hervey, 1884); Ramsay, Weiss, Harnack and others (as listed by Knowling, 1900)",
+              "argument": {
+                "text": "Meyer reads the Greek joining words as making two groups, “the three first named are to be considered as prophets, and the other two as teachers.”",
+                "layer": "scholars",
+                "refs": [
+                  [
+                    44013001,
+                    44013001
+                  ]
+                ],
+                "cites": [
+                  "meyer-act-13-1",
+                  "pulpit-act-13-1",
+                  "egt-act-13-1"
+                ]
+              }
+            },
+            {
+              "label": "All five were prophets and teachers",
+              "holders": "Albert Barnes; Wendt, Hort, Gore and Page (as listed by Knowling, 1900)",
+              "argument": {
+                "text": "Barnes: “It is probable that those mentioned here as prophets were the same persons as the teachers.” Against the two-group reading, Wendt and others point out that Paul himself later claims the prophetic gift (as reported by Knowling).",
+                "layer": "scholars",
+                "refs": [
+                  [
+                    44013001,
+                    44013001
+                  ]
+                ],
+                "cites": [
+                  "barnes-act-13-1",
+                  "egt-act-13-1"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "lucius-romans",
+          "question": "Is he the Lucius whom Paul calls his kinsman in Romans 16:21?",
+          "views": [
+            {
+              "label": "Perhaps",
+              "holders": "J. R. Lumby (Cambridge Bible, 1885); Jamieson, Fausset and Brown (1871); John Gill reports “some”",
+              "argument": {
+                "text": "Lumby: “Perhaps it is he who is mentioned in Romans 16:21.” Jamieson, Fausset and Brown state it as fact. The site’s person record joins the two verses.",
+                "layer": "scholars",
+                "refs": [
+                  [
+                    44013001,
+                    44013001
+                  ],
+                  [
+                    45016021,
+                    45016021
+                  ]
+                ],
+                "cites": [
+                  "cambridge-act-13-1",
+                  "jfb-act-13-1",
+                  "gill-act-13-1"
+                ]
+              }
+            },
+            {
+              "label": "It cannot be told",
+              "holders": "M. R. Vincent (1887); H. A. W. Meyer, who adds a question mark",
+              "argument": {
+                "text": "Vincent: “Nothing certain can be inferred from Romans 16:21”. Paul names only “Lucius”, with Jason and Sosipater, “my kinsmen”.",
+                "layer": "scholars",
+                "refs": [
+                  [
+                    45016021,
+                    45016021
+                  ]
+                ],
+                "cites": [
+                  "vincent-act-13-1",
+                  "meyer-act-13-1"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "lucius-luke",
+          "question": "Is he Luke the evangelist?",
+          "views": [
+            {
+              "label": "He may be Luke",
+              "holders": "Some writers, as reported by Poole and Plumptre; H. Crosby (as reported by Vincent, 1887)",
+              "argument": {
+                "text": "Poole reports that Lucius “hath been thought the name of Luke”; Vincent reports Crosby’s guess that Luke was trained in medicine at Cyrene, famous for its physicians.",
+                "layer": "scholars",
+                "refs": [
+                  [
+                    44013001,
+                    44013001
+                  ]
+                ],
+                "cites": [
+                  "poole-act-13-1",
+                  "vincent-act-13-1",
+                  "ellicott-act-13-1"
+                ]
+              }
+            },
+            {
+              "label": "A different man",
+              "holders": "E. H. Plumptre (Ellicott’s commentary); M. R. Vincent (1887); H. A. W. Meyer; A. C. Hervey (Pulpit Commentary, 1884)",
+              "argument": {
+                "text": "Plumptre and Vincent: the names differ, Lucas being short for Lucanus, not Lucius; Vincent adds that Luke never names himself in Acts. Hervey: Lucius “has by some been falsely identified with St. Luke.”",
+                "layer": "scholars",
+                "refs": [
+                  [
+                    44013001,
+                    44013001
+                  ]
+                ],
+                "cites": [
+                  "ellicott-act-13-1",
+                  "vincent-act-13-1",
+                  "meyer-act-13-1",
+                  "pulpit-act-13-1"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "lucius-cyrene-men",
+          "question": "Was he one of the men of Cyrene who first preached to the Grecians at Antioch (Acts 11:20)?",
+          "views": [
+            {
+              "label": "Probably",
+              "holders": "E. H. Plumptre (Ellicott’s commentary); John Gill (1746–1748)",
+              "argument": {
+                "text": "Plumptre: “Probably one of the company of ‘men of Cyprus and Cyrene’”; Gill: he “seems manifestly to be one of the men of Cyrene”.",
+                "layer": "scholars",
+                "refs": [
+                  [
+                    44011020,
+                    44011020
+                  ],
+                  [
+                    44013001,
+                    44013001
+                  ]
+                ],
+                "cites": [
+                  "ellicott-act-13-1",
+                  "gill-act-13-1"
+                ]
+              }
+            },
+            {
+              "label": "Acts does not say",
+              "holders": "From the text",
+              "argument": {
+                "text": "Acts 11:20 names no one among the men of Cyprus and Cyrene.",
+                "layer": "text",
+                "refs": [
+                  [
+                    44011020,
+                    44011020
+                  ]
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "notSaid": [
+        "Scripture does not say whether the Lucius of Romans 16:21 is the same man.",
+        "Acts does not say which of the five spoke the Holy Ghost’s word."
+      ],
+      "passages": [
+        [
+          44011019,
+          44011030
+        ],
+        [
+          44013001,
+          44013004
+        ],
+        [
+          45016021,
+          45016021
+        ]
+      ]
+    },
+    {
+      "id": "manaen-act-13-1",
+      "name": "Manaen",
+      "kind": "nt",
+      "era": "nt",
+      "title": "One of the “prophets and teachers” at Antioch, “brought up with Herod the tetrarch” (Acts 13:1)",
+      "tagline": "A man brought up with Herod the tetrarch, among the prophets and teachers at Antioch.",
+      "order": 7,
+      "kings": [
+        {
+          "person": {
+            "name": "Herod Antipas",
+            "personId": "herod-mat-14-1"
+          },
+          "claim": {
+            "text": "Acts says Manaen “had been brought up with Herod the tetrarch”. In Luke’s Gospel “Herod the tetrarch” is Herod, tetrarch of Galilee, who beheaded John the Baptist.",
+            "layer": "text",
+            "refs": [
+              [
+                44013001,
+                44013001
+              ],
+              [
+                42003001,
+                42003001
+              ],
+              [
+                42003019,
+                42003019
+              ],
+              [
+                42009007,
+                42009009
+              ]
+            ]
+          },
+          "quote": {
+            "text": "Manaen, which had been brought up with Herod the tetrarch,",
+            "span": [
+              44013001,
+              44013001
+            ]
+          }
+        }
+      ],
+      "call": [],
+      "how": [
+        {
+          "text": "At Antioch, “As they ministered to the Lord, and fasted, the Holy Ghost said, Separate me Barnabas and Saul for the work whereunto I have called them.” After fasting and prayer they laid hands on the two and sent them away. Acts does not say through which of the prophets the Holy Ghost spoke.",
+          "layer": "text",
+          "refs": [
+            [
+              44013001,
+              44013003
+            ]
+          ]
+        }
+      ],
+      "message": [
+        {
+          "theme": "The sending of Barnabas and Saul",
+          "claim": {
+            "text": "The only word Acts gives from the prophets and teachers at Antioch is the Holy Ghost’s command to set apart Barnabas and Saul.",
+            "layer": "text",
+            "refs": [
+              [
+                44013002,
+                44013003
+              ]
+            ]
+          },
+          "quotes": [
+            {
+              "text": "Separate me Barnabas and Saul for the work whereunto I have called them.",
+              "span": [
+                44013002,
+                44013002
+              ]
+            }
+          ]
+        }
+      ],
+      "words": [],
+      "signs": [
+        {
+          "label": "Hands laid on Barnabas and Saul",
+          "kind": "other",
+          "placeId": "ae41ab4",
+          "claim": {
+            "text": "“When they had fasted and prayed, and laid their hands on them, they sent them away.”",
+            "layer": "scripture",
+            "refs": [
+              [
+                44013003,
+                44013003
+              ]
+            ]
+          }
+        }
+      ],
+      "fulfilment": [],
+      "books": [],
+      "companions": [
+        {
+          "person": {
+            "name": "Barnabas",
+            "personId": "barnabas-act-4-36"
+          },
+          "claim": {
+            "text": "Named first of the five, and sent out with Saul.",
+            "layer": "scripture",
+            "refs": [
+              [
+                44013001,
+                44013003
+              ]
+            ]
+          }
+        },
+        {
+          "person": {
+            "name": "Saul (Paul)",
+            "personId": "paul-act-7-58"
+          },
+          "claim": {
+            "text": "Named last of the five, and sent out with Barnabas.",
+            "layer": "scripture",
+            "refs": [
+              [
+                44013001,
+                44013003
+              ]
+            ]
+          }
+        },
+        {
+          "person": {
+            "name": "Simeon called Niger",
+            "personId": "simeon-act-13-1"
+          },
+          "claim": {
+            "text": "Named in the same list.",
+            "layer": "scripture",
+            "refs": [
+              [
+                44013001,
+                44013001
+              ]
+            ]
+          }
+        },
+        {
+          "person": {
+            "name": "Lucius of Cyrene",
+            "personId": "lucius-act-13-1"
+          },
+          "claim": {
+            "text": "Named before him in the list.",
+            "layer": "scripture",
+            "refs": [
+              [
+                44013001,
+                44013001
+              ]
+            ]
+          }
+        }
+      ],
+      "places": [
+        {
+          "name": "Antioch",
+          "placeId": "ae41ab4",
+          "refs": [
+            [
+              44013001,
+              44013003
+            ]
+          ],
+          "note": "“The church that was at Antioch”"
+        }
+      ],
+      "ending": {
+        "scripture": [
+          {
+            "text": "Acts names Manaen only here.",
+            "layer": "text",
+            "refs": [
+              [
+                44013001,
+                44013001
+              ]
+            ]
+          }
+        ],
+        "tradition": []
+      },
+      "questions": [
+        {
+          "id": "antioch-prophets-teachers",
+          "question": "Which of the five were prophets, and which teachers?",
+          "views": [
+            {
+              "label": "Barnabas, Simeon and Lucius prophets; Manaen and Saul teachers",
+              "holders": "H. A. W. Meyer (English 1877–1879); Alford (as reported by Hervey, 1884); Ramsay, Weiss, Harnack and others (as listed by Knowling, 1900)",
+              "argument": {
+                "text": "Meyer reads the Greek joining words as making two groups, “the three first named are to be considered as prophets, and the other two as teachers.”",
+                "layer": "scholars",
+                "refs": [
+                  [
+                    44013001,
+                    44013001
+                  ]
+                ],
+                "cites": [
+                  "meyer-act-13-1",
+                  "pulpit-act-13-1",
+                  "egt-act-13-1"
+                ]
+              }
+            },
+            {
+              "label": "All five were prophets and teachers",
+              "holders": "Albert Barnes; Wendt, Hort, Gore and Page (as listed by Knowling, 1900)",
+              "argument": {
+                "text": "Barnes: “It is probable that those mentioned here as prophets were the same persons as the teachers.” Against the two-group reading, Wendt and others point out that Paul himself later claims the prophetic gift (as reported by Knowling).",
+                "layer": "scholars",
+                "refs": [
+                  [
+                    44013001,
+                    44013001
+                  ]
+                ],
+                "cites": [
+                  "barnes-act-13-1",
+                  "egt-act-13-1"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "manaen-foster",
+          "question": "“Brought up with”: foster-brother or companion?",
+          "views": [
+            {
+              "label": "Foster-brother",
+              "holders": "J. R. Lumby (Cambridge Bible, 1885); the Vulgate, Cornelius a Lapide, Walch, Kuinoel and Olshausen (as listed by Meyer)",
+              "argument": {
+                "text": "Lumby: “Rather, ‘foster-brother of Herod’”. Meyer explains that on this reading Manaen’s mother was Herod’s nurse.",
+                "layer": "scholars",
+                "refs": [
+                  [
+                    44013001,
+                    44013001
+                  ]
+                ],
+                "cites": [
+                  "cambridge-act-13-1",
+                  "meyer-act-13-1"
+                ]
+              }
+            },
+            {
+              "label": "Brought up together",
+              "holders": "Erasmus, Luther, Calvin, Grotius and others (as listed by Meyer); Meyer says it “cannot be determined”",
+              "argument": {
+                "text": "The Greek word can mean either; Vincent: “Some render foster-brother, as Rev.; others, comrade. The word has both meanings.”",
+                "layer": "scholars",
+                "refs": [
+                  [
+                    44013001,
+                    44013001
+                  ]
+                ],
+                "cites": [
+                  "meyer-act-13-1",
+                  "vincent-act-13-1"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "manaen-menahem",
+          "question": "Was he kin to Manahem the Essene, who foretold that Herod the Great would be king?",
+          "views": [
+            {
+              "label": "Perhaps his son or grandson",
+              "holders": "E. H. Plumptre (Ellicott’s commentary); J. Lightfoot (as reported by Gill)",
+              "argument": {
+                "text": "Josephus tells of an Essene named Manahem who greeted the boy Herod (Herod the Great) as king of the Jews; when Herod was king he sent for Manahem, and from then on “he continued to honor all the Essens”. Plumptre: “The identity of name makes it probable” that this Manaen was his son or grandson.",
+                "layer": "scholars",
+                "refs": [
+                  [
+                    44013001,
+                    44013001
+                  ]
+                ],
+                "cites": [
+                  "jos-ant-manahem",
+                  "ellicott-act-13-1",
+                  "gill-act-13-1"
+                ]
+              }
+            },
+            {
+              "label": "Only the name is shared",
+              "holders": "J. R. Lumby (Cambridge Bible, 1885)",
+              "argument": {
+                "text": "Lumby suggests the name may simply have become “a favourite one” among those attached to the Herods once, in his words, “the prophecy had received its fulfilment”.",
+                "layer": "scholars",
+                "refs": [
+                  [
+                    44013001,
+                    44013001
+                  ]
+                ],
+                "cites": [
+                  "cambridge-act-13-1"
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "notSaid": [
+        "Acts does not say how or when Manaen came to believe.",
+        "Acts does not say which of the five spoke the Holy Ghost’s word."
+      ],
+      "passages": [
+        [
+          44011019,
+          44011030
+        ],
+        [
+          44013001,
+          44013004
+        ]
+      ]
+    },
+    {
+      "id": "bar-jesus-act-13-6",
+      "name": "Bar-jesus",
+      "otherNames": [
+        "Elymas the sorcerer (Acts 13:8)"
+      ],
+      "kind": "false",
+      "era": "nt",
+      "title": "“A certain sorcerer, a false prophet, a Jew” (Acts 13:6)",
+      "tagline": "The sorcerer with the proconsul at Paphos who withstood Barnabas and Saul and was struck blind “for a season”.",
+      "order": 8,
+      "kings": [
+        {
+          "person": {
+            "name": "Sergius Paulus",
+            "personId": "sergius-paulus-act-13-7"
+          },
+          "claim": {
+            "text": "He was with the deputy (proconsul) of Cyprus, who called for Barnabas and Saul “and desired to hear the word of God”. Bar-jesus sought “to turn away the deputy from the faith”; after the blinding the deputy “believed”.",
+            "layer": "scripture",
+            "refs": [
+              [
+                44013007,
+                44013008
+              ],
+              [
+                44013012,
+                44013012
+              ]
+            ]
+          },
+          "quote": {
+            "text": "Which was with the deputy of the country, Sergius Paulus, a prudent man;",
+            "span": [
+              44013007,
+              44013007
+            ]
+          }
+        }
+      ],
+      "call": [],
+      "how": [
+        {
+          "text": "Acts calls him “a certain sorcerer, a false prophet, a Jew” and “Elymas the sorcerer”, but records no prophecy or word of his.",
+          "layer": "text",
+          "refs": [
+            [
+              44013006,
+              44013008
+            ]
+          ]
+        },
+        {
+          "text": "Acts says he “withstood” Barnabas and Saul.",
+          "layer": "scripture",
+          "refs": [
+            [
+              44013008,
+              44013008
+            ]
+          ]
+        }
+      ],
+      "message": [],
+      "words": [],
+      "signs": [
+        {
+          "label": "Struck blind “for a season”",
+          "kind": "wonder",
+          "placeId": "a314765",
+          "claim": {
+            "text": "Saul, “filled with the Holy Ghost”, set his eyes on him and said, “thou shalt be blind, not seeing the sun for a season.” “And immediately there fell on him a mist and a darkness; and he went about seeking some to lead him by the hand.”",
+            "layer": "scripture",
+            "refs": [
+              [
+                44013009,
+                44013011
+              ]
+            ]
+          }
+        }
+      ],
+      "fulfilment": [],
+      "books": [],
+      "companions": [
+        {
+          "person": {
+            "name": "Paul (Saul)",
+            "personId": "paul-act-7-58"
+          },
+          "claim": {
+            "text": "His opponent: “O full of all subtilty and all mischief, thou child of the devil, thou enemy of all righteousness, wilt thou not cease to pervert the right ways of the Lord?”",
+            "layer": "scripture",
+            "refs": [
+              [
+                44013009,
+                44013010
+              ]
+            ]
+          }
+        },
+        {
+          "person": {
+            "name": "Barnabas",
+            "personId": "barnabas-act-4-36"
+          },
+          "claim": {
+            "text": "With Saul, the one whom Bar-jesus withstood.",
+            "layer": "scripture",
+            "refs": [
+              [
+                44013007,
+                44013008
+              ]
+            ]
+          }
+        },
+        {
+          "person": {
+            "name": "Sergius Paulus",
+            "personId": "sergius-paulus-act-13-7"
+          },
+          "claim": {
+            "text": "“Then the deputy, when he saw what was done, believed, being astonished at the doctrine of the Lord.”",
+            "layer": "scripture",
+            "refs": [
+              [
+                44013012,
+                44013012
+              ]
+            ]
+          }
+        }
+      ],
+      "places": [
+        {
+          "name": "Salamis",
+          "placeId": "afa863b",
+          "refs": [
+            [
+              44013005,
+              44013005
+            ]
+          ],
+          "note": "Where Barnabas and Saul landed on Cyprus"
+        },
+        {
+          "name": "Paphos",
+          "placeId": "a314765",
+          "refs": [
+            [
+              44013006,
+              44013013
+            ]
+          ],
+          "note": "Where they found Bar-jesus with the proconsul"
+        },
+        {
+          "name": "Cyprus",
+          "placeId": "a2e7601",
+          "refs": [
+            [
+              44013004,
+              44013004
+            ]
+          ],
+          "note": "“They sailed to Cyprus”"
+        },
+        {
+          "name": "Seleucia",
+          "placeId": "a6d306d",
+          "refs": [
+            [
+              44013004,
+              44013004
+            ]
+          ],
+          "note": "Where the journey to Cyprus began"
+        }
+      ],
+      "ending": {
+        "scripture": [
+          {
+            "text": "He was struck blind “for a season”. Acts does not say whether his sight came back, or what became of him.",
+            "layer": "text",
+            "refs": [
+              [
+                44013011,
+                44013011
+              ]
+            ]
+          }
+        ],
+        "tradition": []
+      },
+      "questions": [
+        {
+          "id": "elymas-name",
+          "question": "“Elymas the sorcerer (for so is his name by interpretation)”: what does Elymas translate?",
+          "views": [
+            {
+              "label": "It translates “sorcerer”",
+              "holders": "Albert Barnes; H. A. W. Meyer (English 1877–1879); M. R. Vincent (1887); R. J. Knowling (1900)",
+              "argument": {
+                "text": "Barnes: “Elymas is the interpretation, not of the name Bar-jesus, but of the word rendered ‘the sorcerer.’” Vincent: “An Arabic word, meaning the wise, and equivalent to Magus.”",
+                "layer": "scholars",
+                "refs": [
+                  [
+                    44013008,
+                    44013008
+                  ]
+                ],
+                "cites": [
+                  "barnes-act-13-8",
+                  "meyer-act-13-8",
+                  "vincent-act-13-8",
+                  "egt-act-13-8"
+                ]
+              }
+            },
+            {
+              "label": "It translates “Bar-jesus”",
+              "holders": "John Gill (1746–1748), after De Dieu and Hiller; J. A. Bengel (1742)",
+              "argument": {
+                "text": "Gill holds that “Elymas” is the interpretation of “Bar-jesus”; Bengel says the two names “are in some way synonymous”.",
+                "layer": "scholars",
+                "refs": [
+                  [
+                    44013006,
+                    44013008
+                  ]
+                ],
+                "cites": [
+                  "gill-act-13-8",
+                  "bengel-act-13-8"
+                ]
+              }
+            },
+            {
+              "label": "A different reading, Etoimas",
+              "holders": "F. Blass (as reported by Knowling, 1900)",
+              "argument": {
+                "text": "Knowling reports manuscript support for the form “Etoimas”, which Blass reads and renders “Son of the Ready”.",
+                "layer": "scholars",
+                "refs": [
+                  [
+                    44013008,
+                    44013008
+                  ]
+                ],
+                "cites": [
+                  "egt-act-13-8"
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "notSaid": [
+        "Acts records no word or prophecy of his own.",
+        "The page uses Acts’ own words for him: “a false prophet” (Acts 13:6).",
+        "Acts does not say whether he regained his sight."
+      ],
+      "passages": [
+        [
+          44013004,
+          44013013
+        ]
+      ]
+    },
+    {
+      "id": "judas-act-15-22",
+      "name": "Judas Barsabas",
+      "otherNames": [
+        "Judas surnamed Barsabas"
+      ],
+      "kind": "nt",
+      "era": "nt",
+      "title": "“Being prophets also themselves” (Acts 15:32): one of the “chief men among the brethren” (Acts 15:22)",
+      "tagline": "Chosen at Jerusalem with Silas to carry the apostles’ letter to Antioch, where he exhorted and confirmed the brethren.",
+      "order": 9,
+      "kings": [],
+      "call": [
+        {
+          "label": "Acts 15 · Chosen and sent",
+          "placeId": "a15257a",
+          "quote": {
+            "text": "Judas surnamed Barsabas, and Silas, chief men among the brethren:",
+            "span": [
+              44015022,
+              44015022
+            ]
+          },
+          "claim": {
+            "text": "The apostles and elders, with the whole church, chose him and Silas “of their own company” to go to Antioch with Paul and Barnabas.",
+            "layer": "scripture",
+            "refs": [
+              [
+                44015022,
+                44015027
+              ]
+            ]
+          }
+        }
+      ],
+      "how": [
+        {
+          "text": "The letter he carried said the two “shall also tell you the same things by mouth.”",
+          "layer": "scripture",
+          "refs": [
+            [
+              44015027,
+              44015027
+            ]
+          ]
+        },
+        {
+          "text": "Acts calls Judas and Silas prophets and says what they did, not what they said: they “exhorted the brethren with many words, and confirmed them.”",
+          "layer": "text",
+          "refs": [
+            [
+              44015032,
+              44015032
+            ]
+          ]
+        }
+      ],
+      "message": [
+        {
+          "theme": "The letter from Jerusalem",
+          "claim": {
+            "text": "The letter they delivered at Antioch told the Gentile brethren that those who had troubled them had no such commandment from Jerusalem, and asked only that they abstain from meats offered to idols, from blood, from things strangled and from fornication. When it was read, “they rejoiced for the consolation.”",
+            "layer": "scripture",
+            "refs": [
+              [
+                44015023,
+                44015031
+              ]
+            ]
+          },
+          "quotes": [
+            {
+              "text": "For it seemed good to the Holy Ghost, and to us, to lay upon you no greater burden than these necessary things;",
+              "span": [
+                44015028,
+                44015028
+              ]
+            }
+          ]
+        }
+      ],
+      "words": [
+        {
+          "to": "The brethren at Antioch",
+          "placeId": "ae41ab4",
+          "quote": {
+            "text": "exhorted the brethren with many words, and confirmed them.",
+            "span": [
+              44015032,
+              44015032
+            ]
+          },
+          "claim": {
+            "text": "Acts does not record his words.",
+            "layer": "text",
+            "refs": [
+              [
+                44015032,
+                44015032
+              ]
+            ]
+          }
+        }
+      ],
+      "signs": [],
+      "fulfilment": [],
+      "books": [],
+      "companions": [
+        {
+          "person": {
+            "name": "Silas",
+            "personId": "silas-act-15-22"
+          },
+          "claim": {
+            "text": "Chosen and sent with him; also called a prophet.",
+            "layer": "scripture",
+            "refs": [
+              [
+                44015022,
+                44015022
+              ],
+              [
+                44015032,
+                44015032
+              ]
+            ]
+          }
+        },
+        {
+          "person": {
+            "name": "Paul",
+            "personId": "paul-act-7-58"
+          },
+          "claim": {
+            "text": "They went to Antioch with Paul and Barnabas, “Men that have hazarded their lives for the name of our Lord Jesus Christ.”",
+            "layer": "scripture",
+            "refs": [
+              [
+                44015025,
+                44015026
+              ]
+            ]
+          }
+        },
+        {
+          "person": {
+            "name": "Barnabas",
+            "personId": "barnabas-act-4-36"
+          },
+          "claim": {
+            "text": "“Our beloved Barnabas and Paul”, in the letter’s words.",
+            "layer": "scripture",
+            "refs": [
+              [
+                44015025,
+                44015025
+              ]
+            ]
+          }
+        },
+        {
+          "person": {
+            "name": "Joseph called Barsabas",
+            "personId": "joseph-act-1-23"
+          },
+          "claim": {
+            "text": "The only other person Scripture calls Barsabas; see the open question.",
+            "layer": "text",
+            "refs": [
+              [
+                44001023,
+                44001023
+              ]
+            ]
+          }
+        }
+      ],
+      "places": [
+        {
+          "name": "Jerusalem",
+          "placeId": "a15257a",
+          "refs": [
+            [
+              44015022,
+              44015022
+            ]
+          ],
+          "note": "Where he was chosen"
+        },
+        {
+          "name": "Antioch",
+          "placeId": "ae41ab4",
+          "refs": [
+            [
+              44015030,
+              44015033
+            ]
+          ],
+          "note": "Where he delivered the letter and exhorted the brethren"
+        }
+      ],
+      "ending": {
+        "scripture": [
+          {
+            "text": "“After they had tarried there a space, they were let go in peace from the brethren unto the apostles.” Acts names him no more.",
+            "layer": "scripture",
+            "refs": [
+              [
+                44015033,
+                44015033
+              ]
+            ]
+          },
+          {
+            "text": "The KJV goes on, “Notwithstanding it pleased Silas to abide there still” (Acts 15:34). Barnes notes that this verse “is missing in many mss.”, and Lumby suggests it began as a note to explain Acts 15:40.",
+            "layer": "scholars",
+            "refs": [
+              [
+                44015034,
+                44015034
+              ],
+              [
+                44015040,
+                44015040
+              ]
+            ],
+            "cites": [
+              "barnes-act-15-34",
+              "cambridge-act-15-34"
+            ]
+          }
+        ],
+        "tradition": []
+      },
+      "questions": [
+        {
+          "id": "judas-joseph",
+          "question": "Was he a brother of Joseph called Barsabas (Acts 1:23), or even the same man?",
+          "views": [
+            {
+              "label": "Probably his brother",
+              "holders": "Matthew Poole (1683–1685); E. H. Plumptre (Ellicott’s commentary); Grotius and Wolf (as reported by Meyer)",
+              "argument": {
+                "text": "Lumby calls Barsabas a patronymic, a name from the father; Plumptre: “It is a natural inference that the two were brothers”, and so that Judas had been among the Lord’s followers. Poole states it outright.",
+                "layer": "scholars",
+                "refs": [
+                  [
+                    44001023,
+                    44001023
+                  ],
+                  [
+                    44015022,
+                    44015022
+                  ]
+                ],
+                "cites": [
+                  "poole-act-15-22",
+                  "ellicott-act-15-22",
+                  "meyer-act-15-22",
+                  "cambridge-act-15-22"
+                ]
+              }
+            },
+            {
+              "label": "It cannot be shown",
+              "holders": "Jamieson, Fausset and Brown (1871); H. A. W. Meyer; J. R. Lumby (Cambridge Bible, 1885), who calls it a conjecture",
+              "argument": {
+                "text": "Jamieson, Fausset and Brown: “nor can it be shown that he was a brother of ‘Joseph called Barsabas’”; “nothing is known of him beyond what is here said.”",
+                "layer": "scholars",
+                "refs": [
+                  [
+                    44015022,
+                    44015022
+                  ]
+                ],
+                "cites": [
+                  "jfb-act-15-22",
+                  "meyer-act-15-22",
+                  "cambridge-act-15-22"
+                ]
+              }
+            },
+            {
+              "label": "Perhaps the same man",
+              "holders": "Albert Barnes, as a possibility; H. Ewald (as reported by Knowling, 1900)",
+              "argument": {
+                "text": "Barnes: “Possibly the same who was nominated to the vacant place in the apostleship”; Knowling reports that Ewald “thinks that he was actually identical with him”.",
+                "layer": "scholars",
+                "refs": [
+                  [
+                    44001023,
+                    44001023
+                  ],
+                  [
+                    44015022,
+                    44015022
+                  ]
+                ],
+                "cites": [
+                  "barnes-act-15-22",
+                  "egt-act-15-22"
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "notSaid": [
+        "Acts records none of his words.",
+        "Scripture does not say what became of him after he returned from Antioch."
+      ],
+      "passages": [
+        [
+          44001023,
+          44001023
+        ],
+        [
+          44015022,
+          44015035
+        ]
+      ]
+    }
+  ],
+  "citations": [
+    {
+      "id": "jos-ant-john",
+      "author": "Flavius Josephus, tr. William Whiston",
+      "title": "The Antiquities of the Jews",
+      "year": "1737",
+      "url": "https://www.gutenberg.org/ebooks/2848",
+      "where": "18.5.2; the date of the work from 20.11.3 (book.chapter.section as printed in the Project Gutenberg text)"
+    },
+    {
+      "id": "jos-ant-manahem",
+      "author": "Flavius Josephus, tr. William Whiston",
+      "title": "The Antiquities of the Jews",
+      "year": "1737",
+      "url": "https://www.gutenberg.org/ebooks/2848",
+      "where": "15.10.5 (as printed in the Project Gutenberg text)"
+    },
+    {
+      "id": "jos-ant-famine",
+      "author": "Flavius Josephus, tr. William Whiston",
+      "title": "The Antiquities of the Jews",
+      "year": "1737",
+      "url": "https://www.gutenberg.org/ebooks/2848",
+      "where": "20.5.2, with Helena's purchase of grain at 20.2.5 (as printed in the Project Gutenberg text)"
+    },
+    {
+      "id": "schurer-2-21",
+      "author": "E. Schürer",
+      "title": "A History of the Jewish People in the Time of Jesus Christ, Division I, vol. 2 (tr. J. Macpherson)",
+      "year": "1890",
+      "where": "§17b, pp. 21–28 and notes (Herodias; John the Baptist); the passages used are on pp. 24–25",
+      "url": "https://archive.org/details/s1historyofjewis02schuoft"
+    },
+    {
+      "id": "plummer-1896",
+      "author": "A. Plummer",
+      "title": "A Critical and Exegetical Commentary on the Gospel according to S. Luke (International Critical Commentary)",
+      "year": "1896",
+      "where": "on Luke 3:1, pp. 81-84",
+      "url": "https://archive.org/details/acriticalandexeg00plumuoft"
+    },
+    {
+      "id": "ramsay-1898",
+      "author": "W. M. Ramsay",
+      "title": "Was Christ Born at Bethlehem? A Study on the Credibility of St. Luke",
+      "year": "1898",
+      "where": "ch. XI, pp. 227-245",
+      "url": "https://archive.org/details/waschristbornatb00ramsuoft"
+    },
+    {
+      "id": "ellicott-luke",
+      "author": "E. H. Plumptre, in C. J. Ellicott (ed.), A New Testament Commentary for English Readers",
+      "title": "Notes on Luke 2:2 and 3:1",
+      "year": "about 1880",
+      "where": "read on Bible Hub",
+      "url": "https://biblehub.com/commentaries/luke/2-2.htm"
+    },
+    {
+      "id": "suet-claudius",
+      "author": "Suetonius, tr. J. C. Rolfe",
+      "title": "The Life of Claudius (Loeb Classical Library)",
+      "year": "1914",
+      "where": "18.2",
+      "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Suetonius/12Caesars/Claudius*.html"
+    },
+    {
+      "id": "tacitus-annals",
+      "author": "Tacitus, tr. A. J. Church and W. J. Brodribb",
+      "title": "The Annals of Tacitus",
+      "year": "1884",
+      "where": "12.43 (1884 printing; first published 1876)",
+      "url": "https://archive.org/details/annalstranslated00taci"
+    },
+    {
+      "id": "origen-john",
+      "author": "Origen, tr. Allan Menzies",
+      "title": "Commentary on the Gospel of John, book 6 (Ante-Nicene Fathers, vol. 9)",
+      "year": "1896",
+      "where": "6.24",
+      "url": "https://www.newadvent.org/fathers/101506.htm"
+    },
+    {
+      "id": "jerome-108",
+      "author": "Jerome, tr. W. H. Fremantle, G. Lewis and W. G. Martley",
+      "title": "Letter 108, to Eustochium (Nicene and Post-Nicene Fathers, series 2, vol. 6)",
+      "year": "1893",
+      "where": "108.13; the translators date the letter to AD 404",
+      "url": "https://www.newadvent.org/fathers/3001108.htm"
+    },
+    {
+      "id": "theodoret-3",
+      "author": "Theodoret, tr. Blomfield Jackson",
+      "title": "Ecclesiastical History, book 3 (Nicene and Post-Nicene Fathers, series 2, vol. 3)",
+      "year": "1892",
+      "where": "3.3",
+      "url": "https://www.newadvent.org/fathers/27023.htm"
+    },
+    {
+      "id": "protev",
+      "author": "tr. Alexander Walker",
+      "title": "The Protevangelium of James (Ante-Nicene Fathers, vol. 8)",
+      "year": "1886",
+      "where": "chs. 22–24",
+      "url": "https://www.newadvent.org/fathers/0847.htm"
+    },
+    {
+      "id": "ce-apocrypha",
+      "author": "The Catholic Encyclopedia",
+      "title": "\"Apocrypha\", vol. 1",
+      "year": "1907",
+      "where": "section on the Protoevangelium Jacobi",
+      "url": "https://www.newadvent.org/cathen/01601a.htm"
+    },
+    {
+      "id": "pseudo-hippolytus",
+      "author": "tr. J. H. MacMahon",
+      "title": "\"The Same Hippolytus on the Seventy Apostles\", in the appendix of \"dubious and spurious pieces\" printed with the works of Hippolytus (Ante-Nicene Fathers, vol. 5)",
+      "year": "1886",
+      "where": "nos. 32 and 44 (New Advent titles its page \"Pseudo-Hippolytus\")",
+      "url": "https://www.newadvent.org/fathers/0524.htm"
+    },
+    {
+      "id": "ellicott-mat-3-4",
+      "author": "E. H. Plumptre, in C. J. Ellicott (ed.), A New Testament Commentary for English Readers",
+      "title": "Note on Matthew 3:4",
+      "year": "about 1878",
+      "where": "note on Matthew 3:4; read on Bible Hub",
+      "url": "https://biblehub.com/commentaries/matthew/3-4.htm"
+    },
+    {
+      "id": "jfb-mat-3-4",
+      "author": "R. Jamieson, A. R. Fausset and D. Brown",
+      "title": "A Commentary, Critical and Explanatory, on the Whole Bible",
+      "year": "1871",
+      "where": "note on Matthew 3:4; read on Bible Hub",
+      "url": "https://biblehub.com/commentaries/matthew/3-4.htm"
+    },
+    {
+      "id": "ellicott-mat-11-3",
+      "author": "E. H. Plumptre, in C. J. Ellicott (ed.), A New Testament Commentary for English Readers",
+      "title": "Note on Matthew 11:3",
+      "year": "about 1878",
+      "where": "note on Matthew 11:3; read on Bible Hub",
+      "url": "https://biblehub.com/commentaries/matthew/11-3.htm"
+    },
+    {
+      "id": "gill-mat-11-3",
+      "author": "John Gill",
+      "title": "An Exposition of the New Testament",
+      "year": "1746–1748",
+      "where": "note on Matthew 11:3; read on Bible Hub",
+      "url": "https://biblehub.com/commentaries/matthew/11-3.htm"
+    },
+    {
+      "id": "poole-mat-11-3",
+      "author": "Matthew Poole",
+      "title": "Annotations upon the Holy Bible",
+      "year": "1683–1685",
+      "where": "note on Matthew 11:3; read on Bible Hub",
+      "url": "https://biblehub.com/commentaries/matthew/11-3.htm"
+    },
+    {
+      "id": "egt-mat-11-3",
+      "author": "A. B. Bruce",
+      "title": "The Expositor's Greek Testament: Matthew",
+      "year": "1897",
+      "where": "note on Matthew 11:3; read on Bible Hub",
+      "url": "https://biblehub.com/commentaries/matthew/11-3.htm"
+    },
+    {
+      "id": "cambridge-mat-11-3",
+      "author": "A. Carr",
+      "title": "The Gospel according to St Matthew (Cambridge Bible for Schools and Colleges)",
+      "year": "1878",
+      "where": "note on Matthew 11:3; read on Bible Hub",
+      "url": "https://biblehub.com/commentaries/matthew/11-3.htm"
+    },
+    {
+      "id": "pulpit-mat-11-3",
+      "author": "H. D. M. Spence and J. S. Exell (eds.)",
+      "title": "The Pulpit Commentary: St Matthew",
+      "year": "1880–1897",
+      "where": "note on Matthew 11:3; read on Bible Hub",
+      "url": "https://biblehub.com/commentaries/matthew/11-3.htm"
+    },
+    {
+      "id": "ellicott-mat-17-11",
+      "author": "E. H. Plumptre, in C. J. Ellicott (ed.), A New Testament Commentary for English Readers",
+      "title": "Note on Matthew 17:11",
+      "year": "about 1878",
+      "where": "note on Matthew 17:11; read on Bible Hub",
+      "url": "https://biblehub.com/commentaries/matthew/17-11.htm"
+    },
+    {
+      "id": "meyer-mat-17-11",
+      "author": "H. A. W. Meyer",
+      "title": "Critical and Exegetical Handbook to the Gospel of Matthew (English translation)",
+      "year": "1879",
+      "where": "note on Matthew 17:11; read on Bible Hub",
+      "url": "https://biblehub.com/commentaries/matthew/17-11.htm"
+    },
+    {
+      "id": "pulpit-mat-17-11",
+      "author": "H. D. M. Spence and J. S. Exell (eds.)",
+      "title": "The Pulpit Commentary: St Matthew",
+      "year": "1880–1897",
+      "where": "note on Matthew 17:11; read on Bible Hub",
+      "url": "https://biblehub.com/commentaries/matthew/17-11.htm"
+    },
+    {
+      "id": "ellicott-mrk-1-2",
+      "author": "E. H. Plumptre, in C. J. Ellicott (ed.), A New Testament Commentary for English Readers",
+      "title": "Note on Mark 1:2",
+      "year": "about 1878",
+      "where": "note on Mark 1:2; read on Bible Hub",
+      "url": "https://biblehub.com/commentaries/mark/1-2.htm"
+    },
+    {
+      "id": "bengel-mrk-1-2",
+      "author": "J. A. Bengel",
+      "title": "Gnomon of the New Testament (Latin 1742; English translation)",
+      "year": "1742",
+      "where": "note on Mark 1:2; read on Bible Hub",
+      "url": "https://biblehub.com/commentaries/mark/1-2.htm"
+    },
+    {
+      "id": "pulpit-mrk-1-2",
+      "author": "H. D. M. Spence and J. S. Exell (eds.)",
+      "title": "The Pulpit Commentary: St Mark",
+      "year": "1880–1897",
+      "where": "note on Mark 1:2; read on Bible Hub",
+      "url": "https://biblehub.com/commentaries/mark/1-2.htm"
+    },
+    {
+      "id": "ellicott-luk-2-25",
+      "author": "E. H. Plumptre, in C. J. Ellicott (ed.), A New Testament Commentary for English Readers",
+      "title": "Note on Luke 2:25",
+      "year": "about 1878",
+      "where": "note on Luke 2:25; read on Bible Hub",
+      "url": "https://biblehub.com/commentaries/luke/2-25.htm"
+    },
+    {
+      "id": "meyer-luk-2-25",
+      "author": "H. A. W. Meyer",
+      "title": "Critical and Exegetical Handbook to the Gospels of Mark and Luke (English translation)",
+      "year": "1880",
+      "where": "note on Luke 2:25; read on Bible Hub",
+      "url": "https://biblehub.com/commentaries/luke/2-25.htm"
+    },
+    {
+      "id": "gill-luk-2-25",
+      "author": "John Gill",
+      "title": "An Exposition of the New Testament",
+      "year": "1746–1748",
+      "where": "note on Luke 2:25; read on Bible Hub",
+      "url": "https://biblehub.com/commentaries/luke/2-25.htm"
+    },
+    {
+      "id": "poole-luk-2-25",
+      "author": "Matthew Poole",
+      "title": "Annotations upon the Holy Bible",
+      "year": "1683–1685",
+      "where": "note on Luke 2:25; read on Bible Hub",
+      "url": "https://biblehub.com/commentaries/luke/2-25.htm"
+    },
+    {
+      "id": "cambridge-luk-2-25",
+      "author": "F. W. Farrar",
+      "title": "The Gospel according to St Luke (Cambridge Bible for Schools and Colleges)",
+      "year": "1880",
+      "where": "note on Luke 2:25; read on Bible Hub",
+      "url": "https://biblehub.com/commentaries/luke/2-25.htm"
+    },
+    {
+      "id": "bengel-luk-2-25",
+      "author": "J. A. Bengel",
+      "title": "Gnomon of the New Testament (Latin 1742; English translation)",
+      "year": "1742",
+      "where": "note on Luke 2:25; read on Bible Hub",
+      "url": "https://biblehub.com/commentaries/luke/2-25.htm"
+    },
+    {
+      "id": "benson-luk-2-25",
+      "author": "Joseph Benson",
+      "title": "Commentary on the Old and New Testaments",
+      "year": "1811–1818",
+      "where": "note on Luke 2:25; read on Bible Hub",
+      "url": "https://biblehub.com/commentaries/luke/2-25.htm"
+    },
+    {
+      "id": "ellicott-luk-2-37",
+      "author": "E. H. Plumptre, in C. J. Ellicott (ed.), A New Testament Commentary for English Readers",
+      "title": "Note on Luke 2:37",
+      "year": "about 1878",
+      "where": "note on Luke 2:37; read on Bible Hub",
+      "url": "https://biblehub.com/commentaries/luke/2-37.htm"
+    },
+    {
+      "id": "barnes-luk-2-37",
+      "author": "Albert Barnes",
+      "title": "Notes on the New Testament",
+      "year": "1832–1851",
+      "where": "note on Luke 2:37; read on Bible Hub",
+      "url": "https://biblehub.com/commentaries/luke/2-37.htm"
+    },
+    {
+      "id": "gill-luk-2-37",
+      "author": "John Gill",
+      "title": "An Exposition of the New Testament",
+      "year": "1746–1748",
+      "where": "note on Luke 2:37; read on Bible Hub",
+      "url": "https://biblehub.com/commentaries/luke/2-37.htm"
+    },
+    {
+      "id": "bengel-luk-2-37",
+      "author": "J. A. Bengel",
+      "title": "Gnomon of the New Testament (Latin 1742; English translation)",
+      "year": "1742",
+      "where": "note on Luke 2:37; read on Bible Hub",
+      "url": "https://biblehub.com/commentaries/luke/2-37.htm"
+    },
+    {
+      "id": "egt-luk-2-37",
+      "author": "A. B. Bruce",
+      "title": "The Expositor's Greek Testament: Luke",
+      "year": "1897",
+      "where": "note on Luke 2:37; read on Bible Hub",
+      "url": "https://biblehub.com/commentaries/luke/2-37.htm"
+    },
+    {
+      "id": "vincent-luk-2-37",
+      "author": "M. R. Vincent",
+      "title": "Word Studies in the New Testament",
+      "year": "1887",
+      "where": "note on Luke 2:37; read on Bible Hub",
+      "url": "https://biblehub.com/commentaries/luke/2-37.htm"
+    },
+    {
+      "id": "barnes-jhn-1-21",
+      "author": "Albert Barnes",
+      "title": "Notes on the New Testament",
+      "year": "1832–1851",
+      "where": "note on John 1:21; read on Bible Hub",
+      "url": "https://biblehub.com/commentaries/john/1-21.htm"
+    },
+    {
+      "id": "gill-jhn-1-21",
+      "author": "John Gill",
+      "title": "An Exposition of the New Testament",
+      "year": "1746–1748",
+      "where": "note on John 1:21; read on Bible Hub",
+      "url": "https://biblehub.com/commentaries/john/1-21.htm"
+    },
+    {
+      "id": "meyer-jhn-1-21",
+      "author": "H. A. W. Meyer",
+      "title": "Critical and Exegetical Handbook to the Gospel of John (English translation)",
+      "year": "1874–1875",
+      "where": "note on John 1:21; read on Bible Hub",
+      "url": "https://biblehub.com/commentaries/john/1-21.htm"
+    },
+    {
+      "id": "cambridge-jhn-1-21",
+      "author": "A. Plummer",
+      "title": "The Gospel according to St John (Cambridge Bible for Schools and Colleges)",
+      "year": "1880",
+      "where": "note on John 1:21; read on Bible Hub",
+      "url": "https://biblehub.com/commentaries/john/1-21.htm"
+    },
+    {
+      "id": "ellicott-jhn-1-28",
+      "author": "H. W. Watkins, in C. J. Ellicott (ed.), A New Testament Commentary for English Readers",
+      "title": "Note on John 1:28",
+      "year": "about 1879",
+      "where": "note on John 1:28; read on Bible Hub",
+      "url": "https://biblehub.com/commentaries/john/1-28.htm"
+    },
+    {
+      "id": "barnes-jhn-1-28",
+      "author": "Albert Barnes",
+      "title": "Notes on the New Testament",
+      "year": "1832–1851",
+      "where": "note on John 1:28; read on Bible Hub",
+      "url": "https://biblehub.com/commentaries/john/1-28.htm"
+    },
+    {
+      "id": "jfb-jhn-1-28",
+      "author": "R. Jamieson, A. R. Fausset and D. Brown",
+      "title": "A Commentary, Critical and Explanatory, on the Whole Bible",
+      "year": "1871",
+      "where": "note on John 1:28; read on Bible Hub",
+      "url": "https://biblehub.com/commentaries/john/1-28.htm"
+    },
+    {
+      "id": "barnes-jhn-1-31",
+      "author": "Albert Barnes",
+      "title": "Notes on the New Testament",
+      "year": "1832–1851",
+      "where": "note on John 1:31; read on Bible Hub",
+      "url": "https://biblehub.com/commentaries/john/1-31.htm"
+    },
+    {
+      "id": "meyer-jhn-1-31",
+      "author": "H. A. W. Meyer",
+      "title": "Critical and Exegetical Handbook to the Gospel of John (English translation)",
+      "year": "1874–1875",
+      "where": "note on John 1:31; read on Bible Hub",
+      "url": "https://biblehub.com/commentaries/john/1-31.htm"
+    },
+    {
+      "id": "cambridge-jhn-1-31",
+      "author": "A. Plummer",
+      "title": "The Gospel according to St John (Cambridge Bible for Schools and Colleges)",
+      "year": "1880",
+      "where": "note on John 1:31; read on Bible Hub",
+      "url": "https://biblehub.com/commentaries/john/1-31.htm"
+    },
+    {
+      "id": "meyer-jhn-3-31",
+      "author": "H. A. W. Meyer",
+      "title": "Critical and Exegetical Handbook to the Gospel of John (English translation)",
+      "year": "1874–1875",
+      "where": "note on John 3:31; read on Bible Hub",
+      "url": "https://biblehub.com/commentaries/john/3-31.htm"
+    },
+    {
+      "id": "barnes-jhn-3-31",
+      "author": "Albert Barnes",
+      "title": "Notes on the New Testament",
+      "year": "1832–1851",
+      "where": "note on John 3:31; read on Bible Hub",
+      "url": "https://biblehub.com/commentaries/john/3-31.htm"
+    },
+    {
+      "id": "cambridge-jhn-3-31",
+      "author": "A. Plummer",
+      "title": "The Gospel according to St John (Cambridge Bible for Schools and Colleges)",
+      "year": "1880",
+      "where": "note on John 3:31; read on Bible Hub",
+      "url": "https://biblehub.com/commentaries/john/3-31.htm"
+    },
+    {
+      "id": "bengel-jhn-3-31",
+      "author": "J. A. Bengel",
+      "title": "Gnomon of the New Testament (Latin 1742; English translation)",
+      "year": "1742",
+      "where": "note on John 3:31; read on Bible Hub",
+      "url": "https://biblehub.com/commentaries/john/3-31.htm"
+    },
+    {
+      "id": "pulpit-jhn-3-31",
+      "author": "H. D. M. Spence and J. S. Exell (eds.)",
+      "title": "The Pulpit Commentary: St John",
+      "year": "1880–1897",
+      "where": "note on John 3:31; read on Bible Hub",
+      "url": "https://biblehub.com/commentaries/john/3-31.htm"
+    },
+    {
+      "id": "ellicott-act-11-28",
+      "author": "E. H. Plumptre, in C. J. Ellicott (ed.), A New Testament Commentary for English Readers",
+      "title": "Note on Acts 11:28",
+      "year": "about 1880",
+      "where": "note on Acts 11:28; read on Bible Hub",
+      "url": "https://biblehub.com/commentaries/acts/11-28.htm"
+    },
+    {
+      "id": "barnes-act-11-28",
+      "author": "Albert Barnes",
+      "title": "Notes on the New Testament",
+      "year": "1832–1851",
+      "where": "note on Acts 11:28; read on Bible Hub",
+      "url": "https://biblehub.com/commentaries/acts/11-28.htm"
+    },
+    {
+      "id": "cambridge-act-11-28",
+      "author": "J. R. Lumby",
+      "title": "The Acts of the Apostles (Cambridge Bible for Schools and Colleges)",
+      "year": "1885",
+      "where": "note on Acts 11:28; read on Bible Hub",
+      "url": "https://biblehub.com/commentaries/acts/11-28.htm"
+    },
+    {
+      "id": "jfb-act-11-28",
+      "author": "R. Jamieson, A. R. Fausset and D. Brown",
+      "title": "A Commentary, Critical and Explanatory, on the Whole Bible",
+      "year": "1871",
+      "where": "note on Acts 11:28; read on Bible Hub",
+      "url": "https://biblehub.com/commentaries/acts/11-28.htm"
+    },
+    {
+      "id": "ellicott-act-13-1",
+      "author": "E. H. Plumptre, in C. J. Ellicott (ed.), A New Testament Commentary for English Readers",
+      "title": "Note on Acts 13:1",
+      "year": "about 1880",
+      "where": "note on Acts 13:1; read on Bible Hub",
+      "url": "https://biblehub.com/commentaries/acts/13-1.htm"
+    },
+    {
+      "id": "meyer-act-13-1",
+      "author": "H. A. W. Meyer",
+      "title": "Critical and Exegetical Handbook to the Acts of the Apostles (English translation)",
+      "year": "1877–1879",
+      "where": "note on Acts 13:1; read on Bible Hub",
+      "url": "https://biblehub.com/commentaries/acts/13-1.htm"
+    },
+    {
+      "id": "egt-act-13-1",
+      "author": "R. J. Knowling",
+      "title": "The Acts of the Apostles (Expositor's Greek Testament, vol. 2)",
+      "year": "1900",
+      "where": "note on Acts 13:1; read on Bible Hub",
+      "url": "https://biblehub.com/commentaries/acts/13-1.htm"
+    },
+    {
+      "id": "pulpit-act-13-1",
+      "author": "A. C. Hervey",
+      "title": "Acts (Pulpit Commentary)",
+      "year": "1884",
+      "where": "note on Acts 13:1; read on Bible Hub",
+      "url": "https://biblehub.com/commentaries/acts/13-1.htm"
+    },
+    {
+      "id": "barnes-act-13-1",
+      "author": "Albert Barnes",
+      "title": "Notes on the New Testament",
+      "year": "1832–1851",
+      "where": "note on Acts 13:1; read on Bible Hub",
+      "url": "https://biblehub.com/commentaries/acts/13-1.htm"
+    },
+    {
+      "id": "gill-act-13-1",
+      "author": "John Gill",
+      "title": "An Exposition of the New Testament",
+      "year": "1746–1748",
+      "where": "note on Acts 13:1; read on Bible Hub",
+      "url": "https://biblehub.com/commentaries/acts/13-1.htm"
+    },
+    {
+      "id": "cambridge-act-13-1",
+      "author": "J. R. Lumby",
+      "title": "The Acts of the Apostles (Cambridge Bible for Schools and Colleges)",
+      "year": "1885",
+      "where": "note on Acts 13:1; read on Bible Hub",
+      "url": "https://biblehub.com/commentaries/acts/13-1.htm"
+    },
+    {
+      "id": "vincent-act-13-1",
+      "author": "M. R. Vincent",
+      "title": "Word Studies in the New Testament",
+      "year": "1887",
+      "where": "note on Acts 13:1; read on Bible Hub",
+      "url": "https://biblehub.com/commentaries/acts/13-1.htm"
+    },
+    {
+      "id": "poole-act-13-1",
+      "author": "Matthew Poole",
+      "title": "Annotations upon the Holy Bible",
+      "year": "1683–1685",
+      "where": "note on Acts 13:1; read on Bible Hub",
+      "url": "https://biblehub.com/commentaries/acts/13-1.htm"
+    },
+    {
+      "id": "jfb-act-13-1",
+      "author": "R. Jamieson, A. R. Fausset and D. Brown",
+      "title": "A Commentary, Critical and Explanatory, on the Whole Bible",
+      "year": "1871",
+      "where": "note on Acts 13:1; read on Bible Hub",
+      "url": "https://biblehub.com/commentaries/acts/13-1.htm"
+    },
+    {
+      "id": "barnes-act-13-8",
+      "author": "Albert Barnes",
+      "title": "Notes on the New Testament",
+      "year": "1832–1851",
+      "where": "note on Acts 13:8; read on Bible Hub",
+      "url": "https://biblehub.com/commentaries/acts/13-8.htm"
+    },
+    {
+      "id": "meyer-act-13-8",
+      "author": "H. A. W. Meyer",
+      "title": "Critical and Exegetical Handbook to the Acts of the Apostles (English translation)",
+      "year": "1877–1879",
+      "where": "note on Acts 13:8; read on Bible Hub",
+      "url": "https://biblehub.com/commentaries/acts/13-8.htm"
+    },
+    {
+      "id": "vincent-act-13-8",
+      "author": "M. R. Vincent",
+      "title": "Word Studies in the New Testament",
+      "year": "1887",
+      "where": "note on Acts 13:8; read on Bible Hub",
+      "url": "https://biblehub.com/commentaries/acts/13-8.htm"
+    },
+    {
+      "id": "egt-act-13-8",
+      "author": "R. J. Knowling",
+      "title": "The Acts of the Apostles (Expositor's Greek Testament, vol. 2)",
+      "year": "1900",
+      "where": "note on Acts 13:8; read on Bible Hub",
+      "url": "https://biblehub.com/commentaries/acts/13-8.htm"
+    },
+    {
+      "id": "gill-act-13-8",
+      "author": "John Gill",
+      "title": "An Exposition of the New Testament",
+      "year": "1746–1748",
+      "where": "note on Acts 13:8; read on Bible Hub",
+      "url": "https://biblehub.com/commentaries/acts/13-8.htm"
+    },
+    {
+      "id": "bengel-act-13-8",
+      "author": "J. A. Bengel",
+      "title": "Gnomon of the New Testament (Latin 1742; English translation)",
+      "year": "1742",
+      "where": "note on Acts 13:8; read on Bible Hub",
+      "url": "https://biblehub.com/commentaries/acts/13-8.htm"
+    },
+    {
+      "id": "ellicott-act-15-22",
+      "author": "E. H. Plumptre, in C. J. Ellicott (ed.), A New Testament Commentary for English Readers",
+      "title": "Note on Acts 15:22",
+      "year": "about 1880",
+      "where": "note on Acts 15:22; read on Bible Hub",
+      "url": "https://biblehub.com/commentaries/acts/15-22.htm"
+    },
+    {
+      "id": "poole-act-15-22",
+      "author": "Matthew Poole",
+      "title": "Annotations upon the Holy Bible",
+      "year": "1683–1685",
+      "where": "note on Acts 15:22; read on Bible Hub",
+      "url": "https://biblehub.com/commentaries/acts/15-22.htm"
+    },
+    {
+      "id": "meyer-act-15-22",
+      "author": "H. A. W. Meyer",
+      "title": "Critical and Exegetical Handbook to the Acts of the Apostles (English translation)",
+      "year": "1877–1879",
+      "where": "note on Acts 15:22; read on Bible Hub",
+      "url": "https://biblehub.com/commentaries/acts/15-22.htm"
+    },
+    {
+      "id": "jfb-act-15-22",
+      "author": "R. Jamieson, A. R. Fausset and D. Brown",
+      "title": "A Commentary, Critical and Explanatory, on the Whole Bible",
+      "year": "1871",
+      "where": "note on Acts 15:22; read on Bible Hub",
+      "url": "https://biblehub.com/commentaries/acts/15-22.htm"
+    },
+    {
+      "id": "cambridge-act-15-22",
+      "author": "J. R. Lumby",
+      "title": "The Acts of the Apostles (Cambridge Bible for Schools and Colleges)",
+      "year": "1885",
+      "where": "note on Acts 15:22; read on Bible Hub",
+      "url": "https://biblehub.com/commentaries/acts/15-22.htm"
+    },
+    {
+      "id": "barnes-act-15-22",
+      "author": "Albert Barnes",
+      "title": "Notes on the New Testament",
+      "year": "1832–1851",
+      "where": "note on Acts 15:22; read on Bible Hub",
+      "url": "https://biblehub.com/commentaries/acts/15-22.htm"
+    },
+    {
+      "id": "egt-act-15-22",
+      "author": "R. J. Knowling",
+      "title": "The Acts of the Apostles (Expositor's Greek Testament, vol. 2)",
+      "year": "1900",
+      "where": "note on Acts 15:22; read on Bible Hub",
+      "url": "https://biblehub.com/commentaries/acts/15-22.htm"
+    },
+    {
+      "id": "barnes-act-15-34",
+      "author": "Albert Barnes",
+      "title": "Notes on the New Testament",
+      "year": "1832–1851",
+      "where": "note on Acts 15:34; read on Bible Hub",
+      "url": "https://biblehub.com/commentaries/acts/15-34.htm"
+    },
+    {
+      "id": "cambridge-act-15-34",
+      "author": "J. R. Lumby",
+      "title": "The Acts of the Apostles (Cambridge Bible for Schools and Colleges)",
+      "year": "1885",
+      "where": "note on Acts 15:34; read on Bible Hub",
+      "url": "https://biblehub.com/commentaries/acts/15-34.htm"
+    },
+    {
+      "id": "jfb-act-21-10",
+      "author": "R. Jamieson, A. R. Fausset and D. Brown",
+      "title": "A Commentary, Critical and Explanatory, on the Whole Bible",
+      "year": "1871",
+      "where": "note on Acts 21:10; read on Bible Hub",
+      "url": "https://biblehub.com/commentaries/acts/21-10.htm"
+    },
+    {
+      "id": "meyer-act-21-10",
+      "author": "H. A. W. Meyer",
+      "title": "Critical and Exegetical Handbook to the Acts of the Apostles (English translation)",
+      "year": "1877–1879",
+      "where": "note on Acts 21:10; read on Bible Hub",
+      "url": "https://biblehub.com/commentaries/acts/21-10.htm"
+    },
+    {
+      "id": "gill-act-21-10",
+      "author": "John Gill",
+      "title": "An Exposition of the New Testament",
+      "year": "1746–1748",
+      "where": "note on Acts 21:10; read on Bible Hub",
+      "url": "https://biblehub.com/commentaries/acts/21-10.htm"
+    },
+    {
+      "id": "jfb-act-21-11",
+      "author": "R. Jamieson, A. R. Fausset and D. Brown",
+      "title": "A Commentary, Critical and Explanatory, on the Whole Bible",
+      "year": "1871",
+      "where": "note on Acts 21:11; read on Bible Hub",
+      "url": "https://biblehub.com/commentaries/acts/21-11.htm"
+    },
+    {
+      "id": "gill-act-21-11",
+      "author": "John Gill",
+      "title": "An Exposition of the New Testament",
+      "year": "1746–1748",
+      "where": "note on Acts 21:11; read on Bible Hub",
+      "url": "https://biblehub.com/commentaries/acts/21-11.htm"
+    },
+    {
+      "id": "barnes-act-21-11",
+      "author": "Albert Barnes",
+      "title": "Notes on the New Testament",
+      "year": "1832–1851",
+      "where": "note on Acts 21:11; read on Bible Hub",
+      "url": "https://biblehub.com/commentaries/acts/21-11.htm"
+    }
+  ]
+}

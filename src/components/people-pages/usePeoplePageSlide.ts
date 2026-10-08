@@ -2,10 +2,12 @@ import { useEffect, type MouseEvent } from "react";
 import { flushSync } from "react-dom";
 import { useLocation, useNavigate } from "react-router-dom";
 import { transitionTicker } from "@/components/ticker/transition-clock";
-import { apostleFor, isAspect, rulerFor, timeRank, type Aspect } from "@/lib/people-pages-index";
+import { ASPECTS, apostleFor, isAspect, prophetFor, rulerFor, timeRank, type Aspect } from "@/lib/people-pages-index";
+import type { ProphetEra } from "@/data/people-pages/types";
 
 /**
- * The page wipe between a person page and their ruler or apostle page, between rulers, and from the two guides (the
+ * The page wipe between a person page and their ruler, apostle or prophet pages, between rulers, apostles or prophets,
+ * and from the three guides (the
  * Atlas's Early Church wipe, src/pages/places/usePlacesPageSlide.ts; each collection keeps its own copy so they can
  * change apart). The new page comes in from the side the reader is heading to: later rulers from the right, earlier
  * ones from the left; going back, the old page wipes away. No fades. Shared navigation stays still: only the
@@ -20,20 +22,26 @@ function placeOf(url: URL): Place {
   const person = /^\/people\/([^/]+)(?:\/([a-z]+))?\/?$/.exec(url.pathname);
   if (person) return isAspect(person[2]) ? { kind: "special", id: person[1], aspect: person[2] } : person[2] ? { kind: "other" } : { kind: "person", id: person[1] };
   const view = url.searchParams.get("view");
-  if (url.pathname === "/study/people" && (view === "rulers" || view === "apostles")) return { kind: "guide" };
+  if (url.pathname === "/study/people" && (view === "rulers" || view === "apostles" || view === "prophets")) return { kind: "guide" };
   return { kind: "other" };
 }
 
-/** Forward = towards the right: into a special page, to a later ruler, to the next apostle. */
+const ERA_ORDER: ProphetEra[] = ["wilderness", "judges", "united", "divided", "exile", "nt"];
+/** A prophet's place in time: the era, then the story order within it. */
+const prophetRank = (id: string) => { const p = prophetFor(id); return p ? ERA_ORDER.indexOf(p.era) * 1000 + p.order : 0; };
+
+/** Forward = towards the right: into a special page (along the switch: person, rule, mission, word), to a later ruler,
+ *  to the next apostle, to a later prophet. */
 function forward(from: Place, to: Place): boolean {
   if (from.kind === "special" && to.kind === "guide") return false;
-  if (from.id && from.id === to.id) return to.kind === "special";
+  if (from.id && from.id === to.id) return to.kind === "special" && (from.kind !== "special" || ASPECTS.indexOf(to.aspect!) > ASPECTS.indexOf(from.aspect!));
   if (from.kind === "special" && to.kind === "special" && from.id && to.id) {
     if (to.aspect === "rule" && from.aspect === "rule") {
       const a = rulerFor(from.id), b = rulerFor(to.id);
       return a && b ? timeRank(b) >= timeRank(a) : true;
     }
     if (to.aspect === "mission" && from.aspect === "mission") return (apostleFor(to.id)?.order ?? 0) >= (apostleFor(from.id)?.order ?? 0);
+    if (to.aspect === "word" && from.aspect === "word") return prophetRank(to.id) >= prophetRank(from.id);
   }
   return true;
 }

@@ -4,7 +4,8 @@ import { useSideScroll } from "./useSideScroll";
 import { Link } from "react-router-dom";
 import { RefLink } from "@/components/study/StudyParts";
 import { cameFrom } from "@/lib/came-from";
-import { rulerHref } from "@/lib/people-pages-index";
+import { prophetHref, rulerHref } from "@/lib/people-pages-index";
+import { SlideLink } from "@/components/people-pages/SlideLink";
 import { tone, type Tone } from "@/lib/sections";
 import type { Prophet } from "@/lib/study";
 import { PROPHET_ERAS } from "@/lib/prophet-eras";
@@ -13,7 +14,8 @@ import "./prophets-river.css";
 /**
  * The prophets view (owner's mock-up, approved 2026-10-07). A river of time across the eras with every prophet as
  * a medallion, the kings they served on a ribbon beneath, a preview panel, and the sixteen prophetic books as a shelf.
- * Pointing at a prophet previews them; clicking opens their own page.
+ * Pointing at a prophet previews them; clicking opens their word page (/people/:id/word; their person page if they have
+ * none).
  */
 
 const ERAS = PROPHET_ERAS;
@@ -81,17 +83,17 @@ export function ProphetsRiver({ prophets, kingId }: { prophets: Prophet[]; kingI
         <div className="pm-axis" aria-hidden />
         {layout.placed.map(({ prophet: p, x, lane }) => <div key={p.id} role="listitem" className="pm-spot" style={{ left: `${x}%`, "--lane": lane, "--pm": tone(KIND_TONE[p.kind]).tab } as CSSProperties}>
           <span className="pm-stem" aria-hidden />
-          <Link to={`/people/${p.id}`} state={back()} className="pm-medal" data-kind={p.kind} data-focus={focus.id === p.id ? "" : undefined}
+          <SlideLink to={prophetHref(p.id)} state={back()} className="pm-medal" data-kind={p.kind} data-focus={focus.id === p.id ? "" : undefined}
             onMouseEnter={() => setFocus(p)} onFocus={() => setFocus(p)} aria-label={`${p.name}, ${roleOf(p)}${p.king ? `, in the days of ${p.king}` : ""}`}>
             {initials(p.name)}{p.book && <BookOpen className="pm-medal-book" size={11} aria-hidden />}
-          </Link>
+          </SlideLink>
           <span className="pm-name" aria-hidden>{p.name}</span>
         </div>)}
         {layout.kings.map((king, i) => {
           const id = kingId(king.name);
           return <div key={`${king.name}-${king.x}`} className="pm-king" style={{ left: `${king.x}%`, "--row": i % 3 } as CSSProperties}>
             <span className="pm-king-tick" aria-hidden />
-            {id ? <Link to={rulerHref(id)} state={back()}>{king.name}</Link> : <span>{king.name}</span>}
+            {id ? <SlideLink to={rulerHref(id)} state={back()}>{king.name}</SlideLink> : <span>{king.name}</span>}
           </div>;
         })}
       </div>
@@ -107,11 +109,11 @@ export function ProphetsRiver({ prophets, kingId }: { prophets: Prophet[]; kingI
         {focus.brief && <p className="pm-panel-brief">{focus.brief}</p>}
         <p className="pm-panel-when">
           {focus.king ? <>{focus.king === "Moses" || focus.king === "the judges" || focus.king === "the exile" ? "In the time of " : "In the days of "}
-            {kingId(focus.king) ? <Link to={rulerHref(kingId(focus.king)!)} state={back()}>{focus.king}</Link> : focus.king}</> : "Not dated by any king in Scripture"}
+            {kingId(focus.king) ? <SlideLink to={rulerHref(kingId(focus.king)!)} state={back()}>{focus.king}</SlideLink> : focus.king}</> : "Not dated by any king in Scripture"}
           {focus.anchor && <> · <RefLink span={focus.anchor} /></>}
         </p>
         <div className="pm-panel-actions">
-          <Link to={`/people/${focus.id}`} state={back()} className="pm-button">Open {focus.name}’s page <ArrowUpRight size={15} aria-hidden /></Link>
+          <SlideLink to={prophetHref(focus.id)} state={back()} className="pm-button">Open {focus.name}’s page <ArrowUpRight size={15} aria-hidden /></SlideLink>
           {focus.book && <Link to={`/read/kjv/${focus.book}/1`} className="pm-button pm-button-quiet">Read the book <BookOpen size={15} aria-hidden /></Link>}
         </div>
       </div>
@@ -127,9 +129,9 @@ export function ProphetsRiver({ prophets, kingId }: { prophets: Prophet[]; kingI
       {/* Names no larger than Daniel's (owner): Daniel's spine height sets the cap for every spine. */}
       <ol className="pm-books" style={{ "--daniel-h": `${7.5 + CHAPTERS.DAN * .12}rem` } as CSSProperties}>
         {writers.map((p, i) => <li key={p.id} style={{ "--h": `${7.5 + CHAPTERS[p.book!] * .12}rem`, "--chars": p.name.length, "--pm": tone(i < 4 ? "prophets" : "poetry").tab } as CSSProperties}>
-          <Link to={`/people/${p.id}`} state={back()} onMouseEnter={() => setFocus(p)} onFocus={() => setFocus(p)} title={`${p.name} · ${CHAPTERS[p.book!]} chapters${p.king ? ` · in the days of ${p.king}` : ""}`}>
+          <SlideLink to={prophetHref(p.id)} state={back()} onMouseEnter={() => setFocus(p)} onFocus={() => setFocus(p)} title={`${p.name} · ${CHAPTERS[p.book!]} chapters${p.king ? ` · in the days of ${p.king}` : ""}`}>
             <span>{p.name}</span><small>{CHAPTERS[p.book!]}</small>
-          </Link>
+          </SlideLink>
         </li>)}
       </ol>
       <p className="pm-shelf-foot"><span><i style={{ background: tone("prophets").tab }} />The major prophets</span><span><i style={{ background: tone("poetry").tab }} />The twelve</span></p>

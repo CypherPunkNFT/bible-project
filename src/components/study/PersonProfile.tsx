@@ -5,7 +5,7 @@ import { SlideLink } from "@/components/people-pages/SlideLink";
 import { useCarried } from "@/components/people-pages/use-carried";
 import { RefLink } from "@/components/study/StudyParts";
 import { useCatalog } from "@/lib/catalog";
-import { apostleFor, personPath, rulerFor } from "@/lib/people-pages-index";
+import { apostleFor, personPath, prophetFor, rulerFor } from "@/lib/people-pages-index";
 import { periodLabel } from "@/lib/people-periods";
 import { bookByNum, formatRange } from "@/lib/refs";
 import { sectionColor } from "@/lib/sections";
@@ -74,12 +74,13 @@ function SiteStory({ id, story }: { id: string; story: PersonStory }) {
 
 const RULE_PAGE = { judge: "judge", leader: "leader", governor: "governorship", herod: "rule", roman: "rule" } as Record<string, string>;
 
-/** Credit for the site's story, pointing to the reign or mission page, where the sources are. */
+/** Credit for the site's story, pointing to the reign, mission or word page, where the sources are. */
 function SiteStoryCredit({ id }: { id: string }) {
   const carried = useCarried();
-  const ruler = rulerFor(id), apostle = apostleFor(id);
+  const ruler = rulerFor(id), apostle = apostleFor(id), prophet = prophetFor(id);
   const page = ruler ? { to: personPath(ruler.id, "rule"), label: `${RULE_PAGE[ruler.kind] ?? "reign"} page` }
-    : apostle ? { to: personPath(apostle.id, "mission"), label: "mission page" } : undefined;
+    : apostle ? { to: personPath(apostle.id, "mission"), label: "mission page" }
+    : prophet ? { to: personPath(prophet.id, "word"), label: "word page" } : undefined;
   return <p className="mt-2 text-xs text-muted">
     Written by this site from Scripture
     {page && <> · sources on the <SlideLink to={page.to} state={carried} className="underline decoration-line underline-offset-2 hover:text-accent">{page.label}</SlideLink></>}

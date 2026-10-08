@@ -1,10 +1,10 @@
 import indexJson from "@/data/people-pages/index.json";
-import type { Realm, RulerKind } from "@/data/people-pages/types";
+import type { ProphetEra, ProphetKind, Realm, RulerKind } from "@/data/people-pages/types";
 
 /**
- * A small summary of every ruler and apostle page, generated from the group files by
+ * A small summary of every ruler, apostle and prophet page, generated from the group files by
  * scripts/build-people-pages-index.py (src/data/people-pages/index.json). It is bundled, so the person page's entry
- * card, the two guides and the succession arrows know every page without loading every group file.
+ * cards and switch, the guides and the succession arrows know every page without loading every group file.
  */
 export interface RulerSummary {
   id: string;
@@ -60,22 +60,47 @@ export interface ApostleSummary {
   writings?: string[];
 }
 
-export interface PeoplePagesIndex {
-  groups: { id: string; title: string; rulers: number; apostles: number }[];
-  rulers: RulerSummary[];
-  apostles: ApostleSummary[];
+/** A prophet page ("the word", /people/:id/word). */
+export interface ProphetSummary {
+  id: string;
+  group: string;
+  name: string;
+  kind: ProphetKind;
+  era: ProphetEra;
+  /** Story order within the era (the era's arrows step through it). */
+  order: number;
+  title: string;
+  tagline: string;
+  /** Person ids of the rulers in whose days they spoke. */
+  kings: string[];
+  /** USFM codes of the books bearing their name. */
+  books: string[];
+  sex: "M" | "F" | "G" | "";
+  personIds?: string[];
+  otherNames?: string[];
 }
 
-export const PEOPLE_PAGES = indexJson as unknown as PeoplePagesIndex;
+export interface PeoplePagesIndex {
+  groups: { id: string; title: string; rulers: number; apostles: number; prophets?: number }[];
+  rulers: RulerSummary[];
+  apostles: ApostleSummary[];
+  prophets: ProphetSummary[];
+}
+
+const loadedIndex = indexJson as unknown as Partial<PeoplePagesIndex>;
+export const PEOPLE_PAGES: PeoplePagesIndex = { groups: loadedIndex.groups ?? [], rulers: loadedIndex.rulers ?? [], apostles: loadedIndex.apostles ?? [], prophets: loadedIndex.prophets ?? [] };
 
 const rulerById = new Map<string, RulerSummary>();
 for (const ruler of PEOPLE_PAGES.rulers) for (const id of [ruler.id, ...(ruler.personIds ?? [])]) if (!rulerById.has(id)) rulerById.set(id, ruler);
 const apostleById = new Map<string, ApostleSummary>();
 for (const apostle of PEOPLE_PAGES.apostles) for (const id of [apostle.id, ...(apostle.personIds ?? [])]) if (!apostleById.has(id)) apostleById.set(id, apostle);
+const prophetById = new Map<string, ProphetSummary>();
+for (const prophet of PEOPLE_PAGES.prophets) for (const id of [prophet.id, ...(prophet.personIds ?? [])]) if (!prophetById.has(id)) prophetById.set(id, prophet);
 
 /** The ruler page for a person id (its own id, or another record of the same person). */
 export const rulerFor = (personId: string): RulerSummary | undefined => rulerById.get(personId);
 export const apostleFor = (personId: string): ApostleSummary | undefined => apostleById.get(personId);
+export const prophetFor = (personId: string): ProphetSummary | undefined => prophetById.get(personId);
 
 /** A king named elsewhere on the site opens his rule page when there is one, else his person page. */
 export function rulerHref(personId: string): string {
@@ -83,11 +108,43 @@ export function rulerHref(personId: string): string {
   return ruler ? `/people/${ruler.id}/rule` : `/people/${personId}`;
 }
 
-export type Aspect = "rule" | "mission";
-export const isAspect = (value: string | undefined): value is Aspect => value === "rule" || value === "mission";
+/** A prophet named elsewhere on the site opens their word page when there is one; else (Paul, Barnabas, Silas) their
+ *  mission page; else their person page. */
+export function prophetHref(personId: string): string {
+  const page = prophetFor(personId) ?? apostleFor(personId);
+  return page ? `/people/${page.id}/${prophetFor(personId) ? "word" : "mission"}` : `/people/${personId}`;
+}
+
+export type Aspect = "rule" | "mission" | "word";
+export const ASPECTS: Aspect[] = ["rule", "mission", "word"];
+export const isAspect = (value: string | undefined): value is Aspect => ASPECTS.includes(value as Aspect);
 
 /** The person's page address, or one of their special pages. */
 export const personPath = (id: string, aspect?: Aspect) => (aspect ? `/people/${id}/${aspect}` : `/people/${id}`);
+
+export type SpecialPage =
+  | { aspect: "rule"; id: string; summary: RulerSummary }
+  | { aspect: "mission"; id: string; summary: ApostleSummary }
+  | { aspect: "word"; id: string; summary: ProphetSummary };
+
+/**
+ * Every special page a person has, in the switch's order (the rule, the mission, the word): Moses, Samuel and Deborah
+ * have both a rule page and a word page. Each entry carries the page's own id (the person's main record).
+ */
+export function specialPagesOf(personId: string): SpecialPage[] {
+  const ruler = rulerFor(personId), apostle = apostleFor(personId), prophet = prophetFor(personId);
+  return [
+    ...(ruler ? [{ aspect: "rule" as const, id: ruler.id, summary: ruler }] : []),
+    ...(apostle ? [{ aspect: "mission" as const, id: apostle.id, summary: apostle }] : []),
+    ...(prophet ? [{ aspect: "word" as const, id: prophet.id, summary: prophet }] : []),
+  ];
+}
+
+/** One special page of a person, by its aspect. */
+export const specialPageOf = (personId: string, aspect: Aspect): SpecialPage | undefined => specialPagesOf(personId).find((page) => page.aspect === aspect);
+
+/** Prophets of one era, in story order (the word pages' arrows). */
+export const prophetsOfEra = (era: ProphetEra): ProphetSummary[] => PEOPLE_PAGES.prophets.filter((p) => p.era === era).sort((a, b) => a.order - b.order);
 
 /**
  * Rulers in the order of their reigns: by their years where they have them, an undated ruler by the dated neighbour in

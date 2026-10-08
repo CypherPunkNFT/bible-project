@@ -1,5 +1,6 @@
 import { CITY_COLLECTIONS } from "@/pages/places/city-collections";
 import { ERAS } from "@/lib/eras";
+import { prophetFor, rulerHref } from "@/lib/people-pages-index";
 
 /** Where the people pages link out to (PRESENTATION.md §2.5): the Atlas, the Letters, the harmony, the prophets guide. */
 
@@ -31,6 +32,13 @@ export const prophetsForKingHref = (rulerId: string) => `/study/people?view=prop
 
 export const RULERS_GUIDE = { path: "/study/people?view=rulers", label: "Rulers through time" };
 export const APOSTLES_GUIDE = { path: "/study/people?view=apostles", label: "The apostles" };
+export const PROPHETS_GUIDE = { path: "/study/people?view=prophets", label: "Prophets through time" };
 
 /** The era a year (BC positive) falls in, by the shared bands. */
 export const eraOfYear = (year: number) => ERAS.find((era) => year <= era.from && year >= era.to);
+
+/** A person named on a prophet page: a prophet's own word page, a ruler's reign, or the person page. */
+export function personHref(personId: string): string {
+  const prophet = prophetFor(personId);
+  return prophet ? `/people/${prophet.id}/word` : rulerHref(personId);
+}

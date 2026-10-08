@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import type { Ruler } from "@/data/people-pages/types";
 import { formatYears } from "@/lib/eras";
-import { personPath, rulerFor, rulerHref, rulersOfRealm, type RulerSummary } from "@/lib/people-pages-index";
+import { prophetFor, prophetHref, rulerFor, rulerHref, rulersOfRealm, type RulerSummary } from "@/lib/people-pages-index";
 import { REALM_LABEL, VERDICT, isConsort, ordinal, reignLength } from "./kinds";
 import { atlasCityHref, eraOfYear } from "./links";
 import { AspectSwitch } from "./PersonEntry";
@@ -35,7 +35,9 @@ export function RulerHero({ ruler, summary }: { ruler: Ruler; summary: RulerSumm
     <h2 id="pp-hero-title">{ruler.name}.<em>{ruler.tagline}</em></h2>
     {(ruler.otherNames?.length || ruler.title.toLowerCase().includes("prophet")) && <div className="pp-badges">
       {ruler.otherNames?.length ? <span className="pp-badge">Also called {ruler.otherNames.join(", ")}</span> : null}
-      {ruler.title.toLowerCase().includes("prophet") && <Link className="pp-badge" to="/study/people?view=prophets">{ruler.title.toLowerCase().includes("prophetess") ? "Prophetess" : "Prophet"} · in Prophets through time →</Link>}
+      {ruler.title.toLowerCase().includes("prophet") && (prophetFor(ruler.id)
+        ? <Link className="pp-badge" to={prophetHref(ruler.id)}>{ruler.title.toLowerCase().includes("prophetess") ? "Prophetess" : "Prophet"} · the word →</Link>
+        : <Link className="pp-badge" to="/study/people?view=prophets">{ruler.title.toLowerCase().includes("prophetess") ? "Prophetess" : "Prophet"} · in Prophets through time →</Link>)}
     </div>}
     <dl className="pp-stats">
       <div className="pp-stat">
@@ -61,7 +63,7 @@ export function RulerHero({ ruler, summary }: { ruler: Ruler; summary: RulerSumm
       </div>
       <div className="pp-stat">
         <dt>Prophets</dt>
-        <dd>{ruler.prophets.length ? ruler.prophets.map((p, i) => <span key={p.person.name}>{i > 0 && " · "}{p.person.personId ? <Link to={personPath(p.person.personId)}>{p.person.name}</Link> : p.person.name}</span>) : "None named"}</dd>
+        <dd>{ruler.prophets.length ? ruler.prophets.map((p, i) => <span key={p.person.name}>{i > 0 && " · "}{p.person.personId ? <Link to={prophetHref(p.person.personId)}>{p.person.name}</Link> : p.person.name}</span>) : "None named"}</dd>
       </div>
     </dl>
     {line.length > 1 && <RealmLane line={line} current={ruler.id} />}

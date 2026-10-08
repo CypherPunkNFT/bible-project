@@ -37,6 +37,19 @@
         { "file": "src/data/people-pages/church-jerusalem.json", "page": "The Jerusalem church", "address": "/study/people?view=apostles" },
         { "file": "src/data/people-pages/church-pauls-circle.json", "page": "Paul's companions", "address": "/study/people?view=apostles" }
       ]
+    },
+    {
+      "id": "people-prophets",
+      "label": "People · prophets",
+      "pages": [
+        { "file": "src/data/people-pages/prophets-wilderness-judges.json", "page": "From Moses to Samuel", "address": "/study/prophets" },
+        { "file": "src/data/people-pages/prophets-court.json", "page": "Prophets of the royal courts", "address": "/study/prophets" },
+        { "file": "src/data/people-pages/prophets-north.json", "page": "Elijah, Elisha and the north", "address": "/study/prophets" },
+        { "file": "src/data/people-pages/prophets-eighth-century.json", "page": "Isaiah and the eighth century", "address": "/study/prophets" },
+        { "file": "src/data/people-pages/prophets-jeremiah.json", "page": "Jeremiah and the last days of Judah", "address": "/study/prophets" },
+        { "file": "src/data/people-pages/prophets-exile-return.json", "page": "The exile and the return", "address": "/study/prophets" },
+        { "file": "src/data/people-pages/prophets-new-testament.json", "page": "Prophets of the New Testament", "address": "/study/prophets" }
+      ]
     }
   ]
 }

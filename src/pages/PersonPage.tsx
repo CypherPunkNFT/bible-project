@@ -6,14 +6,14 @@ import { readyKey, usePeoplePageSlide } from "@/components/people-pages/usePeopl
 import { PersonProfile } from "@/components/study/PersonProfile";
 import { StudyCredits } from "@/components/study/StudyParts";
 import { useCachedLoad } from "@/lib/people-pages";
-import { apostleFor, isAspect, personPath, rulerFor, type Aspect } from "@/lib/people-pages-index";
+import { isAspect, personPath, specialPageOf, type Aspect } from "@/lib/people-pages-index";
 import { loadPeople, loadPersonDetail } from "@/lib/study";
 
 type SpecialPages = typeof import("@/components/people-pages/SpecialPages");
 let specialPages: SpecialPages | undefined;
 const loadSpecialPages = () => import("@/components/people-pages/SpecialPages").then((module) => (specialPages = module));
 
-/** The ruler and apostle pages' code, loaded only when one opens (kept after, so a page wipe never waits on it twice). */
+/** The ruler, apostle and prophet pages' code, loaded only when one opens (kept after, so a page wipe never waits on it twice). */
 function useSpecialPages(wanted: boolean): SpecialPages | undefined {
   const [, setLoaded] = useState(0);
   useEffect(() => {
@@ -26,8 +26,8 @@ function useSpecialPages(wanted: boolean): SpecialPages | undefined {
 }
 
 /** The page for one person (/people/:id), reached from the People table, the family tree, Topics or search; and, for a
- *  ruler or an apostle, their second page (/people/:id/rule, /people/:id/mission). The back link names wherever the
- *  visitor came from; the switch between the two pages carries that along. */
+ *  ruler, an apostle or a prophet, their other pages (/people/:id/rule, /people/:id/mission, /people/:id/word). The back
+ *  link names wherever the visitor came from; the switch between the pages carries that along. */
 export default function PersonPage() {
   const { id = "", aspect: asked } = useParams();
   const { state } = useLocation();
@@ -35,7 +35,7 @@ export default function PersonPage() {
   const slide = usePeoplePageSlide();
   const people = useCachedLoad("people", loadPeople);
   const detail = useCachedLoad(`person:${id}`, () => loadPersonDetail(id));
-  const special = aspect === "rule" ? rulerFor(id) : aspect === "mission" ? apostleFor(id) : undefined;
+  const special = aspect ? specialPageOf(id, aspect) : undefined;
   const pages = useSpecialPages(Boolean(special));
   const byId = useMemo(() => new Map(people.status === "ready" ? people.value.map((p) => [p.id, p]) : []), [people]);
   const row = byId.get(id);
@@ -50,7 +50,7 @@ export default function PersonPage() {
   if (special && aspect) return <div className="mx-auto max-w-7xl px-4 pb-16 pt-6 sm:px-6" onClickCapture={slide}>
     <div className="people-page-slide">
       {!pages ? <div className="h-96 animate-pulse rounded-2xl bg-surface-2" role="status" aria-label="Loading" />
-        : aspect === "rule" ? <pages.RulerPage id={special.id} sex={sex} /> : <pages.ApostlePage id={special.id} />}
+        : aspect === "rule" ? <pages.RulerPage id={special.id} sex={sex} /> : aspect === "mission" ? <pages.ApostlePage id={special.id} /> : <pages.ProphetPage id={special.id} sex={sex} />}
     </div>
   </div>;
 

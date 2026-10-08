@@ -1,6 +1,7 @@
 import type { OpenQuestion as LetterQuestion } from "@/data/letters/types";
-import type { EventKind, OpenQuestion, Realm, Ruler, RulerKind } from "@/data/people-pages/types";
-import type { RulerSummary } from "@/lib/people-pages-index";
+import type { EventKind, OpenQuestion, ProphetEra as ProphetEraId, ProphetKind, Realm, Ruler, RulerKind } from "@/data/people-pages/types";
+import { prophetEra, type ProphetEra } from "@/lib/prophet-eras";
+import type { RulerSummary, SpecialPage } from "@/lib/people-pages-index";
 
 /**
  * How each kind of ruler is shown (Research/People/PRESENTATION.md §3.10): its glow colour (the Letters pages' --lg),
@@ -35,6 +36,35 @@ export function glowFor(kind: RulerKind, realm: Realm): string {
 }
 
 export const APOSTLE_GLOW = "var(--role-disciple)";
+
+/**
+ * The prophets' colour on Prophets through time (the Prophets section's blue, tone "prophets"); the prophets Scripture
+ * says were not sent keep the guide's quiet grey (tone "apocrypha", drawn dashed there).
+ */
+export const prophetGlow = (kind: ProphetKind) => (kind === "false" ? "var(--apocrypha)" : "var(--prophets)");
+
+/** The glow of one special page: the ruler's kind, the apostles' purple, the prophets' blue. */
+export function pageGlow(page: SpecialPage): string {
+  return page.aspect === "rule" ? glowFor(page.summary.kind, page.summary.realm) : page.aspect === "mission" ? APOSTLE_GLOW : prophetGlow(page.summary.kind);
+}
+
+/** The prophet pages' eras, as the bands of Prophets through time (src/lib/prophet-eras.ts) name and date them. */
+const ERA_BAND: Record<ProphetEraId, string> = {
+  wilderness: "Egypt and Wilderness", judges: "Judges", united: "United Monarchy", divided: "Divided Monarchy", exile: "Exile and Return", nt: "New Testament",
+};
+export const prophetEraBand = (era: ProphetEraId): ProphetEra => prophetEra(ERA_BAND[era]);
+
+/** What Scripture calls them, for the hero and the entry card ("Seer", "Prophetess"). A prophet Scripture says was not
+ *  sent is named by the page's title, in the text's own words, never by a label of ours. */
+export function prophetCalled(kind: ProphetKind, sex: "M" | "F" | "G" | ""): string {
+  switch (kind) {
+    case "prophetess": return "Prophetess";
+    case "seer": return "Seer";
+    case "singer": return "Prophesied with harps";
+    case "nt": return sex === "F" ? "Prophetess" : sex === "G" ? "Prophets" : "Prophet";
+    default: return sex === "F" ? "Prophetess" : sex === "G" ? "Prophets" : "Prophet";
+  }
+}
 
 type Sex = "M" | "F" | "G" | "";
 

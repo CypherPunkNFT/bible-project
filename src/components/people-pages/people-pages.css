@@ -41,6 +41,13 @@ html[data-people-slide][data-people-direction=backward]::view-transition-old(peo
 .pp-entry-kicker { margin-top: .35rem; font-size: .66rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--lg); }
 .pp-entry-line { font: 500 1.2rem/1.35 var(--font-serif); }
 .pp-entry-cta { display: inline-flex; align-items: center; gap: .45rem; margin-top: .35rem; font-size: .9rem; font-weight: 600; color: var(--lg); }
+/* A person with two pages (Moses, Samuel, Deborah: the rule and the word): one smaller card for each, stacked. */
+.pp-entries { display: grid; gap: .75rem; align-content: start; }
+.pp-entry[data-compact] { grid-template-columns: auto minmax(0, 1fr); column-gap: 1rem; row-gap: .3rem; padding: 1.05rem 1.2rem; }
+.pp-entry[data-compact] .pp-entry-icon { grid-row: span 3; margin-top: .2rem; }
+.pp-entry[data-compact] .pp-entry-kicker { margin-top: 0; }
+.pp-entry[data-compact] .pp-entry-line { font-size: 1.02rem; }
+.pp-entry[data-compact] .pp-entry-cta { grid-column: 2; margin-top: .1rem; }
 
 /* ── Page frame: back link and crumbs ── */
 .pp-top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: .5rem 1rem; }

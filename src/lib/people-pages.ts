@@ -1,15 +1,15 @@
 /// <reference types="vite/client" /> // for import.meta.glob below
 import { useEffect, useState } from "react";
-import type { Apostle, ApostleGroup, Ruler, RulerGroup } from "@/data/people-pages/types";
-import { apostleFor, rulerFor, type Aspect } from "@/lib/people-pages-index";
+import type { Apostle, ApostleGroup, Prophet, ProphetGroup, Ruler, RulerGroup } from "@/data/people-pages/types";
+import { apostleFor, prophetFor, rulerFor, type Aspect } from "@/lib/people-pages-index";
 
 /**
- * The ruler and apostle group files (src/data/people-pages/*.json), each loaded only when a page needs it, so the
+ * The ruler, apostle and prophet group files (src/data/people-pages/*.json), each loaded only when a page needs it, so the
  * main bundle never carries them. index.json is the bundled summary (people-pages-index.ts), not a group.
  */
-const FILES = import.meta.glob<{ default: RulerGroup | ApostleGroup }>(["/src/data/people-pages/*.json", "!/src/data/people-pages/index.json"]);
+const FILES = import.meta.glob<{ default: RulerGroup | ApostleGroup | ProphetGroup }>(["/src/data/people-pages/*.json", "!/src/data/people-pages/index.json"]);
 
-export type PeopleGroup = Partial<RulerGroup> & Partial<ApostleGroup> & { id: string; title: string; citations: RulerGroup["citations"] };
+export type PeopleGroup = Partial<RulerGroup> & Partial<ApostleGroup> & Partial<ProphetGroup> & { id: string; title: string; citations: RulerGroup["citations"] };
 
 const loaded = new Map<string, PeopleGroup>();
 const pending = new Map<string, Promise<PeopleGroup | undefined>>();
@@ -70,9 +70,14 @@ export function useApostle(id: string): GroupState<Apostle> {
   return useGroupItem(summary?.group, (group) => group.apostles?.find((a) => a.id === summary?.id));
 }
 
+export function useProphet(id: string): GroupState<Prophet> {
+  const summary = prophetFor(id);
+  return useGroupItem(summary?.group, (group) => group.prophets?.find((p) => p.id === summary?.id));
+}
+
 /** Everything a special page needs before it is drawn: used to wait (briefly) before a page wipe starts. */
 export function preparePeoplePage(id: string, aspect: Aspect): Promise<unknown> {
-  const group = aspect === "rule" ? rulerFor(id)?.group : apostleFor(id)?.group;
+  const group = aspect === "rule" ? rulerFor(id)?.group : aspect === "mission" ? apostleFor(id)?.group : prophetFor(id)?.group;
   return group ? loadPeopleGroup(group) : Promise.resolve();
 }
 

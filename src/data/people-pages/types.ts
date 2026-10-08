@@ -218,3 +218,65 @@ export interface ApostleGroup {
   apostles: Apostle[];
   citations: Citation[];
 }
+
+// ─── Prophets ("the word": /people/:id/word) ─────────────────────────────────
+
+/** What Scripture calls them: a prophet or prophetess, a seer, a singer who "prophesied with harps" (1 Chr 25:1),
+ *  a prophet Scripture says was not sent, or a New Testament prophet. */
+export type ProphetKind = "prophet" | "prophetess" | "seer" | "singer" | "false" | "nt";
+/** The era band on Prophets through time (the same bands as the prophets guide). */
+export type ProphetEra = "wilderness" | "judges" | "united" | "divided" | "exile" | "nt";
+
+export interface Prophet {
+  id: string; // primary person id
+  personIds?: string[];
+  name: string;
+  otherNames?: string[];
+  kind: ProphetKind;
+  era: ProphetEra;
+  /** "Prophet in Israel in the days of Ahab", "A prophet the LORD had not sent (Jeremiah 28:15)". */
+  title: string;
+  tagline: string;
+  order: number; // story order within the era
+  /** The rulers in whose days they spoke, each with what passed between them (links to rule pages when they exist). */
+  kings: { person: PersonRef; claim: Claim; quote?: Quote }[];
+  /** How the word first came: one entry per account (Isaiah 6, Jeremiah 1, Ezekiel 1–3, Amos 7:14–15…). May be []. */
+  call: { label: string; quote?: Quote; claim: Claim; placeId?: string }[];
+  /** How the word came and was given: "the word of the LORD came", visions, dreams, sign-acts, writing, song. */
+  how: Claim[];
+  /** The message in its main themes, our words, each with its key verses; quotations word for word. */
+  message: { theme: string; claim: Claim; quotes?: Quote[] }[];
+  /** Words spoken to a named person, people or nation ("Thou art the man"). */
+  words: { to: string; person?: PersonRef; placeId?: string; quote: Quote; claim?: Claim }[];
+  /** Signs, wonders and sign-acts as the text tells them. */
+  signs: { label: string; kind: "wonder" | "sign-act" | "vision" | "other"; claim: Claim; placeId?: string }[];
+  /** Only where Scripture itself says a word came to pass ("according to the word of the LORD which he spake by…"),
+   *  or the New Testament says it was fulfilled. Never our own verdict. */
+  fulfilment: { word: Claim; reported: Claim }[];
+  /** Books that bear their name (writing prophets). Links to the reader; nothing retold beyond the outline. */
+  books: {
+    code: string; // USFM, e.g. "ISA"
+    title: string;
+    claim: Claim; // what the book contains
+    outline: { title: string; span: Span }[];
+    /** Where the New Testament quotes the book. */
+    quotedInNT: { at: Span; from: Span; note?: string }[];
+  }[];
+  /** Disciples, servants, scribes and opponents (Elisha, Gehazi, Baruch, Pashur, Amaziah of Bethel…). */
+  companions: { person: PersonRef; claim: Claim }[];
+  places: PlaceRef[];
+  /** How the story ends: Scripture beside tradition, never blended (as on the apostle pages). */
+  ending: { scripture: Claim[]; tradition: (Claim & { who: string; when: string })[] };
+  questions: OpenQuestion[];
+  notSaid: string[];
+  passages: Span[];
+}
+
+export interface ProphetGroup {
+  id: string;
+  title: string;
+  era: ProphetEra;
+  intro: Claim[];
+  prophets: Prophet[];
+  citations: Citation[];
+}

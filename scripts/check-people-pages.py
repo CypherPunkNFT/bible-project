@@ -29,6 +29,10 @@ SPAN_KEYS = {"span"}
 RULER_REQUIRED = ["id", "name", "kind", "realm", "title", "tagline", "order", "records", "reign", "dates", "verdictTone",
                   "events", "nation", "prophets", "worldStage", "outside", "twoAccounts", "questions", "notSaid",
                   "places", "passages"]
+PROPHET_REQUIRED = ["id", "name", "kind", "era", "title", "tagline", "order", "kings", "call", "how", "message", "words",
+                    "signs", "fulfilment", "books", "companions", "places", "ending", "questions", "notSaid", "passages"]
+PROPHET_KINDS = {"prophet", "prophetess", "seer", "singer", "false", "nt"}
+PROPHET_ERAS = {"wilderness", "judges", "united", "divided", "exile", "nt"}
 APOSTLE_REQUIRED = ["id", "name", "otherNames", "title", "tagline", "order", "family", "identifications", "calling",
                     "moments", "acts", "places", "companions", "ending", "writings", "questions", "notSaid", "passages"]
 BANNED_WORDS = re.compile(r"\b(undoubtedly|surely|clearly|proves?|obviously|certainly)\b", re.IGNORECASE)
@@ -103,10 +107,18 @@ def check_file(file: Path, verses: dict[int, set[int]], place_ids: set[str], har
         if citation.get("id") not in used:
             errors.append(f"{name}: citation '{citation.get('id')}' is listed but never cited")
 
-    items = data.get("rulers") if "rulers" in data else data.get("apostles")
-    required = RULER_REQUIRED if "rulers" in data else APOSTLE_REQUIRED
+    kind_key = next((k for k in ("rulers", "apostles", "prophets") if k in data), None)
+    items = data.get(kind_key) if kind_key else None
+    required = {"rulers": RULER_REQUIRED, "apostles": APOSTLE_REQUIRED, "prophets": PROPHET_REQUIRED}.get(kind_key, [])
+    if kind_key == "prophets":
+        for item in items or []:
+            where = f"{name}: {item.get('id', '?')}"
+            if item.get("kind") not in PROPHET_KINDS:
+                errors.append(f"{where}: kind '{item.get('kind')}' is not one of {sorted(PROPHET_KINDS)}")
+            if item.get("era") not in PROPHET_ERAS:
+                errors.append(f"{where}: era '{item.get('era')}' is not one of {sorted(PROPHET_ERAS)}")
     if not isinstance(items, list) or not items:
-        errors.append(f"{name}: expected a non-empty 'rulers' or 'apostles' list")
+        errors.append(f"{name}: expected a non-empty 'rulers', 'apostles' or 'prophets' list")
         return errors
     ids = {item.get("id") for item in items}
     for item in items:

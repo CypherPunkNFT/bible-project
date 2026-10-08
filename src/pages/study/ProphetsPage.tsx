@@ -3,7 +3,9 @@ import { Link, useSearchParams } from "react-router-dom";
 import { ProphetsRiver } from "@/components/study/ProphetsRiver";
 import { cameFrom } from "@/lib/came-from";
 import { kingFinder } from "@/lib/prophet-links";
-import { rulerFor, rulerHref } from "@/lib/people-pages-index";
+import { prophetHref, rulerFor, rulerHref } from "@/lib/people-pages-index";
+import { SlideLink } from "@/components/people-pages/SlideLink";
+import { readyKey } from "@/components/people-pages/usePeoplePageSlide";
 import { prophetEra } from "@/lib/prophet-eras";
 import { RefLink, StudyCredits, StudyHeader } from "@/components/study/StudyParts";
 import { useCatalog } from "@/lib/catalog";
@@ -40,7 +42,8 @@ export function ProphetsContent({ embedded = false }: { embedded?: boolean }) {
   const eras = [...new Set(shown.map((p) => p.era))];
 
   return (
-    <div className={embedded ? "min-w-0" : "mx-auto max-w-6xl px-4 pb-16 sm:px-6"}>
+    // Marked ready once drawn, so a wipe back from a prophet's word page lands on the guide, not on a loading frame.
+    <div className={embedded ? "min-w-0" : "mx-auto max-w-6xl px-4 pb-16 sm:px-6"} data-people-ready={prophets.status === "ready" ? readyKey({ kind: "guide", view: "prophets" }) : undefined}>
       {!embedded && <StudyHeader
         eyebrow="Study · Prophets"
         title="The prophets, in order."
@@ -117,10 +120,10 @@ function ProphetCard({ prophet, kingId, dim }: { prophet: Prophet; kingId: (name
           {book && " · wrote a book"}
         </p>
         <h3 className={cn("font-serif text-xl font-semibold", prophet.kind === "false" && "text-muted")}>
-          {/* The name's link covers the whole card; the king, the verse and the book sit above it. */}
-          <Link to={`/people/${prophet.id}`} state={cameFrom("Prophets through time")} className="after:absolute after:inset-0 hover:text-accent">
+          {/* The name's link covers the whole card (their word page when they have one); the king, the verse and the book sit above it. */}
+          <SlideLink to={prophetHref(prophet.id)} state={cameFrom("Prophets through time")} className="after:absolute after:inset-0 hover:text-accent">
             {prophet.name}
-          </Link>
+          </SlideLink>
         </h3>
         {prophet.brief && <p className="mt-1 text-sm">{prophet.brief}</p>}
         <p className="mt-2 text-sm text-muted">

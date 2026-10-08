@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Section } from "@/components/letters/LetterParts";
 import type { PersonRef, Ruler } from "@/data/people-pages/types";
-import { personPath, rulerHref } from "@/lib/people-pages-index";
+import { prophetFor, prophetHref, rulerHref } from "@/lib/people-pages-index";
 import { ClaimList, EvidenceClaim, QuoteText } from "./Evidence";
 import { initials, isConsort, isForeign } from "./kinds";
 import { prophetsForKingHref } from "./links";
@@ -59,7 +59,8 @@ export function ReignProphets({ ruler }: { ruler: Ruler }) {
           {isOpen && <div className="lg-theme-body">
             {p.quote && <QuoteText quote={p.quote} />}
             <div style={{ marginTop: ".75rem" }}><EvidenceClaim claim={p.claim} as="div" /></div>
-            {p.person.personId && <Link className="pp-link" style={{ marginTop: ".75rem" }} to={personPath(p.person.personId)}><BookOpen size={14} aria-hidden /> {p.person.name}'s page</Link>}
+            {/* The prophet's word page when there is one (the word page's "Before the kings" links back here). */}
+            {p.person.personId && <Link className="pp-link" style={{ marginTop: ".75rem" }} to={prophetHref(p.person.personId)}><BookOpen size={14} aria-hidden /> {prophetFor(p.person.personId) ? `${p.person.name}: the word` : `${p.person.name}'s page`}</Link>}
           </div>}
         </li>;
       })}
