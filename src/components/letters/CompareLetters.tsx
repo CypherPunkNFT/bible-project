@@ -13,6 +13,17 @@ const NONE: RibbonReveal = { top: 0, bottom: 0 };
 const WHOLE: RibbonReveal = { top: 0.5, bottom: 0.5 };
 
 type Link = { left: Span; right: Span; votes: number };
+
+/** One chapter's cross-references, tried again if the file cannot be read (the site may be mid-update). A file that
+ *  still fails is an error, never "no links": silently counting it as empty showed real pairs as having none. */
+async function crossRefs(code: string, chapter: string) {
+  for (let attempt = 1; ; attempt++) {
+    try { return await loadCrossRefs(code, chapter); } catch (error) {
+      if (attempt >= 3) throw new Error(`Cross-references for ${code} ${chapter} could not be read: ${(error as Error).message}`);
+      await new Promise((resolve) => setTimeout(resolve, 400 * attempt));
+    }
+  }
+}
 type Slots = [string | null, string | null];
 
 /** One book the reader can pick: a letter by default; a collection can offer its own few (and a Gospel). */
@@ -32,18 +43,22 @@ export function CompareLetters({ initial, curated = [], choices }: { initial: [s
   // Clicking a chosen letter frees its rail; a new letter fills an empty rail, or replaces the bottom one.
   const toggle = (code: string) => setSlots(([top, bottom]) =>
     top === code ? [null, bottom] : bottom === code ? [top, null] : top === null ? [code, bottom] : [top, code]);
-  const [links, setLinks] = useState<Link[] | null>(null);
+  // The links found for one pair, tagged with that pair, so a stale list (or an empty one) is never shown for another.
+  const [links, setLinks] = useState<{ pair: string; list: Link[] } | null>(null);
+  const [failed, setFailed] = useState(false);
+  const [attempt, setAttempt] = useState(0); // "Try again" reloads the pair's cross-references
   const books = useMemo(() => new Map(catalog.books.map((b) => [b.code, b])), [catalog]);
   const chapters = (code: string) => (stats.status === "ready" ? stats.value.books.find((b) => b.code === code)?.chapters.length ?? 0 : 0);
 
   useEffect(() => {
-    if (stats.status !== "ready" || !left || !right) { setLinks([]); return; }
+    if (stats.status !== "ready" || !left || !right) { setLinks(null); return; }
     let live = true;
     setLinks(null);
+    setFailed(false);
     const num = (code: string) => books.get(code)!.num;
     const pull = async (from: string, to: string, flip: boolean) => {
       const found: Link[] = [];
-      const files = await Promise.all(Array.from({ length: chapters(from) }, (_, i) => loadCrossRefs(from, String(i + 1)).catch(() => ({}))));
+      const files = await Promise.all(Array.from({ length: chapters(from) }, (_, i) => crossRefs(from, String(i + 1))));
       files.forEach((file, i) => {
         for (const [key, targets] of Object.entries(file)) {
           const verse = Number(key.split(":")[1]);
@@ -62,11 +77,15 @@ export function CompareLetters({ initial, curated = [], choices }: { initial: [s
       // The same link listed from both ends counts once, with the higher vote.
       const merged = new Map<string, Link>();
       for (const l of [...a, ...b]) { const k = `${l.left[0]}-${l.right[0]}`; const prev = merged.get(k); if (!prev || prev.votes < l.votes) merged.set(k, l); }
-      setLinks([...merged.values()].sort((x, y) => y.votes - x.votes));
+      setLinks({ pair: `${left}-${right}`, list: [...merged.values()].sort((x, y) => y.votes - x.votes) });
+    }, (error: Error) => {
+      if (!live) return;
+      console.error(error);
+      setFailed(true);
     });
     return () => { live = false; };
   // eslint-disable-next-line react-hooks/exhaustive-deps -- chapters() reads stats, already a dependency
-  }, [left, right, stats.status, books]);
+  }, [left, right, stats.status, books, attempt]);
 
   const span = (code: string): Span => {
     const n = books.get(code)?.num ?? 0, last = stats.status === "ready" ? stats.value.books.find((b) => b.code === code)?.chapters : undefined;
@@ -76,12 +95,12 @@ export function CompareLetters({ initial, curated = [], choices }: { initial: [s
   // A scholar-paired parallel between the same two books (in either order) is shown too.
   const pairKey = (a?: number, b?: number) => [a, b].sort().join();
   const scholar = left && right ? curated.find((p) => pairKey(Math.floor(p.left.span[0] / 1_000_000), Math.floor(p.right.span[0] / 1_000_000)) === pairKey(books.get(left)?.num, books.get(right)?.num)) : undefined;
-  const ready = left && right && links !== null ? `${left}-${right}` : null;
+  const ready = left && right && links?.pair === `${left}-${right}` ? links.pair : null;
   const pair: Parallel | null = ready && left && right ? {
     id: `compare-${left}-${right}`, title: `${name(left)} and ${name(right)}`,
     left: { label: name(left), span: span(left) }, right: { label: name(right), span: span(right) },
-    pairs: links!.slice(0, SHOWN).map((l) => ({ left: l.left, right: l.right, weight: l.votes })),
-    claim: { text: `${links!.length} cross-reference links join these letters; the ${Math.min(SHOWN, links!.length)} with the most reader votes are drawn. Cross references from OpenBible.info (CC BY).` },
+    pairs: links!.list.slice(0, SHOWN).map((l) => ({ left: l.left, right: l.right, weight: l.votes })),
+    claim: { text: `${links!.list.length} cross-reference links join these letters; the ${Math.min(SHOWN, links!.list.length)} with the most reader votes are drawn. Cross references from OpenBible.info (CC BY).` },
   } : null;
 
   // The ribbons on screen (they may belong to the pair just broken, while they shrink away) and how much of them shows.
@@ -135,6 +154,7 @@ export function CompareLetters({ initial, curated = [], choices }: { initial: [s
   const drawn: Parallel = { ...base, left: { ...base.left, label: railLabel(left) }, right: { ...base.right, label: railLabel(right) } };
   const settled = pair !== null && shown?.id === pair.id;
   const hint = settled ? undefined
+    : left && right && failed ? "The cross-references could not be read just now (the site may be updating)."
     : left && right ? "Reading the cross-references…"
     : left || right ? `${name((left ?? right)!)} chosen. Choose one more to compare it with.` : "Choose two to compare.";
 
@@ -146,6 +166,7 @@ export function CompareLetters({ initial, curated = [], choices }: { initial: [s
     </div>
     <div style={{ marginTop: "1rem" }}>
       <ParallelRibbon parallel={drawn} weightLabel="reader votes" reveal={reveal} empty={{ top: !left, bottom: !right }} hint={hint} />
+      {failed && <button type="button" className="lg-tab" onClick={() => setAttempt((n) => n + 1)}>Try again</button>}
     </div>
     {scholar && <div style={{ marginTop: "1.5rem" }}><p className="lg-subhead">Paired by scholars: {scholar.title}</p><ParallelRibbon parallel={scholar} /></div>}
   </div>;

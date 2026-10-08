@@ -13,10 +13,13 @@ const STATUS = {
   omitted: { label: "Left out", fill: "color-mix(in srgb, var(--ink) 25%, transparent)" },
 } as const;
 
-/** How the early church received each letter: one lane per letter, one mark per witness, coloured by its verdict. */
+/**
+ * How the early church received each letter: one lane per letter, one mark per witness, coloured by its verdict. A year
+ * (its label at the top, or any mark under it) selects the whole column: every witness of that year in every lane.
+ */
 export function CanonLanes({ events, letters }: { events: CanonEvent[]; letters: Letter[] }) {
-  const keep = useKeep<CanonEvent>();
-  const { active } = keep;
+  const keep = useKeep<number>();
+  const { active } = keep; // a year
   if (!events.length) return null;
   const sorted = [...events].sort((a, b) => a.year - b.year);
   const lo = sorted[0].year, hi = sorted[sorted.length - 1].year;
@@ -36,7 +39,15 @@ export function CanonLanes({ events, letters }: { events: CanonEvent[]; letters:
   return <figure>
     <div className="lg-figure">
       <svg viewBox={`0 0 ${width} ${height}`} style={width > W ? { minWidth: width } : undefined} role="img" aria-label={`How the early church received ${lanes.map((l) => l.name).join(", ")}, AD ${lo} to ${hi}`}>
-        {[...at.keys()].map((year) => <text key={`y${year}`} x={x(year)} y={14} textAnchor="middle" className="lg-svg-text" opacity={active && active.year !== year ? 0.3 : 1}>{year}</text>)}
+        {active !== null && <line x1={x(active)} x2={x(active)} y1={22} y2={height - 6} stroke="var(--lg)" strokeDasharray="3 4" opacity={0.45} />}
+        {[...at.keys()].map((year) => {
+          const witnesses = sorted.filter((e) => e.year === year);
+          return <g key={`y${year}`} style={{ cursor: "pointer" }} tabIndex={0} role="button" opacity={active !== null && active !== year ? 0.3 : 1}
+            aria-label={`About AD ${year}: ${witnesses.map((e) => e.label).join("; ")}`} {...keep.bind(year)}>
+            <rect x={x(year) - MIN_GAP / 2} y={0} width={MIN_GAP} height={22} fill="transparent" />
+            <text x={x(year)} y={14} textAnchor="middle" className={active === year ? "lg-svg-strong" : "lg-svg-text"}>{year}</text>
+          </g>;
+        })}
         {lanes.map((letter, li) => {
           const y = 36 + li * LANE;
           return <g key={letter.code}>
@@ -45,10 +56,10 @@ export function CanonLanes({ events, letters }: { events: CanonEvent[]; letters:
             {sorted.map((e, i) => {
               const status = e.status[letter.code];
               if (!status) return null;
-              return <circle key={i} cx={x(e.year)} cy={y} r={active === e ? 8 : 6} fill={STATUS[status].fill} stroke={status === "doubted" ? "var(--lg)" : "var(--page)"} strokeWidth={status === "doubted" ? 2 : 1.5}
-                className={[status === "accepted" && "lg-glow", keep.peek(e) && "lg-peek"].filter(Boolean).join(" ") || undefined} style={{ cursor: "pointer" }} tabIndex={0} role="button"
+              return <circle key={i} cx={x(e.year)} cy={y} r={active === e.year ? 8 : 6} fill={STATUS[status].fill} stroke={status === "doubted" ? "var(--lg)" : "var(--page)"} strokeWidth={status === "doubted" ? 2 : 1.5}
+                className={[status === "accepted" && "lg-glow", keep.peek(e.year) && "lg-peek"].filter(Boolean).join(" ") || undefined} style={{ cursor: "pointer" }} tabIndex={0} role="button"
                 aria-label={`${e.label}, about AD ${e.year}: ${letter.name} ${STATUS[status].label.toLowerCase()}`}
-                {...keep.bind(e)} />;
+                {...keep.bind(e.year)} />;
             })}
           </g>;
         })}
@@ -58,7 +69,9 @@ export function CanonLanes({ events, letters }: { events: CanonEvent[]; letters:
       {Object.values(STATUS).map((s) => <span key={s.label} className="lg-muted" style={{ fontSize: ".72rem", display: "inline-flex", alignItems: "center", gap: ".35rem", marginRight: ".8rem" }}>
         <svg width="12" height="12"><circle cx="6" cy="6" r="4.5" fill={s.fill} stroke={s.fill === "transparent" ? "var(--lg)" : "none"} strokeWidth="1.5" /></svg>{s.label}</span>)}
     </div>
-    <div className="lg-tip" aria-live="polite">{active ? <><strong>{active.label}</strong>{keep.kept && <KeepX onRelease={keep.release} />} <span className="lg-muted">· about AD {active.year} · {active.who}</span><ClaimText claim={active.claim} /></>
-      : <span className="lg-muted">Point at a mark to read what that witness says; click to keep it.</span>}</div>
+    <div className="lg-tip" aria-live="polite">{active !== null ? sorted.filter((e) => e.year === active).map((e, i) => <div key={i}>
+        <strong>{e.label}</strong>{i === 0 && keep.kept !== null && <KeepX onRelease={keep.release} />} <span className="lg-muted">· about AD {e.year} · {e.who}</span><ClaimText claim={e.claim} />
+      </div>)
+      : <span className="lg-muted">Point at a year or a mark to read what the witnesses of that year say; click to keep it.</span>}</div>
   </figure>;
 }

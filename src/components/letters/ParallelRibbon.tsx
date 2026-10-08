@@ -11,8 +11,29 @@ const BOTTOM = H - 52;
 // place: 22 for a handful of passages, shrinking for busy charts (60 links) so the ribbons don't pile up.
 const minSegment = (pairs: number) => Math.max(6, Math.min(22, 180 / Math.max(1, pairs)));
 
-/** How much of every ribbon shows, as a share of the gap, grown from the top rail and from the bottom rail (0.5 + 0.5 is
- *  the whole ribbon). The pick-two comparison animates it: ribbons grow from both rails, or shrink back into one. */
+type Pt = [number, number];
+type Cubic = [Pt, Pt, Pt, Pt];
+const lerp = (p: Pt, q: Pt, t: number): Pt => [p[0] + (q[0] - p[0]) * t, p[1] + (q[1] - p[1]) * t];
+/** A cubic Bézier cut at t into its two halves (de Casteljau). */
+function split([p0, p1, p2, p3]: Cubic, t: number): [Cubic, Cubic] {
+  const a = lerp(p0, p1, t), b = lerp(p1, p2, t), c = lerp(p2, p3, t), d = lerp(a, b, t), e = lerp(b, c, t), f = lerp(d, e, t);
+  return [[p0, a, d, f], [f, e, c, p3]];
+}
+/** The stretch of a cubic between t = u and t = v. */
+function stretch(curve: Cubic, u: number, v: number): Cubic {
+  const after = split(curve, u)[1];
+  return split(after, u >= 1 ? 0 : (v - u) / (1 - u))[0];
+}
+const pt = ([x, y]: Pt) => `${x.toFixed(1)},${y.toFixed(1)}`;
+/** The part of a ribbon between u and v along its two edges (0 = top rail, 1 = bottom rail), as a closed band. */
+function band(leftEdge: Cubic, rightEdge: Cubic, u: number, v: number): string {
+  const l = stretch(leftEdge, u, v), r = stretch(rightEdge, u, v);
+  return `M${pt(l[0])} C${pt(l[1])} ${pt(l[2])} ${pt(l[3])} L${pt(r[3])} C${pt(r[2])} ${pt(r[1])} ${pt(r[0])} Z`;
+}
+
+/** How much of every ribbon shows, as a share of its own length along its curve, grown from the top rail and from the
+ *  bottom rail (0.5 + 0.5 is the whole ribbon). The pick-two comparison animates it: each ribbon grows out along its path
+ *  from both rails, or draws back along it into one. */
 export interface RibbonReveal { top: number; bottom: number }
 
 /**
@@ -56,27 +77,25 @@ export function ParallelRibbon({ parallel, weightLabel = "shared Greek words", r
             <stop offset="0" stopColor="var(--lg)" stopOpacity=".9" />
             <stop offset="1" stopColor="var(--lg)" stopOpacity=".35" />
           </linearGradient>
-          {reveal && <clipPath id={`grow-${parallel.id}`}>
-            <rect x={0} y={TOP - 6} width={W} height={6 + reveal.top * (BOTTOM - TOP)} />
-            <rect x={0} y={BOTTOM - reveal.bottom * (BOTTOM - TOP)} width={W} height={6 + reveal.bottom * (BOTTOM - TOP)} />
-          </clipPath>}
         </defs>
         <text x={PAD} y={TOP - 18} className={empty.top ? "lg-svg-muted" : "lg-svg-strong"}>{parallel.left.label}</text>
         <text x={PAD} y={BOTTOM + 30} className={empty.bottom ? "lg-svg-muted" : "lg-svg-strong"}>{parallel.right.label}</text>
         <rect x={PAD} y={TOP - 6} width={W - PAD * 2} height={6} rx={3} fill={empty.top ? "var(--muted)" : "var(--lg)"} opacity={empty.top ? .45 : .25} style={{ transition: "fill .4s, opacity .4s" }} />
         <rect x={PAD} y={BOTTOM} width={W - PAD * 2} height={6} rx={3} fill={empty.bottom ? "var(--muted)" : "var(--lg)"} opacity={empty.bottom ? .45 : .25} style={{ transition: "fill .4s, opacity .4s" }} />
-        <g clipPath={reveal ? `url(#grow-${parallel.id})` : undefined}>
         {parallel.pairs.map((p, i) => {
           const [a0, a1] = segment(xTop, p.left);
           const [b0, b1] = segment(xBottom, p.right);
           const mid = (TOP + BOTTOM) / 2;
-          const d = `M${a0},${TOP} L${a1},${TOP} C${a1},${mid} ${b1},${mid} ${b1},${BOTTOM} L${b0},${BOTTOM} C${b0},${mid} ${a0},${mid} ${a0},${TOP} Z`;
+          const leftEdge: Cubic = [[a0, TOP], [a0, mid], [b0, mid], [b0, BOTTOM]], rightEdge: Cubic = [[a1, TOP], [a1, mid], [b1, mid], [b1, BOTTOM]];
+          // Whole, or only the stretches grown out from each rail along the ribbon's own curve.
+          const whole = !reveal || reveal.top + reveal.bottom >= 0.999;
+          const d = whole ? band(leftEdge, rightEdge, 0, 1)
+            : [reveal.top > 0.001 && band(leftEdge, rightEdge, 0, reveal.top), reveal.bottom > 0.001 && band(leftEdge, rightEdge, 1 - reveal.bottom, 1)].filter(Boolean).join(" ") || "M0,0";
           return <path key={i} d={d} fill={`url(#rib-${parallel.id})`} opacity={opacityOf(i)} className={active === i ? "lg-glow" : undefined}
             style={{ transition: "opacity .25s", cursor: "pointer" }} tabIndex={0} role="button"
             aria-label={`${label(p.left)} with ${label(p.right)}`}
             {...keep.bind(i)} />;
         })}
-        </g>
         {parallel.pairs.map((p, i) => {
           const [a0, a1] = segment(xTop, p.left), [b0, b1] = segment(xBottom, p.right);
           // On a rail the ribbons have left (or not reached yet), the passage marks fade with them.
