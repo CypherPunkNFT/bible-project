@@ -24,7 +24,17 @@ const { variants, valid } = JSON.parse(readFileSync(path.join(SITE, "design", "r
 const checkLink = linkChecker(valid);
 // REVIEW_COMMIT: the commit the site at BASE was built from (a clean worktree), when it is not this folder's HEAD.
 const commit = process.env.REVIEW_COMMIT ?? execFileSync("git", ["rev-parse", "--short=8", "HEAD"], { cwd: SITE, encoding: "utf8" }).trim();
-if (process.env.FRESH && existsSync(PROGRESS)) rmSync(PROGRESS);
+const selected = Object.entries(variants).filter(([key]) => !ONLY || ONLY.split(",").some((o) => key === o || key.startsWith(o + "/")));
+const urls = [...new Set(selected.flatMap(([, v]) => v.urls))];
+// FRESH=1 starts over; with ONLY it forgets only those page types' results (after changing them), keeping the rest.
+if (process.env.FRESH && existsSync(PROGRESS)) {
+  if (!ONLY) rmSync(PROGRESS);
+  else {
+    const redo = new Set(urls);
+    const kept = readFileSync(PROGRESS, "utf8").split("\n").filter((line) => line.trim() && !redo.has(JSON.parse(line).url));
+    writeFileSync(PROGRESS, kept.join("\n") + "\n", "utf8");
+  }
+}
 
 const done = new Map(); // "url width" -> failures
 let startedAt = new Date().toISOString();
@@ -37,8 +47,6 @@ if (existsSync(PROGRESS)) {
   }
 } else appendFileSync(PROGRESS, JSON.stringify({ startedAt, commit }) + "\n");
 
-const selected = Object.entries(variants).filter(([key]) => !ONLY || ONLY.split(",").some((o) => key === o || key.startsWith(o + "/")));
-const urls = [...new Set(selected.flatMap(([, v]) => v.urls))];
 const work = [400, 1440].flatMap((width) => urls.map((url) => ({ url, width }))).filter((w) => !done.has(`${w.url} ${w.width}`));
 console.log(`${urls.length.toLocaleString("en-US")} pages × 2 widths; ${work.length.toLocaleString("en-US")} still to check, ${WORKERS} at a time, on ${BASE}`);
 

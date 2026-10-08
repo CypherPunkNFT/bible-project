@@ -1,0 +1,1056 @@
+{
+ "schema": 1,
+ "commit": "9d5945ca",
+ "startedAt": "2026-10-08T03:26:04.125Z",
+ "finishedAt": "2026-10-08T05:09:07.329Z",
+ "base": "http://127.0.0.1:8934",
+ "checks": [
+  {
+   "id": "loads",
+   "name": "Page opens"
+  },
+  {
+   "id": "jumps",
+   "name": "No jumps when pointing"
+  },
+  {
+   "id": "scroll",
+   "name": "No sideways scroll on a phone"
+  },
+  {
+   "id": "errors",
+   "name": "No errors"
+  },
+  {
+   "id": "focus",
+   "name": "No focus outline"
+  },
+  {
+   "id": "empty",
+   "name": "No empty sections"
+  },
+  {
+   "id": "links",
+   "name": "Every link works"
+  }
+ ],
+ "results": [
+  {
+   "template": "person",
+   "variant": "sourced-story",
+   "instances": 252,
+   "checked": 252,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "person",
+   "variant": "step-text",
+   "instances": 2802,
+   "checked": 2802,
+   "coverage": "",
+   "failed": {
+    "empty": 1
+   },
+   "failures": [
+    {
+     "url": "/people/asen-neh-7-24",
+     "width": 400,
+     "check": "empty",
+     "detail": "the heading \"Every verse that names Asen · 0\" has nothing under it"
+    },
+    {
+     "url": "/people/asen-neh-7-24",
+     "width": 1440,
+     "check": "empty",
+     "detail": "the heading \"Every verse that names Asen · 0\" has nothing under it"
+    }
+   ]
+  },
+  {
+   "template": "person",
+   "variant": "with-ruler",
+   "instances": 112,
+   "checked": 112,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "person",
+   "variant": "with-apostle",
+   "instances": 26,
+   "checked": 26,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "person",
+   "variant": "with-prophet",
+   "instances": 61,
+   "checked": 61,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "person",
+   "variant": "tribe",
+   "instances": 78,
+   "checked": 78,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "person",
+   "variant": "duplicate",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "ruler",
+   "variant": "king-judah",
+   "instances": 19,
+   "checked": 19,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "ruler",
+   "variant": "king-israel",
+   "instances": 19,
+   "checked": 19,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "ruler",
+   "variant": "king-united",
+   "instances": 4,
+   "checked": 4,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "ruler",
+   "variant": "judge",
+   "instances": 13,
+   "checked": 13,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "ruler",
+   "variant": "leader",
+   "instances": 2,
+   "checked": 2,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "ruler",
+   "variant": "queen-reigning",
+   "instances": 3,
+   "checked": 3,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "ruler",
+   "variant": "queen-consort",
+   "instances": 2,
+   "checked": 2,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "ruler",
+   "variant": "foreign-dated",
+   "instances": 22,
+   "checked": 22,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "ruler",
+   "variant": "foreign-undated",
+   "instances": 8,
+   "checked": 8,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "ruler",
+   "variant": "governor",
+   "instances": 3,
+   "checked": 3,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "ruler",
+   "variant": "herod",
+   "instances": 6,
+   "checked": 6,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "ruler",
+   "variant": "roman",
+   "instances": 11,
+   "checked": 11,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "apostle",
+   "variant": "twelve",
+   "instances": 14,
+   "checked": 14,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "apostle",
+   "variant": "jerusalem",
+   "instances": 6,
+   "checked": 6,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "apostle",
+   "variant": "pauls-circle",
+   "instances": 6,
+   "checked": 6,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "apostle",
+   "variant": "couple",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "prophet",
+   "variant": "writing",
+   "instances": 16,
+   "checked": 16,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "prophet",
+   "variant": "prophet",
+   "instances": 26,
+   "checked": 26,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "prophet",
+   "variant": "prophetess",
+   "instances": 5,
+   "checked": 5,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "prophet",
+   "variant": "false",
+   "instances": 7,
+   "checked": 7,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "prophet",
+   "variant": "new-testament",
+   "instances": 9,
+   "checked": 9,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "people-guide",
+   "variant": "everyone",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "people-guide",
+   "variant": "families",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "people-guide",
+   "variant": "prophets",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "people-guide",
+   "variant": "rulers",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "people-guide",
+   "variant": "apostles",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "people-guide",
+   "variant": "prophets-page",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "study-hub",
+   "variant": "page",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "study-charts",
+   "variant": "references",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "study-charts",
+   "variant": "structure",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "study-charts",
+   "variant": "gospels",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "study-charts",
+   "variant": "versions",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "study-miracles",
+   "variant": "page",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "study-names",
+   "variant": "page",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "atlas-home",
+   "variant": "home",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "atlas-map",
+   "variant": "map",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "atlas-map",
+   "variant": "place",
+   "instances": 1252,
+   "checked": 1252,
+   "coverage": "every place",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "atlas-cities",
+   "variant": "all",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "atlas-cities",
+   "variant": "collection",
+   "instances": 11,
+   "checked": 11,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "atlas-city",
+   "variant": "church",
+   "instances": 9,
+   "checked": 9,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "atlas-city",
+   "variant": "city",
+   "instances": 65,
+   "checked": 65,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "atlas-city-finder",
+   "variant": "page",
+   "instances": 33,
+   "checked": 33,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "atlas-city-finder",
+   "variant": "no-results",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "atlas-journey",
+   "variant": "start",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "atlas-journey",
+   "variant": "paul",
+   "instances": 9,
+   "checked": 9,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "atlas-journey",
+   "variant": "coming",
+   "instances": 24,
+   "checked": 24,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "atlas-gospels",
+   "variant": "event",
+   "instances": 30,
+   "checked": 30,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "atlas-history",
+   "variant": "collection",
+   "instances": 3,
+   "checked": 3,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "atlas-history",
+   "variant": "topic",
+   "instances": 18,
+   "checked": 18,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "atlas-tradition",
+   "variant": "lens",
+   "instances": 8,
+   "checked": 8,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "topics-home",
+   "variant": "home",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "topic-card",
+   "variant": "card",
+   "instances": 55,
+   "checked": 55,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "topic-card",
+   "variant": "group",
+   "instances": 118,
+   "checked": 118,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "topic-card",
+   "variant": "long-group",
+   "instances": 32,
+   "checked": 32,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "topic",
+   "variant": "both",
+   "instances": 301,
+   "checked": 301,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "topic",
+   "variant": "nave",
+   "instances": 2362,
+   "checked": 2362,
+   "coverage": "",
+   "failed": {
+    "scroll": 1
+   },
+   "failures": [
+    {
+     "url": "/topics/anthropomorphisms",
+     "width": 400,
+     "check": "scroll",
+     "detail": "the page is 389 px wide on a 385 px screen; widest part: div (\"TopicsWho God isAttributes of \")"
+    }
+   ]
+  },
+  {
+   "template": "topic",
+   "variant": "nave-easton",
+   "instances": 2530,
+   "checked": 2530,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "topic",
+   "variant": "torrey",
+   "instances": 322,
+   "checked": 322,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "topic",
+   "variant": "easton",
+   "instances": 84,
+   "checked": 84,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "topic",
+   "variant": "contents",
+   "instances": 25,
+   "checked": 25,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "topic",
+   "variant": "book",
+   "instances": 66,
+   "checked": 66,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "bible-home",
+   "variant": "page",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "reader",
+   "variant": "chapter",
+   "instances": 35513,
+   "checked": 1395,
+   "coverage": "every KJV chapter, and the first chapter of every version",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "reader",
+   "variant": "rtl",
+   "instances": 3307,
+   "checked": 3,
+   "coverage": "the first chapter of each right-to-left version",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "reader",
+   "variant": "parallel",
+   "instances": 1362,
+   "checked": 0,
+   "coverage": "not checked page by page (any chapter, any versions)",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "reader",
+   "variant": "not-in-version",
+   "instances": 795,
+   "checked": 35,
+   "coverage": "a subset",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "letters-home",
+   "variant": "home",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "letters-section",
+   "variant": "collection",
+   "instances": 12,
+   "checked": 12,
+   "coverage": "",
+   "failed": {
+    "jumps": 1
+   },
+   "failures": [
+    {
+     "url": "/study/letters/james-peter-and-jude/side",
+     "width": 400,
+     "check": "jumps",
+     "detail": "1 hover line(s) not built with the shared StableTip"
+    },
+    {
+     "url": "/study/letters/james-peter-and-jude/side",
+     "width": 1440,
+     "check": "jumps",
+     "detail": "1 hover line(s) not built with the shared StableTip"
+    }
+   ]
+  },
+  {
+   "template": "letters-section",
+   "variant": "way",
+   "instances": 12,
+   "checked": 12,
+   "coverage": "",
+   "failed": {
+    "jumps": 1
+   },
+   "failures": [
+    {
+     "url": "/study/letters/what-runs-through-them/words",
+     "width": 400,
+     "check": "jumps",
+     "detail": "2 hover line(s) not built with the shared StableTip"
+    },
+    {
+     "url": "/study/letters/what-runs-through-them/words",
+     "width": 1440,
+     "check": "jumps",
+     "detail": "2 hover line(s) not built with the shared StableTip"
+    }
+   ]
+  },
+  {
+   "template": "letters-section",
+   "variant": "one-letter",
+   "instances": 16,
+   "checked": 16,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "ap-pages",
+   "variant": "hub",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "ap-pages",
+   "variant": "questions",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "ap-pages",
+   "variant": "paths",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "ap-pages",
+   "variant": "worldviews",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "ap-pages",
+   "variant": "debates",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "ap-pages",
+   "variant": "texts",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "ap-pages",
+   "variant": "sources",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "ap-pages",
+   "variant": "saved",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "ap-topic",
+   "variant": "topic",
+   "instances": 6,
+   "checked": 6,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "ap-topic",
+   "variant": "reformed",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "ap-study",
+   "variant": "page",
+   "instances": 25,
+   "checked": 25,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "ap-path",
+   "variant": "page",
+   "instances": 5,
+   "checked": 5,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "ap-worldview",
+   "variant": "page",
+   "instances": 2,
+   "checked": 2,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "ap-debate",
+   "variant": "page",
+   "instances": 3,
+   "checked": 3,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "ap-practice",
+   "variant": "scenario",
+   "instances": 3,
+   "checked": 3,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "testimonies",
+   "variant": "explore",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "testimonies",
+   "variant": "join",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "testimonies",
+   "variant": "access",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "home",
+   "variant": "page",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "search",
+   "variant": "results",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {
+    "scroll": 1
+   },
+   "failures": [
+    {
+     "url": "/search?q=grace",
+     "width": 400,
+     "check": "scroll",
+     "detail": "the page is 387 px wide on a 385 px screen; widest part: select.h-11.rounded-xl (\"KJV — King James VersionBSB — \")"
+    }
+   ]
+  },
+  {
+   "template": "search",
+   "variant": "none",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {
+    "scroll": 1
+   },
+   "failures": [
+    {
+     "url": "/search?q=zzzzqx",
+     "width": 400,
+     "check": "scroll",
+     "detail": "the page is 387 px wide on a 385 px screen; widest part: select.h-11.rounded-xl (\"KJV — King James VersionBSB — \")"
+    }
+   ]
+  },
+  {
+   "template": "search",
+   "variant": "empty",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {
+    "scroll": 1
+   },
+   "failures": [
+    {
+     "url": "/search",
+     "width": 400,
+     "check": "scroll",
+     "detail": "the page is 387 px wide on a 385 px screen; widest part: select.h-11.rounded-xl (\"KJV — King James VersionBSB — \")"
+    }
+   ]
+  },
+  {
+   "template": "meaning-search",
+   "variant": "page",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "sources",
+   "variant": "page",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "library",
+   "variant": "page",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "not-found",
+   "variant": "page",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "topic-superlist",
+   "variant": "page",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  }
+ ]
+}

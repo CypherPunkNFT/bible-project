@@ -22,6 +22,7 @@ const when = (iso: string) => new Date(iso).toLocaleString(undefined, { dateStyl
 /** The machine checks for one design, in words: "Checked on 112 of 112 pages: no problems" or the problems found. */
 function CheckLine({ result, names }: { result?: CheckResult; names: { id: string; name: string }[] }) {
   const [open, setOpen] = useState(false);
+  if (result && !result.checked && result.coverage) return <p className="review-checks" data-state="none">Machine checks: {result.coverage}; this design is judged from its screenshots.</p>;
   if (!result || !result.checked) return <p className="review-checks" data-state="none">Machine checks: not run on these pages yet.</p>;
   const failing = names.filter((n) => result.failed[n.id]);
   const coverage = result.checked >= result.instances ? `all ${formatNumber(result.instances)}` : `${formatNumber(result.checked)} of ${formatNumber(result.instances)}`;

@@ -102,7 +102,7 @@ function readerTemplates(): { templates: TemplateDef[]; valid: { reader: Record<
       ], checkRecords: firstChapters(rtl), coverage: "the first chapter of each right-to-left version" }),
       variant({ id: "parallel", name: "Versions side by side", what: "Two or more versions in columns (?with=).", records: kjvChapters.map((c) => ({ ...c, with: "bsb,wlc" })), url: (c: Chapter & { with: string }) => `${url(c)}?with=${c.with}`, samples: [
         pick("kjv", "GEN", 1, "Three columns", "Genesis 1 in the KJV, the BSB and the Hebrew side by side (mixed directions)") as unknown as SampleRule<Chapter & { with: string }>,
-      ], checkRecords: [], coverage: "samples only" }),
+      ], checkRecords: [], coverage: "not checked page by page (any chapter, any versions)" }),
       variant({ id: "not-in-version", name: "A book this version does not have", what: "For example Genesis in a New Testament–only version.", records: missing, url, samples: [firstOf<Chapter>(name, "case")], checkRecords: catalog.translations.map((v) => missing.find((m) => m.v === v)).filter((m): m is Chapter => Boolean(m)) }),
     ],
   };

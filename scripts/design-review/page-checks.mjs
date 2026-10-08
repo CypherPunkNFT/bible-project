@@ -79,11 +79,12 @@ export function empty() {
     if (n === heading || n.contains?.(heading)) return false;
     if (n.nodeType === 3) return n.textContent.trim().length > 0;
     if (n.nodeType !== 1 || !visible(n)) return false;
-    return n.innerText.trim().length > 0 || n.matches("img, svg, canvas, video, iframe, input, select, table, hr") || n.querySelector("img, svg, canvas, video, iframe, input, select, table");
+    return (n.innerText ?? n.textContent ?? "").trim().length > 0 || n.matches("img, svg, canvas, video, iframe, input, select, table, hr") || n.querySelector("img, svg, canvas, video, iframe, input, select, table");
   });
   const problems = [];
   for (const heading of document.querySelectorAll("main h2, main h3")) {
-    if (!visible(heading) || heading.closest("[aria-hidden='true'], .sr-only, .stable-tip-sizer")) continue;
+    // A heading inside a link or button names that control (a card's title), not a section of the page.
+    if (!visible(heading) || heading.closest("[aria-hidden='true'], .sr-only, .stable-tip-sizer, a, button, summary, label")) continue;
     const level = Number(heading.tagName[1]);
     const section = heading.closest("section, article");
     const firstHeading = section?.querySelector("h1, h2, h3");
@@ -95,7 +96,8 @@ export function empty() {
         if (n.nodeType === 1 && /^H[1-6]$/.test(n.tagName) && Number(n.tagName[1]) <= level) break;
         nodes.push(n);
       }
-      if (!nodes.length && heading.parentElement && heading.parentElement !== section) nodes = [...heading.parentElement.parentElement?.childNodes ?? []].filter((n) => n !== heading.parentElement);
+      // Nothing after it: a heading at the foot of a card (picture and label above it) is still about what is beside it.
+      if (!nodes.length && heading.parentElement && heading.parentElement !== section) nodes = [...heading.parentElement.childNodes].filter((n) => n !== heading);
     }
     if (!hasContent(nodes, heading)) problems.push(`the heading "${heading.textContent.trim().slice(0, 50)}" has nothing under it`);
   }
@@ -106,6 +108,7 @@ export function empty() {
 export function links() {
   const out = new Set();
   for (const a of document.querySelectorAll("a[href]")) {
+    if (a.getAttribute("href").startsWith("#")) continue; // a jump within this page ("skip to content")
     const url = new URL(a.getAttribute("href"), location.href);
     if (url.origin !== location.origin || /^\/(data|assets|atlas-tiles|search-model|api|mockups|review-data)\//.test(url.pathname)) continue;
     out.add(url.pathname + url.search);
