@@ -161,3 +161,24 @@
   .nat-b .row-quick { justify-content: flex-start; padding-bottom: .8rem; }
   .nat-b .row-cost { padding-bottom: .5rem; }
 }
+
+/* The consolidated crisis row (owner, 2026-10-08): hours and a website link beside the title, the website beside the
+   cost, call and text buttons on the row; the chevron opens only what the row does not already show. */
+.row-x { display: grid; grid-template-columns: minmax(0, 1fr) 2rem; grid-template-areas: "title chev" "sub chev" "sum sum" "cost cost" "quick quick" "body body"; column-gap: .75rem; padding: .85rem 0 .2rem 1rem; }
+.row-x::before { content: ""; position: absolute; left: 0; top: 1.3rem; width: 5px; height: 5px; border-radius: 50%; background: var(--c); }
+.row-x .x-title { grid-area: title; display: flex; flex-wrap: wrap; align-items: center; gap: .3rem .65rem; margin: 0; }
+.row-x .x-hours { display: inline-flex; align-items: center; gap: .3rem; color: var(--muted); font-size: .74rem; font-weight: 600; }
+.row-x .x-link { display: inline-grid; place-items: center; width: 1.6rem; height: 1.6rem; border-radius: 999px; color: var(--muted); transition: color .15s, background-color .15s; }
+.row-x .x-link:hover { color: var(--c); background: color-mix(in srgb, var(--c) 12%, transparent); }
+.row-x .row-sub { margin-top: .1rem; }
+.row-x .row-cost { align-items: baseline; }
+.row-x .x-site { color: var(--ink); text-decoration: underline; text-decoration-color: color-mix(in srgb, var(--c) 55%, transparent); text-underline-offset: 3px; }
+.row-x .x-site:hover { color: var(--c); }
+.row-x .row-quick { grid-area: quick; padding: .6rem 0 .6rem; }
+.row-x .x-more { grid-area: chev; display: grid; place-items: start center; width: 2rem; padding: .1rem 0 0; background: none; border: 0; cursor: pointer; color: var(--muted); }
+.row-x .x-more:hover { color: var(--ink); }
+.row-x[data-open] .x-more .chev { transform: rotate(180deg); color: var(--c); }
+.row-x .row-body { grid-area: body; }
+.row-x .note { display: flex; gap: .45rem; align-items: flex-start; margin: .2rem 0; color: var(--muted); font-size: .8rem; line-height: 1.5; }
+.row-x .note svg { flex: none; margin-top: .15rem; color: var(--c); }
+.row-x .x-more::before { content: none; }

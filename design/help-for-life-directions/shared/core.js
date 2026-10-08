@@ -126,6 +126,41 @@
       <div class="row-body"${opts.open ? "" : " inert"}><div>${detailHtml(e, { address: opts.address })}</div></div>
     </li>`;
   }
+  /**
+   * The consolidated row (owner, 2026-10-08, crisis lines first): the title carries the clock with its hours and a link
+   * icon to the website; under it the ways to reach it (no hours); one sentence; the website beside the cost; the call
+   * and text buttons. Opening it shows only what the row does not already show: the rest of the summary, notes on the
+   * numbers, chat and other links, the finder and the source.
+   */
+  function consolidatedRowHtml(e, opts = {}) {
+    const c = opts.cat ?? e.category;
+    const cost = costOf(e);
+    const ways = [...new Set(e.contact.map((x) => wayOf(x.kind)).filter((w) => w in WAY_WORD))].sort((a, b) => Object.keys(WAY_WORD).indexOf(a) - Object.keys(WAY_WORD).indexOf(b));
+    const hours = shortHours(e.hours);
+    // The website: a plain web contact (not a guide or finder with a note); otherwise the home of the page it was checked on.
+    const webContact = e.contact.find((x) => wayOf(x.kind) === "web" && !x.note) ?? null;
+    const site = webContact ?? (e.source ? { kind: "web", value: new URL(e.source).origin } : null);
+    const siteHref = site ? hrefOf(site) : null;
+    const quick = quickActions(e, opts.quickMax ?? 2);
+    const usedQuick = new Set(quick.map((q) => q.href));
+    // Detail: notes on the numbers the buttons dial, plus every other way to reach it (chat, extra lines), the finder.
+    const notes = e.contact.filter((x) => usedQuick.has(hrefOf(x)) && x.note && !/^Call$|^Text$/i.test(x.note))
+      .map((x) => `<p class="note">${icon(wayOf(x.kind) === "text" ? "text" : "phone", 15)}<span>${esc(x.note)}</span></p>`).join("");
+    const others = e.contact.filter((x) => !usedQuick.has(hrefOf(x)) && x !== webContact).map(contactHtml).join("");
+    const locator = e.locator && !e.contact.some((x) => sameUrl(x.value, e.locator)) ? contactHtml({ kind: "web", value: e.locator, note: "Find local help" }) : "";
+    const rest = e.summary && firstSentence(e.summary) !== e.summary ? e.summary.slice(firstSentence(e.summary).length).trim() : "";
+    const longHours = e.hours && e.hours !== hours ? `<p class="hours">${icon("clock", 16)}<span>${esc(e.hours)}</span></p>` : "";
+    return `<li class="row row-x" data-id="${esc(e.id)}" data-cat="${esc(c)}" style="--c: ${tone(c)}">
+      <p class="x-title"><span class="row-name">${esc(e.name)}</span>${hours ? `<span class="x-hours">${icon("clock", 14)}${esc(hours)}</span>` : ""}${siteHref ? `<a class="x-link" href="${esc(siteHref)}" target="_blank" rel="noreferrer" aria-label="${esc(e.name)} website">${icon("link", 15)}</a>` : ""}</p>
+      <span class="row-sub">${esc(ways.map((w) => WAY_WORD[w]).join(" · "))}</span>
+      <span class="row-sum">${esc(firstSentence(e.summary))}</span>
+      <span class="row-cost${cost ? "" : " none"}">${siteHref ? `<a class="x-site" href="${esc(siteHref)}" target="_blank" rel="noreferrer">${esc(host(site.value))}</a>` : ""}${cost ? `<b>${esc(cost)}</b>` : "<span>Cost not stated on its page</span>"}${e.faith === true ? '<i class="faith">Faith-based</i>' : ""}</span>
+      ${quick.length ? `<div class="row-quick">${quick.map((q) => `<a class="quick" data-way="${q.way}" href="${esc(q.href)}">${icon(q.way === "call" ? "phone" : "text", 16)}<span>${esc(q.label)}</span></a>`).join("")}</div>` : ""}
+      <button type="button" class="row-head x-more" aria-expanded="false" aria-label="More about ${esc(e.name)}"><span class="chev" aria-hidden="true">${icon("chevron", 18)}</span></button>
+      <div class="row-body" inert><div>${rest ? `<p class="rest">${esc(rest)}</p>` : ""}${longHours}${notes}<div class="contacts">${others}${locator}</div>
+        <p class="checked">Checked ${esc(e.checked)} on <a href="${esc(e.source)}" target="_blank" rel="noreferrer">${esc(host(e.source))}</a></p></div></div>
+    </li>`;
+  }
   /** Rows open and close in place (one container can hold many). */
   function wireRows(root, { single = false, onToggle } = {}) {
     root.addEventListener("click", (ev) => {
@@ -183,5 +218,5 @@
   }
   const isCrisisGroup = (g) => g.id === "crisis";
 
-  window.Life = { LIFE, esc, plural, CAT, cat, tone, wayOf, hrefOf, host, firstSentence, subtitle, quickActions, quickHtml, contactHtml, detailHtml, rowHtml, wireRows, setOpen, crisisStrip, crumbs, hero, sectionHead, howMade, groupStats, isCrisisGroup, allHours, WAY_WORD };
+  window.Life = { LIFE, esc, plural, CAT, cat, tone, wayOf, hrefOf, host, firstSentence, subtitle, quickActions, quickHtml, contactHtml, detailHtml, rowHtml, consolidatedRowHtml, wireRows, setOpen, crisisStrip, crumbs, hero, sectionHead, howMade, groupStats, isCrisisGroup, allHours, WAY_WORD };
 })();

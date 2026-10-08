@@ -6,7 +6,7 @@
   const waysWords = (s) => s.ways.map((w) => WAY_WORD[w]).join(" · ");
   const roundClock = (s) => (s.always === s.n ? (s.n === 1 ? "Answers around the clock" : "All around the clock") : s.always ? `${s.always} around the clock` : "Set hours");
   const rowsFor = (g, extra = {}) => g.entries.map((e) => rowHtml(e, { cat: g.id, quick: g.id === "crisis" || extra.quickAll, quickMax: extra.quickAll && g.id !== "crisis" ? 1 : 2, ...extra })).join("");
-  const crisisNote = '<p class="crisis-line">Every crisis line keeps its call and text buttons on the closed row; open a line for its chat, hours and source.</p>';
+  const crisisNote = '<p class="crisis-line">Every crisis line keeps its call and text buttons on the closed row; open a line for its chat, notes and source.</p>';
 
   // ── A · Index: seven tinted cards as tabs, the chosen kind's lines in two columns ────────────────────────────
   const A = {
@@ -23,7 +23,7 @@
         <div class="pane-a">${groups.map((g, i) => `<div class="pane" data-g="${g.id}"${i ? " hidden" : ""} style="--c:${tone(g.id)}">
           <p class="pane-title"><span>${esc(g.title)}</span><small>${plural(g.entries.length, "line")} · ${esc(waysWords(groupStats(g)))}</small></p>
           ${g.id === "crisis" ? crisisNote : ""}
-          <ol class="rows two-col">${rowsFor(g)}</ol></div>`).join("")}</div>
+          <ol class="rows two-col">${g.id === "crisis" ? g.entries.map((e) => Life.consolidatedRowHtml(e, { cat: g.id })).join("") : rowsFor(g)}</ol></div>`).join("")}</div>
       </section>`;
     },
     wire(root) {
