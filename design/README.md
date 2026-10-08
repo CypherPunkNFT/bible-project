@@ -3,6 +3,28 @@
 Every mock-up lives in a folder here and has a card in [catalog.json](catalog.json). The gallery is at
 http://127.0.0.1:8931/mockups/ ([index.html](index.html)).
 
+## The style benchmark: the Authors mock-ups (owner, 2026-10-08)
+
+The Authors directions are the model for **how a page should feel**:
+- [Lifelines](authors-directions/lifelines/)
+- [Their world](authors-directions/their-world/)
+- [The preached Bible](authors-directions/preached-bible/)
+
+Every section in them is approved, except "Quiet chapters" in The preached Bible. [Rearrange](authors-directions/rearrange/)
+was "not that interesting".
+
+What they get right:
+- They look like the rest of the site: warm parchment ground, the site header, serif titles with one italic accent word.
+- Sections are numbered (01, 02…) with a short plain lead.
+- Stats sit in a quiet row with thin dividers.
+- The graphics are real and informative: lifelines, a map with a year slider, heat grids, link curves. Each one is
+  interactive in a way that answers a question ("Who was alive at the same time?").
+- They are subdued, never loud.
+
+The owner's rule for every people page from now on: find the balance between this house style and the approved
+creative sections below. The page should be striking yet informative, creative yet consistent with the site,
+innovative yet never distracting or chaotic.
+
 ## Approved creative sections (pull from these first)
 
 The owner reviewed mock-ups and approved the sections below as **reusable building blocks** (2026-10-08). Any new
@@ -30,9 +52,13 @@ adds to this list as he reviews other mock-up sets (apostles, David, Michael, th
 | **The codex** | The reference area under the map: a big-icon side menu opening each section of the page. | [david-directions/war-table](david-directions/war-table/), "The codex" | "Actually kind of nice." Wants it more visual. |
 | **Crystals by kind (filter)** | Large chips, one per kind of event with its colour, icon and count; tapping one filters what is shown. | [david-directions/helix](david-directions/helix/), left of the helix | "I kind of like it a lot." |
 | **Dust-field background** | Near-black with a faint warm-yellow glow that turns deep blue halfway across, and slow floating circular dust. | [david-directions/helix](david-directions/helix/) | Preferred to every other background so far; use it instead of grids. |
+| **The globe** | A turning globe you can grab, spin and zoom; Scripture's journeys as solid arcs, tradition's routes dashed and labelled with who said it and when. | [apostle-directions #globe](apostle-directions/#globe) | "Super cool. I love the interactivity." Use a **texture** (an image of the earth that zooms smoothly), not dots that reload as you zoom. Never cropped left or right: full width when the page has room. Best as the **missions** section, after a short landing, not the top of a long scroll. |
 
 ## What the owner does not want
 
+- **An arcade look** (the apostle round, 2026-10-08): "a laser arcade", "a glowing neon prison". Neon lines on black, glowing notes and staves, a 3D stack of glowing plates. Mock-ups must look like a modern, responsive website with new ways to show information, not a game. Be pragmatic.
+- **A musical score** for a life (the apostle "score"): "I absolutely detest the score."
+- **Chat bubbles, again** (the apostle "thread"): "absolutely atrocious".
 - **A musical theme** for a person (the "Two voices" psalm strings, 2026-10-08): "absolute trash", and far too much scrolling.
 - **Weird motion on a family tree** (the swaying "House of David" tree).
 - **Lanes of small chips** for a reign's events ("the table with the tiny little thing underneath is atrocious"). Events
@@ -58,3 +84,22 @@ adds to this list as he reviews other mock-up sets (apostles, David, Michael, th
    down stays on the page, and the map slides back.
 5. **Questions as floating words with lines**, not boxes.
 6. Approved sections that do not fit (constellation, long memory, cabinet) go on a second page.
+
+## Verdicts on the merged Moses page H (owner, 2026-10-08, second pass)
+
+- **Landing:** use direction **B's three-forties landing exactly as it was** (ring, act cards and the Deuteronomy 34:7
+  line). It beats the cleaned-up version.
+- **Animated line-art under the header (the burning bush): not wanted.** Put an **Atlas section** in that slot, with a
+  map and a link to the person's journey in the Atlas.
+- **The Roman-numeral chapters must be dense with real information.** There is plenty of room; fill every chapter from
+  the reviewed data.
+- **Every people page needs:** the man (life, family), the word (for prophets), the questions, and the
+  **constellation of the people around him** inside the page itself, not on a second page. "This is very much what we
+  need for all peoples."
+- **Cinema's vertical navigation (dots with a pill, at the side): approved, and wanted back.**
+- **Sky and ground:** the faint dots at the top read as a sky (keep them); the bottom of each chapter should carry a
+  relevant line-art landscape.
+- **The map sliding in beside a chapter: approved** ("this is nice"). Closing it must slide away, not flash out.
+- **The cabinet:** a technique for another page, not the people page. **The long memory:** undecided; keep it off the
+  main page for now.
+- **Sources at the bottom (the collapsed "Sources · N writers"):** fine.

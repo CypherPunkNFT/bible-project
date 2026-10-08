@@ -1,0 +1,75 @@
+/* A · Lifeline */
+/* 01 · the ring and its records */
+.a-ring { display: grid; grid-template-columns: minmax(0, 32rem) minmax(0, 1fr); gap: 1rem 3rem; align-items: center; }
+.a-ring-art { max-width: 32rem; }
+.a-ring-list { --tone: var(--accent); min-width: 0; }
+.a-ring-list .kicker { color: var(--tone); }
+.a-ring-list h3 { margin: .3rem 0 .9rem; font: 500 1.6rem/1.2 var(--serif); letter-spacing: -.02em; }
+.a-recs { columns: 2 15rem; column-gap: 2rem; margin: 0; padding: 0; list-style: none; counter-reset: r; }
+.a-recs li { break-inside: avoid; counter-increment: r; border-bottom: 1px solid var(--line); }
+.a-recs button { display: grid; grid-template-columns: 1.6rem minmax(0, 1fr); gap: 0 .2rem; width: 100%; padding: .42rem 0; text-align: left; font-size: .82rem; line-height: 1.35; }
+.a-recs button::before { content: counter(r); grid-row: span 2; font: 500 .8rem var(--serif); color: var(--tone); }
+.a-recs button small { color: var(--muted); font-size: .68rem; }
+.a-recs button:hover .t { color: var(--tone); }
+.a-recs.trad button::before { content: "–"; }
+
+/* 02 · who was with him */
+.a-chart-scroll { overflow-x: auto; scrollbar-width: thin; }
+.a-svg { display: block; overflow: visible; font-family: var(--sans); }
+.a-svg .band { fill: transparent; } .a-svg .band.alt { fill: color-mix(in srgb, var(--surface-2) 45%, transparent); }
+.a-svg .band-t { font-size: 10px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; }
+.a-svg .rl { font-size: 11.5px; fill: var(--muted); cursor: pointer; }
+.a-svg .rl.me { font: 500 13px var(--serif); fill: var(--ink); cursor: default; }
+.a-svg .row:hover .rl { fill: var(--accent); text-decoration: underline; }
+.a-svg .row-hit { fill: transparent; }
+.a-svg .gl { font-size: 9.5px; font-weight: 600; letter-spacing: .16em; fill: var(--muted); opacity: .8; }
+.a-svg .span { stroke: var(--line); stroke-width: 1.2; }
+.a-svg .hitdot { fill: var(--ink); }
+.a-svg .wr { fill: var(--page); stroke: var(--ink); stroke-width: 1.4; }
+.a-svg .me-dot { opacity: .9; }
+.a-svg .colhit { fill: transparent; cursor: crosshair; }
+.a-svg .col-on { fill: color-mix(in srgb, var(--accent) 12%, transparent); }
+.a-now { min-height: 3.4em; margin-top: .8rem; padding-top: .7rem; border-top: 1px solid var(--line); font-size: .86rem; line-height: 1.7; }
+.a-now b { font: 500 1.02rem var(--serif); }
+.a-read { margin-left: .5rem; padding: .1rem .6rem; border: 1px solid var(--line); border-radius: 999px; font-size: .72rem; color: var(--accent); }
+.a-read:hover { border-color: var(--accent); }
+.a-key { display: flex; flex-wrap: wrap; gap: .4rem 1.2rem; margin-top: .5rem; font-size: .72rem; color: var(--muted); }
+.a-key i { display: inline-block; margin-right: .4rem; vertical-align: middle; }
+.k-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--ink); }
+.k-ring { width: 8px; height: 8px; border-radius: 50%; border: 1.4px solid var(--ink); }
+.k-line { width: 22px; height: 0; border-top: 1.2px solid var(--line); }
+
+/* 03 · did their paths cross */
+.pair-pick { display: flex; flex-wrap: wrap; gap: .6rem; align-items: center; margin-bottom: .8rem; }
+.pair-me { padding: .5rem 1.1rem; border: 1px solid var(--ink); border-radius: 999px; font: 500 .9rem var(--sans); }
+.pair-pick .and { font: italic 1rem var(--serif); color: var(--muted); }
+.picker { position: relative; display: inline-flex; align-items: center; }
+.picker::after { content: ""; position: absolute; right: 1rem; width: 6px; height: 6px; margin-top: -3px; border-right: 1.5px solid var(--muted); border-bottom: 1.5px solid var(--muted); transform: rotate(45deg); pointer-events: none; }
+.picker select { appearance: none; -webkit-appearance: none; max-width: 17rem; padding: .55rem 2.3rem .55rem 1.1rem; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--ink); font: 500 .9rem var(--sans); cursor: pointer; }
+.picker select:hover { border-color: var(--accent); }
+.suggest { display: flex; flex-wrap: wrap; gap: .35rem; margin-bottom: 1rem; }
+.pair-say { max-width: 70ch; font: 400 1.12rem/1.6 var(--serif); }
+.pair-say b { font-weight: 600; }
+.pair-lanes { margin-top: .6rem; }
+.pair-svg { display: block; overflow: visible; font-family: var(--sans); }
+.pair-svg .lane { stroke: var(--ink); stroke-width: 1.2; opacity: .5; } .pair-svg .lane.b { stroke-dasharray: 2 4; }
+.pair-svg .ln-l { font: 500 12px var(--serif); fill: var(--ink); }
+.pair-svg .tick { fill: var(--muted); opacity: .6; }
+.pair-svg .pb { stroke: var(--line); } .pair-svg .pbt { font-size: 10px; font-weight: 600; fill: var(--muted); }
+.pair-svg .cross line { stroke: var(--accent); stroke-width: 1.4; }
+.pair-svg .cross circle { fill: var(--accent); } .pair-svg .cross circle.wr { fill: var(--page); stroke: var(--accent); stroke-width: 1.6; }
+.pair-svg .cross text { font-size: 10px; font-weight: 700; fill: var(--accent); paint-order: stroke; stroke: var(--page); stroke-width: 4px; }
+.pair-svg .cross { cursor: pointer; }
+.cross-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 22rem), 1fr)); gap: 0 2.4rem; margin: 1.2rem 0 0; padding: 0; list-style: none; }
+.cross-list li { display: grid; grid-template-columns: 1.8rem minmax(0, 1fr); gap: .6rem; padding: .9rem 0; border-top: 1px solid var(--line); }
+.cross-list .n { font: 500 1.2rem var(--serif); color: var(--accent); }
+.cross-list .t { font: 500 1rem/1.35 var(--serif); }
+.cross-list .t button { text-align: left; } .cross-list .t button:hover { color: var(--accent); }
+.cross-list .meta { margin-top: .15rem; font-size: .72rem; color: var(--muted); }
+.cross-list blockquote { margin: .5rem 0 0; font: italic 400 .92rem/1.6 var(--serif); }
+.cross-list blockquote footer { margin-top: .25rem; font: normal .72rem var(--sans); color: var(--muted); }
+.cross-list blockquote.plain { font-style: normal; font-family: var(--sans); font-size: .82rem; }
+.cross-list li.trad { border-top-style: dashed; }
+.cross-list li.trad .n { color: var(--history); }
+
+@media (max-width: 900px) { .a-ring { grid-template-columns: minmax(0, 1fr); } .a-ring-art { max-width: 24rem; margin: 0 auto; width: 100%; } }

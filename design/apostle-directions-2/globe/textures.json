@@ -1,0 +1,22 @@
+{
+ "credit": "NASA Blue Marble (Next Generation), via NASA GIBS; public domain",
+ "source": "sources/nasa-bluemarble/ (request URLs in REQUEST.txt)",
+ "region": {
+  "file": "region.json",
+  "w": 4096,
+  "h": 1594,
+  "lon0": -34.81345757497995,
+  "lat0": 9.999999957023201,
+  "lon1": 90.81345753524458,
+  "lat1": 58.87401446757517
+ },
+ "core": {
+  "file": "core.json",
+  "w": 6144,
+  "h": 4055,
+  "lon0": 8.000000032822747,
+  "lat0": 12.999999983540176,
+  "lon1": 58.00000003584397,
+  "lat1": 45.9999999984003
+ }
+}

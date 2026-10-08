@@ -1,0 +1,106 @@
+/* Line art (js/art.js): strokes draw in once, then the scene keeps a slow, endless motion. */
+.art { display: block; width: 100%; height: auto; overflow: hidden; --tone: var(--accent); }
+.art .ln { stroke: var(--ink); stroke-width: 1.35; opacity: .85; }
+.art .fn { stroke: color-mix(in srgb, var(--ink) 38%, transparent); stroke-width: 1.1; }
+.art .tn { stroke: var(--tone); stroke-width: 1.5; }
+.art .tn.fill { fill: color-mix(in srgb, var(--tone) 22%, transparent); stroke-width: 1; }
+.art .wt { stroke: color-mix(in srgb, var(--prophets) 55%, var(--muted)); stroke-width: 1.15; fill: none; opacity: .75; }
+.art .tr { stroke: var(--muted); stroke-width: 1.2; stroke-dasharray: .012 .014; }
+.art .star { fill: var(--ink); opacity: .2; animation: twinkle 5s ease-in-out var(--d) infinite alternate; }
+.art .spark { fill: var(--tone); opacity: 0; animation: rise 3.8s ease-out var(--d) infinite; }
+.art .mote { fill: var(--tone); opacity: 0; animation: mote 9s ease-in-out var(--d) infinite; }
+.art .rays { stroke-width: 1; opacity: .55; }
+
+/* Draw-in on first view (pathLength=1 on every stroke). */
+.art [pathLength]:not(.tr):not(.write) { stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw 1.8s cubic-bezier(.65, 0, .35, 1) calc(var(--d, 0) * 1.6s) forwards; }
+.art .tr { animation: fade-in 1.4s ease calc(var(--d, 0) * 1.6s) both; }
+.art .write { stroke-dasharray: 1; stroke-dashoffset: 1; animation: write 14s ease-in-out calc(var(--d, 0) * 3s) infinite; }
+.art .write.him { stroke-width: 2; }
+@keyframes draw { to { stroke-dashoffset: 0; } }
+@keyframes fade-in { from { opacity: 0; } }
+@keyframes write { 0% { stroke-dashoffset: 1; opacity: 1; } 22%, 82% { stroke-dashoffset: 0; opacity: 1; } 96%, 100% { stroke-dashoffset: 0; opacity: 0; } }
+@keyframes twinkle { to { opacity: .55; } }
+@keyframes rise { 0% { opacity: 0; transform: translate(0, 0); } 15% { opacity: .9; } 100% { opacity: 0; transform: translate(var(--x, 0), -48px); } }
+@keyframes mote { 0%, 100% { opacity: 0; transform: translate(0, 0); } 40% { opacity: .8; } 80% { opacity: .3; transform: translate(12px, -30px); } }
+
+/* Endless motion, by group. transform-box: view-box so origins are in drawing units. */
+.art g { transform-box: view-box; }
+.art .drift { animation: drift 8s ease-in-out var(--d, 0s) infinite alternate; }
+.art .drift.fast { animation-duration: 3.4s; }
+@keyframes drift { from { transform: translateX(-7px); opacity: .45; } to { transform: translateX(7px); opacity: .85; } }
+.art .bob { animation: bob 6s ease-in-out infinite alternate; }
+.art .bob.slow { animation-duration: 8.5s; animation-delay: -3s; }
+@keyframes bob { from { transform: rotate(-1.4deg) translateY(-1px); } to { transform: rotate(1.4deg) translateY(2px); } }
+.art .toss { animation: toss 3.4s ease-in-out infinite alternate; }
+@keyframes toss { from { transform: rotate(-5deg) translateY(-3px); } to { transform: rotate(4deg) translateY(4px); } }
+.art .haul { transform-box: fill-box; transform-origin: left top; animation: haul 9s ease-in-out infinite alternate; }
+@keyframes haul { from { transform: translate(0, 0) scale(1); } to { transform: translate(-10px, -5px) scale(.93, .88); } }
+.art .pulse { animation: pulse 5s ease-in-out infinite alternate; }
+@keyframes pulse { from { opacity: .4; } to { opacity: 1; } }
+.art .flick { animation: flick 1.4s ease-in-out infinite alternate; }
+.art .flick:nth-of-type(2n) { animation-duration: 1.1s; animation-delay: -.5s; }
+@keyframes flick { from { transform: scale(.94, .86); } to { transform: scale(1.04, 1.08); } }
+.art .glide { animation: glide 32s linear infinite alternate; }
+@keyframes glide { from { transform: translateX(-50px); } to { transform: translateX(60px); } }
+.art .drift-x { animation: glide 22s ease-in-out infinite alternate; }
+.art .drift-rain { animation: rain 1.3s linear infinite; }
+@keyframes rain { from { transform: translate(0, -12px); } to { transform: translate(-8px, 26px); } }
+.art .sway { animation: sway 7s ease-in-out infinite alternate; }
+.art .sway.slow { animation-duration: 10s; animation-delay: -4s; }
+@keyframes sway { from { transform: rotate(-2deg); } to { transform: rotate(2deg); } }
+.art .turn { animation: turn 16s ease-in-out infinite alternate; }
+@keyframes turn { from { transform: rotate(-4deg); } to { transform: rotate(4deg); } }
+.art .lower { animation: lower 11s ease-in-out infinite alternate; }
+.art .lower.slow { animation: lower-far 13s ease-in-out infinite alternate; }
+@keyframes lower { from { transform: translateY(-12px); } to { transform: translateY(12px); } }
+@keyframes lower-far { from { transform: translateY(-20px); } to { transform: translateY(46px); } }
+:root[data-theme="dark"] .art .ln { opacity: .8; }
+/* One focal point may glow, in dark mode only: the fire and the light. */
+:root[data-theme="dark"] .art .flick .tn, :root[data-theme="dark"] .art .rays { filter: drop-shadow(0 0 4px color-mix(in srgb, var(--tone) 60%, transparent)); }
+
+/* ── The globe ── */
+.globe { position: absolute; inset: 0; overflow: hidden; touch-action: pan-y; user-select: none; -webkit-user-select: none; cursor: grab;
+  --g-sea: #d3d8d2; --g-land-lo: #a8946f; --g-land-hi: #f1e8d6; --g-ink: #3a3226; --g-photo: .26; }
+:root[data-theme="dark"] .globe { --g-sea: #121a20; --g-land-lo: #1f1b16; --g-land-hi: #6c604d; --g-ink: #e8dfcf; --g-photo: .2; }
+.globe.dragging { cursor: grabbing; }
+.globe-gl { position: absolute; inset: 0; width: 100%; height: 100%; }
+.globe-over { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.globe-over .rim { fill: none; stroke: color-mix(in srgb, var(--ink) 22%, transparent); stroke-width: 1; }
+.globe-over .arc { fill: none; stroke-linecap: round; transition: opacity .3s; }
+.globe-over .arc.scr { stroke: var(--ink); stroke-width: 1.8; opacity: .85; }
+.globe-over .arc.trad { stroke: var(--history); stroke-width: 1.8; stroke-dasharray: 5 5; opacity: .95; }
+.globe-over .arc.dim { opacity: .14; }
+.globe-over .arc.hot { stroke: var(--accent); stroke-width: 3; opacity: 1; }
+.globe-over .hit { fill: none; stroke: transparent; stroke-width: 14; cursor: pointer; pointer-events: stroke; }
+.globe-over .pin { cursor: pointer; }
+.globe-over .pin .hit { fill: transparent; stroke: none; pointer-events: all; }
+.globe-over .pin .dot { fill: var(--page); stroke: var(--ink); stroke-width: 1.6; }
+.globe-over .pin.trad .dot { stroke: var(--history); stroke-dasharray: 2 2; }
+.globe-over .pin.dim { opacity: .35; }
+.globe-over .pin.hot .dot { fill: var(--accent); stroke: var(--accent); }
+.globe-over text { font: 600 11.5px var(--sans); fill: var(--ink); paint-order: stroke; stroke: color-mix(in srgb, var(--page) 88%, transparent); stroke-width: 4px; stroke-linejoin: round; }
+.globe-over .alabel rect { fill: var(--surface); stroke: color-mix(in srgb, var(--history) 55%, transparent); stroke-dasharray: 3 3; }
+.globe-over .alabel text { font-size: 10.5px; fill: var(--history); stroke: none; }
+.globe-card { position: absolute; left: 1rem; bottom: 2.8rem; z-index: 2; width: min(22rem, calc(100% - 2rem)); max-height: calc(100% - 4rem); overflow: auto; padding: 1rem 1.1rem .9rem;
+  border: 1px solid var(--line); border-radius: .9rem; background: color-mix(in srgb, var(--surface) 94%, transparent); box-shadow: 0 14px 40px -22px rgb(0 0 0 / 45%); cursor: auto; }
+.globe-card h4 { margin: .3rem 2rem .2rem 0; font: 500 1.08rem/1.3 var(--serif); }
+.globe-card .route { font-size: .72rem; color: var(--muted); margin-top: .25rem; }
+.globe-card .txt { margin-top: .5rem; font-size: .82rem; line-height: 1.6; }
+.globe-card .kjv-line { font: italic 400 .92rem/1.6 var(--serif); }
+.globe-x { position: absolute; top: .6rem; right: .6rem; width: 28px; height: 28px; }
+.globe-ents { margin: .5rem 0 0; padding-left: 1rem; font-size: .8rem; line-height: 1.5; }
+.globe-hint, .globe-credit { position: absolute; bottom: .6rem; margin: 0; font-size: .68rem; color: var(--muted); pointer-events: none; }
+.globe-hint { left: 1rem; display: inline-flex; gap: .4rem; align-items: center; }
+.globe-credit { right: 1rem; }
+@media (max-width: 640px) { .globe-hint { display: none; } .globe-card { bottom: 2rem; left: .6rem; width: calc(100% - 1.2rem); max-height: 55%; } }
+
+/* The mission stage (A and C): the globe across the whole window. */
+.mission-stage { position: relative; height: min(78vh, 46rem); min-height: 26rem; margin-top: 1rem; border-block: 1px solid var(--line);
+  background: radial-gradient(60% 70% at 50% 60%, color-mix(in srgb, var(--surface) 60%, transparent), transparent 75%); }
+.mission-tools { display: flex; flex-wrap: wrap; gap: .6rem 1.2rem; align-items: center; justify-content: space-between; }
+.legend-line { display: flex; flex-wrap: wrap; gap: .4rem 1rem; align-items: center; font-size: .76rem; color: var(--muted); }
+.legend-line i { display: inline-block; width: 26px; height: 0; margin-right: .4rem; vertical-align: middle; border-top: 2px solid var(--ink); }
+.legend-line i.trad { border-top: 2px dashed var(--history); }
+.unpinned { margin-top: .6rem; font-size: .74rem; color: var(--muted); }
+@media (max-width: 640px) { .mission-stage { height: 30rem; } }
+.art [pathLength].pulse:not(.write) { animation: draw 1.8s cubic-bezier(.65, 0, .35, 1) calc(var(--d, 0) * 1.6s) forwards, pulse 5s ease-in-out 2.4s infinite alternate; }
