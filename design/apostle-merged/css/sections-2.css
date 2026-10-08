@@ -60,25 +60,26 @@
 .acc-card footer { margin-top: .4rem; font-size: .7rem; color: var(--muted); }
 .acc-one blockquote { max-width: 46rem; margin: 0; padding: 1.2rem 1.4rem; border-left: 2px solid var(--accent); } .acc-one p { font: italic 1.15rem/1.6 var(--serif); } .acc-one footer { margin-top: .4rem; font-size: .74rem; color: var(--muted); }
 
-/* 05 · where was he: cards in two rows beside the map */
-.pl-grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 1.2rem 1.6rem; align-items: stretch; }
-.pl-cards-wrap { min-width: 0; }
-.pl-cards { display: grid; grid-template-rows: repeat(2, minmax(0, 1fr)); grid-auto-flow: column; grid-auto-columns: minmax(12.5rem, 1fr); gap: .7rem; height: 100%; overflow-x: auto; padding-bottom: .6rem; scroll-snap-type: x proximity; scrollbar-width: thin; }
-.pcard { display: flex; flex-direction: column; gap: .35rem; min-width: 0; padding: .85rem .95rem .8rem; border: 1px solid var(--line); border-radius: 1rem; background: var(--surface); text-align: left; scroll-snap-align: start; transition: border-color .2s, transform .25s cubic-bezier(.16, 1, .3, 1); }
-.pcard:hover { border-color: color-mix(in srgb, var(--accent) 50%, var(--line)); transform: translateY(-2px); }
+/* 05 · where was he: a two-column list of compact cards; the map takes the rest of the width and the list's height */
+.pl-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.12fr); gap: 1.2rem 1.6rem; align-items: stretch; }
+.pl-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-content: start; align-items: start; gap: .55rem; min-width: 0; }
+.pcard { display: flex; gap: .7rem; align-items: flex-start; min-width: 0; padding: .7rem .8rem; border: 1px solid var(--line); border-radius: .85rem; background: var(--surface); text-align: left; transition: border-color .2s, background-color .2s; }
+.pcard:hover { border-color: color-mix(in srgb, var(--accent) 50%, var(--line)); }
 .pcard.on { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 7%, var(--surface)); }
 .pcard.trad { border-style: dashed; background: transparent; }
 .pcard.nopin { opacity: .85; }
-.pcard-top { display: flex; justify-content: space-between; font: 600 .6rem var(--mono); letter-spacing: .1em; color: var(--muted); text-transform: uppercase; }
-.pcard-head { display: flex; gap: .6rem; align-items: center; }
-.pcard-icon { display: grid; flex: none; place-items: center; width: 40px; height: 40px; border-radius: 12px; color: var(--accent); background: color-mix(in srgb, var(--accent) 11%, transparent); }
+.pcard-icon { display: grid; flex: none; place-items: center; width: 34px; height: 34px; border-radius: 10px; color: var(--accent); background: color-mix(in srgb, var(--accent) 11%, transparent); }
 .pcard.trad .pcard-icon { color: var(--history); background: transparent; border: 1px dashed color-mix(in srgb, var(--history) 60%, transparent); }
-.pcard-name { font: 500 1.08rem/1.2 var(--serif); }
-.pcard-from { display: flex; gap: .3rem; align-items: center; font-size: .68rem; color: var(--muted); }
-.pcard-what { flex: 1; font-size: .78rem; line-height: 1.45; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
-.pcard-foot { display: flex; flex-wrap: wrap; gap: .3rem .5rem; align-items: center; font-size: .7rem; color: var(--muted); }
-.pl-map { position: relative; margin: 0; min-height: 26rem; display: flex; flex-direction: column; overflow: hidden; border: 1px solid var(--line); border-radius: 1rem; }
-.pl-svg { flex: 1; width: 100%; min-height: 24rem; display: block; touch-action: none; cursor: grab; font-family: var(--sans); }
+.pcard-body { display: flex; flex-direction: column; gap: .2rem; min-width: 0; flex: 1; }
+.pcard-line { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 0 .6rem; }
+.pcard-name { font: 500 1rem/1.25 var(--serif); min-width: 0; overflow-wrap: anywhere; }
+.pcard-n { flex: none; font: 600 .56rem var(--mono); letter-spacing: .08em; color: var(--muted); text-transform: uppercase; }
+.pcard-what { font-size: .76rem; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.pcard-foot { display: flex; flex-wrap: wrap; gap: .2rem .7rem; align-items: center; font-size: .66rem; color: var(--muted); }
+.pcard-from { display: inline-flex; gap: .25rem; align-items: center; }
+.pl-map-col { min-width: 0; }
+.pl-map { position: sticky; top: 4.75rem; height: 100%; max-height: calc(100vh - 6rem); min-height: 26rem; margin: 0; display: flex; flex-direction: column; overflow: hidden; border: 1px solid var(--line); border-radius: 1rem; }
+.pl-svg { flex: 1; width: 100%; min-height: 0; display: block; touch-action: none; cursor: grab; font-family: var(--sans); }
 .pl-svg:active { cursor: grabbing; }
 .pl-water { fill: color-mix(in srgb, var(--poetry) 16%, var(--page)); }
 .pl-landp { fill: url(#pl-land); stroke: color-mix(in srgb, var(--accent) 45%, var(--line)); stroke-linejoin: round; }
@@ -132,11 +133,13 @@
   .heat-wrap, .with-body, .pl-grid, .qv-ending { grid-template-columns: minmax(0, 1fr); }
   .heat-now, .with-now { position: static; }
   .acc-cards { grid-template-columns: minmax(0, 1fr); } .acc-card:nth-child(even) { margin-top: 0; }
-  .pl-cards { height: auto; grid-auto-columns: minmax(12rem, 72%); }
-  .pl-map { min-height: 22rem; }
+  /* Narrow screens: the map rides on top while the list scrolls under it (sticky inside the whole section). */
+  .pl-map-col { order: -1; position: sticky; top: 3.6rem; z-index: 2; padding-bottom: .6rem; background: var(--page); }
+  .pl-map { position: static; height: 40vh; min-height: 15rem; max-height: none; }
 }
 @media (min-width: 1001px) and (max-width: 1250px) { .acc-cards { grid-template-columns: repeat(min(var(--n), 2), minmax(0, 1fr)); } }
 @media (max-width: 760px) { .w-q { max-width: 17rem; } .heat { min-width: 34rem; } }
 .a-ring-art { min-width: 0; overflow: hidden; } .a-ring { min-width: 0; } .a-ring-art .ring { overflow: hidden; }
 @media (max-width: 900px) { .a-recs, .a-recs.two { columns: auto; } }
 @media (max-width: 900px) { .a-ring { grid-template-columns: minmax(0, 1fr); } .a-ring-art { max-width: 24rem; margin: 0 auto; width: 100%; } }
+@media (max-width: 560px) { .pl-cards { grid-template-columns: minmax(0, 1fr); } }
