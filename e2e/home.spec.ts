@@ -127,7 +127,7 @@ test("home: glimpse band covers wide screens through the loop seam and after res
       const animation = track.getAnimations()[0];
       animation.pause();
       const duration = Number(animation.effect!.getTiming().duration);
-      const cards = [...el.querySelectorAll(".home-preview")];
+      const cards = Array.from(el.querySelectorAll(".home-preview"));
       const frame = el.getBoundingClientRect();
       const phases = [0, .5, .9999, 1, 1.0001].map((phase) => {
         animation.currentTime = phase * duration;
