@@ -1,0 +1,58 @@
+/* Foundations: what every section shares — the opening, section headings, monograms and the pill scrollbar. */
+:where(.sc-page button) { padding: 0; border: 0; background: none; text-align: left; }
+.sc-page .sides { margin-top: 1.4rem; }
+
+/* ── Opening ─────────────────────────────────────────────────────────────── */
+.sc-intro { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 21rem); gap: 2rem 3.5rem; align-items: end; padding-top: clamp(1.6rem, 3.4vw, 2.6rem); }
+.sc-intro-kicker { display: flex; gap: .9rem; align-items: center; }
+.sc-intro-kicker::before { content: ""; width: 28px; height: 1px; background: currentColor; opacity: .7; }
+.sc-intro h1 { margin-top: 1.1rem; font: 500 clamp(2.3rem, 5vw, 4.1rem)/1.03 var(--serif); letter-spacing: -.045em; text-wrap: balance; }
+.sc-intro h1 em { padding-right: .12em; color: var(--accent); font-weight: 400; }
+.sc-lead { max-width: 58ch; margin-top: 1.2rem; color: var(--muted); font-size: .98rem; line-height: 1.75; }
+.sc-figs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.3rem 1.2rem; margin: 0; padding-left: 2rem; border-left: 1px solid var(--line); }
+.sc-figs dt { font-size: .6rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+.sc-figs dd { margin: .3rem 0 0; font: 500 2rem/1.05 var(--serif); letter-spacing: -.03em; font-variant-numeric: tabular-nums; }
+.sc-figs small { display: block; margin-top: .25rem; font-size: .72rem; color: var(--muted); }
+
+/* ── Sections ────────────────────────────────────────────────────────────── */
+.sc-sec { scroll-margin-top: 84px; }
+.sc-sec-flow { margin-top: 2.6rem; }
+.sc-sec + .sc-sec { margin-top: 3.4rem; padding-top: 1.9rem; border-top: 1px solid var(--line); }
+.sc-head { margin-bottom: 1.25rem; }
+.sc-head .kicker { display: flex; gap: .55rem; align-items: center; }
+.sc-num { font: italic 500 1rem/1 var(--serif); letter-spacing: 0; text-transform: none; }
+.sc-num::after { content: "/"; margin-left: .5rem; font-style: normal; opacity: .45; }
+.sc-head h2 { margin-top: .35rem; font: 500 clamp(1.5rem, 2.6vw, 1.95rem)/1.2 var(--serif); letter-spacing: -.02em; }
+.sc-head h2 em { color: var(--tone, var(--accent)); font-weight: 400; }
+.sc-line { max-width: 64ch; margin-top: .4rem; color: var(--muted); font-size: .9rem; line-height: 1.65; }
+.sc-sec-flow .sc-head h2 { font-size: clamp(1.7rem, 3.2vw, 2.4rem); }
+.sc-failed { padding: 1rem; border: 1px dashed var(--line); border-radius: 12px; color: var(--muted); }
+
+/* ── Small shared pieces ─────────────────────────────────────────────────── */
+.sc-mono { display: inline-grid; flex: none; place-items: center; width: 30px; height: 30px; border: 1.5px solid color-mix(in srgb, var(--tone) 70%, transparent); border-radius: 50%;
+  background: color-mix(in srgb, var(--tone) 14%, var(--surface)); color: color-mix(in srgb, var(--tone) 62%, var(--ink)); font: 600 .72rem/1 var(--serif); letter-spacing: .01em; }
+.sc-yr { color: var(--muted); font-variant-numeric: tabular-nums; }
+.sc-chip { display: inline-flex; gap: .35rem; align-items: center; padding: .14rem .55rem; border: 1px solid var(--line); border-radius: 999px; font-size: .68rem; color: var(--muted); white-space: nowrap; }
+.sc-chip i { width: 7px; height: 7px; border-radius: 50%; background: var(--tone); }
+.sc-use { display: inline-block; width: 8px; height: 8px; border-radius: 50%; }
+.sc-use-in-use { background: var(--accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 18%, transparent); }
+.sc-use-held { border: 1.5px solid var(--accent); }
+
+/* The site's floating pill scrollbar on every inner scrolling list. */
+.sc-scroll { scrollbar-width: thin; scrollbar-color: color-mix(in srgb, var(--ink) 28%, transparent) transparent; }
+.sc-scroll::-webkit-scrollbar { width: 6px; height: 6px; }
+.sc-scroll::-webkit-scrollbar-track, .sc-scroll::-webkit-scrollbar-corner { background: transparent; }
+.sc-scroll::-webkit-scrollbar-button { display: none; }
+.sc-scroll::-webkit-scrollbar-thumb { border-radius: 999px; background: color-mix(in srgb, var(--ink) 28%, transparent); }
+
+@media (max-width: 900px) {
+  .sc-intro { grid-template-columns: 1fr; }
+  .sc-figs { grid-template-columns: repeat(4, minmax(0, 1fr)); padding: 1.1rem 0 0; border-left: 0; border-top: 1px solid var(--line); }
+}
+@media (max-width: 560px) {
+  .sc-intro h1 { font-size: 2.1rem; }
+  .sc-lead { font-size: .92rem; }
+  .sc-figs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sc-figs dd { font-size: 1.6rem; }
+  .sc-sec + .sc-sec { margin-top: 2.6rem; }
+}

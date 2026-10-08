@@ -1,0 +1,72 @@
+/* The index · the page: headline and figures, section headings, and the small pieces every section shares. */
+html { scrollbar-gutter: stable; }
+html.pf-lock { overflow: hidden; }
+.ix button { padding: 0; border: 0; background: none; }
+.ix-sec { scroll-margin-top: 76px; }
+.ix-sec + .ix-sec { margin-top: 4rem; padding-top: 2.2rem; border-top: 1px solid var(--line); }
+.ix-failed { padding: 1rem; border: 1px dashed var(--line); border-radius: 12px; color: var(--muted); }
+
+/* ── Headline ─────────────────────────────────────────────────────────────── */
+.ix-hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 22rem); gap: 2rem 3.5rem; align-items: end; padding: clamp(1.6rem, 3.4vw, 2.6rem) 0 clamp(1.8rem, 3vw, 2.4rem); }
+.ix-hero-kicker { display: flex; gap: .9rem; align-items: center; }
+.ix-hero-kicker::before { content: ""; width: 28px; height: 1px; background: currentColor; opacity: .7; }
+.ix-title { margin-top: 1.1rem; font: 500 clamp(2.35rem, 5vw, 4.15rem)/1.03 var(--serif); letter-spacing: -.045em; text-wrap: balance; }
+.ix-title em { color: var(--accent); font-weight: 400; }
+.ix-lead { max-width: 60ch; margin-top: 1.2rem; color: var(--muted); font-size: .98rem; line-height: 1.75; }
+.ix-figs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.3rem 1.2rem; margin: 0; padding-left: 2rem; border-left: 1px solid var(--line); }
+.ix-figs dt { font-size: .6rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+.ix-figs dd { margin: .3rem 0 0; font: 500 2rem/1.05 var(--serif); letter-spacing: -.03em; font-variant-numeric: tabular-nums; }
+.ix-figs dd small { font-size: 1.1rem; color: var(--muted); }
+.ix-figs p { margin-top: .2rem; font-size: .72rem; color: var(--muted); }
+@media (max-width: 900px) {
+  .ix-hero { grid-template-columns: 1fr; }
+  .ix-figs { padding: 1.2rem 0 0; border-left: 0; border-top: 1px solid var(--line); grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+@media (max-width: 560px) { .ix-figs { grid-template-columns: repeat(2, minmax(0, 1fr)); } .ix-figs dd { font-size: 1.7rem; } }
+
+/* ── Section headings: kicker (with the section number in line), serif title with an italic accent word, one line ── */
+.ix-head { margin-bottom: 1.5rem; }
+.ix-head h2 { margin-top: .45rem; font: 500 clamp(1.5rem, 2.6vw, 1.95rem)/1.2 var(--serif); letter-spacing: -.02em; }
+.ix-head h2 em { color: var(--accent); font-weight: 400; }
+.ix-head p:not(.kicker) { max-width: 62ch; margin-top: .45rem; color: var(--muted); font-size: .9rem; line-height: 1.65; }
+
+/* ── Shared pieces ────────────────────────────────────────────────────────── */
+.ix-mark { flex: none; display: block; overflow: visible; }
+.ix-faith { display: inline-flex; align-items: center; padding: .16rem .55rem; border: 1px solid var(--line); border-radius: 999px; font-size: .7rem; color: var(--muted); white-space: nowrap; }
+.ix-badge { display: inline-flex; gap: .4rem; align-items: center; padding: .18rem .6rem; border-radius: 999px; font-size: .66rem; font-weight: 600; letter-spacing: .02em; white-space: nowrap; }
+.ix-badge-used { background: color-mix(in srgb, var(--accent) 14%, transparent); color: var(--accent); }
+.ix-badge-used i { width: 6px; height: 6px; border-radius: 50%; background: currentColor; box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 22%, transparent); }
+.ix-badge-held { border: 1px dashed color-mix(in srgb, var(--muted) 55%, transparent); color: var(--muted); font-weight: 500; }
+
+/* A life on the 0–2026 line. */
+.ix-lb { position: relative; }
+.ix-lb-track { position: relative; height: 4px; border-radius: 999px; background: color-mix(in srgb, var(--ink) 9%, transparent); }
+.ix-lb-track b { position: absolute; top: -1px; height: 6px; border-radius: 999px; background: var(--tone); }
+.ix-lb-big { padding-bottom: 1.3rem; }
+.ix-lb-big .ix-lb-track { height: 6px; margin-top: .9rem; }
+.ix-lb-big .ix-lb-track b { top: -4px; height: 14px; box-shadow: 0 0 0 4px color-mix(in srgb, var(--tone) 18%, transparent); }
+.ix-lb-other { position: absolute; top: -6px; width: 1px; height: 18px; background: color-mix(in srgb, var(--ink) 16%, transparent); }
+.ix-lb-work { position: absolute; top: 15px; width: 6px; height: 6px; margin-left: -3px; border-radius: 50%; background: var(--tone); }
+.ix-lb-tick { position: absolute; bottom: 0; font-size: .62rem; color: var(--muted); font-variant-numeric: tabular-nums; transform: translateX(-50%); }
+.ix-lb-tick:first-of-type { transform: none; }
+
+/* The site's floating pill scrollbar for inner scrolling areas. */
+.ix-scroll::-webkit-scrollbar { width: 6px; height: 6px; }
+.ix-scroll::-webkit-scrollbar-track, .ix-scroll::-webkit-scrollbar-corner { background: transparent; }
+.ix-scroll::-webkit-scrollbar-button { display: none; }
+.ix-scroll::-webkit-scrollbar-thumb { border-radius: 999px; background: color-mix(in srgb, var(--ink) 28%, transparent); }
+.ix-scroll::-webkit-scrollbar-thumb:hover { background: color-mix(in srgb, var(--ink) 45%, transparent); }
+@supports not selector(::-webkit-scrollbar) { .ix-scroll { scrollbar-width: thin; scrollbar-color: color-mix(in srgb, var(--ink) 28%, transparent) transparent; } }
+
+/* ── Everyone, A to Z ─────────────────────────────────────────────────────── */
+.ix-sec-everyone .ix-head { margin-bottom: 1rem; }
+.az { columns: 4 13rem; column-gap: 2rem; }
+.az-group { display: grid; grid-template-columns: 1.4rem minmax(0, 1fr); gap: .5rem; break-inside: avoid; padding: .35rem 0; border-top: 1px solid var(--line); }
+.az-letter { padding-top: .32rem; font: 500 .95rem var(--serif); color: var(--accent); }
+.az ul { margin: 0; padding: 0; list-style: none; }
+.az button { display: flex; gap: .5rem; align-items: center; width: 100%; padding: .3rem .45rem; border-radius: .5rem; text-align: left; font-size: .84rem; transition: background .15s; }
+.az button:hover { background: var(--surface-2); }
+.az button i { display: grid; flex: none; }
+.az button span { flex: 1; min-width: 0; font-weight: 500; }
+.az button small { font-size: .72rem; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.ix [hidden], .pf [hidden] { display: none !important; }

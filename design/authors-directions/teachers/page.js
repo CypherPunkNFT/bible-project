@@ -43,6 +43,8 @@ window.Sections = window.Sections || {};
   const wrap = document.createElement("div");
   wrap.className = "wrap t-page";
   main.append(wrap);
+  // The two sides of the Teachers page; Scholars is still being designed, so it opens the four Scholars directions.
+  if (window.Sides) wrap.insertAdjacentHTML("afterbegin", Sides.html("preachers", { preachers: "#", scholars: "../../scholars-directions/" }));
   for (const [key, title] of ORDER) {
     const section = document.createElement("section");
     section.id = key;

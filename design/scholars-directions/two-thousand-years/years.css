@@ -1,0 +1,41 @@
+/* "Two thousand years" (Scholars, direction B): page, headline, figures and the section heading every section shares. */
+.yr-page { padding-top: .25rem; }
+:where(.yr-page) button { padding: 0; border: 0; background: none; text-align: left; }
+.yr-failed { padding: 1rem; border: 1px dashed var(--line); border-radius: 12px; color: var(--muted); }
+
+/* Floating pill scrollbar for any inner scrolling list (the site's own). */
+.yr-page *::-webkit-scrollbar, .yd *::-webkit-scrollbar { width: 6px; height: 6px; }
+.yr-page *::-webkit-scrollbar-track, .yr-page *::-webkit-scrollbar-corner, .yd *::-webkit-scrollbar-track, .yd *::-webkit-scrollbar-corner { background: transparent; }
+.yr-page *::-webkit-scrollbar-button, .yd *::-webkit-scrollbar-button { display: none; }
+.yr-page *::-webkit-scrollbar-thumb, .yd *::-webkit-scrollbar-thumb { border-radius: 999px; background: color-mix(in srgb, var(--ink) 28%, transparent); }
+
+/* ── Headline ─────────────────────────────────────────────────────────────── */
+.yr-hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 21rem); gap: 2rem 3.5rem; align-items: end; padding-top: clamp(1.6rem, 3.4vw, 2.8rem); }
+.yr-kicker { display: flex; gap: .9rem; align-items: center; }
+.yr-kicker::before { content: ""; width: 28px; height: 1px; background: currentColor; opacity: .7; }
+.yr-hero h1 { margin-top: 1.1rem; font: 500 clamp(2.35rem, 5vw, 4.15rem)/1.03 var(--serif); letter-spacing: -.045em; text-wrap: balance; }
+.yr-hero h1 em { color: var(--accent); font-weight: 400; }
+.yr-lead { max-width: 56ch; margin-top: 1.2rem; color: var(--muted); font-size: .98rem; line-height: 1.75; }
+.yr-figs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.3rem 1.2rem; margin: 0; padding-left: 2rem; border-left: 1px solid var(--line); }
+.yr-figs dt { font-size: .6rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+.yr-figs dd { margin: .3rem 0 0; font: 500 2rem/1.05 var(--serif); letter-spacing: -.03em; font-variant-numeric: tabular-nums; }
+.yr-figs small { display: block; margin-top: .25rem; font-size: .72rem; color: var(--muted); }
+
+/* ── Sections ─────────────────────────────────────────────────────────────── */
+.yr-sec { scroll-margin-top: 84px; }
+.yr-sec-timeline { margin-top: 2.1rem; }
+.yr-sec + .yr-sec:not(.yr-sec-timeline) { margin-top: 3.4rem; padding-top: 2rem; border-top: 1px solid var(--line); }
+.yr-head { margin-bottom: 1.3rem; }
+.yr-head h2 { margin-top: .45rem; font: 500 clamp(1.5rem, 2.6vw, 1.95rem)/1.2 var(--serif); letter-spacing: -.02em; }
+.yr-head h2 em { color: var(--tone, var(--accent)); font-weight: 400; }
+.yr-head p:not(.kicker) { max-width: 64ch; margin-top: .45rem; color: var(--muted); font-size: .9rem; line-height: 1.65; }
+
+@media (max-width: 900px) {
+  .yr-hero { grid-template-columns: 1fr; }
+  .yr-figs { grid-template-columns: repeat(4, minmax(0, 1fr)); padding: 1.1rem 0 0; border-left: 0; border-top: 1px solid var(--line); }
+}
+@media (max-width: 560px) {
+  .yr-lead { font-size: .92rem; }
+  .yr-figs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .yr-figs dd { font-size: 1.6rem; }
+}

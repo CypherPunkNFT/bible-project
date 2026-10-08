@@ -50,6 +50,46 @@
       ]
     },
     {
+      "id": "scholars",
+      "title": "Teachers · Scholars",
+      "line": "The Scholars side of the Teachers page (owner 2026-10-08: two sides, Preachers & writers stays Reformed-only; Scholars open to the greats of any background, labelled). 35 scholars and 7 finds, hand-entered (not yet source-checked); site usage from SOURCES.md.",
+      "page": "/",
+      "cards": [
+        {
+          "id": "scholars-foundations",
+          "title": "A · Foundations",
+          "url": "/mockups/scholars-directions/foundations/",
+          "date": "2026-10-08",
+          "status": "option",
+          "line": "Opens with what the visitor already uses: ribbons from the site's features (Topics, Gospel harmony, Letters) to the scholars whose books power them; where the site names them; five fields; directory."
+        },
+        {
+          "id": "scholars-two-thousand-years",
+          "title": "B · Two thousand years",
+          "url": "/mockups/scholars-directions/two-thousand-years/",
+          "date": "2026-10-08",
+          "status": "option",
+          "line": "One deep timeline in five lanes of study with a stretch-and-zoom time axis; how the Bible's text reached English (Origen to Westcott & Hort); gaps and crowds; directory."
+        },
+        {
+          "id": "scholars-digs-and-desks",
+          "title": "C · Digs and desks",
+          "url": "/mockups/scholars-directions/digs-and-desks/",
+          "date": "2026-10-08",
+          "status": "option",
+          "line": "Atlas-style maps: seven discoveries from Robinson's Arch (1838) to Masada (1963) as the main event, where each scholar worked age by age, from the dig to the site."
+        },
+        {
+          "id": "scholars-the-index",
+          "title": "D · The index",
+          "url": "/mockups/scholars-directions/the-index/",
+          "date": "2026-10-08",
+          "status": "option",
+          "line": "A filterable gallery of 35 scholar cards by field, era and faith with FLIP filtering, profiles that grow from the card, side-by-side comparison, by-the-numbers filters."
+        }
+      ]
+    },
+    {
       "id": "people",
       "title": "Study · People",
       "line": "The people pages' visual overhaul, Moses first: one Moses told as three forties (Acts 7:23, 7:30, 7:36), with the journey map and the timeline as the spine. Brief: Research/People/OVERHAUL.md.",

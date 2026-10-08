@@ -1,0 +1,74 @@
+/* The profile drawer: from the right over a soft scrim, above the sticky header (40) and the A–D switch (30). */
+.dw { position: fixed; inset: 0; z-index: 70; visibility: hidden; transition: visibility 0s .5s; }
+.dw.dw-open { visibility: visible; transition: none; }
+.dw button { padding: 0; border: 0; background: none; text-align: left; }
+.dw-scrim { position: absolute; inset: 0; background: color-mix(in srgb, var(--ink) 28%, transparent); opacity: 0; transition: opacity .4s; }
+.dw.dw-open .dw-scrim { opacity: 1; }
+.dw-panel { position: absolute; top: 0; right: 0; bottom: 0; display: flex; flex-direction: column; width: min(34rem, 100%); border-left: 1px solid var(--line);
+  background: var(--page); box-shadow: -24px 0 60px -30px rgb(0 0 0 / 45%); transform: translateX(104%); transition: transform .5s cubic-bezier(.16, 1, .3, 1); }
+.dw.dw-open .dw-panel { transform: none; }
+.dw-bar { display: flex; gap: .5rem; align-items: center; padding: calc(.7rem + env(safe-area-inset-top, 0px)) 1rem .7rem; border-bottom: 1px solid var(--line); }
+.dw-bar button { display: grid; place-items: center; width: 34px; height: 34px; border: 1px solid var(--line); border-radius: 50%; color: var(--muted); transition: border-color .2s, color .2s; }
+.dw-bar button:hover { border-color: var(--ink); color: var(--ink); }
+.dw-count { font-size: .74rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.dw-bar .dw-close { margin-left: auto; }
+.dw-body { flex: 1; overflow-y: auto; overscroll-behavior: contain; padding: 1.4rem 1.4rem calc(2.5rem + env(safe-area-inset-bottom, 0px)); }
+
+.dw-top { display: flex; gap: 1rem; align-items: center; }
+.dw-top .kicker { color: var(--tone); }
+.dw-top h2 { margin-top: .2rem; font: 500 1.9rem/1.1 var(--serif); letter-spacing: -.03em; }
+.dw-years { margin-top: .25rem; font-size: .84rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.sc-mono.dw-mono { width: 64px; height: 64px; border-width: 2px; font-size: 1.3rem; }
+.dw-facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); margin: 1.2rem 0 0; border-top: 1px solid var(--line); }
+.dw-facts > div { padding: .65rem 0; border-bottom: 1px solid var(--line); }
+.dw-facts > div:nth-child(even) { padding-left: 1rem; border-left: 1px solid var(--line); }
+.dw-facts dt { font-size: .56rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.dw-facts dd { margin: .2rem 0 0; font: 500 1rem/1.3 var(--serif); }
+.dw-line { margin-top: 1.1rem; font: 400 1.05rem/1.6 var(--serif); }
+.dw-body section { margin-top: 1.5rem; }
+.dw-body h3 { margin: 0 0 .65rem; font-size: .62rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--tone); }
+.dw-lead { margin-bottom: .6rem; font-size: .8rem; line-height: 1.55; color: var(--muted); }
+.dw-empty { font-size: .84rem; color: var(--muted); }
+
+.dw-map { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: .9rem; background: color-mix(in srgb, var(--prophets) 5%, var(--surface)); }
+.dw-land { fill: var(--surface-2); stroke: color-mix(in srgb, var(--muted) 35%, transparent); stroke-width: .6; vector-effect: non-scaling-stroke; }
+.dw-halo { fill: color-mix(in srgb, var(--tone) 18%, transparent); }
+.dw-pt { fill: var(--tone); stroke: var(--surface); stroke-width: 2; vector-effect: non-scaling-stroke; }
+.dw-find { fill: var(--accent); stroke: var(--surface); stroke-width: 1.5; vector-effect: non-scaling-stroke; }
+.dw-label { fill: var(--ink); paint-order: stroke; stroke: var(--surface); stroke-width: 6px; stroke-linejoin: round; font: 600 30px var(--sans); }
+.dw-map-note { display: flex; gap: .45rem; align-items: center; margin-top: .45rem; font-size: .72rem; color: var(--muted); }
+.dw-map-note i { width: 8px; height: 8px; border-radius: 2px; background: var(--accent); transform: rotate(45deg); }
+
+.dw-works { margin: 0; padding: 0; list-style: none; }
+.dw-works li { display: flex; gap: 1rem; justify-content: space-between; align-items: baseline; padding: .55rem 0; border-bottom: 1px solid var(--line); }
+.dw-works span { font: 500 .98rem/1.35 var(--serif); }
+.dw-works b { font-size: .78rem; font-weight: 500; color: var(--muted); font-variant-numeric: tabular-nums; }
+
+.dw-status { display: flex; gap: .55rem; align-items: center; font-size: .82rem; font-weight: 600; }
+.dw-note { margin-top: .35rem; font-size: .88rem; line-height: 1.6; }
+.dw-feats { display: flex; flex-wrap: wrap; gap: .35rem; margin-top: .6rem; }
+
+.dw-areas { display: grid; gap: .45rem; margin: 0; padding: 0; list-style: none; }
+.dw-areas li { display: grid; grid-template-columns: 7.5rem minmax(0, 1fr); gap: .8rem; align-items: center; font-size: .8rem; }
+.dw-areas b { height: 8px; border-radius: 4px; background: var(--surface-2); overflow: hidden; }
+.dw-areas i { display: block; height: 100%; border-radius: 4px; background: var(--tone); }
+
+.dw-finds { margin: 0; padding: 0; list-style: none; }
+.dw-finds li { padding: .6rem 0; border-bottom: 1px solid var(--line); }
+.dw-finds b { font: 500 .98rem var(--serif); }
+.dw-finds small { margin-left: .5rem; font-size: .72rem; color: var(--muted); }
+.dw-finds p { margin-top: .2rem; font-size: .82rem; line-height: 1.55; color: var(--muted); }
+
+.dw-chain { display: flex; flex-wrap: wrap; gap: .3rem; margin: 0; padding: 0; list-style: none; counter-reset: step; }
+.dw-chain li { display: inline-flex; align-items: center; gap: .3rem; }
+.dw-chain li + li::before { content: ""; width: 10px; height: 1px; background: var(--line); }
+.dw-chain button { padding: .2rem .6rem; border: 1px solid var(--line); border-radius: 999px; font-size: .74rem; color: var(--muted); transition: border-color .2s, color .2s; }
+.dw-chain button:hover { border-color: var(--ink); color: var(--ink); }
+.dw-chain .dw-here button { border-color: var(--tone); background: color-mix(in srgb, var(--tone) 12%, transparent); color: var(--ink); font-weight: 600; }
+
+@media (max-width: 480px) {
+  .dw-body { padding-inline: 1rem; }
+  .dw-top h2 { font-size: 1.6rem; }
+  .sc-mono.dw-mono { width: 52px; height: 52px; font-size: 1.05rem; }
+  .dw-areas li { grid-template-columns: 6.5rem minmax(0, 1fr); }
+}

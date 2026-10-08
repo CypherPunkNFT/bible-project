@@ -1,0 +1,75 @@
+/* The profile drawer: slides in from the right over a soft scrim, above the sticky header (40) and the A–D switch (30). */
+.yd { position: fixed; inset: 0; z-index: 70; visibility: hidden; transition: visibility 0s .5s; }
+.yd.yd-open { visibility: visible; transition: none; }
+.yd button { padding: 0; border: 0; background: none; }
+.yd-scrim { position: absolute; inset: 0; background: color-mix(in srgb, var(--ink) 28%, transparent); opacity: 0; transition: opacity .4s; }
+.yd.yd-open .yd-scrim { opacity: 1; }
+.yd-panel { position: absolute; top: 0; right: 0; bottom: 0; display: flex; flex-direction: column; width: min(34rem, 100%); border-left: 1px solid var(--line);
+  background: var(--page); box-shadow: -24px 0 60px -30px rgb(0 0 0 / 45%); transform: translateX(104%); transition: transform .5s cubic-bezier(.16, 1, .3, 1); }
+.yd.yd-open .yd-panel { transform: none; }
+.yd-bar { display: flex; gap: .5rem; align-items: center; padding: calc(.7rem + env(safe-area-inset-top, 0px)) 1rem .7rem; border-bottom: 1px solid var(--line); }
+.yd-bar button { display: grid; place-items: center; width: 34px; height: 34px; border: 1px solid var(--line); border-radius: 50%; color: var(--muted); transition: border-color .2s, color .2s; }
+.yd-bar button:hover { border-color: var(--ink); color: var(--ink); }
+.yd-count { font-size: .74rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.yd-bar .yd-close { margin-left: auto; }
+.yd-body { flex: 1; overflow-y: auto; overscroll-behavior: contain; padding: 1.4rem 1.4rem calc(2rem + env(safe-area-inset-bottom, 0px)); }
+
+.yd-inner .kicker { color: var(--tone); }
+.yd-inner h2 { margin-top: .3rem; font: 500 1.95rem/1.1 var(--serif); letter-spacing: -.03em; }
+.yd-years { margin-top: .3rem; font-size: .84rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.yd-pills { display: flex; flex-wrap: wrap; gap: .35rem; margin: .9rem 0 0; padding: 0; list-style: none; }
+.yd-pills li { display: inline-flex; gap: .35rem; align-items: center; padding: .2rem .65rem; border: 1px solid var(--line); border-radius: 999px; font-size: .74rem; color: var(--muted); }
+.yd-pills li.yd-faith { border-color: transparent; background: color-mix(in srgb, var(--tone) 15%, transparent); color: color-mix(in srgb, var(--tone) 70%, var(--ink)); font-weight: 600; }
+.yd-faith i { width: 7px; height: 7px; border-radius: 50%; background: var(--tone); }
+.yd-line { margin-top: 1rem; font: 400 1.05rem/1.6 var(--serif); }
+.yd-inner section { margin-top: 1.6rem; }
+.yd-inner h3 { margin: 0 0 .7rem; font-size: .62rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--tone); }
+.yd-note { margin-top: .5rem; font-size: .74rem; line-height: 1.55; color: var(--muted); }
+.yd-empty { font-size: .84rem; color: var(--muted); }
+
+.yd-life svg { display: block; width: 100%; height: 40px; border-radius: .6rem; overflow: hidden; background: var(--surface); }
+.yd-band { fill: var(--surface-2); opacity: .7; }
+.yd-band-off { fill: transparent; }
+.yd-other { fill: color-mix(in srgb, var(--muted) 30%, transparent); }
+.yd-me { fill: var(--tone); }
+.yd-tick { fill: var(--ink); }
+.yd-axis { position: relative; height: 1rem; margin-top: .3rem; }
+.yd-axis span { position: absolute; transform: translateX(-50%); font-size: .66rem; color: var(--muted); }
+.yd-axis span:first-child { transform: none; }
+
+.yd-works, .yd-finds { margin: 0; padding: 0; list-style: none; }
+.yd-works li, .yd-finds li { display: grid; grid-template-columns: 3rem minmax(0, 1fr); gap: .8rem; align-items: baseline; padding: .55rem 0; border-bottom: 1px solid var(--line); }
+.yd-works b, .yd-finds b { font: 500 .95rem var(--serif); color: var(--tone); font-variant-numeric: tabular-nums; }
+.yd-works span, .yd-finds span { font: 500 .98rem/1.35 var(--serif); }
+.yd-finds small { display: block; margin-top: .15rem; font-size: .76rem; line-height: 1.5; color: var(--muted); }
+
+.yd-use { padding: .8rem .95rem; border: 1px dashed var(--line); border-radius: .9rem; }
+.yd-use-live { border: 1px solid color-mix(in srgb, var(--poetry) 40%, var(--line)); background: color-mix(in srgb, var(--poetry) 7%, transparent); }
+.yd-status { display: inline-block; font-size: .62rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.yd-use-live .yd-status { color: var(--poetry); }
+.yd-use p { margin-top: .3rem; font-size: .86rem; line-height: 1.55; }
+
+.yd-areas { display: grid; gap: .45rem; margin: 0; padding: 0; list-style: none; }
+.yd-areas li { display: grid; grid-template-columns: 8.5rem minmax(0, 1fr); gap: .8rem; align-items: center; font-size: .8rem; }
+.yd-areas i { display: block; height: 8px; border-radius: 4px; background: var(--surface-2); }
+.yd-areas b { display: block; height: 100%; border-radius: 4px; background: var(--tone); }
+.yd-chain { font-size: .86rem; line-height: 1.55; }
+.yd-chain b { color: var(--tone); }
+
+.yd-map { display: block; width: 100%; aspect-ratio: 2 / 1; border: 1px solid var(--line); border-radius: .9rem; background: color-mix(in srgb, var(--prophets) 5%, var(--surface)); }
+.yd-land { fill: var(--surface-2); stroke: color-mix(in srgb, var(--muted) 35%, transparent); stroke-width: .6; vector-effect: non-scaling-stroke; }
+.yd-halo { fill: color-mix(in srgb, var(--tone) 22%, transparent); }
+.yd-pin { fill: var(--tone); stroke: var(--surface); stroke-width: 1.5; vector-effect: non-scaling-stroke; }
+.yd-map text { fill: var(--ink); paint-order: stroke; stroke: var(--surface); stroke-width: 3px; stroke-linejoin: round; font-family: var(--sans); font-weight: 600; }
+
+.yd-peers { display: flex; flex-wrap: wrap; gap: .35rem; }
+.yd-peers button { display: inline-flex; gap: .4rem; align-items: center; padding: .3rem .7rem; border: 1px solid var(--line); border-radius: 999px; font-size: .78rem; transition: border-color .2s, background .2s; }
+.yd-peers button:hover { border-color: var(--tone); background: color-mix(in srgb, var(--tone) 8%, transparent); }
+.yd-peers i { width: 7px; height: 7px; border-radius: 50%; background: var(--tone); }
+.yd-peers small { font-size: .68rem; color: var(--muted); }
+
+@media (max-width: 480px) {
+  .yd-body { padding-inline: 1rem; }
+  .yd-inner h2 { font-size: 1.65rem; }
+  .yd-areas li { grid-template-columns: 7rem minmax(0, 1fr); }
+}

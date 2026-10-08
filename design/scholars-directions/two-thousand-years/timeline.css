@@ -1,0 +1,56 @@
+/* The main timeline: one card holding the toolbar, faith chips, the canvas, the overview strip and a readout. */
+.yt-card { position: relative; padding: 1.1rem 0 .9rem; border: 1px solid var(--line); border-radius: 1.5rem;
+  background: radial-gradient(ellipse 55% 60% at 8% 0%, color-mix(in srgb, var(--accent) 8%, transparent), transparent 70%),
+    radial-gradient(ellipse 45% 55% at 96% 100%, color-mix(in srgb, var(--prophets) 7%, transparent), transparent 70%), var(--surface);
+  box-shadow: 0 30px 60px -48px rgb(0 0 0 / 45%); }
+
+.yt-tools { display: flex; flex-wrap: wrap; gap: .6rem .9rem; align-items: center; padding: 0 1.1rem; }
+.yt-presets, .yt-zoom, .yt-scale { display: inline-flex; gap: 2px; padding: 3px; border: 1px solid var(--line); border-radius: 999px; background: var(--page); }
+.yt-presets button, .yt-zoom button, .yt-scale button { height: 30px; padding: 0 .85rem; border-radius: 999px; font-size: .8rem; color: var(--muted); white-space: nowrap; transition: background .2s, color .2s; }
+.yt-presets button:hover, .yt-zoom button:hover, .yt-scale button:hover { background: var(--surface-2); color: var(--ink); }
+.yt-presets button[aria-pressed="true"], .yt-scale button[aria-pressed="true"] { background: var(--ink); color: var(--page); }
+.yt-zoom button { width: 30px; padding: 0; font-size: 1rem; text-align: center; }
+.yt-scale { margin-left: auto; align-items: center; }
+.yt-scale span { padding: 0 .4rem 0 .6rem; font-size: .6rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+
+.yt-faiths { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .8rem; padding: 0 1.1rem; }
+.yt-chip { display: inline-flex; gap: .45rem; align-items: center; height: 30px; padding: 0 .8rem; border: 1px solid var(--line); border-radius: 999px;
+  background: var(--surface); font-size: .78rem; color: var(--ink); transition: border-color .2s, background .2s, color .2s; }
+.yt-chip i { width: 9px; height: 9px; border-radius: 50%; background: var(--tone); }
+.yt-chip small { font-size: .7rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.yt-chip:hover { border-color: color-mix(in srgb, var(--tone, var(--ink)) 60%, var(--line)); }
+.yt-chip[aria-pressed="true"] { border-color: var(--tone, var(--ink)); background: color-mix(in srgb, var(--tone, var(--ink)) 12%, var(--surface)); }
+.yt-chip[data-faith=""][aria-pressed="true"] { background: var(--ink); color: var(--page); }
+.yt-chip[data-faith=""][aria-pressed="true"] small { color: color-mix(in srgb, var(--page) 70%, transparent); }
+
+.yt-stage { position: relative; margin-top: .9rem; }
+.yt-main { display: block; width: 100%; cursor: grab; touch-action: pan-y; user-select: none; -webkit-user-select: none; }
+.yt-over { margin-top: .55rem; }
+.yt-over canvas { display: block; width: 100%; touch-action: pan-y; }
+.yt-foot { display: flex; flex-wrap: wrap; gap: .3rem 1.2rem; justify-content: space-between; margin-top: .55rem; padding: 0 1.1rem; font-size: .74rem; color: var(--muted); }
+.yt-range { color: var(--ink); font-variant-numeric: tabular-nums; }
+.yt-explain { max-width: 80ch; margin-top: .9rem; font-size: .82rem; line-height: 1.6; color: var(--muted); }
+
+/* Hover card */
+.yt-tip { position: absolute; top: 0; left: 0; z-index: 5; width: 17rem; padding: .85rem 1rem .8rem; border: 1px solid var(--line); border-top: 2px solid var(--tone, var(--accent));
+  border-radius: 1rem; background: var(--surface); box-shadow: 0 22px 44px -24px rgb(0 0 0 / 45%); opacity: 0; pointer-events: none; transition: opacity .16s; }
+.yt-tip.yt-tip-on { opacity: 1; }
+.yt-tip .kicker { color: var(--tone); }
+.yt-tip b { display: block; margin-top: .25rem; font: 500 1.2rem/1.2 var(--serif); letter-spacing: -.015em; }
+.yt-tip small { display: block; margin-top: .15rem; font-size: .74rem; color: var(--muted); }
+.yt-tip-faith { display: inline-flex; gap: .4rem; align-items: center; margin-top: .5rem; padding: .15rem .55rem; border-radius: 999px; background: color-mix(in srgb, var(--tone) 14%, transparent); font-size: .72rem; font-weight: 600; color: color-mix(in srgb, var(--tone) 70%, var(--ink)); }
+.yt-tip-faith i { width: 7px; height: 7px; border-radius: 50%; background: var(--tone); }
+.yt-tip ul { margin: .55rem 0 0; padding: 0; list-style: none; }
+.yt-tip li { display: grid; grid-template-columns: 2.6rem minmax(0, 1fr); gap: .5rem; padding: .2rem 0; font-size: .8rem; line-height: 1.4; }
+.yt-tip li em { font: 500 .82rem var(--serif); font-style: normal; color: var(--tone); }
+.yt-tip-go { display: flex; gap: .3rem; align-items: center; margin-top: .5rem; padding-top: .5rem; border-top: 1px solid var(--line); font-size: .72rem; font-weight: 600; color: var(--tone); }
+
+@media (max-width: 640px) {
+  .yt-card { border-radius: 1.1rem; padding-top: .9rem; }
+  .yt-tools, .yt-faiths, .yt-foot { padding-inline: .75rem; }
+  .yt-presets { overflow-x: auto; max-width: 100%; scrollbar-width: none; }
+  .yt-presets button { padding: 0 .65rem; font-size: .76rem; }
+  .yt-scale { margin-left: 0; }
+  .yt-chip { height: 28px; padding: 0 .65rem; font-size: .74rem; }
+  .yt-tip { width: 15rem; }
+}

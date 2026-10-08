@@ -1,0 +1,47 @@
+/* 03 · Five ways to study the Bible: five cards in one row; the chosen one widens to list its people. */
+.fd-grid { --cols: repeat(5, 1fr); display: grid; grid-template-columns: var(--cols); gap: .75rem; height: 25rem;
+  transition: grid-template-columns .6s cubic-bezier(.16, 1, .3, 1); }
+.fd-card { position: relative; min-width: 0; overflow: hidden; border: 1px solid color-mix(in srgb, var(--tone) 26%, var(--line)); border-radius: 1rem;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--tone) 8%, var(--surface)), var(--surface) 70%); transition: border-color .25s, box-shadow .35s; }
+.fd-card:not(.fd-sel):hover { border-color: var(--tone); box-shadow: 0 18px 36px -28px var(--tone); }
+.fd-card.fd-sel { border-color: color-mix(in srgb, var(--tone) 55%, var(--line)); }
+.sc-page .fd-head { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: flex-start; padding: 1.1rem 1.1rem 1rem; }
+.fd-sel .fd-head { bottom: auto; height: 6.4rem; cursor: default; }
+.fd-count { font-size: .6rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--tone); }
+.fd-head h3 { margin: .45rem 0 0; font: 500 1.3rem/1.15 var(--serif); letter-spacing: -.015em; }
+.fd-span { margin-top: .35rem; font-size: .72rem; line-height: 1.45; color: var(--muted); }
+.fd-avatars { display: flex; flex-wrap: wrap; gap: 5px; margin-top: auto; padding-right: 1.8rem; transition: opacity .25s; }
+.fd-avatars .sc-mono { width: 28px; height: 28px; font-size: .6rem; }
+.fd-open { position: absolute; right: 1rem; bottom: 1rem; display: grid; place-items: center; width: 28px; height: 28px; border: 1px solid var(--line); border-radius: 50%;
+  color: var(--muted); transition: transform .35s cubic-bezier(.16, 1, .3, 1), color .2s, border-color .2s, opacity .2s; }
+.fd-card:hover .fd-open { color: var(--tone); border-color: var(--tone); transform: translateX(2px); }
+.fd-sel .fd-avatars, .fd-sel .fd-open { display: none; }
+
+.fd-body { position: absolute; top: 6.4rem; left: 0; right: 0; bottom: 0; display: none; }
+.fd-sel .fd-body { display: block; }
+.fd-picked .fd-sel .fd-body { animation: fd-in .45s .3s both; }
+@keyframes fd-in { from { opacity: 0; } }
+.fd-body-in { height: 100%; }
+.fd-people { display: grid; grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr)); gap: .1rem 1rem; align-content: start; height: 100%; margin: 0; padding: 0 .7rem .8rem; overflow-y: auto; list-style: none; }
+.fd-people button { display: flex; gap: .65rem; align-items: flex-start; width: 100%; padding: .55rem .45rem; border-radius: .65rem; transition: background .15s; }
+.fd-people button:hover { background: color-mix(in srgb, var(--tone) 9%, transparent); }
+.fd-people .sc-mono { width: 28px; height: 28px; margin-top: .1rem; font-size: .6rem; }
+.fd-people button > span:last-child { min-width: 0; }
+.fd-people b { display: block; font: 500 .95rem/1.25 var(--serif); }
+.fd-people small { display: block; font-size: .7rem; color: var(--muted); }
+.fd-people em { display: -webkit-box; margin-top: .2rem; overflow: hidden; font-size: .76rem; font-style: normal; line-height: 1.45; color: color-mix(in srgb, var(--ink) 78%, var(--muted)); -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+
+/* Phone and narrow screens: the cards stack and open in place. */
+@media (max-width: 900px) {
+  .fd-grid { grid-template-columns: 1fr; height: auto; gap: .6rem; }
+  .sc-page .fd-head, .fd-sel .fd-head { position: relative; inset: auto; height: auto; cursor: pointer; }
+  .fd-avatars { margin-top: .8rem; }
+  .fd-sel .fd-avatars { display: none; }
+  .fd-open { top: 1rem; bottom: auto; transform: rotate(90deg); }
+  .fd-card:hover .fd-open { transform: rotate(90deg); }
+  .fd-sel .fd-open { display: grid; transform: rotate(-90deg); }
+  .fd-body, .fd-sel .fd-body { position: static; display: grid; grid-template-rows: 0fr; animation: none; transition: grid-template-rows .45s cubic-bezier(.16, 1, .3, 1); }
+  .fd-sel .fd-body { grid-template-rows: 1fr; }
+  .fd-body-in { min-height: 0; overflow: hidden; }
+  .fd-people { height: auto; overflow: visible; grid-template-columns: 1fr; padding-bottom: .6rem; }
+}

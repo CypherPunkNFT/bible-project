@@ -1,0 +1,167 @@
+/* Digs and desks: page, intro, section heads, the shared map stage and section 01 (the discoveries).
+   Map colours follow the site's Atlas: calm water, warm muted land, a soft coastline, serif place labels. */
+:root {
+  --dd-water: color-mix(in srgb, var(--poetry) 20%, var(--page));
+  --dd-land: color-mix(in srgb, var(--accent) 12%, var(--surface));
+  --dd-land-2: color-mix(in srgb, var(--accent) 22%, var(--surface));
+  --dd-coast: color-mix(in srgb, var(--accent) 45%, var(--line));
+  --dd-shadow: 0 30px 60px -48px rgb(0 0 0 / 45%);
+}
+.dd-page button { padding: 0; border: 0; background: none; text-align: inherit; }
+.dd-page ::-webkit-scrollbar, .dd-drw ::-webkit-scrollbar { width: 6px; height: 6px; }
+.dd-page ::-webkit-scrollbar-track, .dd-page ::-webkit-scrollbar-corner, .dd-drw ::-webkit-scrollbar-track, .dd-drw ::-webkit-scrollbar-corner { background: transparent; }
+.dd-page ::-webkit-scrollbar-button, .dd-drw ::-webkit-scrollbar-button { display: none; }
+.dd-page ::-webkit-scrollbar-thumb, .dd-drw ::-webkit-scrollbar-thumb { border-radius: 999px; background: color-mix(in srgb, var(--ink) 28%, transparent); }
+.dd-defs { position: absolute; width: 0; height: 0; overflow: hidden; }
+.dd-failed { padding: 1rem; border: 1px dashed var(--line); border-radius: 12px; color: var(--muted); }
+
+/* ── Intro ─────────────────────────────────────────────────────────────── */
+.dd-intro { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 21rem); gap: 2rem 3.5rem; align-items: end; padding-top: clamp(1.6rem, 3.4vw, 2.6rem); }
+.dd-intro-kicker { display: flex; gap: .9rem; align-items: center; }
+.dd-intro-kicker::before { content: ""; width: 28px; height: 1px; background: currentColor; opacity: .7; }
+.dd-intro h1 { margin-top: 1.1rem; font: 500 clamp(2.3rem, 4.8vw, 4rem)/1.04 var(--serif); letter-spacing: -.045em; text-wrap: balance; }
+.dd-intro h1 em { color: var(--accent); font-weight: 400; }
+.dd-lead { max-width: 58ch; margin-top: 1.1rem; color: var(--muted); font-size: .98rem; line-height: 1.75; }
+.dd-figs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.3rem 1.2rem; margin: 0; padding-left: 2rem; border-left: 1px solid var(--line); }
+.dd-figs dt { font-size: .6rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+.dd-figs dd { margin: .3rem 0 0; font: 500 2rem/1.05 var(--serif); letter-spacing: -.03em; font-variant-numeric: tabular-nums; }
+.dd-figs small { display: block; margin-top: .25rem; font-size: .72rem; color: var(--muted); }
+
+/* ── Sections ──────────────────────────────────────────────────────────── */
+.dd-sec { scroll-margin-top: 84px; }
+.dd-sec + .dd-sec { margin-top: 3.4rem; padding-top: 2rem; border-top: 1px solid var(--line); }
+.dd-hero { margin-top: 2.4rem; }
+.dd-head { margin-bottom: 1.2rem; }
+.dd-head h2 { margin-top: .45rem; font: 500 clamp(1.5rem, 2.6vw, 1.95rem)/1.2 var(--serif); letter-spacing: -.02em; }
+.dd-head h2 em { color: var(--tone, var(--accent)); font-weight: 400; }
+.dd-head p:not(.kicker) { max-width: 64ch; margin-top: .45rem; color: var(--muted); font-size: .9rem; line-height: 1.65; }
+.dd-hero .dd-head h2 { font-size: clamp(1.8rem, 3.3vw, 2.5rem); letter-spacing: -.03em; }
+.dd-hero .dd-head h2 em { color: var(--history); }
+.dd-hero .dd-head .kicker { color: var(--history); }
+
+/* ── The map stage (map.js) ────────────────────────────────────────────── */
+.dd-stages { position: relative; overflow: hidden; background: var(--dd-water); }
+.dd-stage { position: absolute; inset: 0; overflow: hidden; opacity: 0; pointer-events: none; transition: opacity .6s ease; }
+.dd-stage.dd-on-stage { opacity: 1; pointer-events: auto; }
+.dd-stage svg { display: block; width: 100%; height: 100%; }
+.dd-water { fill: var(--dd-water); }
+.dd-landpath { fill: url(#dd-land-fill); fill-rule: evenodd; stroke: var(--dd-coast); stroke-width: 1.1; stroke-linejoin: round; }
+.dd-stop-a { stop-color: var(--dd-land); }
+.dd-stop-b { stop-color: var(--dd-land-2); }
+.dd-layer { position: absolute; inset: 0; }
+.dd-mk { position: absolute; top: 0; left: 0; width: 0; height: 0; will-change: transform; }
+.dd-lab { position: absolute; top: 0; left: 10px; display: flex; flex-direction: column; white-space: nowrap; transform: translateY(-50%); pointer-events: none;
+  color: var(--ink); font: 500 .8rem/1.15 var(--serif); letter-spacing: -.005em;
+  text-shadow: 0 0 2px var(--dd-land), 0 0 4px var(--dd-land), 0 0 6px var(--dd-land); transition: opacity .2s; }
+.dd-left .dd-lab { left: auto; right: 10px; align-items: flex-end; text-align: right; }
+.dd-center .dd-lab { left: 0; transform: translate(-50%, -50%); align-items: center; }
+.dd-lab small { font: 500 .66rem/1.2 var(--sans); color: var(--muted); letter-spacing: .02em; }
+.dd-lab-off { opacity: 0; visibility: hidden; }
+
+/* Discoveries: a round dot that pulses softly when chosen. */
+.dd-mk-find { cursor: pointer; }
+.dd-mk-find.dd-on { z-index: 3; }
+.dd-mk-find::before { content: ""; position: absolute; left: -14px; top: -14px; width: 28px; height: 28px; border-radius: 50%; }
+.dd-mk-dot { position: absolute; left: -6px; top: -6px; width: 12px; height: 12px; border: 2px solid var(--surface); border-radius: 50%; background: var(--history);
+  box-shadow: 0 1px 4px rgb(0 0 0 / 25%); transition: transform .35s cubic-bezier(.16, 1, .3, 1), box-shadow .35s; }
+.dd-mk-pulse { position: absolute; left: -18px; top: -18px; width: 36px; height: 36px; border: 1.5px solid var(--history); border-radius: 50%; opacity: 0; }
+.dd-mk-find:hover .dd-mk-dot { transform: scale(1.2); }
+.dd-mk-find.dd-on .dd-mk-dot { transform: scale(1.3); box-shadow: 0 0 0 5px color-mix(in srgb, var(--history) 22%, transparent), 0 2px 8px rgb(0 0 0 / 25%); }
+.dd-pulse .dd-mk-pulse { animation: dd-pulse 1.9s cubic-bezier(.2, .6, .3, 1) .5s 3; }
+@keyframes dd-pulse { 0% { transform: scale(.35); opacity: .85; } 100% { transform: scale(2.1); opacity: 0; } }
+.dd-mk-find .dd-lab b { font-weight: 500; }
+.dd-mk-find.dd-on .dd-lab { z-index: 2; font-size: .95rem; color: var(--ink); }
+.dd-mk-find.dd-on .dd-lab small { color: var(--history); font-weight: 600; }
+.dd-has-active .dd-mk-find:not(.dd-on) .dd-lab { opacity: .7; }
+.dd-has-active .dd-mk-find:not(.dd-on) .dd-lab-off { opacity: 0; }
+/* Desks: where a scholar worked. */
+.dd-mk-sq { position: absolute; left: -4px; top: -4px; width: 8px; height: 8px; border: 1.5px solid var(--surface); border-radius: 2px; background: color-mix(in srgb, var(--ink) 62%, transparent); }
+.dd-mk-desk .dd-lab { font: 600 .7rem/1.2 var(--sans); letter-spacing: .04em; color: color-mix(in srgb, var(--ink) 75%, transparent); }
+.dd-mk-desk .dd-lab small { font-weight: 400; font-style: italic; letter-spacing: 0; }
+.dd-mk-sea .dd-lab { font: italic 400 .82rem var(--serif); letter-spacing: .08em; color: color-mix(in srgb, var(--muted) 85%, transparent); text-shadow: none; }
+
+/* ── 01 · The discoveries ──────────────────────────────────────────────── */
+.dd-disc { --dd-h: clamp(560px, calc(100dvh - 140px), 780px); display: grid; grid-template-columns: minmax(0, 25rem) minmax(0, 1fr); gap: 1.1rem; }
+.dd-list-wrap { position: relative; height: var(--dd-h); min-width: 0; }
+.dd-list { display: flex; flex-direction: column; gap: .7rem; height: 100%; overflow: auto; overscroll-behavior: contain; padding: 0 8px 0 0;
+  -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 56px), transparent); mask-image: linear-gradient(to bottom, #000 calc(100% - 56px), transparent); }
+.dd-list-end { flex: none; }
+.dd-find { position: relative; flex: none; padding: 1.05rem 1.15rem 1.1rem; border: 1px solid var(--line); border-radius: 1rem; background: var(--surface);
+  transition: border-color .3s, background .3s, box-shadow .3s; }
+.dd-find > :not(.dd-find-hit) { position: relative; pointer-events: none; }
+.dd-find-hit { position: absolute; inset: 0; border-radius: inherit; cursor: pointer; }
+.dd-find:hover { border-color: color-mix(in srgb, var(--history) 40%, var(--line)); }
+.dd-find.dd-on { border-color: color-mix(in srgb, var(--history) 65%, var(--line)); background: linear-gradient(180deg, color-mix(in srgb, var(--history) 8%, var(--surface)), var(--surface) 75%);
+  box-shadow: 0 18px 36px -28px color-mix(in srgb, var(--history) 70%, transparent); }
+.dd-find-all.dd-on { border-color: color-mix(in srgb, var(--accent) 55%, var(--line)); background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 7%, var(--surface)), var(--surface) 75%); box-shadow: none; }
+.dd-find-top { display: flex; flex-wrap: wrap; gap: .2rem .7rem; align-items: baseline; }
+.dd-year { font: 500 1.55rem/1 var(--serif); letter-spacing: -.02em; color: var(--history); font-variant-numeric: tabular-nums; }
+.dd-find-all .dd-year { color: var(--accent); font-size: 1.25rem; }
+.dd-where { font-size: .74rem; color: var(--muted); }
+.dd-where em { font-style: normal; color: var(--history); }
+.dd-find h3 { margin-top: .5rem; font: 500 1.22rem/1.25 var(--serif); letter-spacing: -.015em; }
+.dd-find p { margin-top: .4rem; font-size: .84rem; line-height: 1.6; color: var(--muted); }
+.dd-find .dd-find-hint { margin-top: .7rem; font-size: .74rem; color: var(--accent); }
+.dd-by { display: grid; gap: .4rem; margin-top: .85rem; padding-top: .75rem; border-top: 1px solid var(--line); }
+.dd-by .kicker { color: var(--muted); font-size: .58rem; }
+.dd-page .dd-chip { pointer-events: auto; display: flex; gap: .6rem; align-items: center; width: 100%; padding: .45rem .65rem; border: 1px solid var(--line); border-radius: .75rem;
+  background: var(--page); text-align: left; transition: border-color .2s, background .2s; }
+.dd-chip:hover { border-color: var(--tone); background: color-mix(in srgb, var(--tone) 7%, var(--page)); }
+.dd-chip i { flex: none; width: 9px; height: 9px; border-radius: 50%; background: var(--tone); }
+.dd-chip span { flex: 1; min-width: 0; }
+.dd-chip b { display: block; font: 500 .92rem/1.3 var(--serif); }
+.dd-chip small { display: block; font-size: .7rem; color: var(--muted); }
+.dd-chip svg { flex: none; color: var(--muted); }
+
+.dd-mapcard { display: flex; flex-direction: column; height: var(--dd-h); margin: 0; overflow: hidden; border: 1px solid var(--line); border-radius: 1.5rem; background: var(--surface); box-shadow: var(--dd-shadow); }
+.dd-tools { display: flex; flex-wrap: wrap; gap: .6rem 1rem; align-items: center; justify-content: space-between; padding: .65rem .75rem; border-bottom: 1px solid var(--line); }
+.dd-seg { display: inline-flex; gap: 2px; padding: 3px; border: 1px solid var(--line); border-radius: 999px; background: var(--page); }
+.dd-page .dd-seg button { padding: .38rem .9rem; border-radius: 999px; font-size: .78rem; color: var(--muted); transition: background .2s, color .2s; }
+.dd-seg button:hover { color: var(--ink); }
+.dd-page .dd-seg button[aria-pressed="true"] { background: var(--ink); color: var(--page); }
+.dd-now { padding-right: .4rem; font: italic 400 .92rem var(--serif); color: var(--muted); }
+.dd-mapcard .dd-stages { flex: 1; min-height: 0; }
+
+.dd-page .dd-edge { position: absolute; top: 0; left: 0; z-index: 4; display: flex; gap: .55rem; align-items: center; padding: .4rem .8rem .4rem .4rem; border: 1px solid var(--line); border-radius: 999px;
+  background: color-mix(in srgb, var(--surface) 92%, transparent); box-shadow: 0 10px 26px -14px rgb(0 0 0 / 40%); text-align: left; transition: border-color .2s; }
+.dd-page .dd-edge[hidden] { display: none; }
+.dd-edge:hover { border-color: var(--history); }
+.dd-edge-arrow { display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: var(--history); color: var(--surface); }
+.dd-edge b { display: block; font: 500 .82rem/1.2 var(--serif); }
+.dd-edge small { display: block; font-size: .66rem; color: var(--muted); }
+
+.dd-rail { position: relative; flex: none; height: 3.3rem; border-top: 1px solid var(--line); --in: 1.8rem; }
+.dd-rail-line { position: absolute; left: var(--in); right: var(--in); top: 1.15rem; height: 1px; background: var(--line); }
+.dd-rail-pt, .dd-rail-end, .dd-rail-now { position: absolute; left: calc(var(--in) + (100% - 2 * var(--in)) * var(--p) / 100); }
+.dd-page .dd-rail-pt { top: calc(1.15rem - 11px); width: 22px; height: 22px; margin-left: -11px; border-radius: 50%; cursor: pointer; }
+.dd-rail-pt i { position: absolute; left: 7px; top: 7px; width: 8px; height: 8px; border-radius: 50%; background: color-mix(in srgb, var(--history) 45%, var(--surface)); transition: transform .3s, background .3s; }
+.dd-rail-pt:hover i { transform: scale(1.3); }
+.dd-rail-pt.dd-on i { background: var(--history); transform: scale(1.5); box-shadow: 0 0 0 3px color-mix(in srgb, var(--history) 20%, transparent); }
+.dd-rail-end { bottom: .45rem; transform: translateX(-50%); font-size: .66rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.dd-rail-end + .dd-rail-end { transform: translateX(-50%); }
+.dd-rail-now { top: -1.9rem; padding: .15rem .5rem; border-radius: 999px; background: var(--history); color: var(--surface); font: 600 .7rem/1.3 var(--sans); font-variant-numeric: tabular-nums;
+  transform: translateX(-50%) translateY(4px); opacity: 0; transition: left .5s cubic-bezier(.16, 1, .3, 1), opacity .25s, transform .3s; pointer-events: none; }
+.dd-rail-now.dd-on { opacity: 1; transform: translateX(-50%); }
+
+@media (max-width: 900px) {
+  .dd-intro { grid-template-columns: 1fr; }
+  .dd-figs { grid-template-columns: repeat(4, minmax(0, 1fr)); padding: 1.1rem 0 0; border-left: 0; border-top: 1px solid var(--line); }
+  .dd-disc { --dd-h: clamp(440px, 72dvh, 620px); grid-template-columns: minmax(0, 1fr); }
+  .dd-mapcard { order: -1; }
+  .dd-list-wrap { height: auto; margin-inline: -1rem; }
+  .dd-list { flex-direction: row; align-items: flex-start; height: auto; padding: .2rem 1rem .9rem; scroll-snap-type: x mandatory; scroll-padding-inline: 1rem;
+    -webkit-mask-image: none; mask-image: none; }
+  .dd-find { flex: 0 0 min(84%, 22rem); scroll-snap-align: center; }
+  .dd-list-end { width: 1px; }
+}
+@media (max-width: 560px) {
+  .dd-figs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .dd-figs dd { font-size: 1.6rem; }
+  .dd-lead { font-size: .92rem; }
+  .dd-mapcard { border-radius: 1.1rem; }
+  .dd-now { display: none; }
+  .dd-rail { --in: 1.2rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dd-pulse .dd-mk-pulse { animation: none; }
+}
