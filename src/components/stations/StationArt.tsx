@@ -1,6 +1,7 @@
 // Line drawings for the Teachers and Resources doorways (our own art, after design/README.md "Line-art scenes"): every
-// stroke has pathLength=1 so it can draw itself; stations.css loops the drawing slowly and moves one living detail in each
-// (the preacher's voice, the writer's quill, the scholar's lamp, the ticks, the gathering, the lit window).
+// stroke has pathLength=1 so it can draw itself. Every scene is drawn twice (StationArt): a faint complete base, always
+// there, and a live copy that draws on over it, stroke by stroke, when the doorway is hovered, while its one living detail
+// moves (stations.css). "sa-faint" strokes are the quiet background.
 import type { CSSProperties, ReactElement } from "react";
 
 export type StationArtKind = "preachers" | "authors" | "scholars" | "learning" | "fellowships" | "life";
@@ -10,15 +11,21 @@ const E = ({ x, y, rx, ry = rx, c = "sa-line", t = 0 }: { x: number; y: number; 
 
 function Preachers() {
   return <>
-    <P d="M16 150H224" c="sa-fine" />
-    <P d="M88 150L95 94H145L152 150Z" t={.05} />
-    <P d="M84 94H156L148 80H92Z" t={.12} />
-    <P d="M100 104H140V140H100Z" c="sa-fine" t={.2} /><P d="M120 112V132M112 120H128" c="sa-tone" t={.3} />
-    <P d="M152 150V140H170V150M170 150V146H180V150" c="sa-fine" t={.25} />
-    <P d="M98 80C106 72 114 72 120 76C126 72 134 72 142 80" t={.35} /><P d="M120 76V80" c="sa-fine" t={.4} />
-    <P d="M103 77C108 74 112 74 116 76M124 76C128 74 132 74 137 77" c="sa-fine" t={.45} />
+    {/* Behind: two tall arched windows with a mullion each, and the line where the wall meets the floor. */}
+    <P d="M38 132V78A16 16 0 0 1 70 78V132ZM54 62V132M38 100H70" c="sa-faint" />
+    <P d="M170 132V78A16 16 0 0 1 202 78V132ZM186 62V132M170 100H202" c="sa-faint" t={.03} />
+    <P d="M16 132H224" c="sa-faint" t={.05} />
+    <P d="M16 150H224" c="sa-fine" t={.06} />
+    {/* The platform, the pulpit with its ledge and the open Bible on it. */}
+    <P d="M74 150V143H166V150" c="sa-fine" t={.1} />
+    <P d="M88 143L95 94H145L152 143Z" t={.15} />
+    <P d="M84 94H156L148 80H92Z" t={.22} />
+    <P d="M100 104H140V134H100Z" c="sa-fine" t={.3} /><P d="M120 110V128M112 117H128" c="sa-tone" t={.38} />
+    <P d="M98 80C106 72 114 72 120 76C126 72 134 72 142 80" t={.45} /><P d="M120 76V80" c="sa-fine" t={.5} />
+    <P d="M103 77C108 74 112 74 116 76M124 76C128 74 132 74 137 77" c="sa-fine" t={.55} />
     <g className="sa-voice">{[16, 30, 46].map((r, i) => <path key={r} pathLength={1} className="sa-wave" style={{ "--i": i } as CSSProperties} d={`M${120 - r} 62A${r} ${r} 0 0 1 ${120 + r} 62`} />)}</g>
-    <P d="M40 150V118M34 118H46M37 118V112H43V118" c="sa-fine" t={.5} /><P d="M200 150V118M194 118H206M197 118V112H203V118" c="sa-fine" t={.55} />
+    {/* Two lamp stands either side. */}
+    <P d="M24 150V120M18 120H30M21 120V113H27V120" c="sa-fine" t={.6} /><P d="M216 150V120M210 120H222M213 120V113H219V120" c="sa-fine" t={.65} />
   </>;
 }
 
@@ -36,13 +43,21 @@ function Authors() {
 
 function Scholars() {
   return <>
-    <P d="M12 146H228" />
-    <P d="M46 124C72 114 98 116 120 126V82C98 72 72 70 46 78Z" t={.08} /><P d="M194 124C168 114 142 116 120 126V82C142 72 168 70 194 78Z" t={.12} />
-    {[0, 1, 2, 3, 4].map((i) => <P key={i} d={`M${54} ${86 + i * 7}C${72} ${80 + i * 7} ${92} ${82 + i * 7} ${112} ${89 + i * 7}M${128} ${89 + i * 7}C${148} ${82 + i * 7} ${168} ${80 + i * 7} ${186} ${86 + i * 7}`} c="sa-fine" t={.2 + i * .03} />)}
-    <P d="M40 126L120 134L200 126" c="sa-fine" t={.3} />
-    <g className="sa-glass"><E x={84} y={96} rx={12} c="sa-tone" t={.4} /><P d="M93 105L106 118" c="sa-tone" t={.45} /></g>
-    <P d="M202 146V138H224V146M206 138V130H220V138" c="sa-fine" t={.5} />
-    <P d="M20 146C20 136 30 132 36 132H44C48 132 50 136 50 140" t={.35} /><P d="M16 146H54" c="sa-fine" t={.4} />
+    {/* Behind: a shelf of books on each side, standing and leaning, above the desk. */}
+    <P d="M14 58H86M154 58H226" c="sa-faint" />
+    <P d="M18 58V32H25V58M26 58V28H32V58M33 58V36H41V58M42 58V30H47V58M50 58L60 34L66 36L56 58M68 58V38H76V58M78 58V33H84V58" c="sa-faint" t={.03} />
+    <P d="M158 58V34H165V58M166 58V30H173V58M174 58V38H181V58M184 58V31H190V58M191 58V36H199V58M201 58L208 35L214 37L207 58M216 58V40H222V58" c="sa-faint" t={.05} />
+    <P d="M12 146H228" t={.08} />
+    {/* The open book: covers under the pages, the two pages, their edge, the writing and the spine. */}
+    <P d="M40 80V128C68 118 98 120 120 131C142 120 172 118 200 128V80" c="sa-fine" t={.12} />
+    <P d="M46 124C72 114 98 116 120 126V82C98 72 72 70 46 78Z" t={.16} /><P d="M194 124C168 114 142 116 120 126V82C142 72 168 70 194 78Z" t={.2} />
+    <P d="M46 124V127C72 117 98 119 120 129C142 119 168 117 194 127V124" c="sa-fine" t={.26} />
+    {[0, 1, 2, 3, 4].map((i) => <P key={i} d={`M${54} ${86 + i * 7}C${72} ${80 + i * 7} ${92} ${82 + i * 7} ${112} ${89 + i * 7}M${128} ${89 + i * 7}C${148} ${82 + i * 7} ${168} ${80 + i * 7} ${186} ${86 + i * 7}`} c="sa-fine" t={.3 + i * .03} />)}
+    <P d="M120 126V131" c="sa-fine" t={.45} />
+    <g className="sa-glass"><E x={84} y={96} rx={12} c="sa-tone" t={.5} /><P d="M93 105L106 118" c="sa-tone" t={.55} /></g>
+    {/* A small stack of closed books on the right, the lamp on the left. */}
+    <P d="M200 146V138H224V146M204 138V130H220V138M206 130V124H218V130" c="sa-fine" t={.6} />
+    <P d="M20 146C20 136 30 132 36 132H44C48 132 50 136 50 140" t={.4} /><P d="M16 146H54" c="sa-fine" t={.45} />
     <path className="sa-flame" d="M34 128C30 120 33 114 35 108C37 114 41 120 37 128Z" />
   </>;
 }
@@ -86,7 +101,11 @@ function Life() {
 
 const ART: Record<StationArtKind, () => ReactElement> = { preachers: Preachers, authors: Authors, scholars: Scholars, learning: Learning, fellowships: Fellowships, life: Life };
 
+/** Each scene twice: a faint complete base that is always there, and the live drawing over it, which draws itself on
+ *  brightly when its doorway is hovered or focused (stations.css). */
 export function StationArt({ kind }: { kind: StationArtKind }) {
   const Art = ART[kind];
-  return <svg className="sa-art" viewBox="0 0 240 160" fill="none" aria-hidden="true" focusable="false"><Art /></svg>;
+  return <svg className="sa-art" viewBox="0 0 240 160" fill="none" aria-hidden="true" focusable="false">
+    <g className="sa-base"><Art /></g><g className="sa-live"><Art /></g>
+  </svg>;
 }

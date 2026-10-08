@@ -2,6 +2,9 @@
 // animates the change with FLIP: staying cards slide from where they were drawn, leaving cards fade where they stood,
 // arriving cards fade in, and the grid's height eases. A class component because FLIP needs to measure the cards just
 // before React commits the new order (getSnapshotBeforeUpdate), then animate right after (componentDidUpdate).
+// When the reader is scrolled down the cards and changes a filter, the results move up beside the filter panel, which is
+// pinned in place: the page under the pointer stays still and the cards glide to their new places (owner 2026-10-08:
+// a shorter result used to pull the rest of the page up under the reader).
 import { Component } from "react";
 import type { ScholarsData } from "@/data/teachers/pages-types";
 import { reducedMotion } from "../marks/dom";
@@ -9,7 +12,7 @@ import { Card } from "./Card";
 
 const EASE = "cubic-bezier(.2,.8,.2,1)";
 interface GridProps { data: ScholarsData; visible: string[]; onOpen: (id: string, origin: Element | null) => void }
-interface Snapshot { before: Map<string, DOMRect>; box: DOMRect }
+interface Snapshot { before: Map<string, DOMRect>; box: DOMRect; animate: boolean }
 
 export class CardGrid extends Component<GridProps> {
   private grid: HTMLDivElement | null = null;
@@ -36,11 +39,13 @@ export class CardGrid extends Component<GridProps> {
       el.getAnimations().forEach((a) => a.cancel());
       if (el.classList.contains("cat-leaving")) settle(el, true);
     }
-    return animate ? { before, box } : null;
+    return { before, box, animate };
   }
 
   componentDidUpdate(_prev: GridProps, _state: unknown, snapshot: Snapshot | null) {
     if (!snapshot || !this.grid) return;
+    this.keepResultsBesidePanel();
+    if (!snapshot.animate) return;
     const { before, box } = snapshot, shown = new Set(this.props.visible);
     for (const [id, el] of this.cards) {
       const was = before.get(id);
@@ -66,6 +71,19 @@ export class CardGrid extends Component<GridProps> {
   }
 
   componentWillUnmount() { this.gridAnimation?.cancel(); }
+
+  /** If the top of the results has scrolled above the pinned filter panel, bring it level with the panel at once; the
+   *  panel does not move, and the cards' slide (measured on screen) carries them from where they were seen. */
+  private keepResultsBesidePanel() {
+    const results = this.grid!.parentElement;
+    if (!results) return;
+    const side = results.parentElement?.querySelector<HTMLElement>(".cat-side");
+    // The panel's resting place (its sticky top), not where it is drawn now: a shorter grid has already pushed it up.
+    const style = side ? getComputedStyle(side) : null;
+    const anchor = style?.position === "sticky" ? parseFloat(style.top) || 80 : 80;
+    const top = results.getBoundingClientRect().top;
+    if (top < anchor - 1) window.scrollBy({ top: top - anchor, behavior: "instant" });
+  }
 
   render() {
     const order = new Map(this.props.visible.map((id, i) => [id, i]));
