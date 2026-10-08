@@ -24,7 +24,7 @@
     const seriesHere = LEARN.SERIES.filter((s) => LEARN.inSeries(s.id).some((it) => items.includes(it)));
     let no = 0;
     const groups = LEARN.TRACKS.map((t) => [t, items.filter((it) => it.track === t.id)]).filter(([, l]) => l.length);
-    wrap.innerHTML = `${Frame.crumbs("Direction A · The shelf")}<a class="sh-back" href="#a">${icon("arrowLeft", 14)}All seven shelves</a>
+    wrap.innerHTML = `${Frame.crumbs("Direction A · The shelf")}<a class="sh-back" href="#a/${id}">${icon("arrowLeft", 14)}Back to the stacks</a>
       <section class="sh-age-hero" style="--tone: var(${aud.tone})"><div class="big-art">${ART.audience(aud.art)}</div>
         <div><p class="kicker rule">${aud.setting ? `The ${aud.name.toLowerCase()} shelf` : `The shelf for ${aud.name.toLowerCase()}`}</p><h1 class="plain-title">${aud.name}<br><em>${aud.setting ? aud.how.split(",")[0] : aud.age.replace("–", " to ")}.</em></h1>
           <p class="lede" style="margin-top:1rem">${aud.line} ${aud.how}.</p>
@@ -82,5 +82,5 @@
     }));
   }
 
-  Object.assign(DIRS.a, { age, item });
+  Object.assign(DIRS.a, { age, item, viewer });
 })();
