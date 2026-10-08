@@ -4,7 +4,7 @@ import { loadCrossRefs, loadStats } from "@/lib/data";
 import { useAsync } from "@/lib/useAsync";
 import type { Parallel, Span } from "@/data/letters/types";
 import { ALL_LETTERS, LETTER_TONE } from "./letter-hooks";
-import { ParallelRibbon, type RibbonReveal } from "./ParallelRibbon";
+import { ParallelRibbon, type RibbonMotion, type RibbonReveal } from "./ParallelRibbon";
 
 const SHOWN = 60; // strongest links drawn; the rest would only be noise at this size
 const GROW_MS = 1100; // ribbons growing out from both rails to meet, each on its own timing
@@ -105,21 +105,14 @@ export function CompareLetters({ initial, curated = [], choices }: { initial: [s
 
   // The ribbons on screen (they may belong to the pair just broken, while they shrink away) and how much of them shows.
   const [shown, setShown] = useState<Parallel | null>(null);
-  const [reveal, setReveal] = useState<RibbonReveal>(NONE);
-  const frame = useRef(0);
+  // Each change of state is one movement handed to the chart, which animates it frame by frame on its own.
+  const [motion, setMotion] = useState<RibbonMotion | undefined>(undefined);
+  const target = useRef<RibbonReveal>(NONE); // where the last movement was heading
   const reduced = useMemo(() => typeof window !== "undefined" && window.matchMedia?.("(prefers-reduced-motion: reduce)").matches, []);
   const tween = useCallback((from: RibbonReveal, to: RibbonReveal, ms: number, done?: () => void) => {
-    cancelAnimationFrame(frame.current);
-    if (reduced) { setReveal(to); done?.(); return; }
-    const start = performance.now();
-    const step = (now: number) => {
-      const k = Math.min(1, (now - start) / ms), e = 1 - (1 - k) ** 3;
-      setReveal({ top: from.top + (to.top - from.top) * e, bottom: from.bottom + (to.bottom - from.bottom) * e });
-      if (k < 1) frame.current = requestAnimationFrame(step); else done?.();
-    };
-    frame.current = requestAnimationFrame(step);
+    target.current = to;
+    setMotion((m) => ({ from, to, ms: reduced ? 0 : ms, key: (m?.key ?? 0) + 1, onDone: done }));
   }, [reduced]);
-  useEffect(() => () => cancelAnimationFrame(frame.current), []);
 
   // A rail let go (or changed): the ribbons shrink back into the rail that is still chosen, or into both if neither is.
   const before = useRef<Slots>(slots);
@@ -132,7 +125,7 @@ export function CompareLetters({ initial, curated = [], choices }: { initial: [s
     const clear = () => setShown(null);
     if (keepTop) tween({ top: 1, bottom: 0 }, NONE, RETRACT_MS, clear);
     else if (keepBottom) tween({ top: 0, bottom: 1 }, NONE, RETRACT_MS, clear);
-    else tween(reveal, NONE, RETRACT_MS, clear);
+    else tween(target.current, NONE, RETRACT_MS, clear);
   // eslint-disable-next-line react-hooks/exhaustive-deps -- runs on a change of the chosen letters only
   }, [left, right]);
 
@@ -165,7 +158,7 @@ export function CompareLetters({ initial, curated = [], choices }: { initial: [s
       {left && right && <button type="button" className="lg-tab lg-compare-swap" onClick={() => setSlots([right, left])}>⇅ Swap top and bottom</button>}
     </div>
     <div style={{ marginTop: "1rem" }}>
-      <ParallelRibbon parallel={drawn} weightLabel="reader votes" reveal={reveal} empty={{ top: !left, bottom: !right }} hint={hint} />
+      <ParallelRibbon parallel={drawn} weightLabel="reader votes" motion={motion} empty={{ top: !left, bottom: !right }} hint={hint} />
       {failed && <button type="button" className="lg-tab" onClick={() => setAttempt((n) => n + 1)}>Try again</button>}
     </div>
     {scholar && <div style={{ marginTop: "1.5rem" }}><p className="lg-subhead">Paired by scholars: {scholar.title}</p><ParallelRibbon parallel={scholar} /></div>}

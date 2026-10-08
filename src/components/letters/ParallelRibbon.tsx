@@ -1,3 +1,4 @@
+import { useLayoutEffect, useMemo, useRef, useState } from "react";
 import type { Parallel, Span } from "@/data/letters/types";
 import { ClaimText, KeepX, Refs } from "./LetterParts";
 import { useKeep, useSpanLabel, useVerseIndex } from "./letter-hooks";
@@ -56,38 +57,93 @@ function ownShare(value: number, whole: number, index: number): number {
  *  from both rails, or draws back along it into one. */
 export interface RibbonReveal { top: number; bottom: number }
 
+/** A movement of the reveal from one state to another over `ms`; a new `key` starts it, `onDone` follows its end. */
+export interface RibbonMotion { from: RibbonReveal; to: RibbonReveal; ms: number; key: number; onDone?: () => void }
+
+/** One ribbon's geometry, worked out once per chart: its marks on the two rails and its two edges as curves. */
+interface Shape { top: [number, number]; bottom: [number, number]; left: Cubic; right: Cubic }
+
+/** A ribbon's outline at a given reveal (null = whole): only the stretches grown out from each rail, each on its own timing. */
+function outline(shape: Shape, reveal: RibbonReveal | null, i: number): string {
+  if (!reveal) return band(shape.left, shape.right, 0, 1);
+  const whole = reveal.top > 0 && reveal.bottom > 0 ? 0.5 : 1;
+  const fromTop = ownShare(reveal.top, whole, i), fromBottom = ownShare(reveal.bottom, whole, i);
+  if (fromTop + fromBottom >= 0.999) return band(shape.left, shape.right, 0, 1);
+  return [fromTop > 0.001 && band(shape.left, shape.right, 0, fromTop), fromBottom > 0.001 && band(shape.left, shape.right, 1 - fromBottom, 1)]
+    .filter(Boolean).join(" ") || "M0,0";
+}
+
 /**
  * Two texts as two glowing rails (top and bottom), joined by a ribbon for each parallel passage. A ribbon's width
  * follows the passages' lengths (with a floor, so short passages stay visible); pointing at one names both ends and
- * clicking keeps it until its ✕. With `empty`, a rail whose text is not chosen is drawn grey.
+ * clicking keeps it until its ✕. With `empty`, a rail whose text is not chosen is drawn grey. With `motion`, the ribbons
+ * grow or draw back frame by frame; only their outlines are touched while they move (no page re-render per frame).
  */
-export function ParallelRibbon({ parallel, weightLabel = "shared Greek words", reveal, empty = {}, hint }: {
-  parallel: Parallel; weightLabel?: string; reveal?: RibbonReveal; empty?: { top?: boolean; bottom?: boolean }; hint?: string;
+export function ParallelRibbon({ parallel, weightLabel = "shared Greek words", motion, empty = {}, hint }: {
+  parallel: Parallel; weightLabel?: string; motion?: RibbonMotion; empty?: { top?: boolean; bottom?: boolean }; hint?: string;
 }) {
   const index = useVerseIndex();
   const label = useSpanLabel();
   const keep = useKeep<number>();
   const { active } = keep;
-  if (!index) return <div className="lg-figure" style={{ minHeight: H }} />;
+  // The shapes depend only on the passages and the two texts' extents, not on labels, so a re-render around the chart
+  // never restarts a movement.
+  const { pairs, left: { span: topSpan }, right: { span: bottomSpan } } = parallel;
+  const shapes = useMemo<Shape[] | null>(() => {
+    if (!index) return null;
+    const axis = (side: Span) => {
+      const start = index(side[0]);
+      const length = Math.max(1, index(side[1]) - start + 1);
+      return (id: number) => PAD + ((index(id) - start) / length) * (W - PAD * 2);
+    };
+    const floor = minSegment(pairs.length);
+    /** A passage's left and right edges on a rail: its true extent, widened to the floor and kept on the rail. */
+    const segment = (x: (id: number) => number, span: Span): [number, number] => {
+      const from = x(span[0]), to = x(span[1]) + 2;
+      const width = Math.max(floor, to - from);
+      const left = Math.min(W - PAD - width, Math.max(PAD, (from + to) / 2 - width / 2));
+      return [left, left + width];
+    };
+    const xTop = axis(topSpan), xBottom = axis(bottomSpan), mid = (TOP + BOTTOM) / 2;
+    return pairs.map((p) => {
+      const [a0, a1] = segment(xTop, p.left), [b0, b1] = segment(xBottom, p.right);
+      return { top: [a0, a1], bottom: [b0, b1], left: [[a0, TOP], [a0, mid], [b0, mid], [b0, BOTTOM]], right: [[a1, TOP], [a1, mid], [b1, mid], [b1, BOTTOM]] };
+    });
+  }, [index, pairs, topSpan, bottomSpan]);
 
-  const axis = (side: Span) => {
-    const start = index(side[0]);
-    const length = Math.max(1, index(side[1]) - start + 1);
-    return (id: number) => PAD + ((index(id) - start) / length) * (W - PAD * 2);
-  };
-  const floor = minSegment(parallel.pairs.length);
-  /** A passage's left and right edges on a rail: its true extent, widened to the floor and kept on the rail. */
-  const segment = (x: (id: number) => number, span: Span): [number, number] => {
-    const from = x(span[0]), to = x(span[1]) + 2;
-    const width = Math.max(floor, to - from);
-    const left = Math.min(W - PAD - width, Math.max(PAD, (from + to) / 2 - width / 2));
-    return [left, left + width];
-  };
-  const xTop = axis(parallel.left.span);
-  const xBottom = axis(parallel.right.span);
+  // The reveal the outlines show now (null = whole). The animation moves it and redraws the outlines directly.
+  const current = useRef<RibbonReveal | null>(motion ? motion.from : null);
+  const paths = useRef<(SVGPathElement | null)[]>([]);
+  const [, settle] = useState(0); // one render when a movement ends, so the rail marks follow
+  useLayoutEffect(() => {
+    if (!motion || !shapes) return;
+    const draw = (reveal: RibbonReveal) => {
+      current.current = reveal;
+      shapes.forEach((shape, i) => paths.current[i]?.setAttribute("d", outline(shape, reveal, i)));
+    };
+    const end = () => { draw(motion.to); settle((n) => n + 1); motion.onDone?.(); };
+    if (motion.ms <= 0) { end(); return; }
+    let frame = 0;
+    const start = performance.now();
+    const step = (now: number) => {
+      const k = Math.min(1, (now - start) / motion.ms), e = 1 - (1 - k) ** 3;
+      if (k >= 1) { end(); return; }
+      draw({ top: motion.from.top + (motion.to.top - motion.from.top) * e, bottom: motion.from.bottom + (motion.to.bottom - motion.from.bottom) * e });
+      frame = requestAnimationFrame(step);
+    };
+    draw(motion.from);
+    frame = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(frame);
+  // eslint-disable-next-line react-hooks/exhaustive-deps -- one movement per key, redrawn when the chart's shapes change
+  }, [motion?.key, shapes]);
+
+  if (!index || !shapes) return <div className="lg-figure" style={{ minHeight: H }} />;
   const kinds = [...new Set(parallel.pairs.map((p) => p.kind).filter(Boolean))] as string[];
   const opacityOf = (i: number) => (active === null ? 0.32 : active === i ? 0.9 : keep.peek(i) ? 0.22 : 0.08);
   const pair = active !== null ? parallel.pairs[active] : undefined;
+  const reveal = current.current;
+  // On a rail the ribbons have left (or not reached yet), the passage marks fade with them.
+  const showTop = !reveal || reveal.top > 0.02, showBottom = !reveal || reveal.bottom > 0.02;
 
   return <figure>
     <div className="lg-figure">
@@ -102,30 +158,14 @@ export function ParallelRibbon({ parallel, weightLabel = "shared Greek words", r
         <text x={PAD} y={BOTTOM + 30} className={empty.bottom ? "lg-svg-muted" : "lg-svg-strong"}>{parallel.right.label}</text>
         <rect x={PAD} y={TOP - 6} width={W - PAD * 2} height={6} rx={3} fill={empty.top ? "var(--muted)" : "var(--lg)"} opacity={empty.top ? .45 : .25} style={{ transition: "fill .4s, opacity .4s" }} />
         <rect x={PAD} y={BOTTOM} width={W - PAD * 2} height={6} rx={3} fill={empty.bottom ? "var(--muted)" : "var(--lg)"} opacity={empty.bottom ? .45 : .25} style={{ transition: "fill .4s, opacity .4s" }} />
-        {parallel.pairs.map((p, i) => {
-          const [a0, a1] = segment(xTop, p.left);
-          const [b0, b1] = segment(xBottom, p.right);
-          const mid = (TOP + BOTTOM) / 2;
-          const leftEdge: Cubic = [[a0, TOP], [a0, mid], [b0, mid], [b0, BOTTOM]], rightEdge: Cubic = [[a1, TOP], [a1, mid], [b1, mid], [b1, BOTTOM]];
-          // Whole, or only the stretches grown out from each rail along the ribbon's own curve, each on its own timing.
-          const span = reveal && reveal.top > 0 && reveal.bottom > 0 ? 0.5 : 1;
-          const fromTop = reveal ? ownShare(reveal.top, span, i) : 1, fromBottom = reveal ? ownShare(reveal.bottom, span, i) : 0;
-          const d = !reveal || fromTop + fromBottom >= 0.999 ? band(leftEdge, rightEdge, 0, 1)
-            : [fromTop > 0.001 && band(leftEdge, rightEdge, 0, fromTop), fromBottom > 0.001 && band(leftEdge, rightEdge, 1 - fromBottom, 1)].filter(Boolean).join(" ") || "M0,0";
-          return <path key={i} d={d} fill={`url(#rib-${parallel.id})`} opacity={opacityOf(i)} className={active === i ? "lg-glow" : undefined}
-            style={{ transition: "opacity .25s", cursor: "pointer" }} tabIndex={0} role="button"
-            aria-label={`${label(p.left)} with ${label(p.right)}`}
-            {...keep.bind(i)} />;
-        })}
-        {parallel.pairs.map((p, i) => {
-          const [a0, a1] = segment(xTop, p.left), [b0, b1] = segment(xBottom, p.right);
-          // On a rail the ribbons have left (or not reached yet), the passage marks fade with them.
-          const showTop = !reveal || reveal.top > 0.02, showBottom = !reveal || reveal.bottom > 0.02;
-          return <g key={`m${i}`} opacity={active === null || active === i ? 1 : keep.peek(i) ? 0.6 : 0.3}>
-            <rect x={a0} y={TOP - 6} width={a1 - a0} height={6} rx={2} fill="var(--lg)" opacity={showTop ? 1 : 0} style={{ transition: "opacity .3s" }} />
-            <rect x={b0} y={BOTTOM} width={b1 - b0} height={6} rx={2} fill="var(--lg)" opacity={showBottom ? 1 : 0} style={{ transition: "opacity .3s" }} />
-          </g>;
-        })}
+        {parallel.pairs.map((p, i) => <path key={i} ref={(el) => { paths.current[i] = el; }} d={outline(shapes[i], reveal, i)} fill={`url(#rib-${parallel.id})`}
+          // fill-opacity, not opacity: the same look, but each ribbon no longer needs its own offscreen layer per frame.
+          fillOpacity={opacityOf(i)} className={active === i ? "lg-glow" : undefined} style={{ transition: "fill-opacity .25s", cursor: "pointer" }} tabIndex={0} role="button"
+          aria-label={`${label(p.left)} with ${label(p.right)}`} {...keep.bind(i)} />)}
+        {shapes.map((shape, i) => <g key={`m${i}`} opacity={active === null || active === i ? 1 : keep.peek(i) ? 0.6 : 0.3}>
+          <rect x={shape.top[0]} y={TOP - 6} width={shape.top[1] - shape.top[0]} height={6} rx={2} fill="var(--lg)" opacity={showTop ? 1 : 0} style={{ transition: "opacity .3s" }} />
+          <rect x={shape.bottom[0]} y={BOTTOM} width={shape.bottom[1] - shape.bottom[0]} height={6} rx={2} fill="var(--lg)" opacity={showBottom ? 1 : 0} style={{ transition: "opacity .3s" }} />
+        </g>)}
       </svg>
     </div>
     <div className="lg-tip" aria-live="polite">
