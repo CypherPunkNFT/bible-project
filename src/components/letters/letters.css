@@ -69,6 +69,11 @@
 .lg-tab[aria-pressed="true"] { border-color: var(--lg); color: var(--lg); background: var(--lg-soft); }
 .lg-svg-text { fill: var(--muted); font: 11px var(--font-sans); }
 .lg-svg-strong { fill: var(--ink); font: 600 12px var(--font-sans); }
+/* The comparison's reading line: always there (2px), a light sweeping along it only while cross-references are read. */
+.lg-compare-reading { position: relative; height: 2px; margin-top: .75rem; overflow: hidden; border-radius: 2px; }
+.lg-compare-reading.is-on::after { content: ""; position: absolute; inset: 0 auto 0 0; width: 30%; background: var(--lg); border-radius: 2px; animation: lg-reading 1.1s ease-in-out infinite; }
+@keyframes lg-reading { from { transform: translateX(-100%); } to { transform: translateX(340%); } }
+@media (prefers-reduced-motion: reduce) { .lg-compare-reading.is-on::after { animation: none; width: 100%; opacity: .5; } }
 .lg-svg-muted { fill: var(--muted); font: 500 12px var(--font-sans); }
 
 /* Views (open questions) */
@@ -206,6 +211,14 @@
   background: color-mix(in srgb, var(--surface) 94%, transparent); box-shadow: 0 30px 90px -30px color-mix(in srgb, var(--lg) 60%, #000); }
 .lg-dialog::backdrop { background: color-mix(in srgb, var(--page) 55%, transparent); backdrop-filter: blur(6px); }
 .lg-dialog-body { padding: 1.5rem 1.6rem 1.6rem; }
+/* Two passages side by side (the comparison's pop-up); one above the other on a phone. */
+.lg-pair-dialog { width: min(60rem, calc(100vw - 2rem)); }
+.lg-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 1.6rem; margin-top: 1rem; }
+.lg-pair section { padding-top: .8rem; border-top: 2px solid var(--lg); }
+.lg-pair-ref { margin-bottom: .5rem; font-size: .72rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.lg-pair-read { display: inline-block; margin-top: .7rem; font-size: .8rem; color: var(--lg); }
+.lg-pair-note { margin-top: 1.1rem; font-size: .8rem; }
+@media (max-width: 640px) { .lg-pair { grid-template-columns: 1fr; } }
 .lg-dialog-body header { position: relative; padding-right: 2.5rem; }
 .lg-dialog-close { position: absolute; top: -.25rem; right: -.25rem; width: 2.2rem; height: 2.2rem; border-radius: 50%; font-size: 1.4rem; line-height: 1; color: var(--muted); }
 .lg-dialog-close:hover { background: var(--lg-soft); color: var(--ink); }

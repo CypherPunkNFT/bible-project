@@ -80,8 +80,10 @@ function outline(shape: Shape, reveal: RibbonReveal | null, i: number): string {
  * clicking keeps it until its ✕. With `empty`, a rail whose text is not chosen is drawn grey. With `motion`, the ribbons
  * grow or draw back frame by frame; only their outlines are touched while they move (no page re-render per frame).
  */
-export function ParallelRibbon({ parallel, weightLabel = "shared Greek words", motion, empty = {}, hint }: {
+export function ParallelRibbon({ parallel, weightLabel = "shared Greek words", motion, empty = {}, hint, onRead }: {
   parallel: Parallel; weightLabel?: string; motion?: RibbonMotion; empty?: { top?: boolean; bottom?: boolean }; hint?: string;
+  /** Clicking a ribbon (or Enter on it) also opens both passages, e.g. side by side in a pop-up. */
+  onRead?: (pair: Parallel["pairs"][number]) => void;
 }) {
   const index = useVerseIndex();
   const label = useSpanLabel();
@@ -139,6 +141,16 @@ export function ParallelRibbon({ parallel, weightLabel = "shared Greek words", m
   }, [motion?.key, shapes]);
 
   if (!index || !shapes) return <div className="lg-figure" style={{ minHeight: H }} />;
+  /** A ribbon's handlers: keep it as before, and with `onRead` also open its two passages. */
+  const readable = (i: number, p: Parallel["pairs"][number]) => {
+    const bound = keep.bind(i);
+    if (!onRead) return bound;
+    return {
+      ...bound,
+      onClick: (e: Parameters<typeof bound.onClick>[0]) => { bound.onClick(e); if (!(e.ctrlKey || e.metaKey || e.shiftKey)) onRead(p); },
+      onKeyDown: (e: Parameters<typeof bound.onKeyDown>[0]) => { bound.onKeyDown(e); if (e.key === "Enter" || e.key === " ") onRead(p); },
+    };
+  };
   const kinds = [...new Set(parallel.pairs.map((p) => p.kind).filter(Boolean))] as string[];
   const opacityOf = (i: number) => (active === null ? 0.32 : active === i ? 0.9 : keep.peek(i) ? 0.22 : 0.08);
   const pair = active !== null ? parallel.pairs[active] : undefined;
@@ -169,7 +181,7 @@ export function ParallelRibbon({ parallel, weightLabel = "shared Greek words", m
         {parallel.pairs.map((p, i) => <path key={i} ref={(el) => { paths.current[i] = el; }} d={outline(shapes[i], reveal, i)} fill={`url(#rib-${parallel.id})`}
           // fill-opacity, not opacity: the same look, but each ribbon no longer needs its own offscreen layer per frame.
           fillOpacity={opacityOf(i)} className={active === i ? "lg-glow" : undefined} style={{ transition: "fill-opacity .25s", cursor: "pointer" }} tabIndex={0} role="button"
-          aria-label={`${label(p.left)} with ${label(p.right)}`} {...keep.bind(i)} />)}
+          aria-label={`${label(p.left)} with ${label(p.right)}`} {...readable(i, p)} />)}
         {shapes.map((shape, i) => <g key={`m${i}`} opacity={active === null || active === i ? 1 : keep.peek(i) ? 0.6 : 0.3}>
           <rect x={shape.top[0]} y={TOP - 6} width={shape.top[1] - shape.top[0]} height={6} rx={2} fill="var(--lg)" opacity={showTop ? 1 : 0} style={{ transition: "opacity .3s" }} />
           <rect x={shape.bottom[0]} y={BOTTOM} width={shape.bottom[1] - shape.bottom[0]} height={6} rx={2} fill="var(--lg)" opacity={showBottom ? 1 : 0} style={{ transition: "opacity .3s" }} />

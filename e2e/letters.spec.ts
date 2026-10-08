@@ -62,6 +62,14 @@ test("letters: James, Peter & Jude has the writers, each letter at a glance, and
   await picks.getByRole("button", { name: "James" }).click();
   await picks.getByRole("button", { name: /Matthew/ }).click();
   await expect(page.locator("#part-compare")).toContainText("Paired by scholars");
+  // Clicking a ribbon opens both passages side by side in a pop-up, here on the page.
+  await page.locator("#part-compare figure").first().locator("path[role=button]").first().click({ force: true });
+  const pairDialog = page.locator("dialog.lg-pair-dialog");
+  await expect(pairDialog).toBeVisible();
+  await expect(pairDialog.locator(".lg-pair section")).toHaveCount(2);
+  await expect(pairDialog.locator(".lg-pair section").first()).not.toContainText("Loading");
+  await pairDialog.getByRole("button", { name: "Close" }).click();
+  await expect(pairDialog).toHaveCount(0);
 });
 
 test("letters: the old group addresses open their collection", async ({ page }) => {

@@ -5,6 +5,7 @@ import { useAsync } from "@/lib/useAsync";
 import type { Parallel, Span } from "@/data/letters/types";
 import { ALL_LETTERS, LETTER_TONE } from "./letter-hooks";
 import { ParallelRibbon, type RibbonMotion, type RibbonReveal } from "./ParallelRibbon";
+import { PassagePair } from "./PassagePair";
 
 const SHOWN = 60; // strongest links drawn; the rest would only be noise at this size
 const GROW_MS = 1100; // ribbons growing out from both rails to meet, each on its own timing
@@ -49,9 +50,30 @@ export function CompareLetters({ initial, curated = [], choices }: { initial: [s
   const [attempt, setAttempt] = useState(0); // "Try again" reloads the pair's cross-references
   const books = useMemo(() => new Map(catalog.books.map((b) => [b.code, b])), [catalog]);
   const chapters = (code: string) => (stats.status === "ready" ? stats.value.books.find((b) => b.code === code)?.chapters.length ?? 0 : 0);
+  const seen = useRef(new Map<string, Link[]>()); // pairs already worked out come back at once
+
+  // Reading ahead: a book's cross-reference files are fetched before it is clicked (the site's loader keeps them), so
+  // choosing it later does not wait. A failed read-ahead is only logged: the real load retries and reports it.
+  const warmed = useRef(new Set<string>());
+  const warm = useCallback((code: string) => {
+    if (stats.status !== "ready" || warmed.current.has(code)) return;
+    warmed.current.add(code);
+    for (let chapter = 1; chapter <= chapters(code); chapter++) crossRefs(code, String(chapter)).catch((error: Error) => console.warn(error.message));
+  // eslint-disable-next-line react-hooks/exhaustive-deps -- chapters() reads stats, already a dependency
+  }, [stats.status]);
+  // The books on offer are read ahead quietly once the page is idle (all of them when a collection offers a few).
+  useEffect(() => {
+    if (stats.status !== "ready" || !choices) return;
+    const run = () => choices.forEach((c) => warm(c.code));
+    const idle = (window as Window & { requestIdleCallback?: (cb: () => void) => number }).requestIdleCallback;
+    if (idle) idle(run); else { const id = setTimeout(run, 300); return () => clearTimeout(id); }
+  // eslint-disable-next-line react-hooks/exhaustive-deps -- once the stats are ready
+  }, [stats.status]);
 
   useEffect(() => {
     if (stats.status !== "ready" || !left || !right) { setLinks(null); return; }
+    const key = `${left}-${right}`, known = seen.current.get(key);
+    if (known) { setLinks({ pair: key, list: known }); setFailed(false); return; }
     let live = true;
     setLinks(null);
     setFailed(false);
@@ -77,7 +99,9 @@ export function CompareLetters({ initial, curated = [], choices }: { initial: [s
       // The same link listed from both ends counts once, with the higher vote.
       const merged = new Map<string, Link>();
       for (const l of [...a, ...b]) { const k = `${l.left[0]}-${l.right[0]}`; const prev = merged.get(k); if (!prev || prev.votes < l.votes) merged.set(k, l); }
-      setLinks({ pair: `${left}-${right}`, list: [...merged.values()].sort((x, y) => y.votes - x.votes) });
+      const list = [...merged.values()].sort((x, y) => y.votes - x.votes);
+      seen.current.set(`${left}-${right}`, list);
+      setLinks({ pair: `${left}-${right}`, list });
     }, (error: Error) => {
       if (!live) return;
       console.error(error);
@@ -100,9 +124,11 @@ export function CompareLetters({ initial, curated = [], choices }: { initial: [s
     id: `compare-${left}-${right}`, title: `${name(left)} and ${name(right)}`,
     left: { label: name(left), span: span(left) }, right: { label: name(right), span: span(right) },
     pairs: links!.list.slice(0, SHOWN).map((l) => ({ left: l.left, right: l.right, weight: l.votes })),
-    claim: { text: `${links!.list.length} cross-reference links join these letters; the ${Math.min(SHOWN, links!.list.length)} with the most reader votes are drawn. Cross references from OpenBible.info (CC BY).` },
+    claim: { text: "Cross references: OpenBible.info (CC BY)." }, // the licence asks for this credit; nothing more under the chart
   } : null;
 
+  // The two passages of the ribbon last clicked, open side by side in a pop-up.
+  const [reading, setReading] = useState<Parallel["pairs"][number] | null>(null);
   // The ribbons on screen (they may belong to the pair just broken, while they shrink away) and how much of them shows.
   const [shown, setShown] = useState<Parallel | null>(null);
   // Each change of state is one movement handed to the chart, which animates it frame by frame on its own.
@@ -141,7 +167,7 @@ export function CompareLetters({ initial, curated = [], choices }: { initial: [s
   const base: Parallel = shown ?? {
     id: `compare-${left ?? "none"}-${right ?? "none"}`, title: "",
     left: { label: "", span: span(left ?? right ?? "ROM") }, right: { label: "", span: span(right ?? left ?? "ROM") }, pairs: [],
-    claim: { text: "Cross references from OpenBible.info (CC BY)." },
+    claim: { text: "Cross references: OpenBible.info (CC BY)." },
   };
   // The rails always name the current choice, even while the last pair's ribbons are still shrinking away.
   const drawn: Parallel = { ...base, left: { ...base.left, label: railLabel(left) }, right: { ...base.right, label: railLabel(right) } };
@@ -154,13 +180,16 @@ export function CompareLetters({ initial, curated = [], choices }: { initial: [s
   return <div>
     <div className="lg-compare-bar">
       <div className="lg-compare-letters" role="group" aria-label="Letters to compare">{(choices ?? ALL_LETTERS.map((code): CompareChoice => ({ code }))).map((c) => <button key={c.code} type="button" aria-pressed={slots.includes(c.code)}
-        className="lg-compare-letter" style={{ "--tone": `var(--${c.tone ?? LETTER_TONE(c.code)})` } as CSSProperties} onClick={() => toggle(c.code)}>{c.label ?? name(c.code)}</button>)}</div>
-      {left && right && <button type="button" className="lg-tab lg-compare-swap" onClick={() => setSlots([right, left])}>⇅ Swap top and bottom</button>}
+        className="lg-compare-letter" style={{ "--tone": `var(--${c.tone ?? LETTER_TONE(c.code)})` } as CSSProperties} onClick={() => toggle(c.code)}
+        onPointerEnter={() => warm(c.code)} onFocus={() => warm(c.code)}>{c.label ?? name(c.code)}</button>)}</div>
     </div>
-    <div style={{ marginTop: "1rem" }}>
-      <ParallelRibbon parallel={drawn} weightLabel="reader votes" motion={motion} empty={{ top: !left, bottom: !right }} hint={hint} />
+    <div className={`lg-compare-reading${left && right && !ready && !failed ? " is-on" : ""}`} aria-hidden="true" />
+    <div style={{ marginTop: ".75rem" }}>
+      <ParallelRibbon parallel={drawn} weightLabel="reader votes" motion={motion} empty={{ top: !left, bottom: !right }} hint={hint} onRead={setReading} />
+      {reading && <PassagePair left={reading.left} right={reading.right} onClose={() => setReading(null)}
+        note={reading.weight !== undefined ? `${reading.weight} reader votes link these passages (cross references: OpenBible.info).` : undefined} />}
       {failed && <button type="button" className="lg-tab" onClick={() => setAttempt((n) => n + 1)}>Try again</button>}
     </div>
-    {scholar && <div style={{ marginTop: "1.5rem" }}><p className="lg-subhead">Paired by scholars: {scholar.title}</p><ParallelRibbon parallel={scholar} /></div>}
+    {scholar && <div style={{ marginTop: "1.5rem" }}><p className="lg-subhead">Paired by scholars: {scholar.title}</p><ParallelRibbon parallel={scholar} onRead={setReading} /></div>}
   </div>;
 }
