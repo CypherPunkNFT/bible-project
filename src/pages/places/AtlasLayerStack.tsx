@@ -29,8 +29,8 @@ export function AtlasLayerStack() {
     <div className="atlas-stack">
       {plane("atlas-plane-grid", <path className="atlas-plane-graticule" d={GRID} />)}
       {plane("atlas-plane-land", <path className="atlas-plane-coast" d={map.land} />)}
-      {plane("atlas-plane-route", <><path className="atlas-plane-path" pathLength={1} d={ROUTE} /><g className="atlas-plane-dots">{DOTS.map(([x, y]) => <circle key={`${x},${y}`} cx={x} cy={y} r={0.9} />)}</g></>)}
+      {plane("atlas-plane-route", <><path className="atlas-plane-path" pathLength={1} d={ROUTE} /><g className="atlas-plane-dots">{DOTS.map(([x, y]) => <circle key={`${x},${y}`} cx={x} cy={y} r={0.55} />)}</g></>)}
     </div>
-    <span className="atlas-iso-cap">Place · People · Story</span>
+    <span className="atlas-iso-cap">Eastern Mediterranean · First journey</span>
   </div>;
 }

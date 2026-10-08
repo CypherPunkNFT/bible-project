@@ -7,5 +7,5 @@ export const FIRST_JOURNEY: [number, number][] = [
   [33.36, 37.35], [32.34, 37.6], [32.49, 37.87], [31.19, 38.31], [31.0, 37.0], [30.85, 36.96], [30.7, 36.88], [36.17, 36.23],
 ];
 
-/** The part of the world the stack shows: the eastern Mediterranean, [west, south, east, north] in degrees. */
-export const STACK_BOUNDS: [number, number, number, number] = [26.5, 32.6, 38.5, 40.6];
+/** The part of the world the stack shows, framed on the journey as in the mock-up: [west, south, east, north] in degrees. */
+export const STACK_BOUNDS: [number, number, number, number] = [29.4, 34.2, 37.1, 39.1];
