@@ -65,3 +65,28 @@ test("prophet pages: no word page scrolls sideways", async ({ page }) => {
     await noSideScroll(page);
   }
 });
+
+// Regression (2026-10-08): the wipe's ready check ran on animation frames, which the browser does not draw while a
+// view transition's update runs, so every wipe froze the screen until the browser's 4-second abort.
+test("people pages: the wipe to and from a word page never times out", async ({ page }) => {
+  await page.addInitScript(() => {
+    const w = window as unknown as { __wipeErrors: string[] };
+    w.__wipeErrors = [];
+    const doc = document as Document & { startViewTransition?: (cb: () => Promise<void>) => { ready: Promise<void> } };
+    const original = doc.startViewTransition?.bind(document);
+    if (!original) return;
+    doc.startViewTransition = (cb) => {
+      const transition = original(cb);
+      transition.ready.catch((error: unknown) => w.__wipeErrors.push(String(error)));
+      return transition;
+    };
+  });
+  await page.goto("/study/people?view=prophets");
+  const started = Date.now();
+  await page.locator('a[href="/people/elijah-1ki-17-1/word"]').first().click();
+  await expect(page.locator('[data-people-ready="special:elijah-1ki-17-1:word"]')).toBeVisible();
+  await page.locator("a", { hasText: /^Back to/ }).first().click();
+  await expect(page).toHaveURL(/view=prophets/);
+  expect(Date.now() - started).toBeLessThan(3500);
+  expect(await page.evaluate(() => (window as unknown as { __wipeErrors: string[] }).__wipeErrors)).toEqual([]);
+});

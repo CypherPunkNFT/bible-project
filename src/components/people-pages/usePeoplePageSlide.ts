@@ -46,13 +46,15 @@ function forward(from: Place, to: Place): boolean {
   return true;
 }
 
-/** Waits until the arriving page marks itself ready (its data and code loaded), so the wipe never shows a loading frame. */
+/** Waits until the arriving page marks itself ready (its data and code loaded), so the wipe never shows a loading frame.
+ *  Polls on a timer, never requestAnimationFrame: the browser draws no frames while a view transition's update runs,
+ *  so a frame-based check never fired and every wipe froze until the browser's 4-second abort (fixed 2026-10-08). */
 function arrived(key: string, timeout = 900): Promise<void> {
   return new Promise((resolve) => {
     const start = performance.now();
     const check = () => {
       if (document.querySelector(`[data-people-ready="${CSS.escape(key)}"]`) || performance.now() - start > timeout) resolve();
-      else requestAnimationFrame(check);
+      else setTimeout(check, 16);
     };
     check();
   });
