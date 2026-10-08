@@ -159,7 +159,7 @@
   .pg-person:hover .pg-emblem path, .pg-draw-in .pg-emblem path { animation: none; }
   .atlas-plane-path { animation: none; stroke-dashoffset: 0; }
 }
-@media (max-width: 1100px) { .pg-people { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 1100px) { .pg-people { grid-template-columns: repeat(3, minmax(0, 1fr)); } .atlas-iso { height: 280px; } .atlas-stack { scale: .7; } }
 @media (max-width: 767px) {
   .pg-people { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .55rem; }
   .pg-person { padding: .85rem; } .pg-seal { width: 52px; height: 52px; } .pg-seal svg { width: 34px; height: 34px; }
