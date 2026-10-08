@@ -1,0 +1,98 @@
+{
+  "about": "Every design mock-up, by section, for the gallery at /mockups/ (design/index.html). Add a card here whenever a new mock-up folder lands in design/; `node scripts/mockup-gallery.mjs` refreshes the thumbnails and fails if a folder is missing from this list. Optional `shot`: the address the gallery picture is taken from, when the mock-up's difference is not on its first page.",
+  "sections": [
+    {
+      "id": "journeys",
+      "title": "Atlas · Journeys",
+      "line": "The Journeys page: person icons, the Your journey area and the route that draws itself.",
+      "page": "/study/atlas/journeys?focus=paul&lens=story",
+      "cards": [
+        {
+          "id": "journeys-pilgrim",
+          "title": "Pilgrim",
+          "url": "/mockups/journeys-directions/#pilgrim",
+          "date": "2026-10-07",
+          "status": "chosen",
+          "line": "The warm atlas made richer: a dawn-road picture, round icon badges, a chapter timeline that fills as you go."
+        },
+        {
+          "id": "journeys-starlight",
+          "title": "Starlight",
+          "url": "/mockups/journeys-directions/#starlight",
+          "date": "2026-10-07",
+          "status": "option",
+          "line": "The journeys as a night sky: constellations shaped like the icons, a wide map with a frosted panel floating over it."
+        },
+        {
+          "id": "journeys-voyage",
+          "title": "Voyage",
+          "url": "/mockups/journeys-directions/#voyage",
+          "date": "2026-10-07",
+          "status": "option",
+          "line": "Big and cinematic: ribbons fan out to each person, and the traveller carries a name tag (\"To Paphos\")."
+        },
+        {
+          "id": "journeys-meridian",
+          "title": "Meridian",
+          "url": "/mockups/journeys-directions/#meridian",
+          "date": "2026-10-07",
+          "status": "option",
+          "line": "Precise and instrument-like: chapters in a sidebar, a map grid, and a live readout of the leg and the distance."
+        }
+      ]
+    },
+    {
+      "id": "letters",
+      "title": "Study · Letters",
+      "line": "How the Letters study is laid out: one long page, cards and section pages, or a compact top.",
+      "page": "/study/letters",
+      "cards": [
+        {
+          "id": "letters-1",
+          "title": "Layout 1 · One page",
+          "url": "/mockups/letters-layouts/",
+          "date": "2026-10-07",
+          "status": "option",
+          "line": "Paul's letters as one page: the letter picker under the title, then all twelve cards in three rows.",
+          "shot": "/mockups/letters-layouts/#/paul"
+        },
+        {
+          "id": "letters-2",
+          "title": "Layout 2 · Collections and ways in",
+          "url": "/mockups/letters-layouts-2/",
+          "date": "2026-10-07",
+          "status": "built",
+          "line": "Four collections and four ways in, each a page of 3 × 4 cards that open section pages. Live on the site.",
+          "built": "/study/letters",
+          "shot": "/mockups/letters-layouts-2/#/paul"
+        },
+        {
+          "id": "letters-3",
+          "title": "Layout 3 · Compact top",
+          "url": "/mockups/letters-layouts-3/",
+          "date": "2026-10-07",
+          "status": "option",
+          "line": "A compact top (title, figures, three section cards); the chosen section's four parts sit below.",
+          "shot": "/mockups/letters-layouts-3/#/paul"
+        }
+      ]
+    },
+    {
+      "id": "header",
+      "title": "Site · Header",
+      "line": "The menu bar at the top of every page.",
+      "page": "/",
+      "cards": [
+        {
+          "id": "header-layouts",
+          "title": "Eight header layouts",
+          "url": "/mockups/header-layouts/",
+          "date": "2026-10-06",
+          "status": "built",
+          "line": "Eight ways to arrange the menu, search and dark mode. Option 2 was chosen: Testimonies set apart in gold, search beside dark mode.",
+          "built": "/"
+        }
+      ]
+    }
+  ]
+}

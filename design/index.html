@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Design gallery · Bible Project</title>
+<link rel="icon" href="journeys-directions/favicon.svg">
+<link rel="stylesheet" href="_gallery/gallery.css">
+<script>try { const t = localStorage.getItem("bp-theme"); document.documentElement.dataset.theme = t === "dark" || t === "light" ? t : (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"); } catch { document.documentElement.dataset.theme = "light"; }</script>
+</head>
+<body>
+<header class="g-header">
+  <div class="g-strip" aria-hidden="true"><span style="background: var(--history)"></span><span style="background: var(--poetry)"></span><span style="background: var(--prophets)"></span><span style="background: var(--gospels)"></span><span style="background: var(--epistles)"></span><span style="background: var(--revelation)"></span></div>
+  <div class="g-bar">
+    <a class="g-logo" href="/"><img src="journeys-directions/favicon.svg" alt=""><span>Bible Project</span></a>
+    <span class="g-crumb">Design gallery</span>
+    <button type="button" class="g-theme" id="g-theme" role="switch" aria-label="Dark mode"><span></span></button>
+  </div>
+</header>
+<main class="g-main">
+  <section class="g-hero">
+    <p class="g-kicker">Every mock-up, in one place</p>
+    <h1>Design gallery</h1>
+    <p class="g-lead" id="g-lead">Each section is a part of the site. Open a card to try the mock-up; chosen designs are marked, and built ones link to the real page.</p>
+    <nav class="g-jump" id="g-jump" aria-label="Sections"></nav>
+  </section>
+  <div id="g-sections"><p class="g-status" role="status">Opening the gallery…</p></div>
+</main>
+<script src="_gallery/gallery.js"></script>
+</body>
+</html>
