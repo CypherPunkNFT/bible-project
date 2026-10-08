@@ -6,14 +6,13 @@ import type { Parallel, Span } from "@/data/letters/types";
 import { ALL_LETTERS, LETTER_TONE } from "./letter-hooks";
 import { ParallelRibbon, type RibbonMotion, type RibbonReveal } from "./ParallelRibbon";
 import { PassagePair } from "./PassagePair";
+import { passagePairs, type Link } from "./compare-links";
 
-const SHOWN = 60; // strongest links drawn; the rest would only be noise at this size
+const SHOWN = 60; // most passage pairs drawn; more would only be noise at this size
 const GROW_MS = 1100; // ribbons growing out from both rails to meet, each on its own timing
 const RETRACT_MS = 950; // ribbons drawing back into the rail that is still chosen, one after another
 const NONE: RibbonReveal = { top: 0, bottom: 0 };
 const WHOLE: RibbonReveal = { top: 0.5, bottom: 0.5 };
-
-type Link = { left: Span; right: Span; votes: number };
 
 /** One chapter's cross-references, tried again if the file cannot be read (the site may be mid-update). A file that
  *  still fails is an error, never "no links": silently counting it as empty showed real pairs as having none. */
@@ -31,8 +30,9 @@ type Slots = [string | null, string | null];
 export interface CompareChoice { code: string; label?: string; tone?: string }
 
 /**
- * Any two letters side by side, joined wherever the site's cross-references link a verse in one to a verse in the
- * other (OpenBible.info, weighted by readers' votes), plus any scholar-paired passages the guides already hold.
+ * Any two letters side by side, joined wherever the site's cross-references link a passage in one to a passage in the
+ * other (OpenBible.info, readers' votes), each verse's strongest link gathered into passage pairs (compare-links.ts), plus any
+ * scholar-paired passages the guides already hold.
  * Each chosen letter keeps its rail (top or bottom). Choosing the second grows the ribbons out from both rails; letting
  * one go shrinks them back into the rail still chosen, and the empty rail turns grey.
  */
@@ -123,7 +123,7 @@ export function CompareLetters({ initial, curated = [], choices }: { initial: [s
   const pair: Parallel | null = ready && left && right ? {
     id: `compare-${left}-${right}`, title: `${name(left)} and ${name(right)}`,
     left: { label: name(left), span: span(left) }, right: { label: name(right), span: span(right) },
-    pairs: links!.list.slice(0, SHOWN).map((l) => ({ left: l.left, right: l.right, weight: l.votes })),
+    pairs: passagePairs(links!.list, scholar).slice(0, SHOWN),
     claim: { text: "Cross references: OpenBible.info (CC BY)." }, // the licence asks for this credit; nothing more under the chart
   } : null;
 

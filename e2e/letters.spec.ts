@@ -54,6 +54,8 @@ test("letters: James, Peter & Jude has the writers, each letter at a glance, and
   const picks = page.locator("#part-compare").getByRole("group", { name: "Letters to compare" });
   await expect(picks.getByRole("button")).toHaveCount(5);
   await expect(picks.getByRole("button", { name: "Jude" })).toHaveAttribute("aria-pressed", "true");
+  // Readers' cross-references gathered into passage pairs, tagged where scholars pair the same passages.
+  await expect(page.locator("#part-compare .lg-tip").first()).toContainText(/^1\d parallel passages · .*portrait of the opponents/);
   await picks.getByRole("button", { name: "Jude" }).click();
   await expect(picks.getByRole("button", { name: "Jude" })).toHaveAttribute("aria-pressed", "false");
   await expect(page.locator("#part-compare figure svg").first()).toContainText("Choose a letter");
