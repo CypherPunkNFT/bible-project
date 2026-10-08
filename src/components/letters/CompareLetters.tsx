@@ -31,8 +31,8 @@ export interface CompareChoice { code: string; label?: string; tone?: string }
 
 /**
  * Any two letters side by side, joined wherever the site's cross-references link a passage in one to a passage in the
- * other (OpenBible.info, readers' votes), each verse's strongest link gathered into passage pairs (compare-links.ts), plus any
- * scholar-paired passages the guides already hold.
+ * other (OpenBible.info, readers' votes), each verse's strongest link gathered into passage pairs (compare-links.ts); a pair
+ * that scholars also pair carries their note.
  * Each chosen letter keeps its rail (top or bottom). Choosing the second grows the ribbons out from both rails; letting
  * one go shrinks them back into the rail still chosen, and the empty rail turns grey.
  */
@@ -116,7 +116,7 @@ export function CompareLetters({ initial, curated = [], choices }: { initial: [s
     return [n * 1_000_000 + 1_001, n * 1_000_000 + (last?.length ?? 1) * 1_000 + (last?.[last.length - 1]?.[0] ?? 1)];
   };
   const name = (code: string) => choices?.find((c) => c.code === code)?.label ?? books.get(code)?.name ?? code;
-  // A scholar-paired parallel between the same two books (in either order) is shown too.
+  // A scholar-paired parallel between the same two books (in either order) lends its notes to the matching pairs.
   const pairKey = (a?: number, b?: number) => [a, b].sort().join();
   const scholar = left && right ? curated.find((p) => pairKey(Math.floor(p.left.span[0] / 1_000_000), Math.floor(p.right.span[0] / 1_000_000)) === pairKey(books.get(left)?.num, books.get(right)?.num)) : undefined;
   const ready = left && right && links?.pair === `${left}-${right}` ? links.pair : null;
@@ -190,6 +190,5 @@ export function CompareLetters({ initial, curated = [], choices }: { initial: [s
         note={reading.weight !== undefined ? `${reading.weight} reader votes link these passages (cross references: OpenBible.info).` : undefined} />}
       {failed && <button type="button" className="lg-tab" onClick={() => setAttempt((n) => n + 1)}>Try again</button>}
     </div>
-    {scholar && <div style={{ marginTop: "1.5rem" }}><p className="lg-subhead">Paired by scholars: {scholar.title}</p><ParallelRibbon parallel={scholar} onRead={setReading} /></div>}
   </div>;
 }

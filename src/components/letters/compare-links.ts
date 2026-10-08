@@ -4,6 +4,9 @@ import type { Parallel, Span } from "@/data/letters/types";
 export type Link = { left: Span; right: Span; votes: number };
 type Pair = Parallel["pairs"][number];
 
+const MIN_VOTES = 10;
+const SHARE_OF_STRONGEST = 0.2;
+
 /** Each verse's strongest link, on one side: verse id → the index of the link with the most votes that covers it. */
 function strongest(links: Link[], side: "left" | "right") {
   const best = new Map<number, number>();
@@ -26,6 +29,8 @@ const join = (a: Span, b: Span): Span => [Math.min(a[0], b[0]), Math.max(a[1], b
  * 1. a link is kept only where it is the strongest link for a verse on BOTH sides (one verse sending several weak
  *    links fans out across the chart; those are mostly a shared word, not a shared passage);
  * 2. kept links whose ends sit within a verse of each other on both sides become one passage pair, their votes added.
+ * 3. only strong pairs are drawn: at least MIN_VOTES votes and SHARE_OF_STRONGEST of the strongest pair's (weak pairs
+ *    were most of the chart, as thin stray lines); a pair scholars also make is always drawn.
  * Where scholars pair the same two passages, their tag and note come along (`scholar`, in either order of the books).
  */
 export function passagePairs(links: Link[], scholar?: Parallel): Pair[] {
@@ -51,11 +56,14 @@ export function passagePairs(links: Link[], scholar?: Parallel): Pair[] {
     }
   }
   const book = (span: Span) => Math.floor(span[0] / 1_000_000);
-  return groups.sort((a, b) => b.votes - a.votes).map((g) => {
+  groups.sort((a, b) => b.votes - a.votes);
+  const floor = Math.max(MIN_VOTES, (groups[0]?.votes ?? 0) * SHARE_OF_STRONGEST);
+  return groups.flatMap((g) => {
     const match = scholar?.pairs.find((p) => {
       const [mine, theirs] = book(p.left) === book(g.left) ? [p.left, p.right] : [p.right, p.left];
       return overlaps(mine, g.left) && overlaps(theirs, g.right);
     });
-    return { left: g.left, right: g.right, weight: g.votes, kind: match?.kind, note: match?.note };
+    if (!match && g.votes < floor) return [];
+    return [{ left: g.left, right: g.right, weight: g.votes, kind: match?.kind, note: match?.note }];
   });
 }

@@ -63,7 +63,7 @@ test("letters: James, Peter & Jude has the writers, each letter at a glance, and
   await picks.getByRole("button", { name: "2 Peter" }).click();
   await picks.getByRole("button", { name: "James" }).click();
   await picks.getByRole("button", { name: /Matthew/ }).click();
-  await expect(page.locator("#part-compare")).toContainText("Paired by scholars");
+  await expect(page.locator("#part-compare")).not.toContainText("Paired by scholars"); // the one chart holds them now
   // Clicking a ribbon opens both passages side by side in a pop-up, here on the page.
   await page.locator("#part-compare figure").first().locator("path[role=button]").first().click({ force: true });
   const pairDialog = page.locator("dialog.lg-pair-dialog");
