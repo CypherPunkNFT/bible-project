@@ -53,11 +53,24 @@ function useFitWidth<T extends HTMLElement>() {
   return ref;
 }
 
+/** A four-pointed star whose sides curve inwards, centred on (x, y), `r` from centre to point. */
+function sparkle(x: number, y: number, r: number) {
+  const k = r * 0.16;
+  return `M${x} ${y - r}Q${x + k} ${y - k} ${x + r} ${y}Q${x + k} ${y + k} ${x} ${y + r}Q${x - k} ${y + k} ${x - r} ${y}Q${x - k} ${y - k} ${x} ${y - r}Z`;
+}
+// Owner round 3 (2026-10-08): a cross either side of the drawing, and stars, in card coordinates (1200 × 630).
+const CROSSES = [112, 1088];
+const STARS: [number, number, number][] = [[200, 214, 15], [1000, 214, 15], [140, 96, 10], [1060, 96, 10], [246, 470, 10], [954, 470, 10], [60, 300, 7], [1140, 300, 7]];
+
 /** The name, the drawing between, and the line "The whole Bible, free and open to all." across the full width. */
 function FreeOpen() {
   const line = useFitWidth<HTMLParagraphElement>();
   return <div className="og-card og-free">
     <div className="og-glow" />
+    <svg className="og-f-marks" viewBox="0 0 1200 630" aria-hidden="true">
+      {CROSSES.map((x) => <path key={x} d={`M${x} 280V400M${x - 34} 316H${x + 34}`} stroke="currentColor" strokeWidth="6" />)}
+      {STARS.map(([x, y, r]) => <path key={`${x},${y}`} d={sparkle(x, y, r)} fill="currentColor" opacity={r > 12 ? 0.85 : 0.6} />)}
+    </svg>
     <div className="og-f-name"><Logo /><h1>Bible Project</h1></div>
     <div className="og-f-art"><Sun /></div>
     <p className="og-f-line" ref={line}>The whole Bible, <em>free and open to all.</em></p>

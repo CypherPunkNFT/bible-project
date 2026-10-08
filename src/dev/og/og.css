@@ -25,11 +25,13 @@ body { margin: 0; padding: 24px; background: #6b6255; min-height: 100vh; }
 .og-b-art { position: absolute; left: 540px; right: -120px; top: 120px; }
 
 /* Free and open: name, drawing, line */
-.og-f-name { position: absolute; left: 0; right: 0; top: 64px; display: flex; align-items: center; justify-content: center; gap: 28px; }
+.og-f-name { position: absolute; left: 0; right: 0; top: 44px; display: flex; align-items: center; justify-content: center; gap: 30px; }
 .og-f-name h1 { font-size: 112px; }
-.og-f-name .og-logo { width: 72px; height: 72px; }
-.og-f-art { position: absolute; left: 210px; right: 210px; top: 178px; }
-.og-f-line { position: absolute; left: 72px; bottom: 64px; margin: 0; width: max-content; white-space: nowrap; font: 500 46px/1.05 var(--font-serif); letter-spacing: -.015em; }
+/* Owner: the logo 20% taller than the B. `cap` is the cap height of the element's own font, so it is given the title's font. */
+.og-f-name .og-logo { font: 500 112px var(--font-serif); width: 1.2cap; height: 1.2cap; border-radius: 22px; }
+.og-f-art { position: absolute; left: 120px; right: 120px; top: 156px; }
+.og-f-marks { position: absolute; inset: 0; width: 1200px; height: 630px; color: var(--sun); }
+.og-f-line { position: absolute; left: 72px; bottom: 44px; margin: 0; width: max-content; white-space: nowrap; font: 500 46px/1.05 var(--font-serif); letter-spacing: -.015em; }
 .og-f-line em { color: var(--accent); font-weight: 400; }
 
 /* Sunrise: the drawing's centre rests on the bottom edge */
