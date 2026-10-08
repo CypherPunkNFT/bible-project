@@ -1,62 +1,37 @@
-/* Link-preview designs, each exactly 1200 × 630. Text stays at least 72 px from every edge (apps crop), and the
-   smallest text is 26 px so it reads when the preview is shown at a quarter of its size. */
+/* Link-preview designs, each exactly 1200 × 630, light mode. The name is very large and centred where possible so it
+   survives the square crop some messaging apps use; nothing important sits within 72 px of an edge. */
 body { margin: 0; padding: 24px; background: #6b6255; min-height: 100vh; }
 .og-picker { display: flex; gap: 8px; margin-bottom: 16px; font: 14px var(--font-sans); }
 .og-picker a { padding: 6px 12px; border-radius: 999px; background: #fff3; color: #fff; text-decoration: none; }
 .og-picker a[aria-current="page"] { background: #fff; color: #1f1b16; }
 
 .og-frame { width: 1200px; height: 630px; overflow: hidden; }
-.og-card { position: relative; width: 1200px; height: 630px; overflow: hidden; background: var(--page); color: var(--ink); font-family: var(--font-sans); isolation: isolate; }
-.og-strip { position: absolute; inset: 0 0 auto; z-index: 3; display: flex; height: 10px; } .og-strip span { flex: 1; }
-.og-brand { display: flex; align-items: center; gap: 14px; font: 600 34px/1 var(--font-serif); letter-spacing: -.01em; }
-.og-brand img { width: 48px; height: 48px; }
-.og-card h1 { margin: 0; font-family: var(--font-serif); font-weight: 500; letter-spacing: -.025em; }
-.og-card h1 em { color: var(--accent); font-weight: 400; }
-.og-card ul { margin: 0; padding: 0; list-style: none; }
-.og-card li { position: relative; padding-left: 26px; font-size: 26px; line-height: 1.3; color: color-mix(in srgb, var(--ink) 82%, var(--muted)); }
-.og-card li::before { content: ""; position: absolute; left: 2px; top: .52em; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); }
-.og-address { margin: 0; font-size: 28px; font-weight: 600; letter-spacing: .01em; color: var(--accent); }
+.og-card { position: relative; width: 1200px; height: 630px; overflow: hidden; background: var(--page); color: var(--ink); font-family: var(--font-sans); isolation: isolate; --sun: var(--epistles); }
+.og-card h1 { margin: 0; font: 500 132px/1 var(--font-serif); letter-spacing: -.035em; color: var(--ink); white-space: nowrap; }
+.og-logo { width: 84px; height: 84px; border-radius: 18px; box-shadow: 0 6px 20px rgb(60 40 10 / 18%); }
+.og-glow { position: absolute; inset: 0; z-index: -1; background: radial-gradient(ellipse 46% 52% at 50% 40%, color-mix(in srgb, var(--sun) 20%, transparent), transparent 72%); }
+.og-glow-right { background: radial-gradient(ellipse 40% 60% at 74% 50%, color-mix(in srgb, var(--sun) 20%, transparent), transparent 72%); }
+.og-glow-low { background: radial-gradient(ellipse 55% 60% at 50% 100%, color-mix(in srgb, var(--sun) 26%, transparent), transparent 72%); }
+.og-card .topics-artwork { display: block; width: 100%; height: auto; overflow: visible; color: var(--sun); }
+.og-card .topics-artwork circle[fill="var(--surface)"] { fill: var(--page); }
 
-/* 1 · The open Word: the home page's book of John, on the dark page */
-.og-open-word { background: radial-gradient(ellipse 60% 70% at 78% 45%, color-mix(in srgb, var(--accent) 16%, transparent), transparent 70%), var(--page); }
-.og-ow-text { position: absolute; inset: 72px auto 72px 80px; z-index: 2; display: flex; flex-direction: column; width: 640px; }
-.og-ow-text h1 { margin-top: 34px; font-size: 66px; line-height: 1.04; }
-.og-ow-text ul { margin-top: 28px; }
-.og-ow-text .og-address { margin-top: auto; }
-.og-ow-art { position: absolute; right: -10px; top: 40px; width: 600px; height: 560px; z-index: 1; }
-.og-orbit { position: absolute; border: 1.5px solid color-mix(in srgb, var(--accent) 34%, transparent); border-radius: 50%; }
-.og-orbit-one { inset: 6% 2% 8% 6%; transform: rotate(-14deg); }
-.og-orbit-two { inset: 18% -6% 20% 12%; transform: rotate(-28deg); border-style: dashed; opacity: .7; }
-.og-ow-book { position: absolute; left: 70px; top: 130px; width: 450px; transform: rotate(-9deg); }
-.og-ow-book .home-open-bible { min-height: 300px; box-shadow: 0 8px 0 -1px var(--surface-2), 0 9px 0 var(--line), 0 40px 70px #0008; }
-.og-ow-book .home-open-bible small { font-size: 8px; }
-.og-ow-book .home-open-bible b { font-size: 40px; }
-.og-ow-book .home-book-left p { font-size: 15px; }
-.og-ow-book .home-book-left > span { font-size: 24px; }
-.og-ow-book .home-book-seal { font-size: 28px; }
+/* Radiant: the drawing across the top, the name beneath */
+.og-r-art { position: absolute; left: 60px; right: 60px; top: 18px; }
+.og-r-name { position: absolute; left: 0; right: 0; bottom: 70px; display: flex; align-items: center; justify-content: center; gap: 30px; }
 
-/* 2 · Five ways in: the five collection drawings from the home page, on the light page */
-.og-five { padding: 66px 80px 0; background: radial-gradient(ellipse 70% 50% at 50% 0%, color-mix(in srgb, var(--accent) 10%, transparent), transparent 70%), var(--page); }
-.og-five header { display: flex; align-items: center; justify-content: space-between; }
-.og-five h1 { margin-top: 30px; font-size: 64px; line-height: 1.05; }
-.og-five-facts { display: flex; gap: 12px; margin-top: 22px; }
-.og-five-facts span { padding: 8px 18px; border: 1.5px solid var(--line); border-radius: 999px; background: var(--surface); font-size: 24px; color: var(--ink); }
-.og-five-facts b { color: var(--accent); font-weight: 600; }
-.og-five-row { position: absolute; left: 80px; right: 80px; bottom: 64px; display: grid; grid-template-columns: repeat(5, 1fr); border: 1.5px solid var(--line); border-radius: 18px; background: var(--surface); overflow: hidden; }
-.og-five-card { display: flex; flex-direction: column; gap: 4px; padding: 14px 16px 18px; border-left: 1.5px solid var(--line); }
-.og-five-card:first-child { border-left: 0; }
-.og-five-art { height: 100px; color: var(--accent); }
-.og-five-card:nth-child(2) .og-five-art { color: var(--gospels); } .og-five-card:nth-child(3) .og-five-art { color: var(--history); }
-.og-five-card:nth-child(4) .og-five-art { color: var(--prophets); } .og-five-card:nth-child(5) .og-five-art { color: var(--poetry); }
-.og-five-art svg { width: 100%; height: 100%; }
-.og-five-card b { font: 500 30px/1.1 var(--font-serif); }
-.og-five-card span { font-size: 20px; line-height: 1.2; color: var(--muted); }
+/* Side by side */
+.og-b-name { position: absolute; left: 88px; top: 0; bottom: 0; display: flex; flex-direction: column; justify-content: center; gap: 30px; }
+.og-b-name h1 { font-size: 150px; line-height: .95; }
+.og-b-art { position: absolute; left: 540px; right: -120px; top: 120px; }
 
-/* 3 · Walk it: the journeys drawing, large, with the route glowing */
-.og-journeys { background: radial-gradient(ellipse 55% 75% at 80% 55%, color-mix(in srgb, var(--poetry) 18%, transparent), transparent 70%), var(--page); }
-.og-j-text { position: absolute; inset: 72px auto 72px 80px; z-index: 2; display: flex; flex-direction: column; width: 560px; }
-.og-j-text h1 { margin-top: 28px; font-size: 58px; line-height: 1.04; }
-.og-j-text ul { margin-top: 26px; }
-.og-j-text .og-address { margin-top: auto; }
-.og-j-art { position: absolute; right: 30px; top: 130px; width: 620px; color: var(--accent); filter: drop-shadow(0 0 18px color-mix(in srgb, var(--accent) 45%, transparent)); }
-.og-j-art svg { width: 100%; height: auto; }
+/* Free and open: name, drawing, line */
+.og-f-name { position: absolute; left: 0; right: 0; top: 72px; display: flex; align-items: center; justify-content: center; gap: 28px; }
+.og-f-name h1 { font-size: 112px; }
+.og-f-name .og-logo { width: 72px; height: 72px; }
+.og-f-art { position: absolute; left: 150px; right: 150px; top: 196px; }
+.og-f-line { position: absolute; left: 0; right: 0; bottom: 70px; margin: 0; text-align: center; font: 500 46px/1.1 var(--font-serif); letter-spacing: -.015em; }
+.og-f-line em { color: var(--accent); font-weight: 400; }
+
+/* Sunrise: the drawing's centre rests on the bottom edge */
+.og-s-name { position: absolute; left: 0; right: 0; top: 96px; display: flex; align-items: center; justify-content: center; gap: 30px; }
+.og-s-art { position: absolute; left: -40px; right: -40px; bottom: -200px; }

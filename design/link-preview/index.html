@@ -29,14 +29,15 @@
   <div class="g-bar"><a class="g-logo" href="../"><img src="../journeys-directions/favicon.svg" alt=""><span>Bible Project</span></a><span class="g-crumb">Design gallery · Link preview</span></div></header>
 <main class="g-main">
   <section class="g-hero"><p class="g-kicker">The picture shown when someone shares a link</p><h1>Link preview</h1>
-    <p class="g-lead">Three designs at the real size (1200 × 630), then as a chat app shows them, small, and cropped square (some apps do). Built from the site's own fonts, colours and artwork.</p></section>
+    <p class="g-lead">Round 2, light mode: four designs at the real size (1200 × 630), then as a chat app shows them, small, and cropped square (some apps do). Built from the site's own fonts, colours and artwork.</p></section>
   <div class="lp" id="lp"></div>
 </main>
 <script>
   const DESIGNS = [
-    ["open-word", "1 · The open Word", "Dark, with the home page's open book of John."],
-    ["five-ways", "2 · Five ways in", "Light, with the five collection drawings from the home page and the key figures."],
-    ["journeys", "3 · Walk it", "Dark, with the Journeys route drawing glowing."],
+    ["radiant", "1 · Radiant", "The sun drawing from the Study page's Topics card across the top, \"Bible Project\" very large beneath."],
+    ["beside", "2 · Side by side", "\"Bible Project\" in two very large lines on the left, the sun drawing on the right."],
+    ["free-open", "3 · Free and open", "The name, the sun drawing, and \"The whole Bible, free and open to all.\""],
+    ["sunrise", "4 · Sunrise", "The name very large, the sun rising from the bottom edge."],
   ];
   const only = location.hash.slice(1);
   document.getElementById("lp").innerHTML = DESIGNS.filter(([id]) => !only || id === only).map(([id, name, line]) => `<section class="lp-design" id="${id}">

@@ -97,32 +97,40 @@
     {
       "id": "link-preview",
       "title": "Site · Link preview",
-      "line": "The picture shown when someone shares a link to the site (1200 × 630).",
+      "line": "The picture shown when someone shares a link (1200 × 630). Round 2, light mode: the name very large and the sun drawing from the Study page's Topics card.",
       "page": "/",
       "cards": [
         {
-          "id": "link-preview-open-word",
-          "title": "The open Word",
-          "url": "/mockups/link-preview/#open-word",
+          "id": "link-preview-radiant",
+          "title": "Radiant",
+          "url": "/mockups/link-preview/#radiant",
           "date": "2026-10-08",
           "status": "option",
-          "line": "Dark, with the home page's open book of John, the headline and four lines on what the site does."
+          "line": "The sun drawing across the top, \"Bible Project\" very large beneath."
         },
         {
-          "id": "link-preview-five-ways",
-          "title": "Five ways in",
-          "url": "/mockups/link-preview/#five-ways",
+          "id": "link-preview-beside",
+          "title": "Side by side",
+          "url": "/mockups/link-preview/#beside",
           "date": "2026-10-08",
           "status": "option",
-          "line": "Light, with the five collection drawings (Bible, Study, Apologetics, Topics, Atlas) and the key figures."
+          "line": "The name in two very large lines on the left, the sun drawing on the right."
         },
         {
-          "id": "link-preview-journeys",
-          "title": "Walk it",
-          "url": "/mockups/link-preview/#journeys",
+          "id": "link-preview-free-open",
+          "title": "Free and open",
+          "url": "/mockups/link-preview/#free-open",
           "date": "2026-10-08",
           "status": "option",
-          "line": "Dark, \"Read it. Study it. Walk it.\" beside the Journeys route drawing, glowing."
+          "line": "The name, the sun drawing, and \"The whole Bible, free and open to all.\""
+        },
+        {
+          "id": "link-preview-sunrise",
+          "title": "Sunrise",
+          "url": "/mockups/link-preview/#sunrise",
+          "date": "2026-10-08",
+          "status": "option",
+          "line": "The name very large, the sun rising from the bottom edge."
         }
       ]
     }
