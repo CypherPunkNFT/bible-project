@@ -42,7 +42,7 @@
 .t-sec-cities .cty-body { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr); gap: 1rem; align-items: start; }
 .t-sec-cities .cty-map { position: relative; min-width: 0; overflow: hidden; border: 1px solid var(--line); border-radius: 1rem; background: var(--cty-water);
   box-shadow: 0 1px 0 color-mix(in srgb, var(--ink) 4%, transparent), 0 24px 60px -40px color-mix(in srgb, var(--ink) 45%, transparent); }
-.t-sec-cities .cty-svg { display: block; width: 100%; height: auto; aspect-ratio: 1000 / 640; background: var(--cty-water); }
+.t-sec-cities .cty-svg { display: block; width: 100%; height: auto; aspect-ratio: 1000 / 740; background: var(--cty-water); }
 .t-sec-cities .cty-caption { position: absolute; left: 12px; bottom: 10px; padding: .28rem .65rem; border: 1px solid color-mix(in srgb, var(--line) 70%, transparent); border-radius: 999px;
   background: color-mix(in srgb, var(--surface) 82%, transparent); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
   font-size: .62rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
@@ -80,7 +80,20 @@
 .t-sec-cities .cty-bar span { position: absolute; top: 0; bottom: 0; border-radius: 3px; background: var(--dot); }
 
 /* ── Smaller screens ───────────────────────────────────────────────── */
-@media (max-width: 1100px) { .t-sec-cities .cty-body { grid-template-columns: 1fr; } }
+/* The list is never taller than the map: it scrolls inside the panel, with the site's floating pill scrollbar. */
+.t-sec-cities .cty-stays { overflow-y: auto; overscroll-behavior: contain; padding-right: .35rem; }
+.t-sec-cities .cty-stays::-webkit-scrollbar { width: 6px; }
+.t-sec-cities .cty-stays::-webkit-scrollbar-track, .t-sec-cities .cty-stays::-webkit-scrollbar-corner { background: transparent; }
+.t-sec-cities .cty-stays::-webkit-scrollbar-button { display: none; }
+.t-sec-cities .cty-stays::-webkit-scrollbar-thumb { border-radius: 999px; background: color-mix(in srgb, var(--ink) 28%, transparent); }
+.t-sec-cities .cty-stays::-webkit-scrollbar-thumb:hover { background: color-mix(in srgb, var(--ink) 45%, transparent); }
+@supports not selector(::-webkit-scrollbar) { .t-sec-cities .cty-stays { scrollbar-width: thin; scrollbar-color: color-mix(in srgb, var(--ink) 28%, transparent) transparent; } }
+@media (min-width: 1101px) {
+  .t-sec-cities .cty-body { align-items: stretch; }
+  .t-sec-cities .cty-panel { display: flex; flex-direction: column; height: 0; min-height: 100%; }
+  .t-sec-cities .cty-stays { flex: 1; min-height: 0; }
+}
+@media (max-width: 1100px) { .t-sec-cities .cty-body { grid-template-columns: 1fr; } .t-sec-cities .cty-stays { max-height: 24rem; } }
 @media (max-width: 760px) {
   .t-sec-cities .cty-rail { display: flex; overflow-x: auto; padding-bottom: .5rem; scroll-snap-type: x mandatory; scrollbar-width: thin; }
   .t-sec-cities .cty-card { flex: 0 0 9.6rem; scroll-snap-align: start; }

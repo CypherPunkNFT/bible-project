@@ -3,7 +3,7 @@
 // teacher came, and a timeline beside it lists who arrived when (each row opens the shared profile drawer).
 window.Sections = window.Sections || {};
 (() => {
-  const ASPECT = 1000 / 640;
+  const ASPECT = 1000 / 740; // a little taller than the map views, so the map stands level with the list beside it
   const RAD = Math.PI / 180;
   const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
   const tone = (person) => familyOf(person).tone;
@@ -214,6 +214,7 @@ window.Sections = window.Sections || {};
       let w = Math.max(least, (x1 - x0) * 1.5), h = Math.max(least / ASPECT, (y1 - y0) * 1.6);
       if (w / h < ASPECT) w = h * ASPECT; else h = w / ASPECT;
       if (w > view.width) { w = view.width; h = w / ASPECT; }
+      if (h > view.height) { h = view.height; w = h * ASPECT; }
       const fit = (start, size, limit) => (size <= limit ? Math.min(Math.max(start, 0), limit - size) : (limit - size) / 2);
       return { x: fit((x0 + x1) / 2 - w / 2, w, view.width), y: fit((y0 + y1) / 2 - h / 2, h, view.height), w, h };
     }
@@ -252,7 +253,8 @@ window.Sections = window.Sections || {};
         state.view = c.view;
         const v = AUTHORS.views[c.view];
         el.svg.innerHTML = `<g class="cty-base">${landFor(c.view)}</g><g class="cty-overlay"></g>`;
-        state.box = { x: 0, y: 0, w: v.width, h: v.width / ASPECT }; // start wide, then glide in
+        const h = Math.min(v.width / ASPECT, v.height), w = h * ASPECT;
+        state.box = { x: (v.width - w) / 2, y: 0, w, h }; // start wide, then glide in
         applyBox(state.box);
       }
       const target = drawCity(c);

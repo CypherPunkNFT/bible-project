@@ -9,3 +9,26 @@
 .t-head h2 em { color: var(--tone, var(--accent)); font-weight: 400; }
 .t-head p:not(.kicker) { max-width: 62ch; margin-top: .4rem; color: var(--muted); font-size: .9rem; line-height: 1.65; }
 .t-failed { padding: 1rem; border: 1px dashed var(--line); border-radius: 12px; color: var(--muted); }
+
+/* Section-number experiments (page.js NUMBER_STYLES): the number no longer takes a column of its own. */
+.t-head.t-v { position: relative; display: block; }
+.t-v .t-num { padding: 0; opacity: 1; }
+.t-v-sup h2 .t-num { margin-left: .35rem; font: 500 .8rem var(--sans); letter-spacing: .08em; vertical-align: super; color: var(--tone, var(--accent)); }
+.t-v-pill .kicker, .t-v-kicker .kicker, .t-v-ring .kicker, .t-v-ledger .kicker { display: flex; align-items: center; gap: .6rem; }
+.t-v-pill .t-num { display: inline-grid; place-items: center; height: 1.35rem; padding: 0 .55rem; border-radius: 999px; background: var(--tone, var(--accent)); color: var(--page); font: 600 .65rem var(--sans); letter-spacing: .06em; }
+.t-v-corner { padding-right: 7rem; }
+.t-v-corner .t-num { position: absolute; top: -.4rem; right: 0; font: 400 5.5rem/1 var(--serif); letter-spacing: -.04em; color: color-mix(in srgb, var(--tone, var(--accent)) 22%, transparent); pointer-events: none; }
+.t-v-kicker .t-num { font: italic 500 1.05rem/1 var(--serif); letter-spacing: 0; text-transform: none; color: var(--tone, var(--accent)); }
+.t-v-kicker .t-num::after { content: "/"; margin-left: .55rem; font-style: normal; opacity: .45; }
+.t-v-ring .t-num { display: inline-grid; place-items: center; width: 1.7rem; height: 1.7rem; border: 1px solid var(--tone, var(--accent)); border-radius: 50%; font: 600 .62rem var(--sans); letter-spacing: .02em; color: var(--tone, var(--accent)); }
+.t-sec:has(> .t-num) { position: relative; }
+.t-sec > .t-num { position: absolute; top: calc(-.62rem - 1px); left: 0; padding-right: .75rem; background: var(--page); font: 600 .7rem/1.2rem var(--sans); letter-spacing: .14em; color: var(--tone, var(--accent)); }
+.t-v-ledger .t-fill { flex: 1; height: 1px; background: var(--line); }
+.t-v-ledger .t-num { font: 500 .95rem/1 var(--serif); letter-spacing: 0; color: var(--tone, var(--accent)); }
+.t-v-count { padding-right: 5rem; }
+.t-v-count .t-num { position: absolute; top: .05rem; right: 0; font: 600 .65rem var(--sans); letter-spacing: .18em; color: var(--muted); }
+@media (max-width: 640px) {
+  .t-v-corner { padding-right: 0; }
+  .t-v-corner .t-num { top: -.9rem; font-size: 3.6rem; }
+  .t-v-count { padding-right: 0; }
+}
