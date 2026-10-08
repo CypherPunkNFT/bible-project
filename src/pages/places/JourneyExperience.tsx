@@ -1,5 +1,5 @@
-import { ArrowLeft, ArrowRight, ArrowUpRight, BookOpen } from "lucide-react";
-import { useMemo } from "react";
+import { ArrowLeft, ArrowRight, ArrowUpRight, BookOpen, Pause, Play, RotateCcw } from "lucide-react";
+import { useEffect, useMemo, useState, type CSSProperties } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { StreetAtlasMap } from "@/components/atlas/StreetAtlasMap";
 import { projectPlace, type MapPlace } from "@/components/atlas/projection";
@@ -54,6 +54,14 @@ export function JourneyExperience({ lens }: { lens: "story" | "letters" }) {
     return { route: points, routeIndex: index };
   }, [chapter, placesById]);
 
+  // Where the traveller is: route points reached (from the map), whether it is moving, and the play controls.
+  const [reached, setReached] = useState(0);
+  const [moving, setMoving] = useState(false);
+  const [paused, setPaused] = useState(false);
+  const [replay, setReplay] = useState(0);
+  useEffect(() => { setReached(0); setPaused(false); }, [chapter?.id]);
+  const isReached = (i: number) => !chapter?.route || (routeIndex[i] ?? 0) < reached;
+
   const go = (chapterId: string, number: number) => {
     const next = new URLSearchParams(search);
     next.set("chapter", chapterId);
@@ -68,19 +76,30 @@ export function JourneyExperience({ lens }: { lens: "story" | "letters" }) {
   const forward = () => (stopNumber < chapter.stops.length ? go(chapter.id, stopNumber + 1) : nextChapter && go(nextChapter.id, 0));
   const back = () => (stopNumber > 0 ? go(chapter.id, stopNumber - 1) : index > 0 && go(chapters[index - 1].id, chapters[index - 1].stops.length));
 
-  return <section className="journey" aria-label={lens === "letters" ? "Paul's letters on the map" : "Paul's journey"}>
-    <div className="journey-chapters" role="group" aria-label="Chapters">
-      {chapters.map((c, i) => <button key={c.id} type="button" aria-pressed={c.id === chapter.id} onClick={() => go(c.id, 0)}>
-        <span>{String(i + 1).padStart(2, "0")}</span><strong>{c.title}</strong>{c.years && <small>{years(c)}</small>}
-      </button>)}
+  // Play, pause and replay, and the "now at" label, drawn on the map itself.
+  const mapControls = <>
+    <div className="pg-map-ctl">
+      <button type="button" onClick={() => setPaused((value) => !value)} aria-label={paused ? "Play" : "Pause"} title={paused ? "Play" : "Pause"}>{paused ? <Play size={16} aria-hidden /> : <Pause size={16} aria-hidden />}</button>
+      <button type="button" onClick={() => { setPaused(false); setReached(0); setReplay((n) => n + 1); }} aria-label="Replay the journey" title="Replay"><RotateCcw size={16} aria-hidden /></button>
     </div>
+    <div className={`pg-here${moving && !paused ? " is-moving" : ""}`}><span className="pg-here-dot" /><b>{hereName(chapter, routeIndex, reached, stop)}</b></div>
+  </>;
+
+  return <section className="journey pg-scope" style={{ "--tone": "var(--epistles)" } as CSSProperties} aria-label={lens === "letters" ? "Paul's letters on the map" : "Paul's journey"}>
+    <div className="pg-rail-wrap"><div className="pg-rail" role="group" aria-label="Chapters" style={{ "--sel": index, "--n": chapters.length } as CSSProperties}>
+      <span className="pg-rail-track" aria-hidden><span /></span>
+      {chapters.map((c, i) => <button key={c.id} type="button" aria-pressed={c.id === chapter.id} onClick={() => go(c.id, 0)}>
+        <i>{String(i + 1).padStart(2, "0")}</i><b>{c.title}</b>{c.years && <small>{years(c)}</small>}
+      </button>)}
+    </div></div>
     <div className="journey-stage">
       <div className="journey-map">
-        <StreetAtlasMap places={shown} selected={stop ? placesById.get(stop.placeId) ?? null : null} route={route} routeAt={stop ? routeIndex[stopNumber - 1] : undefined} cluster={false} flyZoom={7} frameFirst frameMaxZoom={6} onSelect={(place) => go(chapter.id, chapter.stops.findIndex((s) => s.placeId === place.id) + 1)} />
+        <StreetAtlasMap places={shown} selected={stop ? placesById.get(stop.placeId) ?? null : null} route={route} routeAt={stop ? routeIndex[stopNumber - 1] : undefined} overlay={chapter.route ? mapControls : undefined} paused={paused} replayKey={replay} onTravel={(count, isMoving) => { setReached(count); setMoving(isMoving); }} cluster={false} flyZoom={7} frameFirst frameMaxZoom={6} onSelect={(place) => go(chapter.id, chapter.stops.findIndex((s) => s.placeId === place.id) + 1)} />
       </div>
       <aside className="journey-panel" aria-live="polite">
-        {stop ? <StopView stop={stop} number={stopNumber} total={chapter.stops.length} chapter={chapter} citations={citations} cityPage={cityPageFor(stop.placeId, [...placesById.values()], ["apostolic-cities", "ports-trade"])} />
-          : <ChapterView chapter={chapter} datingCites={journey.value.datingCites} citations={citations} onStop={(n) => go(chapter.id, n)} />}
+        <Progress done={chapter.stops.filter((_, i) => isReached(i)).length} total={chapter.stops.length} />
+        {stop ? <StopView stop={stop} number={stopNumber} total={chapter.stops.length} chapter={chapter} citations={citations} isReached={isReached} onStop={(n) => go(chapter.id, n)} cityPage={cityPageFor(stop.placeId, [...placesById.values()], ["apostolic-cities", "ports-trade"])} />
+          : <ChapterView chapter={chapter} datingCites={journey.value.datingCites} citations={citations} isReached={isReached} onStop={(n) => go(chapter.id, n)} />}
         <div className="journey-steps">
           <button type="button" onClick={back} disabled={index === 0 && stopNumber === 0}><ArrowLeft size={15} aria-hidden /> Back</button>
           {stop && <button type="button" className="journey-overview" onClick={() => go(chapter.id, 0)}>All stops</button>}
@@ -100,20 +119,33 @@ export function JourneyExperience({ lens }: { lens: "story" | "letters" }) {
   </section>;
 }
 
-function ChapterView({ chapter, datingCites, citations, onStop }: { chapter: JourneyChapter; datingCites: string[]; citations: Citation[]; onStop: (n: number) => void }) {
+/** The stop the traveller is at, or last reached, for the label on the map. */
+function hereName(chapter: JourneyChapter, routeIndex: number[], reached: number, stop: JourneyStop | null) {
+  if (stop) return stop.name;
+  let last = 0;
+  chapter.stops.forEach((_, i) => { if ((routeIndex[i] ?? 0) < reached) last = i; });
+  return chapter.stops[last]?.name ?? "";
+}
+
+function Progress({ done, total }: { done: number; total: number }) {
+  return <div className="pg-progress"><div className="pg-bar" role="progressbar" aria-label="Stops reached" aria-valuemin={0} aria-valuemax={total} aria-valuenow={done}><span style={{ "--p": total ? done / total : 0 } as CSSProperties} /></div>
+    <span className="pg-count"><b>{done} of {total}</b> stops</span></div>;
+}
+
+function ChapterView({ chapter, datingCites, citations, isReached, onStop }: { chapter: JourneyChapter; datingCites: string[]; citations: Citation[]; isReached: (i: number) => boolean; onStop: (n: number) => void }) {
   const dating = [...new Set([...chapter.cites, ...datingCites])];
   return <div className="journey-chapter">
     <p className="places-kicker">{years(chapter) || "Paul's letters"}</p>
     <h3>{chapter.title}</h3>
     <p>{chapter.summary}</p>
     {chapter.years && <p className="journey-dating">Dating: <Sources ids={dating} citations={citations} />. None of these years is stated in the Bible.</p>}
-    <ol className="journey-stops">{chapter.stops.map((s, i) => <li key={`${s.placeId}-${i}`}>
+    <ol className="journey-stops">{chapter.stops.map((s, i) => <li key={`${s.placeId}-${i}`} className={isReached(i) ? `is-reached${!isReached(i + 1) ? " is-current" : ""}` : undefined}>
       <button type="button" onClick={() => onStop(i + 1)}><span>{i + 1}</span>{s.name}{s.layer !== "scripture" && <em className={`journey-layer journey-layer-${s.layer}`}>{LAYER[s.layer]}</em>}</button>
     </li>)}</ol>
   </div>;
 }
 
-function StopView({ stop, number, total, chapter, citations, cityPage }: { stop: JourneyStop; number: number; total: number; chapter: JourneyChapter; citations: Citation[]; cityPage: string | null }) {
+function StopView({ stop, number, total, chapter, citations, cityPage, isReached, onStop }: { stop: JourneyStop; number: number; total: number; chapter: JourneyChapter; citations: Citation[]; cityPage: string | null; isReached: (i: number) => boolean; onStop: (n: number) => void }) {
   return <div className="journey-stop">
     <p className="places-kicker">{chapter.title} · stop {number} of {total}</p>
     <h3>{stop.name}</h3>
@@ -123,6 +155,8 @@ function StopView({ stop, number, total, chapter, citations, cityPage }: { stop:
     {stop.layer === "tradition" && stop.refs.length > 0 && <p className="journey-dating">The passage is Scripture; this event and its place are told by later writers, not by the passage.</p>}
     {stop.cites.length > 0 && <p className="journey-dating">{stop.layer === "tradition" ? "Told by" : "Sources"}: <Sources ids={stop.cites} citations={citations} /></p>}
     {cityPage && <Link className="journey-city" to={cityPage}>Explore {stop.name.replace(/[,(].*$/, "").trim()} in Ancient Cities <ArrowUpRight size={15} aria-hidden /></Link>}
+    <div className="pg-dots" role="group" aria-label="Stops">{chapter.stops.map((s, i) => <button key={`${s.placeId}-${i}`} type="button" aria-label={`${i + 1}. ${s.name}`} title={s.name} onClick={() => onStop(i + 1)}
+      className={i + 1 === number ? "is-current" : isReached(i) ? "is-reached" : undefined} />)}</div>
   </div>;
 }
 

@@ -27,7 +27,8 @@ export function sliceTo(path: Point[], lengths: number[], distance: number): Poi
 /** How many route points the traveller has reached at a distance (a stop counts once it is reached). */
 export const reachedCount = (lengths: number[], distance: number) => lengths.filter((length) => length <= distance + 1e-9).length;
 
-const ease = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - (-2 * t + 2) ** 3 / 2);
+// A gentle start and stop at a near-steady pace, so the middle legs of a long journey are not rushed.
+const ease = (t: number) => (1 - Math.cos(Math.PI * t)) / 2;
 
 /**
  * Animate the travelled distance from one value to another, calling `frame` on every animation frame.
@@ -47,4 +48,4 @@ export function animateDistance(from: number, to: number, duration: number, fram
 }
 
 /** Drawing a whole chapter: a steady pace per leg, never too slow for a long journey. */
-export const drawDuration = (legs: number) => Math.min(4200, 700 + legs * 240);
+export const drawDuration = (legs: number) => Math.min(6000, 900 + legs * 300);

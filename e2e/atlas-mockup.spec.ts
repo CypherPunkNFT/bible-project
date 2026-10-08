@@ -455,7 +455,7 @@ test("journeys: Paul's journey steps through chapters and stops, keeping Scriptu
   const chapters = page.getByRole("group", { name: "Chapters" }).getByRole("button");
   await expect(chapters).toHaveCount(7);
   await expect(chapters.first()).toHaveAttribute("aria-pressed", "true");
-  await expect(page.locator(".places-preview-label")).toHaveCount(0);
+  await expect(page.locator(".pg-soon")).toHaveCount(0);
   const panel = page.locator(".journey-panel");
   await expect(panel).toContainText("None of these years is stated in the Bible");
   await chapters.nth(1).click();
@@ -480,6 +480,6 @@ test("journeys: Paul's journey steps through chapters and stops, keeping Scriptu
   await expect(panel.getByRole("link", { name: /Explore Rome in Ancient Cities/ })).toHaveAttribute("href", /\/study\/atlas\/cities\?collection=apostolic-cities&focus=rome&view=city/);
   await expect(panel.getByRole("button", { name: "Next" })).toBeDisabled();
   await page.getByRole("button", { name: /Abraham.*Called to go/ }).click();
-  await expect(page.locator(".places-preview-label")).toBeVisible();
+  await expect(page.locator(".pg-soon")).toContainText("come next");
   expect(errors).toEqual([]);
 });

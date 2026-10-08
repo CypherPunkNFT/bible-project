@@ -4,6 +4,11 @@ import { Link, NavLink, Navigate, Route, Routes, useLocation, useSearchParams } 
 import { PlacesArtwork } from "./PlacesArtwork";
 import { CITY_COLLECTIONS } from "./city-collections";
 import { JourneyExperience } from "./JourneyExperience";
+import { JourneysHero } from "./JourneysHero";
+import { AtlasLayerStack } from "./AtlasLayerStack";
+import { Emblem, Seal } from "./journey-emblems";
+import { PERSON_TONE, hasEmblem } from "./journey-emblems-data";
+import "./journeys-pilgrim.css";
 import { CitySelection } from "./CitySelection";
 import { CityDirectory } from "./CityDirectory";
 import { HISTORY_COLLECTIONS, type HistoryId } from "./history-collections";
@@ -105,7 +110,7 @@ function CollectionHome() {
     <div className="places-page-slide">
     <header className="places-collection-intro">
       <div><p className="places-kicker">Scripture, place & Christian history</p><h1>Real places.<br /><em>An unfolding story.</em></h1><p>Find a place. Follow a life. Step into the world of the Bible.<br className="hidden sm:block" /> Then explore the communities and movements that followed.</p></div>
-      <div className="places-intro-compass" aria-hidden><Compass strokeWidth={.65} /><span>PLACE · PEOPLE · STORY</span></div>
+      <AtlasLayerStack />
     </header>
     <nav aria-label="Places and journeys collection" className="places-destinations">
       {DESTINATIONS.map((item, index) => <Link key={item.id} to={atlasDestination(item.id)} className="places-destination-card" data-places-morph style={morph(item.id, item.color)} aria-labelledby={`places-card-${item.id}`}>
@@ -173,29 +178,49 @@ function ExperiencePreview({ id }: { id: PreviewId }) {
   };
   const closeCity = () => { const next = new URLSearchParams(search); next.delete("view"); setSearch(next); };
   return <>
-    <header className="places-destination-intro history-intro"><div><p className="places-kicker">{data.kicker}</p><h1>{data.title}</h1><p>{data.description}</p></div><PlacesArtwork kind={id} /></header>
+    <header className="places-destination-intro history-intro"><div><p className="places-kicker">{data.kicker}</p><h1>{data.title}</h1><p>{data.description}</p></div>{id === "journeys" ? <div className="pg-hero-art pg-scope"><JourneysHero /></div> : <PlacesArtwork kind={id} />}</header>
     {collection ? <CitySelection collection={collection} choice={choice} expanded={expanded} cityOpen={expanded && search.get("view") === "city"} visit={visit} onCollection={chooseCollection} onCity={chooseCity} onCloseCity={closeCity} onBack={() => { const next = new URLSearchParams(search); next.set("browse", "collections"); next.delete("view"); setSearch(next); }} /> : <section className="places-choose" aria-labelledby="places-choose-title">
       <div className="places-section-heading"><h2 id="places-choose-title">{data.choose}</h2><span>Choose your starting point</span></div>
-      <div className="places-choices" role="group" aria-label={data.choose}>{options.map((option, i) => <button type="button" key={option.id} aria-pressed={choice.id === option.id} onClick={() => update("focus", option.id)}><span className="places-choice-mark" aria-hidden>{String(i + 1).padStart(2, "0")}</span><span><strong>{option.title}</strong><small>{option.subtitle}</small></span></button>)}</div>
+      {id === "journeys" ? <div className="pg-people pg-scope" role="group" aria-label={data.choose}>{options.map((option, i) => <button type="button" key={option.id} className="pg-person" aria-pressed={choice.id === option.id} onClick={() => update("focus", option.id)} style={{ "--tone": `var(--${PERSON_TONE[option.id] ?? "accent"})` } as CSSProperties}>
+        <Seal id={option.id} /><span className="pg-pnum" aria-hidden>{String(i + 1).padStart(2, "0")}</span><strong>{option.title}</strong><small>{option.subtitle}</small><span className="pg-pgo" aria-hidden><ArrowRight size={15} /></span>
+      </button>)}</div>
+      : <div className="places-choices" role="group" aria-label={data.choose}>{options.map((option, i) => <button type="button" key={option.id} aria-pressed={choice.id === option.id} onClick={() => update("focus", option.id)}><span className="places-choice-mark" aria-hidden>{String(i + 1).padStart(2, "0")}</span><span><strong>{option.title}</strong><small>{option.subtitle}</small></span></button>)}</div>}
     </section>}
-    {id !== "cities" && <ExperienceWorkspace id={id} choice={choice} lenses={lenses} lens={lens} onLens={(value) => update("lens", value)} />}
+    {id === "journeys" ? <JourneyWorkspace choice={choice} lenses={lenses} lens={lens} onLens={(value) => update("lens", value)} next={data.next} />
+      : id !== "cities" && <ExperienceWorkspace id={id} choice={choice} lenses={lenses} lens={lens} onLens={(value) => update("lens", value)} />}
   </>;
+}
+
+/** Your journey (Pilgrim direction): the person's seal and lenses; Paul's Story and Letters lenses are the built journey. */
+function JourneyWorkspace({ choice, lenses, lens, onLens, next }: { choice: Choice; lenses: Lens[]; lens: Lens; onLens: (id: string) => void; next: string }) {
+  const built = choice.id === "paul" && (lens.id === "story" || lens.id === "letters") ? lens.id : null;
+  return <section className="pg-journey pg-scope" aria-labelledby="places-workspace-title" style={{ "--tone": `var(--${PERSON_TONE[choice.id] ?? "accent"})` } as CSSProperties}>
+    <header className="pg-jhead">
+      {hasEmblem(choice.id) && <Seal key={choice.id} id={choice.id} size="lg" draw />}
+      <div><p className="places-kicker">Your journey</p><h2 id="places-workspace-title">{choice.title}<span>{choice.subtitle}</span></h2></div>
+      <div className="pg-lensbar"><span>Explore through</span><div className="pg-lenses" role="group" aria-label="Choose a lens">{lenses.map((option) => <button type="button" key={option.id} aria-pressed={lens.id === option.id} onClick={() => onLens(option.id)}>{option.label}</button>)}</div></div>
+    </header>
+    {built ? <JourneyExperience lens={built} />
+      : <div className="pg-soon">
+        <span className="pg-soon-art">{hasEmblem(choice.id) && <Emblem id={choice.id} size={120} stroke={1} />}</span>
+        <div><p className="places-kicker">{lens.label} lens</p><h3>{lens.title}</h3><p>{lens.description}</p>
+          <div className="places-next-build"><Compass size={18} aria-hidden /><p>{next}</p></div><AtlasFindLink place={choice.place} /></div>
+      </div>}
+  </section>;
 }
 
 function ExperienceWorkspace({ id, choice, lenses, lens, onLens, showPreviewNotes = true }: {
   id: PreviewId; choice: Choice; lenses: Lens[]; lens: Lens; onLens: (id: string) => void; showPreviewNotes?: boolean;
 }) {
   const data = EXPERIENCES[id];
-  // Paul's journey is built (Story and Letters lenses); every other choice is still the preview.
-  const journey = id === "journeys" && choice.id === "paul" && (lens.id === "story" || lens.id === "letters") ? lens.id : null;
   return (
     <section className="places-workspace" aria-labelledby="places-workspace-title">
-      <header><div><p className="places-kicker">{id === "journeys" ? "Your journey" : id === "cities" ? "Your city" : "Your starting point"}</p><h2 id="places-workspace-title">{choice.title}<span>{choice.subtitle}</span></h2></div>{showPreviewNotes && !journey && <span className="places-preview-label">Experience preview</span>}</header>
+      <header><div><p className="places-kicker">{id === "journeys" ? "Your journey" : id === "cities" ? "Your city" : "Your starting point"}</p><h2 id="places-workspace-title">{choice.title}<span>{choice.subtitle}</span></h2></div>{showPreviewNotes && <span className="places-preview-label">Experience preview</span>}</header>
       <div className="places-lens-bar"><span>{id === "gospels" ? "Read through" : "Explore through"}</span><div role="group" aria-label="Choose a lens">{lenses.map((option) => <button type="button" key={option.id} aria-pressed={lens.id === option.id} onClick={() => onLens(option.id)}>{option.label}</button>)}</div></div>
-      {journey ? <JourneyExperience lens={journey} /> : <div className="places-workspace-body">
+      <div className="places-workspace-body">
         <div className="places-workspace-art" aria-hidden><PlacesArtwork kind={id} /><span>{choice.title} · {choice.subtitle}</span></div>
         <div className="places-lens-copy" aria-live="polite"><p className="places-kicker">{lens.label}{id !== "gospels" ? " lens" : " perspective"}</p><h3>{lens.title}</h3><p>{lens.description}</p>{showPreviewNotes && <div className="places-next-build"><Compass size={18} aria-hidden /><p>{data.next}</p></div>}<AtlasFindLink place={choice.place} /></div>
-      </div>}
+      </div>
     </section>
   );
 }
