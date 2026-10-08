@@ -4,7 +4,7 @@
   "tagline": "Four short letters — on faith that works, hope under suffering, growing knowledge and contending for the faith — three of which the early church long disputed.",
   "intro": [
     {
-      "text": "Four short letters stand together near the end of the New Testament: one from James, two under Peter's name and one from Jude. Athanasius, listing the books of the New Testament in 367, grouped them with the three letters of John as the seven Catholic letters — that is, the general letters.",
+      "text": "Four short letters stand together near the end of the New Testament: one from James, two under Peter's name and one from Jude, written to believers scattered far from home. Each has its own voice: James on faith that shows itself in action, 1 Peter on hope under suffering, 2 Peter on growing in knowledge while waiting for the Lord's coming, and Jude on contending for the faith. Only 1 Peter was accepted everywhere from the beginning; Eusebius still counted the other three among the disputed books, and Athanasius in 367 grouped all four with John's three as the seven general letters.",
       "refs": [
         [
           59001001,
@@ -21,23 +21,7 @@
         [
           65001001,
           65001001
-        ]
-      ],
-      "cites": [
-        "athanasius-39"
-      ]
-    },
-    {
-      "text": "Only 1 Peter was accepted everywhere from the beginning. Writing in the early 300s, Eusebius still counted James, Jude and 2 Peter among the disputed books, though recognised by many; James and Jude, he noted, had been read publicly in very many churches. Before the end of that century all four stood in Athanasius's list.",
-      "cites": [
-        "eusebius-3",
-        "eusebius-2",
-        "athanasius-39"
-      ]
-    },
-    {
-      "text": "Each has its own voice: James on faith that shows itself in action, 1 Peter on hope under suffering, 2 Peter on growing in knowledge while waiting for the Lord's coming, and Jude on contending for the faith against intruders. They are also bound together — James and 1 Peter share phrases, and Jude and 2 Peter share a whole run of images — and which way the borrowing went is still argued.",
-      "refs": [
+        ],
         [
           59002026,
           59002026
@@ -54,119 +38,26 @@
           65001003,
           65001003
         ]
+      ],
+      "cites": [
+        "eusebius-3",
+        "eusebius-2",
+        "athanasius-39"
       ]
     }
   ],
   "writers": [
     {
       "id": "james-mat-13-55",
-      "name": "James",
-      "intro": [
-        {
-          "text": "James was one of the brothers of Jesus named at Nazareth, and during the ministry \"neither did his brethren believe in him\". After the resurrection Jesus \"was seen of James\", and the brother who had not believed became a leader of the church in Jerusalem, one of its \"pillars\", as Paul says; Mayor held that he wrote the letter of James. Hegesippus remembered him as James \"the Just\"; in about AD 62 the high priest Ananus had him stoned, and Josephus calls him \"the brother of Jesus, who was called Christ\".",
-          "refs": [
-            [
-              40013055,
-              40013055
-            ],
-            [
-              41006003,
-              41006003
-            ],
-            [
-              43007005,
-              43007005
-            ],
-            [
-              46015007,
-              46015007
-            ],
-            [
-              48002009,
-              48002009
-            ],
-            [
-              59001001,
-              59001001
-            ]
-          ],
-          "cites": [
-            "isbe-james-person",
-            "mayor-1892",
-            "eusebius-2",
-            "josephus-ant"
-          ]
-        }
-      ]
+      "name": "James"
     },
     {
       "id": "peter-mat-4-18",
-      "name": "Peter",
-      "intro": [
-        {
-          "text": "Peter was born Simon, a fisherman of Bethsaida, and his brother Andrew brought him to Jesus, who named him Cephas, \"A stone\" — Peter in Greek. He became the spokesman of the Twelve and confessed Jesus as \"the Christ, the Son of the living God\", yet denied him three times on the night of the arrest; the risen Lord restored him: \"Feed my sheep\". Eusebius records that he was crucified at Rome under Nero, though the ISBE notes his Rome visit \"is only tradition and nothing more\".",
-          "refs": [
-            [
-              43001040,
-              43001044
-            ],
-            [
-              40016016,
-              40016016
-            ],
-            [
-              42022054,
-              42022062
-            ],
-            [
-              43021017,
-              43021017
-            ]
-          ],
-          "cites": [
-            "isbe-peter-person",
-            "eusebius-2"
-          ]
-        }
-      ]
+      "name": "Peter"
     },
     {
       "id": "jude-mat-13-55",
-      "name": "Jude",
-      "intro": [
-        {
-          "text": "Jude — \"Juda\" in Mark, \"Judas\" in Matthew — was another of Jesus' brothers, probably the youngest or the youngest but one, Mayor thought, and like the others he came to faith after the resurrection. The letter's writer calls himself only \"the servant of Jesus Christ, and brother of James\": Mayor, Bigg and the ISBE take him to be this brother; Easton, the apostle Judas. Hegesippus tells how Jude's grandsons, brought before the emperor Domitian as heirs of David, showed hands hardened by farm work and said Christ's kingdom was \"not a temporal nor an earthly kingdom\".",
-          "refs": [
-            [
-              41006003,
-              41006003
-            ],
-            [
-              40013055,
-              40013055
-            ],
-            [
-              44001014,
-              44001014
-            ],
-            [
-              65001001,
-              65001001
-            ],
-            [
-              42006016,
-              42006016
-            ]
-          ],
-          "cites": [
-            "mayor-1907",
-            "bigg-1901",
-            "isbe-jude",
-            "easton-1897",
-            "eusebius-3"
-          ]
-        }
-      ]
+      "name": "Jude"
     }
   ],
   "color": "acts",

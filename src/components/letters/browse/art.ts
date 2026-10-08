@@ -164,14 +164,26 @@ export const ART: Record<string, string> = {
     <path d="M188 48Q166 110 174 196M188 48Q152 102 152 196" fill="currentColor" fill-opacity=".08" stroke="currentColor"/>
     <rect x="106" y="160" width="28" height="22" rx="2" fill="${S}" stroke="currentColor"/><path d="M109 160V153H131V160" stroke="currentColor" stroke-opacity=".6"/>
     <path d="M44 42H196" stroke="currentColor" stroke-width="3"/>${dots([[22, 90], [218, 96], [24, 300], [214, 470], [40, 420]])}`,
-  // James, Peter & Jude: a word sent out from Jerusalem to believers scattered far and wide.
+  // James, Peter & Jude: letters sent out from Jerusalem to believers "scattered abroad": one road winding down, a branch
+  // to each of the five regions 1 Peter names (labels on the outer side, clear of every line), letters on the way.
   "tall-general": `
-    <g stroke="currentColor" opacity=".12"><ellipse cx="120" cy="310" rx="112" ry="228"/><ellipse cx="120" cy="310" rx="70" ry="150"/></g>
-    <g stroke="currentColor" stroke-dasharray="3 5" opacity=".5">${[[36, 176], [196, 150], [74, 266], [178, 304], [44, 392], [204, 424], [120, 512]].map(([x, y]) => `<path d="M120 76L${x} ${y}"/>`).join("")}</g>
-    ${[[36, 176], [196, 150], [74, 266], [178, 304], [44, 392], [204, 424], [120, 512]].map(([x, y]) => `<circle cx="${x}" cy="${y}" r="5" fill="${S}" stroke="currentColor"/>`).join("")}
-    <circle cx="120" cy="76" r="24" fill="${S}" stroke="currentColor"/><path d="M107 69H133M107 76H133M107 83H125" stroke="currentColor" stroke-opacity=".7"/>
-    <text x="120" y="122" text-anchor="middle" fill="currentColor" opacity=".6" font-size="8.5" letter-spacing="1.6">JERUSALEM</text>
-    ${dots([[24, 56], [214, 70], [130, 210], [118, 400], [26, 520], [214, 530]])}`,
+    <g stroke="currentColor" opacity=".08">${[150, 270, 390].map((r) => `<circle cx="120" cy="78" r="${r}"/>`).join("")}</g>
+    <g stroke="currentColor" opacity=".12"><path d="M8 512Q60 500 112 514T232 508"/><path d="M8 536Q70 524 128 538T232 532"/></g>
+    <g stroke="currentColor" fill="${S}">
+      <path d="M84 98H156" stroke-opacity=".5"/>
+      <rect x="84" y="50" width="14" height="48"/><rect x="142" y="50" width="14" height="48"/><rect x="98" y="64" width="44" height="34"/>
+      <path d="M84 50V44H88V50M94 50V44H98V50M142 50V44H146V50M152 50V44H156V50" fill="none"/>
+      <path d="M112 98V84Q120 74 128 84V98" fill="none"/>
+      <rect x="108" y="36" width="24" height="18"/><path d="M104 38L120 26 136 38" fill="none"/>
+    </g>
+    <text x="120" y="118" text-anchor="middle" fill="currentColor" opacity=".6" font-size="8.5" letter-spacing="1.6">JERUSALEM</text>
+    <g stroke="currentColor" stroke-dasharray="4 5" opacity=".7">
+      <path d="M120 130C120 168 132 188 132 220S108 268 108 300S132 350 132 380S114 430 116 486"/>
+      <path d="M130 204C112 206 98 210 84 214"/><path d="M114 254C138 254 156 258 172 262"/><path d="M110 318C98 322 88 326 76 330"/>
+      <path d="M131 372C140 380 146 386 150 392"/><path d="M117 444C106 446 94 449 80 452"/></g>
+    ${[[84, 214, "BITHYNIA", -1], [172, 262, "PONTUS", 1], [76, 330, "GALATIA", -1], [150, 392, "CAPPADOCIA", 1], [80, 452, "ASIA", -1]].map(([x, y, name, side]) => `<circle cx="${x}" cy="${y}" r="7" fill="${S}" stroke="currentColor" stroke-opacity=".5"/><circle cx="${x}" cy="${y}" r="2.8" fill="currentColor"/><text x="${Number(x) + 15 * Number(side)}" y="${Number(y) + 3}" text-anchor="${Number(side) > 0 ? "start" : "end"}" fill="currentColor" opacity=".6" font-size="8.5" letter-spacing="1.6">${name}</text>`).join("")}
+    ${[[127, 166], [111, 288], [127, 418]].map(([x, y]) => `<g transform="translate(${x - 9} ${y - 6})"><rect width="18" height="12" rx="2" fill="${S}" stroke="currentColor"/><path d="M0 1L9 7 18 1" stroke="currentColor" stroke-opacity=".6"/></g>`).join("")}
+    ${dots([[24, 150], [216, 170], [214, 330], [30, 400], [206, 460], [40, 270]])}`,
   // The letters of John: a lamp on its stand, and its light in three rings.
   "tall-john": `
     <path d="M30 540H210" stroke="currentColor" opacity=".18"/>
