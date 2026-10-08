@@ -60,6 +60,49 @@
   const two = () => M.leader.twoAccounts.map((t) => `<div class="lg-two"><b>${esc(t.topic)}</b><div>${claim(t.first)}${claim(t.second)}</div></div>`).join("");
   const ending = () => `${M.ending.scripture.map((c) => claim(c)).join("")}${quoteSpan({ text: M.leader.record.burial.text, span: M.leader.record.burial.span })}<div class="lg-trad">${M.ending.tradition.map((c) => claim(c)).join("")}</div>`;
 
+
+  // The events band scrolls sideways inside itself, so the page scrolls straight past it. A slim pill under it shows
+  // where you are: drag it, click the track, or use the arrows; trackpads and shift + wheel scroll it too.
+  function wireScroller(box) {
+    if (box.dataset.wired) return;
+    box.dataset.wired = "1";
+    const list = box.querySelector(".lg-time"), track = box.querySelector(".lg-track"), pill = box.querySelector(".lg-pill");
+    const pos = box.querySelector(".lg-pos"), items = [...list.querySelectorAll(".lg-ev")];
+    const update = () => {
+      const max = list.scrollWidth - list.clientWidth, ratio = list.clientWidth / Math.max(list.scrollWidth, 1);
+      box.classList.toggle("is-static", max < 4);
+      const w = Math.max(ratio * 100, 8), at = max > 0 ? list.scrollLeft / max : 0;
+      pill.style.width = `${w}%`; pill.style.left = `${at * (100 - w)}%`;
+      box.style.setProperty("--fade-l", list.scrollLeft > 4 ? "3.5rem" : "0rem");
+      box.style.setProperty("--fade-r", list.scrollLeft < max - 4 ? "3.5rem" : "0rem");
+      const view = list.getBoundingClientRect();
+      const shown = items.map((li, i) => [li.getBoundingClientRect(), i]).filter(([r]) => (r.left + r.right) / 2 > view.left && (r.left + r.right) / 2 < view.right).map(([, i]) => i + 1);
+      pos.textContent = shown.length ? `${shown[0]}–${shown[shown.length - 1]} of ${items.length}` : "";
+    };
+    list.addEventListener("scroll", update, { passive: true });
+    new ResizeObserver(update).observe(list);
+    box.querySelectorAll(".lg-step").forEach((b) => b.addEventListener("click", () => list.scrollBy({ left: Number(b.dataset.step) * list.clientWidth * 0.85, behavior: "smooth" })));
+    const seek = (clientX) => {
+      const r = track.getBoundingClientRect(), w = pill.getBoundingClientRect().width;
+      const at = Math.min(Math.max((clientX - r.left - w / 2) / Math.max(r.width - w, 1), 0), 1);
+      list.scrollLeft = at * (list.scrollWidth - list.clientWidth);
+    };
+    track.addEventListener("pointerdown", (e) => {
+      e.preventDefault(); track.setPointerCapture(e.pointerId); box.classList.add("is-dragging"); seek(e.clientX);
+      const move = (ev) => seek(ev.clientX);
+      const up = () => { box.classList.remove("is-dragging"); track.removeEventListener("pointermove", move); track.removeEventListener("pointerup", up); track.removeEventListener("pointercancel", up); };
+      track.addEventListener("pointermove", move); track.addEventListener("pointerup", up); track.addEventListener("pointercancel", up);
+    });
+    list.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowRight" || e.key === "ArrowLeft") { e.preventDefault(); list.scrollBy({ left: (e.key === "ArrowRight" ? 1 : -1) * list.clientWidth * 0.85, behavior: "smooth" }); }
+    });
+    update();
+  }
+  const wireAll = (root) => root.querySelectorAll?.(".lg-scroll").forEach(wireScroller);
+  new MutationObserver((records) => records.forEach((r) => r.addedNodes.forEach((n) => { if (n.nodeType === 1) { if (n.matches?.(".lg-scroll")) wireScroller(n); wireAll(n); } })))
+    .observe(document.documentElement, { childList: true, subtree: true });
+  document.addEventListener("DOMContentLoaded", () => wireAll(document));
+
   window.MergedLedger = {
     html(c, X) {
       const blocks = [
@@ -81,7 +124,7 @@
       ].join("");
       const n = c.timeline.filter((e) => e.k !== "gap").length;
       return `<div class="lg">
-        <div class="lg-tl">${head("The events, in order", "route", `${n} · each with its verse`)}<ol class="lg-time">${c.timeline.map((e) => entry(e, X)).join("")}</ol></div>
+        <div class="lg-tl">${head("The events, in order", "route", `${n} · each with its verse`)}<div class="lg-scroll"><ol class="lg-time" tabindex="0" aria-label="The events, in order: scrolls sideways">${c.timeline.map((e) => entry(e, X)).join("")}</ol><div class="lg-bar"><button type="button" class="lg-step" data-step="-1" aria-label="Earlier events">${icon("arrowRight", 14)}</button><span class="lg-track"><span class="lg-pill"></span></span><span class="lg-pos"></span><button type="button" class="lg-step" data-step="1" aria-label="Later events">${icon("arrowRight", 14)}</button></div></div></div>
         <div class="lg-blocks">${blocks}</div></div>`;
     },
   };

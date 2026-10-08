@@ -238,3 +238,26 @@
 /* The switcher marks H as the newest direction. */
 .switcher .sw-new { padding: .05rem .35rem; border-radius: 999px; font: 600 .56rem var(--sans); font-style: normal; letter-spacing: .08em; text-transform: uppercase; color: var(--page); background: var(--sw); }
 .switcher button[aria-pressed="true"] .sw-new { color: var(--ink); background: var(--page); }
+
+/* The events band (owner, 2026-10-08): a contained, floating band that scrolls sideways, column after column in reading
+   order, so the page scrolls straight past it. No box: the edges fade out, and a slim pill under it shows the place. */
+.lg-scroll { position: relative; --fade-l: 0rem; --fade-r: 3.5rem; }
+.lg-scroll .lg-time { columns: auto; column-width: 19.5rem; column-fill: auto; height: min(36rem, 66vh); overflow-x: auto; overflow-y: hidden;
+  scrollbar-width: none; overscroll-behavior-x: contain; outline: none;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 var(--fade-l), #000 calc(100% - var(--fade-r)), transparent 100%);
+          mask-image: linear-gradient(90deg, transparent 0, #000 var(--fade-l), #000 calc(100% - var(--fade-r)), transparent 100%); }
+.lg-scroll .lg-time::-webkit-scrollbar { display: none; }
+.lg-scroll .lg-time:focus, .lg-scroll .lg-time:focus-visible { outline: none; }
+.lg-bar { display: flex; align-items: center; gap: .8rem; margin-top: .9rem; }
+.lg-track { position: relative; flex: 1; height: 14px; cursor: pointer; touch-action: none; }
+.lg-track::before { content: ""; position: absolute; inset: 6px 0; border-radius: 2px; background: color-mix(in srgb, var(--ink) 12%, transparent); }
+.lg-pill { position: absolute; top: 3px; height: 8px; border-radius: 999px; background: var(--tone); opacity: .75; transition: opacity .15s; }
+.lg-track:hover .lg-pill, .is-dragging .lg-pill { opacity: 1; }
+.lg-pos { min-width: 6.5rem; text-align: right; font: 500 .66rem var(--mono); color: var(--muted); }
+.lg-step { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; color: var(--tone); background: transparent; border: 1px solid color-mix(in srgb, var(--ink) 16%, transparent); cursor: pointer; }
+.lg-step:hover { border-color: var(--tone); }
+.lg-step:focus, .lg-step:focus-visible { outline: none; }
+.lg-step[data-step="-1"] svg { transform: scaleX(-1); }
+.lg-scroll.is-static .lg-bar { display: none; }
+@media (max-width: 600px) { .lg-scroll .lg-time { column-width: calc(100vw - 3.5rem); height: min(32rem, 70vh); } .lg-pos { min-width: 5rem; } }
+@media (prefers-reduced-motion: reduce) { .lg-scroll .lg-time { scroll-behavior: auto; } }
