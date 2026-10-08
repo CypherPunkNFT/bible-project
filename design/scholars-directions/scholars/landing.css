@@ -3,7 +3,16 @@
 .s-sec-landing button { padding: 0; border: 0; background: none; text-align: left; }
 .s-sec-landing [hidden] { display: none !important; }
 .lnd { padding-top: clamp(1.4rem, 3vw, 2.4rem); }
-.lnd-hero { display: grid; grid-template-columns: minmax(0, 30rem) minmax(0, 1fr); gap: 2rem clamp(2rem, 3.5vw, 3.5rem); align-items: center; }
+.lnd-hero { display: grid; grid-template-columns: minmax(0, 30rem) minmax(0, 1fr); gap: 2rem clamp(2rem, 3.5vw, 3.5rem); align-items: stretch; }
+/* Side by side, the constellation card and the left column share a top and a bottom (owner 2026-10-08): the card stretches
+   to the column, the marks stay centred in it, and the "reading their work" note sits at the column's foot. */
+@media (min-width: 1081px) {
+  .lnd-copy { display: flex; flex-direction: column; }
+  .lnd-find { margin-bottom: 1.6rem; }
+  .lnd-built { margin-top: auto; }
+  .lnd-stage { display: flex; flex-direction: column; }
+  .lnd-skyhold { display: flex; flex: 1; flex-direction: column; justify-content: center; }
+}
 
 /* ── Copy ─────────────────────────────────────────────────────────────── */
 .lnd-kicker { display: flex; gap: .9rem; align-items: center; }

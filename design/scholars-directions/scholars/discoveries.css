@@ -53,8 +53,10 @@
 .dsc-mk-sea .dsc-lab { font: italic 400 .8rem var(--serif); letter-spacing: .06em; color: color-mix(in srgb, var(--muted) 85%, transparent); text-shadow: none; }
 
 /* ── The list and the map ──────────────────────────────────────────────── */
-/* The Holy Land and Sinai run tall, so the map is a tall card on the right and the finds take the wider column. */
-.dsc-grid { display: grid; grid-template-columns: minmax(20rem, 1fr) minmax(0, 34rem); gap: 1.1rem; }
+/* The Holy Land and Sinai run tall, so the map is a tall card and the finds take the wider column. */
+/* The owner asked for the map on the left and the finds on the right (2026-10-08). */
+.dsc-grid { display: grid; grid-template-columns: minmax(0, 34rem) minmax(20rem, 1fr); gap: 1.1rem; }
+@media (min-width: 901px) { .dsc-mapcard { order: -1; } }
 .dsc-list-wrap { position: relative; height: var(--dsc-h); min-width: 0; container: dsc-list / inline-size; }
 .dsc-list { display: flex; flex-direction: column; gap: .7rem; height: 100%; overflow: auto; overscroll-behavior: contain; padding: 0 8px 0 0;
   -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 56px), transparent); mask-image: linear-gradient(to bottom, #000 calc(100% - 56px), transparent); }
