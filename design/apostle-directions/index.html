@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Apostles · Bible Project</title>
+<link rel="icon" href="favicon.svg">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/score.css">
+<link rel="stylesheet" href="css/globe.css">
+<link rel="stylesheet" href="css/thread.css">
+<link rel="stylesheet" href="css/strata.css">
+<script>try { const t = localStorage.getItem("bp-theme"); document.documentElement.dataset.theme = t === "dark" || t === "light" ? t : (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"); } catch { document.documentElement.dataset.theme = "light"; }</script>
+</head>
+<body>
+<script src="vendor/d3-array.min.js"></script>
+<script src="vendor/d3-geo.min.js"></script>
+<script src="vendor/topojson-client.min.js"></script>
+<script src="js/icons.js"></script>
+<script src="js/clock.js"></script>
+<script src="js/core.js"></script>
+<script src="js/site.js"></script>
+<script src="js/dir-score.js"></script>
+<script src="js/dir-globe.js"></script>
+<script src="js/dir-thread.js"></script>
+<script src="js/dir-strata.js"></script>
+<script>start();</script>
+</body>
+</html>
