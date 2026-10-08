@@ -454,6 +454,46 @@
           "line": "The name very large, the sun rising from the bottom edge."
         }
       ]
+    },
+    {
+      "id": "resources-life",
+      "title": "Resources · Help for life",
+      "line": "Reorganising /resources/life (owner's brief, 2026-10-08): a shorter page (about 3,400–3,800 px at desktop against 13,400 live; 6,000–7,300 at phone width against 18,800). Every national line is collapsed to name, subtitle, one sentence and cost, and opens for every number. Jacksonville opens at once: the USA map beside its sourced Census facts, then a zoomable Jacksonville map drawn from Census TIGER/Line 2026 with the places beside it. Real life.json data, Jacksonville only. Crisis lines keep their call/text buttons on the closed row in all four directions.",
+      "page": "/resources/life",
+      "cards": [
+        {
+          "id": "life-a-index",
+          "title": "A · Index (recommended)",
+          "url": "/mockups/help-for-life-directions/#a",
+          "date": "2026-10-08",
+          "status": "option",
+          "line": "Recommended. Seven small tinted cards, one colour per kind, choose one; its lines in two columns. The shortest page, and the coloured cards stand out the most. Crisis lines keep their call/text buttons on the closed row in all four directions."
+        },
+        {
+          "id": "life-b-directory",
+          "title": "B · Directory",
+          "url": "/mockups/help-for-life-directions/#b",
+          "date": "2026-10-08",
+          "status": "option",
+          "line": "A column of solid-colour kinds beside a dense list; every line, crisis or not, has its first call or text button on the right of its closed row."
+        },
+        {
+          "id": "life-c-mosaic",
+          "title": "C · Mosaic",
+          "url": "/mockups/help-for-life-directions/#c",
+          "date": "2026-10-08",
+          "status": "option",
+          "line": "All seven kinds visible at once as softly tinted tiles; tapping a line slides its numbers, hours and source in beside the list (a sheet from below on a phone)."
+        },
+        {
+          "id": "life-d-open-in-place",
+          "title": "D · Open in place",
+          "url": "/mockups/help-for-life-directions/#d",
+          "date": "2026-10-08",
+          "status": "option",
+          "line": "Seven numbered strips that open where they are, like the Atlas city cards; Crisis is open, the others list who is inside before you open them."
+        }
+      ]
     }
   ]
 }
