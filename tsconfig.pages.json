@@ -5,5 +5,5 @@
     "lib": ["ES2023", "DOM", "DOM.Iterable"],
     "types": ["node"]
   },
-  "include": ["scripts/export-pages.ts", "scripts/pages"]
+  "include": ["scripts/export-pages.ts", "scripts/pages", "scripts/design-review"]
 }

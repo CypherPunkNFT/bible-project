@@ -1,0 +1,3013 @@
+{
+ "schema": 1,
+ "generatedAt": "2026-10-08T03:26:52.959Z",
+ "commit": "7df3e3dc",
+ "areas": [
+  {
+   "id": "people",
+   "title": "People"
+  },
+  {
+   "id": "study",
+   "title": "Study"
+  },
+  {
+   "id": "atlas",
+   "title": "Atlas"
+  },
+  {
+   "id": "topics",
+   "title": "Topics"
+  },
+  {
+   "id": "reader",
+   "title": "Bible reader"
+  },
+  {
+   "id": "letters",
+   "title": "Letters"
+  },
+  {
+   "id": "apologetics",
+   "title": "Apologetics"
+  },
+  {
+   "id": "testimonies",
+   "title": "Testimonies"
+  },
+  {
+   "id": "site",
+   "title": "Site"
+  }
+ ],
+ "templates": [
+  {
+   "id": "person",
+   "area": "people",
+   "name": "Person page",
+   "what": "One page for every person in the Bible: who they were, their family, where they are named, and their story.",
+   "address": "/people/<person>",
+   "instances": 3133,
+   "sources": [
+    "src/components/people-pages/PersonEntry.tsx",
+    "src/components/study/PersonProfile.tsx",
+    "src/pages/PersonPage.tsx"
+   ],
+   "sourceHash": "81b8391dfc98843b",
+   "signature": null,
+   "variants": [
+    {
+     "id": "sourced-story",
+     "name": "With the site's own sourced story",
+     "what": "The story is written from Scripture by this site, every paragraph linked to its verses.",
+     "instances": 252,
+     "samples": [
+      {
+       "id": "typical",
+       "label": "Typical",
+       "url": "/people/jeroboam-2ki-13-13",
+       "why": "typical: Jeroboam, in the middle of all of them by how often they are named"
+      },
+      {
+       "id": "longest-name",
+       "label": "Longest name",
+       "url": "/people/merodach-baladan-2ki-20-12",
+       "why": "longest name: \"Merodach-baladan\" (16 characters)"
+      },
+      {
+       "id": "longest-line",
+       "label": "Longest description",
+       "url": "/people/micah-jer-26-18",
+       "why": "longest one-line description: \"A prophet from Moresheth during the reigns of Jotham, Ahaz, and Hez…\" (73 characters)"
+      }
+     ]
+    },
+    {
+     "id": "step-text",
+     "name": "With STEP Bible's text",
+     "what": "No story of our own yet: STEP Bible's summary and article, which STEP says were adapted from AI output.",
+     "instances": 2802,
+     "samples": [
+      {
+       "id": "typical",
+       "label": "Typical",
+       "url": "/people/shemariah-2ch-11-19",
+       "why": "typical: Shemariah, in the middle of all of them by how often they are named"
+      },
+      {
+       "id": "longest-name",
+       "label": "Longest name",
+       "url": "/people/unnamed-9-mat-1-15",
+       "why": "longest name: \"Unnamed ancestor of Joseph, the husband of Mary (9 of 9)\" (56 characters)"
+      },
+      {
+       "id": "longest-line",
+       "label": "Longest description",
+       "url": "/people/hammelech-jer-36-26",
+       "why": "longest one-line description: \"Father of Jerahmeel and Malchijah (or 'Malchiah'), officials during…\" (84 characters)"
+      }
+     ]
+    },
+    {
+     "id": "with-ruler",
+     "name": "With a ruler page",
+     "what": "Also has a ruler page: the switch between the pages and the entry card.",
+     "instances": 112,
+     "samples": [
+      {
+       "id": "typical",
+       "label": "Typical",
+       "url": "/people/festus-act-24-27",
+       "why": "typical: Festus, in the middle of all of them by how often they are named"
+      },
+      {
+       "id": "longest-name",
+       "label": "Longest name",
+       "url": "/people/merodach-baladan-2ki-20-12",
+       "why": "longest name: \"Merodach-baladan\" (16 characters)"
+      },
+      {
+       "id": "longest-line",
+       "label": "Longest description",
+       "url": "/people/ehud-jdg-3-15",
+       "why": "longest one-line description: \"Left-handed Benjamite judge who delivered Israel from Moabite oppre…\" (72 characters)"
+      }
+     ]
+    },
+    {
+     "id": "with-apostle",
+     "name": "With an apostle or early-church page",
+     "what": "Also has a mission page: the switch and the entry card.",
+     "instances": 26,
+     "samples": [
+      {
+       "id": "typical",
+       "label": "Typical",
+       "url": "/people/andrew-mat-4-18",
+       "why": "typical: Andrew, in the middle of all of them by how often they are named"
+      },
+      {
+       "id": "longest-name",
+       "label": "Longest name",
+       "url": "/people/bartholomew-mat-10-3",
+       "why": "longest name: \"Bartholomew\" (11 characters)"
+      },
+      {
+       "id": "longest-line",
+       "label": "Longest description",
+       "url": "/people/mark-act-12-12",
+       "why": "longest one-line description: \"Barnabas's relative (KJV \"sister's son\", RV \"cousin\"); Paul's compa…\" (71 characters)"
+      }
+     ]
+    },
+    {
+     "id": "with-prophet",
+     "name": "With a prophet page",
+     "what": "Also has a prophet page (\"the word\"); three people also have a ruler page.",
+     "instances": 61,
+     "samples": [
+      {
+       "id": "typical",
+       "label": "Typical",
+       "url": "/people/shemaiah-jer-29-24",
+       "why": "typical: Shemaiah, in the middle of all of them by how often they are named"
+      },
+      {
+       "id": "longest-name",
+       "label": "Longest name",
+       "url": "/people/zephaniah-zep-1-1",
+       "why": "longest name: \"Zephaniah\" (9 characters)"
+      },
+      {
+       "id": "most-pages",
+       "label": "Most special pages",
+       "url": "/people/samuel-1sa-1-20",
+       "why": "most special pages: Samuel (2)"
+      }
+     ]
+    },
+    {
+     "id": "tribe",
+     "name": "A tribe or clan",
+     "what": "A people group recorded as a person (hidden from the people list, but the page exists).",
+     "instances": 78,
+     "samples": [
+      {
+       "id": "typical",
+       "label": "Typical",
+       "url": "/people/kittim-gen-10-4",
+       "why": "typical: Kittim, in the middle of all of them by how often they are named"
+      },
+      {
+       "id": "longest-name",
+       "label": "Longest name",
+       "url": "/people/mecherathites-1ch-11-36",
+       "why": "longest name: \"Mecherathites\" (13 characters)"
+      },
+      {
+       "id": "longest-line",
+       "label": "Longest description",
+       "url": "/people/nephilim-gen-6-4",
+       "why": "longest one-line description: \"Mysterious giants mentioned in the pre-flood and post-flood eras.\" (65 characters)"
+      }
+     ]
+    },
+    {
+     "id": "duplicate",
+     "name": "A second record of the same person",
+     "what": "Opens the main record's page instead.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The redirect",
+       "url": "/people/shallum-1ch-3-15",
+       "why": "the only duplicate record: shallum-1ch-3-15 opens jehoahaz-2ki-23-30"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ruler",
+   "area": "people",
+   "name": "Ruler page",
+   "what": "A ruler's reign: the succession strip, dates, what Scripture says of the reign, the world around it.",
+   "address": "/people/<person>/rule",
+   "instances": 112,
+   "sources": [
+    "src/components/StableTip.tsx",
+    "src/components/people-pages/Evidence.tsx",
+    "src/components/people-pages/PageFrame.tsx",
+    "src/components/people-pages/PageSources.tsx",
+    "src/components/people-pages/PersonEntry.tsx",
+    "src/components/people-pages/ReignMapEvents.tsx",
+    "src/components/people-pages/RulerContext.tsx",
+    "src/components/people-pages/RulerHero.tsx",
+    "src/components/people-pages/RulerPage.tsx",
+    "src/components/people-pages/RulerVariants.tsx",
+    "src/components/people-pages/RulerVerdict.tsx",
+    "src/components/people-pages/SlideLink.tsx",
+    "src/components/people-pages/SuccessionStrip.tsx",
+    "src/components/people-pages/kinds.ts",
+    "src/components/people-pages/links.ts",
+    "src/components/people-pages/map-layers.ts",
+    "src/components/people-pages/people-pages.css",
+    "src/components/people-pages/strip-layout.ts",
+    "src/components/people-pages/use-carried.ts",
+    "src/components/people-pages/use-strip-pill.ts",
+    "src/components/people-pages/usePeoplePageSlide.ts",
+    "src/components/stable-tip.css"
+   ],
+   "sourceHash": "743c6395d1bf596d",
+   "signature": {
+    "selector": ".pp-strip-frame",
+    "label": "The succession strip"
+   },
+   "variants": [
+    {
+     "id": "king-judah",
+     "name": "King of Judah",
+     "what": "The southern kingdom's kings, on Judah's lane.",
+     "instances": 19,
+     "samples": [
+      {
+       "id": "typical",
+       "label": "Typical",
+       "url": "/people/rehoboam-1ki-11-43/rule",
+       "why": "typical: Rehoboam, in the middle of all of them by how many sections the page has"
+      },
+      {
+       "id": "longest-name",
+       "label": "Longest name",
+       "url": "/people/jehoshaphat-1ki-15-24/rule",
+       "why": "longest name: \"Jehoshaphat\" (11 characters)"
+      },
+      {
+       "id": "longest-title",
+       "label": "Longest title",
+       "url": "/people/zedekiah-2ki-24-17/rule",
+       "why": "longest title: \"King of Judah\" (13 characters)"
+      }
+     ]
+    },
+    {
+     "id": "king-israel",
+     "name": "King of Israel",
+     "what": "The northern kingdom's kings, on Israel's lane.",
+     "instances": 19,
+     "samples": [
+      {
+       "id": "typical",
+       "label": "Typical",
+       "url": "/people/jeroboam-2ki-13-13/rule",
+       "why": "typical: Jeroboam II, in the middle of all of them by how many sections the page has"
+      },
+      {
+       "id": "longest-title",
+       "label": "Longest title",
+       "url": "/people/hoshea-2ki-15-30/rule",
+       "why": "longest title: \"King of Israel\" (14 characters)"
+      },
+      {
+       "id": "most-events",
+       "label": "Most events",
+       "url": "/people/ahab-1ki-16-28/rule",
+       "why": "most events in the reign: Ahab (13)"
+      }
+     ]
+    },
+    {
+     "id": "king-united",
+     "name": "King of the united kingdom",
+     "what": "Saul, David, Solomon (and Ish-bosheth).",
+     "instances": 4,
+     "samples": [
+      {
+       "id": "typical",
+       "label": "Typical",
+       "url": "/people/ish-bosheth-2sa-2-8/rule",
+       "why": "typical: Ish-bosheth, in the middle of all of them by how many sections the page has"
+      },
+      {
+       "id": "longest-title",
+       "label": "Longest title",
+       "url": "/people/david-rut-4-17/rule",
+       "why": "longest title: \"King of Judah, then of all Israel\" (33 characters)"
+      }
+     ]
+    },
+    {
+     "id": "judge",
+     "name": "Judge",
+     "what": "The cycle ring (sin, oppression, cry, deliverer) and no dates.",
+     "instances": 13,
+     "samples": [
+      {
+       "id": "typical",
+       "label": "Typical",
+       "url": "/people/samson-jdg-13-24/rule",
+       "why": "typical: Samson, in the middle of all of them by how many sections the page has"
+      },
+      {
+       "id": "longest-name",
+       "label": "Longest name",
+       "url": "/people/jephthah-jdg-11-1/rule",
+       "why": "longest name: \"Jephthah\" (8 characters)"
+      },
+      {
+       "id": "longest-title",
+       "label": "Longest title",
+       "url": "/people/samuel-1sa-1-20/rule",
+       "why": "longest title: \"Prophet and last judge of Israel\" (32 characters)"
+      }
+     ]
+    },
+    {
+     "id": "leader",
+     "name": "Leader before the judges",
+     "what": "Moses and Joshua: the cycle-first order.",
+     "instances": 2,
+     "samples": [
+      {
+       "id": "typical",
+       "label": "Typical",
+       "url": "/people/joshua-exo-17-9/rule",
+       "why": "typical: Joshua, in the middle of all of them by how many sections the page has"
+      },
+      {
+       "id": "longest-title",
+       "label": "Longest title",
+       "url": "/people/moses-exo-2-10/rule",
+       "why": "longest title: \"Leader of Israel, lawgiver and prophet\" (38 characters)"
+      }
+     ]
+    },
+    {
+     "id": "queen-reigning",
+     "name": "Reigning queen",
+     "what": "A queen who ruled in her own right.",
+     "instances": 3,
+     "samples": [
+      {
+       "id": "typical",
+       "label": "Typical",
+       "url": "/people/queen-of-sheba-1ki-10-1/rule",
+       "why": "typical: The queen of Sheba, in the middle of all of them by how many sections the page has"
+      },
+      {
+       "id": "longest-title",
+       "label": "Longest title",
+       "url": "/people/athaliah-2ki-8-26/rule",
+       "why": "longest title: \"Queen who reigned over Judah\" (28 characters)"
+      }
+     ]
+    },
+    {
+     "id": "queen-consort",
+     "name": "Queen consort",
+     "what": "A king's wife: \"As queen\" instead of a reign.",
+     "instances": 2,
+     "samples": [
+      {
+       "id": "typical",
+       "label": "Typical",
+       "url": "/people/esther-est-2-7/rule",
+       "why": "typical: Esther, in the middle of all of them by how many sections the page has"
+      },
+      {
+       "id": "fewest",
+       "label": "Fewest sections",
+       "url": "/people/vashti-est-1-9/rule",
+       "why": "fewest sections: Vashti (21), a near-empty page"
+      }
+     ]
+    },
+    {
+     "id": "foreign-dated",
+     "name": "Foreign king with dates",
+     "what": "Egypt, Aram, Assyria, Babylon, Persia: the world-first order.",
+     "instances": 22,
+     "samples": [
+      {
+       "id": "typical",
+       "label": "Typical",
+       "url": "/people/evil-merodach-2ki-25-27/rule",
+       "why": "typical: Evil-merodach, in the middle of all of them by how many sections the page has"
+      },
+      {
+       "id": "longest-name",
+       "label": "Longest name",
+       "url": "/people/merodach-baladan-2ki-20-12/rule",
+       "why": "longest name: \"Merodach-baladan\" (16 characters)"
+      },
+      {
+       "id": "longest-title",
+       "label": "Longest title",
+       "url": "/people/darius-dan-5-31/rule",
+       "why": "longest title: \"King over the realm of the Chaldeans (Daniel)\" (45 characters)"
+      }
+     ]
+    },
+    {
+     "id": "foreign-undated",
+     "name": "Foreign king without dates",
+     "what": "Unnamed Pharaohs and kings Scripture does not date.",
+     "instances": 8,
+     "samples": [
+      {
+       "id": "typical",
+       "label": "Typical",
+       "url": "/people/so-2ki-17-4/rule",
+       "why": "typical: So, in the middle of all of them by how many sections the page has"
+      },
+      {
+       "id": "longest-name",
+       "label": "Longest name",
+       "url": "/people/pharaoh-1ki-3-1/rule",
+       "why": "longest name: \"Pharaoh, Solomon's father-in-law\" (32 characters)"
+      },
+      {
+       "id": "longest-title",
+       "label": "Longest title",
+       "url": "/people/ben-hadad-1ki-15-18/rule",
+       "why": "longest title: \"King of Syria (Aram), who dwelt at Damascus\" (43 characters)"
+      }
+     ]
+    },
+    {
+     "id": "governor",
+     "name": "Governor",
+     "what": "The chain of authority above him.",
+     "instances": 3,
+     "samples": [
+      {
+       "id": "typical",
+       "label": "Typical",
+       "url": "/people/nehemiah-neh-1-1/rule",
+       "why": "typical: Nehemiah, in the middle of all of them by how many sections the page has"
+      },
+      {
+       "id": "longest-name",
+       "label": "Longest name",
+       "url": "/people/zerubbabel-1ch-3-19/rule",
+       "why": "longest name: \"Zerubbabel\" (10 characters)"
+      }
+     ]
+    },
+    {
+     "id": "herod",
+     "name": "Herod",
+     "what": "The Herod family strip.",
+     "instances": 6,
+     "samples": [
+      {
+       "id": "typical",
+       "label": "Typical",
+       "url": "/people/herod-mat-2-1/rule",
+       "why": "typical: Herod the Great, in the middle of all of them by how many sections the page has"
+      },
+      {
+       "id": "longest-name",
+       "label": "Longest name",
+       "url": "/people/philip-luk-3-1/rule",
+       "why": "longest name: \"Philip the tetrarch\" (19 characters)"
+      }
+     ]
+    },
+    {
+     "id": "roman",
+     "name": "Roman official",
+     "what": "Emperors, governors and procurators: the chain of authority.",
+     "instances": 11,
+     "samples": [
+      {
+       "id": "typical",
+       "label": "Typical",
+       "url": "/people/quirinius-luk-2-2/rule",
+       "why": "typical: Quirinius, in the middle of all of them by how many sections the page has"
+      },
+      {
+       "id": "longest-name",
+       "label": "Longest name",
+       "url": "/people/festus-act-24-27/rule",
+       "why": "longest name: \"Porcius Festus\" (14 characters)"
+      },
+      {
+       "id": "longest-title",
+       "label": "Longest title",
+       "url": "/people/nero-php-4-22/rule",
+       "why": "longest title: \"Roman emperor (never named in Scripture)\" (40 characters)"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "apostle",
+   "area": "people",
+   "name": "Apostle and early-church page",
+   "what": "An apostle's or early Christian's life and mission: calling, moments, places, companions, writings, ending.",
+   "address": "/people/<person>/mission",
+   "instances": 26,
+   "sources": [
+    "src/components/StableTip.tsx",
+    "src/components/people-pages/ApostlePage.tsx",
+    "src/components/people-pages/ApostleSections.tsx",
+    "src/components/people-pages/Evidence.tsx",
+    "src/components/people-pages/GospelStrip.tsx",
+    "src/components/people-pages/PageFrame.tsx",
+    "src/components/people-pages/PageSources.tsx",
+    "src/components/people-pages/PersonEntry.tsx",
+    "src/components/people-pages/SlideLink.tsx",
+    "src/components/people-pages/harmony.ts",
+    "src/components/people-pages/kinds.ts",
+    "src/components/people-pages/links.ts",
+    "src/components/people-pages/map-layers.ts",
+    "src/components/people-pages/people-pages.css",
+    "src/components/people-pages/use-carried.ts",
+    "src/components/people-pages/usePeoplePageSlide.ts",
+    "src/components/stable-tip.css"
+   ],
+   "sourceHash": "eefa66671f19e533",
+   "signature": {
+    "selector": ".pp-hero",
+    "label": "The opening card"
+   },
+   "variants": [
+    {
+     "id": "twelve",
+     "name": "One of the Twelve (and Matthias, Paul)",
+     "what": "With their place in the lists of the Twelve.",
+     "instances": 14,
+     "samples": [
+      {
+       "id": "typical",
+       "label": "Typical",
+       "url": "/people/james-mat-4-21/mission",
+       "why": "typical: James son of Zebedee, in the middle of all of them by how many sections the page has"
+      },
+      {
+       "id": "longest-name",
+       "label": "Longest name",
+       "url": "/people/judas-mat-10-3/mission",
+       "why": "longest name: \"Thaddaeus (Judas of James)\" (26 characters)"
+      },
+      {
+       "id": "most-moments",
+       "label": "Most moments",
+       "url": "/people/peter-mat-4-18/mission",
+       "why": "most moments and acts: Peter (41)"
+      }
+     ]
+    },
+    {
+     "id": "jerusalem",
+     "name": "The Jerusalem church",
+     "what": "James, Stephen, Barnabas and others.",
+     "instances": 6,
+     "samples": [
+      {
+       "id": "typical",
+       "label": "Typical",
+       "url": "/people/jude-mat-13-55/mission",
+       "why": "typical: Jude, the Lord's brother, in the middle of all of them by how many sections the page has"
+      },
+      {
+       "id": "longest-name",
+       "label": "Longest name",
+       "url": "/people/james-mat-13-55/mission",
+       "why": "longest name: \"James, the Lord's brother\" (25 characters)"
+      }
+     ]
+    },
+    {
+     "id": "pauls-circle",
+     "name": "Paul's companions",
+     "what": "Timothy, Titus, Luke and others.",
+     "instances": 6,
+     "samples": [
+      {
+       "id": "typical",
+       "label": "Typical",
+       "url": "/people/luke-2co-13-13/mission",
+       "why": "typical: Luke, in the middle of all of them by how many sections the page has"
+      },
+      {
+       "id": "longest-name",
+       "label": "Longest name",
+       "url": "/people/priscilla-act-18-2/mission",
+       "why": "longest name: \"Priscilla and Aquila\" (20 characters)"
+      }
+     ]
+    },
+    {
+     "id": "couple",
+     "name": "A couple",
+     "what": "Priscilla and Aquila, one page for two people.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "typical",
+       "label": "Typical",
+       "url": "/people/priscilla-act-18-2/mission",
+       "why": "typical: Priscilla and Aquila, in the middle of all of them by how many sections the page has"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "prophet",
+   "area": "people",
+   "name": "Prophet page (\"the word\")",
+   "what": "A prophet's call, message, words, signs and fulfilment, with the kings of their time.",
+   "address": "/people/<person>/word",
+   "instances": 61,
+   "sources": [
+    "src/components/StableTip.tsx",
+    "src/components/people-pages/ApostleSections.tsx",
+    "src/components/people-pages/Evidence.tsx",
+    "src/components/people-pages/PageFrame.tsx",
+    "src/components/people-pages/PageSources.tsx",
+    "src/components/people-pages/PersonEntry.tsx",
+    "src/components/people-pages/ProphetBook.tsx",
+    "src/components/people-pages/ProphetPage.tsx",
+    "src/components/people-pages/ProphetSections.tsx",
+    "src/components/people-pages/SlideLink.tsx",
+    "src/components/people-pages/harmony.ts",
+    "src/components/people-pages/kinds.ts",
+    "src/components/people-pages/links.ts",
+    "src/components/people-pages/map-layers.ts",
+    "src/components/people-pages/people-pages.css",
+    "src/components/people-pages/prophet-page.css",
+    "src/components/people-pages/use-carried.ts",
+    "src/components/people-pages/usePeoplePageSlide.ts",
+    "src/components/stable-tip.css"
+   ],
+   "sourceHash": "348619c7bfaa5cc2",
+   "signature": {
+    "selector": ".pp-hero",
+    "label": "The opening card"
+   },
+   "variants": [
+    {
+     "id": "writing",
+     "name": "A prophet with a book",
+     "what": "The writing prophets: their book's outline is on the page.",
+     "instances": 16,
+     "samples": [
+      {
+       "id": "typical",
+       "label": "Typical",
+       "url": "/people/micah-jer-26-18/word",
+       "why": "typical: Micah, in the middle of all of them by how many sections the page has"
+      },
+      {
+       "id": "longest-name",
+       "label": "Longest name",
+       "url": "/people/zechariah-ezr-5-1/word",
+       "why": "longest name: \"Zechariah\" (9 characters)"
+      },
+      {
+       "id": "most-words",
+       "label": "Most words",
+       "url": "/people/jeremiah-2ch-35-25/word",
+       "why": "most recorded words: Jeremiah (22)"
+      }
+     ]
+    },
+    {
+     "id": "prophet",
+     "name": "A prophet without a book",
+     "what": "Prophets, seers and singers known from the histories.",
+     "instances": 26,
+     "samples": [
+      {
+       "id": "typical",
+       "label": "Typical",
+       "url": "/people/uriah-jer-26-20/word",
+       "why": "typical: Urijah, in the middle of all of them by how many sections the page has"
+      },
+      {
+       "id": "longest-name",
+       "label": "Longest name",
+       "url": "/people/eldad-num-11-26/word",
+       "why": "longest name: \"Eldad and Medad\" (15 characters)"
+      },
+      {
+       "id": "most-words",
+       "label": "Most words",
+       "url": "/people/elijah-1ki-17-1/word",
+       "why": "most recorded words: Elijah (13)"
+      }
+     ]
+    },
+    {
+     "id": "prophetess",
+     "name": "A prophetess",
+     "what": "Miriam, Deborah, Huldah and others.",
+     "instances": 5,
+     "samples": [
+      {
+       "id": "typical",
+       "label": "Typical",
+       "url": "/people/anna-luk-2-36/word",
+       "why": "typical: Anna, in the middle of all of them by how many sections the page has"
+      },
+      {
+       "id": "longest-name",
+       "label": "Longest name",
+       "url": "/people/noadiah-neh-6-14/word",
+       "why": "longest name: \"Noadiah\" (7 characters)"
+      }
+     ]
+    },
+    {
+     "id": "false",
+     "name": "A false prophet",
+     "what": "Prophets Scripture says the LORD did not send.",
+     "instances": 7,
+     "samples": [
+      {
+       "id": "typical",
+       "label": "Typical",
+       "url": "/people/bar-jesus-act-13-6/word",
+       "why": "typical: Bar-jesus, in the middle of all of them by how many sections the page has"
+      },
+      {
+       "id": "longest-name",
+       "label": "Longest name",
+       "url": "/people/zedekiah-1ki-22-11/word",
+       "why": "longest name: \"Zedekiah son of Chenaanah\" (25 characters)"
+      },
+      {
+       "id": "fewest",
+       "label": "Fewest sections",
+       "url": "/people/ahab-jer-29-21/word",
+       "why": "fewest sections: Ahab (17), a near-empty page"
+      }
+     ]
+    },
+    {
+     "id": "new-testament",
+     "name": "A New Testament prophet",
+     "what": "From Zacharias and Anna to Agabus.",
+     "instances": 9,
+     "samples": [
+      {
+       "id": "typical",
+       "label": "Typical",
+       "url": "/people/bar-jesus-act-13-6/word",
+       "why": "typical: Bar-jesus, in the middle of all of them by how many sections the page has"
+      },
+      {
+       "id": "longest-name",
+       "label": "Longest name",
+       "url": "/people/simeon-act-13-1/word",
+       "why": "longest name: \"Simeon called Niger\" (19 characters)"
+      },
+      {
+       "id": "most-words",
+       "label": "Most words",
+       "url": "/people/john-mat-3-1/word",
+       "why": "most recorded words: John the Baptist (9)"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "people-guide",
+   "area": "people",
+   "name": "People & genealogies guide",
+   "what": "The people study: everyone, families, prophets through time, the rulers and the apostles guides.",
+   "address": "/study/people?view=<view>",
+   "instances": 6,
+   "sources": [
+    "src/components/people-pages/ApostlesGuide.tsx",
+    "src/components/people-pages/RulersGuide.tsx",
+    "src/components/study/GenealogyExplorer.tsx",
+    "src/components/study/PeopleCatalog.tsx",
+    "src/components/study/ProphetsRiver.tsx",
+    "src/components/study/genealogy.css",
+    "src/components/study/people-catalog.css",
+    "src/components/study/prophets-river.css",
+    "src/pages/study/PeoplePage.tsx",
+    "src/pages/study/ProphetsPage.tsx"
+   ],
+   "sourceHash": "4b78325178ea7a32",
+   "signature": null,
+   "variants": [
+    {
+     "id": "everyone",
+     "name": "Everyone",
+     "what": "The most-named people and the whole catalogue.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/people",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "families",
+     "name": "Families",
+     "what": "The genealogy explorer.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/people?view=families",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "prophets",
+     "name": "Prophets through time",
+     "what": "The prophets river inside the guide.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/people?view=prophets",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "rulers",
+     "name": "The rulers",
+     "what": "Every ruler, lane by lane.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/people?view=rulers",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "apostles",
+     "name": "The apostles",
+     "what": "The Twelve and the early church.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/people?view=apostles",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "prophets-page",
+     "name": "Prophets through time (its own page)",
+     "what": "The same river on its own address.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/prophets",
+       "why": "the only page of this design"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "study-hub",
+   "area": "study",
+   "name": "Study hub",
+   "what": "The ten study collections.",
+   "address": "/study",
+   "instances": 1,
+   "sources": [
+    "src/pages/study/StudyCollection.tsx",
+    "src/pages/study/study.css"
+   ],
+   "sourceHash": "412d440995afe34b",
+   "signature": null,
+   "variants": [
+    {
+     "id": "page",
+     "name": "Study hub",
+     "what": "The ten study collections.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study",
+       "why": "the only page of this design"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "study-charts",
+   "area": "study",
+   "name": "Study chart pages",
+   "what": "The four chart studies: connections, the shape of the Bible, Jesus & the Gospels, versions.",
+   "address": "/study/<study>",
+   "instances": 4,
+   "sources": [
+    "src/components/charts/ArcDiagram.tsx",
+    "src/components/charts/BookMatrix.tsx",
+    "src/components/charts/BookSizes.tsx",
+    "src/components/charts/ChapterGrid.tsx",
+    "src/components/charts/ChartCard.tsx",
+    "src/components/charts/CoverageMatrix.tsx",
+    "src/components/charts/SectionDonut.tsx",
+    "src/components/charts/SectionGuide.tsx",
+    "src/components/charts/VersionsTimeline.tsx",
+    "src/components/charts/WordsOfJesus.tsx",
+    "src/pages/ChartsPage.tsx"
+   ],
+   "sourceHash": "67a3a41b828700b1",
+   "signature": null,
+   "variants": [
+    {
+     "id": "references",
+     "name": "Connections in Scripture",
+     "what": "Cross-reference arcs and the matrix.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/references",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "structure",
+     "name": "The shape of the Bible",
+     "what": "Sections, sizes and chapters.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/structure",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "gospels",
+     "name": "Jesus & the Gospels",
+     "what": "Portraits, words of Jesus, the harmony.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/gospels",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "versions",
+     "name": "Versions & languages",
+     "what": "The timeline and coverage.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/versions",
+       "why": "the only page of this design"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "study-miracles",
+   "area": "study",
+   "name": "Miracles & encounters",
+   "what": "Every miracle, by who did it.",
+   "address": "/study/miracles",
+   "instances": 1,
+   "sources": [
+    "src/pages/study/MiraclesPage.tsx"
+   ],
+   "sourceHash": "2f23b067c3f522b8",
+   "signature": null,
+   "variants": [
+    {
+     "id": "page",
+     "name": "Miracles & encounters",
+     "what": "Every miracle, by who did it.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/miracles",
+       "why": "the only page of this design"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "study-names",
+   "area": "study",
+   "name": "Names & descriptions of God",
+   "what": "302 names of the Father, the Son and the Spirit.",
+   "address": "/study/names",
+   "instances": 1,
+   "sources": [
+    "src/pages/study/NamesPage.tsx"
+   ],
+   "sourceHash": "82af6fa0f2c47c6e",
+   "signature": null,
+   "variants": [
+    {
+     "id": "page",
+     "name": "Names & descriptions of God",
+     "what": "302 names of the Father, the Son and the Spirit.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/names",
+       "why": "the only page of this design"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "atlas-home",
+   "area": "atlas",
+   "name": "Atlas home",
+   "what": "The Atlas's front page: the floating map layers and the ways in.",
+   "address": "/study/atlas",
+   "instances": 1,
+   "sources": [
+    "src/pages/places/AtlasCollection.tsx",
+    "src/pages/places/AtlasLayerStack.tsx",
+    "src/pages/places/layer-stack-data.ts",
+    "src/pages/places/places-collection.css"
+   ],
+   "sourceHash": "c0e7ac35e185df4d",
+   "signature": null,
+   "variants": [
+    {
+     "id": "home",
+     "name": "Atlas home",
+     "what": "The front page.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/atlas",
+       "why": "the only page of this design"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "atlas-map",
+   "area": "atlas",
+   "name": "The map (a place opened)",
+   "what": "The street-level atlas of every Bible place; choosing a place opens its panel with the verses that name it.",
+   "address": "/study/atlas/map?place=<place>",
+   "instances": 1253,
+   "sources": [
+    "src/components/atlas/PlacePanel.tsx",
+    "src/components/atlas/StreetAtlasMap.tsx",
+    "src/components/atlas/chunked-source.ts",
+    "src/components/atlas/projection.ts",
+    "src/components/atlas/route-animation.ts",
+    "src/components/atlas/street-atlas.css",
+    "src/components/atlas/street-style.ts",
+    "src/components/atlas/vector-atlas.css",
+    "src/pages/AtlasPage.tsx",
+    "src/pages/places/AtlasCollection.tsx",
+    "src/pages/places/AtlasFindLink.tsx",
+    "src/pages/places/AtlasLayerStack.tsx",
+    "src/pages/places/CityDetailPanel.tsx",
+    "src/pages/places/CityDirectory.tsx",
+    "src/pages/places/CityMapExperience.tsx",
+    "src/pages/places/CitySelection.tsx",
+    "src/pages/places/HistoryExperience.tsx",
+    "src/pages/places/JourneyExperience.tsx",
+    "src/pages/places/JourneysHero.tsx",
+    "src/pages/places/PlacesArtwork.tsx",
+    "src/pages/places/RevealSelection.tsx",
+    "src/pages/places/TraditionExperience.tsx",
+    "src/pages/places/atlas-find.ts",
+    "src/pages/places/city-collections.ts",
+    "src/pages/places/city-detail.css",
+    "src/pages/places/city-details.ts",
+    "src/pages/places/city-link.ts",
+    "src/pages/places/city-places.ts",
+    "src/pages/places/history-collections.ts",
+    "src/pages/places/journey-emblems-data.ts",
+    "src/pages/places/journey-emblems.tsx",
+    "src/pages/places/journey.css",
+    "src/pages/places/journeys-pilgrim.css",
+    "src/pages/places/layer-stack-data.ts",
+    "src/pages/places/paul-journey.ts",
+    "src/pages/places/places-collection.css",
+    "src/pages/places/routes.ts",
+    "src/pages/places/tradition-experience.css",
+    "src/pages/places/usePlacesPageSlide.ts"
+   ],
+   "sourceHash": "ea875e4aca0cb7f7",
+   "signature": {
+    "selector": ".maplibregl-map",
+    "label": "The map"
+   },
+   "variants": [
+    {
+     "id": "map",
+     "name": "The map, nothing chosen",
+     "what": "Every place on the map, with the filters.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/atlas/map",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "place",
+     "name": "A place opened",
+     "what": "The place panel beside the map (below it on a phone).",
+     "instances": 1252,
+     "samples": [
+      {
+       "id": "typical",
+       "label": "Typical",
+       "url": "/study/atlas/map?place=a6bf059",
+       "why": "typical: Baal-perazim, in the middle of all of them by how many verses name it"
+      },
+      {
+       "id": "most-verses",
+       "label": "Most verses",
+       "url": "/study/atlas/map?place=a15257a",
+       "why": "most verses: Jerusalem (955)"
+      },
+      {
+       "id": "longest-name",
+       "label": "Longest name",
+       "url": "/study/atlas/map?place=a966bdf",
+       "why": "longest name: \"House of the Forest of Lebanon\" (30 characters)"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "atlas-cities",
+   "area": "atlas",
+   "name": "City collection",
+   "what": "A collection of cities (the seven churches, ports and trade, cities of refuge…) to choose from.",
+   "address": "/study/atlas/cities?collection=<collection>",
+   "instances": 12,
+   "sources": [
+    "src/components/atlas/PlacePanel.tsx",
+    "src/components/atlas/StreetAtlasMap.tsx",
+    "src/components/atlas/chunked-source.ts",
+    "src/components/atlas/projection.ts",
+    "src/components/atlas/route-animation.ts",
+    "src/components/atlas/street-atlas.css",
+    "src/components/atlas/street-style.ts",
+    "src/components/atlas/vector-atlas.css",
+    "src/pages/places/AtlasCollection.tsx",
+    "src/pages/places/AtlasFindLink.tsx",
+    "src/pages/places/AtlasLayerStack.tsx",
+    "src/pages/places/CityDetailPanel.tsx",
+    "src/pages/places/CityDirectory.tsx",
+    "src/pages/places/CityMapExperience.tsx",
+    "src/pages/places/CitySelection.tsx",
+    "src/pages/places/HistoryExperience.tsx",
+    "src/pages/places/JourneyExperience.tsx",
+    "src/pages/places/JourneysHero.tsx",
+    "src/pages/places/PlacesArtwork.tsx",
+    "src/pages/places/RevealSelection.tsx",
+    "src/pages/places/TraditionExperience.tsx",
+    "src/pages/places/atlas-find.ts",
+    "src/pages/places/city-collections.ts",
+    "src/pages/places/city-detail.css",
+    "src/pages/places/city-details.ts",
+    "src/pages/places/city-link.ts",
+    "src/pages/places/city-places.ts",
+    "src/pages/places/history-collections.ts",
+    "src/pages/places/journey-emblems-data.ts",
+    "src/pages/places/journey-emblems.tsx",
+    "src/pages/places/journey.css",
+    "src/pages/places/journeys-pilgrim.css",
+    "src/pages/places/layer-stack-data.ts",
+    "src/pages/places/paul-journey.ts",
+    "src/pages/places/places-collection.css",
+    "src/pages/places/routes.ts",
+    "src/pages/places/tradition-experience.css",
+    "src/pages/places/usePlacesPageSlide.ts"
+   ],
+   "sourceHash": "8212b97cac6bdc9d",
+   "signature": null,
+   "variants": [
+    {
+     "id": "all",
+     "name": "All collections",
+     "what": "The grid of collections and \"Find your city\".",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/atlas/cities",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "collection",
+     "name": "One collection",
+     "what": "Its cities on the map and in a list.",
+     "instances": 11,
+     "samples": [
+      {
+       "id": "first",
+       "label": "First",
+       "url": "/study/atlas/cities?collection=seven-churches",
+       "why": "the first collection: The Seven Churches"
+      },
+      {
+       "id": "most",
+       "label": "Most cities",
+       "url": "/study/atlas/cities?collection=warned-spared",
+       "why": "most cities: Cities Warned & Spared (9)"
+      },
+      {
+       "id": "fewest",
+       "label": "Fewest cities",
+       "url": "/study/atlas/cities?collection=egypt-exodus",
+       "why": "fewest cities: Egypt & the Exodus (3), a near-empty page"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "atlas-city",
+   "area": "atlas",
+   "name": "City page",
+   "what": "One city inside a collection: the city panel, and for the seven churches of Revelation, the church card.",
+   "address": "/study/atlas/cities?collection=<c>&focus=<city>&view=city",
+   "instances": 74,
+   "sources": [
+    "src/components/atlas/PlacePanel.tsx",
+    "src/components/atlas/StreetAtlasMap.tsx",
+    "src/components/atlas/chunked-source.ts",
+    "src/components/atlas/projection.ts",
+    "src/components/atlas/route-animation.ts",
+    "src/components/atlas/street-atlas.css",
+    "src/components/atlas/street-style.ts",
+    "src/components/atlas/vector-atlas.css",
+    "src/pages/places/AtlasCollection.tsx",
+    "src/pages/places/AtlasFindLink.tsx",
+    "src/pages/places/AtlasLayerStack.tsx",
+    "src/pages/places/CityDetailPanel.tsx",
+    "src/pages/places/CityDirectory.tsx",
+    "src/pages/places/CityMapExperience.tsx",
+    "src/pages/places/CitySelection.tsx",
+    "src/pages/places/HistoryExperience.tsx",
+    "src/pages/places/JourneyExperience.tsx",
+    "src/pages/places/JourneysHero.tsx",
+    "src/pages/places/PlacesArtwork.tsx",
+    "src/pages/places/RevealSelection.tsx",
+    "src/pages/places/TraditionExperience.tsx",
+    "src/pages/places/atlas-find.ts",
+    "src/pages/places/city-collections.ts",
+    "src/pages/places/city-detail.css",
+    "src/pages/places/city-details.ts",
+    "src/pages/places/city-link.ts",
+    "src/pages/places/city-places.ts",
+    "src/pages/places/history-collections.ts",
+    "src/pages/places/journey-emblems-data.ts",
+    "src/pages/places/journey-emblems.tsx",
+    "src/pages/places/journey.css",
+    "src/pages/places/journeys-pilgrim.css",
+    "src/pages/places/layer-stack-data.ts",
+    "src/pages/places/paul-journey.ts",
+    "src/pages/places/places-collection.css",
+    "src/pages/places/routes.ts",
+    "src/pages/places/tradition-experience.css",
+    "src/pages/places/usePlacesPageSlide.ts"
+   ],
+   "sourceHash": "8212b97cac6bdc9d",
+   "signature": null,
+   "variants": [
+    {
+     "id": "church",
+     "name": "One of the seven churches",
+     "what": "With the letter to the church (Revelation 2–3).",
+     "instances": 9,
+     "samples": [
+      {
+       "id": "first",
+       "label": "First",
+       "url": "/study/atlas/cities?collection=seven-churches&focus=ephesus&view=city",
+       "why": "the first church city: Ephesus (The Seven Churches)"
+      },
+      {
+       "id": "longest-name",
+       "label": "Longest name",
+       "url": "/study/atlas/cities?collection=seven-churches&focus=philadelphia&view=city",
+       "why": "longest name: \"Philadelphia\" (12 characters)"
+      }
+     ]
+    },
+    {
+     "id": "city",
+     "name": "Any other city",
+     "what": "The general city panel.",
+     "instances": 65,
+     "samples": [
+      {
+       "id": "first",
+       "label": "First",
+       "url": "/study/atlas/cities?collection=israel-judah&focus=jerusalem&view=city",
+       "why": "the first city: Jerusalem (Ancient Israel & Judah)"
+      },
+      {
+       "id": "longest-name",
+       "label": "Longest name",
+       "url": "/study/atlas/cities?collection=apostolic-cities&focus=antioch&view=city",
+       "why": "longest name: \"Antioch in Syria\" (16 characters)"
+      },
+      {
+       "id": "longest-line",
+       "label": "Longest description",
+       "url": "/study/atlas/cities?collection=warned-spared&focus=tyre&view=city",
+       "why": "longest description: \"Trade, wealth & prophetic warning\" (33 characters)"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "atlas-city-finder",
+   "area": "atlas",
+   "name": "Find your city",
+   "what": "Every settlement (782), 24 to a page, with a search.",
+   "address": "/study/atlas/cities/find?page=<n>",
+   "instances": 34,
+   "sources": [
+    "src/components/atlas/PlacePanel.tsx",
+    "src/components/atlas/StreetAtlasMap.tsx",
+    "src/components/atlas/chunked-source.ts",
+    "src/components/atlas/projection.ts",
+    "src/components/atlas/route-animation.ts",
+    "src/components/atlas/street-atlas.css",
+    "src/components/atlas/street-style.ts",
+    "src/components/atlas/vector-atlas.css",
+    "src/pages/places/AtlasCollection.tsx",
+    "src/pages/places/AtlasFindLink.tsx",
+    "src/pages/places/AtlasLayerStack.tsx",
+    "src/pages/places/CityDetailPanel.tsx",
+    "src/pages/places/CityDirectory.tsx",
+    "src/pages/places/CityMapExperience.tsx",
+    "src/pages/places/CitySelection.tsx",
+    "src/pages/places/HistoryExperience.tsx",
+    "src/pages/places/JourneyExperience.tsx",
+    "src/pages/places/JourneysHero.tsx",
+    "src/pages/places/PlacesArtwork.tsx",
+    "src/pages/places/RevealSelection.tsx",
+    "src/pages/places/TraditionExperience.tsx",
+    "src/pages/places/atlas-find.ts",
+    "src/pages/places/city-collections.ts",
+    "src/pages/places/city-detail.css",
+    "src/pages/places/city-details.ts",
+    "src/pages/places/city-link.ts",
+    "src/pages/places/city-places.ts",
+    "src/pages/places/history-collections.ts",
+    "src/pages/places/journey-emblems-data.ts",
+    "src/pages/places/journey-emblems.tsx",
+    "src/pages/places/journey.css",
+    "src/pages/places/journeys-pilgrim.css",
+    "src/pages/places/layer-stack-data.ts",
+    "src/pages/places/paul-journey.ts",
+    "src/pages/places/places-collection.css",
+    "src/pages/places/routes.ts",
+    "src/pages/places/tradition-experience.css",
+    "src/pages/places/usePlacesPageSlide.ts"
+   ],
+   "sourceHash": "8212b97cac6bdc9d",
+   "signature": null,
+   "variants": [
+    {
+     "id": "page",
+     "name": "A page of cities",
+     "what": "One page of the directory.",
+     "instances": 33,
+     "samples": [
+      {
+       "id": "first",
+       "label": "First page",
+       "url": "/study/atlas/cities/find",
+       "why": "the first page, as most people see it"
+      },
+      {
+       "id": "last",
+       "label": "Last page",
+       "url": "/study/atlas/cities/find?page=32",
+       "why": "the last page (page 33), which is not full"
+      }
+     ]
+    },
+    {
+     "id": "no-results",
+     "name": "A search with no results",
+     "what": "What a failed search looks like.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/atlas/cities/find?q=zzzz",
+       "why": "the only page of this design"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "atlas-journey",
+   "area": "atlas",
+   "name": "Journey",
+   "what": "Follow a life on the map. Paul's journey is built; the other travellers show what is coming.",
+   "address": "/study/atlas/journeys?focus=<person>&lens=<lens>&chapter=<chapter>",
+   "instances": 34,
+   "sources": [
+    "src/components/atlas/StreetAtlasMap.tsx",
+    "src/components/atlas/chunked-source.ts",
+    "src/components/atlas/projection.ts",
+    "src/components/atlas/route-animation.ts",
+    "src/components/atlas/street-atlas.css",
+    "src/components/atlas/street-style.ts",
+    "src/components/atlas/vector-atlas.css",
+    "src/pages/places/JourneyExperience.tsx",
+    "src/pages/places/JourneysHero.tsx",
+    "src/pages/places/city-collections.ts",
+    "src/pages/places/city-link.ts",
+    "src/pages/places/city-places.ts",
+    "src/pages/places/journey.css",
+    "src/pages/places/paul-journey.ts",
+    "src/pages/places/routes.ts"
+   ],
+   "sourceHash": "44d66594d254ba17",
+   "signature": null,
+   "variants": [
+    {
+     "id": "start",
+     "name": "Journeys, nobody chosen",
+     "what": "The traveller cards.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/atlas/journeys",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "paul",
+     "name": "Paul's journey, one chapter",
+     "what": "The guided map: chapter rail, stops, play and pause.",
+     "instances": 9,
+     "samples": [
+      {
+       "id": "first",
+       "label": "First",
+       "url": "/study/atlas/journeys?focus=paul&lens=story&chapter=early-years",
+       "why": "the first chapter: Damascus to Antioch"
+      },
+      {
+       "id": "most-stops",
+       "label": "Most stops",
+       "url": "/study/atlas/journeys?focus=paul&lens=story&chapter=journey-3",
+       "why": "most stops: Third journey (23)"
+      },
+      {
+       "id": "fewest",
+       "label": "Fewest stops",
+       "url": "/study/atlas/journeys?focus=paul&lens=story&chapter=arrest",
+       "why": "fewest stops: Arrest and Caesarea (2), a near-empty page"
+      }
+     ]
+    },
+    {
+     "id": "coming",
+     "name": "A traveller still to come",
+     "what": "The \"coming next\" panel for a journey not built yet.",
+     "instances": 24,
+     "samples": [
+      {
+       "id": "first",
+       "label": "First",
+       "url": "/study/atlas/journeys?focus=paul&lens=people",
+       "why": "the first one: Paul, Meet the people along the way."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "atlas-gospels",
+   "area": "atlas",
+   "name": "Gospel events",
+   "what": "A part of Jesus' life and one account (or all four) to follow; a preview of what is coming.",
+   "address": "/study/atlas/gospels?focus=<part>&lens=<gospel>",
+   "instances": 30,
+   "sources": [
+    "src/pages/places/AtlasCollection.tsx",
+    "src/pages/places/places-collection.css"
+   ],
+   "sourceHash": "31709ab97e6566d5",
+   "signature": null,
+   "variants": [
+    {
+     "id": "event",
+     "name": "One part, one account",
+     "what": "The preview workspace.",
+     "instances": 30,
+     "samples": [
+      {
+       "id": "first",
+       "label": "First",
+       "url": "/study/atlas/gospels?focus=beginnings&lens=together",
+       "why": "the first combination: Beginnings, Bring the accounts into conversation."
+      },
+      {
+       "id": "last",
+       "label": "Last",
+       "url": "/study/atlas/gospels?focus=resurrection&lens=john",
+       "why": "the last combination: Resurrection, Follow John’s account."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "atlas-history",
+   "area": "atlas",
+   "name": "History collection",
+   "what": "The early church, the Reformation and global missions: a grid of topics, each opening its places.",
+   "address": "/study/atlas/<collection>?topic=<topic>",
+   "instances": 21,
+   "sources": [
+    "src/components/atlas/PlacePanel.tsx",
+    "src/components/atlas/StreetAtlasMap.tsx",
+    "src/components/atlas/chunked-source.ts",
+    "src/components/atlas/projection.ts",
+    "src/components/atlas/route-animation.ts",
+    "src/components/atlas/street-atlas.css",
+    "src/components/atlas/street-style.ts",
+    "src/components/atlas/vector-atlas.css",
+    "src/pages/places/AtlasCollection.tsx",
+    "src/pages/places/AtlasFindLink.tsx",
+    "src/pages/places/AtlasLayerStack.tsx",
+    "src/pages/places/CityDetailPanel.tsx",
+    "src/pages/places/CityDirectory.tsx",
+    "src/pages/places/CityMapExperience.tsx",
+    "src/pages/places/CitySelection.tsx",
+    "src/pages/places/HistoryExperience.tsx",
+    "src/pages/places/JourneyExperience.tsx",
+    "src/pages/places/JourneysHero.tsx",
+    "src/pages/places/PlacesArtwork.tsx",
+    "src/pages/places/RevealSelection.tsx",
+    "src/pages/places/TraditionExperience.tsx",
+    "src/pages/places/atlas-find.ts",
+    "src/pages/places/city-collections.ts",
+    "src/pages/places/city-detail.css",
+    "src/pages/places/city-details.ts",
+    "src/pages/places/city-link.ts",
+    "src/pages/places/city-places.ts",
+    "src/pages/places/history-collections.ts",
+    "src/pages/places/journey-emblems-data.ts",
+    "src/pages/places/journey-emblems.tsx",
+    "src/pages/places/journey.css",
+    "src/pages/places/journeys-pilgrim.css",
+    "src/pages/places/layer-stack-data.ts",
+    "src/pages/places/paul-journey.ts",
+    "src/pages/places/places-collection.css",
+    "src/pages/places/routes.ts",
+    "src/pages/places/tradition-experience.css",
+    "src/pages/places/usePlacesPageSlide.ts"
+   ],
+   "sourceHash": "8212b97cac6bdc9d",
+   "signature": null,
+   "variants": [
+    {
+     "id": "collection",
+     "name": "A collection",
+     "what": "Its grid of topics.",
+     "instances": 3,
+     "samples": [
+      {
+       "id": "first",
+       "label": "First",
+       "url": "/study/atlas/early-church",
+       "why": "the first collection: The Early Church"
+      }
+     ]
+    },
+    {
+     "id": "topic",
+     "name": "A topic opened",
+     "what": "One topic and its places.",
+     "instances": 18,
+     "samples": [
+      {
+       "id": "first",
+       "label": "First",
+       "url": "/study/atlas/early-church?topic=communities",
+       "why": "the first topic: After the Apostles"
+      },
+      {
+       "id": "longest-name",
+       "label": "Longest title",
+       "url": "/study/atlas/early-church?topic=scripture",
+       "why": "longest title: \"Scripture & Interpretation\" (26 characters)"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "atlas-tradition",
+   "area": "atlas",
+   "name": "Catholic & Orthodox",
+   "what": "Two traditions, four ways of looking at each (growth, centres, councils, worship).",
+   "address": "/study/atlas/catholic-orthodox?tradition=<t>&lens=<lens>",
+   "instances": 8,
+   "sources": [
+    "src/pages/places/TraditionExperience.tsx",
+    "src/pages/places/tradition-experience.css"
+   ],
+   "sourceHash": "29c0670f43afef7b",
+   "signature": null,
+   "variants": [
+    {
+     "id": "lens",
+     "name": "One tradition, one lens",
+     "what": "The tradition page.",
+     "instances": 8,
+     "samples": [
+      {
+       "id": "first",
+       "label": "First",
+       "url": "/study/atlas/catholic-orthodox?tradition=catholic&lens=growth",
+       "why": "the first combination: Catholic Christianity, Growth on the map"
+      },
+      {
+       "id": "last",
+       "label": "Last",
+       "url": "/study/atlas/catholic-orthodox?tradition=eastern&lens=worship",
+       "why": "the last combination: Eastern Orthodoxy, Worship & life"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "topics-home",
+   "area": "topics",
+   "name": "Topics home",
+   "what": "Seven sections of cards and the great passages.",
+   "address": "/topics",
+   "instances": 1,
+   "sources": [
+    "src/pages/topics/TopicsArtwork.tsx",
+    "src/pages/topics/TopicsHome.tsx",
+    "src/pages/topics/topics-shared.ts",
+    "src/pages/topics/useEqualCardHeights.ts"
+   ],
+   "sourceHash": "f96bf7898a05f855",
+   "signature": null,
+   "variants": [
+    {
+     "id": "home",
+     "name": "Topics home",
+     "what": "The front page.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/topics",
+       "why": "the only page of this design"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "topic-card",
+   "area": "topics",
+   "name": "Topic card (category page)",
+   "what": "One of the 55 cards on the Topics home: its groups, each opening its topics.",
+   "address": "/topics/c/<card>?group=<group>",
+   "instances": 205,
+   "sources": [
+    "src/pages/TopicCategoryPage.tsx",
+    "src/pages/topics/TopicsArtwork.tsx",
+    "src/pages/topics/TopicsShell.tsx",
+    "src/pages/topics/topics-shared.ts"
+   ],
+   "sourceHash": "d54a23043498b7a8",
+   "signature": null,
+   "variants": [
+    {
+     "id": "card",
+     "name": "A card",
+     "what": "The card's groups, closed.",
+     "instances": 55,
+     "samples": [
+      {
+       "id": "typical",
+       "label": "Typical",
+       "url": "/topics/c/symbols",
+       "why": "typical: Prophecy, types & figures, in the middle of all of them by how many topics it holds"
+      },
+      {
+       "id": "most",
+       "label": "Most topics",
+       "url": "/topics/c/era-kings",
+       "why": "most topics: Kings of Israel & Judah (362)"
+      },
+      {
+       "id": "fewest",
+       "label": "Fewest topics",
+       "url": "/topics/c/god-names",
+       "why": "fewest topics: Names of God (10), a near-empty page"
+      }
+     ]
+    },
+    {
+     "id": "group",
+     "name": "A group opened",
+     "what": "One group's topics shown.",
+     "instances": 118,
+     "samples": [
+      {
+       "id": "typical",
+       "label": "Typical",
+       "url": "/topics/c/places-landscape?group=wells-springs-pools",
+       "why": "typical: Wells, springs & pools, in the middle of all of them by how many topics it holds"
+      },
+      {
+       "id": "fewest",
+       "label": "Fewest topics",
+       "url": "/topics/c/christ-miracles?group=miracles-overview",
+       "why": "fewest topics: All his miracles (1), a near-empty page"
+      }
+     ]
+    },
+    {
+     "id": "long-group",
+     "name": "A long group (A–Z list)",
+     "what": "Groups of more than 48 topics switch to an A–Z list with a filter.",
+     "instances": 32,
+     "samples": [
+      {
+       "id": "typical",
+       "label": "Typical",
+       "url": "/topics/c/era-kingdom?group=kingdom-officials",
+       "why": "typical: Officials & warriors, in the middle of all of them by how many topics it holds"
+      },
+      {
+       "id": "most",
+       "label": "Most topics",
+       "url": "/topics/c/era-kings?group=kings-families",
+       "why": "most topics: Families & names (218)"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "topic",
+   "area": "topics",
+   "name": "Topic page",
+   "what": "One topic: Torrey's points, Nave's verses and Easton's article, key verses, and where it sits in the cards.",
+   "address": "/topics/<topic>",
+   "instances": 5603,
+   "sources": [
+    "src/pages/TopicPage.tsx",
+    "src/pages/topics/TopicsArtwork.tsx",
+    "src/pages/topics/TopicsShell.tsx",
+    "src/pages/topics/topics-shared.ts"
+   ],
+   "sourceHash": "c325ceb211c15e2b",
+   "signature": null,
+   "variants": [
+    {
+     "id": "both",
+     "name": "Two topical Bibles side by side",
+     "what": "Torrey's points beside Nave's verses.",
+     "instances": 301,
+     "samples": [
+      {
+       "id": "typical",
+       "label": "Typical",
+       "url": "/topics/hospitality",
+       "why": "typical: Hospitality, in the middle of all of them by how many verses it lists"
+      },
+      {
+       "id": "longest-title",
+       "label": "Longest title",
+       "url": "/topics/second-coming-of-christ",
+       "why": "longest title: \"The Second Coming of Christ\" (27 characters)"
+      },
+      {
+       "id": "most",
+       "label": "Most verses",
+       "url": "/topics/prophets",
+       "why": "most verses: Prophets (556)"
+      }
+     ]
+    },
+    {
+     "id": "nave",
+     "name": "Nave's verses only",
+     "what": "The most common page: Nave's list.",
+     "instances": 2362,
+     "samples": [
+      {
+       "id": "typical",
+       "label": "Typical",
+       "url": "/topics/chelubi",
+       "why": "typical: Chelubi, in the middle of all of them by how many verses it lists"
+      },
+      {
+       "id": "longest-title",
+       "label": "Longest title",
+       "url": "/topics/miracle-healing-of-the-lame-the-blind-the-deaf-and-the-maimed-near-the-lake-galilee",
+       "why": "longest title: \"Healing of the lame, the blind, the deaf, and the maimed, near the …\" (79 characters)"
+      },
+      {
+       "id": "most",
+       "label": "Most verses",
+       "url": "/topics/wicked-people",
+       "why": "most verses: Wicked (People) (835)"
+      }
+     ]
+    },
+    {
+     "id": "nave-easton",
+     "name": "Nave's verses and Easton's article",
+     "what": "The list with the dictionary article.",
+     "instances": 2530,
+     "samples": [
+      {
+       "id": "typical",
+       "label": "Typical",
+       "url": "/topics/julius",
+       "why": "typical: Julius, in the middle of all of them by how many verses it lists"
+      },
+      {
+       "id": "longest-title",
+       "label": "Longest title",
+       "url": "/topics/intercession-of-christ",
+       "why": "longest title: \"The Intercession of Christ\" (26 characters)"
+      },
+      {
+       "id": "most",
+       "label": "Most verses",
+       "url": "/topics/word-of-god",
+       "why": "most verses: Word of God (456)"
+      }
+     ]
+    },
+    {
+     "id": "torrey",
+     "name": "Torrey's points only",
+     "what": "Torrey's numbered points, no Nave list.",
+     "instances": 322,
+     "samples": [
+      {
+       "id": "typical",
+       "label": "Typical",
+       "url": "/topics/serpents",
+       "why": "typical: Serpents, in the middle of all of them by how many verses it lists"
+      },
+      {
+       "id": "longest-title",
+       "label": "Longest title",
+       "url": "/topics/theocracy-the-or-immediate-government-by-god",
+       "why": "longest title: \"The Theocracy, or Immediate Government by God\" (45 characters)"
+      },
+      {
+       "id": "most",
+       "label": "Most verses",
+       "url": "/topics/idolatry",
+       "why": "most verses: Idolatry (355)"
+      }
+     ]
+    },
+    {
+     "id": "easton",
+     "name": "Easton's article only",
+     "what": "A dictionary article with no verse list.",
+     "instances": 84,
+     "samples": [
+      {
+       "id": "typical",
+       "label": "Typical",
+       "url": "/topics/book-matthew",
+       "why": "typical: The Book of Matthew, in the middle of all of them by how many verses it lists"
+      },
+      {
+       "id": "longest-title",
+       "label": "Longest title",
+       "url": "/topics/chaldee-aramaic-language",
+       "why": "longest title: \"The Chaldee (Aramaic) Language\" (30 characters)"
+      },
+      {
+       "id": "most",
+       "label": "Most verses",
+       "url": "/topics/herods-temple",
+       "why": "most verses: Herod's Temple (0)"
+      }
+     ]
+    },
+    {
+     "id": "contents",
+     "name": "A contents topic",
+     "what": "A topic made of parts (\"Contents: N topics\").",
+     "instances": 25,
+     "samples": [
+      {
+       "id": "typical",
+       "label": "Typical",
+       "url": "/topics/minister-christian",
+       "why": "typical: Christian Minister, in the middle of all of them by how many verses it lists"
+      },
+      {
+       "id": "longest-title",
+       "label": "Longest title",
+       "url": "/topics/afflictions-and-adversities",
+       "why": "longest title: \"Afflictions and Adversities\" (27 characters)"
+      },
+      {
+       "id": "most-parts",
+       "label": "Most parts",
+       "url": "/topics/jesus-the-christ",
+       "why": "most parts: Jesus the Christ (79)"
+      }
+     ]
+    },
+    {
+     "id": "book",
+     "name": "A book of the Bible",
+     "what": "The topic for one book, with a \"Read\" button.",
+     "instances": 66,
+     "samples": [
+      {
+       "id": "typical",
+       "label": "Typical",
+       "url": "/topics/book-nahum",
+       "why": "typical: The Book of Nahum, in the middle of all of them by how many verses it lists"
+      },
+      {
+       "id": "longest-title",
+       "label": "Longest title",
+       "url": "/topics/book-song-of-songs",
+       "why": "longest title: \"The Book of Song of Songs\" (25 characters)"
+      },
+      {
+       "id": "most",
+       "label": "Most verses",
+       "url": "/topics/book-revelation",
+       "why": "most verses: The Book of Revelation (0)"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "bible-home",
+   "area": "reader",
+   "name": "The Bible (choose a book)",
+   "what": "Every book, to open in the reader.",
+   "address": "/bible",
+   "instances": 1,
+   "sources": [
+    "src/pages/BiblePage.tsx"
+   ],
+   "sourceHash": "df7d3e71e8f8ecae",
+   "signature": null,
+   "variants": [
+    {
+     "id": "page",
+     "name": "The Bible",
+     "what": "The book chooser.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/bible",
+       "why": "the only page of this design"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "reader",
+   "area": "reader",
+   "name": "Bible reader chapter",
+   "what": "One chapter in one of 37 versions, with verse numbers, cross-references and the chapter's topics.",
+   "address": "/read/<version>/<book>/<chapter>",
+   "instances": 38820,
+   "sources": [
+    "src/components/reader/BookPicker.tsx",
+    "src/components/reader/ChapterCrossRefs.tsx",
+    "src/components/reader/ChapterPlaces.tsx",
+    "src/components/reader/ChapterText.tsx",
+    "src/components/reader/ChapterTopics.tsx",
+    "src/components/reader/ParallelText.tsx",
+    "src/components/reader/ReaderToolbar.tsx",
+    "src/components/reader/ReferencePanel.tsx",
+    "src/components/reader/RunView.tsx",
+    "src/components/reader/VersePanel.tsx",
+    "src/components/reader/VersionMenu.tsx",
+    "src/components/reader/WhoRuled.tsx",
+    "src/components/reader/blocks.ts",
+    "src/components/reader/reference-panel.css",
+    "src/components/reader/settings.ts",
+    "src/components/reader/useChapterCrossRefs.ts",
+    "src/components/reader/who-ruled.css",
+    "src/pages/ReaderPage.tsx"
+   ],
+   "sourceHash": "1cf9fa7f86f76792",
+   "signature": null,
+   "variants": [
+    {
+     "id": "chapter",
+     "name": "A chapter (left to right)",
+     "what": "Every version written left to right.",
+     "instances": 35513,
+     "samples": [
+      {
+       "id": "typical",
+       "label": "Typical",
+       "url": "/read/kjv/DEU/13",
+       "why": "typical: Deuteronomy 13 (KJV), in the middle of all of them by length in words"
+      },
+      {
+       "id": "longest",
+       "label": "Longest chapter",
+       "url": "/read/kjv/PSA/119",
+       "why": "most words: Psalms 119 (KJV) (2,767)"
+      },
+      {
+       "id": "shortest",
+       "label": "Shortest chapter",
+       "url": "/read/kjv/ESG/10",
+       "why": "fewest words: Esther (Greek) 10 (KJV) (0), a near-empty page"
+      }
+     ]
+    },
+    {
+     "id": "rtl",
+     "name": "A right-to-left version",
+     "what": "Hebrew, Arabic and Persian: the page runs right to left.",
+     "instances": 3307,
+     "samples": [
+      {
+       "id": "wlc-gen-1",
+       "label": "Hebrew",
+       "url": "/read/wlc/GEN/1",
+       "why": "Genesis 1 in the Hebrew text"
+      },
+      {
+       "id": "svd-psa-119",
+       "label": "Longest, Arabic",
+       "url": "/read/svd/PSA/119",
+       "why": "the longest chapter (Psalm 119) in Arabic"
+      }
+     ]
+    },
+    {
+     "id": "parallel",
+     "name": "Versions side by side",
+     "what": "Two or more versions in columns (?with=).",
+     "instances": 1362,
+     "samples": [
+      {
+       "id": "kjv-gen-1",
+       "label": "Three columns",
+       "url": "/read/kjv/GEN/1?with=bsb,wlc",
+       "why": "Genesis 1 in the KJV, the BSB and the Hebrew side by side (mixed directions)"
+      }
+     ]
+    },
+    {
+     "id": "not-in-version",
+     "name": "A book this version does not have",
+     "what": "For example Genesis in a New Testament–only version.",
+     "instances": 795,
+     "samples": [
+      {
+       "id": "first",
+       "label": "First",
+       "url": "/read/bsb/1ES/1",
+       "why": "the first case: 1 Esdras 1 (BSB)"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "letters-home",
+   "area": "letters",
+   "name": "Letters home",
+   "what": "Four collections and four ways in.",
+   "address": "/study/letters",
+   "instances": 1,
+   "sources": [
+    "src/components/letters/browse/LettersBrowse.tsx",
+    "src/components/letters/browse/art.ts",
+    "src/components/letters/browse/bars.tsx",
+    "src/components/letters/browse/browse.css",
+    "src/components/letters/browse/builders.ts",
+    "src/components/letters/browse/data.ts",
+    "src/components/letters/browse/frame.tsx",
+    "src/components/letters/browse/pages-collections.tsx",
+    "src/components/letters/browse/pages-ways.tsx",
+    "src/components/letters/browse/parts-across.tsx",
+    "src/components/letters/browse/parts-charts.tsx",
+    "src/components/letters/browse/parts-letter.tsx",
+    "src/components/letters/browse/parts-writers.tsx"
+   ],
+   "sourceHash": "7a8745b0e2192933",
+   "signature": null,
+   "variants": [
+    {
+     "id": "home",
+     "name": "Letters home",
+     "what": "The front page.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/letters",
+       "why": "the only page of this design"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "letters-section",
+   "area": "letters",
+   "name": "Letters section page",
+   "what": "Each Letters page has three sections of four cards; each card opens its part (a chart, a map, a list).",
+   "address": "/study/letters/<page>/<section>",
+   "instances": 40,
+   "sources": [
+    "src/components/letters/CanonLanes.tsx",
+    "src/components/letters/CompareLetters.tsx",
+    "src/components/letters/FlowChart.tsx",
+    "src/components/letters/LetterBlocks.tsx",
+    "src/components/letters/LetterMap.tsx",
+    "src/components/letters/LetterParts.tsx",
+    "src/components/letters/LetterShape.tsx",
+    "src/components/letters/ParallelRibbon.tsx",
+    "src/components/letters/PassagePair.tsx",
+    "src/components/letters/PeopleCards.tsx",
+    "src/components/letters/TimelineStrip.tsx",
+    "src/components/letters/browse/LettersBrowse.tsx",
+    "src/components/letters/browse/art.ts",
+    "src/components/letters/browse/bars.tsx",
+    "src/components/letters/browse/browse.css",
+    "src/components/letters/browse/builders.ts",
+    "src/components/letters/browse/data.ts",
+    "src/components/letters/browse/frame.tsx",
+    "src/components/letters/browse/pages-collections.tsx",
+    "src/components/letters/browse/pages-ways.tsx",
+    "src/components/letters/browse/parts-across.tsx",
+    "src/components/letters/browse/parts-charts.tsx",
+    "src/components/letters/browse/parts-letter.tsx",
+    "src/components/letters/browse/parts-writers.tsx",
+    "src/components/letters/letter-hooks.ts",
+    "src/components/letters/letters.css"
+   ],
+   "sourceHash": "cdb9eae71d10d9b3",
+   "signature": null,
+   "variants": [
+    {
+     "id": "collection",
+     "name": "A collection of letters",
+     "what": "Paul's letters, Hebrews, James–Peter–Jude, the letters of John.",
+     "instances": 12,
+     "samples": [
+      {
+       "id": "first",
+       "label": "First",
+       "url": "/study/letters/paul/story",
+       "why": "the first section: Paul's letters: Paul's story"
+      },
+      {
+       "id": "longest-title",
+       "label": "Longest title",
+       "url": "/study/letters/the-letters-of-john/side",
+       "why": "longest section title: \"Side by side, and how they were received\" (40 characters)"
+      }
+     ]
+    },
+    {
+     "id": "way",
+     "name": "A way in across all the letters",
+     "what": "Christ in the letters, how they came to be, what runs through them, look closer.",
+     "instances": 12,
+     "samples": [
+      {
+       "id": "first",
+       "label": "First",
+       "url": "/study/letters/christ-in-the-letters/who",
+       "why": "the first section: Christ in the letters: Who he is"
+      },
+      {
+       "id": "longest-title",
+       "label": "Longest title",
+       "url": "/study/letters/look-closer/read",
+       "why": "longest section title: \"How they were read\" (18 characters)"
+      }
+     ]
+    },
+    {
+     "id": "one-letter",
+     "name": "One letter chosen",
+     "what": "The letter bar picks one letter (?letter=).",
+     "instances": 16,
+     "samples": [
+      {
+       "id": "first",
+       "label": "First",
+       "url": "/study/letters/paul/inside?letter=ROM",
+       "why": "the first letter: ROM"
+      },
+      {
+       "id": "last",
+       "label": "Last",
+       "url": "/study/letters/the-letters-of-john/inside?letter=3JN",
+       "why": "the last: 3JN"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ap-pages",
+   "area": "apologetics",
+   "name": "Apologetics section pages",
+   "what": "The section's own one-off pages.",
+   "address": "/apologetics/…",
+   "instances": 8,
+   "sources": [
+    "src/components/ApologeticsParts.tsx",
+    "src/pages/ApologeticsPage.tsx",
+    "src/pages/ReformedLibraryPage.tsx",
+    "src/pages/apologetics.css"
+   ],
+   "sourceHash": "9ac2e13cbf520aaa",
+   "signature": null,
+   "variants": [
+    {
+     "id": "hub",
+     "name": "Explore (the hub)",
+     "what": "The section's front page.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/apologetics",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "questions",
+     "name": "Questions",
+     "what": "Every question, with a filter.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/apologetics/questions",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "paths",
+     "name": "Learning paths",
+     "what": "Every path.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/apologetics/paths",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "worldviews",
+     "name": "Worldviews",
+     "what": "Every worldview.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/apologetics/worldviews",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "debates",
+     "name": "Debates",
+     "what": "Every debate.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/apologetics/debates",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "texts",
+     "name": "Historic texts",
+     "what": "The Reformed library.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/apologetics/texts",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "sources",
+     "name": "The source room",
+     "what": "Every source the section cites.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/apologetics/sources",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "saved",
+     "name": "My study",
+     "what": "What this device has saved.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/apologetics/saved",
+       "why": "the only page of this design"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ap-topic",
+   "area": "apologetics",
+   "name": "Apologetics topic",
+   "what": "The questions on one topic.",
+   "address": "/apologetics/topics/<topic>",
+   "instances": 7,
+   "sources": [
+    "src/components/ApologeticsParts.tsx",
+    "src/pages/ApologeticsPage.tsx",
+    "src/pages/apologetics.css"
+   ],
+   "sourceHash": "8aefdf999c728e0f",
+   "signature": null,
+   "variants": [
+    {
+     "id": "topic",
+     "name": "A topic",
+     "what": "The question library for one topic.",
+     "instances": 6,
+     "samples": [
+      {
+       "id": "first",
+       "label": "First",
+       "url": "/apologetics/topics/god",
+       "why": "the first topic: God & reality"
+      },
+      {
+       "id": "longest-title",
+       "label": "Longest title",
+       "url": "/apologetics/topics/worldviews",
+       "why": "longest title: \"Religions & worldviews\" (22 characters)"
+      }
+     ]
+    },
+    {
+     "id": "reformed",
+     "name": "Reformed theology",
+     "what": "The same, with the door into the Reformed texts.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/apologetics/topics/reformed",
+       "why": "the only page of this design"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ap-study",
+   "area": "apologetics",
+   "name": "Apologetics study",
+   "what": "One question answered: the answer, the reasoning, the passages, related studies.",
+   "address": "/apologetics/study/<study>",
+   "instances": 25,
+   "sources": [
+    "src/components/ApologeticsParts.tsx",
+    "src/pages/ApologeticsPage.tsx",
+    "src/pages/apologetics.css"
+   ],
+   "sourceHash": "8aefdf999c728e0f",
+   "signature": null,
+   "variants": [
+    {
+     "id": "page",
+     "name": "Apologetics study",
+     "what": "One question answered: the answer, the reasoning, the passages, related studies.",
+     "instances": 25,
+     "samples": [
+      {
+       "id": "typical",
+       "label": "Typical",
+       "url": "/apologetics/study/cross",
+       "why": "typical: Why would forgiveness involve the cross?, in the middle of all of them by length"
+      },
+      {
+       "id": "longest-title",
+       "label": "Longest title",
+       "url": "/apologetics/study/reformed",
+       "why": "longest title: \"What is Reformed theology, and why does it matter for apologetics?\" (66 characters)"
+      },
+      {
+       "id": "most",
+       "label": "Most sections",
+       "url": "/apologetics/study/morality",
+       "why": "most sections: Can we be good without believing in God? (3)"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ap-path",
+   "area": "apologetics",
+   "name": "Learning path",
+   "what": "A guided order of studies, with progress kept on the device.",
+   "address": "/apologetics/paths/<path>",
+   "instances": 5,
+   "sources": [
+    "src/components/ApologeticsParts.tsx",
+    "src/pages/ApologeticsPage.tsx",
+    "src/pages/apologetics.css"
+   ],
+   "sourceHash": "8aefdf999c728e0f",
+   "signature": null,
+   "variants": [
+    {
+     "id": "page",
+     "name": "Learning path",
+     "what": "A guided order of studies, with progress kept on the device.",
+     "instances": 5,
+     "samples": [
+      {
+       "id": "most",
+       "label": "Most studies",
+       "url": "/apologetics/paths/reformed-foundations",
+       "why": "most studies: Explore the Reformed faith (6)"
+      },
+      {
+       "id": "fewest",
+       "label": "Fewest studies",
+       "url": "/apologetics/paths/honest-questions",
+       "why": "fewest studies: Walk through honest doubt (5), a near-empty page"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ap-worldview",
+   "area": "apologetics",
+   "name": "Worldview",
+   "what": "The Christian starting point beside another belief, question by question.",
+   "address": "/apologetics/worldviews/<worldview>",
+   "instances": 2,
+   "sources": [
+    "src/components/ApologeticsParts.tsx",
+    "src/pages/ApologeticsPage.tsx",
+    "src/pages/apologetics.css"
+   ],
+   "sourceHash": "8aefdf999c728e0f",
+   "signature": null,
+   "variants": [
+    {
+     "id": "page",
+     "name": "Worldview",
+     "what": "The Christian starting point beside another belief, question by question.",
+     "instances": 2,
+     "samples": [
+      {
+       "id": "first",
+       "label": "First",
+       "url": "/apologetics/worldviews/islam",
+       "why": "the first worldview: Christianity & Islam"
+      },
+      {
+       "id": "last",
+       "label": "Last",
+       "url": "/apologetics/worldviews/secular",
+       "why": "the other one: Christianity & secular thought"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ap-debate",
+   "area": "apologetics",
+   "name": "Debate study",
+   "what": "A recorded debate to study, with the questions underneath.",
+   "address": "/apologetics/debates/<debate>",
+   "instances": 3,
+   "sources": [
+    "src/components/ApologeticsParts.tsx",
+    "src/pages/ApologeticsPage.tsx",
+    "src/pages/apologetics.css"
+   ],
+   "sourceHash": "8aefdf999c728e0f",
+   "signature": null,
+   "variants": [
+    {
+     "id": "page",
+     "name": "Debate study",
+     "what": "A recorded debate to study, with the questions underneath.",
+     "instances": 3,
+     "samples": [
+      {
+       "id": "first",
+       "label": "First",
+       "url": "/apologetics/debates/craig-hitchens",
+       "why": "the first debate: Does God exist?"
+      },
+      {
+       "id": "longest-title",
+       "label": "Longest title",
+       "url": "/apologetics/debates/craig-ally-god",
+       "why": "longest title: \"The concept of God\" (18 characters)"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ap-practice",
+   "area": "apologetics",
+   "name": "Practice conversation",
+   "what": "Practise a conversation, step by step.",
+   "address": "/apologetics/practice?scenario=<scenario>",
+   "instances": 3,
+   "sources": [
+    "src/components/ApologeticsParts.tsx",
+    "src/pages/ApologeticsPage.tsx",
+    "src/pages/apologetics.css"
+   ],
+   "sourceHash": "8aefdf999c728e0f",
+   "signature": null,
+   "variants": [
+    {
+     "id": "scenario",
+     "name": "A scenario",
+     "what": "One practice conversation.",
+     "instances": 3,
+     "samples": [
+      {
+       "id": "first",
+       "label": "First",
+       "url": "/apologetics/practice?scenario=grief",
+       "why": "the first scenario: “Where was God when I needed him?”"
+      },
+      {
+       "id": "longest-title",
+       "label": "Longest title",
+       "url": "/apologetics/practice?scenario=changed-bible",
+       "why": "longest title: \"“The Bible has been rewritten so many times.”\" (45 characters)"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "testimonies",
+   "area": "testimonies",
+   "name": "Testimonies",
+   "what": "Testimonies on the family tree: explore, write one, or open with a key.",
+   "address": "/testimonies",
+   "instances": 3,
+   "sources": [
+    "src/pages/TestimoniesPage.tsx"
+   ],
+   "sourceHash": "4e7cc3a51ef0f67b",
+   "signature": null,
+   "variants": [
+    {
+     "id": "explore",
+     "name": "Explore",
+     "what": "The testimony tree.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/testimonies",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "join",
+     "name": "Write a testimony",
+     "what": "Without an invitation code.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/testimonies/join",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "access",
+     "name": "Open with a key",
+     "what": "Without a key.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/testimonies/access",
+       "why": "the only page of this design"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "home",
+   "area": "site",
+   "name": "Home",
+   "what": "The front page.",
+   "address": "/",
+   "instances": 1,
+   "sources": [
+    "src/components/home/HomeArtwork.tsx",
+    "src/components/home/collection-data.ts",
+    "src/components/home/home-hub.css",
+    "src/components/home/home-landing-options.css",
+    "src/pages/HomePage.tsx"
+   ],
+   "sourceHash": "0728f4a82d917302",
+   "signature": null,
+   "variants": [
+    {
+     "id": "page",
+     "name": "Home",
+     "what": "The front page.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/",
+       "why": "the only page of this design"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "search",
+   "area": "site",
+   "name": "Search",
+   "what": "Keyword search across the Bible.",
+   "address": "/search?q=<words>",
+   "instances": 3,
+   "sources": [
+    "src/components/search/SearchLanding.tsx",
+    "src/components/search/SearchSections.tsx",
+    "src/components/search/WordDistribution.tsx",
+    "src/components/search/WordTabs.tsx",
+    "src/components/search/search-topics.css",
+    "src/components/search/search-words.css",
+    "src/components/search/word-distribution.css",
+    "src/pages/SearchPage.tsx"
+   ],
+   "sourceHash": "7b3091daa00a3015",
+   "signature": null,
+   "variants": [
+    {
+     "id": "results",
+     "name": "With results",
+     "what": "A common word.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/search?q=grace",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "none",
+     "name": "No results",
+     "what": "A word that is not in the Bible.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/search?q=zzzzqx",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "empty",
+     "name": "Nothing searched yet",
+     "what": "The empty search page.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/search",
+       "why": "the only page of this design"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "meaning-search",
+   "area": "site",
+   "name": "Search by meaning",
+   "what": "Meaning search that runs on the visitor's device.",
+   "address": "/search/meaning",
+   "instances": 1,
+   "sources": [
+    "src/lib/meaning/engine.ts",
+    "src/lib/meaning/store.ts",
+    "src/pages/MeaningSearchPage.tsx"
+   ],
+   "sourceHash": "71dd5b49944c2302",
+   "signature": null,
+   "variants": [
+    {
+     "id": "page",
+     "name": "Search by meaning",
+     "what": "Meaning search that runs on the visitor's device.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/search/meaning",
+       "why": "the only page of this design"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "sources",
+   "area": "site",
+   "name": "Sources & versions",
+   "what": "Every source and version, with the corpus dashboard.",
+   "address": "/sources",
+   "instances": 1,
+   "sources": [
+    "src/components/SourceDirectory.tsx",
+    "src/components/sources/CorpusDashboard.tsx",
+    "src/components/sources/SourceProviders.tsx",
+    "src/components/sources/types.ts",
+    "src/pages/VersionsPage.tsx"
+   ],
+   "sourceHash": "c9fe08bb11c8f55e",
+   "signature": null,
+   "variants": [
+    {
+     "id": "page",
+     "name": "Sources & versions",
+     "what": "Every source and version, with the corpus dashboard.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/sources",
+       "why": "the only page of this design"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "library",
+   "area": "site",
+   "name": "The library",
+   "what": "The library of Bible versions.",
+   "address": "/library",
+   "instances": 1,
+   "sources": [
+    "src/pages/LibraryPage.tsx"
+   ],
+   "sourceHash": "4e846b9499207072",
+   "signature": null,
+   "variants": [
+    {
+     "id": "page",
+     "name": "The library",
+     "what": "The library of Bible versions.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/library",
+       "why": "the only page of this design"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "not-found",
+   "area": "site",
+   "name": "Page not found",
+   "what": "What a wrong address shows.",
+   "address": "/<any wrong address>",
+   "instances": 1,
+   "sources": [
+    "src/pages/NotFoundPage.tsx"
+   ],
+   "sourceHash": "1351b4148db9925c",
+   "signature": null,
+   "variants": [
+    {
+     "id": "page",
+     "name": "Page not found",
+     "what": "A wrong address.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/this-page-does-not-exist",
+       "why": "the only page of this design"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "topic-superlist",
+   "area": "site",
+   "name": "Topic superlist (hidden)",
+   "what": "The hidden list of every topic group, for review.",
+   "address": "/topics/superlist",
+   "instances": 1,
+   "sources": [
+    "src/pages/topics/TopicSuperlist.tsx",
+    "src/pages/topics/topic-superlist.css"
+   ],
+   "sourceHash": "ac4208458240059c",
+   "signature": null,
+   "variants": [
+    {
+     "id": "page",
+     "name": "Topic superlist",
+     "what": "Not linked from the site.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/topics/superlist",
+       "why": "the only page of this design"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

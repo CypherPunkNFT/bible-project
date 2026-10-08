@@ -15,5 +15,5 @@
     "types": ["node"]
   },
   "include": ["vite.config.ts", "vitest.config.ts", "tailwind.config.ts", "playwright.config.ts", "e2e", "scripts"],
-  "exclude": ["scripts/export-pages.ts", "scripts/pages"]
+  "exclude": ["scripts/export-pages.ts", "scripts/pages", "scripts/design-review/inventory.ts", "scripts/design-review/site-map-*.ts", "scripts/design-review/model.ts", "scripts/design-review/sources.ts"]
 }
