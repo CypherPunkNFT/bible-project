@@ -2,6 +2,46 @@
   "about": "Every design mock-up, by section, for the gallery at /mockups/ (design/index.html). Add a card here whenever a new mock-up folder lands in design/; `node scripts/mockup-gallery.mjs` refreshes the thumbnails and fails if a folder is missing from this list. Optional `shot`: the address the gallery picture is taken from, when the mock-up's difference is not on its first page.",
   "sections": [
     {
+      "id": "people",
+      "title": "Study · People",
+      "line": "The people pages' visual overhaul, Moses first: one Moses told as three forties (Acts 7:23, 7:30, 7:36), with the journey map and the timeline as the spine. Brief: Research/People/OVERHAUL.md.",
+      "page": "/people/moses-exo-2-10",
+      "cards": [
+        {
+          "id": "people-moses-road",
+          "title": "A · The road",
+          "url": "/mockups/moses-directions/#road",
+          "date": "2026-10-08",
+          "status": "option",
+          "line": "Recommended. The map is the page: a full-width journey map stays in place while you scroll, the route draws itself act by act, and each scene rises over it as a glass panel."
+        },
+        {
+          "id": "people-moses-forties",
+          "title": "B · Three forties",
+          "url": "/mockups/moses-directions/#forties",
+          "date": "2026-10-08",
+          "status": "option",
+          "line": "A command-deck hero: a 120-year ring split into the three forties; choose an act and its bento tiles (scenes, people, words, places) fill the screen and open in place."
+        },
+        {
+          "id": "people-moses-cinema",
+          "title": "C · Cinema",
+          "url": "/mockups/moses-directions/#cinema",
+          "date": "2026-10-08",
+          "status": "option",
+          "line": "Full-screen chapters, each with a large line drawing (bush, sea, mountain, tent, Nebo); scenes slide sideways within a chapter; the full text waits in drawers."
+        },
+        {
+          "id": "people-moses-constellation",
+          "title": "D · Constellation",
+          "url": "/mockups/moses-directions/#constellation",
+          "date": "2026-10-08",
+          "status": "option",
+          "line": "Moses at the centre of a field: rings of people, places, moments and words, clockwise in story order; choose any point and its panel opens beside it, lines drawn to everything it touches."
+        }
+      ]
+    },
+    {
       "id": "journeys",
       "title": "Atlas · Journeys",
       "line": "The Journeys page: person icons, the Your journey area and the route that draws itself.",
