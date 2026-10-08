@@ -10,6 +10,7 @@ import { ParallelText, type Column } from "@/components/reader/ParallelText";
 import { ReaderToolbar, type ChapterLink } from "@/components/reader/ReaderToolbar";
 import { useReaderSettings } from "@/components/reader/settings";
 import { VersePanel } from "@/components/reader/VersePanel";
+import { WhoRuledCard, WhoRuledStrip } from "@/components/reader/WhoRuled";
 import { ChapterCrossRefs } from "@/components/reader/ChapterCrossRefs";
 import { useChapterCrossRefs } from "@/components/reader/useChapterCrossRefs";
 import { useMediaQuery } from "@/lib/useMediaQuery";
@@ -189,6 +190,11 @@ function ReaderBody({ translation, code, chapter }: { translation: Translation; 
               </button>
             )}
           </header>
+          {translation.numbering === "english" && !parallel.length && (
+            <div style={{ fontSize: "1rem" }}>
+              <WhoRuledStrip bookCode={code} bookNum={book.num} chapter={Number(chapter)} />
+            </div>
+          )}
           {texts.status === "loading" && <div className="space-y-3">{[...Array(8)].map((_, i) => <div key={i} className="h-5 animate-pulse rounded bg-surface-2" />)}</div>}
           {texts.status === "error" && <p className="text-muted">This chapter could not be loaded. Try another version.</p>}
           {texts.status === "ready" &&
@@ -222,6 +228,7 @@ function ReaderBody({ translation, code, chapter }: { translation: Translation; 
           <div style={{ fontSize: "1rem" }}>
             {translation.numbering === "english" && <ChapterPlaces bookCode={code} bookNum={book.num} chapter={Number(chapter)} />}
             {translation.numbering === "english" && <ChapterTopics bookCode={code} bookNum={book.num} chapter={Number(chapter)} />}
+            {translation.numbering === "english" && <WhoRuledCard translation={translation} bookCode={code} bookNum={book.num} bookName={book.name} chapter={Number(chapter)} />}
           </div>
         </article>
         {selected ? (

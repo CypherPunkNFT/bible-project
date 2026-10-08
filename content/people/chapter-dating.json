@@ -1,0 +1,1507 @@
+{
+ "about": "Scripture's own dating statements, by chapter. Hand-checked against the KJV on 2026-10-08. Used by the reader's 'Who ruled when' strip (scripts/build-people-pages-index.py).",
+ "headings": [
+  {
+   "book": "RUT",
+   "span": [
+    8001001,
+    8001001
+   ],
+   "quote": "Now it came to pass in the days when the judges ruled, that there was a famine in the land. And a certain man of Beth-lehem-judah went to sojourn in the country of Moab, he, and his wife, and his two sons.",
+   "rulers": [],
+   "note": "Dated only “in the days when the judges ruled”; no judge is named."
+  },
+  {
+   "book": "PRO",
+   "span": [
+    20001001,
+    20001001
+   ],
+   "quote": "The proverbs of Solomon the son of David, king of Israel;",
+   "rulers": [
+    "solomon-2sa-5-14"
+   ],
+   "note": "Names Solomon as the source of the proverbs; it gives no year. Later sections have their own headings: 10:1 (Solomon), 25:1 (copied by Hezekiah’s men), 30:1 (Agur) and 31:1 (king Lemuel)."
+  },
+  {
+   "book": "ECC",
+   "span": [
+    21001001,
+    21001001
+   ],
+   "quote": "The words of the Preacher, the son of David, king in Jerusalem.",
+   "rulers": [],
+   "note": "The book calls its author “the Preacher, the son of David, king in Jerusalem” (1:1) and “king over Israel in Jerusalem” (1:12), but never gives his name, so no ruler is listed. Identifying him as Solomon is a reading, not the text."
+  },
+  {
+   "book": "SNG",
+   "span": [
+    22001001,
+    22001001
+   ],
+   "quote": "The song of songs, which is Solomon’s.",
+   "rulers": [
+    "solomon-2sa-5-14"
+   ],
+   "note": "Names Solomon as the song’s owner or author; it gives no year."
+  },
+  {
+   "book": "NEH",
+   "span": [
+    16001001,
+    16001001
+   ],
+   "quote": "The words of Nehemiah the son of Hachaliah. And it came to pass in the month Chisleu, in the twentieth year, as I was in Shushan the palace,",
+   "rulers": [],
+   "note": "1:1 gives “the twentieth year” without naming the king; 2:1 dates the next scene to “the twentieth year of Artaxerxes the king”."
+  },
+  {
+   "book": "EST",
+   "span": [
+    17001001,
+    17001001
+   ],
+   "quote": "Now it came to pass in the days of Ahasuerus, (this is Ahasuerus which reigned, from India even unto Ethiopia, over an hundred and seven and twenty provinces:)",
+   "rulers": [
+    "ahasuerus-ezr-4-6"
+   ],
+   "note": "The site keeps one person record for the Ahasuerus of Ezra 4:6 and of Esther; Scripture does not say which Persian king he was."
+  },
+  {
+   "book": "ISA",
+   "span": [
+    23001001,
+    23001001
+   ],
+   "quote": "The vision of Isaiah the son of Amoz, which he saw concerning Judah and Jerusalem in the days of Uzziah, Jotham, Ahaz, and Hezekiah, kings of Judah.",
+   "rulers": [
+    "uzziah-2ki-14-21",
+    "jotham-2ki-15-5",
+    "ahaz-2ki-15-38",
+    "hezekiah-2ki-16-20"
+   ],
+   "prophet": "isaiah-2ki-19-2"
+  },
+  {
+   "book": "JER",
+   "span": [
+    24001001,
+    24001003
+   ],
+   "quote": "The words of Jeremiah the son of Hilkiah, of the priests that were in Anathoth in the land of Benjamin: To whom the word of the LORD came in the days of Josiah the son of Amon king of Judah, in the thirteenth year of his reign. It came also in the days of Jehoiakim the son of Josiah king of Judah, unto the end of the eleventh year of Zedekiah the son of Josiah king of Judah, unto the carrying away of Jerusalem captive in the fifth month.",
+   "rulers": [
+    "josiah-1ki-13-2",
+    "jehoiakim-2ki-23-34",
+    "zedekiah-2ki-24-17"
+   ],
+   "prophet": "jeremiah-2ch-35-25",
+   "note": "The heading names three kings; the two short reigns between them (Jehoahaz, 2 Kgs 23:31, and Jehoiachin, 2 Kgs 24:8) are not named here."
+  },
+  {
+   "book": "EZK",
+   "span": [
+    26001001,
+    26001003
+   ],
+   "quote": "Now it came to pass in the thirtieth year, in the fourth month, in the fifth day of the month, as I was among the captives by the river of Chebar, that the heavens were opened, and I saw visions of God. In the fifth day of the month, which was the fifth year of king Jehoiachin’s captivity, The word of the LORD came expressly unto Ezekiel the priest, the son of Buzi, in the land of the Chaldeans by the river Chebar; and the hand of the LORD was there upon him.",
+   "rulers": [
+    "jehoiachin-2ki-24-6"
+   ],
+   "prophet": "ezekiel-ezk-1-3",
+   "note": "Ezekiel dates by the years of “king Jehoiachin’s captivity”, not by a reigning king; Jehoiachin was then a captive. The text does not explain “the thirtieth year” of 1:1."
+  },
+  {
+   "book": "HOS",
+   "span": [
+    28001001,
+    28001001
+   ],
+   "quote": "The word of the LORD that came unto Hosea, the son of Beeri, in the days of Uzziah, Jotham, Ahaz, and Hezekiah, kings of Judah, and in the days of Jeroboam the son of Joash, king of Israel.",
+   "rulers": [
+    "uzziah-2ki-14-21",
+    "jotham-2ki-15-5",
+    "ahaz-2ki-15-38",
+    "hezekiah-2ki-16-20",
+    "jeroboam-2ki-13-13"
+   ],
+   "prophet": "hosea-hos-1-1"
+  },
+  {
+   "book": "AMO",
+   "span": [
+    30001001,
+    30001001
+   ],
+   "quote": "The words of Amos, who was among the herdmen of Tekoa, which he saw concerning Israel in the days of Uzziah king of Judah, and in the days of Jeroboam the son of Joash king of Israel, two years before the earthquake.",
+   "rulers": [
+    "uzziah-2ki-14-21",
+    "jeroboam-2ki-13-13"
+   ],
+   "prophet": "amos-amo-1-1",
+   "note": "Also dated “two years before the earthquake”."
+  },
+  {
+   "book": "MIC",
+   "span": [
+    33001001,
+    33001001
+   ],
+   "quote": "The word of the LORD that came to Micah the Morasthite in the days of Jotham, Ahaz, and Hezekiah, kings of Judah, which he saw concerning Samaria and Jerusalem.",
+   "rulers": [
+    "jotham-2ki-15-5",
+    "ahaz-2ki-15-38",
+    "hezekiah-2ki-16-20"
+   ],
+   "prophet": "micah-jer-26-18"
+  },
+  {
+   "book": "ZEP",
+   "span": [
+    36001001,
+    36001001
+   ],
+   "quote": "The word of the LORD which came unto Zephaniah the son of Cushi, the son of Gedaliah, the son of Amariah, the son of Hizkiah, in the days of Josiah the son of Amon, king of Judah.",
+   "rulers": [
+    "josiah-1ki-13-2"
+   ],
+   "prophet": "zephaniah-zep-1-1"
+  },
+  {
+   "book": "HAG",
+   "span": [
+    37001001,
+    37001001
+   ],
+   "quote": "In the second year of Darius the king, in the sixth month, in the first day of the month, came the word of the LORD by Haggai the prophet unto Zerubbabel the son of Shealtiel, governor of Judah, and to Joshua the son of Josedech, the high priest, saying,",
+   "rulers": [
+    "darius-ezr-4-5"
+   ],
+   "prophet": "haggai-ezr-5-1",
+   "note": "Scripture says only “Darius the king”; the site’s record is the Darius of Ezra 4–6 (identifying him as Darius I is a view on his page)."
+  },
+  {
+   "book": "ZEC",
+   "span": [
+    38001001,
+    38001001
+   ],
+   "quote": "In the eighth month, in the second year of Darius, came the word of the LORD unto Zechariah, the son of Berechiah, the son of Iddo the prophet, saying,",
+   "rulers": [
+    "darius-ezr-4-5"
+   ],
+   "prophet": "zechariah-ezr-5-1",
+   "note": "Scripture says only “Darius”; the site’s record is the Darius of Ezra 4–6."
+  }
+ ],
+ "none": [
+  {
+   "book": "LAM",
+   "note": "The book names no king and no author."
+  },
+  {
+   "book": "JOL",
+   "prophet": "joel-jol-1-1",
+   "note": "The book names no king."
+  },
+  {
+   "book": "OBA",
+   "prophet": "obadiah-oba-1-1",
+   "note": "The book names no king."
+  },
+  {
+   "book": "JON",
+   "prophet": "jonah-2ki-14-25",
+   "note": "The book names no king; 2 Kings 14:25 places Jonah son of Amittai in Jeroboam’s reign (see related)."
+  },
+  {
+   "book": "NAM",
+   "prophet": "nahum-nam-1-1",
+   "note": "The book names no king."
+  },
+  {
+   "book": "HAB",
+   "prophet": "habakkuk-hab-1-1",
+   "note": "The book names no king."
+  },
+  {
+   "book": "MAL",
+   "prophet": "malachi-mal-1-1",
+   "note": "The book names no king."
+  }
+ ],
+ "dated": [
+  {
+   "span": [
+    20025001,
+    20025001
+   ],
+   "quote": "These are also proverbs of Solomon, which the men of Hezekiah king of Judah copied out.",
+   "rulers": [
+    "solomon-2sa-5-14",
+    "hezekiah-2ki-16-20"
+   ],
+   "covers": [
+    20025,
+    20029
+   ],
+   "why": "25:1 heads a collection that runs on to the next heading, “The words of Agur” at 30:1."
+  },
+  {
+   "span": [
+    20031001,
+    20031001
+   ],
+   "quote": "The words of king Lemuel, the prophecy that his mother taught him.",
+   "rulers": [
+    "lemuel-pro-31-1"
+   ],
+   "covers": [
+    20031,
+    20031
+   ],
+   "note": "Names the source of the chapter, not a year; Scripture does not say where Lemuel reigned."
+  },
+  {
+   "span": [
+    23006001,
+    23006001
+   ],
+   "quote": "In the year that king Uzziah died I saw also the Lord sitting upon a throne, high and lifted up, and his train filled the temple.",
+   "rulers": [
+    "uzziah-2ki-14-21"
+   ],
+   "covers": [
+    23006,
+    23006
+   ]
+  },
+  {
+   "span": [
+    23007001,
+    23007001
+   ],
+   "quote": "And it came to pass in the days of Ahaz the son of Jotham, the son of Uzziah, king of Judah, that Rezin the king of Syria, and Pekah the son of Remaliah, king of Israel, went up toward Jerusalem to war against it, but could not prevail against it.",
+   "rulers": [
+    "ahaz-2ki-15-38",
+    "rezin-2ki-15-37",
+    "pekah-2ki-15-25"
+   ],
+   "covers": [
+    23007,
+    23007
+   ]
+  },
+  {
+   "span": [
+    23014028,
+    23014028
+   ],
+   "quote": "In the year that king Ahaz died was this burden.",
+   "rulers": [
+    "ahaz-2ki-15-38"
+   ],
+   "covers": [
+    23014,
+    23014
+   ],
+   "note": "Governs only the burden of 14:28–32; 14:1–27 belongs to the burden of Babylon begun at 13:1."
+  },
+  {
+   "span": [
+    23020001,
+    23020001
+   ],
+   "quote": "In the year that Tartan came unto Ashdod, (when Sargon the king of Assyria sent him,) and fought against Ashdod, and took it;",
+   "rulers": [
+    "sargon-isa-20-1"
+   ],
+   "covers": [
+    23020,
+    23020
+   ]
+  },
+  {
+   "span": [
+    23036001,
+    23036001
+   ],
+   "quote": "Now it came to pass in the fourteenth year of king Hezekiah, that Sennacherib king of Assyria came up against all the defenced cities of Judah, and took them.",
+   "rulers": [
+    "hezekiah-2ki-16-20",
+    "sennacherib-2ki-18-13"
+   ],
+   "covers": [
+    23036,
+    23039
+   ],
+   "why": "One continuous account of Hezekiah: 37 goes straight on, 38:1 opens “In those days” and 39:1 “At that time”."
+  },
+  {
+   "span": [
+    24003006,
+    24003006
+   ],
+   "quote": "The LORD said also unto me in the days of Josiah the king, Hast thou seen that which backsliding Israel hath done? she is gone up upon every high mountain and under every green tree, and there hath played the harlot.",
+   "rulers": [
+    "josiah-1ki-13-2"
+   ],
+   "covers": [
+    24003,
+    24003
+   ]
+  },
+  {
+   "span": [
+    24021001,
+    24021001
+   ],
+   "quote": "The word which came unto Jeremiah from the LORD, when king Zedekiah sent unto him Pashur the son of Melchiah, and Zephaniah the son of Maaseiah the priest, saying,",
+   "rulers": [
+    "zedekiah-2ki-24-17"
+   ],
+   "covers": [
+    24021,
+    24021
+   ]
+  },
+  {
+   "span": [
+    24024001,
+    24024001
+   ],
+   "quote": "The LORD shewed me, and, behold, two baskets of figs were set before the temple of the LORD, after that Nebuchadrezzar king of Babylon had carried away captive Jeconiah the son of Jehoiakim king of Judah, and the princes of Judah, with the carpenters and smiths, from Jerusalem, and had brought them to Babylon.",
+   "rulers": [
+    "nebuchadnezzar-2ki-24-1"
+   ],
+   "covers": [
+    24024,
+    24024
+   ],
+   "note": "Dated after Nebuchadrezzar carried away Jeconiah (Jehoiachin); the king then reigning in Judah is not named in this verse."
+  },
+  {
+   "span": [
+    24025001,
+    24025001
+   ],
+   "quote": "The word that came to Jeremiah concerning all the people of Judah in the fourth year of Jehoiakim the son of Josiah king of Judah, that was the first year of Nebuchadrezzar king of Babylon;",
+   "rulers": [
+    "jehoiakim-2ki-23-34",
+    "nebuchadnezzar-2ki-24-1"
+   ],
+   "covers": [
+    24025,
+    24025
+   ]
+  },
+  {
+   "span": [
+    24026001,
+    24026001
+   ],
+   "quote": "In the beginning of the reign of Jehoiakim the son of Josiah king of Judah came this word from the LORD, saying,",
+   "rulers": [
+    "jehoiakim-2ki-23-34"
+   ],
+   "covers": [
+    24026,
+    24026
+   ]
+  },
+  {
+   "span": [
+    24027001,
+    24027001
+   ],
+   "quote": "In the beginning of the reign of Jehoiakim the son of Josiah king of Judah came this word unto Jeremiah from the LORD, saying,",
+   "rulers": [
+    "jehoiakim-2ki-23-34"
+   ],
+   "covers": [
+    24027,
+    24027
+   ],
+   "note": "Recorded as the KJV reads (“Jehoiakim”). The chapter’s message goes to Zedekiah (27:3, 27:12), and 28:1 calls this “the same year, in the beginning of the reign of Zedekiah”."
+  },
+  {
+   "span": [
+    24028001,
+    24028001
+   ],
+   "quote": "And it came to pass the same year, in the beginning of the reign of Zedekiah king of Judah, in the fourth year, and in the fifth month, that Hananiah the son of Azur the prophet, which was of Gibeon, spake unto me in the house of the LORD, in the presence of the priests and of all the people, saying,",
+   "rulers": [
+    "zedekiah-2ki-24-17"
+   ],
+   "covers": [
+    24028,
+    24028
+   ]
+  },
+  {
+   "span": [
+    24029002,
+    24029003
+   ],
+   "quote": "(After that Jeconiah the king, and the queen, and the eunuchs, the princes of Judah and Jerusalem, and the carpenters, and the smiths, were departed from Jerusalem;) By the hand of Elasah the son of Shaphan, and Gemariah the son of Hilkiah, (whom Zedekiah king of Judah sent unto Babylon to Nebuchadnezzar king of Babylon) saying,",
+   "rulers": [
+    "zedekiah-2ki-24-17",
+    "nebuchadnezzar-2ki-24-1"
+   ],
+   "covers": [
+    24029,
+    24029
+   ],
+   "note": "The letter was sent after Jeconiah’s departure, by men whom Zedekiah sent to Nebuchadnezzar."
+  },
+  {
+   "span": [
+    24032001,
+    24032001
+   ],
+   "quote": "The word that came to Jeremiah from the LORD in the tenth year of Zedekiah king of Judah, which was the eighteenth year of Nebuchadrezzar.",
+   "rulers": [
+    "zedekiah-2ki-24-17",
+    "nebuchadnezzar-2ki-24-1"
+   ],
+   "covers": [
+    24032,
+    24033
+   ],
+   "why": "33:1 is the word that came “the second time, while he was yet shut up in the court of the prison”, the imprisonment of 32:2."
+  },
+  {
+   "span": [
+    24034001,
+    24034001
+   ],
+   "quote": "The word which came unto Jeremiah from the LORD, when Nebuchadnezzar king of Babylon, and all his army, and all the kingdoms of the earth of his dominion, and all the people, fought against Jerusalem, and against all the cities thereof, saying,",
+   "rulers": [
+    "nebuchadnezzar-2ki-24-1"
+   ],
+   "covers": [
+    24034,
+    24034
+   ],
+   "note": "34:2 names Zedekiah king of Judah as the one addressed."
+  },
+  {
+   "span": [
+    24035001,
+    24035001
+   ],
+   "quote": "The word which came unto Jeremiah from the LORD in the days of Jehoiakim the son of Josiah king of Judah, saying,",
+   "rulers": [
+    "jehoiakim-2ki-23-34"
+   ],
+   "covers": [
+    24035,
+    24035
+   ]
+  },
+  {
+   "span": [
+    24036001,
+    24036001
+   ],
+   "quote": "And it came to pass in the fourth year of Jehoiakim the son of Josiah king of Judah, that this word came unto Jeremiah from the LORD, saying,",
+   "rulers": [
+    "jehoiakim-2ki-23-34"
+   ],
+   "covers": [
+    24036,
+    24036
+   ]
+  },
+  {
+   "span": [
+    24036009,
+    24036009
+   ],
+   "quote": "And it came to pass in the fifth year of Jehoiakim the son of Josiah king of Judah, in the ninth month, that they proclaimed a fast before the LORD to all the people in Jerusalem, and to all the people that came from the cities of Judah unto Jerusalem.",
+   "rulers": [
+    "jehoiakim-2ki-23-34"
+   ],
+   "covers": [
+    24036,
+    24036
+   ]
+  },
+  {
+   "span": [
+    24037001,
+    24037001
+   ],
+   "quote": "And king Zedekiah the son of Josiah reigned instead of Coniah the son of Jehoiakim, whom Nebuchadrezzar king of Babylon made king in the land of Judah.",
+   "rulers": [
+    "zedekiah-2ki-24-17"
+   ],
+   "covers": [
+    24037,
+    24038
+   ],
+   "why": "38:1 (“Then Shephatiah…”) continues the account of Jeremiah’s imprisonment under Zedekiah begun in 37."
+  },
+  {
+   "span": [
+    24039001,
+    24039002
+   ],
+   "quote": "In the ninth year of Zedekiah king of Judah, in the tenth month, came Nebuchadrezzar king of Babylon and all his army against Jerusalem, and they besieged it. And in the eleventh year of Zedekiah, in the fourth month, the ninth day of the month, the city was broken up.",
+   "rulers": [
+    "zedekiah-2ki-24-17",
+    "nebuchadnezzar-2ki-24-1"
+   ],
+   "covers": [
+    24039,
+    24039
+   ]
+  },
+  {
+   "span": [
+    24045001,
+    24045001
+   ],
+   "quote": "The word that Jeremiah the prophet spake unto Baruch the son of Neriah, when he had written these words in a book at the mouth of Jeremiah, in the fourth year of Jehoiakim the son of Josiah king of Judah, saying,",
+   "rulers": [
+    "jehoiakim-2ki-23-34"
+   ],
+   "covers": [
+    24045,
+    24045
+   ]
+  },
+  {
+   "span": [
+    24046002,
+    24046002
+   ],
+   "quote": "Against Egypt, against the army of Pharaoh-necho king of Egypt, which was by the river Euphrates in Carchemish, which Nebuchadrezzar king of Babylon smote in the fourth year of Jehoiakim the son of Josiah king of Judah.",
+   "rulers": [
+    "neco-2ki-23-29",
+    "nebuchadnezzar-2ki-24-1",
+    "jehoiakim-2ki-23-34"
+   ],
+   "covers": [
+    24046,
+    24046
+   ],
+   "note": "Governs the oracle of 46:2–12; 46:13 begins a new word."
+  },
+  {
+   "span": [
+    24049034,
+    24049034
+   ],
+   "quote": "The word of the LORD that came to Jeremiah the prophet against Elam in the beginning of the reign of Zedekiah king of Judah, saying,",
+   "rulers": [
+    "zedekiah-2ki-24-17"
+   ],
+   "covers": [
+    24049,
+    24049
+   ],
+   "note": "Governs only the word against Elam, 49:34–39."
+  },
+  {
+   "span": [
+    24051059,
+    24051059
+   ],
+   "quote": "The word which Jeremiah the prophet commanded Seraiah the son of Neriah, the son of Maaseiah, when he went with Zedekiah the king of Judah into Babylon in the fourth year of his reign. And this Seraiah was a quiet prince.",
+   "rulers": [
+    "zedekiah-2ki-24-17"
+   ],
+   "covers": [
+    24051,
+    24051
+   ],
+   "note": "Governs only 51:59–64."
+  },
+  {
+   "span": [
+    24052004,
+    24052004
+   ],
+   "quote": "And it came to pass in the ninth year of his reign, in the tenth month, in the tenth day of the month, that Nebuchadrezzar king of Babylon came, he and all his army, against Jerusalem, and pitched against it, and built forts against it round about.",
+   "rulers": [
+    "zedekiah-2ki-24-17",
+    "nebuchadnezzar-2ki-24-1"
+   ],
+   "covers": [
+    24052,
+    24052
+   ],
+   "note": "“His reign” is Zedekiah’s (52:1–3)."
+  },
+  {
+   "span": [
+    24052012,
+    24052012
+   ],
+   "quote": "Now in the fifth month, in the tenth day of the month, which was the nineteenth year of Nebuchadrezzar king of Babylon, came Nebuzar-adan, captain of the guard, which served the king of Babylon, into Jerusalem,",
+   "rulers": [
+    "nebuchadnezzar-2ki-24-1"
+   ],
+   "covers": [
+    24052,
+    24052
+   ]
+  },
+  {
+   "span": [
+    24052031,
+    24052031
+   ],
+   "quote": "And it came to pass in the seven and thirtieth year of the captivity of Jehoiachin king of Judah, in the twelfth month, in the five and twentieth day of the month, that Evil-merodach king of Babylon in the first year of his reign lifted up the head of Jehoiachin king of Judah, and brought him forth out of prison,",
+   "rulers": [
+    "jehoiachin-2ki-24-6",
+    "evil-merodach-2ki-25-27"
+   ],
+   "covers": [
+    24052,
+    24052
+   ]
+  },
+  {
+   "span": [
+    26008001,
+    26008001
+   ],
+   "quote": "And it came to pass in the sixth year, in the sixth month, in the fifth day of the month, as I sat in mine house, and the elders of Judah sat before me, that the hand of the Lord GOD fell there upon me.",
+   "rulers": [],
+   "covers": [
+    26008,
+    26011
+   ],
+   "why": "One vision: begun at 8:1–3, it runs through 9–10 and ends at 11:24 (“So the vision that I had seen went up from me”).",
+   "note": "Ezekiel counts his years from “king Jehoiachin’s captivity” (1:2); this verse gives the year but names no king, so no ruler is listed."
+  },
+  {
+   "span": [
+    26020001,
+    26020001
+   ],
+   "quote": "And it came to pass in the seventh year, in the fifth month, the tenth day of the month, that certain of the elders of Israel came to enquire of the LORD, and sat before me.",
+   "rulers": [],
+   "covers": [
+    26020,
+    26020
+   ],
+   "note": "Ezekiel counts his years from “king Jehoiachin’s captivity” (1:2); this verse gives the year but names no king, so no ruler is listed."
+  },
+  {
+   "span": [
+    26024001,
+    26024001
+   ],
+   "quote": "Again in the ninth year, in the tenth month, in the tenth day of the month, the word of the LORD came unto me, saying,",
+   "rulers": [],
+   "covers": [
+    26024,
+    26024
+   ],
+   "note": "Ezekiel counts his years from “king Jehoiachin’s captivity” (1:2); this verse gives the year but names no king, so no ruler is listed."
+  },
+  {
+   "span": [
+    26026001,
+    26026001
+   ],
+   "quote": "And it came to pass in the eleventh year, in the first day of the month, that the word of the LORD came unto me, saying,",
+   "rulers": [],
+   "covers": [
+    26026,
+    26026
+   ],
+   "note": "Ezekiel counts his years from “king Jehoiachin’s captivity” (1:2); this verse gives the year but names no king, so no ruler is listed."
+  },
+  {
+   "span": [
+    26029001,
+    26029001
+   ],
+   "quote": "In the tenth year, in the tenth month, in the twelfth day of the month, the word of the LORD came unto me, saying,",
+   "rulers": [],
+   "covers": [
+    26029,
+    26029
+   ],
+   "note": "Ezekiel counts his years from “king Jehoiachin’s captivity” (1:2); this verse gives the year but names no king, so no ruler is listed."
+  },
+  {
+   "span": [
+    26029017,
+    26029017
+   ],
+   "quote": "And it came to pass in the seven and twentieth year, in the first month, in the first day of the month, the word of the LORD came unto me, saying,",
+   "rulers": [],
+   "covers": [
+    26029,
+    26029
+   ],
+   "note": "Ezekiel counts his years from “king Jehoiachin’s captivity” (1:2); this verse gives the year but names no king, so no ruler is listed."
+  },
+  {
+   "span": [
+    26030020,
+    26030020
+   ],
+   "quote": "And it came to pass in the eleventh year, in the first month, in the seventh day of the month, that the word of the LORD came unto me, saying,",
+   "rulers": [],
+   "covers": [
+    26030,
+    26030
+   ],
+   "note": "Ezekiel counts his years from “king Jehoiachin’s captivity” (1:2); this verse gives the year but names no king, so no ruler is listed."
+  },
+  {
+   "span": [
+    26031001,
+    26031001
+   ],
+   "quote": "And it came to pass in the eleventh year, in the third month, in the first day of the month, that the word of the LORD came unto me, saying,",
+   "rulers": [],
+   "covers": [
+    26031,
+    26031
+   ],
+   "note": "Ezekiel counts his years from “king Jehoiachin’s captivity” (1:2); this verse gives the year but names no king, so no ruler is listed."
+  },
+  {
+   "span": [
+    26032001,
+    26032001
+   ],
+   "quote": "And it came to pass in the twelfth year, in the twelfth month, in the first day of the month, that the word of the LORD came unto me, saying,",
+   "rulers": [],
+   "covers": [
+    26032,
+    26032
+   ],
+   "note": "Ezekiel counts his years from “king Jehoiachin’s captivity” (1:2); this verse gives the year but names no king, so no ruler is listed."
+  },
+  {
+   "span": [
+    26032017,
+    26032017
+   ],
+   "quote": "It came to pass also in the twelfth year, in the fifteenth day of the month, that the word of the LORD came unto me, saying,",
+   "rulers": [],
+   "covers": [
+    26032,
+    26032
+   ],
+   "note": "Ezekiel counts his years from “king Jehoiachin’s captivity” (1:2); this verse gives the year but names no king, so no ruler is listed."
+  },
+  {
+   "span": [
+    26033021,
+    26033021
+   ],
+   "quote": "And it came to pass in the twelfth year of our captivity, in the tenth month, in the fifth day of the month, that one that had escaped out of Jerusalem came unto me, saying, The city is smitten.",
+   "rulers": [],
+   "covers": [
+    26033,
+    26033
+   ],
+   "note": "Dated “in the twelfth year of our captivity”; no king is named, so no ruler is listed."
+  },
+  {
+   "span": [
+    26040001,
+    26040001
+   ],
+   "quote": "In the five and twentieth year of our captivity, in the beginning of the year, in the tenth day of the month, in the fourteenth year after that the city was smitten, in the selfsame day the hand of the LORD was upon me, and brought me thither.",
+   "rulers": [],
+   "covers": [
+    26040,
+    26048
+   ],
+   "why": "The vision of the temple begun at 40:1–4 runs to the end of the book with no new date or opening.",
+   "note": "Dated “in the five and twentieth year of our captivity”; no king is named, so no ruler is listed."
+  },
+  {
+   "span": [
+    27001001,
+    27001001
+   ],
+   "quote": "In the third year of the reign of Jehoiakim king of Judah came Nebuchadnezzar king of Babylon unto Jerusalem, and besieged it.",
+   "rulers": [
+    "jehoiakim-2ki-23-34",
+    "nebuchadnezzar-2ki-24-1"
+   ],
+   "covers": [
+    27001,
+    27001
+   ],
+   "note": "Dates the opening events, not the whole book. 1:21 adds that Daniel “continued even unto the first year of king Cyrus”."
+  },
+  {
+   "span": [
+    27002001,
+    27002001
+   ],
+   "quote": "And in the second year of the reign of Nebuchadnezzar Nebuchadnezzar dreamed dreams, wherewith his spirit was troubled, and his sleep brake from him.",
+   "rulers": [
+    "nebuchadnezzar-2ki-24-1"
+   ],
+   "covers": [
+    27002,
+    27002
+   ]
+  },
+  {
+   "span": [
+    27005030,
+    27005031
+   ],
+   "quote": "In that night was Belshazzar the king of the Chaldeans slain. And Darius the Median took the kingdom, being about threescore and two years old.",
+   "rulers": [
+    "belshazzar-dan-5-1",
+    "darius-dan-5-31"
+   ],
+   "covers": [
+    27005,
+    27005
+   ]
+  },
+  {
+   "span": [
+    27006001,
+    27006001
+   ],
+   "quote": "It pleased Darius to set over the kingdom an hundred and twenty princes, which should be over the whole kingdom;",
+   "rulers": [
+    "darius-dan-5-31"
+   ],
+   "covers": [
+    27006,
+    27006
+   ],
+   "note": "6:28 adds that Daniel prospered “in the reign of Darius, and in the reign of Cyrus the Persian”."
+  },
+  {
+   "span": [
+    27007001,
+    27007001
+   ],
+   "quote": "In the first year of Belshazzar king of Babylon Daniel had a dream and visions of his head upon his bed: then he wrote the dream, and told the sum of the matters.",
+   "rulers": [
+    "belshazzar-dan-5-1"
+   ],
+   "covers": [
+    27007,
+    27007
+   ]
+  },
+  {
+   "span": [
+    27008001,
+    27008001
+   ],
+   "quote": "In the third year of the reign of king Belshazzar a vision appeared unto me, even unto me Daniel, after that which appeared unto me at the first.",
+   "rulers": [
+    "belshazzar-dan-5-1"
+   ],
+   "covers": [
+    27008,
+    27008
+   ]
+  },
+  {
+   "span": [
+    27009001,
+    27009002
+   ],
+   "quote": "In the first year of Darius the son of Ahasuerus, of the seed of the Medes, which was made king over the realm of the Chaldeans; In the first year of his reign I Daniel understood by books the number of the years, whereof the word of the LORD came to Jeremiah the prophet, that he would accomplish seventy years in the desolations of Jerusalem.",
+   "rulers": [
+    "darius-dan-5-31"
+   ],
+   "covers": [
+    27009,
+    27009
+   ],
+   "note": "“Ahasuerus” here is named as Darius’s father; the site keeps him as a separate person (ahasuerus-dan-9-1), not the king of Esther."
+  },
+  {
+   "span": [
+    27010001,
+    27010001
+   ],
+   "quote": "In the third year of Cyrus king of Persia a thing was revealed unto Daniel, whose name was called Belteshazzar; and the thing was true, but the time appointed was long: and he understood the thing, and had understanding of the vision.",
+   "rulers": [
+    "cyrus-2ch-36-22"
+   ],
+   "covers": [
+    27010,
+    27012
+   ],
+   "why": "The revelation begun at 10:1 continues as one speech of the messenger through 11 to the end of the book (12:13)."
+  },
+  {
+   "span": [
+    27011001,
+    27011001
+   ],
+   "quote": "Also I in the first year of Darius the Mede, even I, stood to confirm and to strengthen him.",
+   "rulers": [
+    "darius-dan-5-31"
+   ],
+   "covers": [
+    27011,
+    27011
+   ],
+   "note": "The messenger recalls what he did “in the first year of Darius the Mede”; the vision itself is dated by 10:1 (the third year of Cyrus)."
+  },
+  {
+   "span": [
+    37001001,
+    37001001
+   ],
+   "quote": "In the second year of Darius the king, in the sixth month, in the first day of the month, came the word of the LORD by Haggai the prophet unto Zerubbabel the son of Shealtiel, governor of Judah, and to Joshua the son of Josedech, the high priest, saying,",
+   "rulers": [
+    "darius-ezr-4-5"
+   ],
+   "covers": [
+    37001,
+    37001
+   ]
+  },
+  {
+   "span": [
+    37001015,
+    37001015
+   ],
+   "quote": "In the four and twentieth day of the sixth month, in the second year of Darius the king.",
+   "rulers": [
+    "darius-ezr-4-5"
+   ],
+   "covers": [
+    37001,
+    37001
+   ]
+  },
+  {
+   "span": [
+    37002001,
+    37002001
+   ],
+   "quote": "In the seventh month, in the one and twentieth day of the month, came the word of the LORD by the prophet Haggai, saying,",
+   "rulers": [],
+   "covers": [
+    37002,
+    37002
+   ],
+   "note": "Gives the month and day but repeats no year or king; 1:15 and 2:10 both say “the second year of Darius”."
+  },
+  {
+   "span": [
+    37002010,
+    37002010
+   ],
+   "quote": "In the four and twentieth day of the ninth month, in the second year of Darius, came the word of the LORD by Haggai the prophet, saying,",
+   "rulers": [
+    "darius-ezr-4-5"
+   ],
+   "covers": [
+    37002,
+    37002
+   ]
+  },
+  {
+   "span": [
+    38001001,
+    38001001
+   ],
+   "quote": "In the eighth month, in the second year of Darius, came the word of the LORD unto Zechariah, the son of Berechiah, the son of Iddo the prophet, saying,",
+   "rulers": [
+    "darius-ezr-4-5"
+   ],
+   "covers": [
+    38001,
+    38001
+   ]
+  },
+  {
+   "span": [
+    38001007,
+    38001007
+   ],
+   "quote": "Upon the four and twentieth day of the eleventh month, which is the month Sebat, in the second year of Darius, came the word of the LORD unto Zechariah, the son of Berechiah, the son of Iddo the prophet, saying,",
+   "rulers": [
+    "darius-ezr-4-5"
+   ],
+   "covers": [
+    38001,
+    38006
+   ],
+   "why": "The night visions begun at 1:7–8 run without a new date to 6:15; the next dating is 7:1."
+  },
+  {
+   "span": [
+    38007001,
+    38007001
+   ],
+   "quote": "And it came to pass in the fourth year of king Darius, that the word of the LORD came unto Zechariah in the fourth day of the ninth month, even in Chisleu;",
+   "rulers": [
+    "darius-ezr-4-5"
+   ],
+   "covers": [
+    38007,
+    38008
+   ],
+   "why": "Chapter 8 continues the answer to the question about the fasts asked in 7:3 (8:19 returns to the fasts)."
+  },
+  {
+   "span": [
+    15001001,
+    15001001
+   ],
+   "quote": "Now in the first year of Cyrus king of Persia, that the word of the LORD by the mouth of Jeremiah might be fulfilled, the LORD stirred up the spirit of Cyrus king of Persia, that he made a proclamation throughout all his kingdom, and put it also in writing, saying,",
+   "rulers": [
+    "cyrus-2ch-36-22"
+   ],
+   "covers": [
+    15001,
+    15003
+   ],
+   "why": "2:1 lists those who went up under the proclamation of 1:1–5, and 3:7 still works “according to the grant that they had of Cyrus”; no new dating comes until 4:5."
+  },
+  {
+   "span": [
+    15004005,
+    15004005
+   ],
+   "quote": "And hired counsellors against them, to frustrate their purpose, all the days of Cyrus king of Persia, even until the reign of Darius king of Persia.",
+   "rulers": [
+    "cyrus-2ch-36-22",
+    "darius-ezr-4-5"
+   ],
+   "covers": [
+    15004,
+    15004
+   ]
+  },
+  {
+   "span": [
+    15004006,
+    15004006
+   ],
+   "quote": "And in the reign of Ahasuerus, in the beginning of his reign, wrote they unto him an accusation against the inhabitants of Judah and Jerusalem.",
+   "rulers": [
+    "ahasuerus-ezr-4-6"
+   ],
+   "covers": [
+    15004,
+    15004
+   ]
+  },
+  {
+   "span": [
+    15004007,
+    15004007
+   ],
+   "quote": "And in the days of Artaxerxes wrote Bishlam, Mithredath, Tabeel, and the rest of their companions, unto Artaxerxes king of Persia; and the writing of the letter was written in the Syrian tongue, and interpreted in the Syrian tongue.",
+   "rulers": [
+    "artaxerxes-ezr-4-7"
+   ],
+   "covers": [
+    15004,
+    15004
+   ],
+   "note": "The site keeps one person record for the Artaxerxes of Ezra 4, Ezra 7–8 and Nehemiah; Scripture does not say whether they are the same king."
+  },
+  {
+   "span": [
+    15004024,
+    15004024
+   ],
+   "quote": "Then ceased the work of the house of God which is at Jerusalem. So it ceased unto the second year of the reign of Darius king of Persia.",
+   "rulers": [
+    "darius-ezr-4-5"
+   ],
+   "covers": [
+    15004,
+    15005
+   ],
+   "why": "5:1 (“Then the prophets…”) goes straight on from 4:24: the work resumes in the second year of Darius."
+  },
+  {
+   "span": [
+    15005013,
+    15005013
+   ],
+   "quote": "But in the first year of Cyrus the king of Babylon the same king Cyrus made a decree to build this house of God.",
+   "rulers": [
+    "cyrus-2ch-36-22"
+   ],
+   "covers": [
+    15005,
+    15005
+   ],
+   "note": "Recalls Cyrus’s decree; the letter quoting it is written under Darius (5:6–7)."
+  },
+  {
+   "span": [
+    15006015,
+    15006015
+   ],
+   "quote": "And this house was finished on the third day of the month Adar, which was in the sixth year of the reign of Darius the king.",
+   "rulers": [
+    "darius-ezr-4-5"
+   ],
+   "covers": [
+    15006,
+    15006
+   ]
+  },
+  {
+   "span": [
+    15007001,
+    15007001
+   ],
+   "quote": "Now after these things, in the reign of Artaxerxes king of Persia, Ezra the son of Seraiah, the son of Azariah, the son of Hilkiah,",
+   "rulers": [
+    "artaxerxes-ezr-4-7"
+   ],
+   "covers": [
+    15007,
+    15007
+   ]
+  },
+  {
+   "span": [
+    15007007,
+    15007007
+   ],
+   "quote": "And there went up some of the children of Israel, and of the priests, and the Levites, and the singers, and the porters, and the Nethinims, unto Jerusalem, in the seventh year of Artaxerxes the king.",
+   "rulers": [
+    "artaxerxes-ezr-4-7"
+   ],
+   "covers": [
+    15007,
+    15007
+   ]
+  },
+  {
+   "span": [
+    15008001,
+    15008001
+   ],
+   "quote": "These are now the chief of their fathers, and this is the genealogy of them that went up with me from Babylon, in the reign of Artaxerxes the king.",
+   "rulers": [
+    "artaxerxes-ezr-4-7"
+   ],
+   "covers": [
+    15008,
+    15010
+   ],
+   "why": "9:1 (“Now when these things were done”) and chapter 10 continue the same account, with no new year or king."
+  },
+  {
+   "span": [
+    16002001,
+    16002001
+   ],
+   "quote": "And it came to pass in the month Nisan, in the twentieth year of Artaxerxes the king, that wine was before him: and I took up the wine, and gave it unto the king. Now I had not been beforetime sad in his presence.",
+   "rulers": [
+    "artaxerxes-ezr-4-7"
+   ],
+   "covers": [
+    16002,
+    16006
+   ],
+   "why": "Nehemiah’s account of building the wall runs on with no new year from 2:1 to the wall’s finishing at 6:15."
+  },
+  {
+   "span": [
+    16005014,
+    16005014
+   ],
+   "quote": "Moreover from the time that I was appointed to be their governor in the land of Judah, from the twentieth year even unto the two and thirtieth year of Artaxerxes the king, that is, twelve years, I and my brethren have not eaten the bread of the governor.",
+   "rulers": [
+    "artaxerxes-ezr-4-7"
+   ],
+   "covers": [
+    16005,
+    16005
+   ]
+  },
+  {
+   "span": [
+    16012022,
+    16012022
+   ],
+   "quote": "The Levites in the days of Eliashib, Joiada, and Johanan, and Jaddua, were recorded chief of the fathers: also the priests, to the reign of Darius the Persian.",
+   "rulers": [
+    "darius-neh-12-22"
+   ],
+   "covers": [
+    16012,
+    16012
+   ],
+   "note": "Scripture says only “Darius the Persian”; the site keeps him as a different person record from the Darius of Ezra 4–6. He has no ruler page."
+  },
+  {
+   "span": [
+    16013006,
+    16013006
+   ],
+   "quote": "But in all this time was not I at Jerusalem: for in the two and thirtieth year of Artaxerxes king of Babylon came I unto the king, and after certain days obtained I leave of the king:",
+   "rulers": [
+    "artaxerxes-ezr-4-7"
+   ],
+   "covers": [
+    16013,
+    16013
+   ]
+  },
+  {
+   "span": [
+    17001003,
+    17001003
+   ],
+   "quote": "In the third year of his reign, he made a feast unto all his princes and his servants; the power of Persia and Media, the nobles and princes of the provinces, being before him:",
+   "rulers": [
+    "ahasuerus-ezr-4-6"
+   ],
+   "covers": [
+    17001,
+    17001
+   ],
+   "note": "“His reign” is that of king Ahasuerus (1:2)."
+  },
+  {
+   "span": [
+    17002016,
+    17002016
+   ],
+   "quote": "So Esther was taken unto king Ahasuerus into his house royal in the tenth month, which is the month Tebeth, in the seventh year of his reign.",
+   "rulers": [
+    "ahasuerus-ezr-4-6"
+   ],
+   "covers": [
+    17002,
+    17002
+   ]
+  },
+  {
+   "span": [
+    17003007,
+    17003007
+   ],
+   "quote": "In the first month, that is, the month Nisan, in the twelfth year of king Ahasuerus, they cast Pur, that is, the lot, before Haman from day to day, and from month to month, to the twelfth month, that is, the month Adar.",
+   "rulers": [
+    "ahasuerus-ezr-4-6"
+   ],
+   "covers": [
+    17003,
+    17003
+   ]
+  },
+  {
+   "span": [
+    40002001,
+    40002001
+   ],
+   "quote": "Now when Jesus was born in Bethlehem of Judaea in the days of Herod the king, behold, there came wise men from the east to Jerusalem,",
+   "rulers": [
+    "herod-mat-2-1"
+   ],
+   "covers": [
+    40002,
+    40002
+   ]
+  },
+  {
+   "span": [
+    42001005,
+    42001005
+   ],
+   "quote": "There was in the days of Herod, the king of Judæa, a certain priest named Zacharias, of the course of Abia: and his wife was of the daughters of Aaron, and her name was Elisabeth.",
+   "rulers": [
+    "herod-mat-2-1"
+   ],
+   "covers": [
+    42001,
+    42001
+   ]
+  },
+  {
+   "span": [
+    42002001,
+    42002002
+   ],
+   "quote": "And it came to pass in those days, that there went out a decree from Cæsar Augustus, that all the world should be taxed. (And this taxing was first made when Cyrenius was governor of Syria.)",
+   "rulers": [
+    "augustus-luk-2-1",
+    "quirinius-luk-2-2"
+   ],
+   "covers": [
+    42002,
+    42002
+   ]
+  },
+  {
+   "span": [
+    42003001,
+    42003002
+   ],
+   "quote": "Now in the fifteenth year of the reign of Tiberius Cæsar, Pontius Pilate being governor of Judæa, and Herod being tetrarch of Galilee, and his brother Philip tetrarch of Ituraea and of the region of Trachonitis, and Lysanias the tetrarch of Abilene, Annas and Caiaphas being the high priests, the word of God came unto John the son of Zacharias in the wilderness.",
+   "rulers": [
+    "tiberius-mat-22-17",
+    "pilate-mat-27-2",
+    "herod-mat-14-1",
+    "philip-luk-3-1",
+    "lysanias-luk-3-1"
+   ],
+   "covers": [
+    42003,
+    42003
+   ],
+   "note": "Also names the high priests Annas and Caiaphas, who are not listed as rulers."
+  },
+  {
+   "span": [
+    44011028,
+    44011028
+   ],
+   "quote": "And there stood up one of them named Agabus, and signified by the Spirit that there should be great dearth throughout all the world: which came to pass in the days of Claudius Cæsar.",
+   "rulers": [
+    "claudius-act-11-28"
+   ],
+   "covers": [
+    44011,
+    44011
+   ]
+  },
+  {
+   "span": [
+    44018002,
+    44018002
+   ],
+   "quote": "And found a certain Jew named Aquila, born in Pontus, lately come from Italy, with his wife Priscilla; (because that Claudius had commanded all Jews to depart from Rome:) and came unto them.",
+   "rulers": [
+    "claudius-act-11-28"
+   ],
+   "covers": [
+    44018,
+    44018
+   ]
+  },
+  {
+   "span": [
+    44018012,
+    44018012
+   ],
+   "quote": "And when Gallio was the deputy of Achaia, the Jews made insurrection with one accord against Paul, and brought him to the judgment seat,",
+   "rulers": [
+    "gallio-act-18-12"
+   ],
+   "covers": [
+    44018,
+    44018
+   ]
+  },
+  {
+   "span": [
+    44024027,
+    44024027
+   ],
+   "quote": "But after two years Porcius Festus came into Felix’ room: and Felix, willing to shew the Jews a pleasure, left Paul bound.",
+   "rulers": [
+    "felix-act-23-24",
+    "festus-act-24-27"
+   ],
+   "covers": [
+    44024,
+    44024
+   ]
+  }
+ ],
+ "related": [
+  {
+   "book": "JON",
+   "span": [
+    12014025,
+    12014025
+   ],
+   "quote": "He restored the coast of Israel from the entering of Hamath unto the sea of the plain, according to the word of the LORD God of Israel, which he spake by the hand of his servant Jonah, the son of Amittai, the prophet, which was of Gath-hepher.",
+   "rulers": [
+    "jeroboam-2ki-13-13"
+   ],
+   "note": "2 Kings places Jonah son of Amittai in Jeroboam’s reign (“he” is Jeroboam son of Joash, 14:23); the book of Jonah names no king."
+  },
+  {
+   "book": "MIC",
+   "span": [
+    24026018,
+    24026018
+   ],
+   "quote": "Micah the Morasthite prophesied in the days of Hezekiah king of Judah, and spake to all the people of Judah, saying, Thus saith the LORD of hosts; Zion shall be plowed like a field, and Jerusalem shall become heaps, and the mountain of the house as the high places of a forest.",
+   "rulers": [
+    "hezekiah-2ki-16-20"
+   ],
+   "note": "Jeremiah 26:18 says Micah the Morasthite prophesied in Hezekiah’s days, agreeing with Micah 1:1."
+  }
+ ],
+ "titles_about": "Psalm titles are not numbered verses in the KJV, so they are keyed by chapter (book*1000 + psalm). Only titles that tie the psalm to an event in a named king's reign are listed; plain 'A Psalm of David' titles are authorship, not dating, and are left out.",
+ "titles": [
+  {
+   "chapter": 19003,
+   "quote": "A Psalm of David, when he fled from Absalom his son.",
+   "rulers": [
+    "david-rut-4-17"
+   ],
+   "note": "The flight from Absalom falls in David’s reign (2 Sam 15–17)."
+  },
+  {
+   "chapter": 19051,
+   "quote": "To the chief Musician, A Psalm of David, when Nathan the prophet came unto him, after he had gone in to Bath-sheba.",
+   "rulers": [
+    "david-rut-4-17"
+   ],
+   "note": "Nathan’s visit after Bath-sheba falls in David’s reign (2 Sam 11–12)."
+  },
+  {
+   "chapter": 19052,
+   "quote": "To the chief Musician, Maschil, A Psalm of David, when Doeg the Edomite came and told Saul, and said unto him, David is come to the house of Ahimelech.",
+   "rulers": [
+    "saul-1sa-9-2"
+   ],
+   "note": "Doeg tells Saul; Saul is then king and David a fugitive (1 Sam 22:9)."
+  },
+  {
+   "chapter": 19054,
+   "quote": "To the chief Musician on Neginoth, Maschil, A Psalm of David, when the Ziphims came and said to Saul, Doth not David hide himself with us?",
+   "rulers": [
+    "saul-1sa-9-2"
+   ],
+   "note": "The Ziphites speak to Saul (1 Sam 23:19)."
+  },
+  {
+   "chapter": 19057,
+   "quote": "To the chief Musician, Al-taschith, Michtam of David, when he fled from Saul in the cave.",
+   "rulers": [
+    "saul-1sa-9-2"
+   ],
+   "note": "David flees from Saul, who is then king; 1 Sam 22:1 and 24:3 tell of caves."
+  },
+  {
+   "chapter": 19059,
+   "quote": "To the chief Musician, Al-taschith, Michtam of David; when Saul sent, and they watched the house to kill him.",
+   "rulers": [
+    "saul-1sa-9-2"
+   ],
+   "note": "Saul sends men to watch David’s house (1 Sam 19:11)."
+  },
+  {
+   "chapter": 19060,
+   "quote": "To the chief Musician upon Shushan-eduth, Michtam of David, to teach; when he strove with Aram-naharaim and with Aram-zobah, when Joab returned, and smote of Edom in the valley of salt twelve thousand.",
+   "rulers": [
+    "david-rut-4-17"
+   ],
+   "note": "The wars with Aram and Edom fall in David’s reign (2 Sam 8:3–13, 1 Chr 18:3–12)."
+  }
+ ]
+}
