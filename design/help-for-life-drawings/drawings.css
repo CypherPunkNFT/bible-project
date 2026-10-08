@@ -17,6 +17,8 @@
 .draw cite { display: block; margin-top: .35rem; color: var(--c); font: 600 .74rem var(--sans); font-style: normal; letter-spacing: .01em; }
 .draw small { display: block; margin-top: .2rem; color: var(--muted); font-size: .74rem; line-height: 1.45; }
 .use { margin-top: .9rem; padding-top: .55rem; border-top: 1px dotted var(--line); color: var(--muted); font-size: .76rem; }
+.grid-head { display: flex; align-items: baseline; gap: .8rem; margin: 2.4rem 0 .9rem; font: 400 clamp(1.4rem, 2.6vw, 1.9rem)/1.1 var(--serif); letter-spacing: -.02em; }
+.grid-head span { color: var(--door); font: 600 .6rem/1 var(--mono); letter-spacing: .18em; }
 .foot-note { max-width: 60rem; margin-top: 1.4rem; color: var(--muted); font-size: .76rem; line-height: 1.7; }
 @media (max-width: 1100px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 2.4rem; } }
 @media (max-width: 640px) {
@@ -110,5 +112,61 @@
 .draw-sprout .drop { transform-box: fill-box; transform-origin: 50% 0%; animation: drop 7s ease-in infinite; }
 @keyframes drop { 0% { transform: scale(.3); opacity: 0; } 10% { opacity: 1; } 62% { transform: scale(1); opacity: 1; } 84% { transform: translateY(74px) scale(1); opacity: 0; } 100% { transform: translateY(74px); opacity: 0; } }
 .draw-sprout .halo { animation: soft 8s ease-in-out infinite alternate; }
+
+/* 9 · Calm: the boat rocks a little on the swell, the water drifts, moonlight shimmers. */
+.draw-calm .water { stroke-width: 1.1; opacity: .75; }
+.draw-calm .shimmer { animation: soft 4.5s ease-in-out infinite alternate; }
+.draw-calm .rocking { transform-origin: 160px 172px; animation: rock 6s ease-in-out infinite alternate; }
+@keyframes rock { from { transform: rotate(-1.4deg) translateY(0); } to { transform: rotate(1.4deg) translateY(-1.5px); } }
+
+/* 10 · Well: the bucket sways on its rope, drops fall and ring the water. */
+.draw-well .swing { transform-origin: 150px 80px; animation: swing 5s ease-in-out infinite alternate; }
+@keyframes swing { from { transform: rotate(-3deg); } to { transform: rotate(3deg); } }
+.draw-well .drop { transform-box: fill-box; transform-origin: 50% 0%; animation: drip 3.2s ease-in infinite; }
+@keyframes drip { 0% { transform: translateY(0) scale(.3); opacity: 0; } 30% { transform: translateY(0) scale(1); opacity: 1; } 55% { transform: translateY(8px); opacity: 1; } 60%, 100% { transform: translateY(8px); opacity: 0; } }
+.draw-well .ring { transform-box: fill-box; transform-origin: 50% 50%; animation: ringout 3.2s ease-out infinite; }
+@keyframes ringout { 0%, 55% { transform: scale(.4); opacity: 0; } 62% { opacity: 1; } 100% { transform: scale(3.4); opacity: 0; } }
+
+/* 11 · Loaves: warmth rises from the bread and fades. */
+.draw-loaves .steam path { animation: steam 6s ease-in-out infinite; animation-delay: calc(var(--i) * -2s); }
+@keyframes steam { 0% { transform: translateY(8px); opacity: 0; } 35% { opacity: .9; } 100% { transform: translateY(-10px); opacity: 0; } }
+
+/* 12 · Anchor: the surface moves, light breathes, weed sways, fish pass, bubbles rise. */
+.draw-anchor .rays { animation: soft 6s ease-in-out infinite alternate; }
+.draw-anchor .weed { animation: sway 5.5s ease-in-out infinite alternate; animation-delay: calc(var(--i) * -1.4s); }
+.draw-anchor .rope { transform-origin: 138px 74px; animation: leaf 8s ease-in-out infinite alternate; }
+.draw-anchor .swim { animation: swim 30s linear infinite; }
+.draw-anchor .swim.late { animation-duration: 38s; animation-delay: -19s; }
+@keyframes swim { from { transform: translateX(-40px); } to { transform: translateX(360px); } }
+.draw-anchor .bubble { animation: bubble 7s linear infinite; animation-delay: calc(var(--i) * -1.4s); }
+@keyframes bubble { 0% { transform: translate(0, 0); opacity: 0; } 10% { opacity: .9; } 90% { opacity: .5; } 100% { transform: translate(4px, -150px); opacity: 0; } }
+
+/* 13 · Vine: the leaves stir, the bunches hang and sway. */
+.draw-vine .bunch circle { stroke-width: 1.05; opacity: .8; }
+.draw-vine .bunch { animation: leaf 6s ease-in-out infinite alternate; }
+.draw-vine .bunch.late { animation-delay: -3s; animation-duration: 7.2s; }
+
+/* 14 · Valley: the light at the end breathes and rises a little, mist drifts along the floor. */
+.draw-valley .dawn { animation: rise-soft 10s ease-in-out infinite alternate; }
+@keyframes rise-soft { from { transform: translateY(3px); opacity: .7; } to { transform: translateY(-2px); opacity: 1; } }
+.draw-valley .mist { --dx: 22px; animation: drift-x 15s ease-in-out infinite alternate; }
+.draw-valley .mist.slow { --dx: -18px; animation-duration: 20s; }
+.draw-valley .gull { --dx: 50px; animation: drift-x 18s ease-in-out infinite alternate; }
+
+/* 15 · Olive leaf: the dove glides home, wings beating slowly; the water drifts, the evening light shimmers. */
+.draw-olive .water { stroke-width: 1.1; opacity: .75; }
+.draw-olive .shimmer, .draw-olive .dusk { animation: soft 5s ease-in-out infinite alternate; }
+.draw-olive .glide { animation: glide-o 16s ease-in-out infinite alternate; }
+@keyframes glide-o { from { transform: translate(-8px, 4px); } to { transform: translate(10px, -4px); } }
+.draw-olive .wing { transform-box: fill-box; transform-origin: 70% 100%; animation: beat-o 4s ease-in-out infinite alternate; }
+.draw-olive .wing.far { animation-delay: -.3s; }
+@keyframes beat-o { from { transform: scaleY(1); } to { transform: scaleY(.72); } }
+
+/* 16 · Eagle: it soars, drifting and banking slowly; clouds drift; warm air rises. */
+.draw-eagle .soar { transform-origin: 160px 90px; animation: soar 14s ease-in-out infinite alternate; }
+@keyframes soar { 0% { transform: translate(-10px, 4px) rotate(-3deg); } 50% { transform: translate(0, -4px) rotate(0deg); } 100% { transform: translate(10px, 3px) rotate(3deg); } }
+.draw-eagle .cloud { --dx: 26px; animation: drift-x 24s ease-in-out infinite alternate; }
+.draw-eagle .cloud.slow { --dx: -20px; animation-duration: 30s; }
+.draw-eagle .thermal { animation: soft 5s ease-in-out infinite alternate; }
 
 @media (prefers-reduced-motion: reduce) { .art, .art * { animation: none !important; } .draw-door .mote { opacity: .6; } .draw-lamp .stone { opacity: .7; } }
