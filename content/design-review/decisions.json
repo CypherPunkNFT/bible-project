@@ -1,26 +1,5 @@
 {
   "schema": 1,
   "note": "The owner's design decisions, written by the review board on the local preview (/review). Only the owner records these; an AI never marks anything accepted. Read before changing a page template.",
-  "decisions": [
-    {
-      "id": "9b56c6e1-a71a-4223-a258-3f94b22f56e1",
-      "template": "ruler",
-      "variant": "judge",
-      "viewport": "phone",
-      "theme": "all",
-      "status": "needs-changes",
-      "note": "Test by the AI: checking that the board saves a note. Removed straight away.",
-      "at": "2026-10-08T03:28:06.916Z",
-      "commit": "11fdb718",
-      "sourceHash": "743c6395d1bf596d",
-      "shotHashes": {
-        "typical/phone-light": "cc21004a01740090",
-        "typical/phone-dark": "23a27c357d8b7b6f",
-        "longest-name/phone-light": "e86c0184c0c4c021",
-        "longest-name/phone-dark": "11937d793f733e58",
-        "longest-title/phone-light": "8cb2062e8200b001",
-        "longest-title/phone-dark": "734d7951317f6f7f"
-      }
-    }
-  ]
+  "decisions": []
 }
