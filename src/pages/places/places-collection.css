@@ -3,7 +3,7 @@
 .places-topline a { display: inline-flex; align-items: center; gap: .5rem; padding-block: .3rem; }
 .places-topline a:hover { color: var(--ink); }
 .places-topline > span { font-size: .65rem; text-transform: uppercase; letter-spacing: .14em; align-self: center; }
-.places-collection-intro { display: flex; justify-content: space-between; align-items: center; gap: 2rem; padding-block: 2.4rem 2.2rem; }
+.places-collection-intro { display: flex; justify-content: space-between; align-items: center; gap: 2rem; padding-block: .6rem 2.2rem; }
 .places-kicker { color: var(--places-color); font-size: .65rem; font-weight: 600; text-transform: uppercase; letter-spacing: .18em; }
 .places-collection-intro h1 { font-family: var(--font-serif); font-size: clamp(2.6rem, 4.7vw, 4rem); letter-spacing: -.045em; line-height: 1.12; margin-block: .8rem 1rem; }
 .places-collection-intro h1 em { color: var(--accent); font-weight: 400; }
