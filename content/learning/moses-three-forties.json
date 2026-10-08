@@ -1,0 +1,942 @@
+{
+  "id": "moses-three-forties",
+  "kind": "workbook",
+  "title": "Moses",
+  "subtitle": "Three forties",
+  "tagline": "An eight-session study of his life, from the river to mount Nebo",
+  "summary": "Eight sessions on the life of Moses, following the shape Scripture itself gives it: forty years in Egypt, forty in Midian, forty leading Israel. Each session has the passage to read, a short summary with its verses, key verses in the King James Version, and questions with space to write.",
+  "checked": "2026-10-08",
+  "builtFrom": [
+    {
+      "path": "/people/moses-exo-2-10",
+      "title": "Moses: his story"
+    },
+    {
+      "path": "/people/moses-exo-2-10/rule",
+      "title": "Moses: leader of Israel"
+    },
+    {
+      "path": "/people/moses-exo-2-10/word",
+      "title": "Moses: the prophet"
+    }
+  ],
+  "howToUse": [
+    "This workbook follows the life of Moses in eight sessions. Their shape comes from Scripture itself: Stephen, in Acts 7, tells Moses' life as three spans of forty years.",
+    "**Alone.** Take one session a week. Read the whole passage first, in a Bible or in the site's reader. Then read the summary and the key verses, and work through the questions, writing your answers in the space under each one.",
+    "**In a group.** Ask everyone to read the passage before you meet. When you meet, read the key verses aloud, take the questions in order, and let every answer point back to a verse. A session fills about an hour.",
+    "**The questions** were written by this site. Each one names the verses it comes from, and its answer is in those verses. *Observe* questions ask what the text says; *interpret* questions ask what it means in its own setting; *reflect* questions ask you to bring it to your own life. There is no answer key: the passage is the answer key.",
+    "**The text.** Scripture is quoted word for word from the King James Version, as the site's reader gives it. The summaries are in our own words, drawn from the site's reviewed pages on Moses, and each paragraph is followed by the verses it rests on."
+  ],
+  "intro": {
+    "title": "The three forties",
+    "paragraphs": [
+      {
+        "text": "Stephen, telling Israel's story in Acts 7, divides Moses' life into three spans of forty years. He was \"full forty years old\" when he went to visit his brethren; \"when forty years were expired\" an angel appeared to him in the bush; and he led Israel out with wonders and signs \"in the wilderness forty years\".",
+        "refs": [
+          "ACT 7:23",
+          "ACT 7:30",
+          "ACT 7:36"
+        ]
+      },
+      {
+        "text": "Exodus and Deuteronomy give the same outline in his ages. Moses was \"fourscore years old\" when he and Aaron spoke to Pharaoh, and \"an hundred and twenty years old when he died\".",
+        "refs": [
+          "EXO 7:7",
+          "DEU 34:7"
+        ]
+      },
+      {
+        "text": "This workbook follows that shape. Session 1 covers the first forty, from his birth to his flight; session 2 the second, in Midian, ending at the bush; sessions 3 to 8 the third, from Pharaoh's court to mount Nebo.",
+        "refs": [
+          "ACT 7:20-36"
+        ]
+      }
+    ],
+    "keyVerses": [
+      {
+        "ref": "ACT 7:23",
+        "text": "And when he was full forty years old, it came into his heart to visit his brethren the children of Israel."
+      },
+      {
+        "ref": "ACT 7:30",
+        "text": "And when forty years were expired, there appeared to him in the wilderness of mount Sina an angel of the Lord in a flame of fire in a bush."
+      },
+      {
+        "ref": "ACT 7:36",
+        "text": "He brought them out, after that he had shewed wonders and signs in the land of Egypt, and in the Red sea, and in the wilderness forty years."
+      }
+    ]
+  },
+  "parts": [
+    {
+      "part": 1,
+      "label": "The first forty",
+      "place": "Egypt",
+      "ref": "ACT 7:20-29"
+    },
+    {
+      "part": 2,
+      "label": "The second forty",
+      "place": "Midian",
+      "ref": "ACT 7:29-35"
+    },
+    {
+      "part": 3,
+      "label": "The third forty",
+      "place": "The wilderness",
+      "ref": "ACT 7:36"
+    }
+  ],
+  "sessions": [
+    {
+      "number": 1,
+      "part": 1,
+      "art": "water",
+      "title": "Drawn out of the water",
+      "read": [
+        "EXO 1-2",
+        "ACT 7:17-29"
+      ],
+      "summary": [
+        {
+          "text": "Israel's family grew in Egypt until a new king arose \"which knew not Joseph\". He set taskmasters over them; when the Hebrew midwives, who \"feared God\", would not kill the boys at birth, Pharaoh ordered that every son born be cast into the river.",
+          "refs": [
+            "EXO 1:7-22"
+          ]
+        },
+        {
+          "text": "A man and a woman of the house of Levi had a son. His mother hid him three months, then laid him in an ark of bulrushes among the flags by the river, while his sister watched from afar. Pharaoh's daughter found him and had compassion on him; his sister fetched his own mother to nurse him, and when he grew he became Pharaoh's daughter's son. She named him Moses: \"Because I drew him out of the water.\"",
+          "refs": [
+            "EXO 2:1-10"
+          ]
+        },
+        {
+          "text": "When Moses was grown, forty by Stephen's count, he saw an Egyptian smiting a Hebrew and killed him. The next day a Hebrew asked him, \"Who made thee a prince and a judge over us?\" Pharaoh sought to slay him, and Moses fled to the land of Midian.",
+          "refs": [
+            "EXO 2:11-15",
+            "ACT 7:23-29"
+          ]
+        },
+        {
+          "text": "In Midian he helped the seven daughters of the priest at a well, married Zipporah, and named his son Gershom: \"I have been a stranger in a strange land.\" In Egypt the king died, the children of Israel cried out under their bondage, and \"God remembered his covenant with Abraham, with Isaac, and with Jacob.\"",
+          "refs": [
+            "EXO 2:15-25"
+          ]
+        }
+      ],
+      "keyVerses": [
+        {
+          "ref": "EXO 2:10",
+          "text": "And the child grew, and she brought him unto Pharaoh’s daughter, and he became her son. And she called his name Moses: and she said, Because I drew him out of the water."
+        },
+        {
+          "ref": "ACT 7:25",
+          "text": "For he supposed his brethren would have understood how that God by his hand would deliver them: but they understood not."
+        },
+        {
+          "ref": "EXO 2:24",
+          "text": "And God heard their groaning, and God remembered his covenant with Abraham, with Isaac, and with Jacob."
+        }
+      ],
+      "questions": [
+        {
+          "kind": "observe",
+          "text": "Exodus 1 tells of three measures taken against the Israelites (verses 11, 16 and 22). What are they? What do verses 12 and 20 say happened to the people?",
+          "refs": [
+            "EXO 1:8-22"
+          ]
+        },
+        {
+          "kind": "observe",
+          "text": "Why did the midwives not do as the king commanded (1:17), what did they tell Pharaoh (1:19), and what did God do for them (1:20-21)?",
+          "refs": [
+            "EXO 1:15-21"
+          ]
+        },
+        {
+          "kind": "observe",
+          "text": "In 2:1-10, what does each of these people do to keep the child alive: his mother, his sister, and Pharaoh's daughter?",
+          "refs": [
+            "EXO 2:1-10"
+          ]
+        },
+        {
+          "kind": "interpret",
+          "text": "Stephen adds what Moses \"supposed\" when he struck the Egyptian (Acts 7:25). Read it beside Exodus 2:11-14. How do the two accounts together help explain the question, \"Who made thee a prince and a judge over us?\"",
+          "refs": [
+            "ACT 7:23-28",
+            "EXO 2:11-14"
+          ]
+        },
+        {
+          "kind": "interpret",
+          "text": "Moses named his son for being \"a stranger in a strange land\" (2:22), and Stephen says he \"was a stranger in the land of Madian\" (Acts 7:29). Raised in Pharaoh's house, now in Midian: what do these words say about where Moses stood at this point?",
+          "refs": [
+            "EXO 2:10",
+            "EXO 2:22",
+            "ACT 7:21",
+            "ACT 7:29"
+          ]
+        },
+        {
+          "kind": "observe",
+          "text": "The chapter ends with four things God did (2:24-25). What are they, and what had the children of Israel done just before (2:23)?",
+          "refs": [
+            "EXO 2:23-25"
+          ]
+        },
+        {
+          "kind": "reflect",
+          "text": "The midwives, Moses' mother, his sister and Pharaoh's daughter all keep a child alive while the king's orders stand (1:16, 22). Which of them stands out to you, and why?",
+          "refs": [
+            "EXO 1:15-22",
+            "EXO 2:1-10"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "part": 2,
+      "art": "bush",
+      "title": "The bush",
+      "read": [
+        "EXO 3-4",
+        "ACT 7:30-35"
+      ],
+      "summary": [
+        {
+          "text": "Forty years after he fled, by Stephen's count, Moses was keeping the flock of Jethro his father in law at Horeb, the mountain of God. The angel of the LORD appeared to him in a flame of fire out of a bush that \"burned with fire, and the bush was not consumed\". When Moses turned aside to see, God called him by name, told him to put off his shoes, and named himself the God of Abraham, of Isaac and of Jacob.",
+          "refs": [
+            "ACT 7:29-30",
+            "EXO 3:1-6"
+          ]
+        },
+        {
+          "text": "God said he had seen the affliction of his people and was come down to deliver them, and he sent Moses to Pharaoh. Moses asked, \"Who am I\", and God answered, \"Certainly I will be with thee\". When Moses asked what name to give the people, God said, \"I AM THAT I AM\".",
+          "refs": [
+            "EXO 3:7-15"
+          ]
+        },
+        {
+          "text": "Moses said the people would not believe him, and God gave him three signs: the rod that became a serpent, the hand made leprous and whole again, and river water that would become blood. Moses said he was \"slow of speech\", and asked the Lord to send \"by the hand of him whom thou wilt send\". The anger of the LORD was kindled, and he gave him Aaron his brother to speak for him.",
+          "refs": [
+            "EXO 4:1-17"
+          ]
+        },
+        {
+          "text": "Moses took leave of Jethro and returned to Egypt with his wife and sons and \"the rod of God in his hand\". On the way the LORD met him and sought to kill him, and Zipporah circumcised their son. Aaron met him in the mount of God; together they gathered the elders, and the people believed and worshipped.",
+          "refs": [
+            "EXO 4:18-31"
+          ]
+        }
+      ],
+      "keyVerses": [
+        {
+          "ref": "EXO 3:14",
+          "text": "And God said unto Moses, I AM THAT I AM: and he said, Thus shalt thou say unto the children of Israel, I AM hath sent me unto you."
+        },
+        {
+          "ref": "EXO 4:12",
+          "text": "Now therefore go, and I will be with thy mouth, and teach thee what thou shalt say."
+        },
+        {
+          "ref": "ACT 7:35",
+          "text": "This Moses whom they refused, saying, Who made thee a ruler and a judge? the same did God send to be a ruler and a deliverer by the hand of the angel which appeared to him in the bush."
+        }
+      ],
+      "questions": [
+        {
+          "kind": "observe",
+          "text": "What did Moses see, and what did he decide to do (3:2-3)? What did God do when he saw Moses turn aside (3:4-5)?",
+          "refs": [
+            "EXO 3:2-5"
+          ]
+        },
+        {
+          "kind": "observe",
+          "text": "In 3:7-10 God says what he has seen, heard and known, and what he will do. List each. What does he send Moses to do (3:10)?",
+          "refs": [
+            "EXO 3:7-10"
+          ]
+        },
+        {
+          "kind": "observe",
+          "text": "Moses answers God five times, in 3:11, 3:13, 4:1, 4:10 and 4:13. What does he say each time, and what does God reply?",
+          "refs": [
+            "EXO 3:11-4:17"
+          ]
+        },
+        {
+          "kind": "interpret",
+          "text": "When Moses asks \"Who am I\" (3:11), God's reply does not describe Moses (3:12). What does God give him instead?",
+          "refs": [
+            "EXO 3:11-12"
+          ]
+        },
+        {
+          "kind": "interpret",
+          "text": "The LORD answers \"slow of speech\" with questions of his own (4:11). What is he pointing Moses to, and what does he promise in 4:12?",
+          "refs": [
+            "EXO 4:10-12"
+          ]
+        },
+        {
+          "kind": "interpret",
+          "text": "Stephen calls Moses the man \"whom they refused\", and says \"the same did God send\" (Acts 7:35). How does this verse join session 1 to session 2?",
+          "refs": [
+            "ACT 7:35",
+            "EXO 2:14"
+          ]
+        },
+        {
+          "kind": "reflect",
+          "text": "At the bush Moses answers God with questions and objections: who he is, what name to give, whether he will be believed, how he speaks (3:11-4:13). Which of them is closest to your own hesitations, and what did God reply to it?",
+          "refs": [
+            "EXO 3:11-4:13"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "part": 3,
+      "art": "door",
+      "title": "Let my people go",
+      "read": [
+        "EXO 5-12"
+      ],
+      "summary": [
+        {
+          "text": "Moses and Aaron told Pharaoh, \"Thus saith the LORD God of Israel, Let my people go\". Pharaoh answered, \"Who is the LORD, that I should obey his voice\". He stopped giving the Israelites straw for their bricks but demanded the same number of bricks, and the officers of Israel, beaten, blamed Moses and Aaron. Moses asked the Lord, \"why is it that thou hast sent me?\"",
+          "refs": [
+            "EXO 5:1-23"
+          ]
+        },
+        {
+          "text": "The LORD answered with his name and his promise: he would bring them out, redeem them \"with a stretched out arm\", take them to him for a people, and bring them into the land. The people did not hearken to Moses, \"for anguish of spirit, and for cruel bondage\". Moses was eighty and Aaron eighty-three when they spoke to Pharaoh.",
+          "refs": [
+            "EXO 6:1-9",
+            "EXO 7:7"
+          ]
+        },
+        {
+          "text": "Through the wonders that followed, Pharaoh's heart was hardened again and again, \"as the LORD had said\". His magicians, who at first did \"in like manner with their enchantments\", came to tell him, \"This is the finger of God\". After the darkness Pharaoh told Moses he would die on the day he saw his face again.",
+          "refs": [
+            "EXO 7:10-13",
+            "EXO 8:15-19",
+            "EXO 10:21-29"
+          ]
+        },
+        {
+          "text": "Before the last plague the LORD told each household to kill a lamb, strike its blood on the side posts and the upper door post, and eat it in haste: \"when I see the blood, I will pass over you\". At midnight the firstborn of Egypt died. Pharaoh called Moses and Aaron by night and told them to go, and Israel went out at the end of four hundred and thirty years.",
+          "refs": [
+            "EXO 12:1-14",
+            "EXO 12:29-42"
+          ]
+        }
+      ],
+      "keyVerses": [
+        {
+          "ref": "EXO 5:1",
+          "text": "And afterward Moses and Aaron went in, and told Pharaoh, Thus saith the LORD God of Israel, Let my people go, that they may hold a feast unto me in the wilderness."
+        },
+        {
+          "ref": "EXO 6:7",
+          "text": "And I will take you to me for a people, and I will be to you a God: and ye shall know that I am the LORD your God, which bringeth you out from under the burdens of the Egyptians."
+        },
+        {
+          "ref": "EXO 12:13",
+          "text": "And the blood shall be to you for a token upon the houses where ye are: and when I see the blood, I will pass over you, and the plague shall not be upon you to destroy you, when I smite the land of Egypt."
+        }
+      ],
+      "questions": [
+        {
+          "kind": "observe",
+          "text": "Set the LORD's request (5:1) beside Pharaoh's answer (5:2). What two things does Pharaoh say about the LORD?",
+          "refs": [
+            "EXO 5:1-2"
+          ]
+        },
+        {
+          "kind": "observe",
+          "text": "What happened to the people after Moses and Aaron first went to Pharaoh (5:6-19)? Whom did the officers blame (5:21), and to whom did Moses take it (5:22-23)?",
+          "refs": [
+            "EXO 5:6-23"
+          ]
+        },
+        {
+          "kind": "observe",
+          "text": "In 6:6-8 the LORD makes a run of promises that begin \"I will\". How many are there, and what are they?",
+          "refs": [
+            "EXO 6:6-8"
+          ]
+        },
+        {
+          "kind": "interpret",
+          "text": "Pharaoh's heart is hardened \"as the LORD had said\" (7:13; 8:15; 8:19). Where had the LORD said it beforehand (4:21; 7:3-4), and what reason does he give in 7:5?",
+          "refs": [
+            "EXO 4:21",
+            "EXO 7:3-5",
+            "EXO 7:13",
+            "EXO 8:15",
+            "EXO 8:19"
+          ]
+        },
+        {
+          "kind": "observe",
+          "text": "List what each household was to do with the lamb and with its blood (12:3-11). What was the blood to be for them (12:13)?",
+          "refs": [
+            "EXO 12:3-13"
+          ]
+        },
+        {
+          "kind": "interpret",
+          "text": "Moses tells the people what to answer when their children ask, \"What mean ye by this service?\" (12:26-27). What is the answer, and what do 12:14 and 12:42 add about how the night was to be kept?",
+          "refs": [
+            "EXO 12:14",
+            "EXO 12:26-27",
+            "EXO 12:42"
+          ]
+        },
+        {
+          "kind": "reflect",
+          "text": "After Moses obeyed, the people's burdens grew heavier (5:9-21), and he asked, \"wherefore hast thou so evil entreated this people?\" (5:22). What do you make of the LORD's answer in 6:1-8, and when have you had a question like Moses'?",
+          "refs": [
+            "EXO 5:9-23",
+            "EXO 6:1-8"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "part": 3,
+      "art": "sea",
+      "title": "The sea",
+      "read": [
+        "EXO 13:17-15:27"
+      ],
+      "summary": [
+        {
+          "text": "God did not lead the people by the way of the land of the Philistines, though it was near, but \"about, through the way of the wilderness of the Red sea\". Moses carried the bones of Joseph with him, and the LORD went before them in a pillar of a cloud by day and a pillar of fire by night.",
+          "refs": [
+            "EXO 13:17-22"
+          ]
+        },
+        {
+          "text": "Pharaoh's heart was turned against the people, and he pursued them with six hundred chosen chariots. When the Israelites saw the Egyptians behind them they were sore afraid, and told Moses it had been better to serve the Egyptians than to die in the wilderness. Moses answered, \"Fear ye not, stand still, and see the salvation of the LORD\".",
+          "refs": [
+            "EXO 14:5-14"
+          ]
+        },
+        {
+          "text": "Moses stretched out his hand over the sea; the LORD drove it back by a strong east wind all that night, and Israel went through on dry ground, the waters \"a wall unto them on their right hand, and on their left\". The waters returned upon the Egyptians. Then the people \"feared the LORD, and believed the LORD, and his servant Moses\".",
+          "refs": [
+            "EXO 14:21-31"
+          ]
+        },
+        {
+          "text": "Moses and the children of Israel sang to the LORD, and Miriam the prophetess led the women with timbrels. After three days in the wilderness without water they came to Marah, where the water was bitter, and the people murmured against Moses. He cried to the LORD, who showed him a tree that made the waters sweet and said, \"I am the LORD that healeth thee\".",
+          "refs": [
+            "EXO 15:1-26"
+          ]
+        }
+      ],
+      "keyVerses": [
+        {
+          "ref": "EXO 14:13",
+          "text": "And Moses said unto the people, Fear ye not, stand still, and see the salvation of the LORD, which he will shew to you to day: for the Egyptians whom ye have seen to day, ye shall see them again no more for ever."
+        },
+        {
+          "ref": "EXO 14:31",
+          "text": "And Israel saw that great work which the LORD did upon the Egyptians: and the people feared the LORD, and believed the LORD, and his servant Moses."
+        },
+        {
+          "ref": "EXO 15:2",
+          "text": "The LORD is my strength and song, and he is become my salvation: he is my God, and I will prepare him an habitation; my father’s God, and I will exalt him."
+        }
+      ],
+      "questions": [
+        {
+          "kind": "observe",
+          "text": "Why did God not take the people by the near road (13:17)? What went before them, and when (13:21-22)?",
+          "refs": [
+            "EXO 13:17-22"
+          ]
+        },
+        {
+          "kind": "observe",
+          "text": "What did the people say to Moses when they saw Pharaoh's army (14:11-12)? What did Moses tell them (14:13-14), and what did the LORD tell Moses (14:15-16)?",
+          "refs": [
+            "EXO 14:10-16"
+          ]
+        },
+        {
+          "kind": "interpret",
+          "text": "Moses says \"stand still\" (14:13); the LORD says \"go forward\" (14:15). How do both fit what happened next (14:16-22)?",
+          "refs": [
+            "EXO 14:13-22"
+          ]
+        },
+        {
+          "kind": "observe",
+          "text": "Where did the pillar of the cloud go during the night, and what was it to each camp (14:19-20)?",
+          "refs": [
+            "EXO 14:19-20"
+          ]
+        },
+        {
+          "kind": "interpret",
+          "text": "Verse 31 says the people \"feared the LORD, and believed the LORD, and his servant Moses\". Compare 14:10-12. What had changed, and what does verse 31 say they had seen?",
+          "refs": [
+            "EXO 14:10-12",
+            "EXO 14:30-31"
+          ]
+        },
+        {
+          "kind": "observe",
+          "text": "At Marah, what did the people say (15:24), what did Moses do (15:25), and what did the LORD say of himself (15:26)?",
+          "refs": [
+            "EXO 15:22-26"
+          ]
+        },
+        {
+          "kind": "reflect",
+          "text": "The song at the sea (15:1-21) is followed within days by murmuring at Marah (15:22-24). What does that sequence say to you about how quickly fear can return, and what helps you remember?",
+          "refs": [
+            "EXO 15:1-24"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "part": 3,
+      "art": "mountain",
+      "title": "Sinai",
+      "read": [
+        "EXO 19-20",
+        "EXO 24"
+      ],
+      "summary": [
+        {
+          "text": "In the third month after leaving Egypt, Israel camped before the mount in the wilderness of Sinai. From the mountain the LORD told Moses to remind the people how he \"bare you on eagles' wings\", and to say that if they obeyed his voice and kept his covenant, they would be \"a kingdom of priests, and an holy nation\". The people answered together, \"All that the LORD hath spoken we will do.\"",
+          "refs": [
+            "EXO 19:1-8"
+          ]
+        },
+        {
+          "text": "On the third day there were thunders and lightnings, a thick cloud on the mount, and the voice of the trumpet \"exceeding loud\"; mount Sinai was on a smoke and quaked, and all the people in the camp trembled. Moses brought the people out to meet with God, and the LORD called Moses up to the top of the mount.",
+          "refs": [
+            "EXO 19:16-20"
+          ]
+        },
+        {
+          "text": "God spoke \"all these words\", beginning, \"I am the LORD thy God, which have brought thee out of the land of Egypt, out of the house of bondage.\" The people stood afar off and asked Moses to speak to them, so that God would not; Moses \"drew near unto the thick darkness where God was\".",
+          "refs": [
+            "EXO 20:1-21"
+          ]
+        },
+        {
+          "text": "Moses told the people the words, and they answered with one voice that they would do them. He wrote them down, built an altar and twelve pillars, read \"the book of the covenant\", and sprinkled the blood on the people: \"Behold the blood of the covenant\". Then he went up into the cloud, and was in the mount forty days and forty nights.",
+          "refs": [
+            "EXO 24:3-18"
+          ]
+        }
+      ],
+      "keyVerses": [
+        {
+          "ref": "EXO 19:4",
+          "text": "Ye have seen what I did unto the Egyptians, and how I bare you on eagles’ wings, and brought you unto myself."
+        },
+        {
+          "ref": "EXO 20:2",
+          "text": "I am the LORD thy God, which have brought thee out of the land of Egypt, out of the house of bondage."
+        },
+        {
+          "ref": "EXO 24:7",
+          "text": "And he took the book of the covenant, and read in the audience of the people: and they said, All that the LORD hath said will we do, and be obedient."
+        }
+      ],
+      "questions": [
+        {
+          "kind": "observe",
+          "text": "What does the LORD remind the people of in 19:4? What does he promise in 19:5-6, and on what condition?",
+          "refs": [
+            "EXO 19:4-6"
+          ]
+        },
+        {
+          "kind": "observe",
+          "text": "How did the people prepare for the third day (19:10-15), and what did they see and hear when it came (19:16-19)?",
+          "refs": [
+            "EXO 19:10-19"
+          ]
+        },
+        {
+          "kind": "observe",
+          "text": "Before any commandment, God says who he is and what he has done (20:2). What does he say?",
+          "refs": [
+            "EXO 20:1-3"
+          ]
+        },
+        {
+          "kind": "interpret",
+          "text": "The people asked Moses to speak to them instead of God (20:19). What did Moses say the fear was for (20:20), and where did each go next (20:21)?",
+          "refs": [
+            "EXO 20:18-21"
+          ]
+        },
+        {
+          "kind": "observe",
+          "text": "List what Moses did in 24:3-8, in order. What did the people answer, both times (24:3, 24:7)?",
+          "refs": [
+            "EXO 24:3-8"
+          ]
+        },
+        {
+          "kind": "reflect",
+          "text": "The people said, \"All that the LORD hath said will we do, and be obedient\" (24:7). What makes a promise like that easy to say and hard to keep?",
+          "refs": [
+            "EXO 24:7"
+          ]
+        },
+        {
+          "kind": "reflect",
+          "text": "The people \"stood afar off\", and Moses \"drew near unto the thick darkness where God was\" (20:21). Which of the two do you recognise in yourself, and why?",
+          "refs": [
+            "EXO 20:21"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "part": 3,
+      "art": "tablets",
+      "title": "The calf and the glory",
+      "read": [
+        "EXO 32-34"
+      ],
+      "summary": [
+        {
+          "text": "While Moses was in the mount, the people told Aaron, \"Up, make us gods, which shall go before us\". Aaron made a molten calf from their golden earrings, built an altar before it and proclaimed a feast. The LORD told Moses that the people had corrupted themselves, that he would consume them and make of Moses a great nation. Moses besought him, reminding him of Egypt and of his oath to Abraham, Isaac and Israel, and the LORD repented of the evil.",
+          "refs": [
+            "EXO 32:1-14"
+          ]
+        },
+        {
+          "text": "Coming down, Moses saw the calf and the dancing, cast the tables out of his hands and broke them, and burnt the calf. He called, \"Who is on the LORD's side?\", and the sons of Levi gathered to him; about three thousand men fell that day. The next day he went back up to the LORD and asked him to forgive their sin, \"and if not, blot me, I pray thee, out of thy book which thou hast written.\"",
+          "refs": [
+            "EXO 32:15-32"
+          ]
+        },
+        {
+          "text": "Moses pitched a tabernacle outside the camp, where \"the LORD spake unto Moses face to face, as a man speaketh unto his friend\". He asked that the LORD's presence go with them, and then, \"I beseech thee, shew me thy glory.\" The LORD promised to set him in a cleft of the rock while his glory passed by; on the mount he passed by before Moses, proclaiming, \"The LORD, The LORD God, merciful and gracious, longsuffering, and abundant in goodness and truth\".",
+          "refs": [
+            "EXO 33:7-23",
+            "EXO 34:5-7"
+          ]
+        },
+        {
+          "text": "Moses hewed two new tables of stone and was in the mount again forty days and forty nights. When he came down, the skin of his face shone and he \"wist not\" that it did; Aaron and the people were afraid to come near him, and when he had done speaking with them he put a vail on his face.",
+          "refs": [
+            "EXO 34:1-4",
+            "EXO 34:27-35"
+          ]
+        }
+      ],
+      "keyVerses": [
+        {
+          "ref": "EXO 32:32",
+          "text": "Yet now, if thou wilt forgive their sin—; and if not, blot me, I pray thee, out of thy book which thou hast written."
+        },
+        {
+          "ref": "EXO 33:11",
+          "text": "And the LORD spake unto Moses face to face, as a man speaketh unto his friend."
+        },
+        {
+          "ref": "EXO 34:6-7",
+          "text": "And the LORD passed by before him, and proclaimed, The LORD, The LORD God, merciful and gracious, longsuffering, and abundant in goodness and truth, Keeping mercy for thousands, forgiving iniquity and transgression and sin, and that will by no means clear the guilty; visiting the iniquity of the fathers upon the children, and upon the children’s children, unto the third and to the fourth generation."
+        }
+      ],
+      "questions": [
+        {
+          "kind": "observe",
+          "text": "What reason did the people give Aaron for wanting gods (32:1)? What did they say about the calf once it was made (32:4)?",
+          "refs": [
+            "EXO 32:1-4"
+          ]
+        },
+        {
+          "kind": "observe",
+          "text": "In 32:11-13 Moses gives the LORD reasons not to consume the people. What are they?",
+          "refs": [
+            "EXO 32:11-13"
+          ]
+        },
+        {
+          "kind": "observe",
+          "text": "Compare Aaron's account of the calf (32:22-24) with what verse 4 says he did. What differences do you notice?",
+          "refs": [
+            "EXO 32:4",
+            "EXO 32:22-24"
+          ]
+        },
+        {
+          "kind": "interpret",
+          "text": "In 32:10 the LORD offers to make of Moses \"a great nation\"; in 32:32 Moses asks to be blotted out of the book if the people are not forgiven. What do the two verses, side by side, show about Moses?",
+          "refs": [
+            "EXO 32:10",
+            "EXO 32:32"
+          ]
+        },
+        {
+          "kind": "observe",
+          "text": "What did Moses ask for in 33:13, 33:15 and 33:18, and what did the LORD answer each time?",
+          "refs": [
+            "EXO 33:12-23"
+          ]
+        },
+        {
+          "kind": "interpret",
+          "text": "Which words in the name the LORD proclaims (34:6-7) speak of mercy, and which of judgment?",
+          "refs": [
+            "EXO 34:6-7"
+          ]
+        },
+        {
+          "kind": "reflect",
+          "text": "Moses \"wist not that the skin of his face shone\" (34:29); the people saw it before he did. What does that detail say to you?",
+          "refs": [
+            "EXO 34:29-30"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "part": 3,
+      "art": "grapes",
+      "title": "Forty years",
+      "read": [
+        "NUM 13-14",
+        "NUM 20"
+      ],
+      "summary": [
+        {
+          "text": "At the LORD's word Moses sent twelve men, a ruler from every tribe, to search the land of Canaan. After forty days they came back to Kadesh with a cluster of grapes carried between two on a staff, and said that the land \"floweth with milk and honey\", but that the people were strong and the cities walled. Caleb said, \"Let us go up at once, and possess it\"; the others brought an evil report: \"we were in our own sight as grasshoppers\".",
+          "refs": [
+            "NUM 13:1-33"
+          ]
+        },
+        {
+          "text": "The congregation wept that night, murmured against Moses and Aaron, and said, \"Let us make a captain, and let us return into Egypt.\" Joshua and Caleb told them the land was \"an exceeding good land\" and \"the LORD is with us: fear them not\", but the congregation bade stone them with stones.",
+          "refs": [
+            "NUM 14:1-10"
+          ]
+        },
+        {
+          "text": "The LORD said he would smite the people and make of Moses a greater nation. Moses pleaded again, repeating the LORD's own words, \"The LORD is longsuffering, and of great mercy\", and the LORD answered, \"I have pardoned according to thy word\". Yet that generation would not see the land: they would wander forty years, a year for each day of the search, and of the men counted only Caleb and Joshua would go in, with the children.",
+          "refs": [
+            "NUM 14:11-38"
+          ]
+        },
+        {
+          "text": "Later, at Kadesh, Miriam died, and the people chode with Moses because there was no water. The LORD told him to take the rod and speak to the rock; Moses said, \"Hear now, ye rebels; must we fetch you water out of this rock?\" and struck it twice. The water came out abundantly, but the LORD said that, \"Because ye believed me not\", Moses and Aaron would not bring the congregation into the land. Aaron died on mount Hor in the fortieth year.",
+          "refs": [
+            "NUM 20:1-29",
+            "NUM 33:38"
+          ]
+        }
+      ],
+      "keyVerses": [
+        {
+          "ref": "NUM 14:9",
+          "text": "Only rebel not ye against the LORD, neither fear ye the people of the land; for they are bread for us: their defence is departed from them, and the LORD is with us: fear them not."
+        },
+        {
+          "ref": "NUM 14:19",
+          "text": "Pardon, I beseech thee, the iniquity of this people according unto the greatness of thy mercy, and as thou hast forgiven this people, from Egypt even until now."
+        },
+        {
+          "ref": "NUM 20:12",
+          "text": "And the LORD spake unto Moses and Aaron, Because ye believed me not, to sanctify me in the eyes of the children of Israel, therefore ye shall not bring this congregation into the land which I have given them."
+        }
+      ],
+      "questions": [
+        {
+          "kind": "observe",
+          "text": "What did Moses tell the twelve to find out (13:17-20)? What did they report when they came back (13:27-29)?",
+          "refs": [
+            "NUM 13:17-29"
+          ]
+        },
+        {
+          "kind": "observe",
+          "text": "Caleb and the ten saw the same land. How did their conclusions differ (13:30-33; 14:6-9)?",
+          "refs": [
+            "NUM 13:30-33",
+            "NUM 14:6-9"
+          ]
+        },
+        {
+          "kind": "interpret",
+          "text": "The ten said, \"we were in our own sight as grasshoppers, and so we were in their sight\" (13:33). What were they measuring themselves against, and what did Joshua and Caleb measure by instead (14:8-9)?",
+          "refs": [
+            "NUM 13:33",
+            "NUM 14:8-9"
+          ]
+        },
+        {
+          "kind": "observe",
+          "text": "What did the people propose in 14:4, and what did Moses and Aaron do (14:5)?",
+          "refs": [
+            "NUM 14:1-5"
+          ]
+        },
+        {
+          "kind": "interpret",
+          "text": "In 14:13-19 Moses pleads for the people a second time. What does he base his plea on, and how does the LORD answer (14:20-24)?",
+          "refs": [
+            "NUM 14:13-24"
+          ]
+        },
+        {
+          "kind": "observe",
+          "text": "At Meribah, what was Moses told to do (20:8), what did he say and do (20:10-11), and what reason does the LORD give for his judgment (20:12)?",
+          "refs": [
+            "NUM 20:7-13"
+          ]
+        },
+        {
+          "kind": "reflect",
+          "text": "The spies' generation had seen the LORD's \"miracles, which I did in Egypt and in the wilderness\" (14:22), and Moses had seen more than any; yet both were judged for not believing (14:11; 20:12). What does this session say to you about trust that lasts?",
+          "refs": [
+            "NUM 14:11",
+            "NUM 14:22-23",
+            "NUM 20:12"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "part": 3,
+      "art": "nebo",
+      "title": "Nebo",
+      "read": [
+        "DEU 31-34",
+        "DEU 3:23-28"
+      ],
+      "summary": [
+        {
+          "text": "At a hundred and twenty years old Moses told Israel that the LORD had said he would not go over Jordan, and that Joshua would go over before them. In the sight of all Israel he told Joshua, \"Be strong and of a good courage\"; the LORD gave Joshua the same charge at the tabernacle.",
+          "refs": [
+            "DEU 31:1-8",
+            "DEU 31:14",
+            "DEU 31:23"
+          ]
+        },
+        {
+          "text": "Moses wrote the words of the law in a book and had the Levites put it in the side of the ark of the covenant; he also wrote a song and taught it to Israel as a witness. He told the people, \"it is not a vain thing for you; because it is your life\".",
+          "refs": [
+            "DEU 31:19-30",
+            "DEU 32:44-47"
+          ]
+        },
+        {
+          "text": "Earlier he had prayed to go over and see the good land, and was told, \"Let it suffice thee; speak no more unto me of this matter.\" Now the LORD told him to go up mount Nebo, see the land of Canaan and die there, as Aaron had died on mount Hor, because at Meribah \"ye sanctified me not in the midst of the children of Israel\". Before his death Moses blessed the tribes one by one.",
+          "refs": [
+            "DEU 3:23-27",
+            "DEU 32:48-52",
+            "DEU 33"
+          ]
+        },
+        {
+          "text": "From the top of Pisgah the LORD showed him the land and said, \"I have caused thee to see it with thine eyes, but thou shalt not go over thither.\" Moses the servant of the LORD died there in Moab; \"his eye was not dim, nor his natural force abated\", and no man knows where his grave is. Israel wept for him thirty days, and then hearkened to Joshua, on whom Moses had laid his hands.",
+          "refs": [
+            "DEU 34:1-9"
+          ]
+        },
+        {
+          "text": "Deuteronomy closes: \"there arose not a prophet since in Israel like unto Moses, whom the LORD knew face to face\". In Matthew's Gospel Moses appears again, with Elias, talking with Jesus on a high mountain.",
+          "refs": [
+            "DEU 34:10-12",
+            "MAT 17:1-3"
+          ]
+        }
+      ],
+      "keyVerses": [
+        {
+          "ref": "DEU 31:8",
+          "text": "And the LORD, he it is that doth go before thee; he will be with thee, he will not fail thee, neither forsake thee: fear not, neither be dismayed."
+        },
+        {
+          "ref": "DEU 33:27",
+          "text": "The eternal God is thy refuge, and underneath are the everlasting arms: and he shall thrust out the enemy from before thee; and shall say, Destroy them."
+        },
+        {
+          "ref": "DEU 34:5",
+          "text": "So Moses the servant of the LORD died there in the land of Moab, according to the word of the LORD."
+        }
+      ],
+      "questions": [
+        {
+          "kind": "observe",
+          "text": "What reasons does Moses give Israel and Joshua for being \"strong and of a good courage\" (31:6-8)?",
+          "refs": [
+            "DEU 31:6-8"
+          ]
+        },
+        {
+          "kind": "observe",
+          "text": "What did Moses do with the book of the law (31:24-26), and why did he say it was to be kept there (31:26-29)?",
+          "refs": [
+            "DEU 31:24-29"
+          ]
+        },
+        {
+          "kind": "observe",
+          "text": "What did Moses tell the people about the words of the law in 32:46-47?",
+          "refs": [
+            "DEU 32:46-47"
+          ]
+        },
+        {
+          "kind": "interpret",
+          "text": "Read 3:23-27 beside 34:1-4. What did Moses ask for, what was he refused, and what was he given?",
+          "refs": [
+            "DEU 3:23-27",
+            "DEU 34:1-4"
+          ]
+        },
+        {
+          "kind": "interpret",
+          "text": "Joshua was \"full of the spirit of wisdom; for Moses had laid his hands upon him\" (34:9). Compare Numbers 27:15-23. What had Moses asked the LORD for, and how was it answered?",
+          "refs": [
+            "DEU 34:9",
+            "NUM 27:15-23"
+          ]
+        },
+        {
+          "kind": "interpret",
+          "text": "Deuteronomy 34:10-12 sums up Moses' life in one sentence. What does it single out, and where have you met those things in the earlier sessions?",
+          "refs": [
+            "DEU 34:10-12"
+          ]
+        },
+        {
+          "kind": "reflect",
+          "text": "Look back over the three forties: Pharaoh's house, the desert of Midian, the wilderness with Israel (Acts 7:23, 30, 36). Which part of Moses' life speaks most to where you are now, and why?",
+          "refs": [
+            "ACT 7:23",
+            "ACT 7:30",
+            "ACT 7:36"
+          ]
+        }
+      ]
+    }
+  ]
+}

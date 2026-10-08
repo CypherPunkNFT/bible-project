@@ -1,0 +1,23 @@
+{
+  "items": [
+    {
+      "id": "moses-three-forties",
+      "title": "Moses: three forties",
+      "kind": "workbook",
+      "sessions": 8,
+      "pages": 42,
+      "summary": "Eight sessions on the life of Moses, following the shape Scripture itself gives it: forty years in Egypt, forty in Midian, forty leading Israel. Each session has the passage to read, a short summary with its verses, key verses in the King James Version, and questions with space to write.",
+      "pdf": {
+        "a4": "/learning/moses-three-forties-a4.pdf",
+        "letter": "/learning/moses-three-forties-letter.pdf"
+      },
+      "cover": "/learning/moses-three-forties.png",
+      "builtFrom": [
+        "/people/moses-exo-2-10",
+        "/people/moses-exo-2-10/rule",
+        "/people/moses-exo-2-10/word"
+      ],
+      "checked": "2026-10-08"
+    }
+  ]
+}

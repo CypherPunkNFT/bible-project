@@ -12,6 +12,7 @@
     "people-pages:check": "py -3.12 scripts/check-people-pages.py && py -3.12 scripts/build-people-pages-index.py --check && py -3.12 scripts/build-reader-rulers.py --check",
     "preview": "vite preview",
     "data": "py -3.12 scripts/build-data.py",
+    "learning": "node scripts/check-learning.mjs && node scripts/build-learning.mjs",
     "test:data": "py -3.12 -m pytest scripts/tests -q",
     "map": "node scripts/build-map.mjs",
     "imagery": "node scripts/fetch-imagery.mjs",
