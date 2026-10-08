@@ -1,0 +1,68 @@
+/* The chapters, cinema style (the Moses cinema containers): full-screen chapters with a giant numeral behind, a sky
+   of faint dots above, a line-art landscape beneath, and scenes that slide sideways. One focal glow at most. */
+.cn { --pad-x: max(1.5rem, calc((100vw - 80rem) / 2 + 1.5rem)); margin-top: 3.2rem; border-top: 1px solid var(--line); }
+.cn-chapter { position: relative; isolation: isolate; min-height: min(56rem, calc(100svh - 61px)); display: flex; flex-direction: column; overflow: hidden; border-bottom: 1px solid var(--line);
+  background: radial-gradient(55% 70% at 75% 50%, color-mix(in srgb, var(--tone) 9%, transparent), transparent 70%), linear-gradient(180deg, color-mix(in srgb, var(--tone) 4%, var(--page)), var(--page) 60%); }
+:root[data-theme="dark"] .cn-chapter { background: radial-gradient(55% 70% at 75% 50%, color-mix(in srgb, var(--tone) 12%, transparent), transparent 70%), #0e0d0c; }
+.cn-sky { position: absolute; inset: 0 0 auto; z-index: -1; height: 12rem; width: 100%; opacity: .8; }
+.cn-land { position: absolute; left: 0; right: 0; bottom: 0; z-index: -1; width: 100%; height: 7.5rem; }
+.cn-bgnum { position: absolute; right: -1vw; bottom: -8vw; z-index: -1; font: 400 34vw/.8 var(--serif); color: var(--tone); opacity: .07; pointer-events: none; letter-spacing: -.06em; }
+.cn-chapter.trad .cn-bgnum { -webkit-text-stroke: 2px var(--tone); color: transparent; opacity: .18; }
+.cn-head { padding: 2.6rem var(--pad-x) 0; }
+.cn-head h2 { margin-top: .4rem; font: 500 clamp(1.9rem, 3.4vw, 3rem)/1.05 var(--serif); letter-spacing: -.035em; }
+.cn-head .sub { margin-top: .35rem; font-size: .84rem; color: var(--muted); }
+.cn-viewport { flex: 1; display: flex; overflow: hidden; touch-action: pan-y; }
+.cn-track { display: flex; width: 100%; transform: translateX(calc(var(--x) * -100%)); transition: transform .9s cubic-bezier(.65, 0, .25, 1); will-change: transform; }
+.cn-slide { flex: 0 0 100%; min-width: 0; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 3rem; align-items: center; padding: 1.4rem var(--pad-x) 8.5rem; }
+.cn-text { min-width: 0; }
+.cn-text .kicker { display: inline-flex; gap: .45rem; align-items: center; }
+.cn-title { margin: .5rem 0 1.1rem; font: 500 clamp(2rem, 3.8vw, 3.4rem)/1.04 var(--serif); letter-spacing: -.035em; }
+.cn-verse { margin: 0; padding-left: 1.2rem; border-left: 2px solid var(--tone); }
+.cn-verse p { font: italic 400 clamp(1.05rem, 1.6vw, 1.38rem)/1.55 var(--serif); }
+.cn-verse footer { margin-top: .55rem; font-size: .74rem; color: var(--muted); }
+.cn-what { max-width: 36rem; margin-top: 1rem; font-size: .88rem; line-height: 1.7; color: color-mix(in srgb, var(--ink) 80%, transparent); }
+.cn-facts { display: grid; gap: .1rem; max-width: 36rem; margin: 1.1rem 0 0; }
+.cn-facts > div { display: grid; grid-template-columns: 9.5rem minmax(0, 1fr); gap: 1rem; padding: .42rem 0; border-top: 1px solid color-mix(in srgb, var(--line) 80%, transparent); font-size: .8rem; }
+.cn-facts dt { font-size: .6rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); padding-top: .15rem; }
+.cn-facts dd { margin: 0; line-height: 1.5; }
+.cn-actions { margin-top: 1.3rem; }
+.cn-more { display: inline-flex; gap: .5rem; align-items: center; padding: .6rem 1.05rem; border-radius: 999px; font-size: .84rem; font-weight: 600; color: var(--page); background: var(--ink); transition: transform .3s cubic-bezier(.16, 1, .3, 1); }
+.cn-more:hover { transform: translateY(-2px); } .cn-more small { font-weight: 400; opacity: .65; } .cn-more .ico { color: var(--tone); }
+.cn-art { min-width: 0; }
+.cn-art .art { width: 100%; max-height: 58vh; }
+.cn-k { margin-top: 1.2rem; }
+.cn-names { margin: .5rem 0 0; padding: 0; list-style: none; font-size: .86rem; } .cn-names li { padding: .35rem 0; border-top: 1px solid var(--line); } .cn-names b { font: 500 1rem var(--serif); margin-right: .5rem; }
+/* IV: Scripture first, then tradition's ladder */
+.cn-after { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; padding-top: 2rem; }
+.cn-ending { margin: 0; padding: 0; list-style: none; } .cn-ending li { padding: .8rem 0; border-top: 1px solid var(--line); } .cn-ending p { font: 400 1rem/1.65 var(--serif); }
+.cn-ladder ol { position: relative; margin: .8rem 0; padding: 0 0 0 1.1rem; list-style: none; border-left: 1px dashed color-mix(in srgb, var(--ink) 35%, transparent); }
+.cn-ladder li button { display: grid; grid-template-columns: 4.6rem minmax(0, 1fr) auto; gap: .8rem; align-items: center; width: 100%; padding: .42rem 0; text-align: left; border-bottom: 1px solid color-mix(in srgb, var(--line) 70%, transparent); }
+.cn-ladder li { position: relative; }
+.cn-ladder li button::before { content: ""; position: absolute; left: calc(-1.1rem - 4.5px); top: 50%; width: 8px; height: 8px; margin-top: -4px; border-radius: 50%; background: var(--page); border: 1px dashed var(--ink); }
+.cn-ladder .ld-when { font: 500 .8rem var(--serif); color: var(--muted); } .cn-ladder .ld-who { font-size: .84rem; line-height: 1.35; }
+.cn-ladder li button:hover .ld-who { color: var(--accent); }
+/* navigation */
+.cn-nav { position: absolute; left: var(--pad-x); bottom: 2rem; z-index: 2; display: flex; align-items: center; gap: .8rem; }
+.cn-arrow { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 50%; background: color-mix(in srgb, var(--surface) 80%, transparent); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--tone) 35%, var(--line)); transition: background .2s, transform .2s; }
+.cn-arrow:hover { background: var(--surface); transform: scale(1.06); } .cn-arrow .ico { color: var(--tone); }
+.cn-dots { display: flex; gap: 6px; } .cn-dots button { width: 18px; height: 4px; border-radius: 4px; background: color-mix(in srgb, var(--ink) 18%, transparent); transition: width .4s cubic-bezier(.16, 1, .3, 1), background .3s; }
+.cn-dots button[aria-current] { width: 38px; background: var(--tone); }
+.cn-count { font: 500 .75rem var(--mono); color: var(--muted); } .cn-count b { color: var(--ink); }
+.cn-rail { position: fixed; right: 1.1rem; top: 50%; z-index: 30; display: flex; flex-direction: column; gap: .7rem; transform: translate(30px, -50%); opacity: 0; pointer-events: none; transition: opacity .3s, transform .3s; }
+.cn-rail.show { opacity: 1; transform: translate(0, -50%); pointer-events: auto; }
+.cn-rail a { position: relative; display: flex; justify-content: flex-end; align-items: center; }
+.cn-rail i { width: 8px; height: 8px; border-radius: 50%; background: color-mix(in srgb, var(--ink) 25%, transparent); transition: height .3s, background .3s; }
+.cn-rail a[aria-current] i { height: 24px; border-radius: 6px; background: var(--accent); }
+.cn-rail span { position: absolute; right: 1.2rem; padding: .2rem .55rem; border-radius: 8px; font-size: .7rem; white-space: nowrap; background: var(--surface); box-shadow: 0 4px 14px -6px rgb(0 0 0 / 30%); visibility: hidden; }
+.cn-rail a:hover span { visibility: visible; }
+
+@media (max-width: 960px) {
+  .cn-slide, .cn-after { grid-template-columns: minmax(0, 1fr); gap: 1rem; padding: 1rem 1rem 8rem; align-content: start; }
+  .cn-art { order: -1; } .cn-art .art { max-height: 30vh; }
+  .cn-head { padding: 1.8rem 1rem 0; }
+  .cn-rail { display: none; }
+  .cn-nav { left: 1rem; right: 1rem; bottom: 1.3rem; justify-content: space-between; gap: .5rem; } .cn-dots { flex: 1; justify-content: center; flex-wrap: wrap; } .cn-count { display: none; }
+  .cn-facts > div { grid-template-columns: 1fr; gap: .1rem; }
+  .cn-bgnum { font-size: 70vw; bottom: -14vw; }
+  .cn-land { height: 5rem; }
+}
