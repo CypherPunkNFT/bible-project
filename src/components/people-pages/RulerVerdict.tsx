@@ -70,6 +70,12 @@ function useSourceOf() {
   };
 }
 
+/** A passage short enough to draw as one ribbon: within one chapter and at most a dozen verses. */
+const SHORT_PASSAGE = 12;
+function isShortPassage([from, to]: [number, number]): boolean {
+  return Math.floor(from / 1000) === Math.floor(to / 1000) && to - from < SHORT_PASSAGE;
+}
+
 /**
  * Where the tellings of a reign differ, side by side and never merged: Kings (or Samuel) and Chronicles for Israel's
  * kings; the Gospels, Acts and Josephus for the Herods and Rome; Scripture and outside records for other nations.
@@ -79,8 +85,11 @@ export function TwoAccounts({ ruler }: { ruler: Ruler }) {
   if (!ruler.twoAccounts.length) return null;
   const heading = accountsHeading(ruler);
   const left = heading.rails && railOf(ruler.passages, [9, 10, 11, 12]), right = heading.rails && railOf(ruler.passages, [13, 14]);
+  // Only matching passages become ribbons: a long stretch on one side ("What Chronicles leaves out", a whole chapter
+  // against one verse) is not a parallel, and drawn as a ribbon it floods the figure. Those stay as cards below.
   const pairs = ruler.twoAccounts.flatMap((t) => (t.first.refs?.[0] && t.second.refs?.[0] ? [{ left: t.first.refs[0], right: t.second.refs[0], note: t.topic }] : []))
-    .filter((p) => left && right && p.left[0] >= left[0] && p.left[1] <= left[1] && p.right[0] >= right[0] && p.right[1] <= right[1]);
+    .filter((p) => left && right && p.left[0] >= left[0] && p.left[1] <= left[1] && p.right[0] >= right[0] && p.right[1] <= right[1])
+    .filter((p) => isShortPassage(p.left) && isShortPassage(p.right));
   const parallel: Parallel | undefined = left && right && pairs.length ? {
     id: `${ruler.id}-accounts`, title: `${heading.rails![0]} and ${heading.rails![1]}`, left: { label: heading.rails![0], span: left }, right: { label: heading.rails![1], span: right }, pairs,
     claim: { text: "Each ribbon joins the two accounts of one matter, passage to passage." },

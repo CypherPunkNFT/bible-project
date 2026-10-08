@@ -75,6 +75,7 @@ function RealmLane({ line, current }: { line: RulerSummary[]; current: string })
   const carried = useCarried();
   const [tip, setTip] = useState<RulerSummary | null>(null);
   const here = rulerFor(current);
+  const resting = here ? `${here.name} glows. Point at another to name them; choose one to open their reign.` : "";
   return <div className="pp-lane">
     <p className="pp-lane-label"><span>{REALM_LABEL[line[0].realm]}: {line.length} rulers</span><span>{line[0].name} → {line[line.length - 1].name}</span></p>
     <nav className="pp-lane-track" aria-label={`The rulers of ${REALM_LABEL[line[0].realm]}`}>
@@ -82,6 +83,16 @@ function RealmLane({ line, current }: { line: RulerSummary[]; current: string })
         style={{ flexGrow: r.years ?? 12 }} aria-label={`${r.name}, ${r.title}${r.years ? `, ${r.years} years` : ""}`}
         onMouseEnter={() => setTip(r)} onMouseLeave={() => setTip(null)} onFocus={() => setTip(r)} onBlur={() => setTip(null)} />)}
     </nav>
-    <p className="pp-lane-tip" aria-live="polite">{tip ? `${tip.name} · ${tip.reignText || tip.title}${tip.dates ? ` · ${formatYears(tip.dates.from, tip.dates.to, tip.dates.approx)}` : ""}` : here ? `${here.name} glows. Point at another to name them; choose one to open their reign.` : ""}</p>
+    {/* Every line the tip can show sits in one grid cell, hidden but measured, so the box is always as tall as the
+        longest and never jumps when a two-line name is pointed at. */}
+    <div className="pp-lane-tip">
+      {[resting, ...line.map(laneTip)].map((text, i) => <span key={i} className="pp-lane-tip-sizer" aria-hidden="true">{text}</span>)}
+      <span aria-live="polite">{tip ? laneTip(tip) : resting}</span>
+    </div>
   </div>;
+}
+
+/** The tip line for one ruler in the realm strip. */
+function laneTip(r: RulerSummary): string {
+  return `${r.name} · ${r.reignText || r.title}${r.dates ? ` · ${formatYears(r.dates.from, r.dates.to, r.dates.approx)}` : ""}`;
 }
