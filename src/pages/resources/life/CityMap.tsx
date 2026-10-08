@@ -2,6 +2,7 @@
 // level with the map's top and scrolls on its own; pointing at a pin lights its row and choosing a row lights its pin.
 // Kind filters show some kinds only; County and Downtown jump the map; the wheel, a pinch or the buttons zoom it.
 import { memo, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type CSSProperties } from "react";
+import { OutsideScroll } from "@/components/OutsideScroll";
 import type { City, CityMap as CityMapData } from "@/data/resources";
 import { compass, kindOf, miles, plural, tone } from "./format";
 import { ZoomButtons } from "./ZoomButtons";
@@ -106,7 +107,8 @@ export function CityMap({ city, map, kinds }: { city: City; map: CityMapData; ki
   useLayoutEffect(layoutPins, [shown, selected, layoutPins]);
 
   const scrollRow = (id: string) => {
-    const box = list.current, row = box?.querySelector<HTMLElement>(`.lf-row[data-id="${CSS.escape(id)}"]`);
+    // `list` marks the list's content; the area that scrolls is OutsideScroll's viewport around it.
+    const box = list.current?.closest<HTMLElement>(".outside-scroll-viewport"), row = box?.querySelector<HTMLElement>(`.lf-row[data-id="${CSS.escape(id)}"]`);
     if (!box || !row || getComputedStyle(box).overflowY === "visible") return;
     const top = row.offsetTop - box.offsetTop, bottom = top + row.offsetHeight;
     if (top < box.scrollTop + 8) box.scrollTo({ top: top - 8, behavior: "smooth" });
@@ -150,7 +152,7 @@ export function CityMap({ city, map, kinds }: { city: City; map: CityMapData; ki
         <g ref={leaders} className="lf-leaders" />
         <g>{ordered.map(({ e, n, at }) => <g key={e.id} className="lf-pin" data-id={e.id} data-cat={e.category} data-x={at[0]} data-y={at[1]} data-off={shown.has(e.category) ? undefined : ""}
           data-on={lit === e.id || undefined} data-sel={selected === e.id || undefined} style={{ "--c": tone(e.category) } as CSSProperties} role="button" tabIndex={-1} aria-label={`${n}. ${e.name}`}
-          onPointerEnter={() => { setLit(e.id); scrollRow(e.id); }} onPointerLeave={() => setLit(null)} onClick={() => choosePin(e.id)}>
+          onPointerEnter={() => setLit(e.id)} onPointerLeave={() => setLit(null)} onClick={() => choosePin(e.id)}>
           <circle className="lf-halo" r={16} /><circle className="lf-disc" r={10} /><text>{n}</text>
         </g>)}</g>
       </svg>
@@ -158,8 +160,14 @@ export function CityMap({ city, map, kinds }: { city: City; map: CityMapData; ki
       <ZoomButtons zoom={zoom} onReset={() => setView("county")} />
     </div>
     <figcaption>Map: US Census Bureau TIGER/Line 2026 (roads, water, towns) and 2025 county boundary, public domain. Places located from their addresses{geocoders(city)}.</figcaption></figure>
-    <div className="lf-city-list" ref={list}>
-      <p className="lf-list-head"><span>{plural(city.entries.length, "place")}</span>{lines.length > 0 && <span className="lf-muted">{plural(lines.length, "phone line")} below</span>}</p>
+    {/* Pointing at a pin only lights it; the list scrolls when a pin is clicked (owner, 2026-10-08). The places in a panel as tall as the map: a header, then the list scrolling with the pill outside the edge. */}
+    <div className="lf-places">
+      <header className="lf-places-head">
+        <h3>Places in {city.name.split(",")[0]}</h3>
+        <p>{plural(city.entries.length, "place")} you can walk into{lines.length > 0 && ` · ${plural(lines.length, "phone line")} below`}</p>
+      </header>
+      <OutsideScroll className="lf-places-scroll" viewportClassName="lf-city-list" label={`Places in ${city.name}`} resetKey={city.id}>
+      <div ref={list}>
       <ol aria-label={`Places in ${city.name}`}>{places.map(({ e, n }) => <LifeRow key={e.id} entry={e} kind={e.category} layout="stack" n={n} quick={1} address
         sub={`${kindOf(e.category).short}  ·  ${where(e)}`} open={open.has(e.id)} onToggle={() => toggle(e.id, true)} lit={lit === e.id}
         hidden={!shown.has(e.category)} onPointerEnter={() => setLit(e.id)} onPointerLeave={() => setLit(null)} />)}</ol>
@@ -167,6 +175,8 @@ export function CityMap({ city, map, kinds }: { city: City; map: CityMapData; ki
         <h3 className="lf-lines-head">Phone lines <small>no walk-in address</small></h3>
         <ol aria-label={`Phone lines in ${city.name}`}>{lines.map((l) => <LifeRow key={l.id} entry={l} kind={l.category ?? "crisis"} layout="stack" quick={2} address open={open.has(l.id)} onToggle={() => toggle(l.id, false)} />)}</ol>
       </>}
+      </div>
+      </OutsideScroll>
     </div>
   </div>;
 }

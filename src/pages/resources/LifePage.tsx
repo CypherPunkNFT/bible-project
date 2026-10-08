@@ -57,6 +57,5 @@ export default function LifePage({ data }: { data: LifeData }) {
     </header>
     <NationalLines groups={groups} />
     {cities.map((c) => <CitySection key={c.id} city={c} checked={data.checked} />)}
-    <section className="lf-how"><p>How this list is made: every number, address and hour is copied from the organisation’s own page, and each entry links to the page it was checked on. Numbers change; if one fails, the organisation’s page is the place to look.{cities.length > 0 && ` The ${listOf(cities.map((c) => c.name.split(",")[0]))} map is drawn from the US Census Bureau’s TIGER/Line 2026 files; each place is located from its address by the Census Bureau geocoder.`}</p></section>
   </div>;
 }

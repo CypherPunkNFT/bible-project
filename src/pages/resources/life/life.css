@@ -137,7 +137,9 @@ a.lf-contact:hover strong { color: var(--c, var(--door)); }
 .lf-city { margin-top: 3rem; padding-top: 2.4rem; border-top: 1px solid var(--line); }
 .lf-city-top { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 1.6rem 3.2rem; align-items: start; }
 .lf-city-rule { margin: 2.2rem 0 1.8rem; border: 0; border-top: 1px solid var(--line); }
-.lf-city-main { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 1.6rem 2.6rem; align-items: stretch; }
+/* Two rows: the map beside the places panel, both ending on the same line; the map's caption under it. */
+.lf-city-main { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); grid-template-rows: auto auto; gap: 0 2.6rem; align-items: stretch; }
+.lf-city-main > .lf-mapframe { display: grid; grid-row: 1 / 3; grid-template-rows: subgrid; }
 .lf-wait { display: grid; place-items: center; border-radius: 16px; background: color-mix(in srgb, var(--surface-2) 45%, transparent); color: var(--muted); font-size: .85rem; }
 .lf-wait-usa { aspect-ratio: 975 / 610; }
 .lf-wait-city { aspect-ratio: 1000 / 866; max-width: 58%; }
@@ -223,18 +225,23 @@ a.lf-src:hover { color: var(--ink); }
 .lf-map-views button { border: 0; background: none; color: var(--muted); -webkit-backdrop-filter: none; backdrop-filter: none; }
 .lf-map-views button[aria-pressed="true"] { background: var(--ink); color: var(--page); }
 
-.lf-city-list { height: 0; min-height: 100%; padding-right: .4rem; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: var(--line) transparent; }
-.lf-list-head { position: sticky; top: 0; z-index: 2; display: flex; justify-content: space-between; gap: 1rem; padding: .1rem 0 .6rem; border-bottom: 1px solid var(--line); background: var(--page); color: var(--ink); font: 600 .6rem/1.6 var(--lf-mono); letter-spacing: .16em; text-transform: uppercase; }
+/* The places panel: as tall as the map, square-cornered and see-through (owner, 2026-10-08), a header, then the list scrolling inside it with the site's
+   pill scrollbar just beyond its right edge (OutsideScroll). */
+.lf-places { grid-row: 1; display: flex; flex-direction: column; height: 0; min-height: 100%; border: 1px solid var(--line); }
+.lf-places-head { padding: 1rem 1.2rem .85rem; border-bottom: 1px solid var(--line); background: var(--surface); }
+.lf-places-head h3 { margin: 0; color: var(--ink); font: 400 1.35rem/1.2 var(--font-serif); }
+.lf-places-head p { margin: .25rem 0 0; color: var(--muted); font-size: .8rem; }
+.lf-places-scroll { flex: 1; min-height: 0; }
+.lf-city-list { overscroll-behavior: contain; padding: 0 1.2rem 1rem; }
 .lf-lines-head { display: flex; align-items: baseline; gap: .7rem; margin-top: 1.6rem; padding-bottom: .5rem; border-bottom: 1px solid var(--line); font: 400 1.15rem var(--font-serif); }
 .lf-lines-head small { color: var(--muted); font: 600 .55rem var(--lf-mono); letter-spacing: .14em; text-transform: uppercase; }
 .lf-city-list .lf-name { font-size: 1rem; }
 
-.lf-how { margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--line); }
-.lf-how p { max-width: 60rem; color: var(--muted); font-size: .76rem; line-height: 1.7; }
 
 @media (max-width: 900px) {
   .lf-city-top, .lf-city-main, .lf-dir { grid-template-columns: minmax(0, 1fr); }
-  .lf-city-list { height: auto; min-height: 0; max-height: 34rem; }
+  .lf-city-main > .lf-mapframe { display: block; grid-row: auto; }
+  .lf-places { grid-row: auto; height: 34rem; min-height: 0; margin-top: 1.6rem; }
   .lf-map-filter { position: static; margin-bottom: .6rem; pointer-events: auto; }
   .lf-wait-city { max-width: none; }
   .lf-kinds { position: static; grid-template-columns: repeat(2, minmax(0, 1fr)); }

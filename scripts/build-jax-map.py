@@ -47,6 +47,7 @@ DUVAL = "12031"
 NEIGHBOURS = ["12089", "12003", "12019", "12109"]  # Nassau, Baker, Clay, St. Johns
 WIDTH = 1000.0
 PAD = 0.035  # degrees of margin around the county
+ASPECT = 0.9  # width / height: land is added above and below the county until the map is this tall (owner, 2026-10-08)
 
 
 def parse_args():
@@ -146,8 +147,10 @@ def build(tiger: Path, census: Path):
         raise SystemExit("build-jax-map: Duval County (GEOID 12031) not found in cb_2025_us_county_500k")
     duval_rec, duval = counties[DUVAL]
     minx, miny, maxx, maxy = duval.bounds
-    frame = box(minx - PAD, miny - PAD, maxx + PAD, maxy + PAD)
     cos0 = math.cos(math.radians((miny + maxy) / 2))
+    # The side margins stay PAD; the top and bottom margins grow until width / height = ASPECT.
+    pad_y = max(PAD, (WIDTH / ASPECT / (WIDTH / ((maxx - minx + 2 * PAD) * cos0)) - (maxy - miny)) / 2)
+    frame = box(minx - PAD, miny - pad_y, maxx + PAD, maxy + pad_y)
     k = WIDTH / ((frame.bounds[2] - frame.bounds[0]) * cos0)
     height = (frame.bounds[3] - frame.bounds[1]) * k
     west, north = frame.bounds[0], frame.bounds[3]
@@ -215,6 +218,9 @@ def build(tiger: Path, census: Path):
             continue
         centre = on_land.representative_point()
         x, y = xy(centre.x, centre.y)
+        # A name centred this close to the frame's edge would be cut off (or sit under the kind chips at the top).
+        if x < 60 or x > WIDTH - 60 or y < 60 or y > height - 15:
+            continue
         places.append({"name": rec["NAME"], "x": round(x, 1), "y": round(y, 1), "duval": bool(duval.contains(centre))})
 
     # Labels for the largest named waters, at a point inside each one's biggest piece.
