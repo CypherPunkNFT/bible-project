@@ -1,0 +1,28 @@
+/* Shared blocks: evidence labels (the site's own words, Evidence.tsx), verse links, claims and KJV quotations. */
+.layer { display: inline-flex; align-items: center; gap: .35rem; padding: .12rem .55rem; border: 1px solid currentColor; border-radius: 999px; font-size: .64rem; font-weight: 600; letter-spacing: .02em; white-space: nowrap; color: var(--accent); }
+.layer::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
+.layer[data-layer="text"] { color: var(--poetry); } .layer[data-layer="scholars"] { color: var(--prophets); border-style: dashed; }
+.layer[data-layer="ancient-record"] { color: var(--history); border-style: dotted; }
+.layer[data-layer="story"] { color: var(--muted); border-style: dashed; }
+.layer[data-layer="title"] { color: var(--voc); border-style: dashed; }
+.ref { color: var(--accent); font-size: .78rem; white-space: nowrap; border-bottom: 1px solid color-mix(in srgb, var(--accent) 30%, transparent); }
+.ref:hover { border-bottom-color: var(--accent); }
+.ref-sep { margin: 0 .35rem; color: var(--line); }
+.cite { color: var(--prophets); font-size: .78rem; border-bottom: 1px dashed color-mix(in srgb, var(--prophets) 40%, transparent); }
+.refs { display: inline-flex; flex-wrap: wrap; align-items: baseline; }
+
+.claim > p { font-size: .92rem; line-height: 1.68; }
+.claim > footer { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem .6rem; margin-top: .45rem; }
+.claim + .claim { margin-top: .9rem; padding-top: .9rem; border-top: 1px solid color-mix(in srgb, var(--line) 70%, transparent); }
+
+.kjv { margin: .7rem 0 0; padding: .15rem 0 .15rem .9rem; border-left: 2px solid var(--tone, var(--accent)); }
+.kjv p { font: 400 .98rem/1.62 var(--serif); }
+.kjv footer { margin-top: .25rem; font-size: .7rem; color: var(--muted); }
+.read { display: inline-flex; align-items: center; gap: .35rem; padding: .3rem .7rem; border-radius: 999px; font-size: .74rem; font-weight: 600; color: var(--tone, var(--accent)); background: color-mix(in srgb, var(--tone, var(--accent)) 10%, transparent); white-space: nowrap; }
+.read:hover { background: color-mix(in srgb, var(--tone, var(--accent)) 18%, transparent); }
+
+/* Book tags: which book a moment comes from. Samuel and Kings share the record's colour; Chronicles is marked apart. */
+.btag { display: inline-flex; align-items: center; padding: .1rem .45rem; border-radius: 6px; font: 600 .6rem/1.5 var(--mono); letter-spacing: .08em; text-transform: uppercase;
+  color: var(--rec); background: color-mix(in srgb, var(--rec) 10%, transparent); }
+.btag[data-book="13"], .btag[data-book="14"] { color: var(--epistles); background: color-mix(in srgb, var(--epistles) 12%, transparent); }
+.btag[data-book="44"], .btag[data-book="19"] { color: var(--voc); background: color-mix(in srgb, var(--voc) 10%, transparent); }

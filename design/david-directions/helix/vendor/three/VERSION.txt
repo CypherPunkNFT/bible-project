@@ -1,0 +1,2 @@
+three.js 0.185.1 (MIT, see LICENSE), the npm package's build/three.module.min.js and build/three.core.min.js,
+copied unchanged so the mock-up loads nothing from a CDN at runtime. three.module.min.js imports ./three.core.min.js.

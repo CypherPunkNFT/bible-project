@@ -1,0 +1,48 @@
+/* Shared blocks: evidence labels, references, claims, quotations, KJV verses and expand-in-place. */
+.layer { display: inline-flex; align-items: center; gap: .35rem; padding: .12rem .55rem; border: 1px solid currentColor; border-radius: 999px; font-size: .64rem; font-weight: 600; letter-spacing: .02em; white-space: nowrap; color: var(--accent); }
+.layer::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
+.layer[data-layer="text"] { color: var(--poetry); } .layer[data-layer="scholars"] { color: var(--prophets); border-style: dashed; }
+.layer[data-layer="tradition"] { color: var(--revelation); border-style: dotted; } .layer[data-layer="ancient-record"] { color: var(--history); }
+.layer[data-layer="story"] { color: var(--muted); border-style: dashed; }
+.ref { color: var(--accent); font-size: .78rem; white-space: nowrap; border-bottom: 1px solid color-mix(in srgb, var(--accent) 30%, transparent); }
+.ref:hover { border-bottom-color: var(--accent); }
+.ref-sep { margin: 0 .35rem; color: var(--line); }
+.cite { color: var(--prophets); font-size: .78rem; border-bottom: 1px dashed color-mix(in srgb, var(--prophets) 40%, transparent); }
+
+.claim { padding: .1rem 0 .2rem; }
+.claim + .claim { margin-top: .85rem; padding-top: .85rem; border-top: 1px solid color-mix(in srgb, var(--line) 70%, transparent); }
+.claim > p { font-size: .92rem; line-height: 1.68; }
+.claim > footer { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem .6rem; margin-top: .45rem; }
+.claim .refs { display: inline-flex; flex-wrap: wrap; align-items: baseline; row-gap: .2rem; }
+.claim-src { display: block; margin-bottom: .2rem; font: 600 .62rem var(--sans); letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+
+.q { margin: .6rem 0 0; padding: .1rem 0 .1rem 1rem; border-left: 2px solid var(--tone, var(--accent)); }
+.q p { font: italic 400 1rem/1.55 var(--serif); }
+.q footer { margin-top: .3rem; font-size: .72rem; color: var(--muted); }
+
+.kjv { margin: 0; padding: 1rem 1.1rem; border-radius: 14px; background: color-mix(in srgb, var(--tone, var(--accent)) 8%, transparent); border: 1px solid color-mix(in srgb, var(--tone, var(--accent)) 24%, transparent); }
+.kjv p { font: 400 clamp(1.02rem, 1.4vw, 1.16rem)/1.6 var(--serif); letter-spacing: -.005em; }
+.kjv footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .4rem 1rem; margin-top: .6rem; font-size: .72rem; color: var(--muted); }
+.read { display: inline-flex; align-items: center; gap: .35rem; padding: .3rem .7rem; border-radius: 999px; font-size: .74rem; font-weight: 600; color: var(--tone, var(--accent)); background: color-mix(in srgb, var(--tone, var(--accent)) 12%, transparent); }
+.read:hover { background: color-mix(in srgb, var(--tone, var(--accent)) 20%, transparent); }
+.kjv-sm { padding: .75rem .9rem; } .kjv-sm p { font-size: .95rem; }
+
+.xp-body { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .55s cubic-bezier(.16, 1, .3, 1); }
+.xp.is-open > .xp-body { grid-template-rows: 1fr; }
+.xp-inner { min-height: 0; overflow: hidden; }
+.xp.is-open > .xp-body > .xp-inner { padding-top: .8rem; }
+.xp-more { display: flex; width: 100%; align-items: center; gap: .55rem; padding: .7rem .85rem; border-radius: 12px; border: 1px solid var(--line); font-size: .84rem; font-weight: 600; text-align: left; color: var(--ink); background: color-mix(in srgb, var(--surface) 60%, transparent); transition: border-color .2s, background .2s; }
+.xp-more > span { flex: 1; }
+.xp-more > .ico:last-child { transition: transform .4s cubic-bezier(.16, 1, .3, 1); color: var(--muted); }
+.xp.is-open > .xp-more > .ico:last-child { transform: rotate(180deg); }
+.xp-more:hover, .xp-more:focus-visible { border-color: var(--tone, var(--accent)); }
+
+/* Two accounts side by side; stacked on a phone, Samuel/Kings first. */
+.two { display: grid; gap: .6rem; }
+@media (min-width: 560px) { .two { grid-template-columns: 1fr 1fr; } }
+.two .claim { margin: 0 !important; padding: .75rem .85rem !important; border: 1px solid var(--line) !important; border-radius: 12px; }
+.two .two-a { border-left: 3px solid var(--history) !important; } .two .two-b { border-left: 3px solid var(--prophets) !important; border-style: solid solid solid solid; }
+.view { padding: .75rem .85rem; border: 1px dashed color-mix(in srgb, var(--prophets) 45%, var(--line)); border-radius: 12px; }
+.view + .view { margin-top: .55rem; }
+.view > b { display: block; font: 600 .95rem var(--serif); } .view > small { display: block; margin: .15rem 0 .4rem; color: var(--muted); font-size: .74rem; }
+.medal { display: grid; place-items: center; flex-shrink: 0; width: 46px; height: 46px; border-radius: 50%; font: 600 1.2rem var(--serif); color: var(--r-prophet); border: 1.5px solid var(--r-prophet); background: color-mix(in srgb, var(--r-prophet) 12%, transparent); }

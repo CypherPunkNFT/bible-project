@@ -1,0 +1,50 @@
+/* Shared blocks: claims with their evidence labels, quotations, expand-in-place, the plagues, the people network,
+   the word, the questions, the sources, and the scene drawings. Each direction restyles them through its own scope. */
+
+/* Evidence labels (the site's own words: Evidence.tsx) */
+.layer { display: inline-flex; align-items: center; gap: .35rem; padding: .12rem .55rem; border: 1px solid currentColor; border-radius: 999px; font-size: .64rem; font-weight: 600; letter-spacing: .02em; white-space: nowrap; color: var(--accent); }
+.layer::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
+.layer[data-layer="text"] { color: var(--poetry); } .layer[data-layer="scholars"] { color: var(--prophets); border-style: dashed; }
+.layer[data-layer="tradition"] { color: var(--revelation); border-style: dotted; } .layer[data-layer="ancient-record"] { color: var(--history); }
+.layer[data-layer="story"] { color: var(--muted); border-style: dashed; }
+.ref { color: var(--accent); font-size: .78rem; white-space: nowrap; border-bottom: 1px solid color-mix(in srgb, var(--accent) 30%, transparent); }
+.ref:hover { border-bottom-color: var(--accent); }
+.ref-sep { margin: 0 .35rem; color: var(--line); }
+.cite { color: var(--prophets); font-size: .78rem; border-bottom: 1px dashed color-mix(in srgb, var(--prophets) 40%, transparent); }
+
+.claim { padding: .1rem 0 .2rem; }
+.claim + .claim { margin-top: .85rem; padding-top: .85rem; border-top: 1px solid color-mix(in srgb, var(--line) 70%, transparent); }
+.claim > p { font-size: .92rem; line-height: 1.7; }
+.claim > footer { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem .6rem; margin-top: .45rem; }
+.claim .refs { display: inline-flex; flex-wrap: wrap; align-items: baseline; }
+.claim-theme { display: block; margin-bottom: .25rem; font: 600 .95rem var(--serif); color: var(--tone); }
+.claim-who { font-size: .72rem; color: var(--muted); }
+.q { margin: .7rem 0 0; padding: .1rem 0 .1rem 1rem; border-left: 2px solid var(--tone); }
+.q p { font: italic 400 1rem/1.6 var(--serif); }
+.q footer { margin-top: .3rem; font-size: .72rem; color: var(--muted); }
+.q-inline p { font-size: .92rem; }
+.q-call { margin: 0 0 1rem; } .q-call p { font-size: 1.15rem; }
+
+/* A KJV verse: the scene's key text, set large. */
+.kjv { margin: 0; padding: 1.1rem 1.2rem; border-radius: 16px; background: color-mix(in srgb, var(--tone) 7%, transparent); border: 1px solid color-mix(in srgb, var(--tone) 22%, transparent); }
+.kjv p { font: 400 clamp(1.05rem, 1.6vw, 1.28rem)/1.6 var(--serif); letter-spacing: -.005em; }
+.kjv footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .4rem 1rem; margin-top: .65rem; font-size: .72rem; color: var(--muted); }
+.read { display: inline-flex; align-items: center; gap: .35rem; padding: .3rem .7rem; border-radius: 999px; font-size: .74rem; font-weight: 600; color: var(--tone); background: color-mix(in srgb, var(--tone) 10%, transparent); }
+.read:hover { background: color-mix(in srgb, var(--tone) 18%, transparent); }
+.kjv-sm { padding: .8rem .9rem; } .kjv-sm p { font-size: .95rem; }
+
+/* Expand in place: rows grow, nothing fades. */
+.xp-body { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .55s cubic-bezier(.16, 1, .3, 1); }
+.xp.is-open > .xp-body { grid-template-rows: 1fr; }
+.xp-inner { min-height: 0; overflow: hidden; }
+.xp.is-open > .xp-body > .xp-inner { padding-top: .9rem; }
+.xp-more { display: inline-flex; align-items: center; gap: .4rem; margin-top: 1rem; padding: .45rem .9rem; border-radius: 999px; font-size: .78rem; font-weight: 600; color: var(--tone);
+  border: 1px solid color-mix(in srgb, var(--tone) 35%, transparent); background: color-mix(in srgb, var(--tone) 6%, transparent); transition: background .2s; }
+.xp-more:hover { background: color-mix(in srgb, var(--tone) 14%, transparent); }
+.xp-more .ico, .xp-head > .ico:last-child { transition: transform .4s cubic-bezier(.16, 1, .3, 1); }
+.xp.is-open > .xp-more .ico, .xp.is-open > .xp-head > .ico:last-child { transform: rotate(180deg); }
+.xp-row { border-top: 1px solid var(--line); } .xp-row:last-child { border-bottom: 1px solid var(--line); }
+.xp-head { display: flex; align-items: center; gap: .8rem; width: 100%; padding: 1rem .2rem; text-align: left; font: 500 1.05rem/1.35 var(--serif); }
+.xp-head > span { flex: 1; } .xp-head em { font: 500 .7rem var(--sans); font-style: normal; color: var(--muted); white-space: nowrap; }
+.xp-head > .ico:first-child { color: var(--tone); }
+.xp-row.is-open > .xp-body > .xp-inner { padding: 0 .2rem 1.2rem; }

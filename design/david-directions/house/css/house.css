@@ -1,0 +1,230 @@
+/* Direction B · The house of David: the living tree, its console and the year scrubber. */
+:root {
+  --gold: #a8740f; --gold-deep: #6b4806; --saul: #575ca6; --saul-deep: #2f336a; --court: #16756c; --rival: #b3263c; --dead: #a99f8f;
+  --stage-1: #fdfaf2; --stage-2: #f1e8d6; --stage-ink: #1f1b16; --halo: #fdfaf2;
+  --k-personal: #a14d28; --k-battle: #b3263c; --k-alliance: #22599f; --k-worship: #18716a; --k-prophecy: #6b38a3; --k-building: #87610a; --k-other: #6b6255;
+}
+:root[data-theme="dark"] {
+  --gold: #f2c867; --gold-deep: #9b6e1c; --saul: #a9aef5; --saul-deep: #5257a6; --court: #62cbbf; --rival: #f27d8f; --dead: #5e584f;
+  --stage-1: #15130f; --stage-2: #090807; --stage-ink: #ece6da; --halo: #12100d;
+  --k-personal: #ec9670; --k-battle: #f27d8f; --k-alliance: #86b1ee; --k-worship: #5fc6ba; --k-prophecy: #bb9bee; --k-building: #ebc55e; --k-other: #a39a8b;
+}
+
+.topline { padding-bottom: .2rem; }
+
+/* ── The stage ── */
+.stage { scroll-margin-top: 66px; position: relative; isolation: isolate; width: calc(100% - 24px); max-width: 1640px; margin: .9rem auto 0; border-radius: 30px; overflow: hidden;
+  background:
+    radial-gradient(900px 520px at 64% 78%, color-mix(in srgb, var(--gold) 15%, transparent), transparent 62%),
+    radial-gradient(620px 460px at 13% 72%, color-mix(in srgb, var(--saul) 13%, transparent), transparent 64%),
+    radial-gradient(circle, color-mix(in srgb, var(--stage-ink) 9%, transparent) 1px, transparent 1.4px) 0 0 / 26px 26px,
+    linear-gradient(180deg, var(--stage-1), var(--stage-2));
+  border: 1px solid color-mix(in srgb, var(--gold) 26%, var(--line)); box-shadow: var(--shadow-2), 0 0 calc(var(--glow) * 80px) calc(var(--glow) * -30px) color-mix(in srgb, var(--gold) 60%, transparent); }
+.stage::after { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; border-radius: inherit; background: linear-gradient(180deg, transparent 60%, color-mix(in srgb, var(--stage-2) 70%, transparent)); }
+.stage-title { position: absolute; z-index: 5; top: 26px; left: 30px; max-width: 30rem; pointer-events: none; }
+.stage-title a { pointer-events: auto; }
+.stage-title .kicker { color: var(--gold); }
+.stage-title h1 { margin-top: .5rem; font: 520 clamp(3rem, 5.6vw, 5.6rem)/.9 var(--serif); letter-spacing: -.045em;
+  background: linear-gradient(180deg, var(--ink) 30%, color-mix(in srgb, var(--gold) 70%, var(--ink))); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.stage-title h1 em { display: block; margin-top: .3rem; font: italic 400 .42em/1.1 var(--serif); letter-spacing: -.01em; color: var(--gold); -webkit-text-fill-color: var(--gold); }
+.stage-tag { margin-top: .8rem; max-width: 30rem; font-size: .9rem; color: var(--muted); }
+.stage-tag .ref { margin-left: .3rem; }
+
+.tree-box { position: relative; height: clamp(560px, 66vh, 800px); }
+.tree { position: absolute; inset: 0; touch-action: pan-y; }
+.tree-svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.house-tags span { position: absolute; z-index: 1; font-size: .62rem; font-weight: 700; letter-spacing: .32em; text-transform: uppercase; white-space: nowrap; pointer-events: none; opacity: .75; }
+.ht-saul { left: 10px; top: 52%; color: var(--saul); writing-mode: vertical-rl; transform: rotate(180deg); }
+.ht-david { right: 10px; top: 46%; color: var(--gold); writing-mode: vertical-rl; }
+
+/* Branches: tapered shapes. Saul's house indigo, David's gold, recorded deaths grey. */
+.br { fill: url(#g-gold); transition: fill .6s, opacity .6s; }
+.br-saul { fill: url(#g-saul); }
+.br-wed { opacity: .92; }
+.br-filial, .br-spouse { fill: var(--saul); opacity: .38; }
+.br-ghost { fill: none; stroke: var(--gold); stroke-width: .8; stroke-dasharray: 2 4; opacity: .7; }
+.br.is-dead { fill: var(--dead); opacity: .5; }
+:root[data-theme="dark"] .g-branch { filter: drop-shadow(0 0 5px color-mix(in srgb, var(--gold) 38%, transparent)); }
+.ln { fill: none; stroke-width: 1.6; stroke-linecap: round; }
+.ln-covenant { stroke: var(--gold); stroke-width: 2.6; stroke-dasharray: .1 7; }
+.ln-table { stroke: var(--gold); stroke-width: 2.2; stroke-dasharray: 5 5; animation: march 1.6s linear infinite; }
+.ln-plot { stroke: var(--rival); stroke-width: 2; stroke-dasharray: 7 5; animation: march 1s linear infinite; }
+.ln-loyal { stroke: var(--court); stroke-width: 2; stroke-dasharray: 7 5; animation: march 1.2s linear infinite reverse; }
+.ln-marriage { stroke: var(--muted); stroke-width: 1.2; opacity: .55; }
+@keyframes march { to { stroke-dashoffset: -24; } }
+.thread { fill: none; stroke: var(--gold); stroke-width: 1.6; stroke-dasharray: 3 7; opacity: 0; transition: opacity .8s; }
+.has-promise .thread { opacity: .95; animation: march 2.4s linear infinite reverse; }
+.is-tracing .br:not(.is-lit), .is-tracing .ln:not(.is-lit) { opacity: .16; }
+
+/* Crowns */
+.crown path { fill: var(--gold); stroke: var(--gold-deep); stroke-width: 1; stroke-linejoin: round; }
+.crown circle { fill: var(--gold); }
+.crown-israel path, .crown-israel circle { fill: var(--saul); stroke: var(--saul-deep); }
+.crown-rival path { fill: color-mix(in srgb, var(--rival) 12%, transparent); stroke: var(--rival); stroke-width: 1.4; stroke-dasharray: 3 2.5; }
+.crown-rival circle { fill: var(--rival); }
+.crown text { font: 700 6.5px var(--sans); letter-spacing: .14em; text-transform: uppercase; text-anchor: middle; fill: var(--muted); paint-order: stroke; stroke: var(--halo); stroke-width: 3px; }
+
+/* Nodes: buttons riding the bodies. */
+.tn-layer { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
+.tn { position: absolute; left: 0; top: 0; width: var(--s); height: var(--s); margin: calc(var(--s) / -2) 0 0 calc(var(--s) / -2); pointer-events: auto; --s: 16px; }
+.tn-dot { position: absolute; inset: 0; display: grid; place-items: center; width: var(--s); height: var(--s); border-radius: 50%;
+  background: radial-gradient(circle at 34% 28%, color-mix(in srgb, var(--c) 30%, #fff), var(--c) 58%, color-mix(in srgb, var(--c) 72%, #000));
+  box-shadow: 0 0 0 2px var(--halo), 0 6px 16px -6px color-mix(in srgb, var(--c) 80%, transparent), 0 0 calc(var(--glow) * 20px) calc(var(--glow) * -2px) color-mix(in srgb, var(--c) 70%, transparent);
+  transition: transform .35s cubic-bezier(.34, 1.56, .64, 1), background .5s, box-shadow .5s; }
+.tn-dot b { font: 600 calc(var(--s) * .44)/1 var(--serif); color: #fff; text-shadow: 0 1px 2px rgb(0 0 0 / 35%); }
+.tn:hover .tn-dot { transform: scale(1.14); }
+.tn-label { position: absolute; left: 50%; top: calc(100% + 4px); transform: translateX(-50%); white-space: nowrap; font: 560 12px/1.1 var(--sans); letter-spacing: -.005em; color: var(--ink);
+  text-shadow: 0 0 3px var(--halo), 0 0 6px var(--halo), 0 0 10px var(--halo); transition: color .4s, font-size .3s; pointer-events: none; }
+.tn.lab-l .tn-label { transform: translateX(-14px); } .tn.lab-r .tn-label { transform: translateX(calc(-100% + 14px)); }
+.tn-son .tn-label, .tn-nephew .tn-label, .tn-grandchild .tn-label { top: auto; bottom: calc(100% + 3px); font-size: 11.5px; }
+.tn-grandchild.tn-saul .tn-label { top: calc(50% - 7px); bottom: auto; left: calc(100% + 6px); transform: none; }
+.tn.lab-low .tn-label { top: calc(100% + 17px); }
+.tn-court .tn-label { top: calc(50% - 7px); left: calc(100% + 6px); transform: none; color: var(--court); font-weight: 600; }
+.tn-root .tn-label, .tn-sibling .tn-label { font-size: 11px; color: var(--muted); }
+.tn-king .tn-label { font: 600 15px var(--serif); top: calc(100% + 6px); }
+.tn-wife .tn-label { font-size: 12px; }
+.tn-court .tn-dot { border-radius: 30%; transform: rotate(45deg); } .tn-court .tn-dot b { transform: rotate(-45deg); }
+.tn-court:hover .tn-dot { transform: rotate(45deg) scale(1.14); }
+.tn.is-crowned .tn-dot { box-shadow: 0 0 0 2px var(--halo), 0 0 0 4px var(--gold), 0 0 30px 2px color-mix(in srgb, var(--gold) 55%, transparent); }
+.tn.is-rival .tn-dot { box-shadow: 0 0 0 2px var(--halo), 0 0 0 4px color-mix(in srgb, var(--rival) 80%, transparent), 0 0 26px color-mix(in srgb, var(--rival) 45%, transparent); }
+.tn.is-dead .tn-dot { background: var(--halo); box-shadow: inset 0 0 0 1.5px var(--dead), 0 0 0 2px var(--halo); }
+.tn.is-dead .tn-dot b { color: var(--dead); text-shadow: none; }
+.tn.is-dead .tn-label { color: var(--dead); font-weight: 450; }
+.tn.is-ghost .tn-dot { background: transparent; box-shadow: none; outline: 0; border: 1.4px dashed var(--gold); }
+.tn.is-ghost .tn-label { color: var(--muted); font-style: italic; }
+.tn.is-shrunk .tn-dot { transform: scale(.8); filter: saturate(.6); }
+.tn.is-focus .tn-label { font-weight: 700; color: var(--stage-ink); font-size: 13px; }
+.tn.is-focus .tn-dot::after { content: ""; position: absolute; inset: -6px; border-radius: inherit; border: 2px solid var(--c); animation: ping 1.8s cubic-bezier(.16, 1, .3, 1) infinite; }
+.tn.is-dead.is-focus .tn-dot::after { border-color: var(--dead); }
+@keyframes ping { from { transform: scale(.85); opacity: .9; } to { transform: scale(1.9); opacity: 0; } }
+.tn.is-born .tn-dot { animation: pop .9s cubic-bezier(.34, 1.56, .64, 1); }
+@keyframes pop { from { transform: scale(.15); } to { transform: scale(1); } }
+.is-tracing .tn:not(.is-lit) { opacity: .28; }
+.is-tracing .tn.is-lit .tn-label { font-weight: 700; }
+
+/* The three anointings: drops beside David */
+.oil { position: absolute; left: 0; top: 0; z-index: 3; display: flex; flex-direction: column; gap: 4px; pointer-events: auto; }
+.oil i { width: 9px; height: 12px; border-radius: 50% 50% 50% 50% / 62% 62% 38% 38%; border: 1.4px solid var(--gold); transform: rotate(180deg); background: transparent; transition: background .5s, box-shadow .5s; }
+.oil i.on { background: var(--gold); box-shadow: 0 0 10px color-mix(in srgb, var(--gold) 70%, transparent); }
+
+/* The person panel */
+.leaf { --tone: var(--gold); position: absolute; z-index: 8; top: 16px; right: 16px; bottom: 16px; width: min(360px, calc(100% - 32px)); padding: 1.3rem 1.3rem 1.1rem; overflow: auto;
+  transform: translateX(calc(100% + 40px)); transition: transform .55s cubic-bezier(.16, 1, .3, 1); }
+.leaf.is-open { transform: none; }
+.leaf-x { position: absolute; top: 12px; right: 12px; display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--line); background: var(--surface); }
+.leaf h3 { margin: .35rem 2.4rem .5rem 0; font: 500 1.7rem/1.15 var(--serif); letter-spacing: -.02em; } .leaf h3 small { font-size: .9rem; color: var(--muted); }
+.leaf-brief { font-size: .92rem; line-height: 1.6; } .leaf-story { margin-top: .6rem; font: italic .9rem/1.6 var(--serif); color: var(--muted); }
+.leaf-facts { display: grid; gap: .5rem; margin: 1rem 0; } .leaf-facts div { display: flex; justify-content: space-between; gap: 1rem; padding-bottom: .45rem; border-bottom: 1px solid var(--line); font-size: .82rem; }
+.leaf-facts dt { color: var(--muted); } .leaf-facts dd { margin: 0; text-align: right; }
+.leaf-sub { font-size: .66rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); }
+.leaf-steps { display: flex; flex-wrap: wrap; gap: .35rem; margin-top: .5rem; }
+.leaf-steps button { padding: .35rem .65rem; border-radius: 999px; font-size: .76rem; border: 1px solid color-mix(in srgb, var(--gold) 35%, var(--line)); background: color-mix(in srgb, var(--gold) 6%, transparent); }
+.leaf-steps button:hover { background: color-mix(in srgb, var(--gold) 16%, transparent); }
+.leaf-open { display: inline-flex; align-items: center; gap: .45rem; margin-top: 1rem; padding: .55rem 1rem; border-radius: 999px; background: var(--ink); color: var(--page); font-size: .82rem; font-weight: 600; }
+.leaf-src { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem; margin-top: 1rem; font-size: .7rem; color: var(--muted); }
+
+/* ── The console: caption and controls ── */
+.console { position: relative; z-index: 4; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 22rem); gap: 1.2rem 2.4rem; align-items: start; padding: 1.2rem 1.6rem 1.3rem;
+  border-top: 1px solid color-mix(in srgb, var(--line) 70%, transparent); background: color-mix(in srgb, var(--surface) 62%, transparent); }
+.cap { min-height: 9.5rem; overflow: hidden; }
+.cap-in { animation: cap-slide .55s cubic-bezier(.16, 1, .3, 1); }
+@keyframes cap-slide { from { transform: translateX(34px); } to { transform: none; } }
+.cap-kicker { display: flex; align-items: center; gap: .5rem; font-size: .66rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); }
+.seg-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); } .seg-dot.seg-pre { background: transparent; border: 1.5px dashed var(--gold); } .seg-dot.seg-after { background: var(--muted); }
+.cap-title { margin: .3rem 0 .55rem; font: 500 clamp(1.4rem, 2.2vw, 1.9rem)/1.15 var(--serif); letter-spacing: -.025em; }
+.cap-kjv { margin: 0; } .cap-kjv p { font: italic 400 1.04rem/1.6 var(--serif); max-width: 62rem; }
+.cap-claim p, .cap-note p { font-size: .95rem; line-height: 1.65; max-width: 62rem; }
+.cap-note p { color: var(--muted); }
+.cap-kjv footer, .cap-claim footer, .cap-note footer { display: flex; flex-wrap: wrap; align-items: center; gap: .35rem .6rem; margin-top: .4rem; }
+.cap .xp-more { margin-top: .7rem; padding: .35rem .8rem; --tone: var(--gold); }
+.cap .xp-inner > * + * { margin-top: .8rem; }
+.cap-from { font-size: .7rem; color: var(--muted); }
+.cap-count { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem .9rem; margin-top: .75rem; font: 500 .72rem var(--mono); color: var(--muted); }
+.link-btn { display: inline-flex; align-items: center; gap: .3rem; font: 600 .74rem var(--sans); color: var(--gold); border-bottom: 1px solid color-mix(in srgb, var(--gold) 40%, transparent); }
+.beats { display: inline-flex; flex-wrap: wrap; gap: 4px; }
+.beats button { width: 30px; height: 30px; border-radius: 50%; font: 600 .75rem var(--mono); border: 1px solid var(--line); }
+.beats button.is-past { border-color: var(--gold); color: var(--gold); } .beats button.is-on { background: var(--gold); border-color: var(--gold); color: var(--halo); }
+.ctl { display: grid; gap: .7rem; justify-items: start; align-content: start; }
+.year { display: grid; grid-template-columns: auto minmax(0, 13.5rem); column-gap: .8rem; align-items: center; text-align: left; }
+.year b { grid-row: span 2; font: 500 2.9rem/1 var(--serif); letter-spacing: -.04em; color: var(--muted); font-variant-numeric: tabular-nums; }
+.year b.is-dated { color: var(--gold); text-shadow: 0 0 calc(var(--glow) * 24px) color-mix(in srgb, var(--gold) 60%, transparent); }
+.year > span { font-size: .62rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+.year small { font-size: .74rem; line-height: 1.4; color: var(--muted); }
+.ctl-row { display: flex; flex-wrap: wrap; justify-content: flex-end; align-items: center; gap: .5rem; }
+.round { display: grid; place-items: center; flex-shrink: 0; width: 50px; height: 50px; border-radius: 50%; border: 1px solid color-mix(in srgb, var(--ink) 16%, transparent); background: var(--surface); transition: transform .2s; }
+.round:hover:not(:disabled) { transform: scale(1.06); } .round:disabled { opacity: .35; cursor: default; }
+.play { display: inline-flex; flex-shrink: 0; align-items: center; gap: .6rem; height: 50px; padding: 0 1.4rem 0 1.1rem; border-radius: 999px; background: var(--ink); color: var(--page); font-weight: 600; box-shadow: 0 10px 30px -10px color-mix(in srgb, var(--gold) 70%, transparent); }
+.play .ico { color: var(--gold); }
+.lists { display: inline-flex; padding: 3px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface-2); }
+.lists button { padding: .5rem .85rem; border-radius: 999px; font-size: .8rem; font-weight: 600; color: var(--muted); }
+.lists button[aria-pressed="true"] { background: var(--surface); color: var(--ink); box-shadow: var(--shadow-1); }
+.drama-btn { display: inline-flex; align-items: center; gap: .55rem; height: 46px; padding: 0 1.1rem; border-radius: 999px; border: 1px solid color-mix(in srgb, var(--rival) 45%, transparent); color: var(--rival); font-size: .84rem; font-weight: 600; background: color-mix(in srgb, var(--rival) 6%, transparent); }
+.drama-btn:hover { background: color-mix(in srgb, var(--rival) 13%, transparent); }
+.is-drama .drama-btn { background: var(--rival); color: var(--halo); }
+
+/* ── The year scrubber ── */
+.scrub { position: relative; z-index: 4; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 1.4rem; align-items: center; padding: .9rem 1.6rem .55rem;
+  border-top: 1px solid color-mix(in srgb, var(--gold) 24%, var(--line)); background: color-mix(in srgb, var(--surface) 58%, transparent); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+.scrub-ctl { display: flex; align-items: center; gap: .45rem; }
+.scrub-main { min-width: 0; }
+.segs { display: flex; }
+.seg { padding: 0 0 .35rem .55rem; border-left: 1px solid color-mix(in srgb, var(--gold) 40%, var(--line)); min-width: 0; }
+.seg b { display: block; font-size: .64rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.seg > span { display: block; font-size: .7rem; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.seg-after b { color: var(--muted); }
+.seg .short { display: none; }
+.track { position: relative; height: 46px; cursor: pointer; touch-action: none; }
+.track::before { content: ""; position: absolute; left: 0; right: 0; top: 21px; height: 4px; border-radius: 4px;
+  background: linear-gradient(90deg, transparent 0 20%, color-mix(in srgb, var(--gold) 26%, var(--line)) 20% 96%, var(--line) 96%), repeating-linear-gradient(90deg, var(--line) 0 6px, transparent 6px 11px); }
+.fill { position: absolute; left: 0; top: 21px; height: 4px; border-radius: 4px; background: linear-gradient(90deg, color-mix(in srgb, var(--gold) 50%, transparent), var(--gold)); box-shadow: 0 0 14px color-mix(in srgb, var(--gold) 60%, transparent); transition: width .4s cubic-bezier(.16, 1, .3, 1); }
+.ticks { position: absolute; inset: 0; }
+.tick { position: absolute; top: 17px; width: 12px; height: 12px; margin-left: -6px; border-radius: 50%; background: var(--surface); border: 1.5px solid color-mix(in srgb, var(--gold) 55%, var(--line)); transition: background .3s, transform .2s; }
+.tick:hover { transform: scale(1.35); }
+.tick.is-past { background: var(--gold); border-color: var(--gold); }
+.tick.is-dated { width: 14px; height: 14px; margin-left: -7px; top: 16px; border-radius: 3px; transform: rotate(45deg); border-color: var(--gold); }
+.tick.is-dated:hover { transform: rotate(45deg) scale(1.3); }
+.tick.is-drama { border-color: var(--rival); } .tick.is-drama.is-past { background: var(--rival); }
+.thumb { position: absolute; top: 11px; width: 24px; height: 24px; margin-left: -12px; border-radius: 50%; pointer-events: none; background: var(--halo); border: 3px solid var(--gold);
+  box-shadow: 0 0 0 6px color-mix(in srgb, var(--gold) 18%, transparent), 0 0 24px color-mix(in srgb, var(--gold) 70%, transparent); transition: left .4s cubic-bezier(.16, 1, .3, 1); }
+.thumb[data-edge="r"] span { left: auto; right: -6px; transform: none; } .thumb[data-edge="l"] span { left: -6px; transform: none; }
+.thumb span { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); padding: .2rem .55rem; border-radius: 8px; background: var(--ink); color: var(--page); font-size: .7rem; font-weight: 600; white-space: nowrap; }
+.intervals { position: relative; height: 22px; }
+.interval { position: absolute; top: 0; display: flex; justify-content: center; padding-top: 4px; border-top: 1px solid var(--muted); font-size: .64rem; color: var(--muted); white-space: nowrap; }
+.interval::before, .interval::after { content: ""; position: absolute; top: -5px; width: 1px; height: 5px; background: var(--muted); } .interval::before { left: 0; } .interval::after { right: 0; }
+.legend { display: grid; grid-template-columns: 1fr 1fr; gap: .35rem .9rem; margin: .4rem 0 0; padding: 0; list-style: none; font-size: .72rem; color: var(--muted); }
+.legend li { display: inline-flex; align-items: center; gap: .4rem; }
+.lg-dot { width: 11px; height: 11px; border-radius: 50%; background: var(--gold); } .lg-dot.is-dead { background: transparent; border: 1.5px solid var(--dead); } .lg-dot.is-ghost { background: transparent; border: 1.4px dashed var(--gold); }
+.lg-crown { width: 14px; height: 10px; background: var(--gold); clip-path: polygon(0 100%, 0 20%, 25% 60%, 50% 0, 75% 60%, 100% 20%, 100% 100%); } .lg-crown.is-rival { background: var(--rival); }
+.lg-tick { width: 9px; height: 9px; transform: rotate(45deg); background: var(--gold); } .lg-tick.is-und { transform: none; border-radius: 50%; background: transparent; border: 1.5px solid var(--gold); }
+
+/* ── The bar linking the four David directions ── */
+.dirbar { position: fixed; left: 50%; bottom: calc(env(safe-area-inset-bottom, 0px) + 14px); z-index: 60; transform: translateX(-50%); display: flex; gap: 2px; padding: 4px; max-width: calc(100vw - 16px);
+  border: 1px solid color-mix(in srgb, var(--ink) 14%, transparent); border-radius: 999px; background: color-mix(in srgb, var(--surface) 80%, transparent); backdrop-filter: blur(18px) saturate(1.4); -webkit-backdrop-filter: blur(18px) saturate(1.4); box-shadow: 0 10px 40px -8px rgb(0 0 0 / 30%); }
+.dirbar a { display: inline-flex; align-items: center; gap: .45rem; padding: .5rem .95rem; border-radius: 999px; font-size: .8rem; font-weight: 500; color: var(--muted); white-space: nowrap; }
+.dirbar a b { font: 600 .66rem var(--mono); opacity: .65; }
+.dirbar a:hover { color: var(--ink); }
+.dirbar a[aria-current="page"] { background: var(--ink); color: var(--page); }
+
+/* ── Phone and narrow screens: Saul's house above David's, title above the tree ── */
+@media (max-width: 819px) {
+  .stage { width: calc(100% - 16px); border-radius: 22px; }
+  .stage-title { position: static; padding: 1.3rem 1.1rem .2rem; max-width: none; }
+  .stage-title h1 { font-size: clamp(2.7rem, 13vw, 3.6rem); }
+  .tree-box { height: 1000px; }
+  .tn-label { font-size: 10px; } .tn-son .tn-label, .tn-nephew .tn-label, .tn-grandchild .tn-label { font-size: 9.5px; }
+  .tn-king .tn-label { font-size: 13px; } .tn.is-focus .tn-label { font-size: 11px; }
+  .tn-court .tn-label, .tn-wife .tn-label { font-size: 10px; }
+  .seg .long { display: none; } .seg .short { display: inline; }
+  .house-tags span { writing-mode: horizontal-tb; transform: none; letter-spacing: .2em; font-size: .56rem; }
+  .ht-saul { top: 10px; left: 14px; } .ht-david { top: 34.5%; right: auto; left: 14px; }
+  .console { grid-template-columns: 1fr; padding: 1rem 1rem 1.1rem; }
+  .scrub { grid-template-columns: 1fr auto; gap: .6rem .8rem; padding: .7rem 1rem .5rem; }
+  .scrub-main { grid-column: 1 / -1; grid-row: 1; }
+  .year { grid-template-columns: auto; } .year small, .year span { display: none; } .year b { font-size: 2.1rem; }
+  .seg > span { display: none; } .seg b { font-size: .58rem; letter-spacing: .06em; }
+  .thumb span { display: none; }
+  .intervals { display: none; }
+  .leaf { position: fixed; top: auto; left: 8px; right: 8px; bottom: 8px; width: auto; max-height: 72vh; z-index: 80; transform: translateY(calc(100% + 30px)); }
+  .dirbar a { padding: .5rem .6rem; font-size: .72rem; } .dirbar a span { max-width: 6.2rem; overflow: hidden; text-overflow: ellipsis; }
+}
+@media (max-width: 480px) { .dirbar a b { display: none; } .play span { font-size: .85rem; } .drama-btn span { font-size: .78rem; } }
