@@ -142,7 +142,11 @@
       // Swipe sideways on a chapter.
       let sx = null;
       chaptersEl.addEventListener("pointerdown", (e) => { if (e.target.closest(".b-viewport")) sx = [e.clientX, e.clientY, e.target.closest(".b-ch")]; });
-      const onUp = (e) => { if (!sx) return; const dx = e.clientX - sx[0], dy = e.clientY - sx[1]; if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5) slideTo(sx[2], pos.get(sx[2]) + (dx < 0 ? 1 : -1)); sx = null; };
+      addEventListener("pointermove", (e) => {
+        if (!sx) return; const dx = e.clientX - sx[0], dy = e.clientY - sx[1];
+        if (Math.abs(dx) > 8 && Math.abs(dx) > Math.abs(dy)) { getSelection()?.removeAllRanges(); document.documentElement.classList.add("no-select"); }
+      });
+      const onUp = (e) => { document.documentElement.classList.remove("no-select"); if (!sx) return; const dx = e.clientX - sx[0], dy = e.clientY - sx[1]; if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5) slideTo(sx[2], pos.get(sx[2]) + (dx < 0 ? 1 : -1)); sx = null; };
       addEventListener("pointerup", onUp);
       const onKey = (e) => {
         if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;

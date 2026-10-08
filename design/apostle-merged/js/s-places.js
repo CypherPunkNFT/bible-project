@@ -124,19 +124,24 @@ window.Places = (() => {
       const w = view.w * z; view.x = mx - (mx - view.x) * (w / view.w); view.y = my - (my - view.y) * (w / view.w); view.w = w; clamp(); draw();
     }, { passive: false });
     let drag = null, moved = false;
-    svgEl.addEventListener("pointerdown", (e) => { anim++; drag = { x: e.clientX, y: e.clientY, vx: view.x, vy: view.y }; moved = false; });
+    svgEl.addEventListener("pointerdown", (e) => {
+      if (e.button !== 0) return;
+      // No text selection may start from the map, or follow the drag across the page.
+      e.preventDefault(); getSelection()?.removeAllRanges(); document.documentElement.classList.add("no-select");
+      anim++; drag = { x: e.clientX, y: e.clientY, vx: view.x, vy: view.y }; moved = false;
+    });
     const onMove = (e) => {
       if (!drag) return; const r = svgEl.getBoundingClientRect(), dx = e.clientX - drag.x, dy = e.clientY - drag.y;
       if (Math.abs(dx) + Math.abs(dy) > 4) moved = true;
       view.x = drag.vx - (dx / r.width) * view.w; view.y = drag.vy - (dy / r.height) * view.h; clamp(); draw();
     };
-    const onUp = () => { drag = null; };
-    addEventListener("pointermove", onMove); addEventListener("pointerup", onUp);
+    const onUp = () => { if (drag) document.documentElement.classList.remove("no-select"); drag = null; };
+    addEventListener("pointermove", onMove); addEventListener("pointerup", onUp); addEventListener("pointercancel", onUp);
     svgEl.addEventListener("pointermove", (e) => { const g = e.target.closest("[data-place]"); if (!g || drag) { Tip.hide(); return; } const p = d.places[Number(g.dataset.place)]; Tip.show(`<b>${esc(p.name)}</b><small>${esc(p.note ?? (p.tradition ? "Tradition" : ""))}</small>`, e.clientX, e.clientY); });
     svgEl.addEventListener("pointerleave", () => Tip.hide());
     const stop = onResize(svgEl, () => { anim++; fitFrame(); drawBase(); draw(); });
     fitFrame(); drawBase(); draw();
-    return () => { stop(); removeEventListener("pointermove", onMove); removeEventListener("pointerup", onUp); };
+    return () => { stop(); removeEventListener("pointermove", onMove); removeEventListener("pointerup", onUp); removeEventListener("pointercancel", onUp); document.documentElement.classList.remove("no-select"); };
   }
   return { mount };
 })();

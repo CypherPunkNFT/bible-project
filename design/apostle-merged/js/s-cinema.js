@@ -102,9 +102,13 @@ window.Cinema = (() => {
     };
     let sx = null;
     const onDown = (e) => { if (e.target.closest(".cn-viewport")) sx = [e.clientX, e.clientY, e.target.closest(".cn-chapter")]; };
-    const onUp = (e) => { if (!sx) return; const dx = e.clientX - sx[0], dy = e.clientY - sx[1]; if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5) slideTo(sx[2], (state.get(sx[2]) ?? 0) + (dx < 0 ? 1 : -1)); sx = null; };
-    addEventListener("keydown", onKey); wrap.addEventListener("pointerdown", onDown); addEventListener("pointerup", onUp);
-    return () => { io.disconnect(); railIo.disconnect(); removeEventListener("keydown", onKey); removeEventListener("pointerup", onUp); };
+    const onSwipeMove = (e) => {
+      if (!sx) return; const dx = e.clientX - sx[0], dy = e.clientY - sx[1];
+      if (Math.abs(dx) > 8 && Math.abs(dx) > Math.abs(dy)) { getSelection()?.removeAllRanges(); document.documentElement.classList.add("no-select"); }
+    };
+    const onUp = (e) => { document.documentElement.classList.remove("no-select"); if (!sx) return; const dx = e.clientX - sx[0], dy = e.clientY - sx[1]; if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5) slideTo(sx[2], (state.get(sx[2]) ?? 0) + (dx < 0 ? 1 : -1)); sx = null; };
+    addEventListener("keydown", onKey); wrap.addEventListener("pointerdown", onDown); addEventListener("pointermove", onSwipeMove); addEventListener("pointerup", onUp); addEventListener("pointercancel", onUp);
+    return () => { io.disconnect(); railIo.disconnect(); removeEventListener("keydown", onKey); removeEventListener("pointermove", onSwipeMove); removeEventListener("pointerup", onUp); removeEventListener("pointercancel", onUp); };
   }
   return { mount };
 })();

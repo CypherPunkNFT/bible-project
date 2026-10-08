@@ -84,3 +84,7 @@ main { flex: 1; }
 .serif { font-family: var(--serif); }
 .muted { color: var(--muted); }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 1ms !important; transition-duration: 1ms !important; } }
+
+/* While something is being dragged (the map, a sideways swipe), nothing on the page can be selected, even when the
+   pointer leaves the dragged thing and crosses text (owner, 2026-10-08). */
+html.no-select, html.no-select * { -webkit-user-select: none !important; user-select: none !important; }

@@ -297,6 +297,7 @@ void main(){
       if (e.pointerType === "touch") { (pinch ??= new Map()).set(e.pointerId, [e.clientX, e.clientY]); if (pinch.size === 2) { const [a, b] = [...pinch.values()]; pinch.d0 = Math.hypot(a[0] - b[0], a[1] - b[1]); pinch.z0 = view.zoom; drag = null; return; } }
       drag = { x: e.clientX, y: e.clientY, lon: view.lon, lat: view.lat, moved: false, id: e.pointerId, touch: e.pointerType === "touch" };
       fly = null; el.classList.add("dragging");
+      if (e.pointerType !== "touch") { e.preventDefault(); getSelection()?.removeAllRanges(); document.documentElement.classList.add("no-select"); }
     });
     addEventListener("pointermove", (e) => {
       if (pinch?.has(e.pointerId)) { pinch.set(e.pointerId, [e.clientX, e.clientY]); if (pinch.size === 2 && pinch.d0) { const [a, b] = [...pinch.values()]; view.zoom = Math.max(minZoom(), Math.min(MAX_ZOOM, pinch.z0 * Math.hypot(a[0] - b[0], a[1] - b[1]) / pinch.d0)); view.target = null; dirty = true; return; } }
@@ -308,7 +309,7 @@ void main(){
       if (!drag.touch) view.lat = Math.max(-70, Math.min(78, drag.lat + dy * f));
       dirty = true;
     });
-    const up = (e) => { pinch?.delete(e.pointerId); if (pinch && pinch.size < 2) pinch.d0 = 0; if (drag?.id === e.pointerId) { drag = null; el.classList.remove("dragging"); } };
+    const up = (e) => { pinch?.delete(e.pointerId); if (pinch && pinch.size < 2) pinch.d0 = 0; if (drag?.id === e.pointerId) { drag = null; el.classList.remove("dragging"); document.documentElement.classList.remove("no-select"); } };
     addEventListener("pointerup", up); addEventListener("pointercancel", up);
     el.addEventListener("wheel", (e) => {
       const z = view.target ?? view.zoom, f = Math.exp(-e.deltaY * (e.deltaMode === 1 ? .05 : .0016));
