@@ -111,5 +111,5 @@
     pick(1);
   }
 
-  Object.assign(DIRS.b, { age, item });
+  Object.assign(DIRS.b, { age, item, constellation }); // constellation is also drawn by E
 })();

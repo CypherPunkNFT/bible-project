@@ -71,5 +71,5 @@
     lanes(wrap);
   }
 
-  DIRS.b = { name: "Doors by age", defaultAge: "little", front, door, frame };
+  DIRS.b = { name: "Doors by age", defaultAge: "little", front, door, frame, lanes, doorHint }; // lanes and doorHint are also drawn by E
 })();

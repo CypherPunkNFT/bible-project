@@ -1,0 +1,53 @@
+/* E · Doors and stacks. B's landing on top; a door opens A's stack beneath it. Everything else is A's and B's own CSS. */
+.dir-e .wrap > *, .ed-view > * { min-width: 0; }
+
+/* The landing: B's, at full height until a door is open. */
+.dir-e .dr-land { position: relative; isolation: isolate; display: flex; flex-direction: column; justify-content: center; min-height: calc(100dvh - 120px); padding-block: 1.6rem 1.2rem; }
+.dir-e .door .glow { display: none; }
+.dir-e .doors .door { cursor: pointer; transition: opacity .35s; }
+.dir-e .doors.has-chosen .door:not(.is-chosen) { opacity: .5; }
+.dir-e .doors.has-chosen .door:not(.is-chosen):hover { opacity: 1; }
+/* The chosen door: its own frame drawn heavier and tinted, its name in its colour, and a short line down to the stack. */
+.dir-e .door.is-chosen svg.frame { stroke-width: 2.2; }
+.dir-e .door.is-chosen .fill { fill: color-mix(in srgb, var(--tone) 9%, transparent); }
+.dir-e .door.is-chosen .aud-art { transform: translateY(-6px) scale(1.04); }
+.dir-e .door.is-chosen b { color: var(--tone); }
+.dir-e .doors .door::after { content: ""; position: absolute; left: 50%; top: 100%; width: 1.5px; height: 0; margin-top: .35rem; background: var(--tone); transition: height .45s cubic-bezier(.2, .9, .3, 1); }
+.dir-e .doors .door.is-chosen::after { height: 1.4rem; }
+.dir-e .dr-hint { min-height: 1.7em; margin-top: 1.9rem; }
+/* Once a door is open the landing's figures fold away, so the stack sits close under the doors. */
+/* The page scrolls the doors to the top as the drawer opens, which hides this change of layout inside the motion. */
+.dir-e .ed-land.is-open { min-height: 0; padding-bottom: 0; }
+.dir-e .ed-land.is-open .dr-bar { display: none; }
+
+/* The drawer that opens beneath the doors, and the stage inside it that slides from one age to the next. */
+.ed-drawer.is-opening { overflow: clip; }
+.ed-stage { position: relative; overflow-x: clip; }
+.ed-stage.is-sliding { overflow: clip; }
+.ed-view.is-incoming { position: absolute; top: 0; left: 0; right: 0; }
+.ed-view > .sec:first-child { margin-top: 1rem; border-top-color: var(--ink); }
+.ed-sec .sh-kinds { margin-top: -.2rem; }
+/* Only the kinds this door has: one quiet row instead of two, with no "None here" chips. */
+.dir-e .sh-kind.none { display: none; }
+/* The open door already shows the age's drawing and the section head its words, so A's own stack header is not repeated. */
+.dir-e .st-head { display: none; }
+.dir-e .st-view { padding-top: .6rem; }
+
+/* Moses behind every door: the same doors, small, so they read as a row and not a second landing. */
+.dir-e .dr-mini { grid-template-columns: repeat(6, minmax(0, 8.6rem)); justify-content: space-between; }
+.dir-e .dr-mini .door .arch { aspect-ratio: 5 / 6; }
+
+/* The switcher: E has no audience page, and says why. */
+.dir-switch .pg-note { padding: 0 9px 0 4px; font-size: .66rem; font-weight: 500; color: var(--muted); white-space: nowrap; }
+
+@media (max-width: 900px) {
+  .dir-e .dr-land { min-height: 0; }
+  .dir-e .doors .door { flex-basis: 30%; }
+}
+@media (max-width: 760px) { .dir-e .dr-mini .door { flex: 0 0 30%; } }
+@media (max-width: 560px) {
+  .dir-switch .pg-note { display: none; }
+  .dir-e .dr-head h1 { font-size: 2.7rem; }
+  .dir-e .doors .door { flex-basis: 27%; }
+  .dir-e .doors .door b { font-size: .95rem; }
+}
