@@ -16,6 +16,8 @@ const AtlasRedirect = lazy(() => import("@/pages/places/AtlasRedirect"));
 const SearchPage = lazy(() => import("@/pages/SearchPage"));
 const MeaningSearchPage = lazy(() => import("@/pages/MeaningSearchPage"));
 const TopicsPage = lazy(() => import("@/pages/TopicsPage"));
+const TeachersPage = lazy(() => import("@/pages/TeachersPage"));
+const ResourcesPage = lazy(() => import("@/pages/ResourcesPage"));
 const VersionsPage = lazy(() => import("@/pages/VersionsPage"));
 const NotFoundPage = lazy(() => import("@/pages/NotFoundPage"));
 const StudyPage = lazy(() => import("@/pages/study/StudyPage"));
@@ -74,6 +76,8 @@ export default function App() {
               <Route path="/search" element={<SearchPage />} />
               <Route path="/search/meaning" element={<MeaningSearchPage />} />
               <Route path="/topics/*" element={<TopicsPage />} />
+              <Route path="/teachers/*" element={<TeachersPage />} />
+              <Route path="/resources/*" element={<ResourcesPage />} />
               <Route path="/versions" element={<VersionsPage />} />
               <Route path="/sources" element={<VersionsPage />} />
               <Route path="/study" element={<StudyPage />} />

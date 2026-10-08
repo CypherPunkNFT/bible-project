@@ -5,7 +5,7 @@ import { expect, test } from "@playwright/test";
 
 test("the way in: the menu leads to the topic families, a family to its groups, a group to its topics", async ({ page }) => {
   await page.goto("/");
-  await page.getByRole("link", { name: "Topics", exact: true }).first().click();
+  await page.getByRole("navigation", { name: "Explore the five collections" }).getByRole("link", { name: /^Topics/ }).click(); // the header has Teachers and Resources instead
   await expect(page).toHaveURL(/\/topics$/);
   await expect(page.getByText(/5,603 topics in 55 families and \d+ groups/)).toBeVisible();
   await expect(page.getByRole("heading", { name: /Sin, salvation and the life to come/ })).toBeVisible();
