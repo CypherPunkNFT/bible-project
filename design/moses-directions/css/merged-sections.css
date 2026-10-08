@@ -1,0 +1,119 @@
+/* H · the sections around the chapters: the Atlas band, the man, the word, the people around him, and the dot rail.
+   Words float on the page with fine lines; nothing sits in a box. */
+.mx { padding-block: 4.5rem 1rem; scroll-margin-top: 58px; }
+.mx-head { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: .3rem 1.2rem; align-items: baseline; margin-bottom: 1.8rem; }
+.mx-n { font: 500 .78rem var(--mono); color: var(--accent); }
+.mx-head h2 { margin-top: .35rem; font: 500 clamp(1.9rem, 3.6vw, 3rem)/1.05 var(--serif); letter-spacing: -.035em; }
+.mx-head h2 em { font-weight: 400; font-style: italic; color: var(--accent); }
+.mx-head p { max-width: 46rem; margin-top: .6rem; font-size: .92rem; line-height: 1.65; color: var(--muted); }
+.mx-v { margin: .7rem 0; padding-left: 1rem; border-left: 1.5px solid var(--tone, var(--accent)); }
+.mx-v p { font: italic 400 1.05rem/1.55 var(--serif); } .mx-v footer { margin-top: .3rem; font-size: .7rem; color: var(--muted); }
+.mx-v.is-sm p { font-size: .92rem; }
+.mx-plain { font-size: .9rem; line-height: 1.7; color: var(--muted); }
+
+/* ── In the Atlas: the whole road, quiet, edge to edge ── */
+.mx-mapband { position: relative; height: clamp(440px, 44vw, 640px); }
+.mx-map { position: absolute; inset: 0; opacity: .82; filter: saturate(.55); -webkit-mask: radial-gradient(closest-side, #000 62%, transparent); mask: radial-gradient(closest-side, #000 62%, transparent); }
+:root[data-theme="dark"] .mx-map { opacity: .9; filter: saturate(.7); }
+.mx-map .mm-coast { display: none; } .mx-map .mm-lit { filter: none; } :root[data-theme="dark"] .mx-map .mm-land { filter: none; }
+.mx-map .mm-walker { display: none; }
+.mx-leads { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+.mx-leads path { fill: none; stroke: color-mix(in srgb, var(--tone) 55%, transparent); stroke-width: 1; }
+.mx-leads circle { fill: var(--page); stroke: var(--tone); stroke-width: 1.4; }
+.mx-stretch { position: absolute; left: 0; top: 0; display: grid; gap: .1rem; max-width: 15rem; }
+.mx-stretch b { font: 500 1.25rem/1.1 var(--serif); color: var(--tone); } .mx-stretch small { font: 500 .66rem var(--mono); color: var(--muted); }
+.mx-stretch span { margin-top: .2rem; font-size: .8rem; line-height: 1.5; color: color-mix(in srgb, var(--ink) 78%, transparent); }
+.mx-atlas-foot { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 1rem 3rem; align-items: start; margin-top: .6rem; }
+.mx-go { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: .9rem; align-items: start; padding: .9rem 0; border-block: 1px solid var(--line); }
+.mx-go > .ico { color: var(--accent); margin-top: .15rem; } .mx-go b { display: block; font: 500 1.2rem var(--serif); } .mx-go small { display: block; margin-top: .2rem; font-size: .8rem; line-height: 1.55; color: var(--muted); }
+.mx-go:hover b { color: var(--accent); } .mx-go > .ico:last-child { transition: transform .3s; } .mx-go:hover > .ico:last-child { transform: translateX(4px); }
+.mx-key { padding-top: 1rem; font-size: .74rem; line-height: 1.6; color: var(--muted); }
+
+/* ── The man ── */
+.mx-ages { position: relative; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 0; padding: 1.1rem 0 0; list-style: none; border-top: 1px solid color-mix(in srgb, var(--ink) 18%, transparent); }
+.mx-ages li { position: relative; display: grid; gap: .1rem; padding-right: 1rem; }
+.mx-ages li::before { content: ""; position: absolute; left: 0; top: calc(-1.1rem - 4px); width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+.mx-ages b { font: 400 2.4rem/1 var(--serif); letter-spacing: -.03em; color: var(--accent); } .mx-ages span { font: 500 .95rem var(--serif); } .mx-ages .ref { justify-self: start; }
+.mx-man-grid { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); gap: 3rem; margin-top: 2.6rem; align-items: start; }
+.mx-cols { columns: 2 17rem; column-gap: 2.4rem; column-rule: 1px solid color-mix(in srgb, var(--ink) 9%, transparent); }
+.mx-cols .claim { break-inside: avoid; } .mx-cols .claim > p { font-size: .9rem; }
+.mx-tree { display: block; width: 100%; height: auto; overflow: visible; }
+.mx-tree-l { fill: none; stroke: color-mix(in srgb, var(--ink) 28%, transparent); stroke-width: 1; }
+.mx-tw { cursor: pointer; } .mx-tw rect { fill: transparent; stroke: none; }
+.mx-tw text { font: 500 17px var(--serif); text-anchor: middle; fill: var(--ink); transition: fill .2s; }
+.mx-tw .mx-tw-r { font: 600 8.5px var(--sans); letter-spacing: .18em; text-transform: uppercase; fill: var(--muted); }
+.mx-tw.is-me { cursor: default; } .mx-tw.is-me text { font: italic 400 26px var(--serif); fill: var(--accent); }
+.mx-tw:hover text:first-of-type, .mx-tw.is-on text:first-of-type { fill: var(--accent); text-decoration: underline; text-underline-offset: 4px; }
+.mx-fd { min-height: 10rem; margin-top: .4rem; padding-top: .9rem; border-top: 1px solid var(--line); }
+.mx-fd-n { display: block; font: 500 1.2rem var(--serif); }
+.mx-says { margin-top: 2.8rem; }
+.mx-says-row { columns: 3 15rem; column-gap: 2.4rem; column-rule: 1px solid color-mix(in srgb, var(--ink) 9%, transparent); }
+.mx-says-row .claim { break-inside: avoid; } .mx-says-row .claim > p { font: italic 400 1rem/1.55 var(--serif); }
+.mx-man-foot { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 3rem; margin-top: 2.6rem; }
+
+/* ── The word ── */
+.mx-word { --tone: var(--wild); }
+.mx-mouth { margin: .4rem 0 2.6rem; max-width: 62rem; }
+.mx-mouth p { font: italic 300 clamp(1.5rem, 3vw, 2.5rem)/1.32 var(--serif); letter-spacing: -.02em; }
+.mx-mouth figcaption { margin-top: .7rem; font-size: .76rem; color: var(--muted); }
+.mx-word-cols { columns: 3 18rem; column-gap: 2.8rem; column-rule: 1px solid color-mix(in srgb, var(--ink) 9%, transparent); }
+.mx-word-cols > div { margin-bottom: 2.2rem; } .mx-word-cols .claim, .mx-word-cols .lg-call { break-inside: avoid; }
+.mx-word-cols .claim > p { font-size: .86rem; }
+.mx-like { margin-top: 3.2rem; }
+.mx-chain { position: relative; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2.4rem; margin: 0; padding: 1.4rem 0 0; list-style: none; }
+.mx-chain::before { content: ""; position: absolute; left: 0; right: 0; top: .32rem; height: 1px; background: color-mix(in srgb, var(--tone) 40%, transparent); }
+.mx-chain li { position: relative; } .mx-chain small { font: 600 .6rem var(--sans); letter-spacing: .16em; text-transform: uppercase; color: var(--tone); }
+.mx-dot { position: absolute; left: 0; top: calc(-1.4rem + 1px); width: 9px; height: 9px; border-radius: 50%; background: var(--page); border: 1.5px solid var(--tone); }
+.mx-like-foot { display: grid; grid-template-columns: minmax(0, 1.7fr) auto; gap: 1rem 2.4rem; align-items: end; margin-top: 1rem; }
+.mx-close { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 1rem 3rem; align-items: start; margin-top: 3rem; padding-top: 1.6rem; border-top: 1px solid var(--line); }
+.mx-mouth.is-end { margin: 0; } .mx-mouth.is-end p { font-size: clamp(1.25rem, 2.2vw, 1.8rem); }
+
+/* ── The people around him (the shared field, in this page's quiet dress) ── */
+.mx-pfilters { display: flex; flex-wrap: wrap; gap: .3rem 1.4rem; margin-bottom: .4rem; }
+.mx-pfilters button { padding: .25rem 0; font-size: .84rem; color: var(--muted); border-bottom: 1px solid transparent; transition: color .2s, border-color .2s; }
+.mx-pfilters button[aria-pressed="true"] { color: var(--ink); border-bottom-color: var(--accent); }
+.mx-pstage { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 2.6rem; align-items: start; }
+.mx-people .cs-links path, .mx-people .cs-node.is-on .cs-dot, .mx-people .cs-core-halo { filter: none; }
+.mx-people .cs-core circle:not(.cs-core-halo) { fill: var(--ink); }
+.cs-people .cs-label { opacity: 1; }
+.cs-people .is-speak .cs-dot { fill: var(--tone); stroke: var(--page); stroke-width: 1.2; }
+.cs-legend .m-solid i { background: var(--accent); } .cs-legend .m-initial i { border-radius: 50%; }
+.mx-ppanel { position: sticky; top: 80px; max-height: calc(100vh - 100px); overflow: auto; padding-left: 2rem; border-left: 1px solid var(--line); scrollbar-width: thin; }
+.mx-ppanel.is-in { animation: cs-in .5s cubic-bezier(.16, 1, .3, 1); }
+.mx-ppanel h3 { margin: .35rem 0 .8rem; font: 500 1.9rem/1.1 var(--serif); letter-spacing: -.03em; }
+.mx-rel { display: flex; flex-wrap: wrap; align-items: baseline; gap: .35rem 1rem; margin-top: 1.1rem; padding-top: .9rem; border-top: 1px solid var(--line); }
+.mx-rel small { flex-basis: 100%; font: 600 .6rem var(--sans); letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+.mx-rel button { font: 500 1rem var(--serif); color: var(--tone); border-bottom: 1px solid color-mix(in srgb, var(--tone) 35%, transparent); }
+.mx-rel button:hover { border-bottom-color: var(--tone); }
+
+/* ── C's dot rail, with a pill that slides to the current section ── */
+.mg-rail { position: fixed; right: 1rem; top: 50%; z-index: 30; display: flex; flex-direction: column; gap: .8rem; transform: translateY(-50%); }
+.mg-rail a { position: relative; display: grid; place-items: center; width: 14px; height: 10px; }
+.mg-rail a > i { width: 6px; height: 6px; border-radius: 50%; background: color-mix(in srgb, var(--ink) 28%, transparent); transition: background .3s; }
+.mg-rail a:hover > i { background: var(--ink); } .mg-rail a[aria-current] > i { background: transparent; }
+.mg-rail-pill { position: absolute; left: 50%; top: 0; width: 8px; height: 22px; margin-left: -4px; border-radius: 6px; background: var(--accent); transition: transform .55s cubic-bezier(.16, 1, .3, 1); pointer-events: none; }
+.mg-rail span { position: absolute; right: 1.4rem; padding: .2rem .55rem; border-radius: 8px; font-size: .7rem; white-space: nowrap; background: var(--surface); box-shadow: var(--shadow-1); transform: translateX(6px); visibility: hidden; transition: transform .2s; }
+.mg-rail a:hover span, .mg-rail a[aria-current]:hover span { visibility: visible; transform: none; }
+
+@media (max-width: 960px) {
+  .mx-man-grid, .mx-man-foot, .mx-pstage, .mx-close, .mx-atlas-foot, .mx-like-foot { grid-template-columns: 1fr; }
+  .mx-ppanel { position: static; max-height: none; padding-left: 0; border-left: 0; border-top: 1px solid var(--line); padding-top: 1rem; }
+  .mx-people .cs-people .cs-node:is(.is-family, .is-with, .is-against):not(.is-out) .cs-label { display: inline; font-size: 25px; }
+  .mx-people .cs-legend-acts { margin-left: 0; flex-wrap: wrap; } .mx-people .cs-legend-acts span { white-space: nowrap; }
+  .mx-chain { grid-template-columns: 1fr; gap: 1.4rem; padding: 0 0 0 1.4rem; } .mx-chain::before { left: .25rem; right: auto; top: 0; bottom: 0; width: 1px; height: auto; }
+  .mx-dot { left: calc(-1.4rem + 1px); top: .2rem; }
+}
+@media (max-width: 760px) {
+  .mx { padding-block: 3.2rem .5rem; }
+  .mx-head { grid-template-columns: 1fr; }
+  .mx-ages { grid-template-columns: 1fr 1fr; row-gap: 1.6rem; } .mx-ages li::before { display: none; }
+  .mx-word-cols { columns: 1; }
+  /* On a phone the stretches' names sit under the map, in the flow, rather than floating over it. */
+  .mx-mapband { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem 1.2rem; height: auto; padding: 430px 1rem 0; }
+  .mx-map { bottom: auto; height: 430px; } .mx-leads { display: none; }
+  .mx-stretch { position: relative; max-width: none; transform: none !important; } .mx-stretch[data-act="3"] { grid-column: 1 / -1; }
+  .mx-stretch b { font-size: 1.05rem; } .mx-stretch span { font-size: .78rem; }
+  /* The rail folds into a small pill of dots at the right edge. */
+  .mg-rail { right: 2px; gap: .42rem; padding: .5rem .2rem; border-radius: 999px; background: color-mix(in srgb, var(--surface) 82%, transparent); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: inset 0 0 0 1px var(--line); }
+  .mg-rail a { width: 8px; height: 6px; } .mg-rail a > i { width: 4px; height: 4px; } .mg-rail-pill { width: 5px; height: 12px; margin-left: -2.5px; } .mg-rail span { display: none; }
+}

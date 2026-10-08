@@ -11,17 +11,20 @@
     2: { people: ["zipporah-exo-2-21", "jethro-exo-2-18", "gershom-exo-2-22", "aaron-exo-4-14"], stops: [0, 3] },
     3: { people: ["pharaoh-exo-3-10", "aaron-exo-4-14", "miriam-exo-15-20", "joshua-exo-17-9", "korah-exo-6-21", "eldad-num-11-26", "jannes-2ti-3-8", "balak-num-22-2", "sihon-num-21-21", "og-num-21-33", "hur-num-31-8", "eliezer-exo-18-4"], stops: [3, 15] },
   };
+  // Where each act's name sits: beside its arc, never across it or its dots.
+  const LABEL_AT = { 1: () => { const [x, y] = pt(20, R + 52); return [x - 26, y]; }, 2: () => pt(60, R + 52), 3: () => { const [x, y] = pt(108.5, R + 40); return [x + 22, y - 2]; } };
+  const LABEL_ANCHOR = { 1: "start", 2: "middle", 3: "end" };
   const ring = () => {
     const ticks = Array.from({ length: 25 }, (_, i) => i * 5).map((y) => { const [a, b] = [pt(y, R + 18), pt(y, R + (y % 10 ? 24 : 30))]; return `<line x1="${a[0].toFixed(1)}" y1="${a[1].toFixed(1)}" x2="${b[0].toFixed(1)}" y2="${b[1].toFixed(1)}" class="${y % 40 ? "" : "is-major"}"/>`; }).join("");
     const dots = M.forties.map((f) => { const list = M.scenes.filter((s) => s.act === f.act); return list.map((s, i) => { const [x, y] = pt(f.from + ((i + 1) * 40) / (list.length + 1)); return `<g class="tf-dot" data-scene="${s.id}" data-act="${f.act}" style="--tone:${ACT_TONE[f.act]}" tabindex="0" role="button" aria-label="${esc(s.title)}"><circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="7"/><title>${esc(s.title)}</title></g>`; }).join(""); }).join("");
-    const stated = STATED.map(([y, label, anchor]) => { const [x, yy] = pt(y === 120 ? 116.5 : y, R - 44); return `<text class="tf-stated" text-anchor="${anchor}" x="${x.toFixed(1)}" y="${yy.toFixed(1)}">${label}</text>`; }).join("");
+    const stated = STATED.map(([y, label, anchor]) => { const [x, yy] = y === 120 ? [250, 132] : pt(y, R - 44); return `<text class="tf-stated" text-anchor="${anchor}" x="${x.toFixed(1)}" y="${yy.toFixed(1)}">${label}</text>`; }).join("");
     return `<svg class="tf-ring" viewBox="-74 -6 668 532" role="group" aria-label="Moses' 120 years in three forties">
       <defs><filter id="tf-glow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
       <circle class="tf-orbit" cx="${C}" cy="${C}" r="${R + 50}"/><circle class="tf-orbit" cx="${C}" cy="${C}" r="${R - 58}"/>
       <g class="tf-ticks">${ticks}</g><circle class="tf-track" cx="${C}" cy="${C}" r="${R}"/>
       ${M.forties.map((f) => `<path class="tf-arc" data-act="${f.act}" style="--tone:${ACT_TONE[f.act]}" d="${arc(f.from + .8, f.to - .8)}" pathLength="1" filter="url(#tf-glow)"/>
         <path class="tf-hit" data-act="${f.act}" d="${arc(f.from + .8, f.to - .8)}"><title>${esc(f.name)}, years ${f.from}–${f.to}</title></path>`).join("")}
-      ${M.forties.map((f) => { const [x, y] = pt((f.from + f.to) / 2, R + 52); return `<text class="tf-actlabel" data-act="${f.act}" style="--tone:${ACT_TONE[f.act]}" x="${x.toFixed(1)}" y="${y.toFixed(1)}">${["I", "II", "III"][f.act - 1]} · ${esc(f.name)}</text>`; }).join("")}
+      ${M.forties.map((f) => { const [x, y] = LABEL_AT[f.act](); return `<text class="tf-actlabel" data-act="${f.act}" style="--tone:${ACT_TONE[f.act]};text-anchor:${LABEL_ANCHOR[f.act]}" x="${x.toFixed(1)}" y="${y.toFixed(1)}">${["I", "II", "III"][f.act - 1]} · ${esc(f.name)}</text>`; }).join("")}
       ${dots}${stated}
       <g class="tf-hand"><line x1="${C}" y1="${C - R + 62}" x2="${C}" y2="${C - R + 10}"/><circle cx="${C}" cy="${C - R}" r="5"/></g>
       <text class="tf-big" x="${C}" y="${C + 16}">120</text><text class="tf-sub" x="${C}" y="${C + 44}">years</text>
@@ -58,19 +61,32 @@
     return verseTile(f) + placesTile(a) + sceneTile(first, 0) + extra + rest.map((s, i) => sceneTile(s, i + 1)).join("") + peopleTile(a) + (a === 1 ? "" : wordsTile(a));
   };
 
-  DIRECTIONS.forties = {
-    name: "Three forties", swatch: "#22599f",
-    ring, // reused as the header of H (the merged page)
-    mount(main) {
-      const p = M.person;
-      main.innerHTML = `
+  // B's landing: the ring beside the three act cards and the Deuteronomy 34:7 line. H (the merged page) mounts it as is.
+  const landing = () => { const p = M.person; return `
         <section class="tf-deck"><div class="wrap">${topline()}
           <div class="tf-hero">
             <div class="tf-copy"><span class="kicker">${esc(p.prophetTitle)}</span><h1>Moses</h1><p class="tf-lede">One life of 120 years, told by Stephen as three forties.</p>
               <div class="tf-acts-btns">${M.forties.map((f) => `<button type="button" class="tf-act-btn" data-act="${f.act}" style="--tone:${ACT_TONE[f.act]}"><span class="tf-n">${["I", "II", "III"][f.act - 1]}</span><span><b>${esc(f.name)}</b><small>Years ${f.from}–${f.to} · ${esc(refText(f.verse.ref))}</small></span>${icon("arrowRight", 16)}</button>`).join("")}</div>
               <p class="tf-end"><b>120</b> ${esc(M.end.text)} ${refLink(M.end.ref)}</p></div>
             <div class="tf-ring-wrap">${ring()}</div>
-          </div></div></section>
+          </div></div></section>`; };
+  // One frame of the ring: on the first sweep (full) the hand runs 0 to 120 and lights each forty, then rests on act
+  // "to"; otherwise it turns to act "to". q is 0..1 over the ring's part of the motion.
+  const ringFrame = (svg, q, { full, to }) => {
+    const hand = svg.querySelector(".tf-hand"), big = svg.querySelector(".tf-big"), sub = svg.querySelector(".tf-sub"), f = actOf(to);
+    const y = full ? 120 * easeInOut(q) : f.from + 40 * easeInOut(q);
+    svg.querySelectorAll(".tf-arc").forEach((a) => a.style.setProperty("--p", full ? clamp01((y - (Number(a.dataset.act) - 1) * 40) / 40).toFixed(3) : "1"));
+    svg.querySelectorAll(".tf-dot").forEach((d) => d.classList.toggle("is-lit", full ? (Number(d.dataset.act) - 1) * 40 + 20 <= y + 6 : true));
+    hand.style.transform = `rotate(${(full ? y : f.from + 20 * easeInOut(q)) * 3}deg)`;
+    big.textContent = full && q < 1 ? String(Math.round(y)) : `${f.from}–${f.to}`;
+    sub.textContent = full && q < 1 ? "years" : f.name;
+  };
+
+  DIRECTIONS.forties = {
+    name: "Three forties", swatch: "#22599f",
+    ring, landing, ringFrame, // reused by H (the merged page)
+    mount(main) {
+      main.innerHTML = `${landing()}
         <section class="wrap tf-board"><div class="tf-board-head"><span class="kicker tf-board-k">Act I · Egypt</span><h2 class="tf-board-h">The scenes of this forty</h2><span class="tf-hint">Open any tile; it grows in place.</span></div>
           <div class="tf-bento"></div></section>
         <section class="wrap tf-board tf-across"><div class="tf-board-head"><span class="kicker" style="--tone:var(--accent)">Across all 120 years</span><h2>The man, the word, the questions</h2></div>
@@ -86,22 +102,16 @@
             <article class="tf-tile glass t-mid" style="--tone:var(--accent)"><div class="tf-tile-body"><div class="tf-tile-top"><span class="badge">${icon("eye", 28, 1.4)}</span><div><span class="kicker">Not said</span><h3>What Scripture does not say</h3></div></div>${notSaid()}</div></article>
             <article class="tf-tile glass t-full" id="sources" style="--tone:var(--accent)"><div class="tf-tile-body"><div class="tf-tile-top"><span class="badge">${icon("library", 28, 1.4)}</span><div><span class="kicker">Sources</span><h3>Where every line comes from</h3></div></div>${sourcesBlock()}</div></article>
           </div></section>`;
-      const svg = main.querySelector(".tf-ring"), board = main.querySelector(".tf-bento"), hand = svg.querySelector(".tf-hand"), big = svg.querySelector(".tf-big"), sub = svg.querySelector(".tf-sub");
-      const arcs = [...svg.querySelectorAll(".tf-arc")], dotEls = [...svg.querySelectorAll(".tf-dot")];
+      const svg = main.querySelector(".tf-ring"), board = main.querySelector(".tf-bento");
       let act = 0, mini = null;
       // The sweep: the hand runs 0→120 and lights each forty; on choosing an act, its tiles rise in turn.
       const sweep = (to) => {
         const tiles = [...board.querySelectorAll(".tf-tile")];
         tiles.forEach((t) => t.style.setProperty("--in", "0"));
-        const f = actOf(to), full = act === 0;
+        const full = act === 0;
         Clock.run({ label: full ? "The 120-year ring sweeps, then Act I's tiles rise" : `Act ${to}: the ring turns, tiles rise`, duration: full ? 3200 : 1700,
           frame: (q) => {
-            const sweepP = full ? easeInOut(span(q, 0, .62)) : 1, y = full ? 120 * sweepP : f.from + 40 * easeInOut(span(q, 0, .4));
-            arcs.forEach((a) => a.style.setProperty("--p", full ? clamp01((y - (Number(a.dataset.act) - 1) * 40) / 40).toFixed(3) : "1"));
-            dotEls.forEach((d) => d.classList.toggle("is-lit", full ? (Number(d.dataset.act) - 1) * 40 + 20 <= y + 6 : true));
-            hand.style.transform = `rotate(${(full ? y : f.from + 20 + 20 * easeInOut(span(q, 0, .4)) - 20) * 3}deg)`;
-            big.textContent = full && q < .62 ? String(Math.round(y)) : `${f.from}–${f.to}`;
-            sub.textContent = full && q < .62 ? "years" : f.name;
+            ringFrame(svg, full ? span(q, 0, .62) : span(q, 0, .4), { full, to });
             const tq = full ? span(q, .55, 1) : span(q, .2, 1);
             tiles.forEach((t, i) => t.style.setProperty("--in", easeOut(span(tq * (tiles.length + 3), i * .7, i * .7 + 2.4)).toFixed(3)));
             mini?.setProgress(ACT[to].stops[0] + (ACT[to].stops[1] - ACT[to].stops[0]) * easeInOut(span(q, .4, 1)));

@@ -1,52 +1,1961 @@
 {
- "about": "H (the merged page): bush callouts quoted from the KJV text files; short question titles written by this site.",
- "callouts": [
+ "about": "H (the merged page). Built by scratchpad/moses4/make-merged-data.mjs from data/moses.json, data/memory.json and the site's KJV files (data/text/kjv). Timeline titles and question titles are written by this site; every verse text is read from the KJV files. Do not edit by hand.",
+ "kjv": {
+  "2001022": "And Pharaoh charged all his people, saying, Every son that is born ye shall cast into the river, and every daughter ye shall save alive.",
+  "2002002": "And the woman conceived, and bare a son: and when she saw him that he was a goodly child, she hid him three months.",
+  "2002003": "And when she could not longer hide him, she took for him an ark of bulrushes, and daubed it with slime and with pitch, and put the child therein; and she laid it in the flags by the river’s brink.",
+  "2002004": "And his sister stood afar off, to wit what would be done to him.",
+  "2002010": "And the child grew, and she brought him unto Pharaoh’s daughter, and he became her son. And she called his name Moses: and she said, Because I drew him out of the water.",
+  "2002012": "And he looked this way and that way, and when he saw that there was no man, he slew the Egyptian, and hid him in the sand.",
+  "2002014": "And he said, Who made thee a prince and a judge over us? intendest thou to kill me, as thou killedst the Egyptian? And Moses feared, and said, Surely this thing is known.",
+  "2002015": "Now when Pharaoh heard this thing, he sought to slay Moses. But Moses fled from the face of Pharaoh, and dwelt in the land of Midian: and he sat down by a well.",
+  "2002016": "Now the priest of Midian had seven daughters: and they came and drew water, and filled the troughs to water their father’s flock.",
+  "2002017": "And the shepherds came and drove them away: but Moses stood up and helped them, and watered their flock.",
+  "2002021": "And Moses was content to dwell with the man: and he gave Moses Zipporah his daughter.",
+  "2002022": "And she bare him a son, and he called his name Gershom: for he said, I have been a stranger in a strange land.",
+  "2002023": "And it came to pass in process of time, that the king of Egypt died: and the children of Israel sighed by reason of the bondage, and they cried, and their cry came up unto God by reason of the bondage.",
+  "2002024": "And God heard their groaning, and God remembered his covenant with Abraham, with Isaac, and with Jacob.",
+  "2003001": "Now Moses kept the flock of Jethro his father in law, the priest of Midian: and he led the flock to the backside of the desert, and came to the mountain of God, even to Horeb.",
+  "2003002": "And the angel of the LORD appeared unto him in a flame of fire out of the midst of a bush: and he looked, and, behold, the bush burned with fire, and the bush was not consumed.",
+  "2003004": "And when the LORD saw that he turned aside to see, God called unto him out of the midst of the bush, and said, Moses, Moses. And he said, Here am I.",
+  "2003005": "And he said, Draw not nigh hither: put off thy shoes from off thy feet, for the place whereon thou standest is holy ground.",
+  "2003007": "And the LORD said, I have surely seen the affliction of my people which are in Egypt, and have heard their cry by reason of their taskmasters; for I know their sorrows;",
+  "2003011": "And Moses said unto God, Who am I, that I should go unto Pharaoh, and that I should bring forth the children of Israel out of Egypt?",
+  "2003014": "And God said unto Moses, I AM THAT I AM: and he said, Thus shalt thou say unto the children of Israel, I AM hath sent me unto you.",
+  "2004001": "And Moses answered and said, But, behold, they will not believe me, nor hearken unto my voice: for they will say, The LORD hath not appeared unto thee.",
+  "2004010": "And Moses said unto the LORD, O my Lord, I am not eloquent, neither heretofore, nor since thou hast spoken unto thy servant: but I am slow of speech, and of a slow tongue.",
+  "2004014": "And the anger of the LORD was kindled against Moses, and he said, Is not Aaron the Levite thy brother? I know that he can speak well. And also, behold, he cometh forth to meet thee: and when he seeth thee, he will be glad in his heart.",
+  "2004018": "And Moses went and returned to Jethro his father in law, and said unto him, Let me go, I pray thee, and return unto my brethren which are in Egypt, and see whether they be yet alive. And Jethro said to Moses, Go in peace.",
+  "2004020": "And Moses took his wife and his sons, and set them upon an ass, and he returned to the land of Egypt: and Moses took the rod of God in his hand.",
+  "2004024": "And it came to pass by the way in the inn, that the LORD met him, and sought to kill him.",
+  "2004027": "And the LORD said to Aaron, Go into the wilderness to meet Moses. And he went, and met him in the mount of God, and kissed him.",
+  "2004031": "And the people believed: and when they heard that the LORD had visited the children of Israel, and that he had looked upon their affliction, then they bowed their heads and worshipped.",
+  "2005001": "And afterward Moses and Aaron went in, and told Pharaoh, Thus saith the LORD God of Israel, Let my people go, that they may hold a feast unto me in the wilderness.",
+  "2005002": "And Pharaoh said, Who is the LORD, that I should obey his voice to let Israel go? I know not the LORD, neither will I let Israel go.",
+  "2006020": "And Amram took him Jochebed his father’s sister to wife; and she bare him Aaron and Moses: and the years of the life of Amram were an hundred and thirty and seven years.",
+  "2007001": "And the LORD said unto Moses, See, I have made thee a god to Pharaoh: and Aaron thy brother shall be thy prophet.",
+  "2007007": "And Moses was fourscore years old, and Aaron fourscore and three years old, when they spake unto Pharaoh.",
+  "2007012": "For they cast down every man his rod, and they became serpents: but Aaron’s rod swallowed up their rods.",
+  "2010029": "And Moses said, Thou hast spoken well, I will see thy face again no more.",
+  "2012013": "And the blood shall be to you for a token upon the houses where ye are: and when I see the blood, I will pass over you, and the plague shall not be upon you to destroy you, when I smite the land of Egypt.",
+  "2013021": "And the LORD went before them by day in a pillar of a cloud, to lead them the way; and by night in a pillar of fire, to give them light; to go by day and night:",
+  "2014031": "And Israel saw that great work which the LORD did upon the Egyptians: and the people feared the LORD, and believed the LORD, and his servant Moses.",
+  "2015001": "Then sang Moses and the children of Israel this song unto the LORD, and spake, saying, I will sing unto the LORD, for he hath triumphed gloriously: the horse and his rider hath he thrown into the sea.",
+  "2015020": "And Miriam the prophetess, the sister of Aaron, took a timbrel in her hand; and all the women went out after her with timbrels and with dances.",
+  "2016015": "And when the children of Israel saw it, they said one to another, It is manna: for they wist not what it was. And Moses said unto them, This is the bread which the LORD hath given you to eat.",
+  "2018003": "And her two sons; of which the name of the one was Gershom; for he said, I have been an alien in a strange land:",
+  "2018004": "And the name of the other was Eliezer; for the God of my father, said he, was mine help, and delivered me from the sword of Pharaoh:",
+  "2033011": "And the LORD spake unto Moses face to face, as a man speaketh unto his friend. And he turned again into the camp: but his servant Joshua, the son of Nun, a young man, departed not out of the tabernacle.",
+  "4012008": "With him will I speak mouth to mouth, even apparently, and not in dark speeches; and the similitude of the LORD shall he behold: wherefore then were ye not afraid to speak against my servant Moses?",
+  "4026059": "And the name of Amram’s wife was Jochebed, the daughter of Levi, whom her mother bare to Levi in Egypt: and she bare unto Amram Aaron and Moses, and Miriam their sister.",
+  "5018015": "The LORD thy God will raise up unto thee a Prophet from the midst of thee, of thy brethren, like unto me; unto him ye shall hearken;",
+  "5034010": "And there arose not a prophet since in Israel like unto Moses, whom the LORD knew face to face,",
+  "13023014": "Now concerning Moses the man of God, his sons were named of the tribe of Levi.",
+  "43001017": "For the law was given by Moses, but grace and truth came by Jesus Christ.",
+  "44003022": "For Moses truly said unto the fathers, A prophet shall the Lord your God raise up unto you of your brethren, like unto me; him shall ye hear in all things whatsoever he shall say unto you.",
+  "44007022": "And Moses was learned in all the wisdom of the Egyptians, and was mighty in words and in deeds.",
+  "44007023": "And when he was full forty years old, it came into his heart to visit his brethren the children of Israel.",
+  "44007030": "And when forty years were expired, there appeared to him in the wilderness of mount Sina an angel of the Lord in a flame of fire in a bush.",
+  "44007037": "This is that Moses, which said unto the children of Israel, A prophet shall the Lord your God raise up unto you of your brethren, like unto me; him shall ye hear.",
+  "2014021-2014022": "And Moses stretched out his hand over the sea; and the LORD caused the sea to go back by a strong east wind all that night, and made the sea dry land, and the waters were divided. And the children of Israel went into the midst of the sea upon the dry ground: and the waters were a wall unto them on their right hand, and on their left.",
+  "58011024-58011027": "By faith Moses, when he was come to years, refused to be called the son of Pharaoh’s daughter; Choosing rather to suffer affliction with the people of God, than to enjoy the pleasures of sin for a season; Esteeming the reproach of Christ greater riches than the treasures in Egypt: for he had respect unto the recompence of the reward. By faith he forsook Egypt, not fearing the wrath of the king: for he endured, as seeing him who is invisible."
+ },
+ "chapters": [
   {
-   "id": "mountain",
-   "ref": [
-    2003001,
-    2003001
+   "id": "egypt",
+   "n": 1,
+   "act": 1,
+   "title": "Egypt",
+   "years": "Years 0–40, and back at 80",
+   "tone": "egypt",
+   "land": "egypt",
+   "scenes": [
+    "river",
+    "prince",
+    "pharaoh",
+    "sea"
    ],
-   "phrase": "the mountain of God, even to Horeb",
-   "verse": "Now Moses kept the flock of Jethro his father in law, the priest of Midian: and he led the flock to the backside of the desert, and came to the mountain of God, even to Horeb."
+   "range": [
+    3,
+    7.55
+   ],
+   "stops": [
+    0,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+   ],
+   "road": "Egypt to the sea",
+   "timeline": [
+    {
+     "k": "v",
+     "title": "Every son cast into the river",
+     "ref": [
+      2001022,
+      2001022
+     ]
+    },
+    {
+     "k": "v",
+     "title": "A goodly child, hidden three months",
+     "ref": [
+      2002002,
+      2002002
+     ]
+    },
+    {
+     "k": "v",
+     "title": "An ark of bulrushes",
+     "ref": [
+      2002003,
+      2002003
+     ]
+    },
+    {
+     "k": "v",
+     "title": "His sister stood afar off",
+     "ref": [
+      2002004,
+      2002004
+     ]
+    },
+    {
+     "k": "v",
+     "title": "Drawn out of the water",
+     "ref": [
+      2002010,
+      2002010
+     ]
+    },
+    {
+     "k": "v",
+     "title": "Learned in all the wisdom of the Egyptians",
+     "ref": [
+      44007022,
+      44007022
+     ]
+    },
+    {
+     "k": "v",
+     "title": "Forty: he visits his brethren",
+     "ref": [
+      44007023,
+      44007023
+     ],
+     "age": 40
+    },
+    {
+     "k": "v",
+     "title": "He slew the Egyptian",
+     "ref": [
+      2002012,
+      2002012
+     ]
+    },
+    {
+     "k": "v",
+     "title": "“Who made thee a prince and a judge?”",
+     "ref": [
+      2002014,
+      2002014
+     ]
+    },
+    {
+     "k": "v",
+     "title": "He fled from the face of Pharaoh",
+     "ref": [
+      2002015,
+      2002015
+     ]
+    },
+    {
+     "k": "gap",
+     "title": "Forty years in Midian",
+     "go": "midian"
+    },
+    {
+     "k": "v",
+     "title": "Eighty: before Pharaoh",
+     "ref": [
+      2007007,
+      2007007
+     ],
+     "age": 80
+    },
+    {
+     "k": "v",
+     "title": "“Let my people go”",
+     "ref": [
+      2005001,
+      2005001
+     ]
+    },
+    {
+     "k": "v",
+     "title": "“Who is the LORD?”",
+     "ref": [
+      2005002,
+      2005002
+     ]
+    },
+    {
+     "k": "v",
+     "title": "“A god to Pharaoh”, Aaron his prophet",
+     "ref": [
+      2007001,
+      2007001
+     ]
+    },
+    {
+     "k": "v",
+     "title": "Aaron's rod swallowed up their rods",
+     "ref": [
+      2007012,
+      2007012
+     ]
+    },
+    {
+     "k": "plagues",
+     "title": "The ten plagues",
+     "ref": [
+      2007020,
+      2012029
+     ]
+    },
+    {
+     "k": "v",
+     "title": "“I will see thy face again no more”",
+     "ref": [
+      2010029,
+      2010029
+     ]
+    },
+    {
+     "k": "v",
+     "title": "The blood on the houses: the passover",
+     "ref": [
+      2012013,
+      2012013
+     ]
+    },
+    {
+     "k": "s",
+     "i": 4,
+     "title": "Rameses to Succoth"
+    },
+    {
+     "k": "v",
+     "title": "A pillar of cloud, a pillar of fire",
+     "ref": [
+      2013021,
+      2013021
+     ]
+    },
+    {
+     "k": "s",
+     "i": 7,
+     "title": "Between Migdol and the sea"
+    },
+    {
+     "k": "v",
+     "title": "The sea divided",
+     "ref": [
+      2014021,
+      2014022
+     ]
+    },
+    {
+     "k": "v",
+     "title": "They believed the LORD, and his servant Moses",
+     "ref": [
+      2014031,
+      2014031
+     ]
+    },
+    {
+     "k": "v",
+     "title": "Then sang Moses",
+     "ref": [
+      2015001,
+      2015001
+     ]
+    },
+    {
+     "k": "v",
+     "title": "Miriam the prophetess",
+     "ref": [
+      2015020,
+      2015020
+     ]
+    }
+   ],
+   "people": [
+    "amram-exo-6-18",
+    "jochebed-exo-6-20",
+    "miriam-exo-15-20",
+    "aaron-exo-4-14",
+    "pharaoh-exo-3-10",
+    "jannes-2ti-3-8"
+   ],
+   "signs": [
+    "The wonders in Egypt",
+    "The sea divided"
+   ],
+   "words": [
+    "Pharaoh"
+   ],
+   "message": [
+    "Let my people go"
+   ],
+   "fulfil": [
+    0
+   ],
+   "world": [
+    "Egypt"
+   ],
+   "outside": true,
+   "dates": true,
+   "notSaid": [
+    0,
+    7
+   ]
   },
   {
-   "id": "flock",
-   "ref": [
-    2003001,
-    2003001
+   "id": "midian",
+   "n": 2,
+   "act": 2,
+   "title": "Midian",
+   "years": "Years 40–80",
+   "tone": "midian",
+   "land": "midian",
+   "scenes": [
+    "stranger",
+    "bush",
+    "sent"
    ],
-   "phrase": "the flock of Jethro",
-   "verse": "Now Moses kept the flock of Jethro his father in law, the priest of Midian: and he led the flock to the backside of the desert, and came to the mountain of God, even to Horeb."
+   "range": [
+    0,
+    2
+   ],
+   "stops": [
+    0,
+    1,
+    2
+   ],
+   "road": "Egypt to Midian and Horeb",
+   "timeline": [
+    {
+     "k": "v",
+     "title": "He sat down by a well",
+     "ref": [
+      2002015,
+      2002015
+     ]
+    },
+    {
+     "k": "v",
+     "title": "Seven daughters at the troughs",
+     "ref": [
+      2002016,
+      2002016
+     ]
+    },
+    {
+     "k": "v",
+     "title": "Moses stood up and helped them",
+     "ref": [
+      2002017,
+      2002017
+     ]
+    },
+    {
+     "k": "v",
+     "title": "Zipporah given to Moses",
+     "ref": [
+      2002021,
+      2002021
+     ]
+    },
+    {
+     "k": "v",
+     "title": "Gershom: “a stranger in a strange land”",
+     "ref": [
+      2002022,
+      2002022
+     ]
+    },
+    {
+     "k": "v",
+     "title": "The king of Egypt died; their cry came up",
+     "ref": [
+      2002023,
+      2002023
+     ]
+    },
+    {
+     "k": "v",
+     "title": "God remembered his covenant",
+     "ref": [
+      2002024,
+      2002024
+     ]
+    },
+    {
+     "k": "v",
+     "title": "Eighty: an angel in a flame of fire",
+     "ref": [
+      44007030,
+      44007030
+     ],
+     "age": 80
+    },
+    {
+     "k": "v",
+     "title": "The flock, to the mountain of God",
+     "ref": [
+      2003001,
+      2003001
+     ]
+    },
+    {
+     "k": "v",
+     "title": "The bush was not consumed",
+     "ref": [
+      2003002,
+      2003002
+     ]
+    },
+    {
+     "k": "v",
+     "title": "“Moses, Moses.” “Here am I.”",
+     "ref": [
+      2003004,
+      2003004
+     ]
+    },
+    {
+     "k": "v",
+     "title": "“Put off thy shoes”",
+     "ref": [
+      2003005,
+      2003005
+     ]
+    },
+    {
+     "k": "v",
+     "title": "“I have surely seen the affliction”",
+     "ref": [
+      2003007,
+      2003007
+     ]
+    },
+    {
+     "k": "v",
+     "title": "“Who am I?”",
+     "ref": [
+      2003011,
+      2003011
+     ]
+    },
+    {
+     "k": "v",
+     "title": "“I AM THAT I AM”",
+     "ref": [
+      2003014,
+      2003014
+     ]
+    },
+    {
+     "k": "v",
+     "title": "“They will not believe me”",
+     "ref": [
+      2004001,
+      2004001
+     ]
+    },
+    {
+     "k": "v",
+     "title": "“I am slow of speech”",
+     "ref": [
+      2004010,
+      2004010
+     ]
+    },
+    {
+     "k": "v",
+     "title": "“Is not Aaron the Levite thy brother?”",
+     "ref": [
+      2004014,
+      2004014
+     ]
+    },
+    {
+     "k": "v",
+     "title": "“Go in peace”",
+     "ref": [
+      2004018,
+      2004018
+     ]
+    },
+    {
+     "k": "v",
+     "title": "Wife and sons on an ass; the rod of God in his hand",
+     "ref": [
+      2004020,
+      2004020
+     ]
+    },
+    {
+     "k": "v",
+     "title": "The LORD met him, and sought to kill him",
+     "ref": [
+      2004024,
+      2004024
+     ]
+    },
+    {
+     "k": "v",
+     "title": "Aaron met him in the mount of God",
+     "ref": [
+      2004027,
+      2004027
+     ]
+    },
+    {
+     "k": "v",
+     "title": "The people believed, and worshipped",
+     "ref": [
+      2004031,
+      2004031
+     ]
+    }
+   ],
+   "people": [
+    "jethro-exo-2-18",
+    "zipporah-exo-2-21",
+    "gershom-exo-2-22",
+    "eliezer-exo-18-4",
+    "aaron-exo-4-14"
+   ],
+   "call": [
+    0,
+    1,
+    3
+   ],
+   "signs": [
+    "The rod, the hand and the water"
+   ],
+   "message": [
+    "The God who sends",
+    "Let my people go"
+   ],
+   "accession": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "world": []
   },
   {
-   "id": "flame",
-   "ref": [
-    2003002,
-    2003002
+   "id": "wilderness",
+   "n": 3,
+   "act": 3,
+   "title": "The wilderness",
+   "years": "Years 80–120",
+   "tone": "wild",
+   "land": "wilderness",
+   "scenes": [
+    "rephidim",
+    "sinai",
+    "tabernacle",
+    "forty",
+    "nebo"
    ],
-   "phrase": "a flame of fire out of the midst of a bush",
-   "verse": "And the angel of the LORD appeared unto him in a flame of fire out of the midst of a bush: and he looked, and, behold, the bush burned with fire, and the bush was not consumed."
-  },
-  {
-   "id": "unburnt",
-   "ref": [
-    2003002,
-    2003002
+   "range": [
+    7.55,
+    15
    ],
-   "phrase": "the bush was not consumed",
-   "verse": "And the angel of the LORD appeared unto him in a flame of fire out of the midst of a bush: and he looked, and, behold, the bush burned with fire, and the bush was not consumed."
-  },
-  {
-   "id": "shoes",
-   "ref": [
-    2003005,
-    2003005
+   "stops": [
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
    ],
-   "phrase": "put off thy shoes from off thy feet",
-   "verse": "And he said, Draw not nigh hither: put off thy shoes from off thy feet, for the place whereon thou standest is holy ground."
+   "road": "The sea to Kadesh and Nebo",
+   "timeline": [
+    {
+     "k": "s",
+     "i": 8,
+     "title": "Bitter water at Marah"
+    },
+    {
+     "k": "s",
+     "i": 9,
+     "title": "Twelve wells at Elim"
+    },
+    {
+     "k": "v",
+     "title": "Manna, forty years",
+     "ref": [
+      2016015,
+      2016015
+     ]
+    },
+    {
+     "k": "s",
+     "i": 10,
+     "title": "From the wilderness of Sin"
+    },
+    {
+     "k": "e",
+     "key": "Amalek at Rephidim"
+    },
+    {
+     "k": "e",
+     "key": "Jethro's advice: judges appointed"
+    },
+    {
+     "k": "s",
+     "i": 11,
+     "title": "Camped before the mount"
+    },
+    {
+     "k": "e",
+     "key": "The covenant at Sinai"
+    },
+    {
+     "k": "e",
+     "key": "The golden calf"
+    },
+    {
+     "k": "e",
+     "key": "The tabernacle set up",
+     "year": 2
+    },
+    {
+     "k": "e",
+     "key": "The first census"
+    },
+    {
+     "k": "e",
+     "key": "The seventy elders"
+    },
+    {
+     "k": "e",
+     "key": "The spies and the forty years"
+    },
+    {
+     "k": "e",
+     "key": "Defeat at Hormah"
+    },
+    {
+     "k": "e",
+     "key": "Korah's rebellion"
+    },
+    {
+     "k": "e",
+     "key": "Meribah",
+     "year": 40
+    },
+    {
+     "k": "e",
+     "key": "Aaron's death"
+    },
+    {
+     "k": "e",
+     "key": "Arad and Hormah"
+    },
+    {
+     "k": "e",
+     "key": "Sihon of Heshbon"
+    },
+    {
+     "k": "e",
+     "key": "Og of Bashan"
+    },
+    {
+     "k": "s",
+     "i": 14,
+     "title": "The plains of Moab"
+    },
+    {
+     "k": "e",
+     "key": "War with Midian"
+    },
+    {
+     "k": "e",
+     "key": "Land east of the Jordan given"
+    },
+    {
+     "k": "e",
+     "key": "Joshua ordained"
+    },
+    {
+     "k": "e",
+     "key": "The law declared in Moab"
+    },
+    {
+     "k": "e",
+     "key": "The law written and handed over"
+    },
+    {
+     "k": "e",
+     "key": "Charge to Joshua"
+    },
+    {
+     "k": "e",
+     "key": "Death on Nebo",
+     "age": 120
+    }
+   ],
+   "people": [
+    "joshua-exo-17-9",
+    "aaron-exo-4-14",
+    "miriam-exo-15-20",
+    "jethro-exo-2-18",
+    "eldad-num-11-26",
+    "korah-exo-6-21",
+    "balak-num-22-2",
+    "sihon-num-21-21",
+    "og-num-21-33",
+    "hur-num-31-8"
+   ],
+   "signs": [
+    "Water from the rock",
+    "The shining face",
+    "The serpent of brass"
+   ],
+   "words": [
+    "Korah’s company",
+    "Joshua",
+    "Israel at Meribah",
+    "The tribes of Israel"
+   ],
+   "message": [
+    "The covenant words",
+    "Blessing and curse set before them",
+    "The spirit shared"
+   ],
+   "fulfil": [
+    1,
+    2,
+    3,
+    5
+   ],
+   "world": [
+    "Amalek",
+    "Edom and Moab",
+    "The Amorite kings",
+    "Midian"
+   ],
+   "nation": true,
+   "twoAccounts": true,
+   "verdict": true,
+   "ending": true,
+   "notSaid": [
+    3,
+    5
+   ]
   }
  ],
+ "family": {
+  "amram-exo-6-18": [
+   [
+    2006020,
+    2006020
+   ]
+  ],
+  "jochebed-exo-6-20": [
+   [
+    2006020,
+    2006020
+   ],
+   [
+    4026059,
+    4026059
+   ]
+  ],
+  "aaron-exo-4-14": [
+   [
+    2004014,
+    2004014
+   ]
+  ],
+  "miriam-exo-15-20": [
+   [
+    4026059,
+    4026059
+   ],
+   [
+    2015020,
+    2015020
+   ]
+  ],
+  "zipporah-exo-2-21": [
+   [
+    2002021,
+    2002021
+   ]
+  ],
+  "gershom-exo-2-22": [
+   [
+    2002022,
+    2002022
+   ],
+   [
+    2018003,
+    2018003
+   ]
+  ],
+  "eliezer-exo-18-4": [
+   [
+    2018004,
+    2018004
+   ]
+  ]
+ },
+ "man": {
+  "faith": [
+   58011024,
+   58011027
+  ],
+  "sons": [
+   13023014,
+   13023014
+  ]
+ },
+ "word": {
+  "mouth": [
+   4012008,
+   4012008
+  ],
+  "face": [
+   2033011,
+   2033011
+  ],
+  "like": [
+   5018015,
+   5018015
+  ],
+  "nt": [
+   [
+    44003022,
+    44003022
+   ],
+   [
+    44007037,
+    44007037
+   ]
+  ],
+  "none": [
+   5034010,
+   5034010
+  ],
+  "law": [
+   43001017,
+   43001017
+  ]
+ },
+ "people": {
+  "center": "Moses",
+  "rings": [
+   {
+    "key": "family",
+    "label": "Family"
+   },
+   {
+    "key": "with",
+    "label": "Beside him"
+   },
+   {
+    "key": "against",
+    "label": "Against him"
+   },
+   {
+    "key": "speak",
+    "label": "Who speaks of him"
+   }
+  ],
+  "groups": [
+   {
+    "key": "1",
+    "label": "I · Egypt",
+    "tone": "egypt"
+   },
+   {
+    "key": "2",
+    "label": "II · Midian",
+    "tone": "midian"
+   },
+   {
+    "key": "3",
+    "label": "III · The wilderness",
+    "tone": "wild"
+   },
+   {
+    "key": "law",
+    "label": "In the five books",
+    "tone": "accent"
+   },
+   {
+    "key": "ot",
+    "label": "Later in the Old Testament",
+    "tone": "poetry"
+   },
+   {
+    "key": "nt",
+    "label": "In the New Testament",
+    "tone": "gospels"
+   }
+  ],
+  "nodes": [
+   {
+    "id": "amram-exo-6-18",
+    "ring": "family",
+    "group": "1",
+    "label": "Amram",
+    "role": "parent",
+    "claims": [],
+    "quote": null,
+    "verses": [
+     [
+      2006020,
+      2006020
+     ]
+    ],
+    "links": [
+     "jochebed-exo-6-20",
+     "aaron-exo-4-14",
+     "miriam-exo-15-20"
+    ]
+   },
+   {
+    "id": "jochebed-exo-6-20",
+    "ring": "family",
+    "group": "1",
+    "label": "Jochebed",
+    "role": "parent",
+    "claims": [],
+    "quote": null,
+    "verses": [
+     [
+      2006020,
+      2006020
+     ],
+     [
+      4026059,
+      4026059
+     ]
+    ],
+    "links": [
+     "amram-exo-6-18",
+     "aaron-exo-4-14",
+     "miriam-exo-15-20"
+    ]
+   },
+   {
+    "id": "aaron-exo-4-14",
+    "ring": "family",
+    "group": "2",
+    "label": "Aaron",
+    "role": "brother",
+    "claims": [
+     {
+      "text": "His brother, three years older by Exodus 7:7, given to him as spokesman: \"he shall be to thee instead of a mouth, and thou shalt be to him instead of God\".",
+      "layer": "scripture",
+      "refs": [
+       [
+        2004014,
+        2004016
+       ],
+       [
+        2007007,
+        2007007
+       ]
+      ]
+     },
+     {
+      "text": "God made Aaron Moses' spokesman before the people and Pharaoh.",
+      "layer": "scripture",
+      "refs": [
+       [
+        2004014,
+        2004016
+       ],
+       [
+        2007001,
+        2007001
+       ]
+      ]
+     }
+    ],
+    "quote": {
+     "text": "See, I have made thee a god to Pharaoh: and Aaron thy brother shall be thy prophet.",
+     "span": [
+      2007001,
+      2007001
+     ]
+    },
+    "verses": [
+     [
+      2004014,
+      2004014
+     ]
+    ],
+    "links": [
+     "amram-exo-6-18",
+     "jochebed-exo-6-20",
+     "pharaoh-exo-3-10",
+     "miriam-exo-15-20",
+     "korah-exo-6-21",
+     "who:samuel",
+     "who:psalmist"
+    ]
+   },
+   {
+    "id": "miriam-exo-15-20",
+    "ring": "family",
+    "group": "1",
+    "label": "Miriam",
+    "role": "sister",
+    "claims": [
+     {
+      "text": "His sister and Aaron’s, \"the prophetess\", who led the women’s song at the sea and later spoke against him with Aaron.",
+      "layer": "scripture",
+      "refs": [
+       [
+        2015020,
+        2015020
+       ],
+       [
+        4012001,
+        4012002
+       ],
+       [
+        4026059,
+        4026059
+       ]
+      ]
+     },
+     {
+      "text": "Miriam \"the prophetess\" led the women after the crossing of the sea; Micah names her with Moses and Aaron as sent before the people.",
+      "layer": "scripture",
+      "refs": [
+       [
+        2015020,
+        2015020
+       ],
+       [
+        33006004,
+        33006004
+       ]
+      ]
+     }
+    ],
+    "quote": null,
+    "verses": [
+     [
+      4026059,
+      4026059
+     ],
+     [
+      2015020,
+      2015020
+     ]
+    ],
+    "links": [
+     "jochebed-exo-6-20",
+     "amram-exo-6-18",
+     "aaron-exo-4-14"
+    ]
+   },
+   {
+    "id": "zipporah-exo-2-21",
+    "ring": "family",
+    "group": "2",
+    "label": "Zipporah",
+    "role": "wife",
+    "claims": [],
+    "quote": null,
+    "verses": [
+     [
+      2002021,
+      2002021
+     ]
+    ],
+    "links": []
+   },
+   {
+    "id": "gershom-exo-2-22",
+    "ring": "family",
+    "group": "2",
+    "label": "Gershom",
+    "role": "son",
+    "claims": [],
+    "quote": null,
+    "verses": [
+     [
+      2002022,
+      2002022
+     ],
+     [
+      2018003,
+      2018003
+     ]
+    ],
+    "links": []
+   },
+   {
+    "id": "eliezer-exo-18-4",
+    "ring": "family",
+    "group": "2",
+    "label": "Eliezer",
+    "role": "son",
+    "claims": [],
+    "quote": null,
+    "verses": [
+     [
+      2018004,
+      2018004
+     ]
+    ],
+    "links": [
+     "pharaoh-exo-3-10"
+    ]
+   },
+   {
+    "id": "joshua-exo-17-9",
+    "ring": "with",
+    "group": "3",
+    "label": "Joshua",
+    "role": "beside him",
+    "note": null,
+    "claims": [
+     {
+      "text": "\"His servant Joshua, the son of Nun, a young man, departed not out of the tabernacle\"; he asked Moses to forbid Eldad and Medad.",
+      "layer": "scripture",
+      "refs": [
+       [
+        2033011,
+        2033011
+       ],
+       [
+        4011028,
+        4011028
+       ]
+      ]
+     }
+    ],
+    "quote": null,
+    "verses": [],
+    "links": [
+     "eldad-num-11-26",
+     "who:joshua",
+     "who:people",
+     "who:caleb"
+    ]
+   },
+   {
+    "id": "jethro-exo-2-18",
+    "ring": "with",
+    "group": "2",
+    "label": "Jethro",
+    "role": "beside him",
+    "note": null,
+    "claims": [
+     {
+      "text": "The priest of Midian, his father-in-law, whose flock he kept when he was called at the bush.",
+      "layer": "scripture",
+      "refs": [
+       [
+        2003001,
+        2003001
+       ]
+      ]
+     }
+    ],
+    "quote": null,
+    "verses": [],
+    "links": []
+   },
+   {
+    "id": "eldad-num-11-26",
+    "ring": "with",
+    "group": "3",
+    "label": "Eldad and Medad",
+    "role": "beside him",
+    "note": null,
+    "claims": [
+     {
+      "text": "Two men who prophesied in the camp; Moses would not forbid them.",
+      "layer": "scripture",
+      "refs": [
+       [
+        4011026,
+        4011029
+       ]
+      ]
+     },
+     {
+      "text": "Two men who \"were of them that were written\" stayed in the camp, and the spirit rested on them there; when Joshua said \"forbid them\", Moses answered \"would God that all the LORD's people were prophets\".",
+      "layer": "scripture",
+      "refs": [
+       [
+        4011026,
+        4011029
+       ]
+      ]
+     }
+    ],
+    "quote": null,
+    "verses": [],
+    "links": [
+     "joshua-exo-17-9",
+     "who:joshua"
+    ]
+   },
+   {
+    "id": "korah-exo-6-21",
+    "ring": "against",
+    "group": "3",
+    "label": "Korah",
+    "role": "withstood him",
+    "note": null,
+    "claims": [
+     {
+      "text": "With Dathan and Abiram he gathered against Moses and Aaron: \"Ye take too much upon you\".",
+      "layer": "scripture",
+      "refs": [
+       [
+        4016001,
+        4016003
+       ]
+      ]
+     }
+    ],
+    "quote": null,
+    "verses": [],
+    "links": [
+     "aaron-exo-4-14"
+    ]
+   },
+   {
+    "id": "jannes-2ti-3-8",
+    "ring": "against",
+    "group": "1",
+    "label": "Jannes",
+    "role": "withstood him",
+    "note": "Jambres too",
+    "claims": [
+     {
+      "text": "Exodus does not name Pharaoh’s magicians, who did \"in like manner with their enchantments\". 2 Timothy names two men who \"withstood Moses\", Jannes and Jambres, and says no more about them.",
+      "layer": "scripture",
+      "refs": [
+       [
+        2007011,
+        2007012
+       ],
+       [
+        55003008,
+        55003008
+       ]
+      ]
+     }
+    ],
+    "quote": null,
+    "verses": [],
+    "links": [
+     "pharaoh-exo-3-10"
+    ]
+   },
+   {
+    "id": "pharaoh-exo-3-10",
+    "ring": "against",
+    "group": "1",
+    "label": "Pharaoh",
+    "role": "king of Egypt",
+    "claims": [
+     {
+      "text": "Moses and Aaron brought Pharaoh the LORD’s word, \"Let my people go\", and Pharaoh answered, \"Who is the LORD, that I should obey his voice to let Israel go?\" After the darkness Pharaoh told Moses he would die the day he saw his face again, and Moses answered, \"Thou hast spoken well, I will see thy face again no more.\"",
+      "layer": "scripture",
+      "refs": [
+       [
+        2005001,
+        2005002
+       ],
+       [
+        2010028,
+        2010029
+       ]
+      ]
+     }
+    ],
+    "quote": {
+     "text": "Thus saith the LORD God of Israel, Let my people go, that they may hold a feast unto me in the wilderness.",
+     "span": [
+      2005001,
+      2005001
+     ]
+    },
+    "verses": [],
+    "links": [
+     "aaron-exo-4-14",
+     "eliezer-exo-18-4",
+     "jannes-2ti-3-8"
+    ]
+   },
+   {
+    "id": "balak-num-22-2",
+    "ring": "against",
+    "group": "3",
+    "label": "Balak king of Moab",
+    "role": "Edom and Moab",
+    "claims": [
+     {
+      "text": "Edom and Moab refused Israel passage, as Jephthah later recalled; he also asked of Balak king of Moab, \"did he ever fight against them\".",
+      "layer": "scripture",
+      "refs": [
+       [
+        7011017,
+        7011018
+       ],
+       [
+        7011025,
+        7011025
+       ]
+      ]
+     }
+    ],
+    "quote": null,
+    "verses": [],
+    "links": []
+   },
+   {
+    "id": "sihon-num-21-21",
+    "ring": "against",
+    "group": "3",
+    "label": "Sihon of Heshbon",
+    "role": "The Amorite kings",
+    "claims": [
+     {
+      "text": "Both kings were defeated, and their lands given to the tribes east of the Jordan.",
+      "layer": "scripture",
+      "refs": [
+       [
+        4021021,
+        4021035
+       ],
+       [
+        4032033,
+        4032033
+       ]
+      ]
+     }
+    ],
+    "quote": null,
+    "verses": [],
+    "links": []
+   },
+   {
+    "id": "og-num-21-33",
+    "ring": "against",
+    "group": "3",
+    "label": "Og of Bashan",
+    "role": "The Amorite kings",
+    "claims": [
+     {
+      "text": "Both kings were defeated, and their lands given to the tribes east of the Jordan.",
+      "layer": "scripture",
+      "refs": [
+       [
+        4021021,
+        4021035
+       ],
+       [
+        4032033,
+        4032033
+       ]
+      ]
+     }
+    ],
+    "quote": null,
+    "verses": [],
+    "links": []
+   },
+   {
+    "id": "hur-num-31-8",
+    "ring": "against",
+    "group": "3",
+    "label": "Hur (Midian)",
+    "role": "Midian",
+    "claims": [
+     {
+      "text": "Five kings of Midian, Evi, Rekem, Zur, Hur and Reba, were killed in the war of Numbers 31.",
+      "layer": "scripture",
+      "refs": [
+       [
+        4031008,
+        4031008
+       ]
+      ]
+     }
+    ],
+    "quote": null,
+    "verses": [],
+    "links": []
+   },
+   {
+    "id": "who:jesus",
+    "ring": "speak",
+    "group": "nt",
+    "label": "Jesus",
+    "role": "19 verses naming him",
+    "claims": [],
+    "quote": null,
+    "verses": [
+     {
+      "ref": [
+       40008004,
+       40008004
+      ],
+      "text": "And Jesus saith unto him, See thou tell no man; but go thy way, shew thyself to the priest, and offer the gift that Moses commanded, for a testimony unto them.",
+      "basis": "The KJV text prints these as the words of Jesus"
+     },
+     {
+      "ref": [
+       40019008,
+       40019008
+      ],
+      "text": "He saith unto them, Moses because of the hardness of your hearts suffered you to put away your wives: but from the beginning it was not so.",
+      "basis": "The KJV text prints these as the words of Jesus"
+     }
+    ],
+    "count": 19,
+    "first": 40008004,
+    "links": [
+     "who:peter",
+     "who:apostles",
+     "who:writers"
+    ]
+   },
+   {
+    "id": "who:god",
+    "ring": "speak",
+    "group": "law",
+    "label": "God",
+    "role": "14 verses naming him",
+    "claims": [],
+    "quote": null,
+    "verses": [
+     {
+      "ref": [
+       4012007,
+       4012007
+      ],
+      "text": "My servant Moses is not so, who is faithful in all mine house.",
+      "basis": "Numbers 12:6"
+     },
+     {
+      "ref": [
+       4012008,
+       4012008
+      ],
+      "text": "With him will I speak mouth to mouth, even apparently, and not in dark speeches; and the similitude of the LORD shall he behold: wherefore then were ye not afraid to speak against my servant Moses?",
+      "basis": "Numbers 12:6"
+     }
+    ],
+    "count": 14,
+    "first": 4012007,
+    "links": []
+   },
+   {
+    "id": "who:people",
+    "ring": "speak",
+    "group": "ot",
+    "label": "People of Israel",
+    "role": "5 verses naming him",
+    "claims": [],
+    "quote": null,
+    "verses": [
+     {
+      "ref": [
+       6001017,
+       6001017
+      ],
+      "text": "According as we hearkened unto Moses in all things, so will we hearken unto thee: only the LORD thy God be with thee, as he was with Moses.",
+      "basis": "Joshua 1:16"
+     },
+     {
+      "ref": [
+       6009024,
+       6009024
+      ],
+      "text": "And they answered Joshua, and said, Because it was certainly told thy servants, how that the LORD thy God commanded his servant Moses to give you all the land, and to destroy all the inhabitants of the land from before you, therefore we were sore afraid of our lives because of you, and have done this thing.",
+      "basis": "Joshua 9:24 (the Gibeonites)"
+     }
+    ],
+    "count": 5,
+    "first": 6001017,
+    "links": [
+     "joshua-exo-17-9",
+     "who:joshua"
+    ]
+   },
+   {
+    "id": "who:joshua",
+    "ring": "speak",
+    "group": "ot",
+    "label": "Joshua",
+    "role": "8 verses naming him",
+    "claims": [],
+    "quote": null,
+    "verses": [
+     {
+      "ref": [
+       6001013,
+       6001013
+      ],
+      "text": "Remember the word which Moses the servant of the LORD commanded you, saying, The LORD your God hath given you rest, and hath given you this land.",
+      "basis": "Joshua 1:12"
+     },
+     {
+      "ref": [
+       6001014,
+       6001014
+      ],
+      "text": "Your wives, your little ones, and your cattle, shall remain in the land which Moses gave you on this side Jordan; but ye shall pass before your brethren armed, all the mighty men of valour, and help them;",
+      "basis": "Joshua 1:12"
+     }
+    ],
+    "count": 8,
+    "first": 6001013,
+    "links": [
+     "joshua-exo-17-9",
+     "eldad-num-11-26",
+     "who:people",
+     "who:caleb"
+    ]
+   },
+   {
+    "id": "who:caleb",
+    "ring": "speak",
+    "group": "ot",
+    "label": "Caleb",
+    "role": "5 verses naming him",
+    "claims": [],
+    "quote": null,
+    "verses": [
+     {
+      "ref": [
+       6014006,
+       6014006
+      ],
+      "text": "Then the children of Judah came unto Joshua in Gilgal: and Caleb the son of Jephunneh the Kenezite said unto him, Thou knowest the thing that the LORD said unto Moses the man of God concerning me and thee in Kadesh-barnea.",
+      "basis": "Joshua 14:6"
+     },
+     {
+      "ref": [
+       6014007,
+       6014007
+      ],
+      "text": "Forty years old was I when Moses the servant of the LORD sent me from Kadesh-barnea to espy out the land; and I brought him word again as it was in mine heart.",
+      "basis": "Joshua 14:6"
+     }
+    ],
+    "count": 5,
+    "first": 6014006,
+    "links": [
+     "joshua-exo-17-9",
+     "who:joshua"
+    ]
+   },
+   {
+    "id": "who:samuel",
+    "ring": "speak",
+    "group": "ot",
+    "label": "Samuel",
+    "role": "2 verses naming him",
+    "claims": [],
+    "quote": null,
+    "verses": [
+     {
+      "ref": [
+       9012006,
+       9012006
+      ],
+      "text": "And Samuel said unto the people, It is the LORD that advanced Moses and Aaron, and that brought your fathers up out of the land of Egypt.",
+      "basis": "1 Samuel 12:6"
+     },
+     {
+      "ref": [
+       9012008,
+       9012008
+      ],
+      "text": "When Jacob was come into Egypt, and your fathers cried unto the LORD, then the LORD sent Moses and Aaron, which brought forth your fathers out of Egypt, and made them dwell in this place.",
+      "basis": "1 Samuel 12:6"
+     }
+    ],
+    "count": 2,
+    "first": 9012006,
+    "links": [
+     "aaron-exo-4-14",
+     "who:psalmist"
+    ]
+   },
+   {
+    "id": "who:kings",
+    "ring": "speak",
+    "group": "ot",
+    "label": "David, Solomon and kings",
+    "role": "6 verses naming him",
+    "claims": [],
+    "quote": null,
+    "verses": [
+     {
+      "ref": [
+       11002003,
+       11002003
+      ],
+      "text": "And keep the charge of the LORD thy God, to walk in his ways, to keep his statutes, and his commandments, and his judgments, and his testimonies, as it is written in the law of Moses, that thou mayest prosper in all that thou doest, and whithersoever thou turnest thyself:",
+      "basis": "1 Kings 2:1 (David)"
+     },
+     {
+      "ref": [
+       11008053,
+       11008053
+      ],
+      "text": "For thou didst separate them from among all the people of the earth, to be thine inheritance, as thou spakest by the hand of Moses thy servant, when thou broughtest our fathers out of Egypt, O Lord GOD.",
+      "basis": "1 Kings 8:22 (Solomon)"
+     }
+    ],
+    "count": 6,
+    "first": 11002003,
+    "links": []
+   },
+   {
+    "id": "who:psalmist",
+    "ring": "speak",
+    "group": "ot",
+    "label": "The psalms",
+    "role": "7 verses naming him",
+    "claims": [],
+    "quote": null,
+    "verses": [
+     {
+      "ref": [
+       19077020,
+       19077020
+      ],
+      "text": "Thou leddest thy people like a flock by the hand of Moses and Aaron.",
+      "basis": "Psalm 77"
+     },
+     {
+      "ref": [
+       19099006,
+       19099006
+      ],
+      "text": "Moses and Aaron among his priests, and Samuel among them that call upon his name; they called upon the LORD, and he answered them.",
+      "basis": "Psalm 99"
+     }
+    ],
+    "count": 7,
+    "first": 19077020,
+    "links": [
+     "aaron-exo-4-14",
+     "who:samuel"
+    ]
+   },
+   {
+    "id": "who:prophets",
+    "ring": "speak",
+    "group": "ot",
+    "label": "Isaiah, Nehemiah, Daniel",
+    "role": "6 verses naming him",
+    "claims": [],
+    "quote": null,
+    "verses": [
+     {
+      "ref": [
+       16001007,
+       16001007
+      ],
+      "text": "We have dealt very corruptly against thee, and have not kept the commandments, nor the statutes, nor the judgments, which thou commandedst thy servant Moses.",
+      "basis": "Nehemiah 1:4–5"
+     },
+     {
+      "ref": [
+       16001008,
+       16001008
+      ],
+      "text": "Remember, I beseech thee, the word that thou commandedst thy servant Moses, saying, If ye transgress, I will scatter you abroad among the nations:",
+      "basis": "Nehemiah 1:4–5"
+     }
+    ],
+    "count": 6,
+    "first": 16001007,
+    "links": []
+   },
+   {
+    "id": "who:peter",
+    "ring": "speak",
+    "group": "nt",
+    "label": "Peter",
+    "role": "4 verses naming him",
+    "claims": [],
+    "quote": null,
+    "verses": [
+     {
+      "ref": [
+       40017004,
+       40017004
+      ],
+      "text": "Then answered Peter, and said unto Jesus, Lord, it is good for us to be here: if thou wilt, let us make here three tabernacles; one for thee, and one for Moses, and one for Elias.",
+      "basis": "Matthew 17:4"
+     },
+     {
+      "ref": [
+       41009005,
+       41009005
+      ],
+      "text": "And Peter answered and said to Jesus, Master, it is good for us to be here: and let us make three tabernacles; one for thee, and one for Moses, and one for Elias.",
+      "basis": "Mark 9:5"
+     }
+    ],
+    "count": 4,
+    "first": 40017004,
+    "links": [
+     "who:jesus"
+    ]
+   },
+   {
+    "id": "who:opponents",
+    "ring": "speak",
+    "group": "nt",
+    "label": "Pharisees and Sadducees",
+    "role": "12 verses naming him",
+    "claims": [],
+    "quote": null,
+    "verses": [
+     {
+      "ref": [
+       40019007,
+       40019007
+      ],
+      "text": "They say unto him, Why did Moses then command to give a writing of divorcement, and to put her away?",
+      "basis": "Matthew 19:3"
+     },
+     {
+      "ref": [
+       40022024,
+       40022024
+      ],
+      "text": "Saying, Master, Moses said, If a man die, having no children, his brother shall marry his wife, and raise up seed unto his brother.",
+      "basis": "Matthew 22:23"
+     }
+    ],
+    "count": 12,
+    "first": 40019007,
+    "links": []
+   },
+   {
+    "id": "who:stephen",
+    "ring": "speak",
+    "group": "nt",
+    "label": "Stephen",
+    "role": "9 verses naming him",
+    "claims": [],
+    "quote": null,
+    "verses": [
+     {
+      "ref": [
+       44007020,
+       44007020
+      ],
+      "text": "In which time Moses was born, and was exceeding fair, and nourished up in his father’s house three months:",
+      "basis": "Acts 7:2"
+     },
+     {
+      "ref": [
+       44007022,
+       44007022
+      ],
+      "text": "And Moses was learned in all the wisdom of the Egyptians, and was mighty in words and in deeds.",
+      "basis": "Acts 7:2"
+     }
+    ],
+    "count": 9,
+    "first": 44007020,
+    "links": []
+   },
+   {
+    "id": "who:apostles",
+    "ring": "speak",
+    "group": "nt",
+    "label": "Philip and James",
+    "role": "3 verses naming him",
+    "claims": [],
+    "quote": null,
+    "verses": [
+     {
+      "ref": [
+       43001045,
+       43001045
+      ],
+      "text": "Philip findeth Nathanael, and saith unto him, We have found him, of whom Moses in the law, and the prophets, did write, Jesus of Nazareth, the son of Joseph.",
+      "basis": "John 1:45 (Philip)"
+     },
+     {
+      "ref": [
+       44015021,
+       44015021
+      ],
+      "text": "For Moses of old time hath in every city them that preach him, being read in the synagogues every sabbath day.",
+      "basis": "Acts 15:13 (James)"
+     }
+    ],
+    "count": 3,
+    "first": 43001045,
+    "links": [
+     "who:jesus"
+    ]
+   },
+   {
+    "id": "who:paul",
+    "ring": "speak",
+    "group": "nt",
+    "label": "Paul",
+    "role": "13 verses naming him",
+    "claims": [],
+    "quote": null,
+    "verses": [
+     {
+      "ref": [
+       44013038,
+       44013038
+      ],
+      "text": "Be it known unto you therefore, men and brethren, that through this man is preached unto you the forgiveness of sins:",
+      "basis": "Acts 13:16"
+     },
+     {
+      "ref": [
+       44013039,
+       44013039
+      ],
+      "text": "And by him all that believe are justified from all things, from which ye could not be justified by the law of Moses.",
+      "basis": "Acts 13:16"
+     }
+    ],
+    "count": 13,
+    "first": 44013038,
+    "links": []
+   },
+   {
+    "id": "who:hebrews",
+    "ring": "speak",
+    "group": "nt",
+    "label": "Hebrews, Jude",
+    "role": "12 verses naming him",
+    "claims": [],
+    "quote": null,
+    "verses": [
+     {
+      "ref": [
+       58003002,
+       58003002
+      ],
+      "text": "Who was faithful to him that appointed him, as also Moses was faithful in all his house.",
+      "basis": "Hebrews"
+     },
+     {
+      "ref": [
+       58003003,
+       58003003
+      ],
+      "text": "For this man was counted worthy of more glory than Moses, inasmuch as he who hath builded the house hath more honour than the house.",
+      "basis": "Hebrews"
+     }
+    ],
+    "count": 12,
+    "first": 58003002,
+    "links": []
+   },
+   {
+    "id": "who:writers",
+    "ring": "speak",
+    "group": "nt",
+    "label": "Gospel writers, Acts, Revelation",
+    "role": "8 verses naming him",
+    "claims": [],
+    "quote": null,
+    "verses": [
+     {
+      "ref": [
+       40017003,
+       40017003
+      ],
+      "text": "And, behold, there appeared unto them Moses and Elias talking with him.",
+      "basis": "Matthew 17"
+     },
+     {
+      "ref": [
+       41009004,
+       41009004
+      ],
+      "text": "And there appeared unto them Elias with Moses: and they were talking with Jesus.",
+      "basis": "Mark 9"
+     }
+    ],
+    "count": 8,
+    "first": 40017003,
+    "links": [
+     "who:jesus"
+    ]
+   }
+  ]
+ },
+ "atlas": {
+  "href": "/study/atlas/journeys",
+  "stretches": [
+   {
+    "act": 1,
+    "label": "I · Egypt",
+    "years": "Years 0–40",
+    "stops": [
+     0
+    ],
+    "line": "Born, drawn out of the river and raised at Pharaoh's court"
+   },
+   {
+    "act": 2,
+    "label": "II · Midian",
+    "years": "Years 40–80",
+    "stops": [
+     1,
+     2,
+     3
+    ],
+    "line": "Fled to Midian; called at Horeb; sent back to Egypt"
+   },
+   {
+    "act": 3,
+    "label": "III · The wilderness",
+    "years": "Years 80–120",
+    "stops": [
+     4,
+     15
+    ],
+    "line": "Rameses, the sea, Sinai, Kadesh, and Nebo over the Jordan"
+   }
+  ]
+ },
  "questionTitles": {
   "moses-elders": "Judges and elders: one event or two?",
   "moses-king": "Who was king in Jeshurun?",

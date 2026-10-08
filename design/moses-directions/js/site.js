@@ -1,7 +1,7 @@
 // The site's frame (header, footer), the theme switch, the ticker, and the switcher between the directions.
 (() => {
   const ORDER = ["merged", "road", "forties", "cinema", "constellation", "voices", "objects", "memory"]; // the switcher: H first, the newest
-  const PAGES = [...ORDER, "merged-more"]; // H's second page shares H's button
+  const PAGES = ORDER;
   const LETTER = { merged: "H", road: "A", forties: "B", cinema: "C", constellation: "D", voices: "E", objects: "F", memory: "G" };
   const FIRST = "road"; // the page with no #hash
   window.DIRECTIONS = {};
@@ -43,7 +43,7 @@
     teardown?.();
     Clock.stop();
     document.body.dataset.dir = id;
-    document.querySelectorAll(".switcher button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.dir === id || (id === "merged-more" && b.dataset.dir === "merged"))));
+    document.querySelectorAll(".switcher button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.dir === id)));
     const main = document.getElementById("main");
     main.className = `dir-${id} dir-enter`;
     main.innerHTML = "";

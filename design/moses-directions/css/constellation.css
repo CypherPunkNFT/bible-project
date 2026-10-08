@@ -97,3 +97,5 @@
   .cs-svg.has-sel .is-person:not(.is-on):not(.is-linked) .cs-label { display: none; }
 }
 @media (max-width: 520px) { .cs-pad { padding: 1.1rem 1rem; } .cs-pbody { padding: 1.1rem 1rem; } .cs-art { margin: -1.1rem -1rem 1rem; } .cs-legend-acts { margin-left: 0; } }
+/* Filters of the shared field (js/constellation-field.js): a ring left out, or a group faded. */
+.cs-node.is-out { opacity: .1; pointer-events: none; } .cs-node.is-faded { opacity: .12; }
