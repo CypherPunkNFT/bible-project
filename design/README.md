@@ -24,8 +24,21 @@ adds to this list as he reviews other mock-up sets (apostles, David, Michael, th
 | **Ten plagues (animated dots)** | The plagues as a grid that animates with small dots. | [#constellation](moses-directions/#constellation), plagues | Liked. |
 | **The long memory** | Every verse naming the person, as points of light across the 66 books, with the echoes labelled. | [#memory](moses-directions/#memory) | "Very interesting. That could be kept." |
 | **The journey map (as a side panel)** | The large map of the road, opened from a section ("see the map") and sliding in **beside** that section, on the same page. | [#road](moses-directions/#road), for the map only | The road as a whole scored 6/10, because there was too much scrolling. Use the map, not the scroll-driven page. |
+| **Three anointings** | Three drops/medallions on one line (Samuel at Bethlehem, Judah at Hebron, Israel's elders at Hebron), each with its passage, and what Chronicles tells. | [david-directions/house](david-directions/house/), section 01 | Liked as it is (2026-10-08). |
+| **Places array** | The places of a reign as numbered tiles, each with what happened there and its distance and direction from the capital. | [david-directions/house](david-directions/house/), section 08 | "08 is good." Make it more visual: icons inside, larger tiles, and a sideways-scrolling row. The kingdom itself should lead to an Atlas page (David's kingdom as an Atlas article), not be told on the person page. |
+| **The 3D land table** | The land as a raised block seen in 3D, with Campaign, Places and Powers modes; pieces rise at each place. | [david-directions/war-table](david-directions/war-table/) | "I really like this geographical representation a lot." Not like a video game: no blue theme, no grid behind the table, no plus/minus/undo buttons. Scroll to zoom over the map, left-drag to move, right-drag to turn (a little more 3D, never tilting below the map), with a tiny legend of those controls. |
+| **The codex** | The reference area under the map: a big-icon side menu opening each section of the page. | [david-directions/war-table](david-directions/war-table/), "The codex" | "Actually kind of nice." Wants it more visual. |
+| **Crystals by kind (filter)** | Large chips, one per kind of event with its colour, icon and count; tapping one filters what is shown. | [david-directions/helix](david-directions/helix/), left of the helix | "I kind of like it a lot." |
+| **Dust-field background** | Near-black with a faint warm-yellow glow that turns deep blue halfway across, and slow floating circular dust. | [david-directions/helix](david-directions/helix/) | Preferred to every other background so far; use it instead of grids. |
 
 ## What the owner does not want
+
+- **A musical theme** for a person (the "Two voices" psalm strings, 2026-10-08): "absolute trash", and far too much scrolling.
+- **Weird motion on a family tree** (the swaying "House of David" tree).
+- **Lanes of small chips** for a reign's events ("the table with the tiny little thing underneath is atrocious"). Events
+  belong in large super-category cards that open in place, as the Atlas's ancient cities do, with rich content in each.
+- **A video-game look**: blue sci-fi panels, grids behind grids, game turn bars, plus/minus and undo/redo buttons.
+- **The same glowing box repeated** for every section ("makes everything look so tacky").
 
 - **Endless sections.** A good theme stretched into a long, unending scroll ("too much scrolling down and down and
   down"). Keep each idea compact, and move extra material to a second page.
