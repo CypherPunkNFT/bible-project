@@ -203,6 +203,32 @@
         <dl class="stats"><div><dt>National lines</dt><dd>${national}</dd></div><div><dt>Places</dt><dd>${city.entries.length}</dd></div><div><dt>Local lines</dt><dd>${city.lines.length}</dd></div><div><dt>Checked</dt><dd>${esc(LIFE.checked)}</dd></div></dl></div>
     </header>`;
   }
+  /** Psalm 23:2 as line art: hills, still water whose ripples drift, a dove gliding slowly. */
+  const stillWaters = () => `<figure class="still" aria-label="Line drawing: still waters below green hills, a dove above">
+      <svg viewBox="0 0 420 260" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <g class="sun"><circle cx="306" cy="74" r="22"/><path d="M306 38v-8 M306 118v-6 M270 74h-8 M350 74h-8 M281 49l-5 -5 M331 99l5 5 M331 49l5 -5"/></g>
+        <path class="hill far" d="M0 140 C46 112 96 108 146 122 C196 136 236 104 290 108 C340 112 380 124 420 118"/>
+        <path class="hill" d="M0 166 C60 134 128 138 186 152 C236 164 290 132 352 138 C384 141 404 148 420 150"/>
+        <path class="bank" d="M0 180 C84 172 150 184 226 178 C300 172 360 176 420 180"/>
+        <g class="reeds"><path d="M34 182 c-2 -18 -1 -30 3 -42 M42 183 c0 -14 2 -24 6 -32 M28 184 c-4 -10 -8 -18 -14 -24"/><path d="M37 140 c-2 -4 -1 -8 1 -10 M48 151 c2 -3 4 -5 6 -6"/>
+          <path d="M380 180 c1 -14 4 -24 8 -32 M388 181 c2 -10 5 -18 10 -24"/></g>
+        <g class="reflect"><path d="M120 196 C170 206 230 206 286 197"/><path d="M290 190 c8 3 24 3 32 0"/></g>
+        <g class="water"><path d="M48 212 q 7 -3.2 14 0 t 14 0 q 7 -3.2 14 0 t 14 0 q 7 -3.2 14 0 t 14 0 q 7 -3.2 14 0 t 14 0 q 7 -3.2 14 0 t 14 0 q 7 -3.2 14 0 t 14 0 q 7 -3.2 14 0 t 14 0"/><path d="M196 222 q 7 -3.2 14 0 t 14 0 q 7 -3.2 14 0 t 14 0 q 7 -3.2 14 0 t 14 0 q 7 -3.2 14 0 t 14 0 q 7 -3.2 14 0 t 14 0 q 7 -3.2 14 0 t 14 0 q 7 -3.2 14 0 t 14 0 q 7 -3.2 14 0 t 14 0 q 7 -3.2 14 0 t 14 0"/><path d="M70 238 q 7 -3.2 14 0 t 14 0 q 7 -3.2 14 0 t 14 0 q 7 -3.2 14 0 t 14 0 q 7 -3.2 14 0 t 14 0 q 7 -3.2 14 0 t 14 0 q 7 -3.2 14 0 t 14 0 q 7 -3.2 14 0 t 14 0 q 7 -3.2 14 0 t 14 0 q 7 -3.2 14 0 t 14 0 q 7 -3.2 14 0 t 14 0"/><path d="M250 246 q 7 -3.2 14 0 t 14 0 q 7 -3.2 14 0 t 14 0 q 7 -3.2 14 0 t 14 0 q 7 -3.2 14 0 t 14 0 q 7 -3.2 14 0 t 14 0 q 7 -3.2 14 0 t 14 0"/></g>
+        <g class="dove"><path d="M0 12 C10 7 24 7 34 11 C29 16 17 18 6 16 Z"/><circle cx="36" cy="10" r="2.6"/><path d="M38.5 10 l4 1.2 -4 1"/>
+          <path class="wing" d="M14 9 C12 -4 20 -14 32 -18 C27 -9 25 -1 22 8"/><path d="M0 12 L-11 8 M1 14 L-11 15 M2 15 L-8 19"/></g>
+      </svg>
+      <figcaption>“he leadeth me beside the still waters.” <cite>Psalm 23:2</cite></figcaption>
+    </figure>`;
+  function heroWithArt() {
+    const national = LIFE.groups.reduce((n, g) => n + g.entries.length, 0);
+    const city = LIFE.city;
+    return `<header class="hero hero-art">
+      <div class="hero-main"><p class="kick">Resources · 03</p><h1>Help for <em>life</em></h1>
+        <p class="hero-lead">Free national lines for the hardest moments, and places in ${esc(city.name)} that help with pregnancy, food, shelter, abuse and grief. Every number can be tapped to call or text.</p>
+        <dl class="stats"><div><dt>National lines</dt><dd>${national}</dd></div><div><dt>Places</dt><dd>${city.entries.length}</dd></div><div><dt>Local lines</dt><dd>${city.lines.length}</dd></div><div><dt>Checked</dt><dd>${esc(LIFE.checked)}</dd></div></dl></div>
+      ${stillWaters()}
+    </header>`;
+  }
   const sectionHead = (n, title, lead) => `<div class="sec-head"><span>${n}</span><h2>${title}</h2>${lead ? `<p>${lead}</p>` : ""}</div>`;
   function howMade() {
     return `<section class="how"><p>How this list is made: every number, address and hour is copied from the organisation’s own page, and each entry links to the page it was checked on. Numbers change; if one fails, the organisation’s page is the place to look. The Jacksonville map is drawn from the US Census Bureau’s TIGER/Line 2026 files; each place is located from its address by the Census Bureau geocoder.</p></section>`;
@@ -218,5 +244,5 @@
   }
   const isCrisisGroup = (g) => g.id === "crisis";
 
-  window.Life = { LIFE, esc, plural, CAT, cat, tone, wayOf, hrefOf, host, firstSentence, subtitle, quickActions, quickHtml, contactHtml, detailHtml, rowHtml, consolidatedRowHtml, wireRows, setOpen, crisisStrip, crumbs, hero, sectionHead, howMade, groupStats, isCrisisGroup, allHours, WAY_WORD };
+  window.Life = { LIFE, esc, plural, CAT, cat, tone, wayOf, hrefOf, host, firstSentence, subtitle, quickActions, quickHtml, contactHtml, detailHtml, rowHtml, consolidatedRowHtml, wireRows, setOpen, crisisStrip, crumbs, hero, heroWithArt, sectionHead, howMade, groupStats, isCrisisGroup, allHours, WAY_WORD };
 })();

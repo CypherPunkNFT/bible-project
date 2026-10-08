@@ -149,5 +149,7 @@
     city: {},
   };
 
-  window.Directions = { a: A, b: B, c: C, d: D };
+  // E: B improved (owner, 2026-10-08): the words under the title, still-waters art beside them, no section links.
+  const E = { ...B, title: "Directory, improved", heroArt: true, noCrumbs: true };
+  window.Directions = { a: A, b: B, c: C, d: D, e: E };
 })();

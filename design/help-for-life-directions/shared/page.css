@@ -206,3 +206,27 @@ a.contact:hover strong { color: var(--c, var(--door)); }
   .map-views { bottom: .5rem; left: .5rem; }
   .mapframe figcaption { font-size: .66rem; }
 }
+
+/* E: the hero with the words under the title and still-waters line art (Psalm 23:2) beside them. */
+.hero-art { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); align-items: center; padding-top: 1.2rem; }
+.hero-art .hero-lead { max-width: 34rem; margin-top: 1rem; color: color-mix(in srgb, var(--ink) 76%, transparent); font-size: .98rem; line-height: 1.7; }
+.hero-art .stats { margin-top: 1.4rem; }
+.still { margin: 0; color: color-mix(in srgb, var(--door) 70%, var(--ink)); }
+.still svg { width: 100%; height: auto; max-height: 260px; }
+.still .sun { opacity: .55; }
+.still .hill.far { opacity: .45; }
+.still .water path { stroke-dasharray: 60 22; animation: still-drift 11s linear infinite; opacity: .7; }
+.still .reflect { opacity: .35; }
+.still .reeds { opacity: .8; transform-origin: 40px 182px; animation: still-reeds 7s ease-in-out infinite; }
+.still .wing { transform-origin: 18px 8px; animation: still-wing 3.2s ease-in-out infinite; }
+@keyframes still-reeds { 0%, 100% { transform: rotate(0deg); } 50% { transform: rotate(-1.6deg); } }
+@keyframes still-wing { 0%, 100% { transform: rotate(0deg); } 50% { transform: rotate(14deg); } }
+.still .water path:nth-child(2) { animation-duration: 12s; animation-direction: reverse; }
+.still .water path:nth-child(3) { animation-duration: 15s; }
+.still .dove { transform: translate(110px, 70px); animation: still-dove 18s ease-in-out infinite; }
+.still figcaption { margin-top: .4rem; color: var(--muted); font: italic .86rem/1.5 var(--serif); text-align: center; }
+.still cite { font-style: normal; font-family: var(--sans); font-size: .74rem; margin-left: .35rem; }
+@keyframes still-drift { to { stroke-dashoffset: -164; } }
+@keyframes still-dove { 0%, 100% { transform: translate(110px, 70px); } 50% { transform: translate(150px, 58px); } }
+@media (prefers-reduced-motion: reduce) { .still .water path, .still .dove, .still .reeds, .still .wing { animation: none; } }
+@media (max-width: 760px) { .hero-art .still { max-width: 360px; justify-self: center; } }
