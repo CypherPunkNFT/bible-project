@@ -1,0 +1,92 @@
+/* Round 2: four drawings, large, 2 × 2 on a desktop and tablet, one column on a phone. Hairlines only: no cards, no glow
+   but each drawing's one light. The drawing rules repeat the 24-drawing page's (../help-for-life-drawings/drawings.css). */
+:root { --sun: #c99410; --blue: #6f86c9; --violet: #8f74c4; }
+:root[data-theme="dark"] { --sun: #f2cf5c; --blue: #a9bbf0; --violet: #c4b0ee; }
+
+.head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: .8rem 3.5rem; align-items: end; padding: 2rem 0 1.6rem; }
+.kick { grid-column: 1 / -1; display: flex; align-items: center; gap: .6rem; color: var(--door); font: 600 .6rem/1.2 var(--mono); letter-spacing: .18em; text-transform: uppercase; }
+.kick::before { content: ""; width: 1.6rem; height: 1px; background: currentColor; }
+.head h1 { font: 400 clamp(2.2rem, 5vw, 3.8rem)/1 var(--serif); letter-spacing: -.035em; }
+.head h1 em { display: block; color: var(--door); }
+.lead { max-width: 34rem; color: color-mix(in srgb, var(--ink) 76%, transparent); font-size: .95rem; line-height: 1.7; }
+
+.grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 3rem; border-top: 1px solid var(--line); }
+.cell { display: flex; flex-direction: column; padding: 1.3rem 0 1.8rem; border-bottom: 1px solid var(--line); }
+.label { display: flex; align-items: center; gap: .6rem; font: 600 .62rem/1 var(--mono); letter-spacing: .18em; text-transform: uppercase; color: var(--muted); }
+.label b { display: grid; place-items: center; width: 1.5rem; height: 1.5rem; border: 1.5px solid var(--c); border-radius: 50%; color: var(--c); font: 700 .7rem var(--sans); letter-spacing: 0; }
+.label span { color: var(--ink); }
+.draw { display: flex; flex: 1; flex-direction: column; margin: .8rem 0 0; }
+.draw figcaption { margin-top: .7rem; max-width: 40rem; }
+.draw q { display: block; quotes: "“" "”"; color: color-mix(in srgb, var(--ink) 84%, transparent); font: italic 400 1.1rem/1.55 var(--serif); }
+.draw cite { display: block; margin-top: .35rem; color: var(--c); font: 600 .78rem var(--sans); font-style: normal; letter-spacing: .01em; }
+.draw small { display: block; margin-top: .25rem; color: var(--muted); font-size: .78rem; line-height: 1.5; }
+.use { margin-top: .9rem; padding-top: .55rem; border-top: 1px dotted var(--line); color: var(--muted); font-size: .78rem; }
+.foot-note { max-width: 60rem; margin-top: 1.4rem; color: var(--muted); font-size: .76rem; line-height: 1.7; }
+.foot-note a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 3px; }
+@media (max-width: 640px) {
+  .head { grid-template-columns: minmax(0, 1fr); padding-top: 1.4rem; }
+  .grid { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* ── The drawings ────────────────────────────────────────────────────────────────────────────────────────── */
+.art { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; overflow: visible; color: color-mix(in srgb, var(--ink) 66%, var(--page)); }
+.art .t { stroke: var(--c); }
+.art .f { opacity: .42; }
+.art .ft { stroke: var(--c); opacity: .5; }
+.art .pf { fill: var(--page); stroke: none; }
+.art .chick { fill: var(--page); }
+.art .star { fill: currentColor; stroke: none; opacity: .5; animation: twinkle 5.5s ease-in-out infinite alternate; animation-delay: calc(var(--i) * -1.3s); }
+.art .tuft { transform-box: fill-box; transform-origin: 50% 100%; animation: sway 6s ease-in-out infinite alternate; }
+.art .tuft:nth-of-type(odd) { animation-duration: 7.4s; animation-delay: -2s; }
+.art .lf { animation: leaf 6.5s ease-in-out infinite alternate; }
+.art .lf.late { animation-delay: -3.1s; animation-duration: 7.6s; }
+@keyframes twinkle { from { opacity: .15; } to { opacity: .7; } }
+@keyframes sway { from { transform: rotate(-3deg); } to { transform: rotate(3deg); } }
+@keyframes leaf { from { transform: rotate(-4deg); } to { transform: rotate(4deg); } }
+@keyframes soft { from { opacity: .4; } to { opacity: 1; } }
+@keyframes mote { 0% { transform: translateY(0); opacity: 0; } 20% { opacity: .8; } 80% { opacity: .5; } 100% { transform: translateY(-46px); opacity: 0; } }
+.art .sun { stroke: var(--sun); fill: color-mix(in srgb, var(--sun) 16%, var(--page)); }
+.art .sunline { stroke: var(--sun); opacity: .75; }
+
+/* 1 · Door, with Jesus: one solid lit figure; the light around him breathes, its spill on the step with it. */
+.draw-door-solid .solid { fill: color-mix(in srgb, var(--c) 30%, var(--page)); stroke: var(--c); stroke-width: 1.3; filter: drop-shadow(0 0 5px color-mix(in srgb, var(--c) 55%, transparent)); }
+.draw-door-solid .fold { stroke: color-mix(in srgb, var(--c) 55%, var(--page)); stroke-width: 1; }
+.draw-door-solid .glow-door { transform-box: fill-box; transform-origin: 50% 40%; animation: door-glow 7s ease-in-out infinite alternate; }
+@keyframes door-glow { from { transform: scale(.94); opacity: .6; } to { transform: scale(1.04); opacity: 1; } }
+.draw-door-solid .spill { animation: soft 7s ease-in-out infinite alternate; }
+.draw-door-solid .mote, .draw-door-original .mote { opacity: 0; color: var(--c); animation: mote 9s linear infinite; animation-delay: calc(var(--i) * -1.3s); }
+
+:root[data-theme="dark"] .draw-door-solid .solid { fill: color-mix(in srgb, var(--c) 58%, var(--page)); }
+
+/* 2 · Morning: the sun rises and settles in its glow, rays turning; its beams brighten over the hills as the stars fade;
+   birds cross; the flowers nod. */
+.draw-morning .art { overflow: hidden; }
+.draw-morning .sunrise { animation: rise 18s ease-in-out infinite alternate; }
+@keyframes rise { from { transform: translateY(16px); } to { transform: translateY(-4px); } }
+.draw-morning .rays { transform-origin: 160px 146px; animation: turn 120s linear infinite; }
+@keyframes turn { to { transform: rotate(360deg); } }
+.draw-morning .beams { stroke: var(--sun); stroke-width: 1.1; animation: beams 18s ease-in-out infinite alternate; }
+@keyframes beams { from { opacity: .08; } to { opacity: .42; } }
+.draw-morning .night { animation: dawn 18s ease-in-out infinite alternate; }
+@keyframes dawn { from { opacity: 1; } to { opacity: .12; } }
+.draw-morning .birds { animation: cross 34s linear infinite; }
+@keyframes cross { from { transform: translate(-50px, 86px); } to { transform: translate(350px, 52px); } }
+.draw-morning .bloom { animation: sway 6s ease-in-out infinite alternate; animation-delay: calc(var(--i) * -1.7s); }
+.draw-morning .blue { stroke: var(--blue); } .draw-morning .violet { stroke: var(--violet); }
+.draw-morning .petal { opacity: .7; } .draw-morning .heart { fill: currentColor; color: var(--sun); stroke: none; opacity: .8; }
+
+/* 3 · Well: the sun's glow breathes and its rays turn slowly; the bucket sways, drops fall and ring the water. */
+.draw-well .sun-glow { transform-box: fill-box; transform-origin: 50% 50%; animation: sun-breathe 6s ease-in-out infinite alternate; }
+@keyframes sun-breathe { from { transform: scale(.9); opacity: .7; } to { transform: scale(1.06); opacity: 1; } }
+.draw-well .rays { transform-origin: 56px 46px; animation: turn 90s linear infinite; }
+.draw-well .swing { transform-origin: 150px 80px; animation: swing 5s ease-in-out infinite alternate; }
+@keyframes swing { from { transform: rotate(-3deg); } to { transform: rotate(3deg); } }
+.draw-well .drop { transform-box: fill-box; transform-origin: 50% 0%; animation: drip 3.2s ease-in infinite; }
+@keyframes drip { 0% { transform: translateY(0) scale(.3); opacity: 0; } 30% { transform: translateY(0) scale(1); opacity: 1; } 55% { transform: translateY(8px); opacity: 1; } 60%, 100% { transform: translateY(8px); opacity: 0; } }
+.draw-well .ring { transform-box: fill-box; transform-origin: 50% 50%; animation: ringout 3.2s ease-out infinite; }
+@keyframes ringout { 0%, 55% { transform: scale(.4); opacity: 0; } 62% { opacity: 1; } 100% { transform: scale(3.4); opacity: 0; } }
+
+/* 4 · Door, as first drawn: exactly as on the first page. */
+.draw-door-original .spill, .draw-door-original .lit { animation: soft 7s ease-in-out infinite alternate; }
+
+@media (prefers-reduced-motion: reduce) { .art, .art * { animation: none !important; } .art .mote { opacity: .6; } .draw-morning .night { opacity: .5; } .draw-morning .beams { opacity: .3; } }
