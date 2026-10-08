@@ -3,10 +3,18 @@
   "sections": [
     {
       "id": "authors",
-      "title": "Authors",
-      "line": "The new top-menu page for the preachers and writers in the library (replacing Topics in the menu bar): four directions built on the library catalogue. Life years and places are hand-entered for now.",
+      "title": "Teachers",
+      "line": "The new top-menu page for the preachers and writers in the library (named Teachers by the owner, 2026-10-08; replaces Topics in the menu bar). Four directions, then the owner's combination of the parts they liked. Life years and places are hand-entered for now.",
       "page": "/",
       "cards": [
+        {
+          "id": "authors-teachers",
+          "title": "E · Teachers (combined)",
+          "url": "/mockups/authors-directions/teachers/",
+          "date": "2026-10-08",
+          "status": "option",
+          "line": "The owner's picks combined: a new landing, the whole Bible lit by the library, every teacher through the Bible with links to their actual works, cities with landmark icons, the lifelines sections, same year, and a directory by where they served."
+        },
         {
           "id": "authors-lifelines",
           "title": "A · Lifelines",

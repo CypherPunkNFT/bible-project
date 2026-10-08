@@ -1,0 +1,75 @@
+/* 04 · Five centuries of lives (from direction A). Every class is prefixed life-; the tooltip lives on <body>. */
+.t-sec-lives button { border: 0; background: none; padding: 0; -webkit-tap-highlight-color: transparent; }
+.life-card { padding: 1.1rem 1.2rem 1.1rem; border: 1px solid var(--line); border-top: 2px solid var(--tone, var(--accent)); border-radius: 1rem; background: var(--surface); }
+
+/* Controls: round play button, segmented pills, chips. */
+.life-tools { display: flex; flex-wrap: wrap; gap: .6rem; align-items: center; margin-bottom: .9rem; }
+.life-lab { margin-left: .3rem; font-size: .65rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.t-sec-lives .life-round { display: inline-grid; place-items: center; width: 38px; height: 38px; border: 1px solid var(--line); border-radius: 50%; background: var(--surface); color: var(--ink); transition: background .2s, border-color .2s, color .2s; }
+.t-sec-lives .life-round:hover { border-color: var(--accent); }
+.t-sec-lives .life-round[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--page); }
+.life-seg { display: inline-flex; padding: 3px; border: 1px solid var(--line); border-radius: 999px; background: var(--page); }
+.t-sec-lives .life-seg button { padding: .32rem .8rem; border-radius: 999px; font-size: .78rem; color: var(--muted); transition: background .2s, color .2s; white-space: nowrap; }
+.t-sec-lives .life-seg button:hover { color: var(--ink); }
+.t-sec-lives .life-seg button[aria-pressed="true"] { background: var(--ink); color: var(--page); }
+.t-sec-lives .life-chip { display: inline-flex; gap: .45rem; align-items: center; min-height: 30px; padding: .25rem .7rem .25rem .55rem; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); font-size: .78rem; line-height: 1.2; color: var(--ink); transition: border-color .2s, background .2s; }
+.t-sec-lives .life-chip:hover { border-color: color-mix(in srgb, var(--tone, var(--accent)) 70%, transparent); background: color-mix(in srgb, var(--tone, var(--accent)) 9%, var(--surface)); }
+.t-sec-lives .life-chip[aria-pressed="true"] { border-color: var(--tone, var(--accent)); background: color-mix(in srgb, var(--tone, var(--accent)) 14%, var(--surface)); }
+.life-chip small { color: var(--muted); font-size: .7rem; }
+.life-dot { flex: none; width: 8px; height: 8px; border-radius: 50%; background: var(--tone, var(--accent)); }
+.life-plain { font-size: .78rem; line-height: 1.6; color: var(--muted); }
+
+/* Chart and legend. */
+.life-grid { display: grid; grid-template-columns: minmax(0, 1fr) 20rem; gap: 1.4rem; }
+.life-chart-col { min-width: 0; }
+.life-chart { position: relative; min-width: 0; touch-action: pan-y; border-radius: .75rem; }
+.life-chart canvas { display: block; width: 100%; cursor: ew-resize; touch-action: pan-y; user-select: none; -webkit-user-select: none; }
+.life-legend { display: flex; flex-wrap: wrap; gap: .35rem; margin-top: .8rem; }
+.t-sec-lives .life-legend .life-chip { min-height: 26px; padding-block: .15rem; font-size: .72rem; }
+
+/* Side panel: the big year, the small map, the chips of who was alive. */
+.life-side { display: flex; flex-direction: column; gap: .8rem; min-width: 0; }
+@media (min-width: 1000px) { .life-side { height: 0; min-height: 100%; } }
+.life-now { display: flex; align-items: baseline; justify-content: space-between; gap: .8rem; padding-bottom: .6rem; border-bottom: 1px solid var(--line); }
+.life-year { display: block; margin-top: .2rem; font: 500 3rem/1 var(--serif); letter-spacing: -.04em; font-variant-numeric: tabular-nums; }
+.life-meta { text-align: right; font-size: .78rem; line-height: 1.5; color: var(--muted); }
+.life-meta b { display: block; font: 500 1.05rem var(--serif); color: var(--ink); }
+.life-inset { position: relative; flex: none; overflow: hidden; border: 1px solid var(--line); border-radius: .85rem; background: var(--page); }
+.life-inset svg { display: block; width: 100%; aspect-ratio: 1000 / 600; transition: opacity .22s; }
+.life-inset svg.fading { opacity: 0; }
+.life-land { fill: var(--surface-2); stroke: var(--line); stroke-width: 1.2; }
+.life-pin { transition: transform .7s cubic-bezier(.16, 1, .3, 1), opacity .35s; stroke: var(--page); stroke-width: 3; }
+.life-pin.lit { stroke: var(--ink); stroke-width: 4; }
+.life-inset.instant .life-pin { transition: none; }
+.life-city { font: 600 33px var(--sans); fill: var(--ink); paint-order: stroke; stroke: var(--page); stroke-width: 7px; stroke-linejoin: round; }
+.life-inset-foot { display: flex; flex-wrap: wrap; gap: .4rem; align-items: center; justify-content: space-between; padding: .45rem .55rem; border-top: 1px solid var(--line); background: var(--surface); }
+.t-sec-lives .life-inset-foot .life-seg button { padding: .2rem .6rem; font-size: .7rem; }
+.life-inset-foot small { font-size: .68rem; color: var(--muted); }
+.life-alive { display: flex; flex: 1; flex-wrap: wrap; align-content: flex-start; gap: .35rem; min-height: 0; overflow-y: auto; scrollbar-width: thin; }
+.life-alive .life-chip { animation: life-chip-in .35s ease both; }
+@keyframes life-chip-in { from { opacity: 0; transform: translateY(4px); } }
+
+/* Tooltip (appended to <body>). */
+.life-tip { position: fixed; left: 0; top: 0; z-index: 60; max-width: 18rem; padding: .6rem .75rem; border: 1px solid var(--line); border-radius: .7rem; background: var(--surface); color: var(--ink);
+  box-shadow: 0 10px 30px -12px rgb(0 0 0 / 35%); font-size: .78rem; line-height: 1.5; pointer-events: none; opacity: 0; transition: opacity .15s; }
+.life-tip.show { opacity: 1; }
+.life-tip b { display: block; font: 500 .95rem var(--serif); }
+.life-tip small { color: var(--muted); }
+
+@media (max-width: 999px) {
+  .life-grid { grid-template-columns: minmax(0, 1fr); }
+  .life-side { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; }
+  .life-now { grid-column: 1 / -1; }
+  .life-alive { height: 12rem; }
+}
+@media (max-width: 760px) {
+  .life-card { padding: .9rem .75rem .9rem; }
+  .life-grid { display: flex; flex-direction: column; gap: .9rem; }
+  .life-side { display: contents; }
+  .life-now { order: -1; padding-bottom: .5rem; }
+  .life-chart-col { order: 0; }
+  .life-alive { order: 1; flex: none; height: 8.6rem; }
+  .life-inset { order: 2; }
+  .life-year { font-size: 2.4rem; }
+}
+@media (prefers-reduced-motion: reduce) { .life-pin { transition: none; } .life-alive .life-chip { animation: none; } }

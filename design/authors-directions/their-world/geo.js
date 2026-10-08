@@ -66,7 +66,7 @@
     Germany: "Wittenberg|Heidelberg|Neustadt",
     Silesia: "Breslau",
     Netherlands: "Franeker|Enkhuizen|Utrecht|Leiden|Maassluis|Amsterdam|Hoogeveen|Kampen|Heerenveen|Emmen",
-    "United States": "East Windsor|Northampton|Stockbridge|Princeton|Savannah|Newburyport|Haddam|Crossweeksung|Lexington, Virginia|Philadelphia|Lexington, Kentucky|Allegheny|Grand Rapids|Vriesland|Baltimore|Pittsburgh|Ligonier|Sanford|Deerfield|Chattanooga|Minneapolis|Columbia, South Carolina|Cleveland|Phoenix",
+    "United States": "West Nottingham|Fredericksburg|Wilkes-Barre|East Windsor|Northampton|Stockbridge|Princeton|Savannah|Newburyport|Haddam|Crossweeksung|Lexington, Virginia|Philadelphia|Lexington, Kentucky|Allegheny|Grand Rapids|Vriesland|Baltimore|Pittsburgh|Ligonier|Sanford|Deerfield|Chattanooga|Minneapolis|Columbia, South Carolina|Cleveland|Phoenix",
     Canada: "Vancouver|Montreal",
     India: "Serampore|Allahabad",
     "Middle East": "Bahrain|Cairo",

@@ -1,0 +1,39 @@
+/* 07 · Same year, different worlds (from D · Rearrange). */
+.t-sec-sameyear button { padding: 0; border: 0; background: none; }
+.yr { display: grid; grid-template-columns: minmax(0, 22rem) minmax(0, 1fr); gap: 1.6rem; align-items: start; }
+.yr-controls { position: sticky; top: 84px; padding: 1.1rem; border: 1px solid var(--line); border-top: 2px solid var(--poetry); border-radius: 1rem; background: var(--surface); }
+.yr-year { display: flex; gap: .8rem; align-items: center; justify-content: space-between; }
+.t-sec-sameyear .yr-year button { display: grid; place-items: center; width: 34px; height: 34px; border: 1px solid var(--line); border-radius: 50%; color: var(--muted); transition: border-color .2s, color .2s; }
+.t-sec-sameyear .yr-year button:hover { border-color: var(--ink); color: var(--ink); }
+.yr-big { font: 500 3.4rem/1 var(--serif); letter-spacing: -.04em; font-variant-numeric: tabular-nums; }
+.yr-sum { margin-top: .6rem; font-size: .84rem; line-height: 1.6; color: var(--muted); }
+.yr-sum b { color: var(--ink); }
+.yr-hist { position: relative; height: 64px; margin-top: 1rem; }
+.yr-hist svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.yr-hist path { fill: color-mix(in srgb, var(--poetry) 22%, transparent); stroke: none; }
+.yr-marker { position: absolute; top: -4px; bottom: 0; width: 2px; margin-left: -1px; border-radius: 2px; background: var(--poetry); pointer-events: none; }
+.yr-hist input { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: ew-resize; }
+.yr-axis { display: flex; justify-content: space-between; margin-top: .25rem; font-size: .66rem; color: var(--muted); }
+.yr-note { margin-top: .6rem; font-size: .75rem; line-height: 1.6; color: var(--muted); }
+.yr-presets { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .9rem; }
+.t-sec-sameyear .yr-presets button { display: inline-flex; gap: .4rem; align-items: baseline; padding: .35rem .7rem; border: 1px solid var(--line); border-radius: 999px; font-size: .78rem; transition: border-color .2s, background .2s; }
+.yr-presets small { font-size: .66rem; color: var(--muted); }
+.t-sec-sameyear .yr-presets button:hover { border-color: var(--poetry); }
+.t-sec-sameyear .yr-presets button[aria-pressed="true"] { border-color: var(--poetry); background: color-mix(in srgb, var(--poetry) 12%, transparent); }
+.yr-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); gap: .7rem; align-items: start; }
+.yr-card { padding: .75rem .85rem .6rem; border: 1px solid var(--line); border-radius: .9rem; background: var(--surface); }
+.yr-card header { display: flex; justify-content: space-between; align-items: baseline; padding-bottom: .4rem; border-bottom: 1px solid var(--line); }
+.yr-card h4 { margin: 0; font: 500 1.05rem var(--serif); }
+.yr-card header span { font-size: .72rem; color: var(--muted); }
+.yr-card ul { margin: .3rem 0 0; padding: 0; list-style: none; }
+.t-sec-sameyear .yr-card li button { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: .2rem .5rem; align-items: center; width: 100%; padding: .32rem .3rem; border-radius: .5rem; text-align: left; font-size: .8rem; transition: background .15s; }
+.t-sec-sameyear .yr-card li button:hover { background: var(--surface-2); }
+.yr-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--tone); }
+.yr-who { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.yr-card small { font-size: .7rem; color: var(--muted); white-space: nowrap; }
+.yr-card em { grid-column: 2 / 4; font-size: .72rem; font-style: normal; color: var(--accent); }
+@media (max-width: 900px) {
+  .yr { grid-template-columns: 1fr; }
+  .yr-controls { position: static; }
+}
+@media (max-width: 640px) { .yr-grid { grid-template-columns: 1fr; } }

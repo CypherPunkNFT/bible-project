@@ -1,6 +1,6 @@
-// A small floating A · B · C · D switch on each Authors direction, so the owner can move between them directly.
+// A small floating A · B · C · D · E switch on each Authors direction, so the owner can move between them directly.
 (() => {
-  const DIRECTIONS = [["A", "lifelines", "Lifelines"], ["B", "their-world", "Their world"], ["C", "preached-bible", "The preached Bible"], ["D", "rearrange", "Rearrange"]];
+  const DIRECTIONS = [["A", "lifelines", "Lifelines"], ["B", "their-world", "Their world"], ["C", "preached-bible", "The preached Bible"], ["D", "rearrange", "Rearrange"], ["E", "teachers", "Teachers (combined)"]];
   const here = location.pathname.split("/").filter(Boolean).at(-1);
   const style = document.createElement("style");
   style.textContent = `
@@ -8,7 +8,7 @@
       display: flex; gap: 2px; padding: 4px; border: 1px solid var(--line); border-radius: 999px;
       background: color-mix(in srgb, var(--surface) 88%, transparent); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
       box-shadow: 0 8px 28px -10px rgb(0 0 0 / 35%); font: 600 .78rem var(--sans); }
-    .dir-switch a { display: grid; place-items: center; min-width: 34px; height: 30px; padding: 0 10px; border-radius: 999px; color: var(--muted); transition: background .15s, color .15s; }
+    .dir-switch a { display: inline-flex; align-items: center; justify-content: center; min-width: 34px; height: 30px; padding: 0 10px; border-radius: 999px; color: var(--muted); transition: background .15s, color .15s; }
     .dir-switch a:hover { background: var(--surface-2); color: var(--ink); }
     .dir-switch a[aria-current="page"] { background: var(--ink); color: var(--page); }
     .dir-switch a span { display: none; margin-left: 6px; font-weight: 500; }

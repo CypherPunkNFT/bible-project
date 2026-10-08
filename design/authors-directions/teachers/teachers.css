@@ -1,0 +1,11 @@
+/* The combined Teachers page: what every section shares. Each section's own styles live in its file, prefixed. */
+.t-sec { scroll-margin-top: 84px; }
+.t-sec + .t-sec { margin-top: 3.2rem; padding-top: 1.8rem; border-top: 1px solid var(--line); }
+.t-sec-landing + .t-sec { border-top: 0; padding-top: 0; }
+/* Section heading: number, kicker, serif title (italic accent word in <em>), one plain line. */
+.t-head { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: .3rem 1.1rem; align-items: start; margin-bottom: 1.2rem; }
+.t-num { font: 500 2rem/1 var(--serif); color: var(--tone, var(--accent)); opacity: .75; padding-top: .15rem; }
+.t-head h2 { margin-top: .3rem; font: 500 clamp(1.5rem, 2.6vw, 1.95rem)/1.2 var(--serif); letter-spacing: -.02em; }
+.t-head h2 em { color: var(--tone, var(--accent)); font-weight: 400; }
+.t-head p:not(.kicker) { max-width: 62ch; margin-top: .4rem; color: var(--muted); font-size: .9rem; line-height: 1.65; }
+.t-failed { padding: 1rem; border: 1px dashed var(--line); border-radius: 12px; color: var(--muted); }

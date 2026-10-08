@@ -1,4 +1,4 @@
-// The site's own frame for the Authors mock-ups: header (with Authors where Topics was), footer and the theme switch.
+// The site's own frame for the Authors mock-ups: header (with Teachers where Topics was), footer and the theme switch.
 // Each mock-up calls Frame.mount() and draws into the <main> it returns. A "themechange" event fires on window
 // whenever the switch is flipped, so canvas drawings can repaint in the new colours.
 window.ICONS = {
@@ -25,13 +25,13 @@ window.Frame = {
     return matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
   },
   header() {
-    const nav = [["/bible", "Bible", "book"], ["/study", "Study", "graduation"], ["/apologetics", "Apologetics", "shield"], ["#", "Authors", "feather"], ["/study/atlas", "Atlas", "map"]];
+    const nav = [["/bible", "Bible", "book"], ["/study", "Study", "graduation"], ["/apologetics", "Apologetics", "shield"], ["#", "Teachers", "feather"], ["/study/atlas", "Atlas", "map"]];
     const dark = document.documentElement.dataset.theme === "dark";
     return `<header class="site-header">
       <div class="strip" aria-hidden="true">${["history", "poetry", "prophets", "gospels", "epistles", "revelation"].map((s) => `<span style="background: var(--${s})"></span>`).join("")}</div>
       <div class="bar">
         <a href="/" class="logo"><img src="../../letters-shared/favicon.svg" alt=""><span>Bible Project</span></a>
-        <nav class="nav" aria-label="Main">${nav.map(([to, label, i]) => `<a href="${to}" class="${label === "Authors" ? "active" : ""}">${icon(i, 16)}<span>${label}</span></a>`).join("")}
+        <nav class="nav" aria-label="Main">${nav.map(([to, label, i]) => `<a href="${to}" class="${label === "Teachers" ? "active" : ""}">${icon(i, 16)}<span>${label}</span></a>`).join("")}
           <span class="sep" aria-hidden="true"></span><a href="/testimonies" class="community">${icon("branch", 16)}<span>Testimonies</span></a></nav>
         <a href="/search" class="search-btn" aria-label="Search" title="Search">${icon("search", 16)}</a>
         <button type="button" class="theme-switch" id="theme-switch" role="switch" aria-checked="${dark}" aria-label="Dark mode"><span>${icon(dark ? "moon" : "sun", 14)}</span></button>

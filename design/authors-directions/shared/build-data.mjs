@@ -26,10 +26,24 @@ const books = readJson(path.join(site, "data/stats.json")).books.filter((b) => b
   .map((b) => ({ code: b.code, name: b.name, section: b.section, chapters: b.chapters.map((c) => c[0]) }));
 if (books.length !== 66) throw new Error(`expected 66 books in data/stats.json, found ${books.length}`);
 
+// Where each work can be read: work → edition → asset address (the original source page or file).
+const editionWork = new Map();
+for (const file of fs.readdirSync(path.join(library, "catalog/editions"))) {
+  const edition = readJson(path.join(library, "catalog/editions", file));
+  editionWork.set(edition.id, edition.workId);
+}
+const workUrl = new Map();
+for (const file of fs.readdirSync(path.join(library, "catalog/assets"))) {
+  const asset = readJson(path.join(library, "catalog/assets", file));
+  const workId = editionWork.get(asset.editionId);
+  const url = asset.finalUrl ?? asset.canonicalUrl;
+  if (workId && url && !workUrl.has(workId)) workUrl.set(workId, url);
+}
+
 // Every catalogued work by one of our people.
 const published = new Set(readJson(path.join(library, "publication.json")).workIds);
 const NOTABLE_GENRES = ["systematic-theology", "treatise", "commentary", "collected-works", "autobiography", "catechism", "letter", "devotional", "biography", "lecture"];
-const people = Object.fromEntries(ids.map((id) => [id, { genres: {}, works: 0, notable: [], books: Array(66).fill(0), sermons: [], titles: new Set() }]));
+const people = Object.fromEntries(ids.map((id) => [id, { genres: {}, works: 0, notable: [], books: Array(66).fill(0), sermons: [], passages: [], titleUrls: new Map(), titles: new Set() }]));
 const normal = (title) => title.toLowerCase().replace(/^(the|a|an) /, "").replace(/[^a-z0-9]+/g, " ").trim();
 const chapterIndex = {}; // "book:chapter" → { authorId: count }
 let worksRead = 0;
@@ -41,6 +55,7 @@ for (const file of fs.readdirSync(path.join(library, "catalog/works"))) {
   const person = people[creator.authorId];
   person.works++;
   person.titles.add(normal(work.title));
+  if (workUrl.has(work.id) && !person.titleUrls.has(normal(work.title))) person.titleUrls.set(normal(work.title), workUrl.get(work.id));
   person.genres[work.genre] = (person.genres[work.genre] ?? 0) + 1;
   const main = (work.passages ?? []).filter((p) => p.role === "main-text" && p.start);
   for (const passage of main) {
@@ -51,10 +66,13 @@ for (const file of fs.readdirSync(path.join(library, "catalog/works"))) {
     chapterIndex[key] ??= {};
     chapterIndex[key][creator.authorId] = (chapterIndex[key][creator.authorId] ?? 0) + 1;
   }
-  if (work.genre === "sermon" && main.length) {
-    const delivered = work.dates?.find((d) => d.event === "delivery" && d.value)?.value ?? null;
-    person.sermons.push({ t: work.title, r: main[0].reference, v: main[0].start, d: delivered });
-  }
+  // Where to read it: its own file, else the volume it is part of, else the source the catalogue cites for it.
+  const parent = work.related?.find((r) => r.relation === "is-part-of")?.targetId;
+  const url = workUrl.get(work.id) ?? workUrl.get(parent) ?? work.evidence?.find((e) => /^https?:/.test(e.url))?.url ?? null;
+  const delivered = work.dates?.find((d) => d.event === "delivery" && d.value)?.value ?? null;
+  if (work.genre === "sermon" && main.length) person.sermons.push({ t: work.title, r: main[0].reference, v: main[0].start, d: delivered, u: url });
+  // Every work with a main Bible text, any genre, with where to read it (for the Teachers through the Bible section).
+  if (main.length) person.passages.push({ t: work.title, g: work.genre, r: main[0].reference, v: main[0].start, d: delivered, u: url });
   const rank = published.has(work.id) ? -10 : NOTABLE_GENRES.indexOf(work.genre); // published first; -1 = not a notable genre
   if (rank !== -1) person.notable.push({ t: work.title, g: work.genre, rank, s: work.reading?.summary ?? null });
 }
@@ -63,6 +81,7 @@ for (const [id, person] of Object.entries(people)) {
   person.notable.sort((a, b) => a.rank - b.rank || a.t.length - b.t.length);
   const seen = new Set();
   person.notable = person.notable.filter((w) => !seen.has(w.t) && seen.add(w.t)).slice(0, 8).map(({ rank, ...w }) => w);
+  person.passages.sort((a, b) => a.v - b.v);
   person.sermons.sort((a, b) => (a.d ?? "9").localeCompare(b.d ?? "9") || a.v - b.v);
   // Spurgeon keeps every dated sermon (for the calendar); everyone else keeps a sample.
   if (id !== "author-charles-spurgeon") person.sermons = person.sermons.slice(0, 60);
@@ -102,7 +121,11 @@ const out = {
   people: ids.map((id) => {
     const r = registry.get(id), l = lives.people[id], p = people[id];
     return { id, name: r.name, traditions: r.traditions, ...l, works: p.works, genres: p.genres, notable: p.notable,
-      known: l.known.map(([title, year]) => ({ t: title, y: year, inLibrary: [...p.titles].some((x) => x.includes(normal(title)) || normal(title).includes(x) && x.length > 8) })), books: p.books, sermons: p.sermons };
+      known: l.known.map(([title, year]) => {
+        const match = [...p.titles].find((x) => x.includes(normal(title)) || normal(title).includes(x) && x.length > 8);
+        return { t: title, y: year, inLibrary: Boolean(match), u: match ? p.titleUrls.get(match) ?? null : null };
+      }),
+      passages: p.passages, books: p.books, sermons: p.sermons };
   }).sort((a, b) => a.born - b.born),
   links: lives.links.map(([from, to, note]) => ({ from, to, note })),
   chapters: chapterIndex,

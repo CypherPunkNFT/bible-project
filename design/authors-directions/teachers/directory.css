@@ -1,0 +1,46 @@
+/* 08 · Everyone, by where they served: B's grouping in D's directory rows. */
+.t-sec-directory button { padding: 0; border: 0; background: none; }
+.dir-tools { display: flex; flex-wrap: wrap; gap: .7rem 1rem; align-items: center; margin-bottom: 1.4rem; }
+.dir-search { display: flex; gap: .5rem; align-items: center; width: min(100%, 17rem); padding: .5rem .85rem; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--muted); transition: border-color .2s; }
+.dir-search:focus-within { border-color: var(--ink); }
+.dir-search input::-webkit-search-cancel-button { -webkit-appearance: none; appearance: none; width: 12px; height: 12px; background: var(--muted); cursor: pointer;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='M18 6 6 18M6 6l12 12'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='M18 6 6 18M6 6l12 12'/%3E%3C/svg%3E") center / contain no-repeat; }
+.dir-search input { flex: 1; min-width: 0; padding: 0; border: 0; background: none; font: inherit; font-size: .86rem; color: var(--ink); }
+.dir-chips { display: flex; flex-wrap: wrap; gap: .35rem; }
+.t-sec-directory .dir-chips button { display: inline-flex; gap: .4rem; align-items: center; padding: .32rem .75rem; border: 1px solid var(--line); border-radius: 999px; font-size: .75rem; color: var(--muted); transition: border-color .2s, color .2s, background .2s; }
+.dir-chips i { width: 8px; height: 8px; border-radius: 50%; background: var(--tone); }
+.t-sec-directory .dir-chips button:hover { color: var(--ink); }
+.t-sec-directory .dir-chips button[aria-pressed="true"] { border-color: var(--tone); color: var(--ink); background: color-mix(in srgb, var(--tone) 10%, transparent); }
+.dir-count { margin-left: auto; font-size: .76rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+
+.dir-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 3rem; align-items: start; }
+.dir-col { min-width: 0; }
+.dir-group { margin-bottom: 1.6rem; }
+.dir-group h3 { display: flex; justify-content: space-between; align-items: baseline; margin: 0 0 .25rem; padding-bottom: .4rem; border-bottom: 1px solid var(--line);
+  font: 500 1.15rem/1.2 var(--serif); letter-spacing: -.01em; color: var(--ink); }
+.dir-group h3 span { font: 500 .72rem var(--sans); color: var(--muted); }
+.dir-group ul { margin: 0; padding: 0; list-style: none; }
+.t-sec-directory .dir-group li button { display: grid; grid-template-columns: auto minmax(0, 1fr) 8.6rem 6.4rem 6.2rem; gap: 0 .7rem; align-items: center; width: 100%;
+  padding: .42rem .45rem; border-radius: .55rem; text-align: left; font-size: .84rem; transition: background .15s; }
+.t-sec-directory .dir-group li button:hover { background: var(--surface-2); }
+.dir-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--tone); }
+.dir-nm { overflow: hidden; font-weight: 500; white-space: nowrap; text-overflow: ellipsis; }
+.dir-town { overflow: hidden; font-size: .76rem; color: var(--muted); white-space: nowrap; text-overflow: ellipsis; }
+.dir-yr { font-size: .76rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.dir-wk { font-size: .76rem; color: var(--muted); text-align: right; white-space: nowrap; }
+.dir-wk b { font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums; }
+.dir-none { font-style: italic; }
+.dir-empty { padding: 1rem 0; font-size: .86rem; color: var(--muted); }
+
+/* One column: the two balanced columns dissolve and the groups return to largest-first order. */
+@media (max-width: 1000px) { .dir-list { display: flex; flex-direction: column; } .dir-col { display: contents; } }
+@media (max-width: 640px) {
+  .dir-count { margin-left: 0; }
+  .t-sec-directory .dir-group li button { grid-template-columns: auto minmax(0, 1fr) auto; gap: .05rem .6rem; padding-block: .5rem; }
+  .dir-dot { grid-row: 1 / 3; }
+  .dir-nm { grid-column: 2; }
+  .dir-wk { grid-column: 3; grid-row: 1; }
+  .dir-town { grid-column: 2; grid-row: 2; }
+  .dir-yr { grid-column: 3; grid-row: 2; text-align: right; }
+}
