@@ -1,0 +1,49 @@
+/* 05 · Where the site names them (from A "Foundations"): a compact heat grid in two balanced columns. */
+:where(.s-sec-named button) { padding: 0; border: 0; background: none; text-align: left; }
+.nmd-mono { display: inline-grid; flex: none; place-items: center; width: 30px; height: 30px; border: 1.5px solid color-mix(in srgb, var(--tone) 70%, transparent); border-radius: 50%;
+  background: color-mix(in srgb, var(--tone) 14%, var(--surface)); color: color-mix(in srgb, var(--tone) 62%, var(--ink)); font: 600 .72rem/1 var(--serif); letter-spacing: .01em; }
+.nmd-tools { display: flex; flex-wrap: wrap; gap: .35rem; align-items: center; margin-bottom: 1rem; }
+.nmd-tools span { margin-right: .35rem; font-size: .6rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+.s-sec-named .nmd-tools button { padding: .38rem .85rem; border: 1px solid var(--line); border-radius: 999px; font-size: .78rem; color: var(--muted); transition: border-color .2s, color .2s, background .2s; }
+.s-sec-named .nmd-tools button:hover { color: var(--ink); }
+.s-sec-named .nmd-tools button[aria-pressed="true"] { border-color: var(--ink); background: var(--ink); color: var(--page); }
+
+.nmd-grid { --name: 9.5rem; --gap: 3rem; position: relative; padding: 1rem 1.2rem 1.1rem; border: 1px solid var(--line); border-radius: 1rem; background: var(--surface); }
+.nmd-heads { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gap); }
+.nmd-hrow, .nmd-rows li { display: grid; grid-template-columns: var(--name) repeat(5, minmax(0, 1fr)); gap: 5px; align-items: center; }
+.nmd-hrow { align-items: end; padding-bottom: .5rem; border-bottom: 1px solid var(--line); }
+.nmd-hrow span { font-size: .64rem; font-weight: 600; line-height: 1.15; letter-spacing: .02em; text-align: center; color: var(--muted); transition: color .15s; }
+.nmd-hrow span.nmd-hot { color: color-mix(in srgb, var(--tone) 75%, var(--ink)); }
+.nmd-rows { overflow-anchor: none; margin: .5rem 0 0; padding: 0; list-style: none; columns: 2; column-gap: var(--gap); }
+.nmd-rows li { break-inside: avoid; height: 30px; transition: transform .55s cubic-bezier(.16, 1, .3, 1); }
+.nmd-name { display: flex; gap: .5rem; align-items: center; min-width: 0; padding-right: .4rem; }
+.nmd-name .nmd-mono { width: 22px; height: 22px; font-size: .54rem; }
+.nmd-name span { overflow: hidden; font: 500 .86rem var(--serif); white-space: nowrap; text-overflow: ellipsis; transition: color .15s; }
+.nmd-name:hover span, .nmd-hot .nmd-name span { color: var(--accent); }
+.nmd-cell { height: 22px; border-radius: 6px; background: color-mix(in srgb, var(--tone) var(--w), var(--surface)); transition: transform .2s, box-shadow .2s; }
+.nmd-cell.nmd-none { background: none; box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--line) 70%, transparent); }
+.nmd-cell:hover { transform: scale(1.12); box-shadow: 0 6px 14px -8px var(--tone); }
+.nmd-cell.nmd-none:hover { box-shadow: inset 0 0 0 1px var(--muted); }
+
+.nmd-tip { position: absolute; top: 0; left: 0; z-index: 5; display: grid; gap: .1rem; padding: .5rem .75rem; border: 1px solid var(--line); border-radius: .75rem;
+  background: var(--surface); box-shadow: 0 16px 34px -18px rgb(0 0 0 / 45%); white-space: nowrap; pointer-events: none; opacity: 0; transition: opacity .15s; }
+.nmd-tip.nmd-tip-on { opacity: 1; }
+.nmd-tip b { font: 500 .9rem var(--serif); }
+.nmd-tip span { font-size: .74rem; color: var(--muted); }
+
+.nmd-unnamed { display: flex; flex-wrap: wrap; gap: .35rem .5rem; align-items: center; margin-top: .9rem; font-size: .78rem; color: var(--muted); }
+.nmd-unnamed span { margin-right: .2rem; }
+.s-sec-named .nmd-unnamed button { padding: .18rem .6rem; border: 1px dashed var(--line); border-radius: 999px; font-size: .74rem; color: var(--muted); transition: border-color .2s, color .2s; }
+.s-sec-named .nmd-unnamed button:hover { border-color: var(--ink); color: var(--ink); }
+
+@media (max-width: 900px) {
+  .nmd-heads { grid-template-columns: 1fr; }
+  .nmd-heads .nmd-hrow + .nmd-hrow { display: none; }
+  .nmd-rows { columns: 1; }
+}
+@media (max-width: 480px) {
+  .nmd-grid { --name: 6.6rem; padding: .8rem .7rem .9rem; }
+  .nmd-name .nmd-mono { display: none; }
+  .nmd-hrow span { font-size: .56rem; letter-spacing: 0; }
+  .nmd-cell { height: 20px; border-radius: 5px; }
+}

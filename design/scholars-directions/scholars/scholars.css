@@ -1,0 +1,13 @@
+/* The combined Scholars page: what every section shares. Each section's own styles live in its file, prefixed. */
+.s-sec { scroll-margin-top: 84px; }
+.s-sec + .s-sec { margin-top: 3.2rem; padding-top: 1.8rem; border-top: 1px solid var(--line); }
+.s-sec-landing + .s-sec { border-top: 0; padding-top: 0; }
+/* Section heading: the number sits in line with the kicker (the owner's suggestion), never in a column of its own. */
+.s-head { margin-bottom: 1.2rem; }
+.s-head .kicker { display: flex; align-items: center; gap: .6rem; }
+.s-num { font: italic 500 1.05rem/1 var(--serif); letter-spacing: 0; text-transform: none; color: var(--tone, var(--accent)); }
+.s-num::after { content: "/"; margin-left: .55rem; font-style: normal; opacity: .45; }
+.s-head h2 { margin-top: .45rem; font: 500 clamp(1.5rem, 2.6vw, 1.95rem)/1.2 var(--serif); letter-spacing: -.02em; }
+.s-head h2 em { color: var(--tone, var(--accent)); font-weight: 400; }
+.s-head > p:not(.kicker) { max-width: 62ch; margin-top: .4rem; color: var(--muted); font-size: .9rem; line-height: 1.65; }
+.s-failed { padding: 1rem; border: 1px dashed var(--line); border-radius: 12px; color: var(--muted); }

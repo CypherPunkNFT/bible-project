@@ -1,0 +1,109 @@
+/* 02 · Built on their work (from A "Foundations"): the ribbon diagram (desktop) and its stacked form (phone). */
+:where(.s-sec-built button) { padding: 0; border: 0; background: none; text-align: left; }
+.blt-mono { display: inline-grid; flex: none; place-items: center; width: 30px; height: 30px; border: 1.5px solid color-mix(in srgb, var(--tone) 70%, transparent); border-radius: 50%;
+  background: color-mix(in srgb, var(--tone) 14%, var(--surface)); color: color-mix(in srgb, var(--tone) 62%, var(--ink)); font: 600 .72rem/1 var(--serif); letter-spacing: .01em; }
+
+.blt-card { position: relative; padding: 1.1rem 1.4rem 1.2rem; border: 1px solid var(--line); border-radius: 1.5rem;
+  background: radial-gradient(ellipse 50% 70% at 8% 0%, color-mix(in srgb, var(--accent) 8%, transparent), transparent 70%),
+    radial-gradient(ellipse 40% 60% at 96% 100%, color-mix(in srgb, var(--prophets) 7%, transparent), transparent 70%), var(--surface);
+  box-shadow: 0 30px 60px -48px rgb(0 0 0 / 45%); }
+
+/* Caption: a fixed two-line bar, so hovering never moves the page. */
+.blt-cap { display: flex; gap: .7rem; align-items: flex-start; height: 3.3rem; overflow: hidden; padding-bottom: .8rem; border-bottom: 1px solid var(--line); }
+.blt-cap-dot { flex: none; width: 7px; height: 7px; margin-top: .45rem; border-radius: 50%; background: var(--cap-tone, var(--accent));
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--cap-tone, var(--accent)) 18%, transparent); transition: background .2s, box-shadow .2s; }
+.blt-cap-text { min-width: 0; overflow: hidden; font-size: .92rem; line-height: 1.45; white-space: nowrap; text-overflow: ellipsis; }
+.blt-cap-text b { font: 500 1rem var(--serif); }
+.blt-cap-hint { color: var(--muted); font-size: .84rem; }
+.blt-arrow { color: var(--cap-tone, var(--accent)); font-weight: 600; }
+.blt-cap-note { display: block; overflow: hidden; margin-top: .1rem; font-size: .78rem; color: var(--muted); white-space: nowrap; text-overflow: ellipsis; }
+
+/* ── Desktop stage ───────────────────────────────────────────────────────── */
+.blt-stage { position: relative; margin-top: .4rem; }
+.blt-art { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; clip-path: inset(0 100% 0 0); }
+.blt-in .blt-art { clip-path: inset(0 0 0 0); transition: clip-path 1.5s cubic-bezier(.65, 0, .35, 1) .15s; }
+.blt-rib { fill: none; stroke: var(--tone); stroke-width: 11; stroke-opacity: .34; cursor: pointer; transition: stroke-opacity .25s; }
+.blt-rib.blt-planned { stroke: var(--muted); stroke-opacity: .26; stroke-dasharray: 3 3; }
+.blt-con { fill: none; stroke: var(--line); stroke-width: 1.25; stroke-dasharray: 2 3; transition: stroke .25s, stroke-width .25s; }
+.blt-dim .blt-rib { stroke-opacity: .08; }
+.blt-dim .blt-rib.blt-on { stroke-opacity: .85; }
+.blt-dim .blt-rib.blt-planned.blt-on { stroke-opacity: .6; }
+.blt-dim .blt-con.blt-on { stroke: var(--ink); stroke-dasharray: none; }
+
+.blt-col { position: absolute; top: 0; font-size: .6rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+.blt-feat, .blt-work, .blt-sch { position: absolute; transition: opacity .45s, transform .6s cubic-bezier(.16, 1, .3, 1); }
+.blt-card:not(.blt-in) :is(.blt-feat, .blt-work, .blt-sch) { opacity: 0; }
+.blt-card:not(.blt-in) .blt-feat { transform: translateX(-10px); }
+.blt-card:not(.blt-in) :is(.blt-work, .blt-sch) { transform: translateX(10px); }
+.blt-in .blt-work { transition-delay: .55s; }
+.blt-in .blt-sch { transition-delay: calc(.8s + var(--i) * 25ms); }
+.blt-in.blt-settled :is(.blt-work, .blt-sch) { transition-delay: 0s; }
+
+/* Feature nodes: label to the left of a tone bar the ribbons leave from. */
+.blt-feat { display: flex; flex-direction: column; justify-content: center; align-items: flex-end; padding-right: 18px; text-align: right; }
+.blt-feat b { font: 500 1.08rem/1.2 var(--serif); letter-spacing: -.01em; }
+.blt-feat small { margin-top: .15rem; font-size: .7rem; color: var(--muted); }
+.blt-feat i { position: absolute; top: 0; right: 0; bottom: 0; width: 6px; border-radius: 3px; background: var(--tone); transition: box-shadow .25s; }
+.blt-feat.blt-planned i { background: repeating-linear-gradient(180deg, var(--muted) 0 3px, transparent 3px 6px); opacity: .7; }
+.blt-feat:hover b, .blt-feat[aria-pressed="true"] b { color: color-mix(in srgb, var(--tone) 70%, var(--ink)); }
+.blt-feat[aria-pressed="true"] i { box-shadow: 0 0 0 3px color-mix(in srgb, var(--tone) 22%, transparent); }
+
+/* Books: a slim bar where the ribbons land, then the title and year. */
+.blt-work { display: grid; grid-template-columns: 4px minmax(0, 1fr); grid-template-rows: auto auto; column-gap: 12px; align-content: center; }
+.blt-work i { grid-row: 1 / 3; align-self: stretch; border-radius: 2px; background: color-mix(in srgb, var(--ink) 55%, transparent); }
+.blt-work.blt-planned i { background: color-mix(in srgb, var(--muted) 45%, transparent); }
+.blt-work span { overflow: hidden; font: 500 .92rem/1.2 var(--serif); white-space: nowrap; text-overflow: ellipsis; }
+.blt-work small { font-size: .68rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+
+/* Scholars: monogram, name, years and faith. */
+.blt-sch { display: flex; gap: .6rem; align-items: center; padding-left: 2px; }
+.blt-sch .blt-mono { width: 26px; height: 26px; font-size: .62rem; transition: transform .3s cubic-bezier(.16, 1, .3, 1), background .2s, color .2s; }
+.blt-sch > span:last-child { min-width: 0; }
+.blt-sch b { display: block; overflow: hidden; font: 500 .9rem/1.2 var(--serif); white-space: nowrap; text-overflow: ellipsis; }
+.blt-sch small { display: block; overflow: hidden; font-size: .68rem; color: var(--muted); white-space: nowrap; text-overflow: ellipsis; }
+.blt-sch:hover .blt-mono, .blt-sch.blt-on .blt-mono { background: var(--tone); color: var(--surface); transform: scale(1.1); }
+
+.blt-dim :is(.blt-feat, .blt-work, .blt-sch):not(.blt-on) { opacity: .32; }
+.blt-dim .blt-work.blt-on i { background: var(--ink); }
+
+.blt-legend { display: flex; flex-wrap: wrap; gap: .4rem 1.4rem; margin: 1rem 0 0; padding: .8rem 0 0; border-top: 1px solid var(--line); list-style: none; font-size: .74rem; color: var(--muted); }
+.blt-legend li { display: inline-flex; gap: .5rem; align-items: center; }
+.blt-legend li:last-child { margin-left: auto; }
+.blt-legend i { width: 22px; height: 7px; border-radius: 2px; }
+.blt-key-live { background: linear-gradient(90deg, var(--poetry), var(--acts), var(--gospels), var(--epistles)); opacity: .7; }
+.blt-key-planned { background: repeating-linear-gradient(90deg, var(--muted) 0 3px, transparent 3px 6px); opacity: .6; }
+
+/* ── Phone: one list per feature, each book branching off the feature's rail ── */
+.blt-stack { display: none; }
+@media (max-width: 760px) {
+  .blt-card { padding: 1rem 1rem 1.1rem; border-radius: 1.1rem; }
+  .blt-stage { display: none; }
+  .blt-cap { display: none; }
+  .blt-stack { display: grid; gap: 1.3rem; }
+  .blt-legend li:last-child { margin-left: 0; }
+}
+.blt-st-group { transition: opacity .5s, transform .6s cubic-bezier(.16, 1, .3, 1); }
+.blt-card:not(.blt-in) .blt-st-group { opacity: 0; transform: translateY(10px); }
+.blt-st-group h3 { display: flex; gap: .55rem; align-items: center; margin: 0; font: 500 1.15rem/1.2 var(--serif); }
+.blt-st-group h3 i { width: 10px; height: 10px; border-radius: 3px; background: var(--tone); }
+.blt-st-group.blt-planned h3 i { background: none; border: 1.5px dashed var(--muted); }
+.blt-st-group h3 small { margin-left: auto; font: 600 .6rem var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.blt-st-group ul { margin: .35rem 0 0; padding: 0 0 0 1.6rem; list-style: none; }
+.blt-st-group li { position: relative; }
+.blt-st-group li::before { content: ""; position: absolute; left: -1.15rem; top: 0; width: .85rem; height: 1.45rem; border-left: 2px solid var(--tone); border-bottom: 2px solid var(--tone);
+  border-bottom-left-radius: .7rem; opacity: .55; }
+.blt-st-group li:not(:last-child)::after { content: ""; position: absolute; left: -1.15rem; top: 1.2rem; bottom: 0; border-left: 2px solid var(--tone); opacity: .55; }
+.blt-st-group.blt-planned li::before, .blt-st-group.blt-planned li:not(:last-child)::after { border-style: dashed; border-color: var(--muted); }
+.blt-st-group button { display: grid; gap: .35rem; width: 100%; padding: .55rem .6rem; border-radius: .7rem; transition: background .15s; }
+.blt-st-group button:hover { background: var(--surface-2); }
+.blt-st-work { font: 500 .95rem/1.3 var(--serif); }
+.blt-st-work em { font: 400 .78rem var(--sans); font-style: normal; color: var(--muted); }
+.blt-st-who { display: flex; gap: .55rem; align-items: center; min-width: 0; }
+.blt-st-who .blt-mono { width: 24px; height: 24px; font-size: .58rem; }
+.blt-st-who > span:last-child { min-width: 0; }
+.blt-st-who b { display: block; font: 500 .84rem/1.2 var(--sans); }
+.blt-st-who small { display: block; font-size: .7rem; color: var(--muted); }
+
+@media (prefers-reduced-motion: reduce) {
+  .blt-art { clip-path: none; }
+}

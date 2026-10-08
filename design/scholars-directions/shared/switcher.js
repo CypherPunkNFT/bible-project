@@ -1,6 +1,6 @@
 // A small floating A · B · C · D switch on each Scholars direction, so the owner can move between them directly.
 (() => {
-  const DIRECTIONS = [["A", "foundations", "Foundations"], ["B", "two-thousand-years", "Two thousand years"], ["C", "digs-and-desks", "Digs and desks"], ["D", "the-index", "The index"]];
+  const DIRECTIONS = [["A", "foundations", "Foundations"], ["B", "two-thousand-years", "Two thousand years"], ["C", "digs-and-desks", "Digs and desks"], ["D", "the-index", "The index"], ["E", "scholars", "Scholars (combined)"]];
   const here = location.pathname.split("/").filter(Boolean).at(-1);
   const style = document.createElement("style");
   style.textContent = `
