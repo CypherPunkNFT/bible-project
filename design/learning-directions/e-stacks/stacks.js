@@ -175,7 +175,7 @@
 
     // Opening: the drawer grows from nothing beneath the doors while the stack rises a little into place.
     function openDrawer(id, animate) {
-      age = id;
+      age = id; kind = null;
       stage.innerHTML = view(LEARN.A[id]);
       drawer.hidden = false;
       wireView(stage.firstElementChild);
@@ -203,7 +203,7 @@
     function slideTo(id) {
       endSlide(); endOpening();
       const sign = order.indexOf(id) > order.indexOf(age) ? 1 : -1;
-      age = id;
+      age = id; kind = null;
       markDoors();
       const old = stage.querySelector(".ed-view"), h0 = stage.offsetHeight;
       old.classList.add("is-outgoing");

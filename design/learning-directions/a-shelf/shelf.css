@@ -87,7 +87,7 @@
 .pn-sub { margin: .45rem 0 .75rem; font-size: .86rem; line-height: 1.55; color: var(--muted); }
 .pn-facts { display: grid; grid-template-columns: 8.6rem minmax(0, 1fr); margin-top: 1.5rem; border-top: 1px solid var(--line); }
 .pn-facts dt, .pn-facts dd { padding: .42rem 0; border-bottom: 1px solid var(--line); font-size: .82rem; }
-.pn-facts dt { padding-right: 1rem; align-self: start; padding-top: .58rem; font-size: .57rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.pn-facts dt { padding-right: 1rem; align-self: stretch; padding-top: .58rem; font-size: .57rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
 .pn-from li + li { margin-top: .15rem; }
 .pn-from a { color: var(--accent); }
 .pn-from small { display: block; font-size: .66rem; color: var(--muted); }

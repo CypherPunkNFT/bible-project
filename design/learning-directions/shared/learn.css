@@ -109,7 +109,7 @@ img { max-width: 100%; display: block; }
 .textlink { color: var(--accent); border-bottom: 1px solid color-mix(in srgb, var(--accent) 35%, transparent); }
 .record { display: grid; grid-template-columns: minmax(6rem, auto) 1fr; border-top: 1px solid var(--line); }
 .record dt, .record dd { padding: .55rem 0; border-bottom: 1px solid var(--line); font-size: .82rem; }
-.record dt { padding-right: 1rem; font-size: .6rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); align-self: center; }
+.record dt { padding-right: 1rem; font-size: .6rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); align-self: stretch; display: flex; align-items: center; }
 .record dd a { color: var(--accent); }
 .hint-line { min-height: 2.6em; margin-top: .8rem; padding-top: .7rem; border-top: 1px solid var(--line); font-size: .84rem; color: var(--muted); line-height: 1.55; }
 .hint-line b { font: 500 1rem var(--serif); color: var(--ink); }

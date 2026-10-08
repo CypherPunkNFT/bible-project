@@ -60,7 +60,8 @@
       if (!LEARN.A[id] || id === age) return;
       endSlide();
       const sign = order.indexOf(id) > order.indexOf(age) ? 1 : -1;
-      age = id;
+      age = id; kind = null;
+      chips.forEach((c) => c.setAttribute("aria-pressed", "false"));
       history.replaceState(null, "", `#a/${id}`);
       bar.querySelectorAll("a").forEach((a) => a.toggleAttribute("aria-current", a.dataset.age === id));
       bar.querySelector("[aria-current]")?.setAttribute("aria-current", "page");
