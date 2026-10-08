@@ -115,27 +115,35 @@
         <path class="f" d="${inner.edge}"/><path class="f" d="${coverts.edge}"/><path d="M150 150C146 156 140 162 136 166"/></g>`);
     },
 
-    // 5 · The open door of Matthew 11:28: a house at dusk, its door standing open, light falling out across the step.
-    door: () => svg("Line drawing: a small stone house at dusk with its door standing open and light falling out across the step", `
-      ${stars([[30, 34], [62, 18, 1.2], [276, 26], [306, 56, .9], [244, 12], [126, 30, .8], [194, 22, .8]])}
-      <path class="f" d="M0 150C24 142 46 142 76 148M244 146C270 140 296 140 320 146"/>
-      <path d="M66 92H254"/><path d="M70 86H250"/><path d="M66 92L70 86M254 92L250 86"/>
-      <path class="f" d="M86 96v4M104 96v4M122 96v4M198 96v4M216 96v4M234 96v4"/>
-      <path d="M76 92V200"/><path d="M244 92V200"/>
-      <path class="f" d="M80 122h18M84 156h14M90 182h18M206 128h26M214 160h22M200 186h16M126 106h20M176 106h22"/>
-      <path d="M98 142V124C98 118 102 114 108 114C114 114 118 118 118 124V142Z"/><path class="ft lit" d="M108 117V140M100 128H116"/><path d="M95 143H121"/>
-      <path class="ft lit" d="M144 200V137C144 128 151 121 160 121C169 121 176 128 176 137V200"/>
-      <path d="M140 200V136C140 124 149 116 160 116C171 116 180 124 180 136V200"/>
-      <path d="M180 200L172 195V132C174 127 177 124 180 122"/><path class="f" d="M176 192V130"/>
-      <path d="M134 200H186"/><path d="M130 206H190"/>
-      <path d="M190 128H196V132"/><path d="M192 132H200L199 142H193Z"/><path class="t lit" d="M196 140C194.6 138.6 195 136.6 196 135C197 136.6 197.4 138.6 196 140Z"/>
-      <g class="spill"><path class="t" d="M136 206L100 240"/><path class="t" d="M184 206L226 240"/><path class="ft" d="M148 206L134 240M160 206V240M172 206L188 240"/></g>
-      ${range(7, (i) => `<circle class="mote" style="--i:${i}" cx="${144 + (i * 9) % 34}" cy="${236 - (i * 5) % 22}" r="1" fill="currentColor"/>`)}
-      <path d="M8 200H130M190 200H312"/>
-      <path d="M116 200L118 188H132L134 200"/><path d="M125 188C123 180 118 176 112 176M125 188C126 180 130 175 136 174M125 188V178"/>
+    // 5 · Come unto me (Matthew 11:28): Jesus standing in the open doorway of a house at night, arms open, warm light around
+    // him falling across the step. Drawn at the owner's wish (2026-10-08): a robed figure, no face; the light is the one focal point.
+    door: () => svg("Line drawing: Jesus standing in the open doorway of a small stone house at night, his arms open, warm light around him falling across the step", `
+      <defs><radialGradient id="door-glow"><stop offset="0" style="stop-color: var(--c); stop-opacity: .5"/><stop offset=".5" style="stop-color: var(--c); stop-opacity: .16"/><stop offset="1" style="stop-color: var(--c); stop-opacity: 0"/></radialGradient></defs>
+      ${stars([[12, 30], [40, 14, 1.2], [70, 40, .9], [96, 20], [124, 8, .8], [150, 34, 1.1], [178, 16], [204, 42, .8], [226, 22, 1.2], [252, 10], [276, 34, 1.1], [300, 18], [314, 52, .9], [262, 66, .8], [52, 56, .8], [188, 58, .7], [236, 80, .8], [300, 86, .9]])}
+      <path class="f" d="M234 146C262 140 292 140 320 146"/>
+      <path d="M22 76H234"/><path d="M27 69H229"/><path d="M22 76L27 69M234 76L229 69"/>
+      <path class="f" d="M44 80v4M64 80v4M84 80v4M172 80v4M192 80v4M212 80v4"/>
+      <path d="M33 76V200"/><path d="M223 76V200"/>
+      <path class="f" d="M38 108h20M42 150h16M46 180h22M174 112h30M188 150h24M168 184h20M86 92h24M150 92h26"/>
+      <path d="M58 138V116C58 110 63 106 69 106C75 106 80 110 80 116V138Z"/><path class="ft" d="M69 109V137M60 122H78"/><path d="M55 139H83"/>
+      <g class="glow-door"><ellipse cx="128" cy="150" rx="44" ry="62" fill="url(#door-glow)" stroke="none"/><ellipse cx="128" cy="214" rx="58" ry="16" fill="url(#door-glow)" stroke="none"/></g>
+      <path d="M105 200V128C105 114 115 105 128 105C141 105 151 114 151 128V200"/>
+      <path d="M151 200L143 195V124C145 118 148 114 151 112"/><path class="f" d="M147 191V122"/>
+      <g class="t">
+        <circle cx="128" cy="124" r="6.4"/>
+        <path d="M122.6 127.6C121 131 119.6 134 117.6 137M133.4 127.6C135 131 136.4 134 138.4 137"/><path d="M117.6 137C121 134.6 124 134 128 134C132 134 135 134.6 138.4 137"/>
+        <path d="M118 137C116 156 114 178 112 200"/><path d="M138 137C140 156 142 178 144 200"/><path d="M112 200C120 202 136 202 144 200"/>
+        <path class="ft" d="M121 142C126 152 134 162 140 178M124 152C123 170 122 186 122 200M133 154C134 170 135 186 135 200"/>
+        <path d="M118 138C112 147 106 154 99 159"/><path d="M121 147C116 153 111 158 104 163"/><path d="M99 159C96.5 160.5 97 164.5 100.5 164.6C102 164.5 103 163.8 104 163"/>
+        <path d="M138 138C144 147 150 154 157 159"/><path d="M135 147C140 153 145 158 152 163"/><path d="M157 159C159.5 160.5 159 164.5 155.5 164.6C154 164.5 153 163.8 152 163"/></g>
+      <path d="M98 200H158"/><path d="M94 206H162"/>
+      <g class="spill"><path class="t" d="M98 206L64 240"/><path class="t" d="M158 206L194 240"/><path class="ft" d="M110 206L96 240M128 206V240M146 206L160 240"/></g>
+      ${range(7, (i) => `<circle class="mote" style="--i:${i}" cx="${108 + (i * 9) % 40}" cy="${236 - (i * 5) % 22}" r="1" fill="currentColor"/>`)}
+      <path d="M4 200H98M158 200H316"/>
+      <path d="M78 200L80 187H94L96 200"/><path d="M87 187C85 179 80 175 74 175M87 187C88 179 92 174 98 173M87 187V177"/>
       <path d="M282 200C285 188 279 178 283 166C285 158 281 150 282 142"/><path d="M290 200C288 188 293 178 290 166C289 158 292 150 291 142"/><path class="f" d="M286 196C287 186 284 176 287 168"/>
       <g class="crown"><path class="pf" d="M262 142C250 140 248 126 258 122C256 110 268 102 280 106C286 96 304 98 308 108C320 110 322 126 314 132C316 142 304 148 296 144C288 150 272 150 262 142Z"/><path d="M262 142C250 140 248 126 258 122C256 110 268 102 280 106C286 96 304 98 308 108C320 110 322 126 314 132C316 142 304 148 296 144C288 150 272 150 262 142Z"/><path class="f" d="M266 128l5-3M276 116l5 1M292 110l4 3M302 122l5-2M284 132l5 2M296 134l4-3M272 138l4 1M288 122l-3 4"/><path d="M282 142C278 138 274 136 270 136M291 142C296 138 300 136 304 136"/></g>
-      ${tuft(34, 200)}${tuft(50, 201, .7)}${tuft(232, 201, .8)}${tuft(262, 200, .7)}`),
+      ${tuft(12, 200)}${tuft(24, 201, .7)}${tuft(240, 201, .8)}${tuft(262, 200, .7)}${tuft(170, 201, .7)}`),
 
     // 6 · The rock higher than I (Psalm 61:2): a lighthouse on a high rock above the sea, its beam sweeping; a boat coming in.
     rock: () => svg("Line drawing: a lighthouse on a high rock above the sea, its beam sweeping slowly, a small boat sailing in", `

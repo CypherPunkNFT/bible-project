@@ -6,7 +6,7 @@
     { key: "shepherd", name: "Shepherd", tone: "epistles", verse: "He shall feed his flock like a shepherd: he shall gather the lambs with his arm, and carry them in his bosom …", ref: "Isaiah 40:11", note: "The prophet's picture of the Lord as a shepherd." },
     { key: "lamp", name: "Lamp", tone: "accent", verse: "Thy word is a lamp unto my feet, and a light unto my path.", ref: "Psalm 119:105" },
     { key: "wings", name: "Wings", tone: "history", verse: "He shall cover thee with his feathers, and under his wings shalt thou trust …", ref: "Psalm 91:4" },
-    { key: "door", name: "Door", tone: "epistles", verse: "Come unto me, all ye that labour and are heavy laden, and I will give you rest.", ref: "Matthew 11:28" },
+    { key: "door", name: "Door", tone: "epistles", verse: "Come unto me, all ye that labour and are heavy laden, and I will give you rest.", ref: "Matthew 11:28", note: "Jesus at the open door, as the verse invites." },
     { key: "rock", name: "Rock", tone: "prophets", verse: "From the end of the earth will I cry unto thee, when my heart is overwhelmed: lead me to the rock that is higher than I.", ref: "Psalm 61:2" },
     { key: "morning", name: "Morning", tone: "history", verse: "It is of the LORD’s mercies that we are not consumed, because his compassions fail not. They are new every morning: great is thy faithfulness.", ref: "Lamentations 3:22–23" },
     { key: "sprout", name: "Mending", tone: "poetry", verse: "He healeth the broken in heart, and bindeth up their wounds.", ref: "Psalm 147:3" },
@@ -47,6 +47,6 @@
     <ol class="grid" start="9">${ITEMS.slice(8, 16).map((it, i) => cell(it, i + 8)).join("")}</ol>
     <p class="grid-head"><span>17–24</span>And eight more</p>
     <ol class="grid" start="17">${ITEMS.slice(16).map((it, i) => cell(it, i + 16)).join("")}</ol>
-    <p class="foot-note">Every verse is the King James text, word for word. Where a verse goes on, it is shortened and marked …. The drawings are this site's own, drawn as lines; no person in them has a face, and none is a picture of God.</p>
+    <p class="foot-note">Every verse is the King James text, word for word. Where a verse goes on, it is shortened and marked …. The drawings are this site's own, drawn as lines. No person in them has a face; drawing 5 shows Jesus at the door, as Matthew 11:28 invites.</p>
   </div>`;
 })();

@@ -80,8 +80,10 @@
 @keyframes shelter { from { transform: rotate(0deg); } to { transform: rotate(-3deg); } }
 .draw-wings .chicks { animation: breathe 2.6s ease-in-out infinite alternate; }
 
-/* 5 · Door: the light falling out breathes, small motes rise slowly in it, the tree stirs. */
-.draw-door .spill, .draw-door .lit { animation: soft 7s ease-in-out infinite alternate; }
+/* 5 · Door: the light around Jesus in the doorway breathes slowly, its spill on the step with it; motes rise in it. */
+.draw-door .glow-door { transform-box: fill-box; transform-origin: 50% 40%; animation: door-glow 7s ease-in-out infinite alternate; }
+@keyframes door-glow { from { transform: scale(.94); opacity: .6; } to { transform: scale(1.04); opacity: 1; } }
+.draw-door .spill { animation: soft 7s ease-in-out infinite alternate; }
 .draw-door .mote { opacity: 0; color: var(--c); animation: mote 9s linear infinite; animation-delay: calc(var(--i) * -1.3s); }
 @keyframes mote { 0% { transform: translateY(0); opacity: 0; } 20% { opacity: .8; } 80% { opacity: .5; } 100% { transform: translateY(-46px); opacity: 0; } }
 
