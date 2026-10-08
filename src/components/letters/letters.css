@@ -69,6 +69,7 @@
 .lg-tab[aria-pressed="true"] { border-color: var(--lg); color: var(--lg); background: var(--lg-soft); }
 .lg-svg-text { fill: var(--muted); font: 11px var(--font-sans); }
 .lg-svg-strong { fill: var(--ink); font: 600 12px var(--font-sans); }
+.lg-svg-muted { fill: var(--muted); font: 500 12px var(--font-sans); }
 
 /* Views (open questions) */
 .lg-views { display: grid; grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr)); gap: .75rem; margin-top: 1rem; }

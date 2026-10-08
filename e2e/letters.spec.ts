@@ -56,6 +56,8 @@ test("letters: James, Peter & Jude has the writers, each letter at a glance, and
   await expect(picks.getByRole("button", { name: "Jude" })).toHaveAttribute("aria-pressed", "true");
   await picks.getByRole("button", { name: "Jude" }).click();
   await expect(picks.getByRole("button", { name: "Jude" })).toHaveAttribute("aria-pressed", "false");
+  await expect(page.locator("#part-compare figure svg").first()).toContainText("Choose a letter");
+  await expect(page.locator("#part-compare figure svg").first()).toContainText("2 Peter");
   await picks.getByRole("button", { name: "2 Peter" }).click();
   await picks.getByRole("button", { name: "James" }).click();
   await picks.getByRole("button", { name: /Matthew/ }).click();
