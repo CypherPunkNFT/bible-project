@@ -10,7 +10,7 @@ import { feature } from "topojson-client";
 const here = path.dirname(fileURLToPath(import.meta.url));
 const site = path.resolve(here, "../../..");
 const readJson = (file) => JSON.parse(fs.readFileSync(file, "utf8"));
-const input = readJson(path.join(here, "scholars.json"));
+const input = readJson(path.join(site, "content/teachers/scholars.json")); // the site's own copy (fact-checked 2026-10-08)
 
 // Site areas and the content folders that feed them. Only text the visitor can read is searched.
 const AREAS = [
@@ -77,7 +77,7 @@ for (const [id] of input.chain.steps) if (!ids.has(id)) throw new Error(`chain s
 // Testament 1516) sits with the Reformation, not the Middle Ages.
 const eraOf = (year) => (year < 500 ? "ancient" : year < 1500 ? "medieval" : year < 1800 ? "early-modern" : "modern");
 const out = {
-  about: "Built by build-scholars.mjs from scholars.json (hand-entered, not yet source-checked) and the site's own content (mentions).",
+  about: "Built by build-scholars.mjs from content/teachers/scholars.json (fact-checked 2026-10-08) and the site's own content (mentions).",
   faiths: input.faiths,
   fields: input.fields,
   eras: { ancient: "The ancient world (to 500)", medieval: "The Middle Ages (500–1500)", "early-modern": "Reformation to Enlightenment (1500–1800)", modern: "The modern age (1800 on)" },

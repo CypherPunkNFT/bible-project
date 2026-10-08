@@ -1,0 +1,43 @@
+/* 07 · All the scholars (mock-up: directory.css): a compact list in three columns, grouped by era or by surname letter. */
+.tp-scholars :where(.tp-sec-directory button) { padding: 0; border: 0; background: none; text-align: left; font: inherit; color: inherit; cursor: pointer; }
+
+/* Key on the left, the two-way switch on the right. */
+.tp-scholars .dir-tools { display: flex; flex-wrap: wrap; gap: .8rem 1.5rem; align-items: center; justify-content: space-between; margin: 0 0 1.1rem; }
+.tp-scholars .dir-key { display: flex; flex-wrap: wrap; gap: .4rem 1.4rem; margin: 0; padding: 0; list-style: none; font-size: .76rem; color: var(--muted); }
+.tp-scholars .dir-key li { display: inline-flex; gap: .55rem; align-items: center; }
+.tp-scholars .dir-use { display: inline-block; flex: none; width: 8px; height: 8px; border-radius: 50%; }
+.tp-scholars .dir-use-in-use { background: var(--accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 18%, transparent); }
+.tp-scholars .dir-use-held { border: 1.5px solid var(--accent); }
+
+.tp-scholars .dir-mode { position: relative; display: grid; grid-template-columns: 1fr 1fr; padding: 3px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); }
+.tp-scholars .dir-thumb { position: absolute; top: 3px; bottom: 3px; left: 3px; width: calc(50% - 3px); border-radius: 999px; background: var(--ink); transition: transform .45s cubic-bezier(.16, 1, .3, 1); }
+.tp-scholars .dir-mode[data-mode="az"] .dir-thumb { transform: translateX(100%); }
+.tp-scholars .tp-sec-directory .dir-mode button { position: relative; padding: .34rem .95rem; border-radius: 999px; font-size: .78rem; text-align: center; white-space: nowrap; color: var(--muted); transition: color .3s; }
+.tp-scholars .tp-sec-directory .dir-mode button:hover { color: var(--ink); }
+.tp-scholars .tp-sec-directory .dir-mode button[aria-pressed="true"] { color: var(--page); }
+
+/* The list: the frame eases between heights while the columns inside keep their natural layout. */
+/* overflow-anchor: none stops the browser scrolling the page to follow a row while the list re-groups. */
+.tp-scholars .dir-frame { overflow-anchor: none; }
+.tp-scholars .dir-list { columns: 3 20rem; column-gap: 2.4rem; }
+.tp-scholars .dir-group { margin-bottom: 1.4rem; }
+.tp-scholars .dir-group-era h3 { display: flex; justify-content: space-between; align-items: baseline; margin: 0 0 .2rem; padding-bottom: .4rem; border-bottom: 1px solid var(--line);
+  font: 500 1.02rem/1.25 var(--serif); letter-spacing: -.01em; break-after: avoid; }
+.tp-scholars .dir-group-era h3 span { font: 500 .72rem var(--sans); color: var(--muted); }
+/* A to Z: the surname letter in a narrow gutter beside its rows. */
+.tp-scholars .dir-group-az { display: grid; grid-template-columns: 1.4rem minmax(0, 1fr); gap: .5rem; margin-bottom: .3rem; padding-top: .3rem; border-top: 1px solid var(--line); break-inside: avoid; }
+.tp-scholars .dir-letter { padding-top: .42rem; font: 500 1rem var(--serif); color: var(--accent); }
+.tp-scholars .dir-group ul { margin: 0; padding: 0; list-style: none; }
+.tp-scholars .dir-group li { break-inside: avoid; }
+.tp-scholars .tp-sec-directory .dir-group button { display: grid; grid-template-columns: auto minmax(0, 1fr) auto auto; grid-template-rows: auto auto; gap: .05rem .6rem; align-items: center;
+  margin-inline: -.45rem; padding: .42rem .45rem; width: calc(100% + .9rem); border-radius: .55rem; transition: background .15s; }
+.tp-scholars .tp-sec-directory .dir-group button:hover { background: var(--surface-2); }
+.tp-scholars .dir-dot { grid-row: 1 / 3; width: 8px; height: 8px; border-radius: 50%; background: var(--tone); }
+.tp-scholars .dir-nm { overflow: hidden; font: 500 .9rem/1.3 var(--serif); white-space: nowrap; text-overflow: ellipsis; }
+.tp-scholars .dir-yr { font-size: .74rem; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.tp-scholars .dir-mark { grid-row: 1 / 3; grid-column: 4; width: 8px; }
+.tp-scholars .dir-meta { grid-column: 2 / 4; overflow: hidden; font-size: .7rem; color: var(--muted); white-space: nowrap; text-overflow: ellipsis; }
+
+@media (max-width: 560px) {
+  .tp-scholars .dir-tools { flex-direction: column; align-items: flex-start; }
+}

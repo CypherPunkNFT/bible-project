@@ -1,0 +1,3 @@
+/* The Teachers station has two doorways (the shared station style lays out three). */
+.st-doors.st-doors-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (max-width: 860px) { .st-doors.st-doors-2 { grid-template-columns: 1fr; } }

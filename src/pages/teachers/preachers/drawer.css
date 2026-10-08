@@ -1,0 +1,111 @@
+/* The shared profile drawer (ported from the approved mock-up, design/authors-directions/teachers/drawer.css): slides in from the right over a soft scrim, above the site header (z 40) and everything else on the page. */
+.tp-preachers .drw { position: fixed; inset: 0; z-index: 100; visibility: hidden; transition: visibility 0s .5s; pointer-events: none; }
+.tp-preachers .drw.drw-open { visibility: visible; transition: none; pointer-events: auto; }
+/* Nothing inside the drawer transitions by default: the page's reduced-motion rule gives every element a 1ms transition,
+   which would carry the drawer's visibility down the tree a frame late and stop the close button taking focus on open. */
+.tp-preachers .drw :where(*) { transition-property: none; }
+.tp-preachers .drw button { padding: 0; border: 0; background: none; }
+.tp-preachers .drw-scrim { position: absolute; inset: 0; background: color-mix(in srgb, var(--ink) 28%, transparent); opacity: 0; transition: opacity .4s; }
+.tp-preachers .drw.drw-open .drw-scrim { opacity: 1; }
+.tp-preachers .drw-panel { position: absolute; top: 0; right: 0; bottom: 0; display: flex; flex-direction: column; width: min(36rem, 100%); border-left: 1px solid var(--line);
+  background: var(--page); box-shadow: -24px 0 60px -30px rgb(0 0 0 / 45%); transform: translateX(104%); transition: transform .5s cubic-bezier(.16, 1, .3, 1); }
+.tp-preachers .drw.drw-open .drw-panel { transform: none; }
+.tp-preachers .drw-bar { display: flex; gap: .5rem; align-items: center; padding: calc(.7rem + env(safe-area-inset-top, 0px)) 1rem .7rem; border-bottom: 1px solid var(--line); }
+.tp-preachers .drw-bar button { display: grid; place-items: center; width: 34px; height: 34px; border: 1px solid var(--line); border-radius: 50%; color: var(--muted); transition: border-color .2s, color .2s; }
+.tp-preachers .drw-bar button:hover { border-color: var(--ink); color: var(--ink); }
+.tp-preachers .drw-count { font-size: .74rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.tp-preachers .drw-bar .drw-close { margin-left: auto; }
+.tp-preachers .drw-body { flex: 1; overflow-y: auto; overscroll-behavior: contain; padding: 1.4rem 1.4rem calc(2rem + env(safe-area-inset-bottom, 0px)); }
+
+.tp-preachers .drw-top { display: flex; gap: 1rem; align-items: center; }
+.tp-preachers .drw-top .kicker { color: var(--tone); }
+.tp-preachers .drw-top h2 { margin-top: .2rem; font: 500 1.9rem/1.1 var(--serif); letter-spacing: -.03em; }
+.tp-preachers .drw-years { margin-top: .25rem; font-size: .84rem; color: var(--muted); }
+.tp-preachers .drw-ring { flex: none; }
+.tp-preachers .drw-line { margin-top: 1rem; font: 400 1.05rem/1.6 var(--serif); }
+.tp-preachers .drw-ring-note { margin-top: .4rem; font-size: .7rem; color: var(--muted); }
+.tp-preachers .drw-note { margin-top: .6rem; font-size: .75rem; line-height: 1.6; color: var(--muted); }
+.tp-preachers .drw-empty { padding: .8rem 0; font-size: .82rem; color: var(--muted); }
+.tp-preachers .drw-figs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 1.2rem 0 0; border-block: 1px solid var(--line); }
+.tp-preachers .drw-figs > div { padding: .7rem .8rem; border-left: 1px solid var(--line); }
+.tp-preachers .drw-figs > div:first-child { padding-left: 0; border-left: 0; }
+.tp-preachers .drw-figs dt { font-size: .56rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.tp-preachers .drw-figs dd { margin: .2rem 0 0; font: 500 1.3rem/1.2 var(--serif); }
+.tp-preachers .drw-inner section { margin-top: 1.6rem; }
+.tp-preachers .drw-inner h3 { margin: 0 0 .7rem; font-size: .62rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--tone); }
+.tp-preachers .drw-inner h3 + .drw-lead { margin: -.4rem 0 .7rem; }
+
+.tp-preachers .drw-map { display: block; width: 100%; aspect-ratio: 2 / 1; border: 1px solid var(--line); border-radius: .9rem; background: color-mix(in srgb, var(--prophets) 5%, var(--surface)); }
+.tp-preachers .drw-land { fill: var(--surface-2); stroke: color-mix(in srgb, var(--muted) 35%, transparent); stroke-width: .6; vector-effect: non-scaling-stroke; }
+.tp-preachers .drw-route { fill: none; stroke: var(--tone); stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: 1; animation: tp-drw-draw 1.4s .25s cubic-bezier(.65, 0, .35, 1) forwards; }
+@keyframes tp-drw-draw { to { stroke-dashoffset: 0; } }
+.tp-preachers .drw-pt { fill: var(--page); stroke: var(--tone); stroke-width: 2; vector-effect: non-scaling-stroke; transition: fill .2s; }
+.tp-preachers .drw-pt.drw-lit, .tp-preachers .drw-pt.drw-birth { fill: var(--tone); }
+.tp-preachers .drw-labels text { fill: var(--ink); paint-order: stroke; stroke: var(--surface); stroke-width: 3px; stroke-linejoin: round; vector-effect: non-scaling-stroke; font-family: var(--sans); font-weight: 500; }
+
+.tp-preachers .drw-strip { display: flex; gap: 3px; margin-top: .7rem; }
+.tp-preachers .drw-strip button { display: flex; flex-direction: column; gap: .15rem; min-width: 0; overflow: hidden; text-align: left; cursor: default; }
+.tp-preachers .drw-strip button:last-child { min-width: 1.6rem; }
+.tp-preachers .drw-strip i { display: block; height: 8px; border-radius: 4px; background: color-mix(in srgb, var(--tone) 40%, transparent); transition: background .2s; }
+.tp-preachers .drw-strip button:nth-child(even) i { background: color-mix(in srgb, var(--tone) 70%, transparent); }
+.tp-preachers .drw-strip button.drw-lit i { background: var(--tone); }
+.tp-preachers .drw-strip button[data-place="-1"] i { background: repeating-linear-gradient(90deg, var(--line) 0 4px, transparent 4px 7px); }
+.tp-preachers .drw-strip button[data-place="-1"] span { color: var(--muted); }
+.tp-preachers .drw-strip span { overflow: hidden; font-size: .72rem; white-space: nowrap; text-overflow: ellipsis; }
+.tp-preachers .drw-strip small { overflow: hidden; font-size: .64rem; white-space: nowrap; color: var(--muted); }
+.tp-preachers .drw-strip-ends { display: flex; justify-content: space-between; margin-top: .4rem; padding-top: .35rem; border-top: 1px dashed var(--line); font-size: .7rem; color: var(--muted); }
+
+.tp-preachers .drw-known { margin: 0; padding: 0; list-style: none; }
+.tp-preachers .drw-known li { display: grid; grid-template-columns: 2.6rem minmax(0, 1fr) auto; gap: .2rem .8rem; align-items: baseline; padding: .55rem 0; border-bottom: 1px solid var(--line); }
+.tp-preachers .drw-known li > b { font: 500 .95rem var(--serif); color: var(--tone); }
+.tp-preachers .drw-known li > span:nth-of-type(1) { font: 500 .98rem/1.35 var(--serif); }
+.tp-preachers .drw-known li > span a { text-decoration: underline; text-decoration-color: color-mix(in srgb, var(--tone) 40%, transparent); text-underline-offset: 3px; transition: text-decoration-color .2s; }
+.tp-preachers .drw-known li > span a:hover { text-decoration-color: var(--tone); }
+.tp-preachers .drw-tags { display: inline-flex; gap: .35rem; align-items: center; justify-self: end; }
+.tp-preachers .drw-tags em { padding: .1rem .5rem; border-radius: 999px; font-size: .64rem; font-style: normal; white-space: nowrap; }
+.tp-preachers em.drw-in { background: color-mix(in srgb, var(--poetry) 16%, transparent); color: var(--poetry); }
+.tp-preachers em.drw-out { border: 1px dashed var(--line); color: var(--muted); }
+.tp-preachers .drw-read { display: inline-flex; gap: .2rem; align-items: center; padding: .12rem .5rem; border: 1px solid color-mix(in srgb, var(--tone) 45%, transparent); border-radius: 999px;
+  font-size: .66rem; font-weight: 600; color: var(--tone); white-space: nowrap; transition: background .2s; }
+.tp-preachers .drw-read:hover { background: color-mix(in srgb, var(--tone) 12%, transparent); }
+
+.tp-preachers .drw-gbar { display: flex; gap: 2px; height: 14px; overflow: hidden; border-radius: 7px; }
+.tp-preachers .drw-gbar i { min-width: 3px; }
+.tp-preachers .drw-glegend { display: flex; flex-wrap: wrap; gap: .3rem 1rem; margin: .6rem 0 0; padding: 0; list-style: none; font-size: .74rem; color: var(--muted); text-transform: capitalize; }
+.tp-preachers .drw-glegend li { display: inline-flex; gap: .35rem; align-items: center; }
+.tp-preachers .drw-glegend i { width: 9px; height: 9px; border-radius: 3px; }
+.tp-preachers .drw-glegend b { color: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
+
+.tp-preachers .drw-books { display: grid; grid-template-columns: repeat(66, minmax(0, 1fr)); gap: 1px; align-items: end; height: 56px; }
+.tp-preachers .drw-books i:nth-child(39) { margin-right: 3px; }
+.tp-preachers .drw-books i { height: calc(var(--h) * 100%); border-radius: 2px 2px 0 0; }
+.tp-preachers .drw-books-ends { display: grid; grid-template-columns: 39fr 27fr; margin-top: .3rem; font-size: .66rem; color: var(--muted); }
+.tp-preachers .drw-books-ends span + span { padding-left: 3px; border-left: 1px solid var(--line); }
+
+.tp-preachers .drw-worklist { margin: 0; padding: 0; list-style: none; }
+.tp-preachers .drw-worklist li { border-bottom: 1px solid var(--line); }
+.tp-preachers .drw-worklist li > a, .tp-preachers .drw-worklist li > div { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: .1rem .8rem; align-items: center; padding: .5rem 0; }
+.tp-preachers .drw-worklist li > a { margin-inline: -.5rem; padding-inline: .5rem; border-radius: .5rem; transition: background .15s; }
+.tp-preachers .drw-worklist li > a:hover { background: var(--surface-2); }
+.tp-preachers .drw-worklist li > div { grid-template-columns: minmax(0, 1fr); }
+.tp-preachers .drw-worklist li > a svg { grid-row: 1 / 3; grid-column: 2; color: var(--tone); }
+.tp-preachers .drw-worklist span { display: -webkit-box; overflow: hidden; font-size: .84rem; line-height: 1.45; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+.tp-preachers .drw-worklist small { font-size: .68rem; color: var(--muted); text-transform: capitalize; }
+
+.tp-preachers .drw-links { display: grid; gap: .5rem; margin: 0; padding: 0; list-style: none; }
+.tp-preachers .drw-links button { display: flex; gap: .75rem; align-items: center; width: 100%; padding: .7rem .8rem; border: 1px solid var(--line); border-left: 2px solid var(--tone); border-radius: .8rem; text-align: left; transition: border-color .2s, background .2s; }
+.tp-preachers .drw-links button:hover { border-color: var(--tone); background: color-mix(in srgb, var(--tone) 7%, transparent); }
+.tp-preachers .drw-mono { display: grid; flex: none; place-items: center; width: 24px; height: 24px; border-radius: 7px; background: var(--tone); color: var(--surface); font: 600 .66rem/1 var(--serif); letter-spacing: .02em; }
+.tp-preachers .drw-who { flex: 1; min-width: 0; }
+.tp-preachers .drw-links b { display: block; font: 500 .98rem var(--serif); }
+.tp-preachers .drw-links small { display: block; margin-top: .15rem; font-size: .76rem; line-height: 1.5; color: var(--muted); }
+.tp-preachers .drw-links svg { flex: none; color: var(--muted); }
+
+@media (max-width: 480px) {
+  .tp-preachers .drw-body { padding-inline: 1rem; }
+  .tp-preachers .drw-figs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .tp-preachers .drw-figs > div:nth-child(3) { padding-left: 0; border-left: 0; }
+  .tp-preachers .drw-top h2 { font-size: 1.6rem; }
+  .tp-preachers .drw-known li { grid-template-columns: 2.6rem minmax(0, 1fr); }
+  .tp-preachers .drw-tags { grid-column: 2; justify-self: start; }
+}

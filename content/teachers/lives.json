@@ -1,5 +1,5 @@
 {
-  "about": "Hand-entered for the Authors mock-ups (2026-10-08): life years, the places each person lived and served (first = birthplace, unless birthplaceKnown is false, when the first place is simply the earliest known; year = when they arrived, approximate), a one-line description, and documented links between people. Not yet checked against sources: verify every line before the real page is built. Counts of works and Bible passages come from the library catalogue (build-data.mjs), not from here.",
+  "about": "Hand-entered for the Authors mock-ups (2026-10-08): life years, the places each person lived and served (first = birthplace, unless birthplaceKnown is false, when the first place is simply the earliest known; year = when they arrived, approximate), a one-line description, and documented links between people. Fact-checked 2026-10-08 against Wikipedia, Britannica and other references (report in the session DevLog); corrections applied. Counts of works and Bible passages come from the library catalogue (build-data.mjs), not from here.",
   "people": {
     "author-john-calvin": {
       "short": "Calvin",
@@ -35,7 +35,7 @@
       "known": [
         [
           "Institutes of the Christian Religion",
-          1559
+          1536
         ],
         [
           "Commentaries",
@@ -148,7 +148,7 @@
         ],
         [
           "Commentary on the Heidelberg Catechism",
-          1591
+          1584
         ]
       ]
     },
@@ -288,7 +288,7 @@
       "known": [
         [
           "The Heart of Christ in Heaven",
-          1651
+          1642
         ],
         [
           "Christ Set Forth",
@@ -628,7 +628,7 @@
       "known": [
         [
           "Exposition of the Old and New Testaments",
-          1763
+          1746
         ],
         [
           "A Body of Doctrinal Divinity",
@@ -902,7 +902,7 @@
       "known": [
         [
           "Systematic Theology",
-          1872
+          1871
         ],
         [
           "Commentary on Romans",
@@ -1093,6 +1093,12 @@
           1847
         ],
         [
+          "Tanna",
+          -19.52,
+          169.35,
+          1858
+        ],
+        [
           "Aniwa",
           -19.26,
           169.6,
@@ -1116,7 +1122,7 @@
       "short": "Spurgeon",
       "born": 1834,
       "died": 1892,
-      "line": "Baptist pastor of the Metropolitan Tabernacle, London, for 38 years; the most widely read preacher of his age.",
+      "line": "Baptist pastor of one London congregation for 38 years, in the Metropolitan Tabernacle from 1861; the most widely read preacher of his age.",
       "places": [
         [
           "Kelvedon",
@@ -1139,16 +1145,16 @@
       ],
       "known": [
         [
-          "The Metropolitan Tabernacle Pulpit",
+          "The New Park Street and Metropolitan Tabernacle Pulpit",
           1855
         ],
         [
           "The Treasury of David",
-          1885
+          1869
         ],
         [
           "Morning and Evening",
-          1869
+          1865
         ],
         [
           "Lectures to My Students",
@@ -1254,7 +1260,7 @@
         ],
         [
           "The Doctrine of God",
-          1895
+          1897
         ]
       ]
     },
@@ -1262,7 +1268,7 @@
       "short": "Vos",
       "born": 1862,
       "died": 1949,
-      "line": "Dutch-born professor at Princeton who founded the discipline of biblical theology in the Reformed tradition.",
+      "line": "Dutch-born professor at Princeton, called the father of Reformed biblical theology.",
       "places": [
         [
           "Heerenveen",
@@ -1406,8 +1412,8 @@
       "places": [
         [
           "Badbea",
-          58.1,
-          -3.9,
+          57.89,
+          -4.33,
           1898
         ],
         [
@@ -1424,8 +1430,8 @@
         ],
         [
           "Badbea",
-          58.1,
-          -3.9,
+          57.89,
+          -4.33,
           1966
         ]
       ],
@@ -1537,10 +1543,16 @@
           1971
         ],
         [
+          "Orlando",
+          28.54,
+          -81.38,
+          1984
+        ],
+        [
           "Sanford",
           28.8,
           -81.27,
-          1984
+          1997
         ]
       ],
       "known": [
@@ -1731,7 +1743,7 @@
     [
       "author-richard-sibbes",
       "author-thomas-goodwin",
-      "Sibbes and Goodwin edited John Preston's sermons together."
+      "After Sibbes died, Goodwin (with Philip Nye) edited and published his works."
     ],
     [
       "author-john-owen",

@@ -1,41 +1,46 @@
-// /teachers: a way station with three doorways (Preachers, Authors, Scholars), and the three lists under it.
-// The Authors list is built from the library's registry and holdings for now; another chat is designing an Authors page
-// (design/authors-directions/), which may replace it here once the owner picks a direction.
-import { useEffect } from "react";
-import { Navigate, Route, Routes, useParams } from "react-router-dom";
+// /teachers: a way station with two doorways (owner 2026-10-08): Preachers & authors (the Reformed preachers and writers
+// in the library) and Scholars (historians, translators, archaeologists and the makers of the reference books this site
+// is built on, Christian or not, each labelled). Each subpage is the owner-approved mock-up, ported to React, and loads
+// its own data only when opened. The earlier three lists (/teachers/preachers, /authors) now lead to the merged page.
+import { lazy, Suspense, useEffect } from "react";
+import { Navigate, Route, Routes } from "react-router-dom";
 import { StationDoor, StationStats } from "@/components/stations/Station";
-import { SECTIONS, TEACHERS, readableWorks, sectionBySlug } from "@/data/teachers";
-import TeacherList from "./teachers/TeacherList";
+import summary from "@/data/teachers/summary.json";
+import { SIDE_PATHS } from "./teachers/shared/sides";
+import "./teachers/station.css";
+
+const PreachersPage = lazy(() => import("./teachers/preachers/PreachersPage"));
+const ScholarsPage = lazy(() => import("./teachers/scholars/ScholarsPage"));
 
 export default function TeachersPage() {
   return <Routes>
     <Route index element={<Station />} />
-    <Route path=":slug" element={<SectionRoute />} />
+    <Route path="preachers-and-authors" element={<Suspense fallback={null}><PreachersPage /></Suspense>} />
+    <Route path="scholars" element={<Suspense fallback={null}><ScholarsPage /></Suspense>} />
+    <Route path="preachers" element={<Navigate replace to={SIDE_PATHS.preachers} />} />
+    <Route path="authors" element={<Navigate replace to={SIDE_PATHS.preachers} />} />
     <Route path="*" element={<Navigate replace to="/teachers" />} />
   </Routes>;
 }
 
-function SectionRoute() {
-  const { slug } = useParams();
-  const info = sectionBySlug(slug);
-  return info ? <TeacherList key={info.slug} info={info} /> : <Navigate replace to="/teachers" />;
-}
-
 function Station() {
   useEffect(() => { document.title = "Teachers · Bible Project"; return () => { document.title = "Bible Project"; }; }, []);
-  const people = TEACHERS.teachers;
   return <div className="st-page mx-auto max-w-7xl px-4 sm:px-6">
     <header className="st-hero">
       <div><p className="st-kick">Teachers</p><h1>Learn from those<br /><span>who taught the Word.</span></h1></div>
       <div className="st-side">
-        <p>Preachers, authors and scholars from the site’s Christian library, and the commentators our study pages cite. Each name shows what we hold of theirs and the record behind it.</p>
-        <StationStats items={[["Preachers", TEACHERS.counts.preacher], ["Authors", TEACHERS.counts.author], ["Scholars", TEACHERS.counts.scholar], ["To read here", readableWorks(people)]]} />
+        <p>The preachers and writers whose sermons and books are in the site’s library, and the scholars whose work the site is built on.</p>
+        <StationStats items={[["Preachers & authors", summary.people], ["Their works held", summary.works], ["Scholars", summary.scholars], ["Used on this site", summary.scholarsInUse]]} />
       </div>
     </header>
-    <nav className="st-doors" aria-label="Teachers">
-      {SECTIONS.map((s, i) => <StationDoor key={s.slug} index={i + 1} art={s.art} title={s.title} text={s.text} to={`/teachers/${s.slug}`} color={s.color}
-        note={`${TEACHERS.counts[s.section].toLocaleString("en-US")} ${TEACHERS.counts[s.section] === 1 ? s.one : s.title.toLowerCase()}`} action={`Meet the ${s.title.toLowerCase()}`} />)}
+    <nav className="st-doors st-doors-2" aria-label="Teachers">
+      <StationDoor index={1} art="preachers" title="Preachers & authors" color="accent" to={SIDE_PATHS.preachers}
+        text="Five centuries of Reformed pastors and theologians, from Bullinger to today: what they preached, where they served and who taught whom."
+        note={`${summary.people} preachers and authors`} action="Meet the preachers and authors" />
+      <StationDoor index={2} art="scholars" title="Scholars" color="prophets" to={SIDE_PATHS.scholars}
+        text="Historians, translators, archaeologists and the makers of the reference books this site stands on, Christian or not, each labelled for what they were."
+        note={`${summary.scholars} scholars`} action="Meet the scholars" />
     </nav>
-    <p className="st-closing"><span />Every name links to its record: the library registry’s evidence, or the page that cites the work.<span /></p>
+    <p className="st-closing"><span />Every work links to where it can be read; every scholar shows how this site uses their work.<span /></p>
   </div>;
 }

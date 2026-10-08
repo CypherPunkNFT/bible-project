@@ -1,0 +1,129 @@
+/* 01 · The catalogue (port of design/scholars-directions/scholars/catalogue.css): a facet sidebar beside a grid of cards;
+   on narrow screens the facets become chip rows. Every selector starts .tp-scholars; classes are prefixed cat-. */
+.tp-scholars .tp-sec-catalogue { font-size: .875rem; line-height: 1.5; }
+.tp-scholars .tp-sec-catalogue button { padding: 0; border: 0; background: none; }
+.tp-scholars .tp-sec-catalogue [hidden] { display: none !important; }
+.tp-scholars .cat-layout { display: grid; grid-template-columns: 15rem minmax(0, 1fr); gap: 2.4rem; align-items: start; }
+
+/* ── Sidebar ─────────────────────────────────────────────────────────────── */
+.tp-scholars .cat-side { position: sticky; top: 76px; max-height: calc(100vh - 92px); overflow-y: auto; overscroll-behavior: contain; padding: 0 .4rem 1rem 0; }
+.tp-scholars .cat-side::-webkit-scrollbar { width: 6px; }
+.tp-scholars .cat-side::-webkit-scrollbar-track, .tp-scholars .cat-side::-webkit-scrollbar-corner { background: transparent; }
+.tp-scholars .cat-side::-webkit-scrollbar-button { display: none; }
+.tp-scholars .cat-side::-webkit-scrollbar-thumb { border-radius: 999px; background: color-mix(in srgb, var(--ink) 28%, transparent); }
+@supports not selector(::-webkit-scrollbar) { .tp-scholars .cat-side { scrollbar-width: thin; scrollbar-color: color-mix(in srgb, var(--ink) 28%, transparent) transparent; } }
+.tp-scholars .cat-side-head { display: flex; align-items: center; justify-content: space-between; height: 1.6rem; }
+.tp-scholars .tp-sec-catalogue .cat-clear { font-size: .74rem; color: var(--accent); }
+.tp-scholars .tp-sec-catalogue .cat-clear:hover { text-decoration: underline; text-underline-offset: 3px; }
+.tp-scholars .cat-search { display: flex; gap: .55rem; align-items: center; height: 2.6rem; margin-top: .6rem; padding: 0 .95rem; border: 1px solid var(--line); border-radius: 999px;
+  background: var(--surface); color: var(--muted); transition: border-color .2s, box-shadow .2s; }
+.tp-scholars .cat-search:focus-within { border-color: color-mix(in srgb, var(--accent) 55%, var(--line)); box-shadow: 0 12px 30px -20px color-mix(in srgb, var(--accent) 50%, transparent); }
+.tp-scholars .cat-search input { flex: 1; min-width: 0; padding: 0; border: 0; background: none; font: inherit; font-size: .86rem; color: var(--ink); }
+.tp-scholars .cat-search input::placeholder { color: var(--muted); }
+.tp-scholars .cat-search input::-webkit-search-cancel-button { -webkit-appearance: none; appearance: none; width: 12px; height: 12px; background: var(--muted); cursor: pointer;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='M18 6 6 18M6 6l12 12'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='M18 6 6 18M6 6l12 12'/%3E%3C/svg%3E") center / contain no-repeat; }
+
+.tp-scholars .tp-sec-catalogue .cat-used { display: flex; gap: .65rem; align-items: center; width: 100%; margin-top: .8rem; padding: .6rem .7rem; border: 1px solid var(--line); border-radius: .85rem;
+  background: var(--surface); font-size: .84rem; text-align: left; transition: border-color .2s, background .2s; }
+.tp-scholars .tp-sec-catalogue .cat-used:hover { border-color: color-mix(in srgb, var(--accent) 40%, var(--line)); }
+.tp-scholars .tp-sec-catalogue .cat-used[aria-checked="true"] { border-color: color-mix(in srgb, var(--accent) 55%, transparent); background: color-mix(in srgb, var(--accent) 8%, var(--surface)); }
+.tp-scholars .cat-sw { position: relative; flex: none; width: 30px; height: 18px; border-radius: 999px; background: var(--surface-2); box-shadow: inset 0 0 0 1px var(--line); transition: background .25s; }
+.tp-scholars .cat-sw i { position: absolute; top: 2px; left: 2px; width: 14px; height: 14px; border-radius: 50%; background: var(--surface); box-shadow: 0 1px 3px rgb(0 0 0 / 25%); transition: transform .35s cubic-bezier(.16, 1, .3, 1); }
+.tp-scholars .cat-used[aria-checked="true"] .cat-sw { background: var(--accent); box-shadow: none; }
+.tp-scholars .cat-used[aria-checked="true"] .cat-sw i { transform: translateX(12px); }
+.tp-scholars .cat-used-l { flex: 1; font-weight: 500; }
+.tp-scholars .cat-used em, .tp-scholars .cat-opt em { font-style: normal; font-size: .72rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+
+.tp-scholars .cat-facet { margin-top: 1.3rem; }
+.tp-scholars .cat-facet h3 { margin: 0 0 .35rem .1rem; font-size: .6rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+.tp-scholars .cat-opts { display: flex; flex-direction: column; gap: 1px; }
+.tp-scholars .tp-sec-catalogue .cat-opt { display: flex; gap: .6rem; align-items: center; width: 100%; padding: .4rem .6rem; border: 1px solid transparent; border-radius: .65rem; text-align: left;
+  font-size: .84rem; color: var(--muted); transition: background .15s, color .15s, border-color .15s, opacity .2s; }
+.tp-scholars .tp-sec-catalogue .cat-opt:hover { background: var(--surface-2); color: var(--ink); }
+.tp-scholars .tp-sec-catalogue .cat-opt[aria-pressed="true"] { border-color: color-mix(in srgb, var(--tone, var(--accent)) 45%, transparent); background: color-mix(in srgb, var(--tone, var(--accent)) 10%, var(--surface)); color: var(--ink); }
+.tp-scholars .cat-facet:not([data-facet="field"]) .cat-opt { --tone: var(--accent); }
+.tp-scholars .cat-opt-zero { opacity: .45; }
+.tp-scholars .cat-opt-ic { display: grid; flex: none; place-items: center; width: 14px; }
+.tp-scholars .cat-opt-l { flex: 1; min-width: 0; }
+.tp-scholars .cat-opt-l small { margin-left: .25rem; font-size: .7rem; color: var(--muted); }
+.tp-scholars .cat-opt em { margin-left: auto; }
+.tp-scholars .cat-era-ic { width: 10px; height: 10px; border: 1.5px solid var(--muted); border-radius: 50%; }
+.tp-scholars .cat-era-ic.cat-era-medieval { background: linear-gradient(90deg, var(--muted) 33%, transparent 0); }
+.tp-scholars .cat-era-ic.cat-era-early-modern { background: linear-gradient(90deg, var(--muted) 66%, transparent 0); }
+.tp-scholars .cat-era-ic.cat-era-modern { background: var(--muted); }
+.tp-scholars .cat-faith-ic { width: 8px; height: 8px; border: 1.5px solid var(--muted); border-radius: 2px; transform: rotate(45deg); }
+.tp-scholars .cat-opt[aria-pressed="true"] .cat-era-ic, .tp-scholars .cat-opt[aria-pressed="true"] .cat-faith-ic { border-color: var(--accent); }
+.tp-scholars .cat-opt[aria-pressed="true"] .cat-era-ic:not(.cat-era-ancient) { background-color: transparent; }
+.tp-scholars .cat-opt[aria-pressed="true"] .cat-faith-ic { background: var(--accent); }
+
+/* ── Toolbar ─────────────────────────────────────────────────────────────── */
+.tp-scholars .cat-results { min-width: 0; }
+.tp-scholars .cat-bar { display: flex; flex-wrap: wrap; gap: .8rem 1rem; align-items: center; justify-content: space-between; min-height: 2.4rem; margin-bottom: 1rem; }
+.tp-scholars .cat-count { font-size: .86rem; color: var(--muted); }
+.tp-scholars .cat-count b { margin-right: .2rem; font: 500 1.5rem/1 var(--serif); letter-spacing: -.02em; color: var(--ink); font-variant-numeric: tabular-nums; }
+.tp-scholars .cat-sort { display: inline-flex; gap: 2px; align-items: center; padding: 3px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); }
+.tp-scholars .cat-sort-l { padding: 0 .55rem 0 .65rem; font-size: .6rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.tp-scholars .tp-sec-catalogue .cat-sort button { padding: .34rem .85rem; border-radius: 999px; font-size: .78rem; color: var(--muted); transition: background .15s, color .15s; }
+.tp-scholars .tp-sec-catalogue .cat-sort button:hover { color: var(--ink); background: var(--surface-2); }
+.tp-scholars .tp-sec-catalogue .cat-sort button[aria-checked="true"] { background: var(--ink); color: var(--page); }
+
+/* ── Cards ───────────────────────────────────────────────────────────────── */
+.tp-scholars .cat-grid { position: relative; display: grid; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); gap: 1rem; }
+.tp-scholars .cat-card { position: relative; display: flex; flex-direction: column; min-width: 0; padding: 1.1rem 1.15rem 1.05rem; border: 1px solid var(--line); border-radius: 1rem;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--tone) 8%, var(--surface)), var(--surface) 7.5rem);
+  transition: border-color .25s, box-shadow .25s, opacity .2s; }
+.tp-scholars .cat-card:hover { border-color: color-mix(in srgb, var(--tone) 45%, var(--line)); box-shadow: 0 22px 44px -30px color-mix(in srgb, var(--tone) 70%, rgb(0 0 0 / 40%)); }
+.tp-scholars .cat-mark { flex: none; display: block; overflow: visible; }
+.tp-scholars .cat-card .cat-mark { transition: transform .35s cubic-bezier(.16, 1, .3, 1); }
+.tp-scholars .cat-card:hover .cat-mark { transform: scale(1.06) rotate(-2deg); }
+.tp-scholars .cat-card.cat-leaving { z-index: 0; pointer-events: none; }
+.tp-scholars .cat-card-top { display: flex; gap: .5rem; align-items: flex-start; justify-content: space-between; }
+.tp-scholars .cat-card-name { margin-top: .85rem; font: 500 1.16rem/1.22 var(--serif); letter-spacing: -.015em; text-wrap: balance; }
+.tp-scholars .cat-card-meta { display: flex; flex-wrap: wrap; gap: 0 .45rem; margin-top: .2rem; font-size: .76rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.tp-scholars .cat-card-meta span + span::before { content: "·"; margin-right: .45rem; }
+.tp-scholars .cat-card-tags { display: flex; flex-wrap: wrap; gap: .4rem .55rem; align-items: center; margin: .7rem 0 1rem; }
+.tp-scholars .cat-field { font-size: .6rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--tone); }
+.tp-scholars .cat-faith { display: inline-flex; align-items: center; padding: .16rem .55rem; border: 1px solid var(--line); border-radius: 999px; font-size: .7rem; color: var(--muted); white-space: nowrap; }
+.tp-scholars .cat-badge { display: inline-flex; gap: .4rem; align-items: center; padding: .18rem .6rem; border-radius: 999px; font-size: .66rem; font-weight: 600; letter-spacing: .02em; white-space: nowrap; }
+.tp-scholars .cat-badge-used { background: color-mix(in srgb, var(--accent) 14%, transparent); color: var(--accent); }
+.tp-scholars .cat-badge-used i { width: 6px; height: 6px; border-radius: 50%; background: currentColor; box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 22%, transparent); }
+.tp-scholars .cat-badge-held { border: 1px dashed color-mix(in srgb, var(--muted) 55%, transparent); color: var(--muted); font-weight: 500; }
+.tp-scholars .cat-card-work { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: .1rem .8rem; align-items: baseline; margin-top: auto; padding-top: .75rem; border-top: 1px solid var(--line); }
+.tp-scholars .cat-card-work span { grid-column: 1 / -1; font-size: .56rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+.tp-scholars .cat-card-work b { font: italic 400 .92rem/1.35 var(--serif); }
+.tp-scholars .cat-card-work em { font: 500 .8rem var(--sans); font-style: normal; color: var(--tone); font-variant-numeric: tabular-nums; }
+.tp-scholars .cat-lb { position: relative; margin-top: .85rem; }
+.tp-scholars .cat-lb-track { position: relative; height: 4px; border-radius: 999px; background: color-mix(in srgb, var(--ink) 9%, transparent); }
+.tp-scholars .cat-lb-track b { position: absolute; top: -1px; height: 6px; border-radius: 999px; background: var(--tone); }
+.tp-scholars .tp-sec-catalogue .cat-card-hit { position: absolute; inset: 0; z-index: 1; border-radius: inherit; cursor: pointer; }
+.tp-scholars .cat-empty { display: grid; gap: .7rem; justify-items: center; padding: 3rem 1rem; border: 1px dashed var(--line); border-radius: 1rem; color: var(--muted); text-align: center; }
+
+/* ── Narrow: facets become rows of chips that scroll sideways inside themselves ── */
+@media (max-width: 900px) {
+  .tp-scholars .cat-layout { grid-template-columns: minmax(0, 1fr); gap: 1.2rem; }
+  .tp-scholars .cat-side { position: static; max-height: none; overflow: visible; padding: 0; }
+  .tp-scholars .cat-side-head { display: none; }
+  .tp-scholars .cat-side > .cat-search { margin-top: 0; }
+  .tp-scholars .cat-facet { display: grid; grid-template-columns: 3.4rem minmax(0, 1fr); align-items: center; margin-top: .6rem; }
+  .tp-scholars .cat-facet h3 { margin: 0; }
+  .tp-scholars .cat-opts { flex-direction: row; gap: .35rem; overflow-x: auto; scrollbar-width: none; margin-right: -1rem; padding: 2px 1rem 2px 0; }
+  .tp-scholars .cat-opts::-webkit-scrollbar { display: none; }
+  .tp-scholars .tp-sec-catalogue .cat-opt { flex: none; width: auto; padding: .34rem .75rem; border-color: var(--line); border-radius: 999px; font-size: .78rem; background: var(--surface); }
+  .tp-scholars .cat-opt em { margin-left: .1rem; }
+  .tp-scholars .tp-sec-catalogue .cat-used { width: auto; }
+}
+@media (max-width: 640px) {
+  .tp-scholars .cat-grid { grid-template-columns: minmax(0, 1fr); gap: .75rem; }
+  .tp-scholars .cat-bar { gap: .6rem; }
+  .tp-scholars .cat-sort-l { display: none; }
+  /* Phones: a card lies on its side, the mark beside the name, so the list stays short. */
+  .tp-scholars .cat-card { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: .9rem; align-items: start; padding: .95rem 1rem .9rem; }
+  .tp-scholars .cat-card-top { display: contents; }
+  .tp-scholars .cat-card .cat-mark { grid-column: 1; grid-row: span 3; width: 46px; height: 46px; }
+  .tp-scholars .cat-card .cat-badge { grid-column: 2; justify-self: start; margin-bottom: .3rem; }
+  .tp-scholars .cat-card-name, .tp-scholars .cat-card-meta { grid-column: 2; }
+  .tp-scholars .cat-card-name { margin-top: 0; font-size: 1.08rem; }
+  .tp-scholars .cat-card-tags { grid-column: 1 / -1; margin: .65rem 0 .75rem; }
+  .tp-scholars .cat-card-work, .tp-scholars .cat-card .cat-lb { grid-column: 1 / -1; }
+}

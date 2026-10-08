@@ -14,6 +14,8 @@
     "teachers": "node --experimental-strip-types scripts/build-teachers.ts",
     "teachers:check": "node --experimental-strip-types scripts/build-teachers.ts --check",
     "test:teachers": "node --experimental-strip-types --test scripts/build-teachers.test.ts",
+    "teacher-pages": "node --experimental-strip-types scripts/build-teacher-pages.ts",
+    "teacher-pages:check": "node --experimental-strip-types scripts/build-teacher-pages.ts --check",
     "data": "py -3.12 scripts/build-data.py",
     "test:data": "py -3.12 -m pytest scripts/tests -q",
     "map": "node scripts/build-map.mjs",

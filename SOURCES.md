@@ -1142,3 +1142,14 @@ The held Carson desk Islam essay is actually Chawkat Moucarry; the held Trinity 
 [All eight mission outcomes](content/library/reports/reformed-baptist-overnight/RB01-RB08/SUMMARY.md) and [consolidated intake queue](content/library/reports/reformed-baptist-overnight/RB01-RB08/consolidated-intake-manifest.json): 561 originals / 180.15 MB and 191 prepared private slices. This interim first-eight queue does not release the owner's post-RB14 gate. The website dashboard snapshot above still needs a later explicit metadata refresh; these new counts are not silently merged into its dated inventory.
 
 <!-- RB08 sources:end -->
+
+## Teachers pages — library catalogue, Natural Earth outlines, checked facts (added 2026-10-08)
+
+The two Teachers subpages ([/teachers/preachers-and-authors](https://bibleproject.io/teachers/preachers-and-authors), [/teachers/scholars](https://bibleproject.io/teachers/scholars)) are built by [scripts/build-teacher-pages.ts](scripts/build-teacher-pages.ts) into [src/data/teachers/](src/data/teachers/) from:
+
+| Source | Used for | Licence / terms |
+|---|---|---|
+| The Christian library catalogue ([content/library/](content/library/)): works, editions, assets, author registry, publication list | Works per person, genres, the Bible passage each work takes as its main text, Spurgeon's delivery dates, and the address where each work can be read. Every "Read ↗" link opens the work at its original host (Spurgeon Gems, CCEL, Internet Archive, Desiring God, Truth For Life, Ligonier and others); nothing is re-hosted. | As recorded per source in this file and in the catalogue |
+| [content/teachers/lives.json](content/teachers/lives.json) and [content/teachers/scholars.json](content/teachers/scholars.json) | Life years, places with arrival years, one-line descriptions, best-known works, the documented teacher/colleague links, the scholars' faith labels and fields, the seven discoveries and the chain of the text. Written for the site, then fact-checked on 2026-10-08 against Wikipedia, Britannica, the Stanford Encyclopedia of Philosophy and other references; 17 errors corrected. | Site content (MIT with the code) |
+| **Natural Earth** land outlines (1:50m and 1:110m) via the `world-atlas` 2.0.2 package | The maps on both pages, projected at build time. The Dead Sea and Sea of Galilee outlines are simplified shapes drawn for the site. | **Public domain** ([terms](https://www.naturalearthdata.com/about/terms-of-use/)); credit Natural Earth |
+| [data/stats.json](data/stats.json) (the site's KJV book and chapter lengths) | The 1,189 chapter squares and the 66 book spokes | Public domain text |

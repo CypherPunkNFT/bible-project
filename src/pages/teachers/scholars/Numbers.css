@@ -1,0 +1,47 @@
+/* 06 · By the numbers (port of design/scholars-directions/scholars/numbers.css): four small cards whose rows also filter
+   the catalogue. */
+.tp-scholars .tp-sec-numbers { font-size: .875rem; line-height: 1.5; }
+.tp-scholars .tp-sec-numbers button { padding: 0; border: 0; background: none; }
+.tp-scholars .num-strip { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
+.tp-scholars .num-card { display: flex; flex-direction: column; min-width: 0; padding: 1.1rem 1.1rem 1rem; border: 1px solid var(--line); border-radius: 1rem; background: var(--surface); }
+.tp-scholars .num-card h3 { margin: 0 0 .7rem; font-size: .62rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); }
+.tp-scholars .num-explain { margin-top: auto; padding-top: .8rem; font-size: .72rem; line-height: 1.5; color: var(--muted); }
+.tp-scholars .num-bars, .tp-scholars .num-dots { display: grid; gap: 2px; margin: 0; padding: 0; list-style: none; }
+
+.tp-scholars .tp-sec-numbers .num-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: .3rem .6rem; align-items: center; padding: .38rem .5rem; margin-inline: -.5rem;
+  width: calc(100% + 1rem); border: 1px solid transparent; border-radius: .6rem; text-align: left; font-size: .78rem; transition: background .15s, border-color .15s; }
+.tp-scholars .tp-sec-numbers .num-row:hover { background: var(--surface-2); }
+.tp-scholars .tp-sec-numbers .num-row[aria-pressed="true"] { border-color: color-mix(in srgb, var(--tone, var(--accent)) 45%, transparent); background: color-mix(in srgb, var(--tone, var(--accent)) 9%, transparent); }
+.tp-scholars .num-card:not(:first-child) .num-row { --tone: var(--accent); }
+.tp-scholars .num-l { display: flex; gap: .4rem; align-items: center; min-width: 0; }
+.tp-scholars .num-l small { font-size: .68rem; color: var(--muted); }
+.tp-scholars .num-l svg { flex: none; }
+.tp-scholars .num-track { position: relative; grid-column: 1 / -1; grid-row: 2; height: 6px; }
+.tp-scholars .num-track i, .tp-scholars .num-track b { position: absolute; top: 0; left: 0; height: 100%; min-width: 3px; border-radius: 999px; }
+.tp-scholars .num-track i { background: color-mix(in srgb, var(--tone, var(--ink)) 16%, transparent); }
+.tp-scholars .num-track b { background: var(--tone, var(--ink)); opacity: .85; transform-origin: left; transition: transform .45s cubic-bezier(.16, 1, .3, 1); }
+.tp-scholars .num-card:nth-child(3) .num-track i { background: color-mix(in srgb, var(--ink) 12%, transparent); }
+.tp-scholars .num-card:nth-child(3) .num-track b { background: var(--ink); opacity: .7; }
+.tp-scholars .num-n { font-size: .72rem; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.tp-scholars .num-n b { font-weight: 600; color: var(--ink); }
+
+.tp-scholars .tp-sec-numbers .num-dotrow { grid-template-columns: minmax(0, 1fr) auto; row-gap: .35rem; padding-block: .45rem; }
+.tp-scholars .num-dotset { display: flex; flex-wrap: wrap; grid-column: 1 / -1; gap: 3px; }
+.tp-scholars .num-dotset i { width: 9px; height: 9px; border-radius: 50%; background: var(--tone); transition: opacity .3s, transform .3s; }
+.tp-scholars .num-dotset i.num-off, .tp-scholars .num-grid i.num-off { opacity: .18; }
+
+.tp-scholars .tp-sec-numbers .num-site { display: grid; grid-template-columns: minmax(0, 1fr); gap: .8rem; padding: .5rem; }
+.tp-scholars .num-big { display: flex; gap: .6rem; align-items: baseline; }
+.tp-scholars .num-big b { font: 500 2.4rem/1 var(--serif); letter-spacing: -.03em; color: var(--accent); }
+.tp-scholars .num-big span { font-size: .78rem; line-height: 1.35; color: var(--muted); }
+.tp-scholars .num-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; max-width: 12rem; }
+.tp-scholars .num-grid i { aspect-ratio: 1; border-radius: 4px; transition: opacity .3s; }
+.tp-scholars .num-grid .num-in-use, .tp-scholars .num-key .num-in-use { background: var(--accent); }
+.tp-scholars .num-grid .num-held, .tp-scholars .num-key .num-held { box-shadow: inset 0 0 0 1.5px var(--accent); background: color-mix(in srgb, var(--accent) 12%, transparent); }
+.tp-scholars .num-grid .num-none, .tp-scholars .num-key .num-none { background: color-mix(in srgb, var(--ink) 10%, transparent); }
+.tp-scholars .num-key { display: grid; gap: .2rem; font-size: .72rem; color: var(--muted); }
+.tp-scholars .num-key span { display: flex; gap: .45rem; align-items: center; }
+.tp-scholars .num-key i { width: 9px; height: 9px; border-radius: 2px; }
+
+@media (max-width: 1100px) { .tp-scholars .num-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) { .tp-scholars .num-strip { grid-template-columns: minmax(0, 1fr); } }

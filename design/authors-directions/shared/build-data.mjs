@@ -11,7 +11,7 @@ const site = path.resolve(here, "../../..");
 const library = path.join(site, "content/library");
 const readJson = (file) => JSON.parse(fs.readFileSync(file, "utf8"));
 
-const lives = readJson(path.join(here, "lives.json"));
+const lives = readJson(path.join(site, "content/teachers/lives.json")); // the site's own copy (fact-checked 2026-10-08)
 const ids = Object.keys(lives.people);
 
 // Names and traditions from the author registry and its extensions.
@@ -116,7 +116,7 @@ for (const [name, view] of Object.entries(VIEWS)) {
 }
 
 const out = {
-  about: "Built by design/authors-directions/shared/build-data.mjs from content/library (catalogue counts, titles, Bible passages, Spurgeon's delivery dates) and lives.json (hand-entered life years, places and links, not yet source-checked).",
+  about: "Built by design/authors-directions/shared/build-data.mjs from content/library (catalogue counts, titles, Bible passages, Spurgeon's delivery dates) and content/teachers/lives.json (life years, places and links, fact-checked 2026-10-08).",
   books,
   people: ids.map((id) => {
     const r = registry.get(id), l = lives.people[id], p = people[id];

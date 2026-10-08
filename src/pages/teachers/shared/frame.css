@@ -1,0 +1,28 @@
+/* The two Teachers subpages: page width, the switch between the two sides, section frames and headings.
+   The sections were designed against two short font names; they map to the site's fonts here. */
+.tp-page { --sans: var(--font-sans); --serif: var(--font-serif); max-width: 80rem; margin: 0 auto; padding: 0 1rem 2rem; }
+@media (min-width: 640px) { .tp-page { padding-inline: 1.5rem; } }
+.tp-page .kicker { font-size: .65rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--tone, var(--accent)); }
+.tp-page *:focus, .tp-page *:focus-visible { outline: none; }
+
+.tp-sides { display: inline-flex; gap: 2px; margin-top: 1.4rem; padding: 3px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); }
+.tp-sides a { padding: .4rem 1rem; border-radius: 999px; font-size: .82rem; color: var(--muted); transition: background .15s, color .15s; }
+.tp-sides a:hover { color: var(--ink); background: var(--surface-2); }
+.tp-sides a[aria-current="page"] { background: var(--ink); color: var(--page); }
+
+.tp-sec { scroll-margin-top: 84px; }
+.tp-sec + .tp-sec { margin-top: 3.2rem; padding-top: 1.8rem; border-top: 1px solid var(--line); }
+.tp-sec-landing + .tp-sec { border-top: 0; padding-top: 0; }
+
+.tp-head { margin-bottom: 1.2rem; }
+.tp-kicker { display: flex; align-items: center; gap: .6rem; font-size: .65rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--tone, var(--accent)); }
+.tp-num { font: italic 500 1.05rem/1 var(--font-serif); letter-spacing: 0; text-transform: none; }
+.tp-num::after { content: "/"; margin-left: .55rem; font-style: normal; opacity: .45; }
+.tp-head h2 { margin-top: .45rem; font: 500 clamp(1.5rem, 2.6vw, 1.95rem)/1.2 var(--font-serif); letter-spacing: -.02em; }
+.tp-head h2 em { color: var(--tone, var(--accent)); font-weight: 400; }
+.tp-line { max-width: 62ch; margin-top: .4rem; color: var(--muted); font-size: .9rem; line-height: 1.65; }
+
+.tp-failed, .tp-status p { padding: 1rem; border: 1px dashed var(--line); border-radius: 12px; color: var(--muted); }
+.tp-status { display: flex; min-height: 50vh; align-items: center; justify-content: center; font-family: var(--font-serif); }
+.tp-status p { border: 0; }
+@media (prefers-reduced-motion: reduce) { .tp-page *, .tp-page *::before, .tp-page *::after { animation-duration: 1ms !important; transition-duration: 1ms !important; } }

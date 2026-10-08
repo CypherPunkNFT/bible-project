@@ -1,0 +1,178 @@
+/* 03 · The discoveries: the seven finds on the Holy Land & Sinai map, each card carrying its "from the dig to your screen"
+   thread (ported from design/scholars-directions/scholars/discoveries.css). Map colours follow the site's Atlas: calm
+   water, warm muted land, a soft coastline, serif place labels. Every selector starts with .tp-scholars; the section's
+   classes are prefixed dsc-. MapStage sets two attributes itself: data-side="left" on a marker whose label sits to its
+   left, and data-off on a label hidden to avoid a collision. */
+.tp-scholars .tp-sec-discoveries {
+  --tone: var(--history);
+  --dsc-water: color-mix(in srgb, var(--poetry) 20%, var(--page));
+  --dsc-land: color-mix(in srgb, var(--accent) 12%, var(--surface));
+  --dsc-land-2: color-mix(in srgb, var(--accent) 22%, var(--surface));
+  --dsc-coast: color-mix(in srgb, var(--accent) 45%, var(--line));
+  --dsc-h: clamp(540px, calc(100dvh - 150px), 740px);
+}
+.tp-scholars .tp-sec-discoveries button { padding: 0; border: 0; background: none; text-align: inherit; }
+.tp-scholars .tp-sec-discoveries ::-webkit-scrollbar { width: 6px; height: 6px; }
+.tp-scholars .tp-sec-discoveries ::-webkit-scrollbar-track, .tp-scholars .tp-sec-discoveries ::-webkit-scrollbar-corner { background: transparent; }
+.tp-scholars .tp-sec-discoveries ::-webkit-scrollbar-button { display: none; }
+.tp-scholars .tp-sec-discoveries ::-webkit-scrollbar-thumb { border-radius: 999px; background: color-mix(in srgb, var(--ink) 28%, transparent); }
+.tp-scholars .dsc-defs { position: absolute; width: 0; height: 0; overflow: hidden; }
+
+/* ── The map stage ─────────────────────────────────────────────────────── */
+.tp-scholars .dsc-stages { position: relative; overflow: hidden; background: var(--dsc-water); }
+.tp-scholars .dsc-stage { position: absolute; inset: 0; overflow: hidden; opacity: 0; pointer-events: none; transition: opacity .6s ease; }
+.tp-scholars .dsc-stage.dsc-on-stage { opacity: 1; pointer-events: auto; }
+.tp-scholars .dsc-stage svg { display: block; width: 100%; height: 100%; }
+.tp-scholars .dsc-water { fill: var(--dsc-water); }
+.tp-scholars .dsc-landpath { fill: url(#tp-dsc-land-fill); fill-rule: evenodd; stroke: var(--dsc-coast); stroke-width: 1.1; stroke-linejoin: round; }
+.tp-scholars .dsc-stop-a { stop-color: var(--dsc-land); }
+.tp-scholars .dsc-stop-b { stop-color: var(--dsc-land-2); }
+.tp-scholars .dsc-layer { position: absolute; inset: 0; }
+.tp-scholars .dsc-mk { position: absolute; top: 0; left: 0; width: 0; height: 0; will-change: transform; }
+.tp-scholars .dsc-lab { position: absolute; top: 0; left: 10px; display: flex; flex-direction: column; white-space: nowrap; transform: translateY(-50%); pointer-events: none;
+  color: var(--ink); font: 500 .8rem/1.15 var(--serif); letter-spacing: -.005em;
+  text-shadow: 0 0 2px var(--dsc-land), 0 0 4px var(--dsc-land), 0 0 6px var(--dsc-land); transition: opacity .2s; }
+.tp-scholars .dsc-mk[data-side="left"] .dsc-lab { left: auto; right: 10px; align-items: flex-end; text-align: right; }
+.tp-scholars .dsc-center .dsc-lab { left: 0; transform: translate(-50%, -50%); align-items: center; }
+.tp-scholars .dsc-lab small { font: 500 .66rem/1.2 var(--sans); color: var(--muted); letter-spacing: .02em; }
+.tp-scholars .dsc-lab[data-off] { opacity: 0; visibility: hidden; }
+
+/* Discoveries: a round dot that pulses softly when chosen. */
+.tp-scholars .dsc-mk-find { cursor: pointer; }
+.tp-scholars .dsc-mk-find.dsc-on { z-index: 3; }
+.tp-scholars .dsc-mk-find::before { content: ""; position: absolute; left: -14px; top: -14px; width: 28px; height: 28px; border-radius: 50%; }
+.tp-scholars .dsc-mk-dot { position: absolute; left: -6px; top: -6px; width: 12px; height: 12px; border: 2px solid var(--surface); border-radius: 50%; background: var(--history);
+  box-shadow: 0 1px 4px rgb(0 0 0 / 25%); transition: transform .35s cubic-bezier(.16, 1, .3, 1), box-shadow .35s; }
+.tp-scholars .dsc-mk-pulse { position: absolute; left: -18px; top: -18px; width: 36px; height: 36px; border: 1.5px solid var(--history); border-radius: 50%; opacity: 0; }
+.tp-scholars .dsc-mk-find:hover .dsc-mk-dot { transform: scale(1.2); }
+.tp-scholars .dsc-mk-find.dsc-on .dsc-mk-dot { transform: scale(1.3); box-shadow: 0 0 0 5px color-mix(in srgb, var(--history) 22%, transparent), 0 2px 8px rgb(0 0 0 / 25%); }
+.tp-scholars .dsc-pulse .dsc-mk-pulse { animation: tp-dsc-pulse 1.9s cubic-bezier(.2, .6, .3, 1) .5s 3; }
+@keyframes tp-dsc-pulse { 0% { transform: scale(.35); opacity: .85; } 100% { transform: scale(2.1); opacity: 0; } }
+.tp-scholars .dsc-mk-find .dsc-lab b { font-weight: 500; }
+.tp-scholars .dsc-mk-find.dsc-on .dsc-lab { z-index: 2; font-size: .95rem; }
+.tp-scholars .dsc-mk-find.dsc-on .dsc-lab small { color: var(--history); font-weight: 600; }
+.tp-scholars .dsc-has-active .dsc-mk-find:not(.dsc-on) .dsc-lab { opacity: .7; }
+.tp-scholars .dsc-has-active .dsc-mk-find:not(.dsc-on) .dsc-lab[data-off] { opacity: 0; }
+.tp-scholars .dsc-mk-sea .dsc-lab { font: italic 400 .8rem var(--serif); letter-spacing: .06em; color: color-mix(in srgb, var(--muted) 85%, transparent); text-shadow: none; }
+
+/* ── The list and the map ──────────────────────────────────────────────── */
+/* The Holy Land and Sinai run tall, so the map is a tall card and the finds take the wider column. */
+/* The owner asked for the map on the left and the finds on the right (2026-10-08). */
+.tp-scholars .dsc-grid { display: grid; grid-template-columns: minmax(0, 34rem) minmax(20rem, 1fr); gap: 1.1rem; }
+@media (min-width: 901px) { .tp-scholars .dsc-mapcard { order: -1; } }
+.tp-scholars .dsc-list-wrap { position: relative; height: var(--dsc-h); min-width: 0; container: dsc-list / inline-size; }
+.tp-scholars .dsc-list { display: flex; flex-direction: column; gap: .7rem; height: 100%; overflow: auto; overscroll-behavior: contain; padding: 0 8px 0 0;
+  -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 56px), transparent); mask-image: linear-gradient(to bottom, #000 calc(100% - 56px), transparent); }
+.tp-scholars .dsc-list-end { flex: none; }
+.tp-scholars .dsc-find { position: relative; flex: none; padding: 1.05rem 1.15rem 1.1rem; border: 1px solid var(--line); border-radius: 1rem; background: var(--surface);
+  transition: border-color .3s, background .3s, box-shadow .3s; }
+.tp-scholars .dsc-find > :not(.dsc-find-hit) { position: relative; pointer-events: none; }
+.tp-scholars .dsc-find-hit { position: absolute; inset: 0; border-radius: inherit; cursor: pointer; }
+.tp-scholars .dsc-find:hover { border-color: color-mix(in srgb, var(--history) 40%, var(--line)); }
+.tp-scholars .dsc-find.dsc-on { border-color: color-mix(in srgb, var(--history) 65%, var(--line)); background: linear-gradient(180deg, color-mix(in srgb, var(--history) 8%, var(--surface)), var(--surface) 75%);
+  box-shadow: 0 18px 36px -28px color-mix(in srgb, var(--history) 70%, transparent); }
+.tp-scholars .dsc-find-all.dsc-on { border-color: color-mix(in srgb, var(--accent) 55%, var(--line)); background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 7%, var(--surface)), var(--surface) 75%); box-shadow: none; }
+.tp-scholars .dsc-find-top { display: flex; flex-wrap: wrap; gap: .2rem .7rem; align-items: baseline; }
+.tp-scholars .dsc-year { font: 500 1.55rem/1 var(--serif); letter-spacing: -.02em; color: var(--history); font-variant-numeric: tabular-nums; }
+.tp-scholars .dsc-find-all .dsc-year { color: var(--accent); font-size: 1.25rem; }
+.tp-scholars .dsc-where { font-size: .74rem; color: var(--muted); }
+.tp-scholars .dsc-where em { font-style: normal; color: var(--history); }
+.tp-scholars .dsc-find h3 { margin-top: .5rem; font: 500 1.22rem/1.25 var(--serif); letter-spacing: -.015em; }
+.tp-scholars .dsc-find > p { margin-top: .4rem; font-size: .84rem; line-height: 1.6; color: var(--muted); }
+.tp-scholars .dsc-find .dsc-find-hint { margin-top: .7rem; font-size: .74rem; color: var(--accent); }
+.tp-scholars .dsc-sum { margin-top: .85rem; padding-top: .75rem; border-top: 1px solid var(--line); }
+.tp-scholars .dsc-sum p:not(.dsc-step-k) { margin-top: .3rem; font-size: .82rem; line-height: 1.6; color: color-mix(in srgb, var(--ink) 82%, transparent); }
+
+/* From the dig to your screen: a quiet vertical thread inside each card. */
+.tp-scholars .dsc-thread { margin-top: .85rem; padding-top: .75rem; border-top: 1px solid var(--line); }
+.tp-scholars .dsc-thread .kicker { color: var(--poetry); font-size: .58rem; }
+.tp-scholars .dsc-thread ol { margin: .55rem 0 0; padding: 0; list-style: none; }
+.tp-scholars .dsc-step { position: relative; padding: 0 0 .7rem 1.15rem; }
+.tp-scholars .dsc-step:last-child { padding-bottom: 0; }
+.tp-scholars .dsc-step::before { content: ""; position: absolute; left: 3px; top: .3rem; width: 7px; height: 7px; border-radius: 50%; background: color-mix(in srgb, var(--history) 55%, var(--surface)); }
+.tp-scholars .dsc-step:not(:last-child)::after { content: ""; position: absolute; left: 6px; top: .95rem; bottom: .05rem; width: 1px; background: var(--line); }
+.tp-scholars .dsc-step-site::before { background: var(--poetry); }
+.tp-scholars .dsc-step-none::before { background: var(--surface); box-shadow: inset 0 0 0 1.5px color-mix(in srgb, var(--muted) 60%, transparent); }
+.tp-scholars .dsc-step-k { font-size: .6rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.tp-scholars .dsc-step-v { margin-top: .2rem; font-size: .82rem; line-height: 1.5; color: color-mix(in srgb, var(--ink) 85%, transparent); }
+.tp-scholars .dsc-step-v i { font-family: var(--serif); }
+.tp-scholars .dsc-step-sub { font-size: .76rem; color: var(--muted); }
+.tp-scholars .dsc-step-none .dsc-step-v { color: var(--muted); font-style: italic; font-family: var(--serif); }
+.tp-scholars .tp-sec-discoveries .dsc-chip { pointer-events: auto; display: flex; gap: .6rem; align-items: center; width: 100%; margin-top: .3rem; padding: .42rem .65rem; border: 1px solid var(--line); border-radius: .75rem;
+  background: var(--page); text-align: left; transition: border-color .2s, background .2s; }
+.tp-scholars .tp-sec-discoveries .dsc-chip:hover { border-color: var(--tone); background: color-mix(in srgb, var(--tone) 7%, var(--page)); }
+.tp-scholars .dsc-chip i { flex: none; width: 9px; height: 9px; border-radius: 50%; background: var(--tone); }
+.tp-scholars .dsc-chip span { flex: 1; min-width: 0; }
+.tp-scholars .dsc-chip b { display: block; font: 500 .9rem/1.3 var(--serif); }
+.tp-scholars .dsc-chip small { display: block; font-size: .68rem; color: var(--muted); }
+.tp-scholars .dsc-chip svg { flex: none; color: var(--muted); }
+.tp-scholars .dsc-site-link { pointer-events: auto; display: inline-flex; gap: .3rem; align-items: center; margin-top: .2rem; font: 500 1rem/1.3 var(--serif); color: var(--poetry); transition: opacity .2s; }
+.tp-scholars .dsc-site-link:hover { opacity: .75; }
+
+/* Wide list: each card reads in two columns, the find on the left and its thread on the right. */
+@container dsc-list (min-width: 560px) {
+  .tp-scholars .dsc-find { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr); grid-auto-rows: min-content; column-gap: 1.5rem; }
+  .tp-scholars .dsc-find > :not(.dsc-find-hit, .dsc-thread, .dsc-sum) { grid-column: 1; }
+  .tp-scholars .dsc-thread, .tp-scholars .dsc-sum { grid-column: 2; grid-row: 1 / span 4; margin-top: 0; padding: 0 0 0 1.3rem; border-top: 0; border-left: 1px solid var(--line); }
+}
+.tp-scholars .dsc-mapcard { display: flex; flex-direction: column; height: var(--dsc-h); margin: 0; overflow: hidden; border: 1px solid var(--line); border-radius: 1.5rem; background: var(--surface);
+  box-shadow: 0 30px 60px -48px rgb(0 0 0 / 45%); }
+.tp-scholars .dsc-tools { display: flex; flex-wrap: wrap; gap: .6rem 1rem; align-items: center; justify-content: space-between; padding: .65rem .75rem; border-bottom: 1px solid var(--line); }
+.tp-scholars .dsc-seg { display: inline-flex; gap: 2px; padding: 3px; border: 1px solid var(--line); border-radius: 999px; background: var(--page); }
+.tp-scholars .tp-sec-discoveries .dsc-seg button { padding: .38rem .9rem; border-radius: 999px; font-size: .78rem; color: var(--muted); transition: background .2s, color .2s; }
+.tp-scholars .tp-sec-discoveries .dsc-seg button:hover { color: var(--ink); }
+.tp-scholars .tp-sec-discoveries .dsc-seg button[aria-pressed="true"] { background: var(--ink); color: var(--page); }
+.tp-scholars .dsc-now { padding-right: .4rem; font: italic 400 .92rem var(--serif); color: var(--muted); }
+.tp-scholars .dsc-mapcard .dsc-stages { flex: 1; min-height: 0; }
+
+.tp-scholars .tp-sec-discoveries .dsc-edge { position: absolute; top: 0; left: 0; z-index: 4; display: flex; gap: .55rem; align-items: center; padding: .4rem .8rem .4rem .4rem; border: 1px solid var(--line); border-radius: 999px;
+  background: color-mix(in srgb, var(--surface) 92%, transparent); box-shadow: 0 10px 26px -14px rgb(0 0 0 / 40%); text-align: left; transition: border-color .2s; }
+.tp-scholars .tp-sec-discoveries .dsc-edge[hidden] { display: none; }
+.tp-scholars .tp-sec-discoveries .dsc-edge:hover { border-color: var(--history); }
+.tp-scholars .dsc-edge-arrow { display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: var(--history); color: var(--surface); }
+.tp-scholars .dsc-edge b { display: block; font: 500 .82rem/1.2 var(--serif); }
+.tp-scholars .dsc-edge small { display: block; font-size: .66rem; color: var(--muted); }
+
+/* The year line, from the first find to the last. */
+.tp-scholars .dsc-rail { position: relative; flex: none; height: 3.3rem; border-top: 1px solid var(--line); --in: 1.8rem; }
+.tp-scholars .dsc-rail-line { position: absolute; left: var(--in); right: var(--in); top: 1.15rem; height: 1px; background: var(--line); }
+.tp-scholars .dsc-rail-pt, .tp-scholars .dsc-rail-end, .tp-scholars .dsc-rail-now { position: absolute; left: calc(var(--in) + (100% - 2 * var(--in)) * var(--p) / 100); }
+.tp-scholars .tp-sec-discoveries .dsc-rail-pt { top: calc(1.15rem - 11px); width: 22px; height: 22px; margin-left: -11px; border-radius: 50%; cursor: pointer; }
+.tp-scholars .dsc-rail-pt i { position: absolute; left: 7px; top: 7px; width: 8px; height: 8px; border-radius: 50%; background: color-mix(in srgb, var(--history) 45%, var(--surface)); transition: transform .3s, background .3s; }
+.tp-scholars .dsc-rail-pt:hover i { transform: scale(1.3); }
+.tp-scholars .dsc-rail-pt.dsc-on i { background: var(--history); transform: scale(1.5); box-shadow: 0 0 0 3px color-mix(in srgb, var(--history) 20%, transparent); }
+.tp-scholars .dsc-rail-end { bottom: .45rem; transform: translateX(-50%); font-size: .66rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.tp-scholars .dsc-rail-now { top: -1.9rem; padding: .15rem .5rem; border-radius: 999px; background: var(--history); color: var(--surface); font: 600 .7rem/1.3 var(--sans); font-variant-numeric: tabular-nums;
+  transform: translateX(-50%) translateY(4px); opacity: 0; transition: left .5s cubic-bezier(.16, 1, .3, 1), opacity .25s, transform .3s; pointer-events: none; }
+.tp-scholars .dsc-rail-now.dsc-on { opacity: 1; transform: translateX(-50%); }
+
+/* The chain of the text, as a quiet closing line; the names the chosen find passes through are lit. */
+.tp-scholars .dsc-chain { display: flex; flex-wrap: wrap; gap: .5rem 1rem; align-items: center; margin-top: 1.1rem; }
+.tp-scholars .dsc-chain-k { font-size: .6rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.tp-scholars .dsc-chain ol { display: flex; flex-wrap: wrap; gap: .3rem; align-items: center; margin: 0; padding: 0; list-style: none; }
+.tp-scholars .dsc-chain li { display: inline-flex; gap: .3rem; align-items: center; }
+.tp-scholars .dsc-chain li + li::before { content: "→"; font-size: .75rem; color: var(--muted); }
+.tp-scholars .tp-sec-discoveries .dsc-chain button { padding: .2rem .62rem; border: 1px solid var(--line); border-radius: 999px; font: 500 .8rem var(--serif); color: var(--muted); transition: background .25s, color .25s, border-color .25s; }
+.tp-scholars .tp-sec-discoveries .dsc-chain button:hover { color: var(--ink); border-color: color-mix(in srgb, var(--tone) 45%, var(--line)); }
+.tp-scholars .tp-sec-discoveries .dsc-chain button.dsc-hl { color: var(--ink); border-color: color-mix(in srgb, var(--tone) 60%, var(--line)); background: color-mix(in srgb, var(--tone) 10%, transparent); }
+
+@media (max-width: 900px) {
+  .tp-scholars .tp-sec-discoveries { --dsc-h: clamp(400px, 64dvh, 560px); }
+  .tp-scholars .dsc-grid { grid-template-columns: minmax(0, 1fr); }
+  .tp-scholars .dsc-mapcard { order: -1; }
+  .tp-scholars .dsc-list-wrap { height: auto; margin-inline: -1rem; container-type: normal; }
+  .tp-scholars .dsc-list { flex-direction: row; align-items: stretch; height: auto; padding: .2rem 1rem .9rem; scroll-snap-type: x mandatory; scroll-padding-inline: 1rem;
+    -webkit-mask-image: none; mask-image: none; }
+  .tp-scholars .dsc-find { flex: 0 0 min(84%, 22rem); scroll-snap-align: center; }
+  .tp-scholars .dsc-list-end { width: 1px; }
+}
+@media (max-width: 560px) {
+  .tp-scholars .dsc-mapcard { border-radius: 1.1rem; }
+  .tp-scholars .dsc-now { display: none; }
+  .tp-scholars .dsc-rail { --in: 1.2rem; }
+  .tp-scholars .dsc-chain { gap: .5rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tp-scholars .dsc-pulse .dsc-mk-pulse { animation: none; }
+  .tp-scholars .dsc-stage, .tp-scholars .dsc-rail-now { transition: none; }
+}

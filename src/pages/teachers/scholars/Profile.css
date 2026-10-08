@@ -1,0 +1,114 @@
+/* The shared scholar profile (port of design/scholars-directions/scholars/profile.css). It grows out of the clicked card or
+   mark (Profile.tsx animates the transform), above the sticky header (40). Full screen on phones. The page scroll is
+   locked from Profile.tsx while it is open. */
+.tp-scholars .prf { font-size: .875rem; line-height: 1.5; }
+.tp-scholars .prf-lifted { opacity: 0 !important; }
+/* Closed it is not drawn at all (display, not visibility: under reduced motion the site turns every transition into a
+   1 ms one, and a 1 ms visibility transition left the close button unfocusable at the moment the profile opened).
+   The scrim still fades in from nothing (@starting-style). While shrinking away it ignores clicks. */
+.tp-scholars .prf { position: fixed; inset: 0; z-index: 70; display: none; }
+.tp-scholars .prf.prf-open { display: block; }
+@starting-style { .tp-scholars .prf.prf-open .prf-scrim { opacity: 0; } }
+.tp-scholars .prf.prf-closing { pointer-events: none; }
+.tp-scholars .prf button { padding: 0; border: 0; background: none; }
+.tp-scholars .prf [hidden] { display: none !important; }
+.tp-scholars .prf-scrim { position: absolute; inset: 0; background: color-mix(in srgb, #0d0b08 34%, transparent); opacity: 0; transition: opacity .35s; }
+.tp-scholars .prf.prf-open .prf-scrim { opacity: 1; }
+.tp-scholars .prf.prf-closing .prf-scrim { opacity: 0; transition-duration: .3s; }
+.tp-scholars .prf-panel { position: absolute; inset: 0; display: flex; flex-direction: column; width: min(66rem, calc(100% - 2.5rem)); height: min(calc(100% - 3rem), 52rem); margin: auto;
+  overflow: hidden; border: 1px solid var(--line); border-radius: 1.25rem; background: var(--page); box-shadow: 0 40px 90px -40px rgb(0 0 0 / 55%); transform-origin: 0 0; }
+.tp-scholars .prf:not(.prf-open) .prf-panel { opacity: 0; }
+
+.tp-scholars .prf-bar { display: flex; gap: .45rem; align-items: center; padding: calc(.7rem + env(safe-area-inset-top, 0px)) 1rem .7rem; border-bottom: 1px solid var(--line); background: var(--surface); }
+.tp-scholars .prf .prf-btn { display: grid; flex: none; place-items: center; width: 34px; height: 34px; border: 1px solid var(--line); border-radius: 50%; color: var(--muted); transition: border-color .2s, color .2s; }
+.tp-scholars .prf .prf-btn:hover { border-color: var(--ink); color: var(--ink); }
+.tp-scholars .prf-count { margin-left: .3rem; font-size: .74rem; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.tp-scholars .prf .prf-close { margin-left: auto; }
+.tp-scholars .prf-body { flex: 1; overflow-y: auto; overscroll-behavior: contain; padding: 1.7rem 1.9rem calc(2.2rem + env(safe-area-inset-bottom, 0px)); }
+.tp-scholars .prf-body::-webkit-scrollbar { width: 6px; }
+.tp-scholars .prf-body::-webkit-scrollbar-track, .tp-scholars .prf-body::-webkit-scrollbar-corner { background: transparent; }
+.tp-scholars .prf-body::-webkit-scrollbar-button { display: none; }
+.tp-scholars .prf-body::-webkit-scrollbar-thumb { border-radius: 999px; background: color-mix(in srgb, var(--ink) 28%, transparent); }
+@supports not selector(::-webkit-scrollbar) { .tp-scholars .prf-body { scrollbar-width: thin; scrollbar-color: color-mix(in srgb, var(--ink) 28%, transparent) transparent; } }
+
+.tp-scholars .prf-mark { flex: none; display: block; overflow: visible; }
+.tp-scholars .prf-faith { display: inline-flex; align-items: center; padding: .16rem .55rem; border: 1px solid var(--line); border-radius: 999px; font-size: .7rem; color: var(--muted); white-space: nowrap; }
+.tp-scholars .prf-badge { display: inline-flex; gap: .4rem; align-items: center; padding: .18rem .6rem; border-radius: 999px; font-size: .66rem; font-weight: 600; letter-spacing: .02em; white-space: nowrap; }
+.tp-scholars .prf-badge-used { background: color-mix(in srgb, var(--accent) 14%, transparent); color: var(--accent); }
+.tp-scholars .prf-badge-used i { width: 6px; height: 6px; border-radius: 50%; background: currentColor; box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 22%, transparent); }
+.tp-scholars .prf-badge-held { border: 1px dashed color-mix(in srgb, var(--muted) 55%, transparent); color: var(--muted); font-weight: 500; }
+
+.tp-scholars .prf-grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 2.2rem; }
+.tp-scholars .prf-head { display: flex; gap: 1.2rem; align-items: center; }
+.tp-scholars .prf-head .kicker { color: var(--tone); }
+.tp-scholars .prf-head h2 { margin-top: .25rem; font: 500 clamp(1.7rem, 3vw, 2.25rem)/1.08 var(--serif); letter-spacing: -.03em; }
+.tp-scholars .prf-years { margin-top: .3rem; font-size: .88rem; font-variant-numeric: tabular-nums; }
+.tp-scholars .prf-years span { color: var(--muted); }
+.tp-scholars .prf-tags { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .6rem; }
+.tp-scholars .prf-line { margin-top: 1.3rem; font: 400 1.12rem/1.62 var(--serif); text-wrap: pretty; }
+.tp-scholars .prf-facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 1.3rem 0 0; border-block: 1px solid var(--line); }
+.tp-scholars .prf-facts > div { min-width: 0; padding: .7rem .8rem; border-left: 1px solid var(--line); }
+.tp-scholars .prf-facts > div:first-child { padding-left: 0; border-left: 0; }
+.tp-scholars .prf-facts dt { font-size: .56rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.tp-scholars .prf-facts dd { margin: .25rem 0 0; font: 500 .98rem/1.3 var(--serif); }
+.tp-scholars .prf-facts dd small { display: block; font: .7rem var(--sans); color: var(--muted); }
+.tp-scholars .prf-main section { margin-top: 1.6rem; }
+.tp-scholars .prf-grid h3 { margin: 0 0 .65rem; font-size: .62rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--tone); }
+.tp-scholars .prf-works { margin: 0; padding: 0; list-style: none; }
+.tp-scholars .prf-works li { display: flex; gap: 1rem; justify-content: space-between; align-items: baseline; padding: .55rem 0; border-bottom: 1px solid var(--line); }
+.tp-scholars .prf-works li:first-child { border-top: 1px solid var(--line); }
+.tp-scholars .prf-works b { font: italic 400 1rem/1.4 var(--serif); }
+.tp-scholars .prf-works span { font-size: .82rem; font-weight: 500; color: var(--tone); font-variant-numeric: tabular-nums; }
+.tp-scholars .prf-use { padding: .85rem 1rem; border: 1px solid var(--line); border-radius: .9rem; background: var(--surface); }
+.tp-scholars .prf-use p { margin-top: .5rem; font-size: .88rem; line-height: 1.6; }
+.tp-scholars .prf-empty { font-size: .86rem; color: var(--muted); }
+.tp-scholars .prf-note { margin-top: .6rem; font-size: .72rem; line-height: 1.55; color: var(--muted); }
+.tp-scholars .prf-areas { display: grid; gap: .45rem; margin: 0; padding: 0; list-style: none; }
+.tp-scholars .prf-areas li { display: grid; grid-template-columns: 7.5rem minmax(0, 1fr); gap: .8rem; align-items: center; font-size: .82rem; }
+.tp-scholars .prf-areas i { height: 6px; border-radius: 999px; background: color-mix(in srgb, var(--ink) 8%, transparent); }
+.tp-scholars .prf-areas b { display: block; height: 100%; border-radius: inherit; background: var(--tone); }
+
+/* A life on the 0–2026 line. */
+.tp-scholars .prf-lb { position: relative; padding-bottom: 1.3rem; }
+.tp-scholars .prf-lb-track { position: relative; height: 6px; margin-top: .9rem; border-radius: 999px; background: color-mix(in srgb, var(--ink) 9%, transparent); }
+.tp-scholars .prf-lb-track b { position: absolute; top: -4px; height: 14px; border-radius: 999px; background: var(--tone); box-shadow: 0 0 0 4px color-mix(in srgb, var(--tone) 18%, transparent); }
+.tp-scholars .prf-lb-other { position: absolute; top: -6px; width: 1px; height: 18px; background: color-mix(in srgb, var(--ink) 16%, transparent); }
+.tp-scholars .prf-lb-work { position: absolute; top: 15px; width: 6px; height: 6px; margin-left: -3px; border-radius: 50%; background: var(--tone); }
+.tp-scholars .prf-lb-tick { position: absolute; bottom: 0; font-size: .62rem; color: var(--muted); font-variant-numeric: tabular-nums; transform: translateX(-50%); }
+.tp-scholars .prf-lb-tick:first-of-type { transform: none; }
+
+.tp-scholars .prf-card { padding: 1.1rem 1.15rem 1.15rem; border: 1px solid var(--line); border-radius: 1rem; background: var(--surface); }
+.tp-scholars .prf-card + .prf-card { margin-top: .9rem; }
+.tp-scholars .prf-map { aspect-ratio: 1 / .62; overflow: hidden; border-radius: .75rem; background: color-mix(in srgb, var(--prophets) 7%, var(--surface)); }
+.tp-scholars .prf-svg { display: block; width: 100%; height: 100%; }
+.tp-scholars .prf-land { fill: var(--surface-2); fill-rule: evenodd; stroke: color-mix(in srgb, var(--ink) 16%, transparent); stroke-width: .8; vector-effect: non-scaling-stroke; }
+.tp-scholars .prf-others circle { fill: color-mix(in srgb, var(--ink) 28%, transparent); }
+.tp-scholars .prf-halo { fill: color-mix(in srgb, var(--tone) 20%, transparent); stroke: color-mix(in srgb, var(--tone) 55%, transparent); stroke-width: 1; vector-effect: non-scaling-stroke;
+  transform-box: fill-box; transform-origin: center; animation: sc-prf-pulse 2.4s ease-in-out infinite; }
+.tp-scholars .prf-dot { fill: var(--tone); stroke: var(--surface); stroke-width: 2; vector-effect: non-scaling-stroke; }
+.tp-scholars .prf-find { fill: var(--tone); stroke: var(--surface); stroke-width: 1.5; vector-effect: non-scaling-stroke; }
+.tp-scholars .prf-label { fill: var(--ink); font-family: var(--sans); font-weight: 600; paint-order: stroke; stroke: var(--surface-2); stroke-width: 4px; stroke-linejoin: round; }
+@keyframes sc-prf-pulse { 50% { transform: scale(1.35); opacity: .55; } }
+@media (prefers-reduced-motion: reduce) { .tp-scholars .prf-halo { animation: none; } }
+.tp-scholars .prf-place { display: flex; gap: .4rem; align-items: center; margin-top: .65rem; font-size: .82rem; color: var(--muted); }
+.tp-scholars .prf-finds { margin: 0; padding: 0; list-style: none; }
+.tp-scholars .prf-finds li + li { margin-top: .7rem; padding-top: .7rem; border-top: 1px solid var(--line); }
+.tp-scholars .prf-finds b { font: 500 1rem var(--serif); }
+.tp-scholars .prf-finds span { display: block; font-size: .74rem; color: var(--muted); }
+.tp-scholars .prf-finds p { margin-top: .3rem; font-size: .82rem; line-height: 1.55; }
+.tp-scholars .prf-chain { font-size: .86rem; line-height: 1.55; }
+.tp-scholars .prf-chain-row { display: flex; flex-wrap: wrap; gap: .3rem; margin: .7rem 0 0; padding: 0; list-style: none; }
+.tp-scholars .prf-chain-row li { padding: .18rem .55rem; border: 1px solid var(--line); border-radius: 999px; font-size: .7rem; color: var(--muted); }
+.tp-scholars .prf-chain-row li.prf-on { border-color: var(--tone); background: var(--tone); color: var(--page); }
+
+@media (max-width: 860px) { .tp-scholars .prf-grid { grid-template-columns: minmax(0, 1fr); gap: 1.6rem; } }
+@media (max-width: 640px) {
+  .tp-scholars .prf-panel { width: 100%; height: 100%; border: 0; border-radius: 0; }
+  .tp-scholars .prf-body { padding: 1.2rem 1rem calc(2rem + env(safe-area-inset-bottom, 0px)); }
+  .tp-scholars .prf-head { gap: .9rem; }
+  .tp-scholars .prf-head .prf-mark { width: 64px; height: 64px; }
+  .tp-scholars .prf-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .tp-scholars .prf-facts > div:nth-child(3) { padding-left: 0; border-left: 0; }
+  .tp-scholars .prf-facts > div:nth-child(n + 3) { border-top: 1px solid var(--line); }
+  .tp-scholars .prf-areas li { grid-template-columns: 6.5rem minmax(0, 1fr); }
+}
