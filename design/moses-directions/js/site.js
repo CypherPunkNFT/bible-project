@@ -1,6 +1,6 @@
-// The site's frame (header, footer), the theme switch, the ticker, and the switcher between the four directions.
+// The site's frame (header, footer), the theme switch, the ticker, and the switcher between the directions.
 (() => {
-  const ORDER = ["road", "forties", "cinema", "constellation"];
+  const ORDER = ["road", "forties", "cinema", "constellation", "voices", "objects", "memory"];
   window.DIRECTIONS = {};
   function savedTheme() {
     try { const v = localStorage.getItem("bp-theme"); if (v === "dark" || v === "light") return v; } catch (error) { console.warn("theme: localStorage unavailable", error); }
@@ -30,7 +30,7 @@
       <nav class="foot-nav" aria-label="Footer">${paths.map(([title, links]) => `<div><h3>${title}</h3><ul>${links.map(([l, to]) => `<li><a href="${to}">${l}</a></li>`).join("")}</ul></div>`).join("")}</nav>
     </div></div></footer>`;
   };
-  const switcher = () => `<nav class="switcher" aria-label="Design directions">${ORDER.map((id, i) => `<button type="button" data-dir="${id}" style="--sw: ${DIRECTIONS[id].swatch}"><i></i><span class="sw-l">${"ABCD"[i]}</span>${DIRECTIONS[id].name}</button>`).join("")}</nav>`;
+  const switcher = () => `<nav class="switcher" aria-label="Design directions">${ORDER.map((id, i) => `<button type="button" data-dir="${id}" style="--sw: ${DIRECTIONS[id].swatch}"><i></i><span class="sw-l">${"ABCDEFG"[i]}</span><span class="sw-n">${DIRECTIONS[id].name}</span></button>`).join("")}</nav>`;
   // The breadcrumb every direction shares: back to People, and the page's own three old views now merged.
   window.topline = () => `<div class="topline"><a href="/study/people">${icon("arrowLeft", 15)}Back to People &amp; genealogies</a><span>Person · leader · prophet, one page</span></div>`;
 

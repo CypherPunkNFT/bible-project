@@ -138,3 +138,8 @@ main { flex: 1; min-width: 0; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
+
+/* Seven directions: the switcher scrolls if it must; on narrower screens only the chosen one shows its name. */
+.switcher { overflow-x: auto; scrollbar-width: none; } .switcher::-webkit-scrollbar { display: none; }
+@media (max-width: 1100px) { .switcher button:not([aria-pressed="true"]) .sw-n { display: none; } .switcher button { padding-inline: .7rem; } }
+@media (max-width: 560px) { .switcher .sw-l { display: inline; opacity: 1; font-size: .72rem; } .switcher button[aria-pressed="true"] .sw-l { opacity: .6; } .switcher button { padding: .5rem .62rem; } }
