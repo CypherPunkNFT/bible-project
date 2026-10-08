@@ -1,0 +1,133 @@
+/* B · Doors by age. The station idiom: seven line-art doors, then the subjects as lanes running through them. */
+.dir-b .dr-land { position: relative; isolation: isolate; display: flex; flex-direction: column; justify-content: center; min-height: calc(100dvh - 120px); padding-block: 1.6rem 1.2rem; }
+.dr-sky { position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: .55;
+  background-image: radial-gradient(circle at 12% 18%, var(--muted) 0 1px, transparent 1.5px), radial-gradient(circle at 62% 8%, var(--muted) 0 .8px, transparent 1.3px),
+    radial-gradient(circle at 38% 26%, var(--muted) 0 .7px, transparent 1.2px), radial-gradient(circle at 84% 22%, var(--muted) 0 1px, transparent 1.5px);
+  background-size: 210px 160px, 290px 190px, 170px 230px, 330px 210px; mask-image: linear-gradient(to bottom, #000 0, transparent 46%); -webkit-mask-image: linear-gradient(to bottom, #000 0, transparent 46%); }
+.dr-head { text-align: center; }
+.dr-head h1 { margin-top: .8rem; font: 400 clamp(2.6rem, 6vw, 4.8rem)/1 var(--serif); letter-spacing: -.035em; }
+.dr-head h1 em { color: var(--accent); }
+.dr-head p { max-width: 52ch; margin: .9rem auto 0; color: var(--muted); line-height: 1.7; }
+
+.doors { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: clamp(.4rem, 1.4vw, 1.2rem); margin-top: 2.4rem; align-items: end; }
+.door { position: relative; display: flex; flex-direction: column; align-items: center; color: var(--ink); text-align: center; }
+.door .arch { position: relative; width: 100%; aspect-ratio: 5 / 8; color: var(--tone); }
+.door .arch svg.frame { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.door .arch .fill { fill: color-mix(in srgb, var(--tone) 0%, transparent); transition: fill .35s; }
+.door .arch .aud-art { position: absolute; left: 10%; right: 10%; bottom: 7%; width: 80%; transition: transform .5s cubic-bezier(.2, .9, .3, 1); }
+.door .arch .glow { position: absolute; left: 50%; bottom: 0; width: 120%; height: 18%; transform: translateX(-50%); background: radial-gradient(ellipse at 50% 100%, color-mix(in srgb, var(--tone) 22%, transparent), transparent 70%); opacity: 0; transition: opacity .35s; }
+.door:hover .fill, .door.is-on .fill { fill: color-mix(in srgb, var(--tone) 7%, transparent); }
+.door:hover .aud-art, .door.is-on .aud-art { transform: translateY(-6px) scale(1.04); }
+.door:hover .glow, .door.is-on .glow { opacity: 1; }
+.door b { display: block; margin-top: .8rem; font: 500 1.08rem/1.15 var(--serif); }
+.door small { display: block; margin-top: .15rem; font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; color: var(--tone); }
+.door .n { display: block; margin-top: .35rem; font-size: .7rem; color: var(--muted); }
+.door.setting .arch svg.frame path { stroke-dasharray: none; }
+.dr-gap { border-left: 1px solid var(--line); }
+.dr-hint { max-width: 46rem; margin: 1.3rem auto 0; text-align: center; border-top: 0; }
+.dr-bar { display: flex; flex-wrap: wrap; justify-content: center; margin-top: 1.4rem; border-block: 1px solid var(--line); }
+.dr-bar div { display: flex; gap: .5rem; align-items: baseline; padding: .7rem 1.3rem; }
+.dr-bar div + div { border-left: 1px solid var(--line); }
+.dr-bar b { font: 500 1.5rem var(--serif); } .dr-bar span { font-size: .62rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+@media (max-width: 900px) {
+  .doors { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; margin-inline: -1rem; padding: 0 1rem .6rem; scrollbar-width: none; }
+  .door { flex: 0 0 38%; scroll-snap-align: start; }
+  .dir-b .dr-land { min-height: 0; }
+  .dr-bar div { padding: .55rem .8rem; } .dr-bar div:nth-child(4) { border-left: 0; }
+}
+
+/* 01 · Lanes: one per subject, a point at each door where a title exists. */
+.lanes-tools { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; margin-bottom: 1rem; }
+.lanes-tools .lab { font-size: .6rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); margin-right: .3rem; }
+.chip { display: inline-flex; align-items: center; gap: .4rem; min-height: 30px; padding: .25rem .75rem; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); font-size: .76rem; transition: border-color .2s, background .2s; }
+.chip[aria-pressed="true"] { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 12%, var(--surface)); }
+.lanes-scroll { overflow-x: auto; scrollbar-width: thin; }
+.lanes { position: relative; display: grid; grid-template-columns: 11.5rem repeat(7, minmax(4.6rem, 1fr)); min-width: 720px; }
+.lanes .colh { display: grid; justify-items: center; gap: .1rem; padding-bottom: .6rem; font-size: .68rem; color: var(--muted); text-align: center; border-bottom: 1px solid var(--line); }
+.lanes .colh .aud-art { width: 2.8rem; color: var(--tone); }
+.lanes .colh.setting { border-left: 1px dashed var(--line); }
+.lanes .rowh { display: flex; gap: .55rem; align-items: center; height: 3.1rem; font: 500 .9rem var(--serif); border-bottom: 1px solid color-mix(in srgb, var(--line) 60%, transparent); }
+.lanes .rowh .glyph { color: var(--accent); flex: none; }
+.lanes .cell { position: relative; display: flex; justify-content: center; align-items: center; gap: 5px; height: 3.1rem; border-bottom: 1px solid color-mix(in srgb, var(--line) 60%, transparent); }
+.lanes .cell::before { content: ""; position: absolute; left: 0; right: 0; top: 50%; border-top: 1px solid color-mix(in srgb, var(--ink) 16%, transparent); }
+.lanes .cell.setting { border-left: 1px dashed var(--line); }
+.pt { position: relative; z-index: 1; width: 13px; height: 13px; border-radius: 50%; border: 1.3px solid var(--tone); background: var(--page); transition: transform .2s, background .2s; }
+.pt.ready { background: var(--ink); border-color: var(--ink); width: 16px; height: 16px; }
+.pt:hover, .pt.is-on { transform: scale(1.5); background: var(--tone); }
+.pt.dim { opacity: .2; }
+.lanes svg.route { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; overflow: visible; }
+.route path { fill: none; stroke: var(--accent); stroke-width: 1.6; stroke-dasharray: 5 5; animation: march 3s linear infinite; }
+.route text { font: italic 500 14px var(--serif); fill: var(--accent); paint-order: stroke; stroke: var(--page); stroke-width: 5px; }
+@keyframes march { to { stroke-dashoffset: -20; } }
+.lanes-hint { position: sticky; left: 0; }
+
+/* Audience page: a door hero, then the constellation of what this door's titles are built from. */
+.dr-age { display: grid; grid-template-columns: minmax(0, 20rem) minmax(0, 1fr); gap: 2rem 4rem; align-items: end; padding-block: 1.8rem 1rem; }
+.dr-age .door { pointer-events: none; }
+.dr-age .door .fill { fill: color-mix(in srgb, var(--tone) 6%, transparent); }
+.dr-age h1 { margin-top: .8rem; font: 400 clamp(2.6rem, 5.5vw, 4.4rem)/1.02 var(--serif); letter-spacing: -.035em; }
+.dr-age h1 em { display: block; color: var(--tone); }
+.dr-age .figures { max-width: 34rem; }
+@media (max-width: 760px) { .dr-age { grid-template-columns: 1fr; } .dr-age .door { max-width: 12rem; } }
+.dr-others { display: flex; gap: .6rem; margin-top: 1.6rem; overflow-x: auto; scrollbar-width: none; }
+.dr-others a { flex: 0 0 auto; display: inline-flex; gap: .45rem; align-items: center; padding: .3rem .8rem .3rem .4rem; border: 1px solid var(--line); border-radius: 999px; font-size: .76rem; color: var(--muted); }
+.dr-others a .aud-art { width: 2rem; color: var(--tone); }
+.dr-others a[aria-current="page"] { border-color: var(--tone); color: var(--ink); }
+
+.constel { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 20rem); gap: 1.5rem 2.5rem; align-items: center; }
+.constel > div > svg { width: 100%; height: auto; overflow: visible; }
+.constel .ring { fill: none; stroke: var(--line); }
+.constel .lk { fill: none; stroke: color-mix(in srgb, var(--ink) 14%, transparent); stroke-width: 1; transition: stroke .25s, stroke-width .25s, opacity .25s; }
+.constel .lk.on { stroke: var(--tone); stroke-width: 1.6; }
+.constel .lk.off { opacity: .25; }
+.constel .it text { font: 500 14px var(--serif); fill: var(--ink); paint-order: stroke; stroke: var(--page); stroke-width: 5px; stroke-linejoin: round; }
+.constel .it circle { fill: var(--page); stroke: var(--tone); stroke-width: 1.4; }
+.constel .it.ready circle { fill: var(--ink); stroke: var(--ink); }
+.constel .src text { font: 400 11px var(--sans); fill: var(--muted); }
+.constel .src circle { fill: var(--muted); }
+.constel .it, .constel .src { cursor: pointer; }
+.constel .it.on text, .constel .src.on text { fill: var(--tone); }
+.constel .off { opacity: .3; }
+.constel-side h3 { font: 500 1.3rem/1.25 var(--serif); }
+.constel-side p { margin-top: .4rem; color: var(--muted); font-size: .84rem; line-height: 1.65; }
+.constel-side ul { margin-top: .8rem; border-top: 1px solid var(--line); }
+.constel-side li { padding: .45rem 0; border-bottom: 1px solid var(--line); font-size: .8rem; }
+@media (max-width: 860px) { .constel { grid-template-columns: 1fr; } }
+
+/* Item page: the three forties ring as the header. */
+.dr-item { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 2rem 3.5rem; align-items: start; padding-block: 1.6rem 1rem; }
+.forties { position: relative; }
+.forties svg { width: 100%; height: auto; overflow: visible; }
+.forties .arc { fill: none; stroke-width: 22; cursor: pointer; transition: stroke-width .25s, opacity .25s; }
+.forties .arc:hover, .forties .arc.on { stroke-width: 30; }
+.forties .part { fill: none; stroke: var(--line); stroke-width: 1; }
+.forties .lbl { font: italic 400 19px var(--serif); fill: var(--ink); }
+.forties .yr { font: 600 11px var(--sans); letter-spacing: .1em; fill: var(--muted); }
+.forties .num { font: 500 12px var(--sans); fill: var(--page); pointer-events: none; }
+.forties .centre-n { font: 400 64px var(--serif); fill: var(--ink); letter-spacing: -2px; }
+.forties .centre-s { font: 500 11px var(--sans); letter-spacing: .14em; fill: var(--muted); }
+.forties .walker { animation: walk 60s linear infinite; transform-origin: 300px 300px; }
+@keyframes walk { to { transform: rotate(360deg); } }
+.dr-item h1 { margin-top: .7rem; font: 400 clamp(2.2rem, 4.4vw, 3.4rem)/1.05 var(--serif); letter-spacing: -.03em; }
+.dr-item h1 em { color: var(--accent); }
+.dr-sess { margin-top: 1.2rem; padding-top: 1rem; border-top: 1px solid var(--ink); }
+.dr-sess-top { display: grid; grid-template-columns: 7.5rem minmax(0, 1fr); gap: 1rem; align-items: start; }
+.dr-sess-top .moses-art { color: var(--ink); }
+.dr-sess h3 { font: 500 1.45rem/1.15 var(--serif); }
+.dr-sess .read { font-size: .76rem; color: var(--muted); margin-top: .2rem; }
+.dr-sess .brief { margin-top: .7rem; color: var(--muted); line-height: 1.7; font-size: .88rem; }
+.dr-sess blockquote { margin: .8rem 0 0; padding-left: .9rem; border-left: 2px solid var(--accent); font: italic 400 1rem/1.55 var(--serif); }
+.dr-sess blockquote small { display: block; margin-top: .25rem; font: 400 .7rem var(--sans); color: var(--muted); }
+.dr-sess .qk { display: flex; flex-wrap: wrap; gap: .3rem 1.2rem; margin-top: .9rem; font-size: .74rem; color: var(--muted); }
+.dr-sess .qk b { font: 500 1.25rem var(--serif); color: var(--ink); margin-right: .2rem; }
+@media (max-width: 900px) { .dr-item { grid-template-columns: 1fr; } }
+
+.dr-mini { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 1rem; }
+.dr-mini .door b { font-size: .92rem; } .dr-mini .door .arch { aspect-ratio: 5 / 6.5; }
+@media (max-width: 760px) { .dr-mini { display: flex; overflow-x: auto; scrollbar-width: none; } .dr-mini .door { flex: 0 0 36%; } }
+.dir-b .wrap > *, .dr-item > *, .dr-age > *, .constel > * { min-width: 0; }
+.door .cnt { position: absolute; left: 0; right: 0; top: 30%; display: grid; justify-items: center; font: 300 clamp(1.6rem, 3vw, 2.6rem)/1 var(--serif); color: var(--tone); opacity: .75; }
+.door.setting .cnt { top: 26%; }
+.door .cnt small { margin-top: .2rem; font: 600 .56rem var(--sans); letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+.lanes .rowh, .lanes > span:first-child { position: sticky; left: 0; z-index: 2; background: var(--page); }
+@media (max-width: 640px) { .lanes { grid-template-columns: 8.6rem repeat(7, 4.4rem); min-width: 0; width: max-content; } .lanes .rowh { font-size: .82rem; } }

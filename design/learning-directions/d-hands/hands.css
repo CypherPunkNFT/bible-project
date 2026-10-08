@@ -1,0 +1,91 @@
+/* D · In your hands. Item-first: the real workbook open on the page, the catalogue gathered around it. */
+.ih-desk { display: grid; grid-template-columns: minmax(0, 17rem) minmax(0, 1fr); gap: 1.5rem 3rem; align-items: start; padding-block: 1.6rem .6rem; }
+.ih-side h1 { margin-top: .7rem; font: 400 clamp(2rem, 3.4vw, 2.8rem)/1.05 var(--serif); letter-spacing: -.03em; }
+.ih-side h1 em { display: block; color: var(--accent); }
+.ih-side .sum { margin-top: .8rem; font-size: .84rem; line-height: 1.7; color: var(--muted); }
+.ih-side .dl-row { flex-direction: column; align-items: flex-start; margin-block: 1.1rem 1.3rem; }
+.ih-toc { border-top: 1px solid var(--ink); }
+.ih-toc button { display: grid; grid-template-columns: 1.7rem 1fr auto; gap: .5rem; align-items: baseline; width: 100%; padding: .42rem 0; border-bottom: 1px solid var(--line); text-align: left; font-size: .8rem; color: var(--muted); }
+.ih-toc button b { font: 500 .88rem var(--serif); color: var(--ink); }
+.ih-toc button span:first-child { font-size: .62rem; letter-spacing: .1em; color: var(--accent); }
+.ih-toc button[aria-current="true"] b { color: var(--accent); }
+.ih-toc button:hover b { color: var(--accent); }
+@media (max-width: 900px) { .ih-desk { grid-template-columns: 1fr; } .ih-side { order: 2; } }
+
+/* The open book. */
+.book { position: relative; }
+.book-stage { position: relative; display: flex; justify-content: center; padding: 1.4rem 0 1.8rem; perspective: 2600px; }
+.book-stage::before { content: ""; position: absolute; left: 6%; right: 6%; bottom: .6rem; height: 2.2rem; border-radius: 50%; background: radial-gradient(ellipse at 50% 50%, rgb(60 40 10 / 22%), transparent 70%); filter: blur(4px); }
+.spread { position: relative; display: flex; width: min(100%, 60rem); aspect-ratio: 1818 / 1287; }
+.spread.single { width: min(100%, 30rem); aspect-ratio: 909 / 1287; }
+.leafslot { position: relative; flex: 1 1 0; min-width: 0; }
+.leafslot img, .face img { display: block; width: 100%; height: 100%; object-fit: contain; background: #fff; }
+.leafslot.l img { box-shadow: inset -18px 0 24px -20px rgb(0 0 0 / 35%); }
+.leafslot.r img { box-shadow: inset 18px 0 24px -20px rgb(0 0 0 / 35%); }
+.leafslot.blank { visibility: hidden; }
+.spread.solo > .leafslot { flex: 0 0 50%; }
+.spread.solo > .leafslot { margin-left: 25%; }
+.spread.solo .gutter { display: none; }
+.leafslot { border: 1px solid #ddd5c6; background: #fff; box-shadow: 0 30px 50px -36px rgb(0 0 0 / 55%); }
+.spread .gutter { position: absolute; top: 0; bottom: 0; left: 50%; width: 1px; background: rgb(0 0 0 / 14%); }
+.spread.single .gutter { display: none; }
+.leaf { position: absolute; top: 0; bottom: 0; width: 50%; transform-style: preserve-3d; z-index: 3; }
+.spread.single .leaf { width: 100%; left: 0; }
+.leaf .face { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; border: 1px solid #ddd5c6; background: #fff; }
+.leaf .back { transform: rotateY(180deg); }
+.hit { position: absolute; top: 0; bottom: 0; width: 30%; z-index: 4; cursor: pointer; }
+.hit.prev { left: 0; cursor: w-resize; } .hit.next { right: 0; cursor: e-resize; }
+.book-bar { display: flex; flex-wrap: wrap; gap: .6rem 1.2rem; align-items: center; justify-content: center; }
+.book-bar .round { display: grid; place-items: center; width: 40px; height: 40px; border: 1px solid var(--line); border-radius: 50%; background: var(--surface); }
+.book-bar .round:disabled { opacity: .35; cursor: default; }
+.book-bar .where { min-width: 14rem; text-align: center; font-size: .8rem; color: var(--muted); }
+.book-bar .where b { display: block; font: 500 1rem var(--serif); color: var(--ink); }
+.book-bar input[type="range"] { width: min(28rem, 100%); accent-color: var(--accent); }
+@media (max-width: 640px) { .book-bar .where { min-width: 0; flex: 1; } }
+
+/* A planned title in your hands: its outline cover, larger, with what it will be built from. */
+.held { display: grid; grid-template-columns: minmax(0, 18rem) minmax(0, 1fr); gap: 1.5rem 3rem; align-items: center; padding: 2.2rem 0; }
+.held .sketch { width: 100%; padding: 1.6rem 1rem 1.2rem; }
+.held .sketch .k { font-size: .6rem; } .held .sketch .n { font-size: 2rem; } .held .sketch .s { font-size: 1rem; } .held .sketch .p { font-size: .6rem; }
+.held h2 { font: 400 2.2rem/1.1 var(--serif); letter-spacing: -.02em; }
+.held p { margin-top: .6rem; color: var(--muted); line-height: 1.7; }
+@media (max-width: 700px) { .held { grid-template-columns: 1fr; } .held .sketch { max-width: 12rem; } }
+
+/* The catalogue gathered around: covers in the house design, filtered by reader. */
+.ih-cat-head { display: flex; flex-wrap: wrap; gap: .8rem 1.5rem; align-items: center; justify-content: space-between; margin-bottom: 1.2rem; }
+.ih-covers { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 6.8rem), 1fr)); gap: 1.3rem 1rem; }
+.ih-cover { display: grid; gap: .5rem; justify-items: start; text-align: left; }
+.ih-cover .sketch, .ih-cover .cover-img { width: 100%; transition: transform .35s cubic-bezier(.2, .9, .3, 1), box-shadow .3s; }
+.ih-cover:hover .sketch, .ih-cover:hover .cover-img { transform: translateY(-5px) rotate(-1deg); }
+.ih-cover b { font: 500 .8rem/1.25 var(--serif); }
+.ih-cover small { font-size: .66rem; color: var(--muted); }
+.ih-cover.on .sketch { border-style: solid; }
+@media (max-width: 520px) { .ih-covers { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem .7rem; } .ih-cover small { display: none; } }
+
+/* Audience page: the titles fanned on the table. */
+.ih-age { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1.5rem 3rem; align-items: center; padding-block: 1.6rem .6rem; }
+.ih-age h1 { margin-top: .7rem; font: 400 clamp(2.4rem, 5vw, 4rem)/1.05 var(--serif); letter-spacing: -.03em; }
+.ih-age h1 em { color: var(--tone); }
+.fan { position: relative; height: 22rem; }
+.fan button { position: absolute; bottom: 0; left: 50%; width: 9.5rem; transform-origin: 50% 120%; transition: transform .5s cubic-bezier(.2, .9, .3, 1); }
+.fan button .sketch, .fan button .cover-img { width: 100%; background: var(--page); box-shadow: 0 18px 30px -24px rgb(0 0 0 / 50%); }
+.fan button.on { z-index: 5; }
+@media (max-width: 860px) { .ih-age { grid-template-columns: 1fr; } .fan { height: 17rem; } .fan button { width: 7.4rem; } }
+.ih-pick { display: flex; flex-wrap: wrap; gap: .3rem; margin-top: 1.2rem; }
+.ih-pick a { padding: .3rem .8rem; border: 1px solid var(--line); border-radius: 999px; font-size: .76rem; color: var(--muted); }
+.ih-pick a[aria-current="page"] { background: var(--ink); color: var(--page); border-color: var(--ink); }
+.ih-from { display: flex; gap: 1rem; overflow-x: auto; padding: .4rem 0 1rem; scrollbar-width: thin; }
+.ih-from figure { flex: 0 0 8.5rem; }
+.ih-from img { width: 100%; border: 1px solid var(--line); background: #fff; }
+.ih-from figcaption { margin-top: .35rem; font-size: .68rem; color: var(--muted); }
+
+/* Item page: every page as a rail under the book. */
+.rail { display: flex; gap: 1.4rem; overflow-x: auto; padding: .3rem 0 1rem; scrollbar-width: thin; }
+.rail-group { flex: none; }
+.rail-group h4 { margin-bottom: .45rem; font-size: .6rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
+.rail-group div { display: flex; gap: 4px; }
+.rail button { width: 3.4rem; border: 1px solid var(--line); background: #fff; transition: transform .2s, border-color .2s; }
+.rail button img { width: 100%; display: block; }
+.rail button:hover { transform: translateY(-3px); }
+.rail button.on { border-color: var(--accent); box-shadow: 0 0 0 1.5px var(--accent); }
+.dir-d .wrap > *, .ih-desk > *, .ih-age > *, .held > * { min-width: 0; }
