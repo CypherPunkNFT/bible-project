@@ -7,7 +7,7 @@ import { FIRST_JOURNEY, STACK_BOUNDS } from "./layer-stack-data";
 const places = new Map((JSON.parse(readFileSync(path.resolve(__dirname, "../../../data/places.json"), "utf8")) as { id: string; lon: number; lat: number }[]).map((p) => [p.id, p]));
 
 describe("Atlas home layer stack", () => {
-  it("draws Paul's first journey exactly as the Letters study records it", () => {
+  it("draws Paul's first journey as the Letters study records it, up to Attalia (the voyage home is left off)", () => {
     const map = (paul as unknown as LetterGroup).maps!.find((m) => m.id === "journey-1")!;
     const points: [number, number][] = [];
     for (const stop of map.stops) {
@@ -16,7 +16,8 @@ describe("Atlas home layer stack", () => {
       const last = points.at(-1);
       if (!last || last[0] !== point[0] || last[1] !== point[1]) points.push(point);
     }
-    expect(FIRST_JOURNEY).toEqual(points);
+    expect(FIRST_JOURNEY).toEqual(points.slice(0, -1));
+    expect(points.at(-1)).toEqual(points[0]); // the left-off last leg returns to Antioch
   });
 
   it("keeps the whole journey inside the area shown", () => {
