@@ -9,12 +9,35 @@ export type StationArtKind = "preachers" | "authors" | "scholars" | "learning" |
 const P = ({ d, c = "sa-line", t = 0 }: { d: string; c?: string; t?: number }) => <path pathLength={1} className={c} style={{ "--d": t } as CSSProperties} d={d} />;
 const E = ({ x, y, rx, ry = rx, c = "sa-line", t = 0 }: { x: number; y: number; rx: number; ry?: number; c?: string; t?: number }) => <ellipse pathLength={1} className={c} style={{ "--d": t } as CSSProperties} cx={x} cy={y} rx={rx} ry={ry} />;
 
+/** Stars over the preacher's scene, kept outside the arcs of his voice: [x, y, size]. */
+const STARS: [number, number, number][] = [[18, 22, 3], [32, 48, 2.2], [76, 16, 2.4], [70, 40, 1.8], [172, 40, 1.8], [166, 14, 2.6], [206, 24, 3], [224, 50, 2.2]];
+
+/** The scholar's shelf: books side by side from x 12 to 228, each [width, height]; a negative height leans the book, a
+ *  zero height is a short stack lying flat. */
+const SHELF = (() => {
+  const books: [number, number][] = [[6, 26], [5, 22], [7, 30], [5, 24], [0, 0], [6, 28], [8, 20], [5, 25], [-9, 24], [6, 31], [5, 23], [7, 27],
+    [6, 21], [0, 0], [5, 29], [7, 24], [6, 26], [-9, 22], [5, 30], [6, 25], [8, 22], [5, 28], [6, 24], [0, 0], [7, 27], [5, 23], [6, 30], [5, 21],
+    [-8, 26], [6, 24], [7, 29], [5, 22]];
+  let x = 12, d = "";
+  for (const [w, h] of books) {
+    if (x > 222) break;
+    if (h === 0) { d += `M${x} 58V54H${x + 16}V58M${x + 1} 54V50H${x + 15}V54M${x + 2} 50V46H${x + 13}V50`; x += 17; continue; }
+    if (w < 0) { d += `M${x} 58L${x + 7} ${58 - h}L${x - w + 1} ${58 - h + 2}L${x - w - 6} 58`; x += -w + 1; continue; }
+    d += `M${x} 58V${58 - h}H${x + w}V58`;
+    x += w + 1;
+  }
+  return d;
+})();
+
 function Preachers() {
   return <>
-    {/* Behind: two tall arched windows with a mullion each, and the line where the wall meets the floor. */}
+    {/* Behind: two tall arched windows with a mullion each. */}
     <P d="M38 132V78A16 16 0 0 1 70 78V132ZM54 62V132M38 100H70" c="sa-faint" />
     <P d="M170 132V78A16 16 0 0 1 202 78V132ZM186 62V132M170 100H202" c="sa-faint" t={.03} />
-    <P d="M16 132H224" c="sa-faint" t={.05} />
+    {/* A cross above each window, and stars in the sky (they twinkle while the doorway is hovered). */}
+    <P d="M54 38V52M49 43H59M186 38V52M181 43H191" c="sa-fine" t={.05} />
+    {STARS.map(([x, y, r], i) => <path key={i} pathLength={1} className="sa-faint sa-star" style={{ "--d": .04 + i * .02, "--i": i } as CSSProperties}
+      d={`M${x} ${y - r}Q${x} ${y} ${x + r} ${y}Q${x} ${y} ${x} ${y + r}Q${x} ${y} ${x - r} ${y}Q${x} ${y} ${x} ${y - r}Z`} />)}
     <P d="M16 150H224" c="sa-fine" t={.06} />
     {/* The platform, the pulpit with its ledge and the open Bible on it. */}
     <P d="M74 150V143H166V150" c="sa-fine" t={.1} />
@@ -43,10 +66,9 @@ function Authors() {
 
 function Scholars() {
   return <>
-    {/* Behind: a shelf of books on each side, standing and leaning, above the desk. */}
-    <P d="M14 58H86M154 58H226" c="sa-faint" />
-    <P d="M18 58V32H25V58M26 58V28H32V58M33 58V36H41V58M42 58V30H47V58M50 58L60 34L66 36L56 58M68 58V38H76V58M78 58V33H84V58" c="sa-faint" t={.03} />
-    <P d="M158 58V34H165V58M166 58V30H173V58M174 58V38H181V58M184 58V31H190V58M191 58V36H199V58M201 58L208 35L214 37L207 58M216 58V40H222V58" c="sa-faint" t={.05} />
+    {/* Behind: one long shelf of books from wall to wall, standing, leaning and lying flat. */}
+    <P d="M10 58H230" c="sa-faint" />
+    <P d={SHELF} c="sa-faint" t={.03} />
     <P d="M12 146H228" t={.08} />
     {/* The open book: covers under the pages, the two pages, their edge, the writing and the spine. */}
     <P d="M40 80V128C68 118 98 120 120 131C142 120 172 118 200 128V80" c="sa-fine" t={.12} />
