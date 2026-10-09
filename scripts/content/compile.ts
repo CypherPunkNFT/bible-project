@@ -28,7 +28,7 @@ export function compileDocuments(documents: ContentDocument[], index: ScriptureI
   const SOURCES = ofKind("source").map(({ id, content }) => ({ id, ...content }));
   const TOPICS = ofKind("topic").map(({ id, content }) => ({ id, ...content }));
   const PATHS = ofKind("path").map(({ id, content }) => ({ id, ...content }));
-  const WORLDVIEWS = ofKind("worldview").map(({ id, content: c }) => ({ id, ...c, rows: c.rows.map((r) => ({ question: r.question, christian: r.christian.text, other: r.other.text, study: r.study, christianBasis: cites(r.christian.citations), otherBasis: cites(r.other.citations) })) }));
+  const WORLDVIEWS = ofKind("worldview").map(({ id, content: c }) => ({ id, ...c, rows: c.rows.map((r) => ({ id: r.id, question: r.question, christian: r.christian.text, other: r.other.text, study: r.study, christianBasis: cites(r.christian.citations), otherBasis: cites(r.other.citations) })) }));
   const DEBATES = ofKind("debate").map(({ id, content: c }) => ({ id, ...c, claim: c.claim.text, basis: cites(c.claim.citations) }));
   const PRACTICE = ofKind("practice").map(({ id, content: c }) => ({ id, ...c, explanation: c.explanation.text, basis: cites(c.explanation.citations) }));
   const editorial = ofKind("editorial").find((d) => d.id === "library")!.content;

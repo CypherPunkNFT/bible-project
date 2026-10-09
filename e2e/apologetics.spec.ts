@@ -83,8 +83,8 @@ test("apologetics: bookmarks, reflection and learning progress persist and can b
 
 test("apologetics: worldview comparison and sources lead to actual studies", async ({ page }) => {
   await page.goto("/apologetics/worldviews/islam");
-  await expect(page.getByRole("navigation", { name: "Comparison questions" }).getByRole("button")).toHaveCount(3);
-  await expect(page.locator(".wv-study-cards > article")).toHaveCount(6);
+  await expect(page.getByRole("navigation", { name: "Comparison questions" }).getByRole("button")).toHaveCount(WORLDVIEWS.find((item) => item.id === "islam")!.rows.length);
+  await expect(page.locator(".wv-study-cards > article")).toHaveCount(WORLDVIEWS.find((item) => item.id === "islam")!.studies.length);
   await expect(page.locator('.ap-source-grid a[href="https://quran.com/en/an-nisa/157"]')).toBeVisible();
   await page.locator(".wv-study-link").click();
   await expect(page).toHaveURL(/\/apologetics\/study\/islam-jesus$/);
@@ -204,7 +204,7 @@ test("apologetics: four worldview collections, shareable questions and local ref
       await buttons.nth(i).click();
       await expect(buttons.nth(i)).toHaveAttribute("aria-pressed", "true");
       await expect(page.locator(".wv-current-question h3")).toHaveText(item.rows[i].question);
-      await expect(page.locator(".wv-positions")).toContainText(item.rows[i].other);
+      await expect(page.locator(".wv-perspective .wv-position-copy p")).toHaveText(item.rows[i].other.split("\n\n"));
       await expect(page.locator(".wv-study-link")).toHaveAttribute("href", `/apologetics/study/${item.rows[i].study}`);
     }
     await page.reload();
@@ -246,4 +246,21 @@ test("apologetics: contextual sources and illustrated study cards support a read
   await expect(cards.first().getByRole("button", { name: /^Unsave:/ })).toHaveAttribute("aria-pressed", "true");
   await cards.first().locator("a").click();
   await expect(page).toHaveURL(/\/apologetics\/study\/islam-jesus$/);
+});
+
+
+test("apologetics: Islam uses independent cards and exact question links", async ({ page }) => {
+  await page.goto("/apologetics/worldviews/islam?question=sonship");
+  await expect(page.locator(".wv-current-question h3")).toHaveText("What does Son of God mean?");
+  await expect(page.getByRole("article", { name: "Christian truth", exact: true })).toBeVisible();
+  await expect(page.getByRole("article", { name: "Islamic perspective", exact: true })).toBeVisible();
+  await expect(page.locator(".wv-question-nav button svg")).toHaveCount(0);
+  const colors = await page.locator(".wv-positions article").evaluateAll(cards => cards.map(card => getComputedStyle(card).backgroundColor));
+  expect(colors[0]).not.toBe(colors[1]);
+  await page.reload();
+  await expect(page.locator(".wv-current-question h3")).toHaveText("What does Son of God mean?");
+  await page.locator('.wv-reading-connections a[href$="?question=created-jesus#comparison"]').first().click();
+  await expect(page.locator(".wv-current-question h3")).toHaveText("Was Jesus created?");
+  await page.goto("/apologetics/worldviews/islam?question=islam-trinity");
+  await expect(page.locator(".wv-current-question h3")).toHaveText("What does one God mean?");
 });

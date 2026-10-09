@@ -7,21 +7,29 @@
   "publication": "published",
   "content": {
     "title": "Christianity & Islam",
-    "subtitle": "One conversation. Real differences.",
-    "description": "Jesus, the oneness of God, the cross and Scripture. Read the Christian and Islamic texts together, then identify the question that needs an answer.",
+    "subtitle": "Explore the essential differences.",
+    "description": "Who is God? Who is Jesus? How are we forgiven? Explore twelve questions about the Christian truth and Islamic perspective, with Scripture and the relevant Qur’anic passages beside each answer.",
     "studies": [
       "islam-jesus",
       "islam-trinity",
       "islam-cross",
       "manuscripts",
       "grace",
-      "conversation"
+      "conversation",
+      "scripture"
     ],
     "sources": [
       "q112",
       "q4171",
       "q4157",
-      "creed"
+      "creed",
+      "q359",
+      "q3953",
+      "q5338",
+      "q4163",
+      "q3340",
+      "q548",
+      "q159"
     ],
     "rows": [
       {
@@ -29,15 +37,11 @@
         "question": "Who is Jesus?",
         "christian": {
           "id": "christian-1",
-          "text": "The eternal Son became truly human: one person, fully God and fully man.",
+          "text": "Jesus is the eternal Son who became truly human: one person, fully God and fully man. John identifies the Word as God before speaking of the Word becoming flesh.\n\nChrist’s humanity does not replace his deity. The Christian confession concerns the identity of the person who came to save us, not simply his place among religious teachers.",
           "citations": [
             {
               "kind": "scripture",
-              "reference": "John 1:1"
-            },
-            {
-              "kind": "scripture",
-              "reference": "John 1:14"
+              "reference": "John 1:1-14"
             },
             {
               "kind": "source",
@@ -48,7 +52,7 @@
         },
         "other": {
           "id": "other-1",
-          "text": "Qur’an 4:171 calls Jesus Messiah and messenger while rejecting divine sonship and the language of three.",
+          "text": "Qur’an 4:171 calls Jesus Messiah and messenger, a word communicated to Mary and a spirit from God. The same passage rejects divine sonship and tells its hearers not to say three.\n\nThese titles must be read within that rejection. They should not be turned into an admission that the Qur’an teaches the Christian incarnation.",
           "citations": [
             {
               "kind": "source",
@@ -64,8 +68,12 @@
         "question": "What does one God mean?",
         "christian": {
           "id": "christian-2",
-          "text": "One divine being in three distinct persons: Father, Son and Holy Spirit.",
+          "text": "There is one divine being in three distinct persons: Father, Son and Holy Spirit. Scripture affirms God’s unity while naming the Father, Son and Spirit together.\n\nThis is neither three gods nor one person changing roles. The distinction is between who the persons are and the one divine being they share.",
           "citations": [
+            {
+              "kind": "scripture",
+              "reference": "Deuteronomy 6:4"
+            },
             {
               "kind": "scripture",
               "reference": "Matthew 28:19"
@@ -79,7 +87,7 @@
         },
         "other": {
           "id": "other-2",
-          "text": "Qur’an 112 affirms oneness and denies begetting; 4:171 rejects the language of three.",
+          "text": "Qur’an 112 affirms God’s oneness, denies begetting and being begotten, and declares that none is comparable to him. Qur’an 4:171 rejects the language of three.\n\nThe agreement that God is one does not settle the disagreement about the Trinity. The comparison must address what each text says about that oneness.",
           "citations": [
             {
               "kind": "source",
@@ -100,11 +108,15 @@
         "question": "What happened at the cross?",
         "christian": {
           "id": "christian-3",
-          "text": "Christ died for our sins, was buried and rose bodily. His saving work is essential to the gospel.",
+          "text": "Christ died for our sins, was buried and rose bodily. His death is a willing saving act, and his resurrection belongs to the gospel Paul proclaims.\n\nThe cross is therefore more than the death of a prophet. Removing Christ’s death for sin removes the atoning work central to the Christian message.",
           "citations": [
             {
               "kind": "scripture",
               "reference": "1 Corinthians 15:3-8"
+            },
+            {
+              "kind": "scripture",
+              "reference": "John 10:17-18"
             },
             {
               "kind": "source",
@@ -115,7 +127,7 @@
         },
         "other": {
           "id": "other-3",
-          "text": "Qur’an 4:157 denies that Jesus' opponents killed or crucified him; 4:158 says God raised him.",
+          "text": "Qur’an 4:157 denies that Jesus’ opponents killed or crucified him; 4:158 says that God raised him. The text does not name a person substituted for Jesus.\n\nKeep the passage’s wording separate from later explanations of what happened. Ask which interpretation your neighbour holds before responding to it.",
           "citations": [
             {
               "kind": "source",
@@ -125,9 +137,309 @@
           ]
         },
         "study": "islam-cross"
+      },
+      {
+        "id": "sonship",
+        "question": "What does Son of God mean?",
+        "christian": {
+          "id": "christian-sonship",
+          "text": "The Son’s relation to the Father is eternal. The Christian confession does not describe God producing a child through a sexual act.\n\nThe Son already is before creation; the incarnation is his taking human nature. Explaining that distinction addresses a misunderstanding without removing the real disagreement.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "John 1:1-14"
+            },
+            {
+              "kind": "source",
+              "source": "wcf",
+              "locator": "2.3; 8.2"
+            }
+          ]
+        },
+        "other": {
+          "id": "other-sonship",
+          "text": "Qur’an 112:3 denies that God begets or is begotten, and 4:171 rejects God’s having a son. These statements set a boundary for the passage’s description of Jesus.\n\nClarifying that Christians do not mean biological procreation does not make the Qur’anic rejection disappear. The eternal sonship Christians confess remains the point to examine.",
+          "citations": [
+            {
+              "kind": "source",
+              "source": "q112",
+              "locator": "112:3"
+            },
+            {
+              "kind": "source",
+              "source": "q4171",
+              "locator": "4:171"
+            }
+          ]
+        },
+        "study": "islam-jesus"
+      },
+      {
+        "id": "created-jesus",
+        "question": "Was Jesus created?",
+        "christian": {
+          "id": "christian-created-jesus",
+          "text": "The Word exists before creation, and everything that was made came into being through him. The Son is not included among the creatures he made.\n\nHis human nature belongs to the incarnation; it does not mean that the eternal Son began to exist when Jesus was born.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "John 1:1-3"
+            },
+            {
+              "kind": "scripture",
+              "reference": "John 1:14"
+            },
+            {
+              "kind": "source",
+              "source": "wcf",
+              "locator": "8.2"
+            }
+          ]
+        },
+        "other": {
+          "id": "other-created-jesus",
+          "text": "Qur’an 3:59 compares Jesus with Adam in relation to God’s creative command. The verse points to God’s power to bring into being.\n\nRead this comparison beside 4:171 rather than treating Jesus’ extraordinary origin as a confession of his eternal deity.",
+          "citations": [
+            {
+              "kind": "source",
+              "source": "q359",
+              "locator": "3:59"
+            },
+            {
+              "kind": "source",
+              "source": "q4171",
+              "locator": "4:171"
+            }
+          ]
+        },
+        "study": "islam-jesus"
+      },
+      {
+        "id": "sin",
+        "question": "What is our problem with sin?",
+        "christian": {
+          "id": "christian-sin",
+          "text": "All have sinned and fall short of God’s glory. Romans also connects the human condition with Adam’s disobedience and contrasts it with Christ’s obedience.\n\nThe Christian answer addresses both our own sins and our need for the righteousness and life Christ gives.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "Romans 3:23-24"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Romans 5:12-19"
+            }
+          ]
+        },
+        "other": {
+          "id": "other-sin",
+          "text": "Qur’an 53:38–42 stresses that a burdened soul does not bear another’s burden and that each person’s endeavour receives recompense.\n\nThese verses foreground personal responsibility. They should be examined alongside the Christian account of Adam and Christ, without claiming that this brief passage surveys every Islamic discussion of human nature.",
+          "citations": [
+            {
+              "kind": "source",
+              "source": "q5338",
+              "locator": "53:38–42"
+            }
+          ]
+        },
+        "study": "grace"
+      },
+      {
+        "id": "forgiveness",
+        "question": "How does God forgive us?",
+        "christian": {
+          "id": "christian-forgiveness",
+          "text": "Forgiveness is received through Christ’s blood, according to the riches of God’s grace. God’s mercy is joined to Christ’s saving work.\n\nThe Christian proclamation explains forgiveness through the one who bears our sins, not by treating the cross as unnecessary.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "Ephesians 1:7"
+            },
+            {
+              "kind": "scripture",
+              "reference": "1 Peter 2:24"
+            }
+          ]
+        },
+        "other": {
+          "id": "other-forgiveness",
+          "text": "Qur’an 39:53 calls sinners not to despair of God’s mercy. The following verse calls them to turn back and submit to God.\n\nIslamic forgiveness must not be portrayed as mercyless. The comparison concerns the grounds and means of forgiveness, especially the place of Christ’s atoning work.",
+          "citations": [
+            {
+              "kind": "source",
+              "source": "q3953",
+              "locator": "39:53–54"
+            },
+            {
+              "kind": "source",
+              "source": "q4157",
+              "locator": "4:157–158"
+            }
+          ]
+        },
+        "study": "grace"
+      },
+      {
+        "id": "salvation",
+        "question": "Can good works save us?",
+        "christian": {
+          "id": "christian-salvation",
+          "text": "We are saved by grace through faith, not by works as grounds for boasting. Good works follow: believers are created in Christ for a life of obedience.\n\nThe gift and its fruit must be kept together. Christian obedience does not purchase the salvation Christ gives.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "Ephesians 2:8-10"
+            }
+          ]
+        },
+        "other": {
+          "id": "other-salvation",
+          "text": "Qur’an 53:39–41 describes human endeavour and recompense, while 39:53–54 speaks of mercy, repentance and submission.\n\nRead both themes together. The slogan that Muslims simply earn salvation leaves out the mercy these texts affirm; the disagreement still includes the saving work and identity of Christ.",
+          "citations": [
+            {
+              "kind": "source",
+              "source": "q5338",
+              "locator": "53:39–41"
+            },
+            {
+              "kind": "source",
+              "source": "q3953",
+              "locator": "39:53–54"
+            },
+            {
+              "kind": "source",
+              "source": "q4157",
+              "locator": "4:157–158"
+            }
+          ]
+        },
+        "study": "grace"
+      },
+      {
+        "id": "revelation",
+        "question": "How has God spoken?",
+        "christian": {
+          "id": "christian-revelation",
+          "text": "God spoke through the prophets and has spoken in his Son. Hebrews presents the Son as the radiance of God’s glory, not merely another messenger in a sequence.\n\nChristian revelation centres on the Son’s identity and work, with Scripture providing the authoritative testimony we examine.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "Hebrews 1:1-3"
+            },
+            {
+              "kind": "scripture",
+              "reference": "2 Timothy 3:16-17"
+            }
+          ]
+        },
+        "other": {
+          "id": "other-revelation",
+          "text": "Qur’an 4:163 places revelation to Muhammad alongside revelation to earlier prophets, naming figures including Abraham, Moses’ family and Jesus. Verses 164–165 describe messengers bringing good news and warnings.\n\nThis presents a claimed continuity of prophetic revelation. The Christian comparison asks whether that claim agrees with what the earlier Scriptures teach about the Son.",
+          "citations": [
+            {
+              "kind": "source",
+              "source": "q4163",
+              "locator": "4:163–165"
+            }
+          ]
+        },
+        "study": "scripture"
+      },
+      {
+        "id": "muhammad",
+        "question": "How do we assess Muhammad?",
+        "christian": {
+          "id": "christian-muhammad",
+          "text": "A later message must be tested against the gospel already proclaimed. Galatians warns against a different gospel even if its messenger claims heavenly authority.\n\nThe Christian assessment therefore begins with the message’s agreement with Christ and his gospel, rather than accepting a prophetic title as its own proof.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "Galatians 1:6-9"
+            }
+          ]
+        },
+        "other": {
+          "id": "other-muhammad",
+          "text": "Qur’an 33:40 describes Muhammad as God’s messenger and the seal of the prophets. Qur’an 4:163 places his revelation in continuity with earlier prophets.\n\nThese passages establish the Qur’an’s claim about Muhammad. Testing that claim requires examining the message and its grounds, not treating the assertion itself as independent verification.",
+          "citations": [
+            {
+              "kind": "source",
+              "source": "q3340",
+              "locator": "33:40"
+            },
+            {
+              "kind": "source",
+              "source": "q4163",
+              "locator": "4:163"
+            }
+          ]
+        },
+        "study": "scripture"
+      },
+      {
+        "id": "scripture",
+        "question": "Which Scripture is our authority?",
+        "christian": {
+          "id": "christian-scripture",
+          "text": "Scripture is God-breathed and equips the believer. In this library it is the final authority against which teaching is measured.\n\nA later religious text is not accepted as a correction of the apostolic gospel merely because it claims to confirm earlier revelation.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "2 Timothy 3:16-17"
+            },
+            {
+              "kind": "scripture",
+              "reference": "Galatians 1:6-9"
+            },
+            {
+              "kind": "source",
+              "source": "wcf",
+              "locator": "1.10"
+            }
+          ]
+        },
+        "other": {
+          "id": "other-scripture",
+          "text": "Qur’an 5:48 describes the Book revealed to Muhammad as confirming earlier Scripture and having authority over it in the linked translation. It calls for judgment by what God revealed.\n\nThe point to examine is how the Qur’an’s claimed relationship to earlier Scripture fits their actual contents. This verse alone does not settle every question about biblical manuscripts or interpretation.",
+          "citations": [
+            {
+              "kind": "source",
+              "source": "q548",
+              "locator": "5:48"
+            }
+          ]
+        },
+        "study": "scripture"
+      },
+      {
+        "id": "preservation",
+        "question": "Has Scripture been preserved?",
+        "christian": {
+          "id": "christian-preservation",
+          "text": "The Westminster Confession teaches that God has preserved Scripture through his care and providence. Christians can examine the manuscript witnesses while confessing that preservation.\n\nDistinguish the doctrinal claim from the historical questions about particular copies, variants and translations; a short comparison cannot replace that examination.",
+          "citations": [
+            {
+              "kind": "source",
+              "source": "wcf",
+              "locator": "1.8"
+            }
+          ]
+        },
+        "other": {
+          "id": "other-preservation",
+          "text": "Qur’an 15:9 promises that God will preserve the Reminder. The linked context identifies the Reminder with the revelation being challenged by Muhammad’s opponents.\n\nA promise of preservation is a claim to examine. It is not itself a complete historical account of the transmission of either the Qur’an or the Bible.",
+          "citations": [
+            {
+              "kind": "source",
+              "source": "q159",
+              "locator": "15:6–9"
+            }
+          ]
+        },
+        "study": "manuscripts"
       }
     ],
-    "otherLabel": "Islamic primary texts"
+    "otherLabel": "Islamic perspective"
   },
   "reviews": [
     {
@@ -147,6 +459,15 @@
       "date": "2026-10-05",
       "contentHash": "be7cd17561cd656f5702342e91bce5675843cd0e3094f69442e4d3c214da1b19",
       "basisHash": "fc52b985d1e9e4263ef1549d47f6e886376b07e34b7851a3e8445122633e50d6"
+    },
+    {
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Twelve comparisons and primary source context",
+      "note": "Checked linked Quran passages and Westminster references. Expanded explanations distinguish divine sonship, creation, sin, forgiveness, salvation, revelation and Scripture. Islamic mercy and interpretive differences are acknowledged. No human theological approval is claimed.",
+      "date": "2026-10-09",
+      "contentHash": "29dc56483d337c1cd4515a0dd7a88d1ce3e6564dfde6f46ca76862497b1c1856",
+      "basisHash": "0b230da15436c3e60d99369c960422f066e805b9f4a9b293daec53183d7e9ed4"
     }
   ]
 }
