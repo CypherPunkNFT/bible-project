@@ -1,0 +1,81 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "asset",
+  "id": "asset-sermons-moody-way-to-god-pg30449",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-10-08",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "editionId": "edition-sermons-moody-book-pg30449",
+  "sourceId": "source-gutenberg",
+  "canonicalUrl": "https://gutenberg.pglaf.org/3/0/4/4/30449/30449-h/30449-h.htm",
+  "finalUrl": "https://gutenberg.pglaf.org/3/0/4/4/30449/30449-h/30449-h.htm",
+  "format": "html",
+  "mediaKind": "text",
+  "acquisitionStatus": "downloaded",
+  "storage": "raw",
+  "relativePath": "library/source-gutenberg/asset-sermons-moody-way-to-god-pg30449/original.html",
+  "sha256": "59b2477f62b84885c62833ac8bb8cae2851efe08002b57d54ab53813b95ec016",
+  "byteCount": 230931,
+  "mimeType": "text/html",
+  "retrievedAt": "2026-10-09T00:21:00Z",
+  "rights": {
+    "category": "public-domain",
+    "jurisdiction": "United States",
+    "licenseId": null,
+    "licenseUrl": "https://www.gutenberg.org/policy/terms_of_use.html",
+    "attribution": "Author and host credited; the site links to the original page.",
+    "conditions": [],
+    "conditionsMet": false,
+    "actions": {
+      "download": "allowed",
+      "host": "unknown",
+      "redistribute": "unknown",
+      "adapt": "unknown",
+      "transcribe": "unknown",
+      "embed": "unknown",
+      "indexMetadata": "allowed",
+      "indexFullText": "unknown"
+    },
+    "evidence": [
+      {
+        "url": "https://gutenberg.pglaf.org/3/0/4/4/30449/30449-h/30449-h.htm",
+        "locator": "Host terms recorded in the acquisition TERMS.md",
+        "note": "Private noncommercial reading; no public hosting.",
+        "checkedOn": "2026-10-08"
+      }
+    ],
+    "unresolved": [
+      "No public hosting or public full-text index; the site links to the original."
+    ],
+    "review": {
+      "date": "2026-10-08",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  },
+  "fullTextIndexed": false,
+  "processing": {
+    "parentAssetId": null,
+    "method": "none",
+    "tool": null,
+    "toolVersion": null,
+    "parameters": null,
+    "date": null,
+    "note": "Original bytes unchanged."
+  },
+  "quality": {
+    "state": "sampled",
+    "reviewedBy": "Claude",
+    "reviewedOn": "2026-10-08",
+    "note": "Ten random entries checked against the held file at acquisition."
+  }
+}

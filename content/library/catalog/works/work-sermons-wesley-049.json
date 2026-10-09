@@ -1,0 +1,64 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-wesley-049",
+  "editorialState": "catalogued",
+  "notes": [
+    "Sermons on Several Occasions, Thomas Jackson edition (1872), Jackson numbering"
+  ],
+  "reviews": [
+    {
+      "date": "2026-10-08",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "The Cure of Evil-Speaking",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-john-wesley",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "eighteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Matt. 18:15-17",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 40018015,
+      "end": 40018017,
+      "verification": "verified",
+      "locator": "https://wesley.nnu.edu/john-wesley/the-sermons-of-john-wesley-1872-edition/sermon-49-the-cure-of-evil-speaking/; original.html, heading block under the title (block 1): \"If thy brother shall sin against thee, go and tell him his fault between thee and him alone: If he shall hear thee, thou hast gained thy brother. But if he will not hear, take with thee one or two more, that in the mouth of two or three witnesses every word may be established. And if he will not hear them, tell it to the Church. But if he does not hear the church, let him be to thee as an heathen man and a publican.\" Matt. 18:15-17"
+    }
+  ],
+  "related": [],
+  "externalIds": {
+    "officialDestination": [
+      "https://wesley.nnu.edu/john-wesley/the-sermons-of-john-wesley-1872-edition/sermon-49-the-cure-of-evil-speaking/"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://wesley.nnu.edu/john-wesley/the-sermons-of-john-wesley-1872-edition/sermon-49-the-cure-of-evil-speaking/",
+      "locator": "Sermon page",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

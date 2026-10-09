@@ -1,0 +1,93 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-moody-book-pg30657",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-10-08",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "Sovereign Grace: Its Source, Its Nature and Its Effects",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-d-l-moody",
+      "role": "author"
+    }
+  ],
+  "genre": "collected-works",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [],
+  "related": [
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-moody-011",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-moody-012",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-moody-013",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-moody-014",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-moody-015",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-moody-016",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-moody-017",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-moody-018",
+      "locator": null
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://www.gutenberg.org/ebooks/30657"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://www.gutenberg.org/ebooks/30657",
+      "locator": "Book landing page",
+      "note": "Held as one file; sermons catalogued separately.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-wesley-028",
+  "editorialState": "catalogued",
+  "notes": [
+    "Sermons on Several Occasions, Thomas Jackson edition (1872), Jackson numbering"
+  ],
+  "reviews": [
+    {
+      "date": "2026-10-08",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "Upon Our Lord's Sermon On The Mount: Discourse Eight",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-john-wesley",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "eighteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Matt. 6:19-23",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 40006019,
+      "end": 40006023,
+      "verification": "verified",
+      "locator": "https://wesley.nnu.edu/john-wesley/the-sermons-of-john-wesley-1872-edition/sermon-28-upon-our-lords-sermon-on-the-mount-discourse-eight/; original.html, heading block under the title (block 1): \"Lay not up for yourselves treasures upon earth, where moth and rust doth corrupt, and where thieves break through and steal: But lay up for yourselves treasures in heaven, where neither moth nor rust doth corrupt, and where thieves do not break through nor steal; For where your treasure is, there will your heart be also. The light of the body is the eye: if therefore thine eye be single, thy whole body shall be full of light. But if thine eye be evil, thy whole body shall be full of darkness. If therefore the light that is in thee be darkness, how great is that darkness!\" Matt. 6:19-23."
+    }
+  ],
+  "related": [],
+  "externalIds": {
+    "officialDestination": [
+      "https://wesley.nnu.edu/john-wesley/the-sermons-of-john-wesley-1872-edition/sermon-28-upon-our-lords-sermon-on-the-mount-discourse-eight/"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://wesley.nnu.edu/john-wesley/the-sermons-of-john-wesley-1872-edition/sermon-28-upon-our-lords-sermon-on-the-mount-discourse-eight/",
+      "locator": "Sermon page",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

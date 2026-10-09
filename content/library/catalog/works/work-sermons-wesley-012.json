@@ -1,0 +1,64 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-wesley-012",
+  "editorialState": "catalogued",
+  "notes": [
+    "Sermons on Several Occasions, Thomas Jackson edition (1872), Jackson numbering"
+  ],
+  "reviews": [
+    {
+      "date": "2026-10-08",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "The Witness of Our Own Spirit",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-john-wesley",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "eighteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "2 Cor. 1:12",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 47001012,
+      "end": 47001012,
+      "verification": "verified",
+      "locator": "https://wesley.nnu.edu/john-wesley/the-sermons-of-john-wesley-1872-edition/sermon-12-the-witness-of-our-own-spirit/; original.html, heading block under the title (block 1): \"This is our rejoicing, the testimony of out conscience, that in simplicity and godly sincerity, not with fleshly wisdom, but by the grace of God, we have had our conversation in the world.\" (2 Cor. 1:12.)"
+    }
+  ],
+  "related": [],
+  "externalIds": {
+    "officialDestination": [
+      "https://wesley.nnu.edu/john-wesley/the-sermons-of-john-wesley-1872-edition/sermon-12-the-witness-of-our-own-spirit/"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://wesley.nnu.edu/john-wesley/the-sermons-of-john-wesley-1872-edition/sermon-12-the-witness-of-our-own-spirit/",
+      "locator": "Sermon page",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

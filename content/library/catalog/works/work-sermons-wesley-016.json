@@ -1,0 +1,64 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-wesley-016",
+  "editorialState": "catalogued",
+  "notes": [
+    "Sermons on Several Occasions, Thomas Jackson edition (1872), Jackson numbering"
+  ],
+  "reviews": [
+    {
+      "date": "2026-10-08",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "The Means of Grace",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-john-wesley",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "eighteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Mal. 3:7",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 39003007,
+      "end": 39003007,
+      "verification": "verified",
+      "locator": "https://wesley.nnu.edu/john-wesley/the-sermons-of-john-wesley-1872-edition/sermon-16-the-means-of-grace/; original.html, heading block under the title (block 1): \"Ye are gone away from mine ordinances, and have not kept them.\" Mal. 3:7."
+    }
+  ],
+  "related": [],
+  "externalIds": {
+    "officialDestination": [
+      "https://wesley.nnu.edu/john-wesley/the-sermons-of-john-wesley-1872-edition/sermon-16-the-means-of-grace/"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://wesley.nnu.edu/john-wesley/the-sermons-of-john-wesley-1872-edition/sermon-16-the-means-of-grace/",
+      "locator": "Sermon page",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

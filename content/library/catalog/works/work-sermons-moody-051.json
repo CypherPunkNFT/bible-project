@@ -1,0 +1,60 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-moody-051",
+  "editorialState": "catalogued",
+  "notes": [
+    "Address. Title page: 'Addresses on the Ten Commandments' (1898). No text is stated. Opening words: “We have now considered the Ten Commandments, and the question for each one of us is—are we keeping them? If God should weigh us by them, would we be found …”"
+  ],
+  "reviews": [
+    {
+      "date": "2026-10-08",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "The Handwriting Blotted Out",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-d-l-moody",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-moody-book-pg33340",
+      "locator": "heading “The Handwriting Blotted Out” (HTML anchor #Out); item 12 of 12 in this file"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://www.gutenberg.org/ebooks/33340"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://www.gutenberg.org/ebooks/33340",
+      "locator": "heading “The Handwriting Blotted Out” (HTML anchor #Out); item 12 of 12 in this file",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

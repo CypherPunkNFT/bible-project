@@ -1,0 +1,64 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-wesley-025",
+  "editorialState": "catalogued",
+  "notes": [
+    "Sermons on Several Occasions, Thomas Jackson edition (1872), Jackson numbering"
+  ],
+  "reviews": [
+    {
+      "date": "2026-10-08",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "Upon Our Lord's Sermon On The Mount: Discourse Five",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-john-wesley",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "eighteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Matt. 5:17-20",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 40005017,
+      "end": 40005020,
+      "verification": "verified",
+      "locator": "https://wesley.nnu.edu/john-wesley/the-sermons-of-john-wesley-1872-edition/sermon-25-upon-our-lords-sermon-on-the-mount-discourse-five/; original.html, heading block under the title (block 1): \"Think not that I am come to destroy the Law or the prophets: I am not come to destroy, but to fulfil. For verily I say unto you: Till heaven and earth pass, one jot or one tittle shall in no wise pass from the law, till all be fulfilled. Whosoever therefore shall break one of these least commandments, and shall teach men so, he shall be called the least in the kingdom of heaven: but whosoever shall do and teach them, the same shall be called great in the kingdom of heaven. For verily I say unto you: That except your righteousness shall exceed the righteousness of the Scribes and Pharisees, ye shall in no case enter into the kingdom of heaven.\" Matt. 5:17-20"
+    }
+  ],
+  "related": [],
+  "externalIds": {
+    "officialDestination": [
+      "https://wesley.nnu.edu/john-wesley/the-sermons-of-john-wesley-1872-edition/sermon-25-upon-our-lords-sermon-on-the-mount-discourse-five/"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://wesley.nnu.edu/john-wesley/the-sermons-of-john-wesley-1872-edition/sermon-25-upon-our-lords-sermon-on-the-mount-discourse-five/",
+      "locator": "Sermon page",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

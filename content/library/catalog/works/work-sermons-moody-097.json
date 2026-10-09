@@ -1,0 +1,60 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-moody-097",
+  "editorialState": "catalogued",
+  "notes": [
+    "Address. The prefatory note says: 'These Addresses are not to be regarded as exhaustive, but suggestive.' (1884) No text is stated. Opening words: “The next thing we need to have, if we would get our prayers answered, is—Unity. If we do not love one another we certainly shall not have much power with …”"
+  ],
+  "reviews": [
+    {
+      "date": "2026-10-08",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "Unity",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-d-l-moody",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-moody-book-pg61883",
+      "locator": "heading “CHAPTER VII. / UNITY.”; item 7 of 11 in this file"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://www.gutenberg.org/ebooks/61883"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://www.gutenberg.org/ebooks/61883",
+      "locator": "heading “CHAPTER VII. / UNITY.”; item 7 of 11 in this file",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

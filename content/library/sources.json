@@ -2,7 +2,7 @@
   "$schema": "./schema.json",
   "schemaVersion": 1,
   "kind": "source-registry",
-  "updated": "2026-10-07",
+  "updated": "2026-10-08",
   "sources": [
     {
       "id": "source-prdl",
@@ -589,6 +589,40 @@
         }
       ],
       "reviewedOn": "2026-10-07"
+    },
+    {
+      "id": "source-wesley-center",
+      "name": "Wesley Center Online (Northwest Nazarene University)",
+      "url": "https://wesley.nnu.edu/",
+      "role": "content-host",
+      "automation": "approved-endpoint",
+      "acquisitionNote": "robots.txt blocks nothing; page footer allows personal or scholarly use, no commercial use without permission. 139 sermon pages fetched 2026-10-08 at 2 s spacing; see reports/sermons-campaign/wesley/TERMS.md.",
+      "evidence": [
+        {
+          "url": "https://wesley.nnu.edu/john-wesley/the-sermons-of-john-wesley-1872-edition/",
+          "locator": "Sermon index and page footer",
+          "note": "Terms read before retrieval.",
+          "checkedOn": "2026-10-08"
+        }
+      ],
+      "reviewedOn": "2026-10-08"
+    },
+    {
+      "id": "source-billy-graham",
+      "name": "Billy Graham Evangelistic Association",
+      "url": "https://billygraham.org/",
+      "role": "content-host",
+      "automation": "unreviewed",
+      "acquisitionNote": "Terms reviewed by the sermons campaign before retrieval; see reports/sermons-campaign/graham/TERMS.md.",
+      "evidence": [
+        {
+          "url": "https://billygraham.org/",
+          "locator": "Official site",
+          "note": "Identity of the official sermon source.",
+          "checkedOn": "2026-10-08"
+        }
+      ],
+      "reviewedOn": "2026-10-08"
     }
   ]
 }

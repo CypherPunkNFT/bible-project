@@ -1,0 +1,113 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-moody-book-pg33340",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-10-08",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "Weighed and Wanting: Addresses on the Ten Commandments",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-d-l-moody",
+      "role": "author"
+    }
+  ],
+  "genre": "collected-works",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [],
+  "related": [
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-moody-040",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-moody-041",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-moody-042",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-moody-043",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-moody-044",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-moody-045",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-moody-046",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-moody-047",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-moody-048",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-moody-049",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-moody-050",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-moody-051",
+      "locator": null
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://www.gutenberg.org/ebooks/33340"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://www.gutenberg.org/ebooks/33340",
+      "locator": "Book landing page",
+      "note": "Held as one file; sermons catalogued separately.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

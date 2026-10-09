@@ -1,0 +1,70 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-moody-003",
+  "editorialState": "catalogued",
+  "notes": [
+    "Book chapter. The author's note 'To the Reader' says: 'I have embodied in the little book a considerable part of several addresses which have been delivered in different cities, both of Great Britain and my own country' — so each chapter is adapted from addresses, with 'additional matter'."
+  ],
+  "reviews": [
+    {
+      "date": "2026-10-08",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "The Gateway into the Kingdom",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-d-l-moody",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "John 3:3",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 43003003,
+      "end": 43003003,
+      "verification": "verified",
+      "locator": "https://www.gutenberg.org/ebooks/30449; Printed under the chapter title.; printed: “Except a man be born again he cannot enter the kingdom of God.” (John iii. 3.)"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-moody-book-pg30449",
+      "locator": "heading “CHAPTER II.” (HTML anchor #II); item 2 of 9 in this file"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://www.gutenberg.org/ebooks/30449"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://www.gutenberg.org/ebooks/30449",
+      "locator": "heading “CHAPTER II.” (HTML anchor #II); item 2 of 9 in this file",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

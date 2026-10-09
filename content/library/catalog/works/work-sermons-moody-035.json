@@ -1,0 +1,70 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-moody-035",
+  "editorialState": "catalogued",
+  "notes": [
+    "Sermon. The book's title page calls these 'Sermons' ('The Overcoming Life, and Other Sermons', 1896). The same sermon also appears in To the Work! (Gutenberg #33014) as 'CHAPTER IX. “YE ARE THE LIGHT OF THE WORLD.”' (anchor #c9). There the Daniel quotation opens the chapter without the 'Dan. 12:3.' reference. Most of the wording is identical. Second locator: asset asset-sermons-moody-to-the-work-pg33014, heading “CHAPTER IX.” (HTML anchor #c9); item 9 of 9 in this file."
+  ],
+  "reviews": [
+    {
+      "date": "2026-10-08",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "True Wisdom",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-d-l-moody",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Dan. 12:3",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 27012003,
+      "end": 27012003,
+      "verification": "verified",
+      "locator": "https://www.gutenberg.org/ebooks/33015; Printed as the opening words under the heading.; printed: “They that be wise shall shine as the brightness of the firmament; and they that turn many to righteousness as the stars"
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-moody-book-pg33015",
+      "locator": "heading “TRUE WISDOM.” (HTML anchor #wisdom); item 3 of 7 in this file"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://www.gutenberg.org/ebooks/33015"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://www.gutenberg.org/ebooks/33015",
+      "locator": "heading “TRUE WISDOM.” (HTML anchor #wisdom); item 3 of 7 in this file",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

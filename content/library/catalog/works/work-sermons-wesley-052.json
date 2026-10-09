@@ -1,0 +1,80 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-wesley-052",
+  "editorialState": "catalogued",
+  "notes": [
+    "Sermons on Several Occasions, Thomas Jackson edition (1872), Jackson numbering",
+    "Place: Chapel in West-Street, Seven-Dials, London"
+  ],
+  "reviews": [
+    {
+      "date": "2026-10-08",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "The Reformation of Manners",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-john-wesley",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "eighteenth-century",
+  "dates": [
+    {
+      "event": "delivery",
+      "value": "1763-01-30",
+      "precision": "day",
+      "label": "Preached before the Society for Reformation of Manners on Sunday, January 30, 1763 at the Chapel in West-Street, Seven-Dials",
+      "evidence": [
+        {
+          "url": "https://wesley.nnu.edu/john-wesley/the-sermons-of-john-wesley-1872-edition/sermon-52-the-reformation-of-manners/",
+          "locator": "Printed with the sermon",
+          "note": "Preaching date as printed by the source.",
+          "checkedOn": "2026-10-08"
+        }
+      ]
+    }
+  ],
+  "passages": [
+    {
+      "reference": "Ps. 94:16",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 19094016,
+      "end": 19094016,
+      "verification": "verified",
+      "locator": "https://wesley.nnu.edu/john-wesley/the-sermons-of-john-wesley-1872-edition/sermon-52-the-reformation-of-manners/; original.html, heading block under the title (block 2): \"Who will rise up with me against the wicked\" Ps. 94:16."
+    }
+  ],
+  "related": [],
+  "externalIds": {
+    "officialDestination": [
+      "https://wesley.nnu.edu/john-wesley/the-sermons-of-john-wesley-1872-edition/sermon-52-the-reformation-of-manners/"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://wesley.nnu.edu/john-wesley/the-sermons-of-john-wesley-1872-edition/sermon-52-the-reformation-of-manners/",
+      "locator": "Sermon page",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "asset",
+  "id": "asset-sermons-wesley-126-on-the-danger-of-increasing-riches",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-10-08",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "editionId": "edition-sermons-wesley-126",
+  "sourceId": "source-wesley-center",
+  "canonicalUrl": "https://wesley.nnu.edu/john-wesley/the-sermons-of-john-wesley-1872-edition/sermon-126-on-the-danger-of-increasing-riches/",
+  "finalUrl": "https://wesley.nnu.edu/john-wesley/the-sermons-of-john-wesley-1872-edition/sermon-126-on-the-danger-of-increasing-riches/",
+  "format": "html",
+  "mediaKind": "text",
+  "acquisitionStatus": "downloaded",
+  "storage": "raw",
+  "relativePath": "library/source-wesley-center/asset-sermons-wesley-126-on-the-danger-of-increasing-riches/original.html",
+  "sha256": "1628a86af05785eb09ff17eb14b9b94d7820cba587d7f2f83d09bb759e254d37",
+  "byteCount": 30760,
+  "mimeType": "text/html",
+  "retrievedAt": "2026-10-09T00:26:21.840755Z",
+  "rights": {
+    "category": "public-domain",
+    "jurisdiction": "United States",
+    "licenseId": null,
+    "licenseUrl": "https://wesley.nnu.edu/robots.txt",
+    "attribution": "Author and host credited; the site links to the original page.",
+    "conditions": [],
+    "conditionsMet": false,
+    "actions": {
+      "download": "allowed",
+      "host": "unknown",
+      "redistribute": "unknown",
+      "adapt": "unknown",
+      "transcribe": "unknown",
+      "embed": "unknown",
+      "indexMetadata": "allowed",
+      "indexFullText": "unknown"
+    },
+    "evidence": [
+      {
+        "url": "https://wesley.nnu.edu/john-wesley/the-sermons-of-john-wesley-1872-edition/sermon-126-on-the-danger-of-increasing-riches/",
+        "locator": "Host terms recorded in the acquisition TERMS.md",
+        "note": "Private noncommercial reading; no public hosting.",
+        "checkedOn": "2026-10-08"
+      }
+    ],
+    "unresolved": [
+      "No public hosting or public full-text index; the site links to the original."
+    ],
+    "review": {
+      "date": "2026-10-08",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  },
+  "fullTextIndexed": false,
+  "processing": {
+    "parentAssetId": null,
+    "method": "none",
+    "tool": null,
+    "toolVersion": null,
+    "parameters": null,
+    "date": null,
+    "note": "Original bytes unchanged."
+  },
+  "quality": {
+    "state": "sampled",
+    "reviewedBy": "Claude",
+    "reviewedOn": "2026-10-08",
+    "note": "Ten random entries checked against the held file at acquisition."
+  }
+}

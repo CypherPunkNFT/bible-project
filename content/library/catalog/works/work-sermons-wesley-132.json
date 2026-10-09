@@ -1,0 +1,80 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-wesley-132",
+  "editorialState": "catalogued",
+  "notes": [
+    "Sermons on Several Occasions, Thomas Jackson edition (1872), Jackson numbering",
+    "Place: New Chapel, near the City-Road, London (laying of the foundation)"
+  ],
+  "reviews": [
+    {
+      "date": "2026-10-08",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "On Laying The Foundation Of The New Chapel, Near The City-Road, London.",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-john-wesley",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "eighteenth-century",
+  "dates": [
+    {
+      "event": "delivery",
+      "value": "1777-04-21",
+      "precision": "day",
+      "label": "PREACHED ON MONDAY, APRIL 21, 1777",
+      "evidence": [
+        {
+          "url": "https://wesley.nnu.edu/john-wesley/the-sermons-of-john-wesley-1872-edition/sermon-132-on-laying-the-foundation-of-the-new-chapel-near-the-city-road-london/",
+          "locator": "Printed with the sermon",
+          "note": "Preaching date as printed by the source.",
+          "checkedOn": "2026-10-08"
+        }
+      ]
+    }
+  ],
+  "passages": [
+    {
+      "reference": "Num. 23:23",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 4023023,
+      "end": 4023023,
+      "verification": "verified",
+      "locator": "https://wesley.nnu.edu/john-wesley/the-sermons-of-john-wesley-1872-edition/sermon-132-on-laying-the-foundation-of-the-new-chapel-near-the-city-road-london/; original.html, heading block under the title (block 2): \"According to this time it shall be said, -- What hath God wrought!\" Num. 23:23."
+    }
+  ],
+  "related": [],
+  "externalIds": {
+    "officialDestination": [
+      "https://wesley.nnu.edu/john-wesley/the-sermons-of-john-wesley-1872-edition/sermon-132-on-laying-the-foundation-of-the-new-chapel-near-the-city-road-london/"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://wesley.nnu.edu/john-wesley/the-sermons-of-john-wesley-1872-edition/sermon-132-on-laying-the-foundation-of-the-new-chapel-near-the-city-road-london/",
+      "locator": "Sermon page",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

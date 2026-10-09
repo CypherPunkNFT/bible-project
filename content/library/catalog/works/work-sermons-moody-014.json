@@ -1,0 +1,60 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-moody-014",
+  "editorialState": "catalogued",
+  "notes": [
+    "Book chapter. The prefatory note says: 'The following pages record the addresses I have given on the various aspects of this great subject.' (The book's three 'Gospel Dialogues' are question-and-answer exchanges, not sermons, and are left out.) No text is stated. Opening words: “I WANT to lay emphasis on the fact that God desires to show mercy to all. Christ’s last command to His disciples was, “Go ye into all the world and preach …”"
+  ],
+  "reviews": [
+    {
+      "date": "2026-10-08",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "Grace Abounding to the Chief of Sinners",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-d-l-moody",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-moody-book-pg30657",
+      "locator": "heading “CHAPTER IV.” (HTML anchor #IV); item 4 of 8 in this file"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://www.gutenberg.org/ebooks/30657"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://www.gutenberg.org/ebooks/30657",
+      "locator": "heading “CHAPTER IV.” (HTML anchor #IV); item 4 of 8 in this file",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "asset",
+  "id": "asset-sermons-moody-blessed-hope-pg27316",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-10-08",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "editionId": "edition-sermons-moody-book-pg27316",
+  "sourceId": "source-gutenberg",
+  "canonicalUrl": "https://gutenberg.pglaf.org/2/7/3/1/27316/27316-h/27316-h.htm",
+  "finalUrl": "https://gutenberg.pglaf.org/2/7/3/1/27316/27316-h/27316-h.htm",
+  "format": "html",
+  "mediaKind": "text",
+  "acquisitionStatus": "downloaded",
+  "storage": "raw",
+  "relativePath": "library/source-gutenberg/asset-sermons-moody-blessed-hope-pg27316/original.html",
+  "sha256": "cb226c3a02a64ed08e4f1415f414a396b1982408548151783762b1ac1f670809",
+  "byteCount": 48827,
+  "mimeType": "text/html",
+  "retrievedAt": "2026-10-09T00:20:57Z",
+  "rights": {
+    "category": "public-domain",
+    "jurisdiction": "United States",
+    "licenseId": null,
+    "licenseUrl": "https://www.gutenberg.org/policy/terms_of_use.html",
+    "attribution": "Author and host credited; the site links to the original page.",
+    "conditions": [],
+    "conditionsMet": false,
+    "actions": {
+      "download": "allowed",
+      "host": "unknown",
+      "redistribute": "unknown",
+      "adapt": "unknown",
+      "transcribe": "unknown",
+      "embed": "unknown",
+      "indexMetadata": "allowed",
+      "indexFullText": "unknown"
+    },
+    "evidence": [
+      {
+        "url": "https://gutenberg.pglaf.org/2/7/3/1/27316/27316-h/27316-h.htm",
+        "locator": "Host terms recorded in the acquisition TERMS.md",
+        "note": "Private noncommercial reading; no public hosting.",
+        "checkedOn": "2026-10-08"
+      }
+    ],
+    "unresolved": [
+      "No public hosting or public full-text index; the site links to the original."
+    ],
+    "review": {
+      "date": "2026-10-08",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  },
+  "fullTextIndexed": false,
+  "processing": {
+    "parentAssetId": null,
+    "method": "none",
+    "tool": null,
+    "toolVersion": null,
+    "parameters": null,
+    "date": null,
+    "note": "Original bytes unchanged."
+  },
+  "quality": {
+    "state": "sampled",
+    "reviewedBy": "Claude",
+    "reviewedOn": "2026-10-08",
+    "note": "Ten random entries checked against the held file at acquisition."
+  }
+}

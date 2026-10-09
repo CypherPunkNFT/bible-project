@@ -45,5 +45,5 @@ export function readsOf(people: Person[]): Read[] {
   return reads;
 }
 
-const COUNT_WORDS: Record<number, string> = { 2: "Two", 3: "Three", 47: "Forty-seven" };
+const COUNT_WORDS: Record<number, string> = { 2: "Two", 3: "Three", 47: "Forty-seven", 50: "Fifty" };
 export const countWord = (n: number) => COUNT_WORDS[n] ?? String(n);

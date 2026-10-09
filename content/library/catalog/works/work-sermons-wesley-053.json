@@ -1,0 +1,81 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-wesley-053",
+  "editorialState": "catalogued",
+  "notes": [
+    "Sermons on Several Occasions, Thomas Jackson edition (1872), Jackson numbering",
+    "Place: Chapel in Tottenham-Court-Road and the Tabernacle near Moorfields, London",
+    "Already held (TCP/Evans, Boston 1771 printing, CC0 XML); not re-downloaded per reuse rule. Title page also carries an epigraph 'Sam. xii. 23.' which is not the sermon text. Wesley Center page: https://wesley.nnu.edu/john-wesley/the-sermons-of-john-wesley-1872-edition/sermon-53-on-the-death-of-george-whitefield/"
+  ],
+  "reviews": [
+    {
+      "date": "2026-10-08",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "On the Death of the Rev. Mr. George Whitefield",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-john-wesley",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "eighteenth-century",
+  "dates": [
+    {
+      "event": "delivery",
+      "value": "1770-11-18",
+      "precision": "day",
+      "label": "PREACHED At the CHAPEL in Tottenham-Court-Road, AND At the TABERNACLE near Moorfields, On SUNDAY November 18, 1770.",
+      "evidence": [
+        {
+          "url": "https://raw.githubusercontent.com/textcreationpartnership/N09644/master/N09644.xml",
+          "locator": "Printed with the sermon",
+          "note": "Preaching date as printed by the source.",
+          "checkedOn": "2026-10-08"
+        }
+      ]
+    }
+  ],
+  "passages": [
+    {
+      "reference": "Numbers 23:10",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 4023010,
+      "end": 4023010,
+      "verification": "verified",
+      "locator": "https://raw.githubusercontent.com/textcreationpartnership/N09644/master/N09644.xml; library/source-tcp-bulk/asset-bulk-tcp-n09644/original.xml, heading of the sermon body: 'NUMBERS xxiii. 10. Let me die the death of the Righteous, and let my last end be like his!'; printed: NUMBERS xxiii. 10"
+    }
+  ],
+  "related": [],
+  "externalIds": {
+    "officialDestination": [
+      "https://raw.githubusercontent.com/textcreationpartnership/N09644/master/N09644.xml"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/N09644/master/N09644.xml",
+      "locator": "Sermon page",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

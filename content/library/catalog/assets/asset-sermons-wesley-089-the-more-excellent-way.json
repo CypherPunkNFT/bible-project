@@ -1,0 +1,81 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "asset",
+  "id": "asset-sermons-wesley-089-the-more-excellent-way",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-10-08",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "editionId": "edition-sermons-wesley-089",
+  "sourceId": "source-wesley-center",
+  "canonicalUrl": "https://wesley.nnu.edu/john-wesley/the-sermons-of-john-wesley-1872-edition/sermon-89-the-more-excellent-way/",
+  "finalUrl": "https://wesley.nnu.edu/john-wesley/the-sermons-of-john-wesley-1872-edition/sermon-89-the-more-excellent-way/",
+  "format": "html",
+  "mediaKind": "text",
+  "acquisitionStatus": "downloaded",
+  "storage": "raw",
+  "relativePath": "library/source-wesley-center/asset-sermons-wesley-089-the-more-excellent-way/original.html",
+  "sha256": "7bb836d00253061b10149aca35330f7e3c3a58b112eb10c246c753f18e0e48ae",
+  "byteCount": 37829,
+  "mimeType": "text/html",
+  "retrievedAt": "2026-10-09T00:24:41.652401Z",
+  "rights": {
+    "category": "public-domain",
+    "jurisdiction": "United States",
+    "licenseId": null,
+    "licenseUrl": "https://wesley.nnu.edu/robots.txt",
+    "attribution": "Author and host credited; the site links to the original page.",
+    "conditions": [],
+    "conditionsMet": false,
+    "actions": {
+      "download": "allowed",
+      "host": "unknown",
+      "redistribute": "unknown",
+      "adapt": "unknown",
+      "transcribe": "unknown",
+      "embed": "unknown",
+      "indexMetadata": "allowed",
+      "indexFullText": "unknown"
+    },
+    "evidence": [
+      {
+        "url": "https://wesley.nnu.edu/john-wesley/the-sermons-of-john-wesley-1872-edition/sermon-89-the-more-excellent-way/",
+        "locator": "Host terms recorded in the acquisition TERMS.md",
+        "note": "Private noncommercial reading; no public hosting.",
+        "checkedOn": "2026-10-08"
+      }
+    ],
+    "unresolved": [
+      "No public hosting or public full-text index; the site links to the original."
+    ],
+    "review": {
+      "date": "2026-10-08",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  },
+  "fullTextIndexed": false,
+  "processing": {
+    "parentAssetId": null,
+    "method": "none",
+    "tool": null,
+    "toolVersion": null,
+    "parameters": null,
+    "date": null,
+    "note": "Original bytes unchanged."
+  },
+  "quality": {
+    "state": "sampled",
+    "reviewedBy": "Claude",
+    "reviewedOn": "2026-10-08",
+    "note": "Ten random entries checked against the held file at acquisition."
+  }
+}

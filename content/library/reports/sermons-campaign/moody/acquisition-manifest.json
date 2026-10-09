@@ -1,0 +1,1439 @@
+{
+  "sources": [
+    {
+      "name": "Project Gutenberg (official mirror gutenberg.pglaf.org; catalogue CSV from www.gutenberg.org/cache/epub/feeds/)",
+      "sourceFolder": "library/source-gutenberg-moody",
+      "policyUrls": [
+        "https://www.gutenberg.org/policy/terms_of_use.html",
+        "https://www.gutenberg.org/policy/robot_access.html"
+      ],
+      "heldWorks": [
+        {
+          "ebook": 27316,
+          "relativePath": "library/source-gutenberg-moody/asset-sermons-moody-blessed-hope-pg27316/original.html"
+        },
+        {
+          "ebook": 30449,
+          "relativePath": "library/source-gutenberg-moody/asset-sermons-moody-way-to-god-pg30449/original.html"
+        },
+        {
+          "ebook": 30657,
+          "relativePath": "library/source-gutenberg-moody/asset-sermons-moody-sovereign-grace-pg30657/original.html"
+        },
+        {
+          "ebook": 30740,
+          "relativePath": "library/source-gutenberg-moody/asset-sermons-moody-men-of-the-bible-pg30740/original.html"
+        },
+        {
+          "ebook": 33014,
+          "relativePath": "library/source-gutenberg-moody/asset-sermons-moody-to-the-work-pg33014/original.html"
+        },
+        {
+          "ebook": 33015,
+          "relativePath": "library/source-gutenberg-moody/asset-sermons-moody-overcoming-life-pg33015/original.html"
+        },
+        {
+          "ebook": 33340,
+          "relativePath": "library/source-gutenberg-moody/asset-sermons-moody-weighed-and-wanting-pg33340/original.html"
+        },
+        {
+          "ebook": 33520,
+          "relativePath": "library/source-gutenberg-moody/asset-sermons-moody-wondrous-love-pg33520/original.html"
+        },
+        {
+          "ebook": 54736,
+          "relativePath": "library/source-gutenberg-moody/asset-sermons-moody-bible-characters-pg54736/original.html"
+        },
+        {
+          "ebook": 61883,
+          "relativePath": "library/source-gutenberg-moody/asset-sermons-moody-prevailing-prayer-pg61883/original.html"
+        }
+      ],
+      "reviewedNotHeld": [
+        {
+          "ebook": 30768,
+          "title": "Sowing and Reaping (1896)",
+          "reason": "A continuous book on Galatians 6:7. Chapters III–VI are a single four-point outline split across chapters, so the chapters are not separate addresses."
+        },
+        {
+          "ebook": 33341,
+          "title": "Secret Power (1881)",
+          "reason": "The preface calls it 'this book'. Its chapters are topical essays on the Holy Spirit, opening with quoted epigraphs from other writers, not addresses."
+        },
+        {
+          "ebook": 36655,
+          "title": "Pleasure & Profit in Bible Study (1895)",
+          "reason": "A Bible-study manual (methods, marking, book-by-book helps), not sermons."
+        },
+        {
+          "ebook": 19830,
+          "title": "Moody's Anecdotes and Illustrations",
+          "reason": "Topical anthology of stories. Not downloaded."
+        },
+        {
+          "ebook": 33024,
+          "title": "Moody's Stories",
+          "reason": "Anecdote anthology. Not downloaded."
+        },
+        {
+          "ebook": 37292,
+          "title": "Thoughts for the Quiet Hour",
+          "reason": "Daily readings that Moody edited. Not downloaded."
+        }
+      ],
+      "notOnGutenberg": "The catalogue (checked 2026-10-08) has no 'Glad Tidings', 'Twelve Select Sermons', 'Moody's Great Sermons' or 'Heaven' by D. L. Moody."
+    },
+    {
+      "name": "CCEL (ccel.org)",
+      "sourceFolder": null,
+      "policyUrls": [
+        "https://ccel.org/about/copyright.html",
+        "https://ccel.org/robots.txt"
+      ],
+      "heldWorks": [],
+      "reviewedNotHeld": [
+        {
+          "url": "https://ccel.org/ccel/moody/anecdotes/anecdotes",
+          "title": "Moody's Anecdotes and Illustrations",
+          "reason": "CCEL's only Moody work: a topical anthology, not sermons."
+        }
+      ]
+    }
+  ],
+  "termsSummary": "Gutenberg: the website is for humans only. Bulk or automated downloads must come from a mirror, and machine use should go through the offline catalogue files. So the books were found in pg_catalog.csv and fetched from gutenberg.pglaf.org, 2.5 s apart, and links point to the /ebooks/<n> landing pages. CCEL: robots.txt sets Crawl-delay 10 (obeyed at 10.5 s), and its works may be used for personal, educational or non-profit purposes. Nothing was taken from CCEL because it holds no Moody sermons. All texts are US public domain; use is limited to private, noncommercial reading. Full quotations are in TERMS.md.",
+  "sermons": [
+    {
+      "title": "That Gospel Sermon on the Blessed Hope",
+      "book": "That Gospel Sermon on the Blessed Hope (Project Gutenberg #27316)",
+      "url": "https://www.gutenberg.org/ebooks/27316",
+      "assetId": "asset-sermons-moody-blessed-hope-pg27316",
+      "locator": "heading “THAT GOSPEL SERMON / ON THE BLESSED HOPE.”; item 1 of 1 in this file",
+      "mainText": null,
+      "mainTextLocator": null,
+      "date": {
+        "value": "1877-01-05",
+        "precision": "day",
+        "label": "Jan. 5, 1877 (printed under the title)"
+      },
+      "place": "the Great Chicago Tabernacle (as printed under the title)",
+      "notes": "Single printed sermon (a numbered tract, 'No. 16'). No text is stated. Opening words: “A Sermon delivered by D. L. Moody, the Evangelist, at the Great Chicago Tabernacle, Jan. 5, 1877. Repeated in the Boston Tabernacle, April 29th. In 2 Timothy, 3:16, Paul declares: …” Printed under the title: 'A Sermon delivered by D. L. Moody, the Evangelist, at the Great Chicago Tabernacle, Jan. 5, 1877. Repeated in the Boston Tabernacle, April 29th.' (No year is printed for the Boston repetition.) No text is announced; the opening sentence quotes 2 Timothy 3:16 as part of the argument."
+    },
+    {
+      "title": "Love that Passeth Knowledge",
+      "book": "The Way to God and How to Find It (Project Gutenberg #30449)",
+      "url": "https://www.gutenberg.org/ebooks/30449",
+      "assetId": "asset-sermons-moody-way-to-god-pg30449",
+      "locator": "heading “CHAPTER I.” (HTML anchor #I); item 1 of 9 in this file",
+      "mainText": "“To know the love of Christ which passeth knowledge.” (Ephesians iii. 19.)",
+      "mainTextLocator": "Printed under the chapter title, above the first paragraph.",
+      "date": null,
+      "place": null,
+      "notes": "Book chapter. The author's note 'To the Reader' says: 'I have embodied in the little book a considerable part of several addresses which have been delivered in different cities, both of Great Britain and my own country' — so each chapter is adapted from addresses, with 'additional matter'."
+    },
+    {
+      "title": "The Gateway into the Kingdom",
+      "book": "The Way to God and How to Find It (Project Gutenberg #30449)",
+      "url": "https://www.gutenberg.org/ebooks/30449",
+      "assetId": "asset-sermons-moody-way-to-god-pg30449",
+      "locator": "heading “CHAPTER II.” (HTML anchor #II); item 2 of 9 in this file",
+      "mainText": "“Except a man be born again he cannot enter the kingdom of God.” (John iii. 3.)",
+      "mainTextLocator": "Printed under the chapter title.",
+      "date": null,
+      "place": null,
+      "notes": "Book chapter. The author's note 'To the Reader' says: 'I have embodied in the little book a considerable part of several addresses which have been delivered in different cities, both of Great Britain and my own country' — so each chapter is adapted from addresses, with 'additional matter'."
+    },
+    {
+      "title": "The Two Classes",
+      "book": "The Way to God and How to Find It (Project Gutenberg #30449)",
+      "url": "https://www.gutenberg.org/ebooks/30449",
+      "assetId": "asset-sermons-moody-way-to-god-pg30449",
+      "locator": "heading “CHAPTER III.” (HTML anchor #III); item 3 of 9 in this file",
+      "mainText": "“Two men went up into the temple to pray.”—Luke xvii. 10.",
+      "mainTextLocator": "Printed under the chapter title. The reference is given as printed; these words are at Luke 18:10 in the King James Version.",
+      "date": null,
+      "place": null,
+      "notes": "Book chapter. The author's note 'To the Reader' says: 'I have embodied in the little book a considerable part of several addresses which have been delivered in different cities, both of Great Britain and my own country' — so each chapter is adapted from addresses, with 'additional matter'."
+    },
+    {
+      "title": "Words of Counsel",
+      "book": "The Way to God and How to Find It (Project Gutenberg #30449)",
+      "url": "https://www.gutenberg.org/ebooks/30449",
+      "assetId": "asset-sermons-moody-way-to-god-pg30449",
+      "locator": "heading “CHAPTER IV.” (HTML anchor #IV); item 4 of 9 in this file",
+      "mainText": "“A bruised reed shall He not break.”—Isaiah xlii. 3; Matt. xii. 20.",
+      "mainTextLocator": "Printed under the chapter title.",
+      "date": null,
+      "place": null,
+      "notes": "Book chapter. The author's note 'To the Reader' says: 'I have embodied in the little book a considerable part of several addresses which have been delivered in different cities, both of Great Britain and my own country' — so each chapter is adapted from addresses, with 'additional matter'."
+    },
+    {
+      "title": "A Divine Saviour",
+      "book": "The Way to God and How to Find It (Project Gutenberg #30449)",
+      "url": "https://www.gutenberg.org/ebooks/30449",
+      "assetId": "asset-sermons-moody-way-to-god-pg30449",
+      "locator": "heading “CHAPTER V.” (HTML anchor #V); item 5 of 9 in this file",
+      "mainText": "“Thou art the Christ, the Son of the living God.” (Matthew xvi. 1; John vi. 69.)",
+      "mainTextLocator": "Printed under the chapter title. The reference is given as printed; the words are at Matthew 16:16 in the King James Version.",
+      "date": null,
+      "place": null,
+      "notes": "Book chapter. The author's note 'To the Reader' says: 'I have embodied in the little book a considerable part of several addresses which have been delivered in different cities, both of Great Britain and my own country' — so each chapter is adapted from addresses, with 'additional matter'."
+    },
+    {
+      "title": "Repentance and Restitution",
+      "book": "The Way to God and How to Find It (Project Gutenberg #30449)",
+      "url": "https://www.gutenberg.org/ebooks/30449",
+      "assetId": "asset-sermons-moody-way-to-god-pg30449",
+      "locator": "heading “CHAPTER VI.” (HTML anchor #VI); item 6 of 9 in this file",
+      "mainText": "“God commandeth all men everywhere to repent.”—Acts xvii. 30.",
+      "mainTextLocator": "Printed under the chapter title.",
+      "date": null,
+      "place": null,
+      "notes": "Book chapter. The author's note 'To the Reader' says: 'I have embodied in the little book a considerable part of several addresses which have been delivered in different cities, both of Great Britain and my own country' — so each chapter is adapted from addresses, with 'additional matter'."
+    },
+    {
+      "title": "Assurance of Salvation",
+      "book": "The Way to God and How to Find It (Project Gutenberg #30449)",
+      "url": "https://www.gutenberg.org/ebooks/30449",
+      "assetId": "asset-sermons-moody-way-to-god-pg30449",
+      "locator": "heading “CHAPTER VII.” (HTML anchor #VII); item 7 of 9 in this file",
+      "mainText": "“These things have I written unto you that believe on the name of the Son of God; that ye may know that ye have eternal life, and that ye may believe on the name of the Son of God.” (1 John v. 13. )",
+      "mainTextLocator": "Printed under the chapter title.",
+      "date": null,
+      "place": null,
+      "notes": "Book chapter. The author's note 'To the Reader' says: 'I have embodied in the little book a considerable part of several addresses which have been delivered in different cities, both of Great Britain and my own country' — so each chapter is adapted from addresses, with 'additional matter'."
+    },
+    {
+      "title": "Christ All and in All",
+      "book": "The Way to God and How to Find It (Project Gutenberg #30449)",
+      "url": "https://www.gutenberg.org/ebooks/30449",
+      "assetId": "asset-sermons-moody-way-to-god-pg30449",
+      "locator": "heading “CHAPTER VIII.” (HTML anchor #VIII); item 8 of 9 in this file",
+      "mainText": "Colossians iii. 11.)",
+      "mainTextLocator": "Printed under the chapter title, as a reference only, with an unmatched closing bracket.",
+      "date": null,
+      "place": null,
+      "notes": "Book chapter. The author's note 'To the Reader' says: 'I have embodied in the little book a considerable part of several addresses which have been delivered in different cities, both of Great Britain and my own country' — so each chapter is adapted from addresses, with 'additional matter'."
+    },
+    {
+      "title": "Backsliding",
+      "book": "The Way to God and How to Find It (Project Gutenberg #30449)",
+      "url": "https://www.gutenberg.org/ebooks/30449",
+      "assetId": "asset-sermons-moody-way-to-god-pg30449",
+      "locator": "heading “CHAPTER IX.” (HTML anchor #IX); item 9 of 9 in this file",
+      "mainText": "“I will heal their backsliding; I will love them freely: for Mine anger is turned away.”—Hosea xiv. 4.",
+      "mainTextLocator": "Printed under the chapter title.",
+      "date": null,
+      "place": null,
+      "notes": "Book chapter. The author's note 'To the Reader' says: 'I have embodied in the little book a considerable part of several addresses which have been delivered in different cities, both of Great Britain and my own country' — so each chapter is adapted from addresses, with 'additional matter'."
+    },
+    {
+      "title": "The Fountain of Grace",
+      "book": "Sovereign Grace: Its Source, Its Nature and Its Effects (Project Gutenberg #30657)",
+      "url": "https://www.gutenberg.org/ebooks/30657",
+      "assetId": "asset-sermons-moody-sovereign-grace-pg30657",
+      "locator": "heading “SOVEREIGN GRACE” (HTML anchor #I); item 1 of 8 in this file",
+      "mainText": null,
+      "mainTextLocator": null,
+      "date": null,
+      "place": null,
+      "notes": "Book chapter. The prefatory note says: 'The following pages record the addresses I have given on the various aspects of this great subject.' (The book's three 'Gospel Dialogues' are question-and-answer exchanges, not sermons, and are left out.) No text is stated. Opening words: “THERE are some words with which we have been familiar from our infancy up, and probably there are few words in the English language that are so often used as …”"
+    },
+    {
+      "title": "Saved by Grace Alone",
+      "book": "Sovereign Grace: Its Source, Its Nature and Its Effects (Project Gutenberg #30657)",
+      "url": "https://www.gutenberg.org/ebooks/30657",
+      "assetId": "asset-sermons-moody-sovereign-grace-pg30657",
+      "locator": "heading “CHAPTER II.” (HTML anchor #II); item 2 of 8 in this file",
+      "mainText": null,
+      "mainTextLocator": null,
+      "date": null,
+      "place": null,
+      "notes": "Book chapter. The prefatory note says: 'The following pages record the addresses I have given on the various aspects of this great subject.' (The book's three 'Gospel Dialogues' are question-and-answer exchanges, not sermons, and are left out.) No text is stated. Opening words: “I WANT to call your special attention to the fact that we are saved by grace alone, not by works and grace. A great many people think that they can be …”"
+    },
+    {
+      "title": "Possessing, and “Working Out”",
+      "book": "Sovereign Grace: Its Source, Its Nature and Its Effects (Project Gutenberg #30657)",
+      "url": "https://www.gutenberg.org/ebooks/30657",
+      "assetId": "asset-sermons-moody-sovereign-grace-pg30657",
+      "locator": "heading “CHAPTER III.” (HTML anchor #III); item 3 of 8 in this file",
+      "mainText": "“Work out your own salvation with fear and trembling?”",
+      "mainTextLocator": "In the opening sentence: 'I can imagine some one asking: What does that passage mean—…' No reference is printed.",
+      "date": null,
+      "place": null,
+      "notes": "Book chapter. The prefatory note says: 'The following pages record the addresses I have given on the various aspects of this great subject.' (The book's three 'Gospel Dialogues' are question-and-answer exchanges, not sermons, and are left out.)"
+    },
+    {
+      "title": "Grace Abounding to the Chief of Sinners",
+      "book": "Sovereign Grace: Its Source, Its Nature and Its Effects (Project Gutenberg #30657)",
+      "url": "https://www.gutenberg.org/ebooks/30657",
+      "assetId": "asset-sermons-moody-sovereign-grace-pg30657",
+      "locator": "heading “CHAPTER IV.” (HTML anchor #IV); item 4 of 8 in this file",
+      "mainText": null,
+      "mainTextLocator": null,
+      "date": null,
+      "place": null,
+      "notes": "Book chapter. The prefatory note says: 'The following pages record the addresses I have given on the various aspects of this great subject.' (The book's three 'Gospel Dialogues' are question-and-answer exchanges, not sermons, and are left out.) No text is stated. Opening words: “I WANT to lay emphasis on the fact that God desires to show mercy to all. Christ’s last command to His disciples was, “Go ye into all the world and preach …”"
+    },
+    {
+      "title": "Law and Grace",
+      "book": "Sovereign Grace: Its Source, Its Nature and Its Effects (Project Gutenberg #30657)",
+      "url": "https://www.gutenberg.org/ebooks/30657",
+      "assetId": "asset-sermons-moody-sovereign-grace-pg30657",
+      "locator": "heading “CHAPTER V.” (HTML anchor #V); item 5 of 8 in this file",
+      "mainText": "“For as by one man’s disobedience many were made sinners, so by the obedience of One shall many be made righteous. Moreover, the law entered that the offense might abound. But where sin abounded, grace did much more abound: that as sin hath reigned unto death, even so might grace reign through righteousness unto eternal life by Jesus Christ our Lord.”",
+      "mainTextLocator": "In the opening sentence: 'In his Epistle to the Romans, Paul writes' — then the quotation. No chapter or verse is printed.",
+      "date": null,
+      "place": null,
+      "notes": "Book chapter. The prefatory note says: 'The following pages record the addresses I have given on the various aspects of this great subject.' (The book's three 'Gospel Dialogues' are question-and-answer exchanges, not sermons, and are left out.)"
+    },
+    {
+      "title": "Grace for Living",
+      "book": "Sovereign Grace: Its Source, Its Nature and Its Effects (Project Gutenberg #30657)",
+      "url": "https://www.gutenberg.org/ebooks/30657",
+      "assetId": "asset-sermons-moody-sovereign-grace-pg30657",
+      "locator": "heading “CHAPTER VI.” (HTML anchor #VI); item 6 of 8 in this file",
+      "mainText": null,
+      "mainTextLocator": null,
+      "date": null,
+      "place": null,
+      "notes": "Book chapter. The prefatory note says: 'The following pages record the addresses I have given on the various aspects of this great subject.' (The book's three 'Gospel Dialogues' are question-and-answer exchanges, not sermons, and are left out.) No text is stated. Opening words: “NOW we come to a very important part of our subject—Grace for living. One of the saddest things in the present day is the fact that so many professed Christians …”"
+    },
+    {
+      "title": "Grace for Service",
+      "book": "Sovereign Grace: Its Source, Its Nature and Its Effects (Project Gutenberg #30657)",
+      "url": "https://www.gutenberg.org/ebooks/30657",
+      "assetId": "asset-sermons-moody-sovereign-grace-pg30657",
+      "locator": "heading “CHAPTER VII.” (HTML anchor #VII); item 7 of 8 in this file",
+      "mainText": "FOR the grace of God that bringeth salvation to all men hath appeared; teaching us that, denying ungodliness and worldly lusts, we should live soberly, righteously, and godly, in this present world; looking for that blessed hope, and the glorious appearing of the great God and our Saviour Jesus Christ, who gave Himself for us, that He might redeem us from all iniquity, and purify unto Himself a peculiar people, zealous of good works.”",
+      "mainTextLocator": "The chapter opens with this quotation (its first letter, F, is a drop-cap image), followed by 'In this wonderful passage…'. No reference is printed.",
+      "date": null,
+      "place": null,
+      "notes": "Book chapter. The prefatory note says: 'The following pages record the addresses I have given on the various aspects of this great subject.' (The book's three 'Gospel Dialogues' are question-and-answer exchanges, not sermons, and are left out.)"
+    },
+    {
+      "title": "A Chime of Gospel Bells",
+      "book": "Sovereign Grace: Its Source, Its Nature and Its Effects (Project Gutenberg #30657)",
+      "url": "https://www.gutenberg.org/ebooks/30657",
+      "assetId": "asset-sermons-moody-sovereign-grace-pg30657",
+      "locator": "heading “CHAPTER VIII.” (HTML anchor #VIII); item 8 of 8 in this file",
+      "mainText": null,
+      "mainTextLocator": null,
+      "date": null,
+      "place": null,
+      "notes": "Book chapter. The prefatory note says: 'The following pages record the addresses I have given on the various aspects of this great subject.' (The book's three 'Gospel Dialogues' are question-and-answer exchanges, not sermons, and are left out.) No text is stated. Opening words: “IN Baltimore, a few years ago, we held a number of meetings for men. I am very fond of this hymn; and we used to let the choir sing the …”"
+    },
+    {
+      "title": "Abraham’s Four Surrenders",
+      "book": "Men of the Bible (Project Gutenberg #30740)",
+      "url": "https://www.gutenberg.org/ebooks/30740",
+      "assetId": "asset-sermons-moody-men-of-the-bible-pg30740",
+      "locator": "heading “ABRAHAM’S FOUR SURRENDERS”; item 1 of 7 in this file",
+      "mainText": null,
+      "mainTextLocator": null,
+      "date": null,
+      "place": null,
+      "notes": "Book chapter. The book (1898) has no preface; each chapter is a self-contained piece in spoken-address form (for example 'I wish to call your attention to…'). The book itself does not call them sermons. No text is stated. Opening words: “A great many people are afraid of the will of God, and yet I believe that one of the sweetest lessons that we can learn in the school of Christ …”"
+    },
+    {
+      "title": "The Call of Moses",
+      "book": "Men of the Bible (Project Gutenberg #30740)",
+      "url": "https://www.gutenberg.org/ebooks/30740",
+      "assetId": "asset-sermons-moody-men-of-the-bible-pg30740",
+      "locator": "heading “THE CALL OF MOSES” (HTML anchor #Moses); item 2 of 7 in this file",
+      "mainText": null,
+      "mainTextLocator": null,
+      "date": null,
+      "place": null,
+      "notes": "Book chapter. The book (1898) has no preface; each chapter is a self-contained piece in spoken-address form (for example 'I wish to call your attention to…'). The book itself does not call them sermons. No text is stated. Opening words: “There is a great deal more room given in Scripture to the call of men to God’s work than there is to their end. For instance, we don’t know where …”"
+    },
+    {
+      "title": "The Prophet Nehemiah",
+      "book": "Men of the Bible (Project Gutenberg #30740)",
+      "url": "https://www.gutenberg.org/ebooks/30740",
+      "assetId": "asset-sermons-moody-men-of-the-bible-pg30740",
+      "locator": "heading “THE PROPHET NEHEMIAH” (HTML anchor #Nehemiah); item 4 of 7 in this file",
+      "mainText": null,
+      "mainTextLocator": null,
+      "date": null,
+      "place": null,
+      "notes": "Book chapter. The book (1898) has no preface; each chapter is a self-contained piece in spoken-address form (for example 'I wish to call your attention to…'). The book itself does not call them sermons. No text is stated. Opening words: “I should like to call your attention to the prophet Nehemiah. We may gain some help from that distinguished man who accomplished a great work. He was one of the …”"
+    },
+    {
+      "title": "Herod and John the Baptist",
+      "book": "Men of the Bible (Project Gutenberg #30740)",
+      "url": "https://www.gutenberg.org/ebooks/30740",
+      "assetId": "asset-sermons-moody-men-of-the-bible-pg30740",
+      "locator": "heading “HEROD AND JOHN THE BAPTIST” (HTML anchor #Baptist); item 5 of 7 in this file",
+      "mainText": null,
+      "mainTextLocator": null,
+      "date": null,
+      "place": null,
+      "notes": "Book chapter. The book (1898) has no preface; each chapter is a self-contained piece in spoken-address form (for example 'I wish to call your attention to…'). The book itself does not call them sermons. No text is stated. Opening words: “If some one had told me a few years ago that he thought Herod at one time came near the kingdom of God, I should have been inclined to doubt …” No text is announced. The opening paragraph quotes Mark vi, 20 as the verse that changed Moody's view of Herod. That is part of the argument, not an announced text."
+    },
+    {
+      "title": "The Man Born Blind and Joseph of Arimathea",
+      "book": "Men of the Bible (Project Gutenberg #30740)",
+      "url": "https://www.gutenberg.org/ebooks/30740",
+      "assetId": "asset-sermons-moody-men-of-the-bible-pg30740",
+      "locator": "heading “THE MAN BORN BLIND AND JOSEPH OF ARIMATHEA” (HTML anchor #Joseph); item 6 of 7 in this file",
+      "mainText": "John ix., beginning at the fifth verse",
+      "mainTextLocator": "In the first paragraph: 'Look at the account given in John ix., beginning at the fifth verse.' It covers the first part of the address (the blind man), not the Joseph of Arimathea part.",
+      "date": null,
+      "place": null,
+      "notes": "Book chapter. The book (1898) has no preface; each chapter is a self-contained piece in spoken-address form (for example 'I wish to call your attention to…'). The book itself does not call them sermons."
+    },
+    {
+      "title": "The Penitent Thief",
+      "book": "Men of the Bible (Project Gutenberg #30740)",
+      "url": "https://www.gutenberg.org/ebooks/30740",
+      "assetId": "asset-sermons-moody-men-of-the-bible-pg30740",
+      "locator": "heading “THE PENITENT THIEF” (HTML anchor #Thief); item 7 of 7 in this file",
+      "mainText": "the 23d chapter of Luke",
+      "mainTextLocator": "In the first paragraph: 'Turn to the 23d chapter of Luke, and see how the Lord dealt with him.'",
+      "date": null,
+      "place": null,
+      "notes": "Book chapter. The book (1898) has no preface; each chapter is a self-contained piece in spoken-address form (for example 'I wish to call your attention to…'). The book itself does not call them sermons. Shares some passages (about a fifth of the wording) with the 'THE PENITENT THIEF' extract in Bible Characters, but it opens differently; kept as a separate entry. Compare also 'The Dying Thief' in Wondrous Love."
+    },
+    {
+      "title": "Take Ye Away the Stone",
+      "book": "To The Work! To The Work! Exhortations to Christians (Project Gutenberg #33014)",
+      "url": "https://www.gutenberg.org/ebooks/33014",
+      "assetId": "asset-sermons-moody-to-the-work-pg33014",
+      "locator": "heading “CHAPTER I.”; item 1 of 9 in this file",
+      "mainText": "“Take ye away the stone.”",
+      "mainTextLocator": "In the opening sentence: 'In the gospel by John we read that at the tomb of Lazarus our Lord said to His disciples, “Take ye away the stone.”' No chapter or verse is printed.",
+      "date": null,
+      "place": null,
+      "notes": "Book chapter. Title page: 'Exhortations to Christians' (1884); no preface; each chapter is in spoken-address form (for example 'The stone I want to speak about to-day…')."
+    },
+    {
+      "title": "Love, the Motive Power for Service",
+      "book": "To The Work! To The Work! Exhortations to Christians (Project Gutenberg #33014)",
+      "url": "https://www.gutenberg.org/ebooks/33014",
+      "assetId": "asset-sermons-moody-to-the-work-pg33014",
+      "locator": "heading “CHAPTER II.” (HTML anchor #c2); item 2 of 9 in this file",
+      "mainText": "Paul’s first letter to the Corinthians, thirteenth chapter",
+      "mainTextLocator": "In the opening sentence: 'Let me call your attention to Paul’s first letter to the Corinthians, thirteenth chapter:' — then the passage is read.",
+      "date": null,
+      "place": null,
+      "notes": "Book chapter. Title page: 'Exhortations to Christians' (1884); no preface; each chapter is in spoken-address form (for example 'The stone I want to speak about to-day…')."
+    },
+    {
+      "title": "Faith and Courage",
+      "book": "To The Work! To The Work! Exhortations to Christians (Project Gutenberg #33014)",
+      "url": "https://www.gutenberg.org/ebooks/33014",
+      "assetId": "asset-sermons-moody-to-the-work-pg33014",
+      "locator": "heading “CHAPTER III.” (HTML anchor #c3); item 3 of 9 in this file",
+      "mainText": null,
+      "mainTextLocator": null,
+      "date": null,
+      "place": null,
+      "notes": "Book chapter. Title page: 'Exhortations to Christians' (1884); no preface; each chapter is in spoken-address form (for example 'The stone I want to speak about to-day…'). No text is stated. Opening words: “FAITH AND COURAGE. The key note of all our work for God should be Faith. In all my life I have never seen men or women disappointed in receiving answers …”"
+    },
+    {
+      "title": "Faith Rewarded",
+      "book": "To The Work! To The Work! Exhortations to Christians (Project Gutenberg #33014)",
+      "url": "https://www.gutenberg.org/ebooks/33014",
+      "assetId": "asset-sermons-moody-to-the-work-pg33014",
+      "locator": "heading “CHAPTER IV.” (HTML anchor #c4); item 4 of 9 in this file",
+      "mainText": "“And it came to pass on a certain day, as He was teaching, that there were Pharisees and doctors of the law sitting by, which were come out of every town of Galilee, and Judea and Jerusalem; and the power of the Lord was present to heal them. And, behold, men brought in a bed a man which was taken with a palsy; and they sought means to bring him in, and to lay him before Him. And when they could not find by what way they might bring him in, because of the multitude, they went upon the house-top, and let him down through the tiling with his couch into the midst before Jesus. And when He saw their faith, He said unto him, ‘Man, thy sins are forgiven thee.’”",
+      "mainTextLocator": "The chapter opens with this quotation, with no reference printed. Moody then says 'All the three evangelists, Matthew, Mark and Luke, record this miracle.'",
+      "date": null,
+      "place": null,
+      "notes": "Book chapter. Title page: 'Exhortations to Christians' (1884); no preface; each chapter is in spoken-address form (for example 'The stone I want to speak about to-day…')."
+    },
+    {
+      "title": "Enthusiasm",
+      "book": "To The Work! To The Work! Exhortations to Christians (Project Gutenberg #33014)",
+      "url": "https://www.gutenberg.org/ebooks/33014",
+      "assetId": "asset-sermons-moody-to-the-work-pg33014",
+      "locator": "heading “CHAPTER V.” (HTML anchor #c5); item 5 of 9 in this file",
+      "mainText": "“Awake thou that sleepest, and arise from the dead, and Christ shall give thee light.”",
+      "mainTextLocator": "The chapter opens with this quotation, followed by 'I want to apply these words to the children of God.' No reference is printed.",
+      "date": null,
+      "place": null,
+      "notes": "Book chapter. Title page: 'Exhortations to Christians' (1884); no preface; each chapter is in spoken-address form (for example 'The stone I want to speak about to-day…')."
+    },
+    {
+      "title": "The Power of Little Things",
+      "book": "To The Work! To The Work! Exhortations to Christians (Project Gutenberg #33014)",
+      "url": "https://www.gutenberg.org/ebooks/33014",
+      "assetId": "asset-sermons-moody-to-the-work-pg33014",
+      "locator": "heading “CHAPTER VI.” (HTML anchor #c6); item 6 of 9 in this file",
+      "mainText": "the twenty-fifth chapter of Exodus",
+      "mainTextLocator": "In the opening sentence: 'In the twenty-fifth chapter of Exodus we read:' — then the passage is quoted.",
+      "date": null,
+      "place": null,
+      "notes": "Book chapter. Title page: 'Exhortations to Christians' (1884); no preface; each chapter is in spoken-address form (for example 'The stone I want to speak about to-day…')."
+    },
+    {
+      "title": "“She Hath Done What She Could”",
+      "book": "To The Work! To The Work! Exhortations to Christians (Project Gutenberg #33014)",
+      "url": "https://www.gutenberg.org/ebooks/33014",
+      "assetId": "asset-sermons-moody-to-the-work-pg33014",
+      "locator": "heading “CHAPTER VII.” (HTML anchor #c7); item 7 of 9 in this file",
+      "mainText": "“After two days was the feast of the Passover, and of unleavened bread: and the Chief Priests and the Scribes sought how they might take Him by craft, and put Him to death. But they said, not on the feast day, lest there be an uproar of the people. And being in Bethany in the house of Simon the leper, as He sat at meat, there came a woman having an alabaster box of ointment of spikenard, very precious; and she brake the box, and poured it on His head. And there were some that had indignation within themselves, and said, Why was this waste of the ointment made? For it might have been sold for more than three hundred pence, and have been given to the poor. And they murmured against her. And Jesus said, ‘Let her alone; why trouble ye her? She hath wrought a good work for Me. For ye have the poor with you always, and whensoever ye will ye may do them good; but Me ye have not always. She hath done what she could; she is come aforehand to anoint My body to the burying. Verily I say unto you, wheresoever this Gospel shall be preached throughout the whole world, this also that she hath done shall be spoken of for a memorial of her.’”",
+      "mainTextLocator": "In the opening sentence: 'In the gospel by Mark we read:' — then this quotation. No chapter or verse is printed.",
+      "date": null,
+      "place": null,
+      "notes": "Book chapter. Title page: 'Exhortations to Christians' (1884); no preface; each chapter is in spoken-address form (for example 'The stone I want to speak about to-day…')."
+    },
+    {
+      "title": "“Who Is My Neighbor?”",
+      "book": "To The Work! To The Work! Exhortations to Christians (Project Gutenberg #33014)",
+      "url": "https://www.gutenberg.org/ebooks/33014",
+      "assetId": "asset-sermons-moody-to-the-work-pg33014",
+      "locator": "heading “CHAPTER VIII.” (HTML anchor #c8); item 8 of 9 in this file",
+      "mainText": null,
+      "mainTextLocator": null,
+      "date": null,
+      "place": null,
+      "notes": "Book chapter. Title page: 'Exhortations to Christians' (1884); no preface; each chapter is in spoken-address form (for example 'The stone I want to speak about to-day…'). No text is stated. Opening words: ““WHO IS MY NEIGHBOR?” You have no doubt frequently read the story of the good Samaritan. In this parable Christ brings before us four men. He draws the picture so …” No text is announced. Opens: 'You have no doubt frequently read the story of the good Samaritan.'"
+    },
+    {
+      "title": "The Overcoming Life",
+      "book": "The Overcoming Life, and Other Sermons (Project Gutenberg #33015)",
+      "url": "https://www.gutenberg.org/ebooks/33015",
+      "assetId": "asset-sermons-moody-overcoming-life-pg33015",
+      "locator": "heading “THE OVERCOMING LIFE.” (HTML anchor #life); item 1 of 7 in this file",
+      "mainText": "the first epistle of John, fifth chapter, fourth and fifth verses",
+      "mainTextLocator": "In the opening sentence of Part I: 'I would like to have you open your Bible at the first epistle of John, fifth chapter, fourth and fifth verses:' — then the verses are quoted.",
+      "date": null,
+      "place": null,
+      "notes": "Sermon. The book's title page calls these 'Sermons' ('The Overcoming Life, and Other Sermons', 1896). Printed in three parts: Part I 'The Christian’s Warfare', Part II 'Internal Foes', Part III 'External Foes'."
+    },
+    {
+      "title": "Results of True Repentance",
+      "book": "The Overcoming Life, and Other Sermons (Project Gutenberg #33015)",
+      "url": "https://www.gutenberg.org/ebooks/33015",
+      "assetId": "asset-sermons-moody-overcoming-life-pg33015",
+      "locator": "heading “RESULTS OF TRUE REPENTANCE.” (HTML anchor #results); item 2 of 7 in this file",
+      "mainText": null,
+      "mainTextLocator": null,
+      "date": null,
+      "place": null,
+      "notes": "Sermon. The book's title page calls these 'Sermons' ('The Overcoming Life, and Other Sermons', 1896). No text is stated. Opening words: “I want to call your attention to what true repentance leads to. I am not addressing the unconverted only, because I am one of those who believe that there is …”"
+    },
+    {
+      "title": "True Wisdom",
+      "book": "The Overcoming Life, and Other Sermons (Project Gutenberg #33015)",
+      "url": "https://www.gutenberg.org/ebooks/33015",
+      "assetId": "asset-sermons-moody-overcoming-life-pg33015",
+      "locator": "heading “TRUE WISDOM.” (HTML anchor #wisdom); item 3 of 7 in this file",
+      "mainText": "“They that be wise shall shine as the brightness of the firmament; and they that turn many to righteousness as the stars for ever and ever.” Dan. 12:3.",
+      "mainTextLocator": "Printed as the opening words under the heading.",
+      "date": null,
+      "place": null,
+      "notes": "Sermon. The book's title page calls these 'Sermons' ('The Overcoming Life, and Other Sermons', 1896). The same sermon also appears in To the Work! (Gutenberg #33014) as 'CHAPTER IX. “YE ARE THE LIGHT OF THE WORLD.”' (anchor #c9). There the Daniel quotation opens the chapter without the 'Dan. 12:3.' reference. Most of the wording is identical. Second locator: asset asset-sermons-moody-to-the-work-pg33014, heading “CHAPTER IX.” (HTML anchor #c9); item 9 of 9 in this file."
+    },
+    {
+      "title": "“Come Thou and All Thy House into the Ark”",
+      "book": "The Overcoming Life, and Other Sermons (Project Gutenberg #33015)",
+      "url": "https://www.gutenberg.org/ebooks/33015",
+      "assetId": "asset-sermons-moody-overcoming-life-pg33015",
+      "locator": "heading ““COME THOU AND ALL THY HOUSE INTO THE ARK.”” (HTML anchor #come); item 4 of 7 in this file",
+      "mainText": "the seventh chapter of Genesis, first verse",
+      "mainTextLocator": "In the opening sentence: 'I want to call your attention to a text that you will find in the seventh chapter of Genesis, first verse.' The verse is then quoted: “The Lord said unto Noah, Come thou and all thy house into the ark.”",
+      "date": null,
+      "place": null,
+      "notes": "Sermon. The book's title page calls these 'Sermons' ('The Overcoming Life, and Other Sermons', 1896)."
+    },
+    {
+      "title": "Humility",
+      "book": "The Overcoming Life, and Other Sermons (Project Gutenberg #33015)",
+      "url": "https://www.gutenberg.org/ebooks/33015",
+      "assetId": "asset-sermons-moody-overcoming-life-pg33015",
+      "locator": "heading “HUMILITY.” (HTML anchor #humility); item 5 of 7 in this file",
+      "mainText": "“Learn of me, for I am meek and lowly in heart.”—Matthew 11:29.",
+      "mainTextLocator": "Printed under the heading.",
+      "date": null,
+      "place": null,
+      "notes": "Sermon. The book's title page calls these 'Sermons' ('The Overcoming Life, and Other Sermons', 1896)."
+    },
+    {
+      "title": "Rest",
+      "book": "The Overcoming Life, and Other Sermons (Project Gutenberg #33015)",
+      "url": "https://www.gutenberg.org/ebooks/33015",
+      "assetId": "asset-sermons-moody-overcoming-life-pg33015",
+      "locator": "heading “REST.” (HTML anchor #rest); item 6 of 7 in this file",
+      "mainText": null,
+      "mainTextLocator": null,
+      "date": null,
+      "place": null,
+      "notes": "Sermon. The book's title page calls these 'Sermons' ('The Overcoming Life, and Other Sermons', 1896). No text is stated. Opening words: “Some years ago a gentleman came to me and asked me which I thought was the most precious promise of all those that Christ left. I took some time to …” No text is announced. Moody opens with an anecdote, then quotes Matthew 11:28-30 ('Come unto Me, all ye that labor…') as 'one of the sweetest promises', without saying it is his text."
+    },
+    {
+      "title": "Seven “I Wills” of Christ",
+      "book": "The Overcoming Life, and Other Sermons (Project Gutenberg #33015)",
+      "url": "https://www.gutenberg.org/ebooks/33015",
+      "assetId": "asset-sermons-moody-overcoming-life-pg33015",
+      "locator": "heading “SEVEN “I WILLS” OF CHRIST.” (HTML anchor #seven); item 7 of 7 in this file",
+      "mainText": null,
+      "mainTextLocator": null,
+      "date": null,
+      "place": null,
+      "notes": "Sermon. The book's title page calls these 'Sermons' ('The Overcoming Life, and Other Sermons', 1896). No text is stated. Opening words: “A man when he says “I will,” may not mean much. We very often say “I will,” when we don’t mean to fulfil what we say; but when we come …” A related but different address from 'Eight “I Wills” of Christ' in Wondrous Love: seven points instead of eight, a different opening, and about a third of the wording shared. Kept as a separate entry."
+    },
+    {
+      "title": "Weighed in the Balances",
+      "book": "Weighed and Wanting: Addresses on the Ten Commandments (Project Gutenberg #33340)",
+      "url": "https://www.gutenberg.org/ebooks/33340",
+      "assetId": "asset-sermons-moody-weighed-and-wanting-pg33340",
+      "locator": "heading “Weighed in the Balances” (HTML anchor #Weighed); item 1 of 12 in this file",
+      "mainText": "the fifth chapter of Daniel",
+      "mainTextLocator": "In the opening sentence: 'In the fifth chapter of Daniel we read the history of King Belshazzar.'",
+      "date": null,
+      "place": null,
+      "notes": "Address. Title page: 'Addresses on the Ten Commandments' (1898)."
+    },
+    {
+      "title": "The First Commandment",
+      "book": "Weighed and Wanting: Addresses on the Ten Commandments (Project Gutenberg #33340)",
+      "url": "https://www.gutenberg.org/ebooks/33340",
+      "assetId": "asset-sermons-moody-weighed-and-wanting-pg33340",
+      "locator": "heading “First Commandment” (HTML anchor #I); item 2 of 12 in this file",
+      "mainText": "“Thou shalt have no other gods before me.”",
+      "mainTextLocator": "The commandment is printed as the opening words of the address. No reference is printed here (the book's front page prints the commandments under 'EXODUS 20: 3-17').",
+      "date": null,
+      "place": null,
+      "notes": "Address. Title page: 'Addresses on the Ten Commandments' (1898)."
+    },
+    {
+      "title": "The Second Commandment",
+      "book": "Weighed and Wanting: Addresses on the Ten Commandments (Project Gutenberg #33340)",
+      "url": "https://www.gutenberg.org/ebooks/33340",
+      "assetId": "asset-sermons-moody-weighed-and-wanting-pg33340",
+      "locator": "heading “Second Commandment” (HTML anchor #II); item 3 of 12 in this file",
+      "mainText": "“Thou shalt not make unto thee any graven image, or any likeness of any thing that is in heaven above, or that is in the earth beneath, or that is in the water under the earth: thou shalt not bow down thyself to them, nor serve them: for I the Lord thy God am a jealous God, visiting the iniquity of the fathers upon the children unto the third and fourth generation of them that hate Me; and shewing mercy unto thousands of them that love Me, and keep My commandments.”",
+      "mainTextLocator": "The commandment is printed as the opening words of the address, with no reference.",
+      "date": null,
+      "place": null,
+      "notes": "Address. Title page: 'Addresses on the Ten Commandments' (1898)."
+    },
+    {
+      "title": "The Third Commandment",
+      "book": "Weighed and Wanting: Addresses on the Ten Commandments (Project Gutenberg #33340)",
+      "url": "https://www.gutenberg.org/ebooks/33340",
+      "assetId": "asset-sermons-moody-weighed-and-wanting-pg33340",
+      "locator": "heading “Third Commandment” (HTML anchor #III); item 4 of 12 in this file",
+      "mainText": "“Thou shalt not take the name of the Lord thy God in vain; for the Lord will not hold him guiltless that taketh His name in vain.”",
+      "mainTextLocator": "The commandment is printed as the opening words of the address, with no reference.",
+      "date": null,
+      "place": null,
+      "notes": "Address. Title page: 'Addresses on the Ten Commandments' (1898)."
+    },
+    {
+      "title": "The Fourth Commandment",
+      "book": "Weighed and Wanting: Addresses on the Ten Commandments (Project Gutenberg #33340)",
+      "url": "https://www.gutenberg.org/ebooks/33340",
+      "assetId": "asset-sermons-moody-weighed-and-wanting-pg33340",
+      "locator": "heading “Fourth Commandment” (HTML anchor #IV); item 5 of 12 in this file",
+      "mainText": "“Remember the sabbath day, to keep it holy. Six days shalt thou labor, and do all thy work: but the seventh day is the sabbath of the Lord thy God: in it thou shalt not do any work, thou, nor thy son, nor thy daughter, thy manservant, nor thy maidservant, nor thy cattle, nor thy stranger that is within thy gates: for in six days the Lord made heaven and earth, the sea, and all that in them is, and rested the seventh day: wherefore the Lord blessed the sabbath day, and hallowed it.”",
+      "mainTextLocator": "The commandment is printed as the opening words of the address, with no reference.",
+      "date": null,
+      "place": null,
+      "notes": "Address. Title page: 'Addresses on the Ten Commandments' (1898)."
+    },
+    {
+      "title": "The Fifth Commandment",
+      "book": "Weighed and Wanting: Addresses on the Ten Commandments (Project Gutenberg #33340)",
+      "url": "https://www.gutenberg.org/ebooks/33340",
+      "assetId": "asset-sermons-moody-weighed-and-wanting-pg33340",
+      "locator": "heading “Fifth Commandment” (HTML anchor #V); item 6 of 12 in this file",
+      "mainText": "“Honor thy father and thy mother: that thy days may be long upon the land which the Lord thy God giveth thee.”",
+      "mainTextLocator": "The commandment is printed as the opening words of the address, with no reference.",
+      "date": null,
+      "place": null,
+      "notes": "Address. Title page: 'Addresses on the Ten Commandments' (1898)."
+    },
+    {
+      "title": "The Sixth Commandment",
+      "book": "Weighed and Wanting: Addresses on the Ten Commandments (Project Gutenberg #33340)",
+      "url": "https://www.gutenberg.org/ebooks/33340",
+      "assetId": "asset-sermons-moody-weighed-and-wanting-pg33340",
+      "locator": "heading “Sixth Commandment” (HTML anchor #VI); item 7 of 12 in this file",
+      "mainText": "“Thou shalt not kill.”",
+      "mainTextLocator": "The commandment is printed as the opening words of the address, with no reference.",
+      "date": null,
+      "place": null,
+      "notes": "Address. Title page: 'Addresses on the Ten Commandments' (1898)."
+    },
+    {
+      "title": "The Seventh Commandment",
+      "book": "Weighed and Wanting: Addresses on the Ten Commandments (Project Gutenberg #33340)",
+      "url": "https://www.gutenberg.org/ebooks/33340",
+      "assetId": "asset-sermons-moody-weighed-and-wanting-pg33340",
+      "locator": "heading “Seventh Commandment” (HTML anchor #VII); item 8 of 12 in this file",
+      "mainText": "“Thou shalt not commit adultery.”",
+      "mainTextLocator": "The commandment is printed as the opening words of the address, with no reference.",
+      "date": null,
+      "place": null,
+      "notes": "Address. Title page: 'Addresses on the Ten Commandments' (1898)."
+    },
+    {
+      "title": "The Eighth Commandment",
+      "book": "Weighed and Wanting: Addresses on the Ten Commandments (Project Gutenberg #33340)",
+      "url": "https://www.gutenberg.org/ebooks/33340",
+      "assetId": "asset-sermons-moody-weighed-and-wanting-pg33340",
+      "locator": "heading “Eighth Commandment” (HTML anchor #VIII); item 9 of 12 in this file",
+      "mainText": "“Thou shalt not steal.”",
+      "mainTextLocator": "The commandment is printed as the opening words of the address, with no reference.",
+      "date": null,
+      "place": null,
+      "notes": "Address. Title page: 'Addresses on the Ten Commandments' (1898)."
+    },
+    {
+      "title": "The Ninth Commandment",
+      "book": "Weighed and Wanting: Addresses on the Ten Commandments (Project Gutenberg #33340)",
+      "url": "https://www.gutenberg.org/ebooks/33340",
+      "assetId": "asset-sermons-moody-weighed-and-wanting-pg33340",
+      "locator": "heading “Ninth Commandment” (HTML anchor #IX); item 10 of 12 in this file",
+      "mainText": "“Thou shalt not bear false witness against thy neighbor.”",
+      "mainTextLocator": "The commandment is printed as the opening words of the address, with no reference.",
+      "date": null,
+      "place": null,
+      "notes": "Address. Title page: 'Addresses on the Ten Commandments' (1898)."
+    },
+    {
+      "title": "The Tenth Commandment",
+      "book": "Weighed and Wanting: Addresses on the Ten Commandments (Project Gutenberg #33340)",
+      "url": "https://www.gutenberg.org/ebooks/33340",
+      "assetId": "asset-sermons-moody-weighed-and-wanting-pg33340",
+      "locator": "heading “Tenth Commandment” (HTML anchor #X); item 11 of 12 in this file",
+      "mainText": "“Thou shalt not covet thy neighbor’s house, thou shalt not covet thy neighbor’s wife, nor his manservant, nor his maidservant, nor his ox, nor his ass, nor anything that is thy neighbor’s.”",
+      "mainTextLocator": "The commandment is printed as the opening words of the address, with no reference.",
+      "date": null,
+      "place": null,
+      "notes": "Address. Title page: 'Addresses on the Ten Commandments' (1898)."
+    },
+    {
+      "title": "The Handwriting Blotted Out",
+      "book": "Weighed and Wanting: Addresses on the Ten Commandments (Project Gutenberg #33340)",
+      "url": "https://www.gutenberg.org/ebooks/33340",
+      "assetId": "asset-sermons-moody-weighed-and-wanting-pg33340",
+      "locator": "heading “The Handwriting Blotted Out” (HTML anchor #Out); item 12 of 12 in this file",
+      "mainText": null,
+      "mainTextLocator": null,
+      "date": null,
+      "place": null,
+      "notes": "Address. Title page: 'Addresses on the Ten Commandments' (1898). No text is stated. Opening words: “We have now considered the Ten Commandments, and the question for each one of us is—are we keeping them? If God should weigh us by them, would we be found …”"
+    },
+    {
+      "title": "Christ’s Boundless Compassion",
+      "book": "Wondrous Love, and Other Gospel Addresses (Project Gutenberg #33520)",
+      "url": "https://www.gutenberg.org/ebooks/33520",
+      "assetId": "asset-sermons-moody-wondrous-love-pg33520",
+      "locator": "heading “CHRIST’S BOUNDLESS / COMPASSION”; item 1 of 10 in this file",
+      "mainText": "“And Jesus went forth, and saw a great multitude, and was moved with compassion toward them, and He healed their sick.”—Matthew xiv. 14.",
+      "mainTextLocator": "Printed under the heading.",
+      "date": null,
+      "place": "England (stated for the whole book, not this address: 'delivered during Messrs. Moody and Sankey's first campaign in England')",
+      "notes": "Address. Title page: 'Wondrous Love and other Gospel Addresses … delivered during Messrs. Moody and Sankey's first campaign in England'; 'First issued in 1876'."
+    },
+    {
+      "title": "The New Birth",
+      "book": "Wondrous Love, and Other Gospel Addresses (Project Gutenberg #33520)",
+      "url": "https://www.gutenberg.org/ebooks/33520",
+      "assetId": "asset-sermons-moody-wondrous-love-pg33520",
+      "locator": "heading “THE NEW BIRTH” (HTML anchor #birth); item 2 of 10 in this file",
+      "mainText": "“Except a man be born again, he cannot see the kingdom of God.”—John iii. 3",
+      "mainTextLocator": "Printed under the heading.",
+      "date": null,
+      "place": "England (stated for the whole book, not this address: 'delivered during Messrs. Moody and Sankey's first campaign in England')",
+      "notes": "Address. Title page: 'Wondrous Love and other Gospel Addresses … delivered during Messrs. Moody and Sankey's first campaign in England'; 'First issued in 1876'."
+    },
+    {
+      "title": "The Blood",
+      "book": "Wondrous Love, and Other Gospel Addresses (Project Gutenberg #33520)",
+      "url": "https://www.gutenberg.org/ebooks/33520",
+      "assetId": "asset-sermons-moody-wondrous-love-pg33520",
+      "locator": "heading “THE BLOOD” (HTML anchor #blood); item 3 of 10 in this file",
+      "mainText": "“And almost all things are by the law purged with blood, and without the shedding of blood is no remission.”—Heb. ix. 22.",
+      "mainTextLocator": "Printed under the heading.",
+      "date": null,
+      "place": "England (stated for the whole book, not this address: 'delivered during Messrs. Moody and Sankey's first campaign in England')",
+      "notes": "Address. Title page: 'Wondrous Love and other Gospel Addresses … delivered during Messrs. Moody and Sankey's first campaign in England'; 'First issued in 1876'. The contents page lists this as 'The Blood (Two Addresses)', but the file marks no boundary between the two, so it is listed as one entry."
+    },
+    {
+      "title": "Christ All in All",
+      "book": "Wondrous Love, and Other Gospel Addresses (Project Gutenberg #33520)",
+      "url": "https://www.gutenberg.org/ebooks/33520",
+      "assetId": "asset-sermons-moody-wondrous-love-pg33520",
+      "locator": "heading “CHRIST ALL IN ALL” (HTML anchor #all); item 4 of 10 in this file",
+      "mainText": "Colossians iii. 11.",
+      "mainTextLocator": "Printed under the heading as a reading: 'Read Colossians iii. 11.'",
+      "date": null,
+      "place": "England (stated for the whole book, not this address: 'delivered during Messrs. Moody and Sankey's first campaign in England')",
+      "notes": "Address. Title page: 'Wondrous Love and other Gospel Addresses … delivered during Messrs. Moody and Sankey's first campaign in England'; 'First issued in 1876'."
+    },
+    {
+      "title": "Naaman the Syrian",
+      "book": "Wondrous Love, and Other Gospel Addresses (Project Gutenberg #33520)",
+      "url": "https://www.gutenberg.org/ebooks/33520",
+      "assetId": "asset-sermons-moody-wondrous-love-pg33520",
+      "locator": "heading “NAAMAN THE SYRIAN” (HTML anchor #naaman); item 5 of 10 in this file",
+      "mainText": "2 Kings v.",
+      "mainTextLocator": "Printed under the heading as a reading: 'Read 2 Kings v.' Moody then says: 'I wish to call your attention to a man rather than to a text'.",
+      "date": null,
+      "place": "England (stated for the whole book, not this address: 'delivered during Messrs. Moody and Sankey's first campaign in England')",
+      "notes": "Address. Title page: 'Wondrous Love and other Gospel Addresses … delivered during Messrs. Moody and Sankey's first campaign in England'; 'First issued in 1876'. The same address also appears in Men of the Bible (Gutenberg #30740) as the chapter 'NAAMAN THE SYRIAN' (anchor #Naaman). That printing is lightly re-edited (American spelling, some sentences changed; about half the wording identical) and has no 'Read 2 Kings v.' line. Second locator: asset asset-sermons-moody-men-of-the-bible-pg30740, heading “NAAMAN THE SYRIAN” (HTML anchor #Naaman); item 3 of 7 in this file."
+    },
+    {
+      "title": "One Word—“Gospel”",
+      "book": "Wondrous Love, and Other Gospel Addresses (Project Gutenberg #33520)",
+      "url": "https://www.gutenberg.org/ebooks/33520",
+      "assetId": "asset-sermons-moody-wondrous-love-pg33520",
+      "locator": "heading “ONE WORD—“GOSPEL”” (HTML anchor #gospel); item 6 of 10 in this file",
+      "mainText": "the one word “gospel.”",
+      "mainTextLocator": "Printed under the heading as a reading, 'Read 1 Cor. xv. 1', then in the opening sentence: 'I shall take for my text the one word “gospel.”'",
+      "date": null,
+      "place": "England (stated for the whole book, not this address: 'delivered during Messrs. Moody and Sankey's first campaign in England')",
+      "notes": "Address. Title page: 'Wondrous Love and other Gospel Addresses … delivered during Messrs. Moody and Sankey's first campaign in England'; 'First issued in 1876'."
+    },
+    {
+      "title": "The Way of Salvation",
+      "book": "Wondrous Love, and Other Gospel Addresses (Project Gutenberg #33520)",
+      "url": "https://www.gutenberg.org/ebooks/33520",
+      "assetId": "asset-sermons-moody-wondrous-love-pg33520",
+      "locator": "heading “THE WAY OF SALVATION” (HTML anchor #way); item 7 of 10 in this file",
+      "mainText": "Acts xvi. 23, 40",
+      "mainTextLocator": "Printed under the heading as a reading: 'Read Acts xvi. 23, 40' (as printed). Moody then says: 'I shall not preach a sermon; I have just one thought'.",
+      "date": null,
+      "place": "England (stated for the whole book, not this address: 'delivered during Messrs. Moody and Sankey's first campaign in England')",
+      "notes": "Address. Title page: 'Wondrous Love and other Gospel Addresses … delivered during Messrs. Moody and Sankey's first campaign in England'; 'First issued in 1876'."
+    },
+    {
+      "title": "Eight “I Wills” of Christ",
+      "book": "Wondrous Love, and Other Gospel Addresses (Project Gutenberg #33520)",
+      "url": "https://www.gutenberg.org/ebooks/33520",
+      "assetId": "asset-sermons-moody-wondrous-love-pg33520",
+      "locator": "heading “EIGHT “I WILLS” OF CHRIST” (HTML anchor #wills); item 8 of 10 in this file",
+      "mainText": "Matt. xi. 28, 29",
+      "mainTextLocator": "Printed under the heading as a reading: 'Read Matt. xi. 28, 29'.",
+      "date": null,
+      "place": "England (stated for the whole book, not this address: 'delivered during Messrs. Moody and Sankey's first campaign in England')",
+      "notes": "Address. Title page: 'Wondrous Love and other Gospel Addresses … delivered during Messrs. Moody and Sankey's first campaign in England'; 'First issued in 1876'. Related to 'Seven “I Wills” of Christ' in The Overcoming Life (about a third of the wording shared; eight points instead of seven). Kept as a separate entry."
+    },
+    {
+      "title": "The Right Kind of Faith",
+      "book": "Wondrous Love, and Other Gospel Addresses (Project Gutenberg #33520)",
+      "url": "https://www.gutenberg.org/ebooks/33520",
+      "assetId": "asset-sermons-moody-wondrous-love-pg33520",
+      "locator": "heading “THE RIGHT KIND OF FAITH” (HTML anchor #faith); item 9 of 10 in this file",
+      "mainText": "“Sirs, what must I do to be saved?”—Acts xvi. 30.",
+      "mainTextLocator": "Printed under the heading.",
+      "date": null,
+      "place": "England (stated for the whole book, not this address: 'delivered during Messrs. Moody and Sankey's first campaign in England')",
+      "notes": "Address. Title page: 'Wondrous Love and other Gospel Addresses … delivered during Messrs. Moody and Sankey's first campaign in England'; 'First issued in 1876'."
+    },
+    {
+      "title": "The Dying Thief",
+      "book": "Wondrous Love, and Other Gospel Addresses (Project Gutenberg #33520)",
+      "url": "https://www.gutenberg.org/ebooks/33520",
+      "assetId": "asset-sermons-moody-wondrous-love-pg33520",
+      "locator": "heading “THE DYING THIEF” (HTML anchor #thief); item 10 of 10 in this file",
+      "mainText": "Luke xxiii. 39-43",
+      "mainTextLocator": "Printed under the heading as a reading: 'Read Luke xxiii. 39-43'. In the opening sentence Moody adds: 'I am going to take as my text a man who was the last one saved…'",
+      "date": null,
+      "place": "England (stated for the whole book, not this address: 'delivered during Messrs. Moody and Sankey's first campaign in England')",
+      "notes": "Address. Title page: 'Wondrous Love and other Gospel Addresses … delivered during Messrs. Moody and Sankey's first campaign in England'; 'First issued in 1876'."
+    },
+    {
+      "title": "Abel",
+      "book": "Bible Characters (D. L. Moody section) (Project Gutenberg #54736)",
+      "url": "https://www.gutenberg.org/ebooks/54736",
+      "assetId": "asset-sermons-moody-bible-characters-pg54736",
+      "locator": "heading “ABEL.”; item 1 of 29 in this file",
+      "mainText": null,
+      "mainTextLocator": null,
+      "date": null,
+      "place": null,
+      "notes": "Sermon extract. Bible Characters (1902) is a multi-author compilation; the Moody section is headed 'Bible Characters described in his soul-winning sermons', and the editor's introduction says he 'culled from their utterances choice selections'. Several pieces are only a page long. No text is stated. Opening words: “Abel was the first man who went to Heaven, and he went by way of blood. So we find it in all the worships of God from the earliest times. …”"
+    },
+    {
+      "title": "Abraham",
+      "book": "Bible Characters (D. L. Moody section) (Project Gutenberg #54736)",
+      "url": "https://www.gutenberg.org/ebooks/54736",
+      "assetId": "asset-sermons-moody-bible-characters-pg54736",
+      "locator": "heading “ABRAHAM.”; item 2 of 29 in this file",
+      "mainText": "the twenty-second chapter of Genesis",
+      "mainTextLocator": "In the opening sentence: 'In the twenty-second chapter of Genesis we find the story of Abraham and his only son, Isaac.'",
+      "date": null,
+      "place": null,
+      "notes": "Sermon extract. Bible Characters (1902) is a multi-author compilation; the Moody section is headed 'Bible Characters described in his soul-winning sermons', and the editor's introduction says he 'culled from their utterances choice selections'. Several pieces are only a page long."
+    },
+    {
+      "title": "Ahab",
+      "book": "Bible Characters (D. L. Moody section) (Project Gutenberg #54736)",
+      "url": "https://www.gutenberg.org/ebooks/54736",
+      "assetId": "asset-sermons-moody-bible-characters-pg54736",
+      "locator": "heading “AHAB.”; item 3 of 29 in this file",
+      "mainText": null,
+      "mainTextLocator": null,
+      "date": null,
+      "place": null,
+      "notes": "Sermon extract. Bible Characters (1902) is a multi-author compilation; the Moody section is headed 'Bible Characters described in his soul-winning sermons', and the editor's introduction says he 'culled from their utterances choice selections'. Several pieces are only a page long. No text is stated. Opening words: “There is a familiar saying: “Every man has his own price.” Ahab had his, and he sold himself for a garden; Judas sold himself for thirty pieces of silver, and …”"
+    },
+    {
+      "title": "Barabbas",
+      "book": "Bible Characters (D. L. Moody section) (Project Gutenberg #54736)",
+      "url": "https://www.gutenberg.org/ebooks/54736",
+      "assetId": "asset-sermons-moody-bible-characters-pg54736",
+      "locator": "heading “BARABBAS.”; item 4 of 29 in this file",
+      "mainText": null,
+      "mainTextLocator": null,
+      "date": null,
+      "place": null,
+      "notes": "Sermon extract. Bible Characters (1902) is a multi-author compilation; the Moody section is headed 'Bible Characters described in his soul-winning sermons', and the editor's introduction says he 'culled from their utterances choice selections'. Several pieces are only a page long. No text is stated. Opening words: “I have often thought what a night Barabbas must have spent just before the day when Christ was crucified. As the sun goes down, he says to himself: “Tomorrow—only tomorrow—and …”"
+    },
+    {
+      "title": "Bartimeus and Zacchæus",
+      "book": "Bible Characters (D. L. Moody section) (Project Gutenberg #54736)",
+      "url": "https://www.gutenberg.org/ebooks/54736",
+      "assetId": "asset-sermons-moody-bible-characters-pg54736",
+      "locator": "heading “BARTIMEUS AND ZACCHÆUS.”; item 5 of 29 in this file",
+      "mainText": "the eighteenth chapter of the Gospel of St. Luke",
+      "mainTextLocator": "In the opening sentence: 'In the eighteenth chapter of the Gospel of St. Luke you will find Christ was going into Jericho…'",
+      "date": null,
+      "place": null,
+      "notes": "Sermon extract. Bible Characters (1902) is a multi-author compilation; the Moody section is headed 'Bible Characters described in his soul-winning sermons', and the editor's introduction says he 'culled from their utterances choice selections'. Several pieces are only a page long."
+    },
+    {
+      "title": "Belshazzar",
+      "book": "Bible Characters (D. L. Moody section) (Project Gutenberg #54736)",
+      "url": "https://www.gutenberg.org/ebooks/54736",
+      "assetId": "asset-sermons-moody-bible-characters-pg54736",
+      "locator": "heading “BELSHAZZAR.”; item 6 of 29 in this file",
+      "mainText": "the fifth chapter of Daniel",
+      "mainTextLocator": "In the opening sentence: 'In the fifth chapter of Daniel we read the history of King Belshazzar.'",
+      "date": null,
+      "place": null,
+      "notes": "Sermon extract. Bible Characters (1902) is a multi-author compilation; the Moody section is headed 'Bible Characters described in his soul-winning sermons', and the editor's introduction says he 'culled from their utterances choice selections'. Several pieces are only a page long."
+    },
+    {
+      "title": "Caleb",
+      "book": "Bible Characters (D. L. Moody section) (Project Gutenberg #54736)",
+      "url": "https://www.gutenberg.org/ebooks/54736",
+      "assetId": "asset-sermons-moody-bible-characters-pg54736",
+      "locator": "heading “CALEB.”; item 7 of 29 in this file",
+      "mainText": null,
+      "mainTextLocator": null,
+      "date": null,
+      "place": null,
+      "notes": "Sermon extract. Bible Characters (1902) is a multi-author compilation; the Moody section is headed 'Bible Characters described in his soul-winning sermons', and the editor's introduction says he 'culled from their utterances choice selections'. Several pieces are only a page long. No text is stated. Opening words: “Caleb and Joshua are great favorites of mine. They have got a ring about them. They were not all the time looking for hindrances and obstacles in their way. They …”"
+    },
+    {
+      "title": "Daniel",
+      "book": "Bible Characters (D. L. Moody section) (Project Gutenberg #54736)",
+      "url": "https://www.gutenberg.org/ebooks/54736",
+      "assetId": "asset-sermons-moody-bible-characters-pg54736",
+      "locator": "heading “DANIEL.”; item 8 of 29 in this file",
+      "mainText": null,
+      "mainTextLocator": null,
+      "date": null,
+      "place": null,
+      "notes": "Sermon extract. Bible Characters (1902) is a multi-author compilation; the Moody section is headed 'Bible Characters described in his soul-winning sermons', and the editor's introduction says he 'culled from their utterances choice selections'. Several pieces are only a page long. No text is stated. Opening words: “I want to talk about the life of the prophet, Daniel. The word means “God with him”—not the public with him, not his fellow men, but God. Therefore, he had …”"
+    },
+    {
+      "title": "David",
+      "book": "Bible Characters (D. L. Moody section) (Project Gutenberg #54736)",
+      "url": "https://www.gutenberg.org/ebooks/54736",
+      "assetId": "asset-sermons-moody-bible-characters-pg54736",
+      "locator": "heading “DAVID.”; item 9 of 29 in this file",
+      "mainText": null,
+      "mainTextLocator": null,
+      "date": null,
+      "place": null,
+      "notes": "Sermon extract. Bible Characters (1902) is a multi-author compilation; the Moody section is headed 'Bible Characters described in his soul-winning sermons', and the editor's introduction says he 'culled from their utterances choice selections'. Several pieces are only a page long. No text is stated. Opening words: “You know how David fell. No man rose so high and fell so far, I think. God took him from the sheepfold and put him upon a throne. He took …”"
+    },
+    {
+      "title": "Elijah",
+      "book": "Bible Characters (D. L. Moody section) (Project Gutenberg #54736)",
+      "url": "https://www.gutenberg.org/ebooks/54736",
+      "assetId": "asset-sermons-moody-bible-characters-pg54736",
+      "locator": "heading “ELIJAH.”; item 10 of 29 in this file",
+      "mainText": null,
+      "mainTextLocator": null,
+      "date": null,
+      "place": null,
+      "notes": "Sermon extract. Bible Characters (1902) is a multi-author compilation; the Moody section is headed 'Bible Characters described in his soul-winning sermons', and the editor's introduction says he 'culled from their utterances choice selections'. Several pieces are only a page long. No text is stated. Opening words: “Let us go to Carmel for a few minutes. King Ahab had forsaken the God of Israel, and all the court people and “upper ten” had followed his example. But …”"
+    },
+    {
+      "title": "Gideon",
+      "book": "Bible Characters (D. L. Moody section) (Project Gutenberg #54736)",
+      "url": "https://www.gutenberg.org/ebooks/54736",
+      "assetId": "asset-sermons-moody-bible-characters-pg54736",
+      "locator": "heading “GIDEON.”; item 11 of 29 in this file",
+      "mainText": null,
+      "mainTextLocator": null,
+      "date": null,
+      "place": null,
+      "notes": "Sermon extract. Bible Characters (1902) is a multi-author compilation; the Moody section is headed 'Bible Characters described in his soul-winning sermons', and the editor's introduction says he 'culled from their utterances choice selections'. Several pieces are only a page long. No text is stated. Opening words: “I believe this man Gideon was called an enthusiast in the camp of Israel. The very idea of his going out to meet a hundred thousand men with pitchers and …”"
+    },
+    {
+      "title": "Ittai",
+      "book": "Bible Characters (D. L. Moody section) (Project Gutenberg #54736)",
+      "url": "https://www.gutenberg.org/ebooks/54736",
+      "assetId": "asset-sermons-moody-bible-characters-pg54736",
+      "locator": "heading “ITTAI.”; item 12 of 29 in this file",
+      "mainText": "the fifteenth chapter of Second Samuel, beginning at the nineteenth verse",
+      "mainTextLocator": "In the opening sentence: 'I will read a few verses in the fifteenth chapter of Second Samuel, beginning at the nineteenth verse:' — then the verses are quoted.",
+      "date": null,
+      "place": null,
+      "notes": "Sermon extract. Bible Characters (1902) is a multi-author compilation; the Moody section is headed 'Bible Characters described in his soul-winning sermons', and the editor's introduction says he 'culled from their utterances choice selections'. Several pieces are only a page long."
+    },
+    {
+      "title": "Jacob",
+      "book": "Bible Characters (D. L. Moody section) (Project Gutenberg #54736)",
+      "url": "https://www.gutenberg.org/ebooks/54736",
+      "assetId": "asset-sermons-moody-bible-characters-pg54736",
+      "locator": "heading “JACOB.”; item 13 of 29 in this file",
+      "mainText": null,
+      "mainTextLocator": null,
+      "date": null,
+      "place": null,
+      "notes": "Sermon extract. Bible Characters (1902) is a multi-author compilation; the Moody section is headed 'Bible Characters described in his soul-winning sermons', and the editor's introduction says he 'culled from their utterances choice selections'. Several pieces are only a page long. No text is stated. Opening words: “The key to all Jacob’s difficulties will be found in the twentieth chapter of Matthew. It is the story of the laborers in the vineyard. The thought is in the …” No text is announced. The opening sentence says: 'The key to all Jacob’s difficulties will be found in the twentieth chapter of Matthew' — an illustration, not the text."
+    },
+    {
+      "title": "Jacob’s Sons",
+      "book": "Bible Characters (D. L. Moody section) (Project Gutenberg #54736)",
+      "url": "https://www.gutenberg.org/ebooks/54736",
+      "assetId": "asset-sermons-moody-bible-characters-pg54736",
+      "locator": "heading “JACOB’S SONS.”; item 14 of 29 in this file",
+      "mainText": null,
+      "mainTextLocator": null,
+      "date": null,
+      "place": null,
+      "notes": "Sermon extract. Bible Characters (1902) is a multi-author compilation; the Moody section is headed 'Bible Characters described in his soul-winning sermons', and the editor's introduction says he 'culled from their utterances choice selections'. Several pieces are only a page long. No text is stated. Opening words: “Look at the sons of Jacob. Look at them when they took away their brother, and after they had delivered him into slavery see them coming back. How much they …”"
+    },
+    {
+      "title": "John the Baptist",
+      "book": "Bible Characters (D. L. Moody section) (Project Gutenberg #54736)",
+      "url": "https://www.gutenberg.org/ebooks/54736",
+      "assetId": "asset-sermons-moody-bible-characters-pg54736",
+      "locator": "heading “JOHN THE BAPTIST.”; item 15 of 29 in this file",
+      "mainText": null,
+      "mainTextLocator": null,
+      "date": null,
+      "place": null,
+      "notes": "Sermon extract. Bible Characters (1902) is a multi-author compilation; the Moody section is headed 'Bible Characters described in his soul-winning sermons', and the editor's introduction says he 'culled from their utterances choice selections'. Several pieces are only a page long. No text is stated. Opening words: “I want to call your attention to John, the forerunner of Christ. On hearing the news of the death of the king Joseph brings Jesus back to Nazareth, and there …”"
+    },
+    {
+      "title": "Joshua",
+      "book": "Bible Characters (D. L. Moody section) (Project Gutenberg #54736)",
+      "url": "https://www.gutenberg.org/ebooks/54736",
+      "assetId": "asset-sermons-moody-bible-characters-pg54736",
+      "locator": "heading “JOSHUA.”; item 16 of 29 in this file",
+      "mainText": null,
+      "mainTextLocator": null,
+      "date": null,
+      "place": null,
+      "notes": "Sermon extract. Bible Characters (1902) is a multi-author compilation; the Moody section is headed 'Bible Characters described in his soul-winning sermons', and the editor's introduction says he 'culled from their utterances choice selections'. Several pieces are only a page long. No text is stated. Opening words: “Joshua was a man who walked by faith, and you will find the key to his character in three words—courage, obedience and faith. Courage, obedience and faith. And he dared …”"
+    },
+    {
+      "title": "Lot",
+      "book": "Bible Characters (D. L. Moody section) (Project Gutenberg #54736)",
+      "url": "https://www.gutenberg.org/ebooks/54736",
+      "assetId": "asset-sermons-moody-bible-characters-pg54736",
+      "locator": "heading “LOT.”; item 17 of 29 in this file",
+      "mainText": null,
+      "mainTextLocator": null,
+      "date": null,
+      "place": null,
+      "notes": "Sermon extract. Bible Characters (1902) is a multi-author compilation; the Moody section is headed 'Bible Characters described in his soul-winning sermons', and the editor's introduction says he 'culled from their utterances choice selections'. Several pieces are only a page long. No text is stated. Opening words: “One reason why I take up this character is because I believe he is a representative man, and perhaps there is no Bible character that represents so many men of …”"
+    },
+    {
+      "title": "Martha",
+      "book": "Bible Characters (D. L. Moody section) (Project Gutenberg #54736)",
+      "url": "https://www.gutenberg.org/ebooks/54736",
+      "assetId": "asset-sermons-moody-bible-characters-pg54736",
+      "locator": "heading “MARTHA.”; item 18 of 29 in this file",
+      "mainText": null,
+      "mainTextLocator": null,
+      "date": null,
+      "place": null,
+      "notes": "Sermon extract. Bible Characters (1902) is a multi-author compilation; the Moody section is headed 'Bible Characters described in his soul-winning sermons', and the editor's introduction says he 'culled from their utterances choice selections'. Several pieces are only a page long. No text is stated. Opening words: “There was a woman right in the midst of this darkness, when many disciples left Him, who came forward and invited Him to her home—a woman by the name of …”"
+    },
+    {
+      "title": "Mephibosheth",
+      "book": "Bible Characters (D. L. Moody section) (Project Gutenberg #54736)",
+      "url": "https://www.gutenberg.org/ebooks/54736",
+      "assetId": "asset-sermons-moody-bible-characters-pg54736",
+      "locator": "heading “MEPHIBOSHETH.”; item 19 of 29 in this file",
+      "mainText": null,
+      "mainTextLocator": null,
+      "date": null,
+      "place": null,
+      "notes": "Sermon extract. Bible Characters (1902) is a multi-author compilation; the Moody section is headed 'Bible Characters described in his soul-winning sermons', and the editor's introduction says he 'culled from their utterances choice selections'. Several pieces are only a page long. No text is stated. Opening words: “There is a story in the Books of Samuel—away back as far as the time of the kings of Israel—which will help us to understand the Gospel. It is about …”"
+    },
+    {
+      "title": "Moses",
+      "book": "Bible Characters (D. L. Moody section) (Project Gutenberg #54736)",
+      "url": "https://www.gutenberg.org/ebooks/54736",
+      "assetId": "asset-sermons-moody-bible-characters-pg54736",
+      "locator": "heading “MOSES.”; item 20 of 29 in this file",
+      "mainText": null,
+      "mainTextLocator": null,
+      "date": null,
+      "place": null,
+      "notes": "Sermon extract. Bible Characters (1902) is a multi-author compilation; the Moody section is headed 'Bible Characters described in his soul-winning sermons', and the editor's introduction says he 'culled from their utterances choice selections'. Several pieces are only a page long. No text is stated. Opening words: “Moses was about to leave the children of Israel in the wilderness. He had led them up to the borders of the Promised Land. For forty long years he had …”"
+    },
+    {
+      "title": "Naaman",
+      "book": "Bible Characters (D. L. Moody section) (Project Gutenberg #54736)",
+      "url": "https://www.gutenberg.org/ebooks/54736",
+      "assetId": "asset-sermons-moody-bible-characters-pg54736",
+      "locator": "heading “NAAMAN.”; item 21 of 29 in this file",
+      "mainText": null,
+      "mainTextLocator": null,
+      "date": null,
+      "place": null,
+      "notes": "Sermon extract. Bible Characters (1902) is a multi-author compilation; the Moody section is headed 'Bible Characters described in his soul-winning sermons', and the editor's introduction says he 'culled from their utterances choice selections'. Several pieces are only a page long. No text is stated. Opening words: “Naaman was a successful, valiant and noble man. But he was a leper—and that spoiled him. What a blight that must have cast on his path! It must have haunted …”"
+    },
+    {
+      "title": "Peter",
+      "book": "Bible Characters (D. L. Moody section) (Project Gutenberg #54736)",
+      "url": "https://www.gutenberg.org/ebooks/54736",
+      "assetId": "asset-sermons-moody-bible-characters-pg54736",
+      "locator": "heading “PETER.”; item 22 of 29 in this file",
+      "mainText": null,
+      "mainTextLocator": null,
+      "date": null,
+      "place": null,
+      "notes": "Sermon extract. Bible Characters (1902) is a multi-author compilation; the Moody section is headed 'Bible Characters described in his soul-winning sermons', and the editor's introduction says he 'culled from their utterances choice selections'. Several pieces are only a page long. No text is stated. Opening words: “The first glimpse that we catch of Peter is when Andrew brought him to the Savior. That is John’s account. That is when he became a disciple; but he did …”"
+    },
+    {
+      "title": "Saul",
+      "book": "Bible Characters (D. L. Moody section) (Project Gutenberg #54736)",
+      "url": "https://www.gutenberg.org/ebooks/54736",
+      "assetId": "asset-sermons-moody-bible-characters-pg54736",
+      "locator": "heading “SAUL.”; item 23 of 29 in this file",
+      "mainText": null,
+      "mainTextLocator": null,
+      "date": null,
+      "place": null,
+      "notes": "Sermon extract. Bible Characters (1902) is a multi-author compilation; the Moody section is headed 'Bible Characters described in his soul-winning sermons', and the editor's introduction says he 'culled from their utterances choice selections'. Several pieces are only a page long. No text is stated. Opening words: “I have been speaking on the Prodigal Son, but now I want to take up another man—a much harder case than the prodigal, because he did not believe he needed …”"
+    },
+    {
+      "title": "Simeon",
+      "book": "Bible Characters (D. L. Moody section) (Project Gutenberg #54736)",
+      "url": "https://www.gutenberg.org/ebooks/54736",
+      "assetId": "asset-sermons-moody-bible-characters-pg54736",
+      "locator": "heading “SIMEON.”; item 24 of 29 in this file",
+      "mainText": null,
+      "mainTextLocator": null,
+      "date": null,
+      "place": null,
+      "notes": "Sermon extract. Bible Characters (1902) is a multi-author compilation; the Moody section is headed 'Bible Characters described in his soul-winning sermons', and the editor's introduction says he 'culled from their utterances choice selections'. Several pieces are only a page long. No text is stated. Opening words: “The Lord was one day at Jerusalem, and a banquet was given him by Simeon. There was a banquet table in the house, arranged according to the fashion of that …”"
+    },
+    {
+      "title": "The Good Samaritan",
+      "book": "Bible Characters (D. L. Moody section) (Project Gutenberg #54736)",
+      "url": "https://www.gutenberg.org/ebooks/54736",
+      "assetId": "asset-sermons-moody-bible-characters-pg54736",
+      "locator": "heading “THE GOOD SAMARITAN.”; item 25 of 29 in this file",
+      "mainText": null,
+      "mainTextLocator": null,
+      "date": null,
+      "place": null,
+      "notes": "Sermon extract. Bible Characters (1902) is a multi-author compilation; the Moody section is headed 'Bible Characters described in his soul-winning sermons', and the editor's introduction says he 'culled from their utterances choice selections'. Several pieces are only a page long. No text is stated. Opening words: “We are told that as Jesus stood with His disciples a man, a lawyer, stood up and tempted Him. The lawyer asked Jesus this question: “Master, what shall I do …”"
+    },
+    {
+      "title": "The Leper",
+      "book": "Bible Characters (D. L. Moody section) (Project Gutenberg #54736)",
+      "url": "https://www.gutenberg.org/ebooks/54736",
+      "assetId": "asset-sermons-moody-bible-characters-pg54736",
+      "locator": "heading “THE LEPER.”; item 26 of 29 in this file",
+      "mainText": null,
+      "mainTextLocator": null,
+      "date": null,
+      "place": null,
+      "notes": "Sermon extract. Bible Characters (1902) is a multi-author compilation; the Moody section is headed 'Bible Characters described in his soul-winning sermons', and the editor's introduction says he 'culled from their utterances choice selections'. Several pieces are only a page long. No text is stated. Opening words: “See that poor leper! Do you know what an awful thing leprosy is? A disease so terrible that it separates its victim from all the world, and makes him an …”"
+    },
+    {
+      "title": "The Penitent Thief",
+      "book": "Bible Characters (D. L. Moody section) (Project Gutenberg #54736)",
+      "url": "https://www.gutenberg.org/ebooks/54736",
+      "assetId": "asset-sermons-moody-bible-characters-pg54736",
+      "locator": "heading “THE PENITENT THIEF.”; item 27 of 29 in this file",
+      "mainText": "“A Man”",
+      "mainTextLocator": "In the opening sentence: 'I am going to take for my text, this morning, “A Man”—the last one that Jesus saved before He returned to Heaven.' No passage reference is given.",
+      "date": null,
+      "place": null,
+      "notes": "Sermon extract. Bible Characters (1902) is a multi-author compilation; the Moody section is headed 'Bible Characters described in his soul-winning sermons', and the editor's introduction says he 'culled from their utterances choice selections'. Several pieces are only a page long. Shares some passages with 'THE PENITENT THIEF' in Men of the Bible, but it opens differently (and closely resembles the opening of 'The Dying Thief' in Wondrous Love); kept as a separate entry."
+    },
+    {
+      "title": "The Pharisee and the Publican",
+      "book": "Bible Characters (D. L. Moody section) (Project Gutenberg #54736)",
+      "url": "https://www.gutenberg.org/ebooks/54736",
+      "assetId": "asset-sermons-moody-bible-characters-pg54736",
+      "locator": "heading “THE PHARISEE AND THE PUBLICAN.”; item 28 of 29 in this file",
+      "mainText": null,
+      "mainTextLocator": null,
+      "date": null,
+      "place": null,
+      "notes": "Sermon extract. Bible Characters (1902) is a multi-author compilation; the Moody section is headed 'Bible Characters described in his soul-winning sermons', and the editor's introduction says he 'culled from their utterances choice selections'. Several pieces are only a page long. No text is stated. Opening words: “In this first parable we are told that men ought to pray always and everywhere; that prayer should not be left to a few in the churches, but all men …”"
+    },
+    {
+      "title": "The Widow’s Son",
+      "book": "Bible Characters (D. L. Moody section) (Project Gutenberg #54736)",
+      "url": "https://www.gutenberg.org/ebooks/54736",
+      "assetId": "asset-sermons-moody-bible-characters-pg54736",
+      "locator": "heading “THE WIDOW’S SON.”; item 29 of 29 in this file",
+      "mainText": null,
+      "mainTextLocator": null,
+      "date": null,
+      "place": null,
+      "notes": "Sermon extract. Bible Characters (1902) is a multi-author compilation; the Moody section is headed 'Bible Characters described in his soul-winning sermons', and the editor's introduction says he 'culled from their utterances choice selections'. Several pieces are only a page long. No text is stated. Opening words: “Think of that poor widow at Nain. She is an old woman now; and her only son, who is the staff of her life, is sick. How she watches him; …”"
+    },
+    {
+      "title": "The Prayers of the Bible",
+      "book": "Prevailing Prayer: What Hinders It? (Project Gutenberg #61883)",
+      "url": "https://www.gutenberg.org/ebooks/61883",
+      "assetId": "asset-sermons-moody-prevailing-prayer-pg61883",
+      "locator": "heading “CHAPTER I. / THE PRAYERS OF THE BIBLE.”; item 1 of 11 in this file",
+      "mainText": null,
+      "mainTextLocator": null,
+      "date": null,
+      "place": null,
+      "notes": "Address. The prefatory note says: 'These Addresses are not to be regarded as exhaustive, but suggestive.' (1884) No text is stated. Opening words: “Those who have left the deepest impression on this sin-cursed earth have been men and women of prayer. You will find that Prayer has been the mighty power that has …”"
+    },
+    {
+      "title": "Adoration",
+      "book": "Prevailing Prayer: What Hinders It? (Project Gutenberg #61883)",
+      "url": "https://www.gutenberg.org/ebooks/61883",
+      "assetId": "asset-sermons-moody-prevailing-prayer-pg61883",
+      "locator": "heading “CHAPTER II. / ADORATION.”; item 2 of 11 in this file",
+      "mainText": null,
+      "mainTextLocator": null,
+      "date": null,
+      "place": null,
+      "notes": "Address. The prefatory note says: 'These Addresses are not to be regarded as exhaustive, but suggestive.' (1884) No text is stated. Opening words: “This has been defined as the act of rendering Divine honor, including in it reverence, esteem and love. It literally signifies to apply the hand to the mouth, “to kiss …”"
+    },
+    {
+      "title": "Confession",
+      "book": "Prevailing Prayer: What Hinders It? (Project Gutenberg #61883)",
+      "url": "https://www.gutenberg.org/ebooks/61883",
+      "assetId": "asset-sermons-moody-prevailing-prayer-pg61883",
+      "locator": "heading “CHAPTER III. / CONFESSION.”; item 3 of 11 in this file",
+      "mainText": null,
+      "mainTextLocator": null,
+      "date": null,
+      "place": null,
+      "notes": "Address. The prefatory note says: 'These Addresses are not to be regarded as exhaustive, but suggestive.' (1884) No text is stated. Opening words: “Another element in true prayer is Confession. I do not want Christian friends to think that I am talking to the unsaved. I think we, as Christians, have a good …”"
+    },
+    {
+      "title": "Restitution",
+      "book": "Prevailing Prayer: What Hinders It? (Project Gutenberg #61883)",
+      "url": "https://www.gutenberg.org/ebooks/61883",
+      "assetId": "asset-sermons-moody-prevailing-prayer-pg61883",
+      "locator": "heading “CHAPTER IV. / RESTITUTION.”; item 4 of 11 in this file",
+      "mainText": null,
+      "mainTextLocator": null,
+      "date": null,
+      "place": null,
+      "notes": "Address. The prefatory note says: 'These Addresses are not to be regarded as exhaustive, but suggestive.' (1884) No text is stated. Opening words: “A third element of successful prayer is Restitution. If I have at any time taken what does not belong to me, and am not willing to make restitution, my prayers …”"
+    },
+    {
+      "title": "Thanksgiving",
+      "book": "Prevailing Prayer: What Hinders It? (Project Gutenberg #61883)",
+      "url": "https://www.gutenberg.org/ebooks/61883",
+      "assetId": "asset-sermons-moody-prevailing-prayer-pg61883",
+      "locator": "heading “CHAPTER V. / THANKSGIVING.”; item 5 of 11 in this file",
+      "mainText": null,
+      "mainTextLocator": null,
+      "date": null,
+      "place": null,
+      "notes": "Address. The prefatory note says: 'These Addresses are not to be regarded as exhaustive, but suggestive.' (1884) No text is stated. Opening words: “The next thing I would mention as an element of prayer is Thanksgiving. We ought to be more thankful for what we get from God. Perhaps some of you mothers …”"
+    },
+    {
+      "title": "Forgiveness",
+      "book": "Prevailing Prayer: What Hinders It? (Project Gutenberg #61883)",
+      "url": "https://www.gutenberg.org/ebooks/61883",
+      "assetId": "asset-sermons-moody-prevailing-prayer-pg61883",
+      "locator": "heading “CHAPTER VI. / FORGIVENESS.”; item 6 of 11 in this file",
+      "mainText": null,
+      "mainTextLocator": null,
+      "date": null,
+      "place": null,
+      "notes": "Address. The prefatory note says: 'These Addresses are not to be regarded as exhaustive, but suggestive.' (1884) No text is stated. Opening words: “The next thing is perhaps the most difficult of all to deal with—Forgiveness. I believe this is keeping more people from having power with God than any other thing—they are …”"
+    },
+    {
+      "title": "Unity",
+      "book": "Prevailing Prayer: What Hinders It? (Project Gutenberg #61883)",
+      "url": "https://www.gutenberg.org/ebooks/61883",
+      "assetId": "asset-sermons-moody-prevailing-prayer-pg61883",
+      "locator": "heading “CHAPTER VII. / UNITY.”; item 7 of 11 in this file",
+      "mainText": null,
+      "mainTextLocator": null,
+      "date": null,
+      "place": null,
+      "notes": "Address. The prefatory note says: 'These Addresses are not to be regarded as exhaustive, but suggestive.' (1884) No text is stated. Opening words: “The next thing we need to have, if we would get our prayers answered, is—Unity. If we do not love one another we certainly shall not have much power with …”"
+    },
+    {
+      "title": "Faith",
+      "book": "Prevailing Prayer: What Hinders It? (Project Gutenberg #61883)",
+      "url": "https://www.gutenberg.org/ebooks/61883",
+      "assetId": "asset-sermons-moody-prevailing-prayer-pg61883",
+      "locator": "heading “CHAPTER VIII. / FAITH.”; item 8 of 11 in this file",
+      "mainText": null,
+      "mainTextLocator": null,
+      "date": null,
+      "place": null,
+      "notes": "Address. The prefatory note says: 'These Addresses are not to be regarded as exhaustive, but suggestive.' (1884) No text is stated. Opening words: “Another element is Faith. It is as important for us to know how to pray as it is to know how to work. We are not told that Jesus ever …”"
+    },
+    {
+      "title": "Petition",
+      "book": "Prevailing Prayer: What Hinders It? (Project Gutenberg #61883)",
+      "url": "https://www.gutenberg.org/ebooks/61883",
+      "assetId": "asset-sermons-moody-prevailing-prayer-pg61883",
+      "locator": "heading “CHAPTER IX. / PETITION.”; item 9 of 11 in this file",
+      "mainText": null,
+      "mainTextLocator": null,
+      "date": null,
+      "place": null,
+      "notes": "Address. The prefatory note says: 'These Addresses are not to be regarded as exhaustive, but suggestive.' (1884) No text is stated. Opening words: “The next element in prayer that I notice is Petition. How often we go to prayer-meetings without really asking for anything! Our prayers go all round the world, without anything …”"
+    },
+    {
+      "title": "Submission",
+      "book": "Prevailing Prayer: What Hinders It? (Project Gutenberg #61883)",
+      "url": "https://www.gutenberg.org/ebooks/61883",
+      "assetId": "asset-sermons-moody-prevailing-prayer-pg61883",
+      "locator": "heading “CHAPTER X. / SUBMISSION.”; item 10 of 11 in this file",
+      "mainText": null,
+      "mainTextLocator": null,
+      "date": null,
+      "place": null,
+      "notes": "Address. The prefatory note says: 'These Addresses are not to be regarded as exhaustive, but suggestive.' (1884) No text is stated. Opening words: “Another essential element in prayer is Submission. All true prayer must be offered in full submission to God. After we have made our requests known to Him, our language should …”"
+    },
+    {
+      "title": "Answered Prayers",
+      "book": "Prevailing Prayer: What Hinders It? (Project Gutenberg #61883)",
+      "url": "https://www.gutenberg.org/ebooks/61883",
+      "assetId": "asset-sermons-moody-prevailing-prayer-pg61883",
+      "locator": "heading “CHAPTER XI. / ANSWERED PRAYERS.”; item 11 of 11 in this file",
+      "mainText": null,
+      "mainTextLocator": null,
+      "date": null,
+      "place": null,
+      "notes": "Address. The prefatory note says: 'These Addresses are not to be regarded as exhaustive, but suggestive.' (1884) No text is stated. Opening words: “In the fifteenth chapter of John and the seventh verse, we find who have their prayers answered—“If ye abide in Me, and My words abide in you, ye shall ask …” No single text is announced. The opening sentence sets John 15:7 ('In the fifteenth chapter of John and the seventh verse') beside James 4:3. The chapter also runs on into the publisher's notice and book list that end the volume."
+    }
+  ],
+  "stoppedBecause": "Complete. Every Gutenberg catalogue entry by D. L. Moody was reviewed and every sermon or address collection among them is held. CCEL has no Moody sermons. No 429 or block responses were seen.",
+  "counts": {
+    "sermonsListed": 101,
+    "heldFiles": 10,
+    "withStatedMainText": 50,
+    "withoutStatedMainText": 51,
+    "duplicatesMerged": 2,
+    "withStatedDate": 1,
+    "randomCheck": {
+      "seed": 20261008,
+      "checked": 10,
+      "passed": 10,
+      "method": "Opened each held original.html, converted it to text, and checked that the file's sha256 matches provenance.json, that the locator heading is present, that the recorded mainText occurs verbatim, and that the quoted opening words occur.",
+      "results": [
+        {
+          "title": "Rest",
+          "assetId": "asset-sermons-moody-overcoming-life-pg33015",
+          "checks": {
+            "sha256MatchesProvenance": true,
+            "headingFound": true,
+            "openingWordsFound": true
+          },
+          "passed": true
+        },
+        {
+          "title": "A Divine Saviour",
+          "assetId": "asset-sermons-moody-way-to-god-pg30449",
+          "checks": {
+            "sha256MatchesProvenance": true,
+            "headingFound": true,
+            "mainTextFoundVerbatim": true
+          },
+          "passed": true
+        },
+        {
+          "title": "One Word—“Gospel”",
+          "assetId": "asset-sermons-moody-wondrous-love-pg33520",
+          "checks": {
+            "sha256MatchesProvenance": true,
+            "headingFound": true,
+            "mainTextFoundVerbatim": true
+          },
+          "passed": true
+        },
+        {
+          "title": "“She Hath Done What She Could”",
+          "assetId": "asset-sermons-moody-to-the-work-pg33014",
+          "checks": {
+            "sha256MatchesProvenance": true,
+            "headingFound": true,
+            "mainTextFoundVerbatim": true
+          },
+          "passed": true
+        },
+        {
+          "title": "The Call of Moses",
+          "assetId": "asset-sermons-moody-men-of-the-bible-pg30740",
+          "checks": {
+            "sha256MatchesProvenance": true,
+            "headingFound": true,
+            "openingWordsFound": true
+          },
+          "passed": true
+        },
+        {
+          "title": "“Come Thou and All Thy House into the Ark”",
+          "assetId": "asset-sermons-moody-overcoming-life-pg33015",
+          "checks": {
+            "sha256MatchesProvenance": true,
+            "headingFound": true,
+            "mainTextFoundVerbatim": true
+          },
+          "passed": true
+        },
+        {
+          "title": "Saved by Grace Alone",
+          "assetId": "asset-sermons-moody-sovereign-grace-pg30657",
+          "checks": {
+            "sha256MatchesProvenance": true,
+            "headingFound": true,
+            "openingWordsFound": true
+          },
+          "passed": true
+        },
+        {
+          "title": "Adoration",
+          "assetId": "asset-sermons-moody-prevailing-prayer-pg61883",
+          "checks": {
+            "sha256MatchesProvenance": true,
+            "headingFound": true,
+            "openingWordsFound": true
+          },
+          "passed": true
+        },
+        {
+          "title": "Faith Rewarded",
+          "assetId": "asset-sermons-moody-to-the-work-pg33014",
+          "checks": {
+            "sha256MatchesProvenance": true,
+            "headingFound": true,
+            "mainTextFoundVerbatim": true
+          },
+          "passed": true
+        },
+        {
+          "title": "Weighed in the Balances",
+          "assetId": "asset-sermons-moody-weighed-and-wanting-pg33340",
+          "checks": {
+            "sha256MatchesProvenance": true,
+            "headingFound": true,
+            "mainTextFoundVerbatim": true
+          },
+          "passed": true
+        }
+      ]
+    }
+  }
+}

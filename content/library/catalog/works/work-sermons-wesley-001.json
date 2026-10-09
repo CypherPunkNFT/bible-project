@@ -1,0 +1,80 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-wesley-001",
+  "editorialState": "catalogued",
+  "notes": [
+    "Sermons on Several Occasions, Thomas Jackson edition (1872), Jackson numbering",
+    "Place: St. Mary's, Oxford"
+  ],
+  "reviews": [
+    {
+      "date": "2026-10-08",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "Salvation By Faith",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-john-wesley",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "eighteenth-century",
+  "dates": [
+    {
+      "event": "delivery",
+      "value": "1738-06-18",
+      "precision": "day",
+      "label": "Preached at St. Mary's Oxford, before the university, on June 18, 1738",
+      "evidence": [
+        {
+          "url": "https://wesley.nnu.edu/john-wesley/the-sermons-of-john-wesley-1872-edition/sermon-1-salvation-by-faith/",
+          "locator": "Printed with the sermon",
+          "note": "Preaching date as printed by the source.",
+          "checkedOn": "2026-10-08"
+        }
+      ]
+    }
+  ],
+  "passages": [
+    {
+      "reference": "Ephesians 2:8",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 49002008,
+      "end": 49002008,
+      "verification": "verified",
+      "locator": "https://wesley.nnu.edu/john-wesley/the-sermons-of-john-wesley-1872-edition/sermon-1-salvation-by-faith/; original.html, heading block under the title (block 2): \"By Grace are ye saved through faith.\" Ephesians 2.8; printed: Ephesians 2.8"
+    }
+  ],
+  "related": [],
+  "externalIds": {
+    "officialDestination": [
+      "https://wesley.nnu.edu/john-wesley/the-sermons-of-john-wesley-1872-edition/sermon-1-salvation-by-faith/"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://wesley.nnu.edu/john-wesley/the-sermons-of-john-wesley-1872-edition/sermon-1-salvation-by-faith/",
+      "locator": "Sermon page",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

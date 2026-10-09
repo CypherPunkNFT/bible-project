@@ -1,0 +1,60 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-moody-101",
+  "editorialState": "catalogued",
+  "notes": [
+    "Address. The prefatory note says: 'These Addresses are not to be regarded as exhaustive, but suggestive.' (1884) No text is stated. Opening words: “In the fifteenth chapter of John and the seventh verse, we find who have their prayers answered—“If ye abide in Me, and My words abide in you, ye shall ask …” No single text is announced. The opening sentence sets John 15:7 ('In the fifteenth chapter of John and the seventh verse') beside James 4:3. The chapter also runs on into the publisher's notice and book list that end the volume."
+  ],
+  "reviews": [
+    {
+      "date": "2026-10-08",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "Answered Prayers",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-d-l-moody",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-moody-book-pg61883",
+      "locator": "heading “CHAPTER XI. / ANSWERED PRAYERS.”; item 11 of 11 in this file"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://www.gutenberg.org/ebooks/61883"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://www.gutenberg.org/ebooks/61883",
+      "locator": "heading “CHAPTER XI. / ANSWERED PRAYERS.”; item 11 of 11 in this file",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

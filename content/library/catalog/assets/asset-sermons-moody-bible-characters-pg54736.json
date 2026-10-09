@@ -1,0 +1,81 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "asset",
+  "id": "asset-sermons-moody-bible-characters-pg54736",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-10-08",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "editionId": "edition-sermons-moody-book-pg54736",
+  "sourceId": "source-gutenberg",
+  "canonicalUrl": "https://gutenberg.pglaf.org/5/4/7/3/54736/54736-h/54736-h.htm",
+  "finalUrl": "https://gutenberg.pglaf.org/5/4/7/3/54736/54736-h/54736-h.htm",
+  "format": "html",
+  "mediaKind": "text",
+  "acquisitionStatus": "downloaded",
+  "storage": "raw",
+  "relativePath": "library/source-gutenberg/asset-sermons-moody-bible-characters-pg54736/original.html",
+  "sha256": "97ff35754a183d82fcce7dcbc70f263cdd4058e9a5501c3fe4ccb5fc5d758863",
+  "byteCount": 797344,
+  "mimeType": "text/html",
+  "retrievedAt": "2026-10-09T00:21:29Z",
+  "rights": {
+    "category": "public-domain",
+    "jurisdiction": "United States",
+    "licenseId": null,
+    "licenseUrl": "https://www.gutenberg.org/policy/terms_of_use.html",
+    "attribution": "Author and host credited; the site links to the original page.",
+    "conditions": [],
+    "conditionsMet": false,
+    "actions": {
+      "download": "allowed",
+      "host": "unknown",
+      "redistribute": "unknown",
+      "adapt": "unknown",
+      "transcribe": "unknown",
+      "embed": "unknown",
+      "indexMetadata": "allowed",
+      "indexFullText": "unknown"
+    },
+    "evidence": [
+      {
+        "url": "https://gutenberg.pglaf.org/5/4/7/3/54736/54736-h/54736-h.htm",
+        "locator": "Host terms recorded in the acquisition TERMS.md",
+        "note": "Private noncommercial reading; no public hosting.",
+        "checkedOn": "2026-10-08"
+      }
+    ],
+    "unresolved": [
+      "No public hosting or public full-text index; the site links to the original."
+    ],
+    "review": {
+      "date": "2026-10-08",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  },
+  "fullTextIndexed": false,
+  "processing": {
+    "parentAssetId": null,
+    "method": "none",
+    "tool": null,
+    "toolVersion": null,
+    "parameters": null,
+    "date": null,
+    "note": "Original bytes unchanged."
+  },
+  "quality": {
+    "state": "sampled",
+    "reviewedBy": "Claude",
+    "reviewedOn": "2026-10-08",
+    "note": "Ten random entries checked against the held file at acquisition."
+  }
+}

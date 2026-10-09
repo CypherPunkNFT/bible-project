@@ -1,4 +1,4 @@
-// /teachers/preachers-and-authors: the Reformed preachers and writers in the library, in the owner's order of sections
+// /teachers/preachers-and-authors: the preachers and writers in the library (any Baptist; otherwise conservative evangelicals close to Baptist), in the owner's order of sections
 // (approved mock-up: design/authors-directions/teachers/). Each section draws inside its own TeacherSection, so one
 // failing never blanks the rest; every section reads the data and the profile drawer from PreachersContext.
 import { useCallback, useEffect, useMemo, useState } from "react";

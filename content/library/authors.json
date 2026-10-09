@@ -2,7 +2,7 @@
   "$schema": "./schema.json",
   "schemaVersion": 1,
   "kind": "author-registry",
-  "updated": "2026-10-05",
+  "updated": "2026-10-08",
   "authors": [
     {
       "id": "author-john-calvin",
@@ -1494,6 +1494,100 @@
         "reviewer": "Codex",
         "kind": "ai-assisted",
         "scope": "Initial mission-specific author screening; not independent human theological review."
+      }
+    },
+    {
+      "id": "author-john-wesley",
+      "entityType": "person",
+      "name": "John Wesley",
+      "aliases": [
+        "Wesley"
+      ],
+      "cohort": "eighteenth-century",
+      "traditions": [
+        "anglican"
+      ],
+      "eligibility": "eligible",
+      "rationale": "Owner decision 2026-10-08: Preachers & authors admits any Baptist, otherwise conservative, non-heretical preachers as close to Baptist as possible; the owner named Graham, Wesley and Moody. Wesley was an Anglican priest all his life and led the Methodist revival; an Arminian evangelical, not Reformed.",
+      "receptionBasis": "Owner's named choice; standard sermons are public domain with announced texts.",
+      "evidence": [
+        {
+          "url": "https://wesley.nnu.edu/john-wesley/the-sermons-of-john-wesley-1872-edition/",
+          "locator": "Sermons, Thomas Jackson edition (1872)",
+          "note": "Corpus identity.",
+          "checkedOn": "2026-10-08"
+        }
+      ],
+      "distinctives": [],
+      "unresolved": [],
+      "review": {
+        "date": "2026-10-08",
+        "reviewer": "Claude",
+        "kind": "ai-assisted",
+        "scope": "Sermons campaign: identity and owner-scope eligibility; work review remains required."
+      }
+    },
+    {
+      "id": "author-d-l-moody",
+      "entityType": "person",
+      "name": "D. L. Moody",
+      "aliases": [
+        "Dwight Lyman Moody",
+        "Dwight L. Moody"
+      ],
+      "cohort": "nineteenth-century",
+      "traditions": [
+        "congregational"
+      ],
+      "eligibility": "eligible",
+      "rationale": "Owner decision 2026-10-08: Preachers & authors admits any Baptist, otherwise conservative, non-heretical preachers as close to Baptist as possible; the owner named Graham, Wesley and Moody. Moody was a lay evangelist and a Congregational church member who founded an independent church and the Moody Bible Institute.",
+      "receptionBasis": "Owner's named choice; sermon books are public domain.",
+      "evidence": [
+        {
+          "url": "https://www.gutenberg.org/ebooks/author/2296",
+          "locator": "Project Gutenberg author page",
+          "note": "Corpus identity.",
+          "checkedOn": "2026-10-08"
+        }
+      ],
+      "distinctives": [],
+      "unresolved": [],
+      "review": {
+        "date": "2026-10-08",
+        "reviewer": "Claude",
+        "kind": "ai-assisted",
+        "scope": "Sermons campaign: identity and owner-scope eligibility; work review remains required."
+      }
+    },
+    {
+      "id": "author-billy-graham",
+      "entityType": "person",
+      "name": "Billy Graham",
+      "aliases": [
+        "William Franklin Graham Jr."
+      ],
+      "cohort": "twentieth-century",
+      "traditions": [
+        "baptist"
+      ],
+      "eligibility": "eligible",
+      "rationale": "Owner decision 2026-10-08: Preachers & authors admits any Baptist, otherwise conservative, non-heretical preachers as close to Baptist as possible; the owner named Graham, Wesley and Moody. Graham was an ordained Southern Baptist minister and evangelist.",
+      "receptionBasis": "Owner's named choice ('go deep'); BGEA publishes sermon transcripts.",
+      "evidence": [
+        {
+          "url": "https://billygraham.org/about/biographies/billy-graham/",
+          "locator": "BGEA biography",
+          "note": "Identity and denomination.",
+          "checkedOn": "2026-10-08"
+        }
+      ],
+      "distinctives": [],
+      "unresolved": [],
+      "review": {
+        "date": "2026-10-08",
+        "reviewer": "Claude",
+        "kind": "ai-assisted",
+        "scope": "Sermons campaign: identity and owner-scope eligibility; work review remains required."
       }
     }
   ]

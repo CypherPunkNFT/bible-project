@@ -1,0 +1,76 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-moody-001",
+  "editorialState": "catalogued",
+  "notes": [
+    "Place: the Great Chicago Tabernacle (as printed under the title)",
+    "Single printed sermon (a numbered tract, 'No. 16'). No text is stated. Opening words: “A Sermon delivered by D. L. Moody, the Evangelist, at the Great Chicago Tabernacle, Jan. 5, 1877. Repeated in the Boston Tabernacle, April 29th. In 2 Timothy, 3:16, Paul declares: …” Printed under the title: 'A Sermon delivered by D. L. Moody, the Evangelist, at the Great Chicago Tabernacle, Jan. 5, 1877. Repeated in the Boston Tabernacle, April 29th.' (No year is printed for the Boston repetition.) No text is announced; the opening sentence quotes 2 Timothy 3:16 as part of the argument."
+  ],
+  "reviews": [
+    {
+      "date": "2026-10-08",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "That Gospel Sermon on the Blessed Hope",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-d-l-moody",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [
+    {
+      "event": "delivery",
+      "value": "1877-01-05",
+      "precision": "day",
+      "label": "Jan. 5, 1877 (printed under the title)",
+      "evidence": [
+        {
+          "url": "https://www.gutenberg.org/ebooks/27316",
+          "locator": "Printed with the sermon",
+          "note": "Preaching date as printed by the source.",
+          "checkedOn": "2026-10-08"
+        }
+      ]
+    }
+  ],
+  "passages": [],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-moody-book-pg27316",
+      "locator": "heading “THAT GOSPEL SERMON / ON THE BLESSED HOPE.”; item 1 of 1 in this file"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://www.gutenberg.org/ebooks/27316"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://www.gutenberg.org/ebooks/27316",
+      "locator": "heading “THAT GOSPEL SERMON / ON THE BLESSED HOPE.”; item 1 of 1 in this file",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-moody-075",
+  "editorialState": "catalogued",
+  "notes": [
+    "Sermon extract. Bible Characters (1902) is a multi-author compilation; the Moody section is headed 'Bible Characters described in his soul-winning sermons', and the editor's introduction says he 'culled from their utterances choice selections'. Several pieces are only a page long. No text is stated. Opening words: “Look at the sons of Jacob. Look at them when they took away their brother, and after they had delivered him into slavery see them coming back. How much they …”"
+  ],
+  "reviews": [
+    {
+      "date": "2026-10-08",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "Jacob’s Sons",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-d-l-moody",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-moody-book-pg54736",
+      "locator": "heading “JACOB’S SONS.”; item 14 of 29 in this file"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://www.gutenberg.org/ebooks/54736"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://www.gutenberg.org/ebooks/54736",
+      "locator": "heading “JACOB’S SONS.”; item 14 of 29 in this file",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

@@ -8,13 +8,16 @@ export const FAMILIES: Family[] = [
   { key: "puritan", label: "Puritans", tone: "--history" },
   { key: "baptist", label: "Baptists", tone: "--poetry" },
   { key: "anglican", label: "Anglicans", tone: "--acts" },
+  { key: "methodist", label: "Methodists", tone: "--apocrypha" },
   { key: "continental-reformed", label: "Dutch & Swiss Reformed", tone: "--gospels" },
   { key: "presbyterian", label: "Presbyterians", tone: "--prophets" },
   { key: "calvinist-evangelical", label: "Evangelicals", tone: "--epistles" },
   { key: "reformed", label: "Reformed", tone: "--revelation" },
 ];
-const FAMILY_ORDER = ["baptist", "anglican", "puritan", "continental-reformed", "presbyterian", "calvinist-evangelical", "reformed"];
-const FAMILY_OVERRIDES: Record<string, string> = { "author-l13-david-brainerd": "presbyterian" }; // no tradition in the registry
+const FAMILY_ORDER = ["baptist", "methodist", "anglican", "puritan", "continental-reformed", "presbyterian", "calvinist-evangelical", "reformed"];
+// Brainerd has no tradition in the registry; Wesley (an Anglican priest) led the Methodists; Moody, a Congregational
+// lay evangelist who founded an independent church, sits with the evangelicals.
+const FAMILY_OVERRIDES: Record<string, string> = { "author-l13-david-brainerd": "presbyterian", "author-john-wesley": "methodist", "author-d-l-moody": "calvinist-evangelical" };
 
 export function familyOf(person: Person): Family {
   const key = FAMILY_OVERRIDES[person.id] ?? FAMILY_ORDER.find((k) => person.traditions.includes(k)) ?? "reformed";

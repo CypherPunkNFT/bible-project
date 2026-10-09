@@ -1,0 +1,64 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-wesley-029",
+  "editorialState": "catalogued",
+  "notes": [
+    "Sermons on Several Occasions, Thomas Jackson edition (1872), Jackson numbering"
+  ],
+  "reviews": [
+    {
+      "date": "2026-10-08",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "Upon Our Lord's Sermon on the Mount: Discourse Nine",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-john-wesley",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "eighteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Matt. 6:24-34",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 40006024,
+      "end": 40006034,
+      "verification": "verified",
+      "locator": "https://wesley.nnu.edu/john-wesley/the-sermons-of-john-wesley-1872-edition/sermon-29-upon-our-lords-sermon-on-the-mount-discourse-nine/; original.html, heading block under the title (block 1): \"`No man can serve two masters; For either he will hate the one, and love the other; or else he will hold to the one and despise the other. Ye cannot serve God and mammon. \"`Therefore I say unto you, Take no thought for your life, what ye shall eat, or what ye shall drink; nor yet for your body, what ye shall put on. Is not the life more than meat, and the body than raiment Behold the fowls of the air: For they sow not, neither do they reap, nor gather into barns; yet your heavenly Father feedeth them. Are ye not much better than they Which of you by taking thought can add one cubit unto his stature \"And why take ye thought for raiment Consider the lilies of the field, how they grow; they toil not, neither do they spin. And yet I say unto you, that even Solomon in all his glory was not arrayed like one of these. Wherefore, if God so clothe the grass of the field, which to-day is, and tomorrow is cast into the oven, shall he not much more clothe you, O ye of little faith Therefore take no thought, saying, What shall we eat or, What shall we drink or, Wherewithal shall we be clothed (For after all these things do the Gentiles seek:) For your heavenly Father knoweth that ye have need of all these things. But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you. \"`Take therefore no thought for the morrow: For the morrow shall take thought for the things of itself. Sufficient unto the day is the evil thereof.'\" Matt. 6:24-34."
+    }
+  ],
+  "related": [],
+  "externalIds": {
+    "officialDestination": [
+      "https://wesley.nnu.edu/john-wesley/the-sermons-of-john-wesley-1872-edition/sermon-29-upon-our-lords-sermon-on-the-mount-discourse-nine/"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://wesley.nnu.edu/john-wesley/the-sermons-of-john-wesley-1872-edition/sermon-29-upon-our-lords-sermon-on-the-mount-discourse-nine/",
+      "locator": "Sermon page",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

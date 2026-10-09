@@ -1,0 +1,70 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-moody-037",
+  "editorialState": "catalogued",
+  "notes": [
+    "Sermon. The book's title page calls these 'Sermons' ('The Overcoming Life, and Other Sermons', 1896)."
+  ],
+  "reviews": [
+    {
+      "date": "2026-10-08",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "Humility",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-d-l-moody",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Matthew 11:29",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 40011029,
+      "end": 40011029,
+      "verification": "verified",
+      "locator": "https://www.gutenberg.org/ebooks/33015; Printed under the heading.; printed: “Learn of me, for I am meek and lowly in heart.”—Matthew 11:29."
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-moody-book-pg33015",
+      "locator": "heading “HUMILITY.” (HTML anchor #humility); item 5 of 7 in this file"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://www.gutenberg.org/ebooks/33015"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://www.gutenberg.org/ebooks/33015",
+      "locator": "heading “HUMILITY.” (HTML anchor #humility); item 5 of 7 in this file",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

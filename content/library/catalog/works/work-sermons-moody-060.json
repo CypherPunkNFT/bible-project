@@ -1,0 +1,71 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-moody-060",
+  "editorialState": "catalogued",
+  "notes": [
+    "Place: England (stated for the whole book, not this address: 'delivered during Messrs. Moody and Sankey's first campaign in England')",
+    "Address. Title page: 'Wondrous Love and other Gospel Addresses … delivered during Messrs. Moody and Sankey's first campaign in England'; 'First issued in 1876'."
+  ],
+  "reviews": [
+    {
+      "date": "2026-10-08",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "The Right Kind of Faith",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-d-l-moody",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Acts 16:30",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 44016030,
+      "end": 44016030,
+      "verification": "verified",
+      "locator": "https://www.gutenberg.org/ebooks/33520; Printed under the heading.; printed: “Sirs, what must I do to be saved?”—Acts xvi. 30."
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-moody-book-pg33520",
+      "locator": "heading “THE RIGHT KIND OF FAITH” (HTML anchor #faith); item 9 of 10 in this file"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://www.gutenberg.org/ebooks/33520"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://www.gutenberg.org/ebooks/33520",
+      "locator": "heading “THE RIGHT KIND OF FAITH” (HTML anchor #faith); item 9 of 10 in this file",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

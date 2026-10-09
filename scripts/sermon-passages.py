@@ -123,6 +123,7 @@ def piper_refs(text):
 def clean(reference):
     """Source punctuation -> the parser's: en/em dashes, "and" between references, "8. 9" typo for "8, 9"."""
     ref = reference.replace("–", "-").replace("—", "-").replace(" ", " ")
+    ref = re.sub(r"^(Jam|Eccles)\.", lambda m: {"Jam": "James", "Eccles": "Ecclesiastes"}[m.group(1)], ref)  # older abbreviations
     ref = re.sub(r"(\d)\.\s+(\d)", r"\1, \2", ref)
     ref = re.sub(r":\s+(?=\d)", ":", ref)
     ref = re.sub(r"(\d:\d+(?:-\d+)?);\s*(?=\d+(?:-\d+)?\s*(?:$|[;,]))", r"\1, ", ref)  # "43:1-4; 22-25": verses, not chapters

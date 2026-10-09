@@ -1,0 +1,66 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-wesley-128",
+  "editorialState": "catalogued",
+  "notes": [
+    "Sermons on Several Occasions, Thomas Jackson edition (1872), Jackson numbering",
+    "Place: Bristol (title page: 'A SERMON PREACHED AT BRISTOL'; no date of preaching printed)",
+    "Already held (TCP/Evans, Boston 1741 reprint, CC0 XML); not re-downloaded per reuse rule. Wesley Center page: https://wesley.nnu.edu/john-wesley/the-sermons-of-john-wesley-1872-edition/sermon-128-free-grace/"
+  ],
+  "reviews": [
+    {
+      "date": "2026-10-08",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "Free Grace",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-john-wesley",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "eighteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "Rom. 8:32",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 45008032,
+      "end": 45008032,
+      "verification": "verified",
+      "locator": "https://raw.githubusercontent.com/textcreationpartnership/N03929/master/N03929.xml; library/source-tcp-bulk/asset-bulk-tcp-n03929/original.xml, after 'To the Reader': 'Rom. VIII. 32. He that spared not his own Son, but delivered him up for us all...'; printed: Rom. VIII. 32"
+    }
+  ],
+  "related": [],
+  "externalIds": {
+    "officialDestination": [
+      "https://raw.githubusercontent.com/textcreationpartnership/N03929/master/N03929.xml"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/N03929/master/N03929.xml",
+      "locator": "Sermon page",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

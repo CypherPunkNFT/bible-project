@@ -1,0 +1,98 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-moody-book-pg30449",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-10-08",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "The Way to God and How to Find It",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-d-l-moody",
+      "role": "author"
+    }
+  ],
+  "genre": "collected-works",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [],
+  "related": [
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-moody-002",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-moody-003",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-moody-004",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-moody-005",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-moody-006",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-moody-007",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-moody-008",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-moody-009",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-moody-010",
+      "locator": null
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://www.gutenberg.org/ebooks/30449"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://www.gutenberg.org/ebooks/30449",
+      "locator": "Book landing page",
+      "note": "Held as one file; sermons catalogued separately.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

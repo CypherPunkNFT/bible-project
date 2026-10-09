@@ -1,5 +1,5 @@
 {
-  "about": "Hand-entered for the Authors mock-ups (2026-10-08): life years, the places each person lived and served (first = birthplace, unless birthplaceKnown is false, when the first place is simply the earliest known; year = when they arrived, approximate), a one-line description, and documented links between people. Fact-checked 2026-10-08 against Wikipedia, Britannica and other references (report in the session DevLog); corrections applied. Counts of works and Bible passages come from the library catalogue (build-data.mjs), not from here.",
+  "about": "Hand-entered for the Authors mock-ups (2026-10-08): life years, the places each person lived and served (first = birthplace, unless birthplaceKnown is false, when the first place is simply the earliest known; year = when they arrived, approximate), a one-line description, and documented links between people. Fact-checked 2026-10-08 against Wikipedia, Britannica and other references (report in the session DevLog); corrections applied. Counts of works and Bible passages come from the library catalogue (build-data.mjs), not from here. Wesley, Moody and Graham added 2026-10-08 (owner's widened scope), fact-checked the same day.",
   "people": {
     "author-john-calvin": {
       "short": "Calvin",
@@ -636,6 +636,58 @@
         ]
       ]
     },
+    "author-john-wesley": {
+      "short": "Wesley",
+      "born": 1703,
+      "died": 1791,
+      "line": "Anglican priest and open-air preacher who led the Methodist revival in Britain for more than fifty years.",
+      "places": [
+        [
+          "Epworth",
+          53.525,
+          -0.824,
+          1703
+        ],
+        [
+          "London",
+          51.507,
+          -0.128,
+          1714
+        ],
+        [
+          "Oxford",
+          51.752,
+          -1.258,
+          1720
+        ],
+        [
+          "Savannah",
+          32.08,
+          -81.09,
+          1736
+        ],
+        [
+          "London",
+          51.507,
+          -0.128,
+          1738
+        ]
+      ],
+      "known": [
+        [
+          "Sermons on Several Occasions",
+          1746
+        ],
+        [
+          "Explanatory Notes upon the New Testament",
+          1755
+        ],
+        [
+          "A Plain Account of Christian Perfection",
+          1766
+        ]
+      ]
+    },
     "author-jonathan-edwards": {
       "short": "Edwards",
       "born": 1703,
@@ -1162,6 +1214,56 @@
         ]
       ]
     },
+    "author-d-l-moody": {
+      "short": "Moody",
+      "born": 1837,
+      "died": 1899,
+      "line": "Shoe salesman turned evangelist; led great campaigns in Britain and America from 1873 and in 1886 founded the Chicago Bible institute that now bears his name.",
+      "places": [
+        [
+          "Northfield",
+          42.696,
+          -72.453,
+          1837
+        ],
+        [
+          "Boston",
+          42.358,
+          -71.06,
+          1854
+        ],
+        [
+          "Chicago",
+          41.88,
+          -87.63,
+          1856
+        ],
+        [
+          "Northfield",
+          42.696,
+          -72.453,
+          1875
+        ]
+      ],
+      "known": [
+        [
+          "Secret Power",
+          1881
+        ],
+        [
+          "The Way to God and How to Find It",
+          1884
+        ],
+        [
+          "Prevailing Prayer",
+          1884
+        ],
+        [
+          "Weighed and Wanting",
+          1898
+        ]
+      ]
+    },
     "author-abraham-kuyper": {
       "short": "Kuyper",
       "born": 1837,
@@ -1479,6 +1581,64 @@
         [
           "Preaching and Preachers",
           1971
+        ]
+      ]
+    },
+    "author-billy-graham": {
+      "short": "Graham",
+      "born": 1918,
+      "died": 2018,
+      "line": "Southern Baptist evangelist who preached the gospel in person to nearly 215 million people in more than 185 countries and territories.",
+      "places": [
+        [
+          "Charlotte",
+          35.227,
+          -80.843,
+          1918
+        ],
+        [
+          "Cleveland, Tennessee",
+          35.159,
+          -84.877,
+          1936
+        ],
+        [
+          "Temple Terrace",
+          28.035,
+          -82.389,
+          1937
+        ],
+        [
+          "Wheaton",
+          41.866,
+          -88.107,
+          1940
+        ],
+        [
+          "Western Springs",
+          41.809,
+          -87.9,
+          1943
+        ],
+        [
+          "Montreat",
+          35.643,
+          -82.3,
+          1945
+        ]
+      ],
+      "known": [
+        [
+          "Peace with God",
+          1953
+        ],
+        [
+          "How to Be Born Again",
+          1977
+        ],
+        [
+          "Just As I Am",
+          1997
         ]
       ]
     },
@@ -1849,6 +2009,41 @@
       "author-l13-robert-murray-mcheyne",
       "author-l13-andrew-bonar",
       "Close friends who travelled to Palestine together in 1839; Bonar wrote M'Cheyne's memoir."
+    ],
+    [
+      "author-john-wesley",
+      "author-george-whitefield",
+      "Fellow members of the Oxford Holy Club; Wesley preached Whitefield's funeral sermon in London on 18 November 1770."
+    ],
+    [
+      "author-jonathan-edwards",
+      "author-john-wesley",
+      "Wesley read Edwards's account of the Northampton revival in 1738 and later abridged and reprinted five of his works."
+    ],
+    [
+      "author-john-wesley",
+      "author-john-newton",
+      "Newton heard Wesley preach many times in Liverpool from 1757; the two dined together and corresponded for years."
+    ],
+    [
+      "author-john-gill",
+      "author-john-wesley",
+      "Gill wrote two replies to Wesley in 1752 over predestination and whether believers can finally fall away."
+    ],
+    [
+      "author-charles-spurgeon",
+      "author-d-l-moody",
+      "Moody heard Spurgeon preach at the Metropolitan Tabernacle in 1867 and later preached from its pulpit, leading a mission there in 1892."
+    ],
+    [
+      "author-billy-graham",
+      "author-j-i-packer",
+      "Packer's first book (1958) defended Graham against attacks on his 1955 Cambridge mission; Packer later became senior editor of Christianity Today, the magazine Graham founded."
+    ],
+    [
+      "author-martyn-lloyd-jones",
+      "author-billy-graham",
+      "In 1963 Graham asked Lloyd-Jones to chair a world congress on evangelism; Lloyd-Jones declined unless Graham dropped liberals from his platform and the altar-call invitation."
     ]
   ]
 }

@@ -1,0 +1,93 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-moody-book-pg33014",
+  "editorialState": "catalogued",
+  "notes": [],
+  "reviews": [
+    {
+      "date": "2026-10-08",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "To The Work! To The Work! Exhortations to Christians",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-d-l-moody",
+      "role": "author"
+    }
+  ],
+  "genre": "collected-works",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [],
+  "related": [
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-moody-025",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-moody-026",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-moody-027",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-moody-028",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-moody-029",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-moody-030",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-moody-031",
+      "locator": null
+    },
+    {
+      "relation": "has-part",
+      "targetId": "work-sermons-moody-032",
+      "locator": null
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://www.gutenberg.org/ebooks/33014"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://www.gutenberg.org/ebooks/33014",
+      "locator": "Book landing page",
+      "note": "Held as one file; sermons catalogued separately.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

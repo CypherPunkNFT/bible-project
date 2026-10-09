@@ -35,7 +35,7 @@ function Station() {
     </header>
     <nav className="st-doors st-doors-2" aria-label="Teachers">
       <StationDoor index={1} art="preachers" title="Preachers & authors" color="accent" to={SIDE_PATHS.preachers}
-        text="Five centuries of Reformed pastors and theologians, from Bullinger to today: what they preached, where they served and who taught whom."
+        text="Five centuries of Baptist, Reformed and evangelical pastors and preachers, from Bullinger to today: what they preached, where they served and who taught whom."
         note={`${summary.people} preachers and authors`} action="Meet the preachers and authors" />
       <StationDoor index={2} art="scholars" title="Scholars" color="prophets" to={SIDE_PATHS.scholars}
         text="Historians, translators, archaeologists and the makers of the reference books this site stands on, Christian or not, each labelled for what they were."

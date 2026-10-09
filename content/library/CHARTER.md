@@ -8,6 +8,8 @@ Build a substantial, traceable Christian library centered on sermons and Scriptu
 
 The owner explicitly selected the **broader Calvinist evangelical tradition** and **reusable full text plus authorized source links**. Collection breadth may include historic Reformed, Presbyterian, Congregational, Calvinistic Baptist, evangelical Anglican and other demonstrably Calvinist evangelical authors. Denominational labels alone do not establish eligibility.
 
+**Widened for preachers, owner decision 2026-10-08:** "Any Baptist, and then… I just want the conservative, non-heretical, close-to-Baptist-as-possible sermons and preachers. We should go deep on Billy Graham; yes on Wesley, Moody." Preachers no longer need to be Calvinist or Reformed: any Baptist is eligible, and beyond the Baptist family only conservative, non-heretical evangelical preachers as close to Baptist as possible, judged by the preacher, not the denomination. Billy Graham, John Wesley and D. L. Moody were named by the owner and admitted on that basis ([sermons campaign](../../../Pages/Teachers/SERMONS-CAMPAIGN.md)). Anyone else outside the Baptist family needs the owner's say-so. The Calvinist criteria below still describe the original collection; the per-author rationale records which basis applies.
+
 ## Theological basis
 
 Scripture is the final authority. Receive the 66-book Protestant canon as the doctrinal norm. The existing site's other Bible editions and historical texts remain available in their established documentary roles.

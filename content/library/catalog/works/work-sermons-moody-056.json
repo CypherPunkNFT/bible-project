@@ -1,0 +1,71 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-sermons-moody-056",
+  "editorialState": "catalogued",
+  "notes": [
+    "Place: England (stated for the whole book, not this address: 'delivered during Messrs. Moody and Sankey's first campaign in England')",
+    "Address. Title page: 'Wondrous Love and other Gospel Addresses … delivered during Messrs. Moody and Sankey's first campaign in England'; 'First issued in 1876'. The same address also appears in Men of the Bible (Gutenberg #30740) as the chapter 'NAAMAN THE SYRIAN' (anchor #Naaman). That printing is lightly re-edited (American spelling, some sentences changed; about half the wording identical) and has no 'Read 2 Kings v.' line. Second locator: asset asset-sermons-moody-men-of-the-bible-pg30740, heading “NAAMAN THE SYRIAN” (HTML anchor #Naaman); item 3 of 7 in this file."
+  ],
+  "reviews": [
+    {
+      "date": "2026-10-08",
+      "reviewer": "Claude",
+      "kind": "ai-assisted",
+      "scope": "Sermons campaign: identity, held file and printed main text; not a full-text proofread."
+    }
+  ],
+  "title": "Naaman the Syrian",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-d-l-moody",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [
+    "general"
+  ],
+  "depth": "unknown",
+  "era": "nineteenth-century",
+  "dates": [],
+  "passages": [
+    {
+      "reference": "2 Kings 5",
+      "numberingSystem": "english",
+      "role": "main-text",
+      "start": 12005001,
+      "end": 12005027,
+      "verification": "verified",
+      "locator": "https://www.gutenberg.org/ebooks/33520; Printed under the heading as a reading: 'Read 2 Kings v.' Moody then says: 'I wish to call your attention to a man rather than to a text'.; printed: 2 Kings v."
+    }
+  ],
+  "related": [
+    {
+      "relation": "is-part-of",
+      "targetId": "work-sermons-moody-book-pg33520",
+      "locator": "heading “NAAMAN THE SYRIAN” (HTML anchor #naaman); item 5 of 10 in this file"
+    }
+  ],
+  "externalIds": {
+    "officialDestination": [
+      "https://www.gutenberg.org/ebooks/33520"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://www.gutenberg.org/ebooks/33520",
+      "locator": "heading “NAAMAN THE SYRIAN” (HTML anchor #naaman); item 5 of 10 in this file",
+      "note": "Acquired by the sermons campaign; see its acquisition manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}
