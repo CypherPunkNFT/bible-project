@@ -113,3 +113,7 @@ adds to this list as he reviews other mock-up sets (apostles, David, Michael, th
 - **The cabinet:** a technique for another page, not the people page. **The long memory:** undecided; keep it off the
   main page for now.
 - **Sources at the bottom (the collapsed "Sources · N writers"):** fine.
+
+### Muslim-world country panels — four options (2026-10-09)
+
+Owner-requested mock-ups at [muslim-world-panels/](muslim-world-panels/) and `/mockups/muslim-world-panels/`: A Compact ledger, B Colour rows, C Status cards and D Ring & ledger. Compare all four opens the panels side by side. All use the existing country data, a smaller country summary beside “Search all 53 countries”, no region dropdown, icon tabs and engagement colours. Both views work, including complete searchable group tables. Desktop light/dark gallery thumbnails and 768/390/320 px comparison layouts were checked. No direction is owner-approved or applied to the production panel.

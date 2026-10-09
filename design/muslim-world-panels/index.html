@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Muslim world · Four country panels</title>
+  <link rel="icon" href="../letters-shared/favicon.svg">
+  <link rel="stylesheet" href="panels.css">
+  <script>try{document.documentElement.dataset.theme=localStorage.getItem('bp-theme')||'dark'}catch{}</script>
+</head>
+<body>
+  <header class="site-header"><a href="/mockups/" class="brand"><img src="../letters-shared/favicon.svg" alt="">Bible Project <span>Design gallery</span></a><button id="theme" aria-label="Switch colour theme" type="button"></button></header>
+  <main>
+    <div class="design-header"><div><p class="eyebrow">Apologetics / Islam / Country panel</p><h1>A clearer view of <em>gospel presence.</em></h1></div><a class="current-link" href="/apologetics/worldviews/islam?country=EGY#muslim-world">Current atlas <span aria-hidden="true">↗</span></a></div>
+    <nav class="directions" aria-label="Design directions">
+      <button data-direction="a" type="button"><span>A</span>Compact ledger</button>
+      <button data-direction="b" type="button"><span>B</span>Colour rows</button>
+      <button data-direction="c" type="button"><span>C</span>Status cards</button>
+      <button data-direction="d" type="button"><span>D</span>Ring & ledger</button>
+      <button id="compare" type="button">Compare all four</button>
+    </nav>
+    <section class="atlas" aria-label="Country panel mock-ups">
+      <div class="country-toolbar">
+        <div class="finder"><label for="country-search">Find a country</label><div class="search-field"><span id="search-icon" aria-hidden="true"></span><input id="country-search" type="search" placeholder="Search all 53 countries" autocomplete="off" aria-controls="country-results" aria-expanded="false"><button id="clear-country" type="button" aria-label="Clear country search" hidden>×</button></div><div id="country-results" class="country-results" hidden></div></div>
+        <div id="country-summary" class="country-summary" aria-live="polite"></div>
+      </div>
+      <div class="atlas-body">
+        <figure class="globe"><div id="globe-art"></div><figcaption><span id="globe-icon"></span><span>Across the Muslim world</span><span class="globe-total">53 countries</span></figcaption></figure>
+        <div class="panel-column"><div class="direction-note"><span id="direction-label"></span><p id="direction-description"></p></div><div id="active-panel"></div></div>
+      </div>
+      <div id="comparison" class="comparison" hidden></div>
+      <div class="source-note"><span>Demographics: Pew, 2020 estimates. Engagement: IMB snapshot, 9 Oct 2026. Groups include non-Muslim groups.</span><a id="source-link" href="https://peoplegroups.org/country/EGY/" target="_blank" rel="noreferrer">IMB country profile ↗</a></div>
+    </section>
+  </main>
+  <script type="module" src="panels.js"></script>
+</body>
+</html>

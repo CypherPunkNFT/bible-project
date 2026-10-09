@@ -123,3 +123,7 @@
 
 .wv-basis-filters .wv-basis-inline-toggle{display:flex;align-items:center;gap:8px;margin-left:auto;border:0;padding:7px 0;color:var(--wv-accent);font-size:10px;white-space:nowrap}
 .wv-basis-inline-toggle svg{flex-shrink:0}
+
+.wv-relationship-room .wv-reading-heading{display:block;margin-bottom:28px}
+.wv-relationship-room .wv-reading-heading h2{margin:14px 0 18px;font-size:clamp(28px,3vw,40px)}
+.wv-relationship-room .wv-reading-aim>p{font-family:inherit;font-size:14px;line-height:1.85;max-width:none;color:var(--ink);margin:0}
