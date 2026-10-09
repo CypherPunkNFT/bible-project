@@ -104,3 +104,12 @@
 #reading-sources{scroll-margin-top:90px}
 @media(max-width:1000px){.wv-islam-desk .wv-question-nav.wv-claim-map{grid-template-columns:repeat(2,minmax(0,1fr))}.wv-claim-family:nth-child(2){border-right:0}.wv-claim-family:nth-child(-n+2){border-bottom:1px solid var(--line)}.wv-claim-follow{grid-template-columns:1fr 1fr}.wv-claim-follow>div{grid-column:1/-1}.wv-claims-heading h2{font-size:34px}}
 @media(max-width:600px){.wv-claims-heading{grid-template-columns:1fr;gap:0}.wv-claims-motif{display:none}.wv-claims-heading h2{font-size:32px}.wv-islam-desk .wv-claim-map button strong{font-size:11px}.wv-claim-family{padding:14px 6px 8px}.wv-claim-family h3{font-size:10px;gap:6px}.wv-claim-family h3 small{display:none}.wv-islam-desk .wv-claim-comparison .wv-current-question{padding:19px;align-items:flex-start}.wv-claim-key{display:none}.wv-islam-desk .wv-current-question h3{font-size:25px}.wv-islam-desk .wv-claim-comparison .wv-positions{grid-template-columns:1fr}.wv-islam-desk .wv-claim-comparison .wv-positions article{padding:22px 19px;border-right:0;border-bottom:1px solid var(--line)}.wv-islam-desk .wv-claim-comparison .wv-position-copy>p:first-child{font-size:19px}.wv-claim-follow{grid-template-columns:1fr;padding:19px;gap:17px}.wv-claim-follow>div{grid-column:auto}.wv-claim-context-link{border-left:0;border-top:1px solid var(--line);padding:16px 0 0}}
+
+/* One continuous question selector and comparison surface. */
+.wv-claims-connected{border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--surface)}
+.wv-claims-connected .wv-question-nav.wv-claim-map{border:0;border-radius:0;margin:0;border-bottom:1px solid var(--line)}
+.wv-islam-desk .wv-claims-connected .wv-claim-comparison{border:0;border-radius:0}
+.wv-islam-desk .wv-claims-connected .wv-current-question h3{margin:0}
+
+.wv-claims-connected .wv-claims-heading{padding:24px 28px;margin:0;border-bottom:1px solid var(--line);background:var(--page)}
+@media(max-width:600px){.wv-claims-connected .wv-claims-heading{padding:22px 19px}}

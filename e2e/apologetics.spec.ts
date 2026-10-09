@@ -289,3 +289,16 @@ test("apologetics: Islam uses independent cards and exact question links", async
   await page.goto("/apologetics/worldviews/islam?question=islam-trinity");
   await expect(page.locator(".wv-current-question h3")).toHaveText("What does one God mean?");
 });
+
+test("apologetics: a worldview study returns to its originating collection and question", async ({ page }) => {
+  await page.goto("/apologetics/worldviews/islam?question=comparison-2");
+  await expect(page.locator(".wv-claims-connected .wv-claims-heading")).toBeVisible();
+  await expect(page.locator(".wv-current-question")).not.toContainText("Question 02");
+  await page.locator(".wv-study-link").click();
+  const back = page.locator(".ap-study-heading .ap-back");
+  await expect(back).toHaveText("Christianity & Islam");
+  await page.reload();
+  await back.click();
+  await expect(page).toHaveURL(/worldviews\/islam\?question=comparison-2#comparison$/);
+  await expect(page.locator(".wv-current-question h3")).toHaveText("What does one God mean?");
+});
