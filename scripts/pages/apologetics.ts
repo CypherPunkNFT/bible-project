@@ -6,6 +6,7 @@ import { questionsPage, reformedPage } from "./apologetics-studies";
 import { historicTextsPage } from "./apologetics-texts";
 import type { Extractor, PageContent } from "./types";
 import { LIBRARY_FILE, PAGE_FILE, wordingSection } from "./apologetics-wording";
+import { missionGeographySection } from "./missions";
 
 const PAGES: { folder: string; title: string; render: (data: ApologeticsData) => string; wording: [string, string[]][] }[] = [
   { folder: "explore", title: "Apologetics: Explore", render: explorePage, wording: [[PAGE_FILE, ["ApologeticsPage", "Hub", "SavedPage", "Missing"]]] },
@@ -50,7 +51,7 @@ export const extract: Extractor = async () => {
   const pages: PageContent[] = [{ dir: "Apologetics", title: "Apologetics", markdown: areaPage(data) }];
   for (const page of PAGES) {
     const wording = await Promise.all(page.wording.map(([file, functions]) => wordingSection(file, functions)));
-    pages.push({ dir: `Apologetics/${page.folder}`, title: page.title, markdown: [page.render(data), ...wording].join("\n\n") });
+    pages.push({ dir: `Apologetics/${page.folder}`, title: page.title, markdown: [page.render(data), ...(page.folder === "worldviews" ? [missionGeographySection()] : []), ...wording].join("\n\n") });
   }
   return pages;
 };

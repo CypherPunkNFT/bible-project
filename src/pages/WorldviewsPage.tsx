@@ -5,6 +5,7 @@ import { WORLDVIEWS, sourceById, studyById, studyMinutes } from '@/data/apologet
 import { ApBack, ApCitations, ApNote, ApSectionHeading } from '@/components/ApologeticsParts';
 import { AP_BASE as base, studyUrl } from '@/lib/apologetics-links';
 import type { ApNotebook } from '@/lib/apologetics-notebook';
+import MuslimWorldExplorer from '@/components/apologetics/MuslimWorldExplorer';
 import './worldviews.css';
 
 const identities: Record<string, { accent: string; theme: string; name: string }> = {
@@ -53,6 +54,7 @@ function Collection({ item, book }: { item: typeof WORLDVIEWS[number]; book: ApN
         </div>
       </div>
     </section>
+    {item.id === 'islam' && <MuslimWorldExplorer />}
     <ContextSources item={item} />
     <section className="wv-next"><ApSectionHeading eyebrow="03 / Carry the conversation" title="Make the comparison a study." /><div className="wv-study-cards">{item.studies.map((id, i) => <IllustratedStudy key={id} id={id} index={i} book={book} />)}</div><div className="wv-conversation"><div><p className="ap-eyebrow">Listen before you answer</p><h3>What would you want to ask next?</h3><p>Start with the selected question: {row.question} Ask how your neighbour understands it before offering your answer.</p><button type="button" onClick={() => setNotes(!notes)} aria-expanded={notes}>{notes ? 'Close reflection' : 'Write a reflection'} <ArrowRight size={15} /></button></div>{item.id === 'islam' ? <Link className="wv-guided" to={base + '/paths/muslim-neighbour'}><RouteIcon size={24} /><span><strong>A route through the questions</strong>Follow the Muslim neighbour learning path.</span><ArrowRight size={18} /></Link> : <Link className="wv-guided" to={base + '/practice'}><RouteIcon size={24} /><span><strong>From study to conversation</strong>Practise listening and explaining your faith.</span><ArrowRight size={18} /></Link>}</div>{notes && <ApNote id={'worldview-' + item.id} prompt="Which claim or passage would you examine with your neighbour?" book={book} />}</section>
   </div>;

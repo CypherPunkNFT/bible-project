@@ -1153,3 +1153,17 @@ The two Teachers subpages ([/teachers/preachers-and-authors](https://bibleprojec
 | [content/teachers/lives.json](content/teachers/lives.json) and [content/teachers/scholars.json](content/teachers/scholars.json) | Life years, places with arrival years, one-line descriptions, best-known works, the documented teacher/colleague links, the scholars' faith labels and fields, the seven discoveries and the chain of the text. Written for the site, then fact-checked on 2026-10-08 against Wikipedia, Britannica, the Stanford Encyclopedia of Philosophy and other references; 17 errors corrected. | Site content (MIT with the code) |
 | **Natural Earth** land outlines (1:50m and 1:110m) via the `world-atlas` 2.0.2 package | The maps on both pages, projected at build time. The Dead Sea and Sea of Galilee outlines are simplified shapes drawn for the site. | **Public domain** ([terms](https://www.naturalearthdata.com/about/terms-of-use/)); credit Natural Earth |
 | [data/stats.json](data/stats.json) (the site's KJV book and chapter lengths) | The 1,189 chapter squares and the 66 book spokes | Public domain text |
+
+
+## Muslim-world country explorer (2026-10-09)
+
+The Islam collection's rotating country globe uses a bundled, attributed snapshot of demographic and people-group facts. [Data, definitions and refresh procedure](content/missions/README.md). [Checksums and byte counts](content/missions/source-manifest.json). Immutable original inputs are held at `../sources/missions/muslim-world/2026-10-09`; raw Pew application code and the full IMB input are not served by the site.
+
+| Source | Licence / terms | Use |
+|---|---|---|
+| [Pew Research Center: Religious Composition by Country, 2010–2020](https://www.pewresearch.org/religion/feature/religious-composition-by-country-2010-2020/), public interactive dataset, published 2025 | [Pew terms](https://www.pewresearch.org/about/terms-and-conditions/); attributed statistical facts, not re-hosted narrative or interactive code | Select 53 places above 50% Muslim identification in 2020; display dated population estimates and rounded religious shares |
+| [IMB Global Research / People Group Points](https://www.arcgis.com/home/item.html?id=4480316ef90c467ba30517809180c536), public `imbGIS` service, CaptureDate 2026-10-09 | Source item links [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/); retain attribution, licence link and the notice of aggregation | Sum active records by country and published Engagement Progress category; show three largest group examples and link to profiles. All religions are included; no individual-level location records are published |
+| [NASA Blue Marble Next Generation via GIBS](https://gibs.earthdata.nasa.gov/), global equirectangular request | Public-domain NASA Earth imagery; credit NASA | Textured orthographic sphere, tinted for the site's themes. [Exact request and asset provenance](public/assets/muslim-world/README.md) |
+| Natural Earth country boundaries, `world-atlas@2.0.2`, 1:50m | [Public domain](https://www.naturalearthdata.com/about/terms-of-use/) | Country outlines, selection and geographic centres; Mayotte's island polygons extracted from France's multipart geometry |
+
+The globe adapts the owner's `design/apostle-directions-2/js/globe.js` mock. The demographic year (2020) and IMB snapshot date are shown separately. "No longer unreached" is IMB's people-group category, not a judgement about every person or a country-wide completion status.

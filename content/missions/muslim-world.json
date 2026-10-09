@@ -1,0 +1,3150 @@
+{
+  "schemaVersion": 1,
+  "snapshotDate": "2026-10-09",
+  "demographicYear": 2020,
+  "retrievedDate": "2026-10-09",
+  "scope": "Countries and territories with more than 50% Muslim identification in Pew 2020 estimates.",
+  "sources": {
+    "pew": {
+      "url": "https://www.pewresearch.org/religion/feature/religious-composition-by-country-2010-2020/",
+      "dataUrl": "https://www.pewresearch.org/wp-content/plugins/prc-interactive-features/assets/religion/2022/grf-table/build/index.js",
+      "sha256": "22c0f651461e770645d5e67bd8e2a02972770fc3f049740b43b255a1228f5e08"
+    },
+    "imb": {
+      "url": "https://www.arcgis.com/home/item.html?id=4480316ef90c467ba30517809180c536",
+      "dataUrl": "https://services2.arcgis.com/S4ydGgujXcif36k3/arcgis/rest/services/pgOrgPointsStaging/FeatureServer/0",
+      "sha256": "90cc30b356e1515878bd8136eecb6bea87eea2b94ba477432490598388d1833f",
+      "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
+      "transformation": "Active people-group records aggregated by country and the published EngagementProgress category; three largest groups listed as examples."
+    }
+  },
+  "countries": [
+    {
+      "code": "AFG",
+      "numeric": "004",
+      "name": "Afghanistan",
+      "region": "Southern Asia",
+      "population2020": 39068979,
+      "muslimShare2020": 99.9,
+      "religions2020": {
+        "Christians": 0.0,
+        "Muslims": 99.9,
+        "Unaffiliated": 0.0,
+        "Hindus": 0.0,
+        "Buddhists": 0.0,
+        "Jews": 0.0,
+        "Other religions": 0.1
+      },
+      "imb": {
+        "totalGroups": 45,
+        "population": 45062000,
+        "unengaged": {
+          "groups": 28,
+          "population": 1253200
+        },
+        "engagedUnreached": {
+          "groups": 17,
+          "population": 43808800
+        },
+        "noLongerUnreached": {
+          "groups": 0,
+          "population": 0
+        }
+      },
+      "examples": [
+        {
+          "id": "PG024009",
+          "name": "Southern Pashtuns",
+          "language": "Southern Pashto",
+          "religion": "Islam - Sunni",
+          "population": 13770000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG024018",
+          "name": "Tajiks",
+          "language": "Dari",
+          "religion": "Islam - Sunni",
+          "population": 11470000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG024028",
+          "name": "Uzbeks",
+          "language": "Southern Uzbek",
+          "religion": "Islam - Sunni",
+          "population": 4470000,
+          "status": "engagedUnreached"
+        }
+      ]
+    },
+    {
+      "code": "ALB",
+      "numeric": "008",
+      "name": "Albania",
+      "region": "Southern Europe",
+      "population2020": 2871954,
+      "muslimShare2020": 74.5,
+      "religions2020": {
+        "Christians": 17.8,
+        "Muslims": 74.5,
+        "Unaffiliated": 7.7,
+        "Hindus": 0.0,
+        "Buddhists": 0.0,
+        "Jews": 0.0,
+        "Other religions": 0.0
+      },
+      "imb": {
+        "totalGroups": 6,
+        "population": 2852000,
+        "unengaged": {
+          "groups": 2,
+          "population": 97700
+        },
+        "engagedUnreached": {
+          "groups": 4,
+          "population": 2754300
+        },
+        "noLongerUnreached": {
+          "groups": 0,
+          "population": 0
+        }
+      },
+      "examples": [
+        {
+          "id": "PG000704",
+          "name": "Albanians",
+          "language": "Gheg Albanian",
+          "religion": "Islam - Folk",
+          "population": 2595000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG039302",
+          "name": "Macedonians",
+          "language": "Macedonian",
+          "religion": "Islam - Sunni",
+          "population": 122000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG039292",
+          "name": "Greeks",
+          "language": "Modern Greek (1453-)",
+          "religion": "Christianity - Eastern Orthodox",
+          "population": 94000,
+          "status": "unengaged"
+        }
+      ]
+    },
+    {
+      "code": "DZA",
+      "numeric": "012",
+      "name": "Algeria",
+      "region": "Northern Africa",
+      "population2020": 44042091,
+      "muslimShare2020": 98.4,
+      "religions2020": {
+        "Christians": 0.3,
+        "Muslims": 98.4,
+        "Unaffiliated": 1.3,
+        "Hindus": 0.0,
+        "Buddhists": 0.0,
+        "Jews": 0.0,
+        "Other religions": 0.0
+      },
+      "imb": {
+        "totalGroups": 33,
+        "population": 47130325,
+        "unengaged": {
+          "groups": 23,
+          "population": 1738825
+        },
+        "engagedUnreached": {
+          "groups": 9,
+          "population": 45335500
+        },
+        "noLongerUnreached": {
+          "groups": 1,
+          "population": 56000
+        }
+      },
+      "examples": [
+        {
+          "id": "PG011251",
+          "name": "Algerian Arabs",
+          "language": "Algerian Arabic",
+          "religion": "Islam - Sunni",
+          "population": 34970000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG011265",
+          "name": "Kabyle",
+          "language": "Kabyle",
+          "religion": "Islam - Folk",
+          "population": 6825000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG011273",
+          "name": "Shawiya",
+          "language": "Tachawit",
+          "religion": "Islam - Sunni",
+          "population": 2525000,
+          "status": "engagedUnreached"
+        }
+      ]
+    },
+    {
+      "code": "AZE",
+      "numeric": "031",
+      "name": "Azerbaijan",
+      "region": "Western Asia",
+      "population2020": 10181730,
+      "muslimShare2020": 94.7,
+      "religions2020": {
+        "Christians": 0.4,
+        "Muslims": 94.7,
+        "Unaffiliated": 4.8,
+        "Hindus": 0.0,
+        "Buddhists": 0.0,
+        "Jews": 0.1,
+        "Other religions": 0.0
+      },
+      "imb": {
+        "totalGroups": 24,
+        "population": 10736200,
+        "unengaged": {
+          "groups": 11,
+          "population": 263300
+        },
+        "engagedUnreached": {
+          "groups": 13,
+          "population": 10472900
+        },
+        "noLongerUnreached": {
+          "groups": 0,
+          "population": 0
+        }
+      },
+      "examples": [
+        {
+          "id": "PG024040",
+          "name": "Azerbaijani",
+          "language": "North Azerbaijani",
+          "religion": "Islam - Shia",
+          "population": 9610000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG024076",
+          "name": "Lezghi",
+          "language": "Lezghian",
+          "religion": "Islam - Sunni",
+          "population": 441000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG024089",
+          "name": "Talysh",
+          "language": "Talysh",
+          "religion": "Islam - Shia",
+          "population": 134000,
+          "status": "engagedUnreached"
+        }
+      ]
+    },
+    {
+      "code": "BHR",
+      "numeric": "048",
+      "name": "Bahrain",
+      "region": "Western Asia",
+      "population2020": 1483077,
+      "muslimShare2020": 74.0,
+      "religions2020": {
+        "Christians": 13.7,
+        "Muslims": 74.0,
+        "Unaffiliated": 0.3,
+        "Hindus": 11.2,
+        "Buddhists": 0.2,
+        "Jews": 0.0,
+        "Other religions": 0.6
+      },
+      "imb": {
+        "totalGroups": 12,
+        "population": 1517550,
+        "unengaged": {
+          "groups": 4,
+          "population": 244050
+        },
+        "engagedUnreached": {
+          "groups": 8,
+          "population": 1273500
+        },
+        "noLongerUnreached": {
+          "groups": 0,
+          "population": 0
+        }
+      },
+      "examples": [
+        {
+          "id": "PG011297",
+          "name": "Bahraini Shia Arabs",
+          "language": "Baharna Arabic",
+          "religion": "Islam - Shia",
+          "population": 741000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG011304",
+          "name": "Persians",
+          "language": "Iranian Persian",
+          "religion": "Islam - Shia",
+          "population": 225000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG042660",
+          "name": "Gulf Arabs",
+          "language": "Baharna Arabic",
+          "religion": "Islam - Sunni",
+          "population": 137000,
+          "status": "unengaged"
+        }
+      ]
+    },
+    {
+      "code": "BGD",
+      "numeric": "050",
+      "name": "Bangladesh",
+      "region": "Southern Asia",
+      "population2020": 166298024,
+      "muslimShare2020": 91.1,
+      "religions2020": {
+        "Christians": 0.3,
+        "Muslims": 91.1,
+        "Unaffiliated": 0.0,
+        "Hindus": 7.9,
+        "Buddhists": 0.6,
+        "Jews": 0.0,
+        "Other religions": 0.1
+      },
+      "imb": {
+        "totalGroups": 56,
+        "population": 182588830,
+        "unengaged": {
+          "groups": 3,
+          "population": 1230
+        },
+        "engagedUnreached": {
+          "groups": 32,
+          "population": 181543200
+        },
+        "noLongerUnreached": {
+          "groups": 21,
+          "population": 1044400
+        }
+      },
+      "examples": [
+        {
+          "id": "PG001156",
+          "name": "Bengali Sunni Muslims",
+          "language": "Bengali",
+          "religion": "Islam - Sunni",
+          "population": 92500000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG048715",
+          "name": "Bengali Sufi Muslims",
+          "language": "Bengali",
+          "religion": "Islam - Folk",
+          "population": 31950000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG001155",
+          "name": "Hindu Bengali",
+          "language": "Bengali",
+          "religion": "Hinduism - Folk",
+          "population": 15450000,
+          "status": "engagedUnreached"
+        }
+      ]
+    },
+    {
+      "code": "BIH",
+      "numeric": "070",
+      "name": "Bosnia and Herzegovina",
+      "region": "Southern Europe",
+      "population2020": 3299350,
+      "muslimShare2020": 53.6,
+      "religions2020": {
+        "Christians": 44.7,
+        "Muslims": 53.6,
+        "Unaffiliated": 1.0,
+        "Hindus": 0.0,
+        "Buddhists": 0.0,
+        "Jews": 0.0,
+        "Other religions": 0.6
+      },
+      "imb": {
+        "totalGroups": 6,
+        "population": 3156800,
+        "unengaged": {
+          "groups": 2,
+          "population": 993000
+        },
+        "engagedUnreached": {
+          "groups": 4,
+          "population": 2163800
+        },
+        "noLongerUnreached": {
+          "groups": 0,
+          "population": 0
+        }
+      },
+      "examples": [
+        {
+          "id": "PG000713",
+          "name": "Bosniaks",
+          "language": "Bosnian",
+          "religion": "Islam - Sunni",
+          "population": 1350000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG000724",
+          "name": "Serbs",
+          "language": "Serbian",
+          "religion": "Christianity - Eastern Orthodox",
+          "population": 962000,
+          "status": "unengaged"
+        },
+        {
+          "id": "PG000716",
+          "name": "Croats",
+          "language": "Croatian",
+          "religion": "Christianity - Roman Catholicism",
+          "population": 505000,
+          "status": "engagedUnreached"
+        }
+      ]
+    },
+    {
+      "code": "BRN",
+      "numeric": "096",
+      "name": "Brunei",
+      "region": "South-Eastern Asia",
+      "population2020": 447404,
+      "muslimShare2020": 82.2,
+      "religions2020": {
+        "Christians": 6.7,
+        "Muslims": 82.2,
+        "Unaffiliated": 0.2,
+        "Hindus": 1.3,
+        "Buddhists": 6.3,
+        "Jews": 0.0,
+        "Other religions": 3.4
+      },
+      "imb": {
+        "totalGroups": 12,
+        "population": 428090,
+        "unengaged": {
+          "groups": 7,
+          "population": 86300
+        },
+        "engagedUnreached": {
+          "groups": 1,
+          "population": 326000
+        },
+        "noLongerUnreached": {
+          "groups": 4,
+          "population": 15790
+        }
+      },
+      "examples": [
+        {
+          "id": "PG018237",
+          "name": "Brunei Malays",
+          "language": "Brunei",
+          "religion": "Islam - Sunni",
+          "population": 326000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG018519",
+          "name": "Bisayan Tutong",
+          "language": "Brunei Bisaya",
+          "religion": "Islam - Sunni",
+          "population": 24000,
+          "status": "unengaged"
+        },
+        {
+          "id": "PG019588",
+          "name": "Iban",
+          "language": "Iban",
+          "religion": "Ethnoreligion - Animism",
+          "population": 24000,
+          "status": "unengaged"
+        }
+      ]
+    },
+    {
+      "code": "BFA",
+      "numeric": "854",
+      "name": "Burkina Faso",
+      "region": "Western Africa",
+      "population2020": 21478690,
+      "muslimShare2020": 67.4,
+      "religions2020": {
+        "Christians": 28.0,
+        "Muslims": 67.4,
+        "Unaffiliated": 0.6,
+        "Hindus": 0.0,
+        "Buddhists": 0.0,
+        "Jews": 0.0,
+        "Other religions": 4.0
+      },
+      "imb": {
+        "totalGroups": 76,
+        "population": 24272400,
+        "unengaged": {
+          "groups": 12,
+          "population": 3425700
+        },
+        "engagedUnreached": {
+          "groups": 43,
+          "population": 9480000
+        },
+        "noLongerUnreached": {
+          "groups": 21,
+          "population": 11366700
+        }
+      },
+      "examples": [
+        {
+          "id": "PG012424",
+          "name": "Mossi",
+          "language": "Mossi",
+          "religion": "Islam - Sunni",
+          "population": 8425000,
+          "status": "noLongerUnreached"
+        },
+        {
+          "id": "PG012407",
+          "name": "Jula",
+          "language": "Dyula",
+          "religion": "Islam - Folk",
+          "population": 2745000,
+          "status": "unengaged"
+        },
+        {
+          "id": "PG012398",
+          "name": "Northeastern Fulbe",
+          "language": "Western Niger Fulfulde",
+          "religion": "Islam - Folk",
+          "population": 1790000,
+          "status": "engagedUnreached"
+        }
+      ]
+    },
+    {
+      "code": "TCD",
+      "numeric": "148",
+      "name": "Chad",
+      "region": "Middle Africa",
+      "population2020": 17224679,
+      "muslimShare2020": 56.4,
+      "religions2020": {
+        "Christians": 38.9,
+        "Muslims": 56.4,
+        "Unaffiliated": 3.1,
+        "Hindus": 0.0,
+        "Buddhists": 0.0,
+        "Jews": 0.0,
+        "Other religions": 1.6
+      },
+      "imb": {
+        "totalGroups": 150,
+        "population": 19495275,
+        "unengaged": {
+          "groups": 60,
+          "population": 2229475
+        },
+        "engagedUnreached": {
+          "groups": 56,
+          "population": 11367200
+        },
+        "noLongerUnreached": {
+          "groups": 34,
+          "population": 5898600
+        }
+      },
+      "examples": [
+        {
+          "id": "PG011447",
+          "name": "Sara Gambai",
+          "language": "Ngambay",
+          "religion": "Ethnoreligion",
+          "population": 2120000,
+          "status": "noLongerUnreached"
+        },
+        {
+          "id": "PG011332",
+          "name": "Chadian Arabs",
+          "language": "Chadian Arabic",
+          "religion": "Islam - Sunni",
+          "population": 2010000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG011374",
+          "name": "Kanembu",
+          "language": "Kanembu",
+          "religion": "Islam - Folk",
+          "population": 1230000,
+          "status": "engagedUnreached"
+        }
+      ]
+    },
+    {
+      "code": "COM",
+      "numeric": "174",
+      "name": "Comoros",
+      "region": "Eastern Africa",
+      "population2020": 802164,
+      "muslimShare2020": 98.3,
+      "religions2020": {
+        "Christians": 0.5,
+        "Muslims": 98.3,
+        "Unaffiliated": 0.1,
+        "Hindus": 0.0,
+        "Buddhists": 0.0,
+        "Jews": 0.0,
+        "Other religions": 1.1
+      },
+      "imb": {
+        "totalGroups": 11,
+        "population": 893300,
+        "unengaged": {
+          "groups": 3,
+          "population": 446500
+        },
+        "engagedUnreached": {
+          "groups": 8,
+          "population": 446800
+        },
+        "noLongerUnreached": {
+          "groups": 0,
+          "population": 0
+        }
+      },
+      "examples": [
+        {
+          "id": "PG015271",
+          "name": "Comorian Ngazidja",
+          "language": "Ngazidja Comorian",
+          "religion": "Islam - Sunni",
+          "population": 425000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG015272",
+          "name": "Comorian Nzwani",
+          "language": "Ndzwani Comorian",
+          "religion": "Islam - Sunni",
+          "population": 402000,
+          "status": "unengaged"
+        },
+        {
+          "id": "PG042176",
+          "name": "Comorian Mwali",
+          "language": "Mwali Comorian",
+          "religion": "Islam - Sunni",
+          "population": 41000,
+          "status": "unengaged"
+        }
+      ]
+    },
+    {
+      "code": "DJI",
+      "numeric": "262",
+      "name": "Djibouti",
+      "region": "Eastern Africa",
+      "population2020": 1105189,
+      "muslimShare2020": 97.7,
+      "religions2020": {
+        "Christians": 1.1,
+        "Muslims": 97.7,
+        "Unaffiliated": 1.1,
+        "Hindus": 0.0,
+        "Buddhists": 0.0,
+        "Jews": 0.0,
+        "Other religions": 0.1
+      },
+      "imb": {
+        "totalGroups": 8,
+        "population": 1178600,
+        "unengaged": {
+          "groups": 4,
+          "population": 187500
+        },
+        "engagedUnreached": {
+          "groups": 4,
+          "population": 991100
+        },
+        "noLongerUnreached": {
+          "groups": 0,
+          "population": 0
+        }
+      },
+      "examples": [
+        {
+          "id": "PG011486",
+          "name": "Somalis",
+          "language": "Somali",
+          "religion": "Islam - Sunni",
+          "population": 625000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG011480",
+          "name": "Afar",
+          "language": "Afar",
+          "religion": "Islam - Sunni",
+          "population": 365000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG011483",
+          "name": "Djiboutian Arabs",
+          "language": "Ta'izzi-Adeni Arabic",
+          "religion": "Islam - Shia",
+          "population": 80000,
+          "status": "unengaged"
+        }
+      ]
+    },
+    {
+      "code": "EGY",
+      "numeric": "818",
+      "name": "Egypt",
+      "region": "Northern Africa",
+      "population2020": 109315124,
+      "muslimShare2020": 95.2,
+      "religions2020": {
+        "Christians": 4.8,
+        "Muslims": 95.2,
+        "Unaffiliated": 0.0,
+        "Hindus": 0.0,
+        "Buddhists": 0.0,
+        "Jews": 0.0,
+        "Other religions": 0.0
+      },
+      "imb": {
+        "totalGroups": 23,
+        "population": 116386020,
+        "unengaged": {
+          "groups": 7,
+          "population": 5024620
+        },
+        "engagedUnreached": {
+          "groups": 15,
+          "population": 111295400
+        },
+        "noLongerUnreached": {
+          "groups": 1,
+          "population": 66000
+        }
+      },
+      "examples": [
+        {
+          "id": "PG011496",
+          "name": "Egyptian Arabs",
+          "language": "Egyptian Arabic",
+          "religion": "Islam - Sunni",
+          "population": 68860000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG011489",
+          "name": "Saidi Arabs",
+          "language": "Saidi Arabic",
+          "religion": "Islam - Sunni",
+          "population": 27110000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG033537",
+          "name": "Egyptian Copts",
+          "language": "Egyptian Arabic",
+          "religion": "Christianity - Coptic Orthodox",
+          "population": 6200000,
+          "status": "engagedUnreached"
+        }
+      ]
+    },
+    {
+      "code": "ERI",
+      "numeric": "232",
+      "name": "Eritrea",
+      "region": "Eastern Africa",
+      "population2020": 3291271,
+      "muslimShare2020": 51.7,
+      "religions2020": {
+        "Christians": 46.7,
+        "Muslims": 51.7,
+        "Unaffiliated": 1.1,
+        "Hindus": 0.0,
+        "Buddhists": 0.0,
+        "Jews": 0.0,
+        "Other religions": 0.6
+      },
+      "imb": {
+        "totalGroups": 16,
+        "population": 4099000,
+        "unengaged": {
+          "groups": 13,
+          "population": 2131000
+        },
+        "engagedUnreached": {
+          "groups": 3,
+          "population": 1968000
+        },
+        "noLongerUnreached": {
+          "groups": 0,
+          "population": 0
+        }
+      },
+      "examples": [
+        {
+          "id": "PG011533",
+          "name": "Tigrai/Tigrinya",
+          "language": "Tigrinya",
+          "religion": "Christianity - Tewahedo Orthodox",
+          "population": 1795000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG042709",
+          "name": "Tigre",
+          "language": "Tigre",
+          "religion": "Islam - Sunni",
+          "population": 927000,
+          "status": "unengaged"
+        },
+        {
+          "id": "PG011517",
+          "name": "Afar",
+          "language": "Afar",
+          "religion": "Islam - Sunni",
+          "population": 358000,
+          "status": "unengaged"
+        }
+      ]
+    },
+    {
+      "code": "GMB",
+      "numeric": "270",
+      "name": "Gambia",
+      "region": "Western Africa",
+      "population2020": 2515734,
+      "muslimShare2020": 97.0,
+      "religions2020": {
+        "Christians": 2.9,
+        "Muslims": 97.0,
+        "Unaffiliated": 0.0,
+        "Hindus": 0.1,
+        "Buddhists": 0.0,
+        "Jews": 0.0,
+        "Other religions": 0.0
+      },
+      "imb": {
+        "totalGroups": 17,
+        "population": 2926200,
+        "unengaged": {
+          "groups": 6,
+          "population": 169400
+        },
+        "engagedUnreached": {
+          "groups": 8,
+          "population": 2660300
+        },
+        "noLongerUnreached": {
+          "groups": 3,
+          "population": 96500
+        }
+      },
+      "examples": [
+        {
+          "id": "PG013237",
+          "name": "Mandinka",
+          "language": "Mandinka",
+          "religion": "Islam - Folk",
+          "population": 1180000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG013229",
+          "name": "Fulakunda",
+          "language": "Pulaar",
+          "religion": "Islam - Folk",
+          "population": 477000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG013247",
+          "name": "Wolof",
+          "language": "Gambian Wolof",
+          "religion": "Islam - Folk",
+          "population": 398000,
+          "status": "engagedUnreached"
+        }
+      ]
+    },
+    {
+      "code": "GIN",
+      "numeric": "324",
+      "name": "Guinea",
+      "region": "Western Africa",
+      "population2020": 13371183,
+      "muslimShare2020": 86.8,
+      "religions2020": {
+        "Christians": 11.7,
+        "Muslims": 86.8,
+        "Unaffiliated": 1.3,
+        "Hindus": 0.0,
+        "Buddhists": 0.1,
+        "Jews": 0.0,
+        "Other religions": 0.1
+      },
+      "imb": {
+        "totalGroups": 41,
+        "population": 15509600,
+        "unengaged": {
+          "groups": 16,
+          "population": 614400
+        },
+        "engagedUnreached": {
+          "groups": 20,
+          "population": 13295300
+        },
+        "noLongerUnreached": {
+          "groups": 5,
+          "population": 1599900
+        }
+      },
+      "examples": [
+        {
+          "id": "PG013406",
+          "name": "Fula Jalon",
+          "language": "Pular",
+          "religion": "Islam - Sunni",
+          "population": 5480000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG013424",
+          "name": "Maninka",
+          "language": "Eastern Maninkakan",
+          "religion": "Islam - Folk",
+          "population": 3880000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG013431",
+          "name": "Susu",
+          "language": "Susu",
+          "religion": "Islam - Folk",
+          "population": 2820000,
+          "status": "engagedUnreached"
+        }
+      ]
+    },
+    {
+      "code": "GNB",
+      "numeric": "624",
+      "name": "Guinea-Bissau",
+      "region": "Western Africa",
+      "population2020": 2013255,
+      "muslimShare2020": 56.0,
+      "religions2020": {
+        "Christians": 21.7,
+        "Muslims": 56.0,
+        "Unaffiliated": 11.6,
+        "Hindus": 0.0,
+        "Buddhists": 0.0,
+        "Jews": 0.0,
+        "Other religions": 10.7
+      },
+      "imb": {
+        "totalGroups": 25,
+        "population": 2326600,
+        "unengaged": {
+          "groups": 8,
+          "population": 76700
+        },
+        "engagedUnreached": {
+          "groups": 14,
+          "population": 1981000
+        },
+        "noLongerUnreached": {
+          "groups": 3,
+          "population": 268900
+        }
+      },
+      "examples": [
+        {
+          "id": "PG013457",
+          "name": "Fulakunda",
+          "language": "Pulaar",
+          "religion": "Islam - Folk",
+          "population": 565000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG013444",
+          "name": "Balanta",
+          "language": "Balanta-Kentohe",
+          "religion": "Ethnoreligion - Animism",
+          "population": 552000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG013453",
+          "name": "Upper Guinea Crioulo",
+          "language": "Upper Guinea Crioulo",
+          "religion": "Christianity - Roman Catholicism",
+          "population": 299000,
+          "status": "engagedUnreached"
+        }
+      ]
+    },
+    {
+      "code": "IDN",
+      "numeric": "360",
+      "name": "Indonesia",
+      "region": "South-Eastern Asia",
+      "population2020": 274814866,
+      "muslimShare2020": 87.0,
+      "religions2020": {
+        "Christians": 10.3,
+        "Muslims": 87.0,
+        "Unaffiliated": 0.1,
+        "Hindus": 1.6,
+        "Buddhists": 0.7,
+        "Jews": 0.0,
+        "Other religions": 0.4
+      },
+      "imb": {
+        "totalGroups": 669,
+        "population": 275023765,
+        "unengaged": {
+          "groups": 44,
+          "population": 3555250
+        },
+        "engagedUnreached": {
+          "groups": 124,
+          "population": 221433925
+        },
+        "noLongerUnreached": {
+          "groups": 501,
+          "population": 50034590
+        }
+      },
+      "examples": [
+        {
+          "id": "PG022435",
+          "name": "Sunda",
+          "language": "Sundanese",
+          "religion": "Islam - Sunni",
+          "population": 46970000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG022428",
+          "name": "Pesisir Lor",
+          "language": "Javanese",
+          "religion": "Islam - Sunni",
+          "population": 37950000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG022425",
+          "name": "Negarigung",
+          "language": "Javanese",
+          "religion": "Islam - Sunni",
+          "population": 22770000,
+          "status": "noLongerUnreached"
+        }
+      ]
+    },
+    {
+      "code": "IRN",
+      "numeric": "364",
+      "name": "Iran",
+      "region": "Southern Asia",
+      "population2020": 87723443,
+      "muslimShare2020": 99.8,
+      "religions2020": {
+        "Christians": 0.1,
+        "Muslims": 99.8,
+        "Unaffiliated": 0.0,
+        "Hindus": 0.0,
+        "Buddhists": 0.0,
+        "Jews": 0.0,
+        "Other religions": 0.1
+      },
+      "imb": {
+        "totalGroups": 47,
+        "population": 87836475,
+        "unengaged": {
+          "groups": 26,
+          "population": 9435475
+        },
+        "engagedUnreached": {
+          "groups": 19,
+          "population": 78269500
+        },
+        "noLongerUnreached": {
+          "groups": 2,
+          "population": 131500
+        }
+      },
+      "examples": [
+        {
+          "id": "PG024197",
+          "name": "Persians",
+          "language": "Iranian Persian",
+          "religion": "Islam - Shia",
+          "population": 29500000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG024136",
+          "name": "South Azeri",
+          "language": "South Azerbaijani",
+          "religion": "Islam - Shia",
+          "population": 17550000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG024157",
+          "name": "Gilaki",
+          "language": "Gilaki",
+          "religion": "Islam - Shia",
+          "population": 4390000,
+          "status": "engagedUnreached"
+        }
+      ]
+    },
+    {
+      "code": "IRQ",
+      "numeric": "368",
+      "name": "Iraq",
+      "region": "Western Asia",
+      "population2020": 42116605,
+      "muslimShare2020": 99.5,
+      "religions2020": {
+        "Christians": 0.4,
+        "Muslims": 99.5,
+        "Unaffiliated": 0.0,
+        "Hindus": 0.0,
+        "Buddhists": 0.0,
+        "Jews": 0.0,
+        "Other religions": 0.1
+      },
+      "imb": {
+        "totalGroups": 25,
+        "population": 48832005,
+        "unengaged": {
+          "groups": 17,
+          "population": 7434505
+        },
+        "engagedUnreached": {
+          "groups": 8,
+          "population": 41397500
+        },
+        "noLongerUnreached": {
+          "groups": 0,
+          "population": 0
+        }
+      },
+      "examples": [
+        {
+          "id": "PG046790",
+          "name": "Iraqi Shia Arabs",
+          "language": "Mesopotamian Arabic",
+          "religion": "Islam - Shia",
+          "population": 19740000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG011698",
+          "name": "Iraqi Sunni Arabs",
+          "language": "Mesopotamian Arabic",
+          "religion": "Islam - Sunni",
+          "population": 10510000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG011722",
+          "name": "Sorani Kurds",
+          "language": "Central Kurdish",
+          "religion": "Islam - Sunni",
+          "population": 5515000,
+          "status": "engagedUnreached"
+        }
+      ]
+    },
+    {
+      "code": "JOR",
+      "numeric": "400",
+      "name": "Jordan",
+      "region": "Western Asia",
+      "population2020": 10865228,
+      "muslimShare2020": 97.1,
+      "religions2020": {
+        "Christians": 2.8,
+        "Muslims": 97.1,
+        "Unaffiliated": 0.0,
+        "Hindus": 0.0,
+        "Buddhists": 0.0,
+        "Jews": 0.0,
+        "Other religions": 0.0
+      },
+      "imb": {
+        "totalGroups": 15,
+        "population": 11830000,
+        "unengaged": {
+          "groups": 8,
+          "population": 2337000
+        },
+        "engagedUnreached": {
+          "groups": 7,
+          "population": 9493000
+        },
+        "noLongerUnreached": {
+          "groups": 0,
+          "population": 0
+        }
+      },
+      "examples": [
+        {
+          "id": "PG011778",
+          "name": "Jordanian Arabs",
+          "language": "Levantine Arabic",
+          "religion": "Islam - Sunni",
+          "population": 3585000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG011788",
+          "name": "Palestinian Arabs",
+          "language": "Levantine Arabic",
+          "religion": "Islam - Sunni",
+          "population": 2670000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG011777",
+          "name": "Iraqi Arabs",
+          "language": "Levantine Arabic",
+          "religion": "Islam - Sunni",
+          "population": 1600000,
+          "status": "engagedUnreached"
+        }
+      ]
+    },
+    {
+      "code": "KAZ",
+      "numeric": "398",
+      "name": "Kazakhstan",
+      "region": "Central Asia",
+      "population2020": 19482117,
+      "muslimShare2020": 77.9,
+      "religions2020": {
+        "Christians": 19.3,
+        "Muslims": 77.9,
+        "Unaffiliated": 2.5,
+        "Hindus": 0.0,
+        "Buddhists": 0.1,
+        "Jews": 0.0,
+        "Other religions": 0.1
+      },
+      "imb": {
+        "totalGroups": 39,
+        "population": 19826400,
+        "unengaged": {
+          "groups": 25,
+          "population": 722500
+        },
+        "engagedUnreached": {
+          "groups": 9,
+          "population": 18481400
+        },
+        "noLongerUnreached": {
+          "groups": 5,
+          "population": 622500
+        }
+      },
+      "examples": [
+        {
+          "id": "PG024277",
+          "name": "Kazakh",
+          "language": "Kazakh",
+          "religion": "Islam - Sunni",
+          "population": 12520000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG039315",
+          "name": "Russians",
+          "language": "Russian",
+          "religion": "Christianity - Eastern Orthodox",
+          "population": 4545000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG024331",
+          "name": "Uzbeks",
+          "language": "Northern Uzbek",
+          "religion": "Islam - Sunni",
+          "population": 578000,
+          "status": "engagedUnreached"
+        }
+      ]
+    },
+    {
+      "code": "KOS",
+      "numeric": null,
+      "name": "Kosovo",
+      "region": "Southern Europe",
+      "population2020": 1751417,
+      "muslimShare2020": 94.3,
+      "religions2020": {
+        "Christians": 5.6,
+        "Muslims": 94.3,
+        "Unaffiliated": 0.1,
+        "Hindus": 0.0,
+        "Buddhists": 0.0,
+        "Jews": 0.0,
+        "Other religions": 0.0
+      },
+      "imb": {
+        "totalGroups": 6,
+        "population": 2121800,
+        "unengaged": {
+          "groups": 3,
+          "population": 49300
+        },
+        "engagedUnreached": {
+          "groups": 3,
+          "population": 2072500
+        },
+        "noLongerUnreached": {
+          "groups": 0,
+          "population": 0
+        }
+      },
+      "examples": [
+        {
+          "id": "PG033629",
+          "name": "Albanians",
+          "language": "Gheg Albanian",
+          "religion": "Islam - Folk",
+          "population": 1970000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG047971",
+          "name": "Serbs",
+          "language": "Serbian",
+          "religion": "Christianity - Eastern Orthodox",
+          "population": 76500,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG048002",
+          "name": "Gorani",
+          "language": "Serbian",
+          "religion": "Islam - Sunni",
+          "population": 26500,
+          "status": "unengaged"
+        }
+      ]
+    },
+    {
+      "code": "KWT",
+      "numeric": "414",
+      "name": "Kuwait",
+      "region": "Western Asia",
+      "population2020": 4400144,
+      "muslimShare2020": 80.2,
+      "religions2020": {
+        "Christians": 10.5,
+        "Muslims": 80.2,
+        "Unaffiliated": 0.2,
+        "Hindus": 8.5,
+        "Buddhists": 0.1,
+        "Jews": 0.0,
+        "Other religions": 0.3
+      },
+      "imb": {
+        "totalGroups": 21,
+        "population": 4030150,
+        "unengaged": {
+          "groups": 9,
+          "population": 1534400
+        },
+        "engagedUnreached": {
+          "groups": 11,
+          "population": 2283750
+        },
+        "noLongerUnreached": {
+          "groups": 1,
+          "population": 212000
+        }
+      },
+      "examples": [
+        {
+          "id": "PG011792",
+          "name": "Kuwaiti Sunni Arabs",
+          "language": "Gulf Arabic",
+          "religion": "Islam - Sunni",
+          "population": 1220000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG011796",
+          "name": "Egyptian Arabs",
+          "language": "Egyptian Arabic",
+          "religion": "Islam - Sunni",
+          "population": 509000,
+          "status": "unengaged"
+        },
+        {
+          "id": "PG048623",
+          "name": "Kuwaiti Shia Arabs",
+          "language": "Gulf Arabic",
+          "religion": "Islam - Shia",
+          "population": 459000,
+          "status": "engagedUnreached"
+        }
+      ]
+    },
+    {
+      "code": "KGZ",
+      "numeric": "417",
+      "name": "Kyrgyzstan",
+      "region": "Central Asia",
+      "population2020": 6664140,
+      "muslimShare2020": 91.7,
+      "religions2020": {
+        "Christians": 5.8,
+        "Muslims": 91.7,
+        "Unaffiliated": 1.2,
+        "Hindus": 0.0,
+        "Buddhists": 0.0,
+        "Jews": 0.0,
+        "Other religions": 1.3
+      },
+      "imb": {
+        "totalGroups": 27,
+        "population": 7743625,
+        "unengaged": {
+          "groups": 15,
+          "population": 196375
+        },
+        "engagedUnreached": {
+          "groups": 8,
+          "population": 7293150
+        },
+        "noLongerUnreached": {
+          "groups": 4,
+          "population": 254100
+        }
+      },
+      "examples": [
+        {
+          "id": "PG024357",
+          "name": "Kyrgyz",
+          "language": "Kirghiz",
+          "religion": "Islam - Sunni",
+          "population": 6080000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG024376",
+          "name": "Uzbeks",
+          "language": "Northern Uzbek",
+          "religion": "Islam - Sunni",
+          "population": 1080000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG000840",
+          "name": "Russians",
+          "language": "Russian",
+          "religion": "Christianity - Eastern Orthodox",
+          "population": 247000,
+          "status": "noLongerUnreached"
+        }
+      ]
+    },
+    {
+      "code": "LBN",
+      "numeric": "422",
+      "name": "Lebanon",
+      "region": "Western Asia",
+      "population2020": 5702398,
+      "muslimShare2020": 67.8,
+      "religions2020": {
+        "Christians": 27.9,
+        "Muslims": 67.8,
+        "Unaffiliated": 0.0,
+        "Hindus": 0.0,
+        "Buddhists": 0.0,
+        "Jews": 0.0,
+        "Other religions": 4.3
+      },
+      "imb": {
+        "totalGroups": 13,
+        "population": 5199300,
+        "unengaged": {
+          "groups": 7,
+          "population": 3429300
+        },
+        "engagedUnreached": {
+          "groups": 5,
+          "population": 1553000
+        },
+        "noLongerUnreached": {
+          "groups": 1,
+          "population": 217000
+        }
+      },
+      "examples": [
+        {
+          "id": "PG011818",
+          "name": "Lebanese Christian Arabs",
+          "language": "Levantine Arabic",
+          "religion": "Christianity - Roman Catholicism",
+          "population": 1150000,
+          "status": "unengaged"
+        },
+        {
+          "id": "PG022028",
+          "name": "Lebanese Sunni Arabs",
+          "language": "Levantine Arabic",
+          "religion": "Islam - Sunni",
+          "population": 1130000,
+          "status": "unengaged"
+        },
+        {
+          "id": "PG022026",
+          "name": "Lebanese Shia Arabs",
+          "language": "Levantine Arabic",
+          "religion": "Islam - Shia",
+          "population": 1035000,
+          "status": "unengaged"
+        }
+      ]
+    },
+    {
+      "code": "LBY",
+      "numeric": "434",
+      "name": "Libya",
+      "region": "Northern Africa",
+      "population2020": 7045399,
+      "muslimShare2020": 99.0,
+      "religions2020": {
+        "Christians": 0.5,
+        "Muslims": 99.0,
+        "Unaffiliated": 0.0,
+        "Hindus": 0.1,
+        "Buddhists": 0.3,
+        "Jews": 0.0,
+        "Other religions": 0.1
+      },
+      "imb": {
+        "totalGroups": 27,
+        "population": 7019500,
+        "unengaged": {
+          "groups": 23,
+          "population": 5046500
+        },
+        "engagedUnreached": {
+          "groups": 4,
+          "population": 1973000
+        },
+        "noLongerUnreached": {
+          "groups": 0,
+          "population": 0
+        }
+      },
+      "examples": [
+        {
+          "id": "PG011841",
+          "name": "Libyan Arabs",
+          "language": "Libyan Arabic",
+          "religion": "Islam - Sunni",
+          "population": 2810000,
+          "status": "unengaged"
+        },
+        {
+          "id": "PG042763",
+          "name": "Cyrenaican Arabs",
+          "language": "Libyan Arabic",
+          "religion": "Islam - Sunni",
+          "population": 1940000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG042770",
+          "name": "Sanusi Bedouins",
+          "language": "Libyan Arabic",
+          "religion": "Islam - Sunni",
+          "population": 683000,
+          "status": "unengaged"
+        }
+      ]
+    },
+    {
+      "code": "MYS",
+      "numeric": "458",
+      "name": "Malaysia",
+      "region": "South-Eastern Asia",
+      "population2020": 33889559,
+      "muslimShare2020": 64.1,
+      "religions2020": {
+        "Christians": 9.2,
+        "Muslims": 64.1,
+        "Unaffiliated": 0.8,
+        "Hindus": 6.1,
+        "Buddhists": 18.9,
+        "Jews": 0.0,
+        "Other religions": 0.9
+      },
+      "imb": {
+        "totalGroups": 160,
+        "population": 35389805,
+        "unengaged": {
+          "groups": 24,
+          "population": 2058875
+        },
+        "engagedUnreached": {
+          "groups": 25,
+          "population": 18470900
+        },
+        "noLongerUnreached": {
+          "groups": 111,
+          "population": 14860030
+        }
+      },
+      "examples": [
+        {
+          "id": "PG020134",
+          "name": "Malays",
+          "language": "Malay (individual language)",
+          "religion": "Islam - Sunni",
+          "population": 13670000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG009351",
+          "name": "Tamil",
+          "language": "Tamil",
+          "religion": "Hinduism",
+          "population": 2615000,
+          "status": "noLongerUnreached"
+        },
+        {
+          "id": "PG046932",
+          "name": "Han Chinese (English)",
+          "language": "English",
+          "religion": "Ethnoreligion - Chinese Folk Religion",
+          "population": 2430000,
+          "status": "noLongerUnreached"
+        }
+      ]
+    },
+    {
+      "code": "MDV",
+      "numeric": "462",
+      "name": "Maldives",
+      "region": "Southern Asia",
+      "population2020": 502119,
+      "muslimShare2020": 94.1,
+      "religions2020": {
+        "Christians": 1.6,
+        "Muslims": 94.1,
+        "Unaffiliated": 0.1,
+        "Hindus": 2.5,
+        "Buddhists": 1.3,
+        "Jews": 0.0,
+        "Other religions": 0.3
+      },
+      "imb": {
+        "totalGroups": 7,
+        "population": 578100,
+        "unengaged": {
+          "groups": 3,
+          "population": 4250
+        },
+        "engagedUnreached": {
+          "groups": 1,
+          "population": 568000
+        },
+        "noLongerUnreached": {
+          "groups": 3,
+          "population": 5850
+        }
+      },
+      "examples": [
+        {
+          "id": "PG006164",
+          "name": "Maldivians",
+          "language": "Dhivehi",
+          "religion": "Islam - Sunni",
+          "population": 568000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG006165",
+          "name": "Sinhalese",
+          "language": "Sinhala",
+          "religion": "Buddhism - Theravada",
+          "population": 4000,
+          "status": "noLongerUnreached"
+        },
+        {
+          "id": "PG047782",
+          "name": "Deaf Maldivans",
+          "language": "Maldivian Sign Language",
+          "religion": "Ethnoreligion",
+          "population": 2300,
+          "status": "unengaged"
+        }
+      ]
+    },
+    {
+      "code": "MLI",
+      "numeric": "466",
+      "name": "Mali",
+      "region": "Western Africa",
+      "population2020": 21713836,
+      "muslimShare2020": 94.1,
+      "religions2020": {
+        "Christians": 2.6,
+        "Muslims": 94.1,
+        "Unaffiliated": 2.5,
+        "Hindus": 0.0,
+        "Buddhists": 0.0,
+        "Jews": 0.0,
+        "Other religions": 0.8
+      },
+      "imb": {
+        "totalGroups": 40,
+        "population": 25396300,
+        "unengaged": {
+          "groups": 14,
+          "population": 2282900
+        },
+        "engagedUnreached": {
+          "groups": 24,
+          "population": 22956400
+        },
+        "noLongerUnreached": {
+          "groups": 2,
+          "population": 157000
+        }
+      },
+      "examples": [
+        {
+          "id": "PG013534",
+          "name": "Bambara",
+          "language": "Bambara",
+          "religion": "Islam - Sunni",
+          "population": 7785000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG013569",
+          "name": "Soninke",
+          "language": "Soninke",
+          "religion": "Islam - Sunni",
+          "population": 2290000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG013558",
+          "name": "Mamara Senufo",
+          "language": "Mamara Senoufo",
+          "religion": "Islam - Sunni",
+          "population": 2245000,
+          "status": "engagedUnreached"
+        }
+      ]
+    },
+    {
+      "code": "MRT",
+      "numeric": "478",
+      "name": "Mauritania",
+      "region": "Western Africa",
+      "population2020": 4600131,
+      "muslimShare2020": 99.2,
+      "religions2020": {
+        "Christians": 0.2,
+        "Muslims": 99.2,
+        "Unaffiliated": 0.1,
+        "Hindus": 0.0,
+        "Buddhists": 0.0,
+        "Jews": 0.0,
+        "Other religions": 0.5
+      },
+      "imb": {
+        "totalGroups": 10,
+        "population": 4941900,
+        "unengaged": {
+          "groups": 5,
+          "population": 360900
+        },
+        "engagedUnreached": {
+          "groups": 5,
+          "population": 4581000
+        },
+        "noLongerUnreached": {
+          "groups": 0,
+          "population": 0
+        }
+      },
+      "examples": [
+        {
+          "id": "PG013586",
+          "name": "Moors",
+          "language": "Hassaniyya",
+          "religion": "Islam - Sunni",
+          "population": 3885000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG042190",
+          "name": "Fula Toro",
+          "language": "Pulaar",
+          "religion": "Islam - Sunni",
+          "population": 388000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG013591",
+          "name": "Wolof",
+          "language": "Wolof",
+          "religion": "Islam - Sufi",
+          "population": 212000,
+          "status": "unengaged"
+        }
+      ]
+    },
+    {
+      "code": "MYT",
+      "numeric": "175",
+      "name": "Mayotte",
+      "region": "Eastern Africa",
+      "population2020": 284371,
+      "muslimShare2020": 98.8,
+      "religions2020": {
+        "Christians": 0.5,
+        "Muslims": 98.8,
+        "Unaffiliated": 0.2,
+        "Hindus": 0.0,
+        "Buddhists": 0.0,
+        "Jews": 0.0,
+        "Other religions": 0.5
+      },
+      "imb": {
+        "totalGroups": 10,
+        "population": 374275,
+        "unengaged": {
+          "groups": 1,
+          "population": 3400
+        },
+        "engagedUnreached": {
+          "groups": 9,
+          "population": 370875
+        },
+        "noLongerUnreached": {
+          "groups": 0,
+          "population": 0
+        }
+      },
+      "examples": [
+        {
+          "id": "PG042178",
+          "name": "Comorian Maori",
+          "language": "Maore Comorian",
+          "religion": "Islam - Sunni",
+          "population": 221000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG015371",
+          "name": "Sakalava",
+          "language": "Bushi",
+          "religion": "Ethnoreligion",
+          "population": 129000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG015372",
+          "name": "Swahili",
+          "language": "Swahili (individual language)",
+          "religion": "Islam - Sunni",
+          "population": 10500,
+          "status": "engagedUnreached"
+        }
+      ]
+    },
+    {
+      "code": "MAR",
+      "numeric": "504",
+      "name": "Morocco",
+      "region": "Northern Africa",
+      "population2020": 36584208,
+      "muslimShare2020": 99.7,
+      "religions2020": {
+        "Christians": 0.1,
+        "Muslims": 99.7,
+        "Unaffiliated": 0.1,
+        "Hindus": 0.0,
+        "Buddhists": 0.0,
+        "Jews": 0.0,
+        "Other religions": 0.1
+      },
+      "imb": {
+        "totalGroups": 10,
+        "population": 38128700,
+        "unengaged": {
+          "groups": 4,
+          "population": 3592700
+        },
+        "engagedUnreached": {
+          "groups": 6,
+          "population": 34536000
+        },
+        "noLongerUnreached": {
+          "groups": 0,
+          "population": 0
+        }
+      },
+      "examples": [
+        {
+          "id": "PG011863",
+          "name": "Moroccan Arabs",
+          "language": "Moroccan Arabic",
+          "religion": "Islam - Sunni",
+          "population": 21290000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG011858",
+          "name": "Ishelhayn Imazighen",
+          "language": "Tachelhit",
+          "religion": "Islam - Sunni",
+          "population": 5050000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG011862",
+          "name": "Central Moroccan Imazighen",
+          "language": "Central Atlas Tamazight",
+          "religion": "Islam - Sunni",
+          "population": 3540000,
+          "status": "engagedUnreached"
+        }
+      ]
+    },
+    {
+      "code": "NER",
+      "numeric": "562",
+      "name": "Niger",
+      "region": "Western Africa",
+      "population2020": 23717614,
+      "muslimShare2020": 98.1,
+      "religions2020": {
+        "Christians": 0.6,
+        "Muslims": 98.1,
+        "Unaffiliated": 1.2,
+        "Hindus": 0.0,
+        "Buddhists": 0.0,
+        "Jews": 0.0,
+        "Other religions": 0.1
+      },
+      "imb": {
+        "totalGroups": 25,
+        "population": 30163500,
+        "unengaged": {
+          "groups": 7,
+          "population": 1153500
+        },
+        "engagedUnreached": {
+          "groups": 16,
+          "population": 28830000
+        },
+        "noLongerUnreached": {
+          "groups": 2,
+          "population": 180000
+        }
+      },
+      "examples": [
+        {
+          "id": "PG013600",
+          "name": "Hausa",
+          "language": "Hausa",
+          "religion": "Islam - Folk",
+          "population": 16140000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG013616",
+          "name": "Zerma",
+          "language": "Zarma",
+          "religion": "Islam - Folk",
+          "population": 5185000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG013609",
+          "name": "Songhai",
+          "language": "Koyraboro Senni Songhai",
+          "religion": "Ethnoreligion",
+          "population": 1470000,
+          "status": "engagedUnreached"
+        }
+      ]
+    },
+    {
+      "code": "NGA",
+      "numeric": "566",
+      "name": "Nigeria",
+      "region": "Western Africa",
+      "population2020": 213996181,
+      "muslimShare2020": 56.1,
+      "religions2020": {
+        "Christians": 43.4,
+        "Muslims": 56.1,
+        "Unaffiliated": 0.4,
+        "Hindus": 0.0,
+        "Buddhists": 0.0,
+        "Jews": 0.0,
+        "Other religions": 0.2
+      },
+      "imb": {
+        "totalGroups": 433,
+        "population": 241796055,
+        "unengaged": {
+          "groups": 40,
+          "population": 1570125
+        },
+        "engagedUnreached": {
+          "groups": 90,
+          "population": 84434155
+        },
+        "noLongerUnreached": {
+          "groups": 303,
+          "population": 155791775
+        }
+      },
+      "examples": [
+        {
+          "id": "PG014193",
+          "name": "Yoruba",
+          "language": "Yoruba",
+          "religion": "Christianity - Neo-Pentecostalism",
+          "population": 48840000,
+          "status": "noLongerUnreached"
+        },
+        {
+          "id": "PG013828",
+          "name": "Hausa",
+          "language": "Hausa",
+          "religion": "Islam - Folk",
+          "population": 40550000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG013844",
+          "name": "Igbo",
+          "language": "Igbo",
+          "religion": "Christianity - Protestantism",
+          "population": 35200000,
+          "status": "noLongerUnreached"
+        }
+      ]
+    },
+    {
+      "code": "OMN",
+      "numeric": "512",
+      "name": "Oman",
+      "region": "Western Asia",
+      "population2020": 4522497,
+      "muslimShare2020": 81.8,
+      "religions2020": {
+        "Christians": 8.1,
+        "Muslims": 81.8,
+        "Unaffiliated": 0.1,
+        "Hindus": 9.5,
+        "Buddhists": 0.1,
+        "Jews": 0.0,
+        "Other religions": 0.4
+      },
+      "imb": {
+        "totalGroups": 31,
+        "population": 4607525,
+        "unengaged": {
+          "groups": 15,
+          "population": 446525
+        },
+        "engagedUnreached": {
+          "groups": 15,
+          "population": 4064500
+        },
+        "noLongerUnreached": {
+          "groups": 1,
+          "population": 96500
+        }
+      },
+      "examples": [
+        {
+          "id": "PG011885",
+          "name": "Omani Arabs",
+          "language": "Omani Arabic",
+          "religion": "Islam - Folk",
+          "population": 1140000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG011890",
+          "name": "Gulf Arabs",
+          "language": "Gulf Arabic",
+          "religion": "Islam - Sunni",
+          "population": 888000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG011893",
+          "name": "Southern Baloch",
+          "language": "Southern Balochi",
+          "religion": "Islam - Sunni",
+          "population": 675000,
+          "status": "engagedUnreached"
+        }
+      ]
+    },
+    {
+      "code": "PAK",
+      "numeric": "586",
+      "name": "Pakistan",
+      "region": "Southern Asia",
+      "population2020": 235001746,
+      "muslimShare2020": 96.5,
+      "religions2020": {
+        "Christians": 1.3,
+        "Muslims": 96.5,
+        "Unaffiliated": 0.0,
+        "Hindus": 2.1,
+        "Buddhists": 0.0,
+        "Jews": 0.0,
+        "Other religions": 0.0
+      },
+      "imb": {
+        "totalGroups": 86,
+        "population": 258557325,
+        "unengaged": {
+          "groups": 28,
+          "population": 16209025
+        },
+        "engagedUnreached": {
+          "groups": 51,
+          "population": 239715800
+        },
+        "noLongerUnreached": {
+          "groups": 7,
+          "population": 2632500
+        }
+      },
+      "examples": [
+        {
+          "id": "PG006420",
+          "name": "Western Punjabis",
+          "language": "Western Panjabi",
+          "religion": "Islam - Sunni",
+          "population": 97440000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG006400",
+          "name": "Sindhi",
+          "language": "Sindhi",
+          "religion": "Islam - Sunni",
+          "population": 28290000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG006405",
+          "name": "Southern Punjabis",
+          "language": "Saraiki",
+          "religion": "Islam - Sunni",
+          "population": 24390000,
+          "status": "engagedUnreached"
+        }
+      ]
+    },
+    {
+      "code": "PSE",
+      "numeric": "275",
+      "name": "Palestinian territories",
+      "region": "Western Asia",
+      "population2020": 5069692,
+      "muslimShare2020": 99.0,
+      "religions2020": {
+        "Christians": 1.0,
+        "Muslims": 99.0,
+        "Unaffiliated": 0.0,
+        "Hindus": 0.0,
+        "Buddhists": 0.0,
+        "Jews": 0.0,
+        "Other religions": 0.0
+      },
+      "imb": {
+        "totalGroups": 4,
+        "population": 5823450,
+        "unengaged": {
+          "groups": 3,
+          "population": 2398450
+        },
+        "engagedUnreached": {
+          "groups": 1,
+          "population": 3425000
+        },
+        "noLongerUnreached": {
+          "groups": 0,
+          "population": 0
+        }
+      },
+      "examples": [
+        {
+          "id": "PG012264",
+          "name": "West Bank Arabs",
+          "language": "Levantine Arabic",
+          "religion": "Islam - Sunni",
+          "population": 3425000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG011686",
+          "name": "Gazan Arabs",
+          "language": "Levantine Arabic",
+          "religion": "Islam - Sunni",
+          "population": 2340000,
+          "status": "unengaged"
+        },
+        {
+          "id": "PG048847",
+          "name": "Deaf Palestinian Arabs",
+          "language": "Egypt Sign Language",
+          "religion": "Islam - Sunni",
+          "population": 58000,
+          "status": "unengaged"
+        }
+      ]
+    },
+    {
+      "code": "QAT",
+      "numeric": "634",
+      "name": "Qatar",
+      "region": "Western Asia",
+      "population2020": 2803375,
+      "muslimShare2020": 75.9,
+      "religions2020": {
+        "Christians": 12.5,
+        "Muslims": 75.9,
+        "Unaffiliated": 0.3,
+        "Hindus": 10.6,
+        "Buddhists": 0.2,
+        "Jews": 0.0,
+        "Other religions": 0.4
+      },
+      "imb": {
+        "totalGroups": 17,
+        "population": 2688500,
+        "unengaged": {
+          "groups": 11,
+          "population": 1908500
+        },
+        "engagedUnreached": {
+          "groups": 5,
+          "population": 525000
+        },
+        "noLongerUnreached": {
+          "groups": 1,
+          "population": 255000
+        }
+      },
+      "examples": [
+        {
+          "id": "PG011905",
+          "name": "Gulf Arabs",
+          "language": "Gulf Arabic",
+          "religion": "Islam - Sunni",
+          "population": 393000,
+          "status": "unengaged"
+        },
+        {
+          "id": "PG042793",
+          "name": "Palestinian Arabs",
+          "language": "Levantine Arabic",
+          "religion": "Islam - Sunni",
+          "population": 380000,
+          "status": "unengaged"
+        },
+        {
+          "id": "PG042792",
+          "name": "Lebanese Arabs",
+          "language": "Levantine Arabic",
+          "religion": "Islam - Sunni",
+          "population": 295000,
+          "status": "unengaged"
+        }
+      ]
+    },
+    {
+      "code": "SAU",
+      "numeric": "682",
+      "name": "Saudi Arabia",
+      "region": "Western Asia",
+      "population2020": 30991207,
+      "muslimShare2020": 92.7,
+      "religions2020": {
+        "Christians": 4.4,
+        "Muslims": 92.7,
+        "Unaffiliated": 0.1,
+        "Hindus": 2.6,
+        "Buddhists": 0.1,
+        "Jews": 0.0,
+        "Other religions": 0.1
+      },
+      "imb": {
+        "totalGroups": 28,
+        "population": 38713000,
+        "unengaged": {
+          "groups": 18,
+          "population": 4219000
+        },
+        "engagedUnreached": {
+          "groups": 9,
+          "population": 34381000
+        },
+        "noLongerUnreached": {
+          "groups": 1,
+          "population": 113000
+        }
+      },
+      "examples": [
+        {
+          "id": "PG046419",
+          "name": "Saudi Arabs",
+          "language": "Najdi Arabic",
+          "religion": "Islam - Sunni",
+          "population": 13010000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG011933",
+          "name": "Hijazi Saudi Arabs",
+          "language": "Hijazi Arabic",
+          "religion": "Islam - Sunni",
+          "population": 12040000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG011922",
+          "name": "Saudi Shia Arabs",
+          "language": "Gulf Arabic",
+          "religion": "Islam - Shia",
+          "population": 2840000,
+          "status": "engagedUnreached"
+        }
+      ]
+    },
+    {
+      "code": "SEN",
+      "numeric": "686",
+      "name": "Senegal",
+      "region": "Western Africa",
+      "population2020": 16789220,
+      "muslimShare2020": 97.6,
+      "religions2020": {
+        "Christians": 2.4,
+        "Muslims": 97.6,
+        "Unaffiliated": 0.0,
+        "Hindus": 0.0,
+        "Buddhists": 0.0,
+        "Jews": 0.0,
+        "Other religions": 0.0
+      },
+      "imb": {
+        "totalGroups": 29,
+        "population": 18605100,
+        "unengaged": {
+          "groups": 3,
+          "population": 180000
+        },
+        "engagedUnreached": {
+          "groups": 23,
+          "population": 18351200
+        },
+        "noLongerUnreached": {
+          "groups": 3,
+          "population": 73900
+        }
+      },
+      "examples": [
+        {
+          "id": "PG014267",
+          "name": "Wolof",
+          "language": "Wolof",
+          "religion": "Islam - Folk",
+          "population": 7040000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG042183",
+          "name": "Sereer",
+          "language": "Serer",
+          "religion": "Islam - Sunni",
+          "population": 2560000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG014227",
+          "name": "Fulakunda",
+          "language": "Pulaar",
+          "religion": "Islam - Folk",
+          "population": 2335000,
+          "status": "engagedUnreached"
+        }
+      ]
+    },
+    {
+      "code": "SLE",
+      "numeric": "694",
+      "name": "Sierra Leone",
+      "region": "Western Africa",
+      "population2020": 7912558,
+      "muslimShare2020": 80.1,
+      "religions2020": {
+        "Christians": 19.8,
+        "Muslims": 80.1,
+        "Unaffiliated": 0.0,
+        "Hindus": 0.0,
+        "Buddhists": 0.0,
+        "Jews": 0.0,
+        "Other religions": 0.0
+      },
+      "imb": {
+        "totalGroups": 28,
+        "population": 9361450,
+        "unengaged": {
+          "groups": 2,
+          "population": 49500
+        },
+        "engagedUnreached": {
+          "groups": 20,
+          "population": 4873450
+        },
+        "noLongerUnreached": {
+          "groups": 6,
+          "population": 4438500
+        }
+      },
+      "examples": [
+        {
+          "id": "PG014291",
+          "name": "Mende",
+          "language": "Mende (Sierra Leone)",
+          "religion": "Islam - Sunni",
+          "population": 2915000,
+          "status": "noLongerUnreached"
+        },
+        {
+          "id": "PG014297",
+          "name": "Temne",
+          "language": "Timne",
+          "religion": "Islam - Sunni",
+          "population": 2160000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG014283",
+          "name": "Krio",
+          "language": "Krio",
+          "religion": "Ethnoreligion",
+          "population": 920000,
+          "status": "noLongerUnreached"
+        }
+      ]
+    },
+    {
+      "code": "SOM",
+      "numeric": "706",
+      "name": "Somalia",
+      "region": "Eastern Africa",
+      "population2020": 16651191,
+      "muslimShare2020": 99.8,
+      "religions2020": {
+        "Christians": 0.0,
+        "Muslims": 99.8,
+        "Unaffiliated": 0.0,
+        "Hindus": 0.0,
+        "Buddhists": 0.0,
+        "Jews": 0.0,
+        "Other religions": 0.1
+      },
+      "imb": {
+        "totalGroups": 11,
+        "population": 19191500,
+        "unengaged": {
+          "groups": 9,
+          "population": 1916500
+        },
+        "engagedUnreached": {
+          "groups": 2,
+          "population": 17275000
+        },
+        "noLongerUnreached": {
+          "groups": 0,
+          "population": 0
+        }
+      },
+      "examples": [
+        {
+          "id": "PG011954",
+          "name": "Somalis",
+          "language": "Somali",
+          "religion": "Islam - Sunni",
+          "population": 13740000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG050012",
+          "name": "Isaaq",
+          "language": "Somali",
+          "religion": "Islam - Sunni",
+          "population": 3535000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG011952",
+          "name": "Digil-Rahanweyn",
+          "language": "Maay",
+          "religion": "Islam - Sunni",
+          "population": 1075000,
+          "status": "unengaged"
+        }
+      ]
+    },
+    {
+      "code": "SDN",
+      "numeric": "729",
+      "name": "Sudan",
+      "region": "Northern Africa",
+      "population2020": 46789231,
+      "muslimShare2020": 98.9,
+      "religions2020": {
+        "Christians": 0.5,
+        "Muslims": 98.9,
+        "Unaffiliated": 0.6,
+        "Hindus": 0.0,
+        "Buddhists": 0.0,
+        "Jews": 0.0,
+        "Other religions": 0.1
+      },
+      "imb": {
+        "totalGroups": 185,
+        "population": 52810075,
+        "unengaged": {
+          "groups": 125,
+          "population": 23223975
+        },
+        "engagedUnreached": {
+          "groups": 47,
+          "population": 29084300
+        },
+        "noLongerUnreached": {
+          "groups": 13,
+          "population": 501800
+        }
+      },
+      "examples": [
+        {
+          "id": "PG012142",
+          "name": "Sudanese Arabs",
+          "language": "Sudanese Arabic",
+          "religion": "Islam - Sunni",
+          "population": 15830000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG012042",
+          "name": "Gaaliin",
+          "language": "Sudanese Arabic",
+          "religion": "Islam - Sunni",
+          "population": 4555000,
+          "status": "unengaged"
+        },
+        {
+          "id": "PG011980",
+          "name": "Beja",
+          "language": "Beja",
+          "religion": "Islam - Sunni",
+          "population": 3240000,
+          "status": "engagedUnreached"
+        }
+      ]
+    },
+    {
+      "code": "SYR",
+      "numeric": "760",
+      "name": "Syria",
+      "region": "Western Asia",
+      "population2020": 21049429,
+      "muslimShare2020": 94.2,
+      "religions2020": {
+        "Christians": 3.8,
+        "Muslims": 94.2,
+        "Unaffiliated": 2.0,
+        "Hindus": 0.0,
+        "Buddhists": 0.0,
+        "Jews": 0.0,
+        "Other religions": 0.0
+      },
+      "imb": {
+        "totalGroups": 20,
+        "population": 24030500,
+        "unengaged": {
+          "groups": 13,
+          "population": 4194500
+        },
+        "engagedUnreached": {
+          "groups": 7,
+          "population": 19836000
+        },
+        "noLongerUnreached": {
+          "groups": 0,
+          "population": 0
+        }
+      },
+      "examples": [
+        {
+          "id": "PG012198",
+          "name": "Syrian Sunni Arabs",
+          "language": "Levantine Arabic",
+          "religion": "Islam - Sunni",
+          "population": 15640000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG012176",
+          "name": "Alawites",
+          "language": "Levantine Arabic",
+          "religion": "Islam - Shia",
+          "population": 2345000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG012204",
+          "name": "Kurmanji Kurds",
+          "language": "Northern Kurdish",
+          "religion": "Islam - Sunni",
+          "population": 1615000,
+          "status": "engagedUnreached"
+        }
+      ]
+    },
+    {
+      "code": "TJK",
+      "numeric": "762",
+      "name": "Tajikistan",
+      "region": "Central Asia",
+      "population2020": 9749311,
+      "muslimShare2020": 98.9,
+      "religions2020": {
+        "Christians": 1.0,
+        "Muslims": 98.9,
+        "Unaffiliated": 0.1,
+        "Hindus": 0.0,
+        "Buddhists": 0.0,
+        "Jews": 0.0,
+        "Other religions": 0.0
+      },
+      "imb": {
+        "totalGroups": 29,
+        "population": 10614200,
+        "unengaged": {
+          "groups": 9,
+          "population": 26000
+        },
+        "engagedUnreached": {
+          "groups": 18,
+          "population": 10484700
+        },
+        "noLongerUnreached": {
+          "groups": 2,
+          "population": 103500
+        }
+      },
+      "examples": [
+        {
+          "id": "PG024529",
+          "name": "Tajiks",
+          "language": "Tajik",
+          "religion": "Islam - Sunni",
+          "population": 7410000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG024537",
+          "name": "Uzbeks",
+          "language": "Northern Uzbek",
+          "religion": "Islam - Sunni",
+          "population": 2545000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG024518",
+          "name": "Shughni",
+          "language": "Shughni",
+          "religion": "Islam - Shia",
+          "population": 149000,
+          "status": "engagedUnreached"
+        }
+      ]
+    },
+    {
+      "code": "TUN",
+      "numeric": "788",
+      "name": "Tunisia",
+      "region": "Northern Africa",
+      "population2020": 11974057,
+      "muslimShare2020": 99.3,
+      "religions2020": {
+        "Christians": 0.2,
+        "Muslims": 99.3,
+        "Unaffiliated": 0.4,
+        "Hindus": 0.0,
+        "Buddhists": 0.0,
+        "Jews": 0.0,
+        "Other religions": 0.0
+      },
+      "imb": {
+        "totalGroups": 11,
+        "population": 12540600,
+        "unengaged": {
+          "groups": 9,
+          "population": 996600
+        },
+        "engagedUnreached": {
+          "groups": 2,
+          "population": 11544000
+        },
+        "noLongerUnreached": {
+          "groups": 0,
+          "population": 0
+        }
+      },
+      "examples": [
+        {
+          "id": "PG012222",
+          "name": "Tunisian Arabs",
+          "language": "Tunisian Arabic",
+          "religion": "Islam - Sunni",
+          "population": 11420000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG048738",
+          "name": "Libyan Arabs",
+          "language": "Libyan Arabic",
+          "religion": "Islam - Sunni",
+          "population": 317000,
+          "status": "unengaged"
+        },
+        {
+          "id": "PG012207",
+          "name": "Algerian Arabs",
+          "language": "Algerian Arabic",
+          "religion": "Islam - Sunni",
+          "population": 300000,
+          "status": "unengaged"
+        }
+      ]
+    },
+    {
+      "code": "TUR",
+      "numeric": "792",
+      "name": "Turkey",
+      "region": "Western Asia",
+      "population2020": 86091692,
+      "muslimShare2020": 97.1,
+      "religions2020": {
+        "Christians": 0.1,
+        "Muslims": 97.1,
+        "Unaffiliated": 2.5,
+        "Hindus": 0.0,
+        "Buddhists": 0.1,
+        "Jews": 0.0,
+        "Other religions": 0.1
+      },
+      "imb": {
+        "totalGroups": 40,
+        "population": 87841500,
+        "unengaged": {
+          "groups": 14,
+          "population": 1828300
+        },
+        "engagedUnreached": {
+          "groups": 23,
+          "population": 85793200
+        },
+        "noLongerUnreached": {
+          "groups": 3,
+          "population": 220000
+        }
+      },
+      "examples": [
+        {
+          "id": "PG024593",
+          "name": "Turks",
+          "language": "Turkish",
+          "religion": "Islam - Sunni",
+          "population": 64250000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG024567",
+          "name": "Kurmanji Kurds",
+          "language": "Northern Kurdish",
+          "religion": "Islam - Sunni",
+          "population": 9000000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG049340",
+          "name": "Syrian Arabs",
+          "language": "Levantine Arabic",
+          "religion": "Islam - Sunni",
+          "population": 3900000,
+          "status": "engagedUnreached"
+        }
+      ]
+    },
+    {
+      "code": "TKM",
+      "numeric": "795",
+      "name": "Turkmenistan",
+      "region": "Central Asia",
+      "population2020": 6949912,
+      "muslimShare2020": 94.3,
+      "religions2020": {
+        "Christians": 5.6,
+        "Muslims": 94.3,
+        "Unaffiliated": 0.1,
+        "Hindus": 0.0,
+        "Buddhists": 0.0,
+        "Jews": 0.0,
+        "Other religions": 0.0
+      },
+      "imb": {
+        "totalGroups": 25,
+        "population": 6585290,
+        "unengaged": {
+          "groups": 19,
+          "population": 443990
+        },
+        "engagedUnreached": {
+          "groups": 4,
+          "population": 6127500
+        },
+        "noLongerUnreached": {
+          "groups": 2,
+          "population": 13800
+        }
+      },
+      "examples": [
+        {
+          "id": "PG024639",
+          "name": "Turkmen",
+          "language": "Turkmen",
+          "religion": "Islam - Sunni",
+          "population": 5355000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG024649",
+          "name": "Uzbeks",
+          "language": "Northern Uzbek",
+          "religion": "Islam - Sunni",
+          "population": 590000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG024620",
+          "name": "Kazakh",
+          "language": "Kazakh",
+          "religion": "Islam - Sunni",
+          "population": 165000,
+          "status": "unengaged"
+        }
+      ]
+    },
+    {
+      "code": "ARE",
+      "numeric": "784",
+      "name": "United Arab Emirates",
+      "region": "Western Asia",
+      "population2020": 9448524,
+      "muslimShare2020": 72.9,
+      "religions2020": {
+        "Christians": 14.3,
+        "Muslims": 72.9,
+        "Unaffiliated": 0.3,
+        "Hindus": 11.8,
+        "Buddhists": 0.2,
+        "Jews": 0.0,
+        "Other religions": 0.5
+      },
+      "imb": {
+        "totalGroups": 31,
+        "population": 10187500,
+        "unengaged": {
+          "groups": 14,
+          "population": 2226500
+        },
+        "engagedUnreached": {
+          "groups": 16,
+          "population": 7707000
+        },
+        "noLongerUnreached": {
+          "groups": 1,
+          "population": 254000
+        }
+      },
+      "examples": [
+        {
+          "id": "PG012243",
+          "name": "Malayali",
+          "language": "Malayalam",
+          "religion": "Hinduism",
+          "population": 1550000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG012225",
+          "name": "Bengali",
+          "language": "Bengali",
+          "religion": "Islam - Sunni",
+          "population": 1355000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG012238",
+          "name": "Gulf Arabs",
+          "language": "Gulf Arabic",
+          "religion": "Islam - Sunni",
+          "population": 1355000,
+          "status": "engagedUnreached"
+        }
+      ]
+    },
+    {
+      "code": "UZB",
+      "numeric": "860",
+      "name": "Uzbekistan",
+      "region": "Central Asia",
+      "population2020": 33586372,
+      "muslimShare2020": 95.6,
+      "religions2020": {
+        "Christians": 2.8,
+        "Muslims": 95.6,
+        "Unaffiliated": 0.6,
+        "Hindus": 0.0,
+        "Buddhists": 0.0,
+        "Jews": 0.0,
+        "Other religions": 1.0
+      },
+      "imb": {
+        "totalGroups": 42,
+        "population": 35416550,
+        "unengaged": {
+          "groups": 27,
+          "population": 948250
+        },
+        "engagedUnreached": {
+          "groups": 11,
+          "population": 34158500
+        },
+        "noLongerUnreached": {
+          "groups": 4,
+          "population": 309800
+        }
+      },
+      "examples": [
+        {
+          "id": "PG024324",
+          "name": "Uzbeks",
+          "language": "Northern Uzbek",
+          "religion": "Islam - Sunni",
+          "population": 28550000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG024315",
+          "name": "Tajiks",
+          "language": "Tajik",
+          "religion": "Islam - Sunni",
+          "population": 1730000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG024681",
+          "name": "Kazakh",
+          "language": "Kazakh",
+          "religion": "Islam - Sunni",
+          "population": 904000,
+          "status": "engagedUnreached"
+        }
+      ]
+    },
+    {
+      "code": "ESH",
+      "numeric": "732",
+      "name": "Western Sahara",
+      "region": "Northern Africa",
+      "population2020": 549365,
+      "muslimShare2020": 99.6,
+      "religions2020": {
+        "Christians": 0.2,
+        "Muslims": 99.6,
+        "Unaffiliated": 0.3,
+        "Hindus": 0.0,
+        "Buddhists": 0.0,
+        "Jews": 0.0,
+        "Other religions": 0.0
+      },
+      "imb": {
+        "totalGroups": 3,
+        "population": 696200,
+        "unengaged": {
+          "groups": 3,
+          "population": 696200
+        },
+        "engagedUnreached": {
+          "groups": 0,
+          "population": 0
+        },
+        "noLongerUnreached": {
+          "groups": 0,
+          "population": 0
+        }
+      },
+      "examples": [
+        {
+          "id": "PG050583",
+          "name": "Moroccan Arabs",
+          "language": "Moroccan Arabic",
+          "religion": "Islam - Sunni",
+          "population": 416000,
+          "status": "unengaged"
+        },
+        {
+          "id": "PG050581",
+          "name": "Sahrawi",
+          "language": "Hassaniyya",
+          "religion": "Islam - Sunni",
+          "population": 274000,
+          "status": "unengaged"
+        },
+        {
+          "id": "PG050610",
+          "name": "Deaf Sahrawis",
+          "language": "Natural Sign Language",
+          "religion": "Islam - Sunni",
+          "population": 6200,
+          "status": "unengaged"
+        }
+      ]
+    },
+    {
+      "code": "YEM",
+      "numeric": "887",
+      "name": "Yemen",
+      "region": "Western Asia",
+      "population2020": 36134864,
+      "muslimShare2020": 99.9,
+      "religions2020": {
+        "Christians": 0.1,
+        "Muslims": 99.9,
+        "Unaffiliated": 0.1,
+        "Hindus": 0.0,
+        "Buddhists": 0.0,
+        "Jews": 0.0,
+        "Other religions": 0.0
+      },
+      "imb": {
+        "totalGroups": 16,
+        "population": 37886120,
+        "unengaged": {
+          "groups": 14,
+          "population": 24471120
+        },
+        "engagedUnreached": {
+          "groups": 2,
+          "population": 13415000
+        },
+        "noLongerUnreached": {
+          "groups": 0,
+          "population": 0
+        }
+      },
+      "examples": [
+        {
+          "id": "PG012284",
+          "name": "Northern Yemeni Arabs",
+          "language": "Sanaani Arabic",
+          "religion": "Islam - Shia",
+          "population": 15300000,
+          "status": "unengaged"
+        },
+        {
+          "id": "PG012274",
+          "name": "Southern Yemeni Arabs",
+          "language": "Ta'izzi-Adeni Arabic",
+          "religion": "Islam - Sunni",
+          "population": 12170000,
+          "status": "engagedUnreached"
+        },
+        {
+          "id": "PG012295",
+          "name": "Tihama Yemeni Arabs",
+          "language": "Ta'izzi-Adeni Arabic",
+          "religion": "Islam - Sunni",
+          "population": 4260000,
+          "status": "unengaged"
+        }
+      ]
+    }
+  ]
+}
