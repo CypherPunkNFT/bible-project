@@ -45,12 +45,35 @@ function registry(library: string): Map<string, RegistryAuthor> {
   return out;
 }
 
+interface OverlayEntry { passages?: CatalogPassage[]; genre?: string; duplicateOf?: string }
+/** content/library/passage-overlays/*.json (scripts/sermon-passages.py): main texts the sermons' own publishers state,
+ *  genre corrections and second records of one sermon, kept beside the catalogue because most of those works are
+ *  untracked reconciled records (Pages/Teachers/SERMONS-CAMPAIGN.md). */
+function readOverlays(library: string): Map<string, OverlayEntry> {
+  const dir = path.join(library, "passage-overlays"), out = new Map<string, OverlayEntry>();
+  if (!fs.existsSync(dir)) return out;
+  for (const file of listJson(dir)) for (const [id, entry] of Object.entries(readJson<{ works: Record<string, OverlayEntry> }>(file).works)) out.set(id, entry);
+  return out;
+}
+
+function applyOverlay(work: CatalogWork, entry: OverlayEntry | undefined): CatalogWork | null {
+  if (!entry) return work;
+  if (entry.duplicateOf) return null;
+  const hasMain = (work.passages ?? []).some((p) => p.role === "main-text" && p.start);
+  const passages = entry.passages && !hasMain ? [...(work.passages ?? []).filter((p) => p.role !== "main-text"), ...entry.passages] : work.passages;
+  return { ...work, genre: entry.genre ?? work.genre, passages };
+}
+
 function collectHoldings(library: string, ids: string[], workUrl: Map<string, string>) {
   const published = new Set(readJson<{ workIds: string[] }>(path.join(library, "publication.json")).workIds);
+  const overlays = readOverlays(library), applied = new Set<string>();
   const held: Record<string, Holdings> = Object.fromEntries(ids.map((id) => [id, { works: 0, genres: {}, notable: [], books: Array(66).fill(0), sermons: [], passages: [], titleUrls: new Map(), titles: new Set() }]));
   const chapters: Record<string, Record<string, number>> = {};
   for (const file of listJson(path.join(library, "catalog/works"))) {
-    const work = readJson<CatalogWork>(file);
+    const raw = readJson<CatalogWork>(file);
+    if (overlays.has(raw.id)) applied.add(raw.id);
+    const work = applyOverlay(raw, overlays.get(raw.id));
+    if (!work) continue;
     const creator = work.creators?.find((c) => held[c.authorId]);
     if (!creator) continue;
     const person = held[creator.authorId], key = normal(work.title);
@@ -78,6 +101,8 @@ function collectHoldings(library: string, ids: string[], workUrl: Map<string, st
     const rank = published.has(work.id) ? -10 : NOTABLE_GENRES.indexOf(work.genre); // published first; -1 = not a notable genre
     if (rank !== -1) person.notable.push({ t: work.title, g: work.genre, rank, s: work.reading?.summary ?? null });
   }
+  const missing = overlays.size - applied.size;
+  if (missing) console.warn(`teacher pages: ${missing} passage-overlay entries name works not in this catalogue (untracked reconciled records absent?)`);
   return { held, chapters };
 }
 
