@@ -1,5 +1,5 @@
 // /resources/life, as the owner approved it (design/help-for-life-directions, direction E, 2026-10-08): the crisis strip
-// first; the title with its words and four numbers, still-waters line art beside it; the national lines as a directory;
+// first; the title with its words and four numbers, the Door line art (Matthew 11:28) beside it; the national lines as a directory;
 // then each researched city (only cities with verified: true) with its USA map, sourced facts and its own map of places;
 // and how the list is made. No section links: this page stands on its own. Every word and number comes from the data.
 import { MessageSquareText, Phone } from "lucide-react";
@@ -9,7 +9,7 @@ import { dialable, smsHref } from "./contact-links";
 import { CitySection } from "./life/CitySection";
 import { hasCityFiles, kindOf, kindsIn, listOf, wayOf } from "./life/format";
 import { NationalLines } from "./life/NationalLines";
-import { StillWaters } from "./life/StillWaters";
+import { DoorArt } from "./life/DoorArt";
 import { RESOURCE_SECTIONS, sectionBySlug } from "./sections";
 import "./life/life.css";
 
@@ -54,7 +54,7 @@ export default function LifePage({ data }: { data: LifeData }) {
         <p className="lf-lead">Free national lines for the hardest moments{cities.length ? `, and places in ${listOf(cities.map((c) => c.name))} that help with ${helpsWith}` : ""}. Every number can be tapped to call or text.</p>
         <dl className="lf-stats">{stats.map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{typeof value === "number" ? value.toLocaleString("en-US") : value}</dd></div>)}</dl>
       </div>
-      <StillWaters />
+      <DoorArt />
     </header>
     <NationalLines groups={groups} />
     {cities.map((c) => <CitySection key={c.id} city={c} checked={data.checked} />)}

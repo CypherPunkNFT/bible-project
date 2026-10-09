@@ -69,6 +69,16 @@ test("life: the crisis strip leads, with no section links, and 911 and 988 are n
   await noSidewaysScroll(page);
 });
 
+test("life: the hero drawing is the Door, captioned with Matthew 11:28 word for word", async ({ page }) => {
+  test.skip(!has("life"), "life.json not written yet");
+  await page.goto("/resources/life");
+  const art = page.locator(".lf-hero figure.lf-door");
+  await expect(art).toBeVisible();
+  await expect(art).toHaveAttribute("aria-label", /Jesus standing in the open doorway/);
+  await expect(art.locator("figcaption")).toHaveText("“Come unto me, all ye that labour and are heavy laden, and I will give you rest.” Matthew 11:28");
+  await expect(art.locator("svg")).toHaveAttribute("viewBox", "0 0 320 240");
+});
+
 test("life: every national line keeps its call or text button on the closed row, and opens in place", async ({ page }) => {
   test.skip(!has("life"), "life.json not written yet");
   await page.goto("/resources/life");
@@ -149,7 +159,7 @@ test("life: works at 400 px without sideways scroll", async ({ page }) => {
   test.skip(!has("life"), "life.json not written yet");
   await page.setViewportSize({ width: 400, height: 900 });
   await page.goto("/resources/life");
-  await page.locator(".lf-how").scrollIntoViewIfNeeded();
+  await page.locator(".lf-jax").scrollIntoViewIfNeeded();
   await expect(page.locator(".lf-jax .lf-stage > svg")).toBeVisible();
   await noSidewaysScroll(page);
 });

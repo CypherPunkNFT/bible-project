@@ -25,7 +25,7 @@
 .lf-crisis a:hover { color: var(--lf-green); }
 .lf-crisis .lf-crisis-note { margin-left: auto; color: var(--muted); font-size: .78rem; }
 
-/* Hero: the words and numbers under the title, still-waters line art (Psalm 23:2) beside them. */
+/* Hero: the words and numbers under the title, the Door line art (Matthew 11:28) beside them. */
 .lf-hero { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 1.2rem 3.5rem; align-items: center; padding: 1.2rem 0 1.6rem; }
 .lf-hero .lf-kick { display: flex; align-items: center; gap: .6rem; color: var(--lf-title); }
 .lf-hero .lf-kick::before { content: ""; width: 1.6rem; height: 1px; background: currentColor; }
@@ -38,23 +38,43 @@
 .lf-stats dt { color: var(--muted); }
 .lf-stats dd { font: 400 1.3rem/1.1 var(--font-sans); letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
 
-.lf-still { margin: 0; color: color-mix(in srgb, var(--door) 70%, var(--ink)); }
-.lf-still svg { display: block; width: 100%; height: auto; max-height: 260px; }
-.lf-still .lf-sun { opacity: .55; }
-.lf-still .lf-far { opacity: .45; }
-.lf-still .lf-water path { stroke-dasharray: 60 22; animation: lf-drift 11s linear infinite; opacity: .7; }
-.lf-still .lf-water path:nth-child(2) { animation-duration: 12s; animation-direction: reverse; }
-.lf-still .lf-water path:nth-child(3) { animation-duration: 15s; }
-.lf-still .lf-reflect { opacity: .35; }
-.lf-still .lf-reeds { opacity: .8; transform-origin: 40px 182px; animation: lf-reeds 7s ease-in-out infinite; }
-.lf-still .lf-wing { transform-origin: 18px 8px; animation: lf-wing 3.2s ease-in-out infinite; }
-.lf-still .lf-dove { transform: translate(110px, 70px); animation: lf-dove 18s ease-in-out infinite; }
-.lf-still figcaption { margin-top: .4rem; color: var(--muted); font: italic .86rem/1.5 var(--font-serif); text-align: center; }
-.lf-still cite { margin-left: .35rem; font: normal .74rem var(--font-sans); }
-@keyframes lf-drift { to { stroke-dashoffset: -164; } }
-@keyframes lf-reeds { 0%, 100% { transform: rotate(0deg); } 50% { transform: rotate(-1.6deg); } }
-@keyframes lf-wing { 0%, 100% { transform: rotate(0deg); } 50% { transform: rotate(14deg); } }
-@keyframes lf-dove { 0%, 100% { transform: translate(110px, 70px); } 50% { transform: translate(150px, 58px); } }
+/* The hero drawing (DoorArt.tsx, Matthew 11:28): line art in the house style, its one light the gold around Jesus in the
+   doorway. --c is that light, --sun the sun; the flowers pale blue and violet. Every motion loops slowly. */
+.lf-door { --c: #c99410; --lfd-blue: #6f86c9; --lfd-violet: #8f74c4; margin: 0; }
+:root[data-theme="dark"] .lf-door { --c: #f2cf5c; --lfd-blue: #a9bbf0; --lfd-violet: #c4b0ee; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .lf-door { --c: #f2cf5c; --lfd-blue: #a9bbf0; --lfd-violet: #c4b0ee; } }
+.lf-door svg { display: block; width: 100%; height: auto; max-height: 300px; aspect-ratio: 4 / 3; overflow: hidden; color: color-mix(in srgb, var(--ink) 66%, var(--page)); }
+.lf-door .lfd-t { stroke: var(--c); }
+.lf-door .lfd-f { opacity: .42; }
+.lf-door .lfd-ft { stroke: var(--c); opacity: .5; }
+.lf-door .lfd-pf { fill: var(--page); stroke: none; }
+.lf-door .lfd-star { fill: currentColor; stroke: none; opacity: .5; animation: lfd-twinkle 5.5s ease-in-out infinite alternate; animation-delay: calc(var(--i) * -1.3s); }
+.lf-door .lfd-tuft { transform-box: fill-box; transform-origin: 50% 100%; animation: lfd-sway 6s ease-in-out infinite alternate; }
+.lf-door .lfd-tuft:nth-of-type(odd) { animation-duration: 7.4s; animation-delay: -2s; }
+.lf-door .lfd-sun { stroke: var(--c); fill: color-mix(in srgb, var(--c) 16%, var(--page)); }
+.lf-door .lfd-sunrays { transform-origin: 158px 41px; animation: lfd-turn 80s linear infinite; }
+.lf-door .lfd-flock-cross { animation: lfd-flock 36s linear infinite; }
+.lf-door .lfd-solid { fill: color-mix(in srgb, var(--c) 30%, var(--page)); stroke: var(--c); stroke-width: 1.3; filter: drop-shadow(0 0 5px color-mix(in srgb, var(--c) 55%, transparent)); }
+:root[data-theme="dark"] .lf-door .lfd-solid { fill: color-mix(in srgb, var(--c) 58%, var(--page)); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .lf-door .lfd-solid { fill: color-mix(in srgb, var(--c) 58%, var(--page)); } }
+.lf-door .lfd-fold { stroke: color-mix(in srgb, var(--c) 55%, var(--page)); stroke-width: 1; }
+.lf-door .lfd-glow-door { transform-box: fill-box; transform-origin: 50% 40%; animation: lfd-glow 7s ease-in-out infinite alternate; }
+.lf-door .lfd-spill { animation: lfd-soft 7s ease-in-out infinite alternate; }
+.lf-door .lfd-mote { opacity: 0; color: var(--c); animation: lfd-mote 9s linear infinite; animation-delay: calc(var(--i) * -1.3s); }
+.lf-door .lfd-bloom { animation: lfd-sway 6s ease-in-out infinite alternate; animation-delay: calc(var(--i) * -1.7s); }
+.lf-door .lfd-blue { stroke: var(--lfd-blue); }
+.lf-door .lfd-violet { stroke: var(--lfd-violet); }
+.lf-door .lfd-petal { opacity: .8; }
+.lf-door .lfd-heart { fill: var(--c); stroke: none; opacity: .8; }
+.lf-door figcaption { margin-top: .4rem; color: var(--muted); font: italic .86rem/1.5 var(--font-serif); text-align: center; }
+.lf-door cite { margin-left: .35rem; font: normal .74rem var(--font-sans); white-space: nowrap; }
+@keyframes lfd-twinkle { from { opacity: .15; } to { opacity: .7; } }
+@keyframes lfd-sway { from { transform: rotate(-3deg); } to { transform: rotate(3deg); } }
+@keyframes lfd-soft { from { opacity: .4; } to { opacity: 1; } }
+@keyframes lfd-turn { to { transform: rotate(360deg); } }
+@keyframes lfd-flock { from { transform: translate(-50px, 23px); } to { transform: translate(350px, 21px); } }
+@keyframes lfd-glow { from { transform: scale(.94); opacity: .6; } to { transform: scale(1.04); opacity: 1; } }
+@keyframes lfd-mote { 0% { transform: translateY(0); opacity: 0; } 20% { opacity: .8; } 80% { opacity: .5; } 100% { transform: translateY(-46px); opacity: 0; } }
 
 .lf-sec-head { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: .25rem 1rem; align-items: baseline; margin: 2.6rem 0 1.2rem; }
 .lf-sec-head > span { color: var(--door); }
@@ -257,7 +277,7 @@ a.lf-src:hover { color: var(--ink); }
 }
 @media (max-width: 760px) {
   .lf-hero { grid-template-columns: minmax(0, 1fr); }
-  .lf-still { width: 100%; max-width: 300px; justify-self: center; }
+  .lf-door { width: 100%; max-width: 300px; justify-self: center; }
 }
 @media (max-width: 700px) {
   .lf-row[data-layout="wide"] { grid-template-columns: minmax(0, 1fr) 2rem; grid-template-areas: "head chev" "quick quick" "body body"; }
@@ -282,6 +302,7 @@ a.lf-src:hover { color: var(--ink); }
   .lf-mapframe figcaption { font-size: .66rem; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .lf-still .lf-water path, .lf-still .lf-dove, .lf-still .lf-reeds, .lf-still .lf-wing { animation: none; }
+  .lf-door svg, .lf-door svg * { animation: none !important; }
+  .lf-door .lfd-mote { opacity: .6; }
   .lf-body, .lf-chev, .lf-row, .lf-pin .lf-disc, .lf-pin .lf-halo { transition: none; }
 }
