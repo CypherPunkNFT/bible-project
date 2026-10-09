@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState, type CSSProperties, type PointerEvent as ReactPointerEvent } from "react";
+import { useLayoutEffect, useMemo, useRef, useState, type CSSProperties, type PointerEvent as ReactPointerEvent } from "react";
 import { Link } from "react-router-dom";
 import { BOOK_TONE, bookCode, chapterOf, PERIOD_TONE, plural, refText, whenShort } from "./data";
 import { useSheet } from "./sheet";
@@ -34,8 +34,11 @@ function Ring({ d, sel, onPick }: { d: Apostle; sel: number; onPick: (period: nu
   // Enough room beside the ring for the widest side label (about 9.6 drawing units a letter at the labels' size).
   const widest = Math.max(0, ...segs.filter((g) => isSide((g.a0 + g.a1) / 2)).flatMap((g) => sideLines(g.p.n, g.p.title)).map((l) => l.length));
   const pad = Math.max(size * 0.04, widest * 9.6 - size * 0.046 + 14), padY = size * 0.07;
-  const below = (size + padY - (cy + r + w * 0.68)) / (size + padY * 2); // share of the drawing's height under the circle
-  return <svg className="ring" data-below={below.toFixed(4)} viewBox={`${-pad} ${-padY} ${size + pad * 2} ${size + padY * 2}`} role="img" aria-label={`${d.short}'s life in four parts`} onPointerLeave={() => Tip.hide()}>
+  const lowest = Math.max(cy + r + w * 0.68, ...segs.map((g) => (g.a0 + g.a1) / 2).filter((mid) => !isSide(mid) && Math.sin(mid) > 0)
+    .map((mid) => cy + (r + w * 1.8 + 8) * Math.sin(mid) + 6));
+  const below = (size + padY - lowest) / (size + padY * 2); // share of the drawing's height under its lowest line
+  const centre = (padY + cy) / (size + padY * 2); // where the circle's centre sits, as a share of the height
+  return <svg className="ring" data-below={below.toFixed(4)} data-centre={centre.toFixed(4)} viewBox={`${-pad} ${-padY} ${size + pad * 2} ${size + padY * 2}`} role="img" aria-label={`${d.short}'s life in four parts`} onPointerLeave={() => Tip.hide()}>
     <circle className="ring-track" cx={cx} cy={cy} r={r} />
     {segs.map((g) => {
       const on = g.i + 1 === sel, trad = g.i === 3, tone = { "--tone": PERIOD_TONE[g.i + 1] } as CSSProperties;
@@ -69,28 +72,33 @@ export function RingSection({ d }: { d: Apostle }) {
   const [sel, setSel] = useState(() => d.periods.slice(0, 3).reduce((best, p, i) => (p.entries.length > d.periods[best].entries.length ? i : best), 0) + 1);
   const told = d.scripture.filter((e) => e.type !== "fact").length;
   const p = d.periods[sel - 1], ents = p.entries.map((k) => d.byKey[k]);
-  // Beside the ring (wide screens), the list's bottom sits level with the bottom of the circle: measured from the
-  // drawing, kept in step when it resizes.
-  const art = useRef<HTMLDivElement>(null);
-  const [fit, setFit] = useState<{ bottom: number; height: number } | null>(null);
-  useEffect(() => {
-    const svg = art.current?.querySelector("svg");
-    if (!svg) return;
+  // Beside the ring (wide screens): a short list (six or fewer) sits centred on the circle; a longer one ends level
+  // with the lowest line of the drawing ("II · WITH JESUS"), rising as high as the section's heading before it needs to
+  // scroll (only the longest, like Peter's or John's, do). Measured from the drawing; kept in step as it resizes.
+  const art = useRef<HTMLDivElement>(null), list = useRef<HTMLDivElement>(null);
+  const [fit, setFit] = useState<{ top: number; max: number } | null>(null);
+  const short = ents.length <= 6;
+  useLayoutEffect(() => {
+    const svg = art.current?.querySelector("svg"), el = list.current, grid = el?.parentElement, head = grid?.parentElement?.querySelector(".sec-head");
+    if (!svg || !el || !grid || !head) return;
     const measure = () => {
       if (!matchMedia("(min-width: 1100px)").matches) return setFit(null);
-      const h = svg.getBoundingClientRect().height, bottom = h * Number(svg.dataset.below ?? 0);
-      setFit({ bottom, height: h - bottom + 96 }); // the list may rise 6rem above the drawing, into the lead's space
+      const s = svg.getBoundingClientRect(), g = grid.getBoundingClientRect(), ceiling = head.getBoundingClientRect().top;
+      const lowest = s.top + s.height * (1 - Number(svg.dataset.below ?? 0)), centre = s.top + s.height * Number(svg.dataset.centre ?? 0.5);
+      const max = Math.max(160, lowest - ceiling), natural = Math.min(el.scrollHeight, max);
+      const top = short ? centre - natural / 2 : lowest - natural;
+      setFit((was) => (was && Math.abs(was.top - (top - g.top)) < 1 && Math.abs(was.max - max) < 1 ? was : { top: top - g.top, max }));
     };
     const watch = new ResizeObserver(measure);
-    watch.observe(svg); measure();
+    watch.observe(svg); if (el.firstElementChild) watch.observe(el); measure();
     return () => watch.disconnect();
-  }, [d]);
+  }, [d, sel, short]);
   return <section className="sec" data-sec="ring">
     <SecHead num="01" kicker="His life in four parts" title="How much does Scripture " em="tell?"
       sub={`${d.tagline} Scripture gives no years for his life, so the ring is divided by how much is recorded: ${plural(told, "record")} of what he did or what was said to him, one bead each. The last part is tradition and is drawn dashed. Choose a part to read it.`} />
     <div className="a-ring">
       <div className="a-ring-art" ref={art}><Ring d={d} sel={sel} onPick={(period, entry) => { setSel(period); if (entry) sheet.openEntry(entry); }} /></div>
-      <div className="a-ring-list" style={{ "--tone": PERIOD_TONE[sel], ...(fit ? { marginTop: -96, marginBottom: fit.bottom, maxHeight: fit.height } : {}) } as CSSProperties}>
+      <div ref={list} className="a-ring-list slim-scroll" style={{ "--tone": PERIOD_TONE[sel], ...(fit ? { marginTop: fit.top, maxHeight: fit.max } : {}) } as CSSProperties}>
         <p className="kicker">{p.n} · {p.sub}</p><h3>{p.title}</h3>
         {ents.length ? <ol className={`a-recs${sel === 4 ? " trad" : ""}${ents.length > 9 ? " two" : ""}`}>{ents.map((e) => <li key={e.key}>
           <button type="button" onClick={() => sheet.openEntry(e)}><span className="t">{e.title}</span><small>{e.type === "trad" ? whenShort(e.when) : e.refs[0] ? refText(e.refs[0]) : ""}</small></button>

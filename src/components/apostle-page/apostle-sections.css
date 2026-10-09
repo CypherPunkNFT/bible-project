@@ -8,7 +8,7 @@
   width: min(100vw - 3rem, 120rem); margin-left: calc((100% - min(100vw - 3rem, 120rem)) / 2); }
 .ap .a-ring-art { max-width: var(--ring-w); }
 /* A long record list scrolls beside the ring rather than stretching the section past the screen. */
-.ap .a-ring-list { max-height: var(--ring-h); overflow-y: auto; scrollbar-width: thin; padding-right: .4rem; }
+.ap .a-ring-list { max-height: var(--ring-h); overflow-y: auto; padding-right: .6rem; }
 .ap .a-ring-list { --tone: var(--accent); min-width: 0; }
 .ap .a-ring-list .kicker { color: var(--tone); }
 .ap .a-ring-list h3 { margin: .3rem 0 .9rem; font: 500 1.6rem/1.2 var(--serif); letter-spacing: -.02em; }
@@ -320,7 +320,7 @@
 .ap .a-ring-list .a-recs button small { font-size: .68rem; margin-top: .085rem; }
 .ap .a-ring-list .plain-line { font-size: .85rem; }
 @media (min-width: 1100px) {
-  .ap .a-ring-list { align-self: end; }
+  .ap .a-ring-list { align-self: start; }
 }
 
 /* 02 with few books (most of the Twelve): a centred, larger grid, and the chapter's verse beneath it in two columns
