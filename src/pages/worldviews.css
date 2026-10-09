@@ -127,3 +127,11 @@
 .wv-relationship-room .wv-reading-heading{display:block;margin-bottom:28px}
 .wv-relationship-room .wv-reading-heading h2{margin:14px 0 18px;font-size:clamp(28px,3vw,40px)}
 .wv-relationship-room .wv-reading-aim>p{font-family:inherit;font-size:14px;line-height:1.85;max-width:none;color:var(--ink);margin:0}
+
+.wv-islam-hero{grid-template-columns:1.15fr 1fr;gap:25px;margin:24px 0 30px}
+.wv-islam-hero .wv-hero-art{border-left:0;padding:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.wv-hero-illustration{width:100%;max-width:540px;stroke:var(--wv-accent);stroke-width:1.15;stroke-linecap:round;stroke-linejoin:round;display:block}
+.wv-islam-hero .wv-hero-art>span{font-size:9px;letter-spacing:.16em;margin-top:-4px}
+.wv-hero-steps{display:flex;gap:25px;flex-wrap:wrap;margin-top:26px;font-size:11px;color:var(--muted)}.wv-hero-steps a{display:flex;gap:9px;align-items:center}.wv-hero-steps a>span{color:var(--wv-accent);font-size:10px}.wv-hero-steps a:hover{color:var(--ink)}
+#conversation-studies{scroll-margin-top:90px}
+@media(max-width:800px){.wv-islam-hero{grid-template-columns:1fr}.wv-islam-hero .wv-hero-art{display:none}.wv-hero-steps{gap:14px 20px;font-size:10px;margin-top:22px}}
