@@ -1,8 +1,8 @@
 {
  "schema": 1,
- "commit": "29a22a1c",
+ "commit": "45afc8d0",
  "startedAt": "2026-10-09T17:18:38.783Z",
- "finishedAt": "2026-10-09T22:29:15.317Z",
+ "finishedAt": "2026-10-09T23:04:55.191Z",
  "base": "http://127.0.0.1:8969",
  "checks": [
   {
@@ -882,16 +882,9 @@
    "checked": 4,
    "coverage": "",
    "failed": {
-    "empty": 1,
     "links": 4
    },
    "failures": [
-    {
-     "url": "/apologetics/worldviews/islam",
-     "width": 400,
-     "check": "empty",
-     "detail": "the heading \"Who is Jesus?\" has nothing under it"
-    },
     {
      "url": "/apologetics/worldviews/islam",
      "width": 400,
@@ -903,12 +896,6 @@
      "width": 400,
      "check": "links",
      "detail": "/resources: this address is not a page on the site"
-    },
-    {
-     "url": "/apologetics/worldviews/islam",
-     "width": 1440,
-     "check": "empty",
-     "detail": "the heading \"Who is Jesus?\" has nothing under it"
     },
     {
      "url": "/apologetics/worldviews/secular",
@@ -1108,19 +1095,12 @@
    "checked": 3,
    "coverage": "All 53 profiles have data reconciliation checks; browser checks cover South Asia, the largest population and a small island territory.",
    "failed": {
-    "empty": 3,
     "links": 3
    },
    "failures": [
     {
      "url": "/apologetics/worldviews/islam?country=IDN#muslim-world",
      "width": 400,
-     "check": "empty",
-     "detail": "the heading \"Who is Jesus?\" has nothing under it"
-    },
-    {
-     "url": "/apologetics/worldviews/islam?country=IDN#muslim-world",
-     "width": 400,
      "check": "links",
      "detail": "/teachers: this address is not a page on the site"
     },
@@ -1129,18 +1109,6 @@
      "width": 400,
      "check": "links",
      "detail": "/resources: this address is not a page on the site"
-    },
-    {
-     "url": "/apologetics/worldviews/islam?country=IDN#muslim-world",
-     "width": 1440,
-     "check": "empty",
-     "detail": "the heading \"Who is Jesus?\" has nothing under it"
-    },
-    {
-     "url": "/apologetics/worldviews/islam?country=MYT#muslim-world",
-     "width": 400,
-     "check": "empty",
-     "detail": "the heading \"Who is Jesus?\" has nothing under it"
     },
     {
      "url": "/apologetics/worldviews/islam?country=MYT#muslim-world",
@@ -1155,18 +1123,6 @@
      "detail": "/resources: this address is not a page on the site"
     },
     {
-     "url": "/apologetics/worldviews/islam?country=MYT#muslim-world",
-     "width": 1440,
-     "check": "empty",
-     "detail": "the heading \"Who is Jesus?\" has nothing under it"
-    },
-    {
-     "url": "/apologetics/worldviews/islam?country=PAK#muslim-world",
-     "width": 400,
-     "check": "empty",
-     "detail": "the heading \"Who is Jesus?\" has nothing under it"
-    },
-    {
      "url": "/apologetics/worldviews/islam?country=PAK#muslim-world",
      "width": 400,
      "check": "links",
@@ -1177,12 +1133,6 @@
      "width": 400,
      "check": "links",
      "detail": "/resources: this address is not a page on the site"
-    },
-    {
-     "url": "/apologetics/worldviews/islam?country=PAK#muslim-world",
-     "width": 1440,
-     "check": "empty",
-     "detail": "the heading \"Who is Jesus?\" has nothing under it"
     }
    ]
   },
@@ -1193,16 +1143,9 @@
    "checked": 1,
    "coverage": "",
    "failed": {
-    "empty": 1,
     "links": 1
    },
    "failures": [
-    {
-     "url": "/apologetics/worldviews/islam?country=PAK&map=flat#muslim-world",
-     "width": 400,
-     "check": "empty",
-     "detail": "the heading \"Who is Jesus?\" has nothing under it"
-    },
     {
      "url": "/apologetics/worldviews/islam?country=PAK&map=flat#muslim-world",
      "width": 400,
@@ -1214,12 +1157,6 @@
      "width": 400,
      "check": "links",
      "detail": "/resources: this address is not a page on the site"
-    },
-    {
-     "url": "/apologetics/worldviews/islam?country=PAK&map=flat#muslim-world",
-     "width": 1440,
-     "check": "empty",
-     "detail": "the heading \"Who is Jesus?\" has nothing under it"
     }
    ]
   },
@@ -1230,16 +1167,9 @@
    "checked": 1,
    "coverage": "",
    "failed": {
-    "empty": 1,
     "links": 1
    },
    "failures": [
-    {
-     "url": "/apologetics/worldviews/islam?country=IRN&panel=groups#muslim-world",
-     "width": 400,
-     "check": "empty",
-     "detail": "the heading \"Who is Jesus?\" has nothing under it"
-    },
     {
      "url": "/apologetics/worldviews/islam?country=IRN&panel=groups#muslim-world",
      "width": 400,
@@ -1251,12 +1181,6 @@
      "width": 400,
      "check": "links",
      "detail": "/resources: this address is not a page on the site"
-    },
-    {
-     "url": "/apologetics/worldviews/islam?country=IRN&panel=groups#muslim-world",
-     "width": 1440,
-     "check": "empty",
-     "detail": "the heading \"Who is Jesus?\" has nothing under it"
     }
    ]
   }
