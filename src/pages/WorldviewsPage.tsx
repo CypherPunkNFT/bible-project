@@ -97,7 +97,7 @@ function IslamClaimsDesk({ item, selected, choose }: { item: typeof WORLDVIEWS[n
       <header className="wv-current-question wv-pattern-question"><QuestionPattern /><h3>{row.question}</h3><QuestionPattern /></header>
       <div className="wv-positions">{(['christian', 'other'] as const).map(side => { const christian = side === 'christian'; const paragraphs = row[side].split(/\n\s*\n/); return <article key={side} className={christian ? 'wv-truth' : 'wv-perspective'} aria-label={christian ? 'Christian truth' : item.otherLabel}>
         <header className="wv-position-heading"><span className="wv-position-mark">{christian ? <Cross size={23} /> : <ScrollText size={23} />}</span><div><p className="ap-eyebrow">{christian ? 'Christian truth' : item.otherLabel}</p><span>{christian ? 'Scripture & Christian witness' : 'The Qur’anic account'}</span></div><span className="wv-position-number">{christian ? 'A' : 'B'}</span></header>
-        <div className="wv-position-copy"><p>{paragraphs[0]}</p>{paragraphs.length > 1 && <div className="wv-claim-explanation"><ChevronDown className="wv-claim-down" size={17} aria-hidden="true" />{paragraphs.slice(1).map((paragraph, i) => <p key={i}>{paragraph}</p>)}</div>}</div>
+        <div className="wv-position-copy"><p>{paragraphs[0]}</p>{paragraphs.length > 1 && <div className="wv-claim-explanation"><div className="wv-claim-explanation-label">Unpack this claim <ChevronDown size={17} aria-hidden="true" /></div>{paragraphs.slice(1).map((paragraph, i) => <p key={i}>{paragraph}</p>)}</div>}</div>
 
       </article>; })}</div>
       <BasisReader christian={row.christianBasis} islamic={row.otherBasis} />
