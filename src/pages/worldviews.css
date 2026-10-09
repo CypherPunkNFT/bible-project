@@ -135,3 +135,12 @@
 .wv-hero-steps{display:flex;gap:25px;flex-wrap:wrap;margin-top:26px;font-size:11px;color:var(--muted)}.wv-hero-steps a{display:flex;gap:9px;align-items:center}.wv-hero-steps a>span{color:var(--wv-accent);font-size:10px}.wv-hero-steps a:hover{color:var(--ink)}
 #conversation-studies{scroll-margin-top:90px}
 @media(max-width:800px){.wv-islam-hero{grid-template-columns:1fr}.wv-islam-hero .wv-hero-art{display:none}.wv-hero-steps{gap:14px 20px;font-size:10px;margin-top:22px}}
+
+/* Keep the landing introduction close to the navigation and claims desk. */
+.wv-page:has(>.wv-islam-hero){padding-top:18px}
+.wv-islam-hero{margin:8px 0 0}
+.wv-islam-hero h1{margin:14px 0 18px}
+.wv-islam-hero .wv-hero-illustration{max-width:460px}
+.wv-islam-hero .wv-hero-steps{margin-top:20px}
+.wv-islam-hero+.wv-claims-room{padding-top:20px}
+@media(max-width:800px){.wv-islam-hero{margin-top:14px}.wv-islam-hero+.wv-claims-room{padding-top:24px}}
