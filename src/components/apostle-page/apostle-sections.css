@@ -4,7 +4,7 @@
 /* A · Lifeline */
 /* 01 · the ring and its records */
 /* The ring takes the screen's height, and may reach past the page column on wide screens (owner, 2026-10-08). */
-.ap .a-ring { --ring-h: calc(100svh - 19.5rem); --ring-w: min(calc(var(--ring-h) * 1.1), 82rem); display: grid; grid-template-columns: minmax(0, var(--ring-w)) minmax(22rem, 36rem); justify-content: center; gap: 1rem 3.5rem; align-items: center;
+.ap .a-ring { --ring-h: calc(100svh - 19.5rem); --ring-w: min(calc(var(--ring-h) * 1.1), 82rem); display: grid; grid-template-columns: minmax(0, var(--ring-w)) minmax(18.7rem, 30.6rem); justify-content: center; gap: 1rem 3.5rem; align-items: center;
   width: min(100vw - 3rem, 120rem); margin-left: calc((100% - min(100vw - 3rem, 120rem)) / 2); }
 .ap .a-ring-art { max-width: var(--ring-w); }
 /* A long record list scrolls beside the ring rather than stretching the section past the screen. */
@@ -312,13 +312,13 @@
 
 /* The list beside the ring, larger (owner, 2026-10-08: "a little anemic"): bigger type and rows, one column, and on wide
    screens it rises into the space beside the section's lead paragraph. */
-.ap .a-ring-list h3 { font-size: clamp(1.8rem, 2.4vw, 2.5rem); margin: .4rem 0 1.1rem; }
-.ap .a-ring-list .kicker { font-size: .72rem; }
+.ap .a-ring-list h3 { font-size: clamp(1.53rem, 2.04vw, 2.125rem); margin: .34rem 0 .94rem; }
+.ap .a-ring-list .kicker { font-size: .61rem; }
 .ap .a-ring-list .a-recs, .ap .a-ring-list .a-recs.two { columns: 1; }
-.ap .a-ring-list .a-recs button { grid-template-columns: 2.2rem minmax(0, 1fr); padding: .72rem 0; font-size: 1.04rem; line-height: 1.4; }
-.ap .a-ring-list .a-recs button::before { font-size: 1.05rem; }
-.ap .a-ring-list .a-recs button small { font-size: .8rem; margin-top: .1rem; }
-.ap .a-ring-list .plain-line { font-size: 1rem; }
+.ap .a-ring-list .a-recs button { grid-template-columns: 1.87rem minmax(0, 1fr); padding: .61rem 0; font-size: .884rem; line-height: 1.4; }
+.ap .a-ring-list .a-recs button::before { font-size: .89rem; }
+.ap .a-ring-list .a-recs button small { font-size: .68rem; margin-top: .085rem; }
+.ap .a-ring-list .plain-line { font-size: .85rem; }
 @media (min-width: 1100px) {
   .ap .a-ring-list { align-self: start; margin-top: -6rem; max-height: calc(var(--ring-h) + 6rem); }
 }
