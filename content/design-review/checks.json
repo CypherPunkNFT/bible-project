@@ -1,9 +1,9 @@
 {
  "schema": 1,
- "commit": "93d97cfd",
- "startedAt": "2026-10-09T16:07:34.725Z",
- "finishedAt": "2026-10-09T16:07:37.730Z",
- "base": "http://127.0.0.1:8950",
+ "commit": "785c8636",
+ "startedAt": "2026-10-09T16:33:46.728Z",
+ "finishedAt": "2026-10-09T16:33:50.640Z",
+ "base": "http://127.0.0.1:8968",
  "checks": [
   {
    "id": "loads",
@@ -1087,6 +1087,54 @@
    "coverage": "",
    "failed": {},
    "failures": []
+  },
+  {
+   "template": "ap-worldview",
+   "variant": "countries",
+   "instances": 53,
+   "checked": 3,
+   "coverage": "All 53 profiles have data reconciliation checks; browser checks cover South Asia, the largest population and a small island territory.",
+   "failed": {
+    "links": 3
+   },
+   "failures": [
+    {
+     "url": "/apologetics/worldviews/islam?country=IDN#muslim-world",
+     "width": 400,
+     "check": "links",
+     "detail": "/teachers: this address is not a page on the site"
+    },
+    {
+     "url": "/apologetics/worldviews/islam?country=IDN#muslim-world",
+     "width": 400,
+     "check": "links",
+     "detail": "/resources: this address is not a page on the site"
+    },
+    {
+     "url": "/apologetics/worldviews/islam?country=MYT#muslim-world",
+     "width": 400,
+     "check": "links",
+     "detail": "/teachers: this address is not a page on the site"
+    },
+    {
+     "url": "/apologetics/worldviews/islam?country=MYT#muslim-world",
+     "width": 400,
+     "check": "links",
+     "detail": "/resources: this address is not a page on the site"
+    },
+    {
+     "url": "/apologetics/worldviews/islam?country=PAK#muslim-world",
+     "width": 400,
+     "check": "links",
+     "detail": "/teachers: this address is not a page on the site"
+    },
+    {
+     "url": "/apologetics/worldviews/islam?country=PAK#muslim-world",
+     "width": 400,
+     "check": "links",
+     "detail": "/resources: this address is not a page on the site"
+    }
+   ]
   }
  ]
 }

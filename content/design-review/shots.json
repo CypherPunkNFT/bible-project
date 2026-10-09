@@ -1,8 +1,8 @@
 {
  "schema": 1,
- "commit": "93d97cfd",
- "takenAt": "2026-10-09T16:07:46.932Z",
- "base": "http://127.0.0.1:8950",
+ "commit": "785c8636",
+ "takenAt": "2026-10-09T16:33:54.696Z",
+ "base": "http://127.0.0.1:8968",
  "images": {
   "ruler/king-judah/typical": {
    "desktop-dark": {
@@ -7266,36 +7266,36 @@
    "desktop-light": {
     "full": "ap-worldview/page/islam-1440-light.png",
     "crop": "ap-worldview/page/islam-1440-light-crop.png",
-    "cropKind": "first-screen",
+    "cropKind": "signature",
     "thumb": "ap-worldview/page/islam-1440-light-thumb.jpg",
-    "hash": "006401010198a500",
-    "height": 7704,
+    "hash": "0084900b1918c600",
+    "height": 8864,
     "clipped": false
    },
    "desktop-dark": {
     "full": "ap-worldview/page/islam-1440-dark.png",
     "crop": "ap-worldview/page/islam-1440-dark-crop.png",
-    "cropKind": "first-screen",
+    "cropKind": "signature",
     "thumb": "ap-worldview/page/islam-1440-dark-thumb.jpg",
-    "hash": "0019010101585bff",
-    "height": 7704,
+    "hash": "00436c056518394c",
+    "height": 8864,
     "clipped": false
    },
    "phone-light": {
     "full": "ap-worldview/page/islam-400-light.png",
     "crop": "ap-worldview/page/islam-400-light-crop.png",
-    "cropKind": "first-screen",
+    "cropKind": "signature",
     "thumb": "ap-worldview/page/islam-400-light-thumb.jpg",
-    "hash": "8080000000b00002",
+    "hash": "8080f00000c80000",
     "height": 9000,
     "clipped": true
    },
    "phone-dark": {
     "full": "ap-worldview/page/islam-400-dark.png",
     "crop": "ap-worldview/page/islam-400-dark-crop.png",
-    "cropKind": "first-screen",
+    "cropKind": "signature",
     "thumb": "ap-worldview/page/islam-400-dark-thumb.jpg",
-    "hash": "1000000000480001",
+    "hash": "10000f1000360000",
     "height": 9000,
     "clipped": true
    }
@@ -7336,6 +7336,82 @@
     "hash": "1080008000a00010",
     "height": 8047,
     "clipped": false
+   }
+  },
+  "ap-worldview/countries/largest": {
+   "desktop-light": {
+    "full": "ap-worldview/countries/largest-1440-light.png",
+    "crop": "ap-worldview/countries/largest-1440-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-worldview/countries/largest-1440-light-thumb.jpg",
+    "hash": "0084900b1918c600",
+    "height": 8864,
+    "clipped": false
+   },
+   "desktop-dark": {
+    "full": "ap-worldview/countries/largest-1440-dark.png",
+    "crop": "ap-worldview/countries/largest-1440-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-worldview/countries/largest-1440-dark-thumb.jpg",
+    "hash": "00436c056518394c",
+    "height": 8864,
+    "clipped": false
+   },
+   "phone-light": {
+    "full": "ap-worldview/countries/largest-400-light.png",
+    "crop": "ap-worldview/countries/largest-400-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-worldview/countries/largest-400-light-thumb.jpg",
+    "hash": "8080f00000c80000",
+    "height": 9000,
+    "clipped": true
+   },
+   "phone-dark": {
+    "full": "ap-worldview/countries/largest-400-dark.png",
+    "crop": "ap-worldview/countries/largest-400-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-worldview/countries/largest-400-dark-thumb.jpg",
+    "hash": "10000f1000360000",
+    "height": 9000,
+    "clipped": true
+   }
+  },
+  "ap-worldview/countries/smallest": {
+   "desktop-light": {
+    "full": "ap-worldview/countries/smallest-1440-light.png",
+    "crop": "ap-worldview/countries/smallest-1440-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-worldview/countries/smallest-1440-light-thumb.jpg",
+    "hash": "0084900b1918c600",
+    "height": 8864,
+    "clipped": false
+   },
+   "desktop-dark": {
+    "full": "ap-worldview/countries/smallest-1440-dark.png",
+    "crop": "ap-worldview/countries/smallest-1440-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-worldview/countries/smallest-1440-dark-thumb.jpg",
+    "hash": "00436c056518394c",
+    "height": 8864,
+    "clipped": false
+   },
+   "phone-dark": {
+    "full": "ap-worldview/countries/smallest-400-dark.png",
+    "crop": "ap-worldview/countries/smallest-400-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-worldview/countries/smallest-400-dark-thumb.jpg",
+    "hash": "10000f1000360000",
+    "height": 9000,
+    "clipped": true
+   },
+   "phone-light": {
+    "full": "ap-worldview/countries/smallest-400-light.png",
+    "crop": "ap-worldview/countries/smallest-400-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-worldview/countries/smallest-400-light-thumb.jpg",
+    "hash": "8080f00000c80000",
+    "height": 9000,
+    "clipped": true
    }
   }
  }

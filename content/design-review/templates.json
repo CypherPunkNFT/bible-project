@@ -1,7 +1,7 @@
 {
  "schema": 1,
- "generatedAt": "2026-10-09T16:07:12.299Z",
- "commit": "93d97cfd",
+ "generatedAt": "2026-10-09T16:33:34.978Z",
+ "commit": "785c8636",
  "areas": [
   {
    "id": "people",
@@ -2347,7 +2347,7 @@
     "src/pages/apologetics.css",
     "src/pages/worldviews.css"
    ],
-   "sourceHash": "8bf56cbf33653047",
+   "sourceHash": "17cfb82483bb0c02",
    "signature": null,
    "variants": [
     {
@@ -2603,12 +2603,19 @@
    "address": "/apologetics/worldviews/<worldview>",
    "instances": 4,
    "sources": [
+    "content/missions/muslim-world.json",
     "src/components/ApologeticsParts.tsx",
+    "src/components/apologetics/MuslimWorldExplorer.tsx",
+    "src/components/apologetics/muslim-world.css",
+    "src/lib/mission-globe.ts",
     "src/pages/WorldviewsPage.tsx",
     "src/pages/worldviews.css"
    ],
-   "sourceHash": "55e1615938f92828",
-   "signature": null,
+   "sourceHash": "162e84cbad407d27",
+   "signature": {
+    "selector": "#muslim-world",
+    "label": "Muslim-world country explorer"
+   },
    "variants": [
     {
      "id": "page",
@@ -2627,6 +2634,26 @@
        "label": "Christianity & secular thought",
        "url": "/apologetics/worldviews/secular",
        "why": "Distinct collection illustration and primary-text scope"
+      }
+     ]
+    },
+    {
+     "id": "countries",
+     "name": "Islam: country explorer",
+     "what": "A textured rotating globe with country demographics and dated IMB people-group statistics.",
+     "instances": 53,
+     "samples": [
+      {
+       "id": "largest",
+       "label": "Largest population",
+       "url": "/apologetics/worldviews/islam?country=IDN#muslim-world",
+       "why": "most population: Indonesia (274,814,866)"
+      },
+      {
+       "id": "smallest",
+       "label": "Smallest population",
+       "url": "/apologetics/worldviews/islam?country=MYT#muslim-world",
+       "why": "fewest population: Mayotte (284,371), a near-empty page"
       }
      ]
     }
