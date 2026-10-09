@@ -152,3 +152,8 @@ powershell -ExecutionPolicy Bypass -File knowledge/start.ps1 -Refresh
 On another machine, install a compatible CUDA PyTorch build and the packages above in a separate environment, cache the pinned model, and adjust paths/ports/GPU lock before starting. This implementation currently expects an NVIDIA GPU for semantic encoding; FTS and reference retrieval work without loading the model.
 
 Technical references: [SQLite FTS5](https://www.sqlite.org/fts5.html), [Qwen embedding model card](https://huggingface.co/Qwen/Qwen3-Embedding-4B), [LanceDB Python API](https://lancedb.github.io/lancedb/python/python/).
+
+
+## Historical source citation search
+
+The private historical collection is in `../KnowledgeBase/Biblical Historical Sources/`. Its `COLLECTION-REPORT.txt` records contents, verification and remaining gaps. Immediate local lexical search uses a separate SQLite database: `D:/Python/python.exe -X utf8 -m knowledge.historical_search search "Hezekiah" --category "02 Assyrian Archives"`. Results retain source paths, hashes and page or character locators. Use `verify` to check representative citations. The private intake ledger is `content/library/reports/private-biblical-history/acquisition-manifest.json` (locally excluded from public Git tracking); the existing importer recognizes the staged inputs. Main semantic indexing remains queued behind the active completion pipeline.
