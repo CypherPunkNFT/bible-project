@@ -145,7 +145,7 @@ html.no-select, html.no-select * { -webkit-user-select: none !important; user-se
 }
 
 /* The full-screen landing. */
-.ap .land { position: relative; isolation: isolate; height: calc(100svh - var(--ap-head, 61px)); min-height: 34rem; max-height: 62rem; overflow: hidden; border-bottom: 1px solid var(--line);
+.ap .land { position: relative; isolation: isolate; height: calc(100svh - var(--ap-head, 61px)); min-height: 34rem; max-height: 62rem; overflow: hidden;
   background: radial-gradient(70% 90% at 72% 40%, color-mix(in srgb, var(--accent) 7%, transparent), transparent 70%), var(--page); }
 .ap .land-art { position: absolute; inset: 3.4rem 0 4.6rem; z-index: -1; }
 .ap .land-art .art { width: 100%; height: 100%; }
@@ -161,14 +161,15 @@ html.no-select, html.no-select * { -webkit-user-select: none !important; user-se
 .ap .land-also { font-style: italic; }
 .ap .land-note { max-width: 30rem; margin-top: .9rem; font-size: .76rem; line-height: 1.6; color: var(--muted); }
 .ap .land-text .aka { margin-top: 1rem; }
-.ap .land-bar { position: absolute; left: 0; right: 0; bottom: 0; z-index: 2; display: flex; max-width: 80rem; margin: 0 auto; padding: 0 1.5rem; }
-.ap .land-bar > div { flex: 1; display: flex; gap: .7rem; align-items: baseline; padding: .95rem 1.2rem 1.1rem; border-top: 1px solid var(--line); }
+.ap .land-bar { position: absolute; left: 1.5rem; right: 1.5rem; bottom: 1.4rem; z-index: 2; display: flex; max-width: 77rem; margin: 0 auto; padding: 0; border: 1px solid var(--line); border-radius: 1rem;
+  background: color-mix(in srgb, var(--surface) 82%, transparent); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+.ap .land-bar > div { flex: 1; display: flex; gap: .7rem; align-items: baseline; padding: .95rem 1.3rem 1.05rem; }
 .ap .land-bar > div + div { border-left: 1px solid var(--line); }
-.ap .land-bar > div:first-child { padding-left: 0; }
+.ap .land-bar > div:first-child { padding-left: 1.4rem; }
 .ap .land-bar dd { order: -1; margin: 0; font: 500 1.75rem/1 var(--serif); letter-spacing: -.02em; }
 .ap .land-bar dt { font-size: .64rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
 .ap .land-bar dt small { display: block; margin-top: .15rem; font-size: .62rem; font-weight: 500; letter-spacing: .04em; text-transform: none; }
-.ap .land-bar::before { content: ""; position: absolute; inset: -1.5rem 0 0; z-index: -1; background: linear-gradient(180deg, transparent, color-mix(in srgb, var(--page) 88%, transparent) 40%); }
+.ap .land-bar::before { display: none; content: ""; position: absolute; inset: -1.5rem 0 0; z-index: -1; background: linear-gradient(180deg, transparent, color-mix(in srgb, var(--page) 88%, transparent) 40%); }
 
 /* The counter: which apostle this is, "5 / 12" in the serif of his name, floating just below the site's header the
    whole length of the page (Counter.tsx). Black and quiet; arrows either side; a click opens the list. */
@@ -210,3 +211,7 @@ html.no-select, html.no-select * { -webkit-user-select: none !important; user-se
   .ap .land-bar dd { font-size: 1.35rem; }
   .ap .land-bar::before { display: none; }
 }
+
+/* 01 opens the page after the landing: no rule above it, and it fills the screen (owner, 2026-10-08). */
+.ap .sec[data-sec="ring"] { border-top: 0; margin-top: 0; padding-top: 2.4rem; min-height: calc(100svh - var(--ap-head, 61px)); display: flex; flex-direction: column; justify-content: center; }
+@media (max-width: 760px) { .ap .land-bar { left: 0; right: 0; bottom: auto; border-radius: .9rem; margin: 0 1rem; } .ap .land-bar > div:first-child { padding-left: .6rem; } .ap .sec[data-sec="ring"] { min-height: 0; } }

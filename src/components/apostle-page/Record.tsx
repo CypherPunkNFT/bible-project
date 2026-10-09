@@ -22,9 +22,18 @@ function layout(d: Apostle) {
 }
 
 function Ring({ d, sel, onPick }: { d: Apostle; sel: number; onPick: (period: number, entry?: Entry) => void }) {
-  const size = 440, cx = size / 2, cy = size / 2, r = size * 0.4, w = Math.max(8, size * 0.03), segs = layout(d), s = segs[sel - 1];
+  const size = 640, k = size / 440, cx = size / 2, cy = size / 2, r = size * 0.4, w = Math.max(8, size * 0.03), segs = layout(d), s = segs[sel - 1];
   const tipFor = (e: ReactPointerEvent, en: Entry) => Tip.show({ title: en.title, lines: [en.type === "trad" ? whenShort(en.when) : en.refs[0] ? refText(en.refs[0]) : ""] }, e.clientX, e.clientY);
-  const pad = size * 0.24, padY = size * 0.05;
+  // A label at the ring's side: the numeral, then the title on two lines balanced by words ("THE CHURCH" / "IN ACTS"),
+  // so it stays narrow and the ring can take the room. Labels above and below the ring keep one line.
+  const sideLines = (n: string, title: string): string[] => {
+    const words = title.toUpperCase().split(" "), cut = Math.floor(words.length / 2);
+    return words.length < 2 ? [n, words[0]] : [n, words.slice(0, cut).join(" "), words.slice(cut).join(" ")];
+  };
+  const isSide = (mid: number) => Math.abs(Math.cos(mid)) > 0.25;
+  // Enough room beside the ring for the widest side label (about 9.6 drawing units a letter at the labels' size).
+  const widest = Math.max(0, ...segs.filter((g) => isSide((g.a0 + g.a1) / 2)).flatMap((g) => sideLines(g.p.n, g.p.title)).map((l) => l.length));
+  const pad = Math.max(size * 0.04, widest * 9.6 - size * 0.046 + 14), padY = size * 0.07;
   return <svg className="ring" viewBox={`${-pad} ${-padY} ${size + pad * 2} ${size + padY * 2}`} role="img" aria-label={`${d.short}'s life in four parts`} onPointerLeave={() => Tip.hide()}>
     <circle className="ring-track" cx={cx} cy={cy} r={r} />
     {segs.map((g) => {
@@ -39,12 +48,17 @@ function Ring({ d, sel, onPick }: { d: Apostle; sel: number; onPick: (period: nu
             onClick={() => onPick(g.i + 1, en)} onPointerMove={(e) => tipFor(e, en)} />;
         })}
         <path className="ring-tick" d={`M${tx0.toFixed(1)} ${ty0.toFixed(1)}L${tx1.toFixed(1)} ${ty1.toFixed(1)}`} />
-        <text className={`ring-label${on ? " on" : ""}`} x={lx.toFixed(1)} y={(ly + 4).toFixed(1)} textAnchor={Math.cos(mid) > 0.25 ? "start" : Math.cos(mid) < -0.25 ? "end" : "middle"} style={tone} onClick={() => onPick(g.i + 1)}>{`${g.p.n} · ${g.p.title.toUpperCase()}`}</text>
+        {(() => {
+          const side = isSide(mid), anchor = Math.cos(mid) > 0.25 ? "start" : Math.cos(mid) < -0.25 ? "end" : "middle";
+          const lines = side ? sideLines(g.p.n, g.p.title) : [`${g.p.n} · ${g.p.title.toUpperCase()}`];
+          return <text className={`ring-label${on ? " on" : ""}`} x={lx.toFixed(1)} y={(ly + 4 - (lines.length - 1) * 6.5).toFixed(1)} textAnchor={anchor} style={tone} onClick={() => onPick(g.i + 1)}>
+            {lines.map((line, j) => <tspan key={j} x={lx.toFixed(1)} dy={j ? "1.25em" : undefined}>{line}</tspan>)}</text>;
+        })()}
       </g>;
     })}
-    <text className="ring-num" x={cx} y={cy + size * 0.02} textAnchor="middle">{s.n}</text>
-    <text className="ring-cap" x={cx} y={cy + size * 0.085} textAnchor="middle">{s.i === 3 ? (s.n === 1 ? "SOURCE OUTSIDE SCRIPTURE" : "SOURCES OUTSIDE SCRIPTURE") : s.n === 1 ? "RECORD IN SCRIPTURE" : "RECORDS IN SCRIPTURE"}</text>
-    <text className="ring-sub" x={cx} y={cy - size * 0.145} textAnchor="middle">{`${s.p.n} · ${s.p.title}`}</text>
+    <text className="ring-num" x={cx} y={cy + size * 0.02} textAnchor="middle" style={{ fontSize: 76 * k }}>{s.n}</text>
+    <text className="ring-cap" x={cx} y={cy + size * 0.085} textAnchor="middle" style={{ fontSize: 9.5 * k }}>{s.i === 3 ? (s.n === 1 ? "SOURCE OUTSIDE SCRIPTURE" : "SOURCES OUTSIDE SCRIPTURE") : s.n === 1 ? "RECORD IN SCRIPTURE" : "RECORDS IN SCRIPTURE"}</text>
+    <text className="ring-sub" x={cx} y={cy - size * 0.145} textAnchor="middle" style={{ fontSize: 15 * k }}>{`${s.p.n} · ${s.p.title}`}</text>
   </svg>;
 }
 

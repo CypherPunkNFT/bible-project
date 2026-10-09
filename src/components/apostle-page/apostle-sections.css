@@ -3,8 +3,12 @@
 /* Sections 01–06: copied from round 2 (A 01–02, C 01, the second page's circle), then adjusted below. */
 /* A · Lifeline */
 /* 01 · the ring and its records */
-.ap .a-ring { display: grid; grid-template-columns: minmax(0, 32rem) minmax(0, 1fr); gap: 1rem 3rem; align-items: center; }
-.ap .a-ring-art { max-width: 32rem; }
+/* The ring takes the screen's height, and may reach past the page column on wide screens (owner, 2026-10-08). */
+.ap .a-ring { --ring-h: calc(100svh - 19.5rem); --ring-w: min(calc(var(--ring-h) * 1.1), 82rem); display: grid; grid-template-columns: minmax(0, var(--ring-w)) minmax(19rem, 28rem); justify-content: center; gap: 1rem 3.5rem; align-items: center;
+  width: min(100vw - 3rem, 120rem); margin-left: calc((100% - min(100vw - 3rem, 120rem)) / 2); }
+.ap .a-ring-art { max-width: var(--ring-w); }
+/* A long record list scrolls beside the ring rather than stretching the section past the screen. */
+.ap .a-ring-list { max-height: var(--ring-h); overflow-y: auto; scrollbar-width: thin; padding-right: .4rem; }
 .ap .a-ring-list { --tone: var(--accent); min-width: 0; }
 .ap .a-ring-list .kicker { color: var(--tone); }
 .ap .a-ring-list h3 { margin: .3rem 0 .9rem; font: 500 1.6rem/1.2 var(--serif); letter-spacing: -.02em; }
@@ -234,7 +238,7 @@
 @media (max-width: 760px) { .ap .w-q { max-width: 17rem; } .ap .heat { min-width: 34rem; } }
 .ap .a-ring-art { min-width: 0; overflow: hidden; } .ap .a-ring { min-width: 0; } .ap .a-ring-art .ring { overflow: hidden; }
 @media (max-width: 900px) { .ap .a-recs, .ap .a-recs.two { columns: auto; } }
-@media (max-width: 900px) { .ap .a-ring { grid-template-columns: minmax(0, 1fr); } .ap .a-ring-art { max-width: 24rem; margin: 0 auto; width: 100%; } }
+@media (max-width: 900px) { .ap .a-ring { grid-template-columns: minmax(0, 1fr); width: auto; margin-left: 0; } .ap .a-ring-list { max-height: none; overflow: visible; } .ap .a-ring-art { max-width: 28rem; margin: 0 auto; width: 100%; } }
 @media (max-width: 560px) { .ap .pl-cards { grid-template-columns: minmax(0, 1fr); } }
 
 /* The chapters, cinema style (the Moses cinema containers): full-screen chapters with a giant numeral behind, a sky
