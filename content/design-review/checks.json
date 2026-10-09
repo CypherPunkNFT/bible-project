@@ -1,9 +1,9 @@
 {
  "schema": 1,
- "commit": "4f78e12a",
- "startedAt": "2026-10-08T03:26:04.125Z",
- "finishedAt": "2026-10-08T05:14:24.923Z",
- "base": "http://127.0.0.1:8937",
+ "commit": "3a7bf3b6",
+ "startedAt": "2026-10-09T15:29:07.683Z",
+ "finishedAt": "2026-10-09T15:29:10.131Z",
+ "base": "http://127.0.0.1:8949",
  "checks": [
   {
    "id": "loads",
@@ -785,8 +785,23 @@
    "instances": 1,
    "checked": 1,
    "coverage": "",
-   "failed": {},
-   "failures": []
+   "failed": {
+    "links": 1
+   },
+   "failures": [
+    {
+     "url": "/apologetics/worldviews",
+     "width": 400,
+     "check": "links",
+     "detail": "/teachers: this address is not a page on the site"
+    },
+    {
+     "url": "/apologetics/worldviews",
+     "width": 400,
+     "check": "links",
+     "detail": "/resources: this address is not a page on the site"
+    }
+   ]
   },
   {
    "template": "ap-pages",
@@ -863,11 +878,62 @@
   {
    "template": "ap-worldview",
    "variant": "page",
-   "instances": 2,
-   "checked": 2,
+   "instances": 4,
+   "checked": 4,
    "coverage": "",
-   "failed": {},
-   "failures": []
+   "failed": {
+    "links": 4
+   },
+   "failures": [
+    {
+     "url": "/apologetics/worldviews/islam",
+     "width": 400,
+     "check": "links",
+     "detail": "/teachers: this address is not a page on the site"
+    },
+    {
+     "url": "/apologetics/worldviews/islam",
+     "width": 400,
+     "check": "links",
+     "detail": "/resources: this address is not a page on the site"
+    },
+    {
+     "url": "/apologetics/worldviews/secular",
+     "width": 400,
+     "check": "links",
+     "detail": "/teachers: this address is not a page on the site"
+    },
+    {
+     "url": "/apologetics/worldviews/secular",
+     "width": 400,
+     "check": "links",
+     "detail": "/resources: this address is not a page on the site"
+    },
+    {
+     "url": "/apologetics/worldviews/buddhism",
+     "width": 400,
+     "check": "links",
+     "detail": "/teachers: this address is not a page on the site"
+    },
+    {
+     "url": "/apologetics/worldviews/buddhism",
+     "width": 400,
+     "check": "links",
+     "detail": "/resources: this address is not a page on the site"
+    },
+    {
+     "url": "/apologetics/worldviews/hinduism",
+     "width": 400,
+     "check": "links",
+     "detail": "/teachers: this address is not a page on the site"
+    },
+    {
+     "url": "/apologetics/worldviews/hinduism",
+     "width": 400,
+     "check": "links",
+     "detail": "/resources: this address is not a page on the site"
+    }
+   ]
   },
   {
    "template": "ap-debate",

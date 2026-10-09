@@ -1,7 +1,7 @@
 {
  "schema": 1,
- "generatedAt": "2026-10-08T05:08:43.890Z",
- "commit": "2dcfa631",
+ "generatedAt": "2026-10-09T15:28:28.056Z",
+ "commit": "3a7bf3b6",
  "areas": [
   {
    "id": "people",
@@ -2343,9 +2343,11 @@
     "src/components/ApologeticsParts.tsx",
     "src/pages/ApologeticsPage.tsx",
     "src/pages/ReformedLibraryPage.tsx",
-    "src/pages/apologetics.css"
+    "src/pages/WorldviewsPage.tsx",
+    "src/pages/apologetics.css",
+    "src/pages/worldviews.css"
    ],
-   "sourceHash": "9ac2e13cbf520aaa",
+   "sourceHash": "9f21ceadae933ff7",
    "signature": null,
    "variants": [
     {
@@ -2599,32 +2601,32 @@
    "name": "Worldview",
    "what": "The Christian starting point beside another belief, question by question.",
    "address": "/apologetics/worldviews/<worldview>",
-   "instances": 2,
+   "instances": 4,
    "sources": [
     "src/components/ApologeticsParts.tsx",
-    "src/pages/ApologeticsPage.tsx",
-    "src/pages/apologetics.css"
+    "src/pages/WorldviewsPage.tsx",
+    "src/pages/worldviews.css"
    ],
-   "sourceHash": "8aefdf999c728e0f",
+   "sourceHash": "0c69663e51ead66d",
    "signature": null,
    "variants": [
     {
      "id": "page",
      "name": "Worldview",
      "what": "The Christian starting point beside another belief, question by question.",
-     "instances": 2,
+     "instances": 4,
      "samples": [
       {
-       "id": "first",
-       "label": "First",
+       "id": "islam",
+       "label": "Christianity & Islam",
        "url": "/apologetics/worldviews/islam",
-       "why": "the first worldview: Christianity & Islam"
+       "why": "Distinct collection illustration and primary-text scope"
       },
       {
-       "id": "last",
-       "label": "Last",
+       "id": "secular",
+       "label": "Christianity & secular thought",
        "url": "/apologetics/worldviews/secular",
-       "why": "the other one: Christianity & secular thought"
+       "why": "Distinct collection illustration and primary-text scope"
       }
      ]
     }

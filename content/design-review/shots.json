@@ -1,8 +1,8 @@
 {
  "schema": 1,
- "commit": "9d5945ca",
- "takenAt": "2026-10-08T04:25:39.479Z",
- "base": "http://127.0.0.1:8934",
+ "commit": "3a7bf3b6",
+ "takenAt": "2026-10-09T15:29:07.310Z",
+ "base": "http://127.0.0.1:8949",
  "images": {
   "ruler/king-judah/typical": {
    "desktop-dark": {
@@ -6090,8 +6090,8 @@
     "crop": "ap-pages/worldviews/page-1440-light-crop.png",
     "cropKind": "first-screen",
     "thumb": "ap-pages/worldviews/page-1440-light-thumb.jpg",
-    "hash": "00806647010020a2",
-    "height": 1765,
+    "hash": "00c8989898020082",
+    "height": 2632,
     "clipped": false
    },
    "desktop-dark": {
@@ -6099,8 +6099,8 @@
     "crop": "ap-pages/worldviews/page-1440-dark-crop.png",
     "cropKind": "first-screen",
     "thumb": "ap-pages/worldviews/page-1440-dark-thumb.jpg",
-    "hash": "00501939014cfeba",
-    "height": 1765,
+    "hash": "003766676601fbda",
+    "height": 2632,
     "clipped": false
    },
    "phone-light": {
@@ -6108,8 +6108,8 @@
     "crop": "ap-pages/worldviews/page-400-light-crop.png",
     "cropKind": "first-screen",
     "thumb": "ap-pages/worldviews/page-400-light-thumb.jpg",
-    "hash": "00787c3c0010c0e0",
-    "height": 3262,
+    "hash": "8ca080b4b0000081",
+    "height": 4531,
     "clipped": false
    },
    "phone-dark": {
@@ -6117,8 +6117,8 @@
     "crop": "ap-pages/worldviews/page-400-dark-crop.png",
     "cropKind": "first-screen",
     "thumb": "ap-pages/worldviews/page-400-dark-thumb.jpg",
-    "hash": "0007030300fe3810",
-    "height": 3262,
+    "hash": "7658704b4f00be80",
+    "height": 4531,
     "clipped": false
    }
   },
@@ -7260,6 +7260,82 @@
     "hash": "0020000000004000",
     "height": 9000,
     "clipped": true
+   }
+  },
+  "ap-worldview/page/islam": {
+   "desktop-light": {
+    "full": "ap-worldview/page/islam-1440-light.png",
+    "crop": "ap-worldview/page/islam-1440-light-crop.png",
+    "cropKind": "first-screen",
+    "thumb": "ap-worldview/page/islam-1440-light-thumb.jpg",
+    "hash": "04802024a0c00000",
+    "height": 3512,
+    "clipped": false
+   },
+   "desktop-dark": {
+    "full": "ap-worldview/page/islam-1440-dark.png",
+    "crop": "ap-worldview/page/islam-1440-dark-crop.png",
+    "cropKind": "first-screen",
+    "thumb": "ap-worldview/page/islam-1440-dark-thumb.jpg",
+    "hash": "0241010b581000bc",
+    "height": 3512,
+    "clipped": false
+   },
+   "phone-light": {
+    "full": "ap-worldview/page/islam-400-light.png",
+    "crop": "ap-worldview/page/islam-400-light-crop.png",
+    "cropKind": "first-screen",
+    "thumb": "ap-worldview/page/islam-400-light-thumb.jpg",
+    "hash": "a0000080000000ca",
+    "height": 5531,
+    "clipped": false
+   },
+   "phone-dark": {
+    "full": "ap-worldview/page/islam-400-dark.png",
+    "crop": "ap-worldview/page/islam-400-dark-crop.png",
+    "cropKind": "first-screen",
+    "thumb": "ap-worldview/page/islam-400-dark-thumb.jpg",
+    "hash": "500000000000ffb5",
+    "height": 5531,
+    "clipped": false
+   }
+  },
+  "ap-worldview/page/secular": {
+   "desktop-light": {
+    "full": "ap-worldview/page/secular-1440-light.png",
+    "crop": "ap-worldview/page/secular-1440-light-crop.png",
+    "cropKind": "first-screen",
+    "thumb": "ap-worldview/page/secular-1440-light-thumb.jpg",
+    "hash": "8000a0b0000000c0",
+    "height": 3446,
+    "clipped": false
+   },
+   "desktop-dark": {
+    "full": "ap-worldview/page/secular-1440-dark.png",
+    "crop": "ap-worldview/page/secular-1440-dark-crop.png",
+    "cropKind": "first-screen",
+    "thumb": "ap-worldview/page/secular-1440-dark-thumb.jpg",
+    "hash": "4000414100000038",
+    "height": 3446,
+    "clipped": false
+   },
+   "phone-dark": {
+    "full": "ap-worldview/page/secular-400-dark.png",
+    "crop": "ap-worldview/page/secular-400-dark-crop.png",
+    "cropKind": "first-screen",
+    "thumb": "ap-worldview/page/secular-400-dark-thumb.jpg",
+    "hash": "501828581000fec0",
+    "height": 5150,
+    "clipped": false
+   },
+   "phone-light": {
+    "full": "ap-worldview/page/secular-400-light.png",
+    "crop": "ap-worldview/page/secular-400-light-crop.png",
+    "cropKind": "first-screen",
+    "thumb": "ap-worldview/page/secular-400-light-thumb.jpg",
+    "hash": "a0e0b02020000080",
+    "height": 5150,
+    "clipped": false
    }
   }
  }
