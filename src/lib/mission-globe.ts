@@ -1,5 +1,6 @@
 import { geoCentroid, geoContains, geoDistance, geoOrthographic, geoPath } from 'd3-geo';
 import { loadMissionAtlas, missionOutlines } from './mission-atlas';
+import { missionCountryColor, missionMapColors as colors } from './mission-map-colors';
 
 export interface GlobeCountry { code: string; numeric: string | null; name: string }
 export interface MissionGlobe {
@@ -18,7 +19,7 @@ export async function createMissionGlobe(
 ): Promise<MissionGlobe> {
   const atlas = await loadMissionAtlas(signal);
   const coastlines = missionOutlines(atlas.land);
-  const borders = atlas.countries.map(country => ({ country, lines: missionOutlines(country.geometry) }));
+  const borders = atlas.countries.map(country => ({ country, lines: missionOutlines(country.geometry), fill: missionCountryColor(country.properties.code) }));
   const available = new Map(atlas.countries.filter(c => c.properties.selectable).map(c => [c.properties.code, c]));
   const centroids = new Map([...available].map(([code, country]) => [code, geoCentroid(country)]));
   const ctx = canvas.getContext('2d');
@@ -31,9 +32,6 @@ export async function createMissionGlobe(
   let hover = '', pointer: { id: number; x: number; y: number; lon: number; lat: number; moved: boolean } | null = null;
   let fly: { lon: number; lat: number; startLon: number; startLat: number; start: number } | null = null;
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
-  const scheme = matchMedia('(prefers-color-scheme: dark)');
-  const darkTheme = () => document.documentElement.dataset.theme === 'dark' || (document.documentElement.dataset.theme !== 'light' && scheme.matches);
-  let dark = darkTheme();
   function invalidate() {
     dirty = true;
     if (!destroyed && visible && pageVisible && !raf) { last = performance.now(); raf = requestAnimationFrame(frame); }
@@ -59,26 +57,27 @@ export async function createMissionGlobe(
     projection.rotate([-lon, -lat]).scale(radius * zoom).clipAngle(Math.asin(1 / zoom) * 180 / Math.PI).translate([width / 2, height / 2]);
     ctx!.setTransform(dpr, 0, 0, dpr, 0, 0); ctx!.clearRect(0, 0, width, height);
     ctx!.save(); ctx!.beginPath(); ctx!.arc(width / 2, height / 2, radius, 0, Math.PI * 2); ctx!.clip();
-    // A projected coastline and country lines give the sphere its shape without
-    // raster imagery, WebGL contexts, shaders or a second canvas.
-    ctx!.beginPath(); path(coastlines); ctx!.strokeStyle = dark ? '#8eb7b074' : '#53766985'; ctx!.lineWidth = .8; ctx!.stroke();
-    for (const { country, lines } of borders) {
+    // Simple solid ocean, land and country fills; no imagery or texture memory.
+    ctx!.fillStyle = colors.ocean; ctx!.fillRect(0, 0, width, height);
+    ctx!.beginPath(); path(atlas.land); ctx!.fillStyle = colors.land; ctx!.fill();
+    for (const { country, lines, fill } of borders) {
       const code = country.properties.code;
       const active = selected === code, hovered = hover === code;
-      if (hovered) { ctx!.beginPath(); path(country); ctx!.fillStyle = dark ? '#8eb7b018' : '#507a7214'; ctx!.fill(); }
+      ctx!.beginPath(); path(country); ctx!.fillStyle = fill; ctx!.fill();
+      if (hovered) { ctx!.fillStyle = '#ffffff25'; ctx!.fill(); }
       ctx!.beginPath(); path(lines);
-      ctx!.strokeStyle = active ? (dark ? '#f0c47e' : '#9e6924') : !country.properties.selectable ? (dark ? '#8eb7b060' : '#53766980') : dark ? '#a4cfbddd' : '#47695ecc'; ctx!.lineWidth = active ? 1.9 : .85; ctx!.stroke();
+      ctx!.strokeStyle = active ? colors.selected : colors.border; ctx!.lineWidth = active ? 2.1 : .85; ctx!.stroke();
     }
+    ctx!.beginPath(); path(coastlines); ctx!.strokeStyle = colors.coast; ctx!.lineWidth = .65; ctx!.stroke();
     const position = centroids.get(selected);
     if (position && geoDistance(position, [lon, lat]) < Math.PI / 2) {
       const point = projection(position);
       if (point) {
         ctx!.beginPath(); ctx!.arc(point[0], point[1], 4.5, 0, Math.PI * 2);
-        ctx!.fillStyle = dark ? '#f0c47e' : '#9e6924'; ctx!.fill(); ctx!.strokeStyle = '#332b20'; ctx!.lineWidth = 1.5; ctx!.stroke();
+        ctx!.fillStyle = colors.selected; ctx!.fill(); ctx!.strokeStyle = '#332b20'; ctx!.lineWidth = 1.5; ctx!.stroke();
       }
     }
     ctx!.restore();
-    ctx!.beginPath(); ctx!.arc(width / 2, height / 2, radius, 0, Math.PI * 2); ctx!.strokeStyle = dark ? '#8eb7b090' : '#53766980'; ctx!.lineWidth = 1; ctx!.stroke();
     dirty = false;
   }
   const hit = (x: number, y: number) => {
@@ -156,15 +155,13 @@ export async function createMissionGlobe(
   };
   const observer = new ResizeObserver(resize); observer.observe(host);
   const viewport = new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; invalidate(); }, { rootMargin: '50px' }); viewport.observe(host);
-  const updateTheme = () => { dark = darkTheme(); invalidate(); };
-  const theme = new MutationObserver(updateTheme); theme.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
   const visibility = () => { pageVisible = !document.hidden; invalidate(); };
   const motion = () => { if (reduced.matches) { pause(); zoom = zoomTarget; } invalidate(); };
   document.addEventListener('visibilitychange', visibility); reduced.addEventListener('change', motion);
   host.addEventListener('pointerdown', down); host.addEventListener('pointermove', move);
   host.addEventListener('pointerup', up); host.addEventListener('pointercancel', cancel);
   host.addEventListener('pointerleave', leave); host.addEventListener('keydown', key);
-  host.addEventListener('wheel', wheel, { passive: false }); scheme.addEventListener('change', updateTheme);
+  host.addEventListener('wheel', wheel, { passive: false });
   function frame(time: number) {
     raf = 0;
     if (destroyed || !visible || !pageVisible) { last = time; return; }
@@ -195,12 +192,12 @@ export async function createMissionGlobe(
     zoom: adjustZoom,
     reset() { zoom = zoomTarget = 1; center(selected); invalidate(); },
     destroy() {
-      destroyed = true; cancelAnimationFrame(raf); observer.disconnect(); viewport.disconnect(); theme.disconnect();
+      destroyed = true; cancelAnimationFrame(raf); observer.disconnect(); viewport.disconnect();
       document.removeEventListener('visibilitychange', visibility); reduced.removeEventListener('change', motion);
       host.removeEventListener('pointerdown', down); host.removeEventListener('pointermove', move);
       host.removeEventListener('pointerup', up); host.removeEventListener('pointercancel', cancel);
       host.removeEventListener('pointerleave', leave); host.removeEventListener('keydown', key);
-      host.removeEventListener('wheel', wheel); scheme.removeEventListener('change', updateTheme);
+      host.removeEventListener('wheel', wheel);
       host.classList.remove('is-dragging', 'over-country');
     },
   };

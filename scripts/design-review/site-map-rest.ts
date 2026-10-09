@@ -185,12 +185,12 @@ async function apologeticsTemplates(): Promise<{ templates: TemplateDef[]; valid
   ]);
   const worldview = t("ap-worldview", "Worldview", "/apologetics/worldviews/<worldview>", "The Christian starting point beside another belief, question by question.", ap.WORLDVIEWS, "worldviews", ap.WORLDVIEWS.map((item) => ({ id: item.id, label: item.title, pick: (records: ApItem[]) => records.find((record) => record.id === item.id), why: () => "Distinct collection illustration and primary-text scope" })));
   worldview.entries = ["src/pages/WorldviewsPage.tsx"];
-  worldview.scopes = [...scopes, "src/pages/WorldviewsPage.tsx", "src/pages/worldviews.css", "src/components/apologetics/MuslimWorldExplorer.tsx", "src/components/apologetics/muslim-world.css", "src/lib/mission-globe.ts", "src/lib/mission-flat-map.ts", "src/lib/mission-atlas.ts", "src/lib/mission-groups.ts", "src/components/apologetics/CountryPeopleGroups.tsx", "content/missions/", "public/assets/muslim-world/"];
+  worldview.scopes = [...scopes, "src/pages/WorldviewsPage.tsx", "src/pages/worldviews.css", "src/components/apologetics/MuslimWorldExplorer.tsx", "src/components/apologetics/muslim-world.css", "src/lib/mission-globe.ts", "src/lib/mission-flat-map.ts", "src/lib/mission-atlas.ts", "src/lib/mission-map-colors.ts", "src/lib/mission-groups.ts", "src/components/apologetics/CountryPeopleGroups.tsx", "content/missions/", "public/assets/muslim-world/"];
   worldview.signature = { selector: "#muslim-world", label: "Muslim-world country explorer" };
   const missionCountries = readJson<{ countries: { code: string; name: string; population2020: number }[] }>("content/missions/muslim-world.json").countries;
   worldview.instances = ap.WORLDVIEWS.length;
   worldview.variants.push(variant({
-    id: "countries", name: "Islam: country explorer", what: "An outline globe with country demographics and dated IMB people-group statistics, plus a flat SVG view.",
+    id: "countries", name: "Islam: country explorer", what: "A globe with solid Earth country colours, country demographics and dated IMB people-group statistics, plus a flat SVG view.",
     records: missionCountries, url: (country) => `/apologetics/worldviews/islam?country=${country.code}#muslim-world`,
     samples: [most("largest", "Largest population", (country: typeof missionCountries[number]) => country.population2020, (country) => country.name, "population"), fewest("smallest", "Smallest population", (country: typeof missionCountries[number]) => country.population2020, (country) => country.name, "population")],
     checkRecords: missionCountries.filter(country => ["PAK", "IDN", "MYT"].includes(country.code)),

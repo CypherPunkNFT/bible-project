@@ -157,8 +157,14 @@ test('vertical view icons switch to an SVG map, preserve selection, and contain 
   await expect(stage).toHaveAttribute('aria-busy', 'false'); await expect(flat).toHaveAttribute('aria-pressed', 'true');
   await expect(stage.locator('canvas')).toHaveCount(0); await expect(stage.locator('svg')).toHaveCount(1);
   await expect(stage.locator('.mw-flat-country')).toHaveCount(53);
-  await expect(stage.locator('svg path')).toHaveCount(62);
+  await expect(stage.locator('svg path')).toHaveCount(64);
   await expect(stage.locator('.mw-flat-country.is-selected')).toHaveAttribute('data-country', 'PAK');
+  await expect(stage.locator('.mw-flat-ocean')).toHaveAttribute('fill', '#315d79');
+  await expect(stage.locator('.mw-flat-land')).toHaveAttribute('fill', '#b79b70');
+  const fills = await stage.locator('.mw-flat-border').evaluateAll(paths => paths.map(path => getComputedStyle(path).fill));
+  expect(new Set(fills).size).toBeGreaterThanOrEqual(3);
+  expect(fills.every(fill => fill !== 'none' && fill !== 'rgba(0, 0, 0, 0)')).toBe(true);
+
   const projection = geoEqualEarth().fitExtent([[16,240],[944,720]], atlas.land);
   const point = projection(geoCentroid(atlas.countries.find(country => country.properties.code === 'EGY')!))!;
   const box = (await stage.boundingBox())!;
@@ -217,6 +223,16 @@ test('outline globe needs no WebGL or imagery; profiles stay usable if the map f
   await explorer.scrollIntoViewIfNeeded();
   await expect(explorer.getByRole('group', { name: /^Interactive globe/ })).toHaveAttribute('aria-busy', 'false');
   await expect(explorer.locator('.mw-globe canvas')).toHaveCount(1);
+  const colours = await explorer.locator('.mw-globe canvas').evaluate(canvas => {
+    const c = canvas as HTMLCanvasElement, pixels = c.getContext('2d')!.getImageData(0, 0, c.width, c.height).data;
+    let ocean = 0, land = 0;
+    for (let i = 0; i < pixels.length; i += 4) {
+      if (pixels[i] === 49 && pixels[i + 1] === 93 && pixels[i + 2] === 121) ocean++;
+      if (pixels[i] === 183 && pixels[i + 1] === 155 && pixels[i + 2] === 112) land++;
+    }
+    return { ocean, land };
+  });
+  expect(colours.ocean).toBeGreaterThan(100); expect(colours.land).toBeGreaterThan(100);
   await expect(explorer.locator('.mw-map-credit')).toHaveCount(0);
   expect((await page.evaluate(() => performance.getEntriesByType('resource').map(r => r.name))).some(name => /earth\.(webp|jpg)/.test(name))).toBe(false);
   await explorer.getByRole('combobox', { name: 'Choose a country', exact: true }).selectOption('MYT');

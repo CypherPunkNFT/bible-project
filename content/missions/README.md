@@ -1,6 +1,6 @@
 # Muslim-world country explorer
 
-The Islam collection includes an outline globe whose interactions were adapted from `design/apostle-directions-2/js/globe.js`. Select a highlighted country or use the searchable selector. Selection is shareable as `?country=PAK#muslim-world`; other query parameters, including the comparison question, are preserved. This section is specific to the Islam collection.
+The Islam collection includes a globe with solid Earth colours whose interactions were adapted from `design/apostle-directions-2/js/globe.js`. Select a highlighted country or use the searchable selector. Selection is shareable as `?country=PAK#muslim-world`; other query parameters, including the comparison question, are preserved. This section is specific to the Islam collection.
 
 `muslim-world.json` is a derived, bundled snapshot, not a runtime call to an external API. It covers all 53 countries and territories above 50% Muslim identification in Pew Research Center's 2020 estimates. Religious identification is not the state religion or an assertion about every resident. The panel shows 2020 population and religious shares separately from IMB's 2026-10-09 snapshot. Do not multiply a 2020 percentage by IMB's current population estimate.
 
@@ -20,7 +20,7 @@ Inspect source schema and changed country scope before publishing an update. New
 
 ## Rendering
 
-The renderer and geometry load when the section approaches the viewport. A direct `#muslim-world` refresh starts loading immediately. The initial selected country is centered without an introductory fly animation, and an initial geographic frame is drawn before reporting the globe ready. One Canvas 2D surface projects worldwide coastlines and country lines orthographically. There are no raster images, WebGL contexts, shaders or Earth imagery textures. If boundaries fail, all country profiles remain accessible through the selector.
+The renderer and geometry load when the section approaches the viewport. A direct `#muslim-world` refresh starts loading immediately. The initial selected country is centered without an introductory fly animation, and an initial geographic frame is drawn before reporting the globe ready. One Canvas 2D surface projects worldwide land and country fills, coastlines and country lines orthographically. There are no raster images, WebGL contexts, shaders or Earth imagery textures. If boundaries fail, all country profiles remain accessible through the selector.
 
 Phones (viewport at or below 760 px), coarse-pointer devices and reduced-motion preferences start with rotation paused. Other devices start automatic rotation, capped at 30 fps. Interaction pauses rotation and respects viewport/tab visibility. Wheel/drag gestures and country transitions follow display frames. Zoom uses short time-based easing, or changes immediately when reduced motion is requested. Idle, offscreen and hidden-tab globes stop scheduling animation frames. Resize observers, animation frames and events are disposed on navigation.
 
@@ -58,3 +58,11 @@ The country summary uses thin grid lines and a local 4:3 flag instead of an ISO-
 `scripts/build-muslim-world.py` writes one compact JSON file per country to `public/assets/muslim-world/people-groups/`; `content/missions/people-group-manifest.json` records each derivative's size/hash/count and original IMB input hash. No full-world input or all-country table is imported into the app. Table data is fetched only when its tab opens, cached after a successful load, and aborted on leaving the selected country or tab. Snapshot, country, source hash, row count and unique IDs are checked before display; a failed request leaves the profile and IMB source link available.
 
 The 53 flag assets are unmodified SVGs from MIT-licensed lipis/flag-icons at revision `086f7e97d657358203916dbe84f61c2bccaa81eb`, with the upstream license alongside them. Only the selected flag is requested. Mayotte uses France's tricolour; source conventions do not determine territorial status. `content/missions/flag-manifest.json` records immutable archive paths, URLs, sizes and SHA-256 values. Rebuild from the archive with `py -3.12 scripts/build-muslim-world-flags.py`; `--refresh` archives a newly pinned revision without modifying existing originals.
+
+## Solid Earth colours — 2026-10-09
+
+Both projections use the same simple Earth palette: blue oceans, tan base land, and green, yellow and brown country fills with pale borders. The fills are illustrative and do not encode climate, religious share or gospel engagement. Qualifying countries receive deterministic colours by country code. Countries below the existing 20% boundary threshold remain merged into the worldwide base land. The selected country keeps its yellow border and marker. Hover lightly brightens the existing fill.
+
+The globe draws solid fills on its existing Canvas 2D surface; the flat map adds two SVG paths for ocean and worldwide base land. No imagery, textures or geographic downloads were added. The same cached atlas, fixed-circle clipping, wheel containment and idle/offscreen rendering rules remain in use.
+
+The map aperture has no perimeter stroke, illuminated rim or glow. Clipping limits the view without drawing an extra geographic-looking boundary.

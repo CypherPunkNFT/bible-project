@@ -1,5 +1,6 @@
 import { geoCentroid, geoEqualEarth, geoPath } from 'd3-geo';
 import { loadMissionAtlas, missionOutlines } from './mission-atlas';
+import { missionCountryColor, missionMapColors as colors } from './mission-map-colors';
 import type { GlobeCountry, MissionGlobe } from './mission-globe';
 
 const NS = 'http://www.w3.org/2000/svg', SIZE = 960, HALF = SIZE / 2;
@@ -22,10 +23,13 @@ export async function createMissionFlatMap(
     element.setAttribute('d', d ?? ''); element.setAttribute('class', className);
     element.setAttribute('vector-effect', 'non-scaling-stroke'); group.append(element); return element;
   };
+  appendPath(path({ type: 'Sphere' }), 'mw-flat-ocean').setAttribute('fill', colors.ocean);
+  appendPath(path(atlas.land), 'mw-flat-land').setAttribute('fill', colors.land);
   appendPath(path(missionOutlines(atlas.land)), 'mw-flat-coast');
   for (const country of atlas.countries) {
     const { code, selectable } = country.properties;
-    const target = appendPath(path(selectable ? country : missionOutlines(country.geometry)), 'mw-flat-border' + (selectable ? ' mw-flat-country' : ' is-minority'));
+    const target = appendPath(path(country), 'mw-flat-border' + (selectable ? ' mw-flat-country' : ' is-minority'));
+    target.style.setProperty('--mw-country-fill', missionCountryColor(code));
     target.dataset.country = code;
     if (!selectable) continue;
     targets.set(code, target);
