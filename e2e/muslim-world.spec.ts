@@ -25,9 +25,9 @@ test('flags, larger engagement overview and complete group tabs stay readable an
   await expect(groups.locator('tbody tr')).toHaveCount(47);
   await expect(groups.getByRole('link', { name: 'Persians', exact: true })).toBeVisible();
   await expect(groups.locator('tbody tr').first()).toContainText('29,500,000');
-  await groups.getByRole('combobox', { name: 'Filter people groups by engagement' }).selectOption('unengaged');
+  await groups.getByRole('button', { name: /^Unengaged and unreached/ }).click();
   await expect(groups.locator('tbody tr')).toHaveCount(26);
-  await groups.getByRole('combobox', { name: 'Filter people groups by engagement' }).selectOption('all');
+  await groups.getByRole('button', { name: /^All groups/ }).click();
   await groups.getByRole('searchbox', { name: 'Search people groups' }).fill('Persians');
   await expect(groups.locator('tbody tr')).toHaveCount(1);
   await groups.getByRole('searchbox', { name: 'Search people groups' }).fill('');

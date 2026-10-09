@@ -9,14 +9,37 @@ test('four panel options switch in the real atlas without remounting the globe; 
   await expect(page.getByRole('heading', { level: 1 })).toContainText('Christianity');
   await expect(explorer.locator('.mw-globe-stage')).toHaveAttribute('aria-busy', 'false');
   const canvas = await explorer.locator('.mw-globe-stage canvas').elementHandle();
+  const structures = { A: '.mw-pg-ledger', B: '.mw-pg-cards', C: '.mw-pg-sections', D: '.mw-pg-directory' };
   for (const design of ['A', 'B', 'C', 'D']) {
     await explorer.getByRole('button', { name: `Design ${design}`, exact: true }).click();
     await expect(explorer.getByRole('button', { name: `Design ${design}`, exact: true })).toHaveAttribute('aria-pressed', 'true');
     expect(await canvas!.evaluate(node => node.isConnected)).toBe(true);
     await expect(explorer.getByRole('combobox', { name: 'Filter countries by region' })).toHaveCount(0);
     await expect(explorer.getByRole('searchbox', { name: 'Find a country', exact: true })).toHaveAttribute('placeholder', 'Search all 53 countries');
+    await expect(explorer.locator(`.mw-header-${design.toLowerCase()}`)).toHaveCount(1);
+    if (design === 'A') {
+      await expect(explorer.locator('.mw-header-a .mw-country-heading h3')).toHaveText('Egypt');
+      expect(await explorer.locator('.mw-header-a .mw-country-flag').evaluate(node => node.getBoundingClientRect().width)).toBe(64);
+      await expect(explorer.locator('.mw-header-a .mw-demographics strong')).toHaveText(['109.3M', '95.2%']);
+    }
+    if (design === 'C') await expect(explorer.locator('.mw-prototype-tiles > div')).toHaveCount(3);
     await explorer.getByRole('tab', { name: /People Groups/ }).click();
-    await expect(explorer.locator('.mw-groups-table tbody tr')).toHaveCount(23);
+    await expect(explorer.locator(structures[design as keyof typeof structures])).toHaveCount(1);
+    await expect(explorer.locator('[data-people-group]')).toHaveCount(23);
+    await expect(explorer.getByRole('combobox', { name: 'Filter people groups by engagement' })).toHaveCount(0);
+    for (const [label, count] of [['Unengaged and unreached', 7], ['Engaged yet unreached', 15], ['No longer unreached', 1]] as const) {
+      await explorer.getByRole('button', { name: new RegExp(`^${label}`) }).click();
+      await expect(explorer.locator('[data-people-group]')).toHaveCount(count);
+    }
+    await explorer.getByRole('button', { name: /^All groups/ }).click();
+    await explorer.getByRole('searchbox', { name: 'Search people groups' }).fill('Arab');
+    await expect(explorer.locator('[data-people-group]').first()).toContainText(/Arab/i);
+    await explorer.getByRole('searchbox', { name: 'Search people groups' }).fill('');
+    if (design === 'D') {
+      await explorer.locator('.mw-pg-entry summary').first().click();
+      await expect(explorer.locator('.mw-pg-entry').first()).toHaveAttribute('open', '');
+      await expect(explorer.locator('.mw-pg-entry-details').first()).toContainText('Language');
+    }
     const viewport = explorer.getByRole('region', { name: 'Egypt people groups table', exact: true });
     const pill = explorer.getByRole('scrollbar', { name: 'Scroll Egypt people groups table', exact: true });
     await viewport.scrollIntoViewIfNeeded();
@@ -40,7 +63,7 @@ test('four panel options switch in the real atlas without remounting the globe; 
   expect(atlasRequests).toBe(1);
   await explorer.getByRole('searchbox', { name: 'Find a country', exact: true }).fill('Iran');
   await explorer.getByRole('searchbox', { name: 'Find a country', exact: true }).press('Enter');
-  await expect(explorer.locator('.mw-prototype-identity h3')).toHaveText('Iran');
+  await expect(explorer.locator('.mw-header-d h3')).toHaveText('Iran');
   await explorer.getByRole('tab', { name: /People Groups/ }).click();
-  await expect(explorer.locator('.mw-groups-table tbody tr')).toHaveCount(47);
+  await expect(explorer.locator('[data-people-group]')).toHaveCount(47);
 });

@@ -1,20 +1,20 @@
 # Country-panel component mock-ups
 
-Preview in the existing atlas: http://127.0.0.1:8931/apologetics/worldviews/islam?country=EGY&atlasDesign=a#muslim-world .
+Preview: http://127.0.0.1:8931/apologetics/worldviews/islam?country=PAK&atlasDesign=a#muslim-world . The A/B/C/D toggle changes the panel beside the real globe in the existing Islam page. Country, tab, map and cached country data survive switching. These are transplantable components, awaiting the owner's selection.
 
-The A/B/C/D pill switches only the country-panel component beside the real globe on the existing Islam page. The page header, surrounding content, country selection and map stay in place. The component uses the real country facts and existing complete people-group loader. Ordinary URLs omit atlasDesign and use the current panel; these options await the owner's selection.
+| Option | Country header | People Groups |
+|---|---|---|
+| A | Original region/name/64×48 flag card and thin-line demographic grid, with search attached above | Three-column ledger with clear engagement badges |
+| B | Flag/name beside search, with a horizontal metric ribbon | Two-column individual group cards with population, language and religion |
+| C | Framed passport: identity on the left, stacked demographic facts on the right | Engagement sections with population bars and section counts |
+| D | Country banner above search and a compact demographic ledger | Expandable group directory with details inside each entry |
 
-- A: compact boxed ledger.
-- B: tinted engagement rows and coloured group-table rows.
-- C: three compact status cards and card-like table rows.
-- D: ring with a compact ledger and coloured engagement chips.
+C's Gospel Presence cards are preserved, per the owner's preference. This preference applies to that section only; it does not accept the whole C option. A keeps the original country-card typography and geometry. No option has a region dropdown. Search says “Search all 53 countries”.
 
-All four have smaller country facts beside “Search all 53 countries”, no region dropdown, coloured Lucide icon tabs and complete searchable tables. Search selects the actual country and updates the real globe. Switching preserves country, tab and map state without remounting the renderer.
+People Groups uses four filter buttons: all, unengaged and unreached, engaged yet unreached, and no longer unreached. Each shows its count. Orange, blue and green distinguish those three categories with icons and full labels. All layouts use the same complete, source-validated lazy country snapshot, search and filters; no new dataset or duplicated fetch layer.
 
-Scrollbars are a pill-shaped thumb only, without a visible track, outside the scroll viewport on its right. PillScroll supplies native wheel/touch scrolling, a draggable thumb and keyboard controls. It is used for the people-group table and search results. Resizing/filtering updates the thumb; listeners and observers are disposed on unmount.
+Scrollbars are a pill-shaped thumb only, without a visible track, outside the scroll viewport on its right. PillScroll supplies native wheel/touch scrolling, a draggable thumb and keyboard controls. Filtering, expansion and resizing update the thumb. Search results use the same external-pill component.
 
-Transplantable files: src/components/apologetics/CountryPanelPrototype.tsx and country-panel-prototype.css. The component takes country/design/tab props and selection callbacks, reusing CountryPeopleGroups.tsx and PillScroll.tsx. MuslimWorldExplorer.tsx has a lazy preview branch enabled by atlasDesign=a|b|c|d. Adopting an option means fixing the chosen design and removing the toggle; no new page or data layer is needed.
+Transplantable files: `src/components/apologetics/CountryPanelPrototype.tsx`, `CountryPanelHeader.tsx`, `country-panel-prototype.css`, `CountryPeopleGroups.tsx`, `country-people-groups.css`, and `PillScroll.tsx`. The prototype takes country/design/tab props and callbacks. `MuslimWorldExplorer.tsx` loads it only for `atlasDesign=a|b|c|d`. Adopting a selected option means fixing the design and removing the toggle.
 
-Old /mockups/muslim-world-panels/?d=a bookmarks redirect to the real atlas. Earlier standalone HTML/JS/CSS assets remain as a superseded experiment and are not used by the active mock-up. Existing data, flag provenance and icon licensing apply.
-
-Checked all four options at 1440, 768, 390 and 320 px: original globe/cached atlas retained, country selection, complete group rows, external thumb placement, hidden native scrollbars, wheel/keyboard controls and no overflow or browser errors. Regression: e2e/atlas-panel-prototype.spec.ts with e2e/atlas-panel-prototype.config.ts. No option is owner-approved or deployed.
+Old `/mockups/muslim-world-panels/?d=a` bookmarks redirect to the existing atlas. Earlier standalone assets are superseded. Existing data, flag provenance and icon licensing apply. Regression coverage: `e2e/atlas-panel-prototype.spec.ts`; visual review includes all four Gospel Presence and People Groups views. No deployment or owner acceptance is recorded.
