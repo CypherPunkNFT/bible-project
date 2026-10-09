@@ -1,8 +1,9 @@
-import { useId, useLayoutEffect, useRef, useState, type ReactNode } from 'react';
+import { useEffect, useId, useLayoutEffect, useRef, useState, type ReactNode } from 'react';
 import './pill-scroll.css';
 
 export default function PillScroll({ children, className, label }: { children: ReactNode; className: string; label: string }) {
   const id = useId(), viewport = useRef<HTMLDivElement>(null);
+  const bar = useRef<HTMLDivElement>(null);
   const [position, setPosition] = useState({ top: 0, height: 0, total: 0 });
   const drag = useRef<{ y: number; top: number }>();
   useLayoutEffect(() => {
@@ -17,18 +18,24 @@ export default function PillScroll({ children, className, label }: { children: R
     return () => { resize.disconnect(); node.removeEventListener('scroll', measure); };
   }, [children]);
   const max = Math.max(0, position.total - position.height);
+  useEffect(() => {
+    const node = bar.current; if (!node) return;
+    const wheel = (event: WheelEvent) => { event.preventDefault(); viewport.current!.scrollTop += event.deltaY; };
+    node.addEventListener('wheel', wheel, { passive: false });
+    return () => node.removeEventListener('wheel', wheel);
+  }, [max]);
   const thumb = Math.min(position.height, Math.max(24, position.height * position.height / Math.max(1, position.total)));
   const travel = Math.max(1, position.height - thumb), top = max ? position.top / max * travel : 0;
   return <div className="mw-pill-scroll">
     <div id={id} ref={viewport} className={className} role="region" aria-label={label} tabIndex={0}>{children}</div>
-    {max > 1 && <div className="mw-scroll-pill" role="scrollbar" aria-label={`Scroll ${label}`} aria-controls={id} aria-orientation="vertical" aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(position.top / max * 100)} tabIndex={0}
+    {max > 1 && <div ref={bar} className="mw-scroll-pill" role="scrollbar" aria-label={`Scroll ${label}`} aria-controls={id} aria-orientation="vertical" aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(position.top / max * 100)} tabIndex={0}
       style={{ height: thumb, transform: `translateY(${top}px)` }}
       onPointerDown={event => { event.preventDefault(); event.currentTarget.setPointerCapture(event.pointerId); drag.current = { y: event.clientY, top: viewport.current!.scrollTop }; }}
       onPointerMove={event => { if (drag.current) viewport.current!.scrollTop = drag.current.top + (event.clientY - drag.current.y) / travel * max; }}
       onPointerUp={() => { drag.current = undefined; }} onLostPointerCapture={() => { drag.current = undefined; }}
       onKeyDown={event => {
         if (!['ArrowDown', 'ArrowUp', 'PageDown', 'PageUp', 'Home', 'End'].includes(event.key)) return;
-        event.preventDefault(); const node = viewport.current!;
+        event.preventDefault(); event.stopPropagation(); const node = viewport.current!;
         node.scrollTop = event.key === 'Home' ? 0 : event.key === 'End' ? max : node.scrollTop + (event.key === 'ArrowDown' ? 40 : event.key === 'ArrowUp' ? -40 : event.key === 'PageDown' ? position.height : -position.height);
       }}><span /></div>}
   </div>;
