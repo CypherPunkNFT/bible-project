@@ -6,6 +6,7 @@ import { ApBack, ApCitations, ApNote, ApSectionHeading } from '@/components/Apol
 import { AP_BASE as base, studyUrl } from '@/lib/apologetics-links';
 import type { ApNotebook } from '@/lib/apologetics-notebook';
 import MuslimWorldExplorer from '@/components/apologetics/MuslimWorldExplorer';
+import BasisReader from '@/components/apologetics/BasisReader';
 import './worldviews.css';
 
 const identities: Record<string, { accent: string; theme: string; name: string }> = {
@@ -69,6 +70,9 @@ const claimFamilies = [
 function ClaimsDiagram() {
   return <svg className="wv-claims-diagram" viewBox="0 0 340 150" fill="none" aria-hidden="true"><ellipse cx="136" cy="74" rx="66" ry="57" /><ellipse cx="204" cy="74" rx="66" ry="57" /><path d="M170 18v112M41 74h29m200 0h29M89 131h162" opacity=".35" /><path d="M139 94V59q16-8 31 0 15-8 31 0v35q-15-8-31 0-15-8-31 0ZM170 59v35M146 70h16m-16 9h16m16-9h16m-16 9h16" /><circle cx="41" cy="74" r="4" /><circle cx="299" cy="74" r="4" /><path d="m105 37-9-9m139 9 9-9M170 6v8" /></svg>;
 }
+function QuestionPattern() {
+  return <svg className="wv-question-pattern" viewBox="0 0 170 44" fill="none" aria-hidden="true"><path d="M0 22h55l15-12 15 12-15 12-15-12h70l15-12 15 12-15 12-15-12h45M0 14h37m-37 16h37" /><circle cx="100" cy="22" r="3" /></svg>;
+}
 function IslamClaimsDesk({ item, selected, choose }: { item: typeof WORLDVIEWS[number]; selected: number; choose: (index: number) => void }) {
   const row = item.rows[selected];
   const primarySource = row.otherBasis.find(citation => citation.kind === 'source');
@@ -76,12 +80,13 @@ function IslamClaimsDesk({ item, selected, choose }: { item: typeof WORLDVIEWS[n
     <div className="wv-claims-connected"><header className="wv-claims-heading"><div><p className="ap-eyebrow">01 / Begin with the claims</p><h2>Shared questions.<br /><em>Distinct answers.</em></h2><p>Choose a question. Compare the claims, then examine the texts that support them.</p></div><div className="wv-claims-motif"><ClaimsDiagram /><span>One question <span>·</span> Two accounts <span>·</span> Open texts</span></div></header>
     <nav className="wv-question-nav wv-claim-map" aria-label="Comparison questions">{claimFamilies.map(group => { const Icon = group.icon; return <div className="wv-claim-family" key={group.title}><h3><Icon size={17} />{group.title}<small>{group.ids.length}</small></h3>{group.ids.map(id => { const index = item.rows.findIndex(entry => entry.id === id); const entry = item.rows[index]; return <button type="button" key={id} aria-label={entry.question} aria-pressed={selected === index} aria-controls="wv-comparison-content" onClick={() => choose(index)}><span>{String(index + 1).padStart(2, '0')}</span><strong>{entry.question}</strong></button>; })}</div>; })}</nav>
     <div id="wv-comparison-content" className="wv-comparison-content wv-claim-comparison" key={row.id}>
-      <header className="wv-current-question"><div><h3>{row.question}</h3></div><div className="wv-claim-key"><span><i />Christian truth</span><span><i />Islamic perspective</span></div></header>
+      <header className="wv-current-question wv-pattern-question"><QuestionPattern /><h3>{row.question}</h3><QuestionPattern /></header>
       <div className="wv-positions">{(['christian', 'other'] as const).map(side => { const christian = side === 'christian'; const paragraphs = row[side].split(/\n\s*\n/); return <article key={side} className={christian ? 'wv-truth' : 'wv-perspective'} aria-label={christian ? 'Christian truth' : item.otherLabel}>
         <header className="wv-position-heading"><span className="wv-position-mark">{christian ? <Cross size={23} /> : <ScrollText size={23} />}</span><div><p className="ap-eyebrow">{christian ? 'Christian truth' : item.otherLabel}</p><span>{christian ? 'Scripture & Christian witness' : 'The Qur’anic account'}</span></div><span className="wv-position-number">{christian ? 'A' : 'B'}</span></header>
         <div className="wv-position-copy"><p>{paragraphs[0]}</p>{paragraphs.length > 1 && <details className="wv-claim-explanation"><summary>Unpack this claim <ArrowRight size={13} /></summary>{paragraphs.slice(1).map((paragraph, i) => <p key={i}>{paragraph}</p>)}</details>}</div>
-        <div className="wv-claim-basis"><span><BookOpen size={13} />Examine the basis</span><ApCitations citations={christian ? row.christianBasis : row.otherBasis} label={christian ? 'Scripture & Christian witness' : 'Primary sources'} /></div>
+
       </article>; })}</div>
+      <BasisReader christian={row.christianBasis} islamic={row.otherBasis} />
       <div className="wv-claim-follow"><div><RouteIcon size={20} /><span className="ap-eyebrow">Follow the question</span></div><Link className="wv-study-link" state={{ worldviewReturn: { id: item.id, question: row.id } }} to={studyUrl(row.study)}><div><span>Understand the argument</span><strong>{studyById(row.study)!.title}</strong></div><ArrowUpRight size={19} /></Link><Link className="wv-claim-context-link" preventScrollReset to={'?question=' + row.id + '&reading=' + (primarySource?.kind === 'source' ? primarySource.source : 'q112') + '#reading-sources'} onClick={() => document.getElementById('reading-sources')?.scrollIntoView({ behavior: 'smooth' })}><BookOpen size={18} /><span>Read the passages in context</span><ArrowRight size={16} /></Link></div>
     </div></div>
   </section>;

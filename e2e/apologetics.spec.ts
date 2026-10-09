@@ -302,3 +302,24 @@ test("apologetics: a worldview study returns to its originating collection and q
   await expect(page).toHaveURL(/worldviews\/islam\?question=comparison-2#comparison$/);
   await expect(page.locator(".wv-current-question h3")).toHaveText("What does one God mean?");
 });
+
+test("apologetics: basis filters open paired local texts and Bible versions", async ({ page }) => {
+  await page.goto("/apologetics/worldviews/islam?question=comparison-2");
+  const toggle = page.getByRole("button", { name: /Examine the basis/ });
+  await expect(toggle).toHaveAttribute("aria-expanded", "false");
+  await page.getByRole("group", { name: "Christian references" }).getByRole("button", { name: "Westminster 2.3" }).click();
+  await expect(page.getByRole("article", { name: "Christian source reading" })).toContainText("three persons");
+  await expect(page.getByRole("article", { name: "Islamic source reading" })).toContainText("He begetteth not");
+  await expect(page.getByRole("group", { name: "Islamic references" }).getByRole("button").first()).toHaveAttribute("aria-pressed", "true");
+  await page.getByRole("group", { name: "Christian references" }).getByRole("button", { name: "Matthew 28:19" }).click();
+  const versions = page.getByLabel("Bible version");
+  const options = await versions.locator("option").evaluateAll(nodes => nodes.map(n => (n as HTMLOptionElement).value));
+  expect(options.length).toBeGreaterThan(1);
+  await expect(page.getByRole("article", { name: "Christian source reading" })).toContainText("Holy Ghost");
+  await versions.selectOption(options.find(value => value !== "kjv")!);
+  await expect(page.locator(".wv-basis-text").first()).not.toBeEmpty();
+  await page.getByRole("group", { name: "Islamic references" }).getByRole("button").nth(1).click();
+  await expect(page.getByRole("article", { name: "Islamic source reading" })).toContainText("Three");
+  await toggle.click();
+  await expect(page.locator(".wv-basis-columns")).toHaveCount(0);
+});
