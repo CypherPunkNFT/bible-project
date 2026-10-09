@@ -6,7 +6,7 @@ Running on the owner's PC in their own windows (resume from checkpoints; restart
 - Graham: billygraham.org sitemap scan, ~1,720 / 3,056 pages.
 - Criswell: wacriswell.com, ~42 / 4,093 sermons.
 
-Done, not yet catalogued: Maclaren 1,311 sermons ([maclaren/acquisition-manifest.json](maclaren/acquisition-manifest.json), held in `sources/library/source-ccel`); Morgan volumes downloaded (Internet Archive), not yet split into sermons.
+Done, not yet catalogued: Maclaren 1,311 sermons ([maclaren/acquisition-manifest.json](maclaren/acquisition-manifest.json), held in `sources/library/source-ccel`); Morgan 97 sermons from 19 files, 67 with a printed text ([morgan/acquisition-manifest.json](morgan/acquisition-manifest.json), held in `sources/library/source-internet-archive`; The Westminster Pulpit is lending-only on archive.org, not obtainable).
 
 Blocked: MacArthur. gty.org robots.txt blocks automated access. Owner to choose: email Grace to You for permission (recommended) or transcribe the audio locally.
 
