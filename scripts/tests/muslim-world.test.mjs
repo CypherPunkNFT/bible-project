@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { test } from 'node:test';
 import { geoCentroid, geoContains } from 'd3-geo';
+import { createHash } from 'node:crypto';
 
 const data = JSON.parse(await readFile(new URL('../../content/missions/muslim-world.json', import.meta.url), 'utf8'));
 const atlas = JSON.parse(await readFile(new URL('../../public/assets/muslim-world/atlas.json', import.meta.url), 'utf8'));
@@ -70,4 +71,52 @@ test('snapshot has primary-source provenance and records its aggregation', () =>
   assert.match(data.sources.pew.sha256, /^[a-f0-9]{64}$/);
   assert.match(data.sources.imb.sha256, /^[a-f0-9]{64}$/);
   assert.match(data.sources.imb.transformation, /aggregated/);
+});
+
+test('all lazy country tables reconcile exactly with the summary and derivative hashes', async () => {
+  const manifest = JSON.parse(await readFile(new URL('../../content/missions/people-group-manifest.json', import.meta.url), 'utf8'));
+  assert.equal(manifest.files.length, data.countries.length);
+  assert.equal(manifest.sourceSha256, data.sources.imb.sha256);
+  for (const country of data.countries) {
+    const bytes = await readFile(new URL(`../../public/assets/muslim-world/people-groups/${country.code}.json`, import.meta.url));
+    const detail = JSON.parse(bytes), record = manifest.files.find(file => file.country === country.code);
+    assert.equal(createHash('sha256').update(bytes).digest('hex'), record.sha256);
+    assert.equal(bytes.length, record.bytes);
+    assert.equal(detail.country, country.code);
+    assert.equal(detail.snapshotDate, data.snapshotDate);
+    assert.equal(detail.sourceSha256, data.sources.imb.sha256);
+    assert.equal(detail.groups.length, country.imb.totalGroups);
+    assert.equal(new Set(detail.groups.map(group => group.id)).size, country.imb.totalGroups);
+    assert.deepEqual(detail.groups.slice(0, 3), country.examples);
+    for (const status of statuses) {
+      const groups = detail.groups.filter(group => group.status === status);
+      assert.equal(groups.length, country.imb[status].groups, country.name);
+      assert.equal(groups.reduce((sum, group) => sum + group.population, 0), country.imb[status].population, country.name);
+    }
+    for (const [index, group] of detail.groups.entries()) {
+      assert.match(group.id, /^PG\d{6}$/);
+      assert.ok(group.name && group.religion && statuses.includes(group.status));
+      assert.ok(group.language === null || typeof group.language === 'string');
+      assert.ok(Number.isInteger(group.population) && group.population >= 0);
+      if (index) assert.ok(detail.groups[index - 1].population >= group.population);
+    }
+  }
+});
+
+test('every country has a local flag with pinned source and matching hash', async () => {
+  const manifest = JSON.parse(await readFile(new URL('../../content/missions/flag-manifest.json', import.meta.url), 'utf8'));
+  assert.equal(manifest.license, 'MIT');
+  assert.equal(manifest.flags.length, data.countries.length);
+  for (const country of data.countries) {
+    const record = manifest.flags.find(flag => flag.country === country.code);
+    assert.ok(record, country.name);
+    const bytes = await readFile(new URL(`../../public/assets/muslim-world/flags/${country.code}.svg`, import.meta.url));
+    assert.equal(createHash('sha256').update(bytes).digest('hex'), record.sha256);
+    assert.equal(bytes.length, record.bytes);
+    assert.ok(record.sourceUrl.includes(manifest.commit));
+    assert.match(bytes.toString(), /<svg\b/);
+    assert.doesNotMatch(bytes.toString(), /<script\b|<foreignObject\b|\son\w+=/i);
+  }
+  const license = await readFile(new URL('../../public/assets/muslim-world/flags/LICENSE', import.meta.url));
+  assert.equal(createHash('sha256').update(license).digest('hex'), manifest.licenseSha256);
 });

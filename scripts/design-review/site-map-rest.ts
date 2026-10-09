@@ -185,7 +185,7 @@ async function apologeticsTemplates(): Promise<{ templates: TemplateDef[]; valid
   ]);
   const worldview = t("ap-worldview", "Worldview", "/apologetics/worldviews/<worldview>", "The Christian starting point beside another belief, question by question.", ap.WORLDVIEWS, "worldviews", ap.WORLDVIEWS.map((item) => ({ id: item.id, label: item.title, pick: (records: ApItem[]) => records.find((record) => record.id === item.id), why: () => "Distinct collection illustration and primary-text scope" })));
   worldview.entries = ["src/pages/WorldviewsPage.tsx"];
-  worldview.scopes = [...scopes, "src/pages/WorldviewsPage.tsx", "src/pages/worldviews.css", "src/components/apologetics/MuslimWorldExplorer.tsx", "src/components/apologetics/muslim-world.css", "src/lib/mission-globe.ts", "src/lib/mission-flat-map.ts", "src/lib/mission-atlas.ts", "content/missions/", "public/assets/muslim-world/"];
+  worldview.scopes = [...scopes, "src/pages/WorldviewsPage.tsx", "src/pages/worldviews.css", "src/components/apologetics/MuslimWorldExplorer.tsx", "src/components/apologetics/muslim-world.css", "src/lib/mission-globe.ts", "src/lib/mission-flat-map.ts", "src/lib/mission-atlas.ts", "src/lib/mission-groups.ts", "src/components/apologetics/CountryPeopleGroups.tsx", "content/missions/", "public/assets/muslim-world/"];
   worldview.signature = { selector: "#muslim-world", label: "Muslim-world country explorer" };
   const missionCountries = readJson<{ countries: { code: string; name: string; population2020: number }[] }>("content/missions/muslim-world.json").countries;
   worldview.instances = ap.WORLDVIEWS.length;
@@ -197,6 +197,7 @@ async function apologeticsTemplates(): Promise<{ templates: TemplateDef[]; valid
     coverage: "All 53 profiles have data reconciliation checks; browser checks cover South Asia, the largest population and a small island territory.",
   }));
   worldview.variants.push(single("flat-map", "Islam: flat map", "An SVG world map with shared country selection and a vertical globe/map view switcher.", "/apologetics/worldviews/islam?country=PAK&map=flat#muslim-world"));
+    worldview.variants.push(single("people-groups", "Islam: people groups", "Country flag and thin-line demographic grid, with a complete scrollable IMB group table.", "/apologetics/worldviews/islam?country=IRN&panel=groups#muslim-world"));
   const debate = t("ap-debate", "Debate study", "/apologetics/debates/<debate>", "A recorded debate to study, with the questions underneath.", ap.DEBATES, "debates", [firstOf<ApItem>((x) => x.title, "debate"), longestText<ApItem>("longest-title", "Longest title", (x) => x.title, "title")]);
   const practice: TemplateDef = {
     id: "ap-practice", area: "apologetics", name: "Practice conversation", address: "/apologetics/practice?scenario=<scenario>", what: "Practise a conversation, step by step.", entries, scopes,

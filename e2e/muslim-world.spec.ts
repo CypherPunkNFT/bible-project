@@ -6,7 +6,65 @@ const atlas = JSON.parse(readFileSync('public/assets/muslim-world/atlas.json', '
 declare global { interface Window { missionGlobeDraws: number[] } }
 
 const route = '/apologetics/worldviews/islam';
-test('country selection, demographics, source links and group examples preserve the comparison', async ({ page }) => {
+test('flags, larger engagement overview and complete group tabs stay readable and load only the chosen country', async ({ page }) => {
+  const groupRequests: string[] = [], errors: string[] = [];
+  page.on('request', request => { if (request.url().includes('/muslim-world/people-groups/')) groupRequests.push(request.url()); });
+  page.on('pageerror', error => errors.push(error.message));
+  await page.goto(route + '?country=IRN#muslim-world');
+  const explorer = page.locator('#muslim-world'), overview = page.getByRole('tabpanel', { name: 'Gospel Presence' });
+  await expect(explorer.getByRole('heading', { name: 'Iran', exact: true })).toBeVisible();
+  await expect(explorer.getByRole('img', { name: 'Iran flag', exact: true })).toHaveAttribute('src', '/assets/muslim-world/flags/IRN.svg');
+  await expect.poll(() => explorer.locator('.mw-country-flag').evaluate(img => (img as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
+  await expect(overview.locator('dd strong')).toHaveText(['26', '19', '2']);
+  expect(await overview.locator('dt').first().evaluate(element => parseFloat(getComputedStyle(element).fontSize))).toBeGreaterThanOrEqual(15);
+  expect(await overview.locator('dd span').first().evaluate(element => parseFloat(getComputedStyle(element).fontSize))).toBeGreaterThanOrEqual(12);
+  expect(await explorer.locator('.mw-demographics > div').last().evaluate(element => getComputedStyle(element).borderLeftWidth)).toBe('1px');
+  expect(groupRequests).toEqual([]);
+  await page.getByRole('tab', { name: /People Groups/ }).click();
+  const groups = page.getByRole('tabpanel', { name: /People Groups/ });
+  await expect(groups.locator('tbody tr')).toHaveCount(47);
+  await expect(groups.getByRole('link', { name: 'Persians', exact: true })).toBeVisible();
+  await expect(groups.locator('tbody tr').first()).toContainText('29,500,000');
+  await groups.getByRole('combobox', { name: 'Filter people groups by engagement' }).selectOption('unengaged');
+  await expect(groups.locator('tbody tr')).toHaveCount(26);
+  await groups.getByRole('combobox', { name: 'Filter people groups by engagement' }).selectOption('all');
+  await groups.getByRole('searchbox', { name: 'Search people groups' }).fill('Persians');
+  await expect(groups.locator('tbody tr')).toHaveCount(1);
+  await groups.getByRole('searchbox', { name: 'Search people groups' }).fill('');
+  const scroll = groups.getByRole('region', { name: 'Iran people groups table' });
+  expect(await scroll.evaluate(element => element.scrollWidth - element.clientWidth)).toBeLessThanOrEqual(1);
+  await scroll.scrollIntoViewIfNeeded(); await scroll.hover(); const before = await page.evaluate(() => scrollY);
+  await page.mouse.wheel(0, 200); await expect.poll(() => scroll.evaluate(element => element.scrollTop)).toBeGreaterThan(0);
+  expect(await page.evaluate(() => scrollY)).toBe(before);
+  for (const theme of ['light', 'dark']) {
+    await page.evaluate(theme => document.documentElement.dataset.theme = theme, theme);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(1);
+  }
+  await page.getByRole('tab', { name: /People Groups/ }).focus(); await page.keyboard.press('ArrowLeft');
+  await expect(page.getByRole('tab', { name: 'Gospel Presence' })).toBeFocused();
+  await expect(overview).toBeVisible();
+  await page.keyboard.press('End'); await expect(groups.locator('tbody tr')).toHaveCount(47);
+  expect(groupRequests.length).toBe(1);
+  await explorer.getByRole('combobox', { name: 'Choose a country', exact: true }).selectOption('BGD');
+  await expect(groups.locator('.mw-group-count')).toContainText('All 56 recorded groups');
+  await groups.getByRole('searchbox', { name: 'Search people groups' }).fill('Mara');
+  await expect(groups.locator('tbody')).toContainText('Language not reported');
+  expect(groupRequests.length).toBe(2);
+  await expect(page).toHaveURL(/panel=groups/);
+  expect(errors).toEqual([]);
+});
+
+test('unavailable group data leaves the flag, source link and Gospel Presence usable', async ({ page }) => {
+  await page.route('**/muslim-world/people-groups/IRN.json', route => route.abort());
+  await page.goto(route + '?country=IRN&panel=groups#muslim-world');
+  const groups = page.getByRole('tabpanel', { name: /People Groups/ });
+  await expect(groups.getByRole('status')).toContainText('could not be loaded');
+  await expect(groups.getByRole('link')).toHaveAttribute('href', 'https://peoplegroups.org/country/IRN/');
+  await page.getByRole('tab', { name: 'Gospel Presence' }).click();
+  await expect(page.getByRole('tabpanel', { name: 'Gospel Presence' }).locator('dd strong')).toHaveText(['26', '19', '2']);
+});
+
+test('country selection, demographics, source links and complete group tables preserve the comparison', async ({ page }) => {
   const errors: string[] = []; page.on('pageerror', error => errors.push(error.message));
   await page.goto(route + '?question=jesus&country=PAK#muslim-world');
   const explorer = page.locator('#muslim-world');
@@ -19,9 +77,11 @@ test('country selection, demographics, source links and group examples preserve 
   await expect(page).toHaveURL(/question=jesus&country=IDN/);
   await expect(explorer).toContainText('87.0');
   await expect(explorer).toContainText('2020 estimate');
-  await explorer.getByRole('button', { name: 'Meet three of the people groups' }).click();
-  await expect(explorer.locator('#mw-group-examples a')).toHaveCount(3);
-  await expect(explorer.locator('#mw-group-examples')).toContainText('Sunda');
+  await explorer.getByRole('tab', { name: /People Groups/ }).click();
+  await expect(explorer.locator('.mw-group-count')).toContainText('All 669 recorded groups');
+  await expect(explorer.locator('.mw-groups-table tbody tr')).toHaveCount(669);
+  await expect(explorer.locator('.mw-groups-table')).toContainText('Sunda');
+  await explorer.getByRole('tab', { name: 'Gospel Presence' }).click();
   await expect(explorer.getByRole('link', { name: 'Read the full IMB profile' })).toHaveAttribute('href', 'https://peoplegroups.org/country/IDN/');
   await explorer.getByRole('searchbox', { name: 'Find a country' }).fill('xyznotacountry');
   await expect(explorer.getByRole('status')).toContainText('No matches');

@@ -85,6 +85,9 @@ def build(cache):
     if len(dates) != 1:
         raise ValueError('IMB pages cross snapshot dates; fetch a consistent snapshot again.')
     countries = []
+    group_manifest = []
+    group_output = ROOT / 'public/assets/muslim-world/people-groups'
+    group_output.mkdir(parents=True, exist_ok=True)
     for row in pew:
         code, numeric = COUNTRY_CODES[row['Country']]
         groups = [group for group in people if group['ISOAlpha3'] == code and group['StatusName'] == 'Active']
@@ -99,7 +102,16 @@ def build(cache):
                 raise ValueError(f'Missing population for {group["PGID"]}; do not substitute zero.')
             stats[CATEGORIES[category]]['groups'] += 1
             stats[CATEGORIES[category]]['population'] += group['Population']
-        examples = sorted(groups, key=lambda group: (-group['Population'], group['PGID']))[:3]
+        ordered = sorted(groups, key=lambda group: (-group['Population'], group['PGID']))
+        detail_groups = [{'id': group['PGID'], 'name': group['DisplayName'], 'language': group['LanguageName'],
+                          'religion': group['ReligionName'], 'population': group['Population'],
+                          'status': CATEGORIES[group['EngagementProgress']]} for group in ordered]
+        detail = {'country': code, 'snapshotDate': next(iter(dates)), 'sourceSha256': hashlib.sha256(imb_raw).hexdigest(),
+                  'groups': detail_groups}
+        detail_bytes = (json.dumps(detail, ensure_ascii=False, separators=(',', ':')) + '\n').encode()
+        (group_output / f'{code}.json').write_bytes(detail_bytes)
+        group_manifest.append({'country': code, 'groups': len(groups), 'bytes': len(detail_bytes), 'sha256': hashlib.sha256(detail_bytes).hexdigest()})
+        examples = ordered[:3]
         countries.append({
             'code': code, 'numeric': numeric, 'name': row['Country'],
             'region': Counter(group['UNm49SubRegionName'] for group in groups).most_common(1)[0][0],
@@ -126,6 +138,10 @@ def build(cache):
     target = ROOT / 'content/missions/muslim-world.json'
     target.parent.mkdir(parents=True, exist_ok=True)
     target.write_bytes((json.dumps(result, ensure_ascii=False, indent=2) + '\n').encode('utf-8'))
+    manifest = {'snapshotDate': result['snapshotDate'], 'sourceSha256': result['sources']['imb']['sha256'],
+                'transformation': 'All active IMB records for each selected country; population order; published EngagementProgress categories; names, language, religion and population unchanged.',
+                'files': group_manifest}
+    (target.parent / 'people-group-manifest.json').write_bytes((json.dumps(manifest, indent=2) + '\n').encode())
     print(f'Built {len(countries)} countries; IMB snapshot {result["snapshotDate"]}.')
 
 
