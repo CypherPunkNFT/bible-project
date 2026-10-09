@@ -99,6 +99,7 @@ test('clicking an actual projected country selects its profile; wheel and keyboa
   await explorer.scrollIntoViewIfNeeded();
   await expect(explorer.getByRole('group', { name: /^Interactive globe/ })).toHaveAttribute('aria-busy', 'false');
   const stage = explorer.getByRole('group', { name: /^Interactive globe/ });
+  await stage.focus(); await page.keyboard.press('Home');
   const box = (await stage.boundingBox())!;
   const saudi = geoCentroid(atlas.countries.find(c => c.properties.code === 'SAU') as Feature<Polygon | MultiPolygon>);
   const projection = geoOrthographic().rotate([-saudi[0], -saudi[1]]).scale(Math.min(box.width, box.height) / 2 - 1).translate([box.width / 2, box.height / 2]);
@@ -107,33 +108,29 @@ test('clicking an actual projected country selects its profile; wheel and keyboa
   await expect(explorer.getByRole('heading', { name: 'Egypt', exact: true })).toBeVisible();
   await expect(page).toHaveURL(/country=EGY/);
   await expect(explorer.locator('.mw-view-switch button')).toHaveCount(2);
-  expect(Math.abs(box.width - box.height)).toBeLessThan(2);
+  expect(Math.abs(box.width / box.height - 4 / 3)).toBeLessThan(.02);
   await stage.focus(); await page.keyboard.press('Home');
   await expect.poll(async () => stage.locator('canvas').last().evaluate(canvas => {
     const image = (canvas as HTMLCanvasElement).getContext('2d')!.getImageData(0, 0, (canvas as HTMLCanvasElement).width, (canvas as HTMLCanvasElement).height);
     let left = image.width, right = 0;
     for (let y = 0; y < image.height; y++) for (let x = 0; x < image.width; x++) if (image.data[(y * image.width + x) * 4 + 3]) { left = Math.min(left, x); right = Math.max(right, x); }
-    return (right - left) / image.width;
+    return (right - left) / image.height;
   })).toBeGreaterThan(.96);
   await stage.hover(); const scrollBefore = await page.evaluate(() => scrollY);
   const wholeWorld = await stage.locator('canvas').evaluate(canvas => (canvas as HTMLCanvasElement).toDataURL());
   await page.mouse.wheel(0, -700); await page.waitForTimeout(150);
   expect(await page.evaluate(() => scrollY)).toBe(scrollBefore);
   expect(await stage.locator('canvas').evaluate(canvas => (canvas as HTMLCanvasElement).toDataURL())).not.toBe(wholeWorld);
-  // Deep zoom retains the same circular window and never leaks into its corners.
+  // Deep zoom fills the rectangular viewport, including its corners.
   await page.mouse.wheel(0, -5000); await page.waitForTimeout(150);
   await page.mouse.wheel(0, -5000); await page.waitForTimeout(150);
   expect(await page.evaluate(() => scrollY)).toBe(scrollBefore);
   const aperture = await stage.locator('canvas').evaluate(canvas => {
     const c = canvas as HTMLCanvasElement, image = c.getContext('2d')!.getImageData(0, 0, c.width, c.height);
-    let outside = 0, left = c.width, right = 0;
-    for (let y = 0; y < c.height; y++) for (let x = 0; x < c.width; x++) if (image.data[(y * c.width + x) * 4 + 3]) {
-      if (Math.hypot(x-c.width/2,y-c.height/2)>c.width/2+1) outside++;
-      left=Math.min(left,x);right=Math.max(right,x);
-    }
-    return { outside, width: (right-left)/c.width };
+    const alpha = (x: number, y: number) => image.data[(y * c.width + x) * 4 + 3];
+    return [alpha(2, 2), alpha(c.width - 3, 2), alpha(2, c.height - 3), alpha(c.width - 3, c.height - 3)];
   });
-  expect(aperture.outside).toBe(0); expect(aperture.width).toBeGreaterThan(.98);
+  expect(aperture.every(alpha => alpha > 240)).toBe(true);
   await page.mouse.wheel(0, 5000); await page.waitForTimeout(150);
   await page.mouse.wheel(0, 5000); await page.waitForTimeout(150);
   expect(await page.evaluate(() => scrollY)).toBe(scrollBefore);
@@ -159,16 +156,15 @@ test('vertical view icons switch to an SVG map, preserve selection, and contain 
   await expect(stage.locator('.mw-flat-country')).toHaveCount(53);
   await expect(stage.locator('svg path')).toHaveCount(64);
   await expect(stage.locator('.mw-flat-country.is-selected')).toHaveAttribute('data-country', 'PAK');
-  await expect(stage.locator('.mw-flat-ocean')).toHaveAttribute('fill', '#315d79');
-  await expect(stage.locator('.mw-flat-land')).toHaveAttribute('fill', '#b79b70');
-  const fills = await stage.locator('.mw-flat-border').evaluateAll(paths => paths.map(path => getComputedStyle(path).fill));
-  expect(new Set(fills).size).toBeGreaterThanOrEqual(3);
-  expect(fills.every(fill => fill !== 'none' && fill !== 'rgba(0, 0, 0, 0)')).toBe(true);
-
-  const projection = geoEqualEarth().fitExtent([[16,240],[944,720]], atlas.land);
+  await expect(stage.locator('.mw-flat-ocean')).toHaveAttribute('fill', '#10232d');
+  await expect(stage.locator('.mw-flat-land')).toHaveAttribute('fill', '#344237');
+  await expect(stage.locator('.mw-flat-terrain ellipse')).toHaveCount(10);
+  const fills = await stage.locator('.mw-flat-country:not(.is-selected)').evaluateAll(paths => paths.map(path => getComputedStyle(path).fill));
+  expect(fills.every(fill => fill === 'rgba(0, 0, 0, 0)')).toBe(true);
+  const projection = geoEqualEarth().fitExtent([[12,12],[948,708]], atlas.land);
   const point = projection(geoCentroid(atlas.countries.find(country => country.properties.code === 'EGY')!))!;
   const box = (await stage.boundingBox())!;
-  await stage.click({position:{x:point[0]*box.width/960,y:point[1]*box.height/960}});
+  await stage.click({position:{x:point[0]*box.width/960,y:point[1]*box.height/720}});
   await expect(explorer.getByRole('heading', { name: 'Egypt', exact: true })).toBeVisible();
   await expect(page).toHaveURL(/question=jesus&country=EGY/);
   const group=stage.locator('svg > g'), before=await group.getAttribute('transform');
@@ -227,8 +223,8 @@ test('outline globe needs no WebGL or imagery; profiles stay usable if the map f
     const c = canvas as HTMLCanvasElement, pixels = c.getContext('2d')!.getImageData(0, 0, c.width, c.height).data;
     let ocean = 0, land = 0;
     for (let i = 0; i < pixels.length; i += 4) {
-      if (pixels[i] === 49 && pixels[i + 1] === 93 && pixels[i + 2] === 121) ocean++;
-      if (pixels[i] === 183 && pixels[i + 1] === 155 && pixels[i + 2] === 112) land++;
+      if (pixels[i + 3] === 255 && pixels[i + 2] > pixels[i + 1] && pixels[i + 1] > pixels[i]) ocean++;
+      if (pixels[i + 3] === 255 && (pixels[i] > pixels[i + 2] || pixels[i + 1] > pixels[i + 2])) land++;
     }
     return { ocean, land };
   });

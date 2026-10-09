@@ -1,6 +1,6 @@
 import { geoCentroid, geoContains, geoDistance, geoOrthographic, geoPath } from 'd3-geo';
 import { loadMissionAtlas, missionOutlines } from './mission-atlas';
-import { missionCountryColor, missionMapColors as colors } from './mission-map-colors';
+import { missionTerrainWashes, missionMapColors as colors } from './mission-map-colors';
 
 export interface GlobeCountry { code: string; numeric: string | null; name: string }
 export interface MissionGlobe {
@@ -19,7 +19,7 @@ export async function createMissionGlobe(
 ): Promise<MissionGlobe> {
   const atlas = await loadMissionAtlas(signal);
   const coastlines = missionOutlines(atlas.land);
-  const borders = atlas.countries.map(country => ({ country, lines: missionOutlines(country.geometry), fill: missionCountryColor(country.properties.code) }));
+  const borders = atlas.countries.map(country => ({ country, lines: missionOutlines(country.geometry) }));
   const available = new Map(atlas.countries.filter(c => c.properties.selectable).map(c => [c.properties.code, c]));
   const centroids = new Map([...available].map(([code, country]) => [code, geoCentroid(country)]));
   const ctx = canvas.getContext('2d');
@@ -27,7 +27,7 @@ export async function createMissionGlobe(
   const projection = geoOrthographic().clipAngle(90).precision(.3);
   const path = geoPath(projection, ctx);
   let destroyed = false, visible = true, pageVisible = !document.hidden;
-  let width = 1, height = 1, dpr = 1, radius = 1, zoom = 1, zoomTarget = 1, lon = 45, lat = 22;
+  let width = 1, height = 1, dpr = 1, radius = 1, zoom = 1.35, zoomTarget = 1.35, lon = 45, lat = 22;
   let selected = options.selected, spinning = options.spinning, dirty = true, raf = 0, last = 0;
   let hover = '', pointer: { id: number; x: number; y: number; lon: number; lat: number; moved: boolean } | null = null;
   let fly: { lon: number; lat: number; startLon: number; startLat: number; start: number } | null = null;
@@ -52,21 +52,34 @@ export async function createMissionGlobe(
     invalidate();
   }
   function draw() {
-    // Clip geographic lines to the visible cap as well as the fixed circular
-    // window. Line geometry avoids inventing polygon borders at the crop edge.
-    projection.rotate([-lon, -lat]).scale(radius * zoom).clipAngle(Math.asin(1 / zoom) * 180 / Math.PI).translate([width / 2, height / 2]);
+    // The Earth keeps its natural horizon; the viewport clips to a rectangle.
+    // Coastline strokes use real lines rather than clipped polygon edges.
+    projection.rotate([-lon, -lat]).scale(radius * zoom).clipAngle(90).clipExtent([[0, 0], [width, height]]).translate([width / 2, height / 2]);
     ctx!.setTransform(dpr, 0, 0, dpr, 0, 0); ctx!.clearRect(0, 0, width, height);
-    ctx!.save(); ctx!.beginPath(); ctx!.arc(width / 2, height / 2, radius, 0, Math.PI * 2); ctx!.clip();
-    // Simple solid ocean, land and country fills; no imagery or texture memory.
-    ctx!.fillStyle = colors.ocean; ctx!.fillRect(0, 0, width, height);
+    ctx!.save(); ctx!.beginPath(); ctx!.rect(0, 0, width, height); ctx!.clip();
+    const ocean = ctx!.createRadialGradient(width * .3, height * .22, 0, width * .45, height * .5, width * .9);
+    ocean.addColorStop(0, colors.oceanLight); ocean.addColorStop(.55, colors.ocean); ocean.addColorStop(1, colors.oceanDeep);
+    ctx!.beginPath(); path({ type: 'Sphere' }); ctx!.fillStyle = ocean; ctx!.fill();
     ctx!.beginPath(); path(atlas.land); ctx!.fillStyle = colors.land; ctx!.fill();
-    for (const { country, lines, fill } of borders) {
+    ctx!.save(); ctx!.clip();
+    for (const wash of missionTerrainWashes) {
+      const facing = Math.cos(geoDistance(wash.position, [lon, lat]));
+      const point = projection(wash.position);
+      if (facing <= 0 || !point) continue;
+      const size = projection.scale() * Math.sin(wash.radius * Math.PI / 180);
+      ctx!.save(); ctx!.translate(point[0], point[1]);
+      ctx!.rotate(Math.atan2(point[1] - height / 2, point[0] - width / 2)); ctx!.scale(Math.max(.15, facing), 1);
+      const gradient = ctx!.createRadialGradient(0, 0, 0, 0, 0, size);
+      gradient.addColorStop(0, wash.color); gradient.addColorStop(1, wash.color + '00');
+      ctx!.globalAlpha = wash.opacity * Math.min(1, facing * 3); ctx!.fillStyle = gradient; ctx!.fillRect(-size, -size, size * 2, size * 2); ctx!.restore();
+    }
+    ctx!.restore();
+    for (const { country, lines } of borders) {
       const code = country.properties.code;
       const active = selected === code, hovered = hover === code;
-      ctx!.beginPath(); path(country); ctx!.fillStyle = fill; ctx!.fill();
-      if (hovered) { ctx!.fillStyle = '#ffffff25'; ctx!.fill(); }
+      if (active || hovered) { ctx!.beginPath(); path(country); ctx!.fillStyle = active ? '#d5b57912' : '#8eb7b018'; ctx!.fill(); }
       ctx!.beginPath(); path(lines);
-      ctx!.strokeStyle = active ? colors.selected : colors.border; ctx!.lineWidth = active ? 2.1 : .85; ctx!.stroke();
+      ctx!.strokeStyle = active ? colors.selected : colors.border; ctx!.lineWidth = active ? 1.8 : .8; ctx!.stroke();
     }
     ctx!.beginPath(); path(coastlines); ctx!.strokeStyle = colors.coast; ctx!.lineWidth = .65; ctx!.stroke();
     const position = centroids.get(selected);
@@ -81,7 +94,7 @@ export async function createMissionGlobe(
     dirty = false;
   }
   const hit = (x: number, y: number) => {
-    if (Math.hypot(x - width / 2, y - height / 2) > radius) return null;
+    if (x < 0 || y < 0 || x > width || y > height || Math.hypot(x - width / 2, y - height / 2) > radius * zoom) return null;
     const point = projection.invert?.([x, y]); if (!point) return null;
     // Polygon hit takes precedence; enlarged targets make small islands usable.
     for (const [code, country] of available) if (geoContains(country, point)) return code;
