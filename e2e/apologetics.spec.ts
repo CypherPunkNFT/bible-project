@@ -86,7 +86,7 @@ test("apologetics: worldview comparison and sources lead to actual studies", asy
   await expect(page.getByRole("navigation", { name: "Comparison questions" }).getByRole("button")).toHaveCount(WORLDVIEWS.find((item) => item.id === "islam")!.rows.length);
   await expect(page.locator(".wv-study-cards > article")).toHaveCount(WORLDVIEWS.find((item) => item.id === "islam")!.studies.length);
   await page.locator(".wv-source-roadmap button").nth(2).click();
-  await expect(page.locator('.ap-source-grid a[href="https://quran.com/en/an-nisa/157"]')).toBeVisible();
+  await expect(page.locator('.ap-source-grid .wv-open-source[href="https://quran.com/en/an-nisa/157"]')).toBeVisible();
   await page.locator(".wv-study-link").click();
   await expect(page).toHaveURL(/\/apologetics\/study\/islam-jesus$/);
   await expect(page.locator(".ap-objection")).toBeVisible();
@@ -235,11 +235,13 @@ test("apologetics: contextual sources and illustrated study cards support a read
   await expect(roadmap).toHaveCount(4);
   for (let stage = 0; stage < 4; stage++) {
     await roadmap.nth(stage).click();
+    const passages = page.getByRole("navigation", { name: "Passages in this stage" }).getByRole("button");
     const readings = page.locator(".wv-analysis-card");
-    for (let i = 0; i < await readings.count(); i++) {
-      await expect(readings.nth(i).locator(".wv-source-purpose")).not.toBeEmpty();
-      await expect(readings.nth(i).locator(".wv-reading-task")).not.toBeEmpty();
-      await expect(readings.nth(i).locator(".wv-christian-counterpart .ap-citations")).not.toBeEmpty();
+    for (let i = 0; i < await passages.count(); i++) {
+      await passages.nth(i).click();
+      await expect(readings.first().locator(".wv-source-purpose")).not.toBeEmpty();
+      await expect(readings.first().locator(".wv-reading-task")).not.toBeEmpty();
+      await expect(readings.first().locator(".wv-christian-counterpart .ap-citations")).not.toBeEmpty();
     }
     await expect(page.locator(".wv-reading-plan")).not.toContainText("Nicene Creed");
   }
