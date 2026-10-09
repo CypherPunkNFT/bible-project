@@ -158,8 +158,8 @@ test('vertical view icons switch to an SVG map, preserve selection, and contain 
   await expect(stage.locator('.mw-flat-country')).toHaveCount(53);
   await expect(stage.locator('svg path')).toHaveCount(65);
   await expect(stage.locator('.mw-flat-country.is-selected')).toHaveAttribute('data-country', 'PAK');
-  await expect(stage.locator('.mw-flat-ocean')).toHaveAttribute('fill', '#0a1d26');
-  await expect(stage.locator('.mw-flat-land')).toHaveAttribute('fill', '#28362b');
+  await expect(stage.locator('.mw-flat-ocean')).toHaveAttribute('fill', '#08171e');
+  await expect(stage.locator('.mw-flat-land')).toHaveAttribute('fill', '#202b22');
   await expect(stage.locator('.mw-flat-terrain ellipse')).toHaveCount(10);
   const fills = await stage.locator('.mw-flat-country:not(.is-selected)').evaluateAll(paths => paths.map(path => getComputedStyle(path).fill));
   expect(fills.every(fill => fill === 'rgba(0, 0, 0, 0)')).toBe(true);

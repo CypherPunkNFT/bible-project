@@ -190,7 +190,7 @@ async function apologeticsTemplates(): Promise<{ templates: TemplateDef[]; valid
   const missionCountries = readJson<{ countries: { code: string; name: string; population2020: number }[] }>("content/missions/muslim-world.json").countries;
   worldview.instances = ap.WORLDVIEWS.length;
   worldview.variants.push(variant({
-    id: "countries", name: "Islam: country explorer", what: "A rectangular globe viewport with original outlines and Earth-only muted terrain colours, country demographics and dated IMB statistics, plus a matching flat SVG view.",
+    id: "countries", name: "Islam: country explorer", what: "A rectangular globe viewport with the physical globe outline, darker Earth-only terrain and all 61 qualifying country outlines, plus 53 country profiles and a matching flat SVG view.",
     records: missionCountries, url: (country) => `/apologetics/worldviews/islam?country=${country.code}#muslim-world`,
     samples: [most("largest", "Largest population", (country: typeof missionCountries[number]) => country.population2020, (country) => country.name, "population"), fewest("smallest", "Smallest population", (country: typeof missionCountries[number]) => country.population2020, (country) => country.name, "population")],
     checkRecords: missionCountries.filter(country => ["PAK", "IDN", "MYT"].includes(country.code)),

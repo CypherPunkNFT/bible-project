@@ -55,7 +55,7 @@ export async function createMissionGlobe(
     invalidate();
   }
   function draw() {
-    // Keep the natural Earth horizon and a rectangular viewport with no frame.
+    // Keep the natural Earth horizon inside the rectangular viewport.
     // Line geometry avoids inventing polygon borders at the crop edge.
     projection.rotate([-lon, -lat]).scale(radius * zoom).clipAngle(90).clipExtent([[0, 0], [width, height]]).translate([width / 2, height / 2]);
     ctx!.setTransform(dpr, 0, 0, dpr, 0, 0); ctx!.clearRect(0, 0, width, height);
@@ -97,6 +97,9 @@ export async function createMissionGlobe(
       }
     }
     ctx!.restore();
+    // The outline follows the physical Earth at every zoom, never a fixed crop.
+    ctx!.beginPath(); ctx!.arc(width / 2, height / 2, radius * zoom, 0, Math.PI * 2);
+    ctx!.strokeStyle = dark ? '#8eb7b090' : '#53766980'; ctx!.lineWidth = 1; ctx!.stroke();
     dirty = false;
   }
   const hit = (x: number, y: number) => {
