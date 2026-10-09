@@ -18,7 +18,7 @@
     doorSolid: (variant = "") => svg("Line drawing: Jesus standing as a softly lit figure in the open doorway of a small stone house at night, his arms open, the light falling across the step; a hill behind the house and a tree beside it", `
       <defs>${glow(`door-glow-2${variant}`, "var(--c)", .5)}</defs>
       ${stars([[12, 26], [40, 14, 1.2], [70, 34, .9], [96, 18], [124, 8, .8], [190, 12],  [204, 40, .8], [226, 22, 1.2], [252, 10], [276, 34, 1.1], [300, 18], [314, 52, .9], [262, 66, .8], [236, 80, .8], [300, 86, .9], [190, 50, .7]])}
-      <circle class="sun" cx="158" cy="44" r="14"/><g class="t sunrays">${range(12, (i) => { const a = i * Math.PI / 6, r2 = i % 2 ? 20 : 22; return `<path d="M${n(158 + Math.cos(a) * 17.5)} ${n(44 + Math.sin(a) * 17.5)}L${n(158 + Math.cos(a) * r2)} ${n(44 + Math.sin(a) * r2)}"/>`; })}</g>
+      <circle class="sun" cx="158" cy="41" r="12.5"/><g class="t sunrays">${range(12, (i) => { const a = i * Math.PI / 6, r2 = i % 2 ? 21 : 24; return `<path d="M${n(158 + Math.cos(a) * 16)} ${n(41 + Math.sin(a) * 16)}L${n(158 + Math.cos(a) * r2)} ${n(41 + Math.sin(a) * r2)}"/>`; })}</g>
       <path class="f" d="M0 166C20 158 42 157 63 170"/>
       <path class="f" d="M253 170C274 157 296 158 320 166"/>
       <g class="flock-cross">${bird(0, 0, .9)}${bird(16, -5, .7)}${bird(11, 5, .65)}</g>

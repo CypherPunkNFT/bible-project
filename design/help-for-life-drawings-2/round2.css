@@ -59,10 +59,10 @@
 
 :root[data-theme="dark"] .draw-door-solid .solid { fill: color-mix(in srgb, var(--c) 58%, var(--page)); }
 
-.draw-door-solid .sunrays { transform-origin: 158px 44px; animation: turn 80s linear infinite; }
+.draw-door-solid .sunrays { transform-origin: 158px 41px; animation: turn 80s linear infinite; }
 .draw-door-solid .art { overflow: hidden; }
 .draw-door-solid .flock-cross { animation: flock-cross 36s linear infinite; }
-@keyframes flock-cross { from { transform: translate(-50px, 40px); } to { transform: translate(350px, 46px); } }
+@keyframes flock-cross { from { transform: translate(-50px, 23px); } to { transform: translate(350px, 21px); } }
 /* The coloured version: green in the tree, the grass, the flower stems and the potted plant; the leaf dashes dimmer. */
 .draw-door-colour .canopy, .draw-door-colour .tuft, .draw-door-colour .stem, .draw-door-colour .plant { stroke: var(--green); }
 .draw-door-colour .leafdash { stroke: var(--green); opacity: .45; }
