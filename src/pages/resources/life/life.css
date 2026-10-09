@@ -27,7 +27,7 @@
 
 /* Hero: the words and numbers under the title, still-waters line art (Psalm 23:2) beside them. */
 .lf-hero { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 1.2rem 3.5rem; align-items: center; padding: 1.2rem 0 1.6rem; }
-.lf-hero .lf-kick { display: flex; align-items: center; gap: .6rem; color: var(--door); }
+.lf-hero .lf-kick { display: flex; align-items: center; gap: .6rem; color: var(--lf-title); }
 .lf-hero .lf-kick::before { content: ""; width: 1.6rem; height: 1px; background: currentColor; }
 .lf-hero h1 { margin-top: .8rem; font: 400 clamp(2.6rem, 6vw, 4.6rem)/.98 var(--font-serif); letter-spacing: -.035em; }
 .lf-hero h1 em { color: var(--lf-title); font-style: italic; }

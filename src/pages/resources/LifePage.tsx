@@ -43,13 +43,14 @@ export default function LifePage({ data }: { data: LifeData }) {
   const places = cities.reduce((n, c) => n + c.entries.length, 0), lines = cities.reduce((n, c) => n + (c.lines?.length ?? 0), 0);
   const helpsWith = listOf([...new Set(cities.flatMap((c) => kindsIn(c).map(([k]) => kindOf(k).short.toLowerCase())))]);
   const stats: [string, string | number][] = [["National lines", national], ...(cities.length ? [["Places", places], ["Local lines", lines]] as [string, number][] : []), ["Checked", data.checked]];
-  const titleWords = info.title.split(" "), lastWord = titleWords.pop();
+  // "Help" plain, "for life" set apart in the page's title colour (owner, 2026-10-08).
+  const titleWords = info.title.split(" "), lastWords = titleWords.splice(1).join(" ");
   return <div className="lf-page mx-auto max-w-7xl px-4 sm:px-6" style={{ "--door": `var(--${info.color})` } as CSSProperties}>
     <CrisisStrip groups={data.groups} />
     <header className="lf-hero">
       <div>
         <p className="lf-kick">Resources · {String(RESOURCE_SECTIONS.indexOf(info) + 1).padStart(2, "0")}</p>
-        <h1>{titleWords.join(" ")} <em>{lastWord}</em></h1>
+        <h1>{titleWords.join(" ")} <em>{lastWords}</em></h1>
         <p className="lf-lead">Free national lines for the hardest moments{cities.length ? `, and places in ${listOf(cities.map((c) => c.name))} that help with ${helpsWith}` : ""}. Every number can be tapped to call or text.</p>
         <dl className="lf-stats">{stats.map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{typeof value === "number" ? value.toLocaleString("en-US") : value}</dd></div>)}</dl>
       </div>
