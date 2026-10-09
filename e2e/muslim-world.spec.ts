@@ -100,6 +100,8 @@ test('clicking an actual projected country selects its profile; wheel and keyboa
   await expect(explorer.getByRole('group', { name: /^Interactive globe/ })).toHaveAttribute('aria-busy', 'false');
   const stage = explorer.getByRole('group', { name: /^Interactive globe/ });
   await stage.focus(); await page.keyboard.press('Home');
+  expect(await stage.evaluate(element => getComputedStyle(element).borderRadius)).toBe('0px');
+  expect(await stage.evaluate(element => getComputedStyle(element).backgroundColor)).toBe('rgba(0, 0, 0, 0)');
   const box = (await stage.boundingBox())!;
   const saudi = geoCentroid(atlas.countries.find(c => c.properties.code === 'SAU') as Feature<Polygon | MultiPolygon>);
   const projection = geoOrthographic().rotate([-saudi[0], -saudi[1]]).scale(Math.min(box.width, box.height) / 2 - 1).translate([box.width / 2, box.height / 2]);
@@ -154,10 +156,10 @@ test('vertical view icons switch to an SVG map, preserve selection, and contain 
   await expect(stage).toHaveAttribute('aria-busy', 'false'); await expect(flat).toHaveAttribute('aria-pressed', 'true');
   await expect(stage.locator('canvas')).toHaveCount(0); await expect(stage.locator('svg')).toHaveCount(1);
   await expect(stage.locator('.mw-flat-country')).toHaveCount(53);
-  await expect(stage.locator('svg path')).toHaveCount(64);
+  await expect(stage.locator('svg path')).toHaveCount(65);
   await expect(stage.locator('.mw-flat-country.is-selected')).toHaveAttribute('data-country', 'PAK');
-  await expect(stage.locator('.mw-flat-ocean')).toHaveAttribute('fill', '#10232d');
-  await expect(stage.locator('.mw-flat-land')).toHaveAttribute('fill', '#344237');
+  await expect(stage.locator('.mw-flat-ocean')).toHaveAttribute('fill', '#0a1d26');
+  await expect(stage.locator('.mw-flat-land')).toHaveAttribute('fill', '#28362b');
   await expect(stage.locator('.mw-flat-terrain ellipse')).toHaveCount(10);
   const fills = await stage.locator('.mw-flat-country:not(.is-selected)').evaluateAll(paths => paths.map(path => getComputedStyle(path).fill));
   expect(fills.every(fill => fill === 'rgba(0, 0, 0, 0)')).toBe(true);

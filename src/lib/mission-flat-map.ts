@@ -31,7 +31,7 @@ export async function createMissionFlatMap(
     element.setAttribute('d', d ?? ''); element.setAttribute('class', className);
     element.setAttribute('vector-effect', 'non-scaling-stroke'); group.append(element); return element;
   };
-  const ocean = document.createElementNS(NS, 'rect'); ocean.setAttribute('class', 'mw-flat-ocean'); ocean.setAttribute('width', String(SIZE)); ocean.setAttribute('height', String(HEIGHT)); ocean.setAttribute('fill', colors.ocean); group.append(ocean);
+  appendPath(path({ type: 'Sphere' }), 'mw-flat-ocean').setAttribute('fill', colors.ocean);
   appendPath(path(atlas.land), 'mw-flat-land').setAttribute('fill', colors.land);
   const clip = document.createElementNS(NS, 'clipPath'); clip.id = 'mw-flat-land-clip';
   const mask = document.createElementNS(NS, 'path'); mask.setAttribute('d', path(atlas.land) ?? ''); clip.append(mask); defs.append(clip);
