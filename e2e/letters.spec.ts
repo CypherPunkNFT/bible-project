@@ -106,7 +106,7 @@ test("letters: Paul's letters show the introduction, their own Old Testament cha
 // Owner 2026-10-07: every collection has its introduction and a tall line drawing; the writers link to their person pages
 // (Hebrews has none: its writer is not named); James, Peter and Jude link all three.
 test("letters: each collection's introduction, line drawing and writers' own pages", async ({ page }) => {
-  for (const [slug, link] of [["paul", "/people/paul-act-7-58"], ["the-letters-of-john", "/people/john-mat-4-21"], ["hebrews", null]] as const) {
+  for (const [slug, link] of [["paul", "/people/paul"], ["the-letters-of-john", "/people/john-son-of-zebedee"], ["hebrews", null]] as const) {
     await page.goto(`/study/letters/${slug}`);
     await expect(page.locator(".lb-about > p").first()).toBeVisible();
     await expect(page.locator(".lb-tall svg")).toBeAttached();
@@ -118,6 +118,6 @@ test("letters: each collection's introduction, line drawing and writers' own pag
   await expect(page.locator(".lb-about > p:not(.lb-person-links)")).toHaveCount(1);
   await expect(page.locator(".lb-about .lb-person-link")).toHaveCount(3);
   await page.locator(".lb-about .lb-person-link", { hasText: "Peter" }).click();
-  await expect(page).toHaveURL(/\/people\/peter-mat-4-18$/);
+  await expect(page).toHaveURL(/\/people\/peter$/); // his readable address
   await expect(page.getByText(/Back to James, Peter & Jude/)).toBeVisible();
 });

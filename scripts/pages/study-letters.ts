@@ -3,6 +3,8 @@
 // wayPages); they are called here with the same data files, and each part's chart is named from its component.
 import type { ReactElement, ReactNode } from "react";
 import type { Letter, LetterGroup, LettersOverview } from "../../src/data/letters/types";
+import { MIN_VOTES, SHARE_OF_STRONGEST } from "../../src/components/letters/compare-links";
+import peopleSlugs from "../../src/data/people-slugs.json";
 import { browseDetail, groupDetail, letterDetail, overviewDetail, type BrowseData } from "./study-letters-data";
 import { blocks, link, loadCatalog, n, readJson, ref, registerSiteModules, table, type Span } from "./study-lib";
 import { attributeLiteral, byTag, findAll, first, jsxRoots, literalConstant } from "./study-source";
@@ -17,7 +19,11 @@ const FIRST: Record<Key, string> = { paul: "ROM", hebrews: "HEB", general: "JAS"
 interface CardDef { eyebrow: string; title: string; text: string; foot: string; cta: string }
 interface PartDef { id: string; card: CardDef; lead: string; body: ReactNode }
 interface SectionDef { id: string; title: string; lead: string; picker?: boolean; parts: PartDef[] }
-interface PageDef { slug: string; title: string; crumb: string; right: string; kicker: string; h1: string; em: string; intro: string; caption: string; bar: ReactNode; sections: SectionDef[]; citations: unknown[]; about?: { text: string }[]; writers?: { id: string; name: string; intro?: { text: string }[] }[] }
+// Readable person addresses (/people/peter), as the site links them (src/lib/people-slugs.ts, which bun cannot load here: "@/" paths).
+const slugById = new Map(Object.entries(peopleSlugs.slugs).map(([slug, id]) => [id, slug]));
+const slugOf = (id: string) => slugById.get(id);
+
+interface PageDef { slug: string; title: string; crumb: string; right: string; kicker: string; h1: string; em: string; intro: string; caption: string; tall?: string; bar: ReactNode; sections: SectionDef[]; citations: unknown[]; about?: { text: string }[]; writers?: { id: string; name: string; intro?: { text: string }[] }[] }
 interface Data { groups: Record<Key, LetterGroup>; overview: LettersOverview; browse: BrowseData; letters: Letter[]; letter: (code: string) => Letter; groupOf: (code: string) => Key }
 
 type Props = Record<string, unknown>;
@@ -48,7 +54,10 @@ function describeBody(body: ReactNode, data: Data): string {
     case "ClaimChooser": return `A chooser of ${(p.items as unknown[]).length} items`;
     case "WordConstellation": return `Word stars in ${(p.letters as Letter[]).map((l) => l.name).join(" · ")}`;
     case "LetterBars": return `One bar per letter: ${p.hint}`;
-    case "CompareLetters": return `Compare any two letters (opens on ${(p.initial as string[]).join(" and ")}); ${(p.curated as unknown[]).length} curated pairings`;
+    case "CompareLetters": {
+      const choices = (p.choices as { code: string; label?: string }[] | undefined)?.map((c) => c.label ?? c.code);
+      return `Compare any two of ${choices ? choices.join(", ") : "the 21 letters"} (opens on ${(p.initial as string[]).join(" and ")}): the readers' cross-references (OpenBible.info) gathered into passage pairs, only the strong ones drawn (at least ${MIN_VOTES} votes and ${SHARE_OF_STRONGEST * 100}% of the strongest pair's); ${(p.curated as unknown[]).length} scholar pairings always drawn, with their notes; clicking a link opens both passages side by side`;
+    }
     case "LetterShape": return "All twenty-one as bars cut into their section headings";
     case "Glance": case "OutlineBar": case "LetterWords": case "OtList": case "PeoplePlaces": return `${name} for ${(p.letter as Letter).name} (see the letter below)`;
     case "div": return `The collection story: ${data.overview.collection.length} paragraphs`;
@@ -66,6 +75,7 @@ function describeBar(bar: ReactNode, data: Data): string {
   const dates = (l: Letter) => (l.date.from ? `AD ${l.date.from}${l.date.to && l.date.to !== l.date.from ? `–${l.date.to}` : ""}` : "Not dated");
   if (name === "GroupsBar") return (group.groupings ?? []).map((g) => { const ls = group.letters.filter((l) => g.letters.includes(l.code));
     return `${g.label}: ${ls.length} letters · ${n(ls.reduce((s, l) => s + l.verses, 0))} verses · AD ${Math.min(...ls.map((l) => l.date.from ?? Infinity))}–${Math.max(...ls.map((l) => l.date.to ?? -Infinity))} (${ls.map((l) => l.name).join(", ")}; ⓘ explains the group)`; }).join(" · ");
+  if (name === "LettersLinkBar") return group.letters.map((l) => `${l.name}: ${l.verses} verses · ${dates(l)} · "${(p.to as (code: string) => { label: string })(l.code).label}"`).join(" · ");
   if (name === "LettersBar") return group.letters.map((l) => `${l.name}: ${l.verses} verses · ${dates(l)} · "Inside ${l.name}"`).join(" · ");
   return name ?? "";
 }
@@ -76,7 +86,7 @@ function pageMarkdown(page: PageDef, data: Data): string {
     table(["#", "Card: eyebrow · title", "Card text", "Card foot", "Button", "Part lead (on the section page)", "Shows", "Address"],
       s.parts.map((part, j) => [String(i * 4 + j + 1).padStart(2, "0"), `${part.card.eyebrow} · ${part.card.title}`, part.card.text, part.card.foot, part.card.cta, part.lead, describeBody(part.body, data), `${s.id}/${part.id}`]))));
   return blocks(`### ${page.title} (${link(`${BASE}/${page.slug}`)})`,
-    `- Top line: "Letters / ${page.crumb}" · ${page.right}\n- Kicker: ${page.kicker}\n- Title: **${page.h1}** *${page.em}*\n- Intro: ${page.intro}\n- Emblem caption: ${page.caption}${page.about?.length ? `\n- Introduction under the title (${page.about.length} paragraphs):${page.about.map((claim) => `\n  - ${claim.text}`).join("")}` : ""}${page.writers?.length ? `\n- Writers, each linked to their own page:${page.writers.map((w) => `\n  - **${w.name}** (${link(`/people/${w.id}`)})${(w.intro ?? []).map((claim) => `\n    - ${claim.text}`).join("")}`).join("")}` : ""}\n- Figures bar: ${describeBar(page.bar, data)}\n- Foot: "Where this page comes from", ${page.citations.length} works`,
+    `- Top line: "Letters / ${page.crumb}" · ${page.right}\n- Kicker: ${page.kicker}\n- Title: **${page.h1}** *${page.em}*\n- Intro: ${page.intro}\n- ${page.tall ? `Line drawing beside the introduction: ${page.tall}, captioned` : "Emblem caption:"} ${page.caption}${page.about?.length ? `\n- Introduction under the title (${page.about.length} paragraphs):${page.about.map((claim) => `\n  - ${claim.text}`).join("")}` : ""}${page.writers?.length ? `\n- Writers, each linked to their own page:${page.writers.map((w) => `\n  - **${w.name}** (${link(`/people/${slugOf(w.id) ?? w.id}`)})${(w.intro ?? []).map((claim) => `\n    - ${claim.text}`).join("")}`).join("")}` : ""}\n- Figures bar: ${describeBar(page.bar, data)}\n- Foot: "Where this page comes from", ${page.citations.length} works`,
     ...sections);
 }
 

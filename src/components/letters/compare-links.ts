@@ -4,8 +4,8 @@ import type { Parallel, Span } from "@/data/letters/types";
 export type Link = { left: Span; right: Span; votes: number };
 type Pair = Parallel["pairs"][number];
 
-const MIN_VOTES = 10;
-const SHARE_OF_STRONGEST = 0.2;
+export const MIN_VOTES = 10;
+export const SHARE_OF_STRONGEST = 0.2;
 
 /** Each verse's strongest link, on one side: verse id → the index of the link with the most votes that covers it. */
 function strongest(links: Link[], side: "left" | "right") {

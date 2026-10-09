@@ -3,6 +3,7 @@ import type { CSSProperties, ReactNode } from "react";
 import { Link, useLocation } from "react-router-dom";
 import type { Citation, Claim, Writer } from "@/data/letters/types";
 import { cameFrom } from "@/lib/came-from";
+import { slugOf } from "@/lib/people-slugs";
 import { CitationProvider, ClaimText } from "../LetterParts";
 import { SourcesList } from "../LetterBlocks";
 import { drawing } from "./builders";
@@ -79,7 +80,7 @@ function Hero({ page }: { page: PageDef }) {
 
 /** "Paul's own page →": the way from a collection to the person at its heart. */
 export function PersonLink({ writer, from }: { writer: Writer; from: string }) {
-  return <Link className="lb-person-link" to={`/people/${writer.id}`} state={cameFrom(from)}>{writer.name}'s own page <ArrowRight size={14} aria-hidden /></Link>;
+  return <Link className="lb-person-link" to={`/people/${slugOf(writer.id) ?? writer.id}`} state={cameFrom(from)}>{writer.name}'s own page <ArrowRight size={14} aria-hidden /></Link>;
 }
 
 /** The opening paragraphs: the collection's introduction, or (James, Peter and Jude) a short life of each writer with his

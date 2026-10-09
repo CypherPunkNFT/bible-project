@@ -146,7 +146,7 @@ export function collectionPages(data: LettersData, chosen: Chosen): Record<strin
             <CollectionOt flow={G.general.flows.find((f) => f.id === "ot-sources")!} letters={G.general.letters} />),
         ] },
         { id: "side", art: "compare", tone: "poetry", title: "Side by side, and how they were read", lead: "The passages they share, the questions readers have asked, and how the church received them.", parts: [
-          part("compare", card("compare", "prophets", "compare", "Side by side", "Any two, side by side", "Pick two of the four letters, or James and Matthew's Gospel: every link between them, with the notes where scholars pair the passages.", "Jude and 2 Peter · James and 1 Peter · James and the Sermon on the Mount", "Choose two"),
+          part("compare", card("compare", "prophets", "compare", "Side by side", "Any two, side by side", "Pick two of the four letters, or James and Matthew's Gospel: the strongest links between them, with the notes where scholars pair the passages.", "Jude and 2 Peter · James and 1 Peter · James and the Sermon on the Mount", "Choose two"),
             "Click two to compare them; click one again to let it go, or a third to swap it in. Click a connection to read both passages side by side.",
             <CompareLetters initial={["JUD", "2PE"]} curated={G.general.parallels} choices={[...G.general.letters.map((l) => ({ code: l.code })), { code: "MAT", label: "Matthew (the Sermon on the Mount)", tone: "gospels" }]} />),
           part("words", card("words", "gospels", "star", "Greek words", "The words they lean on, side by side", "Each letter's key Greek words in one chart: which words they share and which belong to one alone.", "James · 1 Peter · 2 Peter · Jude", "See the words"),
