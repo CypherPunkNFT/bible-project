@@ -1,7 +1,7 @@
 {
  "schema": 1,
- "generatedAt": "2026-10-09T21:46:49.581Z",
- "commit": "4f73402e",
+ "generatedAt": "2026-10-09T22:05:10.812Z",
+ "commit": "33d32232",
  "areas": [
   {
    "id": "people",
@@ -2607,11 +2607,13 @@
     "src/components/ApologeticsParts.tsx",
     "src/components/apologetics/MuslimWorldExplorer.tsx",
     "src/components/apologetics/muslim-world.css",
+    "src/lib/mission-atlas.ts",
+    "src/lib/mission-flat-map.ts",
     "src/lib/mission-globe.ts",
     "src/pages/WorldviewsPage.tsx",
     "src/pages/worldviews.css"
    ],
-   "sourceHash": "10fc1d6a810a83f3",
+   "sourceHash": "66ee8d8e0483d376",
    "signature": {
     "selector": "#muslim-world",
     "label": "Muslim-world country explorer"
@@ -2640,7 +2642,7 @@
     {
      "id": "countries",
      "name": "Islam: country explorer",
-     "what": "A textured rotating globe with country demographics and dated IMB people-group statistics.",
+     "what": "An outline globe with country demographics and dated IMB people-group statistics, plus a flat SVG view.",
      "instances": 53,
      "samples": [
       {
@@ -2654,6 +2656,20 @@
        "label": "Smallest population",
        "url": "/apologetics/worldviews/islam?country=MYT#muslim-world",
        "why": "fewest population: Mayotte (284,371), a near-empty page"
+      }
+     ]
+    },
+    {
+     "id": "flat-map",
+     "name": "Islam: flat map",
+     "what": "An SVG world map with shared country selection and a vertical globe/map view switcher.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/apologetics/worldviews/islam?country=PAK&map=flat#muslim-world",
+       "why": "the only page of this design"
       }
      ]
     }
