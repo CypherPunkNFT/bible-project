@@ -305,7 +305,7 @@ test("apologetics: a worldview study returns to its originating collection and q
 
 test("apologetics: basis filters open paired local texts and Bible versions", async ({ page }) => {
   await page.goto("/apologetics/worldviews/islam?question=comparison-2");
-  const toggle = page.getByRole("button", { name: /Examine the basis/ });
+  const toggle = page.locator(".wv-basis-inline-toggle");
   await expect(toggle).toHaveAttribute("aria-expanded", "false");
   await page.getByRole("group", { name: "Christian references" }).getByRole("button", { name: "Westminster 2.3" }).click();
   await expect(page.getByRole("article", { name: "Christian source reading" })).toContainText("three persons");

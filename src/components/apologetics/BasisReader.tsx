@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { BookOpen, ChevronDown } from 'lucide-react';
+import { ChevronDown, ChevronUp } from 'lucide-react';
 import { useCatalog } from '@/lib/catalog';
 import { useAsync } from '@/lib/useAsync';
 import { loadChapterPlain } from '@/lib/data';
@@ -59,8 +59,8 @@ export default function BasisReader({ christian, islamic }: { christian: ApCitat
   const effectiveVersion = versions.some(t => t.slug === version) ? version : 'kjv';
   const translation = catalog.translations.find(t => t.slug === effectiveVersion)!;
   return <div className="wv-paired-basis">
-    <button className="wv-basis-toggle" type="button" aria-expanded={open} aria-controls="wv-basis-reading" onClick={() => setOpen(!open)}><BookOpen size={17} />Examine the basis <span>Read the texts side by side</span><ChevronDown size={17} /></button>
-    <div className="wv-basis-filters">{[christian, islamic].map((citations, side) => <div key={side} role="group" aria-label={side === 0 ? 'Christian references' : 'Islamic references'}>{citations.map((citation, i) => <button key={i} type="button" aria-pressed={open && (side === 0 ? left : right) === i} onClick={() => { if (!open) { setLeft(0); setRight(0); } if (side === 0) setLeft(i); else setRight(i); setOpen(true); }}>{label(citation)}</button>)}</div>)}</div>
+
+    <div className="wv-basis-filters">{[christian, islamic].map((citations, side) => <div key={side} role="group" aria-label={side === 0 ? 'Christian references' : 'Islamic references'}>{citations.map((citation, i) => <button key={i} type="button" aria-pressed={open && (side === 0 ? left : right) === i} onClick={() => { if (!open) { setLeft(0); setRight(0); } if (side === 0) setLeft(i); else setRight(i); setOpen(true); }}>{label(citation)}</button>)}{side === 1 && <button className="wv-basis-inline-toggle" type="button" aria-label={open ? 'Close paired reading' : 'Read the texts side by side'} aria-expanded={open} aria-controls="wv-basis-reading" onClick={() => setOpen(!open)}>{open ? <ChevronUp size={17} /> : <ChevronDown size={17} />}</button>}</div>)}</div>
     {open && <div id="wv-basis-reading" className="wv-basis-columns">{[christian[left], islamic[right]].map((citation, side) => <article key={side} aria-label={side === 0 ? 'Christian source reading' : 'Islamic source reading'}><header><h4>{label(citation)}</h4>{side === 0 && citation.kind === 'scripture' ? <label>Bible version<select value={effectiveVersion} onChange={event => setVersion(event.target.value)}>{versions.map(t => <option key={t.slug} value={t.slug}>{t.abbr} — {t.name}</option>)}</select></label> : <span>{citation.kind === 'source' && citation.source.startsWith('q') ? 'Marmaduke Pickthall · English translation' : sourceById(citation.kind === 'source' ? citation.source : 'wcf').author}</span>}</header><CitationText citation={citation} version={effectiveVersion} />{side === 0 && citation.kind === 'scripture' && translation.credit && <p className="wv-basis-credit">{translation.credit.text} <a href={translation.credit.licenceUrl}>{translation.credit.licence}</a>{translation.credit.changes}</p>}</article>)}</div>}
   </div>;
 }
