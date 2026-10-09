@@ -40,7 +40,7 @@ function Collection({ item, book }: { item: typeof WORLDVIEWS[number]; book: ApN
   const row = item.rows[selected], theme = identity(item.id);
   const choose = (index: number) => { const next = new URLSearchParams(params); next.set('question', item.rows[index].id); setParams(next, { replace: true, preventScrollReset: true }); };
   return <div className="wv-page" style={{ '--wv-accent': theme.accent } as React.CSSProperties}><ApBack to={base + '/worldviews'}>All worldviews</ApBack><header className="wv-hero"><div><p className="ap-eyebrow">Across beliefs / {theme.theme}</p><h1>{item.title.split(' & ')[0]}<br /><em> & {item.title.split(' & ')[1] ?? theme.name}</em></h1><p>{item.description}</p><a className="wv-start" href="#comparison">Begin with a question <ArrowRight size={17} /></a></div><div className="wv-hero-art"><CollectionArt id={item.id} /><span>Open texts. Honest questions.</span></div></header><div className="wv-reading-bar"><span><strong>01</strong> Examine the claims</span><span><strong>02</strong> Follow the sources</span><span><strong>03</strong> Carry the conversation</span></div>
-    <section id="comparison" className={'wv-desk' + (item.id === 'islam' ? ' wv-islam-desk' : '')}>
+    {item.id === 'islam' ? <IslamClaimsDesk item={item} selected={selected} choose={choose} /> : <section id="comparison" className={'wv-desk' + (item.id === 'islam' ? ' wv-islam-desk' : '')}>
       <div className="wv-section-title"><p className="ap-eyebrow">01 / Begin with the claims</p><h2>{item.subtitle}</h2><p>{item.id === 'islam' ? 'Choose a question. Examine the Christian truth and the Islamic perspective, each with its own explanation and sources.' : 'Choose a question. Read both starting points. Then follow the study.'}</p></div>
       <div className="wv-desk-layout">
         <nav className="wv-question-nav" aria-label="Comparison questions">{item.rows.map((entry, i) => <button key={entry.id} type="button" aria-pressed={selected === i} aria-controls="wv-comparison-content" onClick={() => choose(i)}><span>{String(i + 1).padStart(2, '0')}</span><strong>{entry.question}</strong>{item.id !== 'islam' && <ArrowRight size={16} />}</button>)}</nav>
@@ -53,11 +53,39 @@ function Collection({ item, book }: { item: typeof WORLDVIEWS[number]; book: ApN
           <Link className="wv-study-link" to={studyUrl(row.study)}><div><span>Continue with a connected study</span><strong>{studyById(row.study)!.title}</strong></div><ArrowUpRight size={23} /></Link>
         </div>
       </div>
-    </section>
+    </section>}
     {item.id === 'islam' && <MuslimWorldExplorer />}
     <ContextSources item={item} />
     <section className="wv-next"><ApSectionHeading eyebrow="03 / Carry the conversation" title="Make the comparison a study." /><div className="wv-study-cards">{item.studies.map((id, i) => <IllustratedStudy key={id} id={id} index={i} book={book} />)}</div><div className="wv-conversation"><div><p className="ap-eyebrow">Listen before you answer</p><h3>What would you want to ask next?</h3><p>Start with the selected question: {row.question} Ask how your neighbour understands it before offering your answer.</p><button type="button" onClick={() => setNotes(!notes)} aria-expanded={notes}>{notes ? 'Close reflection' : 'Write a reflection'} <ArrowRight size={15} /></button></div>{item.id === 'islam' ? <Link className="wv-guided" to={base + '/paths/muslim-neighbour'}><RouteIcon size={24} /><span><strong>A route through the questions</strong>Follow the Muslim neighbour learning path.</span><ArrowRight size={18} /></Link> : <Link className="wv-guided" to={base + '/practice'}><RouteIcon size={24} /><span><strong>From study to conversation</strong>Practise listening and explaining your faith.</span><ArrowRight size={18} /></Link>}</div>{notes && <ApNote id={'worldview-' + item.id} prompt="Which claim or passage would you examine with your neighbour?" book={book} />}</section>
   </div>;
+}
+
+const claimFamilies = [
+  { title: 'God & identity', icon: Network, ids: ['comparison-2', 'sonship', 'created-jesus'] },
+  { title: 'Jesus & the cross', icon: Cross, ids: ['comparison-1', 'comparison-3'] },
+  { title: 'Sin & salvation', icon: Sprout, ids: ['sin', 'forgiveness', 'salvation'] },
+  { title: 'Revelation & authority', icon: ScrollText, ids: ['revelation', 'muhammad', 'scripture', 'preservation'] },
+];
+function ClaimsDiagram() {
+  return <svg className="wv-claims-diagram" viewBox="0 0 340 150" fill="none" aria-hidden="true"><ellipse cx="136" cy="74" rx="66" ry="57" /><ellipse cx="204" cy="74" rx="66" ry="57" /><path d="M170 18v112M41 74h29m200 0h29M89 131h162" opacity=".35" /><path d="M139 94V59q16-8 31 0 15-8 31 0v35q-15-8-31 0-15-8-31 0ZM170 59v35M146 70h16m-16 9h16m16-9h16m-16 9h16" /><circle cx="41" cy="74" r="4" /><circle cx="299" cy="74" r="4" /><path d="m105 37-9-9m139 9 9-9M170 6v8" /></svg>;
+}
+function IslamClaimsDesk({ item, selected, choose }: { item: typeof WORLDVIEWS[number]; selected: number; choose: (index: number) => void }) {
+  const row = item.rows[selected];
+  const family = claimFamilies.find(group => group.ids.includes(row.id))!;
+  const primarySource = row.otherBasis.find(citation => citation.kind === 'source');
+  return <section id="comparison" className="wv-desk wv-islam-desk wv-claims-room">
+    <header className="wv-claims-heading"><div><p className="ap-eyebrow">01 / Begin with the claims</p><h2>Shared questions.<br /><em>Distinct answers.</em></h2><p>Choose a question. Compare the claims, then examine the texts that support them.</p></div><div className="wv-claims-motif"><ClaimsDiagram /><span>One question <span>·</span> Two accounts <span>·</span> Open texts</span></div></header>
+    <nav className="wv-question-nav wv-claim-map" aria-label="Comparison questions">{claimFamilies.map(group => { const Icon = group.icon; return <div className="wv-claim-family" key={group.title}><h3><Icon size={17} />{group.title}<small>{group.ids.length}</small></h3>{group.ids.map(id => { const index = item.rows.findIndex(entry => entry.id === id); const entry = item.rows[index]; return <button type="button" key={id} aria-label={entry.question} aria-pressed={selected === index} aria-controls="wv-comparison-content" onClick={() => choose(index)}><span>{String(index + 1).padStart(2, '0')}</span><strong>{entry.question}</strong></button>; })}</div>; })}</nav>
+    <div id="wv-comparison-content" className="wv-comparison-content wv-claim-comparison" key={row.id}>
+      <header className="wv-current-question"><div><span>{family.title} / Question {String(selected + 1).padStart(2, '0')}</span><h3>{row.question}</h3></div><div className="wv-claim-key"><span><i />Christian truth</span><span><i />Islamic perspective</span></div></header>
+      <div className="wv-positions">{(['christian', 'other'] as const).map(side => { const christian = side === 'christian'; const paragraphs = row[side].split(/\n\s*\n/); return <article key={side} className={christian ? 'wv-truth' : 'wv-perspective'} aria-label={christian ? 'Christian truth' : item.otherLabel}>
+        <header className="wv-position-heading"><span className="wv-position-mark">{christian ? <Cross size={23} /> : <ScrollText size={23} />}</span><div><p className="ap-eyebrow">{christian ? 'Christian truth' : item.otherLabel}</p><span>{christian ? 'Scripture & Christian witness' : 'The Qur’anic account'}</span></div><span className="wv-position-number">{christian ? 'A' : 'B'}</span></header>
+        <div className="wv-position-copy"><p>{paragraphs[0]}</p>{paragraphs.length > 1 && <details className="wv-claim-explanation"><summary>Unpack this claim <ArrowRight size={13} /></summary>{paragraphs.slice(1).map((paragraph, i) => <p key={i}>{paragraph}</p>)}</details>}</div>
+        <div className="wv-claim-basis"><span><BookOpen size={13} />Examine the basis</span><ApCitations citations={christian ? row.christianBasis : row.otherBasis} label={christian ? 'Scripture & Christian witness' : 'Primary sources'} /></div>
+      </article>; })}</div>
+      <div className="wv-claim-follow"><div><RouteIcon size={20} /><span className="ap-eyebrow">Follow the question</span></div><Link className="wv-study-link" to={studyUrl(row.study)}><div><span>Understand the argument</span><strong>{studyById(row.study)!.title}</strong></div><ArrowUpRight size={19} /></Link><Link className="wv-claim-context-link" preventScrollReset to={'?question=' + row.id + '&reading=' + (primarySource?.kind === 'source' ? primarySource.source : 'q112') + '#reading-sources'} onClick={() => document.getElementById('reading-sources')?.scrollIntoView({ behavior: 'smooth' })}><BookOpen size={18} /><span>Read the passages in context</span><ArrowRight size={16} /></Link></div>
+    </div>
+  </section>;
 }
 
 const readingTasks: Record<string, string> = {
@@ -67,19 +95,21 @@ const readingTasks: Record<string, string> = {
   creed: 'Read the statements about Father, Son and Holy Spirit together. Identify the confession Christians are explaining, then follow the biblical references in the comparison.',
 };
 function ContextSources({ item }: { item: typeof WORLDVIEWS[number] }) {
-  if (item.readingPlan) return <ReadingPlanRoom item={item} />;
+  const [params] = useSearchParams();
+  if (item.readingPlan) return <ReadingPlanRoom key={params.get('reading') ?? 'default'} item={item} initialSource={params.get('reading')} />;
   return <section className="wv-context-room" aria-labelledby="wv-context-heading"><div className="wv-section-title"><p className="ap-eyebrow">02 / Read in context</p><h2 id="wv-context-heading">The texts behind <em>the conversation.</em></h2><p>The comparison above identifies a difference. Here, return to the document: follow its wording, understand its setting and distinguish the text from an interpretation of it.</p></div><div className="wv-reading-aim"><Compass size={23} /><div><strong>Your aim: understand the passage before using it.</strong><p>Read the whole passage and what surrounds it. Identify who is speaking and who is addressed. Note what is affirmed, what is denied and what the text leaves unexplained.</p></div></div><div className="wv-context-grid ap-source-grid">{item.sources.map((id, index) => { const source = sourceById(id); const questions = item.rows.filter((entry) => [...entry.otherBasis, ...entry.christianBasis].some((citation) => citation.kind === 'source' && citation.source === id)); return <article className="wv-context-card" key={id}><div className="wv-context-meta"><BookOpen size={18} /><span>Source {String(index + 1).padStart(2, '0')} / {source.kind}</span></div><h3>{source.title}</h3><p className="wv-edition">{source.author}</p><div className="wv-source-purpose"><span>Context & purpose</span><p>{source.note}</p></div><div className="wv-reading-task"><span>What to examine</span><p>{readingTasks[id] ?? 'Read the passage in full, including the surrounding argument. Compare the wording with the claim in the reading desk and note where interpretation begins.'}</p></div>{questions.length > 0 && <div className="wv-reading-connections"><span>Return to the question</span>{questions.map((question) => <Link key={question.question} to={'?question=' + question.id + '#comparison'}>{question.question}<ArrowRight size={13} /></Link>)}</div>}<a className="wv-open-source" href={source.url} target="_blank" rel="noreferrer">Open the full text <ArrowUpRight size={15} /></a><small className="wv-source-role">{source.role}</small></article>; })}</div></section>;
 }
-function ReadingPlanRoom({ item }: { item: typeof WORLDVIEWS[number] }) {
+function ReadingPlanRoom({ item, initialSource }: { item: typeof WORLDVIEWS[number]; initialSource: string | null }) {
   const plan = item.readingPlan!;
-  const [selected, setSelected] = useState(0);
-  const [passage, setPassage] = useState(0);
+  const initialStage = Math.max(0, plan.stages.findIndex(stage => stage.readings.some(reading => reading.source === initialSource)));
+  const [selected, setSelected] = useState(initialStage);
+  const [passage, setPassage] = useState(Math.max(0, plan.stages[initialStage].readings.findIndex(reading => reading.source === initialSource)));
   const stage = plan.stages[selected];
   const reading = stage.readings[passage];
   const source = sourceById(reading.source);
   const questions = item.rows.filter(row => row.otherBasis.some(citation => citation.kind === 'source' && citation.source === reading.source));
   const motifs = [1, 0, 2, 3];
-  return <section className="wv-context-room wv-reading-plan wv-relationship-room" aria-labelledby="wv-context-heading">
+  return <section id="reading-sources" className="wv-context-room wv-reading-plan wv-relationship-room" aria-labelledby="wv-context-heading">
     <div className="wv-reading-heading"><div><p className="ap-eyebrow">02 / Read in context</p><h2 id="wv-context-heading">The texts behind<br /><em>the conversation.</em></h2></div><div className="wv-reading-aim"><p>{plan.introduction.split(':')[0]}.</p><details><summary>The purpose of this reading route <ArrowRight size={13} /></summary><p>{plan.introduction}</p></details><span>{plan.stages.length} connected questions <span>·</span> {plan.stages.reduce((total, entry) => total + entry.readings.length, 0)} passages <span>·</span> Scripture alongside</span></div></div>
     <nav className="wv-source-roadmap" aria-label="Reading roadmap">{plan.stages.map((entry, i) => <button type="button" key={entry.title} aria-pressed={i === selected} aria-controls="wv-stage-readings" onClick={() => { setSelected(i); setPassage(0); }}><div className="wv-route-art"><StudyArtwork kind={motifs[i]} /><span>0{i + 1}</span></div><strong>{entry.title}</strong><small>{entry.readings.map(r => sourceById(r.source).title.replace('Qur’an ', '')).join(' · ')}</small><span className="wv-route-arrow"><ArrowRight size={16} /></span></button>)}</nav>
     <div id="wv-stage-readings" className="wv-source-workbench"><aside className="wv-passage-rail"><p className="ap-eyebrow">Stage 0{selected + 1} / Reading aim</p><p className="wv-stage-aim">{stage.aim}</p><nav aria-label="Passages in this stage">{stage.readings.map((entry, i) => <button type="button" key={entry.source} aria-pressed={passage === i} aria-controls="wv-passage-analysis" onClick={() => setPassage(i)}><span>0{i + 1}<ScrollText size={15} /></span><strong>{sourceById(entry.source).title}</strong><small>{entry.title}</small><ArrowRight size={14} /></button>)}</nav><div className="wv-rail-key"><span /><p>Primary text</p><span /><p>Question to examine</p><span /><p>Christian counterpart</p></div></aside>

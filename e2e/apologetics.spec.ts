@@ -202,9 +202,14 @@ test("apologetics: four worldview collections, shareable questions and local ref
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(item.title);
     const buttons = page.getByRole("navigation", { name: "Comparison questions" }).getByRole("button");
     for (let i = 0; i < item.rows.length; i++) {
-      await buttons.nth(i).click();
-      await expect(buttons.nth(i)).toHaveAttribute("aria-pressed", "true");
+      const questionButton = item.id === "islam" ? page.getByRole("navigation", { name: "Comparison questions" }).getByRole("button", { name: item.rows[i].question, exact: true }) : buttons.nth(i);
+      await questionButton.click();
+      await expect(questionButton).toHaveAttribute("aria-pressed", "true");
       await expect(page.locator(".wv-current-question h3")).toHaveText(item.rows[i].question);
+      if (item.id === "islam") {
+        const explanation = page.locator(".wv-perspective .wv-claim-explanation summary");
+        if (await explanation.count()) await explanation.click();
+      }
       await expect(page.locator(".wv-perspective .wv-position-copy p")).toHaveText(item.rows[i].other.split("\n\n"));
       await expect(page.locator(".wv-study-link")).toHaveAttribute("href", `/apologetics/study/${item.rows[i].study}`);
     }
@@ -271,12 +276,16 @@ test("apologetics: Islam uses independent cards and exact question links", async
   await expect(page.getByRole("article", { name: "Christian truth", exact: true })).toBeVisible();
   await expect(page.getByRole("article", { name: "Islamic perspective", exact: true })).toBeVisible();
   await expect(page.locator(".wv-question-nav button svg")).toHaveCount(0);
-  const colors = await page.locator(".wv-positions article").evaluateAll(cards => cards.map(card => getComputedStyle(card).backgroundColor));
+  const colors = await page.locator(".wv-positions article").evaluateAll(cards => cards.map(card => getComputedStyle(card).backgroundImage));
   expect(colors[0]).not.toBe(colors[1]);
   await page.reload();
   await expect(page.locator(".wv-current-question h3")).toHaveText("What does Son of God mean?");
+  await page.locator(".wv-source-roadmap button").nth(1).click();
+  await page.getByRole("navigation", { name: "Passages in this stage" }).getByRole("button").nth(1).click();
   await page.locator('.wv-reading-connections a[href$="?question=created-jesus#comparison"]').first().click();
   await expect(page.locator(".wv-current-question h3")).toHaveText("Was Jesus created?");
+  await page.locator(".wv-claim-context-link").click();
+  await expect(page.locator(".wv-analysis-heading .ap-eyebrow")).toContainText("3:59");
   await page.goto("/apologetics/worldviews/islam?question=islam-trinity");
   await expect(page.locator(".wv-current-question h3")).toHaveText("What does one God mean?");
 });
