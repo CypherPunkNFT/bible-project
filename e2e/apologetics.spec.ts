@@ -84,7 +84,7 @@ test("apologetics: bookmarks, reflection and learning progress persist and can b
 test("apologetics: worldview comparison and sources lead to actual studies", async ({ page }) => {
   await page.goto("/apologetics/worldviews/islam");
   await expect(page.getByRole("navigation", { name: "Comparison questions" }).getByRole("button")).toHaveCount(3);
-  await expect(page.locator(".wv-study-list > a")).toHaveCount(6);
+  await expect(page.locator(".wv-study-cards > article")).toHaveCount(6);
   await expect(page.locator('.ap-source-grid a[href="https://quran.com/en/an-nisa/157"]')).toBeVisible();
   await page.locator(".wv-study-link").click();
   await expect(page).toHaveURL(/\/apologetics\/study\/islam-jesus$/);
@@ -224,4 +224,26 @@ test("apologetics: four worldview collections, shareable questions and local ref
   await page.goto("/apologetics/worldviews/buddhism");
   await page.getByRole("button", { name: "Write a reflection" }).click();
   await expect(page.locator(".ap-note textarea")).toHaveValue("");
+});
+
+
+test("apologetics: contextual sources and illustrated study cards support a reading task", async ({ page }) => {
+  await page.goto("/apologetics/worldviews/islam");
+  await expect(page.locator(".wv-reading-aim")).toContainText("understand the passage before using it");
+  const sources = page.locator(".wv-context-card");
+  await expect(sources.first().locator(".wv-source-purpose")).not.toBeEmpty();
+  await expect(sources.first().locator(".wv-reading-task")).toContainText("Read all four verses together");
+  await expect(sources.first().getByRole("link", { name: "Open the full text" })).toHaveAttribute("href", "https://quran.com/al-ikhlas");
+  const relation = sources.first().locator(".wv-reading-connections a").first();
+  const question = await relation.innerText();
+  await relation.click();
+  await expect(page.locator(".wv-current-question h3")).toHaveText(question.trim());
+  const cards = page.locator(".wv-study-card");
+  await expect(cards.first().locator(".wv-study-art")).toBeVisible();
+  const save = cards.first().getByRole("button", { name: /^Save:/ });
+  await save.click();
+  await page.reload();
+  await expect(cards.first().getByRole("button", { name: /^Unsave:/ })).toHaveAttribute("aria-pressed", "true");
+  await cards.first().locator("a").click();
+  await expect(page).toHaveURL(/\/apologetics\/study\/islam-jesus$/);
 });
