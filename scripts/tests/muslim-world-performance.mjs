@@ -4,8 +4,8 @@ const browser = await chromium.launch({ channel: 'msedge' });
 const page = await browser.newPage({ viewport: { width: 1440, height: 900 }, reducedMotion: 'no-preference' });
 await page.addInitScript(() => {
   window.globeCalls = { frames: 0, raf: 0 };
-  const draw = WebGL2RenderingContext.prototype.drawArrays;
-  WebGL2RenderingContext.prototype.drawArrays = function (...args) { window.globeCalls.frames++; return Reflect.apply(draw, this, args); };
+  const draw = CanvasRenderingContext2D.prototype.clearRect;
+  CanvasRenderingContext2D.prototype.clearRect = function (...args) { if (this.canvas.parentElement?.classList.contains('mw-globe-stage')) window.globeCalls.frames++; return Reflect.apply(draw, this, args); };
   const raf = window.requestAnimationFrame;
   window.requestAnimationFrame = callback => raf.call(window, t => { window.globeCalls.raf++; callback(t); });
 });

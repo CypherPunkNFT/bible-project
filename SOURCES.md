@@ -1171,3 +1171,7 @@ The globe adapts the owner's `design/apostle-directions-2/js/globe.js` mock. The
 ### Muslim-world globe display optimization — 2026-10-09
 
 Natural Earth 1:110m (`world-atlas@2.0.2`, public domain) is archived alongside the original 1:50m input; worldwide land is merged, with country outlines retained only at >=20% Muslim identification in the archived Pew 2020 estimates. The NASA original remains unchanged; the display texture is resized to 2048×1024 WebP. Both derivatives retain the original source licensing and attribution. Build scripts and transformations: [globe provenance](public/assets/muslim-world/README.md). Updated input and derivative checksums: [source manifest](content/missions/source-manifest.json). Local measurements: [performance notes](content/missions/README.md#local-performance-measurement--2026-10-09).
+
+## Muslim-world outline globe — 2026-10-09
+
+The current Islam atlas uses one Canvas 2D surface with Natural Earth coastlines and country outlines; no new source data was acquired. Existing atlas.json SHA-256 `a758fa13594085a305df1faf99644b4c4613c8b4ee18b7e1e5bab6c44756d6e3` and public-domain attribution remain in the display README and missions manifest. NASA earth.webp is retired from served assets; its hash/transformation remain in retiredDisplayDerivatives, with the immutable NASA original retained unchanged. See content/missions/README.md for fixed-circle 1–8× zoom, mobile idle behavior and measured performance.

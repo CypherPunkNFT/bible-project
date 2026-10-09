@@ -41,7 +41,7 @@ test('clicking an actual projected country selects its profile; wheel and keyboa
   const stage = explorer.getByRole('group', { name: /^Interactive globe/ });
   const box = (await stage.boundingBox())!;
   const saudi = geoCentroid(atlas.countries.find(c => c.properties.code === 'SAU') as Feature<Polygon | MultiPolygon>);
-  const projection = geoOrthographic().rotate([-saudi[0], -saudi[1]]).scale(Math.min(box.width, box.height) * .49).translate([box.width / 2, box.height / 2]);
+  const projection = geoOrthographic().rotate([-saudi[0], -saudi[1]]).scale(Math.min(box.width, box.height) / 2 - 1).translate([box.width / 2, box.height / 2]);
   const egypt = projection([29.877917299852545, 26.459585778678562])!;
   await stage.click({ position: { x: egypt[0], y: egypt[1] } });
   await expect(explorer.getByRole('heading', { name: 'Egypt', exact: true })).toBeVisible();
@@ -56,20 +56,26 @@ test('clicking an actual projected country selects its profile; wheel and keyboa
     return (right - left) / image.width;
   })).toBeGreaterThan(.96);
   await stage.hover(); const scrollBefore = await page.evaluate(() => scrollY);
-  await page.mouse.wheel(0, 200); await page.waitForTimeout(150);
+  const wholeWorld = await stage.locator('canvas').evaluate(canvas => (canvas as HTMLCanvasElement).toDataURL());
+  await page.mouse.wheel(0, -700); await page.waitForTimeout(150);
   expect(await page.evaluate(() => scrollY)).toBe(scrollBefore);
-  const shrunk = await stage.locator('canvas').last().evaluate(canvas => {
-    const c = canvas as HTMLCanvasElement; const pixels = c.getContext('2d')!.getImageData(0, c.height / 2, c.width, 1).data;
-    let left = c.width, right = 0; for (let x = 0; x < c.width; x++) if (pixels[x * 4 + 3]) { left = Math.min(left, x); right = Math.max(right, x); }
-    return (right - left) / c.width;
+  expect(await stage.locator('canvas').evaluate(canvas => (canvas as HTMLCanvasElement).toDataURL())).not.toBe(wholeWorld);
+  // Deep zoom retains the same circular window and never leaks into its corners.
+  await page.mouse.wheel(0, -5000); await page.waitForTimeout(150);
+  await page.mouse.wheel(0, -5000); await page.waitForTimeout(150);
+  expect(await page.evaluate(() => scrollY)).toBe(scrollBefore);
+  const aperture = await stage.locator('canvas').evaluate(canvas => {
+    const c = canvas as HTMLCanvasElement, image = c.getContext('2d')!.getImageData(0, 0, c.width, c.height);
+    let outside = 0, left = c.width, right = 0;
+    for (let y = 0; y < c.height; y++) for (let x = 0; x < c.width; x++) if (image.data[(y * c.width + x) * 4 + 3]) {
+      if (Math.hypot(x-c.width/2,y-c.height/2)>c.width/2+1) outside++;
+      left=Math.min(left,x);right=Math.max(right,x);
+    }
+    return { outside, width: (right-left)/c.width };
   });
-  expect(shrunk).toBeLessThan(.85);
-  await page.mouse.wheel(0, -200); await page.waitForTimeout(150);
-  // Repeated wheel gestures stay inside the globe at both zoom limits.
-  await page.mouse.wheel(0, -1200); await page.waitForTimeout(150);
-  expect(await page.evaluate(() => scrollY)).toBe(scrollBefore);
-  await page.mouse.wheel(0, 1200); await page.waitForTimeout(150);
-  await page.mouse.wheel(0, 1200); await page.waitForTimeout(150);
+  expect(aperture.outside).toBe(0); expect(aperture.width).toBeGreaterThan(.98);
+  await page.mouse.wheel(0, 5000); await page.waitForTimeout(150);
+  await page.mouse.wheel(0, 5000); await page.waitForTimeout(150);
   expect(await page.evaluate(() => scrollY)).toBe(scrollBefore);
   await page.keyboard.press('ArrowLeft'); await page.keyboard.press('Home');
   await expect(explorer.getByRole('heading', { name: 'Egypt', exact: true })).toBeVisible();
@@ -84,8 +90,8 @@ test('wheel zoom paints smoothly and stops rendering after the gesture settles',
   await page.emulateMedia({ reducedMotion: 'no-preference' });
   await page.addInitScript(() => {
     window.missionGlobeDraws = [];
-    const draw = WebGL2RenderingContext.prototype.drawArrays;
-    WebGL2RenderingContext.prototype.drawArrays = function (...args) {
+    const draw = CanvasRenderingContext2D.prototype.clearRect;
+    CanvasRenderingContext2D.prototype.clearRect = function (...args) {
       if (this.canvas instanceof HTMLCanvasElement && this.canvas.parentElement?.classList.contains('mw-globe-stage')) window.missionGlobeDraws.push(performance.now());
       return Reflect.apply(draw, this, args);
     };
@@ -95,7 +101,7 @@ test('wheel zoom paints smoothly and stops rendering after the gesture settles',
   await expect(stage).toHaveAttribute('aria-busy', 'false');
   await stage.hover(); await page.waitForTimeout(350);
   await page.evaluate(() => { window.missionGlobeDraws = []; });
-  await page.mouse.wheel(0, 200); await page.waitForTimeout(350);
+  await page.mouse.wheel(0, -200); await page.waitForTimeout(350);
   const frames = await page.evaluate(() => window.missionGlobeDraws);
   expect(frames.length).toBeGreaterThanOrEqual(5);
   const intervals = frames.slice(1).map((time, index) => time - frames[index]).sort((a, b) => a - b);
@@ -105,11 +111,11 @@ test('wheel zoom paints smoothly and stops rendering after the gesture settles',
   expect(await page.evaluate(() => window.missionGlobeDraws.length)).toBe(0);
 });
 
-test('country data stays usable when WebGL is unavailable or map fetch fails', async ({ page }) => {
+test('outline globe needs no WebGL or imagery; profiles stay usable if the map fetch fails', async ({ page }) => {
   await page.addInitScript(() => {
     const getContext = HTMLCanvasElement.prototype.getContext;
     HTMLCanvasElement.prototype.getContext = function (this: HTMLCanvasElement, type: string, ...args: unknown[]) {
-      if (type === 'webgl2') return null;
+      if (type === 'webgl2' || type === 'webgl') throw new Error('The outline globe must not request WebGL.');
       return Reflect.apply(getContext, this, [type, ...args]);
     } as typeof HTMLCanvasElement.prototype.getContext;
   });
@@ -117,7 +123,9 @@ test('country data stays usable when WebGL is unavailable or map fetch fails', a
   const explorer = page.locator('#muslim-world');
   await explorer.scrollIntoViewIfNeeded();
   await expect(explorer.getByRole('group', { name: /^Interactive globe/ })).toHaveAttribute('aria-busy', 'false');
-  await expect(explorer).toContainText('Geographic map view');
+  await expect(explorer.locator('.mw-globe canvas')).toHaveCount(1);
+  await expect(explorer.locator('.mw-map-credit')).toHaveCount(0);
+  expect((await page.evaluate(() => performance.getEntriesByType('resource').map(r => r.name))).some(name => /earth\.(webp|jpg)/.test(name))).toBe(false);
   await explorer.getByRole('combobox', { name: 'Choose a country', exact: true }).selectOption('MYT');
   await expect(explorer.getByRole('heading', { name: 'Mayotte', exact: true })).toBeVisible();
   await page.route('**/assets/muslim-world/atlas.json', route => route.abort());

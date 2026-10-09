@@ -12,10 +12,10 @@ const number = (value: number) => new Intl.NumberFormat('en').format(value);
 const date = new Intl.DateTimeFormat('en', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' }).format(new Date(snapshot.snapshotDate + 'T12:00:00Z'));
 
 function CountryGlobe({ code, spinning, onSelect, onPause }: { code: string; spinning: boolean; onSelect(code: string): void; onPause(): void }) {
-  const stage = useRef<HTMLDivElement>(null), surface = useRef<HTMLCanvasElement>(null), overlay = useRef<HTMLCanvasElement>(null);
+  const stage = useRef<HTMLDivElement>(null), canvas = useRef<HTMLCanvasElement>(null);
   const controller = useRef<MissionGlobe>();
   const latest = useRef({ code, spinning, onSelect, onPause });
-  const [active, setActive] = useState(() => window.location.hash === '#muslim-world'), [ready, setReady] = useState(false), [fallback, setFallback] = useState(false), [error, setError] = useState(false), [hover, setHover] = useState('');
+  const [active, setActive] = useState(() => window.location.hash === '#muslim-world'), [ready, setReady] = useState(false), [error, setError] = useState(false), [hover, setHover] = useState('');
   useEffect(() => { latest.current = { code, spinning, onSelect, onPause }; }, [code, spinning, onSelect, onPause]);
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => { if (entry.isIntersecting) { setActive(true); observer.disconnect(); } }, { rootMargin: '250px' });
@@ -23,17 +23,16 @@ function CountryGlobe({ code, spinning, onSelect, onPause }: { code: string; spi
     return () => observer.disconnect();
   }, []);
   useEffect(() => {
-    if (!active || !stage.current || !surface.current || !overlay.current) return;
+    if (!active || !stage.current || !canvas.current) return;
     const abort = new AbortController();
     let globe: MissionGlobe | undefined;
-    const host = stage.current, background = surface.current, foreground = overlay.current;
+    const host = stage.current, map = canvas.current;
     void import('@/lib/mission-globe').then(({ createMissionGlobe }) => {
       if (abort.signal.aborted) return undefined;
-      return createMissionGlobe(host, background, foreground, countries, {
+      return createMissionGlobe(host, map, countries, {
         selected: latest.current.code, spinning: latest.current.spinning,
         onSelect: value => latest.current.onSelect(value), onPause: () => latest.current.onPause(),
         onHover: value => { if (!abort.signal.aborted) setHover(value); },
-        onFallback: () => { if (!abort.signal.aborted) setFallback(true); },
       }, abort.signal);
     }).then(result => {
       if (!result) return;
@@ -47,11 +46,10 @@ function CountryGlobe({ code, spinning, onSelect, onPause }: { code: string; spi
   useEffect(() => { controller.current?.rotate(spinning); }, [spinning]);
   return <figure className="mw-globe">
     <div className="mw-globe-stage" ref={stage} tabIndex={0} role="group" aria-busy={!ready && !error} aria-label="Interactive globe. Scroll to zoom; arrow keys turn; plus and minus zoom; Space pauses or starts rotation; Home resets. Use the country selector to choose a country.">
-      <canvas ref={surface} aria-hidden="true" /><canvas ref={overlay} aria-hidden="true" />
+      <canvas ref={canvas} aria-hidden="true" />
       {!ready && <div className="mw-globe-loading" role="status"><Globe2 size={90} strokeWidth={.5} /><p>{error ? 'The map is unavailable. Choose a country from the selector.' : 'Opening the atlas…'}</p></div>}
       {hover && <span className="mw-map-hover" aria-hidden="true">{hover} <ArrowUpRight size={12} /></span>}
     </div>
-    <div className="mw-map-credit"><span><i /> Muslim-majority in Pew’s 2020 estimates</span><span>{fallback ? 'Geographic map view' : 'Earth imagery: NASA Blue Marble'}</span></div>
   </figure>;
 }
 
@@ -62,7 +60,7 @@ export default function MuslimWorldExplorer() {
   const country = countries.find(entry => entry.code === requested) ?? countries.find(entry => entry.code === 'PAK')!;
   const [search, setSearch] = useState('');
   const [region, setRegion] = useState('all');
-  const [spinning, setSpinning] = useState(() => !requested && !matchMedia('(prefers-reduced-motion: reduce)').matches);
+  const [spinning, setSpinning] = useState(() => !requested && !matchMedia('(prefers-reduced-motion: reduce)').matches && !matchMedia('(pointer: coarse), (max-width: 760px)').matches);
   const [showGroups, setShowGroups] = useState(false);
   useEffect(() => {
     if (window.location.hash !== '#muslim-world') return;
