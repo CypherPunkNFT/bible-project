@@ -1,8 +1,8 @@
 {
  "schema": 1,
- "commit": "33d32232",
+ "commit": "29a22a1c",
  "startedAt": "2026-10-09T17:18:38.783Z",
- "finishedAt": "2026-10-09T22:06:02.149Z",
+ "finishedAt": "2026-10-09T22:29:15.317Z",
  "base": "http://127.0.0.1:8969",
  "checks": [
   {
@@ -1217,6 +1217,43 @@
     },
     {
      "url": "/apologetics/worldviews/islam?country=PAK&map=flat#muslim-world",
+     "width": 1440,
+     "check": "empty",
+     "detail": "the heading \"Who is Jesus?\" has nothing under it"
+    }
+   ]
+  },
+  {
+   "template": "ap-worldview",
+   "variant": "people-groups",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {
+    "empty": 1,
+    "links": 1
+   },
+   "failures": [
+    {
+     "url": "/apologetics/worldviews/islam?country=IRN&panel=groups#muslim-world",
+     "width": 400,
+     "check": "empty",
+     "detail": "the heading \"Who is Jesus?\" has nothing under it"
+    },
+    {
+     "url": "/apologetics/worldviews/islam?country=IRN&panel=groups#muslim-world",
+     "width": 400,
+     "check": "links",
+     "detail": "/teachers: this address is not a page on the site"
+    },
+    {
+     "url": "/apologetics/worldviews/islam?country=IRN&panel=groups#muslim-world",
+     "width": 400,
+     "check": "links",
+     "detail": "/resources: this address is not a page on the site"
+    },
+    {
+     "url": "/apologetics/worldviews/islam?country=IRN&panel=groups#muslim-world",
      "width": 1440,
      "check": "empty",
      "detail": "the heading \"Who is Jesus?\" has nothing under it"
