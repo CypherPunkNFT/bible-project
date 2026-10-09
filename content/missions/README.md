@@ -20,9 +20,9 @@ Inspect source schema and changed country scope before publishing an update. New
 
 ## Rendering
 
-The renderer and assets load when the section approaches the viewport. The globe uses an orthographic WebGL sphere with NASA Blue Marble imagery and aligned Natural Earth country polygons. Without WebGL or an available texture it retains an interactive geographic map; if boundaries fail, all country profiles remain accessible through the selector. Auto rotation starts only when reduced motion is not requested, pauses on interaction and respects viewport/tab visibility. The animation loop stops completely while paused, offscreen or in a hidden tab. Resize observers, animation frames, events and GPU resources are disposed on navigation.
+The renderer and assets load when the section approaches the viewport. A direct `#muslim-world` refresh starts loading immediately; texture decoding and geometry fetching run in parallel. The initial selected country is centered without an introductory fly animation, and an initial geographic frame is drawn before reporting the globe ready. The globe uses an orthographic WebGL sphere with NASA Blue Marble imagery and aligned Natural Earth country polygons. Without WebGL or an available texture it retains an interactive geographic map; if boundaries fail, all country profiles remain accessible through the selector. Auto rotation starts only when reduced motion is not requested, pauses on interaction and respects viewport/tab visibility. Unattended rotation is capped at 30 fps; wheel/drag gestures and country transitions follow display frames. Zoom uses a short time-based easing transition, or changes immediately when reduced motion is requested. The animation loop stops completely while paused, offscreen or in a hidden tab. Resize observers, animation frames, events and GPU resources are disposed on navigation.
 
-Native country/region selectors provide keyboard and screen-reader access. The globe accepts arrow keys, +/−, Space (pause/start) and Home. Wheel gestures zoom between 60% and full fit, then scroll the page at either limit; the sphere cannot be enlarged past the canvas edges. Touch allows vertical page scrolling and horizontal globe dragging. There are no visible control buttons or drag instructions. The square stage fills the map column and separates the sphere from the introduction.
+Native country/region selectors provide keyboard and screen-reader access. The globe accepts arrow keys, +/−, Space (pause/start) and Home. Wheel gestures zoom between 60% and full fit and never scroll the page while over the globe, including at either limit; the sphere cannot be enlarged past the canvas edges. Wheel scrolling outside the globe works normally. Touch allows vertical page scrolling and horizontal globe dragging. There are no visible control buttons or drag instructions. The square stage fills the map column and separates the sphere from the introduction.
 
 `atlas.json` merges Natural Earth 1:110m land into worldwide coastlines and includes country outlines only for the 61 countries/territories with at least 20% Muslim identification in the same Pew 2020 snapshot. Eight minority-Muslim places have outlines but no majority-country profile or coloured fill. The 53 majority profiles remain the selection scope. Small places absent from 1:110m use 1:50m geometry; Mayotte is extracted from France's actual island polygons. Coordinates are rounded to two decimal degrees, centroids are cached, and the texture is a 2048×1024 WebP. Boundaries and source naming do not resolve disputed status.
 
@@ -30,17 +30,17 @@ Rebuild display assets with `node scripts/build-muslim-world-map.mjs` and `node 
 
 ## Local performance measurement — 2026-10-09
 
-Edge, 1440×900, no motion reduction, local compressed Vite preview; equal four-second samples after assets settle. These are local resource/main-thread measurements, not field Core Web Vitals or measurements on a low-end phone. The renderer's shared D3 dependency and page shell are outside the resource subtotal below.
+Edge, 1440×900, no motion reduction, local compressed Vite preview; equal four-second samples after assets settle. These are local resource/main-thread measurements, not field Core Web Vitals or measurements on a low-end phone. The renderer's shared D3 dependency and page shell are outside the resource subtotal below. The final version paints unattended rotation at ~30 fps rather than the original ~20 fps, so the after sample contains more globe draws. Gestures measured ~16.7 ms between frames (~60 fps), compared with ~50 ms before; the globe stops scheduling frames when the gesture settles. A cold local first frame appeared at 325 ms, and an actual reload at 276 ms; network caching was disabled for these timing checks. Timing depends on hardware and network conditions.
 
 | Measurement | Before | After |
 |---|---:|---:|
-| Renderer + geometry + texture, transferred | 934,153 bytes | 199,536 bytes |
+| Renderer + geometry + texture, transferred | 934,153 bytes | 199,679 bytes |
 | Geometry, uncompressed | 756,420 bytes | 123,178 bytes |
 | Texture | 696,838 bytes | 153,856 bytes |
-| Main-thread tasks during ~4 seconds of rotation | 1,604.7 ms | 310.8 ms |
-| Globe draws during rotation sample | 80 | 80 |
+| Main-thread tasks during ~4 seconds of rotation | 1,604.7 ms | 474.9 ms |
+| Globe draws during rotation sample | 80 | 118 |
 | Animation callbacks during ~4 seconds paused | 241 | 0 |
 
-The 53 demographic/IMB profiles occupy 79,408 bytes in the readable source JSON and remain bundled facts; the original 5.7 MB IMB input is not shipped. Estimated RGBA texture storage including mipmaps falls from 42.7 MiB to 10.7 MiB; this excludes canvas framebuffers and is a calculation, not a GPU-memory measurement. Reproduce browser measurements with `node scripts/tests/muslim-world-performance.mjs` (`BASE` selects the local preview; `LABEL` names the output in `.local/`). Five country-data checks and twelve responsive browser checks cover profile coverage, threshold/coastline geometry, picking, wheel/keyboard gestures, full-fit layout and fallbacks.
+The 53 demographic/IMB profiles occupy 79,408 bytes in the readable source JSON and remain bundled facts; the original 5.7 MB IMB input is not shipped. Estimated RGBA texture storage including mipmaps falls from 42.7 MiB to 10.7 MiB; this excludes canvas framebuffers and is a calculation, not a GPU-memory measurement. Reproduce browser measurements with `node scripts/tests/muslim-world-performance.mjs` (`BASE` selects the local preview; `LABEL` names the output in `.local/`). Five country-data checks and fifteen responsive browser checks cover profile coverage, threshold/coastline geometry, picking, wheel/keyboard gestures, full-fit layout and fallbacks.
 
 Sources and asset provenance: [public/assets/muslim-world/README.md](../../public/assets/muslim-world/README.md). No deployment is implied by a successful local build.

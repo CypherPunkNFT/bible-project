@@ -50,6 +50,9 @@ export async function createMissionGlobe(
   options: { selected: string; spinning: boolean; onSelect(code: string): void; onPause(): void; onHover(name: string): void; onFallback(): void },
   signal: AbortSignal,
 ): Promise<MissionGlobe> {
+  // Decode the texture while geometry loads and the graphics context starts.
+  const image = new Image(); image.src = '/assets/muslim-world/earth.webp';
+  const photo = image.decode().then(() => true, () => false);
   const response = await fetch('/assets/muslim-world/atlas.json', { signal });
   if (!response.ok) throw new Error('Country map could not be loaded.');
   const atlas = await response.json() as { land: MultiPolygon; countries: CountryFeature[] };
@@ -65,7 +68,7 @@ export async function createMissionGlobe(
   const shaders: WebGLShader[] = [];
   let uniforms: Record<string, WebGLUniformLocation | null> = {};
   let photoReady = false, destroyed = false, visible = true, pageVisible = !document.hidden;
-  let width = 1, height = 1, dpr = 1, radius = 1, zoom = 1, lon = 45, lat = 22;
+  let width = 1, height = 1, dpr = 1, radius = 1, zoom = 1, zoomTarget = 1, lon = 45, lat = 22;
   let selected = options.selected, spinning = options.spinning, dirty = true, raf = 0, last = 0;
   let hover = '', pointer: { id: number; x: number; y: number; lon: number; lat: number; moved: boolean } | null = null;
   let fly: { lon: number; lat: number; startLon: number; startLat: number; start: number } | null = null;
@@ -75,7 +78,7 @@ export async function createMissionGlobe(
   let dark = darkTheme();
   function invalidate() {
     dirty = true;
-    if (!destroyed && visible && pageVisible && !raf) raf = requestAnimationFrame(frame);
+    if (!destroyed && visible && pageVisible && !raf) { last = performance.now(); raf = requestAnimationFrame(frame); }
   }
   const dropGL = () => {
     if (gl) {
@@ -105,9 +108,9 @@ export async function createMissionGlobe(
       uniforms = Object.fromEntries(['resolution', 'rotation', 'radius', 'earth', 'ready', 'dark'].map(name => [name, gl!.getUniformLocation(program!, name)]));
       texture = gl.createTexture(); gl.bindTexture(gl.TEXTURE_2D, texture);
       gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, 1, 1, 0, gl.RGBA, gl.UNSIGNED_BYTE, new Uint8Array([30, 55, 60, 255]));
-      const image = new Image(); image.src = '/assets/muslim-world/earth.webp';
-      void image.decode().then(() => {
+      void photo.then(decoded => {
         if (!gl || destroyed || signal.aborted) return;
+        if (!decoded) { dropGL(); return; }
         const max = gl.getParameter(gl.MAX_TEXTURE_SIZE) as number;
         let source: TexImageSource = image;
         if (image.width > max) {
@@ -126,10 +129,11 @@ export async function createMissionGlobe(
     } catch { dropGL(); }
   } else options.onFallback();
 
-  const center = (code: string) => {
+  const center = (code: string, animate = true) => {
     const target = centroids.get(code);
     if (!target) return;
-    if (reduced.matches) { [lon, lat] = target; fly = null; }
+    if (Math.abs(((target[0] - lon + 540) % 360) - 180) < .01 && Math.abs(target[1] - lat) < .01) { fly = null; return; }
+    if (!animate || reduced.matches) { [lon, lat] = target; fly = null; }
     else fly = { lon: target[0], lat: target[1], startLon: lon, startLat: lat, start: performance.now() };
     invalidate();
   };
@@ -222,13 +226,17 @@ export async function createMissionGlobe(
   };
   const cancel = () => { pointer = null; host.classList.remove('is-dragging'); };
   const leave = () => { if (!pointer) { hover = ''; invalidate(); options.onHover(''); } };
-  const adjustZoom = (delta: number) => { zoom = Math.max(.6, Math.min(1, zoom + delta)); invalidate(); };
+  const adjustZoom = (delta: number) => {
+    zoomTarget = Math.max(.6, Math.min(1, zoomTarget + delta));
+    if (reduced.matches) zoom = zoomTarget;
+    invalidate();
+  };
   const wheel = (event: WheelEvent) => {
+    event.preventDefault(); pause();
     const delta = event.deltaY * (event.deltaMode === 1 ? 16 : event.deltaMode === 2 ? height : 1);
-    const next = Math.max(.6, Math.min(1, zoom - delta * .001));
-    // At either limit, allow the same gesture to continue scrolling the page.
-    if (next === zoom) return;
-    event.preventDefault(); pause(); zoom = next; invalidate();
+    const next = Math.max(.6, Math.min(1, zoomTarget - delta * .001));
+    if (next === zoomTarget) return;
+    adjustZoom(next - zoomTarget);
   };
   const key = (event: KeyboardEvent) => {
     if (!['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', '+', '-', '=', 'Home', ' '].includes(event.key)) return;
@@ -240,7 +248,7 @@ export async function createMissionGlobe(
     if (event.key === 'ArrowDown') lat = Math.max(-75, lat - 10);
     if (event.key === '+' || event.key === '=') adjustZoom(.1);
     if (event.key === '-') adjustZoom(-.1);
-    if (event.key === 'Home') { zoom = 1; center(selected); }
+    if (event.key === 'Home') { zoom = zoomTarget = 1; center(selected); }
     invalidate();
   };
   const contextLost = (event: Event) => { event.preventDefault(); dropGL(); };
@@ -249,7 +257,7 @@ export async function createMissionGlobe(
   const updateTheme = () => { dark = darkTheme(); invalidate(); };
   const theme = new MutationObserver(updateTheme); theme.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
   const visibility = () => { pageVisible = !document.hidden; invalidate(); };
-  const motion = () => { if (reduced.matches) pause(); invalidate(); };
+  const motion = () => { if (reduced.matches) { pause(); zoom = zoomTarget; } invalidate(); };
   document.addEventListener('visibilitychange', visibility); reduced.addEventListener('change', motion);
   host.addEventListener('pointerdown', down); host.addEventListener('pointermove', move);
   host.addEventListener('pointerup', up); host.addEventListener('pointercancel', cancel);
@@ -259,8 +267,16 @@ export async function createMissionGlobe(
   function frame(time: number) {
     raf = 0;
     if (destroyed || !visible || !pageVisible) { last = time; return; }
-    const elapsed = Math.min(time - last, 100);
-    if (elapsed >= 1000 / 24 && visible && pageVisible) {
+    const elapsed = Math.min(Math.max(time - last, 0), 100);
+    const zooming = zoom !== zoomTarget;
+    // Gestures and country transitions follow display frames; only unattended
+    // rotation is capped at 30 fps. Idle and offscreen globes schedule no frames.
+    if (dirty || pointer || fly || zooming || elapsed + .5 >= 1000 / 30) {
+      if (zooming) {
+        zoom += (zoomTarget - zoom) * (1 - Math.exp(-elapsed / 35));
+        if (Math.abs(zoomTarget - zoom) < .0005) zoom = zoomTarget;
+        dirty = true;
+      }
       if (fly) {
         const t = Math.min(1, (time - fly.start) / 650), smooth = t * t * (3 - 2 * t);
         const delta = ((fly.lon - fly.startLon + 540) % 360) - 180;
@@ -269,14 +285,14 @@ export async function createMissionGlobe(
       } else if (spinning && !pointer) { lon += elapsed * .0025; dirty = true; }
       if (dirty) draw(); last = time;
     } else if (!visible || !pageVisible) last = time;
-    if (dirty || fly || (spinning && !pointer)) raf = requestAnimationFrame(frame);
+    if (dirty || fly || zoom !== zoomTarget || (spinning && !pointer)) raf = requestAnimationFrame(frame);
   }
-  resize(); if (!spinning) center(selected); invalidate();
+  resize(); if (!spinning) center(selected, false); draw(); invalidate();
   return {
     select(code, shouldCenter = true) { selected = code; if (shouldCenter) center(code); invalidate(); },
     rotate(value) { spinning = value; invalidate(); },
     zoom: adjustZoom,
-    reset() { zoom = 1; center(selected); invalidate(); },
+    reset() { zoom = zoomTarget = 1; center(selected); invalidate(); },
     destroy() {
       destroyed = true; cancelAnimationFrame(raf); observer.disconnect(); viewport.disconnect(); theme.disconnect();
       document.removeEventListener('visibilitychange', visibility); reduced.removeEventListener('change', motion);

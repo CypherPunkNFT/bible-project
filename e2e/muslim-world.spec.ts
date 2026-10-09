@@ -3,6 +3,7 @@ import { geoCentroid, geoOrthographic } from 'd3-geo';
 import { readFileSync } from 'node:fs';
 import type { Feature, Polygon, MultiPolygon } from 'geojson';
 const atlas = JSON.parse(readFileSync('public/assets/muslim-world/atlas.json', 'utf8')) as { countries: Feature<Polygon | MultiPolygon, { code: string }>[] };
+declare global { interface Window { missionGlobeDraws: number[] } }
 
 const route = '/apologetics/worldviews/islam';
 test('country selection, demographics, source links and group examples preserve the comparison', async ({ page }) => {
@@ -64,8 +65,44 @@ test('clicking an actual projected country selects its profile; wheel and keyboa
   });
   expect(shrunk).toBeLessThan(.85);
   await page.mouse.wheel(0, -200); await page.waitForTimeout(150);
+  // Repeated wheel gestures stay inside the globe at both zoom limits.
+  await page.mouse.wheel(0, -1200); await page.waitForTimeout(150);
+  expect(await page.evaluate(() => scrollY)).toBe(scrollBefore);
+  await page.mouse.wheel(0, 1200); await page.waitForTimeout(150);
+  await page.mouse.wheel(0, 1200); await page.waitForTimeout(150);
+  expect(await page.evaluate(() => scrollY)).toBe(scrollBefore);
   await page.keyboard.press('ArrowLeft'); await page.keyboard.press('Home');
   await expect(explorer.getByRole('heading', { name: 'Egypt', exact: true })).toBeVisible();
+  // The rest of the page retains ordinary wheel scrolling.
+  const viewport = page.viewportSize()!;
+  await page.mouse.move(viewport.width - 2, viewport.height / 2);
+  await page.mouse.wheel(0, 200); await page.waitForTimeout(150);
+  expect(await page.evaluate(() => scrollY)).toBeGreaterThan(scrollBefore);
+});
+
+test('wheel zoom paints smoothly and stops rendering after the gesture settles', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'no-preference' });
+  await page.addInitScript(() => {
+    window.missionGlobeDraws = [];
+    const draw = WebGL2RenderingContext.prototype.drawArrays;
+    WebGL2RenderingContext.prototype.drawArrays = function (...args) {
+      if (this.canvas instanceof HTMLCanvasElement && this.canvas.parentElement?.classList.contains('mw-globe-stage')) window.missionGlobeDraws.push(performance.now());
+      return Reflect.apply(draw, this, args);
+    };
+  });
+  await page.goto(route + '?country=PAK#muslim-world');
+  const stage = page.getByRole('group', { name: /^Interactive globe/ });
+  await expect(stage).toHaveAttribute('aria-busy', 'false');
+  await stage.hover(); await page.waitForTimeout(350);
+  await page.evaluate(() => { window.missionGlobeDraws = []; });
+  await page.mouse.wheel(0, 200); await page.waitForTimeout(350);
+  const frames = await page.evaluate(() => window.missionGlobeDraws);
+  expect(frames.length).toBeGreaterThanOrEqual(5);
+  const intervals = frames.slice(1).map((time, index) => time - frames[index]).sort((a, b) => a - b);
+  expect(intervals[Math.floor(intervals.length / 2)]).toBeLessThan(35);
+  await page.evaluate(() => { window.missionGlobeDraws = []; });
+  await page.waitForTimeout(350);
+  expect(await page.evaluate(() => window.missionGlobeDraws.length)).toBe(0);
 });
 
 test('country data stays usable when WebGL is unavailable or map fetch fails', async ({ page }) => {

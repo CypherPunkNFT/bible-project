@@ -15,7 +15,7 @@ function CountryGlobe({ code, spinning, onSelect, onPause }: { code: string; spi
   const stage = useRef<HTMLDivElement>(null), surface = useRef<HTMLCanvasElement>(null), overlay = useRef<HTMLCanvasElement>(null);
   const controller = useRef<MissionGlobe>();
   const latest = useRef({ code, spinning, onSelect, onPause });
-  const [active, setActive] = useState(false), [ready, setReady] = useState(false), [fallback, setFallback] = useState(false), [error, setError] = useState(false), [hover, setHover] = useState('');
+  const [active, setActive] = useState(() => window.location.hash === '#muslim-world'), [ready, setReady] = useState(false), [fallback, setFallback] = useState(false), [error, setError] = useState(false), [hover, setHover] = useState('');
   useEffect(() => { latest.current = { code, spinning, onSelect, onPause }; }, [code, spinning, onSelect, onPause]);
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => { if (entry.isIntersecting) { setActive(true); observer.disconnect(); } }, { rootMargin: '250px' });
