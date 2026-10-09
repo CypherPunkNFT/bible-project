@@ -17,9 +17,10 @@
     // his outline. Low hills either side; the tree stands in front of the house's right side.
     doorSolid: () => svg("Line drawing: Jesus standing as a softly lit figure in the open doorway of a small stone house at night, his arms open, the light falling across the step; a hill behind the house and a tree beside it", `
       <defs>${glow("door-glow-2", "var(--c)", .5)}</defs>
-      ${stars([[12, 26], [40, 14, 1.2], [70, 34, .9], [96, 18], [124, 8, .8], [150, 28, 1.1], [178, 16], [204, 40, .8], [226, 22, 1.2], [252, 10], [276, 34, 1.1], [300, 18], [314, 52, .9], [262, 66, .8], [236, 80, .8], [300, 86, .9], [190, 50, .7]])}
-      <path class="f" d="M64 154C44 149 22 149 0 154"/>
-      <path class="f" d="M256 154C276 149 298 149 320 154"/>
+      ${stars([[12, 26], [40, 14, 1.2], [70, 34, .9], [96, 18], [124, 8, .8], [190, 12],  [204, 40, .8], [226, 22, 1.2], [252, 10], [276, 34, 1.1], [300, 18], [314, 52, .9], [262, 66, .8], [236, 80, .8], [300, 86, .9], [190, 50, .7]])}
+      <circle class="t" cx="158" cy="36" r="10"/><g class="t sunrays">${range(12, (i) => { const a = i * Math.PI / 6, r2 = i % 2 ? 17 : 20; return `<path d="M${n(158 + Math.cos(a) * 14)} ${n(36 + Math.sin(a) * 14)}L${n(158 + Math.cos(a) * r2)} ${n(36 + Math.sin(a) * r2)}"/>`; })}</g>
+      <path class="f" d="M64 164C44 159 22 159 0 164"/>
+      <path class="f" d="M256 164C276 159 298 159 320 164"/>
       <g transform="translate(30 0)">
       <path class="pf" d="M22 69H234V200H22Z"/>
       <path d="M22 76H234"/><path d="M27 69H229"/><path d="M22 76L27 69M234 76L229 69"/>
@@ -30,16 +31,15 @@
       <g class="glow-door"><ellipse cx="128" cy="150" rx="46" ry="64" fill="url(#door-glow-2)" stroke="none"/><ellipse cx="128" cy="214" rx="60" ry="16" fill="url(#door-glow-2)" stroke="none"/></g>
       <path d="M105 200V128C105 114 115 105 128 105C141 105 151 114 151 128V200"/>
       <path d="M151 200L143 195V110.2"/><path class="f" d="M147 191V122"/>
+      <g class="spill"><path class="t" d="M105 200L64 240"/><path class="t" d="M151 200L194 240"/><path class="ft" d="M116.5 200L96 240M128 200V240M139.5 200L160 240"/></g>
       <path class="solid" d="${FIGURE}"/>
       <path class="fold" d="M121.4 142C126 151 133 160 139 175M124.6 156C123.8 172 123 186 122.6 199M132.6 158C133.4 172 134 186 134.6 199M117.6 137C121 134.6 124 134 128 134C132 134 135 134.6 138.4 137"/>
-      <path d="M98 200H158"/><path d="M94 206H162"/>
-      <g class="spill"><path class="t" d="M98 206L64 240"/><path class="t" d="M158 206L194 240"/><path class="ft" d="M110 206L96 240M128 206V240M146 206L160 240"/></g>
       ${range(7, (i) => `<circle class="mote" style="--i:${i}" cx="${108 + (i * 9) % 40}" cy="${236 - (i * 5) % 22}" r="1" fill="currentColor"/>`)}
       <path d="M78 200L80 187H94L96 200"/><path d="M87 187C85 179 80 175 74 175M87 187C88 179 92 174 98 173M87 187V177"/>
       </g>
-      <path d="M4 200H128M188 200H316"/>
+      <path d="M4 200H135M181 200H316"/>
       ${TREE}
-      ${tuft(10, 200)}${tuft(240, 201, .8)}${tuft(262, 200, .7)}${tuft(170, 201, .7)}${tuft(204, 200, .6)}${tuft(70, 222, .8)}${tuft(90, 231, .7)}${tuft(238, 224, .8)}${tuft(258, 232, .7)}
+      ${tuft(10, 200)}${tuft(34, 233, .7)}${tuft(22, 239, .8)}${tuft(240, 201, .8)}${tuft(262, 200, .7)}${tuft(170, 201, .7)}${tuft(204, 200, .6)}${tuft(70, 222, .8)}${tuft(90, 231, .7)}${tuft(238, 224, .8)}${tuft(258, 232, .7)}
       ${[[58, 230, 12, -2], [78, 238, 9, 2], [48, 238, 8, 1], [250, 228, 11, 2], [272, 236, 9, -2], [288, 230, 8, 1]].map(([x, y, h, lean], i) => `<g class="bloom" style="transform-origin:${x}px ${y}px;--i:${i}"><path d="M${x} ${y}C${x} ${y - h / 2} ${x + lean / 2} ${y - h * .8} ${x + lean} ${y - h}"/>${range(5, (k) => { const a = (k * 72 - 90) * Math.PI / 180; return `<circle class="${i % 2 ? "violet" : "blue"} petal" cx="${n(x + lean + Math.cos(a) * 2.6)}" cy="${n(y - h - 2 + Math.sin(a) * 2.6)}" r="1.5"/>`; })}<circle class="heart" cx="${x + lean}" cy="${y - h - 2}" r="1"/></g>`).join("")}`),
 
     // B · New every morning (Lamentations 3:22–23), refined: a yellow sun rising, its beams falling across the hills,
@@ -65,10 +65,11 @@
       ${[[40, 238, 26, -6], [54, 238, 18, 4], [100, 238, 22, 3], [116, 238, 14, -4], [214, 238, 18, -3], [282, 238, 22, 6], [296, 238, 14, -4]].map(([x, y, h, lean], i) => `<g class="bloom" style="transform-origin:${x}px ${y}px;--i:${i}"><path d="M${x} ${y}C${x} ${y - h / 2} ${x + lean / 2} ${y - h * .8} ${x + lean} ${y - h}"/>
         <circle class="${i % 2 ? "violet" : "blue"} heart" cx="${x + lean}" cy="${y - h - 3}" r="2"/>${range(5, (k) => { const a = (k * 72 - 90) * Math.PI / 180; return `<circle class="${i % 2 ? "violet" : "blue"} petal" cx="${n(x + lean + Math.cos(a) * 5)}" cy="${n(y - h - 3 + Math.sin(a) * 5)}" r="2.6"/>`; })}</g>`).join("")}`),
 
-    // C · The well of John 4:14, refined: the sun glowing with turning rays, olive trees on the hills.
-    well: () => svg("Line drawing: a stone well with a small roof and a bucket on its rope under a glowing sun, olive trees on the hills, a clay water jar beside it", `
-      <defs>${glow("sun-glow-w", "var(--sun)", .6)}</defs>
-      <circle class="sun-glow" cx="56" cy="46" r="38" fill="url(#sun-glow-w)" stroke="none"/>
+    // C · The well of John 4:14, refined: a plain line sun with turning rays, soft clouds drifting, a flock crossing high up,
+    // olive trees on the hills.
+    well: () => svg("Line drawing: a stone well with a small roof and a bucket on its rope under the sun and drifting clouds, birds flying high, olive trees on the hills, a clay water jar beside it", `
+      <g class="cloud f"><path transform="translate(226 46) scale(1.1)" d="M0 0C0-6 8-8 12-4C14-10 26-10 28-3C34-4 38 2 34 6H2C-2 6-2 2 0 0Z"/></g><g class="cloud slow f"><path transform="translate(268 82) scale(0.8)" d="M0 0C0-6 8-8 12-4C14-10 26-10 28-3C34-4 38 2 34 6H2C-2 6-2 2 0 0Z"/></g><g class="cloud slower f"><path transform="translate(18 96) scale(0.7)" d="M0 0C0-6 8-8 12-4C14-10 26-10 28-3C34-4 38 2 34 6H2C-2 6-2 2 0 0Z"/></g>
+      <g class="flock">${bird(0, 0)}${bird(18, -6, .8)}${bird(12, 6, .7)}</g>
       <g class="rays sunline">${range(12, (i) => { const a = i * Math.PI / 6; return `<path d="M${n(56 + Math.cos(a) * 18)} ${n(46 + Math.sin(a) * 18)}L${n(56 + Math.cos(a) * (i % 2 ? 24 : 28))} ${n(46 + Math.sin(a) * (i % 2 ? 24 : 28))}"/>`; })}</g>
       <circle class="sun" cx="56" cy="46" r="12"/>
       <path class="f" d="M0 150C40 136 80 132 120 140M200 138C240 130 280 132 320 142"/>

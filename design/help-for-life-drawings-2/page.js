@@ -5,7 +5,7 @@
   const ITEMS = [
     { key: "doorSolid", css: "door-solid", name: "Door, with Jesus", tone: "sun", verse: DOOR, ref: "Matthew 11:28", note: "Jesus at the open door, as the verse invites: a solid, softly lit figure; low hills either side, the tree in front of the house." },
     { key: "morning", css: "morning", name: "Morning", tone: "sun", verse: "It is of the LORD’s mercies that we are not consumed, because his compassions fail not. They are new every morning: great is thy faithfulness.", ref: "Lamentations 3:22–23", note: "A yellow sun with beams falling, the last stars fading, more trees and grass, pale blue and violet flowers." },
-    { key: "well", css: "well", name: "Well", tone: "accent", verse: "But whosoever drinketh of the water that I shall give him shall never thirst …", ref: "John 4:14", note: "The sun glowing with its rays turning slowly; olive trees on the hills." },
+    { key: "well", css: "well", name: "Well", tone: "accent", verse: "But whosoever drinketh of the water that I shall give him shall never thirst …", ref: "John 4:14", note: "A plain sun with slowly turning rays, soft drifting clouds, a flock of birds high up, olive trees on the hills." },
     { key: "doorOriginal", css: "door-original", name: "Door, as first drawn", tone: "epistles", verse: DOOR, ref: "Matthew 11:28", note: "The first version, before Jesus was added, shown unchanged." },
   ];
   const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);

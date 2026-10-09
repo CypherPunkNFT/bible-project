@@ -58,6 +58,7 @@
 
 :root[data-theme="dark"] .draw-door-solid .solid { fill: color-mix(in srgb, var(--c) 58%, var(--page)); }
 
+.draw-door-solid .sunrays { transform-origin: 158px 36px; animation: turn 80s linear infinite; }
 .draw-door-solid .bloom { animation: sway 6s ease-in-out infinite alternate; animation-delay: calc(var(--i) * -1.7s); }
 .draw-door-solid .blue { stroke: var(--blue); } .draw-door-solid .violet { stroke: var(--violet); }
 .draw-door-solid .petal { opacity: .8; } .draw-door-solid .heart { fill: var(--sun); stroke: none; opacity: .8; }
@@ -79,9 +80,14 @@
 .draw-morning .blue { stroke: var(--blue); } .draw-morning .violet { stroke: var(--violet); }
 .draw-morning .petal { opacity: .7; } .draw-morning .heart { fill: currentColor; color: var(--sun); stroke: none; opacity: .8; }
 
-/* 3 · Well: the sun's glow breathes and its rays turn slowly; the bucket sways, drops fall and ring the water. */
-.draw-well .sun-glow { transform-box: fill-box; transform-origin: 50% 50%; animation: sun-breathe 6s ease-in-out infinite alternate; }
-@keyframes sun-breathe { from { transform: scale(.9); opacity: .7; } to { transform: scale(1.06); opacity: 1; } }
+/* 3 · Well: the sun's rays turn slowly, clouds drift, a flock crosses high up; the bucket sways, drops fall and ring the water. */
+@keyframes drift-x { from { transform: translateX(0); } to { transform: translateX(var(--dx, 24px)); } }
+.draw-well .sun { fill: none; }
+.draw-well .cloud { --dx: 22px; animation: drift-x 24s ease-in-out infinite alternate; }
+.draw-well .cloud.slow { --dx: -18px; animation-duration: 30s; }
+.draw-well .cloud.slower { --dx: 16px; animation-duration: 36s; }
+.draw-well .flock { animation: flock 30s linear infinite; }
+@keyframes flock { from { transform: translate(-50px, 16px); } to { transform: translate(350px, 10px); } }
 .draw-well .rays { transform-origin: 56px 46px; animation: turn 90s linear infinite; }
 .draw-well .swing { transform-origin: 150px 80px; animation: swing 5s ease-in-out infinite alternate; }
 @keyframes swing { from { transform: rotate(-3deg); } to { transform: rotate(3deg); } }
