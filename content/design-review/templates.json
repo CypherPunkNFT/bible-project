@@ -1,7 +1,7 @@
 {
  "schema": 1,
- "generatedAt": "2026-10-09T23:48:07.244Z",
- "commit": "536131a0",
+ "generatedAt": "2026-10-09T23:53:58.353Z",
+ "commit": "d2fdb2c7",
  "areas": [
   {
    "id": "people",
@@ -2605,11 +2605,13 @@
    "sources": [
     "content/missions/muslim-world.json",
     "src/components/ApologeticsParts.tsx",
+    "src/components/apologetics/CountryPanelHeader.tsx",
     "src/components/apologetics/CountryPanelPrototype.tsx",
     "src/components/apologetics/CountryPeopleGroups.tsx",
     "src/components/apologetics/MuslimWorldExplorer.tsx",
     "src/components/apologetics/PillScroll.tsx",
     "src/components/apologetics/country-panel-prototype.css",
+    "src/components/apologetics/country-people-groups.css",
     "src/components/apologetics/muslim-world.css",
     "src/components/apologetics/pill-scroll.css",
     "src/lib/mission-atlas.ts",
@@ -2620,7 +2622,7 @@
     "src/pages/WorldviewsPage.tsx",
     "src/pages/worldviews.css"
    ],
-   "sourceHash": "76265b2e367e739f",
+   "sourceHash": "b4457dc13767c845",
    "signature": {
     "selector": "#muslim-world",
     "label": "Muslim-world country explorer"
@@ -2746,6 +2748,62 @@
        "id": "page",
        "label": "The page",
        "url": "/apologetics/worldviews/islam?country=EGY&atlasDesign=d#muslim-world",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "panel-a-groups",
+     "name": "Islam: panel A people groups",
+     "what": "Distinct ledger, cards, engagement sections or expandable directory; four filter buttons and an external pill-only scroll thumb.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/apologetics/worldviews/islam?country=EGY&atlasDesign=a&panel=groups#muslim-world",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "panel-b-groups",
+     "name": "Islam: panel B people groups",
+     "what": "Distinct ledger, cards, engagement sections or expandable directory; four filter buttons and an external pill-only scroll thumb.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/apologetics/worldviews/islam?country=EGY&atlasDesign=b&panel=groups#muslim-world",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "panel-c-groups",
+     "name": "Islam: panel C people groups",
+     "what": "Distinct ledger, cards, engagement sections or expandable directory; four filter buttons and an external pill-only scroll thumb.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/apologetics/worldviews/islam?country=EGY&atlasDesign=c&panel=groups#muslim-world",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "panel-d-groups",
+     "name": "Islam: panel D people groups",
+     "what": "Distinct ledger, cards, engagement sections or expandable directory; four filter buttons and an external pill-only scroll thumb.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/apologetics/worldviews/islam?country=EGY&atlasDesign=d&panel=groups#muslim-world",
        "why": "the only page of this design"
       }
      ]
