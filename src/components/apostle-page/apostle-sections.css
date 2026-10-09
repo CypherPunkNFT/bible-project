@@ -36,6 +36,7 @@
 .ap .a-svg .me-dot { opacity: .9; }
 .ap .a-svg .colhit { fill: transparent; cursor: crosshair; }
 .ap .a-svg .col-on { fill: color-mix(in srgb, var(--accent) 12%, transparent); }
+.ap .a-svg .col-on.kept { fill: color-mix(in srgb, var(--accent) 20%, transparent); stroke: color-mix(in srgb, var(--accent) 55%, transparent); stroke-width: 1; }
 .ap .a-now { min-height: 3.4em; margin-top: .8rem; padding-top: .7rem; border-top: 1px solid var(--line); font-size: .86rem; line-height: 1.7; }
 .ap .a-now b { font: 500 1.02rem var(--serif); }
 .ap .a-read { margin-left: .5rem; padding: .1rem .6rem; border: 1px solid var(--line); border-radius: 999px; font-size: .72rem; color: var(--accent); }

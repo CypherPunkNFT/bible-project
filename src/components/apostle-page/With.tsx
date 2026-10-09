@@ -17,6 +17,7 @@ function Lines({ d, row, onEntry, onRow }: { d: Apostle; row: string | null; onE
   const cols = d.scripture, scroller = useRef<HTMLDivElement>(null);
   const [width, setWidth] = useState(0);
   const [hot, setHot] = useState(() => Math.max(0, cols.findIndex((e) => Object.keys(e.with).length > 2)));
+  const [kept, setKept] = useState<number | null>(null);
   useEffect(() => {
     const el = scroller.current;
     if (!el) return;
@@ -32,7 +33,7 @@ function Lines({ d, row, onEntry, onRow }: { d: Apostle; row: string | null; onE
     const idx = cols.map((e, i) => (e.period === pi + 1 ? i : -1)).filter((i) => i >= 0);
     if (!idx.length) return;
     const x0 = left + step * idx[0], x1 = left + step * (idx[idx.length - 1] + 1);
-    o.push(<rect key={`b${pi}`} className={`band${pi % 2 ? " alt" : ""}`} x={x0} y={top - 30} width={x1 - x0} height="100%" />,
+    o.push(<rect key={`b${pi}`} className={`band${pi % 2 ? " alt" : ""}`} x={x0} y={top - 6} width={x1 - x0} height="100%" />,
       <text key={`bt${pi}`} className="band-t" x={x0 + 6} y={top - 16} style={{ fill: PERIOD_TONE[pi + 1] }}>{x1 - x0 > p.title.length * 7.5 + 40 ? `${p.n} · ${p.title}` : p.n}</text>);
   });
   let y = top + 6;
@@ -51,18 +52,19 @@ function Lines({ d, row, onEntry, onRow }: { d: Apostle; row: string | null; onE
     y += 8;
   }
   const H = y + 6;
-  const pick = (i: number) => { if (i !== hot) { setHot(i); onEntry(cols[i]); } };
+  const pick = (i: number) => { if (kept === null && i !== hot) { setHot(i); onEntry(cols[i]); } };
+  const keep = (i: number) => { if (kept === i) { setKept(null); return; } setKept(i); setHot(i); onEntry(cols[i]); };
   const tip = (e: ReactPointerEvent, en: Entry) => {
     const names = Object.keys(en.with).map((k) => d.rowByKey[k]?.name).filter(Boolean);
     Tip.show({ title: en.title, lines: [`${en.refs[0] ? refText(en.refs[0]) : ""}${names.length ? ` · with ${names.slice(0, 4).join(", ")}${names.length > 4 ? "…" : ""}` : ""}`] }, e.clientX, e.clientY);
   };
   return <>
     <div className="a-chart-scroll" ref={scroller}><div className="a-chart" onPointerLeave={() => Tip.hide()}>{width > 0 && <svg className="a-svg" width={W} height={H} viewBox={`0 0 ${W} ${H}`}>
-      <g className="hl">{hot >= 0 && <rect className="col-on" x={left + step * hot} y={10} width={step} height="100%" />}</g>
+      <g className="hl">{hot >= 0 && <rect className={`col-on${kept === hot ? " kept" : ""}`} x={left + step * hot} y={top - 6} width={step} height="100%" />}</g>
       {o}
-      {cols.map((en, i) => <rect key={`c${i}`} className="colhit" x={left + step * i} y={top - 6} width={step} height={H - top} onPointerMove={(e) => { pick(i); tip(e, en); }} onClick={() => { setHot(i); onEntry(en); }} />)}
+      {cols.map((en, i) => <rect key={`c${i}`} className="colhit" x={left + step * i} y={top - 6} width={step} height={H - top} onPointerMove={(e) => { pick(i); tip(e, en); }} onClick={() => keep(i)} />)}
     </svg>}</div></div>
-    <p className="a-key"><span><i className="k-dot" />named in the passage</span><span><i className="k-line" />from first to last mention</span><span>Point at a column to see what happens; choose a name to follow that person.</span></p>
+    <p className="a-key"><span><i className="k-dot" />named in the passage</span><span><i className="k-line" />from first to last mention</span><span>Point at a column to see what happens; click it to keep it (click again to let go); choose a name to follow that person.</span></p>
   </>;
 }
 
