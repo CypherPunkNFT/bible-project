@@ -10,7 +10,7 @@ export function NationalLines({ groups }: { groups: LifeData["groups"] }) {
   const [chosen, setChosen] = useState(groups[0]?.id ?? "");
   const [open, setOpen] = useState<string | null>(null);
   return <section className="lf-nat" aria-labelledby="lf-national">
-    <div className="lf-sec-head"><span>01</span><h2 id="lf-national">National lines</h2><p>Pick a kind of help on the left. Every line has its first call or text button ready on the closed row; open it for everything else.</p></div>
+    <div className="lf-sec-head"><h2 id="lf-national">National lines</h2><p>Pick a kind of help on the left. Every line has its first call or text button ready on the closed row; open it for everything else.</p></div>
     <div className="lf-dir">
       <div className="lf-kinds" role="group" aria-label="Kind of help">{groups.map((g) => {
         const { Icon } = kindOf(g.id), s = groupStats(g);
