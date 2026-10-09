@@ -305,7 +305,9 @@ test("apologetics: a worldview study returns to its originating collection and q
 
 test("apologetics: basis filters open paired local texts and Bible versions", async ({ page }) => {
   await page.goto("/apologetics/worldviews/islam?question=comparison-2");
-  const toggle = page.locator(".wv-basis-inline-toggle");
+  const toggles = page.locator(".wv-basis-inline-toggle");
+  await expect(toggles).toHaveCount(2);
+  const toggle = toggles.first();
   await expect(toggle).toHaveAttribute("aria-expanded", "false");
   await page.getByRole("group", { name: "Christian references" }).getByRole("button", { name: "Westminster 2.3" }).click();
   await expect(page.getByRole("article", { name: "Christian source reading" })).toContainText("three persons");
@@ -322,4 +324,8 @@ test("apologetics: basis filters open paired local texts and Bible versions", as
   await expect(page.getByRole("article", { name: "Islamic source reading" })).toContainText("Three");
   await toggle.click();
   await expect(page.locator(".wv-basis-columns")).toHaveCount(0);
+  await toggles.last().click();
+  await expect(toggle).toHaveAttribute("aria-expanded", "true");
+  await toggle.click();
+  await expect(toggles.last()).toHaveAttribute("aria-expanded", "false");
 });
