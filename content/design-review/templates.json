@@ -1,7 +1,7 @@
 {
  "schema": 1,
- "generatedAt": "2026-10-09T23:04:37.054Z",
- "commit": "45afc8d0",
+ "generatedAt": "2026-10-09T23:22:26.514Z",
+ "commit": "3e8b5bd7",
  "areas": [
   {
    "id": "people",
@@ -2616,7 +2616,7 @@
     "src/pages/WorldviewsPage.tsx",
     "src/pages/worldviews.css"
    ],
-   "sourceHash": "f6e9d51ae11fd6b2",
+   "sourceHash": "3a5115925a386cda",
    "signature": {
     "selector": "#muslim-world",
     "label": "Muslim-world country explorer"
@@ -2645,7 +2645,7 @@
     {
      "id": "countries",
      "name": "Islam: country explorer",
-     "what": "A globe with solid Earth country colours, country demographics and dated IMB people-group statistics, plus a flat SVG view.",
+     "what": "A rectangular globe viewport with continuous faded terrain, country demographics and dated IMB statistics, plus a matching flat SVG view.",
      "instances": 53,
      "samples": [
       {
