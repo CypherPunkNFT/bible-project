@@ -1,8 +1,8 @@
 import { expect, test } from '@playwright/test';
-import { geoCentroid, geoOrthographic } from 'd3-geo';
+import { geoCentroid, geoEqualEarth, geoOrthographic } from 'd3-geo';
 import { readFileSync } from 'node:fs';
 import type { Feature, Polygon, MultiPolygon } from 'geojson';
-const atlas = JSON.parse(readFileSync('public/assets/muslim-world/atlas.json', 'utf8')) as { countries: Feature<Polygon | MultiPolygon, { code: string }>[] };
+const atlas = JSON.parse(readFileSync('public/assets/muslim-world/atlas.json', 'utf8')) as { land: MultiPolygon; countries: Feature<Polygon | MultiPolygon, { code: string }>[] };
 declare global { interface Window { missionGlobeDraws: number[] } }
 
 const route = '/apologetics/worldviews/islam';
@@ -46,7 +46,7 @@ test('clicking an actual projected country selects its profile; wheel and keyboa
   await stage.click({ position: { x: egypt[0], y: egypt[1] } });
   await expect(explorer.getByRole('heading', { name: 'Egypt', exact: true })).toBeVisible();
   await expect(page).toHaveURL(/country=EGY/);
-  await expect(explorer.locator('.mw-globe button')).toHaveCount(0);
+  await expect(explorer.locator('.mw-view-switch button')).toHaveCount(2);
   expect(Math.abs(box.width - box.height)).toBeLessThan(2);
   await stage.focus(); await page.keyboard.press('Home');
   await expect.poll(async () => stage.locator('canvas').last().evaluate(canvas => {
@@ -84,6 +84,39 @@ test('clicking an actual projected country selects its profile; wheel and keyboa
   await page.mouse.move(viewport.width - 2, viewport.height / 2);
   await page.mouse.wheel(0, 200); await page.waitForTimeout(150);
   expect(await page.evaluate(() => scrollY)).toBeGreaterThan(scrollBefore);
+});
+
+test('vertical view icons switch to an SVG map, preserve selection, and contain zoom without reloading geography', async ({ page }, testInfo) => {
+  let atlasRequests = 0; page.on('request', request => { if (request.url().endsWith('/muslim-world/atlas.json')) atlasRequests++; });
+  await page.goto(route + '?question=jesus&country=PAK#muslim-world');
+  const explorer = page.locator('#muslim-world'), globe = explorer.getByRole('button', { name: 'Globe view', exact: true }), flat = explorer.getByRole('button', { name: 'Flat map view', exact: true });
+  await expect(explorer.getByRole('group', { name: /^Interactive globe/ })).toHaveAttribute('aria-busy', 'false');
+  const globeBox = (await globe.boundingBox())!, flatBox = (await flat.boundingBox())!;
+  expect(Math.abs(globeBox.x - flatBox.x)).toBeLessThan(1); expect(flatBox.y).toBeGreaterThan(globeBox.y + globeBox.height);
+  await flat.click(); const stage = explorer.getByRole('group', { name: /^Interactive flat map/ });
+  await expect(stage).toHaveAttribute('aria-busy', 'false'); await expect(flat).toHaveAttribute('aria-pressed', 'true');
+  await expect(stage.locator('canvas')).toHaveCount(0); await expect(stage.locator('svg')).toHaveCount(1);
+  await expect(stage.locator('.mw-flat-country')).toHaveCount(53);
+  await expect(stage.locator('svg path')).toHaveCount(62);
+  await expect(stage.locator('.mw-flat-country.is-selected')).toHaveAttribute('data-country', 'PAK');
+  const projection = geoEqualEarth().fitExtent([[16,240],[944,720]], atlas.land);
+  const point = projection(geoCentroid(atlas.countries.find(country => country.properties.code === 'EGY')!))!;
+  const box = (await stage.boundingBox())!;
+  await stage.click({position:{x:point[0]*box.width/960,y:point[1]*box.height/960}});
+  await expect(explorer.getByRole('heading', { name: 'Egypt', exact: true })).toBeVisible();
+  await expect(page).toHaveURL(/question=jesus&country=EGY/);
+  const group=stage.locator('svg > g'), before=await group.getAttribute('transform');
+  await stage.hover();const scroll=await page.evaluate(()=>scrollY);
+  for(const delta of [-5000,-5000,5000,5000]){await page.mouse.wheel(0,delta);await page.waitForTimeout(80);expect(await page.evaluate(()=>scrollY)).toBe(scroll);}
+  await stage.focus();await page.keyboard.press('+');expect(await group.getAttribute('transform')).not.toBe(before);
+  await page.keyboard.press('ArrowRight');await page.keyboard.press('Home');expect(await group.getAttribute('transform')).toBe(before);
+  for(const theme of ['light','dark']){await page.evaluate(theme=>document.documentElement.dataset.theme=theme,theme);await explorer.screenshot({path:testInfo.outputPath('flat-map-'+theme+'.png'),style:'.sticky.top-0{visibility:hidden}'});}
+  await globe.click();await expect(explorer.getByRole('group',{name:/^Interactive globe/})).toHaveAttribute('aria-busy','false');
+  await expect(explorer.getByRole('heading',{name:'Egypt',exact:true})).toBeVisible();
+  await flat.click();await expect(stage).toHaveAttribute('aria-busy','false');expect(atlasRequests).toBe(1);
+  await page.reload(); await stage.scrollIntoViewIfNeeded(); await expect(stage).toHaveAttribute('aria-busy', 'false');
+  await expect(explorer.getByRole('heading',{name:'Egypt',exact:true})).toBeVisible();
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth-innerWidth)).toBeLessThanOrEqual(1);
 });
 
 test('wheel zoom paints smoothly and stops rendering after the gesture settles', async ({ page }) => {

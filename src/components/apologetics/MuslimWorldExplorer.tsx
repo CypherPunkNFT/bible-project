@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { ArrowUpRight, Globe2, Search } from 'lucide-react';
+import { ArrowUpRight, Globe2, Map, Search } from 'lucide-react';
 import snapshot from '../../../content/missions/muslim-world.json';
 import type { MissionGlobe } from '@/lib/mission-globe';
 import './muslim-world.css';
@@ -11,8 +11,16 @@ const compact = (number: number) => new Intl.NumberFormat('en', { notation: 'com
 const number = (value: number) => new Intl.NumberFormat('en').format(value);
 const date = new Intl.DateTimeFormat('en', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' }).format(new Date(snapshot.snapshotDate + 'T12:00:00Z'));
 
-function CountryGlobe({ code, spinning, onSelect, onPause }: { code: string; spinning: boolean; onSelect(code: string): void; onPause(): void }) {
-  const stage = useRef<HTMLDivElement>(null), canvas = useRef<HTMLCanvasElement>(null);
+function CountryMap({ code, spinning, onSelect, onPause }: { code: string; spinning: boolean; onSelect(code: string): void; onPause(): void }) {
+  const stage = useRef<HTMLDivElement>(null), canvas = useRef<HTMLCanvasElement>(null), svg = useRef<SVGSVGElement>(null);
+  const [viewParams, setViewParams] = useSearchParams();
+  const view = viewParams.get('map') === 'flat' ? 'flat' : 'globe';
+  const setView = (nextView: 'globe' | 'flat') => {
+    onPause();
+    const next = new URLSearchParams(viewParams);
+    if (nextView === 'flat') next.set('map', 'flat'); else next.delete('map');
+    setViewParams(next, { replace: true, preventScrollReset: true });
+  };
   const controller = useRef<MissionGlobe>();
   const latest = useRef({ code, spinning, onSelect, onPause });
   const [active, setActive] = useState(() => window.location.hash === '#muslim-world'), [ready, setReady] = useState(false), [error, setError] = useState(false), [hover, setHover] = useState('');
@@ -23,32 +31,38 @@ function CountryGlobe({ code, spinning, onSelect, onPause }: { code: string; spi
     return () => observer.disconnect();
   }, []);
   useEffect(() => {
-    if (!active || !stage.current || !canvas.current) return;
+    if (!active || !stage.current) return;
     const abort = new AbortController();
     let globe: MissionGlobe | undefined;
-    const host = stage.current, map = canvas.current;
-    void import('@/lib/mission-globe').then(({ createMissionGlobe }) => {
-      if (abort.signal.aborted) return undefined;
-      return createMissionGlobe(host, map, countries, {
+    const host = stage.current, map = canvas.current, flat = svg.current;
+    setReady(false); setError(false); setHover('');
+    const options = {
         selected: latest.current.code, spinning: latest.current.spinning,
-        onSelect: value => latest.current.onSelect(value), onPause: () => latest.current.onPause(),
-        onHover: value => { if (!abort.signal.aborted) setHover(value); },
-      }, abort.signal);
-    }).then(result => {
+        onSelect: (value: string) => latest.current.onSelect(value), onPause: () => latest.current.onPause(),
+        onHover: (value: string) => { if (!abort.signal.aborted) setHover(value); },
+    };
+    const loading = view === 'globe' && map
+      ? import('@/lib/mission-globe').then(({ createMissionGlobe }) => abort.signal.aborted ? undefined : createMissionGlobe(host, map, countries, options, abort.signal))
+      : flat ? import('@/lib/mission-flat-map').then(({ createMissionFlatMap }) => abort.signal.aborted ? undefined : createMissionFlatMap(host, flat, countries, options, abort.signal)) : Promise.resolve(undefined);
+    void loading.then(result => {
       if (!result) return;
       globe = result;
       if (abort.signal.aborted) { result.destroy(); return; }
       controller.current = result; result.select(latest.current.code, !latest.current.spinning); result.rotate(latest.current.spinning); setReady(true);
     }).catch(() => { if (!abort.signal.aborted) setError(true); });
     return () => { abort.abort(); globe?.destroy(); controller.current = undefined; };
-  }, [active]);
+  }, [active, view]);
   useEffect(() => { controller.current?.select(code); }, [code]);
   useEffect(() => { controller.current?.rotate(spinning); }, [spinning]);
   return <figure className="mw-globe">
-    <div className="mw-globe-stage" ref={stage} tabIndex={0} role="group" aria-busy={!ready && !error} aria-label="Interactive globe. Scroll to zoom; arrow keys turn; plus and minus zoom; Space pauses or starts rotation; Home resets. Use the country selector to choose a country.">
-      <canvas ref={canvas} aria-hidden="true" />
+    <div className={'mw-globe-stage' + (view === 'flat' ? ' is-flat' : '')} ref={stage} tabIndex={0} role="group" aria-busy={!ready && !error} aria-label={view === 'globe' ? 'Interactive globe. Scroll to zoom; arrow keys turn; plus and minus zoom; Space pauses or starts rotation; Home resets. Use the country selector to choose a country.' : 'Interactive flat map. Scroll to zoom; drag or use arrow keys to pan; plus and minus zoom; Home resets. Use the country selector to choose a country.'}>
+      {view === 'globe' ? <canvas ref={canvas} aria-hidden="true" /> : <svg ref={svg} className="mw-flat-map" aria-hidden="true" />}
       {!ready && <div className="mw-globe-loading" role="status"><Globe2 size={90} strokeWidth={.5} /><p>{error ? 'The map is unavailable. Choose a country from the selector.' : 'Opening the atlas…'}</p></div>}
       {hover && <span className="mw-map-hover" aria-hidden="true">{hover} <ArrowUpRight size={12} /></span>}
+    </div>
+    <div className="mw-view-switch" role="group" aria-label="Map view">
+      <button type="button" aria-label="Globe view" title="Globe view" aria-pressed={view === 'globe'} onClick={() => setView('globe')}><Globe2 size={20} strokeWidth={1.5} aria-hidden="true" /></button>
+      <button type="button" aria-label="Flat map view" title="Flat map view" aria-pressed={view === 'flat'} onClick={() => setView('flat')}><Map size={20} strokeWidth={1.5} aria-hidden="true" /></button>
     </div>
   </figure>;
 }
@@ -77,7 +91,7 @@ export default function MuslimWorldExplorer() {
   return <section ref={section} id="muslim-world" className="mw-explorer" aria-labelledby="mw-heading">
     <header className="mw-introduction"><div><p className="ap-eyebrow"><Globe2 size={15} aria-hidden="true" /> An atlas for understanding the Muslim world</p><h2 id="mw-heading">A world of people.<br /><em>Learn the place.</em></h2></div><p>A neighbour’s faith has a context. Explore 53 Muslim-majority countries and territories, meet some of their people groups, and understand where a gospel witness is present.</p></header>
     <div className="mw-explorer-layout">
-      <CountryGlobe code={country.code} spinning={spinning} onSelect={choose} onPause={pause} />
+      <CountryMap code={country.code} spinning={spinning} onSelect={choose} onPause={pause} />
       <div className="mw-country-panel">
         <div className="mw-country-picker"><label className="mw-search-label" htmlFor="mw-search"><Search size={14} /> Find a country</label><input id="mw-search" type="search" placeholder="Search all 53 places…" value={search} onChange={event => setSearch(event.target.value)} />
           <div className="mw-select-row"><label><span className="sr-only">Filter by region</span><select aria-label="Filter countries by region" value={region} onChange={event => setRegion(event.target.value)}><option value="all">All regions</option><option value="africa">Africa</option><option value="asia">Asia</option><option value="europe">Europe</option></select></label><label><span className="sr-only">Choose a country</span><select aria-label="Choose a country" value={filtered.some(entry => entry.code === country.code) ? country.code : ''} onChange={event => choose(event.target.value)}><option value="" disabled>{filtered.length ? `${filtered.length} matching places` : 'No matching countries'}</option>{filtered.map(entry => <option value={entry.code} key={entry.code}>{entry.name}</option>)}</select></label></div>

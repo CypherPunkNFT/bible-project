@@ -1175,3 +1175,7 @@ Natural Earth 1:110m (`world-atlas@2.0.2`, public domain) is archived alongside 
 ## Muslim-world outline globe — 2026-10-09
 
 The current Islam atlas uses one Canvas 2D surface with Natural Earth coastlines and country outlines; no new source data was acquired. Existing atlas.json SHA-256 `a758fa13594085a305df1faf99644b4c4613c8b4ee18b7e1e5bab6c44756d6e3` and public-domain attribution remain in the display README and missions manifest. NASA earth.webp is retired from served assets; its hash/transformation remain in retiredDisplayDerivatives, with the immutable NASA original retained unchanged. See content/missions/README.md for fixed-circle 1–8× zoom, mobile idle behavior and measured performance.
+
+## Muslim-world flat SVG view — 2026-10-09
+
+The optional flat map derives its SVG coastlines and country borders from the existing atlas.json (SHA-256 `a758fa13594085a305df1faf99644b4c4613c8b4ee18b7e1e5bab6c44756d6e3`, Natural Earth public domain). No new external input was acquired. Globe and flat views share the same country facts and cached geometry; a vertical pair of view icons changes renderers. See content/missions/README.md and public/assets/muslim-world/README.md for interaction and provenance.

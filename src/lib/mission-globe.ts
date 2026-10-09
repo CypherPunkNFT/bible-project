@@ -1,5 +1,5 @@
 import { geoCentroid, geoContains, geoDistance, geoOrthographic, geoPath } from 'd3-geo';
-import type { Feature, MultiLineString, MultiPolygon, Polygon } from 'geojson';
+import { loadMissionAtlas, missionOutlines } from './mission-atlas';
 
 export interface GlobeCountry { code: string; numeric: string | null; name: string }
 export interface MissionGlobe {
@@ -9,22 +9,16 @@ export interface MissionGlobe {
   reset(): void;
   destroy(): void;
 }
-type CountryFeature = Feature<Polygon | MultiPolygon, { code: string; name: string; selectable: boolean }>;
 const MIN_ZOOM = 1, MAX_ZOOM = 8;
-const outlines = (geometry: Polygon | MultiPolygon): MultiLineString => ({
-  type: 'MultiLineString', coordinates: geometry.type === 'Polygon' ? geometry.coordinates : geometry.coordinates.flatMap(polygon => polygon),
-});
 export async function createMissionGlobe(
   host: HTMLElement, canvas: HTMLCanvasElement,
   countries: readonly GlobeCountry[],
   options: { selected: string; spinning: boolean; onSelect(code: string): void; onPause(): void; onHover(name: string): void },
   signal: AbortSignal,
 ): Promise<MissionGlobe> {
-  const response = await fetch('/assets/muslim-world/atlas.json', { signal });
-  if (!response.ok) throw new Error('Country map could not be loaded.');
-  const atlas = await response.json() as { land: MultiPolygon; countries: CountryFeature[] };
-  const coastlines = outlines(atlas.land);
-  const borders = atlas.countries.map(country => ({ country, lines: outlines(country.geometry) }));
+  const atlas = await loadMissionAtlas(signal);
+  const coastlines = missionOutlines(atlas.land);
+  const borders = atlas.countries.map(country => ({ country, lines: missionOutlines(country.geometry) }));
   const available = new Map(atlas.countries.filter(c => c.properties.selectable).map(c => [c.properties.code, c]));
   const centroids = new Map([...available].map(([code, country]) => [code, geoCentroid(country)]));
   const ctx = canvas.getContext('2d');
@@ -207,6 +201,7 @@ export async function createMissionGlobe(
       host.removeEventListener('pointerup', up); host.removeEventListener('pointercancel', cancel);
       host.removeEventListener('pointerleave', leave); host.removeEventListener('keydown', key);
       host.removeEventListener('wheel', wheel); scheme.removeEventListener('change', updateTheme);
+      host.classList.remove('is-dragging', 'over-country');
     },
   };
 }
