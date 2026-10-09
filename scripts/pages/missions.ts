@@ -3,10 +3,11 @@ import { readFileSync } from 'node:fs';
 export function missionGeographySection(): string {
   const snapshot = JSON.parse(readFileSync('content/missions/muslim-world.json', 'utf8'));
   return [
-    '## Islam: People & places / Across the Muslim world', '',
+    '## Islam: An atlas for understanding the Muslim world', '',
     'A world of people. Learn the place. A textured, rotating globe opens country profiles. Country selection is shareable with `?country=<IMB-code>#muslim-world` and preserves the selected comparison question.', '',
     `Scope: ${snapshot.scope} ${snapshot.countries.length} countries and territories. Demographic year: ${snapshot.demographicYear}. IMB snapshot: ${snapshot.snapshotDate}.`, '',
     'Country panel: region, estimated 2020 population, Muslim identification, other religious shares, IMB people-group status counts with population totals, three largest recorded people groups and source links. Search and region filters provide a keyboard-accessible alternative to the globe.', '',
+    'Map: worldwide coastlines, with country outlines only where Pew estimates at least 20% Muslim identification in 2020. The 53 Muslim-majority profiles are selectable. The full sphere fits the map column; wheel gestures zoom without clipping it, arrow keys turn it, Space pauses/starts rotation, and Home resets. There are no visible globe control buttons.', '',
     'IMB counts cover all people groups in each country, including non-Muslim groups. No longer unreached is not a country completion score. Country aggregates preserve the source Engagement Progress categories; see content/missions/README.md for definitions, provenance and refresh steps.', '',
     `Sources: [Pew Research Center](${snapshot.sources.pew.url}), [IMB Global Research](${snapshot.sources.imb.url}). Earth imagery: NASA Blue Marble; boundaries: Natural Earth.`, '',
     '| Country / territory | Population estimate (2020) | Muslim identification (2020) | IMB groups | Unengaged & unreached | Engaged yet unreached | No longer unreached |',

@@ -1167,3 +1167,7 @@ The Islam collection's rotating country globe uses a bundled, attributed snapsho
 | Natural Earth country boundaries, `world-atlas@2.0.2`, 1:50m | [Public domain](https://www.naturalearthdata.com/about/terms-of-use/) | Country outlines, selection and geographic centres; Mayotte's island polygons extracted from France's multipart geometry |
 
 The globe adapts the owner's `design/apostle-directions-2/js/globe.js` mock. The demographic year (2020) and IMB snapshot date are shown separately. "No longer unreached" is IMB's people-group category, not a judgement about every person or a country-wide completion status.
+
+### Muslim-world globe display optimization — 2026-10-09
+
+Natural Earth 1:110m (`world-atlas@2.0.2`, public domain) is archived alongside the original 1:50m input; worldwide land is merged, with country outlines retained only at >=20% Muslim identification in the archived Pew 2020 estimates. The NASA original remains unchanged; the display texture is resized to 2048×1024 WebP. Both derivatives retain the original source licensing and attribution. Build scripts and transformations: [globe provenance](public/assets/muslim-world/README.md). Updated input and derivative checksums: [source manifest](content/missions/source-manifest.json). Local measurements: [performance notes](content/missions/README.md#local-performance-measurement--2026-10-09).

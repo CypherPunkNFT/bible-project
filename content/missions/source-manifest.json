@@ -26,6 +26,25 @@
       "file": "natural-earth-countries-50m.json",
       "sha256": "04342cdc1e3016bcd7db1630de95684d67b79fe3c8c460321e87aef469502394",
       "bytes": 756420
+    },
+    {
+      "file": "natural-earth-countries-110m.json",
+      "sha256": "2516c915867c7baf18ddec727aec46c315541a07cfb3d79a6559b05d5e94eee8",
+      "bytes": 107761
+    }
+  ],
+  "displayDerivatives": [
+    {
+      "file": "atlas.json",
+      "sha256": "a758fa13594085a305df1faf99644b4c4613c8b4ee18b7e1e5bab6c44756d6e3",
+      "bytes": 123178,
+      "transformation": "Natural Earth 1:110m merged worldwide land and country outlines at >=20% Pew 2020 Muslim identification, with 1:50m small-place fallbacks and coordinates rounded to two decimal degrees."
+    },
+    {
+      "file": "earth.webp",
+      "sha256": "183b7ceb9feef0b517e3cdaf65976266a382c30df242dfcd642bf9a563010786",
+      "bytes": 153856,
+      "transformation": "Archived NASA JPEG resized to 2048x1024 and encoded as WebP at .82 quality using Edge."
     }
   ]
 }

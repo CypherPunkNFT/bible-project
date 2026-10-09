@@ -1,12 +1,11 @@
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { test } from 'node:test';
-import { feature } from 'topojson-client';
 import { geoCentroid, geoContains } from 'd3-geo';
 
 const data = JSON.parse(await readFile(new URL('../../content/missions/muslim-world.json', import.meta.url), 'utf8'));
-const atlas = JSON.parse(await readFile(new URL('../../public/assets/muslim-world/countries-50m.json', import.meta.url), 'utf8'));
-const map = feature(atlas, atlas.objects.countries).features;
+const atlas = JSON.parse(await readFile(new URL('../../public/assets/muslim-world/atlas.json', import.meta.url), 'utf8'));
+const map = atlas.countries;
 const statuses = ['unengaged', 'engagedUnreached', 'noLongerUnreached'];
 
 test('country snapshot is complete, dated and matches its declared majority scope', () => {
@@ -40,15 +39,29 @@ test('IMB counts and population sums reconcile in every profile, including legit
   }
 });
 
-test('every place has a map geometry, including Mayotte as an actual multipart French island', () => {
-  for (const country of data.countries.filter(c => c.code !== 'MYT')) {
-    assert.ok(map.find(f => country.numeric ? String(f.id) === country.numeric : f.properties.name === country.name), country.name);
+test('every profile has selectable geometry, including Mayotte at its actual island location', () => {
+  for (const country of data.countries) {
+    assert.ok(map.find(f => f.properties.code === country.code && f.properties.selectable), country.name);
   }
-  const france = map.find(f => f.id === '250');
-  assert.equal(france.geometry.type, 'MultiPolygon');
-  assert.ok(france.geometry.coordinates.some(p => p[0].some(([lon, lat]) => lon > 44 && lon < 46 && lat > -14 && lat < -12)));
-  const pakistan = map.find(f => f.id === '586');
+  const mayotte = map.find(f => f.properties.code === 'MYT');
+  assert.equal(mayotte.geometry.type, 'MultiPolygon');
+  assert.ok(mayotte.geometry.coordinates.every(p => p[0].every(([lon, lat]) => lon > 44 && lon < 46 && lat > -14 && lat < -12)));
+  const pakistan = map.find(f => f.properties.code === 'PAK');
   assert.ok(geoContains(pakistan, geoCentroid(pakistan)));
+});
+
+test('border geometry respects the 20% threshold while land keeps a worldwide coastline', () => {
+  assert.equal(atlas.thresholdPercent, 20);
+  assert.equal(atlas.demographicYear, 2020);
+  assert.equal(atlas.pewSha256, data.sources.pew.sha256);
+  assert.equal(map.length, 61);
+  assert.equal(map.filter(c => c.properties.selectable).length, 53);
+  assert.ok(map.every(c => c.properties.muslimShare2020 >= 20));
+  assert.ok(map.find(c => c.properties.code === 'ETH' && !c.properties.selectable));
+  assert.ok(!map.some(c => ['USA', 'IND', 'CHN'].includes(c.properties.code)));
+  assert.equal(atlas.land.type, 'MultiPolygon');
+  assert.ok(geoContains(atlas.land, [-100, 40]), 'North American land remains present without country borders');
+  assert.ok(geoContains(atlas.land, [100, 35]), 'Asian land remains present without country borders');
 });
 
 test('snapshot has primary-source provenance and records its aggregation', () => {

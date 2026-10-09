@@ -1,7 +1,5 @@
 import { geoCentroid, geoContains, geoDistance, geoGraticule10, geoOrthographic, geoPath } from 'd3-geo';
-import { feature, mesh } from 'topojson-client';
-import type { Feature, FeatureCollection, MultiPolygon, Polygon } from 'geojson';
-import type { GeometryCollection, Topology } from 'topojson-specification';
+import type { Feature, MultiPolygon, Polygon } from 'geojson';
 
 export interface GlobeCountry { code: string; numeric: string | null; name: string }
 export interface MissionGlobe {
@@ -11,7 +9,7 @@ export interface MissionGlobe {
   reset(): void;
   destroy(): void;
 }
-type CountryFeature = Feature<Polygon | MultiPolygon, { name: string }>;
+type CountryFeature = Feature<Polygon | MultiPolygon, { code: string; name: string; selectable: boolean }>;
 const RAD = Math.PI / 180;
 const VERTEX = `#version 300 es
 in vec2 p; void main(){gl_Position=vec4(p,0.,1.);}`;
@@ -52,23 +50,11 @@ export async function createMissionGlobe(
   options: { selected: string; spinning: boolean; onSelect(code: string): void; onPause(): void; onHover(name: string): void; onFallback(): void },
   signal: AbortSignal,
 ): Promise<MissionGlobe> {
-  const response = await fetch('/assets/muslim-world/countries-50m.json', { signal });
+  const response = await fetch('/assets/muslim-world/atlas.json', { signal });
   if (!response.ok) throw new Error('Country map could not be loaded.');
-  const topology = await response.json() as Topology<{ countries: GeometryCollection }>;
-  const all = feature(topology, topology.objects.countries) as FeatureCollection<Polygon | MultiPolygon, { name: string }>;
-  const boundaries = mesh(topology, topology.objects.countries, (a, b) => a !== b);
-  const available = new Map<string, CountryFeature>();
-  for (const country of countries) {
-    const found = all.features.find(f => country.numeric ? String(f.id) === country.numeric : f.properties.name === country.name);
-    if (found) available.set(country.code, found);
-  }
-  // Natural Earth includes Mayotte in France's multipart geometry. Extract its
-  // actual island polygons, without inventing a border or moving a country pin.
-  const france = all.features.find(f => String(f.id) === '250');
-  if (france?.geometry.type === 'MultiPolygon') {
-    const islands = france.geometry.coordinates.filter(p => p[0].some(([lon, lat]) => lon > 44 && lon < 46 && lat > -14 && lat < -12));
-    if (islands.length) available.set('MYT', { type: 'Feature', properties: { name: 'Mayotte' }, geometry: { type: 'MultiPolygon', coordinates: islands } });
-  }
+  const atlas = await response.json() as { land: MultiPolygon; countries: CountryFeature[] };
+  const available = new Map(atlas.countries.filter(c => c.properties.selectable).map(c => [c.properties.code, c]));
+  const centroids = new Map([...available].map(([code, country]) => [code, geoCentroid(country)]));
   const ctx = overlay.getContext('2d');
   if (!ctx) throw new Error('Canvas is unavailable. Use the country selector.');
   const projection = geoOrthographic().clipAngle(90).precision(.3);
@@ -84,13 +70,19 @@ export async function createMissionGlobe(
   let hover = '', pointer: { id: number; x: number; y: number; lon: number; lat: number; moved: boolean } | null = null;
   let fly: { lon: number; lat: number; startLon: number; startLat: number; start: number } | null = null;
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
-  const darkTheme = () => document.documentElement.dataset.theme === 'dark' || (document.documentElement.dataset.theme !== 'light' && matchMedia('(prefers-color-scheme: dark)').matches);
+  const scheme = matchMedia('(prefers-color-scheme: dark)');
+  const darkTheme = () => document.documentElement.dataset.theme === 'dark' || (document.documentElement.dataset.theme !== 'light' && scheme.matches);
+  let dark = darkTheme();
+  function invalidate() {
+    dirty = true;
+    if (!destroyed && visible && pageVisible && !raf) raf = requestAnimationFrame(frame);
+  }
   const dropGL = () => {
     if (gl) {
       gl.deleteTexture(texture); gl.deleteBuffer(buffer); gl.deleteProgram(program);
       shaders.forEach(shader => gl?.deleteShader(shader));
     }
-    gl = null; photoReady = false; surface.hidden = true; dirty = true; options.onFallback();
+    gl = null; photoReady = false; surface.hidden = true; invalidate(); options.onFallback();
   };
   if (gl) {
     try {
@@ -113,7 +105,7 @@ export async function createMissionGlobe(
       uniforms = Object.fromEntries(['resolution', 'rotation', 'radius', 'earth', 'ready', 'dark'].map(name => [name, gl!.getUniformLocation(program!, name)]));
       texture = gl.createTexture(); gl.bindTexture(gl.TEXTURE_2D, texture);
       gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, 1, 1, 0, gl.RGBA, gl.UNSIGNED_BYTE, new Uint8Array([30, 55, 60, 255]));
-      const image = new Image(); image.src = '/assets/muslim-world/earth.jpg';
+      const image = new Image(); image.src = '/assets/muslim-world/earth.webp';
       void image.decode().then(() => {
         if (!gl || destroyed || signal.aborted) return;
         const max = gl.getParameter(gl.MAX_TEXTURE_SIZE) as number;
@@ -129,28 +121,26 @@ export async function createMissionGlobe(
         gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
         gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.REPEAT);
         gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
-        photoReady = true; dirty = true;
+        photoReady = true; invalidate();
       }).catch(() => { if (!destroyed && !signal.aborted) dropGL(); });
     } catch { dropGL(); }
   } else options.onFallback();
 
   const center = (code: string) => {
-    const country = available.get(code);
-    const target = country ? geoCentroid(country) : code === 'MYT' ? [45.16, -12.82] : null;
+    const target = centroids.get(code);
     if (!target) return;
     if (reduced.matches) { [lon, lat] = target; fly = null; }
     else fly = { lon: target[0], lat: target[1], startLon: lon, startLat: lat, start: performance.now() };
-    dirty = true;
+    invalidate();
   };
   function resize() {
     const box = host.getBoundingClientRect(); width = box.width; height = box.height;
     if (!width || !height) return;
-    dpr = Math.min(devicePixelRatio || 1, 2); radius = Math.min(width, height) * .46;
+    dpr = Math.min(devicePixelRatio || 1, 1.5); radius = Math.min(width, height) * .49;
     for (const canvas of [surface, overlay]) { canvas.width = Math.round(width * dpr); canvas.height = Math.round(height * dpr); }
-    dirty = true;
+    invalidate();
   }
   function draw() {
-    const dark = darkTheme();
     projection.rotate([-lon, -lat]).scale(radius * zoom).translate([width / 2, height / 2]);
     if (gl && program) {
       gl.viewport(0, 0, surface.width, surface.height); gl.useProgram(program);
@@ -163,18 +153,17 @@ export async function createMissionGlobe(
     ctx!.setTransform(dpr, 0, 0, dpr, 0, 0); ctx!.clearRect(0, 0, width, height);
     if (!gl || !photoReady) {
       ctx!.beginPath(); path({ type: 'Sphere' }); ctx!.fillStyle = dark ? '#183136' : '#c8d5cf'; ctx!.fill();
-      ctx!.beginPath(); path(all); ctx!.fillStyle = dark ? '#4d5f4b' : '#8b987c'; ctx!.fill();
+      ctx!.beginPath(); path(atlas.land); ctx!.fillStyle = dark ? '#4d5f4b' : '#8b987c'; ctx!.fill();
     }
     ctx!.beginPath(); path(graticule); ctx!.strokeStyle = dark ? '#ffffff10' : '#28484418'; ctx!.lineWidth = .5; ctx!.stroke();
-    ctx!.beginPath(); path(boundaries); ctx!.strokeStyle = dark ? '#e7ecdb40' : '#273b3860'; ctx!.lineWidth = .55; ctx!.stroke();
-    for (const [code, country] of available) {
+    for (const country of atlas.countries) {
+      const code = country.properties.code;
       ctx!.beginPath(); path(country);
       const active = selected === code, hovered = hover === code;
-      ctx!.fillStyle = active ? '#e3b77362' : hovered ? '#cdece966' : dark ? '#8eb7b032' : '#578e8638'; ctx!.fill();
+      ctx!.fillStyle = active ? '#e3b77362' : hovered ? '#cdece966' : !country.properties.selectable ? 'transparent' : dark ? '#8eb7b032' : '#578e8638'; ctx!.fill();
       ctx!.strokeStyle = active ? '#f0c47e' : dark ? '#a4cfbd88' : '#47695eaa'; ctx!.lineWidth = active ? 1.7 : .75; ctx!.stroke();
     }
-    const current = available.get(selected);
-    const position: [number, number] | null = current ? geoCentroid(current) : selected === 'MYT' ? [45.16, -12.82] : null;
+    const position = centroids.get(selected);
     if (position && geoDistance(position, [lon, lat]) < Math.PI / 2) {
       const point = projection(position);
       if (point) {
@@ -191,8 +180,7 @@ export async function createMissionGlobe(
     // Polygon hit takes precedence; enlarged targets make small islands usable.
     for (const [code, country] of available) if (geoContains(country, point)) return code;
     let closest: string | null = null, distance = 10;
-    for (const [code, country] of available) {
-      const centerPoint = geoCentroid(country);
+    for (const [code, centerPoint] of centroids) {
       if (geoDistance(centerPoint, [lon, lat]) >= Math.PI / 2) continue;
       const screen = projection(centerPoint); if (!screen) continue;
       const gap = Math.hypot(screen[0] - x, screen[1] - y);
@@ -219,10 +207,10 @@ export async function createMissionGlobe(
       if (Math.hypot(dx, dy) > 5) pointer.moved = true;
       lon = pointer.lon - dx * 180 / Math.PI / (radius * zoom);
       lat = Math.max(-75, Math.min(75, pointer.lat + dy * 180 / Math.PI / (radius * zoom)));
-      dirty = true;
+      invalidate();
     } else {
       const code = hit(x, y) ?? '';
-      if (hover !== code) { hover = code; dirty = true; options.onHover(countries.find(c => c.code === code)?.name ?? ''); }
+      if (hover !== code) { hover = code; invalidate(); options.onHover(countries.find(c => c.code === code)?.name ?? ''); }
       host.classList.toggle('over-country', !!code);
     }
   };
@@ -233,32 +221,44 @@ export async function createMissionGlobe(
     if (host.hasPointerCapture(event.pointerId)) host.releasePointerCapture(event.pointerId);
   };
   const cancel = () => { pointer = null; host.classList.remove('is-dragging'); };
-  const leave = () => { if (!pointer) { hover = ''; dirty = true; options.onHover(''); } };
+  const leave = () => { if (!pointer) { hover = ''; invalidate(); options.onHover(''); } };
+  const adjustZoom = (delta: number) => { zoom = Math.max(.6, Math.min(1, zoom + delta)); invalidate(); };
+  const wheel = (event: WheelEvent) => {
+    const delta = event.deltaY * (event.deltaMode === 1 ? 16 : event.deltaMode === 2 ? height : 1);
+    const next = Math.max(.6, Math.min(1, zoom - delta * .001));
+    // At either limit, allow the same gesture to continue scrolling the page.
+    if (next === zoom) return;
+    event.preventDefault(); pause(); zoom = next; invalidate();
+  };
   const key = (event: KeyboardEvent) => {
-    if (!['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', '+', '-', '=', 'Home'].includes(event.key)) return;
+    if (!['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', '+', '-', '=', 'Home', ' '].includes(event.key)) return;
+    if (event.key === ' ') { event.preventDefault(); fly = null; spinning = !spinning; invalidate(); return; }
     event.preventDefault(); pause();
     if (event.key === 'ArrowLeft') lon -= 10;
     if (event.key === 'ArrowRight') lon += 10;
     if (event.key === 'ArrowUp') lat = Math.min(75, lat + 10);
     if (event.key === 'ArrowDown') lat = Math.max(-75, lat - 10);
-    if (event.key === '+' || event.key === '=') zoom = Math.min(3, zoom + .25);
-    if (event.key === '-') zoom = Math.max(1, zoom - .25);
+    if (event.key === '+' || event.key === '=') adjustZoom(.1);
+    if (event.key === '-') adjustZoom(-.1);
     if (event.key === 'Home') { zoom = 1; center(selected); }
-    dirty = true;
+    invalidate();
   };
   const contextLost = (event: Event) => { event.preventDefault(); dropGL(); };
   const observer = new ResizeObserver(resize); observer.observe(host);
-  const viewport = new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; dirty = true; }, { rootMargin: '50px' }); viewport.observe(host);
-  const theme = new MutationObserver(() => { dirty = true; }); theme.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
-  const visibility = () => { pageVisible = !document.hidden; dirty = true; };
-  const motion = () => { if (reduced.matches) pause(); dirty = true; };
+  const viewport = new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; invalidate(); }, { rootMargin: '50px' }); viewport.observe(host);
+  const updateTheme = () => { dark = darkTheme(); invalidate(); };
+  const theme = new MutationObserver(updateTheme); theme.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+  const visibility = () => { pageVisible = !document.hidden; invalidate(); };
+  const motion = () => { if (reduced.matches) pause(); invalidate(); };
   document.addEventListener('visibilitychange', visibility); reduced.addEventListener('change', motion);
   host.addEventListener('pointerdown', down); host.addEventListener('pointermove', move);
   host.addEventListener('pointerup', up); host.addEventListener('pointercancel', cancel);
   host.addEventListener('pointerleave', leave); host.addEventListener('keydown', key);
+  host.addEventListener('wheel', wheel, { passive: false }); scheme.addEventListener('change', updateTheme);
   surface.addEventListener('webglcontextlost', contextLost);
   function frame(time: number) {
-    if (destroyed) return;
+    raf = 0;
+    if (destroyed || !visible || !pageVisible) { last = time; return; }
     const elapsed = Math.min(time - last, 100);
     if (elapsed >= 1000 / 24 && visible && pageVisible) {
       if (fly) {
@@ -269,20 +269,21 @@ export async function createMissionGlobe(
       } else if (spinning && !pointer) { lon += elapsed * .0025; dirty = true; }
       if (dirty) draw(); last = time;
     } else if (!visible || !pageVisible) last = time;
-    raf = requestAnimationFrame(frame);
+    if (dirty || fly || (spinning && !pointer)) raf = requestAnimationFrame(frame);
   }
-  resize(); if (!spinning) center(selected); raf = requestAnimationFrame(frame);
+  resize(); if (!spinning) center(selected); invalidate();
   return {
-    select(code, shouldCenter = true) { selected = code; if (shouldCenter) center(code); dirty = true; },
-    rotate(value) { spinning = value; },
-    zoom(delta) { zoom = Math.max(1, Math.min(3, zoom + delta)); dirty = true; },
-    reset() { zoom = 1; center(selected); dirty = true; },
+    select(code, shouldCenter = true) { selected = code; if (shouldCenter) center(code); invalidate(); },
+    rotate(value) { spinning = value; invalidate(); },
+    zoom: adjustZoom,
+    reset() { zoom = 1; center(selected); invalidate(); },
     destroy() {
       destroyed = true; cancelAnimationFrame(raf); observer.disconnect(); viewport.disconnect(); theme.disconnect();
       document.removeEventListener('visibilitychange', visibility); reduced.removeEventListener('change', motion);
       host.removeEventListener('pointerdown', down); host.removeEventListener('pointermove', move);
       host.removeEventListener('pointerup', up); host.removeEventListener('pointercancel', cancel);
       host.removeEventListener('pointerleave', leave); host.removeEventListener('keydown', key);
+      host.removeEventListener('wheel', wheel); scheme.removeEventListener('change', updateTheme);
       surface.removeEventListener('webglcontextlost', contextLost);
       if (gl) { gl.deleteTexture(texture); gl.deleteBuffer(buffer); gl.deleteProgram(program); shaders.forEach(shader => gl?.deleteShader(shader)); gl.getExtension('WEBGL_lose_context')?.loseContext(); }
     },

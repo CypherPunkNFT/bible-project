@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { ArrowUpRight, Globe2, Minus, Pause, Play, Plus, RotateCcw, Search } from 'lucide-react';
+import { ArrowUpRight, Globe2, Search } from 'lucide-react';
 import snapshot from '../../../content/missions/muslim-world.json';
 import type { MissionGlobe } from '@/lib/mission-globe';
 import './muslim-world.css';
@@ -11,7 +11,7 @@ const compact = (number: number) => new Intl.NumberFormat('en', { notation: 'com
 const number = (value: number) => new Intl.NumberFormat('en').format(value);
 const date = new Intl.DateTimeFormat('en', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' }).format(new Date(snapshot.snapshotDate + 'T12:00:00Z'));
 
-function CountryGlobe({ code, spinning, onSelect, onPause, onToggle }: { code: string; spinning: boolean; onSelect(code: string): void; onPause(): void; onToggle(): void }) {
+function CountryGlobe({ code, spinning, onSelect, onPause }: { code: string; spinning: boolean; onSelect(code: string): void; onPause(): void }) {
   const stage = useRef<HTMLDivElement>(null), surface = useRef<HTMLCanvasElement>(null), overlay = useRef<HTMLCanvasElement>(null);
   const controller = useRef<MissionGlobe>();
   const latest = useRef({ code, spinning, onSelect, onPause });
@@ -46,18 +46,11 @@ function CountryGlobe({ code, spinning, onSelect, onPause, onToggle }: { code: s
   useEffect(() => { controller.current?.select(code); }, [code]);
   useEffect(() => { controller.current?.rotate(spinning); }, [spinning]);
   return <figure className="mw-globe">
-    <div className="mw-map-heading"><span><Globe2 size={15} /> An atlas for understanding</span><span>53 countries & territories</span></div>
-    <div className="mw-globe-stage" ref={stage} tabIndex={0} role="group" aria-label="Interactive globe. Drag to turn. Arrow keys turn; plus and minus zoom. Use the country selector to choose a country." aria-describedby="mw-globe-help">
+    <div className="mw-globe-stage" ref={stage} tabIndex={0} role="group" aria-busy={!ready && !error} aria-label="Interactive globe. Scroll to zoom; arrow keys turn; plus and minus zoom; Space pauses or starts rotation; Home resets. Use the country selector to choose a country.">
       <canvas ref={surface} aria-hidden="true" /><canvas ref={overlay} aria-hidden="true" />
       {!ready && <div className="mw-globe-loading" role="status"><Globe2 size={90} strokeWidth={.5} /><p>{error ? 'The map is unavailable. Choose a country from the selector.' : 'Opening the atlas…'}</p></div>}
       {hover && <span className="mw-map-hover" aria-hidden="true">{hover} <ArrowUpRight size={12} /></span>}
     </div>
-    <div className="mw-globe-toolbar"><p id="mw-globe-help">Drag to turn · click a highlighted country</p><div>
-      <button type="button" disabled={!ready} aria-label={spinning ? 'Pause globe rotation' : 'Start globe rotation'} aria-pressed={spinning} onClick={onToggle}>{spinning ? <Pause size={15} /> : <Play size={15} />}</button>
-      <button type="button" disabled={!ready} aria-label="Zoom in on globe" onClick={() => controller.current?.zoom(.25)}><Plus size={16} /></button>
-      <button type="button" disabled={!ready} aria-label="Zoom out on globe" onClick={() => controller.current?.zoom(-.25)}><Minus size={16} /></button>
-      <button type="button" disabled={!ready} aria-label="Reset globe to selected country" onClick={() => { onPause(); controller.current?.reset(); }}><RotateCcw size={15} /></button>
-    </div></div>
     <div className="mw-map-credit"><span><i /> Muslim-majority in Pew’s 2020 estimates</span><span>{fallback ? 'Geographic map view' : 'Earth imagery: NASA Blue Marble'}</span></div>
   </figure>;
 }
@@ -84,9 +77,9 @@ export default function MuslimWorldExplorer() {
   const filtered = countries.filter(entry => entry.name.toLowerCase().includes(search.trim().toLowerCase()) &&
     (region === 'all' || (region === 'africa' ? entry.region.includes('Africa') : region === 'europe' ? entry.region.includes('Europe') : entry.region.includes('Asia'))));
   return <section ref={section} id="muslim-world" className="mw-explorer" aria-labelledby="mw-heading">
-    <header className="mw-introduction"><div><p className="ap-eyebrow">People & places / Across the Muslim world</p><h2 id="mw-heading">A world of people.<br /><em>Learn the place.</em></h2></div><p>A neighbour’s faith has a context. Explore Muslim-majority countries and territories, meet some of their people groups, and understand where a gospel witness is present.</p></header>
+    <header className="mw-introduction"><div><p className="ap-eyebrow"><Globe2 size={15} aria-hidden="true" /> An atlas for understanding the Muslim world</p><h2 id="mw-heading">A world of people.<br /><em>Learn the place.</em></h2></div><p>A neighbour’s faith has a context. Explore 53 Muslim-majority countries and territories, meet some of their people groups, and understand where a gospel witness is present.</p></header>
     <div className="mw-explorer-layout">
-      <CountryGlobe code={country.code} spinning={spinning} onSelect={choose} onPause={pause} onToggle={() => setSpinning(value => !value)} />
+      <CountryGlobe code={country.code} spinning={spinning} onSelect={choose} onPause={pause} />
       <div className="mw-country-panel">
         <div className="mw-country-picker"><label className="mw-search-label" htmlFor="mw-search"><Search size={14} /> Find a country</label><input id="mw-search" type="search" placeholder="Search all 53 places…" value={search} onChange={event => setSearch(event.target.value)} />
           <div className="mw-select-row"><label><span className="sr-only">Filter by region</span><select aria-label="Filter countries by region" value={region} onChange={event => setRegion(event.target.value)}><option value="all">All regions</option><option value="africa">Africa</option><option value="asia">Asia</option><option value="europe">Europe</option></select></label><label><span className="sr-only">Choose a country</span><select aria-label="Choose a country" value={filtered.some(entry => entry.code === country.code) ? country.code : ''} onChange={event => choose(event.target.value)}><option value="" disabled>{filtered.length ? `${filtered.length} matching places` : 'No matching countries'}</option>{filtered.map(entry => <option value={entry.code} key={entry.code}>{entry.name}</option>)}</select></label></div>

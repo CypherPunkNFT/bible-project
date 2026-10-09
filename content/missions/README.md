@@ -20,8 +20,27 @@ Inspect source schema and changed country scope before publishing an update. New
 
 ## Rendering
 
-The renderer and assets load when the section approaches the viewport. The globe uses an orthographic WebGL sphere with NASA Blue Marble imagery and aligned Natural Earth country polygons. Without WebGL or an available texture it retains an interactive geographic map; if boundaries fail, all country profiles remain accessible through the selector. Auto rotation starts only when reduced motion is not requested, pauses on interaction and respects viewport/tab visibility. Explicit play remains available. Resize observers, animation frames, events and GPU resources are disposed on navigation.
+The renderer and assets load when the section approaches the viewport. The globe uses an orthographic WebGL sphere with NASA Blue Marble imagery and aligned Natural Earth country polygons. Without WebGL or an available texture it retains an interactive geographic map; if boundaries fail, all country profiles remain accessible through the selector. Auto rotation starts only when reduced motion is not requested, pauses on interaction and respects viewport/tab visibility. The animation loop stops completely while paused, offscreen or in a hidden tab. Resize observers, animation frames, events and GPU resources are disposed on navigation.
 
-Native country/region selectors provide keyboard and screen-reader access. The globe also accepts arrow keys, +/− and Home; mobile controls offer zoom and reset. Boundaries and source naming do not resolve disputed status. Mayotte is extracted from France's actual Natural Earth island polygons; a geographic point remains the picking fallback for very small islands.
+Native country/region selectors provide keyboard and screen-reader access. The globe accepts arrow keys, +/−, Space (pause/start) and Home. Wheel gestures zoom between 60% and full fit, then scroll the page at either limit; the sphere cannot be enlarged past the canvas edges. Touch allows vertical page scrolling and horizontal globe dragging. There are no visible control buttons or drag instructions. The square stage fills the map column and separates the sphere from the introduction.
+
+`atlas.json` merges Natural Earth 1:110m land into worldwide coastlines and includes country outlines only for the 61 countries/territories with at least 20% Muslim identification in the same Pew 2020 snapshot. Eight minority-Muslim places have outlines but no majority-country profile or coloured fill. The 53 majority profiles remain the selection scope. Small places absent from 1:110m use 1:50m geometry; Mayotte is extracted from France's actual island polygons. Coordinates are rounded to two decimal degrees, centroids are cached, and the texture is a 2048×1024 WebP. Boundaries and source naming do not resolve disputed status.
+
+Rebuild display assets with `node scripts/build-muslim-world-map.mjs` and `node scripts/build-muslim-world-texture.mjs`. The map builder reads the archived Pew dataset, validates every code/geometry, and does not publish the full country table. The texture builder uses installed Edge via Playwright; its bytes may vary by encoder version. Preserve attribution and record new checksums after regeneration.
+
+## Local performance measurement — 2026-10-09
+
+Edge, 1440×900, no motion reduction, local compressed Vite preview; equal four-second samples after assets settle. These are local resource/main-thread measurements, not field Core Web Vitals or measurements on a low-end phone. The renderer's shared D3 dependency and page shell are outside the resource subtotal below.
+
+| Measurement | Before | After |
+|---|---:|---:|
+| Renderer + geometry + texture, transferred | 934,153 bytes | 199,536 bytes |
+| Geometry, uncompressed | 756,420 bytes | 123,178 bytes |
+| Texture | 696,838 bytes | 153,856 bytes |
+| Main-thread tasks during ~4 seconds of rotation | 1,604.7 ms | 310.8 ms |
+| Globe draws during rotation sample | 80 | 80 |
+| Animation callbacks during ~4 seconds paused | 241 | 0 |
+
+The 53 demographic/IMB profiles occupy 79,408 bytes in the readable source JSON and remain bundled facts; the original 5.7 MB IMB input is not shipped. Estimated RGBA texture storage including mipmaps falls from 42.7 MiB to 10.7 MiB; this excludes canvas framebuffers and is a calculation, not a GPU-memory measurement. Reproduce browser measurements with `node scripts/tests/muslim-world-performance.mjs` (`BASE` selects the local preview; `LABEL` names the output in `.local/`). Five country-data checks and twelve responsive browser checks cover profile coverage, threshold/coastline geometry, picking, wheel/keyboard gestures, full-fit layout and fallbacks.
 
 Sources and asset provenance: [public/assets/muslim-world/README.md](../../public/assets/muslim-world/README.md). No deployment is implied by a successful local build.
