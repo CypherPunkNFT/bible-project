@@ -58,6 +58,10 @@
 
 :root[data-theme="dark"] .draw-door-solid .solid { fill: color-mix(in srgb, var(--c) 58%, var(--page)); }
 
+.draw-door-solid .bloom { animation: sway 6s ease-in-out infinite alternate; animation-delay: calc(var(--i) * -1.7s); }
+.draw-door-solid .blue { stroke: var(--blue); } .draw-door-solid .violet { stroke: var(--violet); }
+.draw-door-solid .petal { opacity: .8; } .draw-door-solid .heart { fill: var(--sun); stroke: none; opacity: .8; }
+
 /* 2 · Morning: the sun rises and settles in its glow, rays turning; its beams brighten over the hills as the stars fade;
    birds cross; the flowers nod. */
 .draw-morning .art { overflow: hidden; }
