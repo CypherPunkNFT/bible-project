@@ -83,7 +83,8 @@ export function worldviewsPage(data: ApologeticsData): string {
         "",
         "**The texts behind the conversation:**",
         "",
-        ...c.sources.map((id) => `- ${sourceLine(find(data.sources, id, "source"))}`),
+        ...(c.readingPlan ? [c.readingPlan.introduction, ...c.readingPlan.stages.flatMap(stage => [`### ${stage.title}`, stage.aim, ...stage.readings.flatMap(reading => [`#### ${reading.title}`, `Source: ${sourceLine(find(data.sources, reading.source, "source"))}`, ...(["context", "purpose", "examine", "connection", "christian"] as const).map(key => `**${key}:** ${cited(reading[key], data)}`)])])] : []),
+          ...c.sources.map((id) => `- ${sourceLine(find(data.sources, id, "source"))}`),
         "",
       ];
     }),

@@ -22,7 +22,6 @@
       "q112",
       "q4171",
       "q4157",
-      "creed",
       "q359",
       "q3953",
       "q5338",
@@ -439,7 +438,636 @@
         "study": "manuscripts"
       }
     ],
-    "otherLabel": "Islamic perspective"
+    "otherLabel": "Islamic perspective",
+    "readingPlan": {
+      "introduction": "These readings serve a Christian conversation about trusting Jesus: understand God’s identity, examine Jesus’ identity, consider forgiveness through his death and resurrection, then assess the claims of revelation. Read each Qur’anic passage on its own terms beside the Christian counterpart. Ask what your neighbour believes and why; the sequence guides discussion rather than guaranteeing conversion.",
+      "stages": [
+        {
+          "title": "Who is God?",
+          "aim": "Establish what each person means by one God before discussing Father, Son and Holy Spirit.",
+          "readings": [
+            {
+              "source": "q112",
+              "title": "One God: the shared starting point",
+              "context": {
+                "id": "reading-q112-context",
+                "text": "Read the complete four-verse chapter. It confesses God’s oneness, rejects begetting and being begotten, and denies any equal to him.",
+                "citations": [
+                  {
+                    "kind": "source",
+                    "source": "q112",
+                    "locator": "Full passage and surrounding verses"
+                  }
+                ]
+              },
+              "purpose": {
+                "id": "reading-q112-purpose",
+                "text": "Understand why divine sonship can sound like a denial of God’s uniqueness to a Muslim neighbour.",
+                "citations": [
+                  {
+                    "kind": "source",
+                    "source": "q112",
+                    "locator": "Full passage and surrounding verses"
+                  }
+                ]
+              },
+              "examine": {
+                "id": "reading-q112-examine",
+                "text": "Read all four verses together. Distinguish the rejection of begetting from the Christian meaning of the eternal Son; ask what your neighbour thinks Christians mean.",
+                "citations": [
+                  {
+                    "kind": "source",
+                    "source": "q112",
+                    "locator": "Full passage and surrounding verses"
+                  }
+                ]
+              },
+              "connection": {
+                "id": "reading-q112-connection",
+                "text": "Begin with the objection the person actually holds. Shared monotheistic language opens the discussion but does not settle the disagreement about God.",
+                "citations": [
+                  {
+                    "kind": "source",
+                    "source": "q112",
+                    "locator": "Full passage and surrounding verses"
+                  }
+                ]
+              },
+              "christian": {
+                "id": "reading-q112-christian",
+                "text": "Christian Scripture also confesses one God. Jesus commands baptism in the singular name of the Father, Son and Holy Spirit; the comparison concerns how this confession fits together, rather than whether Christians worship three gods.",
+                "citations": [
+                  {
+                    "kind": "scripture",
+                    "reference": "Deuteronomy 6:4"
+                  },
+                  {
+                    "kind": "scripture",
+                    "reference": "Matthew 28:19"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "title": "Who is Jesus?",
+          "aim": "Move from shared names for Jesus to the decisive difference about his identity.",
+          "readings": [
+            {
+              "source": "q4171",
+              "title": "Honouring Jesus, denying divine sonship",
+              "context": {
+                "id": "reading-q4171-context",
+                "text": "The passage addresses the People of the Book. It calls Jesus Messiah and messenger, speaks of God’s word and a spirit from him, and rejects saying three and attributing a son to God.",
+                "citations": [
+                  {
+                    "kind": "source",
+                    "source": "q4171",
+                    "locator": "Full passage and surrounding verses"
+                  }
+                ]
+              },
+              "purpose": {
+                "id": "reading-q4171-purpose",
+                "text": "Identify both the honour given to Jesus and the boundaries placed around that honour.",
+                "citations": [
+                  {
+                    "kind": "source",
+                    "source": "q4171",
+                    "locator": "Full passage and surrounding verses"
+                  }
+                ]
+              },
+              "examine": {
+                "id": "reading-q4171-examine",
+                "text": "Read the whole address. Keep the descriptions of Jesus beside the explicit qualifications. Ask how your neighbour interprets word, spirit and sonship.",
+                "citations": [
+                  {
+                    "kind": "source",
+                    "source": "q4171",
+                    "locator": "Full passage and surrounding verses"
+                  }
+                ]
+              },
+              "connection": {
+                "id": "reading-q4171-connection",
+                "text": "This explains why agreement that Jesus is Messiah is not yet agreement with the gospel. The next question is what makes him more than a messenger.",
+                "citations": [
+                  {
+                    "kind": "source",
+                    "source": "q4171",
+                    "locator": "Full passage and surrounding verses"
+                  }
+                ]
+              },
+              "christian": {
+                "id": "reading-q4171-christian",
+                "text": "John identifies the Word as God and says the Word became flesh. Thomas addresses the risen Jesus as Lord and God. These passages explain the Christian claim without importing it into the Qur’an’s wording.",
+                "citations": [
+                  {
+                    "kind": "scripture",
+                    "reference": "John 1:1-14"
+                  },
+                  {
+                    "kind": "scripture",
+                    "reference": "John 20:28-31"
+                  }
+                ]
+              }
+            },
+            {
+              "source": "q359",
+              "title": "Jesus and Adam: what creation proves",
+              "context": {
+                "id": "reading-q359-context",
+                "text": "In the surrounding discussion of Jesus, this verse compares him to Adam: God created Adam from dust and brought him into being by command.",
+                "citations": [
+                  {
+                    "kind": "source",
+                    "source": "q359",
+                    "locator": "Full passage and surrounding verses"
+                  }
+                ]
+              },
+              "purpose": {
+                "id": "reading-q359-purpose",
+                "text": "Examine the argument that Jesus’ extraordinary origin does not itself establish divinity.",
+                "citations": [
+                  {
+                    "kind": "source",
+                    "source": "q359",
+                    "locator": "Full passage and surrounding verses"
+                  }
+                ]
+              },
+              "examine": {
+                "id": "reading-q359-examine",
+                "text": "Follow the comparison with Adam. Identify what the verse explains about creation and what it does not establish about the Christian claim of incarnation.",
+                "citations": [
+                  {
+                    "kind": "source",
+                    "source": "q359",
+                    "locator": "Full passage and surrounding verses"
+                  }
+                ]
+              },
+              "connection": {
+                "id": "reading-q359-connection",
+                "text": "A Christian answer should explain Jesus’ identity from the biblical testimony, rather than argue that a virgin birth alone proves he is God.",
+                "citations": [
+                  {
+                    "kind": "source",
+                    "source": "q359",
+                    "locator": "Full passage and surrounding verses"
+                  }
+                ]
+              },
+              "christian": {
+                "id": "reading-q359-christian",
+                "text": "John places the Word before creation and attributes creation to him, then describes his becoming flesh. The Christian distinction is between the Creator taking human nature and a creature receiving an extraordinary beginning.",
+                "citations": [
+                  {
+                    "kind": "scripture",
+                    "reference": "John 1:1-3"
+                  },
+                  {
+                    "kind": "scripture",
+                    "reference": "John 1:14"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "title": "How are we forgiven?",
+          "aim": "Bring the discussion to sin, mercy and the saving work Christians proclaim at the cross.",
+          "readings": [
+            {
+              "source": "q4157",
+              "title": "The cross: the central disagreement",
+              "context": {
+                "id": "reading-q4157-context",
+                "text": "Read verses 157–158 together. The passage denies that Jesus’ opponents killed or crucified him and says God raised him to himself.",
+                "citations": [
+                  {
+                    "kind": "source",
+                    "source": "q4157",
+                    "locator": "Full passage and surrounding verses"
+                  }
+                ]
+              },
+              "purpose": {
+                "id": "reading-q4157-purpose",
+                "text": "Locate the disagreement that directly concerns the Christian account of salvation.",
+                "citations": [
+                  {
+                    "kind": "source",
+                    "source": "q4157",
+                    "locator": "Full passage and surrounding verses"
+                  }
+                ]
+              },
+              "examine": {
+                "id": "reading-q4157-examine",
+                "text": "Separate the words of the passage from a translator’s additions and later explanations. The verses do not name a substitute; ask which interpretation your neighbour follows.",
+                "citations": [
+                  {
+                    "kind": "source",
+                    "source": "q4157",
+                    "locator": "Full passage and surrounding verses"
+                  }
+                ]
+              },
+              "connection": {
+                "id": "reading-q4157-connection",
+                "text": "Conversion to Christianity involves trusting the crucified and risen Jesus. Explain why his death belongs to the gospel before discussing alternative accounts.",
+                "citations": [
+                  {
+                    "kind": "source",
+                    "source": "q4157",
+                    "locator": "Full passage and surrounding verses"
+                  }
+                ]
+              },
+              "christian": {
+                "id": "reading-q4157-christian",
+                "text": "Paul’s summary places Christ’s death for sins, burial, resurrection and witnesses at the centre of the received gospel. This is the claim the Qur’anic account must be compared with.",
+                "citations": [
+                  {
+                    "kind": "scripture",
+                    "reference": "1 Corinthians 15:3-8"
+                  }
+                ]
+              }
+            },
+            {
+              "source": "q3953",
+              "title": "Mercy, repentance and the ground of forgiveness",
+              "context": {
+                "id": "reading-q3953-context",
+                "text": "Verse 53 offers hope to people who have sinned. Continue through 54–55, which call them to return, submit and follow revelation before judgment.",
+                "citations": [
+                  {
+                    "kind": "source",
+                    "source": "q3953",
+                    "locator": "Full passage and surrounding verses"
+                  }
+                ]
+              },
+              "purpose": {
+                "id": "reading-q3953-purpose",
+                "text": "Hear the promise of mercy accurately before explaining the Christian account of grace.",
+                "citations": [
+                  {
+                    "kind": "source",
+                    "source": "q3953",
+                    "locator": "Full passage and surrounding verses"
+                  }
+                ]
+              },
+              "examine": {
+                "id": "reading-q3953-examine",
+                "text": "Read the invitation and the response together. Ask what your neighbour understands to be the ground of forgiveness, rather than assuming Islam has no mercy.",
+                "citations": [
+                  {
+                    "kind": "source",
+                    "source": "q3953",
+                    "locator": "Full passage and surrounding verses"
+                  }
+                ]
+              },
+              "connection": {
+                "id": "reading-q3953-connection",
+                "text": "The conversation can now ask how forgiveness is received and why Christians connect it to Christ’s saving work.",
+                "citations": [
+                  {
+                    "kind": "source",
+                    "source": "q3953",
+                    "locator": "Full passage and surrounding verses"
+                  }
+                ]
+              },
+              "christian": {
+                "id": "reading-q3953-christian",
+                "text": "Ephesians describes salvation by grace through faith as God’s gift, followed by a life of good works. Romans connects justification to redemption in Christ, explaining the ground of Christian assurance.",
+                "citations": [
+                  {
+                    "kind": "scripture",
+                    "reference": "Ephesians 2:8-10"
+                  },
+                  {
+                    "kind": "scripture",
+                    "reference": "Romans 3:24-26"
+                  }
+                ]
+              }
+            },
+            {
+              "source": "q5338",
+              "title": "Law, wrongdoing and repentance",
+              "context": {
+                "id": "reading-q5338-context",
+                "text": "Verse 38 concerns the punishment of theft. Verse 39 immediately speaks of repentance, reform and God’s forgiveness. Read both.",
+                "citations": [
+                  {
+                    "kind": "source",
+                    "source": "q5338",
+                    "locator": "Full passage and surrounding verses"
+                  }
+                ]
+              },
+              "purpose": {
+                "id": "reading-q5338-purpose",
+                "text": "Distinguish legal consequences, moral guilt and forgiveness instead of treating a penalty as a complete account of salvation.",
+                "citations": [
+                  {
+                    "kind": "source",
+                    "source": "q5338",
+                    "locator": "Full passage and surrounding verses"
+                  }
+                ]
+              },
+              "examine": {
+                "id": "reading-q5338-examine",
+                "text": "Notice the legal setting and the following invitation to repent. Ask how your neighbour understands its application; this reading does not establish every Muslim’s legal position.",
+                "citations": [
+                  {
+                    "kind": "source",
+                    "source": "q5338",
+                    "locator": "Full passage and surrounding verses"
+                  }
+                ]
+              },
+              "connection": {
+                "id": "reading-q5338-connection",
+                "text": "The passage helps clarify the problem the gospel addresses: wrongdoing requires more than a comparison of punishments. Ask how guilt before God is answered.",
+                "citations": [
+                  {
+                    "kind": "source",
+                    "source": "q5338",
+                    "locator": "Full passage and surrounding verses"
+                  }
+                ]
+              },
+              "christian": {
+                "id": "reading-q5338-christian",
+                "text": "Romans explains that the law exposes sin and that justification is given through Christ. This is a comparison about guilt and redemption, rather than a matching Christian civil penalty for theft.",
+                "citations": [
+                  {
+                    "kind": "scripture",
+                    "reference": "Romans 3:19-26"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "title": "Which revelation should we trust?",
+          "aim": "Identify the competing claims of authority, then distinguish those claims from the evidence needed to assess them.",
+          "readings": [
+            {
+              "source": "q4163",
+              "title": "A claim of continuity with earlier prophets",
+              "context": {
+                "id": "reading-q4163-context",
+                "text": "Read 163–166. Muhammad’s revelation is placed alongside earlier prophets, including Jesus; the surrounding verses describe messengers bringing good news and warning.",
+                "citations": [
+                  {
+                    "kind": "source",
+                    "source": "q4163",
+                    "locator": "Full passage and surrounding verses"
+                  }
+                ]
+              },
+              "purpose": {
+                "id": "reading-q4163-purpose",
+                "text": "Understand why a Muslim may see Islam as continuation rather than a departure from earlier revelation.",
+                "citations": [
+                  {
+                    "kind": "source",
+                    "source": "q4163",
+                    "locator": "Full passage and surrounding verses"
+                  }
+                ]
+              },
+              "examine": {
+                "id": "reading-q4163-examine",
+                "text": "Identify the named prophets and the continuity being claimed. Ask whether shared names also mean agreement about their message.",
+                "citations": [
+                  {
+                    "kind": "source",
+                    "source": "q4163",
+                    "locator": "Full passage and surrounding verses"
+                  }
+                ]
+              },
+              "connection": {
+                "id": "reading-q4163-connection",
+                "text": "After discussing Jesus and the cross, ask whether the later message preserves or changes the earlier one. A list of prophets does not itself resolve that question.",
+                "citations": [
+                  {
+                    "kind": "source",
+                    "source": "q4163",
+                    "locator": "Full passage and surrounding verses"
+                  }
+                ]
+              },
+              "christian": {
+                "id": "reading-q4163-christian",
+                "text": "Hebrews describes God’s earlier speech through prophets and his climactic speech in the Son, who reveals God and makes purification for sins. Christian continuity centres on the identity and work of Jesus.",
+                "citations": [
+                  {
+                    "kind": "scripture",
+                    "reference": "Hebrews 1:1-4"
+                  }
+                ]
+              }
+            },
+            {
+              "source": "q3340",
+              "title": "The seal of the prophets",
+              "context": {
+                "id": "reading-q3340-context",
+                "text": "Read 37–40. The discussion includes adoption and marriage before identifying Muhammad as God’s messenger and the seal of the prophets.",
+                "citations": [
+                  {
+                    "kind": "source",
+                    "source": "q3340",
+                    "locator": "Full passage and surrounding verses"
+                  }
+                ]
+              },
+              "purpose": {
+                "id": "reading-q3340-purpose",
+                "text": "Identify the basis for the claim that Muhammad’s message has final prophetic authority.",
+                "citations": [
+                  {
+                    "kind": "source",
+                    "source": "q3340",
+                    "locator": "Full passage and surrounding verses"
+                  }
+                ]
+              },
+              "examine": {
+                "id": "reading-q3340-examine",
+                "text": "Keep the statement in its surrounding argument. Ask what seal of the prophets means to your neighbour and how that authority is assessed.",
+                "citations": [
+                  {
+                    "kind": "source",
+                    "source": "q3340",
+                    "locator": "Full passage and surrounding verses"
+                  }
+                ]
+              },
+              "connection": {
+                "id": "reading-q3340-connection",
+                "text": "The disagreement now concerns which message can govern the understanding of Jesus. Naming a final messenger states a claim; it does not independently prove it.",
+                "citations": [
+                  {
+                    "kind": "source",
+                    "source": "q3340",
+                    "locator": "Full passage and surrounding verses"
+                  }
+                ]
+              },
+              "christian": {
+                "id": "reading-q3340-christian",
+                "text": "Paul tells Christians to test even a later messenger against the gospel already received. This explains the Christian criterion for accepting a message, while leaving the truth of the competing claims open to examination.",
+                "citations": [
+                  {
+                    "kind": "scripture",
+                    "reference": "Galatians 1:6-9"
+                  }
+                ]
+              }
+            },
+            {
+              "source": "q548",
+              "title": "Confirming and judging earlier Scripture",
+              "context": {
+                "id": "reading-q548-context",
+                "text": "The chapter discusses Torah and Gospel before describing the Qur’an as confirming earlier Scripture and having authority over it; verses 49–50 continue the theme of judgment.",
+                "citations": [
+                  {
+                    "kind": "source",
+                    "source": "q548",
+                    "locator": "Full passage and surrounding verses"
+                  }
+                ]
+              },
+              "purpose": {
+                "id": "reading-q548-purpose",
+                "text": "Expose the question of which text governs interpretation when their accounts differ.",
+                "citations": [
+                  {
+                    "kind": "source",
+                    "source": "q548",
+                    "locator": "Full passage and surrounding verses"
+                  }
+                ]
+              },
+              "examine": {
+                "id": "reading-q548-examine",
+                "text": "Compare translations of the authority language. Identify what the passage says about confirmation and judgment, and distinguish this from a demonstrated history of textual corruption.",
+                "citations": [
+                  {
+                    "kind": "source",
+                    "source": "q548",
+                    "locator": "Full passage and surrounding verses"
+                  }
+                ]
+              },
+              "connection": {
+                "id": "reading-q548-connection",
+                "text": "This directs the discussion to actual texts and evidence. Do not use this verse alone either to prove the Bible is corrupted or to assume it settles every disagreement in Christianity’s favour.",
+                "citations": [
+                  {
+                    "kind": "source",
+                    "source": "q548",
+                    "locator": "Full passage and surrounding verses"
+                  }
+                ]
+              },
+              "christian": {
+                "id": "reading-q548-christian",
+                "text": "Jesus describes his work as fulfilling the Law and the Prophets and affirms their enduring authority. Christians examine later claims in relation to that testimony, rather than simply adopting a later text as the judge of it.",
+                "citations": [
+                  {
+                    "kind": "scripture",
+                    "reference": "Matthew 5:17-18"
+                  }
+                ]
+              }
+            },
+            {
+              "source": "q159",
+              "title": "Preservation: promise and evidence",
+              "context": {
+                "id": "reading-q159-context",
+                "text": "Read 6–13. Opponents mock the recipient of the Reminder; the response includes God’s promise to preserve it and recalls earlier rejected messengers.",
+                "citations": [
+                  {
+                    "kind": "source",
+                    "source": "q159",
+                    "locator": "Full passage and surrounding verses"
+                  }
+                ]
+              },
+              "purpose": {
+                "id": "reading-q159-purpose",
+                "text": "Understand the theological preservation claim before moving to manuscripts and transmission.",
+                "citations": [
+                  {
+                    "kind": "source",
+                    "source": "q159",
+                    "locator": "Full passage and surrounding verses"
+                  }
+                ]
+              },
+              "examine": {
+                "id": "reading-q159-examine",
+                "text": "Identify what is promised. Keep the promise distinct from the historical questions of copying, variants and transmission; those require their own evidence.",
+                "citations": [
+                  {
+                    "kind": "source",
+                    "source": "q159",
+                    "locator": "Full passage and surrounding verses"
+                  }
+                ]
+              },
+              "connection": {
+                "id": "reading-q159-connection",
+                "text": "Confidence in a sacred text matters to conversion, but competing preservation claims need examination. Follow the manuscript study when the conversation turns to historical evidence.",
+                "citations": [
+                  {
+                    "kind": "source",
+                    "source": "q159",
+                    "locator": "Full passage and surrounding verses"
+                  }
+                ]
+              },
+              "christian": {
+                "id": "reading-q159-christian",
+                "text": "Isaiah affirms the endurance of God’s word, and Jesus says his words will not pass away. These state Christian convictions about preservation; manuscript evidence must still be considered on its own terms.",
+                "citations": [
+                  {
+                    "kind": "scripture",
+                    "reference": "Isaiah 40:8"
+                  },
+                  {
+                    "kind": "scripture",
+                    "reference": "Matthew 24:35"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
   },
   "reviews": [
     {
@@ -468,6 +1096,15 @@
       "date": "2026-10-09",
       "contentHash": "29dc56483d337c1cd4515a0dd7a88d1ce3e6564dfde6f46ca76862497b1c1856",
       "basisHash": "0b230da15436c3e60d99369c960422f066e805b9f4a9b293daec53183d7e9ed4"
+    },
+    {
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Quran passage context, reading roadmap and biblical counterparts",
+      "note": "Checked linked primary texts and context. Distinguishes wording from interpretation and preservation claims from historical evidence; Christian Scripture explains each paired contrast.",
+      "date": "2026-10-09",
+      "contentHash": "d7983d7c9e2eaa49857edccb93a6b2bb88bd2b0c4e748e90114f62c4395aec20",
+      "basisHash": "610596e59a22827c9e275020030e1ff3a6e87acdd9f33fddf53fa1aa0b38aa10"
     }
   ]
 }

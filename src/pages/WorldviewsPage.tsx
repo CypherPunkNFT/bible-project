@@ -67,8 +67,35 @@ const readingTasks: Record<string, string> = {
   creed: 'Read the statements about Father, Son and Holy Spirit together. Identify the confession Christians are explaining, then follow the biblical references in the comparison.',
 };
 function ContextSources({ item }: { item: typeof WORLDVIEWS[number] }) {
+  if (item.readingPlan) return <ReadingPlanRoom item={item} />;
   return <section className="wv-context-room" aria-labelledby="wv-context-heading"><div className="wv-section-title"><p className="ap-eyebrow">02 / Read in context</p><h2 id="wv-context-heading">The texts behind <em>the conversation.</em></h2><p>The comparison above identifies a difference. Here, return to the document: follow its wording, understand its setting and distinguish the text from an interpretation of it.</p></div><div className="wv-reading-aim"><Compass size={23} /><div><strong>Your aim: understand the passage before using it.</strong><p>Read the whole passage and what surrounds it. Identify who is speaking and who is addressed. Note what is affirmed, what is denied and what the text leaves unexplained.</p></div></div><div className="wv-context-grid ap-source-grid">{item.sources.map((id, index) => { const source = sourceById(id); const questions = item.rows.filter((entry) => [...entry.otherBasis, ...entry.christianBasis].some((citation) => citation.kind === 'source' && citation.source === id)); return <article className="wv-context-card" key={id}><div className="wv-context-meta"><BookOpen size={18} /><span>Source {String(index + 1).padStart(2, '0')} / {source.kind}</span></div><h3>{source.title}</h3><p className="wv-edition">{source.author}</p><div className="wv-source-purpose"><span>Context & purpose</span><p>{source.note}</p></div><div className="wv-reading-task"><span>What to examine</span><p>{readingTasks[id] ?? 'Read the passage in full, including the surrounding argument. Compare the wording with the claim in the reading desk and note where interpretation begins.'}</p></div>{questions.length > 0 && <div className="wv-reading-connections"><span>Return to the question</span>{questions.map((question) => <Link key={question.question} to={'?question=' + question.id + '#comparison'}>{question.question}<ArrowRight size={13} /></Link>)}</div>}<a className="wv-open-source" href={source.url} target="_blank" rel="noreferrer">Open the full text <ArrowUpRight size={15} /></a><small className="wv-source-role">{source.role}</small></article>; })}</div></section>;
 }
+function ReadingPlanRoom({ item }: { item: typeof WORLDVIEWS[number] }) {
+  const plan = item.readingPlan!;
+  const [selected, setSelected] = useState(0);
+  const stage = plan.stages[selected];
+  const icons = [Network, BookOpen, Cross, ScrollText];
+  return <section className="wv-context-room wv-reading-plan" aria-labelledby="wv-context-heading">
+    <div className="wv-section-title"><p className="ap-eyebrow">02 / Read in context</p><h2 id="wv-context-heading">The texts behind <em>the conversation.</em></h2></div>
+    <div className="wv-reading-aim"><Compass size={28} /><div><h3>Why these texts, and where the conversation leads</h3><p>{plan.introduction}</p></div></div>
+    <nav className="wv-source-roadmap" aria-label="Reading roadmap">{plan.stages.map((entry, i) => { const Icon = icons[i % icons.length]; return <button type="button" key={entry.title} aria-pressed={i === selected} aria-controls="wv-stage-readings" onClick={() => setSelected(i)}><span className="wv-roadmap-number">0{i + 1}<Icon size={22} /></span><strong>{entry.title}</strong><span>{entry.aim}</span><small>{entry.readings.length} {entry.readings.length === 1 ? 'passage' : 'passages'} <ArrowRight size={14} /></small></button>; })}</nav>
+    <div id="wv-stage-readings" aria-live="polite"><div className="wv-stage-heading"><p className="ap-eyebrow">Reading stage 0{selected + 1}</p><h3>{stage.title}</h3><p>{stage.aim}</p></div><div className="wv-context-grid ap-source-grid">{stage.readings.map((reading) => {
+      const source = sourceById(reading.source);
+      const questions = item.rows.filter(row => row.otherBasis.some(citation => citation.kind === 'source' && citation.source === reading.source));
+      return <article className="wv-context-card wv-analysis-card" key={reading.source}>
+        <div className="wv-context-meta"><BookOpen size={18} /><span>{source.title}</span></div><h3>{reading.title}</h3>
+        <div className="wv-passage-context"><h4>Passage in context</h4><p>{reading.context.text}</p></div>
+        <div className="wv-source-purpose"><h4>Why this passage is here</h4><p>{reading.purpose.text}</p></div>
+        <div className="wv-reading-task"><h4>What to examine</h4><p>{reading.examine.text}</p></div>
+        <div className="wv-gospel-connection"><h4>How this advances the conversation</h4><p>{reading.connection.text}</p></div>
+        <a className="wv-open-source" href={source.url} target="_blank" rel="noreferrer">Open the full text <ArrowUpRight size={15} /></a>
+        <div className="wv-christian-counterpart"><h4><BookOpen size={18} />Christian counterpart</h4><p>{reading.christian.text}</p><ApCitations citations={reading.christian.citations} label="Read alongside" /></div>
+        {questions.length > 0 && <div className="wv-reading-connections"><span>Related comparison questions</span>{questions.map(question => <Link key={question.id} to={'?question=' + question.id + '#comparison'}>{question.question}<ArrowRight size={12} /></Link>)}</div>}
+      </article>;
+    })}</div></div>
+  </section>;
+}
+
 function StudyArtwork({ kind }: { kind: number }) {
   return <svg className="wv-study-art" viewBox="0 0 360 150" fill="none" aria-hidden="true" focusable="false"><path d="M36 132h288" opacity=".2" />
     {kind === 0 && <><path d="M103 125V60q0-39 77-49 77 10 77 49v65M120 125V63q0-24 60-34 60 10 60 34v62" opacity=".35" /><path d="M137 114V62q22-10 43 0 21-10 43 0v52q-21-10-43 0-21-10-43 0ZM180 62v52M147 77h23m-23 12h23m20-12h23m-23 12h23" /><path d="m100 43-19-6m179 6 19-6M180 8v12" opacity=".45" /></>}

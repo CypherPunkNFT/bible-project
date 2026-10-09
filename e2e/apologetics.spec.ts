@@ -85,6 +85,7 @@ test("apologetics: worldview comparison and sources lead to actual studies", asy
   await page.goto("/apologetics/worldviews/islam");
   await expect(page.getByRole("navigation", { name: "Comparison questions" }).getByRole("button")).toHaveCount(WORLDVIEWS.find((item) => item.id === "islam")!.rows.length);
   await expect(page.locator(".wv-study-cards > article")).toHaveCount(WORLDVIEWS.find((item) => item.id === "islam")!.studies.length);
+  await page.locator(".wv-source-roadmap button").nth(2).click();
   await expect(page.locator('.ap-source-grid a[href="https://quran.com/en/an-nisa/157"]')).toBeVisible();
   await page.locator(".wv-study-link").click();
   await expect(page).toHaveURL(/\/apologetics\/study\/islam-jesus$/);
@@ -229,7 +230,20 @@ test("apologetics: four worldview collections, shareable questions and local ref
 
 test("apologetics: contextual sources and illustrated study cards support a reading task", async ({ page }) => {
   await page.goto("/apologetics/worldviews/islam");
-  await expect(page.locator(".wv-reading-aim")).toContainText("understand the passage before using it");
+  await expect(page.locator(".wv-reading-aim")).toContainText("trusting Jesus");
+  const roadmap = page.locator(".wv-source-roadmap button");
+  await expect(roadmap).toHaveCount(4);
+  for (let stage = 0; stage < 4; stage++) {
+    await roadmap.nth(stage).click();
+    const readings = page.locator(".wv-analysis-card");
+    for (let i = 0; i < await readings.count(); i++) {
+      await expect(readings.nth(i).locator(".wv-source-purpose")).not.toBeEmpty();
+      await expect(readings.nth(i).locator(".wv-reading-task")).not.toBeEmpty();
+      await expect(readings.nth(i).locator(".wv-christian-counterpart .ap-citations")).not.toBeEmpty();
+    }
+    await expect(page.locator(".wv-reading-plan")).not.toContainText("Nicene Creed");
+  }
+  await roadmap.first().click();
   const sources = page.locator(".wv-context-card");
   await expect(sources.first().locator(".wv-source-purpose")).not.toBeEmpty();
   await expect(sources.first().locator(".wv-reading-task")).toContainText("Read all four verses together");

@@ -28,3 +28,32 @@
 .wv-study-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}.wv-study-card{border:1px solid var(--line);border-radius:6px;overflow:hidden;background:linear-gradient(150deg,color-mix(in srgb,var(--wv-accent) 5%,var(--surface)),var(--surface));transition:border-color .2s}.wv-study-card:hover{border-color:var(--wv-accent)}.wv-study-card-top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 22px 0;color:var(--wv-accent)}.wv-study-card-top>span{display:flex;align-items:center;gap:8px;font-size:10px}.wv-study-card-top button{padding:6px}.wv-study-card>a{display:flex;flex-direction:column;padding:0 24px 24px;min-height:340px}.wv-study-art{width:100%;height:145px;stroke:var(--wv-accent);stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round;margin:10px 0}.wv-study-card h3{font-size:21px;line-height:1.5;min-height:64px}.wv-study-card p{font-size:12px;line-height:1.9;color:var(--muted);margin:13px 0 22px}.wv-study-card-footer{display:flex;align-items:center;gap:8px;font-size:11px;color:var(--wv-accent);margin-top:auto}.wv-study-card-footer>svg:last-child{margin-left:auto}
 @media(max-width:900px){.wv-study-cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:560px){.wv-context-grid.ap-source-grid,.wv-study-cards{grid-template-columns:1fr}.wv-context-card{padding:23px}.wv-context-room{margin:40px 0;padding:30px 0}.wv-reading-aim{padding:18px 16px;gap:12px}.wv-reading-aim strong{font-size:17px}.wv-study-card>a{min-height:0}.wv-study-card h3{min-height:0}.wv-study-art{height:140px}}
+
+/* The reading argument takes precedence over navigation back to a question. */
+.wv-reading-plan .wv-reading-aim h3 { font-family: var(--font-serif); font-size: 25px; color: var(--ink); margin: 0 0 14px; }
+.wv-reading-plan .wv-reading-aim p { font-size: 16px; line-height: 1.8; color: var(--ink); max-width: 960px; }
+.wv-source-roadmap { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin: 28px 0 40px; }
+.wv-source-roadmap button { text-align: left; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 22px; color: var(--ink); display: flex; flex-direction: column; gap: 15px; cursor: pointer; }
+.wv-source-roadmap button[aria-pressed="true"] { border-color: var(--wv-accent); background: color-mix(in srgb, var(--wv-accent) 8%, var(--surface)); }
+.wv-source-roadmap button:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+.wv-roadmap-number { display: flex; justify-content: space-between; color: var(--wv-accent); font-size: 12px; letter-spacing: .12em; }
+.wv-source-roadmap strong { font-family: var(--font-serif); font-size: 23px; line-height: 1.2; }
+.wv-source-roadmap button > span:not(.wv-roadmap-number) { font-size: 13px; line-height: 1.7; color: var(--muted); }
+.wv-source-roadmap small { display: flex; align-items: center; gap: 10px; margin-top: auto; color: var(--wv-accent); }
+.wv-stage-heading { margin-bottom: 25px; }
+.wv-stage-heading h3 { font-family: var(--font-serif); font-size: 32px; margin: 10px 0; }
+.wv-stage-heading > p:last-child { color: var(--muted); line-height: 1.7; }
+.wv-reading-plan .wv-analysis-card { padding: 30px; }
+.wv-analysis-card h4 { font-family: var(--font-serif); font-size: 21px; line-height: 1.4; color: var(--ink); margin: 0 0 10px; }
+.wv-analysis-card .wv-source-purpose p, .wv-analysis-card .wv-reading-task p, .wv-analysis-card .wv-gospel-connection p, .wv-analysis-card .wv-christian-counterpart p { color: var(--ink); font-size: 16px; line-height: 1.8; margin: 0; }
+.wv-analysis-card .wv-passage-context { margin: 22px 0; }
+.wv-analysis-card .wv-passage-context h4 { font-family: inherit; font-size: 12px; color: var(--muted); }
+.wv-analysis-card .wv-passage-context p { color: var(--muted); font-size: 14px; line-height: 1.8; }
+.wv-analysis-card .wv-source-purpose, .wv-analysis-card .wv-reading-task, .wv-analysis-card .wv-gospel-connection { margin: 25px 0; }
+.wv-christian-counterpart { margin-top: 25px; padding-top: 25px; border-top: 1px solid var(--line); }
+.wv-christian-counterpart h4 { display: flex; align-items: center; gap: 10px; }
+.wv-analysis-card .wv-reading-connections { margin-top: 25px; padding-top: 16px; border-top: 1px solid var(--line); }
+.wv-analysis-card .wv-reading-connections a { font-family: inherit; font-size: 12px; color: var(--muted); line-height: 1.6; }
+.wv-analysis-card .wv-reading-connections a:hover { color: var(--ink); }
+@media (max-width: 900px) { .wv-source-roadmap { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 540px) { .wv-source-roadmap { grid-template-columns: 1fr; } .wv-reading-plan .wv-analysis-card { padding: 22px; } }

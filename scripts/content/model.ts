@@ -12,7 +12,9 @@ export interface StudyContent {
 export interface SourceContent { title: string; author: string; kind: string; url: string; role: string; note: string }
 export interface TopicContent { title: string; short: string; color: string; description: string; question: string }
 export interface PathContent { title: string; label: string; description: string; studies: string[] }
+export interface ReadingPlan { introduction: string; stages: { title: string; aim: string; readings: { source: string; title: string; context: Block; purpose: Block; examine: Block; connection: Block; christian: Block }[] }[] }
 export interface WorldviewContent {
+  readingPlan?: ReadingPlan;
   title: string; otherLabel: string; subtitle: string; description: string; studies: string[]; sources: string[];
   rows: { id: string; question: string; christian: Block; other: Block; study: string }[];
 }

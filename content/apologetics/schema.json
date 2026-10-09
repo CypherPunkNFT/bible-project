@@ -807,6 +807,9 @@
         },
         "otherLabel": {
           "type": "string"
+        },
+        "readingPlan": {
+          "$ref": "#/$defs/readingPlan"
         }
       }
     },
@@ -1056,6 +1059,85 @@
             },
             "practiceNote": {
               "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "readingPlan": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "introduction",
+        "stages"
+      ],
+      "properties": {
+        "introduction": {
+          "type": "string",
+          "minLength": 1
+        },
+        "stages": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "title",
+              "aim",
+              "readings"
+            ],
+            "properties": {
+              "title": {
+                "type": "string",
+                "minLength": 1
+              },
+              "aim": {
+                "type": "string",
+                "minLength": 1
+              },
+              "readings": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "source",
+                    "title",
+                    "context",
+                    "purpose",
+                    "examine",
+                    "connection",
+                    "christian"
+                  ],
+                  "properties": {
+                    "source": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "title": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "context": {
+                      "$ref": "#/$defs/block"
+                    },
+                    "purpose": {
+                      "$ref": "#/$defs/block"
+                    },
+                    "examine": {
+                      "$ref": "#/$defs/block"
+                    },
+                    "connection": {
+                      "$ref": "#/$defs/block"
+                    },
+                    "christian": {
+                      "$ref": "#/$defs/block"
+                    }
+                  }
+                }
+              }
             }
           }
         }
