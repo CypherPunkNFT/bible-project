@@ -1,0 +1,13 @@
+{
+  "source": "Grace to You (https://www.gty.org) sermon library",
+  "termsSummary": "robots.txt (https://www.gty.org/robots.txt) disallows the whole site for every user-agent except Googlebot, Bingbot and meta-externalagent, so automated retrieval by this client is not permitted. The Copyright Policy (https://www.gty.org/about?tab=copyright) allows free, unchanged, credited, noncommercial use of Sermon Series transcripts and names letters@gty.org for permissions.",
+  "sermons": [],
+  "stoppedBecause": "Stopped before enumeration: gty.org robots.txt has 'User-agent: * / Disallow: /', which covers the sitemap, sermon pages and any API. No sermon pages were fetched. Nothing related was already held in sources/library (the only 'MacArthur' hit is a passing mention in a Chapel Library provenance note).",
+  "counts": {
+    "sermonsHeld": 0,
+    "withStatedReference": 0,
+    "previouslyHeldReused": 0,
+    "requestsMade": 4,
+    "randomCheck": "not run (nothing held)"
+  }
+}
