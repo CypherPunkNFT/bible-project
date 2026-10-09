@@ -4,15 +4,15 @@
   --lf-mono: "JetBrains Mono Variable", ui-monospace, "Cascadia Mono", Consolas, monospace;
   --lf-on-c: #fff;
   /* Life green (owner, 2026-10-08): crisis help, the title's "for life" by day, and the places header by day; the same
-     green as ChurchFamily's. At night the title keeps the section colour and the header turns the toggle's gold. */
+     green as ChurchFamily's, soft at night. At night the header turns the toggle's gold. */
   --lf-green: #3d6b58;
   --lf-title: var(--lf-green);
   --lf-head: var(--lf-green);
   --lf-head-ink: #fff;
   padding-block: 0 3rem;
 }
-:root[data-theme="dark"] .lf-page { --lf-on-c: #12110f; --lf-green: #80c498; --lf-title: var(--door); --lf-head: var(--accent); --lf-head-ink: var(--page); }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .lf-page { --lf-on-c: #12110f; --lf-green: #80c498; --lf-title: var(--door); --lf-head: var(--accent); --lf-head-ink: var(--page); } }
+:root[data-theme="dark"] .lf-page { --lf-on-c: #12110f; --lf-green: #80c498; --lf-head: var(--accent); --lf-head-ink: var(--page); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .lf-page { --lf-on-c: #12110f; --lf-green: #80c498; --lf-head: var(--accent); --lf-head-ink: var(--page); } }
 .lf-kick, .lf-sec-head > span, .lf-stats dt, .lf-facts dt { font: 600 .6rem/1.2 var(--lf-mono); letter-spacing: .18em; text-transform: uppercase; }
 .lf-muted { color: var(--muted); }
 
