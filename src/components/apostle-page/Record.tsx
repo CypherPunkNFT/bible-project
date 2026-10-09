@@ -1,4 +1,4 @@
-import { useMemo, useState, type CSSProperties, type PointerEvent as ReactPointerEvent } from "react";
+import { useEffect, useMemo, useRef, useState, type CSSProperties, type PointerEvent as ReactPointerEvent } from "react";
 import { Link } from "react-router-dom";
 import { BOOK_TONE, bookCode, chapterOf, PERIOD_TONE, plural, refText, whenShort } from "./data";
 import { useSheet } from "./sheet";
@@ -34,7 +34,8 @@ function Ring({ d, sel, onPick }: { d: Apostle; sel: number; onPick: (period: nu
   // Enough room beside the ring for the widest side label (about 9.6 drawing units a letter at the labels' size).
   const widest = Math.max(0, ...segs.filter((g) => isSide((g.a0 + g.a1) / 2)).flatMap((g) => sideLines(g.p.n, g.p.title)).map((l) => l.length));
   const pad = Math.max(size * 0.04, widest * 9.6 - size * 0.046 + 14), padY = size * 0.07;
-  return <svg className="ring" viewBox={`${-pad} ${-padY} ${size + pad * 2} ${size + padY * 2}`} role="img" aria-label={`${d.short}'s life in four parts`} onPointerLeave={() => Tip.hide()}>
+  const below = (size + padY - (cy + r + w * 0.68)) / (size + padY * 2); // share of the drawing's height under the circle
+  return <svg className="ring" data-below={below.toFixed(4)} viewBox={`${-pad} ${-padY} ${size + pad * 2} ${size + padY * 2}`} role="img" aria-label={`${d.short}'s life in four parts`} onPointerLeave={() => Tip.hide()}>
     <circle className="ring-track" cx={cx} cy={cy} r={r} />
     {segs.map((g) => {
       const on = g.i + 1 === sel, trad = g.i === 3, tone = { "--tone": PERIOD_TONE[g.i + 1] } as CSSProperties;
@@ -68,12 +69,28 @@ export function RingSection({ d }: { d: Apostle }) {
   const [sel, setSel] = useState(() => d.periods.slice(0, 3).reduce((best, p, i) => (p.entries.length > d.periods[best].entries.length ? i : best), 0) + 1);
   const told = d.scripture.filter((e) => e.type !== "fact").length;
   const p = d.periods[sel - 1], ents = p.entries.map((k) => d.byKey[k]);
+  // Beside the ring (wide screens), the list's bottom sits level with the bottom of the circle: measured from the
+  // drawing, kept in step when it resizes.
+  const art = useRef<HTMLDivElement>(null);
+  const [fit, setFit] = useState<{ bottom: number; height: number } | null>(null);
+  useEffect(() => {
+    const svg = art.current?.querySelector("svg");
+    if (!svg) return;
+    const measure = () => {
+      if (!matchMedia("(min-width: 1100px)").matches) return setFit(null);
+      const h = svg.getBoundingClientRect().height, bottom = h * Number(svg.dataset.below ?? 0);
+      setFit({ bottom, height: h - bottom + 96 }); // the list may rise 6rem above the drawing, into the lead's space
+    };
+    const watch = new ResizeObserver(measure);
+    watch.observe(svg); measure();
+    return () => watch.disconnect();
+  }, [d]);
   return <section className="sec" data-sec="ring">
     <SecHead num="01" kicker="His life in four parts" title="How much does Scripture " em="tell?"
       sub={`${d.tagline} Scripture gives no years for his life, so the ring is divided by how much is recorded: ${plural(told, "record")} of what he did or what was said to him, one bead each. The last part is tradition and is drawn dashed. Choose a part to read it.`} />
     <div className="a-ring">
-      <div className="a-ring-art"><Ring d={d} sel={sel} onPick={(period, entry) => { setSel(period); if (entry) sheet.openEntry(entry); }} /></div>
-      <div className="a-ring-list" style={{ "--tone": PERIOD_TONE[sel] } as CSSProperties}>
+      <div className="a-ring-art" ref={art}><Ring d={d} sel={sel} onPick={(period, entry) => { setSel(period); if (entry) sheet.openEntry(entry); }} /></div>
+      <div className="a-ring-list" style={{ "--tone": PERIOD_TONE[sel], ...(fit ? { marginTop: -96, marginBottom: fit.bottom, maxHeight: fit.height } : {}) } as CSSProperties}>
         <p className="kicker">{p.n} · {p.sub}</p><h3>{p.title}</h3>
         {ents.length ? <ol className={`a-recs${sel === 4 ? " trad" : ""}${ents.length > 9 ? " two" : ""}`}>{ents.map((e) => <li key={e.key}>
           <button type="button" onClick={() => sheet.openEntry(e)}><span className="t">{e.title}</span><small>{e.type === "trad" ? whenShort(e.when) : e.refs[0] ? refText(e.refs[0]) : ""}</small></button>
@@ -121,7 +138,7 @@ export function GridSection({ d }: { d: Apostle }) {
   return <section className="sec" data-sec="grid">
     <SecHead num="02" kicker="Chapter by chapter" title="Where is he " em="named?"
       sub={`One square for each chapter of the books that name ${d.short}: ${plural(verses, "verse")} in ${plural(chapters, "chapter")}. The darker the square, the more verses in it name him.${alt ? ` Squares with a dashed edge name ${alt.name}, who is ${d.short} only if the two are one man (see the questions below).` : ""} Choose a chapter to read what happens there.`} />
-    <div className="heat-wrap">
+    <div className={`heat-wrap${gospels.length + letters.length < 6 ? " below" : ""}`}>
       <div className="heat-scroll" onPointerLeave={() => Tip.hide()}><div className="heat">
         {gospels.length > 0 && <><p className="heat-group">The Gospels and Acts</p>{gospels.map(row)}</>}
         {letters.length > 0 && <><p className="heat-group">The letters and Revelation</p>{letters.map(row)}</>}
@@ -140,11 +157,15 @@ function ChapterNow({ d, code, ch, open }: { d: Apostle; code: string; ch: numbe
   const alt = d.alt[0], altHeat = alt?.heat ?? {}, b = d.heat[code] ?? altHeat[code];
   const mineV = d.heat[code]?.first[ch], altV = altHeat[code]?.first[ch], v = mineV ?? altV, ents = entriesIn(d, b.num, ch);
   return <>
-    <p className="kicker">{b.name} {ch}</p>
-    <h3>{plural(d.heat[code]?.counts[ch] ?? 0, "verse")} name him{altHeat[code]?.counts[ch] ? `; ${plural(altHeat[code].counts[ch], "verse")} name ${alt.name}` : ""}</h3>
-    {v ? <blockquote><p><Marked text={d.verses[v] ?? ""} names={d.names} /></p><footer><RefLink r={[v, v]} /> · {mineV ? "the first verse here that names him" : `names ${alt.name}`}</footer></blockquote>
-      : <p className="plain-line">No verse in this chapter names him.</p>}
-    {ents.length > 0 && <><p className="kicker heat-k">What happens here</p><ul className="heat-ents">{ents.map((e) => <li key={e.key}><button type="button" onClick={() => open(e)}><Icon name={e.icon} size={15} /><span>{e.title}</span></button></li>)}</ul></>}
-    <Link className="read" to={`/read/kjv/${bookCode(b.num)}/${ch}`}><Icon name="open" size={13} />Read {b.name} {ch}</Link>
+    <div className="heat-now-v">
+      <p className="kicker">{b.name} {ch}</p>
+      <h3>{plural(d.heat[code]?.counts[ch] ?? 0, "verse")} name him{altHeat[code]?.counts[ch] ? `; ${plural(altHeat[code].counts[ch], "verse")} name ${alt.name}` : ""}</h3>
+      {v ? <blockquote><p><Marked text={d.verses[v] ?? ""} names={d.names} /></p><footer><RefLink r={[v, v]} /> · {mineV ? "the first verse here that names him" : `names ${alt.name}`}</footer></blockquote>
+        : <p className="plain-line">No verse in this chapter names him.</p>}
+    </div>
+    <div className="heat-now-e">
+      {ents.length > 0 && <><p className="kicker heat-k">What happens here</p><ul className="heat-ents">{ents.map((e) => <li key={e.key}><button type="button" onClick={() => open(e)}><Icon name={e.icon} size={15} /><span>{e.title}</span></button></li>)}</ul></>}
+      <Link className="read" to={`/read/kjv/${bookCode(b.num)}/${ch}`}><Icon name="open" size={13} />Read {b.name} {ch}</Link>
+    </div>
   </>;
 }

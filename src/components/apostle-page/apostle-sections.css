@@ -320,5 +320,18 @@
 .ap .a-ring-list .a-recs button small { font-size: .68rem; margin-top: .085rem; }
 .ap .a-ring-list .plain-line { font-size: .85rem; }
 @media (min-width: 1100px) {
-  .ap .a-ring-list { align-self: start; margin-top: -6rem; max-height: calc(var(--ring-h) + 6rem); }
+  .ap .a-ring-list { align-self: end; }
 }
+
+/* 02 with few books (most of the Twelve): a centred, larger grid, and the chapter's verse beneath it in two columns
+   (owner, 2026-10-08). Peter, John and Paul, with many books, keep the verse beside the grid. */
+.ap .heat-wrap.below { grid-template-columns: minmax(0, 1fr); max-width: 72rem; margin-inline: auto; }
+.ap .heat-wrap.below .heat { min-width: 0; }
+.ap .heat-wrap.below .heat-row { grid-template-columns: 8.4rem minmax(0, 1fr) 2.6rem; padding: .35rem 0; }
+.ap .heat-wrap.below .heat-book { font-size: 1.05rem; }
+.ap .heat-wrap.below .heat-cells { gap: 6px; }
+.ap .heat-wrap.below .heat-now { position: static; display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 1rem 3rem; align-items: start;
+  margin-top: .6rem; padding: 1.4rem 0 0; border-left: 0; border-top: 2px solid var(--tone); }
+.ap .heat-wrap.below .heat-now .heat-k { margin-top: 0; }
+.ap .heat-wrap.below ~ .heat-foot { max-width: 72rem; margin-inline: auto; }
+@media (max-width: 760px) { .ap .heat-wrap.below .heat { min-width: 30rem; } .ap .heat-wrap.below .heat-now { grid-template-columns: minmax(0, 1fr); } }
