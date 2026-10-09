@@ -1,0 +1,115 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "worldview",
+  "id": "buddhism",
+  "order": 2,
+  "publication": "published",
+  "content": {
+    "title": "Christianity & Buddhism",
+    "subtitle": "Suffering, the self and the hope of release.",
+    "description": "Begin with two early Buddhist discourses: suffering, craving, not-self and release. Read these particular texts closely; ask your neighbour which tradition and teachers they follow.",
+    "studies": [
+      "suffering",
+      "grace",
+      "resurrection",
+      "conversation"
+    ],
+    "sources": [
+      "buddhist-truths",
+      "buddhist-not-self"
+    ],
+    "otherLabel": "Early Buddhist discourses",
+    "rows": [
+      {
+        "id": "suffering",
+        "question": "What is wrong with the world?",
+        "christian": {
+          "id": "christian-suffering",
+          "text": "Creation groans under corruption; Christian hope looks toward its liberation.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "Romans 8:19-23"
+            }
+          ]
+        },
+        "other": {
+          "id": "other-suffering",
+          "text": "SN 56:11 identifies suffering, craving as its origin, its cessation and a path of practice.",
+          "citations": [
+            {
+              "kind": "source",
+              "source": "buddhist-truths",
+              "locator": "The four noble truths"
+            }
+          ]
+        },
+        "study": "suffering"
+      },
+      {
+        "id": "self",
+        "question": "What do we mean by the self?",
+        "christian": {
+          "id": "christian-self",
+          "text": "Human beings are created in God’s image; their dignity is received from their Creator.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "Genesis 1:26-27"
+            }
+          ]
+        },
+        "other": {
+          "id": "other-self",
+          "text": "SN 22:59 examines form, feeling, perception, fabrications and consciousness as impermanent and not-self.",
+          "citations": [
+            {
+              "kind": "source",
+              "source": "buddhist-not-self",
+              "locator": "The five aggregates"
+            }
+          ]
+        },
+        "study": "resurrection"
+      },
+      {
+        "id": "release",
+        "question": "Where does deliverance begin?",
+        "christian": {
+          "id": "christian-release",
+          "text": "Salvation is God’s gift in Christ, received through faith; good works follow that gift.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "Ephesians 2:8-10"
+            }
+          ]
+        },
+        "other": {
+          "id": "other-release",
+          "text": "SN 56:11 describes the eightfold path leading to the cessation of craving and suffering.",
+          "citations": [
+            {
+              "kind": "source",
+              "source": "buddhist-truths",
+              "locator": "The fourth noble truth"
+            }
+          ]
+        },
+        "study": "grace"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Comparison claims, primary texts, Scripture references and study relationships",
+      "note": "Checked each paraphrase against the linked SN 56:11 and SN 22:59 discourses or Bhagavad Gita 2.20, 2.47 and 18.66. Christian claims use the cited Scripture. Collection wording limits the comparison to particular texts and interpretations. Existing connected studies are general Christian studies rather than specialist studies of these traditions. AI-assisted review, not human approval.",
+      "date": "2026-10-09",
+      "contentHash": "a5ea12dccfc44930113e7f0cae6b1d565e9b6bf5bd5743c00ad21959e6abb256",
+      "basisHash": "e555e9ef13825ee73661d8de5fcd7e9db4c026c366d875c0f6c1260d53d6e20e"
+    }
+  ]
+}

@@ -62,7 +62,7 @@ export function Layout({ children }: { children: ReactNode }) {
               to={COMMUNITY.to}
               className={({ isActive }) =>
                 cn(
-                  "flex shrink-0 items-center gap-1.5 px-3 py-1.5 text-sm text-accent transition-opacity hover:opacity-80",
+                  "relative flex shrink-0 items-center gap-1.5 px-3 py-1.5 text-sm text-accent transition-opacity hover:opacity-80",
                   isActive && "font-semibold",
                 )
               }

@@ -183,14 +183,16 @@ async function apologeticsTemplates(): Promise<{ templates: TemplateDef[]; valid
   const path = t("ap-path", "Learning path", "/apologetics/paths/<path>", "A guided order of studies, with progress kept on the device.", ap.PATHS, "paths", [
     most<ApItem>("most", "Most studies", (x) => x.studies?.length ?? 0, (x) => x.title, "studies"), fewest<ApItem>("fewest", "Fewest studies", (x) => x.studies?.length ?? 0, (x) => x.title, "studies"),
   ]);
-  const worldview = t("ap-worldview", "Worldview", "/apologetics/worldviews/<worldview>", "The Christian starting point beside another belief, question by question.", ap.WORLDVIEWS, "worldviews", [firstOf<ApItem>((x) => x.title, "worldview"), { id: "last", label: "Last", pick: (rs) => rs.at(-1), why: (x) => `the other one: ${x.title}` }]);
+  const worldview = t("ap-worldview", "Worldview", "/apologetics/worldviews/<worldview>", "The Christian starting point beside another belief, question by question.", ap.WORLDVIEWS, "worldviews", ap.WORLDVIEWS.map((item) => ({ id: item.id, label: item.title, pick: (records: ApItem[]) => records.find((record) => record.id === item.id), why: () => "Distinct collection illustration and primary-text scope" })));
+  worldview.entries = ["src/pages/WorldviewsPage.tsx"];
+  worldview.scopes = [...scopes, "src/pages/WorldviewsPage.tsx", "src/pages/worldviews.css"];
   const debate = t("ap-debate", "Debate study", "/apologetics/debates/<debate>", "A recorded debate to study, with the questions underneath.", ap.DEBATES, "debates", [firstOf<ApItem>((x) => x.title, "debate"), longestText<ApItem>("longest-title", "Longest title", (x) => x.title, "title")]);
   const practice: TemplateDef = {
     id: "ap-practice", area: "apologetics", name: "Practice conversation", address: "/apologetics/practice?scenario=<scenario>", what: "Practise a conversation, step by step.", entries, scopes,
     variants: [variant({ id: "scenario", name: "A scenario", what: "One practice conversation.", records: ap.PRACTICE, url: (x: ApItem) => `/apologetics/practice?scenario=${x.id}`, samples: [firstOf<ApItem>((x) => x.title ?? x.id, "scenario"), longestText<ApItem>("longest-title", "Longest title", (x) => x.title ?? x.id, "title")] })],
   };
   const sectionPages: TemplateDef = {
-    id: "ap-pages", area: "apologetics", name: "Apologetics section pages", address: "/apologetics/…", what: "The section's own one-off pages.", entries, scopes: [...scopes, "src/pages/ReformedLibraryPage.tsx"],
+    id: "ap-pages", area: "apologetics", name: "Apologetics section pages", address: "/apologetics/…", what: "The section's own one-off pages.", entries, scopes: [...scopes, "src/pages/ReformedLibraryPage.tsx", "src/pages/WorldviewsPage.tsx", "src/pages/worldviews.css"],
     variants: [
       single("hub", "Explore (the hub)", "The section's front page.", "/apologetics"),
       single("questions", "Questions", "Every question, with a filter.", "/apologetics/questions"),

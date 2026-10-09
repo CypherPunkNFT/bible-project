@@ -16,7 +16,7 @@ for (const theme of ["light", "dark"] as const) {
     await mkdir("front-end capture/2026-10-04", { recursive: true });
     await page.screenshot({ path: `front-end capture/2026-10-04/apologetics-universe-${testInfo.project.name}-${theme}.png` });
     await page.locator(".ap-topic-grid").screenshot({ path: `front-end capture/2026-10-04/apologetics-fields-${testInfo.project.name}-${theme}.png` });
-    for (const route of ["", "/questions", "/study/suffering", "/paths/begin", "/worldviews/islam", "/debates", "/debates/craig-hitchens", "/practice", "/sources", "/saved", "/topics/reformed", "/texts", "/texts?view=authors", "/study/election"]) {
+    for (const route of ["", "/questions", "/study/suffering", "/paths/begin", "/worldviews", "/worldviews/islam", "/worldviews/buddhism", "/worldviews/hinduism", "/debates", "/debates/craig-hitchens", "/practice", "/sources", "/saved", "/topics/reformed", "/texts", "/texts?view=authors", "/study/election"]) {
       await page.goto("/apologetics" + route);
       await expect(page.locator(".ap-page h1")).toBeVisible();
       expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth), route).toBeLessThanOrEqual(1);
@@ -83,10 +83,10 @@ test("apologetics: bookmarks, reflection and learning progress persist and can b
 
 test("apologetics: worldview comparison and sources lead to actual studies", async ({ page }) => {
   await page.goto("/apologetics/worldviews/islam");
-  await expect(page.locator(".ap-comparison-row")).toHaveCount(3);
-  await expect(page.locator(".ap-study-card")).toHaveCount(6);
+  await expect(page.getByRole("navigation", { name: "Comparison questions" }).getByRole("button")).toHaveCount(3);
+  await expect(page.locator(".wv-study-list > a")).toHaveCount(6);
   await expect(page.locator('.ap-source-grid a[href="https://quran.com/en/an-nisa/157"]')).toBeVisible();
-  await page.locator(".ap-comparison-row > a").first().click();
+  await page.locator(".wv-study-link").click();
   await expect(page).toHaveURL(/\/apologetics\/study\/islam-jesus$/);
   await expect(page.locator(".ap-objection")).toBeVisible();
   await page.goto("/apologetics/sources");
@@ -190,4 +190,38 @@ test("apologetics: study and library downloads match the documents rendered on t
   expect(corpus.documents.every((d: Record<string, unknown>) => !("reviews" in d) && !("publication" in d))).toBe(true);
   expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(1);
   await page.locator(".ap-document-downloads").screenshot({ path: testInfo.outputPath("document-downloads.png") });
+});
+
+
+test("apologetics: four worldview collections, shareable questions and local reflections", async ({ page }) => {
+  await page.goto("/apologetics/worldviews");
+  await expect(page.locator(".wv-collection")).toHaveCount(4);
+  for (const item of WORLDVIEWS) {
+    await page.locator(`.wv-collection[href="/apologetics/worldviews/${item.id}"]`).click();
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText(item.title);
+    const buttons = page.getByRole("navigation", { name: "Comparison questions" }).getByRole("button");
+    for (let i = 0; i < item.rows.length; i++) {
+      await buttons.nth(i).click();
+      await expect(buttons.nth(i)).toHaveAttribute("aria-pressed", "true");
+      await expect(page.locator(".wv-current-question h3")).toHaveText(item.rows[i].question);
+      await expect(page.locator(".wv-positions")).toContainText(item.rows[i].other);
+      await expect(page.locator(".wv-study-link")).toHaveAttribute("href", `/apologetics/study/${item.rows[i].study}`);
+    }
+    await page.reload();
+    await expect(buttons.last()).toHaveAttribute("aria-pressed", "true");
+    expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(1);
+    await page.getByRole("link", { name: "All worldviews", exact: true }).click();
+  }
+  await page.goto("/apologetics/worldviews/islam?question=invalid");
+  await expect(page.locator(".wv-current-question h3")).toHaveText("Who is Jesus?");
+  await page.getByRole("button", { name: "Write a reflection" }).click();
+  await page.locator(".ap-note textarea").fill("Ask how my neighbour understands Jesus in Quran 4:171.");
+  await page.reload();
+  await page.getByRole("button", { name: "Write a reflection" }).click();
+  await expect(page.locator(".ap-note textarea")).toHaveValue("Ask how my neighbour understands Jesus in Quran 4:171.");
+  await page.goto("/apologetics/saved");
+  await expect(page.locator('.ap-reflections a[href="/apologetics/worldviews/islam"]')).toContainText("Christianity & Islam");
+  await page.goto("/apologetics/worldviews/buddhism");
+  await page.getByRole("button", { name: "Write a reflection" }).click();
+  await expect(page.locator(".ap-note textarea")).toHaveValue("");
 });

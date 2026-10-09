@@ -1,0 +1,116 @@
+{
+  "$schema": "../schema.json",
+  "schemaVersion": 1,
+  "kind": "worldview",
+  "id": "hinduism",
+  "order": 3,
+  "publication": "published",
+  "content": {
+    "title": "Christianity & Hinduism",
+    "subtitle": "The self, action and the invitation to refuge.",
+    "description": "A focused encounter with the Bhagavad Gita: the enduring self, action and refuge in Krishna. This devotional reading is a starting point; ask which texts and interpretations your neighbour trusts.",
+    "studies": [
+      "resurrection",
+      "grace",
+      "jesus",
+      "conversation"
+    ],
+    "sources": [
+      "gita-self",
+      "gita-action",
+      "gita-refuge"
+    ],
+    "otherLabel": "Bhagavad Gita · selected verses",
+    "rows": [
+      {
+        "id": "self",
+        "question": "What survives death?",
+        "christian": {
+          "id": "christian-self",
+          "text": "Christian hope is bodily resurrection: what is sown perishable is raised imperishable.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "1 Corinthians 15:42-44"
+            }
+          ]
+        },
+        "other": {
+          "id": "other-self",
+          "text": "Gita 2.20 describes the self as unborn and enduring, surviving the destruction of the body.",
+          "citations": [
+            {
+              "kind": "source",
+              "source": "gita-self",
+              "locator": "2.20"
+            }
+          ]
+        },
+        "study": "resurrection"
+      },
+      {
+        "id": "action",
+        "question": "How should we understand our works?",
+        "christian": {
+          "id": "christian-action",
+          "text": "We are saved by grace through faith and created in Christ for good works.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "Ephesians 2:8-10"
+            }
+          ]
+        },
+        "other": {
+          "id": "other-action",
+          "text": "Gita 2.47 urges action without claiming its fruits, while also rejecting attachment to inaction.",
+          "citations": [
+            {
+              "kind": "source",
+              "source": "gita-action",
+              "locator": "2.47"
+            }
+          ]
+        },
+        "study": "grace"
+      },
+      {
+        "id": "refuge",
+        "question": "In whom do we take refuge?",
+        "christian": {
+          "id": "christian-refuge",
+          "text": "Jesus invites the burdened to come to him for rest.",
+          "citations": [
+            {
+              "kind": "scripture",
+              "reference": "Matthew 11:28-30"
+            }
+          ]
+        },
+        "other": {
+          "id": "other-refuge",
+          "text": "In Gita 18.66 Krishna calls Arjuna to take refuge in him and promises release from sin. Shared language invites careful comparison of who offers deliverance.",
+          "citations": [
+            {
+              "kind": "source",
+              "source": "gita-refuge",
+              "locator": "18.66"
+            }
+          ]
+        },
+        "study": "jesus"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Comparison claims, primary texts, Scripture references and study relationships",
+      "note": "Checked each paraphrase against the linked SN 56:11 and SN 22:59 discourses or Bhagavad Gita 2.20, 2.47 and 18.66. Christian claims use the cited Scripture. Collection wording limits the comparison to particular texts and interpretations. Existing connected studies are general Christian studies rather than specialist studies of these traditions. AI-assisted review, not human approval.",
+      "date": "2026-10-09",
+      "contentHash": "6fb344bd4cd11eaf8df423621a13cdd66e014066d19f41dd292f6094af7c3069",
+      "basisHash": "eae436e6807f9a5fa610b76db6357e91081e86d81ab59cd608f40bd1d73ede7c"
+    }
+  ]
+}
