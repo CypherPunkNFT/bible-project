@@ -1,7 +1,7 @@
 {
  "schema": 1,
- "generatedAt": "2026-10-09T23:22:26.514Z",
- "commit": "3e8b5bd7",
+ "generatedAt": "2026-10-09T23:32:59.888Z",
+ "commit": "380f091b",
  "areas": [
   {
    "id": "people",
@@ -2605,9 +2605,13 @@
    "sources": [
     "content/missions/muslim-world.json",
     "src/components/ApologeticsParts.tsx",
+    "src/components/apologetics/CountryPanelPrototype.tsx",
     "src/components/apologetics/CountryPeopleGroups.tsx",
     "src/components/apologetics/MuslimWorldExplorer.tsx",
+    "src/components/apologetics/PillScroll.tsx",
+    "src/components/apologetics/country-panel-prototype.css",
     "src/components/apologetics/muslim-world.css",
+    "src/components/apologetics/pill-scroll.css",
     "src/lib/mission-atlas.ts",
     "src/lib/mission-flat-map.ts",
     "src/lib/mission-globe.ts",
@@ -2616,7 +2620,7 @@
     "src/pages/WorldviewsPage.tsx",
     "src/pages/worldviews.css"
    ],
-   "sourceHash": "3a5115925a386cda",
+   "sourceHash": "c78f4d79c4762c3b",
    "signature": {
     "selector": "#muslim-world",
     "label": "Muslim-world country explorer"
@@ -2686,6 +2690,62 @@
        "id": "page",
        "label": "The page",
        "url": "/apologetics/worldviews/islam?country=IRN&panel=groups#muslim-world",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "panel-a",
+     "name": "Islam: panel A",
+     "what": "Country-panel component mock-up in the existing atlas, with an external pill-only scroll thumb.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/apologetics/worldviews/islam?country=EGY&atlasDesign=a#muslim-world",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "panel-b",
+     "name": "Islam: panel B",
+     "what": "Country-panel component mock-up in the existing atlas, with an external pill-only scroll thumb.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/apologetics/worldviews/islam?country=EGY&atlasDesign=b#muslim-world",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "panel-c",
+     "name": "Islam: panel C",
+     "what": "Country-panel component mock-up in the existing atlas, with an external pill-only scroll thumb.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/apologetics/worldviews/islam?country=EGY&atlasDesign=c#muslim-world",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "panel-d",
+     "name": "Islam: panel D",
+     "what": "Country-panel component mock-up in the existing atlas, with an external pill-only scroll thumb.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/apologetics/worldviews/islam?country=EGY&atlasDesign=d#muslim-world",
        "why": "the only page of this design"
       }
      ]
