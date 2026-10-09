@@ -1,7 +1,8 @@
 /* Round 2: four drawings, large, 2 × 2 on a desktop and tablet, one column on a phone. Hairlines only: no cards, no glow
    but each drawing's one light. The drawing rules repeat the 24-drawing page's (../help-for-life-drawings/drawings.css). */
 :root { --sun: #c99410; --blue: #6f86c9; --violet: #8f74c4; }
-:root[data-theme="dark"] { --sun: #f2cf5c; --blue: #a9bbf0; --violet: #c4b0ee; }
+:root[data-theme="dark"] { --sun: #f2cf5c; --blue: #a9bbf0; --violet: #c4b0ee; --green: #8cc479; }
+:root:not([data-theme="dark"]) { --green: #4f8a3f; }
 
 .head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: .8rem 3.5rem; align-items: end; padding: 2rem 0 1.6rem; }
 .kick { grid-column: 1 / -1; display: flex; align-items: center; gap: .6rem; color: var(--door); font: 600 .6rem/1.2 var(--mono); letter-spacing: .18em; text-transform: uppercase; }
@@ -59,6 +60,12 @@
 :root[data-theme="dark"] .draw-door-solid .solid { fill: color-mix(in srgb, var(--c) 58%, var(--page)); }
 
 .draw-door-solid .sunrays { transform-origin: 158px 36px; animation: turn 80s linear infinite; }
+.draw-door-solid .art { overflow: hidden; }
+.draw-door-solid .flock-rtl { animation: flock-rtl 36s linear infinite; }
+@keyframes flock-rtl { from { transform: translate(350px, 8px); } to { transform: translate(-50px, 4px); } }
+/* The coloured version: green in the tree, the grass, the flower stems and the potted plant; the leaf dashes dimmer. */
+.draw-door-colour .canopy, .draw-door-colour .tuft, .draw-door-colour .stem, .draw-door-colour .plant { stroke: var(--green); }
+.draw-door-colour .leafdash { stroke: var(--green); opacity: .45; }
 .draw-door-solid .bloom { animation: sway 6s ease-in-out infinite alternate; animation-delay: calc(var(--i) * -1.7s); }
 .draw-door-solid .blue { stroke: var(--blue); } .draw-door-solid .violet { stroke: var(--violet); }
 .draw-door-solid .petal { opacity: .8; } .draw-door-solid .heart { fill: var(--sun); stroke: none; opacity: .8; }

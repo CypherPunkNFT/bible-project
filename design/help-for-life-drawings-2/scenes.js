@@ -10,37 +10,38 @@
   // Jesus in the doorway as one solid silhouette: head, hair to the shoulders, open sleeves and hands, the robe to the step.
   const FIGURE = "M122.6 127.6C121 131 119.6 134 117.6 137C112 147 106 154 99 159C96.5 160.5 97 164.5 100.5 164.6C102 164.5 103 163.8 104 163C111 158 116 153 119.6 148.6C117 166 114 184 112 200C120 202 136 202 144 200C142 184 139 166 136.4 148.6C140 153 145 158 152 163C153 163.8 154 164.5 155.5 164.6C159 164.5 159.5 160.5 157 159C150 154 144 147 138.4 137C136.4 134 135 131 133.4 127.6A6.4 6.4 0 1 0 122.6 127.6Z";
   const TREE = `<path class="pf" d="M282 200C285 188 279 178 283 166C285 158 281 150 282 142H291C292 150 289 158 290 166C293 178 288 188 290 200Z"/><path d="M282 200C285 188 279 178 283 166C285 158 281 150 282 142"/><path d="M290 200C288 188 293 178 290 166C289 158 292 150 291 142"/><path class="f" d="M286 196C287 186 284 176 287 168"/>
-      <g class="crown"><path class="pf" d="M262 142C250 140 248 126 258 122C256 110 268 102 280 106C286 96 304 98 308 108C320 110 322 126 314 132C316 142 304 148 296 144C288 150 272 150 262 142Z"/><path d="M262 142C250 140 248 126 258 122C256 110 268 102 280 106C286 96 304 98 308 108C320 110 322 126 314 132C316 142 304 148 296 144C288 150 272 150 262 142Z"/><path class="f" d="M266 128l5-3M276 116l5 1M292 110l4 3M302 122l5-2M284 132l5 2M296 134l4-3M272 138l4 1M288 122l-3 4"/><path d="M282 142C278 138 274 136 270 136M291 142C296 138 300 136 304 136"/></g>`;
+      <g class="crown"><path class="pf" d="M262 142C250 140 248 126 258 122C256 110 268 102 280 106C286 96 304 98 308 108C320 110 322 126 314 132C316 142 304 148 296 144C288 150 272 150 262 142Z"/><path class="canopy" d="M262 142C250 140 248 126 258 122C256 110 268 102 280 106C286 96 304 98 308 108C320 110 322 126 314 132C316 142 304 148 296 144C288 150 272 150 262 142Z"/><path class="f leafdash" d="M266 128l5-3M276 116l5 1M292 110l4 3M302 122l5-2M284 132l5 2M296 134l4-3M272 138l4 1M288 122l-3 4"/></g>`;
 
   window.ART = {
     // A · Come unto me (Matthew 11:28): Jesus as a solid, softly lit figure in the open doorway; the door's lines stop at
     // his outline. Low hills either side; the tree stands in front of the house's right side.
-    doorSolid: () => svg("Line drawing: Jesus standing as a softly lit figure in the open doorway of a small stone house at night, his arms open, the light falling across the step; a hill behind the house and a tree beside it", `
-      <defs>${glow("door-glow-2", "var(--c)", .5)}</defs>
+    doorSolid: (variant = "") => svg("Line drawing: Jesus standing as a softly lit figure in the open doorway of a small stone house at night, his arms open, the light falling across the step; a hill behind the house and a tree beside it", `
+      <defs>${glow(`door-glow-2${variant}`, "var(--c)", .5)}</defs>
       ${stars([[12, 26], [40, 14, 1.2], [70, 34, .9], [96, 18], [124, 8, .8], [190, 12],  [204, 40, .8], [226, 22, 1.2], [252, 10], [276, 34, 1.1], [300, 18], [314, 52, .9], [262, 66, .8], [236, 80, .8], [300, 86, .9], [190, 50, .7]])}
       <circle class="t" cx="158" cy="36" r="10"/><g class="t sunrays">${range(12, (i) => { const a = i * Math.PI / 6, r2 = i % 2 ? 17 : 20; return `<path d="M${n(158 + Math.cos(a) * 14)} ${n(36 + Math.sin(a) * 14)}L${n(158 + Math.cos(a) * r2)} ${n(36 + Math.sin(a) * r2)}"/>`; })}</g>
-      <path class="f" d="M64 164C44 159 22 159 0 164"/>
-      <path class="f" d="M256 164C276 159 298 159 320 164"/>
+      <path class="f" d="M0 166C20 158 42 157 63 170"/>
+      <path class="f" d="M253 170C274 157 296 158 320 166"/>
+      <g class="flock-rtl">${bird(0, 0, .9)}${bird(16, -5, .7)}${bird(11, 5, .65)}</g>
       <g transform="translate(30 0)">
-      <path class="pf" d="M22 69H234V200H22Z"/>
+      <path class="pf" d="M22 69H234V76H223V200H33V76H22Z"/>
       <path d="M22 76H234"/><path d="M27 69H229"/><path d="M22 76L27 69M234 76L229 69"/>
       <path class="f" d="M44 80v4M64 80v4M84 80v4M172 80v4M192 80v4M212 80v4"/>
       <path d="M33 76V200"/><path d="M223 76V200"/>
       <path class="f" d="M38 108h20M42 150h16M46 180h22M174 112h30M188 150h24M168 184h20M86 92h24M150 92h26"/>
       <path d="M58 138V116C58 110 63 106 69 106C75 106 80 110 80 116V138Z"/><path class="ft" d="M69 109V137M60 122H78"/><path d="M55 139H83"/>
-      <g class="glow-door"><ellipse cx="128" cy="150" rx="46" ry="64" fill="url(#door-glow-2)" stroke="none"/><ellipse cx="128" cy="214" rx="60" ry="16" fill="url(#door-glow-2)" stroke="none"/></g>
+      <g class="glow-door"><ellipse cx="128" cy="150" rx="46" ry="64" fill="url(#door-glow-2${variant})" stroke="none"/><ellipse cx="128" cy="214" rx="60" ry="16" fill="url(#door-glow-2${variant})" stroke="none"/></g>
       <path d="M105 200V128C105 114 115 105 128 105C141 105 151 114 151 128V200"/>
       <path d="M151 200L143 195V110.2"/><path class="f" d="M147 191V122"/>
       <g class="spill"><path class="t" d="M105 200L64 240"/><path class="t" d="M151 200L194 240"/><path class="ft" d="M116.5 200L96 240M128 200V240M139.5 200L160 240"/></g>
       <path class="solid" d="${FIGURE}"/>
       <path class="fold" d="M121.4 142C126 151 133 160 139 175M124.6 156C123.8 172 123 186 122.6 199M132.6 158C133.4 172 134 186 134.6 199M117.6 137C121 134.6 124 134 128 134C132 134 135 134.6 138.4 137"/>
       ${range(7, (i) => `<circle class="mote" style="--i:${i}" cx="${108 + (i * 9) % 40}" cy="${236 - (i * 5) % 22}" r="1" fill="currentColor"/>`)}
-      <path d="M78 200L80 187H94L96 200"/><path d="M87 187C85 179 80 175 74 175M87 187C88 179 92 174 98 173M87 187V177"/>
+      <path d="M78 200L80 187H94L96 200"/><path class="plant" d="M87 187C85 179 80 175 74 175M87 187C88 179 92 174 98 173M87 187V177"/>
       </g>
       <path d="M4 200H135M181 200H316"/>
       ${TREE}
       ${tuft(10, 200)}${tuft(34, 233, .7)}${tuft(22, 239, .8)}${tuft(240, 201, .8)}${tuft(262, 200, .7)}${tuft(170, 201, .7)}${tuft(204, 200, .6)}${tuft(70, 222, .8)}${tuft(90, 231, .7)}${tuft(238, 224, .8)}${tuft(258, 232, .7)}
-      ${[[58, 230, 12, -2], [78, 238, 9, 2], [48, 238, 8, 1], [250, 228, 11, 2], [272, 236, 9, -2], [288, 230, 8, 1]].map(([x, y, h, lean], i) => `<g class="bloom" style="transform-origin:${x}px ${y}px;--i:${i}"><path d="M${x} ${y}C${x} ${y - h / 2} ${x + lean / 2} ${y - h * .8} ${x + lean} ${y - h}"/>${range(5, (k) => { const a = (k * 72 - 90) * Math.PI / 180; return `<circle class="${i % 2 ? "violet" : "blue"} petal" cx="${n(x + lean + Math.cos(a) * 2.6)}" cy="${n(y - h - 2 + Math.sin(a) * 2.6)}" r="1.5"/>`; })}<circle class="heart" cx="${x + lean}" cy="${y - h - 2}" r="1"/></g>`).join("")}`),
+      ${[[58, 230, 12, -2], [78, 238, 9, 2], [48, 238, 8, 1], [250, 228, 11, 2], [272, 236, 9, -2], [288, 230, 8, 1]].map(([x, y, h, lean], i) => `<g class="bloom" style="transform-origin:${x}px ${y}px;--i:${i}"><path class="stem" d="M${x} ${y}C${x} ${y - h / 2} ${x + lean / 2} ${y - h * .8} ${x + lean} ${y - h}"/>${range(5, (k) => { const a = (k * 72 - 90) * Math.PI / 180; return `<circle class="${i % 2 ? "violet" : "blue"} petal" cx="${n(x + lean + Math.cos(a) * 2.6)}" cy="${n(y - h - 2 + Math.sin(a) * 2.6)}" r="1.5"/>`; })}<circle class="heart" cx="${x + lean}" cy="${y - h - 2}" r="1"/></g>`).join("")}`),
 
     // B · New every morning (Lamentations 3:22–23), refined: a yellow sun rising, its beams falling across the hills,
     // the last stars fading, olive trees on the hills, pale blue and violet flowers in thick grass.
