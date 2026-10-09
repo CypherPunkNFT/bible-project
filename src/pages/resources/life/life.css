@@ -3,20 +3,26 @@
 .lf-page {
   --lf-mono: "JetBrains Mono Variable", ui-monospace, "Cascadia Mono", Consolas, monospace;
   --lf-on-c: #fff;
+  /* Life green (owner, 2026-10-08): crisis help, the title's "for life" by day, and the places header by day; the same
+     green as ChurchFamily's. At night the title keeps the section colour and the header turns the toggle's gold. */
+  --lf-green: #3d6b58;
+  --lf-title: var(--lf-green);
+  --lf-head: var(--lf-green);
+  --lf-head-ink: #fff;
   padding-block: 0 3rem;
 }
-:root[data-theme="dark"] .lf-page { --lf-on-c: #12110f; }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .lf-page { --lf-on-c: #12110f; } }
+:root[data-theme="dark"] .lf-page { --lf-on-c: #12110f; --lf-green: #80c498; --lf-title: var(--door); --lf-head: var(--accent); --lf-head-ink: var(--page); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .lf-page { --lf-on-c: #12110f; --lf-green: #80c498; --lf-title: var(--door); --lf-head: var(--accent); --lf-head-ink: var(--page); } }
 .lf-kick, .lf-sec-head > span, .lf-stats dt, .lf-facts dt { font: 600 .6rem/1.2 var(--lf-mono); letter-spacing: .18em; text-transform: uppercase; }
 .lf-muted { color: var(--muted); }
 
 /* Crisis strip: first on the page, plain and steady. */
-.lf-crisis { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem 2.2rem; margin: 1.2rem 0 1.4rem; padding: .7rem 0 .7rem 1rem; border-left: 3px solid var(--revelation); border-bottom: 1px solid var(--line); }
+.lf-crisis { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem 2.2rem; margin: 1.2rem 0 1.4rem; padding: .7rem 0 .7rem 1rem; border-left: 3px solid var(--lf-green); border-bottom: 1px solid var(--line); }
 .lf-crisis p { display: flex; flex-wrap: wrap; align-items: center; gap: .1rem .7rem; font-size: 1rem; }
 .lf-crisis p > span { color: color-mix(in srgb, var(--ink) 78%, transparent); }
-.lf-crisis a { display: inline-flex; align-items: center; gap: .4rem; min-height: 2.75rem; color: var(--ink); font-weight: 600; font-size: 1.08rem; border-bottom: 2px solid var(--revelation); }
-.lf-crisis a svg { color: var(--revelation); }
-.lf-crisis a:hover { color: var(--revelation); }
+.lf-crisis a { display: inline-flex; align-items: center; gap: .4rem; min-height: 2.75rem; color: var(--ink); font-weight: 600; font-size: 1.08rem; border-bottom: 2px solid var(--lf-green); }
+.lf-crisis a svg { color: var(--lf-green); }
+.lf-crisis a:hover { color: var(--lf-green); }
 .lf-crisis .lf-crisis-note { margin-left: auto; color: var(--muted); font-size: .78rem; }
 
 /* Hero: the words and numbers under the title, still-waters line art (Psalm 23:2) beside them. */
@@ -24,7 +30,7 @@
 .lf-hero .lf-kick { display: flex; align-items: center; gap: .6rem; color: var(--door); }
 .lf-hero .lf-kick::before { content: ""; width: 1.6rem; height: 1px; background: currentColor; }
 .lf-hero h1 { margin-top: .8rem; font: 400 clamp(2.6rem, 6vw, 4.6rem)/.98 var(--font-serif); letter-spacing: -.035em; }
-.lf-hero h1 em { color: var(--door); font-style: italic; }
+.lf-hero h1 em { color: var(--lf-title); font-style: italic; }
 .lf-lead { max-width: 34rem; margin-top: 1rem; color: color-mix(in srgb, var(--ink) 76%, transparent); font-size: .98rem; line-height: 1.7; }
 .lf-stats { display: flex; flex-wrap: wrap; margin-top: 1.4rem; padding-top: .9rem; border-top: 1px solid var(--line); }
 .lf-stats div { display: grid; gap: .25rem; padding: 0 1.4rem; border-left: 1px solid var(--line); }
@@ -228,9 +234,9 @@ a.lf-src:hover { color: var(--ink); }
 /* The places panel: as tall as the map, square-cornered and see-through (owner, 2026-10-08), a header, then the list scrolling inside it with the site's
    pill scrollbar just beyond its right edge (OutsideScroll). */
 .lf-places { grid-row: 1; display: flex; flex-direction: column; height: 0; min-height: 100%; border: 1px solid var(--line); }
-.lf-places-head { padding: 1rem 1.2rem .85rem; border-bottom: 1px solid var(--line); background: var(--surface); }
-.lf-places-head h3 { margin: 0; color: var(--ink); font: 400 1.35rem/1.2 var(--font-serif); }
-.lf-places-head p { margin: .25rem 0 0; color: var(--muted); font-size: .8rem; }
+.lf-places-head { padding: 1rem 1.2rem .85rem; background: var(--lf-head); color: var(--lf-head-ink); }
+.lf-places-head h3 { margin: 0; color: inherit; font: 400 1.35rem/1.2 var(--font-serif); }
+.lf-places-head p { margin: .25rem 0 0; color: color-mix(in srgb, var(--lf-head-ink) 85%, transparent); font-size: .8rem; }
 .lf-places-scroll { flex: 1; min-height: 0; }
 .lf-city-list { overscroll-behavior: contain; padding: 0 1.2rem 1rem; }
 .lf-lines-head { display: flex; align-items: baseline; gap: .7rem; margin-top: 1.6rem; padding-bottom: .5rem; border-bottom: 1px solid var(--line); font: 400 1.15rem var(--font-serif); }

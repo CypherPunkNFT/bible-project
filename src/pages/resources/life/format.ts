@@ -11,7 +11,7 @@ export const listOf = (words: string[]) => (words.length < 2 ? words.join("") : 
 interface Kind { short: string; color: string; Icon: LucideIcon }
 /** One colour per kind of help, from the site's book colours; used for the kind's disc, its pins and its row marker. */
 const KINDS: Record<string, Kind> = {
-  crisis: { short: "Crisis", color: "revelation", Icon: LifeBuoy },
+  crisis: { short: "Crisis", color: "lf-green", Icon: LifeBuoy }, // green, life-affirming, not red (owner, 2026-10-08)
   pregnancy: { short: "Pregnancy", color: "acts", Icon: Baby },
   "after-abortion": { short: "After an abortion", color: "gospels", Icon: HeartHandshake },
   "children-families": { short: "Babies & families", color: "prophets", Icon: Users },
