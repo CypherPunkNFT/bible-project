@@ -117,3 +117,9 @@ adds to this list as he reviews other mock-up sets (apostles, David, Michael, th
 ### Muslim-world country panels — four options (2026-10-09)
 
 Owner-requested mock-ups at [muslim-world-panels/](muslim-world-panels/) and `/mockups/muslim-world-panels/`: A Compact ledger, B Colour rows, C Status cards and D Ring & ledger. Compare all four opens the panels side by side. All use the existing country data, a smaller country summary beside “Search all 53 countries”, no region dropdown, icon tabs and engagement colours. Both views work, including complete searchable group tables. Desktop light/dark gallery thumbnails and 768/390/320 px comparison layouts were checked. No direction is owner-approved or applied to the production panel.
+
+### Country-panel mock-ups and scroll controls (owner, 2026-10-09)
+
+Mock-ups for this atlas are reusable panel components previewed in the existing Islam page, with an A/B/C/D pill toggle, beside the actual globe. The previous standalone composition is superseded. Preview: /apologetics/worldviews/islam?country=EGY&atlasDesign=a#muslim-world . CountryPanelPrototype.tsx and its CSS are the transplantable component; country selection, data loading and globe are reused.
+
+The owner's scroll rule: **only a pill-shaped thumb, with no visible track, outside the scroll container on the right**. Apply this to table and search-result scroll containers. PillScroll.tsx implements the rule with native wheel/touch scrolling, thumb dragging and keyboard controls. The four panel designs remain review options, not accepted designs.
