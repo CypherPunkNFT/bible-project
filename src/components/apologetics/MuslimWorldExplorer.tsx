@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { lazy, Suspense, useCallback, useEffect, useRef, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { ArrowUpRight, Globe2, Map, Search } from 'lucide-react';
 import snapshot from '../../../content/missions/muslim-world.json';
@@ -7,6 +7,7 @@ import CountryPeopleGroups from './CountryPeopleGroups';
 import { groupLabels } from '@/lib/mission-groups';
 import './muslim-world.css';
 
+const CountryPanelPrototype = lazy(() => import('./CountryPanelPrototype'));
 const countries = snapshot.countries;
 const labels = groupLabels;
 const compact = (number: number) => new Intl.NumberFormat('en', { notation: 'compact', maximumFractionDigits: 1 }).format(number);
@@ -73,6 +74,9 @@ export default function MuslimWorldExplorer() {
   const section = useRef<HTMLElement>(null);
   const [params, setParams] = useSearchParams();
   const requested = params.get('country');
+  const requestedDesign = params.get('atlasDesign');
+  const prototypeDesign = requestedDesign && ['a', 'b', 'c', 'd'].includes(requestedDesign) ? requestedDesign as 'a' | 'b' | 'c' | 'd' : undefined;
+  const setDesign = (value: 'a' | 'b' | 'c' | 'd') => { const next = new URLSearchParams(params); next.set('atlasDesign', value); setParams(next, { replace: true, preventScrollReset: true }); };
   const country = countries.find(entry => entry.code === requested) ?? countries.find(entry => entry.code === 'PAK')!;
   const [search, setSearch] = useState('');
   const [region, setRegion] = useState('all');
@@ -106,7 +110,7 @@ export default function MuslimWorldExplorer() {
     <header className="mw-introduction"><div><p className="ap-eyebrow"><Globe2 size={15} aria-hidden="true" /> An atlas for understanding the Muslim world</p><h2 id="mw-heading">A world of people.<br /><em>Learn the place.</em></h2></div><p>A neighbour’s faith has a context. Explore 53 Muslim-majority countries and territories, meet some of their people groups, and understand where a gospel witness is present.</p></header>
     <div className="mw-explorer-layout">
       <CountryMap code={country.code} spinning={spinning} onSelect={choose} onPause={pause} />
-      <div className="mw-country-panel">
+      {prototypeDesign ? <Suspense fallback={<div className="mw-country-panel" role="status">Opening the country panel…</div>}><CountryPanelPrototype country={country} design={prototypeDesign} panel={panel} choose={choose} setDesign={setDesign} setPanel={setPanel} /></Suspense> : <div className="mw-country-panel">
         <div className="mw-country-picker"><label className="mw-search-label" htmlFor="mw-search"><Search size={14} /> Find a country</label><input id="mw-search" type="search" placeholder="Search all 53 places…" value={search} onChange={event => setSearch(event.target.value)} />
           <div className="mw-select-row"><label><span className="sr-only">Filter by region</span><select aria-label="Filter countries by region" value={region} onChange={event => setRegion(event.target.value)}><option value="all">All regions</option><option value="africa">Africa</option><option value="asia">Asia</option><option value="europe">Europe</option></select></label><label><span className="sr-only">Choose a country</span><select aria-label="Choose a country" value={filtered.some(entry => entry.code === country.code) ? country.code : ''} onChange={event => choose(event.target.value)}><option value="" disabled>{filtered.length ? `${filtered.length} matching places` : 'No matching countries'}</option>{filtered.map(entry => <option value={entry.code} key={entry.code}>{entry.name}</option>)}</select></label></div>
           {filtered.length === 0 && <p role="status">No matches. <button type="button" onClick={() => { setSearch(''); setRegion('all'); }}>Clear filters</button></p>}
@@ -126,7 +130,7 @@ export default function MuslimWorldExplorer() {
           <div role="tabpanel" id="mw-groups-panel" aria-labelledby="mw-groups-tab" hidden={panel !== 'groups'}>{panel === 'groups' && <CountryPeopleGroups key={country.code} code={country.code} name={country.name} count={country.imb.totalGroups} snapshotDate={snapshot.snapshotDate} sourceHash={snapshot.sources.imb.sha256} />}</div>
           <div className="mw-country-sources"><a href={`https://peoplegroups.org/country/${country.code}/`} target="_blank" rel="noreferrer">Read the full IMB profile <ArrowUpRight size={13} /></a><a href={snapshot.sources.pew.url} target="_blank" rel="noreferrer">Pew demographics <ArrowUpRight size={13} /></a></div>
         </article>
-      </div>
+      </div>}
     </div>
     <details className="mw-method"><summary>What do “unreached” and “engaged” mean?</summary><div><p>IMB describes a people group as a community within which the gospel can spread without substantial barriers of understanding or acceptance. An unreached group has less than 2% evangelical Christians. “Unengaged” indicates no known effort focused on establishing self-sustaining evangelical churches; engagement describes sustained work toward that goal.</p><p>“No longer unreached” means at least 2% evangelical Christians. It does not mean everyone in a group is Christian, or that a country is fully reached. The globe shows places; the statistics describe people groups.</p><p>Counts aggregate IMB’s published Engagement Progress categories. The demographic figures are Pew’s 2020 estimates, published in 2025; they are not present-day counts. IMB’s separate population total for {country.name} is {number(country.imb.population)}, across its recorded groups. Estimates, classification and country profiles may change.</p><p>Data: <a href={snapshot.sources.imb.url} target="_blank" rel="noreferrer">IMB Global Research</a>, country aggregates prepared by Bible Project from the {date} snapshot, under <a href={snapshot.sources.imb.licenseUrl} target="_blank" rel="noreferrer">CC BY-NC 4.0</a>. <a href="https://peoplegroups.org/definitions/" target="_blank" rel="noreferrer">Read IMB’s definitions.</a> Boundaries: <a href="https://www.naturalearthdata.com/about/terms-of-use/" target="_blank" rel="noreferrer">Natural Earth</a>; country and territory names follow the source datasets.</p></div></details>
   </section>;

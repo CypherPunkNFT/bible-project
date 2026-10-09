@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { ArrowUpRight, Search } from 'lucide-react';
 import { groupLabels, type GroupStatus } from '@/lib/mission-groups';
+import PillScroll from './PillScroll';
 interface PeopleGroup { id: string; name: string; language: string | null; religion: string; population: number; status: GroupStatus }
 interface CountryGroups { country: string; snapshotDate: string; sourceSha256: string; groups: PeopleGroup[] }
 const cache = new Map<string, CountryGroups>();
@@ -29,10 +30,10 @@ export default function CountryPeopleGroups({ code, name, count, snapshotDate, s
   return <div className="mw-people-groups">
     <div className="mw-group-filters"><label><Search size={15} aria-hidden="true" /><input type="search" aria-label="Search people groups" placeholder="Name, language or religion…" value={search} onChange={event => setSearch(event.target.value)} /></label><select aria-label="Filter people groups by engagement" value={status} onChange={event => setStatus(event.target.value)}><option value="all">All engagement statuses</option>{Object.entries(groupLabels).map(([key, label]) => <option key={key} value={key}>{label}</option>)}</select></div>
     <p className="mw-group-count" role="status">{groups.length === count ? `All ${count} recorded groups` : `${groups.length} of ${count} recorded groups`}</p>
-    <div className="mw-groups-scroll" role="region" aria-label={`${name} people groups table`} tabIndex={0}>
+    <PillScroll className="mw-groups-scroll" label={`${name} people groups table`}>
       <table className="mw-groups-table"><caption className="sr-only">{name}: IMB people groups, ordered by population</caption><thead><tr><th scope="col">People group</th><th scope="col">Population</th><th scope="col">Engagement</th></tr></thead><tbody>{groups.map(group => <tr key={group.id}><td><a href={`https://peoplegroups.org/people_groups/${group.id.toLowerCase()}/`} target="_blank" rel="noreferrer">{group.name}<ArrowUpRight size={12} aria-hidden="true" /></a><span>{group.language || 'Language not reported'} · {group.religion.replace('Islam - ', '')}</span></td><td>{format(group.population)}</td><td><span className={'mw-group-status mw-status-' + group.status}><i aria-hidden="true" />{groupLabels[group.status]}</span></td></tr>)}</tbody></table>
       {groups.length === 0 && <p className="mw-groups-message">No people groups match these filters.</p>}
-    </div>
+    </PillScroll>
     <p className="mw-stat-note">All IMB-recorded groups in {name}, including non-Muslim groups. Population and engagement use the {snapshotDate} snapshot.</p>
   </div>;
 }

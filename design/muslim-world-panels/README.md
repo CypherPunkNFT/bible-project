@@ -1,20 +1,20 @@
-# Muslim-world country panel — four mock-ups
+# Country-panel component mock-ups
 
-Preview: `http://127.0.0.1:8931/mockups/muslim-world-panels/`.
+Preview in the existing atlas: http://127.0.0.1:8931/apologetics/worldviews/islam?country=EGY&atlasDesign=a#muslim-world .
 
-Owner request, 2026-10-09: remove the region dropdown; say “Search all 53 countries”; put a smaller country summary adjacent to search; use icons and engagement colours; reduce empty space and frame the statistics. Four alternatives, for review:
+The A/B/C/D pill switches only the country-panel component beside the real globe on the existing Islam page. The page header, surrounding content, country selection and map stay in place. The component uses the real country facts and existing complete people-group loader. Ordinary URLs omit atlasDesign and use the current panel; these options await the owner's selection.
 
-- A, Compact ledger: a framed table-like overview, counts and populations on one row.
-- B, Colour rows: each engagement category has a quiet tinted row and coloured edge.
-- C, Status cards: three compact colour-coded status cards; group-table rows become small cards.
-- D, Ring & ledger: group-count proportions in a ring with a compact ledger; group-table engagement uses coloured chips.
+- A: compact boxed ledger.
+- B: tinted engagement rows and coloured group-table rows.
+- C: three compact status cards and card-like table rows.
+- D: ring with a compact ledger and coloured engagement chips.
 
-The direction buttons open each in the globe context. Compare all four shows the panels together. Search selects any of the 53 actual profiles; visible globe outlines also select countries. Both tabs work in every direction. The People Groups table lists every active group for that country, with search, status filters and sticky headers. Keyboard arrow/Home/End moves between tabs; country-search results support arrow keys, Enter and Escape. Light/dark themes and narrow screens are supported. URL parameters preserve direction, country, active tab and comparison mode.
+All four have smaller country facts beside “Search all 53 countries”, no region dropdown, coloured Lucide icon tabs and complete searchable tables. Search selects the actual country and updates the real globe. Switching preserves country, tab and map state without remounting the renderer.
 
-Facts are the site's existing Pew 2020 / IMB 2026-10-09 snapshot. Egypt defaults to **109.3M, 95.2% Muslim, 4.8% Christian**, not transcribed or guessed from speech. People-group population totals are a separate IMB estimate. Counts cover all recorded groups, including non-Muslim groups. Existing local flag and group assets load from `/assets/muslim-world/`; source notes and licenses remain in `content/missions/` and `public/assets/muslim-world/README.md`.
+Scrollbars are a pill-shaped thumb only, without a visible track, outside the scroll viewport on its right. PillScroll supplies native wheel/touch scrolling, a draggable thumb and keyboard controls. It is used for the people-group table and search results. Resizing/filtering updates the thumb; listeners and observers are disposed on unmount.
 
-`node design/muslim-world-panels/generate.mjs` regenerates the compact country summaries, static orthographic globe context from the current Natural Earth atlas, and symbols from the installed MIT-licensed `lucide-react` library. Existing local Archivo/Literata fonts are reused. No new imagery, remote fonts, external APIs, texture memory or globe animation is introduced. The globe is a fixed illustration with selectable visible outlines; the production globe's zoom/rotation is outside this panel mock-up.
+Transplantable files: src/components/apologetics/CountryPanelPrototype.tsx and country-panel-prototype.css. The component takes country/design/tab props and selection callbacks, reusing CountryPeopleGroups.tsx and PillScroll.tsx. MuslimWorldExplorer.tsx has a lazy preview branch enabled by atlasDesign=a|b|c|d. Adopting an option means fixing the chosen design and removing the toggle; no new page or data layer is needed.
 
-Implementation uses DOM/SVG creation without `innerHTML`. Mock-ups are served directly from `design/` by the local preview; they are not built into or deployed with the site. No direction is marked owner-approved. The production country panel remains a separate implementation pending a design choice.
+Old /mockups/muslim-world-panels/?d=a bookmarks redirect to the real atlas. Earlier standalone HTML/JS/CSS assets remain as a superseded experiment and are not used by the active mock-up. Existing data, flag provenance and icon licensing apply.
 
-Validated all four directions in both themes, including complete Egypt tables, and comparison layouts at 768, 390 and 320 px. Four Iran tables share one request and show all 47 groups; search, status filtering and keyboard tab switching work. No page/table overflow or browser errors occurred. Eight gallery thumbnails are included. The generated `design/review/` folder triggers an existing full-gallery registration check; the four new catalog entries were checked directly.
+Checked all four options at 1440, 768, 390 and 320 px: original globe/cached atlas retained, country selection, complete group rows, external thumb placement, hidden native scrollbars, wheel/keyboard controls and no overflow or browser errors. Regression: e2e/atlas-panel-prototype.spec.ts with e2e/atlas-panel-prototype.config.ts. No option is owner-approved or deployed.
