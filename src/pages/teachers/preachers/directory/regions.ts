@@ -5,7 +5,7 @@ import { familyOf, lifeEnd } from "../../shared/people";
 
 // Which country or region each town is in.
 const REGIONS: Record<string, string> = {
-  England: "Marston Jabbett|Cambridge|Ipswich|Tostock|London|Rollesby|Oxford|Stadhampton|Coggeshall|Bromsgrove|Dartmouth|Elstow|Bedford|Kettering|Gloucester|Liverpool|Olney|Paulerspury|Leicester|Macclesfield|Helmingham|Stradbroke|Kelvedon|Waterbeach|Bristol|Epworth",
+  England: "Marston Jabbett|Cambridge|Ipswich|Tostock|London|Rollesby|Oxford|Stadhampton|Coggeshall|Bromsgrove|Dartmouth|Elstow|Bedford|Kettering|Gloucester|Liverpool|Olney|Paulerspury|Leicester|Macclesfield|Helmingham|Stradbroke|Kelvedon|Waterbeach|Bristol|Epworth|Tetbury|Stone|Rugeley|Birmingham",
   Scotland: "Haddington|Edinburgh|Nisbet|Anwoth|Aberdeen|St Andrews|Duns|Simprin|Ettrick|Collace|Glasgow|Dundee|Kirkmahoe|Badbea|Hamilton",
   Wales: "Cardiff|Aberavon",
   Ireland: "Dublin",
@@ -14,7 +14,7 @@ const REGIONS: Record<string, string> = {
   Germany: "Wittenberg|Heidelberg|Neustadt",
   Silesia: "Breslau",
   Netherlands: "Franeker|Enkhuizen|Utrecht|Leiden|Maassluis|Amsterdam|Hoogeveen|Kampen|Heerenveen|Emmen",
-  "United States": "West Nottingham|Fredericksburg|Wilkes-Barre|East Windsor|Northampton|Stockbridge|Princeton|Savannah|Newburyport|Haddam|Crossweeksung|Lexington, Virginia|Philadelphia|Lexington, Kentucky|Allegheny|Grand Rapids|Vriesland|Baltimore|Pittsburgh|Ligonier|Orlando|Sanford|Deerfield|Chattanooga|Minneapolis|Columbia, South Carolina|Cleveland|Phoenix|Northfield|Boston|Chicago|Charlotte|Cleveland, Tennessee|Temple Terrace|Wheaton|Western Springs|Montreat",
+  "United States": "West Nottingham|Fredericksburg|Wilkes-Barre|East Windsor|Northampton|Stockbridge|Princeton|Savannah|Newburyport|Haddam|Crossweeksung|Lexington, Virginia|Philadelphia|Lexington, Kentucky|Allegheny|Grand Rapids|Vriesland|Baltimore|Pittsburgh|Ligonier|Orlando|Sanford|Deerfield|Chattanooga|Minneapolis|Columbia, South Carolina|Cleveland|Phoenix|Northfield|Boston|Chicago|Charlotte|Cleveland, Tennessee|Temple Terrace|Wheaton|Western Springs|Montreat|Athens, Georgia|Los Angeles|Greenville|Burbank|La Mirada|Sun Valley",
   Canada: "Vancouver|Montreal",
   India: "Serampore|Allahabad",
   "Middle East": "Bahrain|Cairo",

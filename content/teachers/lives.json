@@ -1,5 +1,5 @@
 {
-  "about": "Hand-entered for the Authors mock-ups (2026-10-08): life years, the places each person lived and served (first = birthplace, unless birthplaceKnown is false, when the first place is simply the earliest known; year = when they arrived, approximate), a one-line description, and documented links between people. Fact-checked 2026-10-08 against Wikipedia, Britannica and other references (report in the session DevLog); corrections applied. Counts of works and Bible passages come from the library catalogue (build-data.mjs), not from here. Wesley, Moody and Graham added 2026-10-08 (owner's widened scope), fact-checked the same day.",
+  "about": "Hand-entered for the Authors mock-ups (2026-10-08): life years, the places each person lived and served (first = birthplace, unless birthplaceKnown is false, when the first place is simply the earliest known; year = when they arrived, approximate), a one-line description, and documented links between people. Fact-checked 2026-10-08 against Wikipedia, Britannica and other references (report in the session DevLog); corrections applied. Counts of works and Bible passages come from the library catalogue (build-data.mjs), not from here. Wesley, Moody, Graham, MacArthur and Morgan added 2026-10-08 (owner's widened scope), fact-checked the same day.",
   "people": {
     "author-john-calvin": {
       "short": "Calvin",
@@ -1402,6 +1402,98 @@
         ]
       ]
     },
+    "author-g-campbell-morgan": {
+      "short": "Morgan",
+      "born": 1863,
+      "died": 1945,
+      "line": "Self-taught English Congregational preacher, twice minister of Westminster Chapel in London, whose expository Bible teaching reached both sides of the Atlantic.",
+      "places": [
+        [
+          "Tetbury",
+          51.637,
+          -2.159,
+          1863
+        ],
+        [
+          "Stone",
+          52.903,
+          -2.146,
+          1889
+        ],
+        [
+          "Rugeley",
+          52.76,
+          -1.936,
+          1891
+        ],
+        [
+          "Birmingham",
+          52.48,
+          -1.903,
+          1893
+        ],
+        [
+          "London",
+          51.566,
+          -0.117,
+          1897
+        ],
+        [
+          "Northfield",
+          42.696,
+          -72.453,
+          1901
+        ],
+        [
+          "London",
+          51.499,
+          -0.137,
+          1904
+        ],
+        [
+          "Athens, Georgia",
+          33.961,
+          -83.378,
+          1919
+        ],
+        [
+          "Los Angeles",
+          34.052,
+          -118.244,
+          1927
+        ],
+        [
+          "Philadelphia",
+          39.953,
+          -75.165,
+          1929
+        ],
+        [
+          "London",
+          51.499,
+          -0.137,
+          1933
+        ]
+      ],
+      "known": [
+        [
+          "The Crises of the Christ",
+          1903
+        ],
+        [
+          "The Westminster Pulpit",
+          1906
+        ],
+        [
+          "The Analyzed Bible",
+          1907
+        ],
+        [
+          "The Teaching of Christ",
+          1913
+        ]
+      ]
+    },
     "author-samuel-m-zwemer": {
       "short": "Zwemer",
       "born": 1867,
@@ -1726,6 +1818,68 @@
         ]
       ]
     },
+    "author-john-macarthur": {
+      "short": "MacArthur",
+      "born": 1939,
+      "died": 2025,
+      "line": "Calvinistic Baptist pastor of the non-denominational Grace Community Church, Sun Valley, California, for 56 years (1969–2025); his verse-by-verse preaching is heard on Grace to You.",
+      "places": [
+        [
+          "Los Angeles",
+          34.052,
+          -118.244,
+          1939
+        ],
+        [
+          "Greenville",
+          34.852,
+          -82.394,
+          1957
+        ],
+        [
+          "Los Angeles",
+          34.052,
+          -118.244,
+          1960
+        ],
+        [
+          "Burbank",
+          34.181,
+          -118.309,
+          1964
+        ],
+        [
+          "La Mirada",
+          33.917,
+          -118.012,
+          1966
+        ],
+        [
+          "Sun Valley",
+          34.2175,
+          -118.37,
+          1969
+        ]
+      ],
+      "known": [
+        [
+          "The Gospel According to Jesus",
+          1988
+        ],
+        [
+          "Charismatic Chaos",
+          1992
+        ],
+        [
+          "The MacArthur Study Bible",
+          1997
+        ],
+        [
+          "Twelve Ordinary Men",
+          2002
+        ]
+      ]
+    },
     "author-d-a-carson": {
       "short": "Carson",
       "born": 1946,
@@ -2044,6 +2198,41 @@
       "author-martyn-lloyd-jones",
       "author-billy-graham",
       "In 1963 Graham asked Lloyd-Jones to chair a world congress on evangelism; Lloyd-Jones declined unless Graham dropped liberals from his platform and the altar-call invitation."
+    ],
+    [
+      "author-d-l-moody",
+      "author-g-campbell-morgan",
+      "On his first visit to America in 1896, Morgan met Moody and was invited to preach at Moody's Northfield Bible Conference."
+    ],
+    [
+      "author-g-campbell-morgan",
+      "author-martyn-lloyd-jones",
+      "Lloyd-Jones joined Morgan at Westminster Chapel as associate pastor in 1939 and became its sole pastor when Morgan retired in 1943."
+    ],
+    [
+      "author-j-i-packer",
+      "author-john-macarthur",
+      "Packer wrote a foreword to the first edition of MacArthur's The Gospel According to Jesus (1988)."
+    ],
+    [
+      "author-john-macarthur",
+      "author-john-piper",
+      "Both spoke at the Together for the Gospel conference in Louisville in April 2008."
+    ],
+    [
+      "author-r-c-sproul",
+      "author-john-macarthur",
+      "Sproul was a keynote speaker at MacArthur's Strange Fire conference at Grace Community Church in October 2013."
+    ],
+    [
+      "author-john-macarthur",
+      "author-sinclair-ferguson",
+      "Ferguson spoke at MacArthur's Shepherds' Conference in 2015 and 2019."
+    ],
+    [
+      "author-john-macarthur",
+      "author-alistair-begg",
+      "Begg spoke at MacArthur's Shepherds' Conference in 2015 and 2023, and was withdrawn from the 2024 conference in February 2024."
     ]
   ]
 }
