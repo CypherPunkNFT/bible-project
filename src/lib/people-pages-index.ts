@@ -1,3 +1,4 @@
+import { slugOf } from "@/lib/people-slugs";
 import indexJson from "@/data/people-pages/index.json";
 import type { ProphetEra, ProphetKind, Realm, RulerKind } from "@/data/people-pages/types";
 
@@ -131,8 +132,11 @@ export const isApostleEndpoint = (id: string): boolean => {
 };
 
 /** The person's page address, or one of their special pages (an apostle's "mission" is his person address). */
-export const personPath = (id: string, aspect?: Aspect) =>
-  aspect === "mission" && isApostleEndpoint(apostleFor(id)?.id ?? "") ? `/people/${apostleFor(id)!.id}` : aspect ? `/people/${id}/${aspect}` : `/people/${id}`;
+export const personPath = (id: string, aspect?: Aspect) => {
+  const one = aspect === "mission" && isApostleEndpoint(apostleFor(id)?.id ?? "") ? apostleFor(id)!.id : aspect ? undefined : id;
+  // A person with a readable address (/people/peter, /people/james-son-of-zebedee) is linked by it.
+  return one ? `/people/${slugOf(one) ?? one}` : `/people/${id}/${aspect}`;
+};
 
 export type SpecialPage =
   | { aspect: "rule"; id: string; summary: RulerSummary }

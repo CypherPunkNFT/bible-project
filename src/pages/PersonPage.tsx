@@ -7,6 +7,7 @@ import { PersonProfile } from "@/components/study/PersonProfile";
 import { StudyCredits } from "@/components/study/StudyParts";
 import { useCachedLoad } from "@/lib/people-pages";
 import { isApostleEndpoint, isAspect, personPath, specialPageOf, type Aspect } from "@/lib/people-pages-index";
+import { personIdOf, slugOf } from "@/lib/people-slugs";
 import { loadPeople, loadPersonDetail } from "@/lib/study";
 
 type SpecialPages = typeof import("@/components/people-pages/SpecialPages");
@@ -29,7 +30,9 @@ function useSpecialPages(wanted: boolean): SpecialPages | undefined {
  *  ruler, an apostle or a prophet, their other pages (/people/:id/rule, /people/:id/mission, /people/:id/word). The back
  *  link names wherever the visitor came from; the switch between the pages carries that along. */
 export default function PersonPage() {
-  const { id = "", aspect: asked } = useParams();
+  const { id: segment = "", aspect: asked } = useParams();
+  // /people/peter and /people/peter-mat-4-18 are the same person; the readable address is the one shown.
+  const id = personIdOf(segment);
   const { state } = useLocation();
   const askedAspect: Aspect | undefined = isAspect(asked) ? asked : undefined;
   // The Twelve, Matthias and Paul: their person address is their one page (the apostle page).
@@ -46,6 +49,7 @@ export default function PersonPage() {
 
   // An address with no such page goes to the person page; another record of the same person goes to the main one.
   if ((asked && !askedAspect) || (aspect && !special)) return <Navigate to={personPath(id)} replace state={state} />;
+  if (!asked && slugOf(id) && segment !== slugOf(id)) return <Navigate to={personPath(id)} replace state={state} />;
   if (endpoint && askedAspect === "mission") return <Navigate to={personPath(id)} replace state={state} />;
   if (special && special.id !== id) return <Navigate to={personPath(special.id, aspect)} replace state={state} />;
   if (detail.status === "ready" && detail.value.same) return <Navigate to={personPath(detail.value.same, aspect)} replace state={state} />;

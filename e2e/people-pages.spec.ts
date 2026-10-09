@@ -53,7 +53,7 @@ test("people pages: /study/apostles shows the Twelve and opens a preview in plac
   await page.getByRole("button", { name: /^Peter:/ }).click();
   await expect(page.getByRole("link", { name: /Open his mission/ })).toBeVisible();
   await page.getByRole("link", { name: /Open his mission/ }).click();
-  await expect(page).toHaveURL(/\/people\/peter-mat-4-18$/);
+  await expect(page).toHaveURL(/\/people\/peter$/);
   await expect(page.getByRole("heading", { name: "Peter", level: 1 })).toBeVisible();
   await noSideScroll(page);
 });

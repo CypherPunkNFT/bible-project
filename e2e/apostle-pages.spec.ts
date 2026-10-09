@@ -28,16 +28,16 @@ test("apostle pages: next goes to Andrew (2 / 12); the list reaches Matthias and
   await page.goto("/people/peter-mat-4-18");
   await expect(ready(page)).toBeAttached();
   await page.getByRole("link", { name: "Next: Andrew" }).click();
-  await expect(page).toHaveURL(/\/people\/andrew-mat-4-18$/);
+  await expect(page).toHaveURL(/\/people\/andrew$/);
   await expect(counter(page)).toContainText("2 / 12"); await expect(counter(page)).toContainText("Andrew");
   await expect(page.getByRole("heading", { name: "Andrew", level: 1 })).toBeVisible();
   await counter(page).click();
   await page.locator(".ap-count-menu.open").getByRole("link", { name: "Matthias" }).click();
-  await expect(page).toHaveURL(/\/people\/matthias-act-1-23$/);
+  await expect(page).toHaveURL(/\/people\/matthias$/);
   await expect(counter(page)).toContainText("Chosen by lot");
   await expect(counter(page)).toContainText("Matthias");
   await page.getByRole("link", { name: "Next: Paul" }).click();
-  await expect(page).toHaveURL(/\/people\/paul-act-7-58$/);
+  await expect(page).toHaveURL(/\/people\/paul$/);
   await expect(counter(page)).toContainText("Apostle to the Gentiles"); await expect(counter(page)).toContainText("Paul");
 });
 
@@ -120,6 +120,19 @@ test("apostle pages: the person's address is the apostle page itself, with no pe
   await expect(page.locator(".pp-entry")).toHaveCount(0);
   // the old address forwards to the one page
   await page.goto("/people/thomas-mat-10-3/mission");
-  await expect(page).toHaveURL(/\/people\/thomas-mat-10-3$/);
+  await expect(page).toHaveURL(/\/people\/thomas$/);
   await expect(page.getByRole("heading", { name: "Thomas", level: 1 })).toBeVisible();
+});
+
+test("apostle pages: readable addresses - /people/james-son-of-zebedee opens James, and the old id address forwards to it", async ({ page }) => {
+  await page.goto("/people/james-son-of-zebedee");
+  await expect(page.getByRole("heading", { name: /James/, level: 1 })).toBeVisible();
+  await expect(page.locator(".ap-count-btn")).toContainText("3 / 12");
+  await page.goto("/people/james-mat-4-21");
+  await expect(page).toHaveURL(/\/people\/james-son-of-zebedee$/);
+  await page.goto("/people/judas-mat-10-3");
+  await expect(page).toHaveURL(/\/people\/thaddaeus$/);
+  // Nathanael keeps his own person page (that he is Bartholomew is an identification, not Scripture)
+  await page.goto("/people/nathanael-jhn-1-45");
+  await expect(page).toHaveURL(/\/people\/nathanael-jhn-1-45$/);
 });

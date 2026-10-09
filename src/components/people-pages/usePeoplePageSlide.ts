@@ -4,6 +4,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { transitionTicker } from "@/components/ticker/transition-clock";
 import { ASPECTS, apostleFor, isApostleEndpoint, isAspect, prophetFor, rulerFor, timeRank, type Aspect } from "@/lib/people-pages-index";
 import type { ProphetEra } from "@/data/people-pages/types";
+import { personIdOf } from "@/lib/people-slugs";
 
 /**
  * The page wipe between a person page and their ruler, apostle or prophet pages, between rulers, apostles or prophets,
@@ -19,7 +20,8 @@ import type { ProphetEra } from "@/data/people-pages/types";
 type Place = { kind: "person" | "special" | "guide" | "other"; id?: string; aspect?: Aspect };
 
 function placeOf(url: URL): Place {
-  const person = /^\/people\/([^/]+)(?:\/([a-z]+))?\/?$/.exec(url.pathname);
+  const match = /^\/people\/([^/]+)(?:\/([a-z]+))?\/?$/.exec(url.pathname);
+  const person = match && [match[0], personIdOf(match[1]), match[2]];
   if (person) return isAspect(person[2]) ? { kind: "special", id: person[1], aspect: person[2] } : person[2] ? { kind: "other" }
     : isApostleEndpoint(person[1]) ? { kind: "special", id: person[1], aspect: "mission" } : { kind: "person", id: person[1] };
   const view = url.searchParams.get("view");
