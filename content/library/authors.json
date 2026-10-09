@@ -1589,6 +1589,70 @@
         "kind": "ai-assisted",
         "scope": "Sermons campaign: identity and owner-scope eligibility; work review remains required."
       }
+    },
+    {
+      "id": "author-john-macarthur",
+      "entityType": "person",
+      "name": "John MacArthur",
+      "aliases": [
+        "John F. MacArthur",
+        "John Fullerton MacArthur Jr."
+      ],
+      "cohort": "recorded-recent",
+      "traditions": [
+        "baptist",
+        "calvinist-evangelical"
+      ],
+      "eligibility": "eligible",
+      "rationale": "Owner decision 2026-10-08: a Calvinistic Baptist pastor, inside the widened preacher scope (any Baptist) and the original Calvinist evangelical charter. Pastor of Grace Community Church, Sun Valley, California, from 1969.",
+      "receptionBasis": "Owner's named choice; Grace to You publishes his sermon transcripts.",
+      "evidence": [
+        {
+          "url": "https://www.gty.org/",
+          "locator": "Grace to You sermon library",
+          "note": "Corpus identity.",
+          "checkedOn": "2026-10-08"
+        }
+      ],
+      "distinctives": [],
+      "unresolved": [],
+      "review": {
+        "date": "2026-10-08",
+        "reviewer": "Claude",
+        "kind": "ai-assisted",
+        "scope": "Sermons campaign: identity and owner-scope eligibility; work review remains required."
+      }
+    },
+    {
+      "id": "author-g-campbell-morgan",
+      "entityType": "person",
+      "name": "G. Campbell Morgan",
+      "aliases": [
+        "George Campbell Morgan"
+      ],
+      "cohort": "twentieth-century",
+      "traditions": [
+        "congregational"
+      ],
+      "eligibility": "eligible",
+      "rationale": "Owner decision 2026-10-08 (widened preacher scope: conservative, non-heretical evangelical preachers close to Baptist; the owner named Morgan). Congregational minister of Westminster Chapel, London; expository Bible teacher.",
+      "receptionBasis": "Owner's named choice; historic sermon volumes are public domain.",
+      "evidence": [
+        {
+          "url": "https://www.gutenberg.org/ebooks/author/1785",
+          "locator": "Project Gutenberg author listing",
+          "note": "Corpus identity.",
+          "checkedOn": "2026-10-08"
+        }
+      ],
+      "distinctives": [],
+      "unresolved": [],
+      "review": {
+        "date": "2026-10-08",
+        "reviewer": "Claude",
+        "kind": "ai-assisted",
+        "scope": "Sermons campaign: identity and owner-scope eligibility; work review remains required."
+      }
     }
   ]
 }

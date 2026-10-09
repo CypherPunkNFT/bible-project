@@ -33,12 +33,16 @@ TODAY = "2026-10-08"
 REVIEW = dict(date=TODAY, reviewer="Claude", kind="ai-assisted", scope="Sermons campaign: identity, held file and printed main text; not a full-text proofread.")
 
 PREACHERS = {
-    "wesley": dict(author="author-john-wesley", source="source-wesley-center", era="eighteenth-century", rights="public-domain",
+    "wesley": dict(author="author-john-wesley", era="eighteenth-century", rights="public-domain",
                    edition="Wesley Center Online HTML, Thomas Jackson edition (1872)", policy="https://wesley.nnu.edu/"),
-    "moody": dict(author="author-d-l-moody", source="source-gutenberg", era="nineteenth-century", rights="public-domain",
+    "moody": dict(author="author-d-l-moody", era="nineteenth-century", rights="public-domain",
                   edition="Project Gutenberg HTML", policy="https://www.gutenberg.org/policy/terms_of_use.html"),
-    "graham": dict(author="author-billy-graham", source="source-billy-graham", era="twentieth-century", rights="restricted-license",
+    "graham": dict(author="author-billy-graham", era="twentieth-century", rights="restricted-license",
                    edition="Billy Graham Evangelistic Association published sermon", policy="https://billygraham.org/"),
+    "macarthur": dict(author="author-john-macarthur", era="twentieth-century", rights="restricted-license",
+                      edition="Grace to You official sermon transcript", policy="https://www.gty.org/"),
+    "morgan": dict(author="author-g-campbell-morgan", era="twentieth-century", rights="public-domain",
+                   edition="Historic printed sermon text", policy="https://www.gutenberg.org/policy/terms_of_use.html"),
 }
 
 # Moody names some passages in words; each conversion is the sermon's own wording, written out so it can be checked.
@@ -143,11 +147,12 @@ def edition(ident, work_id, cfg, url):
 
 
 def asset(asset_id, edition_id, cfg):
-    prov = read(next(SOURCES.glob(f"library/*/{asset_id}/provenance.json")))
+    prov_file = next(SOURCES.glob(f"library/*/{asset_id}/provenance.json"))
+    prov = read(prov_file)
     actions = {k: "unknown" for k in ["download", "host", "redistribute", "adapt", "transcribe", "embed", "indexMetadata", "indexFullText"]}
     actions.update(download="allowed", indexMetadata="allowed")
     record = common("asset", asset_id)
-    record.update(editionId=edition_id, sourceId=cfg["source"], canonicalUrl=prov["url"], finalUrl=prov.get("finalUrl"),
+    record.update(editionId=edition_id, sourceId=prov_file.parent.parent.name, canonicalUrl=prov["url"], finalUrl=prov.get("finalUrl"),
                   format=prov.get("format") or "html", mediaKind="text", acquisitionStatus="downloaded", storage="raw",
                   relativePath=prov["relativePath"], sha256=prov["sha256"], byteCount=prov["byteCount"], mimeType=prov.get("mimeType"),
                   retrievedAt=re.sub(r"\+00:00$", "Z", prov["retrievedAt"]),
@@ -161,30 +166,37 @@ def asset(asset_id, edition_id, cfg):
     return record
 
 
+def volume_key(name, asset_id):
+    """Moody's volumes are keyed by Gutenberg number (pg30449); later preachers by the whole asset suffix."""
+    return asset_id.rsplit("-", 1)[-1] if name == "moody" else asset_id.removeprefix(f"asset-sermons-{name}-")
+
+
 def catalogue(name, verses):
     cfg, manifest = PREACHERS[name], read(REPORTS / name / "acquisition-manifest.json")
     counts, unplaced, volumes = Counter(), [], {}
+    width = max(3, len(str(len(manifest["sermons"]))))
+    per_file = Counter(e.get("assetId") for e in manifest["sermons"] if e.get("book"))
     for index, entry in enumerate(manifest["sermons"], 1):
         number = entry.get("number") or index
-        ident = f"work-sermons-{name}-{number:03d}"
+        ident = f"work-sermons-{name}-{number:0{width}d}"
         passages, problem = main_text(entry, verses, f"{entry['url']}; {entry.get('mainTextLocator') or 'printed text'}")
         if problem:
             unplaced.append(dict(workId=ident, title=entry["title"], reason=problem))
         counts["placed" if passages else "listed without a passage"] += 1
         asset_id = entry.get("assetId")
         held = asset_id and next(SOURCES.glob(f"library/*/{asset_id}/provenance.json"), None)
-        if entry.get("book"):  # a sermon inside a held volume
+        if entry.get("book") and per_file[asset_id] > 1:  # a sermon inside a held volume of several
             volume = volumes.setdefault(asset_id, dict(title=entry["book"], url=entry["url"], members=[]))
             volume["members"].append(ident)
-            related = [dict(relation="is-part-of", targetId=f"work-sermons-{name}-book-{asset_id.rsplit('-', 1)[-1]}", locator=entry.get("locator"))]
+            related = [dict(relation="is-part-of", targetId=f"work-sermons-{name}-book-{volume_key(name, asset_id)}", locator=entry.get("locator"))]
             save(sermon_work(ident, entry, cfg, passages, related))
         else:
             save(sermon_work(ident, entry, cfg, passages))
             if held and asset_id.startswith(f"asset-sermons-{name}"):  # reused older holdings keep their own records
-                save(edition(f"edition-sermons-{name}-{number:03d}", ident, cfg, entry["url"]))
-                save(asset(asset_id, f"edition-sermons-{name}-{number:03d}", cfg))
+                save(edition(f"edition-sermons-{name}-{number:0{width}d}", ident, cfg, entry["url"]))
+                save(asset(asset_id, f"edition-sermons-{name}-{number:0{width}d}", cfg))
     for asset_id, volume in volumes.items():
-        key = asset_id.rsplit("-", 1)[-1]
+        key = volume_key(name, asset_id)
         work = common("work", f"work-sermons-{name}-book-{key}")
         work.update(title=re.sub(r"\s*\(Project Gutenberg #\d+\)$", "", volume["title"]), alternateTitles=[],
                     creators=[dict(authorId=cfg["author"], role="author")], genre="collected-works", role="core-teaching",

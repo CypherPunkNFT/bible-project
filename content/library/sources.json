@@ -623,6 +623,23 @@
         }
       ],
       "reviewedOn": "2026-10-08"
+    },
+    {
+      "id": "source-grace-to-you",
+      "name": "Grace to You",
+      "url": "https://www.gty.org/",
+      "role": "content-host",
+      "automation": "unreviewed",
+      "acquisitionNote": "Terms and robots.txt reviewed by the sermons campaign before retrieval; see reports/sermons-campaign/macarthur/TERMS.md.",
+      "evidence": [
+        {
+          "url": "https://www.gty.org/",
+          "locator": "Official site",
+          "note": "Identity of the official sermon source.",
+          "checkedOn": "2026-10-08"
+        }
+      ],
+      "reviewedOn": "2026-10-08"
     }
   ]
 }

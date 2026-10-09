@@ -17,7 +17,7 @@ export const FAMILIES: Family[] = [
 const FAMILY_ORDER = ["baptist", "methodist", "anglican", "puritan", "continental-reformed", "presbyterian", "calvinist-evangelical", "reformed"];
 // Brainerd has no tradition in the registry; Wesley (an Anglican priest) led the Methodists; Moody, a Congregational
 // lay evangelist who founded an independent church, sits with the evangelicals.
-const FAMILY_OVERRIDES: Record<string, string> = { "author-l13-david-brainerd": "presbyterian", "author-john-wesley": "methodist", "author-d-l-moody": "calvinist-evangelical" };
+const FAMILY_OVERRIDES: Record<string, string> = { "author-l13-david-brainerd": "presbyterian", "author-john-wesley": "methodist", "author-d-l-moody": "calvinist-evangelical", "author-g-campbell-morgan": "calvinist-evangelical" };
 
 export function familyOf(person: Person): Family {
   const key = FAMILY_OVERRIDES[person.id] ?? FAMILY_ORDER.find((k) => person.traditions.includes(k)) ?? "reformed";
