@@ -5,7 +5,7 @@ const STATIC = new Set([
   "/", "/library", "/bible", "/read", "/search", "/search/meaning", "/versions", "/sources", "/study", "/atlas", "/charts", "/teachers", "/resources",
   "/charts/references", "/charts/structure", "/charts/words-of-jesus", "/charts/versions",
   "/testimonies", "/testimonies/join", "/testimonies/access", "/testimonies/design", "/topics", "/topics/superlist", "/review",
-  "/study/references", "/study/structure", "/study/gospels", "/study/versions", "/study/miracles", "/study/names",
+  "/study/theology", "/study/academic", "/study/references", "/study/structure", "/study/gospels", "/study/versions", "/study/miracles", "/study/names",
   "/study/people", "/study/prophets", "/study/rulers", "/study/apostles", "/study/harmony", "/study/letters",
   "/study/atlas", "/study/atlas/map", "/study/atlas/journeys", "/study/atlas/cities", "/study/atlas/cities/find",
   "/study/atlas/cities/motion", "/study/atlas/gospels", "/study/atlas/early-church", "/study/atlas/catholic-orthodox",

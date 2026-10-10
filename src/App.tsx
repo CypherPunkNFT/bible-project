@@ -20,6 +20,7 @@ const TeachersPage = lazy(() => import("@/pages/TeachersPage"));
 const ResourcesPage = lazy(() => import("@/pages/ResourcesPage"));
 const VersionsPage = lazy(() => import("@/pages/VersionsPage"));
 const NotFoundPage = lazy(() => import("@/pages/NotFoundPage"));
+const StudyBranch = lazy(() => import("@/pages/study/hub/StudyBranch"));
 const StudyPage = lazy(() => import("@/pages/study/StudyPage"));
 const ApologeticsPage = lazy(() => import("@/pages/ApologeticsPage"));
 const StudyRedirect = lazy(() => import("@/pages/study/StudyRedirect"));
@@ -82,6 +83,8 @@ export default function App() {
               <Route path="/versions" element={<VersionsPage />} />
               <Route path="/sources" element={<VersionsPage />} />
               <Route path="/study" element={<StudyPage />} />
+              <Route path="/study/theology" element={<StudyBranch branch="theology" />} />
+              <Route path="/study/academic" element={<StudyBranch branch="academic" />} />
               <Route path="/study/references" element={<ChartsPage />} />
               <Route path="/study/structure" element={<ChartsPage />} />
               <Route path="/study/gospels" element={<ChartsPage />} />

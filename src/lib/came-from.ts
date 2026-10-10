@@ -3,7 +3,7 @@ export interface CameFrom { path: string; label: string }
 
 /** Link state recording the current page as the way back: `<Link to="/people/abraham" state={cameFrom("People & genealogies")}>`. */
 export function cameFrom(label: string): { from: CameFrom } {
-  return { from: { path: window.location.pathname + window.location.search, label } };
+  return { from: { path: window.location.pathname + window.location.search + window.location.hash, label } };
 }
 
 export const isCameFrom = (value: unknown): value is CameFrom =>

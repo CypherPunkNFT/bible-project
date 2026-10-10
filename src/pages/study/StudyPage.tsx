@@ -1,1 +1,1 @@
-export { default } from "./StudyCollection";
+export { default } from "./hub/StudyHub";

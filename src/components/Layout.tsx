@@ -1,4 +1,4 @@
-import { BookOpen, Church, GitBranch, GraduationCap, HandHeart, Map, Moon, Search, ShieldCheck, Sun, UsersRound } from "lucide-react";
+import { BookOpen, Church, GitBranch, GraduationCap, HandHeart, Moon, Search, ShieldCheck, Sun, UsersRound } from "lucide-react";
 import { useEffect, type ReactNode } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { SectionStrip } from "@/components/SectionStrip";
@@ -14,7 +14,6 @@ const NAV = [
   { to: "/apologetics", label: "Apologetics", icon: ShieldCheck, end: false },
   { to: "/teachers", label: "Teachers", icon: UsersRound, end: false },
   { to: "/resources", label: "Resources", icon: HandHeart, end: false },
-  { to: "/study/atlas", label: "Atlas", icon: Map, end: false },
 ];
 
 export function Layout({ children }: { children: ReactNode }) {
@@ -46,7 +45,7 @@ export function Layout({ children }: { children: ReactNode }) {
                 className={({ isActive }) =>
                   cn(
                     "relative flex shrink-0 items-center gap-1.5 rounded-full px-3 py-1.5 text-sm transition-colors",
-                    (isActive && !(to === "/study" && location.pathname.startsWith("/study/atlas"))) || (to === "/bible" && (location.pathname.startsWith("/read") || location.pathname === "/library"))
+                    isActive || (to === "/bible" && (location.pathname.startsWith("/read") || location.pathname === "/library"))
                       ? "bg-ink text-page"
                       : "text-muted hover:bg-surface-2 hover:text-ink",
                   )

@@ -227,7 +227,10 @@ async function apologeticsTemplates(): Promise<{ templates: TemplateDef[]; valid
 function studyAndSiteTemplates(): TemplateDef[] {
   const one = (id: string, area: string, name: string, address: string, what: string, entries: string[], scopes: string[], variants = [single("page", name, what, address)]): TemplateDef => ({ id, area, name, address, what, entries, scopes, variants });
   return [
-    one("study-hub", "study", "Study hub", "/study", "The ten study collections.", ["src/pages/study/StudyCollection.tsx"], ["src/pages/study/StudyCollection.tsx", "src/pages/study/study.css"]),
+    one("study-hub", "study", "Study hub", "/study", "Two branches, writers and scholars, and an interactive Atlas window.", ["src/pages/study/hub/StudyHub.tsx"], ["src/pages/study/hub/"]),
+    one("study-branches", "study", "Study subject landings", "/study/<branch>", "Five subject doors in each branch, opening organised guides and collections.", ["src/pages/study/hub/StudyBranch.tsx"], ["src/pages/study/hub/"], [
+      ...["theology", "academic"].flatMap(branch => (branch === "theology" ? ["books", "jesus", "doctrine", "life", "people"] : ["history", "texts", "languages", "culture", "church"]).map(area => single(`${branch}-${area}`, `${branch}: ${area}`, "A selected subject and its readings.", `/study/${branch}?area=${area}`))),
+    ]),
     one("study-charts", "study", "Study chart pages", "/study/<study>", "The four chart studies: connections, the shape of the Bible, Jesus & the Gospels, versions.", ["src/pages/ChartsPage.tsx"], ["src/pages/ChartsPage.tsx", "src/components/charts/"], [
       single("references", "Connections in Scripture", "Cross-reference arcs and the matrix.", "/study/references"),
       single("structure", "The shape of the Bible", "Sections, sizes and chapters.", "/study/structure"),
