@@ -216,3 +216,14 @@
 .study-contents[data-bare] .study-content-card { padding-bottom: 1.1rem; }
 .study-contents[data-bare] .study-content-card .study-miniature { height: 58px; margin: .6rem 0 .7rem; }
 .study-contents[data-bare] .study-content-card > p { margin-bottom: 0; }
+
+/* Current in-page section: persistent selection, independent of genealogy styles. */
+.study-content-card.study-content-selected {
+  border-color: var(--resource-color);
+  background: linear-gradient(135deg, color-mix(in srgb, var(--resource-color) 16%, var(--surface)), color-mix(in srgb, var(--resource-color) 5%, var(--surface)));
+  box-shadow: inset 0 0 0 1px var(--resource-color), 0 5px 24px -18px var(--resource-color);
+}
+.study-content-card.study-content-selected:hover { transform: none; }
+.study-content-selected h3 { color: var(--resource-color); }
+.study-current-label { display: inline-flex; align-items: center; gap: .35rem; color: var(--resource-color); font-weight: 700; letter-spacing: .08em; white-space: nowrap; }
+.study-content-selected .study-content-action { font-weight: 600; border-top-color: color-mix(in srgb, var(--resource-color) 35%, transparent); }

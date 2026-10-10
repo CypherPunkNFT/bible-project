@@ -1,4 +1,4 @@
-import { ArrowDown, ArrowUpRight } from "lucide-react";
+import { ArrowDown, ArrowUpRight, Check } from "lucide-react";
 import { useLayoutEffect, type CSSProperties } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { STUDY_COLLECTIONS } from "@/data/study-collections";
@@ -49,11 +49,11 @@ export function StudyContents({ selectedId, onSelect, bare = false }: { selected
       const to = location.pathname === "/study/prophets" && item.id === "prophets" ? "/study/prophets#prophets-directory" : item.to ?? `${collection.path}#${item.id}`;
       const externalPage = to.split("#")[0] !== location.pathname;
       const switches = onSelect || (tabbed && tabs.includes(item.id));
-      return <li key={item.id}><Link to={to} onClick={switches ? event => { if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return; event.preventDefault(); choose(item.id, { x: event.clientX, y: event.clientY }); } : undefined} aria-current={current === item.id ? "true" : undefined} className={`study-content-card${current === item.id ? " genealogy-card-selected" : ""}`} aria-labelledby={`contents-${item.id}`}>
-        <div className="study-content-meta"><span>{item.kind}</span><span>{String(i + 1).padStart(2, "0")} / {String(sections.length).padStart(2, "0")}</span></div>
+      return <li key={item.id}><Link to={to} onClick={switches ? event => { if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return; event.preventDefault(); choose(item.id, { x: event.clientX, y: event.clientY }); } : undefined} aria-current={current === item.id ? "true" : undefined} className={`study-content-card${current === item.id ? " study-content-selected" : ""}`} aria-labelledby={`contents-${item.id}`}>
+        <div className="study-content-meta"><span>{item.kind}</span><span>{current === item.id ? <span className="study-current-label"><Check size={13} aria-hidden="true" />Viewing now</span> : <>{String(i + 1).padStart(2, "0")} / {String(sections.length).padStart(2, "0")}</>}</span></div>
         <StudySectionPreview kind={item.illustration} />
         <h3 id={`contents-${item.id}`}>{item.title}</h3><p>{item.description}</p>
-        {!bare && <span className="study-content-action">{switches ? (current === item.id ? "Now exploring" : "Explore below") : externalPage ? (item.kind === "Library" ? "Open the library" : "Open the guide") : `Explore ${item.kind === "Chart" ? "the chart" : item.kind === "Map" ? "the map" : "the guide"}`}{externalPage && !switches ? <ArrowUpRight size={16} aria-hidden="true" /> : <ArrowDown size={16} aria-hidden="true" />}</span>}
+        {!bare && <span className="study-content-action">{switches ? (current === item.id ? "Showing below" : "Explore below") : externalPage ? (item.kind === "Library" ? "Open the library" : "Open the guide") : `Explore ${item.kind === "Chart" ? "the chart" : item.kind === "Map" ? "the map" : "the guide"}`}{current === item.id ? <Check size={16} aria-hidden="true" /> : externalPage && !switches ? <ArrowUpRight size={16} aria-hidden="true" /> : <ArrowDown size={16} aria-hidden="true" />}</span>}
       </Link></li>;
     })}</ol></nav>
     <TransitionTicker />
