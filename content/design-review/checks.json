@@ -1,8 +1,8 @@
 {
  "schema": 1,
- "commit": "9a6ee1f6",
+ "commit": "ec123cee9213758c166acf57cacd1ab332869bb8",
  "startedAt": "2026-10-08T03:26:04.125Z",
- "finishedAt": "2026-10-10T17:05:08.812Z",
+ "finishedAt": "2026-10-10T17:21:05.014Z",
  "base": "http://127.0.0.1:8943",
  "checks": [
   {
@@ -1677,6 +1677,15 @@
    "failures": []
   },
   {
+   "template": "study-hub",
+   "variant": "page",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
    "template": "study-branches",
    "variant": "theology-books",
    "instances": 1,
@@ -1760,15 +1769,6 @@
   {
    "template": "study-branches",
    "variant": "academic-church",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {},
-   "failures": []
-  },
-  {
-   "template": "study-hub",
-   "variant": "page",
    "instances": 1,
    "checked": 1,
    "coverage": "",
