@@ -32,15 +32,17 @@
       $('map-legend-text').textContent=mode==='paul'?'From Antioch, through Cyprus, into Asia Minor':'Select a place on the map';
       const host=$('atlas-map'),box=host.getBoundingClientRect(),height=box.width?Math.round(1000*box.height/box.width):600;
       lastSize=`${Math.round(box.width)}:${Math.round(box.height)}`;
-      const overview=fit([8,43,29,44.3],height),target=mode==='paul'?fit([28.6,37.9,34,39.2],height):overview;
+      const overview=fit([8,43,29,44.3],height);
+      const [ax,ay]=project(d.journey[0]),closeScale=fit([28.6,37.9,34,39.2],height).scale*.88;
+      const target=mode==='paul'?{scale:closeScale,tx:500-ax*closeScale,ty:height/2-ay*closeScale}:overview;
       const from=camera||overview,travel=animate&&!motion.matches;
       const regions=[['ITALY',13,43.4],['GREECE',23,40.6],['ASIA MINOR',31,40.4],['EGYPT',29.5,29.9]];
       const anchor=(lon,lat)=>`data-lon="${lon}" data-lat="${lat}"`;
       const context=regions.map(([n,lon,lat])=>`<text class="map-region" ${anchor(lon,lat)} text-anchor="middle">${n}</text>`).join('')+`<text class="map-sea" ${anchor(21.5,34.8)} text-anchor="middle">Mediterranean Sea</text>`;
-      const places=mode==='cities'?d.places.filter(p=>['Corinth','Jerusalem','Rome'].includes(p.name)):d.places;
+      const places=mode==='cities'?d.places.filter(p=>['Corinth','Jerusalem','Rome'].includes(p.name)):mode==='paul'?d.places.filter(p=>p.name!=='Antioch'):d.places;
       const markers=places.map(p=>`<g class="map-point" ${anchor(p.lon,p.lat)} ${mode==='paul'?'':`data-place="${p.id}" role="button" tabindex="0" aria-label="Select ${p.name}" aria-pressed="${chosen.id===p.id}"`}><circle class="halo" r="17"/><circle class="dot" r="4"/><text x="${p.name==='Alexandria'?-14:14}" y="4" text-anchor="${p.name==='Alexandria'?'end':'start'}">${p.name}</text></g>`).join('');
       const labels=['Antioch','Salamis','Paphos','Perga','Antioch in Pisidia','','','Derbe'];
-      const route=mode==='paul'?`<path class="map-route" pathLength="1"/><g class="map-route-stops">${d.journey.map(([lon,lat],i)=>`<g ${anchor(lon,lat)}><circle class="map-route-dot" r="5"/>${labels[i]?`<text class="map-route-label" x="${i===0?12:i===7?16:0}" y="${i===1||i===2?27:-18}" text-anchor="${i===0||i===7?'start':'middle'}">${labels[i]}</text>`:''}</g>`).join('')}</g>`:'';
+      const route=mode==='paul'?`<path class="map-route" pathLength="1"/><g class="map-route-stops">${d.journey.map(([lon,lat],i)=>`<g class="map-point ${i===0?'map-route-origin':'map-route-stop'}" ${anchor(lon,lat)}><circle class="halo" r="11"/><circle class="dot map-route-dot" r="3"/>${labels[i]?`<text class="map-route-label" x="${i===0?14:i===7?16:0}" y="${i===0?4:i===1||i===2?27:-18}" text-anchor="${i===0||i===7?'start':'middle'}">${labels[i]}</text>`:''}</g>`).join('')}</g>`:'';
       host.dataset.phase=travel?'zooming':'settled';
       host.innerHTML=`<svg viewBox="0 0 1000 ${height}" role="group" aria-label="${mode==='paul'?'Paul’s first journey outward, from Antioch through Cyprus to Derbe':'Select a place in the Mediterranean world'}"><path class="map-grid"/><g class="map-camera"><path class="map-land" d="${d.land}" fill-rule="evenodd" vector-effect="non-scaling-stroke"/></g><g class="map-context" ${mode==='paul'?'aria-hidden="true"':''}>${context}${markers}</g>${route}</svg>${compass()}${mode==='paul'?'<p class="map-route-credit">First journey outward · Acts 13–14<br>Schematic connections between recorded stops.</p>':''}`;
       const land=host.querySelector('.map-camera'),gridPath=host.querySelector('.map-grid'),contextLayer=host.querySelector('.map-context'),routePath=host.querySelector('.map-route');
@@ -53,8 +55,12 @@
         let grid='';for(let lon=10;lon<=45;lon+=5){const [x]=point(project([lon,0]));grid+=`M${x} 0V${height}`;}for(let lat=25;lat<=45;lat+=5){const [,y]=point(project([0,lat]));grid+=`M0 ${y}H1000`;}
         gridPath.setAttribute('d',grid);
         anchored.forEach(({el,xy})=>{const [x,y]=point(xy);el.setAttribute('transform',`translate(${x} ${y})`);});
-        contextLayer.style.opacity=mode==='paul'?String(1-Math.min(1,progress/.85)):'1';
+        contextLayer.style.opacity='1';
         contextLayer.style.pointerEvents=mode==='paul'?'none':'';
+        if(mode==='paul'){
+          host.querySelectorAll('.map-context .halo,.map-route-origin .halo').forEach(el=>el.setAttribute('r',17-6*progress));
+          host.querySelectorAll('.map-context .dot,.map-route-origin .dot').forEach(el=>el.setAttribute('r',4-progress));
+        }
         if(routePath)routePath.setAttribute('d',`M${journey.map(xy=>point(xy).join(' ')).join('L')}`);
       }
       function settle(){
@@ -63,14 +69,12 @@
         if(routePath&&travel)routePath.addEventListener('animationend',()=>{host.dataset.phase='settled';},{once:true});
       }
       if(travel){
-        // First approach Antioch, then frame the route. The line starts only once the camera rests.
-        const [ax,ay]=project(d.journey[0]),scale=target.scale*.88;
-        const antioch={scale,tx:500-ax*scale,ty:height/2-ay*scale};
-        const start=performance.now(),duration=mode==='paul'?2200:1400;
+        // Arrive at Antioch and stay there while the line draws: no second pan.
+        const start=performance.now(),duration=1400;
         paint(from,0);
         function tick(now){
           const t=Math.min(1,(now-start)/duration);
-          const view=mode==='paul'?(t<.62?interpolate(from,antioch,t/.62,height):interpolate(antioch,target,(t-.62)/.38,height)):interpolate(from,target,t,height);
+          const view=interpolate(from,target,t,height);
           paint(view,t);
           if(t<1)frame=requestAnimationFrame(tick);else settle();
         }
