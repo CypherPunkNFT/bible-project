@@ -41,7 +41,7 @@ test("Paul arrives at Antioch, holds the camera and marks departure and arrival"
 });
 
 
-test("Theology retains every original Study2 illustrated card",async({page})=>{
+test("Theology retains its original Study2 cards without the repeated tools footer",async({page})=>{
  await page.goto('/study2');
  await expect(page.locator('.study-resource-link')).toHaveCount(10);
  const originals=await page.locator('.study-resource-link').evaluateAll(cards=>cards.map(card=>({
@@ -52,7 +52,8 @@ test("Theology retains every original Study2 illustrated card",async({page})=>{
  const found=new Set<string>();
  for(const area of ['books','jesus','doctrine','life','people']){
   await page.goto(`/study/theology?area=${area}`);
-  await expect(page.locator('.theology-atlas-card .study-resource-link')).toBeVisible();
+  await expect(page.locator('.theology-original-cards')).toBeVisible();
+  await expect(page.locator('.theology-tools')).toHaveCount(0);
   const cards=await page.locator('.study-resource-link').evaluateAll(cards=>cards.map(card=>({
    href:card.getAttribute('href'), copy:card.querySelector('.study-card-copy')!.textContent,
    artwork:card.querySelector('.study-art, .study-gospels')!.className,
@@ -63,5 +64,5 @@ test("Theology retains every original Study2 illustrated card",async({page})=>{
   }
   expect(await page.evaluate(()=>document.documentElement.scrollWidth-document.documentElement.clientWidth)).toBeLessThanOrEqual(1);
  }
- expect([...found].sort()).toEqual(originals.map(card=>card.href).sort());
+ expect([...found].sort()).toEqual(originals.filter(card=>card.href!=='/study/atlas').map(card=>card.href).sort());
 });

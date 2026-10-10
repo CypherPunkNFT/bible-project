@@ -633,12 +633,3 @@ export const STUDY_BRANCHES: Record<BranchId, Branch> = {
         ]
     }
 };
-
-
-export const THEOLOGY_TOOLS = [
-    {title: "Topics", text: "Find a subject and its passages.", href: "/topics", icon: "search"},
-    {title: "Cross-references", text: "Follow connections across Scripture.", href: "/study/references", icon: "branch"},
-    {title: "Bible structure", text: "Explore books, forms and chapters.", href: "/study/structure", icon: "book"},
-    {title: "Versions & translations", text: "Compare editions and their contents.", href: "/study/versions", icon: "book"},
-    {title: "Atlas", text: "Explore places and journeys.", href: "/study/atlas", icon: "map"},
-] as const;
