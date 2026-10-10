@@ -1,7 +1,7 @@
 {
  "schema": 1,
- "generatedAt": "2026-10-10T00:14:38.474Z",
- "commit": "cf6b6c3f",
+ "generatedAt": "2026-10-10T00:34:09.622Z",
+ "commit": "0dbb1fbd",
  "areas": [
   {
    "id": "people",
@@ -2623,7 +2623,7 @@
     "src/pages/WorldviewsPage.tsx",
     "src/pages/worldviews.css"
    ],
-   "sourceHash": "76bbd745aa436659",
+   "sourceHash": "88f3826cbba9ffbd",
    "signature": {
     "selector": "#muslim-world",
     "label": "Muslim-world country explorer"
@@ -2652,7 +2652,7 @@
     {
      "id": "countries",
      "name": "Islam: country explorer",
-     "what": "A rectangular globe viewport with the physical globe outline, darker Earth-only terrain and all 61 qualifying country outlines, plus 53 country profiles and a matching flat SVG view.",
+     "what": "A square globe viewport fits the complete Earth circle at full-width minimum zoom, with darker Earth-only terrain and all 61 qualifying country outlines, plus 53 country profiles and a matching flat SVG view.",
      "instances": 53,
      "samples": [
       {
