@@ -175,3 +175,10 @@
 @media(max-width:600px){.study-experience .people-feature .writers-art,.study-experience .people-feature .scholar-art{height:auto;margin-inline:-10px}.study-experience .people-feature .writers-art{aspect-ratio:1.8}.study-experience .people-feature .scholar-art{aspect-ratio:1.3}.study-experience .people-footer{grid-template-columns:1fr;gap:15px;min-height:0}.study-experience .people-footer .feature-link{justify-self:end}.study-experience .people-feature .writer-tabs,.study-experience .people-feature .scholar-fields{margin-bottom:17px}}
 
 .study-experience .hub-intro>.search-results{grid-column:1/-1}.study-experience .atlas-loading{min-height:500px}
+
+/* Put the two navigation links in the introduction's existing upper space. */
+.study-experience .branch-intro .branch-nav{position:absolute;inset:4px 0 auto;padding:0;border:0;min-height:36px;z-index:1;text-align:left}
+.study-experience .branch-intro .branch-nav a{min-height:36px}
+.study-experience .branch-intro .branch-nav .other-branch{display:flex;margin-left:auto}
+.study-experience .branch-nav .other-branch svg{color:var(--epistles)}
+@media(max-width:700px){.study-experience .branch-intro{padding-top:58px}.study-experience .branch-intro .branch-nav{font-size:10px;gap:12px}.study-experience .branch-intro .branch-nav a{min-height:40px}.study-experience .branch-nav .other-branch svg{width:15px;height:15px;flex-shrink:0}}

@@ -2,6 +2,7 @@
 // and the ids the inventory wrote to design/review/instances.json ("valid"). Returns null when fine, else the reason.
 
 const STATIC = new Set([
+  "/study2",
   "/teachers/scholars", "/teachers/preachers-and-authors",
   "/", "/library", "/bible", "/read", "/search", "/search/meaning", "/versions", "/sources", "/study", "/atlas", "/charts", "/teachers", "/resources",
   "/charts/references", "/charts/structure", "/charts/words-of-jesus", "/charts/versions",

@@ -16,7 +16,7 @@ import type { Extractor, PageContent } from "./types";
 async function hub(): Promise<PageContent> {
   const text = await wording("src/pages/study/hub/StudyHub.tsx", "StudyHub");
   return {dir:"Study",title:"Study",markdown:blocks(
-    `**Address:** ${link("/study")}`,
+    `**Address:** ${link("/study")} · Original collection retained at ${link("/study2")}`,
     "## Parent hub\n\n" + text.join(" · "),
     "## People\n\n" + WRITERS.map(w=>`${w.name}: ${w.role}. ${w.caption} ${link(`/people/${w.id}`)}`).join("\n\n"),
     "## Atlas\n\nExplore the map · Ancient cities · Follow Paul. Selected places and journey lenses lead into the full Atlas. Paul zooms to Antioch, then the route draws with a subtle departure and arrival pulse. Reduced motion shows the completed route.",
