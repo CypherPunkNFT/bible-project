@@ -36,11 +36,8 @@ test('sixteen sphere cards recolour one canvas while preserving zoom, selection 
   await expect(preview.getByRole('button')).toHaveCount(16);
   const fixedSize = await page.addStyleTag({ content: '.mw-globe-stage{width:256px!important;height:256px!important}' });
   await expect.poll(() => stage.locator('canvas').evaluate(node => (node as HTMLCanvasElement).width)).toBe(256);
-  await preview.scrollIntoViewIfNeeded();
-  for (const image of await preview.locator('img').all()) {
-    await image.scrollIntoViewIfNeeded();
-    await expect.poll(() => image.evaluate(node => (node as HTMLImageElement).naturalWidth)).toBe(256);
-  }
+  await expect(preview.locator('img')).toHaveCount(0);
+  for (const button of await preview.getByRole('button').all()) await expect(button.locator('.mw-sphere-swatches i')).toHaveCount(3);
   expect(await page.locator('canvas').count()).toBe(1);
   await stage.scrollIntoViewIfNeeded();
   await page.mouse.move(0, 0);

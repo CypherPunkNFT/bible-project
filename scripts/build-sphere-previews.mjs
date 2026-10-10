@@ -1,12 +1,10 @@
-// Render small review images from the real globe. Run after a local build, then rebuild to copy them into dist.
+// Render gallery thumbnails from the real globe. The colour cards themselves use CSS swatches.
 import { chromium } from '@playwright/test';
-import { mkdir, writeFile } from 'node:fs/promises';
+import { mkdir } from 'node:fs/promises';
 import assert from 'node:assert/strict';
 
 const base = process.env.BASE ?? 'http://127.0.0.1:8931';
 assert.ok(/^http:\/\/(127\.0\.0\.1|localhost):\d+$/.test(base), 'Use a local preview server.');
-const folder = 'public/assets/muslim-world/sphere-previews';
-await mkdir(folder, { recursive: true });
 await mkdir('design/_gallery/thumbs', { recursive: true });
 const browser = await chromium.launch({ channel: 'msedge', headless: true });
 try {
@@ -23,15 +21,9 @@ try {
       await stage.scrollIntoViewIfNeeded();
       await page.waitForFunction(() => document.querySelector('.mw-globe-stage canvas')?.width === 256);
       await page.waitForTimeout(100);
-      const data = await stage.locator('canvas').evaluate(canvas => canvas.toDataURL('image/webp', .88));
-      assert.ok(data.startsWith('data:image/webp;base64,'));
-      if (mode === 'dark' || id === 'a') {
-        const filename = `${id}${mode === 'light' ? '-light' : ''}.webp`;
-        await writeFile(`${folder}/${filename}`, Buffer.from(data.split(',')[1], 'base64'));
-      }
       await stage.locator('canvas').screenshot({ path: `design/_gallery/thumbs/muslim-world-sphere-${id}-${mode}.png` });
     }
-    console.log(`${mode}: sixteen globe previews captured from the shared renderer.`);
+    console.log(`${mode}: sixteen gallery thumbnails captured from the shared renderer.`);
     await page.close();
   }
 } finally { await browser.close(); }
