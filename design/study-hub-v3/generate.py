@@ -13,6 +13,7 @@ voices='    <section class="hub-section" id="voices"'+voices
 voices=voices.replace('02 / The people behind the pages','01 / The people behind the pages')
 voices=re.sub(r'<section id="writer-directory".*?</section>', '', voices, flags=re.S)
 voices=re.sub(r'<button class="feature-link" id="writers-open".*?</button>', '<a class="feature-link" href="/mockups/study-hub-v3/theology/?area=people#writer-preview">Explore the writers of Scripture <span data-icon="arrow"></span></a>',voices,flags=re.S)
+voices=voices.replace('<span data-icon="arrow"></span></a>', '<span class="door-arrow" data-icon="arrow"></span></a>')
 atlas='''
 <section class="hub-section atlas-section" id="world" aria-labelledby="world-title">
   <div class="section-heading"><div><p class="eyebrow">02 / Time &amp; place</p><h2 id="world-title">Step into <em>their world.</em></h2></div><p>Put a place to the passage. Enter an ancient city.<br>Follow a life across the map.</p></div>

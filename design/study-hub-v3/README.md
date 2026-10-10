@@ -27,6 +27,7 @@ The Writers CTA enters the theological People subject and its six-person directo
 - The subject hint reserves space for all its messages. Hover and focus do not shift the collection below it.
 - Parent search covers subject entrances, useful readings, writers, scholars and Atlas. Search, suggestions, clear, Escape and no-results work.
 - The four writer illustrations change their book associations and person link. Moses opens the existing Moses page and shows all five Torah books, with the traditional attribution qualified in the caption. Scholar field controls highlight the relevant illustrative group.
+- Writers and Scholars are clickable across the whole card, with the top entrance cards' border highlight, artwork lift and circular animated arrow. Native collection links retain keyboard and new-tab behavior; writer tabs, scholar filters and individual Meet links remain independently usable.
 - Atlas mode and place selection use `?atlas=<mode>&place=<id>` in this mockup. Map points work with click, Enter and Space. The outgoing link opens the actual selected Atlas place or city. Paul offers both implemented Story and Letters lenses.
 - Theme follows `bp-theme`; reduced motion skips the route drawing and transitions. Phone subject choices form a horizontally scrollable row; the overall page stays within the viewport.
 

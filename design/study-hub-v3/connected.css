@@ -1,5 +1,15 @@
 /* Direction 3: the hub introduces the whole; each branch organises its subjects. */
 .hub{padding-bottom:36px}.hub-section{padding-top:74px}.people-feature{border-radius:4px}.people-caption{height:78px}.scholar-fields{min-height:32px}.writer-tabs button,.scholar-fields button{min-height:32px}
+/* Extend the native collection link across the card; keep its preview controls above it. */
+.people-feature{position:relative;isolation:isolate;transition:border-color .25s,background .25s}
+.people-feature>.feature-link::after{content:"";position:absolute;inset:0;z-index:1;border-radius:inherit;cursor:pointer}
+.people-feature .writer-tabs button,.people-feature .scholar-fields button,.people-feature .people-caption a{position:relative;z-index:2}
+.people-feature .feature-link>.door-arrow{display:grid;flex-shrink:0}
+.people-feature .writers-art>svg,.people-feature .scholar-art>svg{transform-origin:center;transition:transform .65s cubic-bezier(.16,1,.3,1)}
+.people-feature:hover,.people-feature:has(>.feature-link:focus-visible){border-color:var(--tone)}
+.people-feature:hover .writers-art>svg,.people-feature:has(>.feature-link:focus-visible) .writers-art>svg{transform:translateY(-4px) rotate(-1deg)}
+.people-feature:hover .scholar-art>svg,.people-feature:has(>.feature-link:focus-visible) .scholar-art>svg{transform:translateY(-4px)}
+.people-feature:hover .door-arrow,.people-feature:has(>.feature-link:focus-visible) .door-arrow{background:var(--tone);color:var(--page);transform:rotate(-35deg)}
 .hub-closing{padding:74px 0 22px;text-align:center}.hub-closing h2{font:400 37px/1.35 var(--serif);letter-spacing:-.025em;margin:18px 0 25px}.hub-closing em{color:var(--accent)}.hub-closing>div{display:flex;justify-content:center;gap:30px;flex-wrap:wrap}.hub-closing a{display:flex;align-items:center;gap:10px;font-size:12px;color:var(--muted)}
 .review-links{display:flex;justify-content:center;align-items:center;gap:24px;flex-wrap:wrap;padding:22px;border-top:1px solid var(--line);font-size:11px;color:var(--muted)}.review-links>span{letter-spacing:.08em;text-transform:uppercase;font-size:9px}.review-links a[aria-current]{color:var(--accent)}
 .branch{max-width:1280px;padding:0 34px 70px;margin:auto}.branch-nav{display:flex;align-items:center;gap:16px;padding:25px 0;font-size:11px;color:var(--muted);border-bottom:1px solid var(--line)}.branch-nav a{display:flex;gap:8px;align-items:center}.branch-nav>span:last-of-type{color:var(--ink)}.branch-nav .other-branch{margin-left:auto}.branch-intro{text-align:center;padding:53px 0 0;position:relative}.branch-intro:before{content:"";position:absolute;inset:10% 15%;pointer-events:none;background:radial-gradient(ellipse,color-mix(in srgb,var(--branch-tone) 4%,transparent),transparent 70%)}.branch .eyebrow{color:var(--branch-tone)}.branch-intro h1{font:400 clamp(42px,5.3vw,70px)/1.12 var(--serif);letter-spacing:-.045em;margin:20px auto 24px;position:relative}.branch-intro h1 em{color:var(--branch-tone);font-weight:400}.branch-intro>p:last-child{max-width:600px;margin:auto;color:var(--muted);font-size:14px;line-height:1.9}
