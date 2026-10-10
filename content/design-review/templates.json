@@ -1,7 +1,7 @@
 {
  "schema": 1,
- "generatedAt": "2026-10-10T13:58:54.235Z",
- "commit": "8bcb8aff",
+ "generatedAt": "2026-10-10T14:47:54.037Z",
+ "commit": "729f8037",
  "areas": [
   {
    "id": "people",
@@ -944,7 +944,7 @@
     "src/pages/study/hub/shared.tsx",
     "src/pages/study/hub/writers.ts"
    ],
-   "sourceHash": "8503c0ee042d542f",
+   "sourceHash": "12a35fe13b407a71",
    "signature": null,
    "variants": [
     {
@@ -957,6 +957,36 @@
        "id": "page",
        "label": "The page",
        "url": "/study",
+       "why": "the only page of this design"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "study-legacy",
+   "area": "study",
+   "name": "Original Study collection",
+   "what": "The original ten-card Study collection, retained by request.",
+   "address": "/study2",
+   "instances": 1,
+   "sources": [
+    "src/pages/study/StudyCollection.tsx",
+    "src/pages/study/study.css"
+   ],
+   "sourceHash": "5c3836ffe5ac83a9",
+   "signature": null,
+   "variants": [
+    {
+     "id": "page",
+     "name": "Original Study collection",
+     "what": "The original ten-card Study collection, retained by request.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study2",
        "why": "the only page of this design"
       }
      ]
@@ -978,7 +1008,7 @@
     "src/pages/study/hub/shared.tsx",
     "src/pages/study/hub/writers.ts"
    ],
-   "sourceHash": "4206f5cac6e9f624",
+   "sourceHash": "2ca734ffede7644f",
    "signature": null,
    "variants": [
     {
