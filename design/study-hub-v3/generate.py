@@ -14,6 +14,9 @@ voices=voices.replace('02 / The people behind the pages','01 / The people behind
 voices=re.sub(r'<section id="writer-directory".*?</section>', '', voices, flags=re.S)
 voices=re.sub(r'<button class="feature-link" id="writers-open".*?</button>', '<a class="feature-link" href="/mockups/study-hub-v3/theology/?area=people#writer-preview">Explore the writers of Scripture <span data-icon="arrow"></span></a>',voices,flags=re.S)
 voices=voices.replace('<span data-icon="arrow"></span></a>', '<span class="door-arrow" data-icon="arrow"></span></a>')
+voices=re.sub(r'(<div class="people-caption".*?</div>)(<a class="feature-link".*?</a>)', r'<div class="people-footer">\1\2</div>', voices)
+voices=voices.replace('Explore the writers of Scripture <span', '<span class="feature-action-label">Explore the writers<br>of Scripture</span> <span')
+voices=voices.replace('Explore Scholars <span', '<span class="feature-action-label">Explore Scholars</span> <span')
 atlas='''
 <section class="hub-section atlas-section" id="world" aria-labelledby="world-title">
   <div class="section-heading"><div><p class="eyebrow">02 / Time &amp; place</p><h2 id="world-title">Step into <em>their world.</em></h2></div><p>Put a place to the passage. Enter an ancient city.<br>Follow a life across the map.</p></div>
@@ -31,9 +34,11 @@ atlas='''
 
 def shell(title,branch,content):
  content='\n'.join(line.rstrip() for line in content.splitlines())
- return f'''<!doctype html>
+ rendered=f'''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>{title} · Bible Project</title><link rel="icon" href="/mockups/letters-shared/favicon.svg" type="image/svg+xml"><script>try{{const t=localStorage.getItem('bp-theme');document.documentElement.dataset.theme=t==='light'||t==='dark'?t:matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}}catch{{document.documentElement.dataset.theme='light';}}</script><link rel="stylesheet" href="/mockups/help-for-life-directions/shared/frame.css"><link rel="stylesheet" href="/mockups/study-hub-v1/study-hub.css"><link rel="stylesheet" href="/mockups/study-hub-v2/expanded.css"><link rel="stylesheet" href="/mockups/study-hub-v3/connected.css"></head>
 <body data-page="{branch}"><a class="skip-link" href="#main">Skip to study</a><template id="page-content">{content}</template><script src="/mockups/help-for-life-directions/shared/frame.js"></script><script src="/mockups/study-hub-v3/collections.js"></script><script src="/mockups/study-hub-v3/artwork.js"></script><script src="/mockups/study-hub-v3/page.js"></script>{'<script src="/mockups/study-hub-v3/people.js"></script><script src="/mockups/study-hub-v3/atlas.js"></script>' if branch=='hub' else ''}</body></html>'''
+
+ return rendered.replace('<script src="/mockups/study-hub-v3/people.js">', '<script src="/mockups/study-hub-v3/scholar-sky.js"></script><script src="/mockups/study-hub-v3/people.js">')
 
 (out/'index.html').write_bytes(shell('Study','hub',home+voices+atlas).encode())
 for branch in ['theology','academic']:

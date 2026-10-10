@@ -1,4 +1,4 @@
-/* Four symbolic writer still lifes; scholar sample retained from direction 2. */
+/* Four symbolic writer still lifes and the production Scholars constellation. */
 (()=>{const $=id=>document.getElementById(id);const arrow=()=>window.icon("arrowUp",14);
   const writers = [
     {name:'Paul',id:'paul',role:'Apostle & letter writer',books:['Romans','Philippians','Philemon'],caption:'Letters to churches and a fellow believer.'},
@@ -20,7 +20,7 @@
   function drawWriter(index) {
     const w=writers[index], books=w.books;
     $('writers-art').innerHTML=`<svg viewBox="0 0 510 250" aria-hidden="true"><text x="139" y="23" text-anchor="middle" class="writer-name">${w.name}</text><g class="writer-still-life">${stillLifes[index]}</g>${books.map((book,i)=>{const step=books.length===5?37:books.length===3?57:66,y=121+(i-(books.length-1)/2)*step;return `<path d="M255 121C278 121 269 ${y} 294 ${y}" class="writer-ink" opacity=".3"/><circle cx="294" cy="${y}" r="2" fill="currentColor"/><g class="writer-ink" opacity=".7"><path d="M309 ${y-14}q10-4 20 0q10-4 20 0v26q-10-3-20 1q-10-4-20-1zM329 ${y-14}v27"/><path d="M313 ${y-6}l12 1m-12 4 12 1m-12 4 12 1m8-11 12-1m-12 6 12-1m-12 6 12-1" opacity=".4"/></g><text x="362" y="${y+5}" class="writer-book">${book}</text>`;}).join('')}<text x="139" y="231" text-anchor="middle" class="writer-label">${['LETTERS & CORRESPONDENCE','AN ACCOUNT, CAREFULLY ORDERED','THE FIVE BOOKS OF THE TORAH','PRAYER, POETRY & PRAISE'][index]}</text></svg>`;
-    $('writer-caption').innerHTML=`<span><strong>${w.role}</strong><br>${w.caption}</span><a href="/people/${w.id}">Meet ${w.name}${arrow()}</a>`;
+    $('writer-caption').innerHTML=`<div class="caption-heading"><strong>${w.role}</strong><a href="/people/${w.id}">Meet ${w.name}${arrow()}</a></div><p>${w.caption}</p>`;
     document.querySelectorAll('[data-writer]').forEach(b=>b.setAttribute('aria-pressed',String(Number(b.dataset.writer)===index)));
   }
   const writerTabs=document.createElement('div');writerTabs.className='writer-tabs';writerTabs.setAttribute('aria-label','Choose a writer');
@@ -28,14 +28,26 @@
   $('writers-art').after(writerTabs);writerTabs.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>drawWriter(Number(b.dataset.writer))));drawWriter(0);
 
   const fields=[
-    {label:'History',tone:'history',names:'Josephus · Tacitus · Eusebius',nodes:[['FJ',318,82],['T',395,48],['E',440,120]]},
-    {label:'Languages',tone:'prophets',names:'Westcott · Lightfoot · A. T. Robertson',nodes:[['BW',65,67],['JL',138,40],['AR',123,125]]},
-    {label:'Archaeology',tone:'poetry',names:'Ramsay · Robinson · Albright',nodes:[['WR',205,169],['ER',270,133],['WA',277,206]]},
-    {label:'Reference',tone:'epistles',names:'Strong · Easton · Torrey',nodes:[['JS',407,187],['ME',344,214],['RT',460,212]]},
-    {label:'Theology',tone:'gospels',names:'Augustine · Anselm · Aquinas',nodes:[['A',213,39],['AN',263,75],['TA',202,105]]},
+    {id:'history',label:'History',tone:'history',names:'Josephus · Tacitus · Eusebius'},
+    {id:'texts',label:'Languages',tone:'prophets',names:'Westcott · Lightfoot · A. T. Robertson'},
+    {id:'places',label:'Archaeology',tone:'poetry',names:'Ramsay · Robinson · Albright'},
+    {id:'reference',label:'Reference',tone:'epistles',names:'Strong · Easton · Torrey'},
+    {id:'theology',label:'Theology',tone:'gospels',names:'Augustine · Anselm · Aquinas'},
   ];
-  $('scholar-art').innerHTML=`<svg viewBox="0 0 520 250" aria-hidden="true">${fields.map((f,i)=>`<g class="scholar-group" data-field-art="${i}" style="color:var(--${f.tone})"><path d="M${f.nodes.map(n=>`${n[1]} ${n[2]}`).join('L')}" stroke="currentColor" fill="none" opacity=".25"/>${f.nodes.map(([name,x,y])=>`<g transform="translate(${x} ${y})">${i===0?'<circle r="23" fill="currentColor" fill-opacity=".07" stroke="currentColor" stroke-opacity=".5"/><circle r="19" fill="none" stroke="currentColor" stroke-opacity=".18"/>':i===2?'<path d="M0-25 22-12v25L0 26-22 13v-25Z" fill="currentColor" fill-opacity=".07" stroke="currentColor" stroke-opacity=".5"/>':'<rect x="-23" y="-23" width="46" height="46" rx="7" fill="currentColor" fill-opacity=".07" stroke="currentColor" stroke-opacity=".5"/><rect x="-19" y="-19" width="38" height="38" rx="4" fill="none" stroke="currentColor" stroke-opacity=".18"/>'}<text text-anchor="middle" y="5">${name}</text></g>`).join('')}</g>`).join('')}</svg>`;
+  const sky=window.STUDY_SCHOLAR_SKY;
+  const shape=g=>g.kind==='circle'?`<circle cx="${g.cx}" cy="${g.cy}" r="${g.r}"/>`:g.kind==='rect'?`<rect x="${g.x}" y="${g.y}" width="${g.width}" height="${g.height}" rx="${g.rx}"/>`:`<path d="${g.d}"/>`;
+  const esc=s=>s.replaceAll('&','&amp;').replaceAll('<','&lt;');
+  $('scholar-art').innerHTML=`<svg viewBox="0 0 ${sky.w} ${sky.h}" aria-hidden="true"><defs>${sky.fields.map(f=>`<radialGradient id="hub-glow-${f.id}"><stop stop-color="var(${f.tone})" stop-opacity=".13"/><stop offset="1" stop-color="var(${f.tone})" stop-opacity="0"/></radialGradient>`).join('')}</defs>${sky.fields.map(f=>{const index=fields.findIndex(x=>x.id===f.id),labelWidth=f.label.length*8.6+43,labelX=Math.max(labelWidth/2+3,Math.min(sky.w-labelWidth/2-3,f.mx)),labelY=Math.min(sky.h-12,f.bottom+sky.size/2+18);return `<g class="scholar-group" data-field-art="${index}" style="color:var(${f.tone})"><circle cx="${f.mx}" cy="${f.my}" r="${f.r*1.15}" fill="url(#hub-glow-${f.id})"/><polyline class="scholar-thread" points="${f.nodes.map(n=>`${n.x},${n.y}`).join(' ')}"/>${f.nodes.map(n=>`<g class="scholar-mark" transform="translate(${n.x} ${n.y})"><g transform="translate(${-sky.size/2} ${-sky.size/2}) scale(${sky.size/48})"><g class="scholar-mark-outer">${shape(f.outer)}</g><g class="scholar-mark-inner">${shape(f.inner)}</g><text class="scholar-initials" x="24" y="25" text-anchor="middle" dominant-baseline="central" style="font-size:${n.initials.length>1?15.5:21}px">${n.initials}</text></g>${n.used?`<circle class="scholar-used" cx="${sky.size/2-5}" cy="${-sky.size/2+5}" r="4.5"/>`:''}</g>`).join('')}<g class="scholar-group-label" transform="translate(${labelX} ${labelY})"><rect x="${-labelWidth/2}" y="-12" width="${labelWidth}" height="23" rx="11"/><g class="scholar-label-icon" transform="translate(${-labelWidth/2+8} -6) scale(.25)">${shape(f.outer)}</g><text x="9" y="3" text-anchor="middle">${esc(f.label.toUpperCase())} <tspan class="scholar-count">${f.nodes.length}</tspan></text></g></g>`;}).join('')}</svg>`;
+  function fitScholarLabels(){
+    $('scholar-art').querySelectorAll('.scholar-group-label').forEach((label,i)=>{
+      const f=sky.fields[i],width=label.querySelector(':scope > text').getComputedTextLength()+46;
+      const rect=label.querySelector(':scope > rect');rect.setAttribute('x',-width/2);rect.setAttribute('width',width);
+      label.querySelector('.scholar-label-icon').setAttribute('transform',`translate(${-width/2+8} -6) scale(.25)`);
+      label.setAttribute('transform',`translate(${Math.max(width/2+3,Math.min(sky.w-width/2-3,f.mx))} ${Math.min(sky.h-12,f.bottom+sky.size/2+18)})`);
+    });
+  }
+  fitScholarLabels();document.fonts.ready.then(fitScholarLabels);
   $('scholar-fields').innerHTML='<button data-field="-1" style="--field-tone:var(--history)" aria-pressed="true">All fields</button>'+fields.map((f,i)=>`<button data-field="${i}" style="--field-tone:var(--${f.tone})" aria-pressed="false">${f.label}</button>`).join('');
-  function fieldSelect(index){document.querySelectorAll('[data-field]').forEach(b=>b.setAttribute('aria-pressed',String(Number(b.dataset.field)===index)));document.querySelectorAll('[data-field-art]').forEach(g=>g.classList.toggle('dim',index!==-1&&Number(g.dataset.fieldArt)!==index));$('scholar-caption').innerHTML=index===-1?'<span><strong>Explore across the fields</strong><br>Meet the people. Discover their works.</span><span>Select a field above</span>':`<span><strong>${fields[index].label}</strong><br>${fields[index].names}</span>`;}
+  function fieldSelect(index){document.querySelectorAll('[data-field]').forEach(b=>b.setAttribute('aria-pressed',String(Number(b.dataset.field)===index)));document.querySelectorAll('[data-field-art]').forEach(g=>g.classList.toggle('dim',index!==-1&&Number(g.dataset.fieldArt)!==index));$('scholar-caption').innerHTML=index===-1?'<strong>Explore across the fields</strong><p>Meet the people. Discover their works.</p>':`<strong>${fields[index].label}</strong><p>${fields[index].names}</p>`;}
   $('scholar-fields').querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>fieldSelect(Number(b.dataset.field))));fieldSelect(-1);
 })();

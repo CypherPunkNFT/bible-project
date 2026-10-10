@@ -23,6 +23,13 @@
 
 ## Execution review and remaining scope
 
+### People-card layout and constellation refinement — 2026-10-10
+
+- Moved each selected writer/field description into the lower-left footer, with Explore beside the circular arrow on the right. Writer action wraps to two lines; Scholars remains one line. Individual Meet links remain with the writer's description. On narrow cards the action is right-aligned below the description.
+- Enlarged the drawings and placed the selectors directly above the divider. All unselected choices have outlined pills. Hover/focus adds a soft fill, stronger border and 2px lift, distinct from the committed selection. Clicking a pill still selects its illustration/group without following the full-card link.
+- Replaced the 15-mark approximation with all 35 marks from the production Scholars layout and actual catalogue. Reused its five field shapes, double outlines, chronological connections, soft glows and used-on-site dots; added field/count labels. Existing field selection highlights the relevant group. Snapshot generation is documented in README and does not change production Scholars.
+- Checked eight width/theme layouts (320, 390, 768, 1440px; light/dark), all four writers and six field choices, footer content, unselected hover feedback, outlined borders, whole-card hit targets and absence of horizontal overflow. Actual writer/person/collection navigation and keyboard activation passed with zero page errors. Measured all five field labels after font load: icons do not overlap text, and labels stay inside the SVG. Syntax and whitespace checks passed. Inspected desktop, tablet and phone captures in `design/review/study-hub-v3/refinements/people-*.png`.
+
 ### Owner refinements — 2026-10-10
 
 - Applied the requested compact map header/footer, circular inset compass, direct Atlas subsection arrows, prominent full-Atlas button and footer sentence. Removed the connected-design strip on all three pages.
