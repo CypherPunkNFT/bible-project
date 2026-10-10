@@ -18,7 +18,7 @@ async function hub(): Promise<PageContent> {
   return {dir:"Study",title:"Study",markdown:blocks(
     `**Address:** ${link("/study")} · Original collection retained at ${link("/study2")}`,
     "## Parent hub\n\n" + text.join(" · "),
-    "## People\n\n" + WRITERS.map(w=>`${w.name}: ${w.role}. ${w.caption} ${link(`/people/${w.id}`)}`).join("\n\n"),
+    "## People\n\nWriters of Scripture / Scripture & Theology: " + WRITERS.map(w=>w.name).join(" · ") + ". Footer choices switch the illustration; the card opens the writers directory.\n\nScholars / Academic Studies: All fields · History · Languages · Archaeology · Reference · Theology. Field choices occupy two footer rows beside Explore Scholars. The constellation glow extends across the card rather than clipping at the illustration boundary.",
     "## Atlas\n\nExplore the map · Ancient cities · Follow Paul. Selected places and journey lenses lead into the full Atlas. Paul zooms to Antioch, then the route draws with a subtle departure and arrival pulse. Reduced motion shows the completed route.",
     ...Object.entries(STUDY_BRANCHES).map(([id,b])=>blocks(`## ${b.label}\n\n${link(`/study/${id}`)}\n\n${b.lead}`,
       ...b.areas.map(a=>blocks(`### ${a.title}\n\n${a.intro}`,table(["Kind","Title","Description","Address"],[a.featured,...a.items].map(e=>[e.kind,e.title,e.text,link(e.href)])),"Useful connections: "+a.support.map(([title,href])=>`${title}: ${link(href)}`).join(" · "))))),
