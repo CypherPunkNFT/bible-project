@@ -27,7 +27,7 @@ export function CollectionBrowser() {
     const abort = new AbortController(); setRows([]); setError(""); setLoading(false);
     if (selected && count) {
       setLoading(true);
-      getAcquired<(AcquiredWork & { authors: string[] })[]>(`${ACQUIRED_BASE}/collections/${selected.id}/${view}/${page}.json`, abort.signal).then(data => { if (!abort.signal.aborted) setRows(data); }).catch(e => { if (!abort.signal.aborted) setError(e.message); }).finally(() => { if (!abort.signal.aborted) setLoading(false); });
+      getAcquired<(AcquiredWork & { authors: string[] })[]>(`${ACQUIRED_BASE}/collections/${selected.id}/${view}/${Math.floor(page / 5)}.json`, abort.signal).then(data => { if (!abort.signal.aborted) setRows(data.slice((page % 5) * 200, (page % 5 + 1) * 200)); }).catch(e => { if (!abort.signal.aborted) setError(e.message); }).finally(() => { if (!abort.signal.aborted) setLoading(false); });
     }
     return () => abort.abort();
   }, [selected, count, view, page]);

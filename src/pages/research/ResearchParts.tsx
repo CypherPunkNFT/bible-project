@@ -50,7 +50,7 @@ export function CitationInspector({ source, locator, compact = false }: { source
       {source.citation.quote && <blockquote>{source.citation.quote}</blockquote>}
       <p>{source.citation.limits.join(" ")}</p>
       <div className="rs-source-actions"><Link to={researchUrl("works/" + source.id)}>Edition & contributors <ArrowRight size={14} aria-hidden /></Link></div>
-      
+
       <p className="rs-credit">{source.rights} Original references and licence details are recorded with the edition.</p>
       <p className="rs-credit">{source.citation.review.scope}</p>
     </div>

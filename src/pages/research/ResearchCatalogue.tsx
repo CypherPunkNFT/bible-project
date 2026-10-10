@@ -45,7 +45,7 @@ export function WorkPage({ data, evidence = false }: { data: ResearchBundle; evi
       <section className="rs-location"><p className="rs-eyebrow">Exact location</p><h2>{source.locator}</h2>{source.citation.quote && <blockquote>“{source.citation.quote}”</blockquote>}<CitationInspector source={source} /></section>
       <section className="rs-reading-section"><h2>{evidence ? "What it does not settle" : "Use & interpretation"}</h2><ul>{source.limitations.map(limit => <li key={limit}>{limit}</li>)}</ul></section>
       <section className="rs-reading-section"><p className="rs-eyebrow">Attribution</p><h2>Who made this edition available?</h2><div className="rs-contributors">{source.contributors.map(id => { const c = data.contributors.find(c => c.id === id)!; return <Link key={id} to={researchUrl("contributors/" + id)}><h3>{c.name}</h3><p>{c.role}</p><ArrowRight size={16} aria-hidden /></Link>; })}</div></section>
-      
+
       <RelatedLinks links={[{ to: (evidence ? "works/" : "evidence/") + source.id, label: evidence ? "Open the bibliographic record" : "Examine the evidence record", note: evidence ? "Edition, attribution and actual uses" : "The observation and its limits" }, ...sourceUses(data, source.id)]} title="Where this source is used" />
       <footer className="acq-sources"><h2>Sources and credits</h2><p>{source.rights} <a href={source.rightsUrl} target="_blank" rel="noreferrer">Rights information</a></p><a href={source.url} target="_blank" rel="noreferrer">Original source and provenance</a><ul>{source.references.map(ref => <li key={ref.url}><a href={ref.url} target="_blank" rel="noreferrer">{ref.label}</a></li>)}</ul></footer>
     </article></div>

@@ -14,7 +14,7 @@ import uuid
 SITE = Path(__file__).resolve().parents[1]
 RAW = SITE / '.local/teacher-library-unpacked'
 OUT = SITE / 'public/content/teacher-library'
-LIMIT = 1024 * 1024
+LIMIT = 2 * 1024 * 1024
 
 
 def read(path):
@@ -104,10 +104,10 @@ def main():
         collection_index.append({'id': ident, 'source': source, 'records': len(rows),
                                  'readable': len(readable), 'anonymous': sum(not r['authors'] for r in rows)})
         for view, selection in [('all', rows), ('readable', readable)]:
-            for start in range(0, len(selection), 200):
-                write(stage / 'collections' / ident / view / f'{start // 200}.json',
+            for start in range(0, len(selection), 1000):
+                write(stage / 'collections' / ident / view / f'{start // 1000}.json',
                       [{k: r[k] for k in ['id', 'title', 'authors', 'language', 'source', 'availability', 'genre']}
-                       for r in selection[start:start + 200]])
+                       for r in selection[start:start + 1000]])
     write(stage / 'collections/index.json', collection_index)
     assets = list(stage.rglob('*.json'))
     report = {'records': len(records), 'publicReadingCopies': catalogue['onSiteTexts'],

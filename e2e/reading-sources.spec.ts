@@ -14,7 +14,7 @@ test("confession citations read locally and preserve edition provenance at the b
 test("comparison text names the actual local translation and a pending source never redirects", async ({ page }) => {
   await page.goto("/sources/reading/ap-q112");
   await expect(page.locator(".acq-reading")).toContainText("Allah");
-  await expect(page.locator("header")).toContainText("Pickthall");
+  await expect(page.locator(".acq-reader > header")).toContainText("Pickthall");
   await page.goto("/sources/reading/ap-aquinas");
   await expect(page.locator(".acq-warning")).toContainText("Catholic source");
   await expect(page.locator(".acq-pending")).toContainText("verified edition");
