@@ -1,7 +1,7 @@
 {
  "schema": 1,
- "generatedAt": "2026-10-10T20:20:49.931Z",
- "commit": "5ab3e4f2",
+ "generatedAt": "2026-10-10T21:41:56.365Z",
+ "commit": "b2068006",
  "areas": [
   {
    "id": "people",
@@ -926,74 +926,6 @@
    ]
   },
   {
-   "id": "study-hub",
-   "area": "study",
-   "name": "Study hub",
-   "what": "Two branches, writers and scholars, and an interactive Atlas window.",
-   "address": "/study",
-   "instances": 1,
-   "sources": [
-    "src/pages/study/hub/Artwork.tsx",
-    "src/pages/study/hub/AtlasWindow.tsx",
-    "src/pages/study/hub/HubSearch.tsx",
-    "src/pages/study/hub/PeopleCards.tsx",
-    "src/pages/study/hub/StudyHub.tsx",
-    "src/pages/study/hub/atlas-places.json",
-    "src/pages/study/hub/collections.ts",
-    "src/pages/study/hub/hub.css",
-    "src/pages/study/hub/shared.tsx",
-    "src/pages/study/hub/writers.ts"
-   ],
-   "sourceHash": "9cd62f8e4f4f88d7",
-   "signature": null,
-   "variants": [
-    {
-     "id": "page",
-     "name": "Study hub",
-     "what": "Two branches, writers and scholars, and an interactive Atlas window.",
-     "instances": 1,
-     "samples": [
-      {
-       "id": "page",
-       "label": "The page",
-       "url": "/study",
-       "why": "the only page of this design"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "study-legacy",
-   "area": "study",
-   "name": "Original Study collection",
-   "what": "The original ten-card Study collection, retained by request.",
-   "address": "/study2",
-   "instances": 1,
-   "sources": [
-    "src/pages/study/StudyCollection.tsx",
-    "src/pages/study/study.css"
-   ],
-   "sourceHash": "5c3836ffe5ac83a9",
-   "signature": null,
-   "variants": [
-    {
-     "id": "page",
-     "name": "Original Study collection",
-     "what": "The original ten-card Study collection, retained by request.",
-     "instances": 1,
-     "samples": [
-      {
-       "id": "page",
-       "label": "The page",
-       "url": "/study2",
-       "why": "the only page of this design"
-      }
-     ]
-    }
-   ]
-  },
-  {
    "id": "study-branches",
    "area": "study",
    "name": "Study subject landings",
@@ -1008,7 +940,7 @@
     "src/pages/study/hub/shared.tsx",
     "src/pages/study/hub/writers.ts"
    ],
-   "sourceHash": "4e163536cd38cb0c",
+   "sourceHash": "b270fff4d1ad13dd",
    "signature": null,
    "variants": [
     {
@@ -1147,6 +1079,74 @@
        "id": "page",
        "label": "The page",
        "url": "/study/academic?area=church",
+       "why": "the only page of this design"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "study-hub",
+   "area": "study",
+   "name": "Study hub",
+   "what": "Two branches, writers and scholars, and an interactive Atlas window.",
+   "address": "/study",
+   "instances": 1,
+   "sources": [
+    "src/pages/study/hub/Artwork.tsx",
+    "src/pages/study/hub/AtlasWindow.tsx",
+    "src/pages/study/hub/HubSearch.tsx",
+    "src/pages/study/hub/PeopleCards.tsx",
+    "src/pages/study/hub/StudyHub.tsx",
+    "src/pages/study/hub/atlas-places.json",
+    "src/pages/study/hub/collections.ts",
+    "src/pages/study/hub/hub.css",
+    "src/pages/study/hub/shared.tsx",
+    "src/pages/study/hub/writers.ts"
+   ],
+   "sourceHash": "9cd62f8e4f4f88d7",
+   "signature": null,
+   "variants": [
+    {
+     "id": "page",
+     "name": "Study hub",
+     "what": "Two branches, writers and scholars, and an interactive Atlas window.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study",
+       "why": "the only page of this design"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "study-legacy",
+   "area": "study",
+   "name": "Original Study collection",
+   "what": "The original ten-card Study collection, retained by request.",
+   "address": "/study2",
+   "instances": 1,
+   "sources": [
+    "src/pages/study/StudyCollection.tsx",
+    "src/pages/study/study.css"
+   ],
+   "sourceHash": "5c3836ffe5ac83a9",
+   "signature": null,
+   "variants": [
+    {
+     "id": "page",
+     "name": "Original Study collection",
+     "what": "The original ten-card Study collection, retained by request.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study2",
        "why": "the only page of this design"
       }
      ]
