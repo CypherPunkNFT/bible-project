@@ -1,7 +1,7 @@
 {
  "schema": 1,
- "generatedAt": "2026-10-10T23:09:15.476Z",
- "commit": "4e52494d",
+ "generatedAt": "2026-10-10T23:52:29.685Z",
+ "commit": "679aa505",
  "areas": [
   {
    "id": "people",
@@ -926,6 +926,145 @@
    ]
   },
   {
+   "id": "study-charts",
+   "area": "study",
+   "name": "Study chart pages",
+   "what": "The four chart studies: connections, the shape of the Bible, Jesus & the Gospels, versions.",
+   "address": "/study/<study>",
+   "instances": 4,
+   "sources": [
+    "src/components/charts/ArcDiagram.tsx",
+    "src/components/charts/BookMatrix.tsx",
+    "src/components/charts/BookSizes.tsx",
+    "src/components/charts/ChapterGrid.tsx",
+    "src/components/charts/ChartCard.tsx",
+    "src/components/charts/CoverageMatrix.tsx",
+    "src/components/charts/SectionDonut.tsx",
+    "src/components/charts/SectionGuide.tsx",
+    "src/components/charts/VersionsTimeline.tsx",
+    "src/components/charts/WordsOfJesus.tsx",
+    "src/pages/ChartsPage.tsx"
+   ],
+   "sourceHash": "67a3a41b828700b1",
+   "signature": null,
+   "variants": [
+    {
+     "id": "references",
+     "name": "Connections in Scripture",
+     "what": "Cross-reference arcs and the matrix.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/references",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "structure",
+     "name": "The shape of the Bible",
+     "what": "Sections, sizes and chapters.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/structure",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "gospels",
+     "name": "Jesus & the Gospels",
+     "what": "Portraits, words of Jesus, the harmony.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/gospels",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "versions",
+     "name": "Versions & languages",
+     "what": "The timeline and coverage.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/versions",
+       "why": "the only page of this design"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "study-miracles",
+   "area": "study",
+   "name": "Miracles & encounters",
+   "what": "Every miracle, by who did it.",
+   "address": "/study/miracles",
+   "instances": 1,
+   "sources": [
+    "src/pages/study/MiraclesPage.tsx"
+   ],
+   "sourceHash": "2f23b067c3f522b8",
+   "signature": null,
+   "variants": [
+    {
+     "id": "page",
+     "name": "Miracles & encounters",
+     "what": "Every miracle, by who did it.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/miracles",
+       "why": "the only page of this design"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "study-names",
+   "area": "study",
+   "name": "Names & descriptions of God",
+   "what": "302 names of the Father, the Son and the Spirit.",
+   "address": "/study/names",
+   "instances": 1,
+   "sources": [
+    "src/pages/study/NamesPage.tsx"
+   ],
+   "sourceHash": "82af6fa0f2c47c6e",
+   "signature": null,
+   "variants": [
+    {
+     "id": "page",
+     "name": "Names & descriptions of God",
+     "what": "302 names of the Father, the Son and the Spirit.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/names",
+       "why": "the only page of this design"
+      }
+     ]
+    }
+   ]
+  },
+  {
    "id": "study-branches",
    "area": "study",
    "name": "Study subject landings",
@@ -1150,145 +1289,6 @@
        "id": "page",
        "label": "The page",
        "url": "/study2",
-       "why": "the only page of this design"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "study-charts",
-   "area": "study",
-   "name": "Study chart pages",
-   "what": "The four chart studies: connections, the shape of the Bible, Jesus & the Gospels, versions.",
-   "address": "/study/<study>",
-   "instances": 4,
-   "sources": [
-    "src/components/charts/ArcDiagram.tsx",
-    "src/components/charts/BookMatrix.tsx",
-    "src/components/charts/BookSizes.tsx",
-    "src/components/charts/ChapterGrid.tsx",
-    "src/components/charts/ChartCard.tsx",
-    "src/components/charts/CoverageMatrix.tsx",
-    "src/components/charts/SectionDonut.tsx",
-    "src/components/charts/SectionGuide.tsx",
-    "src/components/charts/VersionsTimeline.tsx",
-    "src/components/charts/WordsOfJesus.tsx",
-    "src/pages/ChartsPage.tsx"
-   ],
-   "sourceHash": "67a3a41b828700b1",
-   "signature": null,
-   "variants": [
-    {
-     "id": "references",
-     "name": "Connections in Scripture",
-     "what": "Cross-reference arcs and the matrix.",
-     "instances": 1,
-     "samples": [
-      {
-       "id": "page",
-       "label": "The page",
-       "url": "/study/references",
-       "why": "the only page of this design"
-      }
-     ]
-    },
-    {
-     "id": "structure",
-     "name": "The shape of the Bible",
-     "what": "Sections, sizes and chapters.",
-     "instances": 1,
-     "samples": [
-      {
-       "id": "page",
-       "label": "The page",
-       "url": "/study/structure",
-       "why": "the only page of this design"
-      }
-     ]
-    },
-    {
-     "id": "gospels",
-     "name": "Jesus & the Gospels",
-     "what": "Portraits, words of Jesus, the harmony.",
-     "instances": 1,
-     "samples": [
-      {
-       "id": "page",
-       "label": "The page",
-       "url": "/study/gospels",
-       "why": "the only page of this design"
-      }
-     ]
-    },
-    {
-     "id": "versions",
-     "name": "Versions & languages",
-     "what": "The timeline and coverage.",
-     "instances": 1,
-     "samples": [
-      {
-       "id": "page",
-       "label": "The page",
-       "url": "/study/versions",
-       "why": "the only page of this design"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "study-miracles",
-   "area": "study",
-   "name": "Miracles & encounters",
-   "what": "Every miracle, by who did it.",
-   "address": "/study/miracles",
-   "instances": 1,
-   "sources": [
-    "src/pages/study/MiraclesPage.tsx"
-   ],
-   "sourceHash": "2f23b067c3f522b8",
-   "signature": null,
-   "variants": [
-    {
-     "id": "page",
-     "name": "Miracles & encounters",
-     "what": "Every miracle, by who did it.",
-     "instances": 1,
-     "samples": [
-      {
-       "id": "page",
-       "label": "The page",
-       "url": "/study/miracles",
-       "why": "the only page of this design"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "study-names",
-   "area": "study",
-   "name": "Names & descriptions of God",
-   "what": "302 names of the Father, the Son and the Spirit.",
-   "address": "/study/names",
-   "instances": 1,
-   "sources": [
-    "src/pages/study/NamesPage.tsx"
-   ],
-   "sourceHash": "82af6fa0f2c47c6e",
-   "signature": null,
-   "variants": [
-    {
-     "id": "page",
-     "name": "Names & descriptions of God",
-     "what": "302 names of the Father, the Son and the Spirit.",
-     "instances": 1,
-     "samples": [
-      {
-       "id": "page",
-       "label": "The page",
-       "url": "/study/names",
        "why": "the only page of this design"
       }
      ]

@@ -1,8 +1,8 @@
 {
  "schema": 1,
- "commit": "4e52494da582b3b7179c429a6eb8a8d778a95826",
+ "commit": "679aa5053c72e33832753b75dea3f30a0b66c130",
  "startedAt": "2026-10-08T03:26:04.125Z",
- "finishedAt": "2026-10-10T23:11:07.608Z",
+ "finishedAt": "2026-10-10T23:54:17.597Z",
  "base": "http://127.0.0.1:8943",
  "checks": [
   {
@@ -303,60 +303,6 @@
    "failures": []
   },
   {
-   "template": "people-guide",
-   "variant": "everyone",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {},
-   "failures": []
-  },
-  {
-   "template": "people-guide",
-   "variant": "families",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {},
-   "failures": []
-  },
-  {
-   "template": "people-guide",
-   "variant": "prophets",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {},
-   "failures": []
-  },
-  {
-   "template": "people-guide",
-   "variant": "rulers",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {},
-   "failures": []
-  },
-  {
-   "template": "people-guide",
-   "variant": "apostles",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {},
-   "failures": []
-  },
-  {
-   "template": "people-guide",
-   "variant": "prophets-page",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {},
-   "failures": []
-  },
-  {
    "template": "study-hub",
    "variant": "page",
    "instances": 1,
@@ -367,60 +313,6 @@
   },
   {
    "template": "study-legacy",
-   "variant": "page",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {},
-   "failures": []
-  },
-  {
-   "template": "study-charts",
-   "variant": "references",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {},
-   "failures": []
-  },
-  {
-   "template": "study-charts",
-   "variant": "structure",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {},
-   "failures": []
-  },
-  {
-   "template": "study-charts",
-   "variant": "gospels",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {},
-   "failures": []
-  },
-  {
-   "template": "study-charts",
-   "variant": "versions",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {},
-   "failures": []
-  },
-  {
-   "template": "study-miracles",
-   "variant": "page",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {},
-   "failures": []
-  },
-  {
-   "template": "study-names",
    "variant": "page",
    "instances": 1,
    "checked": 1,
@@ -1511,6 +1403,114 @@
   {
    "template": "study-branches",
    "variant": "academic-church",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "people-guide",
+   "variant": "everyone",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "people-guide",
+   "variant": "families",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "people-guide",
+   "variant": "prophets",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "people-guide",
+   "variant": "rulers",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "people-guide",
+   "variant": "apostles",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "people-guide",
+   "variant": "prophets-page",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "study-charts",
+   "variant": "references",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "study-charts",
+   "variant": "structure",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "study-charts",
+   "variant": "gospels",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "study-charts",
+   "variant": "versions",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "study-miracles",
+   "variant": "page",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "study-names",
+   "variant": "page",
    "instances": 1,
    "checked": 1,
    "coverage": "",
