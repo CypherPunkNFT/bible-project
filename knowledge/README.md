@@ -157,3 +157,7 @@ Technical references: [SQLite FTS5](https://www.sqlite.org/fts5.html), [Qwen emb
 ## Historical source citation search
 
 The private historical collection is in `../KnowledgeBase/Biblical Historical Sources/`. Its `COLLECTION-REPORT.txt` records contents, verification and remaining gaps. Immediate local lexical search uses a separate SQLite database: `D:/Python/python.exe -X utf8 -m knowledge.historical_search search "Hezekiah" --category "02 Assyrian Archives"`. Results retain source paths, hashes and page or character locators. Use `verify` to check representative citations. The private intake ledger is `content/library/reports/private-biblical-history/acquisition-manifest.json` (locally excluded from public Git tracking); the existing importer recognizes the staged inputs. Main semantic indexing remains queued behind the active completion pipeline.
+
+## Research integration foundation
+
+The [Phase 1 registry and citation contract](research_foundation/README.md) reconcile the held collections for Scholars, Apologetics and Studies. Run `D:/Python/python.exe -X utf8 -m knowledge.research_foundation.build`, then its `verify` module. Private outputs are in `../KnowledgeBase/Research Foundation/`; the [completion report](../../Research/KNOWLEDGE-INTEGRATION-PHASE-1.md) records actual counts, validation and unresolved items. This does not rebuild the main index or publish private texts. Preserve `identities.sqlite3` with the generated registry to keep allocated resource IDs stable.

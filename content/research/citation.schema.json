@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Private shared research citation, version 1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id","claimId","sourceId","editionId","locator","quote","sourceUrl","sourceRole","claimKind","claim","alternatives","review","limits","dates","permissions","private","publication"],
+  "properties": {
+    "id":{"type":"string","minLength":1},
+    "claimId":{"type":"string","minLength":1},
+    "sourceId":{"type":"string","minLength":1},
+    "editionId":{"$ref":"#/$defs/nullableText"},
+    "locator":{"$ref":"#/$defs/nullableText"},
+    "quote":{"$ref":"#/$defs/nullableText"},
+    "sourceUrl":{"$ref":"#/$defs/nullableText"},
+    "sourceRole":{"type":"string","minLength":1},
+    "claimKind":{"enum":["historical-observation","scholarly-interpretation","scientific-finding","philosophical-inference","theological-interpretation","editorial-context"]},
+    "claim":{"type":"string","minLength":1},
+    "alternatives":{"type":"array","items":{
+      "type":"object","additionalProperties":false,
+      "required":["interpretation","sourceUrl","accessScope","reviewState"],
+      "properties":{"interpretation":{"type":"string"},"sourceUrl":{"$ref":"#/$defs/nullableText"},"accessScope":{"$ref":"#/$defs/nullableText"},"reviewState":{"type":"string"}}
+    }},
+    "review":{
+      "type":"object","additionalProperties":false,
+      "required":["kind","state","scope","literalMatch","contentFingerprint"],
+      "properties":{
+        "kind":{"enum":["ai-assisted","human","unreviewed"]},
+        "state":{"enum":["pending","reviewed-limited","stale"]},
+        "scope":{"type":"string"},"literalMatch":{"type":"boolean"},
+        "contentFingerprint":{"type":["string","null"],"pattern":"^[a-f0-9]{64}$"}
+      }
+    },
+    "limits":{"type":"array","items":{"type":"string"}},
+    "dates":{
+      "type":"object","additionalProperties":false,
+      "required":["objectOrWork","discovery","editionPublication","retrieval","review"],
+      "properties":{
+        "objectOrWork":{"$ref":"#/$defs/nullableText"},"discovery":{"$ref":"#/$defs/nullableText"},
+        "editionPublication":{"$ref":"#/$defs/nullableText"},"retrieval":{"$ref":"#/$defs/nullableText"},"review":{"$ref":"#/$defs/nullableText"}
+      }
+    },
+    "permissions":{
+      "type":"object","additionalProperties":false,"required":["metadata","quote","fullText"],
+      "properties":{"metadata":{"$ref":"#/$defs/permission"},"quote":{"$ref":"#/$defs/permission"},"fullText":{"$ref":"#/$defs/permission"}}
+    },
+    "private":{"type":"object"},
+    "publication":{"enum":["draft","published"]}
+  },
+  "$defs":{
+    "nullableText":{"type":["string","null"]},
+    "permission":{
+      "type":"object","additionalProperties":false,"required":["decision","evidence"],
+      "properties":{"decision":{"enum":["allowed","conditional","denied","unknown"]},"evidence":{"type":"array","items":{"type":"string"}}},
+      "allOf":[{"if":{"properties":{"decision":{"const":"allowed"}}},"then":{"properties":{"evidence":{"minItems":1}}}}]
+    }
+  }
+}

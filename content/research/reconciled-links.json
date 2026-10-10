@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "review": "AI-assisted comparison of the existing named records on 2026-10-09; this is identity reconciliation, not a new historical-content review. Original IDs remain authoritative in their own catalogues.",
+  "links": [
+    {"from":"historians:BH-001","to":"scholars:josephus","relation":"describes-person","basis":"Both identify Flavius Josephus, Antiquities and Jewish War; the bibliography entry retains four distinct works."},
+    {"from":"historians:BH-002","to":"scholars:tacitus","relation":"describes-person","basis":"Cornelius Tacitus and Tacitus both identify the Roman historian and Annals; full and short name reconciled."},
+    {"from":"historians:BH-003","to":"scholars:pliny","relation":"includes-person","basis":"The bibliography jointly covers Pliny and Trajan; the profile is only Pliny. Do not equate the joint entry with one person."},
+    {"from":"historians:BH-031","to":"scholars:origen","relation":"describes-person","basis":"Both records identify Origen of Alexandria and his early Christian textual and literary activity."},
+    {"from":"historians:BH-034","to":"scholars:eusebius","relation":"describes-person","basis":"Both name Eusebius of Caesarea and Church History."},
+    {"from":"historians:BH-037","to":"scholars:jerome","relation":"describes-person","basis":"Both identify the late-antique Christian author Jerome; different listed works are not merged."},
+    {"from":"historians:BH-119","to":"scholars:albright","relation":"describes-person","basis":"Both identify William F. Albright and The Archaeology of Palestine."},
+    {"from":"scholars-find:robinsons-arch","to":"archaeology:BA-074","relation":"related-site-context","basis":"Robinson's Arch is one feature in the broader Herodian Temple Mount collection, not an equivalent collection."},
+    {"from":"scholars-find:dead-sea-scrolls","to":"archaeology:BA-088","relation":"related-collection","basis":"The Scholars card covers the Scrolls broadly; BA-088 is specifically the Qumran biblical scrolls."},
+    {"from":"scholars-find:jericho","to":"archaeology:BA-098","relation":"related-excavation","basis":"The Kenyon excavation card and the destruction/chronology case concern Jericho but have different scopes."},
+    {"from":"scholars-find:hazor","to":"archaeology:BA-100","relation":"related-excavation","basis":"The site excavation card is related to the Late Bronze destruction case; it is not one identical evidence claim."},
+    {"from":"scholars-find:masada","to":"archaeology:BA-090","relation":"related-site-context","basis":"The site excavation and its biblical manuscript fragments are distinct records."},
+    {"from":"apologetics:source:sinaiticus","to":"scholars-find:sinaiticus","relation":"describes-manuscript","basis":"The source is the Codex Sinaiticus Project introduction; the find record names this codex. No translation identity is inferred."},
+    {"from":"apologetics:source:aquinas","to":"scholars:aquinas","relation":"author","basis":"The existing source explicitly attributes Summa Theologiae I.2 to Thomas Aquinas; New Advent remains its named edition."},
+    {"from":"apologetics:source:augustine-grace","to":"scholars:augustine","relation":"author","basis":"The existing source explicitly names Augustine of Hippo and On Grace and Free Will; New Advent remains its named edition."},
+    {"from":"apologetics:source:calvin-scripture","to":"library:author:author-john-calvin","relation":"author","basis":"The source explicitly names John Calvin; Beveridge is the translator, not an interchangeable edition."},
+    {"from":"apologetics:source:calvin-sin","to":"library:author:author-john-calvin","relation":"author","basis":"Existing source attribution names John Calvin; work and edition identities remain separate."},
+    {"from":"apologetics:source:calvin-justification","to":"library:author:author-john-calvin","relation":"author","basis":"Existing source attribution names John Calvin; work and edition identities remain separate."},
+    {"from":"apologetics:source:ursinus-catechesis","to":"library:author:author-zacharias-ursinus","relation":"author","basis":"Existing source attribution names Zacharias Ursinus; source locator and edition retained."},
+    {"from":"apologetics:source:ferguson-assurance","to":"library:author:author-sinclair-ferguson","relation":"author","basis":"Existing source attribution names Sinclair Ferguson; source and editorial use scope retained."},
+    {"from":"apologetics:source:ferguson-discipline","to":"library:author:author-sinclair-ferguson","relation":"author","basis":"Existing source attribution names Sinclair Ferguson; source and editorial use scope retained."},
+    {"from":"apologetics:source:sproul-aseity","to":"library:author:author-r-c-sproul","relation":"author","basis":"Existing source attribution names R. C. Sproul; no equivalence of editions is asserted."},
+    {"from":"apologetics:source:sproul-science","to":"library:author:author-r-c-sproul","relation":"author","basis":"Existing source attribution names R. C. Sproul; a theological discussion is not a primary scientific dataset."}
+  ]
+}

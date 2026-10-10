@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "scope": "Collection routing for Phase 1; routes are planned destinations, not publication claims.",
+  "historical": {
+    "01 Ancient Histories": {"primary": "scholars", "secondary": ["apologetics", "studies"], "use": "Authors and editions; bounded historical testimony; passage context"},
+    "02 Assyrian Archives": {"primary": "apologetics", "secondary": ["scholars", "studies"], "use": "Royal and documentary editions; historical claims; Kings and prophets context"},
+    "03 Dead Sea Scrolls": {"primary": "apologetics", "secondary": ["scholars", "studies"], "use": "Witness-specific transmission questions and contextual comparisons"},
+    "04 Second Temple Literature": {"primary": "scholars", "secondary": ["studies", "apologetics"], "use": "Identify editions and genres; contextual and comparative use"},
+    "05 Canaanite and Egyptian Background": {"primary": "apologetics", "secondary": ["scholars", "studies"], "use": "Historical and comparative cases with cultural context"},
+    "06 Excavation Reports": {"primary": "apologetics", "secondary": ["scholars", "studies"], "use": "Excavation methods, findings, alternatives and bounded passage context"},
+    "07 Everyday Documents": {"primary": "scholars", "secondary": ["studies", "apologetics"], "use": "Corpus browsing and document-specific social or linguistic context"},
+    "08 Early Christian Writings": {"primary": "studies", "secondary": ["scholars", "apologetics"], "use": "Attributed historical theology and early Christian testimony"},
+    "09 Historical Geography": {"primary": "studies", "secondary": ["scholars", "apologetics"], "use": "Atlas and context; proposed identifications retain uncertainty"},
+    "10 Evidence Source Checks": {"primary": "apologetics", "secondary": ["scholars", "studies"], "use": "Editorial evidence assessments and their source snapshots"},
+    "11 Textual Witnesses": {"primary": "scholars", "secondary": ["apologetics", "studies"], "use": "Edition and witness catalogue; transmission; reviewed passage comparisons"},
+    "12 Biblical Language Data": {"primary": "studies", "secondary": ["scholars", "apologetics"], "use": "Editorial lexical and morphological aids; not independent ancient witnesses"}
+  },
+  "religions": {"primary": "apologetics", "secondary": ["scholars", "studies"], "use": "Primary records of a named tradition; comparative use with edition and translation context"},
+  "sermons": {"primary": "studies", "secondary": ["scholars", "apologetics"], "use": "Attributed exposition and theological arguments; contributor remains in Teachers"},
+  "library": {"primary": "scholars", "secondary": ["studies", "apologetics"], "use": "Bibliographic discovery; select individual works for teaching or argument after review"},
+  "reference": {"primary": "scholars", "secondary": ["studies", "apologetics"], "use": "Reference editions and supporting research"},
+  "bible": {"primary": "studies", "secondary": ["scholars", "apologetics"], "use": "Existing Bible reader and edition-aware references"},
+  "presentation": {"primary": "studies", "secondary": [], "use": "Atlas or presentation support; imagery and geographic basemaps are not scientific arguments"},
+  "scienceGaps": [
+    {"id": "science-methods", "status": "dedicated-acquisition-needed", "scope": "Laboratory and archaeological dating methods with datasets and uncertainty"},
+    {"id": "science-cosmology", "status": "dedicated-acquisition-needed", "scope": "Primary cosmology papers and datasets for the bounded pilot"},
+    {"id": "science-earth-biology-mind", "status": "later-acquisition-needed", "scope": "Selected geology, biology and mind research; no claim of comprehensive holdings"}
+  ]
+}
