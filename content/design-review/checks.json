@@ -1,8 +1,8 @@
 {
  "schema": 1,
- "commit": "729f8037",
+ "commit": "351a72be",
  "startedAt": "2026-10-08T03:26:04.125Z",
- "finishedAt": "2026-10-10T14:48:35.438Z",
+ "finishedAt": "2026-10-10T16:32:07.102Z",
  "base": "http://127.0.0.1:8943",
  "checks": [
   {
@@ -1668,15 +1668,6 @@
    "failures": []
   },
   {
-   "template": "study-hub",
-   "variant": "page",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {},
-   "failures": []
-  },
-  {
    "template": "study-legacy",
    "variant": "page",
    "instances": 1,
@@ -1769,6 +1760,15 @@
   {
    "template": "study-branches",
    "variant": "academic-church",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "study-hub",
+   "variant": "page",
    "instances": 1,
    "checked": 1,
    "coverage": "",
