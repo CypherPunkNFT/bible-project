@@ -35,6 +35,14 @@
 
 The intended S3 artifact is delivered: three connected, populated review pages with working controls and existing reading destinations. Source: `design/study-hub-v3/`; screenshots/results: `design/review/study-hub-v3/`; reproducible check: `.local/check-study-v3.mjs`.
 
+### Follow Paul motion refinement — 2026-10-10
+
+- Replaced the instant camera swap with a continuous approach to Antioch, followed by framing the journey. Route drawing begins after the 2.2-second camera sequence, with the Atlas's accent-colored drop shadow, rounded joins and unchanged route circles. Returning to the overview animates from the current camera, including when interrupted mid-flight.
+- Motion-enabled browser checks confirmed the initial camera exactly matches the previous view; the route is invisible during zoom; its dash offset decreases only after the camera settles; the camera remains stationary during drawing; and the completed line remains visible. Fixed the footer's changing text triggering a resize that prematurely ended the entrance animation by updating layout before measuring the viewport.
+- Verified rapid map/Paul/cities changes, switching away during route drawing, keyboard city selection, browser Back, resize, light-theme phone playback, live reduced-motion changes and a reduced-motion saved Paul URL. No page errors. Inspected zoom, Antioch approach, route progress/completion and phone captures.
+- Focused audit: `.local/check-study-v3-motion.mjs`; evidence: `design/review/study-hub-v3/refinements/motion-checks.json` and `motion-*.png`. Syntax and scoped whitespace checks pass.
+- Reran the existing refinement audit after the camera rewrite: all 24 responsive/theme map states and eight actual destinations pass, with no page/asset errors or document overflow.
+
 The pages await owner review of composition, labels and Atlas treatment. They do not implement production branch routes, origin-aware return changes, a completed Writers collection, expanded Scholar profiles, new public case publication or the real header change. The screenshot audit ran against the local static mockup, not a clean production-release build. It is not a full accessibility certification or a fresh historical review of linked content.
 
 Shared gallery files were already dirty in another chat; the proposed card is saved in `gallery-entry.json` rather than overwriting them. Existing mockups and production code were preserved. S4 branch foundations follow the settled design.
