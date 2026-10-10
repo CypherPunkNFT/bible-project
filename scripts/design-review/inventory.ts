@@ -9,6 +9,7 @@ import { AREAS, pickSamples, type TemplateDef } from "./model.ts";
 import { atlasTemplates } from "./site-map-atlas.ts";
 import { peopleTemplates } from "./site-map-people.ts";
 import { restTemplates } from "./site-map-rest.ts";
+import { researchTemplates } from "./site-map-research.ts";
 import { fingerprint, sourceFiles, WEBSITE } from "./sources.ts";
 
 const commit = (() => {
@@ -18,8 +19,9 @@ const commit = (() => {
 const people = peopleTemplates();
 const atlas = await atlasTemplates();
 const rest = await restTemplates();
+const research = researchTemplates();
 const order = AREAS.map((a) => a.id);
-const defs: TemplateDef[] = [...people.templates, ...atlas.templates, ...rest.templates].sort((a, b) => order.indexOf(a.area) - order.indexOf(b.area));
+const defs: TemplateDef[] = [...people.templates, ...atlas.templates, ...rest.templates, ...research.templates].sort((a, b) => order.indexOf(a.area) - order.indexOf(b.area));
 
 const ids = new Set<string>();
 const templates = defs.map((t) => {
@@ -46,7 +48,7 @@ const local = path.join(WEBSITE, "design", "review");
 mkdirSync(content, { recursive: true });
 mkdirSync(local, { recursive: true });
 writeFileSync(path.join(content, "templates.json"), JSON.stringify({ schema: 1, generatedAt: new Date().toISOString(), commit, areas: AREAS, templates }, null, 1) + "\n", "utf8");
-writeFileSync(path.join(local, "instances.json"), JSON.stringify({ commit, variants: instances, valid: { ...people.valid, ...atlas.valid, ...rest.valid } }) + "\n", "utf8");
+writeFileSync(path.join(local, "instances.json"), JSON.stringify({ commit, variants: instances, valid: { ...people.valid, ...atlas.valid, ...rest.valid, ...research.valid } }) + "\n", "utf8");
 
 const variantCount = templates.reduce((n, t) => n + t.variants.length, 0);
 const sampleCount = templates.reduce((n, t) => n + t.variants.reduce((m, v) => m + v.samples.length, 0), 0);

@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "commit": "2c3b7612",
+ "commit": "f088b412",
  "takenAt": "2026-10-10T01:25:59.598Z",
  "base": "http://127.0.0.1:8969",
  "images": {
@@ -8438,6 +8438,500 @@
     "hash": "002710470801391d",
     "height": 9000,
     "clipped": true
+   }
+  },
+  "research-lesson/lesson/first": {
+   "desktop-light": {
+    "full": "research-lesson/lesson/first-1440-light.png",
+    "crop": "research-lesson/lesson/first-1440-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "research-lesson/lesson/first-1440-light-thumb.jpg",
+    "hash": "008b202800010000",
+    "height": 4641,
+    "clipped": false
+   },
+   "desktop-dark": {
+    "full": "research-lesson/lesson/first-1440-dark.png",
+    "crop": "research-lesson/lesson/first-1440-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "research-lesson/lesson/first-1440-dark-thumb.jpg",
+    "hash": "00471014000100fe",
+    "height": 4641,
+    "clipped": false
+   },
+   "phone-light": {
+    "full": "research-lesson/lesson/first-400-light.png",
+    "crop": "research-lesson/lesson/first-400-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "research-lesson/lesson/first-400-light-thumb.jpg",
+    "hash": "00b400b0ecb2608a",
+    "height": 7043,
+    "clipped": false
+   },
+   "phone-dark": {
+    "full": "research-lesson/lesson/first-400-dark.png",
+    "crop": "research-lesson/lesson/first-400-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "research-lesson/lesson/first-400-dark-thumb.jpg",
+    "hash": "004a0048134d9fa5",
+    "height": 7043,
+    "clipped": false
+   }
+  },
+  "research-case/historical/first": {
+   "desktop-light": {
+    "full": "research-case/historical/first-1440-light.png",
+    "crop": "research-case/historical/first-1440-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "research-case/historical/first-1440-light-thumb.jpg",
+    "hash": "400600203c340080",
+    "height": 3973,
+    "clipped": false
+   },
+   "desktop-dark": {
+    "full": "research-case/historical/first-1440-dark.png",
+    "crop": "research-case/historical/first-1440-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "research-case/historical/first-1440-dark-thumb.jpg",
+    "hash": "20060018120b007c",
+    "height": 3973,
+    "clipped": false
+   },
+   "phone-dark": {
+    "full": "research-case/historical/first-400-dark.png",
+    "crop": "research-case/historical/first-400-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "research-case/historical/first-400-dark-thumb.jpg",
+    "hash": "5200002b0000ffa0",
+    "height": 5861,
+    "clipped": false
+   },
+   "phone-light": {
+    "full": "research-case/historical/first-400-light.png",
+    "crop": "research-case/historical/first-400-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "research-case/historical/first-400-light-thumb.jpg",
+    "hash": "a400005400000080",
+    "height": 5861,
+    "clipped": false
+   }
+  },
+  "research-case/manuscript/first": {
+   "desktop-light": {
+    "full": "research-case/manuscript/first-1440-light.png",
+    "crop": "research-case/manuscript/first-1440-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "research-case/manuscript/first-1440-light-thumb.jpg",
+    "hash": "0432032400200000",
+    "height": 3907,
+    "clipped": false
+   },
+   "desktop-dark": {
+    "full": "research-case/manuscript/first-1440-dark.png",
+    "crop": "research-case/manuscript/first-1440-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "research-case/manuscript/first-1440-dark-thumb.jpg",
+    "hash": "034e0313000300fc",
+    "height": 3907,
+    "clipped": false
+   },
+   "phone-dark": {
+    "full": "research-case/manuscript/first-400-dark.png",
+    "crop": "research-case/manuscript/first-400-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "research-case/manuscript/first-400-dark-thumb.jpg",
+    "hash": "5b2040306900f740",
+    "height": 6254,
+    "clipped": false
+   },
+   "phone-light": {
+    "full": "research-case/manuscript/first-400-light.png",
+    "crop": "research-case/manuscript/first-400-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "research-case/manuscript/first-400-light-thumb.jpg",
+    "hash": "a4c080c092008880",
+    "height": 6254,
+    "clipped": false
+   }
+  },
+  "research-landing/all/page": {
+   "desktop-light": {
+    "full": "research-landing/all/page-1440-light.png",
+    "crop": "research-landing/all/page-1440-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "research-landing/all/page-1440-light-thumb.jpg",
+    "hash": "0080b4b111000a82",
+    "height": 2192,
+    "clipped": false
+   },
+   "desktop-dark": {
+    "full": "research-landing/all/page-1440-dark.png",
+    "crop": "research-landing/all/page-1440-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "research-landing/all/page-1440-dark-thumb.jpg",
+    "hash": "00406b494d00f5ba",
+    "height": 2192,
+    "clipped": false
+   },
+   "phone-light": {
+    "full": "research-landing/all/page-400-light.png",
+    "crop": "research-landing/all/page-400-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "research-landing/all/page-400-light-thumb.jpg",
+    "hash": "8a0000d280c0c080",
+    "height": 4120,
+    "clipped": false
+   },
+   "phone-dark": {
+    "full": "research-landing/all/page-400-dark.png",
+    "crop": "research-landing/all/page-400-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "research-landing/all/page-400-dark-thumb.jpg",
+    "hash": "7500002d303f3c40",
+    "height": 4120,
+    "clipped": false
+   }
+  },
+  "research-landing/cases/page": {
+   "desktop-light": {
+    "full": "research-landing/cases/page-1440-light.png",
+    "crop": "research-landing/cases/page-1440-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "research-landing/cases/page-1440-light-thumb.jpg",
+    "hash": "00c034a411000a82",
+    "height": 2205,
+    "clipped": false
+   },
+   "desktop-dark": {
+    "full": "research-landing/cases/page-1440-dark.png",
+    "crop": "research-landing/cases/page-1440-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "research-landing/cases/page-1440-dark-thumb.jpg",
+    "hash": "00382c644d00f5ba",
+    "height": 2205,
+    "clipped": false
+   },
+   "phone-light": {
+    "full": "research-landing/cases/page-400-light.png",
+    "crop": "research-landing/cases/page-400-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "research-landing/cases/page-400-light-thumb.jpg",
+    "hash": "0084002800000080",
+    "height": 3681,
+    "clipped": false
+   },
+   "phone-dark": {
+    "full": "research-landing/cases/page-400-dark.png",
+    "crop": "research-landing/cases/page-400-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "research-landing/cases/page-400-dark-thumb.jpg",
+    "hash": "0072001600ff7c50",
+    "height": 3681,
+    "clipped": false
+   }
+  },
+  "research-landing/study/page": {
+   "desktop-light": {
+    "full": "research-landing/study/page-1440-light.png",
+    "crop": "research-landing/study/page-1440-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "research-landing/study/page-1440-light-thumb.jpg",
+    "hash": "0000c0a011000a82",
+    "height": 2192,
+    "clipped": false
+   },
+   "desktop-dark": {
+    "full": "research-landing/study/page-1440-dark.png",
+    "crop": "research-landing/study/page-1440-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "research-landing/study/page-1440-dark-thumb.jpg",
+    "hash": "000020604d00f5ba",
+    "height": 2192,
+    "clipped": false
+   },
+   "phone-light": {
+    "full": "research-landing/study/page-400-light.png",
+    "crop": "research-landing/study/page-400-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "research-landing/study/page-400-light-thumb.jpg",
+    "hash": "006c00000080c080",
+    "height": 3260,
+    "clipped": false
+   },
+   "phone-dark": {
+    "full": "research-landing/study/page-400-dark.png",
+    "crop": "research-landing/study/page-400-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "research-landing/study/page-400-dark-thumb.jpg",
+    "hash": "0002000000ff3c40",
+    "height": 3260,
+    "clipped": false
+   }
+  },
+  "research-catalogue/works/page": {
+   "desktop-light": {
+    "full": "research-catalogue/works/page-1440-light.png",
+    "crop": "research-catalogue/works/page-1440-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "research-catalogue/works/page-1440-light-thumb.jpg",
+    "hash": "00005d2121808a82",
+    "height": 1798,
+    "clipped": false
+   },
+   "desktop-dark": {
+    "full": "research-catalogue/works/page-1440-dark.png",
+    "crop": "research-catalogue/works/page-1440-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "research-catalogue/works/page-1440-dark-thumb.jpg",
+    "hash": "00002321217f75b2",
+    "height": 1798,
+    "clipped": false
+   },
+   "phone-light": {
+    "full": "research-catalogue/works/page-400-light.png",
+    "crop": "research-catalogue/works/page-400-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "research-catalogue/works/page-400-light-thumb.jpg",
+    "hash": "00a0008000088080",
+    "height": 3193,
+    "clipped": false
+   },
+   "phone-dark": {
+    "full": "research-catalogue/works/page-400-dark.png",
+    "crop": "research-catalogue/works/page-400-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "research-catalogue/works/page-400-dark-thumb.jpg",
+    "hash": "0050006000b67c80",
+    "height": 3193,
+    "clipped": false
+   }
+  },
+  "research-source/edition/first": {
+   "desktop-light": {
+    "full": "research-source/edition/first-1440-light.png",
+    "crop": "research-source/edition/first-1440-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "research-source/edition/first-1440-light-thumb.jpg",
+    "hash": "0028032823000082",
+    "height": 2759,
+    "clipped": false
+   },
+   "desktop-dark": {
+    "full": "research-source/edition/first-1440-dark.png",
+    "crop": "research-source/edition/first-1440-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "research-source/edition/first-1440-dark-thumb.jpg",
+    "hash": "001743141b00dffa",
+    "height": 2759,
+    "clipped": false
+   },
+   "phone-light": {
+    "full": "research-source/edition/first-400-light.png",
+    "crop": "research-source/edition/first-400-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "research-source/edition/first-400-light-thumb.jpg",
+    "hash": "b200808000000080",
+    "height": 4429,
+    "clipped": false
+   },
+   "phone-dark": {
+    "full": "research-source/edition/first-400-dark.png",
+    "crop": "research-source/edition/first-400-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "research-source/edition/first-400-dark-thumb.jpg",
+    "hash": "4900402000827e80",
+    "height": 4429,
+    "clipped": false
+   }
+  },
+  "research-source/edition/longest": {
+   "desktop-light": {
+    "full": "research-source/edition/longest-1440-light.png",
+    "crop": "research-source/edition/longest-1440-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "research-source/edition/longest-1440-light-thumb.jpg",
+    "hash": "0020830003000082",
+    "height": 2533,
+    "clipped": false
+   },
+   "desktop-dark": {
+    "full": "research-source/edition/longest-1440-dark.png",
+    "crop": "research-source/edition/longest-1440-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "research-source/edition/longest-1440-dark-thumb.jpg",
+    "hash": "002043000300ffba",
+    "height": 2533,
+    "clipped": false
+   },
+   "phone-light": {
+    "full": "research-source/edition/longest-400-light.png",
+    "crop": "research-source/edition/longest-400-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "research-source/edition/longest-400-light-thumb.jpg",
+    "hash": "88a0e800a1a80080",
+    "height": 4025,
+    "clipped": false
+   },
+   "phone-dark": {
+    "full": "research-source/edition/longest-400-dark.png",
+    "crop": "research-source/edition/longest-400-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "research-source/edition/longest-400-dark-thumb.jpg",
+    "hash": "465117005857f440",
+    "height": 4025,
+    "clipped": false
+   }
+  },
+  "research-source/evidence/first": {
+   "desktop-light": {
+    "full": "research-source/evidence/first-1440-light.png",
+    "crop": "research-source/evidence/first-1440-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "research-source/evidence/first-1440-light-thumb.jpg",
+    "hash": "0028032823000082",
+    "height": 2759,
+    "clipped": false
+   },
+   "desktop-dark": {
+    "full": "research-source/evidence/first-1440-dark.png",
+    "crop": "research-source/evidence/first-1440-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "research-source/evidence/first-1440-dark-thumb.jpg",
+    "hash": "001743141b00dffa",
+    "height": 2759,
+    "clipped": false
+   },
+   "phone-light": {
+    "full": "research-source/evidence/first-400-light.png",
+    "crop": "research-source/evidence/first-400-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "research-source/evidence/first-400-light-thumb.jpg",
+    "hash": "b20080cc00000080",
+    "height": 4463,
+    "clipped": false
+   },
+   "phone-dark": {
+    "full": "research-source/evidence/first-400-dark.png",
+    "crop": "research-source/evidence/first-400-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "research-source/evidence/first-400-dark-thumb.jpg",
+    "hash": "4900403200007e80",
+    "height": 4463,
+    "clipped": false
+   }
+  },
+  "research-source/evidence/longest": {
+   "desktop-light": {
+    "full": "research-source/evidence/longest-1440-light.png",
+    "crop": "research-source/evidence/longest-1440-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "research-source/evidence/longest-1440-light-thumb.jpg",
+    "hash": "002003032b000012",
+    "height": 2929,
+    "clipped": false
+   },
+   "desktop-dark": {
+    "full": "research-source/evidence/longest-1440-dark.png",
+    "crop": "research-source/evidence/longest-1440-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "research-source/evidence/longest-1440-dark-thumb.jpg",
+    "hash": "00204303170039f0",
+    "height": 2929,
+    "clipped": false
+   },
+   "phone-light": {
+    "full": "research-source/evidence/longest-400-light.png",
+    "crop": "research-source/evidence/longest-400-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "research-source/evidence/longest-400-light-thumb.jpg",
+    "hash": "8800000000e000a0",
+    "height": 4786,
+    "clipped": false
+   },
+   "phone-dark": {
+    "full": "research-source/evidence/longest-400-dark.png",
+    "crop": "research-source/evidence/longest-400-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "research-source/evidence/longest-400-dark-thumb.jpg",
+    "hash": "4600004000107e58",
+    "height": 4786,
+    "clipped": false
+   }
+  },
+  "research-contributor/profiles/first": {
+   "desktop-light": {
+    "full": "research-contributor/profiles/first-1440-light.png",
+    "crop": "research-contributor/profiles/first-1440-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "research-contributor/profiles/first-1440-light-thumb.jpg",
+    "hash": "00a0802080000082",
+    "height": 2101,
+    "clipped": false
+   },
+   "desktop-dark": {
+    "full": "research-contributor/profiles/first-1440-dark.png",
+    "crop": "research-contributor/profiles/first-1440-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "research-contributor/profiles/first-1440-dark-thumb.jpg",
+    "hash": "005060604000fe7a",
+    "height": 2101,
+    "clipped": false
+   },
+   "phone-light": {
+    "full": "research-contributor/profiles/first-400-light.png",
+    "crop": "research-contributor/profiles/first-400-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "research-contributor/profiles/first-400-light-thumb.jpg",
+    "hash": "00007080804000a8",
+    "height": 2912,
+    "clipped": false
+   },
+   "phone-dark": {
+    "full": "research-contributor/profiles/first-400-dark.png",
+    "crop": "research-contributor/profiles/first-400-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "research-contributor/profiles/first-400-dark-thumb.jpg",
+    "hash": "00000c70bf7ef854",
+    "height": 2912,
+    "clipped": false
+   }
+  },
+  "research-contributor/profiles/longest": {
+   "desktop-light": {
+    "full": "research-contributor/profiles/longest-1440-light.png",
+    "crop": "research-contributor/profiles/longest-1440-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "research-contributor/profiles/longest-1440-light-thumb.jpg",
+    "hash": "0068b08000000082",
+    "height": 2003,
+    "clipped": false
+   },
+   "desktop-dark": {
+    "full": "research-contributor/profiles/longest-1440-dark.png",
+    "crop": "research-contributor/profiles/longest-1440-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "research-contributor/profiles/longest-1440-dark-thumb.jpg",
+    "hash": "00144c600000feba",
+    "height": 2003,
+    "clipped": false
+   },
+   "phone-light": {
+    "full": "research-contributor/profiles/longest-400-light.png",
+    "crop": "research-contributor/profiles/longest-400-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "research-contributor/profiles/longest-400-light-thumb.jpg",
+    "hash": "00b2a800a0008080",
+    "height": 2905,
+    "clipped": false
+   },
+   "phone-dark": {
+    "full": "research-contributor/profiles/longest-400-dark.png",
+    "crop": "research-contributor/profiles/longest-400-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "research-contributor/profiles/longest-400-dark-thumb.jpg",
+    "hash": "005f56005fbe7840",
+    "height": 2905,
+    "clipped": false
    }
   }
  }

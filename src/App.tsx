@@ -34,6 +34,7 @@ const ProphetsPage = lazy(() => import("@/pages/study/ProphetsPage"));
 const NamesPage = lazy(() => import("@/pages/study/NamesPage"));
 // The owner's design review board: hidden, local preview only (it shows "not found" on the live site).
 const DesignReviewPage = lazy(() => import("@/pages/review/DesignReviewPage"));
+const ResearchPreviewPage = lazy(() => import("@/pages/research/ResearchPreviewPage"));
 
 function PageFallback() {
   return (
@@ -103,6 +104,7 @@ export default function App() {
               <Route path="/study/apostles" element={<Navigate to="/study/people?view=apostles" replace />} />
               <Route path="/study/names" element={<NamesPage />} />
               <Route path="/review" element={<DesignReviewPage />} />
+              <Route path="/review/research/*" element={<ResearchPreviewPage />} />
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </Suspense>

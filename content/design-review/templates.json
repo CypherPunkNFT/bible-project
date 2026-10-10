@@ -1,7 +1,7 @@
 {
  "schema": 1,
- "generatedAt": "2026-10-10T01:24:24.444Z",
- "commit": "2c3b7612",
+ "generatedAt": "2026-10-10T01:30:03.758Z",
+ "commit": "f088b412",
  "areas": [
   {
    "id": "people",
@@ -3429,6 +3429,308 @@
        "label": "The page",
        "url": "/topics/superlist",
        "why": "the only page of this design"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "research-lesson",
+   "area": "study",
+   "name": "Scripture-led research lessons",
+   "what": "Read Scripture, interpret it in context, distinguish historical notes and respond.",
+   "address": "/review/research/study/<lesson>",
+   "instances": 1,
+   "sources": [
+    "content/research/phase-2.json",
+    "src/pages/research/ResearchCatalogue.tsx",
+    "src/pages/research/ResearchParts.tsx",
+    "src/pages/research/ResearchPreviewPage.tsx",
+    "src/pages/research/ResearchReading.tsx",
+    "src/pages/research/model.ts",
+    "src/pages/research/research.css"
+   ],
+   "sourceHash": "923dd30546f07d19",
+   "signature": {
+    "selector": ".rs-passage",
+    "label": "Begin with Scripture"
+   },
+   "variants": [
+    {
+     "id": "lesson",
+     "name": "Theological lesson",
+     "what": "Hezekiah's prayer in 2 Kings 19.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "first",
+       "label": "First",
+       "url": "/review/research/study/prayer-under-pressure",
+       "why": "the first example: Bring the threat before the Lord"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "research-case",
+   "area": "apologetics",
+   "name": "Historical and manuscript cases",
+   "what": "A bounded answer, exact source locations, comparisons and limits.",
+   "address": "/review/research/cases/<case>",
+   "instances": 2,
+   "sources": [
+    "content/research/phase-2.json",
+    "src/pages/research/ResearchCatalogue.tsx",
+    "src/pages/research/ResearchParts.tsx",
+    "src/pages/research/ResearchPreviewPage.tsx",
+    "src/pages/research/ResearchReading.tsx",
+    "src/pages/research/model.ts",
+    "src/pages/research/research.css"
+   ],
+   "sourceHash": "923dd30546f07d19",
+   "signature": {
+    "selector": ".rs-answer",
+    "label": "The question and answer"
+   },
+   "variants": [
+    {
+     "id": "historical",
+     "name": "Historical case",
+     "what": "A royal inscription alongside the biblical account.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "first",
+       "label": "First",
+       "url": "/review/research/cases/hezekiah-assyria",
+       "why": "the first example: Hezekiah under siege"
+      }
+     ]
+    },
+    {
+     "id": "manuscript",
+     "name": "Manuscript case",
+     "what": "A named witness and its exact textual boundary.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "first",
+       "label": "First",
+       "url": "/review/research/cases/sinaiticus-mark-ending",
+       "why": "the first example: Where does Mark end?"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "research-landing",
+   "area": "site",
+   "name": "Research collection doorways",
+   "what": "Three linked reading paths, with the source catalogue close at hand.",
+   "address": "/review/research",
+   "instances": 3,
+   "sources": [
+    "content/research/phase-2.json",
+    "src/pages/research/ResearchCatalogue.tsx",
+    "src/pages/research/ResearchParts.tsx",
+    "src/pages/research/ResearchPreviewPage.tsx",
+    "src/pages/research/ResearchReading.tsx",
+    "src/pages/research/model.ts",
+    "src/pages/research/research.css"
+   ],
+   "sourceHash": "923dd30546f07d19",
+   "signature": {
+    "selector": ".rs-card-grid",
+    "label": "Reading paths"
+   },
+   "variants": [
+    {
+     "id": "all",
+     "name": "All readings",
+     "what": "Historical, manuscript and Scripture-led readings together.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/review/research",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "cases",
+     "name": "Apologetics",
+     "what": "The historical and manuscript questions.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/review/research/cases",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "study",
+     "name": "Studies",
+     "what": "Scripture-led theological lessons.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/review/research/study",
+       "why": "the only page of this design"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "research-catalogue",
+   "area": "site",
+   "name": "Research works catalogue",
+   "what": "Search named source editions and follow their contributors.",
+   "address": "/review/research/works",
+   "instances": 1,
+   "sources": [
+    "content/research/phase-2.json",
+    "src/pages/research/ResearchCatalogue.tsx",
+    "src/pages/research/ResearchParts.tsx",
+    "src/pages/research/ResearchPreviewPage.tsx",
+    "src/pages/research/ResearchReading.tsx",
+    "src/pages/research/model.ts",
+    "src/pages/research/research.css"
+   ],
+   "sourceHash": "923dd30546f07d19",
+   "signature": {
+    "selector": ".rs-source-grid",
+    "label": "Source editions"
+   },
+   "variants": [
+    {
+     "id": "works",
+     "name": "Works and editions",
+     "what": "Search the two selected editions.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/review/research/works",
+       "why": "the only page of this design"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "research-source",
+   "area": "site",
+   "name": "Research source and evidence records",
+   "what": "One edition, its attribution, locator, use and limits.",
+   "address": "/review/research/works/<source> or /evidence/<source>",
+   "instances": 4,
+   "sources": [
+    "content/research/phase-2.json",
+    "src/pages/research/ResearchCatalogue.tsx",
+    "src/pages/research/ResearchParts.tsx",
+    "src/pages/research/ResearchPreviewPage.tsx",
+    "src/pages/research/ResearchReading.tsx",
+    "src/pages/research/model.ts",
+    "src/pages/research/research.css"
+   ],
+   "sourceHash": "923dd30546f07d19",
+   "signature": {
+    "selector": ".rs-source-layout",
+    "label": "Edition and source context"
+   },
+   "variants": [
+    {
+     "id": "edition",
+     "name": "Work and edition",
+     "what": "Bibliographic record and real uses.",
+     "instances": 2,
+     "samples": [
+      {
+       "id": "first",
+       "label": "First",
+       "url": "/review/research/works/sennacherib-022",
+       "why": "the first example: Sennacherib 022"
+      },
+      {
+       "id": "longest",
+       "label": "Longest title",
+       "url": "/review/research/works/sinaiticus-mark",
+       "why": "longest title: \"Mark in Codex Sinaiticus\" (24 characters)"
+      }
+     ]
+    },
+    {
+     "id": "evidence",
+     "name": "Evidence record",
+     "what": "The same source identity seen from a historical question.",
+     "instances": 2,
+     "samples": [
+      {
+       "id": "first",
+       "label": "First",
+       "url": "/review/research/evidence/sennacherib-022",
+       "why": "the first example: Sennacherib 022"
+      },
+      {
+       "id": "longest",
+       "label": "Longest title",
+       "url": "/review/research/evidence/sinaiticus-mark",
+       "why": "longest title: \"Mark in Codex Sinaiticus\" (24 characters)"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "research-contributor",
+   "area": "site",
+   "name": "Research contributor profiles",
+   "what": "Sourced editorial roles, named works and linked readings.",
+   "address": "/review/research/contributors/<contributor>",
+   "instances": 3,
+   "sources": [
+    "content/research/phase-2.json",
+    "src/pages/research/ResearchCatalogue.tsx",
+    "src/pages/research/ResearchParts.tsx",
+    "src/pages/research/ResearchPreviewPage.tsx",
+    "src/pages/research/ResearchReading.tsx",
+    "src/pages/research/model.ts",
+    "src/pages/research/research.css"
+   ],
+   "sourceHash": "923dd30546f07d19",
+   "signature": {
+    "selector": ".rs-source-grid",
+    "label": "Attributed editions"
+   },
+   "variants": [
+    {
+     "id": "profiles",
+     "name": "People and projects",
+     "what": "Attribution follows the edition's own credits.",
+     "instances": 3,
+     "samples": [
+      {
+       "id": "first",
+       "label": "First",
+       "url": "/review/research/contributors/grayson",
+       "why": "the first example: A. Kirk Grayson"
+      },
+      {
+       "id": "longest",
+       "label": "Longest title",
+       "url": "/review/research/contributors/sinaiticus-project",
+       "why": "longest title: \"Codex Sinaiticus Project\" (24 characters)"
       }
      ]
     }

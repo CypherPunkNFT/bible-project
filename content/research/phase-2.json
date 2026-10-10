@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 1,
+  "publication": "draft",
+  "title": "Sources, evidence & Scripture",
+  "sources": [
+    {
+      "id": "sennacherib-022",
+      "workId": "research-work:sennacherib-022",
+      "editionId": "research-edition:rinap3-q003496-2012",
+      "title": "Sennacherib 022",
+      "subtitle": "A royal account of the campaign against Judah",
+      "edition": "RINAP 3 · Q003496 · annotated English edition, 2012",
+      "language": "Akkadian, with an English translation",
+      "genre": "Assyrian royal inscription",
+      "period": "Reign of Sennacherib, 704–681 BCE",
+      "sourceRole": "Ancient royal account, accessed through a modern scholarly edition",
+      "description": "The king’s account names Hezekiah and Jerusalem and describes the pressure placed on Judah. Its first-person royal voice presents Assyrian power and success. Read it as a particular account of the campaign, with an identifiable purpose and perspective.",
+      "contributors": ["grayson", "novotny"],
+      "url": "https://oracc.museum.upenn.edu/rinap/rinap3/Q003496/html",
+      "references": [{"label":"RINAP project and editorial attribution","url":"https://oracc2.museum.upenn.edu/projectlist.html"}],
+      "locator": "Column iii, lines 18–49; the confinement image begins at iii 27b",
+      "quote": "I confined him inside the city Jerusalem, his royal city, like a bird in a cage.",
+      "rights": "Annotated edition: Creative Commons Attribution–ShareAlike 3.0. Translation credited to A. Kirk Grayson, Jamie Novotny and the RINAP Project, 2012. This is an unchanged excerpt.",
+      "rightsUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "limitations": ["Royal claims require interpretation; the inscription’s own numbers are not independent measurements.", "This passage does not independently narrate the angelic destruction in 2 Kings 19:35.", "The modern edition’s 2012 date is not the date of the ancient campaign."],
+      "selection": {"kind": "foundation-citation", "id": "citation:BA-012"}
+    },
+    {
+      "id": "sinaiticus-mark",
+      "workId": "research-work:codex-sinaiticus-mark",
+      "editionId": "research-edition:sinaiticus-af1633b-mark",
+      "title": "Mark in Codex Sinaiticus",
+      "subtitle": "One manuscript witness to the Gospel’s ending",
+      "edition": "Codex Sinaiticus · Mark · project transcription, pinned revision af1633b",
+      "language": "Greek",
+      "genre": "Biblical manuscript witness",
+      "period": "Middle of the fourth century CE",
+      "sourceRole": "Manuscript transcription and the project’s description; one witness to a textual question",
+      "description": "The held transcription ends Mark at 16:8 and records the closing title. The manuscript location is quire 77, folio 5 recto. The project dates the codex to the middle of the fourth century. The later transcription is a modern means of inspecting that ancient witness.",
+      "contributors": ["sinaiticus-project"],
+      "url": "https://codexsinaiticus.org/en/manuscript.aspx?folioNo=5&lid=en&quireNo=77&side=r",
+      "references": [{"label":"Project introduction and manuscript date","url":"https://codexsinaiticus.org/en/codex/"},{"label":"Named transcription repository revision","url":"https://github.com/itsee-birmingham/codex-sinaiticus/tree/af1633b5102cbe6200e79053cc618ac447e1bb16"}],
+      "locator": "Mark 16:2–8; quire 77, folio 5 recto, followed by the closing title",
+      "quote": null,
+      "rights": "Bibliographic description and links only. Manuscript images and the project transcription are not reproduced here.",
+      "rightsUrl": "https://codexsinaiticus.org/en/copyright.aspx",
+      "limitations": ["A surviving copy is not the author’s autograph.", "This witness alone cannot decide whether Mark intentionally ended at 16:8 or an earlier ending was lost.", "The KJV comparison is an English edition, not another ancient manuscript and not a translation of Sinaiticus."],
+      "selection": {"kind": "historical-readable", "relativePath": "11 Textual Witnesses/Readable/Codex Sinaiticus/Κατὰ-Μάρκον.txt"}
+    }
+  ],
+  "contributors": [
+    {"id":"grayson","name":"A. Kirk Grayson","role":"Editor of the modern inscription edition","kind":"person","description":"The credits of Sennacherib 022 name Grayson, Jamie Novotny and the RINAP Project as creators of the 2012 annotated edition. This is a modern editorial contribution to an ancient royal inscription.","works":["sennacherib-022"],"url":"https://oracc.museum.upenn.edu/rinap/rinap3/Q003496/html","sourceLocator":"Edition credits at the foot of Sennacherib 022","scope":"The ancient king’s claims and the modern editor’s work are distinct roles."},
+    {"id":"novotny","name":"Jamie Novotny","role":"Editor and lemmatizer of the modern edition","kind":"person","description":"The edition credits name Novotny as a co-creator of the 2012 annotated text and credit its 2011 lemmatization to him. The linguistic annotations help a reader follow the Akkadian alongside its translation.","works":["sennacherib-022"],"url":"https://oracc.museum.upenn.edu/rinap/rinap3/Q003496/html","sourceLocator":"Edition credits: creators (2012) and lemmatization (2011)","scope":"Editorial and linguistic roles; no ancient authorship is attributed to the editor."},
+    {"id":"sinaiticus-project","name":"Codex Sinaiticus Project","role":"Collaborative manuscript and transcription project","kind":"institution","description":"The project presents the surviving manuscript online with images, transcription and contextual descriptions. It makes an ancient witness available for inspection; its editorial team is distinct from the manuscript’s ancient scribes.","works":["sinaiticus-mark"],"url":"https://codexsinaiticus.org/en/project/","sourceLocator":"About the project; contents of the current release","scope":"The project’s manuscript description is evidence about this codex, not a doctrinal authority."}
+  ],
+  "cases": [
+    {
+      "id":"hezekiah-assyria","kind":"historical","title":"Hezekiah under siege","question":"What does Sennacherib’s account establish?","lead":"A king in Jerusalem. An Assyrian army. Two accounts of a confrontation—and different purposes behind their telling.",
+      "eyebrow":"History · Israel & Judah","minutes":6,"evidenceId":"sennacherib-022","sourceIds":["sennacherib-022"],
+      "answer":"The Assyrian account names Hezekiah and Jerusalem and describes coercion, territorial loss and tribute. It supports a real historical setting for the biblical confrontation. It does not independently establish every detail or the theological explanation in Kings.",
+      "sections":[
+        {"id":"claim","title":"Start with the claim","text":"The narrow historical claim is that Sennacherib’s royal account places Hezekiah in Jerusalem under Assyrian pressure. That is more specific than saying an artifact ‘proves the Bible’. It is also different from asking why Jerusalem survived.","citations":[{"kind":"source","source":"sennacherib-022","locator":"iii 18–49"}]},
+        {"id":"evidence","title":"Hear the royal voice","text":"The inscription presents fortified towns taken, people removed, territory reassigned and tribute imposed. Its image of a confined bird makes the king’s control the centre of the story. This is a royal presentation of success, not an impartial campaign diary.","citations":[{"kind":"source","source":"sennacherib-022","locator":"iii 18–49, especially iii 27b–40"}]},
+        {"id":"comparison","title":"Read Kings beside it","text":"Kings also names the Assyrian attack and Hezekiah’s tribute, then develops the threat to Jerusalem, the appeal to the Lord and the promised deliverance. The accounts should be compared at the level of their actual wording. For example, 2 Kings 18:14 gives 300 talents of silver; this inscription gives 800. Agreement on the confrontation does not remove that difference.","citations":[{"kind":"scripture","reference":"2 Kings 18:13–16","span":[12018013,12018016]},{"kind":"source","source":"sennacherib-022","locator":"iii 37–49"},{"kind":"scripture","reference":"2 Kings 19:32–37","span":[12019032,12019037]}]},
+        {"id":"alternative","title":"What about royal propaganda?","text":"A royal text’s purpose is a reason to assess its boasts carefully. It does not make the names and places irrelevant. Conversely, its failure to claim the capture of Jerusalem in this passage is not an independent account of the angel in Kings. The source supports a bounded historical comparison; the fuller theological reading comes from the biblical narrative.","citations":[{"kind":"source","source":"sennacherib-022","locator":"iii 18–49"},{"kind":"scripture","reference":"2 Kings 19:35","span":[12019035,12019035]}]}
+      ],
+      "conclusion":"We have a named Assyrian royal account to compare with Kings. It corroborates the confrontation’s people and setting while leaving differences, royal rhetoric and the biblical account of divine deliverance to be considered explicitly.",
+      "limits":["The source is an ancient royal account accessed in a modern translation.","Do not turn the inscription’s silence into a second narration of a miracle."],
+      "related":[{"to":"study/prayer-under-pressure","label":"Read the theological study","note":"2 Kings 19 · Bring the threat before the Lord"},{"to":"works/sennacherib-022","label":"Inspect the named edition","note":"RINAP 3 · Sennacherib 022"}]
+    },
+    {
+      "id":"sinaiticus-mark-ending","kind":"manuscript","title":"Where does Mark end?","question":"What can one manuscript tell us?","lead":"Codex Sinaiticus brings a textual question into focus. Begin with what is on this particular page, then distinguish the observation from the larger argument.",
+      "eyebrow":"Manuscripts · Transmission","minutes":5,"evidenceId":"sinaiticus-mark","sourceIds":["sinaiticus-mark"],
+      "answer":"In the held Sinaiticus transcription, Mark ends at 16:8, followed by its closing title. The KJV includes verses 9–20. This makes the difference inspectable; one witness alone does not settle the history of the Gospel’s original ending.",
+      "sections":[
+        {"id":"witness","title":"Identify the witness","text":"The Codex Sinaiticus Project describes a Greek manuscript from the middle of the fourth century. The relevant page is quire 77, folio 5 recto. Our held transcription provides a check on the text’s coverage; the project’s viewer is the place to inspect the manuscript itself.","citations":[{"kind":"source","source":"sinaiticus-mark","locator":"Mark 16:2–8; Q.77 f.5r; project introduction"}]},
+        {"id":"observation","title":"Separate presence from explanation","text":"The observed boundary is 16:8 in this witness. Saying that Mark deliberately wrote an abrupt ending, or that an earlier ending was lost, makes a further historical claim. Either proposal needs a wider argument about witnesses and literary context than this single example supplies.","citations":[{"kind":"source","source":"sinaiticus-mark","locator":"Final verse block and closing title of Mark"}]},
+        {"id":"reading","title":"Keep the resurrection announcement in view","text":"The textual question concerns the material after verse 8. The announcement that Jesus has risen already appears in verse 6. A comparison should therefore identify the precise passage in question rather than imply that every resurrection statement disappears when the longer ending is absent.","citations":[{"kind":"scripture","reference":"Mark 16:6–8","span":[41016006,41016008]},{"kind":"source","source":"sinaiticus-mark","locator":"Mark 16:6–8 in the held transcription"}]},
+        {"id":"next","title":"What a fuller case would need","text":"A fuller textual argument would compare other manuscripts, translations, early citations and the different ending forms, with dates and textual relationships made explicit. Counting copies without considering their dependence would not by itself answer that question. This page demonstrates one bounded witness comparison.","citations":[{"kind":"source","source":"sinaiticus-mark","locator":"Scope of this case: one manuscript witness"}]}
+      ],
+      "conclusion":"Sinaiticus gives us a concrete witness whose ending can be located and checked. Its evidence should stay visible, together with the limit of what one surviving copy can tell us.",
+      "limits":["The KJV is shown as a reader’s comparison edition, not as an ancient witness.","This case does not present a complete apparatus or a consensus survey about Mark’s original ending."],
+      "related":[{"to":"works/sinaiticus-mark","label":"Open the manuscript record","note":"The witness, transcription and precise location"},{"to":"contributors/sinaiticus-project","label":"Meet the source project","note":"Who makes the manuscript available"}]
+    }
+  ],
+  "lessons":[
+    {
+      "id":"prayer-under-pressure","title":"Bring the threat before the Lord","eyebrow":"Theology · Prayer & providence","lead":"Read Hezekiah’s prayer as part of the story Kings tells about the Lord, his people and his name.","minutes":8,
+      "passage":{"reference":"2 Kings 19:14–19","span":[12019014,12019019]},
+      "aim":"Learn to name a real danger honestly, confess who God is, and ask for help with his glory in view.",
+      "sourceIds":["sennacherib-022"],
+      "sections":[
+        {"id":"read","title":"Read the whole movement","text":"Hezekiah receives the threatening message and spreads it before the Lord. His prayer begins with God’s rule and creative power, acknowledges what Assyria has done, and ends by asking for deliverance so that the kingdoms may know the Lord. Read verses 14–19 before turning the prayer into a formula.","citations":[{"kind":"scripture","reference":"2 Kings 19:14–19","span":[12019014,12019019]}]},
+        {"id":"interpret","title":"Acknowledge danger without granting it ultimacy","text":"The prayer does not deny Assyria’s destruction. It distinguishes the defeated nations’ gods, made by human hands, from the living Lord. In this passage, confession and honest attention to circumstances belong together: God’s sovereignty is the basis of the request, not an excuse to pretend there is no threat.","citations":[{"kind":"scripture","reference":"2 Kings 19:15–18","span":[12019015,12019018]}]},
+        {"id":"theology","title":"Ask with God’s name in view","text":"Hezekiah asks for rescue with a stated purpose: that the kingdoms may know the Lord. The ensuing answer is tied to this narrative and to God’s commitments concerning Jerusalem and David. Christian application should respect that particular promise rather than claim that every believer is guaranteed the same immediate outcome.","citations":[{"kind":"scripture","reference":"2 Kings 19:19","span":[12019019,12019019]},{"kind":"scripture","reference":"2 Kings 19:32–34","span":[12019032,12019034]}]},
+        {"id":"context","title":"Use history to illuminate the setting","text":"The Assyrian account helps us see the historical pressure surrounding the narrative. It names Hezekiah and Jerusalem in the king’s own account of his campaign. The teaching about prayer and the Lord’s purposes here comes from reading Kings; the inscription supplies a historical comparison.","citations":[{"kind":"source","source":"sennacherib-022","locator":"iii 18–49"},{"kind":"scripture","reference":"2 Kings 19:14–19","span":[12019014,12019019]}]},
+        {"id":"apply","title":"Practice a prayer shaped by the passage","text":"Name the pressure you are facing without exaggerating or minimizing it. Confess what this passage says about the Lord. Ask for help, and consider how the desire for his name to be known changes the request. Leave the outcome with him rather than treating this narrative as a guarantee of a particular personal result.","citations":[{"kind":"scripture","reference":"2 Kings 19:14–19","span":[12019014,12019019]}]}
+      ],
+      "questions":["What does Hezekiah say about God before describing what he wants?","How does verse 19 shape the purpose of the request?","Which part of the promised answer belongs specifically to Jerusalem and David in this narrative?"],
+      "conclusion":"Bring the real threat before the Lord, acknowledge who he is, and pray with his name and purposes in view. Let the passage’s particular promise remain particular as its teaching shapes your prayer.",
+      "related":[{"to":"cases/hezekiah-assyria","label":"Examine the historical case","note":"What the Assyrian account establishes—and its limits"},{"to":"works/sennacherib-022","label":"Follow the historical source","note":"Named edition and exact passage"}]
+    }
+  ]
+}

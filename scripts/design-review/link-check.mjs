@@ -2,7 +2,7 @@
 // and the ids the inventory wrote to design/review/instances.json ("valid"). Returns null when fine, else the reason.
 
 const STATIC = new Set([
-  "/", "/library", "/bible", "/read", "/search", "/search/meaning", "/versions", "/sources", "/study", "/atlas", "/charts",
+  "/", "/library", "/bible", "/read", "/search", "/search/meaning", "/versions", "/sources", "/study", "/atlas", "/charts", "/teachers", "/resources",
   "/charts/references", "/charts/structure", "/charts/words-of-jesus", "/charts/versions",
   "/testimonies", "/testimonies/join", "/testimonies/access", "/testimonies/design", "/topics", "/topics/superlist", "/review",
   "/study/references", "/study/structure", "/study/gospels", "/study/versions", "/study/miracles", "/study/names",
@@ -23,6 +23,7 @@ export function linkChecker(valid) {
   const places = new Set(valid.places);
   const books = new Set(Object.values(valid.reader).flatMap((b) => Object.keys(b)));
   const ap = Object.fromEntries(Object.entries(valid.apologetics).map(([k, ids]) => [k, new Set(ids)]));
+  const research = new Set(valid.research ?? []);
 
   return function check(address) {
     const url = new URL(address, "http://site");
@@ -30,6 +31,7 @@ export function linkChecker(valid) {
     const query = url.searchParams;
     if (path === "/study/atlas/map" && query.get("place") && !places.has(query.get("place"))) return `no atlas place "${query.get("place")}"`;
     if (STATIC.has(path)) return null;
+    if (path === "/review/research" || path.startsWith("/review/research/")) return research.has(path) ? null : "no selected research page at this address";
     let m;
     if ((m = /^\/people\/([^/]+)(?:\/([^/]+))?$/.exec(path))) {
       if (!people.has(m[1])) return `no person "${m[1]}"`;

@@ -1,8 +1,8 @@
 {
  "schema": 1,
- "commit": "2c3b7612",
+ "commit": "f088b412",
  "startedAt": "2026-10-09T17:18:38.783Z",
- "finishedAt": "2026-10-10T01:25:06.835Z",
+ "finishedAt": "2026-10-10T01:28:10.460Z",
  "base": "http://127.0.0.1:8969",
  "checks": [
   {
@@ -1783,6 +1783,96 @@
      "detail": "/resources: this address is not a page on the site"
     }
    ]
+  },
+  {
+   "template": "research-lesson",
+   "variant": "lesson",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "research-case",
+   "variant": "historical",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "research-case",
+   "variant": "manuscript",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "research-landing",
+   "variant": "all",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "research-landing",
+   "variant": "cases",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "research-landing",
+   "variant": "study",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "research-catalogue",
+   "variant": "works",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "research-source",
+   "variant": "edition",
+   "instances": 2,
+   "checked": 2,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "research-source",
+   "variant": "evidence",
+   "instances": 2,
+   "checked": 2,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "research-contributor",
+   "variant": "profiles",
+   "instances": 3,
+   "checked": 3,
+   "coverage": "",
+   "failed": {},
+   "failures": []
   }
  ]
 }

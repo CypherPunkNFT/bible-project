@@ -71,6 +71,18 @@ def project_public(citation):
     validate_citation(citation)
     if citation['publication'] != 'published' or citation['permissions']['metadata']['decision'] != 'allowed':
         return None
+    return _selected_projection(citation)
+
+
+def project_preview(citation):
+    """An explicitly selected local draft view; does not change its publication state."""
+    validate_citation(citation)
+    if citation['publication'] != 'draft' or citation['permissions']['metadata']['decision'] != 'allowed':
+        return None
+    return _selected_projection(citation)
+
+
+def _selected_projection(citation):
     # A quotation and its current review have their own gate; metadata permission is insufficient.
     include_quote = (citation['permissions']['quote']['decision'] == 'allowed'
                      and bool(citation['editionId'])
