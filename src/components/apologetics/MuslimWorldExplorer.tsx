@@ -5,17 +5,15 @@ import snapshot from '../../../content/missions/muslim-world.json';
 import type { MissionGlobe } from '@/lib/mission-globe';
 import { groupLabels, type GroupStatus } from '@/lib/mission-groups';
 import { countryPanelDesigns, type CountryPanelDesign } from '@/lib/country-panel-designs';
-import { sphereDesign, type SphereDesign } from '@/lib/mission-sphere-themes';
 import CountryFinder from './CountryFinder';
 import './muslim-world.css';
 
 const CountryPanelPrototype = lazy(() => import('./CountryPanelPrototype'));
-const SphereThemePrototype = lazy(() => import('./SphereThemePrototype'));
 const countries = snapshot.countries;
 const number = (value: number) => new Intl.NumberFormat('en').format(value);
 const date = new Intl.DateTimeFormat('en', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' }).format(new Date(snapshot.snapshotDate + 'T12:00:00Z'));
 
-function CountryMap({ code, spinning, search, palette = 'a', onSelect, onPause }: { code: string; spinning: boolean; search: boolean; palette?: SphereDesign; onSelect(code: string): void; onPause(): void }) {
+function CountryMap({ code, spinning, search, onSelect, onPause }: { code: string; spinning: boolean; search: boolean; onSelect(code: string): void; onPause(): void }) {
   const stage = useRef<HTMLDivElement>(null), canvas = useRef<HTMLCanvasElement>(null), svg = useRef<SVGSVGElement>(null);
   const [viewParams, setViewParams] = useSearchParams();
   const view = viewParams.get('map') === 'flat' ? 'flat' : 'globe';
@@ -26,9 +24,9 @@ function CountryMap({ code, spinning, search, palette = 'a', onSelect, onPause }
     setViewParams(next, { replace: true, preventScrollReset: true });
   };
   const controller = useRef<MissionGlobe>();
-  const latest = useRef({ code, spinning, palette, onSelect, onPause });
+  const latest = useRef({ code, spinning, onSelect, onPause });
   const [active, setActive] = useState(() => window.location.hash === '#muslim-world'), [ready, setReady] = useState(false), [error, setError] = useState(false), [hover, setHover] = useState('');
-  useEffect(() => { latest.current = { code, spinning, palette, onSelect, onPause }; }, [code, spinning, palette, onSelect, onPause]);
+  useEffect(() => { latest.current = { code, spinning, onSelect, onPause }; }, [code, spinning, onSelect, onPause]);
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => { if (entry.isIntersecting) { setActive(true); observer.disconnect(); } }, { rootMargin: '250px' });
     if (stage.current) observer.observe(stage.current);
@@ -41,7 +39,7 @@ function CountryMap({ code, spinning, search, palette = 'a', onSelect, onPause }
     const host = stage.current, map = canvas.current, flat = svg.current;
     setReady(false); setError(false); setHover('');
     const options = {
-        selected: latest.current.code, spinning: latest.current.spinning, palette: latest.current.palette,
+        selected: latest.current.code, spinning: latest.current.spinning,
         onSelect: (value: string) => latest.current.onSelect(value), onPause: () => latest.current.onPause(),
         onHover: (value: string) => { if (!abort.signal.aborted) setHover(value); },
     };
@@ -58,7 +56,6 @@ function CountryMap({ code, spinning, search, palette = 'a', onSelect, onPause }
   }, [active, view]);
   useEffect(() => { controller.current?.select(code); }, [code]);
   useEffect(() => { controller.current?.rotate(spinning); }, [spinning]);
-  useEffect(() => { controller.current?.setPalette?.(palette); }, [palette, ready]);
   return <figure className="mw-globe">
     {search && <div className="mw-map-search"><CountryFinder choose={onSelect} collapsible /></div>}
     <div className={'mw-globe-stage' + (view === 'flat' ? ' is-flat' : '')} ref={stage} tabIndex={0} role="group" aria-busy={!ready && !error} aria-label={view === 'globe' ? 'Interactive globe. Scroll to zoom; arrow keys turn; plus and minus zoom; Space pauses or starts rotation; Home resets. Use the country selector to choose a country.' : 'Interactive flat map. Scroll to zoom; drag or use arrow keys to pan; plus and minus zoom; Home resets. Use the country selector to choose a country.'}>
@@ -76,8 +73,6 @@ function CountryMap({ code, spinning, search, palette = 'a', onSelect, onPause }
 export default function MuslimWorldExplorer() {
   const section = useRef<HTMLDivElement>(null);
   const [params, setParams] = useSearchParams();
-  const sphereTheme = sphereDesign(params.get('globeDesign'));
-  const setSphereTheme = (value: SphereDesign) => { const next = new URLSearchParams(params); next.set('globeDesign', value); setParams(next, { replace: true, preventScrollReset: true }); };
   const requested = params.get('country');
   const requestedDesign = params.get('atlasDesign');
   const prototypeDesign = countryPanelDesigns.find(design => design.id === requestedDesign)?.id;
@@ -116,11 +111,10 @@ export default function MuslimWorldExplorer() {
       <div><span>Country panel options</span><p>{countryPanelDesigns.find(design => design.id === prototypeDesign)?.name}</p></div>
       <div role="group" aria-label="Country panel mock-up">{countryPanelDesigns.map(design => <button key={design.id} type="button" aria-label={`Design ${design.id.toUpperCase()}`} title={design.name} aria-pressed={prototypeDesign === design.id} onClick={() => setDesign(design.id)}>{design.id.toUpperCase()}</button>)}</div>
     </aside>}
-    {sphereTheme && <Suspense fallback={<div role="status">Opening sphere themes…</div>}><SphereThemePrototype design={sphereTheme} choose={setSphereTheme} /></Suspense>}
     <section id="muslim-world" className="mw-explorer" aria-labelledby="mw-heading">
     <header className="mw-introduction"><div><p className="ap-eyebrow"><Globe2 size={15} aria-hidden="true" /> An atlas for understanding the Muslim world</p><h2 id="mw-heading">A world of people.<br /><em>Learn the place.</em></h2></div><p>A neighbour’s faith has a context. Explore 53 Muslim-majority countries and territories, meet some of their people groups, and understand where a gospel witness is present.</p></header>
     <div className="mw-explorer-layout">
-      <CountryMap code={country.code} spinning={spinning} search={!prototypeDesign} palette={sphereTheme} onSelect={choose} onPause={pause} />
+      <CountryMap code={country.code} spinning={spinning} search={!prototypeDesign} onSelect={choose} onPause={pause} />
       <Suspense fallback={<div className="mw-country-panel" role="status">Opening the country panel…</div>}>
         <CountryPanelPrototype country={country} design={prototypeDesign ?? 'c'} adopted={!prototypeDesign} panel={panel} filter={filter} setFilter={setFilter} openGroups={openGroups} choose={choose} setPanel={setPanel} />
       </Suspense>

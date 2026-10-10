@@ -1,6 +1,6 @@
 import { geoCentroid, geoContains, geoDistance, geoOrthographic, geoPath } from 'd3-geo';
 import { loadMissionAtlas, missionOutlines } from './mission-atlas';
-import { spherePalette, type SphereDesign } from './mission-sphere-themes';
+import { missionMapColors, missionTerrainWashes } from './mission-map-colors';
 
 export interface GlobeCountry { code: string; numeric: string | null; name: string }
 export interface MissionGlobe {
@@ -8,14 +8,14 @@ export interface MissionGlobe {
   rotate(value: boolean): void;
   zoom(delta: number): void;
   reset(): void;
-  setPalette?(design: SphereDesign): void;
   destroy(): void;
 }
 const MIN_ZOOM = 1, MAX_ZOOM = 8;
+const earthColors = { ...missionMapColors, minority: '#8eb7b060', selected: '#f0c47e', border: '#a4cfbddd', coast: '#8eb7b074', markerEdge: '#332b20', horizon: '#8eb7b090', hover: '#8eb7b018' };
 export async function createMissionGlobe(
   host: HTMLElement, canvas: HTMLCanvasElement,
   countries: readonly GlobeCountry[],
-  options: { selected: string; spinning: boolean; palette?: SphereDesign; onSelect(code: string): void; onPause(): void; onHover(name: string): void },
+  options: { selected: string; spinning: boolean; onSelect(code: string): void; onPause(): void; onHover(name: string): void },
   signal: AbortSignal,
 ): Promise<MissionGlobe> {
   const atlas = await loadMissionAtlas(signal);
@@ -36,7 +36,6 @@ export async function createMissionGlobe(
   const scheme = matchMedia('(prefers-color-scheme: dark)');
   const darkTheme = () => document.documentElement.dataset.theme === 'dark' || (document.documentElement.dataset.theme !== 'light' && scheme.matches);
   let dark = darkTheme();
-  let palette = options.palette ?? 'a';
   function invalidate() {
     dirty = true;
     if (!destroyed && visible && pageVisible && !raf) { last = performance.now(); raf = requestAnimationFrame(frame); }
@@ -58,7 +57,7 @@ export async function createMissionGlobe(
     invalidate();
   }
   function draw() {
-    const colors = spherePalette(palette, dark);
+    const colors = dark ? earthColors : { ...earthColors, coast: '#53766985', border: '#47695ecc', minority: '#53766980', selected: '#9e6924', horizon: '#53766980', hover: '#507a7214' };
     // The square globe viewport fits the full Earth at minimum zoom.
     // Line geometry avoids inventing polygon borders at the crop edge.
     projection.rotate([-lon, -lat]).scale(radius * zoom).clipAngle(90).clipExtent([[0, 0], [width, height]]).translate([width / 2, height / 2]);
@@ -70,7 +69,7 @@ export async function createMissionGlobe(
     ctx!.beginPath(); path({ type: 'Sphere' }); ctx!.fillStyle = ocean; ctx!.fill();
     ctx!.beginPath(); path(atlas.land); ctx!.fillStyle = colors.land; ctx!.fill();
     ctx!.save(); ctx!.clip();
-    for (const wash of colors.washes) {
+    for (const wash of missionTerrainWashes) {
       const facing = Math.cos(geoDistance(wash.position, [lon, lat]));
       const point = projection(wash.position);
       if (facing <= 0 || !point) continue;
@@ -219,7 +218,6 @@ export async function createMissionGlobe(
     rotate(value) { spinning = value; invalidate(); },
     zoom: adjustZoom,
     reset() { zoom = zoomTarget = 1; center(selected); invalidate(); },
-    setPalette(design) { if (palette !== design) { palette = design; invalidate(); } },
     destroy() {
       destroyed = true; cancelAnimationFrame(raf); observer.disconnect(); viewport.disconnect(); theme.disconnect();
       document.removeEventListener('visibilitychange', visibility); reduced.removeEventListener('change', motion);
