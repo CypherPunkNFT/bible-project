@@ -208,3 +208,16 @@
 @keyframes hub-compass-turn{from{transform:rotate(-360deg)}to{transform:rotate(0)}}
 @media(max-width:700px){.study-experience .map-legend{flex-wrap:wrap;gap:8px}.study-experience .map-legend>span.atlas-invitation{max-width:none;width:100%;text-align:left;margin-left:0}}
 @media(prefers-reduced-motion:reduce){.study-experience .atlas-window:is(:hover,:focus-within) .atlas-compass svg{animation:none}}
+
+/* Strengthen the existing open subject illustrations without adding framing. */
+.study-experience .subject-door{color:var(--ink)}
+.study-experience .subject-door .subject-number{opacity:.85;color:var(--tone);font-size:10px}
+.study-experience .subject-door .subject-art{opacity:1;stroke-width:1.4;filter:drop-shadow(0 0 7px color-mix(in srgb,var(--tone) 9%,transparent));transition:transform .25s,filter .25s}
+.study-experience .subject-door strong{font-size:19px;font-weight:600;line-height:1.35;min-height:52px}
+.study-experience .subject-door small{font-size:11px;color:var(--tone);line-height:1.6}
+.study-experience .subject-door .door-indicator{color:var(--tone);opacity:.8;font-size:20px;transition:transform .2s,opacity .2s}
+.study-experience .subject-door:is(:hover,:focus-visible,.selected) .subject-art{filter:drop-shadow(0 0 10px color-mix(in srgb,var(--tone) 22%,transparent))}
+.study-experience .subject-door:is(:hover,:focus-visible) strong{color:var(--tone)}
+.study-experience .subject-door:is(:hover,:focus-visible) .door-indicator{transform:translateY(3px);opacity:1}
+@media(max-width:700px){.study-experience .subject-door strong{font-size:17px}.study-experience .subject-door small{font-size:11px}}
+@media(prefers-reduced-motion:reduce){.study-experience .subject-door .subject-art,.study-experience .subject-door .door-indicator{transition:none;transform:none}}
