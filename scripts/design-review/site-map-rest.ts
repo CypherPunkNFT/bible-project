@@ -208,7 +208,7 @@ async function apologeticsTemplates(): Promise<{ templates: TemplateDef[]; valid
     variants: [variant({ id: "scenario", name: "A scenario", what: "One practice conversation.", records: ap.PRACTICE, url: (x: ApItem) => `/apologetics/practice?scenario=${x.id}`, samples: [firstOf<ApItem>((x) => x.title ?? x.id, "scenario"), longestText<ApItem>("longest-title", "Longest title", (x) => x.title ?? x.id, "title")] })],
   };
   const sectionPages: TemplateDef = {
-    id: "ap-pages", area: "apologetics", name: "Apologetics section pages", address: "/apologetics/…", what: "The section's own one-off pages.", entries, scopes: [...scopes, "src/pages/ReformedLibraryPage.tsx", "src/pages/WorldviewsPage.tsx", "src/pages/worldviews.css"],
+    id: "ap-pages", area: "apologetics", name: "Apologetics section pages", address: "/apologetics/…", what: "The section's own one-off pages.", entries, scopes: [...scopes, "src/pages/IslamGuidePage.tsx", "src/pages/islam-guide.css", "src/pages/ReformedLibraryPage.tsx", "src/pages/WorldviewsPage.tsx", "src/pages/worldviews.css"],
     variants: [
       single("hub", "Explore (the hub)", "The section's front page.", "/apologetics"),
       single("questions", "Questions", "Every question, with a filter.", "/apologetics/questions"),
@@ -218,6 +218,9 @@ async function apologeticsTemplates(): Promise<{ templates: TemplateDef[]; valid
       single("texts", "Historic texts", "The Reformed library.", "/apologetics/texts"),
       single("sources", "The source room", "Every source the section cites.", "/apologetics/sources"),
       single("saved", "My study", "What this device has saved.", "/apologetics/saved"),
+      single("islam-understanding", "Understanding Islam", "The acquired guide introduction.", "/apologetics/worldviews/islam/guide/understanding"),
+      single("islam-ministry", "Ministry among Muslims", "The ministry guide.", "/apologetics/worldviews/islam/guide/ministry"),
+      single("islam-article", "Islam guide article", "An individual guide article.", "/apologetics/worldviews/islam/guide/article"),
     ],
   };
   const valid = { topics: ap.TOPICS.map((x) => x.id), study: ap.STUDIES.map((x) => x.id), paths: ap.PATHS.map((x) => x.id), worldviews: ap.WORLDVIEWS.map((x) => x.id), debates: ap.DEBATES.map((x) => x.id) };
