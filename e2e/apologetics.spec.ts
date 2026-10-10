@@ -329,3 +329,24 @@ test("apologetics: basis filters open paired local texts and Bible versions", as
   await toggle.click();
   await expect(toggles.last()).toHaveAttribute("aria-expanded", "false");
 });
+
+test("apologetics: learning path studies return to their originating path", async ({ page }) => {
+  const route = "/apologetics/paths/muslim-neighbour";
+  await page.goto(route);
+  const title = await page.locator(".ap-page-heading h1").innerText();
+  const links = page.locator(".ap-path-timeline li > a");
+  const count = await links.count();
+  for (let i = 0; i < count; i++) {
+    await links.nth(i).click();
+    const back = page.locator(".ap-study-heading .ap-back");
+    await expect(back).toHaveText(title);
+    await expect(back).toHaveAttribute("href", route);
+    if (i === 0) await page.reload();
+    await back.click();
+    await expect(page).toHaveURL(new RegExp(route + "$"));
+  }
+  await page.getByRole("link", { name: "Begin the path" }).click();
+  await expect(page.locator(".ap-study-heading .ap-back")).toHaveAttribute("href", route);
+  await page.locator(".ap-study-grid .ap-study-card a").first().click();
+  await expect(page.locator(".ap-study-heading .ap-back")).toHaveAttribute("href", route);
+});
