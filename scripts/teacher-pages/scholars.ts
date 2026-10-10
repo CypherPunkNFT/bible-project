@@ -5,6 +5,7 @@ import fs from "node:fs";
 import path from "node:path";
 import type { Era, Faith, Field, Find, Scholar, ScholarsData } from "../../src/data/teachers/pages-types.ts";
 import { box, mercator, naturalEarth, projectView, sphere } from "./maps.ts";
+import { acquiredInput } from "./acquired.ts";
 
 interface ScholarEntry extends Omit<Scholar, "era" | "site" | "mentions"> { site: [Scholar["site"] extends infer S ? S extends { status: infer T } ? T : never : never, string] | null; match: string }
 interface Input { faiths: Record<Faith, string>; fields: Record<Field, string>; scholars: ScholarEntry[]; finds: Find[]; chain: ScholarsData["chain"] }
@@ -40,6 +41,7 @@ export function buildScholars(site: string): ScholarsData {
   for (const f of input.finds) for (const id of f.by) if (!ids.has(id)) throw new Error(`find ${f.id} in content/teachers/scholars.json names unknown scholar ${id}`);
   for (const [id] of input.chain.steps) if (!ids.has(id)) throw new Error(`a chain step in content/teachers/scholars.json names unknown scholar ${id}`);
   const texts = areaTexts(site);
+  const acquired = new Map(acquiredInput(site).contributors.filter(c => c.side === "scholars").map(c => [c.profileId, c]));
   const mentions = (pattern: string) => {
     const re = new RegExp(`\\b(?:${pattern})`);
     return Object.fromEntries(texts.map(([area, list]) => [area, list.filter((t) => re.test(t)).length]).filter(([, n]) => n));
@@ -55,7 +57,11 @@ export function buildScholars(site: string): ScholarsData {
   return {
     about: "Built by scripts/build-teacher-pages.ts from content/teachers/scholars.json and the site's own content (mentions).",
     faiths: input.faiths, fields: input.fields, eras: ERAS,
-    scholars: input.scholars.map(({ match, site: use, ...s }) => ({ ...s, era: eraOf(s.works[0]?.[1] ?? s.born + 30), site: use ? { status: use[0], note: use[1] } : null, mentions: mentions(match) }))
+    scholars: input.scholars.map(({ match, site: use, ...s }) => {
+      const latest = acquired.get(s.id);
+      return { ...s, era: eraOf(s.works[0]?.[1] ?? s.born + 30), site: use?.[0] === "in-use" ? { status: "in-use" as const, note: use[1] } : latest ? { status: "held" as const, note: `${latest.records.toLocaleString()} held text representations; ${latest.readable.toLocaleString()} available to read on this site. Holdings do not establish use in a live feature.` } : use ? { status: use[0], note: use[1] } : null,
+        mentions: mentions(match), heldTexts: latest?.records ?? 0, readableTexts: latest?.readable ?? 0, acquiredId: latest?.id ?? null };
+    })
       .sort((a, b) => a.born - b.born),
     finds: input.finds, chain: input.chain, views,
   };

@@ -1,6 +1,7 @@
+import { readingSourceUrl } from "@/lib/reading-sources";
 import { ArrowLeft, ArrowRight, ArrowUpRight, BookOpen, MapPin } from "lucide-react";
 import { useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { HISTORY_COLLECTIONS, type HistoryId } from "./history-collections";
 import { PlacesArtwork } from "./PlacesArtwork";
 import { RevealSelection } from "./RevealSelection";
@@ -35,7 +36,7 @@ function TopicExperience({ id }: { id: HistoryId }) {
           <section><h4>Questions to explore</h4><ol className="history-threads">{selected.threads.map((thread, index) => <li key={thread}><span>{String(index + 1).padStart(2, "0")}</span>{thread}</li>)}</ol></section>
           <section><h4><MapPin size={15} aria-hidden />{id === "missions" ? "Regional starting points" : "Places in this story"}</h4><ul className="history-place-list">{selected.places.map((place) => <li key={place}>{place}</li>)}</ul></section>
         </div>
-        <section className="history-sources"><h4><BookOpen size={16} aria-hidden />Reading room · {data.title}</h4><p>Start with these texts and accounts. Each source speaks from its own historical or church perspective.</p>{data.sources.map((source) => <a href={source.url} key={source.url} target="_blank" rel="noreferrer">{source.title}<ArrowUpRight size={15} aria-hidden /></a>)}</section>
+        <section className="history-sources"><h4><BookOpen size={16} aria-hidden />Reading room · {data.title}</h4><p>Start with these texts and accounts. Each source speaks from its own historical or church perspective.</p>{data.sources.map((source, index) => <Link to={readingSourceUrl(`history-${data.id}-${index}`)} key={source.url}>{source.title}<ArrowRight size={15} aria-hidden /></Link>)}</section>
         <nav className="history-topic-next" aria-label="Continue exploring">{data.topics.filter((entry) => entry.id !== selected.id).map((entry) => <button key={entry.id} onClick={() => choose(entry.id)}>{entry.title}<ArrowRight size={14} aria-hidden /></button>)}</nav>
       </article></RevealSelection>
     </section>

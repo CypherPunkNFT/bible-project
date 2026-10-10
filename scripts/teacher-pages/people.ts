@@ -5,6 +5,7 @@ import fs from "node:fs";
 import path from "node:path";
 import type { Book, KnownWork, NotableWork, PassageWork, PeopleData, Person, Place, Sermon } from "../../src/data/teachers/pages-types.ts";
 import { box, mercator, naturalEarth, projectView, sphere } from "./maps.ts";
+import { acquiredInput } from "./acquired.ts";
 
 interface LifeEntry { short: string; born: number; died: number | null; circa?: boolean; birthplaceKnown?: boolean; line: string; places: Place[]; known: [string, number][] }
 interface Lives { people: Record<string, LifeEntry>; links: [string, string, string][] }
@@ -22,20 +23,9 @@ const listJson = (dir: string) => fs.readdirSync(dir).filter((f) => f.endsWith("
 const normal = (title: string) => title.toLowerCase().replace(/^(the|a|an) /, "").replace(/[^a-z0-9]+/g, " ").trim();
 const NOTABLE_GENRES = ["systematic-theology", "treatise", "commentary", "collected-works", "autobiography", "catechism", "letter", "devotional", "biography", "lecture"];
 
-/** Where each work can be read: work → edition → asset address (the original source page or file). */
-function readingAddresses(library: string): Map<string, string> {
-  const editionWork = new Map<string, string>();
-  for (const file of listJson(path.join(library, "catalog/editions"))) {
-    const edition = readJson<{ id: string; workId: string }>(file);
-    editionWork.set(edition.id, edition.workId);
-  }
-  const workUrl = new Map<string, string>();
-  for (const file of listJson(path.join(library, "catalog/assets"))) {
-    const asset = readJson<{ editionId: string; finalUrl: string | null; canonicalUrl: string | null }>(file);
-    const workId = editionWork.get(asset.editionId), url = asset.finalUrl ?? asset.canonicalUrl;
-    if (workId && url && !workUrl.has(workId)) workUrl.set(workId, url);
-  }
-  return workUrl;
+/** Only verified first-party reading addresses; source URLs remain provenance. */
+function readingAddresses(site: string): Map<string, string> {
+  return new Map(Object.entries(acquiredInput(site).addresses));
 }
 
 function registry(library: string): Map<string, RegistryAuthor> {
@@ -89,9 +79,9 @@ function collectHoldings(library: string, ids: string[], workUrl: Map<string, st
       const cell = (chapters[`${book}:${chapter}`] ??= {});
       cell[creator.authorId] = (cell[creator.authorId] ?? 0) + 1;
     }
-    // Where to read it: its own file, else the volume it is part of, else the source the catalogue cites for it.
+    // Its own on-site text, or the on-site parent volume; never an external fallback.
     const parent = work.related?.find((r) => r.relation === "is-part-of")?.targetId;
-    const url = workUrl.get(work.id) ?? (parent ? workUrl.get(parent) : undefined) ?? work.evidence?.find((e) => /^https?:/.test(e.url))?.url ?? null;
+    const url = workUrl.get(work.id) ?? (parent ? workUrl.get(parent) : undefined) ?? null;
     const delivered = work.dates?.find((d) => d.event === "delivery" && d.value)?.value ?? null;
     if (main.length) {
       const first = main[0];
@@ -106,12 +96,11 @@ function collectHoldings(library: string, ids: string[], workUrl: Map<string, st
   return { held, chapters };
 }
 
-function finishHoldings(id: string, person: Holdings): NotableWork[] {
+function finishHoldings(person: Holdings): NotableWork[] {
   person.notable.sort((a, b) => a.rank - b.rank || a.t.length - b.t.length);
   const seen = new Set<string>();
   person.passages.sort((a, b) => a.v - b.v);
   person.sermons.sort((a, b) => (a.d ?? "9").localeCompare(b.d ?? "9") || a.v - b.v);
-  if (id !== "author-charles-spurgeon") person.sermons = person.sermons.slice(0, 60); // Spurgeon keeps every dated sermon
   return person.notable.filter((w) => !seen.has(w.t) && Boolean(seen.add(w.t))).slice(0, 8).map(({ t, g, s }) => ({ t, g, s }));
 }
 
@@ -125,7 +114,15 @@ export function buildPeople(site: string): PeopleData {
   const books: Book[] = readJson<{ books: { code: string; name: string; section: string; chapters: number[][] }[] }>(path.join(site, "data/stats.json")).books
     .filter((b) => b.section !== "apocrypha").map((b) => ({ code: b.code, name: b.name, section: b.section, chapters: b.chapters.map((c) => c[0]) }));
   if (books.length !== 66) throw new Error(`expected 66 books in data/stats.json, found ${books.length}`);
-  const { held, chapters } = collectHoldings(library, ids, readingAddresses(library));
+  const acquisition = acquiredInput(site);
+  const { held, chapters } = collectHoldings(library, ids, readingAddresses(site));
+  const acquired = new Map(acquisition.contributors.filter(c => c.side === "preachers").map(c => [c.profileId, c]));
+  for (const [id, contributor] of acquired) {
+    const have = held[id];
+    if (!have) continue;
+    for (const title of contributor.titles) have.titles.add(normal(title));
+    for (const [title, url] of Object.entries(contributor.titleRoutes)) have.titleUrls.set(normal(title), url);
+  }
 
   const points = Object.fromEntries(ids.flatMap((id) => lives.people[id].places.map(([, lat, lon], i) => [`${id}#${i}`, [lat, lon] as [number, number]])));
   const views = {
@@ -136,15 +133,17 @@ export function buildPeople(site: string): PeopleData {
   };
 
   const people: Person[] = ids.map((id) => {
-    const life = lives.people[id], have = held[id], notable = finishHoldings(id, have);
+    const life = lives.people[id], have = held[id], notable = finishHoldings(have), latest = acquired.get(id);
     const known: KnownWork[] = life.known.map(([title, year]) => {
-      const match = [...have.titles].find((x) => x.includes(normal(title)) || (normal(title).includes(x) && x.length > 8));
+      const matches = [...have.titles].filter((x) => x.includes(normal(title)) || (normal(title).includes(x) && x.length > 8));
+      const match = matches.find(x => have.titleUrls.has(x)) ?? matches[0];
       return { t: title, y: year, inLibrary: Boolean(match), u: match ? have.titleUrls.get(match) ?? null : null };
     });
     const { known: _known, ...rest } = life;
     void _known;
     return { id, name: names.get(id)!.name, traditions: names.get(id)!.traditions, ...rest, works: have.works, genres: have.genres, notable, known,
-      passages: have.passages, books: have.books, sermons: have.sermons };
+      passages: have.passages, books: have.books, sermons: have.sermons,
+      heldTexts: latest?.records ?? 0, readableTexts: latest?.readable ?? 0, acquiredId: latest?.id ?? null };
   }).sort((a, b) => a.born - b.born);
 
   return {

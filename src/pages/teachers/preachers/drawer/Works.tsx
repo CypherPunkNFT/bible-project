@@ -1,6 +1,7 @@
 // The drawer's "what they wrote" parts: best-known works (each the library can open has a Read link), the genre bar,
 // the 66-book strip, and a few titles from the library (ported from the mock-up's drawer.js).
 import { ArrowUpRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import type { PeopleData, Person } from "@/data/teachers/pages-types";
 import { formatNumber } from "../../shared/people";
 import { GENRE_TONE, cssVars, genreName } from "./helpers";
@@ -8,14 +9,14 @@ import { GENRE_TONE, cssVars, genreName } from "./helpers";
 const ICON = { strokeWidth: 1.5, "aria-hidden": true } as const;
 
 function ReadLink({ url }: { url: string }) {
-  return <a className="drw-read" href={url} target="_blank" rel="noreferrer">Read<ArrowUpRight size={13} {...ICON} /></a>;
+  return <Link className="drw-read" to={url}>Read<ArrowUpRight size={13} {...ICON} /></Link>;
 }
 
 export function KnownWorks({ person }: { person: Person }) {
   return <ul className="drw-known">
     {person.known.map((k) => <li key={`${k.t}-${k.y}`}>
       <b>{k.y}</b>
-      <span>{k.u ? <a href={k.u} target="_blank" rel="noreferrer">{k.t}</a> : k.t}</span>
+      <span>{k.u ? <Link to={k.u}>{k.t}</Link> : k.t}</span>
       <span className="drw-tags">
         {k.inLibrary ? <em className="drw-in">In the library</em> : <em className="drw-out">Not in the library yet</em>}
         {k.u && <ReadLink url={k.u} />}
@@ -60,7 +61,7 @@ interface WorkRow { t: string; s: string; u: string | null }
 function WorkList({ rows }: { rows: WorkRow[] }) {
   return <ul className="drw-worklist">
     {rows.map((w, i) => <li key={`${i}-${w.t}`}>
-      {w.u ? <a href={w.u} target="_blank" rel="noreferrer"><span>{w.t}</span><small>{w.s}</small><ArrowUpRight size={14} {...ICON} /></a>
+      {w.u ? <Link to={w.u}><span>{w.t}</span><small>{w.s}</small><ArrowUpRight size={14} {...ICON} /></Link>
         : <div><span>{w.t}</span><small>{w.s}</small></div>}
     </li>)}
   </ul>;
@@ -79,6 +80,7 @@ export function FromLibrary({ person }: { person: Person }) {
     picks.push({ t: w.t, s: `${w.r} · ${genreName(w.g)}`, u: w.u });
   }
   return <>
+    {person.acquiredId && <section><h3>Acquired texts</h3><p className="drw-note">{formatNumber(person.heldTexts)} held text representations · {formatNumber(person.readableTexts)} readable here. Editions and formats can overlap.</p><Link className="drw-read" to={`/teachers/works?author=${encodeURIComponent(person.acquiredId)}`}>Browse the full shelf →</Link></section>}
     {items.length > 0 && <section><h3>From the library</h3><WorkList rows={items.slice(0, 5)} /></section>}
     {picks.length > 0 && person.notable.length > 0 && <section><h3>Read them on a passage</h3><WorkList rows={picks} /></section>}
   </>;

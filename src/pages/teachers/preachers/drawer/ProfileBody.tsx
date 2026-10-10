@@ -27,14 +27,14 @@ export function ProfileBody({ data, person, onOpen }: ProfileBodyProps) {
     <p className="drw-line">{person.line}</p>
     <p className="drw-ring-note">The ring runs from 1500 to today; the coloured arc is {person.short}&apos;s lifetime.</p>
     <dl className="drw-figs">
-      <div><dt>Works in the library</dt><dd>{formatNumber(person.works)}</dd></div>
+      <div><dt>Catalogue work records</dt><dd>{formatNumber(person.works)}</dd></div>
       <div><dt>Sermons</dt><dd>{formatNumber(sermons)}</dd></div>
       <div><dt>Places</dt><dd>{new Set(person.places.map((x) => x[0])).size}</dd></div>
       <div><dt>Links</dt><dd>{links.length}</dd></div>
     </dl>
     <section><h3>Where {person.short} lived</h3><PlaceMap data={data} person={person} lit={lit} /><LifeStrip person={person} lit={lit} /></section>
     <section><h3>Best known for</h3><KnownWorks person={person} /></section>
-    <section><h3>What the library holds</h3><GenreBar person={person} /></section>
+    <section><h3>Genres in the work catalogue</h3><GenreBar person={person} /></section>
     <section>
       <h3>Their works, Bible book by book</h3>
       <p className="drw-note drw-lead">Works in the library whose main text is in each of the 66 books.</p>

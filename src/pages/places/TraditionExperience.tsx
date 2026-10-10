@@ -1,5 +1,6 @@
+import { readingSourceUrl } from "@/lib/reading-sources";
 import { ArrowRight, BookOpen, Church, Compass, Landmark, MapPin } from "lucide-react";
-import { useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { AtlasFindLink } from "./AtlasFindLink";
 import { HISTORY_COLLECTIONS } from "./history-collections";
 import { PlacesArtwork } from "./PlacesArtwork";
@@ -67,6 +68,6 @@ export function TraditionExperience() {
           <AtlasFindLink place={tradition.place} /></div>
       </div>
     </section>
-    <section className="history-sources tradition-sources"><h4><BookOpen size={16} aria-hidden />Reading room · {data.title}</h4><p>Start with these texts and accounts. Each source speaks from its own church perspective.</p>{data.sources.map((source) => <a href={source.url} key={source.url} target="_blank" rel="noreferrer">{source.title}<ArrowRight size={15} aria-hidden /></a>)}</section>
+    <section className="history-sources tradition-sources"><h4><BookOpen size={16} aria-hidden />Reading room · {data.title}</h4><p>Start with these texts and accounts. Each source speaks from its own church perspective.</p>{data.sources.map((source, index) => <Link to={readingSourceUrl(`history-${data.id}-${index}`)} key={source.url}>{source.title}<ArrowRight size={15} aria-hidden /></Link>)}</section>
   </>;
 }

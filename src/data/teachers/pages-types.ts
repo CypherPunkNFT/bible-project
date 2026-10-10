@@ -16,6 +16,9 @@ export interface NotableWork { t: string; g: string; s: string | null }
 export type Place = [string, number, number, number];
 
 export interface Person {
+  heldTexts: number;
+  readableTexts: number;
+  acquiredId: string | null;
   id: string;
   name: string;
   short: string;
@@ -49,6 +52,9 @@ export type Faith = "jewish" | "roman" | "early" | "catholic" | "protestant" | "
 export type Field = "history" | "texts" | "places" | "reference" | "theology";
 export type Era = "ancient" | "medieval" | "early-modern" | "modern";
 export interface Scholar {
+  heldTexts: number;
+  readableTexts: number;
+  acquiredId: string | null;
   id: string;
   name: string;
   short: string;

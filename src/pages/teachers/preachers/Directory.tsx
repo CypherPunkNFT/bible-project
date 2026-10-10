@@ -13,7 +13,7 @@ import "./directory.css";
 
 function WorksCount({ person }: { person: Person }) {
   const n = person.works;
-  if (!n) return <span className="dir-wk"><span className="dir-none">no works yet</span></span>;
+  if (!n) return <span className="dir-wk"><span className="dir-none">{person.heldTexts ? `${formatNumber(person.heldTexts)} held texts` : "no works yet"}</span></span>;
   return <span className="dir-wk" title={`${formatNumber(n)} of their works in the library`}><b>{formatNumber(n)}</b> {n === 1 ? "work" : "works"}</span>;
 }
 
