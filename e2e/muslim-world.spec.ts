@@ -45,6 +45,7 @@ test('flags, larger engagement overview and complete group tabs stay readable an
   await expect(overview).toBeVisible();
   await page.keyboard.press('End'); await expect(groups.locator('[data-people-group]')).toHaveCount(47);
   expect(groupRequests.length).toBe(1);
+  if (await explorer.getByRole('button', { name: 'Search countries', exact: true }).count()) await explorer.getByRole('button', { name: 'Search countries', exact: true }).click();
   await explorer.getByRole('searchbox', { name: 'Find a country', exact: true }).fill('Bangladesh');
   await explorer.getByRole('searchbox', { name: 'Find a country', exact: true }).press('Enter');
   await expect(groups.locator('.mw-group-count')).toContainText('All 56 recorded groups');
@@ -72,6 +73,7 @@ test('country selection, demographics, source links and complete group tables pr
   await explorer.scrollIntoViewIfNeeded();
   await expect(explorer.getByRole('heading', { name: 'Pakistan', exact: true })).toBeVisible();
   await expect(explorer.getByRole('group', { name: /^Interactive globe/ })).toHaveAttribute('aria-busy', 'false');
+  if (await explorer.getByRole('button', { name: 'Search countries', exact: true }).count()) await explorer.getByRole('button', { name: 'Search countries', exact: true }).click();
   await explorer.getByRole('searchbox', { name: 'Find a country' }).fill('Indonesia');
   await explorer.getByRole('searchbox', { name: 'Find a country', exact: true }).press('Enter');
   await expect(explorer.getByRole('heading', { name: 'Indonesia', exact: true })).toBeVisible();
@@ -84,8 +86,10 @@ test('country selection, demographics, source links and complete group tables pr
   await expect(explorer.locator('.mw-pg-editorial')).toContainText('Sunda');
   await explorer.getByRole('tab', { name: 'Gospel Presence' }).click();
   await expect(explorer.getByRole('link', { name: /IMB profile/ })).toHaveAttribute('href', 'https://peoplegroups.org/country/IDN/');
+  if (await explorer.getByRole('button', { name: 'Search countries', exact: true }).count()) await explorer.getByRole('button', { name: 'Search countries', exact: true }).click();
   await explorer.getByRole('searchbox', { name: 'Find a country' }).fill('xyznotacountry');
   await expect(explorer.getByRole('status')).toContainText('No matching countries');
+  if (await explorer.getByRole('button', { name: 'Search countries', exact: true }).count()) await explorer.getByRole('button', { name: 'Search countries', exact: true }).click();
   await explorer.getByRole('searchbox', { name: 'Find a country', exact: true }).fill('Kosovo');
   await explorer.getByRole('searchbox', { name: 'Find a country', exact: true }).press('Enter');
   await expect(explorer.getByRole('heading', { name: 'Kosovo', exact: true })).toBeVisible();
@@ -239,6 +243,7 @@ test('outline globe needs no WebGL or imagery; profiles stay usable if the map f
   expect(colours.ocean).toBeGreaterThan(100); expect(colours.land).toBeGreaterThan(100);
   await expect(explorer.locator('.mw-map-credit')).toHaveCount(0);
   expect((await page.evaluate(() => performance.getEntriesByType('resource').map(r => r.name))).some(name => /earth\.(webp|jpg)/.test(name))).toBe(false);
+  if (await explorer.getByRole('button', { name: 'Search countries', exact: true }).count()) await explorer.getByRole('button', { name: 'Search countries', exact: true }).click();
   await explorer.getByRole('searchbox', { name: 'Find a country', exact: true }).fill('Mayotte');
   await explorer.getByRole('searchbox', { name: 'Find a country', exact: true }).press('Enter');
   await expect(explorer.getByRole('heading', { name: 'Mayotte', exact: true })).toBeVisible();
@@ -246,6 +251,7 @@ test('outline globe needs no WebGL or imagery; profiles stay usable if the map f
   await page.reload();
   await explorer.scrollIntoViewIfNeeded();
   await expect(explorer.getByRole('status')).toContainText('The map is unavailable.');
+  if (await explorer.getByRole('button', { name: 'Search countries', exact: true }).count()) await explorer.getByRole('button', { name: 'Search countries', exact: true }).click();
   await explorer.getByRole('searchbox', { name: 'Find a country', exact: true }).fill('Bangladesh');
   await explorer.getByRole('searchbox', { name: 'Find a country', exact: true }).press('Enter');
   await expect(explorer.getByRole('heading', { name: 'Bangladesh', exact: true })).toBeVisible();
@@ -275,7 +281,20 @@ test('the default page adopts B/C/B and engagement cards open the matching direc
   await expect(explorer.locator('.mw-header-population dd')).toHaveText('109.3M');
   await expect(explorer.locator('.mw-header-faith strong')).toHaveText(['95.2%', '4.8%']);
   await expect(explorer.locator('.mw-adopted-panel').getByRole('searchbox', { name: 'Find a country' })).toHaveCount(0);
-  await expect(explorer.locator('.mw-globe').getByRole('searchbox', { name: 'Find a country' })).toBeVisible();
+  const map = explorer.locator('.mw-globe');
+  await expect(map.getByRole('searchbox', { name: 'Find a country' })).toHaveCount(0);
+  const searchToggle = map.getByRole('button', { name: 'Search countries', exact: true });
+  await expect(searchToggle).toHaveAttribute('aria-expanded', 'false');
+  await searchToggle.focus(); await page.keyboard.press('Enter');
+  const search = map.getByRole('searchbox', { name: 'Find a country' });
+  await expect(search).toBeFocused();
+  await expect(map.getByRole('button', { name: 'Close country search' })).toHaveAttribute('aria-expanded', 'true');
+  const pill = map.locator('.mw-country-search-pill');
+  const glass = await pill.locator('svg').boundingBox(), writable = await search.boundingBox();
+  expect(glass!.x + glass!.width).toBeLessThan(writable!.x);
+  await search.press('Escape');
+  await expect(map.getByRole('button', { name: 'Search countries', exact: true })).toBeFocused();
+  await expect(map.getByRole('searchbox', { name: 'Find a country' })).toHaveCount(0);
   for (const [faith, share] of [['Muslim', 95.2], ['Christian', 4.8]] as const) {
     const meter = explorer.getByRole('meter', { name: `${faith} identification in Egypt, 2020` });
     await expect(meter).toHaveAttribute('aria-valuenow', String(share));

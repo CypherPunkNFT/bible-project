@@ -60,7 +60,7 @@ function CountryMap({ code, spinning, search, palette = 'a', onSelect, onPause }
   useEffect(() => { controller.current?.rotate(spinning); }, [spinning]);
   useEffect(() => { controller.current?.setPalette?.(palette); }, [palette, ready]);
   return <figure className="mw-globe">
-    {search && <div className="mw-map-search"><CountryFinder choose={onSelect} /></div>}
+    {search && <div className="mw-map-search"><CountryFinder choose={onSelect} collapsible /></div>}
     <div className={'mw-globe-stage' + (view === 'flat' ? ' is-flat' : '')} ref={stage} tabIndex={0} role="group" aria-busy={!ready && !error} aria-label={view === 'globe' ? 'Interactive globe. Scroll to zoom; arrow keys turn; plus and minus zoom; Space pauses or starts rotation; Home resets. Use the country selector to choose a country.' : 'Interactive flat map. Scroll to zoom; drag or use arrow keys to pan; plus and minus zoom; Home resets. Use the country selector to choose a country.'}>
       {view === 'globe' ? <canvas ref={canvas} aria-hidden="true" /> : <svg ref={svg} className="mw-flat-map" aria-hidden="true" />}
       {!ready && <div className="mw-globe-loading" role="status"><Globe2 size={90} strokeWidth={.5} /><p>{error ? 'The map is unavailable. Choose a country from the selector.' : 'Opening the atlas…'}</p></div>}
