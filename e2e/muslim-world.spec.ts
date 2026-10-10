@@ -104,7 +104,7 @@ test('clicking an actual projected country selects its profile; wheel and keyboa
   expect(await stage.evaluate(element => getComputedStyle(element).backgroundColor)).toBe('rgba(0, 0, 0, 0)');
   const box = (await stage.boundingBox())!;
   const saudi = geoCentroid(atlas.countries.find(c => c.properties.code === 'SAU') as Feature<Polygon | MultiPolygon>);
-  const projection = geoOrthographic().rotate([-saudi[0], -saudi[1]]).scale(Math.min(box.width, box.height) / 2 - 1).translate([box.width / 2, box.height / 2]);
+  const projection = geoOrthographic().rotate([-saudi[0], -saudi[1]]).scale(box.width / 2 - 1).translate([box.width / 2, box.height / 2]);
   const egypt = projection([29.877917299852545, 26.459585778678562])!;
   await stage.click({ position: { x: egypt[0], y: egypt[1] } });
   await expect(explorer.getByRole('heading', { name: 'Egypt', exact: true })).toBeVisible();
@@ -116,8 +116,8 @@ test('clicking an actual projected country selects its profile; wheel and keyboa
     const image = (canvas as HTMLCanvasElement).getContext('2d')!.getImageData(0, 0, (canvas as HTMLCanvasElement).width, (canvas as HTMLCanvasElement).height);
     let left = image.width, right = 0;
     for (let y = 0; y < image.height; y++) for (let x = 0; x < image.width; x++) if (image.data[(y * image.width + x) * 4 + 3]) { left = Math.min(left, x); right = Math.max(right, x); }
-    return (right - left) / image.height;
-  })).toBeGreaterThan(.96);
+    return (right - left) / image.width;
+  })).toBeGreaterThan(.99);
   await stage.hover(); const scrollBefore = await page.evaluate(() => scrollY);
   const wholeWorld = await stage.locator('canvas').evaluate(canvas => (canvas as HTMLCanvasElement).toDataURL());
   await page.mouse.wheel(0, -700); await page.waitForTimeout(150);

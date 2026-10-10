@@ -50,12 +50,13 @@ export async function createMissionGlobe(
   function resize() {
     const box = host.getBoundingClientRect(); width = box.width; height = box.height;
     if (!width || !height) return;
-    dpr = Math.min(devicePixelRatio || 1, 1.5); radius = Math.min(width, height) / 2 - 1;
+    // Minimum zoom fills the available map width, with room for the horizon stroke.
+    dpr = Math.min(devicePixelRatio || 1, 1.5); radius = width / 2 - 1;
     canvas.width = Math.round(width * dpr); canvas.height = Math.round(height * dpr);
     invalidate();
   }
   function draw() {
-    // Keep the natural Earth horizon inside the rectangular viewport.
+    // Size the Earth from the viewport width; the rectangle clips its vertical extent.
     // Line geometry avoids inventing polygon borders at the crop edge.
     projection.rotate([-lon, -lat]).scale(radius * zoom).clipAngle(90).clipExtent([[0, 0], [width, height]]).translate([width / 2, height / 2]);
     ctx!.setTransform(dpr, 0, 0, dpr, 0, 0); ctx!.clearRect(0, 0, width, height);
