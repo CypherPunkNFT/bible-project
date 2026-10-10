@@ -22,11 +22,20 @@ test('sixteen sphere cards recolour one canvas while preserving zoom, selection 
   const stage = page.locator('.mw-globe-stage');
   await expect(stage).toHaveAttribute('aria-busy', 'false');
   await expect(page.getByRole('complementary', { name: 'Sphere theme mock-up' })).toHaveCount(0);
+  await page.evaluate(() => document.fonts.ready);
+  // Compare colour at an identical integer canvas size, independent of responsive subpixel layout.
+  await page.addStyleTag({ content: '.mw-globe-stage{width:256px!important;height:256px!important}' });
+  await expect.poll(() => stage.locator('canvas').evaluate(node => (node as HTMLCanvasElement).width)).toBe(256);
+  await stage.scrollIntoViewIfNeeded();
+  await page.mouse.move(0, 0);
+  await page.evaluate(() => new Promise<void>(resolve => requestAnimationFrame(() => requestAnimationFrame(() => resolve()))));
   const baseline = await stage.locator('canvas').evaluate(samples);
   await page.goto(route + '&globeDesign=a#muslim-world');
   const preview = page.getByRole('complementary', { name: 'Sphere theme mock-up' });
   await expect(stage).toHaveAttribute('aria-busy', 'false');
   await expect(preview.getByRole('button')).toHaveCount(16);
+  const fixedSize = await page.addStyleTag({ content: '.mw-globe-stage{width:256px!important;height:256px!important}' });
+  await expect.poll(() => stage.locator('canvas').evaluate(node => (node as HTMLCanvasElement).width)).toBe(256);
   await preview.scrollIntoViewIfNeeded();
   for (const image of await preview.locator('img').all()) {
     await image.scrollIntoViewIfNeeded();
@@ -34,7 +43,10 @@ test('sixteen sphere cards recolour one canvas while preserving zoom, selection 
   }
   expect(await page.locator('canvas').count()).toBe(1);
   await stage.scrollIntoViewIfNeeded();
+  await page.mouse.move(0, 0);
   await expect.poll(() => stage.locator('canvas').evaluate(samples)).toBe(baseline);
+  await fixedSize.evaluate(node => node.remove());
+  await expect.poll(() => stage.locator('canvas').evaluate(node => (node as HTMLCanvasElement).width)).toBeGreaterThan(256);
   const canvas = await stage.locator('canvas').elementHandle();
   const requestsBefore = atlasRequests;
   const seen = new Set<string>();
