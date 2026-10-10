@@ -27,7 +27,7 @@ export async function createMissionGlobe(
   const projection = geoOrthographic().clipAngle(90).precision(.3);
   const path = geoPath(projection, ctx);
   let destroyed = false, visible = true, pageVisible = !document.hidden;
-  let width = 1, height = 1, dpr = 1, radius = 1, zoom = 1.35, zoomTarget = 1.35, lon = 45, lat = 22;
+  let width = 1, height = 1, dpr = 1, radius = 1, zoom = MIN_ZOOM, zoomTarget = MIN_ZOOM, lon = 45, lat = 22;
   let selected = options.selected, spinning = options.spinning, dirty = true, raf = 0, last = 0;
   let hover = '', pointer: { id: number; x: number; y: number; lon: number; lat: number; moved: boolean } | null = null;
   let fly: { lon: number; lat: number; startLon: number; startLat: number; start: number } | null = null;
@@ -56,7 +56,7 @@ export async function createMissionGlobe(
     invalidate();
   }
   function draw() {
-    // Size the Earth from the viewport width; the rectangle clips its vertical extent.
+    // The square globe viewport fits the full Earth at minimum zoom.
     // Line geometry avoids inventing polygon borders at the crop edge.
     projection.rotate([-lon, -lat]).scale(radius * zoom).clipAngle(90).clipExtent([[0, 0], [width, height]]).translate([width / 2, height / 2]);
     ctx!.setTransform(dpr, 0, 0, dpr, 0, 0); ctx!.clearRect(0, 0, width, height);

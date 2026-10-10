@@ -99,6 +99,12 @@ test('clicking an actual projected country selects its profile; wheel and keyboa
   await explorer.scrollIntoViewIfNeeded();
   await expect(explorer.getByRole('group', { name: /^Interactive globe/ })).toHaveAttribute('aria-busy', 'false');
   const stage = explorer.getByRole('group', { name: /^Interactive globe/ });
+  // On refresh the upper and lower quarters lie outside the full circle,
+  // rather than inside a magnified Earth cropped by the container.
+  await expect.poll(() => stage.locator('canvas').evaluate(canvas => {
+    const c = canvas as HTMLCanvasElement, image = c.getContext('2d')!.getImageData(0, 0, c.width, c.height);
+    return [[c.width / 4, 2], [c.width * 3 / 4, 2], [c.width / 4, c.height - 3], [c.width * 3 / 4, c.height - 3]].map(([x, y]) => image.data[(Math.floor(y) * c.width + Math.floor(x)) * 4 + 3]);
+  })).toEqual([0, 0, 0, 0]);
   await stage.focus(); await page.keyboard.press('Home');
   expect(await stage.evaluate(element => getComputedStyle(element).borderRadius)).toBe('0px');
   expect(await stage.evaluate(element => getComputedStyle(element).backgroundColor)).toBe('rgba(0, 0, 0, 0)');
@@ -110,20 +116,20 @@ test('clicking an actual projected country selects its profile; wheel and keyboa
   await expect(explorer.getByRole('heading', { name: 'Egypt', exact: true })).toBeVisible();
   await expect(page).toHaveURL(/country=EGY/);
   await expect(explorer.locator('.mw-view-switch button')).toHaveCount(2);
-  expect(Math.abs(box.width / box.height - 4 / 3)).toBeLessThan(.02);
+  expect(Math.abs(box.width - box.height)).toBeLessThan(1);
   await stage.focus(); await page.keyboard.press('Home');
   await expect.poll(async () => stage.locator('canvas').last().evaluate(canvas => {
     const image = (canvas as HTMLCanvasElement).getContext('2d')!.getImageData(0, 0, (canvas as HTMLCanvasElement).width, (canvas as HTMLCanvasElement).height);
-    let left = image.width, right = 0;
-    for (let y = 0; y < image.height; y++) for (let x = 0; x < image.width; x++) if (image.data[(y * image.width + x) * 4 + 3]) { left = Math.min(left, x); right = Math.max(right, x); }
-    return (right - left) / image.width;
+    let left = image.width, right = 0, top = image.height, bottom = 0;
+    for (let y = 0; y < image.height; y++) for (let x = 0; x < image.width; x++) if (image.data[(y * image.width + x) * 4 + 3]) { left = Math.min(left, x); right = Math.max(right, x); top = Math.min(top, y); bottom = Math.max(bottom, y); }
+    return Math.min((right - left) / image.width, (bottom - top) / image.height);
   })).toBeGreaterThan(.99);
   await stage.hover(); const scrollBefore = await page.evaluate(() => scrollY);
   const wholeWorld = await stage.locator('canvas').evaluate(canvas => (canvas as HTMLCanvasElement).toDataURL());
   await page.mouse.wheel(0, -700); await page.waitForTimeout(150);
   expect(await page.evaluate(() => scrollY)).toBe(scrollBefore);
   expect(await stage.locator('canvas').evaluate(canvas => (canvas as HTMLCanvasElement).toDataURL())).not.toBe(wholeWorld);
-  // Deep zoom fills the rectangular viewport, including its corners.
+  // Deep zoom fills the map viewport, including its corners.
   await page.mouse.wheel(0, -5000); await page.waitForTimeout(150);
   await page.mouse.wheel(0, -5000); await page.waitForTimeout(150);
   expect(await page.evaluate(() => scrollY)).toBe(scrollBefore);
