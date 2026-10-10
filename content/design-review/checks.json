@@ -1,8 +1,8 @@
 {
  "schema": 1,
- "commit": "fb84a325a3f66f3dbca8cb160ae71ab1a70f7c80",
+ "commit": "4e52494da582b3b7179c429a6eb8a8d778a95826",
  "startedAt": "2026-10-08T03:26:04.125Z",
- "finishedAt": "2026-10-10T21:52:37.405Z",
+ "finishedAt": "2026-10-10T23:11:07.608Z",
  "base": "http://127.0.0.1:8943",
  "checks": [
   {
@@ -368,96 +368,6 @@
   {
    "template": "study-legacy",
    "variant": "page",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {},
-   "failures": []
-  },
-  {
-   "template": "study-branches",
-   "variant": "theology-books",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {},
-   "failures": []
-  },
-  {
-   "template": "study-branches",
-   "variant": "theology-jesus",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {},
-   "failures": []
-  },
-  {
-   "template": "study-branches",
-   "variant": "theology-doctrine",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {},
-   "failures": []
-  },
-  {
-   "template": "study-branches",
-   "variant": "theology-life",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {},
-   "failures": []
-  },
-  {
-   "template": "study-branches",
-   "variant": "theology-people",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {},
-   "failures": []
-  },
-  {
-   "template": "study-branches",
-   "variant": "academic-history",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {},
-   "failures": []
-  },
-  {
-   "template": "study-branches",
-   "variant": "academic-texts",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {},
-   "failures": []
-  },
-  {
-   "template": "study-branches",
-   "variant": "academic-languages",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {},
-   "failures": []
-  },
-  {
-   "template": "study-branches",
-   "variant": "academic-culture",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {},
-   "failures": []
-  },
-  {
-   "template": "study-branches",
-   "variant": "academic-church",
    "instances": 1,
    "checked": 1,
    "coverage": "",
@@ -1513,6 +1423,96 @@
    "variant": "pending",
    "instances": 1,
    "checked": 0,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "study-branches",
+   "variant": "theology-books",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "study-branches",
+   "variant": "theology-jesus",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "study-branches",
+   "variant": "theology-doctrine",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "study-branches",
+   "variant": "theology-life",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "study-branches",
+   "variant": "theology-people",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "study-branches",
+   "variant": "academic-history",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "study-branches",
+   "variant": "academic-texts",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "study-branches",
+   "variant": "academic-languages",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "study-branches",
+   "variant": "academic-culture",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "study-branches",
+   "variant": "academic-church",
+   "instances": 1,
+   "checked": 1,
    "coverage": "",
    "failed": {},
    "failures": []
