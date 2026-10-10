@@ -1,0 +1,12 @@
+.mw-country-finder{position:relative;padding-top:3px;min-width:0}
+.mw-country-finder label{display:flex;gap:7px;align-items:center;font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:var(--mw-teal);margin-bottom:10px}
+.mw-country-finder input{width:100%;min-height:44px;min-width:0;font:inherit;font-size:12px;color:var(--ink);background:var(--surface);border:1px solid var(--line);padding:10px}
+.mw-country-results{position:absolute;left:0;right:0;top:100%;margin-top:5px;z-index:5;background:var(--surface);border:1px solid var(--line);padding:6px 4px 6px 6px;box-shadow:0 12px 24px #0002}
+.mw-country-results .mw-pill-scroll{margin-right:10px}
+.mw-country-results-list{max-height:220px;overflow:auto}
+.mw-country-results .mw-scroll-pill{left:calc(100% + 2px);width:8px}
+.mw-country-results-list button{display:block;width:100%;padding:10px 7px;text-align:left;font-size:12px;line-height:1.6;border-bottom:1px solid var(--line);color:var(--ink)}
+.mw-country-results-list button:hover,.mw-country-results-list button:focus-visible{background:color-mix(in srgb,var(--mw-teal) 10%,var(--surface));color:var(--mw-teal);outline:0}
+.mw-country-results-list p{font-size:12px;padding:10px;color:var(--muted)}
+.mw-map-search{position:absolute;top:0;left:0;width:min(260px,calc(100% - 58px));z-index:3}
+.mw-map-search label{width:fit-content;background:var(--page);padding-right:6px}

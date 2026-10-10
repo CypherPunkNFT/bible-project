@@ -1,10 +1,10 @@
-import { useRef, useState } from 'react';
-import { CircleCheck, Compass, RadioTower, Search, Sprout, UsersRound } from 'lucide-react';
+import { useRef } from 'react';
+import { CircleCheck, Compass, RadioTower, Sprout, UsersRound } from 'lucide-react';
 import snapshot from '../../../content/missions/muslim-world.json';
 import { groupLabels, type GroupStatus } from '@/lib/mission-groups';
 import type { CountryPanelDesign } from '@/lib/country-panel-designs';
 import CountryPeopleGroups from './CountryPeopleGroups';
-import PillScroll from './PillScroll';
+import CountryFinder from './CountryFinder';
 import CountryPanelHeader from './CountryPanelHeader';
 import './country-panel-prototype.css';
 
@@ -18,28 +18,15 @@ export default function CountryPanelPrototype({ country, design, panel, choose, 
   setPanel(value: 'gospel' | 'groups'): void;
   adopted?: boolean; filter?: GroupStatus | 'all'; setFilter?(value: GroupStatus | 'all'): void; openGroups?(value: GroupStatus): void;
 }) {
-  const [search, setSearch] = useState(''), [open, setOpen] = useState(false);
-  const tabs = useRef<HTMLDivElement>(null), results = useRef<HTMLDivElement>(null);
-  const filtered = snapshot.countries.filter(entry => entry.name.toLowerCase().includes(search.trim().toLowerCase()));
-  const select = (code: string) => { choose(code); setSearch(''); setOpen(false); };
+  const tabs = useRef<HTMLDivElement>(null);
   const rows = <dl className="mw-prototype-stats">{keys.map(key => {
     const Icon = icons[key];
     return <div key={key} className={`mw-status-${key}`}><dt><Icon size={17} strokeWidth={1.5} aria-hidden="true" /><span>{groupLabels[key]}</span></dt><dd><strong>{country.imb[key].groups}</strong><span>{compact(country.imb[key].population)} people</span></dd></div>;
   })}</dl>;
   let offset = 0;
   const circumference = 2 * Math.PI * 46;
-  const finder = <div className="mw-prototype-finder"><label htmlFor="mw-prototype-search"><Search size={13} aria-hidden="true" /> Find a country</label><input id="mw-prototype-search" type="search" aria-label="Find a country" aria-expanded={open && !!search} aria-controls="mw-prototype-results" placeholder="Search all 53 countries" value={search} onChange={event => { setSearch(event.target.value); setOpen(true); }} onFocus={() => setOpen(true)} onBlur={event => { if (!event.currentTarget.parentElement?.contains(event.relatedTarget as Node)) setOpen(false); }} onKeyDown={event => {
-        if (event.key === 'Escape') setOpen(false);
-        if (event.key === 'Enter' && search.trim() && filtered[0]) select(filtered[0].code);
-        if (event.key === 'ArrowDown') { event.preventDefault(); results.current?.querySelector<HTMLButtonElement>('button')?.focus(); }
-      }} />
-        {open && !!search && <div id="mw-prototype-results" className="mw-prototype-results" ref={results} onKeyDown={event => {
-          if (event.key === 'Escape') { setOpen(false); document.getElementById('mw-prototype-search')?.focus(); }
-          if (['ArrowDown', 'ArrowUp'].includes(event.key)) { event.preventDefault(); const buttons = [...results.current!.querySelectorAll<HTMLButtonElement>('button')]; const index = buttons.indexOf(document.activeElement as HTMLButtonElement); buttons[(index + (event.key === 'ArrowDown' ? 1 : -1) + buttons.length) % buttons.length]?.focus(); }
-        }}><PillScroll className="mw-prototype-results-list" label="Country search results"><div>{filtered.map(entry => <button key={entry.code} type="button" onClick={() => select(entry.code)}>{entry.name}</button>)}{!filtered.length && <p role="status">No matching countries.</p>}</div></PillScroll></div>}
-      </div>;
   return <div className={`mw-country-panel mw-prototype mw-design-${design}${adopted ? ' mw-adopted-panel' : ''}`}>
-    <CountryPanelHeader country={country} design={adopted ? 'b' : design} finder={finder} />
+    <CountryPanelHeader country={country} design={adopted ? 'b' : design} adopted={adopted} finder={adopted ? null : <CountryFinder choose={choose} />} />
     <article className="mw-prototype-card" aria-label={`${country.name} country profile`}>
       <div className="mw-prototype-tabs" role="tablist" aria-label="Country information" ref={tabs}>{(['gospel', 'groups'] as const).map(value => {
         const Icon = value === 'gospel' ? RadioTower : UsersRound;

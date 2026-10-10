@@ -18,7 +18,7 @@ test('flags, larger engagement overview and complete group tabs stay readable an
   await expect(overview.locator('.mw-prototype-tiles strong')).toHaveText(['26', '19', '2']);
   await expect(overview.getByRole('button', { name: 'View Unengaged and unreached people groups' })).toBeVisible();
   await expect(overview.locator('.mw-presence-title')).toHaveText(['Unengaged and unreached', 'Engaged yet unreached', 'No longer unreached']);
-  expect(await explorer.locator('.mw-header-b-facts > div').last().evaluate(element => getComputedStyle(element).borderLeftWidth)).toBe('1px');
+  expect(await explorer.locator('.mw-header-faith > div').last().evaluate(element => getComputedStyle(element).borderLeftWidth)).toBe('1px');
   expect(groupRequests).toEqual([]);
   await page.getByRole('tab', { name: /People Groups/ }).click();
   const groups = page.getByRole('tabpanel', { name: /People Groups/ });
@@ -271,10 +271,19 @@ test('the default page adopts B/C/B and engagement cards open the matching direc
   await page.goto(route + '?country=EGY&question=jesus#muslim-world');
   const explorer = page.locator('#muslim-world');
   await expect(page.getByRole('complementary', { name: 'Atlas design review' })).toHaveCount(0);
-  await expect(explorer.locator('.mw-header-b-facts dt')).toHaveText(['Population', 'Muslim', 'Christian']);
-  await expect(explorer.locator('.mw-header-b-facts dd')).toHaveText(['109.3M', '95.2%', '4.8%']);
-  const muslim = await explorer.locator('.mw-header-b-facts > div').nth(1).boundingBox();
-  const christian = await explorer.locator('.mw-header-b-facts > div').nth(2).boundingBox();
+  await expect(explorer.locator('.mw-header-population dt')).toHaveText('Population');
+  await expect(explorer.locator('.mw-header-population dd')).toHaveText('109.3M');
+  await expect(explorer.locator('.mw-header-faith strong')).toHaveText(['95.2%', '4.8%']);
+  await expect(explorer.locator('.mw-adopted-panel').getByRole('searchbox', { name: 'Find a country' })).toHaveCount(0);
+  await expect(explorer.locator('.mw-globe').getByRole('searchbox', { name: 'Find a country' })).toBeVisible();
+  for (const [faith, share] of [['Muslim', 95.2], ['Christian', 4.8]] as const) {
+    const meter = explorer.getByRole('meter', { name: `${faith} identification in Egypt, 2020` });
+    await expect(meter).toHaveAttribute('aria-valuenow', String(share));
+    const ratio = await meter.evaluate(element => element.firstElementChild!.getBoundingClientRect().width / element.getBoundingClientRect().width);
+    expect(ratio).toBeCloseTo(share / 100, 2);
+  }
+  const muslim = await explorer.locator('.mw-header-faith > div').nth(0).boundingBox();
+  const christian = await explorer.locator('.mw-header-faith > div').nth(1).boundingBox();
   expect(christian!.x).toBeGreaterThan(muslim!.x);
   expect(Math.abs(christian!.y - muslim!.y)).toBeLessThan(1);
   const statuses = [
