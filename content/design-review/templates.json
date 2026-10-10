@@ -1,7 +1,7 @@
 {
  "schema": 1,
- "generatedAt": "2026-10-10T00:34:48.491Z",
- "commit": "b7f410d7",
+ "generatedAt": "2026-10-10T01:06:54.029Z",
+ "commit": "d8809f30",
  "areas": [
   {
    "id": "people",
@@ -2610,20 +2610,23 @@
     "src/components/apologetics/CountryPeopleGroups.tsx",
     "src/components/apologetics/MuslimWorldExplorer.tsx",
     "src/components/apologetics/PillScroll.tsx",
+    "src/components/apologetics/SphereThemePrototype.tsx",
     "src/components/apologetics/country-panel-prototype.css",
     "src/components/apologetics/country-people-groups.css",
     "src/components/apologetics/muslim-world.css",
     "src/components/apologetics/pill-scroll.css",
+    "src/components/apologetics/sphere-theme-prototype.css",
     "src/lib/country-panel-designs.ts",
     "src/lib/mission-atlas.ts",
     "src/lib/mission-flat-map.ts",
     "src/lib/mission-globe.ts",
     "src/lib/mission-groups.ts",
     "src/lib/mission-map-colors.ts",
+    "src/lib/mission-sphere-themes.ts",
     "src/pages/WorldviewsPage.tsx",
     "src/pages/worldviews.css"
    ],
-   "sourceHash": "475286b91bf8cbe5",
+   "sourceHash": "365ee068fdd8c45b",
    "signature": {
     "selector": "#muslim-world",
     "label": "Muslim-world country explorer"
@@ -2847,6 +2850,90 @@
        "id": "page",
        "label": "The page",
        "url": "/apologetics/worldviews/islam?country=EGY&atlasDesign=h#muslim-world",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "sphere-a",
+     "name": "Islam: sphere A",
+     "what": "An in-place sphere palette mock-up using the original canvas, full circle and cached geography.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/apologetics/worldviews/islam?country=PAK&globeDesign=a#muslim-world",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "sphere-b",
+     "name": "Islam: sphere B",
+     "what": "An in-place sphere palette mock-up using the original canvas, full circle and cached geography.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/apologetics/worldviews/islam?country=PAK&globeDesign=b#muslim-world",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "sphere-c",
+     "name": "Islam: sphere C",
+     "what": "An in-place sphere palette mock-up using the original canvas, full circle and cached geography.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/apologetics/worldviews/islam?country=PAK&globeDesign=c#muslim-world",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "sphere-d",
+     "name": "Islam: sphere D",
+     "what": "An in-place sphere palette mock-up using the original canvas, full circle and cached geography.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/apologetics/worldviews/islam?country=PAK&globeDesign=d#muslim-world",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "sphere-e",
+     "name": "Islam: sphere E",
+     "what": "An in-place sphere palette mock-up using the original canvas, full circle and cached geography.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/apologetics/worldviews/islam?country=PAK&globeDesign=e#muslim-world",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "sphere-f",
+     "name": "Islam: sphere F",
+     "what": "An in-place sphere palette mock-up using the original canvas, full circle and cached geography.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/apologetics/worldviews/islam?country=PAK&globeDesign=f#muslim-world",
        "why": "the only page of this design"
       }
      ]

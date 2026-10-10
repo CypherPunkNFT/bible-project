@@ -1,8 +1,8 @@
 {
  "schema": 1,
- "commit": "b7f410d7",
- "takenAt": "2026-10-10T00:36:59.995Z",
- "base": "http://127.0.0.1:8969",
+ "commit": "d8809f30",
+ "takenAt": "2026-10-10T01:08:12.252Z",
+ "base": "http://127.0.0.1:8974",
  "images": {
   "ruler/king-judah/typical": {
    "desktop-dark": {
@@ -8208,6 +8208,234 @@
     "cropKind": "signature",
     "thumb": "ap-worldview/engagement-noLongerUnreached/page-400-dark-thumb.jpg",
     "hash": "00270000383f6465",
+    "height": 9000,
+    "clipped": true
+   }
+  },
+  "ap-worldview/sphere-a/page": {
+   "desktop-dark": {
+    "full": "ap-worldview/sphere-a/page-1440-dark.png",
+    "crop": "ap-worldview/sphere-a/page-1440-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-worldview/sphere-a/page-1440-dark-thumb.jpg",
+    "hash": "01673900134f607e",
+    "height": 6732,
+    "clipped": false
+   },
+   "desktop-light": {
+    "full": "ap-worldview/sphere-a/page-1440-light.png",
+    "crop": "ap-worldview/sphere-a/page-1440-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-worldview/sphere-a/page-1440-light-thumb.jpg",
+    "hash": "0219e100ac312080",
+    "height": 6732,
+    "clipped": false
+   },
+   "phone-light": {
+    "full": "ap-worldview/sphere-a/page-400-light.png",
+    "crop": "ap-worldview/sphere-a/page-400-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-worldview/sphere-a/page-400-light-thumb.jpg",
+    "hash": "00186006a8800210",
+    "height": 9000,
+    "clipped": true
+   },
+   "phone-dark": {
+    "full": "ap-worldview/sphere-a/page-400-dark.png",
+    "crop": "ap-worldview/sphere-a/page-400-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-worldview/sphere-a/page-400-dark-thumb.jpg",
+    "hash": "0027100753013d2d",
+    "height": 9000,
+    "clipped": true
+   }
+  },
+  "ap-worldview/sphere-b/page": {
+   "desktop-light": {
+    "full": "ap-worldview/sphere-b/page-1440-light.png",
+    "crop": "ap-worldview/sphere-b/page-1440-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-worldview/sphere-b/page-1440-light-thumb.jpg",
+    "hash": "0219e100ac312080",
+    "height": 6732,
+    "clipped": false
+   },
+   "desktop-dark": {
+    "full": "ap-worldview/sphere-b/page-1440-dark.png",
+    "crop": "ap-worldview/sphere-b/page-1440-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-worldview/sphere-b/page-1440-dark-thumb.jpg",
+    "hash": "01673900134f607e",
+    "height": 6732,
+    "clipped": false
+   },
+   "phone-dark": {
+    "full": "ap-worldview/sphere-b/page-400-dark.png",
+    "crop": "ap-worldview/sphere-b/page-400-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-worldview/sphere-b/page-400-dark-thumb.jpg",
+    "hash": "0027100753013d2d",
+    "height": 9000,
+    "clipped": true
+   },
+   "phone-light": {
+    "full": "ap-worldview/sphere-b/page-400-light.png",
+    "crop": "ap-worldview/sphere-b/page-400-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-worldview/sphere-b/page-400-light-thumb.jpg",
+    "hash": "00186006a8800210",
+    "height": 9000,
+    "clipped": true
+   }
+  },
+  "ap-worldview/sphere-c/page": {
+   "desktop-light": {
+    "full": "ap-worldview/sphere-c/page-1440-light.png",
+    "crop": "ap-worldview/sphere-c/page-1440-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-worldview/sphere-c/page-1440-light-thumb.jpg",
+    "hash": "0219e100ac312080",
+    "height": 6732,
+    "clipped": false
+   },
+   "desktop-dark": {
+    "full": "ap-worldview/sphere-c/page-1440-dark.png",
+    "crop": "ap-worldview/sphere-c/page-1440-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-worldview/sphere-c/page-1440-dark-thumb.jpg",
+    "hash": "01673900134f607e",
+    "height": 6732,
+    "clipped": false
+   },
+   "phone-light": {
+    "full": "ap-worldview/sphere-c/page-400-light.png",
+    "crop": "ap-worldview/sphere-c/page-400-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-worldview/sphere-c/page-400-light-thumb.jpg",
+    "hash": "00186006a8800210",
+    "height": 9000,
+    "clipped": true
+   },
+   "phone-dark": {
+    "full": "ap-worldview/sphere-c/page-400-dark.png",
+    "crop": "ap-worldview/sphere-c/page-400-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-worldview/sphere-c/page-400-dark-thumb.jpg",
+    "hash": "0027100753013d2d",
+    "height": 9000,
+    "clipped": true
+   }
+  },
+  "ap-worldview/sphere-d/page": {
+   "desktop-light": {
+    "full": "ap-worldview/sphere-d/page-1440-light.png",
+    "crop": "ap-worldview/sphere-d/page-1440-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-worldview/sphere-d/page-1440-light-thumb.jpg",
+    "hash": "0219c100ac312080",
+    "height": 6732,
+    "clipped": false
+   },
+   "desktop-dark": {
+    "full": "ap-worldview/sphere-d/page-1440-dark.png",
+    "crop": "ap-worldview/sphere-d/page-1440-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-worldview/sphere-d/page-1440-dark-thumb.jpg",
+    "hash": "01671900134f607e",
+    "height": 6732,
+    "clipped": false
+   },
+   "phone-dark": {
+    "full": "ap-worldview/sphere-d/page-400-dark.png",
+    "crop": "ap-worldview/sphere-d/page-400-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-worldview/sphere-d/page-400-dark-thumb.jpg",
+    "hash": "0027100753013d2d",
+    "height": 9000,
+    "clipped": true
+   },
+   "phone-light": {
+    "full": "ap-worldview/sphere-d/page-400-light.png",
+    "crop": "ap-worldview/sphere-d/page-400-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-worldview/sphere-d/page-400-light-thumb.jpg",
+    "hash": "0018e006a8800210",
+    "height": 9000,
+    "clipped": true
+   }
+  },
+  "ap-worldview/sphere-e/page": {
+   "desktop-light": {
+    "full": "ap-worldview/sphere-e/page-1440-light.png",
+    "crop": "ap-worldview/sphere-e/page-1440-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-worldview/sphere-e/page-1440-light-thumb.jpg",
+    "hash": "0219e100ac312080",
+    "height": 6732,
+    "clipped": false
+   },
+   "desktop-dark": {
+    "full": "ap-worldview/sphere-e/page-1440-dark.png",
+    "crop": "ap-worldview/sphere-e/page-1440-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-worldview/sphere-e/page-1440-dark-thumb.jpg",
+    "hash": "01673900134f607e",
+    "height": 6732,
+    "clipped": false
+   },
+   "phone-light": {
+    "full": "ap-worldview/sphere-e/page-400-light.png",
+    "crop": "ap-worldview/sphere-e/page-400-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-worldview/sphere-e/page-400-light-thumb.jpg",
+    "hash": "00186006a8800210",
+    "height": 9000,
+    "clipped": true
+   },
+   "phone-dark": {
+    "full": "ap-worldview/sphere-e/page-400-dark.png",
+    "crop": "ap-worldview/sphere-e/page-400-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-worldview/sphere-e/page-400-dark-thumb.jpg",
+    "hash": "0027160753013d2d",
+    "height": 9000,
+    "clipped": true
+   }
+  },
+  "ap-worldview/sphere-f/page": {
+   "desktop-light": {
+    "full": "ap-worldview/sphere-f/page-1440-light.png",
+    "crop": "ap-worldview/sphere-f/page-1440-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-worldview/sphere-f/page-1440-light-thumb.jpg",
+    "hash": "02194100ac312080",
+    "height": 6732,
+    "clipped": false
+   },
+   "desktop-dark": {
+    "full": "ap-worldview/sphere-f/page-1440-dark.png",
+    "crop": "ap-worldview/sphere-f/page-1440-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-worldview/sphere-f/page-1440-dark-thumb.jpg",
+    "hash": "01671900134f607e",
+    "height": 6732,
+    "clipped": false
+   },
+   "phone-light": {
+    "full": "ap-worldview/sphere-f/page-400-light.png",
+    "crop": "ap-worldview/sphere-f/page-400-light-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-worldview/sphere-f/page-400-light-thumb.jpg",
+    "hash": "00186606a8800210",
+    "height": 9000,
+    "clipped": true
+   },
+   "phone-dark": {
+    "full": "ap-worldview/sphere-f/page-400-dark.png",
+    "crop": "ap-worldview/sphere-f/page-400-dark-crop.png",
+    "cropKind": "signature",
+    "thumb": "ap-worldview/sphere-f/page-400-dark-thumb.jpg",
+    "hash": "0027100753013d2d",
     "height": 9000,
     "clipped": true
    }

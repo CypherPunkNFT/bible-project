@@ -1,9 +1,9 @@
 {
  "schema": 1,
- "commit": "b7f410d7",
- "startedAt": "2026-10-09T17:18:38.783Z",
- "finishedAt": "2026-10-10T00:35:29.080Z",
- "base": "http://127.0.0.1:8969",
+ "commit": "d8809f30",
+ "startedAt": "2026-10-09T23:34:19.946Z",
+ "finishedAt": "2026-10-10T01:07:46.766Z",
+ "base": "http://127.0.0.1:8974",
  "checks": [
   {
    "id": "loads",
@@ -1634,6 +1634,150 @@
     },
     {
      "url": "/apologetics/worldviews/islam?country=EGY&panel=groups&engagement=noLongerUnreached#muslim-world",
+     "width": 400,
+     "check": "links",
+     "detail": "/resources: this address is not a page on the site"
+    }
+   ]
+  },
+  {
+   "template": "ap-worldview",
+   "variant": "sphere-a",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {
+    "links": 1
+   },
+   "failures": [
+    {
+     "url": "/apologetics/worldviews/islam?country=PAK&globeDesign=a#muslim-world",
+     "width": 400,
+     "check": "links",
+     "detail": "/teachers: this address is not a page on the site"
+    },
+    {
+     "url": "/apologetics/worldviews/islam?country=PAK&globeDesign=a#muslim-world",
+     "width": 400,
+     "check": "links",
+     "detail": "/resources: this address is not a page on the site"
+    }
+   ]
+  },
+  {
+   "template": "ap-worldview",
+   "variant": "sphere-b",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {
+    "links": 1
+   },
+   "failures": [
+    {
+     "url": "/apologetics/worldviews/islam?country=PAK&globeDesign=b#muslim-world",
+     "width": 400,
+     "check": "links",
+     "detail": "/teachers: this address is not a page on the site"
+    },
+    {
+     "url": "/apologetics/worldviews/islam?country=PAK&globeDesign=b#muslim-world",
+     "width": 400,
+     "check": "links",
+     "detail": "/resources: this address is not a page on the site"
+    }
+   ]
+  },
+  {
+   "template": "ap-worldview",
+   "variant": "sphere-c",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {
+    "links": 1
+   },
+   "failures": [
+    {
+     "url": "/apologetics/worldviews/islam?country=PAK&globeDesign=c#muslim-world",
+     "width": 400,
+     "check": "links",
+     "detail": "/teachers: this address is not a page on the site"
+    },
+    {
+     "url": "/apologetics/worldviews/islam?country=PAK&globeDesign=c#muslim-world",
+     "width": 400,
+     "check": "links",
+     "detail": "/resources: this address is not a page on the site"
+    }
+   ]
+  },
+  {
+   "template": "ap-worldview",
+   "variant": "sphere-d",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {
+    "links": 1
+   },
+   "failures": [
+    {
+     "url": "/apologetics/worldviews/islam?country=PAK&globeDesign=d#muslim-world",
+     "width": 400,
+     "check": "links",
+     "detail": "/teachers: this address is not a page on the site"
+    },
+    {
+     "url": "/apologetics/worldviews/islam?country=PAK&globeDesign=d#muslim-world",
+     "width": 400,
+     "check": "links",
+     "detail": "/resources: this address is not a page on the site"
+    }
+   ]
+  },
+  {
+   "template": "ap-worldview",
+   "variant": "sphere-e",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {
+    "links": 1
+   },
+   "failures": [
+    {
+     "url": "/apologetics/worldviews/islam?country=PAK&globeDesign=e#muslim-world",
+     "width": 400,
+     "check": "links",
+     "detail": "/teachers: this address is not a page on the site"
+    },
+    {
+     "url": "/apologetics/worldviews/islam?country=PAK&globeDesign=e#muslim-world",
+     "width": 400,
+     "check": "links",
+     "detail": "/resources: this address is not a page on the site"
+    }
+   ]
+  },
+  {
+   "template": "ap-worldview",
+   "variant": "sphere-f",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {
+    "links": 1
+   },
+   "failures": [
+    {
+     "url": "/apologetics/worldviews/islam?country=PAK&globeDesign=f#muslim-world",
+     "width": 400,
+     "check": "links",
+     "detail": "/teachers: this address is not a page on the site"
+    },
+    {
+     "url": "/apologetics/worldviews/islam?country=PAK&globeDesign=f#muslim-world",
      "width": 400,
      "check": "links",
      "detail": "/resources: this address is not a page on the site"
