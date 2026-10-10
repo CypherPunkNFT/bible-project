@@ -1,7 +1,7 @@
 {
  "schema": 1,
- "generatedAt": "2026-10-10T00:34:09.622Z",
- "commit": "0dbb1fbd",
+ "generatedAt": "2026-10-10T00:34:48.491Z",
+ "commit": "b7f410d7",
  "areas": [
   {
    "id": "people",
@@ -2623,7 +2623,7 @@
     "src/pages/WorldviewsPage.tsx",
     "src/pages/worldviews.css"
    ],
-   "sourceHash": "88f3826cbba9ffbd",
+   "sourceHash": "475286b91bf8cbe5",
    "signature": {
     "selector": "#muslim-world",
     "label": "Muslim-world country explorer"
@@ -2686,13 +2686,55 @@
     {
      "id": "people-groups",
      "name": "Islam: people groups",
-     "what": "Country flag and thin-line demographic grid, with a complete scrollable IMB group table.",
+     "what": "Adopted B header with Population/Muslim/Christian facts and a complete B editorial people-group directory.",
      "instances": 1,
      "samples": [
       {
        "id": "page",
        "label": "The page",
        "url": "/apologetics/worldviews/islam?country=IRN&panel=groups#muslim-world",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "engagement-unengaged",
+     "name": "Islam: unengaged groups",
+     "what": "A C Gospel Presence card opens the B directory with its category selected on the default page.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/apologetics/worldviews/islam?country=EGY&panel=groups&engagement=unengaged#muslim-world",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "engagement-engagedUnreached",
+     "name": "Islam: engagedUnreached groups",
+     "what": "A C Gospel Presence card opens the B directory with its category selected on the default page.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/apologetics/worldviews/islam?country=EGY&panel=groups&engagement=engagedUnreached#muslim-world",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "engagement-noLongerUnreached",
+     "name": "Islam: noLongerUnreached groups",
+     "what": "A C Gospel Presence card opens the B directory with its category selected on the default page.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/apologetics/worldviews/islam?country=EGY&panel=groups&engagement=noLongerUnreached#muslim-world",
        "why": "the only page of this design"
       }
      ]

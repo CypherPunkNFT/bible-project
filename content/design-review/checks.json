@@ -1,9 +1,9 @@
 {
  "schema": 1,
- "commit": "0dbb1fbd",
- "startedAt": "2026-10-09T23:34:19.946Z",
- "finishedAt": "2026-10-10T00:34:45.472Z",
- "base": "http://127.0.0.1:8974",
+ "commit": "b7f410d7",
+ "startedAt": "2026-10-09T17:18:38.783Z",
+ "finishedAt": "2026-10-10T00:35:29.080Z",
+ "base": "http://127.0.0.1:8969",
  "checks": [
   {
    "id": "loads",
@@ -1562,6 +1562,78 @@
     },
     {
      "url": "/apologetics/worldviews/islam?country=EGY&atlasDesign=h&panel=groups#muslim-world",
+     "width": 400,
+     "check": "links",
+     "detail": "/resources: this address is not a page on the site"
+    }
+   ]
+  },
+  {
+   "template": "ap-worldview",
+   "variant": "engagement-unengaged",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {
+    "links": 1
+   },
+   "failures": [
+    {
+     "url": "/apologetics/worldviews/islam?country=EGY&panel=groups&engagement=unengaged#muslim-world",
+     "width": 400,
+     "check": "links",
+     "detail": "/teachers: this address is not a page on the site"
+    },
+    {
+     "url": "/apologetics/worldviews/islam?country=EGY&panel=groups&engagement=unengaged#muslim-world",
+     "width": 400,
+     "check": "links",
+     "detail": "/resources: this address is not a page on the site"
+    }
+   ]
+  },
+  {
+   "template": "ap-worldview",
+   "variant": "engagement-engagedUnreached",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {
+    "links": 1
+   },
+   "failures": [
+    {
+     "url": "/apologetics/worldviews/islam?country=EGY&panel=groups&engagement=engagedUnreached#muslim-world",
+     "width": 400,
+     "check": "links",
+     "detail": "/teachers: this address is not a page on the site"
+    },
+    {
+     "url": "/apologetics/worldviews/islam?country=EGY&panel=groups&engagement=engagedUnreached#muslim-world",
+     "width": 400,
+     "check": "links",
+     "detail": "/resources: this address is not a page on the site"
+    }
+   ]
+  },
+  {
+   "template": "ap-worldview",
+   "variant": "engagement-noLongerUnreached",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {
+    "links": 1
+   },
+   "failures": [
+    {
+     "url": "/apologetics/worldviews/islam?country=EGY&panel=groups&engagement=noLongerUnreached#muslim-world",
+     "width": 400,
+     "check": "links",
+     "detail": "/teachers: this address is not a page on the site"
+    },
+    {
+     "url": "/apologetics/worldviews/islam?country=EGY&panel=groups&engagement=noLongerUnreached#muslim-world",
      "width": 400,
      "check": "links",
      "detail": "/resources: this address is not a page on the site"
