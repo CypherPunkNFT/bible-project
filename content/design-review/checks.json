@@ -1,9 +1,9 @@
 {
  "schema": 1,
- "commit": "64695703",
- "startedAt": "2026-10-09T23:34:19.946Z",
- "finishedAt": "2026-10-10T00:11:39.615Z",
- "base": "http://127.0.0.1:8974",
+ "commit": "cf6b6c3f",
+ "startedAt": "2026-10-09T17:18:38.783Z",
+ "finishedAt": "2026-10-10T00:15:04.659Z",
+ "base": "http://127.0.0.1:8969",
  "checks": [
   {
    "id": "loads",
@@ -1370,6 +1370,198 @@
     },
     {
      "url": "/apologetics/worldviews/islam?country=EGY&atlasDesign=d&panel=groups#muslim-world",
+     "width": 400,
+     "check": "links",
+     "detail": "/resources: this address is not a page on the site"
+    }
+   ]
+  },
+  {
+   "template": "ap-worldview",
+   "variant": "panel-e",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {
+    "links": 1
+   },
+   "failures": [
+    {
+     "url": "/apologetics/worldviews/islam?country=EGY&atlasDesign=e#muslim-world",
+     "width": 400,
+     "check": "links",
+     "detail": "/teachers: this address is not a page on the site"
+    },
+    {
+     "url": "/apologetics/worldviews/islam?country=EGY&atlasDesign=e#muslim-world",
+     "width": 400,
+     "check": "links",
+     "detail": "/resources: this address is not a page on the site"
+    }
+   ]
+  },
+  {
+   "template": "ap-worldview",
+   "variant": "panel-f",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {
+    "links": 1
+   },
+   "failures": [
+    {
+     "url": "/apologetics/worldviews/islam?country=EGY&atlasDesign=f#muslim-world",
+     "width": 400,
+     "check": "links",
+     "detail": "/teachers: this address is not a page on the site"
+    },
+    {
+     "url": "/apologetics/worldviews/islam?country=EGY&atlasDesign=f#muslim-world",
+     "width": 400,
+     "check": "links",
+     "detail": "/resources: this address is not a page on the site"
+    }
+   ]
+  },
+  {
+   "template": "ap-worldview",
+   "variant": "panel-g",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {
+    "links": 1
+   },
+   "failures": [
+    {
+     "url": "/apologetics/worldviews/islam?country=EGY&atlasDesign=g#muslim-world",
+     "width": 400,
+     "check": "links",
+     "detail": "/teachers: this address is not a page on the site"
+    },
+    {
+     "url": "/apologetics/worldviews/islam?country=EGY&atlasDesign=g#muslim-world",
+     "width": 400,
+     "check": "links",
+     "detail": "/resources: this address is not a page on the site"
+    }
+   ]
+  },
+  {
+   "template": "ap-worldview",
+   "variant": "panel-h",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {
+    "links": 1
+   },
+   "failures": [
+    {
+     "url": "/apologetics/worldviews/islam?country=EGY&atlasDesign=h#muslim-world",
+     "width": 400,
+     "check": "links",
+     "detail": "/teachers: this address is not a page on the site"
+    },
+    {
+     "url": "/apologetics/worldviews/islam?country=EGY&atlasDesign=h#muslim-world",
+     "width": 400,
+     "check": "links",
+     "detail": "/resources: this address is not a page on the site"
+    }
+   ]
+  },
+  {
+   "template": "ap-worldview",
+   "variant": "panel-e-groups",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {
+    "links": 1
+   },
+   "failures": [
+    {
+     "url": "/apologetics/worldviews/islam?country=EGY&atlasDesign=e&panel=groups#muslim-world",
+     "width": 400,
+     "check": "links",
+     "detail": "/teachers: this address is not a page on the site"
+    },
+    {
+     "url": "/apologetics/worldviews/islam?country=EGY&atlasDesign=e&panel=groups#muslim-world",
+     "width": 400,
+     "check": "links",
+     "detail": "/resources: this address is not a page on the site"
+    }
+   ]
+  },
+  {
+   "template": "ap-worldview",
+   "variant": "panel-f-groups",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {
+    "links": 1
+   },
+   "failures": [
+    {
+     "url": "/apologetics/worldviews/islam?country=EGY&atlasDesign=f&panel=groups#muslim-world",
+     "width": 400,
+     "check": "links",
+     "detail": "/teachers: this address is not a page on the site"
+    },
+    {
+     "url": "/apologetics/worldviews/islam?country=EGY&atlasDesign=f&panel=groups#muslim-world",
+     "width": 400,
+     "check": "links",
+     "detail": "/resources: this address is not a page on the site"
+    }
+   ]
+  },
+  {
+   "template": "ap-worldview",
+   "variant": "panel-g-groups",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {
+    "links": 1
+   },
+   "failures": [
+    {
+     "url": "/apologetics/worldviews/islam?country=EGY&atlasDesign=g&panel=groups#muslim-world",
+     "width": 400,
+     "check": "links",
+     "detail": "/teachers: this address is not a page on the site"
+    },
+    {
+     "url": "/apologetics/worldviews/islam?country=EGY&atlasDesign=g&panel=groups#muslim-world",
+     "width": 400,
+     "check": "links",
+     "detail": "/resources: this address is not a page on the site"
+    }
+   ]
+  },
+  {
+   "template": "ap-worldview",
+   "variant": "panel-h-groups",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {
+    "links": 1
+   },
+   "failures": [
+    {
+     "url": "/apologetics/worldviews/islam?country=EGY&atlasDesign=h&panel=groups#muslim-world",
+     "width": 400,
+     "check": "links",
+     "detail": "/teachers: this address is not a page on the site"
+    },
+    {
+     "url": "/apologetics/worldviews/islam?country=EGY&atlasDesign=h&panel=groups#muslim-world",
      "width": 400,
      "check": "links",
      "detail": "/resources: this address is not a page on the site"
