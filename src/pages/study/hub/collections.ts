@@ -1,3 +1,4 @@
+import type { StudyResourceId } from "../StudyResourceCards";
 export type BranchId = "theology" | "academic";
 export interface Reading {
     kind: string;
@@ -22,6 +23,7 @@ export interface Area {
     group: string;
     items: Reading[];
     support: string[][];
+    cards?: StudyResourceId[];
     writers?: boolean;
     planned?: string[];
 }
@@ -48,6 +50,7 @@ export const STUDY_BRANCHES: Record<BranchId, Branch> = {
         "areas": [
             {
                 "id": "books",
+                "cards": ["letters", "structure", "references", "versions"],
                 "title": "Explore the Bible",
                 "short": "Read in context",
                 "art": "books",
@@ -113,6 +116,7 @@ export const STUDY_BRANCHES: Record<BranchId, Branch> = {
             },
             {
                 "id": "jesus",
+                "cards": ["gospels", "miracles"],
                 "title": "Jesus Christ",
                 "short": "Follow his life & teaching",
                 "art": "gospels",
@@ -178,6 +182,7 @@ export const STUDY_BRANCHES: Record<BranchId, Branch> = {
             },
             {
                 "id": "doctrine",
+                "cards": ["topics", "names"],
                 "title": "God & the Christian Faith",
                 "short": "Trace what Scripture teaches",
                 "art": "doctrine",
@@ -251,6 +256,7 @@ export const STUDY_BRANCHES: Record<BranchId, Branch> = {
             },
             {
                 "id": "life",
+                "cards": ["topics"],
                 "title": "Living the Christian Life",
                 "short": "Bring the Word into life",
                 "art": "prayer",
@@ -316,6 +322,7 @@ export const STUDY_BRANCHES: Record<BranchId, Branch> = {
             },
             {
                 "id": "people",
+                "cards": ["people"],
                 "title": "People of Scripture",
                 "short": "Meet the people behind the pages",
                 "art": "writers",

@@ -21,7 +21,7 @@ async function hub(): Promise<PageContent> {
     "## People\n\nWriters of Scripture / Scripture & Theology: " + WRITERS.map(w=>w.name).join(" · ") + ". Footer choices switch the illustration; the card opens the writers directory.\n\nScholars / Academic Studies: All fields · History · Languages · Archaeology · Reference · Theology. Field choices occupy two footer rows beside Explore Scholars. The constellation glow extends across the card rather than clipping at the illustration boundary.",
     "## Atlas\n\nExplore the map · Ancient cities · Follow Paul. Selected places and journey lenses lead into the full Atlas. Paul zooms to Antioch, then the route draws with a subtle departure and arrival pulse. Reduced motion shows the completed route.",
     ...Object.entries(STUDY_BRANCHES).map(([id,b])=>blocks(`## ${b.label}\n\n${link(`/study/${id}`)}\n\n${b.lead}`,
-      ...b.areas.map(a=>blocks(`### ${a.title}\n\n${a.intro}`,table(["Kind","Title","Description","Address"],[a.featured,...a.items].map(e=>[e.kind,e.title,e.text,link(e.href)])),"Useful connections: "+a.support.map(([title,href])=>`${title}: ${link(href)}`).join(" · "))))),
+      ...b.areas.map(a=>blocks(`### ${a.title}\n\n${a.intro}`,(a.cards ? "Original illustrated cards: " + a.cards.join(" · ") : ""),table(["Kind","Title","Description","Address"],[a.featured,...a.items].map(e=>[e.kind,e.title,e.text,link(e.href)])),"Useful connections: "+a.support.map(([title,href])=>`${title}: ${link(href)}`).join(" · "))))),
     "## Shared Theology tools",table(["Tool","Purpose","Address"],THEOLOGY_TOOLS.map(t=>[t.title,t.text,link(t.href)])),
     "## Preserved collection registry",table(["Study","Address","Lens","Colour"],STUDY_COLLECTIONS.map(c=>[c.label,link(c.path),c.lens,c.color]))
   )};

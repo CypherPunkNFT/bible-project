@@ -39,3 +39,29 @@ test("Paul arrives at Antioch, holds the camera and marks departure and arrival"
  await expect(page.locator('#atlas-map')).toHaveAttribute('data-phase','settled');
  await expect(page.locator('.endpoint-thump')).toHaveCount(0);
 });
+
+
+test("Theology retains every original Study2 illustrated card",async({page})=>{
+ await page.goto('/study2');
+ await expect(page.locator('.study-resource-link')).toHaveCount(10);
+ const originals=await page.locator('.study-resource-link').evaluateAll(cards=>cards.map(card=>({
+   href:card.getAttribute('href'), copy:card.querySelector('.study-card-copy')!.textContent,
+   artwork:card.querySelector('.study-art, .study-gospels')!.className,
+ })));
+ expect(originals).toHaveLength(10);
+ const found=new Set<string>();
+ for(const area of ['books','jesus','doctrine','life','people']){
+  await page.goto(`/study/theology?area=${area}`);
+  await expect(page.locator('.theology-atlas-card .study-resource-link')).toBeVisible();
+  const cards=await page.locator('.study-resource-link').evaluateAll(cards=>cards.map(card=>({
+   href:card.getAttribute('href'), copy:card.querySelector('.study-card-copy')!.textContent,
+   artwork:card.querySelector('.study-art, .study-gospels')!.className,
+  })));
+  for(const card of cards){
+   expect(card).toEqual(originals.find(original=>original.href===card.href));
+   found.add(card.href!);
+  }
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth-document.documentElement.clientWidth)).toBeLessThanOrEqual(1);
+ }
+ expect([...found].sort()).toEqual(originals.map(card=>card.href).sort());
+});
