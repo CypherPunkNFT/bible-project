@@ -2,20 +2,20 @@ import { useRef, useState } from 'react';
 import { CircleCheck, Compass, RadioTower, Search, Sprout, UsersRound } from 'lucide-react';
 import snapshot from '../../../content/missions/muslim-world.json';
 import { groupLabels, type GroupStatus } from '@/lib/mission-groups';
+import type { CountryPanelDesign } from '@/lib/country-panel-designs';
 import CountryPeopleGroups from './CountryPeopleGroups';
 import PillScroll from './PillScroll';
 import CountryPanelHeader from './CountryPanelHeader';
 import './country-panel-prototype.css';
 
 type Country = typeof snapshot.countries[number];
-type Design = 'a' | 'b' | 'c' | 'd';
 const keys = Object.keys(groupLabels) as GroupStatus[];
 const icons = { unengaged: Compass, engagedUnreached: Sprout, noLongerUnreached: CircleCheck };
 const compact = (value: number) => new Intl.NumberFormat('en', { notation: 'compact', maximumFractionDigits: 1 }).format(value);
 
-export default function CountryPanelPrototype({ country, design, panel, choose, setDesign, setPanel }: {
-  country: Country; design: Design; panel: 'gospel' | 'groups'; choose(code: string): void;
-  setDesign(value: Design): void; setPanel(value: 'gospel' | 'groups'): void;
+export default function CountryPanelPrototype({ country, design, panel, choose, setPanel }: {
+  country: Country; design: CountryPanelDesign; panel: 'gospel' | 'groups'; choose(code: string): void;
+  setPanel(value: 'gospel' | 'groups'): void;
 }) {
   const [search, setSearch] = useState(''), [open, setOpen] = useState(false);
   const tabs = useRef<HTMLDivElement>(null), results = useRef<HTMLDivElement>(null);
@@ -38,7 +38,6 @@ export default function CountryPanelPrototype({ country, design, panel, choose, 
         }}><PillScroll className="mw-prototype-results-list" label="Country search results"><div>{filtered.map(entry => <button key={entry.code} type="button" onClick={() => select(entry.code)}>{entry.name}</button>)}{!filtered.length && <p role="status">No matching countries.</p>}</div></PillScroll></div>}
       </div>;
   return <div className={`mw-country-panel mw-prototype mw-design-${design}`}>
-    <div className="mw-design-toggle" role="group" aria-label="Country panel mock-up"><span>Panel</span>{(['a', 'b', 'c', 'd'] as const).map(value => <button key={value} type="button" aria-label={`Design ${value.toUpperCase()}`} aria-pressed={design === value} onClick={() => setDesign(value)}>{value.toUpperCase()}</button>)}</div>
     <CountryPanelHeader country={country} design={design} finder={finder} />
     <article className="mw-prototype-card" aria-label={`${country.name} country profile`}>
       <div className="mw-prototype-tabs" role="tablist" aria-label="Country information" ref={tabs}>{(['gospel', 'groups'] as const).map(value => {
@@ -51,7 +50,10 @@ export default function CountryPanelPrototype({ country, design, panel, choose, 
       <div className="mw-prototype-body" role="tabpanel" id="mw-gospel-panel" aria-labelledby="mw-gospel-tab" hidden={panel !== 'gospel'}>
         <div className="mw-prototype-overview"><span>Engagement / IMB</span><span>{country.imb.totalGroups} groups</span></div>
         {design !== 'd' && <div className="mw-status-bar" aria-hidden="true">{keys.map(key => <span key={key} className={`mw-status-${key}`} style={{ width: `${country.imb[key].groups / country.imb.totalGroups * 100}%` }} />)}</div>}
-        {design === 'c' ? <div className="mw-prototype-tiles">{keys.map(key => { const Icon = icons[key]; return <div key={key} className={`mw-status-${key}`}><Icon size={20} strokeWidth={1.5} aria-hidden="true" /><strong>{country.imb[key].groups}</strong><h4>{groupLabels[key]}</h4><span>{compact(country.imb[key].population)} people</span></div>; })}</div> : design === 'd' ? <div className="mw-prototype-ring-ledger"><div className="mw-prototype-ring"><svg viewBox="0 0 120 120" aria-hidden="true">{keys.map(key => { const length = country.imb[key].groups / country.imb.totalGroups * circumference; const start = offset; offset += length; return <circle key={key} className={`mw-status-${key}`} cx={60} cy={60} r={46} strokeDasharray={`${Math.max(0, length - 1.5)} ${circumference}`} strokeDashoffset={-start} />; })}</svg><div><strong>{country.imb.totalGroups}</strong><span>groups</span></div></div>{rows}</div> : rows}
+        {design === 'c' ? <div className="mw-prototype-tiles">{keys.map(key => { const Icon = icons[key]; return <div key={key} className={`mw-status-${key}`}><Icon size={20} strokeWidth={1.5} aria-hidden="true" /><strong>{country.imb[key].groups}</strong><h4>{groupLabels[key]}</h4><span>{compact(country.imb[key].population)} people</span></div>; })}</div> : design === 'd' ? <div className="mw-prototype-ring-ledger"><div className="mw-prototype-ring"><svg viewBox="0 0 120 120" aria-hidden="true">{keys.map(key => { const length = country.imb[key].groups / country.imb.totalGroups * circumference; const start = offset; offset += length; return <circle key={key} className={`mw-status-${key}`} cx={60} cy={60} r={46} strokeDasharray={`${Math.max(0, length - 1.5)} ${circumference}`} strokeDashoffset={-start} />; })}</svg><div><strong>{country.imb.totalGroups}</strong><span>groups</span></div></div>{rows}</div> : ['e', 'f', 'g', 'h'].includes(design) ? <div className={`mw-presence-${design}`}>{keys.map(key => {
+          const Icon = icons[key], share = country.imb[key].groups / country.imb.totalGroups * 100;
+          return <div key={key} className={`mw-presence-entry mw-status-${key}`}><Icon size={20} strokeWidth={1.5} aria-hidden="true" /><h4>{groupLabels[key]}</h4><strong>{country.imb[key].groups}<small>groups</small></strong><span>{compact(country.imb[key].population)} people</span>{['e', 'h'].includes(design) && <div className="mw-presence-meter" aria-hidden="true"><i style={{ width: `${share}%` }} /></div>}{design === 'h' && <b>{share.toFixed(1)}% of groups</b>}</div>;
+        })}</div> : rows}
         <p className="mw-prototype-note">All recorded groups, including non-Muslim groups. IMB: {snapshot.snapshotDate}.</p>
       </div>
       <div className="mw-prototype-body" role="tabpanel" id="mw-groups-panel" aria-labelledby="mw-groups-tab" hidden={panel !== 'groups'}>{panel === 'groups' && <CountryPeopleGroups layout={design} key={country.code} code={country.code} name={country.name} count={country.imb.totalGroups} snapshotDate={snapshot.snapshotDate} sourceHash={snapshot.sources.imb.sha256} />}</div>

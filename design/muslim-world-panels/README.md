@@ -1,20 +1,24 @@
-# Country-panel component mock-ups
+# Eight country-panel component options
 
-Preview: http://127.0.0.1:8931/apologetics/worldviews/islam?country=PAK&atlasDesign=a#muslim-world . The A/B/C/D toggle changes the panel beside the real globe in the existing Islam page. Country, tab, map and cached country data survive switching. These are transplantable components, awaiting the owner's selection.
+Preview: http://127.0.0.1:8931/apologetics/worldviews/islam?country=EGY&atlasDesign=a#muslim-world . The A-H review strip is above and outside the atlas; it never appears in a transplantable panel. These are options awaiting the owner's selection.
 
-| Option | Country header | People Groups |
+| Option | Design | Structure |
 |---|---|---|
-| A | Original region/name/64×48 flag card and thin-line demographic grid, with search attached above | Three-column ledger with clear engagement badges |
-| B | Flag/name beside search, with a horizontal metric ribbon | Two-column individual group cards with population, language and religion |
-| C | Framed passport: identity on the left, stacked demographic facts on the right | Engagement sections with population bars and section counts |
-| D | Country banner above search and a compact demographic ledger | Expandable group directory with details inside each entry |
+| A | Reading ledger | Larger flag left of the name; region under the name, population centred on the right, separately labelled proportional Muslim and Christian bars; a clean group ledger. |
+| B | Editorial rows | Country identity and search with a metric ribbon; generous people-group rows with clear population and engagement. |
+| C | Engagement chapters | Split country passport and preserved Gospel Presence cards; group lists organised into engagement chapters with accurate counts and population totals. |
+| D | Open directory | Country banner and fact ledger; expandable group entries with source links and complete facts. |
+| E | Group focus | Country identity and inline facts; selectable group index with a persistent detail panel. |
+| F | Language index | Centred country identity; a group directory organised by language. |
+| G | Comparison matrix | Country identity and facts separated by thin rules; groups compared across three engagement columns. |
+| H | Field notes | Country identity with side rule; individual group fact sheets with population, language, religion and engagement. |
 
-C's Gospel Presence cards are preserved, per the owner's preference. This preference applies to that section only; it does not accept the whole C option. A keeps the original country-card typography and geometry. No option has a region dropdown. Search says “Search all 53 countries”.
+Each layout retains every recorded group and exact populations, language, religion and full engagement labels, plus count-bearing filters and search. Tables load only for the selected country and stay cached across layout changes. Native wheel/touch scrolling uses the shared external pill-only thumb. Theme colours come from src/index.css; surface/border/text use shared site tokens.
 
-People Groups uses four filter buttons: all, unengaged and unreached, engaged yet unreached, and no longer unreached. Each shows its count. Orange, blue and green distinguish those three categories with icons and full labels. All layouts use the same complete, source-validated lazy country snapshot, search and filters; no new dataset or duplicated fetch layer.
+Components: CountryPanelPrototype.tsx, CountryPanelHeader.tsx, CountryPeopleGroups.tsx and their CSS; design metadata: src/lib/country-panel-designs.ts. MuslimWorldExplorer.tsx owns the external review controls and loads a prototype only for atlasDesign=a through h. Old mock-up bookmarks redirect to this existing page. No production deployment or owner acceptance.
 
-Scrollbars are a pill-shaped thumb only, without a visible track, outside the scroll viewport on its right. PillScroll supplies native wheel/touch scrolling, a draggable thumb and keyboard controls. Filtering, expansion and resizing update the thumb. Search results use the same external-pill component.
+## Eight theme-native panel options and corrected faith bars - 2026-10-09
 
-Transplantable files: `src/components/apologetics/CountryPanelPrototype.tsx`, `CountryPanelHeader.tsx`, `country-panel-prototype.css`, `CountryPeopleGroups.tsx`, `country-people-groups.css`, and `PillScroll.tsx`. The prototype takes country/design/tab props and callbacks. `MuslimWorldExplorer.tsx` loads it only for `atlasDesign=a|b|c|d`. Adopting a selected option means fixing the design and removing the toggle.
+The owner requested a full People Groups redesign, the site's own colours, four additional mock-ups, and a picker outside the mocked region. A-H now use shared theme tokens: history/terracotta, epistles/gold and poetry/teal on page/surface/surface-2 backgrounds with the site's line, ink and muted text. No bright custom orange/blue/green palette remains in the people-group views. The review picker is a separate sibling above #muslim-world, outside the country panel and atlas, with no overlay. All eight options preserve the real globe, selected country, tab, filters, cached geography and lazy country data.
 
-Old `/mockups/muslim-world-panels/?d=a` bookmarks redirect to the existing atlas. Earlier standalone assets are superseded. Existing data, flag provenance and icon licensing apply. Regression coverage: `e2e/atlas-panel-prototype.spec.ts`; visual review includes all four Gospel Presence and People Groups views. No deployment or owner acceptance is recorded.
+The owner then specified Panel A: enlarged 80x60 flag left of the country name, region underneath, and population centred in the right column. Muslim and Christian identification each have their own labelled percentage and proportional bar; Egypt shows 95.2% and 4.8% respectively. The previous Muslim bar with a Christian-only caption is removed. All panel flags are larger. C's previously preferred Gospel Presence cards remain. Scroll thumbs remain pill-only, external on the right without a track. No demographics, IMB source records or globe styling changed.

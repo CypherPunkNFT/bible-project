@@ -580,40 +580,80 @@
     {
       "id": "muslim-world",
       "title": "Islam · The Muslim world",
-      "line": "Four distinct country headers and People Groups layouts, beside the real globe with an A/B/C/D toggle.",
+      "line": "Eight theme-native country panels and complete People Groups views, with review controls above and outside the real atlas.",
       "page": "/apologetics/worldviews/islam",
       "cards": [
         {
           "id": "muslim-world-panel-a",
-          "title": "A · Original card + ledger",
+          "title": "A · Reading ledger",
           "url": "/mockups/muslim-world-panels/?d=a&country=EGY",
+          "shot": "/apologetics/worldviews/islam?country=EGY&atlasDesign=a&panel=groups#muslim-world",
           "date": "2026-10-09",
           "status": "option",
-          "line": "The original flag and demographic grid, search attached above, and a people-group ledger."
+          "line": "Larger flag left of the name; region under the name, population centred on the right, separately labelled proportional Muslim and Christian bars; a clean group ledger."
         },
         {
           "id": "muslim-world-panel-b",
-          "title": "B · Metric ribbon + group cards",
+          "title": "B · Editorial rows",
           "url": "/mockups/muslim-world-panels/?d=b&country=EGY",
+          "shot": "/apologetics/worldviews/islam?country=EGY&atlasDesign=b&panel=groups#muslim-world",
           "date": "2026-10-09",
           "status": "option",
-          "line": "Identity beside search, a horizontal fact ribbon and individual coloured people-group cards."
+          "line": "Country identity and search with a metric ribbon; generous people-group rows with clear population and engagement."
         },
         {
           "id": "muslim-world-panel-c",
-          "title": "C · Passport + engagement sections",
+          "title": "C · Engagement chapters",
           "url": "/mockups/muslim-world-panels/?d=c&country=EGY",
+          "shot": "/apologetics/worldviews/islam?country=EGY&atlasDesign=c&panel=groups#muslim-world",
           "date": "2026-10-09",
           "status": "option",
-          "line": "Split country passport, preserved Gospel Presence cards and groups arranged in engagement sections."
+          "line": "Split country passport and preserved Gospel Presence cards; group lists organised into engagement chapters with accurate counts and population totals."
         },
         {
           "id": "muslim-world-panel-d",
-          "title": "D · Banner + group directory",
+          "title": "D · Open directory",
           "url": "/mockups/muslim-world-panels/?d=d&country=EGY",
+          "shot": "/apologetics/worldviews/islam?country=EGY&atlasDesign=d&panel=groups#muslim-world",
           "date": "2026-10-09",
           "status": "option",
-          "line": "Country banner with a compact fact ledger, and expandable people-group entries."
+          "line": "Country banner and fact ledger; expandable group entries with source links and complete facts."
+        },
+        {
+          "id": "muslim-world-panel-e",
+          "title": "E · Group focus",
+          "url": "/mockups/muslim-world-panels/?d=e&country=EGY",
+          "shot": "/apologetics/worldviews/islam?country=EGY&atlasDesign=e&panel=groups#muslim-world",
+          "date": "2026-10-09",
+          "status": "option",
+          "line": "Country identity and inline facts; selectable group index with a persistent detail panel."
+        },
+        {
+          "id": "muslim-world-panel-f",
+          "title": "F · Language index",
+          "url": "/mockups/muslim-world-panels/?d=f&country=EGY",
+          "shot": "/apologetics/worldviews/islam?country=EGY&atlasDesign=f&panel=groups#muslim-world",
+          "date": "2026-10-09",
+          "status": "option",
+          "line": "Centred country identity; a group directory organised by language."
+        },
+        {
+          "id": "muslim-world-panel-g",
+          "title": "G · Comparison matrix",
+          "url": "/mockups/muslim-world-panels/?d=g&country=EGY",
+          "shot": "/apologetics/worldviews/islam?country=EGY&atlasDesign=g&panel=groups#muslim-world",
+          "date": "2026-10-09",
+          "status": "option",
+          "line": "Country identity and facts separated by thin rules; groups compared across three engagement columns."
+        },
+        {
+          "id": "muslim-world-panel-h",
+          "title": "H · Field notes",
+          "url": "/mockups/muslim-world-panels/?d=h&country=EGY",
+          "shot": "/apologetics/worldviews/islam?country=EGY&atlasDesign=h&panel=groups#muslim-world",
+          "date": "2026-10-09",
+          "status": "option",
+          "line": "Country identity with side rule; individual group fact sheets with population, language, religion and engagement."
         }
       ]
     }
