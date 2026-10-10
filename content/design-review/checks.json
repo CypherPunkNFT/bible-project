@@ -1,8 +1,8 @@
 {
  "schema": 1,
- "commit": "8055d4af",
+ "commit": "720c526e",
  "startedAt": "2026-10-09T23:34:19.946Z",
- "finishedAt": "2026-10-10T01:52:37.422Z",
+ "finishedAt": "2026-10-10T02:05:12.523Z",
  "base": "http://127.0.0.1:8974",
  "checks": [
   {
@@ -1094,47 +1094,8 @@
    "instances": 53,
    "checked": 3,
    "coverage": "All 53 profiles have data reconciliation checks; browser checks cover South Asia, the largest population and a small island territory.",
-   "failed": {
-    "links": 3
-   },
-   "failures": [
-    {
-     "url": "/apologetics/worldviews/islam?country=IDN#muslim-world",
-     "width": 400,
-     "check": "links",
-     "detail": "/teachers: this address is not a page on the site"
-    },
-    {
-     "url": "/apologetics/worldviews/islam?country=IDN#muslim-world",
-     "width": 400,
-     "check": "links",
-     "detail": "/resources: this address is not a page on the site"
-    },
-    {
-     "url": "/apologetics/worldviews/islam?country=MYT#muslim-world",
-     "width": 400,
-     "check": "links",
-     "detail": "/teachers: this address is not a page on the site"
-    },
-    {
-     "url": "/apologetics/worldviews/islam?country=MYT#muslim-world",
-     "width": 400,
-     "check": "links",
-     "detail": "/resources: this address is not a page on the site"
-    },
-    {
-     "url": "/apologetics/worldviews/islam?country=PAK#muslim-world",
-     "width": 400,
-     "check": "links",
-     "detail": "/teachers: this address is not a page on the site"
-    },
-    {
-     "url": "/apologetics/worldviews/islam?country=PAK#muslim-world",
-     "width": 400,
-     "check": "links",
-     "detail": "/resources: this address is not a page on the site"
-    }
-   ]
+   "failed": {},
+   "failures": []
   },
   {
    "template": "ap-worldview",
@@ -1142,23 +1103,8 @@
    "instances": 1,
    "checked": 1,
    "coverage": "",
-   "failed": {
-    "links": 1
-   },
-   "failures": [
-    {
-     "url": "/apologetics/worldviews/islam?country=PAK&map=flat#muslim-world",
-     "width": 400,
-     "check": "links",
-     "detail": "/teachers: this address is not a page on the site"
-    },
-    {
-     "url": "/apologetics/worldviews/islam?country=PAK&map=flat#muslim-world",
-     "width": 400,
-     "check": "links",
-     "detail": "/resources: this address is not a page on the site"
-    }
-   ]
+   "failed": {},
+   "failures": []
   },
   {
    "template": "ap-worldview",
