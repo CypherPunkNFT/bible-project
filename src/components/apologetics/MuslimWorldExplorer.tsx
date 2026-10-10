@@ -1,17 +1,14 @@
 import { lazy, Suspense, useCallback, useEffect, useRef, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { ArrowUpRight, Globe2, Map, Search } from 'lucide-react';
+import { ArrowUpRight, Globe2, Map } from 'lucide-react';
 import snapshot from '../../../content/missions/muslim-world.json';
 import type { MissionGlobe } from '@/lib/mission-globe';
-import CountryPeopleGroups from './CountryPeopleGroups';
-import { groupLabels } from '@/lib/mission-groups';
+import { groupLabels, type GroupStatus } from '@/lib/mission-groups';
 import { countryPanelDesigns, type CountryPanelDesign } from '@/lib/country-panel-designs';
 import './muslim-world.css';
 
 const CountryPanelPrototype = lazy(() => import('./CountryPanelPrototype'));
 const countries = snapshot.countries;
-const labels = groupLabels;
-const compact = (number: number) => new Intl.NumberFormat('en', { notation: 'compact', maximumFractionDigits: 1 }).format(number);
 const number = (value: number) => new Intl.NumberFormat('en').format(value);
 const date = new Intl.DateTimeFormat('en', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' }).format(new Date(snapshot.snapshotDate + 'T12:00:00Z'));
 
@@ -79,8 +76,6 @@ export default function MuslimWorldExplorer() {
   const prototypeDesign = countryPanelDesigns.find(design => design.id === requestedDesign)?.id;
   const setDesign = (value: CountryPanelDesign) => { const next = new URLSearchParams(params); next.set('atlasDesign', value); setParams(next, { replace: true, preventScrollReset: true }); };
   const country = countries.find(entry => entry.code === requested) ?? countries.find(entry => entry.code === 'PAK')!;
-  const [search, setSearch] = useState('');
-  const [region, setRegion] = useState('all');
   const [spinning, setSpinning] = useState(() => !requested && !matchMedia('(prefers-reduced-motion: reduce)').matches && !matchMedia('(pointer: coarse), (max-width: 760px)').matches);
   const panel = params.get('panel') === 'groups' ? 'groups' : 'gospel';
   const setPanel = (value: 'gospel' | 'groups') => {
@@ -88,12 +83,16 @@ export default function MuslimWorldExplorer() {
     if (value === 'groups') next.set('panel', 'groups'); else next.delete('panel');
     setParams(next, { replace: true, preventScrollReset: true });
   };
-  const tabs = useRef<HTMLDivElement>(null);
-  const tabKeys = (event: React.KeyboardEvent<HTMLButtonElement>) => {
-    if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
-    event.preventDefault();
-    const next = event.key === 'Home' ? 'gospel' : event.key === 'End' ? 'groups' : panel === 'gospel' ? 'groups' : 'gospel';
-    setPanel(next); tabs.current?.querySelector<HTMLButtonElement>(`#mw-${next}-tab`)?.focus();
+  const requestedFilter = params.get('engagement');
+  const filter = requestedFilter && Object.keys(groupLabels).includes(requestedFilter) ? requestedFilter as GroupStatus : 'all';
+  const setFilter = (value: GroupStatus | 'all') => {
+    const next = new URLSearchParams(params);
+    if (value === 'all') next.delete('engagement'); else next.set('engagement', value);
+    setParams(next, { replace: true, preventScrollReset: true });
+  };
+  const openGroups = (value: GroupStatus) => {
+    const next = new URLSearchParams(params); next.set('panel', 'groups'); next.set('engagement', value);
+    setParams(next, { replace: true, preventScrollReset: true });
   };
   useEffect(() => {
     if (window.location.hash !== '#muslim-world') return;
@@ -105,8 +104,6 @@ export default function MuslimWorldExplorer() {
     setParams(next, { replace: true, preventScrollReset: true }); setSpinning(false);
   }, [params, setParams]);
   const pause = useCallback(() => setSpinning(false), []);
-  const filtered = countries.filter(entry => entry.name.toLowerCase().includes(search.trim().toLowerCase()) &&
-    (region === 'all' || (region === 'africa' ? entry.region.includes('Africa') : region === 'europe' ? entry.region.includes('Europe') : entry.region.includes('Asia'))));
   return <div ref={section} className="mw-atlas-container">
     {prototypeDesign && <aside className="mw-design-review" aria-label="Atlas design review">
       <div><span>Country panel options</span><p>{countryPanelDesigns.find(design => design.id === prototypeDesign)?.name}</p></div>
@@ -116,27 +113,9 @@ export default function MuslimWorldExplorer() {
     <header className="mw-introduction"><div><p className="ap-eyebrow"><Globe2 size={15} aria-hidden="true" /> An atlas for understanding the Muslim world</p><h2 id="mw-heading">A world of people.<br /><em>Learn the place.</em></h2></div><p>A neighbour’s faith has a context. Explore 53 Muslim-majority countries and territories, meet some of their people groups, and understand where a gospel witness is present.</p></header>
     <div className="mw-explorer-layout">
       <CountryMap code={country.code} spinning={spinning} onSelect={choose} onPause={pause} />
-      {prototypeDesign ? <Suspense fallback={<div className="mw-country-panel" role="status">Opening the country panel…</div>}><CountryPanelPrototype country={country} design={prototypeDesign} panel={panel} choose={choose} setPanel={setPanel} /></Suspense> : <div className="mw-country-panel">
-        <div className="mw-country-picker"><label className="mw-search-label" htmlFor="mw-search"><Search size={14} /> Find a country</label><input id="mw-search" type="search" placeholder="Search all 53 places…" value={search} onChange={event => setSearch(event.target.value)} />
-          <div className="mw-select-row"><label><span className="sr-only">Filter by region</span><select aria-label="Filter countries by region" value={region} onChange={event => setRegion(event.target.value)}><option value="all">All regions</option><option value="africa">Africa</option><option value="asia">Asia</option><option value="europe">Europe</option></select></label><label><span className="sr-only">Choose a country</span><select aria-label="Choose a country" value={filtered.some(entry => entry.code === country.code) ? country.code : ''} onChange={event => choose(event.target.value)}><option value="" disabled>{filtered.length ? `${filtered.length} matching places` : 'No matching countries'}</option>{filtered.map(entry => <option value={entry.code} key={entry.code}>{entry.name}</option>)}</select></label></div>
-          {filtered.length === 0 && <p role="status">No matches. <button type="button" onClick={() => { setSearch(''); setRegion('all'); }}>Clear filters</button></p>}
-        </div>
-        <article className="mw-country-detail" aria-label={`${country.name} country profile`}>
-          <div className="mw-country-summary"><div className="mw-country-heading"><div><p className="ap-eyebrow">{country.region}</p><h3>{country.name}</h3></div><img className="mw-country-flag" src={`/assets/muslim-world/flags/${country.code}.svg`} alt={country.code === 'MYT' ? 'French flag for Mayotte' : `${country.name} flag`} width={64} height={48} /></div>
-          <div className="mw-demographics"><div><strong>{compact(country.population2020)}</strong><span>Population · 2020 estimate</span></div><div><strong>{country.muslimShare2020.toFixed(1)}<small>%</small></strong><span>Identify as Muslim · 2020</span></div></div>
-          <div className="mw-religion-summary"><div className="mw-religion-bar" aria-hidden="true"><span style={{ width: country.muslimShare2020 + '%' }} /></div>
-          <p className="mw-other-religions">{Object.entries(country.religions2020).filter(([name, share]) => name !== 'Muslims' && share >= .1).sort((a, b) => b[1] - a[1]).map(([name, share]) => `${name === 'Christians' ? 'Christian' : name === 'Hindus' ? 'Hindu' : name === 'Buddhists' ? 'Buddhist' : name} ${share.toFixed(1)}%`).join(' · ') || 'Each other religious category is below 0.1%.'}</p></div></div>
-          <div className="mw-country-tabs" role="tablist" aria-label="Country information" ref={tabs}><button type="button" role="tab" id="mw-gospel-tab" aria-controls="mw-gospel-panel" aria-selected={panel === 'gospel'} tabIndex={panel === 'gospel' ? 0 : -1} onClick={() => setPanel('gospel')} onKeyDown={tabKeys}>Gospel Presence</button><button type="button" role="tab" id="mw-groups-tab" aria-controls="mw-groups-panel" aria-selected={panel === 'groups'} tabIndex={panel === 'groups' ? 0 : -1} onClick={() => setPanel('groups')} onKeyDown={tabKeys}>People Groups <span>{country.imb.totalGroups}</span></button></div>
-          <div role="tabpanel" id="mw-gospel-panel" aria-labelledby="mw-gospel-tab" hidden={panel !== 'gospel'}>
-          <div className="mw-mission-heading"><span>Engagement overview / IMB</span><span>{country.imb.totalGroups} people groups</span></div>
-          <div className="mw-status-bar" aria-hidden="true">{(Object.keys(labels) as (keyof typeof labels)[]).map(key => <span key={key} className={'mw-status-' + key} style={{ width: country.imb[key].groups / country.imb.totalGroups * 100 + '%' }} />)}</div>
-          <dl className="mw-mission-stats">{(Object.keys(labels) as (keyof typeof labels)[]).map(key => <div key={key} className={'mw-status-' + key}><dt><i />{labels[key]}</dt><dd><strong>{country.imb[key].groups}</strong><span>{compact(country.imb[key].population)} people</span></dd></div>)}</dl>
-          <p className="mw-stat-note">All recorded people groups in this country, including non-Muslim groups. IMB snapshot: {date}.</p>
-          </div>
-          <div role="tabpanel" id="mw-groups-panel" aria-labelledby="mw-groups-tab" hidden={panel !== 'groups'}>{panel === 'groups' && <CountryPeopleGroups key={country.code} code={country.code} name={country.name} count={country.imb.totalGroups} snapshotDate={snapshot.snapshotDate} sourceHash={snapshot.sources.imb.sha256} />}</div>
-          <div className="mw-country-sources"><a href={`https://peoplegroups.org/country/${country.code}/`} target="_blank" rel="noreferrer">Read the full IMB profile <ArrowUpRight size={13} /></a><a href={snapshot.sources.pew.url} target="_blank" rel="noreferrer">Pew demographics <ArrowUpRight size={13} /></a></div>
-        </article>
-      </div>}
+      <Suspense fallback={<div className="mw-country-panel" role="status">Opening the country panel…</div>}>
+        <CountryPanelPrototype country={country} design={prototypeDesign ?? 'c'} adopted={!prototypeDesign} panel={panel} filter={filter} setFilter={setFilter} openGroups={openGroups} choose={choose} setPanel={setPanel} />
+      </Suspense>
     </div>
     <details className="mw-method"><summary>What do “unreached” and “engaged” mean?</summary><div><p>IMB describes a people group as a community within which the gospel can spread without substantial barriers of understanding or acceptance. An unreached group has less than 2% evangelical Christians. “Unengaged” indicates no known effort focused on establishing self-sustaining evangelical churches; engagement describes sustained work toward that goal.</p><p>“No longer unreached” means at least 2% evangelical Christians. It does not mean everyone in a group is Christian, or that a country is fully reached. The globe shows places; the statistics describe people groups.</p><p>Counts aggregate IMB’s published Engagement Progress categories. The demographic figures are Pew’s 2020 estimates, published in 2025; they are not present-day counts. IMB’s separate population total for {country.name} is {number(country.imb.population)}, across its recorded groups. Estimates, classification and country profiles may change.</p><p>Data: <a href={snapshot.sources.imb.url} target="_blank" rel="noreferrer">IMB Global Research</a>, country aggregates prepared by Bible Project from the {date} snapshot, under <a href={snapshot.sources.imb.licenseUrl} target="_blank" rel="noreferrer">CC BY-NC 4.0</a>. <a href="https://peoplegroups.org/definitions/" target="_blank" rel="noreferrer">Read IMB’s definitions.</a> Boundaries: <a href="https://www.naturalearthdata.com/about/terms-of-use/" target="_blank" rel="noreferrer">Natural Earth</a>; country and territory names follow the source datasets.</p></div></details>
     </section>

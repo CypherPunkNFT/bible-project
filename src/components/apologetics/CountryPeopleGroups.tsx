@@ -16,11 +16,14 @@ const badge = (group: PeopleGroup) => { const Icon = icons[group.status]; return
 const language = (group: PeopleGroup) => group.language || 'Language not reported';
 const religion = (group: PeopleGroup) => group.religion.replace('Islam - ', '');
 
-export default function CountryPeopleGroups({ code, name, count, snapshotDate, sourceHash, layout = 'a' }: {
+export default function CountryPeopleGroups({ code, name, count, snapshotDate, sourceHash, layout = 'a', filter, onFilterChange }: {
   code: string; name: string; count: number; snapshotDate: string; sourceHash: string; layout?: CountryPanelDesign;
+  filter?: GroupStatus | 'all'; onFilterChange?(value: GroupStatus | 'all'): void;
 }) {
   const [data, setData] = useState<CountryGroups | undefined>(() => cache.get(code));
-  const [error, setError] = useState(false), [search, setSearch] = useState(''), [status, setStatus] = useState<GroupStatus | 'all'>('all');
+  const [error, setError] = useState(false), [search, setSearch] = useState(''), [localStatus, setLocalStatus] = useState<GroupStatus | 'all'>('all');
+  const status = filter ?? localStatus;
+  const setStatus = (value: GroupStatus | 'all') => onFilterChange ? onFilterChange(value) : setLocalStatus(value);
   const [focused, setFocused] = useState<string>();
   useEffect(() => {
     if (cache.has(code)) return;

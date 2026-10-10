@@ -23,8 +23,8 @@ export default function CountryPanelHeader({ country, design, finder }: { countr
   </div>;
   if (design === 'b') return <div className="mw-header-b" aria-label={`${country.name} country summary`}>
     <div className="mw-header-b-top"><div className="mw-header-b-identity">{flag}<div><p>{country.region}</p><h3>{country.name}</h3></div></div>{finder}</div>
-    <dl className="mw-header-b-facts"><div><dt>Population</dt><dd>{population}</dd></div><div><dt>Identify as Muslim</dt><dd>{muslim}</dd></div></dl>
-    <p className="mw-header-caption">{religions}<span>Pew · 2020 estimates</span></p>
+    <dl className="mw-header-b-facts"><div><dt>Population</dt><dd>{population}</dd></div><div><dt>Muslim</dt><dd>{muslim}</dd></div><div><dt>Christian</dt><dd>{christianShare.toFixed(1)}<small>%</small></dd></div></dl>
+    <p className="mw-header-caption"><span>Pew · 2020 estimates</span></p>
   </div>;
   if (design === 'c') return <div className="mw-header-c" aria-label={`${country.name} country summary`}>
     <div className="mw-header-search">{finder}</div>

@@ -15,21 +15,21 @@ test('flags, larger engagement overview and complete group tabs stay readable an
   await expect(explorer.getByRole('heading', { name: 'Iran', exact: true })).toBeVisible();
   await expect(explorer.getByRole('img', { name: 'Iran flag', exact: true })).toHaveAttribute('src', '/assets/muslim-world/flags/IRN.svg');
   await expect.poll(() => explorer.locator('.mw-country-flag').evaluate(img => (img as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
-  await expect(overview.locator('dd strong')).toHaveText(['26', '19', '2']);
-  expect(await overview.locator('dt').first().evaluate(element => parseFloat(getComputedStyle(element).fontSize))).toBeGreaterThanOrEqual(15);
-  expect(await overview.locator('dd span').first().evaluate(element => parseFloat(getComputedStyle(element).fontSize))).toBeGreaterThanOrEqual(12);
-  expect(await explorer.locator('.mw-demographics > div').last().evaluate(element => getComputedStyle(element).borderLeftWidth)).toBe('1px');
+  await expect(overview.locator('.mw-prototype-tiles strong')).toHaveText(['26', '19', '2']);
+  await expect(overview.getByRole('button', { name: 'View Unengaged and unreached people groups' })).toBeVisible();
+  await expect(overview.locator('.mw-presence-title')).toHaveText(['Unengaged and unreached', 'Engaged yet unreached', 'No longer unreached']);
+  expect(await explorer.locator('.mw-header-b-facts > div').last().evaluate(element => getComputedStyle(element).borderLeftWidth)).toBe('1px');
   expect(groupRequests).toEqual([]);
   await page.getByRole('tab', { name: /People Groups/ }).click();
   const groups = page.getByRole('tabpanel', { name: /People Groups/ });
-  await expect(groups.locator('tbody tr')).toHaveCount(47);
+  await expect(groups.locator('[data-people-group]')).toHaveCount(47);
   await expect(groups.getByRole('link', { name: 'Persians', exact: true })).toBeVisible();
-  await expect(groups.locator('tbody tr').first()).toContainText('29,500,000');
+  await expect(groups.locator('[data-people-group]').first()).toContainText('29,500,000');
   await groups.getByRole('button', { name: /^Unengaged and unreached/ }).click();
-  await expect(groups.locator('tbody tr')).toHaveCount(26);
+  await expect(groups.locator('[data-people-group]')).toHaveCount(26);
   await groups.getByRole('button', { name: /^All groups/ }).click();
   await groups.getByRole('searchbox', { name: 'Search people groups' }).fill('Persians');
-  await expect(groups.locator('tbody tr')).toHaveCount(1);
+  await expect(groups.locator('[data-people-group]')).toHaveCount(1);
   await groups.getByRole('searchbox', { name: 'Search people groups' }).fill('');
   const scroll = groups.getByRole('region', { name: 'Iran people groups table' });
   expect(await scroll.evaluate(element => element.scrollWidth - element.clientWidth)).toBeLessThanOrEqual(1);
@@ -43,12 +43,13 @@ test('flags, larger engagement overview and complete group tabs stay readable an
   await page.getByRole('tab', { name: /People Groups/ }).focus(); await page.keyboard.press('ArrowLeft');
   await expect(page.getByRole('tab', { name: 'Gospel Presence' })).toBeFocused();
   await expect(overview).toBeVisible();
-  await page.keyboard.press('End'); await expect(groups.locator('tbody tr')).toHaveCount(47);
+  await page.keyboard.press('End'); await expect(groups.locator('[data-people-group]')).toHaveCount(47);
   expect(groupRequests.length).toBe(1);
-  await explorer.getByRole('combobox', { name: 'Choose a country', exact: true }).selectOption('BGD');
+  await explorer.getByRole('searchbox', { name: 'Find a country', exact: true }).fill('Bangladesh');
+  await explorer.getByRole('searchbox', { name: 'Find a country', exact: true }).press('Enter');
   await expect(groups.locator('.mw-group-count')).toContainText('All 56 recorded groups');
   await groups.getByRole('searchbox', { name: 'Search people groups' }).fill('Mara');
-  await expect(groups.locator('tbody')).toContainText('Language not reported');
+  await expect(groups.locator('.mw-pg-editorial')).toContainText('Language not reported');
   expect(groupRequests.length).toBe(2);
   await expect(page).toHaveURL(/panel=groups/);
   expect(errors).toEqual([]);
@@ -61,7 +62,7 @@ test('unavailable group data leaves the flag, source link and Gospel Presence us
   await expect(groups.getByRole('status')).toContainText('could not be loaded');
   await expect(groups.getByRole('link')).toHaveAttribute('href', 'https://peoplegroups.org/country/IRN/');
   await page.getByRole('tab', { name: 'Gospel Presence' }).click();
-  await expect(page.getByRole('tabpanel', { name: 'Gospel Presence' }).locator('dd strong')).toHaveText(['26', '19', '2']);
+  await expect(page.getByRole('tabpanel', { name: 'Gospel Presence' }).locator('.mw-prototype-tiles strong')).toHaveText(['26', '19', '2']);
 });
 
 test('country selection, demographics, source links and complete group tables preserve the comparison', async ({ page }) => {
@@ -72,22 +73,21 @@ test('country selection, demographics, source links and complete group tables pr
   await expect(explorer.getByRole('heading', { name: 'Pakistan', exact: true })).toBeVisible();
   await expect(explorer.getByRole('group', { name: /^Interactive globe/ })).toHaveAttribute('aria-busy', 'false');
   await explorer.getByRole('searchbox', { name: 'Find a country' }).fill('Indonesia');
-  await explorer.getByRole('combobox', { name: 'Choose a country', exact: true }).selectOption('IDN');
+  await explorer.getByRole('searchbox', { name: 'Find a country', exact: true }).press('Enter');
   await expect(explorer.getByRole('heading', { name: 'Indonesia', exact: true })).toBeVisible();
   await expect(page).toHaveURL(/question=jesus&country=IDN/);
   await expect(explorer).toContainText('87.0');
-  await expect(explorer).toContainText('2020 estimate');
+  await expect(explorer).toContainText('2020 estimates');
   await explorer.getByRole('tab', { name: /People Groups/ }).click();
   await expect(explorer.locator('.mw-group-count')).toContainText('All 669 recorded groups');
-  await expect(explorer.locator('.mw-groups-table tbody tr')).toHaveCount(669);
-  await expect(explorer.locator('.mw-groups-table')).toContainText('Sunda');
+  await expect(explorer.locator('[data-people-group]')).toHaveCount(669);
+  await expect(explorer.locator('.mw-pg-editorial')).toContainText('Sunda');
   await explorer.getByRole('tab', { name: 'Gospel Presence' }).click();
-  await expect(explorer.getByRole('link', { name: 'Read the full IMB profile' })).toHaveAttribute('href', 'https://peoplegroups.org/country/IDN/');
+  await expect(explorer.getByRole('link', { name: /IMB profile/ })).toHaveAttribute('href', 'https://peoplegroups.org/country/IDN/');
   await explorer.getByRole('searchbox', { name: 'Find a country' }).fill('xyznotacountry');
-  await expect(explorer.getByRole('status')).toContainText('No matches');
-  await explorer.getByRole('button', { name: 'Clear filters' }).click();
-  await explorer.getByRole('combobox', { name: 'Filter countries by region' }).selectOption('europe');
-  await explorer.getByRole('combobox', { name: 'Choose a country', exact: true }).selectOption('KOS');
+  await expect(explorer.getByRole('status')).toContainText('No matching countries');
+  await explorer.getByRole('searchbox', { name: 'Find a country', exact: true }).fill('Kosovo');
+  await explorer.getByRole('searchbox', { name: 'Find a country', exact: true }).press('Enter');
   await expect(explorer.getByRole('heading', { name: 'Kosovo', exact: true })).toBeVisible();
   await expect(page).toHaveURL(/question=jesus&country=KOS/);
   expect(errors).toEqual([]);
@@ -239,13 +239,15 @@ test('outline globe needs no WebGL or imagery; profiles stay usable if the map f
   expect(colours.ocean).toBeGreaterThan(100); expect(colours.land).toBeGreaterThan(100);
   await expect(explorer.locator('.mw-map-credit')).toHaveCount(0);
   expect((await page.evaluate(() => performance.getEntriesByType('resource').map(r => r.name))).some(name => /earth\.(webp|jpg)/.test(name))).toBe(false);
-  await explorer.getByRole('combobox', { name: 'Choose a country', exact: true }).selectOption('MYT');
+  await explorer.getByRole('searchbox', { name: 'Find a country', exact: true }).fill('Mayotte');
+  await explorer.getByRole('searchbox', { name: 'Find a country', exact: true }).press('Enter');
   await expect(explorer.getByRole('heading', { name: 'Mayotte', exact: true })).toBeVisible();
   await page.route('**/assets/muslim-world/atlas.json', route => route.abort());
   await page.reload();
   await explorer.scrollIntoViewIfNeeded();
   await expect(explorer.getByRole('status')).toContainText('The map is unavailable.');
-  await explorer.getByRole('combobox', { name: 'Choose a country', exact: true }).selectOption('BGD');
+  await explorer.getByRole('searchbox', { name: 'Find a country', exact: true }).fill('Bangladesh');
+  await explorer.getByRole('searchbox', { name: 'Find a country', exact: true }).press('Enter');
   await expect(explorer.getByRole('heading', { name: 'Bangladesh', exact: true })).toBeVisible();
 });
 
@@ -262,4 +264,39 @@ test('both themes remain readable without overflow; invalid URL uses Pakistan an
   }
   await page.goto('/apologetics/worldviews/buddhism');
   await expect(page.locator('#muslim-world')).toHaveCount(0);
+});
+
+
+test('the default page adopts B/C/B and engagement cards open the matching directory filter, including shared links', async ({ page }) => {
+  await page.goto(route + '?country=EGY&question=jesus#muslim-world');
+  const explorer = page.locator('#muslim-world');
+  await expect(page.getByRole('complementary', { name: 'Atlas design review' })).toHaveCount(0);
+  await expect(explorer.locator('.mw-header-b-facts dt')).toHaveText(['Population', 'Muslim', 'Christian']);
+  await expect(explorer.locator('.mw-header-b-facts dd')).toHaveText(['109.3M', '95.2%', '4.8%']);
+  const muslim = await explorer.locator('.mw-header-b-facts > div').nth(1).boundingBox();
+  const christian = await explorer.locator('.mw-header-b-facts > div').nth(2).boundingBox();
+  expect(christian!.x).toBeGreaterThan(muslim!.x);
+  expect(Math.abs(christian!.y - muslim!.y)).toBeLessThan(1);
+  const statuses = [
+    ['Unengaged and unreached', 'unengaged', 7],
+    ['Engaged yet unreached', 'engagedUnreached', 15],
+    ['No longer unreached', 'noLongerUnreached', 1],
+  ] as const;
+  for (const [label, status, count] of statuses) {
+    const card = explorer.getByRole('button', { name: `View ${label} people groups`, exact: true });
+    await card.focus(); await page.keyboard.press('Enter');
+    const tab = explorer.getByRole('tab', { name: /People Groups/ });
+    await expect(tab).toHaveAttribute('aria-selected', 'true'); await expect(tab).toBeFocused();
+    await expect(explorer.locator('.mw-pg-editorial [data-people-group]')).toHaveCount(count);
+    await expect(explorer.getByRole('button', { name: new RegExp(`^${label}`) })).toHaveAttribute('aria-pressed', 'true');
+    await expect(page).toHaveURL(new RegExp(`engagement=${status}`));
+    await expect(page).toHaveURL(/question=jesus/);
+    await page.reload();
+    await expect(explorer.locator('.mw-pg-editorial [data-people-group]')).toHaveCount(count);
+    await explorer.getByRole('tab', { name: 'Gospel Presence', exact: true }).click();
+  }
+  await explorer.getByRole('tab', { name: /People Groups/ }).click();
+  await explorer.getByRole('button', { name: /^All groups/ }).click();
+  await expect(explorer.locator('[data-people-group]')).toHaveCount(23);
+  await expect(page).not.toHaveURL(/engagement=/);
 });
