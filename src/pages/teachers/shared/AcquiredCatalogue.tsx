@@ -15,13 +15,6 @@ function useAcquiredCatalogue() {
   return { data, error };
 }
 
-export function AcquisitionNotice({ side }: { side: "preachers" | "scholars" }) {
-  const { data } = useAcquiredCatalogue();
-  if (!data) return null;
-  const own = data.contributors.filter(c => c.side === side);
-  return <div className="acq-notice"><p><strong>{own.length.toLocaleString()} acquired {side === "preachers" ? "authors and assemblies" : "authors and editors"}</strong><span>New holdings appear in the acquired catalogue below, including contributors whose biography is still unrecorded.</span></p><a href="#acquired">Browse their texts →</a></div>;
-}
-
 export function ContributorWorks({ contributor }: { contributor: AcquiredContributor }) {
   const [rows, setRows] = useState<AcquiredWork[]>([]), [query, setQuery] = useState(""), [page, setPage] = useState(0), [error, setError] = useState("");
   useEffect(() => {
@@ -48,13 +41,18 @@ function ContributorCard({ contributor: c }: { contributor: AcquiredContributor 
 export function AcquiredCatalogue({ side, authorId }: { side?: "preachers" | "scholars"; authorId?: string | null }) {
   const { data, error } = useAcquiredCatalogue();
   const [query, setQuery] = useState(""), [role, setRole] = useState(""), [page, setPage] = useState(0);
-  const contributors = useMemo(() => data?.contributors.filter(c => (!side || c.side === side) && (!authorId || c.id === authorId) && (!role || c.roles.includes(role)) && `${c.name} ${c.traditions.join(" ")}`.toLowerCase().includes(query.toLowerCase())) ?? [], [data, side, authorId, role, query]);
+  const shelves = useMemo(() => data?.contributors.filter(c => (!side || c.side === side) && (!authorId || c.id === authorId)) ?? [], [data, side, authorId]);
+  const contributors = useMemo(() => shelves.filter(c => (!role || c.roles.includes(role)) && `${c.name} ${c.traditions.join(" ")}`.toLowerCase().includes(query.toLowerCase())), [shelves, role, query]);
+  const contributorLabel = side === "preachers" ? "authors and assemblies" : "authors, editors and translators";
+  const introduction = data
+    ? `Explore the acquired texts of ${shelves.length.toLocaleString()} ${contributorLabel}. Open a shelf to browse editions and read available texts here.`
+    : "Open a contributor's shelf to browse acquired editions and read available texts here.";
   return <div className="acq-catalogue">
-    <SectionHead num={side === "preachers" ? "09" : "08"} kicker="Acquired library" title={<>The texts we hold, <em>by contributor</em></>} line="Authors and editors identified in the acquired editions. Open their shelves here; recorded biographies and traditions remain separate from holdings." />
+    <SectionHead num={side === "preachers" ? "09" : "08"} kicker="Acquired library" title={<>The texts we hold, <em>by contributor</em></>} line={introduction} />
     <div className="acq-controls"><label>Find a contributor<input value={query} onChange={e => { setQuery(e.target.value); setPage(0); }} placeholder="Name or recorded tradition" /></label><label>Role<select value={role} onChange={e => { setRole(e.target.value); setPage(0); }}><option value="">All roles</option><option value="author">Author</option><option value="editor">Editor</option><option value="translator">Translator</option></select></label></div>
     {error && <p role="alert">{error}</p>}
     {!data && !error && <p role="status">Loading acquired catalogue…</p>}
-    {data && <p className="acq-caption">{contributors.length.toLocaleString()} contributors · snapshot {new Date(data.updatedAt).toLocaleDateString()}. Unknown life dates and faith are not inferred from a text or name.</p>}
+    {data && <p className="acq-caption">{(query || role) && <>{contributors.length.toLocaleString()} of {shelves.length.toLocaleString()} contributors match · </>}Updated {new Date(data.updatedAt).toLocaleDateString()}.</p>}
     {data && !contributors.length && <p>No contributors match these filters.</p>}
     <div className="acq-contributors">{contributors.slice(page * 24, (page + 1) * 24).map(c => <ContributorCard key={c.id} contributor={c} />)}</div>
     {contributors.length > 24 && <nav className="acq-pagination" aria-label="Contributor pages"><button disabled={!page} onClick={() => setPage(p => p - 1)}>Previous</button><span>{page + 1} / {Math.ceil(contributors.length / 24)}</span><button disabled={(page + 1) * 24 >= contributors.length} onClick={() => setPage(p => p + 1)}>Next</button></nav>}

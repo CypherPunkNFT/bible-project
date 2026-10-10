@@ -16,7 +16,7 @@ import { Lives } from "./Lives";
 import { SameYear } from "./SameYear";
 import { Through } from "./Through";
 import { WholeBible } from "./WholeBible";
-import { AcquiredCatalogue, AcquisitionNotice } from "../shared/AcquiredCatalogue";
+import { AcquiredCatalogue } from "../shared/AcquiredCatalogue";
 
 const SECTIONS = [
   ["landing", "Preachers & authors", Landing],
@@ -44,7 +44,6 @@ function Loaded({ data }: { data: PeopleData }) {
   return <PreachersContext.Provider value={value}>
     <div className="tp-page tp-preachers">
       <SidesSwitch current="preachers" />
-      <AcquisitionNotice side="preachers" />
       {SECTIONS.map(([id, title, Section]) => <TeacherSection key={id} id={id} title={title}><Section /></TeacherSection>)}
       <TeacherSection id="acquired" title="Acquired authors and texts"><AcquiredCatalogue side="preachers" /></TeacherSection>
       <Drawer />

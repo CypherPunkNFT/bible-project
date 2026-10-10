@@ -16,7 +16,7 @@ import { Landing } from "./Landing";
 import { Named } from "./Named";
 import { Numbers } from "./Numbers";
 import { Profile } from "./Profile";
-import { AcquiredCatalogue, AcquisitionNotice } from "../shared/AcquiredCatalogue";
+import { AcquiredCatalogue } from "../shared/AcquiredCatalogue";
 
 const SECTIONS = [
   ["landing", "Scholars", Landing],
@@ -50,7 +50,6 @@ function Loaded({ data }: { data: ScholarsData }) {
   return <ScholarsContext.Provider value={value}>
     <div className="tp-page tp-scholars">
       <SidesSwitch current="scholars" />
-      <AcquisitionNotice side="scholars" />
       {SECTIONS.map(([id, title, Section]) => <TeacherSection key={id} id={id} title={title}><Section /></TeacherSection>)}
       <TeacherSection id="acquired" title="Acquired authors and editors"><AcquiredCatalogue side="scholars" /></TeacherSection>
       <Profile />
