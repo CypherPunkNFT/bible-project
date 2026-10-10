@@ -1,18 +1,32 @@
 # Sphere theme mock-ups
 
-Preview in the existing atlas: http://127.0.0.1:8931/apologetics/worldviews/islam?country=PAK&globeDesign=a#muslim-world . A–F switches only the sphere treatment, beside the current country panel. These are reusable renderer palettes, not a separate recreated page.
+Preview: http://127.0.0.1:8931/apologetics/worldviews/islam?country=PAK&globeDesign=a#sphere-studies . Sixteen small globe cards form a four-by-four comparison array on desktop, with two columns on phones. Selecting A–P changes the existing full-size globe below the array.
 
 | Option | Treatment |
 |---|---|
 | A · Earth | Existing deep ocean, olive terrain and gold selection |
 | B · Midnight | Ink-blue seas, slate land and silver-blue outlines |
-| C · Verdigris | Mineral teal seas, patinated green land and brass selection |
-| D · Parchment | Sand-coloured water, sage land, sepia lines and russet selection |
-| E · Copper | Smoked plum seas, copper terrain and champagne outlines |
-| F · Porcelain | Sea-glass water, ivory terrain, blue-grey lines and terracotta selection |
+| C · Quiet olive | Softer olive land and warmer shores, from Earth |
+| D · Blue slate | Muted slate terrain and quieter silver lines, from Midnight |
+| E · Deep forest | Deeper forest greens and cooler seas |
+| F · Atlantic | Slightly bluer water and land |
+| G · Warm shore | Soft ochre terrain and champagne outlines |
+| H · Smoke blue | Grey-blue land and subdued water |
+| I · Moss | Muted moss terrain and sage lines |
+| J · Deep navy | Deeper navy seas and clearer coastline contrast |
+| K · Charcoal | Charcoal water and pewter-green terrain |
+| L · Silver coast | Silver coastlines and muted blue terrain |
+| M · Muted teal | Restrained teal sea and cool green terrain |
+| N · Dusk | Grey-blue terrain and warm gold selection |
+| O · Soft earth | Softer terrain contrast and delicate outlines |
+| P · Quiet midnight | Deeper slate land and lower-contrast outlines |
+
+The owner preferred the original A and B. Both are preserved exactly; fourteen restrained variations replace the four rejected colourful/light directions. This records a preference, not review-board acceptance or deployment.
+
+Cards use 256px WebP previews captured from the actual renderer at the same Pakistan selection and camera. They are lazy-loaded static images, with no per-card atlas request, canvas, animation or renderer. Only the full-size atlas has an active canvas. A has a second image for its existing light-mode outline contrast. Regenerate with `node scripts/build-sphere-previews.mjs` after building the local preview, then rebuild to include the generated images. The script also refreshes the gallery thumbnails in both app themes. These are internally rendered assets, with no external imagery.
 
 The full circle, square container, current camera, country selection, zoom and wheel containment are retained. Theme switching invalidates the existing canvas; it does not recreate the renderer, load another atlas, add a texture or introduce WebGL. Illustrative terrain uses the original geographic wash positions and radii with different colours. It is not land-cover or demographic classification. A preserves the current normal globe exactly, including light/dark outline contrast.
 
-Files: `src/lib/mission-sphere-themes.ts` (typed palettes), `src/lib/mission-globe.ts` (`setPalette`), `src/components/apologetics/SphereThemePrototype.tsx` and its CSS (lazy preview controls), and the `globeDesign` branch in `MuslimWorldExplorer.tsx`. Ordinary URLs use Earth without preview controls. Flat-map colours remain as before; switching back to globe restores the chosen sphere palette. No source data or external assets were added.
+Files: `src/lib/mission-sphere-themes.ts` (typed palettes), `src/lib/mission-globe.ts` (`setPalette`), `src/components/apologetics/SphereThemePrototype.tsx` and its CSS (lazy comparison array), `public/assets/muslim-world/sphere-previews/`, and the `globeDesign` branch in `MuslimWorldExplorer.tsx`. Ordinary URLs use Earth without preview controls or preview-image requests. Flat-map colours remain as before; switching back to globe restores the chosen sphere palette. Source data is unchanged.
 
 Gallery bookmarks at `/mockups/muslim-world-spheres/?s=a` redirect to this actual-page preview. Palette selection is a review choice, not owner acceptance or deployment.
