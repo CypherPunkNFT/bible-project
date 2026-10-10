@@ -1,9 +1,9 @@
 {
  "schema": 1,
- "commit": "2a6ba268a9f988e0de53a496e56674be5de2b81c",
- "startedAt": "2026-10-08T03:26:04.125Z",
- "finishedAt": "2026-10-10T18:42:43.956Z",
- "base": "http://127.0.0.1:8943",
+ "commit": "05e4248e",
+ "startedAt": "2026-10-10T19:02:59.864Z",
+ "finishedAt": "2026-10-10T19:05:38.792Z",
+ "base": "http://127.0.0.1:8934",
  "checks": [
   {
    "id": "loads",
@@ -528,24 +528,6 @@
    "failures": []
   },
   {
-   "template": "atlas-history",
-   "variant": "collection",
-   "instances": 3,
-   "checked": 3,
-   "coverage": "",
-   "failed": {},
-   "failures": []
-  },
-  {
-   "template": "atlas-history",
-   "variant": "topic",
-   "instances": 18,
-   "checked": 18,
-   "coverage": "",
-   "failed": {},
-   "failures": []
-  },
-  {
    "template": "atlas-tradition",
    "variant": "lens",
    "instances": 8,
@@ -796,33 +778,6 @@
   },
   {
    "template": "ap-pages",
-   "variant": "debates",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {},
-   "failures": []
-  },
-  {
-   "template": "ap-pages",
-   "variant": "texts",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {},
-   "failures": []
-  },
-  {
-   "template": "ap-pages",
-   "variant": "sources",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {},
-   "failures": []
-  },
-  {
-   "template": "ap-pages",
    "variant": "saved",
    "instances": 1,
    "checked": 1,
@@ -925,15 +880,6 @@
      "detail": "/resources: this address is not a page on the site"
     }
    ]
-  },
-  {
-   "template": "ap-debate",
-   "variant": "page",
-   "instances": 3,
-   "checked": 3,
-   "coverage": "",
-   "failed": {},
-   "failures": []
   },
   {
    "template": "ap-practice",
@@ -1587,24 +1533,6 @@
    "failures": []
   },
   {
-   "template": "research-case",
-   "variant": "historical",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {},
-   "failures": []
-  },
-  {
-   "template": "research-case",
-   "variant": "manuscript",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {},
-   "failures": []
-  },
-  {
    "template": "research-landing",
    "variant": "all",
    "instances": 1,
@@ -1636,33 +1564,6 @@
    "variant": "works",
    "instances": 1,
    "checked": 1,
-   "coverage": "",
-   "failed": {},
-   "failures": []
-  },
-  {
-   "template": "research-source",
-   "variant": "edition",
-   "instances": 2,
-   "checked": 2,
-   "coverage": "",
-   "failed": {},
-   "failures": []
-  },
-  {
-   "template": "research-source",
-   "variant": "evidence",
-   "instances": 2,
-   "checked": 2,
-   "coverage": "",
-   "failed": {},
-   "failures": []
-  },
-  {
-   "template": "research-contributor",
-   "variant": "profiles",
-   "instances": 3,
-   "checked": 3,
    "coverage": "",
    "failed": {},
    "failures": []
@@ -1769,6 +1670,186 @@
   {
    "template": "study-branches",
    "variant": "academic-church",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "atlas-history",
+   "variant": "collection",
+   "instances": 3,
+   "checked": 3,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "atlas-history",
+   "variant": "topic",
+   "instances": 18,
+   "checked": 18,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "ap-pages",
+   "variant": "debates",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "ap-pages",
+   "variant": "texts",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "ap-pages",
+   "variant": "sources",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "ap-debate",
+   "variant": "page",
+   "instances": 3,
+   "checked": 3,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "research-case",
+   "variant": "historical",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "research-case",
+   "variant": "manuscript",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "research-source",
+   "variant": "edition",
+   "instances": 2,
+   "checked": 2,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "research-source",
+   "variant": "evidence",
+   "instances": 2,
+   "checked": 2,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "research-contributor",
+   "variant": "profiles",
+   "instances": 3,
+   "checked": 3,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "teacher-holdings",
+   "variant": "preachers",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "teacher-holdings",
+   "variant": "scholars",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "teacher-library",
+   "variant": "collections",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "teacher-reading",
+   "variant": "readable",
+   "instances": 19841,
+   "checked": 2,
+   "coverage": "Representative page states; package generation verifies all record, shelf and reading-page references.",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "teacher-reading",
+   "variant": "pending",
+   "instances": 111358,
+   "checked": 2,
+   "coverage": "Representative page states; package generation verifies all record, shelf and reading-page references.",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "teacher-reading",
+   "variant": "identity",
+   "instances": 11533,
+   "checked": 2,
+   "coverage": "Representative page states; package generation verifies all record, shelf and reading-page references.",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "reading-source",
+   "variant": "confession",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "reading-source",
+   "variant": "comparison",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "reading-source",
+   "variant": "pending",
    "instances": 1,
    "checked": 1,
    "coverage": "",

@@ -1862,7 +1862,7 @@
     "src/pages/places/tradition-experience.css",
     "src/pages/places/usePlacesPageSlide.ts"
    ],
-   "sourceHash": "8212b97cac6bdc9d",
+   "sourceHash": "e4aa0f850609be96",
    "signature": null,
    "variants": [
     {
@@ -3177,7 +3177,7 @@
     "src/pages/ApologeticsPage.tsx",
     "src/pages/apologetics.css"
    ],
-   "sourceHash": "8aefdf999c728e0f",
+   "sourceHash": "b12224b2ce5c023d",
    "signature": null,
    "variants": [
     {
@@ -3599,7 +3599,7 @@
     "src/pages/research/model.ts",
     "src/pages/research/research.css"
    ],
-   "sourceHash": "923dd30546f07d19",
+   "sourceHash": "d8cdfc5c2487f49a",
    "signature": {
     "selector": ".rs-answer",
     "label": "The question and answer"
@@ -3755,7 +3755,7 @@
     "src/pages/research/model.ts",
     "src/pages/research/research.css"
    ],
-   "sourceHash": "923dd30546f07d19",
+   "sourceHash": "d8cdfc5c2487f49a",
    "signature": {
     "selector": ".rs-source-layout",
     "label": "Edition and source context"
@@ -3819,7 +3819,7 @@
     "src/pages/research/model.ts",
     "src/pages/research/research.css"
    ],
-   "sourceHash": "923dd30546f07d19",
+   "sourceHash": "d8cdfc5c2487f49a",
    "signature": {
     "selector": ".rs-source-grid",
     "label": "Attributed editions"
@@ -3842,6 +3842,245 @@
        "label": "Longest title",
        "url": "/review/research/contributors/sinaiticus-project",
        "why": "longest title: \"Codex Sinaiticus Project\" (24 characters)"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "teacher-holdings",
+   "area": "site",
+   "name": "Teachers acquired shelves",
+   "what": "Acquired contributors below the existing biographies.",
+   "address": "/teachers/<side>#acquired",
+   "instances": 2,
+   "sources": [
+    "src/pages/teachers/LibraryWorkPage.tsx",
+    "src/pages/teachers/shared/AcquiredCatalogue.tsx",
+    "src/pages/teachers/shared/CollectionBrowser.tsx",
+    "src/pages/teachers/shared/Frame.tsx",
+    "src/pages/teachers/shared/acquired.css",
+    "src/pages/teachers/shared/acquired.ts",
+    "src/pages/teachers/shared/frame.css",
+    "src/pages/teachers/shared/sides.ts"
+   ],
+   "sourceHash": "fe2e92f0576b898d",
+   "signature": {
+    "selector": ".acq-catalogue",
+    "label": "Acquired contributors"
+   },
+   "variants": [
+    {
+     "id": "preachers",
+     "name": "Preachers",
+     "what": "Acquired Baptist and evangelical author shelves.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/teachers/preachers-and-authors#acquired",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "scholars",
+     "name": "Scholars",
+     "what": "Recorded authors, editors and translators; unknown biographies stay unknown.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/teachers/scholars#acquired",
+       "why": "the only page of this design"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "teacher-library",
+   "area": "site",
+   "name": "Library collection browsing",
+   "what": "Includes inscriptions and anonymous texts.",
+   "address": "/teachers/works",
+   "instances": 1,
+   "sources": [
+    "src/pages/teachers/LibraryWorkPage.tsx",
+    "src/pages/teachers/shared/AcquiredCatalogue.tsx",
+    "src/pages/teachers/shared/CollectionBrowser.tsx",
+    "src/pages/teachers/shared/Frame.tsx",
+    "src/pages/teachers/shared/acquired.css",
+    "src/pages/teachers/shared/acquired.ts",
+    "src/pages/teachers/shared/frame.css",
+    "src/pages/teachers/shared/sides.ts"
+   ],
+   "sourceHash": "fe2e92f0576b898d",
+   "signature": {
+    "selector": ".acq-collections",
+    "label": "Collections"
+   },
+   "variants": [
+    {
+     "id": "collections",
+     "name": "Collections",
+     "what": "Choose a source and reading availability.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/teachers/works",
+       "why": "the only page of this design"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "teacher-reading",
+   "area": "site",
+   "name": "Held edition reader",
+   "what": "Read permission-cleared text on this site.",
+   "address": "/teachers/works/<id>",
+   "instances": 142732,
+   "sources": [
+    "src/pages/teachers/LibraryWorkPage.tsx",
+    "src/pages/teachers/shared/AcquiredCatalogue.tsx",
+    "src/pages/teachers/shared/CollectionBrowser.tsx",
+    "src/pages/teachers/shared/Frame.tsx",
+    "src/pages/teachers/shared/acquired.css",
+    "src/pages/teachers/shared/acquired.ts",
+    "src/pages/teachers/shared/frame.css",
+    "src/pages/teachers/shared/sides.ts"
+   ],
+   "sourceHash": "fe2e92f0576b898d",
+   "signature": {
+    "selector": ".acq-reader",
+    "label": "Reading and provenance"
+   },
+   "variants": [
+    {
+     "id": "readable",
+     "name": "Reading copy",
+     "what": "A recorded edition with honest availability and bottom provenance.",
+     "instances": 19841,
+     "samples": [
+      {
+       "id": "first",
+       "label": "First",
+       "url": "/teachers/works/held-64eb47ac3973ea1738c4435a88ce0ebe",
+       "why": "the first example: Phronēma tou pneumatou, or, The grace and duty of being spiritually-minded declared and practically improved / by John Owen ..."
+      },
+      {
+       "id": "long-title",
+       "label": "Long title",
+       "url": "/teachers/works/held-33d45d2b2f8b4acb806718afd63be0a4",
+       "why": "longest title: \"Truth maintained, or Positions delivered in a sermon at the Savoy: …\" (1282 characters)"
+      }
+     ]
+    },
+    {
+     "id": "pending",
+     "name": "Permission pending",
+     "what": "A recorded edition with honest availability and bottom provenance.",
+     "instances": 111358,
+     "samples": [
+      {
+       "id": "first",
+       "label": "First",
+       "url": "/teachers/works/held-cc9a0dd456d4131dd9970bc3b97cded4",
+       "why": "the first example: The Deification of Muhammad?"
+      },
+      {
+       "id": "long-title",
+       "label": "Long title",
+       "url": "/teachers/works/held-13c8176025db491dddb081a56029470c",
+       "why": "longest title: \"A body of practical divinity : consisting of above one hundred and …\" (405 characters)"
+      }
+     ]
+    },
+    {
+     "id": "identity",
+     "name": "Identity review",
+     "what": "A recorded edition with honest availability and bottom provenance.",
+     "instances": 11533,
+     "samples": [
+      {
+       "id": "first",
+       "label": "First",
+       "url": "/teachers/works/held-f3efa32b22f2360833f9698ca869796c",
+       "why": "the first example: The practical works of the Rev. Richard Baxter: with a life of the author, and a critical examination of his writings ; in twenty-three volumes. 20"
+      },
+      {
+       "id": "long-title",
+       "label": "Long title",
+       "url": "/teachers/works/held-17f1a236a9986a7161f9f78333ea8152",
+       "why": "longest title: \"The whole genuine works of Flavius Josephus, the learned and authen…\" (856 characters)"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "reading-source",
+   "area": "site",
+   "name": "Source reading record",
+   "what": "Citations stay local; original references are bottom credits.",
+   "address": "/sources/reading/<id>",
+   "instances": 3,
+   "sources": [
+    "src/pages/ReadingSourcePage.tsx",
+    "src/pages/teachers/shared/acquired.css",
+    "src/pages/teachers/shared/acquired.ts"
+   ],
+   "sourceHash": "49e61341908dfa44",
+   "signature": {
+    "selector": ".acq-reader",
+    "label": "Source and edition"
+   },
+   "variants": [
+    {
+     "id": "confession",
+     "name": "Confession",
+     "what": "Chapter reading in the held transcription.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/sources/reading/ap-wcf?at=11.1",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "comparison",
+     "name": "Comparison translation",
+     "what": "Actual Pickthall edition labelled separately from the cited edition.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/sources/reading/ap-q112",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "pending",
+     "name": "Public copy pending",
+     "what": "Doctrinal warning and provenance remain visible.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/sources/reading/ap-aquinas",
+       "why": "the only page of this design"
       }
      ]
     }
