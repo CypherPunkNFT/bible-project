@@ -1,7 +1,7 @@
 {
  "schema": 1,
- "generatedAt": "2026-10-10T21:41:56.365Z",
- "commit": "b2068006",
+ "generatedAt": "2026-10-10T21:50:24.097Z",
+ "commit": "a63959de",
  "areas": [
   {
    "id": "people",
@@ -926,6 +926,37 @@
    ]
   },
   {
+   "id": "study-legacy",
+   "area": "study",
+   "name": "Original Study collection",
+   "what": "The original ten-card Study collection, retained by request.",
+   "address": "/study2",
+   "instances": 1,
+   "sources": [
+    "src/pages/study/StudyCollection.tsx",
+    "src/pages/study/StudyResourceCards.tsx",
+    "src/pages/study/study.css"
+   ],
+   "sourceHash": "4d49a9cc12e4a573",
+   "signature": null,
+   "variants": [
+    {
+     "id": "page",
+     "name": "Original Study collection",
+     "what": "The original ten-card Study collection, retained by request.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study2",
+       "why": "the only page of this design"
+      }
+     ]
+    }
+   ]
+  },
+  {
    "id": "study-branches",
    "area": "study",
    "name": "Study subject landings",
@@ -933,14 +964,16 @@
    "address": "/study/<branch>",
    "instances": 10,
    "sources": [
+    "src/pages/study/StudyResourceCards.tsx",
     "src/pages/study/hub/Artwork.tsx",
     "src/pages/study/hub/StudyBranch.tsx",
     "src/pages/study/hub/collections.ts",
     "src/pages/study/hub/hub.css",
     "src/pages/study/hub/shared.tsx",
-    "src/pages/study/hub/writers.ts"
+    "src/pages/study/hub/writers.ts",
+    "src/pages/study/study.css"
    ],
-   "sourceHash": "b270fff4d1ad13dd",
+   "sourceHash": "0821792565dd69b1",
    "signature": null,
    "variants": [
     {
@@ -1117,36 +1150,6 @@
        "id": "page",
        "label": "The page",
        "url": "/study",
-       "why": "the only page of this design"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "study-legacy",
-   "area": "study",
-   "name": "Original Study collection",
-   "what": "The original ten-card Study collection, retained by request.",
-   "address": "/study2",
-   "instances": 1,
-   "sources": [
-    "src/pages/study/StudyCollection.tsx",
-    "src/pages/study/study.css"
-   ],
-   "sourceHash": "5c3836ffe5ac83a9",
-   "signature": null,
-   "variants": [
-    {
-     "id": "page",
-     "name": "Original Study collection",
-     "what": "The original ten-card Study collection, retained by request.",
-     "instances": 1,
-     "samples": [
-      {
-       "id": "page",
-       "label": "The page",
-       "url": "/study2",
        "why": "the only page of this design"
       }
      ]

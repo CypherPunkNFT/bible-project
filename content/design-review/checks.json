@@ -1,8 +1,8 @@
 {
  "schema": 1,
- "commit": "b20680068db6125b09274dfe59d898ca720bb76d",
+ "commit": "fb84a325a3f66f3dbca8cb160ae71ab1a70f7c80",
  "startedAt": "2026-10-08T03:26:04.125Z",
- "finishedAt": "2026-10-10T21:45:25.875Z",
+ "finishedAt": "2026-10-10T21:52:37.405Z",
  "base": "http://127.0.0.1:8943",
  "checks": [
   {
@@ -358,15 +358,6 @@
   },
   {
    "template": "study-hub",
-   "variant": "page",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {},
-   "failures": []
-  },
-  {
-   "template": "study-legacy",
    "variant": "page",
    "instances": 1,
    "checked": 1,
@@ -1396,6 +1387,15 @@
    "variant": "pending",
    "instances": 1,
    "checked": 0,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "study-legacy",
+   "variant": "page",
+   "instances": 1,
+   "checked": 1,
    "coverage": "",
    "failed": {},
    "failures": []
