@@ -1,3 +1,5 @@
+import { readingSourceUrl } from "@/lib/reading-sources";
+import "../teachers/shared/acquired.css";
 import { ArrowRight, ArrowUpRight, Search } from "lucide-react";
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
@@ -36,15 +38,16 @@ export function WorkPage({ data, evidence = false }: { data: ResearchBundle; evi
   if (!source) return <NotFoundPage />;
   return <div className={"rs-source-page rs-" + (source.id === "sinaiticus-mark" ? "manuscript" : "historical")}>
     <ResearchHero eyebrow={evidence ? "Apologetics · Evidence record" : "Scholars · Work & edition"} title={source.title} lead={source.subtitle} />
-    <div className="rs-source-layout"><aside className="rs-source-facts"><p className="rs-eyebrow">At a glance</p><dl><dt>Source type</dt><dd>{source.genre}</dd><dt>Ancient setting</dt><dd>{source.period}</dd><dt>Language</dt><dd>{source.language}</dd><dt>Named edition</dt><dd>{source.edition}</dd><dt>Access</dt><dd>Held source checked · external reading link</dd></dl><a className="rs-button" href={source.url} target="_blank" rel="noreferrer">Open original source <ArrowUpRight size={17} aria-hidden /></a></aside>
+    <div className="rs-source-layout"><aside className="rs-source-facts"><p className="rs-eyebrow">At a glance</p><dl><dt>Source type</dt><dd>{source.genre}</dd><dt>Ancient setting</dt><dd>{source.period}</dd><dt>Language</dt><dd>{source.language}</dd><dt>Named edition</dt><dd>{source.edition}</dd><dt>Access</dt><dd>Reading availability recorded on this site</dd></dl><Link className="rs-button" to={readingSourceUrl("research-" + source.id)}>Reading copy and availability <ArrowRight size={17} aria-hidden /></Link></aside>
     <article>
       <section className="rs-reading-section"><p className="rs-eyebrow">{evidence ? "What we can observe" : "About this work"}</p><h2>{evidence ? "A source with a particular scope." : "Read the edition in context."}</h2><p>{source.description}</p></section>
       {evidence && source.id === "sinaiticus-mark" && <WitnessComparison />}
       <section className="rs-location"><p className="rs-eyebrow">Exact location</p><h2>{source.locator}</h2>{source.citation.quote && <blockquote>“{source.citation.quote}”</blockquote>}<CitationInspector source={source} /></section>
       <section className="rs-reading-section"><h2>{evidence ? "What it does not settle" : "Use & interpretation"}</h2><ul>{source.limitations.map(limit => <li key={limit}>{limit}</li>)}</ul></section>
       <section className="rs-reading-section"><p className="rs-eyebrow">Attribution</p><h2>Who made this edition available?</h2><div className="rs-contributors">{source.contributors.map(id => { const c = data.contributors.find(c => c.id === id)!; return <Link key={id} to={researchUrl("contributors/" + id)}><h3>{c.name}</h3><p>{c.role}</p><ArrowRight size={16} aria-hidden /></Link>; })}</div></section>
-      <p className="rs-credit">{source.rights} <a href={source.rightsUrl} target="_blank" rel="noreferrer">Rights information</a></p>
+      
       <RelatedLinks links={[{ to: (evidence ? "works/" : "evidence/") + source.id, label: evidence ? "Open the bibliographic record" : "Examine the evidence record", note: evidence ? "Edition, attribution and actual uses" : "The observation and its limits" }, ...sourceUses(data, source.id)]} title="Where this source is used" />
+      <footer className="acq-sources"><h2>Sources and credits</h2><p>{source.rights} <a href={source.rightsUrl} target="_blank" rel="noreferrer">Rights information</a></p><a href={source.url} target="_blank" rel="noreferrer">Original source and provenance</a><ul>{source.references.map(ref => <li key={ref.url}><a href={ref.url} target="_blank" rel="noreferrer">{ref.label}</a></li>)}</ul></footer>
     </article></div>
   </div>;
 }
@@ -55,8 +58,8 @@ export function ContributorPage({ data }: { data: ResearchBundle }) {
   if (!contributor) return <NotFoundPage />;
   return <><ResearchHero eyebrow={"Scholars · " + (contributor.kind === "institution" ? "Institution" : "Contributor")} title={contributor.name} lead={contributor.role} />
     {contributor.kind === "person" && <p className="rs-credit">Faith or tradition: not established in the edition credits reviewed here.</p>}
-    <div className="rs-contributor-reading"><section className="rs-reading-section"><h2>The contribution</h2><p>{contributor.description}</p><p>{contributor.scope}</p><a className="rs-inline-source" href={contributor.url} target="_blank" rel="noreferrer">Check the attribution <ArrowUpRight size={15} aria-hidden /></a><p className="rs-credit">{contributor.sourceLocator}</p></section>
+    <div className="rs-contributor-reading"><section className="rs-reading-section"><h2>The contribution</h2><p>{contributor.description}</p><p>{contributor.scope}</p><p className="rs-credit">{contributor.sourceLocator}</p></section>
       <section className="rs-shelf"><p className="rs-eyebrow">Named works & editions in these readings</p><div className="rs-source-grid">{contributor.works.map(id => <SourceTile key={id} source={data.sources.find(s => s.id === id)!} />)}</div></section>
-      <RelatedLinks links={contributor.works.flatMap(id => sourceUses(data,id))} title="Actual source uses" />
+      <RelatedLinks links={contributor.works.flatMap(id => sourceUses(data,id))} title="Actual source uses" /><footer className="acq-sources"><h2>Sources and credits</h2><a href={contributor.url} target="_blank" rel="noreferrer">Original attribution</a><p>{contributor.sourceLocator}</p></footer>
     </div></>;
 }

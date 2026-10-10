@@ -37,6 +37,8 @@ const NamesPage = lazy(() => import("@/pages/study/NamesPage"));
 // The owner's design review board: hidden, local preview only (it shows "not found" on the live site).
 const DesignReviewPage = lazy(() => import("@/pages/review/DesignReviewPage"));
 const ResearchPreviewPage = lazy(() => import("@/pages/research/ResearchPreviewPage"));
+const ReadingSourcePage = lazy(() => import("@/pages/ReadingSourcePage"));
+const LibraryWorkPage = lazy(() => import("@/pages/teachers/LibraryWorkPage"));
 
 function PageFallback() {
   return (
@@ -110,6 +112,8 @@ export default function App() {
               <Route path="/study/names" element={<NamesPage />} />
               <Route path="/review" element={<DesignReviewPage />} />
               <Route path="/review/research/*" element={<ResearchPreviewPage />} />
+              <Route path="/sources/reading/:id" element={<ReadingSourcePage />} />
+              <Route path="/teachers/works/:id?" element={<LibraryWorkPage />} />
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </Suspense>

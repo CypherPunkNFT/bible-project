@@ -23,8 +23,8 @@ export const GOSPEL_NOTES = {
   luke: "Luke 3:23–38 · Jesus to Adam; the passage ends ‘of God’. Joseph is named ‘as was supposed’; Luke does not name Mary in this genealogy. KJV sequence: Aram in 3:33; some translations instead list Admin and Arni.",
 };
 export const GOSPEL_URLS = {
-  matthew: "https://www.biblegateway.com/passage/?search=Matthew+1%3A1-17&version=KJV",
-  luke: "https://www.biblegateway.com/passage/?search=Luke+3%3A23-38&version=KJV",
+  matthew: "/read/kjv/MAT/1?hl=1-17",
+  luke: "/read/kjv/LUK/3?hl=23-38",
 };
 
 /** Separate source projections avoid conflating Matthew, Luke and harmonizations. */

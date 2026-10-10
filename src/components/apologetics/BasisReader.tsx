@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+import { apSourceUrl } from "@/lib/reading-sources";
 import { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 import { useCatalog } from '@/lib/catalog';
@@ -44,7 +46,7 @@ function CitationText({ citation, version }: { citation: ApCitation; version: st
   }, JSON.stringify(citation) + version);
   if (text.status === 'loading') return <p role="status">Loading passage…</p>;
   if (text.status === 'error') return <p role="alert">This text could not be loaded. Select another reference or try again.</p>;
-  if (!text.value.length && citation.kind === 'source') return <p>Full text is available at <a href={sourceById(citation.source).url} target="_blank" rel="noreferrer">the original source</a>.</p>;
+  if (!text.value.length && citation.kind === 'source') return <p><Link to={apSourceUrl(citation.source, citation.locator)}>Open the source record and reading availability</Link>.</p>;
   return <div className="wv-basis-text">{text.value.map(line => <p key={line.label}><sup>{line.label}</sup>{line.text}</p>)}</div>;
 }
 export default function BasisReader({ christian, islamic }: { christian: ApCitation[]; islamic: ApCitation[] }) {

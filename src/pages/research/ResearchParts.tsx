@@ -49,9 +49,9 @@ export function CitationInspector({ source, locator, compact = false }: { source
       <p className="rs-eyebrow">{source.sourceRole}</p><h3>{source.edition}</h3><p><strong>Location:</strong> {locator ?? source.locator}</p>
       {source.citation.quote && <blockquote>{source.citation.quote}</blockquote>}
       <p>{source.citation.limits.join(" ")}</p>
-      <div className="rs-source-actions"><Link to={researchUrl("works/" + source.id)}>Edition & contributors <ArrowRight size={14} aria-hidden /></Link><a href={source.url} target="_blank" rel="noreferrer">Open original source <ArrowUpRight size={14} aria-hidden /></a></div>
-      <ul className="rs-credit">{source.references.map(ref => <li key={ref.url}><a href={ref.url} target="_blank" rel="noreferrer">{ref.label} ↗</a></li>)}</ul>
-      <p className="rs-credit">{source.rights} <a href={source.rightsUrl} target="_blank" rel="noreferrer">Rights information</a></p>
+      <div className="rs-source-actions"><Link to={researchUrl("works/" + source.id)}>Edition & contributors <ArrowRight size={14} aria-hidden /></Link></div>
+      
+      <p className="rs-credit">{source.rights} Original references and licence details are recorded with the edition.</p>
       <p className="rs-credit">{source.citation.review.scope}</p>
     </div>
   </details>;

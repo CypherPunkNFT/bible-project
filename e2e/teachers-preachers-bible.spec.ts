@@ -64,9 +64,10 @@ test("the whole Bible: choosing a chapter shows who took it, links to the works,
   if (narrow) await expect(panel).toHaveClass(/bib-open/);
   await expect(panel.locator("h3")).toContainText("Genesis 1");
   await expect(panel.locator(".bib-bars li").first()).toBeVisible();
-  const work = panel.locator("a.bib-work").first();
-  await expect(work).toHaveAttribute("target", "_blank");
-  await expect(work).toHaveAttribute("href", /^https?:\/\//);
+  await expect(panel.locator(".bib-work, .bib-work-plain").first()).toBeVisible();
+  // Held work titles remain visible; only permission-cleared reading copies link.
+  for (const work of await panel.locator("a.bib-work").all())
+    await expect(work).toHaveAttribute("href", /^\/teachers\/works\//);
   await expect(panel.getByRole("link", { name: /Read Genesis 1/ })).toHaveAttribute("href", "/read/kjv/GEN/1");
   // A name opens that teacher's profile.
   await panel.locator(".bib-bars .bib-name").first().click();
@@ -121,9 +122,10 @@ test("through the Bible: the teacher list, the ring and the book panel agree", a
   await expect(section.locator(".thr-book h3")).toHaveText(book);
   await expect(section.locator(".thr-book-sub")).toContainText(`${count} works`);
   // Each work links to the work itself, with a small link to the chapter on this site.
-  const item = section.locator(".thr-item").filter({ has: page.locator("a.thr-go") }).first();
-  await expect(item.locator("a.thr-go")).toHaveAttribute("target", "_blank");
-  await expect(item.locator("a.thr-go")).toHaveText(/Read the sermon|Read in the volume|Read the /);
+  const item = section.locator(".thr-item").first();
+  await expect(item.locator(".thr-work")).toBeVisible();
+  for (const reading of await section.locator("a.thr-go").all())
+    await expect(reading).toHaveAttribute("href", /^\/teachers\/works\//);
   await expect(item.locator("a.thr-ref")).toHaveAttribute("href", /^\/read\/kjv\/[1-3A-Z]{3}\/\d+/);
   // Everyone has no year slider, only the honest one-line reason.
   await expect(section.locator(".thr-years")).toBeHidden();

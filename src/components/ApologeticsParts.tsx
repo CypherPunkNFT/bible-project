@@ -1,3 +1,4 @@
+import { apSourceUrl } from "@/lib/reading-sources";
 import { ArrowLeft, ArrowRight, ArrowUpRight, BookOpen, Bookmark, Check, Search } from "lucide-react";
 import { useState, type ReactNode } from "react";
 import { Link } from "react-router-dom";
@@ -31,9 +32,9 @@ export function StudyCard({ study, book, snippet, returnState }: { study: ApStud
   const topic = topicById(study.topic)!;
   return <article className="ap-study-card" style={apColor(topic.color)}><div className="ap-card-meta"><span>{topic.short} · {studyMinutes(study)} min</span><button type="button" aria-label={(book.notebook.saved.includes(study.id) ? "Unsave: " : "Save: ") + study.title} aria-pressed={book.notebook.saved.includes(study.id)} onClick={() => book.toggle("saved", study.id)}><Bookmark size={17} fill={book.notebook.saved.includes(study.id) ? "currentColor" : "none"} /></button></div><Link state={returnState} to={studyUrl(study.id)}><h3>{study.title}</h3><p>{study.summary}</p>{snippet && <p className="ap-study-snippet">…{snippet.map((part, index) => part.hit ? <mark key={index}>{part.text}</mark> : part.text)}</p>}<span>{book.notebook.read.includes(study.id) ? <><Check size={14} />Read · Revisit study</> : <>Follow the question <ArrowRight size={15} /></>}</span></Link></article>;
 }
-export function SourceLink({ id }: { id: string }) { const source = sourceById(id); return <a href={source.url} target="_blank" rel="noreferrer" className="ap-source-link"><div><span>{source.kind}</span><strong>{source.title}</strong><small>{source.author}</small><small className="ap-source-role">{source.role}</small></div><ArrowUpRight size={16} /></a>; }
+export function SourceLink({ id }: { id: string }) { const source = sourceById(id); return <Link to={apSourceUrl(id)} className="ap-source-link"><div><span>{source.kind}</span><strong>{source.title}</strong><small>{source.author}</small><small className="ap-source-role">{source.role}</small></div><ArrowRight size={16} /></Link>; }
 export function ApCitations({ citations, label = "Basis" }: { citations: ApCitation[]; label?: string }) {
-  return <div className="ap-citations" aria-label={label}><span className="ap-citation-label">{label}</span><ul>{citations.map((citation, index) => <li key={index}>{citation.kind === "scripture" ? <RefLink span={citation.span} /> : <a href={sourceById(citation.source).url} target="_blank" rel="noreferrer" title={sourceById(citation.source).note}><span>{citation.source === "wcf" ? "Westminster" : sourceById(citation.source).author.split(" · ")[0]}</span><span className="ap-citation-locator">{citation.locator}</span><ArrowUpRight size={11} /></a>}</li>)}</ul></div>;
+  return <div className="ap-citations" aria-label={label}><span className="ap-citation-label">{label}</span><ul>{citations.map((citation, index) => <li key={index}>{citation.kind === "scripture" ? <RefLink span={citation.span} /> : <Link to={apSourceUrl(citation.source, citation.locator)} title={sourceById(citation.source).note}><span>{citation.source === "wcf" ? "Westminster" : sourceById(citation.source).author.split(" · ")[0]}</span><span className="ap-citation-locator">{citation.locator}</span><ArrowRight size={11} /></Link>}</li>)}</ul></div>;
 }
 export function ApSourcePolicy({ compact = false }: { compact?: boolean }) {
   const policy = AP_EDITORIAL.policy;

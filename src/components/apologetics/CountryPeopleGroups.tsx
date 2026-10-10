@@ -11,7 +11,7 @@ const cache = new Map<string, CountryGroups>();
 const format = (value: number) => new Intl.NumberFormat('en').format(value);
 const keys = Object.keys(groupLabels) as GroupStatus[];
 const icons = { unengaged: Compass, engagedUnreached: Sprout, noLongerUnreached: CircleCheck };
-const groupLink = (group: PeopleGroup) => <a href={`https://peoplegroups.org/people_groups/${group.id.toLowerCase()}/`} target="_blank" rel="noreferrer">{group.name}<ArrowUpRight size={12} aria-hidden="true" /></a>;
+const groupLink = (group: PeopleGroup) => <strong>{group.name}</strong>;
 const badge = (group: PeopleGroup) => { const Icon = icons[group.status]; return <span className={`mw-pg-badge mw-pg-${group.status}`}><Icon size={14} aria-hidden="true" />{groupLabels[group.status]}</span>; };
 const language = (group: PeopleGroup) => group.language || 'Language not reported';
 const religion = (group: PeopleGroup) => group.religion.replace('Islam - ', '');
@@ -40,7 +40,7 @@ export default function CountryPeopleGroups({ code, name, count, snapshotDate, s
     const query = search.trim().toLowerCase();
     return data?.groups.filter(group => (status === 'all' || group.status === status) && `${group.name} ${group.language ?? ''} ${group.religion}`.toLowerCase().includes(query)) ?? [];
   }, [data, search, status]);
-  if (error) return <p className="mw-groups-message" role="status">The people-group list could not be loaded. <a href={`https://peoplegroups.org/country/${code}/`} target="_blank" rel="noreferrer">Read IMB’s country profile <ArrowUpRight size={13} /></a></p>;
+  if (error) return <p className="mw-groups-message" role="status">The people-group list could not be loaded. Reload this page to load the local snapshot.</p>;
   if (!data) return <p className="mw-groups-message" role="status">Opening the people groups…</p>;
   const current = groups.find(group => group.id === focused) ?? groups[0];
   const facts = (group: PeopleGroup) => <dl className="mw-pg-facts"><div><dt>Population</dt><dd>{format(group.population)} <small>people</small></dd></div><div><dt>Language</dt><dd>{language(group)}</dd></div><div><dt>Religion</dt><dd>{religion(group)}</dd></div></dl>;
@@ -69,6 +69,7 @@ export default function CountryPeopleGroups({ code, name, count, snapshotDate, s
       {layout === 'h' && <div className="mw-pg-sheets">{groups.map(group => <article key={group.id} data-people-group={group.id} className={`mw-pg-sheet mw-pg-${group.status}`}><header><h4>{groupLink(group)}</h4>{badge(group)}</header>{facts(group)}</article>)}</div>}
       {groups.length === 0 && <p className="mw-groups-message">No people groups match these filters.</p>}
     </PillScroll>
+    <footer className="mw-pg-source-records"><details><summary>Original records and credits</summary><p>IMB Global Research. Snapshot: {snapshotDate}. Source links refer to the provider’s current records; their figures may differ from this dated local snapshot.</p><ul>{groups.map(group => <li key={group.id}><a href={`https://peoplegroups.org/people_groups/${group.id.toLowerCase()}/`} target="_blank" rel="noreferrer">{group.name} <ArrowUpRight size={12} aria-hidden="true" /></a></li>)}</ul></details></footer>
     <p className="mw-stat-note">All IMB-recorded groups in {name}, including non-Muslim groups. Population and engagement use the {snapshotDate} snapshot.</p>
   </div>;
 }

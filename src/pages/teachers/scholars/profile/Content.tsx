@@ -2,6 +2,7 @@
 // badges, the one-line summary, born / died / faith / era, key works, how the site uses them, where the site names them
 // (relative bars), their life on a 0–2026 line, a small map, their finds and their step in how the Bible reached English.
 import { Map as MapIcon } from "lucide-react";
+import { Link } from "react-router-dom";
 import type { Scholar, ScholarsData } from "@/data/teachers/pages-types";
 import { eraParts, lived, NOW, yearPct, years } from "../marks/facts";
 import { Mark } from "../marks/Mark";
@@ -64,6 +65,8 @@ export function ProfileContent({ data, s }: { data: ScholarsData; s: Scholar }) 
         <div><dt>Faith</dt><dd>{data.faiths[s.faith]}</dd></div><div><dt>Era</dt><dd>{eraName}<small>{eraSpan}</small></dd></div>
       </dl>
       <section><h3>Key works</h3><ol className="prf-works">{s.works.map(([title, year]) => <li key={`${title}-${year}`}><b>{title}</b><span>{year}</span></li>)}</ol></section>
+      {s.acquiredId && <section><h3>Acquired texts</h3><p>{s.heldTexts.toLocaleString()} held text representations · {s.readableTexts.toLocaleString()} readable here. Editions and formats can overlap.</p><Link to={`/teachers/works?author=${encodeURIComponent(s.acquiredId)}`}>Browse the full shelf →</Link></section>}
+      {s.faith === "catholic" && <aside className="acq-warning"><strong>Doctrinal review</strong><p>Review Catholic doctrinal claims against the project standard, including justification and Marian teachings. Assess philosophical arguments separately; these topics do not imply every author holds every listed position.</p></aside>}
       <section><h3>How this site uses their work</h3>
         {s.site ? <div className="prf-use"><SiteBadge s={s} /><p>{s.site.note}</p></div> : <p className="prf-empty">Not used on this site yet.</p>}</section>
       <section><h3>Where the site names them</h3><AreaBars s={s} /></section>
