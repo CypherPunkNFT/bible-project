@@ -2,6 +2,7 @@
 // and the ids the inventory wrote to design/review/instances.json ("valid"). Returns null when fine, else the reason.
 
 const STATIC = new Set([
+  "/teachers/scholars", "/teachers/preachers-and-authors",
   "/", "/library", "/bible", "/read", "/search", "/search/meaning", "/versions", "/sources", "/study", "/atlas", "/charts", "/teachers", "/resources",
   "/charts/references", "/charts/structure", "/charts/words-of-jesus", "/charts/versions",
   "/testimonies", "/testimonies/join", "/testimonies/access", "/testimonies/design", "/topics", "/topics/superlist", "/review",
@@ -34,6 +35,7 @@ export function linkChecker(valid) {
     if (path === "/review/research" || path.startsWith("/review/research/")) return research.has(path) ? null : "no selected research page at this address";
     let m;
     if ((m = /^\/people\/([^/]+)(?:\/([^/]+))?$/.exec(path))) {
+      m[1] = valid.peopleSlugs?.[m[1]] ?? m[1];
       if (!people.has(m[1])) return `no person "${m[1]}"`;
       if (m[2] && !special[m[2]]) return `no kind of person page called "${m[2]}"`;
       if (m[2] && !special[m[2]].has(m[1])) return `${m[1]} has no ${m[2] === "rule" ? "ruler" : m[2] === "mission" ? "mission" : "prophet"} page (the link only falls back to the person page)`;

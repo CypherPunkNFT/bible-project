@@ -162,6 +162,6 @@ export function peopleTemplates(): { templates: TemplateDef[]; valid: { people: 
 
   return {
     templates: [person, ruler, apostle, prophet, guide],
-    valid: { people: rows.map((r) => r.id), special: { rule: [...special.rule], mission: [...special.mission], word: [...special.word] } },
+    valid: { people: rows.map((r) => r.id), peopleSlugs: readJson<{ slugs: Record<string, string> }>("src/data/people-slugs.json").slugs, special: { rule: [...special.rule], mission: [...special.mission], word: [...special.word] } },
   };
 }

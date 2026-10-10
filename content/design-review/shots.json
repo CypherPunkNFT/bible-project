@@ -1,8 +1,8 @@
 {
  "schema": 1,
- "commit": "eafa0f18",
- "takenAt": "2026-10-10T02:07:39.254Z",
- "base": "http://127.0.0.1:8969",
+ "commit": "8bcb8aff",
+ "takenAt": "2026-10-10T13:58:15.391Z",
+ "base": "http://127.0.0.1:8943",
  "images": {
   "ruler/king-judah/typical": {
    "desktop-dark": {
@@ -2936,8 +2936,8 @@
     "crop": "study-hub/page/page-1440-dark-crop.png",
     "cropKind": "first-screen",
     "thumb": "study-hub/page/page-1440-dark-thumb.jpg",
-    "hash": "401f4b41633828f4",
-    "height": 3628,
+    "hash": "626700674915083c",
+    "height": 3684,
     "clipped": false
    },
    "desktop-light": {
@@ -2945,8 +2945,8 @@
     "crop": "study-hub/page/page-1440-light-crop.png",
     "cropKind": "first-screen",
     "thumb": "study-hub/page/page-1440-light-thumb.jpg",
-    "hash": "809935301d58d000",
-    "height": 3628,
+    "hash": "8419001901e930c0",
+    "height": 3684,
     "clipped": false
    },
    "phone-dark": {
@@ -2954,8 +2954,8 @@
     "crop": "study-hub/page/page-400-dark-crop.png",
     "cropKind": "first-screen",
     "thumb": "study-hub/page/page-400-dark-thumb.jpg",
-    "hash": "07615272137dbfd2",
-    "height": 6869,
+    "hash": "0045336f001bffa0",
+    "height": 5860,
     "clipped": false
    },
    "phone-light": {
@@ -2963,8 +2963,8 @@
     "crop": "study-hub/page/page-400-light-crop.png",
     "cropKind": "first-screen",
     "thumb": "study-hub/page/page-400-light-thumb.jpg",
-    "hash": "8782acac6c8080a4",
-    "height": 6869,
+    "hash": "0038000800640080",
+    "height": 5860,
     "clipped": false
    }
   },
@@ -8703,6 +8703,386 @@
     "thumb": "research-contributor/profiles/longest-400-dark-thumb.jpg",
     "hash": "005f56005fbe7840",
     "height": 2905,
+    "clipped": false
+   }
+  },
+  "study-branches/theology-books/page": {
+   "desktop-light": {
+    "full": "study-branches/theology-books/page-1440-light.png",
+    "crop": "study-branches/theology-books/page-1440-light-crop.png",
+    "cropKind": "first-screen",
+    "thumb": "study-branches/theology-books/page-1440-light-thumb.jpg",
+    "hash": "3800040100000082",
+    "height": 2421,
+    "clipped": false
+   },
+   "desktop-dark": {
+    "full": "study-branches/theology-books/page-1440-dark.png",
+    "crop": "study-branches/theology-books/page-1440-dark-crop.png",
+    "cropKind": "first-screen",
+    "thumb": "study-branches/theology-books/page-1440-dark-thumb.jpg",
+    "hash": "040002070000ffba",
+    "height": 2421,
+    "clipped": false
+   },
+   "phone-dark": {
+    "full": "study-branches/theology-books/page-400-dark.png",
+    "crop": "study-branches/theology-books/page-400-dark-crop.png",
+    "cropKind": "first-screen",
+    "thumb": "study-branches/theology-books/page-400-dark-thumb.jpg",
+    "hash": "4b02400000fff854",
+    "height": 3398,
+    "clipped": false
+   },
+   "phone-light": {
+    "full": "study-branches/theology-books/page-400-light.png",
+    "crop": "study-branches/theology-books/page-400-light-crop.png",
+    "cropKind": "first-screen",
+    "thumb": "study-branches/theology-books/page-400-light-thumb.jpg",
+    "hash": "b4058000000000a8",
+    "height": 3398,
+    "clipped": false
+   }
+  },
+  "study-branches/theology-jesus/page": {
+   "desktop-light": {
+    "full": "study-branches/theology-jesus/page-1440-light.png",
+    "crop": "study-branches/theology-jesus/page-1440-light-crop.png",
+    "cropKind": "first-screen",
+    "thumb": "study-branches/theology-jesus/page-1440-light-thumb.jpg",
+    "hash": "3800040100000082",
+    "height": 2421,
+    "clipped": false
+   },
+   "desktop-dark": {
+    "full": "study-branches/theology-jesus/page-1440-dark.png",
+    "crop": "study-branches/theology-jesus/page-1440-dark-crop.png",
+    "cropKind": "first-screen",
+    "thumb": "study-branches/theology-jesus/page-1440-dark-thumb.jpg",
+    "hash": "040002070000ffba",
+    "height": 2421,
+    "clipped": false
+   },
+   "phone-light": {
+    "full": "study-branches/theology-jesus/page-400-light.png",
+    "crop": "study-branches/theology-jesus/page-400-light-crop.png",
+    "cropKind": "first-screen",
+    "thumb": "study-branches/theology-jesus/page-400-light-thumb.jpg",
+    "hash": "b44000c9a0080080",
+    "height": 3401,
+    "clipped": false
+   },
+   "phone-dark": {
+    "full": "study-branches/theology-jesus/page-400-dark.png",
+    "crop": "study-branches/theology-jesus/page-400-dark-crop.png",
+    "cropKind": "first-screen",
+    "thumb": "study-branches/theology-jesus/page-400-dark-thumb.jpg",
+    "hash": "4b20003450f67c80",
+    "height": 3401,
+    "clipped": false
+   }
+  },
+  "study-branches/theology-doctrine/page": {
+   "desktop-light": {
+    "full": "study-branches/theology-doctrine/page-1440-light.png",
+    "crop": "study-branches/theology-doctrine/page-1440-light-crop.png",
+    "cropKind": "first-screen",
+    "thumb": "study-branches/theology-doctrine/page-1440-light-thumb.jpg",
+    "hash": "3800040100100082",
+    "height": 2421,
+    "clipped": false
+   },
+   "desktop-dark": {
+    "full": "study-branches/theology-doctrine/page-1440-dark.png",
+    "crop": "study-branches/theology-doctrine/page-1440-dark-crop.png",
+    "cropKind": "first-screen",
+    "thumb": "study-branches/theology-doctrine/page-1440-dark-thumb.jpg",
+    "hash": "0400020f000cffba",
+    "height": 2421,
+    "clipped": false
+   },
+   "phone-light": {
+    "full": "study-branches/theology-doctrine/page-400-light.png",
+    "crop": "study-branches/theology-doctrine/page-400-light-crop.png",
+    "cropKind": "first-screen",
+    "thumb": "study-branches/theology-doctrine/page-400-light-thumb.jpg",
+    "hash": "944a0080800000b0",
+    "height": 3471,
+    "clipped": false
+   },
+   "phone-dark": {
+    "full": "study-branches/theology-doctrine/page-400-dark.png",
+    "crop": "study-branches/theology-doctrine/page-400-dark-crop.png",
+    "cropKind": "first-screen",
+    "thumb": "study-branches/theology-doctrine/page-400-dark-thumb.jpg",
+    "hash": "6b25000040febc4c",
+    "height": 3471,
+    "clipped": false
+   }
+  },
+  "study-branches/theology-life/page": {
+   "desktop-light": {
+    "full": "study-branches/theology-life/page-1440-light.png",
+    "crop": "study-branches/theology-life/page-1440-light-crop.png",
+    "cropKind": "first-screen",
+    "thumb": "study-branches/theology-life/page-1440-light-thumb.jpg",
+    "hash": "280040c110c00082",
+    "height": 2311,
+    "clipped": false
+   },
+   "desktop-dark": {
+    "full": "study-branches/theology-life/page-1440-dark.png",
+    "crop": "study-branches/theology-life/page-1440-dark-crop.png",
+    "cropKind": "first-screen",
+    "thumb": "study-branches/theology-life/page-1440-dark-thumb.jpg",
+    "hash": "0800206f0c20fffa",
+    "height": 2311,
+    "clipped": false
+   },
+   "phone-light": {
+    "full": "study-branches/theology-life/page-400-light.png",
+    "crop": "study-branches/theology-life/page-400-light-crop.png",
+    "cropKind": "first-screen",
+    "thumb": "study-branches/theology-life/page-400-light-thumb.jpg",
+    "hash": "b4058000001090e0",
+    "height": 3335,
+    "clipped": false
+   },
+   "phone-dark": {
+    "full": "study-branches/theology-life/page-400-dark.png",
+    "crop": "study-branches/theology-life/page-400-dark-crop.png",
+    "cropKind": "first-screen",
+    "thumb": "study-branches/theology-life/page-400-dark-thumb.jpg",
+    "hash": "4b02400000fe7830",
+    "height": 3335,
+    "clipped": false
+   }
+  },
+  "study-branches/theology-people/page": {
+   "desktop-light": {
+    "full": "study-branches/theology-people/page-1440-light.png",
+    "crop": "study-branches/theology-people/page-1440-light-crop.png",
+    "cropKind": "first-screen",
+    "thumb": "study-branches/theology-people/page-1440-light-thumb.jpg",
+    "hash": "3830000000040082",
+    "height": 2770,
+    "clipped": false
+   },
+   "desktop-dark": {
+    "full": "study-branches/theology-people/page-1440-dark.png",
+    "crop": "study-branches/theology-people/page-1440-dark-crop.png",
+    "cropKind": "first-screen",
+    "thumb": "study-branches/theology-people/page-1440-dark-thumb.jpg",
+    "hash": "040800000002ffba",
+    "height": 2770,
+    "clipped": false
+   },
+   "phone-light": {
+    "full": "study-branches/theology-people/page-400-light.png",
+    "crop": "study-branches/theology-people/page-400-light-crop.png",
+    "cropKind": "first-screen",
+    "thumb": "study-branches/theology-people/page-400-light-thumb.jpg",
+    "hash": "5400b0b40040d080",
+    "height": 3907,
+    "clipped": false
+   },
+   "phone-dark": {
+    "full": "study-branches/theology-people/page-400-dark.png",
+    "crop": "study-branches/theology-people/page-400-dark-crop.png",
+    "cropKind": "first-screen",
+    "thumb": "study-branches/theology-people/page-400-dark-thumb.jpg",
+    "hash": "2b004f4b00bf2c40",
+    "height": 3907,
+    "clipped": false
+   }
+  },
+  "study-branches/academic-history/page": {
+   "desktop-light": {
+    "full": "study-branches/academic-history/page-1440-light.png",
+    "crop": "study-branches/academic-history/page-1440-light-crop.png",
+    "cropKind": "first-screen",
+    "thumb": "study-branches/academic-history/page-1440-light-thumb.jpg",
+    "hash": "3010008100000082",
+    "height": 2619,
+    "clipped": false
+   },
+   "desktop-dark": {
+    "full": "study-branches/academic-history/page-1440-dark.png",
+    "crop": "study-branches/academic-history/page-1440-dark-crop.png",
+    "cropKind": "first-screen",
+    "thumb": "study-branches/academic-history/page-1440-dark-thumb.jpg",
+    "hash": "0c0c00670000feba",
+    "height": 2619,
+    "clipped": false
+   },
+   "phone-light": {
+    "full": "study-branches/academic-history/page-400-light.png",
+    "crop": "study-branches/academic-history/page-400-light-crop.png",
+    "cropKind": "first-screen",
+    "thumb": "study-branches/academic-history/page-400-light-thumb.jpg",
+    "hash": "e800000000b80080",
+    "height": 3900,
+    "clipped": false
+   },
+   "phone-dark": {
+    "full": "study-branches/academic-history/page-400-dark.png",
+    "crop": "study-branches/academic-history/page-400-dark-crop.png",
+    "cropKind": "first-screen",
+    "thumb": "study-branches/academic-history/page-400-dark-thumb.jpg",
+    "hash": "17007f0000477c80",
+    "height": 3900,
+    "clipped": false
+   }
+  },
+  "study-branches/academic-texts/page": {
+   "desktop-light": {
+    "full": "study-branches/academic-texts/page-1440-light.png",
+    "crop": "study-branches/academic-texts/page-1440-light-crop.png",
+    "cropKind": "first-screen",
+    "thumb": "study-branches/academic-texts/page-1440-light-thumb.jpg",
+    "hash": "301000a1160000a2",
+    "height": 2642,
+    "clipped": false
+   },
+   "desktop-dark": {
+    "full": "study-branches/academic-texts/page-1440-dark.png",
+    "crop": "study-branches/academic-texts/page-1440-dark-crop.png",
+    "cropKind": "first-screen",
+    "thumb": "study-branches/academic-texts/page-1440-dark-thumb.jpg",
+    "hash": "0c0c004f0900fbba",
+    "height": 2642,
+    "clipped": false
+   },
+   "phone-light": {
+    "full": "study-branches/academic-texts/page-400-light.png",
+    "crop": "study-branches/academic-texts/page-400-light-crop.png",
+    "cropKind": "first-screen",
+    "thumb": "study-branches/academic-texts/page-400-light-thumb.jpg",
+    "hash": "e8000000a0f40080",
+    "height": 3900,
+    "clipped": false
+   },
+   "phone-dark": {
+    "full": "study-branches/academic-texts/page-400-dark.png",
+    "crop": "study-branches/academic-texts/page-400-dark-crop.png",
+    "cropKind": "first-screen",
+    "thumb": "study-branches/academic-texts/page-400-dark-thumb.jpg",
+    "hash": "17007700500bfc40",
+    "height": 3900,
+    "clipped": false
+   }
+  },
+  "study-branches/academic-languages/page": {
+   "desktop-light": {
+    "full": "study-branches/academic-languages/page-1440-light.png",
+    "crop": "study-branches/academic-languages/page-1440-light-crop.png",
+    "cropKind": "first-screen",
+    "thumb": "study-branches/academic-languages/page-1440-light-thumb.jpg",
+    "hash": "3000000100000082",
+    "height": 2838,
+    "clipped": false
+   },
+   "desktop-dark": {
+    "full": "study-branches/academic-languages/page-1440-dark.png",
+    "crop": "study-branches/academic-languages/page-1440-dark-crop.png",
+    "cropKind": "first-screen",
+    "thumb": "study-branches/academic-languages/page-1440-dark-thumb.jpg",
+    "hash": "0c00000f00003970",
+    "height": 2838,
+    "clipped": false
+   },
+   "phone-light": {
+    "full": "study-branches/academic-languages/page-400-light.png",
+    "crop": "study-branches/academic-languages/page-400-light-crop.png",
+    "cropKind": "first-screen",
+    "thumb": "study-branches/academic-languages/page-400-light-thumb.jpg",
+    "hash": "a80000000060d080",
+    "height": 4086,
+    "clipped": false
+   },
+   "phone-dark": {
+    "full": "study-branches/academic-languages/page-400-dark.png",
+    "crop": "study-branches/academic-languages/page-400-dark-crop.png",
+    "cropKind": "first-screen",
+    "thumb": "study-branches/academic-languages/page-400-dark-thumb.jpg",
+    "hash": "57001f00009f2c80",
+    "height": 4086,
+    "clipped": false
+   }
+  },
+  "study-branches/academic-culture/page": {
+   "desktop-light": {
+    "full": "study-branches/academic-culture/page-1440-light.png",
+    "crop": "study-branches/academic-culture/page-1440-light-crop.png",
+    "cropKind": "first-screen",
+    "thumb": "study-branches/academic-culture/page-1440-light-thumb.jpg",
+    "hash": "3000008100000082",
+    "height": 2838,
+    "clipped": false
+   },
+   "desktop-dark": {
+    "full": "study-branches/academic-culture/page-1440-dark.png",
+    "crop": "study-branches/academic-culture/page-1440-dark-crop.png",
+    "cropKind": "first-screen",
+    "thumb": "study-branches/academic-culture/page-1440-dark-thumb.jpg",
+    "hash": "0c00004f00003970",
+    "height": 2838,
+    "clipped": false
+   },
+   "phone-light": {
+    "full": "study-branches/academic-culture/page-400-light.png",
+    "crop": "study-branches/academic-culture/page-400-light-crop.png",
+    "cropKind": "first-screen",
+    "thumb": "study-branches/academic-culture/page-400-light-thumb.jpg",
+    "hash": "a80080ac00000080",
+    "height": 4078,
+    "clipped": false
+   },
+   "phone-dark": {
+    "full": "study-branches/academic-culture/page-400-dark.png",
+    "crop": "study-branches/academic-culture/page-400-dark-crop.png",
+    "cropKind": "first-screen",
+    "thumb": "study-branches/academic-culture/page-400-dark-thumb.jpg",
+    "hash": "5700775200ff7c80",
+    "height": 4078,
+    "clipped": false
+   }
+  },
+  "study-branches/academic-church/page": {
+   "desktop-light": {
+    "full": "study-branches/academic-church/page-1440-light.png",
+    "crop": "study-branches/academic-church/page-1440-light-crop.png",
+    "cropKind": "first-screen",
+    "thumb": "study-branches/academic-church/page-1440-light-thumb.jpg",
+    "hash": "30000000009000a0",
+    "height": 3037,
+    "clipped": false
+   },
+   "desktop-dark": {
+    "full": "study-branches/academic-church/page-1440-dark.png",
+    "crop": "study-branches/academic-church/page-1440-dark-crop.png",
+    "cropKind": "first-screen",
+    "thumb": "study-branches/academic-church/page-1440-dark-thumb.jpg",
+    "hash": "0c000000004c00b0",
+    "height": 3037,
+    "clipped": false
+   },
+   "phone-light": {
+    "full": "study-branches/academic-church/page-400-light.png",
+    "crop": "study-branches/academic-church/page-400-light-crop.png",
+    "cropKind": "first-screen",
+    "thumb": "study-branches/academic-church/page-400-light-thumb.jpg",
+    "hash": "a800320000001080",
+    "height": 4310,
+    "clipped": false
+   },
+   "phone-dark": {
+    "full": "study-branches/academic-church/page-400-dark.png",
+    "crop": "study-branches/academic-church/page-400-dark-crop.png",
+    "cropKind": "first-screen",
+    "thumb": "study-branches/academic-church/page-400-dark-thumb.jpg",
+    "hash": "57004d0000fffe80",
+    "height": 4310,
     "clipped": false
    }
   }

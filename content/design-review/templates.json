@@ -1,7 +1,7 @@
 {
  "schema": 1,
- "generatedAt": "2026-10-10T02:07:09.797Z",
- "commit": "eafa0f18",
+ "generatedAt": "2026-10-10T13:58:54.235Z",
+ "commit": "8bcb8aff",
  "areas": [
   {
    "id": "people",
@@ -929,26 +929,194 @@
    "id": "study-hub",
    "area": "study",
    "name": "Study hub",
-   "what": "The ten study collections.",
+   "what": "Two branches, writers and scholars, and an interactive Atlas window.",
    "address": "/study",
    "instances": 1,
    "sources": [
-    "src/pages/study/StudyCollection.tsx",
-    "src/pages/study/study.css"
+    "src/pages/study/hub/Artwork.tsx",
+    "src/pages/study/hub/AtlasWindow.tsx",
+    "src/pages/study/hub/HubSearch.tsx",
+    "src/pages/study/hub/PeopleCards.tsx",
+    "src/pages/study/hub/StudyHub.tsx",
+    "src/pages/study/hub/atlas-places.json",
+    "src/pages/study/hub/collections.ts",
+    "src/pages/study/hub/hub.css",
+    "src/pages/study/hub/shared.tsx",
+    "src/pages/study/hub/writers.ts"
    ],
-   "sourceHash": "412d440995afe34b",
+   "sourceHash": "8503c0ee042d542f",
    "signature": null,
    "variants": [
     {
      "id": "page",
      "name": "Study hub",
-     "what": "The ten study collections.",
+     "what": "Two branches, writers and scholars, and an interactive Atlas window.",
      "instances": 1,
      "samples": [
       {
        "id": "page",
        "label": "The page",
        "url": "/study",
+       "why": "the only page of this design"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "study-branches",
+   "area": "study",
+   "name": "Study subject landings",
+   "what": "Five subject doors in each branch, opening organised guides and collections.",
+   "address": "/study/<branch>",
+   "instances": 10,
+   "sources": [
+    "src/pages/study/hub/Artwork.tsx",
+    "src/pages/study/hub/StudyBranch.tsx",
+    "src/pages/study/hub/collections.ts",
+    "src/pages/study/hub/hub.css",
+    "src/pages/study/hub/shared.tsx",
+    "src/pages/study/hub/writers.ts"
+   ],
+   "sourceHash": "4206f5cac6e9f624",
+   "signature": null,
+   "variants": [
+    {
+     "id": "theology-books",
+     "name": "theology: books",
+     "what": "A selected subject and its readings.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/theology?area=books",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "theology-jesus",
+     "name": "theology: jesus",
+     "what": "A selected subject and its readings.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/theology?area=jesus",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "theology-doctrine",
+     "name": "theology: doctrine",
+     "what": "A selected subject and its readings.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/theology?area=doctrine",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "theology-life",
+     "name": "theology: life",
+     "what": "A selected subject and its readings.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/theology?area=life",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "theology-people",
+     "name": "theology: people",
+     "what": "A selected subject and its readings.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/theology?area=people",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "academic-history",
+     "name": "academic: history",
+     "what": "A selected subject and its readings.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/academic?area=history",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "academic-texts",
+     "name": "academic: texts",
+     "what": "A selected subject and its readings.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/academic?area=texts",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "academic-languages",
+     "name": "academic: languages",
+     "what": "A selected subject and its readings.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/academic?area=languages",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "academic-culture",
+     "name": "academic: culture",
+     "what": "A selected subject and its readings.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/academic?area=culture",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "academic-church",
+     "name": "academic: church",
+     "what": "A selected subject and its readings.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study/academic?area=church",
        "why": "the only page of this design"
       }
      ]
