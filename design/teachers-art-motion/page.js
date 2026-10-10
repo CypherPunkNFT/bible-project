@@ -1,0 +1,1 @@
+﻿const root=document.documentElement;root.dataset.theme=localStorage.getItem('bp-theme')||'dark';document.getElementById('theme').onclick=()=>{root.dataset.theme=root.dataset.theme==='dark'?'light':'dark';localStorage.setItem('bp-theme',root.dataset.theme)};document.getElementById('play').onchange=e=>document.body.classList.toggle('playing',e.target.checked);
