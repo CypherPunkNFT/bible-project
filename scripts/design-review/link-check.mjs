@@ -26,6 +26,8 @@ export function linkChecker(valid) {
   const books = new Set(Object.values(valid.reader).flatMap((b) => Object.keys(b)));
   const ap = Object.fromEntries(Object.entries(valid.apologetics).map(([k, ids]) => [k, new Set(ids)]));
   const research = new Set(valid.research ?? []);
+  const teacherWorks = new Set(valid.teacherWorks ?? []);
+  const readingSources = new Set(valid.readingSources ?? []);
 
   return function check(address) {
     const url = new URL(address, "http://site");
@@ -35,6 +37,9 @@ export function linkChecker(valid) {
     if (STATIC.has(path)) return null;
     if (path === "/review/research" || path.startsWith("/review/research/")) return research.has(path) ? null : "no selected research page at this address";
     let m;
+    if (path === "/teachers/works") return null;
+    if ((m = /^\/teachers\/works\/([^/]+)$/.exec(path))) return teacherWorks.has(decodeURIComponent(m[1])) ? null : "no held work at this address";
+    if ((m = /^\/sources\/reading\/([^/]+)$/.exec(path))) return readingSources.has(decodeURIComponent(m[1])) ? null : "no reading source at this address";
     if ((m = /^\/people\/([^/]+)(?:\/([^/]+))?$/.exec(path))) {
       m[1] = valid.peopleSlugs?.[m[1]] ?? m[1];
       if (!people.has(m[1])) return `no person "${m[1]}"`;
