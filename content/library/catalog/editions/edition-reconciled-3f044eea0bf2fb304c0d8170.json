@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-3f044eea0bf2fb304c0d8170",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-7a836d6a9c7da390ecbefcbf",
+  "label": "Memorial of Cortlandt Van Rensselaer — held source edition 5f2e4e020098",
+  "languages": [
+    "eng"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/memorialcortlan00spragoog/memorialcortlan00spragoog_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-3b1e8f011e0f9435f84f77a2",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-5a9e4441f2fdca58bb780e52",
+  "label": "a charge to a man of god pt1 — held source edition f1ffddfdac7c",
+  "languages": [
+    "und"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://www.truthforlife.org/resources/sermon/a-charge-to-a-man-of-god-pt1/",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-74e4a8e069d7095cfdfab7f6",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-d40af7f684ba2b327f0fa834",
+  "label": "What Would You Say to a Christian Going Through a Mid-Life Crisis? — held source edition eaae30515b6b",
+  "languages": [
+    "en"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://www.desiringgod.org/interviews/what-would-you-say-to-a-christian-going-through-a-mid-life-crisis",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

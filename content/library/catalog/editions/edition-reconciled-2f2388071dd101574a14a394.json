@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-2f2388071dd101574a14a394",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-3d9f795b2a1e3d67b003e9ae",
+  "label": "The works of Thomas Goodwin — held source edition 7fe8ad9b3efd",
+  "languages": [
+    "eng"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/worksofthomasgoo04good/worksofthomasgoo04good_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

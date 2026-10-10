@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-2e6c42f9984907dd6f8c96b3",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-067b802dd033f458e5b4d729",
+  "label": "Are Motorcycles for Fools? — held source edition d06ffae890da",
+  "languages": [
+    "en"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://www.desiringgod.org/interviews/are-motorcycles-for-fools",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-reconciled-18492f63a2ae1a20a2daaffa",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "title": "Your Only Roadblock to Heaven",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-john-piper",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [],
+  "depth": "unknown",
+  "era": "unknown",
+  "dates": [],
+  "passages": [],
+  "related": [],
+  "externalIds": {
+    "source-desiring-god": [
+      "item:pm2hslbk"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://www.desiringgod.org/interviews/your-only-roadblock-to-heaven",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

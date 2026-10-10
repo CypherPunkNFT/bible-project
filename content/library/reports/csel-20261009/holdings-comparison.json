@@ -1,0 +1,3089 @@
+{
+  "method": "Recorded SHA-256 and historical source metadata, not a full holdings re-audit.",
+  "limits": "No semantic equivalence claim for translations or anthology subworks; unregistered files without a recorded hash are outside exact-file comparison.",
+  "counts": {
+    "repositoryFiles": 1111,
+    "repositoryBytes": 420458652,
+    "workTextFiles": 271,
+    "workTextBytes": 112592368,
+    "distinctCtsWorks": 264,
+    "volumeTextFiles": 81,
+    "volumeTextBytes": 157691440,
+    "supportFiles": 759,
+    "priorExactWorkFileMatches": 0,
+    "newWorkEditions": 271,
+    "workFilesWithSameScanEditionCandidates": 0,
+    "workFilesWithSameTitleAndAuthorCandidates": 0,
+    "workFilesWithExistingAuthorOrAnthologyOverlap": 46,
+    "heldRecordedHashesCompared": 157618,
+    "failures": 0
+  },
+  "works": [
+    {
+      "sourceId": "urn:cts:latinLit:phi9500.phi035.opp-lat1",
+      "title": "Epitaphium Ennodii",
+      "author": "Anonymous",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0007.stoa002.opp-lat1",
+      "title": "De Locis Santis",
+      "author": "Adamnan",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0022.stoa014.opp-lat1",
+      "title": "Apologia Altera Prophetae David",
+      "author": "Ambrose",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0022.stoa015.opp-lat1",
+      "title": "Apologia Prophetae David Ad Theodosium Augustum",
+      "author": "Ambrose",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0022.stoa019.opp-lat1",
+      "title": "De Benedictionibus Patriarcharum Liber Unus",
+      "author": "Ambrose",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0022.stoa021.opp-lat1",
+      "title": "De Cain et Abel",
+      "author": "Ambrose",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0022.stoa025.opp-lat1",
+      "title": "De Helia et Ieiunio",
+      "author": "Ambrose",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0022.stoa029.opp-lat1",
+      "title": "De Fuga Saeculi",
+      "author": "Ambrose",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0022.stoa032.opp-lat1",
+      "title": "De Interpellatione Iob et David",
+      "author": "Ambrose",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0022.stoa034.opp-lat1",
+      "title": "De Iacob",
+      "author": "Ambrose",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0022.stoa035.opp-lat1",
+      "title": "De Joseph",
+      "author": "Ambrose",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0022.stoa038.opp-lat1",
+      "title": "De Nabuthae",
+      "author": "Ambrose",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0022.stoa039.opp-lat1",
+      "title": "De Noe",
+      "author": "Ambrose",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0022.stoa042.opp-lat1",
+      "title": "De Paradiso",
+      "author": "Ambrose",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0022.stoa044.opp-lat1",
+      "title": "De Tobia",
+      "author": "Ambrose",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0022.stoa048.opp-lat1",
+      "title": "Explanatio Psalmorum XII",
+      "author": "Ambrose",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0022.stoa051.opp-lat1",
+      "title": "Expositio Evangelii secundum Lucan",
+      "author": "Ambrose",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0022.stoa052.opp-lat1",
+      "title": "Expositio Psalmi CXVIII",
+      "author": "Ambrose",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0022.stoa054.opp-lat1",
+      "title": "Exameron",
+      "author": "Ambrose",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0022a.stoa001.opp-lat1",
+      "title": "Pseudo-Augustini Quaestiones Veteris et Novi Testamenti CXXVII",
+      "author": "Ambrosiaster; Pseudo-Augustinus (attributed)",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0028e.stoa001.opp-lat1",
+      "title": "Itinerarium",
+      "author": "Anonymous pilgrim of Piacenza",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0028e.stoa001.opp-lat2",
+      "title": "Itinerarium",
+      "author": "Anonymous pilgrim of Piacenza",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0034.stoa001.opp-lat1",
+      "title": "Adversus nationes Libri VII",
+      "author": "Arnobius of Sicca",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0040.stoa001.opp-lat1",
+      "title": "Confessiones",
+      "author": "Augustine",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0040.stoa001a.opp-lat1",
+      "title": "Adnotationes in Iob",
+      "author": "Augustine",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0040.stoa003.opp-lat3",
+      "title": "De Civitate Dei",
+      "author": "Augustine",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0040.stoa006.opp-lat1",
+      "title": "De Fide et Symbolo",
+      "author": "Augustine",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0040.stoa011.opp-lat2",
+      "title": "Epistulae",
+      "author": "Augustine",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0040.stoa014a.opp-lat1",
+      "title": "Breviculus Collationis cum Donatistis",
+      "author": "Augustine",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0040.stoa015b.opp-lat1",
+      "title": "Commonitorium",
+      "author": "Augustine",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0040.stoa016.opp-lat1",
+      "title": "Contra Academicos",
+      "author": "Augustine",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0040.stoa017.opp-lat1",
+      "title": "Contra Adimantum",
+      "author": "Augustine",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0040.stoa019.opp-lat1",
+      "title": "Contra Cresconium",
+      "author": "Augustine",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0040.stoa020.opp-lat1",
+      "title": "Epistula ad Catholicos de Secta Donatistarum",
+      "author": "Augustine",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0040.stoa021.opp-lat1",
+      "title": "Contra Duas Epistulas Pelegianorum",
+      "author": "Augustine",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0040.stoa021a.opp-lat1",
+      "title": "Contra epistulam fundamenti",
+      "author": "Augustine",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0040.stoa023.opp-lat1",
+      "title": "Contra Epistulam Parmeniani",
+      "author": "Augustine",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0040.stoa024.opp-lat1",
+      "title": "Contra Faustum",
+      "author": "Augustine",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0040.stoa024b.opp-lat1",
+      "title": "Contra Fortunatum",
+      "author": "Augustine",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0040.stoa025.opp-lat1",
+      "title": "Contra Gaudentium Donatistarum Episcopum",
+      "author": "Augustine",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0040.stoa027.opp-lat1",
+      "title": "Contra Litteras Petiliani",
+      "author": "Augustine",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0040.stoa029.opp-lat1",
+      "title": "Contra Mendacium",
+      "author": "Augustine",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0040.stoa029a.opp-lat1",
+      "title": "Contra Partem Donati Post Gesta",
+      "author": "Augustine",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0040.stoa031.opp-lat1",
+      "title": "Contra Secundinem",
+      "author": "Augustine",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0040.stoa031a.opp-lat1",
+      "title": "Contra Felicem",
+      "author": "Augustine",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0040.stoa032.opp-lat1",
+      "title": "De agone christiano",
+      "author": "Augustine",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0040.stoa033.opp-lat1",
+      "title": "De Natura et Origine Animae",
+      "author": "Augustine",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0040.stoa033a.opp-lat1",
+      "title": "De Baptismo",
+      "author": "Augustine",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0040.stoa034.opp-lat1",
+      "title": "De Beata Vita",
+      "author": "Augustine",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0040.stoa035.opp-lat1",
+      "title": "De bono coniugali",
+      "author": "Augustine",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0040.stoa035a.opp-lat1",
+      "title": "De Bono Viduitatis",
+      "author": "Augustine",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0040.stoa036.opp-lat1",
+      "title": "De Conjugiis Adulterinis",
+      "author": "Augustine",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0040.stoa037.opp-lat1",
+      "title": "De Consensu Evangelistarum",
+      "author": "Augustine",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0040.stoa037a.opp-lat1",
+      "title": "De Continentia",
+      "author": "Augustine",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0040.stoa037c.opp-lat1",
+      "title": "De Cura pro Mortuis Gerenda ad Paulinum Episcopum",
+      "author": "Augustine",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0040.stoa038a.opp-lat1",
+      "title": "De diuinatione daemonum",
+      "author": "Augustine",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0040.stoa040.opp-lat1",
+      "title": "Du Duabus Animabus",
+      "author": "Augustine",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0040.stoa041.opp-lat1",
+      "title": "De Fide et Operibus",
+      "author": "Augustine",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0040.stoa042.opp-lat1",
+      "title": "De Genesi Ad Litteram Imperfectus Liber",
+      "author": "Augustine",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0040.stoa042a.opp-lat1",
+      "title": "De Genesi Ad Litteram",
+      "author": "Augustine",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0040.stoa044.opp-lat1",
+      "title": "De Gestis Pelagii",
+      "author": "Augustine",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0040.stoa046.opp-lat1",
+      "title": "De Gratia Christ",
+      "author": "Augustine",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0040.stoa050.opp-lat1",
+      "title": "De Mendacio",
+      "author": "Augustine",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0040.stoa053.opp-lat1",
+      "title": "De Natura Boni",
+      "author": "Augustine",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0040.stoa054.opp-lat1",
+      "title": "De Natura et Gratia",
+      "author": "Augustine",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0040.stoa054.opp-lat2",
+      "title": "Corpus Scriptorum Ecclesiasticorum Latinorum (CSEL)",
+      "author": "Unstated in upstream title statement",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0040.stoa055.opp-lat1",
+      "title": "De Opere Monachorum",
+      "author": "Augustine",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0040.stoa056.opp-lat1",
+      "title": "De Ordine",
+      "author": "Augustine",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0040.stoa056a.opp-lat1",
+      "title": "De Nuptiis et Concupiscentia",
+      "author": "Augustine",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0040.stoa056b.opp-lat1",
+      "title": "De Patientia",
+      "author": "Augustine",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0040.stoa056c.opp-lat1",
+      "title": "De Peccato Originali",
+      "author": "Augustine",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0040.stoa057.opp-lat1",
+      "title": "De Peccatorum Meritis et Remissione et de Baptismo Parvulorum",
+      "author": "Augustine",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0040.stoa057a.opp-lat1",
+      "title": "De Perfectione Iustitiae Hominis",
+      "author": "Augustine",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0040.stoa060.opp-lat1",
+      "title": "De Sancta Virginitate",
+      "author": "Augustine",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0040.stoa062.opp-lat1",
+      "title": "De Spiritu et Littera",
+      "author": "Augustine",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0040.stoa063.opp-lat1",
+      "title": "Liber de Unico Baptismo",
+      "author": "Augustine",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0040.stoa064.opp-lat1",
+      "title": "De Utilitate Credendi",
+      "author": "Augustine",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0040.stoa066c.opp-lat1",
+      "title": "Gesta cum Emerito Donatistarum Episcopum",
+      "author": "Augustine",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0040.stoa070.opp-lat1",
+      "title": "Locutiones in Heptateuchum",
+      "author": "Augustine",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0040.stoa070a.opp-lat1",
+      "title": "Libellus Adversus Fulgentium Donatistam",
+      "author": "Augustine",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0040.stoa072.opp-lat1",
+      "title": "Psalmus Contra Partem Donati",
+      "author": "Augustine",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0040.stoa074.opp-lat1",
+      "title": "Quaestiones in Heptateuchum",
+      "author": "Augustine",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0040.stoa077.opp-lat1",
+      "title": "Retractationum",
+      "author": "Augustine",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0040.stoa077c.opp-lat1",
+      "title": "Sermo ad Caesariensis Ecclesiae Plebem",
+      "author": "Augustine",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0040.stoa077d.opp-lat1",
+      "title": "Sermo de Rusticiano subdiacono",
+      "author": "Augustine",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0040.stoa080.opp-lat1",
+      "title": "Liber qui appellatur Speculum",
+      "author": "Augustine",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0040.stoa080a.opp-lat1",
+      "title": "Liber de Divinis Scripturis sive Speculum quod fertur S. Augustini",
+      "author": "Augustine",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0045a.stoa001.opp-lat1",
+      "title": "Epistulae imperatorum pontificum aliorum",
+      "author": "Catholic Church. Pope.",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0054.stoa001a.opp-lat1",
+      "title": "De Locis Santis",
+      "author": "Bede the Venerable",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0058.stoa001.opp-lat3",
+      "title": "De consolatione philosophiae",
+      "author": "Boethius",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0058.stoa007.opp-lat2",
+      "title": "Commentaria in Porphyrium A Se Translatum (editio prima)",
+      "author": "Boethius",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0058.stoa007.opp-lat3",
+      "title": "Commentaria in Porphyrium A Se Translatum (editio secunda)",
+      "author": "Boethius",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0076c.stoa001.opp-lat2",
+      "title": "Conlationes Patrum (Collationibus). Selections.",
+      "author": "John Cassian",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0076c.stoa002.opp-lat2",
+      "title": "Institutiones",
+      "author": "John Cassian",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0076c.stoa003.opp-lat1",
+      "title": "De Incarnatione Domini Contra Nestorum",
+      "author": "John Cassian",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0089a.stoa001.opp-lat1",
+      "title": "De Statu Animae",
+      "author": "Claudianus Mamertus",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0089a.stoa002.opp-lat1",
+      "title": "Epistolae",
+      "author": "Claudianus Mamertus",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0096.stoa003.opp-lat2",
+      "title": "Instructiones",
+      "author": "Commodianus",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [
+        {
+          "title": "ANF vol. 4: Tertullian Part Fourth, Minucius Felix, Commodian, Origen (On Modesty)",
+          "language": "en",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-ccel\\asset-lc01-a17fdd5c055cff5651f0\\original.txt"
+        }
+      ],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0096.stoa004.opp-lat2",
+      "title": "Carmen Apologeticum",
+      "author": "Commodianus",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [
+        {
+          "title": "ANF vol. 4: Tertullian Part Fourth, Minucius Felix, Commodian, Origen (On Modesty)",
+          "language": "en",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-ccel\\asset-lc01-a17fdd5c055cff5651f0\\original.txt"
+        }
+      ],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0104a.stoa001.opp-lat1",
+      "title": "Ad Donatum",
+      "author": "Cyprian, Saint",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [
+        {
+          "title": "ANF vol. 5: Hippolytus, Cyprian, Caius, Novatian, Appendix (Muratorian Fragment)",
+          "language": "en",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-ccel\\asset-lc01-9de5cc6e7cf443fa0d45\\original.txt"
+        }
+      ],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0104a.stoa002.opp-lat1",
+      "title": "Ad Demetrianum",
+      "author": "Cyprian, Saint",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [
+        {
+          "title": "ANF vol. 5: Hippolytus, Cyprian, Caius, Novatian, Appendix (Muratorian Fragment)",
+          "language": "en",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-ccel\\asset-lc01-9de5cc6e7cf443fa0d45\\original.txt"
+        }
+      ],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0104a.stoa003.opp-lat1",
+      "title": "De Bono Patientiae",
+      "author": "Cyprian, Saint",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [
+        {
+          "title": "ANF vol. 5: Hippolytus, Cyprian, Caius, Novatian, Appendix (Muratorian Fragment)",
+          "language": "en",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-ccel\\asset-lc01-9de5cc6e7cf443fa0d45\\original.txt"
+        }
+      ],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0104a.stoa004.opp-lat1",
+      "title": "De Disciplina et Habitu Virginum Liber",
+      "author": "Cyprian, Saint",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [
+        {
+          "title": "ANF vol. 5: Hippolytus, Cyprian, Caius, Novatian, Appendix (Muratorian Fragment)",
+          "language": "en",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-ccel\\asset-lc01-9de5cc6e7cf443fa0d45\\original.txt"
+        }
+      ],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0104a.stoa005.opp-lat1",
+      "title": "De Exhortatione Martyrii",
+      "author": "Cyprian, Saint",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [
+        {
+          "title": "ANF vol. 5: Hippolytus, Cyprian, Caius, Novatian, Appendix (Muratorian Fragment)",
+          "language": "en",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-ccel\\asset-lc01-9de5cc6e7cf443fa0d45\\original.txt"
+        }
+      ],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0104a.stoa006.opp-lat1",
+      "title": "Quod Idola Dii non sint",
+      "author": "Cyprian, Saint",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [
+        {
+          "title": "ANF vol. 5: Hippolytus, Cyprian, Caius, Novatian, Appendix (Muratorian Fragment)",
+          "language": "en",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-ccel\\asset-lc01-9de5cc6e7cf443fa0d45\\original.txt"
+        }
+      ],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0104a.stoa007.opp-lat1",
+      "title": "De Lapsis",
+      "author": "Cyprian, Saint",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [
+        {
+          "title": "ANF vol. 5: Hippolytus, Cyprian, Caius, Novatian, Appendix (Muratorian Fragment)",
+          "language": "en",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-ccel\\asset-lc01-9de5cc6e7cf443fa0d45\\original.txt"
+        }
+      ],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0104a.stoa008.opp-lat1",
+      "title": "De Mortalite",
+      "author": "Cyprian, Saint",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [
+        {
+          "title": "ANF vol. 5: Hippolytus, Cyprian, Caius, Novatian, Appendix (Muratorian Fragment)",
+          "language": "en",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-ccel\\asset-lc01-9de5cc6e7cf443fa0d45\\original.txt"
+        }
+      ],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0104a.stoa009.opp-lat1",
+      "title": "De Opere et Eleemosynis",
+      "author": "Cyprian, Saint",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [
+        {
+          "title": "ANF vol. 5: Hippolytus, Cyprian, Caius, Novatian, Appendix (Muratorian Fragment)",
+          "language": "en",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-ccel\\asset-lc01-9de5cc6e7cf443fa0d45\\original.txt"
+        }
+      ],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0104a.stoa010.opp-lat1",
+      "title": "De Unitate Ecclesiae Catholicae Liber",
+      "author": "Cyprian, Saint",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [
+        {
+          "title": "ANF vol. 5: Hippolytus, Cyprian, Caius, Novatian, Appendix (Muratorian Fragment)",
+          "language": "en",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-ccel\\asset-lc01-9de5cc6e7cf443fa0d45\\original.txt"
+        }
+      ],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0104a.stoa011.opp-lat1",
+      "title": "De Zelo et Livore",
+      "author": "Cyprian, Saint",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [
+        {
+          "title": "ANF vol. 5: Hippolytus, Cyprian, Caius, Novatian, Appendix (Muratorian Fragment)",
+          "language": "en",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-ccel\\asset-lc01-9de5cc6e7cf443fa0d45\\original.txt"
+        }
+      ],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0104a.stoa012.opp-lat1",
+      "title": "Epistulae",
+      "author": "Cyprian, Saint",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [
+        {
+          "title": "ANF vol. 5: Hippolytus, Cyprian, Caius, Novatian, Appendix (Muratorian Fragment)",
+          "language": "en",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-ccel\\asset-lc01-9de5cc6e7cf443fa0d45\\original.txt"
+        }
+      ],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0104a.stoa013.opp-lat1",
+      "title": "Sententiae Episcoporum",
+      "author": "Cyprian, Saint",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [
+        {
+          "title": "ANF vol. 5: Hippolytus, Cyprian, Caius, Novatian, Appendix (Muratorian Fragment)",
+          "language": "en",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-ccel\\asset-lc01-9de5cc6e7cf443fa0d45\\original.txt"
+        }
+      ],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0104a.stoa014.opp-lat1",
+      "title": "Testimoniorum Libri Tres adversus Judaeos",
+      "author": "Cyprian, Saint",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [
+        {
+          "title": "ANF vol. 5: Hippolytus, Cyprian, Caius, Novatian, Appendix (Muratorian Fragment)",
+          "language": "en",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-ccel\\asset-lc01-9de5cc6e7cf443fa0d45\\original.txt"
+        }
+      ],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0104a.stoa015.opp-lat1",
+      "title": "De Dominica Oratione",
+      "author": "Cyprian, Saint",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [
+        {
+          "title": "ANF vol. 5: Hippolytus, Cyprian, Caius, Novatian, Appendix (Muratorian Fragment)",
+          "language": "en",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-ccel\\asset-lc01-9de5cc6e7cf443fa0d45\\original.txt"
+        }
+      ],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0104c.stoa001.opp-lat1",
+      "title": "Heptateuchos",
+      "author": "Cyprianus Gallus",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0104p.stoa001.opp-lat1",
+      "title": "Ad Novatianum",
+      "author": "Pseudo-Cyprian",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0104p.stoa002.opp-lat1",
+      "title": "Ad Vigilium de Iudaica Incredulitate",
+      "author": "Pseudo-Cyprian",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0104p.stoa003.opp-lat2",
+      "title": "Carmina",
+      "author": "Pseudo-Cyprian",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0104p.stoa005.opp-lat1",
+      "title": "De Disciplina et bono pudicitiae",
+      "author": "Pseudo-Cyprian",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0104p.stoa006.opp-lat1",
+      "title": "De duplici Martyrio",
+      "author": "Pseudo-Cyprian",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0104p.stoa007.opp-lat1",
+      "title": "De Laude Martyrii",
+      "author": "Pseudo-Cyprian",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0104p.stoa008.opp-lat1",
+      "title": "De montibus Sina et Sion, adversus Judaeos",
+      "author": "Pseudo-Cyprian",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0104p.stoa009.opp-lat1",
+      "title": "De Pascha Computus",
+      "author": "Pseudo-Cyprian",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0104p.stoa010.opp-lat1",
+      "title": "De Rebaptismate",
+      "author": "Pseudo-Cyprian",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0104p.stoa011.opp-lat1",
+      "title": "De Singularitate clericorum",
+      "author": "Pseudo-Cyprian",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0104p.stoa013.opp-lat1",
+      "title": "De Spectaculis Liber",
+      "author": "Pseudo-Cyprian",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0104p.stoa014.opp-lat1",
+      "title": "De XII Abusionibus saeculi",
+      "author": "Pseudo-Cyprian",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0104p.stoa015.opp-lat1",
+      "title": "Oratio II",
+      "author": "Pseudo-Cyprian",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0104p.stoa016.opp-lat1",
+      "title": "Epistulae",
+      "author": "Pseudo-Cyprian",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0104p.stoa018.opp-lat1",
+      "title": "Liber de Aleatoribus",
+      "author": "Pseudo-Cyprian",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0104p.stoa019.opp-lat1",
+      "title": "Oratio I",
+      "author": "Pseudo-Cyprian",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0104p.stoa020.opp-lat1",
+      "title": "Adversus Judaeos",
+      "author": "Pseudo-Cyprian",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0104p.stoa021.opp-lat1",
+      "title": "(Cypriani) Ad Quendam Senatorem",
+      "author": "Pseudo-Cyprian",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0111.stoa001.opp-lat3",
+      "title": "S. Silviae Peregrinatio",
+      "author": "Anonymous",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0114a.stoa001.opp-lat1",
+      "title": "Benedictio Cerei (I)",
+      "author": "Magnus Felix Ennodius",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0114a.stoa002.opp-lat1",
+      "title": "Benedictio Cerei II",
+      "author": "Magnus Felix Ennodius",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0114a.stoa003.opp-lat1",
+      "title": "Carmina",
+      "author": "Magnus Felix Ennodius",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0114a.stoa004.opp-lat1",
+      "title": "Dictiones",
+      "author": "Magnus Felix Ennodius",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0114a.stoa005.opp-lat1",
+      "title": "De Vita Beati Antoni Monachi",
+      "author": "Magnus Felix Ennodius",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0114a.stoa006.opp-lat2",
+      "title": "Panegyricus Theodorico Regi Dictus",
+      "author": "Magnus Felix Ennodius",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0114a.stoa007.opp-lat1",
+      "title": "Ennodius Ambrosio et Beato",
+      "author": "Magnus Felix Ennodius",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0114a.stoa008.opp-lat1",
+      "title": "Epistulae",
+      "author": "Magnus Felix Ennodius",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0114a.stoa011.opp-lat1",
+      "title": "Eucharisticum de Vita Sua",
+      "author": "Magnus Felix Ennodius",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0114a.stoa012.opp-lat1",
+      "title": "Libellus Adversus eos qui contra Synodum Scribere Praesumpserunt",
+      "author": "Magnus Felix Ennodius",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0114a.stoa013.opp-lat1",
+      "title": "Petitorium quo Absolutus est Gerontius Puer Agapiti",
+      "author": "Magnus Felix Ennodius",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0114a.stoa014.opp-lat1",
+      "title": "Praeceptum Quando Iussi Sunt Omnes Episcopi Cellulanos Habere",
+      "author": "Magnus Felix Ennodius",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0114a.stoa015.opp-lat1",
+      "title": "Vita Epiphanii",
+      "author": "Magnus Felix Ennodius",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0117.stoa001.opp-lat1",
+      "title": "De Laude Heremi",
+      "author": "Eucherius of Lyon",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0117.stoa002.opp-lat1",
+      "title": "Formulae Spiritalis Intellegentiae",
+      "author": "Eucherius of Lyon",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0117.stoa003.opp-lat1",
+      "title": "Instructiones",
+      "author": "Eucherius of Lyon",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0117.stoa004.opp-lat1",
+      "title": "",
+      "author": "Eucherius of Lyon",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0117p.stoa001.opp-lat1",
+      "title": "De Situ Hierusolimitanae Urbis Atque Ipsius Judaeae",
+      "author": "Pseudo-Eucherius",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0119.stoa001.opp-lat2",
+      "title": "Vita Sancti Severini",
+      "author": "Eugippius",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0119.stoa002.opp-lat1",
+      "title": "Epistula ad Probam Virginem",
+      "author": "Eugippius",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0119.stoa003.opp-lat1",
+      "title": "Excerpta ex Operibus Augustini",
+      "author": "Eugippius",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0120c.stoa001.opp-lat1",
+      "title": "Altercatio Legis inter Simonem Iudaeum et Theophilum Christianum",
+      "author": "Evagrius Monachus",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0120d.stoa001.opp-lat1",
+      "title": "De fide Contra Manicheos",
+      "author": "Evodius, Bishop of Uzalis",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0121g.stoa001.opp-lat1",
+      "title": "De Gratia Libri Duo",
+      "author": "Faustus of Riez",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0121g.stoa002.opp-lat1",
+      "title": "De Spiritu Sancto Libri Duo",
+      "author": "Faustus of Riez",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0121g.stoa003.opp-lat2",
+      "title": "Epistulae",
+      "author": "Faustus of Riez",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0121g.stoa004.opp-lat1",
+      "title": "Sermones",
+      "author": "Faustus of Riez",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0121g.stoa005.opp-lat1",
+      "title": "De Ratione Fidei",
+      "author": "Faustus of Riez",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0122a.stoa001.opp-lat1",
+      "title": "Diversarum hereseon liber",
+      "author": "Philastrius",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0123a.stoa001.opp-lat1",
+      "title": "De errore profanarum religionum",
+      "author": "Julius Firmicus Maternus",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0149b.stoa001.opp-lat1",
+      "title": "Tractatus super psalmos",
+      "author": "Hilary, Saint, Bishop of Poitiers",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0149b.stoa002.opp-lat1",
+      "title": "Collectanea Antiariana Parisina",
+      "author": "Hilary, Saint, Bishop of Poitiers",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0149b.stoa003.opp-lat1",
+      "title": "Fragmenta Minora",
+      "author": "Hilary, Saint, Bishop of Poitiers",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0149b.stoa004.opp-lat1",
+      "title": "Hymni",
+      "author": "Hilary, Saint, Bishop of Poitiers",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0149b.stoa005.opp-lat1",
+      "title": "Liber ad Constantium Imperatorem",
+      "author": "Hilary, Saint, Bishop of Poitiers",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0149b.stoa006.opp-lat1",
+      "title": "Libri tres adversum Valentem et Ursacium",
+      "author": "Hilary, Saint, Bishop of Poitiers",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0149b.stoa007.opp-lat1",
+      "title": "Oratio Synodi Sardicensis ad Constantium Imperatorem",
+      "author": "Hilary, Saint, Bishop of Poitiers",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0149b.stoa008.opp-lat1",
+      "title": "Spuria",
+      "author": "Hilary, Saint, Bishop of Poitiers",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0149b.stoa009.opp-lat1",
+      "title": "Tractatus mysteriorum",
+      "author": "Hilary, Saint, Bishop of Poitiers",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0149c.stoa001.opp-lat1",
+      "title": "Epistulae ad Eucherium",
+      "author": "Hilary, Saint, Archbishop of Arles",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0149p.stoa001.opp-lat1",
+      "title": "De Evangelio",
+      "author": "Pseudo-Hilarius",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0149p.stoa002.opp-lat1",
+      "title": "De Martyrio Maccabeorum",
+      "author": "Pseudo-Hilarius",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0149p.stoa003.opp-lat1",
+      "title": "In Genesin Ad Leonem Papam",
+      "author": "Pseudo-Hilarius",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0162.stoa004.opp-lat1",
+      "title": "Epistulae",
+      "author": "Jerome, Saint",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [
+        {
+          "title": "NPNF Series II, vol. 3: Theodoret, Jerome, Gennadius, Rufinus (Lives of Illustrious Men)",
+          "language": "en",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-ccel\\asset-lc01-594f63cae8240f1abef9\\original.txt"
+        }
+      ],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0162.stoa024.opp-lat1",
+      "title": "In Hieremiam Prophetam Libri Sex",
+      "author": "Jerome, Saint",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [
+        {
+          "title": "NPNF Series II, vol. 3: Theodoret, Jerome, Gennadius, Rufinus (Lives of Illustrious Men)",
+          "language": "en",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-ccel\\asset-lc01-594f63cae8240f1abef9\\original.txt"
+        }
+      ],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0169a.stoa002.opp-lat2",
+      "title": "Evangeliorum libri quattuor",
+      "author": "Juvencus, Caius Vettius Aquilinus",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0171.stoa001.opp-lat3",
+      "title": "De Ave Phoenice",
+      "author": "Lactantius",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [
+        {
+          "title": "ANF vol. 7: Lactantius ... Apostolic Teaching and Constitutions",
+          "language": "en",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-ccel\\asset-lc01-5ef9c44d167e7f416342\\original.txt"
+        }
+      ],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0171.stoa002.opp-lat1",
+      "title": "De Mortibus Persecutorum",
+      "author": "Lactantius",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [
+        {
+          "title": "ANF vol. 7: Lactantius ... Apostolic Teaching and Constitutions",
+          "language": "en",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-ccel\\asset-lc01-5ef9c44d167e7f416342\\original.txt"
+        }
+      ],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0171.stoa004.opp-lat1",
+      "title": "Carmen de Passione Domini",
+      "author": "Lactantius",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [
+        {
+          "title": "ANF vol. 7: Lactantius ... Apostolic Teaching and Constitutions",
+          "language": "en",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-ccel\\asset-lc01-5ef9c44d167e7f416342\\original.txt"
+        }
+      ],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0171.stoa006.opp-lat1",
+      "title": "De Ira Dei",
+      "author": "Lactantius",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [
+        {
+          "title": "ANF vol. 7: Lactantius ... Apostolic Teaching and Constitutions",
+          "language": "en",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-ccel\\asset-lc01-5ef9c44d167e7f416342\\original.txt"
+        }
+      ],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0171.stoa007.opp-lat1",
+      "title": "De Opificio Dei",
+      "author": "Lactantius",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [
+        {
+          "title": "ANF vol. 7: Lactantius ... Apostolic Teaching and Constitutions",
+          "language": "en",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-ccel\\asset-lc01-5ef9c44d167e7f416342\\original.txt"
+        }
+      ],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0171.stoa008.opp-lat1",
+      "title": "Epitome Divinarum Institutionum",
+      "author": "Lactantius",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [
+        {
+          "title": "ANF vol. 7: Lactantius ... Apostolic Teaching and Constitutions",
+          "language": "en",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-ccel\\asset-lc01-5ef9c44d167e7f416342\\original.txt"
+        }
+      ],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0171.stoa009.opp-lat1",
+      "title": "Divinarum Institutionum",
+      "author": "Lactantius",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [
+        {
+          "title": "ANF vol. 7: Lactantius ... Apostolic Teaching and Constitutions",
+          "language": "en",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-ccel\\asset-lc01-5ef9c44d167e7f416342\\original.txt"
+        }
+      ],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0171.stoa010.opp-lat1",
+      "title": "Fragmenta",
+      "author": "Lactantius",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [
+        {
+          "title": "ANF vol. 7: Lactantius ... Apostolic Teaching and Constitutions",
+          "language": "en",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-ccel\\asset-lc01-5ef9c44d167e7f416342\\original.txt"
+        }
+      ],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0180a.stoa001.opp-lat1",
+      "title": "De Non Conveniendo Cum Haereticis",
+      "author": "Lucifer, Bishop of Cagliari",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0180a.stoa002.opp-lat1",
+      "title": "De non parcendo in deum delinquentibus",
+      "author": "Lucifer, Bishop of Cagliari",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0180a.stoa003.opp-lat1",
+      "title": "De Regibus Apostaticis",
+      "author": "Lucifer, Bishop of Cagliari",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0180a.stoa004.opp-lat1",
+      "title": "De Regibus Apostaticis",
+      "author": "Lucifer, Bishop of Cagliari",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0180a.stoa005.opp-lat1",
+      "title": "Epistulae",
+      "author": "Lucifer, Bishop of Cagliari",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0180a.stoa006.opp-lat1",
+      "title": "Moriendum esse pro dei filio",
+      "author": "Lucifer, Bishop of Cagliari",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0195a.stoa002.opp-lat1",
+      "title": "De Ecclesia",
+      "author": "Mavortius",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0203.stoa001.opp-lat2",
+      "title": "Octavius",
+      "author": "Minucius Felix",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [
+        {
+          "title": "ANF vol. 4: Tertullian Part Fourth, Minucius Felix, Commodian, Origen (On Modesty)",
+          "language": "en",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-ccel\\asset-lc01-a17fdd5c055cff5651f0\\original.txt"
+        }
+      ],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0215a.stoa001.opp-lat1",
+      "title": "S. Optati Milevitani libri VII",
+      "author": "Optatus, Saint, Bishop of Mileve",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0215a.stoa002.opp-lat1",
+      "title": "Appendix Decem Monumentorum Veterum",
+      "author": "Optatus, Saint, Bishop of Mileve",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0215b.stoa001.opp-lat1",
+      "title": "Commonitorium",
+      "author": "Orientius, Saint",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0215b.stoa002.opp-lat1",
+      "title": "Carmina",
+      "author": "Orientius, Saint",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0215b.stoa003.opp-lat1",
+      "title": "Orationes",
+      "author": "Orientius, Saint",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0215c.stoa001.opp-lat1",
+      "title": "Historiae Adversum Paganos",
+      "author": "Orosius, Paulus",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0215c.stoa002.opp-lat1",
+      "title": "Liber Apologeticus",
+      "author": "Orosius, Paulus",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0215c.stoa003.opp-lat1",
+      "title": "Commenitorium Orosii ad Augustinum de Errore Priscillianistarum et Origenistarum",
+      "author": "Orosius, Paulus",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0222a.stoa001.opp-lat1",
+      "title": "Epigramma",
+      "author": "Paul, the Apostle, Saint",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0223.stoa001.opp-lat1",
+      "title": "Carmina",
+      "author": "Paulinus of Nola",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0223.stoa002.opp-lat1",
+      "title": "Epistulae",
+      "author": "Paulinus of Nola",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0223a.stoa001.opp-lat2",
+      "title": "Eucharisticus",
+      "author": "Paulinus of Pella",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0224b.stoa001.opp-lat1",
+      "title": "De Vita Sancti Martini",
+      "author": "Paulinus Petricordiae",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0224b.stoa002.opp-lat1",
+      "title": "De Visitatione Nepotuli Sui",
+      "author": "Paulinus Petricordiae",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0224b.stoa003.opp-lat1",
+      "title": "De Orantibus",
+      "author": "Paulinus Petricordiae",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0227b.stoa001.opp-lat1",
+      "title": "De Locis Santis",
+      "author": "Petrus Diaconus",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0233d.stoa001.opp-lat1",
+      "title": "Vita Caecilii Cypriani",
+      "author": "Pontius Diaconus",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0233d.stoa002.opp-lat1",
+      "title": "Acta Proconsularia",
+      "author": "Pontius Diaconus",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0233h.stoa001.opp-lat1",
+      "title": "Versus Ad Gratiam Domini",
+      "author": "Pomponius",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0234e.stoa001.opp-lat1",
+      "title": "Canones (In Pauli Apostoli Epistula Canones A Peregrino Episcopo)",
+      "author": "Priscillian, Bishop of Avila",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0234e.stoa002.opp-lat1",
+      "title": "Tractatus Undecim",
+      "author": "Priscillian, Bishop of Avila",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0234f.stoa001.opp-lat1",
+      "title": "Cento",
+      "author": "Proba, active 4th century",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0241d.stoa002.opp-lat1",
+      "title": "Expositione in Paschale Carmen",
+      "author": "Remigius of Auxerre",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0244d.stoa005.opp-lat1",
+      "title": "Interpretatio Orationum Gregorii Nazianzeni",
+      "author": "Rufinus of Aquileia",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [
+        {
+          "title": "NPNF Series II, vol. 3: Theodoret, Jerome, Gennadius, Rufinus (Lives of Illustrious Men)",
+          "language": "en",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-ccel\\asset-lc01-594f63cae8240f1abef9\\original.txt"
+        }
+      ],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0245a.stoa001.opp-lat1",
+      "title": "Epistulae",
+      "author": "Ruricius I, Bishop of Limoges",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0245c.stoa001.opp-lat1",
+      "title": "Epistula ad Eucherium Lugdunensem‏",
+      "author": "Rusticus Presbyter",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0249a.stoa002.opp-lat1",
+      "title": "De Gubernatione Dei",
+      "author": "Salvian of Marseilles",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0249a.stoa003.opp-lat1",
+      "title": "Epistulae. Selections.",
+      "author": "Salvian of Marseilles",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0249a.stoa003.opp-lat2",
+      "title": "Epistulae",
+      "author": "Salvian of Marseilles",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0249a.stoa004.opp-lat1",
+      "title": "Ad Ecclesiam Libri IIII",
+      "author": "Salvian of Marseilles",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0251.stoa001.opp-lat1",
+      "title": "Epistula Secundini ad Augustinum",
+      "author": "Secundinus Manichaeus",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0252.stoa001.opp-lat1",
+      "title": "Hymnus II. (A solis ortus cardine)",
+      "author": "Sedulius",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0252.stoa002.opp-lat1",
+      "title": "Carmen Paschale",
+      "author": "Sedulius",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0252.stoa003.opp-lat1",
+      "title": "De Verbi Incarnatione",
+      "author": "Sedulius",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0252.stoa003.opp-lat2",
+      "title": "Carmina ad Sedulium Spectantia",
+      "author": "Sedulius",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0252.stoa006.opp-lat1",
+      "title": "Epistola ad Macedonium",
+      "author": "Sedulius",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0252.stoa006.opp-lat2",
+      "title": "Epistola ad Macedonium (altera)",
+      "author": "Sedulius",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0252.stoa007.opp-lat1",
+      "title": "Hymnus I",
+      "author": "Sedulius",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0252.stoa008.opp-lat1",
+      "title": "Opus Paschale",
+      "author": "Sedulius",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0270.stoa001.opp-lat1",
+      "title": "Chronica",
+      "author": "Severus, Sulpicius",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0270.stoa002.opp-lat2",
+      "title": "Vita Sancti Martini",
+      "author": "Severus, Sulpicius",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0270.stoa003.opp-lat2",
+      "title": "Dialogi",
+      "author": "Severus, Sulpicius",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0270.stoa005.opp-lat1",
+      "title": "Epistulae (Tres)",
+      "author": "Severus, Sulpicius",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0270p.stoa001.opp-lat1",
+      "title": "Epistolae Septem",
+      "author": "Pseudo-Severus, Sulpicius",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0275.stoa002.opp-lat2",
+      "title": "Ad Nationes Libri Duo",
+      "author": "Tertullian",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [
+        {
+          "title": "ANF vol. 4: Tertullian Part Fourth, Minucius Felix, Commodian, Origen (On Modesty)",
+          "language": "en",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-ccel\\asset-lc01-a17fdd5c055cff5651f0\\original.txt"
+        },
+        {
+          "title": "ANF vol. 3: Latin Christianity, Its Founder Tertullian (Against Marcion; On Baptism)",
+          "language": "en",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-ccel\\asset-lc01-ef60b199c53d6146123c\\original.txt"
+        }
+      ],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0275.stoa004.opp-lat2",
+      "title": "Adversus Hermogenem",
+      "author": "Tertullian",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [
+        {
+          "title": "ANF vol. 4: Tertullian Part Fourth, Minucius Felix, Commodian, Origen (On Modesty)",
+          "language": "en",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-ccel\\asset-lc01-a17fdd5c055cff5651f0\\original.txt"
+        },
+        {
+          "title": "ANF vol. 3: Latin Christianity, Its Founder Tertullian (Against Marcion; On Baptism)",
+          "language": "en",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-ccel\\asset-lc01-ef60b199c53d6146123c\\original.txt"
+        }
+      ],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0275.stoa006.opp-lat2",
+      "title": "Adversus Marcionem",
+      "author": "Tertullian",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [
+        {
+          "title": "ANF vol. 4: Tertullian Part Fourth, Minucius Felix, Commodian, Origen (On Modesty)",
+          "language": "en",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-ccel\\asset-lc01-a17fdd5c055cff5651f0\\original.txt"
+        },
+        {
+          "title": "ANF vol. 3: Latin Christianity, Its Founder Tertullian (Against Marcion; On Baptism)",
+          "language": "en",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-ccel\\asset-lc01-ef60b199c53d6146123c\\original.txt"
+        }
+      ],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0275.stoa007.opp-lat2",
+      "title": "Adversus Praxean",
+      "author": "Tertullian",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [
+        {
+          "title": "ANF vol. 4: Tertullian Part Fourth, Minucius Felix, Commodian, Origen (On Modesty)",
+          "language": "en",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-ccel\\asset-lc01-a17fdd5c055cff5651f0\\original.txt"
+        },
+        {
+          "title": "ANF vol. 3: Latin Christianity, Its Founder Tertullian (Against Marcion; On Baptism)",
+          "language": "en",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-ccel\\asset-lc01-ef60b199c53d6146123c\\original.txt"
+        }
+      ],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0275.stoa008.opp-lat2",
+      "title": "Adversus Valentinianos",
+      "author": "Tertullian",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [
+        {
+          "title": "ANF vol. 4: Tertullian Part Fourth, Minucius Felix, Commodian, Origen (On Modesty)",
+          "language": "en",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-ccel\\asset-lc01-a17fdd5c055cff5651f0\\original.txt"
+        },
+        {
+          "title": "ANF vol. 3: Latin Christianity, Its Founder Tertullian (Against Marcion; On Baptism)",
+          "language": "en",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-ccel\\asset-lc01-ef60b199c53d6146123c\\original.txt"
+        }
+      ],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0275.stoa010.opp-lat2",
+      "title": "De Anima",
+      "author": "Tertullian",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [
+        {
+          "title": "ANF vol. 4: Tertullian Part Fourth, Minucius Felix, Commodian, Origen (On Modesty)",
+          "language": "en",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-ccel\\asset-lc01-a17fdd5c055cff5651f0\\original.txt"
+        },
+        {
+          "title": "ANF vol. 3: Latin Christianity, Its Founder Tertullian (Against Marcion; On Baptism)",
+          "language": "en",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-ccel\\asset-lc01-ef60b199c53d6146123c\\original.txt"
+        }
+      ],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0275.stoa011.opp-lat2",
+      "title": "De Anima",
+      "author": "Tertullian",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [
+        {
+          "title": "ANF vol. 4: Tertullian Part Fourth, Minucius Felix, Commodian, Origen (On Modesty)",
+          "language": "en",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-ccel\\asset-lc01-a17fdd5c055cff5651f0\\original.txt"
+        },
+        {
+          "title": "ANF vol. 3: Latin Christianity, Its Founder Tertullian (Against Marcion; On Baptism)",
+          "language": "en",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-ccel\\asset-lc01-ef60b199c53d6146123c\\original.txt"
+        }
+      ],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0275.stoa017.opp-lat2",
+      "title": "De idololatria",
+      "author": "Tertullian",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [
+        {
+          "title": "ANF vol. 4: Tertullian Part Fourth, Minucius Felix, Commodian, Origen (On Modesty)",
+          "language": "en",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-ccel\\asset-lc01-a17fdd5c055cff5651f0\\original.txt"
+        },
+        {
+          "title": "ANF vol. 3: Latin Christianity, Its Founder Tertullian (Against Marcion; On Baptism)",
+          "language": "en",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-ccel\\asset-lc01-ef60b199c53d6146123c\\original.txt"
+        }
+      ],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0275.stoa018.opp-lat2",
+      "title": "De Ieiunio Adversus Psychicos",
+      "author": "Tertullian",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [
+        {
+          "title": "ANF vol. 4: Tertullian Part Fourth, Minucius Felix, Commodian, Origen (On Modesty)",
+          "language": "en",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-ccel\\asset-lc01-a17fdd5c055cff5651f0\\original.txt"
+        },
+        {
+          "title": "ANF vol. 3: Latin Christianity, Its Founder Tertullian (Against Marcion; On Baptism)",
+          "language": "en",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-ccel\\asset-lc01-ef60b199c53d6146123c\\original.txt"
+        }
+      ],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0275.stoa020.opp-lat2",
+      "title": "De Oratione",
+      "author": "Tertullian",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [
+        {
+          "title": "ANF vol. 4: Tertullian Part Fourth, Minucius Felix, Commodian, Origen (On Modesty)",
+          "language": "en",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-ccel\\asset-lc01-a17fdd5c055cff5651f0\\original.txt"
+        },
+        {
+          "title": "ANF vol. 3: Latin Christianity, Its Founder Tertullian (Against Marcion; On Baptism)",
+          "language": "en",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-ccel\\asset-lc01-ef60b199c53d6146123c\\original.txt"
+        }
+      ],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0275.stoa023.opp-lat2",
+      "title": "De Patientia",
+      "author": "Tertullian",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [
+        {
+          "title": "ANF vol. 4: Tertullian Part Fourth, Minucius Felix, Commodian, Origen (On Modesty)",
+          "language": "en",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-ccel\\asset-lc01-a17fdd5c055cff5651f0\\original.txt"
+        },
+        {
+          "title": "ANF vol. 3: Latin Christianity, Its Founder Tertullian (Against Marcion; On Baptism)",
+          "language": "en",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-ccel\\asset-lc01-ef60b199c53d6146123c\\original.txt"
+        }
+      ],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0275.stoa025.opp-lat2",
+      "title": "De Pudicitia",
+      "author": "Tertullian",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [
+        {
+          "title": "ANF vol. 4: Tertullian Part Fourth, Minucius Felix, Commodian, Origen (On Modesty)",
+          "language": "en",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-ccel\\asset-lc01-a17fdd5c055cff5651f0\\original.txt"
+        },
+        {
+          "title": "ANF vol. 3: Latin Christianity, Its Founder Tertullian (Against Marcion; On Baptism)",
+          "language": "en",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-ccel\\asset-lc01-ef60b199c53d6146123c\\original.txt"
+        }
+      ],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0275.stoa026.opp-lat2",
+      "title": "De Carnis Resurrectione",
+      "author": "Tertullian",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [
+        {
+          "title": "ANF vol. 4: Tertullian Part Fourth, Minucius Felix, Commodian, Origen (On Modesty)",
+          "language": "en",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-ccel\\asset-lc01-a17fdd5c055cff5651f0\\original.txt"
+        },
+        {
+          "title": "ANF vol. 3: Latin Christianity, Its Founder Tertullian (Against Marcion; On Baptism)",
+          "language": "en",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-ccel\\asset-lc01-ef60b199c53d6146123c\\original.txt"
+        }
+      ],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0275.stoa027.opp-lat2",
+      "title": "De Spectaculis",
+      "author": "Tertullian",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [
+        {
+          "title": "ANF vol. 4: Tertullian Part Fourth, Minucius Felix, Commodian, Origen (On Modesty)",
+          "language": "en",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-ccel\\asset-lc01-a17fdd5c055cff5651f0\\original.txt"
+        },
+        {
+          "title": "ANF vol. 3: Latin Christianity, Its Founder Tertullian (Against Marcion; On Baptism)",
+          "language": "en",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-ccel\\asset-lc01-ef60b199c53d6146123c\\original.txt"
+        }
+      ],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0275.stoa028.opp-lat2",
+      "title": "De Testimonio Animae",
+      "author": "Tertullian",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [
+        {
+          "title": "ANF vol. 4: Tertullian Part Fourth, Minucius Felix, Commodian, Origen (On Modesty)",
+          "language": "en",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-ccel\\asset-lc01-a17fdd5c055cff5651f0\\original.txt"
+        },
+        {
+          "title": "ANF vol. 3: Latin Christianity, Its Founder Tertullian (Against Marcion; On Baptism)",
+          "language": "en",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-ccel\\asset-lc01-ef60b199c53d6146123c\\original.txt"
+        }
+      ],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0275.stoa030.opp-lat2",
+      "title": "Scorpiace",
+      "author": "Tertullian",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [
+        {
+          "title": "ANF vol. 4: Tertullian Part Fourth, Minucius Felix, Commodian, Origen (On Modesty)",
+          "language": "en",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-ccel\\asset-lc01-a17fdd5c055cff5651f0\\original.txt"
+        },
+        {
+          "title": "ANF vol. 3: Latin Christianity, Its Founder Tertullian (Against Marcion; On Baptism)",
+          "language": "en",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-ccel\\asset-lc01-ef60b199c53d6146123c\\original.txt"
+        }
+      ],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0276.stoa003.opp-lat2",
+      "title": "Adversus Omnes Haereses",
+      "author": "Pseudo-Tertullian",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0276.stoa006.opp-lat2",
+      "title": "Carmen De Iona et Ninive",
+      "author": "Pseudo-Tertullian",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0276.stoa010.opp-lat2",
+      "title": "Incerti Auctoris Carmen Sodoma",
+      "author": "Pseudo-Tertullian",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0278a.stoa001.opp-lat1",
+      "title": "De Situ Terrae Sanctae",
+      "author": "Theodosius",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0292a.stoa004.opp-lat1",
+      "title": "De Machabeis",
+      "author": "Marius Victorinus",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0292b.stoa001.opp-lat1",
+      "title": "Alethia",
+      "author": "Victor, Claudius Marius",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0292b.stoa001.opp-lat2",
+      "title": "Commentariorum In Genesim Libri Tres",
+      "author": "Victor, Claudius Marius",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0292d.stoa001.opp-lat1",
+      "title": "Historia persecutionis Africanae provinciae",
+      "author": "Victor Vitensis",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0292e.stoa001.opp-lat1",
+      "title": "Commentarii in Apocalypsin",
+      "author": "Victorinus, Saint, Bishop of Poetovio",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0292e.stoa002.opp-lat1",
+      "title": "Commentarii in Apocalypsin",
+      "author": "Victorinus, Saint, Bishop of Poetovio",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0292p.stoa001.opp-lat1",
+      "title": "Passio septem monachorum",
+      "author": "Pseudo-Victor Vitensis",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0292p.stoa002.opp-lat1",
+      "title": "Notitia Provinciarum et Civitatum Africae",
+      "author": "Pseudo-Victor Vitensis",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0329.stoa001.opp-lat1",
+      "title": "Itinerarium Hierosolymitanum",
+      "author": "Anonymous",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:latinLit:stoa0329c.stoa001.opp-lat1",
+      "title": "Breviarius de Hierosolyma",
+      "author": "Anonymous",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    },
+    {
+      "sourceId": "urn:cts:greekLit:tlg0526.tlg003.opp-lat1",
+      "title": "De Iudaeorum Vetustate sive Contra Apionem",
+      "author": "Flavius Josephus",
+      "exactOriginalMatches": [],
+      "sameScanEditionCandidates": [],
+      "sameTitleAndAuthorCandidates": [],
+      "existingAuthorOrAnthologyOverlap": [
+        {
+          "title": "Josephus: The Complete Works",
+          "language": "en",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\bulk\\ccel\\josephus_complete.xml"
+        }
+      ],
+      "note": "Author/anthology overlap does not prove this individual work or Latin edition was already held."
+    }
+  ]
+}

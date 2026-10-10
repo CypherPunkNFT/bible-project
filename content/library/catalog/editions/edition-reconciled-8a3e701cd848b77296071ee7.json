@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-8a3e701cd848b77296071ee7",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-6dec4ea3e6fe9eb6741d547d",
+  "label": "Sighs from hell: or, the groans of a damned soul: discovering from the 6th of Luke, the lamentable estate of the damned. ... By John Bunyan. 1715 — held source edition 3cc41037f801",
+  "languages": [
+    "English"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_eighteenth-century_sighs-from-hell-or-the_bunyan-john_1715/bim_eighteenth-century_sighs-from-hell-or-the_bunyan-john_1715_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

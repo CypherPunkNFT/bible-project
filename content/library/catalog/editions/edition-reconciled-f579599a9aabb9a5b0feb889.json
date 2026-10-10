@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-f579599a9aabb9a5b0feb889",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-84e15acee0991d588e232a17",
+  "label": "Patience and its perfect work ... 1667 — held source edition a69f4c02a408",
+  "languages": [
+    "Middle English"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_early-english-books-1641-1700_patience-and-its-perfect_goodwin-thomas_1667/bim_early-english-books-1641-1700_patience-and-its-perfect_goodwin-thomas_1667_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

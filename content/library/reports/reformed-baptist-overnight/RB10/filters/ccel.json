@@ -1,0 +1,111 @@
+{
+  "authors": [
+    "Baxter, Richard",
+    "Richard Baxter",
+    "Perkins, William",
+    "William Perkins",
+    "Ames, William",
+    "William Ames",
+    "Watson, Thomas",
+    "Thomas Watson",
+    "Durham, James",
+    "James Durham",
+    "Ridgley, Thomas",
+    "Thomas Ridgley",
+    "Dabney, Robert",
+    "Robert Dabney",
+    "Fuller, Andrew",
+    "Andrew Fuller",
+    "Robert Lewis Dabney",
+    "Dabney, R L",
+    "Dabney, R. L.",
+    "Ames, Willem",
+    "William Amesius"
+  ],
+  "primaryAuthorOnly": true,
+  "authorIdentityRules": [
+    {
+      "namePattern": "Baxter",
+      "lifeYears": [
+        1615,
+        1691
+      ]
+    },
+    {
+      "namePattern": "Perkins",
+      "lifeYears": [
+        1558,
+        1588,
+        1602
+      ]
+    },
+    {
+      "namePattern": "Ames",
+      "lifeYears": [
+        1576,
+        1633
+      ]
+    },
+    {
+      "namePattern": "Watson",
+      "lifeYears": [
+        1620,
+        1686
+      ]
+    },
+    {
+      "namePattern": "Durham",
+      "lifeYears": [
+        1622,
+        1658
+      ]
+    },
+    {
+      "namePattern": "Ridgley",
+      "lifeYears": [
+        1667,
+        1734
+      ]
+    },
+    {
+      "namePattern": "Dabney",
+      "lifeYears": [
+        1820,
+        1898
+      ]
+    },
+    {
+      "namePattern": "Fuller",
+      "lifeYears": [
+        1754,
+        1815
+      ]
+    }
+  ],
+  "deferHardDownloads": true,
+  "skipIds": [
+    "barnes/1cor",
+    "barnes/2cor",
+    "barnes/acts",
+    "barnes/daniel1",
+    "barnes/daniel2",
+    "barnes/epc",
+    "barnes/hebrews",
+    "barnes/isaiah1",
+    "barnes/isaiah2",
+    "barnes/james",
+    "barnes/job1",
+    "barnes/luke",
+    "barnes/matthew",
+    "barnes/psalms1",
+    "barnes/psalms2",
+    "barnes/psalms3",
+    "barnes/rev",
+    "barnes/romans",
+    "barnes/tttp",
+    "cook_fc/1sam",
+    "cook_fc/exod_ruth",
+    "cook_fc/provez",
+    "moule/hebrews"
+  ]
+}

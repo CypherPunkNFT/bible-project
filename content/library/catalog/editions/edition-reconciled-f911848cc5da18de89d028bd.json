@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-f911848cc5da18de89d028bd",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-3486d6c0cd4430f59a9e861d",
+  "label": "The exposition given by My Lord Bishop of Sarum, of the second article of our religion, examined. 1702 — held source edition 1b3b61e899dd",
+  "languages": [
+    "English"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_eighteenth-century_the-exposition-given-by-_edwards-jonathan_1702/bim_eighteenth-century_the-exposition-given-by-_edwards-jonathan_1702_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

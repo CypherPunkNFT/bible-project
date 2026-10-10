@@ -1,0 +1,76 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "asset",
+  "id": "asset-modern-piper-qne4is5e-html",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "editionId": "edition-reconciled-052c4fd2488d94b1e68863c5",
+  "sourceId": "source-desiring-god",
+  "canonicalUrl": "https://www.desiringgod.org/articles/terrorism-justice-and-loving-our-enemies",
+  "finalUrl": "https://www.desiringgod.org/articles/terrorism-justice-and-loving-our-enemies",
+  "format": "html",
+  "mediaKind": "text",
+  "acquisitionStatus": "downloaded",
+  "storage": "raw",
+  "relativePath": "library/source-desiring-god/asset-modern-piper-qne4is5e-html/original.html",
+  "sha256": "eb6d47ea80ac1e23c95ffb873028abc7bc8db5600c679c13963ba82aee495247",
+  "byteCount": 60346,
+  "mimeType": "text/html",
+  "retrievedAt": "2026-10-05T15:59:53.422336Z",
+  "rights": {
+    "category": "restricted-license",
+    "jurisdiction": null,
+    "licenseId": "Recorded publisher-use policy",
+    "licenseUrl": "https://www.desiringgod.org/permissions",
+    "attribution": "John Piper; Desiring God",
+    "conditions": [
+      "Copyright and edition notices retained; recorded acquisition category: restricted-license; recorded use scope: private-noncommercial-reading; policy evidence: https://www.desiringgod.org/permissions"
+    ],
+    "conditionsMet": false,
+    "actions": {
+      "download": "allowed",
+      "host": "unknown",
+      "redistribute": "unknown",
+      "adapt": "unknown",
+      "transcribe": "unknown",
+      "embed": "allowed",
+      "indexMetadata": "allowed",
+      "indexFullText": "allowed"
+    },
+    "evidence": [
+      {
+        "url": "https://www.desiringgod.org/articles/terrorism-justice-and-loving-our-enemies",
+        "locator": "Recorded acquisition/source metadata",
+        "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+        "checkedOn": "2026-10-08"
+      }
+    ],
+    "unresolved": [],
+    "review": {
+      "date": "2026-10-08",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Recorded bibliographic/provenance reconciliation; private local authorization retained separately from public use."
+    }
+  },
+  "fullTextIndexed": true,
+  "processing": {
+    "parentAssetId": null,
+    "method": "none",
+    "tool": null,
+    "toolVersion": null,
+    "parameters": null,
+    "date": null,
+    "note": "Original unchanged; existing selected derivatives remain in their original acquisition/repair ledgers."
+  },
+  "quality": {
+    "state": "unreviewed",
+    "reviewedBy": null,
+    "reviewedOn": null,
+    "note": "Bibliographic metadata joined; body not proofread or collated by this task."
+  }
+}

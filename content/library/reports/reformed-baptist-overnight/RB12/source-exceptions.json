@@ -1,0 +1,60 @@
+{
+  "mission": "RB12",
+  "decisions": [
+    {
+      "candidate": "Michigan persistent TCP endpoints",
+      "urls": [
+        "https://name.umdl.umich.edu/A47565.0001.001",
+        "https://name.umdl.umich.edu/A88025.0001.001"
+      ],
+      "state": "403 on institutional offer",
+      "action": "Independent official TCP repositories offer the exact identified XML with embedded CC0; acquired through their listed public download URLs. No authentication/access restriction bypass."
+    },
+    {
+      "candidate": "Baptist Studies Online",
+      "url": "https://baptiststudiesonline.com/",
+      "state": "TLS certificate validation failure",
+      "action": "No certificate disabling or HTTP fallback. Continue other legitimate repositories."
+    },
+    {
+      "candidate": "Themelios source policy",
+      "url": "https://www.thegospelcoalition.org/robots.txt",
+      "state": "600-second crawl delay",
+      "action": "Respected publisher spacing for essay and foundation evidence. Incorrect guessed about-themelios route returned 404; no further retries."
+    },
+    {
+      "candidate": "On the Wing Library.html",
+      "url": "https://www.onthewing.org/user/Library.html",
+      "state": "404 discovery route",
+      "action": "Actual home page links Classics.html; exact offered Kiffin PDF and Copyright.html verified."
+    },
+    {
+      "candidate": "Ivimey volumes II-IV and full Gill treatise",
+      "url": "https://www.reformedreader.org/history/ivimey/volume1/contents.htm",
+      "state": "other volumes/full Gill treatise outside selected first-volume components",
+      "action": "Do not claim four-volume completeness or count Gill as Ivimey. The prefixed extract is now acquired; a whole Gill treatise remains a separate completeness question, not filled by the excerpt."
+    },
+    {
+      "candidate": "1689 General Assembly narrative",
+      "url": "https://theangus.rpc.ox.ac.uk/treasures/a-narrative-of-the-proceedings-of-the-general-assembly-of-divers-pastors-messengers-and-ministring-brethren-of-the-baptized-churches-met-together-in-london/",
+      "state": "institution offers two PDF parts; extractible-text status not verified",
+      "action": "Metadata discovery only; no PDF/image acquired and no OCR. Resume with one bounded text-layer check only if a permitted neat PDF is necessary; otherwise leave noted."
+    },
+    {
+      "candidate": "Renihan Faith & Life for Baptists 1689-1694",
+      "url": "https://www.solid-ground-books.com/detail_147.asp",
+      "state": "commercial book and table of contents; no authorized full readable offer found",
+      "action": "Keep missing assembly narratives and supporting letters as priorities. Confession/catechism already held do not fill the narrative gap. No preview or unauthorized copy acquired."
+    },
+    {
+      "candidate": "Philadelphia image-only statistics",
+      "state": "text pages reference statistical JPGs",
+      "action": "Image URLs recorded in selected-text-review.json only; no download, imaging, transcription or inferred statistics. Readable narrative acquisition is not completeness of non-text tables."
+    },
+    {
+      "candidate": "Crosby, early British association records and later Ivimey volumes",
+      "state": "not acquired in this bounded mission",
+      "action": "Next historical run should first audit all current manifests, then prioritize clean complete primary association/correspondence texts over another general-history scan collection."
+    }
+  ]
+}

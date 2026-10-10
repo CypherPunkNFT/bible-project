@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-e5606d4ffbffd184a77de6c7",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-674c4f97ee5246a15fde8b06",
+  "label": "Light for them that sit in darkness, or, A discourse of Jesus Christ, and that he undertook to accomplish by himself the eternal redemption of sinners also, that the Lord Jesus addressed himself to this work, with undeniable demonstrations that he performed the same : objections to the contrary answered / by John Bunyan. — held source edition 7db9b2edf6d8",
+  "languages": [
+    "und"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A30167/master/A30167.xml",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

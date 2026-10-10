@@ -1,0 +1,43 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-reconciled-0465db0283893d988c50937d",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "title": "A race for eternal life: being an extract from the heavenly footman, a sermon on 1 Corinth.ix. 24. Written by the author of The pilgrim's progress. By the Rev. Mr. Fletcher. 1777",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-john-bunyan",
+      "role": "author"
+    }
+  ],
+  "genre": "treatise",
+  "role": "core-teaching",
+  "collections": [],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [],
+  "depth": "unknown",
+  "era": "unknown",
+  "dates": [],
+  "passages": [],
+  "related": [],
+  "externalIds": {
+    "source-internet-archive": [
+      "ia:bim_eighteenth-century_a-race-for-eternal-life_bunyan-john_1777"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_eighteenth-century_a-race-for-eternal-life_bunyan-john_1777/bim_eighteenth-century_a-race-for-eternal-life_bunyan-john_1777_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-62b75e77d89676da501eb8bd",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-5308e08bbecfcde98948a1f5",
+  "label": "Satan's devices. A sermon preached at Great St. Helen's, London. By George Whitefield, ... 1739 — held source edition 2f75c8f54320",
+  "languages": [
+    "English"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_eighteenth-century_satans-devices-a-sermo_whitefield-george_1739/bim_eighteenth-century_satans-devices-a-sermo_whitefield-george_1739_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

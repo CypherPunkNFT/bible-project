@@ -1,0 +1,27 @@
+{
+  "items": [
+    {
+      "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\bulk\\chapel\\bumsto.pdf",
+      "source": "chapel",
+      "status": "no_text",
+      "detail": "No extractable existing text; no OCR performed",
+      "title": "Map Showing the Order and Causes of Salvation and Damnation",
+      "pageCount": 1,
+      "existingTextCharacters": 0,
+      "disposition": "deferred-no-existing-text",
+      "reason": "Image-only local PDF; no usable same-edition companion found; no new OCR or download attempted"
+    },
+    {
+      "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-gospel-coalition\\asset-ready-library-4ca8531489497774617a\\original.pdf",
+      "source": "source-gospel-coalition",
+      "status": "deferred_scan",
+      "detail": "Existing source audit explicitly defers transcription; searchable metadata only, no body text or inferred replacement",
+      "title": "Do the Prophets and the Law Quit Prophesying Before John? A Note on Matthew 11.13",
+      "pageCount": 9,
+      "existingTextCharacters": 0,
+      "disposition": "deferred-no-existing-text",
+      "reason": "Image-only local PDF; no usable same-edition companion found; no new OCR or download attempted"
+    }
+  ],
+  "noRetries": true
+}

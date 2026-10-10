@@ -1,0 +1,45 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-reconciled-1067f04203885a038a43dc39",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "title": "If God Wants Me to Be Happy, Why Do I Have So Much Suffering?",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-john-piper",
+      "role": "preacher"
+    }
+  ],
+  "genre": "sermon",
+  "role": "core-teaching",
+  "collections": [
+    "sermons"
+  ],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [],
+  "depth": "unknown",
+  "era": "unknown",
+  "dates": [],
+  "passages": [],
+  "related": [],
+  "externalIds": {
+    "source-desiring-god": [
+      "item:jsier0be"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://www.desiringgod.org/interviews/if-god-wants-me-to-be-happy-why-do-i-have-so-much-suffering",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

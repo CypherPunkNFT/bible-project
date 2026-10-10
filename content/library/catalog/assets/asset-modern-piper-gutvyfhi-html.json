@@ -1,0 +1,76 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "asset",
+  "id": "asset-modern-piper-gutvyfhi-html",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "editionId": "edition-reconciled-1feb5afe011aa54fca1170c8",
+  "sourceId": "source-desiring-god",
+  "canonicalUrl": "https://www.desiringgod.org/articles/are-we-fascinated-with-lewiss-fame-or-his-influence",
+  "finalUrl": "https://www.desiringgod.org/articles/are-we-fascinated-with-lewiss-fame-or-his-influence",
+  "format": "html",
+  "mediaKind": "text",
+  "acquisitionStatus": "downloaded",
+  "storage": "raw",
+  "relativePath": "library/source-desiring-god/asset-modern-piper-gutvyfhi-html/original.html",
+  "sha256": "f257a37335c21c598ac7d44fb468e4fe088df6d185319e6a413d9ebb79aa0136",
+  "byteCount": 58194,
+  "mimeType": "text/html",
+  "retrievedAt": "2026-10-05T15:05:47.881634Z",
+  "rights": {
+    "category": "restricted-license",
+    "jurisdiction": null,
+    "licenseId": "Recorded publisher-use policy",
+    "licenseUrl": "https://www.desiringgod.org/permissions",
+    "attribution": "John Piper; Desiring God",
+    "conditions": [
+      "Copyright and edition notices retained; recorded acquisition category: restricted-license; recorded use scope: private-noncommercial-reading; policy evidence: https://www.desiringgod.org/permissions"
+    ],
+    "conditionsMet": false,
+    "actions": {
+      "download": "allowed",
+      "host": "unknown",
+      "redistribute": "unknown",
+      "adapt": "unknown",
+      "transcribe": "unknown",
+      "embed": "allowed",
+      "indexMetadata": "allowed",
+      "indexFullText": "allowed"
+    },
+    "evidence": [
+      {
+        "url": "https://www.desiringgod.org/articles/are-we-fascinated-with-lewiss-fame-or-his-influence",
+        "locator": "Recorded acquisition/source metadata",
+        "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+        "checkedOn": "2026-10-08"
+      }
+    ],
+    "unresolved": [],
+    "review": {
+      "date": "2026-10-08",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Recorded bibliographic/provenance reconciliation; private local authorization retained separately from public use."
+    }
+  },
+  "fullTextIndexed": true,
+  "processing": {
+    "parentAssetId": null,
+    "method": "none",
+    "tool": null,
+    "toolVersion": null,
+    "parameters": null,
+    "date": null,
+    "note": "Original unchanged; existing selected derivatives remain in their original acquisition/repair ledgers."
+  },
+  "quality": {
+    "state": "unreviewed",
+    "reviewedBy": null,
+    "reviewedOn": null,
+    "note": "Bibliographic metadata joined; body not proofread or collated by this task."
+  }
+}

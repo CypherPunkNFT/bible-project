@@ -1,0 +1,43 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-reconciled-18894eaf4144fa860df3a13b",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "title": "The copie of a letter, sent to the ladye Mary dowagire, Regent of Scotland, by Iohn Knox in the yeare. 1556. Here is also a notable sermon, made by the sayde Iohn Knox, wherin is euydentlye proued that the masse is and alwayes hath ben abhominable before God and idolatrye",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-john-knox",
+      "role": "author"
+    }
+  ],
+  "genre": "treatise",
+  "role": "core-teaching",
+  "collections": [],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [],
+  "depth": "unknown",
+  "era": "unknown",
+  "dates": [],
+  "passages": [],
+  "related": [],
+  "externalIds": {
+    "source-eebo-tcp": [
+      "item:A04924"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A04924/master/A04924.xml",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

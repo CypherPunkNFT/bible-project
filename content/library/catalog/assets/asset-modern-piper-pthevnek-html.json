@@ -1,0 +1,76 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "asset",
+  "id": "asset-modern-piper-pthevnek-html",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "editionId": "edition-reconciled-909bb3ed204f973c9ded406a",
+  "sourceId": "source-desiring-god",
+  "canonicalUrl": "https://www.desiringgod.org/messages/hoping-singing-and-loving-q-and-a",
+  "finalUrl": "https://www.desiringgod.org/messages/hoping-singing-and-loving-q-and-a",
+  "format": "html",
+  "mediaKind": "text",
+  "acquisitionStatus": "downloaded",
+  "storage": "raw",
+  "relativePath": "library/source-desiring-god/asset-modern-piper-pthevnek-html/original.html",
+  "sha256": "5287c6236a0b37f96c1d93df4ed562445c3fdc61add76107810d1a99211a5d8f",
+  "byteCount": 83992,
+  "mimeType": "text/html",
+  "retrievedAt": "2026-10-05T12:21:48.397248Z",
+  "rights": {
+    "category": "restricted-license",
+    "jurisdiction": null,
+    "licenseId": "Recorded publisher-use policy",
+    "licenseUrl": "https://www.desiringgod.org/permissions",
+    "attribution": "John Piper; Desiring God",
+    "conditions": [
+      "Copyright and edition notices retained; recorded acquisition category: restricted-license; recorded use scope: private-noncommercial-reading; policy evidence: https://www.desiringgod.org/permissions"
+    ],
+    "conditionsMet": false,
+    "actions": {
+      "download": "allowed",
+      "host": "unknown",
+      "redistribute": "unknown",
+      "adapt": "unknown",
+      "transcribe": "unknown",
+      "embed": "allowed",
+      "indexMetadata": "allowed",
+      "indexFullText": "allowed"
+    },
+    "evidence": [
+      {
+        "url": "https://www.desiringgod.org/messages/hoping-singing-and-loving-q-and-a",
+        "locator": "Recorded acquisition/source metadata",
+        "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+        "checkedOn": "2026-10-08"
+      }
+    ],
+    "unresolved": [],
+    "review": {
+      "date": "2026-10-08",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Recorded bibliographic/provenance reconciliation; private local authorization retained separately from public use."
+    }
+  },
+  "fullTextIndexed": true,
+  "processing": {
+    "parentAssetId": null,
+    "method": "none",
+    "tool": null,
+    "toolVersion": null,
+    "parameters": null,
+    "date": null,
+    "note": "Original unchanged; existing selected derivatives remain in their original acquisition/repair ledgers."
+  },
+  "quality": {
+    "state": "unreviewed",
+    "reviewedBy": null,
+    "reviewedOn": null,
+    "note": "Bibliographic metadata joined; body not proofread or collated by this task."
+  }
+}

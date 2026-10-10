@@ -1,0 +1,43 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-reconciled-e1fb225a67c704b57dd3122a",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "title": "A continuation of the exposition of the Epistle of Paul the Apostle to the Hebrews viz, on the sixth, seventh, eight, ninth, and tenth chapters : wherein together with the explication of the text and context, the priesthood of Christ ... are declared, explained and confirmed : as also, the pleas of the Jews for the continuance and perpetuity of their legal worship, with the doctrine of the principal writers of the Socinians about these things, are examined and disproved / by J. Owen ...",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-john-owen",
+      "role": "author"
+    }
+  ],
+  "genre": "treatise",
+  "role": "core-teaching",
+  "collections": [],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [],
+  "depth": "unknown",
+  "era": "unknown",
+  "dates": [],
+  "passages": [],
+  "related": [],
+  "externalIds": {
+    "source-eebo-tcp": [
+      "item:A53678"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A53678/master/A53678.xml",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

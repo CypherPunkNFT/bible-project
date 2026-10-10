@@ -1,0 +1,43 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-reconciled-c23b58adb88235b1970cc1bb",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "title": "The Works of the Reverend Richard Sibbs ...: To which is Prefixed, a Short Memoir of the Author ...",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-richard-sibbes",
+      "role": "author"
+    }
+  ],
+  "genre": "treatise",
+  "role": "core-teaching",
+  "collections": [],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [],
+  "depth": "unknown",
+  "era": "unknown",
+  "dates": [],
+  "passages": [],
+  "related": [],
+  "externalIds": {
+    "source-internet-archive": [
+      "ia:worksreverendri01sibbgoog"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/download/worksreverendri01sibbgoog/worksreverendri01sibbgoog_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-71b44026973dbe7f616d4390",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-20173b6d2706b2327250a6b4",
+  "label": "The summe of Christian religion, delivered by Zacharias Ursinus first, by way of catechism, and then afterwards more enlarged by a sound and judicious exposition, and application of the same : wherein also are debated and resolved the questions of whatsoever points of moment have been, or are controversed in divinitie / first Englished by D. Henry Parry, and now again conferred with the best and last Latine edition of D. David Pareus, sometimes Professour of Divinity in Heidelberge ; whereunto is added a large and full alphabeticall table of such matters as are therein contained ; together with all the Scriptures that are occasionally handled, by way either of controversie, exposition, or reconciliation, neither of which was done before, but now is performed for the readers delight and benefit ; to this work of Ursinus are now at last annexed the Theologicall miscellanies of D. David Pareus in which the orthodoxall tenets are briefly and solidly confirmed, and the contrary errours of the Papists, Ubiquitaries, Antitrinitaries, Eutychians, Socinians, and Arminians fully refuted ; and now translated into English out of the originall Latine copie by A.R. — held source edition 6471e70befec",
+  "languages": [
+    "eng"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A64611/master/A64611.xml",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

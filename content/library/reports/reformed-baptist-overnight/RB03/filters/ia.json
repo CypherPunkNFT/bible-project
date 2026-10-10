@@ -1,0 +1,85 @@
+{
+  "authors": [
+    "Manton, Thomas",
+    "Thomas Manton",
+    "Burroughs, Jeremiah",
+    "Jeremiah Burroughs",
+    "Burroughes, Jeremiah",
+    "Jeremiah Burroughes",
+    "Caryl, Joseph",
+    "Joseph Caryl",
+    "Durham, James",
+    "James Durham",
+    "Brooks, Thomas",
+    "Thomas Brooks",
+    "Owen, John",
+    "John Owen"
+  ],
+  "primaryAuthorOnly": true,
+  "authorIdentityRules": [
+    {
+      "namePattern": "Manton,?\\s+Thomas|Thomas\\s+Manton",
+      "lifeYears": [
+        1620,
+        1677
+      ]
+    },
+    {
+      "namePattern": "Burrough(?:e)?s,?\\s+Jeremiah|Jeremiah\\s+Burrough(?:e)?s",
+      "lifeYears": [
+        1599,
+        1600,
+        1646
+      ]
+    },
+    {
+      "namePattern": "Caryl,?\\s+Joseph|Joseph\\s+Caryl",
+      "lifeYears": [
+        1602,
+        1673
+      ]
+    },
+    {
+      "namePattern": "Durham,?\\s+James|James\\s+Durham",
+      "lifeYears": [
+        1622,
+        1658
+      ]
+    },
+    {
+      "namePattern": "Brooks,?\\s+Thomas|Thomas\\s+Brooks",
+      "lifeYears": [
+        1608,
+        1680
+      ]
+    },
+    {
+      "namePattern": "Owen,?\\s+John|John\\s+Owen",
+      "lifeYears": [
+        1616,
+        1683
+      ]
+    }
+  ],
+  "deferHardDownloads": true,
+  "collections": [
+    "Princeton",
+    "americana",
+    "toronto",
+    "europeanlibraries",
+    "library_of_congress",
+    "cdl",
+    "bostonpubliclibrary",
+    "getty",
+    "wellcomelibrary",
+    "gutenberg",
+    "microfilm"
+  ],
+  "iaQuery": "mediatype:texts AND date:[1600-01-01 TO 1930-12-31] AND NOT access-restricted-item:true AND (creator:\"Manton, Thomas\" OR creator:\"Thomas Manton\" OR creator:\"Burroughs, Jeremiah\" OR creator:\"Jeremiah Burroughs\" OR creator:\"Burroughes, Jeremiah\" OR creator:\"Jeremiah Burroughes\" OR creator:\"Caryl, Joseph\" OR creator:\"Joseph Caryl\" OR creator:\"Durham, James\" OR creator:\"James Durham\" OR creator:\"Brooks, Thomas\" OR creator:\"Thomas Brooks\" OR ((creator:\"Owen, John\" OR creator:\"John Owen\") AND title:Hebrews))",
+  "skipIds": [
+    "anexpositionepi03willgoog",
+    "atreatiseonsabb00owengoog",
+    "bim_early-english-books-1641-1700_a-piller-set-up-to-keep_keach-benjamin_1670",
+    "bim_early-english-books-1641-1700_a-treatise-concerning-th_spilsbury-john_1652"
+  ]
+}

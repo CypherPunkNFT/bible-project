@@ -1,0 +1,76 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "asset",
+  "id": "asset-modern-piper-ktldbndv-html",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "editionId": "edition-reconciled-400a14111e61f1894f895230",
+  "sourceId": "source-desiring-god",
+  "canonicalUrl": "https://www.desiringgod.org/articles/japan-after-empathy-and-aid-people-want-answers",
+  "finalUrl": "https://www.desiringgod.org/articles/japan-after-empathy-and-aid-people-want-answers",
+  "format": "html",
+  "mediaKind": "text",
+  "acquisitionStatus": "downloaded",
+  "storage": "raw",
+  "relativePath": "library/source-desiring-god/asset-modern-piper-ktldbndv-html/original.html",
+  "sha256": "405dde11f010142c2a3c8c8bd856b1392ed8269c62a5ac9059b823c6c0091ee9",
+  "byteCount": 63337,
+  "mimeType": "text/html",
+  "retrievedAt": "2026-10-05T15:19:21.918705Z",
+  "rights": {
+    "category": "restricted-license",
+    "jurisdiction": null,
+    "licenseId": "Recorded publisher-use policy",
+    "licenseUrl": "https://www.desiringgod.org/permissions",
+    "attribution": "John Piper; Desiring God",
+    "conditions": [
+      "Copyright and edition notices retained; recorded acquisition category: restricted-license; recorded use scope: private-noncommercial-reading; policy evidence: https://www.desiringgod.org/permissions"
+    ],
+    "conditionsMet": false,
+    "actions": {
+      "download": "allowed",
+      "host": "unknown",
+      "redistribute": "unknown",
+      "adapt": "unknown",
+      "transcribe": "unknown",
+      "embed": "allowed",
+      "indexMetadata": "allowed",
+      "indexFullText": "allowed"
+    },
+    "evidence": [
+      {
+        "url": "https://www.desiringgod.org/articles/japan-after-empathy-and-aid-people-want-answers",
+        "locator": "Recorded acquisition/source metadata",
+        "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+        "checkedOn": "2026-10-08"
+      }
+    ],
+    "unresolved": [],
+    "review": {
+      "date": "2026-10-08",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Recorded bibliographic/provenance reconciliation; private local authorization retained separately from public use."
+    }
+  },
+  "fullTextIndexed": true,
+  "processing": {
+    "parentAssetId": null,
+    "method": "none",
+    "tool": null,
+    "toolVersion": null,
+    "parameters": null,
+    "date": null,
+    "note": "Original unchanged; existing selected derivatives remain in their original acquisition/repair ledgers."
+  },
+  "quality": {
+    "state": "unreviewed",
+    "reviewedBy": null,
+    "reviewedOn": null,
+    "note": "Bibliographic metadata joined; body not proofread or collated by this task."
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-840d530b4cf058fcb3b8322f",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-77d83a0663b489b62d03d63b",
+  "label": "The principles of the doctrine of Christ: unfolded in two short catechismes, wherein those principles of religion are explained, the knowledge whereof is required by the late ordinance of Parliament, before any person bee admitted to the sacrament of the Lords Supper. For the use of the congregation at Fordham, in the county of Essex. By John Owen pastor there. — held source edition aad74a9dbac6",
+  "languages": [
+    "eng"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A53723/master/A53723.xml",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

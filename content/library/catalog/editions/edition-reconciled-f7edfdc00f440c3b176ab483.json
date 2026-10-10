@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-f7edfdc00f440c3b176ab483",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-27a4f14a3fbf50fa6e2747d1",
+  "label": "Come and welcome to Jesus Christ; or, a plain and profitable discourse on John vi. 36. ... Written by John Bunyan, ... 1755 — held source edition c5cabdea57a0",
+  "languages": [
+    "English"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_eighteenth-century_come-and-welcome-to-jesu_bunyan-john_1755/bim_eighteenth-century_come-and-welcome-to-jesu_bunyan-john_1755_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

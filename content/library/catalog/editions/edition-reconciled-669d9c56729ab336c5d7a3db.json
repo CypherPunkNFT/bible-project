@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-669d9c56729ab336c5d7a3db",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-44e0cf25f7b45f2a1f151dcb",
+  "label": "Cuairt an eilthirich, no, Turas a' Chriosdaidh : o' n t-saoghal so chum an t-saoghail a ta ri teachd : fo shamhla bruadair : ann an tri earrannan — held source edition 66f766abf49a",
+  "languages": [
+    "gae"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/cuairteilthirich1872buny/cuairteilthirich1872buny_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

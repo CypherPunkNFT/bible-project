@@ -1,0 +1,76 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "asset",
+  "id": "asset-modern-piper-concztut-html",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "editionId": "edition-reconciled-526360dc93ad4adcf8c0b7ff",
+  "sourceId": "source-desiring-god",
+  "canonicalUrl": "https://www.desiringgod.org/articles/noah",
+  "finalUrl": "https://www.desiringgod.org/articles/noah",
+  "format": "html",
+  "mediaKind": "text",
+  "acquisitionStatus": "downloaded",
+  "storage": "raw",
+  "relativePath": "library/source-desiring-god/asset-modern-piper-concztut-html/original.html",
+  "sha256": "d015f08d6724831f35f54d6368a0d2b701ca026b4c768749a13eb1fc8c48c60c",
+  "byteCount": 58947,
+  "mimeType": "text/html",
+  "retrievedAt": "2026-10-05T16:39:10.347619Z",
+  "rights": {
+    "category": "restricted-license",
+    "jurisdiction": null,
+    "licenseId": "Recorded publisher-use policy",
+    "licenseUrl": "https://www.desiringgod.org/permissions",
+    "attribution": "John Piper; Desiring God",
+    "conditions": [
+      "Copyright and edition notices retained; recorded acquisition category: restricted-license; recorded use scope: private-noncommercial-reading; policy evidence: https://www.desiringgod.org/permissions"
+    ],
+    "conditionsMet": false,
+    "actions": {
+      "download": "allowed",
+      "host": "unknown",
+      "redistribute": "unknown",
+      "adapt": "unknown",
+      "transcribe": "unknown",
+      "embed": "allowed",
+      "indexMetadata": "allowed",
+      "indexFullText": "allowed"
+    },
+    "evidence": [
+      {
+        "url": "https://www.desiringgod.org/articles/noah",
+        "locator": "Recorded acquisition/source metadata",
+        "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+        "checkedOn": "2026-10-08"
+      }
+    ],
+    "unresolved": [],
+    "review": {
+      "date": "2026-10-08",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Recorded bibliographic/provenance reconciliation; private local authorization retained separately from public use."
+    }
+  },
+  "fullTextIndexed": true,
+  "processing": {
+    "parentAssetId": null,
+    "method": "none",
+    "tool": null,
+    "toolVersion": null,
+    "parameters": null,
+    "date": null,
+    "note": "Original unchanged; existing selected derivatives remain in their original acquisition/repair ledgers."
+  },
+  "quality": {
+    "state": "unreviewed",
+    "reviewedBy": null,
+    "reviewedOn": null,
+    "note": "Bibliographic metadata joined; body not proofread or collated by this task."
+  }
+}

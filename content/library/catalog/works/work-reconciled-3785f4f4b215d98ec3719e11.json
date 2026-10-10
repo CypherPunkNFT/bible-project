@@ -1,0 +1,43 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-reconciled-3785f4f4b215d98ec3719e11",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "title": "Msr. Quaats Leben und Sterben, oder Eines Gottlosen Reise nach dem ewigen Verderben: Vorstellend den ganzen Zustand einer unwiedergebohrnen Seele, durch unterschiedliche darzu dienende Geschichte",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-john-bunyan",
+      "role": "author"
+    }
+  ],
+  "genre": "treatise",
+  "role": "core-teaching",
+  "collections": [],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [],
+  "depth": "unknown",
+  "era": "unknown",
+  "dates": [],
+  "passages": [],
+  "related": [],
+  "externalIds": {
+    "source-internet-archive": [
+      "ia:10270101bsb"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/download/10270101bsb/10270101bsb_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

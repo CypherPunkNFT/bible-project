@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-d2352ad525e0f11747fd27d0",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-faba1c76a9c05e0ecedcb2e3",
+  "label": "Cuairt an oilthirich, or, Turus a Chriosduidh : o'n t-saoghal so chum an ath-shaoghail : fo shamhladh bruadair ... — held source edition 317f3fe8a889",
+  "languages": [
+    "gae"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/cuairtoilthirich1819buny/cuairtoilthirich1819buny_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

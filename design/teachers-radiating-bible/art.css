@@ -1,0 +1,26 @@
+:root{--page:#12110f;--surface:#1c1a17;--ink:#eee9de;--gold:#dfb354;--line:#39362e}
+:root[data-theme=light]{--page:#f5f0e6;--surface:#fffbf3;--ink:#28241d;--gold:#93661b;--line:#d7ccba}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;background:var(--page);color:var(--gold);display:grid;place-items:center}main{width:min(100% - 40px,940px);padding:40px 0 80px}.artwork{border:1px solid var(--line);border-radius:8px;background:var(--surface);display:grid;place-items:center;padding:45px 24px}.artwork svg{width:min(100%,680px);height:auto;overflow:visible}svg path,svg ellipse,svg circle{stroke-linecap:round;stroke-linejoin:round}.stroke{fill:none;stroke:currentColor;stroke-width:1.15}.fine{stroke-width:.8;opacity:.8}.faint{stroke-width:.7;opacity:.52}.ink{stroke:var(--ink);stroke-width:.8;opacity:.65}.paper{fill:var(--surface)}.text{stroke-width:.7;opacity:.67}.base{opacity:.82}.live{opacity:0;transition:opacity .5s}.running .live{opacity:1}.running .base .moving{visibility:hidden}.running .live .stroke{animation:draw 1.6s calc(var(--delay,0)*1s) cubic-bezier(.45,0,.2,1) both}.running .live .wave{animation:voice 6s calc(var(--i)*1.35s) ease-out infinite both;transform-origin:180px 146px;stroke-width:1.15;fill:none;stroke:currentColor}.base .wave{stroke:currentColor;fill:none;stroke-width:.9;opacity:.45}.running .live .star{animation:draw 1.6s calc(var(--delay)*1s) both,twinkle 5s calc(1.5s + var(--i)*.6s) ease-in-out infinite}
+@keyframes draw{0%{stroke-dasharray:1;stroke-dashoffset:1}99.9%{stroke-dasharray:1;stroke-dashoffset:0}100%{stroke-dasharray:none;stroke-dashoffset:0}}
+@keyframes voice{0%{opacity:0;transform:scale(.76)}30%{opacity:.72}100%{opacity:0;transform:scale(1.1)}}
+
+@keyframes twinkle{0%,100%{opacity:.25}50%{opacity:1}}
+
+
+nav{position:fixed;right:20px;bottom:18px;display:flex;gap:8px}button{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:5px;padding:9px 13px;cursor:pointer;font:12px Arial}button:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+@media(max-width:600px){main{width:calc(100% - 24px);padding:20px 0 70px}.artwork{padding:30px 10px}}
+@media(prefers-reduced-motion:reduce){svg *{animation:none!important;transition:none!important}.live{display:none}.running .base .moving{visibility:visible}}
+
+/* Compare both ray treatments at the same scale; the Bible is shared. */
+main{width:min(100% - 40px,1320px);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.artwork{margin:0;padding:40px 18px 22px;gap:20px}
+figcaption{font:12px/1.5 Arial,sans-serif;letter-spacing:.02em;color:var(--gold)}
+.light-ray{stroke:currentColor;fill:none;stroke-width:.95;opacity:.58}
+.distant-star{fill:currentColor;stroke:none;opacity:.5}
+.running .live .light-ray{animation:shine 5.5s calc(var(--i)*-.42s) ease-in-out infinite;transform-origin:180px 160px}
+.running .live .distant-star{animation:distant-twinkle 6s calc(var(--i)*-.53s) ease-in-out infinite}
+.running .live .symbol{animation:float-symbol 8s calc(var(--i)*-1.7s) ease-in-out infinite}
+@keyframes shine{0%,100%{opacity:.25;transform:scale(.97)}50%{opacity:.85;transform:scale(1.015)}}
+@keyframes distant-twinkle{0%,100%{opacity:.18}50%{opacity:.8}}
+@keyframes float-symbol{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+@media(max-width:850px){main{grid-template-columns:1fr;width:calc(100% - 24px);max-width:660px;padding:20px 0 75px}.artwork{padding:25px 14px 20px}}

@@ -1,0 +1,43 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-reconciled-f8a4ff8c5df96f6fa2ce0937",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "title": "The heavenly footman = An gille-ruith neamhaidh, no, Cunntas mu'n duine a theid do neamh ; agus, Cia mar bu choir dha dha ruith chum's gun glac e 'n duais",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-john-bunyan",
+      "role": "author"
+    }
+  ],
+  "genre": "treatise",
+  "role": "core-teaching",
+  "collections": [],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [],
+  "depth": "unknown",
+  "era": "unknown",
+  "dates": [],
+  "passages": [],
+  "related": [],
+  "externalIds": {
+    "source-internet-archive": [
+      "ia:heavenlyfootmang00bunyuoft"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/download/heavenlyfootmang00bunyuoft/heavenlyfootmang00bunyuoft_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

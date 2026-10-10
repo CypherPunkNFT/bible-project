@@ -1,0 +1,43 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-reconciled-572a31a43c29c471775d6933",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "title": "The eternity of hell torments, by the late Rev. Jonathan Edwards, ... Revised and corrected by the Rev. C.E. De Coetlogon, A.M. 1788",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-jonathan-edwards",
+      "role": "author"
+    }
+  ],
+  "genre": "treatise",
+  "role": "core-teaching",
+  "collections": [],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [],
+  "depth": "unknown",
+  "era": "unknown",
+  "dates": [],
+  "passages": [],
+  "related": [],
+  "externalIds": {
+    "source-internet-archive": [
+      "ia:bim_eighteenth-century_the-eternity-of-hell-tor_edwards-jonathan_1788"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_eighteenth-century_the-eternity-of-hell-tor_edwards-jonathan_1788/bim_eighteenth-century_the-eternity-of-hell-tor_edwards-jonathan_1788_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

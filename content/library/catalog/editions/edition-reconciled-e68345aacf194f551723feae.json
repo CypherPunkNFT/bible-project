@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-e68345aacf194f551723feae",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-4f595bc388b895f6b5dc1b91",
+  "label": "The pilgrim's progress, from this world to that which is to come: ... In two parts complete. ... Written by John Bunyan. A new edition enlarged. With notes, explanatory, experimental, and practical: by a friend of the gospel. Embellished with a head of the author. 1795 — held source edition ed2edabe0d73",
+  "languages": [
+    "English"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_eighteenth-century_the-pilgrims-progress-_bunyan-john_1795/bim_eighteenth-century_the-pilgrims-progress-_bunyan-john_1795_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-reconciled-17d24b684485be6e2ac323fa",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "title": "The articles of the Synod of Dort, and its rejection of errors: with the history of events which made way for that Synod, as published by the authority of the States-general; and the documents confirming its decisions",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-l08-synod-dort",
+      "role": "author"
+    }
+  ],
+  "genre": "treatise",
+  "role": "core-teaching",
+  "collections": [],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [],
+  "depth": "unknown",
+  "era": "unknown",
+  "dates": [],
+  "passages": [],
+  "related": [],
+  "externalIds": {
+    "source-internet-archive": [
+      "ia:articlesofsynodo00syno"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/download/articlesofsynodo00syno/articlesofsynodo00syno_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-3c638f2e57bcf53ee5dc91a3",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-c9bce8b003a74659658d4206",
+  "label": "The Advantage of the Kingdom of Christ, In the Shaking of the Kingdoms of the World: … By John Owen, Minister of the Gospel. Vol. II. 1720: Vol 1 — held source edition 0356cfe8958c",
+  "languages": [
+    "English"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_eighteenth-century_the-advantage-of-the-kin_owen-john_1720_1/bim_eighteenth-century_the-advantage-of-the-kin_owen-john_1720_1_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

@@ -76,6 +76,8 @@ def check(config):
     plan = read_report(config["state_dir"] / "acquisition-followup-plan.json")
     if not plan:
         raise RuntimeError("Missing acquisition-followup-plan.json")
+    if plan.get("enabled") is False:
+        return {"state": "superseded", "reason": "Owner authorized same-day mission intake; fourteen-mission gate disabled"}
     path = config["state_dir"] / "acquisition-followup.json"
     state = read_report(path)
     now = datetime.now(timezone.utc)

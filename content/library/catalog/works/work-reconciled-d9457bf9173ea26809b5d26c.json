@@ -1,0 +1,43 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-reconciled-d9457bf9173ea26809b5d26c",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "title": "The tragedies of tyrantes Exercised vpon the church of God, from the birth of Christ vnto this present yeere. 1572. Containing the causes of them, and the iust vengeance of God vpon the authours. Also some notable comfortes and exhortations to pacience. Written by Henrie Bullinger, and now Englished.; Von der schweren, langwirigen Verfolgung der heiligen Christlichen Kirchen. English",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-heinrich-bullinger",
+      "role": "author"
+    }
+  ],
+  "genre": "treatise",
+  "role": "core-teaching",
+  "collections": [],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [],
+  "depth": "unknown",
+  "era": "unknown",
+  "dates": [],
+  "passages": [],
+  "related": [],
+  "externalIds": {
+    "source-eebo-tcp": [
+      "item:B11843"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/B11843/master/B11843.xml",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

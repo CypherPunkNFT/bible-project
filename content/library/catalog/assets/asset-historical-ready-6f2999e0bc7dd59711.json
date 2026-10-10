@@ -1,0 +1,76 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "asset",
+  "id": "asset-historical-ready-6f2999e0bc7dd59711",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "editionId": "edition-reconciled-f6d349b9ca787648e4bbc297",
+  "sourceId": "source-monergism",
+  "canonicalUrl": "https://www.monergism.com/thethreshold/sdg/perkins/Commentary%20on%20Galatians%20-%20William%20Perkins.epub",
+  "finalUrl": "https://www.monergism.com/thethreshold/sdg/perkins/Commentary%20on%20Galatians%20-%20William%20Perkins.epub",
+  "format": "epub",
+  "mediaKind": "text",
+  "acquisitionStatus": "downloaded",
+  "storage": "raw",
+  "relativePath": "library/source-monergism/asset-historical-ready-6f2999e0bc7dd59711/original.epub",
+  "sha256": "5d81331c88966f2e007b89c31e046d8a5f587d6605bca141db1a669587d318c3",
+  "byteCount": 596455,
+  "mimeType": "application/epub+zip",
+  "retrievedAt": "2026-10-05T13:40:28.821883Z",
+  "rights": {
+    "category": "restricted-license",
+    "jurisdiction": null,
+    "licenseId": "Recorded publisher-use policy",
+    "licenseUrl": "https://www.monergism.com/monergism-copyright-permissions",
+    "attribution": "William Perkins; Monergism",
+    "conditions": [
+      "Copyright and edition notices retained; recorded acquisition category: unspecified; recorded use scope: private-personal-educational-reading; policy evidence: https://www.monergism.com/monergism-copyright-permissions"
+    ],
+    "conditionsMet": false,
+    "actions": {
+      "download": "allowed",
+      "host": "unknown",
+      "redistribute": "unknown",
+      "adapt": "unknown",
+      "transcribe": "unknown",
+      "embed": "allowed",
+      "indexMetadata": "allowed",
+      "indexFullText": "allowed"
+    },
+    "evidence": [
+      {
+        "url": "https://www.monergism.com/commentary-galatians-ebook",
+        "locator": "Recorded acquisition/source metadata",
+        "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+        "checkedOn": "2026-10-08"
+      }
+    ],
+    "unresolved": [],
+    "review": {
+      "date": "2026-10-08",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Recorded bibliographic/provenance reconciliation; private local authorization retained separately from public use."
+    }
+  },
+  "fullTextIndexed": true,
+  "processing": {
+    "parentAssetId": null,
+    "method": "none",
+    "tool": null,
+    "toolVersion": null,
+    "parameters": null,
+    "date": null,
+    "note": "Original unchanged; existing selected derivatives remain in their original acquisition/repair ledgers."
+  },
+  "quality": {
+    "state": "unreviewed",
+    "reviewedBy": null,
+    "reviewedOn": null,
+    "note": "Bibliographic metadata joined; body not proofread or collated by this task."
+  }
+}

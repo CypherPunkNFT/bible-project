@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-ce131c6ca1f6c99986fdedbd",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-d730070d61350c229cc3d140",
+  "label": "A complete collection of the sermons of the Reverend and learned John Owen, D.D. ... Also several valuable tracts, now first published from manuscripts: ... And to the whole are prefix'd Memoirs of his life: some letters written by him upon special occasions: and his funeral sermon, preach'd by Mr. David Clarkson. 1721 — held source edition e5e03996e8c0",
+  "languages": [
+    "English"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_eighteenth-century_a-complete-collection-of_owen-john_1721/bim_eighteenth-century_a-complete-collection-of_owen-john_1721_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

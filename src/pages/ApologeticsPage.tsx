@@ -1,7 +1,10 @@
 import { apSourceUrl } from "@/lib/reading-sources";
-import { ArrowRight, ArrowUpRight, BookOpen, Bookmark, Check, CheckCircle2, Compass, GitBranch, HeartHandshake, Library, ListFilter, MessageCircle, Route as RouteIcon, Search, ShieldCheck } from "lucide-react";
+import {ApologeticsNavigationHeader} from '@/components/apologetics/ApologeticsNavigationHeader';
+import IslamGuidePage from './IslamGuidePage';
+import '@/components/apologetics/navigation.css';
+import { ArrowRight, ArrowUpRight, BookOpen, Bookmark, Check, CheckCircle2, Compass, GitBranch, HeartHandshake, Library, ListFilter, MessageCircle, Route as RouteIcon, Search } from "lucide-react";
 import { useEffect, useState } from "react";
-import { Link, NavLink, Navigate, Route, Routes, useLocation, useParams, useSearchParams } from "react-router-dom";
+import { Link, Navigate, Route, Routes, useLocation, useParams, useSearchParams } from "react-router-dom";
 import { RefLink } from "@/components/study/StudyParts";
 import { APOLOGETICS_ANCHOR, CONVERSATION_STEPS } from "@/data/apologetics";
 import { AP_EDITORIAL, DEBATES, PATHS, PRACTICE, SOURCES, STUDIES, TOPICS, WORLDVIEWS, sourceById, studyById, studyMinutes, topicById } from "@/data/apologetics-library";
@@ -16,7 +19,6 @@ import ReformedLibraryPage, { ReformedDoor, HistoricReading } from "./ReformedLi
 import "./apologetics.css";
 import { WorldviewIndex, WorldviewPage } from "./WorldviewsPage";
 
-const destinations = [["", "Explore"], ["/questions", "Questions"], ["/topics/reformed", "Reformed theology"], ["/texts", "Historic texts"], ["/paths", "Learning paths"], ["/worldviews", "Worldviews"], ["/debates", "Debates"], ["/practice", "Practice"], ["/saved", "My study"]];
 export default function ApologeticsPage() {
   const book = useApologeticsNotebook(), location = useLocation();
   useEffect(() => {
@@ -25,17 +27,21 @@ export default function ApologeticsPage() {
     document.title = [title, "Apologetics", "Bible Project"].filter(Boolean).join(" · ");
     return () => { document.title = "Bible Project"; };
   }, [location.pathname]);
+  useEffect(() => {
+    if (!location.hash) return;
+    const frame=requestAnimationFrame(()=>document.getElementById(location.hash.slice(1))?.scrollIntoView());
+    return ()=>cancelAnimationFrame(frame);
+  }, [location.pathname,location.hash]);
   const legacy: Record<string, string> = { "#foundations": "/paths/begin", "#conversation": "/practice", "#across-beliefs": "/worldviews", "#debates": "/debates" };
   if (location.pathname.replace(/\/$/, "") === base && legacy[location.hash]) return <Navigate replace to={base + legacy[location.hash]} />;
-  return <div className="ap-page mx-auto max-w-7xl px-4 sm:px-6">
-    <div className="ap-masthead"><Link to={base}><ShieldCheck size={17} /> Apologetics <span>Reason · Faith · Witness</span></Link><Link to={base + "/sources"}>The source room <ArrowUpRight size={14} /></Link></div>
-    <nav className="ap-navigation" aria-label="Apologetics library">{destinations.map(([path, label]) => <NavLink key={path} to={base + path} end={!path}>{label}{path === "/saved" && book.notebook.saved.length > 0 && <span>{book.notebook.saved.length}</span>}</NavLink>)}</nav>
+  return <div className="am-shell ap-live-shell">
+    <ApologeticsNavigationHeader savedCount={book.notebook.saved.length}/><div className="am-layout"><div className="ap-page am-content">
     {book.storageError && <p className="ap-storage-error" role="status">Your browser could not save these changes. Keep this tab open and copy any notes you want to retain.</p>}
-    <Routes>
+    <Routes><Route path="worldviews/islam/guide/*" element={<IslamGuidePage/>}/>
       <Route index element={<Hub book={book} />} /><Route path="texts" element={<ReformedLibraryPage />} /><Route path="reformed" element={<Navigate replace to={base + "/topics/reformed"} />} /><Route path="questions" element={<QuestionLibrary book={book} />} /><Route path="topics/:id" element={<TopicPage book={book} />} /><Route path="study/:id" element={<StudyPage book={book} />} /><Route path="paths" element={<PathIndex book={book} />} /><Route path="paths/:id" element={<PathPage book={book} />} /><Route path="worldviews" element={<WorldviewIndex />} /><Route path="worldviews/:id" element={<WorldviewPage book={book} />} /><Route path="debates" element={<DebateIndex />} /><Route path="debates/:id" element={<DebatePage book={book} />} /><Route path="practice" element={<PracticePage key={location.search} book={book} />} /><Route path="sources" element={<SourceRoom />} /><Route path="saved" element={<SavedPage book={book} />} /><Route path="*" element={<Missing />} />
     </Routes>
     <footer className="ap-footer"><div><BookOpen size={20} /><p><strong>{AP_EDITORIAL.footerTitle}</strong><span>{AP_EDITORIAL.footerText}</span></p></div><RefLink span={APOLOGETICS_ANCHOR} label="Our starting point · 1 Peter 3:15–16" /></footer>
-  </div>;
+  </div></div></div>;
 }
 function Hub({ book }: { book: ApNotebook }) {
   const [query, setQuery] = useState(""); const next = PATHS[0].studies.find((id) => !book.notebook.read.includes(id)) ?? PATHS[0].studies[0];

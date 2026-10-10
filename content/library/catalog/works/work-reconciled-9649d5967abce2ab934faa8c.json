@@ -1,0 +1,43 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-reconciled-9649d5967abce2ab934faa8c",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "title": "A treatise on Christian faith, extracted and translated from the Latin of Hermannus Witsius. By the Rev. Mr. Madan. 1761",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-herman-witsius",
+      "role": "author"
+    }
+  ],
+  "genre": "treatise",
+  "role": "core-teaching",
+  "collections": [],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [],
+  "depth": "unknown",
+  "era": "unknown",
+  "dates": [],
+  "passages": [],
+  "related": [],
+  "externalIds": {
+    "source-internet-archive": [
+      "ia:bim_eighteenth-century_a-treatise-on-christian-_witsius-herman_1761"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_eighteenth-century_a-treatise-on-christian-_witsius-herman_1761/bim_eighteenth-century_a-treatise-on-christian-_witsius-herman_1761_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+/* Keep the collection cards and copy in the actual landing-page layout. */
+.wc-cards-page .wv-collection{display:flex;flex-direction:column;--wc-surface:var(--page)}
+.wc-cards-page .wv-collection::before{content:"";position:absolute;left:0;top:0;width:2.4rem;height:2px;z-index:1;background:var(--wv-accent);pointer-events:none;transition:width .5s cubic-bezier(.16,1,.3,1)}
+.wc-cards-page .wv-collection:is(:hover,:focus-within)::before{width:100%}
+.wc-center-base{opacity:.88;transition:opacity .25s ease}
+.wc-center-live{opacity:0;transition:opacity .35s ease}
+.wc-cards-page .wv-collection:is(:hover,:focus-within) .wc-center-base{opacity:.5}
+.wc-cards-page .wv-collection:is(:hover,:focus-within) .wc-center-live{opacity:1;filter:drop-shadow(0 0 2px color-mix(in srgb,var(--wv-accent) 20%,transparent))}
+.wc-cards-page .wv-collection:is(:hover,:focus-within) .wc-center-live .wc-draw-stroke{animation:wc-center-draw 1.3s cubic-bezier(.45,0,.2,1) var(--wc-draw-delay,0s) both}
+/* Remove the dash pattern at completion, matching Teachers and leaving every edge complete. */
+@keyframes wc-center-draw{0%{stroke-dasharray:1;stroke-dashoffset:1}99.9%{stroke-dasharray:1;stroke-dashoffset:0}100%{stroke-dasharray:none;stroke-dashoffset:0}}
+.wc-cards-page .wv-collection-copy{flex:1;display:flex;flex-direction:column}
+.wc-cards-page .wv-collection-foot{margin-top:auto;padding-top:20px;align-items:center;min-height:54px}
+.wc-cards-page .wv-collection-copy>p:not(.ap-eyebrow){margin-bottom:24px}
+.wc-art-stage{width:calc(100% - 48px);aspect-ratio:3 / 1;margin:9px 24px 13px;position:relative;flex-shrink:0}
+.wc-cards-page .wc-wide-art{width:100%;max-width:none;height:100%;padding:0;margin:0;stroke-width:1.55;color:var(--wv-accent)}
+.wc-art-stage>.wc-wide-art,.wc-art-layer{position:absolute;inset:0}
+.wc-art-layer{opacity:0;pointer-events:none;transition:opacity .38s ease}
+.wc-art-layer[data-active=true]{opacity:1}
+.wc-card-orbit{transform-box:fill-box;transform-origin:center;animation:wc-card-turn 68s linear infinite}
+.wc-wide-islam .wc-card-orbit{animation-direction:reverse}
+.wc-wide-buddhism .wc-card-orbit{animation-duration:76s}
+/* Alternating tips and one shared period keep the three electrons balanced. */
+.wc-electron{offset-path:path('M102 0A102 38 0 1 1-102 0A102 38 0 1 1 102 0Z');offset-anchor:0px 0px;offset-rotate:0deg;offset-distance:var(--wc-orbit-start);animation:wc-electron-travel 10s linear infinite}
+@keyframes wc-electron-travel{from{offset-distance:var(--wc-orbit-start)}to{offset-distance:calc(var(--wc-orbit-start) + 100%)}}
+.wc-paused :is(.wc-card-orbit,.wc-electron,.wc-science-liquid,.wc-science-bubble){animation-play-state:paused!important}
+.wc-paused .wc-center-live .wc-draw-stroke{animation:none!important;stroke-dasharray:none;stroke-dashoffset:0}
+.wc-paused :is(.wc-center-base,.wc-center-live),.wc-paused .wv-collection::before{transition:none}
+@keyframes wc-card-turn{to{transform:rotate(360deg)}}
+.wc-science-liquid{animation:wc-liquid-sway 5s ease-in-out infinite}
+.wc-science-bubble{animation:wc-bubble-rise 4.8s ease-in infinite}
+@keyframes wc-liquid-sway{0%,100%{transform:translateX(-5px)}50%{transform:translateX(5px)}}
+@keyframes wc-bubble-rise{0%{opacity:0;transform:translateY(0)}20%{opacity:.7}90%{opacity:.3}100%{opacity:0;transform:translateY(-40px)}}
+.wc-variant-buttons{display:flex;gap:7px}
+.wc-variant-buttons button{width:32px;height:32px;display:grid;place-items:center;border:1px solid var(--line);border-radius:3px;color:var(--muted);font-size:12px;transition:color .2s,border-color .2s,background .2s}
+.wc-variant-buttons button:hover{color:var(--wv-accent);border-color:var(--wv-accent)}
+.wc-variant-buttons button[aria-pressed=true]{color:var(--wv-accent);border-color:color-mix(in srgb,var(--wv-accent) 55%,var(--line));background:color-mix(in srgb,var(--wv-accent) 12%,var(--page))}
+.wc-cards-page .wv-collection-meta>a{display:flex;color:var(--wv-accent)}
+.wc-cards-page .wv-collection-copy h2>a:hover{color:var(--wv-accent)}
+.wc-art-controls{display:flex;flex-wrap:wrap;align-items:center;gap:18px 28px;font-size:11px;color:var(--muted);margin:28px 0 0}
+.wc-motion-control,.wc-art-controls>a{display:flex;align-items:center;gap:7px;padding:7px 0}
+.wc-art-controls>a{margin-left:auto}
+.wc-cards-page :is(button,a):focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+@media(max-width:800px){.wc-cards-page .wv-collection-meta{padding:20px}.wc-art-stage{width:calc(100% - 24px);margin-left:12px;margin-right:12px}.wc-art-controls>a{margin-left:0}.wc-cards-page .wv-collection-foot{align-items:flex-start}}
+@media(max-width:520px){.wc-cards-page .am-content .wv-collection{padding:0}.wc-cards-page .wv-collection-copy h2{font-size:25px}.wc-cards-page .wv-collection-foot{gap:12px;flex-wrap:wrap;align-items:center}.wc-cards-page .wv-collection-meta{padding:20px}.wc-art-stage{margin-top:4px;margin-bottom:4px}.wc-cards-page .wv-collection-copy{padding:18px 20px 24px}.wc-art-controls{gap:12px 20px}}
+@media(prefers-reduced-motion:reduce){.wc-cards-page :is(.wc-card-orbit,.wc-electron,.wc-science-liquid,.wc-science-bubble,.wc-draw-stroke){animation:none!important}.wc-draw-stroke{stroke-dasharray:none;stroke-dashoffset:0}.wc-art-layer,.wc-center-base,.wc-center-live,.wc-cards-page .wv-collection::before{transition:none}}

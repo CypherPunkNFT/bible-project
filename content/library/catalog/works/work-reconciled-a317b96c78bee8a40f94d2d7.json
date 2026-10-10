@@ -1,0 +1,43 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-reconciled-a317b96c78bee8a40f94d2d7",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "title": "A body of practical divinity consisting of above one hundred and seventy six sermons on the lesser catechism composed by the reverend assembly of divines at Westminster : with a supplement of some sermons on several texts of scripture to which is added, the art of divine contentment ; recommended to the publishers, and never before printed (except once) in the former editions of this book, altho printed twenty times by itself",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-thomas-watson",
+      "role": "author"
+    }
+  ],
+  "genre": "treatise",
+  "role": "core-teaching",
+  "collections": [],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [],
+  "depth": "unknown",
+  "era": "unknown",
+  "dates": [],
+  "passages": [],
+  "related": [],
+  "externalIds": {
+    "source-internet-archive": [
+      "ia:abodypracticald00watsgoog"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/download/abodypracticald00watsgoog/abodypracticald00watsgoog_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-070d9e8568597dd03d0223e1",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-6e4a73169caa5d6f03a69ca5",
+  "label": "Taith neu siwrnai y pererin, ... 1688 — held source edition 9ba90f80d86a",
+  "languages": [
+    "Middle English"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_early-english-books-1641-1700_taith-neu-siwrnai-y-pere_bunyan-john_1688/bim_early-english-books-1641-1700_taith-neu-siwrnai-y-pere_bunyan-john_1688_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

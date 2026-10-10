@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-3f65bd127724059a17a052be",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-4b8988a25c1274bdd414c1e7",
+  "label": "Persecution, the Christian's lot. A sermon, preached on Monday afternoon. September 14th, 1741. In the High-church-yard of Glasgow, ... By ... George Whitefield. 1741 — held source edition 581ec988388a",
+  "languages": [
+    "English"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_eighteenth-century_persecution-the-christi_whitefield-george_1741/bim_eighteenth-century_persecution-the-christi_whitefield-george_1741_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

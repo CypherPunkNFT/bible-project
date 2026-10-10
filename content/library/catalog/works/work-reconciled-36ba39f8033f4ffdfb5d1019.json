@@ -1,0 +1,43 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-reconciled-36ba39f8033f4ffdfb5d1019",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "title": "Grace abounding to the chief of sinners : or, A brief and faithful relation of the exceeding mercy of God in Christ, to his poor servant John Bunyan",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-john-bunyan",
+      "role": "author"
+    }
+  ],
+  "genre": "treatise",
+  "role": "core-teaching",
+  "collections": [],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [],
+  "depth": "unknown",
+  "era": "unknown",
+  "dates": [],
+  "passages": [],
+  "related": [],
+  "externalIds": {
+    "source-internet-archive": [
+      "ia:graceaboundingto1903buny"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/download/graceaboundingto1903buny/graceaboundingto1903buny_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

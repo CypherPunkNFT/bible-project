@@ -1,0 +1,148 @@
+# RB08 failed-download TODO
+
+140 failed/deferred acquisitions; 0 saved originals with failed text export; 2 collector blockers; 0 previously failed IDs skipped.
+
+- [ ] IA `a549165300butluoft`: no existing downloadable djvu text or EPUB
+- [ ] IA `a549168701butluoft`: no existing downloadable djvu text or EPUB
+- [ ] IA `a549168702butluoft`: no existing downloadable djvu text or EPUB
+- [ ] IA `a549254400butluoft`: no existing downloadable djvu text or EPUB
+- [ ] IA `analogyofreligio02butl`: HTTP Error 500: Internal Server Error
+- [ ] IA `analogyofreligion00butl`: The read operation timed out
+- [ ] IA `analogyreligion00butl`: The read operation timed out
+- [ ] IA `archdeaconpaleys00pale`: <urlopen error _ssl.c:1015: The handshake operation timed out>
+- [ ] IA `anintroductionto00warfuoft`: <urlopen error _ssl.c:1015: The handshake operation timed out>
+- [ ] IA `archdeaconpaleys00pale_0`: <urlopen error _ssl.c:1015: The handshake operation timed out>
+- [ ] IA `b29333003_0003`: HTTP Error 500: Internal Server Error
+- [ ] IA `biblestudentteac0005unse`: <urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>
+- [ ] IA `biblical-repertory-and-princeton-review_1838-04_10_2`: The read operation timed out
+- [ ] IA `biblical-repertory-and-princeton-review_1842-10_14_4`: The read operation timed out
+- [ ] IA `biblical-repertory-and-princeton-review_1844-10_16_4`: <urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>
+- [ ] IA `biblical-repertory-and-princeton-review_1844_16_contents`: <urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>
+- [ ] IA `biblical-repertory-and-princeton-review_1846-10_18_4`: [WinError 5] Access is denied: 'D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB08\\acquisition-manifest.json.119004.tmp' -> 'D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB08\\acquisition-manifest.json'
+- [ ] IA `biblical-repertory-and-princeton-review_1847_19_contents`: [WinError 5] Access is denied: 'D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB08\\acquisition-manifest.json.119004.tmp' -> 'D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB08\\acquisition-manifest.json'
+- [ ] IA `biblicalrepertor1218walk`: HTTP Error 500: Internal Server Error
+- [ ] IA `biblicalrepertor1131walk`: The read operation timed out
+- [ ] IA `biblicalrepertor1421walk`: The read operation timed out
+- [ ] IA `biblicalrepertor2318walk`: The read operation timed out
+- [ ] IA `biblicalrepertor4011walk`: HTTP Error 500: Internal Server Error
+- [ ] IA `biblicalrepertor9318walk`: The read operation timed out
+- [ ] IA `bim_eighteenth-century_a-defence-of-the-conside_paley-william_1774`: HTTP Error 500: Internal Server Error
+- [ ] IA `bim_eighteenth-century_a-view-of-the-evidences-_paley-william_1794_2`: The read operation timed out
+- [ ] IA `bim_eighteenth-century_a-view-of-the-evidences-_paley-william_1796_1`: The read operation timed out
+- [ ] IA `bim_eighteenth-century_a-view-of-the-evidences-_paley-william_1800_1`: The read operation timed out
+- [ ] IA `bim_eighteenth-century_hor-paulin-or-the-tru_paley-william_1790`: The read operation timed out
+- [ ] IA `bim_eighteenth-century_reasons-for-contentment_paley-william_1792`: <urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>
+- [ ] IA `bim_eighteenth-century_the-principles-of-moral-_paley-william_1788_2`: The read operation timed out
+- [ ] IA `cihm_26194`: The read operation timed out
+- [ ] IA `commentaryonepi00hodggoog`: The read operation timed out
+- [ ] IA `constitutionalhi01hodg`: The read operation timed out
+- [ ] IA `discoursedeliver00hodg_1`: <urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>
+- [ ] IA `discoursesoccas00west`: <urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>
+- [ ] IA `discoursedeliver00hodg_0`: <urlopen error _ssl.c:1015: The handshake operation timed out>
+- [ ] IA `dissertationonim00hodg`: The read operation timed out
+- [ ] IA `evidencesofchris00paleuoft`: The read operation timed out
+- [ ] IA `hiepro00hill`: The read operation timed out
+- [ ] IA `introductorylect04hodg`: HTTP Error 500: Internal Server Error
+- [ ] IA `lifeofcharleshod00hodgrich`: HTTP Error 500: Internal Server Error
+- [ ] IA `moralandpolitic00palegoog`: The read operation timed out
+- [ ] IA `naturaltheol00pale`: The read operation timed out
+- [ ] IA `onehundredthirdg0407warf`: The read operation timed out
+- [ ] IA `outlinesoftheo00hodg`: <urlopen error _ssl.c:1015: The handshake operation timed out>
+- [ ] IA `outlinesoftheolo00hodg_4`: The read operation timed out
+- [ ] IA `paleysevidences00unkngoog`: The read operation timed out
+- [ ] IA `paleysnaturalth09bellgoog`: HTTP Error 500: Internal Server Error
+- [ ] IA `presbyterianquar5191atwa`: <urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>
+- [ ] IA `presbyterianquar5201atwa`: <urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>
+- [ ] IA `presbyterianrefo3101warf`: The read operation timed out
+- [ ] IA `presbyterianrefo6211warf`: The read operation timed out
+- [ ] IA `princetontheolog1631arms`: The read operation timed out
+- [ ] IA `princetontheolog3119arms`: HTTP Error 500: Internal Server Error
+- [ ] IA `principlesmoral18palegoog`: HTTP Error 500: Internal Server Error
+- [ ] IA `principlesofmora00pale_2`: HTTP Error 500: Internal Server Error
+- [ ] IA `principlesofmora00pale_5`: HTTP Error 500: Internal Server Error
+- [ ] IA `principlesofmora00palerich`: HTTP Error 500: Internal Server Error
+- [ ] IA `saviourofworldse00warf`: HTTP Error 500: Internal Server Error
+- [ ] IA `shortercatechism00hodguoft`: HTTP Error 500: Internal Server Error
+- [ ] IA `sim_new-princeton-review_1841-01_13_1`: The read operation timed out
+- [ ] IA `sim_new-princeton-review_1845-10_17_4`: The read operation timed out
+- [ ] IA `sim_new-princeton-review_1850-04_22_2`: The read operation timed out
+- [ ] IA `sim_new-princeton-review_1863-01_35_1`: HTTP Error 500: Internal Server Error
+- [ ] IA `sim_new-princeton-review_1867-01_39_1`: HTTP Error 500: Internal Server Error
+- [ ] IA `sim_new-princeton-review_1867-07_39_3`: The read operation timed out
+- [ ] IA `sim_new-princeton-review_1868-07_40_3`: The read operation timed out
+- [ ] IA `sim_new-princeton-review_1870-07_42_3`: The read operation timed out
+- [ ] IA `sim_new-princeton-review_1872-10_1_4`: HTTP Error 500: Internal Server Error
+- [ ] IA `sim_new-princeton-review_1874-07_3_11`: The read operation timed out
+- [ ] IA `sim_presbyterian-and-reformed-review_1901-04_12_46`: HTTP Error 500: Internal Server Error
+- [ ] IA `sim_presbyterian-and-reformed-review_1902-07_13_51`: The read operation timed out
+- [ ] IA `systematictheo01hodg`: The read operation timed out
+- [ ] IA `systematictheol02hodggoog`: HTTP Error 500: Internal Server Error
+- [ ] IA `systematictheol187303hodg`: <urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>
+- [ ] IA `systematictheolo01hodg_0`: The read operation timed out
+- [ ] IA `theanalogyofreli00butliala`: The read operation timed out
+- [ ] IA `theatonement00hodguoft`: The read operation timed out
+- [ ] IA `viewofevidenceso00paleuoft`: HTTP Error 500: Internal Server Error
+- [ ] IA `worksofwilliampal00inpale`: HTTP Error 500: Internal Server Error
+- [ ] IA `workswithaddinew01paleuoft`: The read operation timed out
+- [ ] IA `workswithadditio06paleuoft`: HTTP Error 500: Internal Server Error
+- [ ] IA `workswithadditio07paleuoft`: The read operation timed out
+- [ ] MONERGISM `augustine-and-pelagian-controversy`: <urlopen error _ssl.c:1015: The handshake operation timed out>
+- [ ] KRUGER `paper-7d331fe7d679513cc1c8`: Deferred collection crawl-delay 600s; no file request attempted; collect later under the published rate
+- [ ] KRUGER `paper-50bc9632ef22169f6f2e`: HTTP Error 403: Forbidden
+- [ ] KRUGER `paper-d3ee567f26cdb98ebd40`: HTTP Error 403: Forbidden
+- [ ] KRUGER `paper-ab29324c94189bf00165`: Unapproved cross-host redirect https://tyndalehouse.com/Bulletin/63=2012/01-Kruger20.pdf
+- [ ] KRUGER `paper-db8d770e76dc7756fe45`: HTTP Error 403: Forbidden
+- [ ] KRUGER `paper-bad3723e649cd787a97e`: HTTP Error 403: Forbidden
+- [ ] KRUGER `paper-50f3dde79cf510153280`: Unapproved cross-host redirect https://etsjets.org/files/JETS-PDFs/42/42-4/42-4-pp645-671_JETS.pdf
+- [ ] KRUGER `paper-ecec77d14fa47b4022ec`: Deferred collection crawl-delay 600s; no file request attempted; collect later under the published rate
+- [ ] KRUGER `paper-81804352762db50c6a4c`: Deferred collection crawl-delay 600s; no file request attempted; collect later under the published rate
+- [ ] KRUGER `paper-1bd354843c606a494619`: Deferred collection crawl-delay 600s; no file request attempted; collect later under the published rate
+- [ ] KRUGER `paper-bc3a6948be9f4ebf534e`: Deferred collection crawl-delay 600s; no file request attempted; collect later under the published rate
+- [ ] KRUGER `paper-1abfdabea13982191ccf`: Deferred collection crawl-delay 600s; no file request attempted; collect later under the published rate
+- [ ] KRUGER `paper-8094d474eaefa58092c6`: Deferred collection crawl-delay 600s; no file request attempted; collect later under the published rate
+- [ ] KRUGER `paper-1fd12cd6dff7f3d3bd52`: HTTP Error 404: Not Found
+- [ ] KRUGER `paper-3808f593539f4e137cd6`: Deferred collection crawl-delay 600s; no file request attempted; collect later under the published rate
+- [ ] KRUGER `paper-aae2d75c7d68c3760d1a`: Deferred collection crawl-delay 600s; no file request attempted; collect later under the published rate
+- [ ] KRUGER `paper-fffa245fa254646730a2`: Deferred collection crawl-delay 600s; no file request attempted; collect later under the published rate
+- [ ] KRUGER `paper-fadd3a68d3acaa68e736`: Deferred collection crawl-delay 600s; no file request attempted; collect later under the published rate
+- [ ] DESIRINGGOD `articles-catalogue-76`: <urlopen error _ssl.c:1015: The handshake operation timed out>
+- [ ] DESIRINGGOD `articles/seven-book-recommendations-for-pastors`: no offered complete written article/transcript
+- [ ] DESIRINGGOD `articles/the-consummation-of-all-things`: no offered complete written article/transcript
+- [ ] DESIRINGGOD `articles/how-the-rescued-life-looks`: no offered complete written article/transcript
+- [ ] DESIRINGGOD `articles/jesus-came-into-the-world`: no offered complete written article/transcript
+- [ ] DESIRINGGOD `articles/our-failure-to-live-up`: no offered complete written article/transcript
+- [ ] DESIRINGGOD `articles/why-god-created-us`: no offered complete written article/transcript
+- [ ] DESIRINGGOD `articles/calvary-love`: no offered complete written article/transcript
+- [ ] DESIRINGGOD `articles/kids-feel-what-parents-expressively-feel`: no offered complete written article/transcript
+- [ ] DESIRINGGOD `articles/a-word-to-our-supporters-at-the-start-of-my-leave`: no offered complete written article/transcript
+- [ ] DESIRINGGOD `articles/still-thankful-for-my-father`: no offered complete written article/transcript
+- [ ] DESIRINGGOD `articles/god-isnt-grateful`: no offered complete written article/transcript
+- [ ] DESIRINGGOD `articles/further-up-and-further-in`: no offered complete written article/transcript
+- [ ] DESIRINGGOD `articles/i-believe-in-gods-self-sufficiency`: no offered complete written article/transcript
+- [ ] DESIRINGGOD `articles/how-a-grandmother-knits`: no offered complete written article/transcript
+- [ ] DESIRINGGOD `articles/its-good-we-arent-all-like-jesus`: no offered complete written article/transcript
+- [ ] DESIRINGGOD `articles/baptism-and-church-membership-questions-and-answers-pdf`: no offered complete written article/transcript
+- [ ] DESIRINGGOD `articles/baptism-and-church-membership-eight-recommendations-for-constitutional-revision`: no offered complete written article/transcript
+- [ ] DESIRINGGOD `messages/why-did-god-create-sexual-desire`: no offered complete written article/transcript
+- [ ] DESIRINGGOD `messages/sanctified-sex-before-marriage-part-2`: no offered complete written article/transcript
+- [ ] DESIRINGGOD `messages/sanctified-sex-before-marriage-part-1`: no offered complete written article/transcript
+- [ ] DESIRINGGOD `books/future-grace`: no offered complete EPUB/PDF
+- [ ] DESIRINGGOD `books/taste-and-see`: no offered complete EPUB/PDF
+- [ ] DESIRINGGOD `books/a-godward-life`: no offered complete EPUB/PDF
+- [ ] DESIRINGGOD `books/battling-unbelief`: no offered complete EPUB/PDF
+- [ ] DESIRINGGOD `books/desiring-god`: no offered complete EPUB/PDF
+- [ ] DESIRINGGOD `books/let-the-nations-be-glad`: no offered complete EPUB/PDF
+- [ ] DESIRINGGOD `books/the-supremacy-of-god-in-preaching`: no offered complete EPUB/PDF
+- [ ] DESIRINGGOD `books/the-satisfied-soul`: no offered complete EPUB/PDF
+- [ ] DESIRINGGOD `books/the-collected-works-of-john-piper`: no offered complete EPUB/PDF
+- [ ] DESIRINGGOD `books/sex-race-and-the-sovereignty-of-god`: <urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>
+- [ ] DESIRINGGOD `books/a-godward-heart`: no offered complete EPUB/PDF
+- [ ] DESIRINGGOD `books/think`: not an EPUB original
+- [ ] DESIRINGGOD `books/jesus-the-only-way-to-god`: no offered complete EPUB/PDF
+- [ ] DESIRINGGOD `books/life-as-a-vapor`: no offered complete EPUB/PDF
+- [ ] DESIRINGGOD `books/pierced-by-the-word`: no offered complete EPUB/PDF
+- [ ] DESIRINGGOD `books/the-justification-of-god`: no offered complete EPUB/PDF
+- [ ] DESIRINGGOD collector exit other-author-permission-required: `https://www.desiringgod.org/permissions`
+- [ ] IA collector exit no-unrestricted-late-Oxford-records: `ia-late-oxford-blockers.json`
+
+Full IDs, URLs and errors: `failed-downloads.json`. No automatic retries.

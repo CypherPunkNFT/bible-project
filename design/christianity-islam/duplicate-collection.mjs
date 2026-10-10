@@ -1,0 +1,24 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+const dir=path.dirname(fileURLToPath(import.meta.url));
+const file=path.join(dir,'preview.tsx');
+let s=fs.readFileSync(file,'utf8');
+s=s.replace('WorldviewIndex, IslamHeroArt, CollectionArt, StudyArtwork','WorldviewIndex, Collection, IslamHeroArt, CollectionArt, StudyArtwork');
+s=s.replace("const views=['hub','understanding','ministry','article','library','worldviews'];", "const views=['hub','understanding','ministry','article','library','worldviews','collection'];");
+s=s.replace("return existingPage+(query?'?'+query:'')+", "return root+'?view=collection'+(query?'&'+query:'')+");
+s=s.replace("const existingPage='/apologetics/worldviews/islam';\n",'');
+s=s.replace('return isExisting(view)?<a className={className} href={existingUrl(view,extra)}>{children}</a>:<Link className={className} to={url(view,extra)}>{children}</Link>', 'return <Link className={className} to={isExisting(view)?existingUrl(view,extra):url(view,extra)}>{children}</Link>');
+s=s.replace('function Preview(){const [params]', 'function Preview(){const book=useApologeticsNotebook();const [params]');
+s=s.replace("view==='worldviews'?'Worldviews':nav.find", "view==='worldviews'?'Worldviews':view==='collection'?'Christianity & Islam':nav.find");
+s=s.replace("dest.searchParams.set('view',dest.hash==='#reading-sources'?'reading':'questions');", "dest.searchParams.set('view','collection');");
+s=s.replace("if(dest.pathname==='/apologetics/worldviews'){", "if(dest.pathname==='/apologetics/worldviews/islam'){event.preventDefault();navigate(existingUrl('existing',dest.search)+dest.hash);return}if(dest.pathname==='/apologetics/worldviews'){");
+s=s.replace("className={(view===id)?'selected':''}","className={(view===id||view==='collection'&&id==='existing')?'selected':''}");
+s=s.replace("{view==='hub'?<Hub/>","{view==='collection'?<Collection item={item} book={book}/>:view==='hub'?<Hub/>");
+// URLSearchParams accepts both ? and bare query strings; trim prefixes consistently.
+s=s.replace("extra.replace(/^&/,'')", "extra.replace(/^[?&]/,'')");
+fs.writeFileSync(file,s);
+const build=path.join(dir,'build.mjs');
+s=fs.readFileSync(build,'utf8').replace('export { IslamHeroArt, CollectionArt, IslamClaimsDesk','export { Collection, IslamHeroArt, CollectionArt, IslamClaimsDesk');
+fs.writeFileSync(build,s);
+console.log('Complete Collection component duplicated within the shared navigation shell.');

@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-cd1940d6784b5d505f606fc0",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-a808b06be4d0dee4045f871c",
+  "label": "Exercitations concerning the name, original, nature, use, and continuance of a day of sacred rest wherein the original of the Sabbath from the foundation of the world, the morality of the Fourth commandment with the change of the Seventh day are enquired into : together with an assertion of the divine institution of the Lord's Day, and practical directions for its due observation / by John Owen. — held source edition 3821f0769c8a",
+  "languages": [
+    "eng"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A53694/master/A53694.xml",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

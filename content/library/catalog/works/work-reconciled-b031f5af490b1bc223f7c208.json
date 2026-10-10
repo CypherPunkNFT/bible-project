@@ -1,0 +1,43 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-reconciled-b031f5af490b1bc223f7c208",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "title": "The Way of Salvation Familiarly Explained",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-archibald-alexander",
+      "role": "author"
+    }
+  ],
+  "genre": "treatise",
+  "role": "core-teaching",
+  "collections": [],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [],
+  "depth": "unknown",
+  "era": "unknown",
+  "dates": [],
+  "passages": [],
+  "related": [],
+  "externalIds": {
+    "source-monergism": [
+      "https://www.monergism.com/way-salvation-familiarly-explained-conversation-between-father-and-his-children"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://www.monergism.com/way-salvation-familiarly-explained-conversation-between-father-and-his-children",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

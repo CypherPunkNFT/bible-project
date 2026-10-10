@@ -1,0 +1,76 @@
+{
+  "source": "ia",
+  "catalogueItems": 1413,
+  "catalogueUnheldItems": 1404,
+  "eligibleItems": 1382,
+  "unheldBefore": 1373,
+  "filter": {
+    "authors": [
+      "Gill, John",
+      "John Gill",
+      "Dagg, John",
+      "John Leadley Dagg",
+      "Boyce, James",
+      "James Pettigru Boyce",
+      "Keach, Benjamin",
+      "Benjamin Keach",
+      "Collins, Hercules",
+      "Hercules Collins",
+      "Collins, William, 1647",
+      "Beddome, Benjamin",
+      "Benjamin Beddome",
+      "Brine, John",
+      "John Brine",
+      "Hodge, Charles",
+      "Charles Hodge",
+      "Hodge, Archibald",
+      "Archibald Alexander Hodge",
+      "Turretin, Francis",
+      "Turretin, Fran?ois",
+      "Turrettini, Fran?ois",
+      "Turrettini, Francis",
+      "Turretinus, Franciscus",
+      "Francis Turretin",
+      "Witsius, Herman",
+      "Herman Witsius",
+      "Witsius, Hermann",
+      "Hermann Witsius",
+      "Owen, John",
+      "John Owen",
+      "Charnock, Stephen",
+      "Stephen Charnock"
+    ],
+    "excludeAuthors": [
+      "Owen, John, 1766",
+      "Owen, John, 1787",
+      "Turretin, Jean",
+      "Turrettini, Jean",
+      "Turretin, Johann"
+    ],
+    "scope": "Complete offered historical corpus of the named RB01 doctrinal authors; no per-work rights holds",
+    "iaQuery": "mediatype:texts AND date:[* TO 1930-12-31] AND NOT access-restricted-item:true AND (creator:\"Gill, John\" OR creator:\"John Gill\" OR creator:\"Dagg, John\" OR creator:\"John Leadley Dagg\" OR creator:\"Boyce, James\" OR creator:\"James Pettigru Boyce\" OR creator:\"Keach, Benjamin\" OR creator:\"Benjamin Keach\" OR creator:\"Collins, Hercules\" OR creator:\"Hercules Collins\" OR creator:\"Collins, William, 1647\" OR creator:\"Beddome, Benjamin\" OR creator:\"Benjamin Beddome\" OR creator:\"Brine, John\" OR creator:\"John Brine\" OR creator:\"Hodge, Charles\" OR creator:\"Charles Hodge\" OR creator:\"Hodge, Archibald\" OR creator:\"Archibald Alexander Hodge\" OR creator:\"Turretin, Francis\" OR creator:\"Turretin, Fran?ois\" OR creator:\"Turrettini, Fran?ois\" OR creator:\"Turrettini, Francis\" OR creator:\"Turretinus, Franciscus\" OR creator:\"Francis Turretin\" OR creator:\"Witsius, Herman\" OR creator:\"Herman Witsius\" OR creator:\"Witsius, Hermann\" OR creator:\"Hermann Witsius\" OR creator:\"Owen, John\" OR creator:\"John Owen\" OR creator:\"Charnock, Stephen\" OR creator:\"Stephen Charnock\")"
+  },
+  "attempted": 8,
+  "downloaded": 7,
+  "duplicateHashes": 0,
+  "heldDuringRun": 0,
+  "failures": [
+    {
+      "sourceId": "2541079R.nlm.nih.gov",
+      "error": "HTTP Error 500: Internal Server Error"
+    }
+  ],
+  "bytes": 1678459,
+  "sampleSizes": [
+    1026062,
+    414942,
+    39764,
+    115462,
+    26153,
+    25417,
+    30659
+  ],
+  "state": "running",
+  "startedAt": "2026-10-07T16:44:02.003260+00:00",
+  "updatedAt": "2026-10-07T16:46:53.036597+00:00"
+}

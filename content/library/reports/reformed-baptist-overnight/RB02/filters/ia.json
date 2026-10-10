@@ -1,0 +1,69 @@
+{
+  "authors": [
+    "Tombes, John",
+    "John Tombes",
+    "Spilsbury, John",
+    "John Spilsbury",
+    "Spilsbery, John",
+    "John Spilsbery",
+    "Kiffin, William",
+    "William Kiffin",
+    "Keach, Benjamin",
+    "Benjamin Keach",
+    "Coxe, Nehemiah",
+    "Nehemiah Coxe",
+    "Cox, Benjamin",
+    "Benjamin Cox",
+    "Booth, Abraham",
+    "Abraham Booth",
+    "Denne, Henry",
+    "Henry Denne",
+    "Danvers, Henry",
+    "Henry Danvers",
+    "Witsius, Herman",
+    "Witsius, Hermann",
+    "Witsius, Hermannus",
+    "Herman Witsius",
+    "Hermannus Witsius",
+    "Wits, Herman",
+    "Ball, John",
+    "John Ball",
+    "Owen, John",
+    "John Owen"
+  ],
+  "primaryAuthorOnly": true,
+  "authorIdentityRules": [
+    {
+      "namePattern": "Owen,?\\s+John|John\\s+Owen",
+      "lifeYears": [
+        1616,
+        1683
+      ],
+      "requireReligiousSubjectsWhenUndated": true
+    },
+    {
+      "namePattern": "Ball,?\\s+John|John\\s+Ball",
+      "lifeYears": [
+        1585,
+        1640
+      ],
+      "requireReligiousSubjectsWhenUndated": true
+    }
+  ],
+  "deferHardDownloads": true,
+  "collections": [
+    "Princeton",
+    "americana",
+    "toronto",
+    "europeanlibraries",
+    "library_of_congress",
+    "cdl",
+    "bostonpubliclibrary",
+    "getty",
+    "wellcomelibrary",
+    "biodiversity",
+    "gutenberg",
+    "microfilm"
+  ],
+  "iaQuery": "mediatype:texts AND date:[1600-01-01 TO 1899-12-31] AND NOT access-restricted-item:true AND (creator:\"Tombes, John\" OR creator:\"John Tombes\" OR creator:\"Spilsbury, John\" OR creator:\"John Spilsbury\" OR creator:\"Spilsbery, John\" OR creator:\"John Spilsbery\" OR creator:\"Kiffin, William\" OR creator:\"William Kiffin\" OR creator:\"Keach, Benjamin\" OR creator:\"Benjamin Keach\" OR creator:\"Coxe, Nehemiah\" OR creator:\"Nehemiah Coxe\" OR creator:\"Cox, Benjamin\" OR creator:\"Benjamin Cox\" OR creator:\"Booth, Abraham\" OR creator:\"Abraham Booth\" OR creator:\"Denne, Henry\" OR creator:\"Henry Denne\" OR creator:\"Danvers, Henry\" OR creator:\"Henry Danvers\" OR creator:\"Witsius, Herman\" OR creator:\"Witsius, Hermann\" OR creator:\"Witsius, Hermannus\" OR creator:\"Herman Witsius\" OR creator:\"Hermannus Witsius\" OR creator:\"Wits, Herman\" OR creator:\"Ball, John\" OR creator:\"John Ball\" OR creator:\"Owen, John\" OR creator:\"John Owen\")"
+}

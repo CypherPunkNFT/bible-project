@@ -1,0 +1,39 @@
+{
+  "mission": "RB08",
+  "title": "Scripture authority and apologetics",
+  "filters": {
+    "tcp": "tcp-filter.json",
+    "ccel": "ccel-filter.json",
+    "ia": "ia-filter.json",
+    "gutenberg": "gutenberg-filter.json",
+    "monergism": "monergism-filter.json",
+    "aomin": "aomin-filter.json",
+    "kruger": "kruger-filter.json",
+    "desiringgod": "desiringgod-filter.json"
+  },
+  "scope": "Complete screened historical author and Princeton periodical batches; official written ministry archives. No retries.",
+  "availabilityNotes": [
+    "No unrestricted IA Warfield records returned for 1931–1932; all ten Oxford originals could not be confirmed on IA. Monergism returned 25 held hashes plus one held ID across 27 selected Warfield/Gaussen works; one request failed.",
+    "Desiring God collection covers the permitted Piper archive; non-Piper material remains a collection permission gap. Intake publication has been blocked by the pre-existing TCP collector database handle (PID 96980); the completion command waits for that reader.",
+    "6 local manifest-write errors resolved from saved originals and provenance, without network retry. Written articles/papers/transcripts are originals, not books."
+  ],
+  "finalScreens": {
+    "ia": "ia-screen.json"
+  },
+  "finalizeOnly": true,
+  "waitForExisting": false,
+  "sourceBlockers": [
+    {
+      "source": "desiringgod",
+      "exitCode": "other-author-permission-required",
+      "log": "https://www.desiringgod.org/permissions",
+      "reason": "Piper personal/noncommercial permission collected; other authors and staff material require separate permission under the published policy."
+    },
+    {
+      "source": "ia",
+      "exitCode": "no-unrestricted-late-Oxford-records",
+      "log": "ia-late-oxford-blockers.json",
+      "reason": "No unrestricted 1931–1932 Warfield records returned; later Oxford originals remain unavailable on IA."
+    }
+  ]
+}

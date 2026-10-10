@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-f1cf1285889799507331d01c",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-b2a0dda85529e1ec99029f93",
+  "label": "The crook in the lot; or The sovereignty and wisdom of God, in the afflictions of men displayed; together with a Christian deportment under them. Being the substance of several sermons on Eccl. VII. 13, Prov. XVI.19, and I Pet. v. 6 — held source edition 203f49dcabb1",
+  "languages": [
+    "eng"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/crookinlotorsove01bost/crookinlotorsove01bost_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

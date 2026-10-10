@@ -1,0 +1,582 @@
+{
+  "items": [
+    {
+      "source": "aomin.org",
+      "checkedAt": "2026-10-08T00:42:09.319182+00:00",
+      "officialUrl": "https://www.aomin.org/aoblog/",
+      "pages": [],
+      "policyLinks": [],
+      "outcome": "consultation_failed",
+      "error": "<urlopen error _ssl.c:1015: The handshake operation timed out>"
+    },
+    {
+      "source": "baptistcatechism.org",
+      "checkedAt": "2026-10-08T00:42:09.318985+00:00",
+      "officialUrl": "https://baptistcatechism.org/",
+      "pages": [],
+      "policyLinks": [],
+      "outcome": "consultation_failed",
+      "error": "<urlopen error _ssl.c:1015: The handshake operation timed out>"
+    },
+    {
+      "source": "baptistdogmatics.com",
+      "checkedAt": "2026-10-08T00:42:09.319104+00:00",
+      "officialUrl": "https://www.baptistdogmatics.com/",
+      "pages": [],
+      "policyLinks": [],
+      "outcome": "consultation_failed",
+      "error": "<urlopen error _ssl.c:1015: The handshake operation timed out>"
+    },
+    {
+      "source": "baptisthistoryhomepage.com",
+      "checkedAt": "2026-10-08T00:42:21.441860+00:00",
+      "officialUrl": "https://baptisthistoryhomepage.com/",
+      "pages": [],
+      "policyLinks": [],
+      "outcome": "consultation_failed",
+      "error": "<urlopen error _ssl.c:1015: The handshake operation timed out>"
+    },
+    {
+      "source": "bcsmn.edu",
+      "checkedAt": "2026-10-08T00:42:21.442016+00:00",
+      "officialUrl": "https://bcsmn.edu/",
+      "pages": [],
+      "policyLinks": [],
+      "outcome": "consultation_failed",
+      "error": "<urlopen error _ssl.c:1015: The handshake operation timed out>"
+    },
+    {
+      "source": "bible.helloao.org",
+      "checkedAt": "2026-10-08T00:42:21.442103+00:00",
+      "officialUrl": "https://bible.helloao.org/docs/",
+      "pages": [],
+      "policyLinks": [],
+      "outcome": "consultation_failed",
+      "error": "<urlopen error _ssl.c:1015: The handshake operation timed out>"
+    },
+    {
+      "source": "billygraham.org",
+      "checkedAt": "2026-10-08T00:42:21.522720+00:00",
+      "officialUrl": "https://billygraham.org/",
+      "pages": [],
+      "policyLinks": [],
+      "outcome": "consultation_failed",
+      "error": "<urlopen error _ssl.c:1015: The handshake operation timed out>"
+    },
+    {
+      "source": "capitolhillbaptist.org",
+      "checkedAt": "2026-10-08T00:42:33.573657+00:00",
+      "officialUrl": "https://www.capitolhillbaptist.org/",
+      "pages": [
+        {
+          "status": 200,
+          "url": "https://www.capitolhillbaptist.org/",
+          "contentType": "text/html; charset=UTF-8",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\campaign-reconciliation\\sources\\evidence\\capitolhillbaptist.org\\official.html",
+          "sha256": "d82820de25698290c11f757983ec897a902f27c1b38bacefea7630f668e98ed4"
+        }
+      ],
+      "policyLinks": [],
+      "robots": {
+        "status": 200,
+        "url": "https://www.capitolhillbaptist.org/robots.txt",
+        "contentType": "text/plain; charset=utf-8"
+      },
+      "outcome": "consulted_official_page_no_policy_link"
+    },
+    {
+      "source": "careycenter.wmcarey.edu",
+      "checkedAt": "2026-10-08T00:42:33.573508+00:00",
+      "officialUrl": "https://careycenter.wmcarey.edu/",
+      "pages": [
+        {
+          "status": 200,
+          "url": "https://careycenter.wmcarey.edu/",
+          "contentType": "text/html",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\campaign-reconciliation\\sources\\evidence\\careycenter.wmcarey.edu\\official.html",
+          "sha256": "780d403f0e55d08fa30ab258df71c79db8df5e969d47059317ec178cbf94bb77"
+        }
+      ],
+      "policyLinks": [],
+      "robots": {
+        "status": 404,
+        "url": "https://careycenter.wmcarey.edu/robots.txt",
+        "redirect": null
+      },
+      "outcome": "consulted_official_page_no_policy_link"
+    },
+    {
+      "source": "content.cbtseminary.org",
+      "checkedAt": "2026-10-08T00:42:33.589506+00:00",
+      "officialUrl": "https://content.cbtseminary.org/",
+      "pages": [
+        {
+          "status": 200,
+          "url": "https://content.cbtseminary.org/",
+          "contentType": "text/html; charset=UTF-8",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\campaign-reconciliation\\sources\\evidence\\content.cbtseminary.org\\official.html",
+          "sha256": "c65dd44286ff715c93fddd81280d9df19a1f7265070a401906ff9062974975c6"
+        }
+      ],
+      "policyLinks": [],
+      "robots": {
+        "status": 200,
+        "url": "https://content.cbtseminary.org/robots.txt",
+        "contentType": "text/plain; charset=utf-8"
+      },
+      "outcome": "consulted_official_page_no_policy_link"
+    },
+    {
+      "source": "crossway.org",
+      "checkedAt": "2026-10-08T00:42:33.589656+00:00",
+      "officialUrl": "https://www.crossway.org/terms/",
+      "pages": [
+        {
+          "status": 200,
+          "url": "https://www.crossway.org/terms/",
+          "contentType": "text/html; charset=utf-8",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\campaign-reconciliation\\sources\\evidence\\crossway.org\\official.html",
+          "sha256": "58275d1358a80436f342ee8fd8ab30e0cb2be8aa8423c199403a1a2483e8cd7a"
+        },
+        {
+          "status": 200,
+          "url": "https://www.crossway.org/permissions/",
+          "contentType": "text/html; charset=utf-8",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\campaign-reconciliation\\sources\\evidence\\crossway.org\\policy.html",
+          "sha256": "89ca5aa4cf8db50c6f4b59b28481a092f934ead91f2bc9ce955457b5407655e2"
+        }
+      ],
+      "policyLinks": [
+        {
+          "url": "https://www.crossway.org/permissions/",
+          "label": "Permissions"
+        },
+        {
+          "url": "https://www.crossway.org/terms/",
+          "label": "Terms of Service"
+        },
+        {
+          "url": "https://www.crossway.org/terms/",
+          "label": "Terms of Service"
+        },
+        {
+          "url": "https://www.crossway.org/permissions/",
+          "label": "Permissions"
+        }
+      ],
+      "robots": {
+        "status": 200,
+        "url": "https://www.crossway.org/robots.txt",
+        "contentType": "text/plain; charset=utf-8"
+      },
+      "outcome": "consulted_policy_link"
+    },
+    {
+      "source": "cslewisinstitute.org",
+      "checkedAt": "2026-10-08T00:42:35.884523+00:00",
+      "officialUrl": "https://www.cslewisinstitute.org/",
+      "pages": [
+        {
+          "status": 200,
+          "url": "https://www.cslewisinstitute.org/",
+          "contentType": "text/html; charset=UTF-8",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\campaign-reconciliation\\sources\\evidence\\cslewisinstitute.org\\official.html",
+          "sha256": "91cb5ed2608231cbd9baba213d961d591191b3227295a2e9c1a686862cc35acc"
+        }
+      ],
+      "policyLinks": [],
+      "robots": {
+        "status": 200,
+        "url": "https://www.cslewisinstitute.org/robots.txt",
+        "contentType": "text/plain"
+      },
+      "outcome": "consulted_official_page_no_policy_link"
+    },
+    {
+      "source": "earlychristianwritings.com",
+      "checkedAt": "2026-10-08T00:42:36.245487+00:00",
+      "officialUrl": "https://www.earlychristianwritings.com/",
+      "pages": [
+        {
+          "status": 200,
+          "url": "https://www.earlychristianwritings.com/",
+          "contentType": "text/html",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\campaign-reconciliation\\sources\\evidence\\earlychristianwritings.com\\official.html",
+          "sha256": "b386cdf3f2957036601cdfe55dae930c6363f32bb05bc905fee0fffdecfd5cbc"
+        }
+      ],
+      "policyLinks": [],
+      "robots": {
+        "status": 404,
+        "url": "https://www.earlychristianwritings.com/robots.txt",
+        "redirect": null
+      },
+      "outcome": "consulted_official_page_no_policy_link"
+    },
+    {
+      "source": "en.wikisource.org",
+      "checkedAt": "2026-10-08T00:42:37.052293+00:00",
+      "officialUrl": "https://en.wikisource.org/wiki/Wikisource:Copyright_policy",
+      "pages": [],
+      "policyLinks": [],
+      "robots": {
+        "status": 200,
+        "url": "https://en.wikisource.org/robots.txt",
+        "contentType": "text/plain; charset=utf-8"
+      },
+      "outcome": "robots_disallowed"
+    },
+    {
+      "source": "frame-poythress.org",
+      "checkedAt": "2026-10-08T00:42:37.275386+00:00",
+      "officialUrl": "https://frame-poythress.org/",
+      "pages": [
+        {
+          "status": 200,
+          "url": "https://frame-poythress.org/",
+          "contentType": "text/html; charset=UTF-8",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\campaign-reconciliation\\sources\\evidence\\frame-poythress.org\\official.html",
+          "sha256": "590bcf67031ddb1171ce4f41f97dff5fc3852c5f42a95e678f09ae5d90af9168"
+        }
+      ],
+      "policyLinks": [],
+      "robots": {
+        "status": 200,
+        "url": "https://frame-poythress.org/robots.txt",
+        "contentType": "text/plain; charset=utf-8"
+      },
+      "outcome": "consulted_official_page_no_policy_link"
+    },
+    {
+      "source": "freechristianebooks.org",
+      "checkedAt": "2026-10-08T00:42:38.329614+00:00",
+      "officialUrl": "https://www.freechristianebooks.org/",
+      "pages": [
+        {
+          "status": 200,
+          "url": "https://www.freechristianebooks.org/",
+          "contentType": "text/html; charset=UTF-8",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\campaign-reconciliation\\sources\\evidence\\freechristianebooks.org\\official.html",
+          "sha256": "e9d9e77d53a845724cceef8db5a03332d2ae0ac72264b2d8208727dc429ef21a"
+        }
+      ],
+      "policyLinks": [],
+      "robots": {
+        "status": 200,
+        "url": "https://www.freechristianebooks.org/robots.txt",
+        "contentType": "text/plain; charset=UTF-8"
+      },
+      "outcome": "consulted_official_page_no_policy_link"
+    },
+    {
+      "source": "history.hanover.edu",
+      "checkedAt": "2026-10-08T00:42:38.697531+00:00",
+      "officialUrl": "https://history.hanover.edu/texts/",
+      "pages": [],
+      "policyLinks": [],
+      "robots": {
+        "status": 200,
+        "url": "https://history.hanover.edu/robots.txt",
+        "contentType": "text/html; charset=utf-8"
+      },
+      "outcome": "invalid_robots_response"
+    },
+    {
+      "source": "jimhamilton.info",
+      "checkedAt": "2026-10-08T00:42:38.904809+00:00",
+      "officialUrl": "https://jimhamilton.info/",
+      "pages": [
+        {
+          "status": 200,
+          "url": "https://jimhamilton.info/",
+          "contentType": "text/html; charset=UTF-8",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\campaign-reconciliation\\sources\\evidence\\jimhamilton.info\\official.html",
+          "sha256": "5d16c04b8616470c700d00dba2c2709020c2bd018f7d284b22d994062a47da6c"
+        }
+      ],
+      "policyLinks": [],
+      "robots": {
+        "status": 200,
+        "url": "https://jimhamilton.info/robots.txt",
+        "contentType": "text/plain; charset=utf-8"
+      },
+      "outcome": "consulted_official_page_no_policy_link"
+    },
+    {
+      "source": "london1644.info",
+      "checkedAt": "2026-10-08T00:42:39.744061+00:00",
+      "officialUrl": "https://www.london1644.info/",
+      "pages": [
+        {
+          "status": 200,
+          "url": "https://www.london1644.info/",
+          "contentType": "text/html; charset=utf-8",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\campaign-reconciliation\\sources\\evidence\\london1644.info\\official.html",
+          "sha256": "be37ab8d8a6f287898acaca66ee9368ece9628f27e6647f6d2a63e93df9f9d77"
+        }
+      ],
+      "policyLinks": [],
+      "robots": {
+        "status": 404,
+        "url": "https://www.london1644.info/robots.txt",
+        "redirect": null
+      },
+      "outcome": "consulted_official_page_no_policy_link"
+    },
+    {
+      "source": "michaeljkruger.com",
+      "checkedAt": "2026-10-08T00:42:09.318643+00:00",
+      "officialUrl": "https://michaeljkruger.com/",
+      "pages": [],
+      "policyLinks": [],
+      "outcome": "consultation_failed",
+      "error": "<urlopen error _ssl.c:1015: The handshake operation timed out>"
+    },
+    {
+      "source": "onthewing.org",
+      "checkedAt": "2026-10-08T00:42:39.829522+00:00",
+      "officialUrl": "https://www.onthewing.org/",
+      "pages": [
+        {
+          "status": 200,
+          "url": "https://www.onthewing.org/",
+          "contentType": "text/html",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\campaign-reconciliation\\sources\\evidence\\onthewing.org\\official.html",
+          "sha256": "f1ac929155e92315a11537f092bd944d432d2efb87a16a006a2bcf1b7e9f4fce"
+        },
+        {
+          "status": 200,
+          "url": "https://www.onthewing.org/Copyright.html",
+          "contentType": "text/html",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\campaign-reconciliation\\sources\\evidence\\onthewing.org\\policy.html",
+          "sha256": "cb6236c019165e78be453c4f94a0039ce95e272e55ab7ed837066893e8ce9cfd"
+        }
+      ],
+      "policyLinks": [
+        {
+          "url": "https://www.onthewing.org/Copyright.html",
+          "label": "Copyright"
+        }
+      ],
+      "robots": {
+        "status": 404,
+        "url": "https://www.onthewing.org/robots.txt",
+        "redirect": null
+      },
+      "outcome": "consulted_policy_link"
+    },
+    {
+      "source": "penelope.uchicago.edu",
+      "checkedAt": "2026-10-08T00:42:40.911562+00:00",
+      "officialUrl": "https://penelope.uchicago.edu/Thayer/E/Roman/home.html",
+      "pages": [
+        {
+          "status": 200,
+          "url": "https://penelope.uchicago.edu/Thayer/E/Roman/home.html",
+          "contentType": "text/html",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\campaign-reconciliation\\sources\\evidence\\penelope.uchicago.edu\\official.html",
+          "sha256": "5e14bf81753ca05b0d6fd9965adc1ffd9320be02313359bde6e92fc4fb9fd0c2"
+        },
+        {
+          "status": 404,
+          "url": "https://penelope.uchicago.edu/Thayer/E/Roman/E/HELP/Copyright/home.html",
+          "redirect": null
+        }
+      ],
+      "policyLinks": [
+        {
+          "url": "https://penelope.uchicago.edu/Thayer/E/Roman/E/HELP/Copyright/home.html",
+          "label": "my copyright page"
+        }
+      ],
+      "robots": {
+        "status": 200,
+        "url": "https://penelope.uchicago.edu/robots.txt",
+        "contentType": "text/plain"
+      },
+      "outcome": "consulted_policy_link"
+    },
+    {
+      "source": "reformedontheweb.com",
+      "checkedAt": "2026-10-08T00:42:41.841372+00:00",
+      "officialUrl": "https://www.reformedontheweb.com/",
+      "pages": [
+        {
+          "status": 301,
+          "url": "https://www.reformedontheweb.com/",
+          "redirect": "https://www.reformedontheweb.com/home/.html"
+        }
+      ],
+      "policyLinks": [],
+      "robots": {
+        "status": 404,
+        "url": "https://www.reformedontheweb.com/robots.txt",
+        "redirect": null
+      },
+      "outcome": "official_page_unavailable"
+    },
+    {
+      "source": "reformedreader.org",
+      "checkedAt": "2026-10-08T00:42:43.134170+00:00",
+      "officialUrl": "https://www.reformedreader.org/",
+      "pages": [
+        {
+          "status": 200,
+          "url": "https://www.reformedreader.org/",
+          "contentType": "text/html",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\campaign-reconciliation\\sources\\evidence\\reformedreader.org\\official.html",
+          "sha256": "2bba901383cf1b187357d0c631b844eeae687e9e595321d7ceb18b92b4b5c884"
+        }
+      ],
+      "policyLinks": [],
+      "robots": {
+        "status": 200,
+        "url": "https://www.reformedreader.org/robots.txt",
+        "contentType": "text/plain"
+      },
+      "outcome": "consulted_official_page_no_policy_link"
+    },
+    {
+      "source": "romans45.org",
+      "checkedAt": "2026-10-08T00:42:44.352510+00:00",
+      "officialUrl": "https://www.romans45.org/",
+      "pages": [
+        {
+          "status": 200,
+          "url": "https://www.romans45.org/",
+          "contentType": "text/html",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\campaign-reconciliation\\sources\\evidence\\romans45.org\\official.html",
+          "sha256": "1bc68be6dcf6f2410b920081a7fff44669854c52b1b0fda97808c4ff4ee27334"
+        }
+      ],
+      "policyLinks": [],
+      "robots": {
+        "status": 200,
+        "url": "https://www.romans45.org/robots.txt",
+        "contentType": "text/plain; charset=utf-8"
+      },
+      "outcome": "consulted_official_page_no_policy_link"
+    },
+    {
+      "source": "sermonindex.net",
+      "checkedAt": "2026-10-08T00:42:44.979160+00:00",
+      "officialUrl": "https://www.sermonindex.net/",
+      "pages": [
+        {
+          "status": 200,
+          "url": "https://www.sermonindex.net/",
+          "contentType": "text/html",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\campaign-reconciliation\\sources\\evidence\\sermonindex.net\\official.html",
+          "sha256": "bc9643d7c901c229baff826e59080f8b38066f8b3e4268f0947500c317d2fa6a"
+        },
+        {
+          "status": 200,
+          "url": "https://www.sermonindex.net/md/copying-permissions/",
+          "contentType": "text/html",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\campaign-reconciliation\\sources\\evidence\\sermonindex.net\\policy.html",
+          "sha256": "62a97a08d3143808025401e27d5bebb48a5f650934f9559e9f65e50f61b69d4d"
+        }
+      ],
+      "policyLinks": [
+        {
+          "url": "https://www.sermonindex.net/md/copying-permissions/",
+          "label": "Copying Permissions"
+        },
+        {
+          "url": "https://www.sermonindex.net/md/copying-permissions/",
+          "label": "Copying Permissions"
+        }
+      ],
+      "robots": {
+        "status": 200,
+        "url": "https://www.sermonindex.net/robots.txt",
+        "contentType": "text/plain"
+      },
+      "outcome": "consulted_policy_link"
+    },
+    {
+      "source": "thecalvinist.net",
+      "checkedAt": "2026-10-08T00:42:46.028730+00:00",
+      "officialUrl": "https://thecalvinist.net/",
+      "pages": [
+        {
+          "status": 200,
+          "url": "https://thecalvinist.net/",
+          "contentType": "text/html; charset=UTF-8",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\campaign-reconciliation\\sources\\evidence\\thecalvinist.net\\official.html",
+          "sha256": "11ef8f998a61e7dc00bd6734495c45d39f37c324a414adcc646e7c925e284d55"
+        }
+      ],
+      "policyLinks": [],
+      "robots": {
+        "status": 200,
+        "url": "https://thecalvinist.net/robots.txt",
+        "contentType": "text/plain"
+      },
+      "outcome": "consulted_official_page_no_policy_link"
+    },
+    {
+      "source": "tyndale.tms.edu",
+      "checkedAt": "2026-10-08T00:42:46.633966+00:00",
+      "officialUrl": "https://tyndale.tms.edu/",
+      "pages": [
+        {
+          "status": 200,
+          "url": "https://tyndale.tms.edu/",
+          "contentType": "text/html; charset=UTF-8",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\campaign-reconciliation\\sources\\evidence\\tyndale.tms.edu\\official.html",
+          "sha256": "ae359176eb058aa11d61fbdf69d8832a636b013c7e0196937f26ce942528850d"
+        }
+      ],
+      "policyLinks": [],
+      "robots": {
+        "status": 200,
+        "url": "https://tyndale.tms.edu/robots.txt",
+        "contentType": "text/plain"
+      },
+      "outcome": "consulted_official_page_no_policy_link"
+    },
+    {
+      "source": "tyndalebulletin.org",
+      "checkedAt": "2026-10-08T00:42:48.028242+00:00",
+      "officialUrl": "https://www.tyndalebulletin.org/",
+      "pages": [
+        {
+          "status": 200,
+          "url": "https://www.tyndalebulletin.org/",
+          "contentType": "text/html; charset=utf-8",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\campaign-reconciliation\\sources\\evidence\\tyndalebulletin.org\\official.html",
+          "sha256": "d718e568ff780cbd9c9779c1989b816f3d0d8aa1f99fc95aaba1b58231731628"
+        }
+      ],
+      "policyLinks": [],
+      "robots": {
+        "status": 200,
+        "url": "https://www.tyndalebulletin.org/robots.txt",
+        "contentType": "text/plain; charset=utf-8"
+      },
+      "outcome": "consulted_official_page_no_policy_link"
+    },
+    {
+      "source": "zwemercenter.com",
+      "checkedAt": "2026-10-08T00:42:49.244591+00:00",
+      "officialUrl": "https://www.zwemercenter.com/",
+      "pages": [
+        {
+          "status": 200,
+          "url": "https://www.zwemercenter.com/",
+          "contentType": "text/html; charset=UTF-8",
+          "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\campaign-reconciliation\\sources\\evidence\\zwemercenter.com\\official.html",
+          "sha256": "0b91ba134fcd8aadd613a67dd4b9b45fbf3b4118975fbd3a4f43def5ec36ca32"
+        }
+      ],
+      "policyLinks": [],
+      "robots": {
+        "status": 200,
+        "url": "https://www.zwemercenter.com/robots.txt",
+        "contentType": "text/plain; charset=utf-8"
+      },
+      "outcome": "consulted_official_page_no_policy_link"
+    }
+  ]
+}

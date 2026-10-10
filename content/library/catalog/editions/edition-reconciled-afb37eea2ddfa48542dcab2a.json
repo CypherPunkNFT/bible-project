@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-afb37eea2ddfa48542dcab2a",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-0c1f929a8bb08da9c56f0ca9",
+  "label": "A letter to the Rev. the president, and professors, tutors, and Hebrew instructor, of Harvard-College in Cambridge; in answer to a testimony publish'd by them against the Reverend Mr. George Whitefield, and his conduct. / By George Whitefield, A.B. late of Pembroke-College Oxon. ; [Six lines from II. Corinthians] — held source edition 80811507cc57",
+  "languages": [
+    "eng"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/N04598/master/N04598.xml",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

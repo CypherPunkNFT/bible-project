@@ -1,0 +1,44 @@
+{
+  "state": "downloads_complete_report_written",
+  "updatedAt": "2026-10-08T00:11:02.895301+00:00",
+  "files": 1731,
+  "bytes": 1577493026,
+  "distinctWorksEstimate": 1054,
+  "sources": {
+    "tcp": 58,
+    "ia": 1657,
+    "monergism": 16
+  },
+  "failedDownloads": 138,
+  "exportFailures": 0,
+  "blockers": [],
+  "previouslyFailedSkipped": 5,
+  "derivedTexts": 0,
+  "embeddingBefore": {
+    "state": "complete",
+    "total": 1934778,
+    "indexed": 1934778,
+    "remaining": 0,
+    "corpus_build": "2026-10-07T15:23:27.068328+00:00",
+    "updated_at": "2026-10-07T16:52:55.679411+00:00",
+    "seconds": 2509.1
+  },
+  "embeddingAfter": {
+    "state": "interrupted",
+    "indexed": 1962405,
+    "total": 8458873,
+    "remaining": 6496468,
+    "corpus_build": "2026-10-07T23:00:34.844772+00:00",
+    "error": "timed out",
+    "updated_at": "2026-10-07T23:58:35.641637+00:00"
+  },
+  "intakeCommandExitCode": 0,
+  "intake": {
+    "updated_at": "2026-10-08T00:10:38.6332176Z",
+    "error": "Embedding pass is incomplete or failed verification; inspect embedding-error.log and resume the instance.",
+    "enrichment_started": false,
+    "state": "needs_attention"
+  },
+  "processingState": "needs_attention",
+  "excludedAuthorFiles": 142
+}

@@ -1,0 +1,32 @@
+/* The exact drawing and motion foundation used by the supplied reference. */
+@import url('../teachers-art-motion/base.css');
+:root{--page:#12110f;--surface:#1c1a17;--ink:#eee9de;--line:#39362e;--accent:#e4b758;--purple:#ad99dd}
+:root[data-theme=light]{--page:#f5f0e6;--surface:#fffbf3;--ink:#28241d;--line:#d7ccba;--accent:#93661b;--purple:#6b4e9e}
+*{box-sizing:border-box}body{margin:0;background:var(--page);color:var(--ink);font-family:Arial,sans-serif}
+main{max-width:1200px;margin:0 auto;padding:20px 30px 50px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.sample{--door:var(--accent);position:relative;min-width:0;border:1px solid var(--line);border-radius:8px;background:var(--surface);padding:28px 22px 22px;outline:none}
+.sample:nth-child(even){--door:var(--purple)}.letter{position:absolute;top:20px;left:22px;font:11px monospace;color:var(--door)}
+.scene{height:270px;display:grid;place-items:center;color:var(--door)}.sa-art{width:340px;max-width:100%;height:auto;overflow:visible}
+.sample .sa-base{opacity:.95}.sample .sa-fine{opacity:.82;stroke-width:.8}.sample .sa-faint{opacity:.65;stroke-width:.8}.sample .sa-live{filter:drop-shadow(0 0 1px color-mix(in srgb,var(--door) 35%,transparent))}
+.passage{display:block;text-align:center;font-size:10px;letter-spacing:.07em;color:var(--door);opacity:.75;text-decoration:none}.passage:hover{opacity:1}.sample:focus-visible{outline:1px solid var(--door);outline-offset:3px}
+button{position:fixed;bottom:12px;right:16px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font:11px Arial;padding:8px 12px;border-radius:4px;cursor:pointer}
+.sa-mask{fill:var(--surface);stroke:none}.sa-art .solid{fill:var(--surface)}
+:is(.sample:hover,.sample:focus-visible) .sa-base .moving{visibility:hidden}
+:is(.sample:hover,.sample:focus-visible) .sa-live .treasure-light{animation:treasure-light 5s ease-in-out infinite}
+:is(.sample:hover,.sample:focus-visible) .sa-live .flow{animation:flow 2.4s linear infinite!important;stroke-dasharray:.04 .075;stroke-dashoffset:0}
+:is(.sample:hover,.sample:focus-visible) .sa-live .ripple{animation:ripple 4s ease-in-out infinite;transform-origin:120px 132px}
+:is(.sample:hover,.sample:focus-visible) .sa-live .left-link{animation:left-link 6s ease-in-out infinite}
+:is(.sample:hover,.sample:focus-visible) .sa-live .right-link{animation:right-link 6s ease-in-out infinite}
+:is(.sample:hover,.sample:focus-visible) .sa-live .bee{animation:bee 8s ease-in-out infinite}
+:is(.sample:hover,.sample:focus-visible) .sa-live .wing{animation:wing .45s ease-in-out infinite alternate;transform-box:fill-box;transform-origin:50% 100%}
+:is(.sample:hover,.sample:focus-visible) .sa-live .honey{animation:honey 5s ease-in-out infinite;transform-origin:164px 80px}
+@keyframes treasure-light{0%,100%{opacity:.3}50%{opacity:.95}}
+@keyframes flow{to{stroke-dashoffset:-.46}}
+@keyframes ripple{0%,100%{opacity:.25;transform:scaleX(.92)}50%{opacity:.8;transform:scaleX(1.03)}}
+@keyframes left-link{0%,100%{transform:translateX(0)}45%,65%{transform:translateX(-3px)}}
+@keyframes right-link{0%,100%{transform:translateX(0)}45%,65%{transform:translateX(3px)}}
+@keyframes bee{0%,100%{transform:translate(0,0)}35%{transform:translate(-7px,-3px)}70%{transform:translate(3px,2px)}}
+@keyframes wing{to{transform:scaleY(.45)}}
+@keyframes honey{0%,100%{transform:scaleY(.7);opacity:.6}55%,70%{transform:scaleY(1.1);opacity:1}}
+@media(max-width:650px){main{grid-template-columns:1fr;padding:16px 16px 50px}.scene{height:250px}}
+@media(prefers-reduced-motion:reduce){.sample *{animation:none!important;transition:none!important;stroke-dasharray:none!important}.sample .sa-live{display:none}.sample .sa-base .moving{visibility:visible!important}}

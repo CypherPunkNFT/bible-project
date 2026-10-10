@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-3b5f7f0417a65b3ca9f4e432",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-e8d3b30f769160fb6963b2d1",
+  "label": "A true and impartial narrative of some illegal and arbitrary proceedings by certain justices of the peace and others, against several innocent and peaceable nonconformists in and near the town of Bedford, upon pretence of putting in execution the late Act against conventicles together with a brief account of the late sudden and strange death of the Grand Informer, and one of the most violent malicious prosecutors against these poor people. — held source edition 55b93aa434cb",
+  "languages": [
+    "eng"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A30212/master/A30212.xml",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

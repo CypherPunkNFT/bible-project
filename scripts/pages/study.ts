@@ -1,4 +1,4 @@
-import {STUDY_BRANCHES} from "../../src/pages/study/hub/collections";
+import {STUDY_BRANCHES, THEOLOGY_TOOLS} from "../../src/pages/study/hub/collections";
 import {WRITERS} from "../../src/pages/study/hub/writers";
 // The Study area's CONTENT.md files (run by scripts/export-pages.ts): the Study hub (/study) and its eight pages.
 // Places & journeys (/study/atlas) belongs to the Atlas area. Each page's extractor lives in a study-*.ts file here.
@@ -22,6 +22,7 @@ async function hub(): Promise<PageContent> {
     "## Atlas\n\nExplore the map · Ancient cities · Follow Paul. Selected places and journey lenses lead into the full Atlas. Paul zooms to Antioch, then the route draws with a subtle departure and arrival pulse. Reduced motion shows the completed route.",
     ...Object.entries(STUDY_BRANCHES).map(([id,b])=>blocks(`## ${b.label}\n\n${link(`/study/${id}`)}\n\n${b.lead}`,
       ...b.areas.map(a=>blocks(`### ${a.title}\n\n${a.intro}`,table(["Kind","Title","Description","Address"],[a.featured,...a.items].map(e=>[e.kind,e.title,e.text,link(e.href)])),"Useful connections: "+a.support.map(([title,href])=>`${title}: ${link(href)}`).join(" · "))))),
+    "## Shared Theology tools",table(["Tool","Purpose","Address"],THEOLOGY_TOOLS.map(t=>[t.title,t.text,link(t.href)])),
     "## Preserved collection registry",table(["Study","Address","Lens","Colour"],STUDY_COLLECTIONS.map(c=>[c.label,link(c.path),c.lens,c.color]))
   )};
 }

@@ -1,0 +1,2091 @@
+{
+  "task": "Source documentation",
+  "completedOn": "2026-10-07",
+  "stocktakeSnapshot": "2026-10-08T00:33:53.911022+00:00",
+  "canonicalSources": 61,
+  "libraryAcquisitionSources": 47,
+  "supplementalSources": 14,
+  "unresolvedSourceEvidence": 25,
+  "historicalHeadingsPreserved": 55,
+  "stocktakeFiles": 70412,
+  "localSupportFiles": 4,
+  "noIntakeOrEmbeddingStarted": true,
+  "sources": [
+    {
+      "sourceId": "9marks.org",
+      "canonicalAnchor": "source-9marks-org",
+      "name": "9Marks",
+      "officialChannel": "https://www.9marks.org/journal/archives/",
+      "channelNote": "Official offered journal PDFs and article pages; the bulk archive/API 403 was deferred without bypass.",
+      "heldFormats": [
+        ".html",
+        ".json",
+        ".pdf"
+      ],
+      "snapshotFileCount": 20,
+      "licenceAndCredit": "Recorded historical journal issue permissions are conditional and issue-specific. Modern books can carry additional retrieval/distribution restrictions; no publisher-wide open licence is inferred.",
+      "evidence": [
+        {
+          "url": "https://www.9marks.org/journal/archives/",
+          "local": "content/library/sources.json",
+          "basis": "retained policy or edition evidence"
+        }
+      ],
+      "unresolvedEvidence": null,
+      "privateLocalIndexAuthorization": "Owner authorizes lawfully held text; credits remain metadata",
+      "publicPublicationAuthorized": false,
+      "sourceAliases": [
+        "source-9marks"
+      ],
+      "acquisitionManifests": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\bulk-acquisition\\legacy-release.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB01-RB08\\consolidated-intake-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB05\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB05\\chapter-map.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB05\\intake-scope.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB06\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB06\\chapter-map.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB06\\intake-scope.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB10\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB10\\bibliography.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB10\\chapter-map.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB11\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB11\\chapter-map.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB11\\holdings-audit.json"
+      ]
+    },
+    {
+      "sourceId": "aomin.org",
+      "canonicalAnchor": "source-aomin-org",
+      "name": "Alpha and Omega Ministries",
+      "officialChannel": "https://www.aomin.org/aoblog/",
+      "channelNote": "Official offered pages/downloads actually recorded in the held-file manifests; recorded source aliases are retained in the source inventory.",
+      "heldFormats": [
+        ".html",
+        ".json"
+      ],
+      "snapshotFileCount": 4097,
+      "licenceAndCredit": "No source-wide reuse licence established in the available records. Preserve named author, editor, translator, publisher/ministry and all original copyright notices; source availability is not an open licence.",
+      "evidence": [
+        {
+          "local": "content/library/reports/campaign-reconciliation/sources/official-consultations.json",
+          "url": "https://www.aomin.org/aoblog/",
+          "basis": "consultation_failed"
+        }
+      ],
+      "unresolvedEvidence": "Establish a scoped policy/edition notice from the official source; record the specific allowed use and exceptions without inventing a blanket licence.",
+      "privateLocalIndexAuthorization": "Owner authorizes lawfully held text; credits remain metadata",
+      "publicPublicationAuthorized": false,
+      "sourceAliases": [
+        "aomin",
+        "source-alpha-omega-ministries"
+      ],
+      "acquisitionManifests": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\bulk-acquisition\\legacy-release.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB01-RB08\\consolidated-intake-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB08\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB08\\bibliography.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB08\\chapter-map.json"
+      ]
+    },
+    {
+      "sourceId": "archive.org",
+      "canonicalAnchor": "source-archive-org",
+      "name": "Internet Archive",
+      "officialChannel": "https://archive.org/services/docs/api/metadata.html",
+      "channelNote": "Official search/metadata/download APIs; institutional and microfilm collections; held existing TXT/EPUB/PDF and item metadata. No new OCR.",
+      "heldFormats": [
+        ".html",
+        ".json",
+        ".pdf",
+        ".txt",
+        ".xml",
+        "extensionless"
+      ],
+      "snapshotFileCount": 10775,
+      "licenceAndCredit": "Edition-specific historical public-domain assessments and item notices are recorded. Public availability or an unrestricted item flag alone is not a blanket licence. Retain digitizing-library, sponsor, publisher and contributor metadata.",
+      "evidence": [
+        {
+          "url": "https://archive.org/services/docs/api/metadata.html",
+          "local": "content/library/reports/reformed-baptist-overnight/",
+          "basis": "retained policy or edition evidence"
+        }
+      ],
+      "unresolvedEvidence": null,
+      "privateLocalIndexAuthorization": "Owner authorizes lawfully held text; credits remain metadata",
+      "publicPublicationAuthorized": false,
+      "sourceAliases": [
+        "ia",
+        "source-bristol-record-society",
+        "source-internet-archive"
+      ],
+      "acquisitionManifests": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\bulk-acquisition\\legacy-release.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\confessional-standards\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\doctrinal-studies\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\historic-preaching\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\historical-lives\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\letters-cited\\LC01\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\ministry-resources\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\ocr-completion\\page-dispositions.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\ocr-completion\\pdf-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\ocr-completion\\text-alternatives.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\pastoral-care\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\pastoral-care\\deferred-pdfs.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\puritan-sermons\\acquisition-checkpoint.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\ready-text-completion\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\ready-text-completion\\historical-results.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB00\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB01-RB08\\consolidated-intake-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB01\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB02\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB02\\study-units.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB03\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB04\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB04\\chapter-map.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB04\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB04\\intake-scope.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB05\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB05\\chapter-map.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB05\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB06\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB06\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB07\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB07\\chapter-map.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB07\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB08\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB08\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB09\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB09\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB10\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB10\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB11\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB11\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB12\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB12\\chapter-map.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB12\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB13\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB14\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\scripture-studies\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\text-backlog\\inventory.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\text-backlog\\pdf-text-checks.json"
+      ]
+    },
+    {
+      "sourceId": "baptistcatechism.org",
+      "canonicalAnchor": "source-baptistcatechism-org",
+      "name": "SVRBC Baptist Catechism / Symbolics",
+      "officialChannel": "https://baptistcatechism.org/",
+      "channelNote": "Official offered pages/downloads actually recorded in the held-file manifests; recorded source aliases are retained in the source inventory.",
+      "heldFormats": [
+        ".html",
+        ".json"
+      ],
+      "snapshotFileCount": 4,
+      "licenceAndCredit": "No source-wide reuse licence established in the available records. Preserve named author, editor, translator, publisher/ministry and all original copyright notices; source availability is not an open licence.",
+      "evidence": [
+        {
+          "local": "content/library/reports/campaign-reconciliation/sources/official-consultations.json",
+          "url": "https://baptistcatechism.org/",
+          "basis": "consultation_failed"
+        }
+      ],
+      "unresolvedEvidence": "Establish a scoped policy/edition notice from the official source; record the specific allowed use and exceptions without inventing a blanket licence.",
+      "privateLocalIndexAuthorization": "Owner authorizes lawfully held text; credits remain metadata",
+      "publicPublicationAuthorized": false,
+      "sourceAliases": [
+        "source-svrbc-symbolics"
+      ],
+      "acquisitionManifests": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB01-RB08\\consolidated-intake-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB01\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB03\\candidate-holdings.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB07\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB12\\holdings-audit.json"
+      ]
+    },
+    {
+      "sourceId": "baptistdogmatics.com",
+      "canonicalAnchor": "source-baptistdogmatics-com",
+      "name": "Baptist Dogmatics",
+      "officialChannel": "https://www.baptistdogmatics.com/",
+      "channelNote": "Official offered pages/downloads actually recorded in the held-file manifests; recorded source aliases are retained in the source inventory.",
+      "heldFormats": [
+        ".html",
+        ".json"
+      ],
+      "snapshotFileCount": 2,
+      "licenceAndCredit": "No source-wide reuse licence established in the available records. Preserve named author, editor, translator, publisher/ministry and all original copyright notices; source availability is not an open licence.",
+      "evidence": [
+        {
+          "local": "content/library/reports/campaign-reconciliation/sources/official-consultations.json",
+          "url": "https://www.baptistdogmatics.com/",
+          "basis": "consultation_failed"
+        }
+      ],
+      "unresolvedEvidence": "Establish a scoped policy/edition notice from the official source; record the specific allowed use and exceptions without inventing a blanket licence.",
+      "privateLocalIndexAuthorization": "Owner authorizes lawfully held text; credits remain metadata",
+      "publicPublicationAuthorized": false,
+      "sourceAliases": [
+        "source-baptist-dogmatics"
+      ],
+      "acquisitionManifests": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB01-RB08\\consolidated-intake-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB02\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB02\\study-units.json"
+      ]
+    },
+    {
+      "sourceId": "baptisthistoryhomepage.com",
+      "canonicalAnchor": "source-baptisthistoryhomepage-com",
+      "name": "Baptist History Homepage",
+      "officialChannel": "https://baptisthistoryhomepage.com/",
+      "channelNote": "Official offered pages/downloads actually recorded in the held-file manifests; recorded source aliases are retained in the source inventory.",
+      "heldFormats": [
+        ".html",
+        ".json"
+      ],
+      "snapshotFileCount": 54,
+      "licenceAndCredit": "No source-wide reuse licence established in the available records. Preserve named author, editor, translator, publisher/ministry and all original copyright notices; source availability is not an open licence.",
+      "evidence": [
+        {
+          "local": "content/library/reports/campaign-reconciliation/sources/official-consultations.json",
+          "url": "https://baptisthistoryhomepage.com/",
+          "basis": "consultation_failed"
+        }
+      ],
+      "unresolvedEvidence": "Establish a scoped policy/edition notice from the official source; record the specific allowed use and exceptions without inventing a blanket licence.",
+      "privateLocalIndexAuthorization": "Owner authorizes lawfully held text; credits remain metadata",
+      "publicPublicationAuthorized": false,
+      "sourceAliases": [
+        "source-baptist-history-homepage"
+      ],
+      "acquisitionManifests": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\bulk-acquisition\\legacy-release.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB12\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB12\\chapter-map.json"
+      ]
+    },
+    {
+      "sourceId": "bcsmn.edu",
+      "canonicalAnchor": "source-bcsmn-edu",
+      "name": "Bethlehem College and Seminary",
+      "officialChannel": "https://bcsmn.edu/",
+      "channelNote": "Official offered pages/downloads actually recorded in the held-file manifests; recorded source aliases are retained in the source inventory.",
+      "heldFormats": [
+        ".json",
+        ".pdf"
+      ],
+      "snapshotFileCount": 2,
+      "licenceAndCredit": "No source-wide reuse licence established in the available records. Preserve named author, editor, translator, publisher/ministry and all original copyright notices; source availability is not an open licence.",
+      "evidence": [
+        {
+          "local": "content/library/reports/campaign-reconciliation/sources/official-consultations.json",
+          "url": "https://bcsmn.edu/",
+          "basis": "consultation_failed"
+        }
+      ],
+      "unresolvedEvidence": "Establish a scoped policy/edition notice from the official source; record the specific allowed use and exceptions without inventing a blanket licence.",
+      "privateLocalIndexAuthorization": "Owner authorizes lawfully held text; credits remain metadata",
+      "publicPublicationAuthorized": false,
+      "sourceAliases": [
+        "source-bethlehem-curriculum"
+      ],
+      "acquisitionManifests": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\bulk-acquisition\\legacy-release.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB09\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB09\\bibliography.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB09\\chapter-map.json"
+      ]
+    },
+    {
+      "sourceId": "bible.helloao.org",
+      "canonicalAnchor": "source-bible-helloao-org",
+      "name": "HelloAO Free Use Bible API",
+      "officialChannel": "https://bible.helloao.org/docs/",
+      "channelNote": "Official JSON API chapter/commentary endpoints; metadata responses are distinguished from text-bearing chapters.",
+      "heldFormats": [
+        ".json"
+      ],
+      "snapshotFileCount": 753,
+      "licenceAndCredit": "The official Free Use Bible API describes unrestricted API use, including modification/commercial use, with changed translations renamed. Retain the specific historical commentary/translation identity and do not extend that statement to unrelated linked content.",
+      "evidence": [
+        {
+          "url": "https://bible.helloao.org/docs/",
+          "local": "content/library/reports/campaign-reconciliation/sources/web-consultations.json",
+          "basis": "retained policy or edition evidence"
+        },
+        {
+          "local": "content/library/reports/campaign-reconciliation/sources/official-consultations.json",
+          "url": "https://bible.helloao.org/docs/",
+          "basis": "consultation_failed"
+        }
+      ],
+      "unresolvedEvidence": null,
+      "privateLocalIndexAuthorization": "Owner authorizes lawfully held text; credits remain metadata",
+      "publicPublicationAuthorized": false,
+      "sourceAliases": [
+        "source-helloao"
+      ],
+      "acquisitionManifests": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\bulk-acquisition\\legacy-release.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\letters-cited\\LC01\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB01-RB08\\consolidated-intake-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB03\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB06\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB09\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB10\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB11\\holdings-audit.json"
+      ]
+    },
+    {
+      "sourceId": "billygraham.org",
+      "canonicalAnchor": "source-billygraham-org",
+      "name": "Billy Graham Evangelistic Association",
+      "officialChannel": "https://billygraham.org/",
+      "channelNote": "Official offered pages/downloads actually recorded in the held-file manifests; recorded source aliases are retained in the source inventory.",
+      "heldFormats": [
+        ".json",
+        ".pdf"
+      ],
+      "snapshotFileCount": 8,
+      "licenceAndCredit": "No source-wide reuse licence established in the available records. Preserve named author, editor, translator, publisher/ministry and all original copyright notices; source availability is not an open licence.",
+      "evidence": [
+        {
+          "local": "content/library/reports/campaign-reconciliation/sources/official-consultations.json",
+          "url": "https://billygraham.org/",
+          "basis": "consultation_failed"
+        }
+      ],
+      "unresolvedEvidence": "Establish a scoped policy/edition notice from the official source; record the specific allowed use and exceptions without inventing a blanket licence.",
+      "privateLocalIndexAuthorization": "Owner authorizes lawfully held text; credits remain metadata",
+      "publicPublicationAuthorized": false,
+      "sourceAliases": [
+        "source-billy-graham"
+      ],
+      "acquisitionManifests": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\modern-texts\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\modern-texts\\graham-results.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\modern-texts\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\modern-texts\\pdf-inventory.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\ocr-completion\\page-dispositions.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\ocr-completion\\pdf-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\ocr-completion\\triage-rogers-graham.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB11\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\text-backlog\\inventory.json"
+      ]
+    },
+    {
+      "sourceId": "capitolhillbaptist.org",
+      "canonicalAnchor": "source-capitolhillbaptist-org",
+      "name": "Capitol Hill Baptist Church",
+      "officialChannel": "https://www.capitolhillbaptist.org/",
+      "channelNote": "Official offered pages/downloads actually recorded in the held-file manifests; recorded source aliases are retained in the source inventory.",
+      "heldFormats": [
+        ".html",
+        ".json"
+      ],
+      "snapshotFileCount": 12,
+      "licenceAndCredit": "No source-wide reuse licence established in the available records. Preserve named author, editor, translator, publisher/ministry and all original copyright notices; source availability is not an open licence.",
+      "evidence": [
+        {
+          "local": "content/library/reports/campaign-reconciliation/sources/official-consultations.json",
+          "url": "https://www.capitolhillbaptist.org/",
+          "basis": "consulted_official_page_no_policy_link"
+        }
+      ],
+      "unresolvedEvidence": "Establish a scoped policy/edition notice from the official source; record the specific allowed use and exceptions without inventing a blanket licence.",
+      "privateLocalIndexAuthorization": "Owner authorizes lawfully held text; credits remain metadata",
+      "publicPublicationAuthorized": false,
+      "sourceAliases": [
+        "source-capitol-hill-baptist"
+      ],
+      "acquisitionManifests": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\bulk-acquisition\\legacy-release.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB09\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB09\\bibliography.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB09\\chapter-map.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB11\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB11\\chapter-map.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB11\\holdings-audit.json"
+      ]
+    },
+    {
+      "sourceId": "careycenter.wmcarey.edu",
+      "canonicalAnchor": "source-careycenter-wmcarey-edu",
+      "name": "William Carey Center",
+      "officialChannel": "https://careycenter.wmcarey.edu/",
+      "channelNote": "Official offered pages/downloads actually recorded in the held-file manifests; recorded source aliases are retained in the source inventory.",
+      "heldFormats": [
+        ".html",
+        ".json"
+      ],
+      "snapshotFileCount": 2,
+      "licenceAndCredit": "No source-wide reuse licence established in the available records. Preserve named author, editor, translator, publisher/ministry and all original copyright notices; source availability is not an open licence.",
+      "evidence": [
+        {
+          "local": "content/library/reports/campaign-reconciliation/sources/official-consultations.json",
+          "url": "https://careycenter.wmcarey.edu/",
+          "basis": "consulted_official_page_no_policy_link"
+        }
+      ],
+      "unresolvedEvidence": "Establish a scoped policy/edition notice from the official source; record the specific allowed use and exceptions without inventing a blanket licence.",
+      "privateLocalIndexAuthorization": "Owner authorizes lawfully held text; credits remain metadata",
+      "publicPublicationAuthorized": false,
+      "sourceAliases": [
+        "source-carey-center"
+      ],
+      "acquisitionManifests": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\bulk-acquisition\\legacy-release.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB01-RB08\\consolidated-intake-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB07\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB07\\chapter-map.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB12\\chapter-map.json"
+      ]
+    },
+    {
+      "sourceId": "ccel.org",
+      "canonicalAnchor": "source-ccel-org",
+      "name": "Christian Classics Ethereal Library (CCEL)",
+      "officialChannel": "https://ccel.org/about/copyright.html",
+      "channelNote": "The official author catalogue and offered ThML/XML, TXT and other recorded editions.",
+      "heldFormats": [
+        ".html",
+        ".json",
+        ".txt",
+        ".xml",
+        "extensionless"
+      ],
+      "snapshotFileCount": 526,
+      "licenceAndCredit": "Recorded personal/educational/non-profit electronic-edition terms; underlying historical text and CCEL markup/editorial material have distinct rights. Preserve book/translator/editor and CCEL notices.",
+      "evidence": [
+        {
+          "url": "https://ccel.org/about/copyright.html",
+          "local": "content/library/reports/modern-texts/ccel-expansion-policy-evidence.json",
+          "basis": "retained policy or edition evidence"
+        }
+      ],
+      "unresolvedEvidence": null,
+      "privateLocalIndexAuthorization": "Owner authorizes lawfully held text; credits remain metadata",
+      "publicPublicationAuthorized": false,
+      "sourceAliases": [
+        "ccel",
+        "source-ccel",
+        "source-ccel-expansion"
+      ],
+      "acquisitionManifests": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\historical-text-corpora\\acquisition-results.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\letters-cited\\LC01\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\modern-texts\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\modern-texts\\ccel-expansion-results.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\pastoral-care\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\ready-text-completion\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\ready-text-completion\\historical-results.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB00\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB01-RB08\\consolidated-intake-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB01\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB01\\gill-doctrinal-divinity-coverage.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB01\\gill-practical-divinity-coverage.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB01\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB02\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB02\\source-exceptions.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB02\\study-units.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB03\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB03\\calvin-held-volumes.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB03\\candidate-holdings.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB03\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB04\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB05\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB06\\chapter-map.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB06\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB08\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB08\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB09\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB09\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB10\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB11\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB11\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB11\\treasury-holdings-limits.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB12\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB13\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB14\\held-bunyan-originals.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\text-backlog\\inventory.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\text-backlog\\ready-text-acquisition-manifest.json"
+      ]
+    },
+    {
+      "sourceId": "chapellibrary.org",
+      "canonicalAnchor": "source-chapellibrary-org",
+      "name": "Chapel Library",
+      "officialChannel": "https://www.chapellibrary.org/literature",
+      "channelNote": "Official public literature catalogue, multilingual book pages and offered EPUB/PDF download endpoints.",
+      "heldFormats": [
+        ".epub",
+        ".json",
+        ".pdf"
+      ],
+      "snapshotFileCount": 1683,
+      "licenceAndCredit": "Official freely offered ebook editions; author, publisher, editor/abridgment and translator notices remain authoritative. Free downloads are distinguished from print ordering and from a general open licence.",
+      "evidence": [
+        {
+          "url": "https://www.chapellibrary.org/literature",
+          "local": "content/library/sources.json",
+          "basis": "retained policy or edition evidence"
+        }
+      ],
+      "unresolvedEvidence": null,
+      "privateLocalIndexAuthorization": "Owner authorizes lawfully held text; credits remain metadata",
+      "publicPublicationAuthorized": false,
+      "sourceAliases": [
+        "chapel",
+        "source-chapel-library"
+      ],
+      "acquisitionManifests": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\bulk-acquisition\\legacy-release.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB01-RB08\\consolidated-intake-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB04\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB04\\chapter-map.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB04\\intake-scope.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB06\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB06\\chapter-map.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB06\\intake-scope.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB09\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB10\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB10\\bibliography.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB10\\chapter-map.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB10\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB11\\chapter-map.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB11\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB12\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB13\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB14\\acquisition-manifest.json"
+      ]
+    },
+    {
+      "sourceId": "content.cbtseminary.org",
+      "canonicalAnchor": "source-content-cbtseminary-org",
+      "name": "Covenant Baptist Theological Seminary",
+      "officialChannel": "https://content.cbtseminary.org/",
+      "channelNote": "Official offered pages/downloads actually recorded in the held-file manifests; recorded source aliases are retained in the source inventory.",
+      "heldFormats": [
+        ".html",
+        ".json"
+      ],
+      "snapshotFileCount": 14,
+      "licenceAndCredit": "No source-wide reuse licence established in the available records. Preserve named author, editor, translator, publisher/ministry and all original copyright notices; source availability is not an open licence.",
+      "evidence": [
+        {
+          "local": "content/library/reports/campaign-reconciliation/sources/official-consultations.json",
+          "url": "https://content.cbtseminary.org/",
+          "basis": "consulted_official_page_no_policy_link"
+        }
+      ],
+      "unresolvedEvidence": "Establish a scoped policy/edition notice from the official source; record the specific allowed use and exceptions without inventing a blanket licence.",
+      "privateLocalIndexAuthorization": "Owner authorizes lawfully held text; credits remain metadata",
+      "publicPublicationAuthorized": false,
+      "sourceAliases": [
+        "source-cbts"
+      ],
+      "acquisitionManifests": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB01-RB08\\consolidated-intake-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB02\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB02\\study-units.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB12\\holdings-audit.json"
+      ]
+    },
+    {
+      "sourceId": "crossway.org",
+      "canonicalAnchor": "source-crossway-org",
+      "name": "Crossway",
+      "officialChannel": "https://www.crossway.org/permissions/",
+      "channelNote": "Official public HTML pages recorded in the Kruger bibliography acquisition; these are not automatically books.",
+      "heldFormats": [
+        ".html"
+      ],
+      "snapshotFileCount": 4,
+      "licenceAndCredit": "Official permissions distinguish limited quotation from permissions required for larger reproduction/translation. The held public HTML pages retain publisher/author notices; no whole-book or blanket reuse licence is inferred.",
+      "evidence": [
+        {
+          "url": "https://www.crossway.org/permissions/",
+          "local": "content/library/reports/campaign-reconciliation/sources/evidence/crossway.org/policy.html",
+          "basis": "retained policy or edition evidence"
+        },
+        {
+          "local": "content/library/reports/campaign-reconciliation/sources/official-consultations.json",
+          "url": "https://www.crossway.org/terms/",
+          "basis": "consulted_policy_link"
+        }
+      ],
+      "unresolvedEvidence": null,
+      "privateLocalIndexAuthorization": "Owner authorizes lawfully held text; credits remain metadata",
+      "publicPublicationAuthorized": false,
+      "sourceAliases": [
+        "kruger"
+      ],
+      "acquisitionManifests": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB08\\acquisition-manifest.json"
+      ]
+    },
+    {
+      "sourceId": "crosswire.org",
+      "canonicalAnchor": "source-crosswire-org",
+      "name": "CrossWire SWORD",
+      "officialChannel": "https://www.crosswire.org/ftpmirror/pub/sword/packages/rawzip/",
+      "channelNote": "Official mods.d catalogue and rawzip packages; text exports are derivatives, not additional books.",
+      "heldFormats": [
+        ".zip"
+      ],
+      "snapshotFileCount": 102,
+      "licenceAndCredit": "Each module’s mods.d DistributionLicense and copyright/credit fields govern the module. Held declarations include public domain; there is no blanket licence for all SWORD content.",
+      "evidence": [
+        {
+          "url": "https://www.crosswire.org/ftpmirror/pub/sword/packages/rawzip/",
+          "local": "content/library/reports/reformed-baptist-overnight/RB03/acquisition-manifest.json",
+          "basis": "retained policy or edition evidence"
+        }
+      ],
+      "unresolvedEvidence": null,
+      "privateLocalIndexAuthorization": "Owner authorizes lawfully held text; credits remain metadata",
+      "publicPublicationAuthorized": false,
+      "sourceAliases": [
+        "sword"
+      ],
+      "acquisitionManifests": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB00\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB03\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB09\\acquisition-manifest.json"
+      ]
+    },
+    {
+      "sourceId": "cslewisinstitute.org",
+      "canonicalAnchor": "source-cslewisinstitute-org",
+      "name": "C. S. Lewis Institute",
+      "officialChannel": "https://www.cslewisinstitute.org/",
+      "channelNote": "Official offered pages/downloads actually recorded in the held-file manifests; recorded source aliases are retained in the source inventory.",
+      "heldFormats": [
+        ".json",
+        ".pdf"
+      ],
+      "snapshotFileCount": 18,
+      "licenceAndCredit": "No source-wide reuse licence established in the available records. Preserve named author, editor, translator, publisher/ministry and all original copyright notices; source availability is not an open licence.",
+      "evidence": [
+        {
+          "local": "content/library/reports/campaign-reconciliation/sources/official-consultations.json",
+          "url": "https://www.cslewisinstitute.org/",
+          "basis": "consulted_official_page_no_policy_link"
+        }
+      ],
+      "unresolvedEvidence": "Establish a scoped policy/edition notice from the official source; record the specific allowed use and exceptions without inventing a blanket licence.",
+      "privateLocalIndexAuthorization": "Owner authorizes lawfully held text; credits remain metadata",
+      "publicPublicationAuthorized": false,
+      "sourceAliases": [
+        "source-cs-lewis-institute"
+      ],
+      "acquisitionManifests": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\modern-texts\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\modern-texts\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\modern-texts\\packer-results.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\modern-texts\\pdf-inventory.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\ocr-completion\\pdf-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB09\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB10\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\text-backlog\\inventory.json"
+      ]
+    },
+    {
+      "sourceId": "desiringgod.org",
+      "canonicalAnchor": "source-desiringgod-org",
+      "name": "Desiring God",
+      "officialChannel": "https://www.desiringgod.org/permissions",
+      "channelNote": "Official John Piper written message/article archive, free offered books and authorized translation pages.",
+      "heldFormats": [
+        ".epub",
+        ".html",
+        ".json",
+        ".pdf"
+      ],
+      "snapshotFileCount": 14785,
+      "licenceAndCredit": "Recorded personal/noncommercial permissions for John Piper resources have exceptions; other contributors and third-party/translation editions must retain their own notices. Contributor-wide policy coverage remains incomplete.",
+      "evidence": [
+        {
+          "url": "https://www.desiringgod.org/permissions",
+          "local": "content/library/reports/modern-texts/piper-access.json",
+          "basis": "retained policy or edition evidence"
+        }
+      ],
+      "unresolvedEvidence": "Contributor/third-party and translation exceptions need edition-specific coverage; the existing Piper permission is not a grant for all contributors.",
+      "privateLocalIndexAuthorization": "Owner authorizes lawfully held text; credits remain metadata",
+      "publicPublicationAuthorized": false,
+      "sourceAliases": [
+        "desiringgod",
+        "https://banneroftruth.org/us/about/banner-authors/d-martyn-lloyd-jones/",
+        "https://store.ligonier.org/collection/sinclair-ferguson",
+        "https://www.desiringgod.org/books",
+        "https://www.monergism.com/dr-john-macarthur",
+        "piper",
+        "source-desiring-god"
+      ],
+      "acquisitionManifests": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\bulk-acquisition\\legacy-release.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\modern-texts\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\modern-texts\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\modern-texts\\pdf-inventory.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\modern-texts\\piper-books-results.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\modern-texts\\piper-results.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\modern-texts\\priority-book-holdings-check.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\ocr-completion\\font-repair.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\ocr-completion\\ocr-decisions.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\ocr-completion\\ocr-results.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\ocr-completion\\page-dispositions.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\ocr-completion\\pdf-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\ocr-completion\\triage-piper-sproul.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB03\\candidate-holdings.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB03\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB06\\chapter-map.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB06\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB07\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB08\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB08\\chapter-map.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB08\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB09\\bibliography.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB09\\chapter-map.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB09\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB10\\chapter-map.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB10\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB11\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB11\\chapter-map.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB11\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB13\\acquisition-manifest.json"
+      ]
+    },
+    {
+      "sourceId": "earlychristianwritings.com",
+      "canonicalAnchor": "source-earlychristianwritings-com",
+      "name": "Early Christian Writings",
+      "officialChannel": "https://www.earlychristianwritings.com/",
+      "channelNote": "Official offered HTML transcriptions; named Lightfoot/Roberts/Donaldson translators remain attached.",
+      "heldFormats": [
+        ".html"
+      ],
+      "snapshotFileCount": 4,
+      "licenceAndCredit": "Named historical translations are identified in the LC01 manifest; historical underlying text does not establish a blanket website/markup licence.",
+      "evidence": [
+        {
+          "url": "https://www.earlychristianwritings.com/",
+          "local": "content/library/reports/letters-cited/LC01/acquisition-manifest.json",
+          "basis": "retained policy or edition evidence"
+        },
+        {
+          "local": "content/library/reports/campaign-reconciliation/sources/official-consultations.json",
+          "url": "https://www.earlychristianwritings.com/",
+          "basis": "consulted_official_page_no_policy_link"
+        }
+      ],
+      "unresolvedEvidence": null,
+      "privateLocalIndexAuthorization": "Owner authorizes lawfully held text; credits remain metadata",
+      "publicPublicationAuthorized": false,
+      "sourceAliases": [
+        "source-early-christian-writings"
+      ],
+      "acquisitionManifests": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\letters-cited\\LC01\\acquisition-manifest.json"
+      ]
+    },
+    {
+      "sourceId": "en.wikisource.org",
+      "canonicalAnchor": "source-en-wikisource-org",
+      "name": "Wikisource",
+      "officialChannel": "https://en.wikisource.org/wiki/Wikisource:Copyright_policy",
+      "channelNote": "Official offered pages/downloads actually recorded in the held-file manifests; recorded source aliases are retained in the source inventory.",
+      "heldFormats": [
+        ".html"
+      ],
+      "snapshotFileCount": 2,
+      "licenceAndCredit": "No source-wide reuse licence established in the available records. Preserve named author, editor, translator, publisher/ministry and all original copyright notices; source availability is not an open licence.",
+      "evidence": [
+        {
+          "local": "content/library/reports/campaign-reconciliation/sources/official-consultations.json",
+          "url": "https://en.wikisource.org/wiki/Wikisource:Copyright_policy",
+          "basis": "robots_disallowed"
+        }
+      ],
+      "unresolvedEvidence": "Establish a scoped policy/edition notice from the official source; record the specific allowed use and exceptions without inventing a blanket licence.",
+      "privateLocalIndexAuthorization": "Owner authorizes lawfully held text; credits remain metadata",
+      "publicPublicationAuthorized": false,
+      "sourceAliases": [
+        "source-wikisource"
+      ],
+      "acquisitionManifests": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\letters-cited\\LC01\\acquisition-manifest.json"
+      ]
+    },
+    {
+      "sourceId": "founders.org",
+      "canonicalAnchor": "source-founders-org",
+      "name": "Founders Ministries / Founders Journal",
+      "officialChannel": "https://founders.org/journals/",
+      "channelNote": "Official journal archive, offered complete PDFs and public article/media API records.",
+      "heldFormats": [
+        ".html",
+        ".json",
+        ".pdf"
+      ],
+      "snapshotFileCount": 211,
+      "licenceAndCredit": "Recorded offered issue PDFs/HTML and historical public-domain witnesses; modern journal contributors retain copyright. Issue and contributor notices remain authoritative; no blanket open licence.",
+      "evidence": [
+        {
+          "url": "https://founders.org/journals/",
+          "local": "content/library/sources.json",
+          "basis": "retained policy or edition evidence"
+        }
+      ],
+      "unresolvedEvidence": null,
+      "privateLocalIndexAuthorization": "Owner authorizes lawfully held text; credits remain metadata",
+      "publicPublicationAuthorized": false,
+      "sourceAliases": [
+        "founders",
+        "foundersjournal",
+        "source-founders",
+        "source-founders-ministries"
+      ],
+      "acquisitionManifests": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\bulk-acquisition\\legacy-release.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB01-RB08\\consolidated-intake-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB01\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB02\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB02\\study-units.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB05\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB05\\chapter-map.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB05\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB05\\intake-scope.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB06\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB08\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB09\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB09\\bibliography.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB09\\chapter-map.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB10\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB11\\chapter-map.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB11\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB12\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB13\\acquisition-manifest.json"
+      ]
+    },
+    {
+      "sourceId": "frame-poythress.org",
+      "canonicalAnchor": "source-frame-poythress-org",
+      "name": "Frame–Poythress",
+      "officialChannel": "https://frame-poythress.org/",
+      "channelNote": "Official offered pages/downloads actually recorded in the held-file manifests; recorded source aliases are retained in the source inventory.",
+      "heldFormats": [
+        ".html",
+        ".json",
+        ".pdf"
+      ],
+      "snapshotFileCount": 12,
+      "licenceAndCredit": "No source-wide reuse licence established in the available records. Preserve named author, editor, translator, publisher/ministry and all original copyright notices; source availability is not an open licence.",
+      "evidence": [
+        {
+          "local": "content/library/reports/campaign-reconciliation/sources/official-consultations.json",
+          "url": "https://frame-poythress.org/",
+          "basis": "consulted_official_page_no_policy_link"
+        }
+      ],
+      "unresolvedEvidence": "Establish a scoped policy/edition notice from the official source; record the specific allowed use and exceptions without inventing a blanket licence.",
+      "privateLocalIndexAuthorization": "Owner authorizes lawfully held text; credits remain metadata",
+      "publicPublicationAuthorized": false,
+      "sourceAliases": [
+        "source-frame-poythress"
+      ],
+      "acquisitionManifests": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\bulk-acquisition\\legacy-release.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB09\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB09\\bibliography.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB09\\chapter-map.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB10\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB10\\bibliography.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB10\\chapter-map.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB10\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB11\\holdings-audit.json"
+      ]
+    },
+    {
+      "sourceId": "freechristianebooks.org",
+      "canonicalAnchor": "source-freechristianebooks-org",
+      "name": "Free Christian Ebooks",
+      "officialChannel": "https://www.freechristianebooks.org/",
+      "channelNote": "Official offered pages/downloads actually recorded in the held-file manifests; recorded source aliases are retained in the source inventory.",
+      "heldFormats": [
+        ".epub",
+        ".json",
+        ".pdf"
+      ],
+      "snapshotFileCount": 8,
+      "licenceAndCredit": "No source-wide reuse licence established in the available records. Preserve named author, editor, translator, publisher/ministry and all original copyright notices; source availability is not an open licence.",
+      "evidence": [
+        {
+          "local": "content/library/reports/campaign-reconciliation/sources/official-consultations.json",
+          "url": "https://www.freechristianebooks.org/",
+          "basis": "consulted_official_page_no_policy_link"
+        }
+      ],
+      "unresolvedEvidence": "Establish a scoped policy/edition notice from the official source; record the specific allowed use and exceptions without inventing a blanket licence.",
+      "privateLocalIndexAuthorization": "Owner authorizes lawfully held text; credits remain metadata",
+      "publicPublicationAuthorized": false,
+      "sourceAliases": [
+        "source-free-christian-ebooks"
+      ],
+      "acquisitionManifests": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\modern-texts\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\modern-texts\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\modern-texts\\pdf-inventory.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\modern-texts\\sproul-results.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\ocr-completion\\page-dispositions.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\ocr-completion\\pdf-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\ocr-completion\\triage-piper-sproul.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\text-backlog\\inventory.json"
+      ]
+    },
+    {
+      "sourceId": "github:lwalen",
+      "canonicalAnchor": "source-github-lwalen",
+      "name": "lwalen Second London Baptist Confession",
+      "officialChannel": "https://github.com/lwalen/lbcf/blob/235da776742a7956ebb678ec236382813dbe2c33/LICENSE",
+      "channelNote": "The pinned lwalen/lbcf public GitHub repository.",
+      "heldFormats": [
+        ".json",
+        ".md",
+        "extensionless"
+      ],
+      "snapshotFileCount": 4,
+      "licenceAndCredit": "CC0 dedication for the pinned repository witnesses; JSON and Markdown remain separate manifestations.",
+      "evidence": [
+        {
+          "url": "https://github.com/lwalen/lbcf/blob/235da776742a7956ebb678ec236382813dbe2c33/LICENSE",
+          "local": "content/library/sources.json",
+          "basis": "retained policy or edition evidence"
+        }
+      ],
+      "unresolvedEvidence": null,
+      "privateLocalIndexAuthorization": "Owner authorizes lawfully held text; credits remain metadata",
+      "publicPublicationAuthorized": false,
+      "sourceAliases": [
+        "source-lwalen-lbcf"
+      ],
+      "acquisitionManifests": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\confessional-standards\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB01\\confession-holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\text-backlog\\inventory.json"
+      ]
+    },
+    {
+      "sourceId": "github:nonlinearfruit",
+      "canonicalAnchor": "source-github-nonlinearfruit",
+      "name": "NonlinearFruit Creeds.json",
+      "officialChannel": "https://github.com/NonlinearFruit/Creeds.json/blob/2ae21a4c5387ecc91f474c9d3d67c826d2a6b9d5/README.md",
+      "channelNote": "The pinned NonlinearFruit/Creeds.json public repository.",
+      "heldFormats": [
+        ".json",
+        ".md"
+      ],
+      "snapshotFileCount": 7,
+      "licenceAndCredit": "Recorded Unlicense applies only to eligible named files; listed exceptions, including Savoy, and modern translations need their own evidence.",
+      "evidence": [
+        {
+          "url": "https://github.com/NonlinearFruit/Creeds.json/blob/2ae21a4c5387ecc91f474c9d3d67c826d2a6b9d5/README.md",
+          "local": "content/library/sources.json",
+          "basis": "retained policy or edition evidence"
+        }
+      ],
+      "unresolvedEvidence": null,
+      "privateLocalIndexAuthorization": "Owner authorizes lawfully held text; credits remain metadata",
+      "publicPublicationAuthorized": false,
+      "sourceAliases": [
+        "source-creeds-json"
+      ],
+      "acquisitionManifests": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\confessional-standards\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\ocr-completion\\text-alternatives.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB01\\confession-holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\text-backlog\\inventory.json"
+      ]
+    },
+    {
+      "sourceId": "github:textcreationpartnership",
+      "canonicalAnchor": "source-github-textcreationpartnership",
+      "name": "Text Creation Partnership (EEBO, ECCO and Evans)",
+      "officialChannel": "https://github.com/textcreationpartnership/Texts",
+      "channelNote": "The official TCP catalogue and per-text public repositories; EEBO/ECCO/Evans collection identifiers remain separate.",
+      "heldFormats": [
+        ".json",
+        ".xml",
+        "extensionless"
+      ],
+      "snapshotFileCount": 20353,
+      "licenceAndCredit": "TCP CC0-1.0 encoded transcriptions; this does not cover facsimile images. Original TEI contributor/header credits remain attached.",
+      "evidence": [
+        {
+          "url": "https://github.com/textcreationpartnership/Texts",
+          "local": "../sources/bulk-catalogues/tcp.json",
+          "basis": "retained policy or edition evidence"
+        }
+      ],
+      "unresolvedEvidence": null,
+      "privateLocalIndexAuthorization": "Owner authorizes lawfully held text; credits remain metadata",
+      "publicPublicationAuthorized": false,
+      "sourceAliases": [
+        "source-eebo-tcp",
+        "source-tcp-bulk",
+        "tcp"
+      ],
+      "acquisitionManifests": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\bulk-acquisition\\TCP\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\bulk-acquisition\\legacy-release.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\ready-text-completion\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\ready-text-completion\\historical-results.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB00\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB01-RB08\\consolidated-intake-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB01\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB02\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB02\\study-units.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB03\\candidate-holdings.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB03\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB04\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB04\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB05\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB05\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB06\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB07\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB09\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB09\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB10\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB11\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB12\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB12\\chapter-map.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB13\\acquisition-manifest.json"
+      ]
+    },
+    {
+      "sourceId": "gutenberg.org",
+      "canonicalAnchor": "source-gutenberg-org",
+      "name": "Project Gutenberg",
+      "officialChannel": "https://www.gutenberg.org/policy/license.html",
+      "channelNote": "Offline catalogue and documented robot-harvest/static mirrors; mirrorservice.org and mirrors.xmission.com are distribution channels for this source, not separate publishers.",
+      "heldFormats": [
+        ".htm",
+        ".json",
+        ".txt"
+      ],
+      "snapshotFileCount": 73,
+      "licenceAndCredit": "Recorded underlying U.S. public-domain editions plus the Project Gutenberg electronic licence/notices; do not describe the trademark or every edition as unrestricted.",
+      "evidence": [
+        {
+          "url": "https://www.gutenberg.org/policy/license.html",
+          "local": "content/library/sources.json",
+          "basis": "retained policy or edition evidence"
+        }
+      ],
+      "unresolvedEvidence": null,
+      "privateLocalIndexAuthorization": "Owner authorizes lawfully held text; credits remain metadata",
+      "publicPublicationAuthorized": false,
+      "sourceAliases": [
+        "gutenberg",
+        "source-gutenberg"
+      ],
+      "acquisitionManifests": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\bulk-acquisition\\legacy-release.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\historical-lives\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\letters-cited\\LC01\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB00\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB01-RB08\\consolidated-intake-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB06\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB07\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB07\\chapter-map.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB07\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB08\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB10\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB11\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB11\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB12\\chapter-map.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB12\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\text-backlog\\inventory.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\text-gap-batch\\acquisition-manifest.json"
+      ]
+    },
+    {
+      "sourceId": "history.hanover.edu",
+      "canonicalAnchor": "source-history-hanover-edu",
+      "name": "Hanover College Historical Texts",
+      "officialChannel": "https://history.hanover.edu/texts/",
+      "channelNote": "Official offered pages/downloads actually recorded in the held-file manifests; recorded source aliases are retained in the source inventory.",
+      "heldFormats": [
+        ".html"
+      ],
+      "snapshotFileCount": 1,
+      "licenceAndCredit": "No source-wide reuse licence established in the available records. Preserve named author, editor, translator, publisher/ministry and all original copyright notices; source availability is not an open licence.",
+      "evidence": [
+        {
+          "local": "content/library/reports/campaign-reconciliation/sources/official-consultations.json",
+          "url": "https://history.hanover.edu/texts/",
+          "basis": "invalid_robots_response"
+        }
+      ],
+      "unresolvedEvidence": "Establish a scoped policy/edition notice from the official source; record the specific allowed use and exceptions without inventing a blanket licence.",
+      "privateLocalIndexAuthorization": "Owner authorizes lawfully held text; credits remain metadata",
+      "publicPublicationAuthorized": false,
+      "sourceAliases": [
+        "source-hanover-history-texts"
+      ],
+      "acquisitionManifests": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\letters-cited\\LC01\\acquisition-manifest.json"
+      ]
+    },
+    {
+      "sourceId": "jimhamilton.info",
+      "canonicalAnchor": "source-jimhamilton-info",
+      "name": "James M. Hamilton Jr.",
+      "officialChannel": "https://jimhamilton.info/",
+      "channelNote": "Official offered pages/downloads actually recorded in the held-file manifests; recorded source aliases are retained in the source inventory.",
+      "heldFormats": [
+        ".json",
+        ".pdf"
+      ],
+      "snapshotFileCount": 4,
+      "licenceAndCredit": "No source-wide reuse licence established in the available records. Preserve named author, editor, translator, publisher/ministry and all original copyright notices; source availability is not an open licence.",
+      "evidence": [
+        {
+          "local": "content/library/reports/campaign-reconciliation/sources/official-consultations.json",
+          "url": "https://jimhamilton.info/",
+          "basis": "consulted_official_page_no_policy_link"
+        }
+      ],
+      "unresolvedEvidence": "Establish a scoped policy/edition notice from the official source; record the specific allowed use and exceptions without inventing a blanket licence.",
+      "privateLocalIndexAuthorization": "Owner authorizes lawfully held text; credits remain metadata",
+      "publicPublicationAuthorized": false,
+      "sourceAliases": [
+        "source-james-hamilton-scholarship"
+      ],
+      "acquisitionManifests": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\bulk-acquisition\\legacy-release.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB09\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB09\\bibliography.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB09\\chapter-map.json"
+      ]
+    },
+    {
+      "sourceId": "ligonier.org",
+      "canonicalAnchor": "source-ligonier-org",
+      "name": "Ligonier Ministries / Tabletalk",
+      "officialChannel": "https://www.ligonier.org/copyright-policy",
+      "channelNote": "Official Ligonier/learn pages and Tabletalk articles actually held.",
+      "heldFormats": [
+        ".html"
+      ],
+      "snapshotFileCount": 3,
+      "licenceAndCredit": "Existing policy evidence records hyperlink-based sharing and limits on re-upload/distribution, attribution, derivatives and revenue. Held Kruger HTML/Tabletalk pages retain contributor notices; no open licence is inferred.",
+      "evidence": [
+        {
+          "url": "https://www.ligonier.org/copyright-policy",
+          "local": "content/library/sources.json",
+          "basis": "retained policy or edition evidence"
+        }
+      ],
+      "unresolvedEvidence": null,
+      "privateLocalIndexAuthorization": "Owner authorizes lawfully held text; credits remain metadata",
+      "publicPublicationAuthorized": false,
+      "sourceAliases": [
+        "kruger"
+      ],
+      "acquisitionManifests": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB08\\acquisition-manifest.json"
+      ]
+    },
+    {
+      "sourceId": "london1644.info",
+      "canonicalAnchor": "source-london1644-info",
+      "name": "London 1644",
+      "officialChannel": "https://www.london1644.info/",
+      "channelNote": "Official offered pages/downloads actually recorded in the held-file manifests; recorded source aliases are retained in the source inventory.",
+      "heldFormats": [
+        ".json",
+        ".pdf"
+      ],
+      "snapshotFileCount": 2,
+      "licenceAndCredit": "No source-wide reuse licence established in the available records. Preserve named author, editor, translator, publisher/ministry and all original copyright notices; source availability is not an open licence.",
+      "evidence": [
+        {
+          "local": "content/library/reports/campaign-reconciliation/sources/official-consultations.json",
+          "url": "https://www.london1644.info/",
+          "basis": "consulted_official_page_no_policy_link"
+        }
+      ],
+      "unresolvedEvidence": "Establish a scoped policy/edition notice from the official source; record the specific allowed use and exceptions without inventing a blanket licence.",
+      "privateLocalIndexAuthorization": "Owner authorizes lawfully held text; credits remain metadata",
+      "publicPublicationAuthorized": false,
+      "sourceAliases": [
+        "source-london1644"
+      ],
+      "acquisitionManifests": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB01-RB08\\consolidated-intake-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB01\\acquisition-manifest.json"
+      ]
+    },
+    {
+      "sourceId": "lwf.org",
+      "canonicalAnchor": "source-lwf-org",
+      "name": "Love Worth Finding",
+      "officialChannel": "https://www.lwf.org/about-us/contact-us/copyright-information",
+      "channelNote": "Official offered transcript/resource PDFs.",
+      "heldFormats": [
+        ".json",
+        ".pdf"
+      ],
+      "snapshotFileCount": 1220,
+      "licenceAndCredit": "Recorded offered private reading copies; retain Adrian Rogers and Love Worth Finding copyright/credit notices. No open licence or broader redistribution grant is inferred.",
+      "evidence": [
+        {
+          "url": "https://www.lwf.org/about-us/contact-us/copyright-information",
+          "local": "content/library/reports/modern-texts/rogers-access.json",
+          "basis": "retained policy or edition evidence"
+        }
+      ],
+      "unresolvedEvidence": null,
+      "privateLocalIndexAuthorization": "Owner authorizes lawfully held text; credits remain metadata",
+      "publicPublicationAuthorized": false,
+      "sourceAliases": [
+        "rogers",
+        "source-love-worth-finding"
+      ],
+      "acquisitionManifests": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\modern-texts\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\modern-texts\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\modern-texts\\pdf-inventory.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\modern-texts\\priority-book-holdings-check.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\modern-texts\\rogers-results.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\ocr-completion\\page-dispositions.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\ocr-completion\\pdf-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\ocr-completion\\triage-rogers-graham.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\text-backlog\\inventory.json"
+      ]
+    },
+    {
+      "sourceId": "michaeljkruger.com",
+      "canonicalAnchor": "source-michaeljkruger-com",
+      "name": "Michael J. Kruger / Canon Fodder",
+      "officialChannel": "https://michaeljkruger.com/",
+      "channelNote": "Official offered pages/downloads actually recorded in the held-file manifests; recorded source aliases are retained in the source inventory.",
+      "heldFormats": [
+        ".html",
+        ".json"
+      ],
+      "snapshotFileCount": 675,
+      "licenceAndCredit": "No source-wide reuse licence established in the available records. Preserve named author, editor, translator, publisher/ministry and all original copyright notices; source availability is not an open licence.",
+      "evidence": [
+        {
+          "local": "content/library/reports/campaign-reconciliation/sources/official-consultations.json",
+          "url": "https://michaeljkruger.com/",
+          "basis": "consultation_failed"
+        }
+      ],
+      "unresolvedEvidence": "Establish a scoped policy/edition notice from the official source; record the specific allowed use and exceptions without inventing a blanket licence.",
+      "privateLocalIndexAuthorization": "Owner authorizes lawfully held text; credits remain metadata",
+      "publicPublicationAuthorized": false,
+      "sourceAliases": [
+        "kruger",
+        "source-canon-fodder"
+      ],
+      "acquisitionManifests": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\bulk-acquisition\\legacy-release.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB01-RB08\\consolidated-intake-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB08\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB08\\bibliography.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB08\\chapter-map.json"
+      ]
+    },
+    {
+      "sourceId": "monergism.com",
+      "canonicalAnchor": "source-monergism-com",
+      "name": "Monergism",
+      "officialChannel": "https://www.monergism.com/monergism-copyright-permissions",
+      "channelNote": "Official complete free-ebook index and offered EPUB/PDF files; the whole-library page was checked and exposed no active ZIP link.",
+      "heldFormats": [
+        ".epub",
+        ".html",
+        ".json"
+      ],
+      "snapshotFileCount": 3188,
+      "licenceAndCredit": "Recorded freely offered personal study, family, church and classroom reading editions; restrictions on external republication and curated external corpora remain recorded. Preserve publisher, original author and edition notices.",
+      "evidence": [
+        {
+          "url": "https://www.monergism.com/monergism-copyright-permissions",
+          "local": "content/library/reports/modern-texts/monergism-library-policy-evidence.json",
+          "basis": "retained policy or edition evidence"
+        }
+      ],
+      "unresolvedEvidence": null,
+      "privateLocalIndexAuthorization": "Owner authorizes lawfully held text; credits remain metadata",
+      "publicPublicationAuthorized": false,
+      "sourceAliases": [
+        "monergism",
+        "source-monergism",
+        "source-monergism-library"
+      ],
+      "acquisitionManifests": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\bulk-acquisition\\legacy-release.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\historical-text-corpora\\acquisition-results.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\modern-texts\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\modern-texts\\monergism-library-results.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\modern-texts\\ready-library-results.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\ocr-completion\\text-alternatives.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB01-RB08\\consolidated-intake-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB01\\confession-holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB01\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB02\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB02\\study-units.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB03\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB03\\candidate-holdings.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB03\\henry-primary-doctrinal-witness.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB03\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB03\\reused-expositions.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB04\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB04\\chapter-map.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB04\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB04\\intake-scope.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB05\\chapter-map.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB05\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB06\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB06\\chapter-map.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB06\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB06\\intake-scope.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB07\\chapter-map.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB07\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB08\\chapter-map.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB08\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB09\\bibliography.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB09\\chapter-map.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB09\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB10\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB10\\chapter-map.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB10\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB11\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB11\\chapter-map.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB11\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB11\\treasury-holdings-limits.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB12\\chapter-map.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB12\\holdings-audit.json"
+      ]
+    },
+    {
+      "sourceId": "onthewing.org",
+      "canonicalAnchor": "source-onthewing-org",
+      "name": "On the Wing",
+      "officialChannel": "https://www.onthewing.org/Copyright.html",
+      "channelNote": "Official offered text/PDF reading editions.",
+      "heldFormats": [
+        ".json",
+        ".pdf"
+      ],
+      "snapshotFileCount": 2,
+      "licenceAndCredit": "The official notice permits free personal use and prohibits sale for profit, with some reimbursement restrictions. It describes its modernization of public-domain works as public domain while requiring no modification, sale, fundraising or false authorship claims. Preserve the author, modernizer and original notice.",
+      "evidence": [
+        {
+          "url": "https://www.onthewing.org/Copyright.html",
+          "local": "content/library/reports/campaign-reconciliation/sources/evidence/onthewing.org/policy.html",
+          "basis": "retained policy or edition evidence"
+        },
+        {
+          "local": "content/library/reports/campaign-reconciliation/sources/official-consultations.json",
+          "url": "https://www.onthewing.org/",
+          "basis": "consulted_policy_link"
+        }
+      ],
+      "unresolvedEvidence": null,
+      "privateLocalIndexAuthorization": "Owner authorizes lawfully held text; credits remain metadata",
+      "publicPublicationAuthorized": false,
+      "sourceAliases": [
+        "source-on-the-wing"
+      ],
+      "acquisitionManifests": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\bulk-acquisition\\legacy-release.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB12\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB12\\chapter-map.json"
+      ]
+    },
+    {
+      "sourceId": "penelope.uchicago.edu",
+      "canonicalAnchor": "source-penelope-uchicago-edu",
+      "name": "LacusCurtius",
+      "officialChannel": "https://penelope.uchicago.edu/Thayer/E/Roman/home.html",
+      "channelNote": "LacusCurtius official HTML historical texts.",
+      "heldFormats": [
+        ".html"
+      ],
+      "snapshotFileCount": 1,
+      "licenceAndCredit": "The LC01 record identifies the historical 1914 Rolfe translation and local reading copy; host presentation and notices remain separate from underlying text rights.",
+      "evidence": [
+        {
+          "url": "https://penelope.uchicago.edu/Thayer/E/Roman/home.html",
+          "local": "content/library/reports/letters-cited/LC01/acquisition-manifest.json",
+          "basis": "retained policy or edition evidence"
+        },
+        {
+          "local": "content/library/reports/campaign-reconciliation/sources/official-consultations.json",
+          "url": "https://penelope.uchicago.edu/Thayer/E/Roman/home.html",
+          "basis": "consulted_policy_link"
+        }
+      ],
+      "unresolvedEvidence": null,
+      "privateLocalIndexAuthorization": "Owner authorizes lawfully held text; credits remain metadata",
+      "publicPublicationAuthorized": false,
+      "sourceAliases": [
+        "source-lacuscurtius"
+      ],
+      "acquisitionManifests": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\letters-cited\\LC01\\acquisition-manifest.json"
+      ]
+    },
+    {
+      "sourceId": "reformedontheweb.com",
+      "canonicalAnchor": "source-reformedontheweb-com",
+      "name": "Reformed on the Web",
+      "officialChannel": "https://www.reformedontheweb.com/",
+      "channelNote": "Official offered pages/downloads actually recorded in the held-file manifests; recorded source aliases are retained in the source inventory.",
+      "heldFormats": [
+        ".json",
+        ".pdf"
+      ],
+      "snapshotFileCount": 4,
+      "licenceAndCredit": "No source-wide reuse licence established in the available records. Preserve named author, editor, translator, publisher/ministry and all original copyright notices; source availability is not an open licence.",
+      "evidence": [
+        {
+          "local": "content/library/reports/campaign-reconciliation/sources/official-consultations.json",
+          "url": "https://www.reformedontheweb.com/",
+          "basis": "official_page_unavailable"
+        }
+      ],
+      "unresolvedEvidence": "Establish a scoped policy/edition notice from the official source; record the specific allowed use and exceptions without inventing a blanket licence.",
+      "privateLocalIndexAuthorization": "Owner authorizes lawfully held text; credits remain metadata",
+      "publicPublicationAuthorized": false,
+      "sourceAliases": [
+        "source-reformed-on-the-web"
+      ],
+      "acquisitionManifests": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB01-RB08\\consolidated-intake-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB02\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB02\\study-units.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB04\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB12\\holdings-audit.json"
+      ]
+    },
+    {
+      "sourceId": "reformedreader.org",
+      "canonicalAnchor": "source-reformedreader-org",
+      "name": "The Reformed Reader",
+      "officialChannel": "https://www.reformedreader.org/",
+      "channelNote": "Official offered pages/downloads actually recorded in the held-file manifests; recorded source aliases are retained in the source inventory.",
+      "heldFormats": [
+        ".html",
+        ".json"
+      ],
+      "snapshotFileCount": 180,
+      "licenceAndCredit": "No source-wide reuse licence established in the available records. Preserve named author, editor, translator, publisher/ministry and all original copyright notices; source availability is not an open licence.",
+      "evidence": [
+        {
+          "local": "content/library/reports/campaign-reconciliation/sources/official-consultations.json",
+          "url": "https://www.reformedreader.org/",
+          "basis": "consulted_official_page_no_policy_link"
+        }
+      ],
+      "unresolvedEvidence": "Establish a scoped policy/edition notice from the official source; record the specific allowed use and exceptions without inventing a blanket licence.",
+      "privateLocalIndexAuthorization": "Owner authorizes lawfully held text; credits remain metadata",
+      "publicPublicationAuthorized": false,
+      "sourceAliases": [
+        "source-reformed-reader"
+      ],
+      "acquisitionManifests": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\bulk-acquisition\\legacy-release.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB01-RB08\\consolidated-intake-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB01\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB05\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB06\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB08\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB10\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB11\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB12\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB12\\chapter-map.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB12\\holdings-audit.json"
+      ]
+    },
+    {
+      "sourceId": "romans45.org",
+      "canonicalAnchor": "source-romans45-org",
+      "name": "Phil Johnson’s Bookmarks / Romans45",
+      "officialChannel": "https://www.romans45.org/",
+      "channelNote": "Official offered pages/downloads actually recorded in the held-file manifests; recorded source aliases are retained in the source inventory.",
+      "heldFormats": [
+        ".html",
+        ".json"
+      ],
+      "snapshotFileCount": 4,
+      "licenceAndCredit": "No source-wide reuse licence established in the available records. Preserve named author, editor, translator, publisher/ministry and all original copyright notices; source availability is not an open licence.",
+      "evidence": [
+        {
+          "local": "content/library/reports/campaign-reconciliation/sources/official-consultations.json",
+          "url": "https://www.romans45.org/",
+          "basis": "consulted_official_page_no_policy_link"
+        }
+      ],
+      "unresolvedEvidence": "Establish a scoped policy/edition notice from the official source; record the specific allowed use and exceptions without inventing a blanket licence.",
+      "privateLocalIndexAuthorization": "Owner authorizes lawfully held text; credits remain metadata",
+      "publicPublicationAuthorized": false,
+      "sourceAliases": [
+        "source-romans45"
+      ],
+      "acquisitionManifests": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB01-RB08\\consolidated-intake-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB01\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB12\\chapter-map.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB12\\holdings-audit.json"
+      ]
+    },
+    {
+      "sourceId": "sermonindex.net",
+      "canonicalAnchor": "source-sermonindex-net",
+      "name": "SermonIndex",
+      "officialChannel": "https://www.sermonindex.net/md/copying-permissions/",
+      "channelNote": "Official held written sermon page; an archive index is not itself a downloaded sermon corpus.",
+      "heldFormats": [
+        ".html",
+        ".json"
+      ],
+      "snapshotFileCount": 2,
+      "licenceAndCredit": "The official policy describes free personal/ministry and noncommercial sharing use; commercial packaging/sale is excluded. Retain each preacher/source identity and message integrity.",
+      "evidence": [
+        {
+          "url": "https://www.sermonindex.net/md/copying-permissions/",
+          "local": "content/library/reports/campaign-reconciliation/sources/evidence/sermonindex.net/policy.html",
+          "basis": "retained policy or edition evidence"
+        },
+        {
+          "local": "content/library/reports/campaign-reconciliation/sources/official-consultations.json",
+          "url": "https://www.sermonindex.net/",
+          "basis": "consulted_policy_link"
+        }
+      ],
+      "unresolvedEvidence": null,
+      "privateLocalIndexAuthorization": "Owner authorizes lawfully held text; credits remain metadata",
+      "publicPublicationAuthorized": false,
+      "sourceAliases": [
+        "source-sermonindex"
+      ],
+      "acquisitionManifests": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB01-RB08\\consolidated-intake-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB05\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB05\\chapter-map.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB05\\intake-scope.json"
+      ]
+    },
+    {
+      "sourceId": "spurgeongems.org",
+      "canonicalAnchor": "source-spurgeongems-org",
+      "name": "Spurgeon Gems",
+      "officialChannel": "https://www.spurgeongems.org/about-us/",
+      "channelNote": "Official individual sermons, collected volume PDFs and Spanish translation catalogue.",
+      "heldFormats": [
+        ".html",
+        ".json",
+        ".pdf",
+        ".txt"
+      ],
+      "snapshotFileCount": 7757,
+      "licenceAndCredit": "Recorded free, unchanged, attributed use; restricted permission rather than an unrestricted open licence. Preserve Spurgeon/source credit, numbered sermon identity, guest authors and named translators.",
+      "evidence": [
+        {
+          "url": "https://www.spurgeongems.org/about-us/",
+          "local": "content/library/reports/spurgeon/source-access.json",
+          "basis": "retained policy or edition evidence"
+        }
+      ],
+      "unresolvedEvidence": null,
+      "privateLocalIndexAuthorization": "Owner authorizes lawfully held text; credits remain metadata",
+      "publicPublicationAuthorized": false,
+      "sourceAliases": [
+        "https://media.billygraham.org/billy-graham-biography/",
+        "https://store.ligonier.org/collection/sinclair-ferguson",
+        "https://store.thegospelcoalition.org/authors/246/alistair-begg",
+        "https://www.desiringgod.org/books",
+        "https://www.eerdmans.com/author/john-murray/",
+        "source-spurgeon-gems",
+        "spurgeon-translations"
+      ],
+      "acquisitionManifests": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\modern-texts\\priority-book-holdings-check.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\ocr-completion\\page-dispositions.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\ocr-completion\\pdf-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB14\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\spurgeon\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\text-backlog\\inventory.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\text-backlog\\pdf-text-checks.json"
+      ]
+    },
+    {
+      "sourceId": "thecalvinist.net",
+      "canonicalAnchor": "source-thecalvinist-net",
+      "name": "The Calvinist",
+      "officialChannel": "https://thecalvinist.net/",
+      "channelNote": "Official offered pages/downloads actually recorded in the held-file manifests; recorded source aliases are retained in the source inventory.",
+      "heldFormats": [
+        ".json",
+        ".pdf"
+      ],
+      "snapshotFileCount": 2,
+      "licenceAndCredit": "No source-wide reuse licence established in the available records. Preserve named author, editor, translator, publisher/ministry and all original copyright notices; source availability is not an open licence.",
+      "evidence": [
+        {
+          "local": "content/library/reports/campaign-reconciliation/sources/official-consultations.json",
+          "url": "https://thecalvinist.net/",
+          "basis": "consulted_official_page_no_policy_link"
+        }
+      ],
+      "unresolvedEvidence": "Establish a scoped policy/edition notice from the official source; record the specific allowed use and exceptions without inventing a blanket licence.",
+      "privateLocalIndexAuthorization": "Owner authorizes lawfully held text; credits remain metadata",
+      "publicPublicationAuthorized": false,
+      "sourceAliases": [
+        "source-thecalvinist"
+      ],
+      "acquisitionManifests": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB01-RB08\\consolidated-intake-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB02\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB02\\study-units.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB03\\candidate-holdings.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB03\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB04\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB05\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB09\\holdings-audit.json"
+      ]
+    },
+    {
+      "sourceId": "thegospelcoalition.org",
+      "canonicalAnchor": "source-thegospelcoalition-org",
+      "name": "The Gospel Coalition / Themelios",
+      "officialChannel": "https://thegospelcoalition.org/",
+      "channelNote": "Official offered pages/downloads actually recorded in the held-file manifests; recorded source aliases are retained in the source inventory.",
+      "heldFormats": [
+        ".html",
+        ".json",
+        ".pdf"
+      ],
+      "snapshotFileCount": 755,
+      "licenceAndCredit": "No source-wide reuse licence established in the available records. Preserve named author, editor, translator, publisher/ministry and all original copyright notices; source availability is not an open licence.",
+      "evidence": [],
+      "unresolvedEvidence": "Establish a scoped policy/edition notice from the official source; record the specific allowed use and exceptions without inventing a blanket licence.",
+      "privateLocalIndexAuthorization": "Owner authorizes lawfully held text; credits remain metadata",
+      "publicPublicationAuthorized": false,
+      "sourceAliases": [
+        "https://store.ligonier.org/collection/sinclair-ferguson",
+        "https://www.monergism.com/dr-john-macarthur",
+        "https://www.thegospelcoalition.org/article/d-a-carsons-publications/",
+        "kruger",
+        "source-gospel-coalition",
+        "source-tgc-themelios"
+      ],
+      "acquisitionManifests": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\bulk-acquisition\\legacy-release.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\modern-texts\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\modern-texts\\pdf-inventory.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\modern-texts\\priority-book-holdings-check.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\modern-texts\\ready-library-results.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\ocr-completion\\magazine-corrected-regions.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\ocr-completion\\ocr-decisions.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\ocr-completion\\ocr-results.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\ocr-completion\\page-dispositions.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\ocr-completion\\pdf-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\ocr-completion\\text-alternatives.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\ocr-completion\\tgc-font-repair.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\ocr-completion\\tgc-remaining-triage.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\ocr-completion\\triage-tgc-7c35-page3.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\ocr-completion\\triage-tgc-first.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\ocr-completion\\triage-tgc-second.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB06\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB08\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB08\\chapter-map.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB08\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB09\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB10\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB11\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB12\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB12\\chapter-map.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB12\\holdings-audit.json"
+      ]
+    },
+    {
+      "sourceId": "truthforlife.org",
+      "canonicalAnchor": "source-truthforlife-org",
+      "name": "Truth For Life",
+      "officialChannel": "https://www.truthforlife.org/about/policies/",
+      "channelNote": "Official written sermon/resource pages and offered reading files; bibliographic pages are not automatically complete transcripts.",
+      "heldFormats": [
+        ".html",
+        ".json",
+        "extensionless"
+      ],
+      "snapshotFileCount": 3066,
+      "licenceAndCredit": "Recorded private noncommercial reading copies; preserve Alistair Begg, ministry and publication notices. No public hosting or AI-training permission is inferred.",
+      "evidence": [
+        {
+          "url": "https://www.truthforlife.org/about/policies/",
+          "local": "content/library/reports/modern-texts/begg-policy-evidence.json",
+          "basis": "retained policy or edition evidence"
+        }
+      ],
+      "unresolvedEvidence": null,
+      "privateLocalIndexAuthorization": "Owner authorizes lawfully held text; credits remain metadata",
+      "publicPublicationAuthorized": false,
+      "sourceAliases": [
+        "source-begg",
+        "source-truth-for-life"
+      ],
+      "acquisitionManifests": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\modern-texts\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\modern-texts\\begg-results.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\ready-text-completion\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\ready-text-completion\\begg-letters-results.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\ready-text-completion\\begg-titus-results.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB03\\candidate-holdings.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB06\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB08\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB09\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB10\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB11\\holdings-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB12\\holdings-audit.json"
+      ]
+    },
+    {
+      "sourceId": "tyndale.tms.edu",
+      "canonicalAnchor": "source-tyndale-tms-edu",
+      "name": "The Master’s Seminary Journal",
+      "officialChannel": "https://tyndale.tms.edu/",
+      "channelNote": "Official offered pages/downloads actually recorded in the held-file manifests; recorded source aliases are retained in the source inventory.",
+      "heldFormats": [
+        ".json",
+        ".pdf"
+      ],
+      "snapshotFileCount": 2,
+      "licenceAndCredit": "No source-wide reuse licence established in the available records. Preserve named author, editor, translator, publisher/ministry and all original copyright notices; source availability is not an open licence.",
+      "evidence": [
+        {
+          "local": "content/library/reports/campaign-reconciliation/sources/official-consultations.json",
+          "url": "https://tyndale.tms.edu/",
+          "basis": "consulted_official_page_no_policy_link"
+        }
+      ],
+      "unresolvedEvidence": "Establish a scoped policy/edition notice from the official source; record the specific allowed use and exceptions without inventing a blanket licence.",
+      "privateLocalIndexAuthorization": "Owner authorizes lawfully held text; credits remain metadata",
+      "publicPublicationAuthorized": false,
+      "sourceAliases": [
+        "source-masters-seminary-journal"
+      ],
+      "acquisitionManifests": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\bulk-acquisition\\legacy-release.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB01-RB08\\consolidated-intake-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB08\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB08\\bibliography.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB08\\chapter-map.json"
+      ]
+    },
+    {
+      "sourceId": "tyndalebulletin.org",
+      "canonicalAnchor": "source-tyndalebulletin-org",
+      "name": "Tyndale Bulletin",
+      "officialChannel": "https://www.tyndalebulletin.org/",
+      "channelNote": "Official offered pages/downloads actually recorded in the held-file manifests; recorded source aliases are retained in the source inventory.",
+      "heldFormats": [
+        ".json",
+        ".pdf"
+      ],
+      "snapshotFileCount": 2,
+      "licenceAndCredit": "No source-wide reuse licence established in the available records. Preserve named author, editor, translator, publisher/ministry and all original copyright notices; source availability is not an open licence.",
+      "evidence": [
+        {
+          "local": "content/library/reports/campaign-reconciliation/sources/official-consultations.json",
+          "url": "https://www.tyndalebulletin.org/",
+          "basis": "consulted_official_page_no_policy_link"
+        }
+      ],
+      "unresolvedEvidence": "Establish a scoped policy/edition notice from the official source; record the specific allowed use and exceptions without inventing a blanket licence.",
+      "privateLocalIndexAuthorization": "Owner authorizes lawfully held text; credits remain metadata",
+      "publicPublicationAuthorized": false,
+      "sourceAliases": [
+        "source-tyndale-bulletin"
+      ],
+      "acquisitionManifests": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\bulk-acquisition\\legacy-release.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB01-RB08\\consolidated-intake-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB08\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB08\\bibliography.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB08\\chapter-map.json"
+      ]
+    },
+    {
+      "sourceId": "zwemercenter.com",
+      "canonicalAnchor": "source-zwemercenter-com",
+      "name": "Zwemer Center for Muslim Studies",
+      "officialChannel": "https://www.zwemercenter.com/",
+      "channelNote": "Official historic book PDFs, with impression and source notices preserved.",
+      "heldFormats": [
+        ".pdf"
+      ],
+      "snapshotFileCount": 3,
+      "licenceAndCredit": "Three historic PDFs were officially offered for reading/download; two dated editions have recorded U.S. public-domain assessments. The undated ATS impression retains a narrower download-permission record and unresolved public reuse.",
+      "evidence": [
+        {
+          "url": "https://www.zwemercenter.com/",
+          "local": "content/library/reports/islam-studies/acquisition-manifest.json",
+          "basis": "retained policy or edition evidence"
+        },
+        {
+          "local": "content/library/reports/campaign-reconciliation/sources/official-consultations.json",
+          "url": "https://www.zwemercenter.com/",
+          "basis": "consulted_official_page_no_policy_link"
+        }
+      ],
+      "unresolvedEvidence": null,
+      "privateLocalIndexAuthorization": "Owner authorizes lawfully held text; credits remain metadata",
+      "publicPublicationAuthorized": false,
+      "sourceAliases": [
+        "source-zwemer-center"
+      ],
+      "acquisitionManifests": [
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\islam-studies\\acquisition-manifest.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\ocr-completion\\page-dispositions.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\ocr-completion\\pdf-audit.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\ocr-completion\\triage-rogers-graham.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\text-backlog\\inventory.json",
+        "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\text-backlog\\pdf-text-checks.json"
+      ]
+    },
+    {
+      "sourceId": "ebible",
+      "name": "eBible.org",
+      "officialChannel": "https://ebible.org/",
+      "heldFormats": "USFM/USFX and edition copr.htm notices",
+      "licenceAndCredit": "Edition-specific copr.htm is authoritative: recorded public-domain declarations, Hindi IRV CC BY-SA 4.0, and separate annotation/edition qualifications remain intact. Credit each translation and its named rights holder.",
+      "evidence": [
+        {
+          "local": "../sources/ebible/",
+          "basis": "historical source/component records"
+        }
+      ],
+      "publicPublicationAuthorized": false,
+      "unresolvedEvidence": null,
+      "stocktakeLibrarySource": false
+    },
+    {
+      "sourceId": "openbible",
+      "name": "OpenBible.info",
+      "officialChannel": "https://www.openbible.info/",
+      "heldFormats": "cross-reference TSV/ZIP, geographical data and topic-score ZIP",
+      "licenceAndCredit": "Recorded cross-references/topics CC BY; geographical dataset CC BY 4.0. Credit OpenBible.info. Topic verse quotations do not inherit dataset permission.",
+      "evidence": [
+        {
+          "local": "../sources/openbible/",
+          "basis": "historical source/component records"
+        }
+      ],
+      "publicPublicationAuthorized": false,
+      "unresolvedEvidence": null,
+      "stocktakeLibrarySource": false
+    },
+    {
+      "sourceId": "stepbible",
+      "name": "STEPBible Data",
+      "officialChannel": "https://github.com/STEPBible/STEPBible-Data",
+      "heldFormats": "TIPNR proper-name/reference TXT",
+      "licenceAndCredit": "Recorded CC BY 4.0 source data; retain STEP Bible / Tyndale House credit and the dataset licence/header.",
+      "evidence": [
+        {
+          "local": "../sources/stepbible/",
+          "basis": "historical source/component records"
+        }
+      ],
+      "publicPublicationAuthorized": false,
+      "unresolvedEvidence": null,
+      "stocktakeLibrarySource": false
+    },
+    {
+      "sourceId": "theographic",
+      "name": "Theographic Bible Metadata",
+      "officialChannel": "https://github.com/robertrouse/theographic-bible-metadata",
+      "heldFormats": "repository ZIP/CSV/JSON",
+      "licenceAndCredit": "Recorded CC BY-SA 4.0; credit Robert Rouse/Theographic and retain share-alike notice.",
+      "evidence": [
+        {
+          "local": "../sources/theographic/theographic-bible-metadata-master/LICENSE",
+          "basis": "historical source/component records"
+        }
+      ],
+      "publicPublicationAuthorized": false,
+      "unresolvedEvidence": null,
+      "stocktakeLibrarySource": false
+    },
+    {
+      "sourceId": "openscriptures",
+      "name": "Open Scriptures",
+      "officialChannel": "https://github.com/openscriptures",
+      "heldFormats": "Strong’s/Hebrew lexicon ZIP/XML and Hebrew annotation data",
+      "licenceAndCredit": "Recorded Strong’s text public domain; HebrewLexicon edition CC BY 4.0; separate Hebrew annotation data CC BY-SA. Preserve the specific dataset licence rather than extending one across the organization.",
+      "evidence": [
+        {
+          "local": "../sources/openscriptures/",
+          "basis": "historical source/component records"
+        }
+      ],
+      "publicPublicationAuthorized": false,
+      "unresolvedEvidence": null,
+      "stocktakeLibrarySource": false
+    },
+    {
+      "sourceId": "nasa",
+      "name": "NASA GIBS / Blue Marble",
+      "officialChannel": "https://earthdata.nasa.gov/",
+      "heldFormats": "JPG imagery and request records",
+      "licenceAndCredit": "Recorded NASA public-domain imagery; retain NASA/Blue Marble attribution and request provenance. This is imagery, not library prose.",
+      "evidence": [
+        {
+          "local": "../sources/nasa-bluemarble/",
+          "basis": "historical source/component records"
+        }
+      ],
+      "publicPublicationAuthorized": false,
+      "unresolvedEvidence": null,
+      "stocktakeLibrarySource": false
+    },
+    {
+      "sourceId": "osm-protomaps",
+      "name": "OpenStreetMap / Protomaps distribution",
+      "officialChannel": "https://www.openstreetmap.org/copyright",
+      "heldFormats": "PMTiles, map extracts, fonts and sprites",
+      "licenceAndCredit": "Recorded map data ODbL 1.0: © OpenStreetMap contributors; Protomaps distribution credit. Fonts SIL OFL, icons MIT and code licences are separate. This is mapping data, not book acquisition.",
+      "evidence": [
+        {
+          "local": "../AtlasTiles/README.md",
+          "basis": "historical source/component records"
+        }
+      ],
+      "publicPublicationAuthorized": false,
+      "unresolvedEvidence": null,
+      "stocktakeLibrarySource": false
+    },
+    {
+      "sourceId": "natural-earth",
+      "name": "Natural Earth",
+      "officialChannel": "https://www.naturalearthdata.com/about/terms-of-use/",
+      "heldFormats": "GeoJSON world outlines",
+      "licenceAndCredit": "Recorded public-domain geography; retain source attribution. This is map geometry, not library prose.",
+      "evidence": [
+        {
+          "local": "content/library/reports/campaign-reconciliation/sources/HISTORICAL-SOURCES.md",
+          "basis": "historical source/component records"
+        }
+      ],
+      "publicPublicationAuthorized": false,
+      "unresolvedEvidence": null,
+      "stocktakeLibrarySource": false
+    },
+    {
+      "sourceId": "qwen-model",
+      "name": "Qwen embedding model",
+      "officialChannel": "https://huggingface.co/Qwen/Qwen3-Embedding-4B",
+      "heldFormats": "cached model weights/tokenizer",
+      "licenceAndCredit": "Apache-2.0 model; current local configuration identifies Qwen3-Embedding-4B and its pinned revision. Retain model identity/licence. Model weights are implementation assets, not acquired theology texts.",
+      "evidence": [
+        {
+          "local": "knowledge/config.json",
+          "basis": "historical source/component records"
+        }
+      ],
+      "publicPublicationAuthorized": false,
+      "unresolvedEvidence": null,
+      "stocktakeLibrarySource": false
+    },
+    {
+      "sourceId": "lancedb-engine",
+      "name": "LanceDB search engine",
+      "officialChannel": "https://github.com/lancedb/lancedb",
+      "heldFormats": "installed search software",
+      "licenceAndCredit": "Recorded Apache-2.0 core; preserve component licence notices. Software installation is not a book or text acquisition.",
+      "evidence": [
+        {
+          "local": "knowledge/README.md",
+          "basis": "historical source/component records"
+        }
+      ],
+      "publicPublicationAuthorized": false,
+      "unresolvedEvidence": null,
+      "stocktakeLibrarySource": false
+    },
+    {
+      "sourceId": "granite-model",
+      "name": "IBM Granite browser embedding model",
+      "officialChannel": "https://huggingface.co/ibm-granite/granite-embedding-small-english-r2",
+      "heldFormats": "int8 ONNX weights/tokenizer and browser model pack",
+      "licenceAndCredit": "Recorded Apache-2.0 model and onnx-community conversion; retain both model/conversion identities, revision and licence. This is a software/model asset, not library prose.",
+      "evidence": [
+        {
+          "local": "../MeaningPack/",
+          "basis": "historical source/component records"
+        }
+      ],
+      "publicPublicationAuthorized": false,
+      "unresolvedEvidence": null,
+      "stocktakeLibrarySource": false
+    },
+    {
+      "sourceId": "onnx-runtime",
+      "name": "ONNX Runtime Web",
+      "officialChannel": "https://github.com/microsoft/onnxruntime",
+      "heldFormats": "browser JavaScript/WASM engine",
+      "licenceAndCredit": "Recorded MIT runtime; retain Microsoft/component licence notices. This is an implementation asset, not an acquired book.",
+      "evidence": [
+        {
+          "local": "../MeaningPack/",
+          "basis": "historical source/component records"
+        }
+      ],
+      "publicPublicationAuthorized": false,
+      "unresolvedEvidence": null,
+      "stocktakeLibrarySource": false
+    },
+    {
+      "sourceId": "transformers-js",
+      "name": "Hugging Face Transformers.js",
+      "officialChannel": "https://github.com/huggingface/transformers.js",
+      "heldFormats": "installed browser tokenizer/runtime package",
+      "licenceAndCredit": "Recorded Apache-2.0 package; retain component licence notices. Software is not a theological source or acquired book.",
+      "evidence": [
+        {
+          "local": "content/library/reports/campaign-reconciliation/sources/HISTORICAL-SOURCES.md",
+          "basis": "historical source/component records"
+        }
+      ],
+      "publicPublicationAuthorized": false,
+      "unresolvedEvidence": null,
+      "stocktakeLibrarySource": false
+    },
+    {
+      "sourceId": "owner-selection",
+      "name": "Owner’s CypherPunk Faith selection",
+      "officialChannel": "local owner repository",
+      "heldFormats": "JSON snapshots of names and approved groupings",
+      "licenceAndCredit": "Owner-authored selection; public-domain historical reference inputs retain their own identities. No third-party open licence is invented for the owner’s compilation.",
+      "evidence": [
+        {
+          "local": "../sources/cypherpunk-faith/",
+          "basis": "historical source/component records"
+        }
+      ],
+      "publicPublicationAuthorized": false,
+      "unresolvedEvidence": null,
+      "stocktakeLibrarySource": false
+    }
+  ]
+}

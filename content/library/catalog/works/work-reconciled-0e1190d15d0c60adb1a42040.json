@@ -1,0 +1,43 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-reconciled-0e1190d15d0c60adb1a42040",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "title": "Bunyan's grace abounding to the chief of sinners : heart's ease in heart trouble, the world to come, or visions of heaven and hell and the barren fig tree",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-john-bunyan",
+      "role": "author"
+    }
+  ],
+  "genre": "treatise",
+  "role": "core-teaching",
+  "collections": [],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [],
+  "depth": "unknown",
+  "era": "unknown",
+  "dates": [],
+  "passages": [],
+  "related": [],
+  "externalIds": {
+    "source-internet-archive": [
+      "ia:bunyansgraceabou00buny"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bunyansgraceabou00buny/bunyansgraceabou00buny_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

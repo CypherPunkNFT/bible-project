@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-2c15e7b9f547ebc25834e656",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-6101ab20aed0333f233fc307",
+  "label": "Ten sermons on the following subjects; viz. I. Christ, the believer's husband. ... X. The conversion of Zaccheus. By Mr. George Whitefield. 1751 — held source edition 81b5cef02e84",
+  "languages": [
+    "English"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_eighteenth-century_ten-sermons-on-the-follo_whitefield-george_1751/bim_eighteenth-century_ten-sermons-on-the-follo_whitefield-george_1751_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

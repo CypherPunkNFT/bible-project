@@ -1,0 +1,76 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "asset",
+  "id": "asset-historical-ready-0ce1f1d482df12994c",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "editionId": "edition-reconciled-f302c09bd8639603e266504c",
+  "sourceId": "source-monergism",
+  "canonicalUrl": "https://www.monergism.com/thethreshold/sdg/aahodge/Evangelical%20Theology%20-%20A.%20A.%20Hodge.epub",
+  "finalUrl": "https://www.monergism.com/thethreshold/sdg/aahodge/Evangelical%20Theology%20-%20A.%20A.%20Hodge.epub",
+  "format": "epub",
+  "mediaKind": "text",
+  "acquisitionStatus": "downloaded",
+  "storage": "raw",
+  "relativePath": "library/source-monergism/asset-historical-ready-0ce1f1d482df12994c/original.epub",
+  "sha256": "45e7c4b25325e0560db3ef5ad8b02a70513d41f3062765d6236540446c3fff07",
+  "byteCount": 321162,
+  "mimeType": "application/epub+zip",
+  "retrievedAt": "2026-10-05T13:39:33.257839Z",
+  "rights": {
+    "category": "restricted-license",
+    "jurisdiction": null,
+    "licenseId": "Recorded publisher-use policy",
+    "licenseUrl": "https://www.monergism.com/monergism-copyright-permissions",
+    "attribution": "A. A. Hodge; Monergism",
+    "conditions": [
+      "Copyright and edition notices retained; recorded acquisition category: unspecified; recorded use scope: private-personal-educational-reading; policy evidence: https://www.monergism.com/monergism-copyright-permissions"
+    ],
+    "conditionsMet": false,
+    "actions": {
+      "download": "allowed",
+      "host": "unknown",
+      "redistribute": "unknown",
+      "adapt": "unknown",
+      "transcribe": "unknown",
+      "embed": "allowed",
+      "indexMetadata": "allowed",
+      "indexFullText": "allowed"
+    },
+    "evidence": [
+      {
+        "url": "https://www.monergism.com/evangelical-theology-popular-lectures-theological-themes-ebook",
+        "locator": "Recorded acquisition/source metadata",
+        "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+        "checkedOn": "2026-10-08"
+      }
+    ],
+    "unresolved": [],
+    "review": {
+      "date": "2026-10-08",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Recorded bibliographic/provenance reconciliation; private local authorization retained separately from public use."
+    }
+  },
+  "fullTextIndexed": true,
+  "processing": {
+    "parentAssetId": null,
+    "method": "none",
+    "tool": null,
+    "toolVersion": null,
+    "parameters": null,
+    "date": null,
+    "note": "Original unchanged; existing selected derivatives remain in their original acquisition/repair ledgers."
+  },
+  "quality": {
+    "state": "unreviewed",
+    "reviewedBy": null,
+    "reviewedOn": null,
+    "note": "Bibliographic metadata joined; body not proofread or collated by this task."
+  }
+}

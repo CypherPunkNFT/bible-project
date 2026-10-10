@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-3c212ef2fbeed92c8195716c",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-64ed0a879a8475ca1ea2b778",
+  "label": "Troedigaeth atheos: ei fawr gableddau gynt, a'i gyfeiliornus daliadau. ... Gan I. Owen, ... 1788 — held source edition 195b0b980c4d",
+  "languages": [
+    "English"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_eighteenth-century_troedigaeth-atheos-ei-f_owen-john_1788/bim_eighteenth-century_troedigaeth-atheos-ei-f_owen-john_1788_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

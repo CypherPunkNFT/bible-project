@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-7f7e2a1525a149a7c8797b15",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-37c008b3f9dc448726b96cf1",
+  "label": "The evil and danger of schism. A sermon, by the late learned and pious Mr. Thomas Boston, ... The third edition, With the preface, prefixed to the second edition by ... the author's son, ... 1756 — held source edition 18a6c095f2f0",
+  "languages": [
+    "English"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_eighteenth-century_the-evil-and-danger-of-s_boston-thomas_1756/bim_eighteenth-century_the-evil-and-danger-of-s_boston-thomas_1756_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

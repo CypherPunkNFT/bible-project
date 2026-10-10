@@ -1,0 +1,43 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-reconciled-8a4137322a809700335837b6",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "title": "[Works] The works of that eminent servant of Christ, Mr. John Bunyan, ... Being several discourses upon various divine subjects. The second edition, with the following additions: I. A preface ... II. Some account of the life and death of the author, ... 1736: Vol 1",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-john-bunyan",
+      "role": "author"
+    }
+  ],
+  "genre": "treatise",
+  "role": "core-teaching",
+  "collections": [],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [],
+  "depth": "unknown",
+  "era": "unknown",
+  "dates": [],
+  "passages": [],
+  "related": [],
+  "externalIds": {
+    "source-internet-archive": [
+      "ia:bim_eighteenth-century_works-the-works-of-tha_bunyan-john_1736_1"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_eighteenth-century_works-the-works-of-tha_bunyan-john_1736_1/bim_eighteenth-century_works-the-works-of-tha_bunyan-john_1736_1_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

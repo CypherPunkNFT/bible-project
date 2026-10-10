@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-1bfd0f1c3fd30c4e9ca1800f",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-ebb2714656174da36fe2db6f",
+  "label": "The fountain of life open'd; or, a display of Christ in his essential and mediatorial glory &c. By the pious Mr. John Flavel ... Being a faithfull and true abridgment ... By R. C. 1729 — held source edition 896ed716f692",
+  "languages": [
+    "English"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_eighteenth-century_the-fountain-of-life-ope_flavel-john_1729/bim_eighteenth-century_the-fountain-of-life-ope_flavel-john_1729_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-cc0a6d7c9b731c6938ee799a",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-e877987fa4cf6057ed659491",
+  "label": "Casgliad byrr o'r rhedegwr ysprydol, a ysgrifenwyd gan awdwr Taith y pererin. ... 1776 — held source edition 1cd9dba08968",
+  "languages": [
+    "English"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_eighteenth-century_casgliad-byrr-or-rhedeg_bunyan-john_1776/bim_eighteenth-century_casgliad-byrr-or-rhedeg_bunyan-john_1776_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

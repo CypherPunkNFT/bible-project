@@ -1,0 +1,137 @@
+{
+  "authors": [
+    "Owen, John",
+    "John Owen",
+    "Goodwin, Thomas",
+    "Thomas Goodwin",
+    "Sibbes, Richard",
+    "Richard Sibbes",
+    "Sibbs, Richard",
+    "Richard Sibbs",
+    "Watson, Thomas",
+    "Thomas Watson",
+    "Brooks, Thomas",
+    "Thomas Brooks",
+    "Flavel, John",
+    "John Flavel",
+    "Boston, Thomas",
+    "Thomas Boston",
+    "Bunyan, John",
+    "John Bunyan",
+    "Fuller, Andrew",
+    "Andrew Fuller",
+    "Booth, Abraham",
+    "Abraham Booth",
+    "Edwards, Jonathan",
+    "Jonathan Edwards"
+  ],
+  "primaryAuthorOnly": true,
+  "authorIdentityRules": [
+    {
+      "namePattern": "Owen,?\\s+John|John\\s+Owen",
+      "lifeYears": [
+        1616,
+        1683
+      ],
+      "requireReligiousSubjectsWhenUndated": true
+    },
+    {
+      "namePattern": "Goodwin,?\\s+Thomas|Thomas\\s+Goodwin",
+      "lifeYears": [
+        1600,
+        1680
+      ]
+    },
+    {
+      "namePattern": "Sibbes,?\\s+Richard|Richard\\s+Sibbes",
+      "lifeYears": [
+        1577,
+        1635
+      ]
+    },
+    {
+      "namePattern": "Sibbs,?\\s+Richard|Richard\\s+Sibbs",
+      "lifeYears": [
+        1577,
+        1635
+      ]
+    },
+    {
+      "namePattern": "Watson,?\\s+Thomas|Thomas\\s+Watson",
+      "lifeYears": [
+        1620,
+        1686
+      ],
+      "requireReligiousSubjectsWhenUndated": true
+    },
+    {
+      "namePattern": "Brooks,?\\s+Thomas|Thomas\\s+Brooks",
+      "lifeYears": [
+        1608,
+        1680
+      ]
+    },
+    {
+      "namePattern": "Flavel,?\\s+John|John\\s+Flavel",
+      "lifeYears": [
+        1630,
+        1691
+      ]
+    },
+    {
+      "namePattern": "Boston,?\\s+Thomas|Thomas\\s+Boston",
+      "lifeYears": [
+        1676,
+        1677,
+        1732
+      ]
+    },
+    {
+      "namePattern": "Bunyan,?\\s+John|John\\s+Bunyan",
+      "lifeYears": [
+        1628,
+        1688
+      ]
+    },
+    {
+      "namePattern": "Fuller,?\\s+Andrew|Andrew\\s+Fuller",
+      "lifeYears": [
+        1754,
+        1815
+      ]
+    },
+    {
+      "namePattern": "Booth,?\\s+Abraham|Abraham\\s+Booth",
+      "lifeYears": [
+        1734,
+        1806
+      ]
+    },
+    {
+      "namePattern": "Edwards,?\\s+Jonathan|Jonathan\\s+Edwards",
+      "lifeYears": [
+        1703,
+        1758
+      ]
+    }
+  ],
+  "deferHardDownloads": true,
+  "skipIds": [],
+  "collections": [
+    "Princeton",
+    "americana",
+    "toronto",
+    "europeanlibraries",
+    "library_of_congress",
+    "cdl",
+    "bostonpubliclibrary",
+    "getty",
+    "wellcomelibrary",
+    "gutenberg",
+    "microfilm"
+  ],
+  "iaQuery": "mediatype:texts AND date:[1600-01-01 TO 1930-12-31] AND NOT access-restricted-item:true AND (creator:\"Owen, John\" OR creator:\"John Owen\" OR creator:\"Goodwin, Thomas\" OR creator:\"Thomas Goodwin\" OR creator:\"Sibbes, Richard\" OR creator:\"Richard Sibbes\" OR creator:\"Sibbs, Richard\" OR creator:\"Richard Sibbs\" OR creator:\"Watson, Thomas\" OR creator:\"Thomas Watson\" OR creator:\"Brooks, Thomas\" OR creator:\"Thomas Brooks\" OR creator:\"Flavel, John\" OR creator:\"John Flavel\" OR creator:\"Boston, Thomas\" OR creator:\"Thomas Boston\" OR creator:\"Bunyan, John\" OR creator:\"John Bunyan\" OR creator:\"Fuller, Andrew\" OR creator:\"Andrew Fuller\" OR creator:\"Booth, Abraham\" OR creator:\"Abraham Booth\" OR creator:\"Edwards, Jonathan\" OR creator:\"Jonathan Edwards\")",
+  "resumeStatus": false,
+  "downloadWorkers": 4,
+  "authorMustStart": true
+}

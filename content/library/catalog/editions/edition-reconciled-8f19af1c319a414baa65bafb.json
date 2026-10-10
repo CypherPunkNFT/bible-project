@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-8f19af1c319a414baa65bafb",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-aa895a7976ca61c368fd7b89",
+  "label": "Heaven taken by storm: or, the holy violence a Christian is to put forth in the pursuit after glory. By Thomas Watson, ... Revised and corrected by the Rev. Mr. Armstrong, ... 1788 — held source edition e4817d59628b",
+  "languages": [
+    "English"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_eighteenth-century_heaven-taken-by-storm-o_watson-thomas_1788/bim_eighteenth-century_heaven-taken-by-storm-o_watson-thomas_1788_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

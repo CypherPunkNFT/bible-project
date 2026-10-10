@@ -1,0 +1,82 @@
+{
+  "authors": [
+    "Turretin, Franciscus",
+    "Turretin, Francois",
+    "Turrettin, Francis",
+    "Turrettini, Franciscus",
+    "Turrettinus, Franciscus",
+    "Turrettini, Francois",
+    "Witsius, Hermannus",
+    "Wits, Herman",
+    "Wits, Hermann",
+    "Hermannus Witsius",
+    "Hodge, A.A.",
+    "Hodge, A. A.",
+    "A. A. Hodge",
+    "A.A. Hodge",
+    "Dagg, J.L.",
+    "Dagg, J. L.",
+    "J. L. Dagg",
+    "Turretin, F.",
+    "Turrettin, F."
+  ],
+  "excludeAuthors": [
+    "Owen, John, 1766",
+    "Owen, John, 1787",
+    "Turretin, Jean",
+    "Turrettini, Jean",
+    "Turretin, Johann"
+  ],
+  "scope": "Complete offered historical corpus of the named RB01 doctrinal authors; no per-work rights holds",
+  "iaQuery": "mediatype:texts AND date:[* TO 1930-12-31] AND NOT access-restricted-item:true AND (creator:\"Turretin, Franciscus\" OR creator:\"Turretin, Francois\" OR creator:\"Turrettin, Francis\" OR creator:\"Turrettini, Franciscus\" OR creator:\"Turrettinus, Franciscus\" OR creator:\"Turrettini, Francois\" OR creator:\"Witsius, Hermannus\" OR creator:\"Wits, Herman\" OR creator:\"Wits, Hermann\" OR creator:\"Hermannus Witsius\" OR creator:\"Hodge, A.A.\" OR creator:\"Hodge, A. A.\" OR creator:\"A. A. Hodge\" OR creator:\"A.A. Hodge\" OR creator:\"Dagg, J.L.\" OR creator:\"Dagg, J. L.\" OR creator:\"J. L. Dagg\" OR creator:\"Turretin, F.\" OR creator:\"Turrettin, F.\")",
+  "primaryAuthorOnly": true,
+  "authorIdentityRules": [
+    {
+      "namePattern": "Owen,?\\s+John|John\\s+Owen",
+      "lifeYears": [
+        1616,
+        1683
+      ],
+      "requireReligiousSubjectsWhenUndated": true
+    },
+    {
+      "namePattern": "Gill,?\\s+John|John\\s+Gill",
+      "lifeYears": [
+        1697,
+        1771
+      ],
+      "requireReligiousSubjectsWhenUndated": true
+    },
+    {
+      "namePattern": "Hodge,?\\s+Charles|Charles\\s+Hodge",
+      "lifeYears": [
+        1797,
+        1878
+      ],
+      "requireReligiousSubjectsWhenUndated": true
+    },
+    {
+      "namePattern": "Turret|Turrett",
+      "lifeYears": [
+        1623,
+        1687
+      ],
+      "requireReligiousSubjectsWhenUndated": true
+    }
+  ],
+  "batchName": "latin-variants",
+  "collections": [
+    "Princeton",
+    "americana",
+    "toronto",
+    "europeanlibraries",
+    "library_of_congress",
+    "cdl",
+    "bostonpubliclibrary",
+    "getty",
+    "wellcomelibrary",
+    "biodiversity",
+    "gutenberg",
+    "microfilm"
+  ]
+}

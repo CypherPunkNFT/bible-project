@@ -1,0 +1,43 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-reconciled-7760efece354faac7a2748c9",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "title": "Nehemiah, or The struggle for liberty never in vain, when managed with virtue and perseverance. A discourse delivered at the Presbyterian Church in Newbury-Port, Nov. 4th, 1779. Being the day appointed by government to be observed as a day of solemn fasting and prayer throughout the state of Massachusetts-Bay. : Published in compliance with the request of some hearers. / By J. Murray, A.M. V.D.M. ; [Three lines from Ezra]",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-john-murray",
+      "role": "author"
+    }
+  ],
+  "genre": "treatise",
+  "role": "core-teaching",
+  "collections": [],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [],
+  "depth": "unknown",
+  "era": "unknown",
+  "dates": [],
+  "passages": [],
+  "related": [],
+  "externalIds": {
+    "source-eebo-tcp": [
+      "item:N12960"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/N12960/master/N12960.xml",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

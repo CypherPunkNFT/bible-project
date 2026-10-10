@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-855192c6112082646e973444",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-4c743d4db686cc6e0b5e54e3",
+  "label": "An excellent treatise of the immortalytie of the soule By which is proued, that the soules, after their departure out of the bodies, are avvake and doe lyue, contrary to that erronious opinion of certen ignorant persons, who thinke them to lye asleape vntill the day of iudgement. Set fourth by M. Iohn Caluin, and englished from the French by T. Stocker.; Psychopannychia. English. — held source edition 9ee66e412178",
+  "languages": [
+    "eng"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A17654/master/A17654.xml",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

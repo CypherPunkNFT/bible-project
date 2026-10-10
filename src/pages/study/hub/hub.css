@@ -227,3 +227,30 @@
 .study-experience .subject-door:is(:hover,:focus-visible) .subject-art{transform:translateY(-6px)}
 .study-experience .subject-door .door-indicator{margin-top:12px}
 @media(prefers-reduced-motion:reduce){.study-experience .subject-door:is(:hover,:focus-visible) .subject-art{transform:none}}
+
+/* Five theological collections and shared tools, preserving the open subject selector. */
+.study-experience .theology-library{grid-template-columns:1fr;gap:24px}
+.study-experience .theology-library .collection-intro{max-width:730px}
+.study-experience .theology-library .collection-intro>p:not(.eyebrow){max-width:650px}
+.study-experience .theology-library .collection-method{display:none}
+.study-experience .theology-collection-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px 30px}
+.study-experience .theology-collection-card{display:flex;flex-direction:column;padding:12px 0 24px;border-bottom:1px solid var(--line);transition:border-color .2s;color:var(--ink);min-width:0}
+.study-experience .collection-card-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.study-experience .collection-card-top>span{font:10px var(--sans);letter-spacing:.07em;color:var(--tone)}
+.study-experience .collection-card-top svg{width:90px;height:95px;flex-shrink:0;color:var(--tone);transition:transform .25s}
+.study-experience .theology-collection-card h3{font:500 25px/1.25 var(--serif);margin:14px 0 12px}
+.study-experience .theology-collection-card>p{font-size:12px;line-height:1.85;color:var(--muted);margin:0 0 22px}
+.study-experience .collection-card-action{display:flex;align-items:center;justify-content:space-between;margin-top:auto;color:var(--tone);font-size:11px}
+.study-experience .theology-collection-card:is(:hover,:focus-visible){border-color:var(--tone);text-decoration:none}
+.study-experience .theology-collection-card:is(:hover,:focus-visible) h3{color:var(--tone)}
+.study-experience .theology-collection-card:is(:hover,:focus-visible) .collection-card-top svg{transform:translateY(-3px)}
+.study-experience .theology-tools{margin-top:55px;padding-top:30px;border-top:1px solid var(--line);display:grid;grid-template-columns:1fr 1.6fr;gap:50px}
+.study-experience .tools-intro h2{font:400 30px/1.2 var(--serif);margin:16px 0}.study-experience .tools-intro h2 em{color:var(--epistles)}
+.study-experience .tools-intro>p:last-child{font-size:12px;color:var(--muted);line-height:1.8;max-width:340px}
+.study-experience .theology-tool-links{display:grid;grid-template-columns:1fr 1fr;gap:0 24px}
+.study-experience .theology-tool-links a{display:flex;align-items:center;gap:13px;padding:18px 0;border-bottom:1px solid var(--line)}
+.study-experience .theology-tool-links a>svg{color:var(--epistles);flex-shrink:0}.study-experience .theology-tool-links a>svg:last-child{width:13px;margin-left:auto}
+.study-experience .theology-tool-links strong{font:500 17px var(--serif)}.study-experience .theology-tool-links small{display:block;color:var(--muted);font-size:10px;line-height:1.6;margin-top:5px}
+@media(max-width:900px){.study-experience .theology-collection-grid{grid-template-columns:1fr 1fr}.study-experience .theology-tools{grid-template-columns:1fr;gap:20px}}
+@media(max-width:600px){.study-experience .theology-collection-grid{grid-template-columns:1fr;gap:8px}.study-experience .theology-collection-card{padding-top:0}.study-experience .collection-card-top svg{height:80px;width:80px}.study-experience .theology-tool-links{grid-template-columns:1fr}.study-experience .theology-tools{margin-top:36px}.study-experience .theology-collection-card h3{font-size:24px}}
+@media(prefers-reduced-motion:reduce){.study-experience .theology-collection-card .collection-card-top svg{transition:none;transform:none!important}}

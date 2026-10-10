@@ -20,7 +20,7 @@ export default function CountryFinder({ choose, collapsible = false }: { choose(
     {collapsible && <button ref={toggle} type="button" className="mw-country-search-toggle" aria-label={expanded ? 'Close country search' : 'Search countries'} aria-expanded={expanded} aria-controls={expanded ? id : undefined} onClick={() => { if (expanded) close(true); else setExpanded(true); }}><Search size={19} strokeWidth={1.5} aria-hidden="true" /></button>}
     {(!collapsible || expanded) && <input ref={input} id={id} type="search" aria-label="Find a country" aria-expanded={open && !!search} aria-controls={`${id}-results`} placeholder={`Search all ${snapshot.countries.length} countries`} value={search} onChange={event => { setSearch(event.target.value); setOpen(true); }} onFocus={() => setOpen(true)} onKeyDown={event => {
       if (event.key === 'Escape') close(true);
-      if (event.key === 'Enter' && search.trim() && filtered[0]) select(filtered[0].code);
+      if (event.key === 'Enter' && search.trim() && filtered[0]) { event.preventDefault(); select(filtered[0].code); }
       if (event.key === 'ArrowDown') { event.preventDefault(); results.current?.querySelector<HTMLButtonElement>('button')?.focus(); }
     }} />}
     </div>

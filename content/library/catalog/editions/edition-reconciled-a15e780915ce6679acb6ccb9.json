@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-a15e780915ce6679acb6ccb9",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-1810a1f65dfb5d39f363d93c",
+  "label": "Glaubwürdige Nachricht von dem herrlichen Werck Gottes, : welches sich in Bekehrung vieler hundert Seelen zu Northampton und an andern Orten in Neu-Engeland geäussert hat, — held source edition ea11e1192c70",
+  "languages": [
+    "ger"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/glaubwrdigenachr00edwa/glaubwrdigenachr00edwa_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

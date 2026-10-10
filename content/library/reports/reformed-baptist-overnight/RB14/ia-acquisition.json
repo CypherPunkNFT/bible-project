@@ -1,0 +1,34 @@
+{
+  "source": "ia",
+  "catalogueItems": 3,
+  "catalogueUnheldItems": 1,
+  "eligibleItems": 3,
+  "unheldBefore": 1,
+  "filter": {
+    "cataloguePath": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\bulk-catalogues\\rb14-ia-linked-translations.json",
+    "approvedCollection": true,
+    "deferHardDownloads": true
+  },
+  "attempted": 1,
+  "downloaded": 0,
+  "duplicateHashes": 0,
+  "heldDuringRun": 0,
+  "failures": [
+    {
+      "sourceId": "tianlulichengtuh02buny",
+      "url": "https://archive.org/metadata/tianlulichengtuh02buny",
+      "title": "Tian lu li cheng : tu hua = Pilgrim's progress : Canton vernacular",
+      "author": "Bunyan, John, 1628-1688",
+      "error": "No named individual translator explicitly credited in edition"
+    }
+  ],
+  "bytes": 0,
+  "sampleSizes": [],
+  "state": "complete",
+  "startedAt": "2026-10-07T21:14:28.106295+00:00",
+  "updatedAt": "2026-10-07T21:14:42.013256+00:00",
+  "unheldAfter": 1,
+  "estimatedUnheldGB": null,
+  "estimateBasis": "SWORD InstallSize where available; otherwise arithmetic mean of downloaded originals; decimal GB; edition/item counts, not deduplicated works",
+  "completedAt": "2026-10-07T21:14:42.017695+00:00"
+}

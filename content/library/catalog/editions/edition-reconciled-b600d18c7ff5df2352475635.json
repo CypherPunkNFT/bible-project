@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-b600d18c7ff5df2352475635",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-8bd2014e595efc6e25a24f51",
+  "label": "[Book for boys and girls]. Divine emblems: or, temporal things spiritulized. Fitted for the use of boys and girls. Adorn'd with cuts ... By John Bunyan. - The ninth edition, with large additions. 1724 — held source edition 652124faaacc",
+  "languages": [
+    "English"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_eighteenth-century_book-for-boys-and-girls_bunyan-john_1724/bim_eighteenth-century_book-for-boys-and-girls_bunyan-john_1724_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

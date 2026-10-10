@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-7cd25a139cba8c2c07b1b954",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-ff254f6b3d8d9da35a9c8850",
+  "label": "O Peregrino ou A Viagem do Christao à Cidade Celestial debaixo da forma de um sonho — held source edition ba7a065c7d56",
+  "languages": [
+    "pt"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/o-peregrino-ou-a-viagem-do-christao-a-ci/O_peregrino_ou_A_Viagem_do_christao_a_ci_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

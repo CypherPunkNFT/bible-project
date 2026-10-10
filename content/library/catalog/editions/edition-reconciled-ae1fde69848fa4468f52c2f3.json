@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-ae1fde69848fa4468f52c2f3",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-0eae3d93cc9fe6fe2dffd5d4",
+  "label": "Biblia, dat is, de gansche Heilige Schrifture bevattende alle de kanonieke boeken des Ouden en des Nieuwen Testaments — held source edition e6c3a2cd0825",
+  "languages": [
+    "dut"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bibliadatisdegan00kuyp/bibliadatisdegan00kuyp_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

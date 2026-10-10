@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-be7f6036501edb8b0e471ba2",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-31b224e9b0038d2b6e30da54",
+  "label": "Tvvo sermons vpon the first words of Christs last sermon Iohn XIIII. I. Being also the last sermons of Richard Sibbs D.D. Preached to the honourable society of Grayes Inne, Iune the 21. and 28. 1635. Who the next Lords day follwing, died, and rested from all his labours — held source edition e7795aae4682",
+  "languages": [
+    "und"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A12205/master/A12205.xml",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

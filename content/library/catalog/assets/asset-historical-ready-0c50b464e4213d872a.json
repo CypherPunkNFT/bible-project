@@ -1,0 +1,76 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "asset",
+  "id": "asset-historical-ready-0c50b464e4213d872a",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "editionId": "edition-reconciled-e15f183f3567757b6e60a786",
+  "sourceId": "source-monergism",
+  "canonicalUrl": "https://www.monergism.com/thethreshold/sdg/warfield/Sermons%20and%20Essays%20from%20the%20Wor%20-%20B.%20B.%20Warfield.epub",
+  "finalUrl": "https://www.monergism.com/thethreshold/sdg/warfield/Sermons%20and%20Essays%20from%20the%20Wor%20-%20B.%20B.%20Warfield.epub",
+  "format": "epub",
+  "mediaKind": "text",
+  "acquisitionStatus": "downloaded",
+  "storage": "raw",
+  "relativePath": "library/source-monergism/asset-historical-ready-0c50b464e4213d872a/original.epub",
+  "sha256": "7a25e52280cd2155eb033e21914871cc40228f1bb65a5227e88eb5a54e9773b6",
+  "byteCount": 2301222,
+  "mimeType": "application/epub+zip",
+  "retrievedAt": "2026-10-05T13:44:22.087193Z",
+  "rights": {
+    "category": "restricted-license",
+    "jurisdiction": null,
+    "licenseId": "Recorded publisher-use policy",
+    "licenseUrl": "https://www.monergism.com/monergism-copyright-permissions",
+    "attribution": "B. B. Warfield; Monergism",
+    "conditions": [
+      "Copyright and edition notices retained; recorded acquisition category: unspecified; recorded use scope: private-personal-educational-reading; policy evidence: https://www.monergism.com/monergism-copyright-permissions"
+    ],
+    "conditionsMet": false,
+    "actions": {
+      "download": "allowed",
+      "host": "unknown",
+      "redistribute": "unknown",
+      "adapt": "unknown",
+      "transcribe": "unknown",
+      "embed": "allowed",
+      "indexMetadata": "allowed",
+      "indexFullText": "allowed"
+    },
+    "evidence": [
+      {
+        "url": "https://www.monergism.com/sermons-and-essays-works-b-b-warfield-ebook",
+        "locator": "Recorded acquisition/source metadata",
+        "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+        "checkedOn": "2026-10-08"
+      }
+    ],
+    "unresolved": [],
+    "review": {
+      "date": "2026-10-08",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Recorded bibliographic/provenance reconciliation; private local authorization retained separately from public use."
+    }
+  },
+  "fullTextIndexed": true,
+  "processing": {
+    "parentAssetId": null,
+    "method": "none",
+    "tool": null,
+    "toolVersion": null,
+    "parameters": null,
+    "date": null,
+    "note": "Original unchanged; existing selected derivatives remain in their original acquisition/repair ledgers."
+  },
+  "quality": {
+    "state": "unreviewed",
+    "reviewedBy": null,
+    "reviewedOn": null,
+    "note": "Bibliographic metadata joined; body not proofread or collated by this task."
+  }
+}

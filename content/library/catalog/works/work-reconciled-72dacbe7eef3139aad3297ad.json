@@ -1,0 +1,43 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-reconciled-72dacbe7eef3139aad3297ad",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "title": "The works of the Reverend George Whitefield, M.A. ... Containing all his sermons and tracts which have been already published: with a select collection of letters, ... Also some other pieces on important subjects, never before printed; ... 1771: Vol 1",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-george-whitefield",
+      "role": "author"
+    }
+  ],
+  "genre": "treatise",
+  "role": "core-teaching",
+  "collections": [],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [],
+  "depth": "unknown",
+  "era": "unknown",
+  "dates": [],
+  "passages": [],
+  "related": [],
+  "externalIds": {
+    "source-internet-archive": [
+      "ia:bim_eighteenth-century_the-works-of-the-reveren_whitefield-george_1771_1"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_eighteenth-century_the-works-of-the-reveren_whitefield-george_1771_1/bim_eighteenth-century_the-works-of-the-reveren_whitefield-george_1771_1_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

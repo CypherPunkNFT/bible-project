@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-6b9468ce2a056054b92a7523",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-6ac52ce3666b7afbcf25f31e",
+  "label": "Nadur an duine 'na staid cheithir-fillte : no staid ceud ionracais, staid truaillidheachd iomlan, staid saorsa air toiseachadh, agus staid sonais no truaighe iomlan — held source edition 7994d66507f8",
+  "languages": [
+    "gae"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/nadurduinenastai00bost/nadurduinenastai00bost_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

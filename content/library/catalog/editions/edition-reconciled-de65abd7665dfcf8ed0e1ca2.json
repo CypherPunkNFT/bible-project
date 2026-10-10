@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-de65abd7665dfcf8ed0e1ca2",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-24b212d42858926a939fdba3",
+  "label": "The works of that eminent servant of Christ, Mr John Bunyan, ... Being several discourses upon various divine subjects. With copper plates, ... The sixth edition. Containing, all the pieces which are to be found in the latest edition. In eight volumes. ... 1771: Vol 8 — held source edition 011cfd535d58",
+  "languages": [
+    "English"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_eighteenth-century_the-works-of-that-eminen_bunyan-john_1771_8/bim_eighteenth-century_the-works-of-that-eminen_bunyan-john_1771_8_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

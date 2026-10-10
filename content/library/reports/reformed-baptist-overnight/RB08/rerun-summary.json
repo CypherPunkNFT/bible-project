@@ -1,0 +1,57 @@
+{
+  "state": "downloads_complete_report_written",
+  "updatedAt": "2026-10-07T22:33:52.960877+00:00",
+  "files": 6115,
+  "bytes": 924633170,
+  "distinctWorksEstimate": 5121,
+  "sources": {
+    "gutenberg": 4,
+    "ccel": 4,
+    "ia": 1213,
+    "kruger": 663,
+    "aomin": 4087,
+    "desiringgod": 144
+  },
+  "failedDownloads": 140,
+  "exportFailures": 0,
+  "blockers": [
+    {
+      "source": "desiringgod",
+      "exitCode": "other-author-permission-required",
+      "log": "https://www.desiringgod.org/permissions",
+      "reason": "Piper personal/noncommercial permission collected; other authors and staff material require separate permission under the published policy."
+    },
+    {
+      "source": "ia",
+      "exitCode": "no-unrestricted-late-Oxford-records",
+      "log": "ia-late-oxford-blockers.json",
+      "reason": "No unrestricted 1931–1932 Warfield records returned; later Oxford originals remain unavailable on IA."
+    }
+  ],
+  "previouslyFailedSkipped": 0,
+  "derivedTexts": 144,
+  "embeddingBefore": {
+    "state": "complete",
+    "total": 1934778,
+    "indexed": 1934778,
+    "remaining": 0,
+    "corpus_build": "2026-10-07T15:23:27.068328+00:00",
+    "updated_at": "2026-10-07T16:52:55.679411+00:00",
+    "seconds": 2509.1
+  },
+  "embeddingAfter": {
+    "state": "complete",
+    "total": 1934778,
+    "indexed": 1934778,
+    "remaining": 0,
+    "corpus_build": "2026-10-07T15:23:27.068328+00:00",
+    "updated_at": "2026-10-07T16:52:55.679411+00:00",
+    "seconds": 2509.1
+  },
+  "intakeCommandExitCode": 0,
+  "intake": {
+    "pid": 102336,
+    "started_at": "2026-10-07T21:38:36.5683810Z",
+    "state": "running"
+  }
+}

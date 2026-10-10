@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-9130b444577af2200ca1913b",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-5e4cafc3f02aafb6bb1f718e",
+  "label": "Moses and Aaron Ciuil and ecclesiastical rites, vsed by the ancient Hebrewes; obserued, and at large opened, for the clearing of many obscure texts thorowout the whole Scripture. Herein likevvise is shewed what customes the Hebrewes borrowed from heathen people: and that many heathenish customes, originally haue beene vnwarrantable imitations of the Hebrewes. By Thomas Godwyn, B.D. — held source edition 10015cd52e5b",
+  "languages": [
+    "und"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A01814/master/A01814.xml",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

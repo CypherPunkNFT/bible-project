@@ -1,0 +1,199 @@
+{
+  "mission": "RB07",
+  "title": "Missions, preaching and history",
+  "filters": {
+    "tcp": "tcp-filter.json",
+    "ccel": "ccel-filter.json",
+    "ia": "ia-filter.json",
+    "monergism": "monergism-filter.json",
+    "gutenberg": "gutenberg-filter.json"
+  },
+  "previouslyFailed": [
+    {
+      "sourceId": "anarrativereviv00smitgoog",
+      "url": "https://archive.org/metadata/anarrativereviv00smitgoog",
+      "title": "A narrative of the revival of religion in New England; with Thoughts on that revival ..",
+      "author": "Edwards, Jonathan, 1703-1758",
+      "error": "The read operation timed out",
+      "source": "ia"
+    },
+    {
+      "sourceId": "apologyforlatech00full",
+      "url": "https://archive.org/metadata/apologyforlatech00full",
+      "title": "Apology for the late Christian missions to India ...",
+      "author": "Fuller, Andrew, 1754-1815",
+      "error": "The read operation timed out",
+      "source": "ia"
+    },
+    {
+      "sourceId": "bim_eighteenth-century_a-treatise-concerning-re_edwards-jonathan_1787",
+      "url": "https://archive.org/metadata/bim_eighteenth-century_a-treatise-concerning-re_edwards-jonathan_1787",
+      "title": "A treatise concerning religious affections. In three parts. Part I. Concerning the nature of the affections, and their importance in religion. ... Part III. Shewing what are distinguishing signs of truly gracious and holy affections. By Jonathan Edwards, ... 1787",
+      "author": "Edwards, Jonathan.",
+      "error": "The read operation timed out",
+      "source": "ia"
+    },
+    {
+      "sourceId": "bim_eighteenth-century_sermons-on-the-followin_edwards-jonathan_1780",
+      "url": "https://archive.org/metadata/bim_eighteenth-century_sermons-on-the-followin_edwards-jonathan_1780",
+      "title": "Sermons, on the following subjects; The manner in which salvation is to be sought.... The perpetuity & change of the sabbath. By the late Reverend Mr. Jonathan Edwards, ... 1780",
+      "author": "Edwards, Jonathan.",
+      "error": "<urlopen error _ssl.c:1015: The handshake operation timed out>",
+      "source": "ia"
+    },
+    {
+      "sourceId": "bim_eighteenth-century_sermons-on-various-impor_edwards-jonathan_1795",
+      "url": "https://archive.org/metadata/bim_eighteenth-century_sermons-on-various-impor_edwards-jonathan_1795",
+      "title": "Sermons on various important subjects. By Jonathan Edwards, ... 1795",
+      "author": "Edwards, Jonathan",
+      "error": "The read operation timed out",
+      "source": "ia"
+    },
+    {
+      "sourceId": "bim_eighteenth-century_the-gospel-its-own-witne_fuller-andrew_1799",
+      "url": "https://archive.org/metadata/bim_eighteenth-century_the-gospel-its-own-witne_fuller-andrew_1799",
+      "title": "The gospel its own witness: or the holy nature, and divine harmony of the Christian religion, contrasted with the immorality and absurdity of Deism. By Andrew Fuller. 1799",
+      "author": "Fuller, Andrew",
+      "error": "The read operation timed out",
+      "source": "ia"
+    },
+    {
+      "sourceId": "edwardsonrevival00edwa",
+      "url": "https://archive.org/metadata/edwardsonrevival00edwa",
+      "title": "Edwards on revivals : containing A faithful narrative of the surprising work of God in the conversion of many hundred souls in Northhampton, Massachusetts, A.D. 1735 : also Thoughts on the revival of religion in New England, 1742, and the way in which it ought to be acknowledged and promoted",
+      "author": "Edwards, Jonathan, 1703-1758",
+      "error": "<urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>",
+      "source": "ia"
+    },
+    {
+      "sourceId": "edwardsonreviva00edwagoog",
+      "url": "https://archive.org/metadata/edwardsonreviva00edwagoog",
+      "title": "Edwards on Revivals: Containing a Faithful Narrative of the Surprising Work of God in the ...",
+      "author": "Jonathan Edwards",
+      "error": "<urlopen error _ssl.c:1015: The handshake operation timed out>",
+      "source": "ia"
+    },
+    {
+      "sourceId": "edwardsonreviva01edwagoog",
+      "url": "https://archive.org/metadata/edwardsonreviva01edwagoog",
+      "title": "Edwards on Revivals: Containing a Faithful Narrative of the Surprising Work of God in the ...",
+      "author": "Jonathan Edwards",
+      "error": "<urlopen error _ssl.c:1015: The handshake operation timed out>",
+      "source": "ia"
+    },
+    {
+      "sourceId": "edwardsonreviva02edwagoog",
+      "url": "https://archive.org/metadata/edwardsonreviva02edwagoog",
+      "title": "Edwards on Revivals: Containing a Faithful Narrative of the Surprising Work ...",
+      "author": "Jonathan Edwards",
+      "error": "<urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>",
+      "source": "ia"
+    },
+    {
+      "sourceId": "gospelitsownwitn00full_0",
+      "url": "https://archive.org/metadata/gospelitsownwitn00full_0",
+      "title": "The gospel its own witness:",
+      "author": "Fuller, Andrew, 1754-1815",
+      "error": "HTTP Error 500: Internal Server Error",
+      "source": "ia"
+    },
+    {
+      "sourceId": "gospelitsownwitn01full",
+      "url": "https://archive.org/metadata/gospelitsownwitn01full",
+      "title": "The gospel, its own witness, or, The holy nature and divine harmony of the Christian religion contrasted with the immorality and absurdity of deism [microform]",
+      "author": "Fuller, Andrew, 1754-1815",
+      "error": "HTTP Error 500: Internal Server Error",
+      "source": "ia"
+    },
+    {
+      "sourceId": "narrativeofreviv00edwa",
+      "url": "https://archive.org/metadata/narrativeofreviv00edwa",
+      "title": "A narrative of the revival of religion in New England : with Thoughts on that revival ...",
+      "author": "Edwards, Jonathan, 1703-1758; Smith, John Pye, 1774-1851; Edwards, Jonathan, 1703-1758. Thoughts on the revival of religion in New England",
+      "error": "<urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>",
+      "source": "ia"
+    },
+    {
+      "sourceId": "thoughtsonreviva00edwa",
+      "url": "https://archive.org/metadata/thoughtsonreviva00edwa",
+      "title": "Thoughts on the revival of religion in New England, 1740; to which is prefixed, A narrative of the surprising work of God in Northampton, Mass., 1735",
+      "author": "Edwards, Jonathan, 1703-1758",
+      "error": "HTTP Error 500: Internal Server Error",
+      "source": "ia"
+    },
+    {
+      "sourceId": "works25unkngoog",
+      "url": "https://archive.org/metadata/works25unkngoog",
+      "title": "The Works ...",
+      "author": "Andrew Fuller",
+      "error": "HTTP Error 500: Internal Server Error",
+      "source": "ia"
+    },
+    {
+      "sourceId": "worksofpresident061829edwa",
+      "url": "https://archive.org/metadata/worksofpresident061829edwa",
+      "title": "The works of President Edwards : with a memoir of his life",
+      "author": "Edwards, Jonathan, 1703-1758; Dwight, Sereno Edwards, 1786-1850",
+      "error": "HTTP Error 500: Internal Server Error",
+      "source": "ia"
+    },
+    {
+      "sourceId": "worksofpresident05edwa",
+      "url": "https://archive.org/metadata/worksofpresident05edwa",
+      "title": "The works of President Edwards ..",
+      "author": "Edwards, Jonathan, 1703-1758; Austin, Samuel, 1760-1830, ed",
+      "error": "HTTP Error 500: Internal Server Error",
+      "source": "ia"
+    },
+    {
+      "sourceId": "worksofpresident07edwa",
+      "url": "https://archive.org/metadata/worksofpresident07edwa",
+      "title": "The works of President Edwards ..",
+      "author": "Edwards, Jonathan, 1703-1758; Austin, Samuel, 1760-1830, ed",
+      "error": "<urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>",
+      "source": "ia"
+    },
+    {
+      "sourceId": "workspresidente01edwagoog",
+      "url": "https://archive.org/metadata/workspresidente01edwagoog",
+      "title": "The works of President Edwards in four volumes : a reprint of the Worcester edition with valuable additions and a copious general index, to which, for the first time, has been added, at great expense, a complete index of Scripture texts",
+      "author": "Edwards, Jonathan, 1703-1758",
+      "error": "HTTP Error 500: Internal Server Error",
+      "source": "ia"
+    },
+    {
+      "sourceId": "worksrevandrewf06fullgoog",
+      "url": "https://archive.org/metadata/worksrevandrewf06fullgoog",
+      "title": "The Works of the Rev. Andrew Fuller",
+      "author": "Andrew Fuller",
+      "error": "HTTP Error 500: Internal Server Error",
+      "source": "ia"
+    },
+    {
+      "sourceId": "expositorydiscou00full",
+      "url": "https://archive.org/metadata/expositorydiscou00full",
+      "title": "Expository discourses on the Book of Genesis : interspersed with practical reflections",
+      "author": "Fuller, Andrew, 1754-1815",
+      "error": "<urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>",
+      "source": "ia"
+    },
+    {
+      "sourceId": "worksrevandrewf07fullgoog",
+      "url": "https://archive.org/metadata/worksrevandrewf07fullgoog",
+      "title": "The Works of the Rev. Andrew Fuller",
+      "author": "Andrew Fuller",
+      "error": "<urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>",
+      "source": "ia"
+    }
+  ],
+  "scope": "Fuller and Carey historical works; Judson memoirs and letters; Baptist Missionary Society accounts; Edwards/Brainerd and Whitefield preaching; offered Spurgeon sermon collections. Original editions and credits retained.",
+  "availabilityNotes": [
+    "All selected unheld items attempted once; failed requests deferred, no new OCR or evidenceOnly holds.",
+    "Historical author and title aliases were included in disjoint additional batches; unrelated Ridout author matches were excluded from library intake.",
+    "Two unrelated George Whitefield Ridout records retained outside intake and excluded from counts."
+  ],
+  "finalScreens": {
+    "ia": "ia-final-screen.json"
+  },
+  "finalizeOnly": true
+}

@@ -1,5 +1,5 @@
 import type { ArcData, BookPlace, Catalog, Chapter, CrossRefBook, PlainBook, Place, Run, Stats } from "./types";
-import type { ChapterTopics, Topic, TopicIndex } from "./topics";
+import type { ChapterTopics, LibraryBook, Topic, TopicIndex } from "./topics";
 
 /** A data file that is missing or malformed. The reader turns this into "not in this version". */
 export class DataUnavailable extends Error {
@@ -106,4 +106,6 @@ export async function loadTopic(id: string, bundle: number): Promise<Topic> {
   if (!topic || !Array.isArray(topic.points)) throw new Error(`Topic "${id}" is not in bundle ${bundle}.`);
   return topic;
 }
+/** Library books matched to each topic of a bundle; absent until the linker has run. */
+export const loadTopicLibrary = (bundle: number) => load<Record<string, LibraryBook[]>>(`topics/library/${bundle}.json`, isObject);
 export const loadChapterTopics = (code: string) => load<ChapterTopics>(`topics/books/${code}.json`, isObject);

@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-29f5639d574569c60743b17f",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-e4b9329392e3dce4b2beb61a",
+  "label": "A farewel-sermon preached in the first precinct in Nor thampton, after the people's publick rejection of their minister, ... on June 22. 1750. ... By Jonathan Edwards, A. M. 1751 — held source edition dcbe4c890e00",
+  "languages": [
+    "English"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_eighteenth-century_a-farewel-sermon-preache_edwards-jonathan_1751/bim_eighteenth-century_a-farewel-sermon-preache_edwards-jonathan_1751_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

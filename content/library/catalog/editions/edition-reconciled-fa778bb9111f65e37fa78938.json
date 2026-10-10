@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-fa778bb9111f65e37fa78938",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-45fb6c6239b087b2b8c443d7",
+  "label": "The shorter catechism, composed by the Reverend Assembly of Divines with the proofs thereof out of the Scriptures, in words at length. Which are either some of the formerly quoted places, or others gathered from their other writings; all fitted, both of brevity & clearness, to this their form of sound words. : For the benefit of Christians in general, and of youth, and children in understanding, in particular; that they may with more ease acquaint themselves with the truth according to the Scriptures, and with the Scriptures themselves.; Shorter catechism — held source edition 33e1745db258",
+  "languages": [
+    "und"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/N00709/master/N00709.xml",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

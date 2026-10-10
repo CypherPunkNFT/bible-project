@@ -1,0 +1,43 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-reconciled-b52d555606bd87b4fbdc6a31",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "title": "The Christians end. Or, The sweet soveraignty of Christ, over his members in life and death VVherein is contained the whole scope of the godly mans life, with divers rules, motives and incouragements, to live and die to Iesus Christ. Being the substance of five sermons preached to the honorable society of Grayes Inne, by that learned and faithfull minister of Gods Word, Richard Sibbes, D.D. and sometimes preacher to that honorable societie.",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-richard-sibbes",
+      "role": "author"
+    }
+  ],
+  "genre": "treatise",
+  "role": "core-teaching",
+  "collections": [],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [],
+  "depth": "unknown",
+  "era": "unknown",
+  "dates": [],
+  "passages": [],
+  "related": [],
+  "externalIds": {
+    "source-eebo-tcp": [
+      "item:A12177"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A12177/master/A12177.xml",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

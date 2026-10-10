@@ -1,0 +1,28 @@
+{
+  "source": "sword",
+  "catalogueItems": 427,
+  "catalogueUnheldItems": 352,
+  "eligibleItems": 1,
+  "unheldBefore": 0,
+  "filter": {
+    "ids": [
+      "TDavid"
+    ],
+    "approvedCollection": true,
+    "deferHardDownloads": true,
+    "skipIds": []
+  },
+  "attempted": 0,
+  "downloaded": 0,
+  "duplicateHashes": 0,
+  "heldDuringRun": 0,
+  "failures": [],
+  "bytes": 0,
+  "sampleSizes": [],
+  "state": "complete",
+  "startedAt": "2026-10-07T20:59:33.360908+00:00",
+  "unheldAfter": 0,
+  "estimatedUnheldGB": null,
+  "estimateBasis": "SWORD InstallSize where available; otherwise arithmetic mean of downloaded originals; decimal GB; edition/item counts, not deduplicated works",
+  "completedAt": "2026-10-07T20:59:33.362528+00:00"
+}

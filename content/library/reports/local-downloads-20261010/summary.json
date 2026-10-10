@@ -1,0 +1,27 @@
+{
+  "inputFiles": 619,
+  "counts": {
+    "excluded": 1,
+    "generated-provenance": 14,
+    "added-body": 14,
+    "archived-support": 338,
+    "already-held-edition-id": 265,
+    "already-held-sha256": 1
+  },
+  "newBodyFiles": 14,
+  "newCselEditionFiles": 10,
+  "newPdfFiles": 4,
+  "copiedBytes": 66173245,
+  "preparedChunks": 24851,
+  "failures": 0,
+  "indexedBefore": 5182245,
+  "indexedAfter": 5183269,
+  "newBodiesPendingCorpusRefresh": 14,
+  "intakeHandoff": {
+    "entryPoint": "knowledge/finish-intake.ps1",
+    "exitCode": 0,
+    "result": "Existing single completion pipeline owns the lock",
+    "newBodiesPendingCorpusRefresh": 14
+  },
+  "sourcePolicyUpdate": "source-policy-update.json"
+}

@@ -1,0 +1,6 @@
+@import url('../teachers-wisdom-scenes/scenes.css');
+.sample:nth-child(even){--door:var(--accent)}.sample{padding:24px 22px}.scene{height:290px}.sa-art{width:350px;max-width:100%}.sa-art .paper{fill:var(--surface)}.sa-art .skin{fill:var(--surface)}.sa-art .book-text{stroke-width:.65;opacity:.65}.sa-art .face-detail{stroke-width:.7;opacity:.7}.sa-art .stardot{fill:currentColor;stroke:none;opacity:.45}
+:is(.sample:hover,.sample:focus-visible) .sa-live .star{animation:sa-draw 1.3s calc(var(--d)*1s) cubic-bezier(.45,0,.2,1) both,star-light 5s calc(1.3s + var(--i)*.65s) ease-in-out infinite!important}
+@keyframes star-light{0%,100%{opacity:.4}50%{opacity:1}}
+@media(max-width:650px){.scene{height:265px}}
+@media(prefers-reduced-motion:reduce){.sample *{animation:none!important;stroke-dasharray:none!important}.sample .sa-live{display:none}}

@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-7dfa72eb96014a6d06bf9aae",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-1cc8b476b613cae774517cbb",
+  "label": "M. Perkins, his Exhortation to repentance, out of Zephaniah preached in 2. sermons in Sturbridge Faire. Together with two treatises of the duties and dignitie of the ministrie: deliuered publiquely in the Vniuersitie of Cambridge. With a preface præfixed touching the publishing of all such workes of his as are to be expected: with a catalogue of all the perticulers [sic] of them, diligently perused and published, by a preacher of the word. — held source edition cb89f1b0c878",
+  "languages": [
+    "und"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A73023/master/A73023.xml",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

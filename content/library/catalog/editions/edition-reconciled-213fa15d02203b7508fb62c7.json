@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-213fa15d02203b7508fb62c7",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-3edba976760df300bb85bcad",
+  "label": "The pilgrim's progress, from this world to that which is to come. … complete in two parts. By Mr. John Bunyan, … Part II. To which are now added, notes, explanatory, experimental, and practical… 1782: Vol 3 — held source edition 1abaab1ff0e2",
+  "languages": [
+    "English"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_eighteenth-century_the-pilgrims-progress-_bunyan-john_1782_3/bim_eighteenth-century_the-pilgrims-progress-_bunyan-john_1782_3_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

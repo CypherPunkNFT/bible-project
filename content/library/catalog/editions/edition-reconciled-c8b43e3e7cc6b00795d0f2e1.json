@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-c8b43e3e7cc6b00795d0f2e1",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-304ec17fc1e48ab093fc060e",
+  "label": "Solomon's temple spiritualized: or, gospel-light fetched out of the temple at the Jerusalem, to let us more easily into the glory of New-Testament truths. By John Bunyan. The ninth edition. 1760 — held source edition 789edef0d545",
+  "languages": [
+    "English"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_eighteenth-century_solomons-temple-spiritu_bunyan-john_1760/bim_eighteenth-century_solomons-temple-spiritu_bunyan-john_1760_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

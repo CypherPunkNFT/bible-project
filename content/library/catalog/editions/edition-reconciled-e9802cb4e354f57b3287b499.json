@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-e9802cb4e354f57b3287b499",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-3628aba925d2168d73a98963",
+  "label": "A godlie and learned exposition upon the whole epistle of Iude, containing threescore and sixe sermons preached in Cambridge by that reverend and faithfull man of God, Master William Perkins, and now at the request of his executors, published by Thomas Taylor, preacher of Gods word ; whereunto is prefixed a large analysis, containing the summe and order of the whole booke, according to the authors owne method, to which are further added, foure briefe tables to direct the reader ... — held source edition 30364c9d04b2",
+  "languages": [
+    "und"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A09434/master/A09434.xml",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

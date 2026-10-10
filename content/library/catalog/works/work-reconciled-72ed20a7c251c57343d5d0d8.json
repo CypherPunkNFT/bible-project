@@ -1,0 +1,43 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-reconciled-72ed20a7c251c57343d5d0d8",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "title": "Job's creed: or, confession of faith. A sermon occasioned by the death of the Reverend Mr. Edward Wallin, who departed this life June 12, 1733 in the 55th year of his age. Preached June 18. By John Gill. 1733",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-john-gill",
+      "role": "author"
+    }
+  ],
+  "genre": "treatise",
+  "role": "core-teaching",
+  "collections": [],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [],
+  "depth": "unknown",
+  "era": "unknown",
+  "dates": [],
+  "passages": [],
+  "related": [],
+  "externalIds": {
+    "source-internet-archive": [
+      "ia:bim_eighteenth-century_jobs-creed-or-confess_gill-john-dd-baptis_1733"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_eighteenth-century_jobs-creed-or-confess_gill-john-dd-baptis_1733/bim_eighteenth-century_jobs-creed-or-confess_gill-john-dd-baptis_1733_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

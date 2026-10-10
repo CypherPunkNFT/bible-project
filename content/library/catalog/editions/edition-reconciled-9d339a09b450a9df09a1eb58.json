@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-9d339a09b450a9df09a1eb58",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-1df707ef81e46700060ad23e",
+  "label": "A sermon occasioned by the death of Mr. Edward Ludlow, who departed this life December 28th, 1748. Preached January 1st. By John Gill, D.D. 1749 — held source edition 2a007afc3779",
+  "languages": [
+    "English"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_eighteenth-century_a-sermon-occasioned-by-t_gill-john_1749/bim_eighteenth-century_a-sermon-occasioned-by-t_gill-john_1749_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

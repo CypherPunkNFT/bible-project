@@ -1,0 +1,76 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "asset",
+  "id": "asset-historical-ready-f139758112e18572fb",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "editionId": "edition-reconciled-a21be301ddb7ea73b9d6c6e1",
+  "sourceId": "source-monergism",
+  "canonicalUrl": "https://www.monergism.com/thethreshold/sdg/hodge/Princeton%20Sermons%20-%20Charles%20Hodge.epub",
+  "finalUrl": "https://www.monergism.com/thethreshold/sdg/hodge/Princeton%20Sermons%20-%20Charles%20Hodge.epub",
+  "format": "epub",
+  "mediaKind": "text",
+  "acquisitionStatus": "downloaded",
+  "storage": "raw",
+  "relativePath": "library/source-monergism/asset-historical-ready-f139758112e18572fb/original.epub",
+  "sha256": "b036baaeb5fcbd8b2af163761d10bb850724a58b1844bbb5f9e2c41fe205f639",
+  "byteCount": 407886,
+  "mimeType": "application/epub+zip",
+  "retrievedAt": "2026-10-05T13:39:39.460230Z",
+  "rights": {
+    "category": "restricted-license",
+    "jurisdiction": null,
+    "licenseId": "Recorded publisher-use policy",
+    "licenseUrl": "https://www.monergism.com/monergism-copyright-permissions",
+    "attribution": "Charles Hodge; Monergism",
+    "conditions": [
+      "Copyright and edition notices retained; recorded acquisition category: unspecified; recorded use scope: private-personal-educational-reading; policy evidence: https://www.monergism.com/monergism-copyright-permissions"
+    ],
+    "conditionsMet": false,
+    "actions": {
+      "download": "allowed",
+      "host": "unknown",
+      "redistribute": "unknown",
+      "adapt": "unknown",
+      "transcribe": "unknown",
+      "embed": "allowed",
+      "indexMetadata": "allowed",
+      "indexFullText": "allowed"
+    },
+    "evidence": [
+      {
+        "url": "https://www.monergism.com/princeton-sermons-outlines-discourses-doctrinal-and-practical",
+        "locator": "Recorded acquisition/source metadata",
+        "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+        "checkedOn": "2026-10-08"
+      }
+    ],
+    "unresolved": [],
+    "review": {
+      "date": "2026-10-08",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Recorded bibliographic/provenance reconciliation; private local authorization retained separately from public use."
+    }
+  },
+  "fullTextIndexed": true,
+  "processing": {
+    "parentAssetId": null,
+    "method": "none",
+    "tool": null,
+    "toolVersion": null,
+    "parameters": null,
+    "date": null,
+    "note": "Original unchanged; existing selected derivatives remain in their original acquisition/repair ledgers."
+  },
+  "quality": {
+    "state": "unreviewed",
+    "reviewedBy": null,
+    "reviewedOn": null,
+    "note": "Bibliographic metadata joined; body not proofread or collated by this task."
+  }
+}

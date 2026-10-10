@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-f08ba6759181bb24c69a0c91",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-4f72cf04993dd40831d2144b",
+  "label": "Taith y pererin tan rith breuddwyd. ... Yr ail rhann; o waith John Bunyan. A gyfieuthwyd gan John Edwards, ... 1761 — held source edition dc93fbedc024",
+  "languages": [
+    "English"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_eighteenth-century_taith-y-pererin-tan-rith_bunyan-john_1761/bim_eighteenth-century_taith-y-pererin-tan-rith_bunyan-john_1761_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

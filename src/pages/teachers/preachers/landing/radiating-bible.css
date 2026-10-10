@@ -1,0 +1,20 @@
+.tp-preachers .lnd-bible{display:block;width:100%;max-width:34rem;justify-self:center;align-self:center;color:var(--accent);overflow:visible}
+.lnd-bible path,.lnd-bible circle{stroke-linecap:round;stroke-linejoin:round}
+.lnd-bible .rb-stroke{fill:none;stroke:currentColor;stroke-width:1.15}
+.lnd-bible .rb-fine{stroke-width:.8;opacity:.8}.lnd-bible .rb-faint{stroke-width:.7;opacity:.52}
+.lnd-bible .rb-paper{fill:var(--page)}.lnd-bible .rb-text{stroke-width:.7;opacity:.67}.lnd-bible .rb-ink{stroke:var(--ink);stroke-width:.8;opacity:.65}
+.lnd-bible .rb-base{opacity:.82}.lnd-bible .rb-base .rb-moving{visibility:hidden}
+.lnd-bible .rb-live .rb-stroke{animation:rb-draw 1.6s calc(var(--delay,0)*1s) cubic-bezier(.45,0,.2,1) both}
+.lnd-bible .rb-wave{fill:none;stroke:currentColor;stroke-width:1.15;opacity:.45;transform-origin:180px 146px}
+.lnd-bible .rb-live .rb-wave{animation:rb-voice 6s calc(var(--i)*1.35s) ease-out infinite both}
+.lnd-bible .rb-live .rb-star{animation:rb-draw 1.6s calc(var(--delay)*1s) both,rb-twinkle 5s calc(1.5s + var(--i)*.6s) ease-in-out infinite}
+.lnd-bible .rb-dot{fill:currentColor;stroke:none;opacity:.5}
+.lnd-bible .rb-live .rb-dot{animation:rb-distant 6s calc(var(--i)*-.53s) ease-in-out infinite}
+.lnd-bible .rb-live .rb-symbol{animation:rb-float 8s calc(var(--i)*-1.7s) ease-in-out infinite}
+.lnd-bible.rb-paused *{animation-play-state:paused!important}
+@keyframes rb-draw{0%{stroke-dasharray:1;stroke-dashoffset:1}99.9%{stroke-dasharray:1;stroke-dashoffset:0}100%{stroke-dasharray:none;stroke-dashoffset:0}}
+@keyframes rb-voice{0%{opacity:0;transform:scale(.76)}30%{opacity:.72}100%{opacity:0;transform:scale(1.1)}}
+@keyframes rb-twinkle{0%,100%{opacity:.25}50%{opacity:1}}
+@keyframes rb-distant{0%,100%{opacity:.18}50%{opacity:.8}}
+@keyframes rb-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+@media(prefers-reduced-motion:reduce){.lnd-bible *{animation:none!important}.lnd-bible .rb-live{display:none}.lnd-bible .rb-base .rb-moving{visibility:visible}}

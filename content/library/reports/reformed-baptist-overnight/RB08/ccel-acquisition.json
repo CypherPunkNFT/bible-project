@@ -1,0 +1,38 @@
+{
+  "source": "ccel",
+  "catalogueItems": 1300,
+  "catalogueUnheldItems": 1004,
+  "eligibleItems": 10,
+  "unheldBefore": 4,
+  "filter": {
+    "deferHardDownloads": true,
+    "approvedCollection": true,
+    "authors": [
+      "Butler, Joseph",
+      "Hodge, Charles",
+      "Hodge, Archibald",
+      "Paley, William",
+      "Warfield, Benjamin",
+      "Gaussen"
+    ]
+  },
+  "attempted": 4,
+  "downloaded": 4,
+  "duplicateHashes": 0,
+  "heldDuringRun": 0,
+  "failures": [],
+  "bytes": 2881345,
+  "sampleSizes": [
+    789299,
+    443659,
+    712267,
+    936120
+  ],
+  "state": "complete",
+  "startedAt": "2026-10-07T20:02:03.243540+00:00",
+  "updatedAt": "2026-10-07T20:02:44.832429+00:00",
+  "unheldAfter": 0,
+  "estimatedUnheldGB": 0.0,
+  "estimateBasis": "SWORD InstallSize where available; otherwise arithmetic mean of downloaded originals; decimal GB; edition/item counts, not deduplicated works",
+  "completedAt": "2026-10-07T20:02:44.833298+00:00"
+}

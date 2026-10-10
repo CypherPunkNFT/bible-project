@@ -1,0 +1,43 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-reconciled-bd324b03a8770e12e629f6f3",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "title": "The olde fayth an euident probacion out of the holy scripture, that the christen fayth (whiche is the right, true, old and vndoubted fayth) hath endured sens the beginnyng of the worlde. Herein hast thou also a short summe of the whole Byble, and a probacion, that al vertuous men haue pleased God, and wer saued through the Christen fayth. 1547. Myles Couerdale.; Alte Glaube. English",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-heinrich-bullinger",
+      "role": "author"
+    }
+  ],
+  "genre": "treatise",
+  "role": "core-teaching",
+  "collections": [],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [],
+  "depth": "unknown",
+  "era": "unknown",
+  "dates": [],
+  "passages": [],
+  "related": [],
+  "externalIds": {
+    "source-eebo-tcp": [
+      "item:A17216"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A17216/master/A17216.xml",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

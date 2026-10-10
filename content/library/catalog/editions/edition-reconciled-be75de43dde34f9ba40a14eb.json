@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-be75de43dde34f9ba40a14eb",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-c14dee9d7724c1d02c049d9a",
+  "label": "The heavenly footman; or, a description of the man that gets to heaven. Together with the way he runs in; the marks he goes by; and directions how to run so as to obtain. By John Bunyan. To which is added, his life and death; as also, his last sermon. 1797 — held source edition fefce07548f5",
+  "languages": [
+    "English"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_eighteenth-century_the-heavenly-footman-or_bunyan-john_1797/bim_eighteenth-century_the-heavenly-footman-or_bunyan-john_1797_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "source": "chapel",
+  "items": [
+    {
+      "url": "https://www.chapellibrary.org/api/books?pageSize=1000&pageCount=0&language=EN",
+      "error": "HTTP Error 401: Unauthorized",
+      "retried": false
+    },
+    {
+      "url": "https://www.chapellibrary.org/api/books/getbooksbyserie?take=1000&pagecount=0&serie=52&language=EN",
+      "error": "HTTP Error 401: Unauthorized",
+      "retried": false
+    },
+    {
+      "url": "https://www.chapellibrary.org/api/books/getbooksbyserie?take=1000&pagecount=0&serie=47&language=EN",
+      "error": "HTTP Error 401: Unauthorized",
+      "retried": false
+    },
+    {
+      "url": "https://www.chapellibrary.org/api/books/getbooksbyserie?take=1000&pagecount=0&serie=50&language=EN",
+      "error": "HTTP Error 401: Unauthorized",
+      "retried": false
+    }
+  ],
+  "alternativeUsed": "Official public complete sitemap and 2026 Literature Catalog PDF; public book files and individual metadata",
+  "sourceAcquisitionBlocked": false
+}

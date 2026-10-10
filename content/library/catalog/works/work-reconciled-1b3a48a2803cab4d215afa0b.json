@@ -1,0 +1,43 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-reconciled-1b3a48a2803cab4d215afa0b",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "title": "The straying state and condition of mankind sinners : together with the care of the chief shepherd in returning them; and curing their straying disposition. In two sermons, From I Pet. ii. 25. : Preached at Gallashiels, on a sacramental occasion, in the year 1720",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-thomas-boston",
+      "role": "author"
+    }
+  ],
+  "genre": "treatise",
+  "role": "core-teaching",
+  "collections": [],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [],
+  "depth": "unknown",
+  "era": "unknown",
+  "dates": [],
+  "passages": [],
+  "related": [],
+  "externalIds": {
+    "source-internet-archive": [
+      "ia:strayingstatecon00bost"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/download/strayingstatecon00bost/strayingstatecon00bost_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

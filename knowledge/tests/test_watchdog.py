@@ -42,3 +42,16 @@ def test_completion_and_verification():
 
 def test_pause_overrides_recovery():
     assert decide({}, {}, {}, NOW, paused=True) == "paused"
+
+
+def test_live_final_verification_is_not_restarted_for_old_embedding_timestamp():
+    assert check(state="complete", minutes=90, embed=False, verify=[3]) == "verifying"
+
+
+def test_fresh_acquisition_wait_preserves_monitor_but_stale_wait_recovers():
+    processes = {"embed": [], "monitor": [2], "build": [], "refresh": []}
+    progress = {"state": "complete", "updated_at": (NOW-timedelta(hours=3)).isoformat()}
+    completion = {"state": "waiting_for_acquisitions", "updated_at": NOW.isoformat()}
+    assert decide(progress, completion, processes, NOW) == "waiting_for_acquisition"
+    completion["updated_at"] = (NOW-timedelta(hours=1)).isoformat()
+    assert decide(progress, completion, processes, NOW) == "resume_monitor"

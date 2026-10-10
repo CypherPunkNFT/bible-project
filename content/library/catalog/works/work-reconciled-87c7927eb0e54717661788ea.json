@@ -1,0 +1,43 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-reconciled-87c7927eb0e54717661788ea",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "title": "The summe of Christian religion: deliuered by Zacharias Vrsinus in his lectures vpon the Catechism autorised by the noble Prince Frederick, throughout his dominions: wherein are debated and resolued the questions of whatsoeuer points of moment, which haue beene or are controuersed in diuinitie. Translated into English by Henrie Parrie, out of the last & best Latin editions, together with some supplie of wa[n]ts out of his discourses of diuinitie, and with correction of sundrie faults & imperfections, which ar [sic] as yet remaining in the best corrected Latine.; Doctrinae Christianae compendium. English",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-zacharias-ursinus",
+      "role": "author"
+    }
+  ],
+  "genre": "treatise",
+  "role": "core-teaching",
+  "collections": [],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [],
+  "depth": "unknown",
+  "era": "unknown",
+  "dates": [],
+  "passages": [],
+  "related": [],
+  "externalIds": {
+    "source-eebo-tcp": [
+      "item:A14216"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A14216/master/A14216.xml",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

@@ -73,10 +73,23 @@ def split_text(text, limit=1500):
             start += 1
 
 
+def chunk_parts(text, locator, limit):
+    for part, body in enumerate(split_text(text, limit)):
+        location = f"{locator} · part {part + 1}" if len(text) > limit else locator
+        yield body, search_text(body), location
+
+
 class Writer:
     def __init__(self, db, config):
         self.db, self.config = db, config
         self.seen_files = set()
+        try:
+            self.prepared_documents = set(json.loads((config['state_dir'] / 'cpu-preparation/source-hashes.json').read_text('utf-8')))
+        except (OSError, ValueError, TypeError):
+            self.prepared_documents = set()
+        markers = config['state_dir'] / 'cpu-preparation/document-markers'
+        if markers.exists():
+            self.prepared_documents.update('library:text:' + path.stem for path in markers.glob('*.json'))
 
     def file(self, path, status="indexed", detail=""):
         path = Path(path).resolve()
@@ -98,12 +111,13 @@ class Writer:
         if not text.strip():
             return
         # Title + source-locator are part of identity; changed text never reuses a stale vector.
-        for part, body in enumerate(split_text(text, self.config["chunk_chars"])):
-            location = f"{locator} · part {part + 1}" if len(text) > self.config["chunk_chars"] else locator
+        from .chunk_cache import prepared_parts
+        parts = prepared_parts(self.config, text, locator) if doc in self.prepared_documents else chunk_parts(text, locator, self.config['chunk_chars'])
+        for body, searchable, location in parts:
             embedding = f"{title}\n{body}"
             id = digest(json.dumps([doc, location, embedding], ensure_ascii=False))
             self.db.execute("INSERT INTO chunks(id,document_id,title,text,search_text,kind,language,edition,book,chapter,verse_start,verse_end,link,locator,embed_text) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", (
-                id, doc, title, body, search_text(body), kind, language, edition, book, chapter,
+                id, doc, title, body, searchable, kind, language, edition, book, chapter,
                 verse_start, verse_end, link, location, embedding))
 
     def edge(self, subject, relation, object, source, metadata=None):

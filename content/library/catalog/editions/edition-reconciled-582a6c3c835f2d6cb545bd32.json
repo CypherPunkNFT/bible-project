@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-582a6c3c835f2d6cb545bd32",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-22f728cb5dca89f95a5eb326",
+  "label": "Halaethrwydd o ras i'r pennaf o bechaduriaid, mewn cywir hanes o fywyd a marwolaeth John Bunyan. ... 1763 — held source edition 2feb33cfc346",
+  "languages": [
+    "English"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_eighteenth-century_halaethrwydd-o-ras-ir-p_bunyan-john_1763/bim_eighteenth-century_halaethrwydd-o-ras-ir-p_bunyan-john_1763_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

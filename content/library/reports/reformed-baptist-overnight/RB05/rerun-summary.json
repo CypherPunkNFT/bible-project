@@ -1,0 +1,51 @@
+{
+  "state": "downloads_complete_report_written",
+  "updatedAt": "2026-10-07T23:51:51.539533+00:00",
+  "files": 2166,
+  "bytes": 801109525,
+  "distinctWorksEstimate": 1396,
+  "sources": {
+    "tcp": 2,
+    "ia": 2050,
+    "foundersjournal": 114
+  },
+  "failedDownloads": 111,
+  "exportFailures": 0,
+  "blockers": [
+    {
+      "source": "9marks",
+      "url": "https://www.9marks.org/journal/archives/",
+      "error": "Official archive and public API returned HTTP 403; no bypass or retry; full collection deferred.",
+      "exitCode": "HTTP 403",
+      "log": "catalogue-failures.json"
+    }
+  ],
+  "previouslyFailedSkipped": 5,
+  "derivedTexts": 0,
+  "embeddingBefore": {
+    "state": "complete",
+    "total": 1934778,
+    "indexed": 1934778,
+    "remaining": 0,
+    "corpus_build": "2026-10-07T15:23:27.068328+00:00",
+    "updated_at": "2026-10-07T16:52:55.679411+00:00",
+    "seconds": 2509.1
+  },
+  "embeddingAfter": {
+    "state": "running",
+    "updated_at": "2026-10-07T23:51:48.519747+00:00",
+    "pid": 119860,
+    "total": 8458873,
+    "indexed": 1960101,
+    "remaining": 6498772,
+    "corpus_build": "2026-10-07T23:00:34.844772+00:00",
+    "rate_per_second": 11.87,
+    "seconds": 2274.8
+  },
+  "intakeCommandExitCode": 0,
+  "intake": {
+    "pid": 102336,
+    "started_at": "2026-10-07T21:38:36.5683810Z",
+    "state": "running"
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "sources": {
+    "first1k": {
+      "state": "complete",
+      "repository": "OpenGreekAndLatin/First1KGreek",
+      "archiveFiles": 3147,
+      "archiveBytes": 812858387,
+      "bodyCandidates": 1204,
+      "newlyHeldBodies": 1204,
+      "reusedBodies": 0,
+      "emptyBodies": 0,
+      "extractedCharacters": 224625450,
+      "processingFailures": 0,
+      "commit": "03776b39f4047c5cff06f5296fae4b2bae4b08fb",
+      "distinctWorkIdentifiers": 1103,
+      "languages": {
+        "grc": 1120,
+        "eng": 46,
+        "lat": 27,
+        "cop": 1,
+        "mul": 3,
+        "deu": 7
+      },
+      "completedAt": "2026-10-09T13:04:06.204316+00:00"
+    },
+    "pta": {
+      "state": "complete",
+      "repository": "PatristicTextArchive/pta_data",
+      "archiveFiles": 1259,
+      "archiveBytes": 571851165,
+      "bodyCandidates": 536,
+      "newlyHeldBodies": 536,
+      "reusedBodies": 0,
+      "emptyBodies": 0,
+      "extractedCharacters": 66940261,
+      "processingFailures": 0,
+      "commit": "524eb9763b1181bc9f14edf52943bfe2f7a43aed",
+      "distinctWorkIdentifiers": 208,
+      "languages": {
+        "deu": 28,
+        "grc": 381,
+        "lat": 7,
+        "xcl": 9,
+        "chu": 2,
+        "en": 1,
+        "syc": 101,
+        "rum": 1,
+        "eng": 6
+      },
+      "completedAt": "2026-10-09T13:03:33.731254+00:00"
+    },
+    "catenae": {
+      "state": "complete",
+      "repository": "OpenGreekAndLatin/catenae-dev",
+      "archiveFiles": 9,
+      "archiveBytes": 15847548,
+      "bodyCandidates": 8,
+      "newlyHeldBodies": 8,
+      "reusedBodies": 0,
+      "emptyBodies": 0,
+      "extractedCharacters": 7788323,
+      "processingFailures": 0,
+      "commit": "a519a3b4ce3e7b52b6b4d10f5cce4839af1c179a",
+      "distinctWorkIdentifiers": 8,
+      "languages": {
+        "grc": 8
+      },
+      "completedAt": "2026-10-09T13:03:10.195525+00:00"
+    },
+    "ccel": {
+      "state": "complete",
+      "offeredTextVolumes": 37,
+      "heldBefore": 9,
+      "newlyHeldBodies": 28,
+      "reusedBodies": 9,
+      "downloadedBytes": 96004276,
+      "extractedCharacters": 95988634,
+      "failures": 0,
+      "completedAt": "2026-10-09T13:08:05.480591+00:00"
+    }
+  },
+  "acquiredFiles": 4443,
+  "archiveBytes": 1496561376,
+  "newBodyFiles": 1776,
+  "newBodyBytes": 663579963,
+  "reusedBodies": 9,
+  "failures": 0,
+  "embeddingBefore": {
+    "state": "running",
+    "updated_at": "2026-10-09T13:03:06.831814+00:00",
+    "pid": 79352,
+    "total": 8458873,
+    "indexed": 3773093,
+    "remaining": 4685780,
+    "corpus_build": "2026-10-07T23:00:34.844772+00:00",
+    "rate_per_second": 21.63,
+    "seconds": 1198.2
+  },
+  "embeddingAfter": {
+    "state": "running",
+    "updated_at": "2026-10-09T13:08:03.487987+00:00",
+    "pid": 79352,
+    "total": 8458873,
+    "indexed": 3779429,
+    "remaining": 4679444,
+    "corpus_build": "2026-10-07T23:00:34.844772+00:00",
+    "rate_per_second": 21.58,
+    "seconds": 1494.9
+  },
+  "intakeHandoff": {
+    "entryPoint": "knowledge/finish-intake.ps1",
+    "exitCode": 0,
+    "result": "Existing single completion pipeline owns the lock",
+    "completionControllerPid": 127936,
+    "embeddingWorkerPid": 79352,
+    "savedVectorsAtHandoff": 3781029,
+    "newSourceBodiesPendingCorpusRefresh": 1776
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-4c952088b9416cf50e68e00f",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-93e104530b0ecb721d7083aa",
+  "label": "A sermon, preached at Plymouth, August 7, 1785, to a congregation of Protestant dissenters, on entering upon the discharge of the pastoral office among them. By Thomas Watson, Jun. 1785 — held source edition bfb822848727",
+  "languages": [
+    "English"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_eighteenth-century_a-sermon-preached-at-pl_watson-thomas-jun_1785/bim_eighteenth-century_a-sermon-preached-at-pl_watson-thomas-jun_1785_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

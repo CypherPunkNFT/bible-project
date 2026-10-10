@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-dcc4135b165767459c01b277",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-e468b526987ef7c0edffbf8f",
+  "label": "Edwards on revivals : containing A faithful narrative of the surprising work of God in the conversion of many hundred souls in Northhampton, Massachusetts, A.D. 1735 : also Thoughts on the revival of religion in New England, 1742, and the way in which it ought to be acknowledged and promoted — held source edition 62c8ddb70ce4",
+  "languages": [
+    "eng"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/edwardsonrevival183200edwa/edwardsonrevival183200edwa_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

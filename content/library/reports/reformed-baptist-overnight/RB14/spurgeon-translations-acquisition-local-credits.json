@@ -1,0 +1,26 @@
+{
+  "source": "spurgeon-translations",
+  "catalogueItems": 453,
+  "catalogueUnheldItems": 0,
+  "eligibleItems": 453,
+  "unheldBefore": 0,
+  "filter": {
+    "cataloguePath": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\bulk-catalogues\\rb14-spurgeon-local-credits.json",
+    "approvedCollection": true,
+    "deferHardDownloads": true,
+    "batchName": "local-credits"
+  },
+  "attempted": 0,
+  "downloaded": 0,
+  "duplicateHashes": 0,
+  "heldDuringRun": 0,
+  "failures": [],
+  "bytes": 0,
+  "sampleSizes": [],
+  "state": "complete",
+  "startedAt": "2026-10-07T21:36:33.312341+00:00",
+  "unheldAfter": 0,
+  "estimatedUnheldGB": null,
+  "estimateBasis": "SWORD InstallSize where available; otherwise arithmetic mean of downloaded originals; decimal GB; edition/item counts, not deduplicated works",
+  "completedAt": "2026-10-07T21:36:33.315572+00:00"
+}

@@ -1,0 +1,123 @@
+# RB05 failed-download TODO
+
+111 failed/deferred acquisitions; 0 saved originals with failed text export; 1 collector/collection blockers; 5 previously failed IDs skipped.
+
+- [ ] 9MARKS `catalogue`: HTTP 403
+- [ ] 9MARKS `catalogue`: HTTP 403
+- [ ] IA `Mulberry_Baptist_Association_Minutes_1887`: HTTP Error 500: Internal Server Error
+- [ ] IA `annualofjohnston01john_0`: HTTP Error 500: Internal Server Error
+- [ ] IA `annualofjohnston01john_5`: HTTP Error 500: Internal Server Error
+- [ ] IA `annualofsessiono00rowa_0`: The read operation timed out
+- [ ] IA `cihm_08263`: The read operation timed out
+- [ ] IA `cihm_76187`: HTTP Error 500: Internal Server Error
+- [ ] IA `historybaptistc00assogoog`: HTTP Error 500: Internal Server Error
+- [ ] IA `letterfromhighhi00high_0`: empty/short original
+- [ ] IA `letterfromjonesh00jone`: empty/short original
+- [ ] IA `letterfromlibert00libe`: HTTP Error 500: Internal Server Error
+- [ ] IA `letterfromlibert00libe_0`: empty/short original
+- [ ] IA `letterfrommeadow00mead`: empty/short original
+- [ ] IA `letterfrommounta00moun`: The read operation timed out
+- [ ] IA `minutesofanniver9196thre`: The read operation timed out
+- [ ] IA `minutesofanniver8690thre`: <urlopen error _ssl.c:1015: The handshake operation timed out>
+- [ ] IA `minutesofannualm01mont_9`: HTTP Error 500: Internal Server Error
+- [ ] IA `minutesofannuals00ceda`: HTTP Error 500: Internal Server Error
+- [ ] IA `minutesofannuals01aver_5`: HTTP Error 500: Internal Server Error
+- [ ] IA `minutesofannuals01blad_0`: The read operation timed out
+- [ ] IA `minutesofannuals01mitc_2`: The read operation timed out
+- [ ] IA `minutesofannuals01mitc_7`: The read operation timed out
+- [ ] IA `minutesofannuals01sout_4`: The read operation timed out
+- [ ] IA `minutesofannuals01yadk_0`: The read operation timed out
+- [ ] IA `minutesofannuals1317cent`: The read operation timed out
+- [ ] IA `minutesofannuals1879zion`: The read operation timed out
+- [ ] IA `minutesofannuals1881reed`: HTTP Error 500: Internal Server Error
+- [ ] IA `minutesofannuals1886john`: HTTP Error 500: Internal Server Error
+- [ ] IA `minutesofannuals1886neus`: HTTP Error 500: Internal Server Error
+- [ ] IA `minutesofannuals1886wake`: <urlopen error timed out>
+- [ ] IA `minutesofannuals1904wake`: The read operation timed out
+- [ ] IA `minutesofannuals1916shil`: HTTP Error 500: Internal Server Error
+- [ ] IA `minutesofannuals1920east`: The read operation timed out
+- [ ] IA `minutesofannuals1920rowa`: HTTP Error 500: Internal Server Error
+- [ ] IA `minutesofannuals1923midd`: The read operation timed out
+- [ ] IA `minutesofannuals1928prim`: Extra data: line 120 column 128 (char 13193)
+- [ ] IA `minutesofannuals1928litt`: HTTP Error 500: Internal Server Error
+- [ ] IA `minutesofannuals1929high`: The read operation timed out
+- [ ] IA `minutesofannuals1929kena`: The read operation timed out
+- [ ] IA `minutesofannuals1937prim`: HTTP Error 500: Internal Server Error
+- [ ] IA `minutesofannuals1938prim`: HTTP Error 500: Internal Server Error
+- [ ] IA `minutesofannuals1944prim`: HTTP Error 500: Internal Server Error
+- [ ] IA `minutesofannuals1946wake`: HTTP Error 500: Internal Server Error
+- [ ] IA `minutesofannuals1960prim`: HTTP Error 500: Internal Server Error
+- [ ] IA `minutesofannuals1961wake`: HTTP Error 500: Internal Server Error
+- [ ] IA `minutesofannuals2438west`: HTTP Error 500: Internal Server Error
+- [ ] IA `minutesofannuals4155cata`: The read operation timed out
+- [ ] IA `minutesofannuals4156b`: The read operation timed out
+- [ ] IA `minutesofannuals7620litt`: The read operation timed out
+- [ ] IA `minutesofannuals8186brun`: HTTP Error 500: Internal Server Error
+- [ ] IA `minutesofbearcre88orig`: The read operation timed out
+- [ ] IA `minutesofcarolin9395caro`: The read operation timed out
+- [ ] IA `minutesofcharles00char`: The read operation timed out
+- [ ] IA `minutesofelevent00yell`: HTTP Error 500: Internal Server Error
+- [ ] IA `minutesoffifthan00gill`: The read operation timed out
+- [ ] IA `minutesoffifthan00harm`: The read operation timed out
+- [ ] IA `minutesoffiftiet00will`: The read operation timed out
+- [ ] IA `minutesoffiftyni00birm`: HTTP Error 500: Internal Server Error
+- [ ] IA `minutesoffiftyse00alab`: HTTP Error 500: Internal Server Error
+- [ ] IA `minutesoffortyfi00sale`: The read operation timed out
+- [ ] IA `minutesoffortyfi00warr`: The read operation timed out
+- [ ] IA `minutesoffortyfi0juds`: The read operation timed out
+- [ ] IA `minutesoffortyni00caha`: The read operation timed out
+- [ ] IA `minutesoffortyse00shel`: Extra data: line 162 column 128 (char 12879)
+- [ ] IA `minutesoffourtee00nort`: The read operation timed out
+- [ ] IA `minutesoffourtha00mars`: HTTP Error 500: Internal Server Error
+- [ ] IA `minutesoffourtha00pear`: The read operation timed out
+- [ ] IA `minutesofninetee00boil`: HTTP Error 500: Internal Server Error
+- [ ] IA `minutesofninthan00flor`: The read operation timed out
+- [ ] IA `minutesoforganiz0108sout`: The read operation timed out
+- [ ] IA `minutesoforganiz8690libe`: HTTP Error 500: Internal Server Error
+- [ ] IA `minutesoforganiz8185libe`: HTTP Error 500: Internal Server Error
+- [ ] IA `minutesofpeedeeb6165peed`: HTTP Error 500: Internal Server Error
+- [ ] IA `minutesofpeedeeb7175peed`: The read operation timed out
+- [ ] IA `minutesofseconda00sout`: HTTP Error 500: Internal Server Error
+- [ ] IA `minutesofseventh00selm`: The read operation timed out
+- [ ] IA `minutesofseventy00mudc`: The read operation timed out
+- [ ] IA `minutesofseventy1893alab`: HTTP Error 500: Internal Server Error
+- [ ] IA `minutesofsixteen00mobi`: The read operation timed out
+- [ ] IA `minutesofsixteen00shel`: The read operation timed out
+- [ ] IA `minutesofsixthan00libe`: The read operation timed out
+- [ ] IA `minutesofsixtyfo00cher`: The read operation timed out
+- [ ] IA `minutesofsixtyfo00nort`: The read operation timed out
+- [ ] IA `minutesofsixtyse00caha`: HTTP Error 500: Internal Server Error
+- [ ] IA `minutesofsixtyth00pilg`: The read operation timed out
+- [ ] IA `minutesofthirdan00gulf`: The read operation timed out
+- [ ] IA `minutesofthea1899beth`: The read operation timed out
+- [ ] IA `minutesofthirdan00sout`: The read operation timed out
+- [ ] IA `minutesofthirtie00warr`: The read operation timed out
+- [ ] IA `minutesofthirtyf00stcl`: HTTP Error 500: Internal Server Error
+- [ ] IA `minutesofthirtyt00unio`: The read operation timed out
+- [ ] IA `minutesoftwelfth00colu`: HTTP Error 500: Internal Server Error
+- [ ] IA `minutesoftwelfth00hawr`: HTTP Error 500: Internal Server Error
+- [ ] IA `minutesoftwelfth65orig`: The read operation timed out
+- [ ] IA `minutesoftwentyf00ju`: HTTP Error 500: Internal Server Error
+- [ ] IA `minutesoftwentyn79juds`: The read operation timed out
+- [ ] IA `minutesoftwentys75orig`: <urlopen error _ssl.c:1015: The handshake operation timed out>
+- [ ] IA `minutesoftwentys99sulp`: <urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>
+- [ ] IA `minutesoftwentys77juds`: <urlopen error _ssl.c:1015: The handshake operation timed out>
+- [ ] IA `minutesoftwentyse00warr`: <urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>
+- [ ] IA `minutesoftwentyshel`: <urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>
+- [ ] IA `minutesoftwentysi00warr`: <urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>
+- [ ] IA `minutesoftwentyt00boil`: <urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>
+- [ ] IA `minutesproceedin8690sand`: The read operation timed out
+- [ ] IA `muskbaptassoc1881`: The read operation timed out
+- [ ] IA `muskregpredest1891`: The read operation timed out
+- [ ] IA `proceedingsoforg00rand`: The read operation timed out
+- [ ] FOUNDERSJOURNAL `issue-1655-articles`: Public issue response does not include every offered article/review; deferred
+- [ ] FOUNDERSJOURNAL `issue-2071-articles`: Public issue response does not include every offered article/review; deferred
+- [ ] FOUNDERSJOURNAL `issue-2305-articles`: Public issue response does not include every offered article/review; deferred
+- [ ] IA `breachr00keac`: Deferred at user time cutoff; not a failed request
+- [ ] IA `communionwithgo00owengoog`: Deferred at user time cutoff; not a failed request
+- [ ] IA `goldrefinedorbap00keac`: Deferred at user time cutoff; not a failed request
+- [ ] IA `truen00owen`: Deferred at user time cutoff; not a failed request
+- [ ] IA `viewofnatureorde00owen`: Deferred at user time cutoff; not a failed request
+- [ ] 9MARKS collector exit HTTP 403: `catalogue-failures.json`
+
+Full IDs, URLs and errors: `failed-downloads.json`. No automatic retries.

@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-d3960a2614e35d345774e025",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-06d5bc7b3a3cb264670e3498",
+  "label": "A letter to the Reverend Dr Durell, Vicechancellor of the University of Oxford; occasioned by a late expulsion of six students from Edmund Hall. By George Whitefield, ... 1768 — held source edition 0d4e8d14fbe2",
+  "languages": [
+    "English"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_eighteenth-century_a-letter-to-the-reverend_whitefield-george_1768/bim_eighteenth-century_a-letter-to-the-reverend_whitefield-george_1768_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

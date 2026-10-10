@@ -1,0 +1,164 @@
+{
+  "source": "tcp",
+  "catalogueItems": 61315,
+  "catalogueUnheldItems": 53775,
+  "eligibleItems": 236,
+  "unheldBefore": 55,
+  "filter": {
+    "authors": [
+      "Baxter, Richard",
+      "Richard Baxter",
+      "Perkins, William",
+      "William Perkins",
+      "Ames, William",
+      "William Ames",
+      "Watson, Thomas",
+      "Thomas Watson",
+      "Durham, James",
+      "James Durham",
+      "Ridgley, Thomas",
+      "Thomas Ridgley",
+      "Dabney, Robert",
+      "Robert Dabney",
+      "Fuller, Andrew",
+      "Andrew Fuller",
+      "Robert Lewis Dabney",
+      "Dabney, R L",
+      "Dabney, R. L.",
+      "Ames, Willem",
+      "William Amesius"
+    ],
+    "primaryAuthorOnly": true,
+    "authorIdentityRules": [
+      {
+        "namePattern": "Baxter",
+        "lifeYears": [
+          1615,
+          1691
+        ]
+      },
+      {
+        "namePattern": "Perkins",
+        "lifeYears": [
+          1558,
+          1588,
+          1602
+        ]
+      },
+      {
+        "namePattern": "Ames",
+        "lifeYears": [
+          1576,
+          1633
+        ]
+      },
+      {
+        "namePattern": "Watson",
+        "lifeYears": [
+          1620,
+          1686
+        ]
+      },
+      {
+        "namePattern": "Durham",
+        "lifeYears": [
+          1622,
+          1658
+        ]
+      },
+      {
+        "namePattern": "Ridgley",
+        "lifeYears": [
+          1667,
+          1734
+        ]
+      },
+      {
+        "namePattern": "Dabney",
+        "lifeYears": [
+          1820,
+          1898
+        ]
+      },
+      {
+        "namePattern": "Fuller",
+        "lifeYears": [
+          1754,
+          1815
+        ]
+      }
+    ],
+    "deferHardDownloads": true,
+    "skipIds": []
+  },
+  "attempted": 55,
+  "downloaded": 55,
+  "duplicateHashes": 0,
+  "heldDuringRun": 0,
+  "failures": [],
+  "bytes": 20441588,
+  "sampleSizes": [
+    478217,
+    179870,
+    323542,
+    1150017,
+    260950,
+    544477,
+    167249,
+    101530,
+    67527,
+    148998,
+    1143476,
+    514950,
+    25458,
+    4410176,
+    170795,
+    437400,
+    169261,
+    745451,
+    101833,
+    478552,
+    31065,
+    1401995,
+    28142,
+    263795,
+    450641,
+    317024,
+    52144,
+    54914,
+    138289,
+    30281,
+    28561,
+    1222426,
+    1295038,
+    72032,
+    26016,
+    28747,
+    396115,
+    291081,
+    26251,
+    861157,
+    30572,
+    26167,
+    26890,
+    22202,
+    96606,
+    909973,
+    337066,
+    57373,
+    33164,
+    42890,
+    34829,
+    61476,
+    50426,
+    25135,
+    51376
+  ],
+  "state": "complete",
+  "startedAt": "2026-10-07T19:57:53.419758+00:00",
+  "updatedAt": "2026-10-07T20:00:02.116911+00:00",
+  "unheldAfter": 0,
+  "estimatedUnheldGB": 0.0,
+  "estimateBasis": "SWORD InstallSize where available; otherwise arithmetic mean of downloaded originals; decimal GB; edition/item counts, not deduplicated works",
+  "completedAt": "2026-10-07T20:00:02.117894+00:00"
+}

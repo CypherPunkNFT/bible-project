@@ -7,6 +7,31 @@
 - [ ] Next `knowledge/finish-intake.ps1` run indexes the 45 originals (not run by LC01). Then check every direct quotation on the Letters pages against these texts.
 <!-- /LC01 -->
 
+<!-- BULK intake -->
+## Same-day private intake and bulk harvest
+
+- [x] Release the 69 DB-confirmed RB04-RB11 skipped text files; keep credit metadata.
+- [x] Importer no longer treats `evidenceOnly` as a text gate; SWORD archives with readable exports are indexed.
+- [x] Disable `BibleProject-After14Missions-Refresh`; owner supersedes the old wait.
+- [x] TCP collector active: PID 96980, ~9,941 eligible catalogue targets, official XML, two-second spacing. Do not launch duplicate TCP workers.
+- [x] Single completion pipeline active: PID 109988, waits for the existing embedding pass before refresh. Do not start a competing build/embed pipeline.
+- [ ] Confirm passage growth and embedding parity after intake; baseline 1,934,778 passages at policy change.
+
+Collector: `Website/scripts/bulk-tcp.py`; live state: `KnowledgeBase/bulk-tcp/progress.json`; checksum manifest: `Website/content/library/reports/bulk-acquisition/TCP/acquisition-manifest.json`. Resume with `python -X utf8 scripts/bulk-tcp.py --hours 12 --delay 2` from Website only when no TCP collector is active. Ordered continuation active: `scripts/bulk-queue.py` PID 90028 waits for TCP, then runs 100 selected SWORD modules and the full CCEL/Princeton/Gutenberg filters (132 authors), followed by Monergism and Desiring God. It reuses `knowledge/bulk_collect.py` and existing book collectors with no 20-file limits; avoid duplicate launches. Numeric report: `KnowledgeBase/bulk-report.md`; update with `python scripts/bulk-status.py`, also called on intake completion. No public full-text publishing or enrichment is authorized by this change.
+<!-- /BULK intake -->
+
+
+<!-- RB12 backlog -->
+## 2026-10-07: RB12 Baptist historical evidence acquired
+
+**46 originals / 5.24 MB / 709,313 extracted words:** seven historical work/collection groups, eight edition witnesses. Ivimey Volume I, selected Philadelphia association records/circulars, Broadmead 1847 and 1974 TXT, Kiffin autobiography, Knollys life/legacy, joint London letter and Belyea origins study. Reused 51 held witnesses including all eleven RB07 mapped witnesses and the confessional spine. 98 actual relevant originals and 13,110 prior ledger records audited/screened. 97 mapped witnesses / 490 source locations / 194 historical document rows / 27 exact private components / 13 qualified relationship rows. Not 46 new books, not all Philadelphia century records, and no graph assertions.
+
+[Report](reports/reformed-baptist-overnight/RB12/REPORT.md), [document table](reports/reformed-baptist-overnight/RB12/DOCUMENT-TABLE.md), [reading paths](reports/reformed-baptist-overnight/RB12/READING-MAP.md), [relationships](reports/reformed-baptist-overnight/RB12/RELATIONSHIPS.md), [scope](reports/reformed-baptist-overnight/RB12/THEOLOGICAL-SCOPE.md), [checkpoint](reports/reformed-baptist-overnight/RB12/checkpoint.json).
+
+All new parents/slices evidence-only, not ingested/embedded. Formal catalog unchanged pending identity/editorial/rights review; sources are documented in SOURCES. No OCR/images or worker/scheduler/watchdog changes. Post-RB14 gate remains; RB13 only when prompted.
+<!-- /RB12 backlog -->
+
+
 <!-- RB11 backlog -->
 ## RB11: prayer/worship acquired; aggregate intake held
 

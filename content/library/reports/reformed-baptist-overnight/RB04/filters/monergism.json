@@ -1,0 +1,128 @@
+{
+  "authors": [
+    "Owen, John",
+    "John Owen",
+    "Goodwin, Thomas",
+    "Thomas Goodwin",
+    "Sibbes, Richard",
+    "Richard Sibbes",
+    "Sibbs, Richard",
+    "Richard Sibbs",
+    "Watson, Thomas",
+    "Thomas Watson",
+    "Brooks, Thomas",
+    "Thomas Brooks",
+    "Flavel, John",
+    "John Flavel",
+    "Boston, Thomas",
+    "Thomas Boston",
+    "Bunyan, John",
+    "John Bunyan",
+    "Fuller, Andrew",
+    "Andrew Fuller",
+    "Booth, Abraham",
+    "Abraham Booth",
+    "Edwards, Jonathan",
+    "Jonathan Edwards"
+  ],
+  "primaryAuthorOnly": true,
+  "authorIdentityRules": [
+    {
+      "namePattern": "Owen,?\\s+John|John\\s+Owen",
+      "lifeYears": [
+        1616,
+        1683
+      ]
+    },
+    {
+      "namePattern": "Goodwin,?\\s+Thomas|Thomas\\s+Goodwin",
+      "lifeYears": [
+        1600,
+        1680
+      ]
+    },
+    {
+      "namePattern": "Sibbes,?\\s+Richard|Richard\\s+Sibbes",
+      "lifeYears": [
+        1577,
+        1635
+      ]
+    },
+    {
+      "namePattern": "Sibbs,?\\s+Richard|Richard\\s+Sibbs",
+      "lifeYears": [
+        1577,
+        1635
+      ]
+    },
+    {
+      "namePattern": "Watson,?\\s+Thomas|Thomas\\s+Watson",
+      "lifeYears": [
+        1620,
+        1686
+      ]
+    },
+    {
+      "namePattern": "Brooks,?\\s+Thomas|Thomas\\s+Brooks",
+      "lifeYears": [
+        1608,
+        1680
+      ]
+    },
+    {
+      "namePattern": "Flavel,?\\s+John|John\\s+Flavel",
+      "lifeYears": [
+        1630,
+        1691
+      ]
+    },
+    {
+      "namePattern": "Boston,?\\s+Thomas|Thomas\\s+Boston",
+      "lifeYears": [
+        1676,
+        1677,
+        1732
+      ]
+    },
+    {
+      "namePattern": "Bunyan,?\\s+John|John\\s+Bunyan",
+      "lifeYears": [
+        1628,
+        1688
+      ]
+    },
+    {
+      "namePattern": "Fuller,?\\s+Andrew|Andrew\\s+Fuller",
+      "lifeYears": [
+        1754,
+        1815
+      ]
+    },
+    {
+      "namePattern": "Booth,?\\s+Abraham|Abraham\\s+Booth",
+      "lifeYears": [
+        1734,
+        1806
+      ]
+    },
+    {
+      "namePattern": "Edwards,?\\s+Jonathan|Jonathan\\s+Edwards",
+      "lifeYears": [
+        1703,
+        1758
+      ]
+    }
+  ],
+  "deferHardDownloads": true,
+  "skipIds": [
+    "art-man-fishing-ebook",
+    "crook-lot-ebook",
+    "christs-invitation-labouring-and-heavy-laden-ebook",
+    "crook-lot-modernized-ebook",
+    "human-nature-its-fourfold-state-ebook-0",
+    "beauties-thomas-boston-ebook",
+    "i-count-all-things-loss-ebook",
+    "christ-jesus-duly-prized-ebook"
+  ],
+  "resumeStatus": true
+}

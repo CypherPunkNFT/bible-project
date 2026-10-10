@@ -1,0 +1,513 @@
+{
+  "version": "english-v1.1",
+  "language": "en",
+  "scope": "Located English topic candidates only; no author endorsement or interpreted claims. Historical spellings retained in source evidence.",
+  "rules": [
+    {
+      "id": "justification-1",
+      "topic": "justification",
+      "phrase": "justification",
+      "contextAny": [
+        "faith",
+        "righteous",
+        "christ",
+        "sin"
+      ],
+      "exclude": [
+        "self-justification",
+        "justification for",
+        "commercial slogan",
+        "insurance policy",
+        "legal justification"
+      ],
+      "positive": "We consider justification through faith in Christ and the grace of God.",
+      "negative": "This memorandum uses justification as a commercial slogan.",
+      "aliases": [
+        "iustification"
+      ]
+    },
+    {
+      "id": "justification-2",
+      "topic": "justification",
+      "phrase": "justified by faith",
+      "contextAny": [
+        "faith",
+        "righteous",
+        "christ",
+        "sin"
+      ],
+      "exclude": [
+        "self-justification",
+        "justification for",
+        "commercial slogan",
+        "insurance policy",
+        "legal justification"
+      ],
+      "positive": "We consider justified by faith through faith in Christ and the grace of God.",
+      "negative": "This memorandum uses justified by faith as a commercial slogan.",
+      "aliases": [
+        "iustified by faith"
+      ]
+    },
+    {
+      "id": "justification-3",
+      "topic": "justification",
+      "phrase": "imputed righteousness",
+      "contextAny": [
+        "faith",
+        "righteous",
+        "christ",
+        "sin"
+      ],
+      "exclude": [
+        "self-justification",
+        "justification for",
+        "commercial slogan",
+        "insurance policy",
+        "legal justification"
+      ],
+      "positive": "We consider imputed righteousness through faith in Christ and the grace of God.",
+      "negative": "This memorandum uses imputed righteousness as a commercial slogan.",
+      "aliases": []
+    },
+    {
+      "id": "justification-4",
+      "topic": "justification",
+      "phrase": "righteousness of Christ",
+      "contextAny": [
+        "faith",
+        "righteous",
+        "christ",
+        "sin"
+      ],
+      "exclude": [
+        "self-justification",
+        "justification for",
+        "commercial slogan",
+        "insurance policy",
+        "legal justification"
+      ],
+      "positive": "We consider righteousness of Christ through faith in Christ and the grace of God.",
+      "negative": "This memorandum uses righteousness of Christ as a commercial slogan.",
+      "aliases": []
+    },
+    {
+      "id": "covenant-1",
+      "topic": "covenant",
+      "phrase": "covenant of grace",
+      "contextAny": [
+        "god",
+        "christ",
+        "promise",
+        "adam",
+        "scripture"
+      ],
+      "exclude": [
+        "employment contract",
+        "commercial slogan",
+        "insurance policy",
+        "legal justification"
+      ],
+      "positive": "We consider covenant of grace through faith in Christ and the grace of God.",
+      "negative": "This memorandum uses covenant of grace as a commercial slogan.",
+      "aliases": []
+    },
+    {
+      "id": "covenant-2",
+      "topic": "covenant",
+      "phrase": "covenant of works",
+      "contextAny": [
+        "god",
+        "christ",
+        "promise",
+        "adam",
+        "scripture"
+      ],
+      "exclude": [
+        "employment contract",
+        "commercial slogan",
+        "insurance policy",
+        "legal justification"
+      ],
+      "positive": "We consider covenant of works through faith in Christ and the grace of God.",
+      "negative": "This memorandum uses covenant of works as a commercial slogan.",
+      "aliases": []
+    },
+    {
+      "id": "covenant-3",
+      "topic": "covenant",
+      "phrase": "new covenant",
+      "contextAny": [
+        "god",
+        "christ",
+        "promise",
+        "adam",
+        "scripture"
+      ],
+      "exclude": [
+        "employment contract",
+        "commercial slogan",
+        "insurance policy",
+        "legal justification"
+      ],
+      "positive": "We consider new covenant through faith in Christ and the grace of God.",
+      "negative": "This memorandum uses new covenant as a commercial slogan.",
+      "aliases": []
+    },
+    {
+      "id": "covenant-4",
+      "topic": "covenant",
+      "phrase": "federal theology",
+      "contextAny": [
+        "god",
+        "christ",
+        "promise",
+        "adam",
+        "scripture"
+      ],
+      "exclude": [
+        "employment contract",
+        "commercial slogan",
+        "insurance policy",
+        "legal justification"
+      ],
+      "positive": "We consider federal theology through faith in Christ and the grace of God.",
+      "negative": "This memorandum uses federal theology as a commercial slogan.",
+      "aliases": [
+        "foederal theology"
+      ]
+    },
+    {
+      "id": "assurance-1",
+      "topic": "assurance",
+      "phrase": "assurance of salvation",
+      "contextAny": [
+        "faith",
+        "salvation",
+        "christ",
+        "hope"
+      ],
+      "exclude": [
+        "insurance policy",
+        "commercial slogan",
+        "insurance policy",
+        "legal justification"
+      ],
+      "positive": "We consider assurance of salvation through faith in Christ and the grace of God.",
+      "negative": "This memorandum uses assurance of salvation as a commercial slogan.",
+      "aliases": []
+    },
+    {
+      "id": "assurance-2",
+      "topic": "assurance",
+      "phrase": "full assurance",
+      "contextAny": [
+        "faith",
+        "salvation",
+        "christ",
+        "hope"
+      ],
+      "exclude": [
+        "insurance policy",
+        "commercial slogan",
+        "insurance policy",
+        "legal justification"
+      ],
+      "positive": "We consider full assurance through faith in Christ and the grace of God.",
+      "negative": "This memorandum uses full assurance as a commercial slogan.",
+      "aliases": []
+    },
+    {
+      "id": "assurance-3",
+      "topic": "assurance",
+      "phrase": "assurance of faith",
+      "contextAny": [
+        "faith",
+        "salvation",
+        "christ",
+        "hope"
+      ],
+      "exclude": [
+        "insurance policy",
+        "commercial slogan",
+        "insurance policy",
+        "legal justification"
+      ],
+      "positive": "We consider assurance of faith through faith in Christ and the grace of God.",
+      "negative": "This memorandum uses assurance of faith as a commercial slogan.",
+      "aliases": []
+    },
+    {
+      "id": "assurance-4",
+      "topic": "assurance",
+      "phrase": "assurance of hope",
+      "contextAny": [
+        "faith",
+        "salvation",
+        "christ",
+        "hope"
+      ],
+      "exclude": [
+        "insurance policy",
+        "commercial slogan",
+        "insurance policy",
+        "legal justification"
+      ],
+      "positive": "We consider assurance of hope through faith in Christ and the grace of God.",
+      "negative": "This memorandum uses assurance of hope as a commercial slogan.",
+      "aliases": []
+    },
+    {
+      "id": "prayer-1",
+      "topic": "prayer",
+      "phrase": "prayer",
+      "contextAny": [
+        "god",
+        "christ",
+        "father",
+        "spirit",
+        "faith"
+      ],
+      "exclude": [
+        "prayer rug advertisement",
+        "commercial slogan",
+        "insurance policy",
+        "legal justification"
+      ],
+      "positive": "We consider prayer through faith in Christ and the grace of God.",
+      "negative": "This memorandum uses prayer as a commercial slogan.",
+      "aliases": [
+        "praier"
+      ]
+    },
+    {
+      "id": "prayer-2",
+      "topic": "prayer",
+      "phrase": "supplication",
+      "contextAny": [
+        "god",
+        "christ",
+        "father",
+        "spirit",
+        "faith"
+      ],
+      "exclude": [
+        "prayer rug advertisement",
+        "commercial slogan",
+        "insurance policy",
+        "legal justification"
+      ],
+      "positive": "We consider supplication through faith in Christ and the grace of God.",
+      "negative": "This memorandum uses supplication as a commercial slogan.",
+      "aliases": [
+        "supplications"
+      ]
+    },
+    {
+      "id": "prayer-3",
+      "topic": "prayer",
+      "phrase": "intercession",
+      "contextAny": [
+        "god",
+        "christ",
+        "father",
+        "spirit",
+        "faith"
+      ],
+      "exclude": [
+        "prayer rug advertisement",
+        "commercial slogan",
+        "insurance policy",
+        "legal justification"
+      ],
+      "positive": "We consider intercession through faith in Christ and the grace of God.",
+      "negative": "This memorandum uses intercession as a commercial slogan.",
+      "aliases": []
+    },
+    {
+      "id": "prayer-4",
+      "topic": "prayer",
+      "phrase": "communion with God",
+      "contextAny": [
+        "god",
+        "christ",
+        "father",
+        "spirit",
+        "faith"
+      ],
+      "exclude": [
+        "prayer rug advertisement",
+        "commercial slogan",
+        "insurance policy",
+        "legal justification"
+      ],
+      "positive": "We consider communion with God through faith in Christ and the grace of God.",
+      "negative": "This memorandum uses communion with God as a commercial slogan.",
+      "aliases": []
+    },
+    {
+      "id": "suffering-1",
+      "topic": "suffering",
+      "phrase": "suffering",
+      "contextAny": [
+        "god",
+        "christ",
+        "faith",
+        "grace",
+        "hope"
+      ],
+      "exclude": [
+        "suffering from a software",
+        "commercial slogan",
+        "insurance policy",
+        "legal justification"
+      ],
+      "positive": "We consider suffering through faith in Christ and the grace of God.",
+      "negative": "This memorandum uses suffering as a commercial slogan.",
+      "aliases": []
+    },
+    {
+      "id": "suffering-2",
+      "topic": "suffering",
+      "phrase": "affliction",
+      "contextAny": [
+        "god",
+        "christ",
+        "faith",
+        "grace",
+        "hope"
+      ],
+      "exclude": [
+        "suffering from a software",
+        "commercial slogan",
+        "insurance policy",
+        "legal justification"
+      ],
+      "positive": "We consider affliction through faith in Christ and the grace of God.",
+      "negative": "This memorandum uses affliction as a commercial slogan.",
+      "aliases": []
+    },
+    {
+      "id": "suffering-3",
+      "topic": "suffering",
+      "phrase": "tribulation",
+      "contextAny": [
+        "god",
+        "christ",
+        "faith",
+        "grace",
+        "hope"
+      ],
+      "exclude": [
+        "suffering from a software",
+        "commercial slogan",
+        "insurance policy",
+        "legal justification"
+      ],
+      "positive": "We consider tribulation through faith in Christ and the grace of God.",
+      "negative": "This memorandum uses tribulation as a commercial slogan.",
+      "aliases": []
+    },
+    {
+      "id": "suffering-4",
+      "topic": "suffering",
+      "phrase": "comfort in sorrow",
+      "contextAny": [
+        "god",
+        "christ",
+        "faith",
+        "grace",
+        "hope"
+      ],
+      "exclude": [
+        "suffering from a software",
+        "commercial slogan",
+        "insurance policy",
+        "legal justification"
+      ],
+      "positive": "We consider comfort in sorrow through faith in Christ and the grace of God.",
+      "negative": "This memorandum uses comfort in sorrow as a commercial slogan.",
+      "aliases": []
+    },
+    {
+      "id": "resurrection-of-christ-1",
+      "topic": "resurrection-of-christ",
+      "phrase": "resurrection of Christ",
+      "contextAny": [
+        "christ",
+        "jesus",
+        "dead",
+        "life"
+      ],
+      "exclude": [
+        "resurrection of an application",
+        "commercial slogan",
+        "insurance policy",
+        "legal justification"
+      ],
+      "positive": "We consider resurrection of Christ through faith in Christ and the grace of God.",
+      "negative": "This memorandum uses resurrection of Christ as a commercial slogan.",
+      "aliases": []
+    },
+    {
+      "id": "resurrection-of-christ-2",
+      "topic": "resurrection-of-christ",
+      "phrase": "Christ rose",
+      "contextAny": [
+        "christ",
+        "jesus",
+        "dead",
+        "life"
+      ],
+      "exclude": [
+        "resurrection of an application",
+        "commercial slogan",
+        "insurance policy",
+        "legal justification"
+      ],
+      "positive": "We consider Christ rose through faith in Christ and the grace of God.",
+      "negative": "This memorandum uses Christ rose as a commercial slogan.",
+      "aliases": []
+    },
+    {
+      "id": "resurrection-of-christ-3",
+      "topic": "resurrection-of-christ",
+      "phrase": "risen Christ",
+      "contextAny": [
+        "christ",
+        "jesus",
+        "dead",
+        "life"
+      ],
+      "exclude": [
+        "resurrection of an application",
+        "commercial slogan",
+        "insurance policy",
+        "legal justification"
+      ],
+      "positive": "We consider risen Christ through faith in Christ and the grace of God.",
+      "negative": "This memorandum uses risen Christ as a commercial slogan.",
+      "aliases": []
+    },
+    {
+      "id": "resurrection-of-christ-4",
+      "topic": "resurrection-of-christ",
+      "phrase": "Christ's resurrection",
+      "contextAny": [
+        "christ",
+        "jesus",
+        "dead",
+        "life"
+      ],
+      "exclude": [
+        "resurrection of an application",
+        "commercial slogan",
+        "insurance policy",
+        "legal justification"
+      ],
+      "positive": "We consider Christ's resurrection through faith in Christ and the grace of God.",
+      "negative": "This memorandum uses Christ's resurrection as a commercial slogan.",
+      "aliases": []
+    }
+  ]
+}

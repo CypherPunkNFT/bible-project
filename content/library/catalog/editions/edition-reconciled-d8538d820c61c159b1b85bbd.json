@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-d8538d820c61c159b1b85bbd",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-c318faec02761b37896f8ed6",
+  "label": "Christianae religionis institutio : totam ferè pietatis summã & quicquid est in doctrina salutis cognitu necessarium complectens : omnibus pietatis studiosis lectu dignissimum opus, ac recens editum Praefatio ad Christianissimum regem franciae, qua hic ei liber pro confessione fidei offertur .. — held source edition 74bbacd8d00a",
+  "languages": [
+    "lat"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/christianaerelig00calv/christianaerelig00calv_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

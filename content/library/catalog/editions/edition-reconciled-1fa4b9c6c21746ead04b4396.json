@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-1fa4b9c6c21746ead04b4396",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-c106d82fe2d295ff04ebdfc8",
+  "label": "The summe of the foure Euangelistes comprehending both the course of the historie, and also the seuerall points of doctrine set foorth in the same pointing foorth as it were with the hand, that Iesus is Christ, the only, perfect, and sufficient Sauiour of all the faithfull. Written in Latine by the reuerend, learned, and godly father, Master Henrie Bullinger minister of the Church of Zurich. Translated into English for the profite of the vnlearned by Iohn Tomkys. — held source edition 6a01da2e2a44",
+  "languages": [
+    "und"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A17221/master/A17221.xml",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

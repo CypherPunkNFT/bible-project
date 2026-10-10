@@ -1,0 +1,43 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-reconciled-5ac173763a4bea51a732cc4e",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "title": "Heir followeth the coppie of the ressoning which was betuix the Abbote of Crosraguell and John Knox in Mayboill concerning the masse, in the yeare of God, a thousand five hundreth thre scoir and two yeares ..",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-john-knox",
+      "role": "author"
+    }
+  ],
+  "genre": "treatise",
+  "role": "core-teaching",
+  "collections": [],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [],
+  "depth": "unknown",
+  "era": "unknown",
+  "dates": [],
+  "passages": [],
+  "related": [],
+  "externalIds": {
+    "source-internet-archive": [
+      "ia:heirfollowethcop00knox"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/download/heirfollowethcop00knox/heirfollowethcop00knox_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

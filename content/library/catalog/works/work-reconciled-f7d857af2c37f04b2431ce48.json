@@ -1,0 +1,43 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-reconciled-f7d857af2c37f04b2431ce48",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "title": "A view of this and the other world; with the state of saints and sinners in both, contrasted. ... In several practical discourses. By ... Thomas Boston, ... Never before printed. Entered in Stationer's Hall. 1775: Vol 2",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-thomas-boston",
+      "role": "author"
+    }
+  ],
+  "genre": "treatise",
+  "role": "core-teaching",
+  "collections": [],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [],
+  "depth": "unknown",
+  "era": "unknown",
+  "dates": [],
+  "passages": [],
+  "related": [],
+  "externalIds": {
+    "source-internet-archive": [
+      "ia:bim_eighteenth-century_a-view-of-this-and-the-o_boston-thomas_1775_2"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_eighteenth-century_a-view-of-this-and-the-o_boston-thomas_1775_2/bim_eighteenth-century_a-view-of-this-and-the-o_boston-thomas_1775_2_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

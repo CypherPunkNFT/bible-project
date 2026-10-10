@@ -134902,7 +134902,7 @@
       "sourceId": "source-helloao",
       "edition": "HelloAO John Gill JSON electronic witness; underlying print impression unspecified",
       "completeness": "complete-offered-chapter-component-of-selected-book",
-      "evidenceOnly": true,
+      "evidenceOnly": false,
       "rightsCategory": "historic-text-Public-Domain-Mark-1.0",
       "rightsEvidence": "Primary API inventory explicitly labels Gill with CC Public Domain Mark 1.0; publisher docs offer API/downloads with no usage/key limits. PDM is a status mark, not a new copyright license. Source print impression/transcription lineage unresolved; private source-preserving acquisition only.",
       "admissionRole": "historical-Baptist-sustained-book-exegesis",
@@ -134916,7 +134916,8 @@
       "actualSha256": "35ec1fbff073b8a07afb14b0e69a668a2f2cfac094687b203a45fed0f4565b2e",
       "byteCount": 6992,
       "originalExists": true,
-      "format": "json"
+      "format": "json",
+      "privateLocalIndexAuthorized": true
     },
     {
       "assetId": "asset-rb03-8bbd903011e14b051b66",
@@ -143246,7 +143247,7 @@
       "sourceId": "source-internet-archive",
       "edition": "London, G. & J. Dyer, 1846; Andrew Gunton Fuller memoir/editorial material separate",
       "completeness": "Complete offered existing OCR full-text page, extracted from pre element; OCR defects retained; no new OCR",
-      "evidenceOnly": true,
+      "evidenceOnly": false,
       "rightsCategory": "historical-public-domain-unrestricted-offered-download-private-copy",
       "rightsEvidence": "https://archive.org/details/completeworksofr00fulluoft; https://archive.org/about/terms (JavaScript shell disclosed, not represented as read terms)",
       "admissionRole": "mixed-collected-volume-requires-section-scoping",
@@ -143260,7 +143261,8 @@
       "actualSha256": "b6e9d8e2c7cd664b30feef68f111f33885e6c23f97132b6b3e45ea5fde312395",
       "byteCount": 10865272,
       "originalExists": true,
-      "format": "html"
+      "format": "html",
+      "privateLocalIndexAuthorized": true
     },
     {
       "assetId": "asset-rb04-0309d1a642bea2895f0a",
@@ -143302,7 +143304,7 @@
       "sourceId": "source-founders",
       "edition": "Fall 2012; exact publisher-offered issue PDF",
       "completeness": "complete-offered-issue-file",
-      "evidenceOnly": true,
+      "evidenceOnly": false,
       "rightsCategory": "publisher-offered-private-reading-copyright-reserved",
       "rightsEvidence": "Current publisher issue page explicitly offers Download PDF. Issue 90 internal publisher notice states past issues are free in PDF format; paid EPUB/mobi and former print subscription are distinct. No broad redistribution or public indexing licence established. Bounded private reading copy; future retrieval permissions/contributor scope require review. PDF page3 says past issues are free PDFs; page24 labels Puls teaching notes used by permission. Publisher permission does not transfer that contributor license to us.",
       "admissionRole": null,
@@ -143371,7 +143373,8 @@
         "sha256": "597189e6b7a8f3d6454745b8d64953cb5770f482c0b54b16cddee43872314a0e",
         "wordCount": 17463,
         "method": "Existing source text only; no new OCR"
-      }
+      },
+      "privateLocalIndexAuthorized": true
     },
     {
       "assetId": "asset-rb06-684d3b71e51526d3c4ac",
@@ -143385,7 +143388,7 @@
       "sourceId": "source-chapel-library",
       "edition": "Chapel Library 1999 annotations; modern abridgment and paraphrase by D. Scott Meadows of historical Steele sermon; explicit Doug Wilson additions stay editorial",
       "completeness": "Complete offered edition; abridged/paraphrased or excerpted historical material as disclosed, not unabridged source works",
-      "evidenceOnly": true,
+      "evidenceOnly": false,
       "rightsCategory": "publisher-offered-free-private-study-no-public-rehosting",
       "rightsEvidence": "https://www.chapellibrary.org/literature; internal EPUB free-download notices; https://www.chapellibrary.org/about; observed public client and book records; editorial copyrights retained",
       "admissionRole": "mixed-or-edited-pastoral-witness-pending-contributor-and-note-segmentation",
@@ -143456,7 +143459,8 @@
         "sha256": "6ffb3f58b7db82bb68dbdab53968c9ce5f3a37b5957ecbfd0ac4c0b4e46c31a7",
         "wordCount": 6073,
         "method": "Existing source text only; no new OCR"
-      }
+      },
+      "privateLocalIndexAuthorized": true
     },
     {
       "assetId": "asset-rb06-f46d96a2ea4c8be2dd78",
@@ -143470,7 +143474,7 @@
       "sourceId": "source-chapel-library",
       "edition": "Chapel Library annotated modern abridgment and revision by D. Scott Meadows; historical Adams sermon separately retained in Cripplegate volume2",
       "completeness": "Complete offered edition; abridged/paraphrased or excerpted historical material as disclosed, not unabridged source works",
-      "evidenceOnly": true,
+      "evidenceOnly": false,
       "rightsCategory": "publisher-offered-free-private-study-no-public-rehosting",
       "rightsEvidence": "https://www.chapellibrary.org/literature; internal EPUB free-download notices; https://www.chapellibrary.org/about; observed public client and book records; editorial copyrights retained",
       "admissionRole": "mixed-or-edited-pastoral-witness-pending-contributor-and-note-segmentation",
@@ -143577,7 +143581,8 @@
         "sha256": "720312df12193b6a58cf77499d1de81d52c3229d71a8ec1399028d5d015c7264",
         "wordCount": 6582,
         "method": "Existing source text only; no new OCR"
-      }
+      },
+      "privateLocalIndexAuthorized": true
     },
     {
       "assetId": "asset-rb06-b31827789866393c629c",
@@ -143591,7 +143596,7 @@
       "sourceId": "source-chapel-library",
       "edition": "Chapel Library complete offered thematic issue, edited excerpts and twelve articles; modern editor notes and Beeke implementation separate",
       "completeness": "Complete offered edition; abridged/paraphrased or excerpted historical material as disclosed, not unabridged source works",
-      "evidenceOnly": true,
+      "evidenceOnly": false,
       "rightsCategory": "publisher-offered-free-private-study-no-public-rehosting",
       "rightsEvidence": "https://www.chapellibrary.org/literature; internal EPUB free-download notices; https://www.chapellibrary.org/about; observed public client and book records; editorial copyrights retained",
       "admissionRole": "mixed-or-edited-pastoral-witness-pending-contributor-and-note-segmentation",
@@ -143704,7 +143709,8 @@
         "sha256": "be2ea60fafd18f6f4f1cf7bcbb902c28ddebb7fa697ce43963ef26a57ceafb89",
         "wordCount": 25170,
         "method": "Existing source text only; no new OCR"
-      }
+      },
+      "privateLocalIndexAuthorized": true
     },
     {
       "assetId": "asset-rb06-0fd945b1b33432a6eee9",
@@ -143718,7 +143724,7 @@
       "sourceId": "source-chapel-library",
       "edition": "Chapel Library complete offered thematic issue, nine articles/excerpt collections; not complete books of each contributor",
       "completeness": "Complete offered edition; abridged/paraphrased or excerpted historical material as disclosed, not unabridged source works",
-      "evidenceOnly": true,
+      "evidenceOnly": false,
       "rightsCategory": "publisher-offered-free-private-study-no-public-rehosting",
       "rightsEvidence": "https://www.chapellibrary.org/literature; internal EPUB free-download notices; https://www.chapellibrary.org/about; observed public client and book records; editorial copyrights retained",
       "admissionRole": "mixed-or-edited-pastoral-witness-pending-contributor-and-note-segmentation",
@@ -143807,7 +143813,8 @@
         "sha256": "d6085e689a244af3513abe632996dc77af08de8184524fe75f148e8d5b252152",
         "wordCount": 23423,
         "method": "Existing source text only; no new OCR"
-      }
+      },
+      "privateLocalIndexAuthorized": true
     },
     {
       "assetId": "asset-rb09-5f15fe155df1a11cdf34",
@@ -143821,7 +143828,7 @@
       "sourceId": "source-frame-poythress",
       "edition": "1999 P&R author/publisher-authorized complete HTML edition; 18 numbered chapters and bibliography",
       "completeness": "Complete offered book body and offered apparatus; not a critical collation of print indexes",
-      "evidenceOnly": true,
+      "evidenceOnly": false,
       "rightsCategory": "author-publisher-explicit-personal-download-no-retrieval-license",
       "rightsEvidence": "Author ebook desk explicitly permits downloading/printing electronic files for personal use; publication rights retained. Specific HTML books state publisher permission for internet posting. No retrieval-system, redistribution or public full-text hosting permission inferred.",
       "admissionRole": "source-attributed-hermeneutics-with-contributor-quotation-and-rights-holds",
@@ -143835,7 +143842,8 @@
       "actualSha256": "bcded4f197c1dc53e077758f00abeaa7d86d4e75f930f8875f557eab9de59efe",
       "byteCount": 609261,
       "originalExists": true,
-      "format": "html"
+      "format": "html",
+      "privateLocalIndexAuthorized": true
     },
     {
       "assetId": "asset-rb09-bba4037099b0f9b27683",
@@ -143849,7 +143857,7 @@
       "sourceId": "source-frame-poythress",
       "edition": "2000 P&R complete author/publisher-authorized HTML; introduction and twelve commentary divisions",
       "completeness": "Complete offered book body and offered apparatus; not a critical collation of print indexes",
-      "evidenceOnly": true,
+      "evidenceOnly": false,
       "rightsCategory": "author-publisher-explicit-personal-download-no-retrieval-license",
       "rightsEvidence": "Author ebook desk explicitly permits downloading/printing electronic files for personal use; publication rights retained. Specific HTML books state publisher permission for internet posting. No retrieval-system, redistribution or public full-text hosting permission inferred.",
       "admissionRole": "source-attributed-hermeneutics-with-contributor-quotation-and-rights-holds",
@@ -143863,7 +143871,8 @@
       "actualSha256": "1f4c6a01752adf5bbc4bfd19c967939117153e6d6057f617ebb92b9a9b34c2f1",
       "byteCount": 393202,
       "originalExists": true,
-      "format": "html"
+      "format": "html",
+      "privateLocalIndexAuthorized": true
     },
     {
       "assetId": "asset-rb09-f3cd6b45ac6a0ab81481",
@@ -143877,7 +143886,7 @@
       "sourceId": "source-frame-poythress",
       "edition": "Author-offered HTML carrying summer 1986 opening and POSTSCRIPT 1993; fourteen chapters, bibliography and second-edition postscript. Do not date the whole witness as 1986.",
       "completeness": "Complete offered book body and offered apparatus; not a critical collation of print indexes",
-      "evidenceOnly": true,
+      "evidenceOnly": false,
       "rightsCategory": "author-publisher-explicit-personal-download-no-retrieval-license",
       "rightsEvidence": "Author ebook desk explicitly permits downloading/printing electronic files for personal use; publication rights retained. Specific HTML books state publisher permission for internet posting. No retrieval-system, redistribution or public full-text hosting permission inferred.",
       "admissionRole": "source-attributed-hermeneutics-with-contributor-quotation-and-rights-holds",
@@ -143891,7 +143900,8 @@
       "actualSha256": "3c7519882de39dd463ec3db6127793cb10fb1e3032dfb6350186415d75e8f4a0",
       "byteCount": 364932,
       "originalExists": true,
-      "format": "html"
+      "format": "html",
+      "privateLocalIndexAuthorized": true
     },
     {
       "assetId": "asset-rb09-b6c9143b86c0e6bead3f",
@@ -143905,7 +143915,7 @@
       "sourceId": "source-frame-poythress",
       "edition": "Crossway 2016; first printing stated; PDF ISBN 9781433543258; 466 source PDF pages",
       "completeness": "Complete offered book body and offered apparatus; not a critical collation of print indexes",
-      "evidenceOnly": true,
+      "evidenceOnly": false,
       "rightsCategory": "author-publisher-explicit-personal-download-no-retrieval-license",
       "rightsEvidence": "Author ebook desk explicitly permits downloading/printing electronic files for personal use; publication rights retained. Specific HTML books state publisher permission for internet posting. No retrieval-system, redistribution or public full-text hosting permission inferred.",
       "admissionRole": "source-attributed-hermeneutics-with-contributor-quotation-and-rights-holds",
@@ -144393,7 +144403,8 @@
         "sha256": "2d2cb1abca2a74172e55dc68a050631bf73905d64c1c0cf4490e02e7cceffe09",
         "wordCount": 152931,
         "method": "Existing source text only; no new OCR"
-      }
+      },
+      "privateLocalIndexAuthorized": true
     },
     {
       "assetId": "asset-rb09-bb00545e8438a979686a",
@@ -144407,7 +144418,7 @@
       "sourceId": "source-frame-poythress",
       "edition": "Crossway copyright/first printing 2019; offered file includes 2021 production timestamps; PDF ISBN 9781433558740; 393 source pages, not a verified new 2021 edition",
       "completeness": "Complete offered book body and offered apparatus; not a critical collation of print indexes",
-      "evidenceOnly": true,
+      "evidenceOnly": false,
       "rightsCategory": "author-publisher-explicit-personal-download-no-retrieval-license",
       "rightsEvidence": "Author ebook desk explicitly permits downloading/printing electronic files for personal use; publication rights retained. Specific HTML books state publisher permission for internet posting. No retrieval-system, redistribution or public full-text hosting permission inferred.",
       "admissionRole": "source-attributed-hermeneutics-with-contributor-quotation-and-rights-holds",
@@ -144822,7 +144833,8 @@
         "sha256": "5cb524ea6b6d2fdbf45450584f17a9baf01ee3d7010f3755df2b18b6c613ebcf",
         "wordCount": 142912,
         "method": "Existing source text only; no new OCR"
-      }
+      },
+      "privateLocalIndexAuthorized": true
     }
   ],
   "note": "Point-in-time audit of originals and internal structure. Bodies are private; headings alone do not establish full theological or verse-level review."

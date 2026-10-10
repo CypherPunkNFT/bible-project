@@ -7,7 +7,7 @@ $userId = [Security.Principal.WindowsIdentity]::GetCurrent().Name
 if (-not (Test-Path (Join-Path $bibleState 'acquisition-followup-plan.json'))) { throw 'Write and review the follow-up plan first.' }
 $command = "& '$($biblePython.Replace("'", "''"))' -m knowledge.acquisition_followup; exit `$LASTEXITCODE"
 $encoded = [Convert]::ToBase64String([Text.Encoding]::Unicode.GetBytes($command))
-$action = New-ScheduledTaskAction -Execute 'powershell.exe' -Argument "-NoProfile -NonInteractive -WindowStyle Hidden -EncodedCommand $encoded" -WorkingDirectory $siteRoot
+$action = New-ScheduledTaskAction -Execute 'conhost.exe' -Argument "--headless powershell.exe -NoProfile -NonInteractive -WindowStyle Hidden -EncodedCommand $encoded" -WorkingDirectory $siteRoot
 $periodic = New-ScheduledTaskTrigger -Once -At (Get-Date).AddMinutes(5) -RepetitionInterval (New-TimeSpan -Minutes 5)
 $logon = New-ScheduledTaskTrigger -AtLogOn -User $userId
 $principal = New-ScheduledTaskPrincipal -UserId $userId -LogonType Interactive -RunLevel Limited

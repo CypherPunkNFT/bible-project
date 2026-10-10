@@ -1,0 +1,141 @@
+{
+  "authors": [
+    "Fairbairn, Patrick",
+    "Patrick Fairbairn",
+    "Terry, Milton",
+    "Milton Spencer Terry",
+    "Edersheim, Alfred",
+    "Alfred Edersheim",
+    "Lightfoot, John",
+    "John Lightfoot",
+    "Lightfoot, Joseph",
+    "Joseph Barber Lightfoot",
+    "Lightfoot, J B",
+    "Lightfoot, J. B.",
+    "Josephus",
+    "Flavius Josephus",
+    "Angus, Joseph",
+    "Joseph Angus"
+  ],
+  "primaryAuthorOnly": true,
+  "authorMustStart": true,
+  "authorIdentityRules": [
+    {
+      "namePattern": "Fairbairn",
+      "lifeYears": [
+        1805,
+        1874
+      ]
+    },
+    {
+      "namePattern": "Terry",
+      "lifeYears": [
+        1840,
+        1914
+      ]
+    },
+    {
+      "namePattern": "Edersheim",
+      "lifeYears": [
+        1825,
+        1889
+      ]
+    },
+    {
+      "namePattern": "Lightfoot",
+      "lifeYears": [
+        1602,
+        1675,
+        1828,
+        1889
+      ]
+    },
+    {
+      "namePattern": "Angus",
+      "lifeYears": [
+        1802,
+        1895
+      ]
+    },
+    {
+      "namePattern": "^Josephus|^Flavius Josephus",
+      "allowedPattern": "^(?:Flavius Josephus|Josephus(?:,?\\s+Flavius|,?\\s+(?:ca\\.?\\s*)?37)|Josephus\\.?$)"
+    }
+  ],
+  "authorTitleRules": [
+    {
+      "namePattern": "Fairbairn",
+      "titlePattern": "typolog"
+    },
+    {
+      "namePattern": "Terry",
+      "titlePattern": "hermeneutic"
+    },
+    {
+      "namePattern": "Angus",
+      "titlePattern": "bible.*hand|hand.*bible"
+    }
+  ],
+  "deferHardDownloads": true,
+  "workers": 4,
+  "collections": [
+    "Princeton",
+    "americana",
+    "toronto",
+    "europeanlibraries",
+    "library_of_congress",
+    "cdl",
+    "bostonpubliclibrary",
+    "getty",
+    "wellcomelibrary",
+    "gutenberg",
+    "microfilm"
+  ],
+  "skipIds": [
+    "anexpositionepi03willgoog",
+    "atreatiseonsabb00owengoog",
+    "bim_early-english-books-1641-1700_a-piller-set-up-to-keep_keach-benjamin_1670",
+    "bim_early-english-books-1641-1700_a-treatise-concerning-th_spilsbury-john_1652",
+    "bim_early-english-books-1475-1640_the-excellency-of-a-grac_burroughs-jeremiah_1639",
+    "bim_early-english-books-1641-1700_exercitations-on-the-epi_owen-john-dd_1674",
+    "bim_early-english-books-1641-1700_gospel-reconcillation-_burroughes-jeremiah_1689",
+    "bim_early-english-books-1641-1700_jerusalems-glory_burroughes-jeremiah_1697",
+    "bim_early-english-books-1641-1700_sions-joy_burroughes-jeremiah_1641",
+    "bim_early-english-books-1641-1700_the-rare-jewel-of-christ_burroughes-jeremiah_1649",
+    "bim_early-english-books-1641-1700_the-rare-jewel-of-christ_burroughes-jeremiah_1650",
+    "bim_eighteenth-century_a-golden-key-to-open-hid_brooks-thomas_1763",
+    "bim_eighteenth-century_a-learned-and-complete-c_durham-james_1788",
+    "bim_eighteenth-century_a-practical-exposition-o_manton-thomas_1703",
+    "bim_eighteenth-century_heavenly-mindedness-reco_burroughs-jeremiah-pre_1715",
+    "irenicvmtolover00burrgoog",
+    "ubhlanoirairson00broo",
+    "bim_early-english-books-1641-1700_an-handfull-of-gleanings_lightfoot-john_1643",
+    "bim_early-english-books-1641-1700_an-handfull-of-gleanings_lightfoot-john_1643",
+    "bim_early-english-books-1641-1700_the-harmony-of-the-foure_lightfoot-john_1658",
+    "bim_early-english-books-1641-1700_an-handfull-of-gleanings_lightfoot-john_1643",
+    "bim_early-english-books-1641-1700_the-harmony-of-the-foure_lightfoot-john_1658",
+    "bim_early-english-books-1641-1700_the-temple-_lightfoot-john_1650",
+    "bim_early-english-books-1641-1700_the-works-of-_josephus-flavius_1683",
+    "bim_early-english-books-1641-1700_the-works-of-josephus-_josephus-flavius_1700",
+    "bim_eighteenth-century_the-wars-of-the-jews-in_josephus-flavius_1724",
+    "bim_eighteenth-century_the-genuine-works-of-fla_josephus-flavius_1792_5",
+    "bim_eighteenth-century_the-genuine-works-of-fla_josephus-flavius_1792_6",
+    "bim_eighteenth-century_the-wars-of-the-jews-wi_josephus-flavius_1760",
+    "bub_gb_imOgczlR7moC",
+    "cu31924028779795",
+    "cu31924031784311",
+    "cu31924072037587",
+    "cu31924029294398",
+    "dissertationsona00lighuoft",
+    "bim_early-english-books-1641-1700_the-harmony-of-the-foure_lightfoot-john_1658"
+  ],
+  "iaQuery": "mediatype:texts AND date:[* TO 1930-12-31] AND NOT access-restricted-item:true AND (creator:\"Fairbairn, Patrick\" OR creator:\"Patrick Fairbairn\" OR creator:\"Terry, Milton\" OR creator:\"Milton Spencer Terry\" OR creator:\"Edersheim, Alfred\" OR creator:\"Alfred Edersheim\" OR creator:\"Lightfoot, John\" OR creator:\"John Lightfoot\" OR creator:\"Lightfoot, Joseph\" OR creator:\"Joseph Barber Lightfoot\" OR creator:\"Lightfoot, J B\" OR creator:\"Lightfoot, J. B.\" OR creator:\"Josephus\" OR creator:\"Flavius Josephus\" OR creator:\"Angus, Joseph\" OR creator:\"Joseph Angus\")",
+  "downloadWorkers": 4,
+  "resumeStatus": true,
+  "excludeAuthors": [
+    "Botanist",
+    "(Firm)",
+    "Nursery",
+    "Seed Trade"
+  ]
+}

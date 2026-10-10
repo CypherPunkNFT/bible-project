@@ -18,6 +18,8 @@ export interface KeyVerse { span: Span; text: string; point: string }
 export type ArticleParagraph = (string | [number, number, string])[];
 /** points: Torrey's; nave: Nave's; dictionary: Easton's article. */
 /** book: a book of the Bible's reader code; parts: the topics split out of this one (in order); parent: the topic this one was split from. */
+/** A library book that treats a topic, matched by meaning in the local search index (scripts/link-topic-library.py). */
+export interface LibraryBook { title: string; author: string; url: string; distance: number }
 export interface Topic { id: string; title: string; category: string; subcategory: string; points: TopicPoint[]; nave?: TopicPoint[]; dictionary?: ArticleParagraph[]; relatedStudies: string[]; keyVerses: KeyVerse[]; book?: string; parts?: string[]; parent?: string }
 /** Per book (scripts/build-topics.py): chapter -> [[topic id, passages cited], ...], most cited first. */
 export type ChapterTopics = Record<string, [string, number][]>;

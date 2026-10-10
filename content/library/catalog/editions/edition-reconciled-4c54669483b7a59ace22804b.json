@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-4c54669483b7a59ace22804b",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-299e0c2bbed16fae46d71757",
+  "label": "Primitiæ & ultima: or, the early labours and last remains that will meet the public eye, in several practical discourses, eminently calculated for alarming sinners ... of ... Thomas Boston, ... Now first published from his manuscripts. In three volumes. ... 1800: Vol 2 — held source edition 1f3bf9d06ef3",
+  "languages": [
+    "English"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_eighteenth-century_primiti-ultima-or-t_boston-thomas_1800_2/bim_eighteenth-century_primiti-ultima-or-t_boston-thomas_1800_2_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

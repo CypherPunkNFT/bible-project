@@ -1,0 +1,37 @@
+{
+  "state": "closed_at_user_time_cutoff",
+  "updatedAt": "2026-10-07T17:41:14.257915+00:00",
+  "files": 328,
+  "bytes": 193971835,
+  "distinctWorksEstimate": 250,
+  "sources": {
+    "ccel": 1,
+    "tcp": 87,
+    "ia": 240
+  },
+  "failedItems": 3,
+  "unattemptedDeferredItems": 649,
+  "embeddingBefore": {
+    "state": "optimizing",
+    "indexed": 1934778,
+    "total": 1934778,
+    "remaining": 0,
+    "corpus_build": "2026-10-07T15:23:27.068328+00:00",
+    "updated_at": "2026-10-07T16:37:52.629283+00:00"
+  },
+  "embeddingAfter": {
+    "state": "complete",
+    "total": 1934778,
+    "indexed": 1934778,
+    "remaining": 0,
+    "corpus_build": "2026-10-07T15:23:27.068328+00:00",
+    "updated_at": "2026-10-07T16:52:55.679411+00:00",
+    "seconds": 2509.1
+  },
+  "intakeCommandExitCode": null,
+  "intake": {
+    "pid": 103820,
+    "started_at": "2026-10-07T17:39:37.3508029Z",
+    "state": "running"
+  }
+}

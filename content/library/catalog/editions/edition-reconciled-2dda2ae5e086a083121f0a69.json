@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-2dda2ae5e086a083121f0a69",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-df2995a007f2cbf6f55bf628",
+  "label": "A very profitable treatise made by M. Ihon Caluyne, declarynge what great profit might come to al christendome, yf there were a regester made of all sainctes bodies and other reliques, which are aswell in Italy, as in Fraunce, Dutchland, Spaine, and other kingdomes and countreys. Translated out of Frenche into Englishe by Steuen Wythers. 1561. Set furth and authorised according to the Queenes Maiesties iniunctions.; Traité des reliques. English. — held source edition 8fc47d16168a",
+  "languages": [
+    "und"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A17729/master/A17729.xml",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

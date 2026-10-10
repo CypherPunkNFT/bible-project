@@ -1,0 +1,61 @@
+{
+  "source": "desiringgod-translations",
+  "catalogueItems": 4,
+  "catalogueUnheldItems": 4,
+  "eligibleItems": 4,
+  "unheldBefore": 4,
+  "filter": {
+    "cataloguePath": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\bulk-catalogues\\rb14-dg-held-original-translations.json",
+    "approvedCollection": true,
+    "deferHardDownloads": true
+  },
+  "attempted": 4,
+  "downloaded": 0,
+  "duplicateHashes": 0,
+  "heldDuringRun": 0,
+  "failures": [
+    {
+      "sourceId": "a-prayer-for-our-church-lang-pt",
+      "url": "https://www.desiringgod.org/articles/a-prayer-for-our-church?lang=pt",
+      "title": "a-prayer-for-our-church?lang=pt",
+      "author": "John Piper",
+      "error": "No named individual translator explicitly credited in edition"
+    },
+    {
+      "sourceId": "the-family-together-in-gods-presence-lang-pt",
+      "url": "https://www.desiringgod.org/articles/the-family-together-in-gods-presence?lang=pt",
+      "title": "the-family-together-in-gods-presence?lang=pt",
+      "author": "John Piper",
+      "error": "No named individual translator explicitly credited in edition"
+    },
+    {
+      "sourceId": "what-god-requires-christ-provides-lang-ru",
+      "url": "https://www.desiringgod.org/articles/what-god-requires-christ-provides?lang=ru",
+      "title": "what-god-requires-christ-provides?lang=ru",
+      "author": "John Piper",
+      "error": "No named individual translator explicitly credited in edition"
+    },
+    {
+      "sourceId": "the-great-offense-was-jesus-really-crucified-lang-ar",
+      "url": "https://www.desiringgod.org/articles/the-great-offense-was-jesus-really-crucified?lang=ar",
+      "title": "the-great-offense-was-jesus-really-crucified?lang=ar",
+      "author": "Desiring God authors",
+      "error": "No named individual translator explicitly credited in edition"
+    }
+  ],
+  "bytes": 0,
+  "sampleSizes": [],
+  "state": "complete",
+  "startedAt": "2026-10-07T21:25:28.438792+00:00",
+  "attemptedSourceIds": [
+    "a-prayer-for-our-church-lang-pt",
+    "the-family-together-in-gods-presence-lang-pt",
+    "what-god-requires-christ-provides-lang-ru",
+    "the-great-offense-was-jesus-really-crucified-lang-ar"
+  ],
+  "updatedAt": "2026-10-07T21:25:37.495219+00:00",
+  "unheldAfter": 4,
+  "estimatedUnheldGB": null,
+  "estimateBasis": "SWORD InstallSize where available; otherwise arithmetic mean of downloaded originals; decimal GB; edition/item counts, not deduplicated works",
+  "completedAt": "2026-10-07T21:25:37.497920+00:00"
+}

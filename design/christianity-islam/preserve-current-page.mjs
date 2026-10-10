@@ -1,0 +1,36 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+const dir=path.dirname(fileURLToPath(import.meta.url));
+const file=path.join(dir,'preview.tsx');
+let s=fs.readFileSync(file,'utf8');
+s=s.replace("import { ApCitations, ApNote }", "import { ApCitations }");
+s=s.replace('CollectionArt, IslamClaimsDesk, ReadingPlanRoom, StudyArtwork, ClaimsDiagram, IllustratedStudy','CollectionArt, StudyArtwork, ClaimsDiagram, IllustratedStudy');
+s=s.replace("import MuslimWorldExplorer from '@/components/apologetics/MuslimWorldExplorer';\n",'');
+s=s.replace("const views=['hub','understanding','ministry','questions','reading','world','article','library','worldviews'];", "const views=['hub','understanding','ministry','article','library','worldviews'];\nconst existingPage='/apologetics/worldviews/islam';\nconst isExisting=(view:string)=>['existing','questions','reading','world'].includes(view);\nfunction existingUrl(view:string,extra=''){const params=new URLSearchParams(extra.replace(/^&/,''));params.delete('view');const query=params.toString();return existingPage+(query?'?'+query:'')+(view==='questions'?'#comparison':view==='reading'?'#reading-sources':view==='world'?'#muslim-world':'')}" );
+s=s.replace("['ministry','Ministry'],['library','Texts & studies'],['world','Muslim world']", "['ministry','Ministry'],['library','Texts & studies'],['existing','Christianity & Islam ↗']");
+s=s.replace('return <Link className={className} to={url(view,extra)}>{children}</Link>', 'return isExisting(view)?<a className={className} href={existingUrl(view,extra)}>{children}</a>:<Link className={className} to={url(view,extra)}>{children}</Link>');
+const portal=`function ExistingPageDoor(){return <section className="concept-existing-page"><div><Eyebrow>The existing page / Continue your study</Eyebrow><h2>Christianity <em>& Islam</em></h2><p>The complete page you already use: twelve questions, the paired source reader, four reading stages, the Muslim-world globe and connected studies.</p><div className="concept-existing-actions"><Go view="existing" className="concept-existing-primary">Open the existing Christianity & Islam page <ArrowUpRight size={17}/></Go><span>Same page. Same address. All sections together.</span></div></div><div className="concept-existing-sections"><Go view="questions"><Network size={17}/><span>Examine the claims<small>12 questions · Paired sources</small></span><ArrowRight size={15}/></Go><Go view="world"><Globe2 size={17}/><span>Explore the Muslim world<small>Globe · Country profiles · People groups</small></span><ArrowRight size={15}/></Go><Go view="reading"><BookOpen size={17}/><span>Read the texts in context<small>4 stages · 10 passages</small></span><ArrowRight size={15}/></Go></div></section>}
+`;
+s=s.replace('function Hub(){',portal+'function Hub(){');
+s=s.replace('eyebrow="Across beliefs / Understanding · Witness · Study" title="Christianity" em="& Islam"','eyebrow="A new study guide / Alongside Christianity & Islam" title="Understand Islam." em="Share Christian hope."');
+s=s.replace('the Muslim friends and neighbours you know."/><div className="concept-two-paths">','the Muslim friends and neighbours you know."/><ExistingPageDoor/><div className="concept-two-paths">');
+s=s.replace(/function Questions\(\)\{[\s\S]*?(?=function Library\()/,'');
+const ministryStart=s.indexOf('<section className="concept-comparison-door">');
+if(ministryStart>=0){const end=s.indexOf('</section>',ministryStart)+'</section>'.length;s=s.slice(0,ministryStart)+'<ExistingPageDoor/>'+s.slice(end)}
+s=s.replace('>Christian faith & Muslim questions <ArrowRight','>Christianity & Islam — examine the claims <ArrowRight');
+s=s.replace('Explore the existing globe, country profiles and people-group directory. Bring geographical context into your study.','The globe, country profiles and people-group directory remain together on the existing Christianity & Islam page. Open its atlas section.');
+s=s.replace('Explore the Muslim world <ArrowRight','Open the atlas on the existing page <ArrowRight');
+s=s.replace('The existing four-stage reading journey, with each passage connected to a question and a Christian counterpart.','The existing four-stage reading journey remains on the Christianity & Islam page.');
+s=s.replace("useEffect(()=>{document.title=(view==='hub'?'Christianity & Islam'", "useEffect(()=>{if(isExisting(requested)){window.location.replace(existingUrl(requested,params.toString()));return}document.title=(view==='hub'?'Islam study guide'");
+s=s.replace("if(dest.pathname==='/apologetics/worldviews/islam'){event.preventDefault();navigate(url('hub'));return}", '');
+s=s.replace('New hierarchy, existing page design','New study guide · Existing page preserved');
+s=s.replace('The header, theme, artwork, twelve-question desk, source reader, four reading stages and atlas come from the current implementation. The hub and collection pages are proposed additions. Article outlines are samples. Preview notes use separate browser storage.','The current Christianity & Islam page keeps its title, address, layout and every section. This proposed guide adds understanding, ministry and article pages alongside it. Links to questions, reading and the atlas open the current page itself. Article outlines are samples.');
+s=s.replace("view==='hub'?<span>Christianity & Islam</span>:<Go view=\"hub\">Christianity & Islam</Go>","view==='hub'?<span>Islam study guide</span>:<Go view=\"hub\">Islam study guide</Go>");
+s=s.replace("view==='questions'?'Ministry / Christian faith & Muslim questions':view==='reading'?'Ministry / Read together':",'');
+s=s.replace("(view===id||id==='ministry'&&['questions','reading'].includes(view))",'(view===id)');
+s=s.replace("view==='questions'?<Questions/>:view==='reading'?<Reading/>:view==='world'?<World/>:",'');
+s=s.replace(':<WorldviewIndex/>',':<><div className="concept-guide-intro"><Go view="hub">Preview the new Islam study guide <ArrowRight size={17}/></Go><p>The Christianity & Islam card below still opens the existing page.</p></div><WorldviewIndex/></>');
+s=s.replace('<Go view="hub">Christianity & Islam <ArrowRight size={16}/></Go>','<Go view="hub">Islam study guide <ArrowRight size={16}/></Go>');
+fs.writeFileSync(file,s);
+console.log('Existing page is a direct destination; extracted comparison, reading and world views removed.');

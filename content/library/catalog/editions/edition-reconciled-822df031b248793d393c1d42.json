@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-822df031b248793d393c1d42",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-853b6ad96f0bb09303cb79ce",
+  "label": "Fifteen sermons, preached on various important subjects, by George Whitefield, ... Carefully corrected and revised according to the best London edition. To which is prefixed, a sermon, on the character, preaching, &c. of the Rev. Mr. Whitefield. By Joseph Smith, V.D.M. 1785 — held source edition edfc9f26debf",
+  "languages": [
+    "English"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_eighteenth-century_fifteen-sermons-preache_whitefield-george_1785/bim_eighteenth-century_fifteen-sermons-preache_whitefield-george_1785_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

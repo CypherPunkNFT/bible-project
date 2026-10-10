@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-2bdc2b4c7d9e3284095da1ac",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-ed702c8052f2410ce9c8c977",
+  "label": "Eshcol, a cluster of the fruit of Canaan brought to the borders for the encouragement of the saints travelling thitherward ... By John Owen, ... 1720 — held source edition aaafb21765f2",
+  "languages": [
+    "English"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_eighteenth-century_eshcol-a-cluster-of-the_owen-john_1720/bim_eighteenth-century_eshcol-a-cluster-of-the_owen-john_1720_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

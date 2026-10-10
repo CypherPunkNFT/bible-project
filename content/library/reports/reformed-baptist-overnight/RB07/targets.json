@@ -1,6 +1,6 @@
 [
   {
-    "evidenceOnly": true,
+    "evidenceOnly": false,
     "admissionRole": "historical-primary-documents-with-editorial-narration-pending-voice-segmentation",
     "minimumWords": 30000,
     "rightsCategory": "historical-public-domain-US-offered-download-private-study",
@@ -18,10 +18,11 @@
       "ADVICE TO MISSIONARY CANDIDATES",
       "END OF THE PROJECT GUTENBERG"
     ],
-    "discoveryUrl": "https://www.gutenberg.org/ebooks/70894"
+    "discoveryUrl": "https://www.gutenberg.org/ebooks/70894",
+    "privateLocalIndexAuthorized": true
   },
   {
-    "evidenceOnly": true,
+    "evidenceOnly": false,
     "admissionRole": "historical-primary-documents-with-editorial-narration-pending-voice-segmentation",
     "minimumWords": 30000,
     "rightsCategory": "historical-public-domain-US-offered-download-private-study",
@@ -41,10 +42,11 @@
       "WILLIAM  CAREY",
       "CONCLUSION"
     ],
-    "discoveryUrl": "https://archive.org/details/seramporeletters00carerich"
+    "discoveryUrl": "https://archive.org/details/seramporeletters00carerich",
+    "privateLocalIndexAuthorized": true
   },
   {
-    "evidenceOnly": true,
+    "evidenceOnly": false,
     "admissionRole": "historical-primary-documents-with-editorial-narration-pending-voice-segmentation",
     "minimumWords": 30000,
     "rightsCategory": "historical-public-domain-US-offered-download-private-study",
@@ -63,13 +65,14 @@
       "APPENDIX",
       "Form of Agreement"
     ],
-    "discoveryUrl": "https://www.gutenberg.org/ebooks/2056"
+    "discoveryUrl": "https://www.gutenberg.org/ebooks/2056",
+    "privateLocalIndexAuthorized": true
   },
   {
     "sourceId": "source-internet-archive",
     "format": "html",
     "selector": "pre",
-    "evidenceOnly": true,
+    "evidenceOnly": false,
     "rightsCategory": "historical-public-domain-US-offered-text-private-study",
     "minimumWords": 35000,
     "workId": "work-rb07-ward-farewell-letters",
@@ -86,13 +89,14 @@
       "FINIS"
     ],
     "discoveryUrl": "https://archive.org/details/farewellletters00ward",
-    "admissionRole": "primary-missionary-letter-essays-with-historical-cultural-and-polemical-claims-pending-scope"
+    "admissionRole": "primary-missionary-letter-essays-with-historical-cultural-and-polemical-claims-pending-scope",
+    "privateLocalIndexAuthorized": true
   },
   {
     "sourceId": "source-internet-archive",
     "format": "html",
     "selector": "pre",
-    "evidenceOnly": true,
+    "evidenceOnly": false,
     "rightsCategory": "historical-public-domain-US-offered-text-private-study",
     "minimumWords": 35000,
     "workId": "work-rb07-taylor-luther-rice",
@@ -108,7 +112,8 @@
       "1840"
     ],
     "discoveryUrl": "https://archive.org/details/memoirofrevluthe01tayl",
-    "admissionRole": "historical-mission-and-supporting-institutions-witness-pending-primary-editorial-segmentation"
+    "admissionRole": "historical-mission-and-supporting-institutions-witness-pending-primary-editorial-segmentation",
+    "privateLocalIndexAuthorized": true
   },
   {
     "workId": "work-rb07-evans-sermons",
@@ -129,8 +134,9 @@
       "END OF THE PROJECT GUTENBERG"
     ],
     "discoveryUrl": "https://www.gutenberg.org/ebooks/42340",
-    "evidenceOnly": true,
-    "admissionRole": "translated-Baptist-sermons-separated-from-non-Baptist-editor-memoir-and-modern-transcriber-notes"
+    "evidenceOnly": false,
+    "admissionRole": "translated-Baptist-sermons-separated-from-non-Baptist-editor-memoir-and-modern-transcriber-notes",
+    "privateLocalIndexAuthorized": true
   },
   {
     "workId": "work-rb07-carey-smith-appendix-1885",
@@ -152,7 +158,8 @@
       "III."
     ],
     "discoveryUrl": "https://careycenter.wmcarey.edu/links/full_texts.htm",
-    "evidenceOnly": true,
-    "admissionRole": "complete-primary-agreement-and-report-plus-truncated-secondary-historical-memorandum-pending-segmentation"
+    "evidenceOnly": false,
+    "admissionRole": "complete-primary-agreement-and-report-plus-truncated-secondary-historical-memorandum-pending-segmentation",
+    "privateLocalIndexAuthorized": true
   }
 ]

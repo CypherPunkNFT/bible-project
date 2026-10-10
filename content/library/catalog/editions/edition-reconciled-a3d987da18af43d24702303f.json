@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-a3d987da18af43d24702303f",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-030e399d2b53e03872c67c2c",
+  "label": "A hundred sermons vpo[n] the Apocalips of Iesu Christe reueiled in dede by thangell of the Lorde: but seen or receyued and written by thapostle and Eua[n]gelist. S. Iohn: compiled by the famous and godly learned man, Henry Bullinger, chief pastor of the congregation of Zuryk. Newly set forth and allowed, according to the order appoynted in the Quenes maiesties, iniuntions. Thargument, wurthines, commoditie, and vse of this worke, thou shalt fynd in the preface: after which thou hast a most exact table to leade thee into all the princypall matters conteyned therin.; In Apocalypsim Jesu Christi. English — held source edition 5903dc4f4ec6",
+  "languages": [
+    "und"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/B11837/master/B11837.xml",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

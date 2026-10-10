@@ -6,3 +6,7 @@
 @keyframes scan{0%{transform:translateX(0);opacity:0}15%,85%{opacity:.9}100%{transform:translateX(205px);opacity:0}}@keyframes find{0%,20%,100%{opacity:0}40%,80%{opacity:1}}@keyframes discover{0%,20%,100%{opacity:0}35%,70%{opacity:1}}@keyframes lift{0%,15%,100%{transform:translateY(0);opacity:.45}40%,75%{transform:translateY(-10px);opacity:1}}@keyframes thread{0%,25%,100%{opacity:0;stroke-dashoffset:30}45%,80%{opacity:.65;stroke-dashoffset:0}}@keyframes note{0%,100%{opacity:0;transform:translateY(6px)}25%,75%{opacity:.9;transform:translateY(0)}}
 @media(max-width:600px){main{padding:22px 14px}.grid,.column-heads{gap:8px}.sample{padding:13px}.sample header{align-items:flex-start;gap:6px}.sample h2{font-size:15px}.scene{height:145px}.column-heads h2{font-size:17px}h1{font-size:30px}.sample p{font-size:11px}}
 @media(prefers-reduced-motion:reduce){.sample *{animation:none!important;transition:none!important}.sa-live{opacity:0!important}.lift-book{opacity:1}.research-thread{opacity:.5}.page-find,.margin-note{opacity:.8}}
+.sample .sa-scholar-shelf{stroke:var(--door);stroke-width:.85;fill:none;opacity:.95}.sample .sa-scholar-shelf>path{opacity:.65}.sa-shelf-dot{opacity:.7}
+:is(.v2.c1:hover,.v2.c1:focus-visible,body.playing .v2.c1) .sa-shelf-raised{animation:teacher-book-lift 6s calc(var(--i)*.7s) ease-in-out infinite}
+@keyframes teacher-book-lift{0%,15%,100%{transform:translateY(0)}40%,75%{transform:translateY(-9px)}}
+@media(prefers-reduced-motion:reduce){.sa-shelf-raised{animation:none!important}}

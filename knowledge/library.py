@@ -9,7 +9,7 @@ from .library_extract import extraction_cache, sha256
 from .settings import write_json
 
 
-CONTEXT_KEYS = ("title", "author", "authorId", "authorGroup", "reviewClass", "reviewStatus", "quality", "limitations", "sourcePage", "useScope", "textKind", "rightsCategory", "publicHostingAllowed", "publicFullTextIndexAllowed")
+CONTEXT_KEYS = ("title", "author", "authorId", "authorGroup", "reviewClass", "reviewStatus", "quality", "limitations", "sourcePage", "useScope", "textKind", "rightsCategory", "publicHostingAllowed", "publicFullTextIndexAllowed", "contributor", "credit", "licence", "language", "audience", "audiences", "audienceBasis", "editor", "editorStatus", "adaptationChanges", "adaptationStatus", "editorialMetadataBasis", "source", "sourceId", "sourceMetadata", "configuration", "originalWorkId", "originalSourceId", "originalPath", "originalSha256", "translator", "translatorIdentityBasis", "translatorCreditEvidence", "translationQuality", "countAsBook")
 
 
 def objects(value, inherited=None):
@@ -77,6 +77,31 @@ def plan_library(config):
         path = safe_path(config, record["relativePath"], raw=True)
         if path:
             hints.setdefault(str(path), {}).update({"assetId": record["id"], "catalog": record})
+    # The reviewed reconciliation is a final metadata overlay, independent of
+    # legacy ledger filename order. Require the same recorded original bytes;
+    # actual original hashes are still checked during import. Derivative choices
+    # and page dispositions retain their separate, established precedence.
+    overlay = root / "reports/campaign-reconciliation/catalogue/acquisition-manifest.json"
+    if overlay.exists():
+        for row in read_json(overlay).get("files", []):
+            path = safe_path(config, row.get("path"))
+            if not path or not path.is_relative_to(config["sources_dir"] / "library") or not row.get("sha256"):
+                raise ValueError("Invalid reconciled original path/hash")
+            previous = hints.setdefault(str(path), {})
+            recorded = {previous.get("sha256"), previous.get("sourceSha256"), previous.get("catalog", {}).get("sha256")} - {None, ""}
+            if recorded - {row["sha256"]}:
+                raise ValueError(f"Reconciliation conflicts with recorded original hash: {path}")
+            for key in (*CONTEXT_KEYS, "sha256", "assetId", "editionId", "workId", "url", "canonicalUrl", "finalUrl", "format", "mimeType"):
+                if row.get(key) is not None:
+                    previous[key] = row[key]
+            previous.setdefault("manifests", set()).add(str(overlay))
+    # Legacy acquisition IDs are evidence, not necessarily catalogue records.
+    # Preserve their exact values separately rather than presenting dangling
+    # work/edition links as registered identities. Never invent an authority.
+    for hint in hints.values():
+        for field, kind in (("workId", "work"), ("editionId", "edition")):
+            if hint.get(field) and records.get(hint[field], {}).get("kind") != kind:
+                hint.setdefault("legacyCatalogueIds", {})[field] = hint.pop(field)
     for asset_id, value, checksum, manifest in asset_derivatives:
         asset = records.get(asset_id, {})
         original = safe_path(config, asset.get("relativePath"), raw=True)
@@ -93,7 +118,7 @@ def plan_library(config):
                 pages = next((x for x in row["outputs"] if x["relativePath"].endswith(".pages.json")), None)
                 derivatives[str(path)] = {"path": str(safe_path(config, output["relativePath"])), "sha256": output["sha256"], "priority": 20, "manifest": str(file),
                     **({"pageText": str(safe_path(config, pages["relativePath"])), "pageTextSha256": pages["sha256"]} if pages else {})}
-    raw_files = sorted(path for path in (config["sources_dir"] / "library").rglob("*") if path.is_file())
+    raw_files = sorted(path for path in (config["sources_dir"] / "library").rglob("*") if path.is_file() and '.git' not in path.parts and path.suffix.lower() not in ('.part', '.tmp'))
     # A repaired edition can appear under several acquisition IDs. Reuse the repair
     # only when the original-byte hash proves these are exactly the same source.
     best = {}
@@ -153,9 +178,12 @@ def import_library(writer):
         try:
             if expected and expected != original_hash:
                 raise ValueError("Original checksum does not match acquisition manifest")
-            if hint.get("evidenceOnly") or (suffix == ".json" and (file.name.endswith("provenance.json") or file.name == "metadata.json")) or file.name.endswith("_scandata.xml") or suffix in (".jpg", ".png", ".webp", ".css", ".zip"):
+            # Owner authorizes local indexing of all lawfully held text (2026-10-07).
+            # Legacy evidenceOnly/credit flags remain descriptive, not import gates.
+            archive_derivative = suffix == '.zip' and str(file) in derivatives
+            if (suffix == ".json" and (file.name.endswith("provenance.json") or file.name == "metadata.json")) or file.name.endswith("_scandata.xml") or suffix in (".jpg", ".png", ".webp", ".css") or (suffix == '.zip' and not archive_derivative):
                 status, detail = "metadata_or_asset", "Acquisition evidence, metadata, image or archive; no separate body embedding"
-            elif suffix not in (".pdf", ".epub", ".txt", ".md", ".html", ".htm", ".xml", ".json", ""):
+            elif not archive_derivative and suffix not in (".pdf", ".epub", ".txt", ".md", ".html", ".htm", ".xml", ".json", ""):
                 status, detail = "unsupported", f"Unhandled file type {suffix}"
             elif original_hash in by_hash:
                 status, doc, detail = "duplicate", by_hash[original_hash], "Identical original bytes; source identity retained"
@@ -188,7 +216,7 @@ def import_library(writer):
                         doc = "library:text:" + original_hash
                         rights = asset.get("rights", {})
                         credit = rights.get("attribution") or "Private local research copy; source and acquisition conditions retained in metadata"
-                        language = (edition.get("languages") or ["en"])[0]
+                        language = (edition.get("languages") or [hint.get("language") or "en"])[0]
                         review = hint.get("reviewClass", "")
                         quality = hint.get("quality", {})
                         ai_disclosed = isinstance(quality, dict) and quality.get("publisherAiDisclosure")

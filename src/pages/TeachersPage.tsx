@@ -30,7 +30,7 @@ function Station() {
       <div><p className="st-kick">Teachers</p><h1>Learn from those<br /><span>who taught the Word.</span></h1></div>
       <div className="st-side">
         <p>The preachers and writers whose sermons and books are in the site’s library, and the scholars whose work the site is built on.</p>
-        <StationStats items={[["Preachers & authors", summary.people], ["Their works held", summary.works], ["Scholars", summary.scholars], ["Used on this site", summary.scholarsInUse]]} />
+        <StationStats items={[["Preachers & authors", summary.people], ["Scholars", summary.scholars], ["Preacher & author works", summary.works], ["Used on this site", summary.scholarsInUse]]} />
       </div>
     </header>
     <nav className="st-doors st-doors-2" aria-label="Teachers">

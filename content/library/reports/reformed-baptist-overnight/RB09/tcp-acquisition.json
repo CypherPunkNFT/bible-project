@@ -1,0 +1,109 @@
+{
+  "source": "tcp",
+  "catalogueItems": 61315,
+  "catalogueUnheldItems": 53901,
+  "eligibleItems": 16,
+  "unheldBefore": 10,
+  "filter": {
+    "authors": [
+      "Fairbairn, Patrick",
+      "Patrick Fairbairn",
+      "Terry, Milton",
+      "Milton Spencer Terry",
+      "Edersheim, Alfred",
+      "Alfred Edersheim",
+      "Lightfoot, John",
+      "John Lightfoot",
+      "Lightfoot, Joseph",
+      "Joseph Barber Lightfoot",
+      "Lightfoot, J B",
+      "Lightfoot, J. B.",
+      "Josephus",
+      "Flavius Josephus",
+      "Angus, Joseph",
+      "Joseph Angus"
+    ],
+    "primaryAuthorOnly": true,
+    "authorMustStart": true,
+    "authorIdentityRules": [
+      {
+        "namePattern": "Fairbairn",
+        "lifeYears": [
+          1805,
+          1874
+        ]
+      },
+      {
+        "namePattern": "Terry",
+        "lifeYears": [
+          1840,
+          1914
+        ]
+      },
+      {
+        "namePattern": "Edersheim",
+        "lifeYears": [
+          1825,
+          1889
+        ]
+      },
+      {
+        "namePattern": "Lightfoot",
+        "lifeYears": [
+          1602,
+          1675,
+          1828,
+          1889
+        ]
+      },
+      {
+        "namePattern": "Angus",
+        "lifeYears": [
+          1802,
+          1895
+        ]
+      }
+    ],
+    "authorTitleRules": [
+      {
+        "namePattern": "Fairbairn",
+        "titlePattern": "typolog"
+      },
+      {
+        "namePattern": "Terry",
+        "titlePattern": "hermeneutic"
+      },
+      {
+        "namePattern": "Angus",
+        "titlePattern": "bible.*hand|hand.*bible"
+      }
+    ],
+    "deferHardDownloads": true,
+    "skipIds": []
+  },
+  "attempted": 10,
+  "downloaded": 10,
+  "duplicateHashes": 0,
+  "heldDuringRun": 0,
+  "failures": [],
+  "bytes": 43314128,
+  "sampleSizes": [
+    6320955,
+    283911,
+    6804926,
+    19021,
+    17925477,
+    1135567,
+    823626,
+    859437,
+    8210961,
+    930247
+  ],
+  "state": "complete",
+  "startedAt": "2026-10-07T19:54:02.383217+00:00",
+  "updatedAt": "2026-10-07T19:54:26.599201+00:00",
+  "unheldAfter": 0,
+  "estimatedUnheldGB": 0.0,
+  "estimateBasis": "SWORD InstallSize where available; otherwise arithmetic mean of downloaded originals; decimal GB; edition/item counts, not deduplicated works",
+  "completedAt": "2026-10-07T19:54:26.600156+00:00"
+}

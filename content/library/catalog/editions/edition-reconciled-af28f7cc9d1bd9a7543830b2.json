@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-af28f7cc9d1bd9a7543830b2",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-4d30ae38e07d27607cc2643b",
+  "label": "An epistle both of Godly consolacion and also of aduertisement written by Iohn Caluine the pastour & preacher of Geneua, to the right noble prince Edvvarde Duke of Somerset, before the tyme or knoweledge had of his trouble, but delyuered to the sayde Duke, in the time of his trouble, and so translated out of frenshe by the same Duke. — held source edition 9323c4e4786a",
+  "languages": [
+    "und"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A17651/master/A17651.xml",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

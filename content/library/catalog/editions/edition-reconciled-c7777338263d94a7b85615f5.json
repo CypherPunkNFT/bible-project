@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-c7777338263d94a7b85615f5",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-cc56491c033b9c9efc7ae38b",
+  "label": "The foundation of Christian religion gathered into six principles, by Mr. William Perkins. Translated into Welsh. Whereto also is added the Welsh alphabet, for the instruction of the unlearned in that language. By E.R. Sail crefydd gristnogawl wedi ei rhannu yn chewch o rannau new Wyddorion, o waith W.P. Wedi ei gyfiaethu. Ir iath gymráec at osod allan. Drwy ddymuniad E.R. — held source edition 7ab78955c669",
+  "languages": [
+    "und"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A90506/master/A90506.xml",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

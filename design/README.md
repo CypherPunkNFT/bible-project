@@ -114,6 +114,10 @@ adds to this list as he reviews other mock-up sets (apostles, David, Michael, th
   main page for now.
 - **Sources at the bottom (the collapsed "Sources · N writers"):** fine.
 
+### Resources drawings (owner request, 2026-10-09)
+
+Learning materials uses round two, drawing 4, Well, in place of the notebook. The selected SVG is preserved in src/components/stations/LearningWell.tsx, with slow movement and reduced-motion support. Round two drawing 6, Loaves with the crowd, preserves the original drawing 11 basket, bread and fish and adds seated groups on hills behind it. Preview: /resources and /mockups/help-for-life-drawings-2/#loaves. Checked desktop/mobile, light/dark; React typecheck, targeted lint and local build passed.
+
 ### Muslim-world country panels — four options (2026-10-09)
 
 Owner-requested mock-ups at [muslim-world-panels/](muslim-world-panels/) and `/mockups/muslim-world-panels/`: A Compact ledger, B Colour rows, C Status cards and D Ring & ledger. Compare all four opens the panels side by side. All use the existing country data, a smaller country summary beside “Search all 53 countries”, no region dropdown, icon tabs and engagement colours. Both views work, including complete searchable group tables. Desktop light/dark gallery thumbnails and 768/390/320 px comparison layouts were checked. No direction is owner-approved or applied to the production panel.

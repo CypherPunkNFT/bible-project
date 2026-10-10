@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-1a272c624367d77ac84d9136",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-bb6de27f5c49b9ea8aab0f7e",
+  "label": "A select collection of letters of the late Reverend George Whitefield, ... written to his most intimate friends, and persons of distinction, in England, Scotland, Ireland, and America, from the year 1734, to 1770. ... With an account of the orphan-house in Georgia, to the time of his death. In three volumes. ... 1772: Vol 3 — held source edition 9ed81dd76002",
+  "languages": [
+    "English"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_eighteenth-century_a-select-collection-of-l_whitefield-george_1772_3/bim_eighteenth-century_a-select-collection-of-l_whitefield-george_1772_3_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

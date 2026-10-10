@@ -1,0 +1,25 @@
+# Worldview collection cards
+
+Local preview: http://localhost:8931/mockups/worldview-cards/
+
+The selected compositions now sit in the real worldview landing-page card containers. This preview imports the current site header, Apologetics navigation, and generated worldview content. Card titles, descriptions, question counts, study counts and destinations come from the current application, rather than older README descriptions.
+
+All four drawings have a 900 × 300 field. Centerpieces and artifacts use uniform scale transforms; the extra space is distributed horizontally, without distorting the drawings. Hinduism uses the approved temple B, with enlarged artifacts in one row: trident, square fire altar, temple, flower garland, bell. The fire altar and garland are closest to the temple. The necklace cord now interpolates through the exact flower-center coordinates, and the large bell has a hanging loop, crown, rim, clapper and engraved details. Buddhism uses wheel A, with both artifact pairs equally spaced to either side (x=246 and x=654 around x=450), plus a small Bodhi leaf, beads and ornaments at the outer edges. Its bottom-right vajra is enlarged by 25%. The bowl and square altar retain their completed flames. No ground ellipse is added. Dotted rings rotate slowly and honor the motion control and reduced-motion preference.
+
+Islam has three physical-object arrangements around the chosen mosque B: prayer and light, reading and craft, books and instruments. The first arrangement replaces its right-hand book with the spherical incense burner. The ewer in the second arrangement is redrawn with a pear-shaped body, narrower neck, curved spout and open handle. Card-specific refinements are in `refined-artifacts.tsx`, so older artifact galleries keep their previous drawings.
+
+Secular has three arrangements of four motifs around an atom: a small refined molecular hexagon, paired glassware, a detailed double helix tilted by 12 degrees, and a microscope. The conical flask stands in front; the cylindrical beaker is 74% scale and offset behind it to the left. A luminance mask matching the entire flask silhouette (including its lip) removes the rear beaker's lines, liquid and bubbles wherever they overlap the front vessel. This reveals the actual card background without a flat background-colored patch. Both vessels keep their clipped liquid and bubble motion.
+
+Islam and Secular replace the footer collection link with numbered 1–2–3 buttons. The artwork crossfades in a fixed frame, and each button exposes its selected state and arrangement name. Card containers are articles, so these buttons are not nested inside links. The heading and upper-right arrow still open the real collection. The lower controls contain the motion toggle and link to the earlier artifact collection.
+
+Earlier previews remain at /mockups/worldview-art/ and /mockups/worldview-compositions/. The approved compositions are now implemented at http://localhost:8931/apologetics/worldviews: Islam arrangement 1, Secular arrangement 1, and the selected Buddhist wheel and Hindu temple compositions. The application artwork lives in `src/components/apologetics/worldview-card-art/`, with no imports from design previews. Numbered choices remain in this preview; the real cards retain their collection links.
+
+Build from the Website directory with `node design/worldview-cards/build.mjs`.
+
+The central drawings now use the Teachers station's hover treatment: a complete base remains visible while a brighter duplicate traces each stroke over 1.3 seconds with staggered starts. The normalized dash pattern is removed when drawing finishes so every edge stays complete. Hover or keyboard focus also grows a 2px top accent from 2.4rem to the full card width. Local `centerpieces.tsx` holds these drawings, including the mosque's corrected walls, doorway and minarets, which all meet its floor at y=284.
+
+The atom has one dot on each of its three ellipses. All three now start at major-axis tips, 120 degrees apart around the atom, with a shared ten-second period. Alternating local start positions (0%, 50%, 0%) keep their center stationary throughout the orbit. The CSS motion path is closed so the second dot wraps smoothly past 100%. The shared motion toggle pauses the dots alongside the dotted rings and glassware; reduced motion leaves them at their starting tips.
+
+The Buddhist wheel and its surrounding rings share the center (450,150). Its solid halo grows from radius 112 to 124, and its dotted ring grows from 124 to 136. Every main dotted ring uses opacity 0.69, halfway between the previous 0.38 and full strength. The complete artwork remains inside the 900 by 300 drawing field.
+
+Browser verification covers desktop and phone widths, all six numbered choices, fixed 3:1 frames, keyboard selection, motion controls, reduced motion and both themes. The gallery card and both thumbnails are present. The repository-wide gallery check previously reported existing unlisted folders (research-phase-2, review, study-hub-v1, study-hub-v2, study-hub-v3 and worldview-colors); this preview is listed.

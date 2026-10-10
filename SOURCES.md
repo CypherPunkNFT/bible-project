@@ -1,160 +1,599 @@
 # Sources
 
-<!-- LC01 sources -->
-## LC01: works cited by the Letters study (2026-10-07)
+Reconciled **7 October 2026** from the held-file stocktake and retained acquisition/policy records. Each acquisition provider has one canonical profile below. Source aliases, mirrors and ministry CDN hosts are consolidated; edition and translator notices remain in the original manifests. Counts refer to the stocktake snapshot, not later downloads.
 
-All 78 public-domain works the Letters pages cite now have a local readable text: 41 acquired here as 45 originals (70,541,851 bytes), 37 already held (Calvin CCEL volumes, ANF vol. 1 EPUB, Josephus, Easton, Smith, and 23 ISBE 1915 articles from the held SWORD module). Text files only: CCEL plain text, Project Gutenberg, archive.org's existing full-text files (its own unproofread OCR; no images, no new OCR), Wikisource, Early Christian Writings, Hanover College, LacusCurtius and helloao JSON. [Manifest with every URL, SHA-256 and edition difference](content/library/reports/letters-cited/LC01/acquisition-manifest.json) / [78-work table with exact local text paths](content/library/reports/letters-cited/LC01/WORKS.md) / [checkpoint](content/library/reports/letters-cited/LC01/checkpoint.json). Private local study copies; no public hosting.
+**Private local indexing:** the owner authorizes importing and embedding all lawfully held text. Credit and licence fields remain metadata; no new evidenceOnly holds are created. This documentation grants no public hosting, redistribution or AI-training permission and does not override source terms. Missing policy evidence is recorded as a documentation task, not an automatic import hold.
 
-| Work | Exact source | Asset / SHA-256 |
+**Inventory distinctions:** complete text, articles/sermons, item metadata, catalogue caches, images, ZIP/module packages and extracted derivatives remain separate. An offered page, preview, worksheet or advertisement is not automatically a book. CrossWire packages are not separately embedded when their text export is used. Catalogue/API caches under `../sources/bulk-catalogues/` document discovery/access rather than additional works.
+
+[Source reconciliation report](content/library/reports/campaign-reconciliation/sources/REPORT.md) · [machine-readable source documentation](content/library/reports/campaign-reconciliation/sources/source-documentation.json) · [complete historical notes](content/library/reports/campaign-reconciliation/sources/HISTORICAL-SOURCES.md).
+
+## Canonical acquisition sources
+
+<a id="source-9marks-org"></a>
+### 9Marks
+
+**Official channel:** [https://www.9marks.org/journal/archives/](https://www.9marks.org/journal/archives/). Official offered journal PDFs and article pages; the bulk archive/API 403 was deferred without bypass.
+**Held formats:** .html, .json, .pdf; **20 files** including support/metadata representations. These are file counts, not book counts.
+**Licence/terms and credit:** Recorded historical journal issue permissions are conditional and issue-specific. Modern books can carry additional retrieval/distribution restrictions; no publisher-wide open licence is inferred.
+**Private use:** owner-authorized local indexing of lawfully held text; edition/source notices retained; public publication requires a separate decision.
+**Evidence:** [retained policy or edition evidence](content/library/sources.json).
+
+<a id="source-aomin-org"></a>
+### Alpha and Omega Ministries
+
+**Official channel:** [https://www.aomin.org/aoblog/](https://www.aomin.org/aoblog/). Official offered pages/downloads actually recorded in the held-file manifests; recorded source aliases are retained in the source inventory.
+**Held formats:** .html, .json; **4,097 files** including support/metadata representations. These are file counts, not book counts.
+**Licence/terms and credit:** No source-wide reuse licence established in the available records. Preserve named author, editor, translator, publisher/ministry and all original copyright notices; source availability is not an open licence.
+**Private use:** owner-authorized local indexing of lawfully held text; edition/source notices retained; public publication requires a separate decision.
+**Evidence:** [consultation_failed](content/library/reports/campaign-reconciliation/sources/official-consultations.json).
+**Unresolved evidence:** Establish a scoped policy/edition notice from the official source; record the specific allowed use and exceptions without inventing a blanket licence.
+
+<a id="source-archive-org"></a>
+### Internet Archive
+
+**Official channel:** [https://archive.org/services/docs/api/metadata.html](https://archive.org/services/docs/api/metadata.html). Official search/metadata/download APIs; institutional and microfilm collections; held existing TXT/EPUB/PDF and item metadata. No new OCR.
+**Held formats:** .html, .json, .pdf, .txt, .xml, extensionless; **10,775 files** including support/metadata representations. These are file counts, not book counts.
+**Licence/terms and credit:** Edition-specific historical public-domain assessments and item notices are recorded. Public availability or an unrestricted item flag alone is not a blanket licence. Retain digitizing-library, sponsor, publisher and contributor metadata.
+**Private use:** owner-authorized local indexing of lawfully held text; edition/source notices retained; public publication requires a separate decision.
+**Evidence:** [retained policy or edition evidence](content/library/reports/reformed-baptist-overnight/).
+
+<a id="source-baptistcatechism-org"></a>
+### SVRBC Baptist Catechism / Symbolics
+
+**Official channel:** [https://baptistcatechism.org/](https://baptistcatechism.org/). Official offered pages/downloads actually recorded in the held-file manifests; recorded source aliases are retained in the source inventory.
+**Held formats:** .html, .json; **4 files** including support/metadata representations. These are file counts, not book counts.
+**Licence/terms and credit:** No source-wide reuse licence established in the available records. Preserve named author, editor, translator, publisher/ministry and all original copyright notices; source availability is not an open licence.
+**Private use:** owner-authorized local indexing of lawfully held text; edition/source notices retained; public publication requires a separate decision.
+**Evidence:** [consultation_failed](content/library/reports/campaign-reconciliation/sources/official-consultations.json).
+**Unresolved evidence:** Establish a scoped policy/edition notice from the official source; record the specific allowed use and exceptions without inventing a blanket licence.
+
+<a id="source-baptistdogmatics-com"></a>
+### Baptist Dogmatics
+
+**Official channel:** [https://www.baptistdogmatics.com/](https://www.baptistdogmatics.com/). Official offered pages/downloads actually recorded in the held-file manifests; recorded source aliases are retained in the source inventory.
+**Held formats:** .html, .json; **2 files** including support/metadata representations. These are file counts, not book counts.
+**Licence/terms and credit:** No source-wide reuse licence established in the available records. Preserve named author, editor, translator, publisher/ministry and all original copyright notices; source availability is not an open licence.
+**Private use:** owner-authorized local indexing of lawfully held text; edition/source notices retained; public publication requires a separate decision.
+**Evidence:** [consultation_failed](content/library/reports/campaign-reconciliation/sources/official-consultations.json).
+**Unresolved evidence:** Establish a scoped policy/edition notice from the official source; record the specific allowed use and exceptions without inventing a blanket licence.
+
+<a id="source-baptisthistoryhomepage-com"></a>
+### Baptist History Homepage
+
+**Official channel:** [https://baptisthistoryhomepage.com/](https://baptisthistoryhomepage.com/). Official offered pages/downloads actually recorded in the held-file manifests; recorded source aliases are retained in the source inventory.
+**Held formats:** .html, .json; **54 files** including support/metadata representations. These are file counts, not book counts.
+**Licence/terms and credit:** No source-wide reuse licence established in the available records. Preserve named author, editor, translator, publisher/ministry and all original copyright notices; source availability is not an open licence.
+**Private use:** owner-authorized local indexing of lawfully held text; edition/source notices retained; public publication requires a separate decision.
+**Evidence:** [consultation_failed](content/library/reports/campaign-reconciliation/sources/official-consultations.json).
+**Unresolved evidence:** Establish a scoped policy/edition notice from the official source; record the specific allowed use and exceptions without inventing a blanket licence.
+
+<a id="source-bcsmn-edu"></a>
+### Bethlehem College and Seminary
+
+**Official channel:** [https://bcsmn.edu/](https://bcsmn.edu/). Official offered pages/downloads actually recorded in the held-file manifests; recorded source aliases are retained in the source inventory.
+**Held formats:** .json, .pdf; **2 files** including support/metadata representations. These are file counts, not book counts.
+**Licence/terms and credit:** No source-wide reuse licence established in the available records. Preserve named author, editor, translator, publisher/ministry and all original copyright notices; source availability is not an open licence.
+**Private use:** owner-authorized local indexing of lawfully held text; edition/source notices retained; public publication requires a separate decision.
+**Evidence:** [consultation_failed](content/library/reports/campaign-reconciliation/sources/official-consultations.json).
+**Unresolved evidence:** Establish a scoped policy/edition notice from the official source; record the specific allowed use and exceptions without inventing a blanket licence.
+
+<a id="source-bible-helloao-org"></a>
+### HelloAO Free Use Bible API
+
+**Official channel:** [https://bible.helloao.org/docs/](https://bible.helloao.org/docs/). Official JSON API chapter/commentary endpoints; metadata responses are distinguished from text-bearing chapters.
+**Held formats:** .json; **753 files** including support/metadata representations. These are file counts, not book counts.
+**Licence/terms and credit:** The official Free Use Bible API describes unrestricted API use, including modification/commercial use, with changed translations renamed. Retain the specific historical commentary/translation identity and do not extend that statement to unrelated linked content.
+**Private use:** owner-authorized local indexing of lawfully held text; edition/source notices retained; public publication requires a separate decision.
+**Evidence:** [retained policy or edition evidence](content/library/reports/campaign-reconciliation/sources/web-consultations.json); [consultation_failed](content/library/reports/campaign-reconciliation/sources/official-consultations.json).
+
+<a id="source-billygraham-org"></a>
+### Billy Graham Evangelistic Association
+
+**Official channel:** [https://billygraham.org/](https://billygraham.org/). Official offered pages/downloads actually recorded in the held-file manifests; recorded source aliases are retained in the source inventory.
+**Held formats:** .json, .pdf; **8 files** including support/metadata representations. These are file counts, not book counts.
+**Licence/terms and credit:** No source-wide reuse licence established in the available records. Preserve named author, editor, translator, publisher/ministry and all original copyright notices; source availability is not an open licence.
+**Private use:** owner-authorized local indexing of lawfully held text; edition/source notices retained; public publication requires a separate decision.
+**Evidence:** [consultation_failed](content/library/reports/campaign-reconciliation/sources/official-consultations.json).
+**Unresolved evidence:** Establish a scoped policy/edition notice from the official source; record the specific allowed use and exceptions without inventing a blanket licence.
+
+**Local sermon transcripts (2026-10-10):** 23 completed user-provided Billy Graham audio transcriptions from `C:\Users\lcladm\Desktop\YT_Transcriber\transcripts`, produced with Whisper large-v3; accuracy is unverified. Original TXT bodies are staged under `sources/library/source-billy-graham/yt-transcripts`; timestamped subtitles, segment/word metadata and review flags are preserved under `sources/billy-graham-transcripts/archive`. One unfinished transcription remains pending. No additional licence or original video URL is inferred. [Transcript manifest](content/library/reports/graham-transcripts-20261010/acquisition-manifest.json).
+
+<a id="source-capitolhillbaptist-org"></a>
+### Capitol Hill Baptist Church
+
+**Official channel:** [https://www.capitolhillbaptist.org/](https://www.capitolhillbaptist.org/). Official offered pages/downloads actually recorded in the held-file manifests; recorded source aliases are retained in the source inventory.
+**Held formats:** .html, .json; **12 files** including support/metadata representations. These are file counts, not book counts.
+**Licence/terms and credit:** No source-wide reuse licence established in the available records. Preserve named author, editor, translator, publisher/ministry and all original copyright notices; source availability is not an open licence.
+**Private use:** owner-authorized local indexing of lawfully held text; edition/source notices retained; public publication requires a separate decision.
+**Evidence:** [consulted_official_page_no_policy_link](content/library/reports/campaign-reconciliation/sources/official-consultations.json); [official-page snapshot](content/library/reports/campaign-reconciliation/sources/evidence/capitolhillbaptist.org/official.html).
+**Unresolved evidence:** Establish a scoped policy/edition notice from the official source; record the specific allowed use and exceptions without inventing a blanket licence.
+
+<a id="source-careycenter-wmcarey-edu"></a>
+### William Carey Center
+
+**Official channel:** [https://careycenter.wmcarey.edu/](https://careycenter.wmcarey.edu/). Official offered pages/downloads actually recorded in the held-file manifests; recorded source aliases are retained in the source inventory.
+**Held formats:** .html, .json; **2 files** including support/metadata representations. These are file counts, not book counts.
+**Licence/terms and credit:** No source-wide reuse licence established in the available records. Preserve named author, editor, translator, publisher/ministry and all original copyright notices; source availability is not an open licence.
+**Private use:** owner-authorized local indexing of lawfully held text; edition/source notices retained; public publication requires a separate decision.
+**Evidence:** [consulted_official_page_no_policy_link](content/library/reports/campaign-reconciliation/sources/official-consultations.json); [official-page snapshot](content/library/reports/campaign-reconciliation/sources/evidence/careycenter.wmcarey.edu/official.html).
+**Unresolved evidence:** Establish a scoped policy/edition notice from the official source; record the specific allowed use and exceptions without inventing a blanket licence.
+
+<a id="source-ccel-org"></a>
+### Christian Classics Ethereal Library (CCEL)
+
+**Official channel:** [https://ccel.org/about/copyright.html](https://ccel.org/about/copyright.html). The official author catalogue and offered ThML/XML, TXT and other recorded editions.
+**Held formats:** .html, .json, .txt, .xml, extensionless; baseline stocktake **526 files** including support/metadata representations, with subsequent Fathers additions recorded below. These are file counts, not book counts.
+**Licence/terms and credit:** Recorded personal/educational/non-profit electronic-edition terms; underlying historical text and CCEL markup/editorial material have distinct rights. Preserve book/translator/editor and CCEL notices.
+**Private use:** owner-authorized local indexing of lawfully held text; edition/source notices retained; public publication requires a separate decision.
+**Evidence:** [retained policy or edition evidence](content/library/reports/modern-texts/ccel-expansion-policy-evidence.json).
+
+**Fathers completion, 2026-10-09:** The [official Early Church Fathers catalogue](https://www.ccel.org/fathers) offers ANF text volumes 1–9 and NPNF Series I/II volumes 1–14 each; the unreproduced general-index volume is not counted as a body text. Existing whole-volume originals are reused by source ID; missing offered TXT exports are acquired with the shared robots-aware rate limiter, without retries. Volume contributors and CCEL notices remain in each original. [Acquisition manifest and completion status](content/library/reports/patristic-expansion-20261009/acquisition-manifest.json).
+
+**Local PDF additions (2026-10-10):** Owner-provided ANF01 PDF (additional representation of the held anthology) and Thomas Aquinas, Summa Theologica. Aquinas is included with a Roman Catholic doctrinal-review label in the title, credit and metadata; philosophical contributions are assessed separately from theological endorsement. Original edition notices remain attached. [Local-download manifest](content/library/reports/local-downloads-20261010/acquisition-manifest.json). [Owner source-policy update](content/library/reports/local-downloads-20261010/source-policy-update.json).
+
+<a id="source-chapellibrary-org"></a>
+### Chapel Library
+
+**Official channel:** [https://www.chapellibrary.org/literature](https://www.chapellibrary.org/literature). Official public literature catalogue, multilingual book pages and offered EPUB/PDF download endpoints.
+**Held formats:** .epub, .json, .pdf; **1,683 files** including support/metadata representations. These are file counts, not book counts.
+**Licence/terms and credit:** Official freely offered ebook editions; author, publisher, editor/abridgment and translator notices remain authoritative. Free downloads are distinguished from print ordering and from a general open licence.
+**Private use:** owner-authorized local indexing of lawfully held text; edition/source notices retained; public publication requires a separate decision.
+**Evidence:** [retained policy or edition evidence](content/library/sources.json).
+
+<a id="source-content-cbtseminary-org"></a>
+### Covenant Baptist Theological Seminary
+
+**Official channel:** [https://content.cbtseminary.org/](https://content.cbtseminary.org/). Official offered pages/downloads actually recorded in the held-file manifests; recorded source aliases are retained in the source inventory.
+**Held formats:** .html, .json; **14 files** including support/metadata representations. These are file counts, not book counts.
+**Licence/terms and credit:** No source-wide reuse licence established in the available records. Preserve named author, editor, translator, publisher/ministry and all original copyright notices; source availability is not an open licence.
+**Private use:** owner-authorized local indexing of lawfully held text; edition/source notices retained; public publication requires a separate decision.
+**Evidence:** [consulted_official_page_no_policy_link](content/library/reports/campaign-reconciliation/sources/official-consultations.json); [official-page snapshot](content/library/reports/campaign-reconciliation/sources/evidence/content.cbtseminary.org/official.html).
+**Unresolved evidence:** Establish a scoped policy/edition notice from the official source; record the specific allowed use and exceptions without inventing a blanket licence.
+
+<a id="source-crossway-org"></a>
+### Crossway
+
+**Official channel:** [https://www.crossway.org/permissions/](https://www.crossway.org/permissions/). Official public HTML pages recorded in the Kruger bibliography acquisition; these are not automatically books.
+**Held formats:** .html; **4 files** including support/metadata representations. These are file counts, not book counts.
+**Licence/terms and credit:** Official permissions distinguish limited quotation from permissions required for larger reproduction/translation. The held public HTML pages retain publisher/author notices; no whole-book or blanket reuse licence is inferred.
+**Private use:** owner-authorized local indexing of lawfully held text; edition/source notices retained; public publication requires a separate decision.
+**Evidence:** [retained policy or edition evidence](content/library/reports/campaign-reconciliation/sources/evidence/crossway.org/policy.html); [consulted_policy_link](content/library/reports/campaign-reconciliation/sources/official-consultations.json); [official-page snapshot](content/library/reports/campaign-reconciliation/sources/evidence/crossway.org/official.html); [official-page snapshot](content/library/reports/campaign-reconciliation/sources/evidence/crossway.org/policy.html).
+
+<a id="source-crosswire-org"></a>
+### CrossWire SWORD
+
+**Official channel:** [https://www.crosswire.org/ftpmirror/pub/sword/packages/rawzip/](https://www.crosswire.org/ftpmirror/pub/sword/packages/rawzip/). Official mods.d catalogue and rawzip packages; text exports are derivatives, not additional books.
+**Held formats:** .zip; **102 files** including support/metadata representations. These are file counts, not book counts.
+**Licence/terms and credit:** Each module’s mods.d DistributionLicense and copyright/credit fields govern the module. Held declarations include public domain; there is no blanket licence for all SWORD content.
+**Private use:** owner-authorized local indexing of lawfully held text; edition/source notices retained; public publication requires a separate decision.
+**Evidence:** [retained policy or edition evidence](content/library/reports/reformed-baptist-overnight/RB03/acquisition-manifest.json).
+
+<a id="source-cslewisinstitute-org"></a>
+### C. S. Lewis Institute
+
+**Official channel:** [https://www.cslewisinstitute.org/](https://www.cslewisinstitute.org/). Official offered pages/downloads actually recorded in the held-file manifests; recorded source aliases are retained in the source inventory.
+**Held formats:** .json, .pdf; **18 files** including support/metadata representations. These are file counts, not book counts.
+**Licence/terms and credit:** No source-wide reuse licence established in the available records. Preserve named author, editor, translator, publisher/ministry and all original copyright notices; source availability is not an open licence.
+**Private use:** owner-authorized local indexing of lawfully held text; edition/source notices retained; public publication requires a separate decision.
+**Evidence:** [consulted_official_page_no_policy_link](content/library/reports/campaign-reconciliation/sources/official-consultations.json); [official-page snapshot](content/library/reports/campaign-reconciliation/sources/evidence/cslewisinstitute.org/official.html).
+**Unresolved evidence:** Establish a scoped policy/edition notice from the official source; record the specific allowed use and exceptions without inventing a blanket licence.
+
+<a id="source-desiringgod-org"></a>
+### Desiring God
+
+**Official channel:** [https://www.desiringgod.org/permissions](https://www.desiringgod.org/permissions). Official John Piper written message/article archive, free offered books and authorized translation pages.
+**Held formats:** .epub, .html, .json, .pdf; **14,785 files** including support/metadata representations. These are file counts, not book counts.
+**Licence/terms and credit:** Recorded personal/noncommercial permissions for John Piper resources have exceptions; other contributors and third-party/translation editions must retain their own notices. Contributor-wide policy coverage remains incomplete.
+**Private use:** owner-authorized local indexing of lawfully held text; edition/source notices retained; public publication requires a separate decision.
+**Evidence:** [retained policy or edition evidence](content/library/reports/modern-texts/piper-access.json).
+**Unresolved evidence:** Contributor/third-party and translation exceptions need edition-specific coverage; the existing Piper permission is not a grant for all contributors.
+
+<a id="source-earlychristianwritings-com"></a>
+### Early Christian Writings
+
+**Official channel:** [https://www.earlychristianwritings.com/](https://www.earlychristianwritings.com/). Official offered HTML transcriptions; named Lightfoot/Roberts/Donaldson translators remain attached.
+**Held formats:** .html; **4 files** including support/metadata representations. These are file counts, not book counts.
+**Licence/terms and credit:** Named historical translations are identified in the LC01 manifest; historical underlying text does not establish a blanket website/markup licence.
+**Private use:** owner-authorized local indexing of lawfully held text; edition/source notices retained; public publication requires a separate decision.
+**Evidence:** [retained policy or edition evidence](content/library/reports/letters-cited/LC01/acquisition-manifest.json); [consulted_official_page_no_policy_link](content/library/reports/campaign-reconciliation/sources/official-consultations.json); [official-page snapshot](content/library/reports/campaign-reconciliation/sources/evidence/earlychristianwritings.com/official.html).
+
+<a id="source-en-wikisource-org"></a>
+### Wikisource
+
+**Official channel:** [https://en.wikisource.org/wiki/Wikisource:Copyright_policy](https://en.wikisource.org/wiki/Wikisource:Copyright_policy). Official offered pages/downloads actually recorded in the held-file manifests; recorded source aliases are retained in the source inventory.
+**Held formats:** .html; **2 files** including support/metadata representations. These are file counts, not book counts.
+**Licence/terms and credit:** No source-wide reuse licence established in the available records. Preserve named author, editor, translator, publisher/ministry and all original copyright notices; source availability is not an open licence.
+**Private use:** owner-authorized local indexing of lawfully held text; edition/source notices retained; public publication requires a separate decision.
+**Evidence:** [robots_disallowed](content/library/reports/campaign-reconciliation/sources/official-consultations.json).
+**Unresolved evidence:** Establish a scoped policy/edition notice from the official source; record the specific allowed use and exceptions without inventing a blanket licence.
+
+<a id="source-founders-org"></a>
+### Founders Ministries / Founders Journal
+
+**Official channel:** [https://founders.org/journals/](https://founders.org/journals/). Official journal archive, offered complete PDFs and public article/media API records.
+**Held formats:** .html, .json, .pdf; **211 files** including support/metadata representations. These are file counts, not book counts.
+**Licence/terms and credit:** Recorded offered issue PDFs/HTML and historical public-domain witnesses; modern journal contributors retain copyright. Issue and contributor notices remain authoritative; no blanket open licence.
+**Private use:** owner-authorized local indexing of lawfully held text; edition/source notices retained; public publication requires a separate decision.
+**Evidence:** [retained policy or edition evidence](content/library/sources.json).
+
+<a id="source-frame-poythress-org"></a>
+### Frame–Poythress
+
+**Official channel:** [https://frame-poythress.org/](https://frame-poythress.org/). Official offered pages/downloads actually recorded in the held-file manifests; recorded source aliases are retained in the source inventory.
+**Held formats:** .html, .json, .pdf; **12 files** including support/metadata representations. These are file counts, not book counts.
+**Licence/terms and credit:** No source-wide reuse licence established in the available records. Preserve named author, editor, translator, publisher/ministry and all original copyright notices; source availability is not an open licence.
+**Private use:** owner-authorized local indexing of lawfully held text; edition/source notices retained; public publication requires a separate decision.
+**Evidence:** [consulted_official_page_no_policy_link](content/library/reports/campaign-reconciliation/sources/official-consultations.json); [official-page snapshot](content/library/reports/campaign-reconciliation/sources/evidence/frame-poythress.org/official.html).
+**Unresolved evidence:** Establish a scoped policy/edition notice from the official source; record the specific allowed use and exceptions without inventing a blanket licence.
+
+<a id="source-freechristianebooks-org"></a>
+### Free Christian Ebooks
+
+**Official channel:** [https://www.freechristianebooks.org/](https://www.freechristianebooks.org/). Official offered pages/downloads actually recorded in the held-file manifests; recorded source aliases are retained in the source inventory.
+**Held formats:** .epub, .json, .pdf; **8 files** including support/metadata representations. These are file counts, not book counts.
+**Licence/terms and credit:** No source-wide reuse licence established in the available records. Preserve named author, editor, translator, publisher/ministry and all original copyright notices; source availability is not an open licence.
+**Private use:** owner-authorized local indexing of lawfully held text; edition/source notices retained; public publication requires a separate decision.
+**Evidence:** [consulted_official_page_no_policy_link](content/library/reports/campaign-reconciliation/sources/official-consultations.json); [official-page snapshot](content/library/reports/campaign-reconciliation/sources/evidence/freechristianebooks.org/official.html).
+**Unresolved evidence:** Establish a scoped policy/edition notice from the official source; record the specific allowed use and exceptions without inventing a blanket licence.
+
+<a id="source-github-lwalen"></a>
+### lwalen Second London Baptist Confession
+
+**Official channel:** [https://github.com/lwalen/lbcf/blob/235da776742a7956ebb678ec236382813dbe2c33/LICENSE](https://github.com/lwalen/lbcf/blob/235da776742a7956ebb678ec236382813dbe2c33/LICENSE). The pinned lwalen/lbcf public GitHub repository.
+**Held formats:** .json, .md, extensionless; **4 files** including support/metadata representations. These are file counts, not book counts.
+**Licence/terms and credit:** CC0 dedication for the pinned repository witnesses; JSON and Markdown remain separate manifestations.
+**Private use:** owner-authorized local indexing of lawfully held text; edition/source notices retained; public publication requires a separate decision.
+**Evidence:** [retained policy or edition evidence](content/library/sources.json).
+
+<a id="source-github-nonlinearfruit"></a>
+### NonlinearFruit Creeds.json
+
+**Official channel:** [https://github.com/NonlinearFruit/Creeds.json/blob/2ae21a4c5387ecc91f474c9d3d67c826d2a6b9d5/README.md](https://github.com/NonlinearFruit/Creeds.json/blob/2ae21a4c5387ecc91f474c9d3d67c826d2a6b9d5/README.md). The pinned NonlinearFruit/Creeds.json public repository.
+**Held formats:** .json, .md; **7 files** including support/metadata representations. These are file counts, not book counts.
+**Licence/terms and credit:** Recorded Unlicense applies only to eligible named files; listed exceptions, including Savoy, and modern translations need their own evidence.
+**Private use:** owner-authorized local indexing of lawfully held text; edition/source notices retained; public publication requires a separate decision.
+**Evidence:** [retained policy or edition evidence](content/library/sources.json).
+
+<a id="source-github-textcreationpartnership"></a>
+### Text Creation Partnership (EEBO, ECCO and Evans)
+
+**Official channel:** [https://github.com/textcreationpartnership/Texts](https://github.com/textcreationpartnership/Texts). The official TCP catalogue and per-text public repositories; EEBO/ECCO/Evans collection identifiers remain separate.
+**Held formats:** .json, .xml, extensionless; **20,353 files** including support/metadata representations. These are file counts, not book counts.
+**Licence/terms and credit:** TCP CC0-1.0 encoded transcriptions; this does not cover facsimile images. Original TEI contributor/header credits remain attached.
+**Private use:** owner-authorized local indexing of lawfully held text; edition/source notices retained; public publication requires a separate decision.
+**Evidence:** [retained policy or edition evidence](../sources/bulk-catalogues/tcp.json).
+
+<a id="source-gutenberg-org"></a>
+### Project Gutenberg
+
+**Official channel:** [https://www.gutenberg.org/policy/license.html](https://www.gutenberg.org/policy/license.html). Offline catalogue and documented robot-harvest/static mirrors; mirrorservice.org and mirrors.xmission.com are distribution channels for this source, not separate publishers.
+**Held formats:** .htm, .json, .txt; **73 files** including support/metadata representations. These are file counts, not book counts.
+**Licence/terms and credit:** Recorded underlying U.S. public-domain editions plus the Project Gutenberg electronic licence/notices; do not describe the trademark or every edition as unrestricted.
+**Private use:** owner-authorized local indexing of lawfully held text; edition/source notices retained; public publication requires a separate decision.
+**Evidence:** [retained policy or edition evidence](content/library/sources.json).
+
+<a id="source-history-hanover-edu"></a>
+### Hanover College Historical Texts
+
+**Official channel:** [https://history.hanover.edu/texts/](https://history.hanover.edu/texts/). Official offered pages/downloads actually recorded in the held-file manifests; recorded source aliases are retained in the source inventory.
+**Held formats:** .html; **1 files** including support/metadata representations. These are file counts, not book counts.
+**Licence/terms and credit:** No source-wide reuse licence established in the available records. Preserve named author, editor, translator, publisher/ministry and all original copyright notices; source availability is not an open licence.
+**Private use:** owner-authorized local indexing of lawfully held text; edition/source notices retained; public publication requires a separate decision.
+**Evidence:** [invalid_robots_response](content/library/reports/campaign-reconciliation/sources/official-consultations.json).
+**Unresolved evidence:** Establish a scoped policy/edition notice from the official source; record the specific allowed use and exceptions without inventing a blanket licence.
+
+<a id="source-jimhamilton-info"></a>
+### James M. Hamilton Jr.
+
+**Official channel:** [https://jimhamilton.info/](https://jimhamilton.info/). Official offered pages/downloads actually recorded in the held-file manifests; recorded source aliases are retained in the source inventory.
+**Held formats:** .json, .pdf; **4 files** including support/metadata representations. These are file counts, not book counts.
+**Licence/terms and credit:** No source-wide reuse licence established in the available records. Preserve named author, editor, translator, publisher/ministry and all original copyright notices; source availability is not an open licence.
+**Private use:** owner-authorized local indexing of lawfully held text; edition/source notices retained; public publication requires a separate decision.
+**Evidence:** [consulted_official_page_no_policy_link](content/library/reports/campaign-reconciliation/sources/official-consultations.json); [official-page snapshot](content/library/reports/campaign-reconciliation/sources/evidence/jimhamilton.info/official.html).
+**Unresolved evidence:** Establish a scoped policy/edition notice from the official source; record the specific allowed use and exceptions without inventing a blanket licence.
+
+<a id="source-ligonier-org"></a>
+### Ligonier Ministries / Tabletalk
+
+**Official channel:** [https://www.ligonier.org/copyright-policy](https://www.ligonier.org/copyright-policy). Official Ligonier/learn pages and Tabletalk articles actually held.
+**Held formats:** .html; **3 files** including support/metadata representations. These are file counts, not book counts.
+**Licence/terms and credit:** Existing policy evidence records hyperlink-based sharing and limits on re-upload/distribution, attribution, derivatives and revenue. Held Kruger HTML/Tabletalk pages retain contributor notices; no open licence is inferred.
+**Private use:** owner-authorized local indexing of lawfully held text; edition/source notices retained; public publication requires a separate decision.
+**Evidence:** [retained policy or edition evidence](content/library/sources.json).
+
+**Local study-guide addition (2026-10-10):** R. C. Sproul, What Did Jesus Do? Understanding the Work of Christ, original WHA31PDF1.pdf; copyright 2011 Ligonier and all source notices retained. Owner-provided private local indexing; counted as a study guide, not a book. [Local-download manifest](content/library/reports/local-downloads-20261010/acquisition-manifest.json).
+
+<a id="source-london1644-info"></a>
+### London 1644
+
+**Official channel:** [https://www.london1644.info/](https://www.london1644.info/). Official offered pages/downloads actually recorded in the held-file manifests; recorded source aliases are retained in the source inventory.
+**Held formats:** .json, .pdf; **2 files** including support/metadata representations. These are file counts, not book counts.
+**Licence/terms and credit:** No source-wide reuse licence established in the available records. Preserve named author, editor, translator, publisher/ministry and all original copyright notices; source availability is not an open licence.
+**Private use:** owner-authorized local indexing of lawfully held text; edition/source notices retained; public publication requires a separate decision.
+**Evidence:** [consulted_official_page_no_policy_link](content/library/reports/campaign-reconciliation/sources/official-consultations.json); [official-page snapshot](content/library/reports/campaign-reconciliation/sources/evidence/london1644.info/official.html).
+**Unresolved evidence:** Establish a scoped policy/edition notice from the official source; record the specific allowed use and exceptions without inventing a blanket licence.
+
+<a id="source-lwf-org"></a>
+### Love Worth Finding
+
+**Official channel:** [https://www.lwf.org/about-us/contact-us/copyright-information](https://www.lwf.org/about-us/contact-us/copyright-information). Official offered transcript/resource PDFs.
+**Held formats:** .json, .pdf; **1,220 files** including support/metadata representations. These are file counts, not book counts.
+**Licence/terms and credit:** Recorded offered private reading copies; retain Adrian Rogers and Love Worth Finding copyright/credit notices. No open licence or broader redistribution grant is inferred.
+**Private use:** owner-authorized local indexing of lawfully held text; edition/source notices retained; public publication requires a separate decision.
+**Evidence:** [retained policy or edition evidence](content/library/reports/modern-texts/rogers-access.json).
+
+<a id="source-michaeljkruger-com"></a>
+### Michael J. Kruger / Canon Fodder
+
+**Official channel:** [https://michaeljkruger.com/](https://michaeljkruger.com/). Official offered pages/downloads actually recorded in the held-file manifests; recorded source aliases are retained in the source inventory.
+**Held formats:** .html, .json; **675 files** including support/metadata representations. These are file counts, not book counts.
+**Licence/terms and credit:** No source-wide reuse licence established in the available records. Preserve named author, editor, translator, publisher/ministry and all original copyright notices; source availability is not an open licence.
+**Private use:** owner-authorized local indexing of lawfully held text; edition/source notices retained; public publication requires a separate decision.
+**Evidence:** [consultation_failed](content/library/reports/campaign-reconciliation/sources/official-consultations.json).
+**Unresolved evidence:** Establish a scoped policy/edition notice from the official source; record the specific allowed use and exceptions without inventing a blanket licence.
+
+<a id="source-monergism-com"></a>
+### Monergism
+
+**Official channel:** [https://www.monergism.com/monergism-copyright-permissions](https://www.monergism.com/monergism-copyright-permissions). Official complete free-ebook index and offered EPUB/PDF files; the whole-library page was checked and exposed no active ZIP link.
+**Held formats:** .epub, .html, .json; **3,188 files** including support/metadata representations. These are file counts, not book counts.
+**Licence/terms and credit:** Recorded freely offered personal study, family, church and classroom reading editions; restrictions on external republication and curated external corpora remain recorded. Preserve publisher, original author and edition notices.
+**Private use:** owner-authorized local indexing of lawfully held text; edition/source notices retained; public publication requires a separate decision.
+**Evidence:** [retained policy or edition evidence](content/library/reports/modern-texts/monergism-library-policy-evidence.json).
+
+<a id="source-onthewing-org"></a>
+### On the Wing
+
+**Official channel:** [https://www.onthewing.org/Copyright.html](https://www.onthewing.org/Copyright.html). Official offered text/PDF reading editions.
+**Held formats:** .json, .pdf; **2 files** including support/metadata representations. These are file counts, not book counts.
+**Licence/terms and credit:** The official notice permits free personal use and prohibits sale for profit, with some reimbursement restrictions. It describes its modernization of public-domain works as public domain while requiring no modification, sale, fundraising or false authorship claims. Preserve the author, modernizer and original notice.
+**Private use:** owner-authorized local indexing of lawfully held text; edition/source notices retained; public publication requires a separate decision.
+**Evidence:** [retained policy or edition evidence](content/library/reports/campaign-reconciliation/sources/evidence/onthewing.org/policy.html); [consulted_policy_link](content/library/reports/campaign-reconciliation/sources/official-consultations.json); [official-page snapshot](content/library/reports/campaign-reconciliation/sources/evidence/onthewing.org/official.html); [official-page snapshot](content/library/reports/campaign-reconciliation/sources/evidence/onthewing.org/policy.html).
+
+<a id="source-penelope-uchicago-edu"></a>
+### LacusCurtius
+
+**Official channel:** [https://penelope.uchicago.edu/Thayer/E/Roman/home.html](https://penelope.uchicago.edu/Thayer/E/Roman/home.html). LacusCurtius official HTML historical texts.
+**Held formats:** .html; **1 files** including support/metadata representations. These are file counts, not book counts.
+**Licence/terms and credit:** The LC01 record identifies the historical 1914 Rolfe translation and local reading copy; host presentation and notices remain separate from underlying text rights.
+**Private use:** owner-authorized local indexing of lawfully held text; edition/source notices retained; public publication requires a separate decision.
+**Evidence:** [retained policy or edition evidence](content/library/reports/letters-cited/LC01/acquisition-manifest.json); [consulted_policy_link](content/library/reports/campaign-reconciliation/sources/official-consultations.json); [official-page snapshot](content/library/reports/campaign-reconciliation/sources/evidence/penelope.uchicago.edu/official.html).
+
+<a id="source-reformedontheweb-com"></a>
+### Reformed on the Web
+
+**Official channel:** [https://www.reformedontheweb.com/](https://www.reformedontheweb.com/). Official offered pages/downloads actually recorded in the held-file manifests; recorded source aliases are retained in the source inventory.
+**Held formats:** .json, .pdf; **4 files** including support/metadata representations. These are file counts, not book counts.
+**Licence/terms and credit:** No source-wide reuse licence established in the available records. Preserve named author, editor, translator, publisher/ministry and all original copyright notices; source availability is not an open licence.
+**Private use:** owner-authorized local indexing of lawfully held text; edition/source notices retained; public publication requires a separate decision.
+**Evidence:** [official_page_unavailable](content/library/reports/campaign-reconciliation/sources/official-consultations.json).
+**Unresolved evidence:** Establish a scoped policy/edition notice from the official source; record the specific allowed use and exceptions without inventing a blanket licence.
+
+<a id="source-reformedreader-org"></a>
+### The Reformed Reader
+
+**Official channel:** [https://www.reformedreader.org/](https://www.reformedreader.org/). Official offered pages/downloads actually recorded in the held-file manifests; recorded source aliases are retained in the source inventory.
+**Held formats:** .html, .json; **180 files** including support/metadata representations. These are file counts, not book counts.
+**Licence/terms and credit:** No source-wide reuse licence established in the available records. Preserve named author, editor, translator, publisher/ministry and all original copyright notices; source availability is not an open licence.
+**Private use:** owner-authorized local indexing of lawfully held text; edition/source notices retained; public publication requires a separate decision.
+**Evidence:** [consulted_official_page_no_policy_link](content/library/reports/campaign-reconciliation/sources/official-consultations.json); [official-page snapshot](content/library/reports/campaign-reconciliation/sources/evidence/reformedreader.org/official.html).
+**Unresolved evidence:** Establish a scoped policy/edition notice from the official source; record the specific allowed use and exceptions without inventing a blanket licence.
+
+<a id="source-romans45-org"></a>
+### Phil Johnson’s Bookmarks / Romans45
+
+**Official channel:** [https://www.romans45.org/](https://www.romans45.org/). Official offered pages/downloads actually recorded in the held-file manifests; recorded source aliases are retained in the source inventory.
+**Held formats:** .html, .json; **4 files** including support/metadata representations. These are file counts, not book counts.
+**Licence/terms and credit:** No source-wide reuse licence established in the available records. Preserve named author, editor, translator, publisher/ministry and all original copyright notices; source availability is not an open licence.
+**Private use:** owner-authorized local indexing of lawfully held text; edition/source notices retained; public publication requires a separate decision.
+**Evidence:** [consulted_official_page_no_policy_link](content/library/reports/campaign-reconciliation/sources/official-consultations.json); [official-page snapshot](content/library/reports/campaign-reconciliation/sources/evidence/romans45.org/official.html).
+**Unresolved evidence:** Establish a scoped policy/edition notice from the official source; record the specific allowed use and exceptions without inventing a blanket licence.
+
+<a id="source-sermonindex-net"></a>
+### SermonIndex
+
+**Official channel:** [https://www.sermonindex.net/md/copying-permissions/](https://www.sermonindex.net/md/copying-permissions/). Official held written sermon page; an archive index is not itself a downloaded sermon corpus.
+**Held formats:** .html, .json; **2 files** including support/metadata representations. These are file counts, not book counts.
+**Licence/terms and credit:** The official policy describes free personal/ministry and noncommercial sharing use; commercial packaging/sale is excluded. Retain each preacher/source identity and message integrity.
+**Private use:** owner-authorized local indexing of lawfully held text; edition/source notices retained; public publication requires a separate decision.
+**Evidence:** [retained policy or edition evidence](content/library/reports/campaign-reconciliation/sources/evidence/sermonindex.net/policy.html); [consulted_policy_link](content/library/reports/campaign-reconciliation/sources/official-consultations.json); [official-page snapshot](content/library/reports/campaign-reconciliation/sources/evidence/sermonindex.net/official.html); [official-page snapshot](content/library/reports/campaign-reconciliation/sources/evidence/sermonindex.net/policy.html).
+
+<a id="source-spurgeongems-org"></a>
+### Spurgeon Gems
+
+**Official channel:** [https://www.spurgeongems.org/about-us/](https://www.spurgeongems.org/about-us/). Official individual sermons, collected volume PDFs and Spanish translation catalogue.
+**Held formats:** .html, .json, .pdf, .txt; **7,757 files** including support/metadata representations. These are file counts, not book counts.
+**Licence/terms and credit:** Recorded free, unchanged, attributed use; restricted permission rather than an unrestricted open licence. Preserve Spurgeon/source credit, numbered sermon identity, guest authors and named translators.
+**Private use:** owner-authorized local indexing of lawfully held text; edition/source notices retained; public publication requires a separate decision.
+**Evidence:** [retained policy or edition evidence](content/library/reports/spurgeon/source-access.json).
+
+<a id="source-thecalvinist-net"></a>
+### The Calvinist
+
+**Official channel:** [https://thecalvinist.net/](https://thecalvinist.net/). Official offered pages/downloads actually recorded in the held-file manifests; recorded source aliases are retained in the source inventory.
+**Held formats:** .json, .pdf; **2 files** including support/metadata representations. These are file counts, not book counts.
+**Licence/terms and credit:** No source-wide reuse licence established in the available records. Preserve named author, editor, translator, publisher/ministry and all original copyright notices; source availability is not an open licence.
+**Private use:** owner-authorized local indexing of lawfully held text; edition/source notices retained; public publication requires a separate decision.
+**Evidence:** [consulted_official_page_no_policy_link](content/library/reports/campaign-reconciliation/sources/official-consultations.json); [official-page snapshot](content/library/reports/campaign-reconciliation/sources/evidence/thecalvinist.net/official.html).
+**Unresolved evidence:** Establish a scoped policy/edition notice from the official source; record the specific allowed use and exceptions without inventing a blanket licence.
+
+<a id="source-thegospelcoalition-org"></a>
+### The Gospel Coalition / Themelios
+
+**Official channel:** [https://thegospelcoalition.org/](https://thegospelcoalition.org/). Official offered pages/downloads actually recorded in the held-file manifests; recorded source aliases are retained in the source inventory.
+**Held formats:** .html, .json, .pdf; **755 files** including support/metadata representations. These are file counts, not book counts.
+**Licence/terms and credit:** No source-wide reuse licence established in the available records. Preserve named author, editor, translator, publisher/ministry and all original copyright notices; source availability is not an open licence.
+**Private use:** owner-authorized local indexing of lawfully held text; edition/source notices retained; public publication requires a separate decision.
+**Unresolved evidence:** Establish a scoped policy/edition notice from the official source; record the specific allowed use and exceptions without inventing a blanket licence.
+
+<a id="source-truthforlife-org"></a>
+### Truth For Life
+
+**Official channel:** [https://www.truthforlife.org/about/policies/](https://www.truthforlife.org/about/policies/). Official written sermon/resource pages and offered reading files; bibliographic pages are not automatically complete transcripts.
+**Held formats:** .html, .json, extensionless; **3,066 files** including support/metadata representations. These are file counts, not book counts.
+**Licence/terms and credit:** Recorded private noncommercial reading copies; preserve Alistair Begg, ministry and publication notices. No public hosting or AI-training permission is inferred.
+**Private use:** owner-authorized local indexing of lawfully held text; edition/source notices retained; public publication requires a separate decision.
+**Evidence:** [retained policy or edition evidence](content/library/reports/modern-texts/begg-policy-evidence.json).
+
+<a id="source-tyndale-tms-edu"></a>
+### The Master’s Seminary Journal
+
+**Official channel:** [https://tyndale.tms.edu/](https://tyndale.tms.edu/). Official offered pages/downloads actually recorded in the held-file manifests; recorded source aliases are retained in the source inventory.
+**Held formats:** .json, .pdf; **2 files** including support/metadata representations. These are file counts, not book counts.
+**Licence/terms and credit:** No source-wide reuse licence established in the available records. Preserve named author, editor, translator, publisher/ministry and all original copyright notices; source availability is not an open licence.
+**Private use:** owner-authorized local indexing of lawfully held text; edition/source notices retained; public publication requires a separate decision.
+**Evidence:** [consulted_official_page_no_policy_link](content/library/reports/campaign-reconciliation/sources/official-consultations.json); [official-page snapshot](content/library/reports/campaign-reconciliation/sources/evidence/tyndale.tms.edu/official.html).
+**Unresolved evidence:** Establish a scoped policy/edition notice from the official source; record the specific allowed use and exceptions without inventing a blanket licence.
+
+<a id="source-tyndalebulletin-org"></a>
+### Tyndale Bulletin
+
+**Official channel:** [https://www.tyndalebulletin.org/](https://www.tyndalebulletin.org/). Official offered pages/downloads actually recorded in the held-file manifests; recorded source aliases are retained in the source inventory.
+**Held formats:** .json, .pdf; **2 files** including support/metadata representations. These are file counts, not book counts.
+**Licence/terms and credit:** No source-wide reuse licence established in the available records. Preserve named author, editor, translator, publisher/ministry and all original copyright notices; source availability is not an open licence.
+**Private use:** owner-authorized local indexing of lawfully held text; edition/source notices retained; public publication requires a separate decision.
+**Evidence:** [consulted_official_page_no_policy_link](content/library/reports/campaign-reconciliation/sources/official-consultations.json); [official-page snapshot](content/library/reports/campaign-reconciliation/sources/evidence/tyndalebulletin.org/official.html).
+**Unresolved evidence:** Establish a scoped policy/edition notice from the official source; record the specific allowed use and exceptions without inventing a blanket licence.
+
+<a id="source-zwemercenter-com"></a>
+### Zwemer Center for Muslim Studies
+
+**Official channel:** [https://www.zwemercenter.com/](https://www.zwemercenter.com/). Official historic book PDFs, with impression and source notices preserved.
+**Held formats:** .pdf; **3 files** including support/metadata representations. These are file counts, not book counts.
+**Licence/terms and credit:** Three historic PDFs were officially offered for reading/download; two dated editions have recorded U.S. public-domain assessments. The undated ATS impression retains a narrower download-permission record and unresolved public reuse.
+**Private use:** owner-authorized local indexing of lawfully held text; edition/source notices retained; public publication requires a separate decision.
+**Evidence:** [retained policy or edition evidence](content/library/reports/islam-studies/acquisition-manifest.json); [consulted_official_page_no_policy_link](content/library/reports/campaign-reconciliation/sources/official-consultations.json); [official-page snapshot](content/library/reports/campaign-reconciliation/sources/evidence/zwemercenter.com/official.html).
+
+## Scripture, reference data, imagery and software sources
+
+These sources are documented in the older source register outside the library stocktake. Their dataset/component counts are not added to the library-file totals.
+
+<a id="source-ebible"></a>
+### eBible.org
+
+**Official channel:** [https://ebible.org/](https://ebible.org/). **Held formats:** USFM/USFX and edition copr.htm notices.
+**Licence/terms and credit:** Edition-specific copr.htm is authoritative: recorded public-domain declarations, Hindi IRV CC BY-SA 4.0, and separate annotation/edition qualifications remain intact. Credit each translation and its named rights holder.
+**Evidence:** [retained source/component records](../sources/ebible/); exact request, checksum and edition tables remain in the historical notes. Private local use follows the standing authorization; this task adds no publication permissions.
+
+<a id="source-openbible"></a>
+### OpenBible.info
+
+**Official channel:** [https://www.openbible.info/](https://www.openbible.info/). **Held formats:** cross-reference TSV/ZIP, geographical data and topic-score ZIP.
+**Licence/terms and credit:** Recorded cross-references/topics CC BY; geographical dataset CC BY 4.0. Credit OpenBible.info. Topic verse quotations do not inherit dataset permission.
+**Evidence:** [retained source/component records](../sources/openbible/); exact request, checksum and edition tables remain in the historical notes. Private local use follows the standing authorization; this task adds no publication permissions.
+
+<a id="source-stepbible"></a>
+### STEPBible Data
+
+**Official channel:** [https://github.com/STEPBible/STEPBible-Data](https://github.com/STEPBible/STEPBible-Data). **Held formats:** TIPNR proper-name/reference TXT.
+**Licence/terms and credit:** Recorded CC BY 4.0 source data; retain STEP Bible / Tyndale House credit and the dataset licence/header.
+**Evidence:** [retained source/component records](../sources/stepbible/); exact request, checksum and edition tables remain in the historical notes. Private local use follows the standing authorization; this task adds no publication permissions.
+
+<a id="source-theographic"></a>
+### Theographic Bible Metadata
+
+**Official channel:** [https://github.com/robertrouse/theographic-bible-metadata](https://github.com/robertrouse/theographic-bible-metadata). **Held formats:** repository ZIP/CSV/JSON.
+**Licence/terms and credit:** Recorded CC BY-SA 4.0; credit Robert Rouse/Theographic and retain share-alike notice.
+**Evidence:** [retained source/component records](../sources/theographic/theographic-bible-metadata-master/LICENSE); exact request, checksum and edition tables remain in the historical notes. Private local use follows the standing authorization; this task adds no publication permissions.
+
+<a id="source-openscriptures"></a>
+### Open Scriptures
+
+**Official channel:** [https://github.com/openscriptures](https://github.com/openscriptures). **Held formats:** Strong’s/Hebrew lexicon ZIP/XML and Hebrew annotation data.
+**Licence/terms and credit:** Recorded Strong’s text public domain; HebrewLexicon edition CC BY 4.0; separate Hebrew annotation data CC BY-SA. Preserve the specific dataset licence rather than extending one across the organization.
+**Evidence:** [retained source/component records](../sources/openscriptures/); exact request, checksum and edition tables remain in the historical notes. Private local use follows the standing authorization; this task adds no publication permissions.
+
+<a id="source-nasa"></a>
+### NASA GIBS / Blue Marble
+
+**Official channel:** [https://earthdata.nasa.gov/](https://earthdata.nasa.gov/). **Held formats:** JPG imagery and request records.
+**Licence/terms and credit:** Recorded NASA public-domain imagery; retain NASA/Blue Marble attribution and request provenance. This is imagery, not library prose.
+**Evidence:** [retained source/component records](../sources/nasa-bluemarble/); exact request, checksum and edition tables remain in the historical notes. Private local use follows the standing authorization; this task adds no publication permissions.
+
+<a id="source-osm-protomaps"></a>
+### OpenStreetMap / Protomaps distribution
+
+**Official channel:** [https://www.openstreetmap.org/copyright](https://www.openstreetmap.org/copyright). **Held formats:** PMTiles, map extracts, fonts and sprites.
+**Licence/terms and credit:** Recorded map data ODbL 1.0: © OpenStreetMap contributors; Protomaps distribution credit. Fonts SIL OFL, icons MIT and code licences are separate. This is mapping data, not book acquisition.
+**Evidence:** [retained source/component records](../AtlasTiles/README.md); exact request, checksum and edition tables remain in the historical notes. Private local use follows the standing authorization; this task adds no publication permissions.
+
+<a id="source-natural-earth"></a>
+### Natural Earth
+
+**Official channel:** [https://www.naturalearthdata.com/about/terms-of-use/](https://www.naturalearthdata.com/about/terms-of-use/). **Held formats:** GeoJSON world outlines.
+**Licence/terms and credit:** Recorded public-domain geography; retain source attribution. This is map geometry, not library prose.
+**Evidence:** [retained source/component records](content/library/reports/campaign-reconciliation/sources/HISTORICAL-SOURCES.md); exact request, checksum and edition tables remain in the historical notes. Private local use follows the standing authorization; this task adds no publication permissions.
+
+<a id="source-census-jacksonville"></a>
+### US Census Bureau TIGER/Line and population estimates (Jacksonville)
+
+**Official channel:** [https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html](https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html) and [https://www.census.gov/programs-surveys/popest.html](https://www.census.gov/programs-surveys/popest.html). **Held formats:** zipped shapefiles (TIGER/Line 2026, cartographic boundary 2025) and CSV (Vintage 2025 estimates), downloaded 2026-10-08.
+**Licence/terms and credit:** US Government work, public domain; credit "US Census Bureau". Used on the Help for life page (/resources/life): the zoomable Jacksonville (Duval County) map (land, water, roads, town labels) and the sourced facts beside the USA map (the county, Duval County and Jacksonville city population for July 1, 2025, land and water area). Built by [scripts/build-jax-map.py](scripts/build-jax-map.py) into src/data/resources/jax-map.json and jax-facts.json; the script refuses any file whose sha256 differs from the table below.
+**Evidence:** sha256 of each file read:
+
+| File | What it is | sha256 |
 |---|---|---|
-| Athanasius; ed. Archibald Robertson; Festal Letters tr. R. Payne-Smith - **NPNF Series II, vol. 4: Athanasius, Select Works and Letters (contains Festal Letter 39)** | [https://www.ccel.org/ccel/s/schaff/npnf204/cache/npnf204.txt](https://www.ccel.org/ccel/s/schaff/npnf204/cache/npnf204.txt) | `asset-lc01-d5e964c1e8ccf10c567e` `d2f362ce989db6955bb7d900c619543c581beceaca52acd8359510551c85f124` |
-| Clement of Alexandria, tr. William Wilson; ed. Roberts, Donaldson, Coxe - **ANF vol. 2: Fathers of the Second Century (Clement of Alexandria, Stromata and Fragments)** | [https://www.ccel.org/ccel/s/schaff/anf02/cache/anf02.txt](https://www.ccel.org/ccel/s/schaff/anf02/cache/anf02.txt) | `asset-lc01-c3f5183465409cddbb3d` `ae8e15414a21fe8d54a30fee7c3fbd1ee6a018e624dcd681d030da5c1cabbcac` |
-| Tertullian, tr. Peter Holmes, S. Thelwall et al. - **ANF vol. 3: Latin Christianity, Its Founder Tertullian (Against Marcion; On Baptism)** | [https://www.ccel.org/ccel/s/schaff/anf03/cache/anf03.txt](https://www.ccel.org/ccel/s/schaff/anf03/cache/anf03.txt) | `asset-lc01-ef60b199c53d6146123c` `9299f3fae7c08024ea918e70d25433b7b110cc2b851d030cb22f3b1f080800c8` |
-| Tertullian, tr. S. Thelwall - **ANF vol. 4: Tertullian Part Fourth, Minucius Felix, Commodian, Origen (On Modesty)** | [https://www.ccel.org/ccel/s/schaff/anf04/cache/anf04.txt](https://www.ccel.org/ccel/s/schaff/anf04/cache/anf04.txt) | `asset-lc01-a17fdd5c055cff5651f0` `b9f385a048c18158c2f74dcd37062f48a1c68a5d05bdb07270a93692d172da2e` |
-| Unknown; ANF translators - **ANF vol. 5: Hippolytus, Cyprian, Caius, Novatian, Appendix (Muratorian Fragment)** | [https://www.ccel.org/ccel/s/schaff/anf05/cache/anf05.txt](https://www.ccel.org/ccel/s/schaff/anf05/cache/anf05.txt) | `asset-lc01-9de5cc6e7cf443fa0d45` `a02b61c36f07edd406a08138b9797151d6e808cb1618f1cc282fe9db5f6a87f8` |
-| tr. James Donaldson (Apostolic Constitutions) - **ANF vol. 7: Lactantius ... Apostolic Teaching and Constitutions** | [https://www.ccel.org/ccel/s/schaff/anf07/cache/anf07.txt](https://www.ccel.org/ccel/s/schaff/anf07/cache/anf07.txt) | `asset-lc01-5ef9c44d167e7f416342` `b69327af0a84dd247c8e32848ad158b038125b534fa6333bba734c5de22e261c` |
-| Eusebius, tr. Arthur Cushman McGiffert - **NPNF Series II, vol. 1: Eusebius, Church History, Life of Constantine, Oration** | [https://www.ccel.org/ccel/s/schaff/npnf201/cache/npnf201.txt](https://www.ccel.org/ccel/s/schaff/npnf201/cache/npnf201.txt) | `asset-lc01-578925ec9c59158f116f` `b9104097771d6f5cc39fc630c396805b857f2ec27757fa154acce022b2e09613` |
-| Jerome, tr. Ernest Cushing Richardson - **NPNF Series II, vol. 3: Theodoret, Jerome, Gennadius, Rufinus (Lives of Illustrious Men)** | [https://www.ccel.org/ccel/s/schaff/npnf203/cache/npnf203.txt](https://www.ccel.org/ccel/s/schaff/npnf203/cache/npnf203.txt) | `asset-lc01-594f63cae8240f1abef9` `2216b67e4f1a4181dc44113a472b208f63f2d70d55a4ed154bb8027047976bbc` |
-| ed. Henry R. Percival - **NPNF Series II, vol. 14: The Seven Ecumenical Councils (Code of Canons of the African Church)** | [https://www.ccel.org/ccel/s/schaff/npnf214/cache/npnf214.txt](https://www.ccel.org/ccel/s/schaff/npnf214/cache/npnf214.txt) | `asset-lc01-442d47d8683eaee2b03c` `5b8d0c6518fd71b1de8d626ebf1d6b59c9967d2e7f5d2e0379654b5cbbf0c914` |
-| Philip Schaff - **History of the Christian Church, vol. 1: Apostolic Christianity** | [https://www.ccel.org/ccel/s/schaff/hcc1/cache/hcc1.txt](https://www.ccel.org/ccel/s/schaff/hcc1/cache/hcc1.txt) | `asset-lc01-a0934a5d52adcf6b82c2` `e56842d921767639977486e95556abc56e0855ef72267e02aa910de2d28d93f9` |
-| W. M. Ramsay - **St. Paul the Traveller and the Roman Citizen** | [https://www.ccel.org/ccel/r/ramsay/paul_roman/cache/paul_roman.txt](https://www.ccel.org/ccel/r/ramsay/paul_roman/cache/paul_roman.txt) | `asset-lc01-dfe8fc6d797fb7939419` `4e9dd2db84f683e567b10725135d254cf1bdbe0104965720fee51ee4bc4ecbdf` |
-| B. F. Westcott - **The Epistle to the Hebrews: the Greek Text with Notes and Essays** | [https://www.ccel.org/ccel/w/westcott/epistlehebrews/cache/epistlehebrews.txt](https://www.ccel.org/ccel/w/westcott/epistlehebrews/cache/epistlehebrews.txt) | `asset-lc01-6389ffe0bce189a7e41a` `b71a8ab094c468ba3eb2710c06d8ceb1070e2e4f59e21255987c0054f6598fac` |
-| Alfred Plummer - **The Expositor's Bible: The General Epistles of St. James and St. Jude** | [https://www.gutenberg.org/cache/epub/47337/pg47337.txt](https://www.gutenberg.org/cache/epub/47337/pg47337.txt) | `asset-lc01-b2d68ebe73c870537251` `353f51a1c36e06e0b65dd926bb5e21cfeee3b2896482604d56e6fabeab29b3a8` |
-| F. H. A. Scrivener, ed. Edward Miller - **A Plain Introduction to the Criticism of the New Testament, 4th ed., Vol. II** | [https://www.gutenberg.org/cache/epub/36549/pg36549.txt](https://www.gutenberg.org/cache/epub/36549/pg36549.txt) | `asset-lc01-c59d4de58908a3736ee2` `dea65ec17aefa26f5e39d30a0224357d9569edb86c599055cc68cbac8eecc9c6` |
-| J. B. Lightfoot - **St. Paul's Epistles to the Colossians and to Philemon** | [https://www.gutenberg.org/cache/epub/50857/pg50857.txt](https://www.gutenberg.org/cache/epub/50857/pg50857.txt) | `asset-lc01-95206c67439ccfbfb9a2` `65519f60bf7b56c3f1d684e431769303fcc4aad0c8cf432bbd69b1004f8dc9e6` |
-| R. H. Charles; intro. W. O. E. Oesterley - **The Book of Enoch (Charles translation, SPCK Translations of Early Documents)** | [https://www.gutenberg.org/cache/epub/77935/pg77935.txt](https://www.gutenberg.org/cache/epub/77935/pg77935.txt) | `asset-lc01-ff2ff01ef195eaffed51` `10d325355a810badf67bbbd1fe6bda77dc6e294eae78c2f6c69290188af45b14` |
-| A. B. Davidson - **The Epistle to the Hebrews, with Introduction and Notes** | [https://archive.org/download/epistletohebrew00davuoft/epistletohebrew00davuoft_djvu.txt](https://archive.org/download/epistletohebrew00davuoft/epistletohebrew00davuoft_djvu.txt) | `asset-lc01-5492ec45d9f7a489c640` `53dd374deef2994df42978b0f2073202323aaf4c0f87215baf9ad3846d8f0a80` |
-| A. E. Brooke - **A Critical and Exegetical Commentary on the Johannine Epistles (ICC)** | [https://archive.org/download/criticalexegetic0043broo/criticalexegetic0043broo_djvu.txt](https://archive.org/download/criticalexegetic0043broo/criticalexegetic0043broo_djvu.txt) | `asset-lc01-f1134c793ed5aca85dd1` `db2e93548a3fb0bf0140784e69dda7110aaea5dad2255ae1842072b63160d86a` |
-| A. Plummer - **The Epistles of S. John (Cambridge Bible for Schools and Colleges)** | [https://archive.org/download/epistlesofstjohn00plumuoft/epistlesofstjohn00plumuoft_djvu.txt](https://archive.org/download/epistlesofstjohn00plumuoft/epistlesofstjohn00plumuoft_djvu.txt) | `asset-lc01-fdbcb1de77168b113a14` `c2d4e17d11a7f0a7a84e592721b9b35c3af86ae7deaa070de433916d74111bd7` |
-| Adolf Deissmann, tr. Alexander Grieve - **Bible Studies** | [https://archive.org/download/biblestudiescon00deisuoft/biblestudiescon00deisuoft_djvu.txt](https://archive.org/download/biblestudiescon00deisuoft/biblestudiescon00deisuoft_djvu.txt) | `asset-lc01-195b4075333eab77d38f` `8952bd492fc7ae6931badd7f6f80ed9bda591e33d2c362c0912c18c19642d39e` |
-| Adolf Deissmann, tr. Lionel R. M. Strachan - **Light from the Ancient East** | [https://archive.org/download/lightfromancie00deis/lightfromancie00deis_djvu.txt](https://archive.org/download/lightfromancie00deis/lightfromancie00deis_djvu.txt) | `asset-lc01-edfeace2d64ee04ed2cf` `604840d15aebf7ab10c5b2d3a5bec2ade6594c2c860242641ead8285d1a78625` |
-| B. F. Westcott - **A General Survey of the History of the Canon of the New Testament** | [https://archive.org/download/generalsurveyofh00westuoft/generalsurveyofh00westuoft_djvu.txt](https://archive.org/download/generalsurveyofh00westuoft/generalsurveyofh00westuoft_djvu.txt) | `asset-lc01-41aa625212b6ea186269` `7afa29fb8ddb153b5c237e50f7254bd0047e51bf944d559263ff8b2c2ae9be8d` |
-| B. F. Westcott - **The Epistles of St John: the Greek Text with Notes and Essays** | [https://archive.org/download/cu31924074296629/cu31924074296629_djvu.txt](https://archive.org/download/cu31924074296629/cu31924074296629_djvu.txt) | `asset-lc01-e867febaa867dfefa627` `29a348548e082a9fbee8c1f9900f90627a2bc66562160354ce5fb3397c0686fa` |
-| Charles Bigg - **A Critical and Exegetical Commentary on the Epistles of St. Peter and St. Jude (ICC)** | [https://archive.org/download/acriticalandexeg00bigguoft/acriticalandexeg00bigguoft_djvu.txt](https://archive.org/download/acriticalandexeg00bigguoft/acriticalandexeg00bigguoft_djvu.txt) | `asset-lc01-789198a9afd801176cf2` `07a8e5b43bd551ef197792c4322665fd3f52f2eb47a55d259314f07842a5786d` |
-| Ernst Ranke (ed.) - **Codex Fuldensis: Novum Testamentum Latine interprete Hieronymo** | [https://archive.org/download/codexfuldensisno00unse/codexfuldensisno00unse_djvu.txt](https://archive.org/download/codexfuldensisno00unse/codexfuldensisno00unse_djvu.txt) | `asset-lc01-02e74c2e20de4dbf350d` `f076d4db50cbea016d251710523d6d05731bf5086351073c14ea2fc9de967d66` |
-| F. J. A. Hort - **The First Epistle of St Peter I.1-II.17** | [https://archive.org/download/firstepistlestp00hortgoog/firstepistlestp00hortgoog_djvu.txt](https://archive.org/download/firstepistlestp00hortgoog/firstepistlestp00hortgoog_djvu.txt) | `asset-lc01-d883508feae5840d89fc` `a913b9ab4b1fa1f5f6699f41afec516e8dff6f8d63a1807133de2e52365e254e` |
-| J. B. Lightfoot - **Saint Paul's Epistle to the Galatians** | [https://archive.org/download/saintpaulsepistl00lighrich/saintpaulsepistl00lighrich_djvu.txt](https://archive.org/download/saintpaulsepistl00lighrich/saintpaulsepistl00lighrich_djvu.txt) | `asset-lc01-5c307900913cfa3234e7` `6ac1a187fbffdfcf3866acafd17dc0061e05b4bc7efba42486fb9a2566982aba` |
-| J. B. Lightfoot - **Saint Paul's Epistle to the Philippians** | [https://archive.org/download/saintpaulsepistl00ligh/saintpaulsepistl00ligh_djvu.txt](https://archive.org/download/saintpaulsepistl00ligh/saintpaulsepistl00ligh_djvu.txt) | `asset-lc01-03ece114f74d0f055bf6` `124cd4215eda7fe2251a380e08da0e8180e99beb31d852c9848fb72e6a5fec3d` |
-| Joseph B. Mayor - **The Epistle of St. James: The Greek Text with Introduction, Notes and Comments** | [https://archive.org/download/cu31924029294836/cu31924029294836_djvu.txt](https://archive.org/download/cu31924029294836/cu31924029294836_djvu.txt) | `asset-lc01-bff7bb4322f2b86ee000` `c4c391cf8e6ce4c8863e4dd6b1049507bc6e9e0e7a16bb5ef6d6dc823667ada8` |
-| Joseph B. Mayor - **The Epistle of St. Jude and the Second Epistle of St. Peter** | [https://archive.org/download/cu31924029294984/cu31924029294984_djvu.txt](https://archive.org/download/cu31924029294984/cu31924029294984_djvu.txt) | `asset-lc01-78490cb4fd967e48d6e4` `edf3412c91ed198341d6a7a5c51bc3144505dd8f7a32e504ce54cdf918d689e4` |
-| ed. W. Robertson Nicoll; Hebrews by Marcus Dods - **The Expositor's Greek Testament, vol. IV (Dods on Hebrews)** | [https://archive.org/download/expositorsgreekt04nico/expositorsgreekt04nico_djvu.txt](https://archive.org/download/expositorsgreekt04nico/expositorsgreekt04nico_djvu.txt) | `asset-lc01-7106b51153935426c0c7` `16137007a927d4e36ff48604ddef90015266e4201e298762e29f44eed2ead798` |
-| R. H. Charles - **The Assumption of Moses, Translated from the Latin Sixth Century MS.** | [https://archive.org/download/assumptionofmose00unknuoft/assumptionofmose00unknuoft_djvu.txt](https://archive.org/download/assumptionofmose00unknuoft/assumptionofmose00unknuoft_djvu.txt) | `asset-lc01-251948141110cdb67f1d` `99121cafc06f7845bc2358dfd06664ad799b65863d084bfd9ce00264189961fe` |
-| R. H. Charles - **The Book of Enoch, or 1 Enoch** | [https://archive.org/download/bookofenochor1en00char/bookofenochor1en00char_djvu.txt](https://archive.org/download/bookofenochor1en00char/bookofenochor1en00char_djvu.txt) | `asset-lc01-647a917eb1b3359bfc0e` `dc0db46c6bc5c4b8605b9cf8a007fc63e436e45a0b5ec8cdee3c25bdae01be63` |
-| Robert Law - **The Tests of Life: A Study of the First Epistle of St. John** | [https://archive.org/download/thetestsoflifeas00lawruoft/thetestsoflifeas00lawruoft_djvu.txt](https://archive.org/download/thetestsoflifeas00lawruoft/thetestsoflifeas00lawruoft_djvu.txt) | `asset-lc01-87d83c2baf8ea2decbc7` `6022f456d552cfa07703a1deeed116ec6f8d9f3610c3cc31c3d5aa00685cba5e` |
-| W. J. Conybeare and J. S. Howson - **The Life and Epistles of St. Paul** | [https://archive.org/download/cu31924031189107/cu31924031189107_djvu.txt](https://archive.org/download/cu31924031189107/cu31924031189107_djvu.txt) | `asset-lc01-a452644d547fdedfd1bb` `403b22877e02b4b0e613e358bb7144f7fd3bdbb6520952de60163f8a5c57ac58` |
-| James Vernon Bartlet - **Hebrews, Epistle to the (Encyclopaedia Britannica, 11th ed., vol. 13)** | [https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica/Hebrews,_Epistle_to_the](https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica/Hebrews,_Epistle_to_the) | `asset-lc01-9142c5708f0d532f4056` `2cdec26fc832217a4b6683dc6db8df87fd2cfc93759fe1d8037de153c121821c` |
-| Polycarp, tr. Roberts and Donaldson - **Epistle of Polycarp to the Philippians (Ante-Nicene Christian Library, vol. 1)** | [https://en.wikisource.org/wiki/Ante-Nicene_Christian_Library/Epistle_of_Polycarp_to_the_Philippians](https://en.wikisource.org/wiki/Ante-Nicene_Christian_Library/Epistle_of_Polycarp_to_the_Philippians) | `asset-lc01-95008cbbc66915926efa` `2cc734a1de966f83b117fb9e8a9ab46aa80eee6df10d0cb89f62f564653ffbc9` |
-| Polycarp, tr. J. B. Lightfoot - **Polycarp to the Philippians (Lightfoot translation)** | [https://www.earlychristianwritings.com/text/polycarp-lightfoot.html](https://www.earlychristianwritings.com/text/polycarp-lightfoot.html) | `asset-lc01-926ab46e54890751dabc` `fadedfe3bec2e180efa90a641a8e93d569bcc540c812a348b417e0d2895fb720` |
-| Clement of Rome, tr. J. B. Lightfoot - **The First Epistle of Clement to the Corinthians (Lightfoot translation, 1891)** | [https://www.earlychristianwritings.com/text/1clement-lightfoot.html](https://www.earlychristianwritings.com/text/1clement-lightfoot.html) | `asset-lc01-0dfcd55ad358921a3184` `50a953f1ea5bbfd0e07f88f8685c6fc831fe67805db594b15dc3556e33ab4d22` |
-| Ignatius of Antioch, tr. J. B. Lightfoot - **Ignatius to the Ephesians (Lightfoot translation, 1891)** | [https://www.earlychristianwritings.com/text/ignatius-ephesians-lightfoot.html](https://www.earlychristianwritings.com/text/ignatius-ephesians-lightfoot.html) | `asset-lc01-de4e710212a667def358` `3e65c88d1b38353403c6ba218d366e8e10b72281f7190cc216f939389df63f3e` |
-| Ignatius of Antioch, tr. J. B. Lightfoot - **Ignatius to the Smyrnaeans (Lightfoot translation, 1891)** | [https://www.earlychristianwritings.com/text/ignatius-smyrnaeans-lightfoot.html](https://www.earlychristianwritings.com/text/ignatius-smyrnaeans-lightfoot.html) | `asset-lc01-2449cec02a8da9fff131` `3848919969a01aa11ed974cead92305c1d7ab43cbc9a91a10ffa28c9277e45f7` |
-| Council of Trent, tr. J. Waterworth - **Council of Trent, Session VI (Decree on Justification, with canons)** | [https://history.hanover.edu/texts/trent/ct06.html](https://history.hanover.edu/texts/trent/ct06.html) | `asset-lc01-699ab3a4459312de517c` `f5da06b527fbfc3de3bf7caae4d098a41d9b53119fe95fa933ca8660ab97a545` |
-| Suetonius, tr. J. C. Rolfe - **Suetonius, Life of Claudius (Loeb, 1914)** | [https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Suetonius/12Caesars/Claudius*.html](https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Suetonius/12Caesars/Claudius%2A.html) | `asset-lc01-774fd85afa2593d1013e` `4c056eafc53f3898aadfdadc120f6eeb18283f66ac4eeda9ca9d1fd043c16953` |
-| John Gill - **Gill Exposition: 1 John 1** | [https://bible.helloao.org/api/c/john-gill/1JN/1.json](https://bible.helloao.org/api/c/john-gill/1JN/1.json) | `asset-lc01-633e4c011524abdb429a` `238911abf8d9a01ceddb07a4c3da829cac84ed1d2672b20988fc5045871bfd37` |
-| John Gill - **Gill Exposition: 1 John 2** | [https://bible.helloao.org/api/c/john-gill/1JN/2.json](https://bible.helloao.org/api/c/john-gill/1JN/2.json) | `asset-lc01-38e2ddf662d8912f8ec6` `964573aea066d86986c1da48a638c4c5b9ef9fda1d622b068d312cbcbaa8a4df` |
-| John Gill - **Gill Exposition: 1 John 3** | [https://bible.helloao.org/api/c/john-gill/1JN/3.json](https://bible.helloao.org/api/c/john-gill/1JN/3.json) | `asset-lc01-48e89620d75952c2e112` `a5181680d63efe5206650b992c6c438fce9b9efb7e9de38750d537afc926b5e2` |
-| John Gill - **Gill Exposition: 1 John 4** | [https://bible.helloao.org/api/c/john-gill/1JN/4.json](https://bible.helloao.org/api/c/john-gill/1JN/4.json) | `asset-lc01-8bf43b88243e1ed14c57` `fb5c622345f054add7422ad32b190f912f77f70e9955905baba58ae3a2ef704a` |
-| John Gill - **Gill Exposition: 1 John 5** | [https://bible.helloao.org/api/c/john-gill/1JN/5.json](https://bible.helloao.org/api/c/john-gill/1JN/5.json) | `asset-lc01-a1c88778c1f107d2f69d` `faab74325f093b1efbd88132c3753270bbe03be7686a4f93bd6fc7b066e5d78e` |
+| [cb_2025_us_county_500k.zip](https://www2.census.gov/geo/tiger/GENZ2025/shp/cb_2025_us_county_500k.zip) | Cartographic Boundary File 2025, counties 1:500,000 (shoreline-clipped) | `aa976c00b181939755d0da757f4c7c2dc0103c3b3b4530fb2a91c2bb62fc777c` |
+| [tl_2026_12_prisecroads.zip](https://www2.census.gov/geo/tiger/TIGER2026/PRISECROADS/tl_2026_12_prisecroads.zip) | TIGER/Line 2026, primary and secondary roads, Florida | `05d6fbc00795555ce9b909a10a3f05d83067f449ffab6d5210a46b97319ab324` |
+| [tl_2026_12031_roads.zip](https://www2.census.gov/geo/tiger/TIGER2026/ROADS/tl_2026_12031_roads.zip) | TIGER/Line 2026, all roads, Duval County | `8d29fc4a6f40f7d6246aa351239325ac0e10c02cc858fb8e0f400e75cecb7577` |
+| [tl_2026_12_place.zip](https://www2.census.gov/geo/tiger/TIGER2026/PLACE/tl_2026_12_place.zip) | TIGER/Line 2026, places, Florida (town labels) | `38a86feeb17300f9991d5c89b5fb1d61c42823cc4bacb1f7f0738605a22ed8ec` |
+| [tl_2026_12031_areawater.zip](https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_12031_areawater.zip) | TIGER/Line 2026, area water, Duval County | `bbb7f8b5f0f8d52d1585e7b0fdf28064907bb64242f70123416d64aba2c5e8d3` |
+| [tl_2026_12089_areawater.zip](https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_12089_areawater.zip) | TIGER/Line 2026, area water, Nassau County | `9cd005ef5b1f581296d8301054d789a989b333845d73bd3d8c7b25bfe8a89ec7` |
+| [tl_2026_12003_areawater.zip](https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_12003_areawater.zip) | TIGER/Line 2026, area water, Baker County | `9be0c494112ae281a82c463df738050ebcbbfbf4afba19293914ff98bc876a95` |
+| [tl_2026_12019_areawater.zip](https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_12019_areawater.zip) | TIGER/Line 2026, area water, Clay County | `52bf3a5a92dfbaa75c2360d2caa7589977457625b43a79755340a31b4685fd94` |
+| [tl_2026_12109_areawater.zip](https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_12109_areawater.zip) | TIGER/Line 2026, area water, St. Johns County | `dfcfa9924dbc721a4dc0ce1eca8f533a5c00df41396855c3880f00dafec5d2b6` |
+| [co-est2025-alldata.csv](https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/counties/totals/co-est2025-alldata.csv) | Vintage 2025 county population estimates | `4f5a499d851e2cb48fd7a5405e5a9235453a8a66933657aacd10df0e264f35d5` |
+| [sub-est2025_12.csv](https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025_12.csv) | Vintage 2025 city and town population estimates, Florida | `7742b3514362d7b2a7c5301cb9e6e722eec40d8a76a817ba6e12ab073f21dab9` |
 
-**Addendum (2026-10-07):** J. B. Lightfoot's 1891 translations (*The Apostolic Fathers*, ed. J. R. Harmer) of 1 Clement and of Ignatius (To the Ephesians, To the Smyrnaeans), which the Letters pages quote, added as three more Early Christian Writings pages (202,699 bytes); the three rows above. LC01 now holds 80 works as readable text. [Report addendum](content/library/reports/letters-cited/LC01/REPORT.md#addendum-2026-10-07).
-<!-- /LC01 -->
+<a id="source-qwen-model"></a>
+### Qwen embedding model
 
-<!-- RB11 sources -->
-## 2026-10-07: RB11 prayer and worship acquisitions
+**Official channel:** [https://huggingface.co/Qwen/Qwen3-Embedding-4B](https://huggingface.co/Qwen/Qwen3-Embedding-4B). **Held formats:** cached model weights/tokenizer.
+**Licence/terms and credit:** Apache-2.0 model; current local configuration identifies Qwen3-Embedding-4B and its pinned revision. Retain model identity/licence. Model weights are implementation assets, not acquired theology texts.
+**Evidence:** [retained source/component records](knowledge/config.json); exact request, checksum and edition tables remain in the historical notes. Private local use follows the standing authorization; this task adds no publication permissions.
 
-Six actual new readable originals, 2,993,326 bytes and 1,162,996 derivative words. One new complete book, one missing digital part of an already-held commentary, two complete written lessons and two substantial complete article/interview units; not six new books. [Manifest](content/library/reports/reformed-baptist-overnight/RB11/acquisition-manifest.json) / [report](content/library/reports/reformed-baptist-overnight/RB11/REPORT.md) / [reading table](content/library/reports/reformed-baptist-overnight/RB11/READING-MAP.md) / [scope](content/library/reports/reformed-baptist-overnight/RB11/THEOLOGICAL-SCOPE.md) / [checkpoint](content/library/reports/reformed-baptist-overnight/RB11/checkpoint.json). Private personal reading witnesses only: no public full-text hosting, ingestion or embedding.
+<a id="source-lancedb-engine"></a>
+### LanceDB search engine
 
-| Author / actual source | Edition and completeness | Acquisition / rights |
-|---|---|---|
-| Charles H. Spurgeon - **The Treasury of David: digital part 1, Psalms 1–87** | Monergism two-part digital edition, part 1; not original seven-volume Volume I. Preface and Psalms 1–87; held digital part 2 supplies Psalms 88–150. Complete offered digital part, Psalms 1–87; not all original print volumes | [Exact offered EPUB](https://www.monergism.com/thethreshold/sdg/spurgeon/Treasury%20of%20DavidVol%201%20-%20C.%20H.%20Spurgeon.epub); retrieved 2026-10-07T14:13:40.192710+00:00; 2385648 bytes / 1087322 words. Asset `asset-rb11-557c938c44b6d9a49a28`; SHA-256 `b54e452a99ab44d81ec9f31dfe0288623c40008c5abe231f780065cc0a29c0ad`. Official publisher/ministry offers this exact complete file or readable body. Named private personal reading acquisition only; no republication or systematic retrieval license inferred. Historical Spurgeon text and modern digital edition apparatus/quoted contributors require separate treatment. |
-| David Mathis - **Habits of Grace: Enjoying Jesus through the Spiritual Disciplines** | Crossway 2016; complete official offered EPUB, twenty-one chapters, introduction, epilogue and notes. Endorsements/newsletter/front matter are not author doctrine. Complete offered book with front matter, notes and endorsements | [Exact offered EPUB](https://www.desiringgod.org/books/habits-of-grace.epub); retrieved 2026-10-07T14:10:21.476428+00:00; 317712 bytes / 60945 words. Asset `asset-rb11-3155182074ef961ad9f4`; SHA-256 `8525dc7b3ada512c542bc8ecec4a85d8e09dd47d271a623a41ed7961b13bd1c0`. Official offered download or complete written body. Copyright remains with publisher/author; personal reading witness only. DG permissions explicitly distinguish non-Piper authors and publisher-controlled books. No corpus/redistribution/embedding permission inferred. |
-| Final download destination | Same immutable offered witness | [Publisher final URL](https://document.desiringgod.org/habits-of-grace-en.epub?ts=1623770186) |
-| Capitol Hill Baptist Church (Core Seminars; individual manuscript writer not identified) - **Class 4: Meeting with God through Prayer (Part 1)** | Meeting with God series; displayed March 26, 2023. Complete written lesson including source quotations; no audio or slides. Complete offered written lesson/interview/essay body; unrelated navigation excluded | [Exact offered HTML](https://www.capitolhillbaptist.org/sermon/class-4-meeting-with-god-through-prayer-part-1/); retrieved 2026-10-07T14:10:27.242273+00:00; 55433 bytes / 4556 words. Asset `asset-rb11-a40dde4709d79db7b75d`; SHA-256 `0fb5705614861b76c5a59a3033b0f91c3be67c96130702e3848c770a7251b01d`. Official offered download or complete written body. Copyright remains with publisher/author; personal reading witness only. DG permissions explicitly distinguish non-Piper authors and publisher-controlled books. No corpus/redistribution/embedding permission inferred. |
-| Capitol Hill Baptist Church (Core Seminars; individual manuscript writer not identified) - **Class 5: Prayer—Hindrances & Practicalities** | Meeting with God series; displayed April 2, 2023. Complete offered written lesson, not a full published book. Complete offered written lesson/interview/essay body; unrelated navigation excluded | [Exact offered HTML](https://www.capitolhillbaptist.org/sermon/class-5-prayer-hindrances-practicalities/); retrieved 2026-10-07T14:10:29.570692+00:00; 55862 bytes / 4225 words. Asset `asset-rb11-832c2439e342b5f786a0`; SHA-256 `c529cc783b20bbd460b9c448223c0fa470d0cbcf37414a33ed26869416e73449`. Official offered download or complete written body. Copyright remains with publisher/author; personal reading witness only. DG permissions explicitly distinguish non-Piper authors and publisher-controlled books. No corpus/redistribution/embedding permission inferred. |
-| Mark Dever (interview; interviewer not identified) - **On the Use and Importance of Corporate Prayer** | Complete offered interview; current page February 26, 2010; linked 2008 journal context does not establish 2010 interview date. Complete offered written lesson/interview/essay body; unrelated navigation excluded | [Exact offered HTML](https://www.9marks.org/article/use-and-importance-corporate-prayer/); retrieved 2026-10-07T14:21:19.930608+00:00; 92241 bytes / 3397 words. Asset `asset-rb11-dbbd79c2bc09818d0621`; SHA-256 `9ddf7e7897ff810814316f100da0daec82404b3d8265f494dc610630f6746ff7`. Official offered download or complete written body. Copyright remains with publisher/author; personal reading witness only. DG permissions explicitly distinguish non-Piper authors and publisher-controlled books. No corpus/redistribution/embedding permission inferred. |
-| James M. Hamilton, Jr. (displayed Jim Hamilton) - **A Biblical Theology of Corporate Prayer** | Complete offered biblical-theology essay; current page February 25, 2010. Historical 2008 journal context is distinct from this displayed date. Complete offered written lesson/interview/essay body; unrelated navigation excluded | [Exact offered HTML](https://www.9marks.org/article/biblical-theology-corporate-prayer/); retrieved 2026-10-07T14:21:22.248676+00:00; 86430 bytes / 2551 words. Asset `asset-rb11-b09faa867ce597b78d6b`; SHA-256 `41fff384cf4770e4b649a9646f7f647745443cd8611a8e653f31d09565e73a46`. Official offered download or complete written body. Copyright remains with publisher/author; personal reading witness only. DG permissions explicitly distinguish non-Piper authors and publisher-controlled books. No corpus/redistribution/embedding permission inferred. |
+**Official channel:** [https://github.com/lancedb/lancedb](https://github.com/lancedb/lancedb). **Held formats:** installed search software.
+**Licence/terms and credit:** Recorded Apache-2.0 core; preserve component licence notices. Software installation is not a book or text acquisition.
+**Evidence:** [retained source/component records](knowledge/README.md); exact request, checksum and edition tables remain in the historical notes. Private local use follows the standing authorization; this task adds no publication permissions.
 
-Originals are stored under the configured separate BibleProject source root; private cache/derivative locators and hashes are in the manifest. Primary Monergism/DG desks, DG permissions, Cities leader affirmation, CHBC statement, Southern Abstract and faculty identity, and 9Marks institutional evidence are recorded in [theological-evidence.json](content/library/reports/reformed-baptist-overnight/RB11/theological-evidence.json). Doctrine is screened per work, not by author name alone.
+<a id="source-granite-model"></a>
+### IBM Granite browser embedding model
 
-New Spurgeon digital part covers Psalms 1-87 and joins actual held part 2 (88-150). Its Psalm 68 NCX link is defective; the table points to verified `treasury_split_024.html#p68` and retains the original error. Nine source replacement characters in borrowed notes are recorded, not repaired. Spurgeon borrowed commentators, Mathis endorsements/notes, Presbyterian family/worship conventions and continuationist context remain attributed. No Catholic/progressive teaching works were separately acquired.
+**Official channel:** [https://huggingface.co/ibm-granite/granite-embedding-small-english-r2](https://huggingface.co/ibm-granite/granite-embedding-small-english-r2). **Held formats:** int8 ONNX weights/tokenizer and browser model pack.
+**Licence/terms and credit:** Recorded Apache-2.0 model and onnx-community conversion; retain both model/conversion identities, revision and licence. This is a software/model asset, not library prose.
+**Evidence:** [retained source/component records](../MeaningPack/); exact request, checksum and edition tables remain in the historical notes. Private local use follows the standing authorization; this task adds no publication permissions.
 
-Bunyan Prayer and modernized Discourse are one underlying work in different witnesses; Pink, Spurgeon prayer books, Watson Lord's Prayer, Alexander/FGB 188 and confessional chapter 22 already provide substantial coverage. The actual chapter 22 byline is Jon English Lee; legacy institutional attribution is preserved separately. [Intake/resumption notes](content/library/reports/reformed-baptist-overnight/RB11/INTAKE-NOTES.md) keep modern corpus rights and contributor/quotation roles held.
-<!-- /RB11 -->
+<a id="source-onnx-runtime"></a>
+### ONNX Runtime Web
 
-<!-- RB10 sources -->
-## RB10: Christian ethics, conscience and practical obedience (2026-10-07)
+**Official channel:** [https://github.com/microsoft/onnxruntime](https://github.com/microsoft/onnxruntime). **Held formats:** browser JavaScript/WASM engine.
+**Licence/terms and credit:** Recorded MIT runtime; retain Microsoft/component licence notices. This is an implementation asset, not an acquired book.
+**Evidence:** [retained source/component records](../MeaningPack/); exact request, checksum and edition tables remain in the historical notes. Private local use follows the standing authorization; this task adds no publication permissions.
 
-Seven actual readable originals / **4,131,882 bytes / 146,763 derivative words**. One complete book, three complete essays, three complete issues with 26 articles/excerpts; not seven new books or 26 complete underlying works. [Report](content/library/reports/reformed-baptist-overnight/RB10/REPORT.md), [all provenance/checksums](content/library/reports/reformed-baptist-overnight/RB10/acquisition-manifest.json), [question-to-section table](content/library/reports/reformed-baptist-overnight/RB10/READING-MAP.md), [scope](content/library/reports/reformed-baptist-overnight/RB10/THEOLOGICAL-SCOPE.md), [intake holds](content/library/reports/reformed-baptist-overnight/RB10/INTAKE-NOTES.md), [exact checkpoint](content/library/reports/reformed-baptist-overnight/RB10/checkpoint.json).
+<a id="source-transformers-js"></a>
+### Hugging Face Transformers.js
 
-| Work / author | Actual acquisition source and edition | Permitted acquisition / scope |
-|---|---|---|
-| The Lordship of Christ: Serving Our Savior All of the Time, in All of Life, with All of Our Heart - Vern S. Poythress | [Offered PDF](https://frame-poythress.org/wp-content/uploads/2017/04/PoythressVernTheLordshipOfChristServingOurSaviorAllOfTheTimeInAllOfLifeWithAllOfOurHeart.pdf); Crossway copyright/first printing 2016; PDF ISBN 9781433549540; complete offered 226-page PDF, twenty chapters and Two Kingdoms appendix | Author ebook desk explicitly permits personal downloading/printing while retaining publisher rights; complete offered PDF copyright restricts storage/retrieval/distribution without permission except applicable law. Conservative Presbyterian/Reformed foundation for obedience, ordinary work and neighbor service. Kuyperian cultural/kingdom arguments and Politics chapter are source-specific positions, not Baptist defaults; no partisan commentary selected for the study paths. |
-| Calibrating the Conscience - Matthew C. Bingham | [Offered HTML](https://www.9marks.org/article/calibrating-the-conscience/); Complete 9Marks authored essay displayed March 19, 2026, with four numbered practical divisions and notes; not a complete Bingham book | Ministry publishes complete authored essay publicly for reading; conservative named private reading acquisition only. Copyright remains; no systematic corpus or public full-text hosting license inferred. Scripture-shaped conscience, conversion, fellowship and self-examination; conscience is fallible, not a replacement for Scripture. Particular essay reviewed, not author-wide approval. |
-| Pastoring the Scrupulous Conscience - Michael Lawrence | [Offered HTML](https://www.9marks.org/article/pastoring-the-scrupulous-conscience/); Complete 9Marks authored essay in Pastoring and the Conscience, displayed March 25, 2026; two categories, three resources and one posture | Ministry publishes complete authored essay publicly for reading; conservative named private reading acquisition only. Copyright remains; no systematic corpus or public full-text hosting license inferred. Baptist pastoral use of Scripture, grace and gentle care for an oversensitive conscience. Clinical/biological/OCD/medication discussion is author context, not project diagnosis or medical advice; spiritual guilt and clinical symptoms must not be conflated. |
-| Can I Bind the Conscience More in the Counseling Room Than in the Pulpit? - Deepak Reju | [Offered HTML](https://www.9marks.org/article/can-i-bind-the-conscience-more-in-the-counseling-room-than-in-the-pulpit/); Complete 9Marks authored essay in Pastoring and the Conscience, displayed March 2, 2026; schooling example and private/public ministry sections | Ministry publishes complete authored essay publicly for reading; conservative named private reading acquisition only. Copyright remains; no systematic corpus or public full-text hosting license inferred. Baptist practical ethics: distinguish biblical warrant from pastoral prudence; conscience freedom does not make every decision morally neutral. The schooling case illustrates reasoning, not a mandatory education policy. |
-| Free Grace Broadcaster 261: Conscience - Various; individual article bylines retained Individual bylines: Pink, Sibbes, Perkins, Fenner, Flavel, Ryle, Spurgeon. | [Offered EPUB](https://www.chapellibrary.org/api/books/download?code=consfg&format=epub); Complete offered Chapel Library issue 261; eleven contextual historical articles/excerpts, compiler annotations and notes; internal compilation copyright 2022, not inferred from EPUB export | Publisher EPUB explicitly offers worldwide .epub/.mobi/PDF download without charge, retaining compilation/annotation and contributor rights; public book record/client offered format. No general retrieval-system or public redistribution license inferred. Reformed/Puritan/Baptist conscience and gospel assurance with seven distinct historical authors: Pink, Sibbes, Perkins, Fenner, Flavel, Ryle and Spurgeon. Excerpts do not establish acquisition of their entire books; differing church/atonement positions remain scoped. |
-| Free Grace Broadcaster 184: Forgiveness - Various; individual article bylines retained Individual bylines: Jay Adams, Ryle, Spurgeon, John MacArthur, Jim Wilson, Flavel. | [Offered EPUB](https://www.chapellibrary.org/api/books/download?code=forgfg&format=epub); Complete offered Summer 2003 issue 184 in later reformatted EPUB; six articles/excerpts and notes. Invalid OPF date 0101 is not a publication date | Publisher EPUB explicitly offers worldwide .epub/.mobi/PDF download without charge, retaining compilation/annotation and contributor rights; public book record/client offered format. No general retrieval-system or public redistribution license inferred. Gospel-based forgiveness/repentance and refusal of bitterness. Preserve Adams, Ryle, Spurgeon, MacArthur, Jim Wilson and Flavel as separate voices; conditional reconciliation and unconditional forgiving posture are not merged. Wilson Eph.4-5 treatment is scoped, not author/family-wide theological approval. |
-| Free Grace Broadcaster 199: Good Works - Various; individual article bylines retained Individual bylines: Spurgeon, Lloyd-Jones, Pink, Bonar, Erskine, Manton, Bunyan. | [Offered EPUB](https://www.chapellibrary.org/api/books/download?code=gworfg&format=epub); Complete offered issue 199; nine contextual articles/excerpts; internal compilation copyright 2007. EPUB export metadata 2013-08-01 is not original publication date | Publisher EPUB explicitly offers worldwide .epub/.mobi/PDF download without charge, retaining compilation/annotation and contributor rights; public book record/client offered format. No general retrieval-system or public redistribution license inferred. Scripture-grounded good works as fruit of grace and justification, not merit earning acceptance. Separate Spurgeon, Lloyd-Jones, Pink, Bonar, Erskine, Manton and Bunyan, and preserve source quotations/editorial notes. |
+**Official channel:** [https://github.com/huggingface/transformers.js](https://github.com/huggingface/transformers.js). **Held formats:** installed browser tokenizer/runtime package.
+**Licence/terms and credit:** Recorded Apache-2.0 package; retain component licence notices. Software is not a theological source or acquired book.
+**Evidence:** [retained source/component records](content/library/reports/campaign-reconciliation/sources/HISTORICAL-SOURCES.md); exact request, checksum and edition tables remain in the historical notes. Private local use follows the standing authorization; this task adds no publication permissions.
 
-[Author ebook desk](https://frame-poythress.org/ebooks/), [9Marks journal](https://www.9marks.org/journal/pastoring-and-the-conscience/) and [Chapel doctrine/selection guide](https://www.chapellibrary.org/about) provide discovery/selection evidence. Actual files, final URLs, dates, byte hashes, completeness and derivative hashes are in the manifest; every acquisition URL is individually listed above. EPUB bundled covers are incidental original-package contents, not separate image acquisitions/extractions. PDF has an existing text layer; no OCR.
+<a id="source-owner-selection"></a>
+### Owner’s CypherPunk Faith selection
 
-All seven parents and 26 components are evidence-only, privately held and not embedded. Modern anthology rights, contributor/quotation roles and overlap with held complete works remain explicit. Reused Watson, Ryle, Plumer, Piper, Steele, Perkins, Owen and John Murray sections are in the reading table, not counted as new downloads. John Murray Principles of Conduct / Sanctity of Truth remains a modern rights/authorized-source gap. First-eight consolidation is interim; post-RB14 admission requires separate parity verification.
-<!-- /RB10 sources -->
+**Official channel:** local owner repository. **Held formats:** JSON snapshots of names and approved groupings.
+**Licence/terms and credit:** Owner-authored selection; public-domain historical reference inputs retain their own identities. No third-party open licence is invented for the owner’s compilation.
+**Evidence:** [retained source/component records](../sources/cypherpunk-faith/); exact request, checksum and edition tables remain in the historical notes. Private local use follows the standing authorization; this task adds no publication permissions.
 
-<!-- RB09 sources -->
-## RB09: genres, context and difficult passages (2026-10-07)
+## Build source checksum registry
 
-Thirteen new immutable readable originals: **five complete books, one complete workbook, three complete essays and four complete written lessons**. Eight HTML bodies and five existing-text PDFs (1,103 pages); **32,637,830 bytes / 584,520 derivative words** before apparatus and overlap selection. No scans, image acquisition, OCR, media or transcription. These are private reading witnesses, not thirteen books, new public texts or admitted DB rows.
+The data builders read these source IDs and SHA-256 prefixes directly from this file. Restored from the pre-reconciliation ledger; licence and edition notes are retained. These rows describe files, not additional acquisition providers.
 
-Audited 819 relevant held originals plus three separately recorded Josephus historical originals; 55 initial governance/registry/ledger inputs. Reused Fairbairn, Berkhof, Pink, Piper, Bridges and Keach instead of acquiring duplicate editions. [Mission report](content/library/reports/reformed-baptist-overnight/RB09/REPORT.md), [13 study questions and 85 qualified passage entries](content/library/reports/reformed-baptist-overnight/RB09/READING-MAP.md), [complete provenance manifest](content/library/reports/reformed-baptist-overnight/RB09/acquisition-manifest.json), [theological/editorial scope](content/library/reports/reformed-baptist-overnight/RB09/THEOLOGICAL-SCOPE.md), [intake requirements](content/library/reports/reformed-baptist-overnight/RB09/INTAKE-NOTES.md), [exact checkpoint](content/library/reports/reformed-baptist-overnight/RB09/checkpoint.json).
-
-Every acquired source follows. Manifest records exact final redirects, discovery/offer URLs, retrieval times, complete SHA-256s, immutable private paths, derivative hashes, edition/completeness, access evidence and scope. Bibliography and passage tables link these asset identities to exact source locations.
-
-| Author / institutional attribution | Complete offered resource and edition | Format / derivative words | Source scope and coverage |
+| File | What | Licence | Checksum |
 |---|---|---|---|
-| Vern S. Poythress | [God-Centered Biblical Interpretation](https://frame-poythress.org/ebooks/god-centered-biblical-interpretation/) - 1999 P&R author/publisher-authorized complete HTML edition; 18 numbered chapters and bibliography | HTML / 88,652 | Conservative Presbyterian/Reformed interpretation and exegesis; covenant/ordinance, amillennial, creation-day and multiperspectival positions attributed, not Baptist defaults. |
-| Vern S. Poythress | [The Returning King: A Guide to the Book of Revelation](https://frame-poythress.org/ebooks/the-returning-king/) - 2000 P&R complete author/publisher-authorized HTML; introduction and twelve commentary divisions | HTML / 55,667 | Conservative Presbyterian/Reformed interpretation and exegesis; covenant/ordinance, amillennial, creation-day and multiperspectival positions attributed, not Baptist defaults. |
-| Vern S. Poythress | [Understanding Dispensationalists](https://frame-poythress.org/ebooks/understanding-dispensationalists/) - Author-offered HTML carrying summer 1986 opening and POSTSCRIPT 1993; fourteen chapters, bibliography and second-edition postscript. Do not date the whole witness as 1986. | HTML / 48,360 | Conservative Presbyterian/Reformed interpretation and exegesis; covenant/ordinance, amillennial, creation-day and multiperspectival positions attributed, not Baptist defaults. |
-| Vern S. Poythress | [Reading the Word of God in the Presence of God: A Handbook for Biblical Interpretation](https://frame-poythress.org/wp-content/uploads/2016/09/PoythressVernReadingTheWordOfGodInThePresenceOfGodAHandbookForBiblicalInterpretation.pdf) - Crossway 2016; first printing stated; PDF ISBN 9781433543258; 466 source PDF pages | PDF / 152,412 | Conservative Presbyterian/Reformed interpretation and exegesis; covenant/ordinance, amillennial, creation-day and multiperspectival positions attributed, not Baptist defaults. |
-| Vern S. Poythress | [Interpreting Eden: A Guide to Faithfully Reading and Understanding Genesis 1-3](https://frame-poythress.org/wp-content/uploads/2021/10/Poythress-Vern-Interpreting-Eden-A-Guide-To-Faithfully-Reading-And-Understanding-Genesis-1-3.pdf) - Crossway copyright/first printing 2019; offered file includes 2021 production timestamps; PDF ISBN 9781433558740; 393 source pages, not a verified new 2021 edition | PDF / 142,434 | Conservative Presbyterian/Reformed interpretation and exegesis; covenant/ordinance, amillennial, creation-day and multiperspectival positions attributed, not Baptist defaults. |
-| Bethlehem College & Seminary (institutional curriculum; individual writer not identified) | [Mining God's Word: How to Study the Bible - Student Workbook](https://bcsmn.edu/wp-content/uploads/2017/03/MGW-Student-Guide-FINAL.pdf) - Copyright 2016 Bethlehem College & Seminary; complete offered 204-page student workbook, twelve lessons and three appendices | PDF / 50,195 | Reformed soteriology and baptistic practice; genre/inductive-study curriculum only. Continuationist affections and optional outside textbooks not globally approved. |
-| Tom Ascol | [Hermeneutics and Expository Preaching](https://founders.org/articles/hermeneutics-and-expository-preaching/) - Complete offered article; internal note identifies September/October 2015 Expositor; current page displays May 7, 2020. Site JSON uploader Hannah Ascol is not the displayed author. | HTML / 2,153 | Confessional Reformed Baptist Scripture/genre/authorial-intent essay; legal/political analogies are author context, not project legal guidance. |
-| Capitol Hill Baptist Church (Core Seminars; individual manuscript writer not identified) | [Class 11: Job](https://www.capitolhillbaptist.org/sermon/class-11-job) - Complete offered written lesson in Old Testament Overview; displayed lesson date 2014-08-03; not media, handout PDF or a full verse-by-verse commentary | HTML / 4,287 | Conservative Baptist written genre overview; actual quotations and uncertain source bylines require separate roles; no blanket approval of every named authority. |
-| Capitol Hill Baptist Church (Core Seminars; individual manuscript writer not identified) | [Class 12: Psalms](https://www.capitolhillbaptist.org/sermon/class-12-psalms/) - Complete offered written lesson in Old Testament Overview; displayed lesson date 2014-08-03; not media, handout PDF or a full verse-by-verse commentary | HTML / 4,450 | Conservative Baptist written genre overview; actual quotations and uncertain source bylines require separate roles; no blanket approval of every named authority. |
-| Capitol Hill Baptist Church (Core Seminars; individual manuscript writer not identified) | [Class 13: Proverbs](https://www.capitolhillbaptist.org/sermon/class-13-proverbs/) - Complete offered written lesson in Old Testament Overview; displayed lesson date 2014-08-03; not media, handout PDF or a full verse-by-verse commentary | HTML / 4,364 | Conservative Baptist written genre overview; actual quotations and uncertain source bylines require separate roles; no blanket approval of every named authority. |
-| Capitol Hill Baptist Church (Core Seminars; individual manuscript writer not identified) | [Class 14: Ecclesiastes & Song of Songs](https://www.capitolhillbaptist.org/sermon/class-14-ecclesiastes-song-of-songs/) - Complete offered written lesson in Old Testament Overview; displayed lesson date 2024-12-01; not media, handout PDF or a full verse-by-verse commentary | HTML / 4,628 | Conservative Baptist written genre overview; actual quotations and uncertain source bylines require separate roles; no blanket approval of every named authority. |
-| James M. Hamilton, Jr. | [The Skull Crushing Seed of the Woman: Inner-Biblical Interpretation of Genesis 3:15](http://jimhamilton.info/wp-content/uploads/2008/04/hamilton_sbjt_10-2.pdf) - Author-offered SBJT 10/2 article, printed pp.30-54; complete 25-page essay with 101 notes; historic displayed Southwestern faculty affiliation retained separately from current Southern biography | PDF / 17,627 | Conservative Southern Baptist inner-biblical/typological exegesis; specific seed/serpent or Song messianic thesis attributed, not consensus or project doctrine. Cited opponents, ancient documents and later scholarship remain quotations. |
-| James M. Hamilton, Jr. | [The Messianic Music of the Song of Songs: A Non-Allegorical Interpretation](http://jimhamilton.files.wordpress.com/2006/10/hamilton-article-from-wtj_fall06_topress-3.pdf) - WTJ 68 (2006), printed pp.331-345; complete 15-page author-offered typeset/prepress-named witness with 78 notes; not the later 2015 commercial Song monograph | PDF / 9,291 | Conservative Southern Baptist inner-biblical/typological exegesis; specific seed/serpent or Song messianic thesis attributed, not consensus or project doctrine. Cited opponents, ancient documents and later scholarship remain quotations. |
-
-The [Frame/Poythress ebook desk](https://frame-poythress.org/ebooks/) supplies explicit personal-download/print terms; BCS offers its [complete workbook](https://bcsmn.edu/profile/mining-gods-word-pdf-download/); Southern's [official Hamilton bibliography](https://www.sbts.edu/faculty/james-m-hamilton/) offers the two full journal papers. Theological evidence comes from actual [Westminster mission/confession](https://www.wts.edu/about/mission-values), [BCS affirmation](https://bcsmn.edu/about/affirmation-of-faith/), [CHBC statement](https://www.capitolhillbaptist.org/about-us/what-we-believe/statement-of-faith/), [Founders identity](https://founders.org/about/) and [Southern Abstract](https://www.sbts.edu/about/abstract/), with exact pinned evidence in the mission report. Offers for personal reading are not assumed to license systematic FTS/vector use or redistribution: all thirteen parents remain held pending rights/contributor integration at post-RB14 intake. The dated public corpus dashboard is not refreshed by this private acquisition.
-
-## Reference directory and corpus dashboard (2026-10-06, local preview)
-
-`/sources` and `/versions` contain the reference preamble, a corpus dashboard in the Bible website's visual style, eight expandable collections plus unassigned acquisitions, author/work/source browsing, the complete searchable bibliography, study/atlas credits, 18 collection and acquisition reports, source institutions, and the existing 37-Scripture edition table.
-
-The [sources dashboard handbook](content/library/SOURCES-DASHBOARD.md) documents all categories, inventory definitions, acquisition evidence, export boundaries, known gaps and exact refresh commands. The shared wiki bibliography reconciles catalogues, manifests, inventories and on-disk provenance; the website adds its published study citations. Snapshot: **16,498 reference records**, **15,479 acquired files verified**, **30,904 library files / 5.30 GB** including metadata. Records are not unique books. **701 acquired identities remain incomplete**; unresolved collection placement is visible rather than omitted.
-
-`scripts/sync-corpus-dashboard.py` imports the metadata-only wiki export. `scripts/source-directory.ts` builds `public/content/sources/directory.json`. Source bodies, private permission files, absolute paths and worker internals stay local; only dated aggregate search/embedding measurements are exposed. Later acquisitions need an explicit snapshot refresh. No collectors or embedding jobs are changed.
-
-Validation covers TypeScript, targeted lint/build, acquisition-evidence regression tests, metadata projection, collection/author search, source links and responsive browser checks. This revision is built locally; website publication is a separate release step.
-
-**Class:** LIVING · **Downloaded:** 2026-10-03
-
-Every text the Bible Project uses, exactly as downloaded. Get them all with `python scripts/fetch-sources.py`
-(into `sources/`, never edited); the site's data is generated from them by `scripts/build-data.py` and
-`scripts/build-study.py`. Each eBible folder keeps its original
-zip (`<id>_usfm.zip`), the unpacked USFM book files, and the publisher's own copyright page (`copr.htm`).
-
-eBible.org updates files in place, so a fresh download can differ. The checksum below (first 16 hex
-characters of the zip's SHA-256) identifies the exact copy this project was built from.
-
-## Bible texts — all from eBible.org, all marked "Public Domain" in their own copr.htm except the Hindi IRV (CC BY-SA 4.0)
-
-Books column = Old Testament / New Testament / Apocrypha-Deuterocanon, from eBible's
-[catalogue](sources/ebible/translations.csv).
-
-| Folder | Text | Language | Books | eBible date | Checksum |
-|---|---|---|---|---|---|
 | [eng-kjv](sources/ebible/eng-kjv/) | King James Version (1769 text) with Apocrypha, with Strong's numbers | English | 39/27/14 | 2026-09-26 | 0e0359e9e488582a |
 | [eng-kjv2006](sources/ebible/eng-kjv2006/) | King James Version, no Apocrypha, with Strong's numbers | English | 39/27/0 | 2026-09-26 | 2e698d1c6e865341 |
 | [enggnv](sources/ebible/enggnv/) | Geneva Bible (1599) | English | 39/27/0 | 2024-03-16 | bbbd83ac1b3f019e |
@@ -193,107 +632,8 @@ Books column = Old Testament / New Testament / Apocrypha-Deuterocanon, from eBib
 | [vie1934](sources/ebible/vie1934/) | Vietnamese Bible 1923 (Kinh Thánh) — the standard Vietnamese Protestant Bible | Vietnamese | 39/27/0 | 2022-06-09 | adf7ec3a944a822c |
 | [pesOPV](sources/ebible/pesOPV/) | Old Persian Version (ترجمه قدیم, 1895) — the classic Persian Bible, right to left | Persian | 39/27/0 | 2015-04-21 | fe33d897e1eaaf48 |
 | [ita1927](sources/ebible/ita1927/) | Riveduta 1927 — Giovanni Luzzi's revision of the Italian Diodati Bible | Italian | 39/27/0 | 2019-12-17 | e95a11617ef36d0c |
-
-Not used: the Korean Bible 1910 (`kor`) — eBible's copy is missing verses throughout (1 Peter 5, most of Psalm 118,
-half of Colossians 4, and about 40 chapters short), so it is left out until a complete public-domain Korean text is found.
-
-Download URL pattern: `https://ebible.org/Scriptures/<folder>_usfm.zip`.
-
-## Cross-references — OpenBible.info, licence CC-BY
-
-| Folder | What | Rows | Checksum |
-|---|---|---|---|
 | [openbible](sources/openbible/) | Crowd-voted verse-to-verse cross-references, seeded from the public-domain Treasury of Scripture Knowledge | 344,799 | 224f28aae59812b7 |
 | [openbible-geo](sources/openbible-geo/) | Bible places: 1,341 ancient places with their likely modern locations and the verses that mention them (licence **CC-BY 4.0**) | 1,341 | 2dfa8440f2da1f54 |
-
-From `https://a.openbible.info/data/cross-references.zip` (file dated 2026-09-28). **CC-BY means the site
-must show the credit "Cross references from OpenBible.info"** — done on the site's Sources page.
-
-## Atlas satellite imagery — NASA, public domain
-
-| Folder | What | Checksum |
-|---|---|---|
-| [nasa-bluemarble](sources/nasa-bluemarble/) | NASA Blue Marble Next Generation (cloud-free true colour, ~500 m per pixel) in web-Mercator, cut by NASA's GIBS service. In use since the motion rework: `bluemarble-region.jpg` (whole Atlas area lon −18…74, lat 10…49, 5,000 px, 1.4 MB), `bluemarble-region-preview.jpg` (1,500 px, 0.2 MB) and 12 close-up tiles `bluemarble-tile-<row>-<col>.jpg` (core lon 8…58, lat 13…46 in a 4×3 grid, 2,500 px each, 0.3–0.8 MB; loaded only when zoomed in). Earlier files in the folder (`bluemarble.jpg`, `bluemarble-core.jpg`, the 8,000 px region) are superseded, kept, unused. The fetch script prints every file's checksum; the exact requests are in `REQUEST.txt` | region 8a90efd89edfe33a, preview 6c18cbe82cfa2111 |
-
-Fetched 2026-10-03 by `scripts/fetch-imagery.mjs` (the exact request is in `nasa-bluemarble/REQUEST.txt`).
-The site serves copies from `public/atlas/` and never calls NASA at run time. **Google Earth imagery was
-considered and refused**: its terms forbid downloading or storing it, and the only permitted route (Google's Map
-Tiles API) is billed per use and needs Google online every time the map loads.
-
-## Atlas street map — OpenStreetMap data via Protomaps, licence ODbL
-
-| Folder | What | Checksum |
-|---|---|---|
-| [AtlasTiles/build](../AtlasTiles/README.md) | The atlas map at [/study/atlas/map](https://bibleproject.io/study/atlas/map): land, green areas, water, rivers and borders of the biblical world (12°W–73°E, 8°N–49°N) at zoom 0–8, plus zoom 9–15 within 50 km of every Bible place, with roads, buildings and icons removed so it reads as the ancient world. **© OpenStreetMap contributors, ODbL** (Open Database Licence 1.0), packaged by **Protomaps** as daily build `20261005` (OpenStreetMap as of 2026-10-05 04:00 UTC; basemap schema 4.15.2). Two extracts were downloaded: `world-biblical-z0-8.pmtiles` (105 MB) and `places-50km-z9-15.pmtiles` (1.9 GB); they are merged and stripped into `bible-atlas-ancient.pmtiles` (867,388,966 bytes), which the site serves as 35 pieces of 24 MiB from `AtlasTiles/site/e0453082e07b/` (the folder name is the start of the file's SHA-256) | served map e0453082e07bc44b · biblical world z0–8 bc42bd884cb63b7f · places 50 km z9–15 ed581932f0046428 · patch outline `region_50km.geojson` 196906262859fe42 |
-| [AtlasTiles/site/fonts, sprites](../AtlasTiles/README.md) | Map label fonts (Noto Sans Regular, Medium and Italic; **SIL Open Font License**) and map icons (derived from tangrams/icons, **MIT**), from Protomaps' basemaps-assets (`main` branch, downloaded 2026-10-05 as `assets.zip`) | assets.zip c02634724bee074a |
-
-Downloaded 2026-10-05/06 with the free `pmtiles extract` tool from `https://build.protomaps.com/20261005.pmtiles`
-and built by `scripts/build-street-atlas.py` (steps and sizes in [AtlasTiles/README.md](../AtlasTiles/README.md) and
-[STREET_ATLAS.md](../STREET_ATLAS.md)). **ODbL means the map must show the credit "© OpenStreetMap"** — done in the
-credit line under the map, with a link to openstreetmap.org/copyright, beside "Protomaps". The map style code
-(`@protomaps/basemaps` 5.7.2) and the map libraries (`maplibre-gl` 6.12.0, `pmtiles` 4.5.0) are BSD-3-Clause npm
-packages. The site serves its own copy inside each release and never calls OpenStreetMap or Protomaps at run time;
-$0, no paid storage. In use on the map page and on Ancient Cities' city maps ([/study/atlas/cities](https://bibleproject.io/study/atlas/cities)). Planned use: the same map under Paul's guided journey, the Jerusalem and Corinth city guides and
-the Gospel events on the Atlas pages.
-
-## Meaning search model and engine — Apache 2.0 and MIT (added 2026-10-07)
-
-| Folder | What | Checksum |
-|---|---|---|
-| [MeaningPack/site/9db35ceaa8c9/model](../MeaningPack/) | The model that turns a visitor's question into numbers in their own browser, on [/search/meaning](https://bibleproject.io/search/meaning): **IBM granite-embedding-small-english-r2**, **Apache 2.0**. The browser copy is the int8 ONNX build `onnx-community/granite-embedding-small-english-r2-ONNX` at revision `1dc7835ba0cb9c76a3618d0bf0c427c97671b3c8`, from Hugging Face; the studies and Bible verses were encoded once with the full model `ibm-granite/granite-embedding-small-english-r2`. The 50 MB weights are split into three parts for Cloudflare's 25 MiB file limit | model_quantized.onnx a3fad524afc3f060 · data parts 21edfff1895166a7, 4bc307b842ec1032, 9dc9a82346eb8f58 |
-| [MeaningPack/site/9db35ceaa8c9/engine](../MeaningPack/) | The engine that runs the model in the browser: **ONNX Runtime Web** (`onnxruntime-web` 1.31.0-dev.20260914, CPU build), **MIT**, copied from the npm package | ort-wasm-simd-threaded.wasm 06ba057753da3847 |
-| npm package | **Transformers.js** (`@huggingface/transformers` 4.3.1), **Apache 2.0**: reads the model's tokenizer and runs it through the engine | (npm lockfile) |
-
-Built by [scripts/build-meaning-pack.py](scripts/build-meaning-pack.py); sizes, speed and the model comparison are in
-[MEANING_SEARCH.md](../MEANING_SEARCH.md). Visitors download the pack only when they turn meaning search on; nothing is
-sent to any service. In use: Search's meaning search and the meaning prompts under the studies and Apologetics questions.
-
-## Testimonies world map outlines — Natural Earth, public domain (added 2026-10-07)
-
-| Folder | What | Checksum |
-|---|---|---|
-| [src/data/world-map.json](src/data/world-map.json) | Land and country outlines for the world map on [/testimonies](https://bibleproject.io/testimonies), pre-drawn once by [scripts/build-world-map.mjs](scripts/build-world-map.mjs) from **Natural Earth** 1:50m land and countries (**public domain**), as packaged in the npm package `world-atlas` 2.0.2 (**ISC** licence) | world-map.json 0e76b37898c815ec · land-50m.json 619477ff690c0868 · countries-50m.json 04342cdc1e3016bc |
-
-The same package's 1:10m land file (land-10m.json 9b9f584709c119d6) is drawn by [scripts/build-map.mjs](scripts/build-map.mjs) into [src/data/atlas-map.json](src/data/atlas-map.json), the land outline on the Letters study's maps.
-
-
-## Resources USA map outline — Natural Earth, public domain (added 2026-10-08)
-
-| File | What | Licence | Checksum |
-|---|---|---|---|
-| [ne_50m_admin_1_states_provinces_lakes.geojson](../sources/natural-earth/ne_50m_admin_1_states_provinces_lakes.geojson) | **Natural Earth** 1:50m admin-1 states and provinces (with lakes), v5.1.2, downloaded 2026-10-08 from the Natural Earth repository (`https://raw.githubusercontent.com/nvkelso/natural-earth-vector/v5.1.2/geojson/ne_50m_admin_1_states_provinces_lakes.geojson`). Only the 50 US states and DC are kept; [scripts/build-us-states.mjs](scripts/build-us-states.mjs) checks the checksum and pre-draws them on an Albers USA projection into [src/data/resources/us-states.json](src/data/resources/us-states.json), the outline of the USA map on [/resources/life](https://bibleproject.io/resources/life) | **Public domain** ([terms](https://www.naturalearthdata.com/about/terms-of-use/)); credit Natural Earth | sha256 b92c3f709b691240 |
-
-<a id="source-census-jacksonville"></a>
-### US Census Bureau TIGER/Line and population estimates (Jacksonville)
-
-**Official channel:** [https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html](https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html) and [https://www.census.gov/programs-surveys/popest.html](https://www.census.gov/programs-surveys/popest.html). **Held formats:** zipped shapefiles (TIGER/Line 2026, cartographic boundary 2025) and CSV (Vintage 2025 estimates), downloaded 2026-10-08.
-**Licence/terms and credit:** US Government work, public domain; credit "US Census Bureau". Used on the Help for life page (/resources/life): the zoomable Jacksonville (Duval County) map (land, water, roads, town labels) and the sourced facts beside the USA map (the county, Duval County and Jacksonville city population for July 1, 2025, land and water area). Built by [scripts/build-jax-map.py](scripts/build-jax-map.py) into src/data/resources/jax-map.json and jax-facts.json; the script refuses any file whose sha256 differs from the table below.
-**Evidence:** sha256 of each file read:
-
-| File | What it is | sha256 |
-|---|---|---|
-| [cb_2025_us_county_500k.zip](https://www2.census.gov/geo/tiger/GENZ2025/shp/cb_2025_us_county_500k.zip) | Cartographic Boundary File 2025, counties 1:500,000 (shoreline-clipped) | `aa976c00b181939755d0da757f4c7c2dc0103c3b3b4530fb2a91c2bb62fc777c` |
-| [tl_2026_12_prisecroads.zip](https://www2.census.gov/geo/tiger/TIGER2026/PRISECROADS/tl_2026_12_prisecroads.zip) | TIGER/Line 2026, primary and secondary roads, Florida | `05d6fbc00795555ce9b909a10a3f05d83067f449ffab6d5210a46b97319ab324` |
-| [tl_2026_12031_roads.zip](https://www2.census.gov/geo/tiger/TIGER2026/ROADS/tl_2026_12031_roads.zip) | TIGER/Line 2026, all roads, Duval County | `8d29fc4a6f40f7d6246aa351239325ac0e10c02cc858fb8e0f400e75cecb7577` |
-| [tl_2026_12_place.zip](https://www2.census.gov/geo/tiger/TIGER2026/PLACE/tl_2026_12_place.zip) | TIGER/Line 2026, places, Florida (town labels) | `38a86feeb17300f9991d5c89b5fb1d61c42823cc4bacb1f7f0738605a22ed8ec` |
-| [tl_2026_12031_areawater.zip](https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_12031_areawater.zip) | TIGER/Line 2026, area water, Duval County | `bbb7f8b5f0f8d52d1585e7b0fdf28064907bb64242f70123416d64aba2c5e8d3` |
-| [tl_2026_12089_areawater.zip](https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_12089_areawater.zip) | TIGER/Line 2026, area water, Nassau County | `9cd005ef5b1f581296d8301054d789a989b333845d73bd3d8c7b25bfe8a89ec7` |
-| [tl_2026_12003_areawater.zip](https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_12003_areawater.zip) | TIGER/Line 2026, area water, Baker County | `9be0c494112ae281a82c463df738050ebcbbfbf4afba19293914ff98bc876a95` |
-| [tl_2026_12019_areawater.zip](https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_12019_areawater.zip) | TIGER/Line 2026, area water, Clay County | `52bf3a5a92dfbaa75c2360d2caa7589977457625b43a79755340a31b4685fd94` |
-| [tl_2026_12109_areawater.zip](https://www2.census.gov/geo/tiger/TIGER2026/AREAWATER/tl_2026_12109_areawater.zip) | TIGER/Line 2026, area water, St. Johns County | `dfcfa9924dbc721a4dc0ce1eca8f533a5c00df41396855c3880f00dafec5d2b6` |
-| [co-est2025-alldata.csv](https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/counties/totals/co-est2025-alldata.csv) | Vintage 2025 county population estimates | `4f5a499d851e2cb48fd7a5405e5a9235453a8a66933657aacd10df0e264f35d5` |
-| [sub-est2025_12.csv](https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025_12.csv) | Vintage 2025 city and town population estimates, Florida | `7742b3514362d7b2a7c5301cb9e6e722eec40d8a76a817ba6e12ab073f21dab9` |
-
-**Held at:** [sources/census/](../sources/census/) (the 11 files, kept so [scripts/build-jax-map.py](scripts/build-jax-map.py) can rebuild the map).
-
-## Study resources — downloaded 2026-10-03 for the Study pages (TODO section G)
-
-Only facts (event names, topic names, verse references, names and family links) are taken from these. STEP
-Bible's own study tables (its Harmony, Miracles, etc.) have no published licence and are **not** used.
-`scripts/build-study.py` checks these checksums before it reads anything.
-
-| File | What | Licence | Checksum |
-|---|---|---|---|
 | [robertson-harmony](sources/gutenberg/robertson-harmony-36264-h.htm) | A. T. Robertson, *A Harmony of the Gospels for Students of the Life of Christ* (1922), Project Gutenberg #36264 — its contents list gives every part and numbered event with its Gospel references | Public domain in the US (published 1922); Project Gutenberg licence for the file | 105aac29a024f977 |
 | [tipnr](sources/stepbible/TIPNR.txt) | STEP Bible's *Translators Individualised Proper Names with all References* — every person, place and other proper name, with description, family, tribe, era and every verse | **CC BY 4.0** — the page must credit "STEP Bible" with a link to www.STEPBible.org | 63a129dac8c34177 |
 | [torrey-xml](sources/ccel/ttt.xml) | R. A. Torrey, *The New Topical Text Book* (1897), CCEL's marked-up edition with parsed references | Book public domain; CCEL claims its electronic markup, so only the book's facts (topics, references) are used | e49a064b857b186c |
@@ -304,24 +644,6 @@ Bible's own study tables (its Harmony, Miracles, etc.) have no published licence
 | [easton-txt](sources/ccel/ebd2.txt) | Same, plain text | as above | 291260d29a0ddef7 |
 | [faith-names](sources/cypherpunk-faith/faith-names.json) | The owner's Names of God list from his CypherPunk NFT Faith page (322 names with KJV verses, compiled by the owner from Torrey's Topical Textbook and other references) — snapshot taken 2026-10-03 of the file last changed in CypherpunkNFT commit `cf44968` (2026-10-01) | Torrey public domain; the owner's own selection | 6f4a81addb2fb18c |
 | [faith-names-approved](sources/cypherpunk-faith/faith-names-approved.json) | The owner's approved grouping (Father / Son / Holy Spirit, 302 names), display names and removals, from the same page | the owner's own | eefc8b30bb085be4 |
-
-URLs: `https://www.gutenberg.org/files/36264/36264-h/36264-h.htm`; STEP:
-`https://raw.githubusercontent.com/STEPBible/STEPBible-Data/master/Proper%20Nouns/` (the TIPNR file);
-CCEL: `https://ccel.org/ccel/{t/torrey/ttt,n/nave/bible,e/easton/ebd2}.xml` and `…/cache/<name>.txt`.
-
-The **Names of God** page reads the snapshot above (refresh: copy the two files again from the owner's CypherPunk NFT site, update `bundled-sources/`,
-diff, then update the checksums) — never the live files,
-and never edits that site.
-
-## Reference library — downloaded 2026-10-07 (owner: "let's get everything")
-
-Highly respected reference works, added so that person, place and topic pages can show researched, credited
-information. **None is used on the site yet.** Each "Planned use" is a to-do, and the full plan is in the project's
-`REFERENCE_LIBRARY.md`. Everything is fetched by `scripts/fetch-sources.py`; two of these sources update in place
-(Theographic, OpenBible Topics), so a fresh download can differ from these checksums.
-
-| File | What · Planned use | Licence | Checksum |
-|---|---|---|---|
 | [isbe](sources/crosswire/ISBE.zip) | James Orr (ed.), *International Standard Bible Encyclopedia* (1915), about 9,000 articles; CrossWire SWORD module, version 2.2 · **the in-depth article on person, place and topic pages** | Public domain (CrossWire: "DistributionLicense=Public Domain") | 4de747545d9c349a |
 | [smith-xml](sources/ccel/smith-bibledict.xml) | William Smith, *Smith's Bible Dictionary* (1863/1884), CCEL edition · a second classic-dictionary voice on person, place and topic pages | Book public domain; CCEL claims its electronic markup, so the text is used, not CCEL's markup | f0aa85b544f70384 |
 | [hitchcock-xml](sources/ccel/hitchcock-bible-names.xml) | Roswell D. Hitchcock, *Bible Names Dictionary* (1869), CCEL edition · **the meaning of each name** on person and place pages | as above | 43390f72248bb368 |
@@ -336,812 +658,238 @@ information. **None is used on the site yet.** Each "Planned use" is a to-do, an
 | [josephus-life](sources/gutenberg/josephus-life-2846.txt) | Josephus, *The Life of Flavius Josephus*, tr. Whiston, Project Gutenberg #2846 · as above | as above | 7c4408526f781f67 |
 | [josephus-apion](sources/gutenberg/josephus-apion-2849.txt) | Josephus, *Against Apion*, tr. Whiston, Project Gutenberg #2849 · as above | as above | b6791c018b1033ea |
 
-Nave's *Topical Bible* (above, `nave-xml`) and Easton's articles feed the expanded Topics (5,084 topics, 28 families;
-see `content/topics/naves-placement.json`).
+## Discovery-only sources and historical mission references
 
-**Not used, on purpose:** the Thompson Chain-Reference Bible and modern study Bibles (ESV, NIV) are under copyright,
-and Vine's *Expository Dictionary* has an unclear copyright status.
+[The existing source registry](content/library/sources.json) also contains discovery/link-only providers such as PRDL, publisher catalogues and MLJ Trust. Discovery entries are not proof of acquired full texts or permission to collect them. The historic Muslim-primary-text comparison references remain historical research records, not approved teaching-source acquisitions.
 
-URLs: CrossWire `https://www.crosswire.org/ftpmirror/pub/sword/packages/rawzip/ISBE.zip`; CCEL
-`https://ccel.org/ccel/{s/smith_w/bibledict,h/hitchcock/bible_names}.xml`; Internet Archive
-`https://archive.org/download/<item>/<file>_djvu.txt`; GitHub archives of the three repositories above; OpenBible
-`https://a.openbible.info/data/topic-scores.zip`; Project Gutenberg `https://www.gutenberg.org/cache/epub/<n>/pg<n>.txt`.
+The headings below preserve earlier mission/reference anchors and link to the complete historical text. Historical counts and earlier indexing limitations describe those earlier runs; current private indexing follows the standing owner authorization above.
+
+## LC01: works cited by the Letters study (2026-10-07)
+
+[Preserved historical acquisition notes, URLs, hashes, mission reports and qualifications](content/library/reports/campaign-reconciliation/sources/HISTORICAL-SOURCES.md#lc01-works-cited-by-the-letters-study-2026-10-07).
+
+## Same-day private intake
+
+[Preserved historical acquisition notes, URLs, hashes, mission reports and qualifications](content/library/reports/campaign-reconciliation/sources/HISTORICAL-SOURCES.md#same-day-private-intake).
+
+## RB12 historical text acquisition
+
+[Preserved historical acquisition notes, URLs, hashes, mission reports and qualifications](content/library/reports/campaign-reconciliation/sources/HISTORICAL-SOURCES.md#rb12-historical-text-acquisition).
+
+## 2026-10-07: RB11 prayer and worship acquisitions
+
+[Preserved historical acquisition notes, URLs, hashes, mission reports and qualifications](content/library/reports/campaign-reconciliation/sources/HISTORICAL-SOURCES.md#2026-10-07-rb11-prayer-and-worship-acquisitions).
+
+## RB10: Christian ethics, conscience and practical obedience (2026-10-07)
+
+[Preserved historical acquisition notes, URLs, hashes, mission reports and qualifications](content/library/reports/campaign-reconciliation/sources/HISTORICAL-SOURCES.md#rb10-christian-ethics-conscience-and-practical-obedience-2026-10-07).
+
+## RB09: genres, context and difficult passages (2026-10-07)
+
+[Preserved historical acquisition notes, URLs, hashes, mission reports and qualifications](content/library/reports/campaign-reconciliation/sources/HISTORICAL-SOURCES.md#rb09-genres-context-and-difficult-passages-2026-10-07).
+
+## Reference directory and corpus dashboard (2026-10-06, local preview)
+
+[Preserved historical acquisition notes, URLs, hashes, mission reports and qualifications](content/library/reports/campaign-reconciliation/sources/HISTORICAL-SOURCES.md#reference-directory-and-corpus-dashboard-2026-10-06-local-preview).
+
+## Bible texts — all from eBible.org, all marked "Public Domain" in their own copr.htm except the Hindi IRV (CC BY-SA 4.0)
+
+[Preserved historical acquisition notes, URLs, hashes, mission reports and qualifications](content/library/reports/campaign-reconciliation/sources/HISTORICAL-SOURCES.md#bible-texts--all-from-ebibleorg-all-marked-public-domain-in-their-own-coprhtm-except-the-hindi-irv-cc-by-sa-40).
+
+## Cross-references — OpenBible.info, licence CC-BY
+
+[Preserved historical acquisition notes, URLs, hashes, mission reports and qualifications](content/library/reports/campaign-reconciliation/sources/HISTORICAL-SOURCES.md#cross-references--openbibleinfo-licence-cc-by).
+
+## Atlas satellite imagery — NASA, public domain
+
+[Preserved historical acquisition notes, URLs, hashes, mission reports and qualifications](content/library/reports/campaign-reconciliation/sources/HISTORICAL-SOURCES.md#atlas-satellite-imagery--nasa-public-domain).
+
+## Atlas street map — OpenStreetMap data via Protomaps, licence ODbL
+
+[Preserved historical acquisition notes, URLs, hashes, mission reports and qualifications](content/library/reports/campaign-reconciliation/sources/HISTORICAL-SOURCES.md#atlas-street-map--openstreetmap-data-via-protomaps-licence-odbl).
+
+## Meaning search model and engine — Apache 2.0 and MIT (added 2026-10-07)
+
+[Preserved historical acquisition notes, URLs, hashes, mission reports and qualifications](content/library/reports/campaign-reconciliation/sources/HISTORICAL-SOURCES.md#meaning-search-model-and-engine--apache-20-and-mit-added-2026-10-07).
+
+## Testimonies world map outlines — Natural Earth, public domain (added 2026-10-07)
+
+[Preserved historical acquisition notes, URLs, hashes, mission reports and qualifications](content/library/reports/campaign-reconciliation/sources/HISTORICAL-SOURCES.md#testimonies-world-map-outlines--natural-earth-public-domain-added-2026-10-07).
+
+## Resources USA map outline — Natural Earth, public domain (added 2026-10-08)
+
+| File | What | Licence | Checksum |
+|---|---|---|---|
+| [ne_50m_admin_1_states_provinces_lakes.geojson](../sources/natural-earth/ne_50m_admin_1_states_provinces_lakes.geojson) | **Natural Earth** 1:50m admin-1 states and provinces (with lakes), v5.1.2, downloaded 2026-10-08 from the Natural Earth repository (`https://raw.githubusercontent.com/nvkelso/natural-earth-vector/v5.1.2/geojson/ne_50m_admin_1_states_provinces_lakes.geojson`). Only the 50 US states and DC are kept; [scripts/build-us-states.mjs](scripts/build-us-states.mjs) checks the checksum and pre-draws them on an Albers USA projection into [src/data/resources/us-states.json](src/data/resources/us-states.json), the outline of the USA map on [/resources/life](https://bibleproject.io/resources/life) | **Public domain** ([terms](https://www.naturalearthdata.com/about/terms-of-use/)); credit Natural Earth | sha256 b92c3f709b691240 |
+
+## Study resources — downloaded 2026-10-03 for the Study pages (TODO section G)
+
+[Preserved historical acquisition notes, URLs, hashes, mission reports and qualifications](content/library/reports/campaign-reconciliation/sources/HISTORICAL-SOURCES.md#study-resources--downloaded-2026-10-03-for-the-study-pages-todo-section-g).
+
+## Reference library — downloaded 2026-10-07 (owner: "let's get everything")
+
+[Preserved historical acquisition notes, URLs, hashes, mission reports and qualifications](content/library/reports/campaign-reconciliation/sources/HISTORICAL-SOURCES.md#reference-library--downloaded-2026-10-07-owner-lets-get-everything).
 
 ## Four Gospel portraits (2026-10-04)
 
-The narrative map uses the existing Robertson harmony references and KJV chapter/verse counts above.
-Eight original reading guides in `src/data/gospel-portraits.ts` were checked against their cited local KJV
-passages. They describe observations in those passages, rather than importing commentary text.
-The map follows each Gospel's written order; Robertson supplies the event groupings. Its 185 entries
-include one without a Gospel passage (the appearance to James), so the portrait browser has 184 entries.
-Passage lengths count distinct KJV verses within each selection, including disjoint or overlapping ranges.
+[Preserved historical acquisition notes, URLs, hashes, mission reports and qualifications](content/library/reports/campaign-reconciliation/sources/HISTORICAL-SOURCES.md#four-gospel-portraits-2026-10-04).
 
 ## Christian library collection desk (2026-10-05)
 
-The [collection charter and catalog](content/library/README.md) establish the broader Calvinist
-evangelical library requested by the owner. [sources.json](content/library/sources.json) records
-discovery sources, current policy evidence and unresolved access questions. These are research records,
-not a list of downloaded books or cleared reuse permissions. No library content was acquired in L00.
-Future category missions store immutable downloads under the resolved `sources/library/` directory,
-edition/asset/checksum records under `content/library/catalog/`, and a concise acquisition pointer here.
-The owner will request each category separately; see [the backlog](content/library/BACKLOG.md).
+[Preserved historical acquisition notes, URLs, hashes, mission reports and qualifications](content/library/reports/campaign-reconciliation/sources/HISTORICAL-SOURCES.md#christian-library-collection-desk-2026-10-05).
 
-### Spurgeon published sermons acquired 2026-10-05
+## Spurgeon published sermons acquired 2026-10-05
 
-The [Spurgeon acquisition report](content/library/reports/spurgeon/REPORT.md) inventories the 63 pulpit
-volumes (1855–1917) and 3,568 numbered index entries, including explicitly identified guest and historical
-material. The original individual and whole-volume PDFs remain under the resolved
-`sources/library/source-spurgeon-gems/` root. [The manifest](content/library/reports/spurgeon/acquisition-manifest.json)
-records every URL, timestamp, full SHA-256 and byte count; [the reconciliation](content/library/reports/spurgeon/reconciliation.json)
-documents index errors, swapped numbering and the incorrect individual link for *Comfort Proclaimed*,
-whose correct text is in volume 4, PDF pages 673–683.
-
-These digital files use the archive's [free, unchanged, attributed-use permission](https://www.spurgeongems.org/about-us/),
-recorded as **restricted-license**, not an unrestricted open license. [Run-specific access evidence](content/library/reports/spurgeon/source-access.json)
-supplements the initial source-registry defaults. This acquisition does not publish the files or create a
-full-text search index. Exact current totals and remaining metadata checks are in the report and its summary.
+[Preserved historical acquisition notes, URLs, hashes, mission reports and qualifications](content/library/reports/campaign-reconciliation/sources/HISTORICAL-SOURCES.md#spurgeon-published-sermons-acquired-2026-10-05).
 
 ## Modern preaching source inventory (L04, 2026-10-05)
 
-The [modern preaching report](content/library/reports/modern-preaching/REPORT.md) records five ministry access decisions and two complete bounded biblical sermon inventories: Piper’s Ruth (1984), four sermons, and Sproul’s 2 Peter (2008), twelve. Six eligible authors are mapped to official sources; 16 sermons have passages, sequence, archive dates, durations and destinations. All 20 format records are link-only. No sermon files or transcripts were downloaded, indexed or published. The ministry inventory documents permission-dependent retrieval, unresolved source methods and provisional-author holds.
+[Preserved historical acquisition notes, URLs, hashes, mission reports and qualifications](content/library/reports/campaign-reconciliation/sources/HISTORICAL-SOURCES.md#modern-preaching-source-inventory-l04-2026-10-05).
 
 ## Sermon coverage research (L05, 2026-10-05)
 
-The [all-66-book coverage report](content/library/reports/sermon-coverage/REPORT.md) separates source-assigned main texts from body-assessed exposition and incidental citations. It audits 3,795 core units, identifies exact unmapped chapters/verses, preacher concentration and unfinished corpus boundaries, and checks all 83 recorded series memberships. [Gap discoveries](content/library/reports/sermon-coverage/gap-resources.json) link to three official Piper messages and Princeton's 1583 Calvin Deuteronomy edition record. They remain outside the catalog numerator; no new sermon bytes or public content were acquired by this audit.
+[Preserved historical acquisition notes, URLs, hashes, mission reports and qualifications](content/library/reports/campaign-reconciliation/sources/HISTORICAL-SOURCES.md#sermon-coverage-research-l05-2026-10-05).
 
 ## Commentary and biblical-theology collection (L06, 2026-10-05)
 
-The [L06 report](content/library/reports/scripture-studies/REPORT.md) documents 47 linked holdings and 155 indexed sections, retaining passage boundaries, edition locators, all eight requested themes and author-specific interpretations. Two historical Internet Archive editions—Vos (1903) and Berkhof's New Testament Introduction (1915)—were acquired in PDF and host OCR: four original files, 25,927,121 bytes, with hashes in the [manifest](content/library/reports/scripture-studies/acquisition-manifest.json). CCEL, Gill's Bible Study Tools presentation and Baker's hermeneutics edition remain source links; private contents evidence and a licensed preview do not imply republication rights. Existing Vos/Berkhof identities are reused. No new full-text search or public publication is created.
+[Preserved historical acquisition notes, URLs, hashes, mission reports and qualifications](content/library/reports/campaign-reconciliation/sources/HISTORICAL-SOURCES.md#commentary-and-biblical-theology-collection-l06-2026-10-05).
 
 ## Doctrinal collection (L07, 2026-10-05)
 
-The [L07 report](content/library/reports/doctrinal-studies/REPORT.md) records complete selected chapter inventories for Charles Hodge's three-volume Systematic Theology, A. A. Hodge's 1877 Outlines, Owen's Justification, and Warfield's five lectures. Two historical books were acquired as four unchanged PDF/OCR files, 35,047,686 bytes; [the manifest](content/library/reports/doctrinal-studies/acquisition-manifest.json) retains hashes and provenance. CCEL full texts remain source links. Shared doctrine terms organize 129 sections; Scripture attribution, editorial companions and sermon-match evidence stay separate. No new public downloads or full-text search ingestion.
+[Preserved historical acquisition notes, URLs, hashes, mission reports and qualifications](content/library/reports/campaign-reconciliation/sources/HISTORICAL-SOURCES.md#doctrinal-collection-l07-2026-10-05).
 
 ## Historical standards (L08, 2026-10-05)
 
-The [L08 report](content/library/reports/confessional-standards/REPORT.md) identifies nine acquired files: six named Creeds.json witnesses, two lwalen Second London witnesses and a 1767 Flavel scan from Oxford/Google via Internet Archive. [Pinned URLs and hashes](content/library/reports/confessional-standards/acquisition-manifest.json) preserve original bytes. Creeds.json's Unlicense excludes listed texts, including its Savoy file; only selected eligible files were fetched. The lwalen files carry CC0. Flavel's modernized text needs further provenance review before republication; the 1767 scan is separately identified. Continental/Anglican/Savoy CCEL witnesses remain links. Original proofs are citations, not exposition coverage, and no public publication or full-text ingestion changed.
+[Preserved historical acquisition notes, URLs, hashes, mission reports and qualifications](content/library/reports/campaign-reconciliation/sources/HISTORICAL-SOURCES.md#historical-standards-l08-2026-10-05).
 
 ## Christianity and Islam collection (L10, 2026-10-05)
 
-The [L10 report](content/library/reports/islam-studies/REPORT.md) records 13 primary holdings, 21 indexed chapters/lectures and nine source-based question comparisons. Three Zwemer PDFs from the Zwemer Center are retained unchanged: 22,060,863 bytes with [hashes and provenance](content/library/reports/islam-studies/acquisition-manifest.json). The 1905 and 1916 historic texts have scoped U.S. public-domain assessments; the undated ATS *Moslem Christ* impression has only the host's reading/download permission, with public reuse unresolved. AOMin and Baker works, Piper's article and the attributed Ally response remain source links. Quran.com supplies contextual references; five short English excerpts are collated against named translations at the Quranic Arabic Corpus. Modern text/media and translations are not republished or ingested into full-text search. No public publication changed.
+[Preserved historical acquisition notes, URLs, hashes, mission reports and qualifications](content/library/reports/campaign-reconciliation/sources/HISTORICAL-SOURCES.md#christianity-and-islam-collection-l10-2026-10-05).
 
 ## Historical lives and missionary testimony (L13, 2026-10-05)
 
-The [L13 report](content/library/reports/historical-lives/REPORT.md) documents seven identified editions in 12 acquired files: five paired Internet Archive PDF/OCR holdings (Brainerd, M’Cheyne and three Paton parts) and two Gutenberg HTML witnesses (Rutherford and Knox). The [manifest](content/library/reports/historical-lives/acquisition-manifest.json) preserves original URLs, final destinations, hashes and 89,995,054 content bytes. Named static Gutenberg mirror files retain all electronic notices. Historic-text public-domain treatment is scoped to the United States; public hosting and full-text indexing remain uncleared. Firsthand and later accounts, explicit abridgments, contributor identities and Paton’s 1898/1889 metadata conflict are retained in the catalog and source-linked issue register. No publication selection changed.
+[Preserved historical acquisition notes, URLs, hashes, mission reports and qualifications](content/library/reports/campaign-reconciliation/sources/HISTORICAL-SOURCES.md#historical-lives-and-missionary-testimony-l13-2026-10-05).
 
 ## Church, preaching and missions (L12, 2026-10-05)
 
-The [L12 report](content/library/reports/ministry-resources/REPORT.md) identifies ten new holdings and 50 components, reusing 18 existing work references. One historic Spurgeon first-series volume was acquired from Internet Archive in PDF and host OCR: 17,600,369 bytes with immutable [provenance and hashes](content/library/reports/ministry-resources/acquisition-manifest.json). Nine holdings remain authorized source links at Banner of Truth, CCEL, Gutenberg, IVP, Desiring God and Monergism. Modernization, source permissions and historical edition gaps are preserved. Thirty scoped assessments distinguish doctrine, dated practice and ministry advice across eight areas and five audiences. No public publication or full-text index changed.
+[Preserved historical acquisition notes, URLs, hashes, mission reports and qualifications](content/library/reports/campaign-reconciliation/sources/HISTORICAL-SOURCES.md#church-preaching-and-missions-l12-2026-10-05).
 
 ## Modern sermon text acquisition (2026-10-05)
 
-The [modern text report](content/library/reports/modern-texts/REPORT.md) tracks original downloaded reading files, SHA-256 hashes and extracted text separately from policy/index evidence. At the owner's direction, the active acquisition now processes only Piper's existing full HTML sermon texts. Further PDFs, books, broad discovery and new transcription are deferred. The [PDF list](content/library/reports/modern-texts/PDF-INVENTORY.md) preserves acquired files and the [source queue](content/library/reports/modern-texts/SOURCE-QUEUE.md) documents deferred sources. Copies are private and remain outside public publication and app full-text indexing. Live counts are regenerated by the local worker.
+[Preserved historical acquisition notes, URLs, hashes, mission reports and qualifications](content/library/reports/campaign-reconciliation/sources/HISTORICAL-SOURCES.md#modern-sermon-text-acquisition-2026-10-05).
 
 ## Annotated study paths (L14, 2026-10-05)
 
-The [five study paths](content/library/reports/study-paths/PATHS.md) reuse 24 existing catalog works in 15 ordered stages. The [selection register](content/library/reports/study-paths/resources.json) retains source links and exact assigned locations; the [access record](content/library/reports/study-paths/source-access.json) distinguishes PRDL discovery, Monergism linking, Desiring God permissions and MLJ systematic-retrieval restrictions. No new source files were acquired, no full texts republished and no catalog editorial status promoted. See the [report](content/library/reports/study-paths/REPORT.md) for scoped verification and remaining gaps.
+[Preserved historical acquisition notes, URLs, hashes, mission reports and qualifications](content/library/reports/campaign-reconciliation/sources/HISTORICAL-SOURCES.md#annotated-study-paths-l14-2026-10-05).
 
 ## Ordinary-print OCR and font repair (2026-10-05)
 
-The [whole acquired-PDF audit](content/library/reports/ocr-completion/REPORT.md) checked 4,737 files and 121,755 pages without read errors. Three parallel Windows English OCR workers recovered 21 visually approved pages in ten existing documents; two font-specific repairs restored extraction on 247 pages. [Page dispositions](content/library/reports/ocr-completion/page-dispositions.json) distinguish completed OCR, non-prose pages, existing historical text and explicitly deferred difficult/specialized material. Derived reading files retain page locators and hashes; no original PDFs, old derivatives, source rights or public publication changed. No new downloads. OCR remains machine text with scoped visual boundary checks and recorded corrections, not a complete scholarly proofread.
+[Preserved historical acquisition notes, URLs, hashes, mission reports and qualifications](content/library/reports/campaign-reconciliation/sources/HISTORICAL-SOURCES.md#ordinary-print-ocr-and-font-repair-2026-10-05).
 
 ## Historical collection-level ready text (2026-10-05)
 
-The [ready-text batch report](content/library/reports/historical-text-corpora/REPORT.md) records 91 source-offered Monergism EPUB editions across 23 eligible historical authors, discovered from one author-organized index. The primary batch comprises 79 editions with 24,036,037 extracted words; 12 editions disclosing publisher AI transcription/translation are excluded from that batch and retained for review. Text counts include overlapping collections. [Open local EPUB/TXT files](content/library/reports/historical-text-corpora/FILES.md); [hashes, source URLs, edition metadata and quality checks](content/library/reports/historical-text-corpora/acquisition-results.json). All offered volumes of the Edwards, Whitefield and Owen Hebrews sets were acquired; previously downloaded CCEL Calvin commentaries were reused. No scan downloads or new OCR. [Monergism's permissions](https://www.monergism.com/monergism-copyright-permissions) support private study copies and source linking, not republication of curated files. Nothing was added to public publication or app full-text search.
+[Preserved historical acquisition notes, URLs, hashes, mission reports and qualifications](content/library/reports/campaign-reconciliation/sources/HISTORICAL-SOURCES.md#historical-collection-level-ready-text-2026-10-05).
 
 ## Considered and left out
 
-- **KJV in the UK:** public domain everywhere except Britain (perpetual Crown patent). Only relevant if the
-  site is ever published to UK readers.
-- **Modern copyrighted translations** (NIV, ESV, NKJV, NASB, NLT…): not free; never included.
-- **Wycliffe** is in, but covers only nine books.
-# L11 pastoral care — text-first acquisition (2026-10-05)
+[Preserved historical acquisition notes, URLs, hashes, mission reports and qualifications](content/library/reports/campaign-reconciliation/sources/HISTORICAL-SOURCES.md#considered-and-left-out).
 
-**Library-wide follow-up:** [Verified text-source audit](content/library/reports/text-backlog/REPORT.md) replaces the format-only transcription queue. Seventy-six of 77 PDF candidates have substantial existing text in sampled pages; the other has an existing alternate-edition transcription. Sixty-three complete, source-offered CCEL ThML files were acquired with original hashes and restricted-license asset records, including all 45 Calvin commentary volumes. [Manifest](content/library/reports/text-backlog/ready-text-acquisition-manifest.json) and [source decisions](content/library/reports/text-backlog/text-resolutions.json) retain direct text URLs, edition cautions, partial-source findings and unresolved authorized free-text access. No new OCR or public republication occurred.
+## L11 pastoral care — text-first acquisition (2026-10-05)
 
-Seven complete CCEL ThML transcriptions acquired: Owen's *Mortification* and *Temptation*, Ryle's *Holiness*, Watson's *Lord's Prayer*, Boston's *Crook in the Lot*, Flavel's *Keeping the Heart*, and Gill's *Practical Divinity*. See [bibliography and reading index](content/library/reports/pastoral-care/REPORT.md) and [immutable acquisition manifest](content/library/reports/pastoral-care/acquisition-manifest.json). CCEL's [permissions](https://www.ccel.org/about/copyright.html) govern electronic packaging; personal/educational acquisition is not public redistribution clearance. Six prior work/edition identities are reused. The previously acquired 1813 Flavel *Token for Mourners* PDF/OCR is [deferred](content/library/reports/pastoral-care/deferred-pdfs.json), not counted as a reliable transcription. Prioritize existing readable text; avoid further OCR/scan processing unless requested.
-
-<!-- RB01 sources:start -->
+[Preserved historical acquisition notes, URLs, hashes, mission reports and qualifications](content/library/reports/campaign-reconciliation/sources/HISTORICAL-SOURCES.md#l11-pastoral-care--text-first-acquisition-2026-10-05).
 
 ## RB01 Baptist doctrinal and confessional acquisition (2026-10-07)
 
-**Actual private holdings:** 121 verified originals (103 HTML, 17 PDF, one JSON); six wholly new historical works, completion of Dagg Part I, 18 selected Founders issue records, one editorial comparison document. [Mission report](content/library/reports/reformed-baptist-overnight/RB01/REPORT.md), [full provenance/hash ledger](content/library/reports/reformed-baptist-overnight/RB01/acquisition-manifest.json), [32-chapter explanation map](content/library/reports/reformed-baptist-overnight/RB01/exposition-coverage.json), [admission decisions](content/library/reports/reformed-baptist-overnight/RB01/admission-decisions.json), [rights and intake scope](content/library/reports/reformed-baptist-overnight/RB01/intake-scope.json). Downloaded and readable, not newly embedded.
-
-Dagg: complete offered Part I; Church Order’s misidentified Introduction was corrected and its missing historical text recovered in RB05 (see the RB05 correction below). New Philadelphia (34 chapters), distinct First London witnesses, Cox appendix, Beddome exposition (114 units / 2,611 nested Q&A), Collins Orthodox Catechism (152 questions). Founders: 16 full offered PDFs plus complete HTML article sets for 117/119; not 18 complete print issues. Boyce, Gill and existing 1689/Baptist Catechism holdings reused. Editorial composites, uncertain dates, modern chapter expansions and incidental reviews retain their labels. Historic text/public reading does not imply public republication clearance; no raw bodies hosted.
-
-<details>
-<summary>Every acquired original and its source (121 files)</summary>
-
-| Work/component as acquired | Exact source URL | Format / completeness |
-|---|---|---|
-| Manual of Theology, Part I: Preface | [Source](https://www.reformedreader.org/rbb/dagg/motp.htm) | html · component-of-complete-offered-witness |
-| Manual of Theology, Part I: The Obligation | [Source](https://www.reformedreader.org/rbb/dagg/motb1c1.htm) | html · component-of-complete-offered-witness |
-| Manual of Theology, Part I: Sources of Knowledge | [Source](https://www.reformedreader.org/rbb/dagg/motb1c2.htm) | html · component-of-complete-offered-witness |
-| Manual of Theology, Part I: Appendix-Origin and Authority of the Bible | [Source](https://www.reformedreader.org/rbb/dagg/motb1ap.htm) | html · component-of-complete-offered-witness |
-| Manual of Theology, Part I: Duty of Love to God | [Source](https://www.reformedreader.org/rbb/dagg/motb2i.htm) | html · component-of-complete-offered-witness |
-| Manual of Theology, Part I: Existence of God | [Source](https://www.reformedreader.org/rbb/dagg/motb2c1.htm) | html · component-of-complete-offered-witness |
-| Manual of Theology, Part I: Attributes of God | [Source](https://www.reformedreader.org/rbb/dagg/motb2c2.htm) | html · component-of-complete-offered-witness |
-| Manual of Theology, Part I: Conclusion | [Source](https://www.reformedreader.org/rbb/dagg/motb2c.htm) | html · component-of-complete-offered-witness |
-| Manual of Theology, Part I: Duty of Delighting in the Will and Works of God | [Source](https://www.reformedreader.org/rbb/dagg/motb3i.htm) | html · component-of-complete-offered-witness |
-| Manual of Theology, Part I: Will of God | [Source](https://www.reformedreader.org/rbb/dagg/motb3c1.htm) | html · component-of-complete-offered-witness |
-| Manual of Theology, Part I: Creation | [Source](https://www.reformedreader.org/rbb/dagg/motb3c2.htm) | html · component-of-complete-offered-witness |
-| Manual of Theology, Part I: Providence | [Source](https://www.reformedreader.org/rbb/dagg/motb3c3.htm) | html · component-of-complete-offered-witness |
-| Manual of Theology, Part I: Conclusion | [Source](https://www.reformedreader.org/rbb/dagg/motb3c.htm) | html · component-of-complete-offered-witness |
-| Manual of Theology, Part I: Duty of Repentance | [Source](https://www.reformedreader.org/rbb/dagg/motb4i.htm) | html · component-of-complete-offered-witness |
-| Manual of Theology, Part I: Original State of Man | [Source](https://www.reformedreader.org/rbb/dagg/motb4c1.htm) | html · component-of-complete-offered-witness |
-| Manual of Theology, Part I: The Fall | [Source](https://www.reformedreader.org/rbb/dagg/motb4c2.htm) | html · component-of-complete-offered-witness |
-| Manual of Theology, Part I: Man's Present State | [Source](https://www.reformedreader.org/rbb/dagg/motb4c3.htm) | html · component-of-complete-offered-witness |
-| Manual of Theology, Part I: Conclusion | [Source](https://www.reformedreader.org/rbb/dagg/motb4c.htm) | html · component-of-complete-offered-witness |
-| Manual of Theology, Part I: Duty of Believing in Jesus Christ | [Source](https://www.reformedreader.org/rbb/dagg/motb5i.htm) | html · component-of-complete-offered-witness |
-| Manual of Theology, Part I: Person of Christ | [Source](https://www.reformedreader.org/rbb/dagg/motb5c1.htm) | html · component-of-complete-offered-witness |
-| Manual of Theology, Part I: States of Christ | [Source](https://www.reformedreader.org/rbb/dagg/motb5c2.htm) | html · component-of-complete-offered-witness |
-| Manual of Theology, Part I: Offices of Christ | [Source](https://www.reformedreader.org/rbb/dagg/motb5c3.htm) | html · component-of-complete-offered-witness |
-| Manual of Theology, Part I: Conclusion | [Source](https://www.reformedreader.org/rbb/dagg/motb5c.htm) | html · component-of-complete-offered-witness |
-| Manual of Theology, Part I: Duty of Living and Walking in the Holy Spirit | [Source](https://www.reformedreader.org/rbb/dagg/motb6i.htm) | html · component-of-complete-offered-witness |
-| Manual of Theology, Part I: Personality of the Holy Spirit | [Source](https://www.reformedreader.org/rbb/dagg/motb6c1.htm) | html · component-of-complete-offered-witness |
-| Manual of Theology, Part I: The Divinity of the Holy Spirit | [Source](https://www.reformedreader.org/rbb/dagg/motb6c2.htm) | html · component-of-complete-offered-witness |
-| Manual of Theology, Part I: Office of the Holy Spirit | [Source](https://www.reformedreader.org/rbb/dagg/motb6c3.htm) | html · component-of-complete-offered-witness |
-| Manual of Theology, Part I: Conclusion | [Source](https://www.reformedreader.org/rbb/dagg/motb6c.htm) | html · component-of-complete-offered-witness |
-| Manual of Theology, Part I: Duty of Gratitute for Divine Grace | [Source](https://www.reformedreader.org/rbb/dagg/motb7i.htm) | html · component-of-complete-offered-witness |
-| Manual of Theology, Part I: The Trinity | [Source](https://www.reformedreader.org/rbb/dagg/motb7c1.htm) | html · component-of-complete-offered-witness |
-| Manual of Theology, Part I: Covenant of Grace | [Source](https://www.reformedreader.org/rbb/dagg/motb7c2.htm) | html · component-of-complete-offered-witness |
-| Manual of Theology, Part I: Blessings of Grace | [Source](https://www.reformedreader.org/rbb/dagg/motb7c3.htm) | html · component-of-complete-offered-witness |
-| Manual of Theology, Part I: Sovereignty of Grace | [Source](https://www.reformedreader.org/rbb/dagg/motb7c4.htm) | html · component-of-complete-offered-witness |
-| Manual of Theology, Part I: Conclusion | [Source](https://www.reformedreader.org/rbb/dagg/motb7c.htm) | html · component-of-complete-offered-witness |
-| Manual of Theology, Part I: Duty of Preparing for the Future World | [Source](https://www.reformedreader.org/rbb/dagg/motb8i.htm) | html · component-of-complete-offered-witness |
-| Manual of Theology, Part I: Immortality and Separate State of the Soul | [Source](https://www.reformedreader.org/rbb/dagg/motb8c1.htm) | html · component-of-complete-offered-witness |
-| Manual of Theology, Part I: Resurrection | [Source](https://www.reformedreader.org/rbb/dagg/motb8c2.htm) | html · component-of-complete-offered-witness |
-| Manual of Theology, Part I: The Last Judgment | [Source](https://www.reformedreader.org/rbb/dagg/motb8c3.htm) | html · component-of-complete-offered-witness |
-| Manual of Theology, Part I: Heaven | [Source](https://www.reformedreader.org/rbb/dagg/motb8c4.htm) | html · component-of-complete-offered-witness |
-| Manual of Theology, Part I: Hell | [Source](https://www.reformedreader.org/rbb/dagg/motb8c5.htm) | html · component-of-complete-offered-witness |
-| Manual of Theology, Part I: Conclusion | [Source](https://www.reformedreader.org/rbb/dagg/motb8c.htm) | html · component-of-complete-offered-witness |
-| Philadelphia Confession: Of the Holy Scriptures | [Source](https://www.reformedreader.org/ccc/pc01.htm) | html · component-of-complete-offered-witness |
-| Philadelphia Confession: Of God and the Holy Trinity | [Source](https://www.reformedreader.org/ccc/pc02.htm) | html · component-of-complete-offered-witness |
-| Philadelphia Confession: Of God's Decree | [Source](https://www.reformedreader.org/ccc/pc03.htm) | html · component-of-complete-offered-witness |
-| Philadelphia Confession: Of Creation | [Source](https://www.reformedreader.org/ccc/pc04.htm) | html · component-of-complete-offered-witness |
-| Philadelphia Confession: Of Divine Providence | [Source](https://www.reformedreader.org/ccc/pc05.htm) | html · component-of-complete-offered-witness |
-| Philadelphia Confession: Of the Fall of Man, of Sin, and of the Punishment Thereof | [Source](https://www.reformedreader.org/ccc/pc06.htm) | html · component-of-complete-offered-witness |
-| Philadelphia Confession: Of God's Covenant | [Source](https://www.reformedreader.org/ccc/pc07.htm) | html · component-of-complete-offered-witness |
-| Philadelphia Confession: Of Christ the Mediator | [Source](https://www.reformedreader.org/ccc/pc08.htm) | html · component-of-complete-offered-witness |
-| Philadelphia Confession: Of Free Will | [Source](https://www.reformedreader.org/ccc/pc09.htm) | html · component-of-complete-offered-witness |
-| Philadelphia Confession: Of Effectual Calling | [Source](https://www.reformedreader.org/ccc/pc10.htm) | html · component-of-complete-offered-witness |
-| Philadelphia Confession: Of Justification | [Source](https://www.reformedreader.org/ccc/pc11.htm) | html · component-of-complete-offered-witness |
-| Philadelphia Confession: Of Adoption | [Source](https://www.reformedreader.org/ccc/pc12.htm) | html · component-of-complete-offered-witness |
-| Philadelphia Confession: Of Sanctification | [Source](https://www.reformedreader.org/ccc/pc13.htm) | html · component-of-complete-offered-witness |
-| Philadelphia Confession: Of Saving Faith | [Source](https://www.reformedreader.org/ccc/pc14.htm) | html · component-of-complete-offered-witness |
-| Philadelphia Confession: Of Repentance Unto Life and Salvation | [Source](https://www.reformedreader.org/ccc/pc15.htm) | html · component-of-complete-offered-witness |
-| Philadelphia Confession: Of Good Works | [Source](https://www.reformedreader.org/ccc/pc16.htm) | html · component-of-complete-offered-witness |
-| Philadelphia Confession: Of the Perseverance of the Saints | [Source](https://www.reformedreader.org/ccc/pc17.htm) | html · component-of-complete-offered-witness |
-| Philadelphia Confession: Of the Assurance of Grace and Salvation | [Source](https://www.reformedreader.org/ccc/pc18.htm) | html · component-of-complete-offered-witness |
-| Philadelphia Confession: Of the Law of God | [Source](https://www.reformedreader.org/ccc/pc19.htm) | html · component-of-complete-offered-witness |
-| Philadelphia Confession: Of the Gospel and of the Extent of the Grace Thereof | [Source](https://www.reformedreader.org/ccc/pc20.htm) | html · component-of-complete-offered-witness |
-| Philadelphia Confession: Of Christian Liberty, and Liberty of Conscience | [Source](https://www.reformedreader.org/ccc/pc21.htm) | html · component-of-complete-offered-witness |
-| Philadelphia Confession: Of Religious Worship and the Sabbath Day | [Source](https://www.reformedreader.org/ccc/pc22.htm) | html · component-of-complete-offered-witness |
-| Philadelphia Confession: Of Singing of Psalms & etc. | [Source](https://www.reformedreader.org/ccc/pc23.htm) | html · component-of-complete-offered-witness |
-| Philadelphia Confession: Of Lawful Oaths and Vows | [Source](https://www.reformedreader.org/ccc/pc24.htm) | html · component-of-complete-offered-witness |
-| Philadelphia Confession: Of the Civil Magistrate | [Source](https://www.reformedreader.org/ccc/pc25.htm) | html · component-of-complete-offered-witness |
-| Philadelphia Confession: Of Marriage | [Source](https://www.reformedreader.org/ccc/pc26.htm) | html · component-of-complete-offered-witness |
-| Philadelphia Confession: Of the Church | [Source](https://www.reformedreader.org/ccc/pc27.htm) | html · component-of-complete-offered-witness |
-| Philadelphia Confession: Of the Communion of Saints | [Source](https://www.reformedreader.org/ccc/pc28.htm) | html · component-of-complete-offered-witness |
-| Philadelphia Confession: Of Baptism and the Lord's Supper | [Source](https://www.reformedreader.org/ccc/pc29.htm) | html · component-of-complete-offered-witness |
-| Philadelphia Confession: Of Baptism | [Source](https://www.reformedreader.org/ccc/pc30.htm) | html · component-of-complete-offered-witness |
-| Philadelphia Confession: Of Laying On of Hands | [Source](https://www.reformedreader.org/ccc/pc31.htm) | html · component-of-complete-offered-witness |
-| Philadelphia Confession: Of the Lord's Supper | [Source](https://www.reformedreader.org/ccc/pc32.htm) | html · component-of-complete-offered-witness |
-| Philadelphia Confession: Of the State of Man After Death, and of the Resurrection of the Dead | [Source](https://www.reformedreader.org/ccc/pc33.htm) | html · component-of-complete-offered-witness |
-| Philadelphia Confession: Of the Last Judgment | [Source](https://www.reformedreader.org/ccc/pc34.htm) | html · component-of-complete-offered-witness |
-| First London Confession (1644) | [Source](https://www.reformedreader.org/ccc/h.htm) | html · component-of-complete-offered-witness |
-| Baptist catechism data: Beddome exposition and Collins Orthodox Catechism | [Source](https://baptistcatechism.org/baptistcatechism-data.json) | json · complete-numbered-witnesses |
-| Appendix to a Confession of Faith (1646) | [Source](https://www.reformedreader.org/ccc/appendix.htm) | html · complete-offered-appendix |
-| First London Confession, second edition (1646) | [Source](https://www.romans45.org/creeds/bc1646.htm) | html · complete-offered-witness |
-| First London Comprehensive Edition: documentation of editorial decisions | [Source](https://www.london1644.info/documents/1LCF-EN-CompEd-Documentation-A4-Paper.pdf) | pdf · complete-offered-editorial-document |
-| A Scriptural Exposition of the Baptist Catechism (including preface) | [Source](https://baptistcatechism.org/beddome/) | html · complete-offered-witness |
-| Manual of Church Order – Appendix | [Source](https://founders.org/library/appendix/) | html · component-of-complete-offered-witness |
-| Manual of Church Order – Ch. 1 | [Source](https://founders.org/library/ch-1/) | html · component-of-complete-offered-witness |
-| Manual of Church Order – Ch. 10 | [Source](https://founders.org/library/ch-10/) | html · component-of-complete-offered-witness |
-| Manual of Church Order – Ch. 2 | [Source](https://founders.org/library/ch-2/) | html · component-of-complete-offered-witness |
-| Manual of Church Order – Ch. 3 | [Source](https://founders.org/library/ch-3/) | html · component-of-complete-offered-witness |
-| Manual of Church Order – Ch. 4 | [Source](https://founders.org/library/ch-4/) | html · component-of-complete-offered-witness |
-| Manual of Church Order – Ch. 5 | [Source](https://founders.org/library/ch-5/) | html · component-of-complete-offered-witness |
-| Manual of Church Order – Ch. 6 | [Source](https://founders.org/library/ch-6/) | html · component-of-complete-offered-witness |
-| Manual of Church Order – Ch. 7 | [Source](https://founders.org/library/ch-7/) | html · component-of-complete-offered-witness |
-| Manual of Church Order – Ch. 8 | [Source](https://founders.org/library/ch-8/) | html · component-of-complete-offered-witness |
-| Manual of Church Order – Ch. 9 | [Source](https://founders.org/library/ch-9/) | html · component-of-complete-offered-witness |
-| Manual of Church Order – Conclusion | [Source](https://founders.org/library/conclusion/) | html · component-of-complete-offered-witness |
-| Stan Reeves: Introduction to the 1689 Confession in Modern English (RB05 attribution correction; not Dagg) | [Source](https://founders.org/library/introduction/) | html · modern editorial; evidence-only |
-| Manual of Church Order – Preface | [Source](https://founders.org/library/preface/) | html · component-of-complete-offered-witness |
-| Founders Journal: Scripture (Issue 104) Spring 2016 | [Source](https://founders.org/wp-content/uploads/2017/06/FoundersJournal104.pdf) | pdf · complete-offered-issue-file |
-| Founders Journal: Trinity (Issue 105) Summer 2016 | [Source](https://founders.org/wp-content/uploads/2016/10/FoundersJournal105.pdf) | pdf · complete-offered-issue-file |
-| Founders Journal: Decrees (Issue 106) Fall 2016 | [Source](https://founders.org/wp-content/uploads/2017/10/FoundersJournal106r.pdf) | pdf · complete-offered-issue-file |
-| Founders Journal: Creation and the Fall (107) Winter 2017 | [Source](https://founders.org/wp-content/uploads/2017/03/FoundersJournal107.pdf) | pdf · complete-offered-issue-file |
-| Founders Journal: Of Covenants and Mediators (Issue 108) Spring 2017 | [Source](https://founders.org/wp-content/uploads/2017/12/FoundersJournal108N.pdf) | pdf · complete-offered-issue-file |
-| Founders Journal: Freedom of the Will and Effectual Calling (Issue 109) Summer 2017 | [Source](https://founders.org/wp-content/uploads/2017/12/FoundersJournal109N.pdf) | pdf · complete-offered-issue-file |
-| Founders Journal: Justification (Issue 110) Fall 2017 | [Source](https://founders.org/wp-content/uploads/2017/10/FoundersJournal110.pdf) | pdf · complete-offered-issue-file |
-| Founders Journal: Adoption and Sanctification (Issue 111) Winter 2018 | [Source](https://founders.org/wp-content/uploads/2018/03/FoundersJournal111.pdf) | pdf · complete-offered-issue-file |
-| Founders Journal: Faith, Repentance, and Works (Issue 112) Spring 2018 | [Source](https://founders.org/wp-content/uploads/2018/06/FoundersJournal112.pdf) | pdf · complete-offered-issue-file |
-| Founders Journal: Perseverance of the Saints (Issue 113) Summer 2018 | [Source](https://founders.org/wp-content/uploads/2018/09/FoundersJournal113.pdf) | pdf · complete-offered-issue-file |
-| Founders Journal: Assurance of Grace and Salvation (Issue 114) Fall 2018 | [Source](https://founders.org/wp-content/uploads/2018/12/FoundersJournal109.pdf) | pdf · complete-offered-issue-file |
-| Founders Journal: Of the Law of God (Issue 115) Winter 2019 | [Source](https://founders.org/wp-content/uploads/2019/04/FoundersJournal115.pdf) | pdf · complete-offered-issue-file |
-| Founders Journal: The Gospel and Its Extent (Issue 116) Spring 2019 | [Source](https://founders.org/wp-content/uploads/2019/06/FoundersJournal116.pdf) | pdf · complete-offered-issue-file |
-| “By That Glorious and Dreadful Name” | [Source](https://founders.org/articles/by-that-glorious-and-dreadful-name/) | html · complete-offered-article |
-| Chapter 22: Biblically-Regulated Religious Worship | [Source](https://founders.org/articles/chapter-22-biblically-regulated-religious-worship/) | html · complete-offered-article |
-| Of Christian Liberty and Liberty of Conscience | [Source](https://founders.org/articles/of-christian-liberty-and-liberty-of-conscience/) | html · complete-offered-article |
-| The Puritans: A Transatlantic History | [Source](https://founders.org/articles/the-puritans-a-transatlantic-history/) | html · complete-offered-article |
-| Of Marriage: The 1689 Baptist Confession | [Source](https://founders.org/articles/of-marriage-the-1689-baptist-confession/) | html · complete-offered-article |
-| Religious Liberty: The Glory of Baptists | [Source](https://founders.org/articles/religious-liberty-the-glory-of-baptists/) | html · complete-offered-article |
-| Of the Civil Magistrate | [Source](https://founders.org/articles/of-the-civil-magistrate/) | html · complete-offered-article |
-| Founders Journal: Reforming Churches (Issue 121) Summer 2020 | [Source](https://founders.org/wp-content/uploads/2021/04/Founders-Journal-Issue-121-2020-Summer.pdf) | pdf · complete-offered-issue-file |
-| Founders Journal: Baptism and The Lord's Supper (Issue 122) Fall 2020 | [Source](https://founders.org/wp-content/uploads/2021/08/Founders-Journal-FULL-PLATE-2020-Fall-.pdf) | pdf · complete-offered-issue-file |
-| Founders Journal: Death, Resurrection and Judgment (Issue 123) Winter 2021 | [Source](https://founders.org/wp-content/uploads/2022/02/Founders-Journal-FULL-PLATE-2021-Winter.pdf) | pdf · complete-offered-issue-file |
-| First London Confession (1644), with preface and signatures | [Source](https://www.romans45.org/creeds/bc1644.htm) | html · complete-offered-witness |
-| Introduction to Summer Issue 2019 | [Source](https://founders.org/articles/introduction-to-summer-issue-2019/) | html · complete-offered-article |
-| Introduction: Of The Civil Magistrate and Religious Liberty | [Source](https://founders.org/articles/introduction-of-the-civil-magistrate-and-religious-liberty/) | html · complete-offered-article |
-
-</details>
-
-<!-- RB01 sources:end -->
-
-<!-- RB02 sources:start -->
+[Preserved historical acquisition notes, URLs, hashes, mission reports and qualifications](content/library/reports/campaign-reconciliation/sources/HISTORICAL-SOURCES.md#rb01-baptist-doctrinal-and-confessional-acquisition-2026-10-07).
 
 ## 2026-10-07: RB02 Baptist covenants and ordinances
 
-15 immutable readable originals represent **four new historical works and six modern works/series**. Multiple Keach witnesses and Booth volumes are counted by work, not by file. Audited and reused Coxe, Pink, Gill, Dagg and Founders explanations; no new DB import, embedding or public text hosting.
-
-[Acquisition report](content/library/reports/reformed-baptist-overnight/RB02/REPORT.md) | [Source-first bibliography](content/library/reports/reformed-baptist-overnight/RB02/bibliography.json) | [Manifest and hashes](content/library/reports/reformed-baptist-overnight/RB02/acquisition-manifest.json) | [184 chapter/section locations](content/library/reports/reformed-baptist-overnight/RB02/READING-MAP.md) | [Covenant and ordinance distinctions](content/library/reports/reformed-baptist-overnight/RB02/COVENANT-MODELS.md) | [Rights/edition exceptions](content/library/reports/reformed-baptist-overnight/RB02/source-exceptions.json) | [Intake scopes](content/library/reports/reformed-baptist-overnight/RB02/intake-scope.json).
-
-Historic edited witnesses, source gaps, existing OCR, quoted opponents and contributor/publisher material retain distinct roles. Modern articles are complete offered articles, not the authors' complete commercial books. Copyright remains with the respective publishers; private acquisitions do not authorize republication. Intake follows the newer fourteen-mission gate.
-
-| Acquired work/witness | Source of acquisition | Format and completeness |
-|---|---|---|
-| Gold Refin’d; or, Baptism in its Primitive Purity | [Offered source](<https://thecalvinist.net/files/books/Benjamin%20Keach%20-%20Gold%20Refin%e2%80%99d;%20or,%20Baptism%20in%20its%20Primitive%20Purity%20(1689).pdf>) | pdf / complete-offered-edited-work-with-disclosed-footnote-omissions |
-| An Apology for the Baptists | [Offered source](<https://www.reformedontheweb.com/baptists/an-apology-for-baptists-abraham-booth.pdf>) | pdf / complete-offered-work |
-| A Treatise Concerning the Lawfull Subject of Baptism | [Offered source](<https://www.reformedontheweb.com/baptists/a-treatise-concerning-the-lawfull-subject-of-baptism-spilsbery.pdf>) | pdf / complete-offered-work |
-| Covenant Theology, the 2LBC & CBTS | [Offered source](<https://content.cbtseminary.org/covenant-theology-the-2lbc-cbts/>) | html / complete-offered-article |
-| The 2LBC & the Covenant of Works | [Offered source](<https://content.cbtseminary.org/the-2lbc-the-covenant-of-works/>) | html / complete-offered-article |
-| 1689 Baptist Covenant Theology | [Offered source](<https://content.cbtseminary.org/1689-baptist-covenant-theology-sam-waldron/>) | html / complete-offered-article |
-| The Supper tells everyone who has faith in Christ, “All that He is for sinners, He is for you!” | [Offered source](<https://content.cbtseminary.org/supper-as-means-of-grace/>) | html / complete-offered-article |
-| Progressive Covenantalism and the “1689” | [Offered source](<https://www.baptistdogmatics.com/articles/progressive-covenantalism-and-the-1689>) | html / complete-offered-article |
-| Shall We Baptize Children? Part 1: Initial Reflections | [Offered source](<https://content.cbtseminary.org/shall-we-baptize-children-pt-1-sam-waldron/>) | html / component-of-complete-three-part-offered-series |
-| Shall We Baptize Children? Part 2: Scriptural Foundations | [Offered source](<https://content.cbtseminary.org/shall-we-baptize-children-part-2-scriptural-foundations-sam-waldron/>) | html / component-of-complete-three-part-offered-series |
-| Shall We Baptize Children? Part 3: Practical Conclusions | [Offered source](<https://content.cbtseminary.org/shall-we-baptize-children-part-3-practical-conclusions-sam-waldron/>) | html / component-of-complete-three-part-offered-series |
-| Paedobaptism Examined, with Replies: Volume 1 | [Offered source](<https://archive.org/download/pdobaptismexamin01boot/pdobaptismexamin01boot_djvu.txt>) | txt / complete-offered-volume-of-three-volume-edition |
-| Paedobaptism Examined, with Replies: Volume 2 | [Offered source](<https://archive.org/download/pdobaptismexamin02boot/pdobaptismexamin02boot_djvu.txt>) | txt / complete-offered-volume-of-three-volume-edition |
-| Paedobaptism Examined, with Replies: Volume 3 | [Offered source](<https://archive.org/download/pdobaptismexamin03boot/pdobaptismexamin03boot_djvu.txt>) | txt / complete-offered-volume-of-three-volume-edition |
-| Gold refin'd, or, Baptism in its primitive purity (TCP original-spelling witness) | [Offered source](<https://raw.githubusercontent.com/textcreationpartnership/A47535/master/A47535.xml>) | xml / complete-offered-diplomatic-transcription-with-encoded-source-gaps |
-
-<!-- RB02 sources:end -->
-
-<!-- RB03 sources:start -->
+[Preserved historical acquisition notes, URLs, hashes, mission reports and qualifications](content/library/reports/campaign-reconciliation/sources/HISTORICAL-SOURCES.md#2026-10-07-rb02-baptist-covenants-and-ordinances).
 
 ## RB03: sustained commentary gaps (7 October 2026)
 
-380 immutable readable originals: Henry’s missing OT volumes II–IV, Keach’s missing parables books I/II/IV, and selected Gill chapter witnesses. These are three work families, including two completions of held partial works; file counts are not new-book counts.
-
-[Report](content/library/reports/reformed-baptist-overnight/RB03/REPORT.md) | [Book/chapter coverage](content/library/reports/reformed-baptist-overnight/RB03/COVERAGE.md) | [Keach reading map](content/library/reports/reformed-baptist-overnight/RB03/KEACH-READING-MAP.md) | [Manifest and hashes](content/library/reports/reformed-baptist-overnight/RB03/acquisition-manifest.json) | [Intake scopes](content/library/reports/reformed-baptist-overnight/RB03/intake-scope.json).
-
-Private study acquisitions; no public text hosting or external redistribution. [CCEL policy](https://ccel.org/about/copyright.html), [Monergism policy](https://www.monergism.com/monergism-copyright-permissions), and [HelloAO API documentation](https://bible.helloao.org/docs/) apply; Gill’s inventory uses Public Domain Mark 1.0, not CC0. Henry’s non-Baptist scope and the sparse Gill responses remain explicit. Not yet ingested or embedded; post-RB14 gate applies.
-
-<details><summary>Every acquired source URL (one row per immutable original)</summary>
-
-| Acquired witness | Offered source | Format / scope |
-|---|---|---|
-| Commentary on the Whole Bible, Volume 2 | [Source](<https://ccel.org/ccel/h/henry/mhc2.xml>) | xml / complete-offered-volume |
-| Commentary on the Whole Bible, Volume 3 | [Source](<https://ccel.org/ccel/h/henry/mhc3.xml>) | xml / complete-offered-volume |
-| Commentary on the Whole Bible, Volume 4 | [Source](<https://ccel.org/ccel/h/henry/mhc4.xml>) | xml / complete-offered-volume |
-| Exposition of the Parables and Express Similitudes, offered Volume 1 | [Source](<https://www.monergism.com/thethreshold/sdg/keach/An%20Exposition%20of%20the%20Parablesv1,%20-%20Benjamin%20Keach.epub>) | epub / complete-offered-volume |
-| Exposition of the Parables and Express Similitudes, offered Volume 2 | [Source](<https://www.monergism.com/thethreshold/sdg/keach/An%20Exposition%20of%20the%20Parablesv2,%20-%20Benjamin%20Keach.epub>) | epub / complete-offered-volume |
-| Exposition of the Parables and Express Similitudes, offered Volume 4 | [Source](<https://www.monergism.com/thethreshold/sdg/keach/An%20Exposition%20of%20the%20Parablesv4,%20-%20Benjamin%20Keach.epub>) | epub / complete-offered-volume |
-| Gill Exposition: Leviticus 1 | [Source](<https://bible.helloao.org/api/c/john-gill/LEV/1.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Leviticus 2 | [Source](<https://bible.helloao.org/api/c/john-gill/LEV/2.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Leviticus 3 | [Source](<https://bible.helloao.org/api/c/john-gill/LEV/3.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Leviticus 4 | [Source](<https://bible.helloao.org/api/c/john-gill/LEV/4.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Leviticus 5 | [Source](<https://bible.helloao.org/api/c/john-gill/LEV/5.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Leviticus 6 | [Source](<https://bible.helloao.org/api/c/john-gill/LEV/6.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Leviticus 7 | [Source](<https://bible.helloao.org/api/c/john-gill/LEV/7.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Leviticus 8 | [Source](<https://bible.helloao.org/api/c/john-gill/LEV/8.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Leviticus 9 | [Source](<https://bible.helloao.org/api/c/john-gill/LEV/9.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Leviticus 10 | [Source](<https://bible.helloao.org/api/c/john-gill/LEV/10.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Leviticus 11 | [Source](<https://bible.helloao.org/api/c/john-gill/LEV/11.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Leviticus 12 | [Source](<https://bible.helloao.org/api/c/john-gill/LEV/12.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Leviticus 13 | [Source](<https://bible.helloao.org/api/c/john-gill/LEV/13.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Leviticus 14 | [Source](<https://bible.helloao.org/api/c/john-gill/LEV/14.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Leviticus 15 | [Source](<https://bible.helloao.org/api/c/john-gill/LEV/15.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Leviticus 16 | [Source](<https://bible.helloao.org/api/c/john-gill/LEV/16.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Leviticus 17 | [Source](<https://bible.helloao.org/api/c/john-gill/LEV/17.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Leviticus 18 | [Source](<https://bible.helloao.org/api/c/john-gill/LEV/18.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Leviticus 19 | [Source](<https://bible.helloao.org/api/c/john-gill/LEV/19.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Leviticus 20 | [Source](<https://bible.helloao.org/api/c/john-gill/LEV/20.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Leviticus 21 | [Source](<https://bible.helloao.org/api/c/john-gill/LEV/21.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Leviticus 22 | [Source](<https://bible.helloao.org/api/c/john-gill/LEV/22.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Leviticus 23 | [Source](<https://bible.helloao.org/api/c/john-gill/LEV/23.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Leviticus 24 | [Source](<https://bible.helloao.org/api/c/john-gill/LEV/24.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Leviticus 25 | [Source](<https://bible.helloao.org/api/c/john-gill/LEV/25.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Leviticus 26 | [Source](<https://bible.helloao.org/api/c/john-gill/LEV/26.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Leviticus 27 | [Source](<https://bible.helloao.org/api/c/john-gill/LEV/27.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Numbers 1 | [Source](<https://bible.helloao.org/api/c/john-gill/NUM/1.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Numbers 2 | [Source](<https://bible.helloao.org/api/c/john-gill/NUM/2.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Numbers 3 | [Source](<https://bible.helloao.org/api/c/john-gill/NUM/3.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Numbers 4 | [Source](<https://bible.helloao.org/api/c/john-gill/NUM/4.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Numbers 5 | [Source](<https://bible.helloao.org/api/c/john-gill/NUM/5.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Numbers 6 | [Source](<https://bible.helloao.org/api/c/john-gill/NUM/6.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Numbers 7 | [Source](<https://bible.helloao.org/api/c/john-gill/NUM/7.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Numbers 8 | [Source](<https://bible.helloao.org/api/c/john-gill/NUM/8.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Numbers 9 | [Source](<https://bible.helloao.org/api/c/john-gill/NUM/9.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Numbers 10 | [Source](<https://bible.helloao.org/api/c/john-gill/NUM/10.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Numbers 11 | [Source](<https://bible.helloao.org/api/c/john-gill/NUM/11.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Numbers 12 | [Source](<https://bible.helloao.org/api/c/john-gill/NUM/12.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Numbers 13 | [Source](<https://bible.helloao.org/api/c/john-gill/NUM/13.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Numbers 14 | [Source](<https://bible.helloao.org/api/c/john-gill/NUM/14.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Numbers 15 | [Source](<https://bible.helloao.org/api/c/john-gill/NUM/15.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Numbers 16 | [Source](<https://bible.helloao.org/api/c/john-gill/NUM/16.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Numbers 17 | [Source](<https://bible.helloao.org/api/c/john-gill/NUM/17.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Numbers 18 | [Source](<https://bible.helloao.org/api/c/john-gill/NUM/18.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Numbers 19 | [Source](<https://bible.helloao.org/api/c/john-gill/NUM/19.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Numbers 20 | [Source](<https://bible.helloao.org/api/c/john-gill/NUM/20.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Numbers 21 | [Source](<https://bible.helloao.org/api/c/john-gill/NUM/21.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Numbers 22 | [Source](<https://bible.helloao.org/api/c/john-gill/NUM/22.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Numbers 23 | [Source](<https://bible.helloao.org/api/c/john-gill/NUM/23.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Numbers 24 | [Source](<https://bible.helloao.org/api/c/john-gill/NUM/24.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Numbers 25 | [Source](<https://bible.helloao.org/api/c/john-gill/NUM/25.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Numbers 26 | [Source](<https://bible.helloao.org/api/c/john-gill/NUM/26.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Numbers 27 | [Source](<https://bible.helloao.org/api/c/john-gill/NUM/27.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Numbers 28 | [Source](<https://bible.helloao.org/api/c/john-gill/NUM/28.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Numbers 29 | [Source](<https://bible.helloao.org/api/c/john-gill/NUM/29.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Numbers 30 | [Source](<https://bible.helloao.org/api/c/john-gill/NUM/30.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Numbers 31 | [Source](<https://bible.helloao.org/api/c/john-gill/NUM/31.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Numbers 32 | [Source](<https://bible.helloao.org/api/c/john-gill/NUM/32.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Numbers 33 | [Source](<https://bible.helloao.org/api/c/john-gill/NUM/33.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Numbers 34 | [Source](<https://bible.helloao.org/api/c/john-gill/NUM/34.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Numbers 35 | [Source](<https://bible.helloao.org/api/c/john-gill/NUM/35.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Numbers 36 | [Source](<https://bible.helloao.org/api/c/john-gill/NUM/36.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: 1 Chronicles 1 | [Source](<https://bible.helloao.org/api/c/john-gill/1CH/1.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: 1 Chronicles 2 | [Source](<https://bible.helloao.org/api/c/john-gill/1CH/2.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: 1 Chronicles 3 | [Source](<https://bible.helloao.org/api/c/john-gill/1CH/3.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: 1 Chronicles 4 | [Source](<https://bible.helloao.org/api/c/john-gill/1CH/4.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: 1 Chronicles 5 | [Source](<https://bible.helloao.org/api/c/john-gill/1CH/5.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: 1 Chronicles 6 | [Source](<https://bible.helloao.org/api/c/john-gill/1CH/6.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: 1 Chronicles 7 | [Source](<https://bible.helloao.org/api/c/john-gill/1CH/7.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: 1 Chronicles 8 | [Source](<https://bible.helloao.org/api/c/john-gill/1CH/8.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: 1 Chronicles 9 | [Source](<https://bible.helloao.org/api/c/john-gill/1CH/9.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: 1 Chronicles 10 | [Source](<https://bible.helloao.org/api/c/john-gill/1CH/10.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: 1 Chronicles 12 | [Source](<https://bible.helloao.org/api/c/john-gill/1CH/12.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: 1 Chronicles 13 | [Source](<https://bible.helloao.org/api/c/john-gill/1CH/13.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: 1 Chronicles 15 | [Source](<https://bible.helloao.org/api/c/john-gill/1CH/15.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: 1 Chronicles 16 | [Source](<https://bible.helloao.org/api/c/john-gill/1CH/16.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: 1 Chronicles 20 | [Source](<https://bible.helloao.org/api/c/john-gill/1CH/20.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: 1 Chronicles 21 | [Source](<https://bible.helloao.org/api/c/john-gill/1CH/21.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: 1 Chronicles 22 | [Source](<https://bible.helloao.org/api/c/john-gill/1CH/22.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: 1 Chronicles 23 | [Source](<https://bible.helloao.org/api/c/john-gill/1CH/23.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: 1 Chronicles 24 | [Source](<https://bible.helloao.org/api/c/john-gill/1CH/24.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: 1 Chronicles 25 | [Source](<https://bible.helloao.org/api/c/john-gill/1CH/25.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: 1 Chronicles 26 | [Source](<https://bible.helloao.org/api/c/john-gill/1CH/26.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: 1 Chronicles 27 | [Source](<https://bible.helloao.org/api/c/john-gill/1CH/27.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: 1 Chronicles 28 | [Source](<https://bible.helloao.org/api/c/john-gill/1CH/28.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: 1 Chronicles 29 | [Source](<https://bible.helloao.org/api/c/john-gill/1CH/29.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: 2 Chronicles 1 | [Source](<https://bible.helloao.org/api/c/john-gill/2CH/1.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: 2 Chronicles 2 | [Source](<https://bible.helloao.org/api/c/john-gill/2CH/2.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: 2 Chronicles 7 | [Source](<https://bible.helloao.org/api/c/john-gill/2CH/7.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: 2 Chronicles 8 | [Source](<https://bible.helloao.org/api/c/john-gill/2CH/8.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: 2 Chronicles 11 | [Source](<https://bible.helloao.org/api/c/john-gill/2CH/11.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: 2 Chronicles 12 | [Source](<https://bible.helloao.org/api/c/john-gill/2CH/12.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: 2 Chronicles 13 | [Source](<https://bible.helloao.org/api/c/john-gill/2CH/13.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: 2 Chronicles 14 | [Source](<https://bible.helloao.org/api/c/john-gill/2CH/14.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: 2 Chronicles 15 | [Source](<https://bible.helloao.org/api/c/john-gill/2CH/15.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: 2 Chronicles 16 | [Source](<https://bible.helloao.org/api/c/john-gill/2CH/16.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: 2 Chronicles 17 | [Source](<https://bible.helloao.org/api/c/john-gill/2CH/17.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: 2 Chronicles 18 | [Source](<https://bible.helloao.org/api/c/john-gill/2CH/18.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: 2 Chronicles 19 | [Source](<https://bible.helloao.org/api/c/john-gill/2CH/19.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: 2 Chronicles 20 | [Source](<https://bible.helloao.org/api/c/john-gill/2CH/20.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: 2 Chronicles 21 | [Source](<https://bible.helloao.org/api/c/john-gill/2CH/21.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: 2 Chronicles 22 | [Source](<https://bible.helloao.org/api/c/john-gill/2CH/22.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: 2 Chronicles 23 | [Source](<https://bible.helloao.org/api/c/john-gill/2CH/23.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: 2 Chronicles 24 | [Source](<https://bible.helloao.org/api/c/john-gill/2CH/24.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: 2 Chronicles 25 | [Source](<https://bible.helloao.org/api/c/john-gill/2CH/25.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: 2 Chronicles 26 | [Source](<https://bible.helloao.org/api/c/john-gill/2CH/26.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: 2 Chronicles 27 | [Source](<https://bible.helloao.org/api/c/john-gill/2CH/27.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: 2 Chronicles 28 | [Source](<https://bible.helloao.org/api/c/john-gill/2CH/28.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: 2 Chronicles 29 | [Source](<https://bible.helloao.org/api/c/john-gill/2CH/29.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: 2 Chronicles 30 | [Source](<https://bible.helloao.org/api/c/john-gill/2CH/30.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: 2 Chronicles 31 | [Source](<https://bible.helloao.org/api/c/john-gill/2CH/31.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: 2 Chronicles 32 | [Source](<https://bible.helloao.org/api/c/john-gill/2CH/32.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: 2 Chronicles 33 | [Source](<https://bible.helloao.org/api/c/john-gill/2CH/33.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: 2 Chronicles 34 | [Source](<https://bible.helloao.org/api/c/john-gill/2CH/34.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: 2 Chronicles 35 | [Source](<https://bible.helloao.org/api/c/john-gill/2CH/35.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: 2 Chronicles 36 | [Source](<https://bible.helloao.org/api/c/john-gill/2CH/36.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Ezra 1 | [Source](<https://bible.helloao.org/api/c/john-gill/EZR/1.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Ezra 2 | [Source](<https://bible.helloao.org/api/c/john-gill/EZR/2.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Ezra 3 | [Source](<https://bible.helloao.org/api/c/john-gill/EZR/3.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Ezra 4 | [Source](<https://bible.helloao.org/api/c/john-gill/EZR/4.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Ezra 5 | [Source](<https://bible.helloao.org/api/c/john-gill/EZR/5.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Ezra 6 | [Source](<https://bible.helloao.org/api/c/john-gill/EZR/6.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Ezra 7 | [Source](<https://bible.helloao.org/api/c/john-gill/EZR/7.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Ezra 8 | [Source](<https://bible.helloao.org/api/c/john-gill/EZR/8.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Ezra 9 | [Source](<https://bible.helloao.org/api/c/john-gill/EZR/9.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Ezra 10 | [Source](<https://bible.helloao.org/api/c/john-gill/EZR/10.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Nehemiah 1 | [Source](<https://bible.helloao.org/api/c/john-gill/NEH/1.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Nehemiah 2 | [Source](<https://bible.helloao.org/api/c/john-gill/NEH/2.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Nehemiah 3 | [Source](<https://bible.helloao.org/api/c/john-gill/NEH/3.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Nehemiah 4 | [Source](<https://bible.helloao.org/api/c/john-gill/NEH/4.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Nehemiah 5 | [Source](<https://bible.helloao.org/api/c/john-gill/NEH/5.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Nehemiah 6 | [Source](<https://bible.helloao.org/api/c/john-gill/NEH/6.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Nehemiah 7 | [Source](<https://bible.helloao.org/api/c/john-gill/NEH/7.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Nehemiah 8 | [Source](<https://bible.helloao.org/api/c/john-gill/NEH/8.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Nehemiah 9 | [Source](<https://bible.helloao.org/api/c/john-gill/NEH/9.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Nehemiah 10 | [Source](<https://bible.helloao.org/api/c/john-gill/NEH/10.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Nehemiah 11 | [Source](<https://bible.helloao.org/api/c/john-gill/NEH/11.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Nehemiah 12 | [Source](<https://bible.helloao.org/api/c/john-gill/NEH/12.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Nehemiah 13 | [Source](<https://bible.helloao.org/api/c/john-gill/NEH/13.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Esther 1 | [Source](<https://bible.helloao.org/api/c/john-gill/EST/1.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Esther 2 | [Source](<https://bible.helloao.org/api/c/john-gill/EST/2.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Esther 3 | [Source](<https://bible.helloao.org/api/c/john-gill/EST/3.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Esther 4 | [Source](<https://bible.helloao.org/api/c/john-gill/EST/4.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Esther 5 | [Source](<https://bible.helloao.org/api/c/john-gill/EST/5.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Esther 6 | [Source](<https://bible.helloao.org/api/c/john-gill/EST/6.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Esther 7 | [Source](<https://bible.helloao.org/api/c/john-gill/EST/7.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Esther 8 | [Source](<https://bible.helloao.org/api/c/john-gill/EST/8.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Esther 9 | [Source](<https://bible.helloao.org/api/c/john-gill/EST/9.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Esther 10 | [Source](<https://bible.helloao.org/api/c/john-gill/EST/10.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Job 1 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/1.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Job 2 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/2.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Job 3 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/3.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Job 4 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/4.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Job 5 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/5.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Job 6 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/6.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Job 7 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/7.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Job 8 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/8.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Job 9 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/9.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Job 10 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/10.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Job 11 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/11.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Job 12 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/12.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Job 13 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/13.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Job 14 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/14.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Job 15 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/15.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Job 16 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/16.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Job 17 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/17.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Job 18 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/18.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Job 19 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/19.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Job 20 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/20.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Job 21 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/21.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Job 22 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/22.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Job 23 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/23.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Job 24 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/24.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Job 25 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/25.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Job 26 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/26.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Job 27 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/27.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Job 28 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/28.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Job 29 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/29.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Job 30 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/30.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Job 31 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/31.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Job 32 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/32.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Job 33 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/33.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Job 34 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/34.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Job 35 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/35.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Job 36 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/36.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Job 37 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/37.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Job 38 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/38.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Job 39 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/39.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Job 40 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/40.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Job 41 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/41.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Job 42 | [Source](<https://bible.helloao.org/api/c/john-gill/JOB/42.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Proverbs 1 | [Source](<https://bible.helloao.org/api/c/john-gill/PRO/1.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Proverbs 2 | [Source](<https://bible.helloao.org/api/c/john-gill/PRO/2.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Proverbs 3 | [Source](<https://bible.helloao.org/api/c/john-gill/PRO/3.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Proverbs 4 | [Source](<https://bible.helloao.org/api/c/john-gill/PRO/4.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Proverbs 5 | [Source](<https://bible.helloao.org/api/c/john-gill/PRO/5.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Proverbs 6 | [Source](<https://bible.helloao.org/api/c/john-gill/PRO/6.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Proverbs 7 | [Source](<https://bible.helloao.org/api/c/john-gill/PRO/7.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Proverbs 8 | [Source](<https://bible.helloao.org/api/c/john-gill/PRO/8.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Proverbs 9 | [Source](<https://bible.helloao.org/api/c/john-gill/PRO/9.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Proverbs 10 | [Source](<https://bible.helloao.org/api/c/john-gill/PRO/10.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Proverbs 11 | [Source](<https://bible.helloao.org/api/c/john-gill/PRO/11.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Proverbs 12 | [Source](<https://bible.helloao.org/api/c/john-gill/PRO/12.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Proverbs 13 | [Source](<https://bible.helloao.org/api/c/john-gill/PRO/13.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Proverbs 14 | [Source](<https://bible.helloao.org/api/c/john-gill/PRO/14.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Proverbs 15 | [Source](<https://bible.helloao.org/api/c/john-gill/PRO/15.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Proverbs 16 | [Source](<https://bible.helloao.org/api/c/john-gill/PRO/16.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Proverbs 17 | [Source](<https://bible.helloao.org/api/c/john-gill/PRO/17.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Proverbs 18 | [Source](<https://bible.helloao.org/api/c/john-gill/PRO/18.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Proverbs 19 | [Source](<https://bible.helloao.org/api/c/john-gill/PRO/19.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Proverbs 20 | [Source](<https://bible.helloao.org/api/c/john-gill/PRO/20.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Proverbs 21 | [Source](<https://bible.helloao.org/api/c/john-gill/PRO/21.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Proverbs 22 | [Source](<https://bible.helloao.org/api/c/john-gill/PRO/22.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Proverbs 23 | [Source](<https://bible.helloao.org/api/c/john-gill/PRO/23.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Proverbs 24 | [Source](<https://bible.helloao.org/api/c/john-gill/PRO/24.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Proverbs 25 | [Source](<https://bible.helloao.org/api/c/john-gill/PRO/25.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Proverbs 26 | [Source](<https://bible.helloao.org/api/c/john-gill/PRO/26.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Proverbs 27 | [Source](<https://bible.helloao.org/api/c/john-gill/PRO/27.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Proverbs 28 | [Source](<https://bible.helloao.org/api/c/john-gill/PRO/28.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Proverbs 29 | [Source](<https://bible.helloao.org/api/c/john-gill/PRO/29.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Proverbs 30 | [Source](<https://bible.helloao.org/api/c/john-gill/PRO/30.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Proverbs 31 | [Source](<https://bible.helloao.org/api/c/john-gill/PRO/31.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Ecclesiastes 1 | [Source](<https://bible.helloao.org/api/c/john-gill/ECC/1.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Ecclesiastes 2 | [Source](<https://bible.helloao.org/api/c/john-gill/ECC/2.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Ecclesiastes 3 | [Source](<https://bible.helloao.org/api/c/john-gill/ECC/3.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Ecclesiastes 4 | [Source](<https://bible.helloao.org/api/c/john-gill/ECC/4.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Ecclesiastes 5 | [Source](<https://bible.helloao.org/api/c/john-gill/ECC/5.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Ecclesiastes 6 | [Source](<https://bible.helloao.org/api/c/john-gill/ECC/6.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Ecclesiastes 7 | [Source](<https://bible.helloao.org/api/c/john-gill/ECC/7.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Ecclesiastes 8 | [Source](<https://bible.helloao.org/api/c/john-gill/ECC/8.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Ecclesiastes 9 | [Source](<https://bible.helloao.org/api/c/john-gill/ECC/9.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Ecclesiastes 10 | [Source](<https://bible.helloao.org/api/c/john-gill/ECC/10.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Ecclesiastes 11 | [Source](<https://bible.helloao.org/api/c/john-gill/ECC/11.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Ecclesiastes 12 | [Source](<https://bible.helloao.org/api/c/john-gill/ECC/12.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Hosea 1 | [Source](<https://bible.helloao.org/api/c/john-gill/HOS/1.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Hosea 2 | [Source](<https://bible.helloao.org/api/c/john-gill/HOS/2.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Hosea 3 | [Source](<https://bible.helloao.org/api/c/john-gill/HOS/3.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Hosea 4 | [Source](<https://bible.helloao.org/api/c/john-gill/HOS/4.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Hosea 5 | [Source](<https://bible.helloao.org/api/c/john-gill/HOS/5.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Hosea 6 | [Source](<https://bible.helloao.org/api/c/john-gill/HOS/6.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Hosea 7 | [Source](<https://bible.helloao.org/api/c/john-gill/HOS/7.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Hosea 8 | [Source](<https://bible.helloao.org/api/c/john-gill/HOS/8.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Hosea 9 | [Source](<https://bible.helloao.org/api/c/john-gill/HOS/9.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Hosea 10 | [Source](<https://bible.helloao.org/api/c/john-gill/HOS/10.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Hosea 11 | [Source](<https://bible.helloao.org/api/c/john-gill/HOS/11.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Hosea 12 | [Source](<https://bible.helloao.org/api/c/john-gill/HOS/12.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Hosea 13 | [Source](<https://bible.helloao.org/api/c/john-gill/HOS/13.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Hosea 14 | [Source](<https://bible.helloao.org/api/c/john-gill/HOS/14.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Joel 1 | [Source](<https://bible.helloao.org/api/c/john-gill/JOL/1.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Joel 2 | [Source](<https://bible.helloao.org/api/c/john-gill/JOL/2.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Joel 3 | [Source](<https://bible.helloao.org/api/c/john-gill/JOL/3.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Amos 1 | [Source](<https://bible.helloao.org/api/c/john-gill/AMO/1.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Amos 2 | [Source](<https://bible.helloao.org/api/c/john-gill/AMO/2.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Amos 3 | [Source](<https://bible.helloao.org/api/c/john-gill/AMO/3.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Amos 4 | [Source](<https://bible.helloao.org/api/c/john-gill/AMO/4.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Amos 5 | [Source](<https://bible.helloao.org/api/c/john-gill/AMO/5.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Amos 6 | [Source](<https://bible.helloao.org/api/c/john-gill/AMO/6.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Amos 7 | [Source](<https://bible.helloao.org/api/c/john-gill/AMO/7.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Amos 8 | [Source](<https://bible.helloao.org/api/c/john-gill/AMO/8.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Amos 9 | [Source](<https://bible.helloao.org/api/c/john-gill/AMO/9.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Obadiah 1 | [Source](<https://bible.helloao.org/api/c/john-gill/OBA/1.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Jonah 1 | [Source](<https://bible.helloao.org/api/c/john-gill/JON/1.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Jonah 2 | [Source](<https://bible.helloao.org/api/c/john-gill/JON/2.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Jonah 3 | [Source](<https://bible.helloao.org/api/c/john-gill/JON/3.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Jonah 4 | [Source](<https://bible.helloao.org/api/c/john-gill/JON/4.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Micah 1 | [Source](<https://bible.helloao.org/api/c/john-gill/MIC/1.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Micah 2 | [Source](<https://bible.helloao.org/api/c/john-gill/MIC/2.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Micah 3 | [Source](<https://bible.helloao.org/api/c/john-gill/MIC/3.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Micah 4 | [Source](<https://bible.helloao.org/api/c/john-gill/MIC/4.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Micah 5 | [Source](<https://bible.helloao.org/api/c/john-gill/MIC/5.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Micah 6 | [Source](<https://bible.helloao.org/api/c/john-gill/MIC/6.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Micah 7 | [Source](<https://bible.helloao.org/api/c/john-gill/MIC/7.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Nahum 1 | [Source](<https://bible.helloao.org/api/c/john-gill/NAM/1.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Nahum 2 | [Source](<https://bible.helloao.org/api/c/john-gill/NAM/2.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Nahum 3 | [Source](<https://bible.helloao.org/api/c/john-gill/NAM/3.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Habakkuk 1 | [Source](<https://bible.helloao.org/api/c/john-gill/HAB/1.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Habakkuk 2 | [Source](<https://bible.helloao.org/api/c/john-gill/HAB/2.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Habakkuk 3 | [Source](<https://bible.helloao.org/api/c/john-gill/HAB/3.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Zephaniah 1 | [Source](<https://bible.helloao.org/api/c/john-gill/ZEP/1.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Zephaniah 2 | [Source](<https://bible.helloao.org/api/c/john-gill/ZEP/2.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Zephaniah 3 | [Source](<https://bible.helloao.org/api/c/john-gill/ZEP/3.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Haggai 1 | [Source](<https://bible.helloao.org/api/c/john-gill/HAG/1.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Haggai 2 | [Source](<https://bible.helloao.org/api/c/john-gill/HAG/2.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Zechariah 1 | [Source](<https://bible.helloao.org/api/c/john-gill/ZEC/1.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Zechariah 2 | [Source](<https://bible.helloao.org/api/c/john-gill/ZEC/2.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Zechariah 3 | [Source](<https://bible.helloao.org/api/c/john-gill/ZEC/3.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Zechariah 4 | [Source](<https://bible.helloao.org/api/c/john-gill/ZEC/4.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Zechariah 5 | [Source](<https://bible.helloao.org/api/c/john-gill/ZEC/5.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Zechariah 6 | [Source](<https://bible.helloao.org/api/c/john-gill/ZEC/6.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Zechariah 7 | [Source](<https://bible.helloao.org/api/c/john-gill/ZEC/7.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Zechariah 8 | [Source](<https://bible.helloao.org/api/c/john-gill/ZEC/8.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Zechariah 9 | [Source](<https://bible.helloao.org/api/c/john-gill/ZEC/9.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Zechariah 10 | [Source](<https://bible.helloao.org/api/c/john-gill/ZEC/10.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Zechariah 11 | [Source](<https://bible.helloao.org/api/c/john-gill/ZEC/11.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Zechariah 12 | [Source](<https://bible.helloao.org/api/c/john-gill/ZEC/12.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Zechariah 13 | [Source](<https://bible.helloao.org/api/c/john-gill/ZEC/13.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Zechariah 14 | [Source](<https://bible.helloao.org/api/c/john-gill/ZEC/14.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Malachi 1 | [Source](<https://bible.helloao.org/api/c/john-gill/MAL/1.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Malachi 2 | [Source](<https://bible.helloao.org/api/c/john-gill/MAL/2.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Malachi 3 | [Source](<https://bible.helloao.org/api/c/john-gill/MAL/3.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Malachi 4 | [Source](<https://bible.helloao.org/api/c/john-gill/MAL/4.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Philemon 1 | [Source](<https://bible.helloao.org/api/c/john-gill/PHM/1.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: 2 John 1 | [Source](<https://bible.helloao.org/api/c/john-gill/2JN/1.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: 3 John 1 | [Source](<https://bible.helloao.org/api/c/john-gill/3JN/1.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Judges 1 | [Source](<https://bible.helloao.org/api/c/john-gill/JDG/1.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Judges 2 | [Source](<https://bible.helloao.org/api/c/john-gill/JDG/2.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Judges 3 | [Source](<https://bible.helloao.org/api/c/john-gill/JDG/3.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Judges 4 | [Source](<https://bible.helloao.org/api/c/john-gill/JDG/4.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Judges 5 | [Source](<https://bible.helloao.org/api/c/john-gill/JDG/5.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Judges 6 | [Source](<https://bible.helloao.org/api/c/john-gill/JDG/6.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Judges 7 | [Source](<https://bible.helloao.org/api/c/john-gill/JDG/7.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Judges 8 | [Source](<https://bible.helloao.org/api/c/john-gill/JDG/8.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Judges 9 | [Source](<https://bible.helloao.org/api/c/john-gill/JDG/9.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Judges 10 | [Source](<https://bible.helloao.org/api/c/john-gill/JDG/10.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Judges 11 | [Source](<https://bible.helloao.org/api/c/john-gill/JDG/11.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Judges 12 | [Source](<https://bible.helloao.org/api/c/john-gill/JDG/12.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Judges 13 | [Source](<https://bible.helloao.org/api/c/john-gill/JDG/13.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Judges 14 | [Source](<https://bible.helloao.org/api/c/john-gill/JDG/14.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Judges 15 | [Source](<https://bible.helloao.org/api/c/john-gill/JDG/15.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Judges 16 | [Source](<https://bible.helloao.org/api/c/john-gill/JDG/16.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Judges 17 | [Source](<https://bible.helloao.org/api/c/john-gill/JDG/17.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Judges 18 | [Source](<https://bible.helloao.org/api/c/john-gill/JDG/18.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Judges 19 | [Source](<https://bible.helloao.org/api/c/john-gill/JDG/19.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Judges 20 | [Source](<https://bible.helloao.org/api/c/john-gill/JDG/20.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Judges 21 | [Source](<https://bible.helloao.org/api/c/john-gill/JDG/21.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Ezekiel 1 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/1.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Ezekiel 2 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/2.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Ezekiel 3 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/3.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Ezekiel 4 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/4.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Ezekiel 5 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/5.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Ezekiel 6 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/6.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Ezekiel 7 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/7.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Ezekiel 8 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/8.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Ezekiel 9 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/9.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Ezekiel 10 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/10.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Ezekiel 11 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/11.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Ezekiel 12 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/12.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Ezekiel 13 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/13.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Ezekiel 14 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/14.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Ezekiel 15 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/15.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Ezekiel 16 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/16.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Ezekiel 17 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/17.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Ezekiel 18 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/18.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Ezekiel 19 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/19.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Ezekiel 20 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/20.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Ezekiel 21 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/21.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Ezekiel 22 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/22.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Ezekiel 23 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/23.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Ezekiel 24 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/24.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Ezekiel 25 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/25.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Ezekiel 26 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/26.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Ezekiel 27 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/27.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Ezekiel 28 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/28.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Ezekiel 29 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/29.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Ezekiel 30 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/30.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Ezekiel 31 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/31.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Ezekiel 32 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/32.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Ezekiel 33 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/33.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Ezekiel 34 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/34.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Ezekiel 35 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/35.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Ezekiel 36 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/36.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Ezekiel 37 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/37.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Ezekiel 38 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/38.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Ezekiel 39 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/39.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Ezekiel 40 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/40.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Ezekiel 41 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/41.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Ezekiel 42 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/42.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Ezekiel 43 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/43.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Ezekiel 44 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/44.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Ezekiel 45 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/45.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Ezekiel 46 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/46.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Ezekiel 47 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/47.json>) | json / complete-offered-chapter-component-of-selected-book |
-| Gill Exposition: Ezekiel 48 | [Source](<https://bible.helloao.org/api/c/john-gill/EZK/48.json>) | json / complete-offered-chapter-component-of-selected-book |
-
-</details>
-
-<!-- RB03 sources:end -->
-
-<!-- RB04 sources:start -->
+[Preserved historical acquisition notes, URLs, hashes, mission reports and qualifications](content/library/reports/campaign-reconciliation/sources/HISTORICAL-SOURCES.md#rb03-sustained-commentary-gaps-7-october-2026).
 
 ## RB04: salvation, justification, assurance and sanctification (7 October 2026)
 
-**Actual private holdings:** seven verified originals (five HTML, two EPUB), 16,501,597 bytes. Five focused logical works plus one Fuller collected-edition witness; Booth's two Death of Legal Hope editions count as one work. Collected editions repeat held/new works and are not a unique-book count. 1,966,688 derivative words include overlap and are not a unique-corpus measurement. New files are not ingested or embedded.
-
-[Report](content/library/reports/reformed-baptist-overnight/RB04/REPORT.md) | [Source-first bibliography](content/library/reports/reformed-baptist-overnight/RB04/bibliography.json) | [Manifest and hashes](content/library/reports/reformed-baptist-overnight/RB04/acquisition-manifest.json) | [Seven study paths and exact locations](content/library/reports/reformed-baptist-overnight/RB04/READING-MAP.md) | [Theological distinctions](content/library/reports/reformed-baptist-overnight/RB04/THEOLOGICAL-DISTINCTIONS.md) | [Edition/rights exceptions](content/library/reports/reformed-baptist-overnight/RB04/source-exceptions.json) | [Later intake requirements](content/library/reports/reformed-baptist-overnight/RB04/INTAKE-NOTES.md).
-
-| Author / offered witness | Source and acquisition evidence | Edition / scope | Original SHA-256 |
-|---|---|---|---|
-| Benjamin Keach: The Marrow of True Justification, or Justification Without Works | [Acquired source](https://www.monergism.com/thethreshold/sdg/keach/The%20Marrow%20of%20True%20Justification_Keach.epub); [source record](https://www.monergism.com/marrow-true-justification-ebook) | Historical 1692 work; Monergism 2026 lightly modernized electronic edition with minor corrections; editorial modernization copyright reserved | `18caf6780bae067874e1c13b50e01f04a466debce0b702a250fe55bc688fa2f1` |
-| Andrew Fuller: Strictures on Sandemanianism: in twelve letters to a friend | [Acquired source](https://archive.org/stream/stricturesonsand00full/stricturesonsand00full_djvu.txt); [source record](https://archive.org/details/stricturesonsand00full) | London, T. Williams and Son, 1811, second edition | `b4bfcd9fc8006bfbf5c601d87ebef1db9eb0bb13f456e2fc0ee87031bc87babb` |
-| Andrew Fuller: The Complete Works of the Rev. Andrew Fuller, with a Memoir of His Life | [Acquired source](https://archive.org/stream/completeworksofr00fulluoft/completeworksofr00fulluoft_djvu.txt); [source record](https://archive.org/details/completeworksofr00fulluoft) | London, G. & J. Dyer, 1846; Andrew Gunton Fuller memoir/editorial material separate | `b6e9d8e2c7cd664b30feef68f111f33885e6c23f97132b6b3e45ea5fde312395` |
-| John Murray: Definitive Sanctification | [Acquired source](https://www.monergism.com/definitive-sanctification); [source record](https://www.monergism.com/definitive-sanctification) | Offered web essay attributed to Calvin Theological Journal, April 1967; journal collation not yet certified | `f083b7dcd5c013572e055be4fa2a229d6a4bcbed2101aa568038bc0ec8b1effd` |
-| Abraham Booth: Glad Tidings to Perishing Sinners; or, The Genuine Gospel, a Complete Warrant for the Ungodly to Believe in Jesus | [Acquired source](https://archive.org/stream/gladtidingstope00boot/gladtidingstope00boot_djvu.txt); [source record](https://archive.org/details/gladtidingstope00boot) | Philadelphia, S. Taylor, 1833, 162 printed pages; Library of Congress witness | `fe413a5168b438399b0eb1ab2c61682a059b835a1509e776bc7541f1e96191f6` |
-| Abraham Booth: Works of Abraham Booth, Volume I: Memoir, Reign of Grace, Death of Legal Hope | [Acquired source](https://archive.org/stream/worksabrahamboo00bootgoog/worksabrahamboo00bootgoog_djvu.txt); [source record](https://archive.org/details/worksabrahamboo00bootgoog) | London, 1813, Volume I of three; printed J. Haddon; published W. Button & Son, Burton and Bagster; Google/New York Public Library witness | `bbd4711c8588ee6ef8a70e644304a0aa7a8a91c438a7f3fdc590310e7fbf1e49` |
-| Abraham Booth: The Death of Legal Hope and the Life of Evangelical Obedience | [Acquired source](https://www.chapellibrary.org/api/books/download?code=dolh&format=epub); [source record](https://www.chapellibrary.org/book/dolh) | Chapel Library 2017 abridgment and annotations; seven historical sections retained with modern subheadings and 122 notes; dedication 18 July 1770 | `a0c737811fb30af45853ebf56f44a65e95462fbd5abfe0d9f6b8e1db4c11b00e` |
-
-Audited 284 actual held originals before acquisition. Reused Booth's complete *Reign of Grace*, Andrew Fuller's *Gospel Worthy*, and relevant Owen/Goodwin/Sibbes/Watson/Pink/Bunyan/Spurgeon works. Francis Fuller is a different author from Andrew Fuller. The [800 source reading/navigation units](content/library/reports/reformed-baptist-overnight/RB04/chapter-map.json) include parts, chapters, subheadings and front matter; they are not 800 chapters or a verse-coverage claim.
-
-Chapel Library 2017 explicitly labels its Booth edition an **abridgment and annotations**; the complete historical seven-section work remains in the rough 1813 volume. [Free ebook notice](https://www.chapellibrary.org/literature) distinguishes ebook download from printed-copy pricing. [Monergism terms](https://www.monergism.com/monergism-copyright-permissions) and publisher/editor copyright remain applicable. Private acquisition does not authorize public rehosting.
-
-Fuller and Booth's actual disagreements, the chronology of imputation wording, and Murray's definitive/progressive sanctification distinction remain attributed. Three mixed/annotated witnesses are explicitly metadata-only for the current importer pending segmented intake; seventeen exact private Fuller components are prepared. Do not start DB/vector/graph/enrichment work during this mission; aggregate intake follows the newer post-RB14 gate.
-
-<!-- RB04 sources:end -->
-
-<!-- RB05 sources:start -->
+[Preserved historical acquisition notes, URLs, hashes, mission reports and qualifications](content/library/reports/campaign-reconciliation/sources/HISTORICAL-SOURCES.md#rb04-salvation-justification-assurance-and-sanctification-7-october-2026).
 
 ## RB05: church membership, polity, discipline and ministry (7 October 2026)
 
-Eight immutable originals (seven journal PDFs and one missing Dagg introduction), **21,171,393 bytes**. These are seven new issue witnesses plus completion of a held work, not eight new complete books. Priority Keach, Spurgeon and Broadus books were already held. No new DB intake or embeddings.
-
-[Report](content/library/reports/reformed-baptist-overnight/RB05/REPORT.md) | [Manifest and hashes](content/library/reports/reformed-baptist-overnight/RB05/acquisition-manifest.json) | [Reading map](content/library/reports/reformed-baptist-overnight/RB05/READING-MAP.md) | [Theological distinctions](content/library/reports/reformed-baptist-overnight/RB05/THEOLOGICAL-DISTINCTIONS.md) | [Intake requirements](content/library/reports/reformed-baptist-overnight/RB05/INTAKE-NOTES.md).
-
-| Work / issue or component | Actual acquired source | Verified extent and intake scope |
-|---|---|---|
-| 9Marks Journal: Living as a Church | [Offered source](https://www.9marks.org/wp-content/uploads/2008/04/ejournal200853mayjun.pdf) | pdf; May/June 2008, volume 5 issue 3; mixed issue parent evidence-only pending article/contributor/rights integration |
-| 9Marks Journal: Church Discipline, Part II | [Offered source](https://www.9marks.org/wp-content/uploads/2009/10/eJournal200966novdec.pdf) | pdf; November/December 2009, volume 6 issue 6; mixed issue parent evidence-only pending article/contributor/rights integration |
-| 9Marks Journal: Deacons | [Offered source](https://www.9marks.org/wp-content/uploads/2019/04/9Marks_Journal_2010_May-Jun_Deacons.pdf) | pdf; May/June 2010, publisher PDF reoffered 2019; mixed issue parent evidence-only pending article/contributor/rights integration |
-| 9Marks Journal: Lay Elders, Part I | [Offered source](https://www.9marks.org/wp-content/uploads/2012/11/ejournal201296novdec.pdf) | pdf; November/December 2012; mixed issue parent evidence-only pending article/contributor/rights integration |
-| Founders Journal: Church Purity (Issue 73) | [Offered source](https://founders.org/wp-content/uploads/2026/07/FoundersJournal73.pdf) | pdf; Summer 2008; exact publisher-offered issue PDF; mixed issue parent evidence-only pending article/contributor/rights integration |
-| Founders Journal: Singing in the Church (Issue 90) | [Offered source](https://founders.org/wp-content/uploads/2016/10/FoundersJournal90.pdf) | pdf; Fall 2012; exact publisher-offered issue PDF; mixed issue parent evidence-only pending article/contributor/rights integration |
-| Founders Journal: Baptists, Puritans, and Preaching (Issue 129) | [Offered source](https://founders.org/wp-content/uploads/2026/04/Founders-Journal-FULL-2025-FAll-.pdf) | pdf; Fall 2025; exact publisher-offered issue PDF; mixed issue parent evidence-only pending article/contributor/rights integration |
-| A Treatise on Church Order: Introduction - Obedience to Christ | [Offered source](https://www.sermonindex.net/books/writings-of-j-l-dagg/121/) | html; 1858 historical work; SermonIndex offered e-Sword-derived transcription, exact source spelling retained; complete selected missing Introduction; duplicate preface/TOC excluded |
-
-All original and derivative SHA values, final URLs, retrieval dates, exact rights notices and immutable paths are in the manifest. **172,438 total derivative words include excluded issue material and quotations**, not unique endorsed coverage. Forty-eight selected journal lessons/articles and five additional Fuller components are mapped privately; the Fuller volume was acquired in RB04, not downloaded again.
-
-RB05 corrected a real RB01 identity error: the held Founders Introduction is **Stan Reeves**, not Dagg. The historical Obedience to Christ introduction is now held from SermonIndex, completing thirteen correct earlier Church Order components. Dagg’s preface credits **G. W. Samson** with the chief Appendix article; that prior component now has an attribution hold. [Correction evidence](content/library/reports/reformed-baptist-overnight/RB05/identity-corrections.json); no original bytes or DB rows were changed.
-
-Four historical 9Marks issues explicitly permit unchanged, credited, cost-only distribution within their stated conditions; course teaching adaptation is separately permitted. This does not license all 9Marks works. A 2025 guide explicitly restricts retrieval-system storage and was not promoted to acquisition. Founders currently offers the three exact issue PDFs; broader indexing/republication remains a rights-review step. No public full-text hosting, commercial-book bypass, new OCR/audio/video, or deliberately targeted Catholic/progressive teaching/opposition acquisition.
-
-<!-- RB05 sources:end -->
+[Preserved historical acquisition notes, URLs, hashes, mission reports and qualifications](content/library/reports/campaign-reconciliation/sources/HISTORICAL-SOURCES.md#rb05-church-membership-polity-discipline-and-ministry-7-october-2026).
 
 ## RB06 pastoral care, prayer and households - 2026-10-07
 
-Six offered editions / 2,089,630 immutable original bytes, all readable from existing source text: two modern abridgments, two Chapel thematic issues, one complete offered historical sermon volume, and one 2008 counseling journal. These contain overlapping underlying works; not six wholly unique books. Original bytes and extraction caches remain private. All six parents are held for contributor/editorial/quotation and rights integration; new files are not ingested or embedded.
-
-[Acquisition manifest](content/library/reports/reformed-baptist-overnight/RB06/acquisition-manifest.json) | [Concern-to-work/chapter table](content/library/reports/reformed-baptist-overnight/RB06/READING-MAP.md) | [Theological distinctions](content/library/reports/reformed-baptist-overnight/RB06/THEOLOGICAL-DISTINCTIONS.md) | [Intake notes](content/library/reports/reformed-baptist-overnight/RB06/INTAKE-NOTES.md)
-
-| Acquired edition | Offered source | Scope |
-|---|---|---|
-| The Duties of Husbands and Wives | [Publisher download](https://www.chapellibrary.org/api/books/download?code=doha&format=epub) | Chapel Library 1999 annotations; modern abridgment and paraphrase by D. Scott Meadows of historical Steele sermon; explicit Doug Wilson additions stay editorial |
-| The Duties of Children and Parents | [Publisher download](https://www.chapellibrary.org/api/books/download?code=doca&format=epub) | Chapel Library annotated modern abridgment and revision by D. Scott Meadows; historical Adams sermon separately retained in Cripplegate volume2 |
-| Free Grace Broadcaster 188: Family Worship | [Publisher download](https://www.chapellibrary.org/api/books/download?code=fworfg&format=epub) | Chapel Library complete offered thematic issue, edited excerpts and twelve articles; modern editor notes and Beeke implementation separate |
-| Free Grace Broadcaster 217: Comfort in Affliction | [Publisher download](https://www.chapellibrary.org/api/books/download?code=ciaffg&format=epub) | Chapel Library complete offered thematic issue, nine articles/excerpt collections; not complete books of each contributor |
-| Puritan Sermons: Morning Exercises at Cripplegate, Volume II | [Publisher download](https://www.monergism.com/thethreshold/sdg/puritans/PURITAN%20SERMONS%20-%20VOL.%202%20-%20Various%20Puritans.epub) | Monergism Books 2026 existing AI-assisted transcript of James Nichols historical edition; 27 sermons numbered5-31; publisher reports editorial checking, not independently collated here |
-| 9Marks eJournal: Counseling in the Church | [Publisher download](https://www.9marks.org/wp-content/uploads/2008/10/ejournal200856novdec.pdf) | November/December2008, Volume5 Issue6, 47PDFpages; source response cached during RB05 discovery and first promoted to immutable original in RB06 |
-
-Primary source/permission evidence: [Chapel doctrinal guide](https://www.chapellibrary.org/about), [offered literature](https://www.chapellibrary.org/literature), [Monergism current permissions](https://www.monergism.com/monergism-copyright-permissions), [Meadows church beliefs](https://cbcexeterreformed.org/whatwebelieve/), [Capitol Hill Baptist confession](https://www.capitolhillbaptist.org/about-us/what-we-believe/statement-of-faith/), [9Marks](https://www.9marks.org/about/), [CCEF own beliefs](https://www.ccef.org/about/beliefs-and-history/). Issue-specific article permissions are also preserved in the original 9Marks PDF. No permission to republish source bodies is inferred. See source-first bibliography and admission queue in the RB06 folder.
-
-<!-- RB07 sources:start -->
+[Preserved historical acquisition notes, URLs, hashes, mission reports and qualifications](content/library/reports/campaign-reconciliation/sources/HISTORICAL-SOURCES.md#rb06-pastoral-care-prayer-and-households---2026-10-07).
 
 ## RB07: Baptist missions, evangelical proclamation and historical witnesses (7 October 2026)
 
-Seven immutable readable originals (three offered TXT and four offered text-bearing HTML), **4,682,285 bytes** and **681,476 derivative words**. Six book/collection witnesses plus an older partial appendix witness supplying the complete 1805 Serampore Agreement; not seven complete new books or a unique-word count. Three Archive witnesses use their already-offered OCR text; no new OCR, scans or image assets were acquired. One PDF text layer was inspected privately and not promoted. Fuller missionary works and Carey Enquiry were already held and reused.
-
-[Report](content/library/reports/reformed-baptist-overnight/RB07/REPORT.md) | [Manifest and hashes](content/library/reports/reformed-baptist-overnight/RB07/acquisition-manifest.json) | [Ten study paths and every exact unit](content/library/reports/reformed-baptist-overnight/RB07/READING-MAP.md) | [Dated document table](content/library/reports/reformed-baptist-overnight/RB07/DOCUMENT-TABLE.md) | [Theological/contributor scope](content/library/reports/reformed-baptist-overnight/RB07/THEOLOGICAL-SCOPE.md) | [Exceptions](content/library/reports/reformed-baptist-overnight/RB07/source-exceptions.json) | [Later intake](content/library/reports/reformed-baptist-overnight/RB07/INTAKE-NOTES.md).
-
-| Author / offered witness | Acquired source | Edition and extent | Original SHA-256 |
-| --- | --- | --- | --- |
-| The Life of Adoniram Judson ? Edward Judson; dated Adoniram Judson and other correspondence; Emily C. Judson reminiscences | [Offered text](https://www.gutenberg.org/ebooks/70894.txt.utf-8) | New York: Anson D. F. Randolph and Company, 1883; Project Gutenberg 70894 clean transcription; Complete offered text: thirteen chapters and appendix; Edward Judson biography with edited and sometimes condensed primary extracts, not a complete unedited correspondence | `a8df9fa58dbc929e435abbddbc9b70bd89dbb5c2653601709c23534076f1f027` |
-| Serampore Letters: William Carey and Others with John Williams, 1800-1816 ? William Carey; John Williams; William Ward; Joshua Marshman; John Ryland; other named correspondents; Leighton and Mornay Williams editors; Thomas Wright introduction | [Offered text](https://archive.org/stream/seramporeletters00carerich/seramporeletters00carerich_djvu.txt) | New York and London: G. P. Putnam's Sons, 1892; University of California copy; Internet Archive offered existing OCR TXT in HTML pre; Complete offered existing text including introduction, letters, notes and conclusion; OCR defects retained, non-text plates not acquired; not a complete Carey correspondence | `6c0266d611b08a5a55f45eaf0ec1e8e2d0f331c0eb7c18be2cb24aef272d2e7a` |
-| The Life of William Carey, Shoemaker & Missionary ? George Smith; quoted Carey and other correspondents; digital preparer John Bechard | [Offered text](https://www.gutenberg.org/ebooks/2056.txt.utf-8) | Project Gutenberg 2056; later revised text of biography first published 1885; Appendix College scheme expressly dated 1909, edition year not silently set to 1885; Complete offered clean text, sixteen chapters, appendix and footnotes; later biography with primary quotations, not a Carey-authored work | `eadaf0884dcc6330a9fad43272ee478c76222776674b7fc6f2950c818d5e4466` |
-| Farewell Letters to a Few Friends in Britain and America, on Returning to Bengal in 1821 ? William Ward of Serampore | [Offered text](https://archive.org/stream/farewellletters00ward/farewellletters00ward_djvu.txt) | New York: E. Bliss and E. White; Seymour printer, 1821; Library of Congress witness; Complete offered existing readable text: dedication and twenty-six letter essays; plates and scans not acquired; OCR spelling and running-header defects retained | `68cbe6fa9d0414a92cf66dbb50dfebf6124ff8df5d9d75eb489a2ba1dc704cfa` |
-| Memoir of Rev. Luther Rice, One of the First American Missionaries to the East ? James B. Taylor; quoted Luther Rice and other correspondents | [Offered text](https://archive.org/stream/memoirofrevluthe01tayl/memoirofrevluthe01tayl_djvu.txt) | Baltimore: Armstrong and Berry; Woods and Crane printers, 1840; Library of Congress witness; Complete offered existing readable text, sixteen chapters including journals, letters, concluding religious-sentiments discussion and Charles W. Denison verse; Taylor biography differs from Rice primary documents; cover/library noise and OCR defects retained | `50883065ca2569c9ee7c634737d18d9e72bbef6c1a5d7199600c59f1dbae7c0f` |
-| Sermons of Christmas Evans: A New Translation from the Welsh, with a Memoir and Portraiture ? Christmas Evans, sermon author; Joseph Cross, memoir/editor; two translation hands as disclosed in Advertisement | [Offered text](https://www.gutenberg.org/ebooks/42340.txt.utf-8) | Philadelphia: Leary & Getz, 1857; 1846 copyright and Cross Advertisement; Project Gutenberg 42340 transcription; Complete offered clean text, memoir/portraiture and translated sermons; two translation hands disclosed, not Welsh-language originals or an unedited oral transcript | `3d1cbced3326180488d84fd9d224313ead3c474cd52e9c87bea9ca8f06a1789b` |
-| Serampore Missionary Agreement (1805) and Smith Appendix I-III: Third Section Partial ? Serampore missionary brethren; British and Foreign Bible Society report; George Smith compiler and education memorandum author | [Offered text](https://careycenter.wmcarey.edu/gsmith/append.htm) | Carey Center offered HTML of George Smith Life of William Carey (1885), appendix printed pp.441 onward; Agreement 1805, reprinted Calcutta 1874; distinguishes later PG revised appendix; Complete offered HTML bytes; Agreement Appendix I and 1885 translation report Appendix II end cleanly; Appendix III, Smith 29 November 1867 education memorandum, is truncated mid-sentence. Not a complete book or complete appendix; no signature block in Agreement witness. | `aa509e0a3c44607d85075ada679f3b15f16f17a09a57aa88eb374ca89dcfed53` |
-
-Twelve actual relevant originals and 50 audit inputs checked first. Reused Fuller 1846 collected works (three-part Apology, Pearce memoir, preaching and missions essays), Carey Enquiry and the held Bonar Judson condensation. Francis Fuller is not Andrew Fuller; the held Bonar ledger names Andrew but the actual witness names **Horatius**, with an unnamed daughter preparing the condensation under his supervision.
-
-The newer Smith biography mentions 1909 and omits the complete missionary Agreement; its acquired edition year is not silently set to 1885. The older institutional appendix supplies the complete 1805 Agreement, an 1885 report and an **incomplete 1867 memorandum**. Judson Advice is dated **25 June 1832**. The 1892 Serampore edition has Leighton/Mornay Williams editorial framing and Thomas Wright's introduction. Evans's 1857 edition discloses two translation hands and a separate Joseph Cross memoir. Historical narratives, colonial claims and quoted opponents remain attributed.
-
-[Project Gutenberg terms](https://www.gutenberg.org/policy/terms_of_use.html), Archive item rights evidence and the institutional offered-text directory are recorded per original. All new parents and 69 private prepared slices remain evidence-only for the current importer, awaiting contributor-aware aggregate intake after RB14. They are **not ingested or embedded**. No private full text was committed or publicly rehosted.
-
-<!-- RB07 sources:end -->
-
-<!-- RB08 sources:start -->
+[Preserved historical acquisition notes, URLs, hashes, mission reports and qualifications](content/library/reports/campaign-reconciliation/sources/HISTORICAL-SOURCES.md#rb07-baptist-missions-evangelical-proclamation-and-historical-witnesses-7-october-2026).
 
 ## RB08: Scripture authority, canon and focused apologetics (7 October 2026)
 
-Seventeen immutable readable witnesses / 2,806,462 bytes and 48,210 derivative words; seven logical works or complete series, not seventeen books. Fifteen HTML bodies and two text-layer scholarly PDFs; no scans, separate image assets, OCR, audio/video or transcription. Audited 631 actual held originals first and reused substantial Warfield, Piper and Carson coverage.
+[Preserved historical acquisition notes, URLs, hashes, mission reports and qualifications](content/library/reports/campaign-reconciliation/sources/HISTORICAL-SOURCES.md#rb08-scripture-authority-canon-and-focused-apologetics-7-october-2026).
 
-[Report](content/library/reports/reformed-baptist-overnight/RB08/REPORT.md) | [Original/provenance/hash ledger](content/library/reports/reformed-baptist-overnight/RB08/acquisition-manifest.json) | [Ten study questions and 244 exact locations](content/library/reports/reformed-baptist-overnight/RB08/READING-MAP.md) | [Theological boundaries](content/library/reports/reformed-baptist-overnight/RB08/THEOLOGICAL-SCOPE.md) | [Access/edition exceptions](content/library/reports/reformed-baptist-overnight/RB08/source-exceptions.json) | [Intake requirements](content/library/reports/reformed-baptist-overnight/RB08/INTAKE-NOTES.md).
+## RB00 shared bulk acquisition channels
 
-| Author / actual work | Offered acquired source | Format / extent |
-| --- | --- | --- |
-| James White: Purpose and Meaning of “Ego Eimi” in the Gospel of John | [Source](https://www.aomin.org/aoblog/general-apologetics/purpose-and-meaning-of-ego-eimi-in-the-gospel-of-john/) | HTML; 5,272 readable words |
-| James White: A Brief Definition of the Trinity | [Source](https://www.aomin.org/aoblog/theology-matters/a-brief-definition-of-the-trinity/) | HTML; 753 readable words |
-| James White: The Trinity, the Definition of Chalcedon, and Oneness Theology | [Source](https://www.aomin.org/aoblog/oneness-pentecostalism/the-trinity-the-definition-of-chalcedon-and-oneness-theology/) | HTML; 11,451 readable words |
-| James White: Some Brief Thoughts Regarding Liberal Scholarship, Redaction Criticism, and Islam (Part 1) | [Source](https://www.aomin.org/aoblog/islam/some-brief-thoughts-regarding-liberal-scholarship-redaction-criticism-and-islam-part-1/) | HTML; 2,559 readable words |
-| James White: Some Brief Thoughts Regarding Liberal Scholarship, Redaction Criticism, and Islam (Part 2) | [Source](https://www.aomin.org/aoblog/islam/some-brief-thoughts-regarding-liberal-scholarship-redaction-criticism-and-islam-part-2/) | HTML; 1,955 readable words |
-| Michael J. Kruger: Ten Basic Facts about the NT Canon that Every Christian Should Memorize: #1: “The New Testament Books are the Earliest Christian Writings We Possess” | [Source](http://wp.me/p2dVaB-dB) | HTML; 598 readable words |
-| Michael J. Kruger: Ten Basic Facts about the NT Canon that Every Christian Should Memorize: #2: “Apocryphal Writings are All Written in the Second Century or Later” | [Source](http://wp.me/p2dVaB-dZ) | HTML; 678 readable words |
-| Michael J. Kruger: Ten Basic Facts about the NT Canon that Every Christian Should Memorize: #3: “The New Testament Books Are Unique Because They Are Apostolic Books” | [Source](http://wp.me/p2dVaB-ep) | HTML; 574 readable words |
-| Michael J. Kruger: Ten Basic Facts about the NT Canon that Every Christian Should Memorize: #4: “Some NT Writers Quote Other NT Writers as Scripture” | [Source](http://wp.me/p2dVaB-eO) | HTML; 566 readable words |
-| Michael J. Kruger: Ten Basic Facts about the NT Canon that Every Christian Should Memorize: #5: “The Four Gospels are Well Established by the End of the Second Century” | [Source](http://wp.me/p2dVaB-gh) | HTML; 747 readable words |
-| Michael J. Kruger: Ten Basic Facts about the NT Canon that Every Christian Should Memorize: #6: “At the End of the Second Century, the Muratorian Fragment lists 22 of our 27 NT books” | [Source](http://wp.me/p2dVaB-im) | HTML; 587 readable words |
-| Michael J. Kruger: Ten Basic Facts about the NT Canon that Every Christian Should Memorize: #7: “Early Christians Often Used Non-Canonical Writings.” | [Source](http://wp.me/p2dVaB-iZ) | HTML; 575 readable words |
-| Michael J. Kruger: Ten Basic Facts about the NT Canon that Every Christian Should Memorize: #8: “The NT Canon Was Not Decided at Nicea—Nor Any Other Church Council.” | [Source](http://wp.me/p2dVaB-jk) | HTML; 572 readable words |
-| Michael J. Kruger: Ten Basic Facts about the NT Canon that Every Christian Should Memorize: #9: “Christians Did Disagree about the Canonicity of Some NT Books” | [Source](http://wp.me/p2dVaB-jB) | HTML; 841 readable words |
-| Michael J. Kruger: Ten Basic Facts about the NT Canon that Every Christian Should Memorize: #10: “Early Christians Believed that Canonical Books were Self-Authenticating.” | [Source](http://wp.me/p2dVaB-kN) | HTML; 927 readable words |
-| Michael J. Kruger: The Sufficiency of Scripture in Apologetics | [Source](https://tyndale.tms.edu/wp-content/uploads/2021/09/tmsj12k.pdf) | PDF; 10,319 readable words |
-| Michael J. Kruger: The Definition of the Term 'Canon': Exclusive or Multi-Dimensional? | [Source](https://www.tyndalebulletin.org/article/29324-the-definition-of-the-term-canon-exclusive-or-multi-dimensional.pdf) | PDF; 9,236 readable words |
+[Preserved historical acquisition notes, URLs, hashes, mission reports and qualifications](content/library/reports/campaign-reconciliation/sources/HISTORICAL-SOURCES.md#rb00-shared-bulk-acquisition-channels).
 
-Kruger series short links above redirect to the author-site canonical URLs recorded in the ledger; all ten parts were actually acquired. The two White redaction/Islam parts form one complete series. The brief Trinity definition supports the substantial 11,451-word Chalcedon/Oneness study; it is not counted as a large treatise by itself.
+## RB01 re-run: Baptist doctrine and confessions ? bulk channels
 
-The current [Tyndale publisher policy](https://www.tyndalebulletin.org/about) explicitly permits noncommercial indexing/software use of pre-2021 articles with credit; the acquired 2012 canon essay uses that policy, not the later CC license. Its offered XML is abstract-only; the complete PDF has existing text on all twenty pages. Other modern author-offered pages are limited private reading witnesses with later corpus-use rights review; no public hosting or blanket author approval. Seventeen parents remain evidence-only outside new full-body DB/vector intake.
+[Preserved historical acquisition notes, URLs, hashes, mission reports and qualifications](content/library/reports/campaign-reconciliation/sources/HISTORICAL-SOURCES.md#rb01-re-run-baptist-doctrine-and-confessions--bulk-channels).
 
-The held Carson desk Islam essay is actually Chawkat Moucarry; the held Trinity dictionary PDF includes adjacent entries by other authors. The Piper/Taylor suffering anthology has actual chapter contributors. These corrections and source boundaries are documented without silently changing old database rows. Two author-offered PDFs returned 403; current TGC crawl delay was honored; commercial modern full books remain genuine gaps.
+## RB02 re-run: covenants, baptism and ordinances - bulk channels
 
-[All eight mission outcomes](content/library/reports/reformed-baptist-overnight/RB01-RB08/SUMMARY.md) and [consolidated intake queue](content/library/reports/reformed-baptist-overnight/RB01-RB08/consolidated-intake-manifest.json): 561 originals / 180.15 MB and 191 prepared private slices. This interim first-eight queue does not release the owner's post-RB14 gate. The website dashboard snapshot above still needs a later explicit metadata refresh; these new counts are not silently merged into its dated inventory.
+[Preserved historical acquisition notes, URLs, hashes, mission reports and qualifications](content/library/reports/campaign-reconciliation/sources/HISTORICAL-SOURCES.md#rb02-re-run-covenants-baptism-and-ordinances---bulk-channels).
 
-<!-- RB08 sources:end -->
+## RB03 re-run: commentaries - bulk channels
+
+[Preserved historical acquisition notes, URLs, hashes, mission reports and qualifications](content/library/reports/campaign-reconciliation/sources/HISTORICAL-SOURCES.md#rb03-re-run-commentaries---bulk-channels).
+
+## RB04 re-run: salvation, justification, assurance and sanctification
+
+[Preserved historical acquisition notes, URLs, hashes, mission reports and qualifications](content/library/reports/campaign-reconciliation/sources/HISTORICAL-SOURCES.md#rb04-re-run-salvation-justification-assurance-and-sanctification).
+
+## RB09 re-run: interpreting genres and difficult passages - bulk channels
+
+[Preserved historical acquisition notes, URLs, hashes, mission reports and qualifications](content/library/reports/campaign-reconciliation/sources/HISTORICAL-SOURCES.md#rb09-re-run-interpreting-genres-and-difficult-passages---bulk-channels).
+
+## RB10 re-run: Christian ethics - bulk channels
+
+[Preserved historical acquisition notes, URLs, hashes, mission reports and qualifications](content/library/reports/campaign-reconciliation/sources/HISTORICAL-SOURCES.md#rb10-re-run-christian-ethics---bulk-channels).
+
+## RB13: catechisms, children, families and new believers - bulk channels
+
+[Preserved historical acquisition notes, URLs, hashes, mission reports and qualifications](content/library/reports/campaign-reconciliation/sources/HISTORICAL-SOURCES.md#rb13-catechisms-children-families-and-new-believers---bulk-channels).
+
+## RB11 re-run: Prayer and worship - bulk channels
+
+[Preserved historical acquisition notes, URLs, hashes, mission reports and qualifications](content/library/reports/campaign-reconciliation/sources/HISTORICAL-SOURCES.md#rb11-re-run-prayer-and-worship---bulk-channels).
+
+## RB12 re-run: Baptist history and primary records
+
+[Preserved historical acquisition notes, URLs, hashes, mission reports and qualifications](content/library/reports/campaign-reconciliation/sources/HISTORICAL-SOURCES.md#rb12-re-run-baptist-history-and-primary-records).
+
+## RB06 re-run: Christian life, prayer, family and pastoral care
+
+[Preserved historical acquisition notes, URLs, hashes, mission reports and qualifications](content/library/reports/campaign-reconciliation/sources/HISTORICAL-SOURCES.md#rb06-re-run-christian-life-prayer-family-and-pastoral-care).
+
+## RB05 re-run: church, polity, discipline and ministry
+
+[Preserved historical acquisition notes, URLs, hashes, mission reports and qualifications](content/library/reports/campaign-reconciliation/sources/HISTORICAL-SOURCES.md#rb05-re-run-church-polity-discipline-and-ministry).
+
+## RB14: authorized translations
+
+[Preserved historical acquisition notes, URLs, hashes, mission reports and qualifications](content/library/reports/campaign-reconciliation/sources/HISTORICAL-SOURCES.md#rb14-authorized-translations).
+
+## RB07 re-run: Missions, preaching and history
+
+[Preserved historical acquisition notes, URLs, hashes, mission reports and qualifications](content/library/reports/campaign-reconciliation/sources/HISTORICAL-SOURCES.md#rb07-re-run-missions-preaching-and-history).
+
+## RB08 re-run: Scripture authority and apologetics - bulk channels
+
+[Preserved historical acquisition notes, URLs, hashes, mission reports and qualifications](content/library/reports/campaign-reconciliation/sources/HISTORICAL-SOURCES.md#rb08-re-run-scripture-authority-and-apologetics---bulk-channels).
+
 
 ## Teachers pages — library catalogue, Natural Earth outlines, checked facts (added 2026-10-08)
 
@@ -1153,6 +901,24 @@ The two Teachers subpages ([/teachers/preachers-and-authors](https://bibleprojec
 | [content/teachers/lives.json](content/teachers/lives.json) and [content/teachers/scholars.json](content/teachers/scholars.json) | Life years, places with arrival years, one-line descriptions, best-known works, the documented teacher/colleague links, the scholars' faith labels and fields, the seven discoveries and the chain of the text. Written for the site, then fact-checked on 2026-10-08 against Wikipedia, Britannica, the Stanford Encyclopedia of Philosophy and other references; 17 errors corrected. | Site content (MIT with the code) |
 | **Natural Earth** land outlines (1:50m and 1:110m) via the `world-atlas` 2.0.2 package | The maps on both pages, projected at build time. The Dead Sea and Sea of Galilee outlines are simplified shapes drawn for the site. | **Public domain** ([terms](https://www.naturalearthdata.com/about/terms-of-use/)); credit Natural Earth |
 | [data/stats.json](data/stats.json) (the site's KJV book and chapter lengths) | The 1,189 chapter squares and the 66 book spokes | Public domain text |
+
+## OpenGreekAndLatin — Corpus Scriptorum Ecclesiasticorum Latinorum (CSEL)
+
+[Official repository](https://github.com/OpenGreekAndLatin/csel-dev), acquired 2026-10-09 at commit `2813e3a52b4206df0324299e5110e5bd0d95cee4`: historical Latin ecclesiastical texts in machine-corrected EpiDoc/TEI XML. The 271 work-level text headers explicitly specify [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/); original editors, digital contributors, publishers, source-scan links, CTS identifiers and licence notices are retained in the XML and [acquisition manifest](content/library/reports/csel-20261009/acquisition-manifest.json). New work XML is held under `sources/library/source-ogl-csel/data` for private local intake. The complete upstream payload, including 81 volume-level XML texts, images and support files, is preserved under `sources/ogl-csel/repository`; these overlapping volumes and support assets are outside body intake. This historical subset does not contain every edition in the supplied CSEL bibliography through volume 107. No new OCR was performed; upstream transcription quality is not represented as fully proofread. [Holdings comparison and acquisition report](content/library/reports/csel-20261009/REPORT.md). No public full-text publication is authorized by this acquisition.
+
+**Local older-release supplement (2026-10-10):** The owner supplied release directory csel-dev-v1.0/OpenGreekAndLatin-csel-dev-a485395. Ten additional CTS edition IDs are staged, preserving CC BY-SA 4.0 notices and upstream credits; 265 matching edition IDs and one exact-hash repository file are reused. Older bytes are not claimed equal to newer editions. New support files are archived outside body intake. [Local-download manifest](content/library/reports/local-downloads-20261010/acquisition-manifest.json).
+
+## OpenGreekAndLatin — First Thousand Years of Greek
+
+[Official First1KGreek repository](https://github.com/OpenGreekAndLatin/First1KGreek), acquired 2026-10-09 through its Git bulk channel. Ancient Greek literature, including biblical and patristic authors, with Latin and other-language editions where offered; original EpiDoc/TEI texts and CTS metadata are preserved. Repository licence: [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/); individual header notices, source editions, editors and digital contributors remain authoritative metadata. The full checkout is held under `sources/patristic-bulk/first1k/repository`; readable work XML is staged under `sources/library/source-patristic-first1k`, with local catalogues and exact-hash reuse. No new OCR is performed, and transcription quality is not represented as uniformly proofread. [Commit-pinned provenance, manifest and acquisition report](content/library/reports/patristic-expansion-20261009/REPORT.md). Private local intake only; public full-text publication requires a separate decision.
+
+## Patristic Text Archive
+
+[Official PTA data repository](https://github.com/PatristicTextArchive/pta_data) and [project](https://pta.bbaw.de/), acquired 2026-10-09 from the public Git branch. Ancient Christian source editions and translations, including biblical material, in TEI XML. Individual files carry different Creative Commons licences, including attribution, share-alike and noncommercial variants; exact licence URLs and statements are retained alongside editors, translators and contributors. Original `data` texts are used for private local study and embedding; duplicate tokenized/analyzed versions and support metadata remain in the archive under `sources/patristic-bulk/pta/repository`. Ready originals are under `sources/library/source-patristic-pta`. [Commit-pinned provenance, manifest and acquisition report](content/library/reports/patristic-expansion-20261009/REPORT.md). No new OCR or public full-text publication is performed.
+
+## OpenGreekAndLatin — Greek Fathers' New Testament catenae
+
+[Official catenae-dev repository](https://github.com/OpenGreekAndLatin/catenae-dev), acquired 2026-10-09 through its Git bulk channel. Eight XML volumes of *Catenae Graecorum Patrum in Novum Testamentum*, with Greek commentary and Latin editorial material. TEI headers explicitly specify [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/); John Anthony Cramer's printed editions, source-scan links and digital contributors are retained. The full checkout is under `sources/patristic-bulk/catenae/repository`; readable originals are staged under `sources/library/source-patristic-catenae`. [Commit-pinned provenance, manifest and acquisition report](content/library/reports/patristic-expansion-20261009/REPORT.md). Existing upstream transcription is reused without new OCR; private local intake only, with any public full-text publication requiring a separate decision.
 
 
 ## Muslim-world country explorer (2026-10-09)
@@ -1185,6 +951,11 @@ The optional flat map derives its SVG coastlines and country borders from the ex
 Country flags: [lipis/flag-icons](https://github.com/lipis/flag-icons), pinned revision `086f7e97d657358203916dbe84f61c2bccaa81eb`, [MIT license](https://github.com/lipis/flag-icons/blob/086f7e97d657358203916dbe84f61c2bccaa81eb/LICENSE). Immutable originals and license are archived under `sources/missions/muslim-world/flag-icons-086f7e97d657358203916dbe84f61c2bccaa81eb/`. The 53 unmodified 4:3 SVGs are renamed to atlas country codes in `public/assets/muslim-world/flags/`, with the license. `content/missions/flag-manifest.json` records every source URL, byte count and SHA-256, plus license hash `8f1195d55a2fd315a07d812328470ca9ba2abb78c8d317ff19619d5125e00cea`. Builder: `scripts/build-muslim-world-flags.py`. Mayotte uses France's tricolour; flags do not determine disputed territorial status.
 
 Complete group tables: 53 lazy country JSON derivatives under `public/assets/muslim-world/people-groups/`, built from the previously archived IMB snapshot `sources/missions/muslim-world/2026-10-09/imb-country-input.json`, SHA-256 `90cc30b356e1515878bd8136eecb6bea87eea2b94ba477432490598388d1833f`, under CC BY-NC 4.0. Every active group in the selected countries is retained with unchanged name, language, religion, population and the published EngagementProgress category, ordered by population. This includes non-Muslim groups. `content/missions/people-group-manifest.json` records the original input hash and per-country derivative hashes, sizes and counts. Only the selected country table is requested when its tab opens; source attribution remains visible. Builder: `scripts/build-muslim-world.py`. No immutable originals were modified.
+
+
+## Bible Project authored learning materials
+
+Owner-provided PDF export, Moses: Three forties, an eight-session Bible Project site-authored workbook with KJV quotations. Original title, source statements and study questions are retained for private local indexing; counted as learning material, not an acquired book. No outside author or licence is invented. [Local-download manifest](content/library/reports/local-downloads-20261010/acquisition-manifest.json).
 
 ## Quran JSON by Risan: Pickthall comparison text
 

@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-fe20469d4eb97836cc810f54",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-08a4380d35c0f837c8003448",
+  "label": "A discourse of the damned art of witchcraft so farre forth as it is reuealed in the Scriptures, and manifest by true experience. Framed and deliuered by M. William Perkins, in his ordinarie course of preaching, and now published by Tho. Pickering Batchelour of Diuinitie, and minister of Finchingfield in Essex. Whereunto is adioyned a twofold table; one of the order and heades of the treatise; another of the texts of Scripture explaned, or vindicated from the corrupt interpretation of the aduersarie. — held source edition 568de51e3982",
+  "languages": [
+    "und"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A09402/master/A09402.xml",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-c8dddf47b05870a962cf1b9f",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-b7ae7e5a2267b2d16f7e24bf",
+  "label": "The great Christian doctrine of original sin defended; evidences of its truth produced, and arguments to the contrary answered. ... By the late reverend and learned Jonathan Edwards, ... 1768 — held source edition 5f45de257b49",
+  "languages": [
+    "English"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_eighteenth-century_the-great-christian-doct_edwards-jonathan_1768/bim_eighteenth-century_the-great-christian-doct_edwards-jonathan_1768_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

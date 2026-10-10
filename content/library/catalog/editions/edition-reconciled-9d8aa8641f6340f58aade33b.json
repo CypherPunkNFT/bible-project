@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-9d8aa8641f6340f58aade33b",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-ca4685d5955060efe95a6e2d",
+  "label": "An abridgement of the Institution of Christian religion written by M. Ihon Caluin. VVherein briefe and sound ansvveres to the obiections of the aduersaries are set dovvne. By VVilliam Lawne minister of the word of God. Faithfullie translated out of Latine into English by Christopher Fetherstone minister of the word of God; Institutio Christianae religionis. English. Abridgments — held source edition eafe515b8c62",
+  "languages": [
+    "eng"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A17676/master/A17676.xml",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

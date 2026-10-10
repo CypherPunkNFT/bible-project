@@ -1,0 +1,76 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "asset",
+  "id": "asset-rb07-802fedffc23e0ac29989",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "editionId": "edition-reconciled-792b07f1ad71f8914f96b9eb",
+  "sourceId": "source-internet-archive",
+  "canonicalUrl": "https://archive.org/stream/seramporeletters00carerich/seramporeletters00carerich_djvu.txt",
+  "finalUrl": "https://archive.org/stream/seramporeletters00carerich/seramporeletters00carerich_djvu.txt",
+  "format": "html",
+  "mediaKind": "text",
+  "acquisitionStatus": "downloaded",
+  "storage": "raw",
+  "relativePath": "library/source-internet-archive/asset-rb07-802fedffc23e0ac29989/original.html",
+  "sha256": "6c0266d611b08a5a55f45eaf0ec1e8e2d0f331c0eb7c18be2cb24aef272d2e7a",
+  "byteCount": 397520,
+  "mimeType": "text/html",
+  "retrievedAt": "2026-10-07T10:45:56.866879Z",
+  "rights": {
+    "category": "public-domain",
+    "jurisdiction": "United States",
+    "licenseId": null,
+    "licenseUrl": null,
+    "attribution": "William Carey; John Williams; William Ward; Joshua Marshman; John Ryland; other named correspondents; Leighton and Mornay Williams editors; Thomas Wright introduction; Internet Archive",
+    "conditions": [
+      "Copyright and edition notices retained; recorded acquisition category: historical-public-domain-US-offered-download-private-study; recorded use scope: private-noncommercial-reading"
+    ],
+    "conditionsMet": false,
+    "actions": {
+      "download": "allowed",
+      "host": "unknown",
+      "redistribute": "unknown",
+      "adapt": "unknown",
+      "transcribe": "unknown",
+      "embed": "allowed",
+      "indexMetadata": "allowed",
+      "indexFullText": "allowed"
+    },
+    "evidence": [
+      {
+        "url": "https://archive.org/stream/seramporeletters00carerich/seramporeletters00carerich_djvu.txt",
+        "locator": "Recorded acquisition/source metadata",
+        "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+        "checkedOn": "2026-10-08"
+      }
+    ],
+    "unresolved": [],
+    "review": {
+      "date": "2026-10-08",
+      "reviewer": "Codex",
+      "kind": "ai-assisted",
+      "scope": "Recorded bibliographic/provenance reconciliation; private local authorization retained separately from public use."
+    }
+  },
+  "fullTextIndexed": true,
+  "processing": {
+    "parentAssetId": null,
+    "method": "none",
+    "tool": null,
+    "toolVersion": null,
+    "parameters": null,
+    "date": null,
+    "note": "Original unchanged; existing selected derivatives remain in their original acquisition/repair ledgers."
+  },
+  "quality": {
+    "state": "unreviewed",
+    "reviewedBy": null,
+    "reviewedOn": null,
+    "note": "Bibliographic metadata joined; body not proofread or collated by this task."
+  }
+}

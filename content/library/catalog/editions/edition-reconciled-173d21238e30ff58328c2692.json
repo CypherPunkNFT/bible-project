@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-173d21238e30ff58328c2692",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-e7922b623e3e3be72e7bae3d",
+  "label": "The lectures or daily sermons, of that reuerend diuine, D. Iohn Caluine, pastor of the Church of God in Geneua, vpon the prophet Ionas, by N.B. student in Diuinitie. Whereunto is annexed an excellent exposition of the two last epistles of S. Iohn, done in Latin by that worthy doctor, August. Marlorate, and englished by the same N.B. — held source edition 07fbaf0754d7",
+  "languages": [
+    "und"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A17683/master/A17683.xml",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

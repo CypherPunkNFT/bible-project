@@ -1,0 +1,5 @@
+Sitemap: https://jimhamilton.info/sitemap.xml
+Sitemap: https://jimhamilton.info/news-sitemap.xml
+User-agent: *
+Disallow: /wp-admin/
+Allow: /wp-admin/admin-ajax.php

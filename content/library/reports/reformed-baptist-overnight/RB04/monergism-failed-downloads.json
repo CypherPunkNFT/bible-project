@@ -1,0 +1,49 @@
+{
+  "source": "monergism",
+  "updatedAt": "2026-10-07T20:16:08.442962+00:00",
+  "items": [
+    {
+      "sourceId": "christs-invitation-labouring-and-heavy-laden-ebook",
+      "url": "https://www.monergism.com/christs-invitation-labouring-and-heavy-laden-ebook",
+      "title": "Christ's Invitation to the Labouring and Heavy Laden",
+      "author": "Boston, Thomas",
+      "error": "no complete official EPUB/PDF offered on catalogue page"
+    },
+    {
+      "sourceId": "art-man-fishing-ebook",
+      "url": "https://www.monergism.com/art-man-fishing-ebook",
+      "title": "The Art of Man-Fishing",
+      "author": "Boston, Thomas",
+      "error": "URL can't contain control characters. '/thethreshold/sdg/boston/The Art of Man-Fishing - Thomas Boston.epub' (found at least ' ')"
+    },
+    {
+      "sourceId": "crook-lot-modernized-ebook",
+      "url": "https://www.monergism.com/crook-lot-modernized-ebook",
+      "title": "The Crook in the Lot - Modernized",
+      "author": "Boston, Thomas",
+      "error": "Deferred interrupted request during URL parser correction; no retry"
+    },
+    {
+      "sourceId": "greatness-soul-and-unspeakableness-loss-thereof-ebook",
+      "url": "https://www.monergism.com/greatness-soul-and-unspeakableness-loss-thereof-ebook",
+      "title": "The Greatness of the Soul and Unspeakableness of the Loss Thereof",
+      "author": "Bunyan, John",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+    },
+    {
+      "sourceId": "humble-testimony-ebook",
+      "url": "https://www.monergism.com/humble-testimony-ebook",
+      "title": "A Humble Testimony: Unto the Goodness and Severity of God",
+      "author": "Owen, John",
+      "error": "<urlopen error _ssl.c:1015: The handshake operation timed out>"
+    },
+    {
+      "sourceId": "searching-our-hearts-perilous-times-ebook",
+      "url": "https://www.monergism.com/searching-our-hearts-perilous-times-ebook",
+      "title": "Searching Our Hearts in Perilous Times",
+      "author": "Owen, John",
+      "error": "robots.txt disallows https://www.monergism.com/searching-our-hearts-perilous-times-ebook"
+    }
+  ],
+  "policy": "Deferred downloads; no automatic retries when deferHardDownloads is true"
+}

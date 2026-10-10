@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-ed67a61f147a6863ca997242",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-7e24ecb019d728f87b8c465c",
+  "label": "Eadar-mhineachadh air Salm CXXX : anns am bheil nadur agus firinn maitheanas peacaidh air an cur an ceill : agus cor anama ann an amhghar o chionta peacaidh, agus air fhuasgladh le sealladh de mhaitheanas ann an Dia, air fhosgladh — held source edition e5a915ff446a",
+  "languages": [
+    "gae"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/eadarmhineachadh1896owen/eadarmhineachadh1896owen_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

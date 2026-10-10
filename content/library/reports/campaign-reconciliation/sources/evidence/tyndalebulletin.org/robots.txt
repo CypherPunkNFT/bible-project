@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /*.json$
+Disallow: /*.zip$
+Disallow: /*.crossref_xml$
+Disallow: /*.doaj_json$
+Disallow: /*.bibtex$
+Disallow: /*.csl_json$
+Disallow: /*.ris$
+Sitemap: https://www.tyndalebulletin.org/sitemap

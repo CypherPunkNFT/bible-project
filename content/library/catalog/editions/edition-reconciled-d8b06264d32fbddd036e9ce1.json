@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-d8b06264d32fbddd036e9ce1",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-3b635648bc97444d61627489",
+  "label": "Two epystles one of Henry Bullynger, wyth the consent of all the lernyd men of the Churche of Tigury: another of Ihon Caluyn, cheffe preacher of the church of Geneue: whether it be lawfull for a Chrysten man to communycate or be pertaker of the masse of the Papysts, wythout offendyng God and hys neyghboure, or not. — held source edition 7e81e2df686a",
+  "languages": [
+    "und"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A17222/master/A17222.xml",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-reconciled-6ac52ce3666b7afbcf25f31e",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "title": "Nadur an duine 'na staid cheithir-fillte : no staid ceud ionracais, staid truaillidheachd iomlan, staid saorsa air toiseachadh, agus staid sonais no truaighe iomlan",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-thomas-boston",
+      "role": "author"
+    }
+  ],
+  "genre": "treatise",
+  "role": "core-teaching",
+  "collections": [],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [],
+  "depth": "unknown",
+  "era": "unknown",
+  "dates": [],
+  "passages": [],
+  "related": [],
+  "externalIds": {
+    "source-internet-archive": [
+      "ia:nadurduinenastai00bost"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/download/nadurduinenastai00bost/nadurduinenastai00bost_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

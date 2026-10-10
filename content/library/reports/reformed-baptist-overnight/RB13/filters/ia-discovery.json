@@ -1,0 +1,28 @@
+{
+  "iaQuery": "mediatype:texts AND date:[1500-01-01 TO 1899-12-31] AND NOT access-restricted-item:true AND (title:catechis* OR title:catechet* OR title:\"Sunday school\" OR title:\"Sabbath school\" OR title:\"Bible lessons\" OR title:\"Scripture lessons\" OR title:\"family instruction\" OR title:\"family religion\" OR title:\"children\" OR title:\"Divine songs\" OR title:\"gospel\" OR title:\"repentance\" OR title:\"faith\" OR title:\"baptism\" OR title:\"church membership\" OR title:\"Christian obedience\" OR title:\"Thoughts for young men\" OR title:\"Instruction for the ignorant\" OR subject:catechis* OR subject:\"Sunday schools\") AND (creator:\"Keach, Benjamin\" OR creator:\"Spurgeon, Charles\" OR creator:\"Spurgeon, C. H.\" OR creator:\"Beddome, Benjamin\" OR creator:\"Watts, Isaac\" OR creator:\"Henry, Matthew\" OR creator:\"Henry, Philip\" OR creator:\"Watson, Thomas\" OR creator:\"Vincent, Thomas\" OR creator:\"Flavel, John\" OR creator:\"Bunyan, John\" OR creator:\"Janeway, James\" OR creator:\"Ryle, John\" OR creator:\"Ryle, J. C.\" OR creator:\"Cotton, John\" OR creator:\"Baxter, Richard\" OR creator:\"Boston, Thomas\" OR creator:\"Brown, John\" OR creator:\"Fisher, James\" OR creator:\"Doddridge, Philip\" OR creator:\"Boyce, James\" OR creator:\"Gill, John\" OR creator:\"Luther, Martin\" OR creator:\"Calvin, Jean\" OR creator:\"Calvin, John\" OR creator:\"Palmer, Herbert\" OR creator:\"Willard, Samuel\" OR creator:\"Wadsworth, Benjamin\" OR creator:\"Gouge, William\" OR creator:\"Perkins, William\" OR creator:\"Dod, John\" OR creator:\"Cleaver, Robert\" OR creator:\"Greenham, Richard\" OR creator:\"Ursinus, Zacharias\" OR creator:\"Nowell, Alexander\" OR creator:\"Manton, Thomas\" OR creator:\"Sibbes, Richard\" OR creator:\"Newton, John\" OR creator:\"Edwards, Jonathan\" OR creator:\"Gurnall, William\" OR creator:\"Hildersam, Arthur\" OR creator:\"Preston, John\" OR creator:\"Owen, John\" OR creator:\"Hodge, Charles\" OR creator:\"Alexander, Archibald\" OR creator:\"Hodge, Archibald\" OR creator:\"Fuller, Andrew\" OR creator:\"Stennett, Joseph\" OR creator:\"Knollys, Hanserd\" OR publisher:\"American Sunday-School Union\" OR publisher:\"American Sunday School Union\" OR publisher:\"Religious Tract Society\" OR publisher:\"Presbyterian Board of Publication\" OR publisher:\"Baptist Sunday School\" OR publisher:\"Baptist Sunday-School\" OR publisher:\"American Tract Society\" OR publisher:\"Sunday School Union\" OR publisher:\"Sunday-School Union\")",
+  "approvedCollection": true,
+  "deferHardDownloads": true,
+  "downloadWorkers": 4,
+  "audienceProfile": "rb13",
+  "primaryAuthorOnly": true,
+  "skipIds": [
+    "anexpositionepi03willgoog",
+    "atreatiseonsabb00owengoog",
+    "bim_early-english-books-1641-1700_a-piller-set-up-to-keep_keach-benjamin_1670",
+    "anexpositionepi03willgoog",
+    "bim_early-english-books-1641-1700_a-treatise-concerning-th_spilsbury-john_1652",
+    "bim_early-english-books-1475-1640_the-excellency-of-a-grac_burroughs-jeremiah_1639",
+    "bim_early-english-books-1641-1700_exercitations-on-the-epi_owen-john-dd_1674",
+    "bim_early-english-books-1641-1700_gospel-reconcillation-_burroughes-jeremiah_1689",
+    "bim_early-english-books-1641-1700_jerusalems-glory_burroughes-jeremiah_1697",
+    "bim_early-english-books-1641-1700_sions-joy_burroughes-jeremiah_1641",
+    "bim_early-english-books-1641-1700_the-rare-jewel-of-christ_burroughes-jeremiah_1649",
+    "bim_early-english-books-1641-1700_the-rare-jewel-of-christ_burroughes-jeremiah_1650",
+    "bim_eighteenth-century_a-golden-key-to-open-hid_brooks-thomas_1763",
+    "bim_eighteenth-century_a-learned-and-complete-c_durham-james_1788",
+    "bim_eighteenth-century_a-practical-exposition-o_manton-thomas_1703",
+    "bim_eighteenth-century_heavenly-mindedness-reco_burroughs-jeremiah-pre_1715",
+    "irenicvmtolover00burrgoog",
+    "ubhlanoirairson00broo"
+  ]
+}

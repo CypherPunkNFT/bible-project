@@ -1,0 +1,158 @@
+{
+  "source": "monergism",
+  "catalogueItems": 1467,
+  "catalogueUnheldItems": 17,
+  "eligibleItems": 29,
+  "unheldBefore": 0,
+  "filter": {
+    "deferHardDownloads": true,
+    "skipIds": [],
+    "authors": [
+      "Baxter, Richard",
+      "Richard Baxter",
+      "Brooks, Thomas",
+      "Thomas Brooks",
+      "Flavel, John",
+      "John Flavel",
+      "Burroughs, Jeremiah",
+      "Jeremiah Burroughs",
+      "Burroughes, Jeremiah",
+      "Watson, Thomas",
+      "Thomas Watson",
+      "Bunyan, John",
+      "John Bunyan",
+      "Bridges, Charles",
+      "Charles Bridges",
+      "Ryle, John",
+      "J. C. Ryle",
+      "John Charles Ryle",
+      "Winslow, Octavius",
+      "Octavius Winslow",
+      "M'Cheyne",
+      "McCheyne",
+      "M?Cheyne",
+      "Murray M",
+      "Ryle, J. C."
+    ],
+    "primaryAuthorOnly": true,
+    "authorMustStart": true,
+    "authorIdentityRules": [
+      {
+        "namePattern": "Baxter",
+        "lifeYears": [
+          1615,
+          1691
+        ]
+      },
+      {
+        "namePattern": "Brooks",
+        "lifeYears": [
+          1608,
+          1680
+        ]
+      },
+      {
+        "namePattern": "Flavel",
+        "lifeYears": [
+          1627,
+          1691
+        ]
+      },
+      {
+        "namePattern": "Burrough",
+        "lifeYears": [
+          1599,
+          1600,
+          1646
+        ]
+      },
+      {
+        "namePattern": "Watson",
+        "lifeYears": [
+          1620,
+          1686
+        ]
+      },
+      {
+        "namePattern": "Bunyan",
+        "lifeYears": [
+          1628,
+          1688
+        ]
+      },
+      {
+        "namePattern": "Bridges",
+        "lifeYears": [
+          1794,
+          1869
+        ]
+      },
+      {
+        "namePattern": "Ryle",
+        "lifeYears": [
+          1816,
+          1900
+        ]
+      },
+      {
+        "namePattern": "Winslow",
+        "lifeYears": [
+          1808,
+          1878
+        ]
+      },
+      {
+        "namePattern": "Cheyne",
+        "lifeYears": [
+          1813,
+          1843
+        ]
+      }
+    ],
+    "ids": [
+      "alive-or-dead-ebook",
+      "rich-and-poor-ebook",
+      "expository-thoughts-gospels-ebook-j-c-ryle",
+      "call-prayer-ebook",
+      "109-sermons-and-tracts-ebook",
+      "simplicity-praching-ebook",
+      "upper-room-being-few-truths-times-ebook",
+      "can-there-be-unity-and-other-works",
+      "never-perish-ebook",
+      "happiness-ebook",
+      "charges-and-addresses-ebook",
+      "forgiveness-ebook",
+      "duties-parents-ebook",
+      "old-paths-ebook-0",
+      "ruler-waves-ebook",
+      "repentance-ebook-0",
+      "practical-religion-ebook",
+      "holiness-its-nature-hindrances-difficulties-and-roots-ebook",
+      "thoughts-young-men-ebook",
+      "living-or-dead-series-home-truths-ebook",
+      "light-old-times-ebook",
+      "sanctification-ebook",
+      "christian-leaders-last-century",
+      "christian-race-ebook",
+      "startling-questions-ebook",
+      "thoughts-immortality-ebook",
+      "coming-events-and-present-duties-ebook",
+      "why-were-our-reformers-burned-ebook",
+      "childrens-stories-ebook"
+    ],
+    "batchName": "ryle"
+  },
+  "attempted": 0,
+  "downloaded": 0,
+  "duplicateHashes": 0,
+  "heldDuringRun": 0,
+  "failures": [],
+  "bytes": 0,
+  "sampleSizes": [],
+  "state": "complete",
+  "startedAt": "2026-10-07T20:39:29.480214+00:00",
+  "unheldAfter": 0,
+  "estimatedUnheldGB": null,
+  "estimateBasis": "SWORD InstallSize where available; otherwise arithmetic mean of downloaded originals; decimal GB; edition/item counts, not deduplicated works",
+  "completedAt": "2026-10-07T20:39:29.481750+00:00"
+}

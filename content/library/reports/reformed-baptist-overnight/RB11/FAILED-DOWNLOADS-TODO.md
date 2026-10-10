@@ -1,0 +1,136 @@
+# RB11 failed-download TODO
+
+35 failed download requests; 0 saved originals with failed text export; 0 collector blockers; 95 previously failed IDs skipped.
+
+- [ ] IA `arspinge00watt`: The read operation timed out
+- [ ] IA `atreatiseonpray00unkngoog`: HTTP Error 500: Internal Server Error
+- [ ] IA `bim_eighteenth-century_a-method-for-prayer-wit_henry-matthew_1737`: The read operation timed out
+- [ ] IA `bim_eighteenth-century_a-method-for-prayer-wit_henry-matthew_1781`: The read operation timed out
+- [ ] IA `bim_eighteenth-century_a-selection-of-hymns-fro_rippon-john_1792`: The read operation timed out
+- [ ] IA `bim_eighteenth-century_hymns-and-spiritual-song_watts-isaac_1720`: The read operation timed out
+- [ ] IA `bim_eighteenth-century_hymns-founded-on-various_doddridge-philip_1793`: The read operation timed out
+- [ ] IA `bim_eighteenth-century_pasc-y-christion-neu-wle_doolittle-thomas_1739`: The read operation timed out
+- [ ] IA `bim_eighteenth-century_sermons-on-various-subje_watts-isaac_1725`: The read operation timed out
+- [ ] IA `bim_eighteenth-century_some-remarkable-passages_doddridge-philip_1748`: The read operation timed out
+- [ ] IA `bim_eighteenth-century_the-works-of-the-late-re_watts-isaac_1753_2`: HTTP Error 500: Internal Server Error
+- [ ] IA `bim_eighteenth-century_the-works-of-the-late-re_watts-isaac_1753_4`: HTTP Error 500: Internal Server Error
+- [ ] IA `bim_eighteenth-century_the-works-of-the-late-re_watts-isaac_1753_5`: HTTP Error 500: Internal Server Error
+- [ ] IA `bim_eighteenth-century_the-works-of-the-rev-is_watts-isaac_1800_2`: HTTP Error 500: Internal Server Error
+- [ ] IA `bim_eighteenth-century_the-works-of-the-rev-is_watts-isaac_1800_3`: HTTP Error 500: Internal Server Error
+- [ ] IA `bim_eighteenth-century_the-works-of-the-rev-is_watts-isaac_1800_6`: HTTP Error 500: Internal Server Error
+- [ ] IA `bookprivatedevo00unkngoog`: no existing downloadable djvu text or EPUB
+- [ ] IA `bim_eighteenth-century_the-works-of-the-rev-is_watts-isaac_1800_5`: The read operation timed out
+- [ ] IA `breakingcrucibl00alexgoog`: HTTP Error 500: Internal Server Error
+- [ ] IA `cu31924013169648`: HTTP Error 500: Internal Server Error
+- [ ] IA `familyexpositor00doddgoog`: HTTP Error 500: Internal Server Error
+- [ ] IA `gri_33125012238008`: HTTP Error 500: Internal Server Error
+- [ ] IA `illustratedediti02buny`: HTTP Error 500: Internal Server Error
+- [ ] IA `infidelityanswe00robigoog`: HTTP Error 500: Internal Server Error
+- [ ] IA `prayersforusefa04jaygoog`: HTTP Error 500: Internal Server Error
+- [ ] IA `prayersforusefa03jaygoog`: HTTP Error 500: Internal Server Error
+- [ ] IA `prayersforuseoffpru00jayw`: The read operation timed out
+- [ ] IA `psalmshymnsspiri1840watt`: The read operation timed out
+- [ ] IA `psalmshymnsspiri1841watt`: The read operation timed out
+- [ ] IA `psalmshymnsspiri1858watt`: The read operation timed out
+- [ ] IA `psalmslanguageof00watt`: The read operation timed out
+- [ ] IA `psalmsspir47watt`: HTTP Error 500: Internal Server Error
+- [ ] IA `riseprogressofre00dodd_2`: <urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>
+- [ ] IA `thoughtsonpublic00mill`: The read operation timed out
+- [ ] IA `worksofrevedward01bick`: HTTP Error 500: Internal Server Error
+- [ ] CCEL `barnes/1cor`: catalogue/index wrapper, not a complete book
+- [ ] CCEL `barnes/2cor`: catalogue/index wrapper, not a complete book
+- [ ] CCEL `barnes/acts`: catalogue/index wrapper, not a complete book
+- [ ] CCEL `barnes/daniel1`: catalogue/index wrapper, not a complete book
+- [ ] CCEL `barnes/daniel2`: catalogue/index wrapper, not a complete book
+- [ ] CCEL `barnes/epc`: catalogue/index wrapper, not a complete book
+- [ ] CCEL `barnes/hebrews`: catalogue/index wrapper, not a complete book
+- [ ] CCEL `barnes/isaiah1`: catalogue/index wrapper, not a complete book
+- [ ] CCEL `barnes/isaiah2`: catalogue/index wrapper, not a complete book
+- [ ] CCEL `barnes/james`: catalogue/index wrapper, not a complete book
+- [ ] CCEL `barnes/job1`: catalogue/index wrapper, not a complete book
+- [ ] CCEL `barnes/luke`: catalogue/index wrapper, not a complete book
+- [ ] CCEL `barnes/matthew`: catalogue/index wrapper, not a complete book
+- [ ] CCEL `barnes/psalms1`: catalogue/index wrapper, not a complete book
+- [ ] CCEL `barnes/psalms2`: catalogue/index wrapper, not a complete book
+- [ ] CCEL `barnes/psalms3`: catalogue/index wrapper, not a complete book
+- [ ] CCEL `barnes/rev`: catalogue/index wrapper, not a complete book
+- [ ] CCEL `barnes/romans`: catalogue/index wrapper, not a complete book
+- [ ] CCEL `barnes/tttp`: catalogue/index wrapper, not a complete book
+- [ ] CCEL `cook_fc/1sam`: catalogue/index wrapper, not a complete book
+- [ ] CCEL `cook_fc/exod_ruth`: catalogue/index wrapper, not a complete book
+- [ ] CCEL `cook_fc/provez`: catalogue/index wrapper, not a complete book
+- [ ] CCEL `moule/hebrews`: catalogue/index wrapper, not a complete book
+- [ ] CCEL `josephus/works`: not a complete offered XML text
+- [ ] CCEL `baxter/practical`: catalogue/index wrapper, not a complete book
+- [ ] IA `anexpositionepi03willgoog`: HTTP Error 500: Internal Server Error
+- [ ] IA `atreatiseonsabb00owengoog`: HTTP Error 500: Internal Server Error
+- [ ] IA `bim_early-english-books-1641-1700_a-piller-set-up-to-keep_keach-benjamin_1670`: HTTP Error 500: Internal Server Error
+- [ ] IA `bim_early-english-books-1641-1700_a-treatise-concerning-th_spilsbury-john_1652`: HTTP Error 500: Internal Server Error
+- [ ] IA `bim_early-english-books-1475-1640_the-excellency-of-a-grac_burroughs-jeremiah_1639`: The read operation timed out
+- [ ] IA `bim_early-english-books-1641-1700_exercitations-on-the-epi_owen-john-dd_1674`: The read operation timed out
+- [ ] IA `bim_early-english-books-1641-1700_gospel-reconcillation-_burroughes-jeremiah_1689`: HTTP Error 500: Internal Server Error
+- [ ] IA `bim_early-english-books-1641-1700_jerusalems-glory_burroughes-jeremiah_1697`: HTTP Error 500: Internal Server Error
+- [ ] IA `bim_early-english-books-1641-1700_sions-joy_burroughes-jeremiah_1641`: HTTP Error 500: Internal Server Error
+- [ ] IA `bim_early-english-books-1641-1700_the-rare-jewel-of-christ_burroughes-jeremiah_1649`: HTTP Error 500: Internal Server Error
+- [ ] IA `bim_early-english-books-1641-1700_the-rare-jewel-of-christ_burroughes-jeremiah_1650`: The read operation timed out
+- [ ] IA `bim_eighteenth-century_a-golden-key-to-open-hid_brooks-thomas_1763`: HTTP Error 500: Internal Server Error
+- [ ] IA `bim_eighteenth-century_a-learned-and-complete-c_durham-james_1788`: The read operation timed out
+- [ ] IA `bim_eighteenth-century_a-practical-exposition-o_manton-thomas_1703`: The read operation timed out
+- [ ] IA `bim_eighteenth-century_heavenly-mindedness-reco_burroughs-jeremiah-pre_1715`: HTTP Error 500: Internal Server Error
+- [ ] IA `irenicvmtolover00burrgoog`: HTTP Error 500: Internal Server Error
+- [ ] IA `ubhlanoirairson00broo`: The read operation timed out
+- [ ] IA `bim_early-english-books-1641-1700_an-handfull-of-gleanings_lightfoot-john_1643`: Interrupted while enabling shared-rate-limit concurrency; deferred without retry
+- [ ] IA `bim_early-english-books-1641-1700_the-harmony-of-the-foure_lightfoot-john_1658`: HTTP Error 500: Internal Server Error
+- [ ] IA `bim_early-english-books-1641-1700_the-temple-_lightfoot-john_1650`: HTTP Error 500: Internal Server Error
+- [ ] IA `bim_early-english-books-1641-1700_the-works-of-_josephus-flavius_1683`: HTTP Error 500: Internal Server Error
+- [ ] IA `bim_early-english-books-1641-1700_the-works-of-josephus-_josephus-flavius_1700`: The read operation timed out
+- [ ] IA `bim_eighteenth-century_the-wars-of-the-jews-in_josephus-flavius_1724`: <urlopen error _ssl.c:1015: The handshake operation timed out>
+- [ ] IA `bim_eighteenth-century_the-genuine-works-of-fla_josephus-flavius_1792_5`: <urlopen error _ssl.c:1015: The handshake operation timed out>
+- [ ] IA `bim_eighteenth-century_the-genuine-works-of-fla_josephus-flavius_1792_6`: <urlopen error _ssl.c:1015: The handshake operation timed out>
+- [ ] IA `bim_eighteenth-century_the-wars-of-the-jews-wi_josephus-flavius_1760`: <urlopen error _ssl.c:1015: The handshake operation timed out>
+- [ ] IA `bub_gb_imOgczlR7moC`: HTTP Error 500: Internal Server Error
+- [ ] IA `cu31924028779795`: HTTP Error 500: Internal Server Error
+- [ ] IA `cu31924031784311`: <urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>
+- [ ] IA `cu31924072037587`: <urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>
+- [ ] IA `cu31924029294398`: <urlopen error _ssl.c:1015: The handshake operation timed out>
+- [ ] IA `dissertationsona00lighuoft`: The read operation timed out
+- [ ] IA `genuineworksoffl04jose`: HTTP Error 500: Internal Server Error
+- [ ] IA `histoiredesiuifs03jose`: HTTP Error 500: Internal Server Error
+- [ ] IA `histoiredesiuifs02jose`: The read operation timed out
+- [ ] IA `historicalessays00lighiala`: The read operation timed out
+- [ ] IA `journalclassica04mayogoog`: <urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>
+- [ ] IA `journalclassica05mayogoog`: <urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>
+- [ ] IA `ldpd_13822730_000`: HTTP Error 500: Internal Server Error
+- [ ] IA `lifeandtimesjes04edergoog`: The read operation timed out
+- [ ] IA `lifetimesjesusm01ederuoft`: HTTP Error 500: Internal Server Error
+- [ ] IA `notesonepistles00lighuoft`: <urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>
+- [ ] IA `operajosephus07joseuoft`: HTTP Error 500: Internal Server Error
+- [ ] IA `operaomniaabimma06jose`: HTTP Error 500: Internal Server Error
+- [ ] IA `operaomniaposti00nabegoog`: HTTP Error 500: Internal Server Error
+- [ ] IA `powerfaithandpr00portgoog`: HTTP Error 500: Internal Server Error
+- [ ] IA `sermonspreached00lighgoog`: <urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>
+- [ ] IA `thetypologyofscr01fairuoft`: The read operation timed out
+- [ ] IA `worksflaviusjos05josegoog`: no existing downloadable djvu text or EPUB
+- [ ] IA `worksflaviusjos08whisgoog`: The read operation timed out
+- [ ] IA `worksflaviusjos10whisgoog`: The read operation timed out
+- [ ] IA `worksjosephus00unkngoog`: The read operation timed out
+- [ ] IA `worksofflaviusjo188902jose`: The read operation timed out
+- [ ] IA `workstranslatedb00joseuoft`: The read operation timed out
+- [ ] IA `apologyforlatech00full`: The read operation timed out
+- [ ] IA `bim_eighteenth-century_a-body-of-divinity-wher_ridgley-thomas_1731_2`: <urlopen error _ssl.c:1015: The handshake operation timed out>
+- [ ] IA `bim_eighteenth-century_the-gospel-its-own-witne_fuller-andrew_1799`: The read operation timed out
+- [ ] IA `bodyofdivinity01ridg`: The read operation timed out
+- [ ] IA `expositorydiscou00full`: <urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>
+- [ ] IA `gospelitsownwitn00full_0`: The read operation timed out
+- [ ] IA `gospelitsownwitn01full`: The read operation timed out
+- [ ] IA `practicalworksof03baxtuoft`: The read operation timed out
+- [ ] IA `practicalworksof21baxt`: The read operation timed out
+- [ ] IA `practicalworksof22baxt`: <urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>
+- [ ] IA `practicalworksr00ormegoog`: <urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>
+- [ ] IA `practicalworksr09baxtgoog`: The read operation timed out
+- [ ] IA `sensualisticphil00dabniala`: HTTP Error 500: Internal Server Error
+- [ ] IA `works25unkngoog`: HTTP Error 500: Internal Server Error
+- [ ] IA `worksrevandrewf06fullgoog`: HTTP Error 500: Internal Server Error
+- [ ] IA `worksrevandrewf07fullgoog`: <urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>
+
+Full IDs, URLs and errors: `failed-downloads.json`. No automatic retries.

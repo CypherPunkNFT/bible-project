@@ -1,0 +1,43 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-reconciled-f7b99a60d6801c5d26a2be97",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "title": "Fiftie godlie and learned sermons diuided into fiue decades, conteyning the chiefe and principall pointes of Christian religion, written in three seuerall tomes or sections, by Henrie Bullinger minister of the churche of Tigure in Swicerlande. Whereunto is adioyned a triple or three-folde table verie fruitefull and necessarie. Translated out of Latine into English by H.I. student in diuinitie.; Sermonum decades quinque. English",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-heinrich-bullinger",
+      "role": "author"
+    }
+  ],
+  "genre": "treatise",
+  "role": "core-teaching",
+  "collections": [],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [],
+  "depth": "unknown",
+  "era": "unknown",
+  "dates": [],
+  "passages": [],
+  "related": [],
+  "externalIds": {
+    "source-eebo-tcp": [
+      "item:A17183"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A17183/master/A17183.xml",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

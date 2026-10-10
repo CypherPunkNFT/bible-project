@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-d9919942789f4741df667534",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-358cff932fa27cc7f0dae92e",
+  "label": "The barren fig-tree: or, the doom and downfall of the fruitless professor. ... By John Bunyan, ... To which is added, his Exhortation to peace and unity among all that fear God. 1743 — held source edition c84960a79c40",
+  "languages": [
+    "English"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_eighteenth-century_the-barren-fig-tree-or-_bunyan-john_1743/bim_eighteenth-century_the-barren-fig-tree-or-_bunyan-john_1743_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

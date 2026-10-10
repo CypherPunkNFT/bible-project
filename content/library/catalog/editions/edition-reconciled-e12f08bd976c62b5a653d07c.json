@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-e12f08bd976c62b5a653d07c",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-e1c2b3277086e0b1b2accf2f",
+  "label": "A letter from the Rev. Mr. George Whitefield, to the religious societies lately set on foot in several parts of England and Wales. Wrote on board the Elisabeth, ... 1740 — held source edition 881e767ab80a",
+  "languages": [
+    "English"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_eighteenth-century_a-letter-from-the-rev-m_whitefield-george_1740/bim_eighteenth-century_a-letter-from-the-rev-m_whitefield-george_1740_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

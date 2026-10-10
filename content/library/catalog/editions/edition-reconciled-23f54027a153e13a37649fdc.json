@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-23f54027a153e13a37649fdc",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-0f09ae3713f2df4554233f5c",
+  "label": "Misrepresentations corrected, and truth vindicated. In a reply to the Rev. Mr. Solomon Williams's book, intitled, The true state of the question concerning the qualifications necessary to lawful communion in the Christian sacraments. / By Jonathan Edwards, M.A. Minister of the Gospel at Stockbridge. ; [Five lines of Scripture texts] — held source edition 4e2f191c24eb",
+  "languages": [
+    "eng"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/N05401/master/N05401.xml",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

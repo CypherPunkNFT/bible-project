@@ -1,0 +1,26 @@
+{
+  "source": "chapel",
+  "catalogueItems": 0,
+  "catalogueUnheldItems": 0,
+  "eligibleItems": 0,
+  "unheldBefore": 0,
+  "filter": {
+    "cataloguePath": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\bulk-catalogues\\rb14-chapel-confessions.json",
+    "approvedCollection": true,
+    "deferHardDownloads": true,
+    "batchName": "confessions"
+  },
+  "attempted": 0,
+  "downloaded": 0,
+  "duplicateHashes": 0,
+  "heldDuringRun": 0,
+  "failures": [],
+  "bytes": 0,
+  "sampleSizes": [],
+  "state": "complete",
+  "startedAt": "2026-10-07T21:27:58.914056+00:00",
+  "unheldAfter": 0,
+  "estimatedUnheldGB": null,
+  "estimateBasis": "SWORD InstallSize where available; otherwise arithmetic mean of downloaded originals; decimal GB; edition/item counts, not deduplicated works",
+  "completedAt": "2026-10-07T21:27:58.917215+00:00"
+}

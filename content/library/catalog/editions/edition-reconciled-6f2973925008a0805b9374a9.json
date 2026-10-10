@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-6f2973925008a0805b9374a9",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-9027370cbe6f2c9004740387",
+  "label": "A verie profitable and necessarie discourse concerning the obseruation and keeping of the Sabboth day seruing as well to confute the superstition of the Iewes, which obstinately vrge the strict keeping of the seuenth day, as also to ouerthrowe the vaine and godlesse reasons of others, that stiffely at this day maintaine, that Christians ought to keepe no set or appoynted time to worship and serue the Lord in, in his church and faithfull congregation. Written in Latine by Zacharias Vrsinus, sometimes reader of the diuinitie lecture in the Vniuersitie of Heidelberg in Germanie, and very nevvly turned into English, by Iohn Stockvvood schoolemaster of Tunbridge. — held source edition ffdc60f0a877",
+  "languages": [
+    "eng"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A14213/master/A14213.xml",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

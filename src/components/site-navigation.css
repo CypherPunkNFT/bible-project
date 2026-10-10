@@ -1,0 +1,6 @@
+.site-header-row{min-height:56px}
+.site-navigation{height:56px;align-items:stretch}
+.site-navigation>.site-nav-item{height:100%;border-radius:0}
+.site-navigation>span{align-self:center}
+.site-navigation>.site-nav-selected{color:var(--accent);font-weight:600;background:color-mix(in srgb,var(--accent) 9%,var(--surface));box-shadow:inset 0 -4px var(--accent)}
+.site-navigation>.site-nav-item:focus-visible{outline:2px solid var(--accent);outline-offset:-4px}

@@ -6391,9 +6391,10 @@
     {
       "assetId": "asset-rb04-f9ea063dff9952ca931d",
       "planned": true,
-      "evidenceOnly": true,
+      "evidenceOnly": false,
       "originalSha256": "b6e9d8e2c7cd664b30feef68f111f33885e6c23f97132b6b3e45ea5fde312395",
-      "actualDerivativeSelectedForHtml": true
+      "actualDerivativeSelectedForHtml": true,
+      "privateLocalIndexAuthorized": true
     },
     {
       "assetId": "asset-rb04-0309d1a642bea2895f0a",
@@ -6412,16 +6413,18 @@
     {
       "assetId": "asset-rb04-1315bc3e91e3702213c9",
       "planned": true,
-      "evidenceOnly": true,
+      "evidenceOnly": false,
       "originalSha256": "bbd4711c8588ee6ef8a70e644304a0aa7a8a91c438a7f3fdc590310e7fbf1e49",
-      "actualDerivativeSelectedForHtml": true
+      "actualDerivativeSelectedForHtml": true,
+      "privateLocalIndexAuthorized": true
     },
     {
       "assetId": "asset-rb04-4c5ffbf7f961b82f0fc2",
       "planned": true,
-      "evidenceOnly": true,
+      "evidenceOnly": false,
       "originalSha256": "a0c737811fb30af45853ebf56f44a65e95462fbd5abfe0d9f6b8e1db4c11b00e",
-      "actualDerivativeSelectedForHtml": false
+      "actualDerivativeSelectedForHtml": false,
+      "privateLocalIndexAuthorized": true
     }
   ],
   "dbTouched": false,

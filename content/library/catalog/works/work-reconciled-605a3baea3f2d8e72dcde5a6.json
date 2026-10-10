@@ -1,0 +1,43 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-reconciled-605a3baea3f2d8e72dcde5a6",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "title": "The Works of the Reverend George Whitefield, M.A., late of Pembroke-College, Oxford, and Chaplain to the Rt. Hon. the Countess of Huntingdon : containing all his sermons and tracts which have been alread published ; with a select collection of letters ... to which is prefixed, an account of his life, compiled from his original papers and letters",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-george-whitefield",
+      "role": "author"
+    }
+  ],
+  "genre": "treatise",
+  "role": "core-teaching",
+  "collections": [],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [],
+  "depth": "unknown",
+  "era": "unknown",
+  "dates": [],
+  "passages": [],
+  "related": [],
+  "externalIds": {
+    "source-internet-archive": [
+      "ia:worksofreverendg03whit"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/download/worksofreverendg03whit/worksofreverendg03whit_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

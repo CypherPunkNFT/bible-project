@@ -1,0 +1,149 @@
+# RB12 failed-download TODO
+
+109 failed download requests; 0 saved originals with failed text export; 0 collector blockers; 34 previously failed IDs skipped.
+
+- [ ] IA `05874394.4842.emory.edu`: HTTP Error 500: Internal Server Error
+- [ ] IA `annualregisterof00aspl`: The read operation timed out
+- [ ] IA `baptistencyclope02cathuoft`: The read operation timed out
+- [ ] IA `bim_eighteenth-century_the-history-of-the-engli_crosby-thomas_1738_3`: The read operation timed out
+- [ ] IA `bim_eighteenth-century_true-faith-will-produce-_backus-isaac_1767`: HTTP Error 500: Internal Server Error
+- [ ] IA `cihm_08263`: HTTP Error 500: Internal Server Error
+- [ ] IA `convprocee19201922bapt`: HTTP Error 500: Internal Server Error
+- [ ] IA `historymiddlete00grimgoog`: The read operation timed out
+- [ ] IA `historyofallreli00bene`: <urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>
+- [ ] IA `historyofenglish03ivim`: HTTP Error 500: Internal Server Error
+- [ ] IA `historyofnewengl03back`: The read operation timed out
+- [ ] IA `historyofnorthca11pasc`: HTTP Error 500: Internal Server Error
+- [ ] IA `historyofnorthca21pasc`: The read operation timed out
+- [ ] IA `minutesofanniver9196thre`: HTTP Error 500: Internal Server Error
+- [ ] IA `minutesofannuals01blad_0`: HTTP Error 500: Internal Server Error
+- [ ] IA `minutesofannuals01mitc_7`: HTTP Error 500: Internal Server Error
+- [ ] IA `minutesofannuals01sout_4`: HTTP Error 500: Internal Server Error
+- [ ] IA `minutesofannuals01yadk_0`: HTTP Error 500: Internal Server Error
+- [ ] IA `minutesofannuals1317cent`: The read operation timed out
+- [ ] IA `minutesofannuals1879zion`: The read operation timed out
+- [ ] IA `minutesofannuals1886neus`: HTTP Error 500: Internal Server Error
+- [ ] IA `minutesofannuals1904wake`: HTTP Error 500: Internal Server Error
+- [ ] IA `minutesofannuals1912kena`: The read operation timed out
+- [ ] IA `minutesofannuals1914wake`: HTTP Error 500: Internal Server Error
+- [ ] IA `minutesofannuals1916shil`: HTTP Error 500: Internal Server Error
+- [ ] IA `minutesofannuals1920east`: The read operation timed out
+- [ ] IA `minutesofannuals1923midd`: The read operation timed out
+- [ ] IA `minutesofannuals1928prim`: Extra data: line 120 column 128 (char 13193)
+- [ ] IA `minutesofannuals1929high`: The read operation timed out
+- [ ] IA `minutesofannuals1929kena`: The read operation timed out
+- [ ] IA `minutesofannuals1946prim`: HTTP Error 500: Internal Server Error
+- [ ] IA `minutesofannuals1957prim`: HTTP Error 500: Internal Server Error
+- [ ] IA `minutesofannuals1961wake`: HTTP Error 500: Internal Server Error
+- [ ] IA `minutesofannuals1962wake`: HTTP Error 500: Internal Server Error
+- [ ] IA `minutesofannuals2230cata`: HTTP Error 500: Internal Server Error
+- [ ] IA `minutesofannuals4156unio`: HTTP Error 500: Internal Server Error
+- [ ] IA `minutesofannuals4155cata`: The read operation timed out
+- [ ] IA `minutesofannuals7620litt`: The read operation timed out
+- [ ] IA `minutesofbearcre88orig`: The read operation timed out
+- [ ] IA `minutesofcedargr1918ceda`: HTTP Error 500: Internal Server Error
+- [ ] IA `minutesofcarolin9395caro`: The read operation timed out
+- [ ] IA `minutesofcharles00char`: The read operation timed out
+- [ ] IA `minutesofeightee00mudc`: HTTP Error 500: Internal Server Error
+- [ ] IA `minutesoffifthan00gill`: The read operation timed out
+- [ ] IA `minutesoffifthan00harm`: The read operation timed out
+- [ ] IA `minutesoffiftiet00will`: The read operation timed out
+- [ ] IA `minutesoffiftyfi00sout_0`: HTTP Error 500: Internal Server Error
+- [ ] IA `minutesoffiftyni00birm`: HTTP Error 500: Internal Server Error
+- [ ] IA `minutesoffiftyse00libe`: HTTP Error 500: Internal Server Error
+- [ ] IA `minutesoffortyfi00sale`: The read operation timed out
+- [ ] IA `minutesoffortyfi00warr`: The read operation timed out
+- [ ] IA `minutesoffortyfi0juds`: The read operation timed out
+- [ ] IA `minutesoffortyni00caha`: The read operation timed out
+- [ ] IA `minutesoffortyse00shel`: Extra data: line 162 column 128 (char 12879)
+- [ ] IA `minutesoffortysi00bigb`: HTTP Error 500: Internal Server Error
+- [ ] IA `minutesoffortysi00unit`: HTTP Error 500: Internal Server Error
+- [ ] IA `minutesoffourtee00nort`: The read operation timed out
+- [ ] IA `minutesoffourtha00pear`: The read operation timed out
+- [ ] IA `minutesofgreenri4580gree`: HTTP Error 500: Internal Server Error
+- [ ] IA `minutesofmudcree1927mudc`: HTTP Error 500: Internal Server Error
+- [ ] IA `minutesofninthan00flor`: The read operation timed out
+- [ ] IA `minutesofninthan00pear`: HTTP Error 500: Internal Server Error
+- [ ] IA `minutesoforganiz0108sout`: The read operation timed out
+- [ ] IA `minutesoforganiz8185libe`: HTTP Error 500: Internal Server Error
+- [ ] IA `minutesofpeedeeb7175peed`: The read operation timed out
+- [ ] IA `minutesofseconda00sout`: HTTP Error 500: Internal Server Error
+- [ ] IA `minutesofsession1930otte`: The read operation timed out
+- [ ] IA `minutesofseventh00selm`: The read operation timed out
+- [ ] IA `minutesofseventh1842libe`: HTTP Error 500: Internal Server Error
+- [ ] IA `minutesofseventy00mudc`: The read operation timed out
+- [ ] IA `minutesofseventy00mulb`: The read operation timed out
+- [ ] IA `minutesofsixteen00mobi`: The read operation timed out
+- [ ] IA `minutesofsixteen00selm`: HTTP Error 500: Internal Server Error
+- [ ] IA `minutesofsixteen00shel`: The read operation timed out
+- [ ] IA `minutesofsixthan00libe`: The read operation timed out
+- [ ] IA `minutesofsixty1884caha`: HTTP Error 500: Internal Server Error
+- [ ] IA `minutesofsixtyfo00cher`: The read operation timed out
+- [ ] IA `minutesofsixtyfo00nort`: The read operation timed out
+- [ ] IA `minutesofsixtyth00pilg`: The read operation timed out
+- [ ] IA `minutesofstateco00sout_11`: The read operation timed out
+- [ ] IA `minutesofthea1891beth`: HTTP Error 500: Internal Server Error
+- [ ] IA `minutesofthea1896beth`: HTTP Error 500: Internal Server Error
+- [ ] IA `minutesofthirdan00gulf`: HTTP Error 500: Internal Server Error
+- [ ] IA `minutesofthirdan00sout`: The read operation timed out
+- [ ] IA `minutesofthirtie00warr`: HTTP Error 500: Internal Server Error
+- [ ] IA `minutesofthirtyf00stcl`: HTTP Error 500: Internal Server Error
+- [ ] IA `minutesofthirtys00tusk`: HTTP Error 500: Internal Server Error
+- [ ] IA `minutesofthirtyt00unio`: The read operation timed out
+- [ ] IA `minutesoftwelfth65orig`: The read operation timed out
+- [ ] IA `minutesoftwentyf00elim`: HTTP Error 500: Internal Server Error
+- [ ] IA `minutesoftwentyf00cent`: HTTP Error 500: Internal Server Error
+- [ ] IA `minutesoftwentyn79juds`: The read operation timed out
+- [ ] IA `minutesoftwentys99sulp`: <urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>
+- [ ] IA `minutesoftwentyse00warr`: <urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>
+- [ ] IA `minutesoftwentyshel`: <urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>
+- [ ] IA `minutesoftwentysi00warr`: <urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>
+- [ ] IA `minutesoftwentyt00clea`: HTTP Error 500: Internal Server Error
+- [ ] IA `minutesproceedin8690sand`: The read operation timed out
+- [ ] IA `muskbaptassoc1881`: The read operation timed out
+- [ ] IA `muskregpredest1891`: The read operation timed out
+- [ ] IA `neutralityproper00ivim`: The read operation timed out
+- [ ] IA `proceedingsofann1844bapt`: The read operation timed out
+- [ ] IA `proceedingsofann1858bapt`: The read operation timed out
+- [ ] IA `proceedingsofann1890bapt`: The read operation timed out
+- [ ] IA `proceedingsofann1905bapt`: The read operation timed out
+- [ ] IA `proceedingsofann1906bapt`: The read operation timed out
+- [ ] IA `proceedingsoforg00rand`: HTTP Error 500: Internal Server Error
+- [ ] IA `proceedingsofsou7019sout`: The read operation timed out
+- [ ] IA `proceedofann2848185718781`: The read operation timed out
+- [ ] IA `bim_eighteenth-century_gospel-mysteries-unveil_keach-benjamin_1701`: Deferred at user time cutoff; not a failed request
+- [ ] IA `bim_eighteenth-century_gospel-mysteries-unveil_keach-benjamin_1701_0`: HTTP Error 500: Internal Server Error
+- [ ] IA `bim_eighteenth-century_instructions-for-childre_keach-benjamin_1710`: Deferred at user time cutoff; not a failed request
+- [ ] IA `bim_eighteenth-century_instructions-for-childre_keach-benjamin_1763`: Deferred at user time cutoff; not a failed request
+- [ ] IA `bim_eighteenth-century_jobs-creed-or-confess_gill-john-dd-baptis_1733`: Deferred at user time cutoff; not a failed request
+- [ ] IA `bim_eighteenth-century_the-childs-delight-or-_keach-benjamin_1704`: Deferred at user time cutoff; not a failed request
+- [ ] IA `bim_eighteenth-century_the-french-impostour-det_keach-benjamin_1702`: Deferred at user time cutoff; not a failed request
+- [ ] IA `bim_eighteenth-century_the-glorious-lover-a-di_keach-benjamin_1764`: Deferred at user time cutoff; not a failed request
+- [ ] IA `bim_eighteenth-century_the-progress-of-sin-or-_keach-benjamin_1707`: Deferred at user time cutoff; not a failed request
+- [ ] IA `bim_eighteenth-century_the-progress-of-sin-or-_keach-benjamin_1715`: Deferred at user time cutoff; not a failed request
+- [ ] IA `bim_eighteenth-century_the-progress-of-sin-or-_keach-benjamin_1736`: Deferred at user time cutoff; not a failed request
+- [ ] IA `bim_eighteenth-century_the-progress-of-sin-or-_keach-benjamin_1763`: Deferred at user time cutoff; not a failed request
+- [ ] IA `bim_eighteenth-century_the-progress-of-sin-or-_keach-benjamin_1781`: Deferred at user time cutoff; not a failed request
+- [ ] IA `bim_eighteenth-century_the-progress-of-sin-or-_keach-benjamin_1789`: Deferred at user time cutoff; not a failed request
+- [ ] IA `bim_eighteenth-century_the-progress-of-sin-or-_keach-benjamin_1800`: Deferred at user time cutoff; not a failed request
+- [ ] IA `bim_eighteenth-century_the-temple-repaird-or-_collins-hercules_1702`: Deferred at user time cutoff; not a failed request
+- [ ] IA `bim_eighteenth-century_the-travels-of-true-godl_keach-benjamin_1763`: Deferred at user time cutoff; not a failed request
+- [ ] IA `bim_eighteenth-century_the-travels-of-true-godl_keach-benjamin_1781`: Deferred at user time cutoff; not a failed request
+- [ ] IA `bim_eighteenth-century_the-travels-of-true-godl_keach-benjamin_1798`: Deferred at user time cutoff; not a failed request
+- [ ] IA `bim_eighteenth-century_tropologia-a-key-to-op_keach-benjamin_1779`: Deferred at user time cutoff; not a failed request
+- [ ] IA `bim_eighteenth-century_war-with-the-devil-or-_keach-benjamin_1709`: Deferred at user time cutoff; not a failed request
+- [ ] IA `bim_eighteenth-century_war-with-the-devil-or-_keach-benjamin_1720`: Deferred at user time cutoff; not a failed request
+- [ ] IA `bim_eighteenth-century_war-with-the-devil-or-_keach-benjamin_1737`: Deferred at user time cutoff; not a failed request
+- [ ] IA `bim_eighteenth-century_war-with-the-devil-or-_keach-benjamin_1795`: Deferred at user time cutoff; not a failed request
+- [ ] IA `bim_eighteenth-century_war-with-the-devil-or-t_keach-benjamin_1711`: Deferred at user time cutoff; not a failed request
+- [ ] IA `bim_eighteenth-century_war-with-the-devil-or-t_keach-benjamin_1760`: Deferred at user time cutoff; not a failed request
+- [ ] IA `bim_eighteenth-century_war-with-the-devil-or-t_keach-benjamin_1776`: Deferred at user time cutoff; not a failed request
+- [ ] IA `breachr00keac`: Deferred at user time cutoff; not a failed request
+- [ ] IA `expositionofpara00keac`: Deferred at user time cutoff; not a failed request
+- [ ] IA `goldenmineopened00keac`: Deferred at user time cutoff; not a failed request
+- [ ] IA `goldrefinedorbap00keac`: Deferred at user time cutoff; not a failed request
+- [ ] IA `travelsoftrueg00keac`: Deferred at user time cutoff; not a failed request
+- [ ] IA `travelsoftruegod00keac`: Deferred at user time cutoff; not a failed request
+- [ ] IA `travelsoftruegod00keac_1`: Deferred at user time cutoff; not a failed request
+
+Full IDs, URLs and errors: `failed-downloads.json`. No automatic retries.

@@ -1,0 +1,37 @@
+{
+  "source": "gutenberg",
+  "catalogueItems": 78282,
+  "catalogueUnheldItems": 78247,
+  "eligibleItems": 5,
+  "unheldBefore": 4,
+  "filter": {
+    "deferHardDownloads": true,
+    "approvedCollection": true,
+    "ids": [
+      "3150",
+      "14780",
+      "19192",
+      "20801",
+      "53346"
+    ]
+  },
+  "attempted": 4,
+  "downloaded": 4,
+  "duplicateHashes": 0,
+  "heldDuringRun": 0,
+  "failures": [],
+  "bytes": 2022176,
+  "sampleSizes": [
+    294543,
+    781575,
+    59492,
+    886566
+  ],
+  "state": "complete",
+  "startedAt": "2026-10-07T20:02:03.659627+00:00",
+  "updatedAt": "2026-10-07T20:02:26.058791+00:00",
+  "unheldAfter": 0,
+  "estimatedUnheldGB": 0.0,
+  "estimateBasis": "SWORD InstallSize where available; otherwise arithmetic mean of downloaded originals; decimal GB; edition/item counts, not deduplicated works",
+  "completedAt": "2026-10-07T20:02:26.060264+00:00"
+}

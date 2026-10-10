@@ -1,0 +1,43 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-reconciled-45fb6c6239b087b2b8c443d7",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "title": "The shorter catechism, composed by the Reverend Assembly of Divines with the proofs thereof out of the Scriptures, in words at length. Which are either some of the formerly quoted places, or others gathered from their other writings; all fitted, both of brevity & clearness, to this their form of sound words. : For the benefit of Christians in general, and of youth, and children in understanding, in particular; that they may with more ease acquaint themselves with the truth according to the Scriptures, and with the Scriptures themselves.; Shorter catechism",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-l08-westminster-assembly",
+      "role": "author"
+    }
+  ],
+  "genre": "treatise",
+  "role": "core-teaching",
+  "collections": [],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [],
+  "depth": "unknown",
+  "era": "unknown",
+  "dates": [],
+  "passages": [],
+  "related": [],
+  "externalIds": {
+    "source-eebo-tcp": [
+      "item:N00709"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/N00709/master/N00709.xml",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

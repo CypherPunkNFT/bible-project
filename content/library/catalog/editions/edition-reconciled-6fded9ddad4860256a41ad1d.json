@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-6fded9ddad4860256a41ad1d",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-3a2964be9e2350871bc7bfbd",
+  "label": "Taith y pererin, neu, siwrneu dyn o'r byd hwn i'r byd addaw dan gyffelybiaeth breuddwyd yn yr hwn a dangosir, yn gyntaf, y modd o'i gychwŷnfa ef, yn ail ei siwrneu ddyrŷs, yn drydŷdd, ei ddyfodiad or diwedd i'r wlad ddymunol, teŷrnas nêf / o wneuthuriad John Bunyan, yn saesnaeg ; y llyfr hwn a argraphwŷd yn sasnaeg bymtheg o weithiau, ac unwaith or blaen yn gymraeg o gyfieuthad cymmŷfg ddwŷlo.; Pilgrim's progress. Welsh — held source edition e36817d0a619",
+  "languages": [
+    "wel"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A30210/master/A30210.xml",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

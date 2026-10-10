@@ -1,0 +1,51 @@
+{
+  "state": "downloads_complete_report_written",
+  "updatedAt": "2026-10-07T20:39:30.006489+00:00",
+  "files": 530,
+  "bytes": 1000016247,
+  "distinctWorksEstimate": 298,
+  "sources": {
+    "tcp": 10,
+    "ccel": 6,
+    "ia": 479,
+    "sword": 35
+  },
+  "failedDownloads": 38,
+  "exportFailures": 0,
+  "blockers": [],
+  "previouslyFailedSkipped": 0,
+  "derivedTexts": 35,
+  "embeddingBefore": {
+    "state": "complete",
+    "total": 1934778,
+    "indexed": 1934778,
+    "remaining": 0,
+    "corpus_build": "2026-10-07T15:23:27.068328+00:00",
+    "updated_at": "2026-10-07T16:52:55.679411+00:00",
+    "seconds": 2509.1
+  },
+  "embeddingAfter": {
+    "state": "complete",
+    "total": 1934778,
+    "indexed": 1934778,
+    "remaining": 0,
+    "corpus_build": "2026-10-07T15:23:27.068328+00:00",
+    "updated_at": "2026-10-07T16:52:55.679411+00:00",
+    "seconds": 2509.1
+  },
+  "intakeCommandExitCode": null,
+  "intake": {
+    "updated_at": "2026-10-07T20:41:42.7336967Z",
+    "pid": 79768,
+    "readers": [
+      {
+        "pid": 96980,
+        "appName": "Python",
+        "serviceName": ""
+      }
+    ],
+    "state": "waiting_for_source_database_reader"
+  },
+  "excludedAuthorItems": 41,
+  "intakeBlocker": "Pre-existing TCP acquisition reader holds database; completion job waits for its natural exit"
+}

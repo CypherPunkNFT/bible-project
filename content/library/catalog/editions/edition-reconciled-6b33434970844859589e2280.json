@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-6b33434970844859589e2280",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-7df5dc94e5d45e38d5c9f72c",
+  "label": "The penitent recognition of Joseph's brethren a sermon occasion'd by Elizabeth Ridgeway, who for the petit treason of poysoning her husband, was, on March 24, 1683/4, according to the sentence of the Right Honourable Sir Thomas Street ... burnt at Leicester ... : to which is prefixed a full relation of the womans fact, tryal, carriage, and death / by John Newton ... — held source edition e095463706af",
+  "languages": [
+    "und"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A52275/master/A52275.xml",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

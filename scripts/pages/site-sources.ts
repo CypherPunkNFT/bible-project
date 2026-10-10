@@ -66,6 +66,7 @@ function bibliography(entries: SourceEntry[]): string {
 
 async function directoryPart(directory: Directory | null): Promise<string> {
   const roots = await jsxRoots(FILE, "SourceDirectory");
+  const providerRoots = await jsxRoots("src/components/sources/SourceProviders.tsx", "SourceProviders");
   const header = first(roots, byTag("header"));
   const [nav] = await inlineTables(FILE, "SourceDirectory");
   const foundations = await looseConstant<string[][]>(FILE, "foundational");
@@ -94,8 +95,8 @@ async function directoryPart(directory: Directory | null): Promise<string> {
     sectionText(roots, "research").split("\n").filter((line) => !line.includes("**") && !research.some(([label]) => line.endsWith(label))).join("\n"),
     table(["Guide", "Report"], research.map(([label, folder]) => [label, `${REPO}content/library/reports/${folder}/REPORT.md`])),
     "## Libraries, archives & ministries. (#repositories)",
-    sectionText(roots, "repositories").split("\n").filter((line) => !line.includes("**")).join("\n"),
-    directory ? directory.sources.map((s) => `${s.name} (${s.role.replace(/-/g, " ")})`).join(" · ") : "",
+    sectionText(providerRoots, "repositories").split("\n").filter((line) => !line.includes("**")).join("\n"),
+    directory?.sourceProfiles ? table(["Provider", "Type", "Held files", "Text searchable", "Awaiting intake", "Source"], directory.sourceProfiles.map(s => [s.name, s.category, s.files === undefined ? "—" : n(s.files), s.textReady === undefined ? "—" : n(s.textReady), s.pending === undefined ? "—" : n(s.pending), s.url ?? "Project editorial data"])) : directory ? directory.sources.map((s) => `${s.name} (${s.role.replace(/-/g, " ")})`).join(" · ") : "",
     "## An open reference desk, an honest record.",
     readableLines(findAll(roots, byTag("aside"))).filter((line) => !line.startsWith("**")).join("\n"));
 }

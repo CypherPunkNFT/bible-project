@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-50b0e6bf385938ab0c71bd44",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-627a4d716187ca78abaf6efc",
+  "label": "Hermanni Witsii De œconomia fœderum Dei cum hominibus libri quatuor. Ex recensione auctoris, prioribus multo emendatior & auctior — held source edition f5cbba84507d",
+  "languages": [
+    "lat"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/hermanniwitsiid00witsgoog/hermanniwitsiid00witsgoog_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

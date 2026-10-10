@@ -1,0 +1,26 @@
+{
+  "source": "tcp",
+  "catalogueItems": 61315,
+  "catalogueUnheldItems": 61032,
+  "eligibleItems": 42,
+  "unheldBefore": 42,
+  "filter": {
+    "authors": [
+      "Edwards, Jonathan"
+    ],
+    "collections": [
+      "Evans"
+    ]
+  },
+  "attempted": 1,
+  "downloaded": 1,
+  "duplicateHashes": 0,
+  "failures": [],
+  "bytes": 61466,
+  "sampleSizes": [
+    61466
+  ],
+  "unheldAfter": 41,
+  "estimatedUnheldGB": 0.002520106,
+  "estimateBasis": "SWORD InstallSize where available; otherwise arithmetic mean of downloaded originals; decimal GB; edition/item counts, not deduplicated works"
+}

@@ -1,0 +1,133 @@
+{
+  "source": "tcp",
+  "catalogueItems": 61315,
+  "catalogueUnheldItems": 51112,
+  "eligibleItems": 12,
+  "unheldBefore": 0,
+  "filter": {
+    "authors": [
+      "Fuller, Andrew",
+      "Andrew Fuller",
+      "Carey, William",
+      "William Carey",
+      "Judson, Adoniram",
+      "Adoniram Judson",
+      "Judson, Ann",
+      "Ann Hasseltine Judson",
+      "Ann H. Judson",
+      "Judson, Sarah",
+      "Sarah Boardman Judson",
+      "Judson, Emily",
+      "Emily Chubbuck Judson",
+      "Spurgeon, Charles",
+      "Charles H. Spurgeon",
+      "Charles Haddon Spurgeon",
+      "C. H. Spurgeon",
+      "Whitefield, George",
+      "George Whitefield",
+      "Edwards, Jonathan",
+      "Jonathan Edwards",
+      "Brainerd, David",
+      "David Brainerd"
+    ],
+    "primaryAuthorOnly": true,
+    "authorMustStart": true,
+    "authorIdentityRules": [
+      {
+        "namePattern": "Fuller",
+        "lifeYears": [
+          1754,
+          1815
+        ]
+      },
+      {
+        "namePattern": "Carey",
+        "lifeYears": [
+          1761,
+          1834
+        ]
+      },
+      {
+        "namePattern": "Spurgeon",
+        "lifeYears": [
+          1834,
+          1892
+        ]
+      },
+      {
+        "namePattern": "Whitefield",
+        "lifeYears": [
+          1714,
+          1770
+        ]
+      },
+      {
+        "namePattern": "Edwards",
+        "lifeYears": [
+          1703,
+          1758
+        ]
+      },
+      {
+        "namePattern": "Brainerd",
+        "lifeYears": [
+          1718,
+          1747
+        ]
+      },
+      {
+        "namePattern": "Judson",
+        "lifeYears": [
+          1788,
+          1850,
+          1789,
+          1826,
+          1803,
+          1845,
+          1817,
+          1854
+        ]
+      }
+    ],
+    "authorTitleRules": [
+      {
+        "namePattern": "Spurgeon",
+        "titlePattern": "sermon|pulpit|preach|new park|metropolitan|works|gospel|discourse|address|lecture|talk|pastor"
+      },
+      {
+        "namePattern": "Judson",
+        "titlePattern": "memoir|life|letter|mission|biograph|burma|burmah|correspond|journal|diary"
+      }
+    ],
+    "deferHardDownloads": true,
+    "skipIds": [],
+    "ids": [
+      "N03404",
+      "N03467",
+      "N03831",
+      "N04497",
+      "N04498",
+      "N05035",
+      "N05401",
+      "N05663",
+      "N06399",
+      "N06770",
+      "N07809",
+      "N13864"
+    ],
+    "batchName": "expanded"
+  },
+  "attempted": 0,
+  "downloaded": 0,
+  "duplicateHashes": 0,
+  "heldDuringRun": 0,
+  "failures": [],
+  "bytes": 0,
+  "sampleSizes": [],
+  "state": "complete",
+  "startedAt": "2026-10-07T22:05:18.081934+00:00",
+  "unheldAfter": 0,
+  "estimatedUnheldGB": null,
+  "estimateBasis": "SWORD InstallSize where available; otherwise arithmetic mean of downloaded originals; decimal GB; edition/item counts, not deduplicated works",
+  "completedAt": "2026-10-07T22:05:18.083091+00:00"
+}

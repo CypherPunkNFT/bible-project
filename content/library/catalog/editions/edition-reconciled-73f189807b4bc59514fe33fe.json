@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-73f189807b4bc59514fe33fe",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-921e8cbc512801f465d6cd0f",
+  "label": "A narrative of the late work of God at and near Northampton in New-England. Extracted from Mr. Edwards's letter to Dr. Coleman. By John Wesley, ... 1755 — held source edition d54cbe226b7d",
+  "languages": [
+    "English"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_eighteenth-century_a-narrative-of-the-late-_edwards-jonathan_1755/bim_eighteenth-century_a-narrative-of-the-late-_edwards-jonathan_1755_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-ca29a21025642cdb2e6b38dd",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-21743be429dafc93a29887cc",
+  "label": "The acceptable sacrifice, or, The excellency of a broken heart shewing the nature, signs and proper effects of a contrite spirit / being the last works of that eminent preacher and faithful minister of Jesus Christ, Mr. John Bunyan of Bedford ; with a preface ... by a eminent minister of the Gospel in London. — held source edition ea1eb1675094",
+  "languages": [
+    "und"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A30118/master/A30118.xml",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

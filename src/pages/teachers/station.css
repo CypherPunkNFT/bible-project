@@ -8,3 +8,11 @@
 .st-doors-2 .sa-faint{opacity:.58;stroke-width:.75}
 .st-doors-2 .sa-wave{opacity:.55;stroke-width:1.1}
 .st-doors-2 a.st-door:is(:hover,:focus-visible) .sa-live{filter:drop-shadow(0 0 2px color-mix(in srgb,var(--door) 20%,transparent))}
+
+.st-doors-2 .sa-scholar-shelf{stroke:currentColor;stroke-width:.85;fill:none;opacity:.9}
+.st-doors-2 .sa-scholar-shelf>path{opacity:.65}
+.st-doors-2 .sa-shelf-dot{opacity:.65}
+.st-doors-2 a.st-door:is(:hover,:focus-visible) .sa-shelf-raised{animation:teacher-book-lift 6s calc(var(--i)*.7s) ease-in-out infinite}
+.st-doors-2 a.st-door:is(:hover,:focus-visible) .sa-shelf-dot{opacity:1}
+@keyframes teacher-book-lift{0%,15%,100%{transform:translateY(0)}40%,75%{transform:translateY(-9px)}}
+@media(prefers-reduced-motion:reduce){.st-doors-2 .sa-shelf-raised{animation:none!important}}

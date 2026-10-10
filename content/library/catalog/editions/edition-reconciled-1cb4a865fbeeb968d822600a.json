@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-1cb4a865fbeeb968d822600a",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-f90e916c3996d0f2e8f6059f",
+  "label": "Des Christen Wallfahrt nach der himmlischen Stadt Nach dem Englischen des John Bunyan, von Friedrich Heinrich Ranke. Mit einer Einleitung von Gotthelf Heinrich von Schubert — held source edition 62aeb69b6ceb",
+  "languages": [
+    "German"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bub_gb_b2g9AAAAcAAJ/bub_gb_b2g9AAAAcAAJ_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

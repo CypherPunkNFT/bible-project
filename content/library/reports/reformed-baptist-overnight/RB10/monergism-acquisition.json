@@ -1,0 +1,113 @@
+{
+  "source": "monergism",
+  "catalogueItems": 1467,
+  "catalogueUnheldItems": 1390,
+  "eligibleItems": 69,
+  "unheldBefore": 65,
+  "filter": {
+    "authors": [
+      "Baxter, Richard",
+      "Richard Baxter",
+      "Perkins, William",
+      "William Perkins",
+      "Ames, William",
+      "William Ames",
+      "Watson, Thomas",
+      "Thomas Watson",
+      "Durham, James",
+      "James Durham",
+      "Ridgley, Thomas",
+      "Thomas Ridgley",
+      "Dabney, Robert",
+      "Robert Dabney",
+      "Fuller, Andrew",
+      "Andrew Fuller",
+      "Robert Lewis Dabney",
+      "Dabney, R L",
+      "Dabney, R. L.",
+      "Ames, Willem",
+      "William Amesius"
+    ],
+    "primaryAuthorOnly": true,
+    "authorIdentityRules": [
+      {
+        "namePattern": "Baxter",
+        "lifeYears": [
+          1615,
+          1691
+        ]
+      },
+      {
+        "namePattern": "Perkins",
+        "lifeYears": [
+          1558,
+          1588,
+          1602
+        ]
+      },
+      {
+        "namePattern": "Ames",
+        "lifeYears": [
+          1576,
+          1633
+        ]
+      },
+      {
+        "namePattern": "Watson",
+        "lifeYears": [
+          1620,
+          1686
+        ]
+      },
+      {
+        "namePattern": "Durham",
+        "lifeYears": [
+          1622,
+          1658
+        ]
+      },
+      {
+        "namePattern": "Ridgley",
+        "lifeYears": [
+          1667,
+          1734
+        ]
+      },
+      {
+        "namePattern": "Dabney",
+        "lifeYears": [
+          1820,
+          1898
+        ]
+      },
+      {
+        "namePattern": "Fuller",
+        "lifeYears": [
+          1754,
+          1815
+        ]
+      }
+    ],
+    "deferHardDownloads": true,
+    "skipIds": []
+  },
+  "attempted": 65,
+  "downloaded": 4,
+  "duplicateHashes": 61,
+  "heldDuringRun": 0,
+  "failures": [],
+  "bytes": 1741116,
+  "sampleSizes": [
+    1015488,
+    232112,
+    374574,
+    118942
+  ],
+  "state": "complete",
+  "startedAt": "2026-10-07T19:57:51.114167+00:00",
+  "updatedAt": "2026-10-07T20:20:49.936449+00:00",
+  "unheldAfter": 61,
+  "estimatedUnheldGB": 0.026552019,
+  "estimateBasis": "SWORD InstallSize where available; otherwise arithmetic mean of downloaded originals; decimal GB; edition/item counts, not deduplicated works",
+  "completedAt": "2026-10-07T20:20:49.937864+00:00"
+}

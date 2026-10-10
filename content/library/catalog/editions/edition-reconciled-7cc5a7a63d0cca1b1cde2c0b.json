@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-7cc5a7a63d0cca1b1cde2c0b",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-89447bfea56f1f37bac868ab",
+  "label": "Taith neu siwrnai y pererin, tan rith neu Gyffelybiaeth Breuddwyd : yn yr hwn y dangofir, I. Y Modd y mae Pechadur yn Chychwyn ...; Pilgrim's progress. Welsh. 1688 — held source edition 44cca73455ba",
+  "languages": [
+    "wel"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A77831/master/A77831.xml",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

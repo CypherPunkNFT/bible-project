@@ -1,0 +1,18 @@
+/* Approved palette 3: forest green, amber orange and cobalt blue. */
+:root {
+ --worldview-secular:#26733e;
+ --worldview-buddhism:#995011;
+ --worldview-hinduism:#3d57a3;
+}
+@media(prefers-color-scheme:dark){
+ :root:not([data-theme="light"]){
+  --worldview-secular:#62b781;
+  --worldview-buddhism:#efa057;
+  --worldview-hinduism:#80a4ee;
+ }
+}
+:root[data-theme="dark"]{
+ --worldview-secular:#62b781;
+ --worldview-buddhism:#efa057;
+ --worldview-hinduism:#80a4ee;
+}

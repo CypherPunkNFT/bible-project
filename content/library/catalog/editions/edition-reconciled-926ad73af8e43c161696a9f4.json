@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-926ad73af8e43c161696a9f4",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-5a4970e92e6a98e0ae687f39",
+  "label": "Of the calling of the ministerie two treatises, discribing the duties and dignities of that calling. Delivered publickly in the Vniuersitie of Cambridge, by Maister Perkins. Taken then from his mouth, and now dilligently perused and published, by a preacher of the word with a preface prefixed touching the publishing of Maister Perkins his workes, & a catalogue of all such particulars thereof, as are to bee expected. — held source edition f4ff11a0a9f6",
+  "languages": [
+    "eng"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A09445/master/A09445.xml",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

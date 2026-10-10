@@ -1,0 +1,21 @@
+{
+  "source": "ccel",
+  "updatedAt": "2026-10-07T20:03:52.465574+00:00",
+  "items": [
+    {
+      "sourceId": "baxter/practical",
+      "url": "https://ccel.org/ccel/baxter/practical.xml",
+      "title": "Practical Works of Richard Baxter",
+      "author": "Baxter, Richard (1615-1691)",
+      "error": "catalogue/index wrapper, not a complete book"
+    },
+    {
+      "sourceId": "ryle/twobears",
+      "url": "https://ccel.org/ccel/ryle/twobears.xml",
+      "title": "Two Bears: And Other Addresses to Children",
+      "author": "Ryle, John Charles (1816-1900)",
+      "error": "not a complete offered XML text"
+    }
+  ],
+  "policy": "Deferred downloads; no automatic retries when deferHardDownloads is true"
+}

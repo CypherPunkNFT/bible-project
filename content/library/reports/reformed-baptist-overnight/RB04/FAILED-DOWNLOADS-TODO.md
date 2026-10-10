@@ -1,0 +1,149 @@
+# RB04 failed-download TODO
+
+138 failed download requests; 0 saved originals with failed text export; 0 collector blockers; 5 previously failed IDs skipped.
+
+- [ ] IA `abookforboysand00browgoog`: HTTP Error 500: Internal Server Error
+- [ ] IA `anarrativereviv00smitgoog`: The read operation timed out
+- [ ] IA `anillustrationd00bostgoog`: HTTP Error 500: Internal Server Error
+- [ ] IA `apologyforlatech00full`: The read operation timed out
+- [ ] IA `badmintonlibrar00watsgoog`: Deferred interrupted serial request during bounded-pool handoff; no retry
+- [ ] IA `badmintonlibrar02watsgoog`: HTTP Error 500: Internal Server Error
+- [ ] IA `beameli00sibb`: HTTP Error 500: Internal Server Error
+- [ ] IA `bim_early-english-books-1475-1640_a-brief-instruction-in-t_owen-john-dd_1688`: The read operation timed out
+- [ ] IA `bim_early-english-books-1475-1640_a-fountain-sealed-or-t_sibbes-richard_1637`: Deferred interrupted worker-pool request during canonical-author correction; no retry
+- [ ] IA `bim_early-english-books-1475-1640_a-fountain-sealed-or-t_sibbes-richard_1638`: Deferred interrupted worker-pool request during canonical-author correction; no retry
+- [ ] IA `bim_early-english-books-1475-1640_a-fountain-sealed-or-th_sibbes-richard_1637`: Deferred interrupted worker-pool request during canonical-author correction; no retry
+- [ ] IA `bim_early-english-books-1475-1640_a-fountaine-sealed-or-_sibbes-richard_1638`: Deferred interrupted worker-pool request during canonical-author correction; no retry
+- [ ] IA `bim_early-english-books-1475-1640_aggravation-of-sinne-an_goodwin-thomas_1638`: The read operation timed out
+- [ ] IA `bim_early-english-books-1475-1640_evangelicall-sacrifices_sibbes-richard_1640`: The read operation timed out
+- [ ] IA `bim_early-english-books-1475-1640_light-from-heaven-_sibbes-richard_1638`: The read operation timed out
+- [ ] IA `bim_early-english-books-1475-1640_the-vanity-of-thoughts-d_goodwin-thomas_1638_0`: The read operation timed out
+- [ ] IA `bim_early-english-books-1641-1700_a-defence-of-the-doctrin_bunyan-john_1673`: The read operation timed out
+- [ ] IA `bim_early-english-books-1641-1700_aggravations-of-sinne-an_goodwin-thomas_1650`: The read operation timed out
+- [ ] IA `bim_early-english-books-1641-1700_come-welcome-to-jesu_bunyan-john_1694`: The read operation timed out
+- [ ] IA `bim_early-english-books-1641-1700_come-welcome-to-jesus_bunyan-john_1691`: The read operation timed out
+- [ ] IA `bim_early-english-books-1641-1700_epigrammatum-_owen-john-epigrammatis_1676`: The read operation timed out
+- [ ] IA `bim_early-english-books-1641-1700_eschol-a-cluster-_owen-john-dd_1655`: The read operation timed out
+- [ ] IA `bim_early-english-books-1641-1700_moderation-a-vertue-_owen-john_1683`: HTTP Error 500: Internal Server Error
+- [ ] IA `bim_early-english-books-1641-1700_reprobation-asserted-_bunyan-john_1696`: HTTP Error 500: Internal Server Error
+- [ ] IA `bim_early-english-books-1641-1700_sighs-from-hell-_bunyan-john_1700`: HTTP Error 500: Internal Server Error
+- [ ] IA `bim_early-english-books-1641-1700_solomons-temple-spiritu_bunyan-john_1698`: HTTP Error 500: Internal Server Error
+- [ ] IA `bim_early-english-books-1641-1700_sighs-from-hell_bunyan-john_1675`: The read operation timed out
+- [ ] IA `bim_early-english-books-1641-1700_the-nature-of-apostasie-_owen-john_1676`: The read operation timed out
+- [ ] IA `bim_early-english-books-1641-1700_the-nature-power-decei_owen-john_1668`: HTTP Error 500: Internal Server Error
+- [ ] IA `bim_early-english-books-1641-1700_the-pilgrims-progress_bunyan-john_1695_0`: HTTP Error 500: Internal Server Error
+- [ ] IA `bim_early-english-books-1641-1700_the-primer-or-an-easie_owen-john-dd_1652`: <urlopen error [Errno 11001] getaddrinfo failed>
+- [ ] IA `bim_early-english-books-1641-1700_the-tryal-of-a-christian_goodwin-thomas_1641`: HTTP Error 500: Internal Server Error
+- [ ] IA `bim_early-english-books-1641-1700_the-works-of-thomas-good_goodwin-thomas_1683_2`: The read operation timed out
+- [ ] IA `bim_eighteenth-century_a-memorial-concerning-pe_boston-thomas-the-elde_1734`: empty/short original
+- [ ] IA `bim_eighteenth-century_a-preservative-against-s_edwards-jonathan_1703`: The read operation timed out
+- [ ] IA `bim_eighteenth-century_a-treatise-concerning-re_edwards-jonathan_1787`: The read operation timed out
+- [ ] IA `bim_eighteenth-century_an-illustration-of-the-d_boston-thomas_1796_2`: The read operation timed out
+- [ ] IA `bim_eighteenth-century_caerfyrddin-tachwedd-14_bunyan-john_1766`: The read operation timed out
+- [ ] IA `bim_eighteenth-century_come-and-welcome-to-jesu_bunyan-john_1776`: The read operation timed out
+- [ ] IA `bim_eighteenth-century_grace-abounding-to-the-c_bunyan-john_1759`: The read operation timed out
+- [ ] IA `bim_eighteenth-century_gwrthodedigaeth-yn-brofe_bunyan-john_1792`: The read operation timed out
+- [ ] IA `bim_eighteenth-century_human-nature-in-its-four_boston-thomas_1784`: The read operation timed out
+- [ ] IA `bim_eighteenth-century_ouranon-ourania-the-sha_owen-john-dd_1793`: The read operation timed out
+- [ ] IA `bim_eighteenth-century_phronema-tou-pneumatos-_owen-john_1768`: The read operation timed out
+- [ ] IA `bim_eighteenth-century_salus-electorum-sangui_owen-john-dd_1792`: The read operation timed out
+- [ ] IA `bim_eighteenth-century_sermons-on-the-followin_edwards-jonathan_1780`: <urlopen error _ssl.c:1015: The handshake operation timed out>
+- [ ] IA `bim_eighteenth-century_sermons-on-various-impor_edwards-jonathan_1795`: The read operation timed out
+- [ ] IA `bim_eighteenth-century_sighs-from-hell-or-the_bunyan-john_1702`: HTTP Error 500: Internal Server Error
+- [ ] IA `bim_eighteenth-century_sighs-from-hell-or-the_bunyan-john_1777`: The read operation timed out
+- [ ] IA `bim_eighteenth-century_the-art-of-divine-conten_watson-thomas_1793`: The read operation timed out
+- [ ] IA `bim_eighteenth-century_the-barren-fig-tree-or-_bunyan-john_1762`: The read operation timed out
+- [ ] IA `bim_eighteenth-century_the-distinguishing-marks_edwards-jonathan_1744`: The read operation timed out
+- [ ] IA `bim_eighteenth-century_the-doctrine-of-the-law-_bunyan-john_1701`: <urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>
+- [ ] IA `bim_eighteenth-century_the-doctrine-of-the-law-_bunyan-john_1708`: <urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>
+- [ ] IA `bim_eighteenth-century_the-excellency-of-the-kn_boston-thomas_1762`: The read operation timed out
+- [ ] IA `bim_eighteenth-century_the-gospel-its-own-witne_fuller-andrew_1799`: HTTP Error 500: Internal Server Error
+- [ ] IA `bim_eighteenth-century_the-holy-war-made-by-sh_bunyan-john_1718`: HTTP Error 500: Internal Server Error
+- [ ] IA `bim_eighteenth-century_the-holy-war-made-by-sh_bunyan-john_1784`: HTTP Error 500: Internal Server Error
+- [ ] IA `bim_eighteenth-century_the-pilgrims-progress-f_bunyan-john_1780`: The read operation timed out
+- [ ] IA `bim_eighteenth-century_the-pilgrims-progress-f_bunyan-john_1786`: The read operation timed out
+- [ ] IA `bim_eighteenth-century_the-pilgrims-progress-f_bunyan-john_1800`: The read operation timed out
+- [ ] IA `bim_eighteenth-century_the-whole-works-of-the-l_boston-thomas_1773`: The read operation timed out
+- [ ] IA `bim_eighteenth-century_the-work-of-jesus-christ_bunyan-john_1725`: The read operation timed out
+- [ ] IA `bim_eighteenth-century_the-work-of-jesus-christ_bunyan-john_1725_0`: <urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>
+- [ ] IA `bim_eighteenth-century_twenty-five-discourses-s_owen-john_1798`: HTTP Error 500: Internal Server Error
+- [ ] IA `bim_eighteenth-century_two-dissertations-i-co_edwards-jonathan-the-e_1765`: The read operation timed out
+- [ ] IA `bub_gb_PRuLod1_xtUC`: HTTP Error 500: Internal Server Error
+- [ ] IA `bunyansawakening00buny`: The read operation timed out
+- [ ] IA `carefulstrictinq00edwa_0`: HTTP Error 500: Internal Server Error
+- [ ] IA `childspilgrimspr01buny`: HTTP Error 500: Internal Server Error
+- [ ] IA `charityitsfruits00edwa`: <urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>
+- [ ] IA `childspilgrimspr02buny`: The read operation timed out
+- [ ] IA `cihm_27078`: HTTP Error 500: Internal Server Error
+- [ ] IA `commentaryhosea00sibbuoft`: The read operation timed out
+- [ ] IA `completeworksri04sibbgoog`: The read operation timed out
+- [ ] IA `cu31924013169598`: HTTP Error 500: Internal Server Error
+- [ ] IA `cu31924013169648`: HTTP Error 500: Internal Server Error
+- [ ] IA `differencesinjud1800buny`: The read operation timed out
+- [ ] IA `edwardsonrevival00edwa`: <urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>
+- [ ] IA `edwardsonreviva00edwagoog`: <urlopen error _ssl.c:1015: The handshake operation timed out>
+- [ ] IA `edwardsonreviva01edwagoog`: <urlopen error _ssl.c:1015: The handshake operation timed out>
+- [ ] IA `edwardsonreviva02edwagoog`: <urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>
+- [ ] IA `entireworksofjoh03buny`: <urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>
+- [ ] IA `gospelitsownwitn00full_0`: HTTP Error 500: Internal Server Error
+- [ ] IA `gospelitsownwitn01full`: HTTP Error 500: Internal Server Error
+- [ ] IA `graceaboundingto03buny`: The read operation timed out
+- [ ] IA `historyofredempt00edwa_0`: HTTP Error 500: Internal Server Error
+- [ ] IA `historyofredempt00edwaiala`: The read operation timed out
+- [ ] IA `holywarmadebysh00bunygoog`: HTTP Error 500: Internal Server Error
+- [ ] IA `illustratedediti02buny`: The read operation timed out
+- [ ] IA `infidelityanswe00robigoog`: HTTP Error 500: Internal Server Error
+- [ ] IA `jerusalemsinners00bunyuoft`: HTTP Error 500: Internal Server Error
+- [ ] IA `kajingleitkajon00bunygoog`: HTTP Error 500: Internal Server Error
+- [ ] IA `knollyspilgrim00bunyrich`: The read operation timed out
+- [ ] IA `memoirshislifet01bostgoog`: HTTP Error 500: Internal Server Error
+- [ ] IA `memoirsoflifeti00bost`: The read operation timed out
+- [ ] IA `modernprevailin00edwagoog`: The read operation timed out
+- [ ] IA `narrativeofpilgr00buny`: HTTP Error 500: Internal Server Error
+- [ ] IA `narrativeofreviv00edwa`: <urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>
+- [ ] IA `nathistsecession00goodrich`: <urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>
+- [ ] IA `pilgrimsprogre00bunyuoft`: The read operation timed out
+- [ ] IA `pilgrimsprogres00univgoog`: HTTP Error 500: Internal Server Error
+- [ ] IA `pilgrimsprogres01venagoog`: The read operation timed out
+- [ ] IA `pilgrimsprogres25bunygoog`: HTTP Error 500: Internal Server Error
+- [ ] IA `pilgrimsprogress00bunyrich`: HTTP Error 500: Internal Server Error
+- [ ] IA `primitiaeetultim02bost`: HTTP Error 500: Internal Server Error
+- [ ] IA `reigngracefromi01bootgoog`: HTTP Error 500: Internal Server Error
+- [ ] IA `rboysgirls00buny`: The read operation timed out
+- [ ] IA `reigngrace00unkngoog`: HTTP Error 500: Internal Server Error
+- [ ] IA `returnofprayer00good`: HTTP Error 500: Internal Server Error
+- [ ] IA `sermons08owen`: HTTP Error 500: Internal Server Error
+- [ ] IA `theexpositionoft00gooduoft`: HTTP Error 500: Internal Server Error
+- [ ] IA `theworksofowen03owenuoft`: HTTP Error 500: Internal Server Error
+- [ ] IA `theworksofowen06owenuoft`: The read operation timed out
+- [ ] IA `thoughtsonreviva00edwa`: HTTP Error 500: Internal Server Error
+- [ ] IA `twolettersonsub00owengoog`: HTTP Error 500: Internal Server Error
+- [ ] IA `wholeworksofjohn04flav`: The read operation timed out
+- [ ] IA `wholeworksoflate09bost`: The read operation timed out
+- [ ] IA `wholeworkstowhic05flavuoft`: [WinError 5] Access is denied: 'D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB04\\acquisition-manifest.json.103848.tmp' -> 'D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\reformed-baptist-overnight\\RB04\\acquisition-manifest.json'
+- [ ] IA `works25unkngoog`: HTTP Error 500: Internal Server Error
+- [ ] IA `worksofjohnowe14owen`: HTTP Error 500: Internal Server Error
+- [ ] IA `worksofjohnowe185013owen`: HTTP Error 500: Internal Server Error
+- [ ] IA `worksofjohnowe185014owen`: The read operation timed out
+- [ ] IA `worksofjohnowen06owenuoft`: The read operation timed out
+- [ ] IA `worksofjohnowen08owen`: The read operation timed out
+- [ ] IA `worksofjohnowen14owen`: HTTP Error 500: Internal Server Error
+- [ ] IA `worksofpresident061829edwa`: HTTP Error 500: Internal Server Error
+- [ ] IA `worksofpresident05edwa`: HTTP Error 500: Internal Server Error
+- [ ] IA `worksofpresident07edwa`: <urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>
+- [ ] IA `workspresidente01edwagoog`: HTTP Error 500: Internal Server Error
+- [ ] IA `worksrevandrewf06fullgoog`: HTTP Error 500: Internal Server Error
+- [ ] IA `workswithintrodt03buny`: HTTP Error 500: Internal Server Error
+- [ ] MONERGISM `christs-invitation-labouring-and-heavy-laden-ebook`: no complete official EPUB/PDF offered on catalogue page
+- [ ] MONERGISM `art-man-fishing-ebook`: URL can't contain control characters. '/thethreshold/sdg/boston/The Art of Man-Fishing - Thomas Boston.epub' (found at least ' ')
+- [ ] MONERGISM `crook-lot-modernized-ebook`: Deferred interrupted request during URL parser correction; no retry
+- [ ] MONERGISM `greatness-soul-and-unspeakableness-loss-thereof-ebook`: <urlopen error [Errno 11001] getaddrinfo failed>
+- [ ] MONERGISM `humble-testimony-ebook`: <urlopen error _ssl.c:1015: The handshake operation timed out>
+- [ ] MONERGISM `searching-our-hearts-perilous-times-ebook`: robots.txt disallows https://www.monergism.com/searching-our-hearts-perilous-times-ebook
+- [ ] IA `anexpositionepi03willgoog`: HTTP Error 500: Internal Server Error
+- [ ] IA `atreatiseonsabb00owengoog`: HTTP Error 500: Internal Server Error
+- [ ] IA `bim_early-english-books-1641-1700_exercitations-on-the-epi_owen-john-dd_1674`: The read operation timed out
+- [ ] IA `bim_eighteenth-century_a-golden-key-to-open-hid_brooks-thomas_1763`: HTTP Error 500: Internal Server Error
+- [ ] IA `ubhlanoirairson00broo`: The read operation timed out
+
+Full IDs, URLs and errors: `failed-downloads.json`. No automatic retries.

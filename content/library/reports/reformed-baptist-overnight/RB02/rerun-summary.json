@@ -1,0 +1,37 @@
+{
+  "state": "downloads_complete_report_written",
+  "updatedAt": "2026-10-07T18:02:43.986468+00:00",
+  "files": 138,
+  "bytes": 86263317,
+  "distinctWorksEstimate": 108,
+  "sources": {
+    "tcp": 69,
+    "ia": 69
+  },
+  "failures": 2,
+  "blockers": [],
+  "embeddingBefore": {
+    "state": "complete",
+    "total": 1934778,
+    "indexed": 1934778,
+    "remaining": 0,
+    "corpus_build": "2026-10-07T15:23:27.068328+00:00",
+    "updated_at": "2026-10-07T16:52:55.679411+00:00",
+    "seconds": 2509.1
+  },
+  "embeddingAfter": {
+    "state": "complete",
+    "total": 1934778,
+    "indexed": 1934778,
+    "remaining": 0,
+    "corpus_build": "2026-10-07T15:23:27.068328+00:00",
+    "updated_at": "2026-10-07T16:52:55.679411+00:00",
+    "seconds": 2509.1
+  },
+  "intakeCommandExitCode": 0,
+  "intake": {
+    "pid": 103820,
+    "started_at": "2026-10-07T17:39:37.3508029Z",
+    "state": "running"
+  }
+}

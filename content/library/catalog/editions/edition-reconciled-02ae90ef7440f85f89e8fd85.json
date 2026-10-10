@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-02ae90ef7440f85f89e8fd85",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-eeb1bf6f8fea93b0cdea04d5",
+  "label": "The prodigal son. A lecture, preached on Fryday [sic] afternoon, September 11th 1741. in the High-Church-Yard of Glasgow, upon Luke XV. / By the Reverend Mr. George Whitefield, taken from his own mouth, and published at the earnest desire of many of the hearers. ; Note. the substance of the following lecture was delivered on the Common in Boston, Sept. 27. 1740. — held source edition 07821eed6253",
+  "languages": [
+    "und"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/N04131/master/N04131.xml",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

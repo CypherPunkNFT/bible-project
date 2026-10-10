@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-19cfc6bb4340eb4e1684c952",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-b84b2322e60413282cf46485",
+  "label": "Cyfarwydd-deb pr Anghyfarwydd, sef, llyer yn cynnwys, 1. Agoriad byrr ar Weddi 'r Arglwydd. 2. Ymddidanion rhwng y Carwr a'r Cymro. 3. Ymddidanion rhwng Crist a'r Publican, rhwng Crist a'r Pharisaed, a rhwng Crist a'r Credadyn ammheus, sef Canwyll Crist. 4. Amryw Reolau Duwiol: : y cwbli gyfarwyddo pol 1, pa fodd i chwilio 'r ferythyrrau er lefadiw Heneidiau: a pha fodd i ddyfod at Grist i gael iechydwriaeth dragwyddol : a pha fodd i weddio yn fol ewyllys Duw, i gael gras a thrugaredd oddiwrtho ef, a pha fodd i fyw'n santaidd yn y Byd presennol. — held source edition 4c3b7a20aa8b",
+  "languages": [
+    "und"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A90503/master/A90503.xml",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

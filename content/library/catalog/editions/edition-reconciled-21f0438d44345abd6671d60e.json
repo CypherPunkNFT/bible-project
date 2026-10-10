@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-21f0438d44345abd6671d60e",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-d21a3c45742fc8a20d8d1f9f",
+  "label": "A letter from the Rev. George Whitfield, B.A. to the Rev. Laurence Sterne, M.A. the supposed author of a book entitled The life and opinions of Tristram Shandy, gentleman. 1760 — held source edition fcec4b2dcb9b",
+  "languages": [
+    "English"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_eighteenth-century_a-letter-from-the-rev-g_whitefield-george_1760/bim_eighteenth-century_a-letter-from-the-rev-g_whitefield-george_1760_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

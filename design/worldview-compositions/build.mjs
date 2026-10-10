@@ -1,0 +1,12 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+import {build} from 'esbuild';
+const dir=path.dirname(fileURLToPath(import.meta.url)),website=path.resolve(dir,'../..');
+const result=await build({entryPoints:[path.join(dir,'preview.tsx')],outdir:path.join(dir,'bundle'),bundle:true,format:'esm',minify:true,metafile:true,jsx:'automatic',entryNames:'preview-[hash]',define:{'process.env.NODE_ENV':'"production"'}});
+const html=fs.readFileSync(path.join(website,'dist/index.html'),'utf8');
+const stylesheet=html.match(/href="(\/assets\/index-[^"]+\.css)"/)[1];
+fs.copyFileSync(path.join(website,'dist',stylesheet.slice(1)),path.join(dir,'bundle/site-base.css'));
+const [entry,meta]=Object.entries(result.metafile.outputs).find(([f,m])=>m.entryPoint&&f.endsWith('.js'));
+fs.writeFileSync(path.join(dir,'index.html'),`<!doctype html><html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Worldview compositions · Bible Project</title><link rel="icon" href="/favicon.svg"><link rel="stylesheet" href="./bundle/site-base.css"><link rel="stylesheet" href="./bundle/${path.basename(meta.cssBundle)}"></head><body><div id="root"></div><script type="module" src="./bundle/${path.basename(entry)}"></script></body></html>`);
+console.log('Built http://localhost:8931/mockups/worldview-compositions/');

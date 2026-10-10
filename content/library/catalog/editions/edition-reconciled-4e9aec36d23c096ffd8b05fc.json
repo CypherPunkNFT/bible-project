@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-4e9aec36d23c096ffd8b05fc",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-d02225e89287338a6ee1e04b",
+  "label": "An crann fige neo-thorach, no, Binn agus leir-sgrios an fhir aidmheil neo-tharbhaich : a nochdadh fum feud latha nan gras a dhol seachad air fada mu 'n criochnaich a bheatha : agus na comharan leis am feudar a leithid sin do chreutairibh truagh aithneachadh — held source edition 20ef705365e3",
+  "languages": [
+    "gae"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/crannfigeneothor00buny/crannfigeneothor00buny_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

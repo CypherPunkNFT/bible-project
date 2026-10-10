@@ -1,0 +1,39 @@
+{
+  "state": "complete",
+  "completedAt": "2026-10-08T00:45:58.459291+00:00",
+  "inputStocktakeAt": "2026-10-08T00:33:53.911022+00:00",
+  "backlogFilesChecked": 5033,
+  "backlogAvailability": {
+    "existing_text_ready": 5033
+  },
+  "backlogExistingTextCharacters": 1961978297,
+  "backlogAlreadyInPublishedSnapshot": 0,
+  "sourceGapFilesChecked": 3,
+  "recoveredGapWorks": 1,
+  "newWorksAcquired": 0,
+  "newDownloads": 0,
+  "newOCR": 0,
+  "originalRepresentationsLinked": 3,
+  "derivedTextFiles": 1,
+  "pageLocatorFiles": 1,
+  "physicalPages": 535,
+  "nonemptyTranscriptionPages": 532,
+  "recoveredTextCharacters": 5749113,
+  "derivativeBytes": 5887581,
+  "remainingOriginalGapFiles": 2,
+  "additionalBacklogGaps": 0,
+  "swordPackagesChecked": 102,
+  "availableSwordExports": 102,
+  "intakeStarted": false,
+  "embeddingStarted": false,
+  "paths": {
+    "manifest": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\campaign-reconciliation\\text\\acquisition-manifest.json",
+    "priorityManifest": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\campaign-reconciliation\\text\\existing-ocr-completion\\acquisition-manifest.json",
+    "text": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\campaign-reconciliation\\text\\perkins-works-volume-3-existing-ia-ocr\\transcription.txt",
+    "pages": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\campaign-reconciliation\\text\\perkins-works-volume-3-existing-ia-ocr\\page-text.provenance.json",
+    "readiness": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\campaign-reconciliation\\text\\text-ready-inputs.json",
+    "unresolved": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\Website\\content\\library\\reports\\campaign-reconciliation\\text\\unresolved-text-gaps.json"
+  },
+  "swordImporterLinksReady": 102,
+  "missingSwordImporterLinks": []
+}

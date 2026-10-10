@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-1d7f83df1dab118936054172",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-5bd2da9fa269d855edaab1ab",
+  "label": "A sermon by the Reverend Mr. George Whitefield, being his last farewell to his friends, preached at the Tabernacle in Moorfields, ... August the 30th, 1769, immediately before his departure for Georgia ... The second edition. 1769 — held source edition 857ff8e7c263",
+  "languages": [
+    "English"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_eighteenth-century_a-sermon-by-the-reverend_whitefield-george_1769/bim_eighteenth-century_a-sermon-by-the-reverend_whitefield-george_1769_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

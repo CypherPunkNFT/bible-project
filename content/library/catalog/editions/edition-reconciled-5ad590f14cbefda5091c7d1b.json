@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-5ad590f14cbefda5091c7d1b",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-b107e84973f562f258c8923f",
+  "label": "Of the life or conuersation of a Christen man, a right godly treatise, wyrtten [sic] in the latin tonge, by maister Iohn Caluyne, a man of ryghte excellente learnynge and of no lesse godly conuersation. Translated into English by Thomas Broke Esquier Paymaister of Douer. An[no] M. D. XLix. The first day of Ianuary — held source edition 266aa4dc9d25",
+  "languages": [
+    "und"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A17689/master/A17689.xml",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

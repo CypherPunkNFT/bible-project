@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-9a376da5542f151df008ed1f",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-8ea17aa94bd6f1f0b52f326b",
+  "label": "Christ, the ransom found. A sermon occasioned by the death of Mr. John Davenport, who departed this life, October 4th, aged forty-eight. Preached October 13, 1754. ... By John Gill, D.D. 1754 — held source edition 8c64c37827b8",
+  "languages": [
+    "English"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_eighteenth-century_christ-the-ransom-found_gill-john_1754/bim_eighteenth-century_christ-the-ransom-found_gill-john_1754_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

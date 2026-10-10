@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-d0383e08dea6c991abc984c8",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-d9cafa481cdda1f77e7925b0",
+  "label": "Christ the saviour of the world. A sermon: preached immediately before the celebration of the Lord's Supper, at Ettrick, June 7th, 1724. By the Rev. Mr. Thomas Boston, ... 1790 — held source edition 3f6a5d50458c",
+  "languages": [
+    "English"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_eighteenth-century_christ-the-saviour-of-th_boston-thomas_1790/bim_eighteenth-century_christ-the-saviour-of-th_boston-thomas_1790_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

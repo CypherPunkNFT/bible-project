@@ -1,0 +1,71 @@
+User-agent: Twitterbot
+Allow: *
+
+User-agent: GurujiBot
+Disallow: /
+User-agent: GurujiImageBot
+Disallow: /
+User-Agent: MLBot
+Disallow: / 
+User-Agent: Charlotte
+Disallow: /
+User-agent: seekbot
+Disallow: /
+User-agent:mozDex
+Disallow: /
+User-agent:Wget
+Disallow: /
+User-agent: grub-client
+Disallow: /
+User-agent: psbot
+Disallow: /
+User-agent: psbot
+Disallow: /
+User-agent: bumblebee
+Disallow: /
+User-agent: MSIE 5.5
+Disallow: /
+User-agent: MSIE 6.0
+Disallow: /
+User-agent: MSIECrawler
+Disallow: /
+User-agent:WebCopier
+Disallow: /
+User-agent: HTTrack
+Disallow: /
+User-agent: HTTrack 3.0
+Disallow: /
+User-Agent: Googlebot-Image
+Disallow: /
+User-Agent: Teleport pro
+Disallow: /
+User-agent: Scooter
+Disallow: /
+User-agent:inktom
+Disallow: /
+User-agent: Ultraseek
+Disallow: /
+User-agent: searchexpress
+Disallow: /
+User-agent:searchexpress.co
+Disallow: /
+User-agent:spider@searchexpress.com
+Disallow: /
+User-agent: EmailSiphon
+Disallow: /
+User-agent: WebBandit
+Disallow: /
+User-agent: Kenjin Spider
+Disallow: /
+User-agent: Indy Library
+Disallow: /
+User-agent: * 
+Disallow: /Thayer/Images/
+User-Agent: W3C-checklink
+Disallow:
+Sitemap:  http://penelope.uchicago.edu/sitemap.xml.gz
+User-agent: msnbot
+Disallow: /
+User-Agent: sogou spider
+Disallow: /
+

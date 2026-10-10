@@ -1,0 +1,57 @@
+{
+  "source": "foundersjournal",
+  "catalogueItems": 138,
+  "catalogueUnheldItems": 5,
+  "eligibleItems": 3,
+  "unheldBefore": 3,
+  "filter": {
+    "deferHardDownloads": true,
+    "ids": [
+      "issue-1655-articles",
+      "issue-2071-articles",
+      "issue-2305-articles"
+    ],
+    "approvedCollection": true
+  },
+  "attempted": 3,
+  "downloaded": 0,
+  "duplicateHashes": 0,
+  "heldDuringRun": 0,
+  "failures": [
+    {
+      "sourceId": "issue-1655-articles",
+      "url": "https://founders.org/wp-json/wp/v2/posts?journal=1655&per_page=100&order=asc",
+      "title": "Assurance of Grace and Salvation (Issue 114) Fall 2018",
+      "author": "Founders Ministries; journal editors and article contributors",
+      "error": "Public issue response does not include every offered article/review; deferred"
+    },
+    {
+      "sourceId": "issue-2071-articles",
+      "url": "https://founders.org/wp-json/wp/v2/posts?journal=2071&per_page=100&order=asc",
+      "title": "Liberty, Worship, and Vows (Issue 117) Summer 2019",
+      "author": "Founders Ministries; journal editors and article contributors",
+      "error": "Public issue response does not include every offered article/review; deferred"
+    },
+    {
+      "sourceId": "issue-2305-articles",
+      "url": "https://founders.org/wp-json/wp/v2/posts?journal=2305&per_page=100&order=asc",
+      "title": "Religious Liberty and Marriage (Issue 119) Winter 2020",
+      "author": "Founders Ministries; journal editors and article contributors",
+      "error": "Public issue response does not include every offered article/review; deferred"
+    }
+  ],
+  "bytes": 0,
+  "sampleSizes": [],
+  "state": "complete",
+  "startedAt": "2026-10-07T22:23:05.240683+00:00",
+  "attemptedSourceIds": [
+    "issue-1655-articles",
+    "issue-2071-articles",
+    "issue-2305-articles"
+  ],
+  "updatedAt": "2026-10-07T22:26:12.535355+00:00",
+  "unheldAfter": 3,
+  "estimatedUnheldGB": null,
+  "estimateBasis": "SWORD InstallSize where available; otherwise arithmetic mean of downloaded originals; decimal GB; edition/item counts, not deduplicated works",
+  "completedAt": "2026-10-07T22:26:12.536761+00:00"
+}

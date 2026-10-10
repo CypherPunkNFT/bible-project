@@ -1,0 +1,60 @@
+{
+  "snapshotAt": "2026-10-07T16:18:12.270110+00:00",
+  "sources": [
+    {
+      "source": "tcp",
+      "catalogueItems": 61315,
+      "unheldItems": 60500,
+      "estimatedUnheldGB": 14.33630275,
+      "screenedUnheldItems": 740,
+      "screenedEstimatedGB": 0.17535312454545457,
+      "acquiredItems": 22,
+      "acquiredGB": 0.005213201,
+      "estimateBasis": "pilot mean original size, extrapolated; rough non-random sample"
+    },
+    {
+      "source": "sword",
+      "catalogueItems": 427,
+      "unheldItems": 406,
+      "estimatedUnheldGB": 0.757010406,
+      "screenedUnheldItems": 0,
+      "screenedEstimatedGB": 0.0,
+      "acquiredItems": 20,
+      "acquiredGB": 0.079117938,
+      "estimateBasis": "reported installed bytes; compressed package sizes differ"
+    },
+    {
+      "source": "ccel",
+      "catalogueItems": 1300,
+      "unheldItems": 1059,
+      "estimatedUnheldGB": 2.578282701,
+      "screenedUnheldItems": 48,
+      "screenedEstimatedGB": 0.116862672,
+      "acquiredItems": 20,
+      "acquiredGB": 0.04869278,
+      "estimateBasis": "pilot mean original size, extrapolated; rough non-random sample"
+    },
+    {
+      "source": "ia",
+      "catalogueItems": 62754,
+      "unheldItems": 62701,
+      "estimatedUnheldGB": 41.4964372346,
+      "screenedUnheldItems": 1194,
+      "screenedEstimatedGB": 0.7902066324,
+      "acquiredItems": 20,
+      "acquiredGB": 0.013236292,
+      "estimateBasis": "pilot mean original size, extrapolated; rough non-random sample"
+    },
+    {
+      "source": "gutenberg",
+      "catalogueItems": 78282,
+      "unheldItems": 78251,
+      "estimatedUnheldGB": 38.124462344849995,
+      "screenedUnheldItems": 84,
+      "screenedEstimatedGB": 0.0409254174,
+      "acquiredItems": 20,
+      "acquiredGB": 0.009744147,
+      "estimateBasis": "pilot mean original size, extrapolated; rough non-random sample"
+    }
+  ]
+}

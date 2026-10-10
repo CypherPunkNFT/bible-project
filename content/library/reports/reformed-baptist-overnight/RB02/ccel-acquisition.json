@@ -1,0 +1,74 @@
+{
+  "source": "ccel",
+  "catalogueItems": 1300,
+  "catalogueUnheldItems": 1058,
+  "eligibleItems": 32,
+  "unheldBefore": 0,
+  "filter": {
+    "authors": [
+      "Tombes, John",
+      "John Tombes",
+      "Spilsbury, John",
+      "John Spilsbury",
+      "Spilsbery, John",
+      "John Spilsbery",
+      "Kiffin, William",
+      "William Kiffin",
+      "Keach, Benjamin",
+      "Benjamin Keach",
+      "Coxe, Nehemiah",
+      "Nehemiah Coxe",
+      "Cox, Benjamin",
+      "Benjamin Cox",
+      "Booth, Abraham",
+      "Abraham Booth",
+      "Denne, Henry",
+      "Henry Denne",
+      "Danvers, Henry",
+      "Henry Danvers",
+      "Witsius, Herman",
+      "Witsius, Hermann",
+      "Witsius, Hermannus",
+      "Herman Witsius",
+      "Hermannus Witsius",
+      "Wits, Herman",
+      "Ball, John",
+      "John Ball",
+      "Owen, John",
+      "John Owen"
+    ],
+    "primaryAuthorOnly": true,
+    "authorIdentityRules": [
+      {
+        "namePattern": "Owen,?\\s+John|John\\s+Owen",
+        "lifeYears": [
+          1616,
+          1683
+        ],
+        "requireReligiousSubjectsWhenUndated": true
+      },
+      {
+        "namePattern": "Ball,?\\s+John|John\\s+Ball",
+        "lifeYears": [
+          1585,
+          1640
+        ],
+        "requireReligiousSubjectsWhenUndated": true
+      }
+    ],
+    "deferHardDownloads": true
+  },
+  "attempted": 0,
+  "downloaded": 0,
+  "duplicateHashes": 0,
+  "heldDuringRun": 0,
+  "failures": [],
+  "bytes": 0,
+  "sampleSizes": [],
+  "state": "complete",
+  "startedAt": "2026-10-07T17:50:22.889795+00:00",
+  "unheldAfter": 0,
+  "estimatedUnheldGB": null,
+  "estimateBasis": "SWORD InstallSize where available; otherwise arithmetic mean of downloaded originals; decimal GB; edition/item counts, not deduplicated works",
+  "completedAt": "2026-10-07T17:50:22.891055+00:00"
+}

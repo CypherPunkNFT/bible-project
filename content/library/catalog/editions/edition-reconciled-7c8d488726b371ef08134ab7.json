@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-7c8d488726b371ef08134ab7",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-579b52c881bc731e4937e664",
+  "label": "Myfyrododau difrifol ar y pedwar peth diweddaf: sef, angee, barn, nef, ac uffern. Gan ... Mr. John Bunyan. 1767 — held source edition 5ab0c02ca188",
+  "languages": [
+    "English"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_eighteenth-century_myfyrododau-difrifol-ar-_bunyan-john_1767/bim_eighteenth-century_myfyrododau-difrifol-ar-_bunyan-john_1767_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

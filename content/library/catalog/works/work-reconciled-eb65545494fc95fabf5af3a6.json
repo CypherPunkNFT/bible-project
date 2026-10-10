@@ -1,0 +1,43 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-reconciled-eb65545494fc95fabf5af3a6",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "title": "The oeconomy of the covenants between God and man. Comprehending a complete body of divinity. By Herman Witsius, ... To which is prefixed, the Life of the author. A new translation from the original Latin. In three volumes. ... 1771: Vol 2",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-herman-witsius",
+      "role": "author"
+    }
+  ],
+  "genre": "treatise",
+  "role": "core-teaching",
+  "collections": [],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [],
+  "depth": "unknown",
+  "era": "unknown",
+  "dates": [],
+  "passages": [],
+  "related": [],
+  "externalIds": {
+    "source-internet-archive": [
+      "ia:bim_eighteenth-century_the-oeconomy-of-the-cove_witsius-herman_1771_2"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_eighteenth-century_the-oeconomy-of-the-cove_witsius-herman_1771_2/bim_eighteenth-century_the-oeconomy-of-the-cove_witsius-herman_1771_2_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

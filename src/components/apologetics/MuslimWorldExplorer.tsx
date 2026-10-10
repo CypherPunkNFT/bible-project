@@ -13,7 +13,7 @@ const countries = snapshot.countries;
 const number = (value: number) => new Intl.NumberFormat('en').format(value);
 const date = new Intl.DateTimeFormat('en', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' }).format(new Date(snapshot.snapshotDate + 'T12:00:00Z'));
 
-function CountryMap({ code, spinning, search, onSelect, onPause }: { code: string; spinning: boolean; search: boolean; onSelect(code: string): void; onPause(): void }) {
+function CountryMap({ code, selectionVersion, spinning, search, onSelect, onPause }: { code: string; selectionVersion: number; spinning: boolean; search: boolean; onSelect(code: string): void; onPause(): void }) {
   const stage = useRef<HTMLDivElement>(null), canvas = useRef<HTMLCanvasElement>(null), svg = useRef<SVGSVGElement>(null);
   const [viewParams, setViewParams] = useSearchParams();
   const view = viewParams.get('map') === 'flat' ? 'flat' : 'globe';
@@ -54,7 +54,7 @@ function CountryMap({ code, spinning, search, onSelect, onPause }: { code: strin
     }).catch(() => { if (!abort.signal.aborted) setError(true); });
     return () => { abort.abort(); globe?.destroy(); controller.current = undefined; };
   }, [active, view]);
-  useEffect(() => { controller.current?.select(code); }, [code]);
+  useEffect(() => { controller.current?.select(code); }, [code, selectionVersion]);
   useEffect(() => { controller.current?.rotate(spinning); }, [spinning]);
   return <figure className="mw-globe">
     {search && <div className="mw-map-search"><CountryFinder choose={onSelect} collapsible /></div>}
@@ -78,7 +78,8 @@ export default function MuslimWorldExplorer() {
   const prototypeDesign = countryPanelDesigns.find(design => design.id === requestedDesign)?.id;
   const setDesign = (value: CountryPanelDesign) => { const next = new URLSearchParams(params); next.set('atlasDesign', value); setParams(next, { replace: true, preventScrollReset: true }); };
   const country = countries.find(entry => entry.code === requested) ?? countries.find(entry => entry.code === 'PAK')!;
-  const [spinning, setSpinning] = useState(() => !requested && !matchMedia('(prefers-reduced-motion: reduce)').matches && !matchMedia('(pointer: coarse), (max-width: 760px)').matches);
+  const [selectionVersion, setSelectionVersion] = useState(0);
+  const [spinning, setSpinning] = useState(false);
   const panel = params.get('panel') === 'groups' ? 'groups' : 'gospel';
   const setPanel = (value: 'gospel' | 'groups') => {
     const next = new URLSearchParams(params);
@@ -103,7 +104,7 @@ export default function MuslimWorldExplorer() {
   }, []);
   const choose = useCallback((code: string) => {
     const next = new URLSearchParams(params); next.set('country', code);
-    setParams(next, { replace: true, preventScrollReset: true }); setSpinning(false);
+    setParams(next, { replace: true, preventScrollReset: true }); setSpinning(false); setSelectionVersion(value => value + 1);
   }, [params, setParams]);
   const pause = useCallback(() => setSpinning(false), []);
   return <div ref={section} className="mw-atlas-container">
@@ -114,7 +115,7 @@ export default function MuslimWorldExplorer() {
     <section id="muslim-world" className="mw-explorer" aria-labelledby="mw-heading">
     <header className="mw-introduction"><div><p className="ap-eyebrow"><Globe2 size={15} aria-hidden="true" /> An atlas for understanding the Muslim world</p><h2 id="mw-heading">A world of people.<br /><em>Learn the place.</em></h2></div><p>A neighbour’s faith has a context. Explore 53 Muslim-majority countries and territories, meet some of their people groups, and understand where a gospel witness is present.</p></header>
     <div className="mw-explorer-layout">
-      <CountryMap code={country.code} spinning={spinning} search={!prototypeDesign} onSelect={choose} onPause={pause} />
+      <CountryMap code={country.code} selectionVersion={selectionVersion} spinning={spinning} search={!prototypeDesign} onSelect={choose} onPause={pause} />
       <Suspense fallback={<div className="mw-country-panel" role="status">Opening the country panel…</div>}>
         <CountryPanelPrototype country={country} design={prototypeDesign ?? 'c'} adopted={!prototypeDesign} panel={panel} filter={filter} setFilter={setFilter} openGroups={openGroups} choose={choose} setPanel={setPanel} />
       </Suspense>

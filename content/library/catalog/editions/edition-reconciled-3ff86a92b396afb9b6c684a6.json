@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-3ff86a92b396afb9b6c684a6",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-67100be3548bbcada32b699a",
+  "label": "[Exposition on the first ten chapters of Genesis. Welsh]. Espontad ar y deg pennod gyntaf o Genesis, a rhan o'r unfed-ar-ddeg. Gan ... Mr. John Bunyan, ... 1788 — held source edition 81b730f43a20",
+  "languages": [
+    "English"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_eighteenth-century_exposition-on-the-first_bunyan-john_1788/bim_eighteenth-century_exposition-on-the-first_bunyan-john_1788_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

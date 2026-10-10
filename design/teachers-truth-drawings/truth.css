@@ -1,0 +1,10 @@
+.lens-ground{fill:var(--ground);stroke-width:1.2}
+.drawing:is(:hover,:focus-visible) .live .needle{animation:settle 7s ease-in-out infinite;transform-origin:120px 66px}
+.drawing:is(:hover,:focus-visible) .live .lens{animation:study 9s ease-in-out infinite}
+.drawing:is(:hover,:focus-visible) .live .plumb{animation:plumb 7s ease-in-out infinite;transform-origin:204px 66px}
+.drawing:is(:hover,:focus-visible) .live .sparkle{animation:draw 1.3s calc(var(--d)*1.1s) both,twinkle 5s calc(var(--d)*3s) ease-in-out infinite}
+@keyframes settle{0%,100%{transform:rotate(-7deg)}40%,70%{transform:rotate(0deg)}}
+@keyframes study{0%,100%{transform:translate(0,0)}45%,65%{transform:translate(-7px,4px)}}
+@keyframes plumb{0%,100%{transform:rotate(-2deg)}50%{transform:rotate(2deg)}}
+@keyframes twinkle{0%,100%{opacity:.4}50%{opacity:.85}}
+@media(prefers-reduced-motion:reduce){svg *{animation:none!important;stroke-dasharray:none!important}}

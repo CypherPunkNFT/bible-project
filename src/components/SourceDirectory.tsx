@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { CorpusDashboard, AcquisitionLinks } from "./sources/CorpusDashboard";
+import { SourceProviders } from "./sources/SourceProviders";
 import type { Directory } from "./sources/types";
 
 const foundational = [
@@ -101,7 +102,8 @@ export function SourceDirectory({ scriptureCount }: { scriptureCount: number }) 
 
     <section id="research" className="scroll-mt-24 py-8"><h2 className="font-serif text-3xl">Follow the research.</h2><p className="mt-2 text-muted">Collection reports record the scope, editions, findings and remaining gaps behind each strand of research.</p><div className="mt-5 grid gap-x-8 sm:grid-cols-2">{research.map(([label, folder]) => <a key={folder} href={`${repo}content/library/reports/${folder}/REPORT.md`} className="flex items-center justify-between gap-4 border-b border-line py-4 text-sm hover:text-accent">{label}<ArrowUpRight className="h-4 w-4 shrink-0" aria-hidden /></a>)}</div><a href={`${repo}content/library/BACKLOG.md`} className="mt-5 inline-block text-sm text-accent underline">Full collection scope & outstanding research</a></section>
 
-    <section id="repositories" className="scroll-mt-24 py-8"><h2 className="font-serif text-3xl">Libraries, archives & ministries.</h2><p className="mt-2 text-muted">The institutions and source hosts in our research registry. Some supply editions; others help identify works or point to the original publisher.</p><div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{directory.sources.map(source => <a key={source.id} href={source.url} className="rounded-xl border border-line p-4 hover:bg-surface"><span className="font-serif text-lg">{source.name}</span><span className="mt-2 block text-xs capitalize text-muted">{source.role.replace(/-/g, " ")} <ArrowUpRight className="inline h-3 w-3" aria-hidden /></span></a>)}</div></section>
+
+    <SourceProviders directory={directory} />
 
     <aside className="my-8 rounded-2xl border border-accent/30 bg-surface p-6"><h2 className="font-serif text-2xl">An open reference desk, an honest record.</h2><p className="mt-3 max-w-4xl text-sm leading-relaxed text-muted">Historical texts, modern editions, translations and digital files can carry different permissions. A source link does not grant permission to republish its contents. Our library has a substantial Reformed and Protestant emphasis; comparative sources are identified by their role. Cataloguing, acquiring, reviewing and publishing are distinct steps. This directory joins the project’s work and edition catalogues, acquisition manifests, inventories and on-disk provenance. Work IDs, asset IDs and exact source URLs connect records; matching titles alone do not merge editions. Metadata and evidence files are distinguished from reading texts. Source dates and unresolved attribution stay visible.</p></aside>
   </>;

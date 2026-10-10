@@ -1,0 +1,28 @@
+{
+  "task": "Source documentation",
+  "completedOn": "2026-10-07",
+  "stocktakeSnapshot": "2026-10-08T00:33:53.911022+00:00",
+  "canonicalSources": 61,
+  "libraryAcquisitionSources": 47,
+  "supplementalSources": 14,
+  "unresolvedSourceEvidence": 25,
+  "historicalHeadingsPreserved": 55,
+  "noIntakeOrEmbeddingStarted": true,
+  "status": "complete",
+  "changedFile": "Website/SOURCES.md",
+  "outputDirectory": "Website/content/library/reports/campaign-reconciliation/sources/",
+  "outputs": [
+    "REPORT.md",
+    "summary.json",
+    "source-documentation.json",
+    "source-inventory.json",
+    "official-consultations.json",
+    "web-consultations.json",
+    "unresolved-evidence.json",
+    "HISTORICAL-SOURCES.md",
+    "SOURCES-before-reconciliation.md",
+    "evidence/"
+  ],
+  "sourceDocumentationOnly": true,
+  "newEvidenceOnlyHolds": 0
+}

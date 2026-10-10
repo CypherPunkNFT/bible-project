@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-b9d41e7e2b597bdc719575ca",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-2b5059aafcd4eed85d1c5475",
+  "label": "An exposition of the third chapter of the Epistle of St. Paul to the Philippians also two sermons of Christian watchfulnesse. The first upon Luke 12 37. The second upon Revel. 16.15. An exposition of part of the second chapter of the Epistle to the Philipp. A sermon upon Mal. 4. 2.3. By the late reverend divine Richard Sibbes, D.D. master of Katherine Hall in Cambridge, and sometimes preacher at Grayes-Inne. — held source edition ccfc05e38b7c",
+  "languages": [
+    "und"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A12184/master/A12184.xml",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

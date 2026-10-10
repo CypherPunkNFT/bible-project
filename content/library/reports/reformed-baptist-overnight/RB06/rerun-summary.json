@@ -1,0 +1,43 @@
+{
+  "state": "downloads_complete_report_written",
+  "updatedAt": "2026-10-07T21:41:49.345525+00:00",
+  "files": 1953,
+  "bytes": 1005339005,
+  "distinctWorksEstimate": 1703,
+  "sources": {
+    "tcp": 1,
+    "chapel": 1022,
+    "ia": 913,
+    "monergism": 4,
+    "gutenberg": 13
+  },
+  "failedDownloads": 104,
+  "exportFailures": 0,
+  "blockers": [],
+  "previouslyFailedSkipped": 10,
+  "derivedTexts": 0,
+  "embeddingBefore": {
+    "state": "complete",
+    "total": 1934778,
+    "indexed": 1934778,
+    "remaining": 0,
+    "corpus_build": "2026-10-07T15:23:27.068328+00:00",
+    "updated_at": "2026-10-07T16:52:55.679411+00:00",
+    "seconds": 2509.1
+  },
+  "embeddingAfter": {
+    "state": "complete",
+    "total": 1934778,
+    "indexed": 1934778,
+    "remaining": 0,
+    "corpus_build": "2026-10-07T15:23:27.068328+00:00",
+    "updated_at": "2026-10-07T16:52:55.679411+00:00",
+    "seconds": 2509.1
+  },
+  "intakeCommandExitCode": 0,
+  "intake": {
+    "pid": 102336,
+    "started_at": "2026-10-07T21:38:36.5683810Z",
+    "state": "running"
+  }
+}

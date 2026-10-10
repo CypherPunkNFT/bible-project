@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-b9fdc6d2567149be38bfa82b",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-722bc3e589de83bc51e835f6",
+  "label": "Teml Solomon wedi ei hysbrydoli, neu oleuni'r efengyl, wedi ei gyrchu allan o'r deml yn Jerusalem. Gan John Bunyan. 1725 — held source edition 9b2354b103e3",
+  "languages": [
+    "English"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_eighteenth-century_teml-solomon-wedi-ei-hys_bunyan-john_1725/bim_eighteenth-century_teml-solomon-wedi-ei-hys_bunyan-john_1725_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

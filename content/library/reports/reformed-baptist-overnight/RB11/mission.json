@@ -1,0 +1,780 @@
+{
+  "mission": "RB11",
+  "title": "Prayer and worship",
+  "filters": {
+    "tcp": "filters/tcp.json",
+    "ccel": "filters/ccel.json",
+    "ia": "filters/ia.json",
+    "gutenberg": "filters/gutenberg.json",
+    "monergism": "filters/monergism.json",
+    "sword": "filters/sword.json"
+  },
+  "scope": "Bunyan, Matthew Henry, evangelical Edward Bickersteth, Isaac Watts, Benjamin Keach, John Rippon and Spurgeon catalogues; IA historical prayer, psalters, hymnals, Treasury of David and collected works plus family-worship texts by approved historical Protestant authors. Originals, provenance and credits retained; no retries or new OCR.",
+  "previouslyFailed": [
+    {
+      "sourceId": "barnes/1cor",
+      "url": "https://ccel.org/ccel/barnes/1cor.xml",
+      "title": "Notes on the New Testament Explanatory and Practical: I Corinthians",
+      "author": "Barnes, Albert (1798-1870)\n            (20 classics)",
+      "error": "catalogue/index wrapper, not a complete book",
+      "source": "ccel"
+    },
+    {
+      "sourceId": "barnes/2cor",
+      "url": "https://ccel.org/ccel/barnes/2cor.xml",
+      "title": "Notes on the New Testament Explanatory and Practical: II Corinthians and Galatians",
+      "author": "Barnes, Albert (1798-1870)\n            (20 classics)",
+      "error": "catalogue/index wrapper, not a complete book",
+      "source": "ccel"
+    },
+    {
+      "sourceId": "barnes/acts",
+      "url": "https://ccel.org/ccel/barnes/acts.xml",
+      "title": "Notes on the New Testament: Explanatory and Practical: Acts",
+      "author": "Barnes, Albert (1798-1870)\n            (20 classics)",
+      "error": "catalogue/index wrapper, not a complete book",
+      "source": "ccel"
+    },
+    {
+      "sourceId": "barnes/daniel1",
+      "url": "https://ccel.org/ccel/barnes/daniel1.xml",
+      "title": "Notes on the Old Testament Explanatory and Practical: Daniel Vol. 1",
+      "author": "Barnes, Albert (1798-1870)\n            (20 classics)",
+      "error": "catalogue/index wrapper, not a complete book",
+      "source": "ccel"
+    },
+    {
+      "sourceId": "barnes/daniel2",
+      "url": "https://ccel.org/ccel/barnes/daniel2.xml",
+      "title": "Notes on the Old Testament Explanatory and Practical: Daniel vol. 2",
+      "author": "Barnes, Albert (1798-1870)\n            (20 classics)",
+      "error": "catalogue/index wrapper, not a complete book",
+      "source": "ccel"
+    },
+    {
+      "sourceId": "barnes/epc",
+      "url": "https://ccel.org/ccel/barnes/epc.xml",
+      "title": "Notes on the New Testament Explanatory and Practical: Ephesians, Philippians, and Colossians",
+      "author": "Barnes, Albert (1798-1870)\n            (20 classics)",
+      "error": "catalogue/index wrapper, not a complete book",
+      "source": "ccel"
+    },
+    {
+      "sourceId": "barnes/hebrews",
+      "url": "https://ccel.org/ccel/barnes/hebrews.xml",
+      "title": "Notes on the New Testament Explanatory and Practical: Hebrews",
+      "author": "Barnes, Albert (1798-1870)\n            (20 classics)",
+      "error": "catalogue/index wrapper, not a complete book",
+      "source": "ccel"
+    },
+    {
+      "sourceId": "barnes/isaiah1",
+      "url": "https://ccel.org/ccel/barnes/isaiah1.xml",
+      "title": "Notes on the Old Testament Explanatory and Practical: Isaiah Volume I",
+      "author": "Barnes, Albert (1798-1870)\n            (20 classics)",
+      "error": "catalogue/index wrapper, not a complete book",
+      "source": "ccel"
+    },
+    {
+      "sourceId": "barnes/isaiah2",
+      "url": "https://ccel.org/ccel/barnes/isaiah2.xml",
+      "title": "Notes on the Old Testament Explanatory and Practical: Isaiah Vol. 2",
+      "author": "Barnes, Albert (1798-1870)\n            (20 classics)",
+      "error": "catalogue/index wrapper, not a complete book",
+      "source": "ccel"
+    },
+    {
+      "sourceId": "barnes/james",
+      "url": "https://ccel.org/ccel/barnes/james.xml",
+      "title": "Notes on the New Testament Explanatory and Practical: James, Peter, John, and Jude",
+      "author": "Barnes, Albert (1798-1870)\n            (20 classics)",
+      "error": "catalogue/index wrapper, not a complete book",
+      "source": "ccel"
+    },
+    {
+      "sourceId": "barnes/job1",
+      "url": "https://ccel.org/ccel/barnes/job1.xml",
+      "title": "Notes on the Old Testament Explanatory and Practical: Job Vol. 1",
+      "author": "Barnes, Albert (1798-1870)\n            (20 classics)",
+      "error": "catalogue/index wrapper, not a complete book",
+      "source": "ccel"
+    },
+    {
+      "sourceId": "barnes/luke",
+      "url": "https://ccel.org/ccel/barnes/luke.xml",
+      "title": "Notes on the New Testament Explanatory and Practical: Luke and John",
+      "author": "Barnes, Albert (1798-1870)\n            (20 classics)",
+      "error": "catalogue/index wrapper, not a complete book",
+      "source": "ccel"
+    },
+    {
+      "sourceId": "barnes/matthew",
+      "url": "https://ccel.org/ccel/barnes/matthew.xml",
+      "title": "Notes on the New Testament Explanatory and Practical: Matthew and Mark",
+      "author": "Barnes, Albert (1798-1870)\n            (20 classics)",
+      "error": "catalogue/index wrapper, not a complete book",
+      "source": "ccel"
+    },
+    {
+      "sourceId": "barnes/psalms1",
+      "url": "https://ccel.org/ccel/barnes/psalms1.xml",
+      "title": "Notes on the Old Testament Explanatory and Practical: Psalms Vol. 1",
+      "author": "Barnes, Albert (1798-1870)\n            (20 classics)",
+      "error": "catalogue/index wrapper, not a complete book",
+      "source": "ccel"
+    },
+    {
+      "sourceId": "barnes/psalms2",
+      "url": "https://ccel.org/ccel/barnes/psalms2.xml",
+      "title": "Notes on the Old Testament Explanatory and Practical: Psalms Vol. 2",
+      "author": "Barnes, Albert (1798-1870)\n            (20 classics)",
+      "error": "catalogue/index wrapper, not a complete book",
+      "source": "ccel"
+    },
+    {
+      "sourceId": "barnes/psalms3",
+      "url": "https://ccel.org/ccel/barnes/psalms3.xml",
+      "title": "Notes on the Old Testament Explanatory and Practical: Psalms Vol. 3",
+      "author": "Barnes, Albert (1798-1870)\n            (20 classics)",
+      "error": "catalogue/index wrapper, not a complete book",
+      "source": "ccel"
+    },
+    {
+      "sourceId": "barnes/rev",
+      "url": "https://ccel.org/ccel/barnes/rev.xml",
+      "title": "Notes on the New Testament Explanatory and Practical: Revelation",
+      "author": "Barnes, Albert (1798-1870)\n            (20 classics)",
+      "error": "catalogue/index wrapper, not a complete book",
+      "source": "ccel"
+    },
+    {
+      "sourceId": "barnes/romans",
+      "url": "https://ccel.org/ccel/barnes/romans.xml",
+      "title": "Notes on the New Testament Explanatory and Practical: Romans",
+      "author": "Barnes, Albert (1798-1870)\n            (20 classics)",
+      "error": "catalogue/index wrapper, not a complete book",
+      "source": "ccel"
+    },
+    {
+      "sourceId": "barnes/tttp",
+      "url": "https://ccel.org/ccel/barnes/tttp.xml",
+      "title": "Notes on the New Testament Explanatory and Practical: Thessalonians, Timothy, Titus, and Philemon",
+      "author": "Barnes, Albert (1798-1870)\n            (20 classics)",
+      "error": "catalogue/index wrapper, not a complete book",
+      "source": "ccel"
+    },
+    {
+      "sourceId": "cook_fc/1sam",
+      "url": "https://ccel.org/ccel/cook_fc/1sam.xml",
+      "title": "Bible Commentary: I Samuel-Esther",
+      "author": "Cook, Frederick Charles (1810-1889)",
+      "error": "catalogue/index wrapper, not a complete book",
+      "source": "ccel"
+    },
+    {
+      "sourceId": "cook_fc/exod_ruth",
+      "url": "https://ccel.org/ccel/cook_fc/exod_ruth.xml",
+      "title": "Bible Commentary: Exodus-Ruth",
+      "author": "Cook, Frederick Charles (1810-1889)",
+      "error": "catalogue/index wrapper, not a complete book",
+      "source": "ccel"
+    },
+    {
+      "sourceId": "cook_fc/provez",
+      "url": "https://ccel.org/ccel/cook_fc/provez.xml",
+      "title": "Bible Commentary: Proverbs-Ezekiel",
+      "author": "Cook, Frederick Charles (1810-1889)",
+      "error": "catalogue/index wrapper, not a complete book",
+      "source": "ccel"
+    },
+    {
+      "sourceId": "moule/hebrews",
+      "url": "https://ccel.org/ccel/moule/hebrews.xml",
+      "title": "Messages From the Epistle of Hebrews",
+      "author": "Moule, Handley Carr Glyn (1841-1920)",
+      "error": "catalogue/index wrapper, not a complete book",
+      "source": "ccel"
+    },
+    {
+      "sourceId": "josephus/works",
+      "url": "https://ccel.org/ccel/josephus/works.xml",
+      "title": "Works of Flavius Josephus",
+      "author": "Josephus, Flavius (37- c. 100)",
+      "error": "not a complete offered XML text",
+      "source": "ccel"
+    },
+    {
+      "sourceId": "baxter/practical",
+      "url": "https://ccel.org/ccel/baxter/practical.xml",
+      "title": "Practical Works of Richard Baxter",
+      "author": "Baxter, Richard (1615-1691)",
+      "error": "catalogue/index wrapper, not a complete book",
+      "source": "ccel"
+    },
+    {
+      "sourceId": "anexpositionepi03willgoog",
+      "url": "https://archive.org/metadata/anexpositionepi03willgoog",
+      "title": "An exposition of the Epistle to the Hebrews : with the preliminary exercitations",
+      "author": "Owen, John, 1616-1683",
+      "error": "HTTP Error 500: Internal Server Error",
+      "source": "ia"
+    },
+    {
+      "source": "ia",
+      "sourceId": "atreatiseonsabb00owengoog",
+      "title": "A treatise on the sabbath, revised and ed. by J.W. Brooks",
+      "author": "John Owen",
+      "url": "https://archive.org/metadata/atreatiseonsabb00owengoog",
+      "status": "failed",
+      "reason": "HTTP Error 500: Internal Server Error"
+    },
+    {
+      "source": "ia",
+      "sourceId": "bim_early-english-books-1641-1700_a-piller-set-up-to-keep_keach-benjamin_1670",
+      "title": "A piller set up, to keep in remembrance his most dear and well-beloved wife,... 1670",
+      "author": "Keach, Benjamin",
+      "url": "https://archive.org/metadata/bim_early-english-books-1641-1700_a-piller-set-up-to-keep_keach-benjamin_1670",
+      "status": "failed",
+      "reason": "HTTP Error 500: Internal Server Error"
+    },
+    {
+      "sourceId": "bim_early-english-books-1641-1700_a-treatise-concerning-th_spilsbury-john_1652",
+      "url": "https://archive.org/metadata/bim_early-english-books-1641-1700_a-treatise-concerning-th_spilsbury-john_1652",
+      "title": "A treatise concerning the lawfull svbiect of baptisme. ... 1652",
+      "author": "Spilsbury, John.",
+      "error": "HTTP Error 500: Internal Server Error",
+      "source": "ia"
+    },
+    {
+      "sourceId": "bim_early-english-books-1475-1640_the-excellency-of-a-grac_burroughs-jeremiah_1639",
+      "url": "https://archive.org/metadata/bim_early-english-books-1475-1640_the-excellency-of-a-grac_burroughs-jeremiah_1639",
+      "title": "The excellency of a gracious spirit, ... 1639",
+      "author": "Burroughs, Jeremiah.",
+      "error": "The read operation timed out",
+      "source": "ia"
+    },
+    {
+      "sourceId": "bim_early-english-books-1641-1700_exercitations-on-the-epi_owen-john-dd_1674",
+      "url": "https://archive.org/metadata/bim_early-english-books-1641-1700_exercitations-on-the-epi_owen-john-dd_1674",
+      "title": "Exercitations on the epistle to the Hebrews concerning the priesthood of Christ, ... 1674",
+      "author": "Owen, John, D.D.",
+      "error": "The read operation timed out",
+      "source": "ia"
+    },
+    {
+      "sourceId": "bim_early-english-books-1641-1700_gospel-reconcillation-_burroughes-jeremiah_1689",
+      "url": "https://archive.org/metadata/bim_early-english-books-1641-1700_gospel-reconcillation-_burroughes-jeremiah_1689",
+      "title": "Gospel-reconcillation: ... 1689",
+      "author": "Burroughes, Jeremiah.",
+      "error": "HTTP Error 500: Internal Server Error",
+      "source": "ia"
+    },
+    {
+      "sourceId": "bim_early-english-books-1641-1700_jerusalems-glory_burroughes-jeremiah_1697",
+      "url": "https://archive.org/metadata/bim_early-english-books-1641-1700_jerusalems-glory_burroughes-jeremiah_1697",
+      "title": "Jerusalems glory... 1697",
+      "author": "Burroughes, Jeremiah",
+      "error": "HTTP Error 500: Internal Server Error",
+      "source": "ia"
+    },
+    {
+      "sourceId": "bim_early-english-books-1641-1700_sions-joy_burroughes-jeremiah_1641",
+      "url": "https://archive.org/metadata/bim_early-english-books-1641-1700_sions-joy_burroughes-jeremiah_1641",
+      "title": "Sions joy. 1641",
+      "author": "Burroughes, Jeremiah.",
+      "error": "HTTP Error 500: Internal Server Error",
+      "source": "ia"
+    },
+    {
+      "sourceId": "bim_early-english-books-1641-1700_the-rare-jewel-of-christ_burroughes-jeremiah_1649",
+      "url": "https://archive.org/metadata/bim_early-english-books-1641-1700_the-rare-jewel-of-christ_burroughes-jeremiah_1649",
+      "title": "The rare jewel of Christian contentment, ... 1649",
+      "author": "Burroughes, Jeremiah.",
+      "error": "HTTP Error 500: Internal Server Error",
+      "source": "ia"
+    },
+    {
+      "sourceId": "bim_early-english-books-1641-1700_the-rare-jewel-of-christ_burroughes-jeremiah_1650",
+      "url": "https://archive.org/metadata/bim_early-english-books-1641-1700_the-rare-jewel-of-christ_burroughes-jeremiah_1650",
+      "title": "The rare jewel of Christian contentment. 1650",
+      "author": "Burroughes, Jeremiah",
+      "error": "The read operation timed out",
+      "source": "ia"
+    },
+    {
+      "sourceId": "bim_eighteenth-century_a-golden-key-to-open-hid_brooks-thomas_1763",
+      "url": "https://archive.org/metadata/bim_eighteenth-century_a-golden-key-to-open-hid_brooks-thomas_1763",
+      "title": "A golden key to open hidden treasures, or several great points, that refer to the saints present blessedness, ... The Godhead and manhood of Christ, is here largely proved, ... By Thomas Brooks, ... 1763",
+      "author": "Brooks, Thomas",
+      "error": "HTTP Error 500: Internal Server Error",
+      "source": "ia"
+    },
+    {
+      "sourceId": "bim_eighteenth-century_a-learned-and-complete-c_durham-james_1788",
+      "url": "https://archive.org/metadata/bim_eighteenth-century_a-learned-and-complete-c_durham-james_1788",
+      "title": "A learned and complete commentary upon the book of the Revelation. ... by ... James Durham, ... 1788",
+      "author": "Durham, James",
+      "error": "The read operation timed out",
+      "source": "ia"
+    },
+    {
+      "sourceId": "bim_eighteenth-century_a-practical-exposition-o_manton-thomas_1703",
+      "url": "https://archive.org/metadata/bim_eighteenth-century_a-practical-exposition-o_manton-thomas_1703",
+      "title": "A practical exposition on the whole fifty third chapter of Isaiah. ... By ... Thomas Manton, D.D. 1703",
+      "author": "Manton, Thomas",
+      "error": "The read operation timed out",
+      "source": "ia"
+    },
+    {
+      "sourceId": "bim_eighteenth-century_heavenly-mindedness-reco_burroughs-jeremiah-pre_1715",
+      "url": "https://archive.org/metadata/bim_eighteenth-century_heavenly-mindedness-reco_burroughs-jeremiah-pre_1715",
+      "title": "Heavenly-mindedness recommended: in a discourse on Colossians III.2. By Jeremiah Burroughs. 1715",
+      "author": "Burroughs, Jeremiah, Presbyterian minister",
+      "error": "HTTP Error 500: Internal Server Error",
+      "source": "ia"
+    },
+    {
+      "sourceId": "irenicvmtolover00burrgoog",
+      "url": "https://archive.org/metadata/irenicvmtolover00burrgoog",
+      "title": "Irenicvm: To the Lovers of Truth & Peace ...",
+      "author": "Jeremiah Burroughs",
+      "error": "HTTP Error 500: Internal Server Error",
+      "source": "ia"
+    },
+    {
+      "sourceId": "ubhlanoirairson00broo",
+      "url": "https://archive.org/metadata/ubhlanoirairson00broo",
+      "title": "Ubhlan oir, air son muinntir oga; agus Crun gloire, air son seana mhuinntir; no, An Sonas a bhi math gu trathail; agus an onoir a bhi na sheann deisciobul, air a leigeadh ris, agus air cho' chur gu treibh-dhireach; mar an ceudna, lethsgeulan an duine oig air am freagairt, agus teagamhan an t-seann duine air am fuasgladh;",
+      "author": "Brooks, Thomas, 1608-1680; Rose, John",
+      "error": "The read operation timed out",
+      "source": "ia"
+    },
+    {
+      "sourceId": "bim_early-english-books-1641-1700_an-handfull-of-gleanings_lightfoot-john_1643",
+      "url": "https://archive.org/metadata/bim_early-english-books-1641-1700_an-handfull-of-gleanings_lightfoot-john_1643",
+      "title": "An handfull of gleanings... 1643",
+      "author": "Lightfoot, John",
+      "error": "Interrupted while enabling shared-rate-limit concurrency; deferred without retry",
+      "source": "ia"
+    },
+    {
+      "sourceId": "bim_early-english-books-1641-1700_the-harmony-of-the-foure_lightfoot-john_1658",
+      "url": "https://archive.org/metadata/bim_early-english-books-1641-1700_the-harmony-of-the-foure_lightfoot-john_1658",
+      "title": "The harmony of the foure evangelists, ... 1658",
+      "author": "Lightfoot, John.",
+      "error": "HTTP Error 500: Internal Server Error",
+      "source": "ia"
+    },
+    {
+      "sourceId": "bim_early-english-books-1641-1700_the-temple-_lightfoot-john_1650",
+      "url": "https://archive.org/metadata/bim_early-english-books-1641-1700_the-temple-_lightfoot-john_1650",
+      "title": "The temple: ... 1650",
+      "author": "Lightfoot, John.",
+      "error": "HTTP Error 500: Internal Server Error",
+      "source": "ia"
+    },
+    {
+      "sourceId": "bim_early-english-books-1641-1700_the-works-of-_josephus-flavius_1683",
+      "url": "https://archive.org/metadata/bim_early-english-books-1641-1700_the-works-of-_josephus-flavius_1683",
+      "title": "The works of ... 1683",
+      "author": "Josephus, Flavius.",
+      "error": "HTTP Error 500: Internal Server Error",
+      "source": "ia"
+    },
+    {
+      "sourceId": "bim_early-english-books-1641-1700_the-works-of-josephus-_josephus-flavius_1700",
+      "url": "https://archive.org/metadata/bim_early-english-books-1641-1700_the-works-of-josephus-_josephus-flavius_1700",
+      "title": "The works of Josephus, ... 1700",
+      "author": "Josephus, Flavius.",
+      "error": "The read operation timed out",
+      "source": "ia"
+    },
+    {
+      "sourceId": "bim_eighteenth-century_the-wars-of-the-jews-in_josephus-flavius_1724",
+      "url": "https://archive.org/metadata/bim_eighteenth-century_the-wars-of-the-jews-in_josephus-flavius_1724",
+      "title": "The wars of the Jews: in two books. With the most deplorable history of the siege and destruction of the city of Jerusalem, ... Epitomiz'd from the works of Flavius Josephus, translated into English by Sir Roger L'Estrange, Knight. 1724",
+      "author": "Josephus, Flavius",
+      "error": "<urlopen error _ssl.c:1015: The handshake operation timed out>",
+      "source": "ia"
+    },
+    {
+      "sourceId": "bim_eighteenth-century_the-genuine-works-of-fla_josephus-flavius_1792_5",
+      "url": "https://archive.org/metadata/bim_eighteenth-century_the-genuine-works-of-fla_josephus-flavius_1792_5",
+      "title": "The genuine works of Flavius Josephus: translated from the original Greek, according to Havercamp's accurate edition: ... In six volumes. By William Whiston. 1792: Vol 5",
+      "author": "Josephus, Flavius.",
+      "error": "<urlopen error _ssl.c:1015: The handshake operation timed out>",
+      "source": "ia"
+    },
+    {
+      "sourceId": "bim_eighteenth-century_the-genuine-works-of-fla_josephus-flavius_1792_6",
+      "url": "https://archive.org/metadata/bim_eighteenth-century_the-genuine-works-of-fla_josephus-flavius_1792_6",
+      "title": "The genuine works of Flavius Josephus: translated from the original Greek, according to Havercamp's accurate edition: ... In six volumes. By William Whiston. 1792: Vol 6",
+      "author": "Josephus, Flavius.",
+      "error": "<urlopen error _ssl.c:1015: The handshake operation timed out>",
+      "source": "ia"
+    },
+    {
+      "sourceId": "bim_eighteenth-century_the-wars-of-the-jews-wi_josephus-flavius_1760",
+      "url": "https://archive.org/metadata/bim_eighteenth-century_the-wars-of-the-jews-wi_josephus-flavius_1760",
+      "title": "The wars of the Jews. With the most deplorable history of the siege and destruction of the city of Jerusalem. ... In two boors [sic] Epitomiz'd from the works of Flavius Josephus, translated into English by Sir Roger L'Estrange, knight. 1760",
+      "author": "Josephus, Flavius",
+      "error": "<urlopen error _ssl.c:1015: The handshake operation timed out>",
+      "source": "ia"
+    },
+    {
+      "sourceId": "bub_gb_imOgczlR7moC",
+      "url": "https://archive.org/metadata/bub_gb_imOgczlR7moC",
+      "title": "Johannis Lightfooti ... Horæ hebraicæ et talmudicæ in Acta Apostolorum, partem aliquam Epistolæ ad Romanos, et priorem ad Corinthios. Nunc priorem in Germania eum indicibus locorum scripturæ, rerumque ac verborum necessariis editæ e museo Jo. Benedicti Carpzoui ..",
+      "author": "John Lightfoot",
+      "error": "HTTP Error 500: Internal Server Error",
+      "source": "ia"
+    },
+    {
+      "sourceId": "cu31924028779795",
+      "url": "https://archive.org/metadata/cu31924028779795",
+      "title": "The works of Flavius Josephus : comprising the Antiquities of the Jews, A history of the Jewish wars, and, Life of Flavius Josephus, written by himself",
+      "author": "Josephus, Flavius",
+      "error": "HTTP Error 500: Internal Server Error",
+      "source": "ia"
+    },
+    {
+      "sourceId": "cu31924031784311",
+      "url": "https://archive.org/metadata/cu31924031784311",
+      "title": "Essays on the work entitled Supernatural religion : reprinted from the Contemporary review",
+      "author": "Lightfoot, Joseph Barber, 1828-1889",
+      "error": "<urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>",
+      "source": "ia"
+    },
+    {
+      "sourceId": "cu31924072037587",
+      "url": "https://archive.org/metadata/cu31924072037587",
+      "title": "The Apostolic Fathers ..",
+      "author": "Lightfoot, Joseph Barber, 1828-1889",
+      "error": "<urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>",
+      "source": "ia"
+    },
+    {
+      "sourceId": "cu31924029294398",
+      "url": "https://archive.org/metadata/cu31924029294398",
+      "title": "Saint Paul's Epistle to the Philippians; a revised text",
+      "author": "Lightfoot, Joseph Barber, 1828-1889",
+      "error": "<urlopen error _ssl.c:1015: The handshake operation timed out>",
+      "source": "ia"
+    },
+    {
+      "sourceId": "dissertationsona00lighuoft",
+      "url": "https://archive.org/metadata/dissertationsona00lighuoft",
+      "title": "Dissertations on the Apostolic Age, reprinted from editions of St. Paul's Epistles",
+      "author": "Lightfoot, Joseph Barber, 1828-1889",
+      "error": "The read operation timed out",
+      "source": "ia"
+    },
+    {
+      "sourceId": "genuineworksoffl04jose",
+      "url": "https://archive.org/metadata/genuineworksoffl04jose",
+      "title": "The genuine works of Flavius Josephus",
+      "author": "Josephus, Flavius; Whiston, William, 1667-1752",
+      "error": "HTTP Error 500: Internal Server Error",
+      "source": "ia"
+    },
+    {
+      "sourceId": "histoiredesiuifs03jose",
+      "url": "https://archive.org/metadata/histoiredesiuifs03jose",
+      "title": "Histoire des Iuifs",
+      "author": "Josephus, Flavius; Arnauld d'Andilly, Monsieur (Robert), 1588-1674; Josephus, Flavius. Antiquitates Judaicae. French; Josephus, Flavius. De bello Judaico. French",
+      "error": "HTTP Error 500: Internal Server Error",
+      "source": "ia"
+    },
+    {
+      "sourceId": "histoiredesiuifs02jose",
+      "url": "https://archive.org/metadata/histoiredesiuifs02jose",
+      "title": "Histoire des Iuifs",
+      "author": "Josephus, Flavius; Arnauld d'Andilly, Monsieur (Robert), 1588-1674; Josephus, Flavius. Antiquitates Judaicae. French; Josephus, Flavius. De bello Judaico. French",
+      "error": "The read operation timed out",
+      "source": "ia"
+    },
+    {
+      "sourceId": "historicalessays00lighiala",
+      "url": "https://archive.org/metadata/historicalessays00lighiala",
+      "title": "Historical essays",
+      "author": "Lightfoot, Joseph Barber, 1828-1889; Harmer, John Reginald, bp. of Rochester, 1857-; Plummer, Alfred, 1841-1926",
+      "error": "The read operation timed out",
+      "source": "ia"
+    },
+    {
+      "sourceId": "journalclassica04mayogoog",
+      "url": "https://archive.org/metadata/journalclassica04mayogoog",
+      "title": "The Journal of classical and sacred philology",
+      "author": "Joseph Barber Lightfoot, Fenton John Anthony Hort, John Eyton Bickersteth Mayor",
+      "error": "<urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>",
+      "source": "ia"
+    },
+    {
+      "sourceId": "journalclassica05mayogoog",
+      "url": "https://archive.org/metadata/journalclassica05mayogoog",
+      "title": "The Journal of classical and sacred philology",
+      "author": "Joseph Barber Lightfoot, Fenton John Anthony Hort, John Eyton Bickersteth Mayor",
+      "error": "<urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>",
+      "source": "ia"
+    },
+    {
+      "sourceId": "ldpd_13822730_000",
+      "url": "https://archive.org/metadata/ldpd_13822730_000",
+      "title": "Antiquitates : Manuscript, Northern France, [1150-1199]",
+      "author": "Josephus, Flavius",
+      "error": "HTTP Error 500: Internal Server Error",
+      "source": "ia"
+    },
+    {
+      "sourceId": "lifeandtimesjes04edergoog",
+      "url": "https://archive.org/metadata/lifeandtimesjes04edergoog",
+      "title": "The life and times of Jesus the Messiah",
+      "author": "Edersheim, Alfred",
+      "error": "The read operation timed out",
+      "source": "ia"
+    },
+    {
+      "sourceId": "lifetimesjesusm01ederuoft",
+      "url": "https://archive.org/metadata/lifetimesjesusm01ederuoft",
+      "title": "The life and times of Jesus the Messiah",
+      "author": "Edersheim, Alfred, 1825-1889",
+      "error": "HTTP Error 500: Internal Server Error",
+      "source": "ia"
+    },
+    {
+      "sourceId": "notesonepistles00lighuoft",
+      "url": "https://archive.org/metadata/notesonepistles00lighuoft",
+      "title": "Notes on Epistles of St. Paul from unpublished commentaries",
+      "author": "Lightfoot, Joseph Barber, 1828-1889",
+      "error": "<urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>",
+      "source": "ia"
+    },
+    {
+      "sourceId": "operajosephus07joseuoft",
+      "url": "https://archive.org/metadata/operajosephus07joseuoft",
+      "title": "Opera",
+      "author": "Josephus, Flavius; Niese, Benedictus, 1849-1910",
+      "error": "HTTP Error 500: Internal Server Error",
+      "source": "ia"
+    },
+    {
+      "sourceId": "operaomniaabimma06jose",
+      "url": "https://archive.org/metadata/operaomniaabimma06jose",
+      "title": "Opera omnia ab Immanuele Bekkero recognita ..",
+      "author": "Josephus, Flavius, author",
+      "error": "HTTP Error 500: Internal Server Error",
+      "source": "ia"
+    },
+    {
+      "sourceId": "operaomniaposti00nabegoog",
+      "url": "https://archive.org/metadata/operaomniaposti00nabegoog",
+      "title": "Opera omnia",
+      "author": "Josephus, Flavius",
+      "error": "HTTP Error 500: Internal Server Error",
+      "source": "ia"
+    },
+    {
+      "sourceId": "powerfaithandpr00portgoog",
+      "url": "https://archive.org/metadata/powerfaithandpr00portgoog",
+      "title": "The power of faith and prayer exemplified in the life and labours of mrs. Mary Porteus, late of ...",
+      "author": "John Lightfoot, Mary Porteus",
+      "error": "HTTP Error 500: Internal Server Error",
+      "source": "ia"
+    },
+    {
+      "sourceId": "sermonspreached00lighgoog",
+      "url": "https://archive.org/metadata/sermonspreached00lighgoog",
+      "title": "Sermons Preached in St. Paul's Cathedral",
+      "author": "Joseph Barber Lightfoot",
+      "error": "<urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>",
+      "source": "ia"
+    },
+    {
+      "sourceId": "thetypologyofscr01fairuoft",
+      "url": "https://archive.org/metadata/thetypologyofscr01fairuoft",
+      "title": "The typology of scripture : viewed in connection with the whole series of the divine dispensations",
+      "author": "Fairbairn, Patrick, 1805-1874",
+      "error": "The read operation timed out",
+      "source": "ia"
+    },
+    {
+      "sourceId": "worksflaviusjos05josegoog",
+      "url": "https://archive.org/metadata/worksflaviusjos05josegoog",
+      "title": "The works of Flavius Josephus",
+      "author": "Josephus, Flavius; Whiston, William, 1667-1752",
+      "error": "no existing downloadable djvu text or EPUB",
+      "source": "ia"
+    },
+    {
+      "sourceId": "worksflaviusjos08whisgoog",
+      "url": "https://archive.org/metadata/worksflaviusjos08whisgoog",
+      "title": "The works of Flavius Josephus",
+      "author": "Josephus, Flavius",
+      "error": "The read operation timed out",
+      "source": "ia"
+    },
+    {
+      "sourceId": "worksflaviusjos10whisgoog",
+      "url": "https://archive.org/metadata/worksflaviusjos10whisgoog",
+      "title": "The works of Flavius Josephus ... : with three dissertations, concerning Jesus Christ, John the Baptist, James the Just, God's command to Abraham, etc. and explanatory notes and observations",
+      "author": "Josephus, Flavius",
+      "error": "The read operation timed out",
+      "source": "ia"
+    },
+    {
+      "sourceId": "worksjosephus00unkngoog",
+      "url": "https://archive.org/metadata/worksjosephus00unkngoog",
+      "title": "The works of Josephus : with a life written by himself",
+      "author": "Josephus, Flavius",
+      "error": "The read operation timed out",
+      "source": "ia"
+    },
+    {
+      "sourceId": "worksofflaviusjo188902jose",
+      "url": "https://archive.org/metadata/worksofflaviusjo188902jose",
+      "title": "The works of Flavius Josephus",
+      "author": "Josephus, Flavius; Shilleto, Arthur Richard, 1848-1894, tr; Wilson, Charles William, Sir, 1836-1905; Whiston, William, 1667-1752, tr",
+      "error": "The read operation timed out",
+      "source": "ia"
+    },
+    {
+      "sourceId": "workstranslatedb00joseuoft",
+      "url": "https://archive.org/metadata/workstranslatedb00joseuoft",
+      "title": "Works. Translated by William Whiston",
+      "author": "Josephus, Flavius; Whiston, William, 1667-1752",
+      "error": "The read operation timed out",
+      "source": "ia"
+    },
+    {
+      "sourceId": "apologyforlatech00full",
+      "url": "https://archive.org/metadata/apologyforlatech00full",
+      "title": "Apology for the late Christian missions to India ...",
+      "author": "Fuller, Andrew, 1754-1815",
+      "error": "The read operation timed out",
+      "source": "ia"
+    },
+    {
+      "sourceId": "bim_eighteenth-century_a-body-of-divinity-wher_ridgley-thomas_1731_2",
+      "url": "https://archive.org/metadata/bim_eighteenth-century_a-body-of-divinity-wher_ridgley-thomas_1731_2",
+      "title": "A body of divinity: wherein the doctrines of the Christian religion are explained and defended. Being the substance of several lectures on the Assembly's Larger Catechism. By Thomas Ridgley. 1731: Vol 2",
+      "author": "Ridgley, Thomas.",
+      "error": "<urlopen error _ssl.c:1015: The handshake operation timed out>",
+      "source": "ia"
+    },
+    {
+      "sourceId": "bim_eighteenth-century_the-gospel-its-own-witne_fuller-andrew_1799",
+      "url": "https://archive.org/metadata/bim_eighteenth-century_the-gospel-its-own-witne_fuller-andrew_1799",
+      "title": "The gospel its own witness: or the holy nature, and divine harmony of the Christian religion, contrasted with the immorality and absurdity of Deism. By Andrew Fuller. 1799",
+      "author": "Fuller, Andrew",
+      "error": "The read operation timed out",
+      "source": "ia"
+    },
+    {
+      "sourceId": "bodyofdivinity01ridg",
+      "url": "https://archive.org/metadata/bodyofdivinity01ridg",
+      "title": "A body of divinity : wherein the doctrines of the Christian religion are explained and defended : being the substance of several lectures on the Assembly's Larger catechism",
+      "author": "Ridgley, Thomas, 1667?-1734; Wilson, John M",
+      "error": "The read operation timed out",
+      "source": "ia"
+    },
+    {
+      "sourceId": "expositorydiscou00full",
+      "url": "https://archive.org/metadata/expositorydiscou00full",
+      "title": "Expository discourses on the Book of Genesis : interspersed with practical reflections",
+      "author": "Fuller, Andrew, 1754-1815",
+      "error": "<urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>",
+      "source": "ia"
+    },
+    {
+      "sourceId": "gospelitsownwitn00full_0",
+      "url": "https://archive.org/metadata/gospelitsownwitn00full_0",
+      "title": "The gospel its own witness:",
+      "author": "Fuller, Andrew, 1754-1815",
+      "error": "The read operation timed out",
+      "source": "ia"
+    },
+    {
+      "sourceId": "gospelitsownwitn01full",
+      "url": "https://archive.org/metadata/gospelitsownwitn01full",
+      "title": "The gospel, its own witness, or, The holy nature and divine harmony of the Christian religion contrasted with the immorality and absurdity of deism [microform]",
+      "author": "Fuller, Andrew, 1754-1815",
+      "error": "The read operation timed out",
+      "source": "ia"
+    },
+    {
+      "sourceId": "practicalworksof03baxtuoft",
+      "url": "https://archive.org/metadata/practicalworksof03baxtuoft",
+      "title": "The practical works of the Rev. Richard Baxter, with a life of the author, and a critical examination of his writings",
+      "author": "Baxter, Richard, 1615-1691; Orme, William, 1787-1830",
+      "error": "The read operation timed out",
+      "source": "ia"
+    },
+    {
+      "sourceId": "practicalworksof21baxt",
+      "url": "https://archive.org/metadata/practicalworksof21baxt",
+      "title": "The practical works of the Rev. Richard Baxter : with a life of the author, and a critical examination of his writings",
+      "author": "Baxter, Richard, 1615-1691",
+      "error": "The read operation timed out",
+      "source": "ia"
+    },
+    {
+      "sourceId": "practicalworksof22baxt",
+      "url": "https://archive.org/metadata/practicalworksof22baxt",
+      "title": "The practical works of the Rev. Richard Baxter : with a life of the author, and a critical examination of his writings",
+      "author": "Baxter, Richard, 1615-1691",
+      "error": "<urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>",
+      "source": "ia"
+    },
+    {
+      "sourceId": "practicalworksr00ormegoog",
+      "url": "https://archive.org/metadata/practicalworksr00ormegoog",
+      "title": "The practical works of Richard Baxter: with a life of the author and a critical examination of his writings by William Orme",
+      "author": "Baxter, Richard, 1615-1691. cn; Orme, William, 1787-1830, ed. cn",
+      "error": "<urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>",
+      "source": "ia"
+    },
+    {
+      "sourceId": "practicalworksr09baxtgoog",
+      "url": "https://archive.org/metadata/practicalworksr09baxtgoog",
+      "title": "The practical works of Richard Baxter: with a life of the author and a critical examination of his writings by William Orme",
+      "author": "Baxter, Richard, 1615-1691",
+      "error": "The read operation timed out",
+      "source": "ia"
+    },
+    {
+      "sourceId": "sensualisticphil00dabniala",
+      "url": "https://archive.org/metadata/sensualisticphil00dabniala",
+      "title": "The sensualistic philosophy of the nineteenth century",
+      "author": "Dabney, Robert Lewis, 1820-1898",
+      "error": "HTTP Error 500: Internal Server Error",
+      "source": "ia"
+    },
+    {
+      "sourceId": "works25unkngoog",
+      "url": "https://archive.org/metadata/works25unkngoog",
+      "title": "The Works ...",
+      "author": "Andrew Fuller",
+      "error": "HTTP Error 500: Internal Server Error",
+      "source": "ia"
+    },
+    {
+      "sourceId": "worksrevandrewf06fullgoog",
+      "url": "https://archive.org/metadata/worksrevandrewf06fullgoog",
+      "title": "The Works of the Rev. Andrew Fuller",
+      "author": "Andrew Fuller",
+      "error": "HTTP Error 500: Internal Server Error",
+      "source": "ia"
+    },
+    {
+      "sourceId": "worksrevandrewf07fullgoog",
+      "url": "https://archive.org/metadata/worksrevandrewf07fullgoog",
+      "title": "The Works of the Rev. Andrew Fuller",
+      "author": "Andrew Fuller",
+      "error": "<urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>",
+      "source": "ia"
+    }
+  ],
+  "availabilityNotes": [
+    "All six CCEL Treasury of David volumes and the complete SWORD TDavid module were already held; Henry Method for Prayer, Watts Guide to Prayer and Keach Spiritual Songs/Spiritual Melody were also held and skipped."
+  ]
+}

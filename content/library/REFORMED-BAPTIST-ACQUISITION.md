@@ -1,5 +1,31 @@
 # Eight overnight acquisition missions: Reformed theology with Baptist confidence
 
+<!-- BULK policy -->
+## Bulk acquisition policy - owner instruction, 7 October 2026
+
+This supersedes the earlier per-work paperwork and post-RB14 intake gate. Acquisition gets at least 80% of mission effort. Use resumable background collectors, collection/author screening and a short exclusion list. No Catholic teaching or progressive/liberal sources; lawful offered text only, no login/paywall bypass, no pirated books, respect robots and terms. Existing extracted text is allowed; no new imaging/OCR.
+
+Private local import and embedding are authorized for all lawfully held text. `evidenceOnly` and contributor/credit qualifications do not block import; public hosting remains a separate decision. The 69 DB-confirmed RB04-RB11 skipped texts are released. Historical metadata remains for attribution, rather than serving as an intake gate.
+
+Priority: TCP EEBO Phase I/II, ECCO and Evans; SWORD; full eligible CCEL catalogue; IA public-domain theology (real collection ID `Princeton`); Gutenberg offline catalogue and mirror/robot harvest; Monergism and author-offered Desiring God books. One SOURCES entry per bulk source, full URL/SHA/title/author/licence/format in manifests. Reports are one page of counts and before/after passage totals; a gain below 100,000 needs one sentence.
+
+`powershell -ExecutionPolicy Bypass -File knowledge/finish-intake.ps1` runs after each acquisition batch; check `KnowledgeBase/embedding-progress.json` first. Its exclusive completion lock and pre-refresh wait preserve a single embedding worker. The old fourteen-mission task is disabled. Enrichment is not launched.
+<!-- /BULK policy -->
+
+
+<!-- RB12 protocol -->
+## 2026-10-07: RB12 historical documents mission complete
+
+Owner-added RB12 applies the shared protocol to Particular/Reformed Baptist origins, churches, associations, confessions and doctrinal development, prioritizing primary records. Historical evidence is distinct from theological endorsement.
+
+**46 originals / 5.24 MB / 709,313 extracted words:** seven historical work/collection groups, eight edition witnesses. Ivimey Volume I, selected Philadelphia association records/circulars, Broadmead 1847 and 1974 TXT, Kiffin autobiography, Knollys life/legacy, joint London letter and Belyea origins study. Reused 51 held witnesses including all eleven RB07 mapped witnesses and the confessional spine. 98 actual relevant originals and 13,110 prior ledger records audited/screened. 97 mapped witnesses / 490 source locations / 194 historical document rows / 27 exact private components / 13 qualified relationship rows. Not 46 new books, not all Philadelphia century records, and no graph assertions.
+
+[Report](reports/reformed-baptist-overnight/RB12/REPORT.md), [document table](reports/reformed-baptist-overnight/RB12/DOCUMENT-TABLE.md), [reading paths](reports/reformed-baptist-overnight/RB12/READING-MAP.md), [relationships](reports/reformed-baptist-overnight/RB12/RELATIONSHIPS.md), [scope](reports/reformed-baptist-overnight/RB12/THEOLOGICAL-SCOPE.md), [checkpoint](reports/reformed-baptist-overnight/RB12/checkpoint.json).
+
+Text only; no scans, images, new OCR, transcription or media. All parents and exact private samples held for post-RB14 aggregate intake. Do not launch another mission or database/vector/graph/enrichment worker automatically.
+<!-- /RB12 protocol -->
+
+
 <!-- RB11 protocol -->
 ## 2026-10-07: RB11 prayer and worship mission complete
 

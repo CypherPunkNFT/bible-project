@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-e4c58edc038e5763085a62ac",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-1fae287306902878f635d810",
+  "label": "A treatise on the extent of the death of Christ. Being an abridgement of Dr. Owen's Death of death in the death of Christ. With a recommendatory preface by the Rev. Charles de Coetlogon, ... 1770 — held source edition 90973026dfa9",
+  "languages": [
+    "English"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_eighteenth-century_a-treatise-on-the-extent_owen-john_1770/bim_eighteenth-century_a-treatise-on-the-extent_owen-john_1770_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

@@ -4128,7 +4128,7 @@
         "method": "Existing source text; no OCR or model calls",
         "quality": "structural checks; not critical-edition collation"
       },
-      "evidenceOnly": true,
+      "evidenceOnly": false,
       "intakeScope": "Mixed Appendix: Dagg preface credits G. W. Samson with the chief article. Segment contributor and quoted geography before teaching-text intake.",
       "contributorEvidence": {
         "url": "https://founders.org/library/preface/",
@@ -4150,7 +4150,8 @@
       "aggregateDisposition": "prepared-for-scope-rights-and-deduplication-reconciliation",
       "canImportWithoutFurtherReview": false,
       "aggregateIngested": false,
-      "aggregateEmbedded": false
+      "aggregateEmbedded": false,
+      "privateLocalIndexAuthorized": true
     },
     {
       "url": "https://founders.org/library/ch-1/",
@@ -4735,7 +4736,7 @@
         "method": "Existing source text; no OCR or model calls",
         "quality": "structural checks; not critical-edition collation"
       },
-      "evidenceOnly": true,
+      "evidenceOnly": false,
       "intakeScope": "Misattributed in RB01 as Dagg Church Order introduction. Modern confessional editorial article; hold metadata-only pending its own edition/contributor review. Not part of historical Dagg text.",
       "identityCorrection": {
         "mission": "RB05",
@@ -4766,7 +4767,8 @@
       "aggregateDisposition": "prepared-for-scope-rights-and-deduplication-reconciliation",
       "canImportWithoutFurtherReview": false,
       "aggregateIngested": false,
-      "aggregateEmbedded": false
+      "aggregateEmbedded": false,
+      "privateLocalIndexAuthorized": true
     },
     {
       "url": "https://founders.org/library/preface/",
@@ -13277,7 +13279,7 @@
       },
       "contentRole": "cross-reference-pointers-only",
       "sustainedExpositionClaimed": false,
-      "evidenceOnly": true,
+      "evidenceOnly": false,
       "mission": "RB03",
       "missionManifest": "content/library/reports/reformed-baptist-overnight/RB03/acquisition-manifest.json",
       "scopeManifest": "content/library/reports/reformed-baptist-overnight/RB03/intake-scope.json",
@@ -13306,7 +13308,8 @@
       "aggregateDisposition": "prepared-for-scope-rights-and-deduplication-reconciliation",
       "canImportWithoutFurtherReview": false,
       "aggregateIngested": false,
-      "aggregateEmbedded": false
+      "aggregateEmbedded": false,
+      "privateLocalIndexAuthorized": true
     },
     {
       "url": "https://bible.helloao.org/api/c/john-gill/1CH/21.json",
@@ -35384,7 +35387,7 @@
         "quality": "Full-text pre element isolated; existing OCR not critically collated"
       },
       "selector": "pre",
-      "evidenceOnly": true,
+      "evidenceOnly": false,
       "reviewClass": "held-mixed-collected-witness-until-segmented-intake",
       "limitations": "Full collected witness retained privately; current importer does not enforce section/contributor scopes. Metadata-only until selected components are integrated.",
       "mission": "RB04",
@@ -35397,7 +35400,7 @@
         "title": "The Complete Works of the Rev. Andrew Fuller, with a Memoir of His Life",
         "author": "Andrew Fuller",
         "candidateRole": "mixed-collected-volume-requires-section-scoping",
-        "evidenceOnly": true,
+        "evidenceOnly": false,
         "publicHostingAllowed": false,
         "coreScope": "Historical Baptist salvation study",
         "sourceRoles": [
@@ -35408,12 +35411,14 @@
         ],
         "contributorBoundary": "Do not attribute biography, modernization, subheadings, definitions, annotations or quoted opponents to the arguing author.",
         "ingestionRequirement": "Segment components before body intake",
-        "limitations": "Full collected witness retained privately; current importer does not enforce section/contributor scopes. Metadata-only until selected components are integrated."
+        "limitations": "Full collected witness retained privately; current importer does not enforce section/contributor scopes. Metadata-only until selected components are integrated.",
+        "privateLocalIndexAuthorized": true
       },
       "aggregateDisposition": "prepared-for-scope-rights-and-deduplication-reconciliation",
       "canImportWithoutFurtherReview": false,
       "aggregateIngested": false,
-      "aggregateEmbedded": false
+      "aggregateEmbedded": false,
+      "privateLocalIndexAuthorized": true
     },
     {
       "url": "https://www.monergism.com/definitive-sanctification",
@@ -35598,7 +35603,7 @@
         "method": "Existing source text; no OCR or model calls",
         "quality": "structural checks; not critical-edition collation"
       },
-      "evidenceOnly": true,
+      "evidenceOnly": false,
       "reviewClass": "held-mixed-collected-witness-until-segmented-intake",
       "limitations": "Full collected witness retained privately; current importer does not enforce section/contributor scopes. Metadata-only until selected components are integrated.",
       "mission": "RB04",
@@ -35611,7 +35616,7 @@
         "title": "Works of Abraham Booth, Volume I: Memoir, Reign of Grace, Death of Legal Hope",
         "author": "Abraham Booth",
         "candidateRole": "mixed-historical-volume-with-distinct-work-and-memoir-roles",
-        "evidenceOnly": true,
+        "evidenceOnly": false,
         "publicHostingAllowed": false,
         "coreScope": "Historical Baptist salvation study",
         "sourceRoles": [
@@ -35622,12 +35627,14 @@
         ],
         "contributorBoundary": "Do not attribute biography, modernization, subheadings, definitions, annotations or quoted opponents to the arguing author.",
         "ingestionRequirement": "Segment components before body intake",
-        "limitations": "Full collected witness retained privately; current importer does not enforce section/contributor scopes. Metadata-only until selected components are integrated."
+        "limitations": "Full collected witness retained privately; current importer does not enforce section/contributor scopes. Metadata-only until selected components are integrated.",
+        "privateLocalIndexAuthorized": true
       },
       "aggregateDisposition": "prepared-for-scope-rights-and-deduplication-reconciliation",
       "canImportWithoutFurtherReview": false,
       "aggregateIngested": false,
-      "aggregateEmbedded": false
+      "aggregateEmbedded": false,
+      "privateLocalIndexAuthorized": true
     },
     {
       "url": "https://www.chapellibrary.org/api/books/download?code=dolh&format=epub",
@@ -35672,7 +35679,7 @@
         "originalHistoricalCompletenessClaim": false
       },
       "reviewClass": "held-for-contributor-aware-segmented-intake",
-      "evidenceOnly": true,
+      "evidenceOnly": false,
       "mission": "RB04",
       "missionManifest": "content/library/reports/reformed-baptist-overnight/RB04/acquisition-manifest.json",
       "scopeManifest": "content/library/reports/reformed-baptist-overnight/RB04/intake-scope.json",
@@ -35683,7 +35690,7 @@
         "title": "The Death of Legal Hope and the Life of Evangelical Obedience",
         "author": "Abraham Booth",
         "candidateRole": "historical-baptist-doctrinal-treatment-with-editorial-annotations",
-        "evidenceOnly": true,
+        "evidenceOnly": false,
         "publicHostingAllowed": false,
         "coreScope": "Historical Baptist salvation study",
         "sourceRoles": [
@@ -35694,12 +35701,14 @@
         ],
         "contributorBoundary": "Do not attribute biography, modernization, subheadings, definitions, annotations or quoted opponents to the arguing author.",
         "ingestionRequirement": "Segment components before body intake",
-        "limitations": "Complete offered ABRIDGED annotated edition, not an unabridged historical text; seven sections retained; complete 1813 historical witness separately held"
+        "limitations": "Complete offered ABRIDGED annotated edition, not an unabridged historical text; seven sections retained; complete 1813 historical witness separately held",
+        "privateLocalIndexAuthorized": true
       },
       "aggregateDisposition": "prepared-for-scope-rights-and-deduplication-reconciliation",
       "canImportWithoutFurtherReview": false,
       "aggregateIngested": false,
-      "aggregateEmbedded": false
+      "aggregateEmbedded": false,
+      "privateLocalIndexAuthorized": true
     },
     {
       "url": "https://www.9marks.org/wp-content/uploads/2008/04/ejournal200853mayjun.pdf",
@@ -35726,7 +35735,7 @@
         "Class 12",
         "Worship"
       ],
-      "evidenceOnly": true,
+      "evidenceOnly": false,
       "intakeScope": "Mixed journal parent held metadata-only until per-article contributor, quotation, review and duplicate boundaries are integrated.",
       "assetId": "asset-rb05-756adfc1ed0a1aa9060f",
       "relativePath": "library/source-9marks/asset-rb05-756adfc1ed0a1aa9060f/original.pdf",
@@ -35765,7 +35774,7 @@
         "originalSha256": "2bfa88adbc86a3157493e7803bf2aa026af41776b077725d58b78ab90658d067",
         "title": "9Marks Journal: Living as a Church",
         "author": "Jamie Dunlop, Papu Sandhu, Greg Gilbert; Jonathan Leeman editor; other named contributors",
-        "evidenceOnly": true,
+        "evidenceOnly": false,
         "publicHostingAllowed": false,
         "publicFullTextIndexAllowed": false,
         "candidateRole": "mixed-journal-with-selected-church-study-components",
@@ -35782,12 +35791,14 @@
           "news",
           "incidental Catholic/progressive reviewed books"
         ],
-        "limitations": "File completeness is not whole-author or contributor approval. No Catholic/progressive work was targeted as teaching or opposition acquisition. Incidental reviewed books stay excluded."
+        "limitations": "File completeness is not whole-author or contributor approval. No Catholic/progressive work was targeted as teaching or opposition acquisition. Incidental reviewed books stay excluded.",
+        "privateLocalIndexAuthorized": true
       },
       "aggregateDisposition": "prepared-for-scope-rights-and-deduplication-reconciliation",
       "canImportWithoutFurtherReview": false,
       "aggregateIngested": false,
-      "aggregateEmbedded": false
+      "aggregateEmbedded": false,
+      "privateLocalIndexAuthorized": true
     },
     {
       "url": "https://www.9marks.org/wp-content/uploads/2009/10/eJournal200966novdec.pdf",
@@ -35813,7 +35824,7 @@
         "Cleaning Up the Rolls",
         "Permissions"
       ],
-      "evidenceOnly": true,
+      "evidenceOnly": false,
       "intakeScope": "Mixed journal parent held metadata-only until per-article contributor, quotation, review and duplicate boundaries are integrated.",
       "assetId": "asset-rb05-5acca7757a565cc7fe5f",
       "relativePath": "library/source-9marks/asset-rb05-5acca7757a565cc7fe5f/original.pdf",
@@ -35852,7 +35863,7 @@
         "originalSha256": "00330114e7e40be6cd6ebb6f37519cc9807c6f5eb5302d62fe4c2eedc09a6052",
         "title": "9Marks Journal: Church Discipline, Part II",
         "author": "Mark Dever, Greg Gilbert, Matt Schmucker, Jonathan Leeman, Stephen Matteucci; other named contributors",
-        "evidenceOnly": true,
+        "evidenceOnly": false,
         "publicHostingAllowed": false,
         "publicFullTextIndexAllowed": false,
         "candidateRole": "mixed-journal-with-selected-church-study-components",
@@ -35869,12 +35880,14 @@
           "news",
           "incidental Catholic/progressive reviewed books"
         ],
-        "limitations": "File completeness is not whole-author or contributor approval. No Catholic/progressive work was targeted as teaching or opposition acquisition. Incidental reviewed books stay excluded."
+        "limitations": "File completeness is not whole-author or contributor approval. No Catholic/progressive work was targeted as teaching or opposition acquisition. Incidental reviewed books stay excluded.",
+        "privateLocalIndexAuthorized": true
       },
       "aggregateDisposition": "prepared-for-scope-rights-and-deduplication-reconciliation",
       "canImportWithoutFurtherReview": false,
       "aggregateIngested": false,
-      "aggregateEmbedded": false
+      "aggregateEmbedded": false,
+      "privateLocalIndexAuthorized": true
     },
     {
       "url": "https://www.9marks.org/wp-content/uploads/2019/04/9Marks_Journal_2010_May-Jun_Deacons.pdf",
@@ -35900,7 +35913,7 @@
         "Separate Deacon Work",
         "Permissions"
       ],
-      "evidenceOnly": true,
+      "evidenceOnly": false,
       "intakeScope": "Mixed journal parent held metadata-only until per-article contributor, quotation, review and duplicate boundaries are integrated.",
       "assetId": "asset-rb05-0cca3ad45d427c133a0d",
       "relativePath": "library/source-9marks/asset-rb05-0cca3ad45d427c133a0d/original.pdf",
@@ -35927,7 +35940,7 @@
         "originalSha256": "6b780d48230bb0a029003c958c9385efb45db7ba1e0a46ca2e3007f2cc3fa712",
         "title": "9Marks Journal: Deacons",
         "author": "Jamie Dunlop, Benjamin Merkle, Matt Schmucker, Phil Newton, John Ingold; Jonathan Leeman editor; named reviewers",
-        "evidenceOnly": true,
+        "evidenceOnly": false,
         "publicHostingAllowed": false,
         "publicFullTextIndexAllowed": false,
         "candidateRole": "mixed-journal-with-selected-church-study-components",
@@ -35944,12 +35957,14 @@
           "news",
           "incidental Catholic/progressive reviewed books"
         ],
-        "limitations": "File completeness is not whole-author or contributor approval. No Catholic/progressive work was targeted as teaching or opposition acquisition. Incidental reviewed books stay excluded."
+        "limitations": "File completeness is not whole-author or contributor approval. No Catholic/progressive work was targeted as teaching or opposition acquisition. Incidental reviewed books stay excluded.",
+        "privateLocalIndexAuthorized": true
       },
       "aggregateDisposition": "prepared-for-scope-rights-and-deduplication-reconciliation",
       "canImportWithoutFurtherReview": false,
       "aggregateIngested": false,
-      "aggregateEmbedded": false
+      "aggregateEmbedded": false,
+      "privateLocalIndexAuthorized": true
     },
     {
       "url": "https://www.9marks.org/wp-content/uploads/2012/11/ejournal201296novdec.pdf",
@@ -35975,7 +35990,7 @@
         "Passes Out Authority",
         "Permissions"
       ],
-      "evidenceOnly": true,
+      "evidenceOnly": false,
       "intakeScope": "Mixed journal parent held metadata-only until per-article contributor, quotation, review and duplicate boundaries are integrated.",
       "assetId": "asset-rb05-5113820ecf0e356be1ed",
       "relativePath": "library/source-9marks/asset-rb05-5113820ecf0e356be1ed/original.pdf",
@@ -36002,7 +36017,7 @@
         "originalSha256": "28a6ce3e5b29b440620abba205749a94318d4597218a66aaf577d1e12b566aff",
         "title": "9Marks Journal: Lay Elders, Part I",
         "author": "Jeramie Rinne, Sebastian Traeger, Mike McKinley, Garrett Kell, Steve Boyer, Jonathan Leeman; named reviewers",
-        "evidenceOnly": true,
+        "evidenceOnly": false,
         "publicHostingAllowed": false,
         "publicFullTextIndexAllowed": false,
         "candidateRole": "mixed-journal-with-selected-church-study-components",
@@ -36019,12 +36034,14 @@
           "news",
           "incidental Catholic/progressive reviewed books"
         ],
-        "limitations": "File completeness is not whole-author or contributor approval. No Catholic/progressive work was targeted as teaching or opposition acquisition. Incidental reviewed books stay excluded."
+        "limitations": "File completeness is not whole-author or contributor approval. No Catholic/progressive work was targeted as teaching or opposition acquisition. Incidental reviewed books stay excluded.",
+        "privateLocalIndexAuthorized": true
       },
       "aggregateDisposition": "prepared-for-scope-rights-and-deduplication-reconciliation",
       "canImportWithoutFurtherReview": false,
       "aggregateIngested": false,
-      "aggregateEmbedded": false
+      "aggregateEmbedded": false,
+      "privateLocalIndexAuthorized": true
     },
     {
       "url": "https://founders.org/wp-content/uploads/2026/07/FoundersJournal73.pdf",
@@ -36050,7 +36067,7 @@
         "Church Discipline",
         "Boyce"
       ],
-      "evidenceOnly": true,
+      "evidenceOnly": false,
       "intakeScope": "Mixed contributor journal parent retained metadata-only pending segmented contributor/quotation/rights review.",
       "assetId": "asset-rb05-a7fba8c2016beb032e6b",
       "relativePath": "library/source-founders/asset-rb05-a7fba8c2016beb032e6b/original.pdf",
@@ -36074,7 +36091,7 @@
         "originalSha256": "aefcbfbb0fc5afa534591ad84ca3d5884ace4ef233ad29ca0069c7449fd5b403",
         "title": "Founders Journal: Church Purity (Issue 73)",
         "author": "Tom Nettles, James P. Boyce, Jeff Robinson; Thomas K. Ascol editor",
-        "evidenceOnly": true,
+        "evidenceOnly": false,
         "publicHostingAllowed": false,
         "publicFullTextIndexAllowed": false,
         "candidateRole": "mixed-journal-with-selected-church-study-components",
@@ -36091,12 +36108,14 @@
           "news",
           "incidental Catholic/progressive reviewed books"
         ],
-        "limitations": "File completeness is not whole-author or contributor approval. No Catholic/progressive work was targeted as teaching or opposition acquisition. Incidental reviewed books stay excluded."
+        "limitations": "File completeness is not whole-author or contributor approval. No Catholic/progressive work was targeted as teaching or opposition acquisition. Incidental reviewed books stay excluded.",
+        "privateLocalIndexAuthorized": true
       },
       "aggregateDisposition": "prepared-for-scope-rights-and-deduplication-reconciliation",
       "canImportWithoutFurtherReview": false,
       "aggregateIngested": false,
-      "aggregateEmbedded": false
+      "aggregateEmbedded": false,
+      "privateLocalIndexAuthorized": true
     },
     {
       "url": "https://founders.org/wp-content/uploads/2016/10/FoundersJournal90.pdf",
@@ -36122,7 +36141,7 @@
         "Songs of Salvation",
         "Ten Principles"
       ],
-      "evidenceOnly": true,
+      "evidenceOnly": false,
       "intakeScope": "Mixed contributor journal parent retained metadata-only pending segmented contributor/quotation/rights review.",
       "assetId": "asset-rb05-66725be3dc7544c603d5",
       "relativePath": "library/source-founders/asset-rb05-66725be3dc7544c603d5/original.pdf",
@@ -36146,7 +36165,7 @@
         "originalSha256": "0f67c37ef7e50d939c00e56d2c088a557be0988112a33f610264c73b0da2ab8c",
         "title": "Founders Journal: Singing in the Church (Issue 90)",
         "author": "Tom Ascol, Ken Puls, Kevin DeYoung; named historical quotations",
-        "evidenceOnly": true,
+        "evidenceOnly": false,
         "publicHostingAllowed": false,
         "publicFullTextIndexAllowed": false,
         "candidateRole": "mixed-journal-with-selected-church-study-components",
@@ -36163,12 +36182,14 @@
           "news",
           "incidental Catholic/progressive reviewed books"
         ],
-        "limitations": "File completeness is not whole-author or contributor approval. No Catholic/progressive work was targeted as teaching or opposition acquisition. Incidental reviewed books stay excluded."
+        "limitations": "File completeness is not whole-author or contributor approval. No Catholic/progressive work was targeted as teaching or opposition acquisition. Incidental reviewed books stay excluded.",
+        "privateLocalIndexAuthorized": true
       },
       "aggregateDisposition": "prepared-for-scope-rights-and-deduplication-reconciliation",
       "canImportWithoutFurtherReview": false,
       "aggregateIngested": false,
-      "aggregateEmbedded": false
+      "aggregateEmbedded": false,
+      "privateLocalIndexAuthorized": true
     },
     {
       "url": "https://founders.org/wp-content/uploads/2026/04/Founders-Journal-FULL-2025-FAll-.pdf",
@@ -36194,7 +36215,7 @@
         "Best Method of Preaching",
         "Orthodox Catechism"
       ],
-      "evidenceOnly": true,
+      "evidenceOnly": false,
       "intakeScope": "Mixed contributor journal parent retained metadata-only pending segmented contributor/quotation/rights review.",
       "assetId": "asset-rb05-1a960a66591f9e7e6647",
       "relativePath": "library/source-founders/asset-rb05-1a960a66591f9e7e6647/original.pdf",
@@ -36218,7 +36239,7 @@
         "originalSha256": "8a09658aed84ba5c6e6af27baf07afdeafaf03b089a52d6bc567d76c84b45b5a",
         "title": "Founders Journal: Baptists, Puritans, and Preaching (Issue 129)",
         "author": "Tom Nettles, Reagan Marsh, Daniel Scheiderer, John Carpenter; named historical quotations",
-        "evidenceOnly": true,
+        "evidenceOnly": false,
         "publicHostingAllowed": false,
         "publicFullTextIndexAllowed": false,
         "candidateRole": "mixed-journal-with-selected-church-study-components",
@@ -36235,12 +36256,14 @@
           "news",
           "incidental Catholic/progressive reviewed books"
         ],
-        "limitations": "File completeness is not whole-author or contributor approval. No Catholic/progressive work was targeted as teaching or opposition acquisition. Incidental reviewed books stay excluded."
+        "limitations": "File completeness is not whole-author or contributor approval. No Catholic/progressive work was targeted as teaching or opposition acquisition. Incidental reviewed books stay excluded.",
+        "privateLocalIndexAuthorized": true
       },
       "aggregateDisposition": "prepared-for-scope-rights-and-deduplication-reconciliation",
       "canImportWithoutFurtherReview": false,
       "aggregateIngested": false,
-      "aggregateEmbedded": false
+      "aggregateEmbedded": false,
+      "privateLocalIndexAuthorized": true
     },
     {
       "url": "https://www.sermonindex.net/books/writings-of-j-l-dagg/121/",
@@ -36341,7 +36364,7 @@
         "modern abridgment"
       ],
       "discoveryUrl": "https://www.chapellibrary.org/book/doha",
-      "evidenceOnly": true,
+      "evidenceOnly": false,
       "admissionRole": "mixed-or-edited-pastoral-witness-pending-contributor-and-note-segmentation",
       "assetId": "asset-rb06-684d3b71e51526d3c4ac",
       "relativePath": "library/source-chapel-library/asset-rb06-684d3b71e51526d3c4ac/original.epub",
@@ -36365,7 +36388,7 @@
         "originalSha256": "baa9388e20d83519e7f8366d28c2a04cb34979389e564d0486aec6fcde9db03c",
         "title": "The Duties of Husbands and Wives",
         "author": "Richard Steele; D. Scott Meadows, abridger and paraphraser",
-        "evidenceOnly": true,
+        "evidenceOnly": false,
         "publicHostingAllowed": false,
         "publicFullTextIndexAllowed": false,
         "candidateRole": "mixed-or-edited-pastoral-witness-pending-contributor-and-note-segmentation",
@@ -36383,12 +36406,14 @@
           "confession-preface duplicates",
           "miscellaneous quotation collections",
           "unselected baptism/polity comparison sermons"
-        ]
+        ],
+        "privateLocalIndexAuthorized": true
       },
       "aggregateDisposition": "prepared-for-scope-rights-and-deduplication-reconciliation",
       "canImportWithoutFurtherReview": false,
       "aggregateIngested": false,
-      "aggregateEmbedded": false
+      "aggregateEmbedded": false,
+      "privateLocalIndexAuthorized": true
     },
     {
       "url": "https://www.chapellibrary.org/api/books/download?code=doca&format=epub",
@@ -36414,7 +36439,7 @@
         "Conclusion"
       ],
       "discoveryUrl": "https://www.chapellibrary.org/book/doca",
-      "evidenceOnly": true,
+      "evidenceOnly": false,
       "admissionRole": "mixed-or-edited-pastoral-witness-pending-contributor-and-note-segmentation",
       "assetId": "asset-rb06-f46d96a2ea4c8be2dd78",
       "relativePath": "library/source-chapel-library/asset-rb06-f46d96a2ea4c8be2dd78/original.epub",
@@ -36438,7 +36463,7 @@
         "originalSha256": "01aad1d49bd8d84b63da00f89c780cb56f6e17df6089400c7874dc3c571a6afb",
         "title": "The Duties of Children and Parents",
         "author": "Richard Adams; D. Scott Meadows, abridger and reviser",
-        "evidenceOnly": true,
+        "evidenceOnly": false,
         "publicHostingAllowed": false,
         "publicFullTextIndexAllowed": false,
         "candidateRole": "mixed-or-edited-pastoral-witness-pending-contributor-and-note-segmentation",
@@ -36456,12 +36481,14 @@
           "confession-preface duplicates",
           "miscellaneous quotation collections",
           "unselected baptism/polity comparison sermons"
-        ]
+        ],
+        "privateLocalIndexAuthorized": true
       },
       "aggregateDisposition": "prepared-for-scope-rights-and-deduplication-reconciliation",
       "canImportWithoutFurtherReview": false,
       "aggregateIngested": false,
-      "aggregateEmbedded": false
+      "aggregateEmbedded": false,
+      "privateLocalIndexAuthorized": true
     },
     {
       "url": "https://www.chapellibrary.org/api/books/download?code=fworfg&format=epub",
@@ -36486,7 +36513,7 @@
         "Seven Reasons Families Should Pray"
       ],
       "discoveryUrl": "https://www.chapellibrary.org/book/fworfg",
-      "evidenceOnly": true,
+      "evidenceOnly": false,
       "admissionRole": "mixed-or-edited-pastoral-witness-pending-contributor-and-note-segmentation",
       "assetId": "asset-rb06-b31827789866393c629c",
       "relativePath": "library/source-chapel-library/asset-rb06-b31827789866393c629c/original.epub",
@@ -36510,7 +36537,7 @@
         "originalSha256": "fd4cba465bf56c88587607006e44b4a09b2f352aa60e2f016bf95ee3132613ca",
         "title": "Free Grace Broadcaster 188: Family Worship",
         "author": "Named historical contributors; Joel R. Beeke; Jeff Pollard editor",
-        "evidenceOnly": true,
+        "evidenceOnly": false,
         "publicHostingAllowed": false,
         "publicFullTextIndexAllowed": false,
         "candidateRole": "mixed-or-edited-pastoral-witness-pending-contributor-and-note-segmentation",
@@ -36528,12 +36555,14 @@
           "confession-preface duplicates",
           "miscellaneous quotation collections",
           "unselected baptism/polity comparison sermons"
-        ]
+        ],
+        "privateLocalIndexAuthorized": true
       },
       "aggregateDisposition": "prepared-for-scope-rights-and-deduplication-reconciliation",
       "canImportWithoutFurtherReview": false,
       "aggregateIngested": false,
-      "aggregateEmbedded": false
+      "aggregateEmbedded": false,
+      "privateLocalIndexAuthorized": true
     },
     {
       "url": "https://www.chapellibrary.org/api/books/download?code=ciaffg&format=epub",
@@ -36559,7 +36588,7 @@
         "Christ, the Fountain of Comfort"
       ],
       "discoveryUrl": "https://www.chapellibrary.org/book/ciaffg",
-      "evidenceOnly": true,
+      "evidenceOnly": false,
       "admissionRole": "mixed-or-edited-pastoral-witness-pending-contributor-and-note-segmentation",
       "assetId": "asset-rb06-0fd945b1b33432a6eee9",
       "relativePath": "library/source-chapel-library/asset-rb06-0fd945b1b33432a6eee9/original.epub",
@@ -36583,7 +36612,7 @@
         "originalSha256": "cfd60255c0bd2b24349366599ec0ccdf266cd0752455caa537b9f1d54d4f9425",
         "title": "Free Grace Broadcaster 217: Comfort in Affliction",
         "author": "A. W. Pink, C. H. Spurgeon, James Buchanan, Thomas Brooks, Jerome Zanchius, Octavius Winslow; Jeff Pollard editor; miscellaneous quoted authors",
-        "evidenceOnly": true,
+        "evidenceOnly": false,
         "publicHostingAllowed": false,
         "publicFullTextIndexAllowed": false,
         "candidateRole": "mixed-or-edited-pastoral-witness-pending-contributor-and-note-segmentation",
@@ -36601,12 +36630,14 @@
           "confession-preface duplicates",
           "miscellaneous quotation collections",
           "unselected baptism/polity comparison sermons"
-        ]
+        ],
+        "privateLocalIndexAuthorized": true
       },
       "aggregateDisposition": "prepared-for-scope-rights-and-deduplication-reconciliation",
       "canImportWithoutFurtherReview": false,
       "aggregateIngested": false,
-      "aggregateEmbedded": false
+      "aggregateEmbedded": false,
+      "privateLocalIndexAuthorized": true
     },
     {
       "url": "https://www.monergism.com/thethreshold/sdg/puritans/PURITAN%20SERMONS%20-%20VOL.%202%20-%20Various%20Puritans.epub",
@@ -36633,7 +36664,7 @@
         "REV. THOMAS JACOMBE"
       ],
       "discoveryUrl": "https://www.monergism.com/puritan-sermons-morning-exercises-cripplegate-ebook",
-      "evidenceOnly": true,
+      "evidenceOnly": false,
       "admissionRole": "mixed-historical-pastoral-anthology-selected-source-components-only",
       "assetId": "asset-rb06-9bdee04056edd9e6bf22",
       "relativePath": "library/source-monergism/asset-rb06-9bdee04056edd9e6bf22/original.epub",
@@ -36657,7 +36688,7 @@
         "originalSha256": "2aa645c1c2af9559b26cc4e771027daf522bd1925d8a512b7f6d0e621442840e",
         "title": "Puritan Sermons: Morning Exercises at Cripplegate, Volume II",
         "author": "Various Puritan ministers; James Nichols editor; Monergism digital editor",
-        "evidenceOnly": true,
+        "evidenceOnly": false,
         "publicHostingAllowed": false,
         "publicFullTextIndexAllowed": false,
         "candidateRole": "mixed-historical-pastoral-anthology-selected-source-components-only",
@@ -36675,12 +36706,14 @@
           "confession-preface duplicates",
           "miscellaneous quotation collections",
           "unselected baptism/polity comparison sermons"
-        ]
+        ],
+        "privateLocalIndexAuthorized": true
       },
       "aggregateDisposition": "prepared-for-scope-rights-and-deduplication-reconciliation",
       "canImportWithoutFurtherReview": false,
       "aggregateIngested": false,
-      "aggregateEmbedded": false
+      "aggregateEmbedded": false,
+      "privateLocalIndexAuthorized": true
     },
     {
       "url": "https://www.9marks.org/wp-content/uploads/2008/10/ejournal200856novdec.pdf",
@@ -36706,7 +36739,7 @@
         "1,000 physical copies"
       ],
       "discoveryUrl": "https://www.9marks.org/wp-content/uploads/2008/10/ejournal200856novdec.pdf",
-      "evidenceOnly": true,
+      "evidenceOnly": false,
       "admissionRole": "mixed-modern-baptist-pastoral-journal-pending-contributor-and-quoted-work-scopes",
       "assetId": "asset-rb06-7aa3620bf275d3d8af9c",
       "relativePath": "library/source-9marks/asset-rb06-7aa3620bf275d3d8af9c/original.pdf",
@@ -36730,7 +36763,7 @@
         "originalSha256": "b91a32a2d379ff1ba63ee5a16790873c7ecc45d470446b8071841e156dddf5a4",
         "title": "9Marks eJournal: Counseling in the Church",
         "author": "Deepak Reju, Jonathan Leeman, Michael Lawrence; named CCEF interviewees; separate reviewers",
-        "evidenceOnly": true,
+        "evidenceOnly": false,
         "publicHostingAllowed": false,
         "publicFullTextIndexAllowed": false,
         "candidateRole": "mixed-modern-baptist-pastoral-journal-pending-contributor-and-quoted-work-scopes",
@@ -36748,12 +36781,14 @@
           "confession-preface duplicates",
           "miscellaneous quotation collections",
           "unselected baptism/polity comparison sermons"
-        ]
+        ],
+        "privateLocalIndexAuthorized": true
       },
       "aggregateDisposition": "prepared-for-scope-rights-and-deduplication-reconciliation",
       "canImportWithoutFurtherReview": false,
       "aggregateIngested": false,
-      "aggregateEmbedded": false
+      "aggregateEmbedded": false,
+      "privateLocalIndexAuthorized": true
     },
     {
       "url": "https://www.gutenberg.org/ebooks/70894.txt.utf-8",
@@ -36762,7 +36797,7 @@
       "byteCount": 1380740,
       "sha256": "a8df9fa58dbc929e435abbddbc9b70bd89dbb5c2653601709c23534076f1f027",
       "retrievedAt": "2026-10-07T10:41:39.349309+00:00",
-      "evidenceOnly": true,
+      "evidenceOnly": false,
       "admissionRole": "historical-primary-documents-with-editorial-narration-pending-voice-segmentation",
       "minimumWords": 30000,
       "rightsCategory": "historical-public-domain-US-offered-download-private-study",
@@ -36819,7 +36854,8 @@
       "aggregateDisposition": "prepared-for-scope-rights-and-deduplication-reconciliation",
       "canImportWithoutFurtherReview": false,
       "aggregateIngested": false,
-      "aggregateEmbedded": false
+      "aggregateEmbedded": false,
+      "privateLocalIndexAuthorized": true
     },
     {
       "url": "https://archive.org/stream/seramporeletters00carerich/seramporeletters00carerich_djvu.txt",
@@ -36828,7 +36864,7 @@
       "byteCount": 397520,
       "sha256": "6c0266d611b08a5a55f45eaf0ec1e8e2d0f331c0eb7c18be2cb24aef272d2e7a",
       "retrievedAt": "2026-10-07T10:45:56.866879+00:00",
-      "evidenceOnly": true,
+      "evidenceOnly": false,
       "admissionRole": "historical-primary-documents-with-editorial-narration-pending-voice-segmentation",
       "minimumWords": 30000,
       "rightsCategory": "historical-public-domain-US-offered-download-private-study",
@@ -36887,7 +36923,8 @@
       "aggregateDisposition": "prepared-for-scope-rights-and-deduplication-reconciliation",
       "canImportWithoutFurtherReview": false,
       "aggregateIngested": false,
-      "aggregateEmbedded": false
+      "aggregateEmbedded": false,
+      "privateLocalIndexAuthorized": true
     },
     {
       "url": "https://www.gutenberg.org/ebooks/2056.txt.utf-8",
@@ -36896,7 +36933,7 @@
       "byteCount": 869588,
       "sha256": "eadaf0884dcc6330a9fad43272ee478c76222776674b7fc6f2950c818d5e4466",
       "retrievedAt": "2026-10-07T10:47:21.233541+00:00",
-      "evidenceOnly": true,
+      "evidenceOnly": false,
       "admissionRole": "historical-primary-documents-with-editorial-narration-pending-voice-segmentation",
       "minimumWords": 30000,
       "rightsCategory": "historical-public-domain-US-offered-download-private-study",
@@ -36954,7 +36991,8 @@
       "aggregateDisposition": "prepared-for-scope-rights-and-deduplication-reconciliation",
       "canImportWithoutFurtherReview": false,
       "aggregateIngested": false,
-      "aggregateEmbedded": false
+      "aggregateEmbedded": false,
+      "privateLocalIndexAuthorized": true
     },
     {
       "url": "https://archive.org/stream/farewellletters00ward/farewellletters00ward_djvu.txt",
@@ -36966,7 +37004,7 @@
       "sourceId": "source-internet-archive",
       "format": "html",
       "selector": "pre",
-      "evidenceOnly": true,
+      "evidenceOnly": false,
       "rightsCategory": "historical-public-domain-US-offered-text-private-study",
       "minimumWords": 35000,
       "workId": "work-rb07-ward-farewell-letters",
@@ -37022,7 +37060,8 @@
       "aggregateDisposition": "prepared-for-scope-rights-and-deduplication-reconciliation",
       "canImportWithoutFurtherReview": false,
       "aggregateIngested": false,
-      "aggregateEmbedded": false
+      "aggregateEmbedded": false,
+      "privateLocalIndexAuthorized": true
     },
     {
       "url": "https://archive.org/stream/memoirofrevluthe01tayl/memoirofrevluthe01tayl_djvu.txt",
@@ -37034,7 +37073,7 @@
       "sourceId": "source-internet-archive",
       "format": "html",
       "selector": "pre",
-      "evidenceOnly": true,
+      "evidenceOnly": false,
       "rightsCategory": "historical-public-domain-US-offered-text-private-study",
       "minimumWords": 35000,
       "workId": "work-rb07-taylor-luther-rice",
@@ -37089,7 +37128,8 @@
       "aggregateDisposition": "prepared-for-scope-rights-and-deduplication-reconciliation",
       "canImportWithoutFurtherReview": false,
       "aggregateIngested": false,
-      "aggregateEmbedded": false
+      "aggregateEmbedded": false,
+      "privateLocalIndexAuthorized": true
     },
     {
       "url": "https://www.gutenberg.org/ebooks/42340.txt.utf-8",
@@ -37115,7 +37155,7 @@
         "END OF THE PROJECT GUTENBERG"
       ],
       "discoveryUrl": "https://www.gutenberg.org/ebooks/42340",
-      "evidenceOnly": true,
+      "evidenceOnly": false,
       "admissionRole": "translated-Baptist-sermons-separated-from-non-Baptist-editor-memoir-and-modern-transcriber-notes",
       "assetId": "asset-rb07-b04659728ad2f727066f",
       "relativePath": "library/source-gutenberg/asset-rb07-b04659728ad2f727066f/original.txt",
@@ -37156,7 +37196,8 @@
       "aggregateDisposition": "prepared-for-scope-rights-and-deduplication-reconciliation",
       "canImportWithoutFurtherReview": false,
       "aggregateIngested": false,
-      "aggregateEmbedded": false
+      "aggregateEmbedded": false,
+      "privateLocalIndexAuthorized": true
     },
     {
       "url": "https://careycenter.wmcarey.edu/gsmith/append.htm",
@@ -37183,7 +37224,7 @@
         "III."
       ],
       "discoveryUrl": "https://careycenter.wmcarey.edu/links/full_texts.htm",
-      "evidenceOnly": true,
+      "evidenceOnly": false,
       "admissionRole": "complete-primary-agreement-and-report-plus-truncated-secondary-historical-memorandum-pending-segmentation",
       "assetId": "asset-rb07-ed791d1c6fb58201fe52",
       "relativePath": "library/source-carey-center/asset-rb07-ed791d1c6fb58201fe52/original.html",
@@ -37224,7 +37265,8 @@
       "aggregateDisposition": "prepared-for-scope-rights-and-deduplication-reconciliation",
       "canImportWithoutFurtherReview": false,
       "aggregateIngested": false,
-      "aggregateEmbedded": false
+      "aggregateEmbedded": false,
+      "privateLocalIndexAuthorized": true
     },
     {
       "url": "https://www.aomin.org/aoblog/general-apologetics/purpose-and-meaning-of-ego-eimi-in-the-gospel-of-john/",
@@ -37253,7 +37295,7 @@
         "The\\ following\\ information\\ sheet\\ was\\ first\\ published\\ around\\ 1990",
         "he\\ Gospel\\ of\\ John,\\ \\(Grand\\ Rapids:\\ Baker\\ Book\\ House,\\ 1953\\)\\ pg\\.\\ 67\\."
       ],
-      "evidenceOnly": true,
+      "evidenceOnly": false,
       "admissionRole": "source-attributed-apologetic-scholarship-with-nested-quotes-pending-intake-enforcement",
       "theologicalEligibility": "eligible-within-declared-subject-scope",
       "theologicalScope": "Baptist/Reformed biblical apologetics within the identified article subject; opponent quotations and rhetorical claims are attributed, not project teaching.",
@@ -37300,7 +37342,8 @@
       "aggregateDisposition": "prepared-for-scope-rights-and-deduplication-reconciliation",
       "canImportWithoutFurtherReview": false,
       "aggregateIngested": false,
-      "aggregateEmbedded": false
+      "aggregateEmbedded": false,
+      "privateLocalIndexAuthorized": true
     },
     {
       "url": "https://www.aomin.org/aoblog/theology-matters/a-brief-definition-of-the-trinity/",
@@ -37329,7 +37372,7 @@
         "I\\ know\\ that\\ one\\ of\\ the\\ most\\ oft\\-repeated\\ questions\\ I\\ have\\ dealt\\ w",
         "s\\ you\\ “grow\\ in\\ the\\ grace\\ and\\ knowledge\\ of\\ our\\ Lord\\ Jesus\\ Christ\\.”"
       ],
-      "evidenceOnly": true,
+      "evidenceOnly": false,
       "admissionRole": "source-attributed-apologetic-scholarship-with-nested-quotes-pending-intake-enforcement",
       "theologicalEligibility": "eligible-within-declared-subject-scope",
       "theologicalScope": "Baptist/Reformed biblical apologetics within the identified article subject; opponent quotations and rhetorical claims are attributed, not project teaching.",
@@ -37376,7 +37419,8 @@
       "aggregateDisposition": "prepared-for-scope-rights-and-deduplication-reconciliation",
       "canImportWithoutFurtherReview": false,
       "aggregateIngested": false,
-      "aggregateEmbedded": false
+      "aggregateEmbedded": false,
+      "privateLocalIndexAuthorized": true
     },
     {
       "url": "https://www.aomin.org/aoblog/oneness-pentecostalism/the-trinity-the-definition-of-chalcedon-and-oneness-theology/",
@@ -37405,7 +37449,7 @@
         "The\\ doctrine\\ of\\ the\\ Trinity\\ requires\\ a\\ balanced\\ view\\ of\\ Scripture",
         "\\ gives\\ a\\ brief\\ account\\ of\\ the\\ origins\\ of\\ the\\ modalistic\\ teaching\\."
       ],
-      "evidenceOnly": true,
+      "evidenceOnly": false,
       "admissionRole": "source-attributed-apologetic-scholarship-with-nested-quotes-pending-intake-enforcement",
       "theologicalEligibility": "eligible-within-declared-subject-scope",
       "theologicalScope": "Baptist/Reformed biblical apologetics within the identified article subject; opponent quotations and rhetorical claims are attributed, not project teaching.",
@@ -37452,7 +37496,8 @@
       "aggregateDisposition": "prepared-for-scope-rights-and-deduplication-reconciliation",
       "canImportWithoutFurtherReview": false,
       "aggregateIngested": false,
-      "aggregateEmbedded": false
+      "aggregateEmbedded": false,
+      "privateLocalIndexAuthorized": true
     },
     {
       "url": "https://www.aomin.org/aoblog/islam/some-brief-thoughts-regarding-liberal-scholarship-redaction-criticism-and-islam-part-1/",
@@ -37481,7 +37526,7 @@
         "Between\\ 1985\\ and\\ 1989\\ I\\ studied\\ through\\ Fuller\\ Theological\\ Semina",
         "sistency\\ that\\ he\\ has\\ imbibed\\ from\\ those\\ who\\ have\\ come\\ before\\ him\\."
       ],
-      "evidenceOnly": true,
+      "evidenceOnly": false,
       "admissionRole": "source-attributed-apologetic-scholarship-with-nested-quotes-pending-intake-enforcement",
       "theologicalEligibility": "eligible-within-declared-subject-scope",
       "theologicalScope": "Baptist/Reformed biblical apologetics within the identified article subject; opponent quotations and rhetorical claims are attributed, not project teaching.",
@@ -37528,7 +37573,8 @@
       "aggregateDisposition": "prepared-for-scope-rights-and-deduplication-reconciliation",
       "canImportWithoutFurtherReview": false,
       "aggregateIngested": false,
-      "aggregateEmbedded": false
+      "aggregateEmbedded": false,
+      "privateLocalIndexAuthorized": true
     },
     {
       "url": "https://www.aomin.org/aoblog/islam/some-brief-thoughts-regarding-liberal-scholarship-redaction-criticism-and-islam-part-2/",
@@ -37557,7 +37603,7 @@
         "Much\\ of\\ the\\ Muslim\\ apologetic\\ against\\ Christianity\\ today\\ is\\ based",
         "\\ have\\ been\\ helpful\\ to\\ those\\ who\\ have\\ taken\\ the\\ time\\ to\\ read\\ them\\."
       ],
-      "evidenceOnly": true,
+      "evidenceOnly": false,
       "admissionRole": "source-attributed-apologetic-scholarship-with-nested-quotes-pending-intake-enforcement",
       "theologicalEligibility": "eligible-within-declared-subject-scope",
       "theologicalScope": "Baptist/Reformed biblical apologetics within the identified article subject; opponent quotations and rhetorical claims are attributed, not project teaching.",
@@ -37604,7 +37650,8 @@
       "aggregateDisposition": "prepared-for-scope-rights-and-deduplication-reconciliation",
       "canImportWithoutFurtherReview": false,
       "aggregateIngested": false,
-      "aggregateEmbedded": false
+      "aggregateEmbedded": false,
+      "privateLocalIndexAuthorized": true
     },
     {
       "url": "http://wp.me/p2dVaB-dB",
@@ -37633,7 +37680,7 @@
         "Note:\\ This\\ is\\ the\\ first\\ installment\\ of\\ a\\ new\\ blog\\ series\\ announce",
         "ld\\ include\\ if\\ we\\ wanted\\ to\\ have\\ access\\ to\\ authentic\\ Christianity\\."
       ],
-      "evidenceOnly": true,
+      "evidenceOnly": false,
       "admissionRole": "source-attributed-apologetic-scholarship-with-nested-quotes-pending-intake-enforcement",
       "theologicalEligibility": "eligible-within-declared-subject-scope",
       "theologicalScope": "Conservative Presbyterian/Reformed canon scholarship only; Westminster institutional context. Not Baptist ordinance/polity authority or endorsement of every historical dating claim.",
@@ -37680,7 +37727,8 @@
       "aggregateDisposition": "prepared-for-scope-rights-and-deduplication-reconciliation",
       "canImportWithoutFurtherReview": false,
       "aggregateIngested": false,
-      "aggregateEmbedded": false
+      "aggregateEmbedded": false,
+      "privateLocalIndexAuthorized": true
     },
     {
       "url": "http://wp.me/p2dVaB-dZ",
@@ -37709,7 +37757,7 @@
         "Note:\\ This\\ is\\ the\\ second\\ installment\\ of\\ a\\ new\\ blog\\ series\\ announc",
         "rsion\\ of\\ Christianity\\ than\\ the\\ New\\ Testament\\ writings\\ themselves\\."
       ],
-      "evidenceOnly": true,
+      "evidenceOnly": false,
       "admissionRole": "source-attributed-apologetic-scholarship-with-nested-quotes-pending-intake-enforcement",
       "theologicalEligibility": "eligible-within-declared-subject-scope",
       "theologicalScope": "Conservative Presbyterian/Reformed canon scholarship only; Westminster institutional context. Not Baptist ordinance/polity authority or endorsement of every historical dating claim.",
@@ -37756,7 +37804,8 @@
       "aggregateDisposition": "prepared-for-scope-rights-and-deduplication-reconciliation",
       "canImportWithoutFurtherReview": false,
       "aggregateIngested": false,
-      "aggregateEmbedded": false
+      "aggregateEmbedded": false,
+      "privateLocalIndexAuthorized": true
     },
     {
       "url": "http://wp.me/p2dVaB-ep",
@@ -37785,7 +37834,7 @@
         "Note:\\ This\\ is\\ the\\ third\\ installment\\ of\\ a\\ new\\ blog\\ series\\ announce",
         "lic\\ books\\ eventually\\ formed\\ the\\ New\\ Testament\\ that\\ we\\ know\\ today\\."
       ],
-      "evidenceOnly": true,
+      "evidenceOnly": false,
       "admissionRole": "source-attributed-apologetic-scholarship-with-nested-quotes-pending-intake-enforcement",
       "theologicalEligibility": "eligible-within-declared-subject-scope",
       "theologicalScope": "Conservative Presbyterian/Reformed canon scholarship only; Westminster institutional context. Not Baptist ordinance/polity authority or endorsement of every historical dating claim.",
@@ -37832,7 +37881,8 @@
       "aggregateDisposition": "prepared-for-scope-rights-and-deduplication-reconciliation",
       "canImportWithoutFurtherReview": false,
       "aggregateIngested": false,
-      "aggregateEmbedded": false
+      "aggregateEmbedded": false,
+      "privateLocalIndexAuthorized": true
     },
     {
       "url": "http://wp.me/p2dVaB-eO",
@@ -37861,7 +37911,7 @@
         "Note:\\ This\\ is\\ the\\ fourth\\ installment\\ of\\ a\\ new\\ blog\\ series\\ announc",
         "\\ faith\\.\\ And\\ that\\ is\\ a\\ basic\\ fact\\ that\\ all\\ Christians\\ should\\ know\\."
       ],
-      "evidenceOnly": true,
+      "evidenceOnly": false,
       "admissionRole": "source-attributed-apologetic-scholarship-with-nested-quotes-pending-intake-enforcement",
       "theologicalEligibility": "eligible-within-declared-subject-scope",
       "theologicalScope": "Conservative Presbyterian/Reformed canon scholarship only; Westminster institutional context. Not Baptist ordinance/polity authority or endorsement of every historical dating claim.",
@@ -37908,7 +37958,8 @@
       "aggregateDisposition": "prepared-for-scope-rights-and-deduplication-reconciliation",
       "canImportWithoutFurtherReview": false,
       "aggregateIngested": false,
-      "aggregateEmbedded": false
+      "aggregateEmbedded": false,
+      "privateLocalIndexAuthorized": true
     },
     {
       "url": "http://wp.me/p2dVaB-gh",
@@ -37937,7 +37988,7 @@
         "Note:\\ This\\ is\\ the\\ fifth\\ installment\\ of\\ a\\ blog\\ series\\ announced",
         "spels,\\ usually\\ from\\ Matthew\\ and\\ Luke,\\ in\\ one\\ instance\\ from\\ Mark\\.”"
       ],
-      "evidenceOnly": true,
+      "evidenceOnly": false,
       "admissionRole": "source-attributed-apologetic-scholarship-with-nested-quotes-pending-intake-enforcement",
       "theologicalEligibility": "eligible-within-declared-subject-scope",
       "theologicalScope": "Conservative Presbyterian/Reformed canon scholarship only; Westminster institutional context. Not Baptist ordinance/polity authority or endorsement of every historical dating claim.",
@@ -37984,7 +38035,8 @@
       "aggregateDisposition": "prepared-for-scope-rights-and-deduplication-reconciliation",
       "canImportWithoutFurtherReview": false,
       "aggregateIngested": false,
-      "aggregateEmbedded": false
+      "aggregateEmbedded": false,
+      "privateLocalIndexAuthorized": true
     },
     {
       "url": "http://wp.me/p2dVaB-im",
@@ -38013,7 +38065,7 @@
         "This\\ series\\ is\\ designed\\ to\\ introduce\\ lay\\ Christians\\ to\\ the\\ basic\\ ",
         "re\\ was\\ widespread\\ agreement\\ over\\ the\\ core\\ from\\ a\\ very\\ early\\ time\\."
       ],
-      "evidenceOnly": true,
+      "evidenceOnly": false,
       "admissionRole": "source-attributed-apologetic-scholarship-with-nested-quotes-pending-intake-enforcement",
       "theologicalEligibility": "eligible-within-declared-subject-scope",
       "theologicalScope": "Conservative Presbyterian/Reformed canon scholarship only; Westminster institutional context. Not Baptist ordinance/polity authority or endorsement of every historical dating claim.",
@@ -38060,7 +38112,8 @@
       "aggregateDisposition": "prepared-for-scope-rights-and-deduplication-reconciliation",
       "canImportWithoutFurtherReview": false,
       "aggregateIngested": false,
-      "aggregateEmbedded": false
+      "aggregateEmbedded": false,
+      "privateLocalIndexAuthorized": true
     },
     {
       "url": "http://wp.me/p2dVaB-iZ",
@@ -38089,7 +38142,7 @@
         "For\\ Christians\\ struggling\\ to\\ understand\\ the\\ development\\ of\\ the\\ Ne",
         "e\\ have\\ a\\ New\\ Testament\\ that\\ has\\ been\\ settled\\ for\\ over\\ 1600\\ years\\."
       ],
-      "evidenceOnly": true,
+      "evidenceOnly": false,
       "admissionRole": "source-attributed-apologetic-scholarship-with-nested-quotes-pending-intake-enforcement",
       "theologicalEligibility": "eligible-within-declared-subject-scope",
       "theologicalScope": "Conservative Presbyterian/Reformed canon scholarship only; Westminster institutional context. Not Baptist ordinance/polity authority or endorsement of every historical dating claim.",
@@ -38136,7 +38189,8 @@
       "aggregateDisposition": "prepared-for-scope-rights-and-deduplication-reconciliation",
       "canImportWithoutFurtherReview": false,
       "aggregateIngested": false,
-      "aggregateEmbedded": false
+      "aggregateEmbedded": false,
+      "privateLocalIndexAuthorized": true
     },
     {
       "url": "http://wp.me/p2dVaB-jk",
@@ -38165,7 +38219,7 @@
         "For\\ whatever\\ set\\ of\\ reasons,\\ there\\ is\\ a\\ widespread\\ belief\\ out\\ the",
         "In\\ this\\ sense,\\ we\\ can\\ say\\ that\\ the\\ canon\\ really\\ chose\\ itself\\."
       ],
-      "evidenceOnly": true,
+      "evidenceOnly": false,
       "admissionRole": "source-attributed-apologetic-scholarship-with-nested-quotes-pending-intake-enforcement",
       "theologicalEligibility": "eligible-within-declared-subject-scope",
       "theologicalScope": "Conservative Presbyterian/Reformed canon scholarship only; Westminster institutional context. Not Baptist ordinance/polity authority or endorsement of every historical dating claim.",
@@ -38212,7 +38266,8 @@
       "aggregateDisposition": "prepared-for-scope-rights-and-deduplication-reconciliation",
       "canImportWithoutFurtherReview": false,
       "aggregateIngested": false,
-      "aggregateEmbedded": false
+      "aggregateEmbedded": false,
+      "privateLocalIndexAuthorized": true
     },
     {
       "url": "http://wp.me/p2dVaB-jB",
@@ -38241,7 +38296,7 @@
         "When\\ it\\ comes\\ to\\ basic\\ facts\\ that\\ all\\ Christians\\ should\\ know\\ abou",
         "hould\\ not\\ detract\\ from\\ the\\ reality\\ that\\ the\\ ends\\ are\\ still\\ God’s\\."
       ],
-      "evidenceOnly": true,
+      "evidenceOnly": false,
       "admissionRole": "source-attributed-apologetic-scholarship-with-nested-quotes-pending-intake-enforcement",
       "theologicalEligibility": "eligible-within-declared-subject-scope",
       "theologicalScope": "Conservative Presbyterian/Reformed canon scholarship only; Westminster institutional context. Not Baptist ordinance/polity authority or endorsement of every historical dating claim.",
@@ -38288,7 +38343,8 @@
       "aggregateDisposition": "prepared-for-scope-rights-and-deduplication-reconciliation",
       "canImportWithoutFurtherReview": false,
       "aggregateIngested": false,
-      "aggregateEmbedded": false
+      "aggregateEmbedded": false,
+      "privateLocalIndexAuthorized": true
     },
     {
       "url": "http://wp.me/p2dVaB-kN",
@@ -38317,7 +38373,7 @@
         "How\\ do\\ we\\ know\\ which\\ books\\ are\\ from\\ God,\\ and\\ which\\ are\\ not\\? \\ Ther",
         "e\\ are\\ the\\ best\\ roads;\\ that\\ is\\ why\\ they\\ are\\ so\\ heavily\\ travelled\\.”"
       ],
-      "evidenceOnly": true,
+      "evidenceOnly": false,
       "admissionRole": "source-attributed-apologetic-scholarship-with-nested-quotes-pending-intake-enforcement",
       "theologicalEligibility": "eligible-within-declared-subject-scope",
       "theologicalScope": "Conservative Presbyterian/Reformed canon scholarship only; Westminster institutional context. Not Baptist ordinance/polity authority or endorsement of every historical dating claim.",
@@ -38364,7 +38420,8 @@
       "aggregateDisposition": "prepared-for-scope-rights-and-deduplication-reconciliation",
       "canImportWithoutFurtherReview": false,
       "aggregateIngested": false,
-      "aggregateEmbedded": false
+      "aggregateEmbedded": false,
+      "privateLocalIndexAuthorized": true
     },
     {
       "url": "https://tyndale.tms.edu/wp-content/uploads/2021/09/tmsj12k.pdf",
@@ -38388,7 +38445,7 @@
         "Michael J. Kruger",
         "SOURCE PDF PAGE: 19"
       ],
-      "evidenceOnly": true,
+      "evidenceOnly": false,
       "admissionRole": "source-attributed-presuppositional-apologetics-with-scholar-quotes-pending-intake-enforcement",
       "theologicalEligibility": "eligible-within-declared-subject-scope",
       "theologicalScope": "Kruger argues for Scripture-sufficient presuppositional apologetics. Conservative Reformed method, not the sole permitted Christian apologetic method; no adoption of publisher dispensational system.",
@@ -38435,7 +38492,8 @@
       "aggregateDisposition": "prepared-for-scope-rights-and-deduplication-reconciliation",
       "canImportWithoutFurtherReview": false,
       "aggregateIngested": false,
-      "aggregateEmbedded": false
+      "aggregateEmbedded": false,
+      "privateLocalIndexAuthorized": true
     },
     {
       "url": "https://www.tyndalebulletin.org/article/29324-the-definition-of-the-term-canon-exclusive-or-multi-dimensional.pdf",
@@ -38460,7 +38518,7 @@
         "SOURCE PDF PAGE: 20",
         "ontological"
       ],
-      "evidenceOnly": true,
+      "evidenceOnly": false,
       "admissionRole": "source-attributed-canon-definition-scholarship-with-quoted-voices-pending-intake-enforcement",
       "theologicalEligibility": "eligible-within-declared-subject-scope",
       "eligibilityEvidence": "theological-decisions.json",
@@ -38508,7 +38566,8 @@
       "aggregateDisposition": "prepared-for-scope-rights-and-deduplication-reconciliation",
       "canImportWithoutFurtherReview": false,
       "aggregateIngested": false,
-      "aggregateEmbedded": false
+      "aggregateEmbedded": false,
+      "privateLocalIndexAuthorized": true
     }
   ],
   "preparedComponents": [

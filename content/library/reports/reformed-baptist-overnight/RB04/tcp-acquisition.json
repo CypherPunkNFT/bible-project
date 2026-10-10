@@ -1,0 +1,199 @@
+{
+  "source": "tcp",
+  "catalogueItems": 61315,
+  "catalogueUnheldItems": 55049,
+  "eligibleItems": 264,
+  "unheldBefore": 59,
+  "filter": {
+    "authors": [
+      "Owen, John",
+      "John Owen",
+      "Goodwin, Thomas",
+      "Thomas Goodwin",
+      "Sibbes, Richard",
+      "Richard Sibbes",
+      "Sibbs, Richard",
+      "Richard Sibbs",
+      "Watson, Thomas",
+      "Thomas Watson",
+      "Brooks, Thomas",
+      "Thomas Brooks",
+      "Flavel, John",
+      "John Flavel",
+      "Boston, Thomas",
+      "Thomas Boston",
+      "Bunyan, John",
+      "John Bunyan",
+      "Fuller, Andrew",
+      "Andrew Fuller",
+      "Booth, Abraham",
+      "Abraham Booth",
+      "Edwards, Jonathan",
+      "Jonathan Edwards"
+    ],
+    "primaryAuthorOnly": true,
+    "authorIdentityRules": [
+      {
+        "namePattern": "Owen,?\\s+John|John\\s+Owen",
+        "lifeYears": [
+          1616,
+          1683
+        ]
+      },
+      {
+        "namePattern": "Goodwin,?\\s+Thomas|Thomas\\s+Goodwin",
+        "lifeYears": [
+          1600,
+          1680
+        ]
+      },
+      {
+        "namePattern": "Sibbes,?\\s+Richard|Richard\\s+Sibbes",
+        "lifeYears": [
+          1577,
+          1635
+        ]
+      },
+      {
+        "namePattern": "Sibbs,?\\s+Richard|Richard\\s+Sibbs",
+        "lifeYears": [
+          1577,
+          1635
+        ]
+      },
+      {
+        "namePattern": "Watson,?\\s+Thomas|Thomas\\s+Watson",
+        "lifeYears": [
+          1620,
+          1686
+        ],
+        "requireReligiousSubjectsWhenUndated": true
+      },
+      {
+        "namePattern": "Brooks,?\\s+Thomas|Thomas\\s+Brooks",
+        "lifeYears": [
+          1608,
+          1680
+        ]
+      },
+      {
+        "namePattern": "Flavel,?\\s+John|John\\s+Flavel",
+        "lifeYears": [
+          1630,
+          1691
+        ]
+      },
+      {
+        "namePattern": "Boston,?\\s+Thomas|Thomas\\s+Boston",
+        "lifeYears": [
+          1676,
+          1677,
+          1732
+        ]
+      },
+      {
+        "namePattern": "Bunyan,?\\s+John|John\\s+Bunyan",
+        "lifeYears": [
+          1628,
+          1688
+        ]
+      },
+      {
+        "namePattern": "Fuller,?\\s+Andrew|Andrew\\s+Fuller",
+        "lifeYears": [
+          1754,
+          1815
+        ]
+      },
+      {
+        "namePattern": "Booth,?\\s+Abraham|Abraham\\s+Booth",
+        "lifeYears": [
+          1734,
+          1806
+        ]
+      },
+      {
+        "namePattern": "Edwards,?\\s+Jonathan|Jonathan\\s+Edwards",
+        "lifeYears": [
+          1703,
+          1758
+        ]
+      }
+    ],
+    "deferHardDownloads": true,
+    "skipIds": []
+  },
+  "attempted": 58,
+  "downloaded": 58,
+  "duplicateHashes": 0,
+  "heldDuringRun": 1,
+  "failures": [],
+  "bytes": 21646133,
+  "sampleSizes": [
+    184045,
+    602220,
+    175826,
+    578078,
+    376226,
+    49182,
+    26999,
+    401014,
+    258905,
+    300242,
+    20435,
+    75346,
+    281973,
+    45573,
+    53627,
+    13488,
+    22328,
+    21108,
+    152900,
+    1015247,
+    309000,
+    85644,
+    232619,
+    1058216,
+    230709,
+    50463,
+    55061,
+    703555,
+    91794,
+    67068,
+    40322,
+    39432,
+    114021,
+    1359687,
+    426566,
+    126823,
+    59565,
+    580351,
+    59078,
+    106863,
+    517367,
+    161077,
+    950492,
+    1112611,
+    79496,
+    523553,
+    574914,
+    1205410,
+    113857,
+    255939,
+    1418149,
+    239903,
+    86086,
+    1589341,
+    957553,
+    429474,
+    703433,
+    275879
+  ],
+  "state": "complete",
+  "startedAt": "2026-10-07T19:16:49.399741+00:00",
+  "updatedAt": "2026-10-07T19:19:05.994449+00:00",
+  "unheldAfter": 0,
+  "estimatedUnheldGB": 0.0,
+  "estimateBasis": "SWORD InstallSize where available; otherwise arithmetic mean of downloaded originals; decimal GB; edition/item counts, not deduplicated works",
+  "completedAt": "2026-10-07T19:19:05.995452+00:00"
+}

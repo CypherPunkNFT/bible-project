@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-1e08d4e97481e3f8c0e4f85b",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-3af69896de1a3ef0da3e6b96",
+  "label": "A harmonie vpon the three Euangelistes Matthewe, Marke, and Luke : with the commentarie of M Iohn Caluine: faithfully translated out of Latine into English, by E.P. Whereunto is also added a commentarie vpon the Euangelist S. Iohn, by the same authour — held source edition ddc140620423",
+  "languages": [
+    "eng"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/harmonievponthre00calv/harmonievponthre00calv_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

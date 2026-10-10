@@ -1,0 +1,44 @@
+type World='islam'|'buddhism'|'hinduism';
+type Item='book'|'leaf'|'manuscript'|'quill'|'bowl'|'lamp'|'beads'|'conch'|'bell'|'incense'|'cushion';
+export const directions={
+ islam:[{name:'Open text',detail:'An architectural arch, open text, quill and manuscript.'},{name:'Mosque & study',detail:'A compact dome and minarets with reading artifacts around them.'},{name:'Manuscript & transmission',detail:'An open book on a folding stand, with a quill and manuscript.'}],
+ buddhism:[{name:'Eightfold Path',detail:'A clear eight-spoked wheel, Bodhi leaf, palm-leaf text and alms bowl.'},{name:'Learning & practice',detail:'A lighter wheel with an open text, Bodhi branch and meditation cushion.'},{name:'Teaching & community',detail:'An emphasized eight-spoked rim, alms bowl, manuscript and incense.'}],
+ hinduism:[{name:'Light & devotion',detail:'A large oil lamp, text volume, conch and beads.'},{name:'Temple & tradition',detail:'A temple silhouette, bell, text volume and oil lamp.'},{name:'Gita & devotion',detail:'An open text framed by a conch, lamp and prayer beads.'}],
+};
+export const themes={islam:'Jesus · God · the cross',buddhism:'Suffering · Eightfold Path · release',hinduism:'Self · action · refuge'};
+export const names={islam:'Islam',buddhism:'Buddhism',hinduism:'Hinduism'};
+function Book({x=0,y=0,scale=1}:{x?:number;y?:number;scale?:number}){
+ return <g transform={`translate(${x} ${y}) scale(${scale})`}><path d="M-73 9q37-16 73 0 36-16 73 0v66q-37-16-73 0-36-16-73 0ZM0 9v66m-58-49q23-6 43 0m-43 14q23-6 43 0m30-14q23-6 43 0m-43 14q23-6 43 0M-80 16v66q40-15 80 0 40-15 80 0V16"/></g>;
+}
+export function ObjectArt({item,x,y,scale=1,turn=0}:{item:Item;x:number;y:number;scale?:number;turn?:number}){
+ return <g className={'wa-object wa-'+item} transform={`translate(${x} ${y}) rotate(${turn}) scale(${scale})`} opacity=".8">
+  {item==='book'?<><path d="M-24-32h48v64h-48ZM-18-32v-7h48v64l-6 7M-15-16h29m-29 12h29m-29 12h19"/></>:item==='leaf'?<><path d="M0 32C-6 18-28 14-24-6C-20-22-7-22 0-9C7-22 20-22 24-6C28 14 6 18 0 32ZM0-9v48m0-25-14-9m14 18-16-8m16-1 14-9m-14 18 16-8"/></>:item==='manuscript'?<><path d="M-34-21h68v12h-68Zm0 15h68V6h-68Zm0 15h68v12h-68ZM-21-25v50m42-50v50M-14-15h28m-28 15h28m-28 15h28"/><circle cx="-21" cy="-15" r="2"/><circle cx="21" cy="15" r="2"/></>:item==='quill'?<><path d="M-20 35q-5-48 40-70-4 48-40 70Zm0 0 36-56m-22 41 1-18m12-2 9-2M-26 41h45l7 10h-60Z"/></>:item==='bowl'?<><path d="M-33-10q33 11 66 0q-4 31-33 33-29-2-33-33ZM-30-9q30 10 60 0M-18 26h36"/></>:item==='lamp'?<><path d="M-33 8q33 15 66 0l-10 22h-46l-10-22ZM0 8q-23-26 0-51 23 25 0 51Zm-13 28h26m-13-6v6"/></>:item==='beads'?<><circle r="26" strokeDasharray="1 6.3"/><path d="M-16 22q-4 18-18 20m18-17q-12 3-17-2m-1 19-3 9m3-9 3 9"/></>:item==='conch'?<><path d="M18 24q-24 12-42-5-17-16-7-34 9-16 28-11 23 6 22 29l11 13-12 8ZM19 3q-10-8-14 6t13 15M5 9q-26 3-28-19m13 17q-14-5-11-16m-8 15 11 14M1-6q-3-15-15-12-10 3-6 12 4 8 11 3 5-4 0-8"/></>:item==='bell'?<><path d="M-23 20q8-7 8-26 0-18 15-18t15 18q0 19 8 26ZM-26 20h52M-7 24q7 10 14 0M-4-24v-8h8v8"/></>:item==='incense'?<><path d="M-31 22h62l-8 10h-46Zm-12 0V-8m12 30V-16m12 38V-8"/><path className="wa-smoke" d="M-12-16q-9-9 0-18m12 11q-9-9 0-18m12 25q-9-9 0-18"/></>:<><ellipse cy="12" rx="37" ry="13"/><path d="M-37 12v10q37 22 74 0V12M-24 5q24-9 48 0"/></>}
+ </g>;
+}
+function Wheel({version}:{version:number}){
+ const radius=version===1?90:96;
+ return <g className="wa-wheel" transform="translate(270 182)"><circle r={radius}/><circle r={version===1?62:version===2?87:78}/><circle r={version===1?22:20}/>{Array.from({length:8},(_,i)=><g className="wa-spoke" key={i} transform={`rotate(${i*45})`}><path d={`M0 -${version===1?22:20}V-${radius}`}/>{version===1?<path d="m0-93 4 4-4 4-4-4Z"/>:version===2?<path d="M0-96v-10m-5 0h10"/>:<><path d="m-7-70 7-7 7 7"/><circle cy="-96" r="3"/></>}</g>)}</g>;
+}
+function Frame({version}:{version:number}){
+ return <><circle className="wa-ring" cx="270" cy="182" r="144" strokeDasharray={version===1?'1 10':'1 8'} opacity=".43"/><circle cx="270" cy="182" r="128" opacity=".15"/><g opacity=".56"><path d="m270 26 7 12-7 12-7-12ZM385 60l5 6-5 6-5-6ZM61 204l5 7-5 7-5-7ZM472 206v12m-6-6h12M154 54v10m-5-5h10M145 284v10m-5-5h10"/><circle cx="141" cy="180" r="2.5"/><circle cx="399" cy="192" r="2.5"/><circle cx="332" cy="40" r="2"/></g></>;
+}
+export function Artwork({world,version}:{world:World;version:number}){
+ return <svg className={'wa-svg wa-svg-'+world} viewBox="30 20 480 350" fill="none" aria-hidden="true"><Frame version={version}/>
+  {world==='islam'?version===0?<>
+   <path d="M177 312V162a93 93 0 0 1 186 0v150M195 312V162a75 75 0 0 1 150 0v150M215 312V180q0-44 55-83 55 39 55 83v132M157 312h226"/><Book x={270} y={212} scale={.7}/><circle cx="270" cy="170" r="15"/><path d="M270 150v40m-20-20h40" opacity=".7"/><ObjectArt item="quill" x={93} y={263} scale={.8} turn={-6}/><ObjectArt item="manuscript" x={432} y={119} turn={13}/><ObjectArt item="book" x={99} y={117} scale={.75} turn={-10}/><ObjectArt item="lamp" x={431} y={276} scale={.65}/>
+  </>:version===1?<>
+   <g className="wa-mosque"><path d="M193 277V185h154v92M193 185h154M207 177c-10-27 20-57 63-78 43 21 73 51 63 78ZM270 99V87M218 177q-8-30 52-78 60 48 52 78M248 277v-37q0-24 22-36 22 12 22 36v37M253 277v-37q0-18 17-29 17 11 17 29v37M208 231v-18q0-11 10-17 10 6 10 17v18ZM312 231v-18q0-11 10-17 10 6 10 17v18ZM158 277V143h18v134m-21-134h24v-8h-24ZM155 130q0-15 12-25 12 10 12 25Zm12-25V94M155 171h24m-24 56h24M364 277V143h18v134m-21-134h24v-8h-24ZM361 130q0-15 12-25 12 10 12 25Zm12-25V94M361 171h24m-24 56h24M149 284h242m-222 9h204"/></g><ObjectArt item="book" x={105} y={265} scale={.75} turn={-12}/><ObjectArt item="quill" x={436} y={261} scale={.75}/><ObjectArt item="manuscript" x={437} y={102} scale={.8} turn={9}/><path d="M90 114q24-15 46 0" opacity=".5"/>
+  </>:<>
+   <Book x={270} y={145} scale={1.18}/><path d="m190 285 160-28m-151 0 141 28M223 280l-14 32m109-32 14 32M181 320h178"/><path d="M230 109q0-21 40-42 40 21 40 42m-65 0q0-12 25-26 25 14 25 26" opacity=".65"/><ObjectArt item="manuscript" x={104} y={154} turn={-9}/><ObjectArt item="quill" x={437} y={173} turn={12}/><ObjectArt item="book" x={116} y={284} scale={.65}/><ObjectArt item="lamp" x={428} y={288} scale={.65}/>
+  </>:world==='buddhism'?<>
+   <Wheel version={version}/>{version===0?<><ObjectArt item="leaf" x={91} y={117} scale={.9} turn={-12}/><ObjectArt item="manuscript" x={437} y={111} scale={.9} turn={10}/><ObjectArt item="bowl" x={427} y={286}/><ObjectArt item="incense" x={99} y={288} scale={.8}/><path d="M173 315q97 15 194 0" opacity=".6"/></>:version===1?<><Book x={270} y={281} scale={.68}/><ObjectArt item="leaf" x={93} y={159} scale={.9}/><ObjectArt item="leaf" x={120} y={99} scale={.48} turn={33}/><ObjectArt item="cushion" x={439} y={272} scale={.9}/><ObjectArt item="manuscript" x={437} y={124} scale={.8} turn={-10}/></>:<><ObjectArt item="bowl" x={95} y={147} scale={.9}/><ObjectArt item="manuscript" x={440} y={153} scale={.9} turn={-8}/><ObjectArt item="leaf" x={438} y={286} scale={.65} turn={13}/><ObjectArt item="incense" x={99} y={282} scale={.8}/><path d="M193 315q77-14 154 0m-140 10q63-9 126 0" opacity=".65"/></>}
+  </>:version===0?<>
+   <g className="wa-main-lamp" transform="translate(270 195)"><path d="M-82 20q82 34 164 0l-26 48H-56l-26-48ZM-75 27q75 25 150 0M0 20q-52-57 0-118 52 61 0 118ZM-20 82h40M0 68v14m-56 14h112"/><path d="M0-3q-21-24 0-47 21 23 0 47Z" opacity=".5"/></g><ObjectArt item="book" x={93} y={133} scale={.85} turn={-10}/><ObjectArt item="conch" x={444} y={143} scale={.85} turn={12}/><ObjectArt item="beads" x={101} y={285} scale={.8}/><ObjectArt item="bell" x={438} y={288} scale={.8}/>
+  </>:version===1?<>
+   <g className="wa-temple"><path d="M220 244c5-61 20-116 50-147 30 31 45 86 50 147ZM233 244c4-63 17-109 37-147 20 38 33 84 37 147M247 120h46m-50 16h54m-62 18h70m-78 20h86m-94 22h102m-109 24h116M253 97h34v-8h-34ZM250 84q20-14 40 0ZM263 72v-10h14v10m-7-10V51M202 244h136v66H202ZM251 310v-37q0-24 19-24t19 24v37M245 310v-40q0-27 25-27t25 27v40M210 252h24v47h-24ZM306 252h24v47h-24ZM174 310v-47h28m136 0h28v47M174 263l14-15 14 15m136 0 14-15 14 15M170 310h200m-212 9h224m-236 9h248"/></g><ObjectArt item="bell" x={100} y={134} scale={.85}/><ObjectArt item="book" x={440} y={130} scale={.8} turn={10}/><ObjectArt item="lamp" x={105} y={281} scale={.7}/><ObjectArt item="conch" x={443} y={288} scale={.75}/>
+  </>:<>
+   <Book x={270} y={172} scale={1.2}/><path d="M174 282h192m-175 8h158" opacity=".6"/><ObjectArt item="lamp" x={270} y={113} scale={.8}/><ObjectArt item="conch" x={94} y={172} scale={.95} turn={-12}/><ObjectArt item="beads" x={438} y={174} scale={.95}/><ObjectArt item="bell" x={101} y={293} scale={.65}/><ObjectArt item="book" x={436} y={292} scale={.65} turn={10}/>
+  </>}
+ </svg>;
+}
+export type {World};

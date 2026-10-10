@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-1285699899ddc2c97b450495",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-72de820d771290b00fe1c013",
+  "label": "Sermons of M. Iohn Caluine, vpon the.X.Commandementes of the Lawe, geuen of God by Moses, otherwise called the Decalogue. Gathered word for word, presently at his sermons, when he preached on Deuteronomie, without adding vnto, or diminishing from them any thing afterward. Translated out of Frenche into English, by I.H.; Sermons sur les Dix commandemens. English — held source edition ef10f7bfeaf7",
+  "languages": [
+    "und"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A17717/master/A17717.xml",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "source": "founders",
+  "catalogueItems": 22,
+  "catalogueUnheldItems": 22,
+  "eligibleItems": 13,
+  "unheldBefore": 13,
+  "filter": {
+    "approvedCollection": true,
+    "audienceProfile": "rb13",
+    "deferHardDownloads": true,
+    "ids": [
+      "3126",
+      "3127",
+      "3134",
+      "3130",
+      "3408",
+      "3187",
+      "3186",
+      "3125",
+      "3137",
+      "3140",
+      "3132",
+      "3136",
+      "3138"
+    ]
+  },
+  "attempted": 13,
+  "downloaded": 11,
+  "duplicateHashes": 0,
+  "heldDuringRun": 0,
+  "failures": [
+    {
+      "sourceId": "3127",
+      "url": "https://founders.org/library-book/a-critical-evaluation-of-paedobaptism/",
+      "title": "A Critical Evaluation of Paedobaptism",
+      "author": "Founders Ministries; named historical authors retained in source text",
+      "error": "No offered complete text chapters"
+    },
+    {
+      "sourceId": "3186",
+      "url": "https://founders.org/library-book/catechism-for-boys-and-girls/",
+      "title": "Catechism for Boys and Girls",
+      "author": "Founders Ministries; named historical authors retained in source text",
+      "error": "<urlopen error _ssl.c:1015: The handshake operation timed out>"
+    }
+  ],
+  "bytes": 5241359,
+  "sampleSizes": [
+    61783,
+    103180,
+    967218,
+    176848,
+    34744,
+    660623,
+    721936,
+    1890568,
+    518403,
+    51363,
+    54693
+  ],
+  "state": "complete",
+  "startedAt": "2026-10-07T20:20:05.164736+00:00",
+  "updatedAt": "2026-10-07T20:27:11.414025+00:00",
+  "unheldAfter": 8,
+  "estimatedUnheldGB": 0.0038118974545454545,
+  "estimateBasis": "SWORD InstallSize where available; otherwise arithmetic mean of downloaded originals; decimal GB; edition/item counts, not deduplicated works",
+  "completedAt": "2026-10-07T20:27:11.416145+00:00"
+}

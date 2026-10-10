@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-30bbdff5578aa98253be5bfe",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-7401ae0a7ef0c8ea12494aa4",
+  "label": "Guilielmi Perkinsi Problema de Romanæ fidei ementito Catholicismo Estq́[ue] antidotum contra Thesaurum Catholicum Iodoci Coccij. Et propaideiæ [sic] iuventutis in lectione omnium patrum. Editum post mortem authoris operâ & studio Samuelis Wardi.; Problema de Romanæ fidei ementito Catholicismo — held source edition 17dbece559fd",
+  "languages": [
+    "lat"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A09447/master/A09447.xml",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-fb8f54fe7709817e1ca1a7f6",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-1872f0efc905c304222a8bb9",
+  "label": "The works of the Reverend George Whitefield, M.A. ... Containing all his sermons and tracts which have been already published: with a select collection of letters, ... Also some other pieces on important subjects, never before printed; ... 1771: Vol 2 — held source edition e4e69062b715",
+  "languages": [
+    "English"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_eighteenth-century_the-works-of-the-reveren_whitefield-george_1771_2/bim_eighteenth-century_the-works-of-the-reveren_whitefield-george_1771_2_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

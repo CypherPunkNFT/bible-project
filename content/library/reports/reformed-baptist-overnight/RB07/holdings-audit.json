@@ -954,7 +954,7 @@
       "sourceId": "source-internet-archive",
       "edition": "London, G. & J. Dyer, 1846; Andrew Gunton Fuller memoir/editorial material separate",
       "completeness": "Complete offered existing OCR full-text page, extracted from pre element; OCR defects retained; no new OCR",
-      "evidenceOnly": true,
+      "evidenceOnly": false,
       "rightsCategory": "historical-public-domain-unrestricted-offered-download-private-copy",
       "rightsEvidence": "https://archive.org/details/completeworksofr00fulluoft; https://archive.org/about/terms (JavaScript shell disclosed, not represented as read terms)",
       "admissionRole": "mixed-collected-volume-requires-section-scoping",
@@ -968,7 +968,8 @@
       "actualSha256": "b6e9d8e2c7cd664b30feef68f111f33885e6c23f97132b6b3e45ea5fde312395",
       "byteCount": 10865272,
       "originalExists": true,
-      "format": "html"
+      "format": "html",
+      "privateLocalIndexAuthorized": true
     }
   ],
   "note": "Point-in-time audit of originals and internal structure. Bodies are private; headings alone do not establish full theological or verse-level review."

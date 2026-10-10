@@ -1,0 +1,43 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-reconciled-15bbd4d37a94744c70829ea0",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "title": "A brief and compendiouse table, in a maner of a concordaunce openyng the waye to the principall histories of the whole Bible, and the moste co[m]mon articles grounded and comprehended in the newe Testament and olde, in maner as amply as doeth the great concordau[n]ce of the Bible. Gathered and set furth by Henry Bollynger, Leo Iude, Conrade Pellicane, and by the other ministers of the church of Tygurie. And nowe first imprinted in Englyshe. D.M.L. [sic] The third boke of the Machabees a booke of the Bible also prynted vnto this boke which was neuer before translated or prynted in any Englyshe Bible. The contents of this booke are conteyned in the next leafe.",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-heinrich-bullinger",
+      "role": "author"
+    }
+  ],
+  "genre": "treatise",
+  "role": "core-teaching",
+  "collections": [],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [],
+  "depth": "unknown",
+  "era": "unknown",
+  "dates": [],
+  "passages": [],
+  "related": [],
+  "externalIds": {
+    "source-eebo-tcp": [
+      "item:A06660"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A06660/master/A06660.xml",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

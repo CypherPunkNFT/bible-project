@@ -1,0 +1,81 @@
+# RB07 failed-download TODO
+
+53 failed/deferred acquisitions; 0 saved originals with failed text export; 0 collector/collection blockers; 22 previously failed IDs skipped.
+
+- [ ] CCEL `whitefield/sermons`: catalogue/index wrapper, not a complete book
+- [ ] IA `PunjabiBible_NewTestament`: HTTP Error 500: Internal Server Error
+- [ ] IA `adictionarybeng00caregoog`: HTTP Error 500: Internal Server Error
+- [ ] IA `acollectionhymn01whitgoog`: The read operation timed out
+- [ ] IA `amazinggrace0000geor_v0w0`: HTTP Error 500: Internal Server Error
+- [ ] IA `amazinggrace0000geor`: The read operation timed out
+- [ ] IA `amemoirlifeandl04waylgoog`: The read operation timed out
+- [ ] IA `amemoirofthelife02judsuoft`: The read operation timed out
+- [ ] IA `annualreportofco08bapt`: HTTP Error 500: Internal Server Error
+- [ ] IA `apostolicmission00angu`: The read operation timed out
+- [ ] IA `aselectcollecti00whitgoog`: The read operation timed out
+- [ ] IA `b29931678`: restricted item
+- [ ] IA `bim_eighteenth-century_a-collection-of-hymns-fo_whitefield-george_1798_3`: HTTP Error 500: Internal Server Error
+- [ ] IA `bim_eighteenth-century_a-collection-of-hymns-fo_whitefield-george_1791`: The read operation timed out
+- [ ] IA `bim_eighteenth-century_a-select-collection-of-l_whitefield-george_1772_2`: The read operation timed out
+- [ ] IA `bim_eighteenth-century_fifteen-sermons-preached_whitefield-george_1794`: The read operation timed out
+- [ ] IA `bim_eighteenth-century_hymns-for-social-worship_whitefield-george_1753`: The read operation timed out
+- [ ] IA `bim_eighteenth-century_six-sermons-on-the-follo_whitefield-george_1750`: The read operation timed out
+- [ ] IA `bim_eighteenth-century_ten-sermons-on-the-follo_whitefield-george_1751_0`: The read operation timed out
+- [ ] IA `bim_eighteenth-century_the-folly-and-danger-of-_whitefield-george_1739`: The read operation timed out
+- [ ] IA `bim_eighteenth-century_the-great-duty-of-family_whitefield-george_1738`: The read operation timed out
+- [ ] IA `bim_eighteenth-century_the-nature-and-necessity_whitefield-george_1737_0`: The read operation timed out
+- [ ] IA `bim_eighteenth-century_the-putting-on-the-new-m_whitefield-george_1771`: HTTP Error 500: Internal Server Error
+- [ ] IA `bim_eighteenth-century_the-prodigal-son-a-lect_whitefield-george_1741`: The read operation timed out
+- [ ] IA `bim_eighteenth-century_the-rev-mr-whitefield_whitefield-george_1739`: HTTP Error 500: Internal Server Error
+- [ ] IA `bim_eighteenth-century_the-two-first-parts-of-h_whitefield-george_1756`: HTTP Error 500: Internal Server Error
+- [ ] IA `bim_eighteenth-century_the-works-of-the-reveren_whitefield-george_1772_6`: HTTP Error 500: Internal Server Error
+- [ ] IA `bim_eighteenth-century_watching-the-peculiar-d_whitefield-george_1739`: The read operation timed out
+- [ ] IA `bim_eighteenth-century_what-think-ye-of-christ_whitefield-george_1740`: HTTP Error 500: Internal Server Error
+- [ ] IA `centenaryvolumeo0000bapt`: The read operation timed out
+- [ ] IA `christianmissio00socigoog`: HTTP Error 500: Internal Server Error
+- [ ] IA `dli.ministry.00021`: HTTP Error 500: Internal Server Error
+- [ ] IA `eighteensermonsp00whit`: The read operation timed out
+- [ ] IA `gloryofageessayo00fost`: The read operation timed out
+- [ ] IA `gospelonlytruere00brai`: The read operation timed out
+- [ ] IA `grammaroftelinga00care`: HTTP Error 500: Internal Server Error
+- [ ] IA `historyofbaptist01coxf`: The read operation timed out
+- [ ] IA `india.history.resource.90418`: empty/short original
+- [ ] IA `ldpd_11363242_000`: HTTP Error 500: Internal Server Error
+- [ ] IA `mcht_a2ms_brainerd_18930812`: empty/short original
+- [ ] IA `mcht_a2ms_brainerd_18930814`: empty/short original
+- [ ] IA `memoiroflifelabo00wayl`: The read operation timed out
+- [ ] IA `modernmethodsins014072mbp`: HTTP Error 500: Internal Server Error
+- [ ] IA `outlinesromanla04moregoog`: HTTP Error 500: Internal Server Error
+- [ ] IA `reportboardcons01wallgoog`: no existing downloadable djvu text or EPUB
+- [ ] IA `reportbriggenge00davigoog`: HTTP Error 500: Internal Server Error
+- [ ] IA `sermonsrevchspu04spurgoog`: HTTP Error 500: Internal Server Error
+- [ ] IA `shorthistoryofch1897smit`: The read operation timed out
+- [ ] IA `worksofpresident0003edwa_r5p0`: The read operation timed out
+- [ ] IA `worksreverendge03whitgoog`: The read operation timed out
+- [ ] IA `carefulstrictenq0000jona`: The read operation timed out
+- [ ] IA `freedomofwill0000revj`: The read operation timed out
+- [ ] IA `metropolitantab03spurgoog`: The read operation timed out
+- [ ] IA `anarrativereviv00smitgoog`: The read operation timed out
+- [ ] IA `apologyforlatech00full`: The read operation timed out
+- [ ] IA `bim_eighteenth-century_a-treatise-concerning-re_edwards-jonathan_1787`: The read operation timed out
+- [ ] IA `bim_eighteenth-century_sermons-on-the-followin_edwards-jonathan_1780`: <urlopen error _ssl.c:1015: The handshake operation timed out>
+- [ ] IA `bim_eighteenth-century_sermons-on-various-impor_edwards-jonathan_1795`: The read operation timed out
+- [ ] IA `bim_eighteenth-century_the-gospel-its-own-witne_fuller-andrew_1799`: The read operation timed out
+- [ ] IA `edwardsonrevival00edwa`: <urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>
+- [ ] IA `edwardsonreviva00edwagoog`: <urlopen error _ssl.c:1015: The handshake operation timed out>
+- [ ] IA `edwardsonreviva01edwagoog`: <urlopen error _ssl.c:1015: The handshake operation timed out>
+- [ ] IA `edwardsonreviva02edwagoog`: <urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>
+- [ ] IA `gospelitsownwitn00full_0`: HTTP Error 500: Internal Server Error
+- [ ] IA `gospelitsownwitn01full`: HTTP Error 500: Internal Server Error
+- [ ] IA `narrativeofreviv00edwa`: <urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>
+- [ ] IA `thoughtsonreviva00edwa`: HTTP Error 500: Internal Server Error
+- [ ] IA `works25unkngoog`: HTTP Error 500: Internal Server Error
+- [ ] IA `worksofpresident061829edwa`: HTTP Error 500: Internal Server Error
+- [ ] IA `worksofpresident05edwa`: HTTP Error 500: Internal Server Error
+- [ ] IA `worksofpresident07edwa`: <urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>
+- [ ] IA `workspresidente01edwagoog`: HTTP Error 500: Internal Server Error
+- [ ] IA `worksrevandrewf06fullgoog`: HTTP Error 500: Internal Server Error
+- [ ] IA `expositorydiscou00full`: <urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>
+- [ ] IA `worksrevandrewf07fullgoog`: <urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>
+
+Full IDs, URLs and errors: `failed-downloads.json`. No automatic retries.

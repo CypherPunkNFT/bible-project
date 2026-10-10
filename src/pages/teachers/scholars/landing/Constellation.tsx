@@ -78,7 +78,7 @@ function SkyView({ data, sky, matches, searching, onOpen }: SkyProps & { sky: Sk
     {art}
     <div className="lnd-flabels">{sky.fields.map((f) => <span key={f.field} className="lnd-flabel"
       style={{ ...toneStyle(f.field), left: `${(f.mx / sky.w * 100).toFixed(3)}%`, top: `${(Math.min(sky.h - 12, f.bottom + sky.size / 2 + 18) / sky.h * 100).toFixed(3)}%` }}>
-      <FieldIcon field={f.field} size={12} /><span>{data.fields[f.field]}</span><b>{f.own.length}</b></span>)}</div>
+      <FieldIcon field={f.field} size={12} /><span>{data.fields[f.field]}</span></span>)}</div>
     <div ref={tipRef} className="lnd-tip" hidden={!hovered}>{hovered && <TipCard data={data} id={hovered.id} />}</div>
   </div>;
 }

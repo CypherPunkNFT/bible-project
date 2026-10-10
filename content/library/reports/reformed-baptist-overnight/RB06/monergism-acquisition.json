@@ -1,0 +1,140 @@
+{
+  "source": "monergism",
+  "catalogueItems": 1467,
+  "catalogueUnheldItems": 1388,
+  "eligibleItems": 195,
+  "unheldBefore": 158,
+  "filter": {
+    "deferHardDownloads": true,
+    "skipIds": [],
+    "authors": [
+      "Baxter, Richard",
+      "Richard Baxter",
+      "Brooks, Thomas",
+      "Thomas Brooks",
+      "Flavel, John",
+      "John Flavel",
+      "Burroughs, Jeremiah",
+      "Jeremiah Burroughs",
+      "Burroughes, Jeremiah",
+      "Watson, Thomas",
+      "Thomas Watson",
+      "Bunyan, John",
+      "John Bunyan",
+      "Bridges, Charles",
+      "Charles Bridges",
+      "Ryle, John",
+      "J. C. Ryle",
+      "John Charles Ryle",
+      "Winslow, Octavius",
+      "Octavius Winslow",
+      "M'Cheyne",
+      "McCheyne",
+      "M?Cheyne",
+      "Murray M"
+    ],
+    "primaryAuthorOnly": true,
+    "authorMustStart": true,
+    "authorIdentityRules": [
+      {
+        "namePattern": "Baxter",
+        "lifeYears": [
+          1615,
+          1691
+        ]
+      },
+      {
+        "namePattern": "Brooks",
+        "lifeYears": [
+          1608,
+          1680
+        ]
+      },
+      {
+        "namePattern": "Flavel",
+        "lifeYears": [
+          1627,
+          1691
+        ]
+      },
+      {
+        "namePattern": "Burrough",
+        "lifeYears": [
+          1599,
+          1600,
+          1646
+        ]
+      },
+      {
+        "namePattern": "Watson",
+        "lifeYears": [
+          1620,
+          1686
+        ]
+      },
+      {
+        "namePattern": "Bunyan",
+        "lifeYears": [
+          1628,
+          1688
+        ]
+      },
+      {
+        "namePattern": "Bridges",
+        "lifeYears": [
+          1794,
+          1869
+        ]
+      },
+      {
+        "namePattern": "Ryle",
+        "lifeYears": [
+          1816,
+          1900
+        ]
+      },
+      {
+        "namePattern": "Winslow",
+        "lifeYears": [
+          1808,
+          1878
+        ]
+      },
+      {
+        "namePattern": "Cheyne",
+        "lifeYears": [
+          1813,
+          1843
+        ]
+      }
+    ]
+  },
+  "attempted": 156,
+  "downloaded": 4,
+  "duplicateHashes": 151,
+  "heldDuringRun": 2,
+  "failures": [
+    {
+      "sourceId": "saved-grace",
+      "url": "https://www.monergism.com/saved-grace",
+      "title": "Saved by Grace",
+      "author": "Bunyan, John",
+      "error": "<urlopen error _ssl.c:1015: The handshake operation timed out>"
+    }
+  ],
+  "bytes": 3171592,
+  "sampleSizes": [
+    234619,
+    289814,
+    114257,
+    2532902
+  ],
+  "state": "complete",
+  "startedAt": "2026-10-07T20:03:31.095615+00:00",
+  "updatedAt": "2026-10-07T20:39:29.519968+00:00",
+  "unheldAfter": 152,
+  "estimatedUnheldGB": 0.120520496,
+  "estimateBasis": "SWORD InstallSize where available; otherwise arithmetic mean of downloaded originals; decimal GB; edition/item counts, not deduplicated works",
+  "completedAt": "2026-10-07T20:39:12.399576+00:00",
+  "supplementalBatch": "Ryle catalogue initial alias"
+}

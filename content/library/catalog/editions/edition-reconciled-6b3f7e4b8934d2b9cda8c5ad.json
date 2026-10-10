@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-6b3f7e4b8934d2b9cda8c5ad",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-e1b8ffe7b066fe2e876d627d",
+  "label": "The marrow of sacred divinity drawne out of the Holy Scriptures, and the interpreters thereof, and brought into method / by William Ames ... ; translated out of the Latine ... ; whereunto are annexed certaine tables representing the substance and heads of all in a short view ... as also a table opening the hard words therein contained.; Medulla theologica. English. 1642 — held source edition a0ae970efd52",
+  "languages": [
+    "und"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A25291/master/A25291.xml",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

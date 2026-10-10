@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-e9fda174e8ff56aed8f31cc9",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-d9cea7977fbd678752f600b5",
+  "label": "The Godlyman's picture, drawn with a Scripture-pensil. Or, some characteristical notes of a man that shall go to heaven. By Thomas Watson, ... To which is annexed his farewel sermon. ... To which is added, A short Christian directory, ... By the Reverend Mr. John Willison ... 1758 — held source edition 6c2f7ea73dee",
+  "languages": [
+    "English"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_eighteenth-century_the-godlymans-picture-_watson-thomas_1758/bim_eighteenth-century_the-godlymans-picture-_watson-thomas_1758_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

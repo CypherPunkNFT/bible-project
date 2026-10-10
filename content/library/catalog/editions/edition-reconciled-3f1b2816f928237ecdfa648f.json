@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-3f1b2816f928237ecdfa648f",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-e4085a7fc15647c20d514476",
+  "label": "Grace abounding to the chief of sinners, in a faithful account of the life and death of John Bunyan. Or, a brief relation of the exceeding mercy of God in Christ to him; ... 1749 — held source edition 8300137a4e18",
+  "languages": [
+    "English"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_eighteenth-century_grace-abounding-to-the-c_bunyan-john_1749/bim_eighteenth-century_grace-abounding-to-the-c_bunyan-john_1749_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

@@ -102,6 +102,44 @@ export function buildSourceDirectory(root: string) {
     sources, entries,
     corpus: { ...corpus.snapshot, bibliographyUpdatedAt: corpus.bibliography.updatedAt, verifiedFiles: corpus.bibliography.verifiedFiles, incompleteIdentity: corpus.bibliography.incompleteIdentity },
   };
+  const reconciliation = path.join(base, "reports/campaign-reconciliation/sources");
+  const documentationPath = path.join(reconciliation, "source-documentation.json");
+  if (fs.existsSync(documentationPath)) {
+    const documentation = read(documentationPath);
+    const inventory = read(path.join(reconciliation, "source-inventory.json"));
+    const groups = new Map<string, RecordData>(inventory.groups.map((group: RecordData) => [group.id, group]));
+    const software = new Set(["qwen-model", "lancedb-engine", "granite-model", "onnx-runtime", "transformers-js"]);
+    const sourceProfiles = documentation.sources.map((source: RecordData) => {
+      const group = groups.get(source.sourceId);
+      return {
+        id: source.sourceId, name: source.name,
+        ...(publicUrl(source.officialChannel) ? { url: source.officialChannel } : {}),
+        category: source.stocktakeLibrarySource === false ? (software.has(source.sourceId) ? "software" : "data") : "library",
+        formats: Array.isArray(source.heldFormats) ? source.heldFormats : [source.heldFormats],
+        terms: source.licenceAndCredit, channel: source.channelNote || "",
+        ...(group ? { files: group.files, bytes: group.bytes, textReady: group.statuses.indexed || 0, pending: group.statuses.not_in_snapshot || 0 } : {}),
+      };
+    });
+    const stocktake = path.join(root, "../KnowledgeBase/campaign-stocktake/summary.json");
+    const snapshot = fs.existsSync(stocktake) ? read(stocktake) : null;
+    Object.assign(result, { sourceProfiles, sourceProfilesMeasuredAt: inventory.stocktakeSnapshot });
+    if (snapshot) Object.assign(result, { intakeSnapshot: {
+      measuredAt: snapshot.snapshotAt, files: snapshot.libraryFiles, bytes: snapshot.GB * 1e9,
+      textReady: snapshot.statuses.indexed || 0, pendingText: snapshot.unpublishedBodyCandidates,
+      supportFiles: snapshot.statuses.metadata_or_asset || 0, duplicates: snapshot.statuses.duplicate || 0, textGaps: snapshot.textGaps,
+    }});
+    // Explicit public measurements only; never copy private runtime paths, PIDs or source bodies.
+    for (const [filename, key] of [["coverage.json", "coverage"], ["embedding-progress.json", "embedding"]] as const) {
+      const runtime = path.join(root, "../KnowledgeBase", filename);
+      if (!fs.existsSync(runtime)) continue;
+      const value = read(runtime);
+      Object.assign(result.corpus, { [key]: key === "coverage"
+        ? { built_at: value.built_at, editions: value.editions, languages: value.languages, counts: { documents: value.counts.documents, chunks: value.counts.chunks, verses: value.counts.verses } }
+        : { updated_at: value.updated_at, state: value.state, indexed: value.indexed, total: value.total, remaining: value.remaining } });
+    }
+    if (snapshot) Object.assign(result.corpus, { measured_at: snapshot.snapshotAt, files: snapshot.libraryFiles, bytes: snapshot.GB * 1e9,
+      sources: inventory.groups.filter((g: RecordData) => g.id !== "local-support").map((g: RecordData) => ({ name: documentation.sources.find((s: RecordData) => s.sourceId === g.id)?.name || g.id, files: g.files, bytes: g.bytes })) });
+  }
   fs.mkdirSync(path.join(root, "public/content/sources"), { recursive: true });
   fs.writeFileSync(path.join(root, "public/content/sources/directory.json"), JSON.stringify(result));
 }

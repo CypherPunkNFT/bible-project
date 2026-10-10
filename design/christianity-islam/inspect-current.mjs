@@ -1,0 +1,21 @@
+import { createRequire } from 'node:module';
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+const dir=path.dirname(fileURLToPath(import.meta.url));
+const require=createRequire(path.resolve('package.json'));
+const {chromium}=require('@playwright/test');
+const browser=await chromium.launch({channel:'msedge',headless:true});
+const page=await browser.newPage({viewport:{width:1440,height:1050},reducedMotion:'reduce'});
+await page.goto('http://127.0.0.1:8931/apologetics/worldviews/islam');
+await page.locator('.wv-hero').waitFor();
+await page.evaluate(()=>{document.documentElement.dataset.theme='dark'; document.documentElement.classList.add('dark')});
+await page.screenshot({path:path.join(dir,'current-hero.png')});
+const evidence=await page.evaluate(()=>({title:document.title,styles:[...document.querySelectorAll('link[rel="stylesheet"]')].map(x=>x.getAttribute('href')),tokens:Object.fromEntries(['--page','--surface','--surface-2','--ink','--muted','--line','--accent','--poetry','--font-serif','--font-sans'].map(x=>[x,getComputedStyle(document.documentElement).getPropertyValue(x)])),header:document.querySelector('header')?.outerHTML,questions:[...document.querySelectorAll('.wv-claim-map button')].map(x=>x.textContent),stages:[...document.querySelectorAll('.wv-reading-roadmap button')].map(x=>x.textContent)}));
+for(const [name,selector] of [['claims','.wv-claims-room'],['reading','#reading-sources'],['world','#muslim-world']]){const el=page.locator(selector);if(await el.count()){await el.scrollIntoViewIfNeeded();await page.screenshot({path:path.join(dir,'current-'+name+'.png')});}}
+fs.writeFileSync(path.join(dir,'current-audit.json'),JSON.stringify(evidence,null,2));
+await page.goto('http://127.0.0.1:8931/apologetics/worldviews');
+await page.locator('.wv-collections').waitFor();
+await page.screenshot({path:path.join(dir,'current-worldviews.png')});
+await browser.close();
+console.log(JSON.stringify(evidence));

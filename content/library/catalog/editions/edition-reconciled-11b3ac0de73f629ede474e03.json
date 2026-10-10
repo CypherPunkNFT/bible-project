@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-11b3ac0de73f629ede474e03",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-fb8bcb0615e1010558126f6b",
+  "label": "The Doctrine of original sin defended, evidences of its truth produced, and arguments to the contrary answered : containing in particular, a reply to the objections and arguings of Dr. John taylor, in his book, intitled, The Scripture doctrine of original sin proposed to free and candid examination — held source edition ee32348a3bac",
+  "languages": [
+    "eng"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/doctrineoforigin00edwa/doctrineoforigin00edwa_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

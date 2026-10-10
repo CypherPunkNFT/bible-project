@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-9a4150ebb2ea65bd15fd5d39",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-53e66c28603a347832120bfa",
+  "label": "An enquiry into the original, nature, institution, power, order and communion of evangelical churches. The first part with an answer to the discourse of the unreasonableness of separation written by Dr. Edward Stillingfleet, Dean of Pauls, and in defence of the vindication of non-conformists from the guilt of schisme / by John Owen. — held source edition c1f4335cfbd5",
+  "languages": [
+    "und"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A53704/master/A53704.xml",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

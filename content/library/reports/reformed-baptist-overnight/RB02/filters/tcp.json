@@ -1,0 +1,54 @@
+{
+  "authors": [
+    "Tombes, John",
+    "John Tombes",
+    "Spilsbury, John",
+    "John Spilsbury",
+    "Spilsbery, John",
+    "John Spilsbery",
+    "Kiffin, William",
+    "William Kiffin",
+    "Keach, Benjamin",
+    "Benjamin Keach",
+    "Coxe, Nehemiah",
+    "Nehemiah Coxe",
+    "Cox, Benjamin",
+    "Benjamin Cox",
+    "Booth, Abraham",
+    "Abraham Booth",
+    "Denne, Henry",
+    "Henry Denne",
+    "Danvers, Henry",
+    "Henry Danvers",
+    "Witsius, Herman",
+    "Witsius, Hermann",
+    "Witsius, Hermannus",
+    "Herman Witsius",
+    "Hermannus Witsius",
+    "Wits, Herman",
+    "Ball, John",
+    "John Ball",
+    "Owen, John",
+    "John Owen"
+  ],
+  "primaryAuthorOnly": true,
+  "authorIdentityRules": [
+    {
+      "namePattern": "Owen,?\\s+John|John\\s+Owen",
+      "lifeYears": [
+        1616,
+        1683
+      ],
+      "requireReligiousSubjectsWhenUndated": true
+    },
+    {
+      "namePattern": "Ball,?\\s+John|John\\s+Ball",
+      "lifeYears": [
+        1585,
+        1640
+      ],
+      "requireReligiousSubjectsWhenUndated": true
+    }
+  ],
+  "deferHardDownloads": true
+}

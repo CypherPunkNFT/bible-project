@@ -1,0 +1,10 @@
+{
+  "items": [
+    {
+      "source": "chapel",
+      "url": "https://www.chapellibrary.org/api/books?pageSize=100&pageCount=0&language=EN",
+      "error": "HTTP 401 Unauthorized",
+      "policy": "No retry; public sitemap used"
+    }
+  ]
+}

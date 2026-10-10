@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-41bea03282e63834d51b8576",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-cb57ddd6c7d789f75f6d61c6",
+  "label": "Sighs from hell, or, The groans of a damned soul discovering from the 16th of Luke the lamentable state of the damned : and may fitly serve as a warning-word to sinners, both old and young, by faith in Jesus Christ, to avoid the same place of torment : with a discovery of the usefulness of the Scriptures as our safe conduct for avoiding the torments of hell / by John Bunyan. — held source edition 925f300e02d8",
+  "languages": [
+    "und"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A30203/master/A30203.xml",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

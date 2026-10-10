@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-f90e5c28f63331427ed62dce",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-6e3463768398dce7483f03b7",
+  "label": "The whole works of the late Reverend and learned Mr Thomas Boston, ... To which is subjoined, The marrow of modern divinity, illustrated with many valuable notes by Mr Boston. 1767 — held source edition d37bf69ae9e5",
+  "languages": [
+    "English"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_eighteenth-century_the-whole-works-of-the-l_boston-thomas_1767/bim_eighteenth-century_the-whole-works-of-the-l_boston-thomas_1767_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

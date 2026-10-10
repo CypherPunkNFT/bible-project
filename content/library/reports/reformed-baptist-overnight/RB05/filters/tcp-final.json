@@ -1,0 +1,51 @@
+{
+  "deferHardDownloads": true,
+  "primaryAuthorOnly": true,
+  "authors": [
+    "Keach",
+    "Griffith",
+    "Dagg",
+    "Kiffin",
+    "Gill",
+    "Baxter",
+    "Spurgeon",
+    "Bridges",
+    "Owen"
+  ],
+  "authorTitleRules": [
+    {
+      "namePattern": "Baxter",
+      "titlePattern": "reformed pastor|gildas salvianus"
+    },
+    {
+      "namePattern": "Spurgeon",
+      "titlePattern": "lecture.*student"
+    },
+    {
+      "namePattern": "Bridges",
+      "titlePattern": "christian ministry"
+    },
+    {
+      "namePattern": "Owen",
+      "titlePattern": "church|communion|discipline"
+    },
+    {
+      "namePattern": "Gill|Keach|Kiffin|Dagg|Griffith",
+      "titlePattern": "church|order|discipline|minister|pastor|association|communion|government|gospel worship"
+    }
+  ],
+  "authorIdentityRules": [
+    {
+      "namePattern": "(?<!\\w)Griffith(?!\\w)",
+      "allowedPattern": "Griffith, (?:Benjamin|John, 1622)|Benjamin Griffith"
+    },
+    {
+      "namePattern": "(?<!\\w)Owen(?!\\w)",
+      "allowedPattern": "^Owen, John, 1616|^John Owen"
+    },
+    {
+      "namePattern": "(?<!\\w)Gill(?!\\w)",
+      "allowedPattern": "^Gill, John|^John Gill"
+    }
+  ]
+}

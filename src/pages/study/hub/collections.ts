@@ -48,240 +48,338 @@ export const STUDY_BRANCHES: Record<BranchId, Branch> = {
         "areas": [
             {
                 "id": "books",
-                "title": "Books & passages",
+                "title": "Explore the Bible",
                 "short": "Read in context",
                 "art": "books",
                 "tone": "epistles",
-                "hint": "Understand a book’s shape, follow its message and read its passages together.",
-                "heading": "A passage belongs<br>to <em>a larger story.</em>",
-                "intro": "Begin with the shape of the biblical library. Then enter a book, read a letter, or follow a passage’s connections.",
+                "hint": "Books, passages, letters and the shape of the biblical story.",
+                "heading": "Every book.<br><em>A place in the story.</em>",
+                "intro": "Find a biblical book, understand its setting and literary form, then follow its message through the passages.",
                 "featured": {
                     "kind": "Collection",
-                    "title": "Letters & their message",
-                    "text": "Twenty-one letters. Explore who they address, how their arguments unfold and what they teach.",
-                    "href": "/study/letters",
-                    "meta": "Four collections · Four ways in",
-                    "art": "letters"
+                    "title": "Books of the Bible",
+                    "text": "Find the books of the Old and New Testaments, with introductions and passages.",
+                    "href": "/topics/c/bible-books",
+                    "art": "books"
                 },
-                "group": "Get your bearings",
+                "group": "Explore the collections",
                 "items": [
                     {
-                        "kind": "Tool",
-                        "title": "The shape of the Bible",
-                        "text": "Explore its sections, books and chapters.",
-                        "href": "/study/structure"
+                        "kind": "Collection",
+                        "title": "Letters & their message",
+                        "text": "Explore all 21 New Testament letters, their writers, recipients and unfolding arguments.",
+                        "href": "/study/letters",
+                        "art": "letters"
                     },
                     {
-                        "kind": "Guide",
-                        "title": "Christ in the letters",
-                        "text": "Who he is, what he did and life in him.",
-                        "href": "/study/letters/christ-in-the-letters"
+                        "kind": "Collection",
+                        "title": "Law & beginnings",
+                        "text": "Read the books of the Law, from Genesis to Deuteronomy.",
+                        "href": "/topics/c/bible-books?group=books-law",
+                        "art": "books"
                     },
                     {
-                        "kind": "Tool",
-                        "title": "Connections in Scripture",
-                        "text": "Follow references from one passage to another.",
-                        "href": "/study/references"
+                        "kind": "Collection",
+                        "title": "History",
+                        "text": "Follow Israel’s story through its historical books.",
+                        "href": "/topics/c/bible-books?group=books-history",
+                        "art": "books"
+                    },
+                    {
+                        "kind": "Collection",
+                        "title": "Poetry & wisdom",
+                        "text": "Explore the Psalms, wisdom writings and their literary voices.",
+                        "href": "/topics/c/bible-books?group=books-poetry",
+                        "art": "prayer"
+                    },
+                    {
+                        "kind": "Collection",
+                        "title": "The prophetic books",
+                        "text": "Read the books of the prophets and follow their messages.",
+                        "href": "/topics/c/bible-books?group=books-prophets",
+                        "art": "manuscript"
                     }
                 ],
                 "support": [
                     [
-                        "Open the Bible",
+                        "Read the Bible",
                         "/bible"
                     ],
                     [
-                        "Choose an edition",
-                        "/study/versions"
+                        "Gospels & Acts",
+                        "/topics/c/bible-books?group=books-gospels"
                     ]
                 ]
             },
             {
                 "id": "jesus",
-                "title": "Jesus & the Gospels",
+                "title": "Jesus Christ",
                 "short": "Follow his life & teaching",
                 "art": "gospels",
                 "tone": "gospels",
-                "hint": "Read each Gospel in its own voice, then bring the accounts into conversation.",
-                "heading": "Four accounts.<br><em>One life.</em>",
-                "intro": "Meet Jesus through the portraits, teaching and encounters the Gospel writers give us. Compare the accounts without losing each writer’s voice.",
+                "hint": "His life, identity, teaching, miracles, cross and resurrection.",
+                "heading": "Meet Jesus.<br><em>Follow his life.</em>",
+                "intro": "Read the four Gospel accounts, explore Jesus’ identity and teaching, and trace his work throughout Scripture.",
                 "featured": {
-                    "kind": "Guide",
-                    "title": "Four Gospel portraits",
-                    "text": "Explore what Matthew, Mark, Luke and John each bring into view.",
-                    "href": "/study/gospels#portraits",
-                    "meta": "Matthew · Mark · Luke · John",
+                    "kind": "Collection",
+                    "title": "Jesus & the Gospels",
+                    "text": "Four portraits, teaching journeys and an event-by-event harmony of the accounts.",
+                    "href": "/study/gospels",
                     "art": "gospels"
                 },
-                "group": "Follow the accounts",
+                "group": "Explore the collections",
                 "items": [
                     {
-                        "kind": "Guide",
-                        "title": "Teaching journeys",
-                        "text": "Hear the teaching within its narrative setting.",
-                        "href": "/study/gospels#jesus"
+                        "kind": "Collection",
+                        "title": "Who Jesus is",
+                        "text": "Explore the person of Christ and the passages that reveal his identity.",
+                        "href": "/topics/c/christ",
+                        "art": "doctrine"
+                    },
+                    {
+                        "kind": "Collection",
+                        "title": "Parables & teaching",
+                        "text": "Read the parables and their passages in context.",
+                        "href": "/topics/c/christ-teaching",
+                        "art": "manuscript"
                     },
                     {
                         "kind": "Collection",
                         "title": "Miracles & encounters",
-                        "text": "Read the signs, the people and the passages together.",
-                        "href": "/study/miracles"
+                        "text": "Explore Jesus’ miracles, with connections to wonders elsewhere in Scripture.",
+                        "href": "/study/miracles",
+                        "art": "prayer"
                     },
                     {
-                        "kind": "Comparison",
-                        "title": "The Gospel harmony",
-                        "text": "Follow an event across the accounts that tell it.",
-                        "href": "/study/gospels#harmony"
+                        "kind": "Collection",
+                        "title": "Cross, resurrection & return",
+                        "text": "Follow the biblical passages on his death, resurrection and promised return.",
+                        "href": "/topics/c/christ-cross",
+                        "art": "gospels"
+                    },
+                    {
+                        "kind": "Collection",
+                        "title": "Christ in the letters",
+                        "text": "Explore his person, work and the life of those who belong to him.",
+                        "href": "/study/letters/christ-in-the-letters",
+                        "art": "letters"
                     }
                 ],
                 "support": [
                     [
-                        "Christ in the letters",
-                        "/study/letters/christ-in-the-letters"
+                        "Compare the Gospel accounts",
+                        "/study/gospels#harmony"
                     ],
                     [
-                        "Where Jesus speaks",
-                        "/study/gospels#speech"
+                        "Names & titles of Jesus",
+                        "/topics/c/christ-titles"
                     ]
                 ]
             },
             {
                 "id": "doctrine",
-                "title": "God & Christian doctrine",
+                "title": "God & the Christian Faith",
                 "short": "Trace what Scripture teaches",
                 "art": "doctrine",
                 "tone": "revelation",
-                "hint": "Begin with God’s names and character, then follow a teaching through its passages.",
-                "heading": "Know his character.<br><em>Follow his teaching.</em>",
-                "intro": "Move from the words of Scripture to the beliefs they express. Read the passages behind a doctrine and consider how they belong together.",
+                "hint": "God’s character, salvation, covenant, the church and Christian belief.",
+                "heading": "Know God.<br><em>Explore the faith.</em>",
+                "intro": "Begin with Scripture’s witness to God, then follow the passages behind Christian teaching and belief.",
                 "featured": {
                     "kind": "Collection",
                     "title": "Names & descriptions of God",
-                    "text": "Explore the names and titles of the Father, the Son and the Holy Spirit, with their biblical passages.",
+                    "text": "Explore the names and titles of the Father, the Son and the Holy Spirit.",
                     "href": "/study/names",
-                    "meta": "Names · Character · Scripture",
                     "art": "doctrine"
                 },
-                "group": "Follow a teaching",
+                "group": "Explore the collections",
                 "items": [
                     {
                         "kind": "Collection",
-                        "title": "Topics in Scripture",
-                        "text": "Bring a subject’s passages together and read in context.",
-                        "href": "/topics"
+                        "title": "Who God is",
+                        "text": "The Godhead, Trinity and attributes of God, gathered from Scripture.",
+                        "href": "/topics/c/god",
+                        "art": "doctrine"
                     },
                     {
-                        "kind": "Question",
-                        "title": "Does the Trinity mean three gods?",
-                        "text": "Follow the existing Apologetics discussion and its sources.",
-                        "href": "/apologetics/study/god"
+                        "kind": "Collection",
+                        "title": "The Holy Spirit",
+                        "text": "Read the passages on the Spirit’s person and work.",
+                        "href": "/topics/c/spirit",
+                        "art": "prayer"
                     },
                     {
-                        "kind": "Question",
-                        "title": "How does covenant theology connect the Bible?",
-                        "text": "Explore a theological account of the connections.",
-                        "href": "/apologetics/study/covenant"
+                        "kind": "Collection",
+                        "title": "Salvation",
+                        "text": "Grace, redemption, faith, repentance, justification and sanctification.",
+                        "href": "/topics/c/salvation",
+                        "art": "gospels"
+                    },
+                    {
+                        "kind": "Collection",
+                        "title": "Law & covenant",
+                        "text": "Explore law, covenant and the relationships they describe.",
+                        "href": "/topics/c/law",
+                        "art": "manuscript"
+                    },
+                    {
+                        "kind": "Collection",
+                        "title": "The church & its mission",
+                        "text": "The church, ministry, mission, ordinances and fellowship.",
+                        "href": "/topics/c/church",
+                        "art": "church"
                     }
                 ],
                 "support": [
                     [
-                        "Grace and good works",
-                        "/apologetics/study/grace"
+                        "Sin & temptation",
+                        "/topics/c/sin"
                     ],
                     [
-                        "Cross-reference tools",
-                        "/study/references"
+                        "Resurrection & judgment",
+                        "/topics/c/judgment"
+                    ],
+                    [
+                        "Death, heaven & hell",
+                        "/topics/c/last-things"
+                    ],
+                    [
+                        "What God does",
+                        "/topics/c/god-works"
                     ]
                 ]
             },
             {
                 "id": "life",
-                "title": "Prayer & Christian life",
+                "title": "Living the Christian Life",
                 "short": "Bring the Word into life",
                 "art": "prayer",
                 "tone": "poetry",
-                "hint": "Consider prayer, assurance and the ordinary practice of faith through Scripture.",
-                "heading": "Read with attention.<br><em>Respond with your life.</em>",
-                "intro": "Let a passage give shape to prayer and practice. Connect what you believe with how you live, hope and care for others.",
+                "hint": "Prayer, worship, relationships, suffering, hope and everyday obedience.",
+                "heading": "Follow Christ.<br><em>Live the Word.</em>",
+                "intro": "Explore the passages that shape prayer, character, relationships and the ordinary practice of faith.",
                 "featured": {
                     "kind": "Guide",
                     "title": "Life in Christ",
-                    "text": "Explore the life the New Testament letters describe, and connect belief with prayer and practice.",
+                    "text": "Follow the life the New Testament letters describe, from belief to daily practice.",
                     "href": "/study/letters/christ-in-the-letters/life",
-                    "meta": "Faith · Prayer · Christian life",
                     "art": "prayer"
                 },
-                "group": "Continue in Scripture",
+                "group": "Explore the collections",
                 "items": [
                     {
-                        "kind": "Question",
-                        "title": "Assurance in a struggling Christian life",
-                        "text": "Read the existing discussion of promise, faith and assurance.",
-                        "href": "/apologetics/study/assurance"
+                        "kind": "Collection",
+                        "title": "Prayer & worship",
+                        "text": "Open the Scripture collections on prayer, worship and devotion.",
+                        "href": "/topics/c/devotion",
+                        "art": "prayer"
                     },
                     {
                         "kind": "Collection",
-                        "title": "Prayer, faith and hope in Topics",
-                        "text": "Find a theme and follow its passages.",
-                        "href": "/topics"
+                        "title": "Character & obedience",
+                        "text": "Explore Christian virtues, conduct and the responsibilities of faith.",
+                        "href": "/topics/c/christian-life",
+                        "art": "doctrine"
+                    },
+                    {
+                        "kind": "Collection",
+                        "title": "Marriage, family & neighbours",
+                        "text": "Read Scripture on family life and care for neighbours and the poor.",
+                        "href": "/topics/c/family",
+                        "art": "writers"
+                    },
+                    {
+                        "kind": "Collection",
+                        "title": "Suffering, hope & comfort",
+                        "text": "Follow passages on trials, affliction, joy, peace and comfort.",
+                        "href": "/topics/c/trials",
+                        "art": "prayer"
+                    },
+                    {
+                        "kind": "Collection",
+                        "title": "Service & witness",
+                        "text": "Explore the biblical passages on ministry and mission.",
+                        "href": "/topics/c/church?group=ministry-and-mission",
+                        "art": "church"
                     }
                 ],
                 "support": [
                     [
-                        "Grace and good works",
-                        "/apologetics/study/grace"
+                        "Faith & repentance",
+                        "/topics/c/salvation?group=faith-and-repentance"
                     ],
                     [
-                        "The question of suffering",
-                        "/apologetics/study/suffering"
+                        "Work & wealth",
+                        "/topics/c/trades?group=work-and-wealth"
                     ]
                 ]
             },
             {
                 "id": "people",
-                "title": "People & writers of Scripture",
+                "title": "People of Scripture",
                 "short": "Meet the people behind the pages",
                 "art": "writers",
                 "tone": "history",
-                "hint": "Follow a life, meet a writer and open the books associated with them.",
-                "heading": "Meet a writer.<br><em>Follow the words.</em>",
-                "intro": "The biblical books come to us through many voices. Explore their lives and settings, while keeping tradition, attribution and anonymity in view.",
+                "hint": "Writers, prophets, apostles, rulers, women, men and their families.",
+                "heading": "Meet the people.<br><em>Follow their stories.</em>",
+                "intro": "Explore the lives and relationships within Scripture, then meet its writers and the books associated with them.",
                 "featured": {
                     "kind": "Collection",
                     "title": "People & genealogies",
-                    "text": "Follow the families, prophets, rulers and apostles through the biblical narrative.",
+                    "text": "Follow biblical lives, families and their connections through the story.",
                     "href": "/study/people",
-                    "meta": "Lives · Families · Scripture",
                     "art": "writers"
                 },
-                "group": "Lives within the story",
+                "group": "Explore the collections",
                 "items": [
                     {
-                        "kind": "Guide",
-                        "title": "The prophets",
-                        "text": "Explore the people, settings and messages of prophecy.",
-                        "href": "/study/people?view=prophets"
-                    },
-                    {
-                        "kind": "Guide",
-                        "title": "The apostles",
-                        "text": "Meet the apostles and follow their work.",
-                        "href": "/study/people?view=apostles"
+                        "kind": "Directory",
+                        "title": "Writers & their books",
+                        "text": "Meet the writers in the directory below, then open their existing person pages.",
+                        "href": "/study/theology?area=people#writer-preview",
+                        "art": "manuscript"
                     },
                     {
                         "kind": "Collection",
-                        "title": "Paul and his letters",
-                        "text": "Read the letters alongside their writer and recipients.",
-                        "href": "/study/letters/paul"
+                        "title": "Prophets",
+                        "text": "Explore the named prophets and the eras in which Scripture places them.",
+                        "href": "/study/people?view=prophets",
+                        "art": "writers"
+                    },
+                    {
+                        "kind": "Collection",
+                        "title": "Apostles",
+                        "text": "Meet the apostles and follow their lives and work.",
+                        "href": "/study/people?view=apostles",
+                        "art": "writers"
+                    },
+                    {
+                        "kind": "Collection",
+                        "title": "Kings & rulers",
+                        "text": "Explore the rulers named in the biblical story.",
+                        "href": "/study/people?view=rulers",
+                        "art": "writers"
+                    },
+                    {
+                        "kind": "Collection",
+                        "title": "Women of the Bible",
+                        "text": "Mothers, leaders, prophetesses and women of the Gospels and early church.",
+                        "href": "/topics/c/people-women",
+                        "art": "writers"
                     }
                 ],
                 "support": [
                     [
-                        "Follow Paul in the Atlas",
-                        "/study/atlas/journeys?focus=paul&lens=story"
+                        "Families & genealogies",
+                        "/study/people?view=families"
                     ],
                     [
-                        "People & families",
-                        "/study/people?view=families"
+                        "Paul and his letters",
+                        "/study/letters/paul"
+                    ],
+                    [
+                        "People of the New Testament",
+                        "/topics/c/people-nt"
                     ]
                 ],
                 "writers": true
@@ -528,3 +626,12 @@ export const STUDY_BRANCHES: Record<BranchId, Branch> = {
         ]
     }
 };
+
+
+export const THEOLOGY_TOOLS = [
+    {title: "Topics", text: "Find a subject and its passages.", href: "/topics", icon: "search"},
+    {title: "Cross-references", text: "Follow connections across Scripture.", href: "/study/references", icon: "branch"},
+    {title: "Bible structure", text: "Explore books, forms and chapters.", href: "/study/structure", icon: "book"},
+    {title: "Versions & translations", text: "Compare editions and their contents.", href: "/study/versions", icon: "book"},
+    {title: "Atlas", text: "Explore places and journeys.", href: "/study/atlas", icon: "map"},
+] as const;

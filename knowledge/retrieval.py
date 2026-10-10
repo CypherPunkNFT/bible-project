@@ -201,7 +201,7 @@ def verify(config):
         new_files, missing_files, changed_ledgers = [], [], []
         if library:
             imported = {row[0] for row in db.execute("SELECT path FROM library_files")}
-            current = {str(path) for path in (config["sources_dir"] / "library").rglob("*") if path.is_file()}
+            current = {str(path) for path in (config["sources_dir"] / "library").rglob("*") if path.is_file() and path.suffix.lower() not in ('.part', '.tmp')}
             new_files, missing_files = sorted(current-imported), sorted(imported-current)
             recorded = dict(db.execute("SELECT path,sha256 FROM files WHERE status='library_metadata'"))
             ledger_paths = {str(path): path for folder in ("catalog", "reports") for path in (config["site_dir"] / "content/library" / folder).rglob("*.json")}
@@ -225,10 +225,12 @@ def verify(config):
                 "new_source_files_since_snapshot": len(drift["new"]),
                 "changed_source_inputs_since_snapshot": len(drift["changed"]),
                 "missing_source_inputs_since_snapshot": len(drift["missing"]),
+                "missing_source_input_paths": drift["missing"],
                 "source_files_hash_checked": drift["checked_files"],
                 "reference_library": reference_intake,
                 "new_library_files_since_snapshot": len(new_files),
                 "missing_library_files_since_snapshot": len(missing_files),
+                "missing_library_paths": missing_files,
                 "changed_library_ledgers_since_snapshot": len(changed_ledgers),
                 "library": {"files": library["files"], "statuses": library["statuses"], "errors": len(library["errors"]),
                             "missing_catalog_files": len(library.get("missing_catalog_files", []))} if library else None,

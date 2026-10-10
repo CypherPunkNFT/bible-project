@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-f9ab40702e9dc325fe64b515",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-033973e7aa80cffc4bf55871",
+  "label": "Baptism a divine commandment to be observed. Being a sermon preached at Barbican, Octob. 9, 1765. at the baptism of the Reverend Mr. Robert Carmichael, ... By John Gill, D.D. 1766 — held source edition ba33bcf0aff2",
+  "languages": [
+    "English"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_eighteenth-century_baptism-a-divine-command_gill-john_1766/bim_eighteenth-century_baptism-a-divine-command_gill-john_1766_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+/* B · The camp */
+.cp-stage { padding-bottom: 1rem; }
+.cp-hero { display: grid; gap: 1.5rem; margin-top: 1.4rem; align-items: center; }
+@media (min-width: 1000px) { .cp-hero { grid-template-columns: minmax(20rem, 25rem) 1fr; gap: 2.5rem; } }
+.cp-intro h1 { font: 500 clamp(2.3rem, 4.4vw, 3.6rem)/1 var(--serif); letter-spacing: -.04em; margin-top: .7rem; } .cp-intro h1 em { color: var(--t-reuben); font-weight: 400; }
+.cp-lede { margin-top: 1rem; font-size: .9rem; line-height: 1.65; color: var(--muted); }
+.cp-controls { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1.3rem; }
+.cp-seg { position: relative; display: inline-grid; grid-template-columns: 1fr 1fr; padding: 4px; border-radius: 999px; background: var(--surface-2); border: 1px solid var(--line); }
+.cp-seg button { position: relative; z-index: 1; padding: .55rem 1rem; border-radius: 999px; font-size: .82rem; font-weight: 600; color: var(--muted); transition: color .3s; }
+.cp-seg button[aria-pressed="true"] { color: var(--page); }
+.cp-seg > i { position: absolute; top: 4px; bottom: 4px; left: 4px; width: calc(50% - 4px); border-radius: 999px; background: var(--ink); transition: transform .45s cubic-bezier(.16, 1, .3, 1); }
+.cp-seg[data-on="1"] > i { transform: translateX(100%); }
+.cp-break { display: inline-flex; align-items: center; gap: .5rem; padding: .6rem 1.1rem; border-radius: 999px; font-size: .84rem; font-weight: 600; color: var(--t-reuben); border: 1px solid color-mix(in srgb, var(--t-reuben) 45%, transparent); background: color-mix(in srgb, var(--t-reuben) 8%, transparent); transition: background .2s; }
+.cp-break:hover, .cp-break.is-on { background: color-mix(in srgb, var(--t-reuben) 18%, transparent); }
+.cp-totals { display: grid; grid-template-columns: 1fr 1fr; gap: .6rem; margin-top: 1.3rem; }
+.cp-totals > div { display: grid; gap: .1rem; padding: .8rem .9rem; border-radius: 16px; border: 1px solid var(--line); background: color-mix(in srgb, var(--surface) 60%, transparent); }
+.cp-totals small { font-size: .64rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); } .cp-totals b { font: 600 1.4rem var(--mono); letter-spacing: -.03em; }
+.cp-key { display: flex; align-items: center; gap: .5rem; margin-top: 1rem; font-size: .74rem; color: var(--muted); }
+.cp-key i { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 calc(var(--glow) * 8px) var(--accent); }
+.cp-note { display: flex; gap: .45rem; margin-top: .7rem; font-size: .72rem; line-height: 1.55; color: var(--muted); } .cp-note .ico { flex-shrink: 0; margin-top: .1rem; }
+.cp-board { padding: clamp(.5rem, 1.5vw, 1.2rem); --tone: var(--accent); }
+.cp-map svg { display: block; width: 100%; height: auto; overflow: visible; }
+
+/* The camp drawing */
+.cp .cp-g1 { stop-color: color-mix(in srgb, var(--accent) 10%, transparent); } .cp .cp-g2 { stop-color: transparent; }
+.cp-compass text { font: 600 13px var(--sans); letter-spacing: .3em; text-transform: uppercase; fill: var(--muted); text-anchor: middle; opacity: .7; }
+.cp-compass .is-v { writing-mode: vertical-rl; letter-spacing: .3em; }
+.cp-lane rect { fill: color-mix(in srgb, var(--ink) 4%, transparent); stroke: color-mix(in srgb, var(--ink) 14%, transparent); stroke-dasharray: 4 6; }
+.cp-lane text { font: 500 14px var(--sans); fill: var(--muted); text-anchor: middle; }
+.cp-lane { opacity: 0; transition: opacity .5s; } .cp.is-march .cp-lane { opacity: 1; } .cp.is-march .cp-centre-label { opacity: 0; }
+.cp-court { fill: color-mix(in srgb, var(--accent) 8%, var(--surface)); stroke: var(--accent); stroke-width: 1.5; }
+.cp-tent { fill: color-mix(in srgb, var(--accent) 30%, transparent); stroke: var(--accent); stroke-width: 1.2; }
+:root[data-theme="dark"] .cp-court { filter: drop-shadow(0 0 10px rgb(224 178 92 / 35%)); }
+.cp-centre-label { font: italic 500 16px var(--serif); fill: var(--accent); text-anchor: middle; }
+.cp-lev-label { font: 600 12px var(--sans); letter-spacing: .08em; fill: var(--muted); text-anchor: middle; dominant-baseline: middle; }
+.cp-lev[data-lev="west"] .cp-lev-label, .cp-lev[data-lev="east"] .cp-lev-label { writing-mode: vertical-rl; }
+.cp-lev { transition: opacity .4s; } .cp-lev.is-away { opacity: 0; }
+.cp-tribe { cursor: pointer; transition: opacity .4s; }
+.cp-pad { fill: color-mix(in srgb, var(--tone) 7%, transparent); stroke: color-mix(in srgb, var(--tone) 40%, transparent); stroke-width: 1; transition: fill .3s; }
+.cp-tribe.is-standard .cp-pad { stroke-width: 1.8; stroke: var(--tone); }
+.cp-tribe:hover .cp-pad, .cp-tribe.is-focus .cp-pad { fill: color-mix(in srgb, var(--tone) 18%, transparent); stroke: var(--tone); }
+.cp-dot { fill: var(--tone); --v: 1; transform-box: fill-box; transform-origin: center; transform: scale(var(--v)); opacity: calc(.15 + .85 * var(--v)); }
+:root[data-theme="dark"] .cp-dot { filter: drop-shadow(0 0 2px var(--tone)); }
+.cp-dot.is-lost { fill: none; stroke: var(--tone); stroke-width: 1; transform: scale(1); opacity: .5; stroke-dasharray: 2 2; }
+.cp-name { font: 600 15px var(--sans); letter-spacing: .14em; text-transform: uppercase; fill: var(--tone); text-anchor: middle; }
+.cp-n { font: 600 15px var(--mono); fill: var(--ink); text-anchor: middle; }
+.cp-tribe.is-dim { opacity: .42; } .cp-tribe.is-focus .cp-name { font-size: 17px; }
+.cp.is-march .cp-n { opacity: 0; } .cp-tribe.is-marching .cp-name { font-size: 19px; } .cp.is-march .cp-compass, .cp.is-march circle[fill^="url"] { opacity: .3; }
+
+/* The four camps */
+.cp-sides { margin-top: 3rem; }
+.cp-side-grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); }
+.cp-side { padding: 1.2rem 1.25rem; }
+.cp-side h3 { font: 500 1.4rem var(--serif); letter-spacing: -.02em; margin-top: .3rem; }
+.cp-side-tribes { display: grid; margin-top: .8rem; }
+.cp-side-tribes a { display: grid; grid-template-columns: auto 1fr auto auto; align-items: center; gap: .6rem; padding: .45rem .2rem; border-top: 1px solid color-mix(in srgb, var(--line) 70%, transparent); font-size: .84rem; }
+.cp-side-tribes a:hover b { color: var(--tone); }
+.cp-side-tribes i { width: 9px; height: 9px; border-radius: 50%; background: var(--tone); } .cp-side-tribes b { font-weight: 600; }
+.cp-side-tribes span, .cp-side-tribes em { font: 500 .76rem var(--mono); font-style: normal; color: var(--muted); } .cp-side-tribes em { color: var(--ink); }
+.cp-side-total { display: flex; flex-wrap: wrap; align-items: baseline; gap: .5rem; margin-top: .7rem; padding-top: .7rem; border-top: 1px solid var(--line); font-size: .76rem; color: var(--muted); }
+.cp-side-total b { font: 600 1.15rem var(--mono); color: var(--ink); }
+.cp-levites { margin-top: 1rem; padding: 1.2rem 1.25rem; --tone: var(--accent); }
+.cp-lev-grid { display: grid; gap: .8rem; margin-top: .8rem; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); }
+.cp-lev-grid small { font-size: .62rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); } .cp-lev-grid b { display: block; font: 500 1.02rem var(--serif); }
+.cp-lev-grid .q { margin-top: .3rem; }
+
+/* The tribe page */
+.cp-pick { margin-top: 1rem; position: sticky; top: 70px; z-index: 20; }
+.cp-t-hero { display: grid; gap: 1.5rem; margin-top: 1.5rem; align-items: center; }
+@media (min-width: 1000px) { .cp-t-hero { grid-template-columns: minmax(20rem, 26rem) 1fr; gap: 2.5rem; } }
+.cp-t-intro h1 { font: 500 clamp(3.2rem, 7vw, 5.6rem)/.92 var(--serif); letter-spacing: -.05em; margin-top: .5rem; }
+.cp-t-census { display: flex; align-items: center; gap: .9rem; margin-top: 1.3rem; flex-wrap: wrap; }
+.cp-t-census > div { display: grid; gap: .1rem; } .cp-t-census small { font-size: .64rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.cp-t-census b { font: 600 clamp(1.6rem, 3vw, 2.2rem) var(--mono); letter-spacing: -.04em; color: var(--tone); }
+.cp-arrow { color: var(--muted); }
+.cp-t-delta { display: flex; align-items: center; gap: .6rem; margin-top: .4rem; } .cp-t-delta b { font: 600 1.2rem var(--mono); } .cp-t-delta .is-down { color: var(--t-reuben); } .cp-t-delta .is-up { color: var(--t-zebulun); }
+.cp-record { display: grid; gap: .8rem; margin-top: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); }
+.cp-rec { display: grid; gap: .25rem; align-content: start; padding: 1rem 1.1rem; border-radius: 18px; }
+.cp-rec small { font-size: .62rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); } .cp-rec > b { font: 500 1.08rem/1.3 var(--serif); }
+.cp-rec p { display: flex; flex-wrap: wrap; gap: .5rem; align-items: baseline; font-size: .82rem; }
+@media (min-width: 900px) { .cp-rec-wide { grid-column: span 2; } }
+.cp-days { display: flex; gap: 4px; margin: .4rem 0 .3rem; }
+.cp-days > * { flex: 1; display: grid; place-items: center; height: 34px; border-radius: 9px; background: color-mix(in srgb, var(--tone) 14%, transparent); font: 600 .66rem var(--mono); color: var(--muted); transition: transform .2s; }
+.cp-days > a:hover { transform: translateY(-2px); }
+.cp-days > .is-me { background: var(--tone); color: var(--page); box-shadow: 0 0 calc(var(--glow) * 14px) var(--tone); height: 40px; margin-top: -3px; }
+.cp-steps > .is-lev { background: repeating-linear-gradient(135deg, transparent 0 4px, color-mix(in srgb, var(--muted) 20%, transparent) 4px 8px); }
+.cp-bento { display: grid; gap: 1rem; margin-top: 1rem; }
+@media (min-width: 900px) { .cp-bento { grid-template-columns: repeat(6, 1fr); }
+  .cp-sec-birth { grid-column: span 2; } .cp-sec-blessings { grid-column: span 4; } .cp-sec-land { grid-column: span 3; } .cp-sec-landmap { grid-column: span 3; }
+  .cp-sec-people { grid-column: span 6; } .cp-sec-story, .cp-sec-fate { grid-column: span 3; } .cp-sec-visions { grid-column: span 4; } .cp-sec-tradition { grid-column: span 2; }
+  .cp-sec-blessings .sx-duet { grid-template-columns: 1fr 1fr; } .cp-sec-birth .sx-facts { grid-template-columns: 1fr 1fr; } }
+.cp-sec { padding: 1.3rem 1.35rem; min-width: 0; }
+.cp-sec-landmap { padding: 0; overflow: hidden; min-height: 380px; position: relative; }
+.cp-sec-map { position: absolute; inset: 0; }
+@media (max-width: 899px) { .cp-sec-landmap { height: 420px; } .cp-t-intro h1 { font-size: 3.4rem; } .cp-days > * { height: 28px; font-size: .58rem; } .cp-days > .is-me { height: 32px; } }
+@media (max-width: 640px) {
+  .cp-name { font-size: 22px; letter-spacing: .02em; } .cp-tribe.is-focus .cp-name { font-size: 23px; } .cp-n { font-size: 21px; }
+  .cp-lev-label { font-size: 17px; } .cp-centre-label { font-size: 22px; } .cp-compass text { font-size: 18px; } .cp-lane text { font-size: 20px; }
+  .cp-tribe.is-marching .cp-name { font-size: 26px; }
+}
+.cp-basis { margin-top: .3rem; font-size: .76rem; color: var(--muted); }
+.cp.is-levi .cp-lev-label, .cp.is-levi .cp-centre-label { fill: var(--t-levi); font-weight: 700; } .cp.is-levi .cp-court { stroke: var(--t-levi); stroke-width: 2.5; fill: color-mix(in srgb, var(--t-levi) 12%, var(--surface)); }

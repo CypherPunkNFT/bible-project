@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-eedde1151982030cd4a8f604",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-458c443523903c16936b031f",
+  "label": "A farewel-sermon preached at the first precinct in Northampton, after the people's publick rejection of their minister, and renouncing their relation to him as pastor of the church there, on June 22, 1750. : Occasion'd by difference of sentiments, concerning the requisite qualifications of members of the church, in compleat standing. / By Jonathan Edwards, A.M. ; [Twelve lines of Scripture texts] — held source edition f39c69ef5f38",
+  "languages": [
+    "eng"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/N05272/master/N05272.xml",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "updatedAt": "2026-10-08T01:06:37.254063+00:00",
+  "state": "preparation_complete_coordinator_handoff",
+  "bodyFilesConsidered": 44460,
+  "snapshotBodyFiles": 44336,
+  "filesImproved": 33640,
+  "improvedFields": {
+    "title": 448,
+    "author": 11792,
+    "licence": 16207,
+    "url": 128,
+    "format": 169,
+    "language": 7333,
+    "audience": 128,
+    "contributor": 21168,
+    "credit": 30358,
+    "workId": 13568,
+    "editionId": 17447,
+    "assetId": 16
+  },
+  "classification": {
+    "article": 7189,
+    "book-or-treatise": 25826,
+    "context-only": 199,
+    "sermon-or-message": 10867,
+    "commentary-section": 379
+  },
+  "schemaRecordsCreated": {
+    "asset": 7783,
+    "edition": 13465,
+    "work": 13070
+  },
+  "newlyCreatedThisRun": {
+    "work": 13070,
+    "edition": 13465,
+    "asset": 7783
+  },
+  "existingCatalogAssetsReused": 3895,
+  "duplicateHashGroups": 211,
+  "unresolvedMetadataFiles": 146,
+  "unresolvedMetadataFields": {
+    "author": 101,
+    "licence": 103
+  },
+  "recordedHashConflicts": 0,
+  "inputErrors": 0,
+  "newAuthorIdentitiesNeeded": 5840,
+  "newSourceIdentitiesNeeded": 37,
+  "intakeStarted": false,
+  "embeddingStarted": false,
+  "manifestFileEntries": 33640,
+  "representations": {
+    "original": 44249,
+    "duplicate-original": 211
+  },
+  "schemaRecordsValidated": 34318,
+  "validationErrors": 0,
+  "selectedExistingDerivativeLinks": 12466,
+  "importerPlanDifferenceFiles": 632,
+  "importerPlanDifferenceFields": {
+    "workId": 6,
+    "title": 597,
+    "author": 29,
+    "editionId": 2
+  },
+  "coordinatorMetadataPriorityRequired": true,
+  "registryCountsMeaning": "Unmatched author-label variants and source labels, not distinct people or necessarily new providers",
+  "handoff": "COORDINATOR-HANDOFF.md"
+}

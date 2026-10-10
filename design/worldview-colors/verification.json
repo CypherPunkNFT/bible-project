@@ -1,0 +1,497 @@
+{
+  "palettes": 10,
+  "themes": {
+    "dark": [
+      {
+        "palette": 1,
+        "world": "islam",
+        "color": "rgb(89, 197, 189)",
+        "expected": "#59c5bd"
+      },
+      {
+        "palette": 1,
+        "world": "secular",
+        "color": "rgb(131, 201, 140)",
+        "expected": "#83c98c"
+      },
+      {
+        "palette": 1,
+        "world": "buddhism",
+        "color": "rgb(239, 160, 107)",
+        "expected": "#efa06b"
+      },
+      {
+        "palette": 1,
+        "world": "hinduism",
+        "color": "rgb(135, 181, 237)",
+        "expected": "#87b5ed"
+      },
+      {
+        "palette": 2,
+        "world": "islam",
+        "color": "rgb(89, 197, 189)",
+        "expected": "#59c5bd"
+      },
+      {
+        "palette": 2,
+        "world": "secular",
+        "color": "rgb(176, 197, 156)",
+        "expected": "#b0c59c"
+      },
+      {
+        "palette": 2,
+        "world": "buddhism",
+        "color": "rgb(240, 178, 124)",
+        "expected": "#f0b27c"
+      },
+      {
+        "palette": 2,
+        "world": "hinduism",
+        "color": "rgb(161, 198, 237)",
+        "expected": "#a1c6ed"
+      },
+      {
+        "palette": 3,
+        "world": "islam",
+        "color": "rgb(89, 197, 189)",
+        "expected": "#59c5bd"
+      },
+      {
+        "palette": 3,
+        "world": "secular",
+        "color": "rgb(98, 183, 129)",
+        "expected": "#62b781"
+      },
+      {
+        "palette": 3,
+        "world": "buddhism",
+        "color": "rgb(239, 160, 87)",
+        "expected": "#efa057"
+      },
+      {
+        "palette": 3,
+        "world": "hinduism",
+        "color": "rgb(128, 164, 238)",
+        "expected": "#80a4ee"
+      },
+      {
+        "palette": 4,
+        "world": "islam",
+        "color": "rgb(89, 197, 189)",
+        "expected": "#59c5bd"
+      },
+      {
+        "palette": 4,
+        "world": "secular",
+        "color": "rgb(155, 212, 176)",
+        "expected": "#9bd4b0"
+      },
+      {
+        "palette": 4,
+        "world": "buddhism",
+        "color": "rgb(222, 149, 117)",
+        "expected": "#de9575"
+      },
+      {
+        "palette": 4,
+        "world": "hinduism",
+        "color": "rgb(159, 182, 219)",
+        "expected": "#9fb6db"
+      },
+      {
+        "palette": 5,
+        "world": "islam",
+        "color": "rgb(89, 197, 189)",
+        "expected": "#59c5bd"
+      },
+      {
+        "palette": 5,
+        "world": "secular",
+        "color": "rgb(183, 196, 126)",
+        "expected": "#b7c47e"
+      },
+      {
+        "palette": 5,
+        "world": "buddhism",
+        "color": "rgb(225, 160, 120)",
+        "expected": "#e1a078"
+      },
+      {
+        "palette": 5,
+        "world": "hinduism",
+        "color": "rgb(148, 171, 239)",
+        "expected": "#94abef"
+      },
+      {
+        "palette": 6,
+        "world": "islam",
+        "color": "rgb(89, 197, 189)",
+        "expected": "#59c5bd"
+      },
+      {
+        "palette": 6,
+        "world": "secular",
+        "color": "rgb(121, 198, 153)",
+        "expected": "#79c699"
+      },
+      {
+        "palette": 6,
+        "world": "buddhism",
+        "color": "rgb(241, 179, 145)",
+        "expected": "#f1b391"
+      },
+      {
+        "palette": 6,
+        "world": "hinduism",
+        "color": "rgb(133, 155, 240)",
+        "expected": "#859bf0"
+      },
+      {
+        "palette": 7,
+        "world": "islam",
+        "color": "rgb(89, 197, 189)",
+        "expected": "#59c5bd"
+      },
+      {
+        "palette": 7,
+        "world": "secular",
+        "color": "rgb(152, 205, 135)",
+        "expected": "#98cd87"
+      },
+      {
+        "palette": 7,
+        "world": "buddhism",
+        "color": "rgb(243, 171, 93)",
+        "expected": "#f3ab5d"
+      },
+      {
+        "palette": 7,
+        "world": "hinduism",
+        "color": "rgb(120, 188, 235)",
+        "expected": "#78bceb"
+      },
+      {
+        "palette": 8,
+        "world": "islam",
+        "color": "rgb(89, 197, 189)",
+        "expected": "#59c5bd"
+      },
+      {
+        "palette": 8,
+        "world": "secular",
+        "color": "rgb(148, 190, 160)",
+        "expected": "#94bea0"
+      },
+      {
+        "palette": 8,
+        "world": "buddhism",
+        "color": "rgb(220, 152, 113)",
+        "expected": "#dc9871"
+      },
+      {
+        "palette": 8,
+        "world": "hinduism",
+        "color": "rgb(141, 174, 211)",
+        "expected": "#8daed3"
+      },
+      {
+        "palette": 9,
+        "world": "islam",
+        "color": "rgb(89, 197, 189)",
+        "expected": "#59c5bd"
+      },
+      {
+        "palette": 9,
+        "world": "secular",
+        "color": "rgb(183, 212, 147)",
+        "expected": "#b7d493"
+      },
+      {
+        "palette": 9,
+        "world": "buddhism",
+        "color": "rgb(239, 155, 123)",
+        "expected": "#ef9b7b"
+      },
+      {
+        "palette": 9,
+        "world": "hinduism",
+        "color": "rgb(134, 171, 224)",
+        "expected": "#86abe0"
+      },
+      {
+        "palette": 10,
+        "world": "islam",
+        "color": "rgb(89, 197, 189)",
+        "expected": "#59c5bd"
+      },
+      {
+        "palette": 10,
+        "world": "secular",
+        "color": "rgb(123, 201, 135)",
+        "expected": "#7bc987"
+      },
+      {
+        "palette": 10,
+        "world": "buddhism",
+        "color": "rgb(237, 171, 112)",
+        "expected": "#edab70"
+      },
+      {
+        "palette": 10,
+        "world": "hinduism",
+        "color": "rgb(170, 203, 228)",
+        "expected": "#aacbe4"
+      }
+    ],
+    "light": [
+      {
+        "palette": 1,
+        "world": "islam",
+        "color": "rgb(24, 113, 106)",
+        "expected": "#18716a"
+      },
+      {
+        "palette": 1,
+        "world": "secular",
+        "color": "rgb(52, 117, 64)",
+        "expected": "#347540"
+      },
+      {
+        "palette": 1,
+        "world": "buddhism",
+        "color": "rgb(163, 75, 24)",
+        "expected": "#a34b18"
+      },
+      {
+        "palette": 1,
+        "world": "hinduism",
+        "color": "rgb(49, 95, 156)",
+        "expected": "#315f9c"
+      },
+      {
+        "palette": 2,
+        "world": "islam",
+        "color": "rgb(24, 113, 106)",
+        "expected": "#18716a"
+      },
+      {
+        "palette": 2,
+        "world": "secular",
+        "color": "rgb(91, 112, 64)",
+        "expected": "#5b7040"
+      },
+      {
+        "palette": 2,
+        "world": "buddhism",
+        "color": "rgb(158, 81, 31)",
+        "expected": "#9e511f"
+      },
+      {
+        "palette": 2,
+        "world": "hinduism",
+        "color": "rgb(50, 104, 145)",
+        "expected": "#326891"
+      },
+      {
+        "palette": 3,
+        "world": "islam",
+        "color": "rgb(24, 113, 106)",
+        "expected": "#18716a"
+      },
+      {
+        "palette": 3,
+        "world": "secular",
+        "color": "rgb(38, 115, 62)",
+        "expected": "#26733e"
+      },
+      {
+        "palette": 3,
+        "world": "buddhism",
+        "color": "rgb(153, 80, 17)",
+        "expected": "#995011"
+      },
+      {
+        "palette": 3,
+        "world": "hinduism",
+        "color": "rgb(61, 87, 163)",
+        "expected": "#3d57a3"
+      },
+      {
+        "palette": 4,
+        "world": "islam",
+        "color": "rgb(24, 113, 106)",
+        "expected": "#18716a"
+      },
+      {
+        "palette": 4,
+        "world": "secular",
+        "color": "rgb(55, 115, 78)",
+        "expected": "#37734e"
+      },
+      {
+        "palette": 4,
+        "world": "buddhism",
+        "color": "rgb(157, 78, 48)",
+        "expected": "#9d4e30"
+      },
+      {
+        "palette": 4,
+        "world": "hinduism",
+        "color": "rgb(74, 98, 144)",
+        "expected": "#4a6290"
+      },
+      {
+        "palette": 5,
+        "world": "islam",
+        "color": "rgb(24, 113, 106)",
+        "expected": "#18716a"
+      },
+      {
+        "palette": 5,
+        "world": "secular",
+        "color": "rgb(100, 112, 43)",
+        "expected": "#64702b"
+      },
+      {
+        "palette": 5,
+        "world": "buddhism",
+        "color": "rgb(156, 84, 39)",
+        "expected": "#9c5427"
+      },
+      {
+        "palette": 5,
+        "world": "hinduism",
+        "color": "rgb(76, 89, 161)",
+        "expected": "#4c59a1"
+      },
+      {
+        "palette": 6,
+        "world": "islam",
+        "color": "rgb(24, 113, 106)",
+        "expected": "#18716a"
+      },
+      {
+        "palette": 6,
+        "world": "secular",
+        "color": "rgb(51, 114, 75)",
+        "expected": "#33724b"
+      },
+      {
+        "palette": 6,
+        "world": "buddhism",
+        "color": "rgb(160, 81, 42)",
+        "expected": "#a0512a"
+      },
+      {
+        "palette": 6,
+        "world": "hinduism",
+        "color": "rgb(70, 84, 161)",
+        "expected": "#4654a1"
+      },
+      {
+        "palette": 7,
+        "world": "islam",
+        "color": "rgb(24, 113, 106)",
+        "expected": "#18716a"
+      },
+      {
+        "palette": 7,
+        "world": "secular",
+        "color": "rgb(70, 117, 56)",
+        "expected": "#467538"
+      },
+      {
+        "palette": 7,
+        "world": "buddhism",
+        "color": "rgb(157, 83, 17)",
+        "expected": "#9d5311"
+      },
+      {
+        "palette": 7,
+        "world": "hinduism",
+        "color": "rgb(36, 105, 143)",
+        "expected": "#24698f"
+      },
+      {
+        "palette": 8,
+        "world": "islam",
+        "color": "rgb(24, 113, 106)",
+        "expected": "#18716a"
+      },
+      {
+        "palette": 8,
+        "world": "secular",
+        "color": "rgb(77, 114, 89)",
+        "expected": "#4d7259"
+      },
+      {
+        "palette": 8,
+        "world": "buddhism",
+        "color": "rgb(159, 81, 37)",
+        "expected": "#9f5125"
+      },
+      {
+        "palette": 8,
+        "world": "hinduism",
+        "color": "rgb(66, 101, 139)",
+        "expected": "#42658b"
+      },
+      {
+        "palette": 9,
+        "world": "islam",
+        "color": "rgb(24, 113, 106)",
+        "expected": "#18716a"
+      },
+      {
+        "palette": 9,
+        "world": "secular",
+        "color": "rgb(92, 116, 47)",
+        "expected": "#5c742f"
+      },
+      {
+        "palette": 9,
+        "world": "buddhism",
+        "color": "rgb(164, 72, 40)",
+        "expected": "#a44828"
+      },
+      {
+        "palette": 9,
+        "world": "hinduism",
+        "color": "rgb(61, 96, 153)",
+        "expected": "#3d6099"
+      },
+      {
+        "palette": 10,
+        "world": "islam",
+        "color": "rgb(24, 113, 106)",
+        "expected": "#18716a"
+      },
+      {
+        "palette": 10,
+        "world": "secular",
+        "color": "rgb(52, 116, 66)",
+        "expected": "#347442"
+      },
+      {
+        "palette": 10,
+        "world": "buddhism",
+        "color": "rgb(161, 81, 32)",
+        "expected": "#a15120"
+      },
+      {
+        "palette": 10,
+        "world": "hinduism",
+        "color": "rgb(62, 104, 136)",
+        "expected": "#3e6888"
+      }
+    ]
+  },
+  "viewports": [
+    1440,
+    1024,
+    768,
+    390,
+    320
+  ],
+  "browserErrors": []
+}

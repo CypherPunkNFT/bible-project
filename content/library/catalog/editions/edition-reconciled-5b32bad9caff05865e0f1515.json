@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-5b32bad9caff05865e0f1515",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-08ac5101e66d9a989a1b0956",
+  "label": "A history of the work of redemption. Containing the outlines of a body of divinity, in a method entirely new. By the late Reverend Mr. Jonathan Edwards, ... 1799 — held source edition d5d2b1c38e82",
+  "languages": [
+    "English"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_eighteenth-century_a-history-of-the-work-of_edwards-jonathan_1799/bim_eighteenth-century_a-history-of-the-work-of_edwards-jonathan_1799_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "state": "downloads_complete_report_written",
+  "updatedAt": "2026-10-07T23:59:22.291082+00:00",
+  "files": 2211,
+  "bytes": 685507086,
+  "distinctWorksEstimate": 1657,
+  "sources": {
+    "tcp": 65,
+    "ia": 2146
+  },
+  "failedDownloads": 109,
+  "exportFailures": 0,
+  "blockers": [],
+  "previouslyFailedSkipped": 34,
+  "derivedTexts": 0,
+  "embeddingBefore": {
+    "state": "complete",
+    "total": 1934778,
+    "indexed": 1934778,
+    "remaining": 0,
+    "corpus_build": "2026-10-07T15:23:27.068328+00:00",
+    "updated_at": "2026-10-07T16:52:55.679411+00:00",
+    "seconds": 2509.1
+  },
+  "embeddingAfter": {
+    "state": "interrupted",
+    "indexed": 1962405,
+    "total": 8458873,
+    "remaining": 6496468,
+    "corpus_build": "2026-10-07T23:00:34.844772+00:00",
+    "error": "timed out",
+    "updated_at": "2026-10-07T23:58:35.641637+00:00"
+  },
+  "intakeCommandExitCode": 0,
+  "intake": {
+    "pid": 102336,
+    "started_at": "2026-10-07T21:38:36.5683810Z",
+    "state": "running"
+  },
+  "distinctWorksBasis": "Normalized author/title; publication year distinguishes dated annual records"
+}

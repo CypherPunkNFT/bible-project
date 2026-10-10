@@ -1,0 +1,133 @@
+{
+  "authors": [
+    "Fuller, Andrew",
+    "Andrew Fuller",
+    "Carey, William",
+    "William Carey",
+    "Judson, Adoniram",
+    "Adoniram Judson",
+    "Judson, Ann",
+    "Ann Hasseltine Judson",
+    "Ann H. Judson",
+    "Judson, Sarah",
+    "Sarah Boardman Judson",
+    "Judson, Emily",
+    "Emily Chubbuck Judson",
+    "Spurgeon, Charles",
+    "Charles H. Spurgeon",
+    "Charles Haddon Spurgeon",
+    "C. H. Spurgeon",
+    "Whitefield, George",
+    "George Whitefield",
+    "Edwards, Jonathan",
+    "Jonathan Edwards",
+    "Brainerd, David",
+    "David Brainerd"
+  ],
+  "primaryAuthorOnly": true,
+  "authorMustStart": true,
+  "authorIdentityRules": [
+    {
+      "namePattern": "Fuller",
+      "lifeYears": [
+        1754,
+        1815
+      ]
+    },
+    {
+      "namePattern": "Carey",
+      "lifeYears": [
+        1761,
+        1834
+      ]
+    },
+    {
+      "namePattern": "Spurgeon",
+      "lifeYears": [
+        1834,
+        1892
+      ]
+    },
+    {
+      "namePattern": "Whitefield",
+      "lifeYears": [
+        1714,
+        1770
+      ]
+    },
+    {
+      "namePattern": "Edwards",
+      "lifeYears": [
+        1703,
+        1758
+      ]
+    },
+    {
+      "namePattern": "Brainerd",
+      "lifeYears": [
+        1718,
+        1747
+      ]
+    },
+    {
+      "namePattern": "Judson",
+      "lifeYears": [
+        1788,
+        1850,
+        1789,
+        1826,
+        1803,
+        1845,
+        1817,
+        1854
+      ]
+    }
+  ],
+  "authorTitleRules": [
+    {
+      "namePattern": "Spurgeon",
+      "titlePattern": "sermon|pulpit|preach|new park|metropolitan|works|gospel|discourse|address|lecture|talk|pastor"
+    },
+    {
+      "namePattern": "Judson",
+      "titlePattern": "memoir|life|letter|mission|biograph|burma|burmah|correspond|journal|diary"
+    }
+  ],
+  "deferHardDownloads": true,
+  "skipIds": [
+    "barnes/1cor",
+    "barnes/2cor",
+    "barnes/acts",
+    "barnes/daniel1",
+    "barnes/daniel2",
+    "barnes/epc",
+    "barnes/hebrews",
+    "barnes/isaiah1",
+    "barnes/isaiah2",
+    "barnes/james",
+    "barnes/job1",
+    "barnes/luke",
+    "barnes/matthew",
+    "barnes/psalms1",
+    "barnes/psalms2",
+    "barnes/psalms3",
+    "barnes/rev",
+    "barnes/romans",
+    "barnes/tttp",
+    "cook_fc/1sam",
+    "cook_fc/exod_ruth",
+    "cook_fc/provez",
+    "moule/hebrews",
+    "baxter/practical",
+    "ryle/twobears",
+    "josephus/works",
+    "ursinus/heidelberg",
+    "ursinus/heidelberg1"
+  ],
+  "ids": [
+    "edwards/treatiseongrace",
+    "edwards/trinity",
+    "edwards/will"
+  ],
+  "batchName": "expanded"
+}

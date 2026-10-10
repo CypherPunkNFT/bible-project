@@ -1,0 +1,105 @@
+# RB13 failed-download TODO
+
+77 failed file/metadata requests; 22 absent complete editions/wrappers; 0 source blockers. No retries.
+
+- [ ] CCEL `ryle/twobears`: not a complete offered XML text
+- [ ] CCEL `ursinus/heidelberg`: not a complete offered XML text
+- [ ] CCEL `ursinus/heidelberg1`: not a complete offered XML text
+- [ ] IA `Ayer_PM871_W28_1835`: HTTP Error 500: Internal Server Error
+- [ ] IA `MN41750ucmf_3`: <urlopen error _ssl.c:1015: The handshake operation timed out>
+- [ ] IA `MN40225ucmf_6`: <urlopen error _ssl.c:1015: The handshake operation timed out>
+- [ ] IA `MN41722ucmf_0`: <urlopen error _ssl.c:1015: The handshake operation timed out>
+- [ ] IA `MN40216ucmf_1`: <urlopen error _ssl.c:1015: The handshake operation timed out>
+- [ ] IA `MN41751ucmf_8`: The read operation timed out
+- [ ] IA `abookforboysand00browgoog`: HTTP Error 500: Internal Server Error
+- [ ] IA `aconcisediction00covegoog`: The read operation timed out
+- [ ] IA `annualreportofam00amer_24`: HTTP Error 500: Internal Server Error
+- [ ] IA `aseriesquestion00judsgoog`: The read operation timed out
+- [ ] IA `biblecatechistin00gill`: The read operation timed out
+- [ ] IA `bim_early-english-books-1475-1640_a-catechisme-or-institu_nowell-alexander-the-m_1577`: The read operation timed out
+- [ ] IA `bim_early-english-books-1475-1640_a-short-catechisme-wher_gouge-william_1631`: The read operation timed out
+- [ ] IA `bim_early-english-books-1475-1640_catechismus-paruus-pueri_nowell-alexander_1574`: <urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>
+- [ ] IA `bim_early-english-books-1475-1640_catechismus-ecclesiae-ge_calvin-jean_1572`: <urlopen error _ssl.c:1015: The handshake operation timed out>
+- [ ] IA `bim_early-english-books-1475-1640_catechismus-paruus-pueri_nowell-alexander_1583`: The read operation timed out
+- [ ] IA `bim_early-english-books-1475-1640_catechismus-sive-prima-_nowell-alexander_1572`: The read operation timed out
+- [ ] IA `bim_early-english-books-1475-1640_the-breast-plate-of-fait_preston-john_1630_0`: The read operation timed out
+- [ ] IA `bim_early-english-books-1475-1640_the-catechisme-or-manner_calvin-jean_1580`: The read operation timed out
+- [ ] IA `bim_early-english-books-1641-1700_an-explicatory-catechism_vincent-thomas_1693`: HTTP Error 500: Internal Server Error
+- [ ] IA `bim_eighteenth-century_a-preservative-against-s_edwards-jonathan_1703`: HTTP Error 500: Internal Server Error
+- [ ] IA `bim_eighteenth-century_a-plain-catechism-for-ch_henry-matthew_1741`: The read operation timed out
+- [ ] IA `bim_eighteenth-century_a-poem-to-the-memory-of-_stennett-joseph_1702_0`: The read operation timed out
+- [ ] IA `bim_eighteenth-century_a-sermon-preachd-at-the_henry-matthew_1706_0`: The read operation timed out
+- [ ] IA `bim_eighteenth-century_a-sermon-preached-at-a-p_brown-john_1764`: The read operation timed out
+- [ ] IA `bim_eighteenth-century_an-illustration-of-the-d_boston-thomas_1796_2`: HTTP Error 500: Internal Server Error
+- [ ] IA `bim_eighteenth-century_christ-jesus-the-lord-co_fisher-james_1741`: The read operation timed out
+- [ ] IA `bim_eighteenth-century_dialogues-on-personal-an_baxter-richard_1769`: The read operation timed out
+- [ ] IA `bim_eighteenth-century_divine-and-moral-songs-_watts-isaac_1750`: The read operation timed out
+- [ ] IA `bim_eighteenth-century_divine-songs-attempted-i_watts-isaac_1775`: <urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>
+- [ ] IA `bim_eighteenth-century_divine-songs-attempted-i_watts-isaac_1735`: <urlopen error _ssl.c:1015: The handshake operation timed out>
+- [ ] IA `bim_eighteenth-century_divine-songs-attempted-i_watts-isaac_1773`: <urlopen error _ssl.c:1015: The handshake operation timed out>
+- [ ] IA `bim_eighteenth-century_divine-songs-attempted-i_watts-isaac_1769`: <urlopen error _ssl.c:1015: The handshake operation timed out>
+- [ ] IA `bim_eighteenth-century_divine-songs-attempted-i_watts-isaac_1785`: HTTP Error 500: Internal Server Error
+- [ ] IA `bim_eighteenth-century_gospel-mysteries-unveil_keach-benjamin_1701_0`: HTTP Error 500: Internal Server Error
+- [ ] IA `bim_eighteenth-century_ten-sermons-on-the-power_doddridge-philip_1736`: The read operation timed out
+- [ ] IA `bim_eighteenth-century_the-causes-and-danger-of_baxter-richard_1763`: The read operation timed out
+- [ ] IA `bim_eighteenth-century_the-first-catechism-of-t_watts-isaac_1788`: HTTP Error 500: Internal Server Error
+- [ ] IA `bim_eighteenth-century_two-short-catechisms-mut_brown-john_1764`: The read operation timed out
+- [ ] IA `calvso00robi`: The read operation timed out
+- [ ] IA `differencesinjud1800buny`: The read operation timed out
+- [ ] IA `essaysonchurcho00maso`: The read operation timed out
+- [ ] IA `essaytowardseasy1845brow`: <urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>
+- [ ] IA `essaytowardseasy00brow`: <urlopen error _ssl.c:1015: The handshake operation timed out>
+- [ ] IA `essaytowardseasy1846brow`: <urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>
+- [ ] IA `fannygrahamorpee00amer`: The read operation timed out
+- [ ] IA `gospelitsownwitn00full_0`: HTTP Error 500: Internal Server Error
+- [ ] IA `gospelitsownwitn01full`: HTTP Error 500: Internal Server Error
+- [ ] IA `greekandeastern00unknuoft`: The read operation timed out
+- [ ] IA `hintsandhelpson00burrgoog`: HTTP Error 500: Internal Server Error
+- [ ] IA `indianmissionar00elligoog`: HTTP Error 500: Internal Server Error
+- [ ] IA `lastdaysofjesusc00jenn`: The read operation timed out
+- [ ] IA `lecfranc00calv`: HTTP Error 500: Internal Server Error
+- [ ] IA `lecturesonshorte02gree`: The read operation timed out
+- [ ] IA `littleversesforg00ameriala`: HTTP Error 500: Internal Server Error
+- [ ] IA `naturallawsgospe01morr`: The read operation timed out
+- [ ] IA `questionsonsunda00gene`: The read operation timed out
+- [ ] IA `rboysgirls00buny`: The read operation timed out
+- [ ] IA `rightwayorgospel00coll`: <urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>
+- [ ] IA `richconfe00baxt`: <urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>
+- [ ] IA `sermonsonreligio00doddiala`: The read operation timed out
+- [ ] IA `shortercatechism00hodguoft`: The read operation timed out
+- [ ] IA `wholeworksofjohn04flav`: The read operation timed out
+- [ ] IA `wordsencouragin00henr`: HTTP Error 500: Internal Server Error
+- [ ] IA `wordsofsongstobe00dese`: The read operation timed out
+- [ ] CHAPEL `woci`: <urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>
+- [ ] CHAPEL `gwarfg`: <urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>
+- [ ] CHAPEL `prov`: <urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>
+- [ ] CHAPEL `hsigs`: <urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>
+- [ ] CHAPEL `asac`: <urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>
+- [ ] CHAPEL `ayw2s`: HTTP Error 404: Not Found
+- [ ] FOUNDERS `3186`: <urlopen error _ssl.c:1015: The handshake operation timed out>
+- [ ] DESIRINGGOD `sex-race-and-the-sovereignty-of-god`: <urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>
+- [ ] DESIRINGGOD `think`: empty/short original
+- [ ] FOUNDERS `3127`: No offered complete text chapters
+- [ ] DESIRINGGOD `ask-pastor-john`: No complete free PDF/EPUB offered; samples/retailer links excluded
+- [ ] DESIRINGGOD `battling-unbelief`: No complete free PDF/EPUB offered; samples/retailer links excluded
+- [ ] DESIRINGGOD `desiring-god`: No complete free PDF/EPUB offered; samples/retailer links excluded
+- [ ] DESIRINGGOD `future-grace`: No complete free PDF/EPUB offered; samples/retailer links excluded
+- [ ] DESIRINGGOD `god-technology-and-the-christian-life`: No complete free PDF/EPUB offered; samples/retailer links excluded
+- [ ] DESIRINGGOD `a-godward-heart`: No complete free PDF/EPUB offered; samples/retailer links excluded
+- [ ] DESIRINGGOD `a-godward-life`: No complete free PDF/EPUB offered; samples/retailer links excluded
+- [ ] DESIRINGGOD `habits-of-grace-study-guide`: No complete free PDF/EPUB offered; samples/retailer links excluded
+- [ ] DESIRINGGOD `humbled`: No complete free PDF/EPUB offered; samples/retailer links excluded
+- [ ] DESIRINGGOD `jesus-the-only-way-to-god`: No complete free PDF/EPUB offered; samples/retailer links excluded
+- [ ] DESIRINGGOD `the-justification-of-god`: No complete free PDF/EPUB offered; samples/retailer links excluded
+- [ ] DESIRINGGOD `let-the-nations-be-glad`: No complete free PDF/EPUB offered; samples/retailer links excluded
+- [ ] DESIRINGGOD `life-as-a-vapor`: No complete free PDF/EPUB offered; samples/retailer links excluded
+- [ ] DESIRINGGOD `lit`: No complete free PDF/EPUB offered; samples/retailer links excluded
+- [ ] DESIRINGGOD `a-little-theology-of-exercise`: No complete free PDF/EPUB offered; samples/retailer links excluded
+- [ ] DESIRINGGOD `newton-on-the-christian-life`: No complete free PDF/EPUB offered; samples/retailer links excluded
+- [ ] DESIRINGGOD `rich-wounds`: No complete free PDF/EPUB offered; samples/retailer links excluded
+- [ ] DESIRINGGOD `the-satisfied-soul`: No complete free PDF/EPUB offered; samples/retailer links excluded
+- [ ] DESIRINGGOD `the-supremacy-of-god-in-preaching`: No complete free PDF/EPUB offered; samples/retailer links excluded
+- [ ] DESIRINGGOD `taste-and-see`: No complete free PDF/EPUB offered; samples/retailer links excluded
+- [ ] DESIRINGGOD `true-to-his-word`: No complete free PDF/EPUB offered; samples/retailer links excluded
+
+Full URLs and original errors are in `failed-downloads.json`. Previously failed IDs are excluded by source filters.

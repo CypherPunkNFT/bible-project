@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-f3e10cae54a5ab3dce6d720c",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-6159fda2ed5b7e1c8fdc1fa7",
+  "label": "The English academy, or, A brief introduction to the seven liberal arts grammar, arithmetick, geometrie, musick, astronomie, rhetorick & logic : to which is added the necessary arts and mysteries of navigation, dyaling, surveying, mensuration, gauging & fortification, practically laid down in all their material points and particulars, highly approved to be known by the ingenious, and as such are desirous to profit, or render themselves accomplished : chiefly intended for the instruction of young scholars, who are acquainted with no other than their native language, but may also be very useful to other persons that have made some progress in the studies of the said arts / by John Newton. — held source edition d2a3de3508a7",
+  "languages": [
+    "eng"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A52260/master/A52260.xml",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

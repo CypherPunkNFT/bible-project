@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-bca1776e2077ab70eb791b36",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-fd9c198f4923febe535a5b22",
+  "label": "A letter to the Right Reverend the Bishop of London, and the other the right rev. the bishops, concern'd in the publication of a pamphlet, entitled, Observations upon the conduct and behaviour of a certain sect usually distinguished by the name of Methodists. By George Whitefield, ... 1744 — held source edition 7139820ae54d",
+  "languages": [
+    "English"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_eighteenth-century_a-letter-to-the-right-re_whitefield-george_1744/bim_eighteenth-century_a-letter-to-the-right-re_whitefield-george_1744_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

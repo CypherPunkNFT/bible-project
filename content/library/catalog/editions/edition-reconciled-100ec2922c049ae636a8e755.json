@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-100ec2922c049ae636a8e755",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-1446a32def09024ff13782fa",
+  "label": "A true copy of the Welch sermon preached before the two princes, Prince Rupert and Prince Maurice, at Dover, a little before they imbarked themselves, with what they had plundered out of England and Wales, to passe beyond the seas preached by Shon up Owen, priest, his text being 2. Esdras Chap. 7, verse 15. — held source edition 5285fb2649ca",
+  "languages": [
+    "eng"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A63500/master/A63500.xml",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

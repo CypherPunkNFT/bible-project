@@ -1,0 +1,4 @@
+{
+  "iaQuery": "mediatype:texts AND date:[* TO 1930-12-31] AND NOT access-restricted-item:true AND ((creator:\"Crosby, Thomas\" OR creator:\"Ivimey, Joseph\" OR creator:\"Backus, Isaac\" OR creator:\"Benedict, David\" OR creator:\"Cathcart, William\" OR creator:\"Rippon, John\" OR creator:\"Kiffin, William\" OR creator:\"Knollys, Hanserd\" OR creator:\"Keach, Benjamin\" OR creator:\"Collins, Hercules\") OR ((title:minutes OR title:proceedings OR title:letters OR title:register OR title:records OR title:history OR title:confession OR title:churchbook) AND (title:baptist OR creator:baptist OR publisher:baptist)))",
+  "deferHardDownloads": true
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-e82406cb126ae5a531045ce0",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-13dfb8b1d6476ba744ae5f55",
+  "label": "The beatitudes: or A discourse upon part of Christs famous Sermon on the Mount. Wherunto is added Christs various fulnesse. The preciousnesse of the soul. The souls malady and cure. The beauty of grace. The spiritual watch. The heavenly race. The sacred anchor. The trees of righteousnesse. The perfume of love. The good practitioner. By Thomas Watson, minister of the word at Stephens Walbrook in the city of London. — held source edition 318bb76eeb1b",
+  "languages": [
+    "und"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A96093/master/A96093.xml",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

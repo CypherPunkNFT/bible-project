@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-10b7039b67721aa6f8d8019b",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-7196e9a63dec23a83240ca4b",
+  "label": "A sermon preached to the Honourable House of Commons, in Parliament assembled: on January 31. A day of solemne humiliation. With a discourse about toleration, and the duty of the civill magistrate about religion, thereunto annexed. Humbly presented to them, and all peace-loving men of this nation. / By John Owen, pastor of the Church of Christ, which is at Coggeshall in Essex. — held source edition 994e437439bb",
+  "languages": [
+    "eng"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A90288/master/A90288.xml",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

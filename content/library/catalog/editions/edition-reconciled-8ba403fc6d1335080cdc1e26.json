@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-8ba403fc6d1335080cdc1e26",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-176a9e5e33183d77c367aaa9",
+  "label": "A faithful narrative of the surprising work of God in the conversion of many hundred souls in Northampton, and the neighbouring towns and villages of the county of Hampshire, in the province of the Massachusetts-Bay in New-England. : In a letter to the Reverend Dr. Benjamin Colman, of Boston. — held source edition 73ffe0b8184e",
+  "languages": [
+    "Eng"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/faithfulnarrativ00edwa/faithfulnarrativ00edwa_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-reconciled-cae73269d1b255cd63635417",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "title": "An Account of the late Reverend Mr. David Brainerd : minister of the gospel, missionary to the Indians, from the honourable Society in Scotland, for the propagation of Christian knowledge, and pastor of a church of Christian Indians in New-Jersey, who died at Northampton in New-England, Octob. 9th 1747, in the 30th year of his life: Chiefly taken from his own diary, and other private writings, written for his own use",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-jonathan-edwards",
+      "role": "author"
+    }
+  ],
+  "genre": "treatise",
+  "role": "core-teaching",
+  "collections": [],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [],
+  "depth": "unknown",
+  "era": "unknown",
+  "dates": [],
+  "passages": [],
+  "related": [],
+  "externalIds": {
+    "source-internet-archive": [
+      "ia:accountoflaterev00edwa"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/download/accountoflaterev00edwa/accountoflaterev00edwa_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

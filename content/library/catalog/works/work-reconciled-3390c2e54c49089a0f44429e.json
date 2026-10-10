@@ -1,0 +1,43 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-reconciled-3390c2e54c49089a0f44429e",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "title": "A treatise concerning religious affections, in three parts. Part first. Concerning the nature of the affections, and their importance in religion. Part Second. Shewing what are no certain signs that religious affections are gracious, or that they are not. Part Third. Shewing what are distinguishing signs of truly gracious and holy affections. By Jonathan Edwards, A.M. and Pastor of the First Church in Northampton",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-jonathan-edwards",
+      "role": "author"
+    }
+  ],
+  "genre": "treatise",
+  "role": "core-teaching",
+  "collections": [],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [],
+  "depth": "unknown",
+  "era": "unknown",
+  "dates": [],
+  "passages": [],
+  "related": [],
+  "externalIds": {
+    "source-internet-archive": [
+      "ia:treatiseconcerni00edwa_3"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/download/treatiseconcerni00edwa_3/treatiseconcerni00edwa_3_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

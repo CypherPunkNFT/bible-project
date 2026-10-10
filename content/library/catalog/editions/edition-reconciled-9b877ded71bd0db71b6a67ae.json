@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-9b877ded71bd0db71b6a67ae",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-37a582fa6b5d2ab1ddba9930",
+  "label": "Vindiciae evangelicae, or, The mystery of the Gospel vindicated, and Socinianisme examined : in the consideration, and confutation of a catechisme, called A Scripture catechisme, written by J. Biddle, and the catechisme of Valentinus Smalcius, commonly called the Racovian catechisme. With the vindication of the testimonies of Scripture ... from the perverse expositions and interpretations of them, by Hugo Grotius in his Annotations on the Bible .. — held source edition 834fd87f92a0",
+  "languages": [
+    "eng"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/vindi00owen/vindi00owen_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

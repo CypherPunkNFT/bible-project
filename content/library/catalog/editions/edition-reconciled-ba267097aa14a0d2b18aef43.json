@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-ba267097aa14a0d2b18aef43",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-34d2de4869ae72bc63bff8f6",
+  "label": "Solomon's temple spiritualized: or, gospel-light fetched out of the temple at Jerusalem, to let us more easily into the glory of New-Testament truths. By John Bunyan. 1786 — held source edition 8ecca1db5920",
+  "languages": [
+    "English"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_eighteenth-century_solomons-temple-spiritu_bunyan-john_1786/bim_eighteenth-century_solomons-temple-spiritu_bunyan-john_1786_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "source": "kruger",
+  "state": "complete",
+  "startedAt": "2026-10-07T20:12:43.593655+00:00",
+  "downloaded": 655,
+  "attempted": 659,
+  "bytes": 3874740,
+  "heldDuringRun": 295,
+  "duplicateHashes": 3,
+  "excludedMediaOrNotWritten": 596,
+  "failures": [
+    {
+      "sourceId": "paper-7d331fe7d679513cc1c8",
+      "url": "https://www.thegospelcoalition.org/article/apparent-contradictions-gospels/",
+      "error": "Deferred collection crawl-delay 600s; no file request attempted; collect later under the published rate"
+    },
+    {
+      "sourceId": "paper-50bc9632ef22169f6f2e",
+      "url": "https://5mt.michaeljkruger.com/2021/03/2-Pet-3-2_Kruger_offprint.pdf",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "sourceId": "paper-d3ee567f26cdb98ebd40",
+      "url": "https://5mt.michaeljkruger.com/2012/07/A-Roundtable-Discussion-with-Michael-Licona-on-The-Resurrection-of-Jesus.pdf",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "sourceId": "paper-ab29324c94189bf00165",
+      "url": "http://www.tyndalehouse.com/Bulletin/63=2012/01-Kruger20.pdf",
+      "error": "Unapproved cross-host redirect https://tyndalehouse.com/Bulletin/63=2012/01-Kruger20.pdf"
+    },
+    {
+      "sourceId": "paper-db8d770e76dc7756fe45",
+      "url": "https://5mt.michaeljkruger.com/2018/11/NTS-Kruger-Revised-Proofs.pdf",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "sourceId": "paper-bad3723e649cd787a97e",
+      "url": "https://5mt.michaeljkruger.com/2012/02/Manuscripts-and-Scribes-Chapter.pdf",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "sourceId": "paper-50f3dde79cf510153280",
+      "url": "http://www.etsjets.org/files/JETS-PDFs/42/42-4/42-4-pp645-671_JETS.pdf",
+      "error": "Unapproved cross-host redirect https://etsjets.org/files/JETS-PDFs/42/42-4/42-4-pp645-671_JETS.pdf"
+    },
+    {
+      "sourceId": "paper-ecec77d14fa47b4022ec",
+      "url": "https://www.thegospelcoalition.org/reviews/after-jesus-before-christianity/",
+      "error": "Deferred collection crawl-delay 600s; no file request attempted; collect later under the published rate"
+    },
+    {
+      "sourceId": "paper-81804352762db50c6a4c",
+      "url": "https://www.thegospelcoalition.org/article/men-are-you-submissive/",
+      "error": "Deferred collection crawl-delay 600s; no file request attempted; collect later under the published rate"
+    },
+    {
+      "sourceId": "paper-1bd354843c606a494619",
+      "url": "https://www.thegospelcoalition.org/article/jesus-humanity-matters-divinity/",
+      "error": "Deferred collection crawl-delay 600s; no file request attempted; collect later under the published rate"
+    },
+    {
+      "sourceId": "paper-bc3a6948be9f4ebf534e",
+      "url": "https://www.thegospelcoalition.org/article/standing-up-to-bully-pastors/",
+      "error": "Deferred collection crawl-delay 600s; no file request attempted; collect later under the published rate"
+    },
+    {
+      "sourceId": "paper-1abfdabea13982191ccf",
+      "url": "https://www.thegospelcoalition.org/article/book-james-christian/",
+      "error": "Deferred collection crawl-delay 600s; no file request attempted; collect later under the published rate"
+    },
+    {
+      "sourceId": "paper-8094d474eaefa58092c6",
+      "url": "https://www.thegospelcoalition.org/article/early-christianity-welcoming-women/",
+      "error": "Deferred collection crawl-delay 600s; no file request attempted; collect later under the published rate"
+    },
+    {
+      "sourceId": "paper-1fd12cd6dff7f3d3bd52",
+      "url": "https://www.risenmotherhood.com/blog/how-do-i-talk-to-my-kids-about-the-truth-of-the-bible",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "sourceId": "paper-3808f593539f4e137cd6",
+      "url": "https://www.thegospelcoalition.org/article/we-need-eschatology/",
+      "error": "Deferred collection crawl-delay 600s; no file request attempted; collect later under the published rate"
+    },
+    {
+      "sourceId": "paper-aae2d75c7d68c3760d1a",
+      "url": "https://www.thegospelcoalition.org/article/god-guilty-genocide/",
+      "error": "Deferred collection crawl-delay 600s; no file request attempted; collect later under the published rate"
+    },
+    {
+      "sourceId": "paper-fffa245fa254646730a2",
+      "url": "https://www.thegospelcoalition.org/article/veggietales-neglect-imperatives/",
+      "error": "Deferred collection crawl-delay 600s; no file request attempted; collect later under the published rate"
+    },
+    {
+      "sourceId": "paper-fadd3a68d3acaa68e736",
+      "url": "https://www.thegospelcoalition.org/article/early-christians-odd-too/",
+      "error": "Deferred collection crawl-delay 600s; no file request attempted; collect later under the published rate"
+    }
+  ],
+  "updatedAt": "2026-10-07T20:32:03.676323+00:00",
+  "catalogueItems": 1042,
+  "completedAt": "2026-10-07T20:32:03.676308+00:00",
+  "offeredPosts": 1042,
+  "cataloguePages": 11,
+  "offeredPapers": 26
+}

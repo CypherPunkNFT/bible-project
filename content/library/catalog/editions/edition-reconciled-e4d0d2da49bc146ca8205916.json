@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-e4d0d2da49bc146ca8205916",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-a5b0dd059188d19a5126e0ee",
+  "label": "A sermon of the famous and Godly learned man, master Iohn Caluine chiefe Minister and Pastour of Christs church at Geneua, conteining an exhortation to suffer persecution for followinge Iesus Christe and his Gospell, vpon this text following. Heb. 13. 13. Go ye out of the tents after Christe, bearing his rebuke. Translated out of French into english,; Quatre sermons avec exposition du Pseaume 87. English. Sermon 2. Selections — held source edition 3805035287ea",
+  "languages": [
+    "und"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A17693/master/A17693.xml",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

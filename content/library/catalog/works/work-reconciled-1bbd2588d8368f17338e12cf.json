@@ -1,0 +1,43 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-reconciled-1bbd2588d8368f17338e12cf",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "title": "Moses and Aaron: civil and ecclesiastical rites, used by the ancient Hebrews: observed, and at large opened, for the clearing of many obscure texts thorowout [sic] the whole Scripture, which texts are now added at the end of the book : wherein likewise is shewed what customs the Hebrews borrowed from heathen people, and that many heathenish customs, originally, have been unwarrantable imitation of the Hebrews",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-thomas-goodwin",
+      "role": "author"
+    }
+  ],
+  "genre": "treatise",
+  "role": "core-teaching",
+  "collections": [],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [],
+  "depth": "unknown",
+  "era": "unknown",
+  "dates": [],
+  "passages": [],
+  "related": [],
+  "externalIds": {
+    "source-internet-archive": [
+      "ia:gpl_1762499"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/download/gpl_1762499/gpl_1762499_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

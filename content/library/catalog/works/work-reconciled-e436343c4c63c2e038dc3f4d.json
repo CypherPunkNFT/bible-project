@@ -1,0 +1,43 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-reconciled-e436343c4c63c2e038dc3f4d",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "title": "A Grammar of the Bengalee Language ... By W. Carey, Teacher of the Sungskrit, Bengalee, and Mahratta Languages, in the College of Fort William",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-william-carey",
+      "role": "author"
+    }
+  ],
+  "genre": "treatise",
+  "role": "core-teaching",
+  "collections": [],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [],
+  "depth": "unknown",
+  "era": "unknown",
+  "dates": [],
+  "passages": [],
+  "related": [],
+  "externalIds": {
+    "source-internet-archive": [
+      "ia:bub_gb_BBlkWVTcNb0C"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bub_gb_BBlkWVTcNb0C/bub_gb_BBlkWVTcNb0C_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

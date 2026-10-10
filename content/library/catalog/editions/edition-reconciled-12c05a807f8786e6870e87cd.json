@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-12c05a807f8786e6870e87cd",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-975ebbff446e31ac22e47a06",
+  "label": "Solomon's temple spiritualiz'd; or, gospel-light fetch'd out of the temple at Jerusalem, to let us more easily unto the glory of New-Testament-truths. By John Bunyan. 1754 — held source edition c8956c77bca2",
+  "languages": [
+    "English"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_eighteenth-century_solomons-temple-spiritu_bunyan-john_1754/bim_eighteenth-century_solomons-temple-spiritu_bunyan-john_1754_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

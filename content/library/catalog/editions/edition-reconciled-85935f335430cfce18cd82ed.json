@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-85935f335430cfce18cd82ed",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-fad023bf150916cf943ce494",
+  "label": "A body of practical divinity, consisting of above one hundred seventy six sermons on the lesser catechism, composed by the Reverend Assembly of Divines at Westminster: with a supplement of some sermons ... By Thomas Watson, ... 1734 — held source edition fef818e9b56e",
+  "languages": [
+    "English"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_eighteenth-century_a-body-of-practical-divi_watson-thomas_1734/bim_eighteenth-century_a-body-of-practical-divi_watson-thomas_1734_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-7b4581fa98124364fdc2eeb0",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-8ebca74666311238fd4dc1ab",
+  "label": "A C[hristian] and [plain]e treatise of the manner and order of predestination and of the largenes of Gods grace. First written in Latine by that reuerend and faithfull seruant of God, Master William Perkins, late preacher of the word in Cambridge. And carefully translated into English by Francis Cacot, and Thomas Tuke.; De prædestinationis modo et ordine. English — held source edition 56cf80cc77db",
+  "languages": [
+    "und"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A09386/master/A09386.xml",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

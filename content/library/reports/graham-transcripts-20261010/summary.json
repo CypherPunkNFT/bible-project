@@ -1,0 +1,18 @@
+{
+  "completedSermons": 23,
+  "manifestFiles": 116,
+  "bytes": 19034527,
+  "unfinishedTranscripts": 1,
+  "failures": 0,
+  "indexedAtImport": 5174245,
+  "bodyDirectory": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-billy-graham\\yt-transcripts",
+  "supportDirectory": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\billy-graham-transcripts\\archive",
+  "pendingNextCorpusRefresh": true,
+  "intakeHandoff": {
+    "entryPoint": "knowledge/finish-intake.ps1",
+    "exitCode": 0,
+    "result": "Existing single completion pipeline owns the lock",
+    "newTranscriptsPendingCorpusRefresh": 23
+  },
+  "cpuPreparation": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\KnowledgeBase\\cpu-preparation\\progress.json"
+}

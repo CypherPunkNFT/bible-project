@@ -1,0 +1,25 @@
+{
+  "mission": "RB03",
+  "title": "commentaries",
+  "filters": {
+    "sword": "filters/sword.json",
+    "ccel": "filters/ccel.json",
+    "ia": "filters/ia.json"
+  },
+  "previouslyFailed": [
+    {
+      "sourceId": "anexpositionepi03willgoog",
+      "url": "https://archive.org/metadata/anexpositionepi03willgoog",
+      "title": "An exposition of the Epistle to the Hebrews : with the preliminary exercitations",
+      "author": "Owen, John, 1616-1683",
+      "error": "HTTP Error 500: Internal Server Error",
+      "source": "ia"
+    }
+  ],
+  "scope": "Official SWORD Protestant commentary and cross-reference modules; conservative Protestant CCEL commentary authors, including all 45 numbered Calvin volumes and the offered Manton works; IA complete historical institutional/microfilm author corpora for Manton, Burroughs, Caryl, Durham and Brooks, plus Owen on Hebrews. Existing SWORD text is exported locally; existing IA TXT/EPUB only. Originals preserve contributor, licence, language and audience metadata.",
+  "availabilityNotes": [
+    "Gill and Poole are not listed in the loaded official SWORD repository.",
+    "Owen on Hebrews is not listed in the loaded CCEL author catalogue; available IA volumes are held from RB02 or included here.",
+    "MAK is deferred because the supplied author metadata does not establish its doctrinal classification; NETnotesfree is a limited-note edition, excluded from book acquisition counts."
+  ]
+}

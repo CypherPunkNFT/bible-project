@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-f8a238c29df270ba62ba4e02",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-1dadf3ffa1f19c56651f8818",
+  "label": "Eines Christen Reise nach der seeligen Ewigkeit, : welche in unterschiedlichen artigen Sinnen-Bildern, den gantzen Zustand einer bussfertigen und gott-suchenden Seele vorstellet; — held source edition 5eda6fdb792b",
+  "languages": [
+    "ger"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/eineschristenrei00buny_0/eineschristenrei00buny_0_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

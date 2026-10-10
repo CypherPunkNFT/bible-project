@@ -1,0 +1,43 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-reconciled-11a449c41e7724e79dcb8f1d",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "title": "The historie of the reformatioun of religioun within the realm of Scotland : conteining the manner and be quhat persons the lycht of Chrystis Evangell has bein manifested unto this realme, after that horribill and universal defectioun from the treuth, whiche has come by the means of that Romane Antichryst ... together with the life of Iohn Knoxe the author, and several curious pieces wrote by him ..",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-john-knox",
+      "role": "author"
+    }
+  ],
+  "genre": "treatise",
+  "role": "core-teaching",
+  "collections": [],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [],
+  "depth": "unknown",
+  "era": "unknown",
+  "dates": [],
+  "passages": [],
+  "related": [],
+  "externalIds": {
+    "source-internet-archive": [
+      "ia:historieofreform1732knox"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/download/historieofreform1732knox/historieofreform1732knox_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

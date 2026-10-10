@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-d9776642d4a0955b9daeeecf",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-dbb5bf7b6204ae6a7eec5598",
+  "label": "495. Sochineniia Ioanna Biuniana. Izdanie vtoroe. — held source edition 1b03756a0b89",
+  "languages": [
+    "rus"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/495.3-benian-1786-sochineniia-ioanna-biuniana-izdanie-vtoroe/495.1_Ben%27ian_1786_Sochineniia-Ioanna-Biuniana-Izdanie-vtoroe_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-139fd29408b9c1a9b950fc4e",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-64dc5596b2063aff1de53c28",
+  "label": "Memoirs of the life, time, and writings, of the reverend and learned Thomas Boston, A.M. sometime minister at Simprin, ... Written by himself and addressed to his children. Now first published from his own manuscripts. To which are added, some original papers, and letters to and from the author. ... 1776 — held source edition d0c7281ce743",
+  "languages": [
+    "English"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_eighteenth-century_memoirs-of-the-life-tim_boston-thomas-the-elde_1776/bim_eighteenth-century_memoirs-of-the-life-tim_boston-thomas-the-elde_1776_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

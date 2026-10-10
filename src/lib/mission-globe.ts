@@ -31,7 +31,8 @@ export async function createMissionGlobe(
   let width = 1, height = 1, dpr = 1, radius = 1, zoom = MIN_ZOOM, zoomTarget = MIN_ZOOM, lon = 45, lat = 22;
   let selected = options.selected, spinning = options.spinning, dirty = true, raf = 0, last = 0;
   let hover = '', pointer: { id: number; x: number; y: number; lon: number; lat: number; moved: boolean } | null = null;
-  let fly: { lon: number; lat: number; startLon: number; startLat: number; start: number } | null = null;
+  let fly: { lon: number; lat: number; startLon: number; startLat: number; start: number; duration: number } | null = null;
+  const longitudeDelta = (target: number, start: number) => ((target - start + 180) % 360 + 360) % 360 - 180;
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const scheme = matchMedia('(prefers-color-scheme: dark)');
   const darkTheme = () => document.documentElement.dataset.theme === 'dark' || (document.documentElement.dataset.theme !== 'light' && scheme.matches);
@@ -43,9 +44,10 @@ export async function createMissionGlobe(
   const center = (code: string, animate = true) => {
     const target = centroids.get(code);
     if (!target) return;
-    if (Math.abs(((target[0] - lon + 540) % 360) - 180) < .01 && Math.abs(target[1] - lat) < .01) { fly = null; return; }
+    const delta = longitudeDelta(target[0], lon);
+    if (Math.abs(delta) < .01 && Math.abs(target[1] - lat) < .01) { fly = null; return; }
     if (!animate || reduced.matches) { [lon, lat] = target; fly = null; }
-    else fly = { lon: target[0], lat: target[1], startLon: lon, startLat: lat, start: performance.now() };
+    else fly = { lon: target[0], lat: target[1], startLon: lon, startLat: lat, start: performance.now(), duration: Math.min(1600, 850 + Math.hypot(delta, target[1] - lat) * 4) };
     invalidate();
   };
   function resize() {
@@ -205,18 +207,18 @@ export async function createMissionGlobe(
         dirty = true;
       }
       if (fly) {
-        const t = Math.min(1, (time - fly.start) / 650), smooth = t * t * (3 - 2 * t);
-        const delta = ((fly.lon - fly.startLon + 540) % 360) - 180;
+        const t = Math.min(1, (time - fly.start) / fly.duration), smooth = 1 - (1 - t) ** 3;
+        const delta = longitudeDelta(fly.lon, fly.startLon);
         lon = fly.startLon + delta * smooth; lat = fly.startLat + (fly.lat - fly.startLat) * smooth;
-        if (t === 1) fly = null; dirty = true;
+        if (t === 1) { lon = fly.lon; lat = fly.lat; fly = null; } dirty = true;
       } else if (spinning && !pointer) { lon += elapsed * .0025; dirty = true; }
       if (dirty) draw(); last = time;
     } else if (!visible || !pageVisible) last = time;
     if (dirty || fly || zoom !== zoomTarget || (spinning && !pointer)) raf = requestAnimationFrame(frame);
   }
-  resize(); if (!spinning) center(selected, false); draw(); invalidate();
+  resize(); if (!spinning) center(selected); draw(); invalidate();
   return {
-    select(code, shouldCenter = true) { selected = code; if (shouldCenter) center(code); invalidate(); },
+    select(code, shouldCenter = true) { selected = code; if (shouldCenter) { spinning = false; center(code); } invalidate(); },
     rotate(value) { spinning = value; invalidate(); },
     zoom: adjustZoom,
     reset() { zoom = zoomTarget = 1; center(selected); invalidate(); },

@@ -1,0 +1,98 @@
+{
+  "mission": "RB06",
+  "title": "Christian life, prayer, family and pastoral care",
+  "filters": {
+    "tcp": "tcp-filter.json",
+    "ccel": "ccel-filter.json",
+    "ia": "ia-filter.json",
+    "monergism": "monergism-filter.json",
+    "chapel": "chapel-filter.json",
+    "gutenberg": "gutenberg-filter.json"
+  },
+  "previouslyFailed": [
+    {
+      "sourceId": "bim_early-english-books-1475-1640_the-excellency-of-a-grac_burroughs-jeremiah_1639",
+      "url": "https://archive.org/metadata/bim_early-english-books-1475-1640_the-excellency-of-a-grac_burroughs-jeremiah_1639",
+      "title": "The excellency of a gracious spirit, ... 1639",
+      "author": "Burroughs, Jeremiah.",
+      "error": "The read operation timed out",
+      "source": "ia"
+    },
+    {
+      "sourceId": "bim_early-english-books-1641-1700_gospel-reconcillation-_burroughes-jeremiah_1689",
+      "url": "https://archive.org/metadata/bim_early-english-books-1641-1700_gospel-reconcillation-_burroughes-jeremiah_1689",
+      "title": "Gospel-reconcillation: ... 1689",
+      "author": "Burroughes, Jeremiah.",
+      "error": "HTTP Error 500: Internal Server Error",
+      "source": "ia"
+    },
+    {
+      "sourceId": "bim_early-english-books-1641-1700_jerusalems-glory_burroughes-jeremiah_1697",
+      "url": "https://archive.org/metadata/bim_early-english-books-1641-1700_jerusalems-glory_burroughes-jeremiah_1697",
+      "title": "Jerusalems glory... 1697",
+      "author": "Burroughes, Jeremiah",
+      "error": "HTTP Error 500: Internal Server Error",
+      "source": "ia"
+    },
+    {
+      "sourceId": "bim_early-english-books-1641-1700_sions-joy_burroughes-jeremiah_1641",
+      "url": "https://archive.org/metadata/bim_early-english-books-1641-1700_sions-joy_burroughes-jeremiah_1641",
+      "title": "Sions joy. 1641",
+      "author": "Burroughes, Jeremiah.",
+      "error": "HTTP Error 500: Internal Server Error",
+      "source": "ia"
+    },
+    {
+      "sourceId": "bim_early-english-books-1641-1700_the-rare-jewel-of-christ_burroughes-jeremiah_1649",
+      "url": "https://archive.org/metadata/bim_early-english-books-1641-1700_the-rare-jewel-of-christ_burroughes-jeremiah_1649",
+      "title": "The rare jewel of Christian contentment, ... 1649",
+      "author": "Burroughes, Jeremiah.",
+      "error": "HTTP Error 500: Internal Server Error",
+      "source": "ia"
+    },
+    {
+      "sourceId": "bim_early-english-books-1641-1700_the-rare-jewel-of-christ_burroughes-jeremiah_1650",
+      "url": "https://archive.org/metadata/bim_early-english-books-1641-1700_the-rare-jewel-of-christ_burroughes-jeremiah_1650",
+      "title": "The rare jewel of Christian contentment. 1650",
+      "author": "Burroughes, Jeremiah",
+      "error": "The read operation timed out",
+      "source": "ia"
+    },
+    {
+      "sourceId": "bim_eighteenth-century_a-golden-key-to-open-hid_brooks-thomas_1763",
+      "url": "https://archive.org/metadata/bim_eighteenth-century_a-golden-key-to-open-hid_brooks-thomas_1763",
+      "title": "A golden key to open hidden treasures, or several great points, that refer to the saints present blessedness, ... The Godhead and manhood of Christ, is here largely proved, ... By Thomas Brooks, ... 1763",
+      "author": "Brooks, Thomas",
+      "error": "HTTP Error 500: Internal Server Error",
+      "source": "ia"
+    },
+    {
+      "sourceId": "bim_eighteenth-century_heavenly-mindedness-reco_burroughs-jeremiah-pre_1715",
+      "url": "https://archive.org/metadata/bim_eighteenth-century_heavenly-mindedness-reco_burroughs-jeremiah-pre_1715",
+      "title": "Heavenly-mindedness recommended: in a discourse on Colossians III.2. By Jeremiah Burroughs. 1715",
+      "author": "Burroughs, Jeremiah, Presbyterian minister",
+      "error": "HTTP Error 500: Internal Server Error",
+      "source": "ia"
+    },
+    {
+      "sourceId": "irenicvmtolover00burrgoog",
+      "url": "https://archive.org/metadata/irenicvmtolover00burrgoog",
+      "title": "Irenicvm: To the Lovers of Truth & Peace ...",
+      "author": "Jeremiah Burroughs",
+      "error": "HTTP Error 500: Internal Server Error",
+      "source": "ia"
+    },
+    {
+      "sourceId": "ubhlanoirairson00broo",
+      "url": "https://archive.org/metadata/ubhlanoirairson00broo",
+      "title": "Ubhlan oir, air son muinntir oga; agus Crun gloire, air son seana mhuinntir; no, An Sonas a bhi math gu trathail; agus an onoir a bhi na sheann deisciobul, air a leigeadh ris, agus air cho' chur gu treibh-dhireach; mar an ceudna, lethsgeulan an duine oig air am freagairt, agus teagamhan an t-seann duine air am fuasgladh;",
+      "author": "Brooks, Thomas, 1608-1680; Rose, John",
+      "error": "The read operation timed out",
+      "source": "ia"
+    }
+  ],
+  "scope": "Complete offered works of the approved historical authors across TCP, CCEL, IA and Monergism; Chapel Library published sitemap ebook catalogue. Existing holdings skipped by source ID/hash.",
+  "availabilityNotes": [
+    "Chapel public catalogue API returned HTTP 401 once; published sitemap and public book details used instead. One preferred EPUB or PDF per offered text, including booklets and periodicals; audio and administrative materials excluded."
+  ]
+}

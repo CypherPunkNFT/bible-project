@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-1dbfaef5054ee3e6daa53166",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-b4c471de3b2b156039b23459",
+  "label": "Christs exaltation purchast by humiliation Wherein you may see mercy and misery meete together. Very vsefull I. For instructing the ignorant. II. For comforting the weake. III. For confirming the strong. By R. Sibbs D.D. and preacher of Grayes-Inne, London. Published by T.G. and P.N. — held source edition 4c54ef39b844",
+  "languages": [
+    "und"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A12180/master/A12180.xml",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

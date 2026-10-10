@@ -5,6 +5,7 @@ import { SectionStrip } from "@/components/SectionStrip";
 import { SiteFooter } from "@/components/SiteFooter";
 import { useTheme } from "@/lib/theme";
 import { cn } from "@/lib/utils";
+import "./site-navigation.css";
 
 const COMMUNITY = { to: "/testimonies", label: "Testimonies", icon: GitBranch };
 
@@ -31,12 +32,12 @@ export function Layout({ children }: { children: ReactNode }) {
       </a>
       <header className="sticky top-0 z-40 border-b border-line bg-page/85 backdrop-blur-md" style={{ paddingTop: "env(safe-area-inset-top, 0px)" }}>
         <SectionStrip className="h-1" />
-        <div className="mx-auto flex max-w-7xl items-center gap-2 px-4 py-2.5 sm:px-6">
+        <div className="site-header-row mx-auto flex max-w-7xl items-center gap-2 px-4 sm:px-6">
           <Link to="/" className="mr-2 flex items-center gap-2 font-serif text-lg font-semibold tracking-tight">
             <img src="/favicon.svg" alt="" className="h-7 w-7" />
             <span className="hidden xs:inline">Bible Project</span>
           </Link>
-          <nav aria-label="Main" className="no-scrollbar flex min-w-0 flex-1 items-center gap-0.5 overflow-x-auto">
+          <nav aria-label="Main" className="site-navigation no-scrollbar flex min-w-0 flex-1 items-center gap-0.5 overflow-x-auto">
             {NAV.map(({ to, label, icon: Icon, end }) => (
               <NavLink
                 key={to}
@@ -44,9 +45,9 @@ export function Layout({ children }: { children: ReactNode }) {
                 end={end}
                 className={({ isActive }) =>
                   cn(
-                    "relative flex shrink-0 items-center gap-1.5 rounded-full px-3 py-1.5 text-sm transition-colors",
+                    "site-nav-item relative flex shrink-0 items-center gap-1.5 px-3 text-sm transition-colors",
                     isActive || (to === "/bible" && (location.pathname.startsWith("/read") || location.pathname === "/library"))
-                      ? "bg-ink text-page"
+                      ? "site-nav-selected"
                       : "text-muted hover:bg-surface-2 hover:text-ink",
                   )
                 }
@@ -61,8 +62,8 @@ export function Layout({ children }: { children: ReactNode }) {
               to={COMMUNITY.to}
               className={({ isActive }) =>
                 cn(
-                  "relative flex shrink-0 items-center gap-1.5 px-3 py-1.5 text-sm text-accent transition-opacity hover:opacity-80",
-                  isActive && "font-semibold",
+                  "site-nav-item relative flex shrink-0 items-center gap-1.5 px-3 text-sm text-accent transition-opacity hover:opacity-80",
+                  isActive && "site-nav-selected",
                 )
               }
             >

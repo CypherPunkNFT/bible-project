@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-a22964c3d1b308d56531acbe",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-a25526864b442dea56275d86",
+  "label": "The life and death of Mr. Badman. Presented to the world in a familiar dialogue between Mr. Wiseman and Mr. Attentive. By John Bunyan. 1772: Vol 2 — held source edition d5eb44aceacf",
+  "languages": [
+    "English"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_eighteenth-century_the-life-and-death-of-mr_bunyan-john_1772_2/bim_eighteenth-century_the-life-and-death-of-mr_bunyan-john_1772_2_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

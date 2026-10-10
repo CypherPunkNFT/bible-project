@@ -48,7 +48,7 @@
       "title": "The Complete Works of the Rev. Andrew Fuller, with a Memoir of His Life",
       "author": "Andrew Fuller",
       "candidateRole": "mixed-collected-volume-requires-section-scoping",
-      "evidenceOnly": true,
+      "evidenceOnly": false,
       "publicHostingAllowed": false,
       "coreScope": "Historical Baptist salvation study",
       "sourceRoles": [
@@ -59,7 +59,8 @@
       ],
       "contributorBoundary": "Do not attribute biography, modernization, subheadings, definitions, annotations or quoted opponents to the arguing author.",
       "ingestionRequirement": "Segment components before body intake",
-      "limitations": "Full collected witness retained privately; current importer does not enforce section/contributor scopes. Metadata-only until selected components are integrated."
+      "limitations": "Full collected witness retained privately; current importer does not enforce section/contributor scopes. Metadata-only until selected components are integrated.",
+      "privateLocalIndexAuthorized": true
     },
     {
       "assetId": "asset-rb04-0309d1a642bea2895f0a",
@@ -108,7 +109,7 @@
       "title": "Works of Abraham Booth, Volume I: Memoir, Reign of Grace, Death of Legal Hope",
       "author": "Abraham Booth",
       "candidateRole": "mixed-historical-volume-with-distinct-work-and-memoir-roles",
-      "evidenceOnly": true,
+      "evidenceOnly": false,
       "publicHostingAllowed": false,
       "coreScope": "Historical Baptist salvation study",
       "sourceRoles": [
@@ -119,7 +120,8 @@
       ],
       "contributorBoundary": "Do not attribute biography, modernization, subheadings, definitions, annotations or quoted opponents to the arguing author.",
       "ingestionRequirement": "Segment components before body intake",
-      "limitations": "Full collected witness retained privately; current importer does not enforce section/contributor scopes. Metadata-only until selected components are integrated."
+      "limitations": "Full collected witness retained privately; current importer does not enforce section/contributor scopes. Metadata-only until selected components are integrated.",
+      "privateLocalIndexAuthorized": true
     },
     {
       "assetId": "asset-rb04-4c5ffbf7f961b82f0fc2",
@@ -128,7 +130,7 @@
       "title": "The Death of Legal Hope and the Life of Evangelical Obedience",
       "author": "Abraham Booth",
       "candidateRole": "historical-baptist-doctrinal-treatment-with-editorial-annotations",
-      "evidenceOnly": true,
+      "evidenceOnly": false,
       "publicHostingAllowed": false,
       "coreScope": "Historical Baptist salvation study",
       "sourceRoles": [
@@ -139,7 +141,8 @@
       ],
       "contributorBoundary": "Do not attribute biography, modernization, subheadings, definitions, annotations or quoted opponents to the arguing author.",
       "ingestionRequirement": "Segment components before body intake",
-      "limitations": "Complete offered ABRIDGED annotated edition, not an unabridged historical text; seven sections retained; complete 1813 historical witness separately held"
+      "limitations": "Complete offered ABRIDGED annotated edition, not an unabridged historical text; seven sections retained; complete 1813 historical witness separately held",
+      "privateLocalIndexAuthorized": true
     }
   ],
   "currentImporterEnforcesAllScopes": false,

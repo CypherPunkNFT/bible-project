@@ -1,0 +1,297 @@
+{
+  "authors": [
+    "Bunyan, John",
+    "John Bunyan",
+    "Henry, Matthew",
+    "Matthew Henry",
+    "Bickersteth, Edward",
+    "Edward Bickersteth",
+    "Watts, Isaac",
+    "Isaac Watts",
+    "Keach, Benjamin",
+    "Benjamin Keach",
+    "Rippon, John",
+    "John Rippon",
+    "Spurgeon, Charles Haddon",
+    "Charles Haddon Spurgeon",
+    "Spurgeon, Charles",
+    "Spurgeon, C H",
+    "Spurgeon, C. H.",
+    "Charles Spurgeon",
+    "Alexander, James W.",
+    "Alexander, James W",
+    "James W Alexander",
+    "Alexander, James Waddel",
+    "James Waddel Alexander",
+    "Alexander, J W",
+    "J W Alexander",
+    "Henry, Philip",
+    "Philip Henry",
+    "Gouge, William",
+    "William Gouge",
+    "Doolittle, Thomas",
+    "Thomas Doolittle",
+    "Howe, John",
+    "John Howe",
+    "Miller, Samuel",
+    "Samuel Miller",
+    "Jay, William",
+    "William Jay",
+    "Baxter, Richard",
+    "Richard Baxter",
+    "Brown, John",
+    "John Brown",
+    "Burder, George",
+    "George Burder",
+    "Beddome, Benjamin",
+    "Benjamin Beddome",
+    "Doddridge, Philip",
+    "Philip Doddridge"
+  ],
+  "primaryAuthorOnly": true,
+  "authorIdentityRules": [
+    {
+      "namePattern": "Bunyan,?\\s+John|John\\s+Bunyan",
+      "lifeYears": [
+        1628,
+        1688
+      ]
+    },
+    {
+      "namePattern": "Henry,?\\s+Matthew|Matthew\\s+Henry",
+      "lifeYears": [
+        1662,
+        1714
+      ]
+    },
+    {
+      "namePattern": "Bickersteth,?\\s+Edward|Edward\\s+Bickersteth",
+      "lifeYears": [
+        1786,
+        1850
+      ]
+    },
+    {
+      "namePattern": "Watts,?\\s+Isaac|Isaac\\s+Watts",
+      "lifeYears": [
+        1674,
+        1748
+      ]
+    },
+    {
+      "namePattern": "Keach,?\\s+Benjamin|Benjamin\\s+Keach",
+      "lifeYears": [
+        1640,
+        1704
+      ]
+    },
+    {
+      "namePattern": "Rippon,?\\s+John|John\\s+Rippon",
+      "lifeYears": [
+        1751,
+        1836
+      ]
+    },
+    {
+      "namePattern": "Spurgeon,?\\s+Charles\\ Haddon|Charles\\ Haddon\\s+Spurgeon",
+      "lifeYears": [
+        1834,
+        1892
+      ]
+    },
+    {
+      "namePattern": "Alexander,?\\s+James\\ W|James\\ W\\s+Alexander",
+      "lifeYears": [
+        1804,
+        1859
+      ]
+    },
+    {
+      "namePattern": "Alexander,?\\s+James\\ Waddel|James\\ Waddel\\s+Alexander",
+      "lifeYears": [
+        1804,
+        1859
+      ]
+    },
+    {
+      "namePattern": "Alexander,?\\s+J\\ W|J\\ W\\s+Alexander",
+      "lifeYears": [
+        1804,
+        1859
+      ]
+    },
+    {
+      "namePattern": "Henry,?\\s+Philip|Philip\\s+Henry",
+      "lifeYears": [
+        1631,
+        1696
+      ]
+    },
+    {
+      "namePattern": "Gouge,?\\s+William|William\\s+Gouge",
+      "lifeYears": [
+        1575,
+        1653
+      ]
+    },
+    {
+      "namePattern": "Doolittle,?\\s+Thomas|Thomas\\s+Doolittle",
+      "lifeYears": [
+        1632,
+        1707
+      ]
+    },
+    {
+      "namePattern": "Howe,?\\s+John|John\\s+Howe",
+      "lifeYears": [
+        1630,
+        1705
+      ]
+    },
+    {
+      "namePattern": "Miller,?\\s+Samuel|Samuel\\s+Miller",
+      "lifeYears": [
+        1769,
+        1850
+      ]
+    },
+    {
+      "namePattern": "Jay,?\\s+William|William\\s+Jay",
+      "lifeYears": [
+        1769,
+        1853
+      ]
+    },
+    {
+      "namePattern": "Baxter,?\\s+Richard|Richard\\s+Baxter",
+      "lifeYears": [
+        1615,
+        1691
+      ]
+    },
+    {
+      "namePattern": "Brown,?\\s+John|John\\s+Brown",
+      "lifeYears": [
+        1722,
+        1787
+      ]
+    },
+    {
+      "namePattern": "Burder,?\\s+George|George\\s+Burder",
+      "lifeYears": [
+        1752,
+        1832
+      ]
+    },
+    {
+      "namePattern": "Beddome,?\\s+Benjamin|Benjamin\\s+Beddome",
+      "lifeYears": [
+        1717,
+        1795
+      ]
+    },
+    {
+      "namePattern": "Doddridge,?\\s+Philip|Philip\\s+Doddridge",
+      "lifeYears": [
+        1702,
+        1751
+      ]
+    }
+  ],
+  "deferHardDownloads": true,
+  "skipIds": [
+    "anexpositionepi03willgoog",
+    "atreatiseonsabb00owengoog",
+    "bim_early-english-books-1641-1700_a-piller-set-up-to-keep_keach-benjamin_1670",
+    "bim_early-english-books-1641-1700_a-treatise-concerning-th_spilsbury-john_1652",
+    "bim_early-english-books-1475-1640_the-excellency-of-a-grac_burroughs-jeremiah_1639",
+    "bim_early-english-books-1641-1700_exercitations-on-the-epi_owen-john-dd_1674",
+    "bim_early-english-books-1641-1700_gospel-reconcillation-_burroughes-jeremiah_1689",
+    "bim_early-english-books-1641-1700_jerusalems-glory_burroughes-jeremiah_1697",
+    "bim_early-english-books-1641-1700_sions-joy_burroughes-jeremiah_1641",
+    "bim_early-english-books-1641-1700_the-rare-jewel-of-christ_burroughes-jeremiah_1649",
+    "bim_early-english-books-1641-1700_the-rare-jewel-of-christ_burroughes-jeremiah_1650",
+    "bim_eighteenth-century_a-golden-key-to-open-hid_brooks-thomas_1763",
+    "bim_eighteenth-century_a-learned-and-complete-c_durham-james_1788",
+    "bim_eighteenth-century_a-practical-exposition-o_manton-thomas_1703",
+    "bim_eighteenth-century_heavenly-mindedness-reco_burroughs-jeremiah-pre_1715",
+    "irenicvmtolover00burrgoog",
+    "ubhlanoirairson00broo",
+    "bim_early-english-books-1641-1700_an-handfull-of-gleanings_lightfoot-john_1643",
+    "bim_early-english-books-1641-1700_the-harmony-of-the-foure_lightfoot-john_1658",
+    "bim_early-english-books-1641-1700_the-temple-_lightfoot-john_1650",
+    "bim_early-english-books-1641-1700_the-works-of-_josephus-flavius_1683",
+    "bim_early-english-books-1641-1700_the-works-of-josephus-_josephus-flavius_1700",
+    "bim_eighteenth-century_the-wars-of-the-jews-in_josephus-flavius_1724",
+    "bim_eighteenth-century_the-genuine-works-of-fla_josephus-flavius_1792_5",
+    "bim_eighteenth-century_the-genuine-works-of-fla_josephus-flavius_1792_6",
+    "bim_eighteenth-century_the-wars-of-the-jews-wi_josephus-flavius_1760",
+    "bub_gb_imOgczlR7moC",
+    "cu31924028779795",
+    "cu31924031784311",
+    "cu31924072037587",
+    "cu31924029294398",
+    "dissertationsona00lighuoft",
+    "genuineworksoffl04jose",
+    "histoiredesiuifs03jose",
+    "histoiredesiuifs02jose",
+    "historicalessays00lighiala",
+    "journalclassica04mayogoog",
+    "journalclassica05mayogoog",
+    "ldpd_13822730_000",
+    "lifeandtimesjes04edergoog",
+    "lifetimesjesusm01ederuoft",
+    "notesonepistles00lighuoft",
+    "operajosephus07joseuoft",
+    "operaomniaabimma06jose",
+    "operaomniaposti00nabegoog",
+    "powerfaithandpr00portgoog",
+    "sermonspreached00lighgoog",
+    "thetypologyofscr01fairuoft",
+    "worksflaviusjos05josegoog",
+    "worksflaviusjos08whisgoog",
+    "worksflaviusjos10whisgoog",
+    "worksjosephus00unkngoog",
+    "worksofflaviusjo188902jose",
+    "workstranslatedb00joseuoft",
+    "apologyforlatech00full",
+    "bim_eighteenth-century_a-body-of-divinity-wher_ridgley-thomas_1731_2",
+    "bim_eighteenth-century_the-gospel-its-own-witne_fuller-andrew_1799",
+    "bodyofdivinity01ridg",
+    "expositorydiscou00full",
+    "gospelitsownwitn00full_0",
+    "gospelitsownwitn01full",
+    "practicalworksof03baxtuoft",
+    "practicalworksof21baxt",
+    "practicalworksof22baxt",
+    "practicalworksr00ormegoog",
+    "practicalworksr09baxtgoog",
+    "sensualisticphil00dabniala",
+    "works25unkngoog",
+    "worksrevandrewf06fullgoog",
+    "worksrevandrewf07fullgoog"
+  ],
+  "downloadWorkers": 4,
+  "collections": [
+    "Princeton",
+    "americana",
+    "toronto",
+    "europeanlibraries",
+    "library_of_congress",
+    "cdl",
+    "bostonpubliclibrary",
+    "gutenberg",
+    "microfilm"
+  ],
+  "authorTitleRules": [
+    {
+      "namePattern": "Bunyan|Henry|Bickersteth|Watts|Keach|Rippon|Spurgeon",
+      "titlePattern": "pray|worship|hymn|psalm|psalt|spirit.*song|song.*spirit|works|devotion|treasury|family"
+    },
+    {
+      "namePattern": "Alexander|Gouge|Doolittle|Howe|Miller|Jay|Baxter|Brown|Burder|Beddome|Doddridge",
+      "titlePattern": "family|domestic|household|hymn|psalm|worship|pray"
+    }
+  ],
+  "iaQuery": "mediatype:texts AND date:[1600-01-01 TO 1930-12-31] AND NOT access-restricted-item:true AND (creator:\"Bunyan, John\" OR creator:\"John Bunyan\" OR creator:\"Henry, Matthew\" OR creator:\"Matthew Henry\" OR creator:\"Bickersteth, Edward\" OR creator:\"Edward Bickersteth\" OR creator:\"Watts, Isaac\" OR creator:\"Isaac Watts\" OR creator:\"Keach, Benjamin\" OR creator:\"Benjamin Keach\" OR creator:\"Rippon, John\" OR creator:\"John Rippon\" OR creator:\"Spurgeon, Charles Haddon\" OR creator:\"Charles Haddon Spurgeon\" OR creator:\"Spurgeon, Charles\" OR creator:\"Spurgeon, C H\" OR creator:\"Spurgeon, C. H.\" OR creator:\"Charles Spurgeon\" OR creator:\"Alexander, James W.\" OR creator:\"Alexander, James W\" OR creator:\"James W Alexander\" OR creator:\"Alexander, James Waddel\" OR creator:\"James Waddel Alexander\" OR creator:\"Alexander, J W\" OR creator:\"J W Alexander\" OR creator:\"Henry, Philip\" OR creator:\"Philip Henry\" OR creator:\"Gouge, William\" OR creator:\"William Gouge\" OR creator:\"Doolittle, Thomas\" OR creator:\"Thomas Doolittle\" OR creator:\"Howe, John\" OR creator:\"John Howe\" OR creator:\"Miller, Samuel\" OR creator:\"Samuel Miller\" OR creator:\"Jay, William\" OR creator:\"William Jay\" OR creator:\"Baxter, Richard\" OR creator:\"Richard Baxter\" OR creator:\"Brown, John\" OR creator:\"John Brown\" OR creator:\"Burder, George\" OR creator:\"George Burder\" OR creator:\"Beddome, Benjamin\" OR creator:\"Benjamin Beddome\" OR creator:\"Doddridge, Philip\" OR creator:\"Philip Doddridge\") AND (title:prayer OR title:praying OR title:worship OR title:hymn* OR title:psalm* OR title:psalt* OR title:songs OR title:works OR title:devotion* OR title:treasury OR title:family OR title:domestic OR title:household)"
+}

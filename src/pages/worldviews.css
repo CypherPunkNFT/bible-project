@@ -148,3 +148,28 @@
 .wv-claim-down{color:var(--position-tone);margin:0 0 4px}
 
 .wv-claim-explanation-label{display:flex;align-items:center;gap:12px;font-size:11px;color:var(--position-tone);padding:7px 0}
+/* Keep every collection's title and illustration anchored at the same height. */
+.wv-page:has(>.wv-collection-hero){padding-top:18px}
+.wv-collection-hero{grid-template-columns:1.15fr 1fr;align-items:start;gap:25px;margin:8px 0 0}
+.wv-collection-hero h1{margin:14px 0 18px}
+.wv-collection-hero .wv-hero-art{border:0;padding:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.wv-collection-hero .wv-hero-illustration{max-width:460px}
+.wv-collection-hero .wv-hero-art>span{font-size:9px;letter-spacing:.16em;margin-top:-4px}
+.wv-collection-hero .wv-start{border-bottom:0}
+.wv-collection-hero+.wv-reading-bar{border:0;padding-top:20px}
+@media(max-width:800px){.wv-collection-hero{grid-template-columns:1fr;margin-top:14px}.wv-collection-hero .wv-hero-art{display:none}}
+@media(max-width:360px){.wv-collection-hero .ap-eyebrow{min-height:3em;line-height:1.5}}
+.wv-orbit-dots{transform-box:fill-box;transform-origin:center;animation:wv-orbit-turn 64s linear infinite}
+.wv-orbit-inner{animation-direction:reverse;animation-duration:48s}
+.wv-liquid{transform-box:fill-box;transform-origin:center;animation:wv-liquid-sway 5s ease-in-out infinite}
+.wv-bubble{animation:wv-bubble-rise 4.5s ease-in infinite}
+@keyframes wv-orbit-turn{to{transform:rotate(360deg)}}
+@keyframes wv-liquid-sway{0%,100%{transform:translateX(-2px) rotate(-1deg)}50%{transform:translateX(2px) rotate(1deg)}}
+@keyframes wv-bubble-rise{0%{opacity:0;transform:translateY(0)}20%{opacity:.8}80%{opacity:.5}100%{opacity:0;transform:translateY(-24px)}}
+@media(prefers-reduced-motion:reduce){.wv-orbit-dots,.wv-liquid,.wv-bubble{animation:none}.wv-bubble{opacity:.6}}
+
+/* Keep the fine Islam drawings legible as their viewBoxes scale down. */
+.wv-islam-illustration,.wv-claims-diagram{stroke-width:1.35;shape-rendering:geometricPrecision}
+.wv-islam-illustration :is(path,circle,ellipse),.wv-claims-diagram :is(path,circle,ellipse){vector-effect:non-scaling-stroke}
+.wv-claims-diagram{height:190px}
+.am-content .wv-claims-heading .wv-claims-motif{max-width:none;min-width:0}

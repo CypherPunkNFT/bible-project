@@ -15,7 +15,7 @@ const drawer = (page: Page) => page.getByRole("dialog", { name: "Teacher profile
 
 test("the landing shows every teacher on the arc, the figures, jump links and works to start reading", async ({ page }) => {
   await openPage(page);
-  await expect(page.getByRole("heading", { level: 1 })).toContainText("Five centuries of teachers.");
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Five Centuries ofbiblical teachers");
   const marks = page.locator(".tp-sec-landing .lnd-mark");
   const total = await marks.count();
   expect(total).toBeGreaterThan(40);
@@ -32,7 +32,7 @@ test("the landing shows every teacher on the arc, the figures, jump links and wo
   await jumps.filter({ hasText: "Everyone" }).click();
   await expect(page).toHaveURL(/#directory$/);
   await expect(page.locator(".lnd-read h3 a").first()).toHaveAttribute("target", "_blank");
-  await expect(page.locator(".lnd-read h3 a").first()).toHaveAttribute("href", /^https:\/\//);
+  await expect(page.locator(".lnd-read h3 a").first()).toHaveAttribute("href", /^\/teachers\/works\//);
 });
 
 test("the landing search finds teachers by name and by town, and opens one", async ({ page }) => {

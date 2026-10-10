@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-eaaab4d446c230056ab14120",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-4f4d02a10e1c5ce3c22ffae5",
+  "label": "Foure sermons of Maister Iohn Caluin entreating of matters very profitable for our time, as may bee seene by the preface: with a briefe exposition of the LXXXVII. Psalme. Translated out of Frenche into Englishe by Iohn Fielde.; Quatre sermons avec exposition du Pseaume 87. English — held source edition aeda2dc848d7",
+  "languages": [
+    "und"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A17694/master/A17694.xml",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

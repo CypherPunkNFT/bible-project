@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-abb46766b9265263c23c0e1f",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-cc9f2e3d8597beda87a8a6bc",
+  "label": "Husbandry spiritualized, or, The heavenly use of earthly things consisting of many pleasant observations, pertinent applications, and serious reflections and each chapter concluded with a divine and suitable poem : directing husband-men to the most excellent improvements of their common imployments : whereunto is added ... several choice occasional meditations / by John Flavell. — held source edition a7a691309d03",
+  "languages": [
+    "und"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A39665/master/A39665.xml",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

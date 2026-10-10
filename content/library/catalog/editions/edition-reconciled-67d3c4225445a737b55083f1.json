@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-67d3c4225445a737b55083f1",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-f75a63c98f78904a6ec908f1",
+  "label": "Nine sermons upon the following subjects; viz. I. The Lord our righteousness. ... IX. The conversion of Zaccheus. By George Whitefield, ... 1742 — held source edition b4b905ed553f",
+  "languages": [
+    "English"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_eighteenth-century_nine-sermons-upon-the-fo_whitefield-george_1742/bim_eighteenth-century_nine-sermons-upon-the-fo_whitefield-george_1742_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

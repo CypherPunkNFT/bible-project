@@ -39,3 +39,7 @@ __pycache__/
 
 # --- raw sources (scripts/fetch-sources.py downloads them here) ---
 /sources/
+
+# Private acquisition working ledgers and generated browser output
+/content/library/reports/**/private-catalog.jsonl
+/.output/

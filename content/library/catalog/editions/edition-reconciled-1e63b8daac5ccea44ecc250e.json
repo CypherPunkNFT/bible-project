@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-1e63b8daac5ccea44ecc250e",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-aa4a041b55d8f2fa6f746b36",
+  "label": "Some remarkable narratives of the success of the gospel, in America, in the beginning of this century. Written by the late Rev. Jonathan Edwards, ... and by other ministers in America. To which is added, an account of the character of the Rev. David — held source edition 57b215af28c6",
+  "languages": [
+    "English"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_eighteenth-century_some-remarkable-narrativ_edwards-jonathan_1791/bim_eighteenth-century_some-remarkable-narrativ_edwards-jonathan_1791_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

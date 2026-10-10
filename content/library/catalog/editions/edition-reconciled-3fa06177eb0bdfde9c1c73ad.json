@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-3fa06177eb0bdfde9c1c73ad",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-6667dfb82d31eeae97dfa9b3",
+  "label": "I will pray with the spirit, and I will pray with the understanding also, or, A discourse touching prayer, from I Cor. 14.15 wherein is briefly discovered 1. What prayer is, 2. What it is to pray with the spirit, 3. What it is to pray with the spirit and with the understanding also / by John Bunyan. — held source edition b8cd3ce3b94e",
+  "languages": [
+    "und"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A30158/master/A30158.xml",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

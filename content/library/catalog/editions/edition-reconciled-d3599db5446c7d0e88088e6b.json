@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-d3599db5446c7d0e88088e6b",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-ce985adcb1bde1fe023ffcc4",
+  "label": "Eighteen sermons preached by the late Rev. George Whitefield, A.M. on the following subjects: Sermon I. A. faithful minister's parting blessing. ... XVIII. The good shepherd. Taken verbatim in short-hand, and faithfully transcribed by Joseph Gurney. — held source edition 7ddc4ffc64e6",
+  "languages": [
+    "English"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_eighteenth-century_eighteen-sermons-preache_whitefield-george_1771/bim_eighteenth-century_eighteen-sermons-preache_whitefield-george_1771_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

@@ -1,0 +1,137 @@
+{
+  "source": "ccel",
+  "catalogueItems": 1300,
+  "catalogueUnheldItems": 1012,
+  "eligibleItems": 7,
+  "unheldBefore": 7,
+  "filter": {
+    "authors": [
+      "Fairbairn, Patrick",
+      "Patrick Fairbairn",
+      "Terry, Milton",
+      "Milton Spencer Terry",
+      "Edersheim, Alfred",
+      "Alfred Edersheim",
+      "Lightfoot, John",
+      "John Lightfoot",
+      "Lightfoot, Joseph",
+      "Joseph Barber Lightfoot",
+      "Lightfoot, J B",
+      "Lightfoot, J. B.",
+      "Josephus",
+      "Flavius Josephus",
+      "Angus, Joseph",
+      "Joseph Angus"
+    ],
+    "primaryAuthorOnly": true,
+    "authorMustStart": true,
+    "authorIdentityRules": [
+      {
+        "namePattern": "Fairbairn",
+        "lifeYears": [
+          1805,
+          1874
+        ]
+      },
+      {
+        "namePattern": "Terry",
+        "lifeYears": [
+          1840,
+          1914
+        ]
+      },
+      {
+        "namePattern": "Edersheim",
+        "lifeYears": [
+          1825,
+          1889
+        ]
+      },
+      {
+        "namePattern": "Lightfoot",
+        "lifeYears": [
+          1602,
+          1675,
+          1828,
+          1889
+        ]
+      },
+      {
+        "namePattern": "Angus",
+        "lifeYears": [
+          1802,
+          1895
+        ]
+      }
+    ],
+    "authorTitleRules": [
+      {
+        "namePattern": "Fairbairn",
+        "titlePattern": "typolog"
+      },
+      {
+        "namePattern": "Terry",
+        "titlePattern": "hermeneutic"
+      },
+      {
+        "namePattern": "Angus",
+        "titlePattern": "bible.*hand|hand.*bible"
+      }
+    ],
+    "deferHardDownloads": true,
+    "skipIds": [
+      "barnes/1cor",
+      "barnes/2cor",
+      "barnes/acts",
+      "barnes/daniel1",
+      "barnes/daniel2",
+      "barnes/epc",
+      "barnes/hebrews",
+      "barnes/isaiah1",
+      "barnes/isaiah2",
+      "barnes/james",
+      "barnes/job1",
+      "barnes/luke",
+      "barnes/matthew",
+      "barnes/psalms1",
+      "barnes/psalms2",
+      "barnes/psalms3",
+      "barnes/rev",
+      "barnes/romans",
+      "barnes/tttp",
+      "cook_fc/1sam",
+      "cook_fc/exod_ruth",
+      "cook_fc/provez",
+      "moule/hebrews"
+    ]
+  },
+  "attempted": 7,
+  "downloaded": 6,
+  "duplicateHashes": 0,
+  "heldDuringRun": 0,
+  "failures": [
+    {
+      "sourceId": "josephus/works",
+      "url": "https://ccel.org/ccel/josephus/works.xml",
+      "title": "Works of Flavius Josephus",
+      "author": "Josephus, Flavius (37- c. 100)",
+      "error": "not a complete offered XML text"
+    }
+  ],
+  "bytes": 17003800,
+  "sampleSizes": [
+    716154,
+    870434,
+    6684281,
+    5005955,
+    612511,
+    3114465
+  ],
+  "state": "complete",
+  "startedAt": "2026-10-07T19:54:00.287957+00:00",
+  "updatedAt": "2026-10-07T19:55:15.289069+00:00",
+  "unheldAfter": 1,
+  "estimatedUnheldGB": 0.0028339666666666666,
+  "estimateBasis": "SWORD InstallSize where available; otherwise arithmetic mean of downloaded originals; decimal GB; edition/item counts, not deduplicated works",
+  "completedAt": "2026-10-07T19:55:15.289931+00:00"
+}

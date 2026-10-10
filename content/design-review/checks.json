@@ -357,6 +357,114 @@
    "failures": []
   },
   {
+   "template": "study-hub",
+   "variant": "page",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "study-legacy",
+   "variant": "page",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "study-branches",
+   "variant": "theology-books",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "study-branches",
+   "variant": "theology-jesus",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "study-branches",
+   "variant": "theology-doctrine",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "study-branches",
+   "variant": "theology-life",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "study-branches",
+   "variant": "theology-people",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "study-branches",
+   "variant": "academic-history",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "study-branches",
+   "variant": "academic-texts",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "study-branches",
+   "variant": "academic-languages",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "study-branches",
+   "variant": "academic-culture",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "study-branches",
+   "variant": "academic-church",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
    "template": "study-charts",
    "variant": "references",
    "instances": 1,
@@ -404,6 +512,15 @@
   {
    "template": "study-names",
    "variant": "page",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "research-lesson",
+   "variant": "lesson",
    "instances": 1,
    "checked": 1,
    "coverage": "",
@@ -523,6 +640,24 @@
    "variant": "event",
    "instances": 30,
    "checked": 30,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "atlas-history",
+   "variant": "collection",
+   "instances": 3,
+   "checked": 3,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "atlas-history",
+   "variant": "topic",
+   "instances": 18,
+   "checked": 18,
    "coverage": "",
    "failed": {},
    "failures": []
@@ -758,23 +893,35 @@
    "instances": 1,
    "checked": 1,
    "coverage": "",
-   "failed": {
-    "links": 1
-   },
-   "failures": [
-    {
-     "url": "/apologetics/worldviews",
-     "width": 400,
-     "check": "links",
-     "detail": "/teachers: this address is not a page on the site"
-    },
-    {
-     "url": "/apologetics/worldviews",
-     "width": 400,
-     "check": "links",
-     "detail": "/resources: this address is not a page on the site"
-    }
-   ]
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "ap-pages",
+   "variant": "debates",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "ap-pages",
+   "variant": "texts",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "ap-pages",
+   "variant": "sources",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
   },
   {
    "template": "ap-pages",
@@ -825,67 +972,241 @@
    "template": "ap-worldview",
    "variant": "page",
    "instances": 4,
-   "checked": 4,
+   "checked": 2,
    "coverage": "",
-   "failed": {
-    "links": 4
-   },
-   "failures": [
-    {
-     "url": "/apologetics/worldviews/islam",
-     "width": 400,
-     "check": "links",
-     "detail": "/teachers: this address is not a page on the site"
-    },
-    {
-     "url": "/apologetics/worldviews/islam",
-     "width": 400,
-     "check": "links",
-     "detail": "/resources: this address is not a page on the site"
-    },
-    {
-     "url": "/apologetics/worldviews/secular",
-     "width": 400,
-     "check": "links",
-     "detail": "/teachers: this address is not a page on the site"
-    },
-    {
-     "url": "/apologetics/worldviews/secular",
-     "width": 400,
-     "check": "links",
-     "detail": "/resources: this address is not a page on the site"
-    },
-    {
-     "url": "/apologetics/worldviews/buddhism",
-     "width": 400,
-     "check": "links",
-     "detail": "/teachers: this address is not a page on the site"
-    },
-    {
-     "url": "/apologetics/worldviews/buddhism",
-     "width": 400,
-     "check": "links",
-     "detail": "/resources: this address is not a page on the site"
-    },
-    {
-     "url": "/apologetics/worldviews/hinduism",
-     "width": 400,
-     "check": "links",
-     "detail": "/teachers: this address is not a page on the site"
-    },
-    {
-     "url": "/apologetics/worldviews/hinduism",
-     "width": 400,
-     "check": "links",
-     "detail": "/resources: this address is not a page on the site"
-    }
-   ]
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "ap-worldview",
+   "variant": "countries",
+   "instances": 53,
+   "checked": 0,
+   "coverage": "All 53 profiles have data reconciliation checks; browser checks cover South Asia, the largest population and a small island territory.",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "ap-worldview",
+   "variant": "flat-map",
+   "instances": 1,
+   "checked": 0,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "ap-worldview",
+   "variant": "people-groups",
+   "instances": 1,
+   "checked": 0,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "ap-worldview",
+   "variant": "engagement-unengaged",
+   "instances": 1,
+   "checked": 0,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "ap-worldview",
+   "variant": "engagement-engagedUnreached",
+   "instances": 1,
+   "checked": 0,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "ap-worldview",
+   "variant": "engagement-noLongerUnreached",
+   "instances": 1,
+   "checked": 0,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "ap-worldview",
+   "variant": "panel-a",
+   "instances": 1,
+   "checked": 0,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "ap-worldview",
+   "variant": "panel-b",
+   "instances": 1,
+   "checked": 0,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "ap-worldview",
+   "variant": "panel-c",
+   "instances": 1,
+   "checked": 0,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "ap-worldview",
+   "variant": "panel-d",
+   "instances": 1,
+   "checked": 0,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "ap-worldview",
+   "variant": "panel-e",
+   "instances": 1,
+   "checked": 0,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "ap-worldview",
+   "variant": "panel-f",
+   "instances": 1,
+   "checked": 0,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "ap-worldview",
+   "variant": "panel-g",
+   "instances": 1,
+   "checked": 0,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "ap-worldview",
+   "variant": "panel-h",
+   "instances": 1,
+   "checked": 0,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "ap-worldview",
+   "variant": "panel-a-groups",
+   "instances": 1,
+   "checked": 0,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "ap-worldview",
+   "variant": "panel-b-groups",
+   "instances": 1,
+   "checked": 0,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "ap-worldview",
+   "variant": "panel-c-groups",
+   "instances": 1,
+   "checked": 0,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "ap-worldview",
+   "variant": "panel-d-groups",
+   "instances": 1,
+   "checked": 0,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "ap-worldview",
+   "variant": "panel-e-groups",
+   "instances": 1,
+   "checked": 0,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "ap-worldview",
+   "variant": "panel-f-groups",
+   "instances": 1,
+   "checked": 0,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "ap-worldview",
+   "variant": "panel-g-groups",
+   "instances": 1,
+   "checked": 0,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "ap-worldview",
+   "variant": "panel-h-groups",
+   "instances": 1,
+   "checked": 0,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "ap-debate",
+   "variant": "page",
+   "instances": 3,
+   "checked": 3,
+   "coverage": "",
+   "failed": {},
+   "failures": []
   },
   {
    "template": "ap-practice",
    "variant": "scenario",
    "instances": 3,
    "checked": 3,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "research-case",
+   "variant": "historical",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "research-case",
+   "variant": "manuscript",
+   "instances": 1,
+   "checked": 1,
    "coverage": "",
    "failed": {},
    "failures": []
@@ -1026,513 +1347,6 @@
    "failures": []
   },
   {
-   "template": "ap-worldview",
-   "variant": "countries",
-   "instances": 53,
-   "checked": 3,
-   "coverage": "All 53 profiles have data reconciliation checks; browser checks cover South Asia, the largest population and a small island territory.",
-   "failed": {},
-   "failures": []
-  },
-  {
-   "template": "ap-worldview",
-   "variant": "flat-map",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {},
-   "failures": []
-  },
-  {
-   "template": "ap-worldview",
-   "variant": "people-groups",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {
-    "links": 1
-   },
-   "failures": [
-    {
-     "url": "/apologetics/worldviews/islam?country=IRN&panel=groups#muslim-world",
-     "width": 400,
-     "check": "links",
-     "detail": "/teachers: this address is not a page on the site"
-    },
-    {
-     "url": "/apologetics/worldviews/islam?country=IRN&panel=groups#muslim-world",
-     "width": 400,
-     "check": "links",
-     "detail": "/resources: this address is not a page on the site"
-    }
-   ]
-  },
-  {
-   "template": "ap-worldview",
-   "variant": "panel-a",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {
-    "links": 1
-   },
-   "failures": [
-    {
-     "url": "/apologetics/worldviews/islam?country=EGY&atlasDesign=a#muslim-world",
-     "width": 400,
-     "check": "links",
-     "detail": "/teachers: this address is not a page on the site"
-    },
-    {
-     "url": "/apologetics/worldviews/islam?country=EGY&atlasDesign=a#muslim-world",
-     "width": 400,
-     "check": "links",
-     "detail": "/resources: this address is not a page on the site"
-    }
-   ]
-  },
-  {
-   "template": "ap-worldview",
-   "variant": "panel-b",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {
-    "links": 1
-   },
-   "failures": [
-    {
-     "url": "/apologetics/worldviews/islam?country=EGY&atlasDesign=b#muslim-world",
-     "width": 400,
-     "check": "links",
-     "detail": "/teachers: this address is not a page on the site"
-    },
-    {
-     "url": "/apologetics/worldviews/islam?country=EGY&atlasDesign=b#muslim-world",
-     "width": 400,
-     "check": "links",
-     "detail": "/resources: this address is not a page on the site"
-    }
-   ]
-  },
-  {
-   "template": "ap-worldview",
-   "variant": "panel-c",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {
-    "links": 1
-   },
-   "failures": [
-    {
-     "url": "/apologetics/worldviews/islam?country=EGY&atlasDesign=c#muslim-world",
-     "width": 400,
-     "check": "links",
-     "detail": "/teachers: this address is not a page on the site"
-    },
-    {
-     "url": "/apologetics/worldviews/islam?country=EGY&atlasDesign=c#muslim-world",
-     "width": 400,
-     "check": "links",
-     "detail": "/resources: this address is not a page on the site"
-    }
-   ]
-  },
-  {
-   "template": "ap-worldview",
-   "variant": "panel-d",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {
-    "links": 1
-   },
-   "failures": [
-    {
-     "url": "/apologetics/worldviews/islam?country=EGY&atlasDesign=d#muslim-world",
-     "width": 400,
-     "check": "links",
-     "detail": "/teachers: this address is not a page on the site"
-    },
-    {
-     "url": "/apologetics/worldviews/islam?country=EGY&atlasDesign=d#muslim-world",
-     "width": 400,
-     "check": "links",
-     "detail": "/resources: this address is not a page on the site"
-    }
-   ]
-  },
-  {
-   "template": "ap-worldview",
-   "variant": "panel-a-groups",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {
-    "links": 1
-   },
-   "failures": [
-    {
-     "url": "/apologetics/worldviews/islam?country=EGY&atlasDesign=a&panel=groups#muslim-world",
-     "width": 400,
-     "check": "links",
-     "detail": "/teachers: this address is not a page on the site"
-    },
-    {
-     "url": "/apologetics/worldviews/islam?country=EGY&atlasDesign=a&panel=groups#muslim-world",
-     "width": 400,
-     "check": "links",
-     "detail": "/resources: this address is not a page on the site"
-    }
-   ]
-  },
-  {
-   "template": "ap-worldview",
-   "variant": "panel-b-groups",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {
-    "links": 1
-   },
-   "failures": [
-    {
-     "url": "/apologetics/worldviews/islam?country=EGY&atlasDesign=b&panel=groups#muslim-world",
-     "width": 400,
-     "check": "links",
-     "detail": "/teachers: this address is not a page on the site"
-    },
-    {
-     "url": "/apologetics/worldviews/islam?country=EGY&atlasDesign=b&panel=groups#muslim-world",
-     "width": 400,
-     "check": "links",
-     "detail": "/resources: this address is not a page on the site"
-    }
-   ]
-  },
-  {
-   "template": "ap-worldview",
-   "variant": "panel-c-groups",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {
-    "links": 1
-   },
-   "failures": [
-    {
-     "url": "/apologetics/worldviews/islam?country=EGY&atlasDesign=c&panel=groups#muslim-world",
-     "width": 400,
-     "check": "links",
-     "detail": "/teachers: this address is not a page on the site"
-    },
-    {
-     "url": "/apologetics/worldviews/islam?country=EGY&atlasDesign=c&panel=groups#muslim-world",
-     "width": 400,
-     "check": "links",
-     "detail": "/resources: this address is not a page on the site"
-    }
-   ]
-  },
-  {
-   "template": "ap-worldview",
-   "variant": "panel-d-groups",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {
-    "links": 1
-   },
-   "failures": [
-    {
-     "url": "/apologetics/worldviews/islam?country=EGY&atlasDesign=d&panel=groups#muslim-world",
-     "width": 400,
-     "check": "links",
-     "detail": "/teachers: this address is not a page on the site"
-    },
-    {
-     "url": "/apologetics/worldviews/islam?country=EGY&atlasDesign=d&panel=groups#muslim-world",
-     "width": 400,
-     "check": "links",
-     "detail": "/resources: this address is not a page on the site"
-    }
-   ]
-  },
-  {
-   "template": "ap-worldview",
-   "variant": "panel-e",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {
-    "links": 1
-   },
-   "failures": [
-    {
-     "url": "/apologetics/worldviews/islam?country=EGY&atlasDesign=e#muslim-world",
-     "width": 400,
-     "check": "links",
-     "detail": "/teachers: this address is not a page on the site"
-    },
-    {
-     "url": "/apologetics/worldviews/islam?country=EGY&atlasDesign=e#muslim-world",
-     "width": 400,
-     "check": "links",
-     "detail": "/resources: this address is not a page on the site"
-    }
-   ]
-  },
-  {
-   "template": "ap-worldview",
-   "variant": "panel-f",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {
-    "links": 1
-   },
-   "failures": [
-    {
-     "url": "/apologetics/worldviews/islam?country=EGY&atlasDesign=f#muslim-world",
-     "width": 400,
-     "check": "links",
-     "detail": "/teachers: this address is not a page on the site"
-    },
-    {
-     "url": "/apologetics/worldviews/islam?country=EGY&atlasDesign=f#muslim-world",
-     "width": 400,
-     "check": "links",
-     "detail": "/resources: this address is not a page on the site"
-    }
-   ]
-  },
-  {
-   "template": "ap-worldview",
-   "variant": "panel-g",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {
-    "links": 1
-   },
-   "failures": [
-    {
-     "url": "/apologetics/worldviews/islam?country=EGY&atlasDesign=g#muslim-world",
-     "width": 400,
-     "check": "links",
-     "detail": "/teachers: this address is not a page on the site"
-    },
-    {
-     "url": "/apologetics/worldviews/islam?country=EGY&atlasDesign=g#muslim-world",
-     "width": 400,
-     "check": "links",
-     "detail": "/resources: this address is not a page on the site"
-    }
-   ]
-  },
-  {
-   "template": "ap-worldview",
-   "variant": "panel-h",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {
-    "links": 1
-   },
-   "failures": [
-    {
-     "url": "/apologetics/worldviews/islam?country=EGY&atlasDesign=h#muslim-world",
-     "width": 400,
-     "check": "links",
-     "detail": "/teachers: this address is not a page on the site"
-    },
-    {
-     "url": "/apologetics/worldviews/islam?country=EGY&atlasDesign=h#muslim-world",
-     "width": 400,
-     "check": "links",
-     "detail": "/resources: this address is not a page on the site"
-    }
-   ]
-  },
-  {
-   "template": "ap-worldview",
-   "variant": "panel-e-groups",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {
-    "links": 1
-   },
-   "failures": [
-    {
-     "url": "/apologetics/worldviews/islam?country=EGY&atlasDesign=e&panel=groups#muslim-world",
-     "width": 400,
-     "check": "links",
-     "detail": "/teachers: this address is not a page on the site"
-    },
-    {
-     "url": "/apologetics/worldviews/islam?country=EGY&atlasDesign=e&panel=groups#muslim-world",
-     "width": 400,
-     "check": "links",
-     "detail": "/resources: this address is not a page on the site"
-    }
-   ]
-  },
-  {
-   "template": "ap-worldview",
-   "variant": "panel-f-groups",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {
-    "links": 1
-   },
-   "failures": [
-    {
-     "url": "/apologetics/worldviews/islam?country=EGY&atlasDesign=f&panel=groups#muslim-world",
-     "width": 400,
-     "check": "links",
-     "detail": "/teachers: this address is not a page on the site"
-    },
-    {
-     "url": "/apologetics/worldviews/islam?country=EGY&atlasDesign=f&panel=groups#muslim-world",
-     "width": 400,
-     "check": "links",
-     "detail": "/resources: this address is not a page on the site"
-    }
-   ]
-  },
-  {
-   "template": "ap-worldview",
-   "variant": "panel-g-groups",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {
-    "links": 1
-   },
-   "failures": [
-    {
-     "url": "/apologetics/worldviews/islam?country=EGY&atlasDesign=g&panel=groups#muslim-world",
-     "width": 400,
-     "check": "links",
-     "detail": "/teachers: this address is not a page on the site"
-    },
-    {
-     "url": "/apologetics/worldviews/islam?country=EGY&atlasDesign=g&panel=groups#muslim-world",
-     "width": 400,
-     "check": "links",
-     "detail": "/resources: this address is not a page on the site"
-    }
-   ]
-  },
-  {
-   "template": "ap-worldview",
-   "variant": "panel-h-groups",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {
-    "links": 1
-   },
-   "failures": [
-    {
-     "url": "/apologetics/worldviews/islam?country=EGY&atlasDesign=h&panel=groups#muslim-world",
-     "width": 400,
-     "check": "links",
-     "detail": "/teachers: this address is not a page on the site"
-    },
-    {
-     "url": "/apologetics/worldviews/islam?country=EGY&atlasDesign=h&panel=groups#muslim-world",
-     "width": 400,
-     "check": "links",
-     "detail": "/resources: this address is not a page on the site"
-    }
-   ]
-  },
-  {
-   "template": "ap-worldview",
-   "variant": "engagement-unengaged",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {
-    "links": 1
-   },
-   "failures": [
-    {
-     "url": "/apologetics/worldviews/islam?country=EGY&panel=groups&engagement=unengaged#muslim-world",
-     "width": 400,
-     "check": "links",
-     "detail": "/teachers: this address is not a page on the site"
-    },
-    {
-     "url": "/apologetics/worldviews/islam?country=EGY&panel=groups&engagement=unengaged#muslim-world",
-     "width": 400,
-     "check": "links",
-     "detail": "/resources: this address is not a page on the site"
-    }
-   ]
-  },
-  {
-   "template": "ap-worldview",
-   "variant": "engagement-engagedUnreached",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {
-    "links": 1
-   },
-   "failures": [
-    {
-     "url": "/apologetics/worldviews/islam?country=EGY&panel=groups&engagement=engagedUnreached#muslim-world",
-     "width": 400,
-     "check": "links",
-     "detail": "/teachers: this address is not a page on the site"
-    },
-    {
-     "url": "/apologetics/worldviews/islam?country=EGY&panel=groups&engagement=engagedUnreached#muslim-world",
-     "width": 400,
-     "check": "links",
-     "detail": "/resources: this address is not a page on the site"
-    }
-   ]
-  },
-  {
-   "template": "ap-worldview",
-   "variant": "engagement-noLongerUnreached",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {
-    "links": 1
-   },
-   "failures": [
-    {
-     "url": "/apologetics/worldviews/islam?country=EGY&panel=groups&engagement=noLongerUnreached#muslim-world",
-     "width": 400,
-     "check": "links",
-     "detail": "/teachers: this address is not a page on the site"
-    },
-    {
-     "url": "/apologetics/worldviews/islam?country=EGY&panel=groups&engagement=noLongerUnreached#muslim-world",
-     "width": 400,
-     "check": "links",
-     "detail": "/resources: this address is not a page on the site"
-    }
-   ]
-  },
-  {
-   "template": "research-lesson",
-   "variant": "lesson",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {},
-   "failures": []
-  },
-  {
    "template": "research-landing",
    "variant": "all",
    "instances": 1,
@@ -1562,96 +1376,6 @@
   {
    "template": "research-catalogue",
    "variant": "works",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {},
-   "failures": []
-  },
-  {
-   "template": "study-legacy",
-   "variant": "page",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {},
-   "failures": []
-  },
-  {
-   "template": "study-hub",
-   "variant": "page",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {},
-   "failures": []
-  },
-  {
-   "template": "atlas-history",
-   "variant": "collection",
-   "instances": 3,
-   "checked": 3,
-   "coverage": "",
-   "failed": {},
-   "failures": []
-  },
-  {
-   "template": "atlas-history",
-   "variant": "topic",
-   "instances": 18,
-   "checked": 18,
-   "coverage": "",
-   "failed": {},
-   "failures": []
-  },
-  {
-   "template": "ap-pages",
-   "variant": "debates",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {},
-   "failures": []
-  },
-  {
-   "template": "ap-pages",
-   "variant": "texts",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {},
-   "failures": []
-  },
-  {
-   "template": "ap-pages",
-   "variant": "sources",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {},
-   "failures": []
-  },
-  {
-   "template": "ap-debate",
-   "variant": "page",
-   "instances": 3,
-   "checked": 3,
-   "coverage": "",
-   "failed": {},
-   "failures": []
-  },
-  {
-   "template": "research-case",
-   "variant": "historical",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {},
-   "failures": []
-  },
-  {
-   "template": "research-case",
-   "variant": "manuscript",
    "instances": 1,
    "checked": 1,
    "coverage": "",
@@ -1689,7 +1413,7 @@
    "template": "teacher-holdings",
    "variant": "preachers",
    "instances": 1,
-   "checked": 1,
+   "checked": 0,
    "coverage": "",
    "failed": {},
    "failures": []
@@ -1698,7 +1422,7 @@
    "template": "teacher-holdings",
    "variant": "scholars",
    "instances": 1,
-   "checked": 1,
+   "checked": 0,
    "coverage": "",
    "failed": {},
    "failures": []
@@ -1707,7 +1431,7 @@
    "template": "teacher-library",
    "variant": "collections",
    "instances": 1,
-   "checked": 1,
+   "checked": 0,
    "coverage": "",
    "failed": {},
    "failures": []
@@ -1716,7 +1440,7 @@
    "template": "teacher-reading",
    "variant": "readable",
    "instances": 19841,
-   "checked": 2,
+   "checked": 0,
    "coverage": "Representative page states; package generation verifies all record, shelf and reading-page references.",
    "failed": {},
    "failures": []
@@ -1725,7 +1449,7 @@
    "template": "teacher-reading",
    "variant": "pending",
    "instances": 111358,
-   "checked": 2,
+   "checked": 0,
    "coverage": "Representative page states; package generation verifies all record, shelf and reading-page references.",
    "failed": {},
    "failures": []
@@ -1734,7 +1458,7 @@
    "template": "teacher-reading",
    "variant": "identity",
    "instances": 11533,
-   "checked": 2,
+   "checked": 0,
    "coverage": "Representative page states; package generation verifies all record, shelf and reading-page references.",
    "failed": {},
    "failures": []
@@ -1743,7 +1467,7 @@
    "template": "reading-source",
    "variant": "confession",
    "instances": 1,
-   "checked": 1,
+   "checked": 0,
    "coverage": "",
    "failed": {},
    "failures": []
@@ -1752,7 +1476,7 @@
    "template": "reading-source",
    "variant": "comparison",
    "instances": 1,
-   "checked": 1,
+   "checked": 0,
    "coverage": "",
    "failed": {},
    "failures": []
@@ -1761,97 +1485,7 @@
    "template": "reading-source",
    "variant": "pending",
    "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {},
-   "failures": []
-  },
-  {
-   "template": "study-branches",
-   "variant": "theology-books",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {},
-   "failures": []
-  },
-  {
-   "template": "study-branches",
-   "variant": "theology-jesus",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {},
-   "failures": []
-  },
-  {
-   "template": "study-branches",
-   "variant": "theology-doctrine",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {},
-   "failures": []
-  },
-  {
-   "template": "study-branches",
-   "variant": "theology-life",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {},
-   "failures": []
-  },
-  {
-   "template": "study-branches",
-   "variant": "theology-people",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {},
-   "failures": []
-  },
-  {
-   "template": "study-branches",
-   "variant": "academic-history",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {},
-   "failures": []
-  },
-  {
-   "template": "study-branches",
-   "variant": "academic-texts",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {},
-   "failures": []
-  },
-  {
-   "template": "study-branches",
-   "variant": "academic-languages",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {},
-   "failures": []
-  },
-  {
-   "template": "study-branches",
-   "variant": "academic-culture",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {},
-   "failures": []
-  },
-  {
-   "template": "study-branches",
-   "variant": "academic-church",
-   "instances": 1,
-   "checked": 1,
+   "checked": 0,
    "coverage": "",
    "failed": {},
    "failures": []

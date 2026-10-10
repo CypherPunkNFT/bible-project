@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-bb4af9e35732dba10576ec10",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-ef87871f57869d369dc7b066",
+  "label": "Theomachia autexousiastikē: or, A display of Arminianisme. Being a discovery of the old Pelagian idol free-will, with the new goddesse contingency, advancing themselves, into the throne of the God of heaven to the prejudice of his grace, providence, and supreme dominion over the children of men. Wherein the maine errors of the Arminians are laid open, by which they are fallen off from the received doctrine of all the reformed churches, with their opposition in divers particulars to the doctrine established in the Church of England. Discovered out of their owne writings and confessions, and confuted by the Word of God. / By Iohn Owen, Master of Arts of Queens Colledge in Oxon. — held source edition 77c0e1da9c4f",
+  "languages": [
+    "eng"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A90293/master/A90293.xml",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

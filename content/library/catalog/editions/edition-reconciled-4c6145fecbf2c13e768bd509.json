@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-4c6145fecbf2c13e768bd509",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-9676b4c5e6b962a4e116cbbd",
+  "label": "Fifteen sermons preached on various important subjects, by George Whitefield, A.B. late of Pembroke College, Oxford. ; Carefully corrected and revised according to the best London edition. ; To which is prefixed, a sermon, on the character, preaching, &c. of the Rev. Mr. Whitefield. By Joseph [i.e., Josiah] Smith, V.D.M. — held source edition 0b17092e3317",
+  "languages": [
+    "und"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/N21379/master/N21379.xml",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

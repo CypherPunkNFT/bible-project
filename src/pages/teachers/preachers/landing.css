@@ -1,16 +1,19 @@
 /* The landing (ported from design/authors-directions/teachers/landing.css): headline, welcome, search, figures, the arc of teachers, jump links and three works to start reading. */
-.tp-preachers .lnd { padding-top: clamp(1.6rem, 3.4vw, 2.8rem); }
+.tp-preachers .lnd { padding-top: 1.4rem; }
 .tp-preachers .lnd button { padding: 0; border: 0; background: none; }
 
 /* ── Headline and figures ─────────────────────────────────────────────────── */
-.tp-preachers .lnd-top { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 21rem); gap: 2rem 3.5rem; align-items: end; }
+.tp-preachers .lnd-top { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-areas: "copy art" "tools tools"; gap: 1.6rem 2rem; align-items: center; }
+.tp-preachers .lnd-copy { grid-area: copy; align-self: start; }
+.tp-preachers .lnd-bible { grid-area: art; max-width: 28rem; }
 .tp-preachers .lnd-kicker { display: flex; gap: .9rem; align-items: center; }
 .tp-preachers .lnd-kicker::before { content: ""; width: 28px; height: 1px; background: currentColor; opacity: .7; }
 .tp-preachers .lnd-title { margin-top: 1.1rem; font: 500 clamp(2.35rem, 5vw, 4.15rem)/1.03 var(--serif); letter-spacing: -.045em; text-wrap: balance; }
 .tp-preachers .lnd-title em { color: var(--accent); font-weight: 400; }
 .tp-preachers .lnd-lead { max-width: 54ch; margin-top: 1.2rem; color: var(--muted); font-size: .98rem; line-height: 1.75; }
 
-.tp-preachers .lnd-find { position: relative; width: min(100%, 28rem); margin-top: 1.6rem; }
+.tp-preachers .lnd-tools { grid-area: tools; display: grid; grid-template-columns: minmax(16rem, 28rem) minmax(0, 1fr); gap: 2rem; align-items: center; }
+.tp-preachers .lnd-find { position: relative; width: 100%; }
 .tp-preachers .lnd-find:has(.lnd-results:not([hidden])) { z-index: 8; } /* an open list sits above the hover card */
 .tp-preachers .lnd-search { display: flex; gap: .65rem; align-items: center; height: 3.1rem; padding: 0 1.15rem; border: 1px solid var(--line); border-radius: 999px;
   background: var(--surface); color: var(--muted); box-shadow: 0 14px 34px -22px rgb(0 0 0 / 30%); transition: border-color .2s, box-shadow .2s; }
@@ -31,9 +34,9 @@
 .tp-preachers .lnd-results svg { flex: none; color: var(--muted); }
 .tp-preachers .lnd-more { padding: .55rem .7rem; font-size: .76rem; color: var(--muted); }
 
-.tp-preachers .lnd-figs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.3rem 1.2rem; margin: 0; padding-left: 2rem; border-left: 1px solid var(--line); }
+.tp-preachers .lnd-figs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; margin: 0; padding-left: 2rem; border-left: 1px solid var(--line); }
 .tp-preachers .lnd-figs dt { font-size: .6rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
-.tp-preachers .lnd-figs dd { margin: .3rem 0 0; font: 500 2rem/1.05 var(--serif); letter-spacing: -.03em; font-variant-numeric: tabular-nums; }
+.tp-preachers .lnd-figs dd { margin: .3rem 0 0; font: 500 1.8rem/1.05 var(--serif); letter-spacing: -.03em; font-variant-numeric: tabular-nums; }
 .tp-preachers .lnd-figs small { display: block; margin-top: .25rem; font-size: .72rem; color: var(--muted); }
 
 /* ── The arc of teachers ──────────────────────────────────────────────────── */
@@ -105,16 +108,24 @@
 .tp-preachers .lnd-read-go { display: inline-flex; gap: .3rem; align-items: center; font-size: .8rem; font-weight: 600; color: var(--tone); }
 
 @media (max-width: 900px) {
-  .tp-preachers .lnd-top { grid-template-columns: 1fr; }
-  .tp-preachers .lnd-figs { grid-template-columns: repeat(4, minmax(0, 1fr)); padding: 1.1rem 0 0; border-left: 0; border-top: 1px solid var(--line); }
+  .tp-preachers .lnd-top { grid-template-columns: 1fr; grid-template-areas: "copy" "tools" "art"; }
+  .tp-preachers .lnd-tools { grid-template-columns: minmax(14rem, .85fr) minmax(0, 1.4fr); gap: 1.25rem; }
+  .tp-preachers .lnd-figs { padding-left: 1.25rem; gap: .75rem; }
+  .tp-preachers .lnd-bible { max-width: 25rem; }
   .tp-preachers .lnd-read-grid { grid-template-columns: 1fr; }
   .tp-preachers .lnd-read { min-height: 0; }
   .tp-preachers .lnd-read h3 { margin-bottom: 1rem; }
 }
+@media (max-width: 700px) {
+  .tp-preachers .lnd-tools { grid-template-columns: 1fr; }
+  .tp-preachers .lnd-figs { padding: 1.1rem 0 0; border-left: 0; border-top: 1px solid var(--line); }
+}
 @media (max-width: 560px) {
   .tp-preachers .lnd-lead { font-size: .92rem; }
-  .tp-preachers .lnd-figs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .tp-preachers .lnd-figs dd { font-size: 1.6rem; }
+  .tp-preachers .lnd-figs { gap: .5rem; }
+  .tp-preachers .lnd-figs dt { font-size: .55rem; letter-spacing: .1em; }
+  .tp-preachers .lnd-figs dd { font-size: clamp(1.25rem, 6vw, 1.45rem); }
+  .tp-preachers .lnd-figs small { font-size: .65rem; }
   .tp-preachers .lnd-band { margin-top: 1.8rem; border-radius: 1.1rem; }
   .tp-preachers .lnd-band-cap { top: .85rem; left: 1rem; font-size: .7rem; }
   .tp-preachers .lnd-tip { width: 15rem; }

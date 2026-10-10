@@ -1,0 +1,124 @@
+{
+  "authors": [
+    "Baxter, Richard",
+    "Richard Baxter",
+    "Perkins, William",
+    "William Perkins",
+    "Ames, William",
+    "William Ames",
+    "Watson, Thomas",
+    "Thomas Watson",
+    "Durham, James",
+    "James Durham",
+    "Ridgley, Thomas",
+    "Thomas Ridgley",
+    "Dabney, Robert",
+    "Robert Dabney",
+    "Fuller, Andrew",
+    "Andrew Fuller",
+    "Robert Lewis Dabney",
+    "Dabney, R L",
+    "Dabney, R. L.",
+    "Ames, Willem",
+    "William Amesius"
+  ],
+  "primaryAuthorOnly": true,
+  "authorIdentityRules": [
+    {
+      "namePattern": "Baxter",
+      "lifeYears": [
+        1615,
+        1691
+      ]
+    },
+    {
+      "namePattern": "Perkins",
+      "lifeYears": [
+        1558,
+        1588,
+        1602
+      ]
+    },
+    {
+      "namePattern": "Ames",
+      "lifeYears": [
+        1576,
+        1633
+      ]
+    },
+    {
+      "namePattern": "Watson",
+      "lifeYears": [
+        1620,
+        1686
+      ]
+    },
+    {
+      "namePattern": "Durham",
+      "lifeYears": [
+        1622,
+        1658
+      ]
+    },
+    {
+      "namePattern": "Ridgley",
+      "lifeYears": [
+        1667,
+        1734
+      ]
+    },
+    {
+      "namePattern": "Dabney",
+      "lifeYears": [
+        1820,
+        1898
+      ]
+    },
+    {
+      "namePattern": "Fuller",
+      "lifeYears": [
+        1754,
+        1815
+      ]
+    }
+  ],
+  "deferHardDownloads": true,
+  "skipIds": [
+    "anexpositionepi03willgoog",
+    "atreatiseonsabb00owengoog",
+    "bim_early-english-books-1641-1700_a-piller-set-up-to-keep_keach-benjamin_1670",
+    "bim_early-english-books-1641-1700_a-treatise-concerning-th_spilsbury-john_1652",
+    "bim_early-english-books-1475-1640_the-excellency-of-a-grac_burroughs-jeremiah_1639",
+    "bim_early-english-books-1641-1700_exercitations-on-the-epi_owen-john-dd_1674",
+    "bim_early-english-books-1641-1700_gospel-reconcillation-_burroughes-jeremiah_1689",
+    "bim_early-english-books-1641-1700_jerusalems-glory_burroughes-jeremiah_1697",
+    "bim_early-english-books-1641-1700_sions-joy_burroughes-jeremiah_1641",
+    "bim_early-english-books-1641-1700_the-rare-jewel-of-christ_burroughes-jeremiah_1649",
+    "bim_early-english-books-1641-1700_the-rare-jewel-of-christ_burroughes-jeremiah_1650",
+    "bim_eighteenth-century_a-golden-key-to-open-hid_brooks-thomas_1763",
+    "bim_eighteenth-century_a-learned-and-complete-c_durham-james_1788",
+    "bim_eighteenth-century_a-practical-exposition-o_manton-thomas_1703",
+    "bim_eighteenth-century_heavenly-mindedness-reco_burroughs-jeremiah-pre_1715",
+    "irenicvmtolover00burrgoog",
+    "ubhlanoirairson00broo"
+  ],
+  "collections": [
+    "Princeton",
+    "americana",
+    "toronto",
+    "europeanlibraries",
+    "library_of_congress",
+    "cdl",
+    "bostonpubliclibrary",
+    "getty",
+    "gutenberg",
+    "microfilm"
+  ],
+  "authorTitleRules": [
+    {
+      "namePattern": "Baxter|Perkins|Ames|Watson|Durham|Ridgley",
+      "titlePattern": "director|conscience|commandment|catechism|divinity|ethic|moral|works"
+    }
+  ],
+  "iaQuery": "mediatype:texts AND date:[1600-01-01 TO 1930-12-31] AND NOT access-restricted-item:true AND (creator:\"Baxter, Richard\" OR creator:\"Richard Baxter\" OR creator:\"Perkins, William\" OR creator:\"William Perkins\" OR creator:\"Ames, William\" OR creator:\"William Ames\" OR creator:\"Watson, Thomas\" OR creator:\"Thomas Watson\" OR creator:\"Durham, James\" OR creator:\"James Durham\" OR creator:\"Ridgley, Thomas\" OR creator:\"Thomas Ridgley\" OR creator:\"Dabney, Robert\" OR creator:\"Robert Dabney\" OR creator:\"Fuller, Andrew\" OR creator:\"Andrew Fuller\" OR creator:\"Robert Lewis Dabney\" OR creator:\"Dabney, R L\" OR creator:\"Dabney, R. L.\" OR creator:\"Ames, Willem\" OR creator:\"William Amesius\")"
+}

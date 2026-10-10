@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-5321f0c9a4b796dd39d99e99",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-2906fa8eccc6eb9d67a45916",
+  "label": "Two godly and learned sermons, made by that famous and woorthy instrument in Gods church, M. Iohn Caluin. Which sermons were long since translated out of Latine into English, by M. Robert Horne late Byshop of Winchester, at what time he suffered exile from his country, for the testimony of a good conscience, as his apology in the beginning of the booke will witnes. And because these sermons haue long lyen hidden in silence, and many godly and religious persons, haue beene very desirous of them: at theyr earnest request they are nowe published by A.M.; Quatre sermons. English. Selections — held source edition 6f6cb2fd36ab",
+  "languages": [
+    "und"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A17725/master/A17725.xml",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

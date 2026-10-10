@@ -105997,14 +105997,15 @@
       "sourceId": "source-helloao",
       "edition": "HelloAO John Gill JSON electronic witness; underlying print impression unspecified",
       "completeness": "complete-offered-chapter-component-of-selected-book",
-      "evidenceOnly": true,
+      "evidenceOnly": false,
       "rightsCategory": "historic-text-Public-Domain-Mark-1.0",
       "rightsEvidence": "Primary API inventory explicitly labels Gill with CC Public Domain Mark 1.0; publisher docs offer API/downloads with no usage/key limits. PDM is a status mark, not a new copyright license. Source print impression/transcription lineage unresolved; private source-preserving acquisition only.",
       "admissionRole": "historical-Baptist-sustained-book-exegesis",
       "actualSha256": "35ec1fbff073b8a07afb14b0e69a668a2f2cfac094687b203a45fed0f4565b2e",
       "byteCount": 6992,
       "originalExists": true,
-      "format": "json"
+      "format": "json",
+      "privateLocalIndexAuthorized": true
     },
     {
       "assetId": "asset-rb03-8bbd903011e14b051b66",
@@ -112255,14 +112256,15 @@
       "sourceId": "source-internet-archive",
       "edition": "London, G. & J. Dyer, 1846; Andrew Gunton Fuller memoir/editorial material separate",
       "completeness": "Complete offered existing OCR full-text page, extracted from pre element; OCR defects retained; no new OCR",
-      "evidenceOnly": true,
+      "evidenceOnly": false,
       "rightsCategory": "historical-public-domain-unrestricted-offered-download-private-copy",
       "rightsEvidence": "https://archive.org/details/completeworksofr00fulluoft; https://archive.org/about/terms (JavaScript shell disclosed, not represented as read terms)",
       "admissionRole": "mixed-collected-volume-requires-section-scoping",
       "actualSha256": "b6e9d8e2c7cd664b30feef68f111f33885e6c23f97132b6b3e45ea5fde312395",
       "byteCount": 10865272,
       "originalExists": true,
-      "format": "html"
+      "format": "html",
+      "privateLocalIndexAuthorized": true
     }
   ],
   "note": "Point-in-time audit of originals and internal structure. Bodies are private; headings alone do not establish full theological or verse-level review."

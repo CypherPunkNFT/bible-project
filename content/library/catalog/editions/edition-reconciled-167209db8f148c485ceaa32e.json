@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-167209db8f148c485ceaa32e",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-c6e7aed7a37a82c2c67db650",
+  "label": "Tvvo Godly and notable sermons preached by the excellent and famous clarke, master Iohn Caluyne, in the yere. 1555 The one concernynge pacience in aduersitie: The other touchyng the most comfortable assurance of oure saluation in Chryste. Iesu. Translated out of Frenche into Englyshe. — held source edition 49496491c332",
+  "languages": [
+    "und"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A69062/master/A69062.xml",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

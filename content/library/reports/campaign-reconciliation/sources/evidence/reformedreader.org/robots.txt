@@ -1,0 +1,68 @@
+###############################
+#
+#
+User-agent: *
+#
+# list folders robots are not allowed to index 
+#
+Disallow: /_testing
+Disallow: /_private
+Disallow: /_derived
+Disallow: /_overlay
+Disallow: /_borders
+Disallow: /_vti_bin
+Disallow: /_vti_log
+Disallow: /_vti_txt
+Disallow: /_vti_pvt
+Disallow: /_vti_cnf
+Disallow: /_vti_cnf
+Disallow: /_themes
+Disallow: /images
+Disallow: /cgi-bin
+Disallow: /devotions
+Disallow: /vod
+Disallow: /search
+Disallow: /atrr
+Disallow: /wptrr
+Disallow: /atrr.iframes
+Disallow: /store
+Disallow: /webfeedback
+Disallow: /feedbackthankyou
+Disallow: /bibles
+Disallow: /mail
+Disallow: /new
+Disallow: /test
+Disallow: /testing
+Disallow: /trr2
+Disallow: /includes
+Disallow: /missions
+Disallow: /quotes
+Disallow: /reformed
+Disallow: /samhughey
+Disallow: /rss
+Disallow: /jscripts
+Disallow: /library
+Disallow: /mail
+Disallow: /templates
+Disallow: /trrnew
+Disallow: /history/state/kentucky
+#
+# list specific files robots are not allowed to index
+#
+Disallow: /cart/images
+Disallow: /default
+Disallow: /401
+Disallow: /404
+Disallow: /500
+Disallow: /trrstylesheet.css
+Disallow: /biography/index.htm
+Disallow: /webfeedback.htm
+Disallow: /feedbackthankyou.htm
+Disallow: /rbchurchconfirm.htm
+Disallow: /rbchurchentry.htm
+Disallow: /indextest2.htm
+Disallow: /history/state/kentucky
+# 
+#
+###############################
+sitemap: http://cdn.attracta.com/sitemap/295522.xml.gz

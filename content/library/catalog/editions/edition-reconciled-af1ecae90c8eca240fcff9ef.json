@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-af1ecae90c8eca240fcff9ef",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-852f4d4ec5865606a476b7c7",
+  "label": "The French Revolution foreseen, in 1639. Extracts from an Exposition of the Revelation, by an eminent divine of both universities, in the beginning of the last century. Who explains a prophecy in that book of a revolution in France, ... To which are — held source edition 94bfcfcd5830",
+  "languages": [
+    "English"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_eighteenth-century_the-french-revolution-fo_goodwin-thomas_1796/bim_eighteenth-century_the-french-revolution-fo_goodwin-thomas_1796_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

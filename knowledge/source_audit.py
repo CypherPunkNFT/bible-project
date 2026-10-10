@@ -15,7 +15,7 @@ def source_drift(config, db):
                 if Path(row[0]).is_relative_to(root) or
                 Path(row[0]).is_relative_to(site / "data") or
                 Path(row[0]).is_relative_to(site / "content")}
-    current = {p.resolve() for p in root.rglob("*") if p.is_file()}
+    current = {p.resolve() for p in root.rglob("*") if p.is_file() and p.suffix.lower() not in ('.part', '.tmp')}
     source_recorded = {p for p in recorded if p.is_relative_to(root)}
     missing = sorted(str(p) for p in recorded if not p.is_file())
     changed = sorted(str(p) for p, expected in recorded.items() if p.is_file() and checksum(p) != expected)

@@ -1,0 +1,170 @@
+{
+  "source": "tcp",
+  "catalogueItems": 61315,
+  "catalogueUnheldItems": 51134,
+  "eligibleItems": 95,
+  "unheldBefore": 22,
+  "filter": {
+    "authors": [
+      "Fuller, Andrew",
+      "Andrew Fuller",
+      "Carey, William",
+      "William Carey",
+      "Judson, Adoniram",
+      "Adoniram Judson",
+      "Judson, Ann",
+      "Ann Hasseltine Judson",
+      "Ann H. Judson",
+      "Judson, Sarah",
+      "Sarah Boardman Judson",
+      "Judson, Emily",
+      "Emily Chubbuck Judson",
+      "Spurgeon, Charles",
+      "Charles H. Spurgeon",
+      "Charles Haddon Spurgeon",
+      "C. H. Spurgeon",
+      "Whitefield, George",
+      "George Whitefield",
+      "Edwards, Jonathan",
+      "Jonathan Edwards",
+      "Brainerd, David",
+      "David Brainerd"
+    ],
+    "primaryAuthorOnly": true,
+    "authorMustStart": true,
+    "authorIdentityRules": [
+      {
+        "namePattern": "Fuller",
+        "lifeYears": [
+          1754,
+          1815
+        ]
+      },
+      {
+        "namePattern": "Carey",
+        "lifeYears": [
+          1761,
+          1834
+        ]
+      },
+      {
+        "namePattern": "Spurgeon",
+        "lifeYears": [
+          1834,
+          1892
+        ]
+      },
+      {
+        "namePattern": "Whitefield",
+        "lifeYears": [
+          1714,
+          1770
+        ]
+      },
+      {
+        "namePattern": "Edwards",
+        "lifeYears": [
+          1703,
+          1758
+        ]
+      },
+      {
+        "namePattern": "Brainerd",
+        "lifeYears": [
+          1718,
+          1747
+        ]
+      },
+      {
+        "namePattern": "Judson",
+        "lifeYears": [
+          1788,
+          1850,
+          1789,
+          1826,
+          1803,
+          1845,
+          1817,
+          1854
+        ]
+      }
+    ],
+    "authorTitleRules": [
+      {
+        "namePattern": "Spurgeon",
+        "titlePattern": "sermon|pulpit|preach|new park|metropolitan|works|gospel"
+      },
+      {
+        "namePattern": "Edwards",
+        "titlePattern": "sermon|preach|brainerd|works|revival|awakening|religious affections|farewell"
+      },
+      {
+        "namePattern": "Judson",
+        "titlePattern": "memoir|life|letter|mission|biograph|burma|burmah"
+      }
+    ],
+    "deferHardDownloads": true,
+    "skipIds": []
+  },
+  "attempted": 22,
+  "downloaded": 22,
+  "duplicateHashes": 0,
+  "heldDuringRun": 0,
+  "failures": [],
+  "bytes": 4345408,
+  "sampleSizes": [
+    514605,
+    49812,
+    156254,
+    102172,
+    90684,
+    478415,
+    171358,
+    22290,
+    222056,
+    191960,
+    112635,
+    112904,
+    210218,
+    33341,
+    68095,
+    482482,
+    15233,
+    1153805,
+    51612,
+    27218,
+    41436,
+    36823
+  ],
+  "state": "complete",
+  "startedAt": "2026-10-07T21:45:34.141026+00:00",
+  "attemptedSourceIds": [
+    "N03643",
+    "N03645",
+    "N03771",
+    "N03776",
+    "N03777",
+    "N03778",
+    "N03780",
+    "N03784",
+    "N03932",
+    "N03934",
+    "N03935",
+    "N03937",
+    "N04452",
+    "N04453",
+    "N04598",
+    "N04619",
+    "N05002",
+    "N05034",
+    "N05985",
+    "N09649",
+    "N30241",
+    "N30828"
+  ],
+  "updatedAt": "2026-10-07T22:05:18.157164+00:00",
+  "unheldAfter": 0,
+  "estimatedUnheldGB": 0.0,
+  "estimateBasis": "SWORD InstallSize where available; otherwise arithmetic mean of downloaded originals; decimal GB; edition/item counts, not deduplicated works",
+  "completedAt": "2026-10-07T21:46:23.637221+00:00"
+}

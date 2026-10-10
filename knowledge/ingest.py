@@ -16,7 +16,7 @@ from .settings import write_json
 def inventory(writer):
     """Account for raw originals/duplicates/assets without indexing build caches or credentials."""
     for file in sorted(writer.config["sources_dir"].rglob("*")):
-        if not file.is_file() or file.resolve() in writer.seen_files:
+        if not file.is_file() or file.suffix.lower() in ('.part', '.tmp') or file.resolve() in writer.seen_files:
             continue
         relative = file.relative_to(writer.config["sources_dir"])
         if "ARCHIVE" in relative.parts:

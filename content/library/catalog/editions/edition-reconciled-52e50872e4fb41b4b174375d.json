@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-52e50872e4fb41b4b174375d",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-e992af68a27cd9556dd0d7ab",
+  "label": "Conscience with the power and cases thereof Devided into V. bookes. Written by the godly and learned, William Ames, Doctor, and Professor of Divinity, in the famous University of Franeker in Friesland. Translated out of Latine into English, for more publique benefit.; De conscientia. Et ejus jure, vel casibus. English. — held source edition 2c440a726017",
+  "languages": [
+    "und"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A69129/master/A69129.xml",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

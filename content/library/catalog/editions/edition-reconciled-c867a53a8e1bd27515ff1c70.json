@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-c867a53a8e1bd27515ff1c70",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-d7cae51a3b1a17a6f8bbe1d0",
+  "label": "A short account of God's dealings with the Reverend Mr. George Whitefield, ... Written by himself, on board the Elisabeth, Captain Stephenson, bound from London to Philadelphia; ... 1741 — held source edition fb0d31bae13c",
+  "languages": [
+    "English"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_eighteenth-century_a-short-account-of-gods_whitefield-george_1741/bim_eighteenth-century_a-short-account-of-gods_whitefield-george_1741_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

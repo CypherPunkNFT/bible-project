@@ -1,0 +1,183 @@
+{
+  "task": "Text availability",
+  "createdAt": "2026-10-08T00:45:03.292724+00:00",
+  "files": [
+    {
+      "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l02-WilliamPerkinsWorksVol3-pdf\\William-Perkins-Works-vol-3.pdf",
+      "sha256": "a8b3b59d6a6e1b86b57b69c61d1e850a07488d9b94a908d7fea901103d4b0d19",
+      "bytes": 97916846,
+      "url": "https://archive.org/download/WilliamPerkinsWorksVol3/William-Perkins-Works-vol-3.pdf",
+      "format": "pdf",
+      "source": "source-internet-archive",
+      "sourceId": "WilliamPerkinsWorksVol3",
+      "title": "The Works of William Perkins, volume 3",
+      "author": "William Perkins",
+      "language": "en",
+      "licence": "Public-domain historical work; existing Internet Archive scan/transcription notices and contributor metadata retained",
+      "contributor": "Internet Archive; Tony Baxter credited in PDF metadata; original scan/transcription contributors retained",
+      "credit": "Existing source-provided OCR, not a newly produced transcription",
+      "countAsBook": true,
+      "derivedText": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\campaign-reconciliation\\text\\perkins-works-volume-3-existing-ia-ocr\\transcription.txt",
+        "sha256": "d9b76c14e830c39ed0ed54f897cc0f342a2ad2a8b759e076418eb528603a64d2",
+        "bytes": 5887581,
+        "format": "txt",
+        "pageText": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\campaign-reconciliation\\text\\perkins-works-volume-3-existing-ia-ocr\\page-text.provenance.json",
+        "pageTextSha256": "37bf367a1b12130d76f78d006f61eb4a247d1b51d4423621c64c85a609f5c8c8",
+        "method": "Existing IA DjVu WORD text in LINE order; 535 consecutively numbered physical transcription pages match the same IA item PDF; no new OCR",
+        "sourcePath": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l02-WilliamPerkinsWorksVol3-ocrxml\\William-Perkins-Works-vol-3_djvu.xml",
+        "sourceSha256": "000c0776d692560626777ed6149a608474e7f4834721b3705ddc4fbfe5449dec",
+        "sourceUrl": "https://archive.org/download/WilliamPerkinsWorksVol3/William-Perkins-Works-vol-3_djvu.xml",
+        "physicalPages": 535,
+        "quality": "Source-provided historical OCR; spelling and recognition errors preserved; completeness/accuracy of printed prose not certified",
+        "countAsBook": false
+      },
+      "sourceMetadata": {
+        "originalProvenance": {
+          "url": "https://archive.org/download/WilliamPerkinsWorksVol3/William-Perkins-Works-vol-3.pdf",
+          "finalUrl": "https://ia802905.us.archive.org/4/items/WilliamPerkinsWorksVol3/William-Perkins-Works-vol-3.pdf",
+          "retrievedAt": "2026-10-05T05:43:50.025716Z",
+          "sha256": "a8b3b59d6a6e1b86b57b69c61d1e850a07488d9b94a908d7fea901103d4b0d19",
+          "byteCount": 97916846,
+          "mimeType": "application/pdf",
+          "relativePath": "library/source-internet-archive/asset-l02-WilliamPerkinsWorksVol3-pdf/William-Perkins-Works-vol-3.pdf"
+        },
+        "pdfMetadata": {
+          "format": "PDF 1.5",
+          "title": "The Works of William Perkins volume 3",
+          "author": "Tony Baxter",
+          "subject": "",
+          "keywords": "",
+          "creator": "Adobe Acrobat 6.0",
+          "producer": "Adobe Acrobat 6.0 Image Conversion Plug-in",
+          "creationDate": "D:20050204225502Z",
+          "modDate": "D:20060729120010-07'00'",
+          "trapped": "",
+          "encryption": null
+        }
+      },
+      "useScope": "private local import and embedding",
+      "publicHostingAllowed": false
+    },
+    {
+      "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l02-WilliamPerkinsWorksVol3-ocrxml\\William-Perkins-Works-vol-3_djvu.xml",
+      "sha256": "000c0776d692560626777ed6149a608474e7f4834721b3705ddc4fbfe5449dec",
+      "bytes": 58364750,
+      "url": "https://archive.org/download/WilliamPerkinsWorksVol3/William-Perkins-Works-vol-3_djvu.xml",
+      "format": "xml",
+      "source": "source-internet-archive",
+      "sourceId": "WilliamPerkinsWorksVol3",
+      "title": "The Works of William Perkins, volume 3",
+      "author": "William Perkins",
+      "language": "en",
+      "licence": "Public-domain historical work; existing Internet Archive scan/transcription notices and contributor metadata retained",
+      "contributor": "Internet Archive; Tony Baxter credited in PDF metadata; original scan/transcription contributors retained",
+      "credit": "Existing source-provided OCR, not a newly produced transcription",
+      "countAsBook": false,
+      "derivedText": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\campaign-reconciliation\\text\\perkins-works-volume-3-existing-ia-ocr\\transcription.txt",
+        "sha256": "d9b76c14e830c39ed0ed54f897cc0f342a2ad2a8b759e076418eb528603a64d2",
+        "bytes": 5887581,
+        "format": "txt",
+        "pageText": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\campaign-reconciliation\\text\\perkins-works-volume-3-existing-ia-ocr\\page-text.provenance.json",
+        "pageTextSha256": "37bf367a1b12130d76f78d006f61eb4a247d1b51d4423621c64c85a609f5c8c8",
+        "method": "Existing IA DjVu WORD text in LINE order; 535 consecutively numbered physical transcription pages match the same IA item PDF; no new OCR",
+        "sourcePath": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l02-WilliamPerkinsWorksVol3-ocrxml\\William-Perkins-Works-vol-3_djvu.xml",
+        "sourceSha256": "000c0776d692560626777ed6149a608474e7f4834721b3705ddc4fbfe5449dec",
+        "sourceUrl": "https://archive.org/download/WilliamPerkinsWorksVol3/William-Perkins-Works-vol-3_djvu.xml",
+        "physicalPages": 535,
+        "quality": "Source-provided historical OCR; spelling and recognition errors preserved; completeness/accuracy of printed prose not certified",
+        "countAsBook": false
+      },
+      "sourceMetadata": {
+        "originalProvenance": {
+          "url": "https://archive.org/download/WilliamPerkinsWorksVol3/William-Perkins-Works-vol-3_djvu.xml",
+          "finalUrl": "https://dn790007.ca.archive.org/0/items/WilliamPerkinsWorksVol3/William-Perkins-Works-vol-3_djvu.xml",
+          "retrievedAt": "2026-10-05T05:45:46.470488Z",
+          "sha256": "000c0776d692560626777ed6149a608474e7f4834721b3705ddc4fbfe5449dec",
+          "byteCount": 58364750,
+          "mimeType": "text/xml",
+          "relativePath": "library/source-internet-archive/asset-l02-WilliamPerkinsWorksVol3-ocrxml/William-Perkins-Works-vol-3_djvu.xml"
+        },
+        "pdfMetadata": {
+          "format": "PDF 1.5",
+          "title": "The Works of William Perkins volume 3",
+          "author": "Tony Baxter",
+          "subject": "",
+          "keywords": "",
+          "creator": "Adobe Acrobat 6.0",
+          "producer": "Adobe Acrobat 6.0 Image Conversion Plug-in",
+          "creationDate": "D:20050204225502Z",
+          "modDate": "D:20060729120010-07'00'",
+          "trapped": "",
+          "encryption": null
+        }
+      },
+      "useScope": "private local import and embedding",
+      "publicHostingAllowed": false
+    },
+    {
+      "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l02-WilliamPerkinsWorksVol3-ocr\\William-Perkins-Works-vol-3_djvu.txt",
+      "sha256": "ccb52720be15d2fac8d0f185252aa6a70c927527c4a6e5414467d18b44cb7b95",
+      "bytes": 5927080,
+      "url": "https://archive.org/download/WilliamPerkinsWorksVol3/William-Perkins-Works-vol-3_djvu.txt",
+      "format": "txt",
+      "source": "source-internet-archive",
+      "sourceId": "WilliamPerkinsWorksVol3",
+      "title": "The Works of William Perkins, volume 3",
+      "author": "William Perkins",
+      "language": "en",
+      "licence": "Public-domain historical work; existing Internet Archive scan/transcription notices and contributor metadata retained",
+      "contributor": "Internet Archive; Tony Baxter credited in PDF metadata; original scan/transcription contributors retained",
+      "credit": "Existing source-provided OCR, not a newly produced transcription",
+      "countAsBook": false,
+      "derivedText": {
+        "path": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\campaign-reconciliation\\text\\perkins-works-volume-3-existing-ia-ocr\\transcription.txt",
+        "sha256": "d9b76c14e830c39ed0ed54f897cc0f342a2ad2a8b759e076418eb528603a64d2",
+        "bytes": 5887581,
+        "format": "txt",
+        "pageText": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\campaign-reconciliation\\text\\perkins-works-volume-3-existing-ia-ocr\\page-text.provenance.json",
+        "pageTextSha256": "37bf367a1b12130d76f78d006f61eb4a247d1b51d4423621c64c85a609f5c8c8",
+        "method": "Existing IA DjVu WORD text in LINE order; 535 consecutively numbered physical transcription pages match the same IA item PDF; no new OCR",
+        "sourcePath": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\library\\source-internet-archive\\asset-l02-WilliamPerkinsWorksVol3-ocrxml\\William-Perkins-Works-vol-3_djvu.xml",
+        "sourceSha256": "000c0776d692560626777ed6149a608474e7f4834721b3705ddc4fbfe5449dec",
+        "sourceUrl": "https://archive.org/download/WilliamPerkinsWorksVol3/William-Perkins-Works-vol-3_djvu.xml",
+        "physicalPages": 535,
+        "quality": "Source-provided historical OCR; spelling and recognition errors preserved; completeness/accuracy of printed prose not certified",
+        "countAsBook": false
+      },
+      "sourceMetadata": {
+        "originalProvenance": {
+          "url": "https://archive.org/download/WilliamPerkinsWorksVol3/William-Perkins-Works-vol-3_djvu.txt",
+          "finalUrl": "https://dn790007.ca.archive.org/0/items/WilliamPerkinsWorksVol3/William-Perkins-Works-vol-3_djvu.txt",
+          "retrievedAt": "2026-10-05T05:43:36.594051Z",
+          "sha256": "ccb52720be15d2fac8d0f185252aa6a70c927527c4a6e5414467d18b44cb7b95",
+          "byteCount": 5927080,
+          "mimeType": "text/plain",
+          "relativePath": "library/source-internet-archive/asset-l02-WilliamPerkinsWorksVol3-ocr/William-Perkins-Works-vol-3_djvu.txt"
+        },
+        "pdfMetadata": {
+          "format": "PDF 1.5",
+          "title": "The Works of William Perkins volume 3",
+          "author": "Tony Baxter",
+          "subject": "",
+          "keywords": "",
+          "creator": "Adobe Acrobat 6.0",
+          "producer": "Adobe Acrobat 6.0 Image Conversion Plug-in",
+          "creationDate": "D:20050204225502Z",
+          "modDate": "D:20060729120010-07'00'",
+          "trapped": "",
+          "encryption": null
+        }
+      },
+      "useScope": "private local import and embedding",
+      "publicHostingAllowed": false
+    }
+  ],
+  "originalFiles": 3,
+  "distinctWorks": 1,
+  "newWorksAcquired": 0,
+  "newDownloads": 0,
+  "newOCR": 0,
+  "note": "Three already-held representations share one derivative to preserve physical page locators and deduplicate extracted bodies. Source OCR was already held; this is availability repair, not newly acquired text."
+}

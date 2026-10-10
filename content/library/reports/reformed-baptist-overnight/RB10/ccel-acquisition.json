@@ -1,0 +1,140 @@
+{
+  "source": "ccel",
+  "catalogueItems": 1300,
+  "catalogueUnheldItems": 1006,
+  "eligibleItems": 11,
+  "unheldBefore": 1,
+  "filter": {
+    "authors": [
+      "Baxter, Richard",
+      "Richard Baxter",
+      "Perkins, William",
+      "William Perkins",
+      "Ames, William",
+      "William Ames",
+      "Watson, Thomas",
+      "Thomas Watson",
+      "Durham, James",
+      "James Durham",
+      "Ridgley, Thomas",
+      "Thomas Ridgley",
+      "Dabney, Robert",
+      "Robert Dabney",
+      "Fuller, Andrew",
+      "Andrew Fuller",
+      "Robert Lewis Dabney",
+      "Dabney, R L",
+      "Dabney, R. L.",
+      "Ames, Willem",
+      "William Amesius"
+    ],
+    "primaryAuthorOnly": true,
+    "authorIdentityRules": [
+      {
+        "namePattern": "Baxter",
+        "lifeYears": [
+          1615,
+          1691
+        ]
+      },
+      {
+        "namePattern": "Perkins",
+        "lifeYears": [
+          1558,
+          1588,
+          1602
+        ]
+      },
+      {
+        "namePattern": "Ames",
+        "lifeYears": [
+          1576,
+          1633
+        ]
+      },
+      {
+        "namePattern": "Watson",
+        "lifeYears": [
+          1620,
+          1686
+        ]
+      },
+      {
+        "namePattern": "Durham",
+        "lifeYears": [
+          1622,
+          1658
+        ]
+      },
+      {
+        "namePattern": "Ridgley",
+        "lifeYears": [
+          1667,
+          1734
+        ]
+      },
+      {
+        "namePattern": "Dabney",
+        "lifeYears": [
+          1820,
+          1898
+        ]
+      },
+      {
+        "namePattern": "Fuller",
+        "lifeYears": [
+          1754,
+          1815
+        ]
+      }
+    ],
+    "deferHardDownloads": true,
+    "skipIds": [
+      "barnes/1cor",
+      "barnes/2cor",
+      "barnes/acts",
+      "barnes/daniel1",
+      "barnes/daniel2",
+      "barnes/epc",
+      "barnes/hebrews",
+      "barnes/isaiah1",
+      "barnes/isaiah2",
+      "barnes/james",
+      "barnes/job1",
+      "barnes/luke",
+      "barnes/matthew",
+      "barnes/psalms1",
+      "barnes/psalms2",
+      "barnes/psalms3",
+      "barnes/rev",
+      "barnes/romans",
+      "barnes/tttp",
+      "cook_fc/1sam",
+      "cook_fc/exod_ruth",
+      "cook_fc/provez",
+      "moule/hebrews"
+    ]
+  },
+  "attempted": 1,
+  "downloaded": 0,
+  "duplicateHashes": 0,
+  "heldDuringRun": 0,
+  "failures": [
+    {
+      "sourceId": "baxter/practical",
+      "url": "https://ccel.org/ccel/baxter/practical.xml",
+      "title": "Practical Works of Richard Baxter",
+      "author": "Baxter, Richard (1615-1691)",
+      "error": "catalogue/index wrapper, not a complete book"
+    }
+  ],
+  "bytes": 0,
+  "sampleSizes": [],
+  "state": "complete",
+  "startedAt": "2026-10-07T19:57:51.107364+00:00",
+  "updatedAt": "2026-10-07T19:58:01.477114+00:00",
+  "unheldAfter": 1,
+  "estimatedUnheldGB": null,
+  "estimateBasis": "SWORD InstallSize where available; otherwise arithmetic mean of downloaded originals; decimal GB; edition/item counts, not deduplicated works",
+  "completedAt": "2026-10-07T19:58:01.477996+00:00"
+}

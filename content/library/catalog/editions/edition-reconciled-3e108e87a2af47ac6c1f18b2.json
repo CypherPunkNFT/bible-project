@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-3e108e87a2af47ac6c1f18b2",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-4643b2ec50c4188749610ca1",
+  "label": "An humble testimony unto the goodness and severity of God in his dealing with sinful churches and nations, or, The only way to deliver a sinful nation from utter ruine by impendent judgments, in a discourse on the words of our Lord Jesus Christ, Luk. 13, 1, 2, 3, 4, 5 / by John Owen. — held source edition 5e255e5e7918",
+  "languages": [
+    "eng"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A53702/master/A53702.xml",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

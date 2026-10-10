@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-ee1a19a5e32c4afce88273b8",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-f5884fc1b1e953b2533771e7",
+  "label": "A relation of thf [sic] imprisonment of Mr. John Bunyan, ... in November, 1660. His examination before the justices, his conference ... Written by himself, and never before published. 1765 — held source edition 00d3b3960081",
+  "languages": [
+    "English"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_eighteenth-century_a-relation-of-thf-sic-_bunyan-john_1765/bim_eighteenth-century_a-relation-of-thf-sic-_bunyan-john_1765_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

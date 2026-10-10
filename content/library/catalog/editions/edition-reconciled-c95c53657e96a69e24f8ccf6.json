@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-c95c53657e96a69e24f8ccf6",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-3785f4f4b215d98ec3719e11",
+  "label": "Msr. Quaats Leben und Sterben, oder Eines Gottlosen Reise nach dem ewigen Verderben: Vorstellend den ganzen Zustand einer unwiedergebohrnen Seele, durch unterschiedliche darzu dienende Geschichte — held source edition 4f949ca32450",
+  "languages": [
+    "German"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/10270101bsb/10270101bsb_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

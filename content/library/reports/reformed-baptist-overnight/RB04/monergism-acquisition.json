@@ -1,0 +1,210 @@
+{
+  "source": "monergism",
+  "catalogueItems": 1467,
+  "catalogueUnheldItems": 1394,
+  "eligibleItems": 250,
+  "unheldBefore": 229,
+  "filter": {
+    "authors": [
+      "Owen, John",
+      "John Owen",
+      "Goodwin, Thomas",
+      "Thomas Goodwin",
+      "Sibbes, Richard",
+      "Richard Sibbes",
+      "Sibbs, Richard",
+      "Richard Sibbs",
+      "Watson, Thomas",
+      "Thomas Watson",
+      "Brooks, Thomas",
+      "Thomas Brooks",
+      "Flavel, John",
+      "John Flavel",
+      "Boston, Thomas",
+      "Thomas Boston",
+      "Bunyan, John",
+      "John Bunyan",
+      "Fuller, Andrew",
+      "Andrew Fuller",
+      "Booth, Abraham",
+      "Abraham Booth",
+      "Edwards, Jonathan",
+      "Jonathan Edwards"
+    ],
+    "primaryAuthorOnly": true,
+    "authorIdentityRules": [
+      {
+        "namePattern": "Owen,?\\s+John|John\\s+Owen",
+        "lifeYears": [
+          1616,
+          1683
+        ]
+      },
+      {
+        "namePattern": "Goodwin,?\\s+Thomas|Thomas\\s+Goodwin",
+        "lifeYears": [
+          1600,
+          1680
+        ]
+      },
+      {
+        "namePattern": "Sibbes,?\\s+Richard|Richard\\s+Sibbes",
+        "lifeYears": [
+          1577,
+          1635
+        ]
+      },
+      {
+        "namePattern": "Sibbs,?\\s+Richard|Richard\\s+Sibbs",
+        "lifeYears": [
+          1577,
+          1635
+        ]
+      },
+      {
+        "namePattern": "Watson,?\\s+Thomas|Thomas\\s+Watson",
+        "lifeYears": [
+          1620,
+          1686
+        ]
+      },
+      {
+        "namePattern": "Brooks,?\\s+Thomas|Thomas\\s+Brooks",
+        "lifeYears": [
+          1608,
+          1680
+        ]
+      },
+      {
+        "namePattern": "Flavel,?\\s+John|John\\s+Flavel",
+        "lifeYears": [
+          1630,
+          1691
+        ]
+      },
+      {
+        "namePattern": "Boston,?\\s+Thomas|Thomas\\s+Boston",
+        "lifeYears": [
+          1676,
+          1677,
+          1732
+        ]
+      },
+      {
+        "namePattern": "Bunyan,?\\s+John|John\\s+Bunyan",
+        "lifeYears": [
+          1628,
+          1688
+        ]
+      },
+      {
+        "namePattern": "Fuller,?\\s+Andrew|Andrew\\s+Fuller",
+        "lifeYears": [
+          1754,
+          1815
+        ]
+      },
+      {
+        "namePattern": "Booth,?\\s+Abraham|Abraham\\s+Booth",
+        "lifeYears": [
+          1734,
+          1806
+        ]
+      },
+      {
+        "namePattern": "Edwards,?\\s+Jonathan|Jonathan\\s+Edwards",
+        "lifeYears": [
+          1703,
+          1758
+        ]
+      }
+    ],
+    "deferHardDownloads": true,
+    "skipIds": [
+      "art-man-fishing-ebook",
+      "crook-lot-ebook",
+      "christs-invitation-labouring-and-heavy-laden-ebook",
+      "crook-lot-modernized-ebook",
+      "human-nature-its-fourfold-state-ebook-0",
+      "beauties-thomas-boston-ebook",
+      "i-count-all-things-loss-ebook",
+      "christ-jesus-duly-prized-ebook"
+    ],
+    "resumeStatus": true
+  },
+  "attempted": 223,
+  "downloaded": 16,
+  "duplicateHashes": 202,
+  "heldDuringRun": 2,
+  "failures": [
+    {
+      "sourceId": "christs-invitation-labouring-and-heavy-laden-ebook",
+      "url": "https://www.monergism.com/christs-invitation-labouring-and-heavy-laden-ebook",
+      "title": "Christ's Invitation to the Labouring and Heavy Laden",
+      "author": "Boston, Thomas",
+      "error": "no complete official EPUB/PDF offered on catalogue page"
+    },
+    {
+      "sourceId": "art-man-fishing-ebook",
+      "url": "https://www.monergism.com/art-man-fishing-ebook",
+      "title": "The Art of Man-Fishing",
+      "author": "Boston, Thomas",
+      "error": "URL can't contain control characters. '/thethreshold/sdg/boston/The Art of Man-Fishing - Thomas Boston.epub' (found at least ' ')"
+    },
+    {
+      "sourceId": "crook-lot-modernized-ebook",
+      "url": "https://www.monergism.com/crook-lot-modernized-ebook",
+      "title": "The Crook in the Lot - Modernized",
+      "author": "Boston, Thomas",
+      "error": "Deferred interrupted request during URL parser correction; no retry"
+    },
+    {
+      "sourceId": "greatness-soul-and-unspeakableness-loss-thereof-ebook",
+      "url": "https://www.monergism.com/greatness-soul-and-unspeakableness-loss-thereof-ebook",
+      "title": "The Greatness of the Soul and Unspeakableness of the Loss Thereof",
+      "author": "Bunyan, John",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+    },
+    {
+      "sourceId": "humble-testimony-ebook",
+      "url": "https://www.monergism.com/humble-testimony-ebook",
+      "title": "A Humble Testimony: Unto the Goodness and Severity of God",
+      "author": "Owen, John",
+      "error": "<urlopen error _ssl.c:1015: The handshake operation timed out>"
+    },
+    {
+      "sourceId": "searching-our-hearts-perilous-times-ebook",
+      "url": "https://www.monergism.com/searching-our-hearts-perilous-times-ebook",
+      "title": "Searching Our Hearts in Perilous Times",
+      "author": "Owen, John",
+      "error": "robots.txt disallows https://www.monergism.com/searching-our-hearts-perilous-times-ebook"
+    }
+  ],
+  "bytes": 3802105,
+  "sampleSizes": [
+    797217,
+    253572,
+    311286,
+    120849,
+    289994,
+    79713,
+    115517,
+    109407,
+    213307,
+    335968,
+    486789,
+    150746,
+    108807,
+    190060,
+    100984,
+    137889
+  ],
+  "state": "complete",
+  "startedAt": "2026-10-07T19:22:23.903688+00:00",
+  "updatedAt": "2026-10-07T20:31:55.991468+00:00",
+  "resumedAt": "2026-10-07T19:25:04.197206+00:00",
+  "unheldAfter": 203,
+  "estimatedUnheldGB": 0.0482392071875,
+  "estimateBasis": "SWORD InstallSize where available; otherwise arithmetic mean of downloaded originals; decimal GB; edition/item counts, not deduplicated works",
+  "completedAt": "2026-10-07T20:36:30.675331+00:00"
+}

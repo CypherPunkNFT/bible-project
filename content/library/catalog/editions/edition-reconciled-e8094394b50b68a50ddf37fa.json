@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-e8094394b50b68a50ddf37fa",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-74c71e4b6f6e859e2dbe73a8",
+  "label": "The holy citie, or, The new-Jerusalem wherein its goodly light walls, gates, angels, and the manner of their standing, are expounded : also, her length and breadth, together with the golden measuring-reed, explained, and the glory of all unfolded : as also, the numerousness of its inhabitants, and what the tree and water of life are, by which they are sustained / by John Bunyan ... — held source edition a8aa306c31c7",
+  "languages": [
+    "und"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A30152/master/A30152.xml",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "state": "downloads_complete_report_written",
+  "updatedAt": "2026-10-07T20:55:49.517773+00:00",
+  "files": 346,
+  "bytes": 510544333,
+  "distinctWorksEstimate": 192,
+  "sources": {
+    "tcp": 55,
+    "ia": 287,
+    "monergism": 4
+  },
+  "failedDownloads": 17,
+  "exportFailures": 0,
+  "blockers": [],
+  "previouslyFailedSkipped": 40,
+  "derivedTexts": 0,
+  "embeddingBefore": {
+    "state": "complete",
+    "total": 1934778,
+    "indexed": 1934778,
+    "remaining": 0,
+    "corpus_build": "2026-10-07T15:23:27.068328+00:00",
+    "updated_at": "2026-10-07T16:52:55.679411+00:00",
+    "seconds": 2509.1
+  },
+  "embeddingAfter": {
+    "state": "complete",
+    "total": 1934778,
+    "indexed": 1934778,
+    "remaining": 0,
+    "corpus_build": "2026-10-07T15:23:27.068328+00:00",
+    "updated_at": "2026-10-07T16:52:55.679411+00:00",
+    "seconds": 2509.1
+  },
+  "intakeCommandExitCode": 0,
+  "intake": {
+    "updated_at": "2026-10-07T20:55:29.1709162Z",
+    "pid": 121808,
+    "readers": [
+      {
+        "pid": 96980,
+        "appName": "Python",
+        "serviceName": ""
+      }
+    ],
+    "state": "waiting_for_source_database_reader"
+  },
+  "processingBlockers": [
+    {
+      "state": "waiting_for_source_database_reader",
+      "readerPid": 96980,
+      "reader": "scripts/bulk-tcp.py --hours 12 --delay 2"
+    }
+  ]
+}

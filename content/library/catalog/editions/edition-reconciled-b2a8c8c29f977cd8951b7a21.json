@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-b2a8c8c29f977cd8951b7a21",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-0cb97ed95044c089f8e0f6cd",
+  "label": "Of the end of the world and iudgement of our Lord Iesus Christe to come, and of the moste perillous dangers of this our moste corrupt age, and by what meanes the godly may auoid the harmes thereof, sermons preached in latin in the assembly of the clergie by Henry Bullinger, and now lately englished by Thomas Potter — held source edition 45954849944a",
+  "languages": [
+    "und"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A17215/master/A17215.xml",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

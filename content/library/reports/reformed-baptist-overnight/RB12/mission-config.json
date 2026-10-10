@@ -1,0 +1,317 @@
+{
+  "mission": "RB12",
+  "title": "Baptist history and primary records",
+  "filters": {
+    "tcp": "tcp-filter.json",
+    "ccel": "ccel-filter.json",
+    "ia": "ia-filter.json"
+  },
+  "previouslyFailed": [
+    {
+      "source": "ia",
+      "sourceId": "bim_eighteenth-century_gospel-mysteries-unveil_keach-benjamin_1701",
+      "title": "Gospel mysteries unveil'd: or an exposition of all the parables, and many express similitudes contained in the four evangellists, spoken by our Lord and Saviour Jesus Christ. 1701",
+      "author": "Keach, Benjamin",
+      "url": "https://archive.org/metadata/bim_eighteenth-century_gospel-mysteries-unveil_keach-benjamin_1701",
+      "status": "unattempted",
+      "reason": "Deferred at user time cutoff; not a failed request"
+    },
+    {
+      "sourceId": "bim_eighteenth-century_gospel-mysteries-unveil_keach-benjamin_1701_0",
+      "url": "https://archive.org/metadata/bim_eighteenth-century_gospel-mysteries-unveil_keach-benjamin_1701_0",
+      "title": "Gospel mysteries unveil'd: or an exposition of all the parables, and many express similitudes contained in the four evangellists, spoken by our Lord and Saviour Jesus Christ. 1701",
+      "author": "Keach, Benjamin",
+      "error": "HTTP Error 500: Internal Server Error",
+      "source": "ia"
+    },
+    {
+      "source": "ia",
+      "sourceId": "bim_eighteenth-century_instructions-for-childre_keach-benjamin_1710",
+      "title": "Instructions for children: or, the child's and youth's delight. Teaching an easy way to spell and read true English. ... Written by B. Keach, ... 1710",
+      "author": "Keach, Benjamin",
+      "url": "https://archive.org/metadata/bim_eighteenth-century_instructions-for-childre_keach-benjamin_1710",
+      "status": "unattempted",
+      "reason": "Deferred at user time cutoff; not a failed request"
+    },
+    {
+      "source": "ia",
+      "sourceId": "bim_eighteenth-century_instructions-for-childre_keach-benjamin_1763",
+      "title": "Instructions for children: or, the child's and youth's delight. Teaching an easy way to spell and read true English. ... Written by B. Keach, ... 1763",
+      "author": "Keach, Benjamin",
+      "url": "https://archive.org/metadata/bim_eighteenth-century_instructions-for-childre_keach-benjamin_1763",
+      "status": "unattempted",
+      "reason": "Deferred at user time cutoff; not a failed request"
+    },
+    {
+      "source": "ia",
+      "sourceId": "bim_eighteenth-century_jobs-creed-or-confess_gill-john-dd-baptis_1733",
+      "title": "Job's creed: or, confession of faith. A sermon occasioned by the death of the Reverend Mr. Edward Wallin, who departed this life June 12, 1733 in the 55th year of his age. Preached June 18. By John Gill. 1733",
+      "author": "Gill, John, D.D., Baptist Minister, at Horsley Down",
+      "url": "https://archive.org/metadata/bim_eighteenth-century_jobs-creed-or-confess_gill-john-dd-baptis_1733",
+      "status": "unattempted",
+      "reason": "Deferred at user time cutoff; not a failed request"
+    },
+    {
+      "source": "ia",
+      "sourceId": "bim_eighteenth-century_the-childs-delight-or-_keach-benjamin_1704",
+      "title": "The child's delight: or instructions for children and youth. Wherein all the chief principles of the Christian religions are clearly (though briefly) opened. ... By B. Keach, ... 1704",
+      "author": "Keach, Benjamin",
+      "url": "https://archive.org/metadata/bim_eighteenth-century_the-childs-delight-or-_keach-benjamin_1704",
+      "status": "unattempted",
+      "reason": "Deferred at user time cutoff; not a failed request"
+    },
+    {
+      "source": "ia",
+      "sourceId": "bim_eighteenth-century_the-french-impostour-det_keach-benjamin_1702",
+      "title": "The French impostour detected. Or Zach. Housel, tryed the second time by the word of God. And cast. ... By the author of War with the devil and the Travels of true godliness, ... 1702",
+      "author": "Keach, Benjamin",
+      "url": "https://archive.org/metadata/bim_eighteenth-century_the-french-impostour-det_keach-benjamin_1702",
+      "status": "unattempted",
+      "reason": "Deferred at user time cutoff; not a failed request"
+    },
+    {
+      "source": "ia",
+      "sourceId": "bim_eighteenth-century_the-glorious-lover-a-di_keach-benjamin_1764",
+      "title": "The glorious lover: a divine poem, upon the adorable mystery of man's redemption. By Benjamin Keach. 1764",
+      "author": "Keach, Benjamin",
+      "url": "https://archive.org/metadata/bim_eighteenth-century_the-glorious-lover-a-di_keach-benjamin_1764",
+      "status": "unattempted",
+      "reason": "Deferred at user time cutoff; not a failed request"
+    },
+    {
+      "source": "ia",
+      "sourceId": "bim_eighteenth-century_the-progress-of-sin-or-_keach-benjamin_1707",
+      "title": "The progress of sin: or, the travels of ungodliness. ... in an apt and pleasant allegory. ... By Benjamin Keach, ... 1707",
+      "author": "Keach, Benjamin",
+      "url": "https://archive.org/metadata/bim_eighteenth-century_the-progress-of-sin-or-_keach-benjamin_1707",
+      "status": "unattempted",
+      "reason": "Deferred at user time cutoff; not a failed request"
+    },
+    {
+      "source": "ia",
+      "sourceId": "bim_eighteenth-century_the-progress-of-sin-or-_keach-benjamin_1715",
+      "title": "The progress of sin; or, the travels of ungodliness. ... in an apt and pleasant allegory: ... By Benjamin Keach, ... 1715",
+      "author": "Keach, Benjamin",
+      "url": "https://archive.org/metadata/bim_eighteenth-century_the-progress-of-sin-or-_keach-benjamin_1715",
+      "status": "unattempted",
+      "reason": "Deferred at user time cutoff; not a failed request"
+    },
+    {
+      "source": "ia",
+      "sourceId": "bim_eighteenth-century_the-progress-of-sin-or-_keach-benjamin_1736",
+      "title": "The progress of sin, or the travels of ungodliness. ... in an apt and pleasant allegory: ... By Ben. Keach, ... 1736",
+      "author": "Keach, Benjamin",
+      "url": "https://archive.org/metadata/bim_eighteenth-century_the-progress-of-sin-or-_keach-benjamin_1736",
+      "status": "unattempted",
+      "reason": "Deferred at user time cutoff; not a failed request"
+    },
+    {
+      "source": "ia",
+      "sourceId": "bim_eighteenth-century_the-progress-of-sin-or-_keach-benjamin_1763",
+      "title": "The progress of sin; or, the travels of ungodliness. ... In an apt and pleasant allegory. ... The sixth edition, corrected, with some additions by the author. By Benjamin Keach, ... 1763",
+      "author": "Keach, Benjamin",
+      "url": "https://archive.org/metadata/bim_eighteenth-century_the-progress-of-sin-or-_keach-benjamin_1763",
+      "status": "unattempted",
+      "reason": "Deferred at user time cutoff; not a failed request"
+    },
+    {
+      "source": "ia",
+      "sourceId": "bim_eighteenth-century_the-progress-of-sin-or-_keach-benjamin_1781",
+      "title": "The progress of sin; or, the travels of ungodliness. ... In an apt and pleasant allegory. ... The seventh edition, corrected, with some additions, by the author. By Benjamin Keach, ... 1781",
+      "author": "Keach, Benjamin",
+      "url": "https://archive.org/metadata/bim_eighteenth-century_the-progress-of-sin-or-_keach-benjamin_1781",
+      "status": "unattempted",
+      "reason": "Deferred at user time cutoff; not a failed request"
+    },
+    {
+      "source": "ia",
+      "sourceId": "bim_eighteenth-century_the-progress-of-sin-or-_keach-benjamin_1789",
+      "title": "The progress of sin: or, the travels of ungodliness. Wherein the pedigree, rise, ... and prevailing power of sin, is fully discovered, in an apt and pleasant allegory. ... By Benjamin Keach, ... 1789",
+      "author": "Keach, Benjamin.",
+      "url": "https://archive.org/metadata/bim_eighteenth-century_the-progress-of-sin-or-_keach-benjamin_1789",
+      "status": "unattempted",
+      "reason": "Deferred at user time cutoff; not a failed request"
+    },
+    {
+      "source": "ia",
+      "sourceId": "bim_eighteenth-century_the-progress-of-sin-or-_keach-benjamin_1800",
+      "title": "The progress of sin: or, the travels of ungodliness. Wherein the pedigree, rise, and antiquity of sin is fully discovered; in an apt and pleasant allegory. ... By Benjamin Keach. 1800",
+      "author": "Keach, Benjamin",
+      "url": "https://archive.org/metadata/bim_eighteenth-century_the-progress-of-sin-or-_keach-benjamin_1800",
+      "status": "unattempted",
+      "reason": "Deferred at user time cutoff; not a failed request"
+    },
+    {
+      "source": "ia",
+      "sourceId": "bim_eighteenth-century_the-temple-repaird-or-_collins-hercules_1702",
+      "title": "The temple repair'd: or, an essay to revive the long-neglected ordinances, of exercising the spiritual gift of prophecy ... With proper directions as to study and preaching, for such as are inclin'd to the ministry. By Hercules Collins. 1702",
+      "author": "Collins, Hercules",
+      "url": "https://archive.org/metadata/bim_eighteenth-century_the-temple-repaird-or-_collins-hercules_1702",
+      "status": "unattempted",
+      "reason": "Deferred at user time cutoff; not a failed request"
+    },
+    {
+      "source": "ia",
+      "sourceId": "bim_eighteenth-century_the-travels-of-true-godl_keach-benjamin_1763",
+      "title": "The travels of true godliness: from the beginning of the world, to this present day, in an apt and pleasant allegory. ... The seventh edition, corrected, with some additions by the author. By Benjamin Keach, ... 1763",
+      "author": "Keach, Benjamin",
+      "url": "https://archive.org/metadata/bim_eighteenth-century_the-travels-of-true-godl_keach-benjamin_1763",
+      "status": "unattempted",
+      "reason": "Deferred at user time cutoff; not a failed request"
+    },
+    {
+      "source": "ia",
+      "sourceId": "bim_eighteenth-century_the-travels-of-true-godl_keach-benjamin_1781",
+      "title": "The travels of true godliness: from the beginning of the world to this present day. In an apt and pleasant allegory. ... The eighth edition, corrected, with some additions, by the author. By Benjamin Keach, ... 1781",
+      "author": "Keach, Benjamin",
+      "url": "https://archive.org/metadata/bim_eighteenth-century_the-travels-of-true-godl_keach-benjamin_1781",
+      "status": "unattempted",
+      "reason": "Deferred at user time cutoff; not a failed request"
+    },
+    {
+      "source": "ia",
+      "sourceId": "bim_eighteenth-century_the-travels-of-true-godl_keach-benjamin_1798",
+      "title": "The travels of true godliness, from the beginning of the world to this present [sic] day in an apt and pleasant allegory. Shewing what true godliness is; also the troubles, oppositions, he met with in every age. By Benjamin Keach. 1798",
+      "author": "Keach, Benjamin.",
+      "url": "https://archive.org/metadata/bim_eighteenth-century_the-travels-of-true-godl_keach-benjamin_1798",
+      "status": "unattempted",
+      "reason": "Deferred at user time cutoff; not a failed request"
+    },
+    {
+      "source": "ia",
+      "sourceId": "bim_eighteenth-century_tropologia-a-key-to-op_keach-benjamin_1779",
+      "title": "Tropologia: a key, to open scripture metaphors, in four books. ... Together with types of the Old Testament, by the Rev. Mr. Benjamin Keach. The whole carefully revised; ... 1779",
+      "author": "Keach, Benjamin.",
+      "url": "https://archive.org/metadata/bim_eighteenth-century_tropologia-a-key-to-op_keach-benjamin_1779",
+      "status": "unattempted",
+      "reason": "Deferred at user time cutoff; not a failed request"
+    },
+    {
+      "source": "ia",
+      "sourceId": "bim_eighteenth-century_war-with-the-devil-or-_keach-benjamin_1709",
+      "title": "War with the devil: or, the young man's conflict with the powers of darkness ; in a dialogue: discovering the corruption and vanity of youth, ... To which is added an appendix, ... By B. Keach, ... 1709",
+      "author": "Keach, Benjamin",
+      "url": "https://archive.org/metadata/bim_eighteenth-century_war-with-the-devil-or-_keach-benjamin_1709",
+      "status": "unattempted",
+      "reason": "Deferred at user time cutoff; not a failed request"
+    },
+    {
+      "source": "ia",
+      "sourceId": "bim_eighteenth-century_war-with-the-devil-or-_keach-benjamin_1720",
+      "title": "War with the devil: or, the young-man's conflict with the powers of darkness. In a dialogue. Discovering the corruption and vanity of youth ; ... To which is added, an appendix, ... The eighteenth impression. By B. Keach, ... 1720",
+      "author": "Keach, Benjamin",
+      "url": "https://archive.org/metadata/bim_eighteenth-century_war-with-the-devil-or-_keach-benjamin_1720",
+      "status": "unattempted",
+      "reason": "Deferred at user time cutoff; not a failed request"
+    },
+    {
+      "source": "ia",
+      "sourceId": "bim_eighteenth-century_war-with-the-devil-or-_keach-benjamin_1737",
+      "title": "War with the devil: or, the young-man's conflict with the powers of darkness. In a dialogue. Discovering the corruption and vanity of youth ; ... To which is added, an appendix, ... The twentieth impression. By B. Keach, ... 1737",
+      "author": "Keach, Benjamin",
+      "url": "https://archive.org/metadata/bim_eighteenth-century_war-with-the-devil-or-_keach-benjamin_1737",
+      "status": "unattempted",
+      "reason": "Deferred at user time cutoff; not a failed request"
+    },
+    {
+      "source": "ia",
+      "sourceId": "bim_eighteenth-century_war-with-the-devil-or-_keach-benjamin_1795",
+      "title": "War with the devil: or, the young man's conflict with the powers of darkness, in a dialogue, discovering the corruption and vanity of youth. ... To which is added, an appendix, ... By B. Keach, ... 1795",
+      "author": "Keach, Benjamin",
+      "url": "https://archive.org/metadata/bim_eighteenth-century_war-with-the-devil-or-_keach-benjamin_1795",
+      "status": "unattempted",
+      "reason": "Deferred at user time cutoff; not a failed request"
+    },
+    {
+      "source": "ia",
+      "sourceId": "bim_eighteenth-century_war-with-the-devil-or-t_keach-benjamin_1711",
+      "title": "War with the devil: or the young man's conflict with the powers of darkness. In a dialogue. Discovering the corruption and vanity of youth. ... To which is added, an appendex [sic], ... The thirteenth impression. By B. Keach, ... 1711",
+      "author": "Keach, Benjamin",
+      "url": "https://archive.org/metadata/bim_eighteenth-century_war-with-the-devil-or-t_keach-benjamin_1711",
+      "status": "unattempted",
+      "reason": "Deferred at user time cutoff; not a failed request"
+    },
+    {
+      "source": "ia",
+      "sourceId": "bim_eighteenth-century_war-with-the-devil-or-t_keach-benjamin_1760",
+      "title": "War with the devil: or the young man's conflict with the powers of darkness; displayed in a poetical dialogue between youth and conscience. ... Originally written by the late Rev. Mr. Benjamin Keach. Now revised and greatly improved by another hand.",
+      "author": "Keach, Benjamin",
+      "url": "https://archive.org/metadata/bim_eighteenth-century_war-with-the-devil-or-t_keach-benjamin_1760",
+      "status": "unattempted",
+      "reason": "Deferred at user time cutoff; not a failed request"
+    },
+    {
+      "source": "ia",
+      "sourceId": "bim_eighteenth-century_war-with-the-devil-or-t_keach-benjamin_1776",
+      "title": "War with the devil: or the young man's conflict with the powers of darkness. In a dialogue. Discovering the corruption and vanity of youth ; ... To which is added, an appendix, ... The twenty-second edition. By B. Keach, ... 1776",
+      "author": "Keach, Benjamin",
+      "url": "https://archive.org/metadata/bim_eighteenth-century_war-with-the-devil-or-t_keach-benjamin_1776",
+      "status": "unattempted",
+      "reason": "Deferred at user time cutoff; not a failed request"
+    },
+    {
+      "source": "ia",
+      "sourceId": "breachr00keac",
+      "title": "The Breach repaired in God's worship : or, singing of Psalms, hymns, and spiritual songs proved to be an holy ordinance of Jesus Christ ; with an answer to all objections ; as also, an examination of Mr. Isaac Marlow's two papers, one called, A discourse against singing, &c. the other An appendix wherein his arguments and cavils are detected and refuted",
+      "author": "Keach, Benjamin, 1640-1704; Keach, Benjamin, 1640-1704. Answer to Mr. Marlow's Appendix",
+      "url": "https://archive.org/metadata/breachr00keac",
+      "status": "unattempted",
+      "reason": "Deferred at user time cutoff; not a failed request"
+    },
+    {
+      "source": "ia",
+      "sourceId": "expositionofpara00keac",
+      "title": "An exposition of the parables, and express similitudes of our Lord and Saviour Jesus Christ : wherein also many things are doctrinally handled and improved by way of application ..",
+      "author": "Keach, Benjamin, 1640-1704",
+      "url": "https://archive.org/metadata/expositionofpara00keac",
+      "status": "unattempted",
+      "reason": "Deferred at user time cutoff; not a failed request"
+    },
+    {
+      "source": "ia",
+      "sourceId": "goldenmineopened00keac",
+      "title": "A golden mine opened, or, The glory of God's rich grace displayed in the mediator to believers : and his direful wrath against impenitent sinners : containing the substance of forty sermons upon several subjects",
+      "author": "Keach, Benjamin, 1640-1704",
+      "url": "https://archive.org/metadata/goldenmineopened00keac",
+      "status": "unattempted",
+      "reason": "Deferred at user time cutoff; not a failed request"
+    },
+    {
+      "source": "ia",
+      "sourceId": "goldrefinedorbap00keac",
+      "title": "Gold refined, or, Baptism in its primitive purity : proving baptism in water an holy institution of Jesus Christ, and to continue in the church to the end of the world ..",
+      "author": "Keach, Benjamin, 1640-1704",
+      "url": "https://archive.org/metadata/goldrefinedorbap00keac",
+      "status": "unattempted",
+      "reason": "Deferred at user time cutoff; not a failed request"
+    },
+    {
+      "source": "ia",
+      "sourceId": "travelsoftrueg00keac",
+      "title": "The travels of True Godliness",
+      "author": "Keach, Benjamin, 1640-1704; Malcom, Howard, 1799-1879, ed",
+      "url": "https://archive.org/metadata/travelsoftrueg00keac",
+      "status": "unattempted",
+      "reason": "Deferred at user time cutoff; not a failed request"
+    },
+    {
+      "source": "ia",
+      "sourceId": "travelsoftruegod00keac",
+      "title": "The travels of True Godliness: from the beginning of the world to this present day. In an apt and pleasing allegory. Shewing what True Godliness is, also the troubles ... he hath met with in every age. Together with the danger and sad declining state he is in at this present time ..",
+      "author": "Keach, Benjamin, 1640-1704; Anderson, Alexander, 1775-1870",
+      "url": "https://archive.org/metadata/travelsoftruegod00keac",
+      "status": "unattempted",
+      "reason": "Deferred at user time cutoff; not a failed request"
+    },
+    {
+      "source": "ia",
+      "sourceId": "travelsoftruegod00keac_1",
+      "title": "The travels of true godliness : from the beginning of the world to this present day. In an apt and...",
+      "author": "Keach, Benjamin; Keach, Benjamin, 1640-1704",
+      "url": "https://archive.org/metadata/travelsoftruegod00keac_1",
+      "status": "unattempted",
+      "reason": "Deferred at user time cutoff; not a failed request"
+    }
+  ],
+  "scope": "TCP Particular Baptist author and church-record corpus; named historical Baptist historians, Baptist annual registers, and historical association minutes and church records from Internet Archive institutional collections. Source credits retained."
+}

@@ -1,4 +1,4 @@
-// The page: a short head, then four drawings large in a 2 × 2 grid, each with its number, name, verse and a "Use this"
+// The page: a short head, then six drawings large in a 2 × 2 grid, each with its number, name, verse and a "Use this"
 // note. Verses are the King James text word for word (checked against data/text/kjv/<BOOK>/*.json, 2026-10-08).
 (() => {
   const DOOR = "Come unto me, all ye that labour and are heavy laden, and I will give you rest.";
@@ -8,6 +8,7 @@
     { key: "morning", css: "morning", name: "Morning", tone: "sun", verse: "It is of the LORD’s mercies that we are not consumed, because his compassions fail not. They are new every morning: great is thy faithfulness.", ref: "Lamentations 3:22–23", note: "A yellow sun with beams falling, the last stars fading, more trees and grass, pale blue and violet flowers." },
     { key: "well", css: "well", name: "Well", tone: "accent", verse: "But whosoever drinketh of the water that I shall give him shall never thirst …", ref: "John 4:14", note: "A plain sun with slowly turning rays, soft drifting clouds, a flock of birds high up, olive trees on the hills." },
     { key: "doorOriginal", css: "door-original", name: "Door, as first drawn", tone: "epistles", verse: DOOR, ref: "Matthew 11:28", note: "The first version, before Jesus was added, shown unchanged." },
+    { key: "loavesCrowd", css: "loaves", name: "Loaves, with the crowd", tone: "sun", verse: "And Jesus took the loaves; and when he had given thanks, he distributed to the disciples, and the disciples to them that were set down; and likewise of the fishes as much as they would.", ref: "John 6:11", note: "Five loaves and two fish in the woven basket, with people sitting together on the hills behind them." },
   ];
   const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
 
@@ -15,8 +16,8 @@
   main.innerHTML = `<div class="wrap">
     <header class="head">
       <p class="kick">Help for life · the hero drawing · round 2</p>
-      <h1>Five drawings, <em>looked at again</em></h1>
-      <p class="lead">The owner's changes to three of the twenty-four, the Door also in colour, and the Door as it was first drawn. Each moves slowly and never stops; with reduced motion turned on, each stays still. Say the number to choose.</p>
+      <h1>Six drawings, <em>looked at again</em></h1>
+      <p class="lead">The owner's changes to three of the twenty-four, the Door also in colour, the Door as it was first drawn, and the loaves and fish with a crowd seated on the hills. Each moves slowly and never stops; with reduced motion turned on, each stays still. Say the number to choose.</p>
     </header>
     <ol class="grid">${ITEMS.map((it, i) => `<li class="cell" id="${it.css.split(" ").at(-1)}" style="--c: var(--${it.tone})">
         <p class="label"><b>${i + 1}</b><span>${esc(it.name)}</span></p>

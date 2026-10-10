@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-f6b12718c48ec605f7213b75",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-e153e4d2d4e65e0ff3b0e79d",
+  "label": "True grace, distinguished from the experience of devils; in a sermon, preached before the Synod of New-York, convened at New-Ark, in New-Jersey, on September 28. N.S. 1752. / By Jonathan Edwards, A.M. Pastor of the Church of Christ in Stockbridge in New-England. ; (Printed by the desire of the synod.) : [Four lines from II. Corinthians] — held source edition 9600c9fdc530",
+  "languages": [
+    "eng"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/N05520/master/N05520.xml",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

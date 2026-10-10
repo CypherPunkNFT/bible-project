@@ -1,0 +1,35 @@
+import {ObjectArt} from './art';
+const artifacts=[
+ ['lamp','Oil lamp / diya','A small oil vessel with a flame; a devotional light motif.','hinduism'],
+ ['conch','Conch shell','A ceremonial shell, also associated with Vishnu.','hinduism'],
+ ['bell','Temple bell','A hanging bell for a temple or worship setting.','hinduism'],
+ ['beads','Prayer beads / mala','A strand used for counting repeated prayers or mantras; shared across traditions.','hinduism'],
+ ['kalash','Kalash vessel','A ceremonial pot topped with leaves and a coconut.','hinduism'],
+ ['flute','Bamboo flute','A musical instrument associated with Krishna.','hinduism'],
+ ['offering','Offering tray','A tray with a small lamp, flowers and an offering bowl.','hinduism'],
+ ['leaf','Bodhi leaf','A heart-shaped leaf referring to the Bodhi tree.','buddhism'],
+ ['manuscript','Palm-leaf manuscript','Long, bound leaves used as a writing surface in South and Southeast Asia.','buddhism'],
+ ['bowl','Alms bowl','A bowl used by Buddhist monastics to receive food.','buddhism'],
+ ['incense','Incense holder','Burning incense with delicate smoke lines; shared across traditions.','buddhism'],
+ ['cushion','Meditation cushion','A low round seat for meditation.','buddhism'],
+ ['stupa','Stupa','A Buddhist monument represented by its dome and tiered spire.','buddhism'],
+ ['lotus','Lotus blossom','A flower shared by Buddhist and Hindu visual traditions.','buddhism'],
+ ['book','Bound text','A closed book; a general study motif rather than a specific sacred text.','islam'],
+ ['quill','Quill & writing rest','A feather pen with a small rest, suggesting writing and study.','islam'],
+ ['stand','Folding book stand / rehal','A folding support for reading a text.','islam'],
+ ['lantern','Hanging lantern','An architectural lighting motif, rather than a statement of belief.','islam'],
+ ['tile','Geometric tile','An eight-point geometric pattern inspired by architectural ornament.','islam'],
+ ['astrolabe','Astrolabe','A historical instrument for astronomy and timekeeping.','islam'],
+] as const;
+const paths:Record<string,string>={
+ kalash:'M-23 0q-16 25 0 43h46q16-18 0-43ZM-25 0h50m-48 7h46M0-8q-17-20 0-36 17 16 0 36ZM-4-6q-26-28-36-11 20 0 29 15M4-6q26-28 36-11-20 0-29 15M-12-2q-15-17-27-3m51 3q15-17 27-3',
+ flute:'M-42 17 34-25l5 9-76 42ZM-34 13l5 9m56-44 5 9m-48 11 2 4m10-11 2 4m10-11 2 4m10-11 2 4m10-11 2 4',
+ offering:'M-46 20h92l-8 11h-76ZM-22 9q14 8 28 0l-5 8h-18ZM-8 8q-9-12 0-22 9 10 0 22ZM24 16q-12-12 0-20 12 8 0 20ZM-35 13q-12-12 0-20 12 8 0 20M-44 36h88',
+ stupa:'M-35 20a35 35 0 0 1 70 0ZM-42 20h84v9h-84Zm7 9v9h70v-9M-11-15v-9h22v9M-15-29h30M-12-36h24M-9-43h18M-6-50h12M0-50v-8M-47 44h94',
+ lotus:'M0 29q-26-28 0-70 26 42 0 70ZM0 29q-43-9-46-47 35 5 46 47Zm0 0q43-9 46-47-35 5-46 47ZM0 29q-41 17-57-15 33-13 57 15Zm0 0q41 17 57-15-33-13-57 15',
+ stand:'M-43-7 43 28m-86 0L43-7M-32 23l-9 19m73-19 9 19M-45-14q22-9 45 0 23-9 45 0v20Q22-3 0 6q-23-9-45 0ZM0-14V6m-33-12h22m22 0h22',
+ lantern:'M0-50v14M-16-22q16-20 32 0ZM-16-22l-11 10v41l11 10h32l11-10v-41l-11-10ZM-27-12h54m-54 41h54M-13-12v41m26-41v41M0 21q-12-12 0-25 12 13 0 25M-8 39v8h16v-8',
+ tile:'M-42-42h84v84h-84ZM0-33 10-20 28-28 20-10 33 0 20 10 28 28 10 20 0 33-10 20-28 28-20 10-33 0-20-10-28-28-10-20ZM0-14l14 14L0 14-14 0ZM-34-34l10 10m58-10-10 10m-58 58 10-10m58 10-10-10',
+ astrolabe:'M-6-40v-7a6 6 0 0 1 12 0v7M0-39a39 39 0 1 0 0 78 39 39 0 1 0 0-78ZM0-30a30 30 0 1 0 0 60 30 30 0 1 0 0-60M-27 24 27-24M-15 28q-21-27 0-55m30 55q21-27 0-55M-28-10h56m-56 20h56M0-30v60',
+};
+export function ArtifactGrid(){return <section className="wa-section" id="artifacts"><header><div><p className="wa-kicker">20 objects / Choose the details</p><h2>The artifact collection.</h2></div><p>Distinct silhouettes to mix around the main illustrations. Each object is labeled; shared motifs are identified.</p></header><div className="wa-artifact-grid">{artifacts.map(([id,name,description,world],index)=><article key={id} className="wa-artifact-card" style={{'--wa-accent':world==='islam'?'var(--poetry)':`var(--worldview-${world})`} as React.CSSProperties}><span className="wa-kicker">{String(index+1).padStart(2,'0')} / {world}</span><svg viewBox="-65 -65 130 130" fill="none" aria-hidden="true">{paths[id]?<path d={paths[id]}/>:<ObjectArt item={id as Parameters<typeof ObjectArt>[0]['item']} x={0} y={0}/>}</svg><h3>{name}</h3><p>{description}</p></article>)}</div><p className="wa-notes">These are visual directions, not a list of practices shared by every member of a tradition. Manuscripts, lamps, incense and beads can cross cultural and religious boundaries.</p></section>}

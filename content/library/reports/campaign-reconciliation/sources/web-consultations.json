@@ -1,0 +1,31 @@
+{
+  "checkedOn": "2026-10-07",
+  "method": "Official source pages consulted through web tool; supplements HTTP consultations without asserting a robots clearance",
+  "items": [
+    {
+      "source": "bible.helloao.org",
+      "url": "https://bible.helloao.org/docs/",
+      "finding": "Official API documentation describes no usage limits, API keys or copyright restrictions, including modification/commercial uses; changed translations should be renamed."
+    },
+    {
+      "source": "reformedreader.org",
+      "url": "https://www.reformedreader.org/",
+      "finding": "Official footer states The Reformed Reader copyright; no general reuse permission established."
+    },
+    {
+      "source": "aomin.org",
+      "url": "https://www.aomin.org/aoblog/",
+      "finding": "Official articles available; no source-wide copying licence established by consulted homepage."
+    },
+    {
+      "source": "michaeljkruger.com",
+      "url": "https://michaeljkruger.com/",
+      "finding": "Official author pages available; no source-wide copying licence established by consulted homepage."
+    },
+    {
+      "source": "baptisthistoryhomepage.com",
+      "url": "https://www.baptisthistoryhomepage.com/",
+      "finding": "Official historical-document index available; edition-level notices remain necessary."
+    }
+  ]
+}

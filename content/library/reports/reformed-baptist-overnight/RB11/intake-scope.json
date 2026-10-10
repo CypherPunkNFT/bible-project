@@ -5,7 +5,7 @@
       "assetId": "asset-rb11-557c938c44b6d9a49a28",
       "workId": "work-rb11-spurgeon-treasury-part1",
       "sha256": "b54e452a99ab44d81ec9f31dfe0288623c40008c5abe231f780065cc0a29c0ad",
-      "evidenceOnly": true,
+      "evidenceOnly": false,
       "eligibleForScopedIntake": false,
       "integrated": false,
       "embedded": false,
@@ -18,13 +18,14 @@
         "Retain witness-specific source locators and exact citation evidence",
         "Reconcile logical work and edition overlaps",
         "Respect post-RB14 quiet/worker gate before aggregate intake"
-      ]
+      ],
+      "privateLocalIndexAuthorized": true
     },
     {
       "assetId": "asset-rb11-3155182074ef961ad9f4",
       "workId": "work-rb11-mathis-habits",
       "sha256": "8525dc7b3ada512c542bc8ecec4a85d8e09dd47d271a623a41ed7961b13bd1c0",
-      "evidenceOnly": true,
+      "evidenceOnly": false,
       "eligibleForScopedIntake": false,
       "integrated": false,
       "embedded": false,
@@ -37,13 +38,14 @@
         "Retain witness-specific source locators and exact citation evidence",
         "Reconcile logical work and edition overlaps",
         "Respect post-RB14 quiet/worker gate before aggregate intake"
-      ]
+      ],
+      "privateLocalIndexAuthorized": true
     },
     {
       "assetId": "asset-rb11-a40dde4709d79db7b75d",
       "workId": "work-rb11-chbc-prayer1",
       "sha256": "0fb5705614861b76c5a59a3033b0f91c3be67c96130702e3848c770a7251b01d",
-      "evidenceOnly": true,
+      "evidenceOnly": false,
       "eligibleForScopedIntake": false,
       "integrated": false,
       "embedded": false,
@@ -56,13 +58,14 @@
         "Retain witness-specific source locators and exact citation evidence",
         "Reconcile logical work and edition overlaps",
         "Respect post-RB14 quiet/worker gate before aggregate intake"
-      ]
+      ],
+      "privateLocalIndexAuthorized": true
     },
     {
       "assetId": "asset-rb11-832c2439e342b5f786a0",
       "workId": "work-rb11-chbc-prayer2",
       "sha256": "c529cc783b20bbd460b9c448223c0fa470d0cbcf37414a33ed26869416e73449",
-      "evidenceOnly": true,
+      "evidenceOnly": false,
       "eligibleForScopedIntake": false,
       "integrated": false,
       "embedded": false,
@@ -75,13 +78,14 @@
         "Retain witness-specific source locators and exact citation evidence",
         "Reconcile logical work and edition overlaps",
         "Respect post-RB14 quiet/worker gate before aggregate intake"
-      ]
+      ],
+      "privateLocalIndexAuthorized": true
     },
     {
       "assetId": "asset-rb11-dbbd79c2bc09818d0621",
       "workId": "work-rb11-dever-corporate",
       "sha256": "9ddf7e7897ff810814316f100da0daec82404b3d8265f494dc610630f6746ff7",
-      "evidenceOnly": true,
+      "evidenceOnly": false,
       "eligibleForScopedIntake": false,
       "integrated": false,
       "embedded": false,
@@ -94,13 +98,14 @@
         "Retain witness-specific source locators and exact citation evidence",
         "Reconcile logical work and edition overlaps",
         "Respect post-RB14 quiet/worker gate before aggregate intake"
-      ]
+      ],
+      "privateLocalIndexAuthorized": true
     },
     {
       "assetId": "asset-rb11-b09faa867ce597b78d6b",
       "workId": "work-rb11-hamilton-corporate",
       "sha256": "41fff384cf4770e4b649a9646f7f647745443cd8611a8e653f31d09565e73a46",
-      "evidenceOnly": true,
+      "evidenceOnly": false,
       "eligibleForScopedIntake": false,
       "integrated": false,
       "embedded": false,
@@ -113,7 +118,8 @@
         "Retain witness-specific source locators and exact citation evidence",
         "Reconcile logical work and edition overlaps",
         "Respect post-RB14 quiet/worker gate before aggregate intake"
-      ]
+      ],
+      "privateLocalIndexAuthorized": true
     }
   ]
 }

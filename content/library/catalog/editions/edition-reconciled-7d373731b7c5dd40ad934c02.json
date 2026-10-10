@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-7d373731b7c5dd40ad934c02",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-937d0e8ce9dc19fce24a4427",
+  "label": "The holy war, made by Shaddai upon Diabolus, for the regaining of the metropolis of the world. Or, the losing and taking again of the town of Mansoul. By John Bunyan, ... 1703 — held source edition 5d457fc33c4c",
+  "languages": [
+    "English"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_eighteenth-century_the-holy-war-made-by-sh_bunyan-john_1703/bim_eighteenth-century_the-holy-war-made-by-sh_bunyan-john_1703_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

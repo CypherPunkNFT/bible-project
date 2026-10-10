@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-22a89328dc83334be6180692",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-96a8aec3768aedf54675d24f",
+  "label": "A commentarie vpon the Epistle of Saint Paul to the Romanes, written in Latine by M. Iohn Caluin, and newely translated into Englishe by Christopher Rosdell preacher. Whereunto is added a necessarie table for the better and more readie finding out of certayne principall matters conteyned in this worke; Commentarius in Epistolam Pauli ad Romanos. English — held source edition 362673fa9f02",
+  "languages": [
+    "und"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A17643/master/A17643.xml",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

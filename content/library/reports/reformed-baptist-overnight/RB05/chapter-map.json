@@ -3417,7 +3417,7 @@
         "method": "Existing source text; no OCR or model calls",
         "quality": "Full-text pre element isolated; existing OCR not critically collated"
       },
-      "evidenceOnly": true,
+      "evidenceOnly": false,
       "locations": [
         {
           "title": "Ecclesiastical polity: private judgment, creeds, church formation, dissent, discipline and union",
@@ -3469,7 +3469,8 @@
           "kind": "historical-essay",
           "readableWords": 1721
         }
-      ]
+      ],
+      "privateLocalIndexAuthorized": true
     }
   ],
   "countRule": "Reading units include lessons, articles, essay bands, parts, book chapters and front matter; not a new-book count or Scripture coverage percentage."

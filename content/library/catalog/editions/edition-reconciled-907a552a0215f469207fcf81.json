@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-907a552a0215f469207fcf81",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-c8d2ee5a703a6a0c2ccf7c7f",
+  "label": "A journal of a voyage from London to Savannah in Georgia. In two parts. Part I. From London to Gibraltar. Part II. From Gibraltar to Savannah. By George Whitefield ... With a short preface, ... 1739 — held source edition d3550b54406c",
+  "languages": [
+    "English"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_eighteenth-century_a-journal-of-a-voyage-fr_whitefield-george_1739/bim_eighteenth-century_a-journal-of-a-voyage-fr_whitefield-george_1739_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

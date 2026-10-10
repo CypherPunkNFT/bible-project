@@ -1,0 +1,101 @@
+{
+  "authors": [
+    "Fairbairn, Patrick",
+    "Patrick Fairbairn",
+    "Terry, Milton",
+    "Milton Spencer Terry",
+    "Edersheim, Alfred",
+    "Alfred Edersheim",
+    "Lightfoot, John",
+    "John Lightfoot",
+    "Lightfoot, Joseph",
+    "Joseph Barber Lightfoot",
+    "Lightfoot, J B",
+    "Lightfoot, J. B.",
+    "Josephus",
+    "Flavius Josephus",
+    "Angus, Joseph",
+    "Joseph Angus"
+  ],
+  "primaryAuthorOnly": true,
+  "authorMustStart": true,
+  "authorIdentityRules": [
+    {
+      "namePattern": "Fairbairn",
+      "lifeYears": [
+        1805,
+        1874
+      ]
+    },
+    {
+      "namePattern": "Terry",
+      "lifeYears": [
+        1840,
+        1914
+      ]
+    },
+    {
+      "namePattern": "Edersheim",
+      "lifeYears": [
+        1825,
+        1889
+      ]
+    },
+    {
+      "namePattern": "Lightfoot",
+      "lifeYears": [
+        1602,
+        1675,
+        1828,
+        1889
+      ]
+    },
+    {
+      "namePattern": "Angus",
+      "lifeYears": [
+        1802,
+        1895
+      ]
+    }
+  ],
+  "authorTitleRules": [
+    {
+      "namePattern": "Fairbairn",
+      "titlePattern": "typolog"
+    },
+    {
+      "namePattern": "Terry",
+      "titlePattern": "hermeneutic"
+    },
+    {
+      "namePattern": "Angus",
+      "titlePattern": "bible.*hand|hand.*bible"
+    }
+  ],
+  "deferHardDownloads": true,
+  "skipIds": [
+    "barnes/1cor",
+    "barnes/2cor",
+    "barnes/acts",
+    "barnes/daniel1",
+    "barnes/daniel2",
+    "barnes/epc",
+    "barnes/hebrews",
+    "barnes/isaiah1",
+    "barnes/isaiah2",
+    "barnes/james",
+    "barnes/job1",
+    "barnes/luke",
+    "barnes/matthew",
+    "barnes/psalms1",
+    "barnes/psalms2",
+    "barnes/psalms3",
+    "barnes/rev",
+    "barnes/romans",
+    "barnes/tttp",
+    "cook_fc/1sam",
+    "cook_fc/exod_ruth",
+    "cook_fc/provez",
+    "moule/hebrews"
+  ]
+}

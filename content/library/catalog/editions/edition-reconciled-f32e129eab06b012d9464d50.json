@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-f32e129eab06b012d9464d50",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-8577abf5a1b22e4807d6388b",
+  "label": "Gwrthodedigaeth yn brofedig: neu'r athrawiaeth o etholedigaeth tragywyddol, a gwrthodedigaeth, ... Gan ... Mr. John Bunyan. Wedi ei gymreigio yn ofalus, ... gan John Thomas. 1792 — held source edition 2fac681ea290",
+  "languages": [
+    "English"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_eighteenth-century_gwrthodedigaeth-yn-brofe_bunyan-john_1792/bim_eighteenth-century_gwrthodedigaeth-yn-brofe_bunyan-john_1792_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "source": "chapel",
+  "updatedAt": "2026-10-07T21:16:07.822559+00:00",
+  "items": [
+    {
+      "sourceId": "bvos",
+      "url": "https://www.chapellibrary.org/api/books/download?code=bvos&format=epub",
+      "title": "biblical view of selfesteem the adamsjay",
+      "author": "Chapel Library contributors",
+      "error": "<urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>"
+    },
+    {
+      "sourceId": "cwar",
+      "url": "https://www.chapellibrary.org/api/books/download?code=cwar&format=pdf",
+      "title": "christians warfare the mccheynerobertmurray",
+      "author": "Chapel Library contributors",
+      "error": "<urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>"
+    },
+    {
+      "sourceId": "buhwar",
+      "url": "https://www.chapellibrary.org/api/books/download?code=buhwar&format=pdf",
+      "title": "holy war the bunyanjohn",
+      "author": "Chapel Library contributors",
+      "error": "[WinError 5] Access is denied: 'D:\\\\FortressOfSolitude\\\\Jarvis\\\\Projects\\\\BibleProject\\\\Website\\\\content\\\\library\\\\reports\\\\reformed-baptist-overnight\\\\RB06\\\\acquisition-manifest.json.108296.tmp' -> 'D:\\\\FortressOfSolitude\\\\Jarvis\\\\Projects\\\\BibleProject\\\\Website\\\\content\\\\library\\\\reports\\\\reformed-baptist-overnight\\\\RB06\\\\acquisition-manifest.json'"
+    },
+    {
+      "sourceId": "logo",
+      "url": "https://www.chapellibrary.org/api/books/download?code=logo&format=pdf",
+      "title": "love of god the pinkarthurw",
+      "author": "Chapel Library contributors",
+      "error": "<urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>"
+    },
+    {
+      "sourceId": "oss2",
+      "url": "https://www.chapellibrary.org/api/books/download?code=oss2&format=pdf",
+      "title": "our suffering substitute spurgeoncharlesh",
+      "author": "Chapel Library contributors",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "sourceId": "smlb",
+      "url": "https://www.chapellibrary.org/api/books/download?code=smlb&format=epub",
+      "title": "sick man left behind the spurgeoncharlesh",
+      "author": "Chapel Library contributors",
+      "error": "<urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>"
+    },
+    {
+      "sourceId": "sog8",
+      "url": "https://www.chapellibrary.org/api/books/download?code=sog8&format=pdf",
+      "title": "sovereignty of god in creation pinkarthurw",
+      "author": "Chapel Library contributors",
+      "error": "<urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>"
+    },
+    {
+      "sourceId": "fogofgs",
+      "url": "https://www.chapellibrary.org/api/books/download?code=fogofgs&format=epub",
+      "title": "la fidelidad de dios",
+      "author": "Chapel Library contributors",
+      "error": "[WinError 5] Access is denied: 'D:\\\\FortressOfSolitude\\\\Jarvis\\\\Projects\\\\BibleProject\\\\Website\\\\content\\\\library\\\\reports\\\\reformed-baptist-overnight\\\\RB06\\\\acquisition-manifest.json.108296.tmp' -> 'D:\\\\FortressOfSolitude\\\\Jarvis\\\\Projects\\\\BibleProject\\\\Website\\\\content\\\\library\\\\reports\\\\reformed-baptist-overnight\\\\RB06\\\\acquisition-manifest.json'"
+    },
+    {
+      "sourceId": "ayw2s",
+      "url": "https://www.chapellibrary.org/api/books/download?code=ayw2s&format=pdf",
+      "title": "una cita que cumpliras beekejoel",
+      "author": "Chapel Library contributors",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "sourceId": "sis-34-04",
+      "url": "https://www.chapellibrary.org/api/books/download?code=sis-34-04&format=pdf",
+      "title": "sis april 1934",
+      "author": "Chapel Library contributors",
+      "error": "<urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>"
+    },
+    {
+      "sourceId": "sis-51-02",
+      "url": "https://www.chapellibrary.org/api/books/download?code=sis-51-02&format=pdf",
+      "title": "sis february 1951",
+      "author": "Chapel Library contributors",
+      "error": "[WinError 5] Access is denied: 'D:\\\\FortressOfSolitude\\\\Jarvis\\\\Projects\\\\BibleProject\\\\Website\\\\content\\\\library\\\\reports\\\\reformed-baptist-overnight\\\\RB06\\\\acquisition-manifest.json.108296.tmp' -> 'D:\\\\FortressOfSolitude\\\\Jarvis\\\\Projects\\\\BibleProject\\\\Website\\\\content\\\\library\\\\reports\\\\reformed-baptist-overnight\\\\RB06\\\\acquisition-manifest.json'"
+    },
+    {
+      "sourceId": "lcat",
+      "url": "https://www.chapellibrary.org/api/books/download?code=lcat&format=pdf",
+      "title": "literature catalog",
+      "author": "Chapel Library contributors",
+      "error": "publisher administrative material; not a book"
+    }
+  ],
+  "policy": "Deferred downloads; no automatic retries when deferHardDownloads is true"
+}

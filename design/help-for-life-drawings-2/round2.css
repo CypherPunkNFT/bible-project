@@ -107,3 +107,8 @@
 .draw-door-original .spill, .draw-door-original .lit { animation: soft 7s ease-in-out infinite alternate; }
 
 @media (prefers-reduced-motion: reduce) { .art, .art * { animation: none !important; } .art .mote { opacity: .6; } .draw-morning .night { opacity: .5; } .draw-morning .beams { opacity: .3; } }
+
+/* 6: warmth rising from the original bread basket. */
+.draw-loaves .steam path { animation: steam 6s ease-in-out infinite; animation-delay: calc(var(--i) * -2s); }
+@keyframes steam { 0% { transform: translateY(8px); opacity: 0; } 35% { opacity: .9; } 100% { transform: translateY(-10px); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .draw-loaves .steam path { animation: none; } }

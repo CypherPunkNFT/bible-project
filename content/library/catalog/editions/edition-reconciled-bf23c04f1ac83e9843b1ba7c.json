@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-bf23c04f1ac83e9843b1ba7c",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-80eb0c2400b3babd28e78d8b",
+  "label": "A body of practical divinity : consisting of above one hundred and seventy-six sermons on the Shorter Catechism composed by the reverend Assembly of Divines at Westminster ; with a supplement of some sermons on several texts of Scripture ; a new edition: to which is now added, by the same author, The Art of divine contentment; and, Christ's various fulness — held source edition 19218748d81f",
+  "languages": [
+    "eng"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bodyofpractical02wats/bodyofpractical02wats_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

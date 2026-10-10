@@ -1,0 +1,37 @@
+{
+  "source": "monergism",
+  "catalogueItems": 1467,
+  "catalogueUnheldItems": 1388,
+  "eligibleItems": 27,
+  "unheldBefore": 26,
+  "filter": {
+    "authors": [
+      "Warfield",
+      "Gaussen"
+    ],
+    "deferHardDownloads": true,
+    "approvedCollection": true
+  },
+  "attempted": 26,
+  "downloaded": 0,
+  "duplicateHashes": 25,
+  "heldDuringRun": 0,
+  "failures": [
+    {
+      "sourceId": "augustine-and-pelagian-controversy",
+      "url": "https://www.monergism.com/augustine-and-pelagian-controversy",
+      "title": "Augustine & The Pelagian Controversy",
+      "author": "Warfield, Benjamin",
+      "error": "<urlopen error _ssl.c:1015: The handshake operation timed out>"
+    }
+  ],
+  "bytes": 0,
+  "sampleSizes": [],
+  "state": "complete",
+  "startedAt": "2026-10-07T20:09:36.351475+00:00",
+  "updatedAt": "2026-10-07T20:20:22.059473+00:00",
+  "unheldAfter": 26,
+  "estimatedUnheldGB": null,
+  "estimateBasis": "SWORD InstallSize where available; otherwise arithmetic mean of downloaded originals; decimal GB; edition/item counts, not deduplicated works",
+  "completedAt": "2026-10-07T20:20:22.060704+00:00"
+}

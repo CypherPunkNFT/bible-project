@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-50e4f96b18cd92a5e43c8cfb",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-8dca162541a573e8177700e5",
+  "label": "The substance of Christian religion, or, A plain and easie draught of the Christian catechisme in LII lectures on chosen texts of Scripture, for each Lords-day of the year, learnedly and perspicuously illustrated with doctrines, reasons, and uses / by that reverend and worthy laborer in the Lord's vineyard, William Ames ... — held source edition 444f595ccf9b",
+  "languages": [
+    "und"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A25294/master/A25294.xml",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

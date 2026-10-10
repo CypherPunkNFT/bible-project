@@ -1,0 +1,125 @@
+{
+  "authors": [
+    "Fuller, Andrew",
+    "Andrew Fuller",
+    "Carey, William",
+    "William Carey",
+    "Judson, Adoniram",
+    "Adoniram Judson",
+    "Judson, Ann",
+    "Ann Hasseltine Judson",
+    "Ann H. Judson",
+    "Judson, Sarah",
+    "Sarah Boardman Judson",
+    "Judson, Emily",
+    "Emily Chubbuck Judson",
+    "Spurgeon, Charles",
+    "Charles H. Spurgeon",
+    "Charles Haddon Spurgeon",
+    "C. H. Spurgeon",
+    "Whitefield, George",
+    "George Whitefield",
+    "Edwards, Jonathan",
+    "Jonathan Edwards",
+    "Brainerd, David",
+    "David Brainerd"
+  ],
+  "primaryAuthorOnly": true,
+  "authorMustStart": true,
+  "authorIdentityRules": [
+    {
+      "namePattern": "Fuller",
+      "lifeYears": [
+        1754,
+        1815
+      ]
+    },
+    {
+      "namePattern": "Carey",
+      "lifeYears": [
+        1761,
+        1834
+      ]
+    },
+    {
+      "namePattern": "Spurgeon",
+      "lifeYears": [
+        1834,
+        1892
+      ]
+    },
+    {
+      "namePattern": "Whitefield",
+      "lifeYears": [
+        1714,
+        1770
+      ]
+    },
+    {
+      "namePattern": "Edwards",
+      "lifeYears": [
+        1703,
+        1758
+      ]
+    },
+    {
+      "namePattern": "Brainerd",
+      "lifeYears": [
+        1718,
+        1747
+      ]
+    },
+    {
+      "namePattern": "Judson",
+      "lifeYears": [
+        1788,
+        1850,
+        1789,
+        1826,
+        1803,
+        1845,
+        1817,
+        1854
+      ]
+    }
+  ],
+  "authorTitleRules": [
+    {
+      "namePattern": "Spurgeon",
+      "titlePattern": "sermon|pulpit|preach|new park|metropolitan|works|gospel|discourse|address|lecture|talk|pastor"
+    },
+    {
+      "namePattern": "Judson",
+      "titlePattern": "memoir|life|letter|mission|biograph|burma|burmah|correspond|journal|diary"
+    }
+  ],
+  "deferHardDownloads": true,
+  "skipIds": [
+    "christs-invitation-labouring-and-heavy-laden-ebook",
+    "art-man-fishing-ebook",
+    "crook-lot-modernized-ebook",
+    "greatness-soul-and-unspeakableness-loss-thereof-ebook",
+    "humble-testimony-ebook",
+    "searching-our-hearts-perilous-times-ebook",
+    "saved-grace"
+  ],
+  "ids": [
+    "dissertation-concerning-end-which-god-created-world-ebook",
+    "charity-and-its-fruits-ebook",
+    "divine-and-supernatural-light-ebook",
+    "narrative-surprising-conversions-ebook",
+    "distinguishing-marks-work-spirit-god-ebook",
+    "pure-heart-blessed-ebook",
+    "final-judgment-ebook",
+    "freedom-will-jonathan-edwards",
+    "god-exalted-man-humbled-christ-glorified-ebook",
+    "sinners-hands-angry-god-ebook",
+    "how-know-if-you-are-real-christian-ebook",
+    "nature-true-virtue-ebook",
+    "original-sin-ebook",
+    "history-work-redemption-ebook",
+    "dependent-design-ebook",
+    "jonathan-edwards-selected-shorter-writings-ebook"
+  ],
+  "batchName": "expanded"
+}

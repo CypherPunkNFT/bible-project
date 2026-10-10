@@ -78,6 +78,45 @@ def test_paths_and_derivative_checksums(cfg):
         extraction_cache(cfg, raw, sha256(raw), derivative={"path": str(raw), "sha256": "wrong"})
 
 
+def test_legacy_evidence_flag_does_not_block_authorized_private_text(cfg):
+    raw = cfg['sources_dir'] / 'library/book.txt'
+    raw.write_text('Complete lawful historical text about prayer and faith.', encoding='utf-8')
+    record = {'files': [{'relativePath': 'library/book.txt', 'sha256': sha256(raw),
+                         'title': 'Prayer', 'author': 'Historical author',
+                         'evidenceOnly': True, 'publicHostingAllowed': False}]}
+    (cfg['site_dir'] / 'content/library/reports/legacy.json').write_text(json.dumps(record))
+    db = connect(cfg['state_dir'] / 'test.sqlite3')
+    db.executescript(SCHEMA)
+    result = import_library(Writer(db, cfg))
+    assert result['statuses'] == {'indexed': 1}
+    row = db.execute('SELECT metadata FROM library_files').fetchone()
+    metadata = json.loads(row[0])
+    assert metadata['acquisition']['author'] == 'Historical author'
+    assert metadata['public_publication'] is False
+    assert db.execute('SELECT text FROM chunks').fetchone()[0].startswith('Complete lawful')
+    db.close()
+
+
+def test_module_archive_indexes_offered_export_not_archive_bytes(cfg):
+    raw = cfg['sources_dir'] / 'library/module.zip'
+    raw.write_bytes(b'compressed module fixture')
+    (raw.parent / 'download.part').write_bytes(b'unfinished download')
+    derivative = cfg['site_dir'] / '.local/library/module.txt'
+    derivative.parent.mkdir(parents=True)
+    derivative.write_text('Complete module exposition about grace and faith.', encoding='utf-8')
+    record = {'files': [{'relativePath': 'library/module.zip', 'sha256': sha256(raw),
+                         'title': 'Module', 'format': 'zip', 'derivedText':
+                         {'path': '.local/library/module.txt', 'sha256': sha256(derivative)}}]}
+    (cfg['site_dir'] / 'content/library/reports/module.json').write_text(json.dumps(record))
+    db = connect(cfg['state_dir'] / 'test.sqlite3')
+    db.executescript(SCHEMA)
+    result = import_library(Writer(db, cfg))
+    assert result['statuses'] == {'indexed': 1}
+    assert result['files'] == 1
+    assert db.execute('SELECT text FROM chunks').fetchone()[0].startswith('Complete module exposition')
+    db.close()
+
+
 def test_large_book_chunking_preserves_existing_vector_id_boundaries():
     # Compare with the original slice-based behavior so prior vectors remain reusable.
     def original(text, limit):

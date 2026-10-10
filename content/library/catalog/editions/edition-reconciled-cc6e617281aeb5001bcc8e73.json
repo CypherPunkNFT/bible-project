@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-cc6e617281aeb5001bcc8e73",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-bb97e74e92b6535d39b45ac9",
+  "label": "Cosmographia, or, A view of the terrestrial and cœlestial globes in a brief explanation of the principles of plain and solid geometry applied to surveying and gauging of cask : the doctrine of primum mobile : with an account of the Juilan & Gregorian calendars, and the computation of the places of the sun, moon, and fixed stars ... : to which is added an introduction unto geography / by John Newton ... — held source edition 1ebcc3027374",
+  "languages": [
+    "und"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A52257/master/A52257.xml",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

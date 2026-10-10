@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-dc423b2c4df9d743b936dcbb",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-e3b663960f56b7b6f7aaab0a",
+  "label": "Helaethrwydd o ras i'r pennaf o bechaduriaid, (sef) cywyr hanes o fywyd a marwolaeth Ioan Bunian: ... 1767 — held source edition 56a3c78624cf",
+  "languages": [
+    "English"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_eighteenth-century_helaethrwydd-o-ras-ir-p_bunyan-john_1767/bim_eighteenth-century_helaethrwydd-o-ras-ir-p_bunyan-john_1767_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

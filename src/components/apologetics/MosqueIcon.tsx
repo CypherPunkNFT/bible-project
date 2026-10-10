@@ -1,0 +1,1 @@
+export function MosqueIcon(){return <svg className="sm-glyph" viewBox="0 0 40 40" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M4 33h32M12 32V22h22v10M13 21c0-6 7-7 10-11 3 4 10 5 10 11H13ZM23 10V7M20 32v-6a3 3 0 0 1 6 0v6M5 32V13h5v19M4 13h7L7.5 7 4 13ZM7.5 7V4"/></svg>;}

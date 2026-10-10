@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-1ec384dcde0084ff25aa26a4",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-fcc32c3a7e28630e5d2288af",
+  "label": "The works of that eminent servant of Christ Mr. John Bunyan, ... With copper-plates, ... In two volumes. ... The third edition: to which are now added, the Divine emblems, ... 1767: Vol 2 — held source edition ec11a1cb3dd9",
+  "languages": [
+    "English"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_eighteenth-century_the-works-of-that-eminen_bunyan-john_1767_2/bim_eighteenth-century_the-works-of-that-eminen_bunyan-john_1767_2_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

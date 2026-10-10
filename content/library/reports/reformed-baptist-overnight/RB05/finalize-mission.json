@@ -1,0 +1,76 @@
+{
+  "mission": "RB05",
+  "title": "Church, polity, discipline and ministry",
+  "filters": {
+    "tcp": "filters/tcp.json",
+    "ia": "filters/ia.json",
+    "foundersjournal": "filters/foundersjournal.json"
+  },
+  "scope": "Named historical church-order authors, ministry classics, Baptist association publications and complete publisher-offered journal archives.",
+  "availabilityNotes": [
+    "9Marks full journal archive deferred after HTTP 403 from both official catalogue channels. Founders complete offered PDFs collected via public media catalogue; cover-only PDFs excluded by catalogue filename.",
+    "Three HTML-only Founders issues returned incomplete public API article/review sets and are deferred in the failure TODO without retry; no text derivatives were admitted."
+  ],
+  "sourceBlockers": [
+    {
+      "source": "9marks",
+      "url": "https://www.9marks.org/journal/archives/",
+      "error": "Official archive and public API returned HTTP 403; no bypass or retry; full collection deferred.",
+      "exitCode": "HTTP 403",
+      "log": "catalogue-failures.json"
+    }
+  ],
+  "previouslyFailed": [
+    {
+      "source": "ia",
+      "sourceId": "breachr00keac",
+      "title": "The Breach repaired in God's worship : or, singing of Psalms, hymns, and spiritual songs proved to be an holy ordinance of Jesus Christ ; with an answer to all objections ; as also, an examination of Mr. Isaac Marlow's two papers, one called, A discourse against singing, &c. the other An appendix wherein his arguments and cavils are detected and refuted",
+      "author": "Keach, Benjamin, 1640-1704; Keach, Benjamin, 1640-1704. Answer to Mr. Marlow's Appendix",
+      "url": "https://archive.org/metadata/breachr00keac",
+      "status": "unattempted",
+      "reason": "Deferred at user time cutoff; not a failed request"
+    },
+    {
+      "source": "ia",
+      "sourceId": "communionwithgo00owengoog",
+      "title": "Of communion with God the Father, Son and Holy Ghost ... or, The saints fellowship with the Father, Son, and Holy Ghost, unfolded",
+      "author": "Owen, John, 1616-1683",
+      "url": "https://archive.org/metadata/communionwithgo00owengoog",
+      "status": "unattempted",
+      "reason": "Deferred at user time cutoff; not a failed request"
+    },
+    {
+      "source": "ia",
+      "sourceId": "goldrefinedorbap00keac",
+      "title": "Gold refined, or, Baptism in its primitive purity : proving baptism in water an holy institution of Jesus Christ, and to continue in the church to the end of the world ..",
+      "author": "Keach, Benjamin, 1640-1704",
+      "url": "https://archive.org/metadata/goldrefinedorbap00keac",
+      "status": "unattempted",
+      "reason": "Deferred at user time cutoff; not a failed request"
+    },
+    {
+      "source": "ia",
+      "sourceId": "truen00owen",
+      "title": "The true nature of a gospel church and its government ..",
+      "author": "Owen, John, 1616-1683",
+      "url": "https://archive.org/metadata/truen00owen",
+      "status": "unattempted",
+      "reason": "Deferred at user time cutoff; not a failed request"
+    },
+    {
+      "source": "ia",
+      "sourceId": "viewofnatureorde00owen",
+      "title": "A view of the nature, order, and communion of the churches of Christ as exhibited in the New Testament : extracted from Dr. John Owen's treatise on evangelical churches ..",
+      "author": "Owen, John",
+      "url": "https://archive.org/metadata/viewofnatureorde00owen",
+      "status": "unattempted",
+      "reason": "Deferred at user time cutoff; not a failed request"
+    }
+  ],
+  "finalizeOnly": true,
+  "waitForExisting": false,
+  "finalScreens": {
+    "ia": "filters/ia-final.json",
+    "tcp": "filters/tcp-final.json"
+  }
+}

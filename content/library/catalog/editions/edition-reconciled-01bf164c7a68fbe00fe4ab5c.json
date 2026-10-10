@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-01bf164c7a68fbe00fe4ab5c",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-193fea45e51395671ada52ea",
+  "label": "A most excellent sermon of the Lordes Supper wherein briefely (and yet plainly yenough [sic]) is liuely set foorth the matter of the Supper of the Lorde Iesus. By Henry Bullinger. Translated out of Frenche, into English by I.T.; Sermon très-excellent, auquel, en brief et toutes fois assez clairement est représenté au vif tout le fait de la Cène du Seigneur Jésus. English. — held source edition 7d3e7439a021",
+  "languages": [
+    "und"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A17190/master/A17190.xml",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

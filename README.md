@@ -1,5 +1,30 @@
 # Bible Project
 
+<!-- BULK intake -->
+## Same-day private intake and bulk harvest
+
+- [x] Release the 69 DB-confirmed RB04-RB11 skipped text files; keep credit metadata.
+- [x] Importer no longer treats `evidenceOnly` as a text gate; SWORD archives with readable exports are indexed.
+- [x] Disable `BibleProject-After14Missions-Refresh`; owner supersedes the old wait.
+- [x] TCP collector active: PID 96980, ~9,941 eligible catalogue targets, official XML, two-second spacing. Do not launch duplicate TCP workers.
+- [x] Single completion pipeline active: PID 109988, waits for the existing embedding pass before refresh. Do not start a competing build/embed pipeline.
+- [ ] Confirm passage growth and embedding parity after intake; baseline 1,934,778 passages at policy change.
+
+Collector: `scripts/bulk-tcp.py`; live state: `KnowledgeBase/bulk-tcp/progress.json`; checksum manifest: `content/library/reports/bulk-acquisition/TCP/acquisition-manifest.json`. Resume with `python -X utf8 scripts/bulk-tcp.py --hours 12 --delay 2` from Website only when no TCP collector is active. Ordered continuation active: `scripts/bulk-queue.py` PID 90028 waits for TCP, then runs 100 selected SWORD modules and the full CCEL/Princeton/Gutenberg filters (132 authors), followed by Monergism and Desiring God. It reuses `knowledge/bulk_collect.py` and existing book collectors with no 20-file limits; avoid duplicate launches. Numeric report: `KnowledgeBase/bulk-report.md`; update with `python scripts/bulk-status.py`, also called on intake completion. No public full-text publishing or enrichment is authorized by this change.
+<!-- /BULK intake -->
+
+
+<!-- RB12 readme -->
+## RB12: Baptist historical evidence
+
+**46 originals / 5.24 MB / 709,313 extracted words:** seven historical work/collection groups, eight edition witnesses. Ivimey Volume I, selected Philadelphia association records/circulars, Broadmead 1847 and 1974 TXT, Kiffin autobiography, Knollys life/legacy, joint London letter and Belyea origins study. Reused 51 held witnesses including all eleven RB07 mapped witnesses and the confessional spine. 98 actual relevant originals and 13,110 prior ledger records audited/screened. 97 mapped witnesses / 490 source locations / 194 historical document rows / 27 exact private components / 13 qualified relationship rows. Not 46 new books, not all Philadelphia century records, and no graph assertions.
+
+[Report](content/library/reports/reformed-baptist-overnight/RB12/REPORT.md), [document table](content/library/reports/reformed-baptist-overnight/RB12/DOCUMENT-TABLE.md), [reading paths](content/library/reports/reformed-baptist-overnight/RB12/READING-MAP.md), [relationships](content/library/reports/reformed-baptist-overnight/RB12/RELATIONSHIPS.md), [scope](content/library/reports/reformed-baptist-overnight/RB12/THEOLOGICAL-SCOPE.md), [checkpoint](content/library/reports/reformed-baptist-overnight/RB12/checkpoint.json).
+
+Immutable private text originals and source-located tables are ready for review. Historical claims, editors and uncertain dates stay explicit. No DB/vector/graph/enrichment launch; post-RB14 intake gate unchanged.
+<!-- /RB12 readme -->
+
+
 <!-- RB11 summary -->
 **RB11 PRAYER & WORSHIP ACQUISITION (2026-10-07):** Six readable originals / 2,993,326 bytes / 1,162,996 derivative words: missing Spurgeon digital Psalms 1-87 part, complete Mathis Habits of Grace, two CHBC written prayer lessons, Dever corporate-prayer interview and Hamilton biblical-theology essay. [Report](content/library/reports/reformed-baptist-overnight/RB11/REPORT.md), [11 questions / 452 locations across 23 witnesses](content/library/reports/reformed-baptist-overnight/RB11/READING-MAP.md), [150-Psalm table](content/library/reports/reformed-baptist-overnight/RB11/PSALM-COVERAGE.md), [17 Scripture/source connections](content/library/reports/reformed-baptist-overnight/RB11/SCRIPTURE-GROUNDS.md), [scope](content/library/reports/reformed-baptist-overnight/RB11/THEOLOGICAL-SCOPE.md), [checkpoint](content/library/reports/reformed-baptist-overnight/RB11/checkpoint.json). Audited 1,119 actual relevant originals / 61 inputs; duplicate-screened 13,104 prior ledger records. Seventeen held witnesses reused. Eight exact private exposition samples prepared. All six parents remain evidence-only, not ingested/embedded; rights and quotation/editorial integration required. No scans, new OCR, separate images or media; post-RB14 gate unchanged.
 <!-- /RB11 -->
@@ -59,6 +84,20 @@ OpenBible.info (CC-BY), proper names from STEP Bible (CC BY 4.0), and the map im
 must credit if you reuse them is in [NOTICE.md](NOTICE.md).
 
 ## Apologetics: doctrinal and editorial basis
+
+The Worldviews landing cards use the approved mosque, atom, Eightfold Path wheel and Hindu temple artwork in
+`src/components/apologetics/worldview-card-art/`, rendered by `WorldviewCardArt.tsx`. Islam and Secular use
+the first approved arrangement. Each centerpiece traces its lines on hover or focus, with a growing top
+accent. The atom's three dots start at balanced ellipse tips and orbit together; the main dotted rings
+rotate at 69% opacity. A motion control and reduced-motion preference stop the artwork animation.
+The design alternatives remain at `/mockups/worldview-cards/`; the real collection cards open their existing routes.
+
+Islam has three navigation destinations: **Overview**, **Understanding Islam**, and **Ministering to Muslim friends**.
+The Overview is the existing `/apologetics/worldviews/islam` page, titled Christianity & Islam. Cards 01 and 02
+follow its introduction, before the comparisons, Muslim-world explorer, contextual readings and connected studies.
+The redundant guide hub and library page have been removed: `/guide` redirects to this Overview and
+`/guide/library` redirects to its `#reading-sources` section, preserving query parameters and explicit anchors.
+The Understanding and Ministry branches, including their article links, keep their existing URLs.
 
 Scripture is the final authority. These guides use the Westminster Confession of Faith as a subordinate
 Reformed standard, with exposition from Calvin, Sproul, Ferguson, Kruger and Ligonier. The public source

@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-0af03e2b3984eaee75044df8",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-15730e11550fde4ca0c44671",
+  "label": "A dictionary of the Bengalee language : in which the words are traced to their origin and their various meanings given — held source edition 460d3fe37ebd",
+  "languages": [
+    "ben"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/carey-a-dictionary-of-the-bengalee-language-1825-volumes-1-2/Carey%2C%20A%20dictionary%20of%20the%20Bengalee%20language%20%281825%29%20-%20VOLUME%201%20-%20ENG-BEN%2C%20BEN-ENG%20pt.1_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

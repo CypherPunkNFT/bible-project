@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-d951b0197e8d8d9f46100516",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-bd38c69b247c47f304e815c8",
+  "label": "An expostulatory letter from the Rev. Mr. Edwards of Northampton, to the Rev. Mr. Clap, Rector of Yale College in New-Haven, in reply to his late printed letter to him, relating to what he reported concerning the Rev. Mr. Whitefield, at Boston and Cambridge and elsewhere, as from Mr. Edwards; making the falsity of that report yet much more manifest. : [Two lines from Job] — held source edition b2cf2021832b",
+  "languages": [
+    "eng"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/N04498/master/N04498.xml",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

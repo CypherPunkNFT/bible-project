@@ -1,11 +1,11 @@
-import { ArrowLeft, ArrowRight, ArrowUpRight, BookMarked, BookOpen, ChevronDown, ChevronRight, ListTree, MapPin, Network } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight, BookMarked, BookOpen, ChevronDown, ChevronRight, Library, ListTree, MapPin, Network } from "lucide-react";
 import { Fragment, useState } from "react";
 import { Link, Navigate, useParams } from "react-router-dom";
 import { Loading } from "@/components/charts/ChartCard";
 import { RefLink } from "@/components/study/StudyParts";
 import { studyById } from "@/data/apologetics-library";
 import { studyUrl } from "@/lib/apologetics-links";
-import { loadPlaces, loadTopic } from "@/lib/data";
+import { loadPlaces, loadTopic, loadTopicLibrary } from "@/lib/data";
 import { loadPeople } from "@/lib/study";
 import { categoryStyle, groupIcon } from "@/lib/topic-style";
 import { categoryUrl, placeOf, pointsAndPassages, topicUrl, type ArticleParagraph, type Topic, type TopicIndex, type TopicItem, type TopicPoint } from "@/lib/topics";
@@ -88,6 +88,24 @@ function Elsewhere({ title }: { title: string }) {
       <ul className="topics-group-grid">
         {persons.slice(0, 8).map((p) => <li key={p.id}><Link to={`/study/people/${p.id}`} className="topics-compact-card"><Network size={26} strokeWidth={1.35} aria-hidden /><span><strong>{p.n}</strong><small>{p.b} · family and passages</small></span><ArrowUpRight size={15} aria-hidden /></Link></li>)}
         {spots.slice(0, 4).map((p) => <li key={p.id}><Link to={`/study/atlas/map?place=${p.id}`} className="topics-compact-card"><MapPin size={26} strokeWidth={1.35} aria-hidden /><span><strong>{p.name}</strong><small>{p.type} · on the atlas map</small></span><ArrowUpRight size={15} aria-hidden /></Link></li>)}
+      </ul>
+    </section>
+  );
+}
+
+/** Books in the library that treat this subject, found by meaning; each opens its public source page. */
+function FromTheLibrary({ id, bundle }: { id: string; bundle: number }) {
+  const library = useAsync(() => loadTopicLibrary(bundle), `topic-library-${bundle}`);
+  const books = library.status === "ready" ? library.value[id] ?? [] : [];
+  if (!books.length) return null;
+  return (
+    <section aria-labelledby="topic-library" className="mt-10">
+      <div className="topics-section-heading"><h2 id="topic-library" className="flex items-center gap-2"><Library size={18} aria-hidden style={{ color: "var(--topics-color)" }} />From the library</h2><span>Books that treat this subject, found by meaning</span></div>
+      <ul className="topics-group-grid">
+        {books.map((book) => {
+          const inner = <><BookOpen size={24} strokeWidth={1.35} aria-hidden /><span><strong>{book.title}</strong><small>{book.author || "Author not recorded"}</small></span>{book.url && <ArrowUpRight size={15} aria-hidden />}</>;
+          return <li key={book.title + book.author}>{book.url ? <a href={book.url} target="_blank" rel="noopener noreferrer" className="topics-compact-card">{inner}</a> : <div className="topics-compact-card">{inner}</div>}</li>;
+        })}
       </ul>
     </section>
   );
@@ -177,6 +195,8 @@ export function TopicPage({ index }: { index: TopicIndex }) {
           {nave.length > 0 && <PointList points={nave} titles={titles} label="Nave’s Topical Bible" />}
         </div>
       </section>}
+
+      {summary && <FromTheLibrary id={t.id} bundle={summary.f} />}
 
       <Elsewhere title={t.title} />
 

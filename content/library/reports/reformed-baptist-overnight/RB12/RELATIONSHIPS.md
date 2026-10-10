@@ -1,0 +1,19 @@
+# RB12 relationships before graphs
+
+These are source-qualified relationships for study. They are not verified graph assertions, inferred family trees, or universal theological endorsements.
+
+| Subject | Relationship | Object | Date / period | Source locator | Qualification |
+|---|---|---|---|---|---|
+| Edward Terrill | recorded; subsequently continued by unidentified members | Broadmead records | 1640-1687 record period; Terrill 1634-1685 | asset-rb12-ec8467e3a83fd73060ce / derivative-lines:151-239 | Hayden identifies multiple hands; early retrospective narrative is not automatically a contemporary minute for every event. |
+| Edward Bean Underhill | modernized and inserted notes/correspondence into | Broadmead records | 1847 edition | asset-rb12-ec8467e3a83fd73060ce / derivative-lines:151-239 | Chronological insertion can alter manuscript sequence; some correspondence is known only through this edition. |
+| Roger Hayden | edited and compared earlier witnesses of | Broadmead records | 1974 edition | asset-rb12-ec8467e3a83fd73060ce / derivative-lines:151-239 | Historical editorial companion; copyright retained and no global doctrinal approval. |
+| William Kiffin | authored a retrospective account of | his life and public conduct | seventeenth-century memoir, published 1823 | asset-rb12-7469650f258b03b249df / derivative-lines:1586-1705 | Self-report with Orme notes and Gross modernization; chapter arrangement and modern page numbers belong to the edition. |
+| William Orme | introduced and annotated | Kiffin memoir | 1823 | asset-rb12-7469650f258b03b249df / derivative-lines:110-406 | Distinguish Orme narration from Kiffin and from letters quoted by either. |
+| Hanserd Knollys | authored own account through | 1672 | 1692 publication | asset-rb12-5b6c68961b6029eabdd4 / derivative-lines:102-325 | Later author manuscript explicitly lost; 18 marked illegibilities remain in the complete offered transcription. |
+| William Kiffin | contributed epistle and general continuation to | Knollys life | 1692 | asset-rb12-5b6c68961b6029eabdd4 / derivative-lines:61-101 | Continuation and editor voice are distinct from autobiographical first-person testimony. |
+| Hanserd Knollys | addressed last legacy to | his congregation | shortly before death in 1691 | asset-rb12-5b6c68961b6029eabdd4 / derivative-lines:340-446 | Pastoral letter not a comprehensive institutional constitution; precise composition date not supplied. |
+| Philadelphia Baptist Association | is described as organizing interchurch consultation among | Pennsylvania/Jersey congregations | 1707 as later collected | asset-rb12-cd78b0ac4448d8342bef / derivative-lines:5-7 | 1851 edition summarizes earlier church records; modern claims of continuous institutional identity need separate evidence. |
+| Philadelphia association | set out associational doctrine and order in | 1749 record | 1749 | asset-rb12-8bd565a93f0223851a45 / derivative-lines:109-168 | Study its own language on delegated counsel and church relations; resemblance to confession chapter 26 is not proof of textual dependence. |
+| William Rogers | expounded confession chapter XI in | Philadelphia circular | 1785 | asset-rb12-3d46aeaa5f80001a8c95 / derivative-lines:1-68 | Signed association witness; 1786 web title is supplied, not original. Historical teaching remains attributed and scoped. |
+| Thomas Ustick | expounded confession chapter XII in | Philadelphia circular | 1786 | asset-rb12-3f125e66da6dc3a4d2e6 / derivative-lines:1-33 | Signed association witness; 1786 web title is supplied, not original. Historical teaching remains attributed and scoped. |
+| Gordon L. Belyea | argued Puritan/separatist origins and distinguished | General and Particular Baptist movements | May 2007 | asset-rb12-19f2f77a0c5e7025ca32 / derivative-lines:21-44 | 1633 rebaptism meaning and Kiffin Manuscript attribution remain qualified; no ancient uninterrupted succession graph asserted. |

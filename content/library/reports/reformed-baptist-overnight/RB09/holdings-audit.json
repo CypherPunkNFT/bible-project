@@ -95292,7 +95292,7 @@
       "sourceId": "source-chapel-library",
       "edition": "Chapel Library complete offered thematic issue, nine articles/excerpt collections; not complete books of each contributor",
       "completeness": "Complete offered edition; abridged/paraphrased or excerpted historical material as disclosed, not unabridged source works",
-      "evidenceOnly": true,
+      "evidenceOnly": false,
       "rightsCategory": "publisher-offered-free-private-study-no-public-rehosting",
       "rightsEvidence": "https://www.chapellibrary.org/literature; internal EPUB free-download notices; https://www.chapellibrary.org/about; observed public client and book records; editorial copyrights retained",
       "admissionRole": "mixed-or-edited-pastoral-witness-pending-contributor-and-note-segmentation",
@@ -95381,7 +95381,8 @@
         "sha256": "d6085e689a244af3513abe632996dc77af08de8184524fe75f148e8d5b252152",
         "wordCount": 23423,
         "method": "Existing source text only; no new OCR"
-      }
+      },
+      "privateLocalIndexAuthorized": true
     }
   ],
   "note": "Point-in-time audit of originals and internal structure. Bodies are private; headings alone do not establish full theological or verse-level review."

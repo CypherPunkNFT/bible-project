@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-d02224154656f09bb4e04b53",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-193f7f474ba8de673b3f9a55",
+  "label": "The work of Jesus Christ, as an advocate, clearly explain'd, and largely improv'd, for the benefit of all believers. ... By John Bunyan, ... 1725 — held source edition bb9e2ead71f8",
+  "languages": [
+    "English"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_eighteenth-century_the-work-of-jesus-christ_bunyan-john_1725_0/bim_eighteenth-century_the-work-of-jesus-christ_bunyan-john_1725_0_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

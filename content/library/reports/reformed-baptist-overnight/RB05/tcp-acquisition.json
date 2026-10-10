@@ -1,0 +1,69 @@
+{
+  "source": "tcp",
+  "catalogueItems": 61315,
+  "catalogueUnheldItems": 51692,
+  "eligibleItems": 58,
+  "unheldBefore": 10,
+  "filter": {
+    "deferHardDownloads": true,
+    "primaryAuthorOnly": true,
+    "authors": [
+      "Keach",
+      "Griffith",
+      "Dagg",
+      "Kiffin",
+      "Gill",
+      "Baxter",
+      "Spurgeon",
+      "Bridges",
+      "Owen"
+    ],
+    "authorTitleRules": [
+      {
+        "namePattern": "Baxter",
+        "titlePattern": "reformed pastor|gildas salvianus"
+      },
+      {
+        "namePattern": "Spurgeon",
+        "titlePattern": "lecture.*student"
+      },
+      {
+        "namePattern": "Bridges",
+        "titlePattern": "christian ministry"
+      },
+      {
+        "namePattern": "Owen",
+        "titlePattern": "church|communion|discipline"
+      },
+      {
+        "namePattern": "Gill|Keach|Kiffin|Dagg|Griffith",
+        "titlePattern": "church|order|discipline|minister|pastor|association|communion|government|gospel worship"
+      }
+    ]
+  },
+  "attempted": 10,
+  "downloaded": 10,
+  "duplicateHashes": 0,
+  "heldDuringRun": 0,
+  "failures": [],
+  "bytes": 1494907,
+  "sampleSizes": [
+    16404,
+    150123,
+    180632,
+    16531,
+    339548,
+    100167,
+    529903,
+    105528,
+    22206,
+    33865
+  ],
+  "state": "complete",
+  "startedAt": "2026-10-07T21:12:31.253790+00:00",
+  "updatedAt": "2026-10-07T21:12:53.103498+00:00",
+  "unheldAfter": 0,
+  "estimatedUnheldGB": 0.0,
+  "estimateBasis": "SWORD InstallSize where available; otherwise arithmetic mean of downloaded originals; decimal GB; edition/item counts, not deduplicated works",
+  "completedAt": "2026-10-07T21:12:53.104722+00:00"
+}

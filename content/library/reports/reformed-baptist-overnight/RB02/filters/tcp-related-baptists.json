@@ -1,0 +1,58 @@
+{
+  "authors": [
+    "Knollys, Hanserd",
+    "Norcott, John",
+    "Collins, Hercules",
+    "Stennett, Joseph",
+    "Grantham, Thomas",
+    "Bunyan, John",
+    "Gill, John"
+  ],
+  "primaryAuthorOnly": true,
+  "deferHardDownloads": true,
+  "batchName": "related-baptists",
+  "authorIdentityRules": [
+    {
+      "namePattern": "Gill,?\\s+John",
+      "lifeYears": [
+        1697,
+        1771
+      ],
+      "requireReligiousSubjectsWhenUndated": true
+    }
+  ],
+  "ids": [
+    "A30136",
+    "A30138",
+    "A30141",
+    "A41774",
+    "A41777",
+    "A41779",
+    "A41780",
+    "A41781",
+    "A41782",
+    "A41783",
+    "A41784",
+    "A41785",
+    "A41786",
+    "A41787",
+    "A41788",
+    "A41790",
+    "A41791",
+    "A41792",
+    "A61410",
+    "A61411",
+    "A92812",
+    "A25662",
+    "A41776",
+    "A47557",
+    "A47561",
+    "A47565",
+    "A49523",
+    "A52394",
+    "A87820",
+    "B04507",
+    "B20542",
+    "B23662"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-ee0d37ae85224f022294bd56",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-d1705cf9e92d99109904e30b",
+  "label": "Grace abounding to the chief of sinnres [sic]: or, a brief and faithful relation of the exceeding mercy of God in Christ, to his poor servant John Bunyan. ... 1707 — held source edition 634006339d73",
+  "languages": [
+    "English"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_eighteenth-century_grace-abounding-to-the-c_bunyan-john_1707/bim_eighteenth-century_grace-abounding-to-the-c_bunyan-john_1707_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

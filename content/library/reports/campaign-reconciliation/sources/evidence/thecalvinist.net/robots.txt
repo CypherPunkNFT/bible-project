@@ -1,0 +1,50 @@
+# Robots.txt for TheCalvinist.net
+# Controls how search engines crawl and index your site
+
+# Allow all search engines by default
+User-agent: *
+Allow: /
+
+# Disallow admin and private areas (keep out of search)
+Disallow: /admin/
+Disallow: /pages/admin/
+Disallow: /pages/private/
+Disallow: /pages/api/
+Disallow: /config/
+Disallow: /configs/
+Disallow: /vendor/
+Disallow: /cache/
+Disallow: /logs/
+
+# Disallow search results and private sections
+Disallow: /search
+Disallow: /pages/posts/search.php
+Disallow: /pages/posts/sections/search.php
+Disallow: /pages/posts/sections/hidden.php
+Disallow: /pages/journal/
+Disallow: /journals
+Disallow: /pages/passages/
+Disallow: /private/passages
+
+# Allow specific public resources
+Allow: /pic/
+Allow: /scripts/
+Allow: /css/
+Allow: /files/
+
+# Sitemap references
+Sitemap: https://www.thecalvinist.net/sitemap.xml
+Sitemap: https://www.thecalvinist.net/sitemap-dynamic.php
+
+# Crawl delay (optional - allows servers to breathe)
+# Crawl-delay: 1
+
+# Request rate (optional)
+# Request-rate: 30/60
+
+# Block specific bad bots (optional)
+# User-agent: AhrefsBot
+# Disallow: /
+# User-agent: SemrushBot
+# Disallow: /
+

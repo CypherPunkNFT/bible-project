@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-6ff1b295b1e3194deff34921",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-28c19635d652d4f4c45a75c1",
+  "label": "A godly and learned exposition or commentarie vpon the three first chapters of the Reuelation. Preached in Cambridge by that reuerend and judicious diuine, maister William Perkins, Ann. Dom. 1595. First published for the benefit of Gods Church, by Robert Hill, Bachelor of Diuinitie; Lectures upon the three first chapters of the Revelation — held source edition 2992a1e284f3",
+  "languages": [
+    "und"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A09443/master/A09443.xml",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

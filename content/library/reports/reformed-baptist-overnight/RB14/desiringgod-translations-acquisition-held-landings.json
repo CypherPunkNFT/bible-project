@@ -1,0 +1,32 @@
+{
+  "source": "desiringgod-translations",
+  "catalogueItems": 0,
+  "catalogueUnheldItems": 0,
+  "eligibleItems": 0,
+  "unheldBefore": 0,
+  "filter": {
+    "cataloguePath": "D:\\FortressOfSolitude\\Jarvis\\Projects\\BibleProject\\sources\\bulk-catalogues\\rb14-dg-final-held-original-translations.json",
+    "approvedCollection": true,
+    "deferHardDownloads": true,
+    "batchName": "held-landings",
+    "skipIds": [
+      "a-prayer-for-our-church-lang-pt",
+      "the-family-together-in-gods-presence-lang-pt",
+      "what-god-requires-christ-provides-lang-ru",
+      "the-great-offense-was-jesus-really-crucified-lang-ar"
+    ]
+  },
+  "attempted": 0,
+  "downloaded": 0,
+  "duplicateHashes": 0,
+  "heldDuringRun": 0,
+  "failures": [],
+  "bytes": 0,
+  "sampleSizes": [],
+  "state": "complete",
+  "startedAt": "2026-10-07T21:26:19.196619+00:00",
+  "unheldAfter": 0,
+  "estimatedUnheldGB": null,
+  "estimateBasis": "SWORD InstallSize where available; otherwise arithmetic mean of downloaded originals; decimal GB; edition/item counts, not deduplicated works",
+  "completedAt": "2026-10-07T21:26:19.200919+00:00"
+}

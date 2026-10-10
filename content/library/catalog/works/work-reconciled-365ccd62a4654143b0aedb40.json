@@ -1,0 +1,43 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-reconciled-365ccd62a4654143b0aedb40",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "title": "The whole treatise of the cases of conscience distinguished into three bookes: the first whereof is revised and corrected in sundrie places, and the other two annexed. Taught and deliuered by M. W. Perkins in his holy-day lectures, carefully examined by his owne briefes, and now published together for the common good, by T. Pickering Bachelour of Diuinitie. Whereunto is adioyned a twofold table: one of the heads and number of the questions propounded and resolued; another of the principall texts of Scripture vvhich are either explaned, or vindicated from corrupt interpretation.; Cases of conscience",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-william-perkins",
+      "role": "author"
+    }
+  ],
+  "genre": "treatise",
+  "role": "core-teaching",
+  "collections": [],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [],
+  "depth": "unknown",
+  "era": "unknown",
+  "dates": [],
+  "passages": [],
+  "related": [],
+  "externalIds": {
+    "source-eebo-tcp": [
+      "item:A09365"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A09365/master/A09365.xml",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-f5362896ded9c4d476794385",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-3defcb7d463e2af891b40a2d",
+  "label": "Eachdraidh fhirinneach mu'n Chogadh Naomh : a rinneadh le righ Saddai ri Diabolus, a chum ard-bhaile an t-saoghail ath-bhuannachd, no, Call agus ath-ghlacadh Baile Anam-an duine — held source edition ec6e7f16d65d",
+  "languages": [
+    "gae"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/eachdraidhfhirin1840buny/eachdraidhfhirin1840buny_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

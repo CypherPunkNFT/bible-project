@@ -102,3 +102,29 @@ a.st-door:is(:hover, :focus-visible) .sa-live .sa-steps circle { animation: sa-g
   .sa-art *, .sa-art g { animation: none !important; stroke-dasharray: none !important; }
   .st-door::before, .st-door-art .sa-art { transition: none; }
 }
+
+/* Round two, drawing 4, selected for Learning materials. */
+.sa-well { color: color-mix(in srgb, var(--ink) 66%, var(--page)); overflow: hidden; }
+.sa-well .f { opacity: .42; }
+.sa-well .pf { fill: var(--page); stroke: none; }
+.sa-well .t, .sa-well .ft, .sa-well .sun, .sa-well .sunline { stroke: var(--door); }
+.sa-well .ft { opacity: .5; }
+.sa-well .sunline { opacity: .75; }
+.sa-well .sun { fill: none; }
+.sa-well .cloud { --dx: 22px; animation: sa-well-drift-x 24s ease-in-out infinite alternate; }
+.sa-well .cloud.slow { --dx: -18px; animation-duration: 30s; }
+.sa-well .cloud.slower { --dx: 16px; animation-duration: 36s; }
+.sa-well .sa-well-flock { animation: sa-well-flock 30s linear infinite; }
+@keyframes sa-well-flock { from { transform: translate(-50px, 16px); } to { transform: translate(350px, 10px); } }
+.sa-well .rays { transform-origin: 56px 46px; animation: sa-well-turn 90s linear infinite; }
+.sa-well .sa-well-swing { transform-origin: 150px 80px; animation: sa-well-swing 5s ease-in-out infinite alternate; }
+@keyframes sa-well-swing { from { transform: rotate(-3deg); } to { transform: rotate(3deg); } }
+.sa-well .drop { transform-box: fill-box; transform-origin: 50% 0%; animation: sa-well-drip 3.2s ease-in infinite; }
+@keyframes sa-well-drip { 0% { transform: translateY(0) scale(.3); opacity: 0; } 30% { transform: translateY(0) scale(1); opacity: 1; } 55% { transform: translateY(8px); opacity: 1; } 60%, 100% { transform: translateY(8px); opacity: 0; } }
+.sa-well .ring { transform-box: fill-box; transform-origin: 50% 50%; animation: sa-well-ringout 3.2s ease-out infinite; }
+@keyframes sa-well-ringout { 0%, 55% { transform: scale(.4); opacity: 0; } 62% { opacity: 1; } 100% { transform: scale(3.4); opacity: 0; } }
+
+
+@keyframes sa-well-turn { to { transform: rotate(360deg); } }
+@keyframes sa-well-drift-x { to { transform: translateX(var(--dx, 24px)); } }
+@media (prefers-reduced-motion: reduce) { .sa-well * { animation: none !important; } }

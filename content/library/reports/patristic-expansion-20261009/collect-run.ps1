@@ -1,0 +1,3 @@
+Set-Location -LiteralPath 'D:/FortressOfSolitude/Jarvis/Projects/BibleProject/Website'
+& 'D:/FortressOfSolitude/Jarvis/Projects/BibleProject/KnowledgeBase/.venv/Scripts/python.exe' -u -m knowledge.patristic_collect collect --report 'D:/FortressOfSolitude/Jarvis/Projects/BibleProject/Website/content/library/reports/patristic-expansion-20261009' 1> 'D:/FortressOfSolitude/Jarvis/Projects/BibleProject/Website/content/library/reports/patristic-expansion-20261009/collect.log' 2> 'D:/FortressOfSolitude/Jarvis/Projects/BibleProject/Website/content/library/reports/patristic-expansion-20261009/collect-error.log'
+exit $LASTEXITCODE

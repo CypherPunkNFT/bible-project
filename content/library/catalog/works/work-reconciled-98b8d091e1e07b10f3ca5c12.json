@@ -1,0 +1,43 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-reconciled-98b8d091e1e07b10f3ca5c12",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "title": "History of redemption, on a plan entirely original: exhibiting the gradual discovery and accomplishment of the divine purposes in the salvation of man; including a comprehensive view of church history, and the fulfilment of Scripture prophecies. By the late Reverend Jonathan Edwards, president of the College of New Jersey. To which are how [sic] added notes, historical, critical, and theological, with the life and experience of the author. [Two lines from Psalms]",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-jonathan-edwards",
+      "role": "author"
+    }
+  ],
+  "genre": "treatise",
+  "role": "core-teaching",
+  "collections": [],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [],
+  "depth": "unknown",
+  "era": "unknown",
+  "dates": [],
+  "passages": [],
+  "related": [],
+  "externalIds": {
+    "source-internet-archive": [
+      "ia:historyofredempt00edwa_1"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/download/historyofredempt00edwa_1/historyofredempt00edwa_1_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-01bc5c381f366afe045454dd",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-c8f792aede60a912269e8c72",
+  "label": "A treatise concerning religious affections. In three parts. Part I. Concerning the nature of the affections, and their importance in religion. ... Part III. Shewing what are distinguishing signs of truly gracious and holy affections. By Jonathan Edwards, ... 1772 — held source edition 58bbe213295d",
+  "languages": [
+    "English"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_eighteenth-century_a-treatise-concerning-re_edwards-jonathan_1772/bim_eighteenth-century_a-treatise-concerning-re_edwards-jonathan_1772_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

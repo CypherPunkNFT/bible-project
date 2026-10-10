@@ -1,0 +1,1494 @@
+ 
+
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if IE 9]>			<html class="no-js ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en-US"> <!--<![endif]-->
+
+<head>
+
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<script>
+//----------------------------------------------------------
+//------ JAVASCRIPT HOOK FUNCTIONS FOR GRAVITY FORMS -------
+//----------------------------------------------------------
+
+if ( ! gform ) {
+	document.addEventListener( 'gform_main_scripts_loaded', function() { gform.scriptsLoaded = true; } );
+	window.addEventListener( 'DOMContentLoaded', function() { gform.domLoaded = true; } );
+
+	var gform = {
+		domLoaded: false,
+		scriptsLoaded: false,
+		initializeOnLoaded: function( fn ) {
+			if ( gform.domLoaded && gform.scriptsLoaded ) {
+				fn();
+			} else if( ! gform.domLoaded && gform.scriptsLoaded ) {
+				window.addEventListener( 'DOMContentLoaded', fn );
+			} else {
+				document.addEventListener( 'gform_main_scripts_loaded', fn );
+			}
+		},
+		hooks: { action: {}, filter: {} },
+		addAction: function( action, callable, priority, tag ) {
+			gform.addHook( 'action', action, callable, priority, tag );
+		},
+		addFilter: function( action, callable, priority, tag ) {
+			gform.addHook( 'filter', action, callable, priority, tag );
+		},
+		doAction: function( action ) {
+			gform.doHook( 'action', action, arguments );
+		},
+		applyFilters: function( action ) {
+			return gform.doHook( 'filter', action, arguments );
+		},
+		removeAction: function( action, tag ) {
+			gform.removeHook( 'action', action, tag );
+		},
+		removeFilter: function( action, priority, tag ) {
+			gform.removeHook( 'filter', action, priority, tag );
+		},
+		addHook: function( hookType, action, callable, priority, tag ) {
+			if ( undefined == gform.hooks[hookType][action] ) {
+				gform.hooks[hookType][action] = [];
+			}
+			var hooks = gform.hooks[hookType][action];
+			if ( undefined == tag ) {
+				tag = action + '_' + hooks.length;
+			}
+			if( priority == undefined ){
+				priority = 10;
+			}
+
+			gform.hooks[hookType][action].push( { tag:tag, callable:callable, priority:priority } );
+		},
+		doHook: function( hookType, action, args ) {
+
+			// splice args from object into array and remove first index which is the hook name
+			args = Array.prototype.slice.call(args, 1);
+
+			if ( undefined != gform.hooks[hookType][action] ) {
+				var hooks = gform.hooks[hookType][action], hook;
+				//sort by priority
+				hooks.sort(function(a,b){return a["priority"]-b["priority"]});
+
+				hooks.forEach( function( hookItem ) {
+					hook = hookItem.callable;
+
+					if(typeof hook != 'function')
+						hook = window[hook];
+					if ( 'action' == hookType ) {
+						hook.apply(null, args);
+					} else {
+						args[0] = hook.apply(null, args);
+					}
+				} );
+			}
+			if ( 'filter'==hookType ) {
+				return args[0];
+			}
+		},
+		removeHook: function( hookType, action, priority, tag ) {
+			if ( undefined != gform.hooks[hookType][action] ) {
+				var hooks = gform.hooks[hookType][action];
+				hooks = hooks.filter( function(hook, index, arr) {
+					var removeHook = (undefined==tag||tag==hook.tag) && (undefined==priority||priority==hook.priority);
+					return !removeHook;
+				} );
+				gform.hooks[hookType][action] = hooks;
+			}
+		}
+	};
+}
+</script>
+
+
+	<meta name="viewport" content="width=device-width" />
+
+	<base href="https://tyndale.tms.edu/wp-content/themes/tms/"/>
+
+	<title></title>
+
+	<link rel="profile" href="http://gmpg.org/xfn/11" />
+	<link rel="pingback" href="https://tyndale.tms.edu/xmlrpc.php"/>
+     <script>
+    // Vanilla JS Defer helper method for elimnating render blocking js including jQuery
+    function defer(method) {
+        if (window.jQuery) {
+            method();
+        } else {
+            setTimeout(function() { defer(method) }, 50);
+        }
+    }
+    </script>
+	<meta name='robots' content='max-image-preview:large' />
+<link rel="alternate" href="https://tyndale.tms.edu/" hreflang="en" />
+<link rel="alternate" href="https://tyndale.tms.edu/es/" hreflang="es" />
+<link rel='dns-prefetch' href='//www.googletagmanager.com' />
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://tyndale.tms.edu/wp-json/oembed/1.0/embed?url=https%3A%2F%2Ftyndale.tms.edu%2F" />
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://tyndale.tms.edu/wp-json/oembed/1.0/embed?url=https%3A%2F%2Ftyndale.tms.edu%2F&#038;format=xml" />
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<link rel='stylesheet' id='main_style-css' href='https://tyndale.tms.edu/wp-content/themes/tms/assets/dist/main.min.css?ver=1675923413' media='all' />
+<link rel='stylesheet' id='gforms_reset_css-css' href='https://tyndale.tms.edu/wp-content/plugins/gravityforms/legacy/css/formreset.css?ver=2.6.7' media='all' />
+<link rel='stylesheet' id='gforms_formsmain_css-css' href='https://tyndale.tms.edu/wp-content/plugins/gravityforms/legacy/css/formsmain.css?ver=2.6.7' media='all' />
+<link rel='stylesheet' id='gforms_ready_class_css-css' href='https://tyndale.tms.edu/wp-content/plugins/gravityforms/legacy/css/readyclass.css?ver=2.6.7' media='all' />
+<link rel='stylesheet' id='gforms_browsers_css-css' href='https://tyndale.tms.edu/wp-content/plugins/gravityforms/legacy/css/browsers.css?ver=2.6.7' media='all' />
+<style id="cf-frontend-style-inline-css">
+@font-face {
+	font-family: 'HebrewTSL';
+	font-weight: 400;
+	font-display: auto;
+	src: url('https://tyndale.tms.edu/wp-content/uploads/2023/03/SBL_Hbrw.woff2') format('woff2'),
+		url('https://tyndale.tms.edu/wp-content/uploads/2023/03/SBL_Hbrw.woff') format('woff'),
+		url('https://tyndale.tms.edu/wp-content/uploads/2023/03/SBL_Hbrw.ttf') format('truetype'),
+		url('https://tyndale.tms.edu/wp-content/uploads/2023/03/SBL_Hbrw.eot?#iefix') format('embedded-opentype');
+}
+/*# sourceURL=cf-frontend-style-inline-css */
+</style>
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id="classic-theme-styles-inline-css">
+/**
+ * These rules are needed for backwards compatibility.
+ * They should match the button element rules in the base theme.json file.
+ */
+.wp-block-button__link {
+	color: #ffffff;
+	background-color: #32373c;
+	border-radius: 9999px; /* 100% causes an oval, but any explicit but really high value retains the pill shape. */
+
+	/* This needs a low specificity so it won't override the rules from the button element if defined in theme.json. */
+	box-shadow: none;
+	text-decoration: none;
+
+	/* The extra 2px are added to size solids the same as the outline versions.*/
+	padding: calc(0.667em + 2px) calc(1.333em + 2px);
+
+	font-size: 1.125em;
+}
+
+.wp-block-file__button {
+	background: #32373c;
+	color: #ffffff;
+	text-decoration: none;
+}
+
+/*# sourceURL=/wp-includes/css/classic-themes.css */
+</style>
+
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}:where(body) { margin: 0; }:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<link rel='stylesheet' id='book-styles-css' href='https://tyndale.tms.edu/wp-content/themes/tms/book-styles.css?ver=7.0.7' media='all' />
+<script id="jquery-core-js" src="https://tyndale.tms.edu/wp-includes/js/jquery/jquery.js?ver=3.7.1"></script>
+<script id="gform_json-js" defer='defer' src="https://tyndale.tms.edu/wp-content/plugins/gravityforms/js/jquery.json.js?ver=2.6.7"></script>
+<script id="gform_gravityforms-js-extra">
+var gf_global = {"gf_currency_config":{"name":"U.S. Dollar","symbol_left":"$","symbol_right":"","symbol_padding":"","thousand_separator":",","decimal_separator":".","decimals":2,"code":"USD"},"base_url":"https://tyndale.tms.edu/wp-content/plugins/gravityforms","number_formats":[],"spinnerUrl":"https://tyndale.tms.edu/wp-content/plugins/gravityforms/images/spinner.svg","strings":{"newRowAdded":"New row added.","rowRemoved":"Row removed","formSaved":"The form has been saved.  The content contains the link to return and complete the form."}};
+var gform_i18n = {"datepicker":{"days":{"monday":"Mon","tuesday":"Tue","wednesday":"Wed","thursday":"Thu","friday":"Fri","saturday":"Sat","sunday":"Sun"},"months":{"january":"January","february":"February","march":"March","april":"April","may":"May","june":"June","july":"July","august":"August","september":"September","october":"October","november":"November","december":"December"},"firstDay":1,"iconText":"Select date"}};
+var gf_legacy_multi = {"1":"1"};
+var gform_gravityforms = {"strings":{"invalid_file_extension":"This type of file is not allowed. Must be one of the following:","delete_file":"Delete this file","in_progress":"in progress","file_exceeds_limit":"File exceeds size limit","illegal_extension":"This type of file is not allowed.","max_reached":"Maximum number of files reached","unknown_error":"There was a problem while saving the file on the server","currently_uploading":"Please wait for the uploading to complete","cancel":"Cancel","cancel_upload":"Cancel this upload","cancelled":"Cancelled"},"vars":{"images_url":"https://tyndale.tms.edu/wp-content/plugins/gravityforms/images"}};
+//# sourceURL=gform_gravityforms-js-extra
+</script>
+<script id="gform_gravityforms-js-before">
+//# sourceURL=gform_gravityforms-js-before
+</script>
+<script id="gform_gravityforms-js" defer='defer' src="https://tyndale.tms.edu/wp-content/plugins/gravityforms/js/gravityforms.js?ver=2.6.7"></script>
+
+<!-- Google Analytics snippet added by Site Kit -->
+<script id="google_gtagjs-js" src="https://www.googletagmanager.com/gtag/js?id=UA-259287137-1" async></script>
+<script id="google_gtagjs-js-after">
+window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}
+gtag('set', 'linker', {"domains":["tyndale.tms.edu"]} );
+gtag("js", new Date());
+gtag("set", "developer_id.dZTNiMT", true);
+gtag("config", "UA-259287137-1", {"anonymize_ip":true});
+//# sourceURL=google_gtagjs-js-after
+</script>
+
+<!-- End Google Analytics snippet added by Site Kit -->
+<link rel="https://api.w.org/" href="https://tyndale.tms.edu/wp-json/" /><link rel="alternate" title="JSON" type="application/json" href="https://tyndale.tms.edu/wp-json/wp/v2/pages/12985" /><link rel="canonical" href="https://tyndale.tms.edu/" />
+<link rel='shortlink' href='https://tyndale.tms.edu/' />
+<meta name="generator" content="Site Kit by Google 1.95.0" /><link rel="shortcut icon" href="https://tyndale.tms.edu/wp-content/themes/tms/assets/imgs/favicon/favicon.ico?10/8/26-12:42:49" type="image/x-icon" />
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="https://tyndale.tms.edu/wp-content/themes/tms/assets/imgs/favicon/apple-touch-icon-152x152.png?10/8/26-12:42:49" />
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://tyndale.tms.edu/wp-content/themes/tms/assets/imgs/favicon/apple-touch-icon-144x144.png?10/8/26-12:42:49" />
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="https://tyndale.tms.edu/wp-content/themes/tms/assets/imgs/favicon/apple-touch-icon-120x120.png?10/8/26-12:42:49" />
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://tyndale.tms.edu/wp-content/themes/tms/assets/imgs/favicon/apple-touch-icon-114x114.png?10/8/26-12:42:49" />
+<link rel="apple-touch-icon-precomposed" sizes="76x76" href="https://tyndale.tms.edu/wp-content/themes/tms/assets/imgs/favicon/apple-touch-icon-76x76.png?10/8/26-12:42:49" />
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://tyndale.tms.edu/wp-content/themes/tms/assets/imgs/favicon/apple-touch-icon-72x72.png?10/8/26-12:42:49" />
+<link rel="apple-touch-icon-precomposed" sizes="57x57" href="https://tyndale.tms.edu/wp-content/themes/tms/assets/imgs/favicon/apple-touch-icon-57x57.png?10/8/26-12:42:49" />
+<link rel="apple-touch-icon-precomposed" href="https://tyndale.tms.edu/wp-content/themes/tms/assets/imgs/favicon/apple-touch-icon.png?10/8/26-12:42:49" />
+<link rel="icon" href="https://tyndale.tms.edu/wp-content/uploads/2021/05/tms-favicon.png" sizes="32x32" />
+<link rel="icon" href="https://tyndale.tms.edu/wp-content/uploads/2021/05/tms-favicon.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://tyndale.tms.edu/wp-content/uploads/2021/05/tms-favicon.png" />
+<meta name="msapplication-TileImage" content="https://tyndale.tms.edu/wp-content/uploads/2021/05/tms-favicon.png" />
+<style id="wp-custom-css">
+.language-es .hide-on-mobile .slick-track {
+	margin-left: 0 !important;
+}
+
+.hide-on-mobile .home-slider {
+	background-color: #e8e6e3;
+}
+
+.mobile-main-nav ul > li {
+	display: block !important;
+}
+.mobile-main-nav ul .sub-menu li {
+	display: block !important;
+}
+
+table.gfield_list.gfield_list_container thead { color: white; }
+
+.gform_body.gform-body { color: white; }
+
+body .ginput_container_list table.gfield_list tbody tr td.gfield_list_icons a img { background-color: white !important}
+
+.tribe-events-title-bar {
+	padding-top:10em;
+}
+
+#gform_page_51_1 {
+	color: black;
+}
+
+#label_48_12_1 {
+	max-width: 100px;
+	top:6px;
+}
+
+.form-block .gform_wrapper .gform_body .ginput_container_checkbox .gfield_checkbox label {
+	max-width:100px;
+}
+
+.commentary {display: flex;
+    align-items: flex-start;
+    padding: 20px 0;
+    flex-wrap: wrap;
+	padding:5px;
+	width:100%
+}
+.book-template-outer {background-color:#fff}
+
+.Co_TanachTable tr{border-bottom:2px soli #000; padding-bottom:10px;}
+
+.co_content_main_wrapper .Co_TanachTable td a{
+	font-weight: normal!important;
+}
+.co_content_main_wrapper .Co_TanachTable td a{
+pointer-events: none!important;
+	cursor: default!important;
+  text-decoration: none!important;
+	}
+
+.book-template-outer .page_heading {width:100&; text-align:center; font-size:34px;padding-top:20px; line-height:45px}
+
+
+.page-id-17 .banner {display:hidden!important}
+
+.hebrewrtl {direction:rtl; text-align:right; 
+	font-family:HebrewTSL!important; font-size: 20px!important;}
+
+
+</style>
+    <style>
+        #ie-unsupported{
+            display: none;
+            position:fixed;
+            margin:0 auto;
+            margin-top:400px;
+            text-align:center;
+            width:100%;
+        }
+        #ie-unsupported img{
+            margin:0 auto;
+            margin-bottom:40px;
+            width:200px;
+        }
+        #ie-unsupported p{
+            max-width:300px;
+            margin:0 auto;
+        }
+
+        html[data-useragent*='MSIE 10.0'] #ie-unsupported {
+          display: block;
+        }
+        html[data-useragent*='MSIE 10.0'] #site {
+          display: none;
+        }
+        .ie9 #ie-unsupported{
+                display: block;
+            }
+        .lt-ie9 #ie-unsupported{
+                display: block;
+            }
+        .lt-ie9 #site{
+                display: none;
+            }
+        .ie9 #site{
+                display: none;
+            }
+        }
+    </style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3ZZ272HXML"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-3ZZ272HXML');
+</script>
+<style id="core-block-supports-inline-css">
+/**
+ * Core styles: block-supports
+ */
+
+/*# sourceURL=core-block-supports-inline-css */
+</style>
+
+</head>
+
+<body class="home wp-singular page-template page-template-book-libary page-template-book-libary-php page page-id-12985 page-parent wp-theme-tms language-en" style = "opacity:0; transition:all 0.5s">
+
+
+        <!-- Section for Unsupported Browsers - anything below IE11 - Add in Site Logo-->
+       <div id = "ie-unsupported" >
+            <!-- <img width = "200px" alt = "Site Logo" src = "https://tyndale.tms.edu/wp-content/themes/tms/assets/imgs/test-logo.svg"> -->
+            <p style = "">Hello, you are using an old browser that's unsafe and no longer supported. Please consider
+                <a href = "https://support.microsoft.com/en-us/help/17621/internet-explorer-downloads">updating</a>
+                your browser to a newer version, or downloading a
+                <a href="https://www.google.com/chrome/browser/desktop/index.html">modern</a>
+                 browser.
+            </p>
+       </div>
+    <!-- End Unsupported Section -->
+
+
+    <div id="site">
+	     <a class="skip-main" href="https://tyndale.tms.edu/#main-content"> Skip to Main Content</a>
+
+		
+        <header id="site-header">
+            <div class="frame">
+
+                <div class="upper-menu">
+				 <nav role="navigation">
+					 <ul class="secondary-nav">
+                               <li id="menu-item-13084" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13084"><a href="https://tms.edu/current-students/library/">Library</a></li>
+<li id="menu-item-13085" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13085"><a href="https://tms.edu/current-students/">Current Students</a></li>
+<li id="menu-item-13086" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13086"><a href="https://tms.edu/alumni/">Alumni</a></li>
+<li id="menu-item-13087" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13087"><a href="https://tms.edu/apply/">Apply</a></li>
+<li id="menu-item-13088" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13088"><a href="https://tms.edu/contact/">Contact</a></li>
+<li id="menu-item-13089" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13089"><a href="https://tms.edu/es/contacto/">Español</a></li>
+     					<li class="search-icon">
+     						 <a href="javascript:;">
+     						 	<img src="https://tyndale.tms.edu/wp-content/themes/tms/assets/imgs/icon-search.svg" alt="search">
+     						 </a>
+     					</li>
+     				 </ul>
+				 </nav>
+                </div>
+			 <div class="lower-menu  flex-wrapper space-between center">
+				 <div id="logo">
+                         <a href="https://tyndale.tms.edu" id="logo-link">
+						<img src="https://tyndale.tms.edu/wp-content/themes/tms/assets/imgs/logo.svg" alt="Logo" id="logo-img"/>
+						<img src="https://tyndale.tms.edu/wp-content/themes/tms/assets/imgs/logomark.svg" alt="Logo" id="logo-scroll"/>
+					</a>
+                     </div>
+
+                    <nav role="navigation"  aria-label="Main Navigation">
+					<ul class="main-nav">
+	                         <li id="menu-item-57" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-57"><a href="#">About</a>
+<ul class="sub-menu">
+	<li id="menu-item-13030" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13030"><a href="https://tms.edu/about/">About TMS</a></li>
+	<li id="menu-item-13031" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13031"><a href="https://tms.edu/admissions/visit/">Misson</a></li>
+	<li id="menu-item-13032" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13032"><a href="https://tms.edu/about/leadership/">Leadership</a></li>
+	<li id="menu-item-13033" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13033"><a href="https://tms.edu/john-macarthur/">John MacArthur</a></li>
+	<li id="menu-item-13034" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13034"><a href="https://tms.edu/news/">News</a></li>
+</ul>
+</li>
+<li id="menu-item-58" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-58"><a href="#">Why TMS?</a>
+<ul class="sub-menu">
+	<li id="menu-item-13035" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13035"><a href="https://tms.edu/why-tms/">Why TMS?</a></li>
+	<li id="menu-item-13036" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13036"><a href="https://tms.edu/doctrinal-statement/">Doctrinal Statement</a></li>
+	<li id="menu-item-13037" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13037"><a href="https://tms.edu/student-testimonies/">Student Testimonies</a></li>
+	<li id="menu-item-13038" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13038"><a href="https://tms.edu/why-tms/tms-for-your-family/">TMS for your Family</a></li>
+</ul>
+</li>
+<li id="menu-item-59" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-59"><a href="#">Academics</a>
+<ul class="sub-menu">
+	<li id="menu-item-13039" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13039"><a href="https://tms.edu/academics/">Academics Overview</a></li>
+	<li id="menu-item-13040" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13040"><a href="https://tms.edu/academics/master-of-divinity/">Master of Divinity</a></li>
+	<li id="menu-item-13042" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13042"><a href="https://tms.edu/academics/master-of-theology/">Master of Theology</a></li>
+	<li id="menu-item-13043" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13043"><a href="https://tms.edu/academics/doctor-of-ministry/">Doctor of Ministry</a></li>
+	<li id="menu-item-13044" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13044"><a href="https://tms.edu/academics/doctor-of-philosophy/">Doctor of Philosophy</a></li>
+	<li id="menu-item-13045" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13045"><a href="https://tms.edu/academics/bachelor-of-theology/">Bachelor of Theology</a></li>
+	<li id="menu-item-13046" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13046"><a href="https://tms.edu/academics/diploma-of-theology/">Diploma of Theology</a></li>
+	<li id="menu-item-13047" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13047"><a href="https://tms.edu/academics/center-for-israeli-studies/">Center for Israeli Studies</a></li>
+	<li id="menu-item-13048" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13048"><a href="https://tms.edu/academics/master-of-divinity/distance-education/">Distance Education</a></li>
+	<li id="menu-item-5826" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5826"><a href="https://tyndale.tms.edu/academics/doctor-of-philosophy/">Doctor of Philosophy</a></li>
+	<li id="menu-item-644" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-644"><a href="https://tms.edu/academic-calendar/">Academic Calendar</a></li>
+</ul>
+</li>
+<li id="menu-item-13049" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13049"><a href="https://tms.edu/faculty/">Faculty</a></li>
+<li id="menu-item-60" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-60"><a href="#">Admissions &#038; Aid</a>
+<ul class="sub-menu">
+	<li id="menu-item-13050" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13050"><a href="https://tms.edu/admissions/">Admissions &#038; Aid Overview</a></li>
+	<li id="menu-item-13051" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13051"><a href="https://tms.edu/apply/">Apply</a></li>
+	<li id="menu-item-13052" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13052"><a href="https://tms.edu/admissions/visit/">Visit</a></li>
+	<li id="menu-item-13053" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13053"><a href="https://tms.edu/admissions/tuition-financial-aid/">Tuition &#038; Financial Aid</a></li>
+	<li id="menu-item-13054" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13054"><a href="https://tms.edu/admissions/international-students/">International Student</a></li>
+	<li id="menu-item-13055" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13055"><a href="https://tms.edu/contact-admissions/">Contact Admissions</a></li>
+</ul>
+</li>
+<li id="menu-item-61" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-61"><a href="#">Educational Resources</a>
+<ul class="sub-menu">
+	<li id="menu-item-13056" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13056"><a href="https://tms.edu/educational-resources/">Educational Resources</a></li>
+	<li id="menu-item-13057" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13057"><a href="https://tms.edu/educational-resources/chapel/">Chapel</a></li>
+	<li id="menu-item-13058" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13058"><a href="https://tms.edu/find-a-church/">Find a Church</a></li>
+	<li id="menu-item-13059" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13059"><a href="https://tms.edu/educational-resources/sermons/">Sermons</a></li>
+	<li id="menu-item-13065" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13065"><a href="https://tms.edu/educational-resources/journal/">Journal</a></li>
+	<li id="menu-item-421" class="off-site menu-item menu-item-type-custom menu-item-object-custom menu-item-421"><a target="_blank" href="http://blog.tms.edu">English Blog</a></li>
+	<li id="menu-item-422" class="off-site menu-item menu-item-type-custom menu-item-object-custom menu-item-422"><a target="_blank" href="http://blog.tms.edu/es">Spanish Blog</a></li>
+	<li id="menu-item-13063" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13063"><a href="https://tms.edu/educational-resources/institute-for-church-leadership/">Institute for Church Leadership</a></li>
+	<li id="menu-item-13064" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13064"><a href="https://tms.edu/educational-resources/turkey-greece-study-tour/">Turkey &#038; Greece Study Tour</a></li>
+</ul>
+</li>
+<li id="menu-item-62" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-62"><a href="#">Give</a>
+<ul class="sub-menu">
+	<li id="menu-item-13066" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13066"><a href="https://tms.edu/ways-to-give/">Ways To Give</a></li>
+	<li id="menu-item-13067" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13067"><a href="https://tms.edu/give/">Give Now</a></li>
+	<li id="menu-item-13068" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13068"><a href="https://tms.edu/annual-report/">Annual Report</a></li>
+</ul>
+</li>
+<li id="menu-item-13069" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13069"><a href="https://tms.edu/requestinfo/">Request Info</a></li>
+					</ul>
+                    </nav>
+
+				<div class="mob-wrapper">
+					<button class="btn-menu">
+						<span class="bar"></span>
+						<span class="text">Menu</span>
+					</button>
+
+					<div class="overlay">
+						<nav>
+							<div class="frame">
+								<div class="mobile-logo">
+									<a href="https://tyndale.tms.edu" id="logo-link-mobile">
+										<img src="https://tyndale.tms.edu/wp-content/themes/tms/assets/imgs/logo.svg" alt="Logo" id="logo-img-mobile"/>
+									</a>
+								</div>
+								<div class="mobile-main-nav">
+		                       			<div class="menu-main-menu-container"><ul id="menu-main-menu-1" class="menu"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-57"><a href="#">About</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13030"><a href="https://tms.edu/about/">About TMS</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13031"><a href="https://tms.edu/admissions/visit/">Misson</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13032"><a href="https://tms.edu/about/leadership/">Leadership</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13033"><a href="https://tms.edu/john-macarthur/">John MacArthur</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13034"><a href="https://tms.edu/news/">News</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-58"><a href="#">Why TMS?</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13035"><a href="https://tms.edu/why-tms/">Why TMS?</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13036"><a href="https://tms.edu/doctrinal-statement/">Doctrinal Statement</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13037"><a href="https://tms.edu/student-testimonies/">Student Testimonies</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13038"><a href="https://tms.edu/why-tms/tms-for-your-family/">TMS for your Family</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-59"><a href="#">Academics</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13039"><a href="https://tms.edu/academics/">Academics Overview</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13040"><a href="https://tms.edu/academics/master-of-divinity/">Master of Divinity</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13042"><a href="https://tms.edu/academics/master-of-theology/">Master of Theology</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13043"><a href="https://tms.edu/academics/doctor-of-ministry/">Doctor of Ministry</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13044"><a href="https://tms.edu/academics/doctor-of-philosophy/">Doctor of Philosophy</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13045"><a href="https://tms.edu/academics/bachelor-of-theology/">Bachelor of Theology</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13046"><a href="https://tms.edu/academics/diploma-of-theology/">Diploma of Theology</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13047"><a href="https://tms.edu/academics/center-for-israeli-studies/">Center for Israeli Studies</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13048"><a href="https://tms.edu/academics/master-of-divinity/distance-education/">Distance Education</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5826"><a href="https://tyndale.tms.edu/academics/doctor-of-philosophy/">Doctor of Philosophy</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-644"><a href="https://tms.edu/academic-calendar/">Academic Calendar</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13049"><a href="https://tms.edu/faculty/">Faculty</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-60"><a href="#">Admissions &#038; Aid</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13050"><a href="https://tms.edu/admissions/">Admissions &#038; Aid Overview</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13051"><a href="https://tms.edu/apply/">Apply</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13052"><a href="https://tms.edu/admissions/visit/">Visit</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13053"><a href="https://tms.edu/admissions/tuition-financial-aid/">Tuition &#038; Financial Aid</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13054"><a href="https://tms.edu/admissions/international-students/">International Student</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13055"><a href="https://tms.edu/contact-admissions/">Contact Admissions</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-61"><a href="#">Educational Resources</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13056"><a href="https://tms.edu/educational-resources/">Educational Resources</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13057"><a href="https://tms.edu/educational-resources/chapel/">Chapel</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13058"><a href="https://tms.edu/find-a-church/">Find a Church</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13059"><a href="https://tms.edu/educational-resources/sermons/">Sermons</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13065"><a href="https://tms.edu/educational-resources/journal/">Journal</a></li>
+	<li class="off-site menu-item menu-item-type-custom menu-item-object-custom menu-item-421"><a target="_blank" href="http://blog.tms.edu">English Blog</a></li>
+	<li class="off-site menu-item menu-item-type-custom menu-item-object-custom menu-item-422"><a target="_blank" href="http://blog.tms.edu/es">Spanish Blog</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13063"><a href="https://tms.edu/educational-resources/institute-for-church-leadership/">Institute for Church Leadership</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13064"><a href="https://tms.edu/educational-resources/turkey-greece-study-tour/">Turkey &#038; Greece Study Tour</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-62"><a href="#">Give</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13066"><a href="https://tms.edu/ways-to-give/">Ways To Give</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13067"><a href="https://tms.edu/give/">Give Now</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13068"><a href="https://tms.edu/annual-report/">Annual Report</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13069"><a href="https://tms.edu/requestinfo/">Request Info</a></li>
+</ul></div>									 <ul class="nav-block">
+									 	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13084"><a href="https://tms.edu/current-students/library/">Library</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13085"><a href="https://tms.edu/current-students/">Current Students</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13086"><a href="https://tms.edu/alumni/">Alumni</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13087"><a href="https://tms.edu/apply/">Apply</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13088"><a href="https://tms.edu/contact/">Contact</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13089"><a href="https://tms.edu/es/contacto/">Español</a></li>
+									</ul>
+									 <div class="header-search-form">
+									    <form role="search" method="get" class="searchform" action="https://tyndale.tms.edu/">
+    <div>
+        <input type="text" value="" name="s" aria-label="search bar" placeholder="" />
+        <input type="submit" value="Search" class="inverted-button" />
+    </div>
+</form>
+								     </div>
+								</div>
+							</div>
+						</nav>
+					</div>
+	   			</div>
+			 </div>
+            </div>
+		  <div class="header-search-form">
+               <form role="search" method="get" class="searchform" action="https://tyndale.tms.edu/">
+    <div>
+        <input type="text" value="" name="s" aria-label="search bar" placeholder="" />
+        <input type="submit" value="Search" class="inverted-button" />
+    </div>
+</form>
+           </div>
+        </header>
+
+
+<div class="book-template-outer">
+   
+
+    <div class="book-template">
+<img src="https://tyndale.tms.edu/wp-content/uploads/2023/02/tanner-mardis-xUXGHzhIbN4-unsplash-1.webp">
+</div>
+
+<div class="page_heading">Legacy Standard Bible Translation Notes</div>
+<div class="co_content_main_wrapper">
+<div class="co_content_wrap">
+    <div class="Co_TanachOptions">
+      
+        <div class="Co_TanachOptions_form">
+            <form name="search_bar" action="/search/results.aspx" style="padding: 0 0 15px 0; margin: 0px;" onsubmit="return MM_validateSearchForm(this);" novalidate="true">
+                <input type="hidden" name="scope" value="63255"><input title="Search Tanach" onfocus="if (this.value == 'Search Tanach') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Search Tanach';}" type="text" valign="absmiddle" value="Search Tanach" class="tanach_search active" name="searchword">
+                <div class="co_global_button" >
+                <button type="submit" class="button tanach_search_go">
+                    
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title/><g data-name="Layer 2" id="Layer_2"><path d="M18,10a8,8,0,1,0-3.1,6.31l6.4,6.4,1.41-1.41-6.4-6.4A8,8,0,0,0,18,10Zm-8,6a6,6,0,1,1,6-6A6,6,0,0,1,10,16Z"/></g></svg>
+
+                </button>
+                </div>
+                </form>
+        </div>
+    </div>
+    <div class="co_content_browse_filter">
+        <form method="post">
+              <select name="testament" style="width: 170px;" class="co_form_input regular active" id="autoListTestament" dependentlists="Section,Book,Chapter" required>
+          
+          <option value="">Select the Testament </option>
+          <option value="old testament" >Old Testament</option>
+          <option value="new testament" >New Testament</option>
+      </select>
+        
+   <div class="tanach_droplist">
+      <select name="church"  class="co_form_input regular active" id="autoListSection" dependentlists="Section,Book,Chapter"style="width: 170px;" required disabled="disabled" >
+
+          <option value="0">Select the Book</option>
+               </select>
+   </div>
+   
+   
+   <div class="tanach_droplist">
+
+<span class="svg-loader" style="display:none;">
+ <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 100 100">
+    <path d="M 50,50 L 33,60.5 a 20 20 -210 1 1 34,0 z" fill="#444">
+      <animateTransform attributeName="transform" type="rotate" from="0 50 50" to="360 50 50" dur="1.2s" repeatCount="indefinite"/>
+    </path>
+      <circle cx="50" cy="50" r="16" fill="#ffffff"></circle>
+    </svg>
+    </span>
+      <select name="chapter" class="co_form_input regular active" id="autoListBook" style="width: 165px;"required disabled="disabled" >
+        <option value="0">Select the Chapter</option>
+              </select>
+   </div>
+   <div class="tanach_droplist">
+       <div class="co_global_button" style="margin-left: 15px; margin-right: 15px;"><button type="submit" class="button" name="serach_go" value="Go"><span>Go</span></button></div>
+   </div>
+</form>
+</div>
+</div>
+
+<div style="width:100%; text-align:center; font-size:13px;">
+    <a style="font-size:16px; background-color:#b48b2e; border-radius:5px" href="https://tms.edu/academics/tyndale-center-for-bible-translation/" class="button">Return to:<br/>The Tyndale Center for Bible Translation</a>
+    </div>
+
+
+
+
+        
+
+    <div class="heading_article">
+        <h1 class="article-header__title js-article-title js-page-title">
+                    </h1>
+    </div>
+        <table class="Co_TanachTable">
+        <tbody class="both-language">
+                        <tr>
+                
+            </tr>
+        </tbody>
+    </table>
+
+<div style="width:100%; text-align:center; font-size:13px; padding-bottom:30px; margin-top:-40px">
+
+Copyright © 2023 The Tyndale Center at The Master's Seminary. All rights reserved.<br/>
+The English biblical text is taken from the Legacy Standard Bible<br/>
+Legacy Standard Bible Copyright ©2021 by The Lockman Foundation. All rights reserved. <br/>
+Managed in partnership with Three Sixteen Publishing Inc. LSBible.org <br/>
+For permission to quote information visit <a href="http://www.LSBible.org" target="_blank">http://www.LSBible.org</a> <br/>
+The Hebrew Old Testament is taken from the Unicode/XML Westminster Leningrad Codex<br/>
+WLC Version 4.20 | UXLC 2.0 (27.1)<br/>
+Transcribed to Unicode/XML by Christopher V. Kimball, Publisher (Tanach.us Inc.)<br/>
+The Westminster Leningrad Codex is in the public domain. <br/>
+For more information visit <a href="http://www.Tanach.us" target="_blank" >www.Tanach.us</a><br/>
+
+The Greek New Testament is taken from the Society of Biblical Literature Greek New Testament <br/>
+Edited by Michael W. Holmes<br/>
+The SBLGNT is licensed freely under the Creative Commons Attribution 4.0 International Public License <br/>
+Copyright 2010 Logos Bible Software and the Society of Biblical Literature<br/>
+For more information about the SBLGNT visit <a href="http://www.LSBible.org" target="_blank" >www.SBLGNT.com</a>
+ 
+</div>
+
+
+
+
+
+
+
+    
+     
+
+
+</div>
+</div>
+
+
+            <footer>
+
+                <div class="large-frame">
+                     <div class="upper flex-wrapper">
+                          <div class="col1 col">
+                               <img src="https://tyndale.tms.edu/wp-content/uploads/2021/04/logo-footer.svg" alt="">
+                               <p>13248 Roscoe Blvd <br>
+Los Angeles, CA 91352 <br>
+818-909-5622</p>
+                          </div>
+                          <div class="col2 col">
+                               <div class="title">
+                                    Get Started                               </div>
+                               <ul>
+                                    <li id="menu-item-13071" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13071"><a href="https://tms.edu/why-tms/">Why TMS?</a></li>
+<li id="menu-item-13070" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13070"><a href="https://tms.edu/requestinfo/">Request Info</a></li>
+                               </ul>
+                          </div>
+                          <div class="col3 col">
+                               <div class="title">
+                                      Essentials                               </div>
+                               <ul>
+                                    <li id="menu-item-13080" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13080"><a href="https://tms.edu/apply/">Apply</a></li>
+<li id="menu-item-13081" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13081"><a href="https://tms.edu/contact/">Contact</a></li>
+<li id="menu-item-10306" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-10306"><a href="https://tyndale.tms.edu/academic-calendar/">Academic Calendar</a></li>
+<li id="menu-item-13082" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13082"><a href="https://tms.edu/current-students/">for Current Students</a></li>
+<li id="menu-item-13083" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13083"><a href="https://tms.edu/alumni/">For Alumni</a></li>
+<li id="menu-item-12571" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12571"><a href="https://www.masters.edu/title-ix">Title IX</a></li>
+<li id="menu-item-12572" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12572"><a href="https://www.masters.edu/clery-act">Clery Act</a></li>
+                               </ul>
+                          </div>
+                     </div>
+
+                     <div class="lower">
+                                                         <div class="social-wrapper">
+                                                                                 <a href="https://www.facebook.com/mastersseminary" target="_blank">
+                                               <img src="https://tyndale.tms.edu/wp-content/uploads/2021/04/fb.svg" alt="facebook icon">
+                                           </a>
+                                                                                    <a href="https://twitter.com/mastersseminary" target="_blank">
+                                               <img src="https://tyndale.tms.edu/wp-content/uploads/2021/04/tw.svg" alt="twitter icon">
+                                           </a>
+                                                                                    <a href="https://www.instagram.com/mastersseminary/" target="_blank">
+                                               <img src="https://tyndale.tms.edu/wp-content/uploads/2021/04/ig.svg" alt="instagram icon">
+                                           </a>
+                                                                                    <a href="https://www.youtube.com/themastersseminary" target="_blank">
+                                               <img src="https://tyndale.tms.edu/wp-content/uploads/2021/06/yt-black.svg" alt="Youtube icon">
+                                           </a>
+                                                                                    <a href="https://vimeo.com/mastersseminary" target="_blank">
+                                               <img src="https://tyndale.tms.edu/wp-content/uploads/2021/06/vm-black.svg" alt="Vimeo Icon">
+                                           </a>
+                                       
+
+                               </div>
+                          
+
+                          <p class="copyright"> <p>© 2021. All Rights Reserved. </p>
+</a></p>
+                     </div>
+                </div>
+
+            </footer>
+
+        </div><!-- close #site -->
+
+
+        <script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/tms/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<!-- Start of Async HubSpot Analytics Code -->
+<script type="text/javascript">
+(function(d,s,i,r) {
+if (d.getElementById(i)){return;}
+var n=d.createElement(s),e=d.getElementsByTagName(s)[0];
+n.id=i;n.src='//js.hs-analytics.net/analytics/'+(Math.ceil(new Date()/r)*r)+'/5914839.js';
+e.parentNode.insertBefore(n, e);
+})(document,"script","hs-analytics",300000);
+</script>
+<!-- End of Async HubSpot Analytics Code -->
+<script id="wp-dom-ready-js" src="https://tyndale.tms.edu/wp-includes/js/dist/dom-ready.js?ver=a06281ae5cf5500e9317"></script>
+<script id="wp-hooks-js" src="https://tyndale.tms.edu/wp-includes/js/dist/hooks.js?ver=7496969728ca0f95732d"></script>
+<script id="wp-i18n-js" src="https://tyndale.tms.edu/wp-includes/js/dist/i18n.js?ver=781d11515ad3d91786ec"></script>
+<script id="wp-i18n-js-after">
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+//# sourceURL=wp-i18n-js-after
+</script>
+<script id="wp-a11y-js" src="https://tyndale.tms.edu/wp-includes/js/dist/a11y.js?ver=af934e5259bc51b8718e"></script>
+<script id="gform_signature_delete_signature-js-extra">
+var gform_signature_delete_signature_strings = {"confirm_delete":"Would you like to delete this file? 'Cancel' to stop. 'OK' to delete","delete_nonce":"870562766a","form_id":""};
+var gform_signature_delete_signature_strings = {"confirm_delete":"Would you like to delete this file? 'Cancel' to stop. 'OK' to delete","delete_nonce":"870562766a","form_id":""};
+//# sourceURL=gform_signature_delete_signature-js-extra
+</script>
+<script id="gform_signature_delete_signature-js" defer='defer' src="https://tyndale.tms.edu/wp-content/plugins/gravityformssignature/js/gfsignature_delete_signature.js?ver=4.3"></script>
+<script id="custom-js" src="https://tyndale.tms.edu/wp-content/themes/tms/assets/dist/javascript.min.js?ver=1675923413"></script>
+<script id="page-links-to-js" src="https://tyndale.tms.edu/wp-content/plugins/page-links-to/dist/new-tab.js?ver=3.3.5"></script>
+<script id="wp-emoji-settings" type="application/json">
+{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"wpemoji":"https://tyndale.tms.edu/wp-includes/js/wp-emoji.js?ver=7.0.7","twemoji":"https://tyndale.tms.edu/wp-includes/js/twemoji.js?ver=7.0.7"}}
+</script>
+<script type="module">
+/**
+ * @output wp-includes/js/wp-emoji-loader.js
+ */
+
+/* eslint-env es6 */
+
+// Note: This is loaded as a script module, so there is no need for an IIFE to prevent pollution of the global scope.
+
+/**
+ * Emoji Settings as exported in PHP via _print_emoji_detection_script().
+ * @typedef WPEmojiSettings
+ * @type {object}
+ * @property {?object} source
+ * @property {?string} source.concatemoji
+ * @property {?string} source.twemoji
+ * @property {?string} source.wpemoji
+ */
+
+const selector = 'script#wp-emoji-settings';
+const script = document.querySelector( selector );
+if ( ! ( script instanceof HTMLScriptElement ) ) {
+	throw new Error( `Element missing: ${ selector }`);
+}
+const settings = /** @type {WPEmojiSettings} */ ( JSON.parse( script.text ) );
+
+// For compatibility with other scripts that read from this global, in particular wp-includes/js/wp-emoji.js (source file: js/_enqueues/wp/emoji.js).
+window._wpemojiSettings = settings;
+
+/**
+ * Support tests.
+ * @typedef SupportTests
+ * @type {object}
+ * @property {?boolean} flag
+ * @property {?boolean} emoji
+ */
+
+const sessionStorageKey = 'wpEmojiSettingsSupports';
+const tests = [ 'flag', 'emoji' ];
+
+/**
+ * Checks whether the browser supports offloading to a Worker.
+ *
+ * @since 6.3.0
+ *
+ * @private
+ *
+ * @returns {boolean}
+ */
+function supportsWorkerOffloading() {
+	return (
+		typeof Worker !== 'undefined' &&
+		typeof OffscreenCanvas !== 'undefined' &&
+		typeof URL !== 'undefined' &&
+		URL.createObjectURL &&
+		typeof Blob !== 'undefined'
+	);
+}
+
+/**
+ * @typedef SessionSupportTests
+ * @type {object}
+ * @property {number} timestamp
+ * @property {SupportTests} supportTests
+ */
+
+/**
+ * Get support tests from session.
+ *
+ * @since 6.3.0
+ *
+ * @private
+ *
+ * @returns {?SupportTests} Support tests, or null if not set or older than 1 week.
+ */
+function getSessionSupportTests() {
+	try {
+		/** @type {SessionSupportTests} */
+		const item = JSON.parse(
+			sessionStorage.getItem( sessionStorageKey )
+		);
+		if (
+			typeof item === 'object' &&
+			typeof item.timestamp === 'number' &&
+			new Date().valueOf() < item.timestamp + 604800 && // Note: Number is a week in seconds.
+			typeof item.supportTests === 'object'
+		) {
+			return item.supportTests;
+		}
+	} catch ( e ) {}
+	return null;
+}
+
+/**
+ * Persist the supports in session storage.
+ *
+ * @since 6.3.0
+ *
+ * @private
+ *
+ * @param {SupportTests} supportTests Support tests.
+ */
+function setSessionSupportTests( supportTests ) {
+	try {
+		/** @type {SessionSupportTests} */
+		const item = {
+			supportTests: supportTests,
+			timestamp: new Date().valueOf()
+		};
+
+		sessionStorage.setItem(
+			sessionStorageKey,
+			JSON.stringify( item )
+		);
+	} catch ( e ) {}
+}
+
+/**
+ * Checks if two sets of Emoji characters render the same visually.
+ *
+ * This is used to determine if the browser is rendering an emoji with multiple data points
+ * correctly. set1 is the emoji in the correct form, using a zero-width joiner. set2 is the emoji
+ * in the incorrect form, using a zero-width space. If the two sets render the same, then the browser
+ * does not support the emoji correctly.
+ *
+ * This function may be serialized to run in a Worker. Therefore, it cannot refer to variables from the containing
+ * scope. Everything must be passed by parameters.
+ *
+ * @since 4.9.0
+ *
+ * @private
+ *
+ * @param {CanvasRenderingContext2D} context 2D Context.
+ * @param {string} set1 Set of Emoji to test.
+ * @param {string} set2 Set of Emoji to test.
+ *
+ * @return {boolean} True if the two sets render the same.
+ */
+function emojiSetsRenderIdentically( context, set1, set2 ) {
+	// Cleanup from previous test.
+	context.clearRect( 0, 0, context.canvas.width, context.canvas.height );
+	context.fillText( set1, 0, 0 );
+	const rendered1 = new Uint32Array(
+		context.getImageData(
+			0,
+			0,
+			context.canvas.width,
+			context.canvas.height
+		).data
+	);
+
+	// Cleanup from previous test.
+	context.clearRect( 0, 0, context.canvas.width, context.canvas.height );
+	context.fillText( set2, 0, 0 );
+	const rendered2 = new Uint32Array(
+		context.getImageData(
+			0,
+			0,
+			context.canvas.width,
+			context.canvas.height
+		).data
+	);
+
+	return rendered1.every( ( rendered2Data, index ) => {
+		return rendered2Data === rendered2[ index ];
+	} );
+}
+
+/**
+ * Checks if the center point of a single emoji is empty.
+ *
+ * This is used to determine if the browser is rendering an emoji with a single data point
+ * correctly. The center point of an incorrectly rendered emoji will be empty. A correctly
+ * rendered emoji will have a non-zero value at the center point.
+ *
+ * This function may be serialized to run in a Worker. Therefore, it cannot refer to variables from the containing
+ * scope. Everything must be passed by parameters.
+ *
+ * @since 6.8.2
+ *
+ * @private
+ *
+ * @param {CanvasRenderingContext2D} context 2D Context.
+ * @param {string} emoji Emoji to test.
+ *
+ * @return {boolean} True if the center point is empty.
+ */
+function emojiRendersEmptyCenterPoint( context, emoji ) {
+	// Cleanup from previous test.
+	context.clearRect( 0, 0, context.canvas.width, context.canvas.height );
+	context.fillText( emoji, 0, 0 );
+
+	// Test if the center point (16, 16) is empty (0,0,0,0).
+	const centerPoint = context.getImageData(16, 16, 1, 1);
+	for ( let i = 0; i < centerPoint.data.length; i++ ) {
+		if ( centerPoint.data[ i ] !== 0 ) {
+			// Stop checking the moment it's known not to be empty.
+			return false;
+		}
+	}
+
+	return true;
+}
+
+/**
+ * Determines if the browser properly renders Emoji that Twemoji can supplement.
+ *
+ * This function may be serialized to run in a Worker. Therefore, it cannot refer to variables from the containing
+ * scope. Everything must be passed by parameters.
+ *
+ * @since 4.2.0
+ *
+ * @private
+ *
+ * @param {CanvasRenderingContext2D} context 2D Context.
+ * @param {string} type Whether to test for support of "flag" or "emoji".
+ * @param {Function} emojiSetsRenderIdentically Reference to emojiSetsRenderIdentically function, needed due to minification.
+ * @param {Function} emojiRendersEmptyCenterPoint Reference to emojiRendersEmptyCenterPoint function, needed due to minification.
+ *
+ * @return {boolean} True if the browser can render emoji, false if it cannot.
+ */
+function browserSupportsEmoji( context, type, emojiSetsRenderIdentically, emojiRendersEmptyCenterPoint ) {
+	let isIdentical;
+
+	switch ( type ) {
+		case 'flag':
+			/*
+			 * Test for Transgender flag compatibility. Added in Unicode 13.
+			 *
+			 * To test for support, we try to render it, and compare the rendering to how it would look if
+			 * the browser doesn't render it correctly (white flag emoji + transgender symbol).
+			 */
+			isIdentical = emojiSetsRenderIdentically(
+				context,
+				'\uD83C\uDFF3\uFE0F\u200D\u26A7\uFE0F', // as a zero-width joiner sequence
+				'\uD83C\uDFF3\uFE0F\u200B\u26A7\uFE0F' // separated by a zero-width space
+			);
+
+			if ( isIdentical ) {
+				return false;
+			}
+
+			/*
+			 * Test for Sark flag compatibility. This is the least supported of the letter locale flags,
+			 * so gives us an easy test for full support.
+			 *
+			 * To test for support, we try to render it, and compare the rendering to how it would look if
+			 * the browser doesn't render it correctly ([C] + [Q]).
+			 */
+			isIdentical = emojiSetsRenderIdentically(
+				context,
+				'\uD83C\uDDE8\uD83C\uDDF6', // as the sequence of two code points
+				'\uD83C\uDDE8\u200B\uD83C\uDDF6' // as the two code points separated by a zero-width space
+			);
+
+			if ( isIdentical ) {
+				return false;
+			}
+
+			/*
+			 * Test for English flag compatibility. England is a country in the United Kingdom, it
+			 * does not have a two letter locale code but rather a five letter sub-division code.
+			 *
+			 * To test for support, we try to render it, and compare the rendering to how it would look if
+			 * the browser doesn't render it correctly (black flag emoji + [G] + [B] + [E] + [N] + [G]).
+			 */
+			isIdentical = emojiSetsRenderIdentically(
+				context,
+				// as the flag sequence
+				'\uD83C\uDFF4\uDB40\uDC67\uDB40\uDC62\uDB40\uDC65\uDB40\uDC6E\uDB40\uDC67\uDB40\uDC7F',
+				// with each code point separated by a zero-width space
+				'\uD83C\uDFF4\u200B\uDB40\uDC67\u200B\uDB40\uDC62\u200B\uDB40\uDC65\u200B\uDB40\uDC6E\u200B\uDB40\uDC67\u200B\uDB40\uDC7F'
+			);
+
+			return ! isIdentical;
+		case 'emoji':
+			/*
+			 * Is there a large, hairy, humanoid mythical creature living in the browser?
+			 *
+			 * To test for Emoji 17.0 support, try to render a new emoji: Hairy Creature.
+			 *
+			 * The hairy creature emoji is a single code point emoji. Testing for browser
+			 * support required testing the center point of the emoji to see if it is empty.
+			 *
+			 * 0xD83E 0x1FAC8 (\uD83E\u1FAC8) == 🫈 Hairy creature.
+			 *
+			 * When updating this test, please ensure that the emoji is either a single code point
+			 * or switch to using the emojiSetsRenderIdentically function and testing with a zero-width
+			 * joiner vs a zero-width space.
+			 */
+			const notSupported = emojiRendersEmptyCenterPoint( context, '\uD83E\u1FAC8' );
+			return ! notSupported;
+	}
+
+	return false;
+}
+
+/**
+ * Checks emoji support tests.
+ *
+ * This function may be serialized to run in a Worker. Therefore, it cannot refer to variables from the containing
+ * scope. Everything must be passed by parameters.
+ *
+ * @since 6.3.0
+ *
+ * @private
+ *
+ * @param {string[]} tests Tests.
+ * @param {Function} browserSupportsEmoji Reference to browserSupportsEmoji function, needed due to minification.
+ * @param {Function} emojiSetsRenderIdentically Reference to emojiSetsRenderIdentically function, needed due to minification.
+ * @param {Function} emojiRendersEmptyCenterPoint Reference to emojiRendersEmptyCenterPoint function, needed due to minification.
+ *
+ * @return {SupportTests} Support tests.
+ */
+function testEmojiSupports( tests, browserSupportsEmoji, emojiSetsRenderIdentically, emojiRendersEmptyCenterPoint ) {
+	let canvas;
+	if (
+		typeof WorkerGlobalScope !== 'undefined' &&
+		self instanceof WorkerGlobalScope
+	) {
+		canvas = new OffscreenCanvas( 300, 150 ); // Dimensions are default for HTMLCanvasElement.
+	} else {
+		canvas = document.createElement( 'canvas' );
+	}
+
+	const context = canvas.getContext( '2d', { willReadFrequently: true } );
+
+	/*
+	 * Chrome on OS X added native emoji rendering in M41. Unfortunately,
+	 * it doesn't work when the font is bolder than 500 weight. So, we
+	 * check for bold rendering support to avoid invisible emoji in Chrome.
+	 */
+	context.textBaseline = 'top';
+	context.font = '600 32px Arial';
+
+	const supports = {};
+	tests.forEach( ( test ) => {
+		supports[ test ] = browserSupportsEmoji( context, test, emojiSetsRenderIdentically, emojiRendersEmptyCenterPoint );
+	} );
+	return supports;
+}
+
+/**
+ * Adds a script to the head of the document.
+ *
+ * @ignore
+ *
+ * @since 4.2.0
+ *
+ * @param {string} src The url where the script is located.
+ *
+ * @return {void}
+ */
+function addScript( src ) {
+	const script = document.createElement( 'script' );
+	script.src = src;
+	script.defer = true;
+	document.head.appendChild( script );
+}
+
+settings.supports = {
+	everything: true,
+	everythingExceptFlag: true
+};
+
+// Obtain the emoji support from the browser, asynchronously when possible.
+new Promise( ( resolve ) => {
+	let supportTests = getSessionSupportTests();
+	if ( supportTests ) {
+		resolve( supportTests );
+		return;
+	}
+
+	if ( supportsWorkerOffloading() ) {
+		try {
+			// Note that the functions are being passed as arguments due to minification.
+			const workerScript =
+				'postMessage(' +
+				testEmojiSupports.toString() +
+				'(' +
+				[
+					JSON.stringify( tests ),
+					browserSupportsEmoji.toString(),
+					emojiSetsRenderIdentically.toString(),
+					emojiRendersEmptyCenterPoint.toString()
+				].join( ',' ) +
+				'));';
+			const blob = new Blob( [ workerScript ], {
+				type: 'text/javascript'
+			} );
+			const worker = new Worker( URL.createObjectURL( blob ), { name: 'wpTestEmojiSupports' } );
+			worker.onmessage = ( event ) => {
+				supportTests = event.data;
+				setSessionSupportTests( supportTests );
+				worker.terminate();
+				resolve( supportTests );
+			};
+			return;
+		} catch ( e ) {}
+	}
+
+	supportTests = testEmojiSupports( tests, browserSupportsEmoji, emojiSetsRenderIdentically, emojiRendersEmptyCenterPoint );
+	setSessionSupportTests( supportTests );
+	resolve( supportTests );
+} )
+	// Once the browser emoji support has been obtained from the session, finalize the settings.
+	.then( ( supportTests ) => {
+		/*
+		 * Tests the browser support for flag emojis and other emojis, and adjusts the
+		 * support settings accordingly.
+		 */
+		for ( const test in supportTests ) {
+			settings.supports[ test ] = supportTests[ test ];
+
+			settings.supports.everything =
+				settings.supports.everything && settings.supports[ test ];
+
+			if ( 'flag' !== test ) {
+				settings.supports.everythingExceptFlag =
+					settings.supports.everythingExceptFlag &&
+					settings.supports[ test ];
+			}
+		}
+
+		settings.supports.everythingExceptFlag =
+			settings.supports.everythingExceptFlag &&
+			! settings.supports.flag;
+
+		// When the browser can not render everything we need to load a polyfill.
+		if ( ! settings.supports.everything ) {
+			const src = settings.source || {};
+
+			if ( src.concatemoji ) {
+				addScript( src.concatemoji );
+			} else if ( src.wpemoji && src.twemoji ) {
+				addScript( src.twemoji );
+				addScript( src.wpemoji );
+			}
+		}
+	} );
+//# sourceURL=https://tyndale.tms.edu/wp-includes/js/wp-emoji-loader.js
+</script>
+
+        <script>
+          	var refTagger = {
+          		settings: {
+          			bibleVersion: "ESV",
+          			customStyle : {
+          				heading: {
+          					backgroundColor : "#b48b2e",
+          					color : "#000000"
+          				},
+          				body   : {
+          					color : "#000000"
+          				}
+          			}
+          		}
+          	};
+          	(function(d, t) {
+          		var g = d.createElement(t), s = d.getElementsByTagName(t)[0];
+          		g.src = "//api.reftagger.com/v2/RefTagger.js";
+          		s.parentNode.insertBefore(g, s);
+          	}(document, "script"));
+          </script>
+
+
+          <!-- Global site tag (gtag.js) - Google Analytics -->
+          <script async src="https://www.googletagmanager.com/gtag/js?id=UA-64949713-1"></script>
+          <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'UA-64949713-1');
+          </script>
+
+
+          <script async="" src=""https://www.googletagmanager.com/gtm.js?id=GTM-MB8W8ND""></script>
+
+    </body>
+
+</html>
+
+<script>
+
+
+jQuery(document).ready(function($) {
+ var ajaxurl = "https://tyndale.tms.edu/wp-admin/admin-ajax.php";   
+ console.log(ajaxurl)
+ jQuery("#autoListSection").on("change", function() {
+    // var autoListBook = document.getElementById("autoListBook");
+    // autoListBook.selectedIndex = -1; 
+    var selectedOption = jQuery(this).val();
+
+    if(selectedOption != "" && selectedOption != 0){
+     jQuery(".svg-loader").show();
+     
+        var data = {
+          action: 'get_books_chpater',
+          selected_option: selectedOption
+        };
+        jQuery.post(ajaxurl, data, function(response) {
+             //var booK_options = "";
+         jQuery("#autoListBook").html(response); 
+         jQuery(".svg-loader").hide();
+     
+          jQuery("#autoListBook").removeAttr('disabled','disabled');
+
+        });
+    }
+    else
+    {
+        jQuery("#autoListBook").attr('disabled','disabled');
+        jQuery("#autoListBook").find('option').not(':first').remove();
+    }
+
+  });
+
+ jQuery("#autoListTestament").on("change", function() {
+    
+    var selectedBook = jQuery(this).val();
+    console.log(selectedBook);
+    
+    var StaticHTML = '<option value="0">Select the Chapter</option>';
+    jQuery("#autoListBook").html(StaticHTML);
+    jQuery("#autoListBook").attr('disabled','disabled');
+    
+
+    if(selectedBook != "" && selectedBook != 0){
+          
+        var data = {
+          action: 'get_books_testament',
+          selectedBook: selectedBook
+        };
+        jQuery.post(ajaxurl, data, function(response) {
+         jQuery("#autoListChapter").html(response);  
+        
+         jQuery("#autoListChapter").removeAttr('disabled','disabled');
+         
+
+        });
+    }
+    else
+    {
+        jQuery("#autoListChapter").find('option').not(':first').remove();
+    }
+
+  });
+
+ jQuery("#autoListTestament").on("change", function() {
+    
+    var selectedTestament = jQuery(this).val();
+// alert('hii')
+    if(selectedTestament != ""){
+        //   alert(selectedTestament);
+        var data = {
+          action: 'get_books_testament',
+          selectedTestament: selectedTestament
+        };
+        jQuery.post(ajaxurl, data, function(response) {
+            console.log(response)
+         jQuery("#autoListSection").html(response);  
+           jQuery("#autoListSection").removeAttr('disabled','disabled');
+
+        });
+    }
+    else
+    {
+        jQuery("#autoListChapter").find('option').not(':first').remove();
+    }
+
+  });
+  
+jQuery('.close-div').on('click', function(){
+    jQuery(this).closest("#clients-edit-wrapper").remove();
+});
+
+});
+
+
+
+jQuery(document).ready(function(){
+    
+ jQuery("#hide").click(function(){
+ jQuery(".commentary").hide();
+    jQuery("#show").removeClass("selected");
+    jQuery("#hide").addClass("selected"); 
+  });
+  
+  
+  jQuery("#show").click(function(){
+     jQuery(".commentary").show();
+      jQuery("#hide").removeClass("selected");
+    jQuery("#show").addClass("selected"); 
+  });
+
+
+
+
+jQuery("#english_show").click(function(){
+ jQuery(" p.in_hebrew,.arabic_words").hide();
+      jQuery(" p.in_english, .english_words").show();
+        jQuery("#hebrew_show").removeClass("selected");
+        jQuery("#Both_show").removeClass("selected");
+    jQuery("#english_show").addClass("selected"); 
+      
+  });
+
+
+
+
+
+
+
+
+
+
+
+jQuery("#Both_show").click(function(){
+  jQuery("p.in_english, p.in_hebrew,.arabic_words,.english_words").show();
+  //jQuery(".commentary").hide();
+      jQuery("#hebrew_show").removeClass("selected");
+        jQuery("#Both_show").addClass("selected");
+    jQuery("#english_show").removeClass("selected"); 
+  });
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+
+
+
+  
+ jQuery("#hebrew_show").click(function(){
+    jQuery(".english.english_words, p.in_english").hide();
+      jQuery("p.in_hebrew, .arabic_words").show();
+     jQuery("#hebrew_show").addClass("selected");
+    jQuery("#Both_show").removeClass("selected");
+    jQuery("#english_show").removeClass("selected"); 
+     
+   });
+   
+   
+   
+
+
+jQuery("button#english_show").click(function(){
+ jQuery("tbody").addClass("lsb-english");
+  jQuery("tbody").removeClass("both-language hebrew-language"); 
+});
+
+
+jQuery("button#Both_show").click(function(){
+ jQuery("tbody").addClass("both-language");
+   jQuery("tbody").removeClass("lsb-english hebrew-language"); 
+});
+
+jQuery("button#hebrew_show").click(function(){
+ jQuery("tbody").addClass("hebrew-language");
+   jQuery("tbody").removeClass("both-language lsb-english"); 
+});
+
+
+});
+
+
+
+</script>

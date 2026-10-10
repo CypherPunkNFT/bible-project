@@ -1,0 +1,43 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-reconciled-da3edc73e19351587226f9ac",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "title": "A grammar of the Sungskrit language : composed from the works of the most esteemed grammarians : to which are added examples for the exercise of the student, and a complete list of the dhatoos, or roots",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-william-carey",
+      "role": "author"
+    }
+  ],
+  "genre": "treatise",
+  "role": "core-teaching",
+  "collections": [],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [],
+  "depth": "unknown",
+  "era": "unknown",
+  "dates": [],
+  "passages": [],
+  "related": [],
+  "externalIds": {
+    "source-internet-archive": [
+      "ia:carey-a-grammar-of-the-sungskrit-language-1806"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/download/carey-a-grammar-of-the-sungskrit-language-1806/Carey%2C%20A%20Grammar%20of%20the%20Sungskrit%20Language%20%281806%29_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

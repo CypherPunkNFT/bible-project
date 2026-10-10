@@ -1,0 +1,43 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "work",
+  "id": "work-reconciled-14f646fc95789df5e83a51af",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "title": "[Life and death of Mr. Badman. Wel sh]. Bywyd a marwolaeth yr annuwiol dan enw Mr. Drygddyn. Wedi ei annerch i'r byd mewn ymddiddan cyfeillgar rhwng Mr. Doethineb a Mr. Ystyriol. Gan Joan Bunyan ... Wedi ei gyfieuthu i'r gymraeg gan T. Lewys ... At yr hwn y chwanegwyd bywyd a marwolaeth Joan Bunyan. ... 1731",
+  "alternateTitles": [],
+  "creators": [
+    {
+      "authorId": "author-john-bunyan",
+      "role": "author"
+    }
+  ],
+  "genre": "treatise",
+  "role": "core-teaching",
+  "collections": [],
+  "subjects": [],
+  "occasions": [],
+  "audiences": [],
+  "depth": "unknown",
+  "era": "unknown",
+  "dates": [],
+  "passages": [],
+  "related": [],
+  "externalIds": {
+    "source-internet-archive": [
+      "ia:bim_eighteenth-century_life-and-death-of-mr-b_bunyan-john_1731"
+    ]
+  },
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_eighteenth-century_life-and-death-of-mr-b_bunyan-john_1731/bim_eighteenth-century_life-and-death-of-mr-b_bunyan-john_1731_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

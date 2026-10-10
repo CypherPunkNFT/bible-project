@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-56ace4b95d5f0706c1454405",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-576a2f5f7b8ee7e3f062511d",
+  "label": "Catalogus librorum incompactorum, in re theologica, historica, philologica, &c. ... Summo studio atque cura collegit Joannes Owenus. Quorum auctio publica habenda est ... Novembris 17. ... a Johanne Bullord. ... 1701 — held source edition a195c2973af5",
+  "languages": [
+    "English"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/bim_eighteenth-century_catalogus-librorum-incom_owen-john-bookseller_1701/bim_eighteenth-century_catalogus-librorum-incom_owen-john-bookseller_1701_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "source": "tcp",
+  "catalogueItems": 61315,
+  "catalogueUnheldItems": 53588,
+  "eligibleItems": 1,
+  "unheldBefore": 0,
+  "filter": {
+    "deferHardDownloads": true,
+    "approvedCollection": true,
+    "ids": [
+      "A90280"
+    ]
+  },
+  "attempted": 0,
+  "downloaded": 0,
+  "duplicateHashes": 0,
+  "heldDuringRun": 0,
+  "failures": [],
+  "bytes": 0,
+  "sampleSizes": [],
+  "state": "complete",
+  "startedAt": "2026-10-07T20:02:03.348683+00:00",
+  "unheldAfter": 0,
+  "estimatedUnheldGB": null,
+  "estimateBasis": "SWORD InstallSize where available; otherwise arithmetic mean of downloaded originals; decimal GB; edition/item counts, not deduplicated works",
+  "completedAt": "2026-10-07T20:02:03.350408+00:00"
+}

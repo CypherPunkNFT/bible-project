@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-8407376093df36ef2eca5eb3",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-da3edc73e19351587226f9ac",
+  "label": "A grammar of the Sungskrit language : composed from the works of the most esteemed grammarians : to which are added examples for the exercise of the student, and a complete list of the dhatoos, or roots — held source edition bf78642829f8",
+  "languages": [
+    "eng"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://archive.org/download/carey-a-grammar-of-the-sungskrit-language-1806/Carey%2C%20A%20Grammar%20of%20the%20Sungskrit%20Language%20%281806%29_djvu.txt",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}

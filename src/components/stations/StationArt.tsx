@@ -1,8 +1,9 @@
 // Line drawings for the Teachers and Resources doorways (our own art, after design/README.md "Line-art scenes"): every
 // stroke has pathLength=1 so it can draw itself. Every scene is drawn twice (StationArt): a faint complete base, always
 // there, and a live copy that draws on over it, stroke by stroke, when the doorway is hovered, while its one living detail
-// moves (stations.css). "sa-faint" strokes are the quiet background.
+// moves (stations.css). "sa-faint" strokes are the quiet background. Learning uses the selected round-two well directly.
 import type { CSSProperties, ReactElement } from "react";
+import { LearningWell } from "./LearningWell";
 
 export type StationArtKind = "preachers" | "authors" | "scholars" | "learning" | "fellowships" | "life";
 
@@ -12,22 +13,29 @@ const E = ({ x, y, rx, ry = rx, c = "sa-line", t = 0 }: { x: number; y: number; 
 /** Stars over the preacher's scene, kept outside the arcs of his voice: [x, y, size]. */
 const STARS: [number, number, number][] = [[18, 22, 3], [32, 48, 2.2], [76, 16, 2.4], [70, 40, 1.8], [172, 40, 1.8], [166, 14, 2.6], [206, 24, 3], [224, 50, 2.2]];
 
-/** The scholar's shelf: books side by side from x 12 to 228, each [width, height]; a negative height leans the book, a
- *  zero height is a short stack lying flat. */
-const SHELF = (() => {
-  const books: [number, number][] = [[6, 26], [5, 22], [7, 30], [5, 24], [0, 0], [6, 28], [8, 20], [5, 25], [-9, 24], [6, 31], [5, 23], [7, 27],
-    [6, 21], [0, 0], [5, 29], [7, 24], [6, 26], [-9, 22], [5, 30], [6, 25], [8, 22], [5, 28], [6, 24], [0, 0], [7, 27], [5, 23], [6, 30], [5, 21],
-    [-8, 26], [6, 24], [7, 29], [5, 22]];
-  let x = 12, d = "";
-  for (const [w, h] of books) {
-    if (x > 222) break;
-    if (h === 0) { d += `M${x} 58V54H${x + 16}V58M${x + 1} 54V50H${x + 15}V54M${x + 2} 50V46H${x + 13}V50`; x += 17; continue; }
-    if (w < 0) { d += `M${x} 58L${x + 7} ${58 - h}L${x - w + 1} ${58 - h + 2}L${x - w - 6} 58`; x += -w + 1; continue; }
-    d += `M${x} 58V${58 - h}H${x + w}V58`;
-    x += w + 1;
-  }
-  return d;
-})();
+/** Single-copy shelf: each spine is a complete, separated book, including while raised. */
+function ScholarShelf() {
+  const heights = [24, 30, 26, 33, 28, 22, 31, 25];
+  const selected = [4, 10, 16, 18];
+  return <g className="sa-scholar-shelf"><path d="M10 58H230" />{Array.from({ length: 24 }, (_, i) => {
+    if ([7, 8, 9, 21, 22, 23].includes(i)) return null;
+    if ([6, 20].includes(i)) {
+      const x = i === 20 ? 192 : 66;
+      return <g key={i} className="sa-shelf-stack">{[0, 1, 2].map((level) => {
+        const left = x + (i === 20 ? 0 : level === 1 ? 2 : 0), y = 52 - level * 7;
+        const width = i === 20 ? 36 - level * 6 : 32 - (level === 1 ? 2 : 0);
+        return <g key={level}><rect x={left} y={y} width={width} height={6} rx={.65} /><path d={`M${left + 4} ${y + 1.5}v3`} /></g>;
+      })}</g>;
+    }
+    const x = 12 + i * 9, height = heights[i % heights.length], y = 58 - height;
+    const lift = selected.indexOf(i);
+    return <g key={i} className={'sa-shelf-book' + (lift >= 0 ? ' sa-shelf-raised' : '')} style={{ '--i': Math.max(0, lift) } as CSSProperties}>
+      <rect x={x} y={y} width={6} height={height} rx={.65} />
+      {i % 3 === 1 && <path d={`M${x + 1.5} ${y + 6}h3m-3 ${height - 12}h3`} />}
+      {lift >= 0 && <circle className="sa-shelf-dot" cx={x + 3} cy={y - 7} r={1.7} />}
+    </g>;
+  })}</g>;
+}
 
 function Preachers() {
   return <>
@@ -67,8 +75,6 @@ function Authors() {
 function Scholars() {
   return <>
     {/* Behind: one long shelf of books from wall to wall, standing, leaning and lying flat. */}
-    <P d="M10 58H230" c="sa-faint" />
-    <P d={SHELF} c="sa-faint" t={.03} />
     <P d="M12 146H228" t={.08} />
     {/* The open book: covers under the pages, the two pages, their edge, the writing and the spine. */}
     <P d="M40 80V128C68 118 98 120 120 131C142 120 172 118 200 128V80" c="sa-fine" t={.12} />
@@ -76,22 +82,11 @@ function Scholars() {
     <P d="M46 124V127C72 117 98 119 120 129C142 119 168 117 194 127V124" c="sa-fine" t={.26} />
     {[0, 1, 2, 3, 4].map((i) => <P key={i} d={`M${54} ${86 + i * 7}C${72} ${80 + i * 7} ${92} ${82 + i * 7} ${112} ${89 + i * 7}M${128} ${89 + i * 7}C${148} ${82 + i * 7} ${168} ${80 + i * 7} ${186} ${86 + i * 7}`} c="sa-fine" t={.3 + i * .03} />)}
     <P d="M120 126V131" c="sa-fine" t={.45} />
-    <g className="sa-glass"><E x={84} y={96} rx={12} c="sa-tone" t={.5} /><P d="M93 105L106 118" c="sa-tone" t={.55} /></g>
-    {/* A small stack of closed books on the right, the lamp on the left. */}
+    {/* A pen in the stepped holder, and a rounded lamp at the table edge. */}
+    <P d="M211 124L220 88Q222 84 224 88L215 124M222 92L219 104" c="sa-fine" t={.55} />
     <P d="M200 146V138H224V146M204 138V130H220V138M206 130V124H218V130" c="sa-fine" t={.6} />
-    <P d="M20 146C20 136 30 132 36 132H44C48 132 50 136 50 140" t={.4} /><P d="M16 146H54" c="sa-fine" t={.45} />
-    <path className="sa-flame" d="M34 128C30 120 33 114 35 108C37 114 41 120 37 128Z" />
-  </>;
-}
-
-function Learning() {
-  return <>
-    <P d="M150 24H196L206 34V104H150Z" c="sa-fine" /><P d="M196 24V34H206" c="sa-fine" t={.05} /><P d="M160 50H194M160 60H190M160 70H194M160 80H184" c="sa-fine" t={.1} />
-    <P d="M60 30H172V142H60Z" t={.12} />
-    {[42, 58, 74, 90, 106, 122].map((y, i) => <E key={y} x={60} y={y} rx={3.5} c="sa-fine" t={.2 + i * .02} />)}
-    <P d="M78 46H150" t={.25} /><P d="M78 55H128" c="sa-fine" t={.3} />
-    {[72, 92, 112].map((y, i) => <g key={y}><P d={`M80 ${y - 5}h10v10h-10Z`} c="sa-fine" t={.32 + i * .04} /><P d={`M98 ${y}H${156 - i * 10}`} c="sa-fine" t={.36 + i * .04} /><path pathLength={1} className="sa-tick" style={{ "--i": i } as CSSProperties} d={`M82 ${y}l3 3.5l6 -8`} /></g>)}
-    <g className="sa-pencil"><P d="M150 134L192 92L200 100L158 142Z" t={.45} /><P d="M150 134L145 147L158 142" c="sa-tone" t={.5} /><P d="M186 98L194 106" c="sa-fine" t={.55} /></g>
+    <P d="M14 146C10 140 13 131 24 131C35 131 38 140 34 146Z" t={.4} /><P d="M12 146H36M24 131V127" c="sa-fine" t={.45} />
+    <path className="sa-flame" d="M23 127C19 120 22 114 24 108C26 114 30 120 26 127Z" />
   </>;
 }
 
@@ -121,13 +116,14 @@ function Life() {
   </>;
 }
 
-const ART: Record<StationArtKind, () => ReactElement> = { preachers: Preachers, authors: Authors, scholars: Scholars, learning: Learning, fellowships: Fellowships, life: Life };
+const ART: Record<StationArtKind, () => ReactElement> = { preachers: Preachers, authors: Authors, scholars: Scholars, learning: LearningWell, fellowships: Fellowships, life: Life };
 
 /** Each scene twice: a faint complete base that is always there, and the live drawing over it, which draws itself on
  *  brightly when its doorway is hovered or focused (stations.css). */
 export function StationArt({ kind }: { kind: StationArtKind }) {
+  if (kind === "learning") return <LearningWell />;
   const Art = ART[kind];
   return <svg className="sa-art" viewBox="0 0 240 160" fill="none" aria-hidden="true" focusable="false">
-    <g className="sa-base"><Art /></g><g className="sa-live"><Art /></g>
+    <g className="sa-base"><Art /></g><g className="sa-live"><Art /></g>{kind === "scholars" && <ScholarShelf />}
   </svg>;
 }

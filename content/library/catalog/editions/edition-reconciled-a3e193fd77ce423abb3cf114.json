@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "schemaVersion": 1,
+  "kind": "edition",
+  "id": "edition-reconciled-a3e193fd77ce423abb3cf114",
+  "editorialState": "draft",
+  "notes": [
+    "Private-local bibliographic reconciliation; source-specific work identity; no public publication or full-text theological review."
+  ],
+  "reviews": [],
+  "workId": "work-reconciled-0b393a3c1410d97c8dd27212",
+  "label": "Pneumatologia, or, A discourse concerning the Holy Spirit wherein an account is given of his name, nature, personality, dispensation, operations, and effects : his whole work in the old and new creation is explained, the doctrine concering it vindicated from oppositions and reproaches : the nature also and necessity of Gospel-holiness the difference between grace and morality, or a spiritual life unto God in evangelical obedience and a course of moral vertues, are stated and declared / by John Owen ... — held source edition 069c2e6d4836",
+  "languages": [
+    "und"
+  ],
+  "contributors": [],
+  "publisher": null,
+  "dates": [],
+  "abridgment": "unknown",
+  "modernization": "unknown",
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/textcreationpartnership/A53720/master/A53720.xml",
+      "locator": "Recorded acquisition/source metadata",
+      "note": "Exact path and recorded original hash; evidence paths in campaign reconciliation manifest.",
+      "checkedOn": "2026-10-08"
+    }
+  ]
+}
