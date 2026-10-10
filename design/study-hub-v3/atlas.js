@@ -66,7 +66,13 @@
       function settle(){
         paint(target);
         host.dataset.phase=mode==='paul'&&travel?'drawing':'settled';
-        if(routePath&&travel)routePath.addEventListener('animationend',()=>{host.dataset.phase='settled';},{once:true});
+        if(routePath&&travel){
+          host.querySelector('.map-route-origin').classList.add('endpoint-thump');
+          routePath.addEventListener('animationend',()=>{
+            host.dataset.phase='settled';
+            host.querySelector('.map-route-stops .map-point:last-child').classList.add('endpoint-thump');
+          },{once:true});
+        }
       }
       if(travel){
         // Arrive at Antioch and stay there while the line draws: no second pan.

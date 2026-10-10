@@ -24,6 +24,10 @@
 .map-route-stop{opacity:0;transition:opacity .3s ease}
 .map-route-stops .map-point{cursor:default}
 .map-route-stops .map-route-dot{fill:var(--history);stroke:none}
+.map-route-stops .endpoint-thump .halo{transform-box:fill-box;transform-origin:center;animation:endpoint-thump .85s ease-out}
+.map-route-stops .endpoint-thump .dot{transform-box:fill-box;transform-origin:center;animation:endpoint-beat .85s ease-out}
+@keyframes endpoint-thump{0%,100%{transform:scale(1);fill-opacity:.08;stroke-opacity:.35}28%{transform:scale(1.32);fill-opacity:.18;stroke-opacity:.8}60%{transform:scale(1.08);fill-opacity:.1;stroke-opacity:.45}}
+@keyframes endpoint-beat{0%,100%{transform:scale(1)}28%{transform:scale(1.18)}60%{transform:scale(1)}}
 #atlas-map[data-phase="drawing"] .map-route{opacity:1;animation:journey-line 7s cubic-bezier(.45,0,.55,1) both}
 #atlas-map[data-phase="settled"] .map-route{opacity:1;stroke-dashoffset:0}
 #atlas-map:not([data-phase="zooming"]) .map-route-stop{opacity:1}

@@ -23,6 +23,8 @@
 
 ## Execution review and remaining scope
 
+**Endpoint pulse follow-up:** added a single subtle halo/dot thump at departure and arrival, triggered by route start and actual line-animation completion. Browser checks confirm Antioch pulses first, the destination waits for arrival, both settle after 850ms, changing modes clears the effect, and reduced motion skips it. Syntax and whitespace checks pass.
+
 ### People-card layout and constellation refinement — 2026-10-10
 
 - Moved each selected writer/field description into the lower-left footer, with Explore beside the circular arrow on the right. Writer action wraps to two lines; Scholars remains one line. Individual Meet links remain with the writer's description. On narrow cards the action is right-aligned below the description.
