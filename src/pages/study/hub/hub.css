@@ -198,3 +198,13 @@
 .study-experience .people-footer .writer-tabs button,.study-experience .people-footer .scholar-fields button{min-width:0;min-height:38px;padding:8px 12px;font-size:12px;white-space:nowrap}
 @media(max-width:1100px){.study-experience .people-footer .scholar-fields button{padding-inline:6px;font-size:11px}}
 @media(max-width:360px){.study-experience .people-footer .scholar-fields button{padding-inline:3px;font-size:10.5px}}
+
+/* Atlas invitation: gold frame, readable legend and a single compass turn. */
+.study-experience .atlas-window{transition:border-color .25s,box-shadow .3s}
+.study-experience .atlas-window:is(:hover,:focus-within){border-color:var(--epistles);box-shadow:0 0 32px color-mix(in srgb,var(--epistles) 12%,transparent)}
+.study-experience .atlas-window:is(:hover,:focus-within) .atlas-compass svg{animation:hub-compass-turn 1.6s cubic-bezier(.2,.65,.25,1) both}
+.study-experience .map-legend>span:first-child{display:flex;max-width:210px;font-size:12px;line-height:1.5}
+.study-experience .map-legend>span.atlas-invitation{color:var(--epistles);font-size:12px}
+@keyframes hub-compass-turn{from{transform:rotate(-360deg)}to{transform:rotate(0)}}
+@media(max-width:700px){.study-experience .map-legend{flex-wrap:wrap;gap:8px}.study-experience .map-legend>span.atlas-invitation{max-width:none;width:100%;text-align:left;margin-left:0}}
+@media(prefers-reduced-motion:reduce){.study-experience .atlas-window:is(:hover,:focus-within) .atlas-compass svg{animation:none}}

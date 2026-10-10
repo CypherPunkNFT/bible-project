@@ -8,6 +8,7 @@ import { WriterArt } from "./Artwork";
 import { Icon, StudyLink } from "./shared";
 const catalogue = data as unknown as ScholarsData;
 const sky = buildSky(catalogue, "wide");
+const fieldOffset = (field: string) => field === 'texts' ? [-28, 0] : field === 'theology' ? [26, -38] : [0, 0];
 const fields = [
     { id: 'history', label: 'History', names: 'Josephus · Tacitus · Eusebius' },
     { id: 'texts', label: 'Languages', names: 'Westcott · Lightfoot · A. T. Robertson' },
@@ -33,14 +34,14 @@ function ScholarArt({ selected }: {
                 rect.setAttribute('x', String(-width / 2));
                 rect.setAttribute('width', String(width));
                 label.querySelector('.scholar-label-icon')!.setAttribute('transform', `translate(${-width / 2 + 8} -6) scale(.25)`);
-                label.setAttribute('transform', `translate(${Math.max(width / 2 + 3, Math.min(sky.w - width / 2 - 3, f.mx))} ${Math.min(sky.h - 12, f.bottom + sky.size / 2 + 18)})`);
+                label.setAttribute('transform', `translate(${Math.max(width / 2 + 3, Math.min(sky.w - width / 2 - 3, f.mx))} ${f.field === 'theology' ? Math.min(...f.own.map(n => n.y)) - sky.size / 2 - 22 : Math.min(sky.h - 12, f.bottom + sky.size / 2 + 18)})`);
             });
         }
         fit();
         void document.fonts.ready.then(fit);
         return () => { active = false; };
     }, []);
-    return <svg ref={ref} viewBox={`0 0 ${sky.w} ${sky.h}`} aria-hidden><defs>{sky.fields.map(f => <radialGradient key={f.field} id={`hub-glow-${f.field}`}><stop stopColor={`var(${FIELD_TONE[f.field]})`} stopOpacity=".13"/><stop offset="1" stopColor={`var(${FIELD_TONE[f.field]})`} stopOpacity="0"/></radialGradient>)}</defs>{sky.fields.map(f => <g key={f.field} className={`scholar-group ${selected !== 'all' && selected !== f.field ? 'dim' : ''}`} style={{ color: `var(${FIELD_TONE[f.field]})` }}>
+    return <svg ref={ref} viewBox={`0 0 ${sky.w} ${sky.h}`} aria-hidden><defs>{sky.fields.map(f => <radialGradient key={f.field} id={`hub-glow-${f.field}`}><stop stopColor={`var(${FIELD_TONE[f.field]})`} stopOpacity=".13"/><stop offset="1" stopColor={`var(${FIELD_TONE[f.field]})`} stopOpacity="0"/></radialGradient>)}</defs>{sky.fields.map(f => <g key={f.field} transform={`translate(${fieldOffset(f.field).join(' ')})`} className={`scholar-group ${selected !== 'all' && selected !== f.field ? 'dim' : ''}`} style={{ color: `var(${FIELD_TONE[f.field]})` }}>
  <circle cx={f.mx} cy={f.my} r={f.r * 1.15} fill={`url(#hub-glow-${f.field})`}/><polyline className="scholar-thread" points={f.own.map(n => `${n.x},${n.y}`).join(' ')}/>
  {f.own.map(n => <g key={n.s.id} className="scholar-mark" transform={`translate(${n.x} ${n.y})`}><g transform={`translate(${-sky.size / 2} ${-sky.size / 2}) scale(${sky.size / 48})`}><g className="scholar-mark-outer"><Shape geometry={fieldShape(f.field, 1)}/></g><g className="scholar-mark-inner"><Shape geometry={fieldShape(f.field, .82)}/></g><text className="scholar-initials" x="24" y="25" textAnchor="middle" dominantBaseline="central" style={{ fontSize: initials(n.s).length > 1 ? 15.5 : 21 }}>{initials(n.s)}</text></g>{n.s.site?.status === 'in-use' && <circle className="scholar-used" cx={sky.size / 2 - 5} cy={-sky.size / 2 + 5} r="4.5"/>}</g>)}
  <g className="scholar-group-label"><rect y="-12" height="23" rx="11"/><g className="scholar-label-icon"><Shape geometry={fieldShape(f.field, 1)}/></g><text x="9" y="3" textAnchor="middle">{catalogue.fields[f.field].toUpperCase()}</text></g></g>)}</svg>;
