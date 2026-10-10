@@ -926,6 +926,44 @@
    ]
   },
   {
+   "id": "study-hub",
+   "area": "study",
+   "name": "Study hub",
+   "what": "Two branches, writers and scholars, and an interactive Atlas window.",
+   "address": "/study",
+   "instances": 1,
+   "sources": [
+    "src/pages/study/hub/Artwork.tsx",
+    "src/pages/study/hub/AtlasWindow.tsx",
+    "src/pages/study/hub/HubSearch.tsx",
+    "src/pages/study/hub/PeopleCards.tsx",
+    "src/pages/study/hub/StudyHub.tsx",
+    "src/pages/study/hub/atlas-places.json",
+    "src/pages/study/hub/collections.ts",
+    "src/pages/study/hub/hub.css",
+    "src/pages/study/hub/shared.tsx",
+    "src/pages/study/hub/writers.ts"
+   ],
+   "sourceHash": "9c0db0760b51bd90",
+   "signature": null,
+   "variants": [
+    {
+     "id": "page",
+     "name": "Study hub",
+     "what": "Two branches, writers and scholars, and an interactive Atlas window.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/study",
+       "why": "the only page of this design"
+      }
+     ]
+    }
+   ]
+  },
+  {
    "id": "study-legacy",
    "area": "study",
    "name": "Original Study collection",
@@ -1112,44 +1150,6 @@
        "id": "page",
        "label": "The page",
        "url": "/study/academic?area=church",
-       "why": "the only page of this design"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "study-hub",
-   "area": "study",
-   "name": "Study hub",
-   "what": "Two branches, writers and scholars, and an interactive Atlas window.",
-   "address": "/study",
-   "instances": 1,
-   "sources": [
-    "src/pages/study/hub/Artwork.tsx",
-    "src/pages/study/hub/AtlasWindow.tsx",
-    "src/pages/study/hub/HubSearch.tsx",
-    "src/pages/study/hub/PeopleCards.tsx",
-    "src/pages/study/hub/StudyHub.tsx",
-    "src/pages/study/hub/atlas-places.json",
-    "src/pages/study/hub/collections.ts",
-    "src/pages/study/hub/hub.css",
-    "src/pages/study/hub/shared.tsx",
-    "src/pages/study/hub/writers.ts"
-   ],
-   "sourceHash": "9cd62f8e4f4f88d7",
-   "signature": null,
-   "variants": [
-    {
-     "id": "page",
-     "name": "Study hub",
-     "what": "Two branches, writers and scholars, and an interactive Atlas window.",
-     "instances": 1,
-     "samples": [
-      {
-       "id": "page",
-       "label": "The page",
-       "url": "/study",
        "why": "the only page of this design"
       }
      ]
@@ -2577,16 +2577,18 @@
    "name": "Apologetics section pages",
    "what": "The section's own one-off pages.",
    "address": "/apologetics/…",
-   "instances": 8,
+   "instances": 11,
    "sources": [
     "src/components/ApologeticsParts.tsx",
     "src/pages/ApologeticsPage.tsx",
+    "src/pages/IslamGuidePage.tsx",
     "src/pages/ReformedLibraryPage.tsx",
     "src/pages/WorldviewsPage.tsx",
     "src/pages/apologetics.css",
+    "src/pages/islam-guide.css",
     "src/pages/worldviews.css"
    ],
-   "sourceHash": "7e0d50c52f3c97aa",
+   "sourceHash": "89cabc1620bf7a2e",
    "signature": null,
    "variants": [
     {
@@ -2697,6 +2699,48 @@
        "id": "page",
        "label": "The page",
        "url": "/apologetics/saved",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "islam-understanding",
+     "name": "Understanding Islam",
+     "what": "The acquired guide introduction.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/apologetics/worldviews/islam/guide/understanding",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "islam-ministry",
+     "name": "Ministry among Muslims",
+     "what": "The ministry guide.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/apologetics/worldviews/islam/guide/ministry",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "islam-article",
+     "name": "Islam guide article",
+     "what": "An individual guide article.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/apologetics/worldviews/islam/guide/article",
        "why": "the only page of this design"
       }
      ]
