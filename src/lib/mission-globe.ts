@@ -11,7 +11,7 @@ export interface MissionGlobe {
   destroy(): void;
 }
 const MIN_ZOOM = 1, MAX_ZOOM = 8;
-const earthColors = { ...missionMapColors, minority: '#8eb7b060', selected: '#f0c47e', border: '#a4cfbddd', coast: '#8eb7b074', markerEdge: '#332b20', horizon: '#8eb7b090', hover: '#8eb7b018' };
+const earthColors = { ...missionMapColors, selected: '#f0c47e', border: '#a4cfbddd', coast: '#8eb7b074', markerEdge: '#332b20', horizon: '#8eb7b090', hover: '#8eb7b018' };
 export async function createMissionGlobe(
   host: HTMLElement, canvas: HTMLCanvasElement,
   countries: readonly GlobeCountry[],
@@ -57,7 +57,7 @@ export async function createMissionGlobe(
     invalidate();
   }
   function draw() {
-    const colors = dark ? earthColors : { ...earthColors, coast: '#53766985', border: '#47695ecc', minority: '#53766980', selected: '#9e6924', horizon: '#53766980', hover: '#507a7214' };
+    const colors = dark ? earthColors : { ...earthColors, coast: '#53766985', border: '#47695ecc', selected: '#9e6924', horizon: '#53766980', hover: '#507a7214' };
     // The square globe viewport fits the full Earth at minimum zoom.
     // Line geometry avoids inventing polygon borders at the crop edge.
     projection.rotate([-lon, -lat]).scale(radius * zoom).clipAngle(90).clipExtent([[0, 0], [width, height]]).translate([width / 2, height / 2]);
@@ -89,7 +89,9 @@ export async function createMissionGlobe(
       const active = selected === code, hovered = hover === code;
       if (hovered) { ctx!.beginPath(); path(country); ctx!.fillStyle = colors.hover; ctx!.fill(); }
       ctx!.beginPath(); path(lines);
-      ctx!.strokeStyle = active ? colors.selected : !country.properties.selectable ? colors.minority : colors.border; ctx!.lineWidth = active ? 1.9 : .85; ctx!.stroke();
+      ctx!.globalAlpha = country.properties.selectable ? 1 : .7;
+      ctx!.strokeStyle = active ? colors.selected : colors.border; ctx!.lineWidth = active ? 1.9 : .85; ctx!.stroke();
+      ctx!.globalAlpha = 1;
     }
     const position = centroids.get(selected);
     if (position && geoDistance(position, [lon, lat]) < Math.PI / 2) {
