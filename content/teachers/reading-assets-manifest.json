@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-10T19:13:24.679582+00:00",
+  "files": [
+    {
+      "path": "public/basis/westminster.json",
+      "url": "https://github.com/NonlinearFruit/Creeds.json/blob/2ae21a4c5387ecc91f474c9d3d67c826d2a6b9d5/README.md",
+      "sha256": "87c3d67ba088dbaab15c31c1995335aa5e53fd522ba2e32c21f89ffb60720436",
+      "bytes": 68694,
+      "title": "Westminster Confession of Faith",
+      "author": "Westminster Assembly",
+      "licence": "Public-domain confession; eligible Creeds.json transcription under the Unlicense",
+      "format": "json",
+      "language": "en",
+      "audience": "Adult study and religious-text comparison",
+      "credit": "Creeds.json contributors",
+      "countAsBook": false,
+      "relationship": "Website reading derivative of an already held text; no new acquisition",
+      "changes": "Indexed by chapter and verse/section; reading text not rewritten"
+    },
+    {
+      "path": "public/basis/quran-pickthall.json",
+      "url": "https://quran-json.risanb.com/translations/en-pickthall/quran.json",
+      "sha256": "540723b4f99c3ee0883e4f6f841a2d9b22f9467e36da121b96463cee90fd3709",
+      "bytes": 895981,
+      "title": "The Meaning of the Glorious Koran (1930), English text",
+      "author": "Marmaduke Pickthall",
+      "licence": "Public-domain translation; Quran JSON dataset packaging CC BY-SA 4.0",
+      "format": "json",
+      "language": "en",
+      "audience": "Adult study and religious-text comparison",
+      "credit": "Quran JSON by Risan; upstream translation metadata retained in KnowledgeBase/False Religions/Islam/Quran/translation-index.json",
+      "countAsBook": false,
+      "relationship": "Website reading derivative of an already held text; no new acquisition",
+      "changes": "Indexed by chapter and verse/section; reading text not rewritten"
+    }
+  ]
+}
