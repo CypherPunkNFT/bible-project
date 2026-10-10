@@ -2,6 +2,14 @@
 
 Owner-requested revision, 2026-10-09. [Open the local preview](http://127.0.0.1:8931/mockups/study-hub-v2/).
 
+## Owner review and revised direction
+
+The later 2026-10-09 review supersedes this mockup's proposed section order. Remove the parent “Explore the collection” accordion; organise both study branches with illustrated subject doors instead. Move Writers of Scripture and Scholars directly below the main entrance cards as section 01. Rebuild Time & place as section 02 and a window into the actual Atlas, with its quality and existing destinations. The Atlas header item is planned to move into Study's navigation when the replacement entrance is implemented. Use this mockup's source shelf and Resources' “Choose a door” as references for the branch selection pattern.
+
+The living architecture and content crosswalk are maintained in the project documentation at `Pages/Study/PLAN.md`, with next steps in `Pages/Study/HANDOFF.md`. This update records feedback only: the preview below is preserved as the earlier visual reference and has not been rebuilt or formally accepted.
+
+## What this retained mockup contains
+
 The owner wanted the parent hub to represent the whole collection rather than feature the recently produced Hezekiah study. The two original entrances remain, followed by:
 
 1. A subject overview with five expandable topics in each branch.
