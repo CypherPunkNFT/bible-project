@@ -23,6 +23,15 @@
 
 ## Execution review and remaining scope
 
+### Owner refinements — 2026-10-10
+
+- Applied the requested compact map header/footer, circular inset compass, direct Atlas subsection arrows, prominent full-Atlas button and footer sentence. Removed the connected-design strip on all three pages.
+- Replaced Isaiah with Moses in the four-writer feature. Added a letter/ink/pen/seal for Paul, scroll and tablets for Luke, staff and tablets for Moses, and lyre/psalm scroll for David. Tested ground-line-only, ellipse-only and two open compositions. Existing person endpoints and qualified attributions are preserved; these are symbolic drawings, not archaeological reproductions.
+- Rechecked all three map modes at 320, 390, 768 and 1440px in both themes: 24 map states, zero document overflow, page exceptions or failed assets. Compass stays inside the map; header measures at most 30px; footer sentence remains visible. Keyboard city selection and browser Back work.
+- Exercised all four writer choices in each width/theme combination. Opened all eight distinct writer and Atlas navigation destinations and confirmed their actual page headings. Both branch pages retain five subject entrances and omit the review strip.
+- Inspected all four desktop writer illustrations, Moses on mobile in light/dark, and desktop/mobile Atlas captures. The phone footer was also measured directly to confirm the sentence fits inside its panel. Syntax checks and scoped `git diff --check` pass.
+- Focused audit: `node .local/check-study-v3-refinements.mjs`; evidence: `design/review/study-hub-v3/refinements/`. Original wider audit remains valid for unchanged subject content. Generator preserves hand-authored people artwork on regeneration.
+
 The intended S3 artifact is delivered: three connected, populated review pages with working controls and existing reading destinations. Source: `design/study-hub-v3/`; screenshots/results: `design/review/study-hub-v3/`; reproducible check: `.local/check-study-v3.mjs`.
 
 The pages await owner review of composition, labels and Atlas treatment. They do not implement production branch routes, origin-aware return changes, a completed Writers collection, expanded Scholar profiles, new public case publication or the real header change. The screenshot audit ran against the local static mockup, not a clean production-release build. It is not a full accessibility certification or a fresh historical review of linked content.

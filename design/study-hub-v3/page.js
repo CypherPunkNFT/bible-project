@@ -14,9 +14,6 @@
   const icons=()=>document.querySelectorAll('[data-icon]').forEach(el=>el.innerHTML=window.icon(el.dataset.icon,18));
   const link=([title,href])=>`<a href="${href}">${title}${arrow()}</a>`;
   const badge=e=>`${e.kind}${e.preview?' <span class="preview-tag">Preview</span>':''}`;
-  const reviewed=document.createElement('div');reviewed.className='review-links';
-  reviewed.innerHTML=`<span>Study · Connected design</span><a href="${base}" ${page==='hub'?'aria-current="page"':''}>Hub</a><a href="${base}theology/" ${page==='theology'?'aria-current="page"':''}>Scripture &amp; Theology</a><a href="${base}academic/" ${page==='academic'?'aria-current="page"':''}>Academic Studies</a>`;
-  document.querySelector('.site-footer').before(reviewed);
 
   if(page==='hub'){
     const draw=(id,d)=>{const p=document.createElementNS('http://www.w3.org/2000/svg','path');p.setAttribute('d',d);$(id).append(p);};

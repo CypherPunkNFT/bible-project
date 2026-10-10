@@ -1,6 +1,7 @@
 /* Same Natural Earth coastline/projection and first-journey coordinates as the site's Atlas. */
 (async()=>{
   const $=id=>document.getElementById(id),arrow=()=>icon('arrowUp',15);
+  const compass=()=>`<div class="atlas-compass" role="img" aria-label="Compass rose, north up"><svg viewBox="0 0 100 100" aria-hidden="true"><circle class="compass-ground" cx="50" cy="50" r="48"/><circle cx="50" cy="50" r="38"/><circle class="compass-inner" cx="50" cy="50" r="31"/>${Array.from({length:32},(_,i)=>`<path d="M50 12v${i%4===0?7:3}" transform="rotate(${i*11.25} 50 50)"/>`).join('')}<path class="compass-diagonals" d="m50 50-19-19 19 11 19-11-11 19 11 19-19-11-19 11 11-19Z"/><path class="compass-north" d="m50 24 8 26-8-4-8 4Z"/><path class="compass-south" d="m50 76-8-26 8 4 8-4Z"/><path d="M25 50h16m18 0h16"/><circle cx="50" cy="50" r="3"/><text x="50" y="9">N</text><text x="92" y="53">E</text><text x="50" y="97">S</text><text x="8" y="53">W</text></svg></div>`;
   try{
     const response=await fetch('/mockups/study-hub-v3/map-data.json');if(!response.ok)throw new Error('Map unavailable');const d=await response.json();
     let mode='map',chosen=d.places.find(p=>p.name==='Corinth');
@@ -15,9 +16,10 @@
     function draw(){
       const bounds=mode==='paul'?[28.6,37.9,34,39.2]:[8,43,29,44.3];
       const [x0,y0]=project([bounds[0],bounds[3]]),[x1,y1]=project([bounds[1],bounds[2]]);
-      const scale=Math.min(920/(x1-x0),480/(y1-y0)),tx=(1000-(x1-x0)*scale)/2-x0*scale,ty=(600-(y1-y0)*scale)/2-y0*scale;
+      const box=$('atlas-map').getBoundingClientRect(),height=box.width?Math.round(1000*box.height/box.width):600;
+      const scale=Math.min(900/(x1-x0),(height-160)/(y1-y0)),tx=(1000-(x1-x0)*scale)/2-x0*scale,ty=(height-(y1-y0)*scale)/2-y0*scale;
       const point=([lon,lat])=>{const [x,y]=project([lon,lat]);return [x*scale+tx,y*scale+ty];};
-      let grid='';for(let lon=10;lon<=45;lon+=5){const [x]=point([lon,0]);grid+=`M${x} 0V600`;}for(let lat=25;lat<=45;lat+=5){const [,y]=point([0,lat]);grid+=`M0 ${y}H1000`;}
+      let grid='';for(let lon=10;lon<=45;lon+=5){const [x]=point([lon,0]);grid+=`M${x} 0V${height}`;}for(let lat=25;lat<=45;lat+=5){const [,y]=point([0,lat]);grid+=`M0 ${y}H1000`;}
       let overlay='';
       if(mode==='paul'){
         const route=d.journey.map(point),labels=['Antioch','Salamis','Paphos','Perga','Antioch in Pisidia','','','Derbe'];
@@ -29,7 +31,7 @@
         const places=mode==='cities'?d.places.filter(p=>['Corinth','Jerusalem','Rome'].includes(p.name)):d.places;
         overlay+=places.map(p=>{const [x,y]=point([p.lon,p.lat]);return `<g class="map-point" data-place="${p.id}" role="button" tabindex="0" aria-label="Select ${p.name}" aria-pressed="${chosen.id===p.id}"><circle class="halo" cx="${x}" cy="${y}" r="17"/><circle class="dot" cx="${x}" cy="${y}" r="4"/><text x="${x+(p.name==='Alexandria'?-14:14)}" y="${y+4}" text-anchor="${p.name==='Alexandria'?'end':'start'}">${p.name}</text></g>`;}).join('');
       }
-      $('atlas-map').innerHTML=`<svg viewBox="0 0 1000 600" role="group" aria-label="${mode==='paul'?'Paul’s first journey outward, from Antioch through Cyprus to Derbe':'Select a place in the Mediterranean world'}"><path class="map-grid" d="${grid}"/><g transform="translate(${tx} ${ty}) scale(${scale})"><path class="map-land" d="${d.land}" fill-rule="evenodd" vector-effect="non-scaling-stroke"/></g>${overlay}</svg>${mode==='paul'?'<p class="map-route-credit">First journey outward · Acts 13–14<br>Schematic connections between recorded stops.</p>':''}`;
+      $('atlas-map').innerHTML=`<svg viewBox="0 0 1000 ${height}" role="group" aria-label="${mode==='paul'?'Paul’s first journey outward, from Antioch through Cyprus to Derbe':'Select a place in the Mediterranean world'}"><path class="map-grid" d="${grid}"/><g transform="translate(${tx} ${ty}) scale(${scale})"><path class="map-land" d="${d.land}" fill-rule="evenodd" vector-effect="non-scaling-stroke"/></g>${overlay}</svg>${compass()}${mode==='paul'?'<p class="map-route-credit">First journey outward · Acts 13–14<br>Schematic connections between recorded stops.</p>':''}`;
       $('map-kicker').textContent=mode==='paul'?'FOLLOW THE JOURNEY':mode==='cities'?'ENTER AN ANCIENT CITY':'THE BIBLICAL WORLD';
       $('map-legend-text').textContent=mode==='paul'?'From Antioch, through Cyprus, into Asia Minor':'Select a place on the map';
       document.querySelectorAll('[data-map]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.map===mode)));
@@ -42,5 +44,6 @@
     function restore(){const url=new URL(location.href);mode=['map','cities','paul'].includes(url.searchParams.get('atlas'))?url.searchParams.get('atlas'):'map';chosen=d.places.find(p=>p.id===url.searchParams.get('place'))||d.places.find(p=>p.name==='Corinth');if(mode==='cities'&&!['Corinth','Rome','Jerusalem'].includes(chosen.name))chosen=d.places.find(p=>p.name==='Corinth');draw();}
     document.querySelectorAll('[data-map]').forEach(b=>b.addEventListener('click',()=>{if(mode===b.dataset.map)return;mode=b.dataset.map;if(mode==='cities'&&!['Corinth','Rome','Jerusalem'].includes(chosen.name))chosen=d.places.find(p=>p.name==='Corinth');save();draw();}));
     window.addEventListener('popstate',restore);restore();
+    let lastSize='';new ResizeObserver(([entry])=>{const size=`${Math.round(entry.contentRect.width)}:${Math.round(entry.contentRect.height)}`;if(size!==lastSize){lastSize=size;draw();}}).observe($('atlas-map'));
   }catch(error){$('atlas-map').innerHTML='<p class="atlas-map-failure">The map preview could not load. Open the full Atlas to explore.</p>';$('atlas-copy').innerHTML='<a href="/study/atlas">Open the Atlas →</a>';console.error(error);}
 })();

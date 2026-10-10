@@ -17,9 +17,13 @@ atlas='''
 <section class="hub-section atlas-section" id="world" aria-labelledby="world-title">
   <div class="section-heading"><div><p class="eyebrow">02 / Time &amp; place</p><h2 id="world-title">Step into <em>their world.</em></h2></div><p>Put a place to the passage. Enter an ancient city.<br>Follow a life across the map.</p></div>
   <div class="atlas-window">
-    <div class="atlas-scene"><div class="atlas-map-title"><span id="map-kicker">THE BIBLICAL WORLD</span><span class="compass" aria-hidden="true">N<br>↑</span></div><div id="atlas-map"></div><div class="map-legend"><span><i></i><span id="map-legend-text">Places to begin exploring</span></span><span>Explore in the Atlas</span></div></div>
-    <div class="atlas-story"><p class="eyebrow">The Atlas</p><div class="atlas-tabs" role="group" aria-label="Choose a way into Atlas"><button data-map="map" aria-pressed="true"><span data-icon="map"></span><span>Explore the map<small>A place for every passage</small></span><span class="atlas-tick">01</span></button><button data-map="cities" aria-pressed="false"><span data-icon="church"></span><span>Ancient cities<small>The world behind the words</small></span><span class="atlas-tick">02</span></button><button data-map="paul" aria-pressed="false"><span data-icon="branch"></span><span>Follow Paul<small>The road, the churches, the letters</small></span><span class="atlas-tick">03</span></button></div><div class="atlas-copy" id="atlas-copy" aria-live="polite"></div><a class="atlas-all" href="/study/atlas">Enter the full Atlas <span data-icon="arrow"></span></a></div>
-  </div><p class="atlas-caption">A passage has a setting. A city has a story. Follow either into the other.</p>
+    <div class="atlas-scene"><div class="atlas-map-title"><span id="map-kicker">THE BIBLICAL WORLD</span></div><div id="atlas-map"></div><div class="map-legend"><span><i></i><span id="map-legend-text">Places to begin exploring</span></span><span class="atlas-invitation">A passage has a setting. A city has a story. Follow either into the other.</span></div></div>
+    <div class="atlas-story"><p class="eyebrow">The Atlas</p><div class="atlas-tabs" role="group" aria-label="Choose a way into Atlas">
+      <div class="atlas-option"><button data-map="map" aria-pressed="true"><span data-icon="map"></span><span>Explore the map<small>A place for every passage</small></span></button><a class="atlas-go" href="/study/atlas/map" aria-label="Open the Atlas map"><span data-icon="arrow"></span></a></div>
+      <div class="atlas-option"><button data-map="cities" aria-pressed="false"><span data-icon="church"></span><span>Ancient cities<small>The world behind the words</small></span></button><a class="atlas-go" href="/study/atlas/cities" aria-label="Open ancient cities in the Atlas"><span data-icon="arrow"></span></a></div>
+      <div class="atlas-option"><button data-map="paul" aria-pressed="false"><span data-icon="branch"></span><span>Follow Paul<small>The road, the churches, the letters</small></span></button><a class="atlas-go" href="/study/atlas/journeys?focus=paul&amp;lens=story" aria-label="Open Paul’s journeys in the Atlas"><span data-icon="arrow"></span></a></div>
+    </div><div class="atlas-copy" id="atlas-copy" aria-live="polite"></div><a class="atlas-all" href="/study/atlas"><span data-icon="map"></span><span>Enter the full Atlas</span><span data-icon="arrow"></span></a></div>
+  </div>
 </section>
 <section class="hub-closing"><p class="eyebrow">One collection. Many connections.</p><h2>Begin with a question.<br><em>See where it leads.</em></h2><div><a href="/mockups/study-hub-v3/theology/?area=jesus">Read the Gospels together <span data-icon="arrowUp"></span></a><a href="/mockups/study-hub-v3/academic/?area=texts">Explore the surviving texts <span data-icon="arrowUp"></span></a></div></section>
 </div>'''
@@ -35,11 +39,7 @@ for branch in ['theology','academic']:
  (out/branch).mkdir(exist_ok=True)
  (out/branch/'index.html').write_bytes(shell('Scripture & Theology' if branch=='theology' else 'Academic Studies',branch,'<div class="branch" id="branch-root"></div>').encode())
 
-# Keep the established, data-checked writer and scholar drawings; their new primary CTA enters the theology branch.
-s=(root/'design/study-hub-v2/expanded.js').read_text(encoding='utf-8')
-s=s[s.index('  const writers'):re.search(r'\s+const eras',s).start()]
-s=re.sub(r"  \$\('writer-list'\).*?\n\n  const fields",'\n  const fields',s,flags=re.S)
-(out/'people.js').write_bytes(('/* Writer associations and scholar sample retained from direction 2. */\n(()=>{const $=id=>document.getElementById(id);const arrow=()=>window.icon("arrowUp",14);\n'+s+'\n})();\n').encode())
+# people.js is hand-authored: preserve the four writer illustrations when regenerating.
 
 # Copy the existing cartographic data, projection and tested first-journey schematic, not invented route geometry.
 world=json.loads((root/'src/data/atlas-map.json').read_text(encoding='utf-8'))
@@ -49,4 +49,4 @@ places=json.loads((root/'data/places.json').read_text(encoding='utf-8'))
 points=[{k:p[k] for k in ['id','name','lon','lat']} for p in places if p['id'] in ['aee7248','ae41ab4','a6f437a','a15257a','afc8e7a']]
 assert len(points)==5
 (out/'map-data.json').write_bytes(json.dumps({'land':world['land'],'scale':world['scale'],'translate':world['translate'],'journey':coords,'places':points},separators=(',',':')).encode())
-print('Created three connected page shells, people artwork and Atlas data.')
+print('Created three connected page shells and Atlas data; retained hand-authored artwork.')
