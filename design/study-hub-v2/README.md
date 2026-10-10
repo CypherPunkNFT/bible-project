@@ -2,6 +2,8 @@
 
 Owner-requested revision, 2026-10-09. [Open the local preview](http://127.0.0.1:8931/mockups/study-hub-v2/).
 
+**Successor:** [Direction 3: three connected landings](../study-hub-v3/README.md) now implements the revised composition for local review. This earlier option is preserved.
+
 ## Owner review and revised direction
 
 The later 2026-10-09 review supersedes this mockup's proposed section order. Remove the parent “Explore the collection” accordion; organise both study branches with illustrated subject doors instead. Move Writers of Scripture and Scholars directly below the main entrance cards as section 01. Rebuild Time & place as section 02 and a window into the actual Atlas, with its quality and existing destinations. The Atlas header item is planned to move into Study's navigation when the replacement entrance is implemented. Use this mockup's source shelf and Resources' “Choose a door” as references for the branch selection pattern.

@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Study · Bible Project</title><link rel="icon" href="/mockups/letters-shared/favicon.svg" type="image/svg+xml"><script>try{const t=localStorage.getItem('bp-theme');document.documentElement.dataset.theme=t==='light'||t==='dark'?t:matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}catch{document.documentElement.dataset.theme='light';}</script><link rel="stylesheet" href="/mockups/help-for-life-directions/shared/frame.css"><link rel="stylesheet" href="/mockups/study-hub-v1/study-hub.css"><link rel="stylesheet" href="/mockups/study-hub-v2/expanded.css"><link rel="stylesheet" href="/mockups/study-hub-v3/connected.css"></head>
+<body data-page="hub"><a class="skip-link" href="#main">Skip to study</a><template id="page-content">
+  <div class="hub">
+    <header class="hub-intro">
+      <div class="intro-copy">
+        <p class="eyebrow"><span></span> The study hub</p>
+        <h1>Go deeper into <em>the Word.</em></h1>
+        <p class="intro-lead">Begin with Scripture and its teaching, or explore the history,<br class="wide-break"> texts and people that illuminate it.</p>
+      </div>
+      <div class="finder">
+        <label for="study-search">Find your starting point</label>
+        <div class="search-field"><span data-icon="search"></span><input id="study-search" type="search" placeholder="A passage, subject or question…" autocomplete="off" aria-controls="search-results"><button type="button" id="clear-search" aria-label="Clear search" hidden><span data-icon="x"></span></button></div>
+        <p class="search-hint">Try <button data-search="prayer">prayer</button>, <button data-search="Gospels">Gospels</button> or <button data-search="manuscripts">manuscripts</button>.</p>
+      </div>
+    </header>
+
+    <section id="search-results" class="search-results" aria-label="Study search results" hidden>
+      <div class="results-head"><h2>Find a study</h2><p id="result-status" role="status" aria-live="polite"></p></div>
+      <div id="result-list"></div>
+    </section>
+
+    <div class="section-rule"><span>Choose your way in</span><span>Scripture, its teaching and its world.</span></div>
+    <section class="study-doors" aria-label="Study collections">
+      <a class="study-door scripture" href="/mockups/study-hub-v3/theology/" aria-labelledby="scripture-title">
+        <div class="door-top"><span>01 / Begin with the passage</span><span data-icon="book"></span></div>
+        <div class="door-art scripture-art" aria-hidden="true">
+          <svg viewBox="0 0 580 250" fill="none">
+            <defs><linearGradient id="page-shade" x1="148" y1="74" x2="418" y2="218" gradientUnits="userSpaceOnUse"><stop stop-color="currentColor" stop-opacity=".1"/><stop offset=".6" stop-color="currentColor" stop-opacity=".025"/><stop offset="1" stop-color="currentColor" stop-opacity=".13"/></linearGradient></defs>
+            <g class="art-orbits" stroke="currentColor"><ellipse cx="288" cy="132" rx="198" ry="85" opacity=".1"/><ellipse cx="288" cy="132" rx="223" ry="105" opacity=".065"/></g>
+            <path d="M92 199H489" stroke="currentColor" opacity=".18"/>
+            <g class="book-drawing">
+              <path d="M152 77Q220 48 287 79Q349 48 418 77L429 201Q356 174 287 205Q219 174 144 201Z" fill="var(--art-ground)" stroke="currentColor" opacity=".5"/>
+              <path d="M160 62Q224 42 287 76Q348 42 410 62L420 191Q351 166 287 198Q223 166 151 191Z" fill="url(#page-shade)" stroke="currentColor" stroke-width="1.4"/>
+              <path d="M287 77V198M280 76L281 192M294 74L294 192" stroke="currentColor" opacity=".35"/>
+              <path d="M152 197Q219 172 281 202M293 202Q355 172 421 197M152 202Q220 179 280 207M294 207Q357 177 424 202" stroke="currentColor" opacity=".25"/>
+              <path d="M317 69V172L327 163 335 170V63" fill="currentColor" opacity=".18"/>
+              <g id="verse-lines" stroke="currentColor" opacity=".33"></g>
+              <text x="183" y="92" class="book-type">IN THE BEGINNING</text>
+              <path d="M304 90Q349 74 388 84" stroke="currentColor" opacity=".65"/>
+            </g>
+            <g stroke="currentColor" opacity=".4"><path d="M107 73H142M423 85H463M288 211V229"/><circle cx="107" cy="73" r="3" fill="var(--art-ground)"/><circle cx="463" cy="85" r="3" fill="var(--art-ground)"/><circle cx="288" cy="230" r="3" fill="var(--art-ground)"/></g>
+            <text x="72" y="59" class="art-label">READ</text><text x="441" y="70" class="art-label">UNDERSTAND</text><text x="288" y="249" text-anchor="middle" class="art-label">LIVE THE WORD</text>
+          </svg>
+        </div>
+        <div class="door-copy"><p class="door-question">What does Scripture teach?</p><h2 id="scripture-title">Scripture <span>&amp; Theology</span></h2><p>Read the passages. Follow their connections. Explore what the Bible teaches about God, his people and the life of faith.</p></div>
+        <ul class="door-subjects"><li>Passages &amp; books</li><li>Doctrine &amp; themes</li><li>Prayer &amp; Christian life</li></ul>
+        <div class="door-action"><span>Explore Scripture &amp; Theology</span><span class="door-arrow" data-icon="arrow"></span></div>
+      </a>
+
+      <a class="study-door academic" href="/mockups/study-hub-v3/academic/" aria-labelledby="academic-title">
+        <div class="door-top"><span>02 / Follow the sources</span><span data-icon="graduation"></span></div>
+        <div class="door-art academic-art" aria-hidden="true">
+          <svg viewBox="0 0 580 250" fill="none">
+            <defs><linearGradient id="prism-shade" x1="220" y1="60" x2="324" y2="202" gradientUnits="userSpaceOnUse"><stop stop-color="currentColor" stop-opacity=".14"/><stop offset="1" stop-color="currentColor" stop-opacity=".025"/></linearGradient></defs>
+            <ellipse cx="291" cy="134" rx="211" ry="92" stroke="currentColor" opacity=".08"/>
+            <path d="M85 202H492" stroke="currentColor" opacity=".18"/>
+            <g class="folio-drawing">
+              <path d="M122 72 215 66 211 178 202 191 115 188Z" fill="var(--art-ground)" stroke="currentColor" stroke-width="1.1" opacity=".55"/>
+              <path d="M124 65 213 69 206 187 114 181Z" fill="var(--art-ground)" stroke="currentColor" stroke-width="1.2"/>
+              <g id="manuscript-lines" stroke="currentColor" opacity=".4"></g>
+              <path d="M122 160 144 162M151 163 172 164M177 164 196 165" stroke="currentColor" opacity=".35"/>
+            </g>
+            <g class="prism-drawing">
+              <path d="M235 64 292 44 332 75 329 195 272 215 231 180Z" fill="var(--art-ground)" stroke="currentColor" stroke-width="1.4"/>
+              <path d="M235 64 275 96 332 75 329 195 272 215 231 180Z" fill="url(#prism-shade)"/>
+              <path d="M235 64 275 96 332 75M275 96 272 215" stroke="currentColor" opacity=".7"/>
+              <g id="inscription-lines" stroke="currentColor" opacity=".52"></g>
+            </g>
+            <g class="scholar-drawing">
+              <path d="M360 170Q389 155 415 168Q441 155 470 170L468 200Q440 184 415 199Q391 185 362 200Z" fill="var(--art-ground)" stroke="currentColor" opacity=".7"/>
+              <path d="M415 168V199M369 175Q389 164 407 174M370 182Q388 172 407 181M425 174Q442 164 461 176M424 181Q441 171 460 183" stroke="currentColor" opacity=".28"/>
+              <circle cx="408" cy="114" r="41" fill="var(--art-ground)" stroke="currentColor" stroke-width="1.2"/>
+              <circle cx="408" cy="114" r="35" stroke="currentColor" opacity=".22"/>
+              <path d="M408 91c-10 0-15 7-14 17l-5 7 6 2 1 12-7 7m19-45c12 0 19 8 18 19-1 8-6 12-9 14l2 9 10 9M400 100c1-6 9-9 15-5M398 107h4M397 119h6M396 133c9 6 16 7 23 0" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" opacity=".65"/>
+            </g>
+            <g stroke="currentColor" opacity=".35"><path d="M168 57V40H113M285 224V235M429 67 446 47H476"/><circle cx="112" cy="40" r="3"/><circle cx="285" cy="236" r="3"/><circle cx="477" cy="47" r="3"/></g>
+            <text x="86" y="25" class="art-label">MANUSCRIPTS</text><text x="285" y="249" text-anchor="middle" class="art-label">HISTORY &amp; ARCHAEOLOGY</text><text x="416" y="32" class="art-label">SCHOLARSHIP</text>
+          </svg>
+        </div>
+        <div class="door-copy"><p class="door-question">What can the sources tell us?</p><h2 id="academic-title">Academic <span>Studies</span></h2><p>Examine the historical world, the surviving texts and the work of scholars. See the evidence, its interpretation and its limits.</p></div>
+        <ul class="door-subjects"><li>History &amp; archaeology</li><li>Manuscripts &amp; languages</li><li>Theologians &amp; their works</li></ul>
+        <div class="door-action"><span>Explore Academic Studies</span><span class="door-arrow" data-icon="arrow"></span></div>
+      </a>
+    </section>
+
+        <section class="hub-section" id="voices" aria-labelledby="voices-title">
+      <div class="section-heading"><div><p class="eyebrow">01 / The people behind the pages</p><h2 id="voices-title">Meet the writers.<br><em>Follow their work.</em></h2></div><p>Enter through a life, then follow the books, ideas and questions that make their work worth exploring.</p></div>
+      <div class="people-pair">
+        <article class="people-feature writers"><div class="feature-kicker"><span>Scripture &amp; Theology</span><span>Lives → Books → Studies</span></div><h3>Writers of Scripture</h3><p>Prophets, poets, Gospel writers and apostles. Meet the people associated with the biblical books, and follow their words into Scripture.</p><div class="writers-art" id="writers-art"></div><div class="people-caption" id="writer-caption" aria-live="polite"></div><a class="feature-link" href="/mockups/study-hub-v3/theology/?area=people#writer-preview">Explore the writers of Scripture <span data-icon="arrow"></span></a></article>
+        <article class="people-feature scholars"><div class="feature-kicker"><span>Academic Studies</span><span>Lives → Works → Studies</span></div><h3>Scholars</h3><p>Historians, translators, archaeologists and theologians. Meet the people whose questions and careful work help us understand the Bible.</p><div class="scholar-art" id="scholar-art"></div><div class="scholar-fields" id="scholar-fields" aria-label="Explore scholars by field"></div><div class="people-caption" id="scholar-caption" aria-live="polite"></div><a class="feature-link" href="/teachers/scholars">Explore Scholars <span data-icon="arrow"></span></a></article>
+      </div>
+
+    </section>
+
+
+<section class="hub-section atlas-section" id="world" aria-labelledby="world-title">
+  <div class="section-heading"><div><p class="eyebrow">02 / Time &amp; place</p><h2 id="world-title">Step into <em>their world.</em></h2></div><p>Put a place to the passage. Enter an ancient city.<br>Follow a life across the map.</p></div>
+  <div class="atlas-window">
+    <div class="atlas-scene"><div class="atlas-map-title"><span id="map-kicker">THE BIBLICAL WORLD</span><span class="compass" aria-hidden="true">N<br>↑</span></div><div id="atlas-map"></div><div class="map-legend"><span><i></i><span id="map-legend-text">Places to begin exploring</span></span><span>Explore in the Atlas</span></div></div>
+    <div class="atlas-story"><p class="eyebrow">The Atlas</p><div class="atlas-tabs" role="group" aria-label="Choose a way into Atlas"><button data-map="map" aria-pressed="true"><span data-icon="map"></span><span>Explore the map<small>A place for every passage</small></span><span class="atlas-tick">01</span></button><button data-map="cities" aria-pressed="false"><span data-icon="church"></span><span>Ancient cities<small>The world behind the words</small></span><span class="atlas-tick">02</span></button><button data-map="paul" aria-pressed="false"><span data-icon="branch"></span><span>Follow Paul<small>The road, the churches, the letters</small></span><span class="atlas-tick">03</span></button></div><div class="atlas-copy" id="atlas-copy" aria-live="polite"></div><a class="atlas-all" href="/study/atlas">Enter the full Atlas <span data-icon="arrow"></span></a></div>
+  </div><p class="atlas-caption">A passage has a setting. A city has a story. Follow either into the other.</p>
+</section>
+<section class="hub-closing"><p class="eyebrow">One collection. Many connections.</p><h2>Begin with a question.<br><em>See where it leads.</em></h2><div><a href="/mockups/study-hub-v3/theology/?area=jesus">Read the Gospels together <span data-icon="arrowUp"></span></a><a href="/mockups/study-hub-v3/academic/?area=texts">Explore the surviving texts <span data-icon="arrowUp"></span></a></div></section>
+</div></template><script src="/mockups/help-for-life-directions/shared/frame.js"></script><script src="/mockups/study-hub-v3/collections.js"></script><script src="/mockups/study-hub-v3/artwork.js"></script><script src="/mockups/study-hub-v3/page.js"></script><script src="/mockups/study-hub-v3/people.js"></script><script src="/mockups/study-hub-v3/atlas.js"></script></body></html>

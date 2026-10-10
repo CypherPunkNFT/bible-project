@@ -1,0 +1,19 @@
+/* Original schematic drawings of subject matter, rather than replicas of historical objects. */
+window.subjectArt = (kind, small=false) => {
+  const lines=(x,y,n,w=48,gap=7)=>Array.from({length:n},(_,i)=>`<path d="M${x} ${y+i*gap}h${w-(i%3)*7}" opacity="${i%3===0?.6:.3}"/>`).join('');
+  const book=(x=41,y=91,w=120)=>`<path d="M${x} ${y}q${w/4} -14 ${w/2} 2q${w/4} -16 ${w/2} -2l-4 76q-${w/4} -12 -${w/2-4} 2q-${w/4} -14 -${w/2-4} -2Z" fill="var(--page)"/><path d="M${x+w/2} ${y+2}v77"/>${Array.from({length:7},(_,i)=>`<path d="M${x+10} ${y+16+i*7}q20 -5 39 3m12 -3q20 -5 37 -3" opacity=".3"/>`).join('')}`;
+  const shapes={
+    books:`<path d="M52 164V57q0-5 5-5h24v116M85 169V38h29v129M118 168l-5-94 29-4 10 97M38 173h126"/>${lines(58,66,10,16)}${lines(91,56,13,17)}<path d="M124 83l6 64m5-65 6 61" opacity=".3"/>`,
+    letters:`<path d="M40 80h120v89H40Z" fill="var(--page)"/><path d="M40 80l60 45 60-45M40 168l44-55m76 55-44-55"/><path d="M60 94V39h80v56"/>${lines(72,54,5,57)}<circle cx="100" cy="125" r="12" fill="var(--page)"/><path d="m94 125 4 4 7-9"/>`,
+    gospels:`<path d="M29 71h29v91H29ZM67 53h29v109H67ZM105 62h29v100h-29ZM143 39h29v123h-29Z" fill="var(--page)"/>${[29,67,105,143].map((x,i)=>`<path d="M${x+6} ${85-i*8}h17m-17 8h17m-17 8h17m-17 8h17" opacity=".3"/>`).join('')}<path d="M23 175h156m-139 7 60 15 57-15" opacity=".4"/>`,
+    doctrine:`<circle cx="100" cy="100" r="67" opacity=".2"/><circle cx="100" cy="100" r="52" opacity=".4"/><path d="m100 45 49 86H51Z"/><circle cx="100" cy="45" r="5" fill="var(--page)"/><circle cx="149" cy="131" r="5" fill="var(--page)"/><circle cx="51" cy="131" r="5" fill="var(--page)"/><path d="M100 77v46m-20-24h40M100 18v12m0 140v12M18 100h12m140 0h12" opacity=".55"/>`,
+    prayer:`${book(40,111)}<path d="M101 34c-15 20-28 31-27 48 0 16 11 22 26 22s27-12 25-25c-2-13-14-25-13-37-7 8-8 15-9 21 0-13-6-17-2-29Z"/><path d="M98 84q-7 13 2 20m-38-39-9-6m94 0-9 6M100 14v10" opacity=".45"/>`,
+    writers:`<circle cx="71" cy="65" r="24"/><path d="M32 133q0-41 39-41t39 41M62 159h98m-74 10h75M117 111l38-58q8-9 12 0l-33 63-22 18Z"/><path d="m117 111 17 5M45 63h7m14-6q7-8 15-2m-13 22h12" opacity=".35"/>`,
+    inscription:`<path d="m65 49 53-19 36 31-3 112-53 20-39-32Z" fill="var(--page)"/><path d="m65 49 36 31 53-19M101 80l-3 113"/>${Array.from({length:10},(_,i)=>`<path d="m69 ${65+i*9} 5 3-3 1m10 4 5 3-2 2m21 ${-2-i*.05} 31-11" opacity=".4"/>`).join('')}`,
+    manuscript:`<path d="M54 35l101-4 4 151-112 5Z" fill="var(--page)"/><path d="m48 46-7 151 110-5" opacity=".4"/>${lines(66,52,17,29)}${lines(111,51,17,29)}<path d="m137 34 4 16m-87 119 10 5-5 10" opacity=".4"/>`,
+    languages:`${book(40,83)}<text x="70" y="126" stroke="none" fill="currentColor" font-size="28" font-family="Georgia">α</text><text x="126" y="123" stroke="none" fill="currentColor" font-size="28" font-family="Georgia">א</text><path d="M63 66q39-33 76-2m-9-13 11 14-18 2" opacity=".55"/>`,
+    city:`<path d="M28 171h144M39 166V102h25v64m6 0V83h31v83m7 0V111h32v55m6 0V93h20v73M32 99l21-21 17 21m-4-20 20-19 20 19M88 56V38m-5 0h10M31 175h140"/><path d="M78 163v-25q8-15 16 0v25m-50-48h13m-13 11h13m59-3h15m-15 11h15M152 103h7" opacity=".5"/><path d="M23 184q42 22 83 0t66 0" opacity=".25"/>`,
+    church:`<path d="M33 175h138M54 170V97l46-40 48 40v73M95 52V29m-11 10h23M83 169v-40q17-25 34 0v40M65 105h13v22H65Zm58 0h13v22h-13Z"/><path d="M41 110v58m120-58v58M60 91h80" opacity=".4"/><circle cx="101" cy="91" r="8"/><path d="M47 187h106" opacity=".2"/>`,
+  };
+  return `<svg viewBox="0 0 200 215" class="subject-art ${small?'small':''}" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.05" stroke-linejoin="round" stroke-linecap="round"><ellipse cx="100" cy="123" rx="80" ry="71" opacity=".055"/>${shapes[kind]||shapes.books}<path d="M17 200h166" opacity=".2"/></svg>`;
+};
