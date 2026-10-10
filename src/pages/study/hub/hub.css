@@ -221,3 +221,9 @@
 .study-experience .subject-door:is(:hover,:focus-visible) .door-indicator{transform:translateY(3px);opacity:1}
 @media(max-width:700px){.study-experience .subject-door strong{font-size:17px}.study-experience .subject-door small{font-size:11px}}
 @media(prefers-reduced-motion:reduce){.study-experience .subject-door .subject-art,.study-experience .subject-door .door-indicator{transition:none;transform:none}}
+
+/* Keep every subject at rest until hover, including the selected option. */
+.study-experience .subject-door.selected .subject-art{transform:translateY(0)}
+.study-experience .subject-door:is(:hover,:focus-visible) .subject-art{transform:translateY(-6px)}
+.study-experience .subject-door .door-indicator{margin-top:12px}
+@media(prefers-reduced-motion:reduce){.study-experience .subject-door:is(:hover,:focus-visible) .subject-art{transform:none}}
