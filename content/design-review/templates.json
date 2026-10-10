@@ -1,7 +1,7 @@
 {
  "schema": 1,
- "generatedAt": "2026-10-10T01:30:03.758Z",
- "commit": "f088b412",
+ "generatedAt": "2026-10-10T01:39:37.981Z",
+ "commit": "43d82989",
  "areas": [
   {
    "id": "people",
@@ -2628,7 +2628,7 @@
     "src/pages/WorldviewsPage.tsx",
     "src/pages/worldviews.css"
    ],
-   "sourceHash": "cce579a8fc86c73d",
+   "sourceHash": "d5d41c787bbac8e9",
    "signature": {
     "selector": "#muslim-world",
     "label": "Muslim-world country explorer"
@@ -2859,13 +2859,13 @@
     {
      "id": "sphere-a",
      "name": "Islam: sphere A",
-     "what": "An in-place sphere palette mock-up using the original canvas, full circle and cached geography.",
+     "what": "Sixteen compact sphere cards, with subtle variations of Earth and Midnight using one live globe.",
      "instances": 1,
      "samples": [
       {
        "id": "page",
        "label": "The page",
-       "url": "/apologetics/worldviews/islam?country=PAK&globeDesign=a#muslim-world",
+       "url": "/apologetics/worldviews/islam?country=PAK&globeDesign=a#sphere-studies",
        "why": "the only page of this design"
       }
      ]
@@ -2873,13 +2873,13 @@
     {
      "id": "sphere-b",
      "name": "Islam: sphere B",
-     "what": "An in-place sphere palette mock-up using the original canvas, full circle and cached geography.",
+     "what": "Sixteen compact sphere cards, with subtle variations of Earth and Midnight using one live globe.",
      "instances": 1,
      "samples": [
       {
        "id": "page",
        "label": "The page",
-       "url": "/apologetics/worldviews/islam?country=PAK&globeDesign=b#muslim-world",
+       "url": "/apologetics/worldviews/islam?country=PAK&globeDesign=b#sphere-studies",
        "why": "the only page of this design"
       }
      ]
@@ -2887,13 +2887,13 @@
     {
      "id": "sphere-c",
      "name": "Islam: sphere C",
-     "what": "An in-place sphere palette mock-up using the original canvas, full circle and cached geography.",
+     "what": "Sixteen compact sphere cards, with subtle variations of Earth and Midnight using one live globe.",
      "instances": 1,
      "samples": [
       {
        "id": "page",
        "label": "The page",
-       "url": "/apologetics/worldviews/islam?country=PAK&globeDesign=c#muslim-world",
+       "url": "/apologetics/worldviews/islam?country=PAK&globeDesign=c#sphere-studies",
        "why": "the only page of this design"
       }
      ]
@@ -2901,13 +2901,13 @@
     {
      "id": "sphere-d",
      "name": "Islam: sphere D",
-     "what": "An in-place sphere palette mock-up using the original canvas, full circle and cached geography.",
+     "what": "Sixteen compact sphere cards, with subtle variations of Earth and Midnight using one live globe.",
      "instances": 1,
      "samples": [
       {
        "id": "page",
        "label": "The page",
-       "url": "/apologetics/worldviews/islam?country=PAK&globeDesign=d#muslim-world",
+       "url": "/apologetics/worldviews/islam?country=PAK&globeDesign=d#sphere-studies",
        "why": "the only page of this design"
       }
      ]
@@ -2915,13 +2915,13 @@
     {
      "id": "sphere-e",
      "name": "Islam: sphere E",
-     "what": "An in-place sphere palette mock-up using the original canvas, full circle and cached geography.",
+     "what": "Sixteen compact sphere cards, with subtle variations of Earth and Midnight using one live globe.",
      "instances": 1,
      "samples": [
       {
        "id": "page",
        "label": "The page",
-       "url": "/apologetics/worldviews/islam?country=PAK&globeDesign=e#muslim-world",
+       "url": "/apologetics/worldviews/islam?country=PAK&globeDesign=e#sphere-studies",
        "why": "the only page of this design"
       }
      ]
@@ -2929,13 +2929,153 @@
     {
      "id": "sphere-f",
      "name": "Islam: sphere F",
-     "what": "An in-place sphere palette mock-up using the original canvas, full circle and cached geography.",
+     "what": "Sixteen compact sphere cards, with subtle variations of Earth and Midnight using one live globe.",
      "instances": 1,
      "samples": [
       {
        "id": "page",
        "label": "The page",
-       "url": "/apologetics/worldviews/islam?country=PAK&globeDesign=f#muslim-world",
+       "url": "/apologetics/worldviews/islam?country=PAK&globeDesign=f#sphere-studies",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "sphere-g",
+     "name": "Islam: sphere G",
+     "what": "Sixteen compact sphere cards, with subtle variations of Earth and Midnight using one live globe.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/apologetics/worldviews/islam?country=PAK&globeDesign=g#sphere-studies",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "sphere-h",
+     "name": "Islam: sphere H",
+     "what": "Sixteen compact sphere cards, with subtle variations of Earth and Midnight using one live globe.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/apologetics/worldviews/islam?country=PAK&globeDesign=h#sphere-studies",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "sphere-i",
+     "name": "Islam: sphere I",
+     "what": "Sixteen compact sphere cards, with subtle variations of Earth and Midnight using one live globe.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/apologetics/worldviews/islam?country=PAK&globeDesign=i#sphere-studies",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "sphere-j",
+     "name": "Islam: sphere J",
+     "what": "Sixteen compact sphere cards, with subtle variations of Earth and Midnight using one live globe.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/apologetics/worldviews/islam?country=PAK&globeDesign=j#sphere-studies",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "sphere-k",
+     "name": "Islam: sphere K",
+     "what": "Sixteen compact sphere cards, with subtle variations of Earth and Midnight using one live globe.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/apologetics/worldviews/islam?country=PAK&globeDesign=k#sphere-studies",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "sphere-l",
+     "name": "Islam: sphere L",
+     "what": "Sixteen compact sphere cards, with subtle variations of Earth and Midnight using one live globe.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/apologetics/worldviews/islam?country=PAK&globeDesign=l#sphere-studies",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "sphere-m",
+     "name": "Islam: sphere M",
+     "what": "Sixteen compact sphere cards, with subtle variations of Earth and Midnight using one live globe.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/apologetics/worldviews/islam?country=PAK&globeDesign=m#sphere-studies",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "sphere-n",
+     "name": "Islam: sphere N",
+     "what": "Sixteen compact sphere cards, with subtle variations of Earth and Midnight using one live globe.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/apologetics/worldviews/islam?country=PAK&globeDesign=n#sphere-studies",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "sphere-o",
+     "name": "Islam: sphere O",
+     "what": "Sixteen compact sphere cards, with subtle variations of Earth and Midnight using one live globe.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/apologetics/worldviews/islam?country=PAK&globeDesign=o#sphere-studies",
+       "why": "the only page of this design"
+      }
+     ]
+    },
+    {
+     "id": "sphere-p",
+     "name": "Islam: sphere P",
+     "what": "Sixteen compact sphere cards, with subtle variations of Earth and Midnight using one live globe.",
+     "instances": 1,
+     "samples": [
+      {
+       "id": "page",
+       "label": "The page",
+       "url": "/apologetics/worldviews/islam?country=PAK&globeDesign=p#sphere-studies",
        "why": "the only page of this design"
       }
      ]

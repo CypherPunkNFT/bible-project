@@ -1,9 +1,9 @@
 {
  "schema": 1,
- "commit": "f088b412",
- "startedAt": "2026-10-09T17:18:38.783Z",
- "finishedAt": "2026-10-10T01:28:10.460Z",
- "base": "http://127.0.0.1:8969",
+ "commit": "43d82989",
+ "startedAt": "2026-10-09T23:34:19.946Z",
+ "finishedAt": "2026-10-10T01:41:49.132Z",
+ "base": "http://127.0.0.1:8974",
  "checks": [
   {
    "id": "loads",
@@ -1646,23 +1646,8 @@
    "instances": 1,
    "checked": 1,
    "coverage": "",
-   "failed": {
-    "links": 1
-   },
-   "failures": [
-    {
-     "url": "/apologetics/worldviews/islam?country=PAK&globeDesign=a#muslim-world",
-     "width": 400,
-     "check": "links",
-     "detail": "/teachers: this address is not a page on the site"
-    },
-    {
-     "url": "/apologetics/worldviews/islam?country=PAK&globeDesign=a#muslim-world",
-     "width": 400,
-     "check": "links",
-     "detail": "/resources: this address is not a page on the site"
-    }
-   ]
+   "failed": {},
+   "failures": []
   },
   {
    "template": "ap-worldview",
@@ -1670,23 +1655,8 @@
    "instances": 1,
    "checked": 1,
    "coverage": "",
-   "failed": {
-    "links": 1
-   },
-   "failures": [
-    {
-     "url": "/apologetics/worldviews/islam?country=PAK&globeDesign=b#muslim-world",
-     "width": 400,
-     "check": "links",
-     "detail": "/teachers: this address is not a page on the site"
-    },
-    {
-     "url": "/apologetics/worldviews/islam?country=PAK&globeDesign=b#muslim-world",
-     "width": 400,
-     "check": "links",
-     "detail": "/resources: this address is not a page on the site"
-    }
-   ]
+   "failed": {},
+   "failures": []
   },
   {
    "template": "ap-worldview",
@@ -1694,23 +1664,8 @@
    "instances": 1,
    "checked": 1,
    "coverage": "",
-   "failed": {
-    "links": 1
-   },
-   "failures": [
-    {
-     "url": "/apologetics/worldviews/islam?country=PAK&globeDesign=c#muslim-world",
-     "width": 400,
-     "check": "links",
-     "detail": "/teachers: this address is not a page on the site"
-    },
-    {
-     "url": "/apologetics/worldviews/islam?country=PAK&globeDesign=c#muslim-world",
-     "width": 400,
-     "check": "links",
-     "detail": "/resources: this address is not a page on the site"
-    }
-   ]
+   "failed": {},
+   "failures": []
   },
   {
    "template": "ap-worldview",
@@ -1718,23 +1673,8 @@
    "instances": 1,
    "checked": 1,
    "coverage": "",
-   "failed": {
-    "links": 1
-   },
-   "failures": [
-    {
-     "url": "/apologetics/worldviews/islam?country=PAK&globeDesign=d#muslim-world",
-     "width": 400,
-     "check": "links",
-     "detail": "/teachers: this address is not a page on the site"
-    },
-    {
-     "url": "/apologetics/worldviews/islam?country=PAK&globeDesign=d#muslim-world",
-     "width": 400,
-     "check": "links",
-     "detail": "/resources: this address is not a page on the site"
-    }
-   ]
+   "failed": {},
+   "failures": []
   },
   {
    "template": "ap-worldview",
@@ -1742,23 +1682,8 @@
    "instances": 1,
    "checked": 1,
    "coverage": "",
-   "failed": {
-    "links": 1
-   },
-   "failures": [
-    {
-     "url": "/apologetics/worldviews/islam?country=PAK&globeDesign=e#muslim-world",
-     "width": 400,
-     "check": "links",
-     "detail": "/teachers: this address is not a page on the site"
-    },
-    {
-     "url": "/apologetics/worldviews/islam?country=PAK&globeDesign=e#muslim-world",
-     "width": 400,
-     "check": "links",
-     "detail": "/resources: this address is not a page on the site"
-    }
-   ]
+   "failed": {},
+   "failures": []
   },
   {
    "template": "ap-worldview",
@@ -1766,23 +1691,8 @@
    "instances": 1,
    "checked": 1,
    "coverage": "",
-   "failed": {
-    "links": 1
-   },
-   "failures": [
-    {
-     "url": "/apologetics/worldviews/islam?country=PAK&globeDesign=f#muslim-world",
-     "width": 400,
-     "check": "links",
-     "detail": "/teachers: this address is not a page on the site"
-    },
-    {
-     "url": "/apologetics/worldviews/islam?country=PAK&globeDesign=f#muslim-world",
-     "width": 400,
-     "check": "links",
-     "detail": "/resources: this address is not a page on the site"
-    }
-   ]
+   "failed": {},
+   "failures": []
   },
   {
    "template": "research-lesson",
@@ -1870,6 +1780,96 @@
    "variant": "profiles",
    "instances": 3,
    "checked": 3,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "ap-worldview",
+   "variant": "sphere-g",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "ap-worldview",
+   "variant": "sphere-h",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "ap-worldview",
+   "variant": "sphere-i",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "ap-worldview",
+   "variant": "sphere-j",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "ap-worldview",
+   "variant": "sphere-k",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "ap-worldview",
+   "variant": "sphere-l",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "ap-worldview",
+   "variant": "sphere-m",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "ap-worldview",
+   "variant": "sphere-n",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "ap-worldview",
+   "variant": "sphere-o",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "ap-worldview",
+   "variant": "sphere-p",
+   "instances": 1,
+   "checked": 1,
    "coverage": "",
    "failed": {},
    "failures": []
