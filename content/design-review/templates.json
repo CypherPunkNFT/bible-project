@@ -1,7 +1,7 @@
 {
  "schema": 1,
- "generatedAt": "2026-10-10T01:06:54.029Z",
- "commit": "d8809f30",
+ "generatedAt": "2026-10-10T01:12:39.524Z",
+ "commit": "5e9cfaa2",
  "areas": [
   {
    "id": "people",
@@ -2605,12 +2605,14 @@
    "sources": [
     "content/missions/muslim-world.json",
     "src/components/ApologeticsParts.tsx",
+    "src/components/apologetics/CountryFinder.tsx",
     "src/components/apologetics/CountryPanelHeader.tsx",
     "src/components/apologetics/CountryPanelPrototype.tsx",
     "src/components/apologetics/CountryPeopleGroups.tsx",
     "src/components/apologetics/MuslimWorldExplorer.tsx",
     "src/components/apologetics/PillScroll.tsx",
     "src/components/apologetics/SphereThemePrototype.tsx",
+    "src/components/apologetics/country-finder.css",
     "src/components/apologetics/country-panel-prototype.css",
     "src/components/apologetics/country-people-groups.css",
     "src/components/apologetics/muslim-world.css",
@@ -2626,7 +2628,7 @@
     "src/pages/WorldviewsPage.tsx",
     "src/pages/worldviews.css"
    ],
-   "sourceHash": "365ee068fdd8c45b",
+   "sourceHash": "a374d7fb76d5eff7",
    "signature": {
     "selector": "#muslim-world",
     "label": "Muslim-world country explorer"
@@ -2689,7 +2691,7 @@
     {
      "id": "people-groups",
      "name": "Islam: people groups",
-     "what": "Adopted B header with Population/Muslim/Christian facts and a complete B editorial people-group directory.",
+     "what": "Map search, population beside the country identity, separate Muslim/Christian identification bars and a complete B editorial people-group directory.",
      "instances": 1,
      "samples": [
       {
