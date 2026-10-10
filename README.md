@@ -1,5 +1,13 @@
 # Bible Project
 
+## Production release, 2026-10-10
+
+All accumulated site and library changes are published at https://bibleproject.io. Final application commit: `6fd0f71aa`; immutable deployment: https://3e607d51.bible-project-4af.pages.dev. The package has 19,676 files, 149,799 library records and 19,841 on-site reading copies. Both Teachers acquired sections use their live contributor totals. Later Study refinements are included.
+
+Types, content tests, recovery tests, on-site reading tests and selected page-review checks passed. The previously documented genealogy-routing assertion remains the sole unit-test failure (277/278 passed). Production testimony health and the immutable deployment's main pages and reading text were verified.
+
+For large prepared Pages releases, run `node <Website>/scripts/deploy-pages-resumable.mjs pages deploy site --project-name bible-project --branch main --commit-hash <built-commit>` from the release directory containing its production `wrangler.jsonc`. This uses a guarded copy of installed Wrangler, 4 MiB batches and checkpoints of confirmed uploaded hashes. It preserves the original tool and stops if its expected uploader code changes. The standard 40 MiB upload repeatedly failed with connection resets; the smaller checkpointed upload completed. Private originals, local databases, private catalogues and generated caches remain local.
+
 <!-- BULK intake -->
 ## Same-day private intake and bulk harvest
 
