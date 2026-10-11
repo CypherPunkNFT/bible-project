@@ -96,6 +96,7 @@ export default function App() {
               <Route path="/study/atlas/*" element={<AtlasPage />} />
               <Route path="/study/places/*" element={<AtlasRedirect />} />
               <Route path="/apologetics/*" element={<ApologeticsPage />} />
+              <Route path="/apologetics2/*" element={<ApologeticsPage variant="proposed" />} />
               <Route path="/study/harmony" element={<StudyRedirect />} />
               <Route path="/study/miracles" element={<MiraclesPage />} />
               <Route path="/study/letters/*" element={<LettersPage />} />

@@ -41,7 +41,7 @@ function Article(){const [params]=useSearchParams();const id=params.get('article
 
 function OverviewRedirect({reading=false}:{reading?:boolean}){
  const location=useLocation();
- return <Navigate replace to={{pathname:'/apologetics/worldviews/islam',search:location.search,hash:location.hash||(reading?'#reading-sources':'')}}/>;
+ return <Navigate replace to={{pathname:(location.pathname.startsWith('/apologetics2/')?'/apologetics2':'/apologetics')+'/worldviews/islam',search:location.search,hash:location.hash||(reading?'#reading-sources':'')}}/>;
 }
 
 export default function IslamGuidePage(){return <div className="wv-page concept-content am-guide"><Routes><Route index element={<OverviewRedirect/>}/><Route path="understanding" element={<Understanding/>}/><Route path="ministry" element={<Ministry/>}/><Route path="library" element={<OverviewRedirect reading/>}/><Route path="article" element={<Article/>}/><Route path="*" element={<OverviewRedirect/>}/></Routes></div>;}
