@@ -35,7 +35,7 @@ export const GOSPEL_PORTRAITS: GospelPortrait[] = [
     },
   },
   {
-    event: "72", title: "Bread for the crowd", question: "One meal. What does each Gospel bring into view?",
+    event: "72", title: "Bread for the crowd", question: "One meal. Four Gospel perspectives.",
     invitation: "Begin before the food is distributed. Compare how the crowd is received and how the disciples enter the conversation.",
     observations: {
       MAT: "Jesus has compassion on the crowd and heals their sick before the disciples raise the question of food (14:14–15).",
@@ -64,7 +64,7 @@ export const GOSPEL_PORTRAITS: GospelPortrait[] = [
     },
   },
   {
-    event: "141", title: "The costly anointing", question: "Where does the account place this act of devotion?",
+    event: "141", title: "The costly anointing", question: "Where is this act of devotion placed?",
     invitation: "Watch the markers on the map: John places the anointing before the entry into Jerusalem; Matthew and Mark narrate it later. Compare their narrative arrangements without turning the diagram into a calendar.",
     observations: {
       MAT: "The disciples object to the expense; Jesus interprets the act in relation to his burial (26:8–12).",
