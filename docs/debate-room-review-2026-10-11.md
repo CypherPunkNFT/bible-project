@@ -17,3 +17,9 @@ The collection combines topic, speaker and text filters in the URL. Topic/speake
 - Page prose regenerated with `bun scripts/export-pages.ts`; source and handoff documentation updated.
 
 No public deployment or Git push was performed. The collection remains nine guides; this change organizes and explains them rather than adding new transcript records.
+
+## Hover refinement
+
+Removed the persistent gold background and border from the first featured card. All three now rest neutrally. Pointer hover or keyboard focus strengthens the illustration stroke from 1 to 1.45, adds a subtle drawing glow and lights the card border over 280ms. Topic illustrations receive the same line treatment. Touch devices avoid sticky hover states, and the existing reduced-motion setting disables transitions.
+
+Production build passed. Browser inspection verified equal resting cards, hover/reset on all three cards, focus, reduced motion and navigation in light and dark themes. Four landing screenshots were refreshed; the dark hover treatment was visually inspected.
