@@ -45,9 +45,11 @@ export function Catalogue() {
         <div className="cat-bar"><p className="cat-count" aria-live="polite"><b>{visible.length}</b> of {total} scholars</p>
           <div className="cat-sort" role="radiogroup" aria-label="Sort by"><span className="cat-sort-l">Sort</span>
             {SORTS.map(({ key, label }) => <button key={key} type="button" role="radio" data-sort={key} aria-checked={key === sort} onClick={() => setSort(key)}>{label}</button>)}</div></div>
-        <CardGrid data={data} visible={visible} onOpen={openProfile} />
-        <div className="cat-empty" hidden={visible.length > 0}><p>No scholar matches all of these.</p>
-          <button type="button" className="cat-clear" onClick={clear}>Clear the filters</button></div>
+        <div className="cat-scroll" role="region" aria-label="Scholar cards" tabIndex={0}>
+          <CardGrid data={data} visible={visible} onOpen={openProfile} />
+          <div className="cat-empty" hidden={visible.length > 0}><p>No scholar matches all of these.</p>
+            <button type="button" className="cat-clear" onClick={clear}>Clear the filters</button></div>
+        </div>
       </div>
     </div>
   </>;
