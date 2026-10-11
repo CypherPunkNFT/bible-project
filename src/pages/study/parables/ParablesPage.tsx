@@ -36,7 +36,7 @@ export default function ParablesPage() {
   const story = PARABLES.find(p=>p.id===params.get('parable')) ?? PARABLES.find(p=>p.id==='sons')!;
   const [room, setRoom] = useState('all');
   const [query, setQuery] = useState('');
-  const visible = PARABLES.filter(p=>(room==='all'||p.room===room)&&`${p.title} ${p.question} ${p.image} ${p.passages.map(passageLabel).join(' ')}`.toLowerCase().includes(query.toLowerCase().trim()));
+  const visible = PARABLES.filter(p=>(room==='all'||p.room===room)&&`${p.title} ${p.aliases ?? ''} ${p.question} ${p.image} ${p.passages.map(passageLabel).join(' ')}`.toLowerCase().includes(query.toLowerCase().trim()));
   useEffect(()=>{ document.title='Parables of Jesus · Bible Project'; },[]);
   function selectStory(id: string, scroll = true) {
     const next = new URLSearchParams(params); next.set('guide','parables'); next.set('parable',id);

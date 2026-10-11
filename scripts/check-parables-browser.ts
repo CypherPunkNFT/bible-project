@@ -44,6 +44,10 @@ try {
     await page.getByRole('button',{name:'Show all sixteen stories'}).click();
     await page.getByLabel('Find a parable').fill('Luke 15');
     assert.equal(await page.locator('.pb-story-list button').count(),3);
+    for(const name of ['prodigal','Samaritan','Pharisee','tares']) {
+      await page.getByLabel('Find a parable').fill(name);
+      assert.equal(await page.locator('.pb-story-list button').count(),1);
+    }
     await page.getByLabel('Find a parable').fill('');
     await page.goto(base+PARABLE_GUIDE_URL+'&parable=sower');
     assert.equal(await page.locator('#parable-title').innerText(),'The sower & the soils');
