@@ -21,6 +21,10 @@
 .ap-universe-hero h1 { margin: 1.4rem 0; font-size: clamp(3.5rem, 6.7vw, 6.1rem); line-height: 1.04; letter-spacing: -.06em; }
 .ap-universe-hero h1 em { font-weight: 350; color: var(--accent); }
 .ap-universe-hero > div > p:not(.ap-eyebrow) { font-size: .89rem; line-height: 1.85; color: var(--muted); }
+.ap-hero-verse { margin-top: 1.55rem; padding: .7rem 0 .7rem 1rem; border-left: 2px solid var(--accent); }
+.ap-hero-verse p { margin: 0 0 .5rem; color: var(--ink); font: 400 clamp(.95rem, 1.25vw, 1.12rem)/1.55 var(--font-serif); }
+.ap-hero-verse a { color: var(--accent); font-size: .68rem; text-decoration: none; }
+.ap-hero-verse a:hover { text-decoration: underline; text-underline-offset: 3px; }
 .ap-hero-actions { display: flex; flex-wrap: wrap; gap: 1.2rem; align-items: center; margin-top: 1.8rem; }
 .ap-button { display: inline-flex; align-items: center; justify-content: center; gap: .65rem; min-height: 2.7rem; padding: .75rem 1rem; border: 1px solid var(--line); border-radius: .35rem; font-size: .72rem; line-height: 1.5; text-align: center; transition: background .2s, border-color .2s; }
 .ap-button:hover { background: var(--surface-2); border-color: var(--ap-tone); }

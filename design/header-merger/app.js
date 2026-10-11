@@ -19,11 +19,18 @@ const eFrame=document.querySelector('.original-e-page');
 eFrame.addEventListener('load',()=>{
  const doc=eFrame.contentDocument;
  const style=doc.createElement('style');
- style.textContent='.am-masthead .am-brand>span,.am-masthead .am-source{display:none!important}.am-masthead{display:flex;align-items:center;justify-content:space-between}.am-masthead>.am-brand{flex:none}.am-masthead>div{margin-left:auto}';
+ style.textContent='.am-masthead{display:none!important}.sm-container{margin-top:24px}.sm-e-bar{display:flex;align-items:stretch;background:var(--surface);border-radius:5px 5px 0 0;min-width:0}.sm-e-bar .sm-main{flex:1;min-width:0;background:transparent;border-radius:0}.sm-e-bar .e-logo{display:grid;place-items:center;min-width:55px;border-right:1px solid var(--line);color:var(--accent)}.sm-e-bar .e-logo svg{width:19px;height:19px}.sm-e-bar .e-search{align-self:center;flex:none;margin:0 12px 0 5px;cursor:pointer}.sm-main>div:has(>a[href="/apologetics/practice"]),.sm-main>div:has(>a[href="/apologetics/saved"]){display:none!important}@media(max-width:900px){.sm-e-bar .e-search span,.sm-e-bar .e-search kbd{display:none}.sm-e-bar .e-search{padding:9px;min-width:34px}.sm-e-bar .e-logo{min-width:42px}}';
  doc.head.append(style);
  let pending=false;
  const update=()=>{
   pending=false;
+  const menu=doc.querySelector('.sm-container>.sm-main');
+  if(menu&&!doc.querySelector('.sm-e-bar')){
+   const bar=doc.createElement('div');bar.className='sm-e-bar';
+   const logo=doc.querySelector('.am-brand').cloneNode(true);logo.className='e-logo';logo.setAttribute('aria-label','Apologetics home');logo.querySelectorAll('strong,span').forEach(node=>node.remove());
+   const search=doc.querySelector('.am-browse').cloneNode(true);search.className='am-browse e-search';search.addEventListener('click',()=>doc.querySelector('.am-masthead .am-browse').click());
+   menu.before(bar);bar.append(logo,menu,search);
+  }
   doc.querySelectorAll('.ap-orbit-node>span').forEach(label=>{if(label.textContent.trim()==='Doubt')label.textContent='Reason';if(label.textContent.trim()==='Reformed')label.textContent='Faith'});
   const end=doc.querySelector('.ap-universe-hero')||doc.querySelector('.wv-index-head')||doc.querySelector('.sm-container');
   if(end){const height=Math.ceil(end.getBoundingClientRect().bottom+eFrame.contentWindow.scrollY);if(eFrame.style.height!==height+'px')eFrame.style.height=height+'px';eFrame.dataset.ready='true'}

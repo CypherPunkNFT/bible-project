@@ -30,11 +30,13 @@ const b=await launch();try{
   await p.locator('.original-e-page[data-ready=true]').waitFor();
   const ef=e.contentFrame();
   assert.equal(await ef.locator('.site-header-row').count(),1);
-  assert.equal(await ef.locator('.am-masthead .am-brand>span').isVisible(),false);
-  assert.equal(await ef.locator('.am-masthead .am-source').isVisible(),false);
+  assert.equal(await ef.locator('.am-masthead').isVisible(),false);
+  assert.equal(await ef.locator('.sm-e-bar .e-logo').count(),1);
+  assert.equal(await ef.locator('.sm-e-bar .e-search').count(),1);
+  assert.equal(await ef.locator('.sm-main>div:visible').count(),7);
   assert.equal(await ef.locator('.ap-orbit-node>span').getByText('Doubt',{exact:true}).count(),0);
   const labels=await ef.locator('.ap-orbit-node>span').allTextContents();assert.ok(labels.includes('Reason'));assert.ok(labels.includes('Faith'));assert.ok(!labels.includes('Reformed'));
-  await ef.locator('.am-browse').click();await ef.locator('.am-search input').fill('Islam');assert.ok(await ef.locator('.am-results a').count()>0);await ef.locator('.am-close').click();
+  await ef.locator('.e-search').click();await ef.locator('.am-search input').fill('Islam');assert.ok(await ef.locator('.am-results a').count()>0);await ef.locator('.am-close').click();
   assert.equal(await ef.locator('html').evaluate(el=>el.scrollWidth>el.clientWidth+1),false);
   assert.deepEqual(errors,[]);await p.evaluate(()=>window.scrollTo(0,0));
   if(width===1440){await p.screenshot({path:`design/review/header-merger/all-${theme}.png`,fullPage:true});await p.screenshot({path:`design/_gallery/thumbs/header-merger-${theme}.png`});for(const id of ['a','b','c','d','e'])await p.locator(`#option-${id} .site-preview`).screenshot({path:`design/review/header-merger/${id}-${theme}.png`});}
