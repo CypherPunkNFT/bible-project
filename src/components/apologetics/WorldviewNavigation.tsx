@@ -4,9 +4,9 @@ import {Link, useLocation} from 'react-router-dom';
 import {ChevronDown} from 'lucide-react';
 import {AnimatePresence,motion,useReducedMotion} from 'framer-motion';
 import {MosqueIcon} from './MosqueIcon';
-import {main, worlds, islamPages, groupFor, secondary, currentIslam} from '@/lib/apologetics-navigation';
+import {worlds, islamPages, groupFor, secondary, currentIslam} from '@/lib/apologetics-navigation';
 
-const root='/apologetics/worldviews';
+const base='/apologetics', root=base+'/worldviews';
 type World=(typeof worlds)[number];
 function reveal(e:React.FocusEvent<HTMLElement>){e.currentTarget.scrollIntoView({block:'nearest',inline:'nearest'});}
 function Glyph({world}:{world:World}){
@@ -44,14 +44,16 @@ function WorldviewSubmenu(){
   </motion.div>}</AnimatePresence></div>
  </div>;
 }
-export function WorldviewNavigation({savedCount=0,leading,trailing}:{savedCount?:number;leading:ReactNode;trailing:ReactNode}){
- const location=useLocation(),group=groupFor(location.pathname);
+export function WorldviewNavigation({savedCount=0,leading,trailing,mode='a'}:{savedCount?:number;leading:ReactNode;trailing:ReactNode;mode?:'a'|'b'}){
+ const location=useLocation(),oldGroup=groupFor(location.pathname);
+ const group=location.pathname.startsWith('/apologetics/worldviews')?'Worldviews':location.pathname.startsWith('/apologetics/debates')?'Debates':location.pathname.startsWith('/apologetics/topics/reformed')?'Questions':location.pathname.startsWith('/apologetics/topics/')||location.pathname.startsWith('/apologetics/questions')||location.pathname.startsWith('/apologetics/study/')?'Questions':location.pathname.startsWith('/apologetics/paths')?(mode==='a'?'Explore':'Deepen'):location.pathname.startsWith('/apologetics/texts')||location.pathname.startsWith('/apologetics/sources')?(mode==='a'?'Sources':'Deepen'):oldGroup;
+ const sections=[{label:'Explore',to:base},{label:'Questions',to:base+'/questions'},{label:'Worldviews',to:root},{label:'Debates',to:base+'/debates'},{label:mode==='a'?'Sources':'Deepen',to:mode==='a'?base+'/sources':base+'/paths'}];
  const reduced=useReducedMotion();
  const [opened,setOpened]=useState<string|null>(group==='Worldviews'?'Worldviews':null);
  const trigger=useRef<HTMLButtonElement|null>(null),previous=useRef(location.pathname);
  useEffect(()=>{if(previous.current!==location.pathname)setOpened(group==='Worldviews'?'Worldviews':null);previous.current=location.pathname;},[location.pathname,group]);
  useEffect(()=>{const key=(e:KeyboardEvent)=>{if(e.key==='Escape'&&opened&&!document.querySelector('dialog[open]')){setOpened(null);trigger.current?.focus();}};document.addEventListener('keydown',key);return()=>document.removeEventListener('keydown',key);},[opened]);
- return <div className="sm-container"><div className="sm-topbar">{leading}<nav className="sm-main" aria-label="Apologetics sections">{main.filter(d=>d.label!=='Practice'&&d.label!=='My study').map(d=><div key={d.to} data-current={group===d.label}><Link to={d.to} onFocus={reveal} aria-current={group===d.label?'page':undefined}>{d.label}{d.label==="My study"&&savedCount>0&&<span className="sm-saved-count">{savedCount}</span>}</Link><button ref={d.label===group?el=>{if(!trigger.current)trigger.current=el;}:undefined} aria-label={(opened===d.label?'Collapse ':'Browse ')+d.label} aria-expanded={opened===d.label} aria-controls="sm-panel" onClick={e=>{trigger.current=e.currentTarget;setOpened(opened===d.label?null:d.label);}}><ChevronDown size={12}/></button></div>)}</nav>{trailing}</div>
- <AnimatePresence initial={false}>{opened&&<motion.div id="sm-panel" className="sm-panel" key="submenu" initial={{height:0,opacity:0}} animate={{height:'auto',opacity:1,transitionEnd:{overflow:'visible'}}} exit={{height:0,opacity:0,overflow:'hidden'}} style={{overflow:'hidden'}} transition={{duration:reduced?0:.26,ease:[.22,1,.36,1]}}><motion.div initial={{y:reduced?0:-10}} animate={{y:0}} transition={{duration:reduced?0:.26,ease:[.22,1,.36,1]}}>{opened==='Worldviews'?<WorldviewSubmenu/>:<nav className="sm-other-sections" aria-label={opened+' destinations'}>{secondary(opened).map(d=><Link key={d.to} to={d.to} onFocus={reveal} onClick={()=>setOpened(null)}>{d.label}</Link>)}</nav>}</motion.div></motion.div>}</AnimatePresence>
+ return <div className="sm-container"><div className="sm-topbar">{leading}<nav className="sm-main" aria-label="Apologetics sections">{sections.map(d=><div key={d.to} data-current={group===d.label}><Link to={d.to} onFocus={reveal} aria-current={group===d.label?'page':undefined}>{d.label}{d.label==="My study"&&savedCount>0&&<span className="sm-saved-count">{savedCount}</span>}</Link><button ref={d.label===group?el=>{if(!trigger.current)trigger.current=el;}:undefined} aria-label={(opened===d.label?'Collapse ':'Browse ')+d.label} aria-expanded={opened===d.label} aria-controls="sm-panel" onClick={e=>{trigger.current=e.currentTarget;setOpened(opened===d.label?null:d.label);}}><ChevronDown size={12}/></button></div>)}</nav>{trailing}</div>
+ <AnimatePresence initial={false}>{opened&&<motion.div id="sm-panel" className="sm-panel" key="submenu" initial={{height:0,opacity:0}} animate={{height:'auto',opacity:1,transitionEnd:{overflow:'visible'}}} exit={{height:0,opacity:0,overflow:'hidden'}} style={{overflow:'hidden'}} transition={{duration:reduced?0:.26,ease:[.22,1,.36,1]}}><motion.div initial={{y:reduced?0:-10}} animate={{y:0}} transition={{duration:reduced?0:.26,ease:[.22,1,.36,1]}}>{opened==='Worldviews'?<WorldviewSubmenu/>:<nav className="sm-other-sections" aria-label={opened+' destinations'}>{(opened==='Sources'?[{label:'Source room',to:base+'/sources'},{label:'Historic texts',to:base+'/texts'}]:opened==='Deepen'?[{label:'Learning paths',to:base+'/paths'},{label:'Reformed theology',to:base+'/topics/reformed'},{label:'Historic texts',to:base+'/texts'},{label:'Source room',to:base+'/sources'}]:opened==='Explore'?[{label:'Apologetics home',to:base},{label:'Learning paths',to:base+'/paths'},{label:'Christian foundations',to:base+'/topics/reformed'}]:secondary(opened)).map(d=><Link key={d.to} to={d.to} onFocus={reveal} onClick={()=>setOpened(null)}>{d.label}</Link>)}</nav>}</motion.div></motion.div>}</AnimatePresence>
  </div>;
 }

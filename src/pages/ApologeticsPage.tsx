@@ -22,6 +22,8 @@ import { WorldviewIndex, WorldviewPage } from "./WorldviewsPage";
 
 export default function ApologeticsPage() {
   const book = useApologeticsNotebook(), location = useLocation();
+  const [navMode,setNavMode]=useState<'a'|'b'>(()=>{try{return localStorage.getItem('apologetics-navigation-mode')==='b'?'b':'a';}catch{return 'a';}});
+  const selectNavMode=(mode:'a'|'b')=>{setNavMode(mode);try{localStorage.setItem('apologetics-navigation-mode',mode);}catch{/* Preview still works without storage. */}};
   useEffect(() => {
     const [, , section, id] = location.pathname.split("/");
     const title = section === "texts" ? "Historic Reformed texts" : section === "study" ? studyById(id)?.title : section === "topics" ? topicById(id)?.title : section === "paths" ? PATHS.find((path) => path.id === id)?.title : section === "worldviews" ? WORLDVIEWS.find((worldview) => worldview.id === id)?.title : section === "debates" ? (id ? DEBATES.find((debate) => debate.id === id)?.title : "Debates") : undefined;
@@ -36,7 +38,8 @@ export default function ApologeticsPage() {
   const legacy: Record<string, string> = { "#foundations": "/paths/begin", "#conversation": "/practice", "#across-beliefs": "/worldviews", "#debates": "/debates" };
   if (location.pathname.replace(/\/$/, "") === base && legacy[location.hash]) return <Navigate replace to={base + legacy[location.hash]} />;
   return <div className="am-shell ap-live-shell">
-    <ApologeticsNavigationHeader savedCount={book.notebook.saved.length}/><div className="am-layout"><div className="ap-page am-content">
+    <div className="ap-navigation-mode" role="group" aria-label="Apologetics navigation preview"><span>Navigation</span><button type="button" aria-label="Navigation option A: Sources" aria-pressed={navMode==='a'} onClick={()=>selectNavMode('a')}>A</button><button type="button" aria-label="Navigation option B: Deepen" aria-pressed={navMode==='b'} onClick={()=>selectNavMode('b')}>B</button></div>
+    <ApologeticsNavigationHeader savedCount={book.notebook.saved.length} mode={navMode}/><div className="am-layout"><div className="ap-page am-content">
     {book.storageError && <p className="ap-storage-error" role="status">Your browser could not save these changes. Keep this tab open and copy any notes you want to retain.</p>}
     <Routes><Route path="worldviews/islam/guide/*" element={<IslamGuidePage/>}/>
       <Route index element={<Hub book={book} />} /><Route path="texts" element={<ReformedLibraryPage />} /><Route path="reformed" element={<Navigate replace to={base + "/topics/reformed"} />} /><Route path="questions" element={<QuestionLibrary book={book} />} /><Route path="topics/:id" element={<TopicPage book={book} />} /><Route path="study/:id" element={<StudyPage book={book} />} /><Route path="paths" element={<PathIndex book={book} />} /><Route path="paths/:id" element={<PathPage book={book} />} /><Route path="worldviews" element={<WorldviewIndex />} /><Route path="worldviews/:id" element={<WorldviewPage book={book} />} /><Route path="debates" element={<DebateIndex />} /><Route path="debates/:id" element={<DebatePage book={book} />} /><Route path="practice" element={<PracticePage key={location.search} book={book} />} /><Route path="sources" element={<SourceRoom />} /><Route path="saved" element={<SavedPage book={book} />} /><Route path="*" element={<Missing />} />

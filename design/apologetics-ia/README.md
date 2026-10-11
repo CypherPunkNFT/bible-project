@@ -1,5 +1,5 @@
 # Apologetics navigation mockup
 
-Interactive comparison of two maps for the existing collection. A gives Sources its own door; B groups the previously separate Learning paths, Reformed theology, and Historic texts under Deepen. Click the tabs and the Reformed question filter to inspect where content lands. Links in cards open the existing site destinations.
+This entry now redirects to the real `/apologetics` pages. A floating A/B pill switches between two local navigation maps while retaining the real collection content. A gives Sources its own door; B groups paths, Reformed theology, and source collections under Deepen.
 
-The top global website header is embedded from the live Apologetics page and is not redesigned here. This mockup changes only the local Apologetics information architecture. Existing URLs are retained in both models.
+The global website header is unchanged. Existing collection URLs remain in place in both modes.

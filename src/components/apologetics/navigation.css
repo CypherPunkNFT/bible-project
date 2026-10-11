@@ -76,3 +76,11 @@
 .sm-trailing-search:hover{background:color-mix(in srgb,var(--accent) 7%,var(--surface))}
 @media(max-width:1100px){.sm-trailing-search{min-width:48px;padding:0 13px}.sm-trailing-search span,.sm-trailing-search kbd{display:none}}
 @media(max-width:650px){.sm-leading-brand{min-width:46px;padding:0 12px}.sm-leading-brand strong{display:none}}
+
+/* Temporary A/B control floats over the real Apologetics collection. */
+.ap-navigation-mode{position:fixed;z-index:60;top:156px;right:max(16px,calc((100vw - 1280px)/2 + 16px));display:flex;align-items:center;gap:3px;padding:4px;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--muted);box-shadow:0 10px 32px #0008;font-size:10px}
+.ap-navigation-mode>span{padding:0 8px;text-transform:uppercase;letter-spacing:.1em}
+.ap-navigation-mode button{min-width:28px;height:28px;border:0;border-radius:50%;background:transparent;color:var(--muted);font-size:11px;font-weight:700;cursor:pointer}
+.ap-navigation-mode button[aria-pressed=true]{background:var(--accent);color:var(--page)}
+.ap-navigation-mode button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+@media(max-width:650px){.ap-navigation-mode{top:154px;right:12px}.ap-navigation-mode>span{display:none}}
