@@ -1,0 +1,115 @@
+{
+  "reviewed": "2026-10-11",
+  "cases": {
+    "robinsons-arch": {
+      "date": "1838",
+      "role": "Identified the surviving arch",
+      "context": "A surviving spring of an arch in the western wall of the Temple Mount, identified by Edward Robinson in 1838.",
+      "sources": [
+        {
+          "label": "Robinson's Arch - Encyclopedia of the Bible",
+          "url": "https://www.biblegateway.com/resources/encyclopedia-of-the-bible/Robinsons-Arch"
+        }
+      ]
+    },
+    "sinaiticus": {
+      "date": "1844 and 1859",
+      "role": "Studied and published the manuscript",
+      "context": "Tischendorf examined leaves in 1844 and a larger portion in 1859. The manuscript was preserved at St Catherine's Monastery; its removal and ownership history remain disputed.",
+      "sources": [
+        {
+          "label": "Codex Sinaiticus Project - manuscript history",
+          "url": "https://codexsinaiticus.org/en/codex/history.aspx"
+        }
+      ],
+      "site": {
+        "label": "Letters study",
+        "url": "/study/letters",
+        "note": "The discussion of Hebrews' position in the canon names Sinaiticus and cites Westcott's History of the Canon, p. 377. This is a discussion of the manuscript, not a claim that Tischendorf's edition supplies our Bible text.",
+        "evidence": "src/data/letters/overview.json",
+        "citation": "westcott-canon",
+        "match": "great Eastern manuscripts",
+        "sourceUrl": "https://archive.org/details/generalsurveyofh00westuoft",
+        "sourceTitle": "Westcott, History of the Canon (7th ed., 1896), p. 377"
+      }
+    },
+    "asia-minor": {
+      "year": 1880,
+      "date": "From 1880",
+      "role": "Surveyed the region and studied Paul's journeys",
+      "context": "Ramsay's travel and historical research across Asia Minor began in 1880. This entry represents years of research, not a single discovery. Pisidian Antioch is a representative map location.",
+      "sources": [
+        {
+          "label": "CCEL - William M. Ramsay",
+          "url": "https://ccel.org/ccel/ramsay?show=worksBy"
+        },
+        {
+          "label": "Ramsay - St. Paul the Traveller and the Roman Citizen (1895)",
+          "url": "https://www.ccel.org/ccel/ramsay/paul_roman.html"
+        }
+      ],
+      "site": {
+        "label": "Paul's letters",
+        "url": "/study/letters/paul",
+        "note": "The Letters study cites Ramsay's 1895 book for chronology and the churches of Galatia. The link is to that named work, not proof of every archaeological interpretation associated with Ramsay.",
+        "evidence": "src/data/letters/paul-letters.json",
+        "citation": "ramsay-1895",
+        "match": "Ramsay about January 57",
+        "sourceUrl": "https://www.ccel.org/ccel/ramsay/paul_roman.html",
+        "sourceTitle": "Ramsay, St. Paul the Traveller and the Roman Citizen (1895), Chronological Index and chapter 5"
+      }
+    },
+    "dead-sea-scrolls": {
+      "date": "1947; later study",
+      "role": "Later scholar of the scrolls; not the original finder",
+      "context": "Bedouin shepherds found the first Qumran scrolls in 1947. Yigael Yadin later studied the scrolls; the discovery should not be credited to him.",
+      "sources": [
+        {
+          "label": "Israel Museum - Digital Dead Sea Scrolls",
+          "url": "https://dss.collections.imj.org.il/"
+        },
+        {
+          "label": "Israel Museum - Yigael Yadin and the scrolls",
+          "url": "https://museum.imj.org.il/pdf/dss-english.pdf"
+        }
+      ]
+    },
+    "jericho": {
+      "date": "1952-1958",
+      "role": "Directed this excavation campaign",
+      "context": "Kathleen Kenyon's team excavated Jericho from 1952 to 1958, refining its archaeological sequence from the Neolithic to the Late Bronze Age. This dates a campaign, not the first discovery of the city.",
+      "sources": [
+        {
+          "label": "Council for British Research in the Levant - Excavations at Jericho",
+          "url": "https://www.cbrl.ac.uk/project-library/excavations-at-jericho/"
+        }
+      ]
+    },
+    "hazor": {
+      "date": "1955-1958; later seasons",
+      "role": "Led the Hebrew University excavation team",
+      "context": "Yigael Yadin led excavations at Hazor in the 1950s and 1960s, including the 1955-1958 campaign. Later teams continued work at the site.",
+      "sources": [
+        {
+          "label": "Hebrew University - Tel Hazor excavation",
+          "url": "https://archaeology.huji.ac.il/tel-hazor"
+        },
+        {
+          "label": "Hebrew University - excavation history and faculty",
+          "url": "https://archaeology.huji.ac.il/faculty"
+        }
+      ]
+    },
+    "masada": {
+      "date": "1963-1965",
+      "role": "Directed this excavation campaign",
+      "context": "Yigael Yadin directed the major excavation campaign at Masada from 1963 to 1965. The dates identify that campaign, not the first recognition of the site.",
+      "sources": [
+        {
+          "label": "Israel Nature and Parks Authority - History of Masada",
+          "url": "https://www.parks.org.il/wp-content/uploads/2018/06/massada_eng-for-internet.pdf"
+        }
+      ]
+    }
+  }
+}

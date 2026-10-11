@@ -25,9 +25,9 @@ test("the seven finds are listed in date order after the All 7 card, which is ch
   await expect(cards.first()).toHaveClass(/dsc-on/);
   await expect(cards.first()).toContainText("1838–1963");
   await expect(cards.first()).toContainText("All 7");
-  await expect(cards.first()).toContainText("Six lie in the Holy Land and Sinai; Ramsay's lies beyond this map, at Pisidian Antioch.");
-  await expect(cards.first()).toContainText("Two reach this site's Letters study: Codex Sinaiticus, through Westcott; Paul's roads in Asia Minor, through Ramsay.");
-  const years = (await section.locator(".dsc-find:not(.dsc-find-all) .dsc-year").allTextContents()).map(Number);
+  await expect(cards.first()).toContainText("Six locations appear on the Holy Land and Sinai map; Asia Minor appears on the wider map.");
+  await expect(cards.first()).toContainText("Two cards include checked links to existing study passages.");
+  const years = (await section.locator(".dsc-find:not(.dsc-find-all) .dsc-year").allTextContents()).map(text => Number(text.match(/\d{4}/)?.[0]));
   expect(years).toEqual([...years].sort((a, b) => a - b));
   expect(years[0]).toBe(1838);
   expect(years.at(-1)).toBe(1963);
@@ -36,18 +36,26 @@ test("the seven finds are listed in date order after the All 7 card, which is ch
   await expect(section.locator(".dsc-rail-end")).toHaveText(["1838", "1963"]);
 });
 
-test("each card follows its find from the dig to this site, or says plainly it is not used yet", async ({ page }) => {
+test("case studies distinguish historical evidence from checked site connections", async ({ page }) => {
   const section = await openDiscoveries(page);
-  const sinaiticus = section.locator(".dsc-find").filter({ hasText: "Codex Sinaiticus" }).filter({ hasText: "1859" });
-  await expect(sinaiticus.locator(".dsc-step-k")).toHaveText(["Found or studied by", "What came of it", "Next in the chain of the text", "Where it reaches this site"]);
-  await expect(sinaiticus.locator(".dsc-chip")).toHaveCount(2);
-  await expect(sinaiticus.getByRole("link", { name: "Letters study" })).toHaveAttribute("href", "/study/letters");
-  const ramsay = section.locator(".dsc-find:not(.dsc-find-all)").filter({ hasText: "Paul's roads in Asia Minor" });
-  await expect(ramsay.locator(".dsc-where")).toContainText("beyond this map");
-  await expect(ramsay.getByRole("link", { name: "Letters study" })).toBeVisible();
-  // The other five are not used on this site yet.
+  const cards = section.locator(".dsc-find:not(.dsc-find-all)");
+  await expect(cards).toHaveCount(7);
+  for (const card of await cards.all()) {
+    expect(await card.locator(".dsc-evidence-links a").count()).toBeGreaterThan(0);
+    await expect(card.locator(".dsc-chip")).toHaveCount(1);
+  }
+  const sinaiticus = cards.filter({ hasText: "Codex Sinaiticus" });
+  await expect(sinaiticus).toContainText("1844 and 1859");
+  await expect(sinaiticus).toContainText("ownership history remain disputed");
+  await expect(sinaiticus.getByRole("link", { name: "Letters study", exact: true })).toHaveAttribute("href", "/study/letters");
+  await expect(sinaiticus.locator(".dsc-evidence-source")).toContainText("History of the Canon");
+  const ramsay = cards.filter({ hasText: "Paul's roads in Asia Minor" });
+  await expect(ramsay).toContainText("From 1880");
+  await expect(ramsay.getByRole("link", { name: "Paul's letters", exact: true })).toHaveAttribute("href", "/study/letters/paul");
+  await expect(cards.filter({ hasText: "Dead Sea Scrolls" })).toContainText("not the original finder");
   await expect(section.locator(".dsc-step-none")).toHaveCount(5);
-  await expect(section.locator(".dsc-step-none").first()).toContainText("Not used on this site yet.");
+  await expect(section).not.toContainText("Not used on this site yet");
+  await expect(section).not.toContainText("planned");
 });
 
 test("the map is on the left from 901px, and above the finds below that", async ({ page }) => {
@@ -71,11 +79,11 @@ test("choosing a find flies the map to it and lights the names its thread passes
   await expect.poll(() => viewBox(page, "holyland")).not.toBe(before);
   await expect(section.locator(`.dsc-stage[data-view="holyland"] .dsc-mk-find.dsc-on`)).toHaveAttribute("aria-label", "Codex Sinaiticus, 1859");
   await expect(section.locator(".dsc-rail-now")).toHaveText("1859");
-  await expect(section.locator(".dsc-chain button.dsc-hl")).toHaveText(["Tischendorf", "Westcott"]);
+  await expect(section.locator(".dsc-chain button.dsc-hl")).toHaveText(["Tischendorf"]);
   // A point on the year line chooses its find too.
   await section.getByRole("button", { name: "1963, Masada" }).click();
   await expect(section.locator(".dsc-rail-now")).toHaveText("1963");
-  await expect(section.locator(".dsc-chain button.dsc-hl")).toHaveCount(0);
+  await expect(section.locator(".dsc-chain button.dsc-hl")).toHaveText(["Yadin"]);
 });
 
 test("the edge marker leads to Ramsay's find on the wider map, and the switch leads back", async ({ page }) => {
