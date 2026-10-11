@@ -1,8 +1,8 @@
 {
  "schema": 1,
- "commit": "a231f96875c610275c02e0d7c436b1d56648462d",
+ "commit": "c3cdf66dbd0cb6b8991fd08085324a959c2e15c9",
  "startedAt": "2026-10-08T03:26:04.125Z",
- "finishedAt": "2026-10-11T02:27:40.382Z",
+ "finishedAt": "2026-10-11T02:30:16.314Z",
  "base": "http://127.0.0.1:8943",
  "checks": [
   {
@@ -1374,42 +1374,6 @@
    "failures": []
   },
   {
-   "template": "study-charts",
-   "variant": "references",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {},
-   "failures": []
-  },
-  {
-   "template": "study-charts",
-   "variant": "structure",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {},
-   "failures": []
-  },
-  {
-   "template": "study-charts",
-   "variant": "gospels",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {},
-   "failures": []
-  },
-  {
-   "template": "study-charts",
-   "variant": "versions",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {},
-   "failures": []
-  },
-  {
    "template": "study-miracles",
    "variant": "page",
    "instances": 1,
@@ -1511,6 +1475,42 @@
   {
    "template": "study-branches",
    "variant": "academic-church",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "study-charts",
+   "variant": "references",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "study-charts",
+   "variant": "structure",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "study-charts",
+   "variant": "gospels",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "study-charts",
+   "variant": "versions",
    "instances": 1,
    "checked": 1,
    "coverage": "",
