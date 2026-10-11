@@ -10,7 +10,7 @@ export function parablesPage(): PageContent {
       ...p.beats.map(([title,text])=>`**${title}:** ${text}`),`**Turning point:** ${p.hinge}`,p.close,
       `**Handle carefully:** ${p.caution}`,...p.passages.map(v=>`**${passageLabel(v)}** (${link(passageUrl(v))}): ${v.note}`),`**Reflection:** ${p.reflect}`
     )))),
-    '## Learning to listen\n\nStart with who is listening. Notice the surprise before solving the symbols. Let each Gospel keep its own voice. Bring the question back to your own life. Read Matthew 13:10–17 on why Jesus speaks in parables.',
+    '## Learning to listen\n\nAn open-book line illustration sits beside the introduction: Hear the story · Hold the question. Four numbered, always-visible cards form a two-column grid (one column on phones): Start with who is listening. Notice the surprise before solving the symbols. Let each Gospel keep its own voice. Bring the question back to your own life. Read Matthew 13:10–17 on why Jesus speaks in parables.',
     '## Sources\n\nOriginal reading guides grounded in the existing KJV corpus (Matthew, Mark, Luke). Thematic groupings and story movements are editorial aids, not chronology. No new outside scholarship or historical reconstruction is claimed.'
   )};
 }
