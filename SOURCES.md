@@ -1,5 +1,18 @@
 # Sources
 
+## Parables of Christ expansion ? 11 October 2026
+
+Expanded to 50 original studies across six editorial themes, including shorter comparisons. This is a collection size, not a universal total. Validated 77 passage ranges / 546 verse references against the same KJV inputs recorded below. Content: `src/data/parables.ts` and `src/data/parables-expanded.ts`. Compact category icons use the existing Lucide dependency.
+
+Inventory references (checked 11 October 2026):
+
+- [R. C. Trench, Notes on the Parables of Our Lord, 1847](https://archive.org/details/notesonparableso00tren): all thirty numbered chapters are represented. Held public-domain text at `../sources/library/bulk/ia/notesonparableso00tren.txt`, SHA-256 `4704a7a226757a252adaa7cc3bea9bae88f6fdd1f66c7d06cd2874916e8c8eb1`. Original source notices retained.
+- [Arland Hultgren, Preaching the Parables, Part One](https://www.workingpreacher.org/theology-and-interpretation/preaching-the-parables-part-one): counting varies with the definition and inclusion of short comparisons.
+- [Crossway Gospel reference chart](https://www.esv.org/resources/esv-global-study-bible/chart-40-03/): supplementary reference comparison. We distinguish the talents/minas, royal wedding/great supper and growing seed/weeds.
+
+No external commentary text is reproduced. Notes are original readings of the linked passages. John's shepherd and vine discourses are linked separately; no claim to enumerate every biblical figure of speech.
+
+
 ## Parables of Jesus study — 11 October 2026
 
 Sixteen original editorial reading guides at `/study/gospels?guide=parables`, based on the already registered eBible KJV corpus (`eng-kjv`, public-domain text under the existing source terms). No new external text or artwork is reproduced. Four original SVG scenes and thematic groupings are project-authored. The notes distinguish textual observations, reading suggestions and interpretive cautions; no historical reconstruction or scholarly consensus is claimed.

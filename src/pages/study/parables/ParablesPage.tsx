@@ -5,6 +5,8 @@ import { PARABLES, PARABLE_ROOMS, PARABLE_GUIDE_URL, gospelName, passageLabel, p
 import { ParableArt } from './ParableArt';
 import './parables.css';
 import { LearningToListen } from './LearningToListen';
+import { ParableSelector, ParableIcon } from './ParableSelector';
+import { ParableScope } from './ParableScope';
 
 function StudyReading({ story }: { story: Parable }) {
   const [beat, setBeat] = useState(0);
@@ -13,8 +15,8 @@ function StudyReading({ story }: { story: Parable }) {
   const passage = story.passages[account];
   return <article className="pb-reading" id="parable-reading" aria-labelledby="parable-title" style={{ '--pb-tone': room.color } as CSSProperties}>
     <header className="pb-reading-head">
-      <div><p className="pb-kicker">{room.short} · {passageLabel(story.passages[0])}</p><h2 id="parable-title">{story.title}</h2><p className="pb-reading-question">{story.question}</p></div>
-      <ParableArt room={story.room} />
+      <div><p className="pb-kicker">{room.short} · {passageLabel(story.passages[0])}{story.brief ? ' · Brief comparison' : ''}</p><h2 id="parable-title">{story.title}</h2><p className="pb-reading-question">{story.question}</p></div>
+      <div className="pb-reading-icon"><ParableIcon room={story.room} size={48}/></div>
     </header>
     <div className="pb-context"><span className="pb-number">01</span><div><h3>Before the story begins</h3><p className="pb-audience">{story.audience}</p><p>{story.context}</p></div></div>
     <section className="pb-movement" aria-labelledby="pb-movement-title"><div className="pb-section-heading"><span className="pb-number">02</span><h3 id="pb-movement-title">Follow the turn</h3><span>Choose a moment</span></div>
@@ -38,7 +40,7 @@ export default function ParablesPage() {
   const [room, setRoom] = useState('all');
   const [query, setQuery] = useState('');
   const visible = PARABLES.filter(p=>(room==='all'||p.room===room)&&`${p.title} ${p.aliases ?? ''} ${p.question} ${p.image} ${p.passages.map(passageLabel).join(' ')}`.toLowerCase().includes(query.toLowerCase().trim()));
-  useEffect(()=>{ document.title='Parables of Jesus · Bible Project'; },[]);
+  useEffect(()=>{ document.title='The parables of Christ · Bible Project'; },[]);
   function selectStory(id: string, scroll = true) {
     const next = new URLSearchParams(params); next.set('guide','parables'); next.set('parable',id);
     setParams(next, {preventScrollReset:true});
@@ -46,14 +48,16 @@ export default function ParablesPage() {
   }
   return <div className="pb-page mx-auto max-w-7xl px-4 sm:px-6">
     <nav className="pb-breadcrumb" aria-label="Study breadcrumb"><Link to="/study"><ArrowLeft size={14} aria-hidden="true"/> Study</Link><span>/</span><Link to="/study/gospels">Jesus & the Gospels</Link><span>/</span><span>Parables</span></nav>
-    <header className="pb-hero"><div><p className="pb-kicker">The parables of Jesus</p><h1>Ordinary things.<br/><em>Extraordinary kingdom.</em></h1><p>A seed. A coin. A road. A door.<br/>Jesus begins with a world his listeners know—and tells a story that asks them to see it again.</p><a href="#parables-explore" className="pb-start">Step inside the stories <ArrowDown size={16} aria-hidden="true"/></a></div><div className="pb-hero-scene"><ParableArt room="field" hero/><span>Listen · Notice · Turn · Respond</span></div></header>
-    <div className="pb-statline"><span><b>16</b> selected parables</span><span><b>4</b> ways into the stories</span><span><b>3</b> Gospel voices</span><span>Every study opens the text <BookOpen size={16} aria-hidden="true"/></span></div>
-    <section className="pb-doors" aria-labelledby="pb-doors-title"><div className="pb-section-heading"><span className="pb-number">I</span><h2 id="pb-doors-title">Enter a familiar world</h2><span>Four reading paths, not a chronology</span></div><div className="pb-door-grid">{PARABLE_ROOMS.map((r,i)=><button type="button" key={r.id} className="pb-door" aria-pressed={room===r.id} style={{'--pb-tone':r.color} as CSSProperties} onClick={()=>{setRoom(r.id);setQuery('');selectStory(PARABLES.find(p=>p.room===r.id)!.id,false);document.getElementById('parables-explore')?.scrollIntoView({block:'start',behavior:'instant'});}}><span className="pb-door-top">{String(i+1).padStart(2,'0')} · {r.short}<ArrowDown size={14} aria-hidden="true"/></span><ParableArt room={r.id}/><h3>{r.title}</h3><p>{r.question}</p><span className="pb-door-bottom">Four stories to explore <ArrowUpRight size={15} aria-hidden="true"/></span></button>)}</div></section>
-    <section className="pb-explorer" id="parables-explore" aria-labelledby="pb-explorer-title"><div className="pb-section-heading"><span className="pb-number">II</span><h2 id="pb-explorer-title">Stay with a story</h2><span>Setting → movement → meaning → response</span></div><div className="pb-explorer-grid">
-      <aside className="pb-browser" aria-label="Choose a parable"><label className="pb-search"><Search size={17} aria-hidden="true"/><input aria-label="Find a parable" placeholder="Find a story or passage…" value={query} onChange={e=>setQuery(e.target.value)}/></label><label className="pb-filter">Reading path<select value={room} onChange={e=>setRoom(e.target.value)}><option value="all">All sixteen stories</option>{PARABLE_ROOMS.map(r=><option key={r.id} value={r.id}>{r.short}</option>)}</select></label><p className="pb-result-count" role="status">{visible.length} {visible.length===1?'story':'stories'} to explore</p><div className="pb-story-list">{visible.map(p=><button key={p.id} type="button" aria-pressed={p.id===story.id} onClick={()=>selectStory(p.id)}><span className="pb-story-dot" style={{background:PARABLE_ROOMS.find(r=>r.id===p.room)!.color}}/><span><strong>{p.title}</strong><small>{passageLabel(p.passages[0])}</small></span><ArrowUpRight size={14} aria-hidden="true"/></button>)}</div>{!visible.length&&<div className="pb-empty"><p>No stories match this search.</p><button type="button" onClick={()=>{setQuery('');setRoom('all');}}>Show all sixteen stories</button></div>}<p className="pb-scope">A selected collection, not a count of every parable. Brief comparisons and extended stories can be grouped differently.</p></aside>
+    <header className="pb-hero"><div><p className="pb-kicker">The parables of Christ</p><h1>Ordinary things.<br/><em>Extraordinary kingdom.</em></h1><p>A seed. A coin. A road. A door.<br/>Jesus begins with a world his listeners know—and tells a story that asks them to see it again.</p><a href="#parables-explore" className="pb-start">Step inside the stories <ArrowDown size={16} aria-hidden="true"/></a></div><div className="pb-hero-scene"><ParableArt room="field" hero/><span>Listen · Notice · Turn · Respond</span></div></header>
+    <div className="pb-statline"><span><b>{PARABLES.length}</b> parables & comparisons</span><span><b>{PARABLE_ROOMS.length}</b> themes to explore</span><span><b>3</b> Gospel voices</span><span>Every study opens the text <BookOpen size={16} aria-hidden="true"/></span></div>
+    <section className="pb-explorer" id="parables-explore" aria-labelledby="pb-explorer-title">
+      <ParableSelector value={room} onChange={id=>{setRoom(id);setQuery('');if(id!=='all'&&story.room!==id)selectStory(PARABLES.find(p=>p.room===id)!.id,false);}}/>
+      <div className="pb-section-heading"><span className="pb-number">I</span><h2 id="pb-explorer-title">Stay with a story</h2><span>Setting → movement → meaning → response</span></div><div className="pb-explorer-grid">
+      <aside className="pb-browser" aria-label="Choose a parable"><label className="pb-search"><Search size={17} aria-hidden="true"/><input aria-label="Find a parable" placeholder="Find a story or passage…" value={query} onChange={e=>setQuery(e.target.value)}/></label><p className="pb-result-count" role="status">{visible.length} {visible.length===1?'study':'studies'} to explore</p><div className="pb-story-list">{visible.map(p=><button key={p.id} type="button" aria-pressed={p.id===story.id} onClick={()=>selectStory(p.id)}><span className="pb-story-dot" style={{background:PARABLE_ROOMS.find(r=>r.id===p.room)!.color}}/><span><strong>{p.title}</strong><small>{passageLabel(p.passages[0])}</small></span><ArrowUpRight size={14} aria-hidden="true"/></button>)}</div>{!visible.length&&<div className="pb-empty"><p>No stories match this search.</p><button type="button" onClick={()=>{setQuery('');setRoom('all');}}>Show all {PARABLES.length} studies</button></div>}<p className="pb-scope">{room==='all'?'All categories':PARABLE_ROOMS.find(r=>r.id===room)?.intro} <a href="#parable-count">How this collection is counted ↓</a></p></aside>
       <StudyReading key={story.id} story={story}/>
     </div></section>
+    <ParableScope />
     <LearningToListen />
-    <footer className="pb-sources"><BookOpen size={24} strokeWidth={1.2} aria-hidden="true"/><div><h2>Where this study comes from</h2><p>Original reading notes checked against the site’s King James Version text in Matthew, Mark and Luke. The four paths and story movements are editorial reading aids. Passage links include the story’s setting or explanation where indicated. No historical reconstruction or scholarly consensus is implied.</p><Link to="/sources">Texts, editions & source credits <ArrowUpRight size={14} aria-hidden="true"/></Link></div><Link to="/study/gospels">Return to the Gospels ↑</Link></footer>
+    <footer className="pb-sources"><BookOpen size={24} strokeWidth={1.2} aria-hidden="true"/><div><h2>Where this study comes from</h2><p>Original reading notes checked against the site’s King James Version text in Matthew, Mark and Luke. The six themes and story movements are editorial reading aids. The inventory includes short comparisons as well as longer stories; the counting note explains the scope and research sources. Passage links include the story’s setting or explanation where indicated. No historical reconstruction or scholarly consensus is implied.</p><Link to="/sources">Texts, editions & source credits <ArrowUpRight size={14} aria-hidden="true"/></Link></div><Link to="/study/gospels">Return to the Gospels ↑</Link></footer>
   </div>;
 }

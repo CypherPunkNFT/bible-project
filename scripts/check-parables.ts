@@ -4,11 +4,14 @@ import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { PARABLES, PARABLE_ROOMS, passageLabel } from '../src/data/parables';
 const corpus = Object.fromEntries(['MAT','MRK','LUK'].map(book=>[book,JSON.parse(readFileSync(`data/plain/kjv/${book}.json`,'utf8')) as Record<string,string>]));
 assert.equal(new Set(PARABLES.map(p=>p.id)).size,PARABLES.length);
-for(const room of PARABLE_ROOMS) assert.equal(PARABLES.filter(p=>p.room===room.id).length,4);
+for(const room of PARABLE_ROOMS) assert.ok(PARABLES.some(p=>p.room===room.id),`Empty category: ${room.id}`);
+const trenchChapters=['sower','weeds','mustard','leaven','treasure','pearl','net','debtor','workers','obedient-sons','tenants','wedding-feast','bridesmaids','talents','growing-seed','two-debtors','samaritan','midnight-friend','rich-fool','barren-fig','great-supper','sheep','coin','sons','shrewd-manager','lazarus','servants-duty','persistent-widow','prayers','minas'];
+for(const id of trenchChapters) assert.ok(PARABLES.some(p=>p.id===id),`Missing Trench chapter: ${id}`);
 const report:string[]=[];
 let verses=0;
 for(const story of PARABLES){
   assert.equal(story.beats.length,3);
+  assert.ok(PARABLE_ROOMS.some(r=>r.id===story.room),`Invalid category: ${story.id}`);
   for(const passage of story.passages){
     assert.ok(passage.start<=passage.end);
     for(let v=passage.start;v<=passage.end;v++){assert.ok(corpus[passage.book][`${passage.chapter}:${v}`],`${story.id}: missing ${v}`);verses++;}

@@ -28,7 +28,7 @@ function ListeningArt() {
 
 export function LearningToListen() {
   return <section className="pb-method" aria-labelledby="pb-method-title">
-    <div className="pb-section-heading"><span className="pb-number">III</span><h2 id="pb-method-title">Learning to listen</h2><span>Keep the story in its setting</span></div>
+    <div className="pb-section-heading"><span className="pb-number">II</span><h2 id="pb-method-title">Learning to listen</h2><span>Keep the story in its setting</span></div>
     <div className="pb-method-grid">
       <div><span className="pb-kicker">Why stories?</span><h3>A parable can reveal.<br/>It can also confront.</h3><p>When the disciples ask why Jesus speaks in parables, his answer includes both understanding and failure to perceive. These are invitations to attentive listening, and searching challenges to the listener.</p><Link to="/read/kjv/MAT/13?hl=10-17">Read Matthew 13:10–17 <ArrowUpRight size={14} aria-hidden="true"/></Link></div>
       <div className="pb-listening-scene"><ListeningArt/><span>Hear the story · Hold the question</span></div>
