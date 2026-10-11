@@ -1,115 +1,64 @@
-// 02 · Built on their work (approved mock-up: design/scholars-directions/scholars/built.js). Ribbons run from each part
-// of this site to the book it draws on and on to the scholar who wrote it: solid for live features, dashed for books
-// held in the library. Hovering lights a path and fills the fixed caption bar; clicking a feature pins it. The ribbons
-// sweep in once, the first time the card comes into view. On a phone the same links stack as one list per feature.
-// Every book, name and ribbon opens the shared profile.
-import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties, type RefObject, type SyntheticEvent } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import usageUrl from "../../../../content/teachers/feature-usage.json?url";
 import { ScholarSectionHead as SectionHead } from "./SectionHead";
-import { Caption } from "./built/Caption";
-import { reducedMotion } from "./marks/dom";
-import { buildModel, layoutFor, litBy, type Focus } from "./built/model";
-import { Stack } from "./built/Stack";
-import { Stage } from "./built/Stage";
-import { useScholars } from "./context";
 import "./Built.css";
 
-const keyOf = (f: string | undefined, s: string | undefined) => `${f ?? ""}|${s ?? ""}`;
+type Use = { page: string; address: string; locator: string };
+type Source = { id: string; author: string; title: string; year: string | number; url: string; kind: "data" | "citation" | "bibliography"; uses: Use[] };
+type Feature = { id: string; label: string; sources: Source[] };
+const labels = { data: "Builds the feature", citation: "Cited on the page", bibliography: "Listed in the bibliography" };
+const number = (n: number) => n.toLocaleString("en-US");
 
-/** Sweeps in once on first view (or at once with reduced motion); "settled" drops the staggered delays afterwards. */
-function useSweepIn(target: RefObject<HTMLElement>) {
-  const [stage, setStage] = useState<"hidden" | "in" | "settled">("hidden");
-  useEffect(() => {
-    const el = target.current;
-    if (!el) return;
-    if (reducedMotion() || !("IntersectionObserver" in window)) { setStage("settled"); return; }
-    let timer = 0;
-    const io = new IntersectionObserver((entries) => {
-      if (!entries.some((e) => e.isIntersecting)) return;
-      setStage("in");
-      timer = window.setTimeout(() => setStage("settled"), 2200);
-      io.disconnect();
-    }, { threshold: .2 });
-    io.observe(el);
-    return () => { io.disconnect(); window.clearTimeout(timer); };
-  }, [target]);
-  return stage;
-}
-
-/** The stage's width while it is shown (the phone layout hides it), re-read on resize in the next frame. */
-function useStageWidth(card: RefObject<HTMLElement>, stage: RefObject<HTMLElement>) {
-  const [width, setWidth] = useState(0);
-  useEffect(() => {
-    const el = card.current;
-    if (!el) return;
-    let frame = 0;
-    const measure = () => { const s = stage.current; if (s?.offsetParent) setWidth(s.clientWidth); };
-    const ro = new ResizeObserver(() => { cancelAnimationFrame(frame); frame = requestAnimationFrame(measure); });
-    ro.observe(el);
-    measure();
-    return () => { ro.disconnect(); cancelAnimationFrame(frame); };
-  }, [card, stage]);
-  return width;
+function SourceList({ feature }: { feature: Feature }) {
+  const [query, setQuery] = useState("");
+  const [limit, setLimit] = useState(20);
+  const scroll = useRef<HTMLDivElement>(null);
+  const sources = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    return feature.sources.filter(s => `${s.author} ${s.title} ${s.year} ${s.uses.map(u => `${u.page} ${u.locator}`).join(" ")}`.toLowerCase().includes(q));
+  }, [feature, query]);
+  return <div className="usage-detail">
+    <div className="usage-heading"><div><span className="usage-eyebrow">Follow the sources</span><h3>{feature.label}</h3></div>
+      <span>{number(sources.length)} source records</span></div>
+    <label className="usage-search"><span>Find an author, work or passage</span><input type="search" value={query} placeholder="Search this feature" onChange={e => {
+      setQuery(e.target.value); setLimit(20); if (scroll.current) scroll.current.scrollTop = 0;
+    }} /></label>
+    <div className="usage-scroll" ref={scroll} tabIndex={0} role="region" aria-label={`${feature.label} sources`} onScroll={e => {
+      const el = e.currentTarget;
+      if (el.scrollTop >= (el.scrollHeight - el.clientHeight) * .4) setLimit(n => Math.min(n + 20, sources.length));
+    }}>
+      {sources.slice(0, limit).map(source => <article className="usage-source" key={source.id}>
+        <div className="usage-source-meta"><span>{labels[source.kind]}</span>{source.year && <span>{source.year}</span>}</div>
+        <h4>{source.title}</h4><p className="usage-author">{source.author}</p>
+        <a className="usage-original" href={source.url} target={source.url.startsWith("http") ? "_blank" : undefined} rel="noreferrer">Open source <span aria-hidden="true">↗</span></a>
+        <ul className="usage-uses">{source.uses.slice(0, 2).map((use, i) => <li key={i}><a href={use.address}>{use.page}</a>{use.locator && <p>{use.locator}</p>}</li>)}</ul>
+        {source.uses.length > 2 && <details><summary>{source.uses.length - 2} more references on the site</summary><ul className="usage-uses">{source.uses.slice(2).map((use, i) => <li key={i}><a href={use.address}>{use.page}</a>{use.locator && <p>{use.locator}</p>}</li>)}</ul></details>}
+      </article>)}
+      {!sources.length && <p className="usage-empty">No matching sources in this feature. Try another name or work.</p>}
+      {sources.length > 0 && <p className="usage-end">{limit >= sources.length ? "All matching sources shown" : "More sources load as you scroll"}</p>}
+    </div>
+  </div>;
 }
 
 export function Built() {
-  const { data, openProfile } = useScholars();
-  const model = useMemo(() => buildModel(data.scholars), [data]);
-  const cardRef = useRef<HTMLDivElement>(null), stageRef = useRef<HTMLDivElement>(null);
-  const width = useStageWidth(cardRef, stageRef);
-  const layout = useMemo(() => (width ? layoutFor(model, width) : null), [model, width]);
-  const sweep = useSweepIn(cardRef);
-  const [pinned, setPinned] = useState<string | null>(null);
-  const [focus, setFocus] = useState<Focus | null>(null);
-
-  // One Focus object per node, so hovering the same thing twice changes nothing.
-  const focusFor = useMemo(() => {
-    const cache = new Map<string, Focus>();
-    return (f: string | undefined, s: string | undefined) => {
-      const key = keyOf(f, s);
-      if (!cache.has(key)) cache.set(key, { f: model.features.find((x) => x.id === f) ?? null, s: s ? data.scholars.find((x) => x.id === s) ?? null : null });
-      return cache.get(key) as Focus;
-    };
-  }, [model, data]);
-  const pinnedFocus = pinned ? focusFor(pinned, undefined) : null;
-  const nodeFocus = useCallback((target: EventTarget) => {
-    const node = (target as Element).closest<HTMLElement>("[data-f], [data-s]");
-    return node ? focusFor(node.dataset.f, node.dataset.s) : null;
-  }, [focusFor]);
-  const lit = useMemo(() => (focus ? litBy(model, focus) : null), [model, focus]);
-
-  const onStageClick = (event: SyntheticEvent) => {
-    const feat = (event.target as Element).closest<HTMLElement>(".blt-feat");
-    if (!feat?.dataset.f) return;
-    const next = pinned === feat.dataset.f ? null : feat.dataset.f;
-    setPinned(next);
-    setFocus(focusFor(feat.dataset.f, undefined));
-  };
-  const onCardClick = (event: SyntheticEvent) => {
-    const hit = (event.target as Element).closest<HTMLElement>("[data-scholar]");
-    const id = hit?.dataset.scholar;
-    if (!hit || !id) return;
-    const origin = hit.matches(".blt-rib") ? stageRef.current?.querySelector(`.blt-work[data-s="${id}"]`) ?? hit : hit;
-    openProfile(id, origin);
-  };
-  const capTone = focus?.f?.tone ?? (focus?.s ? model.rows.find((r) => r.s === focus.s)?.fs[0].tone : undefined) ?? "--accent";
-
+  const [features, setFeatures] = useState<Feature[]>([]);
+  const [selected, setSelected] = useState("topics");
+  const [error, setError] = useState(false);
+  useEffect(() => {
+    const controller = new AbortController();
+    fetch(usageUrl, { signal: controller.signal }).then(r => { if (!r.ok) throw new Error("Source index unavailable"); return r.json(); })
+      .then(data => setFeatures(data.features)).catch(e => { if (e.name !== "AbortError") setError(true); });
+    return () => controller.abort();
+  }, []);
+  const feature = features.find(f => f.id === selected);
+  const total = features.reduce((n, f) => n + f.sources.length, 0);
   return <>
     <SectionHead section="built" kicker="Behind the features" title={<>Built on <em>their work</em></>}
-      line="Each ribbon joins a part of this site to the book it draws on, and that book to the scholar who wrote it. Solid ribbons are live today; dashed ones are books in the library, planned for features." />
-    <div ref={cardRef} className={`blt-card${sweep !== "hidden" ? " blt-in" : ""}${sweep === "settled" ? " blt-settled" : ""}`}
-      style={{ "--cap-tone": `var(${capTone})` } as CSSProperties} onClick={onCardClick}>
-      <div className="blt-cap" aria-live="polite"><span className="blt-cap-dot" aria-hidden="true" /><p className="blt-cap-text"><Caption data={data} model={model} focus={focus} /></p></div>
-      <div ref={stageRef} className={`blt-stage${focus ? " blt-dim" : ""}`} style={layout ? { height: layout.height } : undefined}
-        onPointerOver={(e) => setFocus(nodeFocus(e.target) ?? pinnedFocus)} onPointerLeave={() => setFocus(pinnedFocus)}
-        onFocus={(e) => { const f = nodeFocus(e.target); if (f) setFocus(f); }} onBlur={() => setFocus(pinnedFocus)} onClick={onStageClick}>
-        <Stage data={data} model={model} layout={layout} lit={lit} pinned={pinned} />
-      </div>
-      <Stack data={data} model={model} />
-      <ul className="blt-legend">
-        <li><i className="blt-key-live" />Live on the site today</li>
-        <li><i className="blt-key-planned" />In the library, planned</li>
-        <li>Click a book or a name to open the scholar's profile</li>
-      </ul>
+      line="See which works supply our study tools and support their claims. Choose a feature, then follow a source to the page that uses it." />
+    <div className="usage-card">
+      <p className="usage-summary">{features.length ? <><strong>{number(total)}</strong> source connections across <strong>{features.length}</strong> parts of the site.</> : error ? "The source index could not load. Reload the page to try again." : "Loading the source connections…"}</p>
+      {feature && <div className="usage-layout"><nav className="usage-features" aria-label="Sources by site feature">{features.map(f => <button key={f.id} aria-pressed={selected === f.id} onClick={() => setSelected(f.id)}><span>{f.label}</span><b>{number(f.sources.length)}</b></button>)}</nav><SourceList key={feature.id} feature={feature} /></div>}
+      <p className="usage-note">Counts are source records within each feature; editions and repeated works across features count separately. Coverage includes verified feature inputs, registered page bibliographies and published apologetics study citations. Library holdings alone do not count as use.</p>
     </div>
   </>;
 }

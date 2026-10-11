@@ -12,7 +12,6 @@ async function openPage(page: Page) {
 }
 
 const profile = (page: Page) => page.locator(".tp-scholars [role='dialog']");
-const isPhone = (page: Page) => (page.viewportSize()?.width ?? 1440) <= 760;
 
 async function expectProfileFor(page: Page, name: string) {
   await expect(profile(page)).toBeVisible();
@@ -21,50 +20,32 @@ async function expectProfileFor(page: Page, name: string) {
   await expect(profile(page)).toBeHidden();
 }
 
-test("Built on their work joins features, books and scholars, follows the pointer and pins a feature", async ({ page }) => {
+test("Built on their work shows actual inputs and progressively loads citations", async ({ page }) => {
   await openPage(page);
-  const card = page.locator("#built .blt-card");
+  const card = page.locator("#built .usage-card");
   await card.scrollIntoViewIfNeeded();
-  await expect(card).toHaveClass(/blt-in/);
-  if (isPhone(page)) {
-    // The phone form: one list per feature, every book opening its scholar.
-    await expect(card.locator(".blt-stage")).toBeHidden();
-    await expect(card.locator(".blt-st-group")).toHaveCount(await card.locator(".blt-feat").count());
-    const first = card.locator(".blt-st-group button").first();
-    const name = (await first.locator("b").textContent()) ?? "";
-    await first.click();
-    await expectProfileFor(page, name);
-    return;
-  }
-  const planned = await card.locator(".blt-work.blt-planned").count();
-  expect(planned).toBeGreaterThan(0);
-  await expect(card.locator(".blt-rib.blt-planned")).toHaveCount(planned);
-  expect(await card.locator(".blt-rib:not(.blt-planned)").count()).toBeGreaterThanOrEqual(await card.locator(".blt-work:not(.blt-planned)").count());
-  const caption = card.locator(".blt-cap-text");
-  await expect(caption).toContainText("Hover a ribbon");
-  const capBox = await card.locator(".blt-cap").boundingBox();
-
-  const topics = card.locator(".blt-feat", { hasText: "Topics" });
-  await topics.hover();
-  await expect(caption).toContainText("Topics draws on");
-  await expect(card.locator(".blt-stage")).toHaveClass(/blt-dim/);
-  expect((await card.locator(".blt-cap").boundingBox())?.height).toBe(capBox?.height);
-  await card.locator(".blt-sch").first().hover();
-  await expect(card.locator(".blt-sch").first()).toHaveClass(/blt-on/);
-
-  await topics.click();
-  await expect(topics).toHaveAttribute("aria-pressed", "true");
-  await page.mouse.move(5, 5);
-  await expect(caption).toContainText("Topics draws on");
-  await topics.click();
-  await expect(topics).toHaveAttribute("aria-pressed", "false");
-  await page.mouse.move(5, 5);
-  await expect(caption).toContainText("Hover a ribbon");
-
-  const scholar = card.locator(".blt-sch").first();
-  const name = (await scholar.locator("b").textContent()) ?? "";
-  await scholar.click();
-  await expectProfileFor(page, name);
+  await expect(card.locator(".usage-features button")).toHaveCount(8);
+  await expect(card.locator(".usage-source")).toHaveCount(3);
+  await expect(card.locator(".usage-source").first()).toContainText("Builds the feature");
+  await expect(card.locator(".usage-uses a").first()).toHaveAttribute("href", "/topics");
+  await card.getByRole("button", { name: /^Letters/ }).click();
+  await expect(card.locator(".usage-source")).toHaveCount(20);
+  const scroll = card.locator(".usage-scroll");
+  const before = await page.evaluate(() => window.scrollY);
+  await scroll.evaluate(el => { el.scrollTop = (el.scrollHeight - el.clientHeight) * .45; });
+  await expect(card.locator(".usage-source")).toHaveCount(40);
+  expect(await page.evaluate(() => window.scrollY)).toBe(before);
+  await card.getByRole("searchbox").fill("Westcott");
+  await expect(card.locator(".usage-source").first()).toBeVisible();
+  await expect(card.locator(".usage-scroll")).toContainText("Hebrews");
+  await expect(card.locator(".usage-scroll")).not.toContainText("The New Testament in the Original Greek");
+  await card.getByRole("searchbox").fill("zzzz-no-source");
+  await expect(card.locator(".usage-empty")).toBeVisible();
+  await card.getByRole("button", { name: /^Apologetics studies/ }).click();
+  await expect(card.getByRole("searchbox")).toHaveValue("");
+  await expect(card.locator(".usage-source")).toHaveCount(20);
+  await expect(card.locator(".usage-uses a").first()).toHaveAttribute("href", /^\/apologetics\/study\//);
+  await expect(card.getByRole("button", { name: "Next", exact: true })).toHaveCount(0);
 });
 
 // Full catalogue and archived Fields interactions: teachers-full-catalogue.spec.ts.

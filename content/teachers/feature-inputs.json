@@ -1,0 +1,102 @@
+[
+  {
+    "id": "topics",
+    "label": "Topics",
+    "address": "/topics",
+    "rows": [
+      {
+        "author": "R. A. Torrey",
+        "title": "The New Topical Text Book",
+        "year": "1897",
+        "url": "https://ccel.org/ccel/t/torrey/ttt.xml",
+        "evidence": "scripts/build-topics.py",
+        "verify": "parse_torrey",
+        "locator": "Topic headings, teaching points and Bible references."
+      },
+      {
+        "author": "Orville J. Nave",
+        "title": "Nave's Topical Bible",
+        "year": "1896/1903",
+        "url": "https://ccel.org/ccel/n/nave/bible.xml",
+        "evidence": "scripts/build-topics.py",
+        "verify": "naves",
+        "locator": "Topical entries and grouped Bible references."
+      },
+      {
+        "author": "M. G. Easton",
+        "title": "Illustrated Bible Dictionary (3rd edition)",
+        "year": "1897",
+        "url": "https://ccel.org/ccel/e/easton/ebd2.xml",
+        "evidence": "scripts/build-topics.py",
+        "verify": "easton",
+        "locator": "Dictionary articles accompanying the topics."
+      }
+    ]
+  },
+  {
+    "id": "harmony",
+    "label": "Gospel harmony",
+    "address": "/study/gospels",
+    "rows": [
+      {
+        "author": "A. T. Robertson",
+        "title": "A Harmony of the Gospels for Students of the Life of Christ",
+        "year": "1922",
+        "url": "https://www.gutenberg.org/files/36264/36264-h/36264-h.htm",
+        "evidence": "scripts/build-study.py",
+        "verify": "parse_harmony",
+        "locator": "The ordered Gospel events and their parallel references."
+      }
+    ]
+  },
+  {
+    "id": "miracles",
+    "label": "Miracles",
+    "address": "/study/miracles",
+    "rows": [
+      {
+        "author": "A. T. Robertson",
+        "title": "A Harmony of the Gospels for Students of the Life of Christ",
+        "year": "1922",
+        "url": "https://www.gutenberg.org/files/36264/36264-h/36264-h.htm",
+        "evidence": "scripts/bible/study_harmony.py",
+        "verify": "parse_miracles",
+        "locator": "The source list of Christ's miracles."
+      },
+      {
+        "author": "R. A. Torrey",
+        "title": "The New Topical Text Book",
+        "year": "1897",
+        "url": "https://ccel.org/ccel/t/torrey/ttt.xml",
+        "evidence": "scripts/bible/study_torrey.py",
+        "verify": "parse_servants",
+        "locator": "Miracles through servants of God and events under evil agents."
+      }
+    ]
+  },
+  {
+    "id": "letters",
+    "label": "Letters study",
+    "address": "/study/letters",
+    "rows": [
+      {
+        "author": "R. A. Torrey",
+        "title": "The New Topical Text Book",
+        "year": "1897",
+        "url": "https://ccel.org/ccel/t/torrey/ttt.xml",
+        "evidence": "scripts/build-letters-browse.py",
+        "verify": "topic_points",
+        "locator": "Topical passages about Christ, the church and prayer, restricted to the letters."
+      },
+      {
+        "author": "James Strong (numbering system)",
+        "title": "Strong's word-number system in the Greek text",
+        "year": "",
+        "url": "/sources",
+        "evidence": "scripts/build-letters-browse.py",
+        "verify": "strongs",
+        "locator": "Word identifiers used to group and count Greek words; this is use of the numbering system, not a claim that the concordance text supplies the page."
+      }
+    ]
+  }
+]
