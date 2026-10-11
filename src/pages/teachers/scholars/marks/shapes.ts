@@ -37,7 +37,7 @@ export function fieldShape(field: Field, k: number): ShapeGeometry {
 }
 
 /** One or two initials: "Flavius Josephus" → FJ, "Jerome" → J, "Eusebius of Caesarea" → E (von / van / de skipped). */
-export function initials(scholar: Scholar): string {
+export function initials(scholar: Pick<Scholar, "name">): string {
   const words = scholar.name.split(/ (?:of|the) /)[0].split(" ").filter((w) => w && !/^(von|van|de)$/i.test(w));
   if (!words.length) return scholar.name.slice(0, 1);
   return words.length === 1 ? words[0][0] : words[0][0] + words[words.length - 1][0];

@@ -80,7 +80,16 @@ test("Five ways to study the Bible widens one field at a time and leads into the
   await expect(history.locator(".fld-head")).toHaveAttribute("aria-expanded", "true");
   await expect(texts.locator(".fld-head")).toHaveAttribute("aria-expanded", "false");
   const count = Number((await history.locator(".fld-count").textContent())?.match(/\d+/)?.[0]);
-  await expect(history.locator(".fld-people li")).toHaveCount(count);
+  await expect(history.locator(".fld-people [data-person]")).toHaveCount(count);
+  const added = history.locator(".fld-people a").first();
+  const addedName = (await added.locator("b").textContent()) ?? "";
+  await history.getByRole("searchbox").fill(addedName);
+  await expect(history.locator(".fld-people [data-person]")).toHaveCount(1);
+  await expect(history.locator(".fld-people a")).toHaveAttribute("href", /^\/teachers\/works\/held-/);
+  await history.getByRole("searchbox").fill("zzzznomatch");
+  await expect(history.locator(".fld-empty")).toBeVisible();
+  await history.getByRole("button", { name: "Clear", exact: true }).click();
+  await expect(history.locator(".fld-people [data-person]")).toHaveCount(count);
   if (!isPhone(page) && (page.viewportSize()?.width ?? 0) > 900) {
     expect((await page.locator("#fields .fld-grid").boundingBox())?.height).toBe(height);
   }
@@ -90,7 +99,7 @@ test("Five ways to study the Bible widens one field at a time and leads into the
   await person.click();
   await expectProfileFor(page, name);
 
-  await history.getByRole("button", { name: "See them in the catalogue" }).click();
+  await history.getByRole("button", { name: "Profiles in the catalogue" }).click();
   await expect(page.locator("#catalogue")).toBeInViewport();
 
   if ((page.viewportSize()?.width ?? 1440) <= 900) {

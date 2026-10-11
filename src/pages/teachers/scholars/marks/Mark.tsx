@@ -13,7 +13,7 @@ export function FieldShape({ field, k }: { field: Field; k: number }) {
   return <path d={g.d} strokeLinejoin={g.round ? "round" : undefined} />;
 }
 
-export function MarkInner({ scholar }: { scholar: Scholar }) {
+export function MarkInner({ scholar }: { scholar: Pick<Scholar, "name" | "field"> }) {
   const tone = toneVar(scholar.field), letters = initials(scholar), two = letters.length > 1;
   return <>
     <g style={{ fill: `color-mix(in srgb, ${tone} 15%, var(--surface))`, stroke: `color-mix(in srgb, ${tone} 50%, transparent)` }} strokeWidth={1.1}>
@@ -27,7 +27,7 @@ export function MarkInner({ scholar }: { scholar: Scholar }) {
   </>;
 }
 
-export function Mark({ scholar, size, className }: { scholar: Scholar; size: number; className?: string }) {
+export function Mark({ scholar, size, className }: { scholar: Pick<Scholar, "name" | "field">; size: number; className?: string }) {
   return <svg className={className ? `sc-mark ${className}` : "sc-mark"} width={size} height={size} viewBox="0 0 48 48" aria-hidden="true">
     <MarkInner scholar={scholar} />
   </svg>;

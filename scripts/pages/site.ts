@@ -10,6 +10,8 @@ import { testimoniesPage } from "./site-testimonies";
 import { looseConstant, readableText } from "./site-source";
 import type { Extractor, PageContent } from "./types";
 import writings from "../../content/teachers/writings/william-lane-craig.json";
+import scholars from "../../content/teachers/scholars.json";
+import fieldShelves from "../../content/teachers/field-shelves.json";
 
 const LAYOUT = "src/components/Layout.tsx";
 const FOOTER = "src/components/SiteFooter.tsx";
@@ -49,6 +51,16 @@ async function area(): Promise<PageContent> {
 export const extract: Extractor = async () => {
   const [shared, [home, library], reader, search, sources, testimonies] = await Promise.all([area(), homePages(), readerPage(), searchPage(), sourcesPage(), testimoniesPage()]);
   return [shared, home, reader, search, sources, testimonies, library, {
+    dir: "Site/scholar-fields", title: "Scholars: five fields", markdown: blocks(
+      link("/teachers/scholars#fields"),
+      `${scholars.scholars.length} profiles and ${fieldShelves.entries.length} additional writers and editors. Five fields, each with name/work search. Existing names open their profile; additional names open the identified library work. Additional entries retain recorded contributor roles; faith is not recorded here.`,
+      ...Object.entries(scholars.fields).flatMap(([key, label]) => [
+        `## ${label}`,
+        table(["Profile", "Key works"], scholars.scholars.filter(s => s.field === key).map(s => [s.name, s.works.map(w => w[0]).join("; ")])),
+        table(["More from the library", "Role", "Supporting work"], fieldShelves.entries.filter(s => s.field === key).map(s => [s.name, s.role, `[${s.work.title}](/teachers/works/${s.work.id})`])),
+      ]),
+    ),
+  }, {
     dir: "Site/scholar-writings", title: `${writings.name}: writings`, markdown: blocks(
       link(writings.path),
       `Listed in Scholars and linked from Apologetics materials. Subjects: ${writings.tags.join(", ")}.`,
