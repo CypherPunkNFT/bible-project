@@ -51,6 +51,7 @@ async function area(): Promise<PageContent> {
 
 export const extract: Extractor = async () => {
   const fieldShelves = await readJson<FieldLibrary>("content/teachers/field-shelves.json");
+  const fieldFeatured = await readJson<Record<Field, [string, string][]>>("content/teachers/field-featured.json");
   const [shared, [home, library], reader, search, sources, testimonies] = await Promise.all([area(), homePages(), readerPage(), searchPage(), sourcesPage(), testimoniesPage()]);
   return [shared, home, reader, search, sources, testimonies, library, {
     dir: "Site/scholar-fields", title: "Scholars: five fields", markdown: blocks(
@@ -58,6 +59,7 @@ export const extract: Extractor = async () => {
       `${fieldShelves.entries.length} author/contributor names from ${fieldShelves.coverage.scannedRecords} packaged records, including ${scholars.scholars.length} documented profiles. Five overlapping subject fields; search, collection filters, contributor pagination and full held-work shelves. Fields describe works, not personal faith or scholarly qualifications. ${fieldShelves.coverage.withoutSubjectMatch} remaining source names are accessible in the full acquired catalogue without a guessed field.`,
       ...Object.entries(scholars.fields).flatMap(([key, label]) => [
         `## ${label}`,
+        `Featured introductions (shown first by default): ${fieldFeatured[key as Field].map(([id]) => fieldShelves.entries.find(p => p.id === id)?.name).filter(Boolean).join("; ")}. Closed cards show enlarged, named badges and a Browse all total; the selection does not limit the full field.`,
         table(["Profile", "Key works"], scholars.scholars.filter(s => s.field === key).map(s => [s.name, s.works.map(w => w[0]).join("; ")])),
         table(["Contributor", "Recorded roles", "Supporting work"], fieldShelves.entries.filter(s => s.fields[key as Field]).map(s => { const w = s.fields[key as Field]?.example; return [s.name, s.roles.join(", "), w ? `[${w.title}](/teachers/works/${w.id})` : "Documented profile"]; })),
       ]),

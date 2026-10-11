@@ -3,6 +3,7 @@ import { useEffect, useMemo, useState, type CSSProperties } from "react";
 import { ArrowRight, Search } from "lucide-react";
 import type { Field } from "@/data/teachers/pages-types";
 import libraryUrl from "../../../../content/teachers/field-shelves.json?url";
+import featured from "../../../../content/teachers/field-featured.json";
 import { SectionHead } from "../shared/Frame";
 import { getAcquired } from "../shared/acquired";
 import { faithOf, toneOf, yearsOf } from "./built/labels";
@@ -27,15 +28,25 @@ export function Fields() {
   const [choice, setChoice] = useState<{ key: Field; open: boolean }>({ key: "theology", open: true });
   const [query, setQuery] = useState(""), [collection, setCollection] = useState("");
   const [page, setPage] = useState(0), [expanded, setExpanded] = useState<string | null>(null);
-  const [sort, setSort] = useState("held");
+  const [sort, setSort] = useState("featured");
   useEffect(() => {
     const abort = new AbortController();
     getAcquired<FieldLibrary>(libraryUrl, abort.signal).then(setLibrary).catch(e => { if (!abort.signal.aborted) setError(e.message); });
     return () => abort.abort();
   }, []);
-  const groups = useMemo(() => (Object.entries(data.fields) as [Field, string][]).map(([key, label]) => ({
-    key, label, people: (library?.entries ?? []).filter(p => p.fields[key]).sort((a, b) => sort === "held" ? b.records - a.records || a.name.localeCompare(b.name) : a.name.localeCompare(b.name)),
-  })), [data.fields, library, sort]);
+  const groups = useMemo(() => (Object.entries(data.fields) as [Field, string][]).map(([key, label]) => {
+    const people = (library?.entries ?? []).filter(p => p.fields[key]);
+    // Editorial introductions are independent of record volume and shelf sorting.
+    const picks = featured[key].flatMap(([id, caption]) => {
+      const person = people.find(p => p.id === id);
+      return person ? [{ person, caption }] : [];
+    });
+    const rank = new Map(picks.map((p, i) => [p.person.id, i]));
+    people.sort((a, b) => sort === "az" ? a.name.localeCompare(b.name) :
+      (sort === "featured" ? (rank.get(a.id) ?? Infinity) - (rank.get(b.id) ?? Infinity) : 0) ||
+      b.records - a.records || a.name.localeCompare(b.name));
+    return { key, label, people, picks };
+  }), [data.fields, library, sort]);
   const columns = groups.map(g => g.key === choice.key ? "3.4fr" : "1fr").join(" ");
   const words = query.trim().toLocaleLowerCase().split(/\s+/).filter(Boolean);
   const matches = (p: FieldEntry) => (!collection || p.collections.includes(collection)) && words.every(word =>
@@ -75,16 +86,18 @@ export function Fields() {
         const selected = choice.open && choice.key === g.key;
         const visible = g.people.filter(matches), currentPage = Math.min(page, Math.max(0, Math.ceil(visible.length / SIZE) - 1));
         return <article key={g.key} className={`fld-card${selected ? " fld-sel" : ""}`} data-field={g.key} style={{ "--tone": `var(${toneOf(g.key)})` } as CSSProperties}>
-          <button type="button" className="fld-head" aria-expanded={selected} aria-controls={`fld-list-${g.key}`} onClick={() => choose(g.key)}>
+          <button type="button" className="fld-head" aria-label={`${g.label}: browse all ${g.people.length.toLocaleString()} contributors`} aria-expanded={selected} aria-controls={`fld-list-${g.key}`} onClick={() => choose(g.key)}>
             <span className="fld-count">{library ? g.people.length.toLocaleString() : "…"} contributors</span><h3>{g.label}</h3>
             <span className="fld-span">{descriptions[g.key]}</span>
-            <span className="fld-avatars" aria-hidden="true">{g.people.slice(0, 12).map(p => <Mark key={p.id} scholar={{ name: p.name, field: g.key }} size={28} />)}{g.people.length > 12 && <span className="fld-more">+{(g.people.length - 12).toLocaleString()}</span>}</span>
-            <span className="fld-open" aria-hidden="true"><ArrowRight size={16} /></span>
+            <span className="fld-avatars" aria-hidden="true">{g.picks.map(({ person, caption }) => <span className="fld-featured" key={person.id} title={person.name}>
+              <Mark scholar={{ name: person.name, field: g.key }} size={48} /><span>{caption}</span>
+            </span>)}</span>
+            <span className="fld-more">Browse all {library ? g.people.length.toLocaleString() : "…"}</span>
           </button>
           <div className="fld-body" id={`fld-list-${g.key}`} hidden={!selected}>
             <div className="fld-body-in">
               <label className="fld-search"><Search size={14} aria-hidden="true" /><input type="search" aria-label={`Search ${g.label}`} placeholder="Find a name or work" value={selected ? query : ""} onChange={e => { setQuery(e.target.value); reset(); }} /></label>
-              <div className="fld-controls"><select aria-label={`Collection in ${g.label}`} value={collection} onChange={e => { setCollection(e.target.value); reset(); }}><option value="">All collections</option>{FIELD_COLLECTIONS.map(([key, label]) => <option key={key} value={key}>{label}</option>)}</select><select aria-label={`Sort ${g.label}`} value={sort} onChange={e => { setSort(e.target.value); reset(); }}><option value="held">Most held</option><option value="az">A–Z</option></select></div>
+              <div className="fld-controls"><select aria-label={`Collection in ${g.label}`} value={collection} onChange={e => { setCollection(e.target.value); reset(); }}><option value="">All collections</option>{FIELD_COLLECTIONS.map(([key, label]) => <option key={key} value={key}>{label}</option>)}</select><select aria-label={`Sort ${g.label}`} value={sort} onChange={e => { setSort(e.target.value); reset(); }}><option value="featured">Featured first</option><option value="held">Most held</option><option value="az">A–Z</option></select></div>
               <p className="fld-results" role="status">{visible.length.toLocaleString()} of {g.people.length.toLocaleString()} contributors{(query || collection) && <button type="button" onClick={() => { setQuery(""); setCollection(""); reset(); }}>Clear</button>}</p>
               <ul className="fld-people" key={`${g.key}-${query}-${collection}-${sort}-${currentPage}`} tabIndex={0} aria-label={`${g.label} authors and contributors`}>
                 {selected && visible.slice(currentPage * SIZE, (currentPage + 1) * SIZE).map(p => personRow(p, g.key))}
