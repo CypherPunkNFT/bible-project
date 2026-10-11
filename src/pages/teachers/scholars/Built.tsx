@@ -4,7 +4,7 @@
 // sweep in once, the first time the card comes into view. On a phone the same links stack as one list per feature.
 // Every book, name and ribbon opens the shared profile.
 import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties, type RefObject, type SyntheticEvent } from "react";
-import { SectionHead } from "../shared/Frame";
+import { ScholarSectionHead as SectionHead } from "./SectionHead";
 import { Caption } from "./built/Caption";
 import { reducedMotion } from "./marks/dom";
 import { buildModel, layoutFor, litBy, type Focus } from "./built/model";
@@ -94,7 +94,7 @@ export function Built() {
   const capTone = focus?.f?.tone ?? (focus?.s ? model.rows.find((r) => r.s === focus.s)?.fs[0].tone : undefined) ?? "--accent";
 
   return <>
-    <SectionHead num="02" kicker="Behind the features" title={<>Built on <em>their work</em></>}
+    <SectionHead section="built" kicker="Behind the features" title={<>Built on <em>their work</em></>}
       line="Each ribbon joins a part of this site to the book it draws on, and that book to the scholar who wrote it. Solid ribbons are live today; dashed ones are books in the library, planned for features." />
     <div ref={cardRef} className={`blt-card${sweep !== "hidden" ? " blt-in" : ""}${sweep === "settled" ? " blt-settled" : ""}`}
       style={{ "--cap-tone": `var(${capTone})` } as CSSProperties} onClick={onCardClick}>

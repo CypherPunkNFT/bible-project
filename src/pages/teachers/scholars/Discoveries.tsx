@@ -5,7 +5,7 @@
 // closes the section, lighting the names the chosen find's thread passes through. From 901px the map sits on the left.
 import { useCallback, useLayoutEffect, useMemo, useRef, useState } from "react";
 import type { Find } from "@/data/teachers/pages-types";
-import { SectionHead } from "../shared/Frame";
+import { ScholarSectionHead as SectionHead } from "./SectionHead";
 import { useScholars } from "./context";
 import { FindCard, OverviewCard } from "./discoveries/Cards";
 import { MapCard } from "./discoveries/MapCard";
@@ -42,7 +42,7 @@ export function Discoveries() {
   useLayoutEffect(() => { show(find); }, [find, show]);
 
   return <>
-    <SectionHead num="03" kicker="The discoveries" title={<>{word(model.finds.length)} discoveries, <em>from the dig to your screen.</em></>}
+    <SectionHead section="discoveries" kicker="The discoveries" title={<>{word(model.finds.length)} discoveries, <em>from the dig to your screen.</em></>}
       line="Choose a discovery, or scroll the list: the map flies to the place, and its card follows the find through the scholar who found or studied it to where it reaches this site." />
     <div className="dsc-grid">
       <div className="dsc-list-wrap">

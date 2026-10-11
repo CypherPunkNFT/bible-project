@@ -4,6 +4,8 @@ import { createContext, useContext } from "react";
 import type { Era, Faith, Field, ScholarsData } from "@/data/teachers/pages-types";
 import type { LibraryPerson } from "./catalogue/library";
 
+import type { ContributorFacts } from "./facts";
+
 export interface ProfileTarget { id: string; origin: Element | null }
 export interface CatalogueFilters { field: Field[]; era: Era[]; faith: Faith[]; used: boolean; q: string }
 export const NO_FILTERS: CatalogueFilters = { field: [], era: [], faith: [], used: false, q: "" };
@@ -11,6 +13,7 @@ export interface ScholarsContextValue {
   data: ScholarsData;
   library: LibraryPerson[] | null;
   libraryError: string;
+  libraryFacts: ContributorFacts | null;
   /** Open a scholar's profile; `origin` is the clicked element, so the profile can grow out of it and shrink back. */
   openProfile: (id: string, origin?: Element | null) => void;
   closeProfile: () => void;

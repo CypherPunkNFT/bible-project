@@ -4,7 +4,7 @@
 // follow the shared `filters`. Approved mock-up: design/scholars-directions/scholars/numbers.js.
 import { useMemo } from "react";
 import type { Era, Field, ScholarsData } from "@/data/teachers/pages-types";
-import { SectionHead } from "../shared/Frame";
+import { ScholarSectionHead as SectionHead } from "./SectionHead";
 import { useScholars, type CatalogueFilters } from "./context";
 import { toggled, type FacetKey } from "./catalogue/filtering";
 import { eraParts, isUsed } from "./marks/facts";
@@ -62,7 +62,7 @@ export function Numbers() {
   const rows: RowsProps = { data, filters, shown, onToggle: (key, value) => filterCatalogue(toggled(filters, key, value)) };
   const word = countWord(data.scholars.length);
   return <>
-    <SectionHead num="06" kicker="By the numbers" title={<>The {word}, <em>counted</em></>}
+    <SectionHead section="numbers" kicker="By the numbers" title={<>The {word}, <em>counted</em></>}
       line="These figures describe the documented scholar profiles, not the full acquired contributor list. Every bar also filters the catalogue above." />
     <div className="num-strip">
       <div className="num-card"><h3>By field</h3><Bars {...rows} facet="field" explain="Scholars in each field. The darker part is how many the catalogue is showing now." /></div>

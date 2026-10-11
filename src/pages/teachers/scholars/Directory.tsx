@@ -3,7 +3,7 @@
 // rows glide to their new places (transforms only), new headings fade in and the frame eases to its new height, so
 // nothing on the page jumps. Every row opens the shared profile.
 import { useLayoutEffect, useMemo, useRef, useState, type SyntheticEvent } from "react";
-import { SectionHead } from "../shared/Frame";
+import { ScholarSectionHead as SectionHead } from "./SectionHead";
 import { reducedMotion } from "./marks/dom";
 import { useScholars } from "./context";
 import { buildGroups, type Mode } from "./directory/groups";
@@ -55,7 +55,7 @@ export function Directory() {
   };
 
   return <>
-    <SectionHead num="07" kicker="Profile directory" title={<>{data.scholars.length} documented <em>scholar profiles</em></>}
+    <SectionHead section="directory" kicker="Profile directory" title={<>{data.scholars.length} documented <em>scholar profiles</em></>}
       line="The biographical profiles, by era or from A to Z. The full contributor list and held works are in catalogue 01." />
     <div className="dir-tools">
       <ul className="dir-key">

@@ -3,7 +3,7 @@
 // counts are shown; the match is a rough text search. Two sort orders slide the rows into place (transforms only);
 // those never named are listed as chips underneath. Every name opens the shared profile.
 import { useLayoutEffect, useMemo, useRef, useState, type CSSProperties, type PointerEvent, type SyntheticEvent } from "react";
-import { SectionHead } from "../shared/Frame";
+import { ScholarSectionHead as SectionHead } from "./SectionHead";
 import { reducedMotion } from "./marks/dom";
 import { useScholars } from "./context";
 import { AREAS, areaPhrase, buildHeat, type SortKey } from "./named/model";
@@ -70,7 +70,7 @@ export function Named() {
   };
 
   return <div onClick={onClick}>
-    <SectionHead num="05" kicker="In the site's own pages" title={<>Where the site <em>names them</em></>}
+    <SectionHead section="named" kicker="In the site's own pages" title={<>Where the site <em>names them</em></>}
       line="Darker squares mean a scholar is named more often in that part of the site, compared with the other scholars. Point at a square to read it; click a name to meet them." />
     <div className="nmd-tools" role="group" aria-label="Sort the grid">
       <span>Sort</span>

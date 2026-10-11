@@ -13,8 +13,9 @@ import { toneStyle } from "./marks/shapes";
 import { Constellation } from "./landing/Constellation";
 import { findScholars } from "./landing/search";
 import "./Landing.css";
+import { SCHOLAR_SECTIONS, sectionNumber } from "./sections";
 
-const JUMPS = [["catalogue", "01", "The full catalogue"], ["built", "02", "Built on their work"], ["discoveries", "03", "Discoveries"], ["directory", "07", "Documented profiles"]] as const;
+const JUMPS = SCHOLAR_SECTIONS;
 
 /** In-page links scroll smoothly and keep the address in step, without a reload. */
 function jump(event: MouseEvent<HTMLAnchorElement>) {
@@ -65,7 +66,7 @@ export function Landing() {
         <div><dt>Centuries</dt><dd>{centuries}</dd><p>ancient world to today</p></div>
       </dl>
       <nav className="lnd-jump" aria-label="On this page"><span className="lnd-jump-l">On this page</span>
-        {JUMPS.map(([id, n, label]) => <a key={id} href={`#${id}`} onClick={jump}><b>{n}</b>{label}</a>)}</nav>
+        {JUMPS.map(({id, title}) => <a key={id} href={`#${id}`} onClick={jump}><b>{sectionNumber(id)}</b>{title}</a>)}</nav>
     </div>
   </div>;
 }

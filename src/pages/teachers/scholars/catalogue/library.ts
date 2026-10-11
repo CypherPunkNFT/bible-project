@@ -1,17 +1,18 @@
 import type { Scholar, ScholarsData } from '@/data/teachers/pages-types';
 import type { AcquiredCatalogue } from '../../shared/acquired';
 import type { FieldEntry, FieldLibrary } from '../field-library';
+import type { ContributorFact, ContributorFacts } from '../facts';
 import type { CatalogueFilters } from '../context';
 import { isUsed, weight } from '../marks/facts';
 import featured from '../../../../../content/teachers/field-featured.json';
 
-export interface LibraryPerson extends FieldEntry { scholar?: Scholar; search: string; sourceLifeDates: string[] }
+export interface LibraryPerson extends FieldEntry { scholar?: Scholar; facts?: ContributorFact; search: string; sourceLifeDates: string[] }
 export interface LibraryOptions { collection: string; role: string; scope: string; unclassified: boolean; unknownEra: boolean }
 export const ALL_LIBRARY: LibraryOptions = { collection: '', role: '', scope: '', unclassified: false, unknownEra: false };
 export type LibrarySort = 'featured' | 'az' | 'year' | 'held' | 'named';
 
 /** Retain every source credit, including names with no assigned field. Only previously verified aliases are merged. */
-export function mergeLibrary(index: FieldLibrary, acquired: AcquiredCatalogue, data: ScholarsData): LibraryPerson[] {
+export function mergeLibrary(index: FieldLibrary, acquired: AcquiredCatalogue, data: ScholarsData, facts?: ContributorFacts): LibraryPerson[] {
   const entries: FieldEntry[] = index.entries.map(p => ({ ...p }));
   const covered = new Set(entries.flatMap(p => p.contributorIds));
   for (const c of acquired.contributors) if (!covered.has(c.id)) entries.push({
@@ -27,7 +28,7 @@ export function mergeLibrary(index: FieldLibrary, acquired: AcquiredCatalogue, d
       ...Object.entries(p.fields).flatMap(([key, field]) => [data.fields[key as keyof typeof data.fields], field?.example?.title]),
       ...(scholar ? [scholar.short, scholar.place[0], scholar.line, ...scholar.works.map(w => w[0]), ...(scholar.tags ?? [])] : []),
     ].join(' ').toLocaleLowerCase();
-    return { ...p, scholar, search, sourceLifeDates };
+    return { ...p, scholar, search, sourceLifeDates, facts: facts?.entries[p.id] };
   });
 }
 

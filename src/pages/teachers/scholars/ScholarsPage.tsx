@@ -16,16 +16,10 @@ import { Named } from "./Named";
 import { Numbers } from "./Numbers";
 import { Profile } from "./Profile";
 import { useLibrary } from "./catalogue/useLibrary";
+import { SCHOLAR_SECTIONS } from "./sections";
 
-const SECTIONS = [
-  ["landing", "Scholars", Landing],
-  ["catalogue", "The catalogue", Catalogue],
-  ["built", "Built on their work", Built],
-  ["discoveries", "The discoveries", Discoveries],
-  ["named", "Where the site names them", Named],
-  ["numbers", "By the numbers", Numbers],
-  ["directory", "All the scholars", Directory],
-] as const;
+const COMPONENTS = { catalogue: Catalogue, built: Built, discoveries: Discoveries, named: Named, numbers: Numbers, directory: Directory };
+
 
 export default function ScholarsPage() {
   const { data, error } = useScholarsData();
@@ -34,7 +28,7 @@ export default function ScholarsPage() {
 }
 
 function Loaded({ data }: { data: ScholarsData }) {
-  const { library, libraryError } = useLibrary(data);
+  const { library, libraryError, libraryFacts } = useLibrary(data);
   const [profile, setProfile] = useState<ProfileTarget | null>(null);
   const [filters, setFilters] = useState<CatalogueFilters>(NO_FILTERS);
   const [shownIds, setShownIds] = useState<string[]>(() => data.scholars.map((s) => s.id));
@@ -44,12 +38,13 @@ function Loaded({ data }: { data: ScholarsData }) {
     setFilters({ ...NO_FILTERS, ...next });
     if (options.scroll !== false) document.getElementById("catalogue")?.scrollIntoView({ behavior: "smooth", block: "start" });
   }, []);
-  const value = useMemo(() => ({ data, library, libraryError, openProfile, closeProfile, profile, filters, filterCatalogue, shownIds, setShownIds }),
-    [data, library, libraryError, openProfile, closeProfile, profile, filters, filterCatalogue, shownIds]);
+  const value = useMemo(() => ({ data, library, libraryError, libraryFacts, openProfile, closeProfile, profile, filters, filterCatalogue, shownIds, setShownIds }),
+    [data, library, libraryError, libraryFacts, openProfile, closeProfile, profile, filters, filterCatalogue, shownIds]);
   return <ScholarsContext.Provider value={value}>
     <div className="tp-page tp-scholars">
       <SidesSwitch current="scholars" />
-      {SECTIONS.map(([id, title, Section]) => <TeacherSection key={id} id={id} title={title}><Section /></TeacherSection>)}
+      <TeacherSection id="landing" title="Scholars"><Landing /></TeacherSection>
+      {SCHOLAR_SECTIONS.map(({ id, title }) => { const Section = COMPONENTS[id]; return <TeacherSection key={id} id={id} title={title}><Section /></TeacherSection>; })}
       <Profile />
     </div>
   </ScholarsContext.Provider>;

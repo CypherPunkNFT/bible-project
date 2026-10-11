@@ -1,5 +1,5 @@
 import { startTransition, useEffect, useMemo, useRef, useState } from "react";
-import { SectionHead } from "../shared/Frame";
+import { ScholarSectionHead as SectionHead } from "./SectionHead";
 import { useScholars } from "./context";
 import { Card } from "./catalogue/Card";
 import { Facets } from "./catalogue/Facets";
@@ -60,7 +60,7 @@ export function Catalogue() {
   const clear = () => { setText(''); setOptions(ALL_LIBRARY); set({ field: [], era: [], faith: [], used: false, q: '' }); };
   return <>
     <span id="acquired" /><span id="fields" />
-    <SectionHead num="01" kicker="The catalogue" title={<>Every contributor, <em>one place</em></>}
+    <SectionHead section="catalogue" kicker="The catalogue" title={<>Every contributor, <em>one place</em></>}
       line={<>The full acquired contributor list, including CCEL and the Latin Fathers. Open a documented profile or browse a contributor’s held works. Fields can overlap; unclassified names are included.</>} />
     <p className="cat-coverage">{data.scholars.length} documented scholar profiles{library && <> · {library.length.toLocaleString()} catalogue entries · {library.filter(p => !Object.keys(p.fields).length).length.toLocaleString()} without an assigned field</>}. Authors, editors, translators and named collections retain their source credits.</p>
     {libraryError && <p role="alert">The full library could not load: {libraryError}. Reload to try again.</p>}
