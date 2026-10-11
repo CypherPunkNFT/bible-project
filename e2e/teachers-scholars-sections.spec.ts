@@ -50,36 +50,44 @@ test("Built on their work shows actual inputs and progressively loads citations"
 
 // Full catalogue and archived Fields interactions: teachers-full-catalogue.spec.ts.
 
-test("Where the site names them shades, explains, re-sorts and lists the never-named", async ({ page }) => {
+test("author credits expose counted evidence beyond the profiles with progressive scrolling", async ({ page }) => {
   await openPage(page);
-  const rows = page.locator("#named .nmd-rows li");
-  const total = await rows.count();
-  expect(total).toBeGreaterThan(10);
-  const order = () => rows.evaluateAll((all) => all.map((li) => li.getAttribute("data-id")));
-  const byEra = await order();
-  await page.locator("#named").getByRole("button", { name: "By how widely named" }).click();
-  await expect(page.getByRole("button", { name: "By how widely named" })).toHaveAttribute("aria-pressed", "true");
-  const byWidth = await order();
-  expect(byWidth).not.toEqual(byEra);
-  expect([...byWidth].sort()).toEqual([...byEra].sort());
-  await page.locator("#named").getByRole("button", { name: "By era", exact: true }).click();
-  expect(await order()).toEqual(byEra);
-
-  const cell = rows.first().locator(".nmd-cell:not(.nmd-none)").first();
-  await cell.hover();
-  const tip = page.locator("#named .nmd-tip");
-  await expect(tip).toHaveClass(/nmd-tip-on/);
-  await expect(tip).toContainText(/Named in the /);
-  await expect(rows.first()).toHaveClass(/nmd-hot/);
-  await rows.first().locator(".nmd-none").first().hover();
-  await expect(tip).toContainText(/Not named in the /);
-
-  const chip = page.locator("#named .nmd-unnamed button").first();
-  await expect(chip).toBeVisible();
-  const short = (await chip.textContent()) ?? "";
-  await chip.click();
-  await expect(profile(page)).toBeVisible();
-  await expect(profile(page)).toContainText(short);
+  const section = page.locator("#named");
+  await section.scrollIntoViewIfNeeded();
+  const names = section.locator(".credit-person");
+  await expect(names).toHaveCount(40);
+  await expect(section.locator(".credit-detail h3")).toHaveText(await names.first().locator("b").innerText());
+  const list = section.locator(".credit-list");
+  const y = await page.evaluate(() => window.scrollY);
+  await list.evaluate(el => { el.scrollTop = (el.scrollHeight - el.clientHeight) * .45; });
+  await expect(names).toHaveCount(80);
+  expect(await page.evaluate(() => window.scrollY)).toBe(y);
+  await section.getByLabel("Find a credited name or work").fill("Westcott");
+  await expect(names.first()).toBeVisible();
+  await expect(section.locator(".credit-detail h3")).toContainText("Westcott");
+  await section.getByLabel("Site area", { exact: true }).selectOption("letters");
+  await expect(section.locator(".credit-meta").first()).toContainText("Letters study");
+  await expect(section.locator(".credit-detail")).toContainText("Hebrews");
+  await expect(section.locator(".credit-work a").first()).toHaveAttribute("href", /^https:/);
+  await expect(section.locator(".credit-work li a").first()).toHaveAttribute("href", /^\/study\/letters/);
+  await section.getByLabel("Find a credited name or work").fill("zzzz-no-credit");
+  await expect(section.locator(".credit-empty")).toContainText("does not mean the author is absent");
+  await section.getByLabel("Find a credited name or work").fill("");
+  await section.getByLabel("Site area", { exact: true }).selectOption("");
+  await section.getByLabel("Sort", { exact: true }).selectOption("name");
+  await expect(names).toHaveCount(40);
+  const order = await names.locator("b").allTextContents();
+  expect(order).toEqual([...order].sort((a,b) => a.localeCompare(b)));
+  const second = await names.nth(1).locator("b").innerText();
+  await names.nth(1).click();
+  await expect(section.locator(".credit-detail h3")).toHaveText(second);
+  await section.getByLabel("Find a credited name or work").fill("John Gill");
+  await expect(section.locator(".credit-work")).toHaveCount(20);
+  await section.locator(".credit-evidence").evaluate(el => { el.scrollTop = (el.scrollHeight - el.clientHeight) * .45; });
+  await expect(section.locator(".credit-work")).toHaveCount(40);
+  await section.getByLabel("Site area", { exact: true }).selectOption("letters");
+  expect(await section.locator(".credit-evidence").evaluate(el => el.scrollTop)).toBe(0);
+  await expect(section.getByRole("button", { name: "Next", exact: true })).toHaveCount(0);
 });
 
 test("the directory lists every scholar by era or from A to Z without moving the page", async ({ page }) => {
