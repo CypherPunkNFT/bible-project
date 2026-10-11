@@ -58,8 +58,8 @@
 .tp-scholars .cat-opt[aria-pressed="true"] .cat-faith-ic { background: var(--accent); }
 
 /* ── Toolbar ─────────────────────────────────────────────────────────────── */
-.tp-scholars .cat-results { min-width: 0; }
-.tp-scholars .cat-scroll { height: clamp(26rem, 65svh, 44rem); overflow-y: auto; overscroll-behavior-y: contain; padding: 2px 8px 64px 2px; scroll-padding-block: 16px 72px;
+.tp-scholars .cat-results { min-width: 0; min-height: 0; align-self: stretch; display: flex; flex-direction: column; }
+.tp-scholars .cat-scroll { height: 0; min-height: clamp(26rem, 65svh, 44rem); flex: 1 1 0px; overflow-y: auto; overscroll-behavior-y: contain; padding: 2px 8px 64px 2px; scroll-padding-block: 16px 72px;
   -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 56px), transparent); mask-image: linear-gradient(to bottom, #000 calc(100% - 56px), transparent);
   scrollbar-width: thin; scrollbar-color: color-mix(in srgb, var(--ink) 28%, transparent) transparent; }
 .tp-scholars .cat-scroll:focus-visible { box-shadow: inset 0 0 0 1px var(--accent); border-radius: 1rem; }
