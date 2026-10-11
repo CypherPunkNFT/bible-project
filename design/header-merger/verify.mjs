@@ -35,6 +35,7 @@ const b=await launch();try{
   assert.equal(await ef.locator('.sm-e-bar .e-logo').count(),1);
   assert.equal(await ef.locator('.sm-e-bar .e-search').count(),1);
   assert.equal(await ef.locator('.e-logo strong').count(),id==='f'?1:0);
+  if(id==='f'){const rail=await ef.locator('html').evaluate(()=>({bar:document.querySelector('.sm-e-bar').getBoundingClientRect(),search:document.querySelector('.e-search').getBoundingClientRect(),border:getComputedStyle(document.querySelector('.e-search')).borderLeftWidth}));assert.ok(Math.abs(rail.bar.right-rail.search.right)<1);assert.ok(Math.abs(rail.bar.top-rail.search.top)<1);assert.ok(Math.abs(rail.bar.bottom-rail.search.bottom)<1);assert.equal(rail.border,'1px')}
   const seam=await ef.locator('html').evaluate(()=>({logo:document.querySelector('.e-logo').getBoundingClientRect().right,explore:document.querySelector('.sm-main>div:first-child').getBoundingClientRect().left}));
   assert.ok(Math.abs(seam.logo-seam.explore)<1);
   assert.equal(await ef.locator('.sm-main>div:visible').count(),7);

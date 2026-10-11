@@ -15,3 +15,5 @@ Option E (2026-10-11): embeds the original Apologetics landing page and navigati
 E refinement: shield logo, seven substantive menu items, and search share one visible original-style bar. Practice and My study are omitted from E's top-level menu only. Practice content remains available within the site; My study is browser-local.
 
 F: same original-page treatment as E, with Apologetics beside the shield. In both E and F, Explore's selected background begins directly at the logo divider.
+
+F search refinement: the search action is the full-height right end of the bar, separated by one vertical rule; it has no inset button container. E is unchanged.
