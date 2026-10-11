@@ -12,7 +12,7 @@ The comparison defaults to the first two exchanges. Controls show any one debate
 
 `data.js` is a snapshot of the nine canonical published debate documents as of October 11, 2026. No source assertions or speaker quotations were added. The drawings are original code-native illustrations, with their subject mappings explained in the icon library.
 
-This is a local design comparison; the production card component is unchanged. No option has been marked accepted.
+The owner approved the A+B merger with a taller speaker panel, no divider beneath it and no arrow. It is now implemented in the local debate collection at http://127.0.0.1:8931/apologetics/debates#collection. The original comparison remains available. This approval is LOCAL ONLY; nothing was deployed.
 
 Verification: 36 layout/theme/viewport combinations passed with all nine records at 1440, 768 and 390 pixels, in light and dark. Checked horizontal overflow, description order, speaker pairs, variant and sample controls, theme switching, reload and guide navigation. Six representative card screenshots were visually reviewed. Gallery thumbnails were generated directly; the broad gallery audit still reports seven unrelated, previously unlisted folders.
 

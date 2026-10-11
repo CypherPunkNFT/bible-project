@@ -29,3 +29,11 @@ Production build passed. Browser inspection verified equal resting cards, hover/
 The shared anchor effect watched pathname and hash, so choosing another topic while the URL already ended in `#collection` updated the filter without returning the collection to view. The debate room now handles collection navigation by React Router location key, including repeat visits to the same URL, and moves keyboard focus to the collection heading after rendering the results.
 
 Application TypeScript and production build passed. Nine browser cases passed across desktop, tablet and phone: all five topics, repeated selection of the same topic, speaker navigation, browser back, reload, existing filters and all nine individual guides. Regression assertions check that the collection heading is in the viewport and focused, rather than checking only the URL and record count.
+
+## Approved collection cards: local only
+
+Implemented the approved A+B merger using `DebateCard.tsx`, `DebateArtwork.tsx` and `debate-card.css`: nine distinct line drawings, slim illustration rail, description directly beneath the title, taller speaker/VS panel, no divider beneath the panel and no arrow. The whole card opens its guide. Hover and focus strengthen the artwork and illuminate the border.
+
+Application TypeScript and Vite build passed. Nine debate browser tests passed against the existing preview at 8931. All nine cards passed layout, description order, speaker separation, unique artwork, no-arrow, no-divider and navigation checks at 1440, 768 and 390 pixels in both themes. Desktop hover and the restored five-tab header were checked. Desktop dark and phone light screenshots were visually inspected; four design-review screenshots were refreshed.
+
+The user's latest instruction explicitly limits this implementation to local preview. No deployment or Git push was performed.

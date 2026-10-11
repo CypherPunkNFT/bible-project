@@ -1,0 +1,44 @@
+.dr-list > .dr-exchange { --dr-art-weight: 1.1; --dr-art-glow: 0px; display: grid; grid-template-columns: 150px minmax(0, 1fr); grid-template-areas: 'art copy' 'art matchup' 'art metadata'; gap: 16px 30px; padding: 24px 30px; align-items: stretch; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); min-width: 0; transition: background-color 280ms ease, border-color 280ms ease, box-shadow 280ms ease; }
+.dr-exchange-art { grid-area: art; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; padding-right: 25px; border-right: 1px solid var(--line); color: var(--accent); }
+.dr-exchange-number { font-size: 11px; letter-spacing: .12em; }
+.dr-exchange-artwork { width: 120px; height: 120px; stroke: currentColor; stroke-width: var(--dr-art-weight); stroke-linecap: round; stroke-linejoin: round; filter: drop-shadow(0 0 var(--dr-art-glow) color-mix(in srgb, var(--accent) 45%, transparent)); transition: stroke-width 280ms ease, filter 280ms ease; }
+.dr-exchange-copy { grid-area: copy; min-width: 0; }
+.dr-exchange .dr-exchange-copy .ap-eyebrow { font-size: 9px; letter-spacing: .16em; margin: 0 0 10px; }
+.dr-exchange .dr-exchange-copy h3 { font-size: 29px; line-height: 1.3; margin: 0 0 12px; }
+.dr-list .dr-exchange .dr-exchange-description { font-size: 13px; line-height: 1.7; color: var(--muted); margin: 0; max-width: 780px; }
+.dr-exchange-matchup { grid-area: matchup; display: grid; grid-template-columns: minmax(0, 1fr) 40px minmax(0, 1fr); gap: 10px; align-items: center; border: 1px solid var(--line); border-radius: 7px; padding: 20px 16px; background: color-mix(in srgb, var(--accent) 3%, var(--surface)); }
+.dr-exchange-participant { display: contents; }
+.dr-exchange-speaker { display: flex; align-items: center; justify-content: center; gap: 10px; min-width: 0; }
+.dr-exchange-name { font: 400 21px/1.3 var(--font-serif); letter-spacing: -.04em; }
+.dr-exchange-initials { display: grid; place-items: center; width: 32px; height: 32px; flex-shrink: 0; border: 1px solid var(--line); border-radius: 50%; color: var(--accent); font: 400 11px var(--font-serif); }
+.dr-exchange-versus { display: grid; place-items: center; justify-self: center; width: 36px; height: 36px; border: 1px solid color-mix(in srgb, var(--accent) 50%, var(--line)); border-radius: 50%; font-size: 10px; font-weight: 700; letter-spacing: .12em; color: var(--accent); background: var(--surface); }
+.dr-exchange-metadata { grid-area: metadata; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px; color: var(--muted); font-size: 10px; line-height: 1.6; border: 0; }
+.dr-exchange-resources { display: flex; gap: 14px; flex-wrap: wrap; }
+.dr-exchange-resources > span + span::before { content: '·'; color: var(--accent); margin-right: 14px; }
+.dr-list > .dr-exchange:focus-visible { --dr-art-weight: 1.55; --dr-art-glow: 3px; background: color-mix(in srgb, var(--accent) 7%, var(--surface)); border-color: var(--accent); box-shadow: 0 0 18px color-mix(in srgb, var(--accent) 10%, transparent); }
+@media (hover: hover) and (pointer: fine) {
+  .dr-list > .dr-exchange:hover { --dr-art-weight: 1.55; --dr-art-glow: 3px; background: color-mix(in srgb, var(--accent) 7%, var(--surface)); border-color: var(--accent); box-shadow: 0 0 18px color-mix(in srgb, var(--accent) 10%, transparent); }
+}
+@media (max-width: 900px) {
+  .dr-list > .dr-exchange { grid-template-columns: 105px minmax(0, 1fr); gap: 16px 20px; padding: 24px; }
+  .dr-exchange-art { padding-right: 15px; }
+  .dr-exchange-artwork { width: 80px; height: 80px; }
+  .dr-exchange-initials { display: none; }
+  .dr-exchange-name { font-size: 18px; text-align: center; }
+  .dr-exchange-matchup { padding: 20px 12px; gap: 8px; }
+}
+@media (max-width: 600px) {
+  .dr-list > .dr-exchange { grid-template-columns: 46px minmax(0, 1fr); grid-template-areas: 'art copy' 'matchup matchup' 'metadata metadata'; gap: 18px 14px; padding: 20px; }
+  .dr-exchange-art { border: 0; padding: 0; align-self: start; }
+  .dr-exchange-artwork { width: 45px; height: 55px; }
+  .dr-exchange-number { font-size: 9px; }
+  .dr-exchange .dr-exchange-copy h3 { font-size: 25px; }
+  .dr-list .dr-exchange .dr-exchange-description { font-size: 12px; }
+  .dr-exchange-matchup { grid-template-columns: minmax(0, 1fr) 32px minmax(0, 1fr); padding: 20px 8px; gap: 7px; }
+  .dr-exchange-name { font-size: 17px; }
+  .dr-exchange-versus { width: 30px; height: 30px; font-size: 9px; }
+  .dr-exchange-metadata { font-size: 9px; gap: 12px; }
+  .dr-exchange-resources { gap: 8px; }
+  .dr-exchange-resources > span + span::before { margin-right: 8px; }
+}
+@media (prefers-reduced-motion: reduce) { .dr-exchange, .dr-exchange-artwork { transition: none !important; } }
