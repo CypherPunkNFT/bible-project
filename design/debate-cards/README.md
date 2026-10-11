@@ -17,3 +17,5 @@ This is a local design comparison; the production card component is unchanged. N
 Verification: 36 layout/theme/viewport combinations passed with all nine records at 1440, 768 and 390 pixels, in light and dark. Checked horizontal overflow, description order, speaker pairs, variant and sample controls, theme switching, reload and guide navigation. Six representative card screenshots were visually reviewed. Gallery thumbnails were generated directly; the broad gallery audit still reports seven unrelated, previously unlisted folders.
 
 A+B verification: all nine cards passed at 1440, 768 and 390 pixels in light and dark themes. Checked overlap, overflow, title/description order, hover, sample controls, reload and guide links. The first desktop merged card is 270px tall, retaining A's slim proportions. Desktop dark and phone light screenshots were visually reviewed. The main-site dist/index.html remained unchanged.
+
+Refinement: removed the divider beneath the A+B speaker panel and increased its vertical padding from 12px to 20px. The first desktop card is now 273px tall. All nine records still pass the six viewport/theme checks.
