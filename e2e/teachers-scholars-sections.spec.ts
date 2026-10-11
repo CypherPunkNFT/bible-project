@@ -72,29 +72,27 @@ test("Five ways to study the Bible widens one field at a time and leads into the
   const cards = page.locator("#fields .fld-card");
   await expect(cards).toHaveCount(5);
   const texts = cards.filter({ hasText: "Languages & texts" });
-  await expect(texts.locator(".fld-head")).toHaveAttribute("aria-expanded", "true");
+  await expect(cards.filter({ hasText: "Theology & philosophy" }).locator(".fld-head")).toHaveAttribute("aria-expanded", "true");
   const height = (await page.locator("#fields .fld-grid").boundingBox())?.height;
 
   const history = cards.filter({ hasText: "History" });
   await history.locator(".fld-head").click();
   await expect(history.locator(".fld-head")).toHaveAttribute("aria-expanded", "true");
   await expect(texts.locator(".fld-head")).toHaveAttribute("aria-expanded", "false");
-  const count = Number((await history.locator(".fld-count").textContent())?.match(/\d+/)?.[0]);
-  await expect(history.locator(".fld-people [data-person]")).toHaveCount(count);
-  const added = history.locator(".fld-people a").first();
-  const addedName = (await added.locator("b").textContent()) ?? "";
-  await history.getByRole("searchbox").fill(addedName);
-  await expect(history.locator(".fld-people [data-person]")).toHaveCount(1);
-  await expect(history.locator(".fld-people a")).toHaveAttribute("href", /^\/teachers\/works\/held-/);
+  await expect(history.locator(".fld-people [data-person]")).toHaveCount(40);
+  const before = await history.locator("[data-person]").first().getAttribute("data-person");
+  await history.getByRole("navigation", { name: "History contributor pages" }).getByRole("button", { name: "Next" }).click();
+  expect(await history.locator("[data-person]").first().getAttribute("data-person")).not.toBe(before);
   await history.getByRole("searchbox").fill("zzzznomatch");
   await expect(history.locator(".fld-empty")).toBeVisible();
   await history.getByRole("button", { name: "Clear", exact: true }).click();
-  await expect(history.locator(".fld-people [data-person]")).toHaveCount(count);
+  await expect(history.locator(".fld-people [data-person]")).toHaveCount(40);
   if (!isPhone(page) && (page.viewportSize()?.width ?? 0) > 900) {
     expect((await page.locator("#fields .fld-grid").boundingBox())?.height).toBe(height);
   }
 
-  const person = history.locator(".fld-people button").first();
+  await history.getByRole("searchbox").fill("Flavius Josephus");
+  const person = history.getByRole("button", { name: "Open the profile of Flavius Josephus", exact: true });
   const name = (await person.locator("b").textContent()) ?? "";
   await person.click();
   await expectProfileFor(page, name);
@@ -107,6 +105,22 @@ test("Five ways to study the Bible widens one field at a time and leads into the
     await history.locator(".fld-head").click();
     await expect(history.locator(".fld-head")).toHaveAttribute("aria-expanded", "false");
   }
+});
+
+test("Fields exposes Latin Fathers and constituent CCEL authors with their held works", async ({ page }) => {
+  await openPage(page);
+  const theology = page.locator('#fields [data-field="theology"]');
+  await theology.getByRole("combobox", { name: "Collection in Theology & philosophy" }).selectOption("latin-fathers");
+  await theology.getByRole("searchbox", { name: "Search Theology & philosophy" }).fill("Tertullian");
+  const row = theology.locator('[data-person]').filter({ has: page.getByRole("button", { name: "Browse held works by Tertullian", exact: true }) });
+  await row.getByRole("button", { name: "Browse held works by Tertullian", exact: true }).click();
+  await expect(row.locator('.fld-works a').filter({ hasText: 'ANF03' })).toBeVisible();
+  await theology.getByRole("searchbox", { name: "Search Theology & philosophy" }).fill("Ambrose of Milan");
+  await expect(theology.getByRole("button", { name: "Browse held works by Ambrose of Milan", exact: true })).toBeVisible();
+  await theology.getByRole("combobox", { name: "Collection in Theology & philosophy" }).selectOption("ccel");
+  await theology.getByRole("searchbox", { name: "Search Theology & philosophy" }).fill("Gregory the Great");
+  await theology.getByRole("button", { name: "Browse held works by Gregory the Great", exact: true }).click();
+  await expect(theology.locator('.fld-works a').filter({ hasText: 'NPNF-212' })).toBeVisible();
 });
 
 test("Where the site names them shades, explains, re-sorts and lists the never-named", async ({ page }) => {

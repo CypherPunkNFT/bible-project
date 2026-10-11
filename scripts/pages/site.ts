@@ -1,7 +1,7 @@
 // The Site area's CONTENT.md files (run by scripts/export-pages.ts): the parts every page shares (header and menu,
 // theme switch, footer, the "page not found" page) and six pages: home, the Bible and reader, search, sources and
 // versions, testimonies, and the library. Each page's extractor lives in a site-*.ts file here.
-import { blocks, link, table } from "./study-lib";
+import { blocks, link, table, readJson } from "./study-lib";
 import { homePages } from "./site-home";
 import { readerPage } from "./site-reader";
 import { searchPage } from "./site-search";
@@ -11,7 +11,8 @@ import { looseConstant, readableText } from "./site-source";
 import type { Extractor, PageContent } from "./types";
 import writings from "../../content/teachers/writings/william-lane-craig.json";
 import scholars from "../../content/teachers/scholars.json";
-import fieldShelves from "../../content/teachers/field-shelves.json";
+import type { FieldLibrary } from "../../src/pages/teachers/scholars/field-library";
+import type { Field } from "../../src/data/teachers/pages-types";
 
 const LAYOUT = "src/components/Layout.tsx";
 const FOOTER = "src/components/SiteFooter.tsx";
@@ -49,15 +50,16 @@ async function area(): Promise<PageContent> {
 }
 
 export const extract: Extractor = async () => {
+  const fieldShelves = await readJson<FieldLibrary>("content/teachers/field-shelves.json");
   const [shared, [home, library], reader, search, sources, testimonies] = await Promise.all([area(), homePages(), readerPage(), searchPage(), sourcesPage(), testimoniesPage()]);
   return [shared, home, reader, search, sources, testimonies, library, {
     dir: "Site/scholar-fields", title: "Scholars: five fields", markdown: blocks(
       link("/teachers/scholars#fields"),
-      `${scholars.scholars.length} profiles and ${fieldShelves.entries.length} additional writers and editors. Five fields, each with name/work search. Existing names open their profile; additional names open the identified library work. Additional entries retain recorded contributor roles; faith is not recorded here.`,
+      `${fieldShelves.entries.length} author/contributor names from ${fieldShelves.coverage.scannedRecords} packaged records, including ${scholars.scholars.length} documented profiles. Five overlapping subject fields; search, collection filters, contributor pagination and full held-work shelves. Fields describe works, not personal faith or scholarly qualifications. ${fieldShelves.coverage.withoutSubjectMatch} remaining source names are accessible in the full acquired catalogue without a guessed field.`,
       ...Object.entries(scholars.fields).flatMap(([key, label]) => [
         `## ${label}`,
         table(["Profile", "Key works"], scholars.scholars.filter(s => s.field === key).map(s => [s.name, s.works.map(w => w[0]).join("; ")])),
-        table(["More from the library", "Role", "Supporting work"], fieldShelves.entries.filter(s => s.field === key).map(s => [s.name, s.role, `[${s.work.title}](/teachers/works/${s.work.id})`])),
+        table(["Contributor", "Recorded roles", "Supporting work"], fieldShelves.entries.filter(s => s.fields[key as Field]).map(s => { const w = s.fields[key as Field]?.example; return [s.name, s.roles.join(", "), w ? `[${w.title}](/teachers/works/${w.id})` : "Documented profile"]; })),
       ]),
     ),
   }, {

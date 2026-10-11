@@ -13,6 +13,8 @@ try {
     if ($LASTEXITCODE) { throw 'Catalogue build failed.' }
     & $libraryPython scripts/pack-teacher-library.py
     if ($LASTEXITCODE) { throw 'Reading package build failed.' }
+    & $libraryPython scripts/build-scholar-fields.py
+    if ($LASTEXITCODE) { throw 'Scholars subject index build failed.' }
     & node --experimental-strip-types scripts/build-teacher-pages.ts
     if ($LASTEXITCODE) { throw 'Teacher profile generation failed.' }
     & node --experimental-strip-types scripts/build-reading-sources.ts

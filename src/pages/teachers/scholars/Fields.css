@@ -29,6 +29,23 @@
 .tp-scholars .fld-search input::placeholder { color: var(--muted); }
 .tp-scholars .fld-results { display: flex; justify-content: space-between; margin: 0 1.15rem .5rem; font-size: .72rem; color: var(--muted); }
 .tp-scholars .fld-results button { text-decoration: underline; }
+.tp-scholars .fld-controls { display: flex; gap: .5rem; margin: 0 1.1rem .6rem; }
+.tp-scholars .fld-controls select { min-width: 0; flex: 1; border: 1px solid var(--line); border-radius: .4rem; padding: .4rem; background: var(--surface); color: var(--ink); font: inherit; font-size: .72rem; }
+.tp-scholars .fld-controls select:last-child { flex: 0 1 6rem; }
+.tp-scholars .fld-more { align-self: center; font-size: .7rem; color: var(--tone); }
+.tp-scholars .fld-coverage { margin: .5rem 0 0; color: var(--muted); font-size: .72rem; line-height: 1.5; }
+.tp-scholars .fld-pages, .tp-scholars .fld-works nav { display: flex; flex: none; align-items: center; justify-content: space-between; gap: .5rem; padding: .6rem 1.1rem; font-size: .73rem; color: var(--muted); }
+.tp-scholars .fld-pages button:disabled, .tp-scholars .fld-works nav button:disabled { opacity: .35; cursor: default; }
+.tp-scholars .fld-people .fld-held { width: auto; margin: -.4rem 0 .5rem 2.8rem; font-size: .7rem; color: var(--tone); }
+.tp-scholars .fld-credit { margin: .3rem .5rem; font-size: .7rem; line-height: 1.5; color: var(--muted); }
+.tp-scholars .fld-works { margin: .5rem; padding: .7rem; background: var(--surface); border: 1px solid var(--line); border-radius: .65rem; font-size: .74rem; }
+.tp-scholars .fld-works label { display: grid; gap: .35rem; }
+.tp-scholars .fld-works input { min-width: 0; width: 100%; padding: .4rem; border: 1px solid var(--line); border-radius: .35rem; background: var(--surface); color: var(--ink); }
+.tp-scholars .fld-works ul { list-style: none; padding: 0; margin: .5rem 0; }
+.tp-scholars .fld-works li + li { border-top: 1px solid var(--line); }
+.tp-scholars .fld-works li a { display: block; padding: .6rem .2rem; }
+.tp-scholars .fld-works nav { padding: .4rem 0; }
+.tp-scholars .fld-works nav button { width: auto; padding: .3rem; }
 .tp-scholars .fld-people { display: grid; flex: 1; grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr)); gap: .1rem 1rem; align-content: start; min-height: 0; margin: 0; padding: 0 .7rem .6rem; overflow-y: auto; list-style: none;
   scrollbar-width: thin; scrollbar-color: color-mix(in srgb, var(--ink) 28%, transparent) transparent; }
 .tp-scholars .fld-people::-webkit-scrollbar { width: 6px; height: 6px; }
