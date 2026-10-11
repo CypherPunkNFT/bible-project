@@ -12,7 +12,9 @@ import type { Extractor, PageContent } from "./types";
 import writings from "../../content/teachers/writings/william-lane-craig.json";
 import scholars from "../../content/teachers/scholars.json";
 import type { FieldLibrary } from "../../src/pages/teachers/scholars/field-library";
-import type { Field } from "../../src/data/teachers/pages-types";
+import type { Field, ScholarsData } from "../../src/data/teachers/pages-types";
+import type { AcquiredCatalogue } from "../../src/pages/teachers/shared/acquired";
+import { mergeLibrary } from "../../src/pages/teachers/scholars/catalogue/library";
 
 const LAYOUT = "src/components/Layout.tsx";
 const FOOTER = "src/components/SiteFooter.tsx";
@@ -52,10 +54,18 @@ async function area(): Promise<PageContent> {
 export const extract: Extractor = async () => {
   const fieldShelves = await readJson<FieldLibrary>("content/teachers/field-shelves.json");
   const fieldFeatured = await readJson<Record<Field, [string, string][]>>("content/teachers/field-featured.json");
+  const complete = mergeLibrary(fieldShelves, await readJson<AcquiredCatalogue>("public/content/teacher-library/catalogue.json"), await readJson<ScholarsData>("src/data/teachers/scholars.json"));
   const [shared, [home, library], reader, search, sources, testimonies] = await Promise.all([area(), homePages(), readerPage(), searchPage(), sourcesPage(), testimoniesPage()]);
   return [shared, home, reader, search, sources, testimonies, library, {
-    dir: "Site/scholar-fields", title: "Scholars: five fields", markdown: blocks(
-      link("/teachers/scholars#fields"),
+    dir: "Site/scholar-catalogue", title: "Scholars: full contributor catalogue", markdown: blocks(
+      link("/teachers/scholars#catalogue"),
+      `${complete.length.toLocaleString()} catalogue entries cover every acquired contributor credit, including unclassified names, verified aliases, documented profiles and constituent authors in collected volumes. One catalogue replaces the separate Fields and acquired-contributor browsers. Search, collection/role/profile/field/era/faith filters, five sort orders and 48 cards per page keep the full list accessible inside its own scroll area. Unknown biographical information is not inferred.`,
+      table(["Contributor", "Profile", "Recorded roles", "Held records", "Collections"], complete.map(p => [p.name, p.scholar ? "Documented scholar profile" : "Library entry", p.roles.join(", "), String(p.records), p.collections.join(", ")])),
+    ),
+  }, {
+    dir: "Site/scholar-fields", title: "Scholars: saved five-field design", markdown: blocks(
+      link("/mockups/scholars-fields-archive/"),
+      "Archived design, saved on 2026-10-11. The live contributor list is now in section 01; this independent interactive mockup preserves the former section 04 for later review.",
       `${fieldShelves.entries.length} author/contributor names from ${fieldShelves.coverage.scannedRecords} packaged records, including ${scholars.scholars.length} documented profiles. Five overlapping subject fields; search, collection filters, contributor pagination and full held-work shelves. Fields describe works, not personal faith or scholarly qualifications. ${fieldShelves.coverage.withoutSubjectMatch} remaining source names are accessible in the full acquired catalogue without a guessed field.`,
       ...Object.entries(scholars.fields).flatMap(([key, label]) => [
         `## ${label}`,

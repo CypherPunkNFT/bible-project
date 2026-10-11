@@ -55,8 +55,8 @@ export function Directory() {
   };
 
   return <>
-    <SectionHead num="07" kicker="Directory" title={<>All {data.scholars.length} <em>scholars</em></>}
-      line="By era or from A to Z, with years, faith and field. Click any name for the full profile." />
+    <SectionHead num="07" kicker="Profile directory" title={<>{data.scholars.length} documented <em>scholar profiles</em></>}
+      line="The biographical profiles, by era or from A to Z. The full contributor list and held works are in catalogue 01." />
     <div className="dir-tools">
       <ul className="dir-key">
         <li><span className="dir-use dir-use-in-use" />A live feature on this site uses their work</li>

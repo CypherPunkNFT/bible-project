@@ -67,61 +67,7 @@ test("Built on their work joins features, books and scholars, follows the pointe
   await expectProfileFor(page, name);
 });
 
-test("Five ways to study the Bible widens one field at a time and leads into the catalogue", async ({ page }) => {
-  await openPage(page);
-  const cards = page.locator("#fields .fld-card");
-  await expect(cards).toHaveCount(5);
-  const texts = cards.filter({ hasText: "Languages & texts" });
-  await expect(cards.filter({ hasText: "Theology & philosophy" }).locator(".fld-head")).toHaveAttribute("aria-expanded", "true");
-  const height = (await page.locator("#fields .fld-grid").boundingBox())?.height;
-
-  const history = cards.filter({ hasText: "History" });
-  await history.locator(".fld-head").click();
-  await expect(history.locator(".fld-head")).toHaveAttribute("aria-expanded", "true");
-  await expect(texts.locator(".fld-head")).toHaveAttribute("aria-expanded", "false");
-  await expect(history.locator(".fld-people [data-person]")).toHaveCount(40);
-  const before = await history.locator("[data-person]").first().getAttribute("data-person");
-  await history.getByRole("navigation", { name: "History contributor pages" }).getByRole("button", { name: "Next" }).click();
-  expect(await history.locator("[data-person]").first().getAttribute("data-person")).not.toBe(before);
-  await history.getByRole("searchbox").fill("zzzznomatch");
-  await expect(history.locator(".fld-empty")).toBeVisible();
-  await history.getByRole("button", { name: "Clear", exact: true }).click();
-  await expect(history.locator(".fld-people [data-person]")).toHaveCount(40);
-  if (!isPhone(page) && (page.viewportSize()?.width ?? 0) > 900) {
-    expect((await page.locator("#fields .fld-grid").boundingBox())?.height).toBe(height);
-  }
-
-  await history.getByRole("searchbox").fill("Flavius Josephus");
-  const person = history.getByRole("button", { name: "Open the profile of Flavius Josephus", exact: true });
-  const name = (await person.locator("b").textContent()) ?? "";
-  await person.click();
-  await expectProfileFor(page, name);
-
-  await history.getByRole("button", { name: "Profiles in the catalogue" }).click();
-  await expect(page.locator("#catalogue")).toBeInViewport();
-
-  if ((page.viewportSize()?.width ?? 1440) <= 900) {
-    // Narrow screens: choosing the open card again closes it in place.
-    await history.locator(".fld-head").click();
-    await expect(history.locator(".fld-head")).toHaveAttribute("aria-expanded", "false");
-  }
-});
-
-test("Fields exposes Latin Fathers and constituent CCEL authors with their held works", async ({ page }) => {
-  await openPage(page);
-  const theology = page.locator('#fields [data-field="theology"]');
-  await theology.getByRole("combobox", { name: "Collection in Theology & philosophy" }).selectOption("latin-fathers");
-  await theology.getByRole("searchbox", { name: "Search Theology & philosophy" }).fill("Tertullian");
-  const row = theology.locator('[data-person]').filter({ has: page.getByRole("button", { name: "Browse held works by Tertullian", exact: true }) });
-  await row.getByRole("button", { name: "Browse held works by Tertullian", exact: true }).click();
-  await expect(row.locator('.fld-works a').filter({ hasText: 'ANF03' })).toBeVisible();
-  await theology.getByRole("searchbox", { name: "Search Theology & philosophy" }).fill("Ambrose of Milan");
-  await expect(theology.getByRole("button", { name: "Browse held works by Ambrose of Milan", exact: true })).toBeVisible();
-  await theology.getByRole("combobox", { name: "Collection in Theology & philosophy" }).selectOption("ccel");
-  await theology.getByRole("searchbox", { name: "Search Theology & philosophy" }).fill("Gregory the Great");
-  await theology.getByRole("button", { name: "Browse held works by Gregory the Great", exact: true }).click();
-  await expect(theology.locator('.fld-works a').filter({ hasText: 'NPNF-212' })).toBeVisible();
-});
+// Full catalogue and archived Fields interactions: teachers-full-catalogue.spec.ts.
 
 test("Where the site names them shades, explains, re-sorts and lists the never-named", async ({ page }) => {
   await openPage(page);
@@ -159,7 +105,7 @@ test("the directory lists every scholar by era or from A to Z without moving the
   await openPage(page);
   const list = page.locator("#directory .dir-list");
   const total = await list.locator("li").count();
-  await expect(page.locator("#directory h2")).toContainText(`All ${total} scholars`);
+  await expect(page.locator("#directory h2")).toContainText(`${total} documented scholar profiles`);
   await expect(list.locator(".dir-group-era")).toHaveCount(4);
   expect(await list.locator(".dir-use-in-use").count()).toBeGreaterThan(0);
   expect(await list.locator(".dir-use-held").count()).toBeGreaterThan(0);

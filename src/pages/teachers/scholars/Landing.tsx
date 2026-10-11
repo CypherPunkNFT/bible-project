@@ -11,11 +11,10 @@ import { reducedMotion } from "./marks/dom";
 import { Mark } from "./marks/Mark";
 import { toneStyle } from "./marks/shapes";
 import { Constellation } from "./landing/Constellation";
-import { Finder } from "./landing/Finder";
 import { findScholars } from "./landing/search";
 import "./Landing.css";
 
-const JUMPS = [["catalogue", "01", "The catalogue"], ["built", "02", "Built on their work"], ["discoveries", "03", "Discoveries"], ["fields", "04", "Five ways to study"], ["directory", "07", "Everyone"]] as const;
+const JUMPS = [["catalogue", "01", "The full catalogue"], ["built", "02", "Built on their work"], ["discoveries", "03", "Discoveries"], ["directory", "07", "Documented profiles"]] as const;
 
 /** In-page links scroll smoothly and keep the address in step, without a reload. */
 function jump(event: MouseEvent<HTMLAnchorElement>) {
@@ -28,13 +27,13 @@ function jump(event: MouseEvent<HTMLAnchorElement>) {
 }
 
 export function Landing() {
-  const { data, openProfile } = useScholars();
+  const { data, library, openProfile, filterCatalogue } = useScholars();
   const [query, setQuery] = useState("");
   const found = useMemo(() => findScholars(data, query), [data, query]);
   const matchIds = useMemo(() => new Set(found.map((m) => m.s.id)), [found]);
   const born = useMemo(() => byBirth(data.scholars), [data]);
   const live = born.filter(isUsed);
-  const first = born[0], last = born[born.length - 1];
+  const first = born[0];
   const works = born.reduce((total, scholar) => total + scholar.works.length, 0);
   const centuries = Math.ceil((Math.max(...born.map((s) => s.died ?? NOW)) - first.born) / 100);
   return <div className="lnd">
@@ -42,9 +41,11 @@ export function Landing() {
       <div className="lnd-copy">
         <p className="kicker lnd-kicker">Scholars in the library</p>
         <h1 className="lnd-title">The greats, <em>catalogued.</em></h1>
-        <p className="lnd-lead">Historians, translators, archaeologists, theologians and the makers of reference books: {data.scholars.length} scholars across two thousand years,
-          Christian or not, each labelled for what they were. Look someone up, or wander the marks and meet someone new.</p>
-        <Finder query={query} onQuery={setQuery} found={found} onOpen={openProfile} />
+        <p className="lnd-lead">Historians, translators, archaeologists, theologians and the makers of reference books: {library ? library.length.toLocaleString() : 'the full library of'} contributors in one catalogue, including {data.scholars.length} documented scholar profiles. Explore the profiles below or search every contributor and their held works in the full catalogue.</p>
+        <form className="lnd-full-search" onSubmit={e => { e.preventDefault(); filterCatalogue({ q: query.trim().toLocaleLowerCase() }); }}>
+          <label htmlFor="full-contributor-search">Search the full catalogue</label>
+          <div><input id="full-contributor-search" type="search" placeholder="Author, editor, translator or work" value={query} onChange={e => setQuery(e.target.value)} /><button type="submit">Search <ArrowRight size={14} aria-hidden="true" /></button></div>
+        </form>
         <aside className="lnd-built" aria-label="Built on their work">
           <h2>You have been reading <em>their work</em> all&nbsp;along.</h2>
           <p>This site stands on books by {live.length} of them. Their dictionaries, concordance and harmony power the Topics pages, the Gospel harmony, the miracles and the Letters study.</p>
@@ -58,7 +59,7 @@ export function Landing() {
     </div>
     <div className="lnd-foot">
       <dl className="lnd-figs">
-        <div><dt>Scholars</dt><dd>{data.scholars.length}</dd><p>from {first.short} to {last.short}</p></div>
+        <div><dt>Contributors</dt><dd>{library ? library.length.toLocaleString() : '…'}</dd><p>{data.scholars.length} documented scholar profiles</p></div>
         <div><dt>Fields</dt><dd>{Object.keys(data.fields).length}</dd><p>history to reference books</p></div>
         <div><dt>Key works</dt><dd>{works}</dd><p>landmark books and studies</p></div>
         <div><dt>Centuries</dt><dd>{centuries}</dd><p>ancient world to today</p></div>

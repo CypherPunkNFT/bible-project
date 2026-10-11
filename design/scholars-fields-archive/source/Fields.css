@@ -1,0 +1,89 @@
+/* 04 · Five ways to study the Bible (mock-up: fields.css): five cards in one row; the chosen one widens to list its people. */
+.tp-scholars :where(.tp-sec-fields button) { padding: 0; border: 0; background: none; text-align: left; font: inherit; color: inherit; cursor: pointer; }
+.tp-scholars .tp-sec-fields { min-height: calc(100svh - 84px); }
+.tp-scholars .fld-grid { --cols: repeat(5, 1fr); display: grid; grid-template-columns: var(--cols); gap: .75rem; height: max(44rem, calc(100svh - 17rem));
+  transition: grid-template-columns .6s cubic-bezier(.16, 1, .3, 1); }
+.tp-scholars .fld-card { position: relative; min-width: 0; overflow: hidden; border: 1px solid color-mix(in srgb, var(--tone) 26%, var(--line)); border-radius: 1rem;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--tone) 8%, var(--surface)), var(--surface) 70%); transition: border-color .25s, box-shadow .35s; }
+.tp-scholars .fld-card:not(.fld-sel):hover { border-color: var(--tone); box-shadow: 0 18px 36px -28px var(--tone); }
+.tp-scholars .fld-card.fld-sel { border-color: color-mix(in srgb, var(--tone) 55%, var(--line)); }
+.tp-scholars .tp-sec-fields .fld-head { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: flex-start; padding: 1.1rem 1.1rem 1rem; }
+.tp-scholars .fld-sel .fld-head { bottom: auto; height: 8.4rem; cursor: default; }
+.tp-scholars .fld-count { font-size: .6rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--tone); }
+.tp-scholars .fld-head h3 { margin: .45rem 0 0; font: 500 1.3rem/1.15 var(--serif); letter-spacing: -.015em; }
+.tp-scholars .fld-span { margin-top: .35rem; font-size: .72rem; line-height: 1.45; color: var(--muted); }
+.tp-scholars .fld-avatars { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-content: space-evenly; gap: .6rem .35rem; width: 100%; flex: 1; margin: 1rem 0; transition: opacity .25s; }
+.tp-scholars .fld-featured { display: flex; flex-direction: column; align-items: center; gap: .25rem; min-width: 0; }
+.tp-scholars .fld-featured > span { font-size: .65rem; line-height: 1.2; text-align: center; overflow-wrap: anywhere; }
+.tp-scholars .fld-featured .sc-mark { flex: none; }
+.tp-scholars .fld-sel :is(.fld-avatars, .fld-more) { display: none; }
+
+.tp-scholars .fld-body { position: absolute; top: 8.4rem; left: 0; right: 0; bottom: 0; display: none; }
+.tp-scholars .fld-sel .fld-body { display: block; }
+.tp-scholars .fld-picked .fld-sel .fld-body { animation: tp-scholars-fld-in .45s .3s both; }
+@keyframes tp-scholars-fld-in { from { opacity: 0; } }
+.tp-scholars .fld-body-in { display: flex; flex-direction: column; height: 100%; }
+.tp-scholars .fld-search { display: flex; flex: none; align-items: center; gap: .5rem; margin: 0 1.1rem .65rem; padding: .55rem .7rem; border: 1px solid var(--line); border-radius: .5rem; color: var(--muted); background: var(--surface); }
+.tp-scholars .fld-search:focus-within { border-color: var(--tone); }
+.tp-scholars .fld-search input { width: 100%; min-width: 0; border: 0; padding: 0; background: transparent; font: inherit; font-size: .8rem; color: var(--ink); }
+.tp-scholars .fld-search input::placeholder { color: var(--muted); }
+.tp-scholars .fld-results { display: flex; justify-content: space-between; margin: 0 1.15rem .5rem; font-size: .72rem; color: var(--muted); }
+.tp-scholars .fld-results button { text-decoration: underline; }
+.tp-scholars .fld-controls { display: flex; gap: .5rem; margin: 0 1.1rem .6rem; }
+.tp-scholars .fld-controls select { min-width: 0; flex: 1; border: 1px solid var(--line); border-radius: .4rem; padding: .4rem; background: var(--surface); color: var(--ink); font: inherit; font-size: .72rem; }
+.tp-scholars .fld-controls select:last-child { flex: 0 1 7.5rem; }
+.tp-scholars .fld-more { width: 100%; padding-top: .65rem; border-top: 1px solid var(--line); font-size: .7rem; color: var(--tone); }
+.tp-scholars .fld-coverage { margin: .5rem 0 0; color: var(--muted); font-size: .72rem; line-height: 1.5; }
+.tp-scholars .fld-pages, .tp-scholars .fld-works nav { display: flex; flex: none; align-items: center; justify-content: space-between; gap: .5rem; padding: .6rem 1.1rem; font-size: .73rem; color: var(--muted); }
+.tp-scholars .fld-pages button:disabled, .tp-scholars .fld-works nav button:disabled { opacity: .35; cursor: default; }
+.tp-scholars .fld-people .fld-held { width: auto; margin: -.4rem 0 .5rem 2.8rem; font-size: .7rem; color: var(--tone); }
+.tp-scholars .fld-credit { margin: .3rem .5rem; font-size: .7rem; line-height: 1.5; color: var(--muted); }
+.tp-scholars .fld-works { margin: .5rem; padding: .7rem; background: var(--surface); border: 1px solid var(--line); border-radius: .65rem; font-size: .74rem; }
+.tp-scholars .fld-works label { display: grid; gap: .35rem; }
+.tp-scholars .fld-works input { min-width: 0; width: 100%; padding: .4rem; border: 1px solid var(--line); border-radius: .35rem; background: var(--surface); color: var(--ink); }
+.tp-scholars .fld-works ul { list-style: none; padding: 0; margin: .5rem 0; }
+.tp-scholars .fld-works li + li { border-top: 1px solid var(--line); }
+.tp-scholars .fld-works li a { display: block; padding: .6rem .2rem; }
+.tp-scholars .fld-works nav { padding: .4rem 0; }
+.tp-scholars .fld-works nav button { width: auto; padding: .3rem; }
+.tp-scholars .fld-people { display: grid; flex: 1; grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr)); gap: .1rem 1rem; align-content: start; min-height: 0; margin: 0; padding: 0 .7rem .6rem; overflow-y: auto; list-style: none;
+  scrollbar-width: thin; scrollbar-color: color-mix(in srgb, var(--ink) 28%, transparent) transparent; }
+.tp-scholars .fld-people::-webkit-scrollbar { width: 6px; height: 6px; }
+.tp-scholars .fld-people::-webkit-scrollbar-track, .tp-scholars .fld-people::-webkit-scrollbar-corner { background: transparent; }
+.tp-scholars .fld-people::-webkit-scrollbar-button { display: none; }
+.tp-scholars .fld-people::-webkit-scrollbar-thumb { border-radius: 999px; background: color-mix(in srgb, var(--ink) 28%, transparent); }
+/* A small way into the catalogue, filtered to this field, at the foot of the open card. */
+.tp-scholars .tp-sec-fields .fld-cat { display: inline-flex; flex: none; gap: .4rem; align-items: center; align-self: flex-end; margin: 0 1rem .85rem; padding: .32rem .75rem; border: 1px solid var(--line); border-radius: 999px;
+  font-size: .74rem; color: var(--muted); transition: border-color .2s, color .2s, gap .25s; }
+.tp-scholars .tp-sec-fields .fld-cat:hover { gap: .6rem; border-color: var(--tone); color: color-mix(in srgb, var(--tone) 70%, var(--ink)); }
+.tp-scholars .fld-people :is(button, a) { display: flex; gap: .65rem; align-items: flex-start; width: 100%; padding: .65rem .45rem; border-radius: .65rem; color: inherit; text-decoration: none; transition: background .15s; }
+.tp-scholars .fld-people :is(button, a):hover { background: color-mix(in srgb, var(--tone) 9%, transparent); }
+.tp-scholars .tp-sec-fields :is(button, a, .fld-people):focus-visible { box-shadow: inset 0 0 0 2px var(--tone, var(--ink)); }
+.tp-scholars .fld-people :is(button, a) > svg { margin-top: .1rem; flex-shrink: 0; }
+.tp-scholars .fld-people :is(button, a) > span:last-child { min-width: 0; }
+.tp-scholars .fld-group-label { grid-column: 1 / -1; display: flex; align-items: center; justify-content: space-between; margin: .25rem .45rem; padding: .4rem 0; border-bottom: 1px solid var(--line); font-size: .62rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.tp-scholars .fld-person-action { display: flex; align-items: center; gap: .3rem; margin-top: .35rem; font-size: .67rem; color: color-mix(in srgb, var(--tone) 75%, var(--ink)); }
+.tp-scholars .fld-empty { padding: 1rem .45rem; font-size: .8rem; color: var(--muted); }
+.tp-scholars .fld-library-note { display: flex; flex-wrap: wrap; gap: .3rem 1rem; justify-content: space-between; margin: 1rem 0 0; font-size: .75rem; line-height: 1.5; color: var(--muted); }
+.tp-scholars .fld-library-note a { display: inline-flex; align-items: center; gap: .35rem; color: var(--ink); text-underline-offset: 3px; }
+.tp-scholars .fld-people b { display: block; font: 500 .95rem/1.25 var(--serif); }
+.tp-scholars .fld-people small { display: block; font-size: .7rem; color: var(--muted); }
+.tp-scholars .fld-people em { display: -webkit-box; margin-top: .2rem; overflow: hidden; font-size: .76rem; font-style: normal; line-height: 1.45; color: color-mix(in srgb, var(--ink) 78%, var(--muted)); -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+
+/* Phone and narrow screens: the cards stack and open in place. */
+@media (min-width: 901px) and (max-width: 1200px) {
+  .tp-scholars .tp-sec-fields .fld-head { padding-inline: .65rem; }
+  .tp-scholars .fld-featured .sc-mark { width: 40px; height: 40px; }
+}
+@media (max-width: 900px) {
+  .tp-scholars .fld-grid { grid-template-columns: 1fr; height: auto; gap: .6rem; }
+  .tp-scholars .tp-sec-fields .fld-head, .tp-scholars .tp-sec-fields .fld-sel .fld-head { position: relative; inset: auto; width: 100%; height: auto; cursor: pointer; }
+  .tp-scholars .fld-avatars { grid-template-columns: repeat(auto-fit, minmax(3.6rem, 1fr)); flex: auto; margin: 1rem 0; gap: 1rem .6rem; }
+  .tp-scholars .fld-sel .fld-avatars { display: none; }
+  .tp-scholars .fld-body, .tp-scholars .fld-sel .fld-body { position: static; display: block; animation: none; }
+  .tp-scholars .fld-body-in { height: auto; min-height: 0; }
+  .tp-scholars .tp-sec-fields .fld-cat { margin: 0 .7rem .9rem 1.15rem; }
+  .tp-scholars .fld-people { flex: auto; max-height: 65svh; overflow-y: auto; grid-template-columns: 1fr; padding-bottom: .6rem; margin-bottom: .65rem; }
+}
+.tp-scholars .fld-body[hidden] { display: none; }
+@media (prefers-reduced-motion: reduce) { .tp-scholars .fld-grid { transition: none; } }

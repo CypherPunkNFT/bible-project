@@ -59,6 +59,31 @@
 
 /* ── Toolbar ─────────────────────────────────────────────────────────────── */
 .tp-scholars .cat-results { min-width: 0; min-height: 0; align-self: stretch; display: flex; flex-direction: column; }
+.tp-scholars .cat-coverage { margin: -.3rem 0 1.4rem; font-size: .78rem; color: var(--muted); }
+.tp-scholars .cat-library-filters { display: grid; gap: .6rem; margin-top: 1rem; }
+.tp-scholars .cat-library-filters label { display: grid; gap: .25rem; font-size: .75rem; color: var(--muted); }
+.tp-scholars .cat-library-filters select, .tp-scholars .cat-pagination select { min-width: 0; width: 100%; border: 1px solid var(--line); border-radius: .5rem; background: var(--surface); color: var(--ink); padding: .45rem; font: inherit; }
+.tp-scholars .cat-library-filters .cat-checkbox { display: flex; gap: .5rem; align-items: center; }
+.tp-scholars .cat-profile-wrap { display: flex; flex-direction: column; min-width: 0; }
+.tp-scholars .cat-profile-wrap .cat-card { flex: 1; }
+.tp-scholars .cat-profile-actions { display: flex; flex-wrap: wrap; gap: .35rem .7rem; justify-content: space-between; padding: .5rem .25rem; font-size: .68rem; color: var(--muted); }
+.tp-scholars .cat-profile-actions button { color: var(--accent); text-decoration: underline; }
+.tp-scholars .cat-neutral-mark { width: 54px; height: 54px; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 50%; font: 1.1rem var(--serif); }
+.tp-scholars .cat-library-card .cat-card-name { overflow-wrap: anywhere; }
+.tp-scholars .cat-collections, .tp-scholars .cat-held-count { font-size: .72rem; color: var(--muted); margin-top: .7rem; }
+.tp-scholars .cat-library-action { margin-top: auto; padding-top: .8rem; font-size: .75rem; color: var(--tone); }
+.tp-scholars .cat-shelf { grid-column: 1 / -1; border: 1px solid var(--line); border-radius: 1rem; padding: 1.1rem; background: var(--surface); }
+.tp-scholars .cat-shelf > p { font-size: .78rem; color: var(--muted); margin: .5rem 0; }
+.tp-scholars .cat-shelf-heading { display: flex; align-items: start; justify-content: space-between; gap: 1rem; }
+.tp-scholars .cat-shelf-heading h3 { font: 1.4rem var(--serif); }
+.tp-scholars .cat-shelf-heading button { flex: none; color: var(--accent); }
+.tp-scholars .cat-shelf .fld-works { margin: 1rem 0 0; }
+.tp-scholars .cat-shelf .fld-works a { display: grid; gap: .3rem; padding: .65rem 0; color: var(--ink); }
+.tp-scholars .cat-shelf .fld-works small { color: var(--muted); }
+.tp-scholars .cat-pagination { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .5rem; padding-top: .85rem; font-size: .75rem; }
+.tp-scholars .cat-pagination label { display: flex; align-items: center; gap: .5rem; }
+.tp-scholars .cat-pagination select { width: auto; }
+.tp-scholars .cat-pagination button:disabled { opacity: .4; cursor: default; }
 .tp-scholars .cat-scroll { height: 0; min-height: clamp(26rem, 65svh, 44rem); flex: 1 1 0px; overflow-y: auto; overscroll-behavior-y: contain; padding: 2px 8px 64px 2px; scroll-padding-block: 16px 72px;
   -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 56px), transparent); mask-image: linear-gradient(to bottom, #000 calc(100% - 56px), transparent);
   scrollbar-width: thin; scrollbar-color: color-mix(in srgb, var(--ink) 28%, transparent) transparent; }
@@ -107,7 +132,8 @@
 @media (max-width: 900px) {
   .tp-scholars .cat-layout { grid-template-columns: minmax(0, 1fr); gap: 1.2rem; }
   .tp-scholars .cat-side { position: static; max-height: none; overflow: visible; padding: 0; }
-  .tp-scholars .cat-side-head { display: none; }
+  .tp-scholars .cat-side-head { display: flex; margin-bottom: .5rem; }
+  .tp-scholars .cat-library-filters { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .tp-scholars .cat-side > .cat-search { margin-top: 0; }
   .tp-scholars .cat-facet { display: grid; grid-template-columns: 3.4rem minmax(0, 1fr); align-items: center; margin-top: .6rem; }
   .tp-scholars .cat-facet h3 { margin: 0; }
@@ -121,6 +147,8 @@
   .tp-scholars .cat-grid { grid-template-columns: minmax(0, 1fr); gap: .75rem; }
   .tp-scholars .cat-bar { gap: .6rem; }
   .tp-scholars .cat-sort-l { display: none; }
+  .tp-scholars .cat-sort { max-width: 100%; flex-wrap: wrap; }
+  .tp-scholars .tp-sec-catalogue .cat-sort button { padding-inline: .5rem; font-size: .73rem; white-space: nowrap; }
   /* Phones: a card lies on its side, the mark beside the name, so the list stays short. */
   .tp-scholars .cat-card { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: .9rem; align-items: start; padding: .95rem 1rem .9rem; }
   .tp-scholars .cat-card-top { display: contents; }
@@ -130,4 +158,5 @@
   .tp-scholars .cat-card-name { margin-top: 0; font-size: 1.08rem; }
   .tp-scholars .cat-card-tags { grid-column: 1 / -1; margin: .65rem 0 .75rem; }
   .tp-scholars .cat-card-work, .tp-scholars .cat-card .cat-lb { grid-column: 1 / -1; }
+  .tp-scholars .cat-collections, .tp-scholars .cat-held-count, .tp-scholars .cat-library-action { grid-column: 1 / -1; }
 }

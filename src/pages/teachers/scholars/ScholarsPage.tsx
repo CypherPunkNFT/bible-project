@@ -11,19 +11,17 @@ import { Catalogue } from "./Catalogue";
 import { NO_FILTERS, ScholarsContext, type CatalogueFilters, type ProfileTarget } from "./context";
 import { Directory } from "./Directory";
 import { Discoveries } from "./Discoveries";
-import { Fields } from "./Fields";
 import { Landing } from "./Landing";
 import { Named } from "./Named";
 import { Numbers } from "./Numbers";
 import { Profile } from "./Profile";
-import { AcquiredCatalogue } from "../shared/AcquiredCatalogue";
+import { useLibrary } from "./catalogue/useLibrary";
 
 const SECTIONS = [
   ["landing", "Scholars", Landing],
   ["catalogue", "The catalogue", Catalogue],
   ["built", "Built on their work", Built],
   ["discoveries", "The discoveries", Discoveries],
-  ["fields", "Five ways to study the Bible", Fields],
   ["named", "Where the site names them", Named],
   ["numbers", "By the numbers", Numbers],
   ["directory", "All the scholars", Directory],
@@ -36,6 +34,7 @@ export default function ScholarsPage() {
 }
 
 function Loaded({ data }: { data: ScholarsData }) {
+  const { library, libraryError } = useLibrary(data);
   const [profile, setProfile] = useState<ProfileTarget | null>(null);
   const [filters, setFilters] = useState<CatalogueFilters>(NO_FILTERS);
   const [shownIds, setShownIds] = useState<string[]>(() => data.scholars.map((s) => s.id));
@@ -45,13 +44,12 @@ function Loaded({ data }: { data: ScholarsData }) {
     setFilters({ ...NO_FILTERS, ...next });
     if (options.scroll !== false) document.getElementById("catalogue")?.scrollIntoView({ behavior: "smooth", block: "start" });
   }, []);
-  const value = useMemo(() => ({ data, openProfile, closeProfile, profile, filters, filterCatalogue, shownIds, setShownIds }),
-    [data, openProfile, closeProfile, profile, filters, filterCatalogue, shownIds]);
+  const value = useMemo(() => ({ data, library, libraryError, openProfile, closeProfile, profile, filters, filterCatalogue, shownIds, setShownIds }),
+    [data, library, libraryError, openProfile, closeProfile, profile, filters, filterCatalogue, shownIds]);
   return <ScholarsContext.Provider value={value}>
     <div className="tp-page tp-scholars">
       <SidesSwitch current="scholars" />
       {SECTIONS.map(([id, title, Section]) => <TeacherSection key={id} id={id} title={title}><Section /></TeacherSection>)}
-      <TeacherSection id="acquired" title="Acquired authors and editors"><AcquiredCatalogue side="scholars" /></TeacherSection>
       <Profile />
     </div>
   </ScholarsContext.Provider>;

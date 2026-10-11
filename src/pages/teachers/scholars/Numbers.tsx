@@ -63,7 +63,7 @@ export function Numbers() {
   const word = countWord(data.scholars.length);
   return <>
     <SectionHead num="06" kicker="By the numbers" title={<>The {word}, <em>counted</em></>}
-      line="How they fall by field, age and faith. Every bar is also a filter: click one to narrow the catalogue above." />
+      line="These figures describe the documented scholar profiles, not the full acquired contributor list. Every bar also filters the catalogue above." />
     <div className="num-strip">
       <div className="num-card"><h3>By field</h3><Bars {...rows} facet="field" explain="Scholars in each field. The darker part is how many the catalogue is showing now." /></div>
       <div className="num-card"><h3>By age</h3><EraDots {...rows} /></div>

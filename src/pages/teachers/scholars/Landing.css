@@ -2,6 +2,11 @@
    work" note on the left; the constellation of every field-shaped mark on the right; figures and jump links beneath.
    Every selector starts .tp-scholars; classes are prefixed lnd-. The mock-up sets 14px text on its body; this keeps it. */
 .tp-scholars .tp-sec-landing { font-size: .875rem; line-height: 1.5; }
+.tp-scholars .lnd-full-search { margin: 1.4rem 0; }
+.tp-scholars .lnd-full-search label { display: block; margin-bottom: .4rem; font-size: .75rem; color: var(--muted); }
+.tp-scholars .lnd-full-search > div { display: flex; gap: .6rem; border: 1px solid var(--line); border-radius: .75rem; background: var(--surface); padding: .75rem; }
+.tp-scholars .lnd-full-search input { min-width: 0; flex: 1; background: transparent; border: 0; color: var(--ink); }
+.tp-scholars .tp-sec-landing .lnd-full-search button { display: flex; align-items: center; gap: .3rem; color: var(--accent); }
 .tp-scholars .tp-sec-landing button { padding: 0; border: 0; background: none; text-align: left; }
 .tp-scholars .tp-sec-landing [hidden] { display: none !important; }
 .tp-scholars .lnd { padding-top: clamp(1.4rem, 3vw, 2.4rem); }
