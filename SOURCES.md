@@ -1,5 +1,17 @@
 # Sources
 
+## Parables of Jesus study — 11 October 2026
+
+Sixteen original editorial reading guides at `/study/gospels?guide=parables`, based on the already registered eBible KJV corpus (`eng-kjv`, public-domain text under the existing source terms). No new external text or artwork is reproduced. Four original SVG scenes and thematic groupings are project-authored. The notes distinguish textual observations, reading suggestions and interpretive cautions; no historical reconstruction or scholarly consensus is claimed.
+
+Inputs: `data/plain/kjv/MAT.json`, `MRK.json`, `LUK.json`; 23 passage ranges and 205 referenced verses checked by `scripts/check-parables.ts`. SHA-256 fingerprints of the prepared text inputs:
+
+- Matthew: `2b1c7219e7f3e72ae9f64aae00132142787b90cc8b8cacca4cff0ca870854895`
+- Mark: `cf9ccb7d831b350c3ac5767be6a9da121b99d02abc4d70e808b3a1932c4349d9`
+- Luke: `0f38e2a4658588636fcd0d044a054589fc44e6d96b69936e0b1b4c060f16baed`
+
+Content: `src/data/parables.ts`. Public passage links open the existing Bible reader. These selected stories are not presented as a complete inventory of all parables.
+
 ## Reasonable Faith writings PDFs — RF01, 11 October 2026
 
 Extraction completed: **177 PDFs, 2,597 pages, 1,092,719 word tokens**, using local CPU embedded-text extraction (33.4 seconds; no OCR/GPU/API). Per-document TXT and page-level JSONL retain source URLs, page boundaries and original checksums. All output files passed readback verification; 13 sparse/blank final pages were visually reviewed with no OCR needed. [Extraction report and text index](../Research/Apologetics/ReasonableFaith/EXTRACTION.md).

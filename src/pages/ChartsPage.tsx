@@ -21,6 +21,7 @@ import { useStudyView } from "@/components/study/study-view";
 import { StudyBackLink } from "@/components/study/StudyBackLink";
 import HarmonyPage, { HarmonySource } from "@/pages/study/HarmonyPage";
 import { GospelPortraits } from "@/components/study/GospelPortraits";
+import ParablesPage from "@/pages/study/parables/ParablesPage";
 
 function Result<T>({ state, children }: { state: AsyncState<T>; children: (value: T) => ReactNode }) {
   if (state.status === "loading") return <Loading />;
@@ -66,6 +67,7 @@ export default function ChartsPage() {
   const source = <a href="https://www.openbible.info/labs/cross-references/" target="_blank" rel="noreferrer">OpenBible.info ↗</a>;
   const Heading = "h1";
   const collection = STUDY_COLLECTIONS.find((item) => item.id === routeSlug)!;
+  if (routeSlug === "gospels" && new URLSearchParams(location.search).get("guide") === "parables") return <ParablesPage />;
   return <div className="charts-hub charts-open study-explorers mx-auto max-w-7xl px-4 sm:px-6">
     <div className="chart-collection-breadcrumb"><StudyBackLink /><strong>{collection.label}</strong></div>
     {shown("references") && <section hidden={activeId !== "references"} id="references" aria-labelledby="references-title" className="chart-area" style={{ "--chart-color": "var(--poetry)" } as CSSProperties}>

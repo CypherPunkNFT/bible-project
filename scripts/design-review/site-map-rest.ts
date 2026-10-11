@@ -1,5 +1,6 @@
 // Topics, the Bible reader, Letters, Apologetics, Study, Testimonies and the site's own pages.
 import { readdirSync } from "node:fs";
+import { PARABLES, PARABLE_GUIDE_URL } from "../../src/data/parables";
 import { registerSiteModules } from "../pages/study-lib.ts";
 import { fewest, firstOf, longestText, most, readJson, single, typical, variant, type SampleRule, type TemplateDef } from "./model.ts";
 
@@ -230,6 +231,7 @@ async function apologeticsTemplates(): Promise<{ templates: TemplateDef[]; valid
 function studyAndSiteTemplates(): TemplateDef[] {
   const one = (id: string, area: string, name: string, address: string, what: string, entries: string[], scopes: string[], variants = [single("page", name, what, address)]): TemplateDef => ({ id, area, name, address, what, entries, scopes, variants });
   return [
+    one("study-parables", "study", "The parables of Jesus", PARABLE_GUIDE_URL, "Sixteen passage-grounded guides with illustrated paths, story moments and Gospel comparisons.", ["src/pages/study/parables/ParablesPage.tsx"], ["src/pages/study/parables/", "src/data/parables.ts"], PARABLES.map(p => single(p.id, p.title, p.question, `${PARABLE_GUIDE_URL}&parable=${p.id}`))),
     one("study-hub", "study", "Study hub", "/study", "Two branches, writers and scholars, and an interactive Atlas window.", ["src/pages/study/hub/StudyHub.tsx"], ["src/pages/study/hub/"]),
     one("study-legacy", "study", "Original Study collection", "/study2", "The original ten-card Study collection, retained by request.", ["src/pages/study/StudyCollection.tsx"], ["src/pages/study/StudyCollection.tsx", "src/pages/study/StudyResourceCards.tsx", "src/pages/study/study.css"]),
     one("study-branches", "study", "Study subject landings", "/study/<branch>", "Five subject doors in each branch, opening organised guides and collections.", ["src/pages/study/hub/StudyBranch.tsx"], ["src/pages/study/hub/", "src/pages/study/StudyResourceCards.tsx", "src/pages/study/study.css"], [
