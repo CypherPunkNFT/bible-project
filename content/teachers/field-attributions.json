@@ -72,5 +72,32 @@
     "NPNF-211": ["Sulpicius Severus", "Vincent of Lérins", "John Cassian"],
     "NPNF-212": ["Leo the Great", "Gregory the Great"],
     "NPNF-213": ["Gregory the Great", "Ephraim Syrus", "Aphrahat"]
-  }
+  },
+
+  "contributions": [
+    {
+      "name": "Cuthbert Lennox",
+      "role": "editor",
+      "workId": "held-231cf308b4e1c6d81e3f0c1a87c52bb6",
+      "field": "history",
+      "basis": "Signed Introductory Note identifies the editor of the abridged Knox history.",
+      "source": "https://www.gutenberg.org/ebooks/48250"
+    },
+    {
+      "name": "James Paton",
+      "role": "editor",
+      "workId": "held-7ba202640eeabbf6c1cacc966f199aef",
+      "field": "history",
+      "basis": "Signed preface identifies the brother and editor of the autobiography.",
+      "source": "https://archive.org/details/johngpatonmissio188901pato"
+    },
+    {
+      "name": "Mrs. John G. Paton",
+      "role": "letter writer",
+      "workId": "work-l13-paton-1889-v2-chapter-09",
+      "field": "history",
+      "basis": "Chapter IX editorial preface, printed pages 285-286, attributes the Aniwa mission letters to Mrs. John G. Paton.",
+      "source": "https://archive.org/details/johngpatonmissio188902pato"
+    }
+  ]
 }

@@ -156,3 +156,14 @@
   .tp-scholars .cat-card-work, .tp-scholars .cat-card .cat-lb { grid-column: 1 / -1; }
   .tp-scholars .cat-collections, .tp-scholars .cat-held-count, .tp-scholars .cat-library-action { grid-column: 1 / -1; }
 }
+.tp-scholars .cat-source-dates { margin-top: .35rem; color: var(--muted); font-size: .76rem; }
+.tp-scholars .cat-subject-label { margin-top: .7rem; color: var(--muted); font-size: .58rem; letter-spacing: .12em; text-transform: uppercase; }
+.tp-scholars .cat-evidence { margin: .8rem 0; padding: .8rem; border: 1px solid var(--line); border-radius: .7rem; font-size: .8rem; }
+.tp-scholars .cat-evidence summary { cursor: pointer; color: var(--accent); }
+.tp-scholars .cat-evidence ul { padding-left: 1.2rem; margin-top: .6rem; }
+.tp-scholars .cat-evidence li + li { margin-top: .45rem; }
+.tp-scholars .cat-evidence a { color: var(--accent); text-decoration: underline; }
+.tp-scholars .cat-shelf .fld-works-scroll { max-height: 55vh; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: var(--muted) transparent; padding-bottom: .5rem; }
+.tp-scholars .cat-facet > .cat-checkbox { display: flex; align-items: center; gap: .5rem; margin-top: .6rem; padding: .4rem .2rem; color: var(--muted); font-size: .8rem; font-weight: 400; cursor: pointer; }
+.tp-scholars .cat-facet > .cat-checkbox span { margin-left: auto; font-variant-numeric: tabular-nums; }
+.tp-scholars .cat-checkbox input { accent-color: var(--accent); }

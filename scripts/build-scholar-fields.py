@@ -96,14 +96,14 @@ def main():
         g['roles'].update(person['roles'])
         g['traditions'].update(person.get('traditions', []))
 
-    def add(g, w, fields, supplemental=False, evidence='Constituent author named in the held volume title'):
+    def add(g, w, fields, supplemental=False, evidence='Constituent author named in the held volume title', role='author in collected volume'):
+        if supplemental: g['roles'].add(role)
         if w['id'] in g['works']: return
         g['works'][w['id']] = w
         g['collections'].update(collections_for(w))
         sample = {k: clean(w[k]) for k in ['id', 'title', 'source', 'availability']}
         if supplemental:
             g['supplements'][w['id']] = sample | {'basis': evidence}
-            g['roles'].add('author in collected volume')
         for field, basis in fields.items():
             slot = g['fields'].setdefault(field, {'count': 0, 'basis': basis, 'example': sample})
             slot['count'] += 1
@@ -112,10 +112,20 @@ def main():
             rank = lambda a: (a['availability'] == 'identity-review', a['availability'] != 'on-site-text', len(a['title']))
             if old is None or rank(sample) < rank(old): slot.update(example=sample, basis=basis)
 
+    for item in overlay.get('contributions', []):
+        w = records[item['workId']]
+        add(group(item['name']), w, {item['field']: item['basis']}, True, item['source'] + ': ' + item['basis'], item['role'])
+
     for w in records.values():
         fields = classify(w)
         for cid in set(w['contributors']):
             if cid in identity: add(identity[cid], w, fields)
+        # Structured public author credits may exist without a contributor shard.
+        # Preserve the credit and exact work destination rather than losing the name.
+        for name in w.get('authors', []):
+            g = group(name)
+            if w['id'] not in g['works']:
+                add(g, w, fields, True, 'Named in the public work author credit', 'recorded author')
         if 'ccel' in collections_for(w):
             match = re.match(r'^(ANF\d{2}|NPNF1-\d{2}|NPNF2-\d{2}|NPNF-\d{3})(?:\.|\s)', w['title'])
             for name in overlay['volumes'].get(match[1] if match else '', []):
@@ -149,6 +159,8 @@ def main():
     latin = [w for w in records.values() if 'latin-fathers' in collections_for(w)]
     assert all(set(w['contributors']) <= represented for w in latin), 'A CSEL contributor was dropped'
     assert all(v['example'] is None or v['example']['id'] in records for e in entries for v in e['fields'].values()), 'Broken evidence link'
+    visible_names = {key(canonical(e['name'])) for e in entries} | {key(canonical(c['name'])) for c in catalogue['contributors']}
+    assert all(key(canonical(name)) in visible_names for w in records.values() for name in w.get('authors', [])), 'Structured author credit omitted; review its attribution/subject before publishing'
     outputs = {'field-shelves.json': json.dumps(result, ensure_ascii=False, separators=(',', ':')) + '\n',
         'field-coverage.json': json.dumps(report, ensure_ascii=False, indent=2) + '\n'}
     for filename, text in outputs.items():
