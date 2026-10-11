@@ -10,6 +10,7 @@ const drawings = {
   'lennox-shermer': { title: 'Thorns & a living branch', note: 'Evil, suffering and the search for a moral explanation.', lines: '<path d="M60 109V53q-25-7-29-31 28-3 29 31 1-34 29-31-4 24-29 31ZM30 90q-23-14-9-38m69 38q23-14 9-38M22 77l-12 4m14-17-12-5m24 35-4 14m66-31 12 4m-14-17 12-5M84 94l4 14M44 80l16 9 16-9"/>' },
 };
 const variants = [
+  { id: 'merge', label: 'A+B', name: 'Illustrated rail + facing speakers', detail: 'A’s subject drawing and slim layout, with B’s balanced speaker panels, serif names and central VS. The explanation stays directly beneath the title.' },
   { id: 'a', name: 'Illustrated rail', detail: 'An evolution of the current list: a meaningful drawing at left, followed by a clear title, explanation and speaker pairing.' },
   { id: 'b', name: 'Facing panels', detail: 'The subject introduces the exchange; two balanced speaker panels make the opposition immediately legible.' },
   { id: 'c', name: 'Debate poster', detail: 'A centered composition with a subject emblem above and the speakers facing across a gold VS.' },
@@ -35,10 +36,10 @@ sampleSelect.insertAdjacentHTML('beforeend', DEBATE_SAMPLES.map(d => `<option va
 function render() {
   document.documentElement.dataset.theme = theme;
   document.querySelector('#theme').textContent = theme === 'dark' ? 'Light theme' : 'Dark theme';
-  document.querySelector('#versions').innerHTML = [{ id: 'all', name: 'Compare all' }, ...variants].map(v => `<button type="button" data-version="${v.id}" aria-pressed="${selected === v.id}">${v.id === 'all' ? '' : v.id.toUpperCase() + ' · '}${v.name}</button>`).join('');
+  document.querySelector('#versions').innerHTML = [{ id: 'all', name: 'Compare all' }, ...variants].map(v => `<button type="button" data-version="${v.id}" aria-pressed="${selected === v.id}">${v.id === 'all' ? '' : (v.label ?? v.id.toUpperCase()) + ' · '}${v.name}</button>`).join('');
   sampleSelect.value = sample;
   const examples = sample === 'all' ? DEBATE_SAMPLES : sample === 'pair' ? DEBATE_SAMPLES.slice(0, 2) : DEBATE_SAMPLES.filter(d => d.id === sample);
-  designs.innerHTML = variants.filter(v => selected === 'all' || selected === v.id).map(v => `<section class="direction" id="version-${v.id}" aria-labelledby="heading-${v.id}"><header class="direction-header"><span class="letter">${v.id.toUpperCase()}</span><div><p class="eyebrow">Card direction ${v.id.toUpperCase()}</p><h2 id="heading-${v.id}">${v.name}</h2><p>${v.detail}</p></div><a class="isolate" href="?v=${v.id}&sample=all&theme=${theme}">View all nine in ${v.id.toUpperCase()} ↗</a></header><div class="examples">${examples.map(d => card(d, v.id)).join('')}</div></section>`).join('');
+  designs.innerHTML = variants.filter(v => selected === 'all' || selected === v.id).map(v => `<section class="direction" id="version-${v.id}" aria-labelledby="heading-${v.id}"><header class="direction-header"><span class="letter${v.id === 'merge' ? ' letter-merge' : ''}">${v.label ?? v.id.toUpperCase()}</span><div><p class="eyebrow">Card direction ${v.label ?? v.id.toUpperCase()}</p><h2 id="heading-${v.id}">${v.name}</h2><p>${v.detail}</p></div><a class="isolate" href="?v=${v.id}&sample=all&theme=${theme}">View all nine in ${v.label ?? v.id.toUpperCase()} ↗</a></header><div class="examples">${examples.map(d => card(d, v.id)).join('')}</div></section>`).join('');
   document.querySelector('#icon-library').innerHTML = DEBATE_SAMPLES.map(d => `<a class="icon-choice" href="?v=${selected}&sample=${d.id}&theme=${theme}">${icon(d.id)}<span class="eyebrow">${drawings[d.id].title}</span><h3>${esc(d.title)}</h3><p>${drawings[d.id].note}</p><span class="icon-cta">Preview this debate ↗</span></a>`).join('');
   const url = new URL(location); url.searchParams.set('v', selected); url.searchParams.set('sample', sample); url.searchParams.set('theme', theme); history.replaceState(null, '', url);
 }
