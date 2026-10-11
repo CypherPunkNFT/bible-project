@@ -15,7 +15,7 @@ const PAGES: { folder: string; title: string; render: (data: ApologeticsData) =>
   { folder: "historic-texts", title: "Apologetics: Historic texts", render: historicTextsPage, wording: [[LIBRARY_FILE, ["ReformedLibraryPage", "WorkCard", "HistoricReading"]], [PAGE_FILE, ["SourceRoom"]]] },
   { folder: "learning-paths", title: "Apologetics: Learning paths", render: pathsPage, wording: [[PAGE_FILE, ["PathIndex", "PathPage"]]] },
   { folder: "worldviews", title: "Apologetics: Worldviews", render: worldviewsPage, wording: [["src/pages/WorldviewsPage.tsx", ["WorldviewIndex", "WorldviewPage", "Collection", "IslamClaimsDesk", "ContextSources", "ReadingPlanRoom", "IllustratedStudy"]]] },
-  { folder: "debates", title: "Apologetics: Debates", render: debatesPage, wording: [[PAGE_FILE, ["DebateIndex", "DebatePage"]]] },
+  { folder: "debates", title: "Apologetics: Debates", render: debatesPage, wording: [[PAGE_FILE, ["DebateIndex", "DebatePage"]], ["src/pages/DebateRoom.tsx", ["DebateRoom"]]] },
   { folder: "practice", title: "Apologetics: Practice", render: practicePage, wording: [[PAGE_FILE, ["PracticePage"]]] },
 ];
 

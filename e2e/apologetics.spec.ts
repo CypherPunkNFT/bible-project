@@ -97,6 +97,42 @@ test("apologetics: worldview comparison and sources lead to actual studies", asy
   await expect(page.locator('.ap-source-backlinks a[href="/apologetics/study/manuscripts"]')).toBeVisible();
 });
 
+test("apologetics: debate room waypoints, combined filters and return navigation", async ({ page }) => {
+  await page.goto('/apologetics/debates');
+  await expect(page).toHaveTitle('Debates · Apologetics · Bible Project');
+  await expect(page.locator('.dr-counts')).toContainText('11 voices');
+  await expect(page.locator('.dr-topics > a')).toHaveCount(5);
+  await expect(page.locator('.dr-debaters article')).toHaveCount(3);
+  await expect(page.locator('.dr-partners nav a')).toHaveCount(8);
+  await page.locator('.dr-topics > a').filter({ hasText: 'Jesus & the resurrection' }).click();
+  await expect(page).toHaveURL(/topic=resurrection#collection$/);
+  await expect(page.locator('.ap-debate-list > a')).toHaveCount(2);
+  await page.getByLabel('Speaker', { exact: true }).selectOption('Bart Ehrman');
+  await expect(page.locator('.ap-debate-list > a')).toHaveCount(1);
+  await page.locator('.ap-debate-list > a').click();
+  await expect(page).toHaveURL(/debates\/craig-ehrman$/);
+  await page.getByRole('link', { name: 'Back to the debate room', exact: true }).click();
+  await expect(page.getByLabel('Topic', { exact: true })).toHaveValue('resurrection');
+  await expect(page.getByLabel('Speaker', { exact: true })).toHaveValue('Bart Ehrman');
+  await expect(page.locator('.ap-debate-list > a')).toHaveCount(1);
+  await page.getByRole('button', { name: 'Clear search & filters', exact: true }).click();
+  await page.locator('.dr-debaters article').filter({ hasText: 'John Lennox' }).getByRole('link').click();
+  await expect(page.locator('.ap-debate-list > a')).toHaveCount(2);
+  await page.getByRole('searchbox', { name: 'Search debates' }).fill('Dawkins');
+  await expect(page.locator('.ap-debate-list > a')).toHaveCount(1);
+  await page.reload();
+  await expect(page.getByRole('searchbox', { name: 'Search debates' })).toHaveValue('Dawkins');
+  await expect(page.locator('.ap-debate-list > a')).toHaveCount(1);
+  await page.getByRole('searchbox', { name: 'Search debates' }).fill('nonexistent-exchange');
+  await expect(page.getByRole('heading', { name: 'No debates match these filters.' })).toBeVisible();
+  await page.getByRole('button', { name: 'Show all debates', exact: true }).click();
+  await expect(page.locator('.ap-debate-list > a')).toHaveCount(DEBATES.length);
+  await page.goto('/apologetics/debates?topic=missing');
+  await expect(page.getByRole('heading', { name: 'No debates match these filters.' })).toBeVisible();
+  await page.getByRole('button', { name: 'Show all debates', exact: true }).click();
+  await expect(page.locator('.ap-debate-list > a')).toHaveCount(DEBATES.length);
+});
+
 test("apologetics: each debate has a real transcript, a reading guide and connected studies", async ({ page }) => {
   await page.goto("/apologetics/debates");
   await expect(page.locator(".ap-debate-list > a")).toHaveCount(DEBATES.length);

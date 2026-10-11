@@ -10,7 +10,7 @@ import { AP_BASE, studyUrl, apColor } from "@/lib/apologetics-links";
 import type { SnippetPart } from "@/lib/apologetics-search";
 
 export function ApBack({ to = AP_BASE, children = "Back to Apologetics" }: { to?: string; children?: ReactNode }) { return <Link className="ap-back" to={to}><ArrowLeft size={14} />{children}</Link>; }
-export function ApHeading({ eyebrow, title, lead, children }: { eyebrow: string; title: string; lead: string; children?: ReactNode }) { return <header className="ap-page-heading"><ApBack /><p className="ap-eyebrow">{eyebrow}</p><h1>{title}</h1><p className="ap-lead">{lead}</p>{children}</header>; }
+export function ApHeading({ eyebrow, title, lead, children, backTo, backLabel }: { eyebrow: string; title: string; lead: string; children?: ReactNode; backTo?: string; backLabel?: string }) { return <header className="ap-page-heading"><ApBack to={backTo}>{backLabel}</ApBack><p className="ap-eyebrow">{eyebrow}</p><h1>{title}</h1><p className="ap-lead">{lead}</p>{children}</header>; }
 export function ApSectionHeading({ eyebrow, title, to, link }: { eyebrow: string; title: string; to?: string; link?: string }) { return <div className="ap-section-heading"><div><p className="ap-eyebrow">{eyebrow}</p><h2>{title}</h2></div>{to && <Link to={to}>{link} <ArrowRight size={15} /></Link>}</div>; }
 export function TopicArt({ index }: { index: number }) {
   return <svg viewBox="0 0 220 130" fill="none" aria-hidden="true" className="ap-topic-art">
