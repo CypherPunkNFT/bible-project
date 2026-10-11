@@ -36,3 +36,7 @@
 .original-worldviews-viewport{position:relative;overflow:hidden;height:56px;border-top:1px solid var(--line);background:var(--page)}
 .original-worldviews-frame{position:absolute;left:0;top:-190px;width:100%;height:1600px;border:0;background:var(--page)}
 .site-preview [hidden]{display:none!important}
+
+/* E shows the original page; its website header is untouched. */
+.original-e-page{display:block;width:100%;height:860px;border:0;background:var(--page)}
+@media(max-width:800px){.design-controls{flex-wrap:wrap}.design-controls nav{flex-wrap:wrap}}
