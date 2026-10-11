@@ -15,7 +15,8 @@
 
 /* A's illustrated rail and compact proportions, with B's facing speaker panels. */
 .letter-merge{font-size:16px}
-.version-merge{grid-template-columns:150px minmax(0,1fr) 25px;grid-template-areas:'art copy open' 'art matchup open' 'art metadata open';gap:16px 30px;padding:24px 30px}
+.version-merge{grid-template-columns:150px minmax(0,1fr);grid-template-areas:'art copy' 'art matchup' 'art metadata';gap:16px 30px;padding:24px 30px}
+.version-merge .open{display:none}
 .version-merge .art{border-right:1px solid var(--line);padding-right:25px}
 .version-merge .matchup{display:grid;grid-template-columns:minmax(0,1fr) 40px minmax(0,1fr);gap:10px;background:var(--soft);border:1px solid var(--line);border-radius:7px;padding:20px 16px}
 .version-merge .speaker{justify-content:center;gap:10px}
@@ -24,7 +25,7 @@
 .version-merge .versus{width:36px;height:36px;background:var(--surface);justify-self:center}
 .version-merge .metadata{border-top:0;padding-top:0}
 @media(max-width:900px){
-  .version-merge{grid-template-columns:105px minmax(0,1fr) 20px;gap:16px 20px;padding:24px}
+  .version-merge{grid-template-columns:105px minmax(0,1fr);gap:16px 20px;padding:24px}
   .version-merge .art{padding-right:15px}
   .version-merge .subject-icon{width:80px;height:80px}
   .version-merge .initials{display:none}
@@ -32,7 +33,7 @@
   .version-merge .matchup{padding:20px 12px;gap:8px}
 }
 @media(max-width:600px){
-  .version-merge{grid-template-columns:46px minmax(0,1fr) 15px;grid-template-areas:'art copy open' 'matchup matchup matchup' 'metadata metadata metadata';gap:18px 14px;padding:20px}
+  .version-merge{grid-template-columns:46px minmax(0,1fr);grid-template-areas:'art copy' 'matchup matchup' 'metadata metadata';gap:18px 14px;padding:20px}
   .version-merge .art{border:0;padding:0;align-self:start}
   .version-merge .subject-icon{width:45px;height:55px}
   .version-merge .ordinal{font-size:9px}
