@@ -13,21 +13,22 @@ const options=[
  {id:'d',title:'A local identity rail',text:'Apologetics anchors the left of its own menu. Tabs and worldview choices line up beside it.',header:()=>`<div class="local-identity-rail">${section}</div><div class="section-row">${tabNav()}${searchButton()}</div>`}
 ];
 document.getElementById('options').innerHTML=options.map(o=>`<section class="option" id="option-${o.id}"><header class="option-description"><span class="option-letter">${o.id.toUpperCase()}</span><div><h2>${o.title}</h2><p>${o.text}</p></div>${o.tag?`<span class="option-tag">${o.tag}</span>`:''}</header><div class="site-preview variant-${o.id}"><iframe class="original-site-header" src="/apologetics" title="Existing website header, unchanged" scrolling="no"></iframe><div class="local-navigation">${o.header()}${o.id==='a'?'<div class="original-worldviews-viewport"><iframe class="original-worldviews-frame" src="/apologetics/worldviews" title="Existing Worldviews navigation" scrolling="no"></iframe></div>':''}<nav class="world-row" ${o.id==='a'?'hidden':''} aria-label="Current section choices"><div class="context-options">${worldviewRow()}</div>${o.id==='c'?searchButton():''}</nav></div><div class="example-content"><div><h3>Worldviews.</h3><p>Understand the belief. Examine the claims. Prepare for the conversation.</p></div><span class="example-note">Apologetics &middot; Worldviews</span></div></div></section>`).join('');
-// E preserves the actual page, with changes scoped to its local Apologetics masthead and artwork labels.
+// E and F preserve the actual page, with changes scoped to their embedded Apologetics navigation.
 document.getElementById('options').insertAdjacentHTML('beforeend',`<section class="option" id="option-e"><header class="option-description"><span class="option-letter">E</span><div><h2>The original, with a simpler top bar</h2><p>Apologetics on the left. Search on the right. The original navigation and line art below.</p></div></header><div class="site-preview variant-e"><iframe class="original-e-page" src="/apologetics" title="Option E: original Apologetics page with simplified local masthead" scrolling="no"></iframe></div></section>`);
-const eFrame=document.querySelector('.original-e-page');
-eFrame.addEventListener('load',()=>{
+document.getElementById('options').insertAdjacentHTML('beforeend',`<section class="option" id="option-f"><header class="option-description"><span class="option-letter">F</span><div><h2>The original, with its name beside the shield</h2><p>Same bar and destinations as E, with Apologetics written beside the logo.</p></div></header><div class="site-preview variant-f"><iframe class="original-e-page" data-version="f" src="/apologetics" title="Option F: original Apologetics page with named logo in local bar" scrolling="no"></iframe></div></section>`);
+document.querySelector('.variant-e .original-e-page').dataset.version='e';
+document.querySelectorAll('.original-e-page').forEach(eFrame=>eFrame.addEventListener('load',()=>{
  const doc=eFrame.contentDocument;
  const style=doc.createElement('style');
- style.textContent='.am-masthead{display:none!important}.sm-container{margin-top:24px}.sm-e-bar{display:flex;align-items:stretch;background:var(--surface);border-radius:5px 5px 0 0;min-width:0}.sm-e-bar .sm-main{flex:1;min-width:0;background:transparent;border-radius:0}.sm-e-bar .e-logo{display:grid;place-items:center;min-width:55px;border-right:1px solid var(--line);color:var(--accent)}.sm-e-bar .e-logo svg{width:19px;height:19px}.sm-e-bar .e-search{align-self:center;flex:none;margin:0 12px 0 5px;cursor:pointer}.sm-main>div:has(>a[href="/apologetics/practice"]),.sm-main>div:has(>a[href="/apologetics/saved"]){display:none!important}@media(max-width:900px){.sm-e-bar .e-search span,.sm-e-bar .e-search kbd{display:none}.sm-e-bar .e-search{padding:9px;min-width:34px}.sm-e-bar .e-logo{min-width:42px}}';
+ style.textContent='.am-masthead{display:none!important}.sm-container{margin-top:24px}.sm-e-bar{display:flex;align-items:stretch;background:var(--surface);border-radius:5px 5px 0 0;min-width:0}.sm-e-bar .sm-main{flex:1;min-width:0;padding-left:0;background:transparent;border-radius:0}.sm-e-bar .sm-main>div:first-child{padding-left:0}.sm-e-bar .sm-main>div:first-child>a{padding-left:12px}.sm-e-bar .e-logo{display:flex;align-items:center;justify-content:center;gap:9px;min-width:55px;padding:0 16px;border-right:1px solid var(--line);color:var(--accent)}.sm-e-bar .e-logo strong{color:var(--ink);font-size:12px}.sm-e-bar .e-logo svg{width:19px;height:19px}.sm-e-bar .e-search{align-self:center;flex:none;margin:0 12px 0 5px;cursor:pointer}.sm-main>div:has(>a[href="/apologetics/practice"]),.sm-main>div:has(>a[href="/apologetics/saved"]){display:none!important}@media(max-width:900px){.sm-e-bar .e-search span,.sm-e-bar .e-search kbd{display:none}.sm-e-bar .e-search{padding:9px;min-width:34px}.sm-e-bar .e-logo{min-width:42px}}';
  doc.head.append(style);
  let pending=false;
  const update=()=>{
   pending=false;
   const menu=doc.querySelector('.sm-container>.sm-main');
   if(menu&&!doc.querySelector('.sm-e-bar')){
-   const bar=doc.createElement('div');bar.className='sm-e-bar';
-   const logo=doc.querySelector('.am-brand').cloneNode(true);logo.className='e-logo';logo.setAttribute('aria-label','Apologetics home');logo.querySelectorAll('strong,span').forEach(node=>node.remove());
+   const bar=doc.createElement('div');bar.className='sm-e-bar';bar.dataset.version=eFrame.dataset.version;
+   const logo=doc.querySelector('.am-brand').cloneNode(true);logo.className='e-logo';logo.setAttribute('aria-label','Apologetics home');logo.querySelector('span')?.remove();if(eFrame.dataset.version==='e')logo.querySelector('strong')?.remove();
    const search=doc.querySelector('.am-browse').cloneNode(true);search.className='am-browse e-search';search.addEventListener('click',()=>doc.querySelector('.am-masthead .am-browse').click());
    menu.before(bar);bar.append(logo,menu,search);
   }
@@ -39,9 +40,9 @@ eFrame.addEventListener('load',()=>{
  new MutationObserver(schedule).observe(doc.body,{subtree:true,childList:true,characterData:true});
  new ResizeObserver(schedule).observe(doc.documentElement);
  doc.fonts.ready.then(schedule);schedule();
-});
+}));
 const root=document.documentElement;
-function theme(value){eFrame.src='/apologetics?mockupTheme='+value;root.dataset.theme=value;document.getElementById('theme').textContent=value==='dark'?'Light view':'Dark view';try{localStorage.setItem('bp-theme',value)}catch{};document.querySelectorAll('.original-site-header').forEach(frame=>{frame.src='/apologetics?mockupTheme='+value});document.querySelectorAll('.original-worldviews-frame').forEach(frame=>{frame.src='/apologetics/worldviews?mockupTheme='+value})}
+function theme(value){document.querySelectorAll('.original-e-page').forEach(frame=>{frame.src='/apologetics?mockupTheme='+value});root.dataset.theme=value;document.getElementById('theme').textContent=value==='dark'?'Light view':'Dark view';try{localStorage.setItem('bp-theme',value)}catch{};document.querySelectorAll('.original-site-header').forEach(frame=>{frame.src='/apologetics?mockupTheme='+value});document.querySelectorAll('.original-worldviews-frame').forEach(frame=>{frame.src='/apologetics/worldviews?mockupTheme='+value})}
 try{theme(localStorage.getItem('bp-theme')||'dark')}catch{theme('dark')}
 document.querySelectorAll('#theme,.toggle-theme').forEach(button=>button.onclick=()=>theme(root.dataset.theme==='dark'?'light':'dark'));
 const secondary={Explore:['Start here','Explore the questions','Across beliefs'],Questions:['God & belief','Scripture','Jesus Christ','Suffering & evil'], 'Reformed theology':['Reformed questions','Confessions & historic texts'],'Historic texts':['Confessions','Manuscripts','Early Christian writings'],'Learning paths':['Begin here','Reading Scripture','Answering questions'],Debates:['All exchanges','Study the reasoning','Conversation practice'],Practice:['Choose a conversation','Listen & respond','Review your approach'],'My study':['Saved studies','Reading history','Your notes']};

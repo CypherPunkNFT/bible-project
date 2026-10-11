@@ -13,3 +13,5 @@ Owner correction: A must preserve the existing third-row Worldviews layout and b
 Option E (2026-10-11): embeds the original Apologetics landing page and navigation. Its local masthead keeps the shield/name at left and search at right, in the existing tagline row. Hide the tagline and source-room link in that masthead. In the original constellation only, change Doubt to Reason and Reformed to Faith. All E changes are scoped to the embedded mockup document; the website header and production source are untouched.
 
 E refinement: shield logo, seven substantive menu items, and search share one visible original-style bar. Practice and My study are omitted from E's top-level menu only. Practice content remains available within the site; My study is browser-local.
+
+F: same original-page treatment as E, with Apologetics beside the shield. In both E and F, Explore's selected background begins directly at the logo divider.
