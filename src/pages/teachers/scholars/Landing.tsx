@@ -6,7 +6,7 @@
 import { useMemo, useState, type MouseEvent } from "react";
 import { ArrowRight } from "lucide-react";
 import { useScholars } from "./context";
-import { byBirth, isUsed } from "./marks/facts";
+import { byBirth, isUsed, NOW } from "./marks/facts";
 import { reducedMotion } from "./marks/dom";
 import { Mark } from "./marks/Mark";
 import { toneStyle } from "./marks/shapes";
@@ -33,8 +33,10 @@ export function Landing() {
   const found = useMemo(() => findScholars(data, query), [data, query]);
   const matchIds = useMemo(() => new Set(found.map((m) => m.s.id)), [found]);
   const born = useMemo(() => byBirth(data.scholars), [data]);
-  const live = born.filter(isUsed), held = born.filter((s) => s.site?.status === "held");
+  const live = born.filter(isUsed);
   const first = born[0], last = born[born.length - 1];
+  const works = born.reduce((total, scholar) => total + scholar.works.length, 0);
+  const centuries = Math.ceil((Math.max(...born.map((s) => s.died ?? NOW)) - first.born) / 100);
   return <div className="lnd">
     <div className="lnd-hero">
       <div className="lnd-copy">
@@ -58,8 +60,8 @@ export function Landing() {
       <dl className="lnd-figs">
         <div><dt>Scholars</dt><dd>{data.scholars.length}</dd><p>from {first.short} to {last.short}</p></div>
         <div><dt>Fields</dt><dd>{Object.keys(data.fields).length}</dd><p>history to reference books</p></div>
-        <div><dt>Used on this site</dt><dd>{live.length}</dd><p>{held.length} more in the library</p></div>
-        <div><dt>Since</dt><dd>{first.circa && <><small>c.</small> </>}{first.born}</dd><p>{first.short}, the earliest</p></div>
+        <div><dt>Key works</dt><dd>{works}</dd><p>landmark books and studies</p></div>
+        <div><dt>Centuries</dt><dd>{centuries}</dd><p>ancient world to today</p></div>
       </dl>
       <nav className="lnd-jump" aria-label="On this page"><span className="lnd-jump-l">On this page</span>
         {JUMPS.map(([id, n, label]) => <a key={id} href={`#${id}`} onClick={jump}><b>{n}</b>{label}</a>)}</nav>
