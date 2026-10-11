@@ -11,6 +11,9 @@ const b=await launch();try{
   assert.equal(await p.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1),false);
   for(const id of ['a','b','c','d']){
    const card=p.locator(`#option-${id}`);
+   const frame=card.locator('iframe').contentFrame();await frame.locator('header nav[aria-label=Main]').waitFor();
+   assert.equal(await frame.locator('.site-header-row').count(),1);
+   assert.equal(await card.locator('.global-row,.global-nav,.paired-brand').count(),0);
    await card.getByRole('tab',{name:'Questions',exact:true}).click();assert.equal(await card.getByRole('tab',{name:'Questions',exact:true}).getAttribute('aria-selected'),'true');
    assert.equal(await card.locator('.world-row .context-chip').count(),4);
    await card.getByRole('tab',{name:'Worldviews',exact:true}).click();assert.equal(await card.locator('[data-world]').count(),4);
