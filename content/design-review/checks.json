@@ -1,8 +1,8 @@
 {
  "schema": 1,
- "commit": "679aa5053c72e33832753b75dea3f30a0b66c130",
+ "commit": "4c7daf00631d4c43c2783e3ba59ddc86c66b591c",
  "startedAt": "2026-10-08T03:26:04.125Z",
- "finishedAt": "2026-10-10T23:54:17.597Z",
+ "finishedAt": "2026-10-11T02:25:12.832Z",
  "base": "http://127.0.0.1:8943",
  "checks": [
   {
@@ -1320,96 +1320,6 @@
    "failures": []
   },
   {
-   "template": "study-branches",
-   "variant": "theology-books",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {},
-   "failures": []
-  },
-  {
-   "template": "study-branches",
-   "variant": "theology-jesus",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {},
-   "failures": []
-  },
-  {
-   "template": "study-branches",
-   "variant": "theology-doctrine",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {},
-   "failures": []
-  },
-  {
-   "template": "study-branches",
-   "variant": "theology-life",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {},
-   "failures": []
-  },
-  {
-   "template": "study-branches",
-   "variant": "theology-people",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {},
-   "failures": []
-  },
-  {
-   "template": "study-branches",
-   "variant": "academic-history",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {},
-   "failures": []
-  },
-  {
-   "template": "study-branches",
-   "variant": "academic-texts",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {},
-   "failures": []
-  },
-  {
-   "template": "study-branches",
-   "variant": "academic-languages",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {},
-   "failures": []
-  },
-  {
-   "template": "study-branches",
-   "variant": "academic-culture",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {},
-   "failures": []
-  },
-  {
-   "template": "study-branches",
-   "variant": "academic-church",
-   "instances": 1,
-   "checked": 1,
-   "coverage": "",
-   "failed": {},
-   "failures": []
-  },
-  {
    "template": "people-guide",
    "variant": "everyone",
    "instances": 1,
@@ -1511,6 +1421,96 @@
   {
    "template": "study-names",
    "variant": "page",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "study-branches",
+   "variant": "theology-books",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "study-branches",
+   "variant": "theology-jesus",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "study-branches",
+   "variant": "theology-doctrine",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "study-branches",
+   "variant": "theology-life",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "study-branches",
+   "variant": "theology-people",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "study-branches",
+   "variant": "academic-history",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "study-branches",
+   "variant": "academic-texts",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "study-branches",
+   "variant": "academic-languages",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "study-branches",
+   "variant": "academic-culture",
+   "instances": 1,
+   "checked": 1,
+   "coverage": "",
+   "failed": {},
+   "failures": []
+  },
+  {
+   "template": "study-branches",
+   "variant": "academic-church",
    "instances": 1,
    "checked": 1,
    "coverage": "",
