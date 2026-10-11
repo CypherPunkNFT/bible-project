@@ -1,8 +1,8 @@
-import { Coins, Footprints, HeartHandshake, Hourglass, LayoutGrid, MessageCircle, Sprout } from 'lucide-react';
+import { Coins, Compass, Footprints, HeartHandshake, Hourglass, LayoutGrid, MessageCircle, Sprout } from 'lucide-react';
 import type { CSSProperties } from 'react';
 import { PARABLE_ROOMS, PARABLES, type ParableRoom } from '@/data/parables';
 
-const ICONS = {field:Sprout,home:HeartHandshake,prayer:MessageCircle,treasure:Coins,response:Footprints,door:Hourglass};
+const ICONS = {field:Sprout,home:HeartHandshake,prayer:MessageCircle,treasure:Coins,response:Footprints,disciple:Compass,door:Hourglass};
 export function ParableIcon({room,size=24}:{room:ParableRoom;size?:number}) {
   const Icon=ICONS[room];
   return <Icon size={size} strokeWidth={1.35} aria-hidden="true"/>;
