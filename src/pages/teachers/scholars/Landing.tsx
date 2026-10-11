@@ -1,18 +1,15 @@
-// The landing: the face of the Scholars side. The headline ("The greats, catalogued."), a warm intro, a search that
-// offers matching scholars and opens their profile, the note that the site itself is built on several of these
-// scholars' books (one chip per scholar it uses), the four figures, jump links to the sections below, and the large
-// constellation of every scholar's field-shaped mark (landing/Constellation.tsx). Approved mock-up:
-// design/scholars-directions/scholars/landing.js.
-import { useMemo, useState, type MouseEvent } from "react";
+// Opening: full catalogue search, bounded contributor selection and audited coverage totals.
+import { useDeferredValue, useMemo, useState, type MouseEvent } from "react";
 import { ArrowRight } from "lucide-react";
 import { useScholars } from "./context";
-import { byBirth, isUsed, NOW } from "./marks/facts";
+import { byBirth, isUsed } from "./marks/facts";
 import { reducedMotion } from "./marks/dom";
 import { Mark } from "./marks/Mark";
 import { toneStyle } from "./marks/shapes";
-import { Constellation } from "./landing/Constellation";
-import { findScholars } from "./landing/search";
+import { LibraryConstellation } from "./landing/LibraryConstellation";
+import { searchOpening } from "./landing/library-view";
 import "./Landing.css";
+import "./landing/library-opening.css";
 import { SCHOLAR_SECTIONS, sectionNumber } from "./sections";
 
 const JUMPS = SCHOLAR_SECTIONS;
@@ -28,25 +25,34 @@ function jump(event: MouseEvent<HTMLAnchorElement>) {
 }
 
 export function Landing() {
-  const { data, library, openProfile, filterCatalogue } = useScholars();
+  const { data, library, libraryFacts, libraryError, openProfile, filterCatalogue } = useScholars();
   const [query, setQuery] = useState("");
-  const found = useMemo(() => findScholars(data, query), [data, query]);
-  const matchIds = useMemo(() => new Set(found.map((m) => m.s.id)), [found]);
+  const deferredQuery = useDeferredValue(query);
+  const found = useMemo(() => searchOpening(library ?? [], deferredQuery), [library, deferredQuery]);
   const born = useMemo(() => byBirth(data.scholars), [data]);
   const live = born.filter(isUsed);
-  const first = born[0];
-  const works = born.reduce((total, scholar) => total + scholar.works.length, 0);
-  const centuries = Math.ceil((Math.max(...born.map((s) => s.died ?? NOW)) - first.born) / 100);
+  const summary = libraryFacts?.summary;
+  const count = (value: number | undefined) => value === undefined ? '\u2026' : value.toLocaleString();
   return <div className="lnd">
     <div className="lnd-hero">
       <div className="lnd-copy">
         <p className="kicker lnd-kicker">Scholars in the library</p>
         <h1 className="lnd-title">The greats, <em>catalogued.</em></h1>
-        <p className="lnd-lead">Historians, translators, archaeologists, theologians and the makers of reference books: {library ? library.length.toLocaleString() : 'the full library of'} contributors in one catalogue, including {data.scholars.length} documented scholar profiles. Explore the profiles below or search every contributor and their held works in the full catalogue.</p>
-        <form className="lnd-full-search" onSubmit={e => { e.preventDefault(); filterCatalogue({ q: query.trim().toLocaleLowerCase() }); }}>
+        <p className="lnd-lead">Explore the people behind the books: historians, translators, early church writers, theologians and makers of reference works. Search {summary ? summary.catalogueEntries.toLocaleString() : "the library's"} catalogue entries, from the Latin Fathers to modern apologetics.</p>
+        <p className="lnd-scope">The catalogue includes authors, editors, organisations and unresolved credits. {data.scholars.length} entries currently have a documented biographical profile; the acquired library is still being reconciled.</p>
+        <form className="lnd-full-search" onSubmit={e => { e.preventDefault(); filterCatalogue({ q: query.trim().toLocaleLowerCase() }, { resetLibrary: true }); }}>
           <label htmlFor="full-contributor-search">Search the full catalogue</label>
-          <div><input id="full-contributor-search" type="search" placeholder="Author, editor, translator or work" value={query} onChange={e => setQuery(e.target.value)} /><button type="submit">Search <ArrowRight size={14} aria-hidden="true" /></button></div>
+          <div><input id="full-contributor-search" type="search" placeholder="Name, role or featured work" aria-describedby="opening-search-status" value={query} onChange={e => setQuery(e.target.value)} /><button type="submit" disabled={!library}>Search <ArrowRight size={14} aria-hidden="true" /></button></div>
         </form>
+        <div className="lnd-search-feedback" aria-busy={query !== deferredQuery}>
+          <p id="opening-search-status" role="status">{libraryError ? 'Catalogue unavailable. Reload to try again.' : !library ? 'Loading catalogue entries...' : query.trim() ? `${found.length.toLocaleString()} matching entries${found.length > 6 ? '; showing the first 6' : ''}.` : 'Search names, recorded roles and featured work titles across the full catalogue.'}</p>
+          {query.trim() && found.length > 0 && <ul className="lnd-library-results">{found.slice(0, 6).map(p => <li key={p.id}>
+            <button type="button" onClick={e => p.scholar ? openProfile(p.scholar.id, e.currentTarget) : filterCatalogue({ q: p.name.toLocaleLowerCase() }, { resetLibrary: true })}>
+              <b>{p.name}</b><span>{p.scholar ? 'Open profile' : 'Browse catalogue'} ? {p.roles.join(', ') || 'Recorded contributor'}</span>
+            </button>
+          </li>)}</ul>}
+          {query.trim() && library && found.length === 0 && <p>Try another spelling, a surname or a recorded role.</p>}
+        </div>
         <aside className="lnd-built" aria-label="Built on their work">
           <h2>You have been reading <em>their work</em> all&nbsp;along.</h2>
           <p>This site stands on books by {live.length} of them. Their dictionaries, concordance and harmony power the Topics pages, the Gospel harmony, the miracles and the Letters study.</p>
@@ -56,14 +62,14 @@ export function Landing() {
           <a className="lnd-more" href="#built" onClick={jump}>Follow each feature back to its book<ArrowRight size={14} aria-hidden="true" /></a>
         </aside>
       </div>
-      <Constellation data={data} matches={matchIds} searching={query.trim().length > 0} onOpen={openProfile} />
+      <LibraryConstellation />
     </div>
     <div className="lnd-foot">
       <dl className="lnd-figs">
-        <div><dt>Contributors</dt><dd>{library ? library.length.toLocaleString() : '…'}</dd><p>{data.scholars.length} documented scholar profiles</p></div>
-        <div><dt>Fields</dt><dd>{Object.keys(data.fields).length}</dd><p>history to reference books</p></div>
-        <div><dt>Key works</dt><dd>{works}</dd><p>landmark books and studies</p></div>
-        <div><dt>Centuries</dt><dd>{centuries}</dd><p>ancient world to today</p></div>
+        <div><dt>Catalogue entries</dt><dd>{count(summary?.catalogueEntries)}</dd><p>authors, editors and other credits</p></div>
+        <div><dt>Fields</dt><dd>{Object.keys(data.fields).length}</dd><p>subjects covered by their works</p></div>
+        <div><dt>Placed by era</dt><dd>{count(summary ? summary.catalogueEntries - summary.eras.unknown : undefined)}</dd><p>supported by recorded dates</p></div>
+        <div><dt>Era unknown</dt><dd>{count(summary?.eras.unknown)}</dd><p>included while dates await review</p></div>
       </dl>
       <nav className="lnd-jump" aria-label="On this page"><span className="lnd-jump-l">On this page</span>
         {JUMPS.map(({id, title}) => <a key={id} href={`#${id}`} onClick={jump}><b>{sectionNumber(id)}</b>{title}</a>)}</nav>

@@ -30,17 +30,16 @@ async function openPage(page: Page) {
   await page.getByRole("combobox", { name: "Entry type", exact: true }).selectOption("profiles");
 }
 
-test("the landing shows the headline, the figures, every scholar's mark and the scholars the site is built on", async ({ page }) => {
+test("the landing shows the headline, the audited figures, selected contributor marks and the scholars the site is built on", async ({ page }) => {
   await openPage(page);
   const landing = page.locator("#landing");
   await expect(landing.getByRole("heading", { level: 1 })).toHaveText("The greats, catalogued.");
-  await expect(landing.locator(".lnd-node")).toHaveCount(TOTAL);
-  await expect(landing.locator(".lnd-used-dot")).toHaveCount(USED.length);
-  await expect(landing.locator(".lnd-flabel")).toHaveCount(Object.keys(DATA.fields).length);
-  const chips = landing.locator(".lnd-used button");
+  await expect(landing.locator('.lnd-cluster')).toHaveCount(6);
+  await expect(landing.locator('.lnd-cluster-marks button')).toHaveCount(36);
+  const chips = landing.locator('.lnd-used button');
   await expect(chips).toHaveCount(USED.length);
-  await expect(landing.locator(".lnd-figs")).toContainText(`${TOTAL}`);
-  await expect(landing.locator(".lnd-figs")).toContainText(`${TOTAL} documented scholar profiles`);
+  await expect(landing.locator('.lnd-figs dd').first()).toHaveText(FULL.toLocaleString());
+  await expect(landing.locator('.lnd-scope')).toContainText(`${TOTAL} entries currently have a documented biographical profile`);
   // A chip opens that scholar's profile; Esc closes it.
   await chips.first().click();
   await expect(profile(page)).toBeVisible();
@@ -53,31 +52,26 @@ test("the landing shows the headline, the figures, every scholar's mark and the 
   await expect(page.locator("#catalogue")).toBeInViewport();
 });
 
-test("landing search lights matching profiles and searches the full contributor catalogue", async ({ page }) => {
+test("landing search lists matching entries and searches the full contributor catalogue", async ({ page }) => {
   await openPage(page);
   const input = page.getByRole("searchbox", { name: "Search the full catalogue", exact: true });
   await input.fill("vulgate");
-  await expect(page.locator("#landing .lnd-node.lnd-match")).toHaveCount(1);
+  await expect(page.locator("#landing .lnd-library-results")).toContainText("Jerome");
   await input.press("Enter");
-  await expect(page.getByRole("button", { name: "Open the profile of Jerome", exact: true })).toBeVisible();
-  await page.getByRole("button", { name: "Open the profile of Jerome", exact: true }).click();
+  await expect(page.locator("#catalogue").getByRole("button", { name: "Open the profile of Jerome", exact: true })).toBeVisible();
+  await page.locator("#catalogue").getByRole("button", { name: "Open the profile of Jerome", exact: true }).click();
   await expect(profile(page).getByRole("heading", { level: 2 })).toHaveText("Jerome");
   await page.keyboard.press("Escape");
   await input.fill("zzzz"); await input.press("Enter");
   await expect(page.locator(".cat-empty")).toBeVisible();
 });
 
-test("hovering a mark shows its card; clicking it opens the profile", async ({ page }) => {
-  test.skip(isPhone(page), "the hover card is a pointer feature");
+test('selected profile marks work with the keyboard', async ({ page }) => {
   await openPage(page);
-  const node = page.locator(`#landing .lnd-node[data-id="${byBirth[0].id}"]`);
-  await node.hover();
-  const tip = page.locator("#landing .lnd-tip");
-  await expect(tip).toBeVisible();
-  await expect(tip).toContainText(byBirth[0].name);
-  await node.click();
-  await expect(profile(page).getByRole("heading", { level: 2 })).toHaveText(byBirth[0].name);
-  await page.keyboard.press("Escape");
+  const node = page.locator('#landing .lnd-cluster-marks').getByRole('button', { name: `View biography of ${byBirth[0].name}`, exact: true }).first();
+  await node.focus(); await node.press('Enter');
+  await expect(profile(page).getByRole('heading', { level: 2 })).toHaveText(byBirth[0].name);
+  await page.keyboard.press('Escape');
   await expect(profile(page)).toBeHidden();
 });
 

@@ -13,6 +13,7 @@ export interface ScholarsContextValue {
   data: ScholarsData;
   library: LibraryPerson[] | null;
   libraryError: string;
+  catalogueResetToken: number;
   libraryFacts: ContributorFacts | null;
   /** Open a scholar's profile; `origin` is the clicked element, so the profile can grow out of it and shrink back. */
   openProfile: (id: string, origin?: Element | null) => void;
@@ -20,7 +21,7 @@ export interface ScholarsContextValue {
   profile: ProfileTarget | null;
   filters: CatalogueFilters;
   /** Replace the catalogue's filters (fields left out are cleared); scrolls to the catalogue unless scroll is false. */
-  filterCatalogue: (filters: Partial<CatalogueFilters>, options?: { scroll?: boolean }) => void;
+  filterCatalogue: (filters: Partial<CatalogueFilters>, options?: { scroll?: boolean; resetLibrary?: boolean }) => void;
   /** The ids the catalogue currently shows, in its on-screen order (for the profile's previous/next). */
   shownIds: string[];
   setShownIds: (ids: string[]) => void;

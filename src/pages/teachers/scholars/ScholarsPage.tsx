@@ -29,17 +29,19 @@ export default function ScholarsPage() {
 
 function Loaded({ data }: { data: ScholarsData }) {
   const { library, libraryError, libraryFacts } = useLibrary(data);
+  const [catalogueResetToken, resetCatalogue] = useState(0);
   const [profile, setProfile] = useState<ProfileTarget | null>(null);
   const [filters, setFilters] = useState<CatalogueFilters>(NO_FILTERS);
   const [shownIds, setShownIds] = useState<string[]>(() => data.scholars.map((s) => s.id));
   const openProfile = useCallback((id: string, origin: Element | null = null) => setProfile({ id, origin }), []);
   const closeProfile = useCallback(() => setProfile(null), []);
-  const filterCatalogue = useCallback((next: Partial<CatalogueFilters>, options: { scroll?: boolean } = {}) => {
+  const filterCatalogue = useCallback((next: Partial<CatalogueFilters>, options: { scroll?: boolean; resetLibrary?: boolean } = {}) => {
     setFilters({ ...NO_FILTERS, ...next });
+    if (options.resetLibrary) resetCatalogue(value => value + 1);
     if (options.scroll !== false) document.getElementById("catalogue")?.scrollIntoView({ behavior: "smooth", block: "start" });
   }, []);
-  const value = useMemo(() => ({ data, library, libraryError, libraryFacts, openProfile, closeProfile, profile, filters, filterCatalogue, shownIds, setShownIds }),
-    [data, library, libraryError, libraryFacts, openProfile, closeProfile, profile, filters, filterCatalogue, shownIds]);
+  const value = useMemo(() => ({ data, library, libraryError, libraryFacts, catalogueResetToken, openProfile, closeProfile, profile, filters, filterCatalogue, shownIds, setShownIds }),
+    [data, library, libraryError, libraryFacts, catalogueResetToken, openProfile, closeProfile, profile, filters, filterCatalogue, shownIds]);
   return <ScholarsContext.Provider value={value}>
     <div className="tp-page tp-scholars">
       <SidesSwitch current="scholars" />

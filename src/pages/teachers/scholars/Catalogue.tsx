@@ -15,11 +15,12 @@ const SORTS: [LibrarySort, string][] = [['featured', 'Featured'], ['az', 'A–Z'
 const EMPTY: never[] = [];
 const noop = () => {};
 export function Catalogue() {
-  const { data, library, libraryError, filters, filterCatalogue, setShownIds, openProfile } = useScholars();
+  const { data, library, libraryError, catalogueResetToken, filters, filterCatalogue, setShownIds, openProfile } = useScholars();
   const people = library ?? EMPTY;
   const [sort, setSort] = useState<LibrarySort>('featured'), [options, setOptions] = useState(ALL_LIBRARY);
   const [loaded, setLoaded] = useState(BATCH_SIZE), [shelf, setShelf] = useState<string | null>(null);
   const scroll = useRef<HTMLDivElement>(null);
+  useEffect(() => { setOptions(ALL_LIBRARY); }, [catalogueResetToken]);
   const visible = useMemo(() => orderLibrary(people.filter(p => matchesLibrary(p, filters, options)), sort), [people, filters, options, sort]);
   const slice = visible.slice(0, loaded);
   useEffect(() => setShownIds(visible.flatMap(p => p.scholar ? [p.scholar.id] : [])), [visible, setShownIds]);
