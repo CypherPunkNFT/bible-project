@@ -25,3 +25,4 @@ writeFileSync(copy, source);
 const result = spawnSync(process.execPath, [fileURLToPath(copy), ...process.argv.slice(2)], { stdio: 'inherit' });
 if (result.error) throw result.error;
 process.exitCode = result.status ?? 1;
+// Deployment must never replace dist/: it serves the current working preview on port 8931.
