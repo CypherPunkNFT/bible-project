@@ -1,4 +1,4 @@
-# Debate room expansion ? 2026-10-11
+# Debate room expansion - 2026-10-11
 
 Local route: http://127.0.0.1:8931/apologetics/debates
 
